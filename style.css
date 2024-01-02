@@ -24,6 +24,17 @@ html {
 }
 
 /* color */
+html {
+  --primary: #6d6afe;
+  --red: #ff5b56;
+  --black: #111322;
+  --white: #ffffff;
+  --gray-100: #f0f6ff;
+  --gray-200: #e7effb;
+  --gray-300: #ccd5e3;
+  --gray-400: #9fa6b2;
+  --gray-500: #3e3e43;
+}
 
 /* layout  */
 
