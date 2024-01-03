@@ -160,7 +160,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 187px;
+  gap: 157px;
   padding: 0px 461px 50px;
 }
 
@@ -191,7 +191,7 @@ html {
 }
 
 .section-cover {
-  width: 385px;
+  width: 531px;
   flex-shrink: 0;
 }
 
