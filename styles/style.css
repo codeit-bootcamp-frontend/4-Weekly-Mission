@@ -13,6 +13,9 @@
 body {
   margin: 0;
 }
+p {
+  margin: 0;
+}
 .gnb {
   position: fixed;
   top: 0;
@@ -52,6 +55,7 @@ body {
 }
 .signin {
   width: 88px;
+  height: 22px;
   font-size: 18px;
   font-weight: 600;
   font-family: Pretendard;
@@ -66,6 +70,11 @@ body {
 .first {
   padding-top: 164px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
 }
 .maintext {
   font-size: 64px;
@@ -84,8 +93,40 @@ body {
 }
 .addlink {
   width: 310px;
+  height: 22px;
   font-size: 18px;
   font-weight: 600;
   font-family: Pretendard;
-  margin: 40px auto;
+}
+.sub {
+  width: 1000px;
+  margin: 100px auto 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.link_text {
+  width: 291px;
+}
+.link_main {
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  margin-bottom: 10px;
+}
+.link_sub {
+  color: #6b6b6b;
+  font-family: Abel;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+}
+.link_grad {
+  background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
