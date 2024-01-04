@@ -88,7 +88,6 @@ form {
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
-  position: relative;
 }
 label {
   color: var(--black, #000);
@@ -97,6 +96,9 @@ label {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+.pw-container {
+  position: relative;
 }
 .pw-show {
   cursor: pointer;
