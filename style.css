@@ -39,6 +39,10 @@ button {
   align-items: center;
   gap: 30px;
 }
+/* .layout:last-child {
+  gap:32px;
+  margin-top: 2px;
+} */
 /* 제목 */
 .title {
   display: flex;
@@ -78,14 +82,15 @@ form {
   align-items: flex-start;
   gap: 24px;
 }
-label {
+.email-input,
+.password-input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
   position: relative;
 }
-.email .password {
+label {
   color: var(--black, #000);
   font-family: Pretendard;
   font-size: 14px;
@@ -95,8 +100,8 @@ label {
 }
 .pw-show {
   cursor: pointer;
-  position: relative;
-  bottom: 47px;
+  position: absolute;
+  bottom: 20px;
   left: 364px;
   width: 16px;
   height: 16px;
@@ -134,6 +139,7 @@ input:focus {
   display: flex;
   width: 400px;
   padding: 12px 24px;
+  margin-top: 2px;
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
