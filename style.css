@@ -9,3 +9,33 @@
   --Linkbrary-gray10: #e7effb;
   --Linkbrary-bg: #f0f6ff;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+/* -------- Sign Page -------- */
+
+.signLayout {
+  display: flex;
+  width: auto;
+  padding: 238px 0px 252px 0px;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Linkbrary-bg, #f0f6ff);
+}
+
+.signContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
