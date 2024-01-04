@@ -39,3 +39,110 @@ button {
   align-items: center;
   gap: 32px;
 }
+
+/* ---- Sign(Normal) ---- */
+
+.signNormal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Sign Header */
+.signHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.signHeader .logo {
+  width: 210.583px;
+  height: 38px;
+}
+.signHeader-message {
+  color: var(--black, #000);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+.signHeader-link {
+  color: var(--Linkbrary-primary-color, #6d6afe);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* Sign Form */
+.signForm {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.signForm-inputbox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.signForm-inputbox label {
+  color: var(--black, #000);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.signForm-inputbox input {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; 
+  이거 필요없어 보이는데!
+  */
+  width: 400px;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
+}
+.signForm-inputbox input::placeholder {
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+.password-input {
+  position: relative;
+}
+.password-icon {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+}
+
+.signNormal button {
+  display: flex;
+  width: 400px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  color: var(--Grey-Light, #f5f5f5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
