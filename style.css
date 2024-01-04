@@ -1,5 +1,5 @@
 :root {
-  ---Linkbrary-primary-color: #6d6afe;
+  --Linkbrary-primary-color: #6d6afe;
   --Linkbrary-red: #ff5b56;
   --The-julge-black: #111322;
   --Linkbrary-white: #fff;
@@ -107,8 +107,11 @@ button {
   width: 400px;
   padding: 18px 15px;
   border-radius: 8px;
-  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
   background: var(--Linkbrary-white, #fff);
+}
+.signForm-inputbox input:focus {
+  outline-color: var(--Linkbrary-primary-color, #6d6afe);
 }
 .signForm-inputbox input::placeholder {
   color: var(--Linkbrary-gray100, #373740);
