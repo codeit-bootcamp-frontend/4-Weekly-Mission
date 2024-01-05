@@ -1,27 +1,33 @@
 /* 기본 설정 */
-button,
-input,
-select,
-textarea {
-  margin: 0;
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  border: 0;
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+textarea {
+  resize: none;
 }
 button {
   cursor: pointer;
+  border: 0;
 }
 /* gnb */
 .gnb-container {
   position: fixed;
   width: 100%;
-  z-index: 2020;
+  z-index: 99;
   display: flex;
   padding: 20px 200px;
   align-items: center;
   background: var(--Linkbrary-bg, #f0f6ff);
+  box-sizing: border-box;
 }
 .gnb-layout {
   width: 100%;
