@@ -32,7 +32,7 @@ nav{
   height: 22px;
 }
 
-.login-button{
+.signin-button{
   border-radius: 8px;
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
   display: flex;
@@ -43,7 +43,7 @@ nav{
   gap: 10px;
 }
 
-.login-button > p> a{
+.signin-button > p> a{
   color: var(--Grey-Light, #F5F5F5);
   font-family: Pretendard;
   font-size: 18px;
@@ -382,16 +382,18 @@ footer{
   gap: 30px;
 }
 
-.footer-middle > p{
+.footer-middle > a {
   color: #CFCFCF;
   font-family: Acme;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.footer-icon{
+.footer-icon {
   display: flex;
   gap: 10px;
 }
@@ -420,7 +422,7 @@ footer{
   gap: 16px;
 }
 
-.login-intro > img{
+.login-intro > a >img{
   width: 210.583px;
   height: 38px;
 }
