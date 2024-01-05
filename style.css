@@ -107,7 +107,7 @@ button {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.main-container button {
+.main-container .button-link {
   display: flex;
   width: 35rem;
   padding: 1.6rem 2rem;
