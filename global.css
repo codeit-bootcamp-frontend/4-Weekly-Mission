@@ -5,6 +5,7 @@
 input,
 button{
 	border:none;
+  outline: none;
 }
 
 /* navbar */
@@ -478,8 +479,11 @@ form{
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
+  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
   background: var(--Linkbrary-white, #FFF);
+}
+.login-email input:focus {
+  border-color: var(--Linkbrary-primary-color, #6D6AFE); /* focus 시 border 색상 변경 */
 }
 
 .login-passport{
@@ -487,6 +491,7 @@ form{
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
+  position: relative;
 }
 
 .login-passport > label{
@@ -498,15 +503,19 @@ form{
   line-height: normal;
 }
 
-.login-passport > input{
+.login-passport-inputs{
   display: flex;
   width: 368px;
   padding: 18px 15px;
-  justify-content: center;
   align-items: center;
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
   background: var(--Linkbrary-white, #FFF);
+  justify-content: space-between;
+  flex: 1 0 0;
+}
+.login-passport-inputs:focus-within {
+  border-color: var(--Linkbrary-primary-color, #6D6AFE);
 }
 
 .login-button{
@@ -524,6 +533,15 @@ form{
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
 }
 
+.login-button > p {
+  color: var(--Grey-Light, #F5F5F5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
 .social-login{
   display: flex;
   width: 354px;
@@ -533,6 +551,15 @@ form{
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
   background: var(--Linkbrary-gray10, #E7EFFB);
+}
+
+.social-login > p{
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .social-login-icon{
