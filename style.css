@@ -71,7 +71,6 @@ button {
 }
 .main-container {
   display: flex;
-  /* width: auto; */
   padding: 7rem 36rem 0 36rem;
   flex-direction: column;
   justify-content: flex-end;
@@ -81,8 +80,14 @@ button {
 }
 @media (min-width: 1920rem) {
   .main-container {
-    width: 100vw; /* 너비를 뷰포트 너비로 설정하여 화면을 꽉 채웁니다. */
-    padding: 7rem 36rem 0 36rem; /* 내부 여백은 고정된 값으로 유지합니다. */
+    width: 100vw;
+    padding: 7rem 36rem 0 36rem;
+  }
+}
+@media (max-width: 1920rem) {
+  .main-container {
+    background-size: 100% auto;
+    padding: 20px 0;
   }
 }
 .main-title {
@@ -142,14 +147,20 @@ button {
   align-items: center;
   gap: 15.7rem;
 }
-.section1-text {
+.section1-text,
+.section2-text,
+.section3-text,
+.section4-text {
   display: flex;
   width: 29.1rem;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
 }
-.section1-text-title {
+.section1-text-title,
+.section2-text-title,
+.section3-text-title,
+.section4-text-title {
   font-family: "Pretendard";
   font-size: 4.8rem;
   font-weight: 700;
@@ -162,7 +173,10 @@ button {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.section1-text-subtitle {
+.section1-text-subtitle,
+.section2-text-subtitle,
+.section3-text-subtitle,
+.section4-text-subtitle {
   color: #6b6b6b;
   font-family: "Abel";
   font-size: 1.6rem;
@@ -211,53 +225,13 @@ button {
   border-radius: 1.5rem;
   background: #f0f6ff;
 }
-.section2-text {
-  display: flex;
-  width: 29.1rem;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-}
-.section2-text-title {
-  color: #000;
-  font-family: "Pretendard";
-  font-size: 4.8rem;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.03rem;
-}
 .section2-text-title span {
   background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-weight: 700;
-  letter-spacing: -0.03rem;
-}
-.section2-text-subtitle {
-  color: #6b6b6b;
-  font-family: "Abel";
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 150%;
 }
 /* section3 */
-.section3-text {
-  display: flex;
-  width: 29.1rem;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-}
-.section3-text-title {
-  color: #000;
-  font-family: "Pretendard";
-  font-size: 4.8rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.03rem;
-}
 .section3-text-title span {
   background: linear-gradient(
     99deg,
@@ -267,19 +241,6 @@ button {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: "Pretendard";
-  font-size: 4.8rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.section3-text-subtitle {
-  color: #6b6b6b;
-  font-family: "Abel";
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
 }
 .section3-img {
   width: 57rem;
@@ -322,22 +283,6 @@ button {
   flex-shrink: 0;
   border-radius: 1.5rem;
 }
-.section4-text {
-  display: flex;
-  width: 29.1rem;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-}
-.section4-text-title {
-  color: #000;
-  font-family: "Pretendard";
-  font-size: 4.8rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.03rem;
-}
 .section4-text-title span {
   background: var(
     --Fandom-K-gra-blue-to-pink,
@@ -346,19 +291,6 @@ button {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: "Pretendard";
-  font-size: 4.8rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.section4-text-subtitle {
-  color: #6b6b6b;
-  font-family: "Abel";
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
 }
 /* footer */
 .footer {
@@ -396,7 +328,7 @@ button {
 }
 .question {
   display: flex;
-  width: 18.1111rem;
+  width: 18.1rem;
   align-items: flex-start;
   gap: 3rem;
 }
@@ -409,7 +341,6 @@ button {
   font-weight: 400;
   line-height: normal;
 }
-
 .social {
   display: flex;
   align-items: flex-start;
