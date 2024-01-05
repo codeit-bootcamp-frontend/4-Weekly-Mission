@@ -1,0 +1,19 @@
+:root{
+    --color-primary: #6D6AFE;
+    --color-red: #FF5B56;
+    --color-black: #111322;
+    --color-white:#ffffff;
+    --color-gray5: #3E3E43;
+    --color-gray4: #9FA6B2;
+    --color-gray3: #CCD5E3;
+    --color-gray2: #E7EFFB;
+    --color-gray1: #F0F6FF;
+}
+
+.btn_login{
+    padding: 16px 20px;
+
+    background: linear-gradient(90.99deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+    border-radius: 8px;
+    border: none;
+}
