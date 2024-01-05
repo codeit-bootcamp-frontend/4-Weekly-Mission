@@ -42,6 +42,11 @@ button {
   background: var(--Linkbrary-bg, #f0f6ff);
   box-sizing: border-box;
 }
+@media (max-width: 1920rem) {
+  .gnb-container {
+    padding: 2rem 20rem;
+  }
+}
 .gnb-layout {
   width: 100%;
   display: flex;
@@ -80,14 +85,13 @@ button {
 }
 @media (min-width: 1920rem) {
   .main-container {
-    width: 100vw;
+    background-size: 100% auto;
     padding: 7rem 36rem 0 36rem;
   }
 }
 @media (max-width: 1920rem) {
   .main-container {
-    background-size: 100% auto;
-    padding: 20px 0;
+    padding: 7rem 0;
   }
 }
 .main-title {
@@ -310,6 +314,16 @@ button {
   flex-shrink: 0;
   align-self: stretch;
   background-color: var(--The-julge-black, #111322);
+}
+@media (min-width: 1920rem) {
+  .footer-container {
+    justify-content: space-between;
+  }
+}
+@media (max-width: 1920rem) {
+  .footer-container {
+    padding: 3.2rem 10.4rem 6.4rem 10.4rem;
+  }
 }
 .footer-layer {
   display: flex;
