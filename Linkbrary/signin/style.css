@@ -1,0 +1,130 @@
+:root {
+  --primary-color: #6d6afe;
+  --red-color: #ff5b56;
+  --black-color: #111322;
+  --white-color: #ffffff;
+  --gray-color100: #3e3e43;
+  --gray-color80: #9fa6b2;
+  --gray-color60: #ccd5e3;
+  --gray-color40: #e7effb;
+  --gray-color20: #f0f6ff;
+}
+
+html {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: var(--gray-color20);
+}
+  
+* {
+  box-sizing: border-box;
+}
+  
+form {
+  margin: 30px auto;
+  width: 400px;
+  gap: 12px;
+}
+
+body {
+  position: absolute;
+  padding: 20px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.login-logo {
+  line-height: 24px;
+  height: 38px;
+  text-align: center;
+}
+
+.login-title {
+  line-height: 24px;
+  margin: 16px auto;
+  color: var(--black-color);
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.signup-link {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+  
+label {
+  color: #2c2c2c;
+  display: block;
+  margin: 16px 0 8px;
+}
+
+  
+input {
+  color: #373740;
+  border: 1px solid var(--gray-color60);
+  border-radius: 8px;
+  display: block;
+  font-size: 16px;
+  line-height: 24px;
+  margin: 12px 0 24px;
+  padding: 18px 15px;
+  width: 100%;
+}
+/* 사전에 chrome 등에 검은색이 생기는것을 삭제 후*/
+input:focus, select:focus, option:focus, textarea:focus, button:focus{
+	outline: none;
+}
+
+input:focus {
+  border: 1px solid var(--primary-color);
+}
+
+.pw {
+  position:relative;
+}
+
+#eyeIcon {
+  position: absolute;
+  top: 65%;
+  right: 5%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+  
+  button {
+    background: linear-gradient(90.99deg, var(--primary-color) 0.12%, #6AE3FE 101.84%);
+    border: none;
+    color: var(--white-color);
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 8px;
+    margin: 30px 0 32px;
+    padding: 16px 20px;
+    width: 100%;
+    cursor: pointer;
+  }
+
+.sns-login {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  border: 1px solid var(--gray-color60);
+  border-radius: 8px;
+  background-color: var(--gray-color40);
+}
+
+.sns-link {
+  display: flex;
+  gap: 16px; 
+}
+
+  
+
+  
