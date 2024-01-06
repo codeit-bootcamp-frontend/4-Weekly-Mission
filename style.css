@@ -42,13 +42,15 @@ button {
   background: var(--Linkbrary-bg, #f0f6ff);
   box-sizing: border-box;
 }
-@media (max-width: 1920rem) {
+@media (max-width: 192rem) {
   .gnb-container {
     padding: 2rem 20rem;
   }
 }
 .gnb-layout {
   width: 100%;
+  max-width: 152rem;
+  margin: auto 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,15 +85,15 @@ button {
   gap: 4rem;
   background-color: #f0f6ff;
 }
-@media (min-width: 1920rem) {
+@media (min-width: 192rem) {
   .main-container {
     background-size: 100% auto;
     padding: 7rem 36rem 0 36rem;
   }
 }
-@media (max-width: 1920rem) {
+@media (max-width: 192rem) {
   .main-container {
-    padding: 7rem 0;
+    padding: 7rem 3.2rem 0 3.2rem;
   }
 }
 .main-title {
@@ -136,6 +138,14 @@ button {
     #f0f6ff 94.76%
   );
 }
+@media (max-width: 192rem) {
+  .main-container img {
+    max-width: 111.8rem; /* 이미지의 최대 너비를 유지 */
+    min-width: 36rem; /* 이미지의 최소 너비를 설정 */
+    width: 100%; /* 부모 요소에 맞게 크기를 조절 */
+    height: auto; /* 비율을 유지한 채로 조절 */
+  }
+}
 /* section1 */
 .section1 {
   display: flex;
@@ -150,17 +160,21 @@ button {
   display: flex;
   align-items: center;
   gap: 15.7rem;
+  padding: 0 3.2rem;
+  box-sizing: border-box;
 }
+
 .section1-text,
 .section2-text,
 .section3-text,
 .section4-text {
   display: flex;
-  width: 29.1rem;
+  min-width: 29.1rem;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
 }
+
 .section1-text-title,
 .section2-text-title,
 .section3-text-title,
@@ -188,7 +202,7 @@ button {
   line-height: 150%;
 }
 .section1-img {
-  width: 55rem;
+  max-width: 55rem;
   height: 45rem;
   border-radius: 1.5rem;
   background: #f0f6ff;
@@ -222,7 +236,7 @@ button {
 }
 .section2-img {
   display: flex;
-  width: 55rem;
+  max-width: 55rem;
   padding: 11.4rem 6.8rem 6.6rem 6.8rem;
   justify-content: center;
   align-items: center;
@@ -247,7 +261,7 @@ button {
   -webkit-text-fill-color: transparent;
 }
 .section3-img {
-  width: 57rem;
+  max-width: 57rem;
   height: 46.9rem;
   flex-shrink: 0;
   border-radius: 2.5rem;
@@ -275,7 +289,7 @@ button {
 }
 /* section4 */
 .section4-img {
-  width: 55rem;
+  max-width: 55rem;
   height: 45rem;
   border-radius: 1.5rem;
   background: #f0f6ff;
