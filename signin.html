@@ -6,27 +6,45 @@
     <link rel="stylesheet" href="styles/signin.css" />
   </head>
   <body>
-    <div class="main">
-      <header>
-        <img src="images/logo.svg" class="logo" />
-        <p>회원이 아니신가요? <span>회원 가입하기</span></p>
-      </header>
-
-      <form>
-        <div class="signup-email">
-          <label for="signup-email" class="email"> 이메일</label>
-          <input id="signup-email" name="email" type="email" />
+    <form>
+      <div class="main">
+        <div class="header">
+          <a href="/"><img src="images/logo.svg" class="logo" /></a>
+          <p>
+            회원이 아니신가요?
+            <a class="signup" href="/signup.html">회원 가입하기</a>
+          </p>
         </div>
-
-        <div class="signup-email">
-          <label for="signup-password"> 비밀번호</label>
-          <input id="signup-password" name="password" type="password" />
+        <div class="signin-info">
+          <div>
+            <label for="signin-email"> 이메일</label>
+            <input id="signin-email" name="email" type="email" />
+          </div>
+          <div>
+            <label for="signin-password"> 비밀번호</label>
+            <input id="signin-password" name="password" type="password" />
+            <button>
+              <img src="./images/eye-off.svg" />
+            </button>
+          </div>
         </div>
-
         <div>
-          <button type="submit">로그인</button>
+          <button type="submit" class="signin_button">로그인</button>
         </div>
-      </form>
-    </div>
+      </div>
+      <div class="main">
+        <div class="social_signin">
+          <p>소셜 로그인</p>
+          <div>
+            <a href="https://www.google.com/"
+              ><img src="./images/google_logo.png"
+            /></a>
+            <a href="https://www.kakaocorp.com/page/"
+              ><img src="./images/kakao_logo.png"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </form>
   </body>
 </html>

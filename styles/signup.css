@@ -45,7 +45,7 @@ body {
   width: 210.583px;
   height: 38px;
 }
-.signup {
+.signin {
   color: var(--palette-primary);
   font-family: Pretendard;
   font-size: 16px;
@@ -55,7 +55,7 @@ body {
   text-underline-position: under;
 }
 
-.signin-info {
+.signup-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -63,14 +63,14 @@ body {
   width: 400px;
 }
 
-.signin-info > div {
+.signup-info > div {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
 }
-.signin-info > div > label {
+.signup-info > div > label {
   color: var(--palette-black);
   font-family: Pretendard;
   font-size: 14px;
@@ -78,7 +78,7 @@ body {
   font-weight: 400;
   line-height: normal;
 }
-.signin-info > div > input {
+.signup-info > div > input {
   display: flex;
   width: 400px;
   padding: 18px 15px;
@@ -95,15 +95,18 @@ body {
   line-height: 24px;
 }
 
-.signin-info > div > input:focus {
+.signup-info > div > input:focus {
   border: 1px solid var(--palette-primary);
 }
 
-.signin-info > div:nth-child(2) > input {
+.signup-info > div:nth-child(2) > input {
+  padding-right: 50px;
+}
+.signup-info > div:nth-child(3) > input {
   padding-right: 50px;
 }
 
-.signin-info > div > button {
+.signup-info > div > button {
   position: absolute;
   top: 51px;
   left: 360px;
@@ -112,7 +115,7 @@ body {
   background: transparent;
 }
 
-.signin_button {
+.signup_button {
   display: flex;
   width: 400px;
   padding: 16px 20px;
@@ -133,7 +136,7 @@ body {
   line-height: normal;
 }
 
-.social_signin {
+.social_signup {
   display: flex;
   width: 400px;
   padding: 12px 24px;
@@ -143,7 +146,7 @@ body {
   border: 1px solid var(--palette-grey-3);
   background: var(--palette-grey-4);
 }
-.social_signin > p {
+.social_signup > p {
   color: #373740;
   font-family: Pretendard;
   font-size: 14px;
@@ -152,12 +155,12 @@ body {
   line-height: normal;
   margin: 0;
 }
-.social_signin > div {
+.social_signup > div {
   display: flex;
   align-items: flex-start;
   gap: 16px;
 }
-.social_signin > div > a {
+.social_signup > div > a {
   width: 42px;
   height: 42px;
 }
