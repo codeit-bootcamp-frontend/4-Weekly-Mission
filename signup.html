@@ -6,6 +6,7 @@
     <title>Linkbrary</title>
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./commons.css" />
+    <link rel="stylesheet" href="./typography.css" />
     <link rel="stylesheet" href="./signin.css" />
   </head>
   <body>
@@ -21,21 +22,21 @@
           <a class="link" href="./signin.html">로그인 하기</a>
         </div>
       </div>
-      <form id="signinForm">
+      <form id="form">
         <div class="container">
           <section class="field">
             <label for="email">이메일</label>
-            <input id="email" type="email" />
+            <input id="email" type="email" name="email" />
           </section>
           <section class="field">
             <label for="password">비밀번호</label>
             <img class="icon" src="./assets/eye-on.svg" alt="eye close icon" />
-            <input id="password" type="password" />
+            <input id="password" type="text" name="password" />
           </section>
           <section class="field">
             <label for="password">비밀번호 확인</label>
             <img class="icon" src="./assets/eye-on.svg" alt="eye close icon" />
-            <input id="password" type="password" />
+            <input id="password" type="text" name="password-confirm" />
           </section>
         </div>
         <button class="btn type_full">회원가입</button>

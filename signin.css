@@ -48,11 +48,11 @@ body {
   text-decoration: underline;
 }
 
-#signinForm .container {
+#form .container {
   padding: 30px 0;
 }
 
-#signinForm input {
+#form input {
   display: block;
   width: 100%;
   border: 1px solid var(--Linkbrary-gray20);
@@ -61,7 +61,7 @@ body {
   margin-top: 12px;
 }
 
-#signinForm input:focus {
+#form input:focus {
   border-color: var(--Linkbrary-primary-color, #6d6afe);
 }
 
