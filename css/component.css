@@ -4,6 +4,7 @@
     --Linkbrary-gradation,
     linear-gradient(91deg, var(--Primary) 0.12%, #6ae3fe 101.84%)
   );
+  cursor: pointer;
 }
 
 .cta.small {
@@ -12,6 +13,10 @@
 
 .cta.large {
   width: 21.875rem;
+}
+
+.cta.xlarge {
+  width: 25rem;
 }
 
 .cta-text {
