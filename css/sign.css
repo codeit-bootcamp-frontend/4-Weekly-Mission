@@ -39,48 +39,58 @@ body {
     text-decoration: underline;
   }
 
-  .box-info {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-
-    .text {
-      color: var(--black, #000);
-      font-family: Pretendard;
-      font-size: 0.875rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: normal;
-    }
-    .input-box {
-      margin-top: 0.75rem;
-      display: flex;
-      width: 25rem;
-      padding: 1.125rem 0.9375rem;
-      box-sizing: border-box;
-      justify-content: center;
-      align-items: center;
-
-      border-radius: 0.5rem;
-      border: 1px solid var(--Gray300);
-      background: var(--Linkbrary-white, #fff);
-
-      color: var(--Linkbrary-gray100, #373740);
-      font-family: Pretendard;
-      font-size: 1rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 1.5rem; /* 150% */
-    }
-
-    .input-box:focus-within {
-      border-color: var(--Primary);
-      outline: none;
-    }
-  }
   .input-pwd {
     position: relative;
   }
+
+  .box-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .box-form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .box-form input {
+    margin-top: 0.75rem;
+    display: flex;
+    width: 25rem;
+    padding: 1.125rem 0.9375rem;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 0.5rem;
+    border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+    background: var(—Linkbrary-white, #fff);
+
+    color: var(—Linkbrary-gray100, #373740);
+    font-family: Pretendard;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+  }
+  .box-form label {
+    color: var(—black, #000);
+    font-family: Pretendard;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .box-form input:focus {
+    border-color: var(--Primary);
+    outline: none;
+  }
+
   .eye {
     position: absolute;
     top: 3.2rem;
