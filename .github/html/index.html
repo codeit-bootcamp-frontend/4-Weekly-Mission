@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkbrary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+      <div class="header_title"> <a href="/" class="logo"><img src="asset/logo.png"></a>
+        <button class="login-button" id="loginButton">로그인</button></div>
+       
+    </header>
+
+    <main class="content">
+        <!-- 각 섹션별 카드들을 포함하는 콘텐츠 영역 -->
+        <section class="intro">
+          <p>세상의 모든 정보를<br>쉽게 저장하고 관리해 보세요</p>
+
+        </section>
+        <section class="link-add">
+            <p>링크 추가하기</p>
+        </section>
+        <!-- 다른 섹션들도 이와 비슷한 구조로 추가 -->
+        <section class="main-img">
+          <img src="asset/main.png">
+        </section>
+    </main>
+    <main class="content2">
+      <section class="link-frame">
+      <div class="text"><p><em>원하는 링크</em>를<br>저장하세요</p></div>
+      <div class="text2"><p>나중에 읽고 싶은 글, 다시 보고 싶은 영상,
+        사고 싶은 옷, 기억하고 싶은 모든 것을
+        한 공간에 저장하세요.</p></div>  
+      </section>
+      <section class="img-frame">
+        <div class="img-inframe">
+          <div class="img1"></div>
+        <div class="img2"></div>
+        <div class="img3"></div>
+        </div>
+        
+      </section>
+      
+    </main>
+    <section class="contents-2">
+      <div class="contents-2-img-box">
+          <img src="asset/Popup1.png" class="contents-2-img">
+      </div>
+      <div class="contents-text-box">
+          <p class="contents-text">
+              링크를 폴더로<br>
+              <span class="contents-2-text-colorful">관리</span>하세요
+          </p>
+          <p class="contents-text2">
+              나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.
+          </p>
+      </div>
+  </section>
+  <section class="contents-3">
+      <div class="contents-text-box">
+          <p class="contents-text">
+              저장한 링크를<br>
+              <span class="contents-3-text-colorful">공유</span>해 보세요
+          </p>
+          <p class="contents-text2">
+              여러 링크를 폴더에 담고 공유할 수 있습니다.
+              가족, 친구, 동료들에게 쉽고 빠르게 링크를 공유해 보세요.
+          </p>
+      </div>
+      <div class="contents-3-img-box">
+          <div class="contents-3-img-box-filter"></div>
+          <div class="contents-3-img"></div>
+      </div>
+  </section>
+  <section class="contents-4">
+      <div class="contents-4-img-box">
+          <img src="asset/Search1.png" class="contents-4-img">
+      </div>
+      <div class="contents-text-box">
+          <p class="contents-text">
+              저장한 링크를<br>
+              <span class="contents-4-text-colorful">검색</span>해 보세요
+          </p>
+          <p class="contents-text2">
+              중요한 정보들을 검색으로 쉽게 찾아보세요.
+          </p>
+      </div>
+  </section>
+
+    <footer class="footer">
+      <div class="footer-box">
+        <div class="footer-bar">
+            <div class="footer-bar-left">©codeit - 2023</div>
+            <div class="footer-bar-middle">
+                <div><a href="/privacy.html" class="link-line-none">Privacy Policy</a></div>
+                <div><a href="/faq.html" class="link-line-none">FAQ</a></div>
+            </div>
+            <div class="footer-bar-right">
+                <a href='https://www.facebook.com' target='_blank'>
+                    <img src="asset/akar-icons_facebook-fill.svg">
+                </a>
+                <a href='https://twitter.com' target='_blank'>
+                    <img src="asset/akar-icons_twitter-fill.svg">
+                </a>
+                <a href='https://www.youtube.com' target='_blank'>
+                    <img src="asset/akar-icons_youtube-fill.svg">
+                </a>
+                <a href='https://www.instagram.com' target='_blank'>
+                    <img src="asset/ant-design_instagram-filled.svg">
+                </a>
+            </div>
+        </div>
+    </div>
+    </footer>
+    <script>
+      document.getElementById('loginButton').addEventListener('click', function() {
+          window.location.href = 'login.html';
+      });
+  </script>
+</body>
+</html>
