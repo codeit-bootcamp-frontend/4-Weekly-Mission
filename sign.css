@@ -10,19 +10,37 @@
   --Linkbrary-gray10: #e7effb;
   --Linkbrary-bg: #f0f6ff;
 }
-button,
-input,
-select,
-textarea {
-  margin: 0;
-  font-family: inherit;
-  font-size: 100%;
-  line-height: 1.15;
-  border: 0;
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  /* 62.5% => 10rem, 1rem = 10rem */
+  font-size: 62.5% !important;
+  line-height: 1.285;
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+textarea {
+  resize: none;
 }
 button {
   cursor: pointer;
+  border: 0;
 }
 /* 레이아웃 */
 .main {
