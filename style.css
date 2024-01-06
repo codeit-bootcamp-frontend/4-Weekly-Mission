@@ -124,6 +124,10 @@ header {
   border-radius: 15px;
 }
 
+.section1-cards img {
+  width: 100%;
+}
+
 .section3-cards {
   width: 570px;
   height: 469px;
@@ -137,11 +141,6 @@ header {
 .section4-cards {
   justify-content: flex-start;
   align-items: flex-start;
-}
-
-.section1-cards img {
-  width: 244px;
-  height: 239px;
 }
 
 .section2-cards img {
