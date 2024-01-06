@@ -63,7 +63,8 @@ html {
 /* commons */
 .btn {
   display: inline-block;
-  padding: 0.9em 2em;
+  padding: 0.8em 1.7em;
+  font-size: 1.6rem;
   border-radius: 8px;
   background: var(--gra-purpleblue-to-skyblue);
   color: var(--Grey-Light);
@@ -114,7 +115,9 @@ html {
 }
 
 /* component - header */
-.header {
+
+.header,
+.header-nav {
   background-color: var(--Linkbrary-bg);
 }
 
@@ -127,7 +130,6 @@ html {
   left: 0;
   right: 0;
   top: 0;
-  background-color: var(--Linkbrary-bg);
   height: 9em;
 }
 
@@ -153,7 +155,7 @@ html {
 
 /* component - main */
 .contents {
-  padding: 120px;
+  padding: 120px 0;
 }
 
 .section {
@@ -173,35 +175,75 @@ html {
 }
 
 .section-contents {
-  width: 310px;
-  flex-shrink: 0;
+  width: 31em;
+  /* flex-shrink: 0; */
 }
 
 .section-title {
-  font-size: 48px;
+  font-size: 4.8rem;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
 .section-description {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
-  line-height: 24px;
   color: #6b6b6b;
+  width: 21em;
+  line-height: 1.5;
 }
 
 .section-cover {
-  width: 531px;
+  width: 520px;
   flex-shrink: 0;
 }
 
 .section-cover img {
   width: 100%;
-  height: 100%;
 }
 
 /* component - footer */
 .footer {
   background-color: var(--The-julge-black);
   color: #676767;
+  height: 160px;
+  padding: 32px 104px 64px;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.links {
+  display: flex;
+  gap: 30px;
+  color: #cfcfcf;
+}
+
+.socials {
+  display: flex;
+  gap: 12px;
+}
+
+.social {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-indent: -9999px;
+}
+
+.social.facebook {
+  background-image: url(./assets/facebook.svg);
+}
+
+.social.twitter {
+  background-image: url(./assets/twitter.svg);
+}
+
+.social.youtube {
+  background-image: url(./assets/youtube.svg);
+}
+
+.social.instagram {
+  background-image: url(./assets/instagram.svg);
 }

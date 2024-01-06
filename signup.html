@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linkbrary</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./commons.css" />
+    <link rel="stylesheet" href="./signin.css" />
+  </head>
+  <body>
+    <main class="main">
+      <div class="main-header">
+        <h1 class="main-logo">
+          <a href="/">
+            <img src="./assets/header-logo.svg" alt="header_logo" />
+          </a>
+        </h1>
+        <div class="main-header-contents">
+          이미 회원이신가요?
+          <a class="link" href="./signin.html">로그인 하기</a>
+        </div>
+      </div>
+      <form id="signinForm">
+        <div class="container">
+          <section class="field">
+            <label for="email">이메일</label>
+            <input id="email" type="email" />
+          </section>
+          <section class="field">
+            <label for="password">비밀번호</label>
+            <img class="icon" src="./assets/eye-on.svg" alt="eye close icon" />
+            <input id="password" type="password" />
+          </section>
+          <section class="field">
+            <label for="password">비밀번호 확인</label>
+            <img class="icon" src="./assets/eye-on.svg" alt="eye close icon" />
+            <input id="password" type="password" />
+          </section>
+        </div>
+        <button class="btn type_full">회원가입</button>
+      </form>
+      <div class="main-footer">
+        <div>다른 방식으로 가입하기</div>
+        <div class="icons">
+          <a href="https://www.google.com/">
+            <img src="./assets/google.png" alt="goggle logo" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/" class="kakao_bg">
+            <img src="./assets/kakao.svg" alt="kakao logo" />
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
