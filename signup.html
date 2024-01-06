@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>Linkbrary</title>
+    <link rel="stylesheet" href="styles/signup.css" />
+  </head>
+  <body>
+    <form>
+      <div class="main">
+        <div class="header">
+          <a href="/"><img src="images/logo.svg" class="logo" /></a>
+          <p>
+            이미 회원이신가요?
+            <a class="signin" href="/signin.html">로그인 하기</a>
+          </p>
+        </div>
+        <div class="signup-info">
+          <div>
+            <label for="signup-email"> 이메일</label>
+            <input id="signup-email" name="email" type="email" />
+          </div>
+          <div>
+            <label for="signup-password"> 비밀번호</label>
+            <input id="signup-password" name="password" type="password" />
+            <button>
+              <img src="./images/eye-off.svg" />
+            </button>
+          </div>
+          <div>
+            <label for="signup-password-chk"> 비밀번호 확인</label>
+            <input id="signup-password-chk" name="password" type="password" />
+            <button>
+              <img src="./images/eye-off.svg" />
+            </button>
+          </div>
+        </div>
+        <div>
+          <button type="submit" class="signup_button">회원가입</button>
+        </div>
+      </div>
+      <div class="main">
+        <div class="social_signup">
+          <p>다른 방식으로 가입하기</p>
+          <div>
+            <a href="https://www.google.com/"
+              ><img src="./images/google_logo.png"
+            /></a>
+            <a href="https://www.kakaocorp.com/page/"
+              ><img src="./images/kakao_logo.png"
+            /></a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
