@@ -33,6 +33,7 @@ p {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
+    margin-bottom: 30px;
 }
 
 label {
@@ -44,11 +45,11 @@ label {
 
 input {
     width: 100%;
-    padding: 18px 15px;
+    padding: 18px 12px;
     border-radius: 8px;
     border: 1px solid var(--Linkbrary-gray20);
     background: #FFF;
-    margin: 12px 24px;
+    margin: 12px 0; 
 }
 
 input:focus {
@@ -75,4 +76,22 @@ input:focus {
 .social-icon a {
     margin: 0 8px;
     text-decoration: none;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 18px 12px;
+}
+
+.input-container .input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
 }
