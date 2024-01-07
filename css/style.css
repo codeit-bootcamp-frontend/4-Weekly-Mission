@@ -11,11 +11,10 @@
     --white-color: #FFFFFF;
     --gray100-color: #3E3E43;
     --gray60-color: #9FA6B2;
-    --gray20-color: #CCD5E3;
+    --Linkbrary-gray20: #CCD5E3;
     --gray10-color: #E7EFFB;
     --Linkbrary-bg: #F0F6FF;
 }
-
 
 body {
     width: 100%;
