@@ -2,6 +2,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 70px;
 }
 
 #login {
@@ -89,14 +90,20 @@ main {
 
 
 .navbar-container {
-    margin: 20px 200px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+    margin: 0; 
 }
+
 
 .navbar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     list-style: none;
+    margin: 20px 200px;
 }
 
 h1 {
