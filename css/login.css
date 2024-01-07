@@ -1,0 +1,78 @@
+#linkbrary-logo {
+    width: 210px;
+    margin-bottom: 16px;
+}
+
+#login-button {
+    display: flex;
+    width: 400px;
+    padding: 16px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+    color: #F5F5F5;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 18px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 238px;
+}
+
+
+p {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+label {
+    align-self: flex-start;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+input {
+    width: 100%;
+    padding: 18px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--Linkbrary-gray20);
+    background: #FFF;
+    margin: 12px 24px;
+}
+
+input:focus {
+    border: 1px solid var(--primary-color); 
+ 
+}
+
+
+.social-login {
+    display: flex;
+    width: 400px;
+    padding: 12px 24px;
+    margin-top: 32px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #CCD5E3;
+    background: #E7EFFB;
+    color: #373740;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.social-icon a {
+    margin: 0 8px;
+    text-decoration: none;
+}
