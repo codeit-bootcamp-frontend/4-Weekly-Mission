@@ -10,15 +10,14 @@
   --palette-grey-5: #f0f6ff;
   --font-grey: #f5f5f5;
 }
-body {
-  padding-top: 238px;
-  background: var(--palette-grey-5);
-}
 
 * {
   box-sizing: border-box;
 }
 
+body {
+  background: var(--palette-grey-5);
+}
 .main {
   display: flex;
   flex-direction: column;
@@ -27,6 +26,7 @@ body {
   gap: 30px;
   margin-bottom: 32px;
 }
+
 .header {
   display: flex;
   flex-direction: column;
@@ -78,6 +78,7 @@ body {
   font-weight: 400;
   line-height: normal;
 }
+
 .signin-info > div > input {
   display: flex;
   width: 400px;
@@ -106,7 +107,7 @@ body {
 .signin-info > div > button {
   position: absolute;
   top: 51px;
-  left: 360px;
+  right: 22px;
   border: none;
   padding: 0;
   background: transparent;
@@ -160,4 +161,40 @@ body {
 .social_signin > div > a {
   width: 42px;
   height: 42px;
+}
+@media (min-width: 345px) and (max-width: 767px) {
+  body {
+    padding: 120px 32px 0 32px;
+  }
+  .signin-info {
+    width: 100%;
+  }
+  .signin-info > div {
+    width: 100%;
+  }
+  .signin-info > div > label {
+    width: 100%;
+  }
+  .signin-info > div > input {
+    width: 100%;
+  }
+  .button_area {
+    width: 100%;
+  }
+  .signin_button {
+    width: 100%;
+  }
+  .social_signin {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  body {
+    padding-top: 200px;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    padding-top: 238px;
+  }
 }

@@ -10,8 +10,8 @@
   --palette-grey-5: #f0f6ff;
   --font-grey: #f5f5f5;
 }
+
 body {
-  padding-top: 238px;
   background: var(--palette-grey-5);
 }
 
@@ -45,7 +45,7 @@ body {
   width: 210.583px;
   height: 38px;
 }
-.signin {
+.signup {
   color: var(--palette-primary);
   font-family: Pretendard;
   font-size: 16px;
@@ -109,7 +109,7 @@ body {
 .signup-info > div > button {
   position: absolute;
   top: 51px;
-  left: 360px;
+  right: 22px;
   border: none;
   padding: 0;
   background: transparent;
@@ -163,4 +163,40 @@ body {
 .social_signup > div > a {
   width: 42px;
   height: 42px;
+}
+@media (min-width: 345px) and (max-width: 767px) {
+  body {
+    padding: 120px 32px 0 32px;
+  }
+  .signup-info {
+    width: 100%;
+  }
+  .signup-info > div {
+    width: 100%;
+  }
+  .signup-info > div > label {
+    width: 100%;
+  }
+  .signup-info > div > input {
+    width: 100%;
+  }
+  .button_area {
+    width: 100%;
+  }
+  .signup_button {
+    width: 100%;
+  }
+  .social_signup {
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  body {
+    padding-top: 200px;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    padding-top: 238px;
+  }
 }
