@@ -118,9 +118,9 @@ header {
     line-height: normal;
 }
 
-.intro-addlink-button h1 {
+/* .intro-addlink-button h1 {
     
-}
+} */
 
 .intro-image-container {
     width: 1200px;
@@ -255,15 +255,8 @@ header {
     box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
     padding: 121px 77px 77px 77px;
     position: relative;
-    background: url(images/feature3_image.png), lightgray 50% / cover no-repeat;
 }
 
-.feature3-image {
-    width: 416px;
-    height: 271px;
-    flex-shrink: 0;
-    
-}
 
 footer {
     margin: 120px 0 0 0;
