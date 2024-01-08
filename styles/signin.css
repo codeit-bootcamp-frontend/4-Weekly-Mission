@@ -167,24 +167,31 @@ body {
     padding: 120px 32px 0 32px;
   }
   .signin-info {
+    max-width: 400px;
     width: 100%;
   }
   .signin-info > div {
+    max-width: 400px;
     width: 100%;
   }
   .signin-info > div > label {
+    max-width: 400px;
     width: 100%;
   }
   .signin-info > div > input {
+    max-width: 400px;
     width: 100%;
   }
   .button_area {
+    max-width: 400px;
     width: 100%;
   }
   .signin_button {
+    max-width: 400px;
     width: 100%;
   }
   .social_signin {
+    max-width: 400px;
     width: 100%;
   }
 }

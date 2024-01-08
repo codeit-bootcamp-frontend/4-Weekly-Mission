@@ -169,24 +169,31 @@ body {
     padding: 120px 32px 0 32px;
   }
   .signup-info {
+    max-width: 400px;
     width: 100%;
   }
   .signup-info > div {
+    max-width: 400px;
     width: 100%;
   }
   .signup-info > div > label {
+    max-width: 400px;
     width: 100%;
   }
   .signup-info > div > input {
+    max-width: 400px;
     width: 100%;
   }
   .button_area {
+    max-width: 400px;
     width: 100%;
   }
   .signup_button {
+    max-width: 400px;
     width: 100%;
   }
   .social_signup {
+    max-width: 400px;
     width: 100%;
   }
 }
