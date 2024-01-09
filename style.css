@@ -1,7 +1,7 @@
-@import url("./palette.css");
-@import url("./header.css");
-@import url("./main.css");
-@import url("./footer.css");
+@import url("./CSS/palette.css");
+@import url("./CSS/header.css");
+@import url("./CSS/main.css");
+@import url("./CSS/footer.css");
 * {
   padding: 0;
   margin: 0;
