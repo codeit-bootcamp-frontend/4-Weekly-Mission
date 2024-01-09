@@ -1,0 +1,73 @@
+/* 공통 스타일시트 */
+
+* {
+  box-sizing: border-box;
+  font-family: Pretendard;
+  font-style: normal;
+  line-height: normal;
+  word-break: keep-all;
+}
+
+:root {
+  --primary: #6d6afe;
+  --red: #ff5b56;
+
+  --black: #111322;
+  --white: #ffffff;
+
+  --gray00: #f0f6ff;
+  --gray10: #e7effb;
+  --gray20: #ccd5e3;
+  --gray60: #9fa6b2;
+  --gray100: #3e3e43;
+
+  --Grey-Light: #f5f5f5;
+  --Linkbrary-bg: #f0f6ff;
+  --The-julge-black: #111322;
+
+  --gra-purpleblue-to-skyblue: linear-gradient(
+    91deg,
+    #6d6afe 0.12%,
+    #6ae3fe 101.84%
+  );
+  --Fandom-K-gra-blue-to-pink: linear-gradient(
+    271deg,
+    #fe578f -9.84%,
+    #68e8f9 107.18%
+  );
+}
+
+html {
+  /* 1rem = 10px */
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+.button-gradient {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12.8rem;
+  padding: 1.6rem 2rem;
+  gap: 1rem;
+  border-radius: 0.8rem;
+  border: 0;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  color: var(--Grey-Light, #f5f5f5);
+  font-size: 1.8rem;
+  font-weight: 600;
+}

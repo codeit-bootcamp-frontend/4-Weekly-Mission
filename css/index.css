@@ -1,0 +1,462 @@
+/*
+# 반응형 레이아웃
+- Viewport 기준 -
+
+PC: 1200px 이상
+Tablet: 768px 이상
+Mobile: 375px 이상
+* 375px 미만은 고려하지 않음
+
+/* Mobile *
+@media screen {
+}
+
+/* Tablet *
+@media (min-width: 768px) {
+}
+
+/* PC *
+@media (min-width: 1200px) {
+}
+*/
+
+/* 그라디언트 */
+.style1 {
+  background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+}
+
+.style2-1 {
+  background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+}
+
+.style2-2 {
+  background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+}
+
+.style2-3 {
+  background: linear-gradient(
+    99deg,
+    #6d7ccd 19.76%,
+    rgba(82, 136, 133, 0.22) 52.69%
+  );
+}
+
+.style2-4 {
+  background: var(
+    --Fandom-K-gra-blue-to-pink,
+    linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%)
+  );
+}
+
+.gradient {
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+/* 그라디언트 끝 */
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: 192rem;
+  /* 중앙 정렬 */
+  left: 50%;
+  transform: translate(-50%, 0);
+  /* 중앙 정렬 끝*/
+  z-index: 1;
+}
+
+gnb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.gnb-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-gradient {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.8rem;
+  border: 0;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  color: var(--Grey-Light, #f5f5f5);
+  font-weight: 600;
+}
+
+/* Mobile */
+@media screen {
+  header {
+    padding: 1.3rem 3.2rem;
+  }
+
+  .gnb-container {
+    width: 100%;
+  }
+
+  .gnb-container .logo {
+    width: 8.8667rem;
+    height: 1.6rem;
+  }
+
+  .button-gradient {
+    width: 8rem;
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  header {
+    padding: 2rem 3.2rem;
+  }
+
+  .gnb-container {
+    width: 78.5rem;
+  }
+
+  .gnb-container .logo {
+    width: 13.3rem;
+    height: 2.4rem;
+  }
+
+  .button-gradient {
+    width: 12.8rem;
+    padding: 1.6rem 2rem;
+    font-size: 1.8rem;
+  }
+}
+
+/* PC */
+@media (min-width: 1200px) {
+  header {
+    padding: 2rem 20rem;
+  }
+
+  .gnb-container {
+    width: 100%;
+  }
+
+  .button-gradient {
+    width: 12.8rem;
+    padding: 1.6rem 2rem;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: #f0f6ff;
+}
+
+.hero-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 700;
+}
+
+.hero-preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-preview .image {
+  width: 100%;
+  height: 100%;
+}
+
+/* Mobile */
+@media screen {
+  .hero {
+    padding: 9rem 3.2rem 0;
+    gap: 2.4rem;
+  }
+
+  h1 {
+    padding: 0 4.45rem;
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+  }
+
+  .hero .button-gradient {
+    width: 20rem;
+  }
+
+  .hero-preview {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .hero {
+    padding-top: 13.4rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero-wrap {
+    width: 69.8rem;
+    gap: 4rem;
+  }
+
+  h1 {
+    padding: 0;
+    font-size: 6.4rem;
+    line-height: 8rem;
+  }
+
+  .hero .button-gradient {
+    width: 35rem;
+  }
+
+  .hero-preview {
+    width: 69.8rem;
+    height: 34.3rem;
+  }
+}
+
+/* PC */
+@media (min-width: 1200px) {
+  .hero {
+    padding-top: 16.4rem;
+    margin-bottom: 7rem;
+  }
+
+  .hero-wrap {
+    width: 120rem;
+  }
+
+  h1 .break {
+    display: none;
+  }
+
+  .hero-preview {
+    width: 120rem;
+    height: 59rem;
+  }
+}
+
+/* ------------콘텐츠 시작------------ */
+
+.contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-wrap.reverse {
+  order: 1;
+}
+
+h2 {
+  color: #000;
+  font-weight: 700;
+  letter-spacing: -0.03rem;
+}
+
+h3 {
+  color: #6b6b6b;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+/* Mobile */
+@media screen {
+  .contents {
+    width: 100%;
+    padding: 0 3.2rem;
+  }
+
+  .content {
+    padding: 4rem 0;
+    gap: 5.1rem;
+  }
+
+  h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+    margin-top: 1.6rem;
+  }
+
+  .img-sec {
+    width: 100%;
+    height: 100%;
+  }
+
+  .img-sec.outer {
+    display: none;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .contents {
+    width: 69.8rem;
+    padding: 0;
+  }
+
+  .content {
+    padding: 5rem 0;
+    gap: 5.1rem;
+  }
+
+  h2 {
+    font-size: 4.8rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  }
+
+  .img-sec {
+    width: 38.5rem;
+    height: 31.5rem;
+  }
+
+  .img-sec.inner {
+    display: none;
+  }
+
+  .img-sec.outer {
+    display: block;
+  }
+}
+
+/* PC */
+@media (min-width: 1200px) {
+  .contents {
+    width: 99.8rem;
+  }
+
+  .content {
+    gap: 15.7rem;
+  }
+
+  .img-sec {
+    width: 55rem;
+    height: 45rem;
+  }
+}
+
+/* -----------콘텐츠 끝------------ */
+
+footer {
+  height: 16rem;
+  background: var(--The-julge-black, #111322);
+}
+
+.footer-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.footer-company {
+  color: #676767;
+  text-align: center;
+  font-family: Arial;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.footer-link {
+  display: flex;
+  gap: 3rem;
+}
+
+.footer-link a {
+  color: #cfcfcf;
+  font-family: Arial;
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.footer-social {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.footer-social img {
+  width: 2rem;
+  height: 2rem;
+}
+
+/* Mobile */
+@media screen {
+  footer {
+    margin-top: 4rem;
+    padding: 3.2rem;
+  }
+
+  .footer-company {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    order: 1;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  footer {
+    margin-top: 12rem;
+    padding: 3.2rem 10.4rem 6.4rem 10.4rem;
+  }
+
+  .footer-company {
+    position: static;
+    order: 0;
+  }
+}
+
+/* PC */
+@media (min-width: 1200px) {
+}
