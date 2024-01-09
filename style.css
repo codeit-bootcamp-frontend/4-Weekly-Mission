@@ -1,0 +1,428 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+:root {
+    --Primary: #6D6AFE;
+    --Red: #FF5B56;
+    --Black: #111322;
+    --White: #FFFFFF;
+    --Gray1: #3E3E43;
+    --Gray2: #9FA6B2;
+    --Gray3: #CCD5E3;
+    --Gray4: #E7EFFB;
+    --Gray5: #F0F6FF;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+body {
+    background-color: var(--Gray5);
+}
+
+header {
+    background-color: var(--Gray5);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    gap: 8px;
+    padding: 20px 200px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wrap {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.menu h1 {
+    color: var(--Primary);
+    font-family: 'Pretendard', 'Noto Sans';
+    font-weight: 900;
+}
+
+.login {
+    width: 128px;
+}
+
+.button {
+    display: inline-block;
+    background-image: linear-gradient(90deg,var(--Primary), #6AE3FE);
+    border-radius: 8px;
+    padding: 16px 20px;
+    line-height: 18px;
+    gap: 10px;
+    text-align: center;
+    vertical-align: auto;
+    color: #F5F5F5;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.content1 {
+    text-align: center;
+    line-height: 0;
+}
+
+.content-image .card{
+    border: 1px solid black;
+}
+
+.title {
+    font-family: 'Pretendard', 'Noto Sans';
+    font-size: 64px;
+    font-weight: 700;
+    line-height: 80px;
+}
+
+.title span {
+    color: transparent;
+    background: linear-gradient(90deg, var(--Primary), #FF9F9F);
+    -webkit-background-clip: text;
+}
+
+.linkadd {
+    width: 350px;
+    height: 54px;
+    margin: 50px auto;
+}
+
+.main-content {
+    background-color: var(--White);
+}
+
+.title img {
+    width: 1200px;
+    height: 590px;
+}
+
+.content2 {
+    padding-top: 70px;
+}
+
+
+.cwrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 998px;
+    height: 450px;
+    margin: 50px auto;
+    gap: 157px;
+}
+
+.content-image {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 550px;
+    height: 450px;
+    border-radius: 15px;
+    background-color: var(--Gray5);
+}
+
+.content-image img {
+    width: 100%;
+    height: 100%;
+}
+
+.content-text {
+    text-align: left;
+    width: 291px;
+}
+
+.content-text-main {
+    font-family: 'Pretendard', 'Noto Sans';
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 57.6px;
+    color: #000000;
+}
+
+.content-text-sub {
+    font-family: 'Abel', 'Noto Sans';
+    margin-top: 10px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #6B6B6B;
+}
+
+.content-title1 {
+    color: transparent;
+    background: linear-gradient(90deg, #FE8A8A, #A4CEFF);
+    -webkit-background-clip: text;
+}
+
+.content-title2 {
+    color: transparent;
+    background: linear-gradient(-90deg, #6FBAFF, #FFD88B);
+    -webkit-background-clip: text;
+}
+
+.content-title3 {
+    color: transparent;
+    background: linear-gradient(120deg, #6D7CCD, #528885);
+    -webkit-background-clip: text;
+}
+
+.content-img-deck {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 240px;
+}
+
+.content2 .selected {
+    position: absolute;
+    left: 167px;
+    top: 117px;
+    border: 2px solid var(--Primary);
+    width: 214px;
+    height: 212px;
+    border-radius: 11px;
+}
+
+.content2 .img-button {
+    position: absolute;
+    top: 312px;
+    left: 363px;
+    width: 46px;
+    height: 46px;
+    border-radius: 46px;
+    background-color: var(--Primary);
+    text-align: center;
+}
+
+.content2 .img-button img {
+    width: 18px;
+    height: 18px;
+    margin-top: 11px;
+}
+
+.content3 .content-image img{
+    width: 414px;
+    height: 270px;
+    margin-top: 30px;
+}
+
+.content4 .content-image {
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./images/image23.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+
+.content4 .content-image img {
+    width: 416px;
+    height: 271px;
+    margin-top: 30px;
+}
+
+.content5 .content-image img {
+    margin: 55px 0 0 60px;
+    width: 490px;
+    height: 395px;
+}
+
+.content-title4 {
+    color: transparent;
+    background: linear-gradient(-90deg, #FE578F -100%, #68E8F9 100%);
+    -webkit-background-clip: text;
+}
+
+footer {
+    width: 100%;
+    height: 280px;
+    border-radius: 30px;
+    padding: 120px 0 0 0;
+}
+
+.footer-banner {
+    width: 100%;
+    height: 160px;
+    padding: 32px 104px 64px 104px;
+    background: #111322;
+}
+
+.footer-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 20px;
+}
+
+.copyright {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20.26px;
+    text-align: center;
+    color: #676767;
+}
+
+.description {
+    display: flex;
+    gap: 30px;
+    
+}
+
+.description a{
+    color: #CFCFCF;
+    text-decoration: none;
+}
+
+.footer-icon {
+    display:flex;
+    gap: 12px;
+}
+
+.footer-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+/*signin*/
+.full {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.signin-wrapper {
+    width: 400px;
+    height: 492px;
+    margin: auto auto;
+}
+
+.signin-title {
+    text-align: center;
+}
+
+
+.signin-title .login-name{
+    margin: 0;
+    height: 38px;
+    width: 210px;
+    padding: 0;
+}
+
+.signin-title p {
+    font-family: 'Pretendard', 'Noto Sans';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 16px;
+}
+
+.signin-title p a {
+    color: var(--Primary);
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 19px;
+    border-bottom: 1px solid var(--Primary);
+}
+
+.signin-input {
+    width: 100%;
+    text-align: left;
+    margin-top: 24px
+}
+
+.signin-input input {
+    width: 400px;
+    height: 60px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--Gray3);
+    padding: 18px 15px;
+}
+
+.signin-input input:focus {
+    outline-color: var(--Primary);
+}
+
+.signin-tag {
+    font-family: 'Pretendard', 'Noto Sans';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.71px;
+}
+
+.signin-wrapper button {
+    border: none;
+    width: 100%;
+    height: 54px;
+    margin-top: 32px;
+    font-family: 'Pretendard', 'Noto Sans';
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.signin-social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 66px;
+    padding: 12px 24px;
+    margin-top: 32px;
+    border: 1px solid var(--Gray3);
+    background-color: var(--Gray4);
+    border-radius: 8px;
+}
+
+.signin-social p {
+    font-family: 'Pretendard', 'Noto Sans';
+    font-weight: 400;
+    font-size: 14px;
+    color: #373740;
+}
+
+.signin-social .social-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+    height: 42px;
+    gap: 16px;
+}
+
+.google-icon {
+    width: 42px;
+    height: 42px;
+    background-color: var(--White);
+    border: 1px solid #D3D4DD;
+    border-radius: 21px;
+}
+
+.google-icon img {
+    width: 22px;
+    height: 22px;
+    margin: 10px;
+}
+
+.kakao-icon {
+    width: 42px;
+    height: 42px;
+    background-color: #F5E14B;
+    border-radius: 21px;
+}
+
+.kakao-icon img {
+    width: 26px;
+    height: 24px;
+    margin: 10px 8px;
+}
+
