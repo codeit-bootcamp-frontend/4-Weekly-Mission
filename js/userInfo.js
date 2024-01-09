@@ -1,5 +1,5 @@
 const userInfo = {
-    email: 'test@codeit.com',
+    email: 'test@codeit.com', 
     pw: 'codeit101'
 }
 

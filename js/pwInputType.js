@@ -1,4 +1,4 @@
-function pwInputTypeChange(eyeIcon, pwInput) {
+function pwInputTypeChange(eyeIcon, pwInput) { 
     eyeIcon.addEventListener("click", () => {
         if(pwInput.type == 'password'){
             pwInput.type = 'text';

@@ -1,4 +1,4 @@
-import  {vaildEmail, vaildPW, focusOut} from "./vaild.js"
+import  {vaildEmail, vaildPW, focusOut} from "./vaild.js" 
 import { userInfo } from "./userInfo.js";
 import { pwInputTypeChange } from "./pwInputType.js";
 
