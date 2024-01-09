@@ -1,0 +1,138 @@
+:root {
+  --primary-color: #6d5afe;
+  --red-color: #ff5b56;
+  --black-color: #111322;
+  --white-color: #ffffff;
+  --gray1-color: #3e3e43;
+  --gray2-color: #9fa6b2;
+  --gray3-color: #ccd5e3;
+  --gray4-color: #e7effb;
+  --gray5-color: #f0f6ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Pretendard';
+  background-color: var(--gray5-color); 
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 238px;
+  height: 100%;
+  width: 100%;
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 400px;
+}
+
+.logoSignup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoSignup p {
+  margin-top: 16px;
+  margin-bottom: 0;
+}
+
+.logoSignup a {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.form-container {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.input-container {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 12px;
+  
+}
+
+
+.input-container label {
+  font-size: 14px;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--gray3-color);
+  outline: none;
+}
+
+input:focus {
+  border: 1px solid var(--primary-color);
+}
+
+.sign-in-button {
+  display: flex;
+  width: 400px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  color: #F5F5F5;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.social-login {
+  display: flex;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--gray3-color);
+  background-color: var(--gray4-color);
+}
+
+.icon-container {
+  display: flex;
+  gap: 16px;
+}
+
+.icon {
+  border: 1px solid #D3D4DD;
+  border-radius: 50%;
+  padding: 10px;
+  background-color: var(--white-color);
+}
+
+.kakao {
+  background-color: #F5E14B;
+  border: none;
+}
+
+.ps-container {
+  position: relative;
+} 
+
+.ps-container img {
+  position: absolute;
+  top: 35%;
+  right: 15px;
+}
