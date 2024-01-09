@@ -261,7 +261,7 @@ button {
   -webkit-text-fill-color: transparent;
 }
 .section3-img {
-  max-width: 57rem;
+  width: 57rem;
   height: 46.9rem;
   flex-shrink: 0;
   border-radius: 2.5rem;
