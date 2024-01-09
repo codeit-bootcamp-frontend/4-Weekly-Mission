@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    --mainBgColor: #F0F6FF;
+    --btn: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+    box-sizing: border-box;
+    font-family: "Pretendard";
+    color: var(--black);
+}
+
+html{
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;
+    display: block;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+img{
+    vertical-align: top;
+}
+
+/* 헤더 */ 
+header{
+    width: 100%;
+    background-color: var(--mainBgColor);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    padding: 1.25rem 0;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 12.5rem;
+}
+
+button{
+    padding: 1rem 1.25rem;
+    background: var(--btn);
+    outline: none;
+    border: none;
+    font-size: 1.125rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+button > a{
+    color: var(--Grey-Light);
+}
+
+.loginBtn{
+    width: 8rem;
+}
+
+/* 섹션 */
+.user-img{
+    border-radius: 50%;
+    background: var(--primary-purple-70, #8F00FF);
+    display: inline;
+    width: 3.75rem;
+    height: 3.75rem;
+    
+}
