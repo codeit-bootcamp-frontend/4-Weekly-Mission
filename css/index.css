@@ -1,0 +1,421 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --btn: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+    --Grey-Light: #F5F5F5;
+    --mainBgColor: #F0F6FF;
+    --mainText: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+    --black: #000000;
+    --text1: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+    --text2: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+    --text3: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+    --text4: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
+    --mobileText1: linear-gradient(96deg, #FE8A8A 1.73%, #A4CEFF 33.89%);
+    --mobileText2: linear-gradient(277deg, #6FBAFF 44.56%, #FFD88B 60.93%);
+    --mobileText3: linear-gradient(99deg, #6D7CCD 53.86%, rgba(82, 136, 133, 0.22) 99.4%);
+    --mobileText4: linear-gradient(271deg, #FE578F 27.48%, #68E8F9 59.2%);
+    --subText: #6B6B6B;
+    --footerBgColor: #111322;
+    --footerText1: #676767;
+    --footerText2: #CFCFCF;
+    --imgBgColor: #F0F6FF;
+    --purpleBorder: #6D6AFE;
+    font-family: "Pretendard";
+    color: var(--black);
+}
+
+html{
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;
+    display: block;
+}
+
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+img{
+    vertical-align: top;
+}
+
+/* 헤더 */ 
+header{
+    width: 100%;
+    background-color: var(--mainBgColor);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    padding: 1.25rem 0;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 12.5rem;
+}
+
+button{
+    padding: 1rem 1.25rem;
+    background: var(--btn);
+    outline: none;
+    border: none;
+    font-size: 1.125rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+button > a{
+    color: var(--Grey-Light);
+}
+
+.loginBtn{
+    width: 8rem;
+}
+
+/* 메인 */ 
+main{
+    background-color: var(--mainBgColor);
+    height: auto;
+    overflow: hidden;
+}
+
+.mainWrap{
+    margin: 4.38rem auto 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.mainTitle{
+    background: var(--mainText) text;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 5rem;
+    width: 44.25rem;
+    margin: 0 auto;
+}
+
+.mainTitleLine{
+    display: none;
+}
+
+.mainTitle > .mainTitleEffect{
+    color: transparent; 
+}
+
+.registerBtn{
+    width: 21.875rem;
+    margin: 0 auto;
+}
+
+.mainWrap > img{
+    width: 69.875rem;
+    height: 35rem;
+    margin: 0 auto;
+}
+
+/* 본문(카드) */
+#firstCard{
+    padding: 7.5rem 0 3.12rem;
+    margin:  0 auto;
+    width: 62.375rem;
+    height: 38.75rem
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 3.12rem 0; 
+    width: 62.375rem;
+    height: 38.75rem
+}
+
+.cardTitle{
+    font-size: 3rem;  
+    letter-spacing: -0.01875rem;
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 0.62rem;
+}
+
+.c1 .cardTitle{
+    background: var(--text1) text;
+}
+
+.c2 .cardTitle{
+    background: var(--text2) text;
+}
+
+.c3 .cardTitle{
+    background: var(--text3) text;
+}
+
+.c4 .cardTitle{
+    background: var(--text4) text;
+}
+
+.cardTitle > span{
+    color: transparent;
+}   
+
+.cardText{
+    color: var(--subText);
+    font-size: 1rem;
+    line-height: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.mobileLine{
+    display: none;
+}
+
+.leftMargin{
+    margin-left: 9.81rem;
+}
+
+.rightMargin{
+    margin-right: 9.81rem;
+}
+
+
+figure > img{
+    width: 34.375rem;
+    height: 450px;
+}
+
+/* 푸터 */
+footer{
+    background-color: var(--footerBgColor);
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 6.5rem 4rem;
+    margin-top: 7.5rem;
+    font-family: 'Acme';
+    height: 10rem;
+    font-size: 1rem;
+}
+
+.footerLogo > a{
+    color: var(--footerText1);
+}
+
+.footerNav > ul{
+    display: flex;
+    gap: 1.88rem;
+}
+
+.footerNav > ul > li > a{
+    color: var(--footerText2);
+}
+
+
+.footerSNS > ul{
+    display: flex;
+    gap: 0.75rem;
+}
+
+@media (max-width: 1199px){
+    header{
+        padding: 1.25rem 0;
+    }
+
+    nav{
+        margin: 0 auto;
+        width: 47rem;
+    }
+
+    /* .loginBtn{
+        margin-left: 43.5rem;
+    } */
+
+    main{
+        height: auto;
+    }
+    .mainWrap{
+        margin: 2.5rem auto 0;
+    }
+
+    .mainTitleLine{
+        display: block;
+    }
+
+    .mainWrap > img{
+        width: 40.64394rem;
+        height: 23.94463rem;
+    } 
+
+    #firstCard{
+        padding: 5rem 0 3.12rem;
+        width: 43.625rem;
+        height: 27rem;
+    }
+
+    .card{
+        display: flex;
+        padding: 3.12rem 0; 
+        width: 43.62498rem;
+        height: 27rem;
+    }
+
+    figure{
+        width: 24.0625rem;
+        height: 19.6875rem;
+    }
+
+    figure > img{
+        width: 24.0625rem;
+        height: 19.6875rem;
+    } 
+    
+    .leftMargin{
+        margin-left: 3.19rem;
+    }
+    
+    .rightMargin{
+        margin-right: 3.19rem;
+    }
+}
+
+@media (max-width: 767px){
+    header{
+        padding: 0.81rem 0;
+    }
+
+    nav{
+        width: auto;
+        margin: 0 2rem;
+    }
+    button{
+        padding: 1rem 0.62rem;
+        font-size: 0.875rem;
+    }
+
+    button > a{
+        display: inline;
+    }
+    
+    .loginBtn{
+        width: 5rem;
+    }
+
+    main{
+        height: auto;
+    }
+
+    .mainWrap{
+        gap: 1.5rem;
+        margin: 1.75rem 2rem 0;
+    }
+
+    .mainTitle{
+        font-size: 2rem;
+        line-height: 2.625rem;
+        width: 14.75rem;
+    }
+
+    .registerBtn{
+        width: 12.5rem;
+    }
+
+    .mainWrap > img{
+        width: 100%;
+        height: 100%
+    } 
+
+    #firstCard{
+        padding: 2.5rem 2rem 2.26rem;
+        width: auto;
+        height: auto;
+    }
+
+    .card{
+        display: flex;
+        flex-direction: column;
+        padding: 2.5rem 2rem;
+        width: auto;
+        height: 29rem;
+        height: auto;
+    }
+
+    .cardTitle{
+        font-size: 1.5rem; 
+        order: 1;
+        width: 20.3125rem;
+        width: 100%;
+        margin-bottom: 1.25rem;
+    }
+
+    .c1 .cardTitle{
+        background: var(--mobileText1) text;
+    }
+    
+    .c2 .cardTitle{
+        background: var(--mobileText2) text;
+    }
+    
+    .c3 .cardTitle{
+        background: var(--mobileText3) text;
+    }
+    
+    .c4 .cardTitle{
+        background: var(--mobileText4) text;
+    }
+
+    .cardText{
+        font-size: 0.9375rem;
+        line-height: 1.40625rem;
+        width: 100%;
+        order: 3;
+        margin-top: 1rem;
+    }
+ 
+    figure{
+        width: 100%;
+        height: auto;
+        order: 2;
+    }
+
+    figure > img{
+        width: 100%;
+        height: 100%;
+    }
+
+    .leftMargin{
+        margin: 0;
+    }
+
+    .rightMargin{
+        margin: 0;
+    }
+
+    br{
+        display: none;
+    }
+
+    footer{
+        margin-top: 2.5rem;
+        padding: 2rem 2rem 4rem;
+        position: relative;
+    }
+
+    .footerLogo{
+        position: absolute;
+        bottom: 2rem;
+    }
+}
+

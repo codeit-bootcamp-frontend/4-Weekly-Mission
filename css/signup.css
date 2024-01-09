@@ -1,0 +1,190 @@
+*{
+    --Linkbrary-gray100: #373740;
+    --black: #000;  
+    --Linkbrary-gray10: #E7EFFB;
+    --Linkbrary-gray20: #CCD5E3;
+    --gra-purpleblue-to-skyblue: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+    --Linkbrary-white: #FFF;
+    --Linkbrary-primary-color: #6D6AFE;
+    --Linkbrary-bg: #F0F6FF;
+    --Grey-Light: #F5F5F5;
+    --Linkbrary-red: #FF5B56;
+    margin: 0;
+    padding: 0;
+    font-family: "Pretendard";
+}
+
+html{
+    font-size: 16px;
+}
+
+
+ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+body{
+    background-color: var(--Linkbrary-bg);
+}
+
+main{
+    padding: 14.88rem 0 15.75rem;
+    margin: 0 auto;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.mainWrap{
+    display: flex;
+    flex-direction: column;
+    gap: 1.88rem;
+}
+/* 메인 문구 영역(타이틀, 로그인 링크) */
+.mainTitle{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+}
+
+.mainTitle > img{
+    width: 13.16144rem;
+    height: 2.375rem; 
+}
+
+.userText{
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.userText > a{
+    color: var(--Linkbrary-primary-color);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 0.1rem;
+    line-height: normal;
+}
+/* 폼 태그 */
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem
+}
+
+.inputArea{
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem
+}
+
+.inputArea > div{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+   font-size: 0.875rem;
+   margin-bottom: 0.75rem;
+}
+
+#emailInput, #pwInput, #pwInput2{
+    padding: 1.125rem 0.9375rem;
+    border-radius: 0.5rem;
+    background-color: var(--Linkbrary-white);
+    outline: none;
+    border: 1px solid var(--Linkbrary-gray20);
+    width: calc(100% - 1.875rem);
+}
+
+#emailInput:focus, #pwInput:focus, #pwInput2:focus{
+    border: 1px solid var(--Linkbrary-red);
+}
+
+.emailError, .pwError, .pw1Error{
+    font-size: 0.875rem;
+    color: var(--Linkbrary-red);
+    margin-top: 0.38rem;
+    font-weight: 400;
+    font-style: normal;
+}
+
+button{
+    padding: 1rem 1.25rem;
+    border-radius: 0.4rem;
+    background: var(--gra-purpleblue-to-skyblue);
+    border: none;
+    outline: none;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--Grey-Light);
+}
+
+.pwBox > div{
+    position: relative;
+}
+
+.eye1, .eye2{
+    position: absolute;
+    right: 1rem;
+    top: 1.25rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+/* 소셜 로그인 */
+.sns{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--Linkbrary-gray10);
+    border: 1px solid var(--Linkbrary-gray20);
+    border-radius: 0.5rem;
+}
+
+.snsText{
+    font-size: 0.875rem;
+    color: var(--Linkbrary-gray100);
+}
+
+.sns > ul{
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.3rem;
+}
+
+.sns > ul > li{
+    position: relative;
+}
+
+.kakao, .google{
+    position: absolute;
+    z-index: 999;
+}
+
+.kakao{
+    top: 0.65rem;
+    left: 0.5rem;
+}
+
+.google{
+    top: 0.7rem;
+    left: 0.7rem;
+}
+
+@media (max-width: 1199px){
+    main{
+        padding: 14.88rem 0 15.75rem;
+    }
+}
+
+@media (max-width: 767px){
+    main{
+        padding: 7.5rem 2rem 14.56rem;
+        width: auto;
+        max-width: 25rem;
+    }
+}
