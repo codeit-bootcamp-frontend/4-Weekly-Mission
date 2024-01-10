@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>LinkLibrary</title>
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/login.css" rel="stylesheet">
 </head>
 <body>
+<div class="container_signin">
+    <a href="index.html"><img src="../resource/Linkbrary_large_logo.png"/></a>
+    <div class="txt_signin">
+        <span>회원이 아니신가요?</span>
+        <a href="signup.html">회원 가입하기</a>
+    </div>
+    <form>
+        <div class="input">
+            <label for="email">이메일</label>
+            <input id="email" name="email" type="text">
+        </div>
+        <div class="input">
+            <label for="password">비밀번호</label>
+            <input id="password" name="password" type="password"/>
+            <img class="icon_view_password" src="../resource/view_password_icon.png"/>
+        </div>
+    </form>
+    <button class="btn_gradient btn_signin">로그인</button>
+    <div class="container_social">
+        <div>소셜 로그인</div>
+        <div class="icons_social">
+            <a href="https://www.google.com/"><img src="../resource/google_logo.png"></a>
+            <a href="https://www.kakaocorp.com/page/"><img src="../resource/kakao_logo.png"></a>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
