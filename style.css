@@ -13,7 +13,7 @@
 }
 html,
 body {
-  /* 62.5% => 10rem, 1rem = 10rem */
+  /* 62.5% => 10rem, 1rem = 10px */
   font-size: 62.5% !important;
   line-height: 1.285;
 }
