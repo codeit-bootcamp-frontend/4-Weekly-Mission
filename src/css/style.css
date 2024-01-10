@@ -13,6 +13,7 @@
 
 body {
     margin: 0;
+    font-family: Pretendard;
 }
 
 header {
@@ -23,6 +24,12 @@ header {
     padding: 30px 200px;
 
     background-color: var(--color-background);
+}
+
+main {
+    width: 1200px;
+    margin: auto;
+    padding: 72px;
 }
 
 button {
@@ -66,4 +73,69 @@ button {
 
 .add_link {
     width: 15%;
+}
+
+.container_contents {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+.card_contents {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+.txt_contents_title {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 58px;
+}
+
+.txt_gradient_pinktoblue {
+    background: #FE8A8A;
+    background: linear-gradient(to right, #FE8A8A 0%, #A4CEFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.txt_gradient_yellowtoblue {
+    background: #FFD88B;
+    background: linear-gradient(to right, #FFD88B 0%, #6FBAFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.txt_gradient_purpletoblue {
+    background: #6D7CCD;
+    background: linear-gradient(to right, #6D7CCD 0%, #528885 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.txt_gradient_bluetopink {
+    background: #68E8F9;
+    background: linear-gradient(to right, #68E8F9 0%, #FE578F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.txt_contents_contents {
+    margin-top: 10px;
+
+    font-family: Abel;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: left;
+    color: #6B6B6B;
+}
+
+.img_landing {
+    width: 550px;
+    height: 450px;
+    border-radius: 15px;
 }
