@@ -39,12 +39,13 @@ button {
   display: flex;
   padding: 2rem 20rem;
   align-items: center;
+  justify-content: center;
   background: var(--Linkbrary-bg, #f0f6ff);
   box-sizing: border-box;
 }
-@media (max-width: 192rem) {
+@media (max-width: 1199px) {
   .gnb-container {
-    padding: 2rem 20rem;
+    padding: 2rem 3.2rem;
   }
 }
 .gnb-layout {
