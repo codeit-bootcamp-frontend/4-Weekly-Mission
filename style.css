@@ -2,13 +2,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: "pretendard";
 }
 
-header,
-main,
-section,
-footer {
-  border: 1px solid red; /* 임시 테두리 추가 */
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 :root {
@@ -16,6 +16,7 @@ footer {
   --Grey-Light: #f5f5f5;
   --Grey: #6b6b6b;
   --Black: #000;
+  --Linkbrary-red: #ff5b56;
   --gra-purpleblue-to-skyblue: linear-gradient(
     91deg,
     #6d6afe 0.12%,
@@ -43,17 +44,6 @@ footer {
   --footer-link: #cfcfcf;
 }
 
-header {
-  display: flex;
-  width: 100%;
-  height: 9.4rem;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  z-index: 999;
-  background-color: var(--Linkbrary-bg);
-}
-
 nav {
   display: flex;
   width: 100%;
@@ -62,29 +52,15 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 2rem 20rem;
-}
-
-a.nav-login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  height: 5.4rem;
-  width: 12.8rem;
-  border-radius: 0.8rem;
-  background-image: var(--gra-purpleblue-to-skyblue);
-  color: var(--Grey-Light);
-  font-family: Pretendard;
-  font-size: 1.8rem;
-  font-style: normal;
-  font-weight: 600;
-  text-decoration: none;
+  position: sticky;
+  top: 0;
+  background-color: var(--Linkbrary-bg);
 }
 
 main {
   display: flex;
   width: 100%;
-  padding-top: 16.4rem;
+  padding-top: 7em;
   margin-bottom: 7rem;
   flex-direction: column;
   align-items: center;
@@ -95,10 +71,10 @@ main {
 .title {
   text-align: center;
   color: var(--Black);
-  font-family: Pretendard;
   font-size: 6.4rem;
   font-style: normal;
   font-weight: 700;
+  line-height: 8rem;
 }
 
 .gra-text {
@@ -112,38 +88,42 @@ main {
   -webkit-background-clip: text;
 }
 
-a.title-link {
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   height: 5.4rem;
-  width: 35rem;
   border-radius: 0.8rem;
   background-image: var(--gra-purpleblue-to-skyblue);
   color: var(--Grey-Light);
-  font-family: Pretendard;
   font-size: 1.8rem;
   font-style: normal;
   font-weight: 600;
   text-decoration: none;
 }
 
+.button-login {
+  width: 12.8rem;
+}
+
+.button-link {
+  width: 35rem;
+}
+
 .main-img {
   width: 120rem;
-  height: 65rem;
+  height: 59rem;
 }
 
 .main-description {
   width: 25.9rem;
   color: var(--Black);
-  font-family: Pretendard;
   font-size: 4.8rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: -0.3px;
-  white-space: nowrap;
+  letter-spacing: -0.03rem;
 }
 
 .content1 {
@@ -164,16 +144,6 @@ a.title-link {
 .content4 {
   background-image: var(--Fandom-K-gra-blue-to-pink);
   -webkit-background-clip: text;
-}
-
-.sub-description {
-  color: var(--Grey);
-  font-family: Abel;
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
-  white-space: nowrap;
 }
 
 section {
@@ -198,6 +168,14 @@ section {
 .content-img {
   width: 55rem;
   height: 45rem;
+}
+
+.sub-description {
+  color: var(--Grey);
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
 }
 
 footer {

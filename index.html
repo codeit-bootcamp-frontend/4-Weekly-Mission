@@ -2,22 +2,32 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abel&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Linkbrary</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/"><img src="/public/img/logo.svg" alt="logo" /></a>
-        <a class="nav-login" href="src/signin.html">로그인</a>
-      </nav>
-    </header>
+    <nav>
+      <a href="/"><img src="/public/img/logo.svg" alt="logo" /></a>
+      <a class="button button-login" href="src/signin.html">로그인</a>
+    </nav>
     <main>
       <div class="title main-title">
         <span class="gra-text">세상의 모든 정보</span>를<br />
         쉽게 저장하고 관리해 보세요
       </div>
-      <a class="title-link" href="">링크 추가하기</a>
+      <a class="button button-link" href="">링크 추가하기</a>
       <img class="main-img" src="/public/img/_img.png" alt="main-img" />
     </main>
     <section>
@@ -63,7 +73,7 @@
         <div class="description">
           <div class="main-description content3">
             저장한 링크를<br />
-            <span class="gra-text">공유</span>해 보세요.
+            <span class="gra-text">공유</span>해 보세요
           </div>
           <div class="sub-description">
             여러 링크를 폴더에 담고 공유할 수 있습니다. <br />가족, 친구,
