@@ -21,6 +21,11 @@ header {
     justify-content: space-between;
     align-items: center;
 
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+
     padding: 30px 200px;
 
     background-color: var(--color-background);
@@ -32,8 +37,22 @@ main {
     padding: 72px;
 }
 
+footer {
+    background-color: var(--color-black);
+
+    padding: 24px 64px 98px 64px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
 button {
     cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #CFCFCF;
 }
 
 .btn_gradient {
@@ -42,7 +61,7 @@ button {
     background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
     border-radius: 8px;
     border: none;
-    color: white;
+    color: var(--color-white);
 }
 
 .container_title {
@@ -50,6 +69,8 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    margin-top: 108px;
 
     gap: 24px;
 
@@ -138,4 +159,20 @@ button {
     width: 550px;
     height: 450px;
     border-radius: 15px;
+}
+
+.txt_copyright {
+    color: #676767;
+}
+
+.txt_CS {
+    color: #CFCFCF;
+
+    display: flex;
+    gap: 24px;
+}
+
+.icons_footer {
+    display: flex;
+    gap: 10px;
 }
