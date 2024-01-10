@@ -16,6 +16,9 @@
 }
 
 body {
+  @media (min-width: 345px) and (max-width: 767px) {
+    padding: 120px 32px 0 32px;
+  }
   background: var(--palette-grey-5);
 }
 .main {
@@ -163,9 +166,6 @@ body {
   height: 42px;
 }
 @media (min-width: 345px) and (max-width: 767px) {
-  body {
-    padding: 120px 32px 0 32px;
-  }
   .signin-info {
     max-width: 400px;
     width: 100%;
