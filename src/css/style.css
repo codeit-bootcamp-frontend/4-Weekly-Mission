@@ -1,21 +1,21 @@
-:root{
-    --color-primary: #6D6AFE;
+:root {
+    --color-primary: #6d6afe;
     --color-background: #f1f6fe;
-    --color-red: #FF5B56;
+    --color-red: #ff5b56;
     --color-black: #111322;
-    --color-white:#ffffff;
-    --color-gray5: #3E3E43;
-    --color-gray4: #9FA6B2;
-    --color-gray3: #CCD5E3;
-    --color-gray2: #E7EFFB;
-    --color-gray1: #F0F6FF;
+    --color-white: #ffffff;
+    --color-gray5: #3e3e43;
+    --color-gray4: #9fa6b2;
+    --color-gray3: #ccd5e3;
+    --color-gray2: #e7effb;
+    --color-gray1: #f0f6ff;
 }
 
-body{
+body {
     margin: 0;
 }
 
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,12 +25,45 @@ header{
     background-color: var(--color-background);
 }
 
-.btn_login{
-    padding: 16px 20px;
+button {
+    cursor: pointer;
+}
 
-    background: linear-gradient(90.99deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+.btn_gradient {
+    padding: 16px 32px;
+
+    background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
     border-radius: 8px;
     border: none;
     color: white;
-    cursor: pointer;
+}
+
+.container_title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 24px;
+
+    background-color: var(--color-background);
+}
+
+.txt_title {
+    text-align: center;
+    line-height: 80px;
+
+    font-size: 64px;
+    font-weight: 700;
+}
+
+.txt_title_gradient {
+    background: #6D6AFE;
+    background: linear-gradient(to right, #6D6AFE 0%, #FF9F9F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.add_link {
+    width: 15%;
 }

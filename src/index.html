@@ -1,15 +1,24 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8"/>
+    <link href="css/style.css" rel="stylesheet"/>
     <title>LinkLibrary</title>
 </head>
 <body>
 <header>
-    <a href="/"> <img src="../resource/logo.png" /></a>
-    <button class="btn_login">로그인</button>
+    <a href="/"> <img src="../resource/logo.png"/> </a>
+    <button class="btn_gradient login" onclick="location.href='signin.html'">로그인</button>
 </header>
-
+<main>
+    <div class="container_title">
+        <div class="txt_title">
+            <span class="txt_title_gradient">세상의 모든 정보</span>를
+            <br/>쉽게 저장하고 관리해보세요
+        </div>
+        <button class="btn_gradient add_link" onclick="location.href='signup.html'">링크 추가하기</button>
+        <img src="../resource/main_banner_img.png"/>
+    </div>
+</main>
 </body>
 </html>
