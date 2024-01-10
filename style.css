@@ -1,0 +1,417 @@
+@import "/reset.css";
+
+:root {
+  --Linkbrary-primary-color: #6D6AFE;
+  --Linkbrary-red: #FF5B56;
+  --The-julge-black: #111322;
+  --Linkbrary-white: #ffffff;
+  --Linkbrary-gray100: #3E3E43;
+  --Linkbrary-gray60: #9FA6B2;
+  --Linkbrary-gray20: #CCD5E3;
+  --Linkbrary-gray10: #E7EFFB;
+  --Linkbrary-bg: #F0F6FF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Pretendard', 'Acme', 'Arial';
+  margin: 0 auto;
+  width: 100%;
+}
+/*======= header =========*/
+header {
+  position: fixed;
+  z-index: 1000;
+  padding: 20px 200px;
+  width: 100%;
+  background: var(--Linkbrary-bg, #F0F6FF);
+  top: 0px;
+}
+
+header .header-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header  .logo {
+  width: 133px;
+  height: 24px;
+}
+
+header .login {
+  text-align: center;
+  width: 128px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  color: var(--Grey-Light, #F5F5F5);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+}
+
+/*=====main======*/
+
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+article .container-main {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 164px 360px 0px;
+  justify-content: center;
+  align-items: center;
+  background: #F0F6FF;
+}
+
+article .container-main .title {
+  text-align: center;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 80px; /* 125% */
+  color: var(--The-julge-black);
+  flex-shrink: 0;
+}
+
+article .container-main .title span {
+  background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+article .container-main .button {
+  color: var(--Grey-Light, #F5F5F5);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  width: 350px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  text-align: center;
+  text-decoration: none;
+}
+
+article .container-main .article-image {
+  width: 100%;
+  height: auto;
+}
+
+/*===== section =====*/
+
+main .container-body {
+  padding: 70px 461px 120px;
+}
+
+article .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+}
+
+article .container .content {
+  display: flex;
+  justify-content: space-between;
+  gap: 157px;
+  align-items: center;
+}
+
+article .container .description h2 {
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  color: #000;
+}
+
+article .container .description p {
+  color: #6B6B6B;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 24px */
+}
+main .container .description {
+  flex-shrink: 0;
+}
+main .example-link, .example-linkmanage, .example-share, .example-search {
+  width: 550px;
+  border-radius: 15px;
+  flex-shrink: 0;
+}
+
+main .container #link {
+  background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main .container #manage {
+  background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main .container #share {
+  background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+main .container #search {
+  background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+footer .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 32px 104px 64px;
+  background: var(--The-julge-black);
+  width: 100%;
+  height: 160px;
+}
+
+footer .content .mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+
+footer .content .codeit {
+  color: #676767;
+  text-align: center;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+footer .content .Privacy, .FAQ {
+  color: #CFCFCF;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
+
+
+footer .content .footer-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+footer .content .sns {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  flex-grow: 1;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+
+
+
+/*모바일*/
+@media screen and (max-width: 767px) {
+  header {
+    padding: 13px 32px;
+    height: 63px;
+  }
+  header .logo {
+    width: 88px;
+    height: 16px;
+  }
+  header .login {
+    width: 80px;
+    padding: 10px 16px;
+    gap: 10px;
+    font-size: 14px;
+  }
+  main .container-main {
+    padding: 91px 32px 0;
+    gap: 24px;
+  }
+  main .container-main .title {
+    font-size: 32px;
+    line-height: 131.25%
+  }
+  main .container-main .button {
+    width: 200px;
+    padding: 10px 16px;
+  }
+
+  main .container-body {
+    padding: 0 0;
+  }
+  main .container-body .container{
+    padding: 0 32px 40px;
+  }
+  main .container-body .content {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    padding: 40px 0;
+    gap: 24px;
+    position: relative;
+  }
+  main .container-body .description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    br {
+      display: none;
+    }
+  }
+  main .container-body .description h2 {
+    font-size: 24px;
+  }
+  main .container-body .description p {
+    font-size: 15px;
+    line-height: 150%; /* 22.5px */
+  }
+  main .container-body .example-link, .example-linkmanage, .example-share, .example-search {
+    width: 100%;
+    height: auto;
+  }
+  main .container-body .reverse {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  footer .content {
+    padding: 32px;
+  }
+  footer .codeit {
+    align-self: flex-start;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  footer .content .footer-center {
+    gap: 30px;
+    align-self: flex-start;
+  }
+  footer .content .codeit, .Privacy, .FAQ {
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  footer .content .Privacy {
+    color: #CFCFCF;
+    font-family: Arial;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  footer .content .mobile {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 60px;
+  }
+}
+
+
+
+/*태블릿*/
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  main .container-main {
+    padding: 133px 32px 0;
+  }
+  main .container-main .article-image {
+    width: 696px;
+    height: auto;
+  }
+
+  main .container-body {
+    padding: 30px 32px 120px;
+  }
+  main .container .content {
+    gap: 48px;
+    align-items: center;
+    justify-content: center;
+  }
+  main .container .content .example-link, .example-linkmanage, .example-search, .example-share {
+    width: 384px;
+    height: 100%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .tablet {
+    display: none;
+  }
+}
+
+
+/* 1월 9일 멘토링 
+
+
+1. css BEM 방식 으로 컨테이너 표기
+구글링이나 유튜브 찾아서 적용해보기
+이름에 의미가 드러나야 함
+
+2. @media 관련
+클래스 적고 그 안에 미디어 쿼리 적용
+모바일 먼저 제작
+모바일 > 태블릿 > 데스크탑
+
+3. 시맨틱 태그
+header - nav
+svg태그랑 a태그 사이즈 맞추기
+
+header <--- 태그에 스타일링을 직접 주면 안됨
+header 데스크탑 사이즈 maxwidth 설정하기
+div container 를 섹션 클래스로 변경 = 무의미한 디브
+패딩값 위치 중구난방 각 컨텐츠로 넣기
+stretch = 의미없는거 삭제하기
+이미지에 의미없는 디브
+pc화면에서 패딩 수정하기 무시하기
+html 폰트패밀리 한번에 선언하기
+
+
+html은 동일하게 구성하고
+flex order로 위치 변경하기?
+
+섹션 아티클? 차이
+섹션 안에 아티클
+
+span에 클래스 부여 > 스타일 있는곳은 클래스 부여하는게 좋음
+
+
+리액트 할 때 외부 라이브러리 많이 쓰는데 흔들리지 말고 하나를 깊이있게 알자...
+상태관리 개념을 알고 가자
+자바스크립트 + Next.js
