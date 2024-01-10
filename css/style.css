@@ -183,8 +183,11 @@ header {
 	font-style: normal;
 	font-weight: 600;
 	line-height: normal;
+}
 
+a {
 	cursor: pointer;
+	text-decoration: none;
 }
 
 .login {
