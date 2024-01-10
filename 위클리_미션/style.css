@@ -102,7 +102,7 @@ h1 {
   margin: 40px 0;
 }
 
-.image25 {
+.main-image {
   width: 1200px;
   height: 590px;
   flex-shrink: 0;
@@ -143,8 +143,7 @@ h2 {
 }
 
 .hidden-image {
-  width: 0;
-  height: 0;
+  display: none;
 }
 
 p {
@@ -239,7 +238,7 @@ p {
   gap: 157px;
 }
 
-.screen {
+.screenshot {
   background-image: url("landing_image/_img4\ 1.png");
   background-position: center;
   background-size: cover;
@@ -290,7 +289,7 @@ p {
   margin: 30px;
 }
 
-.privacy1,
+.privacy,
 .faq {
   color: #cfcfcf;
   font-family: Acme;
@@ -321,7 +320,7 @@ p {
     flex-direction: column;
   }
 
-  .image25 {
+  .main-image {
     width: 698px;
     height: 343px;
   }
@@ -331,35 +330,18 @@ p {
     gap: 51px;
   }
 
-  .images {
+  .images,
+  .change_name_folder,
+  .share_folder,
+  .screenshot {
     width: 385px;
     height: 315px;
   }
 
-  .page3 {
-    gap: 51px;
-  }
-
-  .change_name_folder {
-    width: 385px;
-    height: 315px;
-  }
-
-  .share_folder {
-    width: 385px;
-    height: 315px;
-  }
-
-  .page4 {
-    gap: 51px;
-  }
-
+  .page3,
+  .page4,
   .page5 {
     gap: 51px;
-  }
-  .screen {
-    width: 385px;
-    height: 315px;
   }
 }
 
@@ -396,7 +378,7 @@ p {
     margin: 24px 0;
   }
 
-  .image25 {
+  .main-image {
     width: 325px;
     height: 160px;
   }
@@ -437,9 +419,8 @@ p {
   .images,
   .change_name_folder,
   .share_folder,
-  .screen {
-    width: 0;
-    height: 0;
+  .screenshot {
+    display: none;
   }
 
   .rainbow2,
@@ -455,7 +436,7 @@ p {
     position: relative;
     padding: 32px 32px 64px;
   }
-  .privacy {
+  .privacy-faq {
     margin-bottom: 60px;
   }
   .codeit {

@@ -159,14 +159,12 @@ main {
   position: relative;
 }
 
-.google1,
-.kakao1 {
+.icon-background {
   width: 42px;
   height: 42px;
 }
 
-.google2,
-.kakao2 {
+.icon {
   position: absolute;
   top: 10px;
   left: 10px;
