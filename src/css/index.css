@@ -13,10 +13,15 @@ header {
     background-color: var(--color-background);
 }
 
+body {
+    background-color: var(--color-background);
+}
+
 main {
-    width: 1200px;
     margin: auto;
-    padding: 72px;
+    padding: 72px 172px;
+
+    background-color: var(--color-white);
 }
 
 footer {
