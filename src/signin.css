@@ -2,23 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "pretendard";
-}
-
-:root {
-  --Linkbrary-bg: #f0f6ff;
-  --Black: #000;
-  --Linkbrary-primary-color: #6d6afe;
-  --Linkbrary-white: #fff;
-  --Linkbrary-gray100: #373740;
-  --Linkbrary-gray20: #ccd5e3;
-  --Linkbrary-gray10: #e7effb;
-  --gra-purpleblue-to-skyblue: linear-gradient(
-    91deg,
-    #6d6afe 0.12%,
-    #6ae3fe 101.84%
-  );
-  --Grey-Light: #f5f5f5;
+  font-family: "Pretendard";
 }
 
 body {
@@ -33,73 +17,69 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 32px;
-  padding: 238px 0 252px;
+  gap: 3.2rem;
+  padding: 23.8rem 0 25.2rem;
 }
 
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
 header p {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 0.8rem;
   color: var(--Black);
-  font-family: Pretendard;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 2.4rem;
 }
 
 header p a {
   color: var(--Linkbrary-primary-color);
-  font-family: Pretendard;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+
+a.logo {
+  height: 3.8rem;
 }
 
 .longin-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 3rem;
 }
 
 main > div {
-  width: 400px;
-}
-
-.logo {
-  width: 210.583px;
-  height: 38px;
+  width: 40rem;
 }
 
 .email-container,
 .password-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .email-container + .password-container {
-  margin-top: 24px;
+  margin-top: 2.4rem;
 }
 
 form {
-  margin: 30px 0;
+  margin: 3rem 0;
 }
 
 form label {
   color: var(--Black);
-  font-family: Pretendard;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -107,31 +87,30 @@ form label {
 
 form input {
   display: flex;
-  padding: 18px 15px;
+  padding: 1.8rem 1.5rem;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  border: 1px solid var(--Linkbrary-gray20);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--Linkbrary-gray20);
   background: var(--Linkbrary-white);
 }
 
 form input:focus {
-  outline: 1px solid var(--Linkbrary-primary-color);
+  outline: 0.1rem solid var(--Linkbrary-primary-color);
 }
 
-button {
+.button-login {
   display: flex;
-  width: 400px;
-  padding: 16px 20px;
+  width: 40rem;
+  padding: 1.6rem 2rem;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
   border: none;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   background: var(--gra-purpleblue-to-skyblue);
   color: var(--Grey-Light);
-  font-family: Pretendard;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -139,18 +118,17 @@ button {
 
 .social-login {
   display: flex;
-  padding: 12px 24px;
+  padding: 1.2rem 2.4rem;
   justify-content: space-between;
   align-items: center;
-  border-radius: 8px;
-  border: 1px solid var(--Linkbrary-gray20);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--Linkbrary-gray20);
   background: var(--Linkbrary-gray10);
 }
 
 .social-login > span {
   color: var(--Linkbrary-gray100);
-  font-family: Pretendard;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -159,5 +137,5 @@ button {
 .social-login > div {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 1.6rem;
 }
