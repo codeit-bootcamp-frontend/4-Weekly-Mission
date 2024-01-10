@@ -1,5 +1,6 @@
 :root{
     --color-primary: #6D6AFE;
+    --color-background: #f1f6fe;
     --color-red: #FF5B56;
     --color-black: #111322;
     --color-white:#ffffff;
@@ -10,10 +11,26 @@
     --color-gray1: #F0F6FF;
 }
 
+body{
+    margin: 0;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 30px 200px;
+
+    background-color: var(--color-background);
+}
+
 .btn_login{
     padding: 16px 20px;
 
     background: linear-gradient(90.99deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
     border-radius: 8px;
     border: none;
+    color: white;
+    cursor: pointer;
 }
