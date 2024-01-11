@@ -131,6 +131,8 @@ input:focus {
 
 .btn-login {
   width: 100%;
+  padding: 1.6rem 2rem;
+  font-size: 1.8rem;
 }
 
 .social {
