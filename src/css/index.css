@@ -228,8 +228,8 @@ a {
     }
 
     .img_landing {
-        order: 1; /* 이미지를 첫 번째로 이동 (먼저 나오도록) */
-        margin-bottom: 10px; /* 이미지와 텍스트 사이에 간격 추가 */
+        order: 1;
+        margin-bottom: 10px;
     }
 
     .txt_copyright {

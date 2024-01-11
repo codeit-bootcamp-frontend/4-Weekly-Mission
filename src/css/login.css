@@ -30,7 +30,7 @@ a {
     color: var(--color-primary);
 }
 
-.container_signin {
+.container_login {
     width: 400px;
     margin: auto;
 
@@ -45,11 +45,11 @@ a {
     inset: 0;
 }
 
-.btn_signin {
+.btn_login {
     width: 100%;
 }
 
-.txt_signin {
+.txt_login {
     font-family: Pretendard;
     font-size: 16px;
     font-weight: 400;
@@ -103,7 +103,7 @@ a {
 }
 
 @media (max-width: 767px) {
-    .container_signin {
+    .container_login {
         padding: 32px;
         width: 100%;
         max-width: 400px;
