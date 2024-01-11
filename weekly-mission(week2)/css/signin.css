@@ -1,0 +1,158 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
+
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6D6AFE;
+    --red: #FF5B56;
+    --black: #111322;
+    --white: #ffffff;
+    --gray-5: #3E3E43;
+    --gray-4: #9FA6B2;
+    --gray-3: #CCD5E3;
+    --gray-2: #E7EFFB;
+    --Linkbrary-bg: #F0F6FF;
+    --gra-purpleblue-to-skyblue: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+}
+
+body {
+    background-color: var(--Linkbrary-bg);
+    padding-top: 238px;
+    padding-bottom: 252px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+}
+
+main, 
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.logo img{
+    width: 210.583px;
+    height: 38px;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.signup {
+    color: var(--black, #000);
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.signup a {
+    color: var(--primary);
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+input {
+    padding: 18px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--gray-4);
+    background: var(--white);
+    width: 400px;
+}
+
+input:focus {
+    border: 3px solid var(--primary);;
+    outline: none;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+}
+
+.input-row label {
+    color: var(--black, #000);
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+button.login-btn {
+    display: flex;
+    padding: 16px 20px;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: var(--gra-purpleblue-to-skyblue);
+    color: #f5f5f5;
+    white-space: nowrap;
+    text-decoration: none;
+    color: var(--Grey-Light, #F5F5F5);
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    border: 1px solid var(--gray-4);
+    cursor: pointer;
+}
+
+footer {
+    border-radius: 8px;
+    border: 1px solid #CCD5E3;
+    background: #E7EFFB;
+    width: 400px;
+    padding: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-sns {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+footer span {
+    color: #373740;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.eye-off {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 48px;
+    right: 20px;
+    cursor: pointer;
+}
