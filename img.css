@@ -1,0 +1,37 @@
+/*0. 이미지 컨테이너 블록 */
+/* 이미지 컨테이너 블록 레이아웃 */
+.img_container_ly {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 이미지 컨테이너 블록 사이즈 */
+.img_container_auth_size {
+  width: 1200px;
+  height: 590px;
+}
+
+
+/*1. 이미지 블록 */
+/* 이미지 블록 레이아웃 */
+.img_auth_ly {
+  flex-shrink: 0;
+}
+
+/* 이미지 블록 사이즈 */
+.img_auth {
+  width: 1118px;
+  height: 659px;
+}
+
+/* 이미지 블록 스타일 */
+.img_style {
+  border-radius: 25px;
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* 이미지 블록 컬러 */
+.img_color {
+  background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%);
+}

@@ -1,3 +1,4 @@
+/* Mix: 로그인 버튼 멀티 클래스 */
 /*버튼 레이아웃*/
 .button_ly {
   display: flex;
@@ -8,9 +9,12 @@
 }
 
 /* 버튼 사이즈 */
-/* Mix: 로그인 버튼 멀티 클래스 */
 .button_login_size {
   width: 128px;
+}
+
+.button_auth_size {
+  width: 350px;
 }
 
 /* 선택자: 버튼 스타일, 컬러*/

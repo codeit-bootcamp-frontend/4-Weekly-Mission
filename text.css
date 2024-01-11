@@ -1,0 +1,36 @@
+/* 텍스트 블록 레이아웃 */
+.text_ly {
+  align-items: flex-start;
+  line-height: normal;
+  flex-direction: column;
+}
+
+.text_auth_ly {
+  text-align: center;
+  line-height: 80px;
+}
+
+/* 텍스트 블록 사이즈*/
+.text_auth {
+  font-size: 64px;
+}
+
+/* 텍스트 블록 스타일*/
+.text_style {
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+/* 텍스트 블록 컬러*/
+.text_color {
+  color: #000;
+}
+
+.text_auth_diff-color {
+  background: linear-gradient(91deg, var(--Linkbrary-primary-color, #6D6AFE) 17.28%, #FF9F9F 74.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
