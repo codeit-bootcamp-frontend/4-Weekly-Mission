@@ -1,0 +1,62 @@
+/* 유틸리티 스타일시트 */
+
+.gradient-style1 {
+  background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+}
+
+.gradient-style2-1 {
+  background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+}
+
+.gradient-style2-2 {
+  background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+}
+
+.gradient-style2-3 {
+  background: linear-gradient(99deg, #6d7ccd 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+}
+
+.gradient-style2-4 {
+  background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%));
+}
+
+.gradient-btn1 {
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.btn-login {
+  width: 8rem;
+  padding: 1rem 1.6rem;
+  font-size: 1.4rem;
+}
+
+.btn-addlink {
+  width: 20rem;
+  padding: 1rem 1.6rem;
+  font-size: 1.4rem;
+}
+
+.flex-order-1 {
+  order: 1;
+}
+
+/* Tablet, PC */
+@media (min-width: 768px) {
+  .btn-login {
+    width: 12.8rem;
+    padding: 1.6rem 2rem;
+    font-size: 1.8rem;
+  }
+
+  .btn-addlink {
+    width: 35rem;
+    padding: 1.6rem 2rem;
+    font-size: 1.8rem;
+  }
+}
