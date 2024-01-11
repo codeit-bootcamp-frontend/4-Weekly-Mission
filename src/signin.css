@@ -5,6 +5,11 @@
   font-family: "Pretendard";
 }
 
+html,
+body {
+  font-size: 62.5%;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -18,7 +23,7 @@ main {
   align-items: center;
   flex-direction: column;
   gap: 3.2rem;
-  padding: 23.8rem 0 25.2rem;
+  padding-top: 23.8rem;
 }
 
 header {
@@ -28,7 +33,7 @@ header {
   gap: 1.6rem;
 }
 
-header p {
+.header-message {
   display: flex;
   align-items: flex-start;
   gap: 0.8rem;
@@ -39,7 +44,7 @@ header p {
   line-height: 2.4rem;
 }
 
-header p a {
+.header-signup-link {
   color: var(--Linkbrary-primary-color);
   font-size: 1.6rem;
   font-style: normal;
@@ -47,7 +52,7 @@ header p a {
   line-height: normal;
 }
 
-a.logo {
+.header-logo {
   height: 3.8rem;
 }
 
@@ -77,7 +82,7 @@ form {
   margin: 3rem 0;
 }
 
-form label {
+.sign-label {
   color: var(--Black);
   font-size: 1.4rem;
   font-style: normal;
@@ -85,7 +90,7 @@ form label {
   line-height: normal;
 }
 
-form input {
+.sign-input {
   display: flex;
   padding: 1.8rem 1.5rem;
   justify-content: center;
@@ -93,10 +98,24 @@ form input {
   border-radius: 0.8rem;
   border: 0.1rem solid var(--Linkbrary-gray20);
   background: var(--Linkbrary-white);
+  font-size: 1.6rem;
 }
 
-form input:focus {
+.sign-input:focus {
   outline: 0.1rem solid var(--Linkbrary-primary-color);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+.eye-off {
+  position: absolute;
+  bottom: 2.2rem;
+  right: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
 }
 
 .button-login {
@@ -126,7 +145,7 @@ form input:focus {
   background: var(--Linkbrary-gray10);
 }
 
-.social-login > span {
+.social-login > .social-message {
   color: var(--Linkbrary-gray100);
   font-size: 1.4rem;
   font-style: normal;
@@ -134,7 +153,7 @@ form input:focus {
   line-height: normal;
 }
 
-.social-login > div {
+.social-login > .social-link {
   display: flex;
   align-items: flex-start;
   gap: 1.6rem;

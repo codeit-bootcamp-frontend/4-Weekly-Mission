@@ -5,6 +5,11 @@
   font-family: "Pretendard";
 }
 
+html,
+body {
+  font-size: 62.5%;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -17,50 +22,49 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 32px;
-  padding: 238px 0 252px;
+  gap: 3.2rem;
+  padding-top: 23.8rem;
 }
 
 header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
-header p {
+.header-message {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 0.8rem;
   color: var(--Black);
-  font-size: 16px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 2.4rem;
 }
 
-header p a {
+.header-signup-link {
   color: var(--Linkbrary-primary-color);
-  font-size: 16px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+
+.header-logo {
+  height: 3.8rem;
 }
 
 .longin-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 3rem;
 }
 
 main > div {
-  width: 400px;
-}
-
-.logo {
-  width: 210.583px;
-  height: 38px;
+  width: 40rem;
 }
 
 .email-container,
@@ -68,58 +72,69 @@ main > div {
 .password-check-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .email-container + .password-container {
-  margin-top: 24px;
+  margin-top: 2.4rem;
 }
 
 .password-container + .password-check-container {
-  margin-top: 24px;
+  margin-top: 2.4rem;
 }
 
 form {
-  margin: 30px 0;
+  margin: 3rem 0;
 }
 
-form label {
+.sign-label {
   color: var(--Black);
-  font-size: 14px;
+  font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
-form input {
+.sign-input {
   display: flex;
-  padding: 18px 15px;
+  padding: 1.8rem 1.5rem;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  border: 1px solid var(--Linkbrary-gray20);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--Linkbrary-gray20);
   background: var(--Linkbrary-white);
+  font-size: 1.6rem;
 }
 
-form input:focus {
-  outline: 1px solid var(--Linkbrary-primary-color);
+.sign-input:focus {
+  outline: 0.1rem solid var(--Linkbrary-primary-color);
 }
 
 button {
   border: none;
+  cursor: pointer;
 }
 
-.button-signup {
+.eye-off {
+  position: absolute;
+  bottom: 2.2rem;
+  right: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.button-login {
   display: flex;
-  width: 400px;
-  padding: 16px 20px;
+  width: 40rem;
+  padding: 1.6rem 2rem;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  border-radius: 8px;
+  gap: 1rem;
+  border: none;
+  border-radius: 0.8rem;
   background: var(--gra-purpleblue-to-skyblue);
   color: var(--Grey-Light);
-  font-size: 18px;
+  font-size: 1.8rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -127,24 +142,24 @@ button {
 
 .social-login {
   display: flex;
-  padding: 12px 24px;
+  padding: 1.2rem 2.4rem;
   justify-content: space-between;
   align-items: center;
-  border-radius: 8px;
-  border: 1px solid var(--Linkbrary-gray20);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--Linkbrary-gray20);
   background: var(--Linkbrary-gray10);
 }
 
-.social-login > span {
+.social-login > .social-message {
   color: var(--Linkbrary-gray100);
-  font-size: 14px;
+  font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 
-.social-login > div {
+.social-login > .social-link {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 1.6rem;
 }

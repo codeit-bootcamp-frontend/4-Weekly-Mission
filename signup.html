@@ -2,37 +2,57 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="signup.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="/src/signup.css" />
+    <link rel="stylesheet" href="/src/color.css" />
     <title>Linkbrary</title>
   </head>
   <body>
     <main>
-      <div class="signup-form">
+      <div class="login-form">
         <header>
-          <img class="logo" src="/public/img/logo.svg" alt="logo" />
-          <p>이미 회원이신가요? <a href="signin.html">로그인 하기</a></p>
+          <a href="/"
+            ><img class="header-logo" src="/public/img/logo.svg" alt="logo"
+          /></a>
+          <p class="header-message">
+            이미 회원이신가요?
+            <a class="header-signup-link" href="signin.html">로그인 하기</a>
+          </p>
         </header>
         <form action="">
           <div class="email-container">
-            <label for="email">이메일</label>
-            <input id="email" type="email" placeholder="codeit@codeit.com" />
+            <label class="sign-label" for="email">이메일</label>
+            <input
+              class="sign-input"
+              type="email"
+              placeholder="codeit@codeit.com"
+            />
           </div>
           <div class="password-container">
-            <label for="password">비밀번호</label>
-            <input id="password" name="password" type="password" />
-            <!-- <img src="/public/img/eye-off.svg" alt="" /> -->
+            <label class="sign-label" for="password">비밀번호</label>
+            <input class="sign-input" name="password" type="password" />
+            <!-- <button class="eye-off" type="button">
+              <img src="/public/img/eye-off.svg" alt="" />
+            </button> -->
           </div>
           <div class="password-check-container">
-            <label for="password">비밀번호 확인</label>
-            <input id="password" name="password" type="password" />
-            <!-- <img src="/public/img/eye-off.svg" alt="" /> -->
+            <label class="sign-label" for="password">비밀번호</label>
+            <input class="sign-input" name="password" type="password" />
+            <!-- <button class="eye-off" type="button">
+              <img src="/public/img/eye-off.svg" alt="" />
+            </button> -->
           </div>
         </form>
-        <button>회원가입</button>
+        <button class="button-login" type="submit">회원가입</button>
       </div>
       <div class="social-login">
-        <span>다른 방식으로 가입하기</span>
-        <div>
+        <span class="social-message">다른 방식으로 가입하기</span>
+        <div class="social-link">
           <a href="https://www.google.com">
             <img src="/public/img/google.png" alt="" />
           </a>
