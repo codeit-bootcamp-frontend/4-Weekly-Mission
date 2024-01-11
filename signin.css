@@ -1,7 +1,7 @@
 @import "./global.css";
 
 body {
-  padding-top: 238px;
+  padding: 238px 0 252px 0;
   background-color: var(--bg);
   display: flex;
   flex-direction: column;
