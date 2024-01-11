@@ -108,6 +108,9 @@ main {
     font-weight: 700;
     font-family: 'Pretendard';
 }
+.main_article h2 em {
+    display: none;
+}
 .main_article strong {
     background: linear-gradient(91deg, var(--primary) 17.28%, #FF9F9F 74.98%);
     background-clip: text;
@@ -133,7 +136,7 @@ main {
 
 /* article2 */
 main article:nth-of-type(2) section {
-    padding: 5rem 0;
+    padding: 5rem 32px;
 }
 main article:nth-of-type(2) section:nth-of-type(1) {
     padding-top: 8rem;
@@ -145,6 +148,9 @@ main article:nth-of-type(2) .container > div{
     max-width: 998px;
     margin: 0 auto;
 }
+main article:nth-of-type(2) .container .sec_text {
+    max-width: 290px;
+}
 main article:nth-of-type(2) h3 {
     font-size: 4.8rem;
     font-weight: 700;
@@ -153,46 +159,53 @@ main article:nth-of-type(2) h3 {
     font-weight: 700;
     font-family: 'Pretendard';
 }
-main article:nth-of-type(2) .storage h3 strong {
-    background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-}
 main article:nth-of-type(2) p {
+    word-break: keep-all;
     color: #6B6B6B;
     font-size: 1.6rem;
     margin-top: 1rem;
     font-weight: 400;
     font-family: 'Abel';
+    line-height: 150%;
+}
+main article:nth-of-type(2) .container > div div:nth-of-type(2) {
+    flex-shrink: 0;
 }
 main article:nth-of-type(2) img {
     max-width: 550px;
     width: 100%;
 }
 
+/* storage */
+main article:nth-of-type(2) .storage h3 strong {
+    background: linear-gradient(96deg, #FE8A8A, #A4CEFF);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
 /* management */
 main article:nth-of-type(2) .management h3 strong {
-    background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+    background: linear-gradient(277deg, #6FBAFF, #ffd88b);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 /* sharing */
 main article:nth-of-type(2) .sharing h3 strong {
-    background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+    background: linear-gradient(99deg, #6D7CCD, rgba(82, 136, 133, 0.22));
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 /* search */
 main article:nth-of-type(2) .search h3 strong {
-    background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+    background: linear-gradient(271deg, #FE578F, #68E8F9);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
 
 /* footer */
 footer {
@@ -224,9 +237,12 @@ footer a {
 footer ul:nth-of-type(2) {
     gap: 12px;
 }
-footer ul:nth-of-type(2) a {
-    display: inline-block;
+footer ul:nth-of-type(2) li {
     width: 20px; height: 20px;
+}
+footer ul:nth-of-type(2) a {
+    display: block;
+    width: 100%; height: 100%;
     font-size: 0;
 }
 footer ul:nth-of-type(2) li:nth-of-type(1) a {
@@ -240,4 +256,103 @@ footer ul:nth-of-type(2) li:nth-of-type(3) a {
 }
 footer ul:nth-of-type(2) li:nth-of-type(4) a {
     background: url('../image/instagram.png') center center no-repeat;
+}
+
+/* 테블릿 반응형 */
+@media screen and (max-width:1199px) {
+    header div {
+        padding: 0 32px;
+    }
+    .main_article h2 {
+        word-break: keep-all;
+    }
+    .main_article h2 em {
+        display: inline;
+        font-size: 0;
+        line-height: 0;
+    }
+    .main_article a {
+        max-width: 350px;
+    }
+
+    footer {
+        padding: 32px;
+    }
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width:768px) {
+    header {
+        padding: 13px 0;
+    }
+    header h1 a {
+        width: 88.87px; height: 16px;
+    }
+    header div > a {
+        padding: 1rem 2.15rem;
+        font-size: 1.4rem;
+    }
+    main {
+        padding-bottom: 40px;
+    }
+
+    /* main_article */
+    .main_article {
+        padding-top: 90px;
+    }
+    .main_article h2 {
+        font-size: 3.2rem;
+        line-height: 131.25%;
+    }
+    .main_article a {
+        padding: 1rem 0;
+        margin: 2.4rem auto;
+        max-width: 200px;
+        font-size: 1.4rem;
+    }
+
+    /* article */
+    main article:nth-of-type(2) section {
+        padding: 4rem 3.2rem 4.2rem;
+    }
+    main article:nth-of-type(2) section:nth-of-type(1) {
+        padding-bottom: 3.6rem;
+        padding-top: 4rem;
+    }
+    main article:nth-of-type(2) .container > div {
+        flex-wrap: wrap;
+    }
+    main article:nth-of-type(2) .container .sec_text {
+        max-width: 100%;
+        margin-bottom: 24px;
+    }
+    main article:nth-of-type(2) h3 {
+        font-size: 2.4rem;
+    }
+    main article:nth-of-type(2) p {
+        font-size: 1.5rem;
+    }
+    main article:nth-of-type(2) img {
+        max-width: 100%;
+    }
+    main article:nth-of-type(2) .container > div div:nth-of-type(2) {
+        flex-shrink: 1;
+    }
+    main article:nth-of-type(2) .container.management > div, main article:nth-of-type(2) .container.search > div {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+
+}
+
+
+/* 푸터 줄바꿈 */
+@media screen and (max-width:500px) {
+    footer {
+        position: relative;
+    }
+    footer div p {
+        position: absolute;
+        bottom: 32px; left: 32px;
+    }
 }

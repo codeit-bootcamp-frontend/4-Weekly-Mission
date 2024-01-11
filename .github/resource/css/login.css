@@ -41,6 +41,9 @@ textarea {
     padding-top: 238px;
     max-width: 520px;
 }
+.wrap {
+    padding: 0 32px;
+}
 /* login_top */
 .login_top {
     text-align: center;
@@ -152,4 +155,18 @@ textarea {
 }
 .login_footer div ul li:nth-of-type(2) a {
     background: url('../image/kakao.png') center center no-repeat;
+}
+
+/* 태블릿 반응형 */
+@media screen and (max-width: 1199px) {
+    .container {
+        padding-top: 200px;
+    }
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width: 768px) {
+    .container {
+        padding-top: 120px;
+    }
 }
