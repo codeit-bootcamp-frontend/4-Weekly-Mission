@@ -42,6 +42,7 @@ body {
   justify-content: flex-end;
   align-items: center;
   gap: 40px;
+  overflow: hidden;
 }
 
 .board_card_ly {
@@ -49,7 +50,6 @@ body {
   padding: 120px 461px 50px 461px;
   justify-content: center;
   align-items: center;
-  z-index: 2;
 }
 
 .board_ly {

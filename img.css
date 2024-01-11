@@ -12,6 +12,28 @@
   height: 590px;
 }
 
+.img_container_default_size {
+  width: 550px;
+  height: 450px;
+  overflow: hidden;
+}
+
+/* 이미지 컨테이너 > 엘리먼트 레이아웃 */
+.img_comtainer__card_ly {
+  display: inline-flex;
+  align-items: center;
+  gap: -12px;
+}
+
+/* 이미지 컨테이너 블록 컬러 */
+.img_container_color {
+  background: #F0F6FF;
+}
+
+.img_container_style {
+  border-radius: 15px;
+}
+
 
 /*1. 이미지 블록 */
 /* 이미지 블록 레이아웃 */
@@ -25,6 +47,25 @@
   height: 659px;
 }
 
+.img_card-left {
+  cursor: pointer;
+  width: 279px;
+  height: 274.927px;
+}
+
+.img_card-center {
+  background-image: url("Publics/landing/Card.png");
+  cursor: pointer;
+  width: 279px;
+  height: 274.441px;
+}
+
+.img_card-right {
+  cursor: pointer;
+  width: 279px;
+  height: 274.122px;
+}
+
 /* 이미지 블록 스타일 */
 .img_style {
   border-radius: 25px;
@@ -34,4 +75,13 @@
 /* 이미지 블록 컬러 */
 .img_color {
   background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%);
+}
+
+
+/* 카드 블록 센터의 로고 위치*/
+.img_card-center>svg {
+  position: relative;
+  cursor: pointer;
+  right: -85%;
+  top: 85%;
 }

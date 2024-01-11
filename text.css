@@ -1,3 +1,18 @@
+/*0. 텍스트 컨테이너 블록 */
+/* 텍스트 컨테이너 블록 레이아웃 */
+.text_container_ly {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* 텍스트 컨테이너 블록 크기 */
+.text_container {
+  width: 291px;
+}
+
+
+/* 1. 텍스트 블록 */
 /* 텍스트 블록 레이아웃 */
 .text_ly {
   align-items: flex-start;
@@ -13,6 +28,10 @@
 /* 텍스트 블록 사이즈*/
 .text_auth {
   font-size: 64px;
+}
+
+.text_default {
+  font-size: 48px;
 }
 
 /* 텍스트 블록 스타일*/
@@ -33,4 +52,26 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.text_card_diff_color {
+  background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* 2. 텍스트 언더 블록 */
+.text_under_ly {
+  align-self: stretch;
+}
+
+.text_under {
+  color: #6B6B6B;
+  font-family: Abel;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
 }

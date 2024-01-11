@@ -1,0 +1,6 @@
+/*아티클 레이아웃*/
+.article_ly {
+  display: flex;
+  align-items: center;
+  gap: 157px;
+}
