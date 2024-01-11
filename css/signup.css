@@ -4,7 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  background: var(--Linkbrary-bg);
+  background: var(--Linkbrary-bg, #f0f6ff);
   padding: 12rem 3.2rem;
 }
 
@@ -48,14 +48,14 @@ body {
 }
 
 .check {
-  color: var(--black, #000);
+  color: #000;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 2.4rem;
 }
 
 .check a {
-  color: var(--Linkbrary-primary-color, #6d6afe);
+  color: var(--primary, #6d6afe);
   font-size: 1.6rem;
   font-weight: 600;
   text-underline-position: under;
@@ -79,7 +79,7 @@ label {
   flex-direction: column;
   width: 100%;
   gap: 1.2rem;
-  color: var(--black, #000);
+  color: #000;
   font-size: 1.4rem;
   font-weight: 400;
 }
@@ -92,16 +92,16 @@ input {
   width: 100%;
   padding: 1.8rem 1.5rem;
   border-radius: 0.8rem;
-  border: 0.1rem solid var(--Linkbrary-gray20, #ccd5e3);
-  background: var(--Linkbrary-white, #fff);
-  color: var(--Linkbrary-gray100, #373740);
+  border: 0.1rem solid var(--gray20, #ccd5e3);
+  background: var(--white, #fff);
+  color: #373740;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 2.4rem;
 }
 
 input:focus {
-  outline: 0.1rem solid var(--Linkbrary-primary-color, #6d6afe);
+  outline: 0.1rem solid var(--primary, #6d6afe);
 }
 
 .password-input-wrap .button-eye {
@@ -141,8 +141,8 @@ input:focus {
   width: 100%;
   font-size: 1.4rem;
   border-radius: 0.8rem;
-  border: 0.1rem solid var(--Linkbrary-gray20, #ccd5e3);
-  background: var(--Linkbrary-gray10, #e7effb);
+  border: 0.1rem solid var(--gray20, #ccd5e3);
+  background: var(--gray10, #e7effb);
 }
 
 .social-icons {

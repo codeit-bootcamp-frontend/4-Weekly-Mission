@@ -17,7 +17,7 @@
 }
 
 .gradient-style2-4 {
-  background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%));
+  background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
 }
 
 .gradient-btn1 {

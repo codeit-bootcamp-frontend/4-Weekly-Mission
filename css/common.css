@@ -5,7 +5,6 @@
   font-family: Pretendard;
   font-style: normal;
   line-height: normal;
-  word-break: keep-all;
 }
 
 :root {
@@ -23,10 +22,8 @@
 
   --Grey-Light: #f5f5f5;
   --Linkbrary-bg: #f0f6ff;
-  --The-julge-black: #111322;
 
   --gra-purpleblue-to-skyblue: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-  --Fandom-K-gra-blue-to-pink: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
 }
 
 html {
@@ -38,17 +35,56 @@ body {
   margin: 0;
 }
 
+/* ---------Header--------- */
+
 header {
   position: fixed;
   top: 0;
-  width: 100%;
-  max-width: 192rem;
-  /* 중앙 정렬 */
   left: 50%;
   transform: translate(-50%, 0);
-  /* 중앙 정렬 끝*/
+  padding: 1.3rem 3.2rem;
+  width: 100%;
+  max-width: 192rem;
   z-index: 1;
 }
+
+.gnb-container {
+  width: 100%;
+}
+
+.gnb-container .logo {
+  width: 8.8667rem;
+  height: 1.6rem;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  header {
+    padding: 2rem 3.2rem;
+  }
+
+  .gnb-container {
+    max-width: 78.3rem;
+  }
+
+  .gnb-container .logo {
+    width: 13.3rem;
+    height: 2.4rem;
+  }
+}
+
+/* PC */
+@media (min-width: 1200px) {
+  header {
+    padding: 2rem 20rem;
+  }
+
+  .gnb-container {
+    max-width: 100%;
+  }
+}
+
+/* ---------Main--------- */
 
 main {
   display: flex;
@@ -90,14 +126,14 @@ button {
   display: flex;
   justify-content: center;
   width: 100%;
-  background: #f0f6ff;
+  background: var(--Linkbrary-bg, #f0f6ff);
 }
 
 /* ---------Footer--------- */
 
 footer {
   height: 16rem;
-  background: var(--The-julge-black, #111322);
+  background: var(--black, #111322);
 }
 
 .footer-container {
