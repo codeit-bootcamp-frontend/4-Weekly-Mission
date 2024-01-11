@@ -57,10 +57,16 @@ button {
   align-items: center;
   gap: 3rem;
 }
-/* .layout:last-child {
-  gap:3.2rem;
-  margin-top: 0.2rem;
-} */
+/* mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+  .main {
+    padding: 12rem 3.2rem 23.3rem 3.2rem;
+  }
+  .layout {
+    max-width: 40rem;
+    margin: 0 auto;
+  }
+}
 /* 제목 */
 .title {
   display: flex;
