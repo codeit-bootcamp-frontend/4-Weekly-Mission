@@ -9,7 +9,19 @@ body {
 }
 
 header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
   background-color: var(--gray5);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4rem;
+  padding-top: 7rem;
 }
 
 nav {
@@ -33,7 +45,6 @@ nav {
   justify-content: center;
   align-items: center;
   height: 5.4rem;
-  cursor: pointer;
   background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
   border-radius: 0.8rem;
   color: #f5f5f5;
@@ -47,15 +58,6 @@ nav {
 
 .login-long {
   width: 35rem;
-}
-
-.heading {
-  padding: 70px 360px 0px 360px;
-  display: flex;
-  gap: 40px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .main-heading-text {
@@ -202,4 +204,213 @@ footer {
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
+}
+
+/* Tablet*/
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 4rem;
+    padding-top: 4rem;
+  }
+
+  .main-capture {
+    width: 69.8rem;
+    height: 34.3rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, var(--gray5) 94.76%);
+  }
+  .main-capture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  main {
+    padding-top: 7rem;
+    padding-bottom: 12rem;
+  }
+
+  section {
+    display: grid;
+    justify-content: center;
+    column-gap: 5.1rem;
+    row-gap: 1rem;
+    width: 100%;
+    height: 31.5rem;
+    margin: 50px 0;
+  }
+
+  section:nth-of-type(odd) {
+    grid-template:
+      ". image"
+      "title image"
+      "text image"
+      ". image"
+      /262px 38.5rem;
+  }
+  
+  section:nth-of-type(even) {
+    grid-template:
+      "image ."
+      "image title"
+      "image text"
+      "image ."
+      /385px 26.2rem;
+  }
+
+  section img {
+    grid-area: image;
+    width: 38.5rem;
+    height: 31.5rem;
+  }
+}
+
+/* Mobile*/
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 2.4rem;
+    padding-top: 2.8rem;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 0 3.2rem;
+    position: sticky;
+    width: 100%;
+    height: 6.3rem;
+    max-width: 76.7rem;
+    top: 0;
+    background-color: var(--gray5);
+    z-index: 1000;
+    opacity: 1;
+  }
+
+  .login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.7rem;
+    background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
+    border-radius: 0.8rem;
+    color: #f5f5f5;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .login-short {
+    width: 8rem;
+  }
+  
+  .login-long {
+    width: 20rem;
+  }
+
+  .main-heading-text {
+    color: var(--black);
+    text-align: center;
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 4.2rem;
+  }
+
+  .main-capture {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+  }
+  
+  .main-capture img {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    display: block;
+  }
+
+  main {
+    padding-top: 0;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  section {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    padding: 40px 32px;
+    margin-bottom: 40px;
+  }
+
+  section:nth-of-type(odd) {
+    grid-template:
+      "title"
+      "image"
+      "text"
+      /auto;
+  }
+  
+  section:nth-of-type(even) {
+    grid-template:
+      "title"
+      "image"
+      "text"
+      /auto;
+  }
+
+  section img {
+    width: 100%;
+    height: auto;
+    margin: 2rem 0 1.6rem;
+  }
+
+  .title {
+    grid-area: title;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -0.03rem;
+  }
+
+  section p {
+    grid-area: text;
+    color: #6B6B6B;
+    font-family: Abel;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+  }
+
+  footer {
+    margin-top: 40px;
+    padding: 32px 32px 64px 32px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .footer-box {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .copyright {
+    position: absolute;
+    bottom: 3.4rem;
+  }
 }
