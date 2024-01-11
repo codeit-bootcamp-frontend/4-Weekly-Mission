@@ -65,14 +65,15 @@ body {
   border-color: var(--Linkbrary-primary-color, #6d6afe);
 }
 
-.field {
+.icon_wrap {
   position: relative;
 }
 
 .field .icon {
   position: absolute;
-  top: 50px;
   right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
   cursor: pointer;
 }
 
