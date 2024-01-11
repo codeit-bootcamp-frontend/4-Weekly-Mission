@@ -1,0 +1,80 @@
+/*Footer 블록 레이아웃*/
+.footer_ly {
+  display: flex;
+  padding: 32px 104px 64px 104px;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+/*Footer 블록 크기*/
+.footer {
+  height: 160px;
+}
+
+/*Footer 블록 색상*/
+.footer_color {
+  background: var(--The-julge-black, #111322);
+}
+
+/*Footer 블록 > 컨테이너 엘리먼트*/
+/*Footer 블록 > 컨테이너 엘리먼트 레이아웃*/
+.footer__container_ly {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+/*Footer 블록 > 컨테이너 엘리먼트 > 내부 블록*/
+.codeit_ly {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.codeit_style {
+  color: #676767;
+  text-align: center;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.policy-text_ly {
+  display: flex;;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.footer__container>.policy-text {
+  width: 181.111px
+}
+
+.policy-text_style {
+  color: #676767;
+  text-align: center;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.policy-text_hypl {
+  text-decoration-line: none;
+}
+
+.social-logo_ly {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.social-logo_hypl {
+  text-decoration-line: none;
+}

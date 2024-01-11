@@ -23,6 +23,13 @@ body {
 }
 
 /* 보드 레이아웃, 컨텍스트 적용 */
+.board_ly {
+  display: flex;
+  padding: 50px 461px;
+  justify-content: center;
+  align-items: center;
+}
+
 .board_gnb_ly {
   position: sticky;
   top: 0;
@@ -48,13 +55,6 @@ body {
 .board_card_ly {
   display: flex;
   padding: 120px 461px 50px 461px;
-  justify-content: center;
-  align-items: center;
-}
-
-.board_ly {
-  display: flex;
-  padding: 50px 461px;
   justify-content: center;
   align-items: center;
 }
