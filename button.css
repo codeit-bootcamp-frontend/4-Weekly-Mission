@@ -1,0 +1,37 @@
+/*버튼 레이아웃*/
+.button_ly {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 20px;
+  gap: 10px;
+}
+
+/* 버튼 사이즈 */
+/* Mix: 로그인 버튼 멀티 클래스 */
+.button_login_size {
+  width: 128px;
+}
+
+/* 선택자: 버튼 스타일, 컬러*/
+.button_hypl {
+  text-decoration-line: none;
+}
+
+.button_style {
+  border-radius: 8px;
+}
+
+.button_color {
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--Linkbrary-primary-color, #6D6AFE) 0.12%, #6AE3FE 101.84%));
+}
+
+/* 버튼 블록 > 로그인 엘리먼트*/
+.button__text {
+  color: var(--Grey-Light, #F5F5F5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
