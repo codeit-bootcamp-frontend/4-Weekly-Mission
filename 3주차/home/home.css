@@ -1,0 +1,248 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+header {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f6ff;
+  position: fixed;
+}
+a {
+  text-decoration: none;
+}
+main {
+  margin-bottom: 50px;
+}
+#top_div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo_img {
+  margin: 20px 0 20px 200px;
+  width: 133px;
+  height: 24px;
+}
+.btn {
+  margin: 0;
+  display: flex;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 8px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  color: white;
+  width: 350px;
+  flex-shrink: 0;
+}
+.login_btn {
+  margin: 20px 200px 20px 0;
+  width: 128px;
+  cursor: pointer;
+}
+main {
+  width: 100%;
+}
+.first_page {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f0f6ff;
+  gap: 40px;
+  margin: 0;
+  margin-bottom: 120px;
+}
+span {
+  background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.infor {
+  margin-top: 100px;
+  margin-bottom: 0;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 80px; /* 125% */
+  color: #000;
+  flex-shrink: 0;
+  padding-top: 50px;
+}
+.link_btn {
+  width: 350px;
+  margin: 0;
+  cursor: pointer;
+}
+.first_page_img_back {
+  background-color: #f0f6ff;
+  width: 1200px;
+  height: 590px;
+  display: flex;
+  justify-content: center;
+  padding: 50px 0;
+  overflow: hidden;
+}
+.first_page_img {
+  width: 1118px;
+  height: 659px;
+  background-size: contain;
+  background-position: center;
+  flex-shrink: 0;
+  border-radius: 25px;
+  background-image: linear-gradient(
+      180deg,
+      rgba(196, 196, 196, 0) 67.68%,
+      #f0f6ff 94.76%
+    ),
+    url(image/page.png);
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+}
+.next_page {
+  width: 100%;
+  display: flex;
+  margin: 100px auto;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.texts {
+  display: flex;
+  width: 291px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  gap: 10px;
+  flex-shrink: 0;
+  margin: 0;
+}
+.text {
+  margin: 0;
+  color: #000;
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+.text_sml {
+  color: #6b6b6b;
+  font-family: Abel;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+.imgs {
+  width: 550px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 15px;
+  background: #f0f6ff;
+}
+.img {
+  width: 244px;
+  height: 239px;
+  flex-shrink: 0;
+}
+.folder_imgs {
+  display: flex;
+  width: 550px;
+  padding: 114px 68px 66px 68px;
+  justify-content: center;
+  align-items: center;
+}
+.folder_img {
+  width: 414px;
+  height: 270px;
+  flex-shrink: 0;
+}
+.share_imgs {
+  width: 570px;
+  height: 469px;
+  flex-shrink: 0;
+  border-radius: 25px;
+  background-image: url(image/page.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+}
+.search_imgs {
+  width: 550px;
+  height: 450px;
+  border-radius: 15px;
+  background: #f0f6ff;
+  position: relative;
+}
+.search_img {
+  width: 619px;
+  height: 584px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 48.72%,
+    #000 128.17%
+  );
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  top: 55px;
+  left: 60px;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 32px 104px 64px;
+  background: var(--The-julge-black, #111322);
+}
+#codeit {
+  color: #676767;
+  text-align: center;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#center {
+  display: flex;
+  gap: 30px;
+  color: #cfcfcf;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.privacy,
+.faq {
+  color: white;
+}
+#icon {
+  display: flex;
+  gap: 10px;
+}
+@media (min-width: 1199) {
+  .first_page_img_back {
+    width: 100%;
+  }
+}
