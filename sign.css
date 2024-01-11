@@ -1,0 +1,207 @@
+/* 기본 설정 */
+:root {
+  --Linkbrary-primary-color: #6d6afe;
+  --Linkbrary-red: #ff5b56;
+  --The-julge-black: #111322;
+  --Linkbrary-white: #ffffff;
+  --Linkbrary-gray100: #373740;
+  --Linkbrary-gray60: #9fa6b2;
+  --Linkbrary-gray20: #ccd5e3;
+  --Linkbrary-gray10: #e7effb;
+  --Linkbrary-bg: #f0f6ff;
+}
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  /* 62.5% => 10rem, 1rem = 10px */
+  font-size: 62.5% !important;
+  line-height: 1.285;
+}
+a {
+  text-decoration: none;
+}
+ul,
+ol {
+  list-style: none;
+}
+textarea {
+  resize: none;
+}
+button {
+  cursor: pointer;
+  border: 0;
+}
+/* 레이아웃 */
+.main {
+  display: flex;
+  width: auto;
+  padding: 23.8rem 0 25.2rem 0;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Linkbrary-bg, #f0f6ff);
+}
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+/* .layout:last-child {
+  gap:3.2rem;
+  margin-top: 0.2rem;
+} */
+/* 제목 */
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+.logo {
+  width: 21.0583rem;
+  height: 3.8rem;
+}
+.subtitle {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+.subtitle span {
+  color: var(--black, #000);
+  font-family: "Pretendard";
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.4rem;
+}
+.subtitle a {
+  color: var(--Linkbrary-primary-color, #6d6afe);
+  font-family: "Pretendard";
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: underline;
+}
+/* form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2.4rem;
+}
+.email-input,
+.password-input,
+.password-confirm-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+label {
+  color: var(--black, #000);
+  font-family: "Pretendard";
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.pw-container {
+  position: relative;
+}
+.pw-show {
+  cursor: pointer;
+  position: absolute;
+  bottom: 2rem;
+  left: 36.4rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+input {
+  display: flex;
+  width: 40rem;
+  padding: 1.8rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-white, #fff);
+}
+input:focus {
+  border: initial;
+  border: 0.1rem solid var(--Linkbrary-primary-color, #6d6afe);
+}
+/* 로그인 버튼 */
+.login,
+.signup {
+  display: flex;
+  width: 40rem;
+  padding: 1.6rem 2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.8rem;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+}
+/* 소셜 로그인 */
+.socialLogin {
+  display: flex;
+  width: 40rem;
+  padding: 1.2rem 2.4rem;
+  margin-top: 0.2rem;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-gray10, #e7effb);
+  box-sizing: border-box;
+}
+.socialLogin span {
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: "Pretendard";
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.social {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+.social a {
+  width: 4.2rem;
+  height: 4.2rem;
+  flex-shrink: 0;
+  position: relative;
+}
+.google-logo {
+  background: #fff
+    url("https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png")
+    0 0 / 100% 100% no-repeat;
+  width: 2.2rem;
+  height: 2.2rem;
+  flex-shrink: 0;
+  position: absolute;
+  bottom: 0.9rem;
+  left: 1.1rem;
+}
+.kakao-logo {
+  position: absolute;
+  bottom: 0.4rem;
+  left: 0.8rem;
+}
