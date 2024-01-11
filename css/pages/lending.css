@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  background-color: var(--color-gray-100);
+}
+
+.gnb {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 192em;
+  margin: 0 auto;
+  padding: 2em 20em;
+}
+
+.gnb .logo {
+  padding: 1.5em 0;
+  flex: 1;
+}
+
+.gnb .log-in-btn {
+  overflow: hidden;
+  border-radius: 0.8em;
+  width: 12.8rem;
+}
+
+.gnb .log-in-btn a {
+  display: block;
+  width: 100%;
+  color: var(--color-white);
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 1.8rem;
+  line-height: 1.2;
+  padding: 1.6rem 2rem;
+  background: linear-gradient(to right, var(--color-primary), #6AE3FE);
+}
