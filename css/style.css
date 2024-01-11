@@ -55,6 +55,10 @@ header {
 	line-height: normal;
 }
 
+.hero-image {
+	/* background: linear-gradient(180deg, rgba(196, 196, 196, 0) 67.68%, #f0f6ff 94.76%); */
+}
+
 a {
 	cursor: pointer;
 	text-decoration: none;
