@@ -1,0 +1,217 @@
+:root {
+  --Linkbrary-primary-color: #6D6AFE;
+  --palette-red-color: #FF5B56;
+  --The-julge-black: #111322;
+  --palette-white-color: #FFFFFF;
+  --palette-gray-color-1: #3E3E43;
+  --palette-gray-color-2: #9FA6B2;
+  --Linkbrary-gray-color-3: #CCD5E3;
+  --Linkbrary-gray-color-4: #E7EFFB;
+  --Linkbrary-bg: #F0F6FF;
+}
+
+html {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F0F6FF;
+  display: flex;
+  width: 100%;
+  padding: 238px 0px 252px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup {
+  background-color: #F0F6FF;
+  display: flex;
+  width: 100%;
+  padding: 238px 0px 116px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.signin-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 400px;
+  height: 492px;
+}
+
+.signup-container {
+  display: flex;
+  width: 400px;
+  height: 628px;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.sign-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.social-box {
+  display: flex;
+  height: 66px;
+  width: 400px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--Linkbrary-gray-color-4, #E7EFFB);
+  border: 1px solid var(--Linkbrary-gray-color-3, #CCD5E3);
+  border-radius: 8px;
+}
+
+.sign-box__header {
+  display: flex;
+  width: 218px;
+  height: 78px;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.sign-box__input {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.sign-box>button {
+  display: flex;
+  cursor: pointer;
+  width: 100%;
+  height: 54px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 8px;
+  background-image: linear-gradient(90deg, var(--Linkbrary-primary-color, #6D6AFE), #6AE3FE);
+}
+
+.sign-box>button>span {
+  color: var(--Grey-Light, #F5F5F5);
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.sign-box__input-element {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  width: 100%;
+  height: 89px;
+  gap: 12px;
+}
+
+.sign-box__input-element>label {
+  color: var(--black, #000);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.sign-box__input-element>input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding: 18px 15px;
+  border: 1px solid var(--Linkbrary-gray-color-3, #CCD5E3);
+  border-radius: 8px;
+  background-color: #FFF;
+}
+
+.sign-box__input-element>svg {
+  position: absolute;
+  top: 57.3%;
+  right: 5%;
+}
+
+.sign-box__input-element>input:focus {
+  outline: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
+}
+
+.sign-box__header>a {
+  display: flex;
+  width: 210.583px;
+  height: 38px;
+}
+
+.sign-box__header--link {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.sign-box__header--link>span {
+  color: var(--black, #000);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.sign-box__header--link>a {
+  color: var(--Linkbrary-primary-color, #6D6AFE);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.social-box>span {
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.social-box__logo {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.social-box__logo--google, .social-box__logo--kokao {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.social-box__logo--google>svg>image {
+  display: flex;
+  width: 22px;
+  height: 22px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
