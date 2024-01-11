@@ -87,3 +87,21 @@ input:focus {
   right: 18px;
   bottom: 35%;
 }
+
+/* 모바일 사이즈 */
+
+@media (max-width: 767px) {
+
+  html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body {
+   width: 100%;
+   margin: 0 32px;
+   padding: 0;
+   max-width: 400px;
+  }
+}

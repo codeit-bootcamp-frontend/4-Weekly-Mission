@@ -100,7 +100,7 @@ main {
   text-align: left;
   gap: 157px;
   margin: 100px auto;
-  min-width: 1118px;
+  /* min-width: 1118px; */
 }
 
 .contents {
@@ -199,9 +199,34 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 12px; 
 }
 
 .icon {
   size: 20px 20px;
+}
+
+/* 모바일 사이즈 */
+
+@media (max-width: 767px) {
+  .contents {
+    margin: 32px;
+  }
+  .card {
+    flex-direction: column;
+  }
+  .content-image {
+    width: 100%;
+  }
+  #main-img {
+    width: 100%;
+    margin: 32px 0;
+  }
+} 
+
+
+/* 태블릿 사이즈 */
+
+@media (max-width: 1199px) {
+
 }
