@@ -2,6 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Acme&display=swap');
 @import "./global.css";
 
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 header {
   background-color: var(--gray5);
 }
@@ -84,34 +90,49 @@ main {
 }
 
 section {
-  position: relative;
-  padding: 50px 0;
+  display: grid;
+  justify-content: center;
+  column-gap: 15.7rem;
+  row-gap: 1rem;
   width: 100%;
   height: 55rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 15.7rem;
+  padding: 50px 0;
 }
 
-.section-text {
-  width: 29.1rem;
+section:nth-of-type(odd) {
+  grid-template:
+    ". image"
+    "title image"
+    "text image"
+    ". image"
+    /291px 55rem;
 }
 
-section img {
-  width: 55rem;
+section:nth-of-type(even) {
+  grid-template:
+    "image ."
+    "image title"
+    "image text"
+    "image ."
+    /550px 29.1rem;
 }
 
-.section-text .title{
-  margin-bottom: 1rem;
-  color: var(--black);
+.title {
+  grid-area: title;
   font-size: 4.8rem;
   font-weight: 700;
   line-height: 5.8rem;
   letter-spacing: -0.03rem;
 }
 
-.section-text p {
+section img {
+  grid-area: image;
+  width: 55rem;
+  height: 45rem;
+}
+
+section p {
+  grid-area: text;
   color: #6B6B6B;
   font-family: Abel;
   font-size: 1.6rem;
