@@ -27,7 +27,7 @@ main {
 footer {
     background-color: var(--color-black);
 
-    padding: 24px 64px 98px 64px;
+    padding: 24px 104px 98px 104px;
 
     display: flex;
     justify-content: space-between;
