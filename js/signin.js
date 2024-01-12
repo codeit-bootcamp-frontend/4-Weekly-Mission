@@ -1,6 +1,6 @@
 import  {vaildEmail, vaildPW, focusOut} from "./vaild.js" 
-import { userInfo } from "./userInfo.js";
-import { pwInputTypeChange } from "./pwInputType.js";
+import { userInfo } from "./user-info.js";
+import { pwInputTypeChange } from "./pw-input-type.js";
 
 window.onload = function(){
     const emailInput = document.getElementById("emailInput")

@@ -1,4 +1,4 @@
-import { userInfo } from "./userInfo.js";
+import { userInfo } from "./user-info.js";
 const regexEamil = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]'); // 이메일 정규 표현식
 const regexEng = new RegExp('[a-zA-Z]'); // 영문(대,소문자) 
 const regexNum = new RegExp('[0-9]') // 숫자

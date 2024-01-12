@@ -1,6 +1,6 @@
 import  {vaildEmail, vaildPW, vaildPW2, focusOut} from "./vaild.js" 
-import { userInfo } from "./userInfo.js";
-import { pwInputTypeChange } from "./pwInputType.js";
+import { userInfo } from "./user-info.js";
+import { pwInputTypeChange } from "./pw-input-type.js";
 
 window.onload = function(){
     const emailInput = document.getElementById("emailInput")
@@ -11,7 +11,7 @@ window.onload = function(){
     const eyeIcon2 = document.querySelector(".eye2");
     const emailError = document.querySelector(".emailError");
     const pwError = document.querySelector(".pwError");
-    const pw2Error = document.querySelector(".pw1Error");
+    const pwError2 = document.querySelector(".pw1Error");
     const regexEamil = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]'); // 이메일 정규 표현식
     const regexEng = new RegExp('[a-zA-Z]'); // 영문(대,소문자)
     const regexNum = new RegExp('[0-9]') // 숫자
@@ -31,7 +31,7 @@ window.onload = function(){
             emailError.innerHTML = "이미 사용 중인 이메일입니다.";
         }
         else if(pwInput.value !== pwInput2.value){
-            pw2Error.innerHTML = "비밀번호가 일치하지 않아요.";
+            pwError2.innerHTML = "비밀번호가 일치하지 않아요.";
             
         }else{
             location.href = '/folder.html';
@@ -53,7 +53,7 @@ window.onload = function(){
     // 포커스 아웃 이벤트
     focusOut(emailInput, emailError, vaildEmail);
     focusOut(pwInput, pwError, vaildPW);
-    focusOut(pwInput2, pw2Error, vaildPW2);
+    focusOut(pwInput2, pwError2, vaildPW2);
 
     // 비밀번호 인풋 타입 변경, 아이콘 변경
     pwInputTypeChange(eyeIcon, pwInput)
