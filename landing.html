@@ -11,10 +11,10 @@
   <body>
     <header>
       <div class="header_wrapper">
-        <a class="header_logo" href="index.html">
+        <a class="header_logo" href="/">
           <img src="./svg/logo.svg" alt="" />
         </a>
-        <a class="header_login_btn" href="signin.html">로그인</a>
+        <a class="header_login_btn" href="/signin.html">로그인</a>
       </div>
     </header>
 
@@ -25,7 +25,7 @@
           <span class="content1_title_color">세상의 모든 정보</span>를 <br />
           쉽게저장하고 관리해 보세요
         </div>
-        <div class="content1_linkadd_btn">링크 추가하기</div>
+        <a class="content1_linkadd_btn" href="/signup.html">링크 추가하기</a>
         <img
           class="content1_img"
           src="images/content1.png"
@@ -110,12 +110,15 @@
 
     <footer>
       <p class="footer_copyright">©codeit - 2023</p>
-      <p class="footer_policy">my name is</p>
+      <div class="footer_feat">
+        <a class="footer_policy" href="/privacy.html">Privacy Policy</a>
+        <a class="footer_faq" href="/faq.html">FAQ</a>
+      </div>
       <ul class="footer_sns">
-        <li><img src="svg/facebook.svg" alt="" /></li>
-        <li><img src="svg/twitter.svg" alt="" /></li>
-        <li><img src="svg/youtube.svg" alt="" /></li>
-        <li><img src="svg/instagram.svg" alt="" /></li>
+        <a href="#"><img src="svg/facebook.svg" /></a>
+        <a href="#"><img src="svg/twitter.svg" /></a>
+        <a href="#"><img src="svg/youtube.svg" /></a>
+        <a href="#"><img src="svg/instagram.svg" /></a>
       </ul>
     </footer>
   </body>

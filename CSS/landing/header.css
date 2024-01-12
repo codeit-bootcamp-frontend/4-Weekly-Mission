@@ -6,7 +6,7 @@ header {
   gap: 8px;
   /* border: 1px solid red; */
   position: sticky;
-  background-color: #ffffff;
+  background-color: #f0f6ff;
   top: 0;
 }
 .header_wrapper {
