@@ -1,6 +1,4 @@
 footer {
-  border: 1px solid red;
-
   color: #ffffff;
   background: var(--The-julge-black, #111322);
 
@@ -13,28 +11,28 @@ footer {
   align-self: stretch;
 }
 
-.footer_copyright {
+.footer-copyright {
   /* border: 1px solid red; */
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   color: var(--gray2);
 }
-.footer_feat {
+.footer-feat {
   /* border: 1px solid red; */
   display: flex;
   gap: 30px;
 }
-.footer_feat a {
+.footer-feat a {
   text-decoration: none;
   color: var(--white);
 }
-.footer_sns {
+.footer-sns {
   /* border: 1px solid red; */
   list-style: none;
   display: flex;
   gap: 12px;
 }
-.footer_sns > li {
+.footer-sns > li {
   display: inline-block;
 }

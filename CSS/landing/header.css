@@ -9,18 +9,18 @@ header {
   background-color: #f0f6ff;
   top: 0;
 }
-.header_wrapper {
+.header-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
 }
-.header_logo {
+.header-logo {
   width: 133px;
   height: 24px;
 }
 
-.header_login_btn {
+.header-login-btn {
   color: var(--Grey-Light, #f5f5f5);
   font-style: normal;
   font-weight: 600;
