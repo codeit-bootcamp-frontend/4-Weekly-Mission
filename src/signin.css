@@ -110,9 +110,13 @@ button {
   cursor: pointer;
 }
 
+.password-container {
+  position: relative;
+}
+
 .eye-off {
   position: absolute;
-  bottom: 2.2rem;
+  bottom: 2rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -145,7 +149,7 @@ button {
   background: var(--Linkbrary-gray10);
 }
 
-.social-login > .social-message {
+.social-message {
   color: var(--Linkbrary-gray100);
   font-size: 1.4rem;
   font-style: normal;
@@ -153,8 +157,28 @@ button {
   line-height: normal;
 }
 
-.social-login > .social-link {
+.social-link {
   display: flex;
   align-items: flex-start;
   gap: 1.6rem;
+}
+
+.social-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 4.2rem;
+  height: 4.2rem;
+}
+
+.google-img {
+  background-color: var(--Linkbrary-white);
+  border: 0.1rem solid #d3d4dd;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.kakao-img {
+  padding-top: 0.2rem;
+  background-color: #f5e14b;
 }
