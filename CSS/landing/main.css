@@ -1,27 +1,28 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 @import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
 
-.content1 {
+/* banner */
+.banner {
   background: #f0f6ff;
   display: flex;
-  padding: 70px 360px 0;
+  padding: 70px auto 0;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   gap: 40px;
   height: 953px;
+  border: 1px solid red;
 }
 
-.content1-title {
+.banner-title {
   width: 850px;
   text-align: center;
-  /* font-family: Pretendard; */
   font-size: 64px;
   font-style: normal;
   font-weight: 700;
 }
 
-.content1-title-color {
+.banner-title-color {
   background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
   background: var(
     --Fandom-K-gra-blue-to-pink,
@@ -33,7 +34,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.content1-linkadd-btn {
+.banner-linkadd-btn {
   display: flex;
   width: 350px;
   padding: 16px 20px;
@@ -46,22 +47,20 @@
     --gra-purpleblue-to-skyblue,
     linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
   );
-
   color: var(--Grey-Light, #f5f5f5);
-  /* font-family: Pretendard; */
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
 }
 
-.content1-img {
+.banner-img {
   width: 1200px;
   height: 590px;
-
   border-radius: 25px;
 }
-/* ======================================================================================== */
+
+/* contents */
 .content {
   display: flex;
   padding: 50px 0 50px;
@@ -108,42 +107,37 @@
 .reverse {
   flex-direction: row-reverse;
 }
-/* ================================================================================================ */
-.content2-title-color {
+
+/* content title color */
+.content1-title-color {
   background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ======================================================================================== */
-
-.content3-title-color {
+.content2-title-color {
   background: linear-gradient(95.63deg, #6fbaff 1.72%, #ffd88b 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ======================================================================================== */
-
-.content4-title-color {
+.content3-title-color {
   background: linear-gradient(95.63deg, #6d7ccd 1.72%, #528885 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* ======================================================================================== */
-
-.content5-title-color {
+.content4-title-color {
   background: linear-gradient(95.63deg, #fe578f 1.72%, #68e8f9 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-/* media query====== */
+/* media query====================*/
 .hidden {
   display: none;
 }
@@ -156,10 +150,10 @@
   .hidden {
     display: block;
   }
-  .content1 {
+  .banner {
     height: 756px;
   }
-  .content1-img {
+  .banner-img {
     width: 698px;
     height: 343px;
   }
@@ -171,15 +165,24 @@
 
 /* mobile */
 @media (max-width: 767px) {
-  .content1 {
+  .banner {
     height: auto;
-    width: auto;
+    padding: 28px 32px 0;
+    border: 3px solid red;
   }
-  .content1-title {
+
+  .banner-title {
     font-size: 32px;
   }
-  .content1-img {
-    max-width: 500px;
+
+  .banner-linkadd-btn {
+    width: 200px;
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .banner-img {
+    width: 100%;
     height: auto;
   }
 
@@ -188,20 +191,17 @@
   }
 
   .content-wrapper {
-    /* border: 2px solid green; */
     flex-direction: column;
     width: 100%;
-    gap: 20px; /* Adjust the gap as needed */
-
-    height: auto; /* Auto height to fit content */
+    gap: 20px;
+    height: auto;
   }
 
   .content-feature {
     width: 100%;
   }
-  .content-img {
-    /* border: 1px solid blue; */
 
+  .content-img {
     width: 100%;
     height: auto;
   }
