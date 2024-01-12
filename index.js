@@ -6,16 +6,16 @@ window.onload = function () {
 };
 
 function applyChanges() {
-  var screenWidth = window.innerWidth;
-  var containers = document.querySelectorAll(".container");
+  let screenWidth = window.innerWidth;
+  let containers = document.querySelectorAll(".container");
 
   if (screenWidth <= 767 && screenWidth >= 375) {
     // 모바일 화면에서만 실행할 코드
     containers.forEach(function (container) {
-      var text = container.querySelector(".text");
-      var img = container.querySelector("img");
-      var title = container.querySelector(".title");
-      var subtitle = container.querySelector(".subtitle");
+      let text = container.querySelector(".text");
+      let img = container.querySelector("img");
+      let title = container.querySelector(".title");
+      let subtitle = container.querySelector(".subtitle");
 
       if (text && img && title && subtitle) {
         // title과 subtitle을 img와 같은 레벨로 이동
@@ -28,13 +28,13 @@ function applyChanges() {
   } else {
     // 웹 화면에서 실행할 코드
     containers.forEach(function (container, index) {
-      var text = container.querySelector(".text");
-      var img = container.querySelector("img");
-      var title = container.querySelector(".title");
-      var subtitle = container.querySelector(".subtitle");
+      let text = container.querySelector(".text");
+      let img = container.querySelector("img");
+      let title = container.querySelector(".title");
+      let subtitle = container.querySelector(".subtitle");
       if (!text && img && title && subtitle) {
         // text가 없으면 생성
-        var newText = document.createElement("div");
+        let newText = document.createElement("div");
         newText.classList.add("text");
 
         // 첫번째 섹션과 세번째 섹션 이미지와 텍스트 순서 다름
