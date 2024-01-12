@@ -311,7 +311,6 @@ button {
 /* footer */
 .footer {
   display: flex;
-  /* height: 28rem; */
   padding-top: 120px;
   flex-direction: column;
   align-items: center;
