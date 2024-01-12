@@ -84,7 +84,7 @@ body {
     color: var(--Linkbrary-gray100, #373740);
     font-size: 16px;
     font-weight: 400;
-    line-height: 150%
+    line-height: 150%;
   }
   
   .addToggle {
@@ -97,7 +97,7 @@ body {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      right: 15px
+      right: 15px;
     }
   }
 }
@@ -132,9 +132,7 @@ input:focus {
 
   .endBlock--text {
     color: var(--Linkbrary-gray100, #373740);
-    font-family: Pretendard;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
     line-height: normal;
   }

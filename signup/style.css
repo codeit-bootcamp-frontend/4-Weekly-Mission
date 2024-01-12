@@ -23,6 +23,7 @@ body {
   padding: 120px 32px 233px;
   display: inline-flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   background: var(--Linkbrary-bg, #F0F6FF);
   gap: 30px;
@@ -65,41 +66,36 @@ body {
   width: 100%;
   max-width: 400px;
 
-  .join--pass {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
+  .addToggle-pass,
+  .addToggle-passRepeat  {
+    position: relative;
     width: 100%;
-
-    .addToggle--pass {
-      position: relative;
-      width: 400px;
-      height: auto;
+    height: auto;
+    .fa-solid, 
+    .fa-eye-slash{
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 15px;
+      z-index: 1000;
     }
   }
 
-  .addToggle--passRepeat {
-    position: relative;
-    width: 400px;
-    height: auto;
-  }
-
-  .join--id {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-  }
-
+  .join--id,
+  .join--pass,
   .join--passRepeat {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 12px;
     width: 100%;
   }
 
-  #email {
+  #email,
+  #pass,
+  #passRepeat {
     display: flex;
     width: 100%;
     padding: 18px 15px;
@@ -111,46 +107,8 @@ body {
     color: var(--Linkbrary-gray100, #373740);
     font-size: 16px;
     font-weight: 400;
-    line-height: 150%
+    line-height: 150%;
   }
-  #pass {
-    display: flex;
-    width: 100%;
-    padding: 18px 15px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
-    background: var(--Linkbrary-white, #FFF);
-    color: var(--Linkbrary-gray100, #373740);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 150%
-  }
-
-   #passRepeat {
-    display: flex;
-    width: 100%;
-    padding: 18px 15px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
-    background: var(--Linkbrary-white, #FFF);
-    color: var(--Linkbrary-gray100, #373740);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 150%
-  }
-}
-
-.fa-solid {
-  width: 16px;
-  height: 16px;
-  position: absolute;
-  z-index: 1000;
-  top: 300px;
-  left: 0;
 }
 
 input:focus {
@@ -183,9 +141,7 @@ input:focus {
 
   .endBlock--text {
     color: var(--Linkbrary-gray100, #373740);
-    font-family: Pretendard;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
     line-height: normal;
   }
