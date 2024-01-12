@@ -1,27 +1,24 @@
-@import url(./reset.css);
+@import url("./reset.css");
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import url("./root.css");
+
 * {
 	box-sizing: border-box;
 }
 
 html {
-	background: #f0f6ff;
+	background: var(--gray-5);
 }
 
 body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: 14.9rem auto 15.8rem;
+	margin: 14.9rem auto auto;
 }
 
 header {
-	/* display: flex; */
 	text-align: center;
-	/* justify-content: center; */
-	/* align-items: center; */
-	/* width: 100%; */
-	/* margin: 0 auto; */
 }
 
 header > div {
@@ -34,7 +31,7 @@ header > div {
 	line-height: 1.5rem; /* 150% */
 }
 header > div > a {
-	color: var(--Linkbrary-primary-color, #6d6afe);
+	color: var(--Linkbrary-primary-color, var(--primary));
 	font-family: Pretendard;
 	font-size: 1rem;
 	font-style: normal;
@@ -47,7 +44,7 @@ header > div > a {
 }
 
 label {
-	color: var(--black, #000);
+	color: var(--black, var(--black));
 	font-family: Pretendard;
 	font-size: 0.875rem;
 	font-style: normal;
@@ -55,7 +52,6 @@ label {
 	line-height: normal;
 
 	text-align: left;
-	/* margin-top: 1.88rem; */
 }
 
 section {
@@ -73,16 +69,16 @@ input {
 	margin-top: 0.75rem;
 
 	border-radius: 0.5rem;
-	border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
-	background: var(--Linkbrary-white, #fff);
+	border: 1px solid var(--Linkbrary-gray20, var(--gray-3));
+	background: var(--Linkbrary-white, var(--white));
 }
 
-#input-email {
+.gap {
 	margin-bottom: 1.5rem;
 }
 
 input:focus {
-	border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+	border: 1px solid var(--Linkbrary-primary-color, var(--primary));
 }
 
 button {
@@ -103,7 +99,7 @@ button {
 
 	border-radius: 0.5rem;
 	border: 0px;
-	background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
+	background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%));
 
 	cursor: pointer;
 }
@@ -124,8 +120,8 @@ button {
 	padding: 0.75rem 1.5rem;
 
 	border-radius: 0.5rem;
-	border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
-	background: var(--Linkbrary-gray10, #e7effb);
+	border: 1px solid var(--Linkbrary-gray20, var(--gray-3));
+	background: var(--Linkbrary-gray10, var(--gray-4));
 }
 
 .social-login-icons {
@@ -138,8 +134,7 @@ button {
 	width: 2.625rem;
 	height: 2.625rem;
 	border-radius: 50%;
-	/* background-color: yellow; */
-	background-color: #ffffff;
+	background-color: var(--white);
 	border: 0.3px #d3d4dd solid;
 }
 
