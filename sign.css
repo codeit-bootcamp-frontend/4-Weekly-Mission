@@ -63,7 +63,7 @@ button {
     padding: 12rem 3.2rem 23.3rem 3.2rem;
   }
   .layout {
-    max-width: 40rem;
+    max-width: 325px;
     margin: 0 auto;
   }
 }
@@ -102,6 +102,8 @@ button {
 }
 /* form */
 form {
+  max-width: 400px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -110,12 +112,17 @@ form {
 .email-input,
 .password-input,
 .password-confirm-input {
+  max-width: 400px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 1.2rem;
 }
-label {
+.email-input label,
+.password-input label,
+.password-confirm-input label {
   color: var(--black, #000);
   font-family: "Pretendard";
   font-size: 1.4rem;
@@ -147,6 +154,21 @@ input {
 input:focus {
   border: initial;
   border: 0.1rem solid var(--Linkbrary-primary-color, #6d6afe);
+}
+/* mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+  .email-input,
+  .password-input,
+  .password-confirm-input {
+    gap: 12px;
+  }
+  input {
+    max-width: 325px;
+  }
+  .pw-show {
+    bottom: 1.6rem;
+    left: 29.4rem;
+  }
 }
 /* 로그인 버튼 */
 .login,
@@ -210,4 +232,12 @@ input:focus {
   position: absolute;
   bottom: 0.4rem;
   left: 0.8rem;
+}
+/* mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+  .login,
+  .signup,
+  .socialLogin {
+    max-width: 325px;
+  }
 }
