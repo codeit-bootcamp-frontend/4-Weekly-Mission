@@ -114,3 +114,34 @@ a {
   color: #f5f5f5;
   background: var(--gradient-linkbrary);
 }
+
+.non-visible-dt {
+  display: none;
+}
+
+.non-visible-m {
+  display: block;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .btn {
+    padding: 10px 16px;
+    border: none;
+    font-size: 14px;
+  }
+
+  .non-visible-dt {
+    display: block;
+  }
+
+  .non-visible-m {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .non-visible-dt,
+  .non-visible-m {
+    display: block;
+  }
+}
