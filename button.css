@@ -17,6 +17,11 @@
   width: 350px;
 }
 
+.button_sign-login_size {
+  width: 100%;
+  height: 54px;
+}
+
 /* 선택자: 버튼 스타일, 컬러*/
 .button_hypl {
   text-decoration-line: none;

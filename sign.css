@@ -1,0 +1,66 @@
+:root {
+  --Linkbrary-primary-color: #6D6AFE;
+  --palette-red-color: #FF5B56;
+  --The-julge-black: #111322;
+  --palette-white-color: #FFFFFF;
+  --palette-gray-color-1: #3E3E43;
+  --palette-gray-color-2: #9FA6B2;
+  --Linkbrary-gray-color-3: #CCD5E3;
+  --palette-gray-color-4: #E7EFFB;
+  --Linkbrary-bg: #F0F6FF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+body {
+  background-color: #F0F6FF;
+  display: flex;
+  width: 100%;
+  padding: 238px 0px 252px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+/*1. 사인 블록  */
+/*사인 블록 레이아웃 */
+.sign_ly {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/*사인 블록 크기 */
+.signin_size {
+  width: 400px;
+  height: 492px;
+}
+
+.signup_size {
+  width: 400px;
+  height: 628px;
+}
+
+/*사인 폼 블록 레이아웃 */
+.sign-form_ly {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+/*사인 헤더 레이아웃 */
+.sign-header_ly {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}

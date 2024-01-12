@@ -1,40 +1,40 @@
 /*0. 이미지 컨테이너 블록 */
 /* 이미지 컨테이너 블록 레이아웃 */
-.img_container_ly {
+.img-container_ly {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.img_container_folder_ly {
+.img-container_folder_ly {
   padding: 114px 68px 66px 68px;
 }
 
 /* 이미지 컨테이너 블록 사이즈 */
-.img_container_auth_size {
+.img-container_auth_size {
   width: 1200px;
   height: 590px;
 }
 
-.img_container_default_size {
+.img-container_default_size {
   width: 550px;
   height: 450px;
   overflow: hidden;
 }
 
-.img_container_folder_size {
+.img-container_folder_size {
   width: 550px;
 }
 
 /* 이미지 컨테이너 > 엘리먼트 레이아웃 */
-.img_container__card_ly {
+.img-container__card_ly {
   display: inline-flex;
   align-items: center;
   gap: -12px;
 }
 
 /* 이미지 컨테이너 > 공유 레이아웃 */
-.img_container__share {
+.img-container__share {
   width: 570px;
   height: 469px;
   flex-shrink: 0;
@@ -47,11 +47,11 @@
 }
 
 /* 이미지 컨테이너 블록 컬러 */
-.img_container_color {
+.img-container_color {
   background: #F0F6FF;
 }
 
-.img_container_style {
+.img-container_style {
   border-radius: 15px;
 }
 

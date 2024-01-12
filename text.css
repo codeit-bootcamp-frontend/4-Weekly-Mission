@@ -1,13 +1,19 @@
 /*0. 텍스트 컨테이너 블록 */
 /* 텍스트 컨테이너 블록 레이아웃 */
-.text_container_ly {
+.text-container_ly {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+.text-container_sign_ly {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
 /* 텍스트 컨테이너 블록 크기 */
-.text_container {
+.text-container_size {
   width: 291px;
 }
 
@@ -25,6 +31,16 @@
   line-height: 80px;
 }
 
+.text_sign_ly {
+  line-height: 24px; /* 150% */
+}
+
+.text_sign-hypl_ly {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 /* 텍스트 블록 사이즈*/
 .text_auth {
   font-size: 64px;
@@ -34,12 +50,26 @@
   font-size: 48px;
 }
 
+.text_sign {
+  font-size: 16px;
+}
+
 /* 텍스트 블록 스타일*/
 .text_style {
   font-family: Pretendard;
   font-style: normal;
   font-weight: 700;
   letter-spacing: -0.3px;
+}
+
+.text_sign_style {
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.text_sign-hypl {
+  text-decoration-line: none;
 }
 
 /* 텍스트 블록 컬러*/
