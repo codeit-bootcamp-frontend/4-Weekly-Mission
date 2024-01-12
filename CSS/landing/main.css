@@ -186,7 +186,6 @@
 
   .content {
     padding: 50px 32px;
-    border: 1px solid red;
   }
 
   .content-wrapper {
@@ -194,7 +193,6 @@
     width: 100%;
     gap: 20px;
     height: auto;
-    border: 1px solid green;
     align-items: flex-start;
   }
 
