@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
       <title>Linkbrary</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/style.css">
   </head>
   <body>
     <header>
@@ -11,12 +11,17 @@
       <a href="/signup.html"><button id="LoginBtn">로그인</button> </a>
     </header>
     <section class="section-top">
+      <!-- headline -->
       <div class="headline wrap">
-        <p id="headline-string">
-          <span>세상의 모든 정보</span>를<br>쉽게 저장하고 관리해 보세요. 
-        </p>
+        <div class="headline-string">
+          <p>
+            <span>세상의 모든 정보</span>를<br>
+            쉽게 저장하고 <br class="line-break">관리해 보세요.
+          </p>
+        </div>
         <a href="/signin.html"><button id="addLinkBtn">링크 추가하기</button></a>
       </div>
+      <!-- headline 아래 cards 이미지 -->
       <div class="cards-img">
         <img src="./assets/cards/cards_img.png">
       </div>
@@ -24,26 +29,32 @@
     <section class="section1">
       <div class="section-frame">
         <div class="section-headline">
-          <p id="title"><span>원하는 링크</span>를 <br> 저장하세요</p>
-          <p id="content">
+          <h3><span>원하는 링크</span>를 <br> 저장하세요</h3>
+          <div class="section-cards" id="mobile">
+            <img src="./assets/cards/card1.png" alt="section1-card">
+          </div>
+          <p>
             나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br>
             사고 싶은 옷, 기억하고 싶은 모든 것을<br>
             한 공간에 저장하세요.
           </p>
         </div>
-        <div class="section1-cards">
-          <img src="./assets/cards/card1.png" alt="section1-card1">
+        <div class="section-cards">
+          <img src="./assets/cards/card1.png" alt="section1-card">
         </div>
       </div>
     </section>
     <section class="section2">
       <div class="section-frame">
-        <div class="section2-cards">
-          <img src="./assets/cards/card2-1.png" alt="section2-card">
+        <div class="section-cards">
+          <img src="./assets/cards/card2.png" alt="section2-card">
         </div>
         <div class="section-headline">
-          <p id="title">링크를 폴더로<br><span>관리</span>하세요</p>
-          <p id="content">
+          <h3>링크를 폴더로 <br><span>관리</span>하세요</h3>
+          <div class="section-cards" id="mobile">
+            <img src="./assets/cards/card2.png" alt="section2-card">
+          </div>
+          <p>
             나만의 폴더를 무제한으로 만들고<br>다양하게 활용할 수 있습니다.
           </p>
         </div>
@@ -52,27 +63,32 @@
     <section class="section3">
       <div class="section-frame">
         <div class="section-headline">
-          <p id="title">저장한 링크를<br><span>공유</span>해 보세요.</p>
-          <p id="content">
+          <h3>저장한 링크를 <br><span>공유</span>해 보세요.</h3>
+          <div class="section-cards" id="mobile">
+            <img src="./assets/cards/card3.png" alt="section3-card">
+          </div>
+          <p>
             여러 링크를 폴더에 담고 공유할 수 있습니다.<br>
             가족,친구,동료들에게 쉽고 빠르게 링크를<br>
             공유해 보세요.
           </p>
         </div>
-        <div class="section3-cards">
-          <img src="assets/cards/cards_img.png" alt= "section3-card_background" id="popup-back">
-          <img src="./assets/cards/card3.png" alt="section3-card" id="popup" >
+        <div class="section-cards">
+          <img src="./assets/cards/card3.png" alt="section3-card">
         </div>
       </div>
     </section>
     <section class="section4">
       <div class="section-frame">
-        <div class="section4-cards">
+        <div class="section-cards">
           <img src="./assets/cards/card4.png" alt="section4-card">
         </div>
         <div class="section-headline">
-          <p id="title">저장한 링크를<br><span>검색</span>해 보세요.</p>
-          <p id="content">
+          <h3>저장한 링크를 <br><span>검색</span>해 보세요.</h3>
+          <div class="section-cards" id="mobile">
+            <img src="./assets/cards/card4.png" alt="section4-card">
+          </div>
+          <p>
             중요한 정보들을 검색으로 쉽게 찾아보세요.
           </p>
         </div>
