@@ -1,3 +1,9 @@
+html {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
 /*0. 텍스트 컨테이너 블록 */
 /* 텍스트 컨테이너 블록 레이아웃 */
 .text-container_ly {
@@ -32,7 +38,7 @@
 }
 
 .text_sign_ly {
-  line-height: 24px; /* 150% */
+  line-height: 150%; /* 150% */
 }
 
 .text_sign-hypl_ly {
@@ -43,19 +49,19 @@
 
 /* 텍스트 블록 사이즈*/
 .text_auth {
-  font-size: 64px;
+  font-size: 4rem;
 }
 
 .text_default {
-  font-size: 48px;
+  font-size: 3rem;
 }
 
 .text_sign {
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 .text_sign-input {
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 /* 텍스트 블록 스타일*/
@@ -129,7 +135,7 @@
 .text_under {
   color: #6B6B6B;
   font-family: Abel;
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 24px */
