@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 238px 0 252px 0;
+}
+
+.signLogo {
+  width: 210px;
+  height: 38px;
+}
+
+.loginInfo {
+  margin: 16px auto;
+  color: var(--black);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.loginInfo a {
+  color: var(--primary);
+  font-weight: 600;
+  line-height: normal;
+}
+
+.formBox {
+  width: 400px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.formLabel {
+  color: var(--black);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 12px;
+}
+
+.formInput {
+  margin-bottom: 24px;
+  padding: 18px 15px;
+  height: 60px;
+  border-radius: 8px;
+  border: 1px solid var(--gray3);
+  background: var(--white);
+}
+
+.formInput:focus {
+  border: 1px solid var(--primary);
+}
+
+.password {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.password .formInput {
+  width: 100%;
+}
+
+.input .eyes {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto 2px;
+  height: 30px;
+  width: 30px;
+  font-size: 22px;
+  cursor: pointer;
+  z-
+}
+
+.bottonBack {
+  border-radius: 8px;
+  height: 50px;
+  width: 400px;
+  padding: 16px 20px;
+  cursor: pointer;
+
+  color:var(--white);
+  background: var(--gra-purpleblue-to-skyblue);
+
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.socialLoginBox {
+  margin-top: 32px;
+  display: flex;
+  width: 400px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 8px;
+  border: 1px solid var(--gray3);
+  background: var(--gray4);
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+}
+
+.socialIconLink {
+  padding: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+
+  width: 42px;
+  height: 42px;
+  border-radius: 70%;
+  overflow: hidden;
+  margin-right: 16px;
+}
+
+.backColorYellow {
+  background: #f5e14b;
+}
+
+.backColorWhite {
+  background: var(--white);
+}
+
+.socialLoginIcon {
+  width: 22px;
+}
