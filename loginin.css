@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+}
+
+
+.login_logoSection--logo,
+.login__info--loginBt,
+.login-another__google,
+.login-another__kakao {
+  text-decoration: none;
+}
+
+html {
+  font-family: Pretendard;
+  font-size: 100%;
+  font-style: normal;
+  line-height: normal;
+  background: var(--Linkbrary-bg, #F0F6FF);
+}
+
+.login {
+  display: flex;
+  padding: 14.875rem 0 15.75rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+
+  @media screen and (max-width:767px) {
+    padding-left: 32px;
+    padding-right: 32px;
+    width: 100%;
+  }
+}
+
+.login__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 400px;
+
+  @media screen and (max-width:767px) {
+    width: 100%;
+  }
+}
+
+.login__logo--svg {
+  width: 210.583px;
+  height: 38px;
+}
+
+.login__logoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.login__logSection--text {
+  color: var(--black, #000);
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.logo__logosection--link {
+  font-weight: 600;
+}
+
+/* 폼 작성 부분 */
+.login__form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+}
+
+.login__form--infobox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+
+.login__form--info {
+  display: flex;
+  width: 100%;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+  background: var(--Linkbrary-white, #FFF);
+}
+
+.login__form--info:focus {
+  border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
+  outline: none;
+}
+
+.login__info--loginBt {
+  background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  width: 100%;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  color: var(--Grey-Light, #F5F5F5);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.login__password-container {
+  position:relative;
+  width: 100%;
+}
+
+.fa-eye {
+  position: absolute;
+  right: 15px;
+  top: 18px;
+}
+
+/* 하단 부분 */
+.login-another {
+  display: flex;
+  width: 400px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+  background: var(--Linkbrary-gray10, #E7EFFB);
+
+  @media screen and (max-width:767px) {
+    width: 100%;
+  }
+}
