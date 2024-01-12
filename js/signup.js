@@ -1,37 +1,34 @@
-import  {vaildEmail, vaildPW, vaildPW2, focusOut} from "./vaild.js" 
+import  {vaildEmail, vaildPW, vaildConfirmPW, focusOut} from "./vaild.js" 
 import { userInfo } from "./user-info.js";
 import { pwInputTypeChange } from "./pw-input-type.js";
+import { regexEamil, regexPassword } from "./regExp.js";
 
 window.onload = function(){
     const emailInput = document.getElementById("emailInput")
     const pwInput = document.getElementById("pwInput");
-    const pwInput2 = document.getElementById("pwInput2");
+    const pwConfirmInput = document.getElementById("pwConfirmInput");
     const form = document.querySelector("form");
-    const eyeIcon = document.querySelector(".eye1");
-    const eyeIcon2 = document.querySelector(".eye2");
+    const pwEyeIcon = document.querySelector(".eye1");
+    const pwConfirmEyeIcon = document.querySelector(".eye2");
     const emailError = document.querySelector(".emailError");
     const pwError = document.querySelector(".pwError");
-    const pwError2 = document.querySelector(".pw1Error");
-    const regexEamil = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]'); // 이메일 정규 표현식
-    const regexEng = new RegExp('[a-zA-Z]'); // 영문(대,소문자)
-    const regexNum = new RegExp('[0-9]') // 숫자
+    const pwConfirmError = document.querySelector(".pw1Error");
 
     // 회원 가입 함수
     function register(){
         // 유효성 검사(정규 표현식)
         if(!regexEamil.test(emailInput.value)){
-            emailError.innerHTML = "올바른 이메일 주소가 아닙니다.";
+            emailError.textContent = "올바른 이메일 주소가 아닙니다.";
         }
-        else if(!regexEng.test(pwInput.value) || !regexNum.test(pwInput.value) || pwInput.value.length < 8 || 
-        !regexEng.test(pwInput2.value) || !regexNum.test(pwInput2.value) || pwInput2.value.length < 8){
-            pwError.innerHTML = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
+        else if(!regexPassword.test(pwInput.value) || !regexPassword.test(pwConfirmInput.value)){
+            pwError.textContent = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
         }
         // 이메일 중복확인, 패스워드 일치 여부
         else if(userInfo.email === emailInput.value){
-            emailError.innerHTML = "이미 사용 중인 이메일입니다.";
+            emailError.textContent = "이미 사용 중인 이메일입니다.";
         }
-        else if(pwInput.value !== pwInput2.value){
-            pwError2.innerHTML = "비밀번호가 일치하지 않아요.";
+        else if(pwInput.value !== pwConfirmInput.value){
+            pwConfirmError.textContent = "비밀번호가 일치하지 않아요.";
             
         }else{
             location.href = '/folder.html';
@@ -53,10 +50,10 @@ window.onload = function(){
     // 포커스 아웃 이벤트
     focusOut(emailInput, emailError, vaildEmail);
     focusOut(pwInput, pwError, vaildPW);
-    focusOut(pwInput2, pwError2, vaildPW2);
+    focusOut(pwConfirmInput, pwConfirmError, vaildConfirmPW);
 
     // 비밀번호 인풋 타입 변경, 아이콘 변경
-    pwInputTypeChange(eyeIcon, pwInput)
-    pwInputTypeChange(eyeIcon2, pwInput2)
+    pwInputTypeChange(pwEyeIcon, pwInput)
+    pwInputTypeChange(pwConfirmEyeIcon, pwConfirmInput)
 }
         

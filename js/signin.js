@@ -8,15 +8,15 @@ window.onload = function(){
     const form = document.querySelector("form");
     const emailError = document.querySelector(".emailError");
     const pwError = document.querySelector(".pwError");
-    const eyeIcon = document.querySelector(".fa-solid");
+    const pwEyeIcon = document.querySelector(".fa-solid");
     
     // 로그인 함수
     function login(){ 
         if(emailInput.value === userInfo.email && pwInput.value === userInfo.pw){
             location.href = '/folder.html';
         }else{
-            emailError.innerHTML = "이메일을 확인해 주세요.";
-            pwError.innerHTML = "비밀번호를 확인해 주세요.";
+            emailError.textContent = "이메일을 확인해 주세요.";
+            pwError.textContent = "비밀번호를 확인해 주세요.";
         }
     }
 
@@ -37,6 +37,6 @@ window.onload = function(){
     focusOut(pwInput, pwError, vaildPW, false);
 
     // 비밀번호 인풋 타입 변경, 아이콘 변경
-    pwInputTypeChange(eyeIcon, pwInput);
+    pwInputTypeChange(pwEyeIcon, pwInput);
 }
     

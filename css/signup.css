@@ -91,7 +91,7 @@ label{
    margin-bottom: 0.75rem;
 }
 
-#emailInput, #pwInput, #pwInput2{
+#emailInput, #pwInput, #pwConfirmInput{
     padding: 1.125rem 0.9375rem;
     border-radius: 0.5rem;
     background-color: var(--Linkbrary-white);
@@ -100,7 +100,7 @@ label{
     width: calc(100% - 1.875rem);
 }
 
-#emailInput:focus, #pwInput:focus, #pwInput2:focus{
+#emailInput:focus, #pwInput:focus, #pwConfirmInput:focus{
     border: 1px solid var(--Linkbrary-red);
 }
 
