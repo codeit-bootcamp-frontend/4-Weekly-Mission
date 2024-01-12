@@ -1,8 +1,10 @@
+@import url('/css/config.css');
+
 body {
     background-color: var(--Gray5, #f0f6ff);
 }
 main {
-    margin-top: 14.8em;
+    margin-top: 238px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,30 +14,30 @@ article {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 25em;
+    width: 400px;
 }
-.signup-box,
+
 .signin-box {
     color: var(--Black, #000);
     font-family: Pretendard;
-    font-size: 1em;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 24px; /* 150% */
-    margin-top: 1em;
+    margin-top: 16px;
 }
 .top-box {
-    margin-bottom: 1.9em;
+    margin-bottom: 30px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.signup-box a,
+
 .signin-box a {
     color: var(--Primary, #6d6afe);
     font-family: Pretendard;
-    font-size: 1em;
+    font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -44,16 +46,16 @@ article {
 
 .input-box {
     position: relative;
+    width: 100%;
 }
 
 .input-box label {
     color: var(--Black, #000);
     font-family: Pretendard;
-    font-size: 0.9em;
+    font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-bottom: 0.8em;
 }
 
 .input-box input {
@@ -62,16 +64,15 @@ article {
     background: var(--White, #fff);
     color: var(--Linkbrary-gray100, #373740);
     font-family: Pretendard;
-    font-size: 1em;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 150% */
     display: flex;
-    width: 25em;
-    padding: 1.1em 1em;
+    width: 100%;
+    padding: 18px 15px;
     justify-content: center;
     align-items: center;
-    margin-bottom: 1.5em;
+    margin-block: 12px 24px;
 }
 
 .input-box input:focus {
@@ -81,14 +82,14 @@ article {
 .input-box .icon-box {
     cursor: pointer;
     position: absolute;
-    right: 1em;
-    bottom: 2.6em;
+    right: 16px;
+    bottom: 40px;
 }
 
 .btn-box {
     display: flex;
-    width: 25em;
-    padding: 1em 1.2em;
+    width: 100%;
+    padding: 16px 20px;
     justify-content: center;
     align-items: center;
     gap: 0.8em;
@@ -97,16 +98,16 @@ article {
         --gra-purpleblue-to-skyblue,
         linear-gradient(91deg, var(--Primary, #6d6afe) 0.12%, #6ae3fe 101.84%)
     );
-    margin-top: 0.5em;
+    margin-top: 8px;
     color: var(--White);
 }
 
 .sns-login-box,
 .sns-regist-box {
-    margin-top: 2em;
+    margin-top: 32px;
     display: flex;
-    width: 25em;
-    padding: 0.8em 1.5em;
+    width: 100%;
+    padding: 12px 24px;
     justify-content: space-between;
     align-items: center;
     border-radius: 8px;
@@ -116,7 +117,7 @@ article {
 .sns-box {
     display: flex;
     align-items: flex-start;
-    gap: 1em;
+    gap: 16px;
 }
 
 input#password-confirm.different {
@@ -132,6 +133,23 @@ input#password-confirm.different {
     line-height: normal;
     align-self: flex-start;
     position: relative;
-    top: -1em;
+    top: -16px;
     display: none;
+}
+/* 테블릿 */
+@media (max-width: 1199px) {
+    main {
+        margin-top: 200px;
+    }
+}
+/* 모바일 */
+@media (max-width: 767px) {
+    article {
+        max-width: 400px;
+        width: auto;
+        margin-inline: 32px;
+    }
+    main {
+        margin-top: 120px;
+    }
 }
