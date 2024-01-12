@@ -1,130 +1,152 @@
+@import "./global.css";
+
 body {
-  background: var(--Gray500);
+  padding-top: 23.8rem;
+  background-color: var(--background);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 14.875rem 0rem 15.75rem 0rem;
-  gap: 2rem;
+  row-gap: 3rem;
 }
 
-.section1 {
+header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1.88rem;
-
-  .logo {
-    width: 13.16144rem;
-    height: 2.375rem;
-  }
-
-  .text-black {
-    color: var(--black, #000);
-    font-family: Pretendard;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.5rem; /* 150% */
-  }
-
-  .text-signup {
-    color: var(--Primary, #6d6afe);
-    font-family: Pretendard;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    text-decoration: underline;
-  }
-
-  .input-pwd {
-    position: relative;
-  }
-
-  .box-wrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.25rem;
-  }
-
-  .box-form {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .box-form input {
-    margin-top: 0.75rem;
-    display: flex;
-    width: 25rem;
-    padding: 1.125rem 0.9375rem;
-    box-sizing: border-box;
-    justify-content: center;
-    align-items: center;
-
-    border-radius: 0.5rem;
-    border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
-    background: var(—Linkbrary-white, #fff);
-
-    color: var(—Linkbrary-gray100, #373740);
-    font-family: Pretendard;
-    font-size: 1rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1.5rem; /* 150% */
-  }
-  .box-form label {
-    color: var(—black, #000);
-    font-family: Pretendard;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-
-  .box-form input:focus {
-    border-color: var(--Primary);
-    outline: none;
-  }
-
-  .eye {
-    position: absolute;
-    top: 3.2rem;
-    left: 22.5rem;
-  }
+  row-gap: 1.6rem;
 }
 
-.social-login {
-  border-radius: 0.5rem;
-  border: 1px solid var(--Gray300);
-  background: var(--Gray400);
+.logo-link {
   display: flex;
-  width: 25rem;
-  padding: 0.75rem 1.5rem;
+  justify-content: center;
+}
+
+.header-logo {
+  height: 3.8rem;
+}
+
+.header-message {
+  display: flex;
+  column-gap: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.header-link {
+  height: fit-content;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--primary);
+  border-bottom: 0.1rem solid var(--primary);
+}
+
+.sign-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 3.2rem;
+  width: 40rem;
+}
+
+.sign-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+  width: 100%;
+}
+
+.sign-inputs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.4rem;
+}
+
+.sign-input-box {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+}
+
+.sign-password {
+  position: relative;
+}
+
+.sign-input-label {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.sign-input {
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--gray20);
+  font-size: 1.6rem;
+  line-height: 150%;
+}
+
+.sign-input:focus {
+  border-color: var(--primary);
+}
+
+.eye-button {
+  position: absolute;
+  bottom: 2.2rem;
+  right: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5.4rem;
+  background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
+  border-radius: 0.8rem;
+  color: #f5f5f5;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.sns-box {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  box-sizing: border-box;
-  width: 25rem;
+  width: 100%;
+  padding: 1.2rem 2.4rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--gray20);
+  background-color: var(--gray10);
+}
 
-  .text {
-    color: var(--Linkbrary-gray100, #373740);
-    font-family: Pretendard;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  .icon-box {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
-  .icon {
-    width: 2.625rem;
-    height: 2.625rem;
-  }
+.sns-links {
+  display: flex;
+  column-gap: 1.6rem;
+}
+
+.sns-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
+}
+
+.sns-text {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--gray100);
+}
+
+.google-link {
+  background-color: var(--white);
+  border: 0.1rem solid #d3d4dd;
+}
+
+.kakao-link {
+  padding-top: 0.2rem;
+  background-color: #f5e14b;
 }
