@@ -179,10 +179,7 @@ button {
   justify-content: center;
   align-items: center;
 }
-.section1-container,
-.section2-container,
-.section3-container,
-.section4-container {
+.container {
   max-width: 998px;
   margin: 0 auto;
   display: flex;
@@ -191,52 +188,37 @@ button {
   gap: 15.7rem;
   box-sizing: border-box;
 }
-.section1-container img,
-.section2-container img,
-.section3-container img,
-.section4-container img {
+.container img {
   width: 55rem;
   height: 45rem;
   flex-shrink: 0;
 }
-.section1-text,
-.section2-text,
-.section3-text,
-.section4-text {
+.text {
   display: flex;
   max-width: 29.1rem;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
 }
-.section1-text-title,
-.section2-text-title,
-.section3-text-title,
-.section4-text-title {
+.title {
   font-family: "Pretendard";
   font-size: 4.8rem;
   font-weight: 700;
   line-height: normal;
   letter-spacing: -0.03rem;
 }
-.section1-text-title em,
-.section2-text-title em,
-.section3-text-title em,
-.section4-text-title em {
+.title em {
   font-size: 0;
   line-height: 0;
   display: block;
 }
-.section1-text-title span {
+.section1 .title span {
   background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.section1-text-subtitle,
-.section2-text-subtitle,
-.section3-text-subtitle,
-.section4-text-subtitle {
+.subtitle {
   color: #6b6b6b;
   font-family: "Pretendard";
   font-size: 1.6rem;
@@ -252,14 +234,14 @@ button {
   justify-content: center;
   align-items: center;
 }
-.section2-text-title span {
+.section2 .title span {
   background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 /* section3 */
-.section3-text-title span {
+.section3 .title span {
   background: linear-gradient(
     99deg,
     #6d7ccd 19.76%,
@@ -271,7 +253,7 @@ button {
 }
 
 /* section4 */
-.section4-text-title span {
+.section4 .title span {
   background: var(
     --Fandom-K-gra-blue-to-pink,
     linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%)
@@ -282,19 +264,16 @@ button {
 }
 /* sections tablet */
 @media (min-width: 768px) and (max-width: 1199px) {
-  .section1-container img,
-  .section2-container img,
-  .section3-container img,
-  .section4-container img {
+  .container img {
     width: 38.5rem;
     height: 31.5rem;
     flex-shrink: 0;
   }
-  .section1-text,
-  .section2-text,
-  .section3-text,
-  .section4-text {
+  .text {
     max-width: 26.2rem;
+  }
+  .title {
+    font-size: 40px;
   }
 }
 /* sections mobile */
@@ -305,54 +284,34 @@ button {
   .section4 {
     padding: 40px 32px 36px 32px;
   }
-  .section1-container,
-  .section3-container {
+  .container {
     flex-direction: column;
     gap: 24px;
   }
-  .section2-container,
-  .section4-container {
-    flex-direction: column-reverse;
-    gap: 24px;
-  }
-  .section1-text,
-  .section2-text,
-  .section3-text,
-  .section4-text {
+  .title {
     max-width: 325px;
-  }
-  .section1-text-title,
-  .section2-text-title,
-  .section3-text-title,
-  .section4-text-title {
     font-size: 24px;
+    order: 1;
   }
-  .section1-text-title em,
-  .section2-text-title em,
-  .section3-text-title em,
-  .section4-text-title em {
+  .title em {
     display: none;
   }
-  .section1-text-subtitle,
-  .section2-text-subtitle,
-  .section3-text-subtitle,
-  .section4-text-subtitle {
+  .subtitle {
     font-size: 15px;
     font-weight: 500;
+    order: 3;
   }
-  .section1-container img,
-  .section2-container img,
-  .section3-container img,
-  .section4-container img {
+  .container img {
     width: 325px;
     height: 265.909px;
     flex-shrink: 0;
+    order: 2;
   }
 }
 /* footer */
 .footer {
   display: flex;
-  height: 28rem;
+  /* height: 28rem; */
   padding-top: 120px;
   flex-direction: column;
   align-items: center;
@@ -403,7 +362,11 @@ button {
   align-items: flex-start;
   gap: 1.2rem;
 }
+/* footer mobile */
 @media (min-width: 375px) and (max-width: 767px) {
+  .footer {
+    padding-top: 40px;
+  }
   .footer-container {
     padding: 32px 32px 64px 32px;
     position: relative;
