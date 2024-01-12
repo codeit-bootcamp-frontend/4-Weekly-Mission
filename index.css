@@ -1,0 +1,207 @@
+/* 사용자의 브라우저 크고 작아짐에 따라 페이지의 요소간 간격, 요소의 크기, font-size 등 모든 크기와 관련된 값이 크고 작아지도록 설정해 보세요. */
+/* palette에 있는 color값들을 css 변수로 등록하고 사용해 주세요. */
+
+*{
+  box-sizing: border-box;
+}
+body{
+  margin: 0;
+  font-family: Pretendard;
+  /* 화면의 너비가 1920px 이상이면 하늘색 배경색은 너비를 꽉 채우도록 채워지고, 내부 요소들의 위치는 고정되고, 여백만 커지도록 해주세요. */
+}
+
+a{
+  text-decoration: none;
+  color: #CFCFCF;
+}
+
+header{
+  background-color: #F0F6FF;
+}
+
+.nav-bar{
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 200px;
+}
+
+
+.cursor{
+  cursor: pointer;
+}
+
+button{
+  padding: 16px 20px;
+  border: none;
+  background-image: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  border-radius: 8px;
+  color: #F5F5F5;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.logIn{
+  width: 128px;
+  height: 54px;
+}
+
+.head-section{
+  padding: 70px 360px 0 360px;
+}
+
+.head-section h1{
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 80px;
+  text-align: center;
+}
+
+.gradation{
+  background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* 글자에 그라디언트 적용하는 법 */
+}
+.search-gradation{
+  background: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.head-section-btn{
+  text-align: center;
+  margin: 40px 0;
+}
+
+.addLinkBtn{
+  width: 350px;
+}
+.websiteImg{
+  text-align: center;
+}
+.website{
+  width: 1200px;
+  height: 590px;
+  border-radius: 25px;
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%);
+}
+
+/* .sections{
+  max-width: 1920px;
+} */
+section{
+  padding: 50px 461px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.pad_plus{
+  padding: 120px 461px 50px;
+}
+
+.frame{
+  display: flex;
+  align-items: center;
+  gap: 51px;
+}
+
+section h2{
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  margin: 0; 
+  /* margin 따로 설정 안했는데 왜 생기는지,,상하 39.84px  */
+}
+section p{
+  color: #6B6B6B;
+  font-family: Abel;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.content{
+  display: flex;
+  width: 291px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+}
+
+.card-img-1{
+  width: 385px;
+  height: 315px;
+}
+
+.change_name{
+  width: 385px;
+  height: 315px;
+}
+
+.share{
+  width: 385px;
+  height: 315px;
+}
+
+.screenshot{
+  width: 385px;
+  height: 315px;
+}
+
+footer{
+  margin-top: 120px;
+  background-color: #111322;
+  padding: 32px 104px 64px 104px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Acme;
+  color: #CFCFCF;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.policy{
+  display: flex;
+  gap: 30px;
+}
+.sns{
+  display: flex;
+  gap: 12px;
+}
+.footer-left{
+  display: flex;
+  gap: 100px;
+}
+
+@media screen and (max-width: 1920px) {
+  .nav-bar{
+  }
+}
+
+@media screen and (max-width:1199px) {
+  header{
+    width: 100%;
+    padding: 32px;
+  }
+}
+
+@media screen and (max-width:767px) {
+  header{
+    padding: 32px;
+    width: 100%;
+  }
+  .footer-left {
+    display: column;
+    gap: 60px;
+  }
+}

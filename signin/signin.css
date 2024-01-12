@@ -1,0 +1,161 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #F0F6FF;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+}
+header{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.container{
+  width: 100%;
+  margin: 100px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box{
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.logo{
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.goSignUp{
+  color: #000;
+  line-height: 24px;
+}
+
+.goSignUp a{
+  color: #6D6AFE;
+  font-weight: 600;
+  position: relative;
+  bottom: 5px;
+}
+
+form{
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+form label{
+  font-size: 14px;
+}
+#email::placeholder{
+  font-size: 16px;
+  line-height: 24px;
+  color: #373740;
+}
+input{
+  padding: 18px 15px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #CCD5E3;
+  background-color: #FFF;
+  margin-top: 12px;
+}
+input:focus{
+  outline: 1px solid #6D6AFE
+}
+
+.input-container{
+  width: 100%;
+}
+
+.input-box{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.img-box{
+  position: absolute;
+  right: 16px;
+  top: 32px;
+}
+
+.eye-off{
+  width: 16px;
+  height: 16px;
+}
+
+button{
+  padding: 16px 20px;
+  border: none;
+  background-image: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  border-radius: 8px;
+  color: #F5F5F5;
+  font-size: 18px;
+  font-weight: 600;
+  width: 100%;
+  /* margin-bottom: 32px; */
+}
+
+footer{
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid #CCD5E3;
+  background-color: #E7EFFB;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.Google{
+  width: 42px;
+  height: 42px;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.googlePNG{
+  width: 22px;
+  height: 22px;
+}
+
+.Kakao{
+  width: 42px;
+  height: 42px;
+  background-color: #F5E14B;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.kakaoSVG{
+  width: 26px;
+  height: 24px;
+  margin-top: 2px;
+}
+.socialLogin{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+/* google~socialLogin까지 비효율적인 코드인 것 같고,
+나오는 그림도 가운데정렬이 안되는 것 같아 마음에 안듭니다. */
+
+@media screen and (max-width: 767px) {
+  .container{
+    padding: 32px;
+    width: 100%;
+  }
+}
