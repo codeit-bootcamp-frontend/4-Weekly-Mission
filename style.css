@@ -80,7 +80,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 100px;
   padding: 50px;
   background-color: var(--color-white);
 }
@@ -94,30 +94,33 @@ main {
 }
 
 .content-item {
-  display: flex;
-  justify-content: space-between;
-  gap: 157px;
+  display: grid;
+  grid-template:
+    ". img"
+    "copy img"
+    "desc img"
+    ". img" / 291px 550px;
+  gap: 10px 157px;
   height: 450px;
 }
 
+.content-item:nth-child(2n) {
+  grid-template:
+    "img ."
+    "img copy"
+    "img desc"
+    "img ." / 550px 291px;
+}
+
 .content-item img {
+  grid-area: img;
   width: 550px;
   height: 450px;
   border-radius: 15px;
 }
 
-.content-list > li:nth-child(2n) .content-desc {
-  order: 1;
-}
-
-.content-desc {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-}
-
-.content-list .content-desc h3 {
+.content-list li h3 {
+  grid-area: copy;
   font-size: 48px;
   font-weight: 700;
   letter-spacing: 0.00625em;
@@ -149,9 +152,11 @@ h3.copy-search {
 }
 
 .copy-desc {
+  grid-area: desc;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
+  word-break: keep-all;
   color: #6b6b6b;
 }
 
@@ -247,14 +252,22 @@ ul.sns-list li a i {
     gap: 76px;
   }
 
-  .content-item {
-    flex-direction: column;
-    gap: 24px;
+  .content-item,
+  .content-item:nth-child(2n) {
+    grid-template:
+      "copy"
+      "img"
+      "desc";
     height: auto;
+    gap: 16px;
   }
 
   .content-item:first-child {
     margin-top: 40px;
+  }
+
+  .content-item:last-child {
+    margin-bottom: 80px;
   }
 
   .content-item img {
@@ -262,12 +275,9 @@ ul.sns-list li a i {
     height: auto;
   }
 
-  .content-list > li:nth-child(2n) .content-desc {
-    order: 0;
-  }
-
-  .content-list .content-desc h3 {
+  .content-list li h3 {
     font-size: 24px;
+    margin-bottom: 8px;
   }
 
   .copy-desc {
@@ -308,8 +318,14 @@ ul.sns-list li a i {
   }
 
   .content-item {
+    grid-template-columns: 262px 385px;
     height: 315px;
-    gap: 51px;
+    gap: 10px 51px;
+  }
+
+  .content-item:nth-child(2n) {
+    grid-template-columns: 385px 262px;
+    height: 315px;
   }
 
   .content-item img {
