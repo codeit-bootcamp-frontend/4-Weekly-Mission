@@ -117,12 +117,14 @@ input:focus {
   position: relative;
 }
 
-.password-box img {
+.password-box .view-pw {
   position: absolute;
   right: 15px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  width: 16px;
+  height: 16px;
 }
 
 .btn-login,
@@ -174,4 +176,20 @@ input:focus {
 
 .sns-list a img {
   height: 22px;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .main-container {
+    padding: 32px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .btn-login,
+  .btn-signup {
+    font-size: 18px;
+  }
 }
