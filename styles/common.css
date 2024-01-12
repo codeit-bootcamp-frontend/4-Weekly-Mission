@@ -103,6 +103,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 128px;
   padding: 16px 28px;
   border: none;
   border-radius: 8px;
@@ -125,6 +126,7 @@ a {
 
 @media (min-width: 375px) and (max-width: 767px) {
   .btn {
+    width: auto;
     padding: 10px 16px;
     border: none;
     font-size: 14px;
