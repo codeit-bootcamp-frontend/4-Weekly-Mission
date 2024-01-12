@@ -1,115 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
-    <title>Linkbrary</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/index.css">
+  <title>Linkbrary</title>
 </head>
+
 <body>
+  <div class="container">
     <header>
-        <section class="gnb">
-            <div class="gnb-wrap">
-                <a class="logo" href="/">
-                    <img src="images/logo.svg" alt="logo">
-                </a>
-                <a class="login-btn" href="signin.html">
-                    로그인
-                </a>
-            </div>
-        </section>
-        
-        <section class="header-title wrap">
-            <h1>
-                <span>세상의 모든 정보</span>를<br>
-                쉽게 저장하고 관리해 보세요
-            </h1>
-            <a class="link-btn" href="/signup.html">
-                링크 추가하기
-            </a>
-            <div class="header-img">
-                <img src="images/title-img.png" alt="title-img">
-            </div>
-        </section>
+      <div class="header-title wrapper">
+        <h1 class="title-description"
+          ><span class="pinkToBlue gradient">세상의 모든 정보</span>를
+          쉽게 저장하고 관리해 보세요
+        </h1>
+        <a class="link-btn" href="/signup.html">
+          링크 추가하기
+        </a>
+        <div class="header-img-container">
+          <img class="header-img" src="images/mainpage.png" alt="mainpage">
+        </div>
+      </div>
     </header>
     <main>
-        <section class="sec1 wrap">
-            <div class="sec-desc">
-                <h2>
-                    <span>원하는 링크</span>를<br>
-                    저장하세요
-                </h2>
-                <p>
-                    나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br>
-                    사고 싶은 옷, 기억하고 싶은 모든 것을<br>
-                    한 공간에 저장하세요.
-                </p>
-            </div>
-            <img src="images/sec1.svg" alt="sec1">
+      <div class="gnb">
+        <div class="gnb-wrapper">
+          <a class="logo" href="/">
+            <img src="images/logo.svg" alt="logo">
+          </a>
+          <a class="login-btn" href="signin.html">
+            로그인
+          </a>
+        </div>
+      </div>
+      <div class="wrapper">
+        <section class="section first">
+          <div class="section-container">
+            <h2 class="section-title"
+              ><span class="blueToPink gradient">원하는 링크</span>를
+              저장하세요
+            </h2>
+            <p class="section-description"
+              >나중에 읽고 싶은 글, 다시 보고 싶은 영상,
+              사고 싶은 옷, 기억하고 싶은 모든 것을
+              한 공간에 저장하세요.
+            </p>
+          </div>
+          <img src="images/save-link.svg" alt="save-link">
         </section>
-        <section class="sec2 wrap">
-            <div class="sec-desc">
-                <h2>
-                    링크를 폴더로<br>
-                    <span>관리</span>하세요
-                </h2>
-                <p>
-                    나만의 폴더를 무제한으로 만들고<br>
-                    다양하게 활용할 수 있습니다.
-                </p>
-            </div>
-            <img src="images/sec2.svg" alt="sec2">
+        <section class="section-reverse">
+          <div class="section-container">
+            <h2 class="section-title"
+              >링크를 폴더로
+              <span class="skyToOrange gradient">관리</span>하세요
+            </h2>
+            <p class="section-description"
+              >나만의 폴더를 무제한으로 만들고
+              다양하게 활용할 수 있습니다.
+            </p>
+          </div>
+          <img src="images/manage-linkFolder.svg" alt="manage-linkFolder">
         </section>
-        <section class="sec3 wrap">
-            <div class="sec-desc">
-                <h2>
-                    저장한 링크를<br>
-                    <span>공유</span>해 보세요.
-                </h2>
-                <p>
-                    여러 링크를 폴더에 담고 공유할 수 있습니다.<br>
-                    가족, 친구, 동료들에게 쉽고 빠르게 링크를<br>
-                    공유해 보세요.
-                </p>
-            </div>
-            <img src="images/sec2.svg" alt="sec3"> <!--sec3.svg가 정상적으로 안보여서 대체함-->
+        <section class="section second">
+          <div class="section-container">
+            <h2 class="section-title"
+              >저장한 링크를
+              <span class="blueToBlack gradient">공유</span>해 보세요.
+            </h2>
+            <p class="section-description"
+              >여러 링크를 폴더에 담고 공유할 수 있습니다.
+              가족, 친구, 동료들에게 쉽고 빠르게 링크를
+              공유해 보세요.
+            </p>
+          </div>
+          <img src="images/share-link.svg" alt="share-link">
         </section>
-        <section class="sec4 wrap">
-            <div class="sec-desc">
-                <h2>
-                    저장한 링크를<br>
-                    <span>검색</span>해 보세요.
-                </h2>
-                <p>
-                    중요한 정보들을 검색으로 쉽게 찾아보세요.
-                </p>
-            </div>
-            <img src="images/sec4.svg" alt="sec4">
-        </section>                       
+        <section class="section-reverse">
+          <div class="section-container">
+            <h2 class="section-title"
+              >저장한 링크를
+              <span class="pinkToSky gradient">검색</span>해 보세요.
+            </h2>
+            <p class="section-description"
+              >중요한 정보들을 검색으로 쉽게 찾아보세요.
+            </p>
+          </div>
+          <img src="images/search-link.svg" alt="search-link">
+        </section>
+      </div>
     </main>
     <footer>
-        <section class="foot wrap">
-            <span>©codeit - 2023</span>
-            <div class="foot-policy">
-                <a href="/privacy.html">Privacy Policy</a>
-                <a href="/faq.html">FAQ</a>
-            </div>
-            
-            <div class="foot-sns">
-                <a href="https://facebook.com" target="_blank" rel="noreferrer noopener">
-                    <img src="images/facebook.svg" alt="facebook">
-                </a>
-                <a href="https://twitter.com" target="_blank" rel="noreferrer noopener">
-                    <img src="images/twitter.svg" alt="twitter">
-                </a>
-                <a href="https://youtube.com" target="_blank" rel="noreferrer noopener">
-                    <img src="images/youtube.svg" alt="youtube">
-                </a>
-                <a href="https://instagram.com" target="_blank" rel="noreferrer noopener">
-                    <img src="images/instagram.svg" alt="instagram">
-                </a>
-            </div>
-        </section>
+      <div class="footer wrapper">
+        <span>©codeit - 2023</span>
+        <div class="footer-policy">
+          <a class="policy-link" href="/privacy.html">Privacy Policy</a>
+          <a class="policy-link" href="/faq.html">FAQ</a>
+        </div>
+
+        <div class="footer-sns">
+          <a href="https://facebook.com" target="_blank" rel="noreferrer noopener">
+            <img src="images/facebook.svg" alt="facebook-logo">
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noreferrer noopener">
+            <img src="images/twitter.svg" alt="twitter-logo">
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noreferrer noopener">
+            <img src="images/youtube.svg" alt="youtube-logo">
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer noopener">
+            <img src="images/instagram.svg" alt="instagram-logo">
+          </a>
+        </div>
+      </div>
     </footer>
+  </div>
 </body>
+
+
 </html>

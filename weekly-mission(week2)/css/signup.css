@@ -7,7 +7,7 @@
   height: 100%;
   background-color: var(--Linkbrary-bg);
   padding-top: 238px;
-  padding-bottom: 253px;
+  padding-bottom: 117px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,13 +30,12 @@ form {
   gap: 16px;
 }
 
-.signup {
+.signin {
   color: var(--black, #000);
   font-family: Pretendard;
-  line-height: 24px;
 }
 
-.signup-link {
+.signin-link {
   color: var(--primary);
   font-family: Pretendard;
   font-weight: 600;
@@ -104,7 +103,7 @@ footer {
   align-items: center;
 }
 
-.footer-sns-login {
+.footer-sns-signup {
   display: flex;
   align-items: center;
   gap: 16px;

@@ -1,0 +1,17 @@
+:root {
+  --primary: #6D6AFE;
+  --red: #FF5B56;
+  --black: #111322;
+  --white: #ffffff;
+  --gray-5: #3E3E43;
+  --gray-4: #9FA6B2;
+  --gray-3: #CCD5E3;
+  --gray-2: #E7EFFB;
+  --Linkbrary-bg: #F0F6FF;
+  --gra-purpleblue-to-skyblue: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  --pinkToBlue: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+  --blueToPink: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+  --skyToOrange: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+  --blueToBlack: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+  --pinkToSky: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
+}
