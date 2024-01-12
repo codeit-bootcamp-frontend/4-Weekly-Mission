@@ -1,4 +1,11 @@
 window.onload = function () {
+  applyChanges(); // 초기 적용
+
+  // 윈도우 크기가 변경될 때마다 적용
+  window.addEventListener("resize", applyChanges);
+};
+
+function applyChanges() {
   var screenWidth = window.innerWidth;
   var containers = document.querySelectorAll(".container");
 
@@ -9,7 +16,6 @@ window.onload = function () {
       var img = container.querySelector("img");
       var title = container.querySelector(".title");
       var subtitle = container.querySelector(".subtitle");
-      console.log(text, img, title, subtitle);
       if (text && img && title && subtitle) {
         // title과 subtitle을 img와 같은 레벨로 이동
         img.parentNode.insertBefore(title, img.nextSibling);
@@ -19,4 +25,4 @@ window.onload = function () {
       }
     });
   }
-};
+}
