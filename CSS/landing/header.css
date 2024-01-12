@@ -18,6 +18,7 @@ header {
 .header-logo {
   width: 133px;
   height: 24px;
+  margin-right: 32px;
 }
 
 .header-login-btn {
@@ -36,4 +37,17 @@ header {
     --gra-purpleblue-to-skyblue,
     linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
   );
+  margin-left: 32px;
+}
+
+/* media query */
+
+/* tablet */
+@media (max-width: 1199px) {
+  header {
+    padding: 20px 35px;
+  }
+  .header-wrapper {
+    justify-content: space-around;
+  }
 }

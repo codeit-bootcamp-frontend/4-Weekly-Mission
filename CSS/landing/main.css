@@ -4,12 +4,12 @@
 .content1 {
   background: #f0f6ff;
   display: flex;
-  /* width: 1920px; */
-  padding: 70px 360px;
+  padding: 70px 360px 0;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   gap: 40px;
+  height: 953px;
 }
 
 .content1-title {
@@ -19,7 +19,6 @@
   font-size: 64px;
   font-style: normal;
   font-weight: 700;
-  line-height: 80px; /* 125% */
 }
 
 .content1-title-color {
@@ -56,13 +55,10 @@
   line-height: normal;
 }
 .content1-img {
-  width: 1118px;
-  height: 706.956px;
+  width: 1200px;
+  height: 590px;
   flex-shrink: 0;
-
   border-radius: 25px;
-  background: url(<path-to-image>), lightgray 50% / cover no-repeat;
-  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
 }
 /* ======================================================================================== */
 .content {
@@ -102,17 +98,16 @@
   line-height: 150%; /* 24px */
   width: 320px;
 }
+.content-img {
+  width: 550px;
+  height: 450px;
+}
 /* ================================================================================================ */
 .content2-title-color {
   background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.content2-img {
-  width: 550px;
-  height: 450px;
 }
 
 /* ======================================================================================== */
@@ -123,14 +118,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.content3-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 157px;
-}
-.content3-img {
-  width: 550px;
-}
+
 /* ======================================================================================== */
 
 .content4-title-color {
@@ -140,10 +128,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-.content4-img {
-  width: 550px;
-  height: 450px;
-}
 /* ======================================================================================== */
 
 .content5-title-color {
@@ -153,7 +137,28 @@
   -webkit-text-fill-color: transparent;
 }
 
-.content5-img {
-  width: 550px;
-  height: 450px;
+/* media query====== */
+.hidden {
+  display: none;
+}
+
+/* tablet */
+@media (max-width: 1199px) {
+  .content-wrapper {
+    gap: 51px;
+  }
+  .hidden {
+    display: block;
+  }
+  .content1 {
+    height: 756px;
+  }
+  .content1-img {
+    width: 698px;
+    height: 343px;
+  }
+  .content-img {
+    width: 385px;
+    height: 315px;
+  }
 }
