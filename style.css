@@ -35,7 +35,7 @@ main{
   justify-content: space-between;
   width:100%;
   max-width: 1920px;
-  
+  align-items: center;
 }
 a,
 .logo{
@@ -143,7 +143,7 @@ section{
 .description{
   color: #6B6B6B;
   font-family: Abel;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 150%; /* 24px */
