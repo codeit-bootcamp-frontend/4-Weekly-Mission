@@ -8,6 +8,7 @@ header {
   position: sticky;
   background-color: #f0f6ff;
   top: 0;
+  width: 100%;
 }
 .header-wrapper {
   display: flex;
@@ -25,9 +26,11 @@ header {
   color: var(--Grey-Light, #f5f5f5);
   font-style: normal;
   font-weight: 600;
-  display: flex;
+  font-size: 18px;
   width: 128px;
   padding: 16px 20px;
+
+  display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -49,5 +52,14 @@ header {
   }
   .header-wrapper {
     justify-content: space-around;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .header-login-btn {
+    width: 80px;
+    height: 37px;
+    font-size: 14px;
   }
 }
