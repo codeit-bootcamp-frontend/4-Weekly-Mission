@@ -84,6 +84,7 @@ header {
     font-size: 64px;
     font-weight: 700;
     line-height: 80px;
+    margin-top: 70px;
 }
 
 .title span {
@@ -197,6 +198,7 @@ footer {
 
 .footer-banner {
     display: flex;
+    height: 160px;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -244,7 +246,6 @@ footer {
 
 .signin-wrapper {
     width: 400px;
-    height: 492px;
     margin: auto auto;
 }
 
@@ -277,6 +278,7 @@ footer {
 }
 
 .signin-input {
+    position: relative;
     width: 100%;
     text-align: left;
     margin-top: 24px
@@ -293,6 +295,15 @@ footer {
 
 .signin-input input:focus {
     outline-color: var(--Primary);
+}
+
+.signin-input .eyes {
+    position: absolute;
+    left: 360px;
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 0;
 }
 
 .signin-tag {
@@ -528,5 +539,14 @@ footer {
     
     .signin-input input {
         width: 100%;
+    }
+
+    .signin-input .eyes {
+        position: absolute;
+        left: calc(100% - 40px);
+        width: 16px;
+        height: 16px;
+        background-color: transparent;
+        border: 0;
     }
 }
