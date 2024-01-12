@@ -4,13 +4,13 @@
   justify-content: center;
   align-items: center;
   background-color: #f0f6ff;
-  /* height: 100; */
 }
 .sign-form-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 400px;
 }
 .sign-form-logo {
   margin-bottom: 16px;
@@ -30,6 +30,7 @@
 .sign-form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 .sign-form > div {
   margin: 30px 0;
@@ -45,12 +46,12 @@
 .sign-password {
   margin: 12px 0;
   border-radius: 8px;
-  width: 400px;
+  width: 100%;
   padding: 18px 15px;
   border: 1px solid var(--gray3);
 }
-.sign-form > input:focus {
-  border: 0px solid var(--primary);
+.sign-form div input:focus {
+  border: 1px solid var(--primary);
 }
 
 .sign-btn {
@@ -78,7 +79,7 @@
   padding: 12px 24px;
   justify-content: space-between;
   align-items: center;
-
+  width: 100%;
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
   background: var(--Linkbrary-gray10, #e7effb);
@@ -93,15 +94,34 @@
   position: relative;
 }
 .sign-sns-list a:nth-child(1) img {
-  /* border: 1px solid red; */
   position: absolute;
   width: 49px;
   right: 50px;
 }
 .sign-sns-list a:nth-child(2) img {
-  /* border: 1px solid black; */
   width: 42px;
   height: 42px;
 }
 
 /* media query */
+/* tablet */
+@media (max-width: 1199px) {
+  .sign-container {
+    padding: 200px 0 0;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .sign-container {
+    padding: 120px 32px 0;
+  }
+  .sign-form-wrapper {
+    margin: 0 32px 0;
+    width: 100%;
+    height: auto;
+  }
+  .sign-form {
+    width: 100%;
+  }
+}

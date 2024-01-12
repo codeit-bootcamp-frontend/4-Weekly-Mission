@@ -57,6 +57,11 @@ header {
 
 /* mobile */
 @media (max-width: 767px) {
+  .header-logo,
+  .header-logo img {
+    width: 88px;
+    height: 16px;
+  }
   .header-login-btn {
     width: 80px;
     height: 37px;
