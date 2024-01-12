@@ -2,32 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linkbrary</title>
-    <meta property="og:image" content="image/books_1920.jpg">
-    <meta property="og:title" content="Linkbrary | 정보를 내 마음대로 저장">
-    <meta
-        property="og:description"
-        content="세상의 모든 정보를 쉽고 간편하게!" 
-    > 
+    <meta property="og:image" content="image/books_1920.jpg" />
+    <meta property="og:title" content="Linkbrary | 정보를 내 마음대로 저장" />
+    <meta property="og:description" content="세상의 모든 정보를 쉽고 간편하게!" />
     <!-- 해당 url로 보이게 수정 -->
-    <meta property="og:url" content="https://www.Linkbraryhouse.com">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:url" content="https://www.Linkbraryhouse.com" />
+    <meta name="twitter:card" content="summary_large_image" />
     <!-- 트위터 이미지 보이는지 확인 -->
-    <meta name="twitter:image" content="image/icon/books_1920.jpg">
-    <meta
-    name="twitter:url"
-    content="https://www.Linkbraryhouse.com"
->
-    <meta
-        name="twitter:title"
-        content="Linkbrary | 정보를 내 마음대로 저장"
-    >
-    <meta
-        name="twitter:description"
-        content="세상의 모든 정보를 쉽고 간편하게!"
-    >
-    <link rel="stylesheet" href="css/landing.css" />
+    <meta name="twitter:image" content="image/icon/books_1920.jpg" />
+    <meta name="twitter:url" content="https://www.Linkbraryhouse.com" />
+    <meta name="twitter:title" content="Linkbrary | 정보를 내 마음대로 저장" />
+    <meta name="twitter:description" content="세상의 모든 정보를 쉽고 간편하게!" />
+    <link rel="stylesheet" href="css/landing_final.css" />
     <link
       rel="stylesheet"
       as="style"
@@ -59,9 +47,9 @@
       </nav>
     </header>
     <main>
-      <div class="title">
+      <div class="slogan">
         <div>
-          <span id="title-gradation">세상의 모든 정보</span>를<br />
+          <span id="slogan-gradation">세상의 모든 정보</span>를<br />
           쉽게 저장하고 관리해 보세요
         </div>
         <a class="add-link" href="signup.html">링크 추가하기</a>
@@ -69,56 +57,48 @@
       <img src="image/screen/main.svg" />
     </main>
     <div class="contents">
-      <section class="card">
-        <div class="save-link">
-          <span class="large">
-            <span id="link-wanted">원하는 링크</span>를<br />
-            저장하세요 </span
-          ><br />
-          <span class="small">
-            나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br />
-            사고 싶은 옷, 기억하고 싶은 모든 것을<br />
-            한 공간에 저장하세요.
-          </span>
-        </div>
-        <img id="content-image" src="image/screen/save-link.svg" />
+      <section>
+        <h2 class="title">
+          <span id="link-wanted">원하는 링크</span>를<br />
+          저장하세요
+        </h2>
+        <p class="description">
+          나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br />
+          사고 싶은 옷, 기억하고 싶은 모든 것을<br />
+          한 공간에 저장하세요.
+        </p>
+        <img class="content-image" src="image/screen/save-link.svg" />
       </section>
-      <section class="card">
+      <section>
+        <h2 class="title">
+          링크를 폴더로<br />
+          <span id="care">관리</span>하세요
+        </h2>
+        <p class="description">
+          나만의 폴더를 무제한으로 만들고<br />
+          다양하게 활용할 수 있습니다.
+        </p>
         <img class="content-image" src="image/screen/manage.svg" />
-        <div class="care-link">
-          <span class="large">
-            링크를 폴더로<br />
-            <span id="care">관리</span>하세요 </span
-          ><br />
-          <span class="small">
-            나만의 폴더를 무제한으로 만들고<br />
-            다양하게 활용할 수 있습니다.
-          </span>
-        </div>
       </section>
-      <section class="card">
-        <div>
-          <span class="large">
-            저장한 링크를<br />
-            <span id="share">공유</span>해 보세요 </span
-          ><br />
-          <span class="small">
-            여러 링크를 폴더에 달고 공유할 수 있습니다.<br />
-            가족, 친구, 동료들에게 쉽고 빠르게 링크를<br />
-            공유해 보세요
-          </span>
-        </div>
+      <section>
+        <h2 class="title">
+          저장한 링크를<br />
+          <span id="share">공유</span>해 보세요
+        </h2>
+        <p class="description">
+          여러 링크를 폴더에 달고 공유할 수 있습니다.<br />
+          가족, 친구, 동료들에게 쉽고 빠르게 링크를<br />
+          공유해 보세요
+        </p>
         <img class="content-image" src="image/screen/share.svg" />
       </section>
-      <section class="card">
+      <section>
+        <h2 class="title">
+          저장한 링크를<br />
+          <span id="search">검색</span>해 보세요
+        </h2>
+        <p class="description">중요한 정보들을 검색으로 쉽게 찾아보세요</p>
         <img class="content-image" src="image/screen/search.svg" />
-        <div>
-          <span class="large">
-            저장한 링크를<br />
-            <span id="search">검색</span>해 보세요 </span
-          ><br />
-          <span class="small">중요한 정보들을 검색으로 쉽게 찾아보세요</span>
-        </div>
       </section>
     </div>
     <footer>
