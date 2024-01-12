@@ -1,0 +1,156 @@
+@import './basis.css';
+
+
+body{
+    font-family:Pretendard ;
+}
+
+input{
+    outline: none;
+    border: none;
+}
+
+.fullscreenlayout{
+    min-height: 100vh;
+    width: 100%;
+    background-color: var(--clr-lg);
+}
+
+.singinlayout-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 22vh;
+    gap: 3.2rem;
+}
+
+.message{
+    margin-top: 1.6rem;
+    font-size: 1.6rem;
+    text-align: center;
+    letter-spacing: -2.5px;
+}
+
+.message > a{
+    color: var(--clr-pm);
+    padding: 0px 0px 0.5rem 0.8rem ;
+    
+}
+
+.user-input__box{
+    width:40rem ;
+}
+
+.user-input__box.email{
+    margin-bottom: 2.4rem;
+}
+
+.user-input__box.password{
+    margin-bottom: 3rem;
+}
+
+.user-input__box > label{
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+}
+
+.input-wrap input{
+    width:100%;
+    padding: 1.8rem 1.5rem;
+    border-radius: 0.8rem;
+    border: 1px solid var(--clr-mg);
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+}
+
+.input-wrap input:focus{
+    border: 1px solid var(--clr-pm);
+}
+
+.input-wrap{
+   position: relative;
+}
+
+#show-password{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    right:5%;
+    cursor: pointer;
+}
+
+#submit-btn{
+    width: 100%;
+    padding: 1.8rem 1.5rem;
+   
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #f5f5f5;
+    cursor: pointer;
+}
+
+.social-login__container{
+    width: 40rem;
+    padding: 1.2rem 2.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #E7EFFB;
+    font-size: 1.4rem;
+    border-radius: 8px;
+    border:1px solid  #CCD5E3;
+}
+
+.social-icon__box{
+    display: flex;
+    gap: 1.6rem;
+}
+
+.social-icon{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width:4.2rem ;
+    height: 4.2rem;
+    border-radius: 50%;
+}
+
+.social-icon.google{
+    background:#fff ;
+}
+.social-icon.kakao{
+    background:rgba(245, 225, 75, 1) ;
+}
+
+
+@media screen and (max-width :48rem) {
+    .fullscreenlayout{
+        padding: 0px 3.2rem;
+    }
+    .singinlayout-container{
+        width: 100%;
+        padding-top: 5vh;
+    }
+    .singin-form__container{
+        width: 100%;
+      
+    }
+    #form{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .user-input__box, #submit-btn{
+        width: 100%;
+        max-width: 40rem;
+    }
+    .social-login__container{
+        width: 100%;
+        max-width: 40rem;
+    }
+    .social-login__container span{
+        letter-spacing: -2px;
+    }
+}
