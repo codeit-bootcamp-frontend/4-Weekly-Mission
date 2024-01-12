@@ -68,7 +68,8 @@ a,
 header{
   display: flex;
   width:100%;
-  padding: 70px 360px 0px 360px;
+  padding-top: 70px;
+  padding-bottom:0;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
