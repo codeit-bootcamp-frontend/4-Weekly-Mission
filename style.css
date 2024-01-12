@@ -266,8 +266,9 @@ button {
 /* sections tablet */
 @media (min-width: 768px) and (max-width: 1199px) {
   .container {
-    max-width: 720px;
+    max-width: 750px;
     gap: 10.7rem;
+    box-sizing: border-box;
   }
   .container img {
     width: 38.5rem;
@@ -275,10 +276,10 @@ button {
     flex-shrink: 0;
   }
   .text {
-    max-width: 26.2rem;
+    max-width: 28.2rem;
   }
   .title {
-    font-size: 40px;
+    font-size: 45px;
   }
 }
 /* sections mobile */
