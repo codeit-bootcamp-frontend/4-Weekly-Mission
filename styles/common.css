@@ -2,6 +2,59 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "icomoon";
+  src: url("/styles/fonts/icomoon.eot?fb537t");
+  src: url("/styles/fonts/icomoon.eot?fb537t#iefix") format("embedded-opentype"),
+    url("/styles/fonts/icomoon.ttf?fb537t") format("truetype"),
+    url("/styles/fonts/icomoon.woff?fb537t") format("woff"),
+    url("/styles/fonts/icomoon.svg?fb537t#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-eye-off .path1:before {
+  content: "\e900";
+  color: rgb(255, 255, 255);
+}
+.icon-eye-off .path2:before {
+  content: "\e901";
+  margin-left: -1em;
+  color: rgb(55, 55, 64);
+}
+.icon-sns-facebook:before {
+  content: "\e902";
+  color: #fff;
+}
+.icon-sns-instagram:before {
+  content: "\e903";
+  color: #fff;
+}
+.icon-sns-twitter:before {
+  content: "\e904";
+  color: #fff;
+}
+.icon-sns-youtube:before {
+  content: "\e905";
+  color: #fff;
+}
+
 :root {
   --color-primary: #6d6afe;
   --color-red: #ff5b56;
@@ -12,14 +65,37 @@
   --color-gray-40: #ccd5e3;
   --color-gray-20: #e7effb;
   --color-gray-10: #f0f6ff;
+
+  --gradient-linkbrary: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  --gradient-pink-blue: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  --gradient-blue-yellow: linear-gradient(
+    277deg,
+    #6fbaff 59.22%,
+    #ffd88b 93.66%
+  );
+  --gradient-purple-green: linear-gradient(
+    99deg,
+    #6d7ccd 19.76%,
+    rgba(82, 136, 133, 0.22) 52.69%
+  );
+  --gradient-pink-cyan: linear-gradient(
+    271deg,
+    #fe578f -9.84%,
+    #68e8f9 107.18%
+  );
 }
 
 body {
-  font-family: 'Acme', 'Pretendard', sans-serif;
+  font-family: "Acme", "Pretendard", sans-serif;
+}
+
+.logo {
+  width: 133px;
+  height: 24px;
 }
 
 a {
-  font-family: 'Acme', 'Pretendard', sans-serif;
+  font-family: "Acme", "Pretendard", sans-serif;
   text-decoration: none;
 }
 
@@ -36,5 +112,5 @@ a {
   color: var(--color-white);
   cursor: pointer;
   color: #f5f5f5;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  background: var(--gradient-linkbrary);
 }
