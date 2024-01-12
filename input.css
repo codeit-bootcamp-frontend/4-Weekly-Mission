@@ -1,0 +1,61 @@
+/*1. 인풋 블록 */
+/*인풋 블록 레이아웃 */
+.input_ly {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+
+/*2. 인풋 폼 블록 */
+/*인풋 폼 블록 레이아웃 */
+.input-form_ly {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+
+/*3-0. 인풋 컨테이너 필드 블록 */
+/*인풋 필드 컨테이너 블록 사이즈 */
+.input-field-container {
+  height: 53.5px;
+}
+
+
+/*3-1. 인풋 필드 블록 */
+/*인풋 필드 블록 레이아웃 */
+.input-field_ly {
+  display: flex;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+/*인풋 필드 블록 사이즈 */
+.input-field {
+  width: 400px;
+}
+
+/*인풋 필드 블록 스타일 */
+.input-field_style {
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray-color-3, #CCD5E3);
+}
+
+.input-field_style:focus {
+  outline: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
+}
+
+.input-field_color {
+  background-color: #FFF;
+}
+
+/*인풋 필드 블록 > 내부 svg = password-icon */
+.password-icon {
+  position: relative;
+  top: -64%;
+  right: -90%;
+}

@@ -54,6 +54,10 @@
   font-size: 16px;
 }
 
+.text_sign-input {
+  font-size: 14px;
+}
+
 /* 텍스트 블록 스타일*/
 .text_style {
   font-family: Pretendard;
