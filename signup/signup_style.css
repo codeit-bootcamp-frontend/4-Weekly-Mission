@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f0f6fF;
+  margin: 238px auto 116px;
+}
+
+body > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.header_text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.header_text > div {
+  color: #000000;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.header_text > a {
+  color: #6D6AFE;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+  border-bottom: 1px solid #6D6AFE;
+  cursor: pointer;
+}
+
+.login_form {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 24px;
+}
+
+form > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login_form label {
+  color: #000000;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.login_form input {
+  position: relative;
+
+  border: 1px solid #373740;
+  border-radius: 8px;
+  padding: 18px 15px;
+  background-color: #ffffff;
+
+  color: #373740;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+input:focus {
+  border: 1px solid #6D6AFE;
+  outline: none;
+}
+
+.link_login {
+  border-radius: 8px;
+  padding: 16px 20px;
+  background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  width: 400px;
+
+  text-align: center;
+  color: #f5f5f5;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.sns_login {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 auto;
+  width: 400px;
+  margin-top: 32px;
+  border: 1px solid #CCD5E3;
+  border-radius: 8px;
+  padding: 12px 24px;
+  background-color: #E7EFFB;
+
+  color: #373740;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.button_sns {
+  display: grid;
+  grid-template:
+    repeat(1, 1fr) /
+    repeat(2, 1fr);
+  gap: 16px;
+  grid-template-areas: 
+    "google kakaotalk";
+}
+
+.button_sns > a {
+  position: relative;
+}
+
+.image_background {
+  width: 42px;
+  height: 42px;
+}
+
+.image_icon {
+  position: absolute;
+  inset: 0;
+  margin: 10px;
+  width: 22px;
+  height: 22px;
+}
+
+.image_google {
+  grid-area: google;
+}
+
+.image_kakaotalk {
+  grid-area: kakaotalk;
+}
