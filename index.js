@@ -36,6 +36,8 @@ function applyChanges() {
         // text가 없으면 생성
         var newText = document.createElement("div");
         newText.classList.add("text");
+
+        // 첫번째 섹션과 세번째 섹션 이미지와 텍스트 순서 다름
         if (index === 0 || index === 2) {
           container.insertBefore(newText, img);
         } else {
