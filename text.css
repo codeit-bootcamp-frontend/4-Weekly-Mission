@@ -81,6 +81,10 @@
   color: #000;
 }
 
+.text_sign-social_color {
+  color: var(--Linkbrary-gray100, #373740);
+}
+
 .text_auth_diff-color {
   background: linear-gradient(91deg, var(--Linkbrary-primary-color, #6D6AFE) 17.28%, #FF9F9F 74.98%);
   background-clip: text;
