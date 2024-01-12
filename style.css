@@ -1,7 +1,12 @@
+/* lading CSS */
 @import url("./CSS/palette.css");
 @import url("./CSS/landing/header.css");
 @import url("./CSS/landing/main.css");
 @import url("./CSS/landing/footer.css");
+
+/* sisgnin CSS */
+@import url("./CSS/sign/signin.css");
+
 * {
   padding: 0;
   margin: 0;
