@@ -9,7 +9,7 @@ body {
 /* nav */
 
 nav {
-  max-width: 1920px;
+  max-width: 192rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -20,30 +20,30 @@ nav {
 
 .nav-div {
   width: 100%;
-  height: 94px;
-  padding: 20px 200px;
+  height: 9.4rem;
+  padding: 2rem 20rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .nav-div button {
-  width: 128px;
-  height: 54px;
+  width: 12.8rem;
+  height: 5.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
-  border-radius: 8px;
+  border-radius: 0.8rem;
   color: #f5f5f5;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 
 /* header */
 
 header {
-  max-width: 1920px;
+  max-width: 192rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -55,13 +55,13 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 70px;
-  gap: 40px;
+  padding-top: 7rem;
+  gap: 4rem;
 }
 
 .header-h1 {
   text-align: center;
-  font-size: 64px;
+  font-size: 6.4rem;
   font-weight: 700;
   line-height: 125%;
 }
@@ -74,34 +74,34 @@ header {
 }
 
 .header-link > button {
-  width: 350px;
-  height: 54px;
+  width: 35rem;
+  height: 5.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   background-image: linear-gradient(91deg, var(--primary) 0%, #6ae3fe 100%);
-  border-radius: 8px;
+  border-radius: 0.8rem;
   color: #f5f5f5;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 
 .header-div img {
-  width: 1200px;
-  height: 590px;
+  width: 120rem;
+  height: 59rem;
 }
 
 /* article */
 
 article {
-  padding: 70px 0 120px 0;
+  padding: 7rem 0 12rem 0;
 }
 
 section {
-  max-width: 1920px;
+  max-width: 192rem;
   width: 100%;
-  height: 550px;
-  padding: 50px 0;
+  height: 55rem;
+  padding: 5rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,21 +110,21 @@ section {
 .section-div {
   display: flex;
   align-items: center;
-  gap: 157px;
+  gap: 15.7rem;
 }
 
 .section-titles {
-  width: 291px;
+  width: 29.1rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;
+  gap: 1rem;
 }
 
 .section-h2 {
-  font-size: 48px;
+  font-size: 4.8rem;
   font-weight: 700;
-  letter-spacing: -0.3px;
+  letter-spacing: -0.03rem;
 }
 
 .section-1-span {
@@ -135,15 +135,15 @@ section {
 }
 
 .description {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
   line-height: 150%;
   color: #6b6b6b;
 }
 
 .section-div > img {
-  width: 550px;
-  height: 450px;
+  width: 55rem;
+  height: 45rem;
 }
 
 .section-2-span {
@@ -170,12 +170,12 @@ section {
 /* footer */
 
 footer {
-  max-width: 1920px;
+  max-width: 192rem;
   width: 100%;
-  height: 160px;
+  height: 16rem;
   display: flex;
   justify-content: center;
-  padding-top: 32px;
+  padding-top: 3.2rem;
   background-color: var(--black);
 }
 
@@ -184,35 +184,35 @@ footer {
   height: fit-content;
   display: flex;
   justify-content: space-between;
-  padding: 0 104px;
+  padding: 0 10.4rem;
 }
 
 .footer-div > span {
   color: #676767;
   font-family: Arial;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
 }
 
 .footer-links {
-  width: 181.111px;
+  width: 18.1111rem;
   display: flex;
-  gap: 30px;
+  gap: 3rem;
 }
 
 .footer-links > a {
   color: #cfcfcf;
   font-family: Arial;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
 }
 
 .footer-sns {
   display: flex;
-  gap: 12px;
+  gap: 1.2rem;
 }
 
 .footer-sns img {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
 }
