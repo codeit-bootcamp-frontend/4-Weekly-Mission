@@ -37,6 +37,10 @@ body {
   @media screen and (max-width: 767px) {
     padding: 13px 32px
   }
+
+  @media screen and (min-width: 1920px) {
+    gap: 1254px;
+  }
 }
 
 .headBlock--logo {
@@ -175,7 +179,6 @@ body {
   } 
 }
 
-
 .content--textLarge {
   color: #000;
   font-size: 48px;
@@ -188,9 +191,6 @@ body {
   @media screen and (max-width: 767px) {
     font-size: 24px;
     align-self: self-start;
-    br {
-      display: none;
-    }
   }
 }
 
@@ -205,12 +205,15 @@ body {
     grid-row: 2 / 3;
     font-size: 15px;
     line-height: 150%; /* 22.5px */
-    br {
-      display: none;
-    }
     order: 3;
     align-self: self-start;
   }
+}
+
+@media screen and (max-width: 767px) {
+  .content--blind {
+    display: none;
+  }  
 }
 
 .content--img {
@@ -276,6 +279,8 @@ body {
   }
 }
 
+/*=====footer=====*/
+
 .endContainer {
   background: var(--The-julge-black, #111322);
   display: flex;
@@ -331,3 +336,5 @@ body {
 
 nav요소 1920px 이상 일 때 외부 여백만 늘어나기
 html 폰트패밀리 한번에 선언하기
+회원가입창에서 absolute요소 안보임
+/*

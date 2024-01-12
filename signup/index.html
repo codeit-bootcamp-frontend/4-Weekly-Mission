@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="header">
-    <a id="logo" href="/">
+  <heaer class="headBlock">
+    <a class="headBlock--logo" href="../">
       <svg xmlns="http://www.w3.org/2000/svg" width="212" height="38" viewBox="0 0 212 38" fill="none">
         <path d="M8.95082 24.866V1.25437H0.708252V32.0971H24.401V24.866H8.95082Z" fill="#6D6AFE"/>
         <path d="M35.0352 32.0971V8.1165H26.7926V32.0971H35.0352ZM35.0352 6.27184V0H26.7926V6.27184H35.0352Z" fill="#6D6AFE"/>
@@ -21,33 +21,41 @@
         <path d="M203.049 8.1165V18.5573C202.162 19.5534 200.573 19.9592 198.725 19.9592C194.807 19.9592 193.661 18.7417 193.661 16.4913V8.1165H185.418V17.0816C185.418 23.6485 190.075 27.1903 196.544 27.1903C198.946 27.1903 201.164 26.6738 203.049 25.7883V26.6738C203.049 29.9573 201.792 31.1379 198.54 31.1379C195.841 31.1379 194.548 30.3262 194.178 28.4447H185.899C186.564 35.233 190.223 38 198.54 38C207.595 38 211.292 34.6796 211.292 26.0466V8.1165H203.049Z" fill="#6D6AFE"/>
       </svg>
     </a>
-    <h2>이미 회원이신가요? <a href="/signin">로그인 하기</a></h2>
-  </div>
-  <form class="main">
-    <div class="signup">
-      <label for="signup-email">이메일</label>
-      <input id="signup-email" name="email" type="email" placeholder="이메일 주소 입력" required>
-    </div>
-    <div class="signup">
-      <label for="signup-password">비밀번호</label>
-      <input id="signup-password" name="signup-password" type="password" placeholder="비밀번호 입력" required>
-    </div>
-    <div class="signup">
-      <label for="signup-password-repeat">비밀번호 확인</label>
-      <input id="signup-password-repeat" name="signup-password-repeat" type="password" placeholder="비밀번호 다시 입력" required>
-    </div>
-  </form>
-  <div class="footer">
-    <button type="submit">
-      회원가입
-    </button>
-    <div class="sns">
-      <div class="description">다른 방식으로 가입하기</div>
-      <div class="button">
-        <a  id="google" href="https://www.google.com/"><img src="./google.png"></a>
-        <a id="kakao" href="https://www.kakaocorp.com/page/"><img src="./kakao.png"></a>
+    <h2 class="headBlock--text">
+      이미 회원이신가요?
+      <a class="headBlock--text--signin" href="/signin">
+        로그인 하기</a>
+    </h2>
+  </heaer>
+  <form class="join">
+    <section class="join--id">
+      <label for="email">이메일</label>
+      <input id="email" name="join--id" type="email" placeholder="이메일 주소 입력" required>
+    </section>
+    <section class="join--pass">
+      <label for="pass">비밀번호</label>
+      <div class="addToggle-pass">
+        <input id="pass" name="join--pass" type="password" placeholder="비밀번호 입력" required>
+        <i class="fa-solid fa-eye-slash"></i>
       </div>
+    </section>
+    <section class="join--passRepeat">
+      <label for="passRepeat">비밀번호 확인</label>
+      <div class="addToggle-passRepeat">
+        <input id="passRepeat" name="join--passRepeat" type="password" placeholder="비밀번호 재입력" required>
+        <i id="addToggle-passRepeatIcon" class="fa-solid fa-eye-slash"></i>
+      </div>
+    </section>
+    <button class="join--Btn" type="submit">
+      로그인
+    </button>
+  </form>
+  <footer class="endBlock">
+    <div class="endBlock--text">다른 방식으로 가입하기</div>
+    <div class="endBlock--sns">
+      <a id="google" href="https://www.google.com/"><img src="./google.png"></a>
+      <a id="kakao" href="https://www.kakaocorp.com/page/"><img src="./kakao.png"></a>
     </div>
-  </div>
+  </footer>
 </body>
 </html>
