@@ -19,18 +19,19 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 1200px;
   height: 9.4rem;
-  max-width: 192rem;
-  padding: 0 20rem;
+  padding: 0 32px;
+}
+
+@media (max-width: 1199px) {
+  .gnb {
+    width: 100%;
+  }
 }
 @media (min-width: 768px) and (max-width: 1199px) {
-  .gnb {
-    padding: 0 32px;
-  }
   .hero-header {
     width: 100%;
-    padding: 0 30px;
   }
 
   .hero-header .hero-image {
@@ -39,6 +40,14 @@ nav {
   }
 }
 @media (min-width: 375px) and (max-width: 767px) {
+  .hero-header {
+    width: 100%;
+  }
+  .hero-header .hero-image {
+    width: 100%;
+    height: 59rem;
+    padding: 0 32px;
+  }
   div.container {
     display: grid;
     grid-template-areas:
@@ -47,7 +56,7 @@ nav {
       "description description";
     margin-bottom: 200px;
   }
-  br {
+  h2 br {
     display: none;
   }
   .container .title {
