@@ -34,6 +34,10 @@ nav {
   margin: auto;
 }
 
+nav img {
+  margin-left: 3.2rem;
+}
+
 .login {
   width: 12.8rem;
   height: 5.4rem;
@@ -47,6 +51,7 @@ nav {
   color: rgba(245, 245, 245, 1);
   background-image: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   text-decoration: none;
+  margin-left: 3.2rem;
 }
 
 main {
@@ -115,7 +120,7 @@ section:nth-of-type(odd) {
     'title image'
     'description image'
     '. image'
-    /291px 55rem;
+    /32rem 55rem;
 }
 
 section:nth-of-type(even) {
@@ -124,7 +129,7 @@ section:nth-of-type(even) {
     'image title'
     'image description'
     'image .'
-    /550px 29.1rem;
+    /55rem 32rem;
 }
 
 .title {
@@ -298,8 +303,13 @@ footer {
 
 @media (max-width: 1199px) {
   /* nav bar 반응형 */
-
   nav {
-    padding: 2rem minmax(3.2rem 20rem);
+    padding: 2rem 3.2rem;
+    margin: auto;
+    min-height: 3.2rem;
+  }
+
+  .gnb {
+    max-width: 80rem;
   }
 }
