@@ -49,7 +49,7 @@ input {
 }
 
 label {
-  font-size: 14px;
+  font-size: 1.4rem;
   display: block;
   margin-bottom: 12px;
 }
@@ -83,7 +83,7 @@ label {
 
 .sns-text {
   flex-grow: 1;
-  font-size: 14px;
+  font-size: 1.4rem;
   color: var(--gray100-color);
 }
 
