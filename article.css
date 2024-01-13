@@ -1,6 +1,17 @@
-/*아티클 레이아웃*/
-.article_ly {
-  display: flex;
-  align-items: center;
-  gap: 157px;
+@media (min-width: 1200px) {
+  /*아티클 레이아웃*/
+  .article_ly {
+    display: flex;
+    align-items: center;
+    gap: 157px;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  /*아티클 레이아웃*/
+  .article_ly {
+    display: flex;
+    align-items: center;
+    gap: 51px;
+  }
 }
