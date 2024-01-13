@@ -77,6 +77,10 @@ body{
     margin-bottom: 2.4rem;
 }
 
+.main-visual__title.desktop{
+    display: none;
+}
+
 .main-visual__title>.linear-text {
     background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
     background-clip: text;
@@ -348,6 +352,14 @@ nav {
 
     .main-service__img {
         flex-basis: 55rem;
+    }
+    .main-visual__title{
+        display: none;
+    }
+    .main-visual__title.desktop{
+        display: block;
+        width: 100%;
+        white-space: pre-line;
     }
 
 }
