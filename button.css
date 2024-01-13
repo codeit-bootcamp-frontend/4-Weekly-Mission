@@ -1,14 +1,14 @@
 /* Mix: 로그인 버튼 멀티 클래스 */
-@media (min-width: 768px) {
-  /*버튼 레이아웃*/
-  .button_ly {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 16px 20px;
-    gap: 10px;
-  }
+/*버튼 레이아웃*/
+.button_ly {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 20px;
+  gap: 10px;
+}
 
+@media (min-width: 768px) {
   /* 버튼 사이즈 */
   .button_login_size {
     width: 128px;
