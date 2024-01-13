@@ -7,7 +7,7 @@ body {
   margin: 238px auto 252px;
 }
 
-body > div {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -176,4 +176,22 @@ input:focus {
 
 .image_kakaotalk {
   grid-area: kakaotalk;
+}
+
+
+/* mobile */
+
+@media (max-width: 767px) {
+  body {
+    padding: 0 32px;
+  }
+
+  .container,
+  .login_form,
+  form,
+  .link_login,
+  .sns_login {
+    width: 100%;
+    max-width: 400px;
+  }
 }
