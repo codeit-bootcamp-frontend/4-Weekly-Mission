@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Pretendard";
+}
+
+html,
+body {
+  font-size: 62.5%;
+  background: var(--Linkbrary-bg, #f0f6ff);
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 238px 253px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-container {
+  text-align: center;
+  color: var(--black, #000);
+  /* Linkbrary/body1-regular */
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.logo-container a {
+  color: var(--Linkbrary-primary-color, #6d6afe);
+  /* Linkbrary/body 1-semibold */
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+input {
+  width: 400px;
+  padding: 1.8rem 1.5rem 1.8rem;
+  border-radius: 8px;
+  border: 1px solid lightgrey;
+  background: var(--Linkbrary-white, #fff);
+}
+
+input:focus {
+  outline: none;
+  border-color: #6d6afe;
+}
+
+label {
+  color: var(--black, #000);
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+#email {
+  margin-top: 1.2rem;
+  margin-bottom: 2.4rem;
+}
+
+#password {
+  margin-top: 1.2rem;
+}
+
+#password-check {
+  margin-top: 1.2rem;
+}
+
+.password-check-label {
+  margin-top: 2.4rem;
+}
+
+button {
+  color: var(--Grey-Light, #f5f5f5);
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  width: 40rem;
+  height: 5.3rem;
+  padding: 16px 20px 16px;
+  margin-bottom: 3.2rem;
+  border: none;
+  border-radius: 8px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+}
+
+footer {
+  color: var(--Linkbrary-gray100, #373740);
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  width: 400px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-gray10, #e7effb);
+}
+
+.link-box {
+  display: flex;
+  column-gap: 1.6rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.google {
+  position: relative;
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid lightgrey;
+}
+
+.google-img {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.kakao {
+  position: relative;
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
+  background-color: #f5e14b;
+}
+
+.kakao-img {
+  position: absolute;
+  top: 10px;
+  left: 9px;
+}
