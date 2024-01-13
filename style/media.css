@@ -87,26 +87,22 @@
   }
 
   footer > .footer-box{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-self: stretch;
+    display: grid;
+    grid-template: 1fr / repeat(5, 1fr);
     padding: 0 32px;
   }
-
-  .footer-m{
-    display: grid;
-    gap: 60px ;
-    grid-template-areas: 
-    "link"
-    "codeit";
+  footer .footer-box span{
+    grid-column: 1 / span 2;
+    grid-row: 2;
   }
-
-  .footer-m span{
-    grid-area: codeit;
+  footer .footer-box .footer-links{
+    grid-column: 1 / span 2;
+    grid-row: 1;
+    margin-bottom: 60px;
   }
-  .footer-m div{
-    grid-area: link;
+  footer .footer-box .sns{
+    height: 100%;
+    grid-column: 5;
   }
 }
 
@@ -134,9 +130,6 @@
   br.break-m{
     display: none;
   }
-  .footer-m{
-    display: none;
-  }
 }
 
 @media (min-width: 1200px) {
@@ -144,9 +137,6 @@
     display: none;
   }
   br.break-m{
-    display: none;
-  }
-  .footer-m{
     display: none;
   }
 }
