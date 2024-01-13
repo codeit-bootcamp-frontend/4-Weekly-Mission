@@ -1,0 +1,159 @@
+/* 전체 스타일 */
+
+body {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.normal__font {
+  color: initial;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+input,
+button,
+div {
+  border-radius: 0.8rem;
+}
+
+/* 로그인 화면 스타일 */
+
+.wrap {
+  width: 144rem;
+  height: 98.2rem;
+  margin: 0 auto;
+}
+
+.signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 40rem;
+  margin: 23.8rem 52rem 25.2rem;
+}
+
+.signin__wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+  margin-bottom: 3rem;
+}
+
+.logo img {
+  width: 21.058rem;
+  height: 3.8rem;
+}
+
+.question__signup {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.question__signup > p {
+  color: var(--Linkbrary-black);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+}
+
+.question__signup > .signup {
+  color: var(--Linkbrary-primary);
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.input__wrap {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.6rem;
+}
+
+.input__wrap label {
+  color: var(--Linkbrary-black);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.input__wrap input {
+  border: 1px solid var(--Linkbrary-gray20);
+  background: var(--Linkbrary-white);
+  width: 40rem;
+  padding: 1.8rem 1.5rem;
+}
+
+.input__wrap input:focus {
+  border-color: var(--Linkbrary-primary);
+  outline: none;
+}
+
+#email {
+  margin: 1.2rem 0 2.4rem;
+}
+
+#password {
+  margin: 1.2rem 0 2.4rem;
+}
+
+.input__wrap img {
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.signup__button {
+  color: var(--Linkbrary-gray10);
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  font-size: 1.8rem;
+  width: 40rem;
+  margin-bottom: 3.2rem;
+  padding: 1.6rem 2rem;
+}
+
+.sns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  border: 1px solid var(--Linkbrary-gray20);
+  background: var(--Linkbrary-gray10);
+  padding: 1.2rem 2.4rem;
+}
+
+.sns__icons {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.sns__icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 4.2rem;
+  height: 4.2rem;
+}
+
+.google__bg {
+  background-image: url(../../landing/google.svg);
+}
+
+.kakao__bg {
+  background-image: url(../../landing/kakao.svg);
+}
