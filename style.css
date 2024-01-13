@@ -269,7 +269,7 @@ button {
     flex-shrink: 0;
   }
   .text {
-    max-width: 28.2rem;
+    width: 28.2rem;
   }
   .title {
     font-size: 45px;
