@@ -231,3 +231,99 @@ footer {
     height: 31.5rem;
   }
 }
+
+@media (max-width: 767px) {
+  .header-area {
+    padding: 1.3rem 3.2rem;
+  }
+
+  .header-area .logo-img {
+    width: 8.867rem;
+    height: 1.6rem;
+  }
+
+  .header-area .btn {
+    width: 8rem;
+    height: 3.7rem;
+    line-height: 3.7rem;
+    font-size: 1.4rem;
+  }
+
+  .main {
+    gap: 2.4rem;
+    padding-top: 2.8rem;
+  }
+
+  .main .title {
+    font-size: 3.2rem;
+  }
+
+  .main .title p:last-child {
+    width: 20rem;
+  }
+
+  .main .btn {
+    width: 20rem;
+    height: 3.7rem;
+    line-height: 3.7rem;
+    font-size: 1.4rem;
+  }
+
+  .main .screen {
+    width: 32.5rem;
+    height: 16rem;
+    background: url("../../images/img-screen-mobile.png");
+  }
+
+  .section-area .wrap {
+    height: auto;
+    padding: 4rem 3.2rem;
+  }
+
+  .section-area:nth-of-type(2) .wrap {
+    height: auto;
+    padding-top: 4rem;
+  }
+
+  .section-area:last-of-type .wrap {
+    height: auto;
+    padding-bottom: 8rem;
+  }
+
+  .section-area .title {
+    order: 1;
+    margin-bottom: 0;
+    width: 100%;
+    line-height: 2.9rem;
+    font-size: 2.4rem;
+  }
+
+  .section-area .desc {
+    order: 3;
+    width: 100%;
+    font-size: 1.5rem;
+    line-height: 2.3rem;
+  }
+
+  .section-area .function-screen {
+    order: 2;
+    margin: 2rem 0 1.6rem;
+    width: 100%;
+    height: auto;
+  }
+
+  .section-area:nth-of-type(odd) .function-screen {
+    order: 2;
+  }
+
+  .footer-area {
+    flex-wrap: wrap;
+    gap: 6rem 0;
+    padding: 3.2rem;
+  }
+
+  .copyright {
+    order: 1;
+    width: 100%;
+  }
+}
