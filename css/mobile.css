@@ -1,0 +1,337 @@
+@media (min-width: 375px) and (max-width: 767px) {
+  br {
+    display: none;
+  }
+
+  .header_box {
+    padding: 0.8125rem 2rem;
+  }
+  .header_box .logo {
+    width: 5.54169rem;
+    height: 1rem;
+  }
+  .header_box .login {
+    width: 5rem;
+    padding: 0.625rem 1rem;
+    gap: 0.625rem;
+  }
+  /*header끝*/
+  .section1 {
+    background-color: #f0f6ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 5.68rem;
+    gap: 1.5rem;
+  }
+  .section1 h1 {
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.625rem;
+  }
+  .section1 h1 br {
+    display: block;
+  }
+  .section1 h1 span {
+    background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .section1_btn {
+    display: flex;
+    width: 12.5rem;
+    padding: 0.625rem 1rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+    color: #fff;
+    text-align: center;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+  .section1_img {
+    width: 18.9245rem;
+    height: 10.1695rem;
+  }
+  .section1_img_box {
+    width: 18.9245rem;
+    height: 11.1695rem;
+    border-radius: 1.5625rem;
+    background: linear-gradient(
+      180deg,
+      rgba(196, 196, 196, 0) 67.68%,
+      #f0f6ff 125.4%
+    );
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.08);
+    background-image: url("https://s3-alpha-sig.figma.com/img/2080/5edd/4edb32d644767d750d576d9e6c790df2?Expires=1705276800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BqGZc9UNt8oaBlpKF~s0aAtiFTIt~BFVvt0sZhM2E1yAp6IKFxNJ2JhZOAJZWN1ckpBG5Bh4nmxXdyD0aGUB93JByxhvD12PkyGIp8D5MftpPbl963suLX5bZ-4nEKEhcW1XqBqE-RAAmune4exXrsvO0R7YrdKNNLa3FZYZPmeYo3TMzcNQTTBGPmo075QgUY3MvW09HZZRKNQSIY9uYv6oEuH-EORuDCiYAnplikfEhnipG8WoSM4YhQxH8oGAzKbW~6wEwC4W3KpKVABU2PpmeVe0mgSFsJRUSh4DznRjUKw2Tb-Jp2Z4tl5wHuG1z3Ksnw3YWMGnTPzVw~W8Fw__");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 auto;
+  }
+  .section1_img_linear {
+    width: 18.9245rem;
+    height: 11.1695rem;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(196, 196, 196, 0) 78.68%,
+      #e9e9e9b1 100%
+    );
+  }
+  /*section1끝*/
+  .section2 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding-top: 2.5rem;
+    padding-bottom: 2.26rem;
+  }
+  .section2_box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0 32px;
+  }
+  .section2_txt {
+    font-family: Pretendard;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.01875rem;
+  }
+  .section2_txt span {
+    background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .section2_txt p {
+    color: #6b6b6b;
+    font-family: Pretendard;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-top: 0.625rem;
+  }
+  .section2_img_box {
+    width: 100%;
+    height: 23rem;
+    border-radius: 1rem;
+    background-image: url("/img/_img1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .section3 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding-top: 2.5rem;
+    padding-bottom: 2.63rem;
+  }
+  .section3_box {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0 32px;
+  }
+  .section3_img_box {
+    width: 100%;
+    height: 23rem;
+    background-image: url("https://s3-alpha-sig.figma.com/img/42fe/81b4/36f80c1fae28a3c13827315c1fe5becd?Expires=1705881600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ASuchbbmoUXl0sCd-vFirPChJ69c80WWzWWXyQ0-BAXGXAbvQmW34yXRCfkzV2adZPpB16l2NElEZagGORvXEj9~tFRH92YfBv0nDy6BxO6K4yJax78JRt2BVE6iT4Lrz8QbvuITQCL~gzFne-dAoIVJmaqXD81z8aLlH~442q4fVonGtJk5SDDVY9c0Bo67T-yG66rs33SVW9PcnHPgJZnykBjzZnrheZ5wXKRU6IzWb4mbSrvYoWJ7pLdZBlISoccPxtNK9vBx0rJUMZWgfDfySxiS3uwMR3wqAlRh0ueEdR02AFCZU1bzubrntkCVluWwHKl5LW6H3PPG7zxbag__");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .section3_txt {
+    font-family: Pretendard;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.01875rem;
+  }
+  .section3_txt span {
+    background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .section3_txt p {
+    color: #6b6b6b;
+    font-family: Pretendard;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-top: 0.625rem;
+  }
+  /*section3끝*/
+  .section4 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2.5rem;
+    padding-bottom: 2.63rem;
+    background-color: #fff;
+  }
+  .section4_box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0 32px;
+  }
+  .section4_txt {
+    color: #000;
+    font-family: Pretendard;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.01875rem;
+  }
+  .section4_txt span {
+    background: linear-gradient(
+      99deg,
+      #6d7ccd 19.76%,
+      rgba(82, 136, 133, 0.22) 52.69%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .section4_txt p {
+    color: #6b6b6b;
+    font-family: Pretendard;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-top: 0.625rem;
+  }
+  .section4_img_box {
+    width: 100%;
+    height: 23rem;
+    background-image: url("https://s3-alpha-sig.figma.com/img/69d5/8d9e/acee9c661f93ec7d57de4681cbf3134e?Expires=1705881600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AIRsleW9NNk2Ablm6G56C0imEKcMl48rEQPRnY6hECRPNoW~yV-Vk2LYISABLCVCtkqV7e75YecMOYhVwoTLNAe8WiXec4Nk6weiU-~fP-3Yl68MCGC3nTe-5imZc8bG50-4iygD7WvQxJ7eEu2fh~kE3cqM-BxVREfh4IVqYuCFpaf-CjMG~H~NkwBpfGk99L3YfZkQieLQQ-scXo2A9whILZTq-8MrB14yljmfno7RIkAcNTPLwI17TjpafsHkDdSsKT0w~8MX0HoLtP7Vr3IYS4APE40DQMD-l8lkoA9d-o0~obrQ6lGcbQGZm2xViCbyt9HhN92SVxyIu6XgwQ__");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  /*section4끝*/
+  .section5 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2.5rem;
+    padding-bottom: 2.63rem;
+    background-color: #fff;
+  }
+  .section5_box {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+    margin: 0 32px;
+  }
+  .section5_img {
+    width: 100%;
+    height: 23rem;
+    background-image: url("https://s3-alpha-sig.figma.com/img/ef67/2524/36e0df8ef18e305094ecaf2b1826ab7a?Expires=1705881600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=RtNwJcB2zhBb3gQ51cUpcypg9EgSJAj~dflo96CuRfFwfppudv7As046Uhy9amLvMIflbHf83D9ApDGkXJLShH6d98sD8YzmnI7VPqRc7GQl97WZ4hSQVKkr1Ib3FdbE6vO5BrTmXAiVS-glZXcbswfbbIio5voa6ahP-9-C4wJmu9~aUJV-oRMY6reapT9v7yVm1FqL3vYgQKFAAmBDgGQ0xST-mZ-8qOi8uMSWo44AMXpX-LCGNZ9Q3OxGShQs3R5K7K6enlLpLzcifDkXEZUMle6Xt-54jXBGJFQVx4O7lFDG4PSMzsgmiM46jEGFMPdAOg5613FIygYFWHmfSg__");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .section5_txt h1 {
+    color: #000;
+    font-family: Pretendard;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.01875rem;
+  }
+  .section5_txt h1 span {
+    background: var(
+      --Fandom-K-gra-blue-to-pink,
+      linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .section5_txt p {
+    color: #6b6b6b;
+    font-family: Pretendard;
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-top: 0.625rem;
+  }
+  /*section5끝*/
+  footer {
+    width: 100%;
+    background-color: #fff;
+    padding-top: 2.5rem;
+  }
+  .footer_box {
+    height: 10rem;
+    padding: 2rem 2rem 4rem 2rem;
+    background: #111322;
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  }
+  .footer_box p {
+    color: #676767;
+    font-family: Arial;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    grid-row: 2/2;
+  }
+  .footor_txt {
+    display: flex;
+    width: 11.31944rem;
+    align-items: flex-start;
+    gap: 1.875rem;
+  }
+  .footor_txt p {
+    color: #cfcfcf;
+    font-family: Arial;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .footor_img {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+  .footor_img img {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+} /*mobile끝*/

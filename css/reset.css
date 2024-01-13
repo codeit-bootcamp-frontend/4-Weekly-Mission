@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: inherit;
+  box-sizing: border-box;
+}
+img {
+  width: 100%;
+}
+body {
+  width: 100%;
+  background-color: #f0f6ff;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
