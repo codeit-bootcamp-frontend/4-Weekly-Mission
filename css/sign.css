@@ -2,171 +2,157 @@
 
 /* -------- Sign Page -------- */
 
-.signLayout {
+.sign {
   display: flex;
   width: auto;
-  padding: 238px 0px 252px 0px;
+  padding: 23.8rem 0 25.2rem;
   justify-content: center;
   align-items: center;
   background-color: var(--Linkbrary-bg);
 }
 
-.signContainer {
+.sign__container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 3.2rem;
 }
 
 /* ---- Sign(Normal) ---- */
 
-.signNormal {
+.sign-normal {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 3rem;
 }
 
 /* Sign Header */
-.signHeader {
+.sign-header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 1.6rem;
 }
-.signHeader .logo {
-  width: 210.583px;
-  height: 38px;
+.sign-header__logo {
+  width: 21.05rem;
+  height: 3.8rem;
 }
-.signHeader-message {
-  color: var(--black);
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
+.sign-header__message {
+  color: var(--Linkbrary-Black);
+  font-size: 1.6rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2.4rem;
 }
-.signHeader-link {
+.sign-header__link {
   color: var(--Linkbrary-primary-color);
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
+  font-size: 1.6rem;
   font-weight: 600;
   line-height: normal;
   text-decoration: underline;
 }
 
 /* Sign Form */
-.signForm {
+.sign-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 2.4rem;
 }
-.signForm-inputbox {
+.sign-form__inputbox {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 1.2rem;
 }
-.signForm-inputbox label {
-  color: var(--black);
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
+.sign-form__inputbox label {
+  color: var(--Linkbrary-Black);
+  font-size: 1.4rem;
   font-weight: 400;
-  line-height: normal;
 }
-.signForm-inputbox input {
-  width: 400px;
-  padding: 18px 15px;
-  border-radius: 8px;
+.sign-form__inputbox input {
+  width: 40rem;
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
   border: 1px solid var(--Linkbrary-gray20);
   background: var(--Linkbrary-white);
 }
-.signForm-inputbox input:focus {
+.sign-form__inputbox input:focus {
   outline-color: var(--Linkbrary-primary-color);
 }
-.signForm-inputbox input::placeholder {
+.sign-form__inputbox input::placeholder {
   color: var(--Linkbrary-gray100);
-  font-family: Pretendard;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2.4rem;
 }
 .password-input {
   position: relative;
 }
 .password-icon {
   position: absolute;
-  top: 18px;
-  right: 15px;
+  top: 1.8rem;
+  right: 1.5rem;
+  cursor: pointer;
 }
 
-.signNormal button {
+.sign-normal__btn {
+  /* width: 40rem; */
+  width: 100%;
+  padding: 1.6rem 2rem;
   display: flex;
-  width: 400px;
-  padding: 16px 20px;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   background: var(
     --gra-purpleblue-to-skyblue,
     linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
   );
   color: var(--Linkbrary-white);
-  font-family: Pretendard;
-  font-size: 18px;
-  font-style: normal;
+  font-size: 1.8rem;
   font-weight: 600;
-  line-height: normal;
 }
 
 /* ---- Sign(Social) ---- */
 
-.signSocial {
+.sign-social {
+  width: 100%;
+  padding: 1.2rem 2.4rem;
   display: flex;
-  width: 400px;
-  padding: 12px 24px;
   justify-content: space-between;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   border: 1px solid var(--Linkbrary-gray20);
   background: var(--Linkbrary-gray10);
 }
-.social-text {
+.sign-social__title {
   color: var(--Linkbrary-gray100);
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
+  font-size: 1.4rem;
   font-weight: 400;
   line-height: normal;
 }
-.social-badges {
+.sign-social__badges {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 1.6rem;
 }
-.social-badges a {
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
-  position: relative;
+.sign-social__badge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
 }
-.badge-google {
-  background: var(--Linkbrary-white)
-    url('https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png')
-    0px 0px / 100% 100% no-repeat;
-  width: 22px;
-  height: 22px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
+.sign-social__badge-img {
+  width: 2.2rem;
+  height: 2.2rem;
 }
-.badge-kakao {
-  position: absolute;
-  top: 10px;
-  left: 8px;
+.google {
+  background-color: var(--Linkbrary-white);
+  border: 0.1rem solid #d3d4dd;
+}
+.kakao {
+  background-color: #f5e14b;
 }
