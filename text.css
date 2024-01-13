@@ -19,10 +19,17 @@ html {
 }
 
 /* 텍스트 컨테이너 블록 크기 */
-.text-container_size {
-  width: 291px;
+@media (min-width: 1200px) {
+  .text-container_size {
+    width: 291px;
+  }
 }
 
+@media (max-width: 1199px) and (min-width: 768px) {
+  .text-container_size {
+    width: 262px;
+  }
+}
 
 /* 1. 텍스트 블록 */
 /* 텍스트 블록 레이아웃 */
