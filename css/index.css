@@ -1,14 +1,4 @@
-:root {
-  --primary: #6d6afe;
-  --red: #ff5b56;
-  --black: #111322;
-  --white: #ffffff;
-  --gray1: #3e3e43;
-  --gray2: #9fa6b2;
-  --gray3: #ccd5e3;
-  --gray4: #e7effb;
-  --gray5: #f0f6ff;
-}
+@import url(color.css);
 
 * {
   box-sizing: border-box;
@@ -108,7 +98,7 @@ body {
 }
 
 .gradation-bb2 {
-  background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+  background: linear-gradient(90deg, rgba(66,220,233, 0.52) 14%, rgba(12,130,195,0.52) 73%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
