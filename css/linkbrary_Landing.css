@@ -103,6 +103,7 @@ body {
   }
   .header-two{
     width: 20rem;
+    height: 3.7rem; 
   }
   .main-img{
     width: 32.5rem;
@@ -275,6 +276,7 @@ body {
     justify-content: center;
     background-color: var(--gray5-color);  
     position: sticky;
+    width: 100%;
     z-index: 1;
   }
   .header-main{
@@ -289,7 +291,6 @@ body {
   .logo {
     width: 13.3rem;
     height: 2.4rem;
-    margin-right: auto;
   }
   .box{
     display: flex;
@@ -303,7 +304,6 @@ body {
     text-decoration: none;
     background-image : linear-gradient(135deg, var(--primary-color) 2%, #6ae3fe 100%);
     border-radius: 0.8rem;
-    margin-left: auto;
   }
   .header-one{
     width: 12.8rem;
