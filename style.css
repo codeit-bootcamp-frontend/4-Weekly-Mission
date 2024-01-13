@@ -1,10 +1,14 @@
+/* fonts */
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
 /* lading CSS */
 @import url("./CSS/palette.css");
 @import url("./CSS/landing/header.css");
 @import url("./CSS/landing/main.css");
 @import url("./CSS/landing/footer.css");
 
-/* sisgnin CSS */
+/* sisgnin, signup CSS */
 @import url("./CSS/sign/sign.css");
 
 * {

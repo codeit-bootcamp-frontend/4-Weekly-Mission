@@ -4,24 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
   </head>
   <body class="sign-container">
-    <div class="sign-form-wrapper">
+    <div class="sign-wrapper">
       <a class="sign-form-logo" href="/">
-        <img src="./svg/logo.svg" alt="" />
+        <img src="../assets/svg/logo.svg" />
       </a>
       <div class="sign-form-signup">
         <span>회원이 아니신가요?</span>
-        <a href="/signup.html">회원 가입하기</a>
+        <a href="/signup">회원 가입하기</a>
       </div>
 
       <form class="sign-form" action="">
-        <div>
+        <div class="sign-form-wrapper">
+          <!-- email -->
           <p>이메일</p>
           <input class="sign-email" type="email" placeholder="이메일" />
+
+          <!-- password -->
           <p>비밀번호</p>
-          <input class="sign-password" type="password" placeholder="비밀번호" />
+          <div class="sign-password">
+            <input type="password" placeholder="비밀번호" />
+            <img src="../svg/eye-off.svg" alt="" />
+          </div>
         </div>
         <input class="sign-btn" type="submit" value="로그인" />
       </form>
@@ -30,10 +36,10 @@
         <p class="sign-sns-text">소셜 로그인</p>
         <ul class="sign-sns-list">
           <a href="https://www.google.com/"
-            ><img src="images/google-login.png"
+            ><img src="../assets/images/google-login.png"
           /></a>
           <a href="https://www.kakaocorp.com/page/"
-            ><img src="images/kakao-login.png"
+            ><img src="../assets/images/kakao-login.png"
           /></a>
         </ul>
       </div>

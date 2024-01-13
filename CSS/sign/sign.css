@@ -5,7 +5,7 @@
   align-items: center;
   background-color: #f0f6ff;
 }
-.sign-form-wrapper {
+.sign-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,25 +32,47 @@
   flex-direction: column;
   width: 100%;
 }
-.sign-form > div {
+.sign-form-wrapper {
   margin: 30px 0;
 }
 .sign-form p {
-  font-family: Pretendard;
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
-  line-height: normal;
 }
+
 .sign-email,
 .sign-password {
   margin: 12px 0;
   border-radius: 8px;
   width: 100%;
-  padding: 18px 15px;
   border: 1px solid var(--gray3);
+  background-color: #ffffff;
 }
-.sign-form div input:focus {
+
+.sign-email {
+  padding: 18px 15px;
+  height: 60px;
+}
+.sign-password {
+  display: flex;
+  position: relative;
+}
+.sign-password input {
+  border-radius: 8px;
+  height: 60px;
+  border: none;
+  padding: 18px 15px;
+  width: 100%;
+}
+.sign-password img {
+  position: absolute;
+  right: 15px;
+  top: 22px;
+}
+
+.sign-email:focus,
+.sign-password input:focus {
+  outline: none;
   border: 1px solid var(--primary);
 }
 
@@ -116,7 +138,7 @@
   .sign-container {
     padding: 120px 32px 0;
   }
-  .sign-form-wrapper {
+  .sign-wrapper {
     margin: 0 32px 0;
     width: 100%;
     height: auto;
