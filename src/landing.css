@@ -55,8 +55,10 @@ nav {
       "title title"
       "image image"
       "description description";
-    margin-bottom: 200px;
+    /* margin-bottom: 100px; */
+    height: auto;
   }
+
   h2 br {
     display: none;
   }
@@ -74,6 +76,9 @@ nav {
   .container .description {
     grid-area: description;
     padding: 0 32px;
+  }
+  .description br {
+    display: none;
   }
 }
 header {
