@@ -68,7 +68,7 @@ label {
 
 input {
   display: flex;
-  width: 400px;
+  width: 100%;
   padding: 1.8rem 1.5rem;
   justify-content: center;
   align-items: center;
@@ -79,7 +79,7 @@ input {
 
 .login_button {
   display: flex;
-  width: 400px;
+  width: 100%;
   padding: 16px 20px;
   justify-content: center;
   align-items: center;
@@ -94,7 +94,7 @@ input {
 
 .login_block {
   display: flex;
-  width: 400px;
+  width: 100%;
   margin-top: 2px;
   padding: 12px 24px;
   justify-content: space-between;
@@ -129,4 +129,23 @@ input {
   width: 1.6rem;
   height: 1.6rem;
   fill: #FFF;
+}
+
+/* Tablet 사이즈 */
+@media (max-width: 1199px) {
+  body {
+    padding-top: 20rem;
+  }
+}
+
+/* Mobile 사이즈 */
+@media (max-width: 767px) {
+  body {
+    padding-top: 12rem;
+  }
+
+  main {
+    max-width: 40rem;
+    padding: 0 3.2rem;
+  }
 }

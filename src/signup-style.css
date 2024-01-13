@@ -68,7 +68,7 @@ label {
 
 input {
   display: flex;
-  width: 400px;
+  width: 100%;
   padding: 1.8rem 1.5rem;
   justify-content: center;
   align-items: center;
@@ -79,22 +79,22 @@ input {
 
 .signup_button {
   display: flex;
-  width: 400px;
+  width: 100%;
   padding: 16px 20px;
   justify-content: center;
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--primary) 0.12%, #6AE3FE 101.84%));
+  background: linear-gradient(91deg, var(--primary) 0.12%, #6AE3FE 101.84%);
   text-decoration: none;
-  color: var(--Grey-Light, #F5F5F5);
-  font-size: 18px;
+  color: #F5F5F5;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 
 .signup_block {
   display: flex;
-  width: 400px;
+  width: 100%;
   margin-top: 2px;
   padding: 12px 24px;
   justify-content: space-between;
@@ -136,3 +136,22 @@ input {
   color: var(--red);
   margin-top: 6px;
 } */
+
+/* Tablet 사이즈 */
+@media (max-width: 1199px) {
+  body {
+    padding-top: 20rem;
+  }
+}
+
+/* Mobile 사이즈 */
+@media (max-width: 767px) {
+  body {
+    padding-top: 12rem;
+  }
+
+  main {
+    max-width: 40rem;
+    padding: 0 3.2rem;
+  }
+}
