@@ -72,7 +72,7 @@ header {
 .banner_gradient {
   background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
   color:transparent;
-  background-clip: text;
+  background-clip: text; 
 }
 
 .button_addlink {
@@ -112,7 +112,7 @@ header {
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
-  width: 291px;
+  width: 100%;
 }
 
 .content_title {
@@ -200,8 +200,23 @@ footer {
 @media (max-width: 1199px) {
   .banner_text  {
     display: none;
-  }
+  } 
+
   .banner_text.tablet {
     display: inline;
+  }
+
+  .banner_image {
+    width: 698px;
+    height: 343px;
+  }
+
+  .content_container {
+    gap: 51px;
+  }
+
+  .content_image {
+    width: 385px;
+    height: 315px;
   }
 }
