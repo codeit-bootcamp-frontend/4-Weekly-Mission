@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: "icomoon";
-  src: url("/styles/fonts/icomoon.eot?fb537t");
-  src: url("/styles/fonts/icomoon.eot?fb537t#iefix") format("embedded-opentype"),
-    url("/styles/fonts/icomoon.ttf?fb537t") format("truetype"),
-    url("/styles/fonts/icomoon.woff?fb537t") format("woff"),
-    url("/styles/fonts/icomoon.svg?fb537t#icomoon") format("svg");
+  src: url("/styles/fonts/icomoon.eot?dtsjzr");
+  src: url("/styles/fonts/icomoon.eot?dtsjzr#iefix") format("embedded-opentype"),
+    url("/styles/fonts/icomoon.ttf?dtsjzr") format("truetype"),
+    url("/styles/fonts/icomoon.woff?dtsjzr") format("woff"),
+    url("/styles/fonts/icomoon.svg?dtsjzr#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -38,20 +38,42 @@ i {
   margin-left: -1em;
   color: rgb(55, 55, 64);
 }
-.icon-sns-facebook:before {
+.icon-google-login .path1:before {
   content: "\e902";
+  color: rgb(66, 133, 244);
+}
+.icon-google-login .path2:before {
+  content: "\e903";
+  margin-left: -0.9775390625em;
+  color: rgb(52, 168, 83);
+}
+.icon-google-login .path3:before {
+  content: "\e904";
+  margin-left: -0.9775390625em;
+  color: rgb(251, 188, 5);
+}
+.icon-google-login .path4:before {
+  content: "\e905";
+  margin-left: -0.9775390625em;
+  color: rgb(235, 67, 53);
+}
+.icon-kakao-login:before {
+  content: "\e906";
+}
+.icon-sns-facebook:before {
+  content: "\e907";
   color: #fff;
 }
 .icon-sns-instagram:before {
-  content: "\e903";
+  content: "\e908";
   color: #fff;
 }
 .icon-sns-twitter:before {
-  content: "\e904";
+  content: "\e909";
   color: #fff;
 }
 .icon-sns-youtube:before {
-  content: "\e905";
+  content: "\e90a";
   color: #fff;
 }
 
