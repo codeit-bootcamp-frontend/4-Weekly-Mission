@@ -150,3 +150,14 @@ header {
   padding-top: 0.2rem;
   background-color: #f5e14b;
 }
+
+@media (max-width: 767px) {
+  body {
+    margin: 0 32px;
+  }
+
+  .sign-box {
+    width: 100%;
+    max-width: 400px;
+  }
+}
