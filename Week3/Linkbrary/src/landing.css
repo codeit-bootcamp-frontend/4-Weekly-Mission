@@ -95,27 +95,27 @@ section {
   display: grid;
   justify-content: center;
   column-gap: 15.7rem;
-  row-gap: 1;
+  row-gap: 20px;
   width: 100%;
-  height: 55rem;
   padding: 50px 32px;
   margin: 0;
   margin-bottom: 100px;
+  object-fit: cover;
 }
 
 section:nth-of-type(odd) {
   grid-template:
     "title"
-    "description"
     "image"
+    "description"
     /100%;
 }
 
 section:nth-of-type(even) {
   grid-template:
   "title"
-  "description"
   "image"
+  "description"
     /100%;
 }
 
@@ -169,7 +169,7 @@ footer {
   width: 100%;
   max-width: 192rem;
   height: fit-content;
-  padding: 0 10.4rem;
+  padding: 0 32px;
 }
 
 .copyright {
@@ -298,7 +298,7 @@ footer {
     row-gap: 10px;
     width: 100%;
     height: 55rem;
-    padding: 50px 200px;
+    padding: 50px 32px;
   }
   
   section:nth-of-type(odd) {
