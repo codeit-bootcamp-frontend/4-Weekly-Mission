@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F0F6FF;
+    padding: 238px 0;
+    font-family: Pretendard, sans-serif;
+    margin: 0;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+form {
+    width: 400px;
+    margin: 0 auto;
+}
+
+a.signup {
+    position: relative;
+    bottom: 5px;
+    left: 8px;
+}
+
+.logo img {
+    display: block;
+    margin: 0 auto 16px;
+}
+
+.signup-check {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.signin input {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #ccd5e3;
+    border-radius: 8px;
+    padding: 18px 15px;
+    margin-bottom: 24px;
+    line-height: 24px;
+}
+
+.signin input:focus {
+    border: 1px solid #6D6AFE; 
+}
+
+.signin input#password {
+    margin-bottom: 32px;
+}
+
+.login {
+    width: 100%;
+    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+    border: 0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-family: Pretendard;
+    color: #f5f5f5;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 32px;
+    cursor: pointer;
+}
+
+
+.sns-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: #E7EFFB;
+    border: 1px solid #CCD5E3; 
+    border-radius: 8px;
+}
+
+.google {
+    width: 42px;
+    height: 42px;
+    background-image: url('../images/signin/google.png');
+    background-color: white;
+    background-size: 22px 22px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #d3d4dd;
+    border-radius: 9999px;
+}
+
+.kakao {
+    width: 42px;
+    height: 42px;
+    background-image: url('../images/signin/kakao.svg');
+    background-color: #F5E14B;
+    background-size: 26px 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 9999px;
+}
+
+.sns-box .icon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+}
+
+@media (max-width: 767px) {
+    body {
+        padding: 120px 32px;
+    }
+
+    form {
+        margin: 0; 
+        width: 100%; 
+    }
+}
