@@ -6,20 +6,20 @@
   width: 100%;
   height: 100%;
   background-color: var(--Linkbrary-bg);
-  padding-top: 238px;
-  padding-bottom: 253px;
+  padding-top: 23.8rem;
+  padding-bottom: 25.3rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: 3.2rem;
 }
 
 main,
 form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 3rem;
 }
 
 .header {
@@ -27,78 +27,76 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
 .signup {
   color: var(--black, #000);
-  font-family: Pretendard;
-  line-height: 24px;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
 }
 
 .signup-link {
   color: var(--primary);
-  font-family: Pretendard;
   font-weight: 600;
   line-height: normal;
 }
 
 .input-profile {
-  padding: 18px 15px;
-  border-radius: 8px;
-  border: 1px solid var(--gray-4);
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--gray-4);
   background: var(--white);
-  width: 400px;
+  width: 40rem;
 }
 
 .input-profile:focus {
-  border: 3px solid var(--primary);
+  border: 0.3rem solid var(--primary);
   outline: none;
 }
 
 div.input {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 2.4rem;
+  font-size: 1.6rem;
 }
 
 .input-row {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 1.2rem;
   position: relative;
 }
 
 .input-label {
   color: var(--black, #000);
-  font-family: Pretendard;
-  font-size: 14px;
+  font-size: 1.4rem;
   line-height: normal;
 }
 
 button.login-btn {
   display: flex;
-  padding: 16px 20px;
-  width: 400px;
+  padding: 1.6rem 2rem;
+  width: 40rem;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   background: var(--gra-purpleblue-to-skyblue);
   color: #f5f5f5;
   color: var(--Grey-Light, #F5F5F5);
-  font-family: Pretendard;
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
   line-height: normal;
-  border: 1px solid var(--gray-4);
+  border: 0.1rem solid var(--gray-4);
 }
 
 footer {
-  border-radius: 8px;
-  border: 1px solid #CCD5E3;
+  border-radius: 0.8rem;
+  border: 0.1rem solid #CCD5E3;
   background: #E7EFFB;
-  width: 400px;
-  padding: 12px 24px;
+  width: 40rem;
+  padding: 1.2rem 2.4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -107,21 +105,20 @@ footer {
 .footer-sns-login {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1.6rem;
 }
 
 .footer-main {
   color: #373740;
-  font-family: Pretendard;
-  font-size: 14px;
+  font-size: 1.4rem;
   line-height: normal;
 }
 
 .eye {
-  width: 16px;
-  height: 16px;
+  width: 1.6rem;
+  height: 1.6rem;
   position: absolute;
-  top: 52px;
-  right: 20px;
+  top: 5.2rem;
+  right: 2rem;
   cursor: pointer;
 }
