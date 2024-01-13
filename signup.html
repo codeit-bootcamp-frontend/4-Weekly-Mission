@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link rel="stylesheet" href="css/style_signup.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+</head>
+<body>
+  <main>
+    <div class="login">
+      <div class="sign-title">
+        <a href="/">
+          <img src="img/svg/logo-sign.svg" alt="logo-sign">
+        </a>
+        <div>
+          <span class="black">이미 회원이신가요?</span>
+          <a class="signup-a primary" href="signin.html">로그인 하기</a>
+        </div> 
+      </div>
+      <div>
+        <form action="" method="get">
+          <div class="input-box">
+            <div class="input-font-size black">이메일</div>
+            <input id="email" type="email">
+          </div>
+          <div class="input-box">
+            <div class="input-font-size black">비밀번호</div>
+            <input class="eye-on" id="password" type="text">
+          </div>
+          <div class="input-box">
+            <div class="input-font-size black">비밀번호 확인</div>
+            <input class="eye-on border-red" id="password-chk" type="text">
+            <span class="input-font-size red">비밀번호가 다릅니다.</span>
+          </div>
+        </form>
+      </div>
+      <button class="login-btn white">회원가입</button>
+    </div>
+    <div class="social-login">
+      <span class="social-font-size">다음 방식으로 가입하기</span>
+      <div class="social-box">
+        <a href="https://www.google.com/">
+          <img src="img/png/google-logo.png" alt="google-image">
+        </a>
+        <a href="https://www.kakaocorp.com/page/">
+          <div class="kakao-bg">
+            <img src="img/svg/kakao-logo.svg" alt="kakao-image">
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
