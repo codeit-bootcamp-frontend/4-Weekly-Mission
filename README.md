@@ -38,7 +38,7 @@
 <br />
 
 ### 📌 배포주소
-URL : https://weekly-mission-week2.netlify.app/ 
+URL : https://weekly-mission-week.netlify.app/ 
 <br />
 <details>
   <summary>Preview</summary>
