@@ -336,6 +336,7 @@ footer{
     padding-top: 40px;
     padding-bottom: 36px;
     gap: 24px;
+    margin-bottom: 40px;
   }
 
   .text_box{
@@ -344,6 +345,7 @@ footer{
     display: flex;
     flex-direction: column;
     gap: 10px;
+   
   }
  
   .content .content_2 .content_2_h1,
@@ -354,15 +356,21 @@ footer{
   .content .content_2 p{
     width: 100%;
     font-size: 15px;
+    position: absolute;
+    bottom: -30px;
   }
   .image_box{
     width: 325px;
     height: 265px;
+    position: relative;
   }
-
   .image_box img{
     width: 325px;
     height: 265px;
+
+  }
+  .content_2{
+    position: relative;
   }
   .content .content_2 p{
     width: 325px;
