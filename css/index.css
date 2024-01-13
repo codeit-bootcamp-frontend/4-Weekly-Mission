@@ -19,6 +19,7 @@ nav {
 .login-button {
     width: 88px;
     height: 22px;
+    cursor: pointer;
 }
 
 /*공통요소(button)*/
@@ -59,6 +60,7 @@ header{
 .link-add-button{
     width: 310px;
     height: 22px;
+    cursor: pointer;
 }
 
 .main-image{
