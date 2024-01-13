@@ -24,6 +24,8 @@ body {
 
 .main {
   width: 400px;
+  padding: 0 32px;
+  box-sizing: content-box;
 }
 
 .main-header {
