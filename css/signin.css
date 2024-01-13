@@ -38,12 +38,14 @@ body {
 }
 
 .to-signup {
-  margin-top: 16px
+  margin-top: 16px;
+  text-align: center
 }
 
 .to-signup a {
   color: var(--primary);
   font-weight: 600;
+  text-underline-position: under;
 }
 
 form {

@@ -2,11 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, insitial-scale=1.0">
-  <title>Document</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linkbrary</title>
   <link rel="stylesheet" href="css/signup.css">
 </head>
 <body>
-  
+  <div class="container">
+
+    <div>
+      <a href="/" class="logo">
+        <img src="img/signup/Linkbrary.png">
+      </a>
+      <div class="to-signin">
+        <span>이미 회원이신가요?</span>
+        <a href="/signin.html">로그인하기</a>
+      </div>
+    </div>
+
+    <form>
+      <div>
+        <label for="signup-email">이메일</label>
+        <input id="signup-email" name="email" type="email">
+      </div>
+      <div>
+        <label for="signup-password">비밀번호
+          <input id="signup-password" name="password" type="text">
+          <img src="img/signup/eye-on.png">
+        </label>
+      </div>
+      <div>
+        <label for="signup-password-check">
+          비밀번호 확인
+          <input id="signup-password-check" name="password" type="text">
+          <div class="password-check">비밀번호가 다릅니다</div>
+          <img src="img/signup/eye-on.png">
+        </label>
+      </div>
+      <button>로그인</button>
+    </form>
+
+    <div class="social-login">
+      소설 로그인
+      <div class="fast-travel">
+        <a href="http://google.com">
+          <img src="img/signup/google.png">
+        </a>
+        <a href="http://kakao.com">
+          <img src="img/signup/Component 3.png">
+        </a>
+      </div>
+    </div>
+
+  </div>
 </body>
 </html>
