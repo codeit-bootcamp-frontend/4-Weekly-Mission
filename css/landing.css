@@ -1,226 +1,230 @@
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 70px;
-}
+@import '/css/style.css';
 
-#login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 128px;
-    border-radius: 8px;
+a {
+    color: white;
     text-decoration: none;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--Grey-Light, #F5F5F5);
-    background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
-    padding: 16px 20px;
-}
-
-#signup {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: block;
     text-align: center;
-    text-decoration: none;
+}
+
+/* navbar */
+#loginbutton {
+    width: 8rem;
+    padding: 1rem 1.25rem;
+    border: none;
+    font-size: 1.125rem;
     border-radius: 8px;
-    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
-    width: 350px;
-    padding: 16px 20px;
-    margin: 20px 0;
-    color:#F5F5F5;
-    font-size: 18px;
-    font-weight: 600;
+    background: var(--gra-purpleblue-to-skyblue);
+    cursor: pointer;
 }
 
-#section1-img {
-    padding: 50px 41px 0;
-}
-
-#section4-img {
-    border-radius: 25px;
-    background: rgba(0, 0, 0, 0.40);
-    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
-}
-
-#section2 {
-    flex-direction: row;
-    background: #FFFFFF;
-    padding-top: 120px;
-    padding-bottom: 50px;
-}
-
-#section3,
-#section4,
-#section5 {
-    flex-direction: row;
-    background: #FFFFFF;
-    padding-top: 50px;
-    padding-bottom: 50px;
-}
-
-#section5 {
-    padding-bottom: 120px;
-}
-
-#section4-bgimg {
+.navbar {
     width: 100%;
-    filter: brightness(50%);
-    border-radius: 25px;
-}
-
-#section4-cardimg {
-    position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-    width: 70%;
-}
-
-#section5-img {
-    width: 100%;
-    padding-left: 60px;
-    padding-top: 55px;
-    border-radius: 15px;
-    background: #F0F6FF;
-}
-
-
-.navbar-container {
-    position: fixed;
+    background-color: var(--Linkbrary-bg);
+    position: sticky;
     top: 0;
-    width: 100%;
-    z-index: 1000; 
-    margin: 0; 
+    left: 0;
+    z-index: 999;
+    padding: 1.25rem 0;
 }
 
-
-.navbar-header {
+.navbar-list {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin: 0 12.5rem;
     list-style: none;
-    margin: 20px 200px;
 }
 
-h1 {
+/* main */
+.intro-section {
+    background-color: var(--Linkbrary-bg);
+    padding-top: 4.375rem;
+    text-align: center;
+}
+
+.intro-section img {
+    width: 69.875rem;
+    margin-bottom: -5px;
+}
+
+.intro-section h1 {
     text-align: center;
     font-size: 64px;
-    line-height: 80px;
-    margin-top: 70px;
+    line-height: 5rem;
 }
-
-h2 {
-    color: #000;
-    font-size: 48px;
-    font-weight: 700;
-    letter-spacing: -0.3px;
-}
-
-.content-section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.section1-textdecoration {
+.text-highlight {
     background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
     background-clip: text;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+.tablet-line-break {
+    display: none;
+}
 
-.section2-textdecoration {
+.intro-section-signup-button {
+    width: 21.875rem;
+    padding: 1rem 1.25rem;
+    font-size: 1.125rem;
+    cursor: pointer;
+    border-radius: 8px;
+    background: var(--gra-purpleblue-to-skyblue);
+    margin: 2.5rem auto;
+    text-align: center;
+}
+
+/* save-links-section */
+.save-links-section {
+    padding: 7.5rem 0 3.12rem;
+    margin: 0 auto;
+    width: 62.375rem;
+    gap: 9.8125rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.save-links-section .content h2 {
+    text-align: left;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 0.62rem;
+}
+
+.save-links-section .content span {
     background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
     background-clip: text;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.section3-textdecoration {
-    background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 48px;
+.save-links-section .content p {
+    text-align: left;
+    color: #6B6B6B;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+}
+
+.save-links-section img {
+    width: 34.375rem;
+    height: 28.125rem;
+}
+
+/* manage-links-folder-section */
+.manage-links-folder-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3.125rem 0;
+    gap: 9.8125rem;
+}
+
+.manage-links-folder-section h2 {
+    color: #000;
+    font-size: 3rem;
     font-weight: 700;
     letter-spacing: -0.3px;
 }
 
-.section4-textdecoration {
-    background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+.manage-links-folder-section span {
+    background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
     background-clip: text;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 48px;
-    font-weight: 700;
 }
 
-.section5-textdecoration {
-    background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 48px;
-    font-weight: 700;
-}
-
-.section-textdetail {
+.manage-links-folder-section p {
     color: #6B6B6B;
-    font-family: Pretendard;
-    font-size: 16px;
-    font-style: normal;
+    font-size: 1rem;
     font-weight: 500;
-    line-height: 150%;
+    line-height: 1.5rem;
 }
 
-.section2-img-container {
-    padding-left: 157px;
+.manage-links-folder-section img {
+    width: 34.375rem;
+    height: 28.125rem;
 }
 
-.section2-img-header {
+/* share-links-section */
+.share-links-section {
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 15px;
-    width: 550px;
-    height: 450px;
-    background-color: #F0F6FF;
-    overflow: hidden;
+    padding: 3.125rem 0;
+    gap: 9.8125rem;
 }
 
-.section3-img-container {
-    width: 550px;
-    padding: 114px 68px 66px 68px;
-    border-radius: 15px;
-    margin-right: 157px;
-    background: #F0F6FF;
+.share-links-section h2 {
+    color: #000;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
 }
 
-.section4-img-container {
-    position: relative;
-    margin-left: 157px;
+.share-links-section span {
+    background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 102.69%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.section5-img-container {
-    margin-right: 157px;
+.share-links-section p {
+    color: #6B6B6B;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
 }
 
+.share-links-section img {
+    width: 34.375rem;
+    height: 28.125rem;
+}
+
+/* search-links-section */
+.search-links-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3.125rem 0;
+    gap: 9.8125rem;
+}
+
+.search-links-section h2 {
+    color: #000;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.search-links-section span {
+    background: var(--Fandom-K-gra-blue-to-pink);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.search-links-section p {
+    color: #6B6B6B;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5rem;
+}
+
+.search-links-section img {
+    width: 34.375rem;
+    height: 28.125rem;
+}
+/* footer */
 footer {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 7.5rem;
     padding: 0 104px;
-    display: flex;
     height: 160px;
     padding: 32px 104px 64px 104px;
-    background: var(--The-julge-black, #111322);
+    background: var(--black-color);
 }
 
 .footer-center,
@@ -236,12 +240,33 @@ footer {
 }
 
 .footer-center {
+    list-style: none;
+    gap: 30px;
+}
+
+.footer-center a {
+    text-decoration: none;
     color: #CFCFCF;
     font-size: 16px;
     font-weight: 400;
-    gap: 30px;
 }
 
 .footer-right {
     gap: 12px;
 }
+
+@media (max-width: 1199px) {
+    .tablet-line-break {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+    #loginButton {
+        width: 5rem;
+    }
+    
+    .navbar-list {
+        margin: 0 2rem;
+    }
+  }

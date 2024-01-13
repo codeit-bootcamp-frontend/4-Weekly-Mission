@@ -3,97 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/landing.css">
     <title>Linkbrary</title>
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar-container">
-        <ul class="navbar-header">
-            <li>
-                <a href="/">
+    <nav class="navbar">
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a href="/" class="navbar-logo-link">
                     <img src="./assets/icons/logo.svg" alt="Linkbrary Logo" />
                 </a>
             </li>
-            <li>
-                <a id="login" href="/login.html">로그인</a>
+            <li class="navbar-item">
+                <a href="login.html" id="loginbutton" class="navbar-login-button">로그인</a>
             </li>
         </ul>
-    </nav>    
+    </nav>       
     <!-- 페이지 본문 -->
     <main>
-        <section class="content-section" id="section1">
-            <!-- 섹션 1의 콘텐츠 -->
-            <h1><span class="section1-textdecoration">세상의 모든 정보</span>를<br>쉽게 저장하고 관리해 보세요</h1>
-            <a id="signup" href="./signup.html">링크 추가하기</a>
-            <img id="section1-img" src="./assets/images/image 25.png" />
+        <section class="intro-section">
+            <!-- 소개 섹션 -->
+            <h1>
+                <span class="text-highlight">세상의 모든 정보</span>를<br>쉽게 저장하고 <br class="tablet-line-break">관리해 보세요
+            </h1>
+            <a href="signup.html" id="signupbutton" class="intro-section-signup-button">링크 추가하기</a>
+            <img src="/assets/images/section1-img.png" alt="Link Example Image" />
         </section>
-        <section class="content-section" id="section2">
-            <!-- 섹션 2의 콘텐츠 -->
-            <div>
-                <h2><span class="section2-textdecoration">원하는 링크</span>를<br>저장하세요<br></h2>
-                <span class="section-textdetail">나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br>
-                    사고 싶은 옷, 기억하고 싶은 모든 것을<br>
-                    한 공간에 저장하세요.</span>
+        <section class="save-links-section">
+            <!-- 링크 저장 섹션 -->
+            <div class="content">
+                <h2><span>원하는 링크</span>를<br>저장하세요</h2>
+                <p>나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br>사고 싶은 옷, 기억하고 싶은 모든 것을<br>한 공간에 저장하세요.</p>
             </div>
-            <div class="section2-img-container">
-                <div class="section2-img-header">
-                    <img src="./assets/images/section2-card.png" />
-                    <img src="./assets/images/section2-card.png" />
-                    <img src="./assets/images/section2-card.png" />
-                </div>
-            </div>
+            <img src="/assets/images/section2-img.png" alt="Save Example Image" />
         </section>
-        <section class="content-section" id="section3">
-            <!-- 섹션 3의 콘텐츠 -->
-            <div class="section3-img-container">
-                <img src="./assets/images/none-description-popup.png" />
-            </div>
-            <div>
-                <h2>링크를 폴더로<br><span class="section3-textdecoration">관리</span>하세요</h2>
-                <span class="section-textdetail">나만의 폴더를 무제한으로 만들고<br>
-                    다양하게 활용할 수 있습니다.</span>
-            </div>
+        <section class="manage-links-folder-section">
+            <!-- 폴더 관리 섹션 -->
+                <img src="/assets/images/section3-img.png" alt="Folder Example Image" />
+            <div class="content">
+            <h2>링크를 폴더로<br><span>관리</span>하세요</h2>
+            <p>나만의 폴더를 무제한으로 만들고<br>다양하게 활용할 수 있습니다.</p>
+        </div>
         </section>
-        <section class="content-section" id="section4">
-            <!-- 섹션 4의 콘텐츠 -->
-            <div>
-                <h2>저장한 링크를<br>
-                <span class="section4-textdecoration">공유</span>해 보세요.</h2>
-                <span class="section-textdetail">여러 링크를 폴더에 담고 공유할 수 있습니다.<br> 가족, 친구, 동료들에게 쉽고 빠르게 링크를<br>
-                    공유해 보세요.</span>
+        <section class="share-links-section">
+            <!-- 링크 공유 섹션 -->
+            <div class="content">
+                <h2>저장한 링크를<br><span>공유</span>해 보세요.</h2>
+                <p>여러 링크를 폴더에 담고 공유할 수 있습니다.<br>가족, 친구, 동료들에게 쉽고 빠르게 링크를<br>공유해 보세요.</p>
             </div>
-            <div class="section4-img-container">
-                <img id="section4-bgimg" src="./assets/images/section4-card.png" />
-                <img id="section4-cardimg" src="./assets/images/section4-card2.png" />
-            </div>
+            <img src="/assets/images/section4-img.png" alt="Share Example Image" />
         </section>
-        <section class="content-section" id="section5">
-            <!-- 섹션 5의 콘텐츠 -->
-            <div class="section5-img-container">
-                <img id="section5-img" src="./assets/images/section5-card.png" />
-            </div>
-            <div>
-                <h2>저장한 링크를<br>
-                <span class="section5-textdecoration">검색</span>해 보세요</h2>
-                <span class="section-textdetail">중요한 정보들을 검색으로 쉽게 찾아보세요.</span>
+        <section class="search-links-section">
+            <!-- 링크 검색 섹션 -->
+            <img src="/assets/images/section5-img.png" alt="Search Example Image" />
+            <div class="content">
+                <h2>저장한 링크를<br><span>검색</span>해 보세요</h2>
+                <p>중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
             </div>
         </section>
     </main>
     <!-- Footer -->
     <footer>
         <div class="footer-left">©codeit - 2023</div>
-        <div class="footer-center">
-            <div>Privacy Policy</div>
-            <div>FAQ</div>
-        </div>
-        <div class="footer-right">
-            <img src="./assets/icons/akar-icons_facebook-fill.svg" />
-            <img src="./assets/icons/akar-icons_twitter-fill.svg" />
-            <img src="./assets/icons/akar-icons_youtube-fill.svg" />
-            <img src="./assets/icons/ant-design_instagram-filled.svg" />
-        </div>
+        <ul class="footer-center">
+            <li>
+                <a href="/privacy.html">Privacy Policy</a>
+            </li>
+            <li>
+                <a href="/faq.html">FAQ</a>
+            </li>
+        </ul>
+        <ul class="footer-right">
+            <li>
+                <a href="https://facebook.com" target="_blank"><img src="./assets/icons/akar-icons_facebook-fill.svg" alt="Facebook"/></a>
+            </li>
+            <li>
+                <a href="https://twitter.com" target="_blank"><img src="./assets/icons/akar-icons_twitter-fill.svg" alt="Twitter"/></a>
+            </li>
+            <li>
+                <a href="https://youtube.com" target="_blank"><img src="./assets/icons/akar-icons_youtube-fill.svg" alt="YouTube"/></a>
+            </li>
+            <li>
+                <a href="https://instagram.com" target="_blank"><img src="./assets/icons/ant-design_instagram-filled.svg" alt="Instagram"/></a>
+            </li>
+        </ul>
     </footer>
 </body>
 </html>
