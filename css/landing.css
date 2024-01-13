@@ -249,6 +249,7 @@ footer {
 .footer-center,
 .footer-right {
     display: flex;
+    list-style: none;
 }
 
 .footer-left {
@@ -259,7 +260,6 @@ footer {
 }
 
 .footer-center {
-    list-style: none;
     gap: 30px;
 }
 
