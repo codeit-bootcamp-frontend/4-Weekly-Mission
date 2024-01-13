@@ -22,12 +22,15 @@ header,.section-top {
 
 header {
   padding: 20px 200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   position: sticky;
   top: 0;
   z-index: 2;
+}
+
+header div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .section-top {
@@ -222,6 +225,16 @@ footer p,a{
 }
 
 @media (max-width : 1199px) {
+  header {
+    padding: 20px 32px;
+  }
+
+  header div {
+    margin: 0px auto;
+    width: 800px;
+    max-width: 100%;
+  }
+
   .section-top {
     padding-top: 40px;
   }
