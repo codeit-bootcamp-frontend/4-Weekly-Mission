@@ -298,7 +298,7 @@ footer {
     row-gap: 10px;
     width: 100%;
     height: 55rem;
-    padding: 50px 0;
+    padding: 50px 200px;
   }
   
   section:nth-of-type(odd) {
@@ -307,7 +307,7 @@ footer {
       "title image"
       "description image"
       ". image"
-      /385px 55rem;
+      /auto 385px;
   }
   
   section:nth-of-type(even) {
@@ -316,7 +316,7 @@ footer {
       "image title"
       "image description"
       "image ."
-      /385px 29.1rem;
+      /385px auto;
   }
   
   .title {
@@ -479,8 +479,7 @@ footer {
   }
   
   .hero-image {
-    width: 120rem;
-    height: 59rem;
+    width: 700px;
   }
   
   article {
@@ -491,9 +490,10 @@ footer {
   section {
     display: grid;
     justify-content: center;
-    column-gap: 15.7rem;
+    align-items: center;
+    column-gap: 51px;
     row-gap: 1rem;
-    width: 100%;
+    width: 1200px;
     height: 55rem;
     padding: 50px 0;
   }
@@ -504,7 +504,7 @@ footer {
       "title image"
       "description image"
       ". image"
-      /291px 55rem;
+      /550px 550px;
   }
   
   section:nth-of-type(even) {
