@@ -76,18 +76,6 @@ body {
     align-items: center;
   }
 
-  .board_gnb_ly {
-    position: sticky;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: stretch;
-    padding: 20px 200px 20px 200px;
-    /*gap: 8px;*/
-    z-index: 3;
-  }
-
   .board_auth_ly {
     display: flex;
     padding: 40px 250px 0px;
@@ -111,6 +99,34 @@ body {
     flex-direction: column;
     align-items: center;
     align-self: stretch;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 865px) {
+  .board_gnb_ly {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    padding: 20px 200px;
+    /*gap: 8px;*/
+    z-index: 3;
+  }
+}
+
+@media (max-width: 864px) and (min-width: 768px) {
+  .board_gnb_ly {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    padding: 20px 32px;
+    /*gap: 8px;*/
+    z-index: 3;
   }
 }
 
