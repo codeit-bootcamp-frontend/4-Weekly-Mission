@@ -33,7 +33,7 @@ html {
 
 @media (max-width: 767px) and (min-width: 375px) {
   .text-container_size {
-    width: 325px;
+    width: 100%;
   }
 }
 

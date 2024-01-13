@@ -43,13 +43,13 @@
 @media (max-width: 767px) and (min-width: 375px) {
   /* 이미지 블록 사이즈 */
   .img_auth_size {
-    width: 303px;
+    width: 100%;
     height: 180px;
     flex-shrink: 0;
   }
 
   .img_default_size {
-    width: 325px;
+    width: 100%;
     height: 266px;
   }
 }
