@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>logup</title>
+    <link rel="stylesheet" href="./stylesheets/components/login-logup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header-area">
+        <a href="/" class="go-to-main">
+          <img src="images/ico-linkbrary-logo.svg" alt="로고" class="logo" />
+        </a>
+        <p class="question">
+          <span>이미 회원이신가요?</span>
+          <a href="signin.html">로그인 하기</a>
+        </p>
+      </header>
+
+      <form action="post" class="form-area">
+        <label class="input-area">
+          <p class="label">이메일</p>
+          <div class="input-group">
+            <input type="email" name="email" />
+          </div>
+        </label>
+        <label class="input-area">
+          <p class="label">비밀번호</p>
+          <div class="input-group password">
+            <input type="password" name="password" />
+            <button type="button" class="ico-eye">
+              <img src="images/ico-eye-on.svg" alt="비밀번호 보기" />
+            </button>
+          </div>
+        </label>
+        <label class="input-area">
+          <p class="label">비밀번호 확인</p>
+          <div class="input-group">
+            <input type="password" name="password" />
+            <button type="button" class="ico-eye">
+              <img src="images/ico-eye-on.svg" alt="비밀번호 보기" />
+            </button>
+          </div>
+        </label>
+        <button type="submit" class="btn">회원가입</button>
+      </form>
+
+      <div class="btn sns-btn-group">
+        <span class="title">다른 방식으로 가입하기</span>
+        <ul class="button-list">
+          <li class="button-item google">
+            <a href="https://www.google.com/">
+              <img
+                src="images/ico-google-logo-color.png"
+                alt="구글로 회원가입"
+              />
+            </a>
+          </li>
+          <li class="button-item kakao">
+            <a href="https://www.kakaocorp.com/page/">
+              <img
+                src="images/ico-kakao-logo-color.svg"
+                alt="카카오로 회원가입"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
