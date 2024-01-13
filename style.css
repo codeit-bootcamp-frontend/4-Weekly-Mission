@@ -6,7 +6,7 @@ html {
   box-sizing: border-box;
 }
 body {
-  
+  padding:0;
   margin: 0;      
   display: flex;
   flex-direction: column;
@@ -284,4 +284,27 @@ footer{
 }
 a{
   text-decoration: none;
+}
+
+/* PC 스타일 */
+
+@media screen and (min-width: 1200px) {
+  /* PC 화면에 대한 스타일 정의 */
+}
+
+/* Tablet 스타일 */
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  /* Tablet 화면에 대한 스타일 정의 */
+  .gnb{
+    padding-left:32px;
+    padding-right: 32px;
+  }
+  
+}
+
+/* Mobile 스타일 */
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  /* Mobile 화면에 대한 스타일 정의 */
 }
