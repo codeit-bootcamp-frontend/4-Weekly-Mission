@@ -9,8 +9,16 @@
 }
 
 /*Footer 블록 크기*/
-.footer {
-  height: 160px;
+@media (min-width: 1200px) {
+  .footer {
+    height: 160px;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .footer {
+    height: 120px;
+  }
 }
 
 /*Footer 블록 색상*/
@@ -39,7 +47,7 @@
   color: #676767;
   text-align: center;
   font-family: Acme;
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -52,14 +60,14 @@
 }
 
 .footer__container>.policy-text {
-  width: 181.111px
+  width: 181px
 }
 
 .policy-text_style {
   color: #676767;
   text-align: center;
   font-family: Acme;
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
