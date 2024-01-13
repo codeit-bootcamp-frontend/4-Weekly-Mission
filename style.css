@@ -20,11 +20,6 @@ header {
   padding: 20px 200px;
 }
 
-main {
-  position: relative;
-  z-index: 0;
-}
-
 .section-key {
   margin: 0 auto;
   display: flex;
@@ -74,6 +69,10 @@ main {
     rgba(196, 196, 196, 0) 67.68%,
     #f0f6ff 94.76%
   );
+}
+
+.main-img {
+  width: 1200px;
 }
 
 .content-list {
