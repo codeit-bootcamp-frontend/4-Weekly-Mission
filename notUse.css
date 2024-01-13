@@ -1,0 +1,64 @@
+/*0. 이미지 컨테이너 블록 */
+/* 이미지 컨테이너 블록 레이아웃 */
+.img-container_ly {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container_folder_ly {
+  padding: 114px 68px 66px 68px;
+}
+
+/* 이미지 컨테이너 블록 사이즈 */
+.img-container_auth_size {
+  width: 1200px;
+  height: 590px;
+}
+
+.img-container_default_size {
+  width: 550px;
+  height: 450px;
+  overflow: hidden;
+}
+
+.img-container_folder_size {
+  width: 550px;
+}
+
+/* 이미지 컨테이너 > 엘리먼트 레이아웃 */
+.img-container__card_ly {
+  display: inline-flex;
+  align-items: center;
+  gap: -12px;
+}
+
+/* 이미지 컨테이너 > 공유 레이아웃 */
+.img-container__share {
+  width: 570px;
+  height: 469px;
+  flex-shrink: 0;
+  border-radius: 25px;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.40) 100% ,rgba(0, 0, 0, 0.40)),
+    url(Publics/landing\ 2/image\ 25.png);
+  background: cover no-repeat;
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+}
+
+/* 이미지 컨테이너 블록 컬러 */
+.img-container_color {
+  background: #F0F6FF;
+}
+
+.img-container_style {
+  border-radius: 15px;
+}
+
+/* 카드 블록 센터의 로고 위치*/
+.img_card-center>svg {
+  position: relative;
+  cursor: pointer;
+  right: -85%;
+  top: 85%;
+}
