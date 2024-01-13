@@ -1,15 +1,41 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  font-family: "Pretendard";
+@import url(./global.css);
+
+.title-1-highlight {
+  background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-html,
-body {
-  font-size: 62.5%;
+.title-2-highlight {
+  background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-@media (min-width: 375px) {
+.title-3-highlight {
+  background: linear-gradient(
+    99deg,
+    #6d7ccd 19.76%,
+    rgba(82, 136, 133, 0.22) 52.69%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.title-4-highlight {
+  background: var(
+    --Fandom-K-gra-blue-to-pink,
+    linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
   header {
     position: sticky;
     top: 0;
@@ -137,41 +163,6 @@ body {
     height: 26.5rem;
   }
 
-  .title-1-highlight {
-    background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .title-2-highlight {
-    background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .title-3-highlight {
-    background: linear-gradient(
-      99deg,
-      #6d7ccd 19.76%,
-      rgba(82, 136, 133, 0.22) 52.69%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .title-4-highlight {
-    background: var(
-      --Fandom-K-gra-blue-to-pink,
-      linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%)
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
   footer {
     padding: 3.2rem 3.2rem 6.4rem;
     background: var(--The-julge-black, #111322);
@@ -210,7 +201,7 @@ body {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   header {
     position: sticky;
     top: 0;
@@ -346,41 +337,6 @@ body {
     grid-area: image;
     width: 38.5rem;
     height: 31.5rem;
-  }
-
-  .title-1-highlight {
-    background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .title-2-highlight {
-    background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .title-3-highlight {
-    background: linear-gradient(
-      99deg,
-      #6d7ccd 19.76%,
-      rgba(82, 136, 133, 0.22) 52.69%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .title-4-highlight {
-    background: var(
-      --Fandom-K-gra-blue-to-pink,
-      linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%)
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
   .footer-in-div {
@@ -550,41 +506,6 @@ body {
     grid-area: image;
     width: 55rem;
     height: 45rem;
-  }
-
-  .title-1-highlight {
-    background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .title-2-highlight {
-    background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .title-3-highlight {
-    background: linear-gradient(
-      99deg,
-      #6d7ccd 19.76%,
-      rgba(82, 136, 133, 0.22) 52.69%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .title-4-highlight {
-    background: var(
-      --Fandom-K-gra-blue-to-pink,
-      linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%)
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
   .footer-in-div {
