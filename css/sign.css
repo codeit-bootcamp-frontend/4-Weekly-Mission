@@ -3,9 +3,9 @@
 /* -------- Sign Page -------- */
 
 .sign {
-  display: flex;
-  width: auto;
+  /* width: auto; */
   padding: 23.8rem 0 25.2rem;
+  display: flex;
   justify-content: center;
   align-items: center;
   background-color: var(--Linkbrary-bg);
@@ -96,9 +96,7 @@
   right: 1.5rem;
   cursor: pointer;
 }
-
 .sign-normal__btn {
-  /* width: 40rem; */
   width: 100%;
   padding: 1.6rem 2rem;
   display: flex;
@@ -155,4 +153,33 @@
 }
 .kakao {
   background-color: #f5e14b;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .sign {
+    padding: 0;
+  }
+  .sign__container {
+    width: 100%;
+    max-width: 40rem;
+    padding: 12rem 3.2rem 23.3rem 3.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sign-form {
+    width: 100%;
+  }
+  .sign-form__inputbox {
+    width: 100%;
+  }
+  .sign-form__inputbox input {
+    width: 100%;
+  }
+  .password-input {
+    width: 100%;
+  }
+  .sign-normal {
+    width: 100%;
+  }
 }
