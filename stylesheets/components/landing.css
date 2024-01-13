@@ -188,3 +188,46 @@ footer {
   display: flex;
   line-height: 1;
 }
+
+@media (max-width: 1199px) {
+  .header-area {
+    padding: 2rem 3.2rem;
+    max-width: 80rem;
+  }
+
+  .main {
+    padding-top: 4rem;
+  }
+
+  .main .title p:last-child {
+    display: inline-block;
+    text-align: center;
+    width: 44rem;
+  }
+
+  .main .screen {
+    width: 69.8rem;
+    height: 34.3rem;
+    background: url("../../images/img-screen-tablet.png");
+  }
+
+  .section-area .wrap {
+    gap: 0 5.1rem;
+    height: calc(31.5rem + 5rem + 5rem);
+  }
+
+  .section-area:nth-of-type(2) .wrap {
+    height: calc(31.5rem + 8rem + 5rem);
+    padding-top: 8rem;
+  }
+
+  .section-area:last-of-type .wrap {
+    height: calc(31.5rem + 12rem + 5rem + 5rem);
+    padding-bottom: calc(12rem + 5rem);
+  }
+
+  .section-area .function-screen {
+    width: 38.5rem;
+    height: 31.5rem;
+  }
+}
