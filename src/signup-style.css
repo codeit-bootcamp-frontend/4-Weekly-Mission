@@ -1,0 +1,138 @@
+@import "./global.css";
+
+html {
+  width:100%;
+  height:100%;
+  font-weight: 400;
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  background: var(--background);
+  color: #000;
+  padding-top: 23.8rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 0 auto;
+  align-items: center;
+  gap: 30px;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.logo_img {
+  height: 3.8rem;
+}
+
+.member {
+  display: flex;
+  gap: 0.8rem;
+  color: var(--black, #000);
+  font-size: 1.6rem;
+  line-height: 150%;
+}
+
+.mv_signin {
+  color: var(--primary);
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-bottom: 0.1rem solid var(--primary);
+  line-height: normal;
+  height: fit-content;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  gap: 2.4rem;
+}
+
+label {
+  font-size: 1.4rem;
+  color: var(--black, #000);
+  display: block;
+  margin-bottom: 12px;
+}
+
+input {
+  display: flex;
+  width: 400px;
+  padding: 1.8rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.8rem;
+  border: 1px solid var(--gray20);
+  background: var(--Linkbrary-white, #FFF);
+}
+
+.signup_button {
+  display: flex;
+  width: 400px;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--primary) 0.12%, #6AE3FE 101.84%));
+  text-decoration: none;
+  color: var(--Grey-Light, #F5F5F5);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.signup_block {
+  display: flex;
+  width: 400px;
+  margin-top: 2px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--gray20);
+  background: var(--gray10);
+  color: var(--gray100);
+  font-size: 1.4rem;
+}
+
+.signup_block img {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.social_signup_img {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.password_block {
+  position: relative;
+}
+
+.eye-button {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 2.2rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: #FFF;
+}
+
+/* .diff_password {
+  display: inline-block;
+  color: var(--red);
+  margin-top: 6px;
+} */
