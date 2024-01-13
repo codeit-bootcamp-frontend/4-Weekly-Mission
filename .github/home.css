@@ -125,7 +125,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 24px */
+    line-height: 150%;
     display: inline;
 }
 
@@ -238,7 +238,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 24px */
+    line-height: 150%;
 }
 
 .page4{
@@ -291,13 +291,12 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 24px */
+    line-height: 150%;
 }
 
 .folder-share-img{
     width: 570px;
     height: 469px;
-    /* flex-shrink: 0; */
     border-radius: 15px;
     position: relative;
     display: flex;
@@ -419,30 +418,21 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 24px */
+    line-height: 150%;
 }
 
 .footer{
     display: flex;
-    /* height: 280px; */
     padding-top: 120px;
     align-items: center;
     justify-content: center;
-    /* align-self: stretch; */
-    /* border-radius: 30px;
-    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.02); */
-    /* box-sizing: border-box; */
     width : 100%;
 }
 
 .footer-frame{
     display: flex;
     height: 160px;
-    /* padding: 32px 104px 64px 104px; */
-    /* flex-direction: column; */
     align-items: center;
-    /* flex-shrink: 0; */
-    /* align-self: stretch; */
     background: var(--The-julge-black, #111322);
     width : 100%;
 }
@@ -573,7 +563,7 @@ input:focus {
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 150% */
+    line-height: 24px;
 }
 
 .get-member{
@@ -640,7 +630,6 @@ input:focus {
     width: 42px;
     height: 42px;
     flex-shrink: 0;
-    /* position : absolute; */
 }
 
 .google{
@@ -650,7 +639,6 @@ input:focus {
     justify-content: center;
     align-items: center;
     flex-shrink: 0;
-    /* position : absolute; */
     margin : 10px;
     z-index: 1;
 }
@@ -660,7 +648,6 @@ input:focus {
     width: 42px;
     height: 42px;
     flex-shrink: 0;
-    /* position : absolute; */
 }
 
 .kakao{
@@ -668,7 +655,6 @@ input:focus {
     width: 26px;
     height: 24px;
     flex-shrink: 0;
-    /* position : absolute; */
     margin : 10px 8px 8px;
     z-index: 1;
 }
