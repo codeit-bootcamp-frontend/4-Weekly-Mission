@@ -91,7 +91,6 @@ input:focus {
 /* 모바일 사이즈 */
 
 @media (max-width: 767px) {
-
   html {
     display: flex;
     justify-content: center;
@@ -99,9 +98,9 @@ input:focus {
   }
 
   body {
-   width: 100%;
-   margin: 0 32px;
-   padding: 0;
-   max-width: 400px;
+    width: 100%;
+    margin: 0 32px;
+    padding: 0;
+    max-width: 400px;
   }
 }
