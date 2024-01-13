@@ -39,3 +39,17 @@
     height: 315px;
   }
 }
+
+@media (max-width: 767px) and (min-width: 375px) {
+  /* 이미지 블록 사이즈 */
+  .img_auth_size {
+    width: 303px;
+    height: 180px;
+    flex-shrink: 0;
+  }
+
+  .img_default_size {
+    width: 325px;
+    height: 266px;
+  }
+}

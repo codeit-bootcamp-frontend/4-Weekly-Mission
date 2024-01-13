@@ -15,3 +15,13 @@
     gap: 51px;
   }
 }
+
+@media (max-width: 767px) and (min-width: 375px) {
+  .article_ly {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+  }
+}
