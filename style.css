@@ -65,6 +65,10 @@ header {
   line-height: 80px
 }
 
+.banner_text.tablet {
+  display: none;
+}
+
 .banner_gradient {
   background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
   color:transparent;
@@ -191,4 +195,13 @@ footer {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
+}
+
+@media (max-width: 1199px) {
+  .banner_text  {
+    display: none;
+  }
+  .banner_text.tablet {
+    display: inline;
+  }
 }
