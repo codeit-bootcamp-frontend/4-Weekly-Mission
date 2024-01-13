@@ -290,6 +290,9 @@ a{
 
 @media screen and (min-width: 1200px) {
   /* PC 화면에 대한 스타일 정의 */
+  .no-br-on-pc{
+    display: none;
+  }
 }
 
 /* Tablet 스타일 */
@@ -307,4 +310,10 @@ a{
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
   /* Mobile 화면에 대한 스타일 정의 */
+  .gnb,
+  .header-title
+  {
+    padding-left:32px;
+    padding-right: 32px;
+  }
 }
