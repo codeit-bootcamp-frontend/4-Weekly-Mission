@@ -29,7 +29,7 @@ body{
     background-color: var(--Linkbrary-bg);
 }
 
-main{
+.signup{
     padding: 14.88rem 0 15.75rem;
     margin: 0 auto;
     width: 25rem;
@@ -38,30 +38,30 @@ main{
     gap: 2rem;
 }
 
-.mainWrap{
+.signup__box{
     display: flex;
     flex-direction: column;
     gap: 1.88rem;
 }
 /* 메인 문구 영역(타이틀, 로그인 링크) */
-.mainTitle{
+.signup__title{
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
     text-align: center;
 }
 
-.mainTitle > img{
+.signup__title--img{
     width: 13.16144rem;
     height: 2.375rem; 
 }
 
-.userText{
+.signup__text{
     font-size: 1rem;
     line-height: 1.5rem;
 }
 
-.userText > a{
+.signup__text--login{
     color: var(--Linkbrary-primary-color);
     font-weight: 600;
     text-decoration: underline;
@@ -69,29 +69,29 @@ main{
     line-height: normal;
 }
 /* 폼 태그 */
-form{
+.signup__form{
     display: flex;
     flex-direction: column;
     gap: 1.5rem
 }
 
-.inputArea{
+.signup__input__area{
     display: flex;
     flex-direction: column;
     gap: 1.2rem
 }
 
-.inputArea > div{
+.signup__email, .signup__password, .signup__password__confirm{
     display: flex;
     flex-direction: column;
 }
 
-label{
+.signup__label{
    font-size: 0.875rem;
    margin-bottom: 0.75rem;
 }
 
-#emailInput, #pwInput, #pwConfirmInput{
+#signup__input__email, #signup__input__password, #signup__input__password__confirm{
     padding: 1.125rem 0.9375rem;
     border-radius: 0.5rem;
     background-color: var(--Linkbrary-white);
@@ -100,11 +100,11 @@ label{
     width: calc(100% - 1.875rem);
 }
 
-#emailInput:focus, #pwInput:focus, #pwConfirmInput:focus{
+#signup__input__email:focus, #signup__input__password:focus, #signup__input__password__confirm:focus{
     border: 1px solid var(--Linkbrary-red);
 }
 
-.emailError, .pwError, .pw1Error{
+.signup__email--error, .signup__password--error, .signup__password__confirm--error{
     font-size: 0.875rem;
     color: var(--Linkbrary-red);
     margin-top: 0.38rem;
@@ -112,7 +112,7 @@ label{
     font-style: normal;
 }
 
-button{
+.signup__button{
     padding: 1rem 1.25rem;
     border-radius: 0.4rem;
     background: var(--gra-purpleblue-to-skyblue);
@@ -123,11 +123,11 @@ button{
     color: var(--Grey-Light);
 }
 
-.pwBox > div{
+.signin__password--relative, .signin__password__confirm--relative{
     position: relative;
 }
 
-.eye1, .eye2{
+.eye, .eye--confirm{
     position: absolute;
     right: 1rem;
     top: 1.25rem;
@@ -135,7 +135,7 @@ button{
     font-size: 0.9rem;
 }
 /* 소셜 로그인 */
-.sns{
+.signup__sns{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -145,44 +145,44 @@ button{
     border-radius: 0.5rem;
 }
 
-.snsText{
+.signup__sns--text{
     font-size: 0.875rem;
     color: var(--Linkbrary-gray100);
 }
 
-.sns > ul{
+.signup__sns__box{
     display: flex;
     gap: 1rem;
     margin-top: 0.3rem;
 }
 
-.sns > ul > li{
+.signup__sns--img{
     position: relative;
 }
 
-.kakao, .google{
+.signup__sns--kakao, .signup__sns--google{
     position: absolute;
     z-index: 999;
 }
 
-.kakao{
-    top: 0.65rem;
+.signup__sns--kakao{
+    top: 0.6rem;
     left: 0.5rem;
 }
 
-.google{
-    top: 0.7rem;
+.signup__sns--google{
+    top: 0.6rem;
     left: 0.7rem;
 }
 
 @media (max-width: 1199px){
-    main{
+    .signup{
         padding: 14.88rem 0 15.75rem;
     }
 }
 
 @media (max-width: 767px){
-    main{
+    .signup{
         padding: 7.5rem 2rem 14.56rem;
         width: auto;
         max-width: 25rem;

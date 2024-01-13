@@ -12,57 +12,57 @@
     <link rel="stylesheet" href="./css/signup.css">
 </head>
 <body>
-    <main>
-        <div class="mainWrap">
+    <main class="signup">
+        <div class="signup__box">
             <!-- 메인 문구 영역(타이틀, 로그인 링크) -->
-            <div class="mainTitle">
-                <a href="index.html"><img src="./img/logo.svg" alt="로고 이미지"></a>
-                <div class="userText">이미 회원이신가요? <a href="signin.html"> 로그인 하기</a></div>
+            <div class="signup__title">
+                <a href="index.html"><img class="signup__title--img" src="./img/logo.svg" alt="로고 이미지"></a>
+                <div class="signup__text">이미 회원이신가요? <a class="signup__text--login" href="signin.html"> 로그인 하기</a></div>
             </div>
             <!-- 폼 태그 -->
-            <form>
-                <div class="inputArea">
+            <form class="signup__form">
+                <div class="signup__input__area">
                     <!-- 이메일 -->
-                    <div class="emailBox">
-                        <label for="emailInput">이메일</label>
-                        <input id="emailInput" type="email" name="email" required>
-                        <div class="emailError"></div>
+                    <div class="signup__email">
+                        <label class="signup__label" for="emailInput">이메일</label>
+                        <input id="signup__input__email" type="email" name="email" required>
+                        <div class="signup__email--error"></div>
                     </div>
                     <!-- 비밀번호 -->
-                    <div class="pwBox">
-                        <label for="pwInput">비밀번호</label>
-                        <div>
-                            <input id="pwInput" type="password" name="pw" required>
-                            <i class="fa-solid fa-eye eye1"></i>
-                            <div class="pwError"></div>
+                    <div class="signup__password">
+                        <label class="signup__label" for="pwInput">비밀번호</label>
+                        <div class="signin__password--relative">
+                            <input id="signup__input__password" type="password" name="pw" required>
+                            <i class="fa-solid fa-eye eye"></i>
+                            <div class="signup__password--error"></div>
                         </div>
                     </div>
                     <!-- 비밀번호 확인 -->
-                    <div class="pwBox">
-                        <label for="pwInput2">비밀번호 확인</label>
-                        <div>
-                            <input id="pwConfirmInput" type="password" name="pw2" required>
-                            <i class="fa-solid fa-eye eye2"></i>
-                            <div class="pw1Error"></div>
+                    <div class="signup__password__confirm">
+                        <label class="signup__label" for="pwInput2">비밀번호 확인</label>
+                        <div class="signin__password__confirm--relative">
+                            <input id="signup__input__password__confirm" type="password" name="pw2" required>
+                            <i class="fa-solid fa-eye eye--confirm"></i>
+                            <div class="signup__password__confirm--error"></div>
                         </div>
                     </div>
                 </div>
-                <button type="submit" onkeyup="enter()">회원가입</button>
+                <button class="signup__button" type="submit">회원가입</button>
             </form>
         </div>
         <!-- 소셜 로그인 -->
-        <div class="sns">
-            <div class="snsText">다른 방식으로 가입하기</div>
-            <ul>
-                <li>
+        <div class="signup__sns">
+            <div class="signup__sns--text">다른 방식으로 가입하기</div>
+            <ul class="signup__sns__box">
+                <li class="signup__sns--img">
                     <a href="https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.google.co.kr%2F&hl=ko&ifkv=ASKXGp0usEBRKVEBO5EtWiJHDLtwnyf7M7P3rpqMLrX0kDh0X-K3nM_RKp3PZN_oEhSEToKrIe0knw&sacu=1&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S1745209018%3A1704038759981611">
                         <img src="./img/google.svg" alt="구글 배경 이미지">
-                        <img class="google" src="./img/google.png" alt="구글 이미지">
+                        <img class="signup__sns--google" src="./img/google.png" alt="구글 이미지">
                     </a>
                 </li>
-                <li>
+                <li class="signup__sns--img">
                     <a href="https://accounts.kakao.com/login/?continue=https%3A%2F%2Fkauth.kakao.com%2Foauth%2Fauthorize%3Fproxy%3DeasyXDM_Kakao_ufgogg1pao_provider%26ka%3Dsdk%252F1.43.1%2520os%252Fjavascript%2520sdk_type%252Fjavascript%2520lang%252Fko-KR%2520device%252FMacIntel%2520origin%252Fhttps%25253A%25252F%25252Fwww.epis.or.kr%26origin%3Dhttps%253A%252F%252Fwww.epis.or.kr%26response_type%3Dcode%26redirect_uri%3Dkakaojs%26state%3Df2wre2u2r4wcxw70tfk7uq%26through_account%3Dtrue%26client_id%3D950f3ae1f2f550e5ba7ff7d9fffc7781&talk_login=hidden#login">
-                        <img class="kakao" src="./img/kakao.svg" alt="카카오 이미지">
+                        <img class="signup__sns--kakao" src="./img/kakao.svg" alt="카카오 이미지">
                         <img  src="./img/kakao1.svg" alt="카카오 배경 이미지">
                     </a>
                 </li>

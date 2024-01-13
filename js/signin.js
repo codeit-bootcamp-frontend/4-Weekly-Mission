@@ -3,12 +3,13 @@ import { userInfo } from "./user-info.js";
 import { pwInputTypeChange } from "./pw-input-type.js";
 
 window.onload = function(){
-    const emailInput = document.getElementById("emailInput")
-    const pwInput = document.getElementById("pwInput");
-    const form = document.querySelector("form");
-    const emailError = document.querySelector(".emailError");
-    const pwError = document.querySelector(".pwError");
+    const emailInput = document.getElementById("signin__input__email")
+    const pwInput = document.getElementById("signin__input__password");
+    const form = document.querySelector(".sigin__form");
+    const emailError = document.querySelector(".signin__email--error");
+    const pwError = document.querySelector(".signin__password--error");
     const pwEyeIcon = document.querySelector(".fa-solid");
+    const loginBtn = document.querySelector(".signin__button");
     
     // 로그인 함수
     function login(){ 
@@ -25,12 +26,11 @@ window.onload = function(){
         login();
     });
 
-    // 엔터 키 프레스 함수
-    function enter() {
+    loginBtn.addEventListener("keydown" , () =>{
         if (window.event.keyCode == 13){ // 엔터 키
             login();
         }
-    }
+    });
 
     // 포커스 아웃 이벤트
     focusOut(emailInput, emailError, vaildEmail, false);

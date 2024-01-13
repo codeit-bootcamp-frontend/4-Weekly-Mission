@@ -4,15 +4,16 @@ import { pwInputTypeChange } from "./pw-input-type.js";
 import { regexEamil, regexPassword } from "./regExp.js";
 
 window.onload = function(){
-    const emailInput = document.getElementById("emailInput")
-    const pwInput = document.getElementById("pwInput");
-    const pwConfirmInput = document.getElementById("pwConfirmInput");
-    const form = document.querySelector("form");
-    const pwEyeIcon = document.querySelector(".eye1");
-    const pwConfirmEyeIcon = document.querySelector(".eye2");
-    const emailError = document.querySelector(".emailError");
-    const pwError = document.querySelector(".pwError");
-    const pwConfirmError = document.querySelector(".pw1Error");
+    const emailInput = document.getElementById("signup__input__email")
+    const pwInput = document.getElementById("signup__input__password");
+    const pwConfirmInput = document.getElementById("signup__input__password__confirm");
+    const form = document.querySelector(".signup__form");
+    const pwEyeIcon = document.querySelector(".eye");
+    const pwConfirmEyeIcon = document.querySelector(".eye--confirm");
+    const emailError = document.querySelector(".signup__email--error");
+    const pwError = document.querySelector(".signup__password--error");
+    const pwConfirmError = document.querySelector(".signup__password__confirm--error");
+    const registerBtn = document.querySelector(".signup__button");
 
     // 회원 가입 함수
     function register(){
@@ -40,12 +41,11 @@ window.onload = function(){
         register();
     });
 
-    // 엔터 키 프레스 함수
-    function enter() {
+    registerBtn.addEventListener("keydown" , () =>{
         if (window.event.keyCode == 13){ // 엔터 키
             register();
         }
-    }
+    });
 
     // 포커스 아웃 이벤트
     focusOut(emailInput, emailError, vaildEmail);
