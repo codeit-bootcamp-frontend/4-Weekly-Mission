@@ -4,48 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Linkbrary 회원 가입</title>
-  <link rel="stylesheet" href="./css/signup.css">
-  <link rel="icon" href="./img/favicon.png">
+  <link rel="stylesheet" href="./css/sign.css">
 </head>
-<body>
-  <div class="heading">
-    <a href="/"><img src="./img/login/logo.png" alt="logo"></a>
-    <span class="signin">
-      이미 회원이신가요? <a href="./signin.html">로그인 하기</a>
-    </span>
-  </div>
-  <form action="">
-    <div class="box">
-      <label for="email">이메일</label>
-      <input type="email" id="email" name="email" placeholder="codeit@codeit.com" required>
-    </div>
-  
-    <div class="box">
-      <label for="password">비밀번호</label>
-      <div class="password">
-        <input class="password" type="password" id="password" name="password" placeholder="••••••••" required>
-        <img class="eye-icon" src="./img/login/eye-on.svg" alt="Password Visibility">
-      </div>
-    </div>
-  
-    <div class="box">
-      <label for="confirm-password">비밀번호 확인</label>
-      <div class="password">
-        <input class="password" type="password" id="confirm-password" name="confirm-password" placeholder="••••••••" required>
-        <img class="eye-icon" src="./img/login/eye-on.svg" alt="Password Visibility">
-      </div>
-    </div>
-    <button type="submit">회원가입</button>
-  </form>
+  <body>
+    <header>
+      <a href="index.html"><img src="./img/login/logo.png" alt="logo"></a>
+      <p class="sign-text">
+        이미 회원이신가요? <a class="header-link" href="./signin.html">로그인 하기</a>
+      </p>
+    </header>
 
-  <div class="social-signup">
-    <span>
-      다른 방식으로 가입하기
-    </span>
-    <div class="icon">
-      <a href="https://www.google.com/"><img src="./img/login/google.svg" alt="google login"></a>
-      <a href="https://www.kakaocorp.com/page/"><img src="./img/login/kakao.svg" alt="kakao login"></a>
+    <div class="sign-box">
+      <form class="sign-form">
+        <div class="form-input">
+          <div class="input-box">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" placeholder="codeit@codeit.com" required>
+          </div>
+          <div class="input-box sign-password">
+            <label for="password">비밀번호</label>
+            <input class="password" type="password" id="password" name="password" placeholder="••••••••" required>
+            <button class="eye-button">
+              <img src="./img/login/eye-on.svg" />
+            </button>
+          </div>
+          <div class="input-box sign-password">
+            <label for="password">비밀번호 확인</label>
+            <input class="password" type="password" id="password" name="password" placeholder="••••••••" required>
+            <button class="eye-button">
+              <img src="./img/login/eye-on.svg" />
+            </button>
+          </div>
+        </div>
+        <button class="submit" type="submit">회원가입</button>
+      </form>
+      <div class="social-box">
+        <span class="sns">
+          다른 방식으로 가입하기
+        </span>
+        <div class="icon">
+          <a href="https://www.google.com/"><img src="./img/login/google.svg" alt="google login"></a>
+          <a href="https://www.kakaocorp.com/page/"><img src="./img/login/kakao.svg" alt="kakao login"></a>
+        </div>
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
