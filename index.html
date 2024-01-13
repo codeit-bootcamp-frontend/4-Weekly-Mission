@@ -7,131 +7,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <meta property="og:title" content="Linkbrary" key="title" />
+    <meta name="description" property="og:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" key="description" />
+    <meta property="og:image" content="https://visitbusan.net/uploadImgs/files/cntnts/20211130150754165_wufrotr"
+        key="image" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@linkbrary" />
+    <meta name="twitter:title" content="Linkbrary" />
+    <meta name="twitter:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
+    <meta name="twitter:image" content="https://visitbusan.net/uploadImgs/files/cntnts/20211130150754165_wufrotr" />
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
-    <link id="style" rel="stylesheet" href="style.css">
+    <link id="style" rel="stylesheet" href="src/landing.css">
 
 
 </head>
 
 <body>
 
+    <!-- Navigation bar -->
+    <nav>
+        <div class="gnb">
+            <a href="index.html">
+                <img src="images/logo.svg" alt="home-logo">
+            </a>
+            <a class="cta cta-short" href="signin.html">
+                <span>로그인</span>
+            </a>
+        </div>
+    </nav>
+
     <!-- Header (logo and login button) -->
     <header>
-        <div class="header-container">
-            <img class="logo" id="logo" src="images/logo.svg" alt="logo">
-            <a href="signin.html" class="login-box">
-                로그인
-                <!-- <a href="signin.html" class="login">로그인</a> -->
+        <div class="hero-header">
+            <h1 class="slogan">
+                <span class="slogan-gradient background-clip-text">세상의 모든 정보</span>
+                를 <br> 쉽게 저장하고 <br class="break-mobile"> 보세요
+            </h1>
+            <a class="cta cta-long" href="signup.html">
+                <span>링크 추가하기</span>
             </a>
+            <img src="images/hero.png" class="hero-image" alt="Linkbrary Hero Image">
         </div>
     </header>
 
-    <!-- First section (intro) -->
-    <section class="intro-section">
-        <h1 class="intro-h1"><span>세상의 모든 정보</span>를 <br> 쉽게 저장하고 관리해 보세요</h1>
-        <a href="" class="intro-addlink-button">
-            링크 추가하기
-        </a>
-        <div class="intro-image-container">
-            <img src="images/section1_image.png" alt="section1_image">
-        </div>
-    </section>
+    <!-- Main section -->
+    <article>
+        <!-- First section -->
+        <section>
+            <h2 class="title">
+                <span class="title-1-gradient background-clip-text">원하는 링크</span>를 
+                <br class="break-desktop"> 저장하세요
+            </h2>
+            <p class="description">
+                나중에 읽고 싶은 글, 다시 보고 싶은 영상,
+                사고 싶은 옷, 기억하고 싶은 모든 것을
+                <!-- <br class="break-desktop"> -->
+                한 공간에 저장하세요.
+            </p>
+            <img src="./images/image1.png" class="content-image" alt="링크의 내용이 담긴 카드들" />
+        </section>
 
-    <!-- Second section (feature1) -->
-    <section class="feature-section-1">
-        <div class="feature-section-1-content">
-            <div class="feature-section-1-title">
-                <h1>
-                    <span>원하는 링크</span>를 <br>저장하세요
-                </h1>
-                <p>
-                    나중에 읽고 싶은 글, 다시 보고 싶은 영상,
-                    사고 싶은 옷, 기억하고 싶은 모든 것을
-                    한 공간에 저장하세요.
-                </p>
-            </div>
-            <div class="feature-section-1-image-container">
-                <img src="images/feature1_image.png" alt="feature1_image" width="550px" height="450px">
-            </div>
-        </div>
-    </section>
+        <!-- Second section -->
+        <section>
+            <h2 class="title">
+                링크를 폴더로
+                <br class="break-desktop"/>
+                <span class="title-2-gradient background-clip-text">관리</span>하세요
+            </h2>
+            <p class="description">
+                나만의 폴더를 무제한으로 만들고
+                다양하게 활용할 수 있습니다.
+            </p>
+            <img src="./images/image2.png" class="content-image" alt="폴더 이름 변경 기능" />
+        </section>
 
-    <!-- Third section (feature2) -->
-    <section class="feature-section-2">
-        <div class="feature-section-2-content">
-            <div class="feature-section-2-image-container">
-                <img src="images/feature2_image.png" alt="feature2_image" width="550px" height="450px">
-            </div>
-            <div class="feature-section-2-title">
-                <h1>
-                    링크를 폴더로 <br> <span>관리</span>하세요 <br>
-                </h1>
-                <p>
-                    나만의 폴더를 무제한으로 만들고
-                    다양하게 활용할 수 있습니다.
-                </p>
-            </div>
-        </div>
-    </section>
+        <!-- Third section -->
+        <section>
+            <h2 class="title">
+                저장한 링크를
+                <br class="break-desktop"/>
+                <span class="title-3-gradient background-clip-text">공유</span>해 보세요
+            </h2>
+            <p class="description">
+                여러 링크를 폴더에 담고 공유할 수 있습니다.
+                가족, 친구, 동료들에게 쉽고 빠르게 링크를
+                <!-- <br /> -->
+                공유해 보세요.
+            </p>
+            <img src="./images/image3.png" class="content-image" alt="폴더 공유 기능" />
+        </section>
+        <section>
+            <h2 class="title">
+                저장한 링크를
+                <br class="break-desktop"/>
+                <span class="title-4-gradient background-clip-text">검색</span>해 보세요
+            </h2>
+            <p class="description">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
+            <img src="./images/image4.png" class="content-image" alt="링크 검색 기능" />
+        </section>
 
-
-    <!-- 여기 이미지를 회색으로 만드는 방법을 모르겠음 -->
-    <!-- Forth section (feature1) -->
-    <section class="feature-section-1">
-        <div class="feature-section-1-content">
-            <div class="feature-section-1-title">
-                <h1>
-                    저장한 링크를 <br> <span>공유</span>해 보세요.
-                </h1>
-                <p>
-                    여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게 쉽고 빠르게 링크를
-                    공유해 보세요.
-                </p>
-            </div>
-            <div class="feature-section-1-image-container">
-                <img src="images/feature3_image.png" alt="feature1_image" width="550px" height="450px">
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- Fifth section (feature2) -->
-    <section class="feature-section-2">
-        <div class="feature-section-2-content">
-            <div class="feature-section-2-image-container">
-                <img src="images/feature4.png" alt="feature2_image" width="550px" height="450px">
-            </div>
-            <div class="feature-section-2-title">
-                <h1>
-                    저장한 링크를 <br> <span>검색</span>해 보세요
-                </h1>
-                <p>
-                    중요한 정보들을 검색으로 쉽게 찾아보세요.
-                </p>
-            </div>
-        </div>
-    </section>
+    </article>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-contents">
-                <h1>©codeit - 2023</h1>
-                <div class="footer-middle">
-                    <h1>Privacy Policy</h1>
-                    <h1>FAQ</h1>
-                </div>
-                <div class="footer-end">
-                    <img src="images/akar-icons_facebook-fill.svg" alt="facebook">
-                    <img src="images/akar-icons_twitter-fill.svg" alt="twitter">
-                    <img src="images/akar-icons_youtube-fill.svg" alt="youtube">
-                    <img src="images/ant-design_instagram-filled.svg" alt="instagram">
-                </div>
-            </div>
+        <div class="footer-box">
+          <span class="copyright">©codeit - 2023</span>
+          <div class="footer-links">
+            <a class="footer-link" href="privacy.html">Privacy Policy</a>
+            <a class="footer-link" href="faq.html">FAQ</a>
+          </div>
+          <div class="sns">
+            <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+              <img src="./images/facebook.svg" alt="facebook 홈페이지로 연결된 facebook 로고" />
+            </a>
+            <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+              <img src="./images/twitter.svg" alt="twitter 홈페이지로 연결된 twitter 로고" />
+            </a>
+            <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+              <img src="./images/youtube.svg" alt="youtube 홈페이지로 연결된 youtube 로고" />
+            </a>
+            <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+              <img src="./images/instagram.svg" alt="instagram 홈페이지로 연결된 instagram 로고" />
+            </a>
+          </div>
         </div>
-    </footer>
+      </footer>
 </body>
 
 </html>

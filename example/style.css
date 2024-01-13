@@ -2,14 +2,27 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #6D6AFE;
+    --red-color: #FE8A8A;
+    --black: #111322;
+    --white: #ffffff;
+    --grey-5: #3E3E43;
+    --grey-4: #9FA6B2;
+    --grey-3: #CCD5E3;
+    --grey-2: #E7EFFB;
+    --grey-1: #F0F6FF;
+}
+
 a:link {
     text-decoration: none;
 }
 
 body {
-    background-color: #ffffff;
-    color: #fff;
+    background-color: var(--white);
+    color: var(--white);
     margin: 0;
+    font-size: 100%;
 }
 
 /* Header */
@@ -32,6 +45,7 @@ header {
     justify-content: space-between;
     align-items: center;
     align-self: stretch;
+    
 }
 
 /* Header Logo */
@@ -59,21 +73,16 @@ header {
     line-height: normal;
 }
 
-/* Header Login Box Text */
-/* .login {
-    
-} */
-
 /* First Section Intro */
 .intro-section {
     display: flex;
     width: 100%;
-    padding: 70px 360px 0px 360px;
+    padding: 5% 10%;
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
     gap: 40px;
-    background: #F0F6FF;
+    background: var(--grey-1);
 }
 
 /* First Section Intro Text H1 text */
@@ -84,12 +93,37 @@ header {
     font-style: normal;
     font-weight: 700;
     line-height: 80px; /* 125% */
-    color: #000;
+    color: var(--black);
     font-family: Pretendard;
     font-size: 64px;
     font-style: normal;
     font-weight: 700;
     line-height: 80px;
+}
+
+@media screen and (max-width: 600px) {
+    
+    header {
+        padding: 13px 32px;
+    }
+
+    .header-container {
+        width: 100%;
+    }
+
+    .intro-image-size {
+        width: 10.792px;
+    }
+
+
+
+    
+    
+    
+}
+
+@media screen and (max-width: 1200px) {
+    
 }
 
 /* First Section Intro Text H1 span */
@@ -118,13 +152,16 @@ header {
     line-height: normal;
 }
 
-/* .intro-addlink-button h1 {
-    
-} */
 
 .intro-image-container {
     width: 1200px;
     height: 590px;
+}
+
+.intro-image-size {
+    width: 1118px;
+    height: 659px;
+    flex-shrink: 0;
 }
 
 .feature-section-1 {
@@ -183,7 +220,7 @@ header {
 
 .feature-section-1-image-container {
     border-radius: 15px;
-    background: #F0F6FF;
+    background: var(--grey-1);
 }
 
 .feature-section-2 {
@@ -208,7 +245,7 @@ header {
 }
 
 .feature-section-2-title h1 {
-    color: #000;
+    color: var(--black);
     margin: 0;
     font-family: Pretendard;
     font-size: 48px;
@@ -243,7 +280,7 @@ header {
 
 .feature-section-2-image-container {
     border-radius: 15px;
-    background: #F0F6FF;
+    background: var(--grey-1);
 }
 
 .feature3-container {

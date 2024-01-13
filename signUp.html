@@ -1,52 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" as="style" crossorigin
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    <link id="style" rel="stylesheet" href="signinStyle.css">
-    <title>SignIn</title>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" as="style" crossorigin
+            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+        <link id="style" rel="stylesheet" href="src/sign.css">
+        <title>SingUp</title>
+    </head>
 
-<body>
-    <div class="container">
-        <form class="login-container">
-            <div class="logo-container">
-                <a href="index.html"><img src="images/logo.svg" alt="logo" class="logo" width="210px" height="38px"></a>
-                <h1>이미 회원이신가요? <a href="signin.html">로그인 하기</a> </h1>
+    <body>
+        <!-- <div class="container">
+            <form class="login-container">
+                <div class="logo-container">
+                    <a href="index.html"><img src="images/logo.svg" alt="logo" class="logo" width="210px" height="38px"></a>
+                    <h1>이미 회원이신가요? <a href="signin.html">로그인 하기</a> </h1>
+                </div>
+                <div class="blank-container">
+                    <div class="blank">
+                        <h1>이메일</h1>
+                        <input type="text">
+                    </div>
+                    <div class="blank">
+                        <h1>비밀번호</h1>
+                        <input type="text">
+                    </div>
+                    <div class="blank">
+                        <h1>비밀번호 확인</h1>
+                        <input type="text">
+                    </div>
+                </div>
+                <a href="" class="login-box">
+                    회원가입
+                </a>
+            </form>
+
+            <div class="social-login">
+                <h1>다른 방식으로 가입하기</h1>
+                <div class="login-icon-container">
+                    <a href=""><img src="images/google.svg" alt="google-logo"></a>
+                    <a href=""><img src="images/kakao.svg" alt="kakao-logo"></a>
+                </div>
             </div>
-            <div class="blank-container">
-                <div class="blank">
-                    <h1>이메일</h1>
-                    <input type="text">
-                </div>
-                <div class="blank">
-                    <h1>비밀번호</h1>
-                    <input type="text">
-                </div>
-                <div class="blank">
-                    <h1>비밀번호 확인</h1>
-                    <input type="text">
-                </div>
-            </div>
-            <a href="" class="login-box">
-                회원가입
+
+        </div> -->
+
+
+        <!-- ---------------------------------------- -->
+        <!-- Header (logo, message) -->
+        <header>
+            <a class="logo-link" href="index.html">
+                <img class="header-logo" src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
             </a>
-        </form>
+            <p class="header-message">
+                이미 회원이신가요?<a class="header-link" href="signin.html">로그인 하기</a>
+            </p>
+        </header>
 
-        <div class="social-login">
-            <h1>다른 방식으로 가입하기</h1>
-            <div class="login-icon-container">
-                <a href=""><img src="images/google.svg" alt="google-logo"></a>
-                <a href=""><img src="images/kakao.svg" alt="kakao-logo"></a>
+        <!-- Sign Box -->
+        <div class="sign-box">
+            <!-- Email Input, Password Input, Submit Button -->
+            <form class="sign-form">
+                <!-- Email and Password Input -->
+                <div class="sign-inputs">
+                    <!-- Email Input -->
+                    <div class="sign-input-box">
+                        <label class="sign-input-label">이메일</label>
+                        <input class="sign-input" />
+                    </div>
+                    <!-- Password Input -->
+                    <div class="sign-input-box sign-password">
+                        <label class="sign-input-label">비밀번호</label>
+                        <input class="sign-input" type="password" />
+                        <button class="eye-button" type="button">
+                            <img src="./images/eye-off.svg" />
+                        </button>
+                    </div>
+                    <!-- Password Check Input -->
+                    <div class="sign-input-box sign-password">
+                        <label class="sign-input-label">비밀번호 확인</label>
+                        <input class="sign-input" type="password" />
+                        <button class="eye-button" type="button">
+                            <img src="./images/eye-off.svg" />
+                        </button>
+                    </div>
+                </div>
+                <!-- Submit Button -->
+                <button class="cta" type="submit">회원가입</button>
+            </form>
+
+            <!-- Social Login -->
+            <div class="sns-box">
+                <span class="sns-text">다른 방식으로 가입하기</span>
+                <div class="sns-links">
+                    <a class="sns-link google-link" href="https://www.google.com/">
+                        <img src="./images/google.svg" />
+                    </a>
+                    <a class="sns-link kakao-link" href="https://www.kakaocorp.com/page/">
+                        <img src="./images/kakao.svg" />
+                    </a>
+                </div>
             </div>
         </div>
 
-    </div>
 
-
-</body>
+    </body>
 
 </html>
