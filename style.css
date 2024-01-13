@@ -114,7 +114,6 @@ section{
   padding: 50px 0;
   justify-content: center;
   align-items: center;
-  
 }
 .section1{
   padding-top:120px;
@@ -299,7 +298,9 @@ a{
   .no-br-on-tablet{
     display: none;
   }
-  
+  .frame{
+    gap:57px;
+  }
 }
 
 /* Mobile 스타일 */
@@ -325,6 +326,9 @@ a{
     height: auto;
   }
   .frame{
+    width: 100%; /* 너비 100%로 설정 */
+    padding-left: 0;
+    padding-right: 0;
     flex-direction: column;
     align-items: flex-start;
     gap:24px;
@@ -337,9 +341,29 @@ a{
     font-size:15px;
   }
   .text{
-    width:100%;
+    width: 100%;
+    
   }
   .no-br-on-mobile{
     display: none;
+  }
+  .none-black3,
+  .none-black4,
+  .none-black5
+  {
+    font-size:24px;
+  }
+
+  /* 짝수 번째 section에 대한 스타일 정의 */
+  section:nth-child(even) .frame {
+    flex-direction: column-reverse;
+  }
+  section{
+    padding:50px 32px;
+
+  }
+  .full{
+    width:100%;
+    height:auto;
   }
 }
