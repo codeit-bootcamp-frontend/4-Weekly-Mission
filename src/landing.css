@@ -48,6 +48,7 @@ nav {
     height: 59rem;
     padding: 0 32px;
   }
+
   div.container {
     display: grid;
     grid-template-areas:
@@ -62,12 +63,17 @@ nav {
   .container .title {
     grid-area: title;
     font-size: 3rem;
+    padding: 0 32px;
   }
   .container .content-image {
     grid-area: image;
+    width: 100%;
+    height: auto;
+    padding: 0 32px;
   }
   .container .description {
     grid-area: description;
+    padding: 0 32px;
   }
 }
 header {
