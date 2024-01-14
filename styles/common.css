@@ -1,10 +1,19 @@
 * {
   box-sizing: border-box;
 }
+body {
+  background-color: var(--Linkbrary-bg);
+}
 
 html {
   font-size: 16px;
 }
+
+main {
+  background-color: var(--Linkbrary-white);
+}
+
+
 
 :root {
   --Linkbrary-primary-color : #6D6AFE;
@@ -33,6 +42,7 @@ html {
   font-style: normal;  
   line-height: normal;
   text-decoration: none;
+  cursor: pointer;
 }
 .CTA.small {
   width: 300px;
