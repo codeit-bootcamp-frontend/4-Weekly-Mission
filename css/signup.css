@@ -88,7 +88,7 @@ body {
   position: relative;
 }
 
-input {
+.form-sign__input {
   width: 100%;
   padding: 1.8rem 1.5rem;
   border-radius: 0.8rem;
@@ -100,7 +100,7 @@ input {
   line-height: 2.4rem;
 }
 
-input:focus {
+.form-sign__input {
   outline: 0.1rem solid var(--primary, #6d6afe);
 }
 
