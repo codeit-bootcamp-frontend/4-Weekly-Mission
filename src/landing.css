@@ -99,11 +99,6 @@
     width: 100%;
     padding: 50px 0;
   }
-  .mobile-text {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 15px;
-  }
   
   
   section:nth-of-type(odd) {
@@ -326,7 +321,7 @@
       "title image"
       "description image"
       ". image"
-      /291px 40%;
+      /291px 30%;
   }
   
   section:nth-of-type(even) {
@@ -335,7 +330,7 @@
       "image title"
       "image description"
       "image ."
-      /350px 40%;
+      /350px 50%;
   }
   
   .title {
@@ -505,6 +500,7 @@
     padding-top: 7rem;
     padding-bottom: 12rem;
   }
+ 
   
   section {
     display: grid;
