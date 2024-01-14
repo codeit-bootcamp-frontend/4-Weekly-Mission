@@ -13,40 +13,34 @@
   --Linkbrary-gray20: #CCD5E3;
   --Linkbrary-gray10: #E7EFFB;
   --Linkbrary-bg: #F0F6FF;
+  --Grey-Light: #F5F5F5;
   --Linkbrary-gradation: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
 }
 
-
-.CTA.small {
+.CTA {
   display: flex;
-  width: 300px;
   height: auto;
-  padding: 10px 16px;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  background-color: var(--Linkbrary-gradation);
-  color: var(--Grey-Light, #F5F5F5);
+  border-radius: 8px;  
+  background: var(--Linkbrary-gradation);
+  color: var(--Grey-Light);
   font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
+  font-style: normal;  
   line-height: normal;
+  text-decoration: none;
+}
+.CTA.small {
+  width: 300px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .CTA.large {
-  display: flex;
   width: 350px;
-  height: auto;
   padding: 16px 20px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  background-color: var(--Linkbrary-gradation);
-  color: var(--Grey-Light, #F5F5F5);
-  font-family: Pretendard;
   font-size: 18px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 }
