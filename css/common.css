@@ -50,7 +50,17 @@ header {
   z-index: 1;
 }
 
+.gnb {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
 .gnb-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -99,19 +109,6 @@ button {
   color: var(--Grey-Light, #f5f5f5);
   font-size: 1.8rem;
   font-weight: 600;
-}
-
-.gnb {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-.gnb-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 .hero {
