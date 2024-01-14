@@ -11,6 +11,10 @@
 </head>
 
 <body>
+    <div class="wrapper">
+        <div class="wrap">
+        </div>
+    </div>
     <header>
         <a href="./"><img class="logo" src="./img/logo.svg" alt="Linkbrary logo"></a>
         <a href="./signin.html" class="button login">로그인</a>
@@ -19,48 +23,48 @@
         <section class="section1">
             <div class="center text">
                 <span class="center color-1 text">세상의 모든 정보</span>를<br>
-                쉽게 저장하고 관리해 보세요
+                쉽게 저장하고<br class="hidden"> 관리해 보세요
             </div>
             <a href="./signup.html">
                 <div class="button addLink">
                     링크 추가하기
                 </div>
             </a>
+            <!-- <div class="hero-image-wrapper"> -->
             <img class="hero-image" src="./img/image 25.png" alt="hero main image">
+            <!-- </div> -->
         </section>
         <section class="section2">
-            <div class="content gap">
+            <div class="content gap card-section">
                 <div class="article text">
-                    <span class="color-2">원하는 링크</span>를<br>
+                    <span class="color-2">원하는 링크</span>를<br class="">
                     저장하세요
-                    <p class="graytext">
+                    <p class="graytext order-card-1">
                         나중에 읽고 싶은 글, 다시 보고 싶은 영상,
                         사고 싶은 옷, 기억하고 싶은 모든 것을
                         한 공간에 저장하세요
                     </p>
                 </div>
                 <div class="article image cardNews">
-                    <img class="card" src="./img/Card 1.png" alt="card image 1">
-                    <img class="main-card card" src="./img/Card.png" alt="card image 2">
-                    <div class="border-box"></div>
-                    <img class="card" src="./img/Card-1.png" alt="card image 3">
-                    <img class="download-icon" src="./img/Group 20.svg" alt="download icon">
+                    <img class="card-img" src="./img/card-img.png" alt="">
                 </div>
             </div>
-            <div class="content gap">
-                <div class="article image">
-                    <img class="bookmark" src="./img/bookmark.png" alt="bookmark image">
+
+            <div class="content gap bookmark-section">
+                <div class="article image order-1">
+                    <img class="bookmark-img" src="./img/bookmark.png" alt="bookmark image">
                 </div>
-                <div class="article text">
+                <div class="article text order-2">
                     링크를 폴더로<br>
                     <span class="color-3">관리</span>하세요
                     <p class="graytext">
-                        나만의 폴더를 무제한으로 만들고<br>
+                        나만의 폴더를 무제한으로 만들고<br class="">
                         다양하게 활용할 수 있습니다.
                     </p>
                 </div>
             </div>
-            <div class="content gap">
+
+            <div class="content gap share-section">
                 <div class="article text">
                     저장한 링크를<br>
                     <span class="color-4">공유</span>해 보세요
@@ -71,14 +75,15 @@
                     </p>
                 </div>
                 <div class="folder-share-background">
-                    <img class="folder-share" src="./img/share.png" alt="folder share image">
+                    <img class="folder-share-img" src="./img/share.png" alt="folder share image">
                 </div>
             </div>
-            <div class="content gap">
-                <div class="article image search-link">
-                    <img class="search-link-image" src="./img/search-link.png" alt="search link image">
+
+            <div class="content gap link-section">
+                <div class="article image search-link order-1">
+                    <img class="search-link-img" src="./img/search-link.png" alt="search link image">
                 </div>
-                <div class="article text">
+                <div class="article text order-2">
                     저장한 링크를<br>
                     <span class="color-5">검색</span>해 보세요
                     <p class="graytext">
@@ -89,15 +94,18 @@
         </section>
     </main>
     <footer>
-        <div class="footer-text-1">@codeit - 2023</div>
-        <div class="footer-text-2">
-            <a href="./privacy.html">
-                <div>Privacy Policy</div>
-            </a>
-            <a href="./faq.html">
-                <div>FAQ</div>
-            </a>
+        <div class="footer-left">
+            <div class="footer-text-2">
+                <a href="./privacy.html">
+                    <div>Privacy Policy</div>
+                </a>
+                <a href="./faq.html">
+                    <div>FAQ</div>
+                </a>
+            </div>
+            <div class="footer-text-1">@codeit - 2023</div>
         </div>
+
         <div class="footer-icon-group">
             <a href="https://www.facebook.com/?locale=ko_KR">
                 <img class="footer-icon" src="./img/akar-icons_facebook-fill.svg" alt="facebook icon">
