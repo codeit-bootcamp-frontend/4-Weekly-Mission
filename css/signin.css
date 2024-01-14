@@ -143,3 +143,21 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+/* tablet */
+@media (max-width: 1199px) {
+  body {
+    padding: 20rem 0 0;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  body {
+    padding: 12rem 3.2rem;
+  }
+
+  .sign-div {
+    max-width: 32.5rem;
+  }
+}

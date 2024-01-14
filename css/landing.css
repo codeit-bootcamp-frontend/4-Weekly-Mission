@@ -239,6 +239,7 @@ footer {
   height: 2rem;
 }
 
+/* tablet */
 @media (max-width: 1199px) {
   /* nav */
   .nav-div {
@@ -276,6 +277,7 @@ footer {
   }
 }
 
+/* mobile */
 @media (max-width: 767px) {
   /* nav */
   .nav-div {
