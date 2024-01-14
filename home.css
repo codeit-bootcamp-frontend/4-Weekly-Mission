@@ -667,19 +667,19 @@ input:focus {
     gap : 16px;
 }
 
-
+/* tablet size */
 
 @media screen and (min-width: 768px) and (max-width: 1199px) {
     
-    .page2{
-    
-    }
+
 }
   
+
+/* mobile size */
   
 @media screen and (min-width: 375px) and (max-width: 767px) {
     
-    
+
   }
     
 
