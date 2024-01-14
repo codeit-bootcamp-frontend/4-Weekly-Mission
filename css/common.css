@@ -98,14 +98,16 @@ header {
 }
 
 /* ---------Main--------- */
-
-.btn {
+button {
   cursor: pointer;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0.8rem;
   border: 0;
+}
+
+.btn {
+  border-radius: 0.8rem;
   color: var(--Grey-Light, #f5f5f5);
   font-size: 1.8rem;
   font-weight: 600;
