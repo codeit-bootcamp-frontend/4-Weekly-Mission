@@ -22,6 +22,10 @@
   flex: 1;
 }
 
+.gnb .logo .m-logo {
+  display: none;
+}
+
 .gnb .log-in-btn {
   width: 12.8rem;
 }
@@ -33,9 +37,13 @@
 }
 
 .content-box1 .main-text {
+  max-width: 708px;
+  margin: 0 auto;
+  letter-spacing: -2px;
   font-size: 6.4em;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
+  word-break: keep-all;
 }
 
 
@@ -48,7 +56,6 @@
 
 
 .content-box1 .add-link-btn {
-
   width: 350px;
   margin: 40px auto;
   overflow: hidden;
@@ -72,7 +79,7 @@
   margin: 0 auto;
 }
 
-.content-box1 .content-img-area img{
+.content-box1 .content-img-area img {
   max-width: 120em;
   width: 100%;
 }
@@ -80,8 +87,9 @@
 
 .contents-wrap {
   width: 100%;
-  
+
 }
+
 .contents-wrap .content-inner {
   margin: 0 auto;
   max-width: 100em;
@@ -94,43 +102,45 @@
   gap: 157px;
   padding: 5em 46.1em;
 }
-.contents-wrap .content-box.item1{
-  padding-top: 12em;  
+
+.contents-wrap .content-box.item1 {
+  padding-top: 12em;
 }
+
 .contents-wrap .content-box.item2,
 .contents-wrap .content-box.item4 {
   flex-direction: row-reverse;
 }
 
-.contents-wrap .content-box .content-text-area .subtitle{
+.contents-wrap .content-box .content-text-area .subtitle {
   width: 291px;
   font-size: 4.8em;
   font-weight: 700;
   line-height: 1.2;
 }
 
-.contents-wrap .item1 .content-text-area .subtitle > span {
+.contents-wrap .item1 .content-text-area .subtitle>span {
   background-image: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
-.contents-wrap .item2 .content-text-area .subtitle > span {
+.contents-wrap .item2 .content-text-area .subtitle>span {
   background-image: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
-.contents-wrap .item3 .content-text-area .subtitle > span {
+.contents-wrap .item3 .content-text-area .subtitle>span {
   background-image: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
 }
 
-.contents-wrap .item4 .content-text-area .subtitle > span {
+.contents-wrap .item4 .content-text-area .subtitle>span {
   background-image: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -150,24 +160,127 @@
   padding-top: 12em;
 }
 
-.footer-menu{
+.footer-menu {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 3.2em 10.4em 6.4em ;
+  padding: 3.2em 10.4em 6.4em;
   background-color: #111322;
   font-family: 'Acme', sans-serif;
 }
-.footer-menu .copyright{
+
+.footer-menu .copyright {
   color: var(--color-white);
   color: #676767;
 }
+
 .footer-menu .support {
   display: flex;
   gap: 30px;
 }
-.footer-menu .social{
+
+.footer-menu .social {
   display: flex;
   gap: 1.2em;
 }
 
+
+@media (min-width:768px) and (max-width: 1200px) {
+
+  /*  테블릿  */
+  .gnb {
+    max-width: 119em;
+    padding: 2em 3.2em;
+  }
+
+  .content-box1 .main-text {
+    max-width: 472px;
+    letter-spacing: -2px;
+    font-size: 6.4em;
+  }
+
+  .content-box1 {
+    padding: 7em 25em 0;
+  }
+
+  .contents-wrap .content-box {
+    gap: 51px;
+    padding: 5em 25em;
+  }
+
+  .contents-wrap .content-inner {
+    max-width: 69.8em;
+  }
+
+
+  .contents-wrap .content-box .content-img-area img {
+    width: 385px;
+    height: 315px;
+    object-fit: cover;
+  }
+
+}
+
+@media (min-width:375px) and (max-width: 767px) {
+  .gnb {
+    margin: 0 auto;
+    padding: 1.3em 3.2em;
+  }
+
+  .content-box1 .main-text {
+    max-width: 472px;
+    letter-spacing: -2px;
+    font-size: 6.4em;
+  }
+
+  .gnb .logo .pc-logo {
+    display: none;
+  }
+
+  .gnb .logo .m-logo {
+    display: block;
+  }
+
+  .btn a {
+    font-size: 1.4rem;
+    padding: 1rem 1.6rem;
+  }
+
+  .content-box1 {
+    padding: 2.8em 3.2em 0;
+  }
+
+  .content-box1 .main-text {
+    max-width: 236px;
+    font-size: 3.2em;
+  }
+
+  .contents-wrap .content-box.item1,
+  .contents-wrap .content-box.item2,
+  .contents-wrap .content-box.item4,
+  .contents-wrap .content-box {
+    flex-direction: column;
+    width: 100%;
+    gap: 24px;
+    padding: 4em 2.5em;
+  }
+
+
+  .contents-wrap .content-box .content-text-area .subtitle {
+    width: 100%;
+    font-size: 2.4em;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .contents-wrap .content-inner {
+    width: 100%;
+  }
+
+
+  .contents-wrap .content-box .content-img-area img {
+    width: 325px;
+    height: 265.909px;
+    object-fit: cover;
+  }
+}
