@@ -1,3 +1,5 @@
+@import "./global.css";
+
 *{
   box-sizing: border-box;
 }
@@ -28,7 +30,9 @@ form{
   padding-bottom: 30px;
 }
 .ask a{
+  padding-left: 5px;
   color: #6D6AFE;
+  text-decoration: underline;
 }
 label {
   display: block;
