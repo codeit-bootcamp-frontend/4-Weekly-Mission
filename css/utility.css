@@ -47,7 +47,8 @@
 
 /* btn, 폰트 색상 */
 
-.gradient-btn1 {
+.btn-color-1 {
+  color: var(--Grey-Light, #f5f5f5);
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
 }
 
