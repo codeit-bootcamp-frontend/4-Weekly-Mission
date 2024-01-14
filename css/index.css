@@ -35,12 +35,6 @@ Mobile: 375px 이상
   gap: 2.4rem;
 }
 
-h1,
-h2,
-h3 {
-  margin: 0;
-}
-
 h1 {
   text-align: center;
   font-weight: 700;
