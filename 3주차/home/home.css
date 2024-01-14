@@ -196,6 +196,9 @@ footer {
   gap: 10px;
 }
 @media (max-width: 1199px) {
+  #top_div {
+    margin: 13px 32px;
+  }
   .first_page {
     width: 698px;
     margin: 0 auto;
