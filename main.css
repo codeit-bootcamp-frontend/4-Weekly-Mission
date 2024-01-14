@@ -1,0 +1,39 @@
+/*body {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+이걸 넣으면 양끝 배치 안됌 생각해보기*/
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid#000;
+}
+.gnb {
+  display: flex;
+  padding: 20px 200px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+.content-1 {
+  display: flex;
+  width: 100%;
+  padding: 70px 360px 0px 360px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+  border: 3px solid#000;
+  align-self: stretch;
+  box-sizing: border-box; /*중요*/
+}
+.content-2 {
+  display: flex;
+  padding: 120px 461px 50px 461px;
+  justify-content: center;
+  align-items: center;
+  /*box-sizing: border-box; 애는 왜 안 넣어도 되는지 생각해보기*/
+}
