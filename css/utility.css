@@ -33,6 +33,8 @@
   padding: 1rem 1.6rem;
   font-size: 1.4rem;
   font-weight: 600;
+  border: 0;
+  border-radius: 0.8rem;
 }
 
 .btn-addlink {
@@ -40,6 +42,8 @@
   padding: 1rem 1.6rem;
   font-size: 1.4rem;
   font-weight: 600;
+  border: 0;
+  border-radius: 0.8rem;
 }
 
 /* btn, 폰트 색상 */
