@@ -8,31 +8,16 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: auto 400px;
-}
-header {
-  gap: 16px;
-}
-#logo {
-  width: 210.583px;
-  height: 38px;
 }
 #join {
   margin-top: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
   color: var(--black, #000);
   font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
   font-weight: 400;
 }
 #join_a {
   color: var(--Linkbrary-primary-color, #6d6afe);
   font-family: Pretendard;
-  font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -42,7 +27,6 @@ main {
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  width: 400px;
   margin-top: 30px;
 }
 .input_name {
@@ -57,36 +41,26 @@ main {
 .input_box {
   display: flex;
   width: 400px;
-  margin: 0;
   padding: 18px 15px;
-  justify-content: center;
-  align-items: center;
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: var(--Linkbrary-white, #fff);
-  flex: 1 0 0;
 }
 .red {
   margin-top: 6px;
-  border-radius: 8px;
   border: 1px solid var(--Linkbrary-red, #ff5b56);
   background: var(--Linkbrary-white, #fff);
 }
 .password_check {
   color: var(--Linkbrary-red, #ff5b56);
   font-family: Pretendard;
-  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
 .login_btn {
-  display: flex;
   width: 400px;
   padding: 16px 20px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
   border: none;
   border-radius: 8px;
   background: var(
@@ -98,7 +72,7 @@ main {
 footer {
   margin-top: 32px;
   display: flex;
-  width: 400px;
+  width: 410px;
   padding: 12px 24px;
   justify-content: space-between;
   align-items: center;
@@ -119,31 +93,37 @@ footer div {
   gap: 10px;
 }
 .social_img {
-  display: flex;
   width: 26px;
   height: 24px;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0;
 }
 .social_btn {
   width: 42px;
   height: 42px;
-  border: none;
-  background: none;
 }
 .google {
   background-image: url(signin/icon/google.svg);
   background-size: contain;
   padding: 10px;
-  width: 42px;
-  height: 42px;
 }
 .kakao {
   background-image: url(signin/icon/kakao.svg);
   background-size: contain;
   padding: 10px 8px;
-  width: 42px;
-  height: 42px;
-  flex-shrink: 0;
+}
+@media (max-width: 767px) {
+  body {
+    padding: 120px 32px 0 32px;
+    margin: 0;
+  }
+  main {
+    width: 100%;
+  }
+  .input {
+    width: 100%;
+  }
+  .input_box,
+  .login_btn,
+  footer {
+    width: 100%;
+  }
 }
