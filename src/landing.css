@@ -5,54 +5,73 @@
 */
 @media screen and (min-width: 768px) and (max-width: 1199px){
   .gnb {
-      padding: 0 32px;
+    padding: 0 32px;
   }
 
   .nav__logo, .nav__login {
-      margin: 0;
+    margin: 0;
   }
 }
 
 /* 모바일 사이즈일때 요구사항
    1. 좌우 여백 32px 제외 영역 채우기, 세로는 auto 설정
    Mobile 사이즈 너비가 커지면, SNS class 영역과 다른 영역의 비율이 커지게
+   제목 이미지 사진 순서
 */
 @media screen and (min-width: 375px) and (max-width: 768px) {
+
+  body {
+    padding: 0 32px; 
+  }
+
+  .slogan {
+    font-size: 32px; 
+    line-height: 1.2; 
+  }
+
   .hero-image, .content-image {
-      width: 100%; 
-      max-width: 100%; 
-      height: auto; 
-      margin: 0; 
-      padding: 0; 
-      box-sizing: border-box; 
+    width: calc(100% - 64px); 
+    height: auto; 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
   }
 
   .footer-box {
-      flex-direction: column; 
-      align-items: center; 
-      gap: 1rem; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 1rem; 
   }
 
   .footer-links, .sns {
-      width: 100%; 
-      justify-content: space-around; 
-      margin-bottom: 1rem; 
+    width: 100%; 
+    justify-content: space-around; 
+    margin-bottom: 1rem; 
   }
 
   section {
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
   }
 
-  .title, .description, .content-image {
-      order: 0; 
+  .title {
+    order: 0; 
+    word-wrap: break-word; 
+    white-space: normal;
   }
 
   .content-image {
-      order: 1; 
+    order: 1; 
+  }
+
+  .description {
+    order: 2; 
+    word-wrap: break-word; 
+    white-space: normal;   
   }
 }
+
 /* 미디어 쿼리 끝 */
 
 
