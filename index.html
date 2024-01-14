@@ -1,105 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:title" content="Linkbrary">
-  <meta property="og:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요."
-  <meta property="og:image" content="이미지url">
-  <meta property="og:url" content="페이지주소">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Linkbrary">
-  <meta name="twitter:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요.">
-  <meta name="twitter:image" content="이미지url">
-  <title>Home</title>
-  <link href="home.css" rel="stylesheet" type="text/css" />
-</head>
-
-<body>
-  <div class="HomeSky">
-    <nav class="HomeFrame">
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Linkbrary</title>
+    <meta property="og:title" content="Linkbrary" key="title" />
+    <meta
+      name="description"
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+      key="description"
+    />
+    <meta
+      property="og:image"
+      content="https://visitbusan.net/uploadImgs/files/cntnts/20211130150754165_wufrotr"
+      key="image"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@linkbrary" />
+    <meta name="twitter:title" content="Linkbrary" />
+    <meta name="twitter:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
+    <meta
+      name="twitter:image"
+      content="https://visitbusan.net/uploadImgs/files/cntnts/20211130150754165_wufrotr"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./src/landing.css" />
+  </head>
+  <body>
+    <nav>
       <div class="gnb">
-        <a href="/"><img src="./img/logo.svg" class="HomeLogo"></a>
-        <a href="/signin.html"><button class="HomeLoginButton">로그인</button></a>
+        <a href="index.html">
+          <img src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고"/>
+        </a>
+        <a class="cta cta-short" href="signin.html">
+          <span>로그인</span>
+        </a>
       </div>
     </nav>
-    <div class="HomeContent">
-      <div class="HomeTitle"><span class="HomeGraText">세상의 모든 정보</span>를<br> 쉽게 저장하고 관리해 보세요</div>
-      <a href="signup.html"><button class="HomeAddLink">링크 추가하기</button></a>
-      <img src="./img/image 25.png" class="HomeBigImg">
-    </div>
-  </div>
-  <div class="HomeWhite">
-    <div class="Home2">
-      <div class="HomeExplain2">
-        <div class="HomeExplainBig2"><span class="HomeGra2">원하는 링크</span>를<br>저장하세요</div>
-        <div class="HomeExplainSmall2">나중에 읽고 싶은 글, 다시 보고 싶은 영상<br>
-          , 사고 싶은 옷, 기억하고 싶은 모든 것을<br>
-          한 공간에 저장하세요.</div>
+    <header>
+      <div class="hero-header">
+        <h1 class="slogan">
+          <span class="slogan-gradient background-clip-text"> 세상의 모든 정보</span>를
+          <br />
+          쉽게 저장하고<br class="hidden-br"/> 관리해 보세요
+        </h1>
+        <a class="cta cta-long" href="signup.html">
+          <span>링크 추가하기</span>
+        </a>
+        <img src="./images/hero.png" class="hero-image" alt="Linkbrary 서비스 소개" />
       </div>
-      <div class="HomeCardBox">
-        <!-- <div class="HomeCards">
-          <img src="./img/Card 1.png" class="HomeCard1">
-          <div class="CardWrapper">
-            <img src="./img/Card.png" class="HomeCard2">
-            <img src="./img/Group 20.svg" class="HomeDownloadLogo">
-          </div>
-          <img src="./img/Card-1.png" class="HomeCard3">
-        </div> -->
-        <img src="./img/img1.png" class="Img1">
-      </div>
-    </div>
-    <div class="Home3">
-      <div class="HomeImgBox">
-        <img src="./img/디스크립션 없는 팝업 1.png">
-      </div>
-      <div class="HomeExplain3">
-        <div class="HomeExplainBig2">
-          링크를 폴더로<br><span class="HomeGra3">관리</span>하세요
-        </div>
-        <div class="HomeExplainSmall2">나만의 폴더를 무제한으로 만들고<br>다양하게 활용할 수 있습니다.</div>
-      </div>
-    </div>
-    <div class="Home2">
-      <div class="HomeExplain2">
-        <div class="HomeExplainBig2">저장한 링크를<br><span class="HomeGra4">공유</span>해 보세요</div>
-        <div class="HomeExplainSmall2">
-          여러 링크를 폴더에 담고 공유할 수 있습니다.<br>
-          가족, 친구, 동료들에게 쉽고 빠르게 링크를<br>
+    </header>
+    <article>
+      <section>
+        <h2 class="title">
+          <span class="title-1-gradient background-clip-text"> 원하는 링크</span>를
+          <br class="hidden-title-br"/>
+          저장하세요
+        </h2>
+        <p class="description">
+          나중에 읽고 싶은 글, 다시 보고 싶은 영상,
+          <br class="hidden-in-mobile"/>
+          사고 싶은 옷, 기억하고 싶은 모든 것을
+          <br class="hidden-in-mobile"/>
+          한 공간에 저장하세요.
+        </p>
+        <img src="./images/image1.png" class="content-image" alt="링크의 내용이 담긴 카드들" />
+      </section>
+      <section>
+        <h2 class="title">
+          링크를 폴더로
+          <br class="hidden-title-br"/>
+          <span class="title-2-gradient background-clip-text">관리</span>하세요
+        </h2>
+        <p class="description">
+          나만의 폴더를 무제한으로 만들고
+          <br class="hidden-in-mobile"/>
+          다양하게 활용할 수 있습니다.
+        </p>
+        <img src="./images/image2.png" class="content-image" alt="폴더 이름 변경 기능" />
+      </section>
+      <section>
+        <h2 class="title">
+          저장한 링크를
+          <br class="hidden-title-br"/>
+          <span class="title-3-gradient background-clip-text">공유</span>해 보세요
+        </h2>
+        <p class="description">
+          여러 링크를 폴더에 담고 공유할 수 있습니다.
+          <br class="hidden-in-mobile"/>
+          가족, 친구, 동료들에게 쉽고 빠르게 링크를
+          <br class="hidden-in-mobile"/>
           공유해 보세요.
+        </p>
+        <img src="./images/image3.png" class="content-image" alt="폴더 공유 기능" />
+      </section>
+      <section>
+        <h2 class="title">
+          저장한 링크를
+          <br class="hidden-title-br"/>
+          <span class="title-4-gradient background-clip-text">검색</span>해 보세요
+        </h2>
+        <p class="description">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
+        <img src="./images/image4.png" class="content-image" alt="링크 검색 기능" />
+      </section>
+    </article>
+    <footer>
+      <div class="footer-box">
+        <span class="copyright">©codeit - 2023</span>
+        <div class="footer-links">
+          <a class="footer-link" href="privacy.html">Privacy Policy</a>
+          <a class="footer-link" href="faq.html">FAQ</a>
+        </div>
+        <div class="sns">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./images/facebook.svg" alt="facebook 홈페이지로 연결된 facebook 로고" />
+          </a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./images/twitter.svg" alt="twitter 홈페이지로 연결된 twitter 로고" />
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./images/youtube.svg" alt="youtube 홈페이지로 연결된 youtube 로고" />
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./images/instagram.svg" alt="instagram 홈페이지로 연결된 instagram 로고" />
+          </a>
         </div>
       </div>
-      <div class="HomeCardBox2 HomeImgBox">
-        <img src="./img/share.png" class="ShareImg">
-      </div>
-    </div>
-    <div class="Home3">
-      <div class="HomeImgBox2">
-        <img src="./img/1.png" class="LastImg">
-      </div>
-      <div class="HomeExplain3">
-        <div class="HomeExplainBig2">
-          저장한 링크를<br><span class="HomeGra3">검색</span>해 보세요
-        </div>
-        <div class="HomeExplainSmall2">
-          중요한 정보들을 검색으로 쉽게 찾아보세요.
-        </div>
-      </div>
-    </div>
-    <div class="HomeFoot">
-      <div class="Gray">©codeit - 2023</div>
-      <div class="Middle">
-        <a href="/privacy">Privacy Policy</a>
-        <a href="/faq">FAQ</a>
-      </div>
-      <div class="HomeFootIcons">
-        <img src="./img/akar-icons_facebook-fill.png">
-        <img src="./img/akar-icons_twitter-fill.png">
-        <img src="./img/akar-icons_youtube-fill.png">
-        <img src="./img/ant-design_instagram-filled.png">
-      </div>
-    </div>
-</body>
-
+    </footer>
+  </body>
 </html>
