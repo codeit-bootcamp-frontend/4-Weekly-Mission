@@ -1,6 +1,6 @@
 @import './global.css';
 
-@media (min-width: 1200px) {
+@media (min-width: 375px) {
   body {
     display: flex;
     flex-direction: column;

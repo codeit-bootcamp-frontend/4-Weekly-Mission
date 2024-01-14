@@ -1,6 +1,6 @@
 @import './global.css';
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   body {
     display: flex;
     flex-direction: column;
@@ -22,8 +22,8 @@
     align-items: center;
     width: 100%;
     height: 9.4rem;
-    max-width: 192rem;
-    padding: 0 20rem;
+    max-width: 75rem;
+    padding: 0 2rem;
   }
 
   header {
@@ -38,7 +38,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 4rem;
+    max-width: 698px;
+    row-gap: 40px;
     padding-top: 7rem;
   }
 
@@ -47,11 +48,12 @@
     justify-content: center;
     align-items: center;
     height: 5.4rem;
+    padding: 16px 20px;
     cursor: pointer;
     background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
     border-radius: 0.8rem;
     color: #f5f5f5;
-    font-size: 1.8rem;
+    font-size: 18px;
     font-weight: 600;
   }
 
@@ -60,14 +62,14 @@
   }
 
   .cta-long {
-    width: 35rem;
+    width: 350px;
   }
 
   .slogan {
     text-align: center;
-    font-size: 6.4rem;
+    font-size: 64px;
     font-weight: 700;
-    line-height: 8rem;
+    line-height: 80px;
   }
 
   .slogan-gradient {
@@ -81,23 +83,26 @@
   }
 
   .hero-image {
-    width: 120rem;
-    height: 59rem;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
   }
 
   article {
-    padding-top: 7rem;
-    padding-bottom: 12rem;
+    padding-top: 30px;
+    padding-bottom: 20px;
   }
 
   section {
     display: grid;
     justify-content: center;
-    column-gap: 15.7rem;
+    column-gap: 51px;
     row-gap: 1rem;
-    width: 100%;
-    height: 55rem;
-    padding: 50px 0;
+    width: 698px;
+    height: 315px;
+    padding: 0;
+    margin: 50px 0 100px;
   }
 
   section:nth-of-type(odd) {
@@ -106,7 +111,7 @@
       'title image'
       'description image'
       '. image'
-      /291px 55rem;
+      /262px 385px;
   }
 
   section:nth-of-type(even) {
@@ -115,7 +120,7 @@
       'image title'
       'image description'
       'image .'
-      /550px 29.1rem;
+      /385px 262px;
   }
 
   .title {
@@ -149,8 +154,8 @@
 
   .content-image {
     grid-area: image;
-    width: 55rem;
-    height: 45rem;
+    width: 385px;
+    height: 315px;
   }
 
   footer {
