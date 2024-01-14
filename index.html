@@ -3,120 +3,140 @@
   <head>
     <meta charset="utf-8">
     <title>Linkbrary</title>
-    <link rel="stylesheet" href="style.css">
+    <!--opengraph-->
+    <meta property="og:title" content="Linkbrary" key="title" />
+    <meta
+      name="description"
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+      key="description"
+    />
+    <meta
+      property="og:image"
+      content="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/LOC_Main_Reading_Room_Highsmith.jpg/1280px-LOC_Main_Reading_Room_Highsmith.jpg"
+      key="image"
+    />
+    <!--twitter-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@linkbrary" />
+    <meta name="twitter:title" content="Linkbrary" />
+    <meta name="twitter:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
+    <meta
+      name="twitter:image"
+      content="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/LOC_Main_Reading_Room_Highsmith.jpg/1280px-LOC_Main_Reading_Room_Highsmith.jpg"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="src/style.css">
   </head>
   <body>
-    <header>
-      <nav>
-        <a class="logo" href="./index.html">
+    <nav>
+      <div class="linkbrary">
+        <a class="logo" href="index.html">
           <img src="images/logo.svg" alt="Linkbrary" width="133" height="24">
         </a>
-        <a class="btn login" href="./signin/index.html">
-          <div class="btn-text">로그인</div>
+        <a class="btn login" href="signin.html">
+          <div class="btn-text">
+            <span>로그인</span>
+          </div>
         </a>
-      </nav>
-    </header>
-
-    <main>
-      <div class="main-content">
-        <strong>세상의 모든 정보</strong>를<br>
-        쉽게 저장하고 관리해 보세요
       </div>
-      <a class="btn link" href="./signup/index.html">
+    </nav>
+
+    <header>
+      <h1 class="main-content">
+        <span class="information">세상의 모든 정보</span>를<br>
+        쉽게 저장하고 관리해 보세요
+      </h1>
+      <a class="btn link" href="signup.html">
         <div class="btn-text">링크 추가하기</div>
       </a>
-      <div class="main-img">
-        <img src="images/main.png" alt="main">
-      </div>
-    </main>
+      <img src="images/main.png" class="main-img" alt="main">
+    </header>
 
-    <article class="article-content">
-      <div class="article-content-box">
-        <div class="article-content-box1">
-          <div class="article-content-main">
-            <strong class="card">원하는 링크</strong>를<br>
-            저장하세요
+    <article>
+      <section class="article-content">
+        <div class="article-content-box">
+          <div class="article-content-box1">
+            <h2 class="article-content-main">
+              <span class="download">원하는 링크</span>를<br>
+              저장하세요
+            </h2>
+            <p class="article-content-sub">
+              나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br>
+              사고 싶은 옷, 기억하고 싶은 모든 것을<br>
+              한 공간에 저장하세요.<br>
+            </p>
           </div>
-          <div class="article-content-sub">
-            나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br>
-            사고 싶은 옷, 기억하고 싶은 모든 것을<br>
-            한 공간에 저장하세요.<br>
-          </div>
-        </div>
-        <div class="article-content-box2">
-          <img src="images/card1.png" alt="card1">
-          <img src="images/card2.png" alt="card2">
-          <img src="images/card3.png" alt="card3">
-          <img class="icon-download" src="images/download.svg" alt="download">
-        </div>
-      </div>
-    </article>
-
-    <article class="article-content">
-      <div class="article-content-box">
-        <div class="article-content-box2">
-          <img src="images/popup-fix.png" alt="fix">
-        </div>
-        <div class="article-content-box1">
-          <div class="article-content-main">
-            링크를 폴더로<br>
-            <strong class="fix">관리</strong>하세요
-          </div>
-          <div class="article-content-sub">
-            나만의 폴더를 무제한으로 만들고<br> 
-            다양하게 활용할 수 있습니다.
+          <div class="article-content-box2">
+            <img src="images/popup-download.png" class="popup-img" alt="download">
           </div>
         </div>
-      </div>  
-    </article>
-
-    <article class="article-content">
-      <div class="article-content-box">
-        <div class="article-content-box1">
-          <div class="article-content-main">
-            저장한 링크를<br>
-            <strong class="share">공유</strong>해 보세요.
+      </section>
+      <section class="article-content">
+        <div class="article-content-box">
+          <div class="article-content-box2">
+            <img src="images/popup-fix.png" class="popup-img" alt="fix">
           </div>
-          <div class="article-content-sub">
-            여러 링크를 폴더에 담고 공유할 수 있습니다.<br>
-            가족, 친구, 동료들에게 쉽고 빠르게 링크를<br>
-            공유해 보세요.
+          <div class="article-content-box1">
+            <h2 class="article-content-main">
+              링크를 폴더로<br>
+              <span class="fix">관리</span>하세요
+            </h2>
+            <p class="article-content-sub">
+              나만의 폴더를 무제한으로 만들고<br> 
+              다양하게 활용할 수 있습니다.
+            </p>
           </div>
-        </div>
-        <div class="article-content-box2">
-          <div class="popdown"></div>
-          <div class="popup">
-            <img src="images/popup-share.png" alt="share">
+        </div>  
+      </section>
+      <section class="article-content">
+        <div class="article-content-box">
+          <div class="article-content-box1">
+            <h2 class="article-content-main">
+              저장한 링크를<br>
+              <span class="share">공유</span>해 보세요.
+            </h2>
+            <p class="article-content-sub">
+              여러 링크를 폴더에 담고 공유할 수 있습니다.<br>
+              가족, 친구, 동료들에게 쉽고 빠르게 링크를<br>
+              공유해 보세요.
+            </p>
           </div>
-        </div>
-      </div>
-    </article>
-
-    <article class="article-content">
-      <div class="article-content-box">
-        <div class="article-content-box2">
-          <img src="images/popup-search.png" alt="search">
-        </div>
-        <div class="article-content-box1">
-          <div class="article-content-main">
-            저장한 링크를<br>
-            <strong class="search">검색</strong>해 보세요
-          </div>
-          <div class="article-content-sub">
-            중요한 정보들을 검색으로 쉽게 찾아보세요.
+          <div class="article-content-box2">
+            <div class="popup">
+              <img src="images/popup-share.png" class="popup-img" alt="share">
+            </div>
           </div>
         </div>
-      </div>  
+      </section>
+      <section class="article-content">
+        <div class="article-content-box">
+          <div class="article-content-box2">
+            <img src="images/popup-search.png" class="popup-img" alt="search">
+          </div>
+          <div class="article-content-box1">
+            <h2 class="article-content-main">
+              저장한 링크를<br>
+              <span class="search">검색</span>해 보세요
+            </h2>
+            <p class="article-content-sub">
+              중요한 정보들을 검색으로 쉽게 찾아보세요.
+            </p>
+          </div>
+        </div>  
+      </section>
     </article>
 
     <footer>
       <div class="finish-box">
-        <div class="finish-box1">
-          ©codeit - 2023
-        </div>
+        <span class="finish-box1">©codeit - 2023</span>
         <div class="finish-box2">
-          <a class="privacy" href="./privacy/index.html" >Privacy Policy</a>
-          <a class="faq" href="./faq/index.html">FAQ</a>
+          <a class="privacy" href="privacy.html" >Privacy Policy</a>
+          <a class="faq" href="faq.html">FAQ</a>
         </div>
         <div class="finish-box3">
           <a href="https://www.facebook.com" target="_blank">
