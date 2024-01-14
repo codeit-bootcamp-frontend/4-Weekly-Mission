@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 16px;
+}
+
 :root {
   --Linkbrary-primary-color : #6D6AFE;
   --Linkbrary-red: #FF5B56;
