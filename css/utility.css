@@ -28,8 +28,8 @@
 
 /* btn, 폰트 크기 */
 
-.btn-login {
-  width: 8rem;
+.btn-login,
+.btn-addlink {
   padding: 1rem 1.6rem;
   font-size: 1.4rem;
   font-weight: 600;
@@ -37,13 +37,12 @@
   border-radius: 0.8rem;
 }
 
+.btn-login {
+  width: 8rem;
+}
+
 .btn-addlink {
   width: 20rem;
-  padding: 1rem 1.6rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-  border: 0;
-  border-radius: 0.8rem;
 }
 
 /* btn, 폰트 색상 */
@@ -58,15 +57,17 @@
 
 /* Tablet, PC */
 @media (min-width: 768px) {
-  .btn-login {
-    width: 12.8rem;
+  .btn-login,
+  .btn-addlink {
     padding: 1.6rem 2rem;
     font-size: 1.8rem;
   }
 
+  .btn-login {
+    width: 12.8rem;
+  }
+
   .btn-addlink {
     width: 35rem;
-    padding: 1.6rem 2rem;
-    font-size: 1.8rem;
   }
 }
