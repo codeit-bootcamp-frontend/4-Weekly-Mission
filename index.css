@@ -1,28 +1,34 @@
-/*nav 시작*/
-nav {
-    background: var(--Linkbrary-bg, #F0F6FF);   
+* {
+    box-sizing: border-box;
+}
 
+/*nav*/
+nav {
+    background: var(--Linkbrary-bg);
     display: flex;
     padding: 20px 200px;
     justify-content: space-between;
     align-items: center;
-
     position: sticky;
     inset: 0;
 }
 
-.linkbrary-logo {
+nav .page-log img {
+    /* width: 13.3rem;
+    height: 2.4rem; */
     width: 133px;
     height: 24px;    
     cursor: pointer;
 }
 
-.login-button {
-    width: 88px;
-    height: 22px;
+nav .signin-box .button {
+    /* width: 8.8rem;
+    height: 2.2rem; */
+    width: 128px;
+    height: 54px;
+    cursor: pointer;
 }
 
-/*공통요소*/
 a{
     text-decoration: none;
 }
@@ -31,7 +37,7 @@ a{
     padding: 16px 20px;
     text-align: center;
     border-radius: 8px;
-    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+    background: var(--gra-purpleblue-to-skyblue);
 
     color: var(--Grey-Light, #F5F5F5);
     font-family: Pretendard;
@@ -43,9 +49,9 @@ a{
     cursor: pointer;
 }
 
-/*header 시작*/
+/*header*/
 header{
-    background: #F0F6FF;
+    background: var(--Linkbrary-bg);
 
     display: flex;
     flex-direction: column;
@@ -55,57 +61,33 @@ header{
     gap: 40px;
 }
 
-.main-headline{
+header h1{
     font-family: Pretendard;
     font-size: 64px;
     font-style: normal;
     font-weight: 700;
-    line-height: 80px; /* 125% */    
+    line-height: 125% 
 }
 
-.link-add-button{
-    width: 310px;
-    height: 22px;
-}
-
-.main-image{
-    /* width: 1118px; */
-    height: 659px;
-}
-
-.main-headline-gradiant{
+header h1 span{
     background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;    
 }
 
-/*section1 시작*/
-section.section1{
-    padding-top: 120px;
+header .signup-box .button{
+    width: 310px;
+    height: 54px;
 }
 
-.section-hp-div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 10px;
-    flex: 1 0 291px;
+header img{
+    /* width: 1118px; */
+    height: 659px;
 }
 
-.section-headline-gradiant.section1{
-    background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;    
-}
 
-.section-image.section1{
-    width: 550px;
-    height: 450px;    
-}
-
-/*section 공통요소*/
+/*section*/
 section{
     display: flex;
     padding: 50px 461px;
@@ -113,7 +95,15 @@ section{
     justify-content: center;
 }
 
-.section-headline{
+section div.section-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+section h1{
     font-family: Pretendard;
     font-size: 48px;
     font-style: normal;
@@ -124,7 +114,14 @@ section{
     margin-bottom: 0;
 }
 
-.section-text{
+.section1 span{
+    background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    
+}
+
+section p{
     color: #6B6B6B;
     font-family: Abel;
     font-size: 16px;
@@ -135,59 +132,65 @@ section{
     margin-top: 0;
 }
 
-/*section2 시작*/
-.section-image.section2{
+
+section.section1{
+    padding-top: 120px;
+}
+
+.section1 img{
+    width: 550px;
+    height: 450px;    
+}
+
+
+.section2 img{
     width: 414px;
 }
 
-.section-headline-gradiant.section2{
+.section2 span{
     background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: Pretendard;
-    font-size: 48px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: -0.3px;    
 }
 
-.section-headline-gradiant.section3{
+.section3 span{
     background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: Pretendard;
-    font-size: 48px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;    
 }
 
-.section-image.section3{
+.section3 img{
     width: 570px;
 }
 
-.section-image.section4{
+.section4 img{
     width: 550px;   
 }
 
-.section-headline-gradiant.section4{
-    background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+.section4 span{
+    background: var(--Fandom-K-gra-blue-to-pink);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: Pretendard;
-    font-size: 48px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;    
 }
 
 /*footer*/
-
-div.footer-padding-div{
+div.footer-padding{
     padding-top: 120px;
 }
 
@@ -196,14 +199,14 @@ footer{
     height: 64px;
     padding: 32px 104px 64px 104px;
 
-    background: var(--The-julge-black, #111322);
+    background: var(--The-julge-black);
 
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
 
-footer .footer-text {
+footer div.footer-text {
     color: #676767;
     text-align: center;
     font-family: Acme;
@@ -213,11 +216,155 @@ footer .footer-text {
     line-height: normal;    
 }
 
-.footer-text.notice{
+footer div.footer-text.notice {
     display: flex;
     gap: 30px;
 }
 
-@media(min-width: 1920px){
-    /* 요소간 너비 고정시키기 */
+
+/*pc*/
+@media(min-width: 1200px){
+
+}
+
+/*tablet*/
+@media(min-width: 768px){
+    header{
+        padding: 40px 250px 0;
+    }
+}
+
+/*mobile*/
+@media (min-width: 375px) and (max-width: 767px) {
+    nav{
+        padding: 13px 32px;
+    }
+
+    nav .signin-box .button{
+        width: 80px;
+        height: auto;
+        padding: 10px 16px;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    header{
+        padding: 28px 32px;
+        gap: 24px;
+    }
+
+    header h1{
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 42px; /* 131.25% */     
+        margin: 0;   
+    }
+
+    header .signup-box .button {
+        width: 200px;
+        height: 37px;
+        padding: 10px 16px;
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;        
+    }
+
+    header img {
+        width: 303px;
+        height: 180px;
+    }
+
+    section{
+        flex-direction: column;
+        padding: 40px 32px;
+        gap: 24px;
+        justify-content: flex-start;
+    }
+
+    section.section1{
+        padding-top: 40px;
+    }
+
+    section div.section-text{
+        gap: 10px;
+    }    
+
+    section h1{
+        font-family: Pretendard;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        letter-spacing: -0.3px;        
+    }
+    
+    .section1 img{
+        width: 100%;
+    }
+
+    section.section2{
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-areas: "section2-text" "section2-img";
+        width: 100%;
+    }
+
+    .section2 img{
+        grid-area: section2-img;
+        width: 100%;
+    }
+
+    .section2 .section-text{
+        grid-area: section2-text;
+    }
+
+    section.section4{
+        display: grid;
+        grid-template-rows: auto auto;
+        grid-template-areas: "section4-text" "section4-img";
+        width: 100%;
+    }
+
+    .section4 img{
+        grid-area: section4-img;
+        width: 100%;
+    }
+
+    .section4 .section-text{
+        grid-area: section4-text;
+    }
+
+    div.footer-padding{
+        padding-top: 40px;
+    }
+    
+    footer {
+        display: grid;
+        grid-template: auto auto / auto auto;
+        grid-template-areas: "notice footer-img" "company-info .";
+        gap: 60px;
+
+        height: auto;
+        padding: 32px 32px 64px;
+        
+    }
+
+    footer div.footer-text.company-info{
+        grid-area: company-info;
+        text-align: left;
+    }
+
+    footer div.footer-text.notice{
+        grid-area: notice;
+    }
+
+    footer .footer-image{
+        grid-area: footer-img;
+    }
+
 }

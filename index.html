@@ -6,93 +6,111 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linkbrary</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="color.css">
+    <!--메타정보-->
+    <meta property="og:title" content="Linkbrary"/>
+    <meta property="og:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"/>
+    <meta property="og:url" content="https://weekly2-jkjkh1318.netlify.app/"/>
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="image/meta-image.jpg">
 </head>
 
 <body>
     <nav>
-        <!--요소들을 div로 감싸는게 좋은지-->
-        <a href="/">
-            <img class="linkbrary-logo" src="image/logo.svg">
-        </a>
-        <!--div vs. button-->
-        <a href="/signin">
-            <div class="login-button button">로그인</div>
-        </a>
+        <div class="page-logo">
+            <a href="/">
+                <img src="image/logo.svg">
+            </a>
+        </div>
+        <div class="signin-box">
+            <a href="/signin">
+                <div class="button">로그인</div>
+            </a>
+        </div>
     </nav>
     <header>
-        <h1 class="main-headline">
-        <span class="main-headline-gradiant">세상의 모든 정보</span>를<br>
-            쉽게 저장하고 관리해 보세요
-        </h1>
-        <a href="/signup">
-            <div class="link-add-button button">링크 추가하기</div>
-        </a>
-        <img class="main-image" src="image/main.png">
+        <div>
+            <h1>
+                <span>세상의 모든 정보</span>를<br> 쉽게 저장하고 관리해 보세요
+            </h1>
+        </div>
+        <div class="signup-box">
+            <a href="/signup">
+                <div class="button">링크 추가하기</div>
+            </a>
+        </div>
+        <img src="image/main.png">
     </header>
     <section class="section1">
-        <div class="section-hp-div">
-            <h1 class="section-headline">
-                <span class="section-headline-gradiant section1">원하는 링크</span>를<br>
-                저장하세요
-            </h1>
-            <p class="section-text">
-                나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br>
-                사고 싶은 옷, 기억하고 싶은 모든 것을<br>
-                한 공간에 저장하세요.
-            </p>
+        <div class="section-text">
+            <div>
+                <h1>
+                    <span>원하는 링크</span>를<br> 저장하세요
+                </h1>
+            </div>
+            <div>
+                <p>
+                    나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br>
+                    사고 싶은 옷, 기억하고 싶은 모든 것을<br>
+                    한 공간에 저장하세요.
+                </p>
+            </div>
         </div>
-        <img class="section-image section1" src="image/section1.png">
+        <img src="image/section1.png">
     </section>
-    <section>
-        <img class="section-image section2" src="image/section2.png">
-        <div class="section-hp-div">
-            <h1 class="section-headline">
-                링크를 폴더로
-                <span class="section-headline-gradiant section2">관리</span>하세요
-            </h1>
-            <p class="section-text">
-                나만의 폴더를 무제한으로 만들고<br>
-                다양하게 활용할 수 있습니다.
-            </p>
+    <section class="section2">
+        <img src="image/section2.png">
+        <div class="section-text">
+            <div>
+                <h1>
+                    링크를 폴더로<br> <span>관리</span>하세요
+                </h1>
+            </div>
+            <div>
+                <p>
+                    나만의 폴더를 무제한으로 만들고<br>
+                    다양하게 활용할 수 있습니다.
+                </p>
+            </div>
         </div>
     </section>
-    <section>
-        <div class="section-hp-div">
-            <h1 class="section-headline">
-                저장한 링크를<br>
-                <span class="section-headline-gradiant section3">공유</span>해 보세요.
-            </h1>
-            <p class="section-text">
+    <section class="section3">
+        <div class="section-text">
+            <div>
+                <h1>
+                    저장한 링크를<br><span>공유</span>해 보세요.
+                </h1>
+            </div>
+            <p>
                 여러 링크를 폴더에 담고 공유할 수 있습니다.<br>
                  가족, 친구, 동료들에게 쉽고 빠르게 링크를<br>
                 공유해 보세요.
             </p>
         </div>
-        <img class="section-image section3" src="image/section3.png">
+        <img src="image/section3.png">
     </section>
-    <section>
-        <img class="section-image section4" src="image/section4.png">
-        <div class="section-hp-div">
-            <h1 class="section-headline">
-                저장한 링크를
-                <span class="section-headline-gradiant section4">검색</span>해 보세요
+    <section class="section4">
+        <img src="image/section4.png">
+        <div class="section-text">
+            <h1>
+                저장한 링크를<br><span>검색</span>해 보세요
             </h1>
-            <p class="section-text">
+            <p>
                 중요한 정보들을 검색으로 쉽게 찾아보세요.
             </p>
         </div>
     </section>
-    <div class="footer-padding-div">
+    <div class="footer-padding">
     </div>
     <footer>
-        <div class="footer-text company-info">
+        <div class="company-info footer-text">
             <span>©codeit - 2023</span>
         </div>            
-        <div class="footer-text notice">
-            <a class="footer-text" href="/privacy">
+        <div class="notice footer-text">
+            <a href="/privacy">
                 <span>Privacy Policy</span>
             </a>
-            <a class="footer-text" href="/faq">
+            <a href="/faq">
                 <span>FAQ</span>
             </a>
         </div>
