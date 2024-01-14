@@ -99,7 +99,7 @@ header {
 
 /* ---------Main--------- */
 
-button {
+.btn {
   cursor: pointer;
   display: flex;
   justify-content: center;
