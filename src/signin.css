@@ -63,15 +63,12 @@ header {
   gap: 3rem;
 }
 
-main > div {
-  width: 40rem;
-}
-
 .email-container,
 .password-container {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+  width: 40rem;
 }
 
 .email-container + .password-container {
@@ -141,6 +138,7 @@ button {
 
 .social-login {
   display: flex;
+  width: 40rem;
   padding: 1.2rem 2.4rem;
   justify-content: space-between;
   align-items: center;
@@ -181,4 +179,24 @@ button {
 .kakao-img {
   padding-top: 0.2rem;
   background-color: #f5e14b;
+}
+
+/* 모바일 화면  */
+@media (min-width: 375px) and (max-width: 767px) {
+  main {
+    padding-top: 12rem;
+  }
+  .email-container,
+  .password-container,
+  .button-login,
+  .social-login {
+    width: calc(100% - 64px);
+  }
+}
+
+/* 태블릿 화면  */
+@media (min-width: 768px) and (max-width: 1199px) {
+  main {
+    padding-top: 20rem;
+  }
 }

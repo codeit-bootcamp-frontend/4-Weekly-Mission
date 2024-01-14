@@ -2,6 +2,23 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Linkbrary" key="title" />
+    <meta
+      name="description"
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+      key="description"
+    />
+    <meta property="og:image" content="/public/img/preview.png" key="image" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@linkbrary" />
+    <meta name="twitter:title" content="Linkbrary" />
+    <meta
+      name="twitter:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+    />
+    <meta name="twitter:image" content="/public/img/logo.svgr" />
     <link
       rel="stylesheet"
       as="style"
@@ -15,7 +32,9 @@
   <body>
     <nav>
       <div class="gnb">
-        <a href="/"><img src="/public/img/logo.svg" alt="logo" /></a>
+        <a href="/"
+          ><img class="gnb-logo" src="/public/img/logo.svg" alt="홈 연결 로고"
+        /></a>
         <a class="button button-login" href="signin.html">로그인</a>
       </div>
     </nav>
@@ -23,28 +42,32 @@
       <div class="main-container">
         <div class="title main-title">
           <span class="gra-text">세상의 모든 정보</span>를<br />
-          쉽게 저장하고 관리해 보세요
+          쉽게 저장하고<br class="break-tm" />
+          관리해 보세요
         </div>
         <a class="button button-link" href="signup.html">링크 추가하기</a>
-        <img class="main-img" src="/public/img/_img.png" alt="main-img" />
+        <img class="main-img" src="/public/img/_img.png" alt="메인 이미지" />
       </div>
     </main>
     <section>
       <div class="container">
         <div class="description">
           <div class="main-description content1">
-            <span class="gra-text">원하는 링크</span>를<br />저장하세요
+            <span class="gra-text">원하는 링크</span>를<br
+              class="break-pt"
+            />저장하세요
           </div>
           <div class="sub-description">
-            나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br />
-            사고 싶은 옷, 기억하고 싶은 모든 것을<br />
+            나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br class="break-pt" />
+            사고 싶은 옷,<br class="break-m" />
+            기억하고 싶은 모든 것을<br class="break-pt" />
             한 공간에 저장하세요.
           </div>
         </div>
         <img
           class="content-img"
           src="/public/img/_img1.png"
-          alt="원하는 링크 저장"
+          alt="원하는 링크를 저장"
         />
       </div>
     </section>
@@ -53,16 +76,16 @@
         <img
           class="content-img"
           src="/public/img/_img2.png"
-          alt="링크 폴더로 관리"
+          alt="링크를 폴더로 관리"
         />
         <div class="description">
           <div class="main-description content2">
-            링크를 폴더로<br />
+            링크를 폴더로<br class="break-pt" />
             <span class="gra-text">관리</span>하세요
           </div>
           <div class="sub-description">
-            나만의 폴더를 무제한으로 만들고<br />
-            다양하게 활용할 수 있습니다.
+            나만의 폴더를 무제한으로 만들고<br class="break-pt" />
+            다양하게 활용할 수 <br class="break-m" />있습니다.
           </div>
         </div>
       </div>
@@ -71,24 +94,33 @@
       <div class="container">
         <div class="description">
           <div class="main-description content3">
-            저장한 링크를<br />
+            저장한 링크를<br class="break-pt" />
             <span class="gra-text">공유</span>해 보세요
           </div>
           <div class="sub-description">
-            여러 링크를 폴더에 담고 공유할 수 있습니다. <br />가족, 친구,
-            동료들에게 쉽고 빠르게 링크를<br />
+            여러 링크를 폴더에 담고 공유할 수 있습니다.
+            <br class="break-pt" />가족,<br class="break-m" />
+            친구, 동료들에게 쉽고 빠르게 링크를<br class="break-pt" />
             공유해 보세요.
           </div>
         </div>
-        <img class="content-img" src="/public/img/_img3.png" alt="링크 공유" />
+        <img
+          class="content-img"
+          src="/public/img/_img3.png"
+          alt="저장한 링크 공유"
+        />
       </div>
     </section>
     <section>
       <div class="container">
-        <img class="content-img" src="/public/img/_img4.png" alt="링크 검색" />
+        <img
+          class="content-img"
+          src="/public/img/_img4.png"
+          alt="저장한 링크 검색"
+        />
         <div class="description">
           <div class="main-description content4">
-            저장한 링크를<br />
+            저장한 링크를<br class="break-pt" />
             <span class="gra-text">검색</span>해 보세요
           </div>
           <div class="sub-description">
@@ -106,16 +138,16 @@
         </div>
         <div class="footer-sns">
           <a href="https://www.facebook.com" target="_blank">
-            <img src="/public/img/facebook.svg" alt="facebook" />
+            <img src="/public/img/facebook.svg" alt="facebook 연결 로고" />
           </a>
           <a href="https://www.twitter.com" target="_blank"
-            ><img src="/public/img/twitter.svg" alt="twitter" />
+            ><img src="/public/img/twitter.svg" alt="twitter 연결 로고" />
           </a>
           <a href="https://www.youtube.com" target="_blank"
-            ><img src="/public/img/youtube.svg" alt="youtube" />
+            ><img src="/public/img/youtube.svg" alt="youtube 연결 로고" />
           </a>
           <a href="https://www.instagram.com" target="_blank"
-            ><img src="/public/img/instagram.svg" alt="instagram" />
+            ><img src="/public/img/instagram.svg" alt="instagram 연결 로고" />
           </a>
         </div>
       </div>

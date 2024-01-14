@@ -16,6 +16,10 @@ body {
   align-items: center;
 }
 
+.break-tm {
+  display: none;
+}
+
 nav {
   display: flex;
   width: 100%;
@@ -40,6 +44,7 @@ main {
   width: 100%;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 7rem;
   background-color: var(--Linkbrary-bg);
 }
 
@@ -49,7 +54,6 @@ main {
   align-items: center;
   row-gap: 4rem;
   padding-top: 7rem;
-  margin-bottom: 7rem;
 }
 
 .title {
@@ -59,6 +63,7 @@ main {
   font-style: normal;
   font-weight: 700;
   line-height: 8rem;
+  letter-spacing: 0px;
 }
 
 .gra-text {
@@ -110,6 +115,14 @@ main {
   letter-spacing: -0.03rem;
 }
 
+.sub-description {
+  color: var(--Grey);
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+}
+
 .content1 {
   background-image: var(--gra-pink-to-blue);
   -webkit-background-clip: text;
@@ -144,6 +157,8 @@ section {
 }
 
 .description {
+  display: flex;
+  flex-direction: column;
   width: 29.1rem;
   align-items: flex-start;
   gap: 1rem;
@@ -152,14 +167,6 @@ section {
 .content-img {
   width: 55rem;
   height: 45rem;
-}
-
-.sub-description {
-  color: var(--Grey);
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
 }
 
 footer {
@@ -184,7 +191,7 @@ footer {
 .copyright {
   color: var(--footer-copyright);
   text-align: center;
-  font-family: Acme;
+  font-family: Arial;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
@@ -201,7 +208,7 @@ footer {
   color: var(--footer-link);
   font-family: Acme;
   font-size: 1.6rem;
-  font-style: normal;
+  font-family: Arial;
   font-weight: 400;
   line-height: normal;
   text-decoration: none;
@@ -211,4 +218,149 @@ footer {
   display: flex;
   height: 2rem;
   gap: 1.2rem;
+}
+
+/* 모바일 화면  */
+@media (min-width: 375px) and (max-width: 767px) {
+  .break-tm {
+    display: inline;
+  }
+  .break-pt {
+    display: none;
+  }
+  .break-m {
+    display: inline;
+  }
+
+  .gnb {
+    height: 6.3rem;
+    padding: 0 32px;
+    justify-content: space-between;
+  }
+
+  .gnb-logo {
+    width: 8.8rem;
+  }
+
+  .title {
+    font-size: 3.2rem;
+    line-height: 4.2rem;
+  }
+
+  .button {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    height: 3.7rem;
+  }
+
+  .button-login {
+    width: 8rem;
+  }
+
+  .button-link {
+    width: 20rem;
+  }
+
+  main {
+    margin-bottom: 0;
+  }
+
+  .main-container {
+    padding-top: 2.8rem;
+    row-gap: 2.4rem;
+  }
+
+  .main-img,
+  .content-img {
+    width: calc(100% - 64px);
+    height: auto;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 4rem 0;
+    gap: 2.4rem;
+  }
+
+  .description,
+  .main-description {
+    width: calc(100% - 64px);
+    white-space: nowrap;
+  }
+
+  .main-description {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+  }
+
+  .main-description {
+    order: 1;
+  }
+  .content-img {
+    order: 2;
+  }
+  .sub-description {
+    order: 3;
+  }
+
+  .sub-description {
+    font-size: 1.5rem;
+  }
+
+  footer {
+    margin-top: 4rem;
+    padding: 3.2rem 3.2rem 6.4rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+  }
+
+  .footer-link {
+    margin-bottom: 6rem;
+    order: -1;
+  }
+}
+
+/* 태블릿 화면  */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .break-tm {
+    display: inline;
+  }
+
+  .gnb {
+    padding: 0 32px;
+    justify-content: space-between;
+  }
+
+  .title {
+    height: auto;
+    word-break: break-word;
+  }
+
+  main {
+    margin-bottom: 3rem;
+  }
+
+  .main-container {
+    padding-top: 4rem;
+  }
+
+  .main-img {
+    width: 650.3px;
+    height: auto;
+  }
+
+  .container {
+    gap: 5.1rem;
+  }
+
+  .description {
+    width: 100%;
+  }
+
+  .content-img {
+    width: 385px;
+    height: 315px;
+  }
 }
