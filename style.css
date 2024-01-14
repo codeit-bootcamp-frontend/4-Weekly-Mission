@@ -381,20 +381,24 @@ a{
     flex-direction: column; 
   }
   .end-box{
-    align-items: flex-start;
+    display: grid;
+    grid-template-areas:
+                    "link img"
+                    "codeit ." ;
   }
   .end-box-frame{
-   
-    order:2;
     
+    grid-area: codeit;
+    margin-top:60px;
   
   }
   .end-box-frame2{
-    order:1;
     
+    grid-area:link;
   }
   .end-box-frame3{
-    order:3;
+    
+    grid-area:img;
   }
 
 }
