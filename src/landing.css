@@ -15,7 +15,7 @@
 
 /* 모바일 사이즈일때 요구사항
    1. 좌우 여백 32px 제외 영역 채우기, 세로는 auto 설정
-   Mobile 사이즈 너비가 커지면, SNS class 영역과 다른 영역의 비율이 커지도록
+   Mobile 사이즈 너비가 커지면, SNS class 영역과 다른 영역의 비율이 커지게
 */
 @media screen and (min-width: 375px) and (max-width: 768px) {
   .hero-image, .content-image {
