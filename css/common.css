@@ -1,10 +1,11 @@
 /* 공통 스타일시트 */
 
-* {
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  font-family: Pretendard;
-  font-style: normal;
-  line-height: normal;
 }
 
 :root {
@@ -32,7 +33,9 @@ html {
 }
 
 body {
-  margin: 0;
+  font-family: "pretendard", "맑은 고딕", sans-serif;
+  font-style: normal;
+  line-height: normal;
 }
 
 /* ---------Header--------- */
