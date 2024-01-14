@@ -1,0 +1,112 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import "palette.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  margin: 0;
+  font-family: "Pretendard", sans-serif;
+}
+
+body {
+  background-color: #F0F6FF;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 238px 0px 252px;
+}
+
+.logo img {
+  width: 210px;
+  margin: 16px 0;
+}
+
+.sign-up {
+  margin-bottom: 18px;
+}
+
+.sign-up a {
+  color: #6D6AFE;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+label {
+  display: block;
+  margin: 12px auto;
+}
+
+input {
+  display: block;
+  font-size: 16px;
+  font-family: "Pretendard";
+  width: 400px;
+  border-radius: 8px;
+  border: 1px solid #CCD5E3;
+  background: #FFFFFF;
+  padding: 18px 15px;
+  margin: 12px auto 24px;
+}
+
+input:focus {
+  outline: 1px solid #6D6AFE;
+}
+
+input::placeholder {
+  color: #373740;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.checkbox {
+  position: relative;
+}
+
+.checkbox button {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 16px;
+  width: 20px;
+  background: none;
+}
+
+button {
+  color: #F5F5F5;
+  font-family: "Pretendard";
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  background: var(--gra-purpleblue-to-skyblue);
+  width: 400px;
+  padding: 16px 20px;
+  margin: 6px auto;
+}
+
+.sns-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #373740;
+  font-size: 14px;
+  font-weight: 400;
+  background: #E7EFFB;
+  border: 1px solid #CCD5E3;
+  border-radius: 8px;
+  padding: 12px 24px;
+  margin: 32px auto;
+}
+
+.sns-links img{
+  width: 42px;
+  margin-left: 16px;
+}
