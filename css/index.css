@@ -89,7 +89,6 @@ button {
   font-weight: 700;
   color: var(--black);
   margin: 0;
-  font-size:
 }
 
 .main-header-img {
@@ -160,7 +159,7 @@ section img {
 .grid-center {
   grid-area: gap;
   max-width: 157px;
-  min-width; 24px;
+  min-width: 24px;
   width: 10vw;
   height: 20px;
 }
