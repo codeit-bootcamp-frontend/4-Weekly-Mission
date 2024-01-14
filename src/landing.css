@@ -316,19 +316,19 @@ footer {
 }
 
 .facebook {
-    background-image: url("./images/akar-icons_facebook-fill.svg");
+    background-image: url("../images/akar-icons_facebook-fill.svg");
 }
 
 .twitter {
-    background-image: url("./images/akar-icons_twitter-fill.svg");
+    background-image: url("../images/akar-icons_twitter-fill.svg");
 }
 
 .youtube {
-    background-image: url("./images/akar-icons_youtube-fill.svg");
+    background-image: url("../images/akar-icons_youtube-fill.svg");
 }
 
 .instagram {
-    background-image: url("./images/ant-design_instagram-filled.svg");
+    background-image: url("../images/ant-design_instagram-filled.svg");
 }
 /* 푸터 끝 */
 
