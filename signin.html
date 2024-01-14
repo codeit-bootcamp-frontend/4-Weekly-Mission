@@ -1,0 +1,41 @@
+<!--배포 주소 : https://linason-esc-linkbrary-week2and3.netlify.app/
+-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkbrary</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="palette.css">
+</head>
+<body>
+    <div class="signBox">
+        <form>
+            <div class="logoAndSign">
+                <a href="/"><img src="img/logo.png"></a>
+                <span>회원이 아니신가요? <a href="signup.html">회원 가입하기</a></span>
+            </div>
+            <div class="formBox">
+                <div class="emailBox">
+                    <label for="userEmail">이메일</label>
+                    <input id="userEmail" type=email name="userEmail">
+                </div>
+                <div class="passwordBox">
+                    <label for="password">비밀번호</label>
+                    <input id="password" type="password" name="password">
+                    <img src="img/eye-off.png">
+                </div>
+            </div>
+            <button class="signinButton" type="submit">로그인</button>
+        </form> 
+        <div class="socialSignBox">
+            <span>소셜 로그인</span>
+            <div class="socialIcon">
+                <a href="https://www.google.com/"><img src="img/googleicon.png"></a>
+                <a href="https://www.kakaocorp.com/page/"><img src="img/kakaoicon.png"></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
