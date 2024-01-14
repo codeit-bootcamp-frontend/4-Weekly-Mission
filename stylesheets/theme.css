@@ -1,0 +1,11 @@
+/* Theme */
+:root {
+  --Linkbrary-bg: #f0f6ff;
+  --Linkbrary-gray-10: #e7effb;
+  --Linkbrary-gray-20: #ccd5e3;
+  --Linkbrary-gray-60: #9fa6b2;
+  --Linkbrary-gray-100: #373740;
+  --Linkbrary-primary-color: #6d6afe;
+  --Linkbrary-red: #ff5b56;
+  --Linkbrary-white: #ffffff;
+}
