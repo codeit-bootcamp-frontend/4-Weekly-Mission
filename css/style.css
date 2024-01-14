@@ -10,23 +10,6 @@ html {
 	font-size: 16px;
 }
 
-/* .wrapper {
-	position: relative;
-	width: 100%;
-	height: 0;
-	overflow: hidden;
-	padding-bottom: 56.26%;
-	padding: 3rem 2rem;
-}
-
-.wrap {
-	position: absolute;
-	background-color: #676767;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%; */
-/* } */
 header {
 	display: flex;
 	justify-content: space-between;
@@ -177,18 +160,6 @@ a {
 	display: none;
 }
 
-/* 여기 다시 확인하기 */
-.article.image {
-	/* width: 34.375rem; */
-	/* width: 20rem; */
-	/* height: 28.1rem; */
-	/* border-radius: 0.9375rem; */
-	/* background: var(--gray-5); */
-}
-
-/* .cardNews {
-} */
-
 .graytext {
 	margin-top: 1rem;
 
@@ -212,7 +183,6 @@ a {
 }
 
 .bookmark-img {
-	/* width: 100%; */
 	width: 100%;
 	height: 100%;
 	object-fit: contain;
@@ -255,17 +225,11 @@ footer {
 	margin-top: 5.07rem;
 }
 
-.footer-left {
-	/* text-align: left; */
-	/* gap: 3.75rem; */
-}
-
 .footer-text-1 {
 	position: absolute;
 	left: 2rem;
 	top: 6rem;
 
-	/* margin-top: 3.75rem; */
 	color: #676767;
 	text-align: left;
 	font-family: Arial;
@@ -302,12 +266,8 @@ footer {
 @media (min-width: 768px) {
 	header {
 		padding: 1.25rem 0;
-		/* width: 30%; */
-		/* width: 49.9rem; */
-		/* width: 80%; */
 	}
 	.logo {
-		/* margin-left: 2rem; */
 		width: 8.3125rem;
 		height: 1.5rem;
 	}
@@ -322,7 +282,6 @@ footer {
 	.login {
 		width: 5.5rem;
 		height: 1.31rem;
-		/* margin-right: 2rem; */
 	}
 
 	.text {
@@ -357,13 +316,9 @@ footer {
 		margin-bottom: 5rem;
 	}
 	.article.text {
-		/* width: 43.6rem; */
 		font-size: 3rem;
 		letter-spacing: -0.01875rem;
 	}
-	/* .article.text > br {
-		display: block;
-	} */
 	.graytext {
 		font-size: 1rem;
 	}
@@ -400,36 +355,19 @@ footer {
 
 @media (min-width: 1200px) {
 	header {
-		padding: 1.25rem 0;
-		/* width: 30%; */
 		width: 100%;
 	}
 	.logo {
 		margin-left: 12.5rem;
-		width: 8.3125rem;
-		height: 1.5rem;
-	}
-
-	.button {
-		padding: 1rem 1.25rem;
-
-		font-size: 1.125rem;
-		font-weight: 600;
 	}
 
 	.login {
-		width: 5.5rem;
 		height: 1.38rem;
 		margin-right: 12.5rem;
 	}
 
-	.text {
-		font-size: 4rem;
-		line-height: 5rem; /* 125% */
-	}
-
 	.section1 {
-		padding: 10.26rem 22.5rem 0;
+		padding: 10.26rem auto 0;
 		justify-content: center;
 	}
 
@@ -445,17 +383,11 @@ footer {
 
 	.hero-image {
 		width: 69.875rem;
-		height: 41.1875rem;
 	}
 
 	.content {
-		flex-direction: row;
-
 		width: 62.4rem;
 		height: 28.1rem;
-		margin: 6.24rem auto;
-		display: flex;
-		align-items: center;
 	}
 
 	.content:first-child {
@@ -468,61 +400,22 @@ footer {
 
 	.article.text {
 		width: 18.2rem;
-
-		font-size: 3rem;
-		line-height: normal;
-		letter-spacing: -0.01875rem;
 	}
 
-	.article.text > br {
-		display: block;
+	.card-img {
+		width: 34.375rem;
 	}
-
-	.article.image {
-		width: 20.3rem;
-		height: auto;
+	.bookmark-img {
+		width: 34.375rem;
 	}
-
-	.graytext {
-		margin-top: 0.62rem;
-
-		font-size: 1rem;
-		font-style: normal;
-		font-weight: 400;
-		line-height: 150%; /* 1.5rem */
+	.folder-share-img {
+		width: 34.375rem;
 	}
-
+	.search-link-img {
+		width: 34.375rem;
+	}
 	.gap {
 		gap: 9.81rem;
-	}
-
-	.cardNews {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		overflow: hidden;
-		position: relative;
-	}
-
-	/* .card {
-		height: 17.13263rem;
-		margin: 0 -0.2rem;
-	} */
-
-	.bookmark {
-		width: 25.875rem;
-		height: 16.875rem;
-		flex-shrink: 0;
-
-		margin: 7.12rem 4.25rem 4.12rem;
-	}
-
-	footer {
-		background-color: var(--black);
-		display: flex;
-		justify-content: space-between;
-		padding: 2rem 6.5rem 4rem;
-		/* margin-top: 5.07rem; */
 	}
 
 	.footer-text-1 {
