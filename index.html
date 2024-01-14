@@ -3,67 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:url" content="/">
+    <meta property="og:title" content="Linkbrary">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="lib.webp">
+    <meta property="og:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요.">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
     <title>Linkbrary</title>
 </head>
 <body>
     <div class="blue">
-        <div class="container">
+        <div class="container container-mobile">
             <header>
-                <a href="/"><img class = "logo" src="logo.svg" alt="Logo" /></a>
-                <a href = "/signin" class="signin">
-                    로그인
-                </a>
+                    <a href="/"><img class = "logo" src="logo.svg" alt="Logo" /></a>
+                    <a href = "/signin" class="signin">
+                        로그인
+                    </a>
             </header>
             <div class="content-1">
                 <div class="promotion-1">
-                    <span class="gradation">세상의 모든 정보</span>를<br>쉽게 저장하고 관리해 보세요
+                    <span class="gradation">세상의 모든 정보</span>를<br>쉽게 저장하고 <br class="pc">관리해 보세요
                 </div>
                 <a href = "/signup" class="signup">
                     링크 추가하기
                 </a>
                 <div class="frame">
-                    <img src="image-1.png" alt="image-1" class="image-1">
                 </div>
             </div>
         </div>
     </div>
+    <div class="gray">
     <div class="container">
         <div class="content-2">
             <div class="promotion-2">
                 <p class="bigtitle">
-                    <span class="gradation">원하는 링크</span>를<br>저장하세요
+                    <span class="gradation">원하는 링크</span>를<br class="mobile">저장하세요
                 </p>
                 <p class="smalltitle">
-                    <span class="extra">나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br>
-                        사고 싶은 옷, 기억하고 싶은 모든 것을<br>
+                    <span class="extra">나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br class="mobile">
+                        사고 싶은 옷, 기억하고 싶은 모든 것을<br class="mobile">
                         한 공간에 저장하세요.</span>
                 </p>
             </div>
-            <div class="frame-2">
-                <img src="image-2-2.png" class="images-2">
-                <img src="image-2-1.png"class="images-2">
-                <svg class="svgs" xmlns="http://www.w3.org/2000/svg" width="46" height="46" viewBox="0 0 46 46" fill="none">
-                    <circle cx="23" cy="23" r="23" fill="#6D6AFE"/>
-                    <path d="M30 23V28C30 28.55 29.55 29 29 29H17C16.45 29 16 28.55 16 28V23C16 22.45 15.55 22 15 22C14.45 22 14 22.45 14 23V29C14 30.1 14.9 31 16 31H30C31.1 31 32 30.1 32 29V23C32 22.45 31.55 22 31 22C30.45 22 30 22.45 30 23ZM24 22.67L25.88 20.79C25.9726 20.6974 26.0825 20.624 26.2035 20.5739C26.3244 20.5238 26.4541 20.498 26.585 20.498C26.7159 20.498 26.8456 20.5238 26.9665 20.5739C27.0875 20.624 27.1974 20.6974 27.29 20.79C27.3826 20.8826 27.456 20.9925 27.5061 21.1135C27.5562 21.2344 27.582 21.3641 27.582 21.495C27.582 21.6259 27.5562 21.7556 27.5061 21.8765C27.456 21.9975 27.3826 22.1074 27.29 22.2L23.7 25.79C23.6075 25.8827 23.4976 25.9563 23.3766 26.0064C23.2557 26.0566 23.126 26.0824 22.995 26.0824C22.864 26.0824 22.7343 26.0566 22.6134 26.0064C22.4924 25.9563 22.3825 25.8827 22.29 25.79L18.7 22.2C18.513 22.013 18.408 21.7594 18.408 21.495C18.408 21.2306 18.513 20.977 18.7 20.79C18.887 20.603 19.1406 20.498 19.405 20.498C19.6694 20.498 19.923 20.603 20.11 20.79L22 22.67V14C22 13.45 22.45 13 23 13C23.55 13 24 13.45 24 14V22.67Z" fill="white"/>
-                    </svg>
-                <img src="image-2-3.png"class="images-2">
+            <div class="frame-1">
             </div>
         </div>
 
-        <div class="content-3">
+        <div class="content-3 opposite">
             <div class="frame-2">
-                <img src="folder.png" class="folder">
             </div>
             <div class="promotion-2">
                 <p class="bigtitle">
-                    링크를 폴더로<br>
+                    링크를 폴더로<br class="mobile">
                     <span class="gradation">관리</span>하세요
                 </p>
                 <p class="smalltitle">
                     <span class="extra">나만의 폴더를 무제한으로 만들고 
-                        <br>
+                        <br class="mobile">
                         다양하게 활용할 수 있습니다.</span>
                 </p>
             </div>
@@ -72,29 +69,25 @@
         <div class="content-3">
             <div class="promotion-2">
                 <p class="bigtitle">
-                    저장된 링크를<br>
+                    저장된 링크를<br class="mobile">
                     <span class="gradation">공유</span>해 보세요.
                 </p>
                 <p class="smalltitle">
-                    <span class="extra">여러 링크를 폴더에 담고 공유할 수 있습니다.<br>
-                         가족, 친구, 동료들에게 쉽고 빠르게 링크를 <br>
+                    <span class="extra">여러 링크를 폴더에 담고 공유할 수 있습니다.<br class="mobile">
+                         가족, 친구, 동료들에게 쉽고 빠르게 링크를 <br class="mobile">
                         공유해 보세요.</span>
                 </p>
             </div>
             <div class="frame-3">
-       
-                    <img src="share.png" class="share">
-
             </div>
         </div>
 
-        <div class="content-3">
-            <div class="frame-2">
-                <img src="searches.png" class="searches">
+        <div class="content-3 opposite">
+            <div class="frame-4">
             </div>
             <div class="promotion-2">
                 <p class="bigtitle">
-                    저장한 링크를<br>
+                    저장한 링크를<br class="mobile">
                     <span class="gradation">검색</span>해 보세요.
                 </p>
                 <p class="smalltitle">
@@ -105,9 +98,21 @@
 
 
     </div>
+    </div>
     <footer>
-        <span class="copyright">©codeit - 2023</span>
-        <span class="footerlinks">
+        <div class="onlymobile">
+            <span class="footerlinks">
+            <a href = "/privacy" class="footerlink">
+                Private Policy
+            </a>
+            <a href = "/faq" class="footerlink">
+                FAQ
+            </a>
+            </span>
+            <span class="copyright">©codeit - 2023</span>
+        </div>
+        <span class="copyright mobile">©codeit - 2023</span>
+        <span class="footerlinks mobile">
             <a href = "/privacy" class="footerlink">
                 Private Policy
             </a>

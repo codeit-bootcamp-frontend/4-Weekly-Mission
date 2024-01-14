@@ -31,6 +31,10 @@ font-weight: 400;
 line-height: normal;
 }
 
+form {
+    margin-top: 30px;
+}
+
 input {
     display: flex;
     width: 400px;
@@ -104,4 +108,25 @@ button {
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+@media (max-width: 1199px)  {
+    .container {
+        padding-top: 200px;
+    }
+}
+
+@media (max-width: 768px)  {
+    .container {
+        padding: 120px 32px;
+    }
+    form, .social {
+        width: 100%;
+        max-width: 400px;
+    }
+    button, #email, #password {
+        width: 100%;
+
+    }
+    
 }
