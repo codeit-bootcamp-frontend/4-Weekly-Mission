@@ -23,7 +23,7 @@
     width: 100%;
     height: 9.4rem;
     max-width: 192rem;
-    padding: 0 20rem;
+    padding: 0 32px;
   }
   
   header {
@@ -288,8 +288,8 @@
   }
   
   .hero-image {
-    width: 120rem;
-    height: 59rem;
+    width: 768px;
+    height: 450px;
   }
   
   article {
@@ -300,7 +300,7 @@
   section {
     display: grid;
     justify-content: center;
-    column-gap: 15.7rem;
+    column-gap: 93px;
     row-gap: 1rem;
     width: 100%;
     height: 55rem;
@@ -313,7 +313,7 @@
       "title image"
       "description image"
       ". image"
-      /291px 55rem;
+      /291px 40%;
   }
   
   section:nth-of-type(even) {
@@ -322,12 +322,12 @@
       "image title"
       "image description"
       "image ."
-      /550px 29.1rem;
+      /350px 40%;
   }
   
   .title {
     grid-area: title;
-    font-size: 4.8rem;
+    font-size: 50px;
     font-weight: 700;
     line-height: 5.8rem;
     letter-spacing: -0.03rem;
@@ -348,7 +348,7 @@
   
   .description {
     grid-area: description;
-    font-size: 1.6rem;
+    font-size: 16px;
     font-weight: 500;
     color: #6b6b6b;
     line-height: 150%;
@@ -356,8 +356,8 @@
   
   .content-image {
     grid-area: image;
-    width: 55rem;
-    height: 45rem;
+    width: 300px;
+    height: 300px;
   }
   
   footer {
@@ -484,8 +484,8 @@
   }
   
   .hero-image {
-    width: 120rem;
-    height: 59rem;
+    width: 1200px;
+    height: 600px;
   }
   
   article {
@@ -552,8 +552,8 @@
   
   .content-image {
     grid-area: image;
-    width: 55rem;
-    height: 45rem;
+    width: 550px;
+    height: 450px;
   }
   
   footer {
