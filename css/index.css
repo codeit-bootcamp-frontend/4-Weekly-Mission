@@ -128,7 +128,7 @@ button {
 
 figure {
   margin: 0;
-  padding: 80px 0 20px;
+  padding: 80px 0 70px;
   display: flex;
   flex-direction: column;
   gap: 100px;
@@ -162,7 +162,7 @@ section img {
   max-width: 157px;
   min-width; 24px;
   width: 10vw;
-  height; 24px;
+  height: 20px;
 }
 
 .section-title {
@@ -173,6 +173,7 @@ section img {
 }
 
 section h2 {
+  display: inline;
   margin: 0;
   color: #000000;
   font-family: Pretendard;
@@ -192,8 +193,6 @@ section p {
 footer {
   background-color: var(--black);
   padding: 32px 104px 64px;
-  display: flex;
-  justify-content: center;
 }
 
 footer .container {
@@ -209,6 +208,8 @@ footer .container {
   font-family: Acme;
   font-size: 16px;
   flex: 0 0 116px;
+  grid-area: company;
+  margin: 0;
 }
 
 .footer-link {
@@ -217,6 +218,7 @@ footer .container {
   align-items: center;
   flex-shrink: 0;
   gap: 30px;
+  grid-area: link;
 }
 
 .footer-link a {
@@ -230,6 +232,10 @@ footer .container {
   align-items: center;
   gap: 12px;
   flex: 0 0 116px;
+  grid-area: img;
+}
+
+.footer img {
   cursor: pointer;
 }
 
@@ -270,6 +276,51 @@ footer .container {
   }
 
   section h2 {
-    display: inline-block;
+    display: inline;
+  }
+
+  .section-odd {
+    grid-template: auto auto auto / auto;
+    grid-template-areas:
+      "title"
+      "gap"
+      "img"
+      "description";
+  }
+
+  .section-even {
+    grid-template: auto auto auto / auto;
+    grid-template-areas:
+      "title"
+      "gap"
+      "img"
+      "description";
+  }
+
+  .section-title {
+    display: block;
+  }
+
+  section p {
+    width: 325px;
+    margin: 16px 0 0;
+  }
+
+  figure {
+    gap: 80px;
+    padding: 40px 0 0;
+  }
+
+  footer {
+    padding: 32px;
+  }
+  
+  footer .container {
+    display: grid;
+    grid-template: auto 60px auto/auto 1fr auto;
+    grid-template-areas: 
+      "link . img"
+      ". . ."
+      "company . .";
   }
 }
