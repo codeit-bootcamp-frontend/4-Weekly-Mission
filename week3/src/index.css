@@ -184,3 +184,47 @@ footer{
   column-gap: 1.2rem;
   height: 2rem;
 }
+
+
+/* 반응형 표시 */
+
+/* 태블릿 */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  header{
+    padding: 0;
+    margin-bottom: 5%;
+  }
+  br{
+    display: none !important;
+    word-break: keep-all;
+  }
+  .mainimage{
+    width: 80%;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .contentpart{
+    display: block;
+    margin-bottom: 20rem;
+    word-break: keep-all;
+  }
+  .description{
+    padding-bottom: 5rem;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  br{
+    display: none !important;
+    word-break: keep-all;
+  }
+  .mainimage{
+    width: 50rem;
+    padding: 0;
+    flex-shrink: 0;
+  }
+  .contentpart{
+    display: block;
+  }
+}
