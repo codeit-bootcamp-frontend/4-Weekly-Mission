@@ -18,15 +18,34 @@
 
 
 .CTA.small {
+  display: flex;
   width: 300px;
   height: auto;
   padding: 10px 16px;
+  justify-content: center;
   align-items: center;
   border-radius: 8px;
   background-color: var(--Linkbrary-gradation);
   color: var(--Grey-Light, #F5F5F5);
   font-family: Pretendard;
   font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.CTA.large {
+  display: flex;
+  width: 350px;
+  height: auto;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background-color: var(--Linkbrary-gradation);
+  color: var(--Grey-Light, #F5F5F5);
+  font-family: Pretendard;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
