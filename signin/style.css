@@ -8,7 +8,6 @@ html {
 body{
   margin:0;
   display: flex;
-  
   padding: 238px 0px 252px 0px;
   justify-content: center;
   align-items: center;
@@ -110,4 +109,22 @@ input.button{
 a,
 .button{
   cursor: pointer;
+}
+@media screen and (min-width: 375px) and (max-width: 767px){
+  body{
+    padding-left:32px;
+    padding-right:32px;
+  }
+  .content,
+  form,
+  .login-frame,
+  .login-frame2,
+  .login-frame3,
+  .input-frame,
+  input,
+  input.button,
+  .social-login{
+    width:100%;
+    max-width: 400px;
+  }
 }

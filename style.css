@@ -234,11 +234,14 @@ footer{
 .end-box{
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   width:100%;
   max-width: 1920px;
+  line-height: 20px;
 }
+
 .end-box-frame{
+  display:flex;
   color: #676767;
   text-align: center;
   font-family: Acme;
@@ -275,6 +278,7 @@ a{
   text-decoration: none;
 }
 
+
 /* PC 스타일 */
 
 @media screen and (min-width: 1200px) {
@@ -301,6 +305,7 @@ a{
   .frame{
     gap:57px;
   }
+  
 }
 
 /* Mobile 스타일 */
@@ -366,4 +371,31 @@ a{
     width:100%;
     height:auto;
   }
+  .end{
+    padding:32px;
+  }
+  /* end-box-frame이랑 2랑 div로 묶고 첫번째 태그에 margin-top60주면 모바일 요구사항가능
+    하지만 태블릿 + pc가 망가짐*/
+  .order{
+    display: flex;
+    flex-direction: column; 
+  }
+  .end-box{
+    align-items: flex-start;
+  }
+  .end-box-frame{
+   
+    order:2;
+    
+  
+  }
+  .end-box-frame2{
+    order:1;
+    
+  }
+  .end-box-frame3{
+    order:3;
+  }
+
 }
+
