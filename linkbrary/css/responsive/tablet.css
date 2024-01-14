@@ -1,0 +1,48 @@
+@media (max-width: 1199.5px) {
+
+
+    .sign_in_layout_wrapper {
+        padding: 20rem 39.9rem 29rem 40rem;
+    }
+
+    .input {
+        color: red;
+    }
+    .title_section {
+        padding: 4rem 25rem 0 25.1rem;
+
+    }
+
+    .title_text_box {
+        
+    }
+
+   
+    .inner_text_box {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+       
+    }
+
+    .title_img {
+        width: 69.8rem;
+        height: 33.2rem;
+    }
+
+    .sub_section {
+        padding: 5rem 25rem 5rem 25.1rem;
+
+    }
+
+    .sub_container {
+        gap: 5.1rem;
+    }
+    .sub_img {
+        width: 385px;
+        height: 315px;
+    }
+   
+   
+}

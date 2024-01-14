@@ -1,0 +1,26 @@
+*, 
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Pretendard";
+}
+
+html {
+    font-size: 62.5%;
+    
+    
+}
+
+:root {
+    --primary: #6D6AFE;
+    --red: #FF5B56;
+    --black: #111322;
+    --white: #FFFFFF;
+    --gray01: #3E3E43;
+    --gray02: #9FA6B2;
+    --gray03: #CCD5E3;
+    --gray04: #E7EFFB;
+    --gray05: #F0F6FF;
+}
