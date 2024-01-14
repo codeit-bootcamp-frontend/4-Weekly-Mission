@@ -89,10 +89,6 @@ header {
 
 /* ---------Main--------- */
 
-p {
-  margin: 0;
-}
-
 button {
   cursor: pointer;
   display: flex;
