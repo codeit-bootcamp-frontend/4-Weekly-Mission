@@ -1,0 +1,173 @@
+body {
+  background-color: var(--gray5);
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  padding: 238px 0 253px;
+}
+
+/*=============================================
+=            Form Section Header              =
+=============================================*/
+
+.form-section-header {
+  text-align: center;
+}
+
+.form-section-logo {
+  height: 38px;
+}
+
+.form-section-logo * {
+  display: inline-block;
+  height: 100%;
+}
+
+.form-section-desc {
+  margin-top: 16px;
+  line-height: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.form-section-desc a {
+  font-weight: 600;
+  line-height: 19px;
+  text-decoration: underline;
+  color: var(--primary);
+  text-decoration-color: var(--primary);
+}
+
+/*=============================================
+=            			Form Section 				        =
+=============================================*/
+.form-section {
+  width: 400px;
+}
+
+.form {
+  margin-top: 30px;
+}
+
+.input-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-layout + .input-layout {
+  margin-top: 24px;
+}
+
+.input-layout__label {
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 12px;
+}
+
+.input-layout__input {
+  width: 100%;
+  font-size: 16px;
+  line-height: 24px;
+  height: 60px;
+  border-radius: 8px;
+  border: 1px solid var(--gray3);
+  padding: 0 15px;
+  color: var(--gray1);
+}
+
+.input-layout__input::placeholder {
+  color: var(--gray2);
+}
+
+.input-layout__input:focus {
+  border: 1px solid var(--primary);
+}
+
+.input-layout__password {
+  position: relative;
+}
+
+.password-show {
+  position: absolute;
+  right: 22px;
+  top: 22px;
+}
+
+.input-message {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.form-submit {
+  margin-top: 30px;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  border-radius: 8px;
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/*=============================================
+=            Form Validation Style            =
+=============================================*/
+.input-layout.invalid p {
+  color: var(--red);
+}
+
+.input-layout.invalid .input-layout__input {
+  border: 1px solid var(--red);
+}
+
+/*=============================================
+=             				SNS					            =
+=============================================*/
+.sns-login {
+  width: 100%;
+  background-color: var(--gray4);
+  border: 1px solid var(--gray3);
+  border-radius: 8px;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 32px;
+}
+
+.sns-title {
+  font-size: 14px;
+  color: var(--gray1);
+}
+
+.sns-lists {
+  display: flex;
+  gap: 16px;
+}
+
+.sns-lists * {
+  display: block;
+  width: 42px;
+  height: 42px;
+}
+
+@media (max-width: 1199px) {
+  .main {
+    padding: 200px 0 0 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .main {
+    padding: 120px 32px 0;
+  }
+
+  .form-section {
+    max-width: 400px;
+    width: 100%;
+  }
+}
