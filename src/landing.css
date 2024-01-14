@@ -59,7 +59,7 @@ header {
 .gnb_logo {
     width: 133px;
     height: 24px;
-    background-image: url("images/logo.svg");
+    background-image: url("../images/logo.svg");
 }
 
 /* 로그인버튼 */
