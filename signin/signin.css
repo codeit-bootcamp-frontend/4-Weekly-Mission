@@ -12,6 +12,10 @@ body{
     padding-bottom: 252px;
 }
 
+div.page-logo{
+    margin-bottom: 16px;
+}
+
 div.page-logo img{
     width: 210.583px;
     height: 38px;    
