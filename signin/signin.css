@@ -1,0 +1,108 @@
+body{
+    background: var(--Linkbrary-bg, #F0F6FF);
+    box-sizing: border-box;
+
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+
+    margin: 0;
+    padding-top: 238px;
+    padding-bottom: 252px;
+}
+
+div.page-logo img{
+    width: 210.583px;
+    height: 38px;    
+}
+
+div.signup-text{
+    display: flex;
+    gap: 8px;
+}
+
+div.signup-text .signup-link{
+    padding-bottom: 5px;
+    
+    color: var(--Linkbrary-primary-color, #6D6AFE);
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;    
+}
+
+form.signin-form{
+    display: flex;
+    flex-direction: column;
+}
+
+form.signin-form label{
+    color: var(--black, #000);
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;    
+}
+
+form.signin-form input{
+    width: 370px; /*로그인 버튼에 안 먹힘..*/
+    padding: 18px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
+    background: var(--Linkbrary-white, #FFF);    
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+form.signin-form input#password-box{
+    margin-bottom: 0;
+}
+
+form.signin-form input#login-button{
+    width: 370px;
+    border-radius: 8px;
+    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));    
+
+    color: var(--Grey-Light, #F5F5F5);
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;    
+}
+
+div.sns-login{
+    display: flex;
+    width: 352px;
+    hegith: 42px;
+    padding: 12px 24px;
+    justify-content: space-between;
+    align-items: center;  
+
+    border-radius: 8px;
+    border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+    background: var(--Linkbrary-gray10, #E7EFFB);    
+}
+
+div.sns-login-text{
+    color: var(--Linkbrary-gray100, #373740);
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;    
+}
+
+div.sns-login-image{
+    display: flex;
+    gap: 16px;
+}
+
+div.sns-login-image img{
+    width: 42px;
+    height: 42px;
+}
+

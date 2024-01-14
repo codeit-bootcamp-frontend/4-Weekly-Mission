@@ -5,22 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linkbrary</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <nav>
         <!--요소들을 div로 감싸는게 좋은지-->
-        <a href="/"><img class="linkbrary-logo" src="image/logo.svg"></a>
+        <a href="/">
+            <img class="linkbrary-logo" src="image/logo.svg">
+        </a>
         <!--div vs. button-->
-        <a href="html/signin.html"><div class="login-button button">로그인</div></a>
+        <a href="/signin">
+            <div class="login-button button">로그인</div>
+        </a>
     </nav>
     <header>
         <h1 class="main-headline">
         <span class="main-headline-gradiant">세상의 모든 정보</span>를<br>
             쉽게 저장하고 관리해 보세요
         </h1>
-        <a href="html/signup.html"><div class="link-add-button button">링크 추가하기</div></a>
+        <a href="/signup">
+            <div class="link-add-button button">링크 추가하기</div>
+        </a>
         <img class="main-image" src="image/main.png">
     </header>
     <section class="section1">
@@ -83,14 +89,26 @@
             <span>©codeit - 2023</span>
         </div>            
         <div class="footer-text notice">
-            <a class="footer-text" href="html/privacy.html"><span>Privacy Policy</span></a>
-            <a class="footer-text" href="html/faq.html"><span>FAQ</span></a>
+            <a class="footer-text" href="/privacy">
+                <span>Privacy Policy</span>
+            </a>
+            <a class="footer-text" href="/faq">
+                <span>FAQ</span>
+            </a>
         </div>
         <div class="footer-image">
-            <a href="https://www.facebook.com" target="_blank"><img src="image/footer_facebook.png"></a>
-            <a href="https://www.twitter.com" target="_blank"><img src="image/footer_twitter.svg"></a>
-            <a href="https://www.youtube.com" target="_blank"><img src="image/footer_youtube.svg"></a>
-            <a href="https://www.instagram.com" target="_blank"><img src="image/footer_instagram.svg"></a>
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="image/footer_facebook.png">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="image/footer_twitter.svg">
+            </a>
+            <a href="https://www.youtube.com" target="_blank">
+                <img src="image/footer_youtube.svg">
+            </a>
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="image/footer_instagram.svg">
+            </a>
         </div>
     </footer>
 </body>
