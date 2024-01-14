@@ -65,3 +65,77 @@ img.hero-image {
     width: 100%;
     height: auto;
 }
+
+article {
+    display: flex;
+    padding: 40px 32px 36px 32px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h2 {
+    font-family: Pretendard;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    color: #000;
+}
+
+.first-article h2 span {
+    background: linear-gradient(97deg, #FE8A8A 1.73%, #A4CEFF 33.89%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.second-article h2 span {
+    background: linear-gradient(276deg, #6FBAFF 44.56%, #FFD88B 60.93%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+
+}
+
+.third-article h2 span {
+    background: linear-gradient(181deg, #6D7CCD 53.86%, rgba(82, 136, 133, 0.22) 99.4%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.fourth-article h2 span {
+    background: linear-gradient(275deg, #FE578F 27.48%, #68E8F9 59.2%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+.article-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100vw;
+    padding: 0 32px 0 32px;
+    margin: 0;
+}
+
+.article-wrapper > p {
+    color: #6B6B6B;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 22.5px */
+    margin-bottom: 24px;
+}
+
+.article-wrapper > img {
+    width: 100%;
+    border: 8px;
+}
