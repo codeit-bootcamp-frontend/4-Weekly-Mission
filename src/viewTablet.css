@@ -105,6 +105,10 @@
     margin: 50px 0 100px;
   }
 
+  section > div {
+    margin-top: 25%;
+  }
+
   section:nth-of-type(odd) {
     grid-template:
       '. image'
