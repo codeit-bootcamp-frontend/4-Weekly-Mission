@@ -94,7 +94,7 @@ h1 {
     width: 120rem;
   }
 
-  h1 .text-break {
+  h1 .mobile-only {
     display: none;
   }
 
