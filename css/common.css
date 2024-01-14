@@ -47,7 +47,6 @@ header {
   transform: translate(-50%, 0);
   padding: 1.3rem 3.2rem;
   width: 100%;
-  max-width: 192rem;
   z-index: 1;
 }
 
@@ -80,6 +79,7 @@ header {
 @media (min-width: 1200px) {
   header {
     padding: 2rem 20rem;
+    max-width: 192rem;
   }
 
   .gnb-container {
