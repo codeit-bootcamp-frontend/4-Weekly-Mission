@@ -102,3 +102,26 @@ button {
   gap: 16px;
   height: 44px;
 }
+
+@media (max-width: 1200px) {
+  body {
+    padding: 200px 0 291px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 120px 0 233px;
+  }
+}
+
+@media (max-width: 464px) {
+  body {
+    padding: 120px 32px 233px;
+  }
+
+  .container {
+    max-width: 400px;
+    width: 100%;
+  }
+}

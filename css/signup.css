@@ -7,7 +7,7 @@
 body {
   margin: 0;
   background-color: var(--gray5);
-  padding: 238px 0 252px;
+  padding: 238px 0 117px;
   color: var(--black);
   font-family: Pretendard;
   font-size: 16px;
@@ -110,4 +110,27 @@ button {
   align-items: center;
   gap: 16px;
   height: 44px;
+}
+
+@media (max-width: 1200px) {
+  body {
+    padding: 200px 0 178px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 120px 0;
+  }
+}
+
+@media (max-width: 464px) {
+  body {
+    padding: 120px 32px;
+  }
+
+  .container {
+    max-width: 400px;
+    width: 100%;
+  }
 }
