@@ -151,11 +151,15 @@ section {
   display: none;
 }
 
-.description {
+.description-on-off {
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 150%;
   color: #6b6b6b;
+}
+
+.description-off-on {
+  display: none;
 }
 
 .section-odd-div > img,
@@ -348,7 +352,12 @@ footer {
     display: inline;
   }
   
-  .description {
+  .description-on-off {
+    display: none;
+  }
+
+  .description-off-on {
+    display: inline;
     font-size: 1.5rem;
     font-weight: 500;
   }
