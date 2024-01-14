@@ -138,11 +138,8 @@ div.sns-signin-image img{
 /*mobile*/
 @media (min-width: 375px) and (max-width: 767px) {
     body {
-        padding-top: 120px;
-        padding-bottom: 233px;
+        padding: 120px 32px 233px;
         width: 100%;
-        padding-left: 32px;
-        padding-right: 32px;
     }
 
     div.sns-signin {
