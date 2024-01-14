@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="../styles/main.css" />
+    <title>Linkbrary-Signin</title>
+  </head>
+  <body>
+    <main id="sign-main">
+      <article class="sign-container">
+        <section class="auth">
+          <div class="auth-links">
+            <a href="/"
+              ><img
+                src="../image/logo/logo.svg"
+                alt="Linkbrary 로고 이미지"
+                class="auth-links-logo"
+            /></a>
+            <div class="auth-links-text">
+              <p>회원이 아니신가요?</p>
+              <a href="./signup.html">회원 가입하기</a>
+            </div>
+          </div>
+          <div class="auth-fields">
+            <div class="auth-form">
+              <label for="email">이메일</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="auth-form-input"
+                value="codeit@codeit.com"
+              />
+            </div>
+            <div class="auth-form">
+              <label for="password">비밀번호</label>
+              <div class="password-container">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  class="auth-form-input"
+                  value="12345678"
+                />
+                <img
+                  src="../image/icons/eye-off.svg"
+                  alt="eye-off 아이콘"
+                  class="eye-icon"
+                />
+              </div>
+            </div>
+          </div>
+          <a href="/" class="button-style">로그인</a>
+        </section>
+        <section class="social">
+          <p class="social-text">소셜 로그인</p>
+          <div class="social-icons">
+            <a href="https://www.google.com/" target="_blank"
+              ><img src="../image/icons/google-icon.svg" alt="구글 아이콘"
+            /></a>
+            <a
+              href="https://www.kakaocorp.com/page/"
+              target="_blank"
+              class="kakaotalk-bg"
+              ><img
+                src="../image/icons/kakaotalk-icon.svg"
+                alt="카카오톡 아이콘"
+                class="kakaotalk-icon"
+            /></a>
+          </div>
+        </section>
+      </article>
+    </main>
+  </body>
+</html>
