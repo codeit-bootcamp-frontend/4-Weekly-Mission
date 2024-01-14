@@ -292,8 +292,6 @@ footer {
     padding: 0 32px;
     display: grid;
     justify-content: center;
-    /* column-gap: 15.7rem; */
-    /* row-gap: 1rem; */
     width: 100%;
     height: auto;
   }
@@ -346,12 +344,12 @@ footer {
   }
 
   .hero-image {
-    width: 18.9245rem;
-    height: 11.1695rem;
+    width: 100%;
+    height: auto;
   }
   .content-image {
-    width: 20.3125rem;
-    height: 16.61931rem;
+    width: 100%;
+    height: auto;
   }
 
   .title {
