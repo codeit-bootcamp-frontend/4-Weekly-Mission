@@ -1,0 +1,4 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+/*위의 링크는 pretendard 웹폰트 다운링크*/
+@import "../variables/variables.css";
+@import "./reset.css";
