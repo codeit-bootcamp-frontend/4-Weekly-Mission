@@ -6,7 +6,7 @@
   width: 40%;
   margin-top: 25vh;
   text-align: center;
-  background: #f0f6ff;
+  background: var(--color-gray-100);
 }
 
 .logo {
@@ -39,7 +39,7 @@
 }
 
 .login__input:focus {
-  border: 2px solid blue;
+  border: 2px solid var(--color-primary);
   outline: none;
 }
 
@@ -59,7 +59,7 @@
   justify-content: center;
   margin: 15px 0;
   padding: 16px 20px;
-  color: white;
+  color: var(--color-white);
   background: linear-gradient(to right, var(--color-primary), #6ae3fe);
   border: none;
   border-radius: 8px;

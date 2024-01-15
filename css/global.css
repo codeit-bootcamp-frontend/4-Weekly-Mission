@@ -39,5 +39,5 @@ body {
   width: 100vw;
   margin: 0;
   font-family: sans-serif;
-  background: #f0f6ff;
+  background: var(--color-gray-100);
 }
