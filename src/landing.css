@@ -1,0 +1,469 @@
+/* 공통 */
+:root {
+    --Linkbrary-primary-color: #6d6afe;
+    --Linkbrary-red: #ff5b56;
+    --The-julge-black: #111322;
+    --Linkbrary-white: #fff;
+    --Linkbrary-gray100: #373740;
+    --Linkbrary-gray60: #9fa6b2;
+    --Linkbrary-gray20: #ccd5e3;
+    --Linkbrary-gray10: #e7effb;
+    --Linkbrary-bg: #f0f6ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+/* 공통 끝 */
+
+/* 폰트 */
+@font-face {
+    font-family: "Pretendard";
+    src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+        format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* 헤더 */
+header {
+    display: flex;
+    padding: 20px 200px;
+    flex-direction: column;
+    align-items: center;
+
+    /* 상단 고정 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.gnb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    width: 100%;
+}
+
+/* 로고 */
+.gnb_logo {
+    width: 133px;
+    height: 24px;
+    background-image: url("../images/logo.svg");
+}
+
+/* 로그인버튼 */
+.gnb_login {
+    /* 레이아웃 */
+    display: flex;
+    width: 128px;
+    padding: 16px 20px;
+    justify-content: center;
+
+    /* 스타일 */
+    border-radius: 8px;
+    background: var(
+        --gra-purpleblue-to-skyblue,
+        linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+    );
+
+    /* 문자 */
+    color: var(--Grey-Light, #f5f5f5);
+    font-family: Pretendard;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+}
+/* 헤더 끝 */
+
+/* 메인 시작 */
+.main_contents {
+    /* 레이아웃 */
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 120px;
+    padding-top: 164px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    /* 스타일 */
+    background: #f0f6ff;
+}
+
+.main_title {
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 80px; /* 125% */
+}
+
+/* 반응형 br */
+.responsive_br {
+    display: none;
+}
+
+/* 그라데이션 글자 */
+/*세상의 모든 정보*/
+.세 {
+    background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+}
+
+/* 원하는 */
+.원 {
+    background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+}
+
+/* 링크 */
+.링 {
+    background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+}
+
+/* 관리 */
+.관 {
+    background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+}
+
+/* 공유 */
+.공 {
+    background: linear-gradient(99deg, #6d7ccd 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+}
+
+/* 검색 */
+.검 {
+    background: var(
+        --Fandom-K-gra-blue-to-pink,
+        linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%)
+    );
+}
+
+.gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.add_Link {
+    /* 레이아웃 */
+    display: flex;
+    width: 350px;
+    padding: 16px 20px;
+    justify-content: center;
+    align-items: center;
+
+    /* 스타일 */
+    border-radius: 8px;
+    background: var(
+        --gra-purpleblue-to-skyblue,
+        linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+    );
+
+    color: var(--Grey-Light, #f5f5f5);
+    font-family: Pretendard;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+}
+
+.main_img {
+    width: 1118px;
+    height: 659px;
+    flex-shrink: 0;
+}
+
+.contents {
+    display: flex;
+    padding: 50px 0;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+main section:nth-child(2) {
+    padding-top: 0;
+}
+
+.container {
+    display: grid;
+    max-width: 970px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 130px;
+}
+
+.common_title {
+    grid-row: 1/2;
+    margin: auto;
+    margin-bottom: 10px;
+
+    color: #000;
+    font-family: Pretendard;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.3px;
+}
+
+.common_description {
+    grid-row: 2/3;
+
+    align-self: stretch;
+    color: #6b6b6b;
+    font-family: Abel;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+}
+
+.imageSize {
+    grid-row: 1/3;
+    width: 550px;
+    height: 450px;
+}
+/* 메인 끝 */
+
+/* 푸터 시작 */
+footer {
+    /* 레이아웃 */
+    display: flex;
+    height: 280px;
+    padding-top: 120px;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+
+    /* 스타일 */
+    border-radius: 30px;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.02);
+}
+
+.ft {
+    /* 레이아웃 */
+    display: flex;
+    height: 160px;
+    padding: 32px 104px 64px 104px;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: stretch;
+
+    /* 스타일 */
+    background: var(--The-julge-black, #111322);
+}
+
+.ft_ctn {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.codeIt {
+    color: #676767;
+    text-align: center;
+    font-family: Acme;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.privacy {
+    display: flex;
+    width: 181.111px;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.privacy a {
+    color: #cfcfcf;
+    font-family: Acme;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration-line: none;
+}
+
+.external_link {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.facebook {
+    background-image: url("../images/akar-icons_facebook-fill.svg");
+}
+
+.twitter {
+    background-image: url("../images/akar-icons_twitter-fill.svg");
+}
+
+.youtube {
+    background-image: url("../images/akar-icons_youtube-fill.svg");
+}
+
+.instagram {
+    background-image: url("../images/ant-design_instagram-filled.svg");
+}
+/* 푸터 끝 */
+
+/* 테블릿 */
+@media (max-width: 1199px) {
+    header {
+        margin: 0 auto;
+        padding: 20px 32px;
+        max-width: 846px;
+    }
+
+    .main_title {
+        width: 650px;
+    }
+
+    .responsive_br {
+        display: inline;
+    }
+
+    .main_img {
+        width: 650.303px;
+        height: 383.114px;
+        flex-shrink: 0;
+    }
+
+    .main_contents {
+        margin-bottom: 80px;
+    }
+
+    .imageSize {
+        width: 385px;
+        height: 315px;
+    }
+
+    .container {
+        max-width: 700px;
+        column-gap: 51px;
+    }
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+    header {
+        padding: 13px 32px;
+    }
+
+    .gnb_logo {
+        width: 88.667px;
+        height: 16px;
+        background-position: center;
+        background-size: cover;
+    }
+
+    .gnb_login {
+        width: 80px;
+        padding: 10px 16px;
+        font-size: 0.77rem;
+    }
+
+    .main_contents {
+        padding: 91px 32px 0 32px;
+        margin-bottom: 40px;
+    }
+
+    .main_title {
+        width: 100%;
+        font-size: 2rem;
+        line-height: 42px;
+    }
+
+    .add_Link {
+        width: 200px;
+        padding: 10px 20px;
+        font-size: 0.77rem;
+    }
+
+    .main_img {
+        width: 100%;
+        height: auto;
+    }
+
+    .contents {
+        width: 100%;
+        margin: 0 auto;
+        padding: 40px 32px 42px 32px;
+        gap: 0;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .common_title {
+        margin: 0 0 20px 0;
+        font-size: 1.5rem;
+        order: 1;
+    }
+
+    .common_description {
+        margin: 10px 0 0 0;
+        order: 3;
+    }
+
+    .imageSize {
+        width: 100%;
+        height: auto;
+        order: 2;
+    }
+
+    footer {
+        padding-top: 40px;
+        height: auto;
+    }
+
+    .ft {
+        padding: 32px;
+    }
+
+    .ft_ctn {
+        display: grid;
+        column-gap: auto;
+        row-gap: 60px;
+    }
+
+    .codeIt {
+        grid-row: 2/3;
+        text-align: left;
+    }
+
+    .privacy {
+        grid-row: 1/2;
+    }
+
+    .external_link {
+        grid-row: 1/2;
+    }
+}

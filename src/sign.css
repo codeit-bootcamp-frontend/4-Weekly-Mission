@@ -1,0 +1,227 @@
+:root {
+    --Linkbrary-primary-color: #6d6afe;
+    --Linkbrary-red: #ff5b56;
+    --The-julge-black: #111322;
+    --Linkbrary-white: #fff;
+    --Linkbrary-gray100: #373740;
+    --Linkbrary-gray60: #9fa6b2;
+    --Linkbrary-gray20: #ccd5e3;
+    --Linkbrary-gray10: #e7effb;
+    --Linkbrary-bg: #f0f6ff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+p {
+    margin: 0;
+}
+
+.body {
+    margin: 0;
+    padding: 0 32px 0 32px;
+    /* 레이아웃 */
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    /* 스타일 */
+    background: var(--Linkbrary-bg, #f0f6ff);
+}
+
+.main {
+    width: 100%;
+    max-width: 400px;
+    margin: 120px auto auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+.section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+}
+
+/* 타이틀 */
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.logo {
+    width: 210.583px;
+    height: 38px;
+    background-image: url("../images/sign_logo.svg");
+}
+
+.s_title {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+
+    color: var(--black, #000);
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+}
+
+.s_title .join_link {
+    color: var(--Linkbrary-primary-color, #6d6afe);
+    font-weight: 600;
+    line-height: normal;
+}
+
+/* 로그인 */
+.login,
+.signup {
+    width: 100%;
+}
+
+.login form,
+.signup form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.email,
+.password,
+.re_password {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.email label,
+.password label,
+.re_password {
+    color: var(--black, #000);
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+input {
+    /* 레이아웃 */
+    display: flex;
+    width: 100%;
+    padding: 18px 15px;
+    justify-content: center;
+    align-items: center;
+
+    /* 스타일 */
+    border-radius: 8px;
+    border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+    background: var(--Linkbrary-white, #fff);
+}
+
+input:focus {
+    outline-color: var(--Linkbrary-primary-color, #6d6afe);
+}
+
+.password,
+.re_password {
+    position: relative;
+}
+
+.eye_button {
+    position: absolute;
+    top: 60%;
+    right: 15px;
+    width: 16px;
+    height: 16px;
+    background-image: url("../images/eye-off.svg");
+}
+
+/* 버튼 */
+.button {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.login_button,
+.signup_button {
+    /* 레이아웃 */
+    display: flex;
+    width: 100%;
+    padding: 16px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    /* 스타일 */
+    border-radius: 8px;
+    background: var(
+        --gra-purpleblue-to-skyblue,
+        linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+    );
+
+    /* 폰트 */
+    color: var(--Grey-Light, #f5f5f5);
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: none;
+}
+
+/* 소셜 로그인 */
+.social {
+    /* 레이아웃 */
+    display: flex;
+    width: 100%;
+    padding: 12px 24px;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: 8px;
+    border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+    background: var(--Linkbrary-gray10, #e7effb);
+
+    color: var(--Linkbrary-gray100, #373740);
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.socials {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.icon {
+    width: 42px;
+    height: 42px;
+}
+
+.google {
+    background-image: url(../images/Component\ 2.png);
+}
+
+.kakao {
+    background-image: url(../images/Component\ 3.png);
+}
