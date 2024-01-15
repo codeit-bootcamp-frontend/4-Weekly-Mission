@@ -42,7 +42,7 @@ nav img {
   width: 12.8rem;
   height: 5.4rem;
   padding: 1.6rem 2rem;
-  border-radius: 0.8rem;
+  border-radius: 8px;
   border: 0;
   font-weight: 600;
   font-size: 1.8rem;
@@ -86,7 +86,7 @@ main {
   height: 5.4rem;
   padding: 1.6rem 12.5rem;
   margin: 4rem auto;
-  border-radius: 0.8rem;
+  border-radius: 8px;
   border: 0;
   gap: 1rem;
   color: rgba(245, 245, 245, 1);
@@ -259,7 +259,7 @@ footer {
   section {
     height: 100%;
     padding: 0%;
-    margin: 5rem o;
+    margin: 5rem 0;
   }
   section:nth-of-type(odd) {
     grid-template:
