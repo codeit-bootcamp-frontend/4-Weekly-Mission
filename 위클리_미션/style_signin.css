@@ -122,6 +122,7 @@ main {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  cursor: pointer;
 }
 
 .social {
@@ -158,7 +159,62 @@ main {
   width: 22px;
   height: 22px;
 }
+/* 4주차 */
 
+.email-request {
+  display: none;
+}
+.email-request-show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
+.email-checker {
+  display: none;
+}
+.email-checker-show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
+.pw-request {
+  display: none;
+}
+.pw-request-show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
+.check-email,
+.check-pw {
+  display: none;
+}
+.check-email-show,
+.check-pw-show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
 @media (max-width: 767px) {
   main {
     margin: 120px auto 233px;
