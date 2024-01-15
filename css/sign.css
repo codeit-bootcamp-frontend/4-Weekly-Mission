@@ -34,18 +34,18 @@ body {
   width: 400px;
 }
 
-.logoSignup {
+.logo-signup {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.logoSignup p {
+.logo-signup p {
   margin-top: 16px;
   margin-bottom: 0;
 }
 
-.logoSignup a {
+.logo-signup a {
   font-weight: 600;
   color: var(--primary-color);
 }
