@@ -13,3 +13,9 @@ html{
   font-size: 62.5%;
   font-family: Pretendard;
 }
+
+@media(min-width: 768px) {
+  img {
+    max-width: none;
+  }
+}
