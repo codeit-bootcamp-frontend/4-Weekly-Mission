@@ -17,7 +17,7 @@ nav {
   background-color: var(--bg);
 }
 
-.nav-div {
+.nav-content {
   width: 100%;
   height: 9.4rem;
   padding: 2rem 20rem;
@@ -26,12 +26,12 @@ nav {
   align-items: center;
 }
 
-.nav-div img {
+.nav-content img {
   width: 13.3rem;
   height: 2.4rem;
 }
 
-.nav-div button {
+.nav-content button {
   width: 12.8rem;
   height: 5.4rem;
   display: flex;
@@ -238,7 +238,7 @@ footer {
 /* tablet */
 @media (max-width: 1199px) {
   /* nav */
-  .nav-div {
+  .nav-content {
     padding: 2rem 3.2rem;
   }
 
@@ -276,16 +276,16 @@ footer {
 /* mobile */
 @media (max-width: 767px) {
   /* nav */
-  .nav-div {
+  .nav-content {
     padding: 1.3rem 3.2rem;
   }
 
-  .nav-div img {
+  .nav-content img {
     width: 8.8667rem;
     height: 1.6rem;
   }
 
-  .nav-div button {
+  .nav-content button {
     width: 8rem;
     height: 3.7rem;
     font-size: 1.4rem;
