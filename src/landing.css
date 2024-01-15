@@ -1,79 +1,22 @@
 @import "./global.css";
 
-/* 태블릿 사이즈일때 요구사항
-   1. 로고와 로그인 버튼 사이 간격 유지 각각 좌우 여백 32px 고정
-*/
-@media screen and (min-width: 768px) and (max-width: 1199px){
-  .gnb {
-    padding: 0 32px;
-  }
+/*
+# 반응형 
 
-  .nav__logo, .nav__login {
-    margin: 0;
-  }
+PC: 1200px 이상, Tablet: 768px 이상, Mobile: 375px 이상
+
+/* Mobile *
+@media screen {
 }
 
-/* 모바일 사이즈일때 요구사항
-   1. 좌우 여백 32px 제외 영역 채우기, 세로는 auto 설정
-   Mobile 사이즈 너비가 커지면, SNS class 영역과 다른 영역의 비율이 커지게
-   제목 이미지 사진 순서
-*/
-@media screen and (min-width: 375px) and (max-width: 768px) {
-
-  body {
-    padding: 0 32px; 
-  }
-
-  .slogan {
-    font-size: 32px; 
-    line-height: 1.2; 
-  }
-
-  .hero-image, .content-image {
-    width: calc(100% - 64px); 
-    height: auto; 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-  }
-
-  .footer-box {
-    flex-direction: column; 
-    align-items: center; 
-    gap: 1rem; 
-  }
-
-  .footer-links, .sns {
-    width: 100%; 
-    justify-content: space-around; 
-    margin-bottom: 1rem; 
-  }
-
-  section {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-  }
-
-  .title {
-    order: 0; 
-    word-wrap: break-word; 
-    white-space: normal;
-  }
-
-  .content-image {
-    order: 1; 
-  }
-
-  .description {
-    order: 2; 
-    word-wrap: break-word; 
-    white-space: normal;   
-  }
+/* Tablet *
+@media (min-width: 768px) {
 }
 
-/* 미디어 쿼리 끝 */
-
+/* PC *
+@media (min-width: 1200px) {
+}
+*/
 
 body {
   display: flex;
@@ -98,7 +41,7 @@ nav {
   height: 9.4rem;
   max-width: 192rem;
   padding: 0 20rem;
-}
+  }
 
 header {
   display: flex;
@@ -194,7 +137,7 @@ section:nth-of-type(even) {
 
 .title {
   grid-area: title;
-  font-size: 4.8rem;
+  font-size: 4.6rem;
   font-weight: 700;
   line-height: 5.8rem;
   letter-spacing: -0.03rem;
@@ -215,7 +158,7 @@ section:nth-of-type(even) {
 
 .description {
   grid-area: description;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #6b6b6b;
   line-height: 150%;
@@ -237,12 +180,10 @@ footer {
 }
 
 .footer-box {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 192rem;
-  height: fit-content;
-  padding: 0 10.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .copyright {
@@ -267,4 +208,121 @@ footer {
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
+}
+
+/* 데스크 탑 */
+@media (min-width: 1200px) {
+  .break-d {
+    display: none;
+  }
+}
+
+/* 태블릿 */
+
+@media (max-width: 1199px) {
+  .gnb {
+    padding: 0 32px;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 383.114px;
+  }
+
+  .content-image {
+    width: 385px;
+    height: 315px;
+  }
+
+  section {
+    column-gap: 40px;
+    align-items: center;
+  }
+
+  section:nth-of-type(odd) {
+    grid-template:
+      ". image"
+      "title image"
+      "description image"
+      ". image";
+  }
+  
+  section:nth-of-type(even) {
+    grid-template:
+      "image ."
+      "image title"
+      "image description"
+      "image .";
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slogan {
+    font-size: 3.4rem;
+    line-height: 4rem;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    padding: 0 32px;
+  }
+
+  .content-image {
+    width: 100%;
+    height: auto;
+    padding: 0 32px;
+  }
+  
+  section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title {
+    font-size: 2.8rem;
+    letter-spacing: -0.3px;
+    align-self: stretch;
+    padding: 0 32px;
+  }
+
+  section .description {
+    order: 3;
+    align-self: stretch;
+    padding: 0 32px;
+  }
+
+  .footer-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .links-and-icons {
+    justify-content: space-evenly; 
+    align-items: center;
+    display: flex;
+    width: 100%;
+    padding: 0 32px;
+  }
+
+
+  .footer-box .copyright {
+    order: 2;
+    margin-top: 1rem;
+    width: 100%;
+    text-align: left;
+    padding-left: 86px;
+    padding-top: 50px;
+  }
+
+ .break-m {
+    display: none;
+ }
 }

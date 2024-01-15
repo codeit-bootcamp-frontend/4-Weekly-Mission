@@ -1,17 +1,6 @@
 @import "./global.css";
 
-/* 모바일 사이즈일때 요구사항*/
-@media screen and (min-width: 375px) and (max-width: 768px) {
-  body {
-    padding: 0 32px; 
-  }
 
-  .sign-box, .sign-form, .sns-box {
-    width: calc(100% - 64px); 
-    max-width: 400px; 
-    margin: 0 auto; 
-  }
-}
 
 body {
   padding-top: 23.8rem;
@@ -163,3 +152,13 @@ header {
   padding-top: 0.2rem;
   background-color: #f5e14b;
 }
+
+@media screen and (max-width: 767px) {
+  body {
+    width: 100%;
+    padding: 120px 32px 233px 33px;
+  }
+}
+
+
+
