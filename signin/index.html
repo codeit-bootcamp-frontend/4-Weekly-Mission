@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linkbrary</title>
+    <link rel="stylesheet" href="/css/reset.css" />
+    <link rel="stylesheet" href="/css/typography.css" />
+    <link rel="stylesheet" href="/css/color.css" />
+    <link rel="stylesheet" href="/css/commons.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+  </head>
+  <body>
+    <main class="main">
+      <div class="main-header">
+        <h1 class="main-logo">
+          <a href="/">
+            <img src="/assets/header-logo.svg" alt="header_logo" />
+          </a>
+        </h1>
+        <div class="main-header-contents">
+          회원이 아니신가요?
+          <a class="link" href="/signup">회원 가입하기</a>
+        </div>
+      </div>
+      <form id="form">
+        <div class="container">
+          <section class="field">
+            <label for="email">이메일</label>
+            <input id="email" type="email" />
+          </section>
+          <section class="field">
+            <label for="password">비밀번호</label>
+            <div class="icon_wrap">
+              <img
+                class="icon"
+                src="/assets/eye-off.svg"
+                alt="eye close icon"
+              />
+              <input id="password" type="password" />
+            </div>
+          </section>
+        </div>
+        <button class="btn type_full">로그인</button>
+      </form>
+      <div class="main-footer">
+        <div>소셜 로그인</div>
+        <div class="icons">
+          <a href="https://www.google.com/">
+            <img src="/assets/google.png" alt="goggle logo" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/" class="kakao_bg">
+            <img src="/assets/kakao.svg" alt="kakao logo" />
+          </a>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
