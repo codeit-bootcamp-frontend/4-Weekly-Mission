@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+  />
+  <link rel="stylesheet" href="./css/signup.css" />
+</head>
+<body>
+  <div class="logo-div">
+    <a class="logo-link" href="/">
+      <img src="./images/logo.svg" alt="홈으로 연결된 logo img" />
+    </a>
+    <p class="logo-message">
+      이미 회원이신가요? <a href="./signin.html">로그인 하기</a>
+    </p>
+  </div>
+  <div class="sign-div">
+    <form class="sign-form">
+      <div class="sign-inputs">
+        <div class="sign-input-div">
+          <label>이메일</label>
+          <input type="text" />
+        </div>
+        <div class="sign-input-div sign-password-div">
+          <label>비밀번호</label>
+          <input type="password" />
+          <button class="eye-btn">
+            <img src="./images/eye-off.svg" alt="password on-off img" />
+          </button>
+        </div>
+        <div class="sign-input-div sign-password-div">
+          <label>비밀번호 확인</label>
+          <input type="password" />
+          <button class="eye-btn">
+            <img src="./images/eye-off.svg" alt="password on-off img" />
+          </button>
+        </div>
+      </div>
+      <button class="sign-btn">회원가입</button>
+    </form>
+    <div class="sns-div">
+      <span class="sns-text">다른 방식으로 가입하기</span>
+      <div class="sns-links">
+        <a href="https://www.google.com/">
+          <img src="./images/google.svg" alt="google img" />
+        </a>
+        <a href="https://www.kakaocorp.com/page/">
+          <img src="./images/kakao.svg" alt="kakao img" />
+        </a>
+      </div>
+    </div> 
+  </div>
+</body>
+</html>
