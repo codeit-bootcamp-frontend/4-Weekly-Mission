@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkbrary</title>
+    <link rel="stylesheet" href="sign.css">
+</head>
+<body>
+    <section>
+        <div class="signin-box">
+            <div class="sign-box-head">
+                <a href="/"><img src="/img/sign-logo.svg"></a>
+                <div class="sign-box-head-text">
+                    <p>이미 회원이신가요?</p>
+                    <div class="sign-box-head-link">
+                        <a href="signin.html">로그인 하기</a>
+                        <div class="sign-underline"></div>
+                    </div>
+                </div>
+            </div>
+            <form>
+            <div class="form-box">
+                <div class="form-box-input">
+                    <label for="user-id">이메일</label>
+                    <input id="user-id" class="input-design" type="email" name="id">
+                </div>
+                <div class="form-box-input">
+                    <label for="user-pw">비밀번호</label>
+                    <div class="relative">
+                        <input id="user-pw" class="input-design" type="password" name="pw">
+                        <img src="/img/eye-off.svg" class="password-badge">
+                    </div>
+                </div>
+                <div class="form-box-input">
+                    <label for="user-pw-check">비밀번호 확인</label>
+                    <div class="relative">
+                        <input id="user-pw-check" class="input-design" type="password" name="pw-check">
+                        <img src="/img/eye-off.svg" class="password-badge">
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="sumit-bt">회원가입</button>
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="social-sign-box">
+            <div>다른 방식으로 가입하기</div>
+            <div class="social-logo-box">
+                <a href="https://www.google.co.kr/"><div class="goole-logo"></div></a>
+                <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk"><div class="kakao-logo"></div></a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
