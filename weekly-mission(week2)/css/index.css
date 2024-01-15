@@ -3,11 +3,6 @@
 @import url('color.css');
 @import url('reset.css');
 
-html{
-  font-size: 62.5%;
-  font-family: Pretendard;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -205,7 +200,7 @@ footer {
 }
 
 /* Mobile */
-@media(min-width: 375px) and (max-width: 767px) {
+@media(min-width: 320px) and (max-width: 767px) {
   .gnb-wrapper {
     padding: 1.3rem 3.2rem;
   }
