@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Linkbrary</title>
+        <link rel="stylesheet" href="css/signup.css" />
+    </head>
+    <body>
+        <main>
+            <article>
+                <div class="top-box">
+                    <div>
+                        <a href="/"><img src="/images/login-logo.png" alt="logo" /></a>
+                    </div>
+                    <div class="signin-box">이미 회원이신가요? <a href="/signin">로그인 하기</a></div>
+                </div>
+                <div class="input-box">
+                    <label for="email">이메일</label>
+                    <input type="text" id="email" class="login-input" />
+                </div>
+                <div class="input-box">
+                    <label for="password">비밀번호</label>
+                    <input type="password" id="password" class="login-input" />
+                    <div class="icon-box pwd-view" data-target="password">
+                        <img src="/images/eye-off.png" alt="off" />
+                    </div>
+                </div>
+                <div class="input-box">
+                    <label for="password-confirm">비밀번호 확인</label>
+                    <input type="password" id="password-confirm" class="login-input pwd-confirm" />
+                    <div class="icon-box pwd-view" data-target="password-confirm">
+                        <img src="/images/eye-off.png" alt="off" />
+                    </div>
+                </div>
+                <div class="different-text">비밀번호가 다릅니다</div>
+                <div class="btn-box">
+                    <div class="regist-btn">회원가입</div>
+                </div>
+                <div class="sns-regist-box">
+                    <div>다른 방식으로 가입하기</div>
+                    <div class="sns-box">
+                        <div class="img-box">
+                            <a href="https://www.google.com/"><img src="/images/sns-google.png" alt="google" /></a>
+                        </div>
+                        <div class="img-box">
+                            <a href="https://www.kakaocorp.com/page/"
+                                ><img src="/images/sns-kakao.png" alt="kakao"
+                            /></a>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <script src="/signup/js/signup.js"></script>
+    </body>
+</html>
