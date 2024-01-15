@@ -6,10 +6,10 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin:0;
+  margin: 0;
   align-items: center;
   padding: 200px 0;
-  background: #F0F6FF;
+  background: #f0f6ff;
 }
 
 .signLogo {
@@ -83,7 +83,6 @@ body {
   width: 30px;
   font-size: 22px;
   cursor: pointer;
-  z-
 }
 
 .loginButton {
@@ -93,7 +92,7 @@ body {
   padding: 16px 20px;
   cursor: pointer;
 
-  color:var(--white);
+  color: var(--white);
   background: var(--gra-purpleblue-to-skyblue);
 
   text-decoration: none;
@@ -146,17 +145,17 @@ body {
 
 @media (width < 768px) {
   body {
-    margin-top:120px;
+    margin-top: 120px;
     padding: 0 32px;
     width: 100%;
   }
-  .formBox{
-    width:100%;
+  .formBox {
+    width: 100%;
   }
-  .loginButton{
-    width:100%;
+  .loginButton {
+    width: 100%;
   }
-  .socialLoginBox{
-    width:100%;
+  .socialLoginBox {
+    width: 100%;
   }
 }
