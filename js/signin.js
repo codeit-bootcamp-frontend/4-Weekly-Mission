@@ -3,8 +3,8 @@ import { userInfo } from "./user-info.js";
 import { pwInputTypeChange } from "./pw-input-type.js";
 
 window.onload = function(){
-    const emailInput = document.getElementById("signin__input__email")
-    const pwInput = document.getElementById("signin__input__password");
+    const emailInput = document.getElementById("signin__input--email")
+    const pwInput = document.getElementById("signin__input--password");
     const form = document.querySelector(".sigin__form");
     const emailError = document.querySelector(".signin__email--error");
     const pwError = document.querySelector(".signin__password--error");
@@ -21,13 +21,13 @@ window.onload = function(){
         }
     }
 
-    form.addEventListener("submit", () =>{
-        event.preventDefault(); // 페이지 리로드 방지
+    form.addEventListener("submit", (e) =>{
+        e.preventDefault(); // 페이지 리로드 방지
         login();
     });
 
-    loginBtn.addEventListener("keydown" , () =>{
-        if (window.event.keyCode == 13){ // 엔터 키
+    loginBtn.addEventListener("keydown" , (e) =>{
+        if (e.key === "Enter"){ // 엔터 키
             login();
         }
     });

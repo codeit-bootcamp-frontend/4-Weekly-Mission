@@ -81,7 +81,7 @@ body{
     gap: 1.2rem
 }
 
-.signup__email, .signup__password, .signup__password__confirm{
+.signup__email, .signup__password, .signup__password--confirm{
     display: flex;
     flex-direction: column;
 }
@@ -91,7 +91,7 @@ body{
    margin-bottom: 0.75rem;
 }
 
-#signup__input__email, #signup__input__password, #signup__input__password__confirm{
+#signup__input--email, #signup__input--password, #signup__input--password--confirm{
     padding: 1.125rem 0.9375rem;
     border-radius: 0.5rem;
     background-color: var(--Linkbrary-white);
@@ -100,11 +100,11 @@ body{
     width: calc(100% - 1.875rem);
 }
 
-#signup__input__email:focus, #signup__input__password:focus, #signup__input__password__confirm:focus{
+#signup__input--email:focus, #signup__input--password:focus, #signup__input--password--confirm:focus{
     border: 1px solid var(--Linkbrary-red);
 }
 
-.signup__email--error, .signup__password--error, .signup__password__confirm--error{
+.signup__email--error, .signup__password--error, .signup__password--confirm--error{
     font-size: 0.875rem;
     color: var(--Linkbrary-red);
     margin-top: 0.38rem;
@@ -123,7 +123,7 @@ body{
     color: var(--Grey-Light);
 }
 
-.signin__password--relative, .signin__password__confirm--relative{
+.signin__password--relative, .signin__password--confirm--relative{
     position: relative;
 }
 

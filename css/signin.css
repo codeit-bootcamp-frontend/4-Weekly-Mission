@@ -91,7 +91,7 @@ body{
 }
 
 
-#signin__input__email, #signin__input__password{
+#signin__input--email, #signin__input--password{
     padding: 1.125rem 0.9375rem;
     border-radius: 0.5rem;
     background-color: var(--Linkbrary-white);
@@ -100,7 +100,7 @@ body{
     width: calc(100% - 1.875rem);
 }
 
-#signin__input__email:focus, #signin__input__password:focus{
+#signin__input--email:focus, #signin__input--password:focus{
     border: 1px solid var(--Linkbrary-primary-color);
 }
 

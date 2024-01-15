@@ -4,15 +4,15 @@ import { pwInputTypeChange } from "./pw-input-type.js";
 import { regexEamil, regexPassword } from "./regExp.js";
 
 window.onload = function(){
-    const emailInput = document.getElementById("signup__input__email")
-    const pwInput = document.getElementById("signup__input__password");
-    const pwConfirmInput = document.getElementById("signup__input__password__confirm");
+    const emailInput = document.getElementById("signup__input--email")
+    const pwInput = document.getElementById("signup__input--password");
+    const pwConfirmInput = document.getElementById("signup__input--password--confirm");
     const form = document.querySelector(".signup__form");
     const pwEyeIcon = document.querySelector(".eye");
     const pwConfirmEyeIcon = document.querySelector(".eye--confirm");
     const emailError = document.querySelector(".signup__email--error");
     const pwError = document.querySelector(".signup__password--error");
-    const pwConfirmError = document.querySelector(".signup__password__confirm--error");
+    const pwConfirmError = document.querySelector(".signup__password--confirm--error");
     const registerBtn = document.querySelector(".signup__button");
 
     // 회원 가입 함수
@@ -36,13 +36,13 @@ window.onload = function(){
         }
     }
 
-    form.addEventListener("submit", () =>{
-        event.preventDefault(); // 페이지 리로드 방지
+    form.addEventListener("submit", (e) =>{
+        e.preventDefault(); // 페이지 리로드 방지
         register();
     });
 
-    registerBtn.addEventListener("keydown" , () =>{
-        if (window.event.keyCode == 13){ // 엔터 키
+    registerBtn.addEventListener("keydown" , (e) =>{
+        if (e.key === "Enter"){ // 엔터 키
             register();
         }
     });
