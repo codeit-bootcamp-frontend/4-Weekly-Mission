@@ -3,6 +3,11 @@
 @import url('color.css');
 @import url('reset.css');
 
+html{
+  font-size: 62.5%;
+  font-family: Pretendard;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -61,7 +66,7 @@ main {
   font-weight: 700;
   flex-shrink: 0;
   line-height: 8rem;
-  white-space: nowrap;
+  white-space: pre-wrap;
 }
 
 .section-title {
@@ -160,7 +165,7 @@ main {
   flex-direction: column;
   flex-shrink: 0;
   gap: 1rem;
-  white-space: pre-line;
+  white-space: pre-wrap;
 }
 
 .section-description {
@@ -200,7 +205,23 @@ footer {
 
 /* Mobile */
 @media(min-width: 375px) {
+  .gnb-wrapper {
+    padding: 2rem 3.2rem;
+  }
 
+  img {
+    max-width: none;
+  }
+
+  .header-img-container {
+    overflow: hidden;
+    padding: 0 3.2rem;
+  }
+  
+  .header-img {
+    width: auto;
+    height: auto;
+  }
 }
 
 /* Tablet */
@@ -214,7 +235,8 @@ footer {
 
 }
 
-/* PC */
-@media(min-width: 1200px) {
-
+@media(min-width: 768px) {
+  img {
+    max-width: none;
+  }
 }
