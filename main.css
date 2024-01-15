@@ -8,7 +8,6 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border: 1px solid#000;
 }
 .gnb {
   display: flex;
@@ -26,7 +25,6 @@
   justify-content: flex-end;
   align-items: center;
   gap: 40px;
-  border: 3px solid#000;
   align-self: stretch;
   box-sizing: border-box; /*중요*/
 }
@@ -35,5 +33,7 @@
   padding: 120px 461px 50px 461px;
   justify-content: center;
   align-items: center;
-  /*box-sizing: border-box; 애는 왜 안 넣어도 되는지 생각해보기*/
+  box-sizing: border-box;
+  align-self: stretch;
+  border: 1px solid #000;
 }
