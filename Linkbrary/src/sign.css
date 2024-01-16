@@ -1,12 +1,20 @@
 @import "./global.css";
 
 body {
-  padding-top: 23.8rem;
   background-color: var(--background);
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 3rem;
+  padding: 12rem 3.2rem 0;
+
+  @media (min-width: 768px) {
+    padding: 20rem 0 0;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 23.8rem 0 0;
+  }
 }
 
 header {
@@ -46,7 +54,12 @@ header {
   flex-direction: column;
   align-items: center;
   row-gap: 3.2rem;
-  width: 40rem;
+  width: 100%;
+  max-width: 40rem;
+
+  @media (min-width: 768px) {
+    width: 40rem;
+  }
 }
 
 .sign-form {
@@ -149,15 +162,4 @@ header {
 .kakao-link {
   padding-top: 0.2rem;
   background-color: #f5e14b;
-}
-
-@media (max-width: 767px) {
-  body {
-    margin: 0 32px;
-  }
-
-  .sign-box {
-    width: 100%;
-    max-width: 400px;
-  }
 }
