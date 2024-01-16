@@ -1,0 +1,198 @@
+/*
+# 반응형 레이아웃
+- Viewport 기준 -
+
+PC: 1200px 이상
+Tablet: 768px 이상
+Mobile: 375px 이상
+* 375px 미만은 고려하지 않음
+
+/* Mobile *
+@media screen {
+}
+
+/* Tablet *
+@media (min-width: 768px) {
+}
+
+/* PC *
+@media (min-width: 1200px) {
+}
+*/
+
+/* ---------Hero--------- */
+
+.hero {
+  padding: 9rem 3.2rem 0;
+  gap: 2.4rem;
+}
+
+.hero-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 2.4rem;
+}
+
+.hero__title {
+  text-align: center;
+  font-weight: 700;
+  padding: 0 4.45rem;
+  font-size: 3.2rem;
+  line-height: 4.2rem;
+}
+
+.hero-preview {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-preview .image {
+  width: 100%;
+  height: 100%;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .hero {
+    padding-top: 13.4rem;
+    margin-bottom: 3rem;
+  }
+
+  .hero-wrap {
+    width: 69.8rem;
+    gap: 4rem;
+  }
+
+  .hero__title {
+    font-size: 6.4rem;
+    line-height: 8rem;
+  }
+
+  .hero-preview {
+    width: 69.8rem;
+    height: 34.3rem;
+  }
+}
+
+/* PC */
+@media (min-width: 1200px) {
+  .hero {
+    padding-top: 16.4rem;
+    margin-bottom: 7rem;
+  }
+
+  .hero-wrap {
+    width: 120rem;
+  }
+
+  .hero__title .mobile-only {
+    display: none;
+  }
+
+  .hero-preview {
+    width: 120rem;
+    height: 59rem;
+  }
+}
+
+/* ---------feature-section--------- */
+
+.feature-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 3.2rem;
+  margin: 0 auto;
+}
+
+.feature {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 0;
+  gap: 5.1rem;
+}
+
+.flex-order-1 {
+  order: 1;
+}
+
+.feature__title {
+  color: #000;
+  font-weight: 700;
+  letter-spacing: -0.03rem;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+}
+
+.feature__description {
+  color: #6b6b6b;
+  font-weight: 400;
+  line-height: 150%;
+  font-size: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+.img-sec {
+  width: 100%;
+  height: 100%;
+}
+
+.flex-outside {
+  display: none;
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .feature-section {
+    width: 69.8rem;
+    padding: 0;
+  }
+
+  .feature {
+    padding: 5rem 0;
+    gap: 5.1rem;
+  }
+
+  .feature__title {
+    font-size: 4.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature__description {
+    font-size: 1.6rem;
+  }
+
+  .img-sec {
+    width: 38.5rem;
+    height: 31.5rem;
+  }
+
+  .flex-inside {
+    display: none;
+  }
+
+  .flex-outside {
+    display: block;
+  }
+}
+
+/* PC */
+@media (min-width: 1200px) {
+  .feature-section {
+    width: 99.8rem;
+  }
+
+  .feature {
+    gap: 15.7rem;
+  }
+
+  .img-sec {
+    width: 55rem;
+    height: 45rem;
+  }
+}
