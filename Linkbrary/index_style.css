@@ -90,11 +90,14 @@ h2{
   font-weight: 400;
   line-height: 150%; /* 24px */
 }
+.description_m{
+  display: none;
+  visibility: hidden;
+}
 .content-1{
   width: 1200px;
   height: 833px;
   margin: 70px 360px 0 360px;
-  border: 1px solid red;
   overflow: hidden;
 }
 .content-1 .text{
@@ -152,7 +155,6 @@ h2{
   width: 998px;
   height: 450px;
   margin: 120px 461px 50px 461px;
-  border: 1px solid rgb(157, 255, 0);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -178,7 +180,6 @@ h2{
   width: 998px;
   height: 450px;
   margin: 50px 461px;
-  border: 1px solid rgb(0, 128, 255);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -214,7 +215,6 @@ h2{
   width: 998px;
   height: 450px;
   margin: 50px 461px;
-  border: 1px solid rgb(255, 0, 247);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -235,23 +235,6 @@ h2{
   width: 570px;
   height: 469px;
 }
-/* .content-4 .backmain-img {
-  width: 570px;
-  height: 469px;
-  flex-shrink: 0;
-  flex-shrink: 0;
-  border-radius: 25px;
-  background: url(<path-to-image>), lightgray 50% / cover no-repeat;
-  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
-  position: absolute;
-}
-.content-4 .share{
-  margin: 121px 71px 71px 71px;
-  width: 416px;
-  height: 271px;
-  flex-shrink: 0;
-  position: relative;
-} */
 .content-4 .description{
   width: 291px;
 }
@@ -260,7 +243,6 @@ h2{
   width: 998px;
   height: 450px;
   margin: 50px 461px;
-  border: 1px solid rgb(255, 213, 0);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -302,24 +284,6 @@ footer{
   align-self: stretch;
   position: absolute;
 }
-/* .bottom{
-  display: flex;
-  height: 160px;
-  padding: 32px 104px 64px 104px;
-  align-items: center;
-  flex-shrink: 0;
-  align-self: stretch;
-  background: var(--The-julge-black, #111322);
-  color: #CFCFCF;
-  font-family: "Acme";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: 100px;
-} */
 .bottom .copyright{
   margin-left:0;
   color: #676767;
@@ -453,12 +417,78 @@ footer{
   section{
     padding: 80px 32px;
   }
+  .div text{
+
+  }
+  .description{
+    display: none;
+    visibility: hidden;
+  }
+  .description_m{
+    display: flex;
+    visibility: visible;
+    width: 700px;
+    height: 72px;
+    color: #6B6B6B;
+    font-family: "Pretendard";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    
+  }
   .easy{
     display: none;
     visibility: hidden;
   }
   .hidden_easy{
     visibility: visible;
+  }
+  .content-1{
+    width: 100%;
+  }
+  .content-1 .main_img{
+    width: 45%;
+  }
+  .content-2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+  }
+  .content-2 img{
+    width: 100%;
+  }
+  .content-3{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+  }
+  .content-3 .img-area{
+    width: 100%;
+  }
+  .content-4{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+  }
+  .content-4 img{
+    width: 100%;
+  }
+  .content-5{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    height: 100%;
+    width: 100%;
+  }
+  .content-5 .img-area{
+    width: 100%;
   }
   /* 푸터시작 */
   .bottom{
@@ -495,21 +525,6 @@ footer{
   .footer_box{
     display: inline-flex;
     gap: 40px;
-  }
-  .content-1{
-    width: 100%;
-  }
-  .content-2{
-    width: 100%;
-  }
-  .content-3{
-    width: 100%;
-  }
-  .content-4{
-    width: 100%;
-  }
-  .content-5{
-    width: 100%;
   }
 }
 
