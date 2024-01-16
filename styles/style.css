@@ -1,3 +1,18 @@
+:root {
+  /* colors */
+  --gra-purple-to-pink: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  --gra-purpleblue-to-skyblue: linear-gradient(
+    91deg,
+    #6d6afe 0.12%,
+    #6ae3fe 101.84%
+  );
+  --gra-pink-to-skyblue: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  --bg-color: #f0f6ff;
+  --Grey-Light: #f5f5f5;
+  --bg-color-footer: #111322;
+  --text-sm-color: #6b6b6b;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +24,7 @@ body {
 }
 
 header {
-  background-color: #f0f6ff;
+  background-color: var(--bg-color);
   position: fixed;
   width: 100%;
 }
@@ -29,7 +44,7 @@ a:hover {
 }
 
 .navbar {
-  background-color: #f0f6ff;
+  background-color: var(--bg-color);
   display: flex;
   padding: 20px 200px;
   flex-direction: column;
@@ -58,11 +73,8 @@ a:hover {
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background: var(
-    --gra-purpleblue-to-skyblue,
-    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
-  );
-  color: var(--Grey-Light, #f5f5f5);
+  background: var(--gra-purpleblue-to-skyblue);
+  color: var(--Grey-Light);
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
@@ -78,7 +90,7 @@ a:hover {
   justify-content: flex-end;
   align-items: center;
   gap: 40px;
-  background: #f0f6ff;
+  background: var(--bg-color);
 }
 
 .headline {
@@ -93,7 +105,7 @@ a:hover {
 }
 
 .text-gradient {
-  background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  background: var(--gra-purple-to-pink);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -107,11 +119,8 @@ a:hover {
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background: var(
-    --gra-purpleblue-to-skyblue,
-    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
-  );
-  color: var(--Grey-Light, #f5f5f5);
+  background: var(--gra-purpleblue-to-skyblue);
+  color: var(--Grey-Light);
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
@@ -150,7 +159,7 @@ a:hover {
 }
 
 .frame-text .text-lg span {
-  background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  background: var(--gra-pink-to-skyblue);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -162,7 +171,7 @@ a:hover {
 }
 
 .frame-text .text-sm {
-  color: #6b6b6b;
+  color: var(--text-sm-color);
   font-family: Abel;
   font-size: 16px;
   font-style: normal;
@@ -174,7 +183,7 @@ a:hover {
   width: 550px;
   height: 450px;
   border-radius: 15px;
-  background: #f0f6ff;
+  background: var(--bg-color);
 }
 
 .main-contents .contents {
@@ -206,7 +215,7 @@ footer {
   align-items: center;
   flex-shrink: 0;
   align-self: stretch;
-  background: var(--The-julge-black, #111322);
+  background: var(--bg-color-footer);
 }
 
 .footer-frame-inner {
@@ -251,17 +260,14 @@ footer {
   }
 
   .add-link {
-    color: var(--Grey-Light, #f5f5f5);
+    color: var(--Grey-Light);
     font-family: Pretendard;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     border-radius: 8px;
-    background: var(
-      --gra-purpleblue-to-skyblue,
-      linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
-    );
+    background: var(--gra-purpleblue-to-skyblue);
   }
 
   .img-box {
@@ -309,19 +315,16 @@ footer {
   }
 
   .frame-text .text-sm {
-    color: #6b6b6b;
     font-family: Pretendard;
     font-size: 18px;
-    font-style: normal;
     font-weight: 500;
-    line-height: 150%; /* 22.5px */
   }
 }
 
 /*  Tablet 버전 (768~1199px) */
 @media (min-width: 768px) and (max-width: 1199px) {
   .navbar {
-    background-color: #f0f6ff;
+    background-color: var(--bg-color);
     display: flex;
     flex-direction: row;
     justify-content: center;
