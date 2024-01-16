@@ -104,7 +104,7 @@ a {
         padding: 20px 32px;
     }
     #header .header-box {
-        width: 799px;
+        max-width: 799px;
         margin: 0 auto;
     }
 }
