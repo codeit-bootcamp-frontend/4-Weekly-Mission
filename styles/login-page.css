@@ -117,18 +117,20 @@ input:focus {
   position: relative;
 }
 
-.password-box img {
+.password-box i {
   position: absolute;
   right: 15px;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
+  font-size: 16px;
 }
 
 .btn-login,
 .btn-signup {
   margin-top: 6px;
   padding: 16px 20px;
+  width: 100%;
 }
 
 .social-login {
@@ -172,6 +174,22 @@ input:focus {
   background-color: #f5e14b;
 }
 
-.sns-list a img {
-  height: 22px;
+.sns-list a i {
+  font-size: 22px;
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .main-container {
+    padding: 32px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .btn-login,
+  .btn-signup {
+    font-size: 18px;
+  }
 }

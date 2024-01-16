@@ -20,11 +20,6 @@ header {
   padding: 20px 200px;
 }
 
-main {
-  position: relative;
-  z-index: 0;
-}
-
 .section-key {
   margin: 0 auto;
   display: flex;
@@ -67,10 +62,7 @@ main {
 
 .main-img-box:after {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 41px;
-  right: 41px;
+  inset: 0;
   content: "";
   background: linear-gradient(
     180deg,
@@ -79,11 +71,15 @@ main {
   );
 }
 
+.main-img {
+  width: 1200px;
+}
+
 .content-list {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 100px;
   padding: 50px;
   background-color: var(--color-white);
 }
@@ -97,30 +93,33 @@ main {
 }
 
 .content-item {
-  display: flex;
-  justify-content: space-between;
-  gap: 157px;
+  display: grid;
+  grid-template:
+    ". img"
+    "copy img"
+    "desc img"
+    ". img" / 291px 550px;
+  gap: 10px 157px;
   height: 450px;
 }
 
+.content-item:nth-child(2n) {
+  grid-template:
+    "img ."
+    "img copy"
+    "img desc"
+    "img ." / 550px 291px;
+}
+
 .content-item img {
+  grid-area: img;
   width: 550px;
   height: 450px;
   border-radius: 15px;
 }
 
-.content-list > li:nth-child(2n) .content-desc {
-  order: 1;
-}
-
-.content-desc {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-}
-
-.content-list .content-desc h3 {
+.content-list li h3 {
+  grid-area: copy;
   font-size: 48px;
   font-weight: 700;
   letter-spacing: 0.00625em;
@@ -152,9 +151,11 @@ h3.copy-search {
 }
 
 .copy-desc {
+  grid-area: desc;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
+  word-break: keep-all;
   color: #6b6b6b;
 }
 
@@ -166,14 +167,13 @@ footer {
 }
 
 footer .footer-wrap {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto 2fr auto;
   width: 1920px;
-  padding: 32px 0 64px;
+  padding: 32px 104px 64px;
 }
 
 footer .copyright {
-  margin-left: 104px;
   font-weight: 400;
   line-height: 1.25;
   color: #676767;
@@ -185,6 +185,7 @@ footer ul {
 }
 
 footer ul.footer-menu-list {
+  justify-self: center;
   gap: 30px;
   width: 181px;
   height: 20px;
@@ -200,12 +201,134 @@ ul.footer-menu-list li a {
 footer ul.sns-list {
   gap: 12px;
   height: 20px;
-  margin-right: 104px;
 }
 
 ul.sns-list li a i {
   font-size: 20px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 375px) and (max-width: 767px) {
+  .header-wrap {
+    padding: 13px 32px;
+  }
+
+  .logo {
+    width: auto;
+    height: 16px;
+  }
+
+  .section-key,
+  .content-list {
+    padding: 0 32px;
+  }
+
+  .section-key {
+    margin-top: 28px;
+    gap: 24px;
+  }
+
+  .copy-main {
+    font-size: 32px;
+    line-height: 1.315;
+  }
+
+  .btn-cta {
+    width: 168px;
+    padding: 10px 16px;
+  }
+
+  .main-img-box,
+  .main-img {
+    width: 100%;
+    height: auto;
+  }
+
+  .main-img-box {
+    margin-top: 20px;
+  }
+
+  .content-list {
+    gap: 76px;
+  }
+
+  .content-item,
+  .content-item:nth-child(2n) {
+    grid-template:
+      "copy"
+      "img"
+      "desc";
+    height: auto;
+    gap: 16px;
+  }
+
+  .content-item:first-child {
+    margin-top: 40px;
+  }
+
+  .content-item:last-child {
+    margin-bottom: 80px;
+  }
+
+  .content-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .content-list li h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+
+  .copy-desc {
+    font-size: 15px;
+  }
+
+  footer .footer-wrap {
+    grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
+    gap: 60px 0;
+    padding: 32px 32px 64px;
+  }
+
+  footer .copyright {
+    order: 2;
+  }
+
+  footer ul.footer-menu-list {
+  }
+
+  footer ul.sns-list {
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .header-wrap {
+    padding: 20px 32px;
+  }
+
+  .main-img-box,
+  .main-img {
+    width: 650px;
+    height: 314px;
+  }
+
+  .main-img-box {
+    margin-top: 20px;
+  }
+
+  .content-item {
+    grid-template-columns: 262px 385px;
+    height: 315px;
+    gap: 10px 51px;
+  }
+
+  .content-item:nth-child(2n) {
+    grid-template-columns: 385px 262px;
+    height: 315px;
+  }
+
+  .content-item img {
+    width: 385px;
+    height: 315px;
+  }
 }

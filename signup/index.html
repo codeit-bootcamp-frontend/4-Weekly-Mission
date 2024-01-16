@@ -80,7 +80,7 @@
           </header>
 
           <form action="/" class="signup-form">
-            <label for="">
+            <label>
               이메일
               <input
                 type="email"
@@ -88,24 +88,24 @@
                 placeholder="codeit@codeit.com"
               />
             </label>
-            <label for="">
+            <label>
               비밀번호
               <div class="password-box">
                 <input type="password" name="password" />
-                <img
-                  src="/images/eye-off.svg"
-                  alt="비밀번호 보기/숨기기 버튼"
-                />
+                <i class="icon-eye-off">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
               </div>
             </label>
-            <label for="">
+            <label>
               비밀번호 확인
               <div class="password-box">
                 <input type="password" name="checkpw" />
-                <img
-                  src="/images/eye-off.svg"
-                  alt="비밀번호 보기/숨기기 버튼"
-                />
+                <i class="icon-eye-off">
+                  <span class="path1"></span>
+                  <span class="path2"></span>
+                </i>
               </div>
             </label>
 
@@ -118,13 +118,15 @@
           <ul class="sns-list">
             <li class="sns-item">
               <a class="google" href="https://www.google.com/"
-                ><img src="/images/google-login.svg" alt=""
-              /></a>
+                ><i class="icon-google-login"
+                  ><span class="path1"></span><span class="path2"></span
+                  ><span class="path3"></span><span class="path4"></span></i
+              ></a>
             </li>
             <li class="sns-item">
               <a class="kakao" href="https://www.kakaocorp.com/page/"
-                ><img src="/images/kakao-login.svg" alt=""
-              /></a>
+                ><i class="icon-kakao-login"></i
+              ></a>
             </li>
           </ul>
         </section>
