@@ -3,6 +3,14 @@
 @import url('color.css');
 @import url('reset.css');
 
+html,
+body,
+main,
+header,
+footer {
+  min-width: 320px;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -91,11 +99,6 @@ header {
   background-clip: text;
 }
 
-.header-img-container {
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
 .header-img {
   border-radius: 2.5rem;
   background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%);
@@ -161,9 +164,8 @@ header {
 .section-description {
   grid-area: description;
   color: #6B6B6B;
-  font-family: Abel;
-  font-size: 1.4rem;
-  line-height: 150%;
+  font-size: 1.6rem;
+  font-weight: 500;
 }
 
 .section-image {
@@ -285,27 +287,61 @@ footer {
     order: -1;
     margin-left: auto;
   }
+
+  .line-break {
+    display: block;
+  }
+
+  /* under 400px */
+  @media(max-width: 400px) {
+    .footer-policy {
+      font-size: 1rem;
+    }
+
+    .sns-logo {
+      width: 1.5rem;
+    }
+  }
 }
 
 /* Tablet */
 @media(min-width: 768px) and (max-width: 1199px) {
   .gnb-wrapper {
     min-width: 76.8rem;
-    max-width: calc(100vw - 40rem);
+    max-width: calc(100vw - 36rem);
     padding: 2rem 3.2rem;
     margin: 0 auto;
   }
-}
 
-/* PC & Tablet */
-@media(min-width: 768px) {
-  img {
-    max-width: none;
+  .header-img-container {
+    width: 65rem;
+    flex-shrink: 0;
+  }
+
+  .section, 
+  .section:nth-child(odd) {
+    column-gap: 5.1rem;
+  }
+
+  .section {
+    grid-template-columns: 38.5rem auto;
+  }
+
+  .section:nth-child(odd) {
+    grid-template-columns: auto 38.5rem;
+  }
+
+  .line-break {
+    display: block;
   }
 }
 
 /* PC */
 @media(min-width: 1200px) {
+  img {
+    max-width: none;
+  }
+
   .gnb-wrapper {
     padding: 2rem 20rem;
   }
