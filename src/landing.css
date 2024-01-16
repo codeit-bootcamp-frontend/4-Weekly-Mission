@@ -1,0 +1,456 @@
+@import "./global.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  /*1rem = 10px*/
+  font-size: 10px;
+}
+
+body {
+  width:100%;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #edf7ff;
+  /*상단에 네비게이션 바 고정*/
+  z-index:100;
+}
+
+.gnb {
+  display: flex;
+  padding: 13px 32px;
+  flex-direction: row;
+  align-items: center;
+  /*로고와 로그인 버튼 사이 간격이 자동으로 벌어지게 하려면 어떻게 해야할까?*/
+  gap: 3.7rem;
+  align-self: stretch;
+  /*양 끝으로 요소 배치*/
+  justify-content: space-between;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #edf7ff;
+  padding-top: 2.8rem;
+}
+
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2.4rem;
+  
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
+  border-radius: 0.8rem;
+  white-space: nowrap; /* 줄바꿈 방지 */
+}
+
+.cta-short { /*작은 버튼*/
+  width : 8rem;
+}
+  
+.cta-long {
+  width:20rem;
+}
+
+.cta-logo{
+  padding: 1rem 1.6rem;
+  gap: 1rem; 
+  color: #f5f5f5;
+  font-size: 1.4rem;
+  font-weight: 600; 
+}
+
+.slogan {
+  text-align: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 4.2rem;
+}
+
+.slogan-gradient {
+  background-image: linear-gradient(119deg, var(--primary) 0%, #ff9f9f 100%);
+}
+
+.background-clip-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-image {
+  width:30.2rem;
+  flex-shrink: 0;
+}
+
+article { /*모든 section이 있는 큰 블록*/
+   
+  display: flex;
+  flex-direction: column;
+
+  width:100%;
+}
+
+section {
+  padding: 40px 0;
+  margin-left: 32px;
+  margin-right: 32px;
+}
+
+.left-side,
+.right-side {
+}
+
+
+.title {
+  margin-bottom: 2rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.03rem;
+}
+
+.title-1-gradient {
+  background-image: linear-gradient(117deg, #fe8a8a 2.29%, #a4ceff 100%);
+}
+.title-2-gradient {
+  background-image: linear-gradient(304deg, #6fbaff 0%, #ffd88b 100%);
+}
+.title-3-gradient {
+  background-image: linear-gradient(133deg, #2945c7 0%, #dbe1f8 100%);
+}
+.title-4-gradient {
+  background-image: linear-gradient(310deg, #fe578f 0%, #68e8f9 100%);
+}
+
+.description {
+  width:100%;
+  margin-top: 1.6rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #6b6b6b;
+  line-height: 150%;
+}
+
+.content-image {
+  width:100%; 
+} 
+
+footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 16rem;
+  padding-top: 3.2rem;
+  margin-top:4rem;
+  background-color: var(--black);
+}
+
+.footer-box {
+  display: flex;
+  /*coryrignt이 밑으로 오도록*/
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: fit-content;
+  padding: 0 3.2rem;
+}
+  
+
+.footer-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+
+.copyright {
+  color: #676767;
+  font-family: Arial;
+  font-size: 1.6rem;
+}
+
+.footer-links {
+  display: flex;
+  column-gap: 3rem;
+  padding-right: 1.8rem;
+}
+
+.footer-link {
+  color: #cfcfcf;
+  font-family: Arial;
+  font-size: 1.6rem;
+}
+
+.sns {
+  display: flex;
+  column-gap: 1.2rem;
+  height: 2rem;
+}
+
+.mobile{
+  display: block;
+}
+
+.tablet{
+  display: none;
+}
+
+.PC{
+  display: none;
+}
+ 
+
+/* Tablet styles (768px to 1199px) */
+@media screen and (min-width: 768px) {
+  
+nav {
+  display: inline-block;
+}
+
+.gnb {
+  padding: 2rem 3.2rem;
+}
+
+header{
+  padding-top: 4rem;
+  padding-left:3.2rem;
+  padding-right:3.2rem;
+}
+
+.hero-header {
+  row-gap: 4rem;
+}
+
+.cta-short {
+  width: 12.8rem; 
+}
+  
+.cta-long {
+  width: 35rem;
+}
+
+.cta-logo{
+  font-size: 1.8rem;
+  padding: 1.6rem 2rem;
+}
+
+.slogan {
+  font-size: 6.4rem;
+  line-height: 8rem;
+}
+
+.slogan-gradient {
+  background-image: linear-gradient(119deg, var(--primary) 0%, #ff9f9f 100%);
+}
+
+.hero-image {
+  width: 65rem;
+}
+
+article {
+  margin-top:30px;
+  margin-bottom:120px;
+  flex-direction: column;
+}
+
+section {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  /*정렬된 요소를 부모 크기에 따라 확대축소*/
+  flex-wrap: nowrap;
+  /*콘텐츠 사이에 일정한 간격 주기*/
+  /*left-side와 right-side 사이*/
+  justify-content: center;
+  padding:0;
+}
+
+.title {
+  /*타이틀 폰트 사이즈는 48px*/
+  font-size: 4.8rem;
+  margin-bottom: 1rem;
+}
+
+.description {
+  margin-top:0;
+}
+
+.left-side{
+  margin-right:51px;
+}
+
+.left-side,
+.right-side{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-image{
+  display: block;
+  width: 385px;
+  height: 315px;
+}
+
+footer {
+  padding-top: 0;
+}
+
+.footer-box {
+  padding: 3.2rem 10.4rem;
+}
+
+.mobile{
+  display: none;
+}
+
+.tablet{
+  display: block;
+}
+
+.PC{
+  display: none;
+}
+ 
+}
+
+/* PC styles (1200px 이상) */
+ @media screen and (min-width: 1200px) {
+ 
+  header{
+    padding-top:7rem;
+  }
+
+  .hero-header {
+    row-gap: 4rem;
+  }
+
+  .cta-short {
+    width: 12.8rem; 
+  }
+    
+  .cta-long {
+    width: 35rem;
+  }
+  
+  .cta-logo{
+    font-size: 1.8rem;
+    padding: 1.6rem 2rem;
+  }
+  
+  .slogan {
+    font-size: 6.4rem;
+    line-height: 8rem;
+  }
+  
+  .sub-temp-br{
+    /*미니 타이틀 줄바꿈*/
+    /*PC, Tablet 에 적용된다.*/
+    display: block;
+  }
+  
+  .de-temp-br{
+    /*모바일에선 동작 안함*/
+    display: block;
+  }
+  
+  .slogan-gradient {
+    background-image: linear-gradient(119deg, var(--primary) 0%, #ff9f9f 100%);
+  }
+  
+  .hero-image {
+    width: 111.8rem;
+  }
+  
+  article {
+    margin-top:7rem;
+    margin-bottom:12rem;
+    flex-direction: column;
+  }
+  
+  section {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    /*정렬된 요소를 부모 크기에 따라 확대축소*/
+    flex-wrap: nowrap;
+    /*콘텐츠 사이에 일정한 간격 주기*/
+    /*left-side와 right-side 사이*/
+    justify-content: center;
+    padding:0;
+  }
+  
+  .title {
+    /*타이틀 폰트 사이즈는 48px*/
+    font-size: 4.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .description {
+    margin-top:0;
+  }
+  
+  .left-side{
+    margin-right:15.7rem;
+  }
+  
+  .left-side,
+  .right-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .content-image{
+    display: block;
+    width: 550px;
+    height: 450px;
+  }
+  
+  footer {
+    padding-top: 0;
+  }
+  
+  .footer-box {
+    padding: 3.2rem 10.4rem;
+  }
+  
+  .mobile{
+    display: none;
+  }
+  
+  .tablet{
+    display: none;
+  }
+  
+  .PC{
+    display: block;
+  }
+   
+   
+  
+
+}
+
