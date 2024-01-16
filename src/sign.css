@@ -1,0 +1,121 @@
+@import "./global.css";
+
+body {
+  background-color: var(--bg-color);
+}
+
+input {
+  width: 100%;
+  padding: 18px 15px;
+  border-radius: 8px;
+  background: var(--Linkbrary-white, #fff);
+  border: 1px solid var(--gray20-color);
+  display: block;
+  margin-bottom: 24px;
+  outline-color: var(--primary-color);
+}
+
+.container-sign {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin: 0 auto;
+  padding: 238px 0;
+  height: 100vh;
+}
+
+.fm-content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.fm-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.fm-logo {
+  width: 210.583px;
+  height: 38px;
+}
+
+.signup-link {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+label {
+  font-size: 1.4rem;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.btn-submit {
+  padding: 16px 20px;
+}
+
+.fm-input-wrap {
+  margin: 30px 0 6px;
+}
+
+.pw-wrap {
+  position: relative;
+}
+
+.img-eye {
+  position: absolute;
+  top: 18px;
+  right: 15px;
+}
+
+.social-login {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-gray10, #e7effb);
+}
+
+.sns-text {
+  flex-grow: 1;
+  font-size: 1.4rem;
+  color: var(--gray100-color);
+}
+
+.sns-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.sns-icon {
+  position: relative;
+  width: 42px;
+  height: 42px;
+}
+
+.icon-background {
+  position: absolute;
+  width: 100%;
+}
+
+.icon-logo {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* mobile */
+@media screen and (max-width: 464px) {
+  .container-sign {
+    width: auto;
+    margin: 0 32px;
+  }
+}
