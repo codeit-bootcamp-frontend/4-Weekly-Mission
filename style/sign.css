@@ -1,179 +1,165 @@
-@import url('style.css');
+@import './global.css';
 
-.signHeader {
+body {
+    background-color: var(--background);
     display: flex;
-    align-items: center;
     flex-direction: column;
-    gap: 16px;
+    align-items: center;
+    row-gap: 3rem;
+    padding: 12rem 3.2rem 0;
+
+    @media (min-width: 768px) {
+        padding: 20rem 0 0;
+    }
+
+    @media (min-width: 1200px) {
+        padding: 23.8rem 0 0;
+    }
 }
 
-.signHeader-message {
-    color: var(--black);
-    font-family: Pretendard;
-    font-size: 16px;
-    font-style: normal;
+header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.6rem;
+}
+
+.logo-link {
+    display: flex;
+    justify-content: center;
+}
+
+.header-logo {
+    height: 3.8rem;
+}
+
+.header-message {
+    display: flex;
+    column-gap: 0.8rem;
+    font-size: 1.6rem;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 150%;
 }
 
-.signHeader-link{
-    color: var(--Linkbrary-primary-color);
-    font-family: Pretendard;
-    font-size: 16px;
-    font-style: normal;
+.header-link {
+    height: fit-content;
+    font-size: 1.6rem;
     font-weight: 600;
     line-height: normal;
-    text-decoration: underline;
+    color: var(--primary);
+    border-bottom: 0.1rem solid var(--primary);
 }
 
-.signHeader .logo {
-    width: 210.583px;
-    height: 38px;
-}
-
-.signLayout {
-    width: auto;
+.sign-box {
     display: flex;
-    padding: 238px 0px 252px 0px;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--Linkbrary-bg);
-}
-
-.signContainer {
-    display: flex;
-    align-items: center;
     flex-direction: column;
-    gap: 32px;
-}
-
-.signNormal {
-    display: flex;
     align-items: center;
-    flex-direction: column;
-    gap: 30px;
+    row-gap: 3.2rem;
+    width: 100%;
+    max-width: 40rem;
+
+    @media(min-width: 768px) {
+        width: 40rem;
+    }
 }
 
-.signNormal button {
-    width: 400px;
+.sign-form {
     display: flex;
-    padding: 16px 20px;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    border-radius: 8px;
-    background: var(
-        --gra-purpleblue-to-skyblue,
-        linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
-    );
-    color: var(--Linkbrary-white);
-    font-family: Pretendard;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-
-.signForm {
-    display: flex;
-    align-items: flex-start;
     flex-direction: column;
-    gap: 24px;
+    row-gap: 3rem;
+    width: 100%;
 }
 
-.signForm-inputbox {
+.sign-inputs {
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
-    gap: 12px;
+    row-gap: 2.4rem;
 }
 
-.signForm-inputbox label {
-    color: var(--black);
-    font-family: Pretendard;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.sign-input-box {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.2rem;
 }
 
-.signForm-inputbox input {
-    width: 400px;
-    padding: 18px 15px;
-    border: 1px solid var(--Linkbrary-gray20);
-    border-radius: 8px;
-    background: var(--Linkbrary-white);
-}
-
-.signForm-inputbox input:focus {
-    outline-color: var(--Linkbrary-primary-color);
-}
-
-.signForm-inputbox input::placeholder {
-    font-family: Pretendard;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px;
-    color: var(--Linkbrary-gray100);
-}
-
-.password-input {
+.sign-password {
     position: relative;
 }
 
-.password-icon {
-    position: absolute;
-    top: 18px;
-    right: 15px;
+.sign-input-label {
+    font-size: 1.4rem;
+    font-weight: 400;
 }
 
-.signSocial {
-    width: 400px;
+.sign-input {
+    padding: 1.8rem 1.5rem;
+    border-radius: 0.8rem;
+    border: 0.1rem solid var(--gray20);
+    font-size: 1.6rem;
+    line-height: 150%;
+}
+
+.sign-input:focus {
+    boder-color: var(--primary);
+}
+
+.eye-button {
+    position: absolute;
+    bottom: 2.2rem;
+    right: 1.5rem;
+    width: 1.6rem;
+    height: 1.6rem;
+}
+
+.cta {
     display: flex;
-    padding: 12px 24px;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 5.4rem;
+    background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
+    border-radius: 0.8rem;
+    color: #f5f5f5;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.sns-box {
+    display: flex;
     justify-content: space-between;
-    border: 1px solid var(--Linkbrary-gray20);
-    border-radius: 8px;
-    background: var(--Linkbrary-gray10);
+    align-items: center;
+    width: 100%;
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.8rem;
+    border: 0.1rem solid var(--gray20);
+    background-color: var(--gray10);
 }
 
-.social-text {
-    color: var(--Linkbrary-gray100);
-    font-family: Pretendard;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
-
-.social-badges {
+.sns-links {
     display: flex;
-    align-items: flex-start;
-    gap: 16px;
+    column-gap: 1.6rem;
 }
 
-.social-badges a {
-    width: 42px;
-    height: 42px;
-    flex-shrink: 0;
-    position: relative;
+.sns-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
 }
 
-.badge-google {
-    background: var(--Linkbrary-white)
-    url('https://static-00.iconduck.com/assets.00/google-icon-2048x2048-czn3g8x8.png')
-    0px 0px / 100% 100% no-repeat;
-    width: 22px;
-    height: 22px;
-    position: absolute;
-    top: 10px;
-    left: 10px;
+.sns-text {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--gray100);
 }
 
-.badge-kakao {
-    position: absolute;
-    top: 10px;
-    left: 8px;
-  }
+.google-link {
+    background-color: var(--white);
+    border: 0.1rem solid #d3d4dd;
+}
+
+.kakao-link {
+    padding-top: 0.2rem;
+    background-color: #f5e14b;
+}
