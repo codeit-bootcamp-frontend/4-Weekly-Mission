@@ -158,19 +158,18 @@
   justify-content: space-around;
   width: 100%;
   height: 10rem;
-  padding: 2rem 6.5rem 4rem;
+  padding: 2rem 6.5rem;
   background: black;
 }
 
-.footer--copyright {
-  margin-left: 6.5rem;
-}
-
-.footer--snsMap {
-  margin-right: 6.5rem;
+.footer__link {
+  display: flex;
+  flex: 0.6;
+  justify-content: space-between;
 }
 
 .footer__copyright {
+  flex: 0.4;
   color: #676767;
   font-weight: 400;
   font-size: 1rem;
@@ -243,29 +242,29 @@
   }
 
   .footer {
-    grid-template:
-      "siteMap snsMap"
-      "copyright .";
-    gap: 0 20vw;
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  .footer__link {
+    order: 1;
+    width: 100%;
+    margin: 0 6.5rem;
   }
 
   .footer__copyright {
-    grid-area: copyright;
-    width: 10rem;
+    order: 2;
+    margin-right: auto;
   }
 
   .footer__siteMap {
     display: flex;
-    grid-area: siteMap;
     justify-content: space-between;
-    width: 10rem;
   }
 
   .footer__snsMap {
     display: flex;
-    grid-area: snsMap;
     justify-content: space-between;
-    width: 10rem;
   }
 }
 
