@@ -11,5 +11,11 @@
     #68e8f9 107.18%
   );
   --the-julge-black: #111322;
-  --grey-Light: #f5f5f5;
+  --linkbrary-black: #000;
+  --linkbrary-primary-color: #6d6afe;
+  --linkbrary-grey-Light: #f5f5f5;
+  --linkbrary-gray20: #ccd5e3;
+  --linkbrary-gray10: #e7effb;
+  --linkbrary-gray100: #373740;
+  --linkbrary-white: #fff;
 }

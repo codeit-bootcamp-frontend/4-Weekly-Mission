@@ -13,7 +13,7 @@ nav {
   position: sticky;
   top: 0;
   width: 100%;
-  background: var(--Linkbrary-bg);
+  background: var(--linkbrary-bg);
 }
 
 .nav {
@@ -35,7 +35,7 @@ nav {
   gap: 10px;
   border-radius: 8px;
   background: var(--gra-purpleblue-to-skyblue);
-  color: var(--Grey-Light);
+  color: var(--linkbrary-grey-Light);
   font-size: 18px;
   font-weight: 600;
   line-height: normal;
@@ -47,7 +47,7 @@ header {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  background: var(--Linkbrary-bg);
+  background: var(--linkbrary-bg);
 }
 
 .main-header {
@@ -82,7 +82,7 @@ header {
   gap: 10px;
   border-radius: 8px;
   background: var(--gra-purpleblue-to-skyblue);
-  color: var(--Grey-Light);
+  color: var(--linkbrary-grey-Light);
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -159,7 +159,7 @@ section {
 }
 
 .title-4-gradient {
-  background: var(--Fandom-K-gra-blue-to-pink);
+  background: var(--fandom-K-gra-blue-to-pink);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -190,7 +190,7 @@ section {
 }
 
 .footer-main {
-  background: var(--The-julge-black);
+  background: var(--the-julge-black);
   display: flex;
   height: 16rem;
   padding: 3.2rem 10.4rem 6.4rem 10.4rem;
