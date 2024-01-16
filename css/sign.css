@@ -1,5 +1,7 @@
 @import url('/css/config.css');
 
+/* signup & signin 공통 CSS */
+
 body {
     background-color: var(--Gray5, #f0f6ff);
 }
@@ -17,7 +19,8 @@ article {
     width: 400px;
 }
 
-.signin-box {
+.signin-box,
+.signup-box {
     color: var(--Black, #000);
     font-family: Pretendard;
     font-size: 16px;
@@ -34,7 +37,8 @@ article {
     justify-content: center;
 }
 
-.signin-box a {
+.signin-box a,
+.signup-box a {
     color: var(--Primary, #6d6afe);
     font-family: Pretendard;
     font-size: 16px;
