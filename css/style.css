@@ -50,7 +50,7 @@ header {
   background: var(--Linkbrary-bg);
 }
 
-.header {
+.main-header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -58,7 +58,7 @@ header {
   padding-top: 7rem;
 }
 
-.header h1 {
+.main-heading {
   text-align: center;
   font-size: 6.4rem;
   font-style: normal;
@@ -66,7 +66,7 @@ header {
   line-height: 8rem;
 }
 
-.header h1 span {
+.main-heading-gradient {
   background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -105,7 +105,7 @@ section {
   padding: 50px 0;
 }
 
-section:nth-of-type(odd) {
+.content:nth-of-type(odd) {
   grid-template:
     ". image"
     "title image"
@@ -114,7 +114,7 @@ section:nth-of-type(odd) {
     /29.1rem 55rem;
 }
 
-section:nth-of-type(even) {
+.content:nth-of-type(even) {
   grid-template:
     "image ."
     "image title"
@@ -123,7 +123,7 @@ section:nth-of-type(even) {
     /55rem 29.1rem;
 }
 
-.title {
+.content-title {
   grid-area: title;
   font-size: 4.8rem;
   font-style: normal;
@@ -165,7 +165,7 @@ section:nth-of-type(even) {
   -webkit-text-fill-color: transparent;
 }
 
-.description {
+.content-description {
   grid-area: description;
   color: #6b6b6b;
   font-size: 1.6rem;
@@ -173,7 +173,7 @@ section:nth-of-type(even) {
   line-height: 150%;
 }
 
-.content-image {
+.content-img {
   grid-area: image;
   width: 55rem;
   height: 45rem;
@@ -251,22 +251,22 @@ section:nth-of-type(even) {
     padding: 2rem 3.2rem;
   }
 
-  .header {
+  .main-header {
     padding: 3.9rem 25rem 0 25.1rem;
     justify-content: center;
   }
 
-  .header-img {
+  .main-header-img {
     width: 65rem;
     height: 38.3rem;
   }
 
-  section {
+  .content {
     column-gap: 5.1rem;
     height: 41.5rem;
   }
 
-  section:nth-of-type(odd) {
+  .content:nth-of-type(odd) {
     grid-template:
       ". image"
       "title image"
@@ -275,7 +275,7 @@ section:nth-of-type(even) {
       /26.2rem 38.5rem;
   }
 
-  section:nth-of-type(even) {
+  .content:nth-of-type(even) {
     grid-template:
       "image ."
       "image title"
@@ -284,11 +284,11 @@ section:nth-of-type(even) {
       /38.5rem 26.2rem;
   }
 
-  .description br {
+  .content-description br {
     display: none;
   }
 
-  .content-image {
+  .content-img {
     width: 38.5rem;
     height: 31.5rem;
   }
@@ -300,12 +300,12 @@ section:nth-of-type(even) {
     padding: 0 3.2rem;
   }
 
-  .header {
+  .main-header {
     padding: 2.8rem 3.2rem 0;
     gap: 2.4rem;
   }
 
-  .header h1 {
+  .main-heading {
     font-size: 3.2rem;
     line-height: 4.4rem;
   }
@@ -314,7 +314,7 @@ section:nth-of-type(even) {
     width: 20rem;
   }
 
-  .header-img {
+  .main-header-img {
     width: 100%;
     height: auto;
   }
@@ -323,13 +323,13 @@ section:nth-of-type(even) {
     padding: 0;
   }
 
-  section {
+  .content {
     padding: 4rem 3.2rem;
     row-gap: 0;
     height: auto;
   }
 
-  section:nth-of-type(odd) {
+  .content:nth-of-type(odd) {
     grid-template:
       "title"
       "image"
@@ -337,7 +337,7 @@ section:nth-of-type(even) {
       /1fr;
   }
 
-  section:nth-of-type(even) {
+  .content:nth-of-type(even) {
     grid-template:
       "title"
       "image"
@@ -345,22 +345,22 @@ section:nth-of-type(even) {
       /1fr;
   }
 
-  .title {
+  .content-title {
     font-size: 2.4rem;
     font-weight: 700;
     line-height: normal;
     letter-spacing: -0.03rem;
   }
 
-  .title br {
+  .content-title br {
     display: none;
   }
 
-  .description br {
+  .content-description br {
     display: none;
   }
 
-  .content-image {
+  .content-img {
     width: 100%;
     height: auto;
     margin-top: 2rem;
