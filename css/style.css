@@ -284,6 +284,10 @@ section:nth-of-type(even) {
       /38.5rem 26.2rem;
   }
 
+  .description br {
+    display: none;
+  }
+
   .content-image {
     width: 38.5rem;
     height: 31.5rem;
