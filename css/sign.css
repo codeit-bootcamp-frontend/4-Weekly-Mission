@@ -152,12 +152,10 @@ header {
 }
 
 /* mobile */
-@media screen and (max-width: 767px) {
-  body {
-    padding-top: 7.5rem;
-  }
+@media screen and (min-width: 375px) and (max-width: 767px) {
   .sign-box {
     width: 100%;
-    padding: 0 2rem;
+    padding: 0 32px;
+    max-width: 400px;
   }
 }
