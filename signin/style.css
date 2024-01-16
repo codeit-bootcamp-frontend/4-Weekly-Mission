@@ -88,6 +88,11 @@ body {
   font-weight: 400;
 }
 
+.error-message {
+  color: var(--red, #ff5b56);
+  margin-top: -0.6rem;
+}
+
 .password-input-wrap {
   position: relative;
 }
