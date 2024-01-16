@@ -133,7 +133,7 @@ body {
 }
 
 /* soical signup */
-.signupBtn-socialSignup {
+.signupbtn-socialsignup {
   display: flex;
   flex-direction: column;
 }

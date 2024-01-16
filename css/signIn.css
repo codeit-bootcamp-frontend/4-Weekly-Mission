@@ -133,7 +133,7 @@ body {
 }
 
 /* soical login */
-.lgBtn-socialLogin {
+.lgbtn-sociallogin {
   display: flex;
   flex-direction: column;
 }
