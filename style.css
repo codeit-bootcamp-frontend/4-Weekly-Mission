@@ -13,7 +13,7 @@ header {
   background-color: var(--Linkbrary-bg, #f0f6ff);
 }
 
-.headerLogo .logo{
+.headerLogo .logo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -46,7 +46,7 @@ main {
   justify-content: center;
   align-items: center;
   padding-top: 70px;
-  background: #F0F6FF;
+  background: #f0f6ff;
 }
 
 .content1 {
@@ -67,7 +67,7 @@ main {
   text-align: center;
 }
 
-.content1 h1 .spanTop{
+.content1 h1 .spanTop {
   text-align: center;
   font-family: Pretendard;
   font-size: 64px;
@@ -105,7 +105,7 @@ main {
   height: 590px;
   flex-shrink: 0;
   border-radius: 25px;
-  background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%);
+  background: linear-gradient(180deg, rgba(196, 196, 196, 0) 67.68%, #f0f6ff 94.76%);
 }
 
 .center {
@@ -134,7 +134,7 @@ main {
 section {
   display: flex;
   padding-top: 50px;
-  padding-bottom:50px;
+  padding-bottom: 50px;
   justify-content: center;
   align-items: center;
   width: auto;
@@ -233,7 +233,7 @@ footer .footer2 {
   display: flex;
   justify-content: space-between;
   gap: 30px;
-  color: #CFCFCF;
+  color: #cfcfcf;
   font-family: Acme;
   font-size: 16px;
   font-style: normal;
@@ -242,8 +242,8 @@ footer .footer2 {
 }
 
 footer .footer2 a {
-  text-decoration : none;
-  color: #CFCFCF;
+  text-decoration: none;
+  color: #cfcfcf;
 }
 
 footer .footer3 {
@@ -253,62 +253,61 @@ footer .footer3 {
 
 @media (min-width: 768px) and (max-width: 1199px) {
   header {
-  position: sticky;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 20px 30px;
-  top: 0;
-  background-color: var(--Linkbrary-bg, #f0f6ff);
-}
+    position: sticky;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 30px;
+    top: 0;
+    background-color: var(--Linkbrary-bg, #f0f6ff);
+  }
 
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 40px;
-  background: #F0F6FF;
-}
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+    background: #f0f6ff;
+  }
 
-.mainImg {
-  width: 650px;
-  height: 383px;
-  flex-shrink: 0;
-  border-radius: 25px;
-  background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%);
-}
+  .mainImg {
+    width: 650px;
+    height: 383px;
+    flex-shrink: 0;
+    border-radius: 25px;
+    background: linear-gradient(180deg, rgba(196, 196, 196, 0) 67.68%, #f0f6ff 94.76%);
+  }
 
-.content1 h1 #br {
-  display: block;
-  color: #000;
-}
+  .content1 h1 #br {
+    display: block;
+    color: #000;
+  }
 
-.center {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 698px;
-  height: 315px;
-  gap: 51px;
-}
+  .center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 698px;
+    height: 315px;
+    gap: 51px;
+  }
 
-.img img {
-  border-radius: 15px;
-  width: 385px;
-  height: 315px;
-}
+  .img img {
+    border-radius: 15px;
+    width: 385px;
+    height: 315px;
+  }
 
-section {
-  display: flex;
-  padding-top: 80px;
-  padding-bottom:50px;
-  justify-content: center;
-  align-items: center;
-  width: auto;
-  height: auto;
-  gap: 157px;
-}
-
+  section {
+    display: flex;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: auto;
+    gap: 157px;
+  }
 }
 
 @media (min-width: 357px) and (max-width: 767px) {
@@ -329,7 +328,7 @@ section {
     padding-top: 28px;
     padding-left: 32px;
     padding-right: 32px;
-    background: #F0F6FF;
+    background: #f0f6ff;
   }
 
   .content1 h1 #br {
@@ -364,7 +363,7 @@ section {
     margin-right: 32px;
     flex-shrink: 0;
     border-radius: 25px;
-    background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%);
+    background: linear-gradient(180deg, rgba(196, 196, 196, 0) 67.68%, #f0f6ff 94.76%);
   }
 
   section {
@@ -410,7 +409,7 @@ section {
     font-size: 24px;
   }
 
-  .bottom{
+  .bottom {
     font-size: 15px;
   }
 
@@ -427,11 +426,11 @@ section {
   footer {
     margin-top: 40px;
     display: grid;
-    grid-template-areas: 
-    "footer2 footer3"
-    "footer1 footer3";
+    grid-template-areas:
+      'footer2 footer3'
+      'footer1 footer3';
   }
-  
+
   footer .footer1 {
     text-align: left;
     grid-area: footer1;
