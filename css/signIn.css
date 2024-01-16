@@ -1,13 +1,7 @@
 @import "./global.css";
 
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
   background: var(--linkbrary-bg);
-  font-family: Pretendard;
 }
 
 .content {
