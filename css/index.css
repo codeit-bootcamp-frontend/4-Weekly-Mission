@@ -163,11 +163,11 @@
 }
 
 .footer--copyright {
-  margin-left: 104px;
+  margin-left: 6.5rem;
 }
 
 .footer--snsMap {
-  margin-right: 104px;
+  margin-right: 6.5rem;
 }
 
 .footer__copyright {
@@ -203,22 +203,21 @@
 @media screen and (width >=375px) and (width <=767px) {
   br {
     display: inline-block;
-    padding: 0 1rem;
     content: " ";
   }
 
   .header__logo {
-    margin-left: 32px;
+    margin-left: 2rem;
   }
 
   .header__link {
-    margin-right: 32px;
+    margin-right: rem;
   }
 
   .section__img,
   .home-section__img {
     width: 100vw;
-    padding: 0 32px;
+    padding: 0 2rem;
   }
 
   .section:nth-child(odd) {
@@ -240,7 +239,7 @@
   }
 
   .section__description {
-    margin: 32px;
+    margin: 2rem;
   }
 
   .footer {
@@ -273,11 +272,11 @@
 /* Tablet */
 @media screen and (width >=768px) and (width <=1199px) {
   .header__logo {
-    margin-left: max(calc(50% - 400px), 32px);
+    margin-left: max(calc(50% - 400px), 2rem);
   }
 
   .header__link {
-    margin-right: max(calc(50% - 400px), 32px);
+    margin-right: max(calc(50% - 400px), 2rem);
   }
 
   .main {
@@ -304,11 +303,11 @@
 /* PC */
 @media screen and (width >=1200px) {
   .header__logo {
-    margin-left: 200px;
+    margin-left: 12rem;
   }
 
   .header__link {
-    margin-right: 200px;
+    margin-right: 12rem;
   }
 
   .section__img {
