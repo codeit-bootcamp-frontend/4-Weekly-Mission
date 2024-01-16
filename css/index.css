@@ -55,6 +55,7 @@ section {
     line-height: 80px; /* 125% */
     color: #000;
     word-break: keep-all;
+    margin-block: initial;
 }
 
 .header-title gradient {
@@ -89,6 +90,7 @@ section {
     line-height: normal;
     letter-spacing: -0.3px;
     word-break: keep-all;
+    margin-block: initial;
 }
 .main-content .caption {
     color: #6b6b6b;
@@ -97,8 +99,8 @@ section {
     font-style: normal;
     font-weight: 400;
     line-height: 150%; /* 24px */
-    margin-top: 10px;
     word-break: keep-all;
+    margin-block: 10px 0;
 }
 
 .main-content .content {
@@ -190,6 +192,9 @@ section {
     .main-content .content {
         flex-direction: column;
         gap: 16px;
+    }
+    .main-content .content:last-child {
+        margin-bottom: 64px;
     }
     .main-content .content:nth-child(even) {
         flex-direction: column-reverse;
