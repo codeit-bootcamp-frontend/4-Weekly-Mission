@@ -26,12 +26,12 @@ nav {
   align-items: center;
 }
 
-.nav-content img {
+.logo {
   width: 13.3rem;
   height: 2.4rem;
 }
 
-.nav-content button {
+.login-btn {
   width: 12.8rem;
   height: 5.4rem;
   display: flex;
