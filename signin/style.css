@@ -105,7 +105,7 @@ body {
   outline: 0.1rem solid var(--primary, #6d6afe);
 }
 
-.password-input-wrap .button-eye {
+.password-input-wrap .btn-eye {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
