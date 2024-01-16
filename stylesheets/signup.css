@@ -1,0 +1,130 @@
+/* 로그인 페이지 */
+body {
+  background: var(--Linkbrary-bg, #f0f6ff);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15rem auto;
+  width: 25rem;
+  gap: 1.88rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+header .signup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+header .signup a {
+  margin-bottom: 0.31rem;
+  color: var(--Linkbrary-primary-color, #6d6afe);
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* 이메일, 비밀번호 입력 */
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+main label {
+  color: var(--black, #000);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+main input {
+  padding: 1.125rem 0.9375rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-white, #fff);
+}
+
+main input:focus {
+  border-radius: 0.5rem;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
+}
+
+main .email,
+.password,
+.password-check {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* 로그인 버튼 */
+.login {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+
+.login button {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 0.5rem;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  color: var(--Grey-Light, #f5f5f5);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* 소셜 로그인 */
+.social-login {
+  display: flex;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-gray10, #e7effb);
+}
+
+.social-login p {
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.social-login .links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-login .links a {
+  text-decoration: none;
+}

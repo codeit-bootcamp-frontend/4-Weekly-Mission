@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signin</title>
+    <link rel="stylesheet" href="./stylesheets/main.css" />
+    <link rel="stylesheet" href="./stylesheets/signup.css" />
+  </head>
+  <body>
+    <div class="content">
+      <header>
+        <a href="/">
+          <img src="./assets_signin/logo.svg" alt="Linkbrary 로고" />
+        </a>
+        <div class="signup">
+          <p>이미 회원이신가요?</p>
+          <a href="./signin.html">로그인 하기</a>
+        </div>
+      </header>
+      <main>
+        <div class="email">
+          <label for="email">이메일</label>
+          <input type="email" id="email" />
+        </div>
+        <div class="password">
+          <label for="pw">비밀번호</label>
+          <input type="password" id="pw" />
+        </div>
+        <div class="password-check">
+          <label for="pw">비밀번호 확인</label>
+          <input type="password" id="pw" />
+        </div>
+      </main>
+      <div class="login">
+        <button onclick="location.href ='./'">회원가입</button>
+        <div class="social-login">
+          <p>다른 방식으로 가입하기</p>
+          <div class="links">
+            <a href="https://www.google.com/">
+              <img src="./assets_signin/Component 2.svg" alt="google link" />
+            </a>
+            <a href="https://www.kakaocorp.com/page/">
+              <img src="./assets_signin/Component 3.svg" alt="kakao link" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
