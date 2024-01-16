@@ -1,0 +1,41 @@
+:root {
+  --Linkbrary-primary-color: #6d6afe;
+  --Linkbrary-red: #ff5b56;
+  --The-julge-black: #111322;
+  --Linkbrary-white: #fff;
+  --Linkbrary-gray100: #373740;
+  --Linkbrary-gray60: #9fa6b2;
+  --Linkbrary-gray20: #ccd5e3;
+  --Linkbrary-gray10: #e7effb;
+  --Linkbrary-bg: #f0f6ff;
+
+  --Grey-Light: #f5f5f5;
+  --Grey: #6b6b6b;
+  --Black: #000;
+
+  --footer-copyright: #676767;
+  --footer-link: #cfcfcf;
+
+  --gra-purpleblue-to-skyblue: linear-gradient(
+    91deg,
+    #6d6afe 0.12%,
+    #6ae3fe 101.84%
+  );
+  --gra-purpleblue-to-pink: linear-gradient(
+    91deg,
+    #6d6afe 17.28%,
+    #ff9f9f 74.98%
+  );
+  --gra-pink-to-blue: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  --gra-yellow-to-blue: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+  --gra-purpleblue-to-blue: linear-gradient(
+    99deg,
+    #6d7ccd 19.76%,
+    rgba(82, 136, 133, 0.22) 52.69%
+  );
+  --Fandom-K-gra-blue-to-pink: linear-gradient(
+    271deg,
+    #fe578f -9.84%,
+    #68e8f9 107.18%
+  );
+}
