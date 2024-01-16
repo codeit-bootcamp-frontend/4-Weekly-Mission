@@ -65,16 +65,14 @@ body {
   gap: 24px;
 }
 
-.email-input,
-.password-input {
+.input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
 }
 
-.email-input label,
-.password-input label {
+.input label {
   color: var(--black);
   font-size: 14px;
   font-style: normal;
@@ -82,8 +80,7 @@ body {
   line-height: normal;
 }
 
-.email-input input,
-.password-input input {
+.input input {
   display: flex;
   width: 400px;
   padding: 18px 15px;
@@ -99,8 +96,7 @@ body {
   line-height: 24px;
 }
 
-.email-input input:focus,
-.password-input input:focus {
+.input input:focus {
   border: 1px solid var(--linkbrary-primary-color);
   outline: none;
 }
