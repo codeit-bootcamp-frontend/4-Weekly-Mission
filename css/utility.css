@@ -76,3 +76,8 @@
 .display-none {
   display: none;
 }
+
+.error-message {
+  color: var(--red, #ff5b56);
+  margin-top: -0.6rem;
+}
