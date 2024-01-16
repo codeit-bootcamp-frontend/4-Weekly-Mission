@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./signin_style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <title>Linkbrary signin</title>
+</head>
+<body>
+  <div class="signin">
+    <div class="contents">
+      <div class="title">
+        <a href="./"><img src="./img/logo.svg" alt="logo"></a>
+        <div class="description">
+          <p>회원이 아니신가요?</p>
+          <a href="./signup.html">회원 가입하기</a>
+        </div>
+      </div>
+      <form>
+        <div class="idbox">
+          <label for="username">이메일</label>
+          <input id="username" name="username" placeholder="codeit@codeit.com">
+        </div>
+        <div class="pwbox">
+          <label for="password">비밀번호</label>
+          <div class="pwtext">
+            <input id="password" name="password" type="password" placeholder="••••••••">
+            <img src="./img/eye-off.svg" alt="eye-off">
+          </div>
+        </div>
+      </form>
+      <button class="login_btn">로그인</button>
+    </div>
+    <div class="social">
+      <p>소셜 로그인</p>
+      <div class="icons">
+        <a href="https://www.google.com/"><img id="google" src="./img/google.png" alt="google"></a>
+        <a href="https://www.kakaocorp.com/page/"><img id="kakao" src="./img/kakao.png" alt="kakao"></a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
