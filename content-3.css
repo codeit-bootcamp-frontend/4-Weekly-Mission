@@ -1,0 +1,48 @@
+.content-3_img {
+  display: flex;
+  width: 550px;
+  padding: 114px 68px 66px 68px;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  /*style*/
+  border-radius: 15px;
+  background: #f0f6ff;
+}
+.popup1 {
+  width: 414px;
+  height: 270px;
+  flex-shrink: 0;
+  background: url("image\디스크립션 없는 팝업 1.png"),
+    lightgray 50% / cover no-repeat;
+  /*이색 맞나? url 주소값 넣는거 다시 생각해보기*/
+}
+.pont4 {
+  color: #000;
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  /*관리
+  background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;*/
+}
+.pont5 {
+  align-self: stretch;
+  color: #6b6b6b;
+  font-family: Abel;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}

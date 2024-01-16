@@ -1,0 +1,62 @@
+.pont6 {
+  color: #000;
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  /*공유
+background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+font-family: Pretendard;
+*/
+}
+.pont7 {
+  align-self: stretch;
+  color: #6b6b6b;
+  font-family: Abel;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+.dim2 {
+  /*크기수정*/
+  position: relative;
+  width: 570px;
+  height: 469px;
+  flex-shrink: 0;
+  border-radius: 25px;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+.image25 {
+  position: absolute;
+  top: -63px;
+  right: -206px;
+  bottom: -78px;
+  left: -178px;
+  z-index: 0;
+
+  width: 934px;
+  height: 591px;
+  flex-shrink: 0;
+  border-radius: 25px;
+  background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+}
+.popup2 {
+  position: absolute;
+  top: 112px;
+  right: 67px;
+  bottom: 67px;
+  left: 67px;
+  width: 416px;
+  height: 271px;
+  flex-shrink: 0;
+  background: url(<path-to-image>), lightgray 50% / cover no-repeat;
+}

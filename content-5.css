@@ -1,0 +1,47 @@
+.dim3 {
+  width: 550px;
+  height: 450px;
+  border-radius: 15px;
+  background: #f0f6ff;
+  position: relative;
+  overflow: hidden;
+}
+.screan {
+  width: 550px;
+  height: 450px;
+  border-radius: 15px;
+  background: #f0f6ff;
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+  position: absolute;
+  top: 55px;
+  left: 60px;
+  /*수정*/
+}
+.pont8 {
+  color: #000;
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  /*검색
+    background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Pretendard;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    */
+}
+.pont9 {
+  color: #6b6b6b;
+  font-family: Abel;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
