@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linkbrary 로그인</title>
+  <link rel="stylesheet" href="./css/sign.css">
+</head>
+  <body>
+    <header>
+      <a href="index.html"><img src="./img/login/logo.png" alt="logo"></a>
+      <p class="sign-text">
+        회원이 아니신가요? <a class="header-link" href="signup.html">회원 가입하기</a>
+      </p>
+    </header>
+
+    <div class="sign-box">
+      <form class="sign-form">
+        <div class="form-input">
+          <div class="input-box">
+            <label for="email">이메일</label>
+            <input type="email" id="email" name="email" placeholder="codeit@codeit.com" required>
+          </div>
+          <div class="input-box sign-password">
+            <label for="password">비밀번호</label>
+            <input class="password" type="password" id="password" name="password" placeholder="••••••••" required>
+            <button class="eye-button">
+              <img src="./img/login/eye-off.svg" />
+            </button>
+          </div>
+        </div>
+        <button class="submit" type="submit">로그인</button>
+      </form>
+      <div class="social-box">
+        <span>
+          소셜 로그인
+        </span>
+        <div class="icons">
+          <a href="https://www.google.com/"><img src="./img/login/google.svg" alt="google login"></a>
+          <a href="https://www.kakaocorp.com/page/"><img src="./img/login/kakao.svg" alt="kakao login"></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
