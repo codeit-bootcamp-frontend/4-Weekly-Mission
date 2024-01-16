@@ -85,6 +85,14 @@ header {
   line-height: 150%;
 }
 
+.sign-input-error {
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--Linkbrary-red, #ff5b56);
+  font-size: 1.6rem;
+  line-height: 150%;
+}
+
 .sign-input:focus {
   border-color: var(--primary);
 }
@@ -149,6 +157,20 @@ header {
 .kakao-link {
   padding-top: 0.2rem;
   background-color: #f5e14b;
+}
+
+.error-message {
+  color: var(--Linkbrary-red, #ff5b56);
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.error-message-pwd {
+  position: relative;
+  bottom: 1rem;
 }
 
 /* mobile */
