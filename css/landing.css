@@ -34,9 +34,6 @@ nav {
 .login-btn {
   width: 12.8rem;
   height: 5.4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
   border-radius: 0.8rem;
   color: #f5f5f5;
@@ -83,9 +80,6 @@ header {
 .header-link > button {
   width: 35rem;
   height: 5.4rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-image: linear-gradient(91deg, var(--primary) 0%, #6ae3fe 100%);
   border-radius: 0.8rem;
   color: #f5f5f5;
