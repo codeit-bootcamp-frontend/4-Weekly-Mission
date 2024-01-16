@@ -136,7 +136,7 @@ footer {
 @media(min-width: 320px) and (max-width: 767px) {
   .container {
     max-width: 40rem;
-    min-width: 32rem - 6.4rem;
+    min-width: 25.6rem; /* 32rem - 6.4rem */
     width: calc(100vw - 6.4rem);
   }
 }
