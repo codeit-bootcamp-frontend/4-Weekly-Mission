@@ -301,17 +301,12 @@ ul.sns-list li a i {
   footer .copyright {
     order: 2;
   }
-
-  footer ul.footer-menu-list {
-  }
-
-  footer ul.sns-list {
-  }
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
   .header-wrap {
-    padding: 20px 32px;
+    width: min(100% - 32px, 800px);
+    padding: 20px 0;
   }
 
   .main-img-box,
