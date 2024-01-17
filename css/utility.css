@@ -52,7 +52,7 @@
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
 }
 
-.flex-order-1 {
+.btn-text-1 .flex-order-1 {
   order: 1;
 }
 
