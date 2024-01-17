@@ -21,13 +21,18 @@ const eyeBtn = document.querySelector(".btn-eye");
  ********************/
 
 //error-message 토글 함수: message가 있으면 on / 없으면 off
-function toggleErrorMessage(element, message) {
+function toggleErrorMessage(element, message = "") {
+  const prevInput = element === emailErrorMessage ? email : password;
+  element.textContent = message;
+
+  console.log("에러 메시지 토글");
+
   if (message) {
-    element.textContent = message;
     element.classList.remove("display-none");
+    prevInput.classList.add("input-error");
   } else {
-    element.textContent = "";
     element.classList.add("display-none");
+    prevInput.classList.remove("input-error");
   }
 }
 
