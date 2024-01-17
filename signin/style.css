@@ -88,27 +88,11 @@ body {
   font-weight: 400;
 }
 
-.form-sign__input {
-  width: 100%;
-  padding: 1.8rem 1.5rem;
-  border-radius: 0.8rem;
-  border: 0.1rem solid var(--gray20, #ccd5e3);
-  background: var(--white, #fff);
-  color: #373740;
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 2.4rem;
-}
-
-.form-sign__input:focus {
-  outline: 0.1rem solid var(--primary, #6d6afe);
-}
-
 .password-input-wrap {
   position: relative;
 }
 
-.password-input-wrap .btn-eye {
+.btn-eye {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
