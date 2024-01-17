@@ -1,7 +1,7 @@
 @import './global.css';
 
 html {
-  background: var(--Gray-05);
+  background: var(--gray-05);
 }
 
 .sign {
@@ -10,7 +10,7 @@ html {
   justify-content: center;
   align-items: center;
 
-  background: var(--Gray-05);
+  background: var(--gray-05);
 }
 
 .sign .sign-container {
@@ -37,7 +37,7 @@ html {
 }
 
 .login a {
-  color: var(--Primary);
+  color: var(--primary);
   text-decoration: underline;
 }
 
@@ -65,8 +65,8 @@ html {
   align-items: center;
 
   border-radius: 8px;
-  border: 1px solid var(--Gray-03);
-  background: var(--White);
+  border: 1px solid var(--gray-03);
+  background: var(--white);
 }
 
 .sign label {
@@ -74,7 +74,7 @@ html {
 }
 
 .sign input:focus {
-  outline: 1px solid var(--Primary);
+  outline: 1px solid var(--primary);
 }
 
 .sign .password {
@@ -97,7 +97,7 @@ html {
   gap: 10px;
   cursor: pointer;
 
-  color: #f5f5f5;
+  color: var(--white);
   font-size: 18px;
   text-decoration: none;
 
@@ -113,13 +113,13 @@ html {
   justify-content: space-between;
   align-items: center;
 
-  color: #373737;
+  color: var(--gray-01);
   font-size: 14px;
   font-weight: 400;
 
   border-radius: 8px;
-  border: 1px solid var(--Gray-03, #ccd5e3);
-  background: var(--Gray-04, #e7effb);
+  border: 1px solid var(--gray-03);
+  background: var(--gray-04);
 }
 
 .social-login .icons {
