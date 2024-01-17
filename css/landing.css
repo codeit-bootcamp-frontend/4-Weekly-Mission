@@ -84,7 +84,7 @@ header {
   height: 59rem;
 }
 
-article {
+.news-page {
   padding-top: 7rem;
   padding-bottom: 12rem;
 }
@@ -250,6 +250,8 @@ footer {
     "description"
     /550px;
   }
+
+  .
 
   .footer-links {
     display: grid;
