@@ -1,0 +1,31 @@
+:root {
+  /* landingpage */
+  --main-heading-gradient: linear-gradient(
+    91deg,
+    #6d6afe 17.28%,
+    #ff9f9f 74.98%
+  );
+  --title-1-gradient: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  --title-2-gradient: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+  --title-3-gradient: linear-gradient(
+    99deg,
+    #6d7ccd 19.76%,
+    rgba(82, 136, 133, 0.22) 52.69%
+  );
+  --title-4-gradient: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
+
+  --linkbrary-bg: #f0f6ff;
+  --gra-purpleblue-to-skyblue: linear-gradient(
+    91deg,
+    #6d6afe 0.12%,
+    #6ae3fe 101.84%
+  );
+  --the-julge-black: #111322;
+  --linkbrary-black: #000;
+  --linkbrary-primary-color: #6d6afe;
+  --linkbrary-grey-Light: #f5f5f5;
+  --linkbrary-gray20: #ccd5e3;
+  --linkbrary-gray10: #e7effb;
+  --linkbrary-gray100: #373740;
+  --linkbrary-white: #fff;
+}
