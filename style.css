@@ -1,0 +1,350 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Pretendard', 'Abel', 'Acme', sans-serif;
+  width: 100%;
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  background: #F0F6FF;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+section {
+  width: 100%;
+}
+
+footer {
+  width: 100%;
+  height: 160px;
+  padding: 120px 0 0 0;
+}
+
+.nav {
+  padding: 20px 200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 133px;
+  height: 24px;
+}
+
+.login {
+  width: 128px;
+  height: 54px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  padding: 16px 20px;
+  border-radius: 8px;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21.6px;
+  color: #F5F5F5;
+  background: linear-gradient(90.99deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  cursor: pointer;
+}
+
+.header-contents {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #F0F6FF;
+}
+
+.header-title {
+  font-family: Pretendard;
+  text-align: center;
+  color: #000;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 80px;
+}
+
+.header-title-accent {
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(91.26deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+  text-fill-color: transparent;
+}
+
+.header-image {
+  width: 100%;
+}
+
+.header-link {
+  width: 350px;
+  height: 54px;
+  display: inline-block;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  padding: 16px 20px;
+  background: linear-gradient(90.99deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  font-size: 18px;
+  font-weight: 600;
+  color: #F5F5F5;
+  line-height: 21.6px;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.contents-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 157px;
+  padding: 40px 0;
+}
+
+.contents-image {
+  width: 550px;
+  height: 450px;
+}
+
+.contents-title {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000;
+  line-height: 57.6px;
+}
+
+.contents1-title-accent {
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(95.63deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+  text-fill-color: transparent;
+}
+
+.contents2-title-accent {
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(277.01deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+  text-fill-color: transparent;
+}
+
+.contents3-title-accent {
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(99.5deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+  text-fill-color: transparent;
+}
+
+.contents4-title-accent {
+  background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(271.36deg, #FE578F -9.84%, #68E8F9 107.18%);  
+  text-fill-color: transparent;
+}
+
+.contents-description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #6B6B6B;
+}
+
+.footer {
+  background-color: #111322;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 104px 64px 104px;
+}
+
+.footer-copyright {
+  font-family: Acme;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.26px;
+  color: #676767;
+  text-align: center;
+}
+
+.footer-contents {
+  font-family: Acme;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20.26px;
+  text-align: center;
+  color: #CFCFCF;
+}
+
+.footer-website {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-image {
+  width: 20px;
+  height: 20px;
+}
+
+/* Tablet */
+@media (max-width: 1200px) {
+  
+  .login {
+    height: 53px;
+    line-height: 21.48px;
+  }
+
+  header {
+    height: auto;
+  }
+
+  .header-contents {
+    height: auto;
+    padding-top: 40px;
+    padding-left: 251px;
+    padding-right: 251px;
+    gap: 40px;
+  }
+
+  .header-link {
+    height: 53px;
+    line-height: 21.48px;
+  }
+
+  .header-image {
+    height: auto;
+  }
+
+  .contents-frame {
+    height: auto;
+  }
+
+  .contents-image {
+    width: 385px;
+    height: 315px;
+  }
+
+  .contents-title {
+    line-height: ;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  br {
+    display: inline-block;
+    content: " ";
+    padding: 0 2px;
+  }
+
+  body {
+    width: 100%;
+  }
+
+  header {
+    height: auto;
+  }
+
+  .nav {
+    padding: 13px 32px;
+  }
+
+  .logo {
+    width: 88.67px;
+    height: 16px;
+  }
+
+  .login {
+    width: 80px;
+    height: 37px;
+    padding: 10px 16px;
+    font-size: 14px;
+    line-height: 16.71px;
+  }
+
+  .header-contents {
+    height: auto;
+    padding-top: 28px;
+    padding-left: 33px;
+    padding-right: 33px;
+    gap: 24px;
+  }
+
+  .header-title {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .header-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .header-link {
+    width: 200px;
+    height: 37px;
+    padding: 10px 16px;
+    font-size: 14px;
+    line-height: 16.71px;
+  }
+
+  .contents-frame {
+    height: auto;
+    gap: 24px;
+    margin: 40px 33px;
+    flex-direction: column;
+  }
+
+  .contents-frame.reverse {
+    flex-direction: column-reverse;
+    /* reverse 한 frame이 계속 중앙 정렬로만 되는데 어떻게 고쳐야 할까요? */
+  }
+
+  .contents-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .contents-title {
+    font-size: 24px;
+    line-height: 28.64px;
+    white-space: normal;
+  }
+
+  .contents-description {
+    font-size: 15px;
+    line-height: 22.5px;
+    white-space: normal;
+  }
+
+  .footer {
+    padding: 32px 32px 64px 32px;
+  }
+
+  .footer-copyright {
+    font-size: 16px;
+    line-height: 18.4px;
+    /* 모바일 사이즈에서는 copyright이 아래로 내려가던데 이것도 구현을 못했어요 ㅠㅠ */
+  }
+
+  .footer-contents {
+    font-size: 16px;
+    line-height: 18.4px;
+  }
+
+  .footer-website {
+    gap: 12px;
+  }
+
+}

@@ -1,0 +1,154 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Pretendard', sans-serif;
+  width: 100%;
+  margin: 0;
+  min-height: 100vh;
+  background: #F0F6FF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* signin 이랑 상단 여백을 어떻게 똑같이 해야할지 모르겠어요 ㅠㅠ */
+}
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 30px;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.header-logo {
+  width: 210.58px;
+  height: 38px;
+}
+
+.header-signin {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #000;
+}
+
+.signin {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 19.09px;
+  color: #6D6AFE;
+}
+
+.contents-frame {
+  width: 400px;
+}
+
+.contents-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.contents-form label {
+  text-align: left;
+  width: 100%;
+}
+
+.contents-form input {
+  width: 100%;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid #CCD5E3;
+  outline-color: #6D6AFE;
+}
+
+.password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-eye-container {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-eye {
+  width: 16px;
+  height: 16px;
+}
+
+.contents-form button {
+  width: 100%;
+  padding: 16px 20px;
+  border-radius: 8px;
+  background: linear-gradient(90.99deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  border: none;
+  color: #F5F5F5;
+  font-size: 18px;
+  font-weight: 600;
+  gap: 30px;
+  margin-top: 6px;
+  cursor: pointer;
+}
+
+.footer-frame {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  border: 1px solid #CCD5E3;
+  padding: 12px 24px;
+  background-color: #E7EFFB;
+}
+
+.footer-socialLogin-text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.71px;
+  color: #373740;
+}
+
+.footer-socialLogin-image {
+  display: flex;
+  gap: 16px;
+}
+
+.footer-image {
+  width: 42px;
+  height: 42px;
+  gap: 0 16px;
+}
