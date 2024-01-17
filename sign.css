@@ -106,6 +106,16 @@ body {
   flex-direction: column;
   gap: 12px;
 }
+.email__error-msg {
+  display: none;
+  color: var(--Linkbrary-red, #ff5b56);
+  font-family: 'Pretendard';
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 .sign__form--pw,
 .sign__form--pw2 {
   position: relative;

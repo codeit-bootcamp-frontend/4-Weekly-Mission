@@ -9,7 +9,11 @@ function emailCheck(email) {
 emailInput.addEventListener('focusout', function (event) {
   let emailValue = emailInput.value;
   let emailError = document.getElementById('email__error-msg');
-  if (emailCheck(emailValue) === false) {
+  if (!emailValue) {
+    emailError.innerHTML = '이메일을 입력해 주세요.';
+    emailError.style.display = 'block';
+  } else if (emailCheck(emailValue) === false) {
+    emailError.innerHTML = '올바른 이메일 주소가 아닙니다.';
     emailError.style.display = 'block';
   } else {
     emailError.style.display = 'none';
