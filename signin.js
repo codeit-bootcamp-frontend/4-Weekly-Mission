@@ -1,6 +1,6 @@
 const emailInput = document.getElementById('signin-email');
 const pwInput = document.getElementById('signin-pw');
-
+const pwOnOffImg = document.getElementById('pw-onoff');
 //이메일 유효성 검사 메서드
 function emailCheck(email) {
   const email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
@@ -29,8 +29,10 @@ pwInput.addEventListener('focusout', function () {
   const pwError = document.getElementById('pw__error-msg');
   if (!pwValue) {
     pwError.innerHTML = '비밀번호를 입력해 주세요.';
+    pwOnOffImg.style.bottom = '2.9375rem';
     pwError.style.display = 'block';
   } else {
+    pwOnOffImg.style.bottom = '1.1875rem';
     pwError.style.display = 'none';
   }
 });
