@@ -4,7 +4,7 @@ body {
   background-color: var(--bg-color);
 }
 
-input {
+.sign-input {
   width: 100%;
   padding: 18px 15px;
   border-radius: 8px;
