@@ -159,6 +159,7 @@ main {
   width: 22px;
   height: 22px;
 }
+
 /* 4주차 */
 
 .email-request {
@@ -215,6 +216,8 @@ main {
   position: relative;
   top: -20px;
 }
+
+
 @media (max-width: 767px) {
   main {
     margin: 120px auto 233px;
