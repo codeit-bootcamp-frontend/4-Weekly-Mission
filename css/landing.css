@@ -231,21 +231,21 @@ footer {
 
 /* tablet */
 @media (max-width: 1199px) {
-  /* nav */
-  .nav-content {
+  /* header */
+  .header-content {
     padding: 2rem 3.2rem;
   }
 
-  /* header */
-  .header-div {
+  /* main */
+  .main-div {
     padding-top: 4rem;
   }
 
-  .header-br {
+  .main-br {
     display: inline;
   }
 
-  .header-div img {
+  .main-div img {
     width: 69.8rem;
     height: 34.3rem;
   }
@@ -269,40 +269,40 @@ footer {
 
 /* mobile */
 @media (max-width: 767px) {
-  /* nav */
-  .nav-content {
+  /* header */
+  .header-content {
     padding: 1.3rem 3.2rem;
   }
 
-  .nav-content img {
+  .header-content img {
     width: 8.8667rem;
     height: 1.6rem;
   }
 
-  .nav-content button {
+  .header-content button {
     width: 8rem;
     height: 3.7rem;
     font-size: 1.4rem;
   }
 
-  /* header */
-  .header-div {
+  /* main */
+  .main-div {
     padding: 2.8rem 3.2rem 0;
     gap: 2.4rem;
   }
 
-  .header-h1 {
+  .main-h1 {
     font-size: 3.2rem;
     line-height: 131.25%;
   }
 
-  .header-link > button {
+  .main-link > button {
     width: 20rem;
     height: 3.7rem;
     font-size: 1.4rem;
   }
 
-  .header-div img {
+  .main-div img {
     width: 100%;
     height: auto;
   }
