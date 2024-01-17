@@ -101,22 +101,22 @@ header {
   .section1_img {
     display: flex;
     width: 1200px;
-    width: 1200px;
     height: 590px;
+    justify-content: center;
   }
 
   .section1_img_box {
-    width: 1118px;
+    width: 100%;
     height: 659px;
     border-radius: 25px;
     box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
-    background-image: url("https://s3-alpha-sig.figma.com/img/2080/5edd/4edb32d644767d750d576d9e6c790df2?Expires=1705276800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BqGZc9UNt8oaBlpKF~s0aAtiFTIt~BFVvt0sZhM2E1yAp6IKFxNJ2JhZOAJZWN1ckpBG5Bh4nmxXdyD0aGUB93JByxhvD12PkyGIp8D5MftpPbl963suLX5bZ-4nEKEhcW1XqBqE-RAAmune4exXrsvO0R7YrdKNNLa3FZYZPmeYo3TMzcNQTTBGPmo075QgUY3MvW09HZZRKNQSIY9uYv6oEuH-EORuDCiYAnplikfEhnipG8WoSM4YhQxH8oGAzKbW~6wEwC4W3KpKVABU2PpmeVe0mgSFsJRUSh4DznRjUKw2Tb-Jp2Z4tl5wHuG1z3Ksnw3YWMGnTPzVw~W8Fw__");
+    background-image: url("/img/imagemain.png");
     background-position: top;
     background-repeat: no-repeat;
     background-size: cover;
   }
   .section1_img_linear {
-    width: 1118px;
+    width: 100%;
     height: 590px;
     background-image: linear-gradient(
       to bottom,
@@ -188,7 +188,7 @@ header {
   .section3_img_box {
     width: 34.375rem;
     height: 28.125rem;
-    background-image: url("https://s3-alpha-sig.figma.com/img/42fe/81b4/36f80c1fae28a3c13827315c1fe5becd?Expires=1705881600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ASuchbbmoUXl0sCd-vFirPChJ69c80WWzWWXyQ0-BAXGXAbvQmW34yXRCfkzV2adZPpB16l2NElEZagGORvXEj9~tFRH92YfBv0nDy6BxO6K4yJax78JRt2BVE6iT4Lrz8QbvuITQCL~gzFne-dAoIVJmaqXD81z8aLlH~442q4fVonGtJk5SDDVY9c0Bo67T-yG66rs33SVW9PcnHPgJZnykBjzZnrheZ5wXKRU6IzWb4mbSrvYoWJ7pLdZBlISoccPxtNK9vBx0rJUMZWgfDfySxiS3uwMR3wqAlRh0ueEdR02AFCZU1bzubrntkCVluWwHKl5LW6H3PPG7zxbag__");
+    background-image: url("/img/img2.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -260,7 +260,7 @@ header {
     margin-top: 10px;
   }
   .section4_img_box {
-    background-image: url("https://s3-alpha-sig.figma.com/img/2080/5edd/4edb32d644767d750d576d9e6c790df2?Expires=1705276800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BqGZc9UNt8oaBlpKF~s0aAtiFTIt~BFVvt0sZhM2E1yAp6IKFxNJ2JhZOAJZWN1ckpBG5Bh4nmxXdyD0aGUB93JByxhvD12PkyGIp8D5MftpPbl963suLX5bZ-4nEKEhcW1XqBqE-RAAmune4exXrsvO0R7YrdKNNLa3FZYZPmeYo3TMzcNQTTBGPmo075QgUY3MvW09HZZRKNQSIY9uYv6oEuH-EORuDCiYAnplikfEhnipG8WoSM4YhQxH8oGAzKbW~6wEwC4W3KpKVABU2PpmeVe0mgSFsJRUSh4DznRjUKw2Tb-Jp2Z4tl5wHuG1z3Ksnw3YWMGnTPzVw~W8Fw__");
+    background-image: url("/img/imagemain.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -277,7 +277,7 @@ header {
   .section4_img1 {
     width: 416px;
     height: 271px;
-    background-image: url("https://s3-alpha-sig.figma.com/img/acc1/c137/e4c7c24a1de11d2c66e956a2f5e51b60?Expires=1705276800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VaNhFdAFToO6jArnI95Tg247Nwbl5ftPK5uGPo1l6Ivw8GC0EuGDLAoxRb6r9kNAQuecZZXGv9kZW-PaF3cT2OOvs7~mHyPI2uvjssSngxOu0hkFao-22gVGOst8EsY8Qvq~ir7G9xOBt3arRW3aBKhIWj6jjAxzKve06Zm9~mco91OcIGOztEGkCWTMiPLAQdxW7dbPU40Vv~zUmvHoyps4OikHv8CfV4UAvO4zj0J-ib7TOFH5ks3Ar~EpLrzF1igAkYP0osY64YZeonPnUTJUOHUuaX6LEH~RgRHBNv0EUTKg1~UWFkFmxHbo0molSF5g5NfIdOgq8flOt8PurA__");
+    background-image: url("/img/_img3.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -316,7 +316,7 @@ header {
       rgba(255, 255, 255, 0) 48.72%,
       #000 128.17%
     );
-    background-image: url("https://s3-alpha-sig.figma.com/img/7a0c/dfbc/968f67f18c20cfb14b1e2e3ad8a3f125?Expires=1705276800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BpABo4JNNjaUB905pxI9xzGetdaxHwofqvQg6taonnE2cHl6yCBz1ccaUqPmrxP50vFNQ9uwljOM4qvmirArm5B--BWLnt6BDJ9G1RQFWajb2hYtCb3SSrvnUopTayDljd0SbOYfZxlQedVHfNc3ibEC0P~eE8crmf3oLl501QuqIGz-YVrVSgSuBU6jiBOkb8GS4F~4DbwQYV~Ybducu0z1kyJLElHMMzf2xeTonVEDVpaiUssUhF2ZHcav1ThCPAKcjf7PEIHAOWtNadzVVreiBQm1QK3GbNwzuMqT3OElzB5qaWaVnZlvHI1lDETWhH7L21JHktBPgVrlOvp~tA__");
+    background-image: url("/img/_img4.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
