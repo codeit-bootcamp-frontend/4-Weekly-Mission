@@ -21,7 +21,7 @@ input:focus {
 
 button {
     border: none;
-    paddint: unset;
+    padding: unset;
     background-color: unset;
     cursor: pointer;
 }
