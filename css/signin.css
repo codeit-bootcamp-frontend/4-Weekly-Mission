@@ -1,0 +1,138 @@
+@import "./reset.css";
+main {
+  width: 100%;
+  display: flex;
+  padding: 14.875rem 0rem 15.8125rem 0rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.wrap {
+  width: 25rem;
+  margin: auto;
+}
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.top a {
+  color: #6d6afe;
+  font-family: Pretendard;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.top img {
+  width: 13.16144rem;
+  height: 2.375rem;
+}
+.top-box {
+  display: flex;
+}
+.input-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin: 1.875rem 0;
+}
+.input-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+label {
+  color: #000;
+  font-family: Pretendard;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+input {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid #ccd5e3;
+  background: #fff;
+  padding: 1.125rem 0.9375rem;
+}
+.input-check {
+  border: 1px solid #6d6afe;
+}
+.input-icon {
+  background-image: url("/img/eye-off.png");
+  background-repeat: no-repeat;
+  background-size: 1rem;
+  background-position: 95% 50%;
+}
+
+button {
+  text-align: center;
+  padding: 1rem 1.25rem;
+  color: #fff;
+  border-radius: 0.5rem;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  width: 100%;
+  font-size: 1.125rem;
+}
+.sns-wrap {
+  display: flex;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid #ccd5e3;
+  background: #e7effb;
+  margin-top: 2rem;
+}
+.sns-wrap p {
+  color: var #373740;
+  font-family: Pretendard;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.sns-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+.sns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.625rem;
+  height: 2.625rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.sns1 {
+  background-image: url("/img/google.png");
+}
+.sns2 {
+  background-image: url("/img/facebook.png");
+}
+.sns img {
+  width: 1.625rem;
+  height: 1.5rem;
+}
+@media (min-width: 375px) and (max-width: 767px) {
+  .wrap {
+    width: 100%;
+  }
+  main {
+    padding: 14.875rem 2rem 15.8125rem 2rem;
+  }
+}
+/**/
