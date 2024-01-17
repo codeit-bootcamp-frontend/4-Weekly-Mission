@@ -138,34 +138,24 @@ a {
   background: var(--gradient-linkbrary);
 }
 
-.non-visible-dt {
+.sm-only {
   display: none;
 }
 
-.non-visible-m {
-  display: block;
-}
-
 @media (min-width: 375px) and (max-width: 767px) {
+  .sm-only {
+    display: block;
+  }
   .btn {
     width: auto;
     padding: 10px 16px;
     border: none;
     font-size: 14px;
   }
-
-  .non-visible-dt {
-    display: block;
-  }
-
-  .non-visible-m {
-    display: none;
-  }
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
-  .non-visible-dt,
-  .non-visible-m {
-    display: block;
+  .sm-only {
+    display: none;
   }
 }

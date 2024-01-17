@@ -94,6 +94,7 @@ header {
 
 .content-item {
   display: grid;
+  justify-items: start;
   grid-template:
     ". img"
     "copy img"
@@ -125,29 +126,32 @@ header {
   letter-spacing: 0.00625em;
   line-height: 1.20833;
   color: #000;
-  background-clip: text;
-  -webkit-background-clip: text;
 }
 
-h3.copy-save {
+h3.copy-save .font-gradient-bg {
   background: var(--gradient-pink-blue);
 }
 
-h3.copy-folder {
+h3.copy-folder .font-gradient-bg {
   background: var(--gradient-blue-yellow);
 }
 
-h3.copy-share {
+h3.copy-share .font-gradient-bg {
   background: var(--gradient-purple-green);
 }
 
-h3.copy-search {
+h3.copy-search .font-gradient-bg {
   background: var(--gradient-pink-cyan);
 }
 
 .content-list h3 .font-gradient {
   color: transparent;
   -webkit-text-fill-color: transparent;
+}
+
+.content-list h3 .font-gradient-bg {
+  background-clip: text;
+  -webkit-background-clip: text;
 }
 
 .copy-desc {
@@ -267,6 +271,10 @@ ul.sns-list li a i {
 
   .content-item:last-child {
     margin-bottom: 80px;
+  }
+
+  .content-list li h3 {
+    display: flex;
   }
 
   .content-item img {
