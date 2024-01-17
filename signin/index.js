@@ -85,6 +85,17 @@ function togglePassword() {
   }
 }
 
+//사용자 입력 함수 호출 제어
+function handleUserAction(event) {
+  console.log(event.key);
+  if (event.type === "click") {
+    checkLogin();
+  } else if (event.type === "keypress" && event.key === "Enter") {
+    checkLogin();
+    element.preventDefault();
+  }
+}
+
 /********************
  * EVENT HANDLER
  ********************/
@@ -98,6 +109,7 @@ password.addEventListener("focusout", function () {
   checkForm(password);
 });
 
-//click 이벤트 핸들러
-loginBtn.addEventListener("click", checkLogin);
+//click, keypress 이벤트 핸들러
+loginBtn.addEventListener("click", handleUserAction);
+document.addEventListener("keypress", handleUserAction);
 eyeBtn.addEventListener("click", togglePassword);
