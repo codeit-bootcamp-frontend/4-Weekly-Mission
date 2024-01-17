@@ -159,7 +159,6 @@ footer {
   height: 16rem;
   padding-top: 3.2rem;
   background-color: var(--black);
-  margin-top: -8rem;
 }
 
 .footer-box {
@@ -227,7 +226,7 @@ footer {
     margin: 0 32px;
   }
 
-  article {
+  .news-page {
     margin : 0 32px;
   }
 
