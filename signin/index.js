@@ -2,12 +2,15 @@ const inputArray = document.querySelectorAll(".form-sign__input");
 const errorMessageArray = document.querySelectorAll(".error-message");
 const loginBtn = document.querySelector(".btn-login");
 
+//이메일, 비밀번호 input
 const email = inputArray[0];
 const password = inputArray[1];
 
+//이메일, 비밀번호 error-message
 const emailErrorMessage = errorMessageArray[0];
 const passwordErrorMessage = errorMessageArray[1];
 
+//error-message 토글 함수: message가 있으면 on / 없으면 off
 function toggleErrorMessage(element, message) {
   if (message) {
     element.textContent = message;
@@ -42,6 +45,8 @@ function checkLogin() {
     console.log("로그인 성공");
     toggleErrorMessage(emailErrorMessage);
     toggleErrorMessage(passwordErrorMessage);
+    //페이지 이동
+    location.href = "../folder/index.html";
   } else {
     console.log("로그인 실패");
     toggleErrorMessage(emailErrorMessage, "이메일을 확인해 주세요.");
