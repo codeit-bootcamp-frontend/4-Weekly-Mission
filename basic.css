@@ -7,6 +7,7 @@
 
 html {
    font-family: acme, 'Noto Sans KR', sans-serif;
+   font-size: 62.5%;
 }
 
 :root {
@@ -45,7 +46,7 @@ body {
 .button {
    display: flex;
    color: var(--LBrary-GrayLight);
-   font-size: 1.125rem;
+   font-size: 1.8rem;
    font-weight: 600;
    padding: 16px 20px;
    border-radius: 8px;
@@ -125,11 +126,23 @@ body {
       margin: 0 auto;  
       padding: 70px 0 0;
       gap: 40px;
-      font-size: 4rem;
+      font-size: 6.4rem;
       text-align: center;
       font-weight: 700;
       line-height: 125%;
    }
+
+   div.landingPage::after{
+      content: '';
+      background-image: url(./Assets/main_Image.png);
+      background-size: contain;
+      width: 100%;
+      height: 500px;
+      background-position: center bottom;
+      margin: 0;
+      background-repeat: no-repeat;
+   }
+
 
    header div.landingPage > img {
       width: 1118px;
@@ -168,14 +181,18 @@ body {
       margin: 0;
    }
 
-   article.landingPage > img {
+   article.landingPage::after {
+      content: '';
+      background-image: url(Assets/main_image1.png);
+      background-size: 100%;
+      background-repeat: no-repeat;
       grid-row: 1 / 3;
       width: 550px;
       height: 450px;
    }
 
    article p.title {
-      font-size: 3rem;
+      font-size: 4.8rem;
       font-weight: 700;
       letter-spacing: -0.3px;
       grid-row: 1;
@@ -186,7 +203,7 @@ body {
 
    article p.description {
       color: #6B6B6B;
-      font-size: 1rem;
+      font-size: 1.6rem;
       font-weight: 400;
       line-height: 24px;
       margin: auto;
@@ -208,7 +225,7 @@ body {
       color: #676767;
       text-align: left;
       font-family: acme;
-      font-size: 1rem;
+      font-size: 1.6rem;
       font-weight: 400;
    }
 
@@ -217,7 +234,7 @@ body {
       gap: 30px;
       color: #CFCFCF;
       font-family: acme;
-      font-size: 1rem;
+      font-size: 1.6rem;
       font-weight: 400;
    }
 
@@ -262,6 +279,10 @@ body {
          width: 80%;
       }
 
+      div.landingPage::after{
+         height: 0;
+         padding-top: calc(590/1200*100%);
+      }
 
 
       article.landingPage {
@@ -272,7 +293,7 @@ body {
       }
 
 
-      article.landingPage > img {
+      article.landingPage::after {
          width: 385px;
          height: 315px;
       }
@@ -286,7 +307,7 @@ body {
 
    @media (max-width: 767px) {
       header .landingPage {
-         font-size: 2rem;
+         font-size: 3.2rem;
          padding: 28px 32px 0;
       }
 
@@ -302,13 +323,13 @@ body {
 
       .flexibleNavInTablet > a.button {
          width: 80px;
-         font-size: 0.875rem;
+         font-size: 1.4rem;
          padding: 10px 16px;
       }
 
       .landingPage > a.button {
          width: 200px;
-         font-size: 0.875rem;
+         font-size: 1.4rem;
       }
 
       .articleWhiteBackground {
@@ -322,22 +343,24 @@ body {
       }
 
       article p.title {
-         font-size: 1.5rem;
+         font-size: 2.4rem;
          margin-bottom: 20px;
          grid-row: 1;
       }
 
       article p.description {
-         font-size: 0.9375rem;
+         font-size: 1.5rem;
          margin-top: 16px;
          grid-row: 3;
       }
 
-      article.landingPage > img {
+      article.landingPage::after{
          width: 100%;
-         height: auto;
          grid-column: 1;
          grid-row: 2;
+         height : 0;
+         padding-top: calc(900/1100*100%);
+	
       }
 
       footer {
