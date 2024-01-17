@@ -74,7 +74,7 @@ body {
   gap: 2.4rem;
 }
 
-label {
+.form-sign__label {
   display: flex;
   flex-direction: column;
   width: 100%;
