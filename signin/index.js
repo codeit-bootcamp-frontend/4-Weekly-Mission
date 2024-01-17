@@ -1,3 +1,7 @@
+/********************
+ * VARIABLE DEFINTION
+ ********************/
+
 //이메일, 비밀번호 input
 const email = document.querySelector("#input-email");
 const password = document.querySelector("#input-password");
@@ -11,6 +15,10 @@ const loginBtn = document.querySelector(".btn-login");
 
 //비밀번호 btn-eye
 const eyeBtn = document.querySelector(".btn-eye");
+
+/********************
+ * FUNCTION
+ ********************/
 
 //error-message 토글 함수: message가 있으면 on / 없으면 off
 function toggleErrorMessage(element, message) {
@@ -71,6 +79,10 @@ function togglePassword() {
     icon.src = "../public/icon/eye-off.svg";
   }
 }
+
+/********************
+ * EVENT HANDLER
+ ********************/
 
 //focusout 이벤트 핸들러
 email.addEventListener("focusout", function () {
