@@ -152,5 +152,9 @@ header {
 }
 
 .empty-email-error, .correct-email-error{
-  display: none;
+  display: none; 
+}
+
+.show-error {
+  display: block; 
 }
