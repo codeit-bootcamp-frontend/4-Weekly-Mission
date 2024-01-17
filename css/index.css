@@ -69,12 +69,6 @@ nav {
   padding: 1.5rem 10rem;
 }
 
-.main-title span {
-  background: linear-gradient(90deg, var(--primary), #ff9f9f);
-  color: transparent;
-  -webkit-background-clip: text;
-}
-
 /** main **/
 main {
   background-color: var(--white);
@@ -113,25 +107,31 @@ main {
 }
 
 /** text gradiant **/
-.link {
+.text-gradient-purple {
+  background: linear-gradient(90deg, var(--primary), #ff9f9f);
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+.text-gradient-pink {
   background: linear-gradient(90deg, #fe8a8a, #a4ceff);
   color: transparent;
   -webkit-background-clip: text;
 }
 
-.manage {
+.text-gradient-blue {
   background: linear-gradient(270deg, #6fbaff, #ffd88b);
   color: transparent;
   -webkit-background-clip: text;
 }
 
-.share {
+.text-gradient-skyblue {
   background: linear-gradient(90deg, #6d7ccd, #52888538);
   color: transparent;
   -webkit-background-clip: text;
 }
 
-.search {
+.text-gradient-mint {
   background: linear-gradient(270deg, #fe578f, #68e8f9 25%);
   color: transparent;
   -webkit-background-clip: text;
