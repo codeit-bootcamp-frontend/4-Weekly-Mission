@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="./src/signin.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div class="LoginFormFrame">
+    <form class="LoginForm">
+      <a href="/"><img class="LoginLogo" src="./images/logo.svg"></a>
+      <div class="LoginNoMem">
+        <div class="LoginQ">회원이 아니신가요?</div>
+        <a href="./signup.html" class="LoginA">회원 가입하기</a>
+      </div>
+      <div class="LoginEmail">이메일</div>
+      <input type="text" name="email" placeholder="codeit@codeit.com" class="LoginInputEmail">
+      <div class="LoginPw">비밀번호</div>
+      <div class="NoSee">
+        <input type="password" name="password">
+        <button class="eye-button"><img src="./images/eye-off.svg"></button>
+      </div>
+      
+      <button class="LoginBtn">로그인</button>
+      <div class="LoginSocial">
+        <div class="sns-text">소셜로그인</div>
+        <div class="LoginSocialImg">
+          <a class="circle google-link" href="https://www.google.com/">
+            <img src="./images/google.png" class="googleImg">
+          </a>
+          <a class="circle kakao-link" href="https://www.kakaocorp.com/page/">
+            <img src="./images/kakao.svg" class="kakaoImg">
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+.SignUpFormFrame {
+  display: flex;
+  padding: 238px 0px 116px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.SignUpPw {
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 24px;
+}
+
+.SignUpNoPw {
+  color: #FF5B56;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 6px;
+}

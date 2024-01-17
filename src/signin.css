@@ -1,0 +1,210 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F0F6FF;
+}
+
+.LoginFormFrame {
+  display: flex;
+  padding: 238px 0px 252px 0px;
+  justify-content: center;
+  align-items: center;
+}
+
+.LoginLogo {
+  width: 210.583px;
+  height: 38px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.LoginNoMem {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  margin-bottom: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.LoginQ {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.LoginA {
+  color: #6D6AFE;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.LoginEmail, .LoginPw {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+input {
+  display: flex;
+  width: 400px;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #CCD5E3;
+  margin-top: 12px;
+}
+
+.LoginInputEmail {
+  margin-bottom: 24px;
+}
+
+.LoginBtn {
+  display: flex;
+  width: 400px;
+  padding: 16px 20px;
+  margin-top: 30px;
+  margin-bottom: 32px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: none;
+  color: #f5f5f5;
+  font-size: 18px;
+  font-weight: 600;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+}
+
+.LoginSocial {
+  display: flex;
+  width: 400px;
+  height: 66px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #CCD5E3;
+  background-color: #e7effb;
+  padding: 12px 24px;
+}
+
+.LoginSocialImg {
+  display: flex;
+  gap: 16px;
+}
+
+.sns-text {
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.google-link {
+  background-color: #fff;
+  border: 0.1rem solid #d3d4dd;
+}
+
+.kakao-link {
+  padding-top: 0.2rem;
+  background-color: #f5e14b;
+}
+
+.googleImg, .kakoImg {
+  width: 22px;
+  height: 22px;
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+}
+
+input:focus {
+  outline: 2px solid #6D6AFE;
+}
+
+.NoSee {
+  display: flex;
+  position: relative;
+}
+
+.eye-button {
+  border: none;
+  position: absolute;
+  right: 20px;
+  bottom: 13px;
+  background-color: #fff;
+}
+
+@media (max-width: 1199px) {
+  .LoginFormFrame {
+    display: flex;
+    width: 1199px;
+    padding: 200px 399px 291px 400px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .LoginLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 210.583px; 
+    height: 38px;
+  }
+
+  input {
+    display: flex;
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .LoginBtn {
+    width: 400px;
+  }
+
+  .LoginSocial {
+    width: 400px;
+  }
+}
+@media (max-width: 767px) {
+  .LoginFormFrame {
+    display: inline-flex;
+    padding: 120px 32px 233px 33px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .LoginLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 210.583px;
+    height: 38px;
+  }
+
+  input {
+    display: flex;
+    width: 325px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .LoginBtn {
+    width: 325px;
+  }
+
+  .LoginSocial {
+    width: 325px;
+  }
+}
