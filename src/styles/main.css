@@ -1,7 +1,7 @@
 @import './global.css';
 
 header {
-  padding: 20px 0;
+  padding: 1.2rem 0;
   flex-direction: column;
   align-items: center;
   align-self: stretch;
@@ -13,7 +13,7 @@ header {
 }
 
 nav {
-  margin: 0 200px;
+  margin: 0 12.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,22 +21,21 @@ nav {
 }
 
 .main-logo {
-  width: 8.313rem;
-  height: 1.5rem;
+  width: 8.5rem;
 }
 
 .btn-login {
   display: flex;
   width: 8rem;
-  padding: 1rem 1.25rem;
+  padding: 1rem 1rem;
   justify-content: center;
   align-items: center;
 
   color: var(--white);
-  font-size: 1.125rem;
+  font-size: 1rem;
   text-decoration: none;
 
-  border-radius: 0.5rem;
+  border-radius: 8px;
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }
 
@@ -47,11 +46,10 @@ main {
 .content-01 {
   display: flex;
   padding-top: 7rem;
-  /* padding: 4.375vw 22.5vw 0vw 22.5vw; */
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  gap: 40px;
+  gap: 2.5rem;
   overflow: hidden;
 
   background-color: var(--gray-05);
@@ -74,25 +72,25 @@ main {
 
 .btn-addlink {
   display: flex;
-  width: 21.875rem;
-  padding: 1rem 1.25rem;
+  width: 22rem;
+  padding: 1rem 1rem;
   justify-content: center;
   align-items: center;
 
   color: var(--white);
-  font-size: 1.125rem;
+  font-size: 1rem;
   text-decoration: none;
 
-  border-radius: 0.5rem;
+  border-radius: 8px;
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }
 
 .content-01 img {
   display: flex;
   width: 75rem;
-  height: 36.875rem;
+  height: 37rem;
   object-fit: contain;
-  top: 3.125vw;
+  top: 3rem;
 }
 
 section {
@@ -101,7 +99,7 @@ section {
   padding: 3rem 4rem;
   justify-content: center;
   align-items: center;
-  column-gap: 5vw;
+  column-gap: 5rem;
   row-gap: 3rem;
 }
 
@@ -111,7 +109,6 @@ section:nth-of-type(odd) {
     'title image'
     'text image'
     '. image';
-  /* /291px 55rem; */
 }
 
 section:nth-of-type(even) {
@@ -120,14 +117,12 @@ section:nth-of-type(even) {
     'image title'
     'image text'
     'image .';
-  /* /500px 29.1rem; */
 }
 
-section h1 {
+section h2 {
   grid-area: title;
   font-size: 3rem;
   font-weight: 700;
-  letter-spacing: -0.3px;
   color: var(--black);
 }
 
@@ -141,8 +136,7 @@ section p {
 
 section img {
   grid-area: image;
-  width: 34.375rem;
-  /* height: 28.125rem; */
+  width: 34rem;
   border-radius: 15px;
   background: var(--gray-05);
   z-index: 0;
@@ -178,9 +172,9 @@ section img {
 
 footer {
   display: flex;
-  height: 10vw;
-  margin-top: 120px;
-  padding: 32px 104px 64px 104px;
+  height: 10rem;
+  margin-top: 7.5rem;
+  padding: 2rem 6.5rem 4rem 6.5rem;
   flex-direction: column;
   flex-shrink: 0;
   align-items: center;
@@ -203,7 +197,7 @@ footer .container {
 footer .privacy-faq {
   display: flex;
   align-items: flex-start;
-  gap: 30px;
+  gap: 2rem;
 
   color: var(--gray-04);
   font-size: 1rem;
@@ -213,13 +207,7 @@ footer .privacy-faq {
 footer .icons {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-}
-
-footer a {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
+  gap: 0.7rem;
 }
 
 @media (min-width: 1920px) {
@@ -236,7 +224,7 @@ footer a {
 
   .content-01 img {
     width: 40rem;
-    height: 21.438rem;
+    height: 20rem;
   }
 
   section img {
@@ -280,7 +268,7 @@ footer a {
   }
 
   section p {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   section img {

@@ -6,7 +6,7 @@ html {
 
 .sign {
   display: flex;
-  padding-top: 238px;
+  padding-top: 15rem;
   justify-content: center;
   align-items: center;
 
@@ -15,17 +15,17 @@ html {
 
 .sign .sign-container {
   display: flex;
-  width: 400px;
+  width: 25rem;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 2rem;
 }
 
 .sign-logo {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .login {
@@ -33,7 +33,7 @@ html {
   width: 100%;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: 2rem;
 }
 
 .login a {
@@ -42,17 +42,17 @@ html {
 }
 
 .login img {
-  height: 38px;
+  width: 13rem;
 }
 
 .sign form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 1.5rem;
   width: 100%;
 
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -62,8 +62,8 @@ html {
 
 .sign-input {
   display: flex;
-  margin-top: 12px;
-  padding: 18px 15px;
+  margin-top: 0.5rem;
+  padding: 1.2rem 1rem;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -83,38 +83,39 @@ html {
 
 .sign-password img {
   position: absolute;
-  width: 16px;
-  top: 38px;
-  right: 14px;
+  width: 1rem;
+  top: 3rem;
+  right: 1rem;
 }
 
 .sign .btn-sign-login {
   display: flex;
-  padding: 16px 20px;
+  padding: 1rem 1.2rem;
   width: 100%;
+  height: 3.5rem;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   cursor: pointer;
 
   color: var(--white);
-  font-size: 18px;
+  font-size: 1rem;
   text-decoration: none;
 
-  border: none !important;
+  border: none;
   border-radius: 8px;
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }
 
 .social-login {
   display: flex;
-  padding: 12px 24px;
+  padding: 0.5rem 1rem;
   width: 100%;
+  height: 4.5rem;
   justify-content: space-between;
   align-items: center;
 
   color: var(--gray-01);
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 400;
 
   border-radius: 8px;
@@ -125,7 +126,8 @@ html {
 .social-login .icons {
   display: flex;
   align-items: flex-start;
-  gap: 4px;
+  margin-top: 0.2rem;
+  gap: 0.2rem;
 }
 
 .sign .check-password {
@@ -134,13 +136,13 @@ html {
 
 .check-password img {
   position: absolute;
-  width: 16px;
-  top: 38px;
-  right: 14px;
+  width: 1rem;
+  top: 3rem;
+  right: 1rem;
 }
 
 @media (max-width: 767px) {
   .sign {
-    margin: 0 32px;
+    margin: 0 2rem;
   }
 }
