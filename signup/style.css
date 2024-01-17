@@ -62,7 +62,7 @@ body {
 }
 
 .form-sign,
-.button-wrap {
+.btn-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,7 +104,7 @@ body {
   outline: 0.1rem solid var(--primary, #6d6afe);
 }
 
-.password-input-wrap .button-eye {
+.password-input-wrap .btn-eye {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -116,7 +116,7 @@ body {
   border: 0;
 }
 
-.button-wrap {
+.btn-wrap {
   gap: 3.2rem;
 }
 
