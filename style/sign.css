@@ -1,0 +1,152 @@
+@import "./global.css";
+
+body {
+  padding-top: 23.8rem;
+  background: var(--Linkbrary-bg, #F0F6FF);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 3rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.6rem;
+}
+
+.logo-link {
+  display: flex;
+  justify-content: center;
+}
+
+.header-logo {
+  height: 3.8rem;
+}
+
+.header-message {
+  display: flex;
+  column-gap: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.header-link {
+  height: fit-content;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--Linkbrary-primary-color, #6D6AFE);
+  border-bottom: 0.1rem solid var(--Linkbrary-primary-color, #6D6AFE);
+}
+
+.sign-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 3.2rem;
+  width: 40rem;
+}
+
+.sign-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3rem;
+  width: 100%;
+}
+
+.sign-inputs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2.4rem;
+}
+
+.sign-input-box {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+}
+
+.sign-password {
+  position: relative;
+}
+
+.sign-input-label {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.sign-input {
+  background: var(--Linkbrary-white, #FFF);
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+  font-size: 1.6rem;
+  line-height: 150%;
+}
+
+.sign-input:focus {
+  border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
+}
+
+.eye-button {
+  position: absolute;
+  bottom: 2.2rem;
+  right: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 5.4rem;
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  border-radius: 0.8rem;
+  color: #f5f5f5;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.sns-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.2rem 2.4rem;
+  border-radius: 0.8rem;
+  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+  background: var(--Linkbrary-gray10, #E7EFFB);}
+
+.sns-links {
+  display: flex;
+  column-gap: 1.6rem;
+}
+
+.sns-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 50%;
+}
+
+.sns-text {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--gray100);
+}
+
+.google-link {
+  background-color: #FFFFFF;
+  border: 0.1rem solid #d3d4dd;
+}
+
+.kakao-link {
+  padding-top: 0.2rem;
+  background-color: #f5e14b;
+}
