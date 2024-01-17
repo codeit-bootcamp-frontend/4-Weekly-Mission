@@ -36,13 +36,13 @@ form {
   gap: 1.6rem;
 }
 
-.signup {
+.signin {
   color: var(--black, #000);
   font-size: 1.6rem;
   line-height: 2.4rem;
 }
 
-.signup-link {
+.signin-link {
   color: var(--primary);
   font-size: 1.6rem;
   font-weight: 600;
@@ -111,7 +111,7 @@ footer {
   background: #E7EFFB;
 }
 
-.footer-sns-login {
+.footer-sns-signup {
   display: flex;
   align-items: center;
   gap: 1.6rem;
