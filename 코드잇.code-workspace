@@ -1,0 +1,39 @@
+{
+	"folders": [
+		{
+			"path": "../../../Desktop/코드잇"
+		},
+		{
+			"path": "../../항공"
+		},
+		{
+			"path": "../../project (1)/미니플젝_항공"
+		},
+		{
+			"path": "../../project (2)/주식_미니플젝"
+		},
+		{
+			"path": "../../project (1)/미니플젝_랜딩페이지"
+		},
+		{
+			"path": "../../project (1)/미니플젝_뮤직매거진"
+		},
+		{
+			"path": "../../project (1)/미니플젝_플레이리스트"
+		},
+		{
+			"path": "../../project (1)/미니플젝_음악플레이어"
+		},
+		{
+			"path": "."
+		}
+	],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "항공",
+    "workbench.colorCustomizations": {
+      "editor.background":"#fdf9eb" 
+
+    },
+    "editor.fontFamily": "D2Coding, Consolas, 'Courier New', monospace"
+  }
+}
