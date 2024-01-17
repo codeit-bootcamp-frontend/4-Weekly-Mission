@@ -122,7 +122,7 @@ Mobile: 375px 이상
   order: 1;
 }
 
-h2 {
+.feature__title {
   color: #000;
   font-weight: 700;
   letter-spacing: -0.03rem;
@@ -159,7 +159,7 @@ h3 {
     gap: 5.1rem;
   }
 
-  h2 {
+  .feature__title {
     font-size: 4.8rem;
     margin-bottom: 1rem;
   }
