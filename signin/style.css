@@ -100,6 +100,7 @@ body {
 
 .btn-eye {
   position: absolute;
+  margin-top: 0.6rem;
   top: 50%;
   transform: translateY(-50%);
   right: 1.5rem;
