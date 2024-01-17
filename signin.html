@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/signin.css">
+    <title>Linkbrary</title>
+</head>
+<body>
+    <form action="/login" method="post">
+        <a href="index.html">
+            <img id="linkbrary-logo" src="./assets/icons/logo.svg" />
+        </a>
+        <p>회원이 아니신가요? <a href="/signup.html">회원 가입하기</a></p>       
+        <label for="email">이메일</label>
+        <input placeholder="codeit@codeit.com" type="email" id="email" name="email" required>  
+        <label for="password">비밀번호</label>
+        <div class="input-container">
+            <input placeholder="* * * * * * * * *" type="password" id="password" name="password" required> 
+            <img class="input-icon" src="/assets/icons/eye-off.svg" />
+        </div>
+        <button id="login-button" type="submit">로그인</button> 
+        <div class="social-login">
+            <span>소셜 로그인</span>
+            <div class="social-icon">
+                <a href="https://www.google.com/" target="_blank">
+                    <img src="/assets/icons/googleicon.svg" />
+                </a>
+                <a href="https://www.kakaocorp.com/page/" target="_blank">
+                    <img src="/assets/icons/kakaoicon.svg" />
+                </a>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

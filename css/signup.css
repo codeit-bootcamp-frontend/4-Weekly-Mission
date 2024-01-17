@@ -1,0 +1,131 @@
+@import '/css/style.css';
+
+#linkbrary-logo {
+    width: 210px;
+    margin-bottom: 16px;
+}
+
+#signup-button {
+    display: flex;
+    width: 400px;
+    padding: 16px 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: none;
+    background: var(--gra-purpleblue-to-skyblue);
+    color: #F5F5F5;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 18px;
+    cursor: pointer;
+}
+
+body {
+    background-color: var(--Linkbrary-bg);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+
+p {
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 30px;
+}
+
+label {
+    align-self: flex-start;
+    color: #000;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+input {
+    width: 100%;
+    padding: 18px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--Linkbrary-gray20);
+    background: #FFF;
+    margin: 12px 0; 
+}
+
+input:focus {
+    border: 1px solid var(--primary-color); 
+ 
+}
+
+.input-container + .password-mismatch-message {
+    color: #FF5B56;
+    font-size: 14px;
+    font-weight: 400;
+    align-self: flex-start;
+}
+
+
+.social-login {
+    display: flex;
+    width: 400px;
+    padding: 12px 24px;
+    margin-top: 32px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid #CCD5E3;
+    background: #E7EFFB;
+    color: #373740;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.social-icon a {
+    margin: 0 8px;
+    text-decoration: none;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 18px 12px;
+}
+
+.input-container .input-icon {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@media (max-width: 767px) {
+    #signup-button {
+        width: 100%;
+    }
+
+    form {
+        margin-top: 0;
+        padding: 7.5rem 2rem 14.56rem;
+        width: auto;
+        max-width: 25rem;
+    }
+
+    .social-login {
+        width: 100%;
+    }
+
+    .social-icon a {
+        margin: 0 2px;
+    }
+}
