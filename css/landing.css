@@ -125,16 +125,16 @@ section:nth-of-type(even) {
   letter-spacing: -0.03rem;
 }
 
-.title-1-gradient {
+.title-redskyblue-gradient {
   background-image: linear-gradient(117deg, #fe8a8a 2.29%, #a4ceff 100%);
 }
-.title-2-gradient {
+.title-blueyellow-gradient {
   background-image: linear-gradient(304deg, #6fbaff 0%, #ffd88b 100%);
 }
-.title-3-gradient {
+.title-blueheaderpage-gradient {
   background-image: linear-gradient(133deg, #2945c7 0%, #dbe1f8 100%);
 }
-.title-4-gradient {
+.title-pinklightblue-gradient {
   background-image: linear-gradient(310deg, #fe578f 0%, #68e8f9 100%);
 }
 
