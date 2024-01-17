@@ -106,7 +106,8 @@ body {
   flex-direction: column;
   gap: 12px;
 }
-.email__error-msg {
+.email__error-msg,
+.pw__error-msg {
   display: none;
   color: var(--Linkbrary-red, #ff5b56);
   font-family: 'Pretendard';

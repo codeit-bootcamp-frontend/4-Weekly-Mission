@@ -1,14 +1,17 @@
-//이메일의 형식을 검사하는 매서드
-let emailInput = document.getElementById('signin-email');
+const emailInput = document.getElementById('signin-email');
+const pwInput = document.getElementById('signin-pw');
 
+//이메일 유효성 검사 메서드
 function emailCheck(email) {
-  let email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+  const email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
   return email_regex.test(email);
 }
 
-emailInput.addEventListener('focusout', function (event) {
-  let emailValue = emailInput.value;
-  let emailError = document.getElementById('email__error-msg');
+// 이메일 에러 검사 메서드
+// 작성 되었는지, 유효한 이메일인지 검사
+emailInput.addEventListener('focusout', function () {
+  const emailValue = emailInput.value;
+  const emailError = document.getElementById('email__error-msg');
   if (!emailValue) {
     emailError.innerHTML = '이메일을 입력해 주세요.';
     emailError.style.display = 'block';
@@ -17,5 +20,17 @@ emailInput.addEventListener('focusout', function (event) {
     emailError.style.display = 'block';
   } else {
     emailError.style.display = 'none';
+  }
+});
+
+//비밀번호 작성 되었는지 검사
+pwInput.addEventListener('focusout', function () {
+  const pwValue = pwInput.value;
+  const pwError = document.getElementById('pw__error-msg');
+  if (!pwValue) {
+    pwError.innerHTML = '비밀번호를 입력해 주세요.';
+    pwError.style.display = 'block';
+  } else {
+    pwError.style.display = 'none';
   }
 });
