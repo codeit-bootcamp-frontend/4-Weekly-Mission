@@ -1,14 +1,13 @@
-const inputArray = document.querySelectorAll(".form-sign__input");
-const errorMessageArray = document.querySelectorAll(".error-message");
-const loginBtn = document.querySelector(".btn-login");
-
 //이메일, 비밀번호 input
-const email = inputArray[0];
-const password = inputArray[1];
+const email = document.querySelector("#input-email");
+const password = document.querySelector("#input-password");
 
 //이메일, 비밀번호 error-message
-const emailErrorMessage = errorMessageArray[0];
-const passwordErrorMessage = errorMessageArray[1];
+const emailErrorMessage = document.querySelector("#error-email");
+const passwordErrorMessage = document.querySelector("#error-password");
+
+//로그인 버튼
+const loginBtn = document.querySelector(".btn-login");
 
 //error-message 토글 함수: message가 있으면 on / 없으면 off
 function toggleErrorMessage(element, message) {

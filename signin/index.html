@@ -35,18 +35,18 @@
     <form class="form-sign">
       <label class="form-sign__label">
         이메일
-        <input class="form-sign__input" name="email" type="email" />
-        <p class="error-message display-none">에러 메시지</p>
+        <input id="input-email" class="form-sign__input" name="email" type="email" />
+        <p id="error-email" class="error-message display-none">에러 메시지</p>
       </label>
       <label class="form-sign__label">
         비밀번호
         <div class="password-input-wrap">
-          <input class="form-sign__input" name="password" type="password" />
+          <input id="input-password" class="form-sign__input" name="password" type="password" />
           <button class="btn btn-eye off" type="button">
             <img class="icon-eye" src="../public/icon/eye-off.svg" />
           </button>
         </div>
-        <p class="error-message display-none">에러 메시지</p>
+        <p id="error-password" class="error-message display-none">에러 메시지</p>
       </label>
     </form>
 
