@@ -21,7 +21,7 @@
       width: auto;
       text-align: center;
       color: var(--LBrary-Black);
-      font-size: 1rem;
+      font-size: 1.6rem;
       font-weight: 400;
       line-height: 150%;
    }
@@ -71,7 +71,7 @@
 
    .WrongPass {
       color: var(--LBrary-Red);
-      font-size: 0.875rem;
+      font-size: 1.4rem;
       font-weight: 400;
    } 틀렸을 경우 관련하여 week1에 작업했던 더미 
    
@@ -79,7 +79,7 @@
 
    .SignLabel {
       color: var(--LBrary-black);
-      font-size: 0.875rem;
+      font-size: 1.4rem;
       font-weight: 400;
    }
 
@@ -93,7 +93,7 @@
       width: 100%;
       margin: 32px;
       padding: 12px 24px;
-      font-size: 0.875rem;
+      font-size: 1.4rem;
       color: var(--LBrary-Gray50);
    }
 

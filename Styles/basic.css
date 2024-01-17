@@ -134,7 +134,7 @@ body {
 
    div.landingPage::after{
       content: '';
-      background-image: url(./Assets/main_Image.png);
+      background-image: url(../Assets/images/landingPage/main_Image.png);
       background-size: contain;
       width: 100%;
       height: 500px;
@@ -163,6 +163,7 @@ body {
       background-color: var(--LBrary-White); 
       width: 100%; 
       padding-bottom: 120px;
+      padding-top: 70px;
    }
 
    article.landingPage {
@@ -183,7 +184,7 @@ body {
 
    article.landingPage::after {
       content: '';
-      background-image: url(Assets/main_image1.png);
+      background-image: url(../Assets/images/landingPage/main_image1.png);
       background-size: 100%;
       background-repeat: no-repeat;
       grid-row: 1 / 3;
@@ -232,10 +233,14 @@ body {
    .footerPravay{
       display: flex;
       gap: 30px;
-      color: #CFCFCF;
       font-family: acme;
       font-size: 1.6rem;
       font-weight: 400;
+   }
+
+   .footerPravay a{
+      text-decoration: none;
+      color: #CFCFCF;
    }
 
    .footerSocial {
