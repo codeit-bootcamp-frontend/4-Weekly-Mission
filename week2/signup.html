@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>로그인</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="./src/sign.css">
+</head>
+<body>
+  <form>
+    <div class="loginform">
+      <h1 class="login login-title">
+        <a href="./index.html"><img src="./images/logo.svg" alt=""></a>
+      </h1>
+      <div class="ask">
+        <p>
+          이미 회원이신가요?<a href="./signin.html">로그인 하기</a>
+        </p>
+      </div>
+      <label>이메일</label>
+      <input name="username" type="text" placeholder="Email 또는 전화번호" />
+      <label>비밀번호</label>
+      <input name="password" type="password" placeholder="비밀번호" />
+      <label>비밀번호확인</label>
+      <input name="password" type="password" placeholder="비밀번호" />
+      <button><a href="#">회원가입</a></button>
+      <div class="snslogin">
+        <p>소셜로그인</p>
+        <div class="snslink">
+          <a href="https://www.google.com" class="google"><img src="./images/google.png" alt=""></a>
+          <a href="https://www.kakaocorp.com/page/" class="kakako"><img src="./images/kakao.svg" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </form>
+</body>
+</html>
