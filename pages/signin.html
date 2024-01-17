@@ -16,15 +16,15 @@
                 <p>회원이 아니신가요? <a href="signup.html">회원 가입하기</a></p>
                 </div>
                 <form>
-                    <label class="email">
-                        이메일
-                        <input type="email">
-                    </label>
-                    <label class="password">
-                        비밀번호
-                        <input type="password"></input>
-                        <img src="/assets/icon/eye-off.svg">
-                    </label>
+                    <div class="sign-input-box">
+                      <label for="email" class="sign-input-label">이메일</label>
+                      <input id="email" class="sign-input" type="email" />
+                    </div>
+                    <div class="sign-input-box sign-password">
+                      <label for="password" class="sign-input-label">비밀번호</label>
+                      <input id="password" class="sign-input" type="password"></input>
+                      <img src="/assets/icon/eye-off.svg">
+                    </div>
                 </form>
                 <a href="signup.html" class="btn-sign-login">로그인</a>
 

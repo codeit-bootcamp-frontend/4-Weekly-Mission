@@ -56,7 +56,11 @@ html {
   font-weight: 400;
 }
 
-.sign input {
+.sign-input-box {
+  width: 100%;
+}
+
+.sign-input {
   display: flex;
   margin-top: 12px;
   padding: 18px 15px;
@@ -69,19 +73,15 @@ html {
   background: var(--white);
 }
 
-.sign label {
-  width: 100%;
-}
-
-.sign input:focus {
+.sign-input:focus {
   outline: 1px solid var(--primary);
 }
 
-.sign .password {
+.sign-password {
   position: relative;
 }
 
-.password img {
+.sign-password img {
   position: absolute;
   width: 16px;
   top: 38px;

@@ -15,20 +15,20 @@
               <p>이미 회원이신가요? <a href="signin.html">로그인 하기</a></p>
               </div>
               <form>
-                  <label class="email">
-                      이메일
-                      <input type="email">
-                  </label>
-                  <label class="password">
-                      비밀번호
-                      <input type="password"></input>
-                      <img src="/assets/icon/eye-on.svg">
-                  </label>
-                  <label class="check-password">
-                    비밀번호 확인
-                    <input type="password"></input>
-                    <img src="/assets/icon/eye-on.svg">
-                  </label>
+                <div class="sign-input-box">
+                  <label for="email" class="sign-input-label">이메일</label>
+                  <input id="email" class="sign-input" type="email" />
+                </div>
+                <div class="sign-input-box sign-password">
+                  <label for="password" class="sign-input-label">비밀번호</label>
+                  <input id="password" class="sign-input" type="password"></input>
+                  <img src="/assets/icon/eye-on.svg">
+                </div>
+                <div class="sign-input-box sign-password">
+                  <label for="password" class="sign-input-label">비밀번호 확인</label>
+                  <input id="password" class="sign-input" type="password"></input>
+                  <img src="/assets/icon/eye-on.svg">
+                </div>
               </form>
               <button href="signup.html" class="btn-sign-login">회원가입</button>
 
