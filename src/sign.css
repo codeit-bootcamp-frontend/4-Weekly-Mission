@@ -11,7 +11,6 @@ body {
   background: var(--Linkbrary-white, #fff);
   border: 1px solid var(--gray20-color);
   display: block;
-  margin-bottom: 24px;
   outline-color: var(--primary-color);
 }
 
@@ -59,7 +58,10 @@ label {
 }
 
 .fm-input-wrap {
-  margin: 30px 0 6px;
+  margin: 30px 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
 }
 
 .pw-wrap {
