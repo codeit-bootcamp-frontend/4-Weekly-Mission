@@ -95,7 +95,7 @@ header nav {
 
 /* Main Page */
 
-main {
+.main-wrapper {
   display: flex;
   padding: 10.375rem 22.5rem 0rem 22.5rem;
   flex-direction: column;
@@ -144,12 +144,10 @@ main {
 }
 
 .main__link {
-  display: flex;
+  display: block;
   width: 21.875rem;
   padding: 1rem 1.25rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.625rem;
+  text-align: center;
   border-radius: 0.5rem;
   background: var(
     --gra-purpleblue-to-skyblue,
@@ -161,8 +159,8 @@ main {
     padding: 0.625rem 1rem;
   }
 }
-.main__link a,
-.main__link span {
+
+.main__link {
   color: var(--Grey-Light, #f5f5f5);
   font-family: 'Pretendard';
   font-size: 1.125rem;
@@ -176,7 +174,8 @@ main {
   }
 }
 
-.main__img img {
+.main__blog-img {
+  display: block;
   width: 69.875rem;
   height: 35rem;
   padding: 3.125rem 2.5625rem 0rem 2.5625rem;

@@ -11,6 +11,7 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
     <link rel="stylesheet" href="./sign.css" />
+    
   </head>
   <body>
     <main class="sign">
@@ -70,7 +71,8 @@
       <form class="sign__form">
           <div class="sign__form--email">
             <label for="signin-email">이메일</label>
-            <input type="email" name="signin-email" id="signin-email" />
+            <input type="email" name="signin-email" id="signin-email"/>
+            <div id="email__error-msg" style="color: red; display: none;">유효한 이메일이 아닙니다.</div>
           </div>
           <div class="sign__form--pw">
             <label for="signin-pw">비밀번호</label>
@@ -140,4 +142,5 @@
       </section>
     </main>
   </body>
+  <script src="signin.js"></script>
 </html>
