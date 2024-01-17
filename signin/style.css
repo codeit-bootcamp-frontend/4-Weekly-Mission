@@ -56,7 +56,6 @@ body {
 
 .check a {
   color: var(--primary, #6d6afe);
-  font-family: Pretendard;
   font-size: 1.6rem;
   font-weight: 600;
   text-underline-position: under;
@@ -75,6 +74,10 @@ body {
   gap: 2.4rem;
 }
 
+.btn-wrap {
+  gap: 3.2rem;
+}
+
 .form-sign__label {
   display: flex;
   flex-direction: column;
@@ -83,10 +86,6 @@ body {
   color: #000;
   font-size: 1.4rem;
   font-weight: 400;
-}
-
-.password-input-wrap {
-  position: relative;
 }
 
 .form-sign__input {
@@ -105,6 +104,10 @@ body {
   outline: 0.1rem solid var(--primary, #6d6afe);
 }
 
+.password-input-wrap {
+  position: relative;
+}
+
 .password-input-wrap .btn-eye {
   position: absolute;
   top: 50%;
@@ -115,10 +118,6 @@ body {
   background: none;
   border-radius: 0;
   border: 0;
-}
-
-.btn-wrap {
-  gap: 3.2rem;
 }
 
 .icon-eye {
