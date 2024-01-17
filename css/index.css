@@ -2,9 +2,9 @@
 
 /** 여러 요소에 적용 **/
 .button {
-  padding: 15px 35px;
+  padding: 1.5rem 3.5rem;
   background: linear-gradient(90deg, var(--primary), #6ae3fe);
-  border-radius: 8px;
+  border-radius: 0.8rem;
   cursor: pointer;
 }
 
@@ -25,7 +25,7 @@ main img {
 
 /** header **/
 .gnb {
-  padding: 20px 200px;
+  padding: 2rem 20rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -62,7 +62,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 3rem;
   padding-top: 12rem;
   margin-bottom: 7rem;
 }
@@ -143,8 +143,8 @@ main {
 
 /** footer **/
 footer {
-  margin-top: 150px;
-  height: 160px;
+  margin-top: 15rem;
+  height: 16rem;
   background-color: var(--black);
   font-size: 1.8rem;
   display: flex;
@@ -162,8 +162,8 @@ footer {
 }
 
 footer img {
-  width: 18px;
-  margin: 8px;
+  width: 1.8rem;
+  margin: 0.8rem;
   cursor: pointer;
 }
 
@@ -175,7 +175,7 @@ footer img {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 2rem;
 }
 
 .footer-menu a {
@@ -265,7 +265,7 @@ footer img {
     object-fit: cover;
     padding-left: 3.2rem;
     padding-right: 3.2rem;
-    border-radius: 25px;
+    border-radius: 2.5rem;
   }
 
   .section-top {
