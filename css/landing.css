@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  background-color: #ffffff;
+  background-color: var(--white);
   color: #000000;
   font-size: 16px;
   margin: 0;
@@ -22,7 +22,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: #F0F6FF;
+  background-color: var(--background);
 }
 
 .navbar {
@@ -47,7 +47,7 @@ nav {
 }
 
 header {
-  background-color: #F0F6FF;
+  background-color: var(--background);
   padding: 70px 360px 0;
 }
 
@@ -60,7 +60,7 @@ header {
 }
 
 .headline img {
-  background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%);
+  background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, var(--background) 94.76%);
   border-radius: 25px;
   width: 1118px;
   height: 659px;
@@ -84,7 +84,7 @@ header {
 }
 
 .headline-title {
-  background-image: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+  background-image: linear-gradient(91deg, var(--primary) 17.28%, #FF9F9F 74.98%);
 }
 
 .add-link {
@@ -158,11 +158,11 @@ header {
   width: 550px;
   height: 450px;
   border-radius: 15px;
-  background: #F0F6FF;
+  background: var(--background);
 }
 
 .more-info {
-  background: #111322;
+  background: var(--black);
   display: flex;
   height: 160px;
   padding: 32px 104px 64px 104px;

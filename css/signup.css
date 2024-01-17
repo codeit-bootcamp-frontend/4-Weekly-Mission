@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  background-color: #F0F6FF;
+  background-color: var(--background);
 }
 
 .content {
@@ -32,7 +32,7 @@ body {
 }
 
 .sign-in a {
-  color: #6D6AFE;
+  color: var(--primary);
   font-size: 16px;
   font-weight: 600;
 }
@@ -48,14 +48,14 @@ input {
   font-family: "Pretendard";
   width: 400px;
   border-radius: 8px;
-  border: 1px solid #CCD5E3;
-  background: #FFFFFF;
+  border: 1px solid var(--gray20);
+  background: var(--white);
   padding: 18px 15px;
   margin: 12px auto 24px;
 }
 
 input:focus {
-  outline: 1px solid #6D6AFE;
+  outline: 1px solid var(--primary);
 }
 
 input::placeholder {
@@ -99,8 +99,8 @@ button {
   color: #373740;
   font-size: 14px;
   font-weight: 400;
-  background: #E7EFFB;
-  border: 1px solid #CCD5E3;
+  background: var(--gray10);
+  border: 1px solid var(--gray20);
   border-radius: 8px;
   padding: 12px 24px;
   margin: 32px auto;
