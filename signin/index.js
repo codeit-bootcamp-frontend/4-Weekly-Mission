@@ -9,6 +9,9 @@ const passwordErrorMessage = document.querySelector("#error-password");
 //로그인 버튼
 const loginBtn = document.querySelector(".btn-login");
 
+//비밀번호 btn-eye
+const eyeBtn = document.querySelector(".btn-eye");
+
 //error-message 토글 함수: message가 있으면 on / 없으면 off
 function toggleErrorMessage(element, message) {
   if (message) {
@@ -53,6 +56,22 @@ function checkLogin() {
   }
 }
 
+//icon-eye 클릭하면 비밀번호 토글
+function togglePassword() {
+  const icon = eyeBtn.firstElementChild;
+
+  console.log("비밀번호 토글");
+  console.log(password.type);
+
+  if (password.type === "password") {
+    password.type = "text";
+    icon.src = "../public/icon/eye-on.svg";
+  } else {
+    password.type = "password";
+    icon.src = "../public/icon/eye-off.svg";
+  }
+}
+
 //focusout 이벤트 핸들러
 email.addEventListener("focusout", function () {
   checkForm(email);
@@ -64,3 +83,4 @@ password.addEventListener("focusout", function () {
 
 //click 이벤트 핸들러
 loginBtn.addEventListener("click", checkLogin);
+eyeBtn.addEventListener("click", togglePassword);
