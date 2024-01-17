@@ -1,0 +1,176 @@
+html {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/*0. 텍스트 컨테이너 블록 */
+/* 텍스트 컨테이너 블록 레이아웃 */
+.text-container_ly {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.text-container_sign_ly {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* 텍스트 컨테이너 블록 크기 */
+@media (min-width: 1200px) {
+  .text-container_size {
+    width: 291px;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 768px) {
+  .text-container_size {
+    width: 262px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 375px) {
+  .text-container_size {
+    width: 100%;
+  }
+}
+
+/* 1. 텍스트 블록 */
+/* 텍스트 블록 레이아웃 */
+.text_ly {
+  align-items: flex-start;
+  line-height: normal;
+  flex-direction: column;
+}
+
+.text_sign_ly {
+  line-height: 150%; /* 150% */
+}
+
+.text_sign-hypl_ly {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .text_auth_ly {
+    text-align: center;
+    line-height: 80px;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 375px) {
+  .text_auth_ly {
+    text-align: center;
+    line-height: 42px;
+  }
+}
+
+/* 텍스트 블록 사이즈*/
+@media (min-width: 768px) {
+  .text_auth {
+    font-size: 4rem;
+  }
+  
+  .text_default {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 767px) and (min-width: 375px) {
+  .text_auth {
+    font-size: 2rem;
+  }
+  
+  .text_default {
+    font-size: 1.5rem;
+  }
+}
+
+.text_sign {
+  font-size: 1rem;
+}
+
+.text_sign-input {
+  font-size: 1rem;
+}
+
+/* 텍스트 블록 스타일*/
+.text_style {
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.text_sign_style {
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.text_sign-hypl {
+  text-decoration-line: none;
+}
+
+/* 텍스트 블록 컬러*/
+.text_color {
+  color: #000;
+}
+
+.text_sign-social_color {
+  color: var(--Linkbrary-gray100, #373740);
+}
+
+.text_auth_diff-color {
+  background: linear-gradient(91deg, var(--Linkbrary-primary-color, #6D6AFE) 17.28%, #FF9F9F 74.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text_card_diff_color {
+  background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text_folder_diff_color {
+  background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text_share_diff_color {
+  background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text_search_diff_color {
+  background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+/* 2. 텍스트 언더 블록 */
+.text_under_ly {
+  align-self: stretch;
+}
+
+.text_under {
+  color: #6B6B6B;
+  font-family: Abel;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
