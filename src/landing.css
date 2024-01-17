@@ -1,0 +1,408 @@
+@import "./global.css";
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #edf7ff;
+}
+
+.gnb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 9.4rem;
+  max-width: 192rem;
+  padding: 0 20rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #edf7ff;
+}
+
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4rem;
+  padding-top: 7rem;
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5.4rem;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
+  border-radius: 0.8rem;
+  color: #f5f5f5;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.cta-short {
+  width: 12.8rem;
+}
+
+.cta-long {
+  width: 35rem;
+}
+
+.slogan {
+  text-align: center;
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 8rem;
+}
+
+.slogan-gradient {
+  background-image: linear-gradient(119deg, var(--primary) 0%, #ff9f9f 100%);
+}
+
+.background-clip-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-image {
+  width: 120rem;
+  height: 59rem;
+}
+
+article {
+  padding-top: 7rem;
+  padding-bottom: 12rem;
+}
+
+section {
+  display: grid;
+  justify-content: center;
+  column-gap: 15.7rem;
+  row-gap: 1rem;
+  width: 100%;
+  height: 55rem;
+  padding: 50px 0;
+}
+
+section:nth-of-type(odd) {
+  grid-template:
+    ". image"
+    "title image"
+    "description image"
+    ". image"
+    /291px 55rem;
+}
+
+section:nth-of-type(even) {
+  grid-template:
+    "image ."
+    "image title"
+    "image description"
+    "image ."
+    /550px 29.1rem;
+}
+
+.title {
+  grid-area: title;
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 5.8rem;
+  letter-spacing: -0.03rem;
+}
+
+.title-1-gradient {
+  background-image: linear-gradient(117deg, #fe8a8a 2.29%, #a4ceff 100%);
+}
+.title-2-gradient {
+  background-image: linear-gradient(304deg, #6fbaff 0%, #ffd88b 100%);
+}
+.title-3-gradient {
+  background-image: linear-gradient(133deg, #2945c7 0%, #dbe1f8 100%);
+}
+.title-4-gradient {
+  background-image: linear-gradient(310deg, #fe578f 0%, #68e8f9 100%);
+}
+
+.description {
+  grid-area: description;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #6b6b6b;
+  line-height: 150%;
+}
+
+.content-image {
+  grid-area: image;
+  width: 55rem;
+  height: 45rem;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 16rem;
+  padding-top: 3.2rem;
+  background-color: var(--black);
+}
+
+.footer-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 192rem;
+  height: fit-content;
+  padding: 0 10.4rem;
+}
+
+.copyright {
+  color: #676767;
+  font-family: Arial;
+  font-size: 1.6rem;
+}
+
+.footer-links {
+  display: flex;
+  column-gap: 3rem;
+  padding-right: 1.8rem;
+}
+
+.footer-link {
+  color: #cfcfcf;
+  font-family: Arial;
+  font-size: 1.6rem;
+}
+
+.sns {
+  display: flex;
+  column-gap: 1.2rem;
+  height: 2rem;
+}
+
+
+
+
+/*테블릿*/
+
+@media(max-width: 1199px) and (min-width: 768px){
+
+  /*네비게이션 바 설정*/
+  .gnb{
+    padding-left: min(32px);
+    padding-right: min(32px);
+    width: 800px;
+  }
+  body{
+    display: inline-flex;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  /*이미지 조정*/
+  .hero-image {
+    width: 698px;
+    height: 343px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .content-image{
+    width: 385px;
+    height: 315px;
+    place-items: center;
+  } 
+
+  /*그리드 조정*/
+  section {
+    display: grid;
+    column-gap: 2rem;
+    row-gap: 0px;
+    height: auto;
+    padding: 50px 250px;
+  }
+
+  /*그리드 크기 조정*/
+  section:nth-of-type(odd) {
+    grid-template:
+      ". image"18%
+      "title image"
+      "description image"30%
+      ". image"30%
+      /291px auto;
+  }
+
+  section:nth-of-type(even) {
+    grid-template:
+      "image ."18%
+      "image title"
+      "image description"30%
+      "image ."13%
+      /auto 300px;
+  }
+
+  article{
+    width: 100%;
+    
+  }
+  /*줄 바꿈*/
+  .line{
+    display: block;
+  }
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+/*모바일*/
+
+@media(max-width: 767px){
+
+  /*네비게이션 바 설정*/
+  .gnb{
+    padding-left: min(32px);
+    padding-right: min(32px);
+    width: 800px;
+  }
+
+  /*네비게이션 바 여백 설정*/
+  header {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  /*폰트크기 조정*/
+  .slogan{
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 42px; /* 131.25% */
+  }
+
+  body{
+    display: inline-flex;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  /*몸통 변경*/
+  article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  /*컨텐츠 그리드에서 플렉스로 변경*/
+  section{
+    display: flex;
+    padding: 40px 32px 36.091px 33px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: auto;
+  }
+
+  /*컨텐츠 이미지 조정 및 호출을 통한 순서 변경*/
+  .content-image{
+    width: 100%;
+    height: auto;
+    order: 2;
+  }
+  .description{
+    align-self: stretch;
+    order: 3;
+  }
+  .title{
+    font-family: Pretendard;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.3px;
+    align-self: stretch;
+    order: 1
+  }
+
+  /*헤더 설정 변경*/
+  .hero-header{
+    row-gap: 24px;
+    padding-top: 24px;
+  }
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
+  .cta-long {
+    width: 35rem;
+  }
+
+  /*줄 바꿈*/
+  .line{
+    display: block;
+  }
+  .lineSub{
+    display: block;
+  }
+  /*필요없는 줄 바꿈 무력화*/
+  br{
+    display:none !important;
+ }
+  /*버튼 조정*/
+  .cta-long {
+    width: 200px;
+    height: 5.4rem;
+    
+  }
+
+  /*하단 순서변경 및 가변 위치 조정*/
+  .copyright {
+    order: 3;
+  }
+  .footer-box {
+    flex-wrap: wrap;
+    align-items: center;
+    
+    row-gap: 60px;
+    padding: 0 32px 0 32px;
+    
+  }
+  .footer-links{
+    order: 1;
+    width: 50%;
+    white-space: nowrap
+
+  }
+  .sns{
+    order: 2;
+    width: 50%;
+    justify-content: right;
+  }
+}
