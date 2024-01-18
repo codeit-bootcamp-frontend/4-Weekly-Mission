@@ -35,9 +35,6 @@ header {
   line-height: normal;
 }
 
-.email {
-  gap: 12px;
-}
 input {
   display: flex;
   width: 400px;
