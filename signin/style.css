@@ -82,7 +82,7 @@ a.signup {
 .google {
     width: 42px;
     height: 42px;
-    background-image: url('../images/signin/google.png');
+    background-image: url('../assets/icons/common/google.png');
     background-color: white;
     background-size: 22px 22px;
     background-position: center;
@@ -94,7 +94,7 @@ a.signup {
 .kakao {
     width: 42px;
     height: 42px;
-    background-image: url('../images/signin/kakao.svg');
+    background-image: url('../assets/icons/common/kakao.svg');
     background-color: #F5E14B;
     background-size: 26px 24px;
     background-position: center;

@@ -210,7 +210,7 @@ section.start-linkbrary {
 .share-links .card {
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-        url("./images/main1.png");
+        url("assets/images/landing/main1.png");
     background-size: 200%;
     background-position: center;
 }
