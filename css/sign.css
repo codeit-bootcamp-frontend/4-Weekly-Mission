@@ -1,0 +1,109 @@
+@import url(global.css);
+
+html {
+  background: var(--background);
+  padding: 23.8rem 0;
+}
+
+body {
+  width: 40rem;
+  margin: auto;
+  gap: 3.2rem;
+}
+
+.sign-box {
+  width: 100%;
+  margin: 3rem 0;
+}
+
+.sign-title {
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  text-align: center;
+}
+
+label {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin: 1.2rem;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin: 1.2rem 0 2.4rem;
+  padding: 1.8rem 1.5rem;
+  border: 0.1rem solid var(--gray20);
+  border-radius: 8px;
+}
+
+button {
+  text-align: center;
+  width: 100%;
+  height: 5.4rem;
+  background: linear-gradient(90.99deg, var(--primary) 0.12%, var(--light-blue) 101.84%);
+  color: var(--white);
+  border: 0;
+  border-radius: 8px;
+}
+
+.social-sign {
+  padding: 1.2rem 2.4rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(0deg, var(--gray10), var(--gray10)),
+    linear-gradient(0deg, var(--gray20), var(--gray20));
+  border: 0.1rem solid var(--gray20);
+  border-radius: 8px;
+}
+
+input:focus {
+  border-color: var(--primary);
+  outline: none;
+}
+
+.social-sign img {
+  width: 4.2rem;
+  height: 4.2rem;
+}
+
+.logo {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.password div,
+.password-check div {
+  position: relative;
+}
+
+.eyecon {
+  position: absolute;
+  right: 1.8rem;
+  bottom: 1.8rem;
+}
+
+.social-text {
+  font-size: 1.3rem;
+}
+
+/* 모바일 사이즈 */
+
+@media (max-width: 76.7rem) {
+  html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  body {
+    width: 100%;
+    margin: 0 3.2rem;
+    padding: 0;
+    max-width: 40rem;
+  }
+}
