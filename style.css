@@ -307,14 +307,30 @@ a {
     padding-left: 32px;
     padding-right: 32px;
   }
+
   .section1 {
     padding-top: 80px;
   }
+  .nav {
+    width: 768px;
+  }
+
   .no-br-on-tablet {
     display: none;
   }
   .frame {
     gap: 57px;
+  }
+  img.header-img {
+    width: 698px;
+    height: 343px;
+  }
+  .section-image1,
+  .section-image2,
+  .section-image3,
+  .section-image4 {
+    width: 385px;
+    height: 315px;
   }
 }
 
