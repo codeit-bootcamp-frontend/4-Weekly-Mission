@@ -8,7 +8,7 @@
       <link rel="stylesheet" href="Styles/signPage.css">
       <link href="https://fonts.googleapis.com/css2?family=Acme&family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
       <title>signInPage</title>
-   </head>
+      </head>
    <body>
       <section class="signPage">
          <div class="signForm">
@@ -18,16 +18,14 @@
             </header>
             <form action="">
                <div class="inputSection">
-                  <label class="signLabel" for="signInput">이메일</label>
-                  <div class="inputDiv">
-                     <input class="signInput" type="email">
-                  </div>
+                  <label for="loginEmailInput">이메일</label>
+                  <input class="loginEmailInput" type="email">
                </div>
                <div class="inputSection">
-                  <label class="signLabel" for="">비밀번호</label>
-                  <div class="inputDiv">
-                     <input class="signInput" type="password">
-                     <a class="passwordSeenButton"><img src="Assets/Icons/eye-off.svg" alt=""></a>
+                  <label for="loginPasswordInput">비밀번호</label>
+                  <div class="seenButtonPositionOrigin">
+                     <input class="loginPasswordInput" type="password">
+                     <button class="passwordSeenButton"><img src="Assets/Icons/eye-off.svg" alt="">
                   </div>
                </div>
             </form> 
@@ -41,5 +39,6 @@
             </div>
          </div>
       </section>  
+      <script src="./JavaScript/sign.js"></script>
    </body>
 </html>

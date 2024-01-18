@@ -18,27 +18,26 @@
             </header>
             <form action="">
                <div class="inputSection">
-                  <label class="signLabel" for="">이메일</label>
-                  <div class="inputDiv">
-                     <input class="signInput" type="email">
+                  <label for="">이메일</label>
+                  <input class="signupEmailInput" type="email">
+               </div>
+               <div class="inputSection">
+                  <label for="">비밀번호</label>
+                  <div class="seenButtonPositionOrigin">
+                     <input class="signupPasswordInput" type="password">
+                     <button class="passwordSeenButton"><img src="Assets/Icons/eye-off.svg" alt="">
                   </div>
                </div>
                <div class="inputSection">
-                  <label class="signLabel" for="">비밀번호</label>
-                  <div class="inputDiv">
-                     <input class="signInput" type="password">
-                     <a class="passwordSeenButton"><img src="Assets/Icons/eye-off.svg" alt=""></a>
+                  <label for="">비밀번호 확인</label>
+                  <div class="seenButtonPositionOrigin">
+                     <input class="signupPasswordCheckInput" type="password">
+                     <button class="passwordSeenButton"><img src="Assets/Icons/eye-off.svg" alt="">
                   </div>
                </div>
-               <div class="inputSection">
-                  <label class="signLabel" for="">비밀번호 확인</label>
-                  <div class="inputDiv">
-                     <input class="signInput" type="password">
-                     <a class="passwordSeenButton"><img src="Assets/Icons/eye-off.svg" alt=""></a>
-                  </div>
-               </div>
+               <button type="submit" class="button">회원가입</button>
             </form> 
-            <button type="submit" class="button">회원가입</button>
+            
          </div>
          <div class="socialSign">
             <a>다른 방식으로 가입하기</a>
@@ -48,5 +47,6 @@
             </div>
          </div>
       </section>  
+      <script src="./JavaScript/sign.js"></script>
    </body>
 </html>

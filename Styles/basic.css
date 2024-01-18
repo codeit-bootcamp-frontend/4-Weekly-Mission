@@ -49,12 +49,18 @@ body {
    font-size: 1.8rem;
    font-weight: 600;
    padding: 16px 20px;
+   border: none;
    border-radius: 8px;
    background: var(--Gra-Primary-to-Skyblue);
    justify-content: center;
    align-items: center;
    text-decoration: none;
    line-height: 100%;
+}
+
+button:hover {
+   cursor: pointer;
+   
 }
 
 /* 랜딩 페이지 */
