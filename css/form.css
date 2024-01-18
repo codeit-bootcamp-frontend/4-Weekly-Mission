@@ -73,6 +73,10 @@ body {
   border-color: var(--Linkbrary-primary-color, #6d6afe);
 }
 
+#form input.inputError {
+  border: 1px solid var(--Linkbrary-red);
+}
+
 .icon_wrap {
   position: relative;
 }
