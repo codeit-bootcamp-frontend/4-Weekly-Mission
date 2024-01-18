@@ -80,6 +80,11 @@ main{
   background: var(--white-color, #FFF);
 }
 
+/* 포커스 아웃*/
+.user .focused {
+  border-color: var(--red-color, #ff5b56);
+}
+
 .user input:focus{
   border-radius: 8px;
   border: 1px solid var(--primary-color, #6D6AFE);
@@ -95,17 +100,37 @@ main{
   position: relative;
 }
 
+.error_massage_id{
+  margin-top: 5px;
+  font-size: 14px;  
+  font-weight: 400;
+  color: var(--red-color, #FF5B56);
+}
+
+.error_massage_pw{
+  height: 10px;
+  margin-top: 5px;
+  font-size: 14px;  
+  font-weight: 400;
+  color: var(--red-color, #FF5B56);
+}
+
 .password_icon{
   position: absolute;
-  bottom: 15px;
+  bottom: 35px;
   right: 15px;
 }
 
 .password_icon img{
+  display: block;
   width: 16px;
   height: 16px;
   fill: #FFF;
   cursor: pointer;
+}
+
+.password_icon .pw_hide{
+  display: none;
 }
 
 .user_login_form button{
