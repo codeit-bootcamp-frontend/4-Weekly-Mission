@@ -1,4 +1,4 @@
-@import url(color.css);
+@import url(/styles/common.css);
 
 * {
   box-sizing: border-box;
@@ -7,7 +7,7 @@
 body {
   margin: 0;
   background-color: var(--gray5);
-  padding: 238px 0 252px;
+  padding: 238px 0 117px;
   color: var(--black);
   font-family: Pretendard;
   font-size: 16px;
@@ -27,12 +27,12 @@ body {
   cursor: pointer;
 }
 
-.to-signup {
+.to-signin {
   margin-top: 16px;
-  text-align: center
+  text-align: center;
 }
 
-.to-signup a {
+.to-signin a {
   color: var(--primary);
   font-weight: 600;
   text-underline-position: under;
@@ -65,10 +65,19 @@ form input:focus {
   outline: none;
 }
 
+#signup-password-check {
+  border: 1px solid var(--red);
+  margin-bottom: 6px;
+}
+
+.password-check {
+  color: var(--red);
+}
+
 label img {
   position: absolute;
   top: 50px;
-  right: 15px;
+  right: 14px;
 }
 
 button {
@@ -105,19 +114,19 @@ button {
 
 @media (max-width: 1200px) {
   body {
-    padding: 200px 0 291px;
+    padding: 200px 0 178px;
   }
 }
 
 @media (max-width: 768px) {
   body {
-    padding: 120px 0 233px;
+    padding: 120px 0;
   }
 }
 
 @media (max-width: 464px) {
   body {
-    padding: 120px 32px 233px;
+    padding: 120px 32px;
   }
 
   .container {
