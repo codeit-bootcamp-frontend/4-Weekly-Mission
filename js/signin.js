@@ -3,8 +3,8 @@ import { userInfo } from "./user-info.js";
 import { pwInputTypeChange } from "./pw-input-type.js";
 
 window.onload = function(){
-    const emailInput = document.getElementById("signin__input--email")
-    const pwInput = document.getElementById("signin__input--password");
+    const emailInput = document.getElementById("signin--input--email")
+    const pwInput = document.getElementById("signin--input--password");
     const form = document.querySelector(".sigin__form");
     const emailError = document.querySelector(".signin__email--error");
     const pwError = document.querySelector(".signin__password--error");
