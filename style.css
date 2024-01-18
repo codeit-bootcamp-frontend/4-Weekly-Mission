@@ -12,7 +12,10 @@ header {
   left: 50%;
   transform: translate(-50%, 0);
 }
-
+.header-wrapper {
+  width: min(100% - 64px, 1199px);
+  margin-inline: auto;
+}
 .logo {
   display: flex;
   justify-content: flex-start;
