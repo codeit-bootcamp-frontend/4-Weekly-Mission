@@ -63,7 +63,7 @@ main {
   text-align: center;
   font-size: 6.4rem;
   font-weight: 700;
-  line-height: 125%;
+  line-height: 1.25;
 }
 
 .main-title > span {
@@ -77,9 +77,12 @@ main {
   display: none;
 }
 
-.main-link > button {
+.main-link {
   width: 35rem;
   height: 5.4rem;
+  display : flex;
+  justify-content : center;
+  align-items : center;
   background-image: linear-gradient(91deg, var(--primary) 0%, #6ae3fe 100%);
   border-radius: 0.8rem;
   color: #f5f5f5;
@@ -87,7 +90,7 @@ main {
   font-weight: 600;
 }
 
-.main-div img {
+.main-content img {
   width: 120rem;
   height: 59rem;
 }
@@ -113,7 +116,7 @@ section {
   gap: 15.7rem;
 }
 
-.section-titles {
+.section-title {
   width: 29.1rem;
   display: flex;
   flex-direction: column;
@@ -135,7 +138,7 @@ section {
 }
 
 .section-on-off-br {
-  display: inline;
+  display: initial;
 }
 
 .section-off-on-br {
@@ -145,7 +148,7 @@ section {
 .description-on-off {
   font-size: 1.6rem;
   font-weight: 400;
-  line-height: 150%;
+  line-height: 1.5;
   color: #6b6b6b;
 }
 
@@ -193,7 +196,6 @@ footer {
 
 .footer-div {
   width: 100%;
-  height: fit-content;
   display: flex;
   justify-content: space-between;
   padding: 0 10.4rem;
@@ -207,7 +209,6 @@ footer {
 }
 
 .footer-links {
-  width: 18.1111rem;
   display: flex;
   gap: 3rem;
 }
@@ -237,15 +238,15 @@ footer {
   }
 
   /* main */
-  .main-div {
+  .main-content {
     padding-top: 4rem;
   }
 
-  .main-br {
-    display: inline;
+  .responsive-br {
+    display: initial;
   }
 
-  .main-div img {
+  .main-content img {
     width: 69.8rem;
     height: 34.3rem;
   }
@@ -274,26 +275,26 @@ footer {
     padding: 1.3rem 3.2rem;
   }
 
-  .header-content img {
+  .logo {
     width: 8.8667rem;
     height: 1.6rem;
   }
 
-  .header-content button {
+  .login-btn {
     width: 8rem;
     height: 3.7rem;
     font-size: 1.4rem;
   }
 
   /* main */
-  .main-div {
+  .main-content{
     padding: 2.8rem 3.2rem 0;
     gap: 2.4rem;
   }
 
-  .main-h1 {
+  .main-title {
     font-size: 3.2rem;
-    line-height: 131.25%;
+    line-height: 1.3125;
   }
 
   .main-link > button {
@@ -302,7 +303,7 @@ footer {
     font-size: 1.4rem;
   }
 
-  .main-div img {
+  .main-content img {
     width: 100%;
     height: auto;
   }
@@ -328,7 +329,7 @@ footer {
     gap: 2.4rem;
   }
 
-  .section-titles {
+  .section-title {
     width: 32.5rem;
   }
 
@@ -341,7 +342,7 @@ footer {
   }
   
   .section-off-on-br {
-    display: inline;
+    display: initial;
   }
   
   .description-on-off {
@@ -349,7 +350,7 @@ footer {
   }
 
   .description-off-on {
-    display: inline;
+    display: initial;
     font-size: 1.5rem;
     font-weight: 500;
   }
