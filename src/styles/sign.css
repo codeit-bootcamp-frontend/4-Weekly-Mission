@@ -6,14 +6,14 @@ html {
 
 .sign {
   display: flex;
-  padding-top: 15rem;
+  padding: 15rem 0;
   justify-content: center;
   align-items: center;
 
   background: var(--gray-05);
 }
 
-.sign .sign-container {
+.sign-container {
   display: flex;
   width: 25rem;
   flex-direction: column;
@@ -21,7 +21,7 @@ html {
   gap: 2rem;
 }
 
-.sign-logo {
+.sign-logo-box {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,16 +36,18 @@ html {
   gap: 2rem;
 }
 
-.login a {
+.sign-login-to-signup,
+.sign-signup-to-login {
   color: var(--primary);
   text-decoration: underline;
 }
 
-.login img {
+.sign-logo {
   width: 13rem;
 }
 
-.sign form {
+.sign-signin-form,
+.sign-signup-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -81,14 +83,14 @@ html {
   position: relative;
 }
 
-.sign-password img {
+.eye {
   position: absolute;
   width: 1rem;
   top: 3rem;
   right: 1rem;
 }
 
-.sign .btn-sign-login {
+.btn-sign-login {
   display: flex;
   padding: 1rem 1.2rem;
   width: 100%;
@@ -123,25 +125,23 @@ html {
   background: var(--gray-04);
 }
 
-.social-login .icons {
+.social-login-icons {
   display: flex;
   align-items: flex-start;
+
   margin-top: 0.2rem;
   gap: 0.2rem;
 }
 
-.sign .check-password {
-  position: relative;
-}
-
-.check-password img {
-  position: absolute;
-  width: 1rem;
-  top: 3rem;
-  right: 1rem;
+.icons-img {
+  width: 2.5rem;
 }
 
 @media (max-width: 767px) {
+  html {
+    font-size: 12px;
+  }
+
   .sign {
     margin: 0 2rem;
   }

@@ -11,11 +11,15 @@
     <div class="sign">
         <div class="sign-container">
             <div class="login">
-                <div class="sign-logo">
-                    <a href="/"><img src="/assets/image/logo.svg" alt="링크라이브러리 로고."></a>
-                <p>회원이 아니신가요? <a href="signup.html">회원 가입하기</a></p>
+                <div class="sign-logo-box">
+                    <a href="/">
+                      <img class="sign-logo" src="/assets/image/logo.svg" alt="링크라이브러리 로고.">
+                    </a>
+                <p>회원이 아니신가요?
+                  <a class="sign-login-to-signup" href="signup.html">회원 가입하기</a>
+                </p>
                 </div>
-                <form>
+                <form class="sign-signin-form">
                     <div class="sign-input-box">
                       <label for="email" class="sign-input-label">이메일</label>
                       <input id="email" class="sign-input" type="email" />
@@ -23,17 +27,20 @@
                     <div class="sign-input-box sign-password">
                       <label for="password" class="sign-input-label">비밀번호</label>
                       <input id="password" class="sign-input" type="password"></input>
-                      <img src="/assets/icon/eye-off.svg">
+                      <img class="eye" src="/assets/icon/eye-off.svg">
                     </div>
                 </form>
                 <a href="signup.html" class="btn-sign-login">로그인</a>
-
             </div>
             <div class="social-login">
                 <p>소셜 로그인</p>
-                <div class="icons">
-                  <a href="https://www.google.com/"><img src="/assets/icon/google.svg" alt="구글로 로그인하기."></a>
-                  <a href="https://www.kakaocorp.com/page/"></a><img src="/assets/icon/kakao.svg" alt="카카오로 로그인하기."></a>
+                <div class="social-login-icons">
+                  <a href="https://www.google.com/">
+                    <img class="icons-img" src="/assets/icon/google.svg" alt="구글로 로그인하기.">
+                  </a>
+                  <a href="https://www.kakaocorp.com/page/"></a>
+                  <img class="icons-img" src="/assets/icon/kakao.svg" alt="카카오로 로그인하기.">
+                </a>
                 </div>
             </div>
         </div>

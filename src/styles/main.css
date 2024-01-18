@@ -39,11 +39,11 @@ nav {
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }
 
-main {
+.main-landing {
   background-color: var(--white);
 }
 
-.content-01 {
+.landing-title {
   display: flex;
   padding-top: 7rem;
   flex-direction: column;
@@ -55,7 +55,7 @@ main {
   background-color: var(--gray-05);
 }
 
-.content-01 h1 {
+.title-text {
   color: var(--black);
   font-size: 4rem;
   font-weight: 700;
@@ -63,7 +63,7 @@ main {
   text-align: center;
 }
 
-.content-01 span {
+.landing-gradient-text {
   background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
   color: transparent;
   background-clip: content-box;
@@ -85,7 +85,7 @@ main {
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 }
 
-.content-01 img {
+.landing-title-img {
   display: flex;
   width: 75rem;
   height: 37rem;
@@ -93,7 +93,7 @@ main {
   top: 3rem;
 }
 
-section {
+.introduction {
   display: grid;
   width: 100%;
   padding: 3rem 4rem;
@@ -103,7 +103,7 @@ section {
   row-gap: 3rem;
 }
 
-section:nth-of-type(odd) {
+.introduction:nth-of-type(odd) {
   grid-template:
     '. image'
     'title image'
@@ -111,7 +111,7 @@ section:nth-of-type(odd) {
     '. image';
 }
 
-section:nth-of-type(even) {
+.introduction:nth-of-type(even) {
   grid-template:
     'image .'
     'image title'
@@ -119,51 +119,54 @@ section:nth-of-type(even) {
     'image .';
 }
 
-section h2 {
+.introduction-title {
   grid-area: title;
+  width: 22rem;
   font-size: 3rem;
   font-weight: 700;
   color: var(--black);
 }
 
-section p {
+.introduction-text {
   grid-area: text;
-  color: var(--gray-02);
+  width: 22rem;
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 150%;
+  color: var(--gray-02);
 }
 
-section img {
+.introduction-img {
   grid-area: image;
-  width: 34rem;
+  width: 24rem;
+  height: 20rem;
   border-radius: 15px;
   background: var(--gray-05);
   z-index: 0;
 }
 
-.content-02 span {
+.save-gradient-text {
   background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
   color: transparent;
   background-clip: content-box;
   -webkit-background-clip: text;
 }
 
-.content-03 span {
+.manage-gradient-text {
   background-image: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
   color: transparent;
   background-clip: content-box;
   -webkit-background-clip: text;
 }
 
-.content-04 span {
+.share-gradient-text {
   background: linear-gradient(99deg, #6d7ccd 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
   color: transparent;
   background-clip: content-box;
   -webkit-background-clip: text;
 }
 
-.content-05 span {
+.search-gradient-text {
   background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
   color: transparent;
   background-clip: content-box;
@@ -183,7 +186,7 @@ footer {
   background-color: var(--black);
 }
 
-footer .container {
+.footer-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -194,7 +197,7 @@ footer .container {
   font-weight: 400;
 }
 
-footer .privacy-faq {
+.footer-privacy-faq {
   display: flex;
   align-items: flex-start;
   gap: 2rem;
@@ -204,7 +207,7 @@ footer .privacy-faq {
   font-weight: 400;
 }
 
-footer .icons {
+.footer-icons {
   display: flex;
   align-items: flex-start;
   gap: 0.7rem;
@@ -218,16 +221,17 @@ footer .icons {
   html {
     font-size: 14px;
   }
+
   header {
     justify-content: center;
   }
 
-  .content-01 img {
-    width: 40rem;
-    height: 20rem;
+  .landing-title-img {
+    width: 100%;
+    height: 100%;
   }
 
-  section img {
+  .introduction-img {
     width: 24rem;
     height: 20rem;
   }
@@ -235,7 +239,7 @@ footer .icons {
 
 @media (max-width: 767px) {
   html {
-    font-size: 12px;
+    font-size: 8px;
   }
 
   br {
@@ -244,20 +248,24 @@ footer .icons {
     content: ' ';
   }
 
-  .content-01 img {
-    width: 100%;
-    height: 85%;
-  }
-
-  article {
-    padding: 0 32px;
-  }
-
   nav {
     margin: 0 32px;
   }
 
-  section {
+  .landing-title-img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .landing-title {
+    padding: 0 32px;
+  }
+
+  .title-text {
+    width: 80%;
+  }
+
+  .introduction {
     grid-template:
       'title'
       'image'
@@ -267,11 +275,17 @@ footer .icons {
     margin: 5rem 0;
   }
 
-  section p {
+  .introduction-title {
+    width: 100%;
+  }
+
+  .introduction-text {
+    width: 100%;
     font-size: 1.5rem;
   }
 
-  section img {
+  .introduction-img {
     width: 100%;
+    height: 100%;
   }
 }
