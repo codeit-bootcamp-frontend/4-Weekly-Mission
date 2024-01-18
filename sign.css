@@ -141,8 +141,6 @@ body {
     linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
   );
   border: none;
-}
-.sign__form--button a {
   color: var(--Grey-Light, #f5f5f5);
   font-family: 'Pretendard';
   font-size: 18px;
@@ -150,6 +148,7 @@ body {
   font-weight: 600;
   line-height: normal;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .sign__social {
