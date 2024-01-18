@@ -26,6 +26,21 @@
       line-height: 150%;
    }
 
+   .signForm header a > img {
+      width: 100%;
+   }
+
+   .signForm header > div {   
+   display: flex; gap: 8px;
+   }
+
+   .signForm > form {   
+      display: flex; 
+      flex-direction: column; 
+      width: 100%; 
+      gap: 24px;
+   }
+
    .inputSection {
       display: flex;
       flex-direction: column;
@@ -40,6 +55,10 @@
       border-radius: 8px;
       border: 1px solid var(--LBrary-Gray20);
       background: var(--LBrary-White);
+      position: relative;
+   }
+
+   input {
       position: relative;
    }
 
@@ -77,13 +96,13 @@
    
    */
 
-   .SignLabel {
+   .signLabel {
       color: var(--LBrary-black);
       font-size: 1.4rem;
       font-weight: 400;
    }
 
-   .SocialSign {
+   .socialSign {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -121,7 +140,7 @@
 /* 모바일 반응형 */
 
    @media (max-width: 767px) {
-      .SignPage {
+      .signPage {
          width: 100%;
          max-width: 464px;
          margin: 120px auto auto;
