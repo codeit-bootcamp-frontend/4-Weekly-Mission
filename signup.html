@@ -17,25 +17,28 @@
                <div><a>이미 회원이신가요?</a><a href="signin.html">로그인 하기</a></div>
             </header>
             <form action="">
-               <div class="inputSection">
+               <section>
                   <label for="">이메일</label>
-                  <input class="signupEmailInput" type="email">
-               </div>
-               <div class="inputSection">
+                  <input id="signupEmailInput" type="email" placeholder="codeit@codeit.com">
+                  <p class="errorMessagePreset" id="emailErrorMessege"></p>
+               </section>
+               <section>
                   <label for="">비밀번호</label>
                   <div class="seenButtonPositionOrigin">
-                     <input class="signupPasswordInput" type="password">
-                     <button class="passwordSeenButton"><img src="Assets/Icons/eye-off.svg" alt="">
+                     <input id="signupPasswordInput" type="password" placeholder="‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧">
+                     <button class="passwordSeenButton" type="button">
                   </div>
-               </div>
-               <div class="inputSection">
+                  <p class="errorMessagePreset" id="passErrorMessege"></p>
+               </section>
+               <section>
                   <label for="">비밀번호 확인</label>
                   <div class="seenButtonPositionOrigin">
-                     <input class="signupPasswordCheckInput" type="password">
-                     <button class="passwordSeenButton"><img src="Assets/Icons/eye-off.svg" alt="">
+                     <input id="signupPasswordCheckInput" type="password" placeholder="‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧">
+                     <button class="passwordSeenButton" type="button">
                   </div>
-               </div>
-               <button type="submit" class="button">회원가입</button>
+                  <p class="errorMessagePreset" id="passCheckErrorMessege"></p>
+               </section>
+               <button class="button">회원가입</button>
             </form> 
             
          </div>

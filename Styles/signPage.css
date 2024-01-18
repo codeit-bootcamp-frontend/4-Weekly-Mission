@@ -9,17 +9,13 @@
    }
 
    .signForm {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       width: 100%;
-      gap: 30px;
    }
 
-   .signForm > header {
-      flex-direction: column;
-      width: auto;
-      text-align: center;
+   header {
+      display: block;
+      width: max-content;
+      margin: auto;
       color: var(--LBrary-Black);
       font-size: 1.6rem;
       font-weight: 400;
@@ -34,28 +30,29 @@
    display: flex; gap: 8px;
    }
 
-   .signForm > form {   
-      display: flex; 
-      flex-direction: column; 
+   .signPage div form {   
+      margin-top: 30px;
       width: 100%; 
-      gap: 24px;
    }
 
-   .inputSection {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+   .signPage div Section {
+      margin-bottom: 24px;
+   }
+
+   .errorMessagePreset {
+      color: var(--LBrary-Red);
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-top: 6px;
+
    }
 
    input {
-      display: flex;
       padding: 18px 15px;
       width: 100%;
-      gap: 6px;
       border-radius: 8px;
       border: 1px solid var(--LBrary-Gray20);
       background: var(--LBrary-White);
-      position: relative;
    }
 
    .seenButtonPositionOrigin {
@@ -67,16 +64,20 @@
    }
 
    .passwordSeenButton {
+      background-image: url(../Assets/Icons/eye-off.svg);
+      background-size: contain;
+      width: 16px;
+      height: 16px;
       position: absolute;
       top: 50%;
       right: 15px;
       transform: translate(0, -50%);
+      border: none;
    }
 
 
-   .signInputBeHidden {
-      position: absolute;
-      margin-right: 15px;
+   .notHidden {
+      background-image: url(../Assets/Icons/eye-on.svg);
    }
 
    /*
@@ -90,9 +91,11 @@
    */
 
    Label {
+      display: block;
       color: var(--LBrary-black);
       font-size: 1.4rem;
       font-weight: 400;
+      margin-bottom: 12px;
    }
 
    .socialSign {
@@ -123,9 +126,9 @@
       width: 42px;  
    }
 
-   .signForm > .button {
+   form > .button {
       width: 100%;
-      margin: auto;
+      margin-top: 30px;
    }
 
 /* 로그인 페이지 끝 */

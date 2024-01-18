@@ -66,6 +66,7 @@ button:hover {
 /* 랜딩 페이지 */
 
    /* 랜딩페이지 텍스트 그라데이션 */
+
    .purplePinkGradation {
       background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
       background-clip: text;
