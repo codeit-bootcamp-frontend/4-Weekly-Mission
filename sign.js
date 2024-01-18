@@ -9,9 +9,7 @@ const emptyPasswordErrorMessage = document.querySelector('.empty-password-error'
 // 아이디 input id 가져오기
 const signEmailInputValue = document.querySelector('#email-input'); 
 // 비밀번호 input id 가져오기
-const signPasswordInputValue = document.querySelector('#email-password')
-// 아이디 input value 값
-const emailValue = signEmailInputValue.value.trim();
+const signPasswordInputValue = document.querySelector('#password-input')
 
 function emailRegexError(){
   const emailValue = signEmailInputValue.value.trim();
@@ -23,7 +21,6 @@ function emailRegexError(){
   } else {
     invalidEmailFormatMessage.classList.remove('show-error');
     signEmailInputValue.classList.remove('redBorder')
-
   }
 }
 function emailError(){
@@ -31,6 +28,7 @@ function emailError(){
   if (emailValue === '') {
     emptyEmailErrorMessage.classList.add('show-error');
     signEmailInputValue.classList.add('redBorder')
+    invalidEmailFormatMessage.classList.remove('show-error');
   } else {
     emailRegexError()
     emptyEmailErrorMessage.classList.remove('show-error');
@@ -39,13 +37,17 @@ function emailError(){
 }
 function passwordError(){
   let passwordValue = signPasswordInputValue.value.trim();
+  console.log(passwordValue)
   if(passwordValue === ''){
     emptyPasswordErrorMessage.classList.add('show-error')
+    signPasswordInputValue.classList.add('redBorder')
+  } else{
+    emptyPasswordErrorMessage.classList.remove('show-error')
+    signPasswordInputValue.classList.remove('redBorder')
   }
 }
 
 signInputValue.addEventListener('focusout', function() {
-  console.log('실행되나??');
   emailError();
   passwordError();
 });
