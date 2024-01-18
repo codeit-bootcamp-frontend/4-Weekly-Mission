@@ -14,6 +14,8 @@ const signPasswordInputValue = document.querySelector('#password-input')
 const emailValidationMessage = document.querySelector('.email-validation-message')
 // 지정한 비밀번호가 아닌 다른 비밀번호 값을 입력했을 경우 나오는 에러 메세지
 const passwordValidationMessage = document.querySelector('.password-validation-message')
+// 눈 아이콘 버튼 
+const eyeButton = document.querySelector('.eye-button-icon')
 
 function emailRegexError(){
   const emailValue = signEmailInputValue.value.trim();
@@ -70,10 +72,19 @@ function submitLogin(){
     signPasswordInputValue.classList.add('redBorder')
   }
 }
-
 document.onkeyup = function (e) {
   let key = e.key || e.keycode
   if(key === 'Enter' || keycode === 13){
     submitLogin();
+  }
+}
+
+function togglePasswordVisibility() {
+  if (signPasswordInputValue.type === 'password') {
+    signPasswordInputValue.type = 'text';
+    eyeButton.src = './images/eye-on.svg';  
+  } else {
+    signPasswordInputValue.type = 'password';
+    eyeButton.src = './images/eye-off.svg'; 
   }
 }
