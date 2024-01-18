@@ -151,8 +151,18 @@ header {
   background-color: #f5e14b;
 }
 
-.empty-email-error, .correct-email-error{
-  display: none; 
+.empty-email-error, .correct-email-error, .empty-password-error{
+  display: none;
+  color: var(--Linkbrary-red, #FF5B56);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.redBorder{
+  border: 1px solid var(--Linkbrary-red, #FF5B56);
+  background: var(--Linkbrary-white, #FFF);
 }
 
 .show-error {
