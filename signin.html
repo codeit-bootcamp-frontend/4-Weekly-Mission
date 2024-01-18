@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>signin</title>
-  <link rel="stylesheet" href="src/signin-style.css">
-</head>
-<body>
-  <main>
-    <div class="head">
-      <a href="index.html">
-        <img class="logo_img" src="image/logo.svg" alt="logo">
-      </a>
-      <div class="member">회원이 아니신가요?<a class="mv_signup" href="/signup.html">회원 가입하기</a></div>
-    </div>
-    <form>
-      <div>
-        <label for="email">이메일</label>
-        <input id="email" name="email">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sign in</title>
+    <link rel="stylesheet" href="src/signin-style.css" />
+  </head>
+  <body>
+    <main>
+      <div class="head">
+        <a href="index.html">
+          <img class="logo_img" src="image/logo.svg" alt="logo" />
+        </a>
+        <div class="member">
+          회원이 아니신가요?<a class="move_signup" href="/signup.html">회원 가입하기</a>
+        </div>
       </div>
+      <form>
+        <div>
+          <label for="email">이메일</label>
+          <input id="email" name="email" />
+        </div>
         <div class="password_block">
-        <label class="password" for="password">비밀번호</label>
-        <input id="password" name="password" type="password">
-        <span class="eye-button"><img src="image/eye-off.svg"></span>
+          <label class="password" for="password">비밀번호</label>
+          <input id="password" name="password" type="password" />
+          <span class="eye-button"><img src="image/eye-off.svg" alt="password check" /></span>
+        </div>
+      </form>
+      <a class="login_button" href="">로그인</a>
+      <div class="login_block">
+        <span>소셜 로그인</span>
+        <div class="social_signin_img">
+          <a href="https://www.google.com/">
+            <img src="image/google_login.svg" alt="Log in with Google account" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/">
+            <img src="image/kakao_login.svg" alt="Log in with Kakao account" />
+          </a>
+        </div>
       </div>
-    </form>
-    <a class="login_button" href="">로그인</a>
-    <div class="login_block">
-      <span>소셜 로그인</span>
-      <div class="social_signin_img">
-        <a href="https://www.google.com/">
-          <img src="image/google_login.svg">
-        </a>
-        <a href="https://www.kakaocorp.com/page/">
-          <img src="image/kakao_login.svg">
-        </a>
-      </div>
-    </div>
-  </main>
-</body>
+    </main>
+  </body>
 </html>
