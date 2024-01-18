@@ -1,0 +1,172 @@
+@import url("./reset.css");
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+@import url("./root.css");
+
+/* 최대 400px */
+* {
+	box-sizing: border-box;
+}
+
+html {
+	background: var(--gray-5);
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 7.5rem auto auto;
+}
+
+header {
+	text-align: center;
+}
+
+header > div {
+	margin-top: 1rem;
+	color: var(--black, #000);
+	font-family: Pretendard;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5rem; /* 150% */
+}
+header > div > a {
+	color: var(--Linkbrary-primary-color, var(--primary));
+	font-family: Pretendard;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+}
+
+.logo {
+	width: 13.16rem;
+}
+
+label {
+	color: var(--black, var(--black));
+	font-family: Pretendard;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+
+	text-align: left;
+}
+
+section {
+	width: 100%;
+	padding: 0 2rem;
+	max-width: 25rem;
+}
+
+form {
+	margin: 1.88rem 0;
+}
+
+input {
+	display: block;
+	width: 100%;
+	padding: 1.13rem 0.94rem;
+	margin-top: 0.75rem;
+
+	border-radius: 0.5rem;
+	border: 1px solid var(--Linkbrary-gray20, var(--gray-3));
+	background: var(--Linkbrary-white, var(--white));
+}
+
+.gap {
+	margin-bottom: 1.5rem;
+}
+
+input:focus {
+	border: 1px solid var(--Linkbrary-primary-color, var(--primary));
+}
+
+button {
+	color: var(--Grey-Light, #f5f5f5);
+	font-family: Pretendard;
+	font-size: 1.125rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+
+	display: flex;
+	width: 100%;
+	margin-bottom: 2rem;
+	padding: 1rem 1.25rem;
+	justify-content: center;
+	align-items: center;
+	gap: 0.625rem;
+
+	border-radius: 0.5rem;
+	border: 0px;
+	background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%));
+
+	cursor: pointer;
+}
+
+.social-login {
+	color: var(--Linkbrary-gray100, #373740);
+	font-family: Pretendard;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 0.75rem 1.5rem;
+
+	border-radius: 0.5rem;
+	border: 1px solid var(--Linkbrary-gray20, var(--gray-3));
+	background: var(--Linkbrary-gray10, var(--gray-4));
+}
+
+.social-login-icons {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+}
+
+.icon-google {
+	width: 2.625rem;
+	height: 2.625rem;
+	border-radius: 50%;
+	background-color: var(--white);
+	border: 0.3px #d3d4dd solid;
+}
+
+.google {
+	width: 1.375rem;
+	height: 1.375rem;
+	margin: 0.63rem;
+	flex-shrink: 0;
+}
+
+.icon-kakao {
+	width: 2.625rem;
+	height: 2.625rem;
+	border-radius: 50%;
+	background-color: #f5e14b;
+}
+
+.kakao {
+	width: 1.625rem;
+	height: 1.5rem;
+	margin: 0.63rem 0.5rem 0.5rem 0.5rem;
+	flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+	body {
+		margin: 14.9rem auto auto;
+	}
+	section {
+		width: 25rem;
+	}
+}
