@@ -1,54 +1,50 @@
-body {
-    
-    display: inline-flex;
-    flex-direction: column;
-    padding: 120px 32px 233px 33px;
-    align-items: center;
-    justify-content: center;
+.container {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 120px 32px 233px 33px;
+  align-items: center;
+  justify-content: center;
 }
-
 .signup {
-    margin-top: 16px;
-    display: flex;
-    gap: 8px;
-    
+  margin-top: 16px;
+  display: flex;
+  gap: 8px;
 }
 header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
 }
-
 
 .signup p {
-    color: var(--black, #000);
-    font-family: Pretendard;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 24px; /* 150% */
+  color: var(--black, #000);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
 }
 .signup a {
-    color: var(--Linkbrary-primary-color, #6D6AFE);
-    font-family: Pretendard;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+  color: var(--Linkbrary-primary-color, #6d6afe);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .email {
-    gap: 12px;
+  gap: 12px;
 }
 input {
-    display: flex;
-    width: 400px;
-    padding: 18px 15px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    border: 1px solid var(--Linkbrary-primary-color);
-    background: var(--Linkbrary-white);
+  display: flex;
+  width: 400px;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-primary-color);
+  background: var(--Linkbrary-white);
 }
