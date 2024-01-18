@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign in</title>
-    <link rel="stylesheet" href="../css/signin.css" />
+    <link rel="stylesheet" href="../css/sign.css" />
     <link
       rel="stylesheet"
       as="style"
@@ -14,14 +14,14 @@
   </head>
 
   <body>
-    <div class="signin">
+    <div class="sign-title">
       <a href="landing.html"
         ><img src="../image/logo/Linkbrary.svg" href="landing.html" alt="Linkbrary" /></a
       ><br />
       회원이 아니신가요?
       <a href="signup.html">회원 가입하기</a>
     </div>
-    <form>
+    <form class="sign-box">
       <div class="email">
         <label for="signin-email">이메일</label>
         <input id="signin-email" type="email" placeholder="codeit@coeit.com" required />
@@ -29,13 +29,13 @@
       <div class="password">
         <label for="signin-password">비밀번호</label>
         <div>
-          <img src="../image/icon/eye.svg" alt="눈 아이콘" />
+          <img class="eyecon" src="../image/icon/eye.svg" alt="눈 아이콘" />
           <input id="signin-password" type="password" placeholder="••••••••" required />
         </div>
       </div>
       <button type="submit">로그인</button>
     </form>
-    <div class="social-login">
+    <div class="social-sign">
       <div>소셜 로그인</div>
       <div class="logo">
         <a href="https://www.google.com/"
