@@ -5,6 +5,19 @@ const passwordError = document.querySelector(".passwordError");
 
 const emailRegex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
 
+const form = document.querySelector("#form");
+
+function onSubmit(event) {
+  event.preventDefault();
+
+  if (email.value === "test@codeit.com" && password.value === "codeit101") {
+    location.href = "/folder";
+  } else {
+    emailError.textContent = "이메일을 확인해 주세요.";
+    passwordError.textContent = "비밀번호를 확인해 주세요.";
+  }
+}
+
 email.addEventListener("focusout", (e) => {
   console.log("focus out email");
   if (!e.target.value || !e.target.value.trim()) {
@@ -26,3 +39,5 @@ password.addEventListener("focusout", (e) => {
     passwordError.textContent = "";
   }
 });
+
+form.addEventListener("submit", onSubmit);
