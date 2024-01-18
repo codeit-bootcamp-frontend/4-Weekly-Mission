@@ -210,12 +210,14 @@ footer {
 
 .footer-icons {
   display: flex;
+  justify-content: right;
   align-items: flex-start;
   gap: 0.7rem;
 }
 
-@media (min-width: 1920px) {
-  /* 배경 색깔 빼고 그대로 고정 */
+.footer-icon {
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -293,5 +295,26 @@ footer {
   .introduction-img {
     width: 100%;
     height: 100%;
+  }
+
+  footer {
+    padding: 2rem 2rem;
+  }
+
+  .footer-container {
+    flex-wrap: wrap;
+  }
+
+  .footer-company {
+    margin-top: 2rem;
+    order: 3;
+  }
+  .footer-privacy-faq {
+    width: 50%;
+    order: 1;
+  }
+  .footer-icons {
+    width: 50%;
+    order: 2;
   }
 }
