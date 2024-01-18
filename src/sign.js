@@ -4,6 +4,7 @@ const signEmail = document.getElementById('email');
 const emailError = document.getElementById('email-error');
 const signPw = document.getElementById('password');
 const pwError = document.getElementById('password-error');
+const signBtn = document.querySelector('.sign-normal__btn');
 
 const isValidEmail = (email) => {
   return SIGN.EMAIL_REGEX.test(email);
@@ -28,5 +29,18 @@ const validatePw = () => {
   else pwError.innerText = '';
 };
 
+const handleLogin = () => {
+  const emailValue = signEmail.value.trim();
+  const pwValue = signPw.value.trim();
+
+  if (emailValue === 'test@codeit.com' && pwValue === 'codeit101') {
+    console.log('로그인 성공!');
+    window.location.href = 'folder.html';
+  } else {
+    console.log('로그인 실패!');
+  }
+};
+
 signEmail.addEventListener('focusout', validateEmail);
 signPw.addEventListener('focusout', validatePw);
+signBtn.addEventListener('click', handleLogin);
