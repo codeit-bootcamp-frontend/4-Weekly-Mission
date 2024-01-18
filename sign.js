@@ -70,3 +70,8 @@ function submitLogin(){
     signPasswordInputValue.classList.add('redBorder')
   }
 }
+
+document.onkeyup = function (e) {
+  let keyCode = e.keyCode;
+  if (keyCode === 13) submitLogin();
+}
