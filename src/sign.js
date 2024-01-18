@@ -38,9 +38,17 @@ const handleLogin = () => {
     window.location.href = 'folder.html';
   } else {
     console.log('로그인 실패!');
+    emailError.innerText = SIGN.CHECK_EMAIL;
+    pwError.innerText = SIGN.CHECK_PASSWORD;
   }
 };
 
+const handleEnterKey = (e) => {
+  if (e.key === 'Enter') handleLogin();
+};
+
 signEmail.addEventListener('focusout', validateEmail);
+signEmail.addEventListener('keydown', handleEnterKey);
 signPw.addEventListener('focusout', validatePw);
+signPw.addEventListener('keydown', handleEnterKey);
 signBtn.addEventListener('click', handleLogin);
