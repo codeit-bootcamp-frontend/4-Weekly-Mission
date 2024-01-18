@@ -13,7 +13,6 @@ window.onload = function(){
     const emailError = document.querySelector(".signup__email--error");
     const pwError = document.querySelector(".signup__password--error");
     const pwConfirmError = document.querySelector(".signup__password--confirm--error");
-    const registerBtn = document.querySelector(".signup__button");
 
     // 회원 가입 함수
     function register(){
@@ -41,9 +40,9 @@ window.onload = function(){
         register();
     });
 
-    registerBtn.addEventListener("keydown" , (e) =>{
+    form.addEventListener("keydown" , (e) =>{
         if (e.key === "Enter"){ // 엔터 키
-            register();
+            login();
         }
     });
 

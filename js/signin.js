@@ -9,7 +9,6 @@ window.onload = function(){
     const emailError = document.querySelector(".signin__email--error");
     const pwError = document.querySelector(".signin__password--error");
     const pwEyeIcon = document.querySelector(".fa-solid");
-    const loginBtn = document.querySelector(".signin__button");
     
     // 로그인 함수
     function login(){ 
@@ -26,7 +25,7 @@ window.onload = function(){
         login();
     });
 
-    loginBtn.addEventListener("keydown" , (e) =>{
+    form.addEventListener("keydown" , (e) =>{
         if (e.key === "Enter"){ // 엔터 키
             login();
         }
