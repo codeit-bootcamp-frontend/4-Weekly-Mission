@@ -1,11 +1,10 @@
 @import './global.css';
 
 header {
-  padding: 1.2rem 0;
-  flex-direction: column;
-  align-items: center;
-  align-self: stretch;
+  display: flex;
   position: sticky;
+  width: 100%;
+  justify-content: center;
   top: 0;
   z-index: 1;
 
@@ -13,14 +12,16 @@ header {
 }
 
 nav {
-  margin: 0 12.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  align-self: stretch;
+  width: 100%;
+  padding: 0 12.5rem;
+  height: 6rem;
 }
 
 .main-logo {
+  display: flex;
   width: 8.5rem;
 }
 
@@ -226,6 +227,11 @@ footer {
     justify-content: center;
   }
 
+  nav {
+    padding: 0 2.3rem;
+    max-width: 56rem;
+  }
+
   .landing-title-img {
     width: 100%;
     height: 100%;
@@ -249,7 +255,7 @@ footer {
   }
 
   nav {
-    margin: 0 32px;
+    padding: 0 2rem;
   }
 
   .landing-title-img {
