@@ -1,0 +1,30 @@
+:root {
+    --color-primary: #6d6afe;
+    --color-background: #f1f6fe;
+    --color-red: #ff5b56;
+    --color-black: #111322;
+    --color-white: #ffffff;
+    --color-gray5: #3e3e43;
+    --color-gray4: #9fa6b2;
+    --color-gray3: #ccd5e3;
+    --color-gray2: #e7effb;
+    --color-gray1: #f0f6ff;
+}
+
+body {
+    margin: 0;
+    font-family: Pretendard;
+}
+
+button {
+    cursor: pointer;
+}
+
+.btn_gradient {
+    padding: 13px 32px;
+
+    background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+    border-radius: 8px;
+    border: none;
+    color: var(--color-white);
+}
