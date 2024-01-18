@@ -1,0 +1,151 @@
+.sign_in_layout_wrapper {
+    background-color: var(--gray05);
+    display: flex;
+    padding: 23.8rem 0px 25.2rem 0px;
+    justify-content: center;
+}
+.sign_in_wrapper {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+.sign_in_main {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.sign_in_title_box {
+    display: flex;
+    gap: 1.6rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sign_in_logo {
+    cursor: pointer;
+}
+
+.sign_up_box {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.sign_up_text {
+    color: var(--black, #000);
+  
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 2.4rem;
+}
+
+.sign_up_link_box {
+    display: flex;
+    flex-direction: column;
+}
+.sign_up_link {
+    color: var(--primary);
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sign_up_link_underline {
+    height: 1px;
+    width: 100%;
+    background-color: var(--primary);
+}
+
+.sign_in_form {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+}
+
+.input_box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.input_label {
+    color: var(--black, #000);
+    font-size: 1.4rem;
+}
+
+.input {
+    /* width: 40rem; */
+    padding: 18px 15px;
+    border-radius: 8px;
+    border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
+    background: var(--Linkbrary-white, #FFF);
+    color: var(--Linkbrary-gray100, #373740);
+    font-size: 1.6rem;
+    line-height: 2.4rem; 
+
+}
+
+.sign_in_btn {
+    cursor: pointer;
+    text-align: center;
+    color: var(--Grey-Light, #F5F5F5);
+    font-size: 1.8rem;
+    font-weight: 600;
+   margin: 0 auto;
+   width: 40rem;
+   display: inline-block;
+    padding: 1.6rem 2rem;
+    border-radius: 8px;
+    border: none;
+    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+}
+
+.password_input_box {
+    position: relative;
+}
+
+
+.pw_icon {
+    position: absolute;
+    top:58%;
+    right: 1.5rem;
+}
+
+.social_sign_in_box {
+    width: 400px;
+padding: 12px 24px;
+border-radius: 8px;
+border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+background: var(--Linkbrary-gray10, #E7EFFB);
+display: flex;
+justify-content: space-between;
+align-items: center;
+
+}
+
+.social_sign_in_text {
+    color: var(--Linkbrary-gray100, #373740);
+    font-size: 1.4rem;
+}
+
+.social_icon_box {
+    display: flex;
+    gap: 1.6rem;
+}
+
+.social_icon {
+    font-size: 0;
+}
+
+.social_icon_box svg {
+    cursor: pointer;
+}
+
+.input:focus{
+    border-color: blue;
+    outline: none;
+}
+
+
+
