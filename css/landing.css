@@ -5,17 +5,13 @@ body {
   padding: 0;
 }
 
-.logo {
-  color: #6d6afe;
-}
-
 nav {
   position: fixed;
   width: 100%;
   padding: 2rem 20rem;
   margin: 0;
   top: 0;
-  background-color: #f0f6ff;
+  background-color: var(--background);
   transition: padding 0.5s;
 }
 
@@ -42,8 +38,8 @@ nav {
   font-size: 1.8rem;
   line-height: 2.2rem;
   text-align: center;
-  color: rgba(245, 245, 245, 1);
-  background-image: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: var(--white);
+  background-image: linear-gradient(90.99deg, var(--primary) 0.12%, var(--light-blue) 101.84%);
   text-decoration: none;
   margin-left: 3.2rem;
 }
@@ -59,7 +55,7 @@ nav {
   font-weight: 700;
   font-size: 6.4rem;
   line-height: 8rem;
-  background: #f0f6ff;
+  background: var(--background);
 }
 
 .slogan {
@@ -67,7 +63,7 @@ nav {
 }
 
 .slogan_grad {
-  background: linear-gradient(91.26deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  background: linear-gradient(91.26deg, var(--primary) 17.28%, var(--red) 74.98%);
   background-clip: text;
   color: transparent;
 }
@@ -83,8 +79,8 @@ nav {
   border-radius: 8px;
   border: 0;
   gap: 1rem;
-  color: rgba(245, 245, 245, 1);
-  background-image: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: var(--white);
+  background-image: linear-gradient(90.99deg, var(--primary) 0.12%, var(--light-blue) 101.84%);
   text-decoration: none;
 }
 
