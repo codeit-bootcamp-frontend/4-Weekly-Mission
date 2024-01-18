@@ -3,7 +3,8 @@ const pwInput = document.getElementById('signin-pw');
 const pwOnOffImg = document.getElementById('pw-onoff');
 let pwSwitch = false;
 const signButton = document.getElementById('signin-button');
-const signForm = document.querySelector('form');
+const emailError = document.getElementById('email__error-msg');
+const pwError = document.getElementById('pw__error-msg');
 
 //이메일 유효성 검사 메서드
 function emailCheck(email) {
@@ -17,7 +18,6 @@ function inputBorderBlue(element) {
   element.style.outline = 'none';
   element.style.border = '1px solid #6d6afe';
 }
-
 function inputBorderRed(inputElement, errorElement) {
   inputElement.style.border = '1px solid var(--Linkbrary-red,#FF5B56)';
   errorElement.style.display = 'block';
@@ -27,8 +27,7 @@ function inputBorderGray(inputElement, errorElement) {
   errorElement.style.display = 'none';
 }
 
-/*이메일 , 비밀번호 input focus일때
-  테두리 색상 변경 (css -> js)*/
+// focus in 시에 파란색테두리 변경
 emailInput.addEventListener('focus', function () {
   inputBorderBlue(emailInput);
 });
@@ -40,7 +39,7 @@ pwInput.addEventListener('focus', function () {
 // 작성 되었는지, 유효한 이메일인지 검사
 emailInput.addEventListener('focusout', function () {
   const emailValue = emailInput.value;
-  const emailError = document.getElementById('email__error-msg');
+
   if (!emailValue) {
     emailError.innerHTML = '이메일을 입력해 주세요.';
     inputBorderRed(emailInput, emailError);
@@ -55,7 +54,7 @@ emailInput.addEventListener('focusout', function () {
 //비밀번호 작성 되었는지 검사
 pwInput.addEventListener('focusout', function () {
   const pwValue = pwInput.value;
-  const pwError = document.getElementById('pw__error-msg');
+
   if (!pwValue) {
     pwError.innerHTML = '비밀번호를 입력해 주세요.';
     pwOnOffImg.style.bottom = '2.9375rem';
@@ -80,8 +79,25 @@ pwOnOffImg.addEventListener('click', function () {
 });
 
 //로그인 기능 매서드
-signForm.addEventListener('submit', function () {
-  if (emailInput.value === 'test@codeit.com' && pwInput.value === '1') {
-    window.location.href('folder.html');
+function signIn(email, password) {
+  if (email == 'test@codeit.com' && password == 'codeit101') {
+    window.location.replace('./folder.html');
+  } else {
+    emailError.innerHTML = '이메일을 확인해 주세요.';
+    pwError.innerHTML = '비밀번호를 확인해 주세요.';
+    inputBorderRed(emailInput, emailError);
+    pwOnOffImg.style.bottom = '2.9375rem';
+    inputBorderRed(pwInput, pwError);
+  }
+}
+//버튼에 클릭,엔터 이벤트시에 로그인 함수 기능 추가
+signButton.addEventListener('click', function (e) {
+  e.preventDefault();
+  signIn(emailInput.value, pwInput.value);
+});
+signButton.addEventListener('keypress', function (e) {
+  e.preventDefault();
+  if (e.key === 'Enter') {
+    signIn(emailInput.value, pwInput.value);
   }
 });
