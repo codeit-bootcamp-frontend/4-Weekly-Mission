@@ -7,6 +7,9 @@ const emailRegex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
 
 const form = document.querySelector("#form");
 
+const eye_open = document.querySelector(".eye_open");
+const eye_close = document.querySelector(".eye_close");
+
 function onSubmit(event) {
   event.preventDefault();
 
@@ -45,6 +48,16 @@ password.addEventListener("focusout", (e) => {
     passwordError.textContent = "";
     e.target.classList.remove("inputError");
   }
+});
+
+eye_open.addEventListener("click", (e) => {
+  e.target.classList.add("display_none");
+  eye_close.classList.remove("display_none");
+});
+
+eye_close.addEventListener("click", (e) => {
+  e.target.classList.add("display_none");
+  eye_open.classList.remove("display_none");
 });
 
 form.addEventListener("submit", onSubmit);
