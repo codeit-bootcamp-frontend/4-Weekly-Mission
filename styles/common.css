@@ -1,3 +1,7 @@
+/*********************
+        Color
+*********************/
+
 :root {
   --primary: #6d6afe;
   --red: #ff5b56;
@@ -8,4 +12,24 @@
   --gray3: #ccd5e3;
   --gray4: #e7effb;
   --gray5: #f0f6ff;
+}
+
+/*********************
+         UI
+*********************/
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*********************
+        Layout
+*********************/
+
+.container {
+  margin: 0 auto;
 }

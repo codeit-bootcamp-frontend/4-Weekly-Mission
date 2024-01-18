@@ -1,11 +1,6 @@
 @import url(/styles/common.css);
 
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
   font-family: Abel;
   font-weight: 400;
   color: #6b6b6b;
@@ -27,11 +22,7 @@ body {
   width: 23vw;
 }
 
-.help-left {
-  width: 200px;
-}
-
-.help-right {
+.help-left, .help-right {
   width: 200px;
 }
 
@@ -43,7 +34,7 @@ body {
 button {
   color: #f5f5f5;
   font-family: Pretendard;
-  font-size: clamp(14px,4vw,18px);
+  font-size: clamp(14px,2vw,18px);
   font-weight: 600;
   background-image: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
   border-radius: 8px;
@@ -59,39 +50,35 @@ button {
   width: 16vw;
 }
 
-.main-header button {
+.hero button {
   padding: 16px 0;
   max-width: 350px;
   min-width: 200px;
   width: 40vw;
 }
 
-.main-header {
+.hero {
   background-color: var(--gray5);
   padding-top: 70px;
+  margin-bottom: 70px;
 }
 
-.container {
-  margin: 0 auto;
-}
-
-.main-header .container {
+.hero .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 40px;
 } 
 
-.main-header-title {
+.hero-title {
   text-align: center;
   font-family: Pretendard;
   font-size: clamp(32px,7vw,64px);
   font-weight: 700;
   color: var(--black);
-  margin: 0;
 }
 
-.main-header-img {
+.hero-img {
   max-width: 1200px;
   min-width: 325px;
   width: 82vw;
@@ -125,22 +112,19 @@ button {
   -webkit-text-fill-color: transparent;
 }
 
-figure {
-  margin: 0;
-  padding: 80px 0 70px;
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
+section {
+  width: 80vw;
+  max-width: 1000px;
 }
 
 section img {
   max-width: 550px;
-  min-width: 325px;
   width: 42vw;
   grid-area: img;
 }
 
 .section-odd {
+  padding: 50px 0;
   display: grid;
   grid-template: auto auto / auto auto auto;
   grid-template-areas: 
@@ -149,6 +133,7 @@ section img {
 } 
 
 .section-even {
+  padding: 50px 0;
   display: grid;
   grid-template: auto auto / auto auto auto;
   grid-template-areas:
@@ -173,7 +158,6 @@ section img {
 
 section h2 {
   display: inline;
-  margin: 0;
   color: #000000;
   font-family: Pretendard;
   font-size: clamp(24px,4vw,48px);
@@ -192,6 +176,7 @@ section p {
 footer {
   background-color: var(--black);
   padding: 32px 104px 64px;
+  margin-top: 120px;
 }
 
 footer .container {
@@ -208,7 +193,6 @@ footer .container {
   font-size: 16px;
   flex: 0 0 116px;
   grid-area: company;
-  margin: 0;
 }
 
 .footer-link {
@@ -239,23 +223,14 @@ footer .container {
 }
 
 @media (max-width: 1199px) { 
-  .help-left {
-    max-width: 200px;
-    min-width: 32px;
-  }
-
-  .help-right {
+  .help-left, .help-right {
     max-width: 200px;
     min-width: 32px;
   }
 }
 
 @media (max-width: 864px) {
-  .help-left {
-    width: 32px
-  }
-
-  .help-right {
+  .help-left, .help-right {
     width: 32px
   }
 
@@ -265,8 +240,17 @@ footer .container {
 }
 
 @media (max-width: 768px) {
-  .main-header a {
+  .hero a {
     display: block;
+  }
+
+  .hero {
+    margin-bottom: 0;
+    padding-top: 28px;
+  }
+
+  .hero button {
+    padding: 10px 0;
   }
   
   .help-center {
@@ -278,7 +262,19 @@ footer .container {
     display: inline;
   }
 
+  section {
+    width: auto;
+  }
+
+  section img {
+    max-width: 1000px;
+    width: 100%;
+    grid-area: img;
+  }
+
   .section-odd {
+    margin: 0 32px;
+    padding: 40px 0;
     grid-template: auto auto auto / auto;
     grid-template-areas:
       "title"
@@ -288,6 +284,8 @@ footer .container {
   }
 
   .section-even {
+    margin: 0 32px;
+    padding: 40px 0;
     grid-template: auto auto auto / auto;
     grid-template-areas:
       "title"
@@ -301,16 +299,12 @@ footer .container {
   }
 
   section p {
-    width: 325px;
+    width: 100%;
     margin: 16px 0 0;
   }
 
-  figure {
-    gap: 80px;
-    padding: 40px 0 0;
-  }
-
-  footer {
+  footer { 
+    margin-top: 40px;
     padding: 32px;
   }
   
