@@ -92,10 +92,6 @@ body {
   border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
   background: var(--Linkbrary-white, #fff);
 }
-.sign__form input:focus {
-  outline: none !important;
-  border-color: var(--Linkbrary-primary-color, #6d6afe);
-}
 
 .sign__form--email,
 .sign__form--pw,
