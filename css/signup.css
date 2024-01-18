@@ -11,12 +11,12 @@ body {
   background: #F0F6FF;
 }
 
-.signLogo {
+.sign_logo {
   width: 210px;
   height: 38px;
 }
 
-.loginInfo {
+.login_info {
   margin: 16px auto;
   color: var(--black);
   font-family: Pretendard;
@@ -26,13 +26,13 @@ body {
   line-height: 24px;
 }
 
-.loginInfo a {
+.login_info a {
   color: var(--primary);
   font-weight: 600;
   line-height: normal;
 }
 
-.formBox {
+.form_box {
   width: 400px;
   margin: 30px;
   display: flex;
@@ -40,7 +40,7 @@ body {
   align-items: stretch;
 }
 
-.formLabel {
+.form_label {
   color: var(--black);
   font-family: Pretendard;
   font-size: 14px;
@@ -50,7 +50,7 @@ body {
   margin-bottom: 12px;
 }
 
-.formInput {
+.form_input {
   margin-bottom: 24px;
   padding: 18px 15px;
   height: 60px;
@@ -59,7 +59,7 @@ body {
   background: var(--white);
 }
 
-.formInput:focus {
+.form_input:focus {
   border: 1px solid var(--primary);
 }
 
@@ -68,7 +68,7 @@ body {
   justify-content: flex-end;
 }
 
-.password .formInput {
+.password .form_input {
   width: 100%;
 }
 
@@ -85,7 +85,7 @@ body {
   z-
 }
 
-.signupButton {
+.signup_button {
   border-radius: 8px;
   height: 50px;
   width: 400px;
@@ -101,7 +101,7 @@ body {
   font-weight: 600;
 }
 
-.socialLoginBox {
+.social_login_box {
   margin-top: 32px;
   display: flex;
   width: 400px;
@@ -114,12 +114,12 @@ body {
   background: var(--gray4);
 }
 
-.socialIcons {
+.social_icons {
   display: flex;
   justify-content: center;
 }
 
-.socialIconLink {
+.social_icon_link {
   padding: 10px;
   text-decoration: none;
   flex-shrink: 0;
@@ -131,15 +131,15 @@ body {
   margin-right: 16px;
 }
 
-.backColorYellow {
+.back_color_yellow {
   background: #f5e14b;
 }
 
-.backColorWhite {
+.back_color_white {
   background: var(--white);
 }
 
-.socialLoginIcon {
+.social_login_icon {
   width: 22px;
 }
 
@@ -149,13 +149,13 @@ body {
     padding: 0 32px;
     width: 100%;
   }
-  .formBox{
+  .form_box{
     width:100%;
   }
-  .signupButton{
+  .signup_button{
     width:100%;
   }
-  .socialLoginBox{
+  .social_login_box{
     width:100%;
   }
 }
