@@ -5,6 +5,7 @@
     "stylelint-order",
     "stylelint-config-rational-order/plugin"
   ],
+  "ignoreFiles": ["**/*.js"],
   "rules": {
     "plugin/selector-bem-pattern": {
       "componentName": "[A-Z]+",
