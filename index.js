@@ -33,8 +33,9 @@ function notValidEmailInput() {
   if (oldErrorMessage) {
       container.removeChild(oldErrorMessage);
   }
-
-  if (emailRegex.test(email)) {
+  
+  if (emailRegex.test(email.value)) {
+    console.log("Email")
     return
   } else {
     // 엘리먼트 생성
@@ -65,5 +66,6 @@ function focusOut() {
 }
 
 email.addEventListener("focusout", noInputFocusOut);
+//email.addEventListener("focusout", notValidEmailInput);
 email.addEventListener("change", notValidEmailInput);
 email.addEventListener("focusin", focusIn);
