@@ -10,6 +10,10 @@ const emptyPasswordErrorMessage = document.querySelector('.empty-password-error'
 const signEmailInputValue = document.querySelector('#email-input'); 
 // 비밀번호 input id 가져오기
 const signPasswordInputValue = document.querySelector('#password-input')
+// 지정한 아이디가 아닌 다른 아이디 값을 입력했을 경우 나오는 에러 메세지
+const emailValidationMessage = document.querySelector('.email-validation-message')
+// 지정한 비밀번호가 아닌 다른 비밀번호 값을 입력했을 경우 나오는 에러 메세지
+const passwordValidationMessage = document.querySelector('.password-validation-message')
 
 function emailRegexError(){
   const emailValue = signEmailInputValue.value.trim();
@@ -36,12 +40,12 @@ function emailError(){
   }
 }
 function passwordError(){
-  let passwordValue = signPasswordInputValue.value.trim();
-  console.log(passwordValue)
+  const passwordValue = signPasswordInputValue.value.trim();
   if(passwordValue === ''){
     emptyPasswordErrorMessage.classList.add('show-error')
     signPasswordInputValue.classList.add('redBorder')
-  } else{
+    passwordValidationMessage.classList.remove('show-error')
+  } else if(passwordValue.length >= 1){
     emptyPasswordErrorMessage.classList.remove('show-error')
     signPasswordInputValue.classList.remove('redBorder')
   }
@@ -53,10 +57,16 @@ signInputValue.addEventListener('focusout', function() {
 });
 
 function submitLogin(){
+  const emailValue = signEmailInputValue.value.trim();
+  const passwordValue = signPasswordInputValue.value.trim();
   let correctEmail =  'test@codeit.com'
   let correctPassword = 'codeit101'
   if(emailValue === correctEmail && passwordValue === correctPassword){
-    window.location.href = './folder'
+    location.href = 'folder.html';
+  }else if(emailValue === correctEmail || passwordValue === correctPassword){
+    emailValidationMessage.classList.add('show-error')
+    signEmailInputValue.classList.add('redBorder')
+    passwordValidationMessage.classList.add('show-error')
+    signPasswordInputValue.classList.add('redBorder')
   }
-  console.log('correctEmail')
 }
