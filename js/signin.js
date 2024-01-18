@@ -53,11 +53,13 @@ password.addEventListener("focusout", (e) => {
 eye_open.addEventListener("click", (e) => {
   e.target.classList.add("display_none");
   eye_close.classList.remove("display_none");
+  password.type = "password";
 });
 
 eye_close.addEventListener("click", (e) => {
   e.target.classList.add("display_none");
   eye_open.classList.remove("display_none");
+  password.type = "text";
 });
 
 form.addEventListener("submit", onSubmit);
