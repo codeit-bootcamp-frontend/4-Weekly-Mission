@@ -182,7 +182,7 @@ footer {
 }
 
 .credit {
-  display: grid;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 3.2rem 10.4rem;
@@ -194,20 +194,19 @@ footer {
   max-width: 192rem;
   margin: 0 auto;
   width: 100%;
-  grid-template: 'copyright . . privacy faq . . icon';
+}
+
+.footer_links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  grid-area: links;
 }
 
 .copyright {
   grid-area: copyright;
   color: #676767;
-}
-
-.privacy {
-  grid-area: privacy;
-}
-
-.faq {
-  grid-area: faq;
 }
 
 .icons {
@@ -234,7 +233,7 @@ footer {
 @media (max-width: 767px) {
   /* 이미지 및 섹션 반응형 확장 */
 
-  main img {
+  .main_img {
     width: 100%;
     max-width: none;
     margin: 0 3.2rem;
@@ -285,7 +284,7 @@ footer {
     margin: 0;
     width: 100%;
     height: 100%;
-    grid-template: 'privacy faq icon' 'copyright . .';
+    grid-template: 'links links icon' 'copyright . . ';
   }
 }
 
