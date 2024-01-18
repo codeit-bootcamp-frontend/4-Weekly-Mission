@@ -111,7 +111,7 @@ h1 {
   text-decoration-line: none;
 }
 
-#contentbanner1 {
+.contentbanner1 {
   width: 120rem;
   height: 59rem;
 }
@@ -206,7 +206,7 @@ footer {
   padding: 0 10.4rem;
 }
 
-#codeit {
+.codeit {
   color: #676767;
   grid-area: footertext;
 }
@@ -217,8 +217,8 @@ footer {
   grid-area: forgap;
 }
 
-#privacy,
-#faq {
+.privacy,
+.faq {
   color: #cfcfcf;
   text-decoration-line: none;
 }
@@ -281,7 +281,7 @@ main {
     margin-bottom: 25rem;
   }
 
-  #contentbanner1 {
+  .contentbanner1 {
     width: 85%;
     height: 85%;
   }
