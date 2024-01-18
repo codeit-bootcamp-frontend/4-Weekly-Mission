@@ -1,0 +1,278 @@
+@import "./global.css";
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: var(--headerpage);
+}
+
+.gnb {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 9.4rem;
+  max-width: 192rem;
+  padding: 0 20rem;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: var(--headerpage);
+}
+
+.hero-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 4rem;
+  padding-top: 7rem;
+}
+
+.cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5.4rem;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
+  border-radius: 8px;
+  color: #f5f5f5;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.cta-short {
+  width: 12.8rem;
+}
+
+.cta-long {
+  width: 35rem;
+}
+
+.slogan {
+  text-align: center;
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 8rem;
+}
+
+.slogan-gradient {
+  background-image: linear-gradient(119deg, var(--primary) 0%, #ff9f9f 100%);
+}
+
+.background-clip-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero-image {
+  width: 120rem;
+  height: 59rem;
+}
+
+.news-page {
+  padding-top: 7rem;
+  padding-bottom: 12rem;
+}
+
+section {
+  display: grid;
+  justify-content: center;
+  column-gap: 15.7rem;
+  row-gap: 1rem;
+  width: 100%;
+  height: 55rem;
+  padding: 50px 0;
+}
+
+section:nth-of-type(odd) {
+  grid-template:
+    ". image"
+    "title image"
+    "description image"
+    ". image"
+    /291px 55rem;
+}
+
+section:nth-of-type(even) {
+  grid-template:
+    "image ."
+    "image title"
+    "image description"
+    "image ."
+    /550px 29.1rem;
+}
+
+.title {
+  grid-area: title;
+  font-size: 4.8rem;
+  font-weight: 700;
+  line-height: 5.8rem;
+  letter-spacing: -0.03rem;
+}
+
+.title-redskyblue-gradient {
+  background-image: linear-gradient(117deg, #fe8a8a 2.29%, #a4ceff 100%);
+}
+.title-blueyellow-gradient {
+  background-image: linear-gradient(304deg, #6fbaff 0%, #ffd88b 100%);
+}
+.title-blueheaderpage-gradient {
+  background-image: linear-gradient(133deg, #2945c7 0%, #dbe1f8 100%);
+}
+.title-pinklightblue-gradient {
+  background-image: linear-gradient(310deg, #fe578f 0%, #68e8f9 100%);
+}
+
+.description {
+  grid-area: description;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #6b6b6b;
+  line-height: 150%;
+}
+
+.content-image {
+  grid-area: image;
+  width: 55rem;
+  height: 45rem;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding : 3.2rem 0 16rem 0;
+  background-color: var(--black);
+}
+
+.footer-box {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 192rem;
+  height: fit-content;
+  padding: 0 10.4rem;
+}
+
+.copyright {
+  color: #676767;
+  font-family: Arial;
+  font-size: 1.6rem;
+}
+
+.footer-links {
+  display: flex;
+  column-gap: 3rem;
+  padding-right: 1.8rem;
+}
+
+.footer-link {
+  color: #cfcfcf;
+  font-family: Arial;
+  font-size: 1.6rem;
+}
+
+.sns {
+  display: flex;
+  column-gap: 1.2rem;
+  height: 2rem;
+}
+
+/* desktop 규격 */
+@media screen and (min-width: 1200px){
+}
+
+/* tablet 규격 */
+@media screen and (max-width: 1199px){
+  .gnb {
+    justify-content: center;
+    gap : 40rem;
+    padding: 0 0 0 32px;
+  }
+  .cta-short {
+    margin-right: 32px;
+  }
+
+  .slogan {
+    width : 49rem;
+  }
+
+  .hero-image {
+    width : 85%;
+    height: 85%;
+  }
+
+}
+
+/* mobile 규격 */
+@media screen and (max-width: 767px){
+  header {
+    margin: 0 32px;
+  }
+
+  .news-page {
+    margin : 0 32px;
+  }
+
+  section {
+    margin-bottom: 15rem;
+  }
+
+  section:nth-of-type(odd) {
+    grid-template: 
+    "title"
+    "image"
+    "description"
+    /550px;
+  }
+
+  section:nth-of-type(even) {
+    grid-template: 
+    "title"
+    "image"
+    "description"
+    /550px;
+  }
+
+
+  .footer-links {
+    display: grid;
+    grid-area : links;
+  }
+
+  .sns {
+    grid-area: sns;
+  }
+
+  span.copyright {
+    grid-area: copyright;
+  }
+
+  div.footer-box {
+    display : grid;
+
+    justify-content: center;
+    column-gap: 10rem;
+    row-gap: 4.5rem;
+    width: 100%;
+
+    grid-template: 
+      "links sns"
+      "copyright .";
+  }
+}
