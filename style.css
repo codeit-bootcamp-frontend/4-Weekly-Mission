@@ -93,7 +93,7 @@ button {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.main-title em {
+.main-title .tablet {
   display: none;
 }
 .main-container .button-link {
@@ -135,7 +135,7 @@ button {
     height: 383.114px;
     flex-shrink: 0;
   }
-  .main-title em {
+  .main-title .tablet {
     font-size: 0;
     line-height: 0;
     display: block;
@@ -156,7 +156,7 @@ button {
     font-size: 32px;
     line-height: 42px;
   }
-  .main-title em {
+  .main-title .tablet {
     font-size: 0;
     line-height: 0;
     display: block;
@@ -201,7 +201,7 @@ button {
   line-height: normal;
   letter-spacing: -0.03rem;
 }
-.title em {
+.title .tablet {
   font-size: 0;
   line-height: 0;
   display: block;
@@ -293,7 +293,7 @@ button {
     font-size: 24px;
     order: 1;
   }
-  .title em {
+  .title .tablet {
     display: none;
   }
   .subtitle {
