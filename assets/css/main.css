@@ -1,0 +1,246 @@
+/*=============================================
+=            				Common				            =
+=============================================*/
+.gradient {
+  color: transparent;
+}
+
+.tablet {
+  display: none;
+}
+
+/*=============================================
+=            					Main				            =
+=============================================*/
+.main {
+  margin-top: 94px;
+}
+
+/*=============================================
+=            				Visual				            =
+=============================================*/
+.visual {
+  background-color: var(--gray5);
+}
+
+.visual-container {
+  position: relative;
+  text-align: center;
+}
+
+.visual-title {
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 80px;
+  padding: 70px 0 40px;
+}
+
+.visual-title strong {
+  background: linear-gradient(91.26deg, #6d6afe 17.28%, #ff9f9f 74.98%) text;
+}
+
+.add-link-btn {
+  width: 350px;
+  padding: 16px 20px 16px 20px;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  color: var(--white);
+  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  display: inline-block;
+}
+
+.visual-image {
+  max-width: 1200px;
+  width: 100%;
+  margin: 40px auto 0;
+}
+
+.visual-image img {
+  width: 100%;
+  display: block;
+}
+
+/*=============================================
+=										Manual										=
+=============================================*/
+.manual {
+  margin-top: 70px;
+}
+
+.manual-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 157px;
+  padding: 50px 0;
+}
+
+.manual-image {
+  width: 550px;
+  height: 450px;
+  border-radius: 15px;
+  background-color: var(--gray5);
+  overflow: hidden;
+}
+
+.manual-image img {
+  width: 100%;
+  display: block;
+}
+
+.manual-layout:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+
+.manual-text {
+  width: 291px;
+}
+
+.manual-text h3 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 58px;
+}
+
+.manual-save h3 strong {
+  background: linear-gradient(95.63deg, #fe8a8a 1.72%, #a4ceff 74.97%) text;
+}
+
+.manual-management h3 strong {
+  background: linear-gradient(277.01deg, #6fbaff 59.22%, #ffd88b 93.66%) text;
+}
+
+.manual-share h3 strong {
+  background: linear-gradient(180deg, #6d7ccd 53.86%, #52888538 99.4%) text;
+}
+
+.manual-search h3 strong {
+  background: linear-gradient(275deg, #fe578f 27.48%, #68e8f9 59.2%) text;
+}
+
+.manual-text p {
+  margin-top: 10px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #6b6b6b;
+}
+
+@media (max-width: 1199px) {
+  /*=============================================
+  =            				Common				            =
+  =============================================*/
+  .tablet {
+    display: block;
+  }
+
+  /*=============================================
+  =            				Visual				            =
+  =============================================*/
+
+  .visual-title {
+    padding: 40px 0;
+  }
+
+  .visual-image {
+    width: 698px;
+    max-width: none;
+  }
+
+  /*=============================================
+  =										Manual										=
+  =============================================*/
+  .manual {
+    margin-top: 30px;
+  }
+
+  .manual-layout {
+    gap: 51px;
+  }
+
+  .manual-image {
+    width: 385px;
+    height: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  /*=============================================
+  =            					Main				            =
+  =============================================*/
+  .main {
+    margin-top: 68px;
+  }
+
+  /*=============================================
+  =            				Visual				            =
+  =============================================*/
+  .visual-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .visual-title {
+    padding: 28px 0 24px;
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .add-link-btn {
+    width: auto;
+    padding: 10px 62px;
+    font-size: 14px;
+  }
+
+  .visual-image {
+    width: 100%;
+  }
+
+  /*=============================================
+  =										Manual										=
+  =============================================*/
+  .manual {
+    margin-top: 0;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .manual-layout {
+    display: block;
+    padding: 40px 0 86px;
+    position: relative;
+  }
+
+  .manual-text {
+    width: 100%;
+  }
+
+  .manual-text h3 {
+    font-size: 24px;
+    line-height: 28.8px;
+  }
+
+  .manual-text h3 br,
+  .manual-text p br {
+    display: none;
+  }
+
+  .manual-text p {
+    margin-top: 0;
+    width: 100%;
+    position: absolute;
+    bottom: 40px;
+    font-size: 15px;
+    line-height: 22.5px;
+  }
+
+  .manual-image {
+    width: 100%;
+    margin: 20px 0 16px;
+  }
+
+  .manual-search {
+    padding: 40px 0 63px;
+  }
+}
