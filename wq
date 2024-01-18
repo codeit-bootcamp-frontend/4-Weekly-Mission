@@ -1,0 +1,44 @@
+[33mcommit 4c18deab0860277faa6771598b6f991bdb52a174[m[33m ([m[1;36mHEAD -> [m[1;32mpart1-백민서[m[33m, [m[1;31morigin/part1-백민서[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: minseo <aa09114@naver.com>
+Date:   Thu Jan 18 14:50:31 2024 +0900
+
+    week3최종
+
+[33mcommit 70cd62d5d7d7c7757d096a7a99c73d079c8e1ae8[m
+Merge: 87e3f15 4a7bae0
+Author: 심지훈 <40737888+wlgns2223@users.noreply.github.com>
+Date:   Sun Jan 14 20:54:38 2024 +0900
+
+    Merge pull request #83 from jae6269/part1-김재영-week3
+    
+    [김재영]Week3
+
+[33mcommit 4a7bae095750a2579e53f112accc4e2cac7fdfdf[m
+Author: jae6269 <jae6269@gmail.com>
+Date:   Sun Jan 14 12:46:49 2024 +0900
+
+    3주차 위클리 미션 완성
+
+[33mcommit 466dddb2cc2845b9e9b4b1e25b26a58f69755c04[m
+Author: jae6269 <jae6269@gmail.com>
+Date:   Thu Jan 11 02:37:17 2024 +0900
+
+    위클리 3주차 미션 시작
+
+[33mcommit 74e98bae9668871a82870b2988ad3de0606aaafc[m
+Author: jae6269 <jae6269@gmail.com>
+Date:   Wed Jan 10 00:46:22 2024 +0900
+
+    3주차 위클리미션 시작
+
+[33mcommit 87e3f150ba694477e46849585314f36f6985f4fe[m[33m ([m[1;31mupstream/part1-황은애[m[33m, [m[1;31mupstream/part1-홍길동[m[33m, [m[1;31mupstream/part1-한태욱[m[33m, [m[1;31mupstream/part1-최민혁[m[33m, [m[1;31mupstream/part1-최민준[m[33m, [m[1;31mupstream/part1-장연준[m[33m, [m[1;31mupstream/part1-임상민[m[33m, [m[1;31mupstream/part1-이형주[m[33m, [m[1;31mupstream/part1-이주형[m[33m, [m[1;31mupstream/part1-이도원[m[33m, [m[1;31mupstream/part1-오찬익[m[33m, [m[1;31mupstream/part1-양선모[m[33m, [m[1;31mupstream/part1-신가은[m[33m, [m[1;31mupstream/part1-손승현[m[33m, [m[1;31mupstream/part1-백승아[m[33m, [m[1;31mupstream/part1-방시연[m[33m, [m[1;31mupstream/part1-박재형[m[33m, [m[1;31mupstream/part1-박우혁[m[33m, [m[1;31mupstream/part1-박소현[m[33m, [m[1;31mupstream/part1-박기환[m[33m, [m[1;31mupstream/part1-김현일[m[33m, [m[1;31mupstream/part1-김준영[m[33m, [m[1;31mupstream/part1-김예진[m[33m, [m[1;31mupstream/part1-김예지[m[33m, [m[1;31mupstream/part1-김여름[m[33m, [m[1;31mupstream/part1-김수정[m[33m, [m[1;31mupstream/part1-김규헌[m[33m, [m[1;31mupstream/part1-강영훈[m[33m, [m[1;31mupstream/part1[m[33m, [m[1;31mupstream/main[m[33m, [m[1;31morigin/part1[m[33m)[m
+Author: withyj <withyj@codeit.kr>
+Date:   Sun Sep 3 21:57:33 2023 +0900
+
+    chore: 머지 후 브랜치 삭제 github action 추가
+
+[33mcommit fc5dffe1b33dfa2d439c6926dd860644651cb460[m
+Author: withyj <withyj@codeit.kr>
+Date:   Sun Sep 3 21:56:24 2023 +0900
+
+    chore: PR 템플릿 추가
