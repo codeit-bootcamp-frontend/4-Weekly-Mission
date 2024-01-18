@@ -139,32 +139,25 @@ main {
 }
 
 .content-title--gradient1 {
-  background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  background: var(--gradient-pink-to-blue);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .content-title--gradient2 {
-  background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+  background: var(--gradient-yellow-to-blue);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .content-title--gradient3 {
-  background: linear-gradient(
-    99deg,
-    #6d7ccd 19.76%,
-    rgba(82, 136, 133, 0.22) 52.69%
-  );
+  background: var(--gradient-purple-gray);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .content-title--gradient4 {
-  background: var(
-    --Fandom-K-gra-blue-to-pink,
-    linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%)
-  );
+  background: var(--gradient-blue-to-pink);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
