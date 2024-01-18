@@ -72,6 +72,8 @@ function submitLogin(){
 }
 
 document.onkeyup = function (e) {
-  let keyCode = e.keyCode;
-  if (keyCode === 13) submitLogin();
+  let key = e.key || e.keycode
+  if(key === 'Enter' || keycode === 13){
+    submitLogin();
+  }
 }
