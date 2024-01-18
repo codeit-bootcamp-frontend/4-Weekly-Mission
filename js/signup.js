@@ -40,12 +40,6 @@ window.onload = function(){
         register();
     });
 
-    form.addEventListener("keydown" , (e) =>{
-        if (e.key === "Enter"){ // 엔터 키
-            login();
-        }
-    });
-
     // 포커스 아웃 이벤트
     focusOut(emailInput, emailError, vaildEmail);
     focusOut(pwInput, pwError, vaildPW);

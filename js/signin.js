@@ -25,12 +25,6 @@ window.onload = function(){
         login();
     });
 
-    form.addEventListener("keydown" , (e) =>{
-        if (e.key === "Enter"){ // 엔터 키
-            login();
-        }
-    });
-
     // 포커스 아웃 이벤트
     focusOut(emailInput, emailError, vaildEmail, false);
     focusOut(pwInput, pwError, vaildPW, false);
@@ -38,4 +32,3 @@ window.onload = function(){
     // 비밀번호 인풋 타입 변경, 아이콘 변경
     pwInputTypeChange(pwEyeIcon, pwInput);
 }
-    
