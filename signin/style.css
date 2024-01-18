@@ -1,4 +1,5 @@
 @import url(/styles/common.css);
+@import url(/styles/color.css);
 
 body {
   background-color: var(--gray5);
