@@ -4,19 +4,16 @@ body {
   background-color: var(--gray5);
   padding: 238px 0 252px;
   color: var(--black);
-  font-family: Pretendard;
-  font-size: 16px;
-  font-weight: 400;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 400px;
-  margin: 0 auto;
   gap: 30px;
 }
+
+/*********************
+        header
+*********************/
 
 .logo {
   cursor: pointer;
@@ -31,21 +28,24 @@ body {
   color: var(--primary);
   font-weight: 600;
   text-underline-position: under;
+  text-decoration : underline;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+/*********************
+      signin-form
+*********************/
+
+.signin-form {
   gap: 24px;
   width: 100%;
 }
 
-form label {
+.signin-form label {
   font-size: 14px;
   position: relative;
 }
 
-form input {
+.signin-form input {
   width: 100%;
   color: #373740;
   padding: 18px 15px;
@@ -55,28 +55,31 @@ form input {
   background: var(--white);
 }
 
-form input:focus {
+.signin-form input:focus {
   border: 1px solid var(--primary);
   outline: none;
 }
 
-label img {
+.eye-img {
   position: absolute;
-  top: 50px;
+  top: 48px;
   right: 15px;
+  cursor: pointer;
 }
 
-button {
+.btn {
   width: 100%;
   padding: 16px 20px;
   color: #f5f5f5;
   font-size: 18px;
   font-weight: 600;
   background-image: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
-  border-radius: 8px;
   border: none;
-  cursor: pointer;
 }
+
+/*********************
+      social-login
+*********************/
 
 .social-login {
   width: 100%;
@@ -86,17 +89,16 @@ button {
   border-radius: 8px;
   border: 1px solid var(--gray3);
   background-color: var(--gray4);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .fast-travel {
-  display: flex;
-  align-items: center;
   gap: 16px;
   height: 44px;
 }
+
+/*********************
+        @media
+*********************/
 
 @media (max-width: 1200px) {
   body {

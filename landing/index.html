@@ -13,26 +13,24 @@
 
 <body>
 
-  <header class="header">
+  <header class="header flex items-center">
     <div class="help-left"></div>
     <a href="/landing/"><img class="header-logo" src="/asset/img/landing/Linkbrary.png"></a>
     <div class="help-center"></div>
-    <button type="button" onclick="location.href='/signin/'">로그인</button>
+    <button class="btn" type="button" onclick="location.href='/signin/'">로그인</button>
     <div class="help-right"></div>
   </header> 
 
   <main>
-    <div class="hero">
-      <div class="container">
-        <h1 class="hero-title"><span class="gradation-rb">세상의 모든 정보</span>를<br>쉽게 저장하고
-          <a>관리해보세요</a></h1>
-        <button type="button" onclick="location.href='/signup/'">링크 추가하기</button>
-        <img class="hero-img" src="/asset/img/landing/_img.png">
-      </div>
+    <div class="hero flex-col items-center">
+      <h1 class="hero-title"><span class="gradation-rb">세상의 모든 정보</span>를<br>쉽게 저장하고
+        <a>관리해보세요</a></h1>
+      <button class="btn" type="button" onclick="location.href='/signup/'">링크 추가하기</button>
+      <img class="hero-img" src="/asset/img/landing/_img.png">
     </div>
 
-    <section class="section-odd container">
-      <div class="section-title">
+    <section class="section section-odd container">
+      <div class="section-title flex-col">
         <h2><span class="gradation-rb">원하는 링크</span>를</h2>
         <h2>저장하세요</h2>
       </div>
@@ -45,18 +43,18 @@
       <img src="/asset/img/landing/_img1.png">
     </section>
 
-    <section class="section-even container">
+    <section class="section section-even container">
       <img src="/asset/img/landing/img2.png">
       <div class="grid-center"></div>
-      <div class="section-title">
+      <div class="section-title flex-col">
         <h2>링크를 폴더로</h2>
         <h2><span class="gradation-yb">관리</span>하세요</h2>
       </div>
       <p>나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.</p>
     </section>
     
-    <section class="section-odd container">
-      <div class="section-title">
+    <section class="section section-odd container">
+      <div class="section-title flex-col">
         <h2>저장한 링크를</h2>
         <h2><span class="gradation-bb1">공유</span>해 보세요</h2>
       </div>
@@ -69,10 +67,10 @@
       <img src="/asset/img/landing/img3.png">
     </section>
 
-    <section class="section-even container">
+    <section class="section section-even container">
       <img src="/asset/img/landing/_img4.png">
       <div class="grid-center"></div>
-      <div class="section-title">
+      <div class="section-title flex-col">
         <h2>저장한 링크를</h2>
         <h2><span class="gradation-bb2">검색</span>해 보세요</h2>
       </div>
@@ -81,15 +79,15 @@
   </main>
 
   <footer>
-    <div class="container">
+    <div class="container flex items-center justify-between">
         <p class="footer-company">©codeit - 2023</p>
 
-        <div class="footer-link">
+        <div class="footer-link flex items-center">
           <a href="/privacy/">Privacy Policy</a>
           <a href="/faq/">FAQ</a>
         </div>
 
-        <div class="footer-img">
+        <div class="footer-img flex items-center">
           <a href="https://www.facebook.com/" target="_blank">
             <img src="/asset/img/landing/akar-icons_facebook-fill.png">
           </a>

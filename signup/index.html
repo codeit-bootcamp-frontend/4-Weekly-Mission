@@ -7,9 +7,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+  <div class="container flex-col items-center">
 
-    <div>
+    <header class="header">
       <a href="/landing/" class="logo">
         <img src="/asset/img/signup/Linkbrary.png">
       </a>
@@ -17,9 +17,9 @@
         <span>이미 회원이신가요?</span>
         <a href="/signin/">로그인하기</a>
       </div>
-    </div>
+    </header>
 
-    <form>
+    <form class="signup-form flex-col">
       <div>
         <label for="signup-email">이메일</label>
         <input id="signup-email" name="email" type="email">
@@ -27,7 +27,7 @@
       <div>
         <label for="signup-password">비밀번호
           <input id="signup-password" name="password" type="text">
-          <img src="/asset/img/signup/eye-on.png">
+          <img class="eye-img" src="/asset/img/signup/eye-on.png">
         </label>
       </div>
       <div>
@@ -35,15 +35,15 @@
           비밀번호 확인
           <input id="signup-password-check" name="password" type="text">
           <div class="password-check">비밀번호가 다릅니다</div>
-          <img src="/asset/img/signup/eye-on.png">
+          <img class="eye-img" src="/asset/img/signup/eye-on.png">
         </label>
       </div>
-      <button>회원가입</button>
+      <button class="btn">회원가입</button>
     </form>
 
-    <div class="social-login">
+    <footer class="social-login flex items-center justify-between">
       다른 방식으로 가입하기
-      <div class="fast-travel">
+      <div class="fast-travel flex items-center">
         <a href="http://google.com" target="_blank">
           <img src="/asset/img/signup/google.png">
         </a>
@@ -51,7 +51,7 @@
           <img src="/asset/img/signup/Component 3.png">
         </a>
       </div>
-    </div>
+    </footer>
 
   </div>
 </body>
