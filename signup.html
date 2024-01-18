@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/signup.css">
+  <title>signup</title>
+</head>
+<body>
+  <div class="container">
+    <main>
+      <div class="top">
+        <a href="/"><img src="/icon/logo.svg" type="image/svg+xml" alt="logo"></a>
+        <p>이미 회원이신가요? <a href="/sign.html">로그인 하기</a></p>
+      </div>
+      <form action="" name="user_login_form" class="user_login_form">
+          <div class="user_email user">
+            <label for="user_email">이메일</label>
+            <input type="text" id="user_email" name="user_email">
+          </div>
+          <div class="user_password user">
+            <label for="user_password">비밀번호</label>
+            <input type="password" id="user_password" name="user_password">
+            <div class="password_icon">
+              <img src="/icon/eye-off.svg" alt="비밀번호 가리기">
+              <img src="/icon/eye-on.svg" alt="비밀번호 보이기">
+            </div>
+          </div>
+          <div class="user_password_confirm user">
+            <label for="user_password_confirm">비밀번호 확인</label>
+            <input type="password" id="user_password_confirm" name="user_password_confirm">
+            <div class="password_icon">
+              <img src="/icon/eye-off.svg" alt="비밀번호 가리기">
+              <img src="/icon/eye-on.svg" alt="비밀번호 보이기">
+            </div>
+          </div>
+          <button type="submit">회원가입</button>
+      </form>
+      <div class="social_login">
+        <p>소셜로그인</p>
+        <div class="social_login_btn">
+          <a href="https://www.google.com/"><img src="/icon/Component 2.png" alt="google_login"></a>
+          <a href="https://www.kakaocorp.com/page/"><img src="/icon/Component 3.png" alt="kakao_login"></a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
