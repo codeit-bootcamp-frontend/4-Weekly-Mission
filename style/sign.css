@@ -9,7 +9,7 @@ body {
   row-gap: 3rem;
 }
 
-header {
+.header {
   display: flex;
   flex-direction: column;
   row-gap: 1.6rem;
