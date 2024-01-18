@@ -5,7 +5,9 @@ const SIGN = Object.freeze({
   EMAIL_REGEX: /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
 
   REQUIRED_PASSWORD: '비밀번호를 입력해 주세요.',
+  INVALID_PW_FORMAT: '8~20자 공백없이 영문/숫자/특수문자를 포함해 주세요.',
   CHECK_PASSWORD: '비밀번호를 확인해 주세요.',
+  PW_REGEX: /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/,
 });
 
 export default SIGN;
