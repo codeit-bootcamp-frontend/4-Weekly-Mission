@@ -1,17 +1,16 @@
 
 const email = document.querySelector("#user_email");
 const password = document.querySelector("#user_password");
-const error_massage_id = document.querySelector(".error_massage_id");
-const error_massage_pw = document.querySelector(".error_massage_pw");
-const submit_btn = document.querySelector(".submit_btn");
-const user_login_form = document.querySelector(".user_login_form");
+const errorMassageId = document.querySelector(".error_massage_id");
+const errorMassagePw = document.querySelector(".error_massage_pw");
+const submitButton = document.querySelector(".submit_btn");
 
-const pw_block_icon = document.querySelector(".pw_block");
-const pw_hide_icon = document.querySelector(".pw_hide");
+const pwBlockIcon = document.querySelector(".pw_block");
+const pwHideIcon = document.querySelector(".pw_hide");
 
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-function handleFocus(element, isFocused) {
+function borderStyleHandler(element, isFocused) {
   element.classList.toggle('focused', isFocused);
 }
 
@@ -19,17 +18,19 @@ email.addEventListener('blur', function(e) {
   e.preventDefault();
   const email_value = email.value;
   const isValidEmail = emailRegex.test(email_value);
-
-  if (!isValidEmail) {
-    console.log('성공');
-    error_massage_id.innerText = "올바른 이메일 주소가 아닙니다."
-  } else {
-    console.log('실패');
-    error_massage_id.innerText = ""
+  if(email_value === ""){
+    errorMassageId.innerText = "이메일을 입력해 주세요"
+  }else{
+    if (!isValidEmail) {
+      console.log('성공');
+      errorMassageId.innerText = "올바른 이메일 주소가 아닙니다."
+    } else {
+      console.log('실패');
+      errorMassageId.innerText = ""
+    }
   }
 
-  // Apply focus-related styles
-  handleFocus(email, !isValidEmail);
+  borderStyleHandler(email, !isValidEmail);
 });
 
 password.addEventListener('blur', function(e) {
@@ -38,50 +39,53 @@ password.addEventListener('blur', function(e) {
   let control = true;
 
   if (password_value === "") {
-    console.log('성공');
-    error_massage_pw.innerText = "비밀번호를 입력해 주세요"
+    errorMassagePw.innerText = "비밀번호를 입력해 주세요"
     control = true;
   } else {
-    console.log('실패');
-    error_massage_pw.innerText = ""
+    errorMassagePw.innerText = ""
     control = false;
   }
 
-  // Apply focus-related styles
-  handleFocus(password, control);
+  borderStyleHandler(password, control);
 });
 
-function signIn(email, password) {
-  if (email == 'test@codeit.com' && password == 'codeit101') {
+function signIn(emailValue, passwordValue) {
+  let control = false;
+  if (emailValue == 'test@codeit.com' && passwordValue == 'codeit101') {
     window.location.replace('./folder.html');
   } else {
-    error_massage_id.innerText = '이메일을 확인해 주세요.';
-    error_massage_pw.innerText = '비밀번호를 확인해 주세요.';
+    control = true;
+    errorMassageId.innerText = '이메일을 확인해 주세요.';
+    errorMassagePw.innerText = '비밀번호를 확인해 주세요.';
+    borderStyleHandler(email, control)
+    borderStyleHandler(password, control)
   }
 }
 //버튼에 클릭,엔터 이벤트시에 로그인 함수 기능 추가
-submit_btn.addEventListener('click', function (e) {
+submitButton.addEventListener('click', function (e) {
   e.preventDefault();
   signIn(email.value, password.value);
 });
-submit_btn.addEventListener('keypress', function (e) {
+submitButton.addEventListener('keypress', function (e) {
   e.preventDefault();
   if (e.key === 'Enter') {
     signIn(email.value, password.value);
   }
 });
 
-pw_block_icon.addEventListener("click" , () => {
-  pw_block_icon.style.display = "none"
-  pw_hide_icon.style.display = "block"
+pwHideIcon.addEventListener("click" , () => {
+  pwHideIcon.style.display = "none"
+  pwBlockIcon.style.display = "block"
   password.type = "text"
 })
 
-pw_hide_icon.addEventListener("click" , () => {
-  pw_hide_icon.style.display = "none"
-  pw_block_icon.style.display = "block"
+pwBlockIcon.addEventListener("click" , () => {
+  pwBlockIcon.style.display = "none"
+  pwHideIcon.style.display = "block"
   password.type = "password"
 })
+
+
 
 
 
