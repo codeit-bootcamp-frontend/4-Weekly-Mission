@@ -1,161 +1,131 @@
-*{
-  box-sizing: border-box;
-}
+@import "../src/global.css";
 
 body{
-  background-color: #F0F6FF;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-weight: 400;
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12rem 3rem 0;
 }
+/* header */
 header{
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
+  gap: 1rem;
 }
-.container{
-  width: 100%;
-  margin: 100px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.box{
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
 .logo{
-  width: 100%;
-  margin-bottom: 16px;
+  height: 4rem;
 }
-
+header p{
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+  gap: 0.5rem;
+}
 .goSignUp{
-  color: #000;
-  line-height: 24px;
-}
-
-.goSignUp a{
-  color: #6D6AFE;
   font-weight: 600;
-  position: relative;
-  bottom: 5px;
+  color: var(--primary);
+  border-bottom: 0.1rem solid var(--primary);
 }
 
-form{
-  margin: 30px 0;
+/* form */
+.signInBox{
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  width: 100%;
-}
-form label{
-  font-size: 14px;
-}
-#email::placeholder{
-  font-size: 16px;
-  line-height: 24px;
-  color: #373740;
-}
-input{
-  padding: 18px 15px;
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid #CCD5E3;
-  background-color: #FFF;
-  margin-top: 12px;
-}
-input:focus{
-  outline: 1px solid #6D6AFE
-}
-
-.input-container{
-  width: 100%;
-}
-
-.input-box{
-  position: relative;
-  display: flex;
   align-items: center;
-}
-
-.img-box{
-  position: absolute;
-  right: 16px;
-  top: 32px;
-}
-
-.eye-off{
-  width: 16px;
-  height: 16px;
-}
-
-button{
-  padding: 16px 20px;
-  border: none;
-  background-image: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
-  border-radius: 8px;
-  color: #F5F5F5;
-  font-size: 18px;
-  font-weight: 600;
   width: 100%;
-  /* margin-bottom: 32px; */
+  max-width: 40rem;
+  gap: 3rem;
+  margin-top: 3rem;
+
+  @media (min-width: 768px) {
+    width: 40rem;
+  }
+}
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+}
+.inputs{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.inputBox{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.inputPw {
+  position: relative;
+}
+.signLabel{
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+.signInput{
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--gray20);
+  font-size: 1.6rem;
+  line-height: 150%
+}
+.signInput:focus{
+  border-color: var(--primary)
+}
+.eye{
+  position: absolute;
+  bottom: 2.2rem;
+  right: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.btn{
+  border-radius: 0.8rem;
+  background-image: linear-gradient(91deg, var(--primary), #6AE3FE 101.84%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 6rem;
+  font-size: 1.8rem;
+  color: #f5f5f5;
+  font-weight: 600;
 }
 
-footer{
-  padding: 12px 24px;
-  border-radius: 8px;
-  border: 1px solid #CCD5E3;
-  background-color: #E7EFFB;
+/* sns */
+.snsBox{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--gray20);
+  padding: 1.5rem 3rem;
   width: 100%;
-}
-
-.Google{
-  width: 42px;
-  height: 42px;
-  background-color: white;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.googlePNG{
-  width: 22px;
-  height: 22px;
-}
-
-.Kakao{
-  width: 42px;
-  height: 42px;
-  background-color: #F5E14B;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.kakaoSVG{
-  width: 26px;
-  height: 24px;
-  margin-top: 2px;
+  background-color: var(--gray10);
 }
 .socialLogin{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
+  font-size: 1.4rem;
+  color: var(--gray100);
 }
-/* google~socialLogin까지 비효율적인 코드인 것 같고,
-나오는 그림도 가운데정렬이 안되는 것 같아 마음에 안듭니다. */
-
-@media screen and (max-width: 767px) {
-  .container{
-    padding: 32px;
-    width: 100%;
-  }
+.snsLinks{
+  display: flex;
+  gap: 1.5rem;
+}
+.snsLink{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+.googleLink{
+  background-color: var(--white);
+  border: 0.1rem solid #d3d4dd;
+}
+.kakaoLink{
+  background-color: #f5e14b;
+  padding-top: 0.2rem;
 }

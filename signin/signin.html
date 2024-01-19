@@ -4,61 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>sign in</title>
-    <link rel="stylesheet" href="signin.css" />
+    <link rel="stylesheet" href="../src/colors.css" />
+    <link rel="stylesheet" href="../src/global.css" />
+    <link rel="stylesheet" href="../src/reset.css" />
+    <link rel="stylesheet" href="./signin.css" />
   </head>
   <body>
-    <main class="container">
-      <div class="box">
-        <header>
-          <div>
-            <a href="/"
-              ><img src="/images/logo.svg" alt="logo" class="logo"
-            /></a>
+    <header>
+      <a href="/"><img src="../images/logo.svg" alt="logo" class="logo" /></a>
+      <p>
+        회원이 아니신가요?
+        <a href="../signup/signup.html" class="goSignUp">회원 가입하기</a>
+      </p>
+    </header>
+    <div class="signInBox">
+      <form>
+        <div class="inputs">
+          <div class="inputBox">
+            <label for="email" class="signLabel">이메일</label>
+            <input id="email" type="email" class="signInput" />
           </div>
-          <div class="goSignUp">
-            회원이 아니신가요?
-            <a href="/signup/signup.html">회원 가입하기</a>
+          <div class="inputBox inputPw">
+            <label for="password" class="signLabel">비밀번호</label>
+            <input id="password" type="password" class="signInput" />
+            <button class="eye">
+              <img src="../images/eye-off.svg" />
+            </button>
           </div>
-        </header>
-
-        <form>
-          <div class="input-container">
-            <label for="email">이메일</label>
-            <input id="email" type="email" placeholder="codeit@codeit.com" />
-          </div>
-          <div class="input-container">
-            <label for="password">비밀번호</label>
-            <div class="input-box">
-              <input
-                id="password"
-                type="password"
-                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
-              />
-              <div class="img-box">
-                <img src="/images/eye-off.svg" alt="eye-off" class="eye-off" />
-                <!-- input placeholder dots how? -->
-              </div>
-            </div>
-          </div>
-          <a href="#"><button>로그인</button></a>
-        </form>
-
-        <footer>
-          <div>소셜 로그인</div>
-          <div class="socialLogin">
-            <div class="Google">
-              <a href="https://www.google.com/"
-                ><img src="/images/google.png" class="googlePNG"
-              /></a>
-            </div>
-            <div class="Kakao">
-              <a href="https://www.kakaocorp.com/page/"
-                ><img src="/images/kakao.svg" class="kakaoSVG"
-              /></a>
-            </div>
-          </div>
-        </footer>
+        </div>
+        <button type="submit" class="btn">로그인</button>
+      </form>
+      <div class="snsBox">
+        <div class="socialLogin">소셜 로그인</div>
+        <div class="snsLinks">
+          <a href="https://www.google.com/" class="snsLink googleLink">
+            <img src="../images/google.png" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/" class="snsLink kakaoLink">
+            <img src="../images/kakao.svg" />
+          </a>
+        </div>
       </div>
-    </main>
+    </div>
   </body>
 </html>
