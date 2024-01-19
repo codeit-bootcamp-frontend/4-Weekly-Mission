@@ -61,7 +61,7 @@ body {
   text-underline-position: under;
 }
 
-.form-sign {
+.sign {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,18 +69,18 @@ body {
   max-width: 40rem;
 }
 
-.form-sign {
+.sign {
   gap: 2.4rem;
 }
 
-.form-sign__label {
+.sign__label {
   width: 100%;
   color: #000;
   font-size: 1.4rem;
   font-weight: 400;
 }
 
-.form-sign__input {
+.sign__input {
   margin-top: 1.2rem;
 }
 
