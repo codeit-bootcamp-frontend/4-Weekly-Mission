@@ -7,8 +7,7 @@ const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
 const inputtedLoginEmailCheck = document.querySelector('#loginEmailInput');
 const inputtedLoginPasswordCheck = document.querySelector('#loginPasswordInput');
-const orderCheckEmail = document.querySelector('button.button');
-const passwordBeHidden = document.querySelectorAll('.passwordSeenButton')
+const orderCheckEmail = document.querySelector('#loginConfirmButton');
 
 
 function submitLoginData(event)  {
@@ -58,23 +57,4 @@ function passwordFocusIn(event) {
 }
 inputtedLoginPasswordCheck.addEventListener('focus' , passwordFocusIn)
 inputtedLoginPasswordCheck.addEventListener('blur' , passwordFocusOut)
-
-
-// 비밀번호 숨김 구현
-function hidePassword(event) {
-   console.log('히든 버튼 작동됨')
-   if (event.target.classList.contains('notHidden')) {
-     //비밀번호를 숨겨줌
-      event.target.classList.toggle('notHidden')
-      event.target.previousElementSibling.setAttribute('type','password')
-
-   } else {
-      event.target.classList.toggle('notHidden')
-      event.target.previousElementSibling.setAttribute('type','text')
-   }
-}
-for (let i = 0 ; i < passwordBeHidden.length ; i++) {
-   passwordBeHidden[i].addEventListener ('click', hidePassword)
-}
-
 

@@ -4,13 +4,13 @@
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="Styles/reset.css">
-      <link rel="stylesheet" href="Styles/basic.css">
+      <link rel="stylesheet" href="Styles/defaultStyle.css">
       <link rel="stylesheet" href="Styles/signPage.css">
       <link href="https://fonts.googleapis.com/css2?family=Acme&family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
       <title>signInPage</title>
       </head>
    <body>
-      <section class="signPage">
+      <section class="signPageOuterLineLimit">
          <div class="signForm">
             <header>
                <a href="index.html"><img src="Assets/logos/logo.svg" alt="Linkbrary Logo"></a>
@@ -30,17 +30,18 @@
                   </div>
                   <p class="errorMessagePreset" id="passErrorMessege"></p>
                </section>
-               <button type="submit" class="button">로그인</button>
+               <button type="submit" id="loginConfirmButton" class="buttonBasicStyle">로그인</button>
             </form>             
          </div>
-         <div class="socialSign">
+         <footer class="socialSign">
             <a>소셜 로그인</a>
             <div class="socialLoginIcons">
                <a href="https://www.google.com/" ><img class="socialLoginIcon" src="Assets/Icons/google.svg" alt="Google"></a>
                <a href="https://www.kakaocorp.com/"><img class="socialLoginIcon" src="Assets/Icons/social_kakaotalk.png" alt="Kakaotalk"></a>
             </div>
-         </div>
+         </footer>
       </section>  
-      <script src="./JavaScript/sign.js"></script>
+      <script src="./JavaScript/signIn.js"></script>
+      <script src="./JavaScript/passwordHide.js"></script>
    </body>
 </html>

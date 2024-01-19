@@ -1,9 +1,6 @@
 /* 로그인 페이지 */
 
-   .signPage {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+   .signPageOuterLineLimit {
       margin: 238px auto auto;
       width: 400px;
    }
@@ -30,12 +27,12 @@
    display: flex; gap: 8px;
    }
 
-   .signPage div form {   
+   .signPageOuterLineLimit div form {   
       margin-top: 30px;
       width: 100%; 
    }
 
-   .signPage div Section {
+   .signPageOuterLineLimit div Section {
       margin-bottom: 24px;
    }
 
@@ -106,7 +103,7 @@
       border: 1px solid var(--LBrary-Gray20);
       background-color: var(--LBrary-Gray10);
       width: 100%;
-      margin: 32px;
+      margin: 32px 0;
       padding: 12px 24px;
       font-size: 1.4rem;
       color: var(--LBrary-Gray50);
@@ -126,7 +123,7 @@
       width: 42px;  
    }
 
-   form > .button {
+   form > .buttonBasicStyle {
       width: 100%;
       margin-top: 30px;
    }
@@ -136,7 +133,7 @@
 /* 모바일 반응형 */
 
    @media (max-width: 767px) {
-      .signPage {
+      .signPageOuterLineLimit {
          width: 100%;
          max-width: 464px;
          margin: 120px auto auto;
