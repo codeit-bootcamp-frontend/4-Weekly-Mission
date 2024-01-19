@@ -69,9 +69,14 @@ label {
 }
 
 .img-eye {
+  content: url(/img/eye-off.svg);
   position: absolute;
   top: 18px;
   right: 15px;
+}
+
+.active {
+  content: url(/img/eye-on.svg);
 }
 
 .social-login {
