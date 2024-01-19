@@ -9,7 +9,12 @@ import { getElement } from "./document.js";
  * @param {string} query - 요소의 css selector
  * @param {DisplayTypes} displayType - 적용할 displayType
  */
-export const displayChange = (query, displayType) => {
+export const changeDisplay = (query, displayType) => {
   const element = getElement(query);
   if (element) element.style.display = displayType;
 };
+
+export const changeColor = (query, attribute, color) => {
+  const element = getElement(query);
+  if (element) element.style[attribute] = color
+}

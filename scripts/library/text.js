@@ -42,9 +42,11 @@ export const isEmptyInput = (query) => {
  * @param {RegExp} regEx - 검사할 정규표현식
  * */
 export const isValidate = (query, regEx) => {
-  console.log(regEx)
   const value = getElement(query).value
-  console.log(value)
-  console.log(regEx.test(value))
   return regEx.test(value)
 };
+
+export const isMatchText = (query, text) => {
+  const value = getElement(query).value
+  return value === text
+}

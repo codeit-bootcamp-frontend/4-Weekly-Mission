@@ -35,7 +35,7 @@
   height: 4rem;
   padding: 1rem;
   font-size: 1.2rem;
-  border: 0.1rem solid var(--color-gray-500);
+  border: 1.2px solid var(--color-gray-500);
   border-radius: 8px;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .login__input:focus {
-  border: 2px solid var(--color-primary);
+  border: 1.2px solid var(--color-primary);
   outline: none;
 }
 
@@ -69,6 +69,7 @@
   background: linear-gradient(to right, var(--color-primary), #6ae3fe);
   border: none;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .social-box {
@@ -78,7 +79,7 @@
   width: 100%;
   padding: 0.8rem 1.6rem;
   background: var(--color-gray-200);
-  border: 1px solid var(--color-gray-300);
+  border: 0.2rem solid var(--color-gray-300);
   border-radius: 8px;
 }
 
@@ -91,10 +92,11 @@
   width: 3rem;
 }
 
-.login__error--text {
+.email__error,
+.password__error {
   margin: 0;
   margin-right: auto;
-  color: #ff0000;
+  color: var(--color-red);
 }
 
 @media screen and (width >=375px) and (width <=767px) {
