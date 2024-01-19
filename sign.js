@@ -16,61 +16,71 @@ const passwordValidationMessage = get('.password-validation-message');
 // 눈 아이콘 버튼
 const eyeButton = get('.eye-button-icon');
 
-function emailRegexError(){
-  const emailValue = signEmailInputValue.value.trim();
+function validateEmailFormat(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(emailValue)) {
-    invalidEmailFormatMessage.classList.add('show-error');
-    signEmailInputValue.classList.add('redBorder')
-    emptyEmailErrorMessage.classList.remove('show-error');
-  } else {
-    invalidEmailFormatMessage.classList.remove('show-error');
-    signEmailInputValue.classList.remove('redBorder')
-  }
+  return emailRegex.test(email);
 }
-function emailError(){
-  const emailValue = signEmailInputValue.value.trim();
-  if (emailValue === '') {
-    emptyEmailErrorMessage.classList.add('show-error');
-    signEmailInputValue.classList.add('redBorder')
-    invalidEmailFormatMessage.classList.remove('show-error');
+
+function showErrorMessage(element, show) {
+  if (show) {
+    element.classList.add('show-error');
   } else {
-    emailRegexError()
-    emptyEmailErrorMessage.classList.remove('show-error');
-    signEmailInputValue.classList.remove('.redBorder');
-  }
-}
-function passwordError(){
-  const passwordValue = signPasswordInputValue.value.trim();
-  if(passwordValue === ''){
-    emptyPasswordErrorMessage.classList.add('show-error')
-    signPasswordInputValue.classList.add('redBorder')
-    passwordValidationMessage.classList.remove('show-error')
-  } else if(passwordValue.length >= 1){
-    emptyPasswordErrorMessage.classList.remove('show-error')
-    signPasswordInputValue.classList.remove('redBorder')
+    element.classList.remove('show-error');
   }
 }
 
-signInputValue.addEventListener('focusout', function() {
+function handleInputError(inputValue, errorElement, inputElement) {
+  if (inputValue === '') {
+    showErrorMessage(errorElement, true);
+    inputElement.classList.add('redBorder');
+  } else {
+    showErrorMessage(errorElement, false);
+    inputElement.classList.remove('redBorder');
+  }
+}
+
+function emailError() {
+  const emailValue = signEmailInputValue.value.trim();
+  handleInputError(emailValue, emptyEmailErrorMessage, signEmailInputValue);
+
+  if (emailValue !== '') {
+    emailRegexError();
+  }
+}
+
+function emailRegexError() {
+  const emailValue = signEmailInputValue.value.trim();
+  const isValidEmail = validateEmailFormat(emailValue);
+
+  showErrorMessage(invalidEmailFormatMessage, !isValidEmail);
+}
+
+function passwordError() {
+  const passwordValue = signPasswordInputValue.value.trim();
+  handleInputError(passwordValue, emptyPasswordErrorMessage, signPasswordInputValue);
+}
+
+function submitLogin() {
+  const emailValue = signEmailInputValue.value.trim();
+  const passwordValue = signPasswordInputValue.value.trim();
+  const correctEmail = 'test@codeit.com';
+  const correctPassword = 'codeit101';
+
+  if (emailValue === correctEmail && passwordValue === correctPassword) {
+    location.href = 'folder.html';
+  } else {
+    showErrorMessage(emailValidationMessage, true);
+    showErrorMessage(passwordValidationMessage, true);
+    signEmailInputValue.classList.add('redBorder');
+    signPasswordInputValue.classList.add('redBorder');
+  }
+}
+
+signInputValue.addEventListener('focusout', function () {
   emailError();
   passwordError();
 });
 
-function submitLogin(){
-  const emailValue = signEmailInputValue.value.trim();
-  const passwordValue = signPasswordInputValue.value.trim();
-  let correctEmail =  'test@codeit.com'
-  let correctPassword = 'codeit101'
-  if(emailValue === correctEmail && passwordValue === correctPassword){
-    location.href = 'folder.html';
-  }else if(emailValue === correctEmail || passwordValue === correctPassword){
-    emailValidationMessage.classList.add('show-error')
-    signEmailInputValue.classList.add('redBorder')
-    passwordValidationMessage.classList.add('show-error')
-    signPasswordInputValue.classList.add('redBorder')
-  }
-}
 document.onkeyup = function (e) {
   if (e.key === 'Enter' || e.keyCode === 13) {
     submitLogin();
