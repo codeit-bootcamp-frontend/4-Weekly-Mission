@@ -57,11 +57,11 @@ function submitCheck() {
 }
 
 function passwordToggle(e) {
-  if (e.target.getAttribute('src') == "/asset/img/signin/Vector.png") {
-    e.target.setAttribute('src', "/asset/img/signin/eye-on.png");
+  if (e.target.getAttribute('src') == "../asset/img/signin/Vector.png") {
+    e.target.setAttribute('src', "../asset/img/signin/eye-on.png");
     e.target.previousElementSibling.setAttribute('type', 'text');
-  } else if (e.target.getAttribute('src') == "/asset/img/signin/eye-on.png") {
-    e.target.setAttribute('src', "/asset/img/signin/Vector.png");
+  } else if (e.target.getAttribute('src') == "../asset/img/signin/eye-on.png") {
+    e.target.setAttribute('src', "../asset/img/signin/Vector.png");
     e.target.previousElementSibling.setAttribute('type', 'password');
   }
 }
@@ -74,7 +74,7 @@ const signInForm = document.querySelector('.signin-form');
 const signInInputs = document.querySelectorAll('.signin-form input');
 const eyeImg = document.querySelectorAll('.eye-img');
 
-signInForm.action = '/folder/';
+signInForm.action = '../folder/index.html';
 
 signInForm.addEventListener('focusin', changePlaceholderFocusIn);
 signInForm.addEventListener('focusout', changePlaceholderFocusOut);
