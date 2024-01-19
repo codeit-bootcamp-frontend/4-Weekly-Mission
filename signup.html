@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,22 +11,26 @@
       <form class="fm-content">
         <div class="fm-header">
           <a href="/"><img src="img/logo.svg" alt="logo" class="fm-logo" /></a>
-          <span
-            >이미 회원이신가요? <a href="/signin.html" class="signup-link">로그인하기</a></span
-          >
+          <span>이미 회원이신가요? <a href="/signin.html" class="signup-link">로그인하기</a></span>
         </div>
         <div class="fm-input-wrap">
-          <label>이메일</label>
-          <input name="email" type="email" placeholder="codeit@codeit.com" />
-          <label>비밀번호</label>
-          <div class="pw-wrap">
-            <input name="password" type="password" placeholder="비밀번호" class="input-pw"/>
-            <img src="/img/eye-on.svg" alt="" class="img-eye">
+          <div class="sign-input-box">
+            <label>이메일</label>
+            <input class="sign-input" name="email" type="email" placeholder="codeit@codeit.com" />
           </div>
-          <label>비밀번호 확인</label>
-          <div class="pw-wrap">
-            <input name="password" type="password" placeholder="비밀번호" class="input-pw"/>
-            <img src="/img/eye-on.svg" alt="" class="img-eye">
+          <div class="sign-input-box">
+            <label>비밀번호</label>
+            <div class="pw-wrap">
+              <input class="sign-input" name="password" type="password" placeholder="비밀번호" />
+              <img src="/img/eye-on.svg" alt="비밀번호 보이기" class="img-eye" />
+            </div>
+          </div>
+          <div class="sign-input-box">
+            <label>비밀번호 확인</label>
+            <div class="pw-wrap">
+              <input class="sign-input" name="password" type="password" placeholder="비밀번호" />
+              <img src="/img/eye-on.svg" alt="비밀번호 보이기" class="img-eye" />
+            </div>
           </div>
         </div>
         <a href="#" class="button cta btn-submit">회원가입</a>
@@ -35,12 +39,12 @@
         <p class="sns-text">다른 방식으로 가입하기</p>
         <div class="sns-icons">
           <a href="https://www.google.com/" class="sns-icon" target="_blank">
-            <img src="/img/google.svg" alt="" class="icon-background" />
-            <img src="/img/google.png" alt="" class="icon-logo" />
+            <img src="/img/google.svg" alt="아이콘 배경" class="icon-background" />
+            <img src="/img/google.png" alt="google" class="icon-logo" />
           </a>
           <a href="https://www.kakaocorp.com/page/" class="sns-icon" target="_blank">
-            <img src="/img/facebook.svg" alt="" class="icon-background" />
-            <img src="/img/kakao.svg" alt="" class="icon-logo" />
+            <img src="/img/facebook.svg" alt="아이콘 배경" class="icon-background" />
+            <img src="/img/kakao.svg" alt="kakao" class="icon-logo" />
           </a>
         </div>
       </div>
