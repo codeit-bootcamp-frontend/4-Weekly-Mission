@@ -62,7 +62,7 @@ body {
 }
 
 .form-sign,
-.btn-wrap {
+.social-login {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,7 +74,7 @@ body {
   gap: 2.4rem;
 }
 
-.btn-wrap {
+.social-login {
   gap: 3.2rem;
 }
 
