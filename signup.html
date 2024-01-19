@@ -49,8 +49,10 @@
               <input id="password" type="password" onblur="validatePw()" />
               <div class="pw-show">
                 <img
+                  id="pw-eyeIcon"
                   src="./public/images/sign/eye-off.png"
                   alt="비밀번호 숨기기 아이콘"
+                  onclick="togglePwVisibility()"
                 />
               </div>
             </div>
@@ -72,8 +74,10 @@
               />
               <div class="pw-show">
                 <img
+                  id="pwConfirm-eyeIcon"
                   src="./public/images/sign/eye-off.png"
                   alt="비밀번호 숨기기 아이콘"
+                  onclick="togglePwConfirmVisibility()"
                 />
               </div>
             </div>

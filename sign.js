@@ -68,3 +68,32 @@ function attemptLogin() {
     pwInput.style.borderColor = "red";
   }
 }
+
+// 비밀번호 숨김 아이콘 동작
+function togglePwVisibility() {
+  const eyeIcon = document.querySelector("#pw-eyeIcon");
+
+  if (pwInput.type === "password") {
+    // 현재 비밀번호가 가려져 있으면 보이게 변경
+    pwInput.type = "text";
+    eyeIcon.src = "./public/images/sign/eye-on.png";
+  } else {
+    // 현재 비밀번호가 보이고 있으면 가리기로 변경
+    pwInput.type = "password";
+    eyeIcon.src = "./public/images/sign/eye-off.png";
+  }
+}
+// 비밀번호 확인 숨김 아이콘 동작
+function togglePwConfirmVisibility() {
+  const eyeIcon = document.querySelector("#pwConfirm-eyeIcon");
+  console.log(pwConfirmInput.type);
+  if (pwConfirmInput.type === "password") {
+    // 현재 비밀번호가 가려져 있으면 보이게 변경
+    pwConfirmInput.type = "text";
+    eyeIcon.src = "./public/images/sign/eye-on.png";
+  } else {
+    // 현재 비밀번호가 보이고 있으면 가리기로 변경
+    pwConfirmInput.type = "password";
+    eyeIcon.src = "./public/images/sign/eye-off.png";
+  }
+}
