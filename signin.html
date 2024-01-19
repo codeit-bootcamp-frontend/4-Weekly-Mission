@@ -37,26 +37,26 @@
         <form class="form" method="POST" action="#">
           <fieldset>
             <legend class="ir_so">로그인 하기</legend>
-            <div class="input-layout">
+            <div class="input-layout input-layout-email">
               <label for="email" class="input-layout__label">이메일</label>
               <input
                 type="text"
                 name="email"
                 id="email"
                 placeholder="이메일을 입력하세요."
-                class="input-layout__input"
+                class="input-layout__input input-email"
               />
             </div>
 
-            <div class="input-layout">
+            <div class="input-layout input-layout-password">
               <label for="password" class="input-layout__label">비밀번호</label>
               <div class="input-layout__password">
                 <input
                   type="password"
                   name="password"
                   id="password"
-                  placeholder="이메일을 입력하세요."
-                  class="input-layout__input"
+                  placeholder="비밀번호를 입력하세요."
+                  class="input-layout__input input-password"
                 />
                 <button type="button" class="password-show">
                   <img
@@ -92,5 +92,7 @@
         </div>
       </section>
     </main>
+
+    <script src="./assets/js/form/index.js" type="module"></script>
   </body>
 </html>

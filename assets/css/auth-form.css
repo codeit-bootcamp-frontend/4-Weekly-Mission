@@ -94,6 +94,14 @@ body {
   position: absolute;
   right: 22px;
   top: 22px;
+  width: 16px;
+  height: 16px;
+}
+
+.password-show img {
+  width: 100%;
+  display: block;
+  pointer-events: none;
 }
 
 .input-message {
