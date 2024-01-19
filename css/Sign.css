@@ -233,12 +233,27 @@ body {
     line-height: normal;
   }
 
-  #email {
+  .email {
     margin-top: 1.2rem;
     margin-bottom: 2.4rem;
   }
 
-  #password {
+  .email-error {
+    border-color: var(--red);
+    margin-bottom: 0.6rem;
+  }
+
+  .text-error {
+    /* background-color: blue; */
+    margin-bottom: 0.4rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--Linkbrary-red);
+  }
+
+  .password {
     margin-top: 1.2rem;
   }
 
