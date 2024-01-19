@@ -106,3 +106,27 @@ button {
   width: 42px;
   margin-left: 16px;
 }
+
+/* tablet-size */
+@media (max-width: 1199px) {
+  .content {
+    padding: 200px 0px 290px;
+  }
+}
+
+/* mobile-size */
+@media (max-width: 767px) {
+  .content {
+    padding: 120px 32px 233px;
+    margin: 0;
+  }
+
+  input { 
+    width: 325px;
+  }
+
+  button {
+    width: 325px;
+  }
+
+}
