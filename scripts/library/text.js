@@ -1,13 +1,16 @@
+//@ts-check
+import { getElement } from "./document.js";
+
 /**
  * 요소 뒤에 <p>태그 추가
  * @param {string} query - 요소의 css selector
- * @param {string} text - 추가할 text
  * @param {string} className - 추가된 요소의 class명
+ * @param {string} text - 추가할 text
  */
-export const addTextAfter = (query, text, className) => {
-  const findElement = document.querySelector(className);
+export const addTextAfter = (query, className, text) => {
+  const findElement = getElement(className);
   if (findElement) return;
-  const element = document.querySelector(query);
+  const element = getElement(query);
   const textTag = document.createElement('p');
   textTag.textContent = text;
   textTag.className = className.slice(1);
@@ -15,13 +18,33 @@ export const addTextAfter = (query, text, className) => {
 };
 
 /**
+ * 텍스트 내용 변경
+ * @param {string} query - 요소의 css selector
+ * @param {string} text - 변경할 text
+  */
+export const changeText = (query, text) => {
+  const element = getElement(query)
+  element.innerText = text
+}
+
+/**
  * 요소의 값이 비었는지 확인
- * @param {string} query - 요소의 css selector*/
+ * @param {string} query - 요소의 css selector
+ * */
 export const isEmptyInput = (query) => {
-  const element = document.querySelector(query);
-  return element.value === '' ? true : false;
+  const value = getElement(query).value;
+  return value?.trim() === '' ? true : false;
 };
 
-export const isValidate = (regEx, text) => {
-  return regEx.test(text);
+/**
+ * 정규표현식의 유효한 값인지 확인
+ * @param {string} query - 요소의 css selector
+ * @param {RegExp} regEx - 검사할 정규표현식
+ * */
+export const isValidate = (query, regEx) => {
+  console.log(regEx)
+  const value = getElement(query).value
+  console.log(value)
+  console.log(regEx.test(value))
+  return regEx.test(value)
 };
