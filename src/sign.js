@@ -4,6 +4,7 @@ const signEmail = document.getElementById('email');
 const emailError = document.getElementById('email-error');
 const signPw = document.getElementById('password');
 const pwError = document.getElementById('password-error');
+const pwToggle = document.querySelector('.password-eye');
 const signBtn = document.querySelector('.sign-normal__btn');
 
 const isValidEmail = (email) => {
@@ -47,8 +48,19 @@ const handleEnterKey = (e) => {
   if (e.key === 'Enter') handleLogin();
 };
 
+const handleClickPwToggle = () => {
+  if (signPw.type === 'password') {
+    signPw.type = 'text';
+    pwToggle.src = 'public/images/eye-on.svg';
+  } else {
+    signPw.type = 'password';
+    pwToggle.src = 'public/images/eye-off.svg';
+  }
+};
+
 signEmail.addEventListener('focusout', validateEmail);
 signEmail.addEventListener('keydown', handleEnterKey);
 signPw.addEventListener('focusout', validatePw);
 signPw.addEventListener('keydown', handleEnterKey);
 signBtn.addEventListener('click', handleLogin);
+pwToggle.addEventListener('click', handleClickPwToggle);
