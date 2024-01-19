@@ -6,12 +6,10 @@
   font-family: "Pretendard", sans-serif;
 }
 
-html {
-  margin: 0;
-}
 
 body {
   background-color: var(--background);
+  margin: 0;
 }
 
 .content {
@@ -54,7 +52,8 @@ input {
 }
 
 input:focus {
-  outline: 1px solid var(--primary);
+  border-color: var(--primary);
+  outline: none;
 }
 
 input::placeholder {
@@ -71,7 +70,7 @@ input::placeholder {
 
 .checkbox button {
   position: absolute;
-  top: 0;
+  top: -2px;
   bottom: 0;
   right: 16px;
   width: 20px;
