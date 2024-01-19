@@ -18,6 +18,9 @@
 body {
   background: var(--palette-grey-5);
 }
+p {
+  margin: 0;
+}
 .signin_body {
   display: flex;
   flex-direction: column;
@@ -68,7 +71,6 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
 }
 .signin_info > div > label {
   color: var(--palette-black);
@@ -83,6 +85,7 @@ body {
   display: flex;
   width: 400px;
   padding: 18px 15px;
+  margin: 12px 0 6px 0;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -96,9 +99,20 @@ body {
   line-height: 24px;
 }
 
-.signin_info > div > input:focus {
-  border: 1px solid var(--palette-primary);
+.signin_info > div > .valid_text {
+  color: var(--palette-red);
+
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
+
+/* .signin_info > div > input:focus {
+  border: 1px solid var(--palette-primary);
+} */
 
 .signin_info > div:nth-child(2) > input {
   padding-right: 50px;

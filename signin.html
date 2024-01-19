@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <form>
+    <form id="signin_form">
       <main class="signin_body">
         <header class="signin_header">
           <a href="/"><img src="images/logo.svg" class="logo" /></a>
@@ -19,17 +19,19 @@
         <div class="signin_info">
           <div>
             <label for="signin_email"> 이메일</label>
-            <input id="signin_email" name="email" type="email" />
+            <input id="signin_email" name="email" />
+            <p class="valid_text" id="email_valid_text"></p>
           </div>
           <div>
             <label for="signin_password"> 비밀번호</label>
             <input id="signin_password" name="password" type="password" />
-            <button>
-              <img src="./images/eye-off.svg" />
-            </button>
+            <button id="pw_hidden_btn"></button>
+            <p class="valid_text" id="pw_valid_text"></p>
           </div>
         </div>
-        <button type="submit" class="signin_button">로그인</button>
+        <button type="submit" class="signin_button" id="signin_button">
+          로그인
+        </button>
       </main>
       <div class="signin_body">
         <div class="social_signin">
@@ -46,4 +48,5 @@
       </div>
     </form>
   </body>
+  <script src="/js/signin.js"></script>
 </html>
