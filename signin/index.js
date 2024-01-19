@@ -28,10 +28,10 @@ function toggleErrorMessage(element, message = "") {
   console.log("에러 메시지 토글");
 
   if (message) {
-    element.classList.remove("display-none");
+    element.classList.remove("hidden");
     prevInput.classList.add("input-error");
   } else {
-    element.classList.add("display-none");
+    element.classList.add("hidden");
     prevInput.classList.remove("input-error");
   }
 }

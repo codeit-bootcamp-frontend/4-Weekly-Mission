@@ -34,19 +34,19 @@
 
     <form class="sign">
       <div class="w-full">
-        <label class="sign-label"> 이메일</label>
+        <label class="sign-label" for="email"> 이메일</label>
         <input id="input-email" class="sign-input" name="email" type="email" />
-        <p id="error-email" class="error-message display-none">에러 메시지</p>
+        <p id="error-email" class="error-message hidden">에러 메시지</p>
       </div>
       <div class="w-full">
-        <label class="sign-label"> 비밀번호</label>
+        <label class="sign-label" for="password"> 비밀번호</label>
         <div class="password-input-wrap">
           <input id="input-password" class="sign-input" name="password" type="password" />
           <button class="btn btn-eye" type="button">
             <img class="icon-eye" src="../public/icon/eye-off.svg" />
           </button>
         </div>
-        <p id="error-password" class="error-message display-none">에러 메시지</p>
+        <p id="error-password" class="error-message hidden">에러 메시지</p>
       </div>
       <button class="btn btn-login btn-color-primary" type="button">로그인</button>
     </form>
