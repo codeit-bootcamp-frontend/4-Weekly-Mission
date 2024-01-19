@@ -74,6 +74,10 @@
       background-image: url(../Assets/Icons/eye-on.svg);
    }
 
+   .errorInputDesign {
+      border: 1px solid var(--LBrary-Red);
+   }
+
    .errorMessagePreset {
       color: var(--LBrary-Red);
       font-size: 1.4rem;
