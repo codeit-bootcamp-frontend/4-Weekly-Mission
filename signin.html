@@ -1,98 +1,73 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Linkbrary - 로그인</title>
-    <meta
-      property="og:url"
-      content="https://codeit-3team-donghyun.netlify.app/"
-    />
-    <meta property="og:title" content="Linkbrary" />
-    <meta
-      property="og:description"
-      content="세상의 모든 정보를 쉽게 저정하고 관리해 보세요."
-    />
-    <meta
-      property="og:image"
-      content="https://codeit-3team-donghyun.netlify.app/assets/images/linkbrary.jpg"
-    />
-    <!-- Reset -->
-    <link rel="stylesheet" href="./assets/css/common/reset.css" />
-    <!-- Form Style -->
-    <link rel="stylesheet" href="./assets/css/auth-form.css" />
-  </head>
-  <body>
-    <main class="main">
-      <section class="form-section">
-        <div class="form-section-header">
-          <h1 class="form-section-logo">
-            <a href="/"><img src="./assets/images/logo.svg" /></a>
-          </h1>
-          <p class="form-section-desc">
-            회원이 아니신가요? <a href="/signup.html">회원 가입하기</a>
-          </p>
-        </div>
 
-        <form class="form" method="POST" action="#">
-          <fieldset>
-            <legend class="ir_so">로그인 하기</legend>
-            <div class="input-layout input-layout-email">
-              <label for="email" class="input-layout__label">이메일</label>
-              <input
-                type="text"
-                name="email"
-                id="email"
-                placeholder="이메일을 입력하세요."
-                class="input-layout__input input-email"
-              />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linkbrary - 로그인</title>
+  <meta property="og:url" content="https://codeit-3team-donghyun.netlify.app/" />
+  <meta property="og:title" content="Linkbrary" />
+  <meta property="og:description" content="세상의 모든 정보를 쉽게 저정하고 관리해 보세요." />
+  <meta property="og:image" content="https://codeit-3team-donghyun.netlify.app/assets/images/linkbrary.jpg" />
+  <!-- Reset -->
+  <link rel="stylesheet" href="./assets/css/common/reset.css" />
+  <!-- Form Style -->
+  <link rel="stylesheet" href="./assets/css/auth-form.css" />
+</head>
+
+<body>
+  <main class="main">
+    <section class="form-section">
+      <div class="form-section-header">
+        <h1 class="form-section-logo">
+          <a href="/"><img src="./assets/images/logo.svg" /></a>
+        </h1>
+        <p class="form-section-desc">
+          회원이 아니신가요? <a href="/signup.html">회원 가입하기</a>
+        </p>
+      </div>
+
+      <form class="form" method="POST" action="#">
+        <fieldset>
+          <legend class="ir_so">로그인 하기</legend>
+          <div class="input-layout input-layout-email">
+            <label for="email" class="input-layout__label">이메일</label>
+            <input type="text" name="email" id="email" placeholder="이메일을 입력하세요."
+              class="input-layout__input input-email" />
+          </div>
+
+          <div class="input-layout input-layout-password">
+            <label for="password" class="input-layout__label">비밀번호</label>
+            <div class="input-layout__password">
+              <input type="password" name="password" id="password" placeholder="비밀번호를 입력하세요."
+                class="input-layout__input input-password" />
+              <button type="button" class="password-show">
+                <img src="./assets/images/icon/password-eye-icon.svg" alt="비밀번호 보기" />
+              </button>
             </div>
+          </div>
 
-            <div class="input-layout input-layout-password">
-              <label for="password" class="input-layout__label">비밀번호</label>
-              <div class="input-layout__password">
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="비밀번호를 입력하세요."
-                  class="input-layout__input input-password"
-                />
-                <button type="button" class="password-show">
-                  <img
-                    src="./assets/images/icon/password-eye-icon.svg"
-                    alt="비밀번호 보기"
-                  />
-                </button>
-              </div>
-            </div>
+          <button class="form-submit">로그인</button>
+        </fieldset>
+      </form>
 
-            <button class="form-submit">로그인</button>
-          </fieldset>
-        </form>
+      <div class="sns-login">
+        <span class="sns-title">소셜 로그인</span>
+        <ul class="sns-lists">
+          <li>
+            <a href="https://www.google.com/"><img src="./assets/images/icon/google-login.svg" alt="구글로 로그인 하기" /></a>
+          </li>
+          <li>
+            <a href="https://www.kakaocorp.com/page/"><img src="./assets/images/icon/kakao-login.svg"
+                alt="카카오로 로그인 하기" /></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
 
-        <div class="sns-login">
-          <span class="sns-title">소셜 로그인</span>
-          <ul class="sns-lists">
-            <li>
-              <a href="https://www.google.com/"
-                ><img
-                  src="./assets/images/icon/google-login.svg"
-                  alt="구글로 로그인 하기"
-              /></a>
-            </li>
-            <li>
-              <a href="https://www.kakaocorp.com/page/"
-                ><img
-                  src="./assets/images/icon/kakao-login.svg"
-                  alt="카카오로 로그인 하기"
-              /></a>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </main>
+  <script src="./assets/js/form/index.js" type="module"></script>
+  <!-- <script src="./assets/js/form/index.js" type="module"></script> -->
+</body>
 
-    <script src="./assets/js/form/index.js" type="module"></script>
-  </body>
 </html>

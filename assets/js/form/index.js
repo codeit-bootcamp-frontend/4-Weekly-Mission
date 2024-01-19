@@ -1,7 +1,15 @@
-import FormInput from "./form-input.js"
+import Form from "./form.js"
 
+const formElement = document.querySelector(".form")
 const inputEmail = document.querySelector(".input-email")
 const inputPassword = document.querySelector(".input-password")
 
-new FormInput("email", inputEmail)
-new FormInput("password", inputPassword)
+new Form(formElement, [inputEmail, inputPassword])
+
+/**
+ * ! Form
+ * ! Valaidation
+ * ! UI
+ * ! FormInput
+ * ! formState
+ */

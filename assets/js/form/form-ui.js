@@ -1,20 +1,23 @@
 import { addClass, removeClass } from "../utils/classList.js"
 
 export default class UI {
-  constructor(inputRootElem) {
-    this.inputRootElem = inputRootElem
-    this.errorElem = document.createElement("p")
+  clear(element) {
+    return element ? element.remove() : null
   }
 
-  removeError() {
-    this.errorElem.remove()
-    removeClass(this.inputRootElem, "invalid")
+  removeError(errorElem, inputLayoutElem) {
+    errorElem.remove()
+    removeClass(inputLayoutElem, "invalid")
   }
 
-  printError(errorMessage) {
-    this.errorElem.textContent = errorMessage
-    this.inputRootElem.appendChild(this.errorElem)
-    addClass(this.inputRootElem, "invalid")
+  showError(errorElem, inputLayoutElem, errorMessage) {
+    errorElem.textContent = errorMessage
+    inputLayoutElem.appendChild(errorElem)
+    addClass(inputLayoutElem, "invalid")
+  }
+
+  showErrorWrapper(type, errorMessage) {
+    this.showError(this.errorElement[type], document.querySelector(`.input-layout-${type}`), errorMessage)
   }
 
   passwordChangeIcon(inputElem) {

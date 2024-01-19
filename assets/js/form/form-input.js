@@ -1,32 +1,61 @@
+import formState from "../core/index.js"
 import { containsClass } from "../utils/classList.js"
-import Component from "./form-core.js"
+import { EmptyTypeMessage, isEmail, isEmailValid, isNotEmptyValid } from "../utils/validation.js"
 import UI from "./form-ui.js"
-import Validation from "./form-validation.js"
 
-export default class FormInput extends Component {
-  constructor(type, inputElem) {
-    super(type, inputElem)
-    this.validation = new Validation()
-    this.ui = new UI(document.querySelector(`.input-layout-${type}`))
+export default class FormInput extends UI {
+  constructor(type, inputElement, errorElement) {
+    super()
+    this.type = type
+    this.inputElement = inputElement
+    this.errorElement = errorElement
+    // this.ui = ui
+    this.isValid = { message: "", result: false }
+    this.attach()
   }
 
-  passwordChangeIcon() {
-    const icon = this.inputElem.nextElementSibling.children[0]
-    icon.src = "./assets/images/icon/password-eye-on.svg"
+  validation(value) {
+    if (!isNotEmptyValid(value)) {
+      return { message: EmptyTypeMessage(this.type), result: false }
+    }
+
+    if (!isEmailValid(value) && isEmail(this.type)) {
+      return { message: "올바른 이메일 주소가 아닙니다.", result: false }
+    }
+
+    return { message: "Validate Passed!", result: true }
+  }
+
+  foucsOutHandler(event) {
+    const inputLayoutElem = document.querySelector(`.input-layout-${this.type}`)
+    const { name, value } = event.target
+
+    formState.setState = {
+      prop: name,
+      value: value,
+    }
+
+    const inputIsValid = this.validation(event.target.value)
+    this.isValid = inputIsValid
+
+    inputIsValid.result
+      ? this.removeError(this.errorElement, inputLayoutElem)
+      : this.showError(this.errorElement, inputLayoutElem, inputIsValid.message)
   }
 
   showPassword({ target }) {
     if (!containsClass(target, "password-show")) return
-    const inputChangeType = this.inputElem.type === "text" ? "password" : "text"
-    this.inputElem.type = inputChangeType
+    this.inputElement.type = this.inputElement.type === "text" ? "password" : "text"
 
-    this.ui.passwordChangeIcon(this.inputElem)
+    this.passwordChangeIcon(this.inputElement)
   }
 
-  eventHandler(event) {
-    const value = event.target.value
-    const { message, result } = this.validation.isValid(this.type, value)
+  attach() {
+    this.inputElement.addEventListener("focusout", this.foucsOutHandler.bind(this))
 
-    result ? this.ui.removeError() : this.ui.printError(message)
+    if (this.type === "password") {
+      const passwordButton = this.inputElement.nextElementSibling
+      passwordButton.addEventListener("click", this.showPassword.bind(this))
+    }
   }
 }
