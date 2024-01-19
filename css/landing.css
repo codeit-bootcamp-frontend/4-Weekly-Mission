@@ -60,6 +60,8 @@ main {
 }
 
 .main-title {
+  width: 70.8rem;
+  word-break: keep-all;
   text-align: center;
   font-size: 6.4rem;
   font-weight: 700;
@@ -102,81 +104,65 @@ article {
 }
 
 section {
-  width: 100%;
   padding: 5rem 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.section-odd-div,
-.section-even-div {
-  display: flex;
-  align-items: center;
-  gap: 15.7rem;
+.section-odd,
+.section-even {
+  max-width: 99.8rem;
+  width: 100%;
+  display: grid;
+  gap: 1rem 15.7rem;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .section-title {
-  width: 29.1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1rem;
-}
-
-.section-h2 {
+  grid-row: 2 / 3;
+  word-break: keep-all;
   font-size: 4.8rem;
   font-weight: 700;
   letter-spacing: -0.03rem;
 }
 
-.section-1-span {
+.section-1-gradient {
   background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.section-on-off-br {
-  display: initial;
-}
-
-.section-off-on-br {
-  display: none;
-}
-
-.description-on-off {
+.description {
+  grid-row: 3 / 4;
+  word-break: keep-all;
+  width: 28rem;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 1.5;
   color: #6b6b6b;
 }
 
-.description-off-on {
-  display: none;
-}
-
-.section-odd-div > img,
-.section-even-div > img {
+.section-odd > img,
+.section-even > img {
+  grid-row: 1 / 5;
   width: 55rem;
   height: 45rem;
 }
 
-.section-2-span {
+.section-2-gradient {
   background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.section-3-span {
+.section-3-gradient {
   background: linear-gradient(99deg, #6d7ccd 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.section-4-span {
+.section-4-gradient {
   background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -242,8 +228,8 @@ footer {
     padding-top: 4rem;
   }
 
-  .responsive-br {
-    display: initial;
+  .main-title {
+    width: 47.2rem;
   }
 
   .main-content img {
@@ -256,13 +242,14 @@ footer {
     padding: 3rem 0 12rem 0;
   }
 
-  .section-odd-div,
-  .section-even-div {
-    gap: 5.1rem;
+  .section-odd,
+  .section-even {
+    max-width: 69.8rem;
+    column-gap: 5.1rem;
   }
 
-  .section-odd-div > img,
-  .section-even-div > img {
+  .section-odd > img,
+  .section-even > img {
     width: 38.5rem;
     height: 31.5rem;
   }
@@ -293,11 +280,12 @@ footer {
   }
 
   .main-title {
+    width: 23.6rem;
     font-size: 3.2rem;
     line-height: 1.3125;
   }
 
-  .main-link > button {
+  .main-link {
     width: 20rem;
     height: 3.7rem;
     font-size: 1.4rem;
@@ -317,46 +305,31 @@ footer {
     padding: 4rem 3.2rem;
   }
 
-  .section-odd-div {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2.4rem;
-  }
-  
-  .section-even-div {
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    gap: 2.4rem;
+  .section-odd,
+  .section-even {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
   }
 
   .section-title {
-    width: 32.5rem;
-  }
-
-  .section-h2 {
+    grid-row: 1 / 2;
     font-size: 2.4rem;
   }
-
-  .section-on-off-br {
-    display: none;
-  }
   
-  .section-off-on-br {
-    display: initial;
-  }
-  
-  .description-on-off {
-    display: none;
-  }
-
-  .description-off-on {
-    display: initial;
+  .description {
+    grid-row: 3 / 4;
+    width: 32.5rem;
     font-size: 1.5rem;
     font-weight: 500;
   }
 
-  .section-odd-div > img,
-  .section-even-div > img {
+  .line-break-pc-tablet {
+    display: none;
+  }
+
+  .section-odd > img,
+  .section-even > img {
+    grid-row: 2 / 3;
     width: 100%;
     height: auto;
   }
@@ -369,7 +342,7 @@ footer {
   .footer-div {
     padding: 0;
     display: grid;
-    grid-template: 1fr 1fr / 1fr 1fr;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
     gap: 6rem;
   }
 
