@@ -52,13 +52,14 @@ function errorMsg(errorCase) {
 function emailHandlerFunc(email) {
   if(email === "") { // email 값 없이 focusout시 
     emailVal = "";
-    if(emailInput.getAttribute('status') === '정상') {
+    if(!emailDiv.lastElementChild.classList.contains('NoEmail')) {
+      document.querySelector('.wrongEmail').remove();
       errorMsg("NoEmail");
     }
     emailInput.setAttribute('status','에러');
     
   } else if (email !== "") {
-    if(emailInput.getAttribute('status') === '에러') {
+    if(emailDiv.lastElementChild.classList.contains('NoEmail')) {
       const delNode = document.querySelector('.NoEmail')
       delNode.remove();
     }
@@ -69,6 +70,9 @@ function emailHandlerFunc(email) {
     if(!emailCheck(emailVal)) {
       emailInput.setAttribute('status','에러');
       errorMsg("wrongEmail");
+    } else {
+      emailInput.setAttribute('status','정상');
+      document.querySelector('.wrongEmail').remove();
     }
   }
 }
