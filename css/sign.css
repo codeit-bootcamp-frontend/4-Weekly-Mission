@@ -111,6 +111,7 @@
 
 .sign__error-msg {
   color: var(--red);
+  font-size: 1.4rem;
 }
 
 /* ---- Sign(Social) ---- */

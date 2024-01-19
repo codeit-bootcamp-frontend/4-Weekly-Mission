@@ -14,10 +14,10 @@ const resetErrorStyle = (el) => {
   el.style.border = '';
 };
 
-const isValidEmail = (email) => {
+const isEmailFormat = (email) => {
   return SIGN.EMAIL_REGEX.test(email);
 };
-const isValidPw = (pw) => {
+const isPwFormat = (pw) => {
   return SIGN.PW_REGEX.test(pw);
 };
 
@@ -27,7 +27,7 @@ const validateEmail = () => {
   if (emailValue === '') {
     emailError.innerText = SIGN.REQUIRED_EMAIL;
     applyErrorStyle(signEmail);
-  } else if (!isValidEmail(emailValue)) {
+  } else if (!isEmailFormat(emailValue)) {
     emailError.innerText = SIGN.INVALID_EMAIL_FORMAT;
     applyErrorStyle(signEmail);
   } else {
@@ -42,7 +42,7 @@ const validatePw = () => {
   if (pwValue === '') {
     pwError.innerText = SIGN.REQUIRED_PASSWORD;
     applyErrorStyle(signPw);
-  } else if (!isValidPw(pwValue)) {
+  } else if (!isPwFormat(pwValue)) {
     pwError.innerText = SIGN.INVALID_PW_FORMAT;
     applyErrorStyle(signPw);
   } else {
