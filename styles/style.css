@@ -64,7 +64,7 @@ p {
 .content_center {
   margin: 0 auto;
 }
-.first {
+.first_section {
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -93,7 +93,7 @@ p {
   font-weight: 600;
   font-family: Pretendard;
 }
-.sub {
+.sub_section {
   display: grid;
 }
 .image_main_text {
@@ -118,7 +118,7 @@ p {
   line-height: 150%;
   word-break: keep-all;
 }
-.sub > img {
+.sub_section > img {
   grid-area: image;
 }
 .footer_info {
@@ -178,13 +178,13 @@ p {
   .gradient {
     padding: 10px 16px;
   }
-  .first {
+  .first_section {
     padding-top: 101px;
     padding-left: 32px;
     padding-right: 32px;
     gap: 24px;
   }
-  .content_center.first > img {
+  .content_center.first_section > img {
     width: 100%;
   }
   .maintext {
@@ -197,7 +197,7 @@ p {
     height: 17px;
     font-size: 14px;
   }
-  .sub {
+  .sub_section {
     padding: 40px 32px 40px 32px;
   }
   .grid {
@@ -238,10 +238,10 @@ p {
     font-size: 15px;
     margin-top: 16px;
   }
-  .sub > img {
+  .sub_section > img {
     width: 100%;
   }
-  .footer {
+  .footer_body {
     padding-top: 40px;
   }
   .footer_info {
@@ -284,11 +284,11 @@ p {
   .content_center {
     width: 700px;
   }
-  .first {
+  .first_section {
     padding-top: 133px;
     gap: 40px;
   }
-  .content_center.first > img {
+  .content_center.first_section > img {
     width: 698px;
   }
   .maintext {
@@ -301,7 +301,7 @@ p {
     height: 22px;
     font-size: 18px;
   }
-  .sub {
+  .sub_section {
     width: 698px;
     margin: 100px auto 0 auto;
   }
@@ -343,10 +343,10 @@ p {
   .link_sub {
     font-size: 16px;
   }
-  .sub > img {
+  .sub_section > img {
     width: 385px;
   }
-  .footer {
+  .footer_body {
     margin-top: 50px;
     padding-top: 120px;
   }
@@ -384,7 +384,7 @@ p {
   .content_center {
     width: 1200px;
   }
-  .first {
+  .first_section {
     padding-top: 164px;
     gap: 40px;
   }
@@ -397,7 +397,7 @@ p {
     height: 22px;
     font-size: 18px;
   }
-  .sub {
+  .sub_section {
     width: 1000px;
     margin: 100px auto 0 auto;
   }
@@ -439,7 +439,7 @@ p {
   .link_sub {
     font-size: 16px;
   }
-  .footer {
+  .footer_body {
     margin-top: 50px;
     padding-top: 120px;
   }
