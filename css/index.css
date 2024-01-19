@@ -36,7 +36,7 @@ header{
 header .login_btn a{
   width: 128px;
   padding: 16px 20px;
-  background: var(--primary-colore, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  background: var(--primary-color, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
   text-align: center;
   border-radius: 0.4rem;
   cursor: pointer;
