@@ -129,7 +129,7 @@ main{
   cursor: pointer;
 }
 
-.password_icon .pw_hide{
+.password_icon .pw_block{
   display: none;
 }
 
@@ -172,7 +172,6 @@ main{
   font-weight: 400;
   line-height: normal;
 }
-
 
 .social_login_btn{
   display: flex;
