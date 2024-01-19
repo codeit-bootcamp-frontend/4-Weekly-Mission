@@ -96,22 +96,19 @@ nav {
 }
 
 .options {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 157px;
-  padding: 50px 460px;
-}
-
-.introduction {
   display: grid;
   grid-template-columns: minmax(250px, 325px);
+  grid-template-areas:
+    "title image"
+    "describe image";
   justify-content: center;
+  column-gap: 157px;
+  padding: 50px 0;
 }
 
-
-
 .title {
+  grid-area: title;
+  align-self: end;
   font-size: 48px;
   font-weight: 700;
   letter-spacing: -0.3px;
@@ -135,6 +132,7 @@ nav {
 }
 
 .options p {
+  grid-area: describe;
   color: #6B6B6B;
   font-size: 16px;
   font-weight: 500;
@@ -143,6 +141,7 @@ nav {
 }
 
 .options img {
+  grid-area: image;
   width: 550px;
   border-radius: 15px;
   background: var(--background);
