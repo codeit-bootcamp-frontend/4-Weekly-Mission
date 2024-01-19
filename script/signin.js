@@ -20,4 +20,11 @@ emailInput.addEventListener("focusout", () => {
   }
 });
 
+passwordInput.addEventListener("focusout", () => {
+  if (passwordInput.value.trim() === "") {
+    passwordErrorMessage.textContent = "비밀번호를 입력해 주세요";
+  } else {
+    passwordErrorMessage.textContent = "";
+  }
+});
 
