@@ -6,6 +6,10 @@
   justify-content: center;
   background-color: var(--Linkbrary-bg);
 }
+
+header > a > svg {
+  cursor: pointer;
+}
 .main {
   background-color: var(--Linkbrary-bg);
 }
@@ -76,11 +80,10 @@ input {
   border: 2px solid var(--Linkbrary-gray60);
   background: var(--Linkbrary-white);
   margin-top: 12px;
-  cursor: pointer;
 }
 
 input:focus {
-  border: 2px solid var(--Linkbrary-primary-colorr);
+  border: 2px solid var(--Linkbrary-primary-color);
 }
 
 .CTA {
@@ -106,13 +109,12 @@ input:focus {
 .kakao-svg-wrapper {
   position: relative;
   right: 0;
+  cursor: pointer;
 }
 .kakao {
   position: relative;
   right: 0;
-}
-/* 모바일사이즈 */
-@media screen and (375px <= width <=767px) {
+  cursor: pointer;
 }
 
 /* 태블릿 사이즈 */
@@ -123,7 +125,6 @@ input:focus {
   }
 }
 
-/* pc 사이즈 */
 @media screen and (width >= 1200px) {
   .container {
     position: relative;

@@ -24,6 +24,7 @@ main {
   display: flex;
   justify-content: flex-start;
   padding: 0;
+  cursor: pointer;
 }
 
 .login {
@@ -40,6 +41,7 @@ header svg {
   width: 80px;
   gap: 10px;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
 .hero {
@@ -80,6 +82,7 @@ h1 > span {
   padding: 10px 16px;
   gap: 24px;
   border: none;
+  cursor: pointer;
 }
 
 .image-wrapper {
@@ -270,9 +273,6 @@ footer {
   }
   .article-wrapper > img {
     order: 3;
-  }
-  .text-wrapper {
-    
   }
 
   /* 태블릿 사이즈에서 이미지 사이즈 고정 */
