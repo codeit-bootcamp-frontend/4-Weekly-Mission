@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: "icomoon";
-  src: url("/styles/fonts/icomoon.eot?dtsjzr");
-  src: url("/styles/fonts/icomoon.eot?dtsjzr#iefix") format("embedded-opentype"),
-    url("/styles/fonts/icomoon.ttf?dtsjzr") format("truetype"),
-    url("/styles/fonts/icomoon.woff?dtsjzr") format("woff"),
-    url("/styles/fonts/icomoon.svg?dtsjzr#icomoon") format("svg");
+  src: url("/styles/fonts/icomoon.eot?5abic");
+  src: url("/styles/fonts/icomoon.eot?5abic#iefix") format("embedded-opentype"),
+    url("/styles/fonts/icomoon.ttf?5abic") format("truetype"),
+    url("/styles/fonts/icomoon.woff?5abic") format("woff"),
+    url("/styles/fonts/icomoon.svg?5abic#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -29,6 +29,15 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-eye-on .path1:before {
+  content: "\e90b";
+  color: rgb(255, 255, 255);
+}
+.icon-eye-on .path2:before {
+  content: "\e90c";
+  margin-left: -1em;
+  color: rgb(55, 55, 64);
+}
 .icon-eye-off .path1:before {
   content: "\e900";
   color: rgb(255, 255, 255);
