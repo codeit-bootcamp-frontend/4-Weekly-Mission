@@ -34,41 +34,37 @@
       content="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.istockphoto.com%2Fkr%2F%25EC%259D%25B4%25EB%25AF%25B8%25EC%25A7%2580%2Flibrary&psig=AOvVaw1kz2JBzGOZ6azi0olzliJU&ust=1705106128876000&source=images&cd=vfe&ved=0CBIQjRxqFwoTCPjX_LzN1oMDFQAAAAAdAAAAABAE"
     />
     <meta name="viewport" content="width=device-width" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
-    />
-    <!-- 위 링크는 무슨 cdn인가요? 열어보니 css문서들이 포함되어있던데, 어디서 구할 수 있는 cdn인가요? 정답파일에서 긁어온 링크입니다. -->
-    <link rel="stylesheet" href="./src/landing.css" />
+    <link rel="stylesheet" href="./src/colors.css" />
+    <link rel="stylesheet" href="./src/global.css" />
+    <link rel="stylesheet" href="./src/reset.css" />
+    <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-    <header>
-      <div class="nav-bar">
-        <a href="/"
-          ><img src="/images/logo.svg" alt="logo" class="logo cursor"
+    <nav>
+      <div class="navBar">
+        <a href="index.html"
+          ><img src="./images/logo.svg" alt="logo" class="logo"
         /></a>
-        <a href="/signin/signin.html" class="signIn"
-          ><button class="logIn cursor">로그인</button></a
-        >
+        <a href="./signin/signin.html" class="btn btnS">로그인</a>
       </div>
-      <div class="head">
-        <div class="head-section">
-          <h1>
-            <span class="gradation">세상의 모든 정보</span>를<br />
-            쉽게 저장하고 관리해 보세요
-          </h1>
-          <div class="head-section-btn">
-            <a href="/signup/signup.html"
-              ><button class="addLinkBtn">링크 추가하기</button></a
-            >
-          </div>
-        </div>
-        <div class="websiteImg">
-          <img src="/images/hero.png" alt="website" class="website" />
+    </nav>
+
+    <div class="head">
+      <div class="head-section">
+        <h1>
+          <span class="gradation">세상의 모든 정보</span>를<br />
+          쉽게 저장하고 관리해 보세요
+        </h1>
+        <div class="head-section-btn">
+          <a href="/signup/signup.html"
+            ><button class="addLinkBtn">링크 추가하기</button></a
+          >
         </div>
       </div>
-    </header>
+      <div class="websiteImg">
+        <img src="/images/hero.png" alt="website" class="website" />
+      </div>
+    </div>
 
     <main>
       <div class="sections">
