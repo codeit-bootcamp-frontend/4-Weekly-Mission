@@ -1,0 +1,841 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html, body {
+    /*width: 1920px;
+    margin: 0 auto;
+    padding: 0;*/
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* refer to template code */
+    margin: 0;
+    padding: 0;
+    background-color: var(--Linkbrary-bg);
+}
+
+@media screen and (min-width: 1920px) {
+    body {
+        background-color: var(--Linkbrary-bg);
+        overflow: hidden;
+    }
+}
+
+/* Written in PC size */
+/* nav */
+nav {
+    width: 100%;
+    /*max-width: 1920px;*/
+    background-color: var(--Linkbrary-bg);
+    margin: 0 auto;
+    display: flex;
+    padding: 1.25rem 12.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: stretch;
+    position: fixed;
+}
+
+.navBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+    width: 100%;
+}
+
+.navBox.logo {
+    cursor: pointer;
+    width: 8.3125rem;
+    height: 1.5rem;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav button {
+    cursor: pointer;
+    display: flex;
+    width: 8rem;
+    padding: 1rem 1.25rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.5rem;
+    border: 0;
+    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--Linkbrary-primary-color) 0.12%, #6AE3FE 101.84%));
+    color: var(--Grey-Light, #F5F5F5);
+    font-family: Pretendard;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+/* mainContainer */
+.mainContainer {
+    display: flex;
+    width: 120rem;
+    padding: 4.375rem 22.5rem 0rem 22.5rem;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 2.5rem;
+    background: var(--Linkbrary-bg);
+}
+
+.mainContainer button {
+    cursor: pointer;
+    display: flex;
+    width: 21.875rem;
+    padding: 1rem 1.25rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.5rem;
+    border: 0;
+    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--Linkbrary-primary-color) 0.12%, #6AE3FE 101.84%));
+    color: var(--Grey-Light, #F5F5F5);
+    font-family: Pretendard;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.mainContainer img {
+    width: 1200px;
+    height: 590px;
+    flex-shrink: 0;
+    border-radius: 1.5625rem;
+    background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, var(--Linkbrary-bg) 94.76%);
+}
+
+h1.mainTitle {
+    color: #000;
+    font-family: Pretendard;
+    font-size: 4rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 5rem;
+    text-align: center;
+    margin-bottom: 0;
+    padding-top: 7rem;
+    word-break: keep-all;
+}
+
+.mainTitle_gra {
+    background: linear-gradient(91deg, var(--Linkbrary-primary-color) 17.28%, #FF9F9F 74.98%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* container1 */
+.container1 {
+    display: flex;
+    padding: 7.5rem 28.8125rem 3.125rem 28.8125rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Linkbrary-white);
+}
+
+.container1 img {
+    width: 550px;
+    height: 450px;
+}
+
+.box1 {
+    display: flex;
+    align-items: center;
+    gap: 9.8125rem;
+    background-color: var(--Linkbrary-white);
+}
+
+.text1 {
+    display: flex;
+    width: 19rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+    background-color: var(--Linkbrary-white);
+}
+
+h2.title1 {
+    color: #000;
+    font-family: Pretendard;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.01875rem;
+}
+
+.title1_gra {
+    background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.description1 {
+    color: #6B6B6B;
+    font-family: Abel;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150%*/
+}
+
+/* container2 */
+.container2 {
+    display: flex;
+    padding: 3.125rem 28.8125rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Linkbrary-white);
+}
+
+.container2 img {
+    width: 550px;
+    height: 450px;
+}
+
+.box2 {
+    display: flex;
+    align-items: center;
+    gap: 9.8125rem;
+    background-color: var(--Linkbrary-white);
+}
+
+.text2 {
+    display: flex;
+    width: 19rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+    background-color: var(--Linkbrary-white);
+}
+
+h2.title2 {
+    color: #000;
+    font-family: Pretendard;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.01875rem;
+}
+
+.title2_gra {
+    background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.description2 {
+    color: #6B6B6B;
+    font-family: Abel;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150%*/
+}
+
+/* container3 */
+.container3 {
+    display: flex;
+    padding: 3.125rem 28.8125rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Linkbrary-white);
+}
+
+.container3 img {
+    width: 550px;
+    height: 450px;
+}
+
+.box3 {
+    display: flex;
+    align-items: center;
+    gap: 9.8125rem;
+    background-color: var(--Linkbrary-white);
+}
+
+.text3 {
+    display: flex;
+    width: 21rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+    background-color: var(--Linkbrary-white);
+}
+
+h2.title3 {
+    color: #000;
+    font-family: Pretendard;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.01875rem;
+}
+
+.title3_gra {
+    background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.description3 {
+    color: #6B6B6B;
+    font-family: Abel;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150%*/
+}
+
+/* container4 */
+.container4 {
+    display: flex;
+    padding: 3.125rem 28.8125rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Linkbrary-white);
+}
+
+.container4 img {
+    width: 550px;
+    height: 450px;
+}
+
+.box4 {
+    display: flex;
+    align-items: center;
+    gap: 9.8125rem;
+    background-color: var(--Linkbrary-white);
+}
+
+.text4 {
+    display: flex;
+    width: 21rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.625rem;
+    background-color: var(--Linkbrary-white);
+}
+
+h2.title4 {
+    color: #000;
+    font-family: Pretendard;
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.01875rem;
+}
+
+.title4_gra {
+    background: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.description4 {
+    color: #6B6B6B;
+    font-family: Abel;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150%*/
+}
+
+
+/* footer */
+footer {
+    display: flex;
+    height: 17.5rem;
+    padding-top: 7.5rem;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 1.875rem;
+    box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.02);
+}
+
+.footerBox {
+    display: flex;
+    height: 10rem;
+    padding: 2rem 6.5rem 4rem 6.5rem;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    align-self: stretch;
+    background: var(--Linkbrary-black);
+}
+
+.detailBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.leftText {
+    color: #676767;
+    text-align: center;
+    font-family: Acme;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.centerText {
+    display: flex;
+    width: 11.31944rem;
+    align-items: flex-start;
+    gap: 1.875rem;
+}
+
+.centerText span {
+    cursor: pointer;
+    color: #CFCFCF;
+    font-family: Acme;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.rightIcons {
+    display: flex;
+}
+
+.rightIcons img {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin: 0 0.5rem;
+}
+
+/* signin and signup Page */
+.signBox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 90rem;
+    justify-content: center;
+    align-items: center;
+    margin: 14.88rem auto;
+}
+
+.signBox form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.875rem;
+}
+
+.logoAndSign {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logoAndSign img {
+    width: 13.16144rem;
+    height: 2.375rem;
+}
+
+.logoAndSign span {
+    color: #000;
+    font-family: Pretendard;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+}
+
+.logoAndSign span a {
+    color: var(--Linkbrary-primary-color, #6D6AFE);
+    font-family: Pretendard;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: underline;
+}
+
+.formBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.formBox label {
+    color:#000;
+    font-family: Pretendard;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.formBox input {
+    display: flex;
+    width: 25rem;
+    padding: 1.125rem 0.9375rem;
+    justify-content: center;
+    align-items: center;
+    background: var(--Linkbrary-white, #FFF);
+    border-radius: 0.5rem;
+    border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+}
+
+.formBox input:focus {
+    border: 1px solid var(--Linkbrary-primary-color);
+}
+
+.passwordBox {
+    position: relative;
+}
+
+.passwordBox img {
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: 3rem;
+    right: 1rem;
+}
+
+.passwordRepeatBox {
+    position: relative;
+}
+
+.passwordRepeatBox img {
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: 3rem;
+    right: 1rem;
+}
+
+.emailBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.passwordBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.passwordRepeatBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+form button {
+    color: var(--Linkbrary-white);
+    display: flex;
+    width: 25rem;
+    padding: 1rem 1.25rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.5rem;
+    border: 0;
+    background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+}
+
+.socialSignBox {
+    display: flex;
+    width: 25rem;
+    padding: 0.75rem 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+    background: var(--Linkbrary-gray10, #E7EFFB);
+}
+
+.socialSignBox span {
+    color: var(--Linkbrary-gray100, #373740);
+    font-family: Pretendard;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.socialIcon {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.socialIcon img {
+    width: 2.625rem;
+    height: 2.625rem;
+}
+
+
+/* for responsive pages */
+/* mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+    html {
+        font-size: 50%;
+    }
+    body {
+        width: 100vw;
+        /*padding-left: 32px;
+        padding-right: 32px;*/
+    }
+
+    nav {
+        padding: 13px 32px;
+    }
+    .navBox.logo {
+        margin-right: auto;
+        width: 5.54169rem;
+        height: 1rem;
+    }
+    nav a button {
+        margin-left: auto;
+        width: 80px;
+        padding: 10px 16px;
+    }
+    .mainContainer {
+        padding: 28px 32px 0px 33px;
+        gap: 24px;
+        margin-top: 15px;
+    }
+    .mainContainer img {
+        width: calc(100vw - 64px);
+        max-width: 100%;
+        height: auto;
+        margin: 0 auto;
+    }
+    .mainContainer h1 {
+        width: calc(100vw - 64px);
+        white-space: normal;
+    }
+    .mainContainer button {
+        width: 25rem;
+        padding: 1.25rem 2rem;
+    }
+
+    .container1 {
+        padding: 40px 32px 36.091px 33px;
+    }
+    .container1 img {
+        width: calc(100vw - 64px);
+        height: auto;
+    }
+    .box1 {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .text1 {
+        width: calc(100vw - 64px);
+        height: auto;
+    }
+
+    .container2 {
+        padding: 40px 32px 42.091px 33px;
+    }
+    .container2 img {
+        width: calc(100vw - 64px);
+        height: auto;
+    }
+    .box2 {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+    }
+    .text2 {
+        width: calc(100vw - 64px);
+        height: auto;
+    }
+
+    .container3 {
+        padding: 40px 32px 42.091px 33px;
+    }
+    .container3 img {
+        width: calc(100vw - 64px);
+        height: auto;
+    }
+    .box3 {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .text3 {
+        width: calc(100vw - 64px);
+        height: auto;
+    }
+
+    .container4 {
+        padding: 40px 32px 41.091px 33px;
+    }
+    .container4 img {
+        width: calc(100vw - 64px);
+        height: auto;
+    }
+    .box4 {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1.5rem;
+    }
+    .text4 {
+        width: calc(100vw - 64px);
+        height: auto;
+    }
+
+    .signBox {
+        margin-left: 32px;
+        margin-right: 32px;
+
+        width: calc(100vw - 64px);
+        height: auto;
+    }
+    .logoAndSign {
+        width: calc(100vw - 64px);
+        max-width: 400px;
+        height: auto;
+    }
+    .emailBox input {
+        width: calc(100vw - 64px);
+        max-width: 400px;
+    }
+    .passwordBox input {
+        width: calc(100vw - 64px);
+        max-width: 400px;
+    }
+    .passwordBox img {
+        position: absolute;
+        top: 3.5rem;
+    }
+    .passwordRepeatBox input {
+        width: calc(100vw - 64px);
+        max-width: 400px;
+    }
+    .passwordRepeatBox img {
+        position: absolute;
+        top: 3.5rem;
+    }
+    form button {
+        width: calc(100vw - 64px);
+        max-width: 400px;
+    }
+    .socialSignBox {
+        width: calc(100vw - 64px);
+        max-width: 400px;
+    }
+}
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+    body {
+        width: 100vw;
+    }
+    nav {
+        padding: 20px 32px;
+    }
+    .navBox.logo {
+        margin-right: auto;
+    }
+    nav a button {
+        margin-left: auto;
+    }
+    .mainContainer {
+        padding: 2.5rem 15.625rem 0rem 15.6875rem;
+    }
+    .mainContainer img {
+        width: 698px;
+        height: 343px;
+    }
+    .mainContainer h1 {
+        width: calc(100vw - 64px);
+        white-space: normal;
+    }
+
+    .container1 {
+        padding: 5rem 15.625rem 3.125rem 15.6875rem;
+    }
+    .container1 img {
+        width: 385px;
+        height: 315px;
+    }
+    .box1 {
+        gap: 3.1875rem;
+    }
+
+    .container2 {
+        padding: 3.125rem 15.625rem 3.125rem 15.6875rem;
+    }
+    .container2 img {
+        width: 385px;
+        height: 315px;
+    }
+    .box2 {
+        gap: 3.1875rem;
+    }
+
+    .container3 {
+        padding: 3.125rem 15.625rem 3.125rem 15.6875rem;
+    }
+    .container3 img {
+        width: 385px;
+        height: 315px;
+    }
+    .box3 {
+        gap: 3.1875rem;
+    }
+
+    .container4 {
+        padding: 3.125rem 15.625rem 3.125rem 15.6875rem;
+    }
+    .container4 img {
+        width: 385px;
+        height: 315px;
+    }
+    .box4 {
+        gap: 3.1875rem;
+    }
+    .signBox {
+        margin-left: 0;
+        margin-right: 0;
+
+        width: calc(100vw - 64px);
+        max-width: 400px;
+        height: auto;
+    }
+
+}
+
