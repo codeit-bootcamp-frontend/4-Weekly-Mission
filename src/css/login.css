@@ -102,6 +102,16 @@ a {
     gap: 16px;
 }
 
+.error_box {
+    border: 1px solid var(--color-red);
+}
+
+.error_message {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--color-red);
+}
+
 /*모바일 사이즈*/
 @media (max-width: 767px) {
     .container_login {
