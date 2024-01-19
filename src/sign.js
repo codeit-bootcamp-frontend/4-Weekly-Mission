@@ -14,6 +14,15 @@ const resetErrorStyle = (el) => {
   el.style.border = '';
 };
 
+const applyError = (errorEl, errorMsg, input) => {
+  errorEl.innerText = errorMsg;
+  applyErrorStyle(input);
+};
+const resetError = (errorEl, input) => {
+  errorEl.innerText = '';
+  resetErrorStyle(input);
+};
+
 const isEmailFormat = (email) => {
   return SIGN.EMAIL_REGEX.test(email);
 };
@@ -24,30 +33,29 @@ const isPwFormat = (pw) => {
 const validateEmail = () => {
   const emailValue = emailInput.value.trim();
 
-  if (emailValue === '') {
-    emailError.innerText = SIGN.REQUIRED_EMAIL;
-    applyErrorStyle(emailInput);
-  } else if (!isEmailFormat(emailValue)) {
-    emailError.innerText = SIGN.INVALID_EMAIL_FORMAT;
-    applyErrorStyle(emailInput);
-  } else {
-    emailError.innerText = '';
-    resetErrorStyle(emailInput);
-  }
+  if (emailValue === '')
+    applyError(emailError, SIGN.REQUIRED_EMAIL, emailInput);
+  else if (!isEmailFormat(emailValue))
+    applyError(emailError, SIGN.INVALID_EMAIL_FORMAT, emailInput);
+  else resetError(emailError, emailInput);
 };
 
 const validatePw = () => {
   const pwValue = pwInput.value.trim();
 
-  if (pwValue === '') {
-    pwError.innerText = SIGN.REQUIRED_PASSWORD;
-    applyErrorStyle(pwInput);
-  } else if (!isPwFormat(pwValue)) {
-    pwError.innerText = SIGN.INVALID_PW_FORMAT;
-    applyErrorStyle(pwInput);
+  if (pwValue === '') applyError(pwError, SIGN.REQUIRED_PASSWORD, pwInput);
+  else if (!isPwFormat(pwValue))
+    applyError(pwError, SIGN.INVALID_PW_FORMAT, pwInput);
+  else resetError(pwError, pwInput);
+};
+
+const handleClickPwToggle = () => {
+  if (pwInput.type === 'password') {
+    pwInput.type = 'text';
+    pwToggle.src = 'public/images/eye-on.svg';
   } else {
-    pwError.innerText = '';
-    resetErrorStyle(pwInput);
+    pwInput.type = 'password';
+    pwToggle.src = 'public/images/eye-off.svg';
   }
 };
 
@@ -71,19 +79,11 @@ const handleEnterKey = (e) => {
   if (e.key === 'Enter') handleLogin();
 };
 
-const handleClickPwToggle = () => {
-  if (pwInput.type === 'password') {
-    pwInput.type = 'text';
-    pwToggle.src = 'public/images/eye-on.svg';
-  } else {
-    pwInput.type = 'password';
-    pwToggle.src = 'public/images/eye-off.svg';
-  }
-};
-
 emailInput.addEventListener('focusout', validateEmail);
 emailInput.addEventListener('keydown', handleEnterKey);
+
 pwInput.addEventListener('focusout', validatePw);
 pwInput.addEventListener('keydown', handleEnterKey);
+
 signBtn.addEventListener('click', handleLogin);
 pwToggle.addEventListener('click', handleClickPwToggle);
