@@ -109,12 +109,26 @@ function trySignin(email,password) {
 
 }
 
+// enter키 입력으로 로그인 실행 
+function EnterLogin(key) {
+  if(key === 'Enter') {
+    trySignin();
+  }
+}
+
  emailInput.addEventListener('focusout', function(e) {
   emailHandlerFunc(e.target.value);
  });
  pwdInput.addEventListener('focusout', function(e) {
   passwordHandlerFuc(e.target.value);
  })
+ emailInput.addEventListener('keypress', function(e) {
+  EnterLogin(e.key);
+ } )
+ pwdInput.addEventListener('keypress', function(e) {
+  EnterLogin(e.key);
+ } )
+
  signinBtn.addEventListener('click', function(e) {
   trySignin(emailVal, pwdVal);
  })
