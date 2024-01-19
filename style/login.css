@@ -57,7 +57,7 @@ header p {
   position: relative;
 }
 
-#password-input-div img {
+.PwdEyeIcon {
   width: 16px;
   height: 16px;
   position: absolute;

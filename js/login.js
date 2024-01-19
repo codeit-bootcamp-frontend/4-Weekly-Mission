@@ -3,6 +3,7 @@ const pwdDiv = document.querySelector('#password');
 const emailInput = document.querySelector('.email-input');
 const pwdInput = document.querySelector('.password-input');
 const signinBtn = document.querySelector('#signinBtn');
+const pwdEyeIcon = document.querySelector('.PwdEyeIcon');
 
 let [emailVal, pwdVal] = ["", ""];
 
@@ -116,6 +117,18 @@ function EnterLogin(key) {
   }
 }
 
+// password input 눈모양을 누르면 비밀번호가 보였다가 안보였다 동작하는 함수
+function EyePwd(EyeStatus) {
+  if(EyeStatus.classList.contains('off')) {
+    pwdEyeIcon.setAttribute('src',"assets/icons/eye-off.png");
+    pwdInput.setAttribute('type', 'password');
+
+  } else {
+    pwdEyeIcon.setAttribute('src',"assets/icons/eye-on.png");
+    pwdInput.setAttribute('type', 'text');
+  }
+}
+
 emailInput.addEventListener('focusout', function(e) {
   emailHandlerFunc(e.target.value);
 });
@@ -134,3 +147,8 @@ pwdInput.addEventListener('keypress', function(e) {
  signinBtn.addEventListener('click', function(e) {
   trySignin(emailVal, pwdVal);
  });
+
+ pwdEyeIcon.addEventListener('click', function(e) {
+  e.target.classList.toggle('off');
+  EyePwd(e.target);
+ })
