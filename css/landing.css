@@ -175,14 +175,14 @@ footer {
   background-color: var(--black);
 }
 
-.footer-div {
+.footer-content {
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 0 10.4rem;
 }
 
-.footer-div > span {
+.footer-content > span {
   color: #676767;
   font-family: Arial;
   font-size: 1.6rem;
@@ -334,14 +334,14 @@ footer {
     padding: 3.2rem 3.2rem 6.4rem;
   }
 
-  .footer-div {
+  .footer-content {
     padding: 0;
     display: grid;
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
     gap: 6rem;
   }
 
-  .footer-div > span {
+  .footer-content > span {
     grid-row: 2;
   }
 
