@@ -1,0 +1,18 @@
+:root {
+  /* colors */
+  --gra-purple-to-pink: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  --gra-purpleblue-to-skyblue: linear-gradient(
+    91deg,
+    #6d6afe 0.12%,
+    #6ae3fe 101.84%
+  );
+  --gra-pink-to-skyblue: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  --bg-color: #f0f6ff;
+  --bg-white: #fff;
+  --Grey-Light: #f5f5f5;
+  --bg-color-footer: #111322;
+  --text-sm-color: #6b6b6b;
+  --Linkbrary-primary-color: #6d6afe;
+  --Linkbrary-gray20: #ccd5e3;
+  --Linkbrary-gray10: #e7effb;
+}

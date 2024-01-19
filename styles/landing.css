@@ -1,46 +1,10 @@
-:root {
-  /* colors */
-  --gra-purple-to-pink: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
-  --gra-purpleblue-to-skyblue: linear-gradient(
-    91deg,
-    #6d6afe 0.12%,
-    #6ae3fe 101.84%
-  );
-  --gra-pink-to-skyblue: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
-  --bg-color: #f0f6ff;
-  --Grey-Light: #f5f5f5;
-  --bg-color-footer: #111322;
-  --text-sm-color: #6b6b6b;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+@import './reset.css';
+@import './colors.css';
 
 header {
   background-color: var(--bg-color);
   position: fixed;
   width: 100%;
-}
-
-a {
-  text-decoration-line: none;
-  color: white;
-}
-
-a:visited {
-  color: white;
-  text-decoration-line: none;
-}
-
-a:hover {
-  cursor: pointer;
 }
 
 .navbar {
