@@ -11,12 +11,13 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
     <link rel="stylesheet" href="./sign.css" />
+    
   </head>
   <body>
     <main class="sign">
       <section class="sign__header">
         <div class="sign__header--logo">
-          <a href="/week2/index.html">
+          <a href="./index.html">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="212"
@@ -67,18 +68,21 @@
           </div>
       </section>
           
-      <form class="sign__form">
+      <form class="sign__form" id="sign-form">
           <div class="sign__form--email">
             <label for="signin-email">이메일</label>
-            <input type="email" name="signin-email" id="signin-email" />
+            <input type="email" name="signin-email" id="signin-email"/>
+            <div class="email__error-msg" id="email__error-msg"></div>
+            
           </div>
           <div class="sign__form--pw">
             <label for="signin-pw">비밀번호</label>
             <input type="password" name="signin-pw" id="signin-pw"/>
-            <img src="./icons/eyesoff.png" alt="eyesoff" id="pw-onoff">
+            <div class="pw__error-msg" id="pw__error-msg"></div>
+            <img src="./icons/eyesoff.png" alt="eyesoff" class="pw-onoff" id="pw-onoff">
           </div>
-          <button class="sign__form--button">
-            <a href="/week2/index.html">로그인</a>
+          <button class="sign__form--button" id="signin-button">
+            로그인
           </button>
       </form>
               
@@ -140,4 +144,5 @@
       </section>
     </main>
   </body>
+  <script src="signin.js"></script>
 </html>
