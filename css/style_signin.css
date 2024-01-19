@@ -205,6 +205,11 @@ button:hover{
   color: #ff5b56;
 }
 
+.false{
+  outline: none !important;
+  border: 1px solid var(--Linkbrary-primary-color, #ff5b56);
+}
+
 .border-red{
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-red, #FF5B56);
