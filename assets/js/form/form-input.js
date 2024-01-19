@@ -9,7 +9,7 @@ export default class FormInput extends UI {
     this.type = type
     this.inputElement = inputElement
     this.errorElement = errorElement
-    // this.ui = ui
+
     this.isValid = { message: "", result: false }
     this.attach()
   }
@@ -27,20 +27,16 @@ export default class FormInput extends UI {
   }
 
   foucsOutHandler(event) {
-    const inputLayoutElem = document.querySelector(`.input-layout-${this.type}`)
     const { name, value } = event.target
 
-    formState.setState = {
-      prop: name,
-      value: value,
-    }
+    formState.setState = { prop: name, value: value }
 
     const inputIsValid = this.validation(event.target.value)
     this.isValid = inputIsValid
 
     inputIsValid.result
-      ? this.removeError(this.errorElement, inputLayoutElem)
-      : this.showError(this.errorElement, inputLayoutElem, inputIsValid.message)
+      ? this.removeError(this.type, this.errorElement)
+      : this.showError(this.type, inputIsValid.message)
   }
 
   showPassword({ target }) {

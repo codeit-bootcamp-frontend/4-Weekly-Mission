@@ -14,9 +14,6 @@ export default class Form extends UI {
     this.setErrorElements()
     this.setInstance()
     this.attach()
-
-    // this.emailInstance
-    // this.passwordInstance
   }
 
   setInstance() {
@@ -33,29 +30,29 @@ export default class Form extends UI {
   }
 
   validation({ email, password }) {
-    let result = true
-
     const { isValid: emailIsValid, type: emailType } = this.emailInstance
     const { isValid: passwordIsValid, type: passwordType } = this.passwordInstance
 
+    let result = true
+
     // ! 이메일만 입력했을 경우.
     if (!emailIsValid.result) {
-      this.showErrorWrapper(emailType, emailIsValid.message)
+      this.showError(emailType, emailIsValid.message)
     }
 
     // ! 이메일이 공백이라면.
     if (!emailIsValid.message) {
-      this.showErrorWrapper(emailType, EmptyTypeMessage(emailType))
+      this.showError(emailType, EmptyTypeMessage(emailType))
     }
 
     // ! 패스워드에 메세지가 없는경우
     if (!passwordIsValid.message) {
-      this.showErrorWrapper(passwordType, EmptyTypeMessage(passwordType))
+      this.showError(passwordType, EmptyTypeMessage(passwordType))
     }
 
     // ! 이메일과 비밀번호를 바로 입력안하고 작성할 때.
     if (!emailIsValid.message && !passwordIsValid.message) {
-      this.inputs.forEach(({ name }, i) => this.showErrorWrapper(name, EmptyTypeMessage(name)))
+      this.inputs.forEach(({ name }, i) => this.showError(name, EmptyTypeMessage(name)))
     }
 
     // ! 이메일과 비밀번호 유효성에 하나라도 실패하면 false
