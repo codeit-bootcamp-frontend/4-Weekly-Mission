@@ -32,9 +32,11 @@ const checkPasswordIsValid = (e) => {
   if (e.target.value === "") {
     errorMessage.textContent = "비밀번호를 입력해 주세요.";
     e.target.classList.add("error_box");
+    e.target.nextElementSibling.classList.add("large_bottom");
   } else {
     errorMessage.textContent = "";
     e.target.classList.remove("error_box");
+    e.target.nextElementSibling.classList.remove("large_bottom");
     isValid = true;
   }
   return isValid;
@@ -53,6 +55,7 @@ const comparePassword = () => {
     inputPassword.nextElementSibling.nextElementSibling.textContent =
       "비밀번호를 확인해 주세요.";
     inputPassword.classList.add("error_box");
+    inputPassword.nextElementSibling.classList.add("large_bottom");
   }
   return inputPassword.value === correctPassword;
 };
@@ -71,7 +74,6 @@ inputEmail.addEventListener("focusout", checkEmailIsValid);
 inputPassword.addEventListener("focusout", checkPasswordIsValid);
 
 btnSigninSubmit.addEventListener("click", compareUser);
-
 form.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     compareUser(e);

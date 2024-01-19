@@ -30,6 +30,10 @@ a {
     color: var(--color-primary);
 }
 
+#password {
+    padding-right: 3rem;
+}
+
 .container_login {
     width: 400px;
     margin: auto;
@@ -68,9 +72,22 @@ a {
 }
 
 .icon_view_password {
+    display: flex;
+}
+
+.btn_eye {
     position: absolute;
-    bottom: 18px;
-    right: 16px;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 1.6rem;
+    height: 1.6rem;
+
+    background: none;
+    border: none;
+}
+
+button.btn_eye.large_bottom {
+    bottom: 2.4rem;
 }
 
 .container_social {
