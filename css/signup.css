@@ -3,11 +3,11 @@
 
 * {
   box-sizing: border-box;
+  font-family: "Pretendard", sans-serif;
 }
 
 html {
   margin: 0;
-  font-family: "Pretendard", sans-serif;
 }
 
 body {
@@ -45,7 +45,6 @@ label {
 input {
   display: block;
   font-size: 16px;
-  font-family: "Pretendard";
   width: 400px;
   border-radius: 8px;
   border: 1px solid var(--gray20);
@@ -81,7 +80,6 @@ input::placeholder {
 
 button {
   color: #F5F5F5;
-  font-family: "Pretendard";
   font-size: 18px;
   font-weight: 600;
   border-radius: 8px;

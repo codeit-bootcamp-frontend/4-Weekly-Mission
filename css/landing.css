@@ -14,15 +14,11 @@ body {
 }
 
 nav {
-  display: flex;
-  padding: 20px 200px;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
   position: sticky;
   top: 0;
   z-index: 1;
   background-color: var(--background);
+  padding: 20px 200px;
 }
 
 .navbar {
@@ -38,17 +34,12 @@ nav {
   font-weight: 600;
   background: var(--gra-purpleblue-to-skyblue);
   display: flex;
-  padding: 16px 0;
   justify-content: center;
   align-items: center;
   width: 128px;
+  padding: 16px 0;
   border-radius: 8px;
   text-decoration: none;
-}
-
-header {
-  background-color: var(--background);
-  padding: 70px 360px 0;
 }
 
 .headline {
@@ -57,14 +48,12 @@ header {
   justify-content: center;
   align-items: center;
   gap: 40px;
+  padding: 70px 360px 0;
+  background-color: var(--background);
 }
 
 .headline img {
-  background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, var(--background) 94.76%);
-  border-radius: 25px;
   width: 1118px;
-  height: 659px;
-  flex-shrink: 0;
 }
 
 .headline h1 {
@@ -91,12 +80,10 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
   color: #f5f5f5;
   font-size: 18px;
   font-weight: 600;
   width: 310px;
-  height: 22px;
   padding: 16px 20px;
   background: var(--gra-purpleblue-to-skyblue);
   border-radius: 8px;
@@ -113,8 +100,7 @@ header {
   justify-content: center;
   align-items: center;
   gap: 157px;
-  width: 100%;
-  padding: 50px 0;
+  padding: 50px 460px;
 }
 
 .introduction {
@@ -122,6 +108,8 @@ header {
   grid-template-columns: minmax(250px, 325px);
   justify-content: center;
 }
+
+
 
 .title {
   font-size: 48px;
@@ -156,7 +144,6 @@ header {
 
 .options img {
   width: 550px;
-  height: 450px;
   border-radius: 15px;
   background: var(--background);
 }
@@ -207,7 +194,7 @@ header {
     padding: 20px 32px;
   }
 
-  header {
+  .headline {
     padding: 40px 250px 0;
   }
 
@@ -217,7 +204,6 @@ header {
 
   .headline img {
     width: 698px;
-    height: 343px;
   }
 
   .content {
@@ -230,7 +216,6 @@ header {
 
   .options img {
     width: 385px;
-    height: 315px;
   }
 }
 
@@ -241,7 +226,7 @@ header {
     padding: 13px 32px;
   }
 
-  header {
+  .headline {
     padding: 28px 32px 0;
   }
 
@@ -253,7 +238,6 @@ header {
 
   .headline img {
     width: 325px;
-    height: 160px;
   }
 
   .add-link {
@@ -291,7 +275,6 @@ header {
   .options img {
     grid-area: image;
     width: 325px;
-    height: 265px;
   }
 
   .more-info {
