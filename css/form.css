@@ -6,10 +6,6 @@ body {
   align-items: center;
 }
 
-.display_none {
-  display: none;
-}
-
 .icons {
   display: flex;
   gap: 8px;
