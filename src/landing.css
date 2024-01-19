@@ -187,7 +187,6 @@ footer {
   grid-area: sns-icons;
   display: flex;
   gap: 12px;
-  list-style-type: none;
 }
 
 /* tablet */
@@ -228,7 +227,6 @@ footer {
     font-size: 3.2rem;
     line-height: 42px;
   }
-
   .img-hero {
     width: 100%;
     height: auto;
