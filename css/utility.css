@@ -80,3 +80,21 @@
 .w-full {
   width: 100%;
 }
+
+.p-relative {
+  position: relative;
+}
+
+.p-absolute {
+  position: absolute;
+}
+
+.center-width {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-height {
+  top: 50%;
+  transform: translateY(-50%);
+}
