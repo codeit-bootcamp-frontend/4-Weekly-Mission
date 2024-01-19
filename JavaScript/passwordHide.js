@@ -16,5 +16,3 @@ function hidePassword(event) {
 for (let i = 0 ; i < passwordBeHidden.length ; i++) {
    passwordBeHidden[i].addEventListener ('click', hidePassword)
 }
-
-

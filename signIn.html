@@ -10,37 +10,41 @@
       <title>SignInPage</title>
       </head>
    <body>
-      <section class="signPageOuterLineLimit">
-         <div class="signForm">
-            <header>
-               <a href="index.html"><img src="Assets/logos/logo.svg" alt="Linkbrary Logo"></a>
-               <div><a>회원이 아니신가요?</a><a href="signup.html">회원가입 하기</a></div>
-            </header>
-            <form action="">
-               <section>
-                  <label for="loginEmailInput">이메일</label>
-                  <input id="loginEmailInput" type="email" placeholder="codeit@codeit.com">
-                  <p class="errorMessagePreset" id="emailErrorMessege"></p>
-               </section>
-               <section>
-                  <label for="loginPasswordInput">비밀번호</label>
-                  <div class="seenButtonPositionOrigin">
-                     <input id="loginPasswordInput" type="password" placeholder="‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧">
-                     <button class="passwordSeenButton" type="button">
-                  </div>
-                  <p class="errorMessagePreset" id="passErrorMessege"></p>
-               </section>
-               <button type="submit" id="loginConfirmButton" class="buttonBasicStyle">로그인</button>
-            </form>             
-         </div>
-         <footer class="socialSign">
+      <main class="signPageOuterLineLimit">
+         
+         <header>
+            <a href="index.html"><img src="Assets/logos/logo.svg" alt="Linkbrary Logo"></a>
+            <div><a>회원이 아니신가요?</a><a href="signup.html">회원가입 하기</a></div>
+         </header>
+
+         <form action="">
+            <section>
+               <label for="loginEmailInput">이메일</label>
+               <input id="loginEmailInput" type="email" placeholder="codeit@codeit.com">
+               <p class="errorMessagePreset" id="emailErrorMessege"></p>
+            </section>
+
+            <section>
+               <label for="loginPasswordInput">비밀번호</label>
+               <div class="seenButtonPositionOrigin">
+                  <input id="loginPasswordInput" type="password" placeholder="‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧">
+                  <button class="passwordSeenButton" type="button">
+               </div>
+               <p class="errorMessagePreset" id="passErrorMessege"></p>
+            </section>
+            
+            <button type="submit" id="loginConfirmButton" class="buttonBasicStyle">로그인</button>
+         </form>          
+
+         <footer>
             <a>소셜 로그인</a>
             <div class="socialLoginIcons">
                <a href="https://www.google.com/" ><img class="socialLoginIcon" src="Assets/Icons/google.svg" alt="Google"></a>
-               <a href="https://www.kakaocorp.com/"><img class="socialLoginIcon" src="Assets/Icons/social_kakaotalk.png" alt="Kakaotalk"></a>
+               <a href="https://www.kakaocorp.com/"><img class="socialLoginIcon" src="Assets/Icons/social_kakaotalk.png" alt="kakaoTalk"></a>
             </div>
          </footer>
-      </section>  
+
+      </main>  
       <script src="./JavaScript/signIn.js"></script>
       <script src="./JavaScript/passwordHide.js"></script>
    </body>

@@ -1,16 +1,11 @@
 /* 로그인 페이지 */
 
-   .signPageOuterLineLimit {
+   main {
       margin: 238px auto auto;
       width: 400px;
    }
 
-   .signForm {
-      width: 100%;
-   }
-
    header {
-      display: block;
       width: max-content;
       margin: auto;
       color: var(--LBrary-Black);
@@ -19,29 +14,32 @@
       line-height: 150%;
    }
 
-   .signForm header a > img {
+   header a > img {
       width: 100%;
+      margin-bottom: 16px;
    }
 
-   .signForm header > div {   
+   header > div {   
    display: flex; gap: 8px;
    }
 
-   .signPageOuterLineLimit div form {   
+
+
+   main form {   
       margin-top: 30px;
       width: 100%; 
    }
 
-   .signPageOuterLineLimit div Section {
+   main Section {
       margin-bottom: 24px;
    }
 
-   .errorMessagePreset {
-      color: var(--LBrary-Red);
+   Label {
+      display: block;
+      color: var(--LBrary-black);
       font-size: 1.4rem;
       font-weight: 400;
-      margin-top: 6px;
-
+      margin-bottom: 12px;
    }
 
    input {
@@ -52,12 +50,12 @@
       background: var(--LBrary-White);
    }
 
-   .seenButtonPositionOrigin {
-      position: relative;
-   }
-
    input:focus{ 
       outline-color: var(--LBrary-Primary-color);
+   }
+
+   .seenButtonPositionOrigin {
+      position: relative;
    }
 
    .passwordSeenButton {
@@ -72,30 +70,27 @@
       border: none;
    }
 
-
    .notHidden {
       background-image: url(../Assets/Icons/eye-on.svg);
    }
 
-   /*
-
-   .WrongPass {
+   .errorMessagePreset {
       color: var(--LBrary-Red);
       font-size: 1.4rem;
       font-weight: 400;
-   } 틀렸을 경우 관련하여 week1에 작업했던 더미 
-   
-   */
-
-   Label {
-      display: block;
-      color: var(--LBrary-black);
-      font-size: 1.4rem;
-      font-weight: 400;
-      margin-bottom: 12px;
+      margin-top: 6px;
    }
 
-   .socialSign {
+   form > .buttonBasicStyle {
+      width: 100%;
+      margin-top: 30px;
+   }
+
+
+
+
+
+   footer {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -123,17 +118,14 @@
       width: 42px;  
    }
 
-   form > .buttonBasicStyle {
-      width: 100%;
-      margin-top: 30px;
-   }
+
 
 /* 로그인 페이지 끝 */
 
 /* 모바일 반응형 */
 
    @media (max-width: 767px) {
-      .signPageOuterLineLimit {
+      main {
          width: 100%;
          max-width: 464px;
          margin: 120px auto auto;

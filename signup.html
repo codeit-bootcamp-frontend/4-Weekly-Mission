@@ -10,46 +10,50 @@
       <title>SignUpPage</title>
    </head>
    <body>
-      <section class="signPageOuterLineLimit">
-         <div class="signForm">
-            <header>
-               <a href="index.html"><img src="Assets/logos/logo.svg" alt="Linkbrary Logo"></a>
-               <div><a>이미 회원이신가요?</a><a href="signin.html">로그인 하기</a></div>
-            </header>
-            <form action="">
-               <section>
-                  <label for="signupEmailInput">이메일</label>
-                  <input id="signupEmailInput" type="email" placeholder="codeit@codeit.com">
-                  <p class="errorMessagePreset" id="emailErrorMessege"></p>
-               </section>
-               <section>
-                  <label for="signupPasswordInput">비밀번호</label>
-                  <div class="seenButtonPositionOrigin">
-                     <input id="signupPasswordInput" type="password" placeholder="‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧">
-                     <button class="passwordSeenButton" type="button">
-                  </div>
-                  <p class="errorMessagePreset" id="passErrorMessege"></p>
-               </section>
-               <section>
-                  <label for="signupPasswordCheckInput">비밀번호 확인</label>
-                  <div class="seenButtonPositionOrigin">
-                     <input id="signupPasswordCheckInput" type="password" placeholder="‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧">
-                     <button class="passwordSeenButton" type="button">
-                  </div>
-                  <p class="errorMessagePreset" id="passCheckErrorMessege"></p>
-               </section>
-               <button class="buttonBasicStyle">회원가입</button>
-            </form> 
+      <main class="signPageOuterLineLimit">
+
+         <header>
+            <a href="index.html"><img src="Assets/logos/logo.svg" alt="Linkbrary Logo"></a>
+            <div><a>이미 회원이신가요?</a><a href="signin.html">로그인 하기</a></div>
+         </header>
+
+         <form action="">
+            <section>
+               <label for="signupEmailInput">이메일</label>
+               <input id="signupEmailInput" type="email" placeholder="codeit@codeit.com">
+               <p class="errorMessagePreset" id="emailErrorMessege"></p>
+            </section>
+
+            <section>
+               <label for="signupPasswordInput">비밀번호</label>
+               <div class="seenButtonPositionOrigin">
+                  <input id="signupPasswordInput" type="password" placeholder="‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧">
+                  <button class="passwordSeenButton" type="button">
+               </div>
+               <p class="errorMessagePreset" id="passErrorMessege"></p>
+            </section>
+
+            <section>
+               <label for="signupPasswordCheckInput">비밀번호 확인</label>
+               <div class="seenButtonPositionOrigin">
+                  <input id="signupPasswordCheckInput" type="password" placeholder="‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧">
+                  <button class="passwordSeenButton" type="button">
+               </div>
+               <p class="errorMessagePreset" id="passCheckErrorMessege"></p>
+            </section>
             
-         </div>
-         <div class="socialSign">
+            <button class="buttonBasicStyle">회원가입</button>
+         </form> 
+
+         <footer>
             <a>다른 방식으로 가입하기</a>
             <div class="socialLoginIcons">
                <a href="https://www.google.com/" ><img class="socialLoginIcon" src="Assets/Icons/google.svg" alt="Google"></a>
-               <a href="https://www.kakaocorp.com/"><img class="socialLoginIcon" src="Assets/Icons/social_kakaotalk.png" alt="Kakaotalk"></a>
+               <a href="https://www.kakaocorp.com/"><img class="socialLoginIcon" src="Assets/Icons/social_kakaotalk.png" alt="kakaoTalk"></a>
             </div>
-         </div>
-      </section>  
+         </footer>
+
+      </main>  
       <script src="./JavaScript/passwordHide.js"></script>
    </body>
 </html>
