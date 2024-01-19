@@ -233,11 +233,6 @@ a {
         display: none;
     }
 
-    img {
-        width: 100% !important;
-        height: auto !important;
-    }
-
     .span_br {
         display: block;
     }
@@ -251,6 +246,10 @@ a {
         width: 38%;
     }
 
+    .img_main_banner {
+        width: 100%;
+        height: auto;
+    }
 
     .txt_contents_title {
         font-size: 24px;
@@ -260,6 +259,8 @@ a {
     .img_landing {
         order: 1;
         margin-bottom: 10px;
+        width: 100%;
+        height: auto;
     }
 
     .txt_copyright {
