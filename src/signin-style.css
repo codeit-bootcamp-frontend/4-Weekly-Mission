@@ -30,6 +30,7 @@ main {
   gap: 1.6rem;
 }
 
+.head > a,
 .logo_img {
   height: 3.8rem;
 }
@@ -74,7 +75,8 @@ input {
   align-items: center;
   border-radius: 0.8rem;
   border: 1px solid var(--gray20);
-  background: var(--Linkbrary-white, #fff);
+  line-height: 150%;
+  font-size: 1.6rem;
 }
 
 .login_button {

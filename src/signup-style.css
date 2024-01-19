@@ -30,6 +30,7 @@ main {
   gap: 1.6rem;
 }
 
+.head > a,
 .logo_img {
   height: 3.8rem;
 }
@@ -75,6 +76,8 @@ input {
   border-radius: 0.8rem;
   border: 1px solid var(--gray20);
   background: var(--Linkbrary-white, #fff);
+  line-height: 150%;
+  font-size: 1.6rem;
 }
 
 .signup_button {
@@ -106,15 +109,14 @@ input {
   font-size: 1.4rem;
 }
 
-.signup_block img {
-  width: 42px;
-  height: 42px;
+.signup_block a {
+  width: 4.2rem;
+  height: 4.2rem;
   flex-shrink: 0;
 }
 
 .social_signup_img {
   display: flex;
-  align-items: flex-start;
   gap: 16px;
 }
 
