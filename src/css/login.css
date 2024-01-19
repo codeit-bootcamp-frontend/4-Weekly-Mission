@@ -102,6 +102,7 @@ a {
     gap: 16px;
 }
 
+/*모바일 사이즈*/
 @media (max-width: 767px) {
     .container_login {
         padding: 32px;
