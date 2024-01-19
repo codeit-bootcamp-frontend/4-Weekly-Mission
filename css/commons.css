@@ -23,21 +23,21 @@
   -webkit-text-fill-color: transparent;
 }
 
-.highlight.type_orange-to-blue {
+.highlight.type_orangeToBlue {
   background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.highlight.type_blue-to-yellow {
+.highlight.type_blueToYellow {
   background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.highlight.type_blue-to-navy {
+.highlight.type_blueToNavy {
   background: linear-gradient(
     99deg,
     #6d7ccd 19.76%,
@@ -48,7 +48,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.highlight.type_pink-to-sky {
+.highlight.type_pinkToSky {
   background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
   background-clip: text;
   -webkit-background-clip: text;
