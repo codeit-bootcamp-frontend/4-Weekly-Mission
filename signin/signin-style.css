@@ -1,4 +1,4 @@
-@import './global.css';
+@import '../src/global.css';
 
 html {
   width: 100%;
@@ -77,6 +77,10 @@ input {
   border: 1px solid var(--gray20);
   line-height: 150%;
   font-size: 1.6rem;
+}
+
+input:focus {
+  outline: 1px solid var(--primary);
 }
 
 .login_button {
