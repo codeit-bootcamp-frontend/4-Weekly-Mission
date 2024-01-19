@@ -157,7 +157,7 @@ header {
 /* ------- Mobile  ------- */
 @media (max-width: 767px) {
     body {
-        padding: 12rem 3.2rem 23.3rem 3.2rem;
+        padding: 12rem 3.2rem 0;
     }
     .sign-box {
         width: 100%;
