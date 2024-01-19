@@ -1,8 +1,8 @@
 import SIGN from './constants/VALIDATION.js';
 
-const signEmail = document.getElementById('email');
+const emailInput = document.getElementById('email');
 const emailError = document.getElementById('email-error');
-const signPw = document.getElementById('password');
+const pwInput = document.getElementById('password');
 const pwError = document.getElementById('password-error');
 const pwToggle = document.querySelector('.password-eye');
 const signBtn = document.querySelector('.sign-normal__btn');
@@ -22,38 +22,38 @@ const isPwFormat = (pw) => {
 };
 
 const validateEmail = () => {
-  const emailValue = signEmail.value.trim();
+  const emailValue = emailInput.value.trim();
 
   if (emailValue === '') {
     emailError.innerText = SIGN.REQUIRED_EMAIL;
-    applyErrorStyle(signEmail);
+    applyErrorStyle(emailInput);
   } else if (!isEmailFormat(emailValue)) {
     emailError.innerText = SIGN.INVALID_EMAIL_FORMAT;
-    applyErrorStyle(signEmail);
+    applyErrorStyle(emailInput);
   } else {
     emailError.innerText = '';
-    resetErrorStyle(signEmail);
+    resetErrorStyle(emailInput);
   }
 };
 
 const validatePw = () => {
-  const pwValue = signPw.value.trim();
+  const pwValue = pwInput.value.trim();
 
   if (pwValue === '') {
     pwError.innerText = SIGN.REQUIRED_PASSWORD;
-    applyErrorStyle(signPw);
+    applyErrorStyle(pwInput);
   } else if (!isPwFormat(pwValue)) {
     pwError.innerText = SIGN.INVALID_PW_FORMAT;
-    applyErrorStyle(signPw);
+    applyErrorStyle(pwInput);
   } else {
     pwError.innerText = '';
-    resetErrorStyle(signPw);
+    resetErrorStyle(pwInput);
   }
 };
 
 const handleLogin = () => {
-  const emailValue = signEmail.value.trim();
-  const pwValue = signPw.value.trim();
+  const emailValue = emailInput.value.trim();
+  const pwValue = pwInput.value.trim();
 
   if (emailValue === 'test@codeit.com' && pwValue === 'codeit101') {
     console.log('로그인 성공!');
@@ -62,8 +62,8 @@ const handleLogin = () => {
     console.log('로그인 실패!');
     emailError.innerText = SIGN.CHECK_EMAIL;
     pwError.innerText = SIGN.CHECK_PASSWORD;
-    applyErrorStyle(signEmail);
-    applyErrorStyle(signPw);
+    applyErrorStyle(emailInput);
+    applyErrorStyle(pwInput);
   }
 };
 
@@ -72,18 +72,18 @@ const handleEnterKey = (e) => {
 };
 
 const handleClickPwToggle = () => {
-  if (signPw.type === 'password') {
-    signPw.type = 'text';
+  if (pwInput.type === 'password') {
+    pwInput.type = 'text';
     pwToggle.src = 'public/images/eye-on.svg';
   } else {
-    signPw.type = 'password';
+    pwInput.type = 'password';
     pwToggle.src = 'public/images/eye-off.svg';
   }
 };
 
-signEmail.addEventListener('focusout', validateEmail);
-signEmail.addEventListener('keydown', handleEnterKey);
-signPw.addEventListener('focusout', validatePw);
-signPw.addEventListener('keydown', handleEnterKey);
+emailInput.addEventListener('focusout', validateEmail);
+emailInput.addEventListener('keydown', handleEnterKey);
+pwInput.addEventListener('focusout', validatePw);
+pwInput.addEventListener('keydown', handleEnterKey);
 signBtn.addEventListener('click', handleLogin);
 pwToggle.addEventListener('click', handleClickPwToggle);
