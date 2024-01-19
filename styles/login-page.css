@@ -113,6 +113,10 @@ input:focus {
   border-color: var(--color-primary);
 }
 
+input.input-error {
+  border-color: var(--color-red);
+}
+
 .password-box {
   position: relative;
 }
@@ -124,6 +128,13 @@ input:focus {
   transform: translateY(-50%);
   cursor: pointer;
   font-size: 16px;
+}
+
+span.error-message {
+  font-size: 14px;
+  color: var(--color-red);
+  display: inline-block;
+  margin-top: -6px;
 }
 
 .btn-login,
