@@ -38,36 +38,64 @@ function errorMsg(errorCase) {
   }
  }
 
- emailInput.addEventListener('focusout', function(e) {
-  if(e.target.value === "") { // email 값 없이 focusout시 
+ // 이메일 유효성 체크 함수
+ function emailCheck(email_address){     
+    email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+    if(!email_regex.test(email_address)){ 
+        return false; 
+    } else{
+        return true;
+	}
+}
+
+// 이메일 input 핸들러
+function emailHandlerFunc(email) {
+  if(email === "") { // email 값 없이 focusout시 
+    emailVal = "";
     if(emailInput.getAttribute('status') === '정상') {
       errorMsg("NoEmail");
     }
     emailInput.setAttribute('status','에러');
     
-  } else if (e.target.value !== "") {
+  } else if (email !== "") {
     if(emailInput.getAttribute('status') === '에러') {
       const delNode = document.querySelector('.NoEmail')
       delNode.remove();
     }
     emailInput.setAttribute('status','정상');
-  }
-  emailVal = e.target.value; // 작성한 이메일 저장
- })
+    emailVal = email; // 작성한 이메일 저장
 
- pwdInput.addEventListener('focusout', function(e) {
-  if(e.target.value === "") { // email 값 없이 focusout시 
+    // 유효성 검사
+    if(!emailCheck(emailVal)) {
+      emailInput.setAttribute('status','에러');
+      errorMsg("wrongEmail");
+    }
+  }
+}
+
+// 비밀번호 input 핸들러 함수
+function passwordHandlerFuc(password) {
+  if(password === "") { // email 값 없이 focusout시 
     if(pwdInput.getAttribute('status') === '정상') {
       errorMsg("NoPwd");
     }
     pwdInput.setAttribute('status','에러');
     
-  } else if (e.target.value !== "") {
+  } else if (password !== "") {
     if(pwdInput.getAttribute('status') === '에러') {
       const delNode = document.querySelector(".NoPwd")
       delNode.remove();
     }
     pwdInput.setAttribute('status','정상');
   }
-  pwdVal = e.target.value; // 작성한 이메일 저장
+  pwdVal = password; // 작성한 이메일 저장
+}
+
+
+ emailInput.addEventListener('focusout', function(e) {
+    emailHandlerFunc(e.target.value);
+ });
+
+ pwdInput.addEventListener('focusout', function(e) {
+    passwordHandlerFuc(e.target.value);
  })
