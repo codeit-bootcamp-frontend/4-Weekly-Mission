@@ -91,6 +91,7 @@
 
 .login__error--text {
   margin: 0;
+  margin-right: auto;
   color: #ff0000;
 }
 
