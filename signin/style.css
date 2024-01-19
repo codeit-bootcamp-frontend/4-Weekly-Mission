@@ -2,7 +2,7 @@
 @import url(/styles/color.css);
 
 body {
-  background-color: var(--gray5);
+  background-color: var(--graybg);
   padding: 238px 0 252px;
   color: var(--black);
 }
@@ -48,12 +48,16 @@ body {
 
 .signin-form input {
   width: 100%;
-  color: #373740;
+  color: var(--gray100);
   padding: 18px 15px;
   margin-top: 12px;
   border-radius: 8px;
-  border: 1px solid var(--gray2);
+  border: 1px solid var(--gray60);
   background: var(--white);
+}
+
+.signin-form input::placeholder {
+  color: var(--gray60);
 }
 
 .signin-form input:focus {
@@ -61,10 +65,14 @@ body {
   outline: none;
 }
 
+.signin-form input:focus::placeholder {
+  color: var(--gray100);
+}
+
 .eye-img {
   position: absolute;
   top: 48px;
-  right: 15px;
+  right: 16px;
   cursor: pointer;
 }
 
@@ -78,6 +86,16 @@ body {
   border: none;
 }
 
+input.red-border  {
+  border: 1px solid var(--red);
+}
+
+label div {
+  color: var(--red);
+  font-size: 14px;
+  margin-top: 6px;
+}
+
 /*********************
       social-login
 *********************/
@@ -88,8 +106,8 @@ body {
   color: #373740;
   font-size: 14px;
   border-radius: 8px;
-  border: 1px solid var(--gray3);
-  background-color: var(--gray4);
+  border: 1px solid var(--gray20);
+  background-color: var(--gray10);
 }
 
 .fast-travel {

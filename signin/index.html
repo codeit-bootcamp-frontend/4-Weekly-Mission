@@ -19,14 +19,15 @@
       </div>
     </header>
 
-    <form class="signin-form flex-col">
+    <form class="signin-form flex-col" onsubmit="return submitCheck()">
       <div>
-        <label for="signin-email">이메일</label>
-        <input id="signin-email" name="email" type="email">
+        <label for="signin-email">이메일
+          <input id="signin-email" name="email" type="email" placeholder="내용 입력">
+        </label>
       </div>
       <div>
         <label for="signin-password">비밀번호
-          <input id="signin-password" name="password" type="password">
+          <input id="signin-password" name="password" type="password" placeholder="내용 입력">
           <img class="eye-img" src="/asset/img/signin/Vector.png">
         </label>
       </div>
@@ -46,5 +47,7 @@
     </footer>
 
   </div>
+
+  <script src="index.js"></script>
 </body>
 </html>

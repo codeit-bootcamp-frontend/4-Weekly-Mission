@@ -3,9 +3,9 @@
   --red: #ff5b56;
   --black: #111322;
   --white: #ffffff;
-  --gray1: #3e3e43;
-  --gray2: #9fa6b2;
-  --gray3: #ccd5e3;
-  --gray4: #e7effb;
-  --gray5: #f0f6ff;
+  --gray100: #3e3e43;
+  --gray60: #9fa6b2;
+  --gray20: #ccd5e3;
+  --gray10: #e7effb;
+  --graybg: #f0f6ff;
 }

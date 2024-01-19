@@ -56,7 +56,7 @@
 }
 
 .hero {
-  background-color: var(--gray5);
+  background-color: var(--graybg);
   padding-top: 70px;
   margin-bottom: 70px;
   gap: 40px;
