@@ -11,7 +11,7 @@ body {
 
 /* logo-title */
 
-.logo-div {
+.logo-content {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
@@ -44,9 +44,9 @@ body {
   text-underline-position: under;
 }
 
-/* sign-div */
+/* sign-content */
 
-.sign-div {
+.sign-content {
   width: 40rem;
   display: flex;
   flex-direction: column;
@@ -67,18 +67,18 @@ body {
   gap: 2.4rem;
 }
 
-.sign-input-div {
+.sign-input-content {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
 }
 
-.sign-input-div > label {
+.sign-input-content > label {
   font-size: 1.4rem;
   font-weight: 400;
 }
 
-.sign-input-div > input {
+.sign-input-content > input {
   padding: 1.8rem 1.5rem;
   border-radius: 0.8rem;
   border: 0.1rem solid var(--gray20);
@@ -86,11 +86,11 @@ body {
   line-height: 1.5%;
 }
 
-.sign-input-div > input:focus {
+.sign-input-content > input:focus {
   border-color: var(--primary)
 }
 
-.sign-password-div {
+.sign-password-content {
   position: relative;
 }
 
@@ -111,7 +111,7 @@ body {
   font-weight: 600;
 }
 
-.sns-div {
+.sns-content {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -154,7 +154,7 @@ body {
     padding: 12rem 3.2rem;
   }
 
-  .sign-div {
+  .sign-content {
     max-width: 32.5rem;
   }
 }
