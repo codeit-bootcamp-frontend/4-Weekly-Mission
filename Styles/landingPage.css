@@ -34,39 +34,29 @@
    
    /*랜딩 페이지 색상 팔레트 끝*/
 
-      
-   main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-   }
-
-   header { 
+   main > header { 
       width: 100%;
-      display: flex;
-      justify-content: center;
    }
 
-
-   nav.landingPage {
+   body > header {
       background-color: var(--LBrary-Background);
       position: sticky;
       margin: 0;
       top: 0;      
    }
 
-   nav.landingPage > .flexibleNavInTablet {
+   body > header > .flexibleHeaderInTablet {
       display: flex;
       padding: 20px 200px;
       align-items: center;
       justify-content: space-between;
    }
 
-   .flexibleNavInTablet > a.buttonBasicStyle {
+   .flexibleHeaderInTablet > a.buttonBasicStyle {
       width: 128px;
    }
 
-   header .landingPage {
+   main > header div {
       display: flex;
       flex-direction: column;
       background-color: var(--LBrary-Background);
@@ -83,7 +73,7 @@
       line-height: 125%;
    }
 
-   div.landingPage::after{
+   main > header > div::after{
       content: '';
       background-image: url(../Assets/images/landingPage/main_Image.png);
       background-size: contain;
@@ -94,19 +84,15 @@
       background-repeat: no-repeat;
    }
 
-   header div.landingPage > img {
+   main > header > div > img {
       width: 1118px;
    }
 
-   header.landingPage > img {
-      width: 100%;   
-   }
-
-   .landingPage > a {
+   h1 {
       max-width: 80%;
    }
 
-   .landingPage > a.buttonBasicStyle {
+   main a.buttonBasicStyle {
          width: 350px;
    }
 
@@ -119,7 +105,7 @@
       padding-top: 70px;
    }
 
-   article.landingPage {
+   article {
       /*모바일 변환시 이미지의 배열 순서 문제를 
       태그 수준에서 최적화 하기 위해 최대 사이즈에서도 flex가 아닌 grid로 구성*/
       grid-template-columns: repeat(2, 1fr);
@@ -131,11 +117,9 @@
       gap: 10px 147px;
    }
 
-   article.landingPage > p {
-      margin: 0;
-   }
 
-   article.landingPage::after {
+
+   article::after {
       content: '';
       background-size: 100%;
       background-repeat: no-repeat;
@@ -162,7 +146,7 @@
       background-image: url(../Assets/images/landingPage/main_image4.png);
    }
 
-   article p.title {
+   article h2 {
       font-size: 4.8rem;
       font-weight: 700;
       letter-spacing: -0.3px;
@@ -172,7 +156,7 @@
       margin-left: 0;
    }
 
-   article p.description {
+   article p {
       color: #6B6B6B;
       font-size: 1.6rem;
       font-weight: 400;
@@ -223,11 +207,11 @@
 /* 태블릿 반응형 */
 
    @media (max-width: 1199px) {
-      nav.landingPage {
+      body > header {
          margin: 0;
       }
 
-      nav.landingPage > .flexibleNavInTablet {
+      body > header > .flexibleHeaderInTablet {
          width: 100%;
          padding: 20px 32px;
          margin: 0 auto;
@@ -235,22 +219,22 @@
       }
       
       
-      header .landingPage {
+      main header div {
          max-width: 698px;
       }
 
-      header .landingPage > div {
+      main > header > div {
       /*태블릿 사이즈에서 보기 편하게 헤드라인을 줄임*/
          width: 80%;
       }
 
-      div.landingPage::after{
+      main header >div::after{
          height: 0;
          padding-top: calc(590/1200*100%);
       }
 
 
-      article.landingPage {
+      article {
       /*원본은 51px이나, 줄넘김 현상이 발생하여 가독성을 높이기 위해 줄임*/
          max-width: 698px;
          row-gap: 10px;
@@ -258,41 +242,39 @@
       }
 
 
-      article.landingPage::after {
+      article::after {
          width: 385px;
          height: 315px;
-      }
-
-      header div.landingPage > img {
-         max-width: 650px;
       }
    }
 
 /* 모바일 반응형 */
 
    @media (max-width: 767px) {
-      header .landingPage {
+      main header div {
          font-size: 3.2rem;
          padding: 28px 32px 0;
       }
 
+      h1 {
+         max-width: 100%;
+      }
 
-
-      header div.landingPage > img {
+      main > header div > img {
          width: 100%;
       }
 
-      nav.landingPage > div.landingPage img {
+      body > header > div img {
          width: 88.6px;
       }
 
-      .flexibleNavInTablet > a.buttonBasicStyle {
+      .flexibleHeaderInTablet > a.buttonBasicStyle {
          width: 80px;
          font-size: 1.4rem;
          padding: 10px 16px;
       }
 
-      .landingPage > a.buttonBasicStyle {
+      main a.buttonBasicStyle {
          width: 200px;
          font-size: 1.4rem;
       }
@@ -301,25 +283,25 @@
          padding-bottom: 40px;
       }
 
-      article.landingPage{
+      article{
          grid-template-columns: 1fr;
          padding: 40px;
          gap: 0;
       }
 
-      article p.title {
+      article h2 {
          font-size: 2.4rem;
          margin-bottom: 20px;
          grid-row: 1;
       }
 
-      article p.description {
+      article p {
          font-size: 1.5rem;
          margin-top: 16px;
          grid-row: 3;
       }
 
-      article.landingPage::after{
+      article::after{
          width: 100%;
          grid-column: 1;
          grid-row: 2;
