@@ -146,67 +146,94 @@ header{
   }
 }
 
-/* .sections{
-  max-width: 1920px;
-} */
+/* main */
 section{
-  padding: 50px 461px;
-  display: flex;
+  display: grid;
   justify-content: center;
-  text-align: center;
+  width: 100%;
+  padding: 4rem 3.2rem;
+
+  @media (min-width: 768px) {
+    padding: 5rem 0;
+    gap: 3rem;
+  }
+
+  @media (min-width: 1200px) {
+    column-gap: 16rem;
+  }
 }
-.pad_plus{
-  padding: 120px 461px 50px;
+section:nth-of-type(odd) {
+  grid-template-areas:
+    "title"
+    "image"
+    "description";
+
+  @media (min-width: 768px) {
+    grid-template-areas: 
+      ". image"
+      "title image"
+      "description image"
+      ". image";
+  }
 }
 
-.frame{
-  display: flex;
-  align-items: center;
-  gap: 51px;
+section:nth-of-type(even) {
+  grid-template-areas:
+    "title"
+    "image"
+    "description";
+  
+    @media (min-width: 768px) {
+      grid-template-areas:
+        "image ."
+        "image title"
+        "image description"
+        "image .";
+    }
 }
 
 section h2{
-  font-size: 48px;
+  grid-area: title;
   font-weight: 700;
-  letter-spacing: -0.3px;
-  margin: 0; 
-  /* margin 따로 설정 안했는데 왜 생기는지,,상하 39.84px  */
+  font-size: 3.5rem;
+  letter-spacing: -0.3rem;
+  padding: 2rem 0;
+
+  @media (min-width: 768px) {
+    font-size: 5rem;
+    line-height: 5.8rem;
+  }
 }
 section p{
-  color: #6B6B6B;
-  font-family: Abel;
-  font-size: 16px;
-  font-weight: 400;
+  grid-area: description;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: #6b6b6b;
   line-height: 150%;
-}
+  padding: 2rem 0;
 
-.content{
-  display: flex;
-  width: 291px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  text-align: left;
+  @media (min-width: 768px) {
+    font-size: 1.6rem;
+  }
 }
+section img{
+  grid-area: image;
+  width: 100%;
+  padding-top: 1rem;
 
-.card-img-1{
-  width: 385px;
-  height: 315px;
+  @media (min-width: 768px) {
+    padding-top: 0;
+    width: 40rem;
+  }
+  @media (min-width: 1200px) {
+    width: 55rem;
+  }
 }
-
-.change_name{
-  width: 385px;
-  height: 315px;
-}
-
-.share{
-  width: 385px;
-  height: 315px;
-}
-
-.screenshot{
-  width: 385px;
-  height: 315px;
+.break{
+  display: none;
+  @media (min-width: 768px) {
+    display: inline;
+  }
 }
 
 footer{
