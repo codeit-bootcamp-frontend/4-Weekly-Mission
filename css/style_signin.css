@@ -55,12 +55,27 @@ input{
 }
 
 .eye-off{
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 46px;
+  right: 15px;
   background-image: url(../img/svg/eye-off.svg);
   background-repeat: no-repeat;
   background-position: 95% 50%;
 }
 
+.eye-off:hover,
+.eye-on:hover{
+  cursor: pointer;
+}
+
 .eye-on{
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 45px;
+  right: 15px;
   background-image: url(../img/svg/eye-on.svg);
   background-repeat: no-repeat;
   background-position: 95% 50%;
@@ -125,6 +140,7 @@ button:hover{
 }
 
 .input-box{
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
