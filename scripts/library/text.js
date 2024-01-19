@@ -1,10 +1,10 @@
 //@ts-check
-import { getElement } from "./document.js";
+import { getElement } from './document.js';
 
 /**
- * 요소 뒤에 <p>태그 추가
- * @param {string} query - 요소의 css selector
- * @param {string} className - 추가된 요소의 class명
+ * html: <p>태그 추가
+ * @param {string} query - cssSelector
+ * @param {string} className - 생성된 태그 class
  * @param {string} text - 추가할 text
  */
 export const addTextAfter = (query, className, text) => {
@@ -18,35 +18,40 @@ export const addTextAfter = (query, className, text) => {
 };
 
 /**
- * 텍스트 내용 변경
- * @param {string} query - 요소의 css selector
+ * html: 텍스트 내용 변경
+ * @param {string} query -  cssSelector
  * @param {string} text - 변경할 text
-  */
+ */
 export const changeText = (query, text) => {
-  const element = getElement(query)
-  element.innerText = text
-}
+  const element = getElement(query);
+  element.innerText = text;
+};
 
 /**
- * 요소의 값이 비었는지 확인
- * @param {string} query - 요소의 css selector
+ * html: 요소의 값이 비었는지 확인
+ * @param {string} query - cssSelector
  * */
-export const isEmptyInput = (query) => {
+export const isEmptyInput = query => {
   const value = getElement(query).value;
   return value?.trim() === '' ? true : false;
 };
 
 /**
- * 정규표현식의 유효한 값인지 확인
- * @param {string} query - 요소의 css selector
+ * 정규표현식 유효값 확인
+ * @param {string} query - cssSelector
  * @param {RegExp} regEx - 검사할 정규표현식
- * */
+ */
 export const isValidate = (query, regEx) => {
-  const value = getElement(query).value
-  return regEx.test(value)
+  const value = getElement(query).value;
+  return regEx.test(value);
 };
 
-export const isMatchText = (query, text) => {
-  const value = getElement(query).value
-  return value === text
-}
+/**
+ * html: value 일치 확인
+ * @param {string} query - cssSelector
+ * @param {string} value - 검사할value
+ */
+export const isMatchValue = (query, value) => {
+  const elementValue = getElement(query).value;
+  return elementValue === value;
+};
