@@ -6,6 +6,8 @@ const form = document.querySelector("form");
 const correctEmail = "test@codeit.com";
 const correctPassword = "codeit101";
 
+const btnEye = document.querySelector(".btn_eye");
+
 const checkEmailIsValid = (e) => {
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   const errorMessage = e.target.nextElementSibling;
@@ -70,6 +72,16 @@ const compareUser = (e) => {
   }
 };
 
+const viewPassword = (e) => {
+  if (inputPassword.getAttribute("type") === "password") {
+    inputPassword.setAttribute("type", "text");
+    e.target.setAttribute("src", "resource/eye_open_icon.png");
+  } else {
+    inputPassword.setAttribute("type", "password");
+    e.target.setAttribute("src", "resource/eye_close_icon.png");
+  }
+};
+
 inputEmail.addEventListener("focusout", checkEmailIsValid);
 inputPassword.addEventListener("focusout", checkPasswordIsValid);
 
@@ -79,3 +91,5 @@ form.addEventListener("keydown", (e) => {
     compareUser(e);
   }
 });
+
+btnEye.addEventListener("click", viewPassword);
