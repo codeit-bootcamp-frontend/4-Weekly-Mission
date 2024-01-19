@@ -1,9 +1,13 @@
 .container {
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
-  padding: 120px 32px 233px 33px;
+  padding: 0px 32px 233px 33px;
   align-items: center;
   justify-content: center;
+  background-color: var(--Linkbrary-bg);
+}
+.main {
+  background-color: var(--Linkbrary-bg);
 }
 .signup {
   margin-top: 16px;
@@ -17,6 +21,16 @@ header {
   align-items: center;
   margin-bottom: 30px;
 }
+.sign-form {
+  background-color: var(--Linkbrary-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
 
 .signup p {
   color: var(--black, #000);
@@ -27,12 +41,29 @@ header {
   line-height: 24px; /* 150% */
 }
 .signup a {
-  color: var(--Linkbrary-primary-color, #6d6afe);
+  color: var(--Linkbrary-primary-color);
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+.password > img {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  /* 반응형에서 특정 요소의 위치를 지정할 때 어떤 단위를 주로 사용하나요?
+  저는 이 요소 밑에 배경으로 있어야 하는 비밀번호 폼이 px 단위라 
+  우선 px로 해보았는데 궁금합니다!! 그리고 px로 짜둔 코드를 
+  나중에 반응형으로 만드려면 단위를 다시 계산해서 다 바꾸는지
+  궁금합니다..! */
+  left: 370px;
+  top: -35px;
+  margin: 0;
+}
+
+.social-login {
+  background-color: var(--Linkbrary-bg);
 }
 
 input {
@@ -42,6 +73,55 @@ input {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid var(--Linkbrary-primary-color);
+  border: 2px solid var(--Linkbrary-gray60);
   background: var(--Linkbrary-white);
+  margin-top: 12px;
+}
+
+input:focus {
+  border: 2px solid var(--Linkbrary-primary-color);
+}
+
+.CTA {
+  width: 400px;
+  border: none;
+  padding: 16px 20px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.social-login {
+  display: flex;
+  width: 400px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20);
+  background: var(--Linkbrary-gray10);
+  gap: 16px;
+}
+.kakao-svg-wrapper {
+  position: relative;
+  right: 0;
+}
+.kakao {
+  position: relative;
+  right: 0;
+}
+
+/* 태블릿 사이즈 */
+@media screen and (1199px >= width >= 768px) {
+  .container {
+    position: relative;
+    top: 238px;
+  }
+}
+
+@media screen and (width >= 1200px) {
+  .container {
+    position: relative;
+    top: 238px;
+  }
 }

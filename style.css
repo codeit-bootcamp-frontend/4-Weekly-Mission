@@ -12,7 +12,11 @@ header {
   left: 50%;
   transform: translate(-50%, 0);
 }
+main {
+  background-color: var(--Linkbrary-white);
+}
 .header-wrapper {
+  /* 3주차 기본 요구사항 */
   width: min(100% - 64px, 1199px);
   margin-inline: auto;
 }
@@ -148,7 +152,6 @@ h2 {
 }
 .article-wrapper {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   gap: 24px;
@@ -240,71 +243,77 @@ footer {
   align-items: flex-start;
 }
 
-@media screen and (1920px <= width) {
-  header {
-    margin: 0 auto; /* 상하 마진은 0, 좌우 마진은 자동 */
-    justify-content: space-between;
-  }
-  article {
-    max-width: 1920px; /* 최대 너비 설정 */
-    margin: 0 auto; /* 상하 마진은 0, 좌우 마진은 자동 */
-  }
-
-  .image-wrapper {
-    max-width: 1920px; /* 최대 너비 설정 */
-    margin: 0 auto; /* 상하 마진은 0, 좌우 마진은 자동 */
-  }
-
-  .logo {
-    margin-left: 200px;
-  }
-  .login {
-    margin-right: 200px;
-  }
-  .footer-lower {
-    display: flex;
-    justify-content: space-between;
-  }
-  .footer-wrapper {
-    display: flex;
-    justify-content: space-around;
-    flex-grow: 1 1 1;
-  }
-  .p-wrapper {
-    display: flex;
-  }
+/* 모바일 사이즈 */
+@media screen and (375px <= width <=767px) {
+  /* 모바일 사이즈에서 레이아웃 조절 */
   .article-wrapper {
-    display: flex;
-    padding: 120px 461px 50px 461px;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
   }
+}
+
+/* 태블릿 사이즈 */
+@media screen and (1199px >= width >= 768px) {
+  /* article 레이아웃 변경 */
   .article-wrapper {
     flex-direction: row;
-    align-items: center;
-    gap: 157px;
+    flex-wrap: wrap;
+  }
+  .article-wrapper > h2 {
+    display: inline-block;
+    margin: 0;
+    order: 1;
+  }
+  .article-wrapper > p {
+    display: inline-block;
+    margin: 0;
+    order: 2;
+  }
+  .article-wrapper > img {
+    order: 3;
+  }
+  .text-wrapper {
+    
   }
 
-  h2 {
-    font-size: 48px;
+  /* 태블릿 사이즈에서 이미지 사이즈 고정 */
+  .hero .image-wrapper {
+    width: 698px;
+    height: 343px;
   }
-  .comment-wrapper {
-    font-size: 16px;
+  .article-wrapper > img {
+    width: 385px;
+    height: 315px;
   }
-  .article-wrapper img {
+}
+
+/* pc 사이즈 */
+@media screen and (width >= 1200px) {
+  /* pc 사이즈에서 이미지 사이즈 고정 */
+  .hero .image-wrapper {
+    width: 1200px;
+    height: 590px;
+  }
+  .article-wrapper > img {
     width: 550px;
+    height: 450px;
   }
 
-  .footer-lower {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  #codeit-2023 {
-    position: relative;
-  }
-  .p-wrapper {
-    display: flex;
+  /* pc에서 article 레이아웃 조절 */
+  .article-wrapper {
     flex-direction: row;
+    gap: 127px;
+  }
+  .article-wrapper > img {
+    order: 3;
+  }
+  .article-wrapper > h2 {
+    display: inline-block;
+    margin: 0;
+    order: 1;
+  }
+  .article-wrapper > p {
+    display: inline-block;
+    margin: 0;
+    order: 2;
   }
 }
