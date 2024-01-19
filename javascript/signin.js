@@ -41,6 +41,12 @@ function selectLogin() {
     passwordValue = signinPasswordInput.value;
     if (emailValue === "test@codeit.com" && passwordValue === "codeit101") {
         location.href = "/folder";
+    } else if (emailValue !== "test@codeit.com" && passwordValue === "codeit101") {
+        signinEmailErrorMessage.classList.remove('none');
+        signinEmailErrorMessage.textContent = '이메일을 확인해 주세요.'
+    } else if (emailValue === "test@codeit.com" && passwordValue !== "codeit101") {
+        signinPasswordErrorMessage.classList.remove('none');
+        signinPasswordErrorMessage.textContent = '비밀번호를 확인해 주세요.'
     } else {
         signinEmailErrorMessage.classList.remove('none');
         signinEmailErrorMessage.textContent = '이메일을 확인해 주세요.'
