@@ -1,7 +1,5 @@
 class State {
-  // protected
   _state
-
   constructor() {
     this._state = { email: "", password: "" }
   }

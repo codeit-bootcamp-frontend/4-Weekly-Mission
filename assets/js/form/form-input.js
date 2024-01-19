@@ -28,21 +28,18 @@ export default class FormInput extends UI {
 
   foucsOutHandler(event) {
     const { name, value } = event.target
-
     formState.setState = { prop: name, value: value }
 
-    const inputIsValid = this.validation(event.target.value)
-    this.isValid = inputIsValid
+    this.isValid = this.validation(event.target.value)
 
-    inputIsValid.result
+    this.isValid.result
       ? this.removeError(this.type, this.errorElement)
-      : this.showError(this.type, inputIsValid.message)
+      : this.showError(this.type, this.isValid.message)
   }
 
   showPassword({ target }) {
     if (!containsClass(target, "password-show")) return
     this.inputElement.type = this.inputElement.type === "text" ? "password" : "text"
-
     this.passwordChangeIcon(this.inputElement)
   }
 
