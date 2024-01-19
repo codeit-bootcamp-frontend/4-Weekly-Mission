@@ -83,6 +83,12 @@ input:focus {
   outline: 1px solid var(--primary);
 }
 
+.error {
+  color: var(--red);
+  font-size: 1.4rem;
+  margin-top: 0.6rem;
+}
+
 .login_button {
   display: flex;
   width: 100%;
