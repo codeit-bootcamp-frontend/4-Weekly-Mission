@@ -1,3 +1,6 @@
+import { emailValid } from "./utils/Validator.js";
+import { EMAIL, PASSWORD } from "./auth.js";
+
 const form = document.querySelector(".fm-input-wrap");
 const btn = document.querySelector(".btn-submit");
 
@@ -24,7 +27,7 @@ const moveFolderPage = (e) => {
   const emailMsgBox = document.querySelector(".error-email");
   const passwordMsgBox = document.querySelector(".error-pw");
 
-  if (email === "test@codeit.com" && password === "codeit101") {
+  if (email === EMAIL && password === PASSWORD) {
     location.href = "folder.html";
   }
 
@@ -50,12 +53,3 @@ form.addEventListener("focusout", showErrorMsg);
 btn.addEventListener("click", moveFolderPage);
 form.addEventListener("keydown", enter);
 form.addEventListener("click", showPassword);
-
-function emailValid(email) {
-  regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
-  if (!regex.test(email)) {
-    return false;
-  } else {
-    return true;
-  }
-}
