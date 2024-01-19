@@ -33,28 +33,31 @@
     </div>
 
     <form class="sign">
-      <label class="sign__label">
-        이메일
-        <input class="sign__input" name="email" type="email" />
-      </label>
-      <label class="sign__label">
-        비밀번호
+      <div class="w-full">
+        <label class="sign-label"> 이메일</label>
+        <input id="input-email" class="sign-input" name="email" type="email" />
+        <p id="error-email" class="error-message display-none">에러 메시지</p>
+      </div>
+      <div class="w-full">
+        <label class="sign-label"> 비밀번호</label>
         <div class="password-input-wrap">
-          <input class="sign__input" name="password" type="text" />
-          <button class="btn btn-eye off" type="button">
-            <img class="icon-eye-off" src="../public/icon/eye-off.svg" />
+          <input id="input-password" class="sign-input" name="password" type="password" />
+          <button class="btn btn-eye" type="button">
+            <img class="icon-eye" src="../public/icon/eye-off.svg" />
           </button>
         </div>
-      </label>
-      <label class="sign__label">
-        비밀번호 확인
+        <p id="error-password" class="error-message display-none">에러 메시지</p>
+      </div>
+      <div class="w-full">
+        <label class="sign-label"> 비밀번호 확인</label>
         <div class="password-input-wrap">
-          <input class="sign__input" name="password" type="text" />
-          <button class="btn btn-eye on" type="button">
-            <img class="icon-eye" src="../public/icon/eye-on.svg" />
+          <input id="input-password-check" class="sign-input" name="password" type="password" />
+          <button class="btn btn-eye" type="button">
+            <img class="icon-eye" src="../public/icon/eye-off.svg" />
           </button>
         </div>
-      </label>
+        <p id="error-password-check" class="error-message display-none">에러 메시지</p>
+      </div>
       <button class="btn btn-login btn-color-primary" type="button">로그인</button>
     </form>
 

@@ -67,44 +67,31 @@ body {
   align-items: center;
   width: 100%;
   max-width: 40rem;
-}
-
-.sign {
   gap: 2.4rem;
 }
 
-.sign__label {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 1.2rem;
+.sign-label {
   color: #000;
   font-size: 1.4rem;
   font-weight: 400;
+}
+
+.sign-input {
+  margin-top: 1.2rem;
+}
+
+.error-message {
+  color: var(--red, #ff5b56);
+  margin-top: 0.6rem;
 }
 
 .password-input-wrap {
   position: relative;
 }
 
-.sign__input {
-  width: 100%;
-  padding: 1.8rem 1.5rem;
-  border-radius: 0.8rem;
-  border: 0.1rem solid var(--gray20, #ccd5e3);
-  background: var(--white, #fff);
-  color: #373740;
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 2.4rem;
-}
-
-.sign__input:focus {
-  outline: 0.1rem solid var(--primary, #6d6afe);
-}
-
-.password-input-wrap .btn-eye {
+.btn-eye {
   position: absolute;
+  margin-top: 0.6rem;
   top: 50%;
   transform: translateY(-50%);
   right: 1.5rem;

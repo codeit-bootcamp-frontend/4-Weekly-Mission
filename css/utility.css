@@ -76,3 +76,7 @@
 .display-none {
   display: none;
 }
+
+.w-full {
+  width: 100%;
+}
