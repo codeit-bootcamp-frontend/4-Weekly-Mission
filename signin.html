@@ -10,6 +10,7 @@
     />
     <link rel="stylesheet" href="./src/sign.css" />
   </head>
+
   <body>
     <header>
       <a class="logo-link" href="index.html">
@@ -19,22 +20,32 @@
         회원이 아니신가요?<a class="header-link" href="signup.html">회원 가입하기</a>
       </p>
     </header>
+
     <div class="sign-box">
       <form class="sign-form">
+
         <div class="sign-inputs">
           <div class="sign-input-box">
-            <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <label class="sign-input-label">이메일
+              <!--emailBox란 안에 이메일 입력이 들어간다.-->
+              <input id="emailBox" class="sign-input" type="email" name="email" />
+            </label>
           </div>
+
           <div class="sign-input-box sign-password">
-            <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
-            <button class="eye-button" type="button">
-              <img src="./images/eye-off.svg" />
-            </button>
+            <label class="sign-input-label">비밀번호
+              <!--pwBox에 비밀번호 입력-->
+              <input id="pwBox" class="sign-input" type="password" />
+              <!--눈 모양 아이콘-->
+              <button class="eye-button" type="button">
+                <img src="./images/eye-off.svg" />
+              </button>
+            </label>
           </div>
+
         </div>
-        <button class="cta" type="submit">로그인</button>
+        <!--로그인 버튼-->
+        <button id="loginBtn" class="cta" type="submit">로그인</button>
       </form>
       <div class="sns-box">
         <span class="sns-text">소셜 로그인</span>
@@ -48,5 +59,7 @@
         </div>
       </div>
     </div>
+    <!--자바스크립트-->
+    <script src="./js/sign.js"></script>
   </body>
 </html>
