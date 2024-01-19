@@ -14,12 +14,19 @@ document.addEventListener('DOMContentLoaded', function () {
     var isPasswordVisible = passwordInput.type === 'text';
 
     // 비밀번호 보이기/가리기 토글
-    passwordInput.type = isPasswordVisible ? 'password' : 'text';
+  if (isPasswordVisible) {
+    passwordInput.type = 'password';
+  } else {
+    passwordInput.type = 'text';
+  }
 
     // 눈 모양 아이콘 변경
-    eyeButton.querySelector('img').src = isPasswordVisible
-      ? './images/eye-off.svg'
-      : './images/eye-on.svg';
+    var imgElement = eyeButton.querySelector('img');
+      if (isPasswordVisible) {
+        imgElement.src = './images/eye-off.svg';
+    } else {
+        imgElement.src = './images/eye-on.svg';
+    }
   }
   // 이메일 입력 상자에 focus out 
   emailInput.addEventListener('blur', function () {
@@ -45,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
+  // 이메일 양식 확인
   function validateEmail() {
     var emailValue = emailInput.value.trim();
     var errorDiv = document.createElement('div');
@@ -62,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function validatePassword() {
-    var passwordValue = passwordInput.value.trim();
+    var passwordValue = passwordInput.value;
     var errorDiv = document.createElement('div');
     errorDiv.classList.add('error-message');
 
@@ -75,8 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function loginUser() {
-    var emailValue = emailInput.value.trim();
-    var passwordValue = passwordInput.value.trim();
+    var emailValue = emailInput.value;
+    var passwordValue = passwordInput.value;
 
     //특정 계정으로 로그인 했을 때
     if (emailValue === 'test@codeit.com' && passwordValue === 'codeit101') {
@@ -102,11 +110,13 @@ document.addEventListener('DOMContentLoaded', function () {
     return errorDiv;
   }
 
+  // 에러 메세지 보이기
   function showErrorMessage(errorMessage, targetInput) {
     hideErrorMessage(targetInput);
     targetInput.parentNode.appendChild(errorMessage);
   }
 
+  // 에러 메세지 가리기
   function hideErrorMessage(targetInput) {
     var existingError = targetInput.parentNode.querySelector('.error-message');
     if (existingError) {
