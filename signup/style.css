@@ -1,5 +1,5 @@
-@import url(/styles/common.css);
-@import url(/styles/color.css);
+@import url(../styles/common.css);
+@import url(../styles/color.css);
 
 body {
   background-color: var(--graybg);
@@ -63,11 +63,6 @@ body {
 .signup-form input:focus {
   border: 1px solid var(--primary);
   outline: none;
-}
-
-.password-check {
-  color: var(--red);
-  margin-top: 6px;
 }
 
 .eye-img {  
