@@ -29,10 +29,10 @@ function toggleErrorMessage(element, message = "") {
 
   if (message) {
     element.classList.remove("hidden");
-    prevInput.classList.add("input-error");
+    prevInput.classList.add("sign-input-error");
   } else {
     element.classList.add("hidden");
-    prevInput.classList.remove("input-error");
+    prevInput.classList.remove("sign-input-error");
   }
 }
 
