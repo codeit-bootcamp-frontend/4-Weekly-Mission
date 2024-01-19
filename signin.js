@@ -31,8 +31,8 @@ const moveFolderPage = (e) => {
     location.href = "folder.html";
   }
 
-  emailMsgBox.innerHTML = email !== "test@codeit.com" ? "이메일을 확인해 주세요." : "";
-  passwordMsgBox.innerHTML = password !== "codeit101" ? "비밀번호를 확인해 주세요." : "";
+  emailMsgBox.innerHTML = email !== EMAIL ? "이메일을 확인해 주세요." : "";
+  passwordMsgBox.innerHTML = password !== PASSWORD ? "비밀번호를 확인해 주세요." : "";
   changeInputColor();
 };
 
