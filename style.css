@@ -318,7 +318,8 @@ body {
   gap: 30px;
   flex-grow: 1;
 
-  .Privacy, .FAQ {
+  .Privacy, 
+  .FAQ {
     text-decoration: none;
     color: #CFCFCF;
     font-size: 16px;
@@ -337,5 +338,11 @@ body {
 
 nav요소 1920px 이상 일 때 외부 여백만 늘어나기
 html 폰트패밀리 한번에 선언하기
-회원가입창에서 absolute요소 안보임
-/*
+
+1월 12일 멘토링
+멘토님 반응형 작업시 위에서부터 반응형을 순차적으로 제작
+해당 방법으로 작업 시 미디어쿼리가 부분별로 완성이 됨
+
+코딩할때도 똑같이 적용되는게 세로로 많은것을 고쳐야 하면 잘못 된거다
+
+*/
