@@ -125,6 +125,17 @@
   height: 42px;
 }
 
+/* error message */
+.sign-email-error,
+.sign-password-error {
+  color: var(--red);
+  font-size: 14px;
+  font-weight: 400;
+
+  position: relative;
+  bottom: 10px;
+}
+
 /* media query */
 /* tablet */
 @media (max-width: 1199px) {
