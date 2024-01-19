@@ -1,21 +1,20 @@
-// 아이디, 비밀번호 input 클래스 전부 가져오기
-const signInputValue = document.querySelector('.sign-input');
-// 비어있는 아이디로 focusout시 나타나는 에러 메세지
-const emptyEmailErrorMessage = document.querySelector('.empty-email-error');
-// 옳지 않은 형식의 아이디로 focusout시 나타나는 에러 메세지
-const invalidEmailFormatMessage = document.querySelector('.correct-email-error');
-// 비어있는 비밀번호로 focusout시 나타나는 에러 메세지
-const emptyPasswordErrorMessage = document.querySelector('.empty-password-error');
-// 아이디 input id 가져오기
-const signEmailInputValue = document.querySelector('#email-input'); 
-// 비밀번호 input id 가져오기
-const signPasswordInputValue = document.querySelector('#password-input')
-// 지정한 아이디가 아닌 다른 아이디 값을 입력했을 경우 나오는 에러 메세지
-const emailValidationMessage = document.querySelector('.email-validation-message')
-// 지정한 비밀번호가 아닌 다른 비밀번호 값을 입력했을 경우 나오는 에러 메세지
-const passwordValidationMessage = document.querySelector('.password-validation-message')
-// 눈 아이콘 버튼 
-const eyeButton = document.querySelector('.eye-button-icon')
+// DOM 요소들을 가져오는 함수
+const get = (selector) => document.querySelector(selector);
+
+// 아이디, 비밀번호 input 요소들
+const signInputValue = get('.sign-input');
+const signEmailInputValue = get('#email-input');
+const signPasswordInputValue = get('#password-input');
+
+// 에러 메시지 요소들
+const emptyEmailErrorMessage = get('.empty-email-error');
+const invalidEmailFormatMessage = get('.correct-email-error');
+const emptyPasswordErrorMessage = get('.empty-password-error');
+const emailValidationMessage = get('.email-validation-message');
+const passwordValidationMessage = get('.password-validation-message');
+
+// 눈 아이콘 버튼
+const eyeButton = get('.eye-button-icon');
 
 function emailRegexError(){
   const emailValue = signEmailInputValue.value.trim();
