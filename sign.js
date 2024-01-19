@@ -73,18 +73,14 @@ function submitLogin(){
   }
 }
 document.onkeyup = function (e) {
-  let key = e.key || e.keycode
-  if(key === 'Enter' || keycode === 13){
+  if (e.key === 'Enter' || e.keyCode === 13) {
     submitLogin();
   }
 }
 
 function togglePasswordVisibility() {
-  if (signPasswordInputValue.type === 'password') {
-    signPasswordInputValue.type = 'text';
-    eyeButton.src = './images/eye-on.svg';  
-  } else {
-    signPasswordInputValue.type = 'password';
-    eyeButton.src = './images/eye-off.svg'; 
-  }
-}
+  const passwordFieldType = signPasswordInputValue.type;
+
+  signPasswordInputValue.type = passwordFieldType === 'password' ? 'text' : 'password';
+  eyeButton.src = `./images/eye-${passwordFieldType === 'password' ? 'on' : 'off'}.svg`;
+};
