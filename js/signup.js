@@ -4,9 +4,9 @@ import { pwInputTypeChange } from "./pw-input-type.js";
 import { regexEamil, regexPassword } from "./regExp.js";
 
 window.onload = function(){
-    const emailInput = document.getElementById("signup--input--email")
-    const pwInput = document.getElementById("signup--input--password");
-    const pwConfirmInput = document.getElementById("signup--input--password--confirm");
+    const emailInput = document.querySelector(".signup--input--email")
+    const pwInput = document.querySelector(".signup--input--password");
+    const pwConfirmInput = document.querySelector(".signup--input--password--confirm");
     const form = document.querySelector(".signup__form");
     const pwEyeIcon = document.querySelector(".eye");
     const pwConfirmEyeIcon = document.querySelector(".eye--confirm");

@@ -91,7 +91,7 @@ body{
    margin-bottom: 0.75rem;
 }
 
-#signup--input--email, #signup--input--password, #signup--input--password--confirm{
+.signup--input--email, .signup--input--password, .signup--input--password--confirm{
     padding: 1.125rem 0.9375rem;
     border-radius: 0.5rem;
     background-color: var(--Linkbrary-white);
@@ -100,7 +100,7 @@ body{
     width: calc(100% - 1.875rem);
 }
 
-#signup--input--email:focus, #signup--input--password:focus, #signup--input--password--confirm:focus{
+.signup--input--email:focus, .signup--input--password:focus, .signup--input--password--confirm:focus{
     border: 1px solid var(--Linkbrary-red);
 }
 
@@ -110,6 +110,7 @@ body{
     margin-top: 0.38rem;
     font-weight: 400;
     font-style: normal;
+    display: none;
 }
 
 .signup__button{
