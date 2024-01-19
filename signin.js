@@ -23,6 +23,10 @@ passwordInput.onblur = function() {
 
 // 로그인 성공 이벤트
 loginBtn.onclick = function(){
+  //초기화
+  init(emailInput);
+  init(passwordInput);
+
   if(passwordInput.value === 'codeit101' && emailInput.value === 'test@codeit.com'){
     location.href = 'folder.html';
   }else {
@@ -38,11 +42,7 @@ loginBtn.onclick = function(){
 //이메일 유효성 검사
 function emailValidChk(email) {
   const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
-  if(pattern.test(email) === false) {
-    return false; 
-  } else {
-    return true; 
-  }
+  return pattern.test(email);
 }
 
 //에러 메시지 div 요소 생성
