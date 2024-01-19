@@ -42,8 +42,14 @@ function errorMsg(errorCase) {
  function emailCheck(email_address){     
     email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
     if(!email_regex.test(email_address)){ 
+        emailInput.setAttribute('status','에러');
+        errorMsg("wrongEmail");
         return false; 
     } else{
+        emailInput.setAttribute('status','정상');
+        if(emailDiv.lastElementChild.classList.contains('wrongEmail')) {
+          document.querySelector('.wrongEmail').remove();
+        } 
         return true;
 	}
 }
@@ -67,13 +73,7 @@ function emailHandlerFunc(email) {
     emailVal = email; // 작성한 이메일 저장
 
     // 유효성 검사
-    if(!emailCheck(emailVal)) {
-      emailInput.setAttribute('status','에러');
-      errorMsg("wrongEmail");
-    } else {
-      emailInput.setAttribute('status','정상');
-      document.querySelector('.wrongEmail').remove();
-    }
+    emailCheck(emailVal);
   }
 }
 
