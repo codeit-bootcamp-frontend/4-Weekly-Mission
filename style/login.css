@@ -11,15 +11,15 @@ html {
   --Red: #FF5B56;
   --Black: #111322;
   --White: #FFFFFF;
-  --Grey_F: #F0F6FF;
-  --Grey_E: #E7EFFB;
-  --Grey_C: #CCD5E3;
-  --Grey_9: #9FA6B2;
-  --Grey_3: #3E3E43;
+  --Grey_100: #F0F6FF;
+  --Grey_200: #E7EFFB;
+  --Grey_300: #CCD5E3;
+  --Grey_400: #9FA6B2;
+  --Grey_500: #3E3E43;
 }
 
 body,header {
-  background-color: var(--Grey_F);
+  background-color: var(--Grey_100);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,7 +79,7 @@ section p {
 section input {
   width: 100%;
   border-radius: 8px;
-  border: 1px solid var(--Grey_C);
+  border: 1px solid var(--Grey_300);
   padding: 18px 15px;
 }
 
@@ -88,7 +88,7 @@ input:focus {
   outline: none;
 }
 
-Button {
+.loginBtn {
   width: 100%;
   background: linear-gradient(91deg, var(--Primary) 0.12%, #6AE3FE 101.84%);
   padding: 16px 20px;
@@ -107,9 +107,9 @@ Button {
   display: flex;
   align-items: center;
   padding: 12px 24px;
-  background-color: var(--Grey_E);
+  background-color: var(--Grey_200);
   border-radius: 8px;
-  border: 1px solid var(--Grey_C);
+  border: 1px solid var(--Grey_300);
 }
 
 .social-login span {
