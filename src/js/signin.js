@@ -71,3 +71,9 @@ inputEmail.addEventListener("focusout", checkEmailIsValid);
 inputPassword.addEventListener("focusout", checkPasswordIsValid);
 
 btnSigninSubmit.addEventListener("click", compareUser);
+
+form.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    compareUser(e);
+  }
+});
