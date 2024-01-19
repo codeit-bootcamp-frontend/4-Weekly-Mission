@@ -119,6 +119,13 @@ form {
   font-weight: 400;
   line-height: normal;
 }
+.error-message {
+  color: red;
+  display: none;
+  font-family: "Pretendard";
+  font-size: 14px;
+  font-weight: 400;
+}
 .pw-container {
   position: relative;
 }

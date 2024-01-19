@@ -70,16 +70,25 @@
             <a href="./signup.html">회원 가입하기</a>
           </div>
         </div>
-        <form>
+        <form onsubmit="attemptLogin(); return false;">
           <div class="inputs">
             <label for="email">이메일</label>
-            <input id="email" type="text" />
+            <input id="email" type="text" onblur="validateEmail()" />
+            <p class="error-message" id="email-empty-message">
+              이메일을 입력해 주세요.
+            </p>
+            <p class="error-message" id="email-invalid-message">
+              올바른 이메일 주소가 아닙니다.
+            </p>
+            <p class="error-message" id="email-auth-message">
+              이메일을 확인해 주세요.
+            </p>
           </div>
 
           <div class="inputs">
             <label for="password">비밀번호</label>
             <div class="pw-container">
-              <input id="password" type="password" />
+              <input id="password" type="password" onblur="validatePw()" />
               <div class="pw-show">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -96,9 +105,15 @@
                 </svg>
               </div>
             </div>
+            <p class="error-message" id="password-empty-message">
+              비밀번호를 입력해 주세요.
+            </p>
+            <p class="error-message" id="password-auth-message">
+              비밀번호를 확인해 주세요.
+            </p>
           </div>
+          <button type="submit" class="login">로그인</button>
         </form>
-        <button type="submit" class="login">로그인</button>
         <div class="socialLogin">
           <span>소셜 로그인</span>
           <div class="social">
@@ -121,5 +136,6 @@
         </div>
       </div>
     </div>
+    <script src="./sign.js"></script>
   </body>
 </html>
