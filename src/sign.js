@@ -59,6 +59,11 @@ const handleClickPwToggle = () => {
   }
 };
 
+const handleLoginFailure = () => {
+  applyError(emailError, SIGN.CHECK_EMAIL, emailInput);
+  applyError(pwError, SIGN.CHECK_PASSWORD, pwInput);
+};
+
 const handleLogin = () => {
   const emailValue = emailInput.value.trim();
   const pwValue = pwInput.value.trim();
@@ -68,10 +73,7 @@ const handleLogin = () => {
     window.location.href = 'folder.html';
   } else {
     console.log('로그인 실패!');
-    emailError.innerText = SIGN.CHECK_EMAIL;
-    pwError.innerText = SIGN.CHECK_PASSWORD;
-    applyErrorStyle(emailInput);
-    applyErrorStyle(pwInput);
+    handleLoginFailure();
   }
 };
 
