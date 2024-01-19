@@ -127,7 +127,7 @@ header{
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.search-gradation{
+.searchGradation{
   background: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -236,29 +236,51 @@ section img{
   }
 }
 
+/* footer */
 footer{
-  margin-top: 120px;
-  background-color: #111322;
-  padding: 32px 104px 64px 104px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-family: Acme;
-  color: #CFCFCF;
-  font-size: 16px;
-  font-weight: 400;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--black);
+  color: white;
+  height: 16rem;
 }
 
-.policy{
+.footerBox{
+  display: grid;
+  justify-content: space-between;
+  grid-template-areas:
+    "links sns"
+    ". ."
+    "copyRight .";
+  width: 100%;
+  padding: 3rem;
+
+  
+  @media (min-width: 768px) {
+    grid-template-areas: "copyRight links sns";
+    display: flex;
+    padding: 4rem 10rem 0;
+    max-width: 200rem;
+  }
+}
+
+.copyRight{
+  grid-area: copyRight;
+  color: #676767;
+  font-size: 1.6rem;
+}
+.links{
+  grid-area: links;
   display: flex;
-  gap: 30px;
+  gap: 3rem;
+}
+.link{
+  color: #cfcfcf;
+  font-size: 1.6rem;
 }
 .sns{
+  grid-area: sns;
   display: flex;
-  gap: 12px;
+  gap: 1rem;
 }
-.footer-left{
-  display: flex;
-  gap: 100px;
-}
-
