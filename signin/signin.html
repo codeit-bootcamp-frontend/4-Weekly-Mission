@@ -16,23 +16,23 @@
           회원이 아니신가요?<a class="move_signup" href="../signup/signup.html">회원 가입하기</a>
         </div>
       </div>
-      <form>
+      <form id="form">
         <div>
           <label for="email">이메일</label>
           <input id="email" name="email" type="email" />
-          <div class="failure-email-message1 hide">이메일을 입력해 주세요.</div>
-          <div class="failure-email-message2 hide">올바른 이메일 주소가 아닙니다.</div>
-          <div class="failure-email-message3 hide">이메일을 확인해 주세요.</div>
+          <div class="error email-error"></div>
         </div>
         <div class="password_block">
           <label class="password" for="password">비밀번호</label>
-          <input id="password" name="password" type="password" />
-          <span class="eye-button"><img src="/image/eye-off.svg" alt="password check" /></span>
-          <div class="failure-password-message1 hide">비밀번호를 입력해 주세요.</div>
-          <div class="failure-password-message2 hide">비밀번호를 확인해 주세요.</div>
+          <div class="icon">
+            <input id="password" name="password" type="password" />
+            <img class="eye-icon eye-icon-off" src="/image/eye-off.svg" alt="password not check" />
+            <img class="eye-icon eye-icon-on" src="/image/eye-on.svg" alt="password check" />
+          </div>
+          <div class="error password-error"></div>
         </div>
+        <button class="login_button" href="">로그인</button>
       </form>
-      <a class="login_button" href="">로그인</a>
       <div class="login_block">
         <span>소셜 로그인</span>
         <div class="social_signin_img">
@@ -45,5 +45,6 @@
         </div>
       </div>
     </main>
+    <script src="signin.js"></script>
   </body>
 </html>

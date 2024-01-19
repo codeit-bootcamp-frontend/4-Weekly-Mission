@@ -87,6 +87,7 @@ input:focus {
   display: flex;
   width: 100%;
   padding: 16px 20px;
+  margin-top: 0.6rem;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -131,13 +132,21 @@ input:focus {
   position: relative;
 }
 
-.eye-button {
+.icon {
+  position: relative;
+}
+
+.eye-icon {
   position: absolute;
   right: 1.5rem;
   bottom: 2.2rem;
   width: 1.6rem;
   height: 1.6rem;
-  fill: #fff;
+  cursor: pointer;
+}
+
+.eye-icon-on {
+  display: none;
 }
 
 /* Tablet 사이즈 */
