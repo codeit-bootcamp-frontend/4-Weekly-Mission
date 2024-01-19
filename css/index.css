@@ -91,17 +91,16 @@ main {
   padding-bottom: 12rem;
 }
 
-section {
+.section {
   display: grid;
   justify-content: center;
   column-gap: 15.7rem;
   row-gap: 1rem;
   width: 100%;
-  height: 55rem;
   padding: 50px 0;
 }
 
-section:nth-of-type(odd) {
+.section:nth-of-type(odd) {
   grid-template:
     ". image"
     "title image"
@@ -110,7 +109,7 @@ section:nth-of-type(odd) {
     /291px 55rem;
 }
 
-section:nth-of-type(even) {
+.section:nth-of-type(even) {
   grid-template:
     "image ."
     "image title"
@@ -127,13 +126,13 @@ section:nth-of-type(even) {
   letter-spacing: -0.03rem;
 }
 
-section img {
+.section img {
   grid-area: image;
   width: 55rem;
   height: 45rem;
 }
 
-section p {
+.section p {
   grid-area: text;
   color: #6B6B6B;
   font-family: Abel;
@@ -234,7 +233,7 @@ footer {
     padding-bottom: 12rem;
   }
 
-  section {
+  .section {
     display: grid;
     justify-content: center;
     column-gap: 5.1rem;
@@ -244,7 +243,7 @@ footer {
     margin: 50px 0;
   }
 
-  section:nth-of-type(odd) {
+  .section:nth-of-type(odd) {
     grid-template:
       ". image"
       "title image"
@@ -253,7 +252,7 @@ footer {
       /262px 38.5rem;
   }
   
-  section:nth-of-type(even) {
+  .section:nth-of-type(even) {
     grid-template:
       "image ."
       "image title"
@@ -262,7 +261,7 @@ footer {
       /385px 26.2rem;
   }
 
-  section img {
+  .section img {
     grid-area: image;
     width: 38.5rem;
     height: 31.5rem;
@@ -345,7 +344,7 @@ footer {
     justify-content: center;
   }
 
-  section {
+  .section {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
@@ -354,7 +353,7 @@ footer {
     margin-bottom: 40px;
   }
 
-  section:nth-of-type(odd) {
+  .section:nth-of-type(odd) {
     grid-template:
       "title"
       "image"
@@ -362,7 +361,7 @@ footer {
       /auto;
   }
   
-  section:nth-of-type(even) {
+  .section:nth-of-type(even) {
     grid-template:
       "title"
       "image"
@@ -370,7 +369,7 @@ footer {
       /auto;
   }
 
-  section img {
+  .section img {
     width: 100%;
     height: auto;
     margin: 2rem 0 1.6rem;
@@ -383,7 +382,7 @@ footer {
     letter-spacing: -0.03rem;
   }
 
-  section p {
+  .section p {
     grid-area: text;
     color: #6B6B6B;
     font-family: Abel;

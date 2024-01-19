@@ -1,2 +1,16 @@
 @import "./color.css";
 @import "./reset.css";
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
