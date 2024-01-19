@@ -1,5 +1,6 @@
 const emailInput = document.querySelector("#email");
 const pwInput = document.querySelector("#password");
+const pwConfirmInput = document.querySelector("#password-confirm");
 
 // 이메일 유효성 검사
 function validateEmail() {
@@ -33,6 +34,19 @@ function validatePw() {
     console.log("hi");
     errorMessage.style.display = "block";
     pwInput.style.borderColor = "red";
+  } else {
+    errorMessage.style.display = "none";
+    pwInput.style.borderColor = "#6D6AFE";
+  }
+}
+
+// 비밀번호 확인 유효성 검사
+function validatePwConfirm() {
+  const errorMessage = document.querySelector("#password-confirm-message");
+
+  if (pwInput.value.trim() !== pwConfirmInput.value.trim()) {
+    errorMessage.style.display = "block";
+    pwConfirmInput.style.borderColor = "red";
   } else {
     errorMessage.style.display = "none";
     pwInput.style.borderColor = "#6D6AFE";
