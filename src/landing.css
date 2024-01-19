@@ -187,6 +187,7 @@ footer {
   grid-area: sns-icons;
   display: flex;
   gap: 12px;
+  list-style-type: none;
 }
 
 /* tablet */
