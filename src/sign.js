@@ -7,27 +7,48 @@ const pwError = document.getElementById('password-error');
 const pwToggle = document.querySelector('.password-eye');
 const signBtn = document.querySelector('.sign-normal__btn');
 
+const applyErrorStyle = (el) => {
+  el.style.border = '1px solid var(--red)';
+};
+const resetErrorStyle = (el) => {
+  el.style.border = '';
+};
+
 const isValidEmail = (email) => {
   return SIGN.EMAIL_REGEX.test(email);
 };
-
 const isValidPw = (pw) => {
   return SIGN.PW_REGEX.test(pw);
 };
 
 const validateEmail = () => {
   const emailValue = signEmail.value.trim();
-  if (emailValue === '') emailError.innerText = SIGN.REQUIRED_EMAIL;
-  else if (!isValidEmail(emailValue))
+
+  if (emailValue === '') {
+    emailError.innerText = SIGN.REQUIRED_EMAIL;
+    applyErrorStyle(signEmail);
+  } else if (!isValidEmail(emailValue)) {
     emailError.innerText = SIGN.INVALID_EMAIL_FORMAT;
-  else emailError.innerText = '';
+    applyErrorStyle(signEmail);
+  } else {
+    emailError.innerText = '';
+    resetErrorStyle(signEmail);
+  }
 };
 
 const validatePw = () => {
   const pwValue = signPw.value.trim();
-  if (pwValue === '') pwError.innerText = SIGN.REQUIRED_PASSWORD;
-  else if (!isValidPw(pwValue)) pwError.innerText = SIGN.INVALID_PW_FORMAT;
-  else pwError.innerText = '';
+
+  if (pwValue === '') {
+    pwError.innerText = SIGN.REQUIRED_PASSWORD;
+    applyErrorStyle(signPw);
+  } else if (!isValidPw(pwValue)) {
+    pwError.innerText = SIGN.INVALID_PW_FORMAT;
+    applyErrorStyle(signPw);
+  } else {
+    pwError.innerText = '';
+    resetErrorStyle(signPw);
+  }
 };
 
 const handleLogin = () => {
@@ -41,6 +62,8 @@ const handleLogin = () => {
     console.log('로그인 실패!');
     emailError.innerText = SIGN.CHECK_EMAIL;
     pwError.innerText = SIGN.CHECK_PASSWORD;
+    applyErrorStyle(signEmail);
+    applyErrorStyle(signPw);
   }
 };
 

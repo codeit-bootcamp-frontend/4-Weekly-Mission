@@ -109,6 +109,10 @@
   font-weight: 600;
 }
 
+.sign__error-msg {
+  color: var(--red);
+}
+
 /* ---- Sign(Social) ---- */
 
 .sign-social {
