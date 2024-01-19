@@ -35,6 +35,8 @@
   height: 4rem;
   padding: 1rem;
   font-size: 1.2rem;
+  border: 0.1rem solid var(--color-gray-500);
+  border-radius: 8px;
 }
 
 .login__label {
@@ -46,7 +48,7 @@
   outline: none;
 }
 
-.login__input--password {
+.login__div--password {
   position: relative;
 }
 
