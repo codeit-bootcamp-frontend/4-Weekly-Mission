@@ -4,6 +4,7 @@ const emailInputEl = document.querySelector("#email-input");
 const pwInputEl = document.querySelector("#password-input");
 const pwCheckInputEl = document.querySelector("#pw-check-input");
 const loginBtnEl = document.querySelector(".btn-login");
+const encodePwBtn = document.querySelector(".password-box i");
 
 // 유저 데이터 리스트 (추후 따로 관리?)
 const userList = {
@@ -40,11 +41,15 @@ function inputErrorMessage(inputID, errorType) {
   errorSpan.classList.add("error-message");
   errorSpan.textContent = errorMessage[inputID][errorType];
 
-  if (targetNode.type === "password") {
-    targetNode.parentElement.parentElement.append(errorSpan);
+  const parentNode = targetNode.parentElement;
+  if (targetNode.type === "email") {
+    parentNode.append(errorSpan);
+    return;
+  } else if (parentNode.parentElement.querySelector(".error-message")) {
+    // 비밀번호 암호화 버튼 토글에 따른 무한 span 생성 금지
     return;
   }
-  targetNode.parentElement.append(errorSpan);
+  parentNode.parentElement.append(errorSpan);
 }
 
 // 에러 메세지 삭제
@@ -104,5 +109,23 @@ function loginAttempt(e) {
   }
 }
 
+// 비밀번호 암호화 토글
+function encodePassword(e) {
+  let targetClass = e.target.parentElement.classList;
+  let inputEl = e.target.parentElement.previousElementSibling;
+  const iconOff = "icon-eye-off";
+  const iconOn = "icon-eye-on";
+  if (targetClass.contains(iconOff)) {
+    targetClass.remove(iconOff);
+    targetClass.add(iconOn);
+    inputEl.type = "text";
+  } else {
+    targetClass.remove(iconOn);
+    targetClass.add(iconOff);
+    inputEl.type = "password";
+  }
+}
+
 loginFormEl.addEventListener("focusout", validCheck);
 loginBtnEl.addEventListener("click", loginAttempt);
+encodePwBtn.addEventListener("click", encodePassword);
