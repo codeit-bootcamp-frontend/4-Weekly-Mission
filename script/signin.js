@@ -28,3 +28,21 @@ passwordInput.addEventListener("focusout", () => {
   }
 });
 
+//loginBtn click event
+loginBtn.addEventListener("click", (event) => {
+  if (
+    emailInput.value === "test@codeit.com" &&
+    passwordInput.value === "codeit101"
+  ) {
+    console.log("yes!");
+    window.location.href = "/folder";
+  } else {
+    if (emailInput.value !== "test@codeit.com") {
+      emailErrorMessage.textContent = "이메일을 확인해 주세요";
+    }
+    if (passwordInput.value !== "codeit101") {
+      passwordErrorMessage.textContent = "비밀번호를 확인해 주세요";
+    }
+  }
+  event.preventDefault();
+});
