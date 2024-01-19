@@ -53,17 +53,25 @@ header p {
   margin-bottom: 24px;
 }
 
-#password-input {
+#password-input-div {
   position: relative;
 }
 
-#password-input img {
+#password-input-div img {
   width: 16px;
   height: 16px;
   position: absolute;
   top: 19px;
   right: 16px;
   cursor: pointer;
+}
+
+.errorMsg {
+  font-size: 14px;
+  font-style: normal;
+  color: var(--Red);
+  font-weight: 400;
+  margin-top: 6px;
 }
 
 section {
@@ -76,15 +84,26 @@ section p {
   font-weight: 400;
 }
 
-section input {
+/* 아이디와 비밀번호 input 스타일 지정 */
+
+[status="정상"] {
   width: 100%;
   border-radius: 8px;
   border: 1px solid var(--Grey_300);
   padding: 18px 15px;
 }
 
-input:focus {
+[status="정상"]:focus {
   border: 1px solid var(--Primary);
+  outline: none;
+}
+
+[status="에러"] { 
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--Grey_300);
+  padding: 18px 15px;
+  border: 1px solid var(--Red);
   outline: none;
 }
 
