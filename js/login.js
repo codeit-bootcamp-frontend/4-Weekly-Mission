@@ -81,7 +81,7 @@ function emailHandlerFunc(email) {
   if(email === "") { // email 값 없이 focus out
     errorMsg("NoEmail");
   } else if (email !== "") {
-    emailCheck(emailVal);
+    emailCheck(email);
   }
   emailVal = email; 
 }
@@ -116,19 +116,21 @@ function EnterLogin(key) {
   }
 }
 
- emailInput.addEventListener('focusout', function(e) {
+emailInput.addEventListener('focusout', function(e) {
   emailHandlerFunc(e.target.value);
- });
- pwdInput.addEventListener('focusout', function(e) {
+});
+emailInput.addEventListener('keypress', function(e) {
+  EnterLogin(e.key);
+});
+
+pwdInput.addEventListener('focusout', function(e) {
   passwordHandlerFuc(e.target.value);
- })
- emailInput.addEventListener('keypress', function(e) {
+});
+pwdInput.addEventListener('keypress', function(e) {
   EnterLogin(e.key);
- } )
- pwdInput.addEventListener('keypress', function(e) {
-  EnterLogin(e.key);
- } )
+});
+
 
  signinBtn.addEventListener('click', function(e) {
   trySignin(emailVal, pwdVal);
- })
+ });
