@@ -21,6 +21,24 @@ function onSubmit(e) {
   }
 }
 
+email.addEventListener('focusout', function (e) {
+  console.log('focus out email');
+  if (e.target.value.length <= 0) {
+    emailError.textContent = '이메일을 입력해 주세요.';
+  } else {
+    emailError.textContent = '';
+  }
+});
+
+password.addEventListener('focusout', function (e) {
+  console.log('focus out password');
+  if (e.target.value.length <= 0) {
+    passwordError.textContent = '비밀번호를 입력해 주세요.';
+  } else {
+    passwordError.textContent = '';
+  }
+});
+
 function togglePasswordVisibility() {
   if (password.type === 'password') {
     password.type = 'text';
