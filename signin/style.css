@@ -95,15 +95,11 @@ body {
   margin-top: 0.6rem;
 }
 
-.password-input-wrap {
-  position: relative;
-}
-
 .btn-eye {
   position: absolute;
-  margin-top: 0.6rem;
   top: 50%;
   transform: translateY(-50%);
+  margin-top: 0.6rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
