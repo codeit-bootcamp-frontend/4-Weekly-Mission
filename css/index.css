@@ -1,22 +1,4 @@
-:root {
-  --primary-color: #6d5afe;
-  --red-color: #ff5b56;
-  --black-color: #111322;
-  --white-color: #ffffff;
-  --gray1-color: #3e3e43;
-  --gray2-color: #9fa6b2;
-  --gray3-color: #ccd5e3;
-  --gray4-color: #e7effb;
-  --gray5-color: #f0f6ff;
-}
-
-body {
-  font-family: "Pretendard";
-  height: 100%;
-  width: 100%;
-  font-size: 16px;
-  margin: 0;
-}
+@import url("global.css");
 
 header {
   position: fixed;
@@ -216,7 +198,7 @@ button {
   -webkit-text-fill-color: transparent;
 }
 
-.sub-content h {
+.sub-content h1 {
   font-size: 3rem;
   font-weight: 700;
 }
@@ -251,7 +233,8 @@ footer a {
   color: #676767;
 }
 
-@media (max-width: 1199px) {
+/*Tablet Screen */
+@media (min-width: 768px) and (max-width: 1199px) {
   .head-content img {
     width: 100%;
   }
@@ -262,7 +245,8 @@ footer a {
   }
 }
 
-@media (max-width: 767px) {
+/*Mobile Screen*/
+@media (min-width: 375px) and (max-width: 767px) {
   .head-content-box {
     width: 70%;
   }
@@ -320,7 +304,7 @@ footer a {
 
   .faq-text {
     position: absolute;
-    left: 45%;
-    right: translate(-50%);
+    left: 50%;
+    transform: translate(-50%);
   }
 }
