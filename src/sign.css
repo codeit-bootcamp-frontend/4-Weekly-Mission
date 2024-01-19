@@ -79,6 +79,16 @@ label {
   content: url(/img/eye-on.svg);
 }
 
+.message{
+  font-size: 1.4rem;
+  color: var(--Linkbrary-red, #FF5B56);
+  margin-top: 6px;
+}
+
+.error{
+  border-color: var(--Linkbrary-red, #FF5B56);
+}
+
 .social-login {
   display: flex;
   align-items: center;
