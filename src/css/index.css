@@ -88,6 +88,7 @@ a {
       "image title"
       "image description"
       "image .";
+    /*모바일 사이즈*/
     @media (min-width: 375px) and (max-width: 767px) {
         grid-template-areas:
     "title"
@@ -102,6 +103,7 @@ a {
       "title image"
       "description image"
       ". image";
+    /*모바일 사이즈*/
     @media (min-width: 375px) and (max-width: 767px) {
         grid-template-areas:
     "title"
