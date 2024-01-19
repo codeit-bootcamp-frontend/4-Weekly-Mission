@@ -11,7 +11,7 @@ let emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
 
 
 function errorEmail() {
-    emailValue = signinEmailInput.value;
+    let emailValue = signinEmailInput.value;
     if (emailValue === "") {
         signinEmailErrorMessage.classList.remove('none');
         signinEmailInput.classList.add('error-redline')
@@ -26,7 +26,7 @@ function errorEmail() {
 }
 
 function errorPassword() {
-    passwordValue = signinPasswordInput.value;
+    let passwordValue = signinPasswordInput.value;
     if (passwordValue === "") {
         signinPasswordErrorMessage.classList.remove('none');
         signinPasswordInput.classList.add('error-redline');
@@ -37,8 +37,8 @@ function errorPassword() {
 }
 
 function selectLogin() {
-    emailValue = signinEmailInput.value;
-    passwordValue = signinPasswordInput.value;
+    let emailValue = signinEmailInput.value;
+    let passwordValue = signinPasswordInput.value;
     if (emailValue === "test@codeit.com" && passwordValue === "codeit101") {
         location.href = "/folder";
     } else if (emailValue !== "test@codeit.com" && passwordValue === "codeit101") {
