@@ -56,9 +56,11 @@ nav{
   height: 3.7rem;
   font-size: 1.4rem;
   color: #f5f5f5;
+  font-weight: 600;
 
   @media (min-width: 768px) {
-    height: 4rem;
+    height: 6rem;
+    font-size: 1.8rem;
   }
 }
 
@@ -70,30 +72,53 @@ nav{
   }
 }
 
-button{
-  padding: 16px 20px;
-  border: none;
-  background-image: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
-  border-radius: 8px;
-  color: #F5F5F5;
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.logIn{
-  width: 128px;
-  height: 54px;
+/* header */
+header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #F0F6FF;
+  width: 100%;
 }
 
 .head-section{
-  padding: 70px 360px 0 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3rem;
+
+  @media (min-width: 768px) {
+    padding-top: 4rem
+  }
+  @media (min-width: 1200px) {
+    padding-top: 7rem
+  }
+}
+
+.btnL{
+  width: 20rem;
+  margin-top: 4rem;
+
+  @media (min-width: 768px) {
+    width: 35rem;
+  }
 }
 
 .head-section h1{
-  font-size: 64px;
+  font-size: 3rem;
   font-weight: 700;
-  line-height: 80px;
+  line-height: 140%;
   text-align: center;
+  width: 30rem;
+
+  @media (min-width: 768px) {
+    font-size: 6rem;
+    width: 50rem;
+  }
+  @media (min-width: 1200px) {
+    font-size: 6.5rem;
+    width: 80rem;
+  }
 }
 
 .gradation{
@@ -109,23 +134,16 @@ button{
   -webkit-text-fill-color: transparent;
 }
 
-.head-section-btn{
-  text-align: center;
-  margin: 40px 0;
-}
-
-.addLinkBtn{
-  width: 350px;
-}
-.websiteImg{
-  text-align: center;
-}
 .website{
-  width: 1200px;
-  height: 590px;
-  border-radius: 25px;
-  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
-  background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%);
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 70rem;
+  }
+
+  @media (min-width: 1200px) {
+    width: 115rem;
+  }
 }
 
 /* .sections{
@@ -217,25 +235,3 @@ footer{
   gap: 100px;
 }
 
-@media screen and (max-width: 1920px) {
-  .nav-bar{
-  }
-}
-
-@media screen and (max-width:1199px) {
-  header{
-    width: 100%;
-    padding: 32px;
-  }
-}
-
-@media screen and (max-width:767px) {
-  header{
-    padding: 32px;
-    width: 100%;
-  }
-  .footer-left {
-    display: column;
-    gap: 60px;
-  }
-}
