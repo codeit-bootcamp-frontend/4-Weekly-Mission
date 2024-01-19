@@ -119,7 +119,7 @@ main{
 
 .mainWrap > img{
     width: 69.875rem;
-    height: 35rem;
+    height: auto;
     margin: 0 auto;
 }
 
@@ -195,7 +195,7 @@ main{
 
 figure > img{
     width: 34.375rem;
-    height: 450px;
+    height: auto;
 }
 
 /* 푸터 */
@@ -239,10 +239,6 @@ footer{
         width: 47rem;
     }
 
-    /* .loginBtn{
-        margin-left: 43.5rem;
-    } */
-
     main{
         height: auto;
     }
@@ -256,7 +252,7 @@ footer{
 
     .mainWrap > img{
         width: 40.64394rem;
-        height: 23.94463rem;
+        height: auto;
     } 
 
     #firstCard{
@@ -274,12 +270,12 @@ footer{
 
     figure{
         width: 24.0625rem;
-        height: 19.6875rem;
+        height: auto;
     }
 
     figure > img{
         width: 24.0625rem;
-        height: 19.6875rem;
+        height: auto;
     } 
     
     .leftMargin{
