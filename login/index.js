@@ -14,15 +14,15 @@ loginButton.addEventListener('click', correctInput);
 
 // input 없을 때 에러 메세지
 function noInput(e) {
-  let value = e.target.value;
-
-  if (value === '') {
+  if (e.target.value === '') {
 
     if (e.target.classList.contains('login-email')) {
       e.target.nextElementSibling.textContent = '이메일을 입력해 주세요.';
+      e.target.style.border = '1px solid #FF5B56';
     }
     else if (e.target.classList.contains('login-password')) {
       e.target.nextElementSibling.textContent = '비밀번호를 입력해 주세요.';
+      e.target.style.border = '1px solid #FF5B56';
     }
 
   }
@@ -41,12 +41,11 @@ function emailValidation(input) {
 }
 
 function emailCheck(e) {
-  let value = e.target.value;
-
-  if (value !== '') {
+  if (e.target.value !== '') {
 
     if (!emailValidation(e.target.value)) {
       e.target.nextElementSibling.textContent = '올바른 이메일 주소가 아닙니다.';
+      e.target.style.border = '1px solid #FF5B56';
     }
 
   }
@@ -60,7 +59,9 @@ function correctInput(e) {
   } 
   else {
     inputEmail.nextElementSibling.textContent = '이메일을 확인해 주세요.';
+    inputEmail.style.border = '1px solid #FF5B56';
     inputPassword.nextElementSibling.textContent = '비밀번호를 확인해 주세요.';
+    inputPassword.style.border = '1px solid #FF5B56';
   }
 }
 
@@ -68,4 +69,4 @@ function enterKey(e) {
   if (e.keyCode === 13) {
     correctInput();
   }
-}
+} 
