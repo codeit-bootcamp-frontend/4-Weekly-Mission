@@ -154,8 +154,8 @@ header {
 @media (max-width: 767px) {
   body {
     margin: 0 auto;
-    padding: 120px 32px 233px 32px;
-    max-width: 400px;
+    padding: 12rem 3.2rem 23.3rem 3.2rem;
+    max-width: 40rem;
     width: 100%;
   }
   .sign-box {
