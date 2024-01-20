@@ -85,6 +85,15 @@ function logincheck(){
 btnlogin.addEventListener('click',logincheck);
 
 
+//로그인 버튼 클릭 또는 Enter키 입력으로 로그인 실행돼야 합니다.
+//enter만 추가 이메일과 비밀번호 입력 후 enter를 누를 때 이벤트 처리하도록
 
+function enterbtn(e){
+  if(e.key='Enter'){
+    logincheck();
+  }
+}
 
+inputel.addEventListener('keypress',enterbtn);
+inputel2.addEventListener('keypress',enterbtn);
 
