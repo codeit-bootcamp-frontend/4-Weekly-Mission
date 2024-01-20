@@ -42,6 +42,6 @@ signForm.addEventListener('submit', function(event) {
   event.preventDefault();
 
   if(email.value === 'test@codeit.com' && password.value === 'codeit101') {
-    window.location.href = '../faq.html';
+    window.location.href = '../folder.html';
   }
 })
