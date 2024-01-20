@@ -39,9 +39,17 @@ password.addEventListener('focusout', function() {
 });
 
 signForm.addEventListener('submit', function(event) {
+  let emailErrorMessage = document.querySelector('.email-error-message');
+  let passwordErrorMessage = document.querySelector('.password-error-message');
+  
   event.preventDefault();
 
   if(email.value === 'test@codeit.com' && password.value === 'codeit101') {
     window.location.href = '../folder.html';
+  } else {
+    emailErrorMessage.style.display = 'block';
+    passwordErrorMessage.style.display = 'block';
+    document.querySelector('.sign-input').style.border = '0.1rem solid red';
+    document.querySelector('#password').style.border = '0.1rem solid red';
   }
 })
