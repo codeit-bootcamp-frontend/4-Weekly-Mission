@@ -110,9 +110,20 @@ label {
 /** Mobile **/
 @media (max-width: 767px) {
   body {
-    width: 100%;
+    margin-left: 3.2rem;
+    margin-right: 3.2rem;
+  }
+
+  /** form **/
+  #login-form input {
+    padding: 1.8rem 1.5rem;
+    width: 94vw;
     max-width: 40rem;
-    padding: 3.2rem;
-    margin: 23.8rem auto;
+  }
+
+  /** social-login **/
+  .social-login {
+    width: 94vw;
+    max-width: 40rem;
   }
 }

@@ -1,4 +1,6 @@
 @import "./common.css";
+
+/** CSS 및 mobile 화면 설정을 signin과 공유합니다. **/
 @import "./signin.css";
 
 /** main **/
