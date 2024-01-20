@@ -125,8 +125,6 @@ section:nth-of-type(even) {
     /550px 29.1rem;
 }
 
-
-
 .title {
   grid-area: title;
   font-size: 4.8rem;
@@ -155,8 +153,6 @@ section:nth-of-type(even) {
   color: #6b6b6b;
   line-height: 150%;
 }
-
-
 
 .content-image {
   grid-area: image;
@@ -197,6 +193,7 @@ footer {
 .footer-link {
   color: #cfcfcf;
   font-family: Arial;
+
   font-size: 1.6rem;
 }
 
@@ -259,7 +256,7 @@ footer {
       ". image"
       /300px 500px;
   }
-  
+
   section:nth-of-type(even) {
     grid-template:
       "image ."
@@ -268,8 +265,6 @@ footer {
       "image ."
       /500px 300px;
   }
-
-
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
@@ -332,4 +327,3 @@ footer {
     font-size: 2.4rem;
   }
 }
-

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" as="style" crossorigin
-            href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-        <link id="style" rel="stylesheet" href="src/sign.css">
-        <title>SignIn</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link id="style" rel="stylesheet" href="src/sign.css">
+    <title>SignIn</title>
+</head>
 
-    <body>
-        <!-- <div class="container">
+<body>
+    <!-- <div class="container">
             <form class="login-container">
                 <div class="logo-container">
                     <a href="index.html"><img src="images/logo.svg" alt="logo" class="logo" width="210px" height="38px"></a>
@@ -43,53 +43,56 @@
         </div> -->
 
 
-        <!-- ---------------------------------------- -->
-        <!-- Header (logo, message) -->
-        <header>
-            <a class="logo-link" href="index.html">
-                <img class="header-logo" src="images/logo.svg" alt="홈으로 가는 Linkbrary로고">
-            </a>
-            <p class="header-message">
-                회원이 아니신가요? <a class="header-link" href="signup.html">회원 가입하기</a>
-            </p>
-        </header>
+    <!-- ---------------------------------------- -->
+    <!-- Header (logo, message) -->
+    <header>
+        <a class="logo-link" href="index.html">
+            <img class="header-logo" src="images/logo.svg" alt="홈으로 가는 Linkbrary로고">
+        </a>
+        <p class="header-message">
+            회원이 아니신가요? <a class="header-link" href="signup.html">회원 가입하기</a>
+        </p>
+    </header>
 
-        <!-- Sign Box -->
-        <div class="sign-box">
-            <!-- Email Input, Password Input, Submit Button -->
-            <form class="sign-form">
-                <!-- Email and Password Input -->
-                <div class="sign-inputs">
-                    <!-- Email Input -->
-                    <div class="sign-input-box">
-                        <label class="sign-input-label">이메일</label>
-                        <input class="sign-input">
-                    </div>
-                    <!-- Password Input -->
-                    <div class="sign-input-box sign-password">
-                        <label class="sign-input-label">비밀번호</label>
-                        <input class="sign-input" type="password">
-                        <button class="eye-button" type="button">
-                            <img src="./images/eye-off.svg">
-                        </button>
-                    </div>
+    <!-- Sign Box -->
+    <div class="sign-box">
+        <!-- Email Input, Password Input, Submit Button -->
+        <form class="sign-form">
+            <!-- Email and Password Input -->
+            <div class="sign-inputs">
+                <!-- Email Input -->
+                <div class="sign-input-box">
+                    <label class="sign-input-label">이메일</label>
+                    <input class="sign-input" id="email">
                 </div>
-                <!-- Submit Button -->
-                <button class="cta" type="submit">로그인</button>
-            </form>
+                <!-- Password Input -->
+                <div class="sign-input-box sign-password">
+                    <label class="sign-input-label">비밀번호</label>
+                    <input class="sign-input" type="password" id="password">
+                    <button class="eye-button" type="button">
+                        <img src="./images/eye-off.svg">
+                    </button>
+                </div>
 
-            <!-- Social Login -->
-            <div class="sns-box">
-                <span class="sns-text">소셜 로그인</span>
-                <div class="sns-links">
-                    <a class="sns-link google-link" href="https://www.google.com/">
-                        <img src="./images/google.svg" />
-                    </a>
-                    <a class="sns-link kakao-link" href="https://www.kakaocorp.com/page/">
-                        <img src="./images/kakao.svg" />
-                    </a>
-                </div>
+            </div>
+            <!-- Submit Button -->
+            <button class="cta" type="submit">로그인</button>
+        </form>
+
+        <!-- Social Login -->
+        <div class="sns-box">
+            <span class="sns-text">소셜 로그인</span>
+            <div class="sns-links">
+                <a class="sns-link google-link" href="https://www.google.com/">
+                    <img src="./images/google.svg" />
+                </a>
+                <a class="sns-link kakao-link" href="https://www.kakaocorp.com/page/">
+                    <img src="./images/kakao.svg" />
+                </a>
             </div>
         </div>
-    </body>
+    </div>
+    <script src="index.js"></script>
+</body>
+
 </html>
