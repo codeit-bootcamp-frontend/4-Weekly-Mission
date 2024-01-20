@@ -6,11 +6,11 @@ export const ERROR_BORDER_COLOR = 'var(--color-red)';
 export const EMAIL_MESSAGE = {
   empty: '이메일을 입력해 주세요.',
   invalid: '올바른 이메일 주소가 아닙니다.',
-  fail: '올바른 이메일 주소가 아닙니다.'
+  fail: '이메일 주소를 확인해 주세요.'
 };
 export const PASSWORD_MESSAGE = {
   empty: '비밀 번호를 입력해 주세요.',
-  fail: '올바른 비밀번호가 아닙니다.'
+  fail: '비밀 번호를 확인해 주세요.'
 };
 export const SHOW_PASSWORD_ICON = {
   visible: { src: '../assets/icons/eye-on.svg', alt: 'eye-on' },
