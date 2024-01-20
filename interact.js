@@ -33,3 +33,18 @@ inputel.addEventListener('focusout',emaininput);
 
 
 //이메일: test@codeit.com, 비밀번호: codeit101 으로 로그인 시도할 경우, “/folder” 페이지로 이동합니다.
+
+const btnlogin=document.querySelector('.login');
+const inputel2=document.querySelector('#passwordinput');
+
+function clicklogin(){
+  if(inputel.value=='test@codeit.com' && inputel2.value=='codeit101'){
+    location.href='/folder.html';
+  }
+}
+
+btnlogin.addEventListener('click',clicklogin);
+
+
+
+
