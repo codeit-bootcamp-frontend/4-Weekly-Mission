@@ -11,8 +11,8 @@ const passwordErrorMessage = document.querySelector('.password-error-message');
 const eyeButton = document.querySelector('.eye-button');
 const eyeImage = document.querySelector('.eye-image');
 
-email.addEventListener('focusout', function() {
-  let emailInput = this.value.trim();
+const emailValidation = function() {
+  let emailInput = email.value.trim();
   let emailFormatErrorMessage = document.querySelector('.email-format-error-message');
   
   if (emailInput === '') {
@@ -28,9 +28,9 @@ email.addEventListener('focusout', function() {
     emailFormatErrorMessage.style.display = 'none';
     document.querySelector('#email').style.border = '0.1rem solid var(--gray20)';
   }
-});
+}
 
-password.addEventListener('focusout', function() {
+const passwordValidation = function() {
   let passwordInput = this.value.trim();
 
   if (passwordInput === '') {
@@ -40,9 +40,9 @@ password.addEventListener('focusout', function() {
     passwordErrorMessage.style.display = 'none';
     document.querySelector('#password').style.border = '0.1rem solid var(--gray20)';
   }
-});
+}
 
-signForm.addEventListener('submit', function(event) {
+const signFormValidation = function(event) {
   event.preventDefault();
 
   if(email.value === 'test@codeit.com' && password.value === 'codeit101') {
@@ -53,9 +53,9 @@ signForm.addEventListener('submit', function(event) {
     document.querySelector('#email').style.border = '0.1rem solid red';
     document.querySelector('#password').style.border = '0.1rem solid red';
   }
-})
+}
 
-eyeButton.addEventListener('click', function() {
+const eyeImgChange = function() {
   if(password.type === 'password') {
     password.type = 'text';
     eyeImage.src = '../../images/eye-on.png';
@@ -63,4 +63,12 @@ eyeButton.addEventListener('click', function() {
     password.type = 'password';
     eyeImage.src = '../../images/eye-off.svg';
   }
-})
+}
+
+email.addEventListener('focusout', emailValidation);
+
+password.addEventListener('focusout', passwordValidation);
+
+signForm.addEventListener('submit', signFormValidation)
+
+eyeButton.addEventListener('click', eyeImgChange)
