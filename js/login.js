@@ -63,6 +63,21 @@ function errorMsg(errorCase) {
   }
  }
 
+ // 에러 메세지 제거와, input 상태 정상으로
+ function delError(type) {
+  if(type === "email") {
+    if(emailDiv.children[2]) {
+      emailDiv.children[2].remove();
+    }
+    emailInput.setAttribute('status', '정상');
+  } else if(type === "password") {
+    if(pwdDiv.children[2]) {
+      pwdDiv.children[2].remove();
+    }
+    pwdInput.setAttribute('status', '정상');
+  }
+ }
+
  // 이메일 유효성 체크 함수
  function emailCheck(email_address){     
     email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
@@ -71,8 +86,7 @@ function errorMsg(errorCase) {
         errorMsg("wrongEmail");
         return false;
     } else{
-        emailInput.setAttribute('status','정상');
-        document.querySelector('.wrongEmail').remove();
+        delError('email');
         return true;
 	}
 }
@@ -92,22 +106,19 @@ function passwordHandlerFuc(password) {
   if(password === "") {
     errorMsg("NoPwd");
   } else if (password !== "") {
-    pwdInput.setAttribute('status','정상');
-    if(pwdDiv.children[2]){
-      pwdDiv.children[2].remove();
-    }
+    delError('password');
   }
   pwdVal = password;
 }
 
 // 로그인 시도할 경우 동작 함수
 function trySignin(email,password) {
+  console.log(email, password);
   if(email === "test@codeit.com" && password === "codeit101") {
     signinBtn.parentElement.setAttribute('href',"/folder.html");
   } else {
     errorMsg("Other"); 
   }
-
 }
 
 // enter키 입력으로 로그인 실행 
