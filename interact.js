@@ -46,5 +46,22 @@ function clicklogin(){
 btnlogin.addEventListener('click',clicklogin);
 
 
+//비밀번호 input에서 focus out 할 때, 값이 없을 경우 아래에 “비밀번호를 입력해 주세요.”
+
+const inputpass=document.querySelector('#passwordinput'); //비밀번호 input 박스
+const passwordframe=document.querySelector('#passwordframe'); //비밀번호 input 박스 frame
+const errmsg2=document.createElement('p'); //에러메시지
+
+function passwordinput(e){
+  if(e.target.value==''){
+    errmsg2.textContent='비밀번호를 입력해 주세요.';
+    passwordframe.append(errmsg2);
+  }
+  else{
+    errmsg2.remove(); // 비밀번호 값이 있는 경우 삭제해주기
+  }
+}
+
+inputpass.addEventListener('focusout',passwordinput);
 
 
