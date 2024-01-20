@@ -66,30 +66,21 @@ header {
   background-color: var(--Linkbrary-bg);
 }
 
-input {
-  display: flex;
-  width: 400px;
-  padding: 18px 15px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  border: 2px solid var(--Linkbrary-gray60);
-  background: var(--Linkbrary-white);
-  margin-top: 12px;
-  cursor: pointer;
-}
-
-input:focus {
-  border: 2px solid var(--Linkbrary-primary-colorr);
-}
-
 .CTA {
-  width: 400px;
+  width: 350px;
   border: none;
   padding: 16px 20px;
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 32px;
+}
+
+#email-input:focus {
+  outline: 1px solid var(--Linkbrary-primary-color);
+}
+
+#passWord-input:focus {
+  outline: 1px solid var(--Linkbrary-primary-color);
 }
 
 .social-login {
