@@ -54,6 +54,18 @@ a.signup {
     margin-bottom: 32px;
 }
 
+.signin .input-error {
+    border: 1px solid #ff5b56;
+    margin-bottom: 6px;
+}
+
+.input-error-text {
+    display: inline-block;
+    color: #ff5b56;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+
 .login {
     width: 100%;
     background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
