@@ -37,7 +37,7 @@ export default class FormInput extends UI {
       : this.showError(this.type, this.isValid.message)
   }
 
-  showPassword({ target }) {
+  toggleShowPassword({ target }) {
     if (!containsClass(target, "password-show")) return
     this.inputElement.type = this.inputElement.type === "text" ? "password" : "text"
     this.passwordChangeIcon(this.inputElement)
@@ -48,7 +48,7 @@ export default class FormInput extends UI {
 
     if (this.type === "password") {
       const passwordButton = this.inputElement.nextElementSibling
-      passwordButton.addEventListener("click", this.showPassword.bind(this))
+      passwordButton.addEventListener("click", this.toggleShowPassword.bind(this))
     }
   }
 }

@@ -12,11 +12,11 @@ export default class Form extends UI {
     this.errorElement = {}
 
     this.setErrorElements()
-    this.setInstance()
+    this.setInstances()
     this.attach()
   }
 
-  setInstance() {
+  setInstances() {
     this.inputs.forEach((input, index) => {
       this[`${input.name}Instance`] = new FormInput(input.name, input, this.errorElement[input.name])
     })
