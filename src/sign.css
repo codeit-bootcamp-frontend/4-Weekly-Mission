@@ -93,7 +93,7 @@ header {
 
 .eye-button {
   position: absolute;
-  bottom: 2.2rem;
+  top: 5.3rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -151,6 +151,12 @@ header {
 .kakao-link {
   padding-top: 0.2rem;
   background-color: #f5e14b;
+}
+
+.email-error-message, .email-format-error-message, .password-error-message {
+  color: red;
+  font-size: 14px;
+  display: none;
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
