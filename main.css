@@ -113,7 +113,6 @@ main .container{
 }
 main .container img{
   width: 385px;
-  height: 315px;
 }
 main .wrapper{
   display: flex;
@@ -244,59 +243,91 @@ footer p{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*Mobile*/
 @media(max-width: 768px){
-  .main-page img{
-    width: 100%;
+  nav img{
+    width: 88.667px;
+    height: 16px;
+  }
+  nav .login-button{
+    width: 80px;
+    padding: 10px 16px;
+    gap: 10px;
+
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .bg{
     padding-left: 32px;
     padding-right: 32px;
   }
-  .main-page h1{
-    text-align: center;
-    font-family: Pretendard;
-    font-size: 32px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 42px; /* 131.25% */ 
+  .header h1{
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 42px; /* 131.25% */
+  }
+  .header img{
+  width: 302.792px;
+  height: 178.712px;
+  flex-shrink: 0;
+
+  border-radius: 25px;
+  background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.54%, #F0F6FF 126.94%);
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.08);
   }
   main .container{
-    display: flex; 
+    width: 100%;
+    display: flex;
+    padding: 40px 32px 36.091px 33px;
     flex-direction: column;
-    align-items: center;  
     justify-content: center;
+    align-items: center;
+    
+  }
+  main h2{
+    font-family: Pretendard;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.3px;
   }
   main .container img{
-    width: 325px;
-    height: 265.909px;
+    width: 100%;
   }
+  main div:nth-child(2n) {
+    flex-direction: column;
+  }
+  footer{
+    display: flex;
+    height: 160px;
+    padding: 32px 32px 64px 32px;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+  }
+  footer .container{
+    position: relative;
+    justify-content: baseline;
+  }
+  footer p{
+    position: absolute;
+    left:32px;
+    top:60px;
 
+  }
 }
+
 /*Tablet*/
 @media(max-width: 1200px){
-  .bg nav{
-    padding-left: 32px;
-    padding-right: 32px;
+  nav{
+    padding:20px 32px;
   }
 }
-/*PC*/
-@media(max-width: 1200px){
-   
-}
+
 
   
