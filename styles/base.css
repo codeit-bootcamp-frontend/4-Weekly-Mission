@@ -8,6 +8,20 @@
   --Linkbrary-gray20: #ccd5e3;
   --Linkbrary-gray10: #e7effb;
   --Linkbrary-bg: #f0f6ff;
+
+  --Text-highlight-01: linear-gradient(
+    91deg,
+    var(--Linkbrary-primary) 17.28%,
+    #ff9f9f 74.98%
+  );
+  --Text-highlight-02: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  --Text-highlight-03: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+  --Text-highlight-04: linear-gradient(
+    99deg,
+    #6d7ccd 19.76%,
+    rgba(82, 136, 133, 0.22) 52.69%
+  );
+  --Text-highlight-05: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
 }
 
 * {

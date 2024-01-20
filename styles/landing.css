@@ -73,11 +73,7 @@
 }
 
 .contents-01-text-highlight {
-  background: linear-gradient(
-    91deg,
-    var(--Linkbrary-primary) 17.28%,
-    #ff9f9f 74.98%
-  );
+  background: var(--Text-highlight-01);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -154,7 +150,7 @@
 }
 
 .contents-02 .text-subheading-highlight {
-  background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  background: var(--Text-highlight-02);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -185,25 +181,21 @@
 }
 
 .contents-03 .text-subheading-highlight {
-  background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+  background: var(--Text-highlight-03);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .contents-04 .text-subheading-highlight {
-  background: linear-gradient(
-    99deg,
-    #6d7ccd 19.76%,
-    rgba(82, 136, 133, 0.22) 52.69%
-  );
+  background: var(--Text-highlight-04);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .contents-05 .text-subheading-highlight {
-  background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
+  background: var(--Text-highlight-05);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
