@@ -24,7 +24,6 @@ function createErrorSpanElement(parentPlace, place) {
 
 function printErrorMessage(place, errorSentence) {
   let errorMessage = document.querySelector(place);
-  console.log(errorMessage)
   errorMessage.textContent = errorSentence;
 }
 
@@ -79,6 +78,12 @@ function focusIn(place) {
 }
 
 // 로그인 시도
+function pressEnterForFolderPage(e) {
+  if (e.key === "Enter") {
+    folderPage();
+  }
+}
+
 function folderPage() {
   let folderEmail = "test@codeit.com";
   let folderPassword = "codeit101";
@@ -109,3 +114,4 @@ email.addEventListener("input", notValidEmailInput);
 email.addEventListener("focusin", () => focusIn(".errorMessage-email"));
 password.addEventListener("focusin", () => focusIn(".errorMessage"));
 loginButton.addEventListener("click", folderPage)
+password.addEventListener("keydown", pressEnterForFolderPage)
