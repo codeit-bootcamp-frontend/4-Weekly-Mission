@@ -1,3 +1,5 @@
+@import url(/src/color.css);
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,6 +19,10 @@ body {
 }
 
 .break-tm {
+  display: none;
+}
+
+.break-m {
   display: none;
 }
 
@@ -60,7 +66,6 @@ main {
   text-align: center;
   color: var(--Black);
   font-size: 6.4rem;
-  font-style: normal;
   font-weight: 700;
   line-height: 8rem;
   letter-spacing: 0px;
@@ -87,7 +92,6 @@ main {
   background-image: var(--gra-purpleblue-to-skyblue);
   color: var(--Grey-Light);
   font-size: 1.8rem;
-  font-style: normal;
   font-weight: 600;
   text-decoration: none;
 }
@@ -109,16 +113,13 @@ main {
   width: 25.9rem;
   color: var(--Black);
   font-size: 4.8rem;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   letter-spacing: -0.03rem;
 }
 
 .sub-description {
   color: var(--Grey);
   font-size: 1.6rem;
-  font-style: normal;
   font-weight: 500;
   line-height: 150%;
 }
@@ -160,7 +161,6 @@ section {
   display: flex;
   flex-direction: column;
   width: 29.1rem;
-  align-items: flex-start;
   gap: 1rem;
 }
 
@@ -193,9 +193,6 @@ footer {
   text-align: center;
   font-family: Arial;
   font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .footer-link {
@@ -210,7 +207,6 @@ footer {
   font-size: 1.6rem;
   font-family: Arial;
   font-weight: 400;
-  line-height: normal;
   text-decoration: none;
 }
 
@@ -223,12 +219,6 @@ footer {
 /* 모바일 화면  */
 @media (min-width: 375px) and (max-width: 767px) {
   .break-tm {
-    display: inline;
-  }
-  .break-pt {
-    display: none;
-  }
-  .break-m {
     display: inline;
   }
 
@@ -266,25 +256,29 @@ footer {
   }
 
   .main-container {
+    margin: 0 32px;
     padding-top: 2.8rem;
     row-gap: 2.4rem;
   }
 
   .main-img,
   .content-img {
-    width: calc(100% - 64px);
+    width: 100%;
     height: auto;
   }
 
   .container {
+    width: 100%;
     flex-direction: column;
+    margin: 0 32px;
     padding: 4rem 0;
     gap: 2.4rem;
   }
 
   .description,
-  .main-description {
-    width: calc(100% - 64px);
+  .main-description,
+  .sub-description {
+    width: 100%;
     white-space: nowrap;
   }
 
@@ -304,21 +298,27 @@ footer {
   }
 
   .sub-description {
+    white-space: initial;
     font-size: 1.5rem;
   }
 
   footer {
     margin-top: 4rem;
-    padding: 3.2rem 3.2rem 6.4rem;
+    padding: 3.2rem;
+  }
+
+  .copyright {
+    position: absolute;
+    bottom: 0;
   }
 
   .footer-container {
-    flex-direction: column;
+    position: relative;
+    justify-content: space-between;
   }
 
   .footer-link {
     margin-bottom: 6rem;
-    order: -1;
   }
 }
 
@@ -356,7 +356,7 @@ footer {
   }
 
   .description {
-    width: 100%;
+    width: 26.2rem;
   }
 
   .content-img {

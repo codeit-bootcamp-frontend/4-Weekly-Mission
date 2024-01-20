@@ -1,3 +1,5 @@
+@import url(/src/color.css);
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,11 +24,11 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 3.2rem;
   padding-top: 23.8rem;
+  gap: 3.2rem;
 }
 
-header {
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,19 +37,15 @@ header {
 
 .header-message {
   display: flex;
-  align-items: flex-start;
   gap: 0.8rem;
   color: var(--Black);
   font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 400;
   line-height: 2.4rem;
 }
 
 .header-signup-link {
   color: var(--Linkbrary-primary-color);
   font-size: 1.6rem;
-  font-style: normal;
   font-weight: 600;
   line-height: normal;
 }
@@ -56,7 +54,7 @@ header {
   height: 3.8rem;
 }
 
-.longin-form {
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,20 +69,13 @@ header {
   width: 40rem;
 }
 
-.email-container + .password-container {
+.password-container {
   margin-top: 2.4rem;
-}
-
-form {
-  margin: 3rem 0;
 }
 
 .sign-label {
   color: var(--Black);
   font-size: 1.4rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .sign-input {
@@ -123,6 +114,7 @@ button {
   display: flex;
   width: 40rem;
   padding: 1.6rem 2rem;
+  margin-top: 3rem;
   justify-content: center;
   align-items: center;
   gap: 1rem;
@@ -131,9 +123,7 @@ button {
   background: var(--gra-purpleblue-to-skyblue);
   color: var(--Grey-Light);
   font-size: 1.8rem;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 }
 
 .social-login {
@@ -150,14 +140,10 @@ button {
 .social-message {
   color: var(--Linkbrary-gray100);
   font-size: 1.4rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .social-link {
   display: flex;
-  align-items: flex-start;
   gap: 1.6rem;
 }
 
@@ -185,12 +171,20 @@ button {
 @media (min-width: 375px) and (max-width: 767px) {
   main {
     padding-top: 12rem;
+    width: calc(100% - 64px);
   }
+
+  form {
+    width: 100%;
+  }
+
+  .login-form,
   .email-container,
   .password-container,
   .button-login,
   .social-login {
-    width: calc(100% - 64px);
+    max-width: 400px;
+    width: 100%;
   }
 }
 
