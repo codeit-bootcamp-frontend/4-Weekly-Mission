@@ -73,6 +73,7 @@ header {
   display: flex;
   flex-direction: column;
   row-gap: 2.4rem;
+  position: relative;
 }
 
 .sign-input-box {
@@ -162,4 +163,11 @@ header {
 .kakao-link {
   padding-top: 0.2rem;
   background-color: #f5e14b;
+}
+
+#error-msg-email,
+#error-msg-pwd {
+  position: absolute;
+  top: 10rem;
+  inset-inline: auto;
 }
