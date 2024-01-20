@@ -1,5 +1,5 @@
 import formState from "../core/index.js"
-import { EmptyTypeMessage } from "../utils/validation.js"
+import { emptyTypeMessage } from "../utils/validation.js"
 import FormInput from "./form-input.js"
 import UI from "./form-ui.js"
 
@@ -42,17 +42,17 @@ export default class Form extends UI {
 
     // ! 이메일이 공백이라면.
     if (!emailIsValid.message) {
-      this.showError(emailType, EmptyTypeMessage(emailType))
+      this.showError(emailType, emptyTypeMessage(emailType))
     }
 
     // ! 패스워드에 메세지가 없는경우
     if (!passwordIsValid.message) {
-      this.showError(passwordType, EmptyTypeMessage(passwordType))
+      this.showError(passwordType, emptyTypeMessage(passwordType))
     }
 
     // ! 이메일과 비밀번호를 바로 입력안하고 작성할 때.
     if (!emailIsValid.message && !passwordIsValid.message) {
-      this.inputs.forEach(({ name }, i) => this.showError(name, EmptyTypeMessage(name)))
+      this.inputs.forEach(({ name }, i) => this.showError(name, emptyTypeMessage(name)))
     }
 
     // ! 이메일과 비밀번호 유효성에 하나라도 실패하면 false

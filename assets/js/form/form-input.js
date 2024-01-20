@@ -1,6 +1,6 @@
 import formState from "../core/index.js"
 import { containsClass } from "../utils/classList.js"
-import { EmptyTypeMessage, isEmail, isEmailValid, isNotEmptyValid } from "../utils/validation.js"
+import { emptyTypeMessage, isEmail, isEmailValid, isNotEmptyValid } from "../utils/validation.js"
 import UI from "./form-ui.js"
 
 export default class FormInput extends UI {
@@ -16,7 +16,7 @@ export default class FormInput extends UI {
 
   validation(value) {
     if (!isNotEmptyValid(value)) {
-      return { message: EmptyTypeMessage(this.type), result: false }
+      return { message: emptyTypeMessage(this.type), result: false }
     }
 
     if (!isEmailValid(value) && isEmail(this.type)) {
