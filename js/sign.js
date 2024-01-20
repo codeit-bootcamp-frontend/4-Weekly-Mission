@@ -1,6 +1,7 @@
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
 const loginButton = document.querySelector('.submit');
+const eyeIcon = document.querySelector('.eye-button');
 
 //이메일 형식 검증 function
 function validationEmail(email) {
@@ -90,3 +91,22 @@ function createErrorMessage(message, inputElement) {
   inputElement.classList.add("error");
   inputElement.parentElement.appendChild(newError);
 }
+
+const initialIconPath = './img/login/eye-off.svg';
+eyeIcon.style.backgroundImage = `url(${initialIconPath})`;
+
+function togglePassword(e) {
+  e.preventDefault();
+  if (passwordInput.type === 'password') {
+    // 비밀번호 문자열을 보이도록 변경
+    passwordInput.type = 'text';
+    eyeIcon.style.backgroundImage = 'url(./img/login/eye-on.svg)';
+  } else {
+    // 비밀번호 문자열을 가려지도록 변경
+    passwordInput.type = 'password';
+    eyeIcon.style.backgroundImage = 'url(./img/login/eye-off.svg)';
+  }
+}
+
+// 클릭 이벤트 등록
+eyeIcon.addEventListener('click', togglePassword);
