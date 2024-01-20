@@ -104,6 +104,10 @@ button:hover{
   gap: 16px;
 }
 
+.errMsg{
+  height: 16px;
+}
+
 .social-login{
   display: flex;
   width: 400px;

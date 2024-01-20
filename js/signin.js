@@ -5,24 +5,25 @@ const eyeIcon = document.querySelector('#eyeIcon');
 
 
 //email focus out 이벤트
-emailInput.onblur = function(){
+emailInput.addEventListener('blur', () => {
   //초기화
   init(emailInput);
 
   //이메일 유효성 함수 호출
   emailValidationChk();
-}
+})
+
 //비밀번호 focus out 이벤트
-passwordInput.onblur = function() {
+passwordInput.addEventListener('blur', () => {
   //초기화
   init(passwordInput);
   
   //비밀번호 유효성 함수 호출
   passwordValidationChk();
-} 
+});
 
 // 로그인 성공 이벤트
-loginBtn.onclick = function(){
+loginBtn.addEventListener('click', () => {
   //초기화
   init(emailInput);
   init(passwordInput);
@@ -35,38 +36,38 @@ loginBtn.onclick = function(){
     errMsg(emailInput,'이메일을 확인해 주세요.');
     errMsg(passwordInput,'비밀번호를 확인해 주세요.');
   }
-}
-
+});
 
 
 //이메일 유효성 검사
-function emailValidChk(email) {
+const emailValidChk = (email) => {
   const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
   return pattern.test(email);
 }
 
-//에러 메시지 div 요소 생성
-function errMsg(inputVal ,txt) {
-  const errMsgDiv = document.createElement('div');
+//에러 메시지 div 요소에 내용 추가
+const errMsg = (inputVal ,txt) => {
+  const errMsgDiv = inputVal.nextElementSibling;
   errMsgDiv.textContent = txt;
-  errMsgDiv.setAttribute('style','color: red');
-  errMsgDiv.setAttribute('class','input-font-size');  
-  inputVal.after(errMsgDiv);
+  errMsgDiv.classList.add('red');
+  errMsgDiv.classList.add('input-font-size');  
 }
 
 //요소 초기화
-function init(element){
-    //다음 요소 확인
-    const divExist = element.nextElementSibling;
-    //다음 요소 확인 될 시 요소 삭제, 빨간 테두리 제거
-    if(divExist){
-      divExist.remove();
-      element.classList.remove('false');
-    }
+const init = (element) => {
+  //다음 요소 확인
+  const divExist = element.nextElementSibling;
+  //텍스트 확인 될 시 텍스트 삭제, 빨간 테두리 제거
+  console.log('초기화 진입')
+  if(divExist.textContent !== ''){
+    console.log('div 텍스트 요소 없을 시 실행')
+    divExist.textContent = '';
+    element.classList.remove('false');
+  }
 }
 
 //비밀번호 눈모양 클릭 이벤트
-eyeIcon.onclick = function() {
+eyeIcon.addEventListener('click', () => {
   if(eyeIcon.classList.contains('eye-off')){ //off에서 on으로
     eyeIcon.classList.remove('eye-off');
     eyeIcon.classList.add('eye-on');
@@ -77,10 +78,10 @@ eyeIcon.onclick = function() {
     eyeIcon.classList.add('eye-off');
     passwordInput.type = 'password';
   }
-}
+});
 
 //이메일 유효성 검사
-function emailValidationChk(){
+const emailValidationChk = () => {
   if(!emailInput.value){
     emailInput.classList.add('false');//테두리 색 변경
     errMsg(emailInput,'이메일을 입력해 주세요.');
@@ -91,7 +92,7 @@ function emailValidationChk(){
 }
 
 //비밀번호 유효성 검사
-function passwordValidationChk(){
+const passwordValidationChk = () => {
   if(!passwordInput.value){
     passwordInput.classList.add('false');
     errMsg(passwordInput,'비밀번호를 입력해 주세요.');
