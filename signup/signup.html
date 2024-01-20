@@ -9,45 +9,54 @@
   <script src="https://kit.fontawesome.com/e9a3e61e8a.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header class="headBlock">
-    <a class="headBlock--logo" href="../">
+  <header class="headerWrap">
+    <a class="headerWrap__logo" href="../">
       <img src="../svg/logo-signin.svg">
     </a>
-    <h2 class="headBlock--text">
+    <h2 class="headerWrap__text">
       이미 회원이신가요?
-      <a class="headBlock--text--signin" href="/signin">
-        로그인 하기</a>
+      <a class="headerWrap__text--link" href="/signin">
+        로그인 하기
+      </a>
     </h2>
   </header>
-  <form class="join">
-    <section class="join--id">
+  <form class="signup">
+    <div class="signup__email">
       <label for="email">이메일</label>
-      <input id="email" name="join--id" type="email" placeholder="이메일 주소 입력" required>
-    </section>
-    <section class="join--pass">
+      <input id="email" name="email" type="email" placeholder="이메일 주소 입력" required>
+    </div>
+    <div class="signup__pass">
       <label for="pass">비밀번호</label>
-      <div class="addToggle-pass">
-        <input id="pass" name="join--pass" type="password" placeholder="비밀번호 입력" required>
+      <div class="signup__pass--toggle">
+        <input id="pass" name="pass" type="password" placeholder="비밀번호 입력" required>
         <i class="fa-solid fa-eye-slash"></i>
       </div>
-    </section>
-    <section class="join--passRepeat">
+    </div>
+    <div class="signup__passRepeat">
       <label for="passRepeat">비밀번호 확인</label>
-      <div class="addToggle-passRepeat">
-        <input id="passRepeat" name="join--passRepeat" type="password" placeholder="비밀번호 재입력" required>
+      <div class="signup__pass--toggle">
+        <input id="passRepeat" name="passRepeat" type="password" placeholder="비밀번호 재입력" required>
         <i class="fa-solid fa-eye-slash"></i>
       </div>
-    </section>
-    <button class="join--Btn" type="submit">
+    </div>
+    <button class="signup__Btn" type="submit">
       로그인
     </button>
   </form>
-  <footer class="endBlock">
-    <div class="endBlock--text">다른 방식으로 가입하기</div>
-    <div class="endBlock--sns">
-      <a id="google" href="https://www.google.com/"><img src="../img/google.png"></a>
-      <a id="kakao" href="https://www.kakaocorp.com/page/"><img src="../img/kakao.png"></a>
-    </div>
+  <footer class="footerWrap">
+    <p class="footerWrap__text">다른 방식으로 가입하기</p>
+    <ul class="footerWrap__link">
+      <li>
+        <a class="footerWrap__link--google" href="https://www.google.com/">
+          <img src="../img/google.png">
+        </a>
+      </li>
+      <li>
+        <a class="footerWrap__link--kakao" href="https://www.kakaocorp.com/page/">
+          <img src="../img/kakao.png">
+        </a>
+      </li>
+    </ul>
   </footer>
 </body>
 </html>
