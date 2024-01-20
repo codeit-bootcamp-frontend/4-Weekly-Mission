@@ -53,10 +53,12 @@
   padding: 18px 15px;
   height: 60px;
 }
+
 .sign-password {
   display: flex;
   position: relative;
 }
+
 .sign-password input {
   border-radius: 8px;
   height: 60px;
@@ -64,10 +66,12 @@
   padding: 18px 15px;
   width: 100%;
 }
-.sign-password img {
+
+.eye-icon {
   position: absolute;
   right: 15px;
   top: 22px;
+  cursor: pointer;
 }
 
 .sign-email:focus,
