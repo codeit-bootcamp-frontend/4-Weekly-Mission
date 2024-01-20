@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linkbrary</title>
+    <link rel="stylesheet" href="style1.css" />
+    <link rel="stylesheet" href="../common.css" />
+  </head>
+  <body>
+    <main>
+      <div class="center">
+        <a href="/"
+          ><img class="logo" src="../public/images/signin-image/logo.png"
+        /></a>
+        <div class="user flex justify-center">
+          <span class="not_user">회원이 아니신가요?</span>
+          <a class="signup" href="../signup/index.html">회원 가입하기</a>
+        </div>
+      </div>
+      <form>
+        <label class="label" for="email">이메일</label><br />
+        <input id="email" name="email" type="email" />
+        <div class="email-request">이메일을 입력해 주세요.</div>
+        <div class="email-checker">올바른 이메일 주소가 아닙니다.</div>
+        <div class="check-email">이메일을 확인해 주세요.</div>
+        <label class="label" for="pw">비밀번호</label><br />
+        <div class="pwform flex justify-center items-center">
+          <input id="pw" name="password" type="password" /><br />
+          <button class="eyeoff">
+            <img src="../public/images/signin-image/eye-off.png" />
+          </button>
+        </div>
+        <div class="pw-request">비밀번호를 입력해 주세요.</div>
+        <div class="check-pw">비밀번호를 확인해 주세요.</div>
+        <button class="btn login">로그인</button>
+        <div class="social flex justify-between items-center">
+          <p>소셜로그인</p>
+          <div class="social_icon flex">
+            <a href="https://www.google.com/">
+              <div class="google">
+                <img
+                  class="icon-background"
+                  src="../public/images/signin-image/google.png"
+                />
+                <img
+                  class="icon"
+                  src="../public/images/signin-image/google-icon.png"
+                />
+              </div>
+            </a>
+            <a href="https://www.kakaocorp.com/page/">
+              <div class="kakao">
+                <img
+                  class="icon-background"
+                  src="../public/images/signin-image/yellow.png"
+                />
+                <img
+                  class="icon"
+                  src="../public/images/signin-image/kakao.png"
+                />
+              </div>
+            </a>
+          </div>
+        </div>
+      </form>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
