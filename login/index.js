@@ -4,8 +4,12 @@ const loginButton = document.querySelector('#login-button')
 
 inputEmail.addEventListener('focusout', noInput);
 inputEmail.addEventListener('focusout', emailCheck);
+inputEmail.addEventListener('keyup', enterKey);
 
 inputPassword.addEventListener('focusout', noInput);
+inputPassword.addEventListener('keyup', enterKey);
+
+loginButton.addEventListener('click', correctInput);
 
 
 // input 없을 때 에러 메세지
@@ -45,5 +49,23 @@ function emailCheck(e) {
       e.target.nextElementSibling.textContent = '올바른 이메일 주소가 아닙니다.';
     }
 
+  }
+}
+
+
+// 이메일, 비밀번호 일치 시 페이지 이동
+function correctInput(e) {
+  if (inputEmail.value === 'test@codeit.com' && inputPassword.value === 'codeit101') {
+    window.location.href = "/folder";
+  } 
+  else {
+    inputEmail.nextElementSibling.textContent = '이메일을 확인해 주세요.';
+    inputPassword.nextElementSibling.textContent = '비밀번호를 확인해 주세요.';
+  }
+}
+
+function enterKey(e) {
+  if (e.keyCode === 13) {
+    correctInput();
   }
 }
