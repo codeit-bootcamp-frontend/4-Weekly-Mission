@@ -23,13 +23,13 @@ const eyeBtnOnclick = (e) => {
     if(eyeBtn.getAttribute('visible') == 'false') {
         eyeBtn.setAttribute('visible', 'true');
         const eyeImg = eyeBtn.querySelector('img');
-        eyeImg.setAttribute('src', '/4-Weekly-Mission/images/eye-on.png');
+        eyeImg.setAttribute('src', '/images/eye-on.png');
         passwordInput.setAttribute('type', 'text');
     }
     else {
         eyeBtn.setAttribute('visible', 'false');
         const eyeImg = eyeBtn.querySelector('img');
-        eyeImg.setAttribute('src', '/4-Weekly-Mission/images/eye-off.png');
+        eyeImg.setAttribute('src', '/images/eye-off.png');
         passwordInput.setAttribute('type', 'password');
     }
 }
