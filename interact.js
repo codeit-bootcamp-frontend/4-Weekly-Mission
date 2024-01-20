@@ -97,3 +97,25 @@ function enterbtn(e){
 inputel.addEventListener('keypress',enterbtn);
 inputel2.addEventListener('keypress',enterbtn);
 
+
+//심화 요구사항 
+//눈 모양 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
+//눈 모양 아이콘 바꾸기
+const icon=document.querySelector('.eyeicon');
+
+function clickicon(){
+  if(inputel2.value){ //비밀번호 값이 있는 경우에만
+
+    if(inputel2.type=='password'){ //서로 바꿔주기
+      inputel2.type='text';
+      icon.src='./images/eye-on.PNG';
+    }
+    else{
+      inputel2.type='password';
+      icon.src='./images/eye-off.svg';
+    }
+
+  }
+}
+
+icon.addEventListener('click',clickicon);
