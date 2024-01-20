@@ -2,6 +2,8 @@ import validateEmailInput from './validate.js';
 
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
+const eyeButton = document.querySelector('.eye-button');
+const submitButton = document.querySelector('.cta');
 
 const addErrorMessage = (parentElement, errorMessage) => {
   const errorTag = document.createElement('p');
@@ -54,5 +56,40 @@ passwordInput.addEventListener('blur', e => {
   } else {
     signInputPasswordBox.classList.add('error');
     addErrorMessage(signInputPasswordBox, '비밀번호를 입력해 주세요.');
+  }
+});
+
+submitButton.addEventListener('click', e => {
+  e.preventDefault();
+  if (emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101') {
+    window.location.href = '../pages/folder.html';
+  } else {
+    const emailBox = emailInput.parentElement;
+    const passwordBox = passwordInput.parentElement;
+    const existingEmailError = emailBox.querySelector('p');
+    const existingPasswordError = passwordBox.querySelector('p');
+    if (existingEmailError) {
+      existingEmailError.innerText = '이메일을 확인해 주세요.';
+    } else {
+      emailBox.classList.add('error');
+      addErrorMessage(emailBox, '이메일을 확인해 주세요.');
+    }
+    if (existingPasswordError) {
+      existingPasswordError.innerText = '비밀번호를 확인해 주세요.';
+    } else {
+      passwordBox.classList.add('error');
+      addErrorMessage(passwordBox, '비밀번호를 확인해 주세요.');
+    }
+  }
+});
+
+eyeButton.addEventListener('click', () => {
+  const imgTag = eyeButton.querySelector('img');
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
+    imgTag.src = '../images/eye-on.svg';
+  } else {
+    passwordInput.type = 'password';
+    imgTag.src = '../images/eye-off.svg';
   }
 });
