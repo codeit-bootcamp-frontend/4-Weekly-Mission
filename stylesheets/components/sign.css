@@ -58,19 +58,18 @@ body {
   max-width: 40rem;
 }
 
-.input-area {
-  margin-bottom: 2.4rem;
+.label {
+  margin: 2.4rem 0 1.2rem;
   line-height: 1.7rem;
   font-size: 1.4rem;
   font-weight: 400;
 }
 
-.input-area:last-of-type {
-  margin-bottom: 3rem;
+.label:first-of-type {
+  margin-top: 0;
 }
 
 .input-group {
-  margin-top: 1.2rem;
   position: relative;
 }
 
@@ -89,6 +88,22 @@ body {
   border: 0.1rem solid var(--color-primary);
 }
 
+.input.error {
+  border: 1px solid var(--color-red);
+}
+
+.msg-error {
+  display: none;
+  margin-top: 0.6rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--color-red);
+}
+
+.show {
+  display: block;
+}
+
 .ico-eye {
   position: absolute;
   top: 50%;
@@ -96,6 +111,10 @@ body {
   width: 1.6rem;
   height: 1.6rem;
   transform: translateY(-50%);
+}
+
+.btn-sign {
+  margin-top: 3rem;
 }
 
 .sns-btn-group {

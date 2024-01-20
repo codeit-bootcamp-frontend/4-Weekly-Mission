@@ -19,22 +19,22 @@
       </header>
 
       <form action="get" class="form-area">
-        <label class="input-area">
-          이메일
-          <div class="input-group">
-            <input type="email" name="email" class="input" />
-          </div>
-        </label>
-        <label class="input-area">
-          비밀번호
-          <div class="input-group password">
-            <input type="password" name="password" class="input" />
-            <button type="button" class="ico-eye">
-              <img src="images/icons/eye-off.svg" alt="비밀번호 보기" />
-            </button>
-          </div>
-        </label>
-        <button type="submit" class="btn">로그인</button>
+        <label class="label" for="email">이메일</label>
+        <div class="input-group">
+          <input type="email" name="email" id="email" class="input" />
+        </div>
+        <p class="msg-error">내용을 다시 작성해주세요</p>
+
+        <label class="label" for="password">비밀번호</label>
+        <div class="input-group password">
+          <input type="password" name="password" id="password" class="input" />
+          <button type="button" class="ico-eye">
+            <img src="images/icons/eye-off.svg" alt="비밀번호 보기" />
+          </button>
+        </div>
+        <p class="msg-error">내용을 다시 작성해주세요</p>
+
+        <button type="submit" class="btn btn-sign">로그인</button>
       </form>
 
       <div class="btn sns-btn-group">
