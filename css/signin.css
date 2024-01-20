@@ -6,20 +6,6 @@ body {
   background-color: var(--background);
 }
 
-/** JS 관련 스타일 **/
-.error-message {
-  font-size: 1.7rem;
-  color: var(--red);
-}
-
-.hidden {
-  display: none;
-}
-
-.error-box {
-  outline-color: var(--red);
-}
-
 /** header **/
 header {
   display: flex;
@@ -83,7 +69,7 @@ label {
   outline-color: var(--primary);
 }
 
-.login-button {
+#login-button {
   border-radius: 0.8rem;
   background: linear-gradient(90deg, var(--primary), #6ae3fe);
   border: none;
@@ -141,4 +127,25 @@ label {
     width: 94vw;
     max-width: 40rem;
   }
+}
+
+/** JS 관련 스타일 **/
+.email-error-message,
+.pw-error-message {
+  font-size: 1.7rem;
+  color: var(--red);
+}
+
+.hidden {
+  display: none;
+}
+
+#email-inputbox.error-box,
+#pw-inputbox.error-box {
+  padding-left: 1rem;
+  padding-right: 4rem;
+  width: 40rem;
+  height: 6rem;
+  border-radius: 0.8rem;
+  border: 0.2rem solid var(--red);
 }

@@ -18,21 +18,21 @@
 
   <main>
     <form method="post" action="" id="login-form">
-      <label class="form" for="input-id">
+      <label id="email-inputbox" class="form" for="input-email">
         <p>이메일</p>
-        <input id="input-id" type="e-mail" />
-        <p class="error-message-email hidden"></p>
+        <input id="email-inputbox" type="e-mail" />
+        <p id="email-error-message hidden"></p>
       </label>
 
-      <label for="input-pw">
+      <label for="pw-inputbox">
         <p>비밀번호</p>
         <div class="password-box">
-          <input id="input-pw" type="password" />
+          <input id="pw-inputbox" type="password" />
           <img id="password-onoff" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" />
         </div>
-        <p class="error-message-password hidden"></p>
+        <p class="pw-error-message hidden"></p>
       </label>
-      <button class="login-button">로그인</button>
+      <button id="login-button">로그인</button>
     </form>
   </main>
 
