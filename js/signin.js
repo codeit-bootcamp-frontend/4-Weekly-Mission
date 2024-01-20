@@ -8,6 +8,8 @@ const password = document.querySelector('#password');
 const signForm = document.querySelector('.sign-form');
 const emailErrorMessage = document.querySelector('.email-error-message');
 const passwordErrorMessage = document.querySelector('.password-error-message');
+const eyeButton = document.querySelector('.eye-button');
+const eyeImage = document.querySelector('.eye-image');
 
 email.addEventListener('focusout', function() {
   let emailInput = this.value.trim();
@@ -50,5 +52,15 @@ signForm.addEventListener('submit', function(event) {
     passwordErrorMessage.style.display = 'block';
     document.querySelector('#email').style.border = '0.1rem solid red';
     document.querySelector('#password').style.border = '0.1rem solid red';
+  }
+})
+
+eyeButton.addEventListener('click', function() {
+  if(password.type === 'password') {
+    password.type = 'text';
+    eyeImage.src = '../../images/eye-on.png';
+  } else {
+    password.type = 'password';
+    eyeImage.src = '../../images/eye-off.svg';
   }
 })
