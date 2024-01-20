@@ -89,13 +89,14 @@ btnlogin.addEventListener('click',logincheck);
 //enter만 추가 이메일과 비밀번호 입력 후 enter를 누를 때 이벤트 처리하도록
 
 function enterbtn(e){
-  if(e.key='Enter'){
+  if(e.key=='Enter'){
     logincheck();
   }
+  //console.log(234234);
 }
 
-inputel.addEventListener('keypress',enterbtn);
-inputel2.addEventListener('keypress',enterbtn);
+inputel.addEventListener('keydown',enterbtn);
+inputel2.addEventListener('keydown',enterbtn);
 
 
 //심화 요구사항 
