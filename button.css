@@ -52,6 +52,7 @@
 
 .button_style {
   border-radius: 8px;
+  border: none;
 }
 
 .button_color {

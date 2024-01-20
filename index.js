@@ -1,11 +1,12 @@
 let email = document.querySelector(".input-email");
 let password = document.querySelector(".input-password");
+let loginButton = document.querySelector(".button-login")
 
 function noInputFocusOut() {
   let container = document.querySelector(".input-form-email");
 
   // 기존 오류 엘리먼트를 삭제
-  let oldErrorMessage = document.querySelector(".errorMessage");
+  let oldErrorMessage = document.querySelector(".errorMessage-emial");
   if (oldErrorMessage) {
       container.removeChild(oldErrorMessage);
   }
@@ -15,12 +16,12 @@ function noInputFocusOut() {
     // 엘리먼트 생성
     let span = document.createElement("span");
     container.appendChild(span);
-    span.classList.add('errorMessage',"empty");
+    span.classList.add('errorMessage-email');
     span.style.color = 'red';
     span.style.position = 'relative';
     span.style.top = '-6px';
     // 텍스트 출력
-    let errorMessage = document.querySelector(".errorMessage");
+    let errorMessage = document.querySelector(".errorMessage-email");
     errorMessage.textContent = '이메일을 입력해 주세요';
   }
 }
@@ -35,11 +36,11 @@ function noInputFocusOutPassword() {
   }
 
   // 동작
-  if (email.value.trim() === "") {
+  if (password.value.trim() === "") {
     // 엘리먼트 생성
     let span = document.createElement("span");
     container.appendChild(span);
-    span.classList.add('errorMessage',"empty");
+    span.classList.add('errorMessage');
     span.style.color = 'red';
     span.style.position = 'relative';
     span.style.top = '-6px';
@@ -54,7 +55,7 @@ function notValidEmailInput() {
   let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   // 기존 오류 엘리먼트를 삭제
-  let oldErrorMessage = document.querySelector(".errorMessage");
+  let oldErrorMessage = document.querySelector(".errorMessage-email");
   if (oldErrorMessage) {
       container.removeChild(oldErrorMessage);
   }
@@ -66,24 +67,24 @@ function notValidEmailInput() {
     // 엘리먼트 생성
     let span = document.createElement("span");
     container.appendChild(span);
-    span.classList.add('errorMessage');
+    span.classList.add('errorMessage-email');
     span.style.color = 'red';
     span.style.position = 'relative';
     span.style.top = '-6px';
     // 텍스트 출력
-    let errorMessage = document.querySelector(".errorMessage");
+    let errorMessage = document.querySelector(".errorMessage-email");
     errorMessage.textContent = '올바른 이메일 주소가 아닙니다';
   }
 }
 
 function focusIn() {
-  let errorMessage = document.querySelector(".errorMessage");
+  let errorMessage = document.querySelector(".errorMessage-email");
   if (errorMessage) {
     errorMessage.remove();
   }
 }
 
-function focusOut() {
+function focusInPassword() {
   let errorMessage = document.querySelector(".errorMessage");
   if (errorMessage) {
     errorMessage.remove();
@@ -92,9 +93,10 @@ function focusOut() {
 
 email.addEventListener("focusout", noInputFocusOut);
 password.addEventListener("focusout", noInputFocusOutPassword);
-email.addEventListener("change", notValidEmailInput);
+email.addEventListener("input", notValidEmailInput);
 email.addEventListener("focusin", focusIn);
-password.addEventListener("focusin", focusIn);
+password.addEventListener("focusin", focusInPassword);
+loginButton.addEventListener("click", folderPage)
 
 // 로그인 시도
 function folderPage() {
@@ -103,7 +105,7 @@ function folderPage() {
 
   if (email.value === folderEmail && password.value === folderPassword) {
     // 로그인 성공 시 "/folder" 페이지로 이동
-    window.location.href = "/folder";
+    window.location.replace("/folder");
   } else {
     // 로그인 실패 시 적절한 처리
     console.log("로그인 실패. 올바른 이메일과 비밀번호를 입력하세요.");
