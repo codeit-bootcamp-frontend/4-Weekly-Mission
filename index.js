@@ -105,7 +105,7 @@ function folderPage() {
 
   if (email.value === folderEmail && password.value === folderPassword) {
     // 로그인 성공 시 "/folder" 페이지로 이동
-    window.location.replace("/folder");
+    window.location.replace("../folder");
   } else {
     // 로그인 실패 시 적절한 처리
     console.log("로그인 실패. 올바른 이메일과 비밀번호를 입력하세요.");
