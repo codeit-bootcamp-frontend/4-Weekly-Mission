@@ -64,6 +64,7 @@ input {
   background: var(--Linkbrary-white);
   margin-top: 12px;
   cursor: pointer;
+  outline: none;
 }
 
 .input-error {
@@ -80,4 +81,25 @@ input {
   border: 1px solid var(--Linkbrary-gray20);
   background: var(--Linkbrary-bg);
   gap: 16px;
+}
+
+.password > img {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  /* 반응형에서 특정 요소의 위치를 지정할 때 어떤 단위를 주로 사용하나요?
+  저는 이 요소 밑에 배경으로 있어야 하는 비밀번호 폼이 px 단위라 
+  우선 px로 해보았는데 궁금합니다!! 그리고 px로 짜둔 코드를 
+  나중에 반응형으로 만드려면 단위를 다시 계산해서 다 바꾸는지
+  궁금합니다..! */
+  left: 320px;
+  top: -35px;
+  margin: 0;
+}
+
+#email-input:focus {
+  border: 1px solid var(--Linkbrary-primary-color);
+}
+#passWord-input:focus {
+  border: 1px solid var(--Linkbrary-primary-color);
 }
