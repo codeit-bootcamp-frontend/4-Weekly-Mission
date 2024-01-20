@@ -130,11 +130,14 @@ function check_id_and_password(e) {
 
 // Toggle Password
 function togglePassword(e) {
+  // Get password input tag by id
   const password = document.getElementById("password");
+  // Get type value which is "password" or "text"
   const type =
     password.getAttribute("type") === "password" ? "text" : "password";
+  // Toggle type
   password.setAttribute("type", type);
-
+  // Change image
   this.src = type === "password" ? "./images/eye-off.svg" : "./images/eye.svg";
 }
 
@@ -147,4 +150,4 @@ passwordInput.addEventListener("mouseout", password_check); // check password fo
 
 form.addEventListener("submit", check_id_and_password); // check email and password when submit
 
-togglePasswordButton.addEventListener("click", togglePassword);
+togglePasswordButton.addEventListener("click", togglePassword); // toggle password
