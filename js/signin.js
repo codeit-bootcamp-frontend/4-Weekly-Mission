@@ -20,33 +20,44 @@ let isToggleEyes = false;
 
 // focus on
 emailInput.addEventListener("focus", function () {
-  inputFocusOn(emailInput, emailValidText);
+  inputFocusBorderChange("focus_on", emailInput, emailValidText);
 });
 pwInput.addEventListener("focus", function () {
-  inputFocusOn(pwInput, pwValidText);
+  inputFocusBorderChange("focus_on", pwInput, pwValidText);
 });
 
 // focus out
 emailInput.addEventListener("focusout", function () {
   if (emailInput.value === "") {
-    inputFocusOutError(emailInput, emailValidText, "이메일을 입력해 주세요.");
+    inputFocusBorderChange(
+      "valid_error",
+      emailInput,
+      emailValidText,
+      "이메일을 입력해 주세요."
+    );
   } else if (!regex.test(emailInput.value)) {
-    inputFocusOutError(
+    inputFocusBorderChange(
+      "valid_error",
       emailInput,
       emailValidText,
       "올바른 이메일 주소가 아닙니다."
     );
   } else {
     isValidId = true;
-    inputFocusOutNone(emailInput, emailValidText);
+    inputFocusBorderChange("none", emailInput, emailValidText);
   }
 });
 pwInput.addEventListener("focusout", function () {
   if (pwInput.value === "") {
-    inputFocusOutError(pwInput, pwValidText, "비밀번호를 입력해 주세요.");
+    inputFocusBorderChange(
+      "valid_error",
+      pwInput,
+      pwValidText,
+      "비밀번호를 입력해 주세요."
+    );
   } else {
     isValidPw = true;
-    inputFocusOutNone(pwInput, pwValidText);
+    inputFocusBorderChange("none", pwInput, pwValidText);
   }
 });
 
@@ -56,8 +67,18 @@ signinForm.addEventListener("submit", function (e) {
   if (emailInput.value === "test@codeit.com" && pwInput.value === "codeit101") {
     window.location.href = "/folder";
   } else {
-    inputFocusOutError(emailInput, emailValidText, "이메일을 확인해 주세요.");
-    inputFocusOutError(pwInput, pwValidText, "비밀번호를 확인해 주세요.");
+    inputFocusBorderChange(
+      "valid_error",
+      emailInput,
+      emailValidText,
+      "이메일을 확인해 주세요."
+    );
+    inputFocusBorderChange(
+      "valid_error",
+      pwInput,
+      pwValidText,
+      "비밀번호를 확인해 주세요."
+    );
   }
 });
 
@@ -74,18 +95,15 @@ pwHiddenBtn.addEventListener("click", function (e) {
   }
 });
 
-function inputFocusOn(input, textElm) {
-  input.style.border = "1px solid #6D6AFE";
-  input.style.outline = "none";
-  textElm.textContent = "";
-}
-function inputFocusOutNone(input, textElm) {
-  input.style.border = "1px solid #CCD5E3";
-  input.style.outline = "none";
-  textElm.textContent = "";
-}
-function inputFocusOutError(input, textElm, text) {
-  input.style.border = "1px solid #FF5B56";
-  input.style.outline = "none";
+// focus 및 action에 따른 input border style changer
+function inputFocusBorderChange(type, inputElm, textElm, text = "") {
+  let borderStyle = "1px solid #CCD5E3";
+  if (type === "focus_on") {
+    borderStyle = "1px solid #6D6AFE";
+  } else if (type === "valid_error") {
+    borderStyle = "1px solid #FF5B56";
+  }
+  inputElm.style.border = borderStyle;
+  inputElm.style.outline = "none";
   textElm.textContent = text;
 }
