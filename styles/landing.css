@@ -251,6 +251,11 @@ footer {
   color: #cfcfcf;
 }
 
+.footer-details a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .footer-icons {
   width: 7.25rem;
   height: 1.25rem;
