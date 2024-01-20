@@ -1,17 +1,15 @@
-class State {
-  _state
+class FormState {
+  #state
   constructor() {
-    this._state = { email: "", password: "" }
+    this.#state = { email: "", password: "" }
   }
-}
 
-class FormState extends State {
   get getState() {
-    return { ...this._state }
+    return { ...this.#state }
   }
 
   set setState({ prop, value }) {
-    this._state[prop] = value
+    this.#state[prop] = value
   }
 }
 
