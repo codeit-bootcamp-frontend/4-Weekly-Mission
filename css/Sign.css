@@ -4,6 +4,10 @@ body {
   background: var(--Linkbrary-bg, #f0f6ff);
 }
 
+.invisible {
+  display: none;
+}
+
 @media (min-width: 375px) and (max-width: 767px) {
   form {
     display: flex;
@@ -68,24 +72,63 @@ body {
     line-height: normal;
   }
 
-  #email {
+  .email {
     margin-top: 1.2rem;
     margin-bottom: 2.4rem;
   }
 
-  #password {
+  .input-error {
+    border-color: var(--red);
+    margin-bottom: 0.6rem;
+  }
+
+  .email-error {
+    /* background-color: blue; */
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--Linkbrary-red);
+  }
+
+  .password-error {
+    /* background-color: blue; */
+    /* margin-bottom: 0.2rem; */
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--Linkbrary-red);
+  }
+
+  .password-box {
+    position: relative;
+  }
+
+  .password {
     margin-top: 1.2rem;
   }
 
-  .eye-image {
+  .eye-off,
+  .eye-on {
+    width: 1.5rem;
+    height: 1.5rem;
     position: absolute;
-    bottom: 1.5rem;
+    top: 3.3rem;
     right: 1.5rem;
   }
 
-  .eye-image-2 {
+  .eye-off.eye-error,
+  .eye-on.eye-error {
     position: absolute;
-    bottom: 12.3rem;
+    top: 3.3rem;
+    right: 1.5rem;
+  }
+
+  .eye-off-2 {
+    position: absolute;
+    top: 3.3rem;
     right: 1.5rem;
   }
 
@@ -210,6 +253,14 @@ body {
     margin-bottom: 3rem;
   }
 
+  .login-container.error {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
   input {
     width: 400px;
     padding: 1.8rem 1.5rem 1.8rem;
@@ -238,14 +289,14 @@ body {
     margin-bottom: 2.4rem;
   }
 
-  .email-error {
+  .input-error {
     border-color: var(--red);
     margin-bottom: 0.6rem;
   }
 
-  .text-error {
+  .email-error {
     /* background-color: blue; */
-    margin-bottom: 0.4rem;
+    margin-bottom: 1rem;
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 400;
@@ -253,19 +304,45 @@ body {
     color: var(--Linkbrary-red);
   }
 
+  .password-error {
+    /* background-color: blue; */
+    /* margin-bottom: 0.2rem; */
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--Linkbrary-red);
+  }
+
+  .password-box {
+    position: relative;
+  }
+
   .password {
     margin-top: 1.2rem;
   }
 
-  .eye-image {
+  .eye-off,
+  .eye-on {
+    width: 1.5rem;
+    height: 1.5rem;
     position: absolute;
-    bottom: 1.5rem;
+    top: 3.3rem;
     right: 1.5rem;
   }
 
-  .eye-image-2 {
+  .eye-off.eye-error,
+  .eye-on.eye-error {
     position: absolute;
-    bottom: 12.3rem;
+    top: 3.3rem;
+    right: 1.5rem;
+  }
+
+  .eye-off-2 {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 3.3rem;
     right: 1.5rem;
   }
 

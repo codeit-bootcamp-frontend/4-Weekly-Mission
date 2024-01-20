@@ -23,14 +23,18 @@
         <div class="login-container">
           <label for="email">이메일</label>
           <input type="email" class="email" />
-          <!-- <p class="ErrorText">이메일을 입력해 주세요</p> -->
           <label for="password">비밀번호</label>
-          <input type="password" class="password" />
-          <a href="" class="eye-image"
-            ><img src="/icons/eye-off.svg" alt=""
-          /></a>
+          <div class="password-box">
+            <input type="password" class="password" />
+            <a href="" class="eye-off"
+              ><img src="/icons/eye-off.svg" alt=""
+            /></a>
+            <a href="" class="eye-on invisible"
+              ><img src="/icons/eye-on.svg" alt=""
+            /></a>
+          </div>
         </div>
-        <button>로그인</button>
+        <button type="button" class="loginBtn">로그인</button>
         <footer>
           <div>소셜 로그인</div>
           <div class="link-box">

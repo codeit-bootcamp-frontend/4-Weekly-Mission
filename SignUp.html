@@ -24,19 +24,23 @@
           <label for="email">이메일</label>
           <input type="email" class="email" />
           <label for="password">비밀번호</label>
-          <input type="password" class="password" />
+          <div class="password-box">
+            <input type="password" class="password" />
+            <a href="" class="eye-off"
+              ><img src="/icons/eye-off.svg" alt=""
+            /></a>
+          </div>
           <label for="password-check" class="password-check-label"
             >비밀번호 확인</label
           >
-          <a href="" class="eye-image"
-            ><img src="/icons/eye-off.svg" alt=""
-          /></a>
-          <input type="password" id="password-check" />
-          <a href="" class="eye-image-2"
-            ><img src="/icons/eye-off.svg" alt=""
-          /></a>
+          <div class="password-box">
+            <input type="password" id="password-check" />
+            <a href="" class="eye-off-2"
+              ><img src="/icons/eye-off.svg" alt=""
+            /></a>
+          </div>
         </div>
-        <button>로그인</button>
+        <button type="button">로그인</button>
         <footer>
           <div>다른 방식으로 가입하기</div>
           <div class="link-box">
@@ -50,6 +54,5 @@
         </footer>
       </div>
     </form>
-    <script src="script/sign.js"></script>
   </body>
 </html>
