@@ -13,7 +13,7 @@ input{
 .fullLayout-screen{
     min-height: 100vh;
     width: 100%;
-    background-color: var(--clr-lg);
+    background-color: var(--clr-bg);
 }
 
 .sublayout-container{
@@ -59,13 +59,13 @@ input{
     width:100%;
     padding: 1.8rem  4rem 1.8rem 1.5rem;
     border-radius: 0.8rem;
-    border: 1px solid var(--clr-mg);
+    border: 1px solid var(--clr-gray20);
     font-size: 1.6rem;
     line-height: 2.4rem;
 }
 
 #email.error, #password.error{
-    border:1px solid #FF5B56;
+    border:1px solid var(--clr-rd);
 }
 
 .error-message{
@@ -84,17 +84,21 @@ input{
 }
 
 .error-message{
-    color:#FF5B56;
+    color:var(--clr-rd);
     font-size: 1.3rem;
     margin-top: 1rem;
 }
 
 .show-password{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top:50%;
     transform: translateY(-50%);
     right:5%;
     cursor: pointer;
+   
 }
 
 #submit-btn{
@@ -113,10 +117,10 @@ input{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #E7EFFB;
+    background: var(--clr-gray10);
     font-size: 1.4rem;
     border-radius: 8px;
-    border:1px solid  #CCD5E3;
+    border:1px solid  var(--clr-gray20);
 }
 
 .social-icon__box{
@@ -134,15 +138,16 @@ input{
 }
 
 .social-icon.google{
-    background:#fff ;
+    background:var(--clr-wt) ;
 }
 .social-icon.kakao{
     background:rgba(245, 225, 75, 1) ;
 }
 
 
+/* 모바일 화면 css */
 @media screen and (max-width :48rem) {
-    .fullscreenlayout{
+    .fullLayout-screen{
         padding: 0px 3.2rem;
     }
     .sublayout-container{
