@@ -18,17 +18,19 @@
 
   <main>
     <form method="post" action="" id="login-form">
-      <label class="form" for="login-id">
+      <label class="form" for="input-id">
         <p>이메일</p>
-        <input type="e-mail" />
+        <input id="input-id" type="e-mail" />
+        <p class="error-message-email hidden"></p>
       </label>
 
-      <label for="login-password">
+      <label for="input-pw">
         <p>비밀번호</p>
         <div class="password-box">
-          <input type="password" />
-          <a href=""><img class="password-onoff" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" /></a>
+          <input id="input-pw" type="password" />
+          <img id="password-onoff" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" />
         </div>
+        <p class="error-message-password hidden"></p>
       </label>
       <button class="login-button">로그인</button>
     </form>
@@ -43,7 +45,7 @@
       </div>
     </div>
   </footer>
-
+  <script src="./js/signin.js"></script>
 </body>
 
 </html>

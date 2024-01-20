@@ -20,22 +20,25 @@
     <form method="post" action="" id="signup-form">
       <label for="signup-id">
         <p>이메일</p>
-        <input id="signup-id" type="e-mail" />
+        <input id="signup-id" name="email" type="e-mail" />
+        <p class="error-message-email hidden"></p>
       </label>
 
       <label for="signup-password">
         <p>비밀번호</p>
         <div class="password-box">
-          <input id="signup-password" type="password" />
-          <a href=""><img class="password-onoff" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" /></a>
+          <input id="signup-password" name="password" type="password" />
+          <img id="password-onoff" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" />
         </div>
+        <p class="error-message-email hidden"></p>
       </label>
 
       <label for="repeat-password">
         <p>비밀번호 확인</p>
         <div class="password-box">
-          <input type="password" id="repeat-password" />
-          <a href=""><img class="password-onoff" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" /></a>
+          <input type="password" name="repeat-password" id="repeat-password" />
+          <img class="password-onoff" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" />
+          <p class="error-message-email hidden"></p>
         </div>
       </label>
       <button class="signup-button">회원가입</button>

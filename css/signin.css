@@ -6,6 +6,20 @@ body {
   background-color: var(--background);
 }
 
+/** JS 관련 스타일 **/
+.error-message {
+  font-size: 1.7rem;
+  color: var(--red);
+}
+
+.hidden {
+  display: none;
+}
+
+.error-box {
+  outline-color: var(--red);
+}
+
 /** header **/
 header {
   display: flex;
@@ -51,11 +65,12 @@ label {
   position: relative;
 }
 
-.password-onoff {
+#password-onoff {
   width: 1.6rem;
   position: absolute;
   top: 2.2rem;
   right: 1.5rem;
+  cursor: pointer;
 }
 
 #login-form input {
