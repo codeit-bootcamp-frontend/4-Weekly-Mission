@@ -33,10 +33,8 @@ const isPwFormat = (pw) => {
 const validateEmail = () => {
   const emailValue = emailInput.value.trim();
 
-  if (emailValue === '')
-    applyError(emailError, SIGN.REQUIRED_EMAIL, emailInput);
-  else if (!isEmailFormat(emailValue))
-    applyError(emailError, SIGN.INVALID_EMAIL_FORMAT, emailInput);
+  if (emailValue === '') applyError(emailError, SIGN.REQUIRED_EMAIL, emailInput);
+  else if (!isEmailFormat(emailValue)) applyError(emailError, SIGN.INVALID_EMAIL_FORMAT, emailInput);
   else resetError(emailError, emailInput);
 };
 
@@ -44,8 +42,7 @@ const validatePw = () => {
   const pwValue = pwInput.value.trim();
 
   if (pwValue === '') applyError(pwError, SIGN.REQUIRED_PASSWORD, pwInput);
-  else if (!isPwFormat(pwValue))
-    applyError(pwError, SIGN.INVALID_PW_FORMAT, pwInput);
+  else if (!isPwFormat(pwValue)) applyError(pwError, SIGN.INVALID_PW_FORMAT, pwInput);
   else resetError(pwError, pwInput);
 };
 
