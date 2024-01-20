@@ -130,8 +130,8 @@ label {
 }
 
 /** JS 관련 스타일 **/
-.email-error-message,
-.pw-error-message {
+#email-error-message,
+#pw-error-message {
   font-size: 1.7rem;
   color: var(--red);
 }
@@ -140,8 +140,7 @@ label {
   display: none;
 }
 
-#email-inputbox.error-box,
-#pw-inputbox.error-box {
+#email-inputbox.error-box {
   padding-left: 1rem;
   padding-right: 4rem;
   width: 40rem;
