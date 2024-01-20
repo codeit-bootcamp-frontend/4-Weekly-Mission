@@ -15,4 +15,14 @@ export default class DOMHandler {
       element.after(textTag);
     }
   };
+  /**
+   * html: 텍스트 내용 변경
+   * @param {string} query -  cssSelector
+   * @param {string} text - 변경할 text
+   */
+  static changeValue = (query, text) => {
+    /** @type {HTMLInputElement | null} element*/
+    const element = document.querySelector(query);
+    if (element) element.innerText = text;
+  };
 }

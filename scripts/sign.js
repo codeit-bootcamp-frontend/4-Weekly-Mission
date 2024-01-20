@@ -2,7 +2,7 @@
 import StyleHandler from './library/style.js';
 import InputHandler from './library/input.js';
 import KeyHandler from './library/keyEvent.js';
-import DomHandler from './library/DOM.js';
+import DOMHandler from './library/DOM.js';
 import {
   DEFAULT_BORDER_COLOR,
   EMAIL_REGEX,
@@ -40,8 +40,8 @@ const handleEmailFocusOut = () => {
     return StyleHandler.borderColor(loginEmailQuery, DEFAULT_BORDER_COLOR);
   StyleHandler.display(emailErrorQuery, 'block');
   StyleHandler.borderColor(loginEmailQuery, ERROR_BORDER_COLOR);
-  if (InputHandler.isEmptyValue(loginEmailQuery)) InputHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.empty);
-  else InputHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.invalid);
+  if (InputHandler.isEmptyValue(loginEmailQuery)) DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.empty);
+  else DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.invalid);
 };
 
 const handlePasswordFocusIn = () => {
@@ -51,7 +51,7 @@ const handlePasswordFocusIn = () => {
 
 const handlePasswordFocusOut = () => {
   if (InputHandler.isEmptyValue(loginPasswordQuery)) {
-    InputHandler.changeValue(passwordErrorQuery, PASSWORD_MESSAGE.empty);
+    DOMHandler.changeValue(passwordErrorQuery, PASSWORD_MESSAGE.empty);
     StyleHandler.display(passwordErrorQuery, 'block');
     StyleHandler.borderColor(loginPasswordQuery, ERROR_BORDER_COLOR);
   } else StyleHandler.borderColor(loginPasswordQuery, DEFAULT_BORDER_COLOR);
@@ -68,8 +68,8 @@ const handleLogin = () => {
     )
       return loginAction();
   }
-  InputHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.fail);
-  InputHandler.changeValue(passwordErrorQuery, PASSWORD_MESSAGE.fail);
+  DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.fail);
+  DOMHandler.changeValue(passwordErrorQuery, PASSWORD_MESSAGE.fail);
   StyleHandler.display(emailErrorQuery, 'block');
   StyleHandler.display(passwordErrorQuery, 'block');
   StyleHandler.borderColor(loginPasswordQuery, ERROR_BORDER_COLOR);
@@ -97,9 +97,9 @@ const handleImgeClick = () => {
   }
 };
 
-DomHandler.addTextAfter(loginEmailQuery, emailErrorQuery, '');
+DOMHandler.addTextAfter(loginEmailQuery, emailErrorQuery, '');
 StyleHandler.display(emailErrorQuery, 'none');
-DomHandler.addTextAfter('.login__div--password', passwordErrorQuery, '');
+DOMHandler.addTextAfter('.login__div--password', passwordErrorQuery, '');
 StyleHandler.display(passwordErrorQuery, 'none');
 loginEmail?.addEventListener('focusout', handleEmailFocusOut);
 loginEmail?.addEventListener('focusin', handleEmailFocusIn);
