@@ -20,16 +20,30 @@ function validateEmail() {
   }
 
   if (emailInput.value === "") {
-    createErrorMessage("이메일을 입력해 주세요.");
-  } else if (!validationEmail(emailInput.value)) {
-    createErrorMessage("올바른 이메일 주소가 아닙니다.");
+    createErrorMessage("이메일을 입력해 주세요.", emailInput);
+  } else if (!validateEmail(emailInput.value)) {
+    createErrorMessage("올바른 이메일 주소가 아닙니다.", emailInput);
+  }
+}
+
+passwordInput.addEventListener("focusout", validatePassword);
+
+function validatePassword() {
+  const passwordError = passwordInput.parentElement.querySelector(".error-message");
+
+  if (passwordError) {
+    passwordError.remove();
+  }
+
+  if (passwordInput.value === "") {
+    createErrorMessage("비밀번호를 입력해 주세요.", passwordInput);
   }
 }
 
 // 공통된 에러 메시지 생성 함수
-function createErrorMessage(message) {
+function createErrorMessage(message, inputElement) {
   const newError = document.createElement("p");
   newError.textContent = message;
   newError.classList.add("error-message");
-  emailInput.parentElement.appendChild(newError);
+  inputElement.parentElement.appendChild(newError);
 }
