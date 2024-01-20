@@ -1,6 +1,6 @@
 const inputEmail = document.querySelector('#login-email');
 const inputPassword = document.querySelector('#login-password');
-const loginButton = document.querySelector('#login-button')
+const loginButton = document.querySelector('#login-button');
 
 inputEmail.addEventListener('focusout', noInput);
 inputEmail.addEventListener('focusout', emailCheck);
