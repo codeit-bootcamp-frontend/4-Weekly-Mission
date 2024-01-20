@@ -6,29 +6,31 @@ function isValidEmail(email) {
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 const signForm = document.querySelector('.sign-form');
+const emailErrorMessage = document.querySelector('.email-error-message');
+const passwordErrorMessage = document.querySelector('.password-error-message');
 
 email.addEventListener('focusout', function() {
   let emailInput = this.value.trim();
-  let emailErrorMessage = document.querySelector('.email-error-message');
   let emailFormatErrorMessage = document.querySelector('.email-format-error-message');
+  
   if (emailInput === '') {
     emailErrorMessage.style.display = 'block';
     emailFormatErrorMessage.style.display = 'none';
-    document.querySelector('.sign-input').style.border = '0.1rem solid red';
+    document.querySelector('#email').style.border = '0.1rem solid red';
   } else if(!isValidEmail(emailInput)) {
     emailErrorMessage.style.display = 'none';
     emailFormatErrorMessage.style.display = 'block';
-    document.querySelector('.sign-input').style.border = '0.1rem solid red';
+    document.querySelector('#email').style.border = '0.1rem solid red';
   } else {
     emailErrorMessage.style.display = 'none';
     emailFormatErrorMessage.style.display = 'none';
-    document.querySelector('.sign-input').style.border = '0.1rem solid var(--gray20)';
+    document.querySelector('#email').style.border = '0.1rem solid var(--gray20)';
   }
 });
 
 password.addEventListener('focusout', function() {
-  let passwordErrorMessage = document.querySelector('.password-error-message');
   let passwordInput = this.value.trim();
+
   if (passwordInput === '') {
     passwordErrorMessage.style.display = 'block';
     document.querySelector('#password').style.border = '0.1rem solid red';
@@ -39,9 +41,6 @@ password.addEventListener('focusout', function() {
 });
 
 signForm.addEventListener('submit', function(event) {
-  let emailErrorMessage = document.querySelector('.email-error-message');
-  let passwordErrorMessage = document.querySelector('.password-error-message');
-  
   event.preventDefault();
 
   if(email.value === 'test@codeit.com' && password.value === 'codeit101') {
@@ -49,7 +48,7 @@ signForm.addEventListener('submit', function(event) {
   } else {
     emailErrorMessage.style.display = 'block';
     passwordErrorMessage.style.display = 'block';
-    document.querySelector('.sign-input').style.border = '0.1rem solid red';
+    document.querySelector('#email').style.border = '0.1rem solid red';
     document.querySelector('#password').style.border = '0.1rem solid red';
   }
 })
