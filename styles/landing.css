@@ -231,7 +231,7 @@ footer {
   align-items: flex-start;
   flex-shrink: 0;
   align-self: stretch;
-  background: var(--Linkbrary-Black, #111322);
+  background: var(--Linkbrary-black, #111322);
 
   font-family: Acme;
   font-size: 1rem;
