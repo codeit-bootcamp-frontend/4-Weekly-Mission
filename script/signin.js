@@ -6,9 +6,10 @@ const passwordInput = document.querySelector(".sign-password input");
 const emailErrorMessage = document.querySelector(".sign-email-error");
 const passwordErrorMessage = document.querySelector(".sign-password-error");
 
+const eyeIcon = document.querySelector(".eye-icon");
 const loginBtn = document.querySelector(".sign-btn");
 
-// focusout events
+// emailInput focusout events
 emailInput.addEventListener("focusout", () => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (emailInput.value === "") {
@@ -20,6 +21,7 @@ emailInput.addEventListener("focusout", () => {
   }
 });
 
+// passwordInput focusout events
 passwordInput.addEventListener("focusout", () => {
   if (passwordInput.value.trim() === "") {
     passwordErrorMessage.textContent = "비밀번호를 입력해 주세요";
@@ -45,4 +47,15 @@ loginBtn.addEventListener("click", (event) => {
     }
   }
   event.preventDefault();
+});
+
+//eye-icon click event
+eyeIcon.addEventListener("click", () => {
+  const passwordType =
+    passwordInput.getAttribute("type") === "password" ? "text" : "password";
+  passwordInput.setAttribute("type", passwordType);
+
+  passwordType === "password"
+    ? eyeIcon.setAttribute("src", "../assets/svg/eye-off.svg")
+    : eyeIcon.setAttribute("src", "../assets/svg/eye-on.svg");
 });
