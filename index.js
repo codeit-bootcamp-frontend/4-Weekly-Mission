@@ -19,6 +19,9 @@ const signInButton = document.querySelector(".cta");
 // Form Tag
 const form = document.querySelector(".sign-form");
 
+// Toggle Password Button
+const togglePasswordButton = document.getElementById("toggle-password");
+
 // Check Email Input area is Empty or Right email format when mouseout
 function email_check(e) {
   // When Email is Empty
@@ -72,8 +75,11 @@ function password_check(e) {
 
 // Check Email Format (regex)
 function email_format_check(email) {
+  // regex that check email format
   var regex =
     /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+
+  // if email is not empty and not undefined and email format is right, return true
   return email != "" && email != "undefined" && regex.test(email);
 }
 
@@ -85,15 +91,20 @@ function remove_error_message(e) {
   }
 }
 
+// Check Email and Password when id = "test@codeit" and password = "codeit101"
 function check_id_and_password(e) {
+  // block default behavior
   e.preventDefault();
+
+  // check email and password
   if (
     emailInput.value === "test@codeit.com" &&
     passwordInput.value === "codeit101"
   ) {
     console.log("로그인 성공");
-    window.location.href = "success.html";
+    window.location.href = "success.html"; // redirect to success.html
   } else {
+    // Create div tag for email error message
     const div1 = document.createElement("div");
     // Add class
     div1.classList.add("error");
@@ -104,7 +115,7 @@ function check_id_and_password(e) {
     // Append div tag to emailInputContainer
     emailInputContainer.append(div1);
 
-    // Create div tag
+    // Create div tag for password error message
     const div2 = document.createElement("div");
     // Add class
     div2.classList.add("error");
@@ -117,12 +128,23 @@ function check_id_and_password(e) {
   }
 }
 
-console.log(form);
+// Toggle Password
+function togglePassword(e) {
+  const password = document.getElementById("password");
+  const type =
+    password.getAttribute("type") === "password" ? "text" : "password";
+  password.setAttribute("type", type);
 
-emailInput.addEventListener("mouseover", remove_error_message);
-emailInput.addEventListener("mouseout", email_check);
+  this.src = type === "password" ? "./images/eye-off.svg" : "./images/eye.svg";
+}
 
-passwordInput.addEventListener("mouseover", remove_error_message);
-passwordInput.addEventListener("mouseout", password_check);
+// Event Listener
+emailInput.addEventListener("mouseover", remove_error_message); // remove error message when mouseover
+emailInput.addEventListener("mouseout", email_check); // check email format when mouseout
 
-form.addEventListener("submit", check_id_and_password);
+passwordInput.addEventListener("mouseover", remove_error_message); // remove error message when mouseover
+passwordInput.addEventListener("mouseout", password_check); // check password format when mouseout
+
+form.addEventListener("submit", check_id_and_password); // check email and password when submit
+
+togglePasswordButton.addEventListener("click", togglePassword);
