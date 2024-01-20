@@ -131,6 +131,6 @@ inputEmail.addEventListener("focusin", removeIfEmailError);
 inputPassword.addEventListener("focusout", addPasswordError);
 inputPassword.addEventListener("focusin", removeIfPasswordError);
 loginBtn.addEventListener("click", Login);
-loginContainer.addEventListener("keypress", enterLogin);
+document.body.addEventListener("keypress", enterLogin);
 eyeOff.addEventListener("click", eyeClick);
 eyeOn.addEventListener("click", eyeClick);
