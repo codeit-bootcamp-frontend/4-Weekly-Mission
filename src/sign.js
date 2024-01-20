@@ -8,6 +8,8 @@ const pPwd = document.createElement("p");
 const testEmail = "test@codeit.com";
 const testPwd = "codeit101";
 
+const eyeImg = document.querySelector(".eye");
+
 function reset_Ptag() {
   email.after(pEmail);
   pEmail.classList.add("errorMsg");
@@ -52,7 +54,17 @@ function submitForm(e) {
   }
 }
 
+function eyeClickHandler() {
+  eyeImg.classList.toggle("on");
+  if (eyeImg.classList.contains("on")) {
+    password.removeAttribute("type");
+  } else {
+    password.setAttribute("type", "password");
+  }
+}
+
 reset_Ptag();
 email.addEventListener("focusout", focusOutEmail);
 password.addEventListener("focusout", focusOutPwd);
 form.addEventListener("submit", submitForm);
+eyeImg.addEventListener("click", eyeClickHandler);
