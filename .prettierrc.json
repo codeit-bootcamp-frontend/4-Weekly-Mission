@@ -1,7 +1,7 @@
 {
   "arrowParens": "avoid",
   "bracketSpacing": true,
-  "bracketSameLine":true,
+  "bracketSameLine": true,
   "endOfLine": "auto",
   "jsxBracketSameLine": true,
   "jsxSingleQuote": true,
@@ -11,4 +11,3 @@
   "tabWidth": 2,
   "trailingComma": "none"
 }
-

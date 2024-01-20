@@ -140,9 +140,7 @@
 
 .section__gradient--tertiary {
   color: transparent;
-  background: linear-gradient(99deg,
-      #6d7ccd 19.76%,
-      rgb(82 136 133 / 22%) 52.69%);
+  background: linear-gradient(99deg, #6d7ccd 19.76%, rgb(82 136 133 / 22%) 52.69%);
   background-clip: text;
 }
 

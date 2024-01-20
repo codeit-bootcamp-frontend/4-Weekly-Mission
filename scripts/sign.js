@@ -1,90 +1,111 @@
 //@ts-check
-import { changeBorderColor, changeDisplay } from './library/style.js';
-import { getElement } from './library/document.js';
-import { addTextAfter, changeText, isMatchValue, isValidate } from './library/text.js';
-
-const USERS = [{ id: 'test@codeit.com', password: 'codeit101' }];
+import StyleHandler from './library/style.js';
+import InputHandler from './library/input.js';
+import KeyHandler from './library/keyEvent.js';
+import DomHandler from './library/DOM.js';
+import {
+  DEFAULT_BORDER_COLOR,
+  EMAIL_REGEX,
+  EMAIL_MESSAGE,
+  ERROR_BORDER_COLOR,
+  FOCUS_BORDER_COLOR,
+  SHOW_PASSWORD_ICON,
+  USERS,
+  PASSWORD_MESSAGE,
+  loginAction
+} from './signConfig.js';
 
 const loginEmailQuery = '.login__input--email';
 const loginPasswordQuery = '.login__input--password';
 const emailErrorQuery = '.email__error';
 const passwordErrorQuery = '.password__error';
 const loginBtnQuery = '.login__btn';
-const regEx = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
-const loginEmail = getElement(loginEmailQuery);
-const loginPassword = getElement(loginPasswordQuery);
-const loginBtn = getElement(loginBtnQuery);
-const eyeImg = getElement('.eye-img');
+
+/** @type {HTMLInputElement | null}*/
+const loginEmail = document.querySelector(loginEmailQuery);
+/** @type {HTMLInputElement | null}*/
+const loginPassword = document.querySelector(loginPasswordQuery);
+/** @type {HTMLButtonElement | null}*/
+const loginBtn = document.querySelector(loginBtnQuery);
+/** @type {HTMLImageElement | null}*/
+const eyeImg = document.querySelector('.eye-img');
 
 const handleEmailFocusIn = () => {
-  changeDisplay(emailErrorQuery, 'none');
-  changeBorderColor(loginEmailQuery, 'var(--color-primary)');
+  StyleHandler.display(emailErrorQuery, 'none');
+  StyleHandler.borderColor(loginEmailQuery, FOCUS_BORDER_COLOR);
 };
 
 const handleEmailFocusOut = () => {
-  if (isValidate(loginEmailQuery, regEx)) return changeBorderColor(loginEmailQuery, 'var(--color-gray-500)');
-  changeDisplay(emailErrorQuery, 'block');
-  changeBorderColor(loginEmailQuery, 'var(--color-red)');
-  if (isMatchValue(loginEmailQuery, '')) changeText(emailErrorQuery, '이메일을 입력해 주세요.');
-  else changeText(emailErrorQuery, '올바른 이메일 주소가 아닙니다.');
+  if (InputHandler.isMatchRegEx(loginEmailQuery, EMAIL_REGEX))
+    return StyleHandler.borderColor(loginEmailQuery, DEFAULT_BORDER_COLOR);
+  StyleHandler.display(emailErrorQuery, 'block');
+  StyleHandler.borderColor(loginEmailQuery, ERROR_BORDER_COLOR);
+  if (InputHandler.isEmptyValue(loginEmailQuery)) InputHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.empty);
+  else InputHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.invalid);
 };
 
 const handlePasswordFocusIn = () => {
-  changeDisplay(passwordErrorQuery, 'none');
-  changeBorderColor(loginPasswordQuery, 'var(--color-primary)');
+  StyleHandler.display(passwordErrorQuery, 'none');
+  StyleHandler.borderColor(loginPasswordQuery, FOCUS_BORDER_COLOR);
 };
 
 const handlePasswordFocusOut = () => {
-  if (isMatchValue(loginPasswordQuery, '')) {
-    changeText(passwordErrorQuery, '비밀번호를 입력해 주세요');
-    changeDisplay(passwordErrorQuery, 'block');
-    changeBorderColor(loginPasswordQuery, 'var(--color-red)');
-  } else changeBorderColor(loginPasswordQuery, 'var(--color-gray-500)');
+  if (InputHandler.isEmptyValue(loginPasswordQuery)) {
+    InputHandler.changeValue(passwordErrorQuery, PASSWORD_MESSAGE.empty);
+    StyleHandler.display(passwordErrorQuery, 'block');
+    StyleHandler.borderColor(loginPasswordQuery, ERROR_BORDER_COLOR);
+  } else StyleHandler.borderColor(loginPasswordQuery, DEFAULT_BORDER_COLOR);
 };
 
-const handleLoginClick = () => {
-  if (isValidate(loginEmailQuery, regEx)) {
-    if (USERS.some(user => isMatchValue(loginEmailQuery, user.id) && isMatchValue(loginPasswordQuery, user.password)))
-      return (window.location.href = '../pages/folder.html');
+const handleLogin = () => {
+  if (InputHandler.isMatchRegEx(loginEmailQuery, EMAIL_REGEX)) {
+    if (
+      USERS.some(
+        user =>
+          InputHandler.isMatchValue(loginEmailQuery, user.id) &&
+          InputHandler.isMatchValue(loginPasswordQuery, user.password)
+      )
+    )
+      return loginAction();
   }
-  changeText(emailErrorQuery, '이메일을 확인해 주세요.');
-  changeText(passwordErrorQuery, '비밀번호를 확인해 주세요');
-  changeDisplay(emailErrorQuery, 'block');
-  changeDisplay(passwordErrorQuery, 'block');
-  changeBorderColor(loginPasswordQuery, 'var(--color-red)');
-  changeBorderColor(loginEmailQuery, 'var(--color-red)');
-};
-
-const handleImgeClick = () => {
-  if (loginPassword.type === 'password') {
-    loginPassword.type = 'text';
-    eyeImg.src = '../assets/icons/eye-on.svg';
-    eyeImg.alt = 'eye-on';
-  } else {
-    loginPassword.type = 'password';
-    eyeImg.src = '../assets/icons/eye-off.svg';
-    eyeImg.alt = 'eye-off';
-  }
+  InputHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.fail);
+  InputHandler.changeValue(passwordErrorQuery, PASSWORD_MESSAGE.fail);
+  StyleHandler.display(emailErrorQuery, 'block');
+  StyleHandler.display(passwordErrorQuery, 'block');
+  StyleHandler.borderColor(loginPasswordQuery, ERROR_BORDER_COLOR);
+  StyleHandler.borderColor(loginEmailQuery, ERROR_BORDER_COLOR);
 };
 
 /**
- * @param {KeyboardEvent} event - asdf
- * */
-const handleKeyUp = event => {
-  if (event.key === 'Enter') {
-    loginBtn.click();
+ * @param {KeyboardEvent} event
+ */
+const handleEnter = event => {
+  if (!loginBtn) return;
+  KeyHandler.enter(event, () => loginBtn.click());
+};
+
+const handleImgeClick = () => {
+  if (!loginPassword || !eyeImg) return;
+  if (loginPassword.type === 'password') {
+    loginPassword.type = 'text';
+    eyeImg.src = SHOW_PASSWORD_ICON.visible.src;
+    eyeImg.alt = SHOW_PASSWORD_ICON.visible.alt;
+  } else {
+    loginPassword.type = 'password';
+    eyeImg.src = SHOW_PASSWORD_ICON.invisible.src;
+    eyeImg.alt = SHOW_PASSWORD_ICON.invisible.alt;
   }
 };
 
-addTextAfter(loginEmailQuery, emailErrorQuery, '');
-changeDisplay(emailErrorQuery, 'none');
-addTextAfter('.login__div--password', passwordErrorQuery, '');
-changeDisplay(emailErrorQuery, 'none');
+DomHandler.addTextAfter(loginEmailQuery, emailErrorQuery, '');
+StyleHandler.display(emailErrorQuery, 'none');
+DomHandler.addTextAfter('.login__div--password', passwordErrorQuery, '');
+StyleHandler.display(passwordErrorQuery, 'none');
 loginEmail?.addEventListener('focusout', handleEmailFocusOut);
 loginEmail?.addEventListener('focusin', handleEmailFocusIn);
-loginEmail?.addEventListener('keyup', handleKeyUp);
+loginEmail?.addEventListener('keydown', handleEnter);
 loginPassword?.addEventListener('focusout', handlePasswordFocusOut);
 loginPassword?.addEventListener('focusin', handlePasswordFocusIn);
-loginPassword?.addEventListener('keyup', handleKeyUp);
+loginPassword?.addEventListener('keydown', handleEnter);
 eyeImg?.addEventListener('click', handleImgeClick);
-loginBtn?.addEventListener('click', handleLoginClick);
+loginBtn?.addEventListener('click', handleLogin);
