@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signin</title>
+    <link rel="stylesheet" href="/4-Weekly-Mission/styles/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="signin-wrapper">
+        <header>
+            <a href="/4-Weekly-Mission/index.html" class="login-name"><img src="/4-Weekly-Mission/images/logo.svg" alt="main logo"></a>
+            <p>회원이 아니신가요? <a href="/4-Weekly-Mission/pages/singup.html">회원 가입하기</a></p>
+        </header>
+        <form>
+            <section id="email">
+                <label>
+                    <p class="signin-tag">이메일</p>
+                    <input id="email-input">
+                </label>
+            </section>
+            <section id="password">
+                <label>
+                    <p class="signin-tag">비밀번호</p>
+                    <input id = 'password-input' type="password">
+                    <button id = 'password-eye-button' class="eyes" type="button" visible = 'false'><img src="/4-Weekly-Mission/images/eye-off.png" alt="eye icon"></button>
+                </label>
+            </section>
+            <button id = 'login-button' type="button" class="button">로그인</button>
+        </form>
+        <article>
+            <p>소셜 로그인</p>
+            <div class="social-icon">
+                <a href="https://www.google.com">
+                    <div class="google-icon">
+                        <img src="/4-Weekly-Mission/images/google.png" alt="google icon">
+                    </div>
+                </a>
+                <a href="https://www.kakaocorp.com/page/">
+                    <div class="kakao-icon">
+                        <img src="/4-Weekly-Mission/images/kakao.svg" alt="kakao icon">
+                    </div>
+                </a>
+            </div>
+        </article>  
+    </div>
+</body>
+</html>
