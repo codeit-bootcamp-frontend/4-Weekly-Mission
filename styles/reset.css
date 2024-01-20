@@ -10,12 +10,12 @@ body {
 }
 
 a {
-  text-decoration-line: none;
   cursor: pointer;
 }
 
 a:visited {
   text-decoration-line: none;
+  color: white;
 }
 
 input:focus {

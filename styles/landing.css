@@ -1,19 +1,18 @@
 @import './reset.css';
 @import './colors.css';
 
-header {
-  background-color: var(--bg-color);
-  position: fixed;
-  width: 100%;
+a {
+  text-decoration-line: none;
 }
 
-.navbar {
+nav {
   background-color: var(--bg-color);
   display: flex;
-  padding: 20px 200px;
+  position: fixed;
+  width: 100%;
+  padding: 20px 160px;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
   align-self: stretch;
 }
 
@@ -46,9 +45,9 @@ header {
   line-height: normal;
 }
 
-.contents-01 {
+header {
   display: flex;
-  width: 1920px;
+  width: 100%;
   padding: 150px 360px 0px 360px;
   flex-direction: column;
   justify-content: flex-end;
@@ -92,7 +91,7 @@ header {
   line-height: normal;
 }
 
-.contents-02 {
+.contents-01 {
   display: flex;
   padding: 120px 461px 50px 461px;
   justify-content: center;
@@ -166,9 +165,8 @@ footer {
   flex-direction: column;
   align-items: center;
   align-self: stretch;
-  border-radius: 30px;
-  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.02);
-  color: white;
+  color: var(--text-white);
+  font-size: 1rem;
 }
 
 .footer-frame {
@@ -189,6 +187,10 @@ footer {
   align-self: stretch;
 }
 
+.footer-frame .codeit {
+  color: var(--text-sm-color);
+}
+
 .footer-frame-center {
   display: flex;
   width: 181.111px;
@@ -204,122 +206,25 @@ footer {
 
 /* Media Query */
 
-/*  모바일 버전 (375~767px) */
-@media (min-width: 375px) and (max-width: 767px) {
-  .navbar {
-    display: flex;
-    padding: 13px 32px;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    align-self: stretch;
-  }
-
-  .contents-01 {
-    width: 100%;
-    display: flex;
-    padding: 160px 250px 0px 251px;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .add-link {
-    color: var(--Grey-Light);
-    font-family: Pretendard;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    border-radius: 8px;
-    background: var(--gra-purpleblue-to-skyblue);
-  }
-
-  .img-box {
-    width: 680px;
-    height: 342px;
-  }
-
-  .img-box img {
-    width: 680px;
-    height: 342px;
-    flex-shrink: 0;
-  }
-
-  .contents-02 {
-    display: flex;
-    padding: 40px 32px 36px 33px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .contents {
-    display: flex;
-    padding: 40px 0px 40px 0px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .frame {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 24px;
-  }
-
-  .frame-text.text-lg {
-    font-family: Pretendard;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -0.3px;
-  }
-
-  .frame-text .text-sm {
-    font-family: Pretendard;
-    font-size: 18px;
-    font-weight: 500;
-  }
-}
-
 /*  Tablet 버전 (768~1199px) */
 @media (min-width: 768px) and (max-width: 1199px) {
-  .navbar {
-    background-color: var(--bg-color);
-    display: flex;
+  nav {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 8px;
-    align-self: stretch;
   }
 
   .navbar-box {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    align-self: stretch;
     width: 800px;
   }
 
-  .contents-01 {
-    width: 100%;
-    display: flex;
-    padding: 160px 250px 0px 251px;
+  header {
+    padding: 120px 250px 0px 251px;
     justify-content: center;
-    align-items: center;
   }
 
   .headline {
-    text-align: center;
-    font-family: Pretendard;
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 80px; /* 125% */
+    font-size: 50px;
     width: 70vh;
   }
 
@@ -334,11 +239,8 @@ footer {
     flex-shrink: 0;
   }
 
-  .contents-02 {
-    display: flex;
+  .contents-01 {
     padding: 80px 250px 50px 251px;
-    justify-content: center;
-    align-items: center;
   }
 
   .frame {
@@ -353,9 +255,56 @@ footer {
   }
 }
 
-/*  PC 버전 (1200px 이상) */
-@media (min-width: 1200px) {
+/*  모바일 버전 (375~767px) */
+@media (min-width: 375px) and (max-width: 767px) {
+  nav {
+    padding: 13px 32px;
+  }
+
+  header {
+    padding: 140px 250px 0px 251px;
+  }
+
+  .headline {
+    font-size: 56px;
+  }
+
+  .add-link {
+    font-size: 20px;
+  }
+
+  .img-box img {
+    width: 680px;
+    height: 342px;
+    flex-shrink: 0;
+  }
+
   .contents-01 {
-    width: 100%;
+    padding: 40px 32px 36px 33px;
+    flex-direction: column;
+  }
+
+  .contents {
+    display: flex;
+    padding: 40px 0px 40px 0px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .frame {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .frame-text.text-lg {
+    font-size: 20px;
+  }
+
+  .frame-text .text-sm {
+    font-weight: 500;
+    width: 50vh;
   }
 }
