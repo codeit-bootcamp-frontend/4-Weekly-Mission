@@ -9,30 +9,27 @@ function validationEmail(email) {
   return true;
 }
 
+emailInput.addEventListener("focusout", validateEmail);
 
-emailInput.addEventListener("focusout", validation);
-//이메일 에러메세지 출력
-function validation() {
-  if(emailInput.value === "") {
-    const emailError = document.createElement("p");
-    emailError.textContent = "이메일을 입력해 주세요.";
-    emailError.classList.add("error-message");
-    emailInput.parentElement.appendChild(emailError);
-  } else if(!validationEmail(emailInput.value)) {
-    const emailError = document.createElement("p");
-    emailError.textContent = "올바른 이메일 주소가 아닙니다.";
-    emailError.classList.add("error-message");
-    emailInput.parentElement.appendChild(emailError);
-  }
-}
-
-//이메일 입력이 변경되었을 때
-emailInput.addEventListener("input", checkEmail);
-
-function checkEmail() {
+// 이메일 에러 메시지 출력
+function validateEmail() {
   const emailError = emailInput.parentElement.querySelector(".error-message");
-  if(emailError) {
+
+  if (emailError) {
     emailError.remove();
   }
+
+  if (emailInput.value === "") {
+    createErrorMessage("이메일을 입력해 주세요.");
+  } else if (!validationEmail(emailInput.value)) {
+    createErrorMessage("올바른 이메일 주소가 아닙니다.");
+  }
 }
 
+// 공통된 에러 메시지 생성 함수
+function createErrorMessage(message) {
+  const newError = document.createElement("p");
+  newError.textContent = message;
+  newError.classList.add("error-message");
+  emailInput.parentElement.appendChild(newError);
+}
