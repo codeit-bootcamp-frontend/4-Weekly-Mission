@@ -74,6 +74,10 @@ body {
   background: var(--bg-white);
 }
 
+.error-msg {
+  color: var(--Red);
+}
+
 .input-pw input {
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-gray20);
@@ -130,4 +134,8 @@ body {
 
 input:focus {
   border: 1px solid blue;
+}
+
+.form-input .border-red {
+  border: 1px solid var(--Red);
 }
