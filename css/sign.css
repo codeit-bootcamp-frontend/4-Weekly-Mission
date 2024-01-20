@@ -91,6 +91,20 @@ input:focus {
   font-size: 1.3rem;
 }
 
+/* 에러 발생 시 변동 사항 */
+
+.error-message {
+  color: var(--red);
+  font-size: 1.4rem;
+  margin-bottom: 1.4rem;
+  display: block;
+  width: 100%;
+}
+
+.error input {
+  border-color: var(--red);
+}
+
 /* 모바일 사이즈 */
 
 @media (max-width: 76.7rem) {
