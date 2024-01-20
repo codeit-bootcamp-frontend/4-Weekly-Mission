@@ -141,22 +141,23 @@ align-items: center;
     cursor: pointer;
 }
 
-.input:focus{
+/* .input:focus{
     border-color: #6D6AFE;
     outline: none;
 }
 
 
+.input_error {
+    border: 1px solid #FF5B56;
+    outline: none;
+}
+
 .error_msg {
-    color: var(--Linkbrary-red, #FF5B56);
+    color:  #FF5B56;
     font-size: 1.4rem;
     opacity: 0;
 }
 
 .view_error {
     opacity: 1;
-}
-
-.input_error {
-    border: 1px solid #FF5B56;
-}
+} */

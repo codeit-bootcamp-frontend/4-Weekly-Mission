@@ -143,6 +143,15 @@ align-items: center;
 }
 
 
+.input_focus {
+    border-color: #6D6AFE;
+    outline: none;
+} 
+
+.input_error {
+    border: 1px solid #FF5B56;
+    outline: none;
+}
 
 .error_msg {
     color: var(--Linkbrary-red, #FF5B56);
@@ -154,11 +163,3 @@ align-items: center;
     opacity: 1;
 }
 
-.input_error {
-    border: 1px solid #FF5B56;
-}
-
-.input_focus {
-    border-color: #6D6AFE;
-    outline: none;
-}
