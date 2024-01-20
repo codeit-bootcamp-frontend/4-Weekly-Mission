@@ -78,10 +78,20 @@ body {
   color: var(--Red);
 }
 
+.input-pw {
+  position: relative;
+}
+
 .input-pw input {
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-gray20);
   background: var(--bg-white);
+}
+
+.eye-btn {
+  position: absolute;
+  right: 15px;
+  bottom: 18px;
 }
 
 .signin-btn {

@@ -1,9 +1,9 @@
 const form = document.querySelector('.frame-input');
 const inputEmail = document.querySelector('.input-email input');
 const inputPassword = document.querySelector('.input-pw input');
-const loginBtn = document.querySelector('.signin-btn');
 const errorMsgEmail = document.querySelector('.error-email');
 const errorMsgPassword = document.querySelector('.error-pw');
+const eyeBtn = document.querySelector('.eye-btn');
 
 // 이메일 : test@codeit.com, 비밀번호 : codeit101 으로 로그인 시, '/folder' 페이지로 이동
 function checkIsUser(e) {
@@ -54,6 +54,19 @@ function showPasswordError(e) {
   }
 }
 
+function togglePasswordVisible(e) {
+  if (e.target.classList.contains('invisible')) {
+    eyeBtn.src = '../images/eye-on.svg';
+    inputPassword.type = 'text';
+    e.target.classList.remove('invisible');
+  } else {
+    eyeBtn.src = '../images/eye-off.svg';
+    inputPassword.type = 'password';
+    e.target.classList.add('invisible');
+  }
+}
+
 inputEmail.addEventListener('focusout', showEmailError);
 inputPassword.addEventListener('focusout', showPasswordError);
 form.addEventListener('submit', checkIsUser);
+eyeBtn.addEventListener('click', togglePasswordVisible);
