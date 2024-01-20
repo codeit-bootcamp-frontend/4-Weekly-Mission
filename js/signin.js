@@ -58,9 +58,7 @@ const init = (element) => {
   //다음 요소 확인
   const divExist = element.nextElementSibling;
   //텍스트 확인 될 시 텍스트 삭제, 빨간 테두리 제거
-  console.log('초기화 진입')
   if(divExist.textContent !== ''){
-    console.log('div 텍스트 요소 없을 시 실행')
     divExist.textContent = '';
     element.classList.remove('false');
   }
