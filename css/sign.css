@@ -82,6 +82,15 @@ header a {
   border-color: var(--primary);
 }
 
+input.error {
+  border-color: var(--red);
+}
+
+.error-message {
+  color: var(--red);
+  font-size: 1.4rem;
+}
+
 .sign-password {
   position: relative;
 }

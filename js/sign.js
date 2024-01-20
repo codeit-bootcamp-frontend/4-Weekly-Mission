@@ -87,5 +87,6 @@ function createErrorMessage(message, inputElement) {
   const newError = document.createElement("p");
   newError.textContent = message;
   newError.classList.add("error-message");
+  inputElement.classList.add("error");
   inputElement.parentElement.appendChild(newError);
 }
