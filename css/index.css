@@ -1,3 +1,11 @@
-*{
-  text-decoration: none;
+/* 메인 */
+main{
+  display: flex;
+  flex-direction: column;
+}
+.contentMainBox{
+  background-color: #F0F6FF;
+}
+.contentsBox{
+
 }
