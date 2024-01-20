@@ -6,6 +6,9 @@
   justify-content: center;
   background-color: var(--Linkbrary-bg);
 }
+header > a > svg {
+  cursor: pointer;
+}
 .main {
   background-color: var(--Linkbrary-bg);
 }
@@ -57,17 +60,84 @@ header {
   font-weight: 600;
   margin-bottom: 32px;
 }
-
+.social-login {
+  display: flex;
+  width: 350px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20);
+  background: var(--Linkbrary-gray10);
+  gap: 16px;
+}
 .kakao-svg-wrapper {
   position: relative;
   right: 0;
+  cursor: pointer;
 }
 .kakao {
   position: relative;
   right: 0;
+  cursor: pointer;
 }
-/* 모바일사이즈 */
-@media screen and (375px <= width <=767px) {
+
+section.password {
+  margin-bottom: 0;
+}
+
+section.password > img {
+  margin: 0;
+}
+
+/* 여기 구글, 카카오 아이콘 위치 조절이 어려워요! */
+.google {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  position: relative;
+}
+#google_background {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+}
+
+#google_icon {
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: -11px;
+  top: -11px;
+}
+
+.kakao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  position: relative;
+}
+
+#kakao_background {
+  width: 42px;
+  height: 42px;
+  position: relative;
+  left: 32px;
+  z-index: 1;
+}
+
+#kakao_icon {
+  width: 22px;
+  height: 22px;
+  z-index: 2;
+}
+
+.social-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 태블릿 사이즈 */
@@ -77,11 +147,20 @@ header {
     top: 238px;
   }
 }
-
 /* pc 사이즈 */
 @media screen and (width >= 1200px) {
   .container {
     position: relative;
     top: 238px;
+  }
+}
+
+/* 모바일 사이즈 */
+@media screen and (375px <= width <= 767px) {
+  .container {
+    width: min(100% - 64px, 400px);
+    margin-inline: auto;
+    position: relative;
+    top: 120px;
   }
 }
