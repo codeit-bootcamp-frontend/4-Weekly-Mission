@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta property="og:image" content="./images/preview.jpg" />
+    <meta property="og:image" content="./images/img-preview.jpg" />
     <meta property="og:title" content="Linkbrary" />
     <meta
       property="og:description"
@@ -29,8 +29,8 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <div class="header-area">
+      <header class="header-area">
+        <div class="header-group">
           <a href="/" class="logo-area">
             <img
               src="images/icons/linkbrary-logo.svg"
@@ -38,77 +38,71 @@
               class="logo-img"
             />
           </a>
-          <a class="btn" href="/signin.html"> 로그인 </a>
+          <a class="btn" href="/signin.html">로그인</a>
         </div>
       </header>
 
       <main class="main">
         <h1 class="title">
           <span class="gradient">세상의 모든 정보</span>를 <br />
-          쉽게 저장하고
-          관리해 보세요
+          쉽게 저장하고 관리해 보세요
         </h1>
         <a href="/signup.html" class="btn">링크 추가하기</a>
-        <img src="images/screen.png" alt="웹페이지 예시 화면" class="screen" />
+        <img
+          src="./images/screen.png"
+          alt="홈페이지 예시 화면"
+          class="screen"
+        />
       </main>
 
-      <section class="section-area">
-        <div class="wrap">
+      <article class="article-area">
+        <section class="section-area">
           <h1 class="title">
             <span class="gradient pink-to-blue">원하는 링크</span>를 저장하세요
           </h1>
           <p class="desc">
-            나중에 읽고 싶은 글, 다시 보고 싶은 영상, 
-            사고 싶은 옷, 기억하고 싶은 모든 것을
-            한 공간에 저장하세요.
+            나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고
+            싶은 모든 것을 한 공간에 저장하세요.
           </p>
           <img
             src="images/screen-download.png"
             alt="링크 저장"
-            class="function-screen"
+            class="function-screen right"
           />
-        </div>
-      </section>
+        </section>
 
-      <section class="section-area">
-        <div class="wrap">
+        <section class="section-area">
           <h1 class="title">
             링크를 폴더로
             <span class="gradient yellow-to-blue">관리</span>하세요
           </h1>
           <p class="desc">
-            나만의 폴더를 무제한으로 만들고
-            다양하게 활용할 수 있습니다.
+            나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.
           </p>
           <img
             src="images/screen-manage.png"
             alt="폴더 관리"
             class="function-screen"
           />
-        </div>
-      </section>
+        </section>
 
-      <section class="section-area">
-        <div class="wrap">
+        <section class="section-area">
           <h1 class="title">
             저장한 링크를
-            <span class="gradient blue-to-gray">공유</span>해 보세요.
+            <span class="gradient blue-to-gray">공유</span>해 보세요
           </h1>
           <p class="desc">
-            여러 링크를 폴더에 담고 공유할 수 있습니다.
-            가족, 친구, 동료들에게 쉽고 빠르게 링크를 
-            공유해 보세요.
+            여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게
+            쉽고 빠르게 링크를 공유해 보세요.
           </p>
           <img
             src="images/screen-share.png"
             alt="폴더 공유"
             class="function-screen"
           />
-        </div>
-      </section>
+        </section>
 
-      <section class="section-area">
-        <div class="wrap">
+        <section class="section-area">
           <h1 class="title">
             저장한 링크를
             <span class="gradient blue-to-blue">검색</span>해 보세요
@@ -119,38 +113,50 @@
             alt="링크 검색"
             class="function-screen"
           />
-        </div>
-      </section>
+        </section>
+      </article>
 
-      <footer>
-        <div class="footer-area">
+      <footer class="footer-area">
+        <div class="footer-group">
           <span class="copyright">©codeit - 2023</span>
           <ul class="link-list">
-            <li class="link-item">
-              <a href="/privacy">Privacy Policy</a>
+            <li>
+              <a href="/privacy" class="link-item">Privacy Policy</a>
             </li>
-            <li class="link-item">
-              <a href="/faq">FAQ</a>
+            <li>
+              <a href="/faq" class="link-item">FAQ</a>
             </li>
           </ul>
           <ul class="sns-list">
-            <li class="sns-item">
-              <a href="https://www.facebook.com/" target="_blank">
+            <li>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                class="sns-item"
+              >
                 <img src="images/icons/facebook.svg" alt="페이스북으로 이동" />
               </a>
             </li>
-            <li class="sns-item">
-              <a href="https://twitter.com/" target="_blank">
+            <li>
+              <a href="https://twitter.com/" target="_blank" class="sns-item">
                 <img src="images/icons/twitter.svg" alt="트위터로 이동" />
               </a>
             </li>
-            <li class="sns-item">
-              <a href="https://www.youtube.com/" target="_blank">
+            <li>
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                class="sns-item"
+              >
                 <img src="images/icons/youtube.svg" alt="유튜브로 이동" />
               </a>
             </li>
-            <li class="sns-item">
-              <a href="https://www.instagram.com/" target="_blank">
+            <li>
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                class="sns-item"
+              >
                 <img
                   src="images/icons/instagram.svg"
                   alt="인스타그램으로 이동"

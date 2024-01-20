@@ -1,5 +1,9 @@
 @import url("../style.css");
 
+body {
+  background: var(--color-gray-200);
+}
+
 .container {
   margin: 0 3.2rem;
 }
@@ -17,7 +21,7 @@
   height: 3.8rem;
 }
 
-.go-to-main .logo {
+.logo {
   width: 100%;
   height: 100%;
 }
@@ -31,14 +35,14 @@
   line-height: 2.4rem;
 }
 
-.question a {
+.link {
   position: relative;
   line-height: 1.1;
   font-weight: 600;
   color: var(--color-primary);
 }
 
-.question a::after {
+.link::after {
   content: "";
   position: absolute;
   bottom: -0.3rem;
@@ -56,24 +60,21 @@
 
 .input-area {
   margin-bottom: 2.4rem;
+  line-height: 1.7rem;
+  font-size: 1.4rem;
+  font-weight: 400;
 }
 
 .input-area:last-of-type {
   margin-bottom: 3rem;
 }
 
-.input-area .label {
-  line-height: 1.7rem;
-  font-size: 1.4rem;
-  font-weight: 400;
-  margin-bottom: 1.2rem;
-}
-
 .input-group {
+  margin-top: 1.2rem;
   position: relative;
 }
 
-.input-group input {
+.input {
   padding: 1.8rem 1.5rem;
   width: 100%;
   height: 6rem;
@@ -83,12 +84,12 @@
   font-weight: 400;
 }
 
-.input-group input:focus {
+.input:focus {
   outline: none;
   border: 0.1rem solid var(--color-primary);
 }
 
-.input-group .ico-eye {
+.ico-eye {
   position: absolute;
   top: 50%;
   right: 1.5rem;
@@ -116,12 +117,12 @@
   color: #000;
 }
 
-.sns-btn-group .button-list {
+.button-list {
   display: flex;
   gap: 1.6rem;
 }
 
-.sns-btn-group .button-list .button-item {
+.button-item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,15 +131,15 @@
   border-radius: 50%;
 }
 
-.sns-btn-group .button-list .button-item.google {
+.button-item.google {
   border: 0.1rem solid #d3d4dd;
   background: var(--color-white);
 }
 
-.sns-btn-group .button-list .button-item.kakao {
+.button-item.kakao {
   background: var(--color-yellow);
 }
 
-.sns-btn-group .button-list a {
+.button-item a {
   display: flex;
 }
