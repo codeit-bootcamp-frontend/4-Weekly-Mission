@@ -91,19 +91,31 @@ nav {
 }
 
 .content {
-  margin-top: 70px;
-  margin-bottom: 120px;
+  /* margin-top: 70px;
+  margin-bottom: 120px; */
+  margin: 70px 460px 120px;
 }
 
 .options {
   display: grid;
-  grid-template-columns: minmax(250px, 325px);
+  grid-template-columns: minmax(262px, 325px) 550px;
   grid-template-areas:
+    ". image"
     "title image"
-    "describe image";
+    "describe image"
+    ". image";
   justify-content: center;
   column-gap: 157px;
   padding: 50px 0;
+}
+
+.options:nth-of-type(even) {
+  grid-template-columns: 550px minmax(262px, 325px);
+  grid-template-areas:
+    "image ."
+    "image title"
+    "image describe"
+    "image .";
 }
 
 .title {
@@ -206,11 +218,17 @@ nav {
   }
 
   .content {
-    margin-top: 30px;
+    /* margin-top: 30px; */
+    margin: 30px 250px 120px;
   }
 
   .options {
-    gap: 51px;
+    grid-template-columns: minmax(262px, 325px) 385px;
+    column-gap: 51px;
+  }
+
+  .options:nth-of-type(even) {
+    grid-template-columns: 385px minmax(262px, 325px);
   }
 
   .options img {
@@ -226,6 +244,7 @@ nav {
   }
 
   .headline {
+    gap: 24px;
     padding: 28px 32px 0;
   }
 
@@ -236,7 +255,7 @@ nav {
   }
 
   .headline img {
-    width: 325px;
+    width: 100%;
   }
 
   .add-link {
@@ -246,34 +265,42 @@ nav {
   }
 
   .content {
-    margin-top: 0;
-    margin-bottom: 40px;
+    /* margin-top: 0;
+    margin-bottom: 40px; */
+    margin: 0 32px 40px;
   }
 
   .options {
-    display: grid;
-    grid-template-areas: 
-      "describe"
-      "image";
-    gap: 24px;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "image"
+      "describe";
+    row-gap: 16px;
     padding: 40px 0;
   }
 
-  .introduction {
-    grid-area: describe;
+  .options:nth-of-type(even) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "image"
+      "describe";
   }
 
   .title {
     font-size: 24px;
+    margin-bottom: 4px;
   }
 
   .options p {
     font-size: 15px;
+    margin: 0;
   }
 
   .options img {
     grid-area: image;
-    width: 325px;
+    width: 100%;
   }
 
   .more-info {
