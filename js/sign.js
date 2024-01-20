@@ -38,3 +38,21 @@ emailInput.addEventListener('blur', e => {
     addErrorMessage(signInputBox, '이메일을 입력해 주세요.');
   }
 });
+
+passwordInput.addEventListener('blur', e => {
+  const signInputPasswordBox = e.target.parentElement;
+  const passwordValue = e.target.value;
+  const existingError = signInputPasswordBox.querySelector('p');
+
+  if (passwordValue) {
+    if (existingError) {
+      signInputPasswordBox.classList.remove('error');
+      removeErrorMessage(signInputPasswordBox);
+    }
+  } else if (existingError) {
+    existingError.innerText = '비밀번호를 입력해 주세요.';
+  } else {
+    signInputPasswordBox.classList.add('error');
+    addErrorMessage(signInputPasswordBox, '비밀번호를 입력해 주세요.');
+  }
+});
