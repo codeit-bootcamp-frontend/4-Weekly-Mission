@@ -6,7 +6,7 @@ body {
   margin: 0;
 }
 
-header {
+.header_bar {
   background-color: #F0F6FF;
   position: sticky;
   top: 0;
@@ -178,7 +178,7 @@ footer {
   height: 160px;
 }
 
-.codeit {
+footer .copyright {
   font-family: 'Acme', sans-serif;
   font-size: 16px;
   font-weight: 400;
