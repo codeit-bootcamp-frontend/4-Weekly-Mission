@@ -78,13 +78,6 @@ function focusIn(place) {
   }
 }
 
-email.addEventListener("focusout", noInputFocusOut);
-password.addEventListener("focusout", noInputFocusOutPassword);
-email.addEventListener("input", notValidEmailInput);
-email.addEventListener("focusin", () => focusIn(".errorMessage-email"));
-password.addEventListener("focusin", () => focusIn(".errorMessage"));
-loginButton.addEventListener("click", folderPage)
-
 // 로그인 시도
 function folderPage() {
   let folderEmail = "test@codeit.com";
@@ -98,3 +91,21 @@ function folderPage() {
     loginFail();
   }
 }
+
+function loginFail() {
+  // 이메일
+  resetElement(".input-form-email", ".errorMessage-email");
+  createErrorSpanElement(".input-form-email", "errorMessage-email");
+  printErrorMessage(".errorMessage-email", '이메일을 확인해 주세요');
+  // 비밀 번호
+  resetElement(".input-form-password", ".errorMessage");
+  createErrorSpanElement(".input-form-password", "errorMessage");
+  printErrorMessage(".errorMessage", "비밀번호를 확인해 주세요");
+}
+
+email.addEventListener("focusout", noInputFocusOut);
+password.addEventListener("focusout", noInputFocusOutPassword);
+email.addEventListener("input", notValidEmailInput);
+email.addEventListener("focusin", () => focusIn(".errorMessage-email"));
+password.addEventListener("focusin", () => focusIn(".errorMessage"));
+loginButton.addEventListener("click", folderPage)
