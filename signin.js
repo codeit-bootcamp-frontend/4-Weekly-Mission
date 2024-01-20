@@ -1,4 +1,4 @@
-import { emailValid } from "./utils/Validator.js";
+import { isValidEmail } from "./utils/validator.js";
 import { EMAIL, PASSWORD } from "./auth.js";
 
 const form = document.querySelector(".fm-input-wrap");
@@ -14,7 +14,7 @@ const showErrorMsg = (e) => {
   let errorMsg = "";
   if (name === "email") {
     if (!value) errorMsg = "이메일을 입력해 주세요.";
-    else if (!emailValid(value)) errorMsg = "올바른 이메일 주소가 아닙니다.";
+    else if (!isValidEmail(value)) errorMsg = "올바른 이메일 주소가 아닙니다.";
     emailMsgBox.innerHTML = errorMsg;
   } else if (name === "password") {
     errorMsg = value ? "" : "비밀번호를 확인해 주세요.";
