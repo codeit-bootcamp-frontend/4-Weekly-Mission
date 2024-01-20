@@ -78,7 +78,7 @@
     /* width: 40rem; */
     padding: 18px 15px;
     border-radius: 8px;
-    border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
+    border: 1px solid var(--Linkbrary-primary-color,#CCD5E3);
     background: var(--Linkbrary-white, #FFF);
     color: var(--Linkbrary-gray100, #373740);
     font-size: 1.6rem;
@@ -142,10 +142,23 @@ align-items: center;
     cursor: pointer;
 }
 
-.input:focus{
-    border-color: blue;
-    outline: none;
+
+
+.error_msg {
+    color: var(--Linkbrary-red, #FF5B56);
+    font-size: 1.4rem;
+    opacity: 0;
 }
 
+.view_error {
+    opacity: 1;
+}
 
+.input_error {
+    border: 1px solid #FF5B56;
+}
 
+.input_focus {
+    border-color: #6D6AFE;
+    outline: none;
+}
