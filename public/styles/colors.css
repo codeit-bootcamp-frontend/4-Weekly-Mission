@@ -10,4 +10,12 @@
   --gray10: #e7effb;
 
   --background: #f0f6ff;
+
+  --gra-purpleblue-to-skyblue: linear-gradient(
+    91deg,
+    #6d6afe 0.12%,
+    #6ae3fe 101.84%
+  );
+  --Grey-Light: #f5f5f5;
+  --The-julge-black: #111322;
 }

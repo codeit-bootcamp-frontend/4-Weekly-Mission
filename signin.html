@@ -4,20 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SignIn</title>
-    <link rel="stylesheet" href="src/sign.css" />
+    <link rel="stylesheet" href="public/styles/sign.css" />
+    <link rel="stylesheet" href="public/styles/colors.css" />
   </head>
   <body>
     <main class="sign">
-      <div>
-        <a href="/"><img src="images/logo.svg" height="38p;" /></a>
+      <div class="sign-header">
+        <a href="/"><img id="logo" src="public/images/logo.svg" /></a>
         <p>회원이 아니신가요? <a href="signup.html">회원 가입하기</a></p>
       </div>
       <div>
         <form class="sign-form">
           <label for="email">이메일</label>
-          <input type="email" name="email" placeholder="" />
+          <input type="email" name="email" />
           <label for="password">비밀번호</label>
-          <input type="password" name="password" placeholder="" />
+          <input type="password" name="password" />
 
           <button>로그인</button>
         </form>
@@ -25,9 +26,11 @@
       <div class="sign-another">
         <p>소셜 로그인</p>
         <div class="social-login">
-          <a href="https://www.google.com/"><img src="images/google.png" /></a>
+          <a href="https://www.google.com/"
+            ><img src="public/images/google.png"
+          /></a>
           <a href="https://www.kakaocorp.com/page/">
-            <img src="images/kakao.png"
+            <img src="public/images/kakao.png"
           /></a>
         </div>
       </div>

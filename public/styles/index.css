@@ -1,18 +1,10 @@
-:root {
-  --gra-purpleblue-to-skyblue: linear-gradient(
-    91deg,
-    #6d6afe 0.12%,
-    #6ae3fe 101.84%
-  );
-  --Grey-Light: #f5f5f5;
-}
 * {
   box-sizing: border-box;
   margin: 0;
   font-family: "Pretendard";
 }
 body {
-  background: #f0f6ff;
+  background: var(--background);
   max-width: 120rem;
   display: flex;
   flex-direction: column;
@@ -27,7 +19,7 @@ section {
 }
 main {
   width: 100%;
-  background-color: #ffffff;
+  background-color: var(--white);
   padding-bottom: 7.5rem;
 }
 nav {
@@ -36,7 +28,7 @@ nav {
   position: sticky;
   top: 0;
   width: 100%;
-  background: #f0f6ff;
+  background: var(--background);
 }
 nav div {
   display: flex;
@@ -98,7 +90,7 @@ header {
   word-break: keep-all;
 }
 .header span {
-  background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
+  background: linear-gradient(91deg, var(--primary) 17.28%, #ff9f9f 74.98%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -130,7 +122,6 @@ header {
   justify-content: center;
   column-gap: 9.8125rem;
   row-gap: 0.62rem;
-  width: 100%;
   grid-template-areas:
     ". fimg"
     "fh2 fimg"
@@ -199,7 +190,7 @@ footer {
   width: 100%;
   padding-top: 2rem;
   box-shadow: 0rem 0rem 1rem 0rem rgba(0, 0, 0, 0.02);
-  background: var(--The-julge-black, #111322);
+  background: var(--The-julge-black);
 }
 
 .footer-content {
@@ -328,6 +319,7 @@ footer img {
 @media (min-width: 768px) and (max-width: 1199px) {
   nav div {
     padding: 0.8125rem 2rem;
+    width: 768px;
   }
   .header {
     padding-top: 2.5rem;
