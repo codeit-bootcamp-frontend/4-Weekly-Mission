@@ -15,6 +15,20 @@ function inputError(e, message) {
     e.target.after(span);
 }
 
+// 로그인 실패 시 메세지
+function loginError(element, message) {
+    element.classList.add('input-error');
+    
+    const span = document.createElement('span');
+    span.classList.add('input-error-text');
+    span.textContent = message;
+    element.after(span);
+
+    if (element.nextElementSibling.nextElementSibling.tagName === 'SPAN') {
+        element.nextElementSibling.nextElementSibling.remove();
+    }
+}
+
 // 이메일 인풋 검사
 function emailChecker(e) {
     if (!emailInput.value) {
@@ -44,11 +58,15 @@ function removeError(e) {
 
 // 로그인 검사
 function signInChecker(e) {
-    if (e.key === 'Enter') {
         if (emailInput.value === testEmail && passwordInput.value === testPw) {
-            Window.open("/folder/", '_self');
+            location.replace('/folder');
+        } else {
+            const checkYourEmail = '이메일을 확인해 주세요.';
+            const checkYourPassword = '비밀번호를 확인해 주세요.';
+
+            loginError(emailInput, checkYourEmail);
+            loginError(passwordInput, checkYourPassword);
         }
-    }
 }
 
 emailInput.addEventListener('focusout', emailChecker);
@@ -56,8 +74,7 @@ emailInput.addEventListener('focusin', removeError);
 passwordInput.addEventListener('focusout', passwordChecker);
 passwordInput.addEventListener('focusin', removeError);
 
-
-loginBtn.addEventListener('keypress', signInChecker);
+loginBtn.addEventListener('click', signInChecker);
 
 
 
