@@ -84,9 +84,23 @@ header {
   font-size: 1.6rem;
   line-height: 150%;
 }
-
+.sign-input-error{
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--red);
+  font-size: 1.6rem;
+  line-height: 150%;
+}
 .sign-input:focus {
   border-color: var(--primary);
+}
+
+.error-message {
+  color: var(--red, #ff5b56);
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .eye-button {
@@ -151,8 +165,8 @@ header {
   background-color: #f5e14b;
 }
 
-@media all and (min-width:375px) and (max-width:767px){
-  .sign-box{
+@media all and (min-width:375px) and (max-width:767px) {
+  .sign-box {
     width: 100%;
     max-width: 400px;
     padding: 32px;
