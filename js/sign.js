@@ -19,6 +19,7 @@ function validateEmail() {
 
   if (emailError) {
     emailError.remove();
+    emailInput.classList.remove("error");
   }
 
   if (emailInput.value === "") {
@@ -35,6 +36,7 @@ function validatePassword() {
 
   if (passwordError) {
     passwordError.remove();
+    passwordInput.classList.remove("error");
   }
 
   if (passwordInput.value === "") {
@@ -59,11 +61,13 @@ function login() {
   const emailError = emailInput.parentElement.querySelector(".error-message");
   if (emailError) {
     emailError.remove();
+    emailInput.classList.remove("error");
   }
 
   const passwordError = passwordInput.parentElement.querySelector(".error-message");
   if (passwordError) {
     passwordError.remove();
+    passwordInput.classList.remove("error");
   }
 
   if (enteredEmail === 'test@codeit.com' && enteredPassword === 'codeit101') {
@@ -88,6 +92,7 @@ function createErrorMessage(message, inputElement) {
   const newError = document.createElement("p");
   newError.textContent = message;
   newError.classList.add("error-message");
+
   inputElement.classList.add("error");
   inputElement.parentElement.appendChild(newError);
 }
