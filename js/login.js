@@ -111,7 +111,7 @@ function passwordHandlerFuc(password) {
   pwdVal = password;
 }
 
-// 로그인 시도할 경우 동작 함수
+// 로그인 시도 함수
 function trySignin(email,password) {
   console.log(email, password);
   if(email === "test@codeit.com" && password === "codeit101") {
@@ -128,7 +128,7 @@ function EnterLogin(key) {
   }
 }
 
-// password input 눈모양을 누르면 비밀번호가 보였다가 안보였다 동작하는 함수
+// password input 눈모양 클릭 실행 함수
 function EyePwd(EyeStatus) {
   if(EyeStatus.classList.contains('off')) {
     pwdEyeIcon.setAttribute('src',"assets/icons/eye-off.png");
@@ -140,6 +140,7 @@ function EyePwd(EyeStatus) {
   }
 }
 
+// email input 이벤트 함수 등록
 emailInput.addEventListener('focusout', function(e) {
   emailHandlerFunc(e.target.value);
 });
@@ -147,6 +148,7 @@ emailInput.addEventListener('keypress', function(e) {
   EnterLogin(e.key);
 });
 
+// password input 이벤트 함수 등록
 pwdInput.addEventListener('focusout', function(e) {
   passwordHandlerFuc(e.target.value);
 });
@@ -154,11 +156,12 @@ pwdInput.addEventListener('keypress', function(e) {
   EnterLogin(e.key);
 });
 
-
+// 로그인 버튼 이벤트 함수 등록
  signinBtn.addEventListener('click', function(e) {
   trySignin(emailVal, pwdVal);
  });
 
+ // 눈모양 아이콘 이벤트 함수 등록
  pwdEyeIcon.addEventListener('click', function(e) {
   e.target.classList.toggle('off');
   EyePwd(e.target);
