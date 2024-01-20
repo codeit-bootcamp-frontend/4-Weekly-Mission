@@ -1,57 +1,7 @@
 @import "./common.css";
-
-body {
-  font-size: 1.6rem;
-  margin-top: 17.5rem;
-  background-color: var(--background);
-}
-
-/** header **/
-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1.6rem;
-}
-
-header img {
-  width: 21.8rem;
-}
-
-.signup {
-  text-align: center;
-}
-
-.signup a {
-  text-decoration: 0.15rem underline;
-  color: var(--primary);
-  font-size: 1.6rem;
-  font-weight: 600;
-}
+@import "./signin.css";
 
 /** main **/
-main {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 3.2rem;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-#signup-form {
-  display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
-}
-
 #signup-form input {
   padding-left: 1rem;
   padding-right: 4rem;
@@ -62,19 +12,7 @@ form {
   outline-color: var(--primary);
 }
 
-.password-box {
-  position: relative;
-}
-
-.password-box img {
-  width: 1.6rem;
-  position: absolute;
-  right: 1.5rem;
-  top: 2.2rem;
-}
-
 .signup-button {
-  width: 40rem;
   border-radius: 0.8rem;
   background: linear-gradient(90deg, var(--primary), #6ae3fe);
   border: none;
@@ -101,14 +39,4 @@ form {
   font-weight: 400;
   color: #373740;
   padding: 1.2rem 2.4rem;
-}
-
-.social-login-icon {
-  display: flex;
-  gap: 1.6rem;
-}
-
-.social-login-icon img {
-  flex-shrink: 0;
-  width: 4.2rem;
 }

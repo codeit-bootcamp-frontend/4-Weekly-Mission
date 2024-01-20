@@ -11,8 +11,8 @@
 <body>
   <header>
     <a href="index.html"><img src="./images/logo_icon/Linkbrary_title_logo.png" alt="링크브러리 로고" /></a>
-    <p class="signup">
-      이미 회원이신가요? <a href="./signin.html">로그인 하기</a>
+    <p>
+      이미 회원이신가요? <a class="change-in_up" href="./signin.html">로그인 하기</a>
     </p>
   </header>
 
@@ -27,29 +27,32 @@
         <p>비밀번호</p>
         <div class="password-box">
           <input id="signup-password" type="password" />
-          <a href=""><img src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" /></a>
+          <a href=""><img class="password-onoff" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" /></a>
         </div>
       </label>
 
       <label for="repeat-password">
         <p>비밀번호 확인</p>
         <div class="password-box">
-          <input type="password" />
-          <a href=""><img src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" /></a>
+          <input type="password" id="repeat-password" />
+          <a href=""><img class="password-onoff" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" /></a>
         </div>
       </label>
       <button class="signup-button">회원가입</button>
     </form>
-
-    <p class="social-signup">
-      다른 방식으로 가입하기
-    <div class="social-login-icon">
-      <a href="https://www.google.com/" target="_blank"><img src="./images/social_icon/google.png" alt="구글" /></a>
-      <a href="https://www.kakaocorp.com/page/" target="_blank"><img src="./images/social_icon/kakatalk.png"
-          alt="카카오톡" /></a>
-    </div>
-    </p>
   </main>
+
+  <footer>
+    <div class="social-signup">
+      다른 방식으로 가입하기
+      <div class="social-icon">
+        <a href="https://www.google.com/" target="_blank"><img src="./images/social_icon/google.png" alt="구글" /></a>
+        <a href="https://www.kakaocorp.com/page/" target="_blank"><img src="./images/social_icon/kakatalk.png"
+            alt="카카오톡" /></a>
+      </div>
+    </div>
+  </footer>
+
 </body>
 
 </html>

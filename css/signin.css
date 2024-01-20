@@ -15,15 +15,11 @@ header {
   gap: 1.6rem;
 }
 
-header img {
+.title-logo {
   width: 21.058rem;
 }
 
-.signup {
-  text-align: center;
-}
-
-.signup a {
+.change-in_up {
   text-decoration: 0.15rem underline;
   color: var(--primary);
   font-size: 1.6rem;
@@ -31,7 +27,7 @@ header img {
 }
 
 /** main **/
-main {
+body {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,17 +35,23 @@ main {
   gap: 3.2rem;
 }
 
-#login-form {
+form {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 .password-box {
   position: relative;
 }
 
-.password-box img {
+.password-onoff {
   width: 1.6rem;
   position: absolute;
   top: 2.2rem;
@@ -95,20 +97,22 @@ main {
   padding: 1.2rem 2.4rem;
 }
 
-.social-login-icon {
-  display: flex;
-  gap: 1.6rem;
-}
-
-.social-login-icon img {
+.social-icon img {
   flex-shrink: 0;
   width: 4.2rem;
 }
 
-/** Tablet **/
-@media (max-width: 1199px) {
+.social-icon {
+  display: flex;
+  gap: 1.6rem;
 }
 
 /** Mobile **/
 @media (max-width: 767px) {
+  body {
+    width: 100%;
+    max-width: 40rem;
+    padding: 3.2rem;
+    margin: 23.8rem auto;
+  }
 }
