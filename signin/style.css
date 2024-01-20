@@ -50,10 +50,6 @@ a.signup {
     border: 1px solid #6D6AFE; 
 }
 
-.signin input#password {
-    margin-bottom: 32px;
-}
-
 .signin .input-error {
     border: 1px solid #ff5b56;
     margin-bottom: 6px;
@@ -76,6 +72,7 @@ a.signup {
     color: #f5f5f5;
     font-size: 18px;
     font-weight: 600;
+    margin-top: 6px;
     margin-bottom: 32px;
     cursor: pointer;
 }
