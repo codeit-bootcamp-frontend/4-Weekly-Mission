@@ -78,7 +78,7 @@ header a {
   line-height: 150%;
 }
 
-.sign-input:focus {
+.input-box input:focus {
   border-color: var(--primary);
 }
 
