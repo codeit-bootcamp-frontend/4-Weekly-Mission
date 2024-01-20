@@ -43,20 +43,40 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
+  row-gap: 1.5rem;
+}
+.sign-form div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .sign-form label {
   text-align: left;
   font-size: 0.875rem;
   margin-bottom: 0.75rem;
 }
-.sign-form input {
+.signInput {
   border-radius: 0.5rem;
   border: 0.0625rem solid var(--gray20);
   background: var(--white);
   font-size: 1rem;
   padding: 1.125rem 0.9375rem;
-  margin-bottom: 1.5rem;
 }
+.errorInput {
+  border: 0.0625rem solid var(--red);
+}
+.eye {
+  width: 1rem;
+  content: url("/public/images/eye-off.svg");
+
+  position: absolute;
+  top: 3rem;
+  left: 23rem;
+}
+.eye.on {
+  content: url("/public/images/eye-on.svg");
+}
+
 input:focus {
   outline: none;
   border-color: var(--primary);
@@ -72,6 +92,15 @@ input:focus {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+.errorMsg {
+  margin-top: 0.38rem;
+  color: var(--red);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
 }
 .sign-another {
   display: flex;

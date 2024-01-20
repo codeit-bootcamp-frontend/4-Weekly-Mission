@@ -15,11 +15,20 @@
       </div>
       <div>
         <form class="sign-form">
-          <label for="email">이메일</label>
-          <input type="email" name="email" />
-          <label for="password">비밀번호</label>
-          <input type="password" name="password" />
-
+          <div>
+            <label for="email">이메일</label>
+            <input id="email" class="signInput" type="email" name="email" />
+          </div>
+          <div>
+            <label for="password">비밀번호</label>
+            <input
+              id="password"
+              class="signInput"
+              type="password"
+              name="password"
+            />
+            <img class="eye" />
+          </div>
           <button>로그인</button>
         </form>
       </div>
@@ -35,5 +44,6 @@
         </div>
       </div>
     </main>
+    <script src="src/sign.js"></script>
   </body>
 </html>

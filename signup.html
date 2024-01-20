@@ -15,12 +15,28 @@
       </div>
       <div>
         <form class="sign-form">
-          <label for="email">이메일</label>
-          <input type="email" name="email" />
-          <label for="password">비밀번호</label>
-          <input type="password" name="password" />
-          <label for="password-check">비밀번호 확인</label>
-          <input type="password" name="password-check" />
+          <div>
+            <label for="email">이메일</label>
+            <input id="email" class="signInput" type="email" name="email" />
+          </div>
+          <div>
+            <label for="password">비밀번호</label>
+            <input
+              id="password"
+              class="signInput"
+              type="password"
+              name="password"
+            />
+          </div>
+          <div>
+            <label for="password-check">비밀번호 확인</label>
+            <input
+              id="password-check"
+              class="signInput"
+              type="password"
+              name="password-check"
+            />
+          </div>
           <button>회원가입</button>
         </form>
       </div>
@@ -36,5 +52,6 @@
         </div>
       </div>
     </main>
+    <script src="src/sign.js"></script>
   </body>
 </html>
