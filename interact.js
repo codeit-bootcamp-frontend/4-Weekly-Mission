@@ -65,3 +65,23 @@ function passwordinput(e){
 inputpass.addEventListener('focusout',passwordinput);
 
 
+//이외의 로그인 시도의 경우, 이메일 input 아래에 “이메일을 확인해 주세요.”
+//, 비밀번호 input 아래에 “비밀번호를 확인해 주세요.” 에러 메세지를 보입니다.
+
+function logincheck(){
+  if(inputel.value=='test@codeit.com' && inputel2.value=='codeit101'){
+    location.href='/folder.html';
+    errmsg.remove();
+    errmsg2.remove();
+  }
+  else{
+    errmsg.textContent='이메일을 입력해 주세요.';
+    emailframe.append(errmsg);
+    errmsg2.textContent='비밀번호를 입력해 주세요.';
+    passwordframe.append(errmsg2);
+  }
+}
+
+btnlogin.addEventListener('click',logincheck);
+
+
