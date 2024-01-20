@@ -63,11 +63,11 @@ input::placeholder {
   line-height: 24px;
 }
 
-.checkbox {
+.password-info {
   position: relative;
 }
 
-.checkbox button {
+.password-info button {
   position: absolute;
   top: -2px;
   bottom: 0;
@@ -102,7 +102,7 @@ button {
   margin: 32px auto;
 }
 
-.sns-links img{
+.sns-link-buttons img{
   width: 42px;
   margin-left: 16px;
 }

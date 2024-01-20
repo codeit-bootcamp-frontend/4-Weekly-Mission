@@ -13,7 +13,7 @@ body {
   margin: 0;
 }
 
-nav {
+header {
   position: sticky;
   top: 0;
   z-index: 1;
@@ -28,7 +28,7 @@ nav {
   align-self: stretch;
 }
 
-.sign-in {
+.sign-in-button {
   color: #f5f5f5;
   font-size: 18px;
   font-weight: 600;
@@ -72,11 +72,11 @@ nav {
   -webkit-text-fill-color: transparent;
 }
 
-.headline-title {
+.headline-keyword {
   background-image: linear-gradient(91deg, var(--primary) 17.28%, #FF9F9F 74.98%);
 }
 
-.add-link {
+.add-link-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,8 +91,6 @@ nav {
 }
 
 .content {
-  /* margin-top: 70px;
-  margin-bottom: 120px; */
   margin: 70px 460px 120px;
 }
 
@@ -118,7 +116,7 @@ nav {
     "image .";
 }
 
-.title {
+.options-title {
   grid-area: title;
   align-self: end;
   font-size: 48px;
@@ -159,7 +157,7 @@ nav {
   background: var(--background);
 }
 
-.more-info {
+.footer-inner {
   background: var(--black);
   display: flex;
   height: 160px;
@@ -178,13 +176,13 @@ nav {
   line-height: normal;
 }
 
-.QnA {
+.QnA-links {
   display: flex;
   justify-content: center;
   gap: 30px;
 }
 
-.QnA a{
+.QnA-links a{
   color: #CFCFCF;
   font-family: Acme;
   font-size: 16px;
@@ -201,7 +199,8 @@ nav {
 /* tablet-size */
 
 @media (max-width: 1199px) {
-  nav {
+
+  header {
     padding: 20px 32px;
   }
 
@@ -218,7 +217,6 @@ nav {
   }
 
   .content {
-    /* margin-top: 30px; */
     margin: 30px 250px 120px;
   }
 
@@ -239,7 +237,7 @@ nav {
 /* mobile-size */
 @media (max-width: 767px) {
 
-  nav {
+  header {
     padding: 13px 32px;
   }
 
@@ -258,15 +256,13 @@ nav {
     width: 100%;
   }
 
-  .add-link {
+  .add-link-button {
     font-size: 14px;
     width: 168px;
     padding: 10px 16px;
   }
 
   .content {
-    /* margin-top: 0;
-    margin-bottom: 40px; */
     margin: 0 32px 40px;
   }
 
@@ -288,7 +284,7 @@ nav {
       "describe";
   }
 
-  .title {
+  .options-title {
     font-size: 24px;
     margin-bottom: 4px;
   }
@@ -303,7 +299,7 @@ nav {
     width: 100%;
   }
 
-  .more-info {
+  .footer-inner {
     display: grid;
     grid-template-areas: 
       "qna sns"
@@ -316,7 +312,7 @@ nav {
     grid-area: company;
   }
 
-  .QnA {
+  .QnA-links {
     grid-area: qna;
   }
 
