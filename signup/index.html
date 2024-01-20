@@ -15,28 +15,32 @@
                     </div>
                     <div class="signin-box">이미 회원이신가요? <a href="/signin">로그인 하기</a></div>
                 </div>
-                <div class="input-box">
-                    <label for="email">이메일</label>
-                    <input type="text" id="email" class="login-input" />
-                </div>
-                <div class="input-box">
-                    <label for="password">비밀번호</label>
-                    <input type="password" id="password" class="login-input" />
-                    <div class="icon-box pwd-view" data-target="password">
-                        <img src="/images/eye-off.png" alt="off" data-onoff="off" />
+                <form action="" method="post">
+                    <div class="input-box">
+                        <label for="email">이메일</label>
+                        <input type="text" id="email" class="form-input" />
                     </div>
-                </div>
-                <div class="input-box">
-                    <label for="password-confirm">비밀번호 확인</label>
-                    <input type="password" id="password-confirm" class="login-input pwd-confirm" />
-                    <div class="icon-box pwd-view" data-target="password-confirm">
-                        <img src="/images/eye-off.png" alt="off" data-onoff="off" />
+                    <div class="error-text" data-target="email"></div>
+                    <div class="input-box">
+                        <label for="password">비밀번호</label>
+                        <input type="password" id="password" class="form-input" />
+                        <div class="icon-box pwd-view" data-check="password">
+                            <img src="/images/eye-off.png" alt="off" data-onoff="off" />
+                        </div>
                     </div>
-                </div>
-                <div class="different-text">비밀번호가 다릅니다</div>
-                <div class="btn-box">
-                    <div class="regist-btn">회원가입</div>
-                </div>
+                    <div class="error-text" data-target="password"></div>
+                    <div class="input-box">
+                        <label for="password-confirm">비밀번호 확인</label>
+                        <input type="password" id="password-confirm" class="form-input pwd-confirm" />
+                        <div class="icon-box pwd-view" data-check="password-confirm">
+                            <img src="/images/eye-off.png" alt="off" data-onoff="off" />
+                        </div>
+                    </div>
+                    <div class="error-text" data-target="password-confirm"></div>
+                    <button class="form-btn" type="submit">
+                        <div class="regist-btn">회원가입</div>
+                    </button>
+                </form>
                 <div class="sns-regist-box">
                     <div>다른 방식으로 가입하기</div>
                     <div class="sns-box">
@@ -52,6 +56,7 @@
                 </div>
             </article>
         </main>
-        <script src="/signup/js/signup.js"></script>
+        <script src="/js/common.js"></script>
+        <script type="text/javascript" src="/signup/js/signup.js"></script>
     </body>
 </html>

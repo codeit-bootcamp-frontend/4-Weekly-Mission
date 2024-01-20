@@ -1,7 +1,6 @@
 @import url('/css/config.css');
 
 /* signup & signin 공통 CSS */
-
 body {
     background-color: var(--Gray5, #f0f6ff);
 }
@@ -17,6 +16,10 @@ article {
     justify-content: center;
     flex-direction: column;
     width: 400px;
+}
+
+form {
+    width: 100%;
 }
 
 .signin-box,
@@ -87,10 +90,10 @@ article {
     cursor: pointer;
     position: absolute;
     right: 16px;
-    bottom: 40px;
+    bottom: 16px;
 }
 
-.btn-box {
+.form-btn {
     display: flex;
     width: 100%;
     padding: 16px 20px;
@@ -98,12 +101,15 @@ article {
     align-items: center;
     gap: 0.8em;
     border-radius: 8px;
+    border: 0;
     background: var(
         --gra-purpleblue-to-skyblue,
         linear-gradient(91deg, var(--Primary, #6d6afe) 0.12%, #6ae3fe 101.84%)
     );
     margin-top: 8px;
     color: var(--White);
+    font-size: 18px;
+    cursor: pointer;
 }
 
 .sns-login-box,
@@ -124,11 +130,11 @@ article {
     gap: 16px;
 }
 
-input#password-confirm.different {
+input.form-input.error-box {
     border: 1px solid var(--Red, #ff5b56);
 }
 
-.different-text {
+.error-text {
     color: var(--Red, #ff5b56);
     font-family: Pretendard;
     font-size: 14px;
