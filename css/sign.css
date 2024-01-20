@@ -134,6 +134,8 @@ body {
 form .btn-link {
   font-size: 1.13rem;
   padding: 1.25rem 1rem;
+  width: 100%;
+  border: none;
 }
 
 .footer {
