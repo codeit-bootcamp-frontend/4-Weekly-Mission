@@ -66,10 +66,6 @@ header {
   margin: 0;
 }
 
-.social-login {
-  background-color: var(--Linkbrary-bg);
-}
-
 .CTA {
   width: 350px;
   border: none;

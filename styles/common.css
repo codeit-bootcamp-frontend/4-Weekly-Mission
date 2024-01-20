@@ -57,11 +57,27 @@ input {
   display: flex;
   width: 350px;
   padding: 18px 15px;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-gray60);
   background: var(--Linkbrary-white);
   margin-top: 12px;
   cursor: pointer;
+}
+
+.input-error {
+  outline: 1px solid var(--Linkbrary-red);
+}
+
+.social-login {
+  display: flex;
+  width: 350px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20);
+  background: var(--Linkbrary-bg);
+  gap: 16px;
 }
