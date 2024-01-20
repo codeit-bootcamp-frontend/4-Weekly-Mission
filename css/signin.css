@@ -1,3 +1,14 @@
+p{
+  color: var(--Linkbrary-red, #FF5B56);
+
+/* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 /* 반응형 웹 퍼블리싱 (PC)*/
 
 @media(min-width:1200px){
