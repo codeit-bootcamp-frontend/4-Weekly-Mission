@@ -18,11 +18,11 @@ const emailValidation = function() {
   if (emailInput === '') {
     emailErrorMessage.style.display = 'block';
     emailFormatErrorMessage.style.display = 'none';
-    document.querySelector('#email').style.border = '0.1rem solid red';
+    document.querySelector('#email').style.border = '0.1rem solid var(--red)';
   } else if(!isValidEmail(emailInput)) {
     emailErrorMessage.style.display = 'none';
     emailFormatErrorMessage.style.display = 'block';
-    document.querySelector('#email').style.border = '0.1rem solid red';
+    document.querySelector('#email').style.border = '0.1rem solid var(--red)';
   } else {
     emailErrorMessage.style.display = 'none';
     emailFormatErrorMessage.style.display = 'none';
@@ -35,7 +35,7 @@ const passwordValidation = function() {
 
   if (passwordInput === '') {
     passwordErrorMessage.style.display = 'block';
-    document.querySelector('#password').style.border = '0.1rem solid red';
+    document.querySelector('#password').style.border = '0.1rem solid var(--red)';
   } else {
     passwordErrorMessage.style.display = 'none';
     document.querySelector('#password').style.border = '0.1rem solid var(--gray20)';
@@ -50,8 +50,8 @@ const signFormValidation = function(event) {
   } else {
     emailErrorMessage.style.display = 'block';
     passwordErrorMessage.style.display = 'block';
-    document.querySelector('#email').style.border = '0.1rem solid red';
-    document.querySelector('#password').style.border = '0.1rem solid red';
+    document.querySelector('#email').style.border = '0.1rem solid var(--red)';
+    document.querySelector('#password').style.border = '0.1rem solid var(--red)';
   }
 }
 
