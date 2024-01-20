@@ -1,6 +1,7 @@
 let email = document.querySelector(".input-email");
 let password = document.querySelector(".input-password");
-let loginButton = document.querySelector(".button-login")
+let loginButton = document.querySelector(".button-login");
+let passwordIcon = document.querySelector(".password-icon");
 
 function resetElement(parentPlace, place) {
   let container = document.querySelector(parentPlace);
@@ -108,10 +109,20 @@ function loginFail() {
   printErrorMessage(".errorMessage", "비밀번호를 확인해 주세요");
 }
 
+// 비밀번호 보이기
+function togglePassword() {
+  if (password.type === "password") {
+    password.type = "text";
+  } else {
+    password.type = "password";
+  }
+}
+
 email.addEventListener("focusout", noInputFocusOut);
 password.addEventListener("focusout", noInputFocusOutPassword);
 email.addEventListener("input", notValidEmailInput);
 email.addEventListener("focusin", () => focusIn(".errorMessage-email"));
 password.addEventListener("focusin", () => focusIn(".errorMessage"));
-loginButton.addEventListener("click", folderPage)
-password.addEventListener("keydown", pressEnterForFolderPage)
+loginButton.addEventListener("click", folderPage);
+password.addEventListener("keydown", pressEnterForFolderPage);
+passwordIcon.addEventListener("click", togglePassword);
