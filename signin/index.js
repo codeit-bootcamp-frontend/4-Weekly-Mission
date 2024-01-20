@@ -1,14 +1,16 @@
-const email = document.querySelector("#email");
-const pw = document.querySelector("#pw");
-const login = document.querySelector(".login");
-const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-const eyeoff = document.querySelector(".eyeoff");
+///////////원래 파일
+
+const emailInput = document.querySelector("#email-input");
+const pwInput = document.querySelector("#pw-input");
+const loginButton = document.querySelector(".login-button");
+const eyeoffButton = document.querySelector(".eyeoff-button");
 
 function emailRequest(event) {
   //이메일을 입력해 주세요.
-  if (email.value == "") {
+  if (emailInput.value == "") {
     let emrq = document.querySelector(".email-request");
     emrq.classList.add("email-request-show");
+    emrq.textContent = "이메일을 입력해 주세요.";
   }
   let emchrs = document.querySelector(".email-checker-show");
   if (emchrs) {
@@ -26,15 +28,17 @@ function removeEmailRequest(event) {
   }
 }
 
-email.addEventListener("focusout", emailRequest);
-email.addEventListener("focusin", removeEmailRequest);
+emailInput.addEventListener("focusout", emailRequest);
+emailInput.addEventListener("focusin", removeEmailRequest);
 
 function emailChecker(event) {
   //올바른 이메일 주소가 아닙니다.
+  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   let emchrs = document.querySelector(".email-checker-show");
-  if (!regex.test(email.value) && email.value != "") {
+  if (!regex.test(emailInput.value) && emailInput.value != "") {
     let emchr = document.querySelector(".email-checker");
     emchr.classList.add("email-checker-show");
+    emchr.textContent = "올바른 이메일 주소가 아닙니다.";
   } else if (emchrs) {
     emchrs.classList.remove("email-checker-show");
   }
@@ -42,17 +46,18 @@ function emailChecker(event) {
   if (ckems) {
     ckems.classList.remove("check-email-show");
   }
-  if (email.value != "") {
+  if (emailInput.value != "") {
     removeEmailRequest();
   }
 }
-email.addEventListener("focusout", emailChecker);
+emailInput.addEventListener("focusout", emailChecker);
 
 function pwRequest(event) {
   //비밀번호를 입력해 주세요
-  if (pw.value == "") {
+  if (pwInput.value == "") {
     let pwrq = document.querySelector(".pw-request");
     pwrq.classList.add("pw-request-show");
+    pwrq.textContent = "비밀번호를 입력해 주세요.";
   }
   let ckpws = document.querySelector(".check-pw-show");
   if (ckpws) {
@@ -67,19 +72,22 @@ function removePwRequest(event) {
   }
 }
 
-pw.addEventListener("focusout", pwRequest);
-pw.addEventListener("focusin", removePwRequest);
+pwInput.addEventListener("focusout", pwRequest);
+pwInput.addEventListener("focusin", removePwRequest);
 
 function loginFunction(event) {
   //이메일(비밀번호)을 확인해주세요.
-  if (email.value == "test@codeit.com" && pw.value == "codeit101") {
+  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  if (emailInput.value == "test@codeit.com" && pwInput.value == "codeit101") {
     window.location.href = "../folder/index.html";
-  } else if (email.value != "" && pw.value != "") {
-    if (regex.test(email.value)) {
+  } else if (emailInput.value != "" && pwInput.value != "") {
+    if (regex.test(emailInput.value)) {
       const checkEmail = document.querySelector(".check-email");
       const checkPw = document.querySelector(".check-pw");
       checkEmail.classList.add("check-email-show");
+      checkEmail.textContent = "이메일을 확인해 주세요.";
       checkPw.classList.add("check-pw-show");
+      checkPw.textContent = "비밀번호를 확인해 주세요.";
       let emchrs = document.querySelector(".email-checker-show");
       if (emchrs) {
         emchrs.classList.remove("email-checker-show");
@@ -88,24 +96,24 @@ function loginFunction(event) {
     } else {
       emailChecker();
     }
-  } else if (email.value == "") {
+  } else if (emailInput.value == "") {
     emailRequest();
-  } else if (pw.value == "") {
+  } else if (pwInput.value == "") {
     pwRequest();
     emailChecker();
   }
 }
-login.addEventListener("click", function (event) {
+loginButton.addEventListener("click", function (event) {
   event.preventDefault();
   loginFunction();
 });
-email.addEventListener("keypress", function (event) {
+emailInput.addEventListener("keypress", function (event) {
   if (event.key == "Enter") {
     event.preventDefault();
     loginFunction();
   }
 });
-pw.addEventListener("keypress", function (event) {
+pwInput.addEventListener("keypress", function (event) {
   if (event.key == "Enter") {
     event.preventDefault();
     loginFunction();
@@ -113,21 +121,21 @@ pw.addEventListener("keypress", function (event) {
 });
 //눈모양 아이콘
 function pwVisibility(event) {
-  if (pw.type == "password") {
-    pw.type = "text";
-    eyeoff.removeChild(eyeoff.getElementsByTagName("img")[0]);
+  if (pwInput.type == "password") {
+    pwInput.type = "text";
+    eyeoffButton.removeChild(eyeoffButton.getElementsByTagName("img")[0]);
     const eyeonImg = document.createElement("img");
     eyeonImg.setAttribute("src", "../public/images/signin-image/eye-on.png");
-    eyeoff.prepend(eyeonImg);
+    eyeoffButton.prepend(eyeonImg);
   } else {
-    pw.type = "password";
-    eyeoff.removeChild(eyeoff.getElementsByTagName("img")[0]);
+    pwInput.type = "password";
+    eyeoffButton.removeChild(eyeoffButton.getElementsByTagName("img")[0]);
     const eyeoffImg = document.createElement("img");
     eyeoffImg.setAttribute("src", "../public/images/signin-image/eye-off.png");
-    eyeoff.prepend(eyeoffImg);
+    eyeoffButton.prepend(eyeoffImg);
   }
 }
-eyeoff.addEventListener("click", function (event) {
+eyeoffButton.addEventListener("click", function (event) {
   event.preventDefault();
   pwVisibility();
 });

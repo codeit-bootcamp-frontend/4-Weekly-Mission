@@ -34,7 +34,7 @@ body {
   font-weight: 400;
   line-height: normal;
 }
-#email {
+#email-input {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,7 +44,7 @@ body {
   background: var(--Linkbrary-white, #fff);
   margin: 12px 0 24px;
 }
-#email:focus {
+#email-input:focus {
   outline: 1px solid var(--Linkbrary-primary-color, #6d6afe);
 }
 
@@ -55,7 +55,7 @@ body {
   margin: 12px 0 30px;
 }
 
-#pw {
+#pw-input {
   display: flex;
   padding: 18px 15px;
   justify-content: center;
@@ -98,10 +98,10 @@ body {
   height: 22px;
 }
 
-#email,
+#email-input,
 .pwform,
-#pw,
-.login,
+#pw-input,
+.login-button,
 .social {
   width: 100%;
 }
@@ -113,13 +113,13 @@ body {
   line-height: 24px; /* 150% */
 }
 
-.eyeoff {
+.eyeoff-button {
   border: 0;
   background-color: transparent;
   margin: 0 15px 0 0;
 }
 
-.login {
+.login-button {
   padding: 16px 20px;
   gap: 10px;
   background: var(
@@ -142,15 +142,7 @@ main {
 .email-request {
   display: none;
 }
-.email-request-show {
-  display: block;
-  color: #ff5b56;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: normal;
-  position: relative;
-  top: -20px;
-}
+
 .email-checker {
   display: none;
 }
@@ -191,15 +183,25 @@ main {
   top: -20px;
 }
 
+.email-request-show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
+
 @media (min-width: 768px) {
   main {
     margin: 238px auto 252px;
     width: 400px;
   }
-  #email,
+  #email-input,
   .pwform,
-  #pw,
-  .login,
+  #pw-input,
+  .login-button,
   .social {
     width: 400px;
   }
