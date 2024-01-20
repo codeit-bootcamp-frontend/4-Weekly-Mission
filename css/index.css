@@ -3,9 +3,167 @@ main{
   display: flex;
   flex-direction: column;
 }
+/* 1번박스 */
 .contentMainBox{
+  padding: 124px 360px 0px 360px;
   background-color: #F0F6FF;
 }
+.contentMain{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+}
+.contentMain h1{
+  width: 708px;
+  height: 160px;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 80px; /* 125% */
+  color: #000;
+  background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.contentMain h1 span{
+  -webkit-text-fill-color: transparent;
+}
+.contentMain a{
+  width: 350px;
+  text-align: center;
+  padding: 16px 20px;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  color: #F5F5F5;
+  font-family: Pretendard;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.contentMain .imgBox{
+  width: 1200px;
+  height: 590px;
+  overflow: hidden;
+}
+.contentMain img{
+  width: 1118px;
+  height: 659px;
+  margin: 51px 41px;
+  border-radius: 25px;
+  background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%);
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+}
+/* 2,3,4,5번 박스 */
 .contentsBox{
-
+  display: flex;
+  
+  justify-content: center;
+  align-items: center;
+  padding: 120px 461px 50px 461px;
+}
+.contents{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 157px;
+  width: 998px;
+}
+  /* text부분 */
+.textBox{
+  display: flex;
+  width: 291px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.textBox h2{
+  font-family: Pretendard;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  color: #000;
+  word-break: keep-all;
+}
+section:nth-child(2) h2{
+  background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+section:nth-child(3) h2{
+  background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+section:nth-child(4) h2{
+  background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+section:nth-child(5) h2{
+  background: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+.textBox h2 span{
+  -webkit-text-fill-color: transparent;
+}
+.textBox .description{
+  color: #6B6B6B;
+  font-family: Abel;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+  /* 사진부분 */
+.imgBox{
+  width: 550px;
+  height: 450px;
+  border-radius: 15px;
+  background: #F0F6FF;
+  overflow: hidden;
+}
+.imgBox .total2{
+  width: 550px;
+  height: 450px;
+}
+.imgBox .change{
+  display: flex;
+  width: 550px;
+  padding: 114px 68px 66px 68px;
+  justify-content: center;
+  align-items: center;
+}
+.imgBox .total4{
+  width: 550px;
+  height: 450px;
+}
+.imgBox .search{
+  width: 619px;
+  height: 584px;
+  flex-shrink: 0;
+  border-radius: 15px;
+}
+/* 반응형 시작 */
+/* PC */
+@media (min-width:1200px){
+}
+/* 테블릿 */
+@media (min-width:768px) and (max-width:1199px){
+  .contentMain h1{
+    width: 472px;
+  }
+}
+/* 모바일 */
+@media (min-width:375px) and (max-width:767px){
+  .contentMain h1{
+    width: 236px;
+  }
 }
