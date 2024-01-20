@@ -17,10 +17,15 @@
   <body>
     <header>
       <a class="logo-link" href="index.html">
-        <img class="header-logo" src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
+        <img
+          class="header-logo"
+          src="./images/logo.svg"
+          alt="홈으로 연결된 Linkbrary 로고"
+        />
       </a>
       <p class="header-message">
-        이미 회원이신가요?<a class="header-link" href="signin.html">로그인 하기</a>
+        이미 회원이신가요?
+        <a class="header-link" href="signin.html">로그인 하기</a>
       </p>
     </header>
     <div class="sign-box">
@@ -28,19 +33,37 @@
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <input
+              class="sign-input"
+              type="text"
+              name="email"
+              placeholder="내용 입력"
+            />
+            <div id="error-msg-email"></div>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
+            <input
+              class="sign-input"
+              type="password"
+              name="password"
+              placeholder="내용 입력"
+            />
+            <div id="error-msg-pwd"></div>
             <button class="eye-button" type="button">
               <img src="./images/eye-off.svg" />
             </button>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호 확인</label>
-            <input class="sign-input" type="password" />
-            <button class="eye-button" type="button">
+            <input
+              class="sign-input"
+              type="password"
+              name="pwdCorrect"
+              placeholder="내용 입력"
+            />
+            <div id="error-msg-pwd-correct"></div>
+            <button class="eye-button-correct" type="button">
               <img src="./images/eye-off.svg" />
             </button>
           </div>
@@ -59,5 +82,6 @@
         </div>
       </div>
     </div>
+    <script src="./script/signup.js"></script>
   </body>
 </html>
