@@ -21,21 +21,35 @@ function onSubmit(e) {
   }
 }
 
+function isEmail(asValue) {
+  let regExp =
+    /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+  return regExp.test(asValue);
+}
+
 email.addEventListener('focusout', function (e) {
-  console.log('focus out email');
   if (e.target.value.length <= 0) {
     emailError.textContent = '이메일을 입력해 주세요.';
+    e.target.classList.add('inputError');
   } else {
-    emailError.textContent = '';
+    if (!isEmail(email.value)) {
+      emailError.textContent = '올바른 이메일 주소가 아닙니다.';
+      e.target.classList.add('inputError');
+    } else {
+      emailError.textContent = '';
+      e.target.classList.remove('inputError');
+    }
   }
 });
 
 password.addEventListener('focusout', function (e) {
-  console.log('focus out password');
   if (e.target.value.length <= 0) {
     passwordError.textContent = '비밀번호를 입력해 주세요.';
+    e.target.classList.add('inputError');
   } else {
     passwordError.textContent = '';
+    e.target.classList.remove('inputError');
   }
 });
 

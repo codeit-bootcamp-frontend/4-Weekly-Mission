@@ -80,13 +80,17 @@ input {
 }
 
 input:focus {
-  outline: 1px solid var(--primary);
+  border-color: var(--primary);
 }
 
 .error {
   color: var(--red);
   font-size: 1.4rem;
   margin-top: 0.6rem;
+}
+
+.inputError {
+  border-color: var(--red);
 }
 
 .login_button {
