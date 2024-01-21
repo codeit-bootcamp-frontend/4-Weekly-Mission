@@ -18,7 +18,6 @@ function email_check(){
 }
 
 function login(){
-    console.log()
     const email = document.querySelector("#email");
     const pwd = document.querySelector("#pwd");
 
@@ -30,5 +29,12 @@ function login(){
         document.querySelector('.pwd_result').innerText = "비밀번호를 확인해주세요";
         email.classList.add('focus_red');
         pwd.classList.add('focus_red');
+    }
+}
+
+function Enter_login(){
+    var key_code = window.event.keyCode;
+    if (key_code == 13){
+        login();
     }
 }
