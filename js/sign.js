@@ -36,6 +36,14 @@ const redirectToFolderPage = () => {
   }
 };
 
+/* enter키 입력 시 로그인 실행 */
+const enterKey = (e) => {
+  if (e.keyCode == 13) {
+    redirectToFolderPage();
+  }
+};
+
 email.addEventListener("blur", isValidEmail);
 password.addEventListener("blur", isValidPassword);
 loginButton.addEventListener("click", redirectToFolderPage);
+document.addEventListener("keypress", enterKey);
