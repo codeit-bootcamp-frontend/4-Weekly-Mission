@@ -16,10 +16,12 @@ export default class UI {
     addClass(inputLayoutElem, "invalid")
   }
 
-  passwordChangeIcon(inputElem) {
-    const icon = inputElem.nextElementSibling.children[0]
-    const iconSource = icon.src.includes("password-eye-icon")
+  passwordToggleIcon(icon) {
+    const isEyeOffIcon = icon.src.includes("password-eye-icon")
+    icon.src = isEyeOffIcon ? "./assets/images/icon/eye-on.svg" : "./assets/images/icon/password-eye-icon.svg"
+  }
 
-    icon.src = iconSource ? "./assets/images/icon/eye-on.svg" : "./assets/images/icon/password-eye-icon.svg"
+  passwordToggleInputType(passwordInput) {
+    return (passwordInput.type = passwordInput.type === "text" ? "password" : "text")
   }
 }

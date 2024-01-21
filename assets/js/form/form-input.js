@@ -1,6 +1,6 @@
 import formState from "../core/index.js"
 import { containsClass } from "../utils/classList.js"
-import { emptyTypeMessage, isEmail, isEmailValid, isNotEmptyValid } from "../utils/validation.js"
+import { emptyMessage, isEmpty, isEmailValid } from "../utils/validation.js"
 import UI from "./form-ui.js"
 
 export default class FormInput extends UI {
@@ -10,37 +10,32 @@ export default class FormInput extends UI {
     this.inputElement = inputElement
     this.errorElement = errorElement
 
-    this.isValid = { message: "", result: false }
     this.attach()
   }
 
   validation(value) {
-    if (!isNotEmptyValid(value)) {
-      return { message: emptyTypeMessage(this.type), result: false }
+    if (isEmpty(value)) {
+      return { message: emptyMessage(this.type), result: false }
     }
 
-    if (!isEmailValid(value) && isEmail(this.type)) {
+    if (this.type === "email" && !isEmailValid(value)) {
       return { message: "올바른 이메일 주소가 아닙니다.", result: false }
     }
 
     return { message: "Validate Passed!", result: true }
   }
 
-  foucsOutHandler(event) {
-    const { name, value } = event.target
-    formState.setState = { prop: name, value: value }
+  foucsOutHandler({ target: { value } }) {
+    const isValid = this.validation(value)
+    formState.setState = { message: isValid.message, result: isValid.result, type: this.type, value }
 
-    this.isValid = this.validation(event.target.value)
-
-    this.isValid.result
-      ? this.removeError(this.type, this.errorElement)
-      : this.showError(this.type, this.isValid.message)
+    isValid.result ? this.removeError(this.type, this.errorElement) : this.showError(this.type, isValid.message)
   }
 
   toggleShowPassword({ target }) {
     if (!containsClass(target, "password-show")) return
-    this.inputElement.type = this.inputElement.type === "text" ? "password" : "text"
-    this.passwordChangeIcon(this.inputElement)
+    this.passwordToggleInputType(this.inputElement)
+    this.passwordToggleIcon(target.children[0])
   }
 
   attach() {

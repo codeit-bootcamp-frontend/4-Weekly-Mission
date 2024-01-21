@@ -1,7 +1,12 @@
 import formState from "../core/index.js"
-import { emptyTypeMessage } from "../utils/validation.js"
+import { emptyMessage, isEmailValid, isEmpty } from "../utils/validation.js"
 import FormInput from "./form-input.js"
 import UI from "./form-ui.js"
+
+const TEST_USER = {
+  email: "test@codeit.com",
+  password: "codeit101",
+}
 
 export default class Form extends UI {
   constructor(formElement, inputs) {
@@ -17,7 +22,7 @@ export default class Form extends UI {
   }
 
   setInstances() {
-    this.inputs.forEach((input, index) => {
+    this.inputs.forEach((input) => {
       this[`${input.name}Instance`] = new FormInput(input.name, input, this.errorElement[input.name])
     })
   }
@@ -30,49 +35,48 @@ export default class Form extends UI {
   }
 
   validation({ email, password }) {
-    const { isValid: emailIsValid, type: emailType } = this.emailInstance
-    const { isValid: passwordIsValid, type: passwordType } = this.passwordInstance
-
-    let result = true
+    let result = false
 
     // ! 이메일만 입력했을 경우.
-    if (!emailIsValid.result) {
-      this.showError(emailType, emailIsValid.message)
+    if (!isEmpty(email.value) && !isEmailValid(email.value)) {
+      this.showError(email.type, email.message)
     }
 
     // ! 이메일이 공백이라면.
-    if (!emailIsValid.message) {
-      this.showError(emailType, emptyTypeMessage(emailType))
+    if (isEmpty(email.value)) {
+      this.showError(email.type, emptyMessage(email.type))
     }
 
     // ! 패스워드에 메세지가 없는경우
-    if (!passwordIsValid.message) {
-      this.showError(passwordType, emptyTypeMessage(passwordType))
+    if (isEmpty(password.value)) {
+      this.showError(password.type, emptyMessage(password.type))
     }
 
-    // ! 이메일과 비밀번호를 바로 입력안하고 작성할 때.
-    if (!emailIsValid.message && !passwordIsValid.message) {
-      this.inputs.forEach(({ name }, i) => this.showError(name, emptyTypeMessage(name)))
+    // ! 이메일과 비밀번호를 바로 입력안하고 로그인할 때.
+    if (isEmpty(email.value) && isEmpty(password.value)) {
+      this.inputs.forEach(({ name }) => this.showError(name, emptyMessage(name)))
     }
 
-    // ! 이메일과 비밀번호 유효성에 하나라도 실패하면 false
-    if (!emailIsValid.result || !passwordIsValid.result) {
-      result = false
+    if (email.result && password.result) {
+      result = true
     }
 
     return { email, password, result }
   }
 
+  successLogin(email, password) {
+    return email === TEST_USER.email && password === TEST_USER.password
+  }
+
   submitHandler(event) {
     event.preventDefault()
-
     const { email, password, result } = this.validation(formState.getState)
 
     if (!result) {
-      return alert("이메일이나 비밀번호를 올바르게 입력해주세요.")
+      return alert("이메일이나 비밀번호가 유효하지 않습니다.")
     }
 
-    email === "test@codeit.com" && password === "codeit101"
+    this.successLogin(email.value, password.value)
       ? (location.href = "/folder")
       : alert("이메일이나 비밀번호가 일치하지 않습니다.")
   }
