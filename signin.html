@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
-    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
@@ -16,9 +16,11 @@
     <section>
         <form action="" id="signin-form">
             <label for="input-email-signin">이메일</label>
-            <input id="input-email-signin" type="email" placeholder="codeit@codeit.com" class="gap">
+            <input id="input-email-signin" type="email" placeholder="codeit@codeit.com" class="gap input-email">
+            <div class="error-message-email"></div>
             <label for="input-password-signin">비밀번호</label>
-            <input id="input-password-signin" type="password">
+            <input id="input-password-signin" type="password" class="input-password">
+            <div class="error-message-password"></div>
         </form>
         <button type="submit" form="signin-form" src="">로그인</button>
         <div class="social-login">
@@ -50,6 +52,7 @@
             </div>
         </div>
     </section>
+    <script src="/js/signin.js"></script>
 </body>
 
 </html>
