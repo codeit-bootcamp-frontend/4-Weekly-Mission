@@ -1,15 +1,23 @@
+@import url("./color.css");
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  background: var(--gray5);
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin: 0;
   align-items: center;
-  padding: 200px 0;
-  background: #f0f6ff;
+}
+
+.contents {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 230px 0;
+  min-width: 340px;
 }
 
 .sign_logo {
@@ -24,7 +32,7 @@ body {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 150%; /* 150% */
+  line-height: 24px;
 }
 
 .login_info a {
@@ -71,24 +79,29 @@ body {
 
 .password .form_input {
   width: 100%;
+  position: relative;
 }
 
-.input .eyes {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto 2px;
-  height: 30px;
+.btn_password_icon {
+  margin: 14px;
   width: 30px;
-  font-size: 22px;
-  cursor: pointer;
+  height: 30px;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  background-color: white;
+}
+
+.btn_password_icon_imgs {
+  margin: 0;
+  width: 30px;
 }
 
 .login_button {
+  display: block;
   border-radius: 8px;
   height: 50px;
-  width: 400px;
+  width: 100%;
   padding: 16px 20px;
   cursor: pointer;
 
@@ -143,19 +156,33 @@ body {
   width: 22px;
 }
 
-@media (width < 768px) {
-  body {
-    margin-top: 120px;
-    padding: 0 32px;
+/* 1199px미만 태블릿  */
+@media (max-width: 1199px) {
+  .contents {
+    padding: 200px 32px;
     width: 100%;
   }
+}
+
+/* 768px미만 모바일  */
+@media (max-width: 767px) {
+  .contents {
+    padding: 120px 32px;
+    width: 100%;
+  }
+
   .form_box {
     width: 100%;
+    max-width: 400px;
   }
+
   .login_button {
     width: 100%;
+    max-width: 400px;
   }
+
   .social_login_box {
     width: 100%;
+    max-width: 400px;
   }
 }

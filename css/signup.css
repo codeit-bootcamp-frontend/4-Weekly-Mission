@@ -1,14 +1,23 @@
+@import url("./color.css");
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  background: var(--gray5);
   display: flex;
   flex-direction: column;
-  width: 100%;
   align-items: center;
-  padding: 238px 0 252px 0;
-  background: #F0F6FF;
+}
+
+.contents {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 230px 0;
+  min-width: 340px;
 }
 
 .sign_logo {
@@ -70,19 +79,22 @@ body {
 
 .password .form_input {
   width: 100%;
+  position: relative;
 }
 
-.input .eyes {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto 2px;
-  height: 30px;
+.btn_password_icon {
+  margin: 14px;
   width: 30px;
-  font-size: 22px;
-  cursor: pointer;
-  z-
+  height: 30px;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  background-color: white;
+}
+
+.btn_password_icon_imgs {
+  margin: 0;
+  width: 30px;
 }
 
 .signup_button {
@@ -92,7 +104,7 @@ body {
   padding: 16px 20px;
   cursor: pointer;
 
-  color:var(--white);
+  color: var(--white);
   background: var(--gra-purpleblue-to-skyblue);
 
   text-decoration: none;
@@ -143,19 +155,33 @@ body {
   width: 22px;
 }
 
-@media (width < 768px) {
-  body {
-    margin-top:120px;
-    padding: 0 32px;
+/* 1199px미만 태블릿  */
+@media (max-width: 1199px) {
+  .contents {
+    padding: 200px 32px;
     width: 100%;
   }
-  .form_box{
-    width:100%;
+}
+
+/* 768px미만 모바일  */
+@media (max-width: 767px) {
+  .contents {
+    padding: 120px 32px;
+    width: 100%;
   }
-  .signup_button{
-    width:100%;
+
+  .form_box {
+    width: 100%;
+    max-width: 400px;
   }
-  .social_login_box{
-    width:100%;
+
+  .signup_button {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .social_login_box {
+    width: 100%;
+    max-width: 400px;
   }
 }

@@ -6,48 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linkbrary</title>
     <link rel="stylesheet" href="./css/signin.css" />
-    <link rel="stylesheet" href="./css/color.css" />
     <link
       rel="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
     />
   </head>
   <body>
-    <a href="./">
-      <img class="sign_logo" src="./images/logo.png" alt="logo.png" />
-    </a>
-    <div class="login_info">
-      회원이 아니신가요? <a href="./signup.html" target="_self">회원가입하기</a>
-    </div>
-    <div class="form_box">
-      <label class="form_label">이메일</label>
-      <input class="form_input" type="email" />
-      <label class="form_label">비밀번호</label>
-      <div class="password">
-        <input class="form_input" type="password" />
-        <!-- <img class="eyes" src="./images/eye-solid.svg" alt="" /> -->
+    <div class="contents">
+      <a href="./">
+        <img class="sign_logo" src="./images/logo.png" alt="Linkbrary" />
+      </a>
+      <div class="login_info">
+        회원이 아니신가요? <a href="./signup.html" target="_self">회원가입하기</a>
       </div>
-    </div>
-    <a class="login_button" href="./">로그인</a>
-    <div class="social_login_box">
-      <p>소셜 로그인</p>
-      <div class="social_icons">
-        <div class="social_icon_link back_color_white">
-          <a href="https://www.google.com/" target="_self">
-            <img
-              class="social_login_icon"
-              src="./images/icon-google.png"
-              alt="icon-google.png"
-            />
-          </a>
+      <form class="form_box">
+        <label class="form_label" for="emailInput">이메일</label>
+        <input class="form_input" type="email" id="emailInput" />
+        <label class="form_label" for="passwordInput">비밀번호</label>
+        <div class="password">
+          <input class="form_input" type="password" id="passwordInput" />
+          <button class="btn_password_icon">
+            <img class="btn_password_icon_imgs icon_eye_open" src="./images/icon-open-eye.png"></img>
+          </button>
         </div>
-        <div class="social_icon_link back_color_yellow">
-          <a href="https://www.kakaocorp.com/page/" target="_self">
-            <img
-              class="social_login_icon"
-              src="./images/icon-kakao.png"
-              alt="icon-kakao.png"
-            />
-          </a>
+        <a class="login_button" href="./">로그인</a>
+      </form>
+      <div class="social_login_box">
+        <p>소셜 로그인</p>
+        <div class="social_icons">
+          <div class="social_icon_link back_color_white">
+            <a href="https://www.google.com/" target="_self">
+              <img
+                class="social_login_icon"
+                src="./images/icon-google.png"
+                alt="icon-google"
+              />
+            </a>
+          </div>
+          <div class="social_icon_link back_color_yellow">
+            <a href="https://www.kakaocorp.com/page/" target="_self">
+              <img
+                class="social_login_icon"
+                src="./images/icon-kakao.png"
+                alt="icon-kakao"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </div>
