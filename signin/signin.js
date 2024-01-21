@@ -18,8 +18,7 @@ function showErrorMassage(input, message) {
   error.textContent = message;
   //출력메세지 색상 변경
   error.style.color = '#FF5B56';
-  
-  
+
   input.appendChild(error);
 }
 
@@ -35,12 +34,12 @@ function emailFocus (e) {
   }
 }
 function passFocus (e) {
-    //비밀번호 에러메세지
-    if (passInput.value.trim() === '') {
-      showErrorMassage(passSignIn, '비밀번호를 입력해 주세요');
-    } else {
-      error.textContent = '';
-    }
+  //비밀번호 에러메세지
+  if (passInput.value.trim() === '') {
+    showErrorMassage(passSignIn, '비밀번호를 입력해 주세요');
+  } else {
+    error.textContent = '';
+  }
 }
 
 //로그인 액션
@@ -54,10 +53,9 @@ function submit (e) {
     showErrorMassage(emailSignIn, '이메일을 확인해 주세요');
     showErrorMassage(passSignIn, '비밀번호를 확인해 주세요');
   }
-
 }
 
 
 emailSignIn.addEventListener('focusout', emailFocus);
 passSignIn.addEventListener('focusout', passFocus);
-signInForm.addEventListener('submit', submit)
+signInForm.addEventListener('submit', submit);
