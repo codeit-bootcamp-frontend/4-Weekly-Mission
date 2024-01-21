@@ -140,7 +140,8 @@ label {
   display: none;
 }
 
-#email-inputbox.error-box {
+#email-inputbox.error-box,
+#pw-inputbox.error-box {
   padding-left: 1rem;
   padding-right: 4rem;
   width: 40rem;
