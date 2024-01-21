@@ -9,7 +9,7 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // 비밀번호 input
 const password = document.querySelector('#password');
 
-// 폼 링크
+// 링크
 const hostname = '/folder';
 
 // 비밀번호 아이콘
@@ -43,9 +43,9 @@ password.addEventListener('focusout', function(e) {
 
 form.onsubmit = function(e) {
     if(email.value.trim() == 'test@codeit.com' && password.value == 'codeit101') {
+        e.preventDefault();
         window.location.href = hostname;
     } else {
-        e.preventDefault();
         error.style.display = 'block';
         email.classList.add('error');
         error.innerText = "이메일을 확인해 주세요";
