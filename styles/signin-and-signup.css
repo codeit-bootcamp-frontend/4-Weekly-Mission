@@ -162,6 +162,10 @@ label[for="password"] {
   font-weight: 400;
 }
 
+.invalid {
+  border: 1px solid var(--Linkbrary-red);
+}
+
 /* 2. 하단 social 영역 */
 .social {
   width: 100%;
