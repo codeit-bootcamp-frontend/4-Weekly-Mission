@@ -1,3 +1,5 @@
+import VALIDATION_MESSAGES from "./constants.js";
+
 /**
  * 폼 유효성 검사 및 상호작용을 위한 초기화
  */
@@ -19,9 +21,9 @@ document.addEventListener('DOMContentLoaded', function () {
     function validateEmail() {
         clearError(emailInput);
         if(!emailInput.value) {
-            showError(emailInput, "이메일을 입력해 주세요.");
+            showError(emailInput, VALIDATION_MESSAGES.email.empty);
         } else if(!isValidEmail(emailInput.value)) {
-            showError(emailInput, "올바른 이메일 주소가 아닙니다.");
+            showError(emailInput, VALIDATION_MESSAGES.email.invalid);
         }
     }
     
@@ -31,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function validatePassword() {
         clearError(passwordInput);
         if(!passwordInput.value) {
-            showError(passwordInput, "비밀번호를 입력해 주세요.");
+            showError(passwordInput, VALIDATION_MESSAGES.password.empty);
         }
         return passwordInput.value === 'codeit101';
     }
@@ -44,19 +46,16 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
         validateEmail();
     
-        // 비밀번호 검증 로직을 수정합니다.
         const isPasswordValid = validatePassword();
         if(!isPasswordValid) {
-            // 비밀번호가 유효하지 않은 경우, 오류 메시지를 표시합니다.
-            showError(passwordInput, "비밀번호를 확인해 주세요.");
-            return; // 오류가 있으므로 여기서 함수 실행을 종료합니다.
+            showError(passwordInput, VALIDATION_MESSAGES.password.incorrect);
+            return;
         }
     
-        // 이메일과 비밀번호가 모두 유효한 경우
         if(emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101') {
             window.location.href = '/folder.html';
         } else {
-            showError(emailInput, "이메일을 확인해 주세요.");
+            showError(emailInput, VALIDATION_MESSAGES.email.invalid);
         }
     }
 
