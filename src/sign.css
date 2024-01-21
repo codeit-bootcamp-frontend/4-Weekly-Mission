@@ -163,3 +163,16 @@ header {
   padding-top: 0.2rem;
   background-color: #f5e14b;
 }
+
+.error-box{
+  border: 1px solid var(--Linkbrary-red, #FF5B56);
+}
+
+.error-text{
+  color: var(--Linkbrary-red, #FF5B56);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

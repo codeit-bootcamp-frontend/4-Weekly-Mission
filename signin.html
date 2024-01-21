@@ -28,11 +28,13 @@
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <input id="email" class="sign-input" placeholder="이메일 입력"/>
+            <div class="email-error-message"></div>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
+            <input id="password" class="sign-input" type="password" placeholder="비밀번호 입력" />
+            <div class="passwrod-error-message"></div>
             <button class="eye-button" type="button">
               <img src="./images/eye-off.svg" />
             </button>
@@ -52,5 +54,6 @@
         </div>
       </div>
     </div>
+    <script src="sign.js"></script>
   </body>
 </html>
