@@ -8,6 +8,9 @@ const pwInputBox = document.querySelector("#pw-inputbox");
 // 로그인 버튼 선택
 const loginBtn = document.querySelector("#login-button");
 
+// 눈 모양 아이콘 선택
+const passwordOnoff = document.querySelector("#password-onoff");
+
 function checkEmail(event) {
   // errorMessage가 출력될 태그, input 태그 선택
   const emailValue = event.target.value.trim();
@@ -69,6 +72,19 @@ function loginByEnter(event) {
   }
 }
 
+/** [심화] 눈 모양 아이콘 클릭시, 비밀번호 타입 변경하기 **/
+function pwOnoff() {
+  if (pwInputBox.getAttribute("type") === "password") {
+    passwordOnoff.setAttribute("src", "./images/logo_icon/eye_icon.png");
+    passwordOnoff.setAttribute("alt", "비밀번호 보기");
+    pwInputBox.setAttribute("type", "text");
+  } else if (pwInputBox.getAttribute("type") === "text") {
+    passwordOnoff.setAttribute("src", "./images/logo_icon/hidden_eye_icon.png");
+    passwordOnoff.setAttribute("alt", "비밀번호 숨김");
+    pwInputBox.setAttribute("type", "password");
+  }
+}
+
 /** 이벤트 등록 */
 // 이메일, 비밀번호 올바른지 확인
 emailInputBox.addEventListener("focusout", checkEmail);
@@ -79,3 +95,6 @@ loginBtn.addEventListener("click", tryLogin);
 
 // 엔터키로 로그인하기
 document.addEventListener("keydown", loginByEnter);
+
+// 눈 모양 아이콘 클릭시
+passwordOnoff.addEventListener("click", pwOnoff);
