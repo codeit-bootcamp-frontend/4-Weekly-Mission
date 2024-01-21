@@ -1,7 +1,9 @@
-// 이메일 input 에러 메시지
-
 const signInput = document.querySelector(".sign-input");
+const passwordInput = document.querySelector(".sign-input[type='password']");
+const loginButton = document.querySelector(".cta");
 const errorMessage = document.createElement("p");
+
+// 이메일 관리
 
 errorMessage.classList.add("error-message");
 
@@ -30,3 +32,22 @@ function focusinErrorRemove() {
 
 signInput.addEventListener("focusout", focusoutError);
 signInput.addEventListener("focusin", focusinErrorRemove);
+
+// 비밀번호 관리 & 로그인 관리
+
+function isLoginValid(email, password) {
+  return email === "test@codeit.com" && password === "codeit101";
+}
+
+function loginButtonClick() {
+  const emailValue = signInput.value.trim();
+  const passwordValue = passwordInput.value.trim();
+
+  if (isLoginValid(emailValue, passwordValue)) {
+    window.location.href = "/folder";
+  } else {
+    alert();
+  }
+}
+
+loginButton.addEventListener("click", loginButtonClick);
