@@ -1,29 +1,17 @@
-const loginBtn = document.getElementsByClassName("login_btn");
-const inputEmail = document.getElementById("email");
-const inputPassword = document.getElementById("password");
+const EMAIL = document.getElementById("email");
+const ERROREMAIL = document.createElement("div");
+const focusout = document.getElementsByClassName("focusout");
 
-const HIDDEN_CLASSNAME = "hidden";
-const USEREMAIL = "username";
+const PASSWORD = document.getElementById("password");
+const ERROREPASSWORD = document.createElement("div");
 
-const savedUsername = localStorage.getItem(USEREMAIL);
+ERROREMAIL.textContent = "이메일을 입력해주세요";
+ERROREPASSWORD.textContent = "비밀번호를 입력해주세요";
 
-if (savedUsername === null) {
-  loginForm.classList.remove(HIDDEN_CLASSNAME);
-  loginForm.addEventListener("submit", onLoginSubmit);
-} else {
-  paintGreeting(savedUsername);
-}
+EMAIL.onclick = function () {
+  EMAIL.after(ERROREMAIL);
+};
 
-inputEmail.addEventListener("pointermove");
-
-// function check_email() {
-//   let input = document.getElementById("email").value;
-
-//   let email_format =
-//     /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-//   if (email_format.test(input)) alert("이메일 입력 성공!");
-//   else {
-//     alert("잘못된 이메일 형식입니다");
-//     document.getElementById("email").value = "";
-//   }
-// }
+PASSWORD.onclick = function () {
+  PASSWORD.after(ERROREPASSWORD);
+};
