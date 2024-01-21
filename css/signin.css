@@ -59,8 +59,14 @@ body {
   margin-bottom: 12px;
 }
 
-.form_input {
+.form_input_elements {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   margin-bottom: 24px;
+}
+
+.form_input {
   padding: 18px 15px;
   height: 60px;
   border-radius: 8px;
@@ -70,6 +76,12 @@ body {
 
 .form_input:focus {
   border: 1px solid var(--primary);
+}
+
+.error_txt {
+  color: red;
+  margin: 2px;
+  display: none;
 }
 
 .password {
@@ -91,6 +103,11 @@ body {
   position: absolute;
   background-color: white;
 }
+
+.icon_eye_close{
+  display:none;
+}
+
 
 .btn_password_icon_imgs {
   margin: 0;

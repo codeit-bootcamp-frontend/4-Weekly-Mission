@@ -19,16 +19,26 @@
         회원이 아니신가요? <a href="./signup.html" target="_self">회원가입하기</a>
       </div>
       <form class="form_box">
-        <label class="form_label" for="emailInput">이메일</label>
-        <input class="form_input" type="email" id="emailInput" />
-        <label class="form_label" for="passwordInput">비밀번호</label>
-        <div class="password">
-          <input class="form_input" type="password" id="passwordInput" />
-          <button class="btn_password_icon">
-            <img class="btn_password_icon_imgs icon_eye_open" src="./images/icon-open-eye.png"></img>
-          </button>
+        <div class="form_input_elements">
+          <label class="form_label" for="emailInput">이메일</label>
+          <input class="form_input" type="email" id="emailInput"  onkeydown="enterkey('email')"/>
+          <p class="error_txt" id="emptyEmailError">이메일을 입력해주세요.</p>
+          <p class="error_txt" id="wrongEmailError">올바른 이메일 주소가 아닙니다.</p>
+          <p class="error_txt" id="checkEmailError">이메일을 확인해주세요.</p>
         </div>
-        <a class="login_button" href="./">로그인</a>
+        <div class="form_input_elements">
+          <label class="form_label" for="passwordInput">비밀번호</label>
+          <div class="password">
+            <input class="form_input" type="password" id="passwordInput" onkeydown="enterkey()"/>
+            <button class="btn_password_icon password_close" type="button">
+              <img class="btn_password_icon_imgs icon_eye_open" src="./images/icon-open-eye.png"></img>
+              <img class="btn_password_icon_imgs icon_eye_close" src="./images/icon-close-eye.png"></img>
+            </button>
+          </div>
+          <p class="error_txt" id="emptyPasswordError">비밀번호를 입력해주세요.</p>
+          <p class="error_txt" id="checkPasswordError">비밀번호를 확인해주세요.</p>
+        </div>
+        <a class="login_button" id="btnLogin" onclick="loginBtnClick(this)">로그인</a>
       </form>
       <div class="social_login_box">
         <p>소셜 로그인</p>
@@ -54,5 +64,6 @@
         </div>
       </div>
     </div>
+    <script src="./js/signin.js"></script>
   </body>
 </html>
