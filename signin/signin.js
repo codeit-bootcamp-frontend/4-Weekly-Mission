@@ -33,8 +33,24 @@ function login(){
 }
 
 function Enter_login(){
-    var key_code = window.event.keyCode;
+    const key_code = window.event.keyCode;
     if (key_code == 13){
         login();
+    }
+}
+
+function active(){
+    
+    const pwd = document.querySelector('#pwd');
+    const img = document.querySelector('.check')
+    pwd.classList.toggle('active')
+    
+    if (pwd.classList.contains('active')){
+        pwd.type = "text"
+        img.src="../image/signin/eye-on.svg"
+    }
+    else{
+        pwd.type = "password"
+        img.src="../image/signin/eye-off.svg"
     }
 }
