@@ -89,10 +89,14 @@ function login(event) {
     const errorElementEmail = document.createElement('div');
     errorElementEmail.classList.add('error-message-email');
     errorElementEmail.textContent = '이메일을 확인해 주세요.';
+    email.style.borderColor = '#FF5B56';
+    errorElementEmail.style.color = '#FF5B56'
 
     const errorElementPW = document.createElement('div');
     errorElementPW.classList.add('error-message-password');
     errorElementPW.textContent = '비밀번호를 확인해 주세요.';
+    password.style.borderColor = '#FF5B56';
+    errorElementPW.style.borderColor = '#FF5B56';
 
     email.parentNode.insertBefore(errorElementEmail, email.nextSibling);
     pwContainer.appendChild(errorElementPW);
