@@ -14,28 +14,12 @@
   align-items: flex-start;
   align-self: stretch;
 }
-.pont8 {
-  color: #676767;
-  text-align: center;
-  font-family: Acme;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
+
 .Frame2 {
   display: flex;
   width: 181.111px;
   align-items: flex-start;
   gap: 30px;
-}
-.pont9 {
-  color: #cfcfcf;
-  font-family: Acme;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 .Frame2608749 {
   display: flex;
