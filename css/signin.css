@@ -78,7 +78,9 @@ body {
   font-weight: 400;
 }
 
-.sign-input-content > input {
+.email-input,
+.password-input {
+  width: 100%;
   padding: 1.8rem 1.5rem;
   border-radius: 0.8rem;
   border: 0.1rem solid var(--gray20);
@@ -86,7 +88,8 @@ body {
   line-height: 1.5;
 }
 
-.sign-input-content > input:focus {
+.email-input:focus,
+.password-input:focus {
   border-color: var(--primary)
 }
 
@@ -95,10 +98,35 @@ body {
 }
 
 .eye-btn {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url(../images/eye-off.svg);
+  background-size: contain;
   position: absolute;
-  bottom: 2.2rem;
+  top: 38%;
   right: 1.5rem;
-  height: 1.8rem;
+}
+
+.off-eye-btn {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url(../images/eye-on.svg);
+  background-size: contain;
+  position: absolute;
+  top: 36.5%;
+  right: 1.5rem;
+}
+
+.input-error {
+  border-color: var(--red);
+}
+
+.error-message {
+  color: var(--red);
+  margin-top: -0.6rem;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .sign-btn {
