@@ -3,12 +3,24 @@
 const signInput = document.querySelector(".sign-input");
 const errorMessage = document.createElement("p");
 
-errorMessage.textContent = "이메일을 입력해 주세요";
 errorMessage.classList.add("error-message");
 
+function isEmailValid(email) {
+  return email.includes("@") && email.includes(".");
+}
+
 function focusoutError() {
-  signInput.classList.add("input-border-red");
-  signInput.after(errorMessage);
+  const emailValue = signInput.value.trim();
+
+  if (emailValue === "") {
+    errorMessage.textContent = "이메일을 입력해 주세요";
+    signInput.classList.add("input-border-red");
+    signInput.after(errorMessage);
+  } else if (!isEmailValid(emailValue)) {
+    errorMessage.textContent = "올바른 이메일 주소가 아닙니다";
+    signInput.classList.add("input-border-red");
+    signInput.after(errorMessage);
+  }
 }
 
 function focusinErrorRemove() {
