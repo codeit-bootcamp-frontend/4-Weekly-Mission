@@ -8,16 +8,19 @@ const eyes = document.querySelector(".eye_button");
 function validateEmail() {
     // 이메일 값이 없는 경우
     if (email_input.value.trim() === "") {
+        email_input.style.border = "1px solid var(--Linkbrary-red)";
         error_email.innerText = "이메일을 입력해 주세요.";
         error_email.style.display = "block";
     }
     // 올바른 이메일 주소가 아닐 경우
     else if (!isValidEmail(email_input.value)) {
+        email_input.style.border = "1px solid var(--Linkbrary-red)";
         error_email.innerText = "올바른 이메일 주소가 아닙니다.";
         error_email.style.display = "block";
     }
     // 이메일 값이 있는 경우
     else {
+        email_input.style.border = "1px solid var(--Linkbrary-gray20)";
         error_email.style.display = "none";
     }
 }
@@ -26,11 +29,13 @@ function validateEmail() {
 function validatePassword() {
     // 비밀번호 값이 없는 경우
     if (password_input.value.trim() === "") {
+        password_input.style.border = "1px solid var(--Linkbrary-red)";
         error_password.innerText = "비밀번호를 입력해 주세요.";
         error_password.style.display = "block";
     }
     // 비밀번호 값이 있는 경우
     else {
+        email_input.style.border = "1px solid var(--Linkbrary-gray20)";
         error_password.style.display = "none";
     }
 }
@@ -47,10 +52,12 @@ function login() {
         window.location.href = "/folder";
     } else {
         if (error_email.style.display === "none") {
+            email_input.style.border = "1px solid var(--Linkbrary-red)";
             error_email.innerText = "이메일을 확인해 주세요.";
             error_email.style.display = "block";
         }
         if (error_password.style.display === "none") {
+            password_input.style.border = "1px solid var(--Linkbrary-red)";
             error_password.innerText = "비밀번호를 확인해 주세요.";
             error_password.style.display = "block";
         }
