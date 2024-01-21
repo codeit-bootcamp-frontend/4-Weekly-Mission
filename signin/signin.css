@@ -1,4 +1,14 @@
-﻿* {
+﻿:root{
+    --black :#000;
+    --Linkbrary-primary-color : #6D6AFE;
+    --Linkbrary-gray20 : #CCD5E3;
+    --Linkbrary-white: #FFF;
+    --gra-purpleblue-to-skyblue: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+    --Grey-Light: #F5F5F5;
+    --Linkbrary-gray10: #E7EFFB;
+}
+
+* {
     box-sizing: border-box;
   }
 
@@ -38,7 +48,7 @@ body{
 }
 
 .signup>span{
-    color: var(--black, #000);
+    color: var(--black);
     font-family: Pretendard;
     font-size: 16px;
     font-style: normal;
@@ -47,7 +57,7 @@ body{
 }
 
 .signup>a{
-    color: var(--Linkbrary-primary-color, #6D6AFE);
+    color: var(--Linkbrary-primary-color);
     font-family: Pretendard;
     font-size: 16px;
     font-style: normal;
@@ -67,7 +77,7 @@ body{
 }
 
 .info>a{
-    color: var(--black, #000);
+    color: var(--black);
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
@@ -89,14 +99,14 @@ input{
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
-    background: var(--Linkbrary-white, #FFF);
+    border: 1px solid var(--Linkbrary-gray20);
+    background: var(--Linkbrary-white);
 }
 
 input:focus{
     border-radius: 8px;
-    border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
-    background: var(--Linkbrary-white, #FFF);
+    border: 1px solid var(--Linkbrary-primary-color);
+    background: var(--Linkbrary-white);
 }
 
 .check{
@@ -115,8 +125,8 @@ input:focus{
     gap: 10px;
     border:none;
     border-radius: 8px;
-    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
-    color: var(--Grey-Light, #F5F5F5);
+    background: var(--gra-purpleblue-to-skyblue);
+    color: var(--Grey-Light);
     font-family: Pretendard;
     font-size: 18px;
     font-style: normal;
@@ -131,8 +141,8 @@ input:focus{
     justify-content: space-between;
     align-items: center;
     border-radius: 8px;
-    border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
-    background: var(--Linkbrary-gray10, #E7EFFB);
+    border: 1px solid var(--Linkbrary-gray20);
+    background: var(--Linkbrary-gray10);
 }
 
 .icons{
