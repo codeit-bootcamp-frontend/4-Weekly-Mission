@@ -129,3 +129,8 @@ form{
   background-color: #f5e14b;
   padding-top: 0.2rem;
 }
+
+/* error메시지 */
+.red{
+  color: red;
+}
