@@ -76,14 +76,23 @@ header {
   display: none;
   margin-top: 5px;
   color: var(--Linkbrary-red);
-  font-size: 10px;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 #errorMessage-password {
   display: none;
   color: var(--Linkbrary-red);
-  font-size: 10px;
   position: relative;
-  top: -10px;
+  top: -18px;
+  margin-top: 5px;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .kakao-svg-wrapper {

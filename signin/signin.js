@@ -7,6 +7,8 @@ document
     if (email === "") {
       console.log("보이기");
       errorMessage.style.display = "block";
+      document.getElementById("email-input").style.borderColor =
+        "var(--Linkbrary-red)";
     } else {
       console.log("안보이기");
       errorMessage.style.display = "none";
@@ -22,6 +24,8 @@ document
     if (password === "") {
       console.log("보이기");
       errorMessage.style.display = "block";
+      document.getElementById("passWord-input").style.borderColor =
+        "var(--Linkbrary-red)";
     } else {
       console.log("안보이기");
       errorMessage.style.display = "none";
@@ -62,15 +66,18 @@ document.addEventListener("DOMContentLoaded", function () {
     let isValid = true;
 
     if (!patternMap.emailValidation(emailInput)) {
-      console.log("첫번째");
       document.getElementById("errorMessage-email").textContent =
         "유효하지 않은 이메일 주소입니다.";
       document.getElementById("errorMessage-email").style.display = "block";
+      document.getElementById("email-input").style.borderColor =
+        "var(--Linkbrary-red)";
       isValid = false;
     } else if (!patternMap.rightEmail(emailInput)) {
       document.getElementById("errorMessage-email").textContent =
         "이메일을 확인해주세요.";
       document.getElementById("errorMessage-email").style.display = "block";
+      document.getElementById("email-input").style.borderColor =
+        "var(--Linkbrary-red)";
       isValid = false;
     }
 
@@ -78,6 +85,8 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("errorMessage-password").textContent =
         "비밀번호를 확인해주세요.";
       document.getElementById("errorMessage-password").style.display = "block";
+      document.getElementById("passWord-input").style.borderColor =
+        "var(--Linkbrary-red)";
       isValid = false;
     }
 
