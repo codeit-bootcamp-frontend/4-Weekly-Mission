@@ -29,7 +29,8 @@
   box-sizing: border-box;
 }
 
-a {
+a,
+button {
   cursor: pointer;
 }
 
