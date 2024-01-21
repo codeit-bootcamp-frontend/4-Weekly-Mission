@@ -45,35 +45,42 @@
         </a>
 
         <div class="signup__logoSection--text">
-          이미 회원이신가요? <a href="./loginin.html">로그인하기</a>
+          <p>
+            이미 회원이신가요? <a href="./loginin.html">로그인하기</a>
+          </p>
         </div>
       </div>
 
 
       <form class="sign__form">
         <div class="signup__form--inputbox">
-          <label for="email">이메일</label>
-          <input name="email" type="email">
+          <label for="signup__email-form">이메일</label>
+          <input id="signup__email-form" name="email" type="email">
         </div>
         <div class="signup__form--inputbox">
-          <label for="password">비밀번호</label>
+          <label for="signup__password-form">비밀번호</label>
           <div class="signup__password-container">
-            <input name="password" type="password">
+            <input id="signup__password-form" name="password" type="password">
             <i class="fa-solid fa-eye"></i>
+            <p class=".signup__password-form--error"></p>
           </div>
         </div>
         <div class="signup__form--inputbox">
-          <label for="pwscheck">비밀번호 확인</label>
+          <label for="signup__pwscheck-form">비밀번호 확인</label>
           <div class="signup__password-container">
-            <input name="pwcheck" type="password">
+            <input id="signup__pwscheck-form" name="pwcheck" type="password">
             <i class="fa-solid fa-eye"></i>
           </div>
         </div>
       </form>
-      <a class="signup__form--signupBt" href="#">회원가입</a>
+      <form class="sign__button-form">
+        <button class="signup__form--signupBt" href="#">회원가입</button>
+      </form>
     </article>
     <article class="signup-another">
-      <span>다른 방식으로 가입하기</span>
+      <p>
+        <span>다른 방식으로 가입하기</span>
+      </p>
       <div class="link">
         <a class="signup-another__google" href="#">
           <img src="./img/google.png">

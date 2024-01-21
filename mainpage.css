@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0; /*reset css*/
+  padding: 0;
 }
 
 html {
@@ -20,11 +22,11 @@ body {
   --red: #FF5B56;
   --black: #111322;
   --white: #ffffff;
-  --gray1: #3E3E43;
-  --gray2: #9FA6B2;
-  --gray3: #CCD5E3;
-  --gray4: #E7EFFB;
-  --gray5: #F0F6FF;
+  --gray_Very-Dim: #3E3E43;
+  --gray-Dim: #9FA6B2;
+  --gray-Moderate: #CCD5E3;
+  --gray-Bright: #E7EFFB;
+  --gray-Very-Bright: #F0F6FF;
 
 }
 
@@ -34,17 +36,16 @@ body {
 .bottom-nav__icon--facebook,
 .bottom-nav__icon--twitter,
 .bottom-nav__icon-insta,
-.bottom-nav__icon--youtube {
+.bottom-nav__icon--youtube,
+.bottom-nav__setting--color {
   text-decoration: none;
 }
 
 /* 상단 바 */
+
 .topnav {
   padding: 20px 200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: var(--gray5);
+  background-color: var(--gray-Very-Bright);
   position: sticky;
   top: 0;
   width: 100%;
@@ -56,6 +57,14 @@ body {
   @media screen and (max-width:767px) {
     padding: 13px 32px;
   }
+}
+
+.topnav__size{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1480px;
+  margin: 0 auto;
 }
 
 .topnav__logo--design {
@@ -114,18 +123,36 @@ body {
   background-clip: text;
   margin: 0;
 
+  word-wrap: break-word; 
+  word-break: keep-all;
+  max-width: 708px;
+
+  @media screen and (max-width:1199px) {
+    max-width: 472px;
+  }
+
   @media screen and (max-width:767px) {
     font-size: 32px;
     line-height: 42px;
+    max-width: 236px;
   }
 }
 
-.base__text--backcolor {
+.base__text br{ 
+  @media screen and (max-width:1199px) {
+    display: none;
+  }
+}
+
+.sub__content--text em,
+.base__text em {
+  font-style: normal;
+  font-size: inherit; /*em 폰트 기본설정 초기화*/
   color: transparent;
 }
 
 .base {
-  background-color: var(--gray5);
+  background-color: var(--gray-Very-Bright);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -145,6 +172,8 @@ body {
 }
 
 .base__image {
+  width: 1100px;
+  height: 590px;
   @media screen and (max-width:1199px) {
     width: 698px;
     height: 343px;
@@ -156,20 +185,12 @@ body {
   }
 }
 
-.base__text--line {
-  display: none;
-
-  @media screen and (max-width:1199px) {
-    display: block;
-  }
-}
-
 /* 서브 화면 */
 .sub {
   display: flex;
   padding: 120px 0 50px;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-wrap: wrap;
   margin: 0 auto;
   flex-direction: column;
@@ -209,7 +230,7 @@ body {
   }
 }
 
-.sub__content--image.left {
+.sub__content--aligned-left {
   margin-right: 157px;
 
   @media screen and (max-width:1199px) {
@@ -221,7 +242,7 @@ body {
   }
 }
 
-.sub__content--image.right {
+.sub__content--aligned-right {
   margin-left: 157px;
 
   @media screen and (max-width:1199px) {
@@ -240,7 +261,7 @@ body {
   font-weight: 400;
   line-height: 150%; /* 24px */
   margin: 10px 0 0 0;
-  text-align:left;
+  text-align: left;
   
   @media screen and (max-width:767px) {
     order: 2;
@@ -261,33 +282,29 @@ body {
   }
 }
 
-.sub__content--backcolor {
-  color: transparent;
-}
-
-.sub__content--br {
+.sub br{
   @media screen and (max-width:767px) {
     display: none;
   }
 }
 
 /* 각 sub 설명텍스트 그라데이션 */
-.text1 {
+.sub__content--gradient-pink {
   background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
   background-clip: text;
 }
 
-.text2 {
+.sub__content--gradient-yellow {
   background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
   background-clip: text;
 }
 
-.text3 {
+.sub__content--gradient-navy {
   background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
   background-clip: text;
 }
 
-.text4 {
+.sub__content--gradient-sky {
   background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
   background-clip: text;
 }
@@ -298,6 +315,7 @@ body {
 }
 
 .bottom-nav {
+  list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -333,4 +351,15 @@ body {
 
 .bottom-nav__setting--color {
   color: #CFCFCF;
+}
+
+.bottom-nav__icon {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+}
+
+/*a태그가 svg를 감싸도록 하기 위함*/
+.bottom-nav__icon--block{ 
+  display: inline-block;
 }

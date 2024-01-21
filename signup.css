@@ -1,7 +1,7 @@
-
-
 * {
   box-sizing: border-box;
+  margin: 0; /*reset css*/
+  padding: 0;
 }
 
 .signup-another__google,
@@ -22,11 +22,20 @@ html {
 
 .signup {
   display: flex;
-  padding: 14.875rem 0 15.75rem;
+  padding: 238px 0 253px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 32px;
+
+  @media screen and (max-width:1199px) {
+    padding: 200px 0 178px 0;    
+  }
+
+  @media screen and (max-width:767px) {
+    padding: 120px 32px 120px 32px;    
+    width: 100%;
+  }
 }
 
 /* 상단 부분  */
@@ -34,8 +43,13 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 30px;
   width: 400px;
+
+  @media screen and (max-width:767px) {
+    max-width: 400px;   
+    width: 100%;
+  }
 }
 
 .signup__logoSection svg {
@@ -66,6 +80,10 @@ html {
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
+  width: 100%;
+}
+
+.sign__button-form{
   width: 100%;
 }
 
@@ -105,6 +123,7 @@ html {
   color: var(--Grey-Light, #F5F5F5);
   font-size: 18px;
   font-weight: 600;
+  border: 0px;
 }
 
 .signup__password-container {
@@ -128,18 +147,9 @@ html {
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
   background: var(--Linkbrary-gray10, #E7EFFB);
-}
 
-@media screen and (max-width:767px) {
-  .signup {
-    padding-left: 32px;
-    padding-right: 32px;
+  @media screen and (max-width:767px) {
+    max-width: 400px;   
     width: 100%;
   }
-
-  .signup__container,
-  .signup-another {
-    width: 100%;
-  }
-
 }

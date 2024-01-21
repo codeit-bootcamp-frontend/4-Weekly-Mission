@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  margin: 0; /*reset css*/
+  padding: 0;
 }
 
 
@@ -20,15 +22,18 @@ html {
 
 .login {
   display: flex;
-  padding: 14.875rem 0 15.75rem;
+  padding: 238px 0 253px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 32px;
+
+  @media screen and (max-width:1199px) {
+    padding: 200px 0 291px 0;    
+  }
 
   @media screen and (max-width:767px) {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding: 120px 32px 233px 32px;    
     width: 100%;
   }
 }
@@ -37,11 +42,12 @@ html {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 30px;
   width: 400px;
 
   @media screen and (max-width:767px) {
     width: 100%;
+    max-width: 400px;
   }
 }
 
@@ -76,15 +82,24 @@ html {
   width: 100%;
 }
 
+.login__button-form{
+  width: 100%;
+}
+
 .login__form--infobox {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  /* gap: 12px; */
   width: 100%;
 }
 
-.login__form--info {
+#login__email-form,
+#login__password-form {
+  margin-top: 12px;
+}
+
+.login__form--infobox input {
   display: flex;
   width: 100%;
   padding: 18px 15px;
@@ -94,8 +109,12 @@ html {
   border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
   background: var(--Linkbrary-white, #FFF);
 }
+.login__form--label-text{
+  font-size: 14px;
+  font-weight: 400;
+}
 
-.login__form--info:focus {
+.login__form--infobox input:focus {
   border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
   outline: none;
 }
@@ -112,17 +131,27 @@ html {
   color: var(--Grey-Light, #F5F5F5);
   font-size: 18px;
   font-weight: 600;
+  border: 0px;
 }
 
 .login__password-container {
-  position:relative;
+  position: relative;
   width: 100%;
 }
 
-.fa-eye {
+.password__toggle-icon {
   position: absolute;
   right: 15px;
-  top: 18px;
+  top: 30px;
+}
+
+.login__email-form--error,
+.login__password-form--error {
+  display: none;
+  color: #FF5B56;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 6px;
 }
 
 /* 하단 부분 */
@@ -138,5 +167,6 @@ html {
 
   @media screen and (max-width:767px) {
     width: 100%;
+    max-width: 400px;
   }
 }
