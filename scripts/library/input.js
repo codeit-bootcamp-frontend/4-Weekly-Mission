@@ -6,7 +6,7 @@ export default class InputHandler {
    * @param {string} query - cssSelector
    * */
   static isEmptyValue = query => {
-    /** @type {HTMLInput} */
+    /** @type {HTMLInput} element*/
     const element = document.querySelector(query);
     if (element?.tagName === 'INPUT') return element.value.trim() === '' ? true : false;
   };
