@@ -1,15 +1,14 @@
 //@ts-check
 /** @typedef {HTMLInputElement | null} HTMLInput*/
 export default class InputHandler {
-
   /** <input> 요소의 값이 비었는지 확인
    * @param {string} query - cssSelector
    * */
   static isEmptyValue = query => {
     /** @type {HTMLInput} element*/
     const element = document.querySelector(query);
-    if (!(element?.tagName === 'INPUT')) return
-    return element.value.trim()
+    if (!(element?.tagName === 'INPUT')) return;
+    return element.value.trim();
   };
 
   /**
@@ -20,7 +19,7 @@ export default class InputHandler {
   static isMatchRegEx = (query, regEx) => {
     /** @type {HTMLInput} element*/
     const element = document.querySelector(query);
-    if (!(element?.tagName === 'INPUT')) return
+    if (!(element?.tagName === 'INPUT')) return;
     return regEx.test(element.value);
   };
 
@@ -32,7 +31,7 @@ export default class InputHandler {
   static isMatchValue = (query, value) => {
     /** @type {HTMLInput} element*/
     const element = document.querySelector(query);
-    if (!(element?.tagName === 'INPUT')) return
+    if (!(element?.tagName === 'INPUT')) return;
     return element.value === value;
   };
 }

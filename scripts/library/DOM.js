@@ -8,7 +8,7 @@ export default class DOMHandler {
    */
   static addTextAfter = (query, className, text) => {
     const element = document.querySelector(query);
-    if (!element) return
+    if (!element) return;
     const textTag = document.createElement('p');
     textTag.textContent = text;
     textTag.className = className;
@@ -22,7 +22,7 @@ export default class DOMHandler {
   static changeValue = (query, text) => {
     /** @type {HTMLInputElement | null} element*/
     const element = document.querySelector(query);
-    if (!element) return
+    if (!element) return;
     element.innerText = text;
   };
 }

@@ -41,9 +41,9 @@ const handleEmailFocusOut = () => {
   StyleHandler.display(emailErrorQuery, 'block');
   StyleHandler.borderColor(loginEmailQuery, ERROR_BORDER_COLOR);
   if (InputHandler.isEmptyValue(loginEmailQuery)) {
-    DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.empty)
-    return
-  };
+    DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.empty);
+    return;
+  }
   DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.invalid);
 };
 
@@ -61,15 +61,15 @@ const handlePasswordFocusOut = () => {
 };
 
 const handleLogin = () => {
-  if (InputHandler.isMatchRegEx(loginEmailQuery, EMAIL_REGEX)) {
-    if (
-      USERS.some(
-        user =>
-          InputHandler.isMatchValue(loginEmailQuery, user.id) &&
-          InputHandler.isMatchValue(loginPasswordQuery, user.password)
-      )
-    )
-      return loginAction();
+  const isValidEmail = InputHandler.isMatchRegEx(loginEmailQuery, EMAIL_REGEX);
+  const isUserSignedUp = USERS.some(
+    user =>
+      InputHandler.isMatchValue(loginEmailQuery, user.id) &&
+      InputHandler.isMatchValue(loginPasswordQuery, user.password)
+  );
+  if (isValidEmail && isUserSignedUp) {
+    loginAction();
+    return;
   }
   DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.fail);
   DOMHandler.changeValue(passwordErrorQuery, PASSWORD_MESSAGE.fail);
