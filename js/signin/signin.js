@@ -81,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const errorDiv = document.createElement('div');
         errorDiv.className = 'error-message';
         errorDiv.innerText = message;
+        input.classList.add('error');
         
         if(container) {
             container.parentNode.insertBefore(errorDiv, container.nextSibling);
@@ -106,6 +107,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (errorElement && errorElement.classList.contains('error-message')) {
             errorElement.parentNode.removeChild(errorElement);
         }
+
+        input.classList.remove('error');
     }
 
     /**
