@@ -4,25 +4,28 @@ const loginEmailError = document.querySelector('.login__email-form--error');
 const loginPwError = document.querySelector('.login__password-form--error');
 
 const loginButton = document.querySelector('.login__info--loginBt');
-const passwordIcon = document.querySelector('.password__toggle-icon');
+const loginPasswordIcon = document.querySelector('.password__toggle-icon');
 
 loginEmailInput.addEventListener('focusout', loginEmailFocusOut);
 loginPwInput.addEventListener('focusout', loginpwFocusOut);
-passwordIcon.addEventListener('click', passwordToggleIcon);
+loginPasswordIcon.addEventListener('click', passwordToggleIcon);
 loginButton.addEventListener('click', handleLoginButtonClick);
+loginEmailInput.addEventListener('keyup',handleLoginButtonEnter);
+loginPwInput.addEventListener('keyup',handleLoginButtonEnter);
 
 //이메일 입력 확인
 function loginEmailFocusOut(event) {
   emailHandleInputFocusOut(loginEmailInput,loginEmailError);
 }
 
+//비밀번호 확인
 function loginpwFocusOut(event) {
   passwordHandleFocusOut(loginPwInput,loginPwError);
 }
 
 //비밀번호 아이콘 및 타입 변경
 function passwordToggleIcon(event) {
-  togglePasswordType(loginPwInput);
+  togglePasswordType(loginPwInput,loginPasswordIcon);
 }
 
 //이메일 입력 확인
@@ -63,7 +66,7 @@ function isValidEmail(email) {
 }
 
 //아이콘 변경
-function togglePasswordType(passwordInput) {
+function togglePasswordType(passwordInput,passwordIcon) {
   if (passwordInput.type === 'password') {
     passwordInput.type = 'text';
     passwordIcon.classList.remove('fa-eye');
@@ -75,18 +78,30 @@ function togglePasswordType(passwordInput) {
   }
 }
 
+//엔터키
+function handleLoginButtonEnter(event) {
+  if (event.key = 'Enter') {
+    handleLoginButtonClick();
+    } else {
+    loginCheck();
+  }
+}
+
 //로그인 버튼 클릭 시
 function handleLoginButtonClick(event) {
   if (loginEmailInput.value === 'test@codeit.com' && loginPwInput.value === 'codeit101') {
-    alert('로그인 성공! 페이지 이동: /folder');
     window.location.href = "/folder";
   }
   else {
-    loginPwError.textContent = '비밀번호를 확인해 주세요.';
+    loginCheck();
+  }
+}
+
+function loginCheck () {
+  loginPwError.textContent = '비밀번호를 확인해 주세요.';
     loginPwError.style.display = 'block';
     loginPwInput.style.borderColor = '#FF5B56'; 
     loginEmailError.textContent = '이메일을 확인해 주세요.';
     loginEmailError.style.display = 'block';
     loginEmailInput.style.borderColor = '#FF5B56'; 
-  }
 }

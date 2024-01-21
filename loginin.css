@@ -109,6 +109,10 @@ html {
   border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
   background: var(--Linkbrary-white, #FFF);
 }
+.login__form--label-text{
+  font-size: 14px;
+  font-weight: 400;
+}
 
 .login__form--infobox input:focus {
   border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
