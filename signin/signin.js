@@ -1,7 +1,10 @@
 
 
-const EmailInput = document.querySelector('');
-const btnLogin = document.querySelector('');
+const emailInput = document.querySelector('#email');
+const passwordInput = document.querySelector('#password');
+const emailErrorMsg = document.querySelector('#email-error-msg');
+const pwErrorMsg = document.querySelector('#pw-error-msg');
+
 
 
 
@@ -11,8 +14,11 @@ const btnLogin = document.querySelector('');
 
 
 //이메일 input에서 focus out 할 때, 값이 없을 경우 아래에 “이메일을 입력해 주세요.” 에러 메세지를 보입니다.
-function name(params) {
-  
+function noEmailMessage(event) {
+  if(emailInput.value ===''){
+    emailErrorMsg.style.opacity = 1;
+    emailErrorMsg.style.color = '#FF5B56';
+  }
 }
 
 //이메일 input에서 focus out 할 때, 이메일 형식에 맞지 않는 값이 있는 경우 아래에 “올바른 이메일 주소가 아닙니다.” 에러 메세지를 보입니다.
@@ -21,14 +27,13 @@ function showWrongStructureEmail(){
 }
 
 //비밀번호 input에서 focus out 할 때, 값이 없을 경우 아래에 “비밀번호를 입력해 주세요.” 에러 메세지를 보입니다.
-function name(params) {
-  
+function noPasswordMessage(event) {
+  if(passwordInput.value ===''){
+    pwErrorMsg.style.opacity = 1;
+    pwErrorMsg.style.color = '#FF5B56';
+  }
 }
 
-
-function name(params) {
-  
-}
  
 //이메일: test@codeit.com, 비밀번호: codeit101 으로 로그인 시도할 경우, “/folder” 페이지로 이동합니다.
 function name(event) {
@@ -52,5 +57,6 @@ function name(event) {
 // }
 
 
-addEventListener("focusout", focus);
+addEventListener("focusout", noEmailMessage);
+addEventListener("focusout", noPasswordMessage);
 // addEventListener("focusout", playLogin);
