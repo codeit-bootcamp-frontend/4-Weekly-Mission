@@ -25,7 +25,7 @@
   height: 1.5rem;
 }
 
-.button-style {
+.base-button {
   width: 100%;
   display: inline-flex;
   height: 3.375rem;
@@ -43,7 +43,7 @@
   color: #f5f5f5;
 }
 
-.gnb-container .button-style {
+.gnb-container .base-button {
   width: 8rem;
 }
 
@@ -84,7 +84,7 @@
   display: inline;
 }
 
-.contents-01-container .button-style {
+.contents-01-container .base-button {
   width: 21.875rem;
 }
 
@@ -390,7 +390,7 @@ footer {
     line-height: 2.625rem;
   }
 
-  .contents-01-container .button-style {
+  .contents-01-container .base-button {
     width: 12.5rem;
   }
 
