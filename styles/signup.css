@@ -52,6 +52,7 @@ main label {
 }
 
 main input {
+  width: 100%;
   padding: 1.125rem 0.9375rem;
   justify-content: center;
   align-items: center;
@@ -72,6 +73,16 @@ main .email,
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+}
+
+main .inputPW {
+  position: relative;
+}
+
+main .eye-off {
+  position: absolute;
+  right: 0;
+  margin: 1.12rem 0.94rem 1.12rem auto;
 }
 
 /* 로그인 버튼 */
@@ -127,4 +138,12 @@ main .email,
 
 .social-login .links a {
   text-decoration: none;
+}
+
+.red-box {
+  border: 1px solid red;
+}
+
+.red {
+  color: red;
 }

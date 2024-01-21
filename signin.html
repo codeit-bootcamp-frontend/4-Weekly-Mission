@@ -25,11 +25,20 @@
         </div>
         <div class="password">
           <label for="pw">비밀번호</label>
-          <input type="password" id="pw" />
+          <div class="inputPW">
+            <input type="password" id="pw" />
+            <img
+              class="eye-off"
+              src="./assets/signin/eye-off.svg"
+              alt="eye-off"
+            />
+          </div>
         </div>
       </main>
       <div class="login">
-        <button onclick="location.href ='./signin.html'">로그인</button>
+        <button class="login-btn" onclick="location.href ='./signin.html'">
+          로그인
+        </button>
         <div class="social-login">
           <p>소셜 로그인</p>
           <div class="links">
@@ -43,5 +52,6 @@
         </div>
       </div>
     </div>
+    <script src="./signin.js"></script>
   </body>
 </html>
