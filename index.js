@@ -4,6 +4,9 @@ const emailError = document.createElement("div");
 const passwordInput = document.querySelector(".password-input");
 const passwordError = document.createElement("div");
 
+emailError.classList.add("error-message");
+passwordError.classList.add("error-message");
+
 const loginBtn = document.querySelector(".cta");
 
 const updateEmail = () => {
@@ -27,6 +30,30 @@ const isValidAccount = (event) => {
   event.preventDefault();
   if (updateEmail() === "test@codeit.com" && updatePassword() === "codeit101") {
     location.href = "./folder.html";
+  } else if (
+    updateEmail() !== "test@codeit.com" &&
+    updatePassword() === "codeit101"
+  ) {
+    emailInput.after(emailError);
+    emailError.textContent = "이메일을 확인해 주세요.";
+    emailInput.style.border = "1px solid #ff5b45";
+  } else if (
+    updateEmail() === "test@codeit.com" &&
+    updatePassword() !== "codeit101"
+  ) {
+    passwordInput.after(passwordError);
+    passwordError.textContent = "비밀번호를 확인해 주세요.";
+    passwordInput.style.border = "1px solid #ff5b45";
+  } else if (
+    updateEmail() !== "test@codeit.com" &&
+    updatePassword() !== "codeit101"
+  ) {
+    emailInput.after(emailError);
+    emailError.textContent = "이메일을 확인해 주세요.";
+    passwordInput.after(passwordError);
+    passwordError.textContent = "비밀번호를 확인해 주세요.";
+    emailInput.style.border = "1px solid #ff5b45";
+    passwordInput.style.border = "1px solid #ff5b45";
   }
 };
 

@@ -67,7 +67,9 @@ header {
   flex-direction: column;
   row-gap: 2.4rem;
 }
-
+.error-message {
+  color: #ff5b45;
+}
 .sign-input-box {
   display: flex;
   flex-direction: column;
