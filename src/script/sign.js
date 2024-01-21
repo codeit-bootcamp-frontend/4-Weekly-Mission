@@ -35,7 +35,7 @@ function validatePassword() {
     }
     // 비밀번호 값이 있는 경우
     else {
-        email_input.style.border = "1px solid var(--Linkbrary-gray20)";
+        password_input.style.border = "1px solid var(--Linkbrary-gray20)";
         error_password.style.display = "none";
     }
 }
