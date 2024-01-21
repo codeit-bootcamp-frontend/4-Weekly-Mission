@@ -155,7 +155,8 @@ label[for="password"] {
   width: 1rem;
 }
 
-.password-error-message {
+.password-error-message,
+.error-message {
   color: var(--Linkbrary-red, #ff5b56);
   font-size: 0.875rem;
   font-weight: 400;
