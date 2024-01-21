@@ -110,12 +110,14 @@ button {
   cursor: pointer;
 }
 
-.eye-off {
+.eye-off,
+.eye-on {
   position: absolute;
   bottom: 2.6rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
+  cursor: pointer;
 }
 
 .button-login {
