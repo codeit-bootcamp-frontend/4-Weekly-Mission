@@ -1,4 +1,4 @@
-@import './color.css';
+@import url('./color.css');
 
 * {
   box-sizing: border-box;
