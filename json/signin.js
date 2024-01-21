@@ -1,5 +1,6 @@
 const emailInput = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");
+const confirmBtn = document.querySelector('#confirm-button');
 const email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
 
 /*email 형식인지 체크해주는 함수*/
@@ -24,8 +25,8 @@ function checkInputEmail(event) {
     errorMessage.innerHTML = '<p>올바른 이메일 주소가 아닙니다.</p>';
     emailInput.after(errorMessage);
   } else {
-    errorMessage.innerHTML = '<p>이메일을 확인해 주세요.</p>';
-    emailInput.after(errorMessage);
+    errorMessage.style.display = 'none';
+    emailInput.classList.remove('error-border');
   }
 }
 
@@ -37,9 +38,16 @@ function checkInputPassword(event) {
   if (event.target.value === '') {
     errorMessage.innerHTML = '<p>비밀번호를 입력해 주세요.</p>';
     passwordInput.after(errorMessage);
-  } else if (event.value !== 'codeit') {
-    errorMessage.innerHTML = '<p>비밀번호를 확인해 주세요.</p>';
-    passwordInput.after(errorMessage);
+  } else {
+    errorMessage.style.display = 'none';
+    passwordInput.classList.remove('error-border')
   }
 }
 
+
+/*이벤트 핸들러 등록*/
+emailInput.addEventListener('focusout', checkInputEmail);
+emailInput.addEventListener('keyup', keyCode => {13});
+passwordInput.addEventListener('focusout', checkInputPassword);
+passwordInput.addEventListener('keyup', keyCode => {13});
+confirmBtn.addEventListener('click', assignAccount);
