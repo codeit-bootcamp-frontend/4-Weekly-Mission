@@ -71,9 +71,8 @@ function passwordNoneValue() {
 password.addEventListener('focusout', passwordNoneValue);
 
 function login(event) {
-  event.preventDefault(); // Prevents the default form submission behavior
+  event.preventDefault();
 
-  // Remove existing error messages
   let existingErrorEmail = form.querySelector('.error-message-email');
   if (existingErrorEmail) {
     form.removeChild(existingErrorEmail);
@@ -85,7 +84,6 @@ function login(event) {
   }
 
   if (email.value == "test@codeit.com" && password.value == "codeit101") {
-    // If login is successful, redirect to /folder or perform other actions
     window.location.href = "/folder";
   } else {
     const errorElementEmail = document.createElement('div');
@@ -96,7 +94,6 @@ function login(event) {
     errorElementPW.classList.add('error-message-password');
     errorElementPW.textContent = '비밀번호를 확인해 주세요.';
 
-    // Insert new error messages below the input fields
     email.parentNode.insertBefore(errorElementEmail, email.nextSibling);
     pwContainer.appendChild(errorElementPW);
   }
