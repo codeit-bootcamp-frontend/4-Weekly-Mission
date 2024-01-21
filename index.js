@@ -48,18 +48,12 @@ function togglePassoword(e) {
 }
 
 function handleSubmit(e) {
-  e.preventDefault();
-
-  if (
-    $emailInput.value === RIGHT_EMAIL &&
-    $passwordInput.value === RIGHT_PASSWORD
-  ) {
-    location.href = "folder.html";
-  }
   if ($emailInput.value !== RIGHT_EMAIL) {
+    e.preventDefault();
     showError($emailInput, "이메일을 확인해주세요.");
   }
   if ($passwordInput.value !== RIGHT_PASSWORD) {
+    e.preventDefault();
     showError($passwordInput, "비밀번호를 확인해주세요.");
   }
 }
