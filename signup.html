@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>signup</title>
-        <link rel="stylesheet" href="src/sign.css" />
+        <link rel="stylesheet" href="src/css/sign.css" />
     </head>
-    <body class="body">
-        <main class="main">
-            <section class="section">
+    <body>
+        <main>
+            <section>
                 <div class="title">
                     <a href="/" class="logo"></a>
-                    <div class="s_title">
+                    <div class="sub_title">
                         <p>이미 회원이신가요?</p>
                         <a href="/signin" class="join_link">로그인 하기</a>
                     </div>
@@ -19,29 +19,27 @@
                 <div class="signup">
                     <form>
                         <div class="email">
-                            <label for="signup-email">이메일</label>
-                            <input id="signup-email" type="email" />
+                            <label for="signup_email">이메일</label>
+                            <input id="signup_email" type="email" />
                         </div>
                         <div class="password">
-                            <label for="signup-password">비밀번호</label>
-                            <input id="signup-password" type="password" />
-                            <a href="" class="eye_button"></a>
+                            <label for="signup_password">비밀번호</label>
+                            <input id="signup_password" type="password" />
+                            <button class="eye_button"></button>
                         </div>
                         <div class="re_password">
-                            <label for="signup-re-password">비밀번호</label>
-                            <input id="signup-re-password" type="password" />
-                            <a href="" class="eye_button"></a>
+                            <label for="signup_re-password">비밀번호</label>
+                            <input id="signup-re_password" type="password" />
+                            <button class="eye_button"></button>
                         </div>
+                        <button class="login_button" type="submit">회원가입</button>
                     </form>
                 </div>
-                <div class="button">
-                    <a href="" class="signup_button">회원가입</a>
-                </div>
             </section>
-            <section class="section">
-                <div class="social">
+            <section>
+                <div class="social-login">
                     <p>다른 방식으로 가입하기</p>
-                    <div class="socials">
+                    <div class="social-icons">
                         <a href="https://www.google.com/" class="icon google"></a>
                         <a href="https://www.kakaocorp.com/page/" class="icon kakao"></a>
                     </div>
