@@ -1,39 +1,47 @@
+@import url("./color.css");
+
 * {
   box-sizing: border-box;
 }
 
 body {
+  background: var(--gray5);
   display: flex;
   flex-direction: column;
-  width: 100%;
-  margin: 0;
   align-items: center;
-  padding: 200px 0;
-  background: #f0f6ff;
 }
 
-.signLogo {
+.contents {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 230px 0;
+  min-width: 340px;
+}
+
+.sign_logo {
   width: 210px;
   height: 38px;
 }
 
-.loginInfo {
+.login_info {
   margin: 16px auto;
   color: var(--black);
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 150%; /* 150% */
+  line-height: 24px;
 }
 
-.loginInfo a {
+.login_info a {
   color: var(--primary);
   font-weight: 600;
   line-height: normal;
 }
 
-.formBox {
+.form_box {
   width: 400px;
   margin: 30px;
   display: flex;
@@ -41,7 +49,7 @@ body {
   align-items: stretch;
 }
 
-.formLabel {
+.form_label {
   color: var(--black);
   font-family: Pretendard;
   font-size: 14px;
@@ -51,8 +59,14 @@ body {
   margin-bottom: 12px;
 }
 
-.formInput {
+.form_input_elements {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   margin-bottom: 24px;
+}
+
+.form_input {
   padding: 18px 15px;
   height: 60px;
   border-radius: 8px;
@@ -60,8 +74,14 @@ body {
   background: var(--white);
 }
 
-.formInput:focus {
+.form_input:focus {
   border: 1px solid var(--primary);
+}
+
+.error_txt {
+  color: red;
+  margin: 2px;
+  display: none;
 }
 
 .password {
@@ -69,26 +89,36 @@ body {
   justify-content: flex-end;
 }
 
-.password .formInput {
+.password .form_input {
   width: 100%;
+  position: relative;
 }
 
-.input .eyes {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  margin: auto 2px;
-  height: 30px;
+.btn_password_icon {
+  margin: 14px;
   width: 30px;
-  font-size: 22px;
-  cursor: pointer;
+  height: 30px;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  background-color: white;
 }
 
-.loginButton {
+.icon_eye_close{
+  display:none;
+}
+
+
+.btn_password_icon_imgs {
+  margin: 0;
+  width: 30px;
+}
+
+.login_button {
+  display: block;
   border-radius: 8px;
   height: 50px;
-  width: 400px;
+  width: 100%;
   padding: 16px 20px;
   cursor: pointer;
 
@@ -101,7 +131,7 @@ body {
   font-weight: 600;
 }
 
-.socialLoginBox {
+.social_login_box {
   margin-top: 32px;
   display: flex;
   width: 400px;
@@ -114,12 +144,12 @@ body {
   background: var(--gray4);
 }
 
-.socialIcons {
+.social_icons {
   display: flex;
   justify-content: center;
 }
 
-.socialIconLink {
+.social_icon_link {
   padding: 10px;
   text-decoration: none;
   flex-shrink: 0;
@@ -131,31 +161,45 @@ body {
   margin-right: 16px;
 }
 
-.backColorYellow {
+.back_color_yellow {
   background: #f5e14b;
 }
 
-.backColorWhite {
+.back_color_white {
   background: var(--white);
 }
 
-.socialLoginIcon {
+.social_login_icon {
   width: 22px;
 }
 
-@media (width < 768px) {
-  body {
-    margin-top: 120px;
-    padding: 0 32px;
+/* 1199px미만 태블릿  */
+@media (max-width: 1199px) {
+  .contents {
+    padding: 200px 32px;
     width: 100%;
   }
-  .formBox {
+}
+
+/* 768px미만 모바일  */
+@media (max-width: 767px) {
+  .contents {
+    padding: 120px 32px;
     width: 100%;
   }
-  .loginButton {
+
+  .form_box {
     width: 100%;
+    max-width: 400px;
   }
-  .socialLoginBox {
+
+  .login_button {
     width: 100%;
+    max-width: 400px;
+  }
+
+  .social_login_box {
+    width: 100%;
+    max-width: 400px;
   }
 }

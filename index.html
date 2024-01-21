@@ -5,9 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linkbrary</title>
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/color.css" />
-    <link rel="stylesheet" href="./css/media.css" />
+    <link rel="stylesheet" href="./css/main.css" />
 
     <meta property="og:image" content="./images/books.jpeg" />
     <meta
@@ -18,153 +16,173 @@
   </head>
   <body>
     <header>
-      <div class="nav">
-        <a href="/" target="_self">
-          <img class="logo" src="images/logo.png" alt="logo.png" />
+      <nav class="nav">
+        <a href="./">
+          <img class="logo" src="images/logo.png" alt="Linkbrary" />
         </a>
-        <a href="./signin.html" class="bottonBack login">로그인</a>
-      </div>
+        <a href="./signin.html" class="botton_back login">로그인</a>
+      </nav>
     </header>
-    <main>
-      <div class="bodyTopContent">
-        <div class="topBody">
-          <div class="topTxt">
-            <span class="gradationTxt">세상의 모든 정보</span>를<br />
-            쉽게 저장하고<br />
-            관리해 보세요
+
+    <main class="main_contents">
+      <div class="body_top_content">
+        <div class="top_body">
+          <div class="top_body_txt">
+            <div class="top_txt">
+              <span class="gradation_txt">세상의 모든 정보</span>를
+            </div>
+            <div class="top_txt top_txt_under">
+              <span>쉽게 저장하고&nbsp;</span> <span>관리해 보세요</span>
+            </div>
           </div>
-          <a href="./signup.html" class="bottonBack addButton">링크 추가하기</a>
-          <div class="topBodyImgBox">
+          <div class="top_content_btn">
+            <a href="./signup.html" class="botton_back btn_add_link"
+              >링크 추가하기</a
+            >
+          </div>
+          <div class="top_body_img_box">
             <img
-              class="topBodyImg"
+              class="top_body_img"
               src="images/topBody-img.png"
-              alt="topBodyImg.png"
+              alt="top_body_img"
             />
           </div>
         </div>
       </div>
-      <!-- 바디 가장 윗쪽 -->
-      <div class="bodyContents">
-        <div class="bodyGridBox">
-          <div class="rightTxtBodyGrid">
-            <div class="bodyTitleTxt gridTitle">
-              <span class="bodyGradationTxt1">원하는 링크</span>를<br />
-              저장하세요
+      <!-- 바디 최상단 -->
+      <div class="body_contents">
+        <div class="body_grid_box">
+          <div class="right_txt_body_grid">
+            <div class="body_title_txt grid_title">
+              <span class="body_gradation_txt1">원하는 링크</span>를 저장하세요
             </div>
-            <p class="gridContent">
+            <p class="grid_content">
               나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br />
               사고 싶은 옷, 기억하고 싶은 모든 것을 <br />
               한 공간에 저장하세요.
             </p>
-            <img class="bodyImg gridLeftImg" src="./images/section-img1.png" />
+            <img
+              class="body_img grid_left_img"
+              src="./images/section-img1.png"
+              alt="section-img1"
+            />
           </div>
         </div>
 
-        <div class="bodyGridBox">
-          <div class="leftTxtBodyGrid">
-            <div class="bodyTitleTxt leftTitle">
-              링크를 폴더로<br />
-              <span class="bodyGradationTxt2">관리</span>하세요
+        <div class="body_grid_box">
+          <div class="left_txt_body_grid">
+            <div class="body_title_txt left_title">
+              링크를 폴더로&nbsp;
+              <span class="body_gradation_txt2">관리</span>하세요
             </div>
-            <p class="leftGridContent">
+            <p class="left_grid_content">
               나만의 폴더를 무제한으로 만들고 <br />다양하게 활용할 수 있습니다.
             </p>
-            <img class="bodyImg gridRightImg" src="./images/section-img2.png" />
+            <img
+              class="body_img grid_right_img"
+              src="./images/section-img2.png"
+              alt="section-img2"
+            />
           </div>
         </div>
 
-        <div class="bodyGridBox">
-          <div class="rightTxtBodyGrid">
-            <div class="bodyTitleTxt">
-              저장한 링크를<br />
-              <span class="bodyGradationTxt3">공유</span>해 보세요.
+        <div class="body_grid_box">
+          <div class="right_txt_body_grid">
+            <div class="body_title_txt grid_title">
+              저장한 링크를&nbsp;
+              <span class="body_gradation_txt3">공유</span>해 보세요.
             </div>
-            <p class="gridContent">
+            <p class="grid_content">
               여러 링크를 폴더에 담고 공유할 수 있습니다. <br />
               가족, 친구, 동료들에게 쉽고 빠르게 <br />
               링크를 공유해 보세요.
             </p>
-            <img class="bodyImg" src="./images/section-img3.png" />
+            <img
+              class="body_img grid_left_img"
+              src="./images/section-img3.png"
+              alt="section-img3"
+            />
           </div>
         </div>
 
-        <div class="bodyGridBox">
-          <div class="leftTxtBodyGrid">
-            <div class="bodyTitleTxt leftTitle">
-              저장한 링크를<br />
-              <span class="bodyGradationTxt4">검색</span>해 보세요
+        <div class="body_grid_box">
+          <div class="left_txt_body_grid">
+            <div class="body_title_txt left_title">
+              저장한 링크를&nbsp;
+              <span class="body_gradation_txt4">검색</span>해 보세요
             </div>
-            <p class="leftGridContent">
+            <p class="left_grid_content">
               중요한 정보들을 검색으로 쉽게 찾아보세요
             </p>
-            <img class="bodyImg gridRightImg" src="./images/section-img4.png" />
+            <img
+              class="body_img grid_right_img"
+              src="./images/section-img4.png"
+              alt="section-img4"
+            />
           </div>
         </div>
       </div>
     </main>
 
-    <footer>
-      <div class="footerWhite"></div>
-      <div class="footerLine">
+    <footer class="footer_contents">
+      <div class="footer_white"></div>
+      <div class="footer_line">
         <div class="copyright">©codeit - 2023</div>
-        <div class="footerLinks">
-          <div>
-            <a href="./privacy.html" target="_self" class="footerLink">
-              Privacy Policy
-            </a>
-            <a href="./faq.html" target="_self" class="footerLink"> FAQ </a>
-          </div>
-          <!-- </div> -->
-          <div>
-            <a
-              class="imgLink"
-              href="https://www.facebook.com/?locale=ko_KR"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                class="iconImg"
-                src="./images/icon-facebook.png"
-                alt="facebook"
-              />
-            </a>
-            <a
-              class="imgLink"
-              href="https://twitter.com/home?lang=ko"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                class="iconImg"
-                src="./images/icon-twitter.png"
-                alt="twitter"
-              />
-            </a>
-            <a
-              class="imgLink"
-              href="https://www.youtube.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                class="iconImg"
-                src="./images/icon-youtube.png"
-                alt="youtube"
-              />
-            </a>
-            <a
-              class="imgLink"
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                class="iconImg"
-                src="./images/icon-instagram.png"
-                alt="instagram"
-              />
-            </a>
-          </div>
+        <div class="footer_inside_links">
+          <a href="./privacy.html" target="_self" class="footer_link">
+            Privacy Policy
+          </a>
+          <a href="./faq.html" target="_self" class="footer_link"> FAQ </a>
+        </div>
+        <div class="footer_outside_links">
+          <a
+            class="img_link"
+            href="https://www.facebook.com/?locale=ko_KR"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="icon_img"
+              src="./images/icon-facebook.png"
+              alt="icon_facebook"
+            />
+          </a>
+          <a
+            class="img_link"
+            href="https://twitter.com/home?lang=ko"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="icon_img"
+              src="./images/icon-twitter.png"
+              alt="icon_twitter"
+            />
+          </a>
+          <a
+            class="img_link"
+            href="https://www.youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="icon_img"
+              src="./images/icon-youtube.png"
+              alt="icon_youtube"
+            />
+          </a>
+          <a
+            class="img_link"
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              class="icon_img"
+              src="./images/icon-instagram.png"
+              alt="icon_instagram"
+            />
+          </a>
         </div>
       </div>
     </footer>
