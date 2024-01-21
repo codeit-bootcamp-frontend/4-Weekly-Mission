@@ -67,6 +67,7 @@ html {
   width: 100%;
   justify-content: center;
   align-items: center;
+  font-size: 1rem;
   border-radius: 8px;
   border: 1px solid var(--gray-03);
   background: var(--white);
@@ -127,6 +128,16 @@ html {
 
 .icons-img {
   width: 2.5rem;
+}
+
+.error-input {
+  border: 1px solid var(--red);
+  margin-top: 0.5rem;
+}
+
+.error-text {
+  color: var(--red);
+  margin-top: 0.8rem;
 }
 
 @media (width <= 767px) {
