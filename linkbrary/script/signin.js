@@ -48,6 +48,7 @@ let password_error  = document.querySelector(".password_error")
 function passwordCheck() {
     if(pw_input.value == "") {
         // 값이 공백일 때
+        password_error.innerHTML = "비밀번호를 입력해 주세요"
         password_error.classList.add('view_error')
         pw_input.classList.replace('input_focus', 'input_error')
 
@@ -72,13 +73,39 @@ let signInBtn = document.querySelector('.sign_in_btn')
 function signInCheck(e) {
     e.preventDefault()
     if(email_input.value == "test@codeit.com" && pw_input.value ==  "codeit101") {
-        console.log(123)
-        document.location.href = URL
+        document.location.href = "/pages/folder.html"
+        
     } else {
-        console.log(99)
-        document.location.href = "http://127.0.0.1:5500/pages/folder.html"
+        
+        console.log(111)
+        email_error.innerHTML = "이메일을 확인해 주세요"
+        password_error.innerHTML = "비밀번호를 확인해 주세요"
+        email_error.classList.add("view_error")
+        password_error.classList.add('view_error')
+        pw_input.classList.add('input_error')
+        email_input.classList.add('input_error')
+       
 
     }
 }
 
 signInBtn.addEventListener('click',signInCheck)
+
+
+// 눈모양 아이콘
+
+let pw_icon_close = document.querySelector(".pw_icon_close")
+let pw_icon_open = document.querySelector(".pw_icon_open")
+
+pw_icon_close.addEventListener('click', function() {
+    pw_icon_close.classList.add('display_none')
+    pw_icon_open.classList.remove('display_none')
+    pw_input.type = 'text'
+
+})
+
+pw_icon_open.addEventListener('click', function() {
+    pw_icon_close.classList.remove('display_none')
+    pw_icon_open.classList.add('display_none')
+    pw_input.type = 'password'
+})
