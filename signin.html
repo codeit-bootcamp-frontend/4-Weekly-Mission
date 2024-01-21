@@ -16,21 +16,19 @@
             <a href="/signup.html">회원가입하기</a>
           </div>
         </div>
-        <div class="input-wrap">
+        <form class="input-wrap">
           <div class="input-box">
             <label>이메일</label>
-            <input
-              type="text"
-              class="input-check"
-              placeholder="codeit@codeit.com"
-            />
+            <input type="text" class="email" placeholder="내용 입력" />
+            <p class="email-text"></p>
           </div>
           <div class="input-box">
             <label>비밀번호</label>
-            <input type="text" class="input-icon" />
+            <input type="password" class="input-icon password" />
+            <p class="password-text"></p>
           </div>
-        </div>
-        <button>로그인</button>
+          <button id="button">로그인</button>
+        </form>
         <div class="sns-wrap">
           <p>소셜로그인</p>
           <div class="sns-box">
@@ -49,5 +47,6 @@
         </div>
       </div>
     </main>
+    <script src="js/signin.js"></script>
   </body>
 </html>

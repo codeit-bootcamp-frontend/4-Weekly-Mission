@@ -16,26 +16,31 @@
             <a href="/signin.html">로그인하기</a>
           </div>
         </div>
-        <div class="input-wrap">
+        <form class="input-wrap">
           <div class="input-box">
             <label>이메일</label>
-            <input type="text" placeholder="codeit@codeit.com" />
+            <input type="email" placeholder="codeit@codeit.com" class="email" />
+            <p class="email-text"></p>
           </div>
           <div class="input-box">
             <label>비밀번호</label>
-            <input type="text" class="input-icon" placeholder="linkbrary2023" />
+            <input
+              type="password"
+              class="input-icon"
+              placeholder="linkbrary2023"
+            />
           </div>
           <div class="input-box">
             <label>비밀번호 확인</label>
             <input
-              type="text"
+              type="password"
               class="input-check input-icon"
               placeholder="linkbrary20245"
             />
             <p>비밀번호가 다릅니다</p>
           </div>
-        </div>
-        <button>로그인</button>
+          <button>로그인</button>
+        </form>
         <div class="sns-wrap">
           <p>소셜로그인</p>
           <div class="sns-box">
