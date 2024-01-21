@@ -44,10 +44,27 @@ function checkInputPassword(event) {
   }
 }
 
+/*로그인을 시도할 때 일어나는 경우에 대한 함수*/
+function tryLogin(event) {
+  if (emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101') {
+    window.location.replace = "../folder.html";
+  } else if (emailInput.value !== 'test@codeit.com' && passwordInput.value === 'codeit101') {
+    emailInput.nextElementSibling.textContent = '이메일을 확인해 주세요.';
+    event.preventDefault();
+  } else if (emailInput.value === 'test@codeit.com' && passwordInput.value !== 'codeit101') {
+    passwordInput.nextElementSibling.textContent = '비밀번호를 확인해 주세요.';
+    event.preventDefault();
+  } else {
+    emailInput.nextElementSibling.textContent = '이메일을 확인해 주세요.';
+    passwordInput.nextElementSibling.textContent = '비밀번호를 확인해 주세요.';
+  }
+}
+
+
 
 /*이벤트 핸들러 등록*/
 emailInput.addEventListener('focusout', checkInputEmail);
 emailInput.addEventListener('keyup', keyCode => {13});
 passwordInput.addEventListener('focusout', checkInputPassword);
 passwordInput.addEventListener('keyup', keyCode => {13});
-confirmBtn.addEventListener('click', assignAccount);
+confirmBtn.addEventListener('click', tryLogin);
