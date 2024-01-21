@@ -12,7 +12,7 @@ const inputEmail = document.querySelector('.email-input')
 const inputPassword = document.querySelector('.password-input')
 const loginButton = document.querySelector('.sign-btn')
 const togglePassword = document.querySelector('.eye-btn')
-console.log(togglePassword.length)
+
 // email foucus, blur 함수
 function emailFocus(e) {
   inputEmail.classList.remove('input-error')
