@@ -57,13 +57,7 @@ const isValidAccount = (event) => {
   }
 };
 
-const showPw = () => {
-  passwordInput.setAttribute("type", "text");
-  eyeBtn.style.display = "none";
-};
-emailInput.addEventListener("input", updateEmail);
-
-emailInput.addEventListener("focusout", (event) => {
+const focusoutEmail = (event) => {
   if (event.target.value.length === 0) {
     emailInput.after(emailError);
     emailError.textContent = "이메일을 입력해 주세요.";
@@ -73,17 +67,26 @@ emailInput.addEventListener("focusout", (event) => {
     emailInput.after(emailError);
     emailError.textContent = "올바른 이메일 주소가 아닙니다.";
   }
-});
+};
 
-passwordInput.addEventListener("input", updatePassword);
-passwordInput.addEventListener("focusout", (event) => {
+const focusoutPassword = (event) => {
   if (event.target.value.length === 0) {
     passwordInput.after(passwordError);
     passwordError.textContent = "비밀번호를 입력해 주세요.";
   } else {
     passwordError.remove();
   }
-});
+};
+const showPw = () => {
+  passwordInput.setAttribute("type", "text");
+  eyeBtn.style.display = "none";
+};
+
+emailInput.addEventListener("input", updateEmail);
+emailInput.addEventListener("focusout", focusoutEmail);
+
+passwordInput.addEventListener("input", updatePassword);
+passwordInput.addEventListener("focusout", focusoutPassword);
 
 eyeBtn.addEventListener("click", showPw);
 loginBtn.addEventListener("click", isValidAccount);
