@@ -135,6 +135,7 @@
 }
 
 .auth-form-input:focus {
+  outline: none;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
 }
 
