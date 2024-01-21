@@ -9,7 +9,7 @@ export default class InputHandler {
     /** @type {HTMLInput} element*/
     const element = document.querySelector(query);
     if (!(element?.tagName === 'INPUT')) return
-    return element.value.trim() === '' ? true : false;
+    return element.value.trim()
   };
 
   /**
