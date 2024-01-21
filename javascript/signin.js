@@ -4,6 +4,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const passwordInput = document.querySelector('#signin-password');
   const errorTextEmail = document.createElement('div');
   const errorTextPassword = document.createElement('div');
+  const passwordCover = document.querySelector('.eyecon');
+  let isPasswordCovered = false;
 
   //////////////// 함수 정의 ////////////////////
 
@@ -65,6 +67,18 @@ document.addEventListener('DOMContentLoaded', function () {
     inputElement.parentNode.classList.add('error');
   }
 
+  // 눈 아이콘 변경하기
+  function togglePassword() {
+    const coverEye = '../image/icon/eye_closed.svg';
+    const openEye = '../image/icon/eye_open.svg';
+    if (isPasswordCovered) {
+      passwordCover.src = coverEye;
+    } else {
+      passwordCover.src = openEye;
+    }
+    isPasswordCovered = !isPasswordCovered;
+  }
+
   //////////////// 함수 사용////////////////////
 
   // 이메일 이벤트 리스너 부여
@@ -90,5 +104,9 @@ document.addEventListener('DOMContentLoaded', function () {
       showError(errorTextPassword, '비밀번호를 확인해 주세요.', passwordInput);
       event.preventDefault();
     }
+  });
+
+  passwordCover.addEventListener('click', function () {
+    togglePassword();
   });
 });

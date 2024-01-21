@@ -84,7 +84,7 @@ input:focus {
 .eyecon {
   position: absolute;
   right: 1.8rem;
-  bottom: 1.8rem;
+  top: 2rem;
 }
 
 .social-text {
