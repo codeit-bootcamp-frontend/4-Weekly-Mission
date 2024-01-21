@@ -74,6 +74,9 @@ function idfocus(){
         if(!isemail.test(id.value)){
             idalert.textContent = '올바른 이메일 주소가 아닙니다.';
         }
+        else{
+            idalert.textContent = '';
+        }
     }
 }
 function passwordfocus(){
