@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // 이메일 형식 확인
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      displayErrorMessage(errorTextEmail, '올바른 이메일 주소가 아닙니다.', emailInput);
+      showError(errorTextEmail, '올바른 이메일 주소가 아닙니다.', emailInput);
       return false;
     }
     return true;
@@ -106,7 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const password = passwordInput.value.trim();
 
     if (email === codeit.email && password === codeit.password) {
-      window.location.href = '/folder.html';
+      event.preventDefault();
+      window.location.href = '../html/folder.html';
     } else {
       showError(errorTextEmail, '이메일을 확인해 주세요.', emailInput);
       showError(errorTextPassword, '비밀번호를 확인해 주세요.', passwordInput);
