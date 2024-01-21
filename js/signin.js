@@ -43,7 +43,7 @@ emailInput.addEventListener("focusout", function () {
       "올바른 이메일 주소가 아닙니다."
     );
   } else {
-    isValidId = true;
+    // isValidId = true;
     inputFocusBorderChange("none", emailInput, emailValidText);
   }
 });
@@ -56,7 +56,7 @@ pwInput.addEventListener("focusout", function () {
       "비밀번호를 입력해 주세요."
     );
   } else {
-    isValidPw = true;
+    // isValidPw = true;
     inputFocusBorderChange("none", pwInput, pwValidText);
   }
 });
