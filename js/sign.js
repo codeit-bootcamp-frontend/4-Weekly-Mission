@@ -4,7 +4,6 @@ const emailError = document.querySelector('#signinEmailError');
 const pwError = document.querySelector('#signinPwError');
 const loginBtn = document.querySelector('#loginButton');
 
-
   document.addEventListener('keydown', function(event) {
     if (event.key === "Enter") {
       login();
@@ -28,7 +27,7 @@ function login() {
     emailError.textContent = '이메일을 확인해 주세요';
   }
 
-  if (password.val !== testPw) {
+  if (password.value !== testPw) {
     pwError.textContent = '비밀번호를 확인해 주세요';
   }
 }
