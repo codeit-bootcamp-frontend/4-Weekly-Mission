@@ -77,7 +77,7 @@ form{
 }
 .eye{
   position: absolute;
-  bottom: 2.2rem;
+  top: 5.2rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -128,4 +128,9 @@ form{
 .kakaoLink{
   background-color: #f5e14b;
   padding-top: 0.2rem;
+}
+
+/* error메시지 */
+.red{
+  color: red;
 }

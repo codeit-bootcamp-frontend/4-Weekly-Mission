@@ -5,6 +5,7 @@ const errorP = document.querySelector('.errorP')
 const button = document.querySelector('.btn')
 const form = document.querySelector('form')
 const eye = document.querySelector('.eye')
+const inputs = document.querySelectorAll('.signInput')
 
 // 입력해주세요
 function emailError(e) {
@@ -46,7 +47,7 @@ function login(e) {
 }
 
 //눈사진toggle
-function eyetoggle(e) {
+function eye_toggle(e) {
   if(e.target.getAttribute('src')=="../images/eye-off.svg") {
     e.target.setAttribute('src', '../images/eye-on.svg')
     pwInput.setAttribute('type', "")
@@ -60,4 +61,4 @@ emailInput.addEventListener('focusout', emailError)
 pwInput.addEventListener('focusout', pwError)
 emailInput.addEventListener('focusout', emailCheck)
 form.addEventListener('submit', login)
-eye.addEventListener('click', eyetoggle)
+eye.addEventListener('click', eye_toggle)

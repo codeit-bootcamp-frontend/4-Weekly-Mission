@@ -18,25 +18,28 @@
       </p>
     </header>
     <div class="signInBox">
-      <form>
+      <form action="/folder.html" onsubmit="return login()">
         <div class="inputs">
           <div class="inputBox">
             <label for="email" class="signLabel">이메일</label>
             <input id="email" type="email" class="signInput" />
+            <div class="red errorM"></div>
           </div>
           <div class="inputBox inputPw">
             <label for="password" class="signLabel">비밀번호</label>
             <input id="password" type="password" class="signInput" />
-            <button class="eye">
-              <img src="../images/eye-off.svg" />
+            <button>
+              <img src="../images/eye-off.svg" class="eye" />
             </button>
+            <div class="red errorP"></div>
           </div>
           <div class="inputBox inputPw">
-            <label class="signLabel">비밀번호 확인</label>
-            <input class="signInput" type="password" />
-            <button class="eye">
-              <img src="../images/eye-off.svg" />
+            <label for="passwordCheck" class="signLabel">비밀번호 확인</label>
+            <input id="passwordCheck" class="signInput" type="password" />
+            <button>
+              <img src="../images/eye-off.svg" class="eyeCheck" />
             </button>
+            <div class="red errorPCheck"></div>
           </div>
         </div>
         <button type="submit" class="btn">회원가입</button>
@@ -53,5 +56,7 @@
         </div>
       </div>
     </div>
+
+    <script src="./signup.js"></script>
   </body>
 </html>
