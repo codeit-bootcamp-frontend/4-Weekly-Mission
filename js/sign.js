@@ -17,6 +17,26 @@ const INPUT_MESSAGE_LOGIN_ERROR = {
   [INPUT_TYPE.PASSWORD]: '비밀번호를 확인해 주세요.',
 };
 
+const BLIND_TYPE = {
+  ON: 'on',
+  OFF: 'off',
+};
+
+const BLIND_IMAGE_SRC = {
+  [BLIND_TYPE.ON]: '/images/sign/eye_off.svg',
+  [BLIND_TYPE.OFF]: '/images/sign/eye_on.svg',
+};
+
+const BLIND_IMAGE_ALT = {
+  [BLIND_TYPE.ON]: '비밀번호 숨기기 이미지',
+  [BLIND_TYPE.OFF]: '비밀번호 보이기 이미지',
+};
+
+const BLIND_INPUT_TYPE = {
+  [BLIND_TYPE.ON]: 'password',
+  [BLIND_TYPE.OFF]: 'text',
+};
+
 const ERROR_CLASS = 'error';
 
 const USER_TEST = {
@@ -60,7 +80,7 @@ function handleFocusoutInput(event) {
 function handleSubmit(event) {
   event.preventDefault();
 
-  if (event.target.id !== 'signForm') return;
+  if (event.target.id.toUpperCase() !== 'SIGNFORM') return;
 
   let valid = true;
   const emailInput = event.target['email'];
@@ -107,5 +127,23 @@ function printMessage(target, message, className) {
   target.classList.add(className);
 }
 
+function handleClickBlindButton(event) {
+  event.stopPropagation();
+  const target = event.target;
+
+  if (!target.classList.contains('input-blind-toggle')) return;
+
+  const input = target.previousElementSibling;
+  let blindType = target.dataset.type.toLowerCase();
+
+  blindType = blindType === BLIND_TYPE.ON ? BLIND_TYPE.OFF : BLIND_TYPE.ON;
+
+  input.setAttribute('type', BLIND_INPUT_TYPE[blindType]);
+  target.setAttribute('src', BLIND_IMAGE_SRC[blindType]);
+  target.setAttribute('alt', BLIND_IMAGE_ALT[blindType]);
+  target.setAttribute('data-type', blindType);
+}
+
 signForm.addEventListener('focusout', handleFocusoutInput);
 signForm.addEventListener('submit', handleSubmit);
+signForm.addEventListener('click', handleClickBlindButton);
