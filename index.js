@@ -6,7 +6,7 @@ const passwordError = document.createElement("div");
 
 emailError.classList.add("error-message");
 passwordError.classList.add("error-message");
-
+const eyeBtn = document.querySelector(".eye-button");
 const loginBtn = document.querySelector(".cta");
 
 const updateEmail = () => {
@@ -57,6 +57,10 @@ const isValidAccount = (event) => {
   }
 };
 
+const showPw = () => {
+  passwordInput.setAttribute("type", "text");
+  eyeBtn.style.display = "none";
+};
 emailInput.addEventListener("input", updateEmail);
 
 emailInput.addEventListener("focusout", (event) => {
@@ -81,4 +85,5 @@ passwordInput.addEventListener("focusout", (event) => {
   }
 });
 
+eyeBtn.addEventListener("click", showPw);
 loginBtn.addEventListener("click", isValidAccount);
