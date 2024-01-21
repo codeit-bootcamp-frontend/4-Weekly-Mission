@@ -130,3 +130,11 @@ a,
     max-width: 400px;
   }
 }
+.errormsg {
+  color: var(--Linkbrary-red, #ff5b56);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

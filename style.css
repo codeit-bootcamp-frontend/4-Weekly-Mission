@@ -304,15 +304,16 @@ a {
 @media screen and (min-width: 768px) and (max-width: 1199px) {
   /* Tablet 화면에 대한 스타일 정의 */
   .gnb {
-    padding-left: 32px;
-    padding-right: 32px;
+    padding: 20px 0;
   }
 
   .section1 {
     padding-top: 80px;
   }
   .nav {
-    width: 768px;
+    padding-left: 32px;
+    padding-right: 32px;
+    max-width: 900px;
   }
 
   .no-br-on-tablet {
@@ -325,6 +326,7 @@ a {
     width: 698px;
     height: 343px;
   }
+
   .section-image1,
   .section-image2,
   .section-image3,
