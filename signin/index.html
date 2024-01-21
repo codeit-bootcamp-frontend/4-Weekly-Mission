@@ -28,20 +28,27 @@
           <section class="field">
             <label for="email">이메일</label>
             <input id="email" type="email" />
+            <div class="error emailError"></div>
           </section>
           <section class="field">
             <label for="password">비밀번호</label>
             <div class="icon_wrap">
               <img
-                class="icon"
+                class="icon eyeOpen"
+                src="/assets/eye-on.svg"
+                alt="eye open icon"
+              />
+              <img
+                class="icon eyeClose"
                 src="/assets/eye-off.svg"
                 alt="eye close icon"
               />
               <input id="password" type="password" />
             </div>
+            <div class="error passwordError"></div>
           </section>
         </div>
-        <button class="btn type_full">로그인</button>
+        <button type="submit" class="btn type_full">로그인</button>
       </form>
       <div class="main-footer">
         <div>소셜 로그인</div>
@@ -55,5 +62,7 @@
         </div>
       </div>
     </main>
+
+    <script src="./signin.js"></script>
   </body>
 </html>
