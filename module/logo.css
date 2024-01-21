@@ -8,3 +8,27 @@
   width: 212px;
   height: 38px;
 }
+
+/*소셜 로고 블록*/
+.social-logo_ly {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.social-logo-google {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.social-logo-kakao {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.social-logo-google__img {
+  background-color: var(--white);
+  border: 0.1rem solid #d3d4dd;
+}
