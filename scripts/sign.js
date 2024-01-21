@@ -40,8 +40,11 @@ const handleEmailFocusOut = () => {
     return StyleHandler.borderColor(loginEmailQuery, DEFAULT_BORDER_COLOR);
   StyleHandler.display(emailErrorQuery, 'block');
   StyleHandler.borderColor(loginEmailQuery, ERROR_BORDER_COLOR);
-  if (InputHandler.isEmptyValue(loginEmailQuery)) DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.empty);
-  else DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.invalid);
+  if (InputHandler.isEmptyValue(loginEmailQuery)) {
+    DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.empty)
+    return
+  };
+  DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.invalid);
 };
 
 const handlePasswordFocusIn = () => {
