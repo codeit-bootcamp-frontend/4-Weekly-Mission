@@ -156,3 +156,15 @@ button {
     margin-right: 32px;
   }
 }
+
+.invalid {
+  border-color: red;
+}
+
+#emailError {
+  color: red;
+}
+
+#passwordError {
+  color: red;
+}
