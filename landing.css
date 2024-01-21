@@ -2,6 +2,7 @@
 * {
     box-sizing: border-box;
   }
+
 body{
     margin:0;
 }
@@ -66,8 +67,10 @@ nav>#login{
     line-height: 80px; /* 125% */
     color: #000;
 }
-
-.title>.hl{
+.title>p{
+    margin:0;
+}
+.title p>.hl{
     background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -118,6 +121,7 @@ nav>#login{
     align-items: flex-start;
     gap: 10px;
 }
+
 .content2 .subtitle{
     color: #000;
     font-family: Pretendard;

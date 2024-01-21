@@ -31,13 +31,13 @@ body{
     height: 38px;
 }
 
-.signin{
+.signup{
     display: flex;
     align-items: flex-start;
     gap: 8px;
 }
 
-.signin>span{
+.signup>span{
     color: var(--black, #000);
     font-family: Pretendard;
     font-size: 16px;
@@ -46,7 +46,7 @@ body{
     line-height: 24px; /* 150% */
 }
 
-.signin>a{
+.signup>a{
     color: var(--Linkbrary-primary-color, #6D6AFE);
     font-family: Pretendard;
     font-size: 16px;
@@ -61,9 +61,11 @@ body{
     align-items: flex-start;
     gap: 12px;
 }
+
 .info>p{
     margin:0;
 }
+
 .info>a{
     color: var(--black, #000);
     font-family: Pretendard;
@@ -104,8 +106,7 @@ input:focus{
     height: 16px;
 }
 
-
-#signup{
+#signin{
     display: flex;
     width: 400px;
     padding: 16px 20px;
@@ -123,7 +124,6 @@ input:focus{
     line-height: normal;
 }
 
-
 .sns_signin{
     display: flex;
     width: 400px;
@@ -134,6 +134,7 @@ input:focus{
     border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
     background: var(--Linkbrary-gray10, #E7EFFB);
 }
+
 .icons{
     display: flex;
     align-items: flex-start;

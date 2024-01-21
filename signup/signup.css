@@ -31,13 +31,13 @@ body{
     height: 38px;
 }
 
-.signup{
+.signin{
     display: flex;
     align-items: flex-start;
     gap: 8px;
 }
 
-.signup>span{
+.signin>span{
     color: var(--black, #000);
     font-family: Pretendard;
     font-size: 16px;
@@ -46,7 +46,7 @@ body{
     line-height: 24px; /* 150% */
 }
 
-.signup>a{
+.signin>a{
     color: var(--Linkbrary-primary-color, #6D6AFE);
     font-family: Pretendard;
     font-size: 16px;
@@ -72,6 +72,7 @@ body{
     font-weight: 400;
     line-height: normal;
 }
+
 .info>div{
     position: relative;
     display: flex;
@@ -103,7 +104,8 @@ input:focus{
     height: 16px;
 }
 
-#signin{
+
+#signup{
     display: flex;
     width: 400px;
     padding: 16px 20px;
@@ -120,6 +122,7 @@ input:focus{
     font-weight: 600;
     line-height: normal;
 }
+
 
 .sns_signin{
     display: flex;
@@ -149,3 +152,5 @@ input:focus{
     padding:10px;
 }
 
+
+/*week3*/
