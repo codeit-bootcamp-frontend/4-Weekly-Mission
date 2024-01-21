@@ -72,9 +72,6 @@ header {
   display: flex;
   flex-direction: column;
   row-gap: 1.2rem;
-}
-
-.sign-password {
   position: relative;
 }
 
@@ -94,13 +91,15 @@ header {
 .sign-input:focus {
   border-color: var(--primary);
 }
-
+.password-input {
+  position: relative;
+}
 .eye-button {
-  position: absolute;
-  bottom: 2.2rem;
+  top: 5rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
+  position: absolute;
 }
 
 .cta {

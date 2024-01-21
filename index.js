@@ -4,6 +4,8 @@ const emailError = document.createElement("div");
 const passwordInput = document.querySelector(".password-input");
 const passwordError = document.createElement("div");
 
+const loginBtn = document.querySelector(".cta");
+
 const updateEmail = () => {
   return emailInput.value;
 };
@@ -19,6 +21,12 @@ const isValidEmail = () => {
     return true;
   } else {
     return false;
+  }
+};
+const isValidAccount = (event) => {
+  event.preventDefault();
+  if (updateEmail() === "test@codeit.com" && updatePassword() === "codeit101") {
+    location.href = "./folder.html";
   }
 };
 
@@ -45,3 +53,5 @@ passwordInput.addEventListener("focusout", (event) => {
     passwordError.remove();
   }
 });
+
+loginBtn.addEventListener("click", isValidAccount);

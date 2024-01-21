@@ -26,17 +26,29 @@
       </p>
     </header>
     <div class="sign-box">
-      <form class="sign-form">
+      <form class="sign-form" name="sign">
         <div class="sign-inputs">
           <div class="sign-input-box">
-            <label class="sign-input-label">이메일</label>
-            <input class="sign-input email-input" />
+            <label class="sign-input-label" for="email-label">이메일</label>
+            <input
+              id="email-label"
+              class="sign-input email-input"
+              type="email"
+              name="email"
+            />
           </div>
           <div class="sign-input-box sign-password">
-            <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input password-input" type="password" />
+            <label class="sign-input-label" for="password-label"
+              >비밀번호</label
+            >
+            <input
+              id="password-label"
+              class="sign-input password-input"
+              type="password"
+              name="password"
+            />
             <button class="eye-button" type="button">
-              <img src="./images/eye-off.svg" />
+              <img class="eye-image" src="./images/eye-off.svg" />
             </button>
           </div>
         </div>
