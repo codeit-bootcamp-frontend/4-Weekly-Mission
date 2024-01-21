@@ -19,7 +19,7 @@ body {
   box-sizing: border-box;
 }
 
-.main {
+.signup_body {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,13 +27,13 @@ body {
   gap: 30px;
   margin-bottom: 32px;
 }
-.header {
+.signup_header {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
 }
-.header > p {
+.signup_header > p {
   color: var(--palette-black);
   font-family: Pretendard;
   font-size: 16px;
@@ -45,7 +45,7 @@ body {
   width: 210.583px;
   height: 38px;
 }
-.signup {
+.signin {
   color: var(--palette-primary);
   font-family: Pretendard;
   font-size: 16px;
@@ -55,7 +55,7 @@ body {
   text-underline-position: under;
 }
 
-.signup-info {
+.signup_info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -63,14 +63,14 @@ body {
   width: 400px;
 }
 
-.signup-info > div {
+.signup_info > div {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
 }
-.signup-info > div > label {
+.signup_info > div > label {
   color: var(--palette-black);
   font-family: Pretendard;
   font-size: 14px;
@@ -78,7 +78,7 @@ body {
   font-weight: 400;
   line-height: normal;
 }
-.signup-info > div > input {
+.signup_info > div > input {
   display: flex;
   width: 400px;
   padding: 18px 15px;
@@ -95,18 +95,18 @@ body {
   line-height: 24px;
 }
 
-.signup-info > div > input:focus {
+.signup_info > div > input:focus {
   border: 1px solid var(--palette-primary);
 }
 
-.signup-info > div:nth-child(2) > input {
+.signup_info > div:nth-child(2) > input {
   padding-right: 50px;
 }
-.signup-info > div:nth-child(3) > input {
+.signup_info > div:nth-child(3) > input {
   padding-right: 50px;
 }
 
-.signup-info > div > button {
+.signup_info > div > button {
   position: absolute;
   top: 51px;
   right: 22px;
@@ -164,27 +164,23 @@ body {
   width: 42px;
   height: 42px;
 }
-@media (min-width: 345px) and (max-width: 767px) {
+@media (max-width: 767px) {
   body {
     padding: 120px 32px 0 32px;
   }
-  .signup-info {
+  .signup_info {
     max-width: 400px;
     width: 100%;
   }
-  .signup-info > div {
+  .signup_info > div {
     max-width: 400px;
     width: 100%;
   }
-  .signup-info > div > label {
+  .signup_info > div > label {
     max-width: 400px;
     width: 100%;
   }
-  .signup-info > div > input {
-    max-width: 400px;
-    width: 100%;
-  }
-  .button_area {
+  .signup_info > div > input {
     max-width: 400px;
     width: 100%;
   }
