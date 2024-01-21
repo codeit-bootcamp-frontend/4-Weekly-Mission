@@ -1,4 +1,4 @@
-*{
+* {
   box-sizing: border-box;
 }
 
@@ -26,7 +26,7 @@ header {
   align-items: center;
   gap: 8px;
   align-self: stretch;
-  background-color: #F0F6FF;
+  background-color: #f0f6ff;
   position: sticky;
   top: 0;
   width: 100%;
@@ -39,11 +39,10 @@ header {
   align-self: stretch;
 }
 
-.logo { 
+.logo {
   width: 133px;
   height: 24px;
 }
-
 
 .button-link {
   display: flex;
@@ -53,8 +52,8 @@ header {
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
-  color: var(--Grey-Light, #F5F5F5);
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: #f5f5f5;
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
@@ -72,7 +71,7 @@ header {
   justify-content: flex-end;
   align-items: center;
   gap: 40px;
-  background-color: #F0F6FF;
+  background-color: #f0f6ff;
 }
 
 .sec1-text {
@@ -86,7 +85,7 @@ header {
 }
 
 .sec1-gradi {
-  background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+  background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -100,9 +99,9 @@ header {
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   text-decoration: none;
-  color: var(--Grey-Light, #F5F5F5);
+  color: #f5f5f5;
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
@@ -119,11 +118,11 @@ header {
 
 /* section2,3,4,5 시작 */
 .contents02 {
-display: flex;
-padding: 120px 461px 50px 461px;
-width: 100%;
-justify-content: center;
-align-items: center;
+  display: flex;
+  padding: 120px 461px 50px 461px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
 .sec2-div,
@@ -160,7 +159,7 @@ align-items: center;
 }
 
 .sec2-gradi {
-  background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+  background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -170,7 +169,7 @@ align-items: center;
 .sec3-text2,
 .sec4-text2,
 .sec5-text2 {
-  color: #6B6B6B;
+  color: #6b6b6b;
   font-family: Abel;
   font-size: 16px;
   font-style: normal;
@@ -191,7 +190,7 @@ align-items: center;
   padding: 50px 461px;
   justify-content: center;
   align-items: center;
-  }
+}
 
 .sec3-img {
   display: flex;
@@ -203,14 +202,18 @@ align-items: center;
 }
 
 .sec3-gradi {
-  background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+  background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .sec4-gradi {
-  background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+  background: linear-gradient(
+    99deg,
+    #6d7ccd 19.76%,
+    rgba(82, 136, 133, 0.22) 52.69%
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -224,16 +227,15 @@ align-items: center;
 
 .sec5-img {
   width: 550px;
-  height: 450px;  
+  height: 450px;
 }
 
 .sec5-gradi {
-  background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
+  background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 
 .footer-space {
   display: flex;
@@ -252,14 +254,14 @@ align-items: center;
   align-items: center;
   flex-shrink: 0;
   align-self: stretch;
-  background: var(--The-julge-black, #111322);
+  background: #111322;
 }
 
 .black-top {
   display: flex;
-justify-content: space-between;
-align-items: flex-start;
-align-self: stretch;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
 }
 
 .footer-left {
@@ -278,18 +280,17 @@ align-self: stretch;
   align-items: flex-start;
   gap: 30px;
 }
-  
 
-  .footer-ct-txt {
-    color: #CFCFCF;
-    font-family: Acme;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  
-    text-decoration: none;
-  }
+.footer-ct-txt {
+  color: #cfcfcf;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  text-decoration: none;
+}
 
 .footer-right {
   display: flex;
@@ -307,7 +308,7 @@ align-self: stretch;
 label {
   display: block;
   margin-bottom: 12px;
-  color: var(--black, #000);
+  color: #000;
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
@@ -322,12 +323,12 @@ input {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid #CCD5E3;
-  background:#FFF;
+  border: 1px solid #ccd5e3;
+  background: #fff;
 }
 
 input:focus {
-  outline: 1px solid #6D6AFE;
+  outline: 1px solid #6d6afe;
 }
 
 .login-button {
@@ -338,8 +339,8 @@ input:focus {
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
-  color: var(--Grey-Light, #F5F5F5);
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: #f5f5f5;
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
@@ -354,7 +355,7 @@ input:focus {
   padding: 238px 0px 252px 0px;
   justify-content: center;
   align-items: center;
-  background-color: #F0F6FF;
+  background-color: #f0f6ff;
 }
 
 .login {
@@ -381,12 +382,12 @@ input:focus {
 
 .signin-logo {
   width: 210.583px;
-  height: 38px; 
+  height: 38px;
 }
 
 .login-title-text,
 .signup-title-text {
-  color: var(--black, #000);
+  color: #000;
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
@@ -396,7 +397,7 @@ input:focus {
 
 .login-text-link,
 .signup-text-link {
-  color: var(--Linkbrary-primary-color, #6D6AFE);
+  color: #6d6afe;
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
@@ -419,14 +420,14 @@ input:focus {
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
-  background: var(--Linkbrary-gray10, #E7EFFB);
+  border: 1px solid #ccd5e3;
+  background: #e7effb;
 }
 
 .social-txt,
 .anotherway-txt {
   display: inline;
-  color: var(--Linkbrary-gray100, #373740);
+  color: #373740;
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
@@ -434,13 +435,11 @@ input:focus {
   line-height: normal;
 }
 
-
 .social-img {
   display: flex;
   align-items: flex-start;
   gap: 16px;
 }
-
 
 /* 회원가입페이지 */
 .signup-page {
@@ -449,7 +448,7 @@ input:focus {
   padding: 238px 0px 116px 0px;
   justify-content: center;
   align-items: center;
-  background: var(--Linkbrary-bg, #F0F6FF);
+  background: #f0f6ff;
 }
 
 .signup {
@@ -467,7 +466,7 @@ input:focus {
 }
 
 .signup-button {
-  color: var(--Grey-Light, #F5F5F5);
+  color: #f5f5f5;
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
@@ -480,7 +479,7 @@ input:focus {
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   border: none;
 }
 
@@ -491,42 +490,62 @@ input:focus {
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
-  background: var(--Linkbrary-gray10, #E7EFFB);
+  border: 1px solid #ccd5e3;
+  background: #e7effb;
+}
+/* 4주차미션 */
+.error-message {
+  color: #ff5b56;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 /* 테블릿용 미디어쿼리 */
 
 @media screen and (max-width: 1199px) {
   header {
-    padding-left: max(32px,calc(32px + (200 - 32) * ((100vw - 768px) / (1199 - 768))));
+    padding-left: max(
+      32px,
+      calc(32px + (200 - 32) * ((100vw - 768px) / (1199 - 768)))
+    );
     /* 해상도에 따라 좌측 여백을 서서히 줄임 */
-    
-    padding-right: max(32px, calc(32px + (200 - 32) * ((100vw - 768px) / (1199 - 768))));
+
+    padding-right: max(
+      32px,
+      calc(32px + (200 - 32) * ((100vw - 768px) / (1199 - 768)))
+    );
     /* 해상도에 따라 우측 여백을 서서히 줄임 */
   }
 
-   .sec1-img {
+  .sec1-img {
     width: 698px;
     height: 343px;
-   }
+  }
 
-   .sec2-img, .sec3-img, .sec4-img, .sec5-img {
+  .sec2-img,
+  .sec3-img,
+  .sec4-img,
+  .sec5-img {
     width: 385px;
     height: 315px;
-   }
-
   }
+}
 
 /* 모바일용 미디어쿼리 */
 
-@media screen and (max-width: 767px){
-
+@media screen and (max-width: 767px) {
   header {
     padding: 20px 32px;
   }
 
-  .contents01, .contents02, .contents03, .contents04, .contents05 {
+  .contents01,
+  .contents02,
+  .contents03,
+  .contents04,
+  .contents05 {
     padding-left: 32px;
     /* 해상도에 따라 좌측 여백을 서서히 줄임 */
     padding-right: 32px;
@@ -540,7 +559,6 @@ input:focus {
     align-items: flex-start;
     gap: 24px;
   }
-
 
   .sec3-div,
   .sec5-div {
@@ -556,12 +574,18 @@ input:focus {
     line-height: 42px;
   }
 
-  .sec2-text1, sec3-text1, sec4-text1, sec5-text1 {
-    font-size: 24px
+  .sec2-text1,
+  sec3-text1,
+  sec4-text1,
+  sec5-text1 {
+    font-size: 24px;
   }
 
-  .sec2-text2, sec3-text2, sec4-text2, sec5-text2 {
-    font-size: 15px
+  .sec2-text2,
+  sec3-text2,
+  sec4-text2,
+  sec5-text2 {
+    font-size: 15px;
   }
 
   .login-page {
@@ -571,7 +595,7 @@ input:focus {
     flex-direction: column;
     align-items: center;
   }
-    
+
   .login {
     width: 400px;
   }
