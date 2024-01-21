@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', function () {
       passwordInput.setAttribute('type', 'password');
       eyeIcon.src = './images/eye-off.svg'; 
     }
+
+    validatePassword();
   }
 
   function validateEmail() {
@@ -48,11 +50,27 @@ document.addEventListener('DOMContentLoaded', function () {
   function showError(element, message) {
     element.textContent = message;
     element.style.display = 'block';
+    if (element.classList.contains('LoginEmailError')) {
+      element.previousElementSibling.style.border = '1px solid red';
+    } else if (element.classList.contains('LoginPasswordError')) {
+      const passwordInput = element.previousElementSibling.querySelector('.LoginInputPw');
+      if (passwordInput) {
+        passwordInput.style.border = '1px solid red';
+      }
+    }
   }
 
   function hideError(element) {
     element.textContent = '';
     element.style.display = 'none';
+    if (element.classList.contains('LoginEmailError')) {
+      element.previousElementSibling.style.border = '';
+    } else if (element.classList.contains('LoginPasswordError')) {
+      const passwordInput = element.previousElementSibling.querySelector('.LoginInputPw');
+      if (passwordInput) {
+        passwordInput.style.border = '';
+      }
+    }
   }
 
   function isValidEmail(email) {
