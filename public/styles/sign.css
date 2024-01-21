@@ -46,7 +46,6 @@ a {
   row-gap: 1.5rem;
 }
 .sign-form div {
-  position: relative;
   display: flex;
   flex-direction: column;
 }
@@ -64,6 +63,9 @@ a {
 }
 .errorInput {
   border: 0.0625rem solid var(--red);
+}
+.password-form {
+  position: relative;
 }
 .eye {
   width: 1rem;
