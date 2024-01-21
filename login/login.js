@@ -1,17 +1,21 @@
 const EMAIL = document.getElementById("email");
-const ERROREMAIL = document.createElement("div");
 const focusout = document.getElementsByClassName("focusout");
 
 const PASSWORD = document.getElementById("password");
 const ERROREPASSWORD = document.createElement("div");
 
-ERROREMAIL.textContent = "이메일을 입력해주세요";
-ERROREPASSWORD.textContent = "비밀번호를 입력해주세요";
+ERROREPASSWORD.textContent = "비밀번호를 입력해주세요.";
 
-EMAIL.onclick = function () {
-  EMAIL.after(ERROREMAIL);
-};
+function nullEMAIL() {
+  const nullEMAIL = document.createElement("div");
+  nullEMAIL.textContent = "이메일을 입력해주세요.";
+  EMAIL.after(nullEMAIL);
+}
+function notSameEMAIL() {
+  const notSameEMAIL = document.createElement("div");
+  notSameEMAIL.textContent = "올바른 이메일 주소가 아닙니다.";
+  EMAIL.after(notSameEMAIL);
+}
 
-PASSWORD.onclick = function () {
-  PASSWORD.after(ERROREPASSWORD);
-};
+EMAIL.addEventListener("click", nullEMAIL);
+EMAIL.addEventListener("blur", notSameEMAIL);
