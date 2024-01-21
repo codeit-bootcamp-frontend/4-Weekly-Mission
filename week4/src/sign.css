@@ -163,3 +163,14 @@ header {
   padding-top: 0.2rem;
   background-color: #f5e14b;
 }
+
+/* 에러 케이스 */
+
+.input-border-red {
+  border-color: var(--red);
+}
+
+.error-message {
+  color: var(--red);
+  font-size: 1.4rem;
+}
