@@ -48,6 +48,7 @@ label {
     color: #000;
     font-size: 14px;
     font-weight: 400;
+    margin-top: 6px;
 }
 
 input {
@@ -60,8 +61,7 @@ input {
 }
 
 input:focus {
-    border: 1px solid var(--primary-color); 
- 
+    border: 1px solid var(--primary-color);
 }
 
 
@@ -101,8 +101,15 @@ input:focus {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
+    cursor: pointer;
 }
 
+.error-message {
+    color: #FF5B56;
+    font-size: 14px;
+    font-weight: 400;
+    align-self: flex-start;
+}
 
 @media (max-width: 767px) {
     #login-button {
