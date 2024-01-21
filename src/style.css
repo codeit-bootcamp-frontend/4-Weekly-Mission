@@ -287,16 +287,6 @@ footer {
     line-height: 2.8rem;
   }
 
-  .main-description {
-    order: 1;
-  }
-  .content-img {
-    order: 2;
-  }
-  .sub-description {
-    order: 3;
-  }
-
   .sub-description {
     white-space: initial;
     font-size: 1.5rem;
