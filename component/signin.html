@@ -29,7 +29,7 @@
             </div>
           </div>
           <div class="auth-fields">
-            <div class="auth-form">
+            <form id="signForm" class="auth-form">
               <label for="email">이메일</label>
               <input
                 type="email"
@@ -38,8 +38,6 @@
                 class="auth-form-input"
                 placeholder="codeit@codeit.com"
               />
-            </div>
-            <div class="auth-form">
               <label for="password">비밀번호</label>
               <div class="password-container">
                 <input
@@ -54,9 +52,11 @@
                   class="eye-icon"
                 />
               </div>
-            </div>
+            </form>
           </div>
-          <a href="/" class="button-style">로그인</a>
+          <button form="signForm" type="submit" class="button-style">
+            로그인
+          </button>
         </section>
         <section class="social">
           <p class="social-text">소셜 로그인</p>
