@@ -4,6 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Acme&family=Noto+Sans+KR&family=Poppins&display=swap');
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css');
 
+@import url('reset.css');
+
 :root {
     --Primary: #6d6afe;
     --Red: #ff5b56;
@@ -23,25 +25,25 @@ input:focus {
 }
 body {
     margin: 0;
+    min-width: 375px;
 }
 a {
     text-decoration: none;
 }
-img {
-    width: 100%;
-}
 
 /* header */
-#header nav {
+#header {
     width: 100%;
     position: sticky;
     top: 0;
     z-index: 1;
+    padding: 20px 200px;
+    background-color: #f0f6ff;
+}
+#header .header-box {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 200px;
-    background-color: #f0f6ff;
 }
 #header .header-logo-box {
     cursor: pointer;
@@ -100,12 +102,19 @@ img {
 }
 /* 테블릿 */
 @media (max-width: 1199px) {
-    #header nav {
-        padding: 13px 32px;
+    #header {
+        padding: 20px 32px;
+    }
+    #header .header-box {
+        max-width: 799px;
+        margin: 0 auto;
     }
 }
 /* 모바일 */
 @media (max-width: 767px) {
+    #header .header-box {
+        width: 100%;
+    }
     #header .login-btn {
         padding: 10px 16px;
         font-size: 14px;

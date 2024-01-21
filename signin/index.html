@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Linkbrary</title>
-        <link rel="stylesheet" href="css/signin.css" />
+        <link rel="stylesheet" href="/css/sign.css" />
     </head>
     <body>
         <main>
@@ -15,20 +15,25 @@
                     </div>
                     <div class="signup-box">회원이 아니신가요? <a href="/signup">회원 가입하기</a></div>
                 </div>
-                <div class="input-box">
-                    <label for="email">이메일</label>
-                    <input type="text" id="email" class="login-input" />
-                </div>
-                <div class="input-box">
-                    <label for="password">비밀번호</label>
-                    <input type="password" id="password" class="login-input" />
-                    <div class="icon-box pwd-view" data-target="password">
-                        <img src="/images/eye-off.png" alt="off" />
+                <form id="login-form-box" action="/folder" method="post">
+                    <div class="input-box">
+                        <label for="email">이메일</label>
+                        <input type="text" id="email" class="form-input" />
+                        <div class="error-text"></div>
                     </div>
-                </div>
-                <div class="btn-box">
-                    <div class="login-btn">로그인</div>
-                </div>
+                    <div class="error-text" data-target="email"></div>
+                    <div class="input-box">
+                        <label for="password">비밀번호</label>
+                        <input type="password" id="password" class="form-input" />
+                        <div class="icon-box pwd-view" data-check="password">
+                            <img src="/images/eye-off.png" alt="off" data-onoff="off" />
+                        </div>
+                    </div>
+                    <div class="error-text" data-target="password"></div>
+                    <button class="form-btn" type="submit">
+                        <div class="login-btn">로그인</div>
+                    </button>
+                </form>
                 <div class="sns-login-box">
                     <div>소셜 로그인</div>
                     <div class="sns-box">
@@ -44,6 +49,7 @@
                 </div>
             </article>
         </main>
-        <script src="/signin/js/signin.js"></script>
+        <script src="/js/common.js"></script>
+        <script type="text/javascript" src="/signin/js/signin.js"></script>
     </body>
 </html>
