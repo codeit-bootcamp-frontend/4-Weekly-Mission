@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
   const emailInput = document.querySelector("#email");
   const passwordInput = document.querySelector("#password");
+  const togglePasswordIcon = document.querySelector(
+    "#togglePasswordVisibility"
+  );
 
   emailInput.addEventListener("blur", validateEmail);
   passwordInput.addEventListener("blur", validatePassword);
@@ -33,6 +36,16 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector("passwordError").textContent = "";
     return true;
   }
+
+  togglePasswordIcon.addEventListener("click", function () {
+    const type =
+      passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    passwordInput.setAttribute("type", type);
+    this.src =
+      type === "password"
+        ? "../image/icons/eye-off.svg"
+        : "../image/icons/eye-on.svg";
+  });
 
   function isValidEmail(email) {
     const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
