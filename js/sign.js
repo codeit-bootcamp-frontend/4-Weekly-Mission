@@ -3,6 +3,7 @@ const password = document.querySelector("#password");
 const emailError = document.querySelector(".email-error");
 const passwordError = document.querySelector(".password-error");
 const loginButton = document.querySelector(".login-button");
+const eyeIcon = document.querySelector(".eye-icon");
 
 /* 이메일 유효성 검사 */
 const isValidEmail = () => {
@@ -43,7 +44,19 @@ const enterKey = (e) => {
   }
 };
 
+/* 눈동자아이콘 클릭 시 비밀번호 type 변경 */
+const togglePasswordVisibility = () => {
+  const type = password.type === "password" ? "text" : "password";
+  password.type = type;
+
+  eyeIcon.src =
+    type === "password"
+      ? "../images/signIn/eye-off.svg"
+      : "../images/signIn/eye-on.png";
+};
+
 email.addEventListener("blur", isValidEmail);
 password.addEventListener("blur", isValidPassword);
 loginButton.addEventListener("click", redirectToFolderPage);
 document.addEventListener("keypress", enterKey);
+eyeIcon.addEventListener("click", togglePasswordVisibility);
