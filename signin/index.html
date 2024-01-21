@@ -28,7 +28,7 @@
             </div>
           </div>
         </div>
-        <form action="/folder" method="post">
+        <form id="signForm" action="/folder" method="post">
           <div class="inputs">
             <div class="input-container">
               <label for="email">이메일</label>
@@ -48,12 +48,7 @@
               <label for="password">비밀번호</label>
               <div class="input-box">
                 <div class="input-background">
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    data-type="password"
-                  />
+                  <input type="password" name="password" data-type="password" />
                   <img
                     src="/images/sign/eye_off.svg"
                     alt="비밀번호 숨기기 이미지"
@@ -81,6 +76,6 @@
         </div>
       </div>
     </div>
-    <script src="/js/sign.js" type="module"></script>
+    <script src="/js/sign.js"></script>
   </body>
 </html>

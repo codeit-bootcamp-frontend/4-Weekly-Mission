@@ -12,18 +12,30 @@ const INPUT_MESSAGE_PATTERN_ERROR = {
   [INPUT_TYPE.EMAIL]: '올바른 이메일 주소가 아닙니다.',
 };
 
+const INPUT_MESSAGE_LOGIN_ERROR = {
+  [INPUT_TYPE.EMAIL]: '이메일을 확인해 주세요.',
+  [INPUT_TYPE.PASSWORD]: '비밀번호를 확인해 주세요.',
+};
+
 const ERROR_CLASS = 'error';
 
-const inputWrapper = document.querySelector('.inputs');
+const USER_TEST = {
+  [INPUT_TYPE.EMAIL]: 'test@codeit.com',
+  [INPUT_TYPE.PASSWORD]: 'codeit101',
+};
+
+const signForm = document.querySelector('#signForm');
 
 function handleFocusoutInput(event) {
   const target = event.target;
 
   if (target.tagName.toUpperCase() !== 'INPUT') return;
+
   const value = target.value;
   const type = target.dataset.type.toUpperCase();
   const messageBox = target.parentElement.nextElementSibling;
   let message = '';
+
   target.classList.remove(ERROR_CLASS);
   messageBox.classList.remove(ERROR_CLASS);
 
@@ -45,6 +57,42 @@ function handleFocusoutInput(event) {
   }
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+
+  if (event.target.id !== 'signForm') return;
+
+  let valid = true;
+  const emailInput = event.target['email'];
+  const passwordInput = event.target['password'];
+  const emailMessageBox = emailInput.parentElement.nextElementSibling;
+  const passwordMessageBox = passwordInput.parentElement.nextElementSibling;
+
+  emailInput.classList.remove(ERROR_CLASS);
+  passwordInput.classList.remove(ERROR_CLASS);
+  emailMessageBox.classList.remove(ERROR_CLASS);
+  passwordMessageBox.classList.remove(ERROR_CLASS);
+
+  if (USER_TEST.EMAIL !== emailInput.value) {
+    valid = false;
+    emailInput.classList.add(ERROR_CLASS);
+    printMessage(emailMessageBox, INPUT_MESSAGE_LOGIN_ERROR.EMAIL, ERROR_CLASS);
+  } else if (USER_TEST.PASSWORD !== passwordInput.value) {
+    valid = false;
+    passwordInput.classList.add(ERROR_CLASS);
+    printMessage(
+      passwordMessageBox,
+      INPUT_MESSAGE_LOGIN_ERROR.PASSWORD,
+      ERROR_CLASS
+    );
+  }
+
+  if (!valid) return;
+
+  // event.target.submit();
+  window.location.href = '/folder';
+}
+
 function validateEmail(email) {
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
   if (emailRegex.test(email)) {
@@ -59,4 +107,5 @@ function printMessage(target, message, className) {
   target.classList.add(className);
 }
 
-inputWrapper.addEventListener('focusout', handleFocusoutInput);
+signForm.addEventListener('focusout', handleFocusoutInput);
+signForm.addEventListener('submit', handleSubmit);
