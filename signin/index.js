@@ -69,3 +69,37 @@ function passwordNoneValue() {
 }
 
 password.addEventListener('focusout', passwordNoneValue);
+
+function login(event) {
+  event.preventDefault(); // Prevents the default form submission behavior
+
+  // Remove existing error messages
+  let existingErrorEmail = form.querySelector('.error-message-email');
+  if (existingErrorEmail) {
+    form.removeChild(existingErrorEmail);
+  }
+
+  let existingErrorPW = pwContainer.querySelector('.error-message-password');
+  if (existingErrorPW) {
+    pwContainer.removeChild(existingErrorPW);
+  }
+
+  if (email.value == "test@codeit.com" && password.value == "codeit101") {
+    // If login is successful, redirect to /folder or perform other actions
+    window.location.href = "/folder";
+  } else {
+    const errorElementEmail = document.createElement('div');
+    errorElementEmail.classList.add('error-message-email');
+    errorElementEmail.textContent = '이메일을 확인해 주세요.';
+
+    const errorElementPW = document.createElement('div');
+    errorElementPW.classList.add('error-message-password');
+    errorElementPW.textContent = '비밀번호를 확인해 주세요.';
+
+    // Insert new error messages below the input fields
+    email.parentNode.insertBefore(errorElementEmail, email.nextSibling);
+    pwContainer.appendChild(errorElementPW);
+  }
+}
+
+form.addEventListener('submit', login);
