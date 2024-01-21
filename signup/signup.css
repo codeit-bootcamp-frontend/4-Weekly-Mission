@@ -90,7 +90,7 @@ body{
     align-items: center;
 }
 
-input{
+.focus_blue{
     display: flex;
     width: 400px;
     padding: 18px 15px;
@@ -101,7 +101,8 @@ input{
     background: var(--Linkbrary-white);
 }
 
-input:focus{
+.focus_blue:focus{
+    outline:none;
     border-radius: 8px;
     border: 1px solid var(--Linkbrary-primary-color);
     background: var(--Linkbrary-white);
