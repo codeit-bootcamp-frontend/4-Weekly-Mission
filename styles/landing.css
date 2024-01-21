@@ -156,7 +156,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.text-description {
+.description {
   color: #6b6b6b;
   font-family: Abel;
   font-size: 1rem;
@@ -166,7 +166,7 @@
   word-break: keep-all;
 }
 
-.text-description span {
+.description span {
   display: block;
 }
 
@@ -339,7 +339,7 @@ footer {
     gap: 3.1875rem;
   }
 
-  .text-description {
+  .description {
     font-weight: 500;
   }
 
@@ -450,11 +450,11 @@ footer {
     display: inline;
   }
 
-  .text-description {
+  .description {
     font-size: 0.9375rem;
   }
 
-  .text-description span {
+  .description span {
     display: inline;
   }
 
