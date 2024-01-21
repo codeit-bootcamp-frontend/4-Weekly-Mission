@@ -24,3 +24,22 @@ passwordForm.addEventListener('focusout', function () {
     passwordError.innerHTML = '';
   }
 });
+
+//특정 이메일과 비밀번호 입력 시 페이지 이동
+const validEmail = 'test@codeit.com';
+const validPassword = 'codeit101';
+
+function login() {
+  const emailValue = document.querySelector('#email').value;
+  const passwordValue = document.querySelector('#password').value;
+
+  if (emailValue === validEmail && passwordValue === validPassword) {
+    window.location.href = './folder';
+  } else if (emailValue !== validEmail) {
+    emailForm.classList.add('invalid');
+    emailError.innerHTML = '이메일을 확인해 주세요.';
+  } else if (passwordValue !== validPassword) {
+    passwordForm.classList.add('invalid');
+    passwordError.innerHTML = '비밀번호를 확인해 주세요.';
+  }
+}
