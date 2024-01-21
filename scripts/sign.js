@@ -13,7 +13,7 @@ import {
   USERS,
   PASSWORD_MESSAGE,
   loginAction
-} from './config/signConfig.js';
+} from './constant/signConfig.js';
 
 const loginEmailQuery = '.login__input--email';
 const loginPasswordQuery = '.login__input--password';
