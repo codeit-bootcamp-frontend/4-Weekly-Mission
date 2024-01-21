@@ -57,6 +57,13 @@ function login() {
     }
 }
 
+// Enter키로 로그인
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        login(event);
+    }
+});
+
 // 비밀번호 토글
 function toggleEye() {
     if (password_input.type === "password") {
