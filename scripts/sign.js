@@ -79,12 +79,9 @@ const handleLogin = () => {
   StyleHandler.borderColor(loginEmailQuery, ERROR_BORDER_COLOR);
 };
 
-/**
- * @param {KeyboardEvent} event
- */
-const handleEnter = event => {
+const handleEnter = () => {
   if (!loginBtn) return;
-  KeyHandler.enter(event, () => loginBtn.click());
+  KeyHandler.enter(() => loginBtn.click());
 };
 
 const handleImgeClick = () => {
