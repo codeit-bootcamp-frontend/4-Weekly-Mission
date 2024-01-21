@@ -79,6 +79,14 @@ document.addEventListener('DOMContentLoaded', function () {
     isPasswordCovered = !isPasswordCovered;
   }
 
+  function showPassword() {
+    if (isPasswordCovered) {
+      passwordInput.type = 'password';
+    } else {
+      passwordInput.type = 'text';
+    }
+  }
+
   //////////////// 함수 사용////////////////////
 
   // 이메일 이벤트 리스너 부여
@@ -107,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   passwordCover.addEventListener('click', function () {
+    showPassword();
     togglePassword();
   });
 });
