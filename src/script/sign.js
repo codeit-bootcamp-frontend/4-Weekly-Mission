@@ -45,6 +45,15 @@ function isValidEmail(email) {
 function login() {
     if (email_input.value === "test@codeit.com" && password_input.value === "codeit101") {
         window.location.href = "/folder";
+    } else {
+        if (error_email.style.display === "none") {
+            error_email.innerText = "이메일을 확인해 주세요.";
+            error_email.style.display = "block";
+        }
+        if (error_password.style.display === "none") {
+            error_password.innerText = "비밀번호를 확인해 주세요.";
+            error_password.style.display = "block";
+        }
     }
 }
 
