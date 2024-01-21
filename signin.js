@@ -1,7 +1,7 @@
 const emailInput = document.getElementById('signin-email');
 const pwInput = document.getElementById('signin-pw');
 const pwOnOffImg = document.getElementById('pw-onoff');
-let pwSwitch = false;
+let isPasswordVisible = false;
 const signButton = document.getElementById('signin-button');
 const emailError = document.getElementById('email__error-msg');
 const pwError = document.getElementById('pw__error-msg');
@@ -67,21 +67,21 @@ pwInput.addEventListener('focusout', function () {
 
 //비밀번호 확인 기능 매서드
 pwOnOffImg.addEventListener('click', function () {
-  if (!pwSwitch) {
+  if (!isPasswordVisible) {
     pwOnOffImg.src = './icons/eyeson.png';
     pwInput.type = 'none';
-    pwSwitch = true;
+    isPasswordVisible = true;
   } else {
     pwOnOffImg.src = './icons/eyesoff.png';
     pwInput.type = 'password';
-    pwSwitch = false;
+    isPasswordVisible = false;
   }
 });
 
 //로그인 기능 매서드
 function signIn(email, password) {
   if (email == 'test@codeit.com' && password == 'codeit101') {
-    window.location.replace('./folder.html');
+    window.location.href = './folder.html';
   } else {
     emailError.innerHTML = '이메일을 확인해 주세요.';
     pwError.innerHTML = '비밀번호를 확인해 주세요.';
