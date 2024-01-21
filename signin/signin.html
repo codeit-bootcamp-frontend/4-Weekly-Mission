@@ -9,8 +9,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="signin.css">
+        <script src="signin.js"></script>
     </head>
     <body>
+        
         <div class="content">
             <div class="title">
                 <a class="logo" href="./"><img src="../image/signin/logo.svg" alt = "logo"></a>
@@ -21,13 +23,15 @@
             </div>
             <div class = "info">
                 <p>이메일</p>
-                <input id ="email" class="focus_blue" type="text" name="email">
+                <input id ="email" class="focus_blue" type="text" name="email" oninput = "email_check()">
+                <p class ="email_result result"></p>
             </div>
             <div class = "info">
                 <p>비밀번호</p>
                 <div>
-                    <input id ="pwd" class="focus_blue" type="password" name="pwd">
+                    <input id ="pwd" class="focus_blue" type="password" name="pwd" oninput="pwd_check()">
                     <img class="check" src="../image/signin/eye-on.svg" alt ="비밀번호 보기">
+                    <p class ="pwd_result result"></p>
                 </div>
             </div>
             <button id="signin">로그인</button>
