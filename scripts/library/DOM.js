@@ -11,7 +11,7 @@ export default class DOMHandler {
     if (!element) return
     const textTag = document.createElement('p');
     textTag.textContent = text;
-    textTag.className = className.slice(1);
+    textTag.className = className;
     element.after(textTag);
   };
   /**

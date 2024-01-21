@@ -97,9 +97,9 @@ const handleImgeClick = () => {
   }
 };
 
-DOMHandler.addTextAfter(loginEmailQuery, emailErrorQuery, '');
+DOMHandler.addTextAfter(loginEmailQuery, 'email__error', '');
 StyleHandler.display(emailErrorQuery, 'none');
-DOMHandler.addTextAfter('.login__div--password', passwordErrorQuery, '');
+DOMHandler.addTextAfter('.login__div--password', 'password__error', '');
 StyleHandler.display(passwordErrorQuery, 'none');
 loginEmail?.addEventListener('focusout', handleEmailFocusOut);
 loginEmail?.addEventListener('focusin', handleEmailFocusIn);
