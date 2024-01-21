@@ -6,9 +6,15 @@ const errorMessage = document.createElement("p");
 errorMessage.textContent = "이메일을 입력해 주세요";
 errorMessage.classList.add("error-message");
 
-function inputError(e) {
-  e.target.classList.add("input-border-red");
+function focusoutError() {
+  signInput.classList.add("input-border-red");
   signInput.after(errorMessage);
 }
 
-signInput.addEventListener("focusout", inputError);
+function focusinErrorRemove() {
+  signInput.classList.remove("input-border-red");
+  errorMessage.remove();
+}
+
+signInput.addEventListener("focusout", focusoutError);
+signInput.addEventListener("focusin", focusinErrorRemove);
