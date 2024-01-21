@@ -68,6 +68,7 @@ main {
     linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
   );
   color: white;
+  cursor: pointer;
 }
 footer {
   margin-top: 32px;
