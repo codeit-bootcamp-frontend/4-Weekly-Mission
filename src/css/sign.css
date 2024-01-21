@@ -85,7 +85,7 @@ section {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    /* gap: 12px; */
 }
 
 .email label,
@@ -103,6 +103,7 @@ input {
     /* 레이아웃 */
     display: flex;
     width: 100%;
+    margin: 12px 0 6px 0;
     padding: 18px 15px;
     justify-content: center;
     align-items: center;
@@ -117,14 +118,21 @@ input:focus {
     outline-color: var(--Linkbrary-primary-color, #6d6afe);
 }
 
-.password,
-.re_password {
+.password_input,
+.re_password_input {
+    width: 100%;
     position: relative;
+}
+
+.error-message {
+    display: none;
+    font-size: 1.4rem;
+    color: var(--Linkbrary-red);
 }
 
 .eye_button {
     position: absolute;
-    top: 60%;
+    top: 45%;
     right: 15px;
     width: 16px;
     height: 16px;
