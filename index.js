@@ -113,8 +113,10 @@ function loginFail() {
 function togglePassword() {
   if (password.type === "password") {
     password.type = "text";
+    passwordIcon.setAttribute("src", "../Publics/sign/eye-off.svg");
   } else {
     password.type = "password";
+    passwordIcon.setAttribute("src", "../Publics/sign/eye-on.svg");
   }
 }
 
