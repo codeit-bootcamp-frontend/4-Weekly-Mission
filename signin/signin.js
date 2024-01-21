@@ -13,7 +13,6 @@ function emailError(e) {
     errorM.textContent=''
   }
 }
-
 function pwError(e) {
   if(!e.target.value.trim()) {
     errorP.textContent = '비밀번호를 입력해 주세요.'
@@ -21,5 +20,16 @@ function pwError(e) {
     errorP.textContent=''
   }
 }
+
+function emailCheck(e) {
+  let e_style = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
+  if(!e_style.test(e.target.value)) {
+    errorM.textContent = '올바른 이메일 주소가 아닙니다.'
+  } else{
+    errorM.content=''
+  }
+}
+
 emailInput.addEventListener('focusout', emailError)
 pwInput.addEventListener('focusout', pwError)
+emailInput.addEventListener('focusout', emailCheck)
