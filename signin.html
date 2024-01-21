@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login</title>
     <link rel="stylesheet" href="./stylesheets/components/sign.css" />
+    <script type="module" src="index.js"></script>
   </head>
   <body>
     <div class="container">
@@ -23,16 +24,14 @@
         <div class="input-group">
           <input type="email" name="email" id="email" class="input" />
         </div>
-        <p class="msg-error">내용을 다시 작성해주세요</p>
+        <p class="msg-error hidden"></p>
 
         <label class="label" for="password">비밀번호</label>
         <div class="input-group password">
           <input type="password" name="password" id="password" class="input" />
-          <button type="button" class="ico-eye">
-            <img src="images/icons/eye-off.svg" alt="비밀번호 보기" />
-          </button>
+          <button type="button" class="ico-eye"></button>
         </div>
-        <p class="msg-error">내용을 다시 작성해주세요</p>
+        <p class="msg-error hidden"></p>
 
         <button type="submit" class="btn btn-sign">로그인</button>
       </form>
