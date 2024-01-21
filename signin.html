@@ -1,50 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linkbrary</title>
-    <link rel="stylesheet" href="sign.css">
-</head>
-<body>
-    <section>
-        <div class="signin-box">
-            <div class="sign-box-head">
-                <a href="/"><img src="/img/sign-logo.svg"></a>
-                <div class="sign-box-head-text">
-                    <p>회원이 아니신가요?</p>
-                    <div class="sign-box-head-link">
-                        <a href="signup.html">회원 가입하기</a>
-                        <div class="sign-underline"></div>
-                    </div>
-                </div>
-            </div>
-            <form>
-            <div class="form-box">
-                <div class="form-box-input">
-                    <label for="user-id">이메일</label>
-                    <input id="user-id" class="input-design" type="email" name="id">
-                </div>
-                <div class="form-box-input">
-                    <label for="user-pw">비밀번호</label>
-                    <div class="relative">
-                        <input id="user-pw" class="input-design" type="password" name="pw">
-                        <img src="/img/eye-off.svg" class="password-badge">
-                    </div>
-                </div>
-                <div>
-                    <button type="submit" class="sumit-bt">로그인</button>
-                </div>
-            </div>
-            </form>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>로그인</title>
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./src/CSS/sign.css" />
+  </head>
+  <body>
+    <header>
+      <a class="logo-link" href="index.html">
+        <img class="header-logo" src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
+      </a>
+      <p class="header-message">
+        회원이 아니신가요?<a class="header-link" href="signup.html">회원 가입하기</a>
+      </p>
+    </header>
+    <div class="sign-box">
+      <form class="sign-form">
+        <div class="sign-inputs">
+          <div class="sign-input-box">
+            <label class="sign-input-label">이메일</label>
+            <input class="sign-input" />
+          </div>
+          <div class="sign-input-box sign-password">
+            <label class="sign-input-label">비밀번호</label>
+            <input class="sign-input" type="password" />
+            <button class="eye-button" type="button">
+              <img src="./images/eye-off.svg" />
+            </button>
+          </div>
         </div>
-        <div class="social-sign-box">
-            <div>소셜 로그인</div>
-            <div class="social-logo-box">
-                <a href="https://www.google.co.kr/"><div class="goole-logo"></div></a>
-                <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk"><div class="kakao-logo"></div></a>
-            </div>
+        <button class="cta" type="submit">로그인</button>
+      </form>
+      <div class="sns-box">
+        <span class="sns-text">소셜 로그인</span>
+        <div class="sns-links">
+          <a class="sns-link google-link" href="https://www.google.com/">
+            <img src="./images/google.png" />
+          </a>
+          <a class="sns-link kakao-link" href="https://www.kakaocorp.com/page/">
+            <img src="./images/kakao.svg" />
+          </a>
         </div>
-    </section>
-</body>
+      </div>
+    </div>
+  </body>
 </html>
