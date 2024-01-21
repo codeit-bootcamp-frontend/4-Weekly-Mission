@@ -8,12 +8,11 @@ export default class DOMHandler {
    */
   static addTextAfter = (query, className, text) => {
     const element = document.querySelector(query);
-    if (element) {
-      const textTag = document.createElement('p');
-      textTag.textContent = text;
-      textTag.className = className.slice(1);
-      element.after(textTag);
-    }
+    if (!element) return
+    const textTag = document.createElement('p');
+    textTag.textContent = text;
+    textTag.className = className.slice(1);
+    element.after(textTag);
   };
   /**
    * html: 텍스트 내용 변경
@@ -23,6 +22,7 @@ export default class DOMHandler {
   static changeValue = (query, text) => {
     /** @type {HTMLInputElement | null} element*/
     const element = document.querySelector(query);
-    if (element) element.innerText = text;
+    if (!element) return
+    element.innerText = text;
   };
 }

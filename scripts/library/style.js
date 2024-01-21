@@ -12,7 +12,8 @@ export default class StyleHandler {
   static display = (query, displayType) => {
     /** @type {HTMLElement | null} element*/
     const element = document.querySelector(query);
-    if (element) element.style.display = displayType;
+    if (!element) return
+    element.style.display = displayType;
   };
 
   /**
@@ -23,6 +24,7 @@ export default class StyleHandler {
   static borderColor = (query, color) => {
     /** @type {HTMLElement | null} element*/
     const element = document.querySelector(query);
-    if (element) element.style.borderColor = color;
+    if (!element) return
+    element.style.borderColor = color;
   };
 }

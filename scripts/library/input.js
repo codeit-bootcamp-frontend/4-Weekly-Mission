@@ -8,7 +8,8 @@ export default class InputHandler {
   static isEmptyValue = query => {
     /** @type {HTMLInput} element*/
     const element = document.querySelector(query);
-    if (element?.tagName === 'INPUT') return element.value.trim() === '' ? true : false;
+    if (!(element?.tagName === 'INPUT')) return
+    return element.value.trim() === '' ? true : false;
   };
 
   /**
@@ -19,7 +20,8 @@ export default class InputHandler {
   static isMatchRegEx = (query, regEx) => {
     /** @type {HTMLInput} element*/
     const element = document.querySelector(query);
-    if (element?.tagName === 'INPUT') return regEx.test(element.value);
+    if (!(element?.tagName === 'INPUT')) return
+    return regEx.test(element.value);
   };
 
   /**
@@ -30,6 +32,7 @@ export default class InputHandler {
   static isMatchValue = (query, value) => {
     /** @type {HTMLInput} element*/
     const element = document.querySelector(query);
-    if (element?.tagName === 'INPUT') return element.value === value;
+    if (!(element?.tagName === 'INPUT')) return
+    return element.value === value;
   };
 }
