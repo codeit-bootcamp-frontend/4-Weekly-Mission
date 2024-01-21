@@ -84,14 +84,16 @@ signinForm.addEventListener("submit", function (e) {
 
 // 심화 : pw eye button 클릭 이벤트 추가 > type - password, text toggle event
 pwHiddenBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  isToggleEyes = !isToggleEyes;
-  if (isToggleEyes) {
-    pwHiddenBtn.innerHTML = '<img src="./images/eye-on.svg" />';
-    pwInput.type = "text";
-  } else {
-    pwHiddenBtn.innerHTML = '<img src="./images/eye-off.svg" />';
-    pwInput.type = "password";
+  if (e.pointerId === 1) {
+    e.preventDefault();
+    isToggleEyes = !isToggleEyes;
+    if (isToggleEyes) {
+      pwHiddenBtn.innerHTML = '<img src="./images/eye-on.svg" />';
+      pwInput.type = "text";
+    } else {
+      pwHiddenBtn.innerHTML = '<img src="./images/eye-off.svg" />';
+      pwInput.type = "password";
+    }
   }
 });
 
