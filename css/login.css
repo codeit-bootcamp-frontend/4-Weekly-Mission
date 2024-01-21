@@ -103,8 +103,6 @@ button {
 	border-radius: 0.5rem;
 	border: 0px;
 	background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%));
-
-	cursor: pointer;
 }
 
 .social-login {
