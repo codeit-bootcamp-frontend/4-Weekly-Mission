@@ -1,23 +1,48 @@
-const inputEmail = document.querySelector('#email');
+const INPUT_TYPE = {
+  EMAIL: 'EMAIL',
+  PASSWORD: 'PASSWORD',
+};
 
-function handleEmailInput(event) {
+const INPUT_MESSAGE_EMPTY = {
+  [INPUT_TYPE.EMAIL]: '이메일을 입력해 주세요.',
+  [INPUT_TYPE.PASSWORD]: '비밀번호를 입력해 주세요.',
+};
+
+const INPUT_MESSAGE_PATTERN_ERROR = {
+  [INPUT_TYPE.EMAIL]: '올바른 이메일 주소가 아닙니다.',
+};
+
+const ERROR_CLASS = 'error';
+
+const inputWrapper = document.querySelector('.inputs');
+
+function handleFocusoutInput(event) {
   const target = event.target;
-  const email = target.value;
+
+  if (target.tagName.toUpperCase() !== 'INPUT') return;
+  const value = target.value;
+  const type = target.dataset.type.toUpperCase();
   const messageBox = target.parentElement.nextElementSibling;
-  target.classList.remove('error');
-  messageBox.classList.remove('error');
-  if (!email) {
-    target.classList.add('error');
-    return printMessage(messageBox, '이메일을 입력해 주세요.', 'error');
+  let message = '';
+  target.classList.remove(ERROR_CLASS);
+  messageBox.classList.remove(ERROR_CLASS);
+
+  if (!value) {
+    target.classList.add(ERROR_CLASS);
+    message = INPUT_MESSAGE_EMPTY[type];
+    return printMessage(messageBox, message, ERROR_CLASS);
   }
 
-  const valid = validateEmail(email);
+  let valid = true;
+  if (type === INPUT_TYPE.EMAIL) {
+    valid = validateEmail(value);
+  }
+
   if (!valid) {
-    target.classList.add('error');
-    return printMessage(messageBox, '올바른 이메일 주소가 아닙니다.', 'error');
+    target.classList.add(ERROR_CLASS);
+    message = INPUT_MESSAGE_PATTERN_ERROR[type];
+    return printMessage(messageBox, message, ERROR_CLASS);
   }
-
-  console.log(email);
 }
 
 function validateEmail(email) {
@@ -34,4 +59,4 @@ function printMessage(target, message, className) {
   target.classList.add(className);
 }
 
-inputEmail.addEventListener('focusout', handleEmailInput);
+inputWrapper.addEventListener('focusout', handleFocusoutInput);
