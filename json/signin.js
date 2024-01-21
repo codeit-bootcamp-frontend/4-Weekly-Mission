@@ -11,7 +11,7 @@ function emailCheck(email_address){
 	}
 }
 
-/*입력받은 email 값을 판별하고 그에 맞는 에러메시지를 출력하는 함수*/
+/*입력받은 email 값을 판별하고 조건에 맞는 에러메시지를 출력하는 함수*/
 function checkInputEmail(event) {
   const errorMessage = document.createElement('div');
   errorMessage.classList.add('error-message');
@@ -28,3 +28,18 @@ function checkInputEmail(event) {
     emailInput.after(errorMessage);
   }
 }
+
+/*입력받은 password 값을 판별하고 조건에 맞는 에러메시지를 출력하는 함수*/
+function checkInputPassword(event) {
+  const errorMessage = document.createElement('div');
+  errorMessage.classList.add('error-message');
+  passwordInput.classList.add('error-border');
+  if (event.target.value === '') {
+    errorMessage.innerHTML = '<p>비밀번호를 입력해 주세요.</p>';
+    passwordInput.after(errorMessage);
+  } else if (event.value !== 'codeit') {
+    errorMessage.innerHTML = '<p>비밀번호를 확인해 주세요.</p>';
+    passwordInput.after(errorMessage);
+  }
+}
+
