@@ -135,6 +135,7 @@ header {
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
+  border: none;
 }
 
 .cta {

@@ -26,8 +26,8 @@ function validateEmail(e){
 };
 
 function typeEmail(e){
-  if (e.target.value === ""){
-    e.target.classList.add('sign-input-error');
+  if (email.value === ""){
+    email.classList.add('sign-input-error');
     errorMessageEmail.innerHTML = "이메일을 입력해 주세요";
     errorMessageEmail.classList.remove('display-none');
   };
@@ -37,25 +37,17 @@ inputs.firstElementChild.addEventListener('focusout', validateEmail);
 inputs.firstElementChild.addEventListener('focusout', typeEmail);
 
 function typePassword(e){
-  if (e.target.value === ""){
-    e.target.classList.add('sign-input-error');
+  if (password.value === ""){
+    password.classList.add('sign-input-error');
     errorMessagePassword.innerHTML = "비밀번호를 입력해 주세요";
     errorMessagePassword.classList.remove('display-none');
   } else {
-    e.target.classList.remove('sign-input-error');
+    password.classList.remove('sign-input-error');
     errorMessagePassword.classList.add('display-none');
   }
 };
 
 inputs.lastElementChild.addEventListener('focusout', typePassword);
-
-// function enterSubmit(e){
-//   if (e.key === 'enter'){
-//     form.submit();
-//   };
-// };
-
-// form.addEventListener('keydpress', enterSubmit);
 
 function loginEmailCheck(){
   if (email.value === "test@codeit.kr"){
@@ -77,7 +69,7 @@ function loginPasswordCheck(){
     errorMessagePassword.classList.remove('display-none');
     return false;
   }
-}
+};
 
 function loginCheck(e){
   e.preventDefault();
@@ -93,3 +85,30 @@ document.addEventListener('keypress', function(e){
     loginCheck(e);
   }
 });
+
+const eyeBtn = document.querySelector('.eye-button');
+
+function switchType(){
+  if(password.getAttribute('type') === 'password'){
+    password.setAttribute('type', 'text');
+  } else {
+    password.setAttribute('type', 'password');
+  }
+};
+
+function switchEye(){
+  if(password.getAttribute('type') === 'password'){
+    eyeBtn.lastElementChild.setAttribute('class', 'display-none');
+    eyeBtn.firstElementChild.removeAttribute('class');
+  } else {
+    eyeBtn.firstElementChild.setAttribute('class', 'display-none');
+    eyeBtn.lastElementChild.removeAttribute('class');
+  }
+};
+
+function toggleEyeBtn(){
+  switchType();
+  switchEye();
+};
+
+eyeBtn.addEventListener('click', toggleEyeBtn);
