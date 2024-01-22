@@ -73,15 +73,17 @@ function hideError(errorElement) {
   errorElement.classList.add("hidden");
 }
 
+//유효한 유저 정보 반환
+function getUserByLoginInfo(email, password) {
+  if (email === VALID_USER.email && password === VALID_USER.password) {
+    return VALID_USER;
+  }
+  return null;
+}
+
 //로그인 유효성 검사
 function isValidUser(emailInput, passwordInput) {
-  if (emailInput.value !== VALID_USER.email) {
-    return false;
-  } else if (passwordInput.value !== VALID_USER.password) {
-    return false;
-  } else {
-    return true;
-  }
+  return getUserByLoginInfo(emailInput, passwordInput);
 }
 
 //eyeBtn 비밀번호 보이게
