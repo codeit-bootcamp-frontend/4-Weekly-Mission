@@ -35,14 +35,14 @@ function isEmpty(inputValue) {
 }
 
 //이메일 양식
-function isEmailFormat(emailString) {
+function validateEmail(emailString) {
   const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   return regex.test(emailString);
 }
 
 //이메일 양식 유효성 검사
 function isValidEmail() {
-  if (isEmailFormat(emailInput.value)) {
+  if (validateEmail(emailInput.value)) {
     return true;
   }
   return false;
