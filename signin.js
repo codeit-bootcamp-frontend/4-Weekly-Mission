@@ -51,8 +51,8 @@ function login() {
 }
 
 //로그인 버튼에 이벤트 리스너 등록
-document.querySelector('#loginBtn').addEventListener('click', login);
-document.querySelector('#loginBtn').addEventListener('keydown', function (e) {
+document.querySelector('#loginButton').addEventListener('click', login);
+document.querySelector('#loginButton').addEventListener('keydown', function (e) {
   if (e.keyCode === 13) {
     login();
   }
