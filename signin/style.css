@@ -86,14 +86,26 @@ body {
   border: none;
 }
 
-input.red-border  {
-  border: 1px solid var(--red);
-}
-
-label div {
+:is(.errorMessage-email, .errorMessage-password)  {
   color: var(--red);
   font-size: 14px;
   margin-top: 6px;
+}
+
+.signin-form .red-border {
+  border: 1px solid var(--red);
+}
+
+.hidden {
+  display: none;
+}
+
+.eye-open {
+  content: url(../asset/img/signin/eye-on.png)
+}
+
+.eye-closed {
+  content: url(../asset/img/signin/Vector.png)
 }
 
 /*********************
