@@ -195,9 +195,15 @@ footer {
   height: 2rem;
 }
 
+.line {
+  display: inline;
+}
+
 @media (min-width: 768px) and (max-width: 1199px) {
   .gnb {
     padding: 0 3.2rem;
+    height: 9.4rem;
+    max-width: 86.3rem;
   }
 }
 
@@ -207,8 +213,13 @@ footer {
     font-size: 31.25%;
   }
   
+  .line {
+    display: none;
+  }
+
   .gnb {
     padding: 0 3.2rem;
+    height: 6.3rem;
   }
 
   header {

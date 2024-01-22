@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
   <head>
     <meta charset="utf-8" />
     <title>로그인</title>
@@ -9,6 +9,7 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
     <link rel="stylesheet" href="../../src/sign.css" />
+    
   </head>
   <body>
     <header>
@@ -24,14 +25,17 @@
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <input class="sign-input" id="email" name="email" type="email"/>
+            <div class="email-error-message">이메일을 입력해주세요.</div>
+            <div class="email-format-error-message">올바른 이메일 주소가 아닙니다.</div>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
+            <input class="sign-input" id="password" name="password" type="password"/>
             <button class="eye-button" type="button">
-              <img src="../../images/eye-off.svg" />
+              <img class="eye-image" src="../../images/eye-off.svg" alt="비밀번호 가리기"/>
             </button>
+            <div class="password-error-message">비밀번호를 입력해 주세요.</div>
           </div>
         </div>
         <button class="cta" type="submit">로그인</button>
@@ -40,13 +44,14 @@
         <span class="sns-text">소셜 로그인</span>
         <div class="sns-links">
           <a class="sns-link google-link" href="https://www.google.com/">
-            <img src="../../images/google.png" />
+            <img src="../../images/google.png" alt="구글 로고"/>
           </a>
           <a class="sns-link kakao-link" href="https://www.kakaocorp.com/page/">
-            <img src="../../images/kakao.svg" />
+            <img src="../../images/kakao.svg" alt="카카오톡 로고"/>
           </a>
         </div>
       </div>
     </div>
   </body>
+  <script src="../../js/signin.js"></script>
 </html>
