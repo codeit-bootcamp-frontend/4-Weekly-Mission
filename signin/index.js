@@ -88,16 +88,16 @@ function isValidUser(emailInput, passwordInput) {
 
 //eyeBtn 비밀번호 보이게
 function showPassword() {
-  const imgElement = document.querySelector(".eye-btn img");
+  const imgElement = document.querySelector(".icon-eye");
   passwordInput.type = "text";
-  icon.src = "../public/icon/eye-on.svg";
+  imgElement.src = "../public/icon/eye-on.svg";
 }
 
 //eyeBtn 비밀번호 안보이게
 function hidePassword() {
-  const icon = eyeBtn.firstElementChild;
+  const imgElement = document.querySelector(".icon-eye");
   passwordInput.type = "password";
-  icon.src = "../public/icon/eye-off.svg";
+  imgElement.src = "../public/icon/eye-off.svg";
 }
 
 /********************
@@ -107,39 +107,40 @@ function hidePassword() {
 //이메일 에러 검사
 function checkEmailError() {
   if (isEmpty(emailInput.value)) {
-    showError(emailErrorMessageElement, "이메일을 입력해 주세요.");
+    return showError(emailErrorMessageElement, "이메일을 입력해 주세요.");
   } else if (!isValidEmail()) {
-    showError(emailErrorMessageElement, "올바른 이메일 주소가 아닙니다.");
+    return showError(emailErrorMessageElement, "올바른 이메일 주소가 아닙니다.");
   } else {
-    hideError(emailErrorMessageElement);
+    return hideError(emailErrorMessageElement);
   }
 }
 
 //비밀번호 에러 검사
 function checkPasswordError() {
   if (isEmpty(passwordInput.value)) {
-    showError(passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
+    return showError(passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
   } else {
-    hideError(passwordErrorMessageElement);
+    return hideError(passwordErrorMessageElement);
   }
 }
 
 //로그인 성공/실패
 function checkLogin() {
   if (isValidUser(emailInput, passwordInput)) {
-    location.href = "../folder/index.html";
+    return (location.href = "../folder/index.html");
   } else {
     showError(emailErrorMessageElement, "이메일을 확인해 주세요.");
     showError(passwordErrorMessageElement, "비밀번호를 확인해 주세요.");
+    return;
   }
 }
 
 //eyeBtn 비밀번호 토글
 function togglePassword() {
   if (passwordInput.type === "password") {
-    showPassword();
+    return showPassword();
   } else {
-    hidePassword();
+    return hidePassword();
   }
 }
 
