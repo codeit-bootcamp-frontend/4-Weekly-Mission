@@ -58,6 +58,7 @@ function handleFocusoutInput(event) {
 
   target.classList.remove(ERROR_CLASS);
   messageBox.classList.remove(ERROR_CLASS);
+  messageBox.textContent = '';
 
   if (!value) {
     target.classList.add(ERROR_CLASS);
@@ -91,7 +92,9 @@ function handleSubmit(event) {
   emailInput.classList.remove(ERROR_CLASS);
   passwordInput.classList.remove(ERROR_CLASS);
   emailMessageBox.classList.remove(ERROR_CLASS);
+  emailMessageBox.textContent = '';
   passwordMessageBox.classList.remove(ERROR_CLASS);
+  passwordMessageBox.textContent = '';
 
   if (USER_TEST.EMAIL !== emailInput.value) {
     valid = false;
