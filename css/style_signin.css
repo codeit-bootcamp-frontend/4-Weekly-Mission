@@ -79,7 +79,7 @@ input{
 }
 
 input:focus{
-  outline: none !important;
+  outline: none;
   border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
 }
 
