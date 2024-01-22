@@ -17,8 +17,8 @@
   padding-bottom: 25.3rem;
 }
 
-main,
-form {
+.main,
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: center;

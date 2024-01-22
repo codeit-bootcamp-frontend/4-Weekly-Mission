@@ -6,10 +6,8 @@
   align-items: center;
 }
 
-header {
+.main-wrapper {
   width: 100%;
-  margin: 0 auto;
-  background-color: var(--Linkbrary-bg);
 }
 
 .gnb {
@@ -30,13 +28,10 @@ header {
   position: relative;
   width: 100%;
   max-width: 192rem;
-  background-color: var(--Linkbrary-bg);
 }
 
-.wrapper {
-  width: 100%;
-  max-width: 192rem;
-  margin: 0 auto;
+.title-bgcolor-wrapper {
+  background-color: var(--Linkbrary-bg);
 }
 
 .section-wrapper {
@@ -44,15 +39,18 @@ header {
   max-width: 192rem;
   margin: 0 auto;
   padding-top: 7rem;
+  text-align: center;
 }
 
-.header-title {
+.title-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4rem;
   padding-top: 15rem;
   text-align: center;
+  max-width: 192rem;
+  margin: 0 auto;
 }
 
 .title-description {
@@ -60,7 +58,7 @@ header {
   font-weight: 700;
   flex-shrink: 0;
   line-height: 8rem;
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
 
 .pinkToBlue {
@@ -121,7 +119,7 @@ header {
 }
 
 .section {
-  display: grid;
+  display: inline-grid;
   grid-template-areas:
     "image ."
     "image title"
@@ -130,11 +128,12 @@ header {
   row-gap: 1rem;
   column-gap: 15.7rem;
   padding: 5rem 0;
-  white-space: pre-wrap;
+  white-space: pre-line;
+  text-align: left;
 }
 
 .section:nth-child(odd) {
-  display: grid;
+  display: inline-grid;
   grid-template-areas:
     ". image"
     "title image"
@@ -143,7 +142,8 @@ header {
   row-gap: 1rem;
   column-gap: 15.7rem;
   padding: 5rem 0;
-  white-space: pre-wrap;
+  white-space: pre-line;
+  text-align: left;
 }
 
 .section-title {
