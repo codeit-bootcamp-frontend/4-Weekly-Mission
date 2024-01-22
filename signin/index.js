@@ -27,8 +27,8 @@ const VALID_USER = {
  ********************/
 
 //인풋이 비어있는지 검사
-function isEmpty(input) {
-  if (input.value === "") {
+function isEmpty(inputValue) {
+  if (inputValue === "") {
     return true;
   }
   return false;
@@ -74,8 +74,8 @@ function hideError(errorElement) {
 }
 
 //유효한 유저 정보 반환
-function getUserByLoginInfo(email, password) {
-  if (email === VALID_USER.email && password === VALID_USER.password) {
+function getUserByLoginInfo(emailInputValue, passwordInputValue) {
+  if (emailInputValue === VALID_USER.email && passwordInputValue === VALID_USER.password) {
     return VALID_USER;
   }
   return null;
@@ -83,7 +83,7 @@ function getUserByLoginInfo(email, password) {
 
 //로그인 유효성 검사
 function isValidUser(emailInput, passwordInput) {
-  return getUserByLoginInfo(emailInput, passwordInput);
+  return getUserByLoginInfo(emailInput.value, passwordInput.value);
 }
 
 //eyeBtn 비밀번호 보이게
@@ -106,7 +106,7 @@ function hidePassword() {
 
 //이메일 에러 검사
 function checkEmailError() {
-  if (isEmpty(emailInput)) {
+  if (isEmpty(emailInput.value)) {
     showError(emailErrorMessageElement, "이메일을 입력해 주세요.");
   } else if (!isValidEmail()) {
     showError(emailErrorMessageElement, "올바른 이메일 주소가 아닙니다.");
@@ -117,7 +117,7 @@ function checkEmailError() {
 
 //비밀번호 에러 검사
 function checkPasswordError() {
-  if (isEmpty(passwordInput)) {
+  if (isEmpty(passwordInput.value)) {
     showError(passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
   } else {
     hideError(passwordErrorMessageElement);
