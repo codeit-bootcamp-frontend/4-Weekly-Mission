@@ -29,7 +29,7 @@
             </div>
           </div>
           <div class="auth-fields auth-fields-signup">
-            <div class="auth-form">
+            <form id="signForm" class="auth-form">
               <label for="email">이메일</label>
               <input
                 type="email"
@@ -38,8 +38,6 @@
                 class="auth-form-input"
                 value="codeit@codeit.com"
               />
-            </div>
-            <div class="auth-form">
               <label for="password">비밀번호</label>
               <div class="password-container">
                 <!-- 피그마상에서 비밀번호가 그대로 보여 type="password" 미기입 -->
@@ -55,8 +53,6 @@
                   class="eye-icon"
                 />
               </div>
-            </div>
-            <div class="auth-form auth-form-password-check">
               <label for="password">비밀번호 확인</label>
               <div class="password-container">
                 <!-- 피그마상에서 비밀번호가 그대로 보여 type="password" 미기입 -->
@@ -72,10 +68,12 @@
                   class="eye-icon"
                 />
               </div>
-              <p class="password-error-message">비밀번호가 다릅니다</p>
-            </div>
+              <!-- <p class="password-error-message">비밀번호가 다릅니다</p> -->
+            </form>
           </div>
-          <a href="/" class="button-style">회원가입</a>
+          <button form="signForm" type="submit" class="base-button">
+            회원가입
+          </button>
         </section>
         <section class="social">
           <p class="social-text">다른 방식으로 가입하기</p>

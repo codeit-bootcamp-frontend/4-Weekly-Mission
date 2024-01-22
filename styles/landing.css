@@ -1,9 +1,9 @@
-#index-main {
+#landing-main {
   width: 120rem;
   max-width: 120rem;
 }
 
-#index-nav {
+#landing-nav {
   width: 100%;
   height: 5.875rem;
   background: var(--Linkbrary-bg, #f0f6ff);
@@ -25,7 +25,7 @@
   height: 1.5rem;
 }
 
-.button-style {
+.base-button {
   width: 100%;
   display: inline-flex;
   height: 3.375rem;
@@ -43,7 +43,7 @@
   color: #f5f5f5;
 }
 
-.gnb-container .button-style {
+.gnb-container .base-button {
   width: 8rem;
 }
 
@@ -63,6 +63,16 @@
   background: var(--Linkbrary-bg, #f0f6ff);
 }
 
+.contents-01-container::after {
+  content: "";
+  width: 75rem;
+  height: 36.875rem;
+  background-image: url("/image/landing/img0.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
 .contents-01-container p {
   width: 44.25rem;
   height: 10rem;
@@ -73,11 +83,7 @@
 }
 
 .contents-01-text-highlight {
-  background: linear-gradient(
-    91deg,
-    var(--Linkbrary-primary) 17.28%,
-    #ff9f9f 74.98%
-  );
+  background: var(--Text-highlight-01);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -88,13 +94,8 @@
   display: inline;
 }
 
-.contents-01-container .button-style {
+.contents-01-container .base-button {
   width: 21.875rem;
-}
-
-.contents-01-container img {
-  width: 75rem;
-  height: 36.875rem;
 }
 
 .contents-02,
@@ -130,6 +131,46 @@
   gap: 9.8125rem;
 }
 
+.contents-02-container::after {
+  content: "";
+  width: 34.375rem;
+  height: 28.125rem;
+  background-image: url("/image/landing/img1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.contents-03-container::before {
+  content: "";
+  width: 34.375rem;
+  height: 28.125rem;
+  background-image: url("/image/landing/img2.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.contents-04-container::after {
+  content: "";
+  width: 34.375rem;
+  height: 28.125rem;
+  background-image: url("/image/landing/img3.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.contents-05-container::before {
+  content: "";
+  width: 34.375rem;
+  height: 28.125rem;
+  background-image: url("/image/landing/img4.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
 .contents-02-text,
 .contents-03-text,
 .contents-04-text,
@@ -154,13 +195,13 @@
 }
 
 .contents-02 .text-subheading-highlight {
-  background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  background: var(--Text-highlight-02);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-description {
+.description {
   color: #6b6b6b;
   font-family: Abel;
   font-size: 1rem;
@@ -170,40 +211,26 @@
   word-break: keep-all;
 }
 
-.text-description span {
+.description span {
   display: block;
 }
 
-.contents-02-container img,
-.contents-03-container img,
-.contents-04-container img,
-.contents-05-container img {
-  width: 34.375rem;
-  height: 28.125rem;
-  border-radius: 0.9375rem;
-  background: var(--Linkbrary-bg);
-}
-
 .contents-03 .text-subheading-highlight {
-  background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+  background: var(--Text-highlight-03);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .contents-04 .text-subheading-highlight {
-  background: linear-gradient(
-    99deg,
-    #6d7ccd 19.76%,
-    rgba(82, 136, 133, 0.22) 52.69%
-  );
+  background: var(--Text-highlight-04);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .contents-05 .text-subheading-highlight {
-  background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
+  background: var(--Text-highlight-05);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -231,7 +258,7 @@ footer {
   align-items: flex-start;
   flex-shrink: 0;
   align-self: stretch;
-  background: var(--Linkbrary-Black, #111322);
+  background: var(--Linkbrary-black, #111322);
 
   font-family: Acme;
   font-size: 1rem;
@@ -251,6 +278,11 @@ footer {
   color: #cfcfcf;
 }
 
+.footer-details a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .footer-icons {
   width: 7.25rem;
   height: 1.25rem;
@@ -266,7 +298,7 @@ footer {
 
 /* 미디어 쿼리 : 화면의 너비가 1920px 이상일 때 적용될 스타일 */
 @media screen and (min-width: 1920px) {
-  #index-nav,
+  #landing-nav,
   .contents-01-container {
     width: 100%;
     max-width: 120rem;
@@ -277,7 +309,7 @@ footer {
 
 /* 미디어 쿼리 : 화면 너비가 1920px 미만일 때의 스타일 */
 @media screen and (max-width: 1919px) {
-  #index-main,
+  #landing-main,
   footer {
     width: 100%;
   }
@@ -292,7 +324,9 @@ footer {
 /*  */
 /* 태블릿: 768px ~ 1199px */
 @media screen and (max-width: 1199px) {
-  #index-nav {
+  #landing-nav {
+    /* 3주차 기본 요구사항 중 "Linkbrary"로고와 "로그인" 버튼 사이의 간격은 유지하고 좌우 여백이 줄어듭니다.
+    라는 조건을 만족하기 위해, 화면 너비가 1200픽셀미만일때 좌우패딩을 동적으로 조정하여, 화면 크기에 따라 패딩이 변하게 만듬 */
     padding: 1.25rem calc(12.5rem - ((1200px - 100vw) * 0.5));
   }
 
@@ -306,6 +340,11 @@ footer {
     gap: 2.5rem;
   }
 
+  .contents-01-container::after {
+    width: 43.625rem;
+    height: 21.4375rem;
+  }
+
   .contents-01-container p {
     width: 29.5rem;
     height: 15rem;
@@ -314,11 +353,6 @@ footer {
   .contents-01-text-01,
   .contents-01-text-02 {
     display: block;
-  }
-
-  .contents-01-container img {
-    width: 43.625rem;
-    height: 21.4375rem;
   }
 
   .contents-02 {
@@ -342,16 +376,28 @@ footer {
     gap: 3.1875rem;
   }
 
-  .text-description {
-    font-weight: 500;
-  }
-
-  .contents-02-container img,
-  .contents-03-container img,
-  .contents-04-container img,
-  .contents-05-container img {
+  .contents-02-container::after {
     width: 24.0625rem;
     height: 19.6875rem;
+  }
+
+  .contents-03-container::before {
+    width: 24.0625rem;
+    height: 19.6875rem;
+  }
+
+  .contents-04-container::after {
+    width: 24.0625rem;
+    height: 19.6875rem;
+  }
+
+  .contents-05-container::before {
+    width: 24.0625rem;
+    height: 19.6875rem;
+  }
+
+  .description {
+    font-weight: 500;
   }
 
   .footer-container {
@@ -361,7 +407,7 @@ footer {
 
 /* 모바일: 375px ~ 767px */
 @media screen and (max-width: 767px) {
-  #index-nav {
+  #landing-nav {
     width: 100%;
     padding: 1.25rem 2rem;
   }
@@ -386,6 +432,12 @@ footer {
     gap: 1.5rem;
   }
 
+  .contents-01-container::after {
+    width: 100%;
+    height: 0;
+    padding-top: calc((590 / 1200) * 100%);
+  }
+
   .contents-01-container p {
     width: 14.75rem;
     height: 7.875rem;
@@ -393,17 +445,8 @@ footer {
     line-height: 2.625rem;
   }
 
-  .contents-01-container .button-style {
+  .contents-01-container .base-button {
     width: 12.5rem;
-  }
-
-  .contents-01-container img,
-  .contents-02-container img,
-  .contents-03-container img,
-  .contents-04-container img,
-  .contents-05-container img {
-    width: 100%;
-    height: auto;
   }
 
   .contents-02 {
@@ -432,6 +475,30 @@ footer {
     gap: 1.5rem;
   }
 
+  .contents-02-container::after {
+    width: 100%;
+    height: 0;
+    padding-top: calc((450 / 550) * 100%);
+  }
+
+  .contents-03-container::before {
+    width: 100%;
+    height: 0;
+    padding-top: calc((450 / 550) * 100%);
+  }
+
+  .contents-04-container::after {
+    width: 100%;
+    height: 0;
+    padding-top: calc((450 / 550) * 100%);
+  }
+
+  .contents-05-container::before {
+    width: 100%;
+    height: 0;
+    padding-top: calc((450 / 550) * 100%);
+  }
+
   .contents-05-container {
     min-height: 21.99432rem;
   }
@@ -453,11 +520,11 @@ footer {
     display: inline;
   }
 
-  .text-description {
+  .description {
     font-size: 0.9375rem;
   }
 
-  .text-description span {
+  .description span {
     display: inline;
   }
 
@@ -494,7 +561,7 @@ footer {
 
 /* 모바일: 375px 고정, 피그마 여백이 width: 390px 기준이라 그대로 적용 */
 @media screen and (max-width: 390px) {
-  #index-main {
+  #landing-main {
     min-width: 23.438rem;
   }
 }

@@ -1,6 +1,6 @@
 #sign-main {
   width: 90rem;
-  height: 61.375rem;
+  min-height: 61.375rem;
   padding: 14.875rem 0rem 15.75rem 0rem;
   display: flex;
   justify-content: center;
@@ -14,7 +14,7 @@
 
 .sign-container {
   width: 25rem;
-  height: 30.75rem;
+  min-height: 30.75rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,7 +29,7 @@
 /* 1. 상단 auth 영역 */
 .auth {
   width: 100%;
-  height: 24.625rem;
+  min-height: 24.625rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -69,7 +69,7 @@
 }
 
 .auth-links-text p {
-  color: var(--Linkbrary-Black, #000);
+  color: var(--Linkbrary-black, #000);
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5rem;
@@ -84,11 +84,10 @@
 /* 1-2. 이메일 & 비밀번호 영역 */
 .auth-fields {
   width: 100%;
-  height: 12.625rem;
+  min-height: 12.625rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
 }
 
 .auth-fields-signup {
@@ -97,20 +96,16 @@
 
 .auth-form {
   width: 100%;
-  height: 5.5625rem;
+  min-height: 5.5625rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.75rem;
 }
 
-.auth-form-password-check {
-  height: 7rem;
-}
-
 .auth-form label {
   height: 1.0625rem;
-  color: var(--Linkbrary-Black);
+  color: var(--Linkbrary-black);
 
   font-size: 0.875rem;
   font-weight: 400;
@@ -135,7 +130,12 @@
 }
 
 .auth-form-input:focus {
+  outline: none;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+}
+
+label[for="password"] {
+  margin-top: 0.75rem;
 }
 
 .password-container {
@@ -155,10 +155,15 @@
   width: 1rem;
 }
 
-.password-error-message {
+.password-error-message,
+.error-message {
   color: var(--Linkbrary-red, #ff5b56);
   font-size: 0.875rem;
   font-weight: 400;
+}
+
+.invalid {
+  border: 1px solid var(--Linkbrary-red);
 }
 
 /* 2. 하단 social 영역 */
