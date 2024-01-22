@@ -25,30 +25,29 @@ function onSubmit(event) {
 }
 
 function email_onFocusOut(e) {
-  if (!e.target.value || !e.target.value.trim()) {
+  if (!e.target.value?.trim()) {
     emailError.textContent = "이메일을 입력해 주세요.";
     e.target.classList.add("inputError");
-  } else {
-    emailError.textContent = "";
-    e.target.classList.remove("inputError");
+    return;
   }
-
   if (!emailRegex.test(e.target.value)) {
     emailError.textContent = "올바른 이메일 주소가 아닙니다.";
     e.target.classList.add("inputError");
-  } else {
-    e.target.classList.remove("inputError");
+    return;
   }
+
+  emailError.textContent = "";
+  e.target.classList.remove("inputError");
 }
 
 function password_onFocusOut(e) {
   if (!e.target.value) {
     passwordError.textContent = "비밀번호를 입력해 주세요.";
     e.target.classList.add("inputError");
-  } else {
-    passwordError.textContent = "";
-    e.target.classList.remove("inputError");
+    return;
   }
+  passwordError.textContent = "";
+  e.target.classList.remove("inputError");
 }
 
 function eyeOpenOnClick(e) {
