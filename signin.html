@@ -10,13 +10,12 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
     <link rel="stylesheet" href="/src/signin.css" />
-    <link rel="stylesheet" href="/src/color.css" />
     <title>Linkbrary</title>
   </head>
   <body>
     <main>
       <div class="login-form">
-        <header>
+        <div class="header">
           <a href="/"
             ><img
               class="header-logo"
@@ -27,25 +26,36 @@
             회원이 아니신가요?
             <a class="header-signup-link" href="signup.html">회원 가입하기</a>
           </p>
-        </header>
-        <form action="">
+        </div>
+        <form id="login-form" action="">
           <div class="email-container">
-            <label class="sign-label" for="email">이메일</label>
+            <label class="sign-label" for="email-input">이메일</label>
             <input
+              id="email-input"
               class="sign-input"
               type="email"
               placeholder="codeit@codeit.com"
             />
+            <div id="email-error-message" class="error-message"></div>
           </div>
           <div class="password-container">
-            <label class="sign-label" for="password">비밀번호</label>
-            <input class="sign-input" name="password" type="password" />
+            <label class="sign-label" for="password-input">비밀번호</label>
+            <input
+              id="password-input"
+              class="sign-input"
+              name="password"
+              type="password"
+            />
+            <div id="password-error-message" class="error-message"></div>
             <button class="eye-off" type="button">
               <img src="/public/img/eye-off.svg" />
             </button>
+            <button class="eye-on" type="button" style="display: none">
+              <img src="/public/img/eye-on.svg" />
+            </button>
           </div>
+          <button class="button-login" type="submit">로그인</button>
         </form>
-        <button class="button-login" type="submit">로그인</button>
       </div>
       <div class="social-login">
         <span class="social-message">소셜 로그인</span>
@@ -63,4 +73,5 @@
       </div>
     </main>
   </body>
+  <script src="/js/signin.js"></script>
 </html>

@@ -1,3 +1,5 @@
+@import url(/src/color.css);
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,11 +24,11 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 3.2rem;
   padding-top: 23.8rem;
+  gap: 3.2rem;
 }
 
-header {
+.header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,19 +37,15 @@ header {
 
 .header-message {
   display: flex;
-  align-items: flex-start;
   gap: 0.8rem;
   color: var(--Black);
   font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 400;
   line-height: 2.4rem;
 }
 
 .header-signup-link {
   color: var(--Linkbrary-primary-color);
   font-size: 1.6rem;
-  font-style: normal;
   font-weight: 600;
   line-height: normal;
 }
@@ -56,7 +54,7 @@ header {
   height: 3.8rem;
 }
 
-.longin-form {
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,24 +65,18 @@ header {
 .password-container {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
   width: 40rem;
 }
 
-.email-container + .password-container {
+.password-container {
+  position: relative;
   margin-top: 2.4rem;
 }
 
-form {
-  margin: 3rem 0;
-}
-
 .sign-label {
+  margin-bottom: 1.2rem;
   color: var(--Black);
   font-size: 1.4rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .sign-input {
@@ -102,27 +94,37 @@ form {
   outline: 0.1rem solid var(--Linkbrary-primary-color);
 }
 
+.error-message {
+  margin-top: 0.6rem;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  color: var(--Linkbrary-red);
+}
+
+.sign-input-error {
+  border: 0.1rem solid var(--Linkbrary-red);
+}
+
 button {
   border: none;
   cursor: pointer;
 }
 
-.password-container {
-  position: relative;
-}
-
-.eye-off {
+.eye-off,
+.eye-on {
   position: absolute;
-  bottom: 2rem;
+  bottom: 2.6rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
+  cursor: pointer;
 }
 
 .button-login {
   display: flex;
   width: 40rem;
   padding: 1.6rem 2rem;
+  margin-top: 3rem;
   justify-content: center;
   align-items: center;
   gap: 1rem;
@@ -131,9 +133,7 @@ button {
   background: var(--gra-purpleblue-to-skyblue);
   color: var(--Grey-Light);
   font-size: 1.8rem;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 }
 
 .social-login {
@@ -150,14 +150,10 @@ button {
 .social-message {
   color: var(--Linkbrary-gray100);
   font-size: 1.4rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .social-link {
   display: flex;
-  align-items: flex-start;
   gap: 1.6rem;
 }
 
@@ -185,12 +181,20 @@ button {
 @media (min-width: 375px) and (max-width: 767px) {
   main {
     padding-top: 12rem;
+    width: calc(100% - 64px);
   }
+
+  form {
+    width: 100%;
+  }
+
+  .login-form,
   .email-container,
   .password-container,
   .button-login,
   .social-login {
-    width: calc(100% - 64px);
+    max-width: 400px;
+    width: 100%;
   }
 }
 
