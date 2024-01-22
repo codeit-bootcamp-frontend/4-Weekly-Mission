@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../CSS/style.css" />
   </head>
   <body class="sign-container">
     <div class="sign-wrapper">
@@ -20,14 +20,21 @@
         <div class="sign-form-wrapper">
           <!-- email -->
           <p>이메일</p>
-          <input class="sign-email" type="email" placeholder="이메일" />
+          <input
+            class="sign-email"
+            type="email"
+            placeholder="이메일"
+            required
+          />
+          <span class="sign-email-error"></span>
 
           <!-- password -->
           <p>비밀번호</p>
           <div class="sign-password">
-            <input type="password" placeholder="비밀번호" />
-            <img src="../svg/eye-off.svg" alt="" />
+            <input type="password" placeholder="비밀번호" required />
+            <img class="eye-icon" src="../assets/svg/eye-off.svg" alt="" />
           </div>
+          <span class="sign-password-error"></span>
         </div>
         <input class="sign-btn" type="submit" value="로그인" />
       </form>
@@ -44,5 +51,6 @@
         </ul>
       </div>
     </div>
+    <script src="../script/signin.js"></script>
   </body>
 </html>

@@ -3,13 +3,13 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 
 /* lading CSS */
-@import url("./CSS/palette.css");
-@import url("./CSS/landing/header.css");
-@import url("./CSS/landing/main.css");
-@import url("./CSS/landing/footer.css");
+@import url("./palette.css");
+@import url("./landing/header.css");
+@import url("./landing/main.css");
+@import url("./landing/footer.css");
 
 /* sisgnin, signup CSS */
-@import url("./CSS/sign/sign.css");
+@import url("./sign/sign.css");
 
 * {
   padding: 0;
