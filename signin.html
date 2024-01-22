@@ -19,19 +19,20 @@
           <a class="signup-a primary" href="signup.html">회원 가입하기</a>
         </div>
       </div>
-      <div>
-        <form action="" method="get">
-          <div class="input-box">
-            <div class="input-font-size black">이메일</div>
-            <input class="white" id="email" type="email">
-          </div>
-          <div class="input-box">
-            <div class="input-font-size black">비밀번호</div>
-            <input class="eye-off white" id="password" type="password">
-          </div>
-        </form>
-      </div>
-      <button class="login-btn white">로그인</button>
+      <form action="" method="get">
+        <div class="input-box">
+          <label class="input-font-size black" for="email">이메일</label>
+          <input class="black" id="email" type="email">
+          <div class="errMsg"></div>
+        </div>
+        <div class="input-box">
+          <label class="input-font-size black" for="password">비밀번호</label>
+          <i id="eyeIcon" class="eye-off"></i>
+          <input class="black" id="password" type="password">
+          <div class="errMsg"></div>
+        </div>
+        <button type="button" id="loginBtn" class="login-btn white">로그인</button>
+      </form>
     </div>
     <div class="social-login gray-ton4-bg">
       <span class="social-font-size">소셜 로그인</span>
@@ -47,5 +48,6 @@
       </div>
     </div>
   </main>
+  <script src="./js/signin.js"></script>
 </body>
 </html>
