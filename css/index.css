@@ -17,7 +17,6 @@ main{
 }
 .contentMain h1{
   width: 708px;
-  height: 160px;
   text-align: center;
   font-family: Pretendard;
   font-size: 64px;
@@ -61,7 +60,6 @@ main{
 /* 2,3,4,5번 박스 */
 .contentsBox{
   display: flex;
-  
   justify-content: center;
   align-items: center;
   padding: 120px 461px 50px 461px;
@@ -115,55 +113,105 @@ section:nth-child(5) h2{
   -webkit-text-fill-color: transparent;
 }
 .textBox .description{
+  width: 257px;
   color: #6B6B6B;
-  font-family: Abel;
+  font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 150%; /* 24px */
+  word-break:keep-all;
 }
   /* 사진부분 */
-.imgBox{
+  .contents .imgBox{
   width: 550px;
   height: 450px;
   border-radius: 15px;
   background: #F0F6FF;
   overflow: hidden;
 }
-.imgBox .total2{
+.contents .total2{
   width: 550px;
   height: 450px;
 }
-.imgBox .change{
+.contents .change{
   display: flex;
   width: 550px;
   padding: 114px 68px 66px 68px;
   justify-content: center;
   align-items: center;
 }
-.imgBox .total4{
+.contents .total4{
   width: 550px;
   height: 450px;
 }
-.imgBox .search{
+.contents .search{
   width: 619px;
-  height: 584px;
+  height: 100%;
   flex-shrink: 0;
   border-radius: 15px;
+  margin: 55px 60px;
 }
 /* 반응형 시작 */
+/* PC, 테블릿 -> 이미지 고정
+모바일 -> 이미지 꽉차게, 푸터상세조정 */
 /* PC */
 @media (min-width:1200px){
 }
 /* 테블릿 */
 @media (min-width:768px) and (max-width:1199px){
+  /* 1번박스 */
+  .contentMainBox{
+    padding: 122px 250px 0px 251px;
+  }
   .contentMain h1{
     width: 472px;
+    font-size: 64px;
+    line-height: 80px; /* 131.25% */
+    word-break:keep-all;
+  }
+  .contentMain .imgBox{
+    width: 698px;
+    height: 343px;
+  }
+  .contentMain img{
+    width: 650.303px;
+    height: 383.114px;
+  }
+  /* 2,3,4,5번 박스 */
+  .contentsBox{
+    padding : 80px 250px 50px 251px;
+  }
+  .contents{
+    width: 698px;
+    gap: 51px;
+  }
+  .contents .imgBox{
+    width: 385px;
+    height: 315px;
+  }
+  .contents .total2{
+    width: 385px;
+    height: 315px;
+  }
+  .contents .change{
+    width: 410px;
+    padding: 88px 115px 66px 69px;
+  }
+  .contents .total4{
+    width: 385px;
+    height: 315px;
+  }
+  .contents .search{
+    width: 100%;
+    margin : 40px 50px;
   }
 }
 /* 모바일 */
 @media (min-width:375px) and (max-width:767px){
   .contentMain h1{
     width: 236px;
+    font-size: 32px;
+    line-height: 42px; /* 131.25% */
   }
 }
