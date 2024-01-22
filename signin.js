@@ -1,5 +1,5 @@
 const emailInput = document.querySelector('#email');
-const emailPattern = /^A[0-9a-zA-Z] ([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+const emailPattern = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
 const emailError = document.querySelector('#emailError');
 const passwordInput = document.querySelector('#password');
 const passwordError = document.querySelector('#passwordError');
@@ -36,10 +36,15 @@ function login() {
 
   if (emailValue === validEmail && passwordValue === validPassword) {
     window.location.href = './folder';
-  } else if (emailValue !== validEmail) {
+    return;
+  }
+
+  if (emailValue !== validEmail) {
     emailInput.classList.add('invalid');
     emailError.innerHTML = '이메일을 확인해 주세요.';
-  } else if (passwordValue !== validPassword) {
+  }
+
+  if (passwordValue !== validPassword) {
     passwordInput.classList.add('invalid');
     passwordError.innerHTML = '비밀번호를 확인해 주세요.';
   }
