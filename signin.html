@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="./css/signin.css" />
 </head>
 <body>
-  <div class="logo-div">
+  <div class="logo-content">
     <a class="logo-link" href="/">
       <img src="./images/logo.svg" alt="홈으로 연결된 logo img" />
     </a>
@@ -20,24 +20,26 @@
       회원이 아니신가요? <a href="./signup.html">회원 가입하기</a>
     </p>
   </div>
-  <div class="sign-div">
+  <div class="sign-content">
     <form class="sign-form">
       <div class="sign-inputs">
-        <div class="sign-input-div">
-          <label>이메일</label>
-          <input type="text" />
+        <div class="sign-input-content">
+          <label for="email">이메일</label>
+          <input id="email" class="email-input" type="text" placeholder="codeit@codeit.com" />
+          <span class="error-message"></span>
         </div>
-        <div class="sign-input-div sign-password-div">
-          <label>비밀번호</label>
-          <input type="password" />
-          <button class="eye-btn">
-            <img src="./images/eye-off.svg" alt="password on-off img" />
-          </button>
+        <div class="sign-input-content">
+          <label for="password">비밀번호</label>
+          <div class="sign-password-content">
+            <input id="password" class="password-input" type="password" placeholder="‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧" />
+            <button class="eye-btn" type="button"></button>
+          </div>
+          <span class="error-message"></span>
         </div>
       </div>
-      <button class="sign-btn">로그인</button>
+      <button class="sign-btn" type="submit">로그인</button>
     </form>
-    <div class="sns-div">
+    <div class="sns-content">
       <span class="sns-text">소셜 로그인</span>
       <div class="sns-links">
         <a href="https://www.google.com/">
@@ -49,5 +51,6 @@
       </div>
     </div> 
   </div>
+  <script src="./signin.js"></script>
 </body>
 </html>
