@@ -10,7 +10,7 @@
 <body>
   
   <div class="content">
-    <form>
+    <form id="login-form">
       <div class="login-frame">
         <a href="/"><img class="logo" src="images/logo.svg"></a>
         <div class="check-member">
@@ -19,12 +19,14 @@
       </div>
       <div class="login-frame2">
         <div class="input-frame">
-          <label>이메일</label>
-          <input name ="email" type="email"></input>
+          <label for="email">이메일</label>
+          <input id="email" class ="email" name ="email" type="email"></input>
+          <p class="errormsg email"></p>
         </div>
         <div class="input-frame">
-          <label>비밀번호</label>
-          <input name ="password" type="password"></input>
+          <label for="password">비밀번호</label>
+          <input id="password" class="password" name ="password" type="password"></input>
+          <p class="errormsg password"></p>
         </div>
       </div>
       <div class="login-frame3">
@@ -41,6 +43,6 @@
     </div>
   
   </div>
-  <script src="../signin/index.js"></script>
+  <script src="/signin/index.js"></script>
 </body>
 </html>
