@@ -3,6 +3,7 @@ const emailPattern = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
 const emailError = document.querySelector('#emailError');
 const passwordInput = document.querySelector('#password');
 const passwordError = document.querySelector('#passwordError');
+const loginButton = document.querySelector('#loginButton');
 
 //email 에러 메시지 호출
 emailInput.addEventListener('focusout', function () {
@@ -51,9 +52,12 @@ function login() {
 }
 
 //로그인 버튼에 이벤트 리스너 등록
-document.querySelector('#loginButton').addEventListener('click', login);
-document.querySelector('#loginButton').addEventListener('keydown', function (e) {
-  if (e.keyCode === 13) {
+loginButton.addEventListener('click', login);
+
+function loginButtonByEnter(e) {
+  if (e.key === 'Enter') {
     login();
+    e.preventDefault();
   }
-});
+}
+loginButton.addEventListener('keypress', loginButtonByEnter);
