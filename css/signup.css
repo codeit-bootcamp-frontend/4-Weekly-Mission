@@ -1,14 +1,9 @@
-*{
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
 body{
   background: #F0F6FF;
 }
-.signin{
+.signup{
   width: 400px;
-  height: 492px;
+  height: 628px;
   margin: 238px auto;
   display: flex;
   flex-direction: column;
@@ -17,7 +12,7 @@ body{
 }
 .contents{
   width: 100%;
-  height: 394px;
+  height: 530px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,7 +121,34 @@ form #password{
   line-height: 24px; /* 150% */
   width: 100%;
 }
-.login_btn{
+form .pwtext_check{
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  padding: 18px 15px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+  background: var(--Linkbrary-white, #FFF);
+}
+form #password_check:focus{
+  outline: 0.1rem solid var(--Linkbrary-primary-color);
+}
+form .pwtext_check:focus-within{
+  border: 3px solid var(--Linkbrary-primary-color, #6D6AFE);
+}
+form #password_check{
+  border: none;
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  width: 100%;
+}
+.join_btn{
   display: flex;
   width: 100%;
   padding: 16px 20px;
@@ -166,8 +188,8 @@ form #password{
   align-items: flex-start;
   gap: 16px;
 }
-@media (min-width: 375px) and (max-width: 767px) {
-  .signin {
+@media (min-width:375px) and (max-width:767px){
+  .signup{
     width: calc(100% - 64px);
     max-width: 400px;
     height: 492px;
@@ -177,13 +199,15 @@ form #password{
     align-items: center;
     gap: 32px;
   }
-
-  form #username {
+  form #username{
     width: 100%;
     max-width: 400px;
   }
-
-  form .pwtext {
+  form .pwtext{
+    width: 100%;
+    max-width: 400px;
+  }
+  form .pwtext_check{
     width: 100%;
     max-width: 400px;
   }

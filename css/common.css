@@ -1,0 +1,101 @@
+/* 전체적 */
+html,body {
+  font-size: 62.5%;
+}
+a:visited { 
+  text-decoration: none; 
+}
+
+/* 헤더 */
+header{
+  display: flex;
+  padding: 20px 200px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  background-color: #F0F6FF;
+}
+.headerBox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+.logo{
+  width: 133px;
+  height: 24px;
+}
+.login{
+  width: 128px;
+  padding: 16px 20px;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  color: #F5F5F5;
+  font-family: "Pretendard";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* 푸터 */
+footer{
+  height: 280px;
+  padding-top: 120px;
+}
+.footerBox{
+  display: flex;
+  justify-content: space-between;
+  height: 160px;
+  padding: 32px 104px 64px 104px;
+  flex-direction: row;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: #111322;
+}
+.copyright{
+  color: #676767;
+  text-align: center;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.footerLink{
+  display: flex;
+  width: 181.111px;
+  align-items: flex-start;
+  gap: 30px;
+}
+.footerLink a{
+  color: #CFCFCF;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.icons{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.icons img{
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:375px) and (max-width:767px){
+  header{
+    display: flex;
+    padding: 13px 32px;
+  }
+}
