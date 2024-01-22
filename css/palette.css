@@ -5,10 +5,10 @@
   --white: #ffffff;
   --gra-purpleblue-to-skyblue: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
 
-  --gray1: #3e3e43;
-  --gray2: #9fa6b2;
-  --gray3: #ccd5e3;
-  --gray4: #e7effb;
+  --gray100: #3e3e43;
+  --gray60: #9fa6b2;
+  --gray20: #ccd5e3;
+  --gray10: #e7effb;
 
   --background: #f0f6ff;
 }
