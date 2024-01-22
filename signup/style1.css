@@ -1,19 +1,14 @@
-* {
-  box-sizing: border-box;
-}
+/* 모바일  */
 
 body {
   font-size: 18px;
-  font-family: Pretendard;
+  font-family: Pretendard, Arial, sans-serif;
   margin: 0;
   background: var(--Linkbrary-bg, #f0f6ff);
+  display: flex;
+  justify-content: center;
+  font-style: normal;
 }
-
-main {
-  margin: 238px auto 252px;
-  width: 400px;
-}
-
 .center {
   text-align: center;
 }
@@ -25,19 +20,9 @@ main {
 
 .user {
   display: flex;
-  justify-content: center;
   gap: 8px;
   margin: 16px 0 30px;
 }
-
-.not_user {
-  color: var(--black, #000);
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 150% */
-}
-
 .signup {
   color: var(--Linkbrary-primary-color, #6d6afe);
   font-size: 16px;
@@ -52,10 +37,8 @@ main {
   font-weight: 400;
   line-height: normal;
 }
-
 #email {
   display: flex;
-  width: 400px;
   padding: 18px 15px;
   justify-content: center;
   align-items: center;
@@ -64,32 +47,19 @@ main {
   background: var(--Linkbrary-white, #fff);
   margin: 12px 0 24px;
 }
-
 #email:focus {
   outline: 1px solid var(--Linkbrary-primary-color, #6d6afe);
 }
 
 .pwform {
-  display: flex;
-  width: 400px;
-
-  justify-content: center;
-  align-items: center;
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
   background: var(--Linkbrary-white, #fff);
   margin: 12px 0 30px;
 }
 
-.eyeoff {
-  border: 0;
-  background-color: transparent;
-  margin: 0 15px 0 0;
-}
-
 #pw {
   display: flex;
-  width: 400px;
   padding: 18px 15px;
   justify-content: center;
   align-items: center;
@@ -102,43 +72,15 @@ main {
 .pwform:focus-within {
   outline: 1px solid var(--Linkbrary-primary-color, #6d6afe);
 }
-
-.login {
-  display: flex;
-  width: 400px;
-  padding: 16px 20px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 8px;
-  background: var(
-    --gra-purpleblue-to-skyblue,
-    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
-  );
-  border: 0;
-  color: var(--Grey-Light, #f5f5f5);
-  font-family: Pretendard;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-}
-
 .social {
-  display: flex;
-  width: 400px;
   padding: 12px 24px;
-  justify-content: space-between;
-  align-items: center;
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
   background: var(--Linkbrary-gray10, #e7effb);
   margin: 32px 0 0;
   font-size: 14px;
 }
-
 .social_icon {
-  display: flex;
   gap: 16px;
 }
 .google,
@@ -159,19 +101,70 @@ main {
   height: 22px;
 }
 
-@media (max-width: 767px) {
-  main {
-    margin: 120px auto 233px;
-    /* max(auto, 32px)는 사용 불가 */
-    width: min(84%, 400px);
-    /* 이렇게 하면 화면 너비가 400 이하일 때 여백이 32px 미만이 됨. 그럼 어떻게 하지? */
-  }
+#email,
+.pwform,
+#pw,
+.login,
+.social {
+  width: 100%;
+}
 
+.already_user {
+  color: var(--black, #000);
+  font-size: 16px;
+
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.eyeoff {
+  border: 0;
+  background-color: transparent;
+  margin: 0 15px 0 0;
+}
+
+#pw_check {
+  display: flex;
+  width: 400px;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: none;
+  background: var(--Linkbrary-white, #fff);
+  outline: none;
+}
+
+.signin {
+  padding: 16px 20px;
+  gap: 10px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  color: var(--Grey-Light, #f5f5f5);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 54px 0 32px;
+}
+
+main {
+  margin: 120px 32px 120px;
+  /* max(auto, 32px)는 사용 불가 */
+  width: min(84%, 400px);
+}
+
+@media (min-width: 768px) {
+  main {
+    margin: 238px auto 116px;
+    width: 400px;
+  }
   #email,
   .pwform,
   #pw,
-  .login,
+  .signin,
   .social {
-    width: 100%;
+    width: 400px;
   }
 }
