@@ -48,27 +48,16 @@ function isValidEmail() {
   return false;
 }
 
-//에러 메시지에 해당하는 인풋 요소 반환
-function targetInput(errorElement) {
-  if (errorElement === emailErrorMessageElement) {
-    return emailInput;
-  } else if (errorElement === passwordErrorMessageElement) {
-    return passwordInput;
-  } else {
-    return null;
-  }
-}
-
 //인풋 에러 켜기 -> 에러 테두리 스타일 추가, 에러 메시지 출력
-function showError(errorElement, message) {
-  targetInput(errorElement).classList.add("sign-input-error");
+function showError(input, errorElement, message) {
+  input.classList.add("sign-input-error");
   errorElement.textContent = message;
   errorElement.classList.remove("hidden");
 }
 
 //인풋 에러 끄기 -> 에러 테두리 스타일 제거, 에러 메시지 숨기기
-function hideError(errorElement) {
-  targetInput(errorElement).classList.remove("sign-input-error");
+function hideError(input, errorElement) {
+  input.classList.remove("sign-input-error");
   errorElement.textContent = "";
   errorElement.classList.add("hidden");
 }
@@ -107,20 +96,20 @@ function hidePassword() {
 //이메일 에러 검사
 function checkEmailError() {
   if (isEmpty(emailInput.value)) {
-    return showError(emailErrorMessageElement, "이메일을 입력해 주세요.");
+    return showError(emailInput, emailErrorMessageElement, "이메일을 입력해 주세요.");
   } else if (!isValidEmail()) {
-    return showError(emailErrorMessageElement, "올바른 이메일 주소가 아닙니다.");
+    return showError(emailInput, emailErrorMessageElement, "올바른 이메일 주소가 아닙니다.");
   } else {
-    return hideError(emailErrorMessageElement);
+    return hideError(emailInput, emailErrorMessageElement);
   }
 }
 
 //비밀번호 에러 검사
 function checkPasswordError() {
   if (isEmpty(passwordInput.value)) {
-    return showError(passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
+    return showError(passwordInput, passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
   } else {
-    return hideError(passwordErrorMessageElement);
+    return hideError(passwordInput, passwordErrorMessageElement);
   }
 }
 
@@ -129,8 +118,8 @@ function checkLogin() {
   if (isValidUser(emailInput, passwordInput)) {
     return (location.href = "../folder/index.html");
   } else {
-    showError(emailErrorMessageElement, "이메일을 확인해 주세요.");
-    showError(passwordErrorMessageElement, "비밀번호를 확인해 주세요.");
+    showError(emailInput, emailErrorMessageElement, "이메일을 확인해 주세요.");
+    showError(passwordInput, passwordErrorMessageElement, "비밀번호를 확인해 주세요.");
     return;
   }
 }
