@@ -39,13 +39,14 @@
   border-radius: 8px;
 }
 
-.login__label {
-  margin-right: auto;
-}
 
 .login__input:focus {
   border: 1.2px solid var(--color-primary);
   outline: none;
+}
+
+.login__div {
+  text-align: left;
 }
 
 .login__div--password {
@@ -54,7 +55,7 @@
 
 .eye-img {
   position: absolute;
-  top: 35%;
+  top: 2.8rem;
   right: 5%;
   cursor: pointer;
 }
@@ -93,11 +94,27 @@
   width: 3rem;
 }
 
-.email__error,
-.password__error {
+#email__error,
+#password__error {
   margin: 0;
   margin-right: auto;
   color: var(--color-red);
+}
+
+#login__input--email:focus+#email__error {
+  display: none;
+}
+
+#login__input--password:focus+#password__error {
+  display: none
+}
+
+.input--error {
+  border-color: var(--color-red)
+}
+
+.hidden {
+  display: none;
 }
 
 @media screen and (width >=375px) and (width <=767px) {

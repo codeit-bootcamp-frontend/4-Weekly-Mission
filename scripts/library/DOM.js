@@ -1,28 +1,33 @@
 //@ts-check
+/** @typedef {HTMLElement | null} HTMLElements*/
 export default class DOMHandler {
-  /**
-   * html: <p>태그 추가(after)
-   * @param {string} query - cssSelector
-   * @param {string} className - 생성된 태그 class명
-   * @param {string} text - 추가할 text
-   */
-  static addTextAfter = (query, className, text) => {
-    const element = document.querySelector(query);
+  /** 
+   * @param {HTMLElements} element - HTMLelement
+   * @param {string} id - 추가할 태그 id
+   * @param {string} text*/
+  static addTextAfter = (element, id, text) => {
     if (!element) return;
     const textTag = document.createElement('p');
     textTag.textContent = text;
-    textTag.className = className;
+    textTag.id = id;
     element.after(textTag);
   };
   /**
    * html: 텍스트 내용 변경
-   * @param {string} query -  cssSelector
+   * @param {HTMLElements} element - HTMLElement
    * @param {string} text - 변경할 text
    */
-  static changeValue = (query, text) => {
-    /** @type {HTMLInputElement | null} element*/
-    const element = document.querySelector(query);
+  static changeValue = (element, text) => {
     if (!element) return;
     element.innerText = text;
   };
+
+  /** 
+   * @param {string} id - css id
+   * @returns {any} 
+   */
+  static getById = (id) => {
+    return document.querySelector(`#${id}`)
+  }
+
 }

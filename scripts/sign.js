@@ -1,111 +1,119 @@
 //@ts-check
-import StyleHandler from './library/style.js';
-import InputHandler from './library/input.js';
-import KeyHandler from './library/keyEvent.js';
+import InputHandler from './library/input.js'; import KeyHandler from './library/keyEvent.js';
 import DOMHandler from './library/DOM.js';
 import {
-  DEFAULT_BORDER_COLOR,
   EMAIL_REGEX,
   EMAIL_MESSAGE,
-  ERROR_BORDER_COLOR,
-  FOCUS_BORDER_COLOR,
   SHOW_PASSWORD_ICON,
   USERS,
   PASSWORD_MESSAGE,
   loginAction
 } from './constant/signConfig.js';
 
-const loginEmailQuery = '.login__input--email';
-const loginPasswordQuery = '.login__input--password';
-const emailErrorQuery = '.email__error';
-const passwordErrorQuery = '.password__error';
-const loginBtnQuery = '.login__btn';
+const emailInputId = 'login__input--email';
+const passwordInputId = 'login__input--password';
+const emailErrorId = 'email__error';
+const passwordErrorId = 'password__error';
+const loginBtnId = 'login__btn';
 
-/** @type {HTMLInputElement | null}*/
-const loginEmail = document.querySelector(loginEmailQuery);
-/** @type {HTMLInputElement | null}*/
-const loginPassword = document.querySelector(loginPasswordQuery);
-/** @type {HTMLButtonElement | null}*/
-const loginBtn = document.querySelector(loginBtnQuery);
-/** @type {HTMLImageElement | null}*/
-const eyeImg = document.querySelector('.eye-img');
+/** @type {HTMLInputElement | null} emailInput*/
+const emailInput = DOMHandler.getById(emailInputId);
+/** @type {HTMLInputElement} passwordInput*/
+const passwordInput = DOMHandler.getById(passwordInputId);
+/** @type {HTMLButtonElement} loginBtn*/
+const loginBtn = DOMHandler.getById(loginBtnId);
+/** @type {HTMLImageElement} eyeImg*/
+const eyeImg = DOMHandler.getById('eye-img');
+DOMHandler.addTextAfter(emailInput, emailErrorId, '');
+DOMHandler.addTextAfter(passwordInput, passwordErrorId, '');
+/** @type {HTMLElement} emailError*/
+const emailError = DOMHandler.getById(emailErrorId)
+/** @type {HTMLElement} passwordError*/
+const passwordError = DOMHandler.getById(passwordErrorId)
+/**
+ * inputElement: ErrorColor, textElement: showErrorMessage
+ * @param inputElement {HTMLInputElement | null} inputElement - inputElement
+ * @param textElement {HTMLElement | null} textElement - textElement
+ * @param text {string} text - textElement text
+*/
+const showErrorMessage = (inputElement, textElement, text) => {
+  inputElement?.classList.add('input--error')
+  textElement?.classList.remove('hidden')
+  DOMHandler.changeValue(textElement, text)
+}
 
 const handleEmailFocusIn = () => {
-  StyleHandler.display(emailErrorQuery, 'none');
-  StyleHandler.borderColor(loginEmailQuery, FOCUS_BORDER_COLOR);
-};
-
-const handleEmailFocusOut = () => {
-  if (InputHandler.isMatchRegEx(loginEmailQuery, EMAIL_REGEX))
-    return StyleHandler.borderColor(loginEmailQuery, DEFAULT_BORDER_COLOR);
-  StyleHandler.display(emailErrorQuery, 'block');
-  StyleHandler.borderColor(loginEmailQuery, ERROR_BORDER_COLOR);
-  if (InputHandler.isEmptyValue(loginEmailQuery)) {
-    DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.empty);
-    return;
-  }
-  DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.invalid);
-};
+  emailInput?.classList.remove('input--error')
+}
 
 const handlePasswordFocusIn = () => {
-  StyleHandler.display(passwordErrorQuery, 'none');
-  StyleHandler.borderColor(loginPasswordQuery, FOCUS_BORDER_COLOR);
+  passwordInput?.classList.remove('input--error')
+}
+
+const handleEmailFocusOut = () => {
+  if (InputHandler.isMatchRegEx(emailInput, EMAIL_REGEX)) {
+    emailError?.classList.add('hidden')
+    return
+  }
+  if (InputHandler.isEmptyValue(emailInput)) {
+    showErrorMessage(emailInput, emailError, EMAIL_MESSAGE.empty)
+    return;
+  }
+  showErrorMessage(emailInput, emailError, EMAIL_MESSAGE.invalid)
 };
 
 const handlePasswordFocusOut = () => {
-  if (InputHandler.isEmptyValue(loginPasswordQuery)) {
-    DOMHandler.changeValue(passwordErrorQuery, PASSWORD_MESSAGE.empty);
-    StyleHandler.display(passwordErrorQuery, 'block');
-    StyleHandler.borderColor(loginPasswordQuery, ERROR_BORDER_COLOR);
-  } else StyleHandler.borderColor(loginPasswordQuery, DEFAULT_BORDER_COLOR);
-};
+  if (InputHandler.isEmptyValue(passwordInput)) {
+    showErrorMessage(passwordInput, passwordError, PASSWORD_MESSAGE.empty)
+    return
+  };
+  passwordError?.classList.add('hidden')
+}
 
 const handleLogin = () => {
-  const isValidEmail = InputHandler.isMatchRegEx(loginEmailQuery, EMAIL_REGEX);
+  emailInput?.blur()
+  passwordInput?.blur()
+
   const isUserSignedUp = USERS.some(
     user =>
-      InputHandler.isMatchValue(loginEmailQuery, user.id) &&
-      InputHandler.isMatchValue(loginPasswordQuery, user.password)
+      InputHandler.isMatchValue(emailInput, user.id) &&
+      InputHandler.isMatchValue(passwordInput, user.password)
   );
-  if (isValidEmail && isUserSignedUp) {
+
+  if (isUserSignedUp) {
     loginAction();
     return;
   }
-  DOMHandler.changeValue(emailErrorQuery, EMAIL_MESSAGE.fail);
-  DOMHandler.changeValue(passwordErrorQuery, PASSWORD_MESSAGE.fail);
-  StyleHandler.display(emailErrorQuery, 'block');
-  StyleHandler.display(passwordErrorQuery, 'block');
-  StyleHandler.borderColor(loginPasswordQuery, ERROR_BORDER_COLOR);
-  StyleHandler.borderColor(loginEmailQuery, ERROR_BORDER_COLOR);
+  showErrorMessage(emailInput, emailError, EMAIL_MESSAGE.fail)
+  showErrorMessage(passwordInput, passwordError, PASSWORD_MESSAGE.fail)
 };
 
 const handleEnter = () => {
   if (!loginBtn) return;
-  KeyHandler.enter(() => loginBtn.click());
+  KeyHandler.enter(() => {
+    loginBtn?.click()
+
+  });
 };
 
 const handleImgeClick = () => {
-  if (!loginPassword || !eyeImg) return;
-  if (loginPassword.type === 'password') {
-    loginPassword.type = 'text';
+  if (!passwordInput || !eyeImg) return;
+  if (passwordInput.type === 'password') {
+    passwordInput.type = 'text';
     eyeImg.src = SHOW_PASSWORD_ICON.visible.src;
     eyeImg.alt = SHOW_PASSWORD_ICON.visible.alt;
   } else {
-    loginPassword.type = 'password';
+    passwordInput.type = 'password';
     eyeImg.src = SHOW_PASSWORD_ICON.invisible.src;
     eyeImg.alt = SHOW_PASSWORD_ICON.invisible.alt;
   }
 };
 
-DOMHandler.addTextAfter(loginEmailQuery, 'email__error', '');
-StyleHandler.display(emailErrorQuery, 'none');
-DOMHandler.addTextAfter('.login__div--password', 'password__error', '');
-StyleHandler.display(passwordErrorQuery, 'none');
-loginEmail?.addEventListener('focusout', handleEmailFocusOut);
-loginEmail?.addEventListener('focusin', handleEmailFocusIn);
-loginEmail?.addEventListener('keydown', handleEnter);
-loginPassword?.addEventListener('focusout', handlePasswordFocusOut);
-loginPassword?.addEventListener('focusin', handlePasswordFocusIn);
-loginPassword?.addEventListener('keydown', handleEnter);
+emailInput?.addEventListener('focusout', handleEmailFocusOut);
+emailInput?.addEventListener('focusin', handleEmailFocusIn);
+emailInput?.addEventListener('keydown', handleEnter);
+passwordInput?.addEventListener('focusout', handlePasswordFocusOut);
+passwordInput?.addEventListener('focusin', handlePasswordFocusIn);
+passwordInput?.addEventListener('keydown', handleEnter);
 eyeImg?.addEventListener('click', handleImgeClick);
 loginBtn?.addEventListener('click', handleLogin);
