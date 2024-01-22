@@ -31,8 +31,8 @@ const validEmail = 'test@codeit.com';
 const validPassword = 'codeit101';
 
 function login() {
-  const emailValue = document.querySelector('#email').value;
-  const passwordValue = document.querySelector('#password').value;
+  const emailValue = emailInput.value;
+  const passwordValue = passwordInput.value;
 
   if (emailValue === validEmail && passwordValue === validPassword) {
     window.location.href = './folder';
