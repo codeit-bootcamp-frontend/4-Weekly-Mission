@@ -42,6 +42,7 @@ function checkPassword() {
 function submitForm(e) {
   e.preventDefault();
   if (email.value === USER_INFO.ID && password.value === USER_INFO.PASSWORD) {
+    email.value = '';
     window.location.href = '/pages/folder.html';
   } else {
     showInputError(email, errorEmail, ERROR_MSG.CHECK_EMAIL);
