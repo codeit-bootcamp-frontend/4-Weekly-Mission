@@ -2,89 +2,88 @@ html {
   font-family: Pretendard, sans-serif;
   word-break: keep-all;
 }
-*{
+* {
   box-sizing: border-box;
 }
-body{
-  margin:0;
+body {
+  margin: 0;
   display: flex;
-  
+
   padding: 238px 0px 116px 0px;
   justify-content: center;
   align-items: center;
-  background: var(--Linkbrary-bg, #F0F6FF);
+  background: var(--Linkbrary-bg, #f0f6ff);
 }
-.content{
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 32px;
 }
-form{
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
 }
-.social-login{
+.social-login {
   display: flex;
   width: 400px;
   padding: 12px 24px;
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
-  background: var(--Linkbrary-gray10, #E7EFFB);
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-gray10, #e7effb);
 }
-.login-frame{
+.login-frame {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
   text-align: left;
 }
-.login-frame2{
+.login-frame2 {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
 }
-.login-frame .logo{
+.login-frame .logo {
   width: 210.583px;
   height: 38px;
-  color:#6D6AFE;
+  color: #6d6afe;
 }
-.check-member{
+.check-member {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  color:black;
+  color: black;
 }
-label{
+label {
   color: var(--black, #000);
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  
 }
-input{
+input {
   display: flex;
   width: 400px;
   padding: 18px 15px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
-  background: var(--Linkbrary-white, #FFF);
-  border-color:gray;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
+  border-color: gray;
 }
-input:focus{
+input:focus {
   border-color: blue;
   outline: none;
 }
-input.button{
+input.button {
   display: flex;
   width: 400px;
   padding: 16px 20px;
@@ -92,29 +91,32 @@ input.button{
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  color:#F5F5F5;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%)); 
+  color: #f5f5f5;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
 }
-.input-frame{
+.input-frame {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
 }
-.social-login-logo{
+.social-login-logo {
   display: flex;
   align-items: flex-start;
   gap: 16px;
-  position:relative;
+  position: relative;
 }
 a,
-.button{
+.button {
   cursor: pointer;
 }
-@media screen and (min-width: 375px) and (max-width: 767px){
-  body{
-    padding-left:32px;
-    padding-right:32px;
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  body {
+    padding-left: 32px;
+    padding-right: 32px;
   }
   .content,
   form,
@@ -124,8 +126,8 @@ a,
   .input-frame,
   input,
   input.button,
-  .social-login{
-    width:100%;
+  .social-login {
+    width: 100%;
     max-width: 400px;
   }
 }
