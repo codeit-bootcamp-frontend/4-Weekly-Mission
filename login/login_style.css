@@ -61,14 +61,14 @@ header {
   justify-content: center;
 }
 
-form {
+.login_form form {
   display: flex;
   flex-direction: column;
   width: 400px;
   gap: 24px;
 }
 
-form > div {
+.login_form form > div {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -100,9 +100,16 @@ form > div {
   line-height: 24px;
 }
 
-input:focus {
+.login_form input:focus {
   border: 1px solid #6D6AFE;
   outline: none;
+}
+
+.error_message {
+  color: #FF5B56;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .link_login {

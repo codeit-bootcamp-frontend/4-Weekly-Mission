@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,16 +26,16 @@
     <div class="login_form">
       <form>
         <div>
-          <label>이메일</label>
-          <input type="email">
+          <label for="login-email">이메일</label>
+          <input id="login-email" type="email">
         </div>
         <div>
-          <label>비밀번호</label>
-          <input class="box_password" type="password">
+          <label for="login-password">비밀번호</label>
+          <input id="login-password" type="password">
         </div>
         <div>
-          <label>비밀번호 확인</label>
-          <input class="box_password" type="password">
+          <label for="check-password">비밀번호 확인</label>
+          <input id="check-password" type="password">
         </div>
       </form>
     </div>
@@ -49,7 +49,7 @@
     다른 방식으로 가입하기
     <div class="button_sns">
       <a class="image_google" href="http://www.google.com/">
-        <img class="image_background" src="/images/google_background.svg">
+        <img class="image_background" src="/images/google_background.svg"> <!--추후 css로 수정 예정-->
         <img class="image_icon" src="/images/google_icon.png">
       </a>
       <a class="image_kakaotalk" href="http://www.kakaocorp.com/page/">
