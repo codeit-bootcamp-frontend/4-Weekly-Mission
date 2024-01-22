@@ -3,7 +3,9 @@ const password = document.querySelector("#password");
 const emailError = document.querySelector(".emailError");
 const passwordError = document.querySelector(".passwordError");
 
-const emailRegex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
+const emailRegex = new RegExp(
+  "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$"
+);
 
 const form = document.querySelector("#form");
 
