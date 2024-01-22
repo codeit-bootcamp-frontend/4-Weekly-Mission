@@ -4,65 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>sign up</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
-    <link rel="stylesheet" href="signup.css" />
+    <link rel="stylesheet" href="../src/colors.css" />
+    <link rel="stylesheet" href="../src/global.css" />
+    <link rel="stylesheet" href="../src/reset.css" />
+    <link rel="stylesheet" href="./signup.css" />
   </head>
   <body>
-    <main class="container">
-      <div class="box">
-          <div>
-            <a href="/"
-              ><img src="/images/logo.svg" alt="logo" class="logo"
-            /></a>
+    <header>
+      <a href="/"><img src="../images/logo.svg" alt="logo" class="logo" /></a>
+      <p>
+        회원이 아니신가요?
+        <a href="../signin/signin.html" class="goSignIn">로그인 하기</a>
+      </p>
+    </header>
+    <div class="signInBox">
+      <form action="/folder.html" onsubmit="return login()">
+        <div class="inputs">
+          <div class="inputBox">
+            <label for="email" class="signLabel">이메일</label>
+            <input id="email" type="email" class="signInput" />
+            <div class="red errorM"></div>
           </div>
-          <div class="goSignUp">
-            회원이 아니신가요?
-            <a href="/signin/signin.html">로그인하기</a>
+          <div class="inputBox inputPw">
+            <label for="password" class="signLabel">비밀번호</label>
+            <input id="password" type="password" class="signInput" />
+            <button>
+              <img src="../images/eye-off.svg" class="eye" />
+            </button>
+            <div class="red errorP"></div>
           </div>
-        </header>
-
-        <form>
-          <div class="input-container">
-            <label for="email">이메일</label>
-            <input id="email" type="email" placeholder="codeit@codeit.com" />
+          <div class="inputBox inputPw">
+            <label for="passwordCheck" class="signLabel">비밀번호 확인</label>
+            <input id="passwordCheck" class="signInput" type="password" />
+            <button>
+              <img src="../images/eye-off.svg" class="eyeCheck" />
+            </button>
+            <div class="red errorPCheck"></div>
           </div>
-          <div class="input-container">
-            <label for="password">비밀번호</label>
-            <div class="input-box">
-              <input
-                id="password"
-                type="password"
-                placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;"
-              />
-              <div class="img-box">
-                <img src="/images/eye-off.svg" alt="eye-on" class="eye-on" />
-                <!-- input placeholder dots how? -->
-              </div>
-            </div>
-          </div>
-          <div class="input-container">
-            <label for="pwcheck">비밀번호 확인</label>
-            <input id="pwcheck" placeholder="linkbrary20245" />
-          </div>
-          <a href="#"><button>회원가입</button></a>
-        </form>
-
-        <footer>
-          <div>소셜 로그인</div>
-          <div class="socialLogin">
-            <div class="Google">
-              <a href="https://www.google.com/"
-                ><img src="/images/google.png" class="googlePNG"
-              /></a>
-            </div>
-            <div class="Kakao">
-              <a href="https://www.kakaocorp.com/page/"
-                ><img src="/images/kakao.svg" class="kakaoSVG"
-              /></a>
-            </div>
-          </div>
-        </footer>
+        </div>
+        <button type="submit" class="btn">회원가입</button>
+      </form>
+      <div class="snsBox">
+        <div class="socialLogin">다른 방식으로 가입하기</div>
+        <div class="snsLinks">
+          <a href="https://www.google.com/" class="snsLink googleLink">
+            <img src="../images/google.png" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/" class="snsLink kakaoLink">
+            <img src="../images/kakao.svg" />
+          </a>
+        </div>
       </div>
-    </main>
+    </div>
+
+    <script src="./signup.js"></script>
   </body>
 </html>
