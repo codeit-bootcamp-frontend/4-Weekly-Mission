@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="signin.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/signin.css">
+    <title>Singin</title>
 </head>
 <body>
     <div class="head">
@@ -15,18 +15,17 @@
     </div>
     
     <form>
-        <div>
+        <div class="email-container" >
             <label>이메일</label><br>
-            <input name="email" placeholder="email">
+            <input class="email-input" name="email" id="emailInput" placeholder="email">
         </div>
         <div class="password-container">
             <label>비밀번호</label><br>  
-            <input class="password-input" placeholder="password" type="password">
-            <img class="show-icon" src="./assets/eye.png" >
+            <input class="password-input" id="passwordInput" placeholder="password" type="password">
+            <img class="show-icon" src="./assets/eye-off.png" >
         </div>
-        <button>로그인</button>
-        </form>
-
+        <button class="signin-btn" type="button">로그인</button>
+    </form>
     <div class="social-sign">
         <div class="social-login">
             소셜 로그인
@@ -37,5 +36,6 @@
         </div>
         
     </div>
+    <script src="./js/signin.js"></script>
 </body>
 </html>
