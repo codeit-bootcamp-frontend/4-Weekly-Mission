@@ -7,8 +7,8 @@ const emailInput = document.querySelector("#input-email");
 const passwordInput = document.querySelector("#input-password");
 
 //이메일, 비밀번호 error-message
-const emailErrorMessage = document.querySelector("#error-email");
-const passwordErrorMessage = document.querySelector("#error-password");
+const emailErrorMessageElement = document.querySelector("#error-email");
+const passwordErrorMessageElement = document.querySelector("#error-password");
 
 //로그인 버튼
 const loginBtn = document.querySelector(".btn-login");
@@ -50,9 +50,9 @@ function isValidEmail() {
 
 //에러 메시지에 해당하는 인풋 요소 반환
 function targetInput(errorElement) {
-  if (errorElement === emailErrorMessage) {
+  if (errorElement === emailErrorMessageElement) {
     return emailInput;
-  } else if (errorElement === passwordErrorMessage) {
+  } else if (errorElement === passwordErrorMessageElement) {
     return passwordInput;
   } else {
     return null;
@@ -105,20 +105,20 @@ function hidePassword() {
 //이메일 에러 검사
 function checkEmailError() {
   if (isEmpty(emailInput)) {
-    showError(emailErrorMessage, "이메일을 입력해 주세요.");
+    showError(emailErrorMessageElement, "이메일을 입력해 주세요.");
   } else if (!isValidEmail()) {
-    showError(emailErrorMessage, "올바른 이메일 주소가 아닙니다.");
+    showError(emailErrorMessageElement, "올바른 이메일 주소가 아닙니다.");
   } else {
-    hideError(emailErrorMessage);
+    hideError(emailErrorMessageElement);
   }
 }
 
 //비밀번호 에러 검사
 function checkPasswordError() {
   if (isEmpty(passwordInput)) {
-    showError(passwordErrorMessage, "비밀번호를 입력해 주세요.");
+    showError(passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
   } else {
-    hideError(passwordErrorMessage);
+    hideError(passwordErrorMessageElement);
   }
 }
 
@@ -127,8 +127,8 @@ function checkLogin() {
   if (isValidUser(emailInput, passwordInput)) {
     location.href = "../folder/index.html";
   } else {
-    showError(emailErrorMessage, "이메일을 확인해 주세요.");
-    showError(passwordErrorMessage, "비밀번호를 확인해 주세요.");
+    showError(emailErrorMessageElement, "이메일을 확인해 주세요.");
+    showError(passwordErrorMessageElement, "비밀번호를 확인해 주세요.");
   }
 }
 
