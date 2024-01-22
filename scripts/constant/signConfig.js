@@ -9,8 +9,8 @@ export const EMAIL_MESSAGE = {
   fail: '이메일 주소를 확인해 주세요.'
 };
 export const PASSWORD_MESSAGE = {
-  empty: '비밀 번호를 입력해 주세요.',
-  fail: '비밀 번호를 확인해 주세요.'
+  empty: '비밀번호를 입력해 주세요.',
+  fail: '비밀번호를 확인해 주세요.'
 };
 export const SHOW_PASSWORD_ICON = {
   visible: { src: '../assets/icons/eye-on.svg', alt: 'eye-on' },
