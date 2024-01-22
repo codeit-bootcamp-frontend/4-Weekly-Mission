@@ -37,17 +37,17 @@ const passwordError = DOMHandler.getById(passwordErrorId)
  * @param text {string} text - textElement text
 */
 const showErrorMessage = (inputElement, textElement, text) => {
-  inputElement?.classList.add('input--error')
+  inputElement?.classList.add('red-box')
   textElement?.classList.remove('hidden')
   DOMHandler.changeValue(textElement, text)
 }
 
 const handleEmailFocusIn = () => {
-  emailInput?.classList.remove('input--error')
+  emailInput?.classList.remove('red-box')
 }
 
 const handlePasswordFocusIn = () => {
-  passwordInput?.classList.remove('input--error')
+  passwordInput?.classList.remove('red-box')
 }
 
 const handleEmailFocusOut = () => {

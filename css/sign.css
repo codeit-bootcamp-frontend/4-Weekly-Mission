@@ -106,7 +106,7 @@
   display: none;
 }
 
-.input--error {
+.red-box {
   border-color: var(--color-red)
 }
 
