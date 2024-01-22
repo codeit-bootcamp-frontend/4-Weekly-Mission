@@ -80,6 +80,13 @@ textarea {
     flex-direction: column;
     margin-bottom: 2.4rem;
 }
+.login_middle form div .error_text {
+    display: none;
+    color: var(--red);
+    font-size: 1.4rem;
+    font-family: 'Pretendard';
+    margin-top: 6px;
+}
 .login_middle form div:last-of-type {
     margin-bottom: 3rem;
 }
@@ -99,6 +106,9 @@ textarea {
 .login_middle form div input:focus {
     border: 1px solid var(--Linkbrary-primary-color, var(--primary));
 }
+.login_middle form div input.error {
+    border: 1px solid var(--red);
+}
 .login_middle form > input {
     cursor: pointer;
     width: 100%;
@@ -113,13 +123,15 @@ textarea {
 .login_middle form div .pwd_icon {
     cursor: pointer;
     position: absolute;
-    bottom: 20px; right: 15px;
+    top: 50px; right: 15px;
     width: 16px; height: 16px;
     font-size: 0;
     border: none;
     background: url('../image/eye-off.png') center center no-repeat;
 }
-
+.login_middle form div .pwd_icon.hide {
+    background: url('../image/eye-on.png') center center no-repeat;
+}
 /* login_footer */
 .login_footer {
     margin-top: 3.2rem;
