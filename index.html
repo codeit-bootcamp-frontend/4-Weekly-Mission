@@ -1,102 +1,144 @@
 <!DOCTYPE html>
-<html lang="KO">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linkbrary</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <nav class="navigation-bar">
-        <a href="/"><img src="./image/logo.png" alt="linkbrary logo" width="133px" height="24px"></a>
-        <span class="login-button"><a href="/signin.html">로그인</a></span>
+    <nav class="nav-box">
+        <div>
+            <div>
+                <a href="/"><img class="linkbrary-logo" src="./image/logo.svg" alt="linkbrary logo"></a>
+            </div>
+            <a href="/signin.html">
+                <button class="login-button">
+                    로그인
+                </button>
+            </a>
+        </div>
     </nav>
-    <div class="main">
-        <section class="box">
-            <p class="big-title">
-                <span class="font-gradient">세상의 모든 정보</span>를<br>
-                쉽게 저장하고 관리해 보세요
-            </p>
-            <a href="./signup.html"><span class="add-link">링크 추가하기</span></a>
-            <div class="image-box">
-                <img src="./image/add-link.png" alt="링크의 목록들과 검색기능을 보여주는 이미지" width="100%" height="auto" class="align-center">
+    <main class="main-container">
+        <section class="main-section">
+            <h1>
+                <span class="gradient1">세상의 모든 정보</span>를<br>
+                쉽게 저장하고<br class="hide-in-pc">
+                관리해 보세요
+            </h1>
+            <a href="/signup.html">
+                <button class="add-link-button">
+                    링크 추가하기
+                </button>
+            </a>
+            <div>
+                <img class="main-image" src="./image/main-image.png" alt="image about add links">
             </div>
         </section>
-        <section class="justify-center">
-            <div class="column-center">
-                <p class="title">
-                    <span class="font-gradient2">원하는 링크</span>를<br>
-                    저장하세요
+        <section class="content-container">
+            <section class="content-section">
+                <div>
+                    <h2>
+                        <span class="gradient2">원하는 링크</span>를 저장하세요
+                    </h2>
+                    <p class="hide-in-mobile">
+                        나중에 읽고 싶은 글, 다시 보고 싶은 영상,<br>
+                        사고 싶은 옷, 기억하고 싶은 모든 것을<br>
+                        한 공간에 저장하세요.
+                    </p>
+                </div>
+                <div class="h-20 hide-in-tablet"></div>
+                <div>
+                    <img class="content-image" src="./image/content-image-1st.png" alt="image about save links">
+                </div>
+                <div class="h-16 hide-in-tablet"></div>
+                <p class="hide-in-tablet">
+                    나중에 읽고 싶은 글, 다시 보고 싶은 영상, 사고 싶은 옷, 기억하고 싶은 모든 것을 한 공간에 저장하세요.
                 </p>
-                <p class="content">
-                    나중에 읽고 싶은 글, 다시 보고 싶은 영상<br>
-                    사고 싶은 옷 기억하고 싶은 모든 것을<br>
-                    한 공간에 저장하세요
+            </section>  
+            <section class="content-section">
+                <div>
+                    <h2>
+                        링크를 폴더로 <span class="gradient3">관리</span>하세요
+                    </h2>
+                    <p class="hide-in-mobile">
+                        나만의 폴더를 무제한으로 만들고<br>
+                        다양하게 활용할 수 있습니다.
+                    </p>
+                </div>
+                <div class="h-20 hide-in-tablet"></div>
+                <div>
+                    <img class="content-image" src="./image/content-image-2nd.png" alt="image about change folder name">
+                </div>
+                <div class="h-16 hide-in-tablet"></div>
+                <p class="hide-in-tablet">
+                    나만의 폴더를 무제한으로 만들고 다양하게 활용할 수 있습니다.
                 </p>
-            </div>
-            <div>
-                <img src="./image/save-link.png" alt="원하는 링크를 저장하는 것을 보여주는 이미지" width="100%" height="auto">
-            </div>
-        </section>
-        <section class="justify-center">
-            <div>
-                <img src="./image/change-name.png" alt="폴더 이름 변경하는 것을 보여주는 이미지" width="100%" height="auto">
-            </div>
-            <div class="column-center">
-                <p class="title">
-                    링크를 폴더로<br>
-                    <span class="font-gradient3">관리</span>하세요
+            </section>  
+            <section class="content-section">
+                <div>
+                    <h2>
+                        저장한 링크를 <span class="gradient4">공유</span>해 보세요
+                    </h2>
+                    <p class="hide-in-mobile">
+                        여러 링크를 폴더에 담고 공유할 수<br>
+                        있습니다. 가족, 친구, 동료들에게 쉽고<br>
+                        빠르게 링크를 공유해 보세요.
+                    </p>
+                </div>
+                <div class="h-20 hide-in-tablet"></div>
+                <div>
+                    <img class="content-image" src="./image/content-image-3rd.png" alt="image about share folder">
+                </div>
+                <div class="h-16 hide-in-tablet"></div>
+                <p class="hide-in-tablet">
+                    여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게 쉽고 빠르게 링크를 공유해 보세요.
                 </p>
-                <p class="content">
-                    나만의 폴더를 무제한으로 만들고<br>
-                    다양하게 활용할 수 있습니다.
-                </p>
-            </div>
-        </section>
-        <section class="justify-center">
-            <div class="column-center">
-                <p class="title">
-                    저장한 링크를<br>
-                    <span class="font-gradient4">공유</span>해 보세요.
-                </p>
-                <p class="content">
-                    여러 링크를 폴더에 담고 공유할 수 있습니다.<br>
-                    가족, 친구, 동료들에게 쉽고 빠르게 링크를<br>
-                    공유해 보세요.
-                </p>
-            </div>
-            <div>
-                <img src="./image/share.png" alt="폴더 공유하는 것을 보여주는 이미지" width="100%" height="auto">
-            </div>
-        </section>
-        <section class="justify-center">
-            <div>
-                <img src="./image/search.png" alt="저장한 링크를 검색하는 것을 보여주는 이미지" width="100%" height="auto">
-            </div>
-            <div class="column-center">
-                <p class="title">
-                    저장한 링크를<br>
-                    <span class="font-gradient5">검색</span>해 보세요
-                </p>
-                <p class="content">
+            </section>  
+            <section class="content-section">
+                <div>
+                    <h2>
+                        저장한 링크를 <span class="gradient5">검색</span>해 보세요
+                    </h2>
+                    <p class="hide-in-mobile">
+                        중요한 정보들을 검색으로 쉽게<br>찾아보세요.
+                    </p>
+                </div>
+                <div class="h-20 hide-in-tablet"></div>
+                <div>
+                    <img class="content-image" src="./image/content-image-4th.png" alt="image about search link">
+                </div>
+                <div class="h-16 hide-in-tablet"></div>
+                <p class="hide-in-tablet">
                     중요한 정보들을 검색으로 쉽게 찾아보세요.
                 </p>
+            </section>  
+        </section>  
+    </main>
+    <footer>
+        <div class="footer-box">
+            <div class="hide-in-mobile">
+                ©codeit - 2023
             </div>
-        </section>
-    </div>
-    <footer class="footer-style">
-        <span class="codeit-logo">©codeit - 2023</span> 
-        <span>
-            <a href="./privacy.html">Privacy Policy</a>
-            <a href="./faq.html">FAQ</a>
-        </span>
-        <span class="footer-icons">
-            <a href="https://www.facebook.com" target="_blank"><img src="./image/icon-facebook.png"></a>
-            <a href="https://www.twitter.com" target="_blank"><img src="./image/icon-twitter.png"></a>
-            <a href="https://www.youtube.com" target="_blank"><img src="./image/icon-youtube.png"></a>
-            <a href="https://www.instagram.com" target="_blank"><img src="./image/icon-instagram.png"></a>
-        </span>
+            <div class="footer-text">
+                <div>
+                    <a href="/privacy.html">
+                        <button>Privacy Policy</button>
+                    </a>
+                    <a href="/faq.html">
+                        <button>FAQ</button>
+                    </a>
+                </div>
+                <span class="codeit-text hide-in-tablet">©codeit - 2023</span>
+            </div>
+            <div>
+                <a href="https://www.facebook.com" target="_blank" rel="noreferrer noopener"><img src="./image/icon-facebook.png"></a>
+                <a href="https://www.twitter.com" target="_blank" rel="noreferrer noopener"><img src="./image/icon-twitter.png"></a>
+                <a href="https://www.youtube.com" target="_blank" rel="noreferrer noopener"><img src="./image/icon-youtube.png"></a>
+                <a href="https://www.instagram.com" target="_blank" rel="noreferrer noopener"><img src="./image/icon-instagram.png"></a>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
