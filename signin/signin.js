@@ -24,8 +24,7 @@ function onSubmit(event) {
   }
 }
 
-email.addEventListener("focusout", (e) => {
-  console.log("focus out email");
+function email_onFocusOut(e) {
   if (!e.target.value || !e.target.value.trim()) {
     emailError.textContent = "이메일을 입력해 주세요.";
     e.target.classList.add("inputError");
@@ -40,10 +39,9 @@ email.addEventListener("focusout", (e) => {
   } else {
     e.target.classList.remove("inputError");
   }
-});
+}
 
-password.addEventListener("focusout", (e) => {
-  console.log("focus out password");
+function password_onFocusOut(e) {
   if (!e.target.value) {
     passwordError.textContent = "비밀번호를 입력해 주세요.";
     e.target.classList.add("inputError");
@@ -51,18 +49,22 @@ password.addEventListener("focusout", (e) => {
     passwordError.textContent = "";
     e.target.classList.remove("inputError");
   }
-});
+}
 
-eyeOpen.addEventListener("click", (e) => {
+function eyeOpenOnClick(e) {
   e.target.classList.add("display_none");
   eyeClose.classList.remove("display_none");
   password.type = "password";
-});
+}
 
-eyeClose.addEventListener("click", (e) => {
+function eyeCloseOnClick(e) {
   e.target.classList.add("display_none");
   eyeOpen.classList.remove("display_none");
   password.type = "text";
-});
+}
 
+email.addEventListener("focusout", email_onFocusOut);
+password.addEventListener("focusout", password_onFocusOut);
+eyeOpen.addEventListener("click", eyeOpenOnClick);
+eyeClose.addEventListener("click", eyeCloseOnClick);
 form.addEventListener("submit", onSubmit);
