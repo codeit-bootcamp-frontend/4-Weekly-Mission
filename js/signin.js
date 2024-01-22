@@ -31,10 +31,10 @@ loginBtn.addEventListener('click', () => {
   if(passwordInput.value === 'codeit101' && emailInput.value === 'test@codeit.com'){
     location.href = 'folder.html';
   }else {
-    emailInput.classList.add('false');
-    passwordInput.classList.add('false');
-    errMsg(emailInput, '이메일을 확인해 주세요.');
-    errMsg(passwordInput, '비밀번호를 확인해 주세요.');
+    emailInput.classList.add('invalid');
+    passwordInput.classList.add('invalid');
+    setErrMsg(emailInput, '이메일을 확인해 주세요.');
+    setErrMsg(passwordInput, '비밀번호를 확인해 주세요.');
   }
 });
 
@@ -46,7 +46,7 @@ const emailValidChk = (email) => {
 }
 
 //에러 메시지 div 요소에 내용 추가
-const errMsg = (inputVal, txt) => {
+const setErrMsg = (inputVal, txt) => {
   const errMsgDiv = inputVal.nextElementSibling;
   errMsgDiv.textContent = txt;
   errMsgDiv.classList.add('red');
@@ -56,11 +56,11 @@ const errMsg = (inputVal, txt) => {
 //요소 초기화
 const init = (element) => {
   //다음 요소 확인
-  const divExist = element.nextElementSibling;
+  const errMsgDiv = element.nextElementSibling;
   //텍스트 확인 될 시 텍스트 삭제, 빨간 테두리 제거
-  if(divExist.textContent !== '') {
-    divExist.textContent = '';
-    element.classList.remove('false');
+  if(errMsgDiv.textContent !== '') {
+    errMsgDiv.textContent = '';
+    element.classList.remove('invalid');
   }
 }
 
@@ -81,18 +81,18 @@ eyeIcon.addEventListener('click', () => {
 //이메일 유효성 검사
 const emailValidationChk = () => {
   if(!emailInput.value) {
-    emailInput.classList.add('false');//테두리 색 변경
-    errMsg(emailInput,'이메일을 입력해 주세요.');
+    emailInput.classList.add('invalid');//테두리 색 변경
+    setErrMsg(emailInput,'이메일을 입력해 주세요.');
   }else if(!emailValidChk(emailInput.value)){
-    emailInput.classList.add('false');
-    errMsg(emailInput, '올바른 이메일 주소가 아닙니다.');
+    emailInput.classList.add('invalid');
+    setErrMsg(emailInput, '올바른 이메일 주소가 아닙니다.');
   }
 }
 
 //비밀번호 유효성 검사
 const passwordValidationChk = () => {
   if(!passwordInput.value) {
-    passwordInput.classList.add('false');
-    errMsg(passwordInput, '비밀번호를 입력해 주세요.');
+    passwordInput.classList.add('invalid');
+    setErrMsg(passwordInput, '비밀번호를 입력해 주세요.');
   }
 }

@@ -54,13 +54,12 @@ input{
   color: #111322;
 }
 
-.eye-off{
+.eye-off,
+.eye-on{
   position: absolute;
   width: 16px;
   height: 16px;
-  top: 46px;
   right: 15px;
-  background-image: url(../img/svg/eye-off.svg);
   background-repeat: no-repeat;
   background-position: 95% 50%;
 }
@@ -71,14 +70,12 @@ input{
 }
 
 .eye-on{
-  position: absolute;
-  width: 16px;
-  height: 16px;
   top: 45px;
-  right: 15px;
   background-image: url(../img/svg/eye-on.svg);
-  background-repeat: no-repeat;
-  background-position: 95% 50%;
+}
+.eye-off{
+  top: 46px;
+  background-image: url(../img/svg/eye-off.svg);
 }
 
 input:focus{
@@ -209,8 +206,8 @@ button:hover{
   color: #ff5b56;
 }
 
-.false{
-  outline: none !important;
+.invalid{
+  outline: none;
   border: 1px solid var(--Linkbrary-primary-color, #ff5b56);
 }
 
