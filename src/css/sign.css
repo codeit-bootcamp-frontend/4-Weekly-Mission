@@ -1,37 +1,17 @@
-:root {
-    --Linkbrary-primary-color: #6d6afe;
-    --Linkbrary-red: #ff5b56;
-    --The-julge-black: #111322;
-    --Linkbrary-white: #fff;
-    --Linkbrary-gray100: #373740;
-    --Linkbrary-gray60: #9fa6b2;
-    --Linkbrary-gray20: #ccd5e3;
-    --Linkbrary-gray10: #e7effb;
-    --Linkbrary-bg: #f0f6ff;
-}
+@import "reset.css";
+@import "global.css";
 
-* {
-    box-sizing: border-box;
-}
-
-p {
-    margin: 0;
-}
-
-.body {
+body {
     margin: 0;
     padding: 0 32px 0 32px;
-    /* 레이아웃 */
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
-
-    /* 스타일 */
-    background: var(--Linkbrary-bg, #f0f6ff);
+    background: var(--Linkbrary-bg);
 }
 
-.main {
+main {
     width: 100%;
     max-width: 400px;
     margin: 120px auto auto;
@@ -41,7 +21,7 @@ p {
     gap: 32px;
 }
 
-.section {
+section {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -60,10 +40,12 @@ p {
 .logo {
     width: 210.583px;
     height: 38px;
-    background-image: url("../images/sign_logo.svg");
+    background-image: url("../images/logo.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.s_title {
+.sub_title {
     display: flex;
     align-items: flex-start;
     gap: 8px;
@@ -76,10 +58,9 @@ p {
     line-height: 24px; /* 150% */
 }
 
-.s_title .join_link {
-    color: var(--Linkbrary-primary-color, #6d6afe);
+.join_link {
+    color: var(--Linkbrary-primary-color);
     font-weight: 600;
-    line-height: normal;
 }
 
 /* 로그인 */
@@ -104,7 +85,7 @@ p {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    /* gap: 12px; */
 }
 
 .email label,
@@ -122,6 +103,7 @@ input {
     /* 레이아웃 */
     display: flex;
     width: 100%;
+    margin: 12px 0 6px 0;
     padding: 18px 15px;
     justify-content: center;
     align-items: center;
@@ -136,58 +118,53 @@ input:focus {
     outline-color: var(--Linkbrary-primary-color, #6d6afe);
 }
 
-.password,
-.re_password {
+.password_input,
+.re_password_input {
+    width: 100%;
     position: relative;
+}
+
+.error-message {
+    display: none;
+    font-size: 1.4rem;
+    color: var(--Linkbrary-red);
 }
 
 .eye_button {
     position: absolute;
-    top: 60%;
+    top: 45%;
     right: 15px;
     width: 16px;
     height: 16px;
     background-image: url("../images/eye-off.svg");
+    border: none;
+    cursor: pointer;
 }
 
 /* 버튼 */
-.button {
+/* .button {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
-}
+} */
 
 .login_button,
 .signup_button {
-    /* 레이아웃 */
-    display: flex;
     width: 100%;
     padding: 16px 20px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
-    /* 스타일 */
+    border: none;
     border-radius: 8px;
-    background: var(
-        --gra-purpleblue-to-skyblue,
-        linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
-    );
-
-    /* 폰트 */
-    color: var(--Grey-Light, #f5f5f5);
-    font-family: Pretendard;
-    font-size: 18px;
-    font-style: normal;
+    background: var(--gra-purpleblue-to-skyblue);
+    color: var(--Grey-Light);
+    font-size: 1.8rem;
     font-weight: 600;
-    line-height: normal;
-    text-decoration: none;
+    cursor: pointer;
 }
 
 /* 소셜 로그인 */
-.social {
+.social-login {
     /* 레이아웃 */
     display: flex;
     width: 100%;
@@ -207,7 +184,7 @@ input:focus {
     line-height: normal;
 }
 
-.socials {
+.social-icons {
     display: flex;
     align-items: flex-start;
     gap: 16px;
@@ -219,9 +196,9 @@ input:focus {
 }
 
 .google {
-    background-image: url(../images/Component\ 2.png);
+    background-image: url(../images/icon_google.png);
 }
 
 .kakao {
-    background-image: url(../images/Component\ 3.png);
+    background-image: url(../images/icon_kakao.png);
 }

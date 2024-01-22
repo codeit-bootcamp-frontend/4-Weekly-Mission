@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>signin</title>
-        <link rel="stylesheet" href="src/sign.css" />
+        <link rel="stylesheet" href="src/css/sign.css" />
     </head>
-    <body class="body">
-        <main class="main">
-            <section class="section">
+    <body>
+        <main>
+            <section>
                 <div class="title">
                     <a href="/" class="logo"></a>
-                    <div class="s_title">
+                    <div class="sub_title">
                         <p>회원이 아니신가요?</p>
                         <a href="/signup" class="join_link">회원 가입하기</a>
                     </div>
@@ -19,29 +19,43 @@
                 <div class="login">
                     <form>
                         <div class="email">
-                            <label for="signin-email">이메일</label>
-                            <input id="signin-email" type="email" />
+                            <label for="signin_email">이메일</label>
+                            <input id="signin_email" type="email" onblur="validateEmail()" />
+                            <p id="error_email" class="error-message">이메일을 입력해 주세요.</p>
                         </div>
                         <div class="password">
-                            <label for="signin-password">비밀번호</label>
-                            <input id="signin-password" type="password" />
-                            <a href="" class="eye_button"></a>
+                            <label for="signin_password">비밀번호</label>
+                            <div class="password_input">
+                                <input
+                                    id="signin_password"
+                                    type="password"
+                                    onblur="validatePassword()"
+                                />
+                                <button
+                                    class="eye_button"
+                                    type="button"
+                                    onclick="toggleEye()"
+                                ></button>
+                            </div>
+
+                            <p id="error_password" class="error-message">
+                                비밀번호를 입력해 주세요.
+                            </p>
                         </div>
+                        <button class="login_button" type="button" onclick="login()">로그인</button>
                     </form>
                 </div>
-                <div class="button">
-                    <a href="" class="login_button">로그인</a>
-                </div>
             </section>
-            <section class="section">
-                <div class="social">
+            <section>
+                <div class="social-login">
                     <p>소셜 로그인</p>
-                    <div class="socials">
+                    <div class="social-icons">
                         <a href="https://www.google.com/" class="icon google"></a>
                         <a href="https://www.kakaocorp.com/page/" class="icon kakao"></a>
                     </div>
                 </div>
             </section>
         </main>
+        <script src="/src/script/sign.js"></script>
     </body>
 </html>
