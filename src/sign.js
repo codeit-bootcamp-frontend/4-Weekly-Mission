@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-  var emailInput = document.getElementById('emailInput');
-  var emailEmptyError = document.getElementById('emailEmptyError');
-  var emailFormatError = document.getElementById('emailFormatError');
+  const emailInput = document.getElementById('emailInput');
+  const emailEmptyError = document.getElementById('emailEmptyError');
+  const emailFormatError = document.getElementById('emailFormatError');
 
-  var passwordInput = document.getElementById('passwordInput');
-  var passwordError = document.getElementById('passwordError');
-  var passwordCheckError = document.getElementById('passwordCheckError');
+  const passwordInput = document.getElementById('passwordInput');
+  const passwordError = document.getElementById('passwordError');
+  const passwordCheckError = document.getElementById('passwordCheckError');
 
   emailInput.addEventListener('focusout', function () {
     if (!emailInput.value.trim()) {
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
       emailEmptyError.style.display = 'none';
 
       // Check for valid email format
-      var emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailFormat.test(emailInput.value)) {
         emailFormatError.style.display = 'block';
       } else {
@@ -34,10 +34,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function validateLogin() {
-  var emailInput = document.getElementById('emailInput');
-  var passwordInput = document.getElementById('passwordInput');
-  var emailCheckError = document.getElementById('emailCheckError');
-  var passwordCheckError = document.getElementById('passwordCheckError');
+  const emailInput = document.getElementById('emailInput');
+  const passwordInput = document.getElementById('passwordInput');
+  const emailCheckError = document.getElementById('emailCheckError');
+  const passwordCheckError = document.getElementById('passwordCheckError');
 
   // Check for predefined email and password
   if (emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101') {
