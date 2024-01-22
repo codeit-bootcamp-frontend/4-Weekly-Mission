@@ -4,6 +4,7 @@ body {
   width:100%;
 }
 
+
 .nav-bar {
   position: sticky;
   top: 0;
@@ -86,6 +87,7 @@ header {
   width:30.2rem;
   flex-shrink: 0;
 }
+
 
 section {
   /*모든 section이 있는 큰 블록*/ 
@@ -207,6 +209,7 @@ footer {
 /* Tablet styles (768px to 1199px) */
 @media screen and (min-width: 768px) {
   
+
 .nav-bar {
   display: inline-block;
 }
@@ -339,6 +342,7 @@ footer {
     width: 35rem;
   }
   
+
   .cta-text{
     font-size: 1.8rem;
     padding: 1.6rem 2rem;
@@ -433,6 +437,5 @@ footer {
   .PC{
     display: block;
   }
-
 }
 
