@@ -83,36 +83,57 @@ header {
   row-gap: 2.4rem;
 }
 
+/*이메일, 비밀번호 레이블과 입력란을 감싸는 영역*/
 .sign-input-box {
   display: flex;
   flex-direction: column;
   row-gap: 1.2rem;
-}
-
-.sign-password {
   position: relative;
 }
 
+.sign-password {
+  /*눈 이미지가 absolute로 패스워드 입력란에 따라와야 한다.*/
+  display: flex;
+  position: relative;
+}
+
+/*이메일, 비밀번호 레이블 스타일*/
 .sign-input-label {
+  font-size: 1.4rem;
+  font-weight: 400;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/*에러 메세지 폰트 스타일*/
+.error-message {
+  color: var(--Linkbrary-red, var(--red));
   font-size: 1.4rem;
   font-weight: 400;
 }
 
+/*이메일, 비밀번호 입력란*/
 .sign-input {
   padding: 1.8rem 1.5rem;
   border-radius: 0.8rem;
   border: 0.1rem solid var(--gray20);
   font-size: 1.6rem;
   line-height: 150%;
+  margin-top:1.2rem;
+  margin-bottom: 0.6rem;
 }
 
+/*입력란에 포커스가 있을 때*/
 .sign-input:focus {
   border-color: var(--primary);
 }
 
+
+/* 눈 모양 아이콘 위치 */
 .eye-button {
   position: absolute;
-  bottom: 2.2rem;
+  margin-top:5.2rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
