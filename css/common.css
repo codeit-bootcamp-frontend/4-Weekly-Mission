@@ -92,3 +92,10 @@ footer{
   width: 20px;
   height: 20px;
 }
+
+@media (min-width:375px) and (max-width:767px){
+  header{
+    display: flex;
+    padding: 13px 32px;
+  }
+}
