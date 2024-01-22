@@ -1,11 +1,12 @@
 const emailInput = document.querySelector('#email');
+const emailPattern = /^A[0-9a-zA-Z] ([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
 const emailError = document.querySelector('#emailError');
 const passwordInput = document.querySelector('#password');
 const passwordError = document.querySelector('#passwordError');
 
 //email 에러 메시지 호출
 emailInput.addEventListener('focusout', function () {
-  if (!emailInput.value.includes('@')) {
+  if (!emailPattern.test(emailInput.value)) {
     emailInput.classList.add('invalid');
     emailError.innerHTML = emailInput.value.trim() ? '올바른 이메일 주소가 아닙니다.' : '이메일을 입력해 주세요.';
   } else {
