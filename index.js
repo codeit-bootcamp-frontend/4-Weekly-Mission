@@ -12,10 +12,10 @@ function applyChanges() {
   if (screenWidth <= 767 && screenWidth >= 375) {
     // 모바일 화면에서만 실행할 코드
     containers.forEach(function (container) {
-      let text = container.querySelector(".text");
-      let img = container.querySelector("img");
-      let title = container.querySelector(".title");
-      let subtitle = container.querySelector(".subtitle");
+      const text = container.querySelector(".text");
+      const img = container.querySelector("img");
+      const title = container.querySelector(".title");
+      const subtitle = container.querySelector(".subtitle");
 
       if (text && img && title && subtitle) {
         // title과 subtitle을 img와 같은 레벨로 이동
@@ -28,10 +28,10 @@ function applyChanges() {
   } else {
     // 웹 화면에서 실행할 코드
     containers.forEach(function (container, index) {
-      let text = container.querySelector(".text");
-      let img = container.querySelector("img");
-      let title = container.querySelector(".title");
-      let subtitle = container.querySelector(".subtitle");
+      const text = container.querySelector(".text");
+      const img = container.querySelector("img");
+      const title = container.querySelector(".title");
+      const subtitle = container.querySelector(".subtitle");
       if (!text && img && title && subtitle) {
         // text가 없으면 생성
         let newText = document.createElement("div");

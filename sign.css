@@ -102,9 +102,7 @@ form {
   align-items: flex-start;
   gap: 2.4rem;
 }
-.email-input,
-.password-input,
-.password-confirm-input {
+.inputs {
   max-width: 400px;
   margin: 0 auto;
   display: flex;
@@ -113,15 +111,20 @@ form {
   align-items: flex-start;
   gap: 1.2rem;
 }
-.email-input label,
-.password-input label,
-.password-confirm-input label {
+.inputs label {
   color: var(--black, #000);
   font-family: "Pretendard";
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+.error-message {
+  color: red;
+  display: none;
+  font-family: "Pretendard";
+  font-size: 14px;
+  font-weight: 400;
 }
 .pw-container {
   position: relative;
@@ -150,9 +153,7 @@ input:focus {
 }
 /* mobile */
 @media (min-width: 375px) and (max-width: 767px) {
-  .email-input,
-  .password-input,
-  .password-confirm-input {
+  .inputs {
     gap: 12px;
   }
   input {
@@ -234,11 +235,6 @@ input:focus {
   bottom: 0.9rem;
   left: 1.1rem;
 }
-/* .kakao-logo {
-  position: absolute;
-  bottom: 0.4rem;
-  left: 0.8rem;
-} */
 /* mobile */
 @media (min-width: 375px) and (max-width: 767px) {
   .login,
