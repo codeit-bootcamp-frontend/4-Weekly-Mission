@@ -17,7 +17,7 @@ const loginBtn = document.querySelector(".btn-login");
 const eyeBtn = document.querySelector(".btn-eye");
 
 //유효한 로그인 정보
-const loginInfo = {
+const VALID_USER = {
   email: "test@codeit.com",
   password: "codeit101",
 };
@@ -75,9 +75,9 @@ function hideError(errorElement) {
 
 //로그인 유효성 검사
 function isValidUser(emailInput, passwordInput) {
-  if (emailInput.value !== loginInfo.email) {
+  if (emailInput.value !== VALID_USER.email) {
     return false;
-  } else if (passwordInput.value !== loginInfo.password) {
+  } else if (passwordInput.value !== VALID_USER.password) {
     return false;
   } else {
     return true;
