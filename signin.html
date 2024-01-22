@@ -28,17 +28,18 @@
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <input class="sign-input" id="input-email" onkeypress="enterKey()" />
+            <p id="id-warning">이메일을 입력해주세요.</p>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
+            <input class="sign-input" type="password" id="input-password" onkeypress="enterKey()" />
             <button class="eye-button" type="button">
               <img src="./images/eye-off.svg" />
             </button>
+            <p id="pw-warning">비밀번호를 입력해주세요.</p>
           </div>
         </div>
-        <p>이메일을 입력해주세요.</p>
         <button class="cta" type="submit">로그인</button>
       </form>
       <div class="sns-box">
@@ -53,5 +54,64 @@
         </div>
       </div>
     </div>
+
+
+
+    <script>
+
+
+
+      //이메일 빈값/형식체크(정규식 알아보기)
+      let emailInput = document.querySelector('#input-email')
+
+      emailInput.addEventListener('blur', function(){
+        if (!emailInput.value){
+          document.querySelector('#id-warning').style.display = 'block';
+        }
+        else if (!emailInput.value.includes('@')){
+          document.querySelector('#id-warning').style.display = 'block'
+          document.querySelector('#id-warning').innerHTML = '이메일 형식으로 입력해주세요'
+        }
+      })
+
+
+
+
+
+
+
+
+
+
+
+      //비밀번호 빈값 체크
+      //warning message 이후 비밀번호 보기 버튼 자리이탈함...
+      //비밀번호 보안 알아보기
+      let passwordInput = document.querySelector('#input-password')
+
+      passwordInput.addEventListener('blur', function(){
+        console.log(passwordInput.value)
+        if (!passwordInput.value){
+          document.querySelector('#pw-warning').style.display = 'block'
+        }
+      })
+
+      //관리자 이메일 관리자 페이지 이동
+      //이동이 안 됨..
+      
+      // function enterKey() {
+        
+      //   if (window.event.keyCode == 13) {
+      //       // if (emailInput === 'test@codeit.com' && passwordInput === 'codeit101'){
+      //       //   location.href = 'folder.html'
+      //       // }
+      //       alert('확인')
+      //       location.href = '/'
+      //   }
+      // }
+
+
+
+    </script>
   </body>
 </html>
