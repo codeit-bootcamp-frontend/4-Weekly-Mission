@@ -88,6 +88,7 @@ body{
         border-radius: 8px;
         border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
         background: var(--Linkbrary-white, #FFF);
+        outline:none;
     }
     .idalert, .passwordalert{
         color: var(--Linkbrary-red, #FF5B56);
@@ -280,6 +281,7 @@ body{
         border-radius: 8px;
         border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
         background: var(--Linkbrary-white, #FFF);
+        outline:none;
     }
     .idalert,.passwordalert{
         color: var(--Linkbrary-red, #FF5B56);
@@ -469,6 +471,7 @@ body{
         border-radius: 8px;
         border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
         background: var(--Linkbrary-white, #FFF);
+        outline:none;
     }
     .idalert, .passwordalert{
         color: var(--Linkbrary-red, #FF5B56);
