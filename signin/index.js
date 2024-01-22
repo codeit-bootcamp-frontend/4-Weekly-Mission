@@ -88,7 +88,7 @@ function isValidUser(emailInput, passwordInput) {
 
 //eyeBtn 비밀번호 보이게
 function showPassword() {
-  const icon = eyeBtn.firstElementChild;
+  const imgElement = document.querySelector(".eye-btn img");
   passwordInput.type = "text";
   icon.src = "../public/icon/eye-on.svg";
 }
