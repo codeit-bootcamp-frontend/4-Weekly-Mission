@@ -10,10 +10,13 @@ const form = document.querySelector("#form");
 const eyeOpen = document.querySelector(".eyeOpen");
 const eyeClose = document.querySelector(".eyeClose");
 
+const TEST_EMAIL = "test@codeit.com";
+const TEST_PW = "codeit101";
+
 function onSubmit(event) {
   event.preventDefault();
 
-  if (email.value === "test@codeit.com" && password.value === "codeit101") {
+  if (email.value === TEST_EMAIL && password.value === TEST_PW) {
     location.href = "/folder";
   } else {
     emailError.textContent = "이메일을 확인해 주세요.";
