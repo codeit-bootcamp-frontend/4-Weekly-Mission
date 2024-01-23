@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linkbrary</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="palette.css">
+    <link rel="stylesheet" href="css/sign.css">
+    <link rel="stylesheet" href="css/palette.css">
 </head>
 <body>
     <div class="signBox">
@@ -19,15 +19,17 @@
             <div class="formBox">
                 <div class="emailBox">
                     <label for="userEmail">이메일</label>
-                    <input id="userEmail" type=email name="userEmail">
+                    <input id="userEmail" class="inputBlank" type="email" name="userEmail">
+                    <div id="emailError" class="errorMessage">이메일을 입력해 주세요.</div>
                 </div>
                 <div class="passwordBox">
                     <label for="password">비밀번호</label>
-                    <input id="password" type="password" name="password">
-                    <img src="img/eye-off.png">
+                    <input id="password" class="inputBlank" type="password" name="password">
+                    <div id="passwordError" class="errorMessage">비밀번호를 입력해 주세요.</div>
+                    <img id="eyeIcon" src="img/eye-off.png">
                 </div>
             </div>
-            <button class="signinButton" type="submit">로그인</button>
+            <button class="signinButton" id="signinButton" type="submit">로그인</button>
         </form> 
         <div class="socialSignBox">
             <span>소셜 로그인</span>
@@ -37,5 +39,6 @@
             </div>
         </div>
     </div>
+    <script src="signin.js"></script>
 </body>
 </html>

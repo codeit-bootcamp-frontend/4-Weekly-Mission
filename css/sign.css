@@ -1,0 +1,279 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html, body {
+    /*width: 1920px;
+    margin: 0 auto;
+    padding: 0;*/
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* refer to template code */
+    margin: 0;
+    padding: 0;
+    background-color: var(--Linkbrary-bg);
+}
+
+@media screen and (min-width: 1920px) {
+    body {
+        background-color: var(--Linkbrary-bg);
+        overflow: hidden;
+    }
+}
+
+/* signin and signup Page */
+.signBox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 90rem;
+    justify-content: center;
+    align-items: center;
+    margin: 14.88rem auto;
+}
+
+.signBox form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.875rem;
+}
+
+.logoAndSign {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logoAndSign img {
+    width: 13.16144rem;
+    height: 2.375rem;
+}
+
+.logoAndSign span {
+    color: #000;
+    font-family: Pretendard;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+}
+
+.logoAndSign span a {
+    color: var(--Linkbrary-primary-color, #6D6AFE);
+    font-family: Pretendard;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration: underline;
+}
+
+.formBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.formBox label {
+    color:#000;
+    font-family: Pretendard;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.formBox input {
+    display: flex;
+    width: 25rem;
+    padding: 1.125rem 0.9375rem;
+    justify-content: center;
+    align-items: center;
+    background: var(--Linkbrary-white, #FFF);
+    border-radius: 0.5rem;
+    border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+}
+
+.formBox input:focus {
+    border: 1px solid var(--Linkbrary-primary-color);
+}
+
+.passwordBox {
+    position: relative;
+}
+
+.passwordBox img {
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: 3rem;
+    right: 1rem;
+}
+
+.passwordRepeatBox {
+    position: relative;
+}
+
+.passwordRepeatBox img {
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: 3rem;
+    right: 1rem;
+}
+
+.emailBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.passwordBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.passwordRepeatBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.errorMessage {
+    color: var(--Linkbrary-red);
+    font-family: Pretendard;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    display: none;
+
+}
+form button {
+    color: var(--Linkbrary-white);
+    display: flex;
+    width: 25rem;
+    padding: 1rem 1.25rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.5rem;
+    border: 0;
+    background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+}
+
+.socialSignBox {
+    display: flex;
+    width: 25rem;
+    padding: 0.75rem 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0.5rem;
+    border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+    background: var(--Linkbrary-gray10, #E7EFFB);
+}
+
+.socialSignBox span {
+    color: var(--Linkbrary-gray100, #373740);
+    font-family: Pretendard;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.socialIcon {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.socialIcon img {
+    width: 2.625rem;
+    height: 2.625rem;
+}
+
+
+/* for responsive pages */
+/* mobile */
+@media (min-width: 375px) and (max-width: 767px) {
+    html {
+        font-size: 50%;
+    }
+    body {
+        width: 100vw;
+        /*padding-left: 32px;
+        padding-right: 32px;*/
+    }
+
+    .signBox {
+        margin-left: 32px;
+        margin-right: 32px;
+
+        width: calc(100vw - 64px);
+        height: auto;
+    }
+    .logoAndSign {
+        width: calc(100vw - 64px);
+        max-width: 400px;
+        height: auto;
+    }
+    .emailBox input {
+        width: calc(100vw - 64px);
+        max-width: 400px;
+    }
+    .passwordBox input {
+        width: calc(100vw - 64px);
+        max-width: 400px;
+    }
+    .passwordBox img {
+        position: absolute;
+        top: 3.5rem;
+    }
+    .passwordRepeatBox input {
+        width: calc(100vw - 64px);
+        max-width: 400px;
+    }
+    .passwordRepeatBox img {
+        position: absolute;
+        top: 3.5rem;
+    }
+    form button {
+        width: calc(100vw - 64px);
+        max-width: 400px;
+    }
+    .socialSignBox {
+        width: calc(100vw - 64px);
+        max-width: 400px;
+    }
+}
+
+/* tablet */
+@media (min-width: 768px) and (max-width: 1199px) {
+    body {
+        width: 100vw;
+    }
+    .signBox {
+        margin-left: 0;
+        margin-right: 0;
+
+        width: calc(100vw - 64px);
+        max-width: 400px;
+        height: auto;
+    }
+
+}
