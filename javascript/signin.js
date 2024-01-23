@@ -9,7 +9,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //////////////// 함수 정의 ////////////////////
 
-  // 이메일 확인 함수
+  /**이메일 확인 함수
+   *
+   * .error 제거
+   * 이메일 형식과 빈 input 확인 후 .error부여 출력
+   */
   function emailCheck() {
     const email = emailInput.value.trim();
     clearErrorStyle(emailInput);
@@ -32,7 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
     return true;
   }
 
-  // 비번 확인 함수
+  /**  비번 확인 함수
+   *
+   * 기존 .error 제거 후 빈 input 시 .error 부여
+   */
   function passwordCheck() {
     const password = passwordInput.value.trim();
     clearErrorStyle(passwordInput);
@@ -48,7 +55,11 @@ document.addEventListener('DOMContentLoaded', function () {
     return true;
   }
 
-  // 에러 스타일 빼기
+  /**에러 스타일 빼기
+   * input에 새 내용 입력 시 .error 태그 제거(에러메세지 제거)
+   * @constructor
+   * @param {object} inputElement - .error을 제거할 대상
+   * */
   function clearErrorStyle(inputElement) {
     const parentContainer = inputElement.parentNode;
     const errorElement = parentContainer.querySelector('.error-message');
@@ -59,7 +70,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  // 에러 메세지 띄우기
+  /**에러 메세지 띄우기
+   * @constructor
+   * @param {object} errorText - 에러가 표시될 div
+   * @param {message} message - 에러 메세지 내용
+   * @param {object} inputElement - 에러 메세지 대상
+   *
+   */
   function showError(errorText, message, inputElement) {
     errorText.textContent = message;
     errorText.classList.add('error-message');
@@ -67,7 +84,8 @@ document.addEventListener('DOMContentLoaded', function () {
     inputElement.parentNode.classList.add('error');
   }
 
-  // 눈 아이콘 변경하기
+  /**눈 아이콘 변경 함수
+   */
   function togglePassword() {
     const coverEye = '../image/icon/eye_closed.svg';
     const openEye = '../image/icon/eye_open.svg';
@@ -78,7 +96,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     isPasswordCovered = !isPasswordCovered;
   }
-
+  /**비밀번호 가림 함수
+   * 실행에 따라 비번 표시 유무가 바뀐다
+   *
+   */
   function showPassword() {
     if (isPasswordCovered) {
       passwordInput.type = 'password';
