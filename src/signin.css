@@ -109,8 +109,7 @@ main {
       width: 16px;
       height: 16px;
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 24px;
       right: 15px;
     }
   }
