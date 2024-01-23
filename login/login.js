@@ -1,39 +1,56 @@
 const EMAIL = document.getElementById("email");
-const focusout = document.getElementsByClassName("focusout");
+const emailError = document.querySelector(".email_error");
 
 const PASSWORD = document.getElementById("password");
-const ERROREPASSWORD = document.createElement("div");
+const passwordError = document.querySelector(".password_error");
 
-ERROREPASSWORD.textContent = "비밀번호를 입력해주세요.";
+const LOGIN_BTN = document.querySelector(".login_btn");
 
-function nullEMAIL() {
-  const nullEMAIL = document.createElement("div");
-  nullEMAIL.textContent = "이메일을 입력해주세요.";
-  EMAIL.after(nullEMAIL);
+function addEmailErrorMsg(message) {
+  emailError.innerText = message;
+} // => email message 추가
+
+function addPasswordErrorMsg(message) {
+  passwordError.innerText = message;
+} // => email message 추가
+
+function emailFormat(email) {
+  const iemailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return iemailFormat.test(email);
+} // => 이메일 형식
+
+function emailText(em) {
+  if (em.target.value == "") {
+    addEmailErrorMsg("* 이메일을 입력해주세요.");
+  } else if (!emailFormat(em.target.value)) {
+    addEmailErrorMsg("* 올바른 이메일을 입력해주세요.");
+  } else {
+    addEmailErrorMsg("");
+  }
 }
-function notSameEMAIL() {
-  const notSameEMAIL = document.createElement("div");
-  notSameEMAIL.textContent = "올바른 이메일 주소가 아닙니다.";
-  EMAIL.after(notSameEMAIL);
+function passwordText(pm) {
+  if (pm.target.value == "") {
+    addPasswordErrorMsg("* 비밀번호를 입력해주세요.");
+  } else {
+    addPasswordErrorMsg("");
+  }
 }
 
-EMAIL.addEventListener("click", nullEMAIL);
-EMAIL.addEventListener("blur", notSameEMAIL);
+function login() {
+  const correctEmail = "test@codeit.kr";
+  const correctPassword = "codeit101";
+  const enterEmail = EMAIL.value;
+  const enterPassword = PASSWORD.value;
+  if (correctEmail == enterEmail && correctPassword == enterPassword) {
+    let link = "page.html";
+    console.log("success");
+    location.href = link;
+  } else {
+    addEmailErrorMsg("* 이메일을 확인해주세요.");
+    addPasswordErrorMsg("* 비밀번호를 확인해주세요.");
+  }
+}
 
-// const EMAIL = document.getElementById("email");
-// const emailError = document.getElementsByClassName("email_error");
-
-// const PASSWORD = document.getElementById("password");
-// const ERROREPASSWORD = document.createElement("div");
-
-// ERROREPASSWORD.textContent = "비밀번호를 입력해주세요.";
-
-// function nullEmail() {
-//   emailError.innerText = "이메일을 입력해주세요.";
-// }
-// function notSameEmail() {
-//   alert("올바른 이메일을 입력해주세요.");
-// }
-
-// EMAIL.addEventListener("focus", nullEmail);
-// EMAIL.addEventListener("blur", notSameEmail);
+EMAIL.addEventListener("blur", emailText);
+PASSWORD.addEventListener("blur", passwordText);
+LOGIN_BTN.addEventListener("click", login);
