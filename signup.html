@@ -16,20 +16,23 @@
         <div class="fm-input-wrap">
           <div class="sign-input-box">
             <label>이메일</label>
-            <input class="sign-input" name="email" type="email" placeholder="codeit@codeit.com" />
+            <input class="sign-input input-email" name="email" type="email" placeholder="codeit@codeit.com" />
+            <p class="message error-email"></p>
           </div>
           <div class="sign-input-box">
             <label>비밀번호</label>
             <div class="pw-wrap">
-              <input class="sign-input" name="password" type="password" placeholder="비밀번호" />
+              <input class="sign-input input-pw" name="password" type="password" placeholder="비밀번호" />
               <img src="/img/eye-on.svg" alt="비밀번호 보이기" class="img-eye" />
+              <p class="message error-pw"></p>
             </div>
           </div>
           <div class="sign-input-box">
             <label>비밀번호 확인</label>
             <div class="pw-wrap">
-              <input class="sign-input" name="password" type="password" placeholder="비밀번호" />
+              <input class="sign-input input-pw-check" name="password" type="password" placeholder="비밀번호" />
               <img src="/img/eye-on.svg" alt="비밀번호 보이기" class="img-eye" />
+              <p class="message error-pw-check hidden">비밀번호가 일치하지 않아요.</p>
             </div>
           </div>
         </div>
@@ -49,5 +52,6 @@
         </div>
       </div>
     </div>
+    <script type = "module" src="signin.js"></script>
   </body>
 </html>
