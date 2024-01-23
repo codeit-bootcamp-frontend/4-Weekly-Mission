@@ -79,6 +79,7 @@ export function signinPasswordErrorCheck(pwInput, pwError, pwOnOffImg) {
 }
 
 //비밀번호 보여주기 스위치 메서드
+//1.로그인 페이지용
 export function passwordVisibleSwitch(isPasswordVisible, pwOnOffImg, pwInput) {
   if (!isPasswordVisible[0]) {
     pwOnOffImg.src = './icons/eyeson.png';
@@ -87,6 +88,27 @@ export function passwordVisibleSwitch(isPasswordVisible, pwOnOffImg, pwInput) {
   } else {
     pwOnOffImg.src = './icons/eyesoff.png';
     pwInput.type = 'password';
+    isPasswordVisible[0] = false;
+  }
+}
+//2.회원가입 페이지용(한 클릭으로 두 input 모두 제어)
+export function signupPasswordVisibleSwitch(
+  isPasswordVisible,
+  pwOnOffImg,
+  pwInput,
+  pwInputRepeat
+) {
+  if (!isPasswordVisible[0]) {
+    pwOnOffImg[0].src = './icons/eyeson.png';
+    pwOnOffImg[1].src = './icons/eyeson.png';
+    pwInput.type = 'none';
+    pwInputRepeat.type = 'none';
+    isPasswordVisible[0] = true;
+  } else {
+    pwOnOffImg[0].src = './icons/eyesoff.png';
+    pwOnOffImg[1].src = './icons/eyesoff.png';
+    pwInput.type = 'password';
+    pwInputRepeat.type = 'password';
     isPasswordVisible[0] = false;
   }
 }
@@ -101,5 +123,22 @@ export function signupPasswordErrorCheck(pwInput, pwError, pwOnOffImg) {
   } else {
     pwOnOffImg.style.bottom = '1.1875rem';
     inputBorderGray(pwInput, pwError);
+  }
+}
+
+//회원가입 비밀번호확인 일치 여부 메서드
+export function signupPasswordCorrectCheck(
+  pwInput,
+  pwInputRepeat,
+  pwError,
+  pwOnOffImg
+) {
+  if (pwInput.value !== pwInputRepeat.value) {
+    pwError.innerHTML = '비밀번호가 일치하지 않아요.';
+    pwOnOffImg.style.bottom = '2.9375rem';
+    inputBorderRed(pwInputRepeat, pwError);
+  } else {
+    pwOnOffImg.style.bottom = '1.1875rem';
+    inputBorderGray(pwInputRepeat, pwError);
   }
 }

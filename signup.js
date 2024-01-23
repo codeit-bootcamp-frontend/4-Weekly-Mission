@@ -29,3 +29,23 @@ emailInput.addEventListener('focusout', function () {
 pwInput.addEventListener('focusout', function () {
   signFunctions.signupPasswordErrorCheck(pwInput, pwError, pwOnOffImg[0]);
 });
+
+pwInputRepeat.addEventListener('focusout', function () {
+  signFunctions.signupPasswordCorrectCheck(
+    pwInput,
+    pwInputRepeat,
+    pwRepeatError,
+    pwOnOffImg[1]
+  );
+});
+
+pwOnOffImg.forEach(function (e) {
+  e.addEventListener('click', function () {
+    signFunctions.signupPasswordVisibleSwitch(
+      isPasswordVisible,
+      pwOnOffImg,
+      pwInput,
+      pwInputRepeat
+    );
+  });
+});
