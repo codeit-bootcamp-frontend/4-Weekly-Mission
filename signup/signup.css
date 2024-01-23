@@ -1,3 +1,6 @@
+@import "common.css";
+@import "reset.css";
+
 *{
     box-sizing: border-box;
 }
@@ -30,11 +33,8 @@ div.signup-text{
 div.signup-text .signin-link{
     padding-bottom: 5px;
     color: var(--purpleblue);
-    font-family: Pretendard;
     font-size: 16px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;    
 }
 
 form.signup-form{
@@ -44,11 +44,8 @@ form.signup-form{
 
 form.signup-form label{
     color: var(--black);
-    font-family: Pretendard;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;    
 }
 
 form.signup-form input{
@@ -66,7 +63,7 @@ form.signup-form input:focus{
 }
 
 form.signup-form input#password-check-box{
-    margin: 0;
+    margin-bottom: 0;
 }
 
 form.signup-form input#signup-button{
@@ -74,14 +71,9 @@ form.signup-form input#signup-button{
     background: var(--gra-purpleblue-to-skyblue);    
     margin-top: 30px;
     margin-bottom: 2px; /*flex-gap: 30px*/
-
     color: var(--Beigewhite);
-    font-family: Pretendard;
     font-size: 18px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;    
-
     cursor: pointer;
 }
 
@@ -92,7 +84,6 @@ div.sns-signup{
     padding: 12px 24px;
     justify-content: space-between;
     align-items: center;  
-
     border-radius: 8px;
     border: 1px solid var(--Lightgray);
     background: var(--Whitegray);    
@@ -100,11 +91,8 @@ div.sns-signup{
 
 div.sns-signup-text{
     color: var(--Darkblue-gray);
-    font-family: Pretendard;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;    
 }
 
 div.sns-signup-image{
@@ -115,23 +103,21 @@ div.sns-signup-image{
 div.sns-signup-image img{
     width: 42px;
     height: 42px;
-
     cursor: pointer;
 }
 
 /*pc*/
-@media(min-width: 1200px){
+/* @media(min-width: 1200px){
 
-}
+} */
 
 /*tablet*/
-@media(min-width: 768px){
+/* @media(min-width: 768px){
 
-
-}
+} */
 
 /*mobile*/
-@media (min-width: 375px) and (max-width: 767px) {
+@media (max-width: 767px){
     body {
         padding: 120px 32px 233px;
         width: 100%;

@@ -1,9 +1,12 @@
+@import "common.css";
+@import "reset.css";
+
 * {
     box-sizing: border-box;
 }
 
 /*nav*/
-nav {
+nav#gnb {
     background: var(--Lightblue);
     display: flex;
     padding: 20px 200px;
@@ -13,20 +16,18 @@ nav {
     inset: 0;
 }
 
-nav .page-log img {
-    /* width: 13.3rem;
-    height: 2.4rem; */
-    width: 133px;
-    height: 24px;    
+nav .page-logo img {
+    /*이미지 원본크기가 133px 24px이기 때문에 필요없는 코드*/
+    /* width: 133px;
+    height: 24px; */
     cursor: pointer;
 }
 
 nav .signin-box .button {
-    /* width: 8.8rem;
-    height: 2.2rem; */
     width: 128px;
     height: 54px;
-    cursor: pointer;
+    /*a태그 href 속성에는 기본적으로 커서가 동작하기 때문에 필요없는 코드*/
+    /* cursor: pointer; */
 }
 
 a{
@@ -38,21 +39,15 @@ a{
     text-align: center;
     border-radius: 8px;
     background: var(--gra-purpleblue-to-skyblue);
-
     color: var(--Beigewhite);
-    font-family: Pretendard;
     font-size: 18px;
-    font-style: normal;
     font-weight: 600;
     line-height: normal;
-
-    cursor: pointer;
 }
 
 /*header*/
 header{
     background: var(--Lightblue);
-
     display: flex;
     flex-direction: column;
     padding: 70px 360px 0 ;
@@ -62,9 +57,7 @@ header{
 }
 
 header h1{
-    font-family: Pretendard;
     font-size: 64px;
-    font-style: normal;
     font-weight: 700;
     line-height: 125% 
 }
@@ -82,10 +75,8 @@ header .signup-box .button{
 }
 
 header img{
-    /* width: 1118px; */
     height: 659px;
 }
-
 
 /*section*/
 section{
@@ -103,14 +94,10 @@ section div.section-text{
     flex-shrink: 0;
 }
 
-section h1{
-    font-family: Pretendard;
+section h2{
     font-size: 48px;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     letter-spacing: -0.3px;
-
     margin-bottom: 0;
 }
 
@@ -125,13 +112,10 @@ section p{
     color: var(--gray);
     font-family: Abel;
     font-size: 16px;
-    font-style: normal;
     font-weight: 400;
-    line-height: 150%; /* 24px */    
-
+    line-height: 150%; 
     margin-top: 0;
 }
-
 
 section.section1{
     padding-top: 120px;
@@ -142,7 +126,6 @@ section.section1{
     height: 450px;    
 }
 
-
 .section2 img{
     width: 414px;
 }
@@ -152,10 +135,7 @@ section.section1{
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: Pretendard;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;
     letter-spacing: -0.3px;    
 }
 
@@ -164,10 +144,7 @@ section.section1{
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: Pretendard;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;    
 }
 
 .section3 img{
@@ -183,10 +160,7 @@ section.section1{
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: Pretendard;
-    font-style: normal;
     font-weight: 700;
-    line-height: normal;    
 }
 
 /*footer*/
@@ -195,12 +169,9 @@ div.footer-padding{
 }
 
 footer{
-    /* width: 1712px; */
     height: 64px;
     padding: 32px 104px 64px 104px;
-
     background: var(--Darkblue-black);
-
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -211,9 +182,7 @@ footer div.footer-text {
     text-align: center;
     font-family: Acme;
     font-size: 16px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;    
 }
 
 footer div.footer-text.notice {
@@ -221,11 +190,10 @@ footer div.footer-text.notice {
     gap: 30px;
 }
 
-
 /*pc*/
-@media(min-width: 1200px){
+/* @media(min-width: 1200px){
 
-}
+} */
 
 /*tablet*/
 @media(min-width: 768px){
@@ -235,7 +203,7 @@ footer div.footer-text.notice {
 }
 
 /*mobile*/
-@media (min-width: 375px) and (max-width: 767px) {
+@media(max-width: 767px){
     nav{
         padding: 13px 32px;
     }
@@ -255,11 +223,9 @@ footer div.footer-text.notice {
 
     header h1{
         text-align: center;
-        font-family: Pretendard;
         font-size: 32px;
-        font-style: normal;
         font-weight: 700;
-        line-height: 42px; /* 131.25% */     
+        line-height: 42px;
         margin: 0;   
     }
 
@@ -267,11 +233,8 @@ footer div.footer-text.notice {
         width: 200px;
         height: 37px;
         padding: 10px 16px;
-        font-family: Pretendard;
         font-size: 14px;
-        font-style: normal;
         font-weight: 600;
-        line-height: normal;        
     }
 
     header img {
@@ -294,12 +257,9 @@ footer div.footer-text.notice {
         gap: 10px;
     }    
 
-    section h1{
-        font-family: Pretendard;
+    section h2{
         font-size: 24px;
-        font-style: normal;
         font-weight: 700;
-        line-height: normal;
         letter-spacing: -0.3px;        
     }
     

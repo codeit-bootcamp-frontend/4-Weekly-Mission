@@ -1,15 +1,16 @@
+@import "common.css";
+@import "reset.css";
+
 * {
     box-sizing: border-box;
 }
 
 body{
     background: var(--Lightblue);
-
     display:flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
-
     margin: 0;
     padding-top: 238px;
     padding-bottom: 252px;
@@ -31,13 +32,9 @@ div.signup-text{
 
 div.signup-text .signup-link{
     padding-bottom: 5px;
-    
     color: var(--purpleblue);
-    font-family: Pretendard;
     font-size: 16px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;    
 }
 
 form.signin-form{
@@ -47,11 +44,8 @@ form.signin-form{
 
 form.signin-form label{
     color: var(--black);
-    font-family: Pretendard;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;    
     align-items: flex-start;
 }
 
@@ -81,12 +75,8 @@ form.signin-form input#signin-button{
     margin-top: 30px;
     margin-bottom: 2px; /* flex-gap: 30px*/
     color: var(--Beigewhite);
-    font-family: Pretendard;
     font-size: 18px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;    
-
     cursor: pointer;
 }
 
@@ -97,7 +87,6 @@ div.sns-signin{
     justify-content: space-between;
     align-items: center;  
     padding: 12px 24px;
-
     border-radius: 8px;
     background: var(--Whitegray);    
     border: 1px solid var(--Lightgray);
@@ -105,11 +94,8 @@ div.sns-signin{
 
 div.sns-signin-text{
     color: var(--Darkblue-gray);
-    font-family: Pretendard;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;    
 }
 
 div.sns-signin-image{
@@ -120,23 +106,21 @@ div.sns-signin-image{
 div.sns-signin-image img{
     width: 42px;
     height: 42px;
-
     cursor: pointer;
 }
 
 /*pc*/
-@media(min-width: 1200px){
+/* @media(min-width: 1200px){
 
-}
+} */
 
 /*tablet*/
-@media(min-width: 768px){
+/* @media(min-width: 768px){
 
-
-}
+} */
 
 /*mobile*/
-@media (min-width: 375px) and (max-width: 767px) {
+@media(max-width: 767px){
     body {
         padding: 120px 32px 233px;
         width: 100%;
