@@ -33,7 +33,8 @@ export function signIn(emailInput, pwInput, emailError, pwError, pwOnOffImg) {
 }
 
 // 이메일 에러 검사 메서드
-// 작성 되었는지, 유효한 이메일인지 검사
+
+// 1. 작성 되었는지, 유효한 이메일인지 검사
 export function emailErrorCheck(inputElement, errorElement) {
   const emailValue = inputElement.value;
   if (!emailValue) {
@@ -44,6 +45,22 @@ export function emailErrorCheck(inputElement, errorElement) {
     inputBorderRed(inputElement, errorElement);
   } else {
     inputBorderGray(inputElement, errorElement);
+  }
+}
+// 2. 회원가입에서 사용중인 이메일인지 검사(1번 내용 포함)
+export function usingEmailCheck(emailInput, emailError) {
+  const emailValue = emailInput.value;
+  if (!emailValue) {
+    emailError.innerHTML = '이메일을 입력해 주세요.';
+    inputBorderRed(emailInput, emailError);
+  } else if (emailFormatCheck(emailValue) === false) {
+    emailError.innerHTML = '올바른 이메일 주소가 아닙니다.';
+    inputBorderRed(emailInput, emailError);
+  } else if (emailInput.value === 'test@codeit.com') {
+    emailError.innerHTML = '이미 사용중인 이메일 입니다.';
+    inputBorderRed(emailInput, emailError);
+  } else {
+    inputBorderGray(emailInput, emailError);
   }
 }
 

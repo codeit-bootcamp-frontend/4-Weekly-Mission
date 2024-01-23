@@ -23,5 +23,5 @@ pwInputRepeat.addEventListener('focus', function () {
 
 //focus out event
 emailInput.addEventListener('focusout', function () {
-  signFunctions.emailErrorCheck(emailInput, emailError);
+  signFunctions.usingEmailCheck(emailInput, emailError);
 });
