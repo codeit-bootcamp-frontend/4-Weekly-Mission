@@ -1,27 +1,20 @@
-@import url(color.css);
-
-* {
-  box-sizing: border-box;
-}
+@import url(../styles/common.css);
+@import url(../styles/color.css);
 
 body {
-  margin: 0;
-  background-color: var(--gray5);
+  background-color: var(--graybg);
   padding: 238px 0 117px;
   color: var(--black);
-  font-family: Pretendard;
-  font-size: 16px;
-  font-weight: 400;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 400px;
-  margin: 0 auto;
   gap: 30px;
 }
+
+/*********************
+        header
+*********************/
 
 .logo {
   cursor: pointer;
@@ -36,61 +29,62 @@ body {
   color: var(--primary);
   font-weight: 600;
   text-underline-position: under;
+  text-decoration : underline;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+/*********************
+      signup-form
+*********************/
+
+.signup-form {
   gap: 24px;
   width: 100%;
 }
 
-form label {
+.signup-form label {
   font-size: 14px;
   position: relative;
 }
 
-form input {
+.signup-form input {
   width: 100%;
-  color: #373740;
+  color: var(--gray100);
   padding: 18px 15px;
   margin-top: 12px;
   border-radius: 8px;
-  border: 1px solid var(--gray2);
+  border: 1px solid var(--gray60);
   background: var(--white);
 }
 
-form input:focus {
+.signup-form input::placeholder {
+  color: var(--gray60);
+}
+
+.signup-form input:focus {
   border: 1px solid var(--primary);
   outline: none;
 }
 
-#signup-password-check {
-  border: 1px solid var(--red);
-  margin-bottom: 6px;
-}
-
-.password-check {
-  color: var(--red);
-}
-
-label img {
+.eye-img {  
   position: absolute;
-  top: 50px;
-  right: 14px;
+  top: 48px;
+  right: 16px;
+  cursor: pointer;
 }
 
-button {
+.btn {
   width: 100%;
   padding: 16px 20px;
   color: #f5f5f5;
   font-size: 18px;
   font-weight: 600;
   background-image: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
-  border-radius: 8px;
   border: none;
-  cursor: pointer;
 }
+
+/*********************
+      social-login
+*********************/
 
 .social-login {
   width: 100%;
@@ -98,19 +92,18 @@ button {
   color: #373740;
   font-size: 14px;
   border-radius: 8px;
-  border: 1px solid var(--gray3);
-  background-color: var(--gray4);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  border: 1px solid var(--gray20);
+  background-color: var(--gray10);
 }
 
 .fast-travel {
-  display: flex;
-  align-items: center;
   gap: 16px;
   height: 44px;
 }
+
+/*********************
+        @media
+*********************/
 
 @media (max-width: 1200px) {
   body {
