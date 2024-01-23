@@ -8,6 +8,11 @@
 </head>
 <body> 
     로그인 or 회원가입 성공
+    <button class="logout" onclick="logout()">로그아웃</button>
+    <a href="index.html">메인 페이지로 이동</a>
+    <br>
+    <br>
+    <a href="signin.html">로그인 페이지로 이동</a>
     <!-- <header>
         <nav>
             <a href="index.html"><img src="./img/mainlogo.svg" alt="로고 이미지"></a>
@@ -21,5 +26,11 @@
         <div class="user-name">@코드잇</div>
         <div class="folder-name">⭐️즐겨찾기</div>
     </section> -->
+    <script>
+        function logout(){
+            localStorage.clear();
+            alert("로그아웃 성공 - 로그인 페이지로 이동 가능합니다!")
+        }
+    </script>
 </body>
 </html>

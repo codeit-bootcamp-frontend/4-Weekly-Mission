@@ -1,8 +1,11 @@
 import  {vaildEmail, vaildPW, focusOut} from "./vaild.js" 
-import { userInfo } from "./user-info.js";
+import { API_PATH_SIGNIN } from "./api-path.js";
 import { pwInputTypeChange } from "./pw-input-type.js";
+import { authCheck } from "./auth-check.js";
 
 window.onload = function(){
+    authCheck();
+    // localStorage.clear();
     const emailInput = document.querySelector(".signin--input--email")
     const pwInput = document.querySelector(".signin--input--password");
     const form = document.querySelector(".sigin__form");
@@ -11,12 +14,33 @@ window.onload = function(){
     const pwEyeIcon = document.querySelector(".fa-solid");
     
     // 로그인 함수
-    function login(){ 
-        if(emailInput.value === userInfo.email && pwInput.value === userInfo.pw){
-            location.href = '/folder.html';
-        }else{
-            emailError.textContent = "이메일을 확인해 주세요.";
-            pwError.textContent = "비밀번호를 확인해 주세요.";
+    async function login(){
+        const userInfo = {
+            email: emailInput.value,
+            password: pwInput.value
+        }
+        try{
+            const response = await fetch(API_PATH_SIGNIN, {
+                method : "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userInfo)
+            })
+            const result = await response.json();
+            if(response.ok){
+                localStorage.setItem("accessToken", result.data.accessToken);
+                localStorage.setItem("refreshToken", result.data.refreshToken);
+                location.href = "./folder.html";
+            }else{
+                emailError.style.display = "block";
+                pwError.style.display = "block";
+                emailError.textContent = "이메일을 확인해 주세요.";
+                pwError.textContent = "비밀번호를 확인해 주세요.";
+                console.error(result.error);
+            }
+        } catch(error){
+            console.log(error);
         }
     }
 
@@ -26,7 +50,7 @@ window.onload = function(){
     });
 
     // 포커스 아웃 이벤트
-    focusOut(emailInput, emailError, vaildEmail, false);
+    focusOut(emailInput, emailError, vaildEmail);
     focusOut(pwInput, pwError, vaildPW, false);
 
     // 비밀번호 인풋 타입 변경, 아이콘 변경
