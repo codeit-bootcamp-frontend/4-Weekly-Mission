@@ -24,15 +24,15 @@ const showErrorMsg = (e) => {
 };
 
 const moveFolderPage = (e) => {
-  const email = emailInput.value;
-  const password = passwordInput.value;
+  const isEmailValid = emailInput.value === EMAIL;
+  const isPasswordValid = passwordInput.value === PASSWORD;
 
-  if (email === EMAIL && password === PASSWORD) {
+  if (isEmailValid && isPasswordValid) {
     location.href = "folder.html";
   }
 
-  emailMsgBox.innerHTML = email !== EMAIL ? "이메일을 확인해 주세요." : "";
-  passwordMsgBox.innerHTML = password !== PASSWORD ? "비밀번호를 확인해 주세요." : "";
+  emailMsgBox.innerHTML = !isEmailValid ? "이메일을 확인해 주세요." : "";
+  passwordMsgBox.innerHTML = !isPasswordValid ? "비밀번호를 확인해 주세요." : "";
   changeInputColor();
 };
 
