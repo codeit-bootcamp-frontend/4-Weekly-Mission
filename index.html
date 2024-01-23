@@ -2,27 +2,46 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <title>Linkbrary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta property="og:title" content="Linkbrary" key="title" />
   <meta
     name="description"
-    content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요">
-  <link rel="stylesheet" href="./style.css">
-  <title>Linkbrary</title>
+    property="og:description"
+    content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+    key="description"
+  />
+  <meta
+    property="og:image"
+    content="https://visitbusan.net/uploadImgs/files/cntnts/20211130150754165_wufrotr"
+    key="image"
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@linkbrary" />
+  <meta name="twitter:title" content="Linkbrary" />
+  <meta name="twitter:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
+  <meta
+    name="twitter:image"
+    content="https://visitbusan.net/uploadImgs/files/cntnts/20211130150754165_wufrotr"
+  />
+  <link rel="stylesheet" href="./css/main-style.css">
+
 </head>
 
 <body>
 
   <nav>
     <div class="nav">
-          <a class="logo" href="./index.html">
-            <img src="./img/logo.jpg">
-          </a>
-          <a class="signin" href="./signin/index.html"><span>로그인</span></a>
+      <a class="logo" href="./index.html">
+        <img src="./img/logo.svg" alt="홈으로 연결된 Linkbrary 로고">
+      </a>
+      <a class="signin" href="./signin.html">
+        <span>로그인</span>
+      </a>
     </div>
   </nav>
 
-  <main>
-
+  <header>
     <section class="section1">
       <div class="h1">
         <p>
@@ -31,13 +50,15 @@
         </p>
       </div>
       <div class="link_add">
-        <a href="./signup/index.html">
+        <a href="./signup.html">
           링크 추가하기
         </a>
       </div>
-        <img src="./img/section1.png">
+        <img src="./img/section1.png" alt="Linkbrary 서비스 소개">
     </section>
+  </header>
 
+  <article>
     <section class="section2">
       <div class="section_content">
         <div class="section2_title">
@@ -52,7 +73,7 @@
           </p>
         </div>
         <div>
-          <img src="./img/section2.png">
+          <img src="./img/section2.png" alt="링크의 내용이 담긴 카드들">
         </div>
       </div>
     </section>
@@ -60,7 +81,7 @@
     <section class="section3">
       <div class="section_content">
         <div>
-          <img src="./img/section3.png">
+          <img src="./img/section3.png" alt="폴더 이름 변경 기능">
         </div>
         <div class="section3_title">
           <h2>
@@ -89,7 +110,7 @@
           </p>
         </div>
         <div>
-          <img src="./img/section4.png">
+          <img src="./img/section4.png" alt="폴더 공유 기능">
         </div>
       </div>
     </section>
@@ -97,7 +118,7 @@
     <section class="section5">
       <div class="section_content">
         <div>
-          <img src="./img/section5.png">
+          <img src="./img/section5.png" alt="링크 검색 기능">
         </div>
         <div class="section5_title"> 
           <h2>
@@ -110,8 +131,7 @@
         </div>  
       </div>
     </section>
-
-  </main>
+  </article>
 
   <footer>
     <div class="footer">
@@ -121,24 +141,24 @@
         </div>
         <div class="center">
           <div>
-          <a href="/privacy">Privacy Policy</a>
+          <a href="./privacy.html">Privacy Policy</a>
           </div>
           <div>
-          <a href="/faq">FAQ</a>
+          <a href="./faq.html">FAQ</a>
           </div>
         </div>
         <div>
           <a href="https://www.facebook.com">
-            <img src="./img/facebook.png">
+            <img src="./img/facebook.png" alt="facebook 홈페이지로 연결된 facebook 로고">
           </a>
           <a href="https://www.twitter.com">
-            <img src="./img/twitter.png">
+            <img src="./img/twitter.png" alt="twitter 홈페이지로 연결된 twitter 로고">
           </a>
           <a href="https://www.youtube.com">
-            <img src="./img/youtube.png">
+            <img src="./img/youtube.png" alt="youtube 홈페이지로 연결된 youtube 로고">
           </a>
           <a href="https://www.instagram.com">
-            <img src="./img/instagram.png">
+            <img src="./img/instagram.png" alt="instagram 홈페이지로 연결된 instagram 로고">
           </a>
         </div>
       </div>
