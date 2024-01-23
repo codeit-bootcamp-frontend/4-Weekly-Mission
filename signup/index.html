@@ -32,40 +32,41 @@
       </div>
     </div>
 
-    <form class="form-sign">
-      <label class="form-sign__label">
-        이메일
-        <input class="form-sign__input" name="email" type="email" />
-      </label>
-      <label class="form-sign__label">
-        비밀번호
+    <form class="sign">
+      <div class="w-full">
+        <label class="sign-label" for="email"> 이메일</label>
+        <input id="input-email" class="sign-input" name="email" type="email" />
+        <p id="error-email" class="error-message hidden">에러 메시지</p>
+      </div>
+      <div class="w-full">
+        <label class="sign-label" for="password"> 비밀번호</label>
         <div class="password-input-wrap">
-          <input class="form-sign__input" name="password" type="text" />
-          <button class="btn button-eye on" type="button">
-            <img class="icon-eye-on" src="../public/icon/eye-on.svg" />
+          <input id="input-password" class="sign-input" name="password" type="password" />
+          <button class="btn btn-eye" type="button">
+            <img class="icon-eye" src="../public/icon/eye-off.svg" />
           </button>
         </div>
-      </label>
-      <label class="form-sign__label">
-        비밀번호 확인
+        <p id="error-password" class="error-message hidden">에러 메시지</p>
+      </div>
+      <div class="w-full">
+        <label class="sign-label" for="password-check"> 비밀번호 확인</label>
         <div class="password-input-wrap">
-          <input class="form-sign__input" name="password" type="text" />
-          <button class="btn button-eye on" type="button">
-            <img class="icon-eye" src="../public/icon/eye-on.svg" />
+          <input id="input-password-check" class="sign-input" name="password-check" type="password" />
+          <button class="btn btn-eye" type="button">
+            <img class="icon-eye" src="../public/icon/eye-off.svg" />
           </button>
         </div>
-      </label>
+        <p id="error-password-check" class="error-message hidden">에러 메시지</p>
+      </div>
+      <button class="btn btn-login btn-color-primary text-grey-light" type="button">로그인</button>
     </form>
 
-    <section class="button-wrap">
-      <button class="btn btn-login btn-color-1" type="button">로그인</button>
-      <div class="social">
-        소셜 로그인
-        <div class="social-icons">
-          <a href="https://www.google.com/"><img src="../public/icon/google.svg" /></a>
-          <a href="https://www.kakaocorp.com/page/"><img src="../public/icon/Kakao.svg" /></a>
-        </div>
+    <div class="social-login">
+      소셜 로그인
+      <div class="social-icons">
+        <a href="https://www.google.com/"><img src="../public/icon/google.svg" /></a>
+        <a href="https://www.kakaocorp.com/page/"><img src="../public/icon/Kakao.svg" /></a>
       </div>
-    </section>
+    </div>
   </body>
 </html>

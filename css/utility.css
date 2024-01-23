@@ -47,8 +47,11 @@
 
 /* btn, 폰트 색상 */
 
-.btn-color-1 {
+.text-grey-light {
   color: var(--Grey-Light, #f5f5f5);
+}
+
+.btn-color-primary {
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
 }
 
@@ -71,4 +74,16 @@
   .btn-addlink {
     width: 35rem;
   }
+}
+
+.hidden {
+  display: none;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.p-relative {
+  position: relative;
 }
