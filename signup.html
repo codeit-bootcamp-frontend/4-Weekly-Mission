@@ -71,24 +71,27 @@
         </div>
         <form class="sign__form">
           <div class="sign__form--email">
-            <label for="signin-email">이메일</label>
-            <input type="email" name="signin-email" id="signin-email" />
+            <label for="signup-email">이메일</label>
+            <input type="email" name="signup-email" id="signup-email" />
+            <div class="email__error-msg" id="email__error-msg"></div>
           </div>
           <div class="sign__form--pw">
-            <label for="signin-pw">비밀번호</label>
-            <input type="password" name="signin-pw" id="signin-pw" />
+            <label for="signup-pw">비밀번호</label>
+            <input type="password" name="signup-pw" id="signup-pw" />
+            <div class="pw__error-msg" id="pw__error-msg"></div>
             <img src="./icons/eyesoff.png" alt="eyesoff" class="pw-onoff" id="pw-onoff">
           </div>
           <div class="sign__form--pw2">
-            <label for="signin-pw-repeat">비밀번호 확인</label>
+            <label for="signup-pw-repeat">비밀번호 확인</label>
             <input
               type="password"
-              name="signin-pw-repeat"
-              id="signin-pw-repeat"
+              name="signup-pw-repeat"
+              id="signup-pw-repeat"
             />
+            <div class="pw-repeat__error-msg" id="pw-repeat__error-msg"></div>
             <img src="./icons/eyesoff.png" alt="eyesoff" class="pw-onoff" id="pw-onoff">
           </div>
-          <button class="sign__form--button" id="signin-button">
+          <button class="sign__form--button" id="signup-button">
             회원가입
           </button>
         </form>
@@ -152,5 +155,5 @@
       </section>
     </main>
   </body>
-  <script src="signin.js"></script>
+  <script type="module" src="./signup.js"></script>
 </html>

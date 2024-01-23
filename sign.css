@@ -103,7 +103,8 @@ body {
   gap: 12px;
 }
 .email__error-msg,
-.pw__error-msg {
+.pw__error-msg,
+.pw-repeat__error-msg {
   display: none;
   color: var(--Linkbrary-red, #ff5b56);
   font-family: 'Pretendard';
