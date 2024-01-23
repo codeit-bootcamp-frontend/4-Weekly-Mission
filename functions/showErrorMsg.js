@@ -2,6 +2,7 @@ import { changeInputColor } from "./changeInputColor.js";
 import { emailMsg, passwordMsg, passwordCheckMsg, passwordInput } from "../elements.js";
 import { isValidEmail, isValidPassword } from "../utils/validator.js";
 import { isUseAlready } from "./isUseAlready.js";
+import { isCheckPassword } from "./isCheckPassword.js";
 
 export const showErrorMsgSignin = (e) => {
   const { value, classList } = e.target;
@@ -30,7 +31,7 @@ export const showErrorMsgSignup = (e) => {
     passwordMsg.innerHTML = errorMsg;
   } else if (classList.contains("input-pw-check")) {
     if (value) {
-      if (value === passwordInput.value) {
+      if (isCheckPassword(value)) {
         passwordCheckMsg.classList.add("hidden");
       } else {
         passwordCheckMsg.classList.remove("hidden");
