@@ -1,4 +1,4 @@
-import { isValidEmail } from "./utils/validator.js";
+import { isValidEmail, isValidPassword } from "./utils/validator.js";
 import { EMAIL, PASSWORD } from "./auth.js";
 
 const form = document.querySelector(".fm-input-wrap");
@@ -6,8 +6,10 @@ const btn = document.querySelector(".btn-submit");
 
 const emailMsgBox = document.querySelector(".error-email");
 const passwordMsgBox = document.querySelector(".error-pw");
+const passwordCheckMsg = document.querySelector(".error-pw-check");
 const emailInput = document.querySelector(".input-email");
 const passwordInput = document.querySelector(".input-pw");
+const passwordCheck = document.querySelector(".input-pw-check");
 
 const showErrorMsg = (e) => {
   const { value, name, classList } = e.target;
@@ -15,10 +17,22 @@ const showErrorMsg = (e) => {
   if (name === "email") {
     if (!value) errorMsg = "이메일을 입력해 주세요.";
     else if (!isValidEmail(value)) errorMsg = "올바른 이메일 주소가 아닙니다.";
+    else if (value === EMAIL) errorMsg = "이미 사용 중인 이메일입니다.";
     emailMsgBox.innerHTML = errorMsg;
   } else if (classList.contains("input-pw")) {
-    errorMsg = value ? "" : "비밀번호를 확인해 주세요.";
+    if(!isValidPassword(value)) errorMsg = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
     passwordMsgBox.innerHTML = errorMsg;
+  } else if (classList.contains("input-pw-check")) {
+    if(value){
+      if (passwordInput.value === value) {
+        passwordCheckMsg.classList.add("hidden");
+      } else {
+        passwordCheckMsg.classList.remove("hidden");
+      }
+    }else{
+      passwordCheckMsg.classList.add("hidden");
+    }
+    
   }
   changeInputColor();
 };
@@ -43,7 +57,7 @@ const enter = ({ key }) => {
 };
 
 const showPassword = ({ target }) => {
-  const password = document.querySelector(".input-pw");
+  const password = target.previousElementSibling;
   const { classList } = target;
   if (classList.contains("img-eye")) {
     classList.toggle("active");
@@ -59,4 +73,5 @@ form.addEventListener("click", showPassword);
 function changeInputColor() {
   emailMsgBox.innerHTML ? emailInput.classList.add("error") : emailInput.classList.remove("error");
   passwordMsgBox.innerHTML ? passwordInput.classList.add("error") : passwordInput.classList.remove("error");
+  passwordCheckMsg.classList.contains('hidden') ? passwordCheck.classList.remove("error") : passwordCheck.classList.add("error");
 }
