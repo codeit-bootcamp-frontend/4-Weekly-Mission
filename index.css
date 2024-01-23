@@ -4,7 +4,7 @@
 
 /*nav*/
 nav {
-    background: var(--Linkbrary-bg);
+    background: var(--Lightblue);
     display: flex;
     padding: 20px 200px;
     justify-content: space-between;
@@ -39,7 +39,7 @@ a{
     border-radius: 8px;
     background: var(--gra-purpleblue-to-skyblue);
 
-    color: var(--Grey-Light, #F5F5F5);
+    color: var(--Beigewhite);
     font-family: Pretendard;
     font-size: 18px;
     font-style: normal;
@@ -51,7 +51,7 @@ a{
 
 /*header*/
 header{
-    background: var(--Linkbrary-bg);
+    background: var(--Lightblue);
 
     display: flex;
     flex-direction: column;
@@ -70,7 +70,7 @@ header h1{
 }
 
 header h1 span{
-    background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+    background: var(--gra-purpleblue-to-babypink);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;    
@@ -115,14 +115,14 @@ section h1{
 }
 
 .section1 span{
-    background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+    background: var(--gra-pink-to-grayblue);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;    
 }
 
 section p{
-    color: #6B6B6B;
+    color: var(--gray);
     font-family: Abel;
     font-size: 16px;
     font-style: normal;
@@ -148,7 +148,7 @@ section.section1{
 }
 
 .section2 span{
-    background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+    background: var(--gra-skyblue-to-yellow);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -160,7 +160,7 @@ section.section1{
 }
 
 .section3 span{
-    background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+    background: var(--gra-grayblue-to-black);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -179,7 +179,7 @@ section.section1{
 }
 
 .section4 span{
-    background: var(--Fandom-K-gra-blue-to-pink);
+    background: var(--gra-blue-to-pink);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -199,7 +199,7 @@ footer{
     height: 64px;
     padding: 32px 104px 64px 104px;
 
-    background: var(--The-julge-black);
+    background: var(--Darkblue-black);
 
     display: flex;
     justify-content: space-between;
@@ -207,7 +207,7 @@ footer{
 }
 
 footer div.footer-text {
-    color: #676767;
+    color: var(--Moregray);
     text-align: center;
     font-family: Acme;
     font-size: 16px;

@@ -3,7 +3,7 @@
 }
 
 body{
-    background: var(--Linkbrary-bg);
+    background: var(--Lightblue);
 
     display:flex;
     flex-direction: column;
@@ -32,7 +32,7 @@ div.signup-text{
 div.signup-text .signup-link{
     padding-bottom: 5px;
     
-    color: var(--Linkbrary-primary-color);
+    color: var(--purpleblue);
     font-family: Pretendard;
     font-size: 16px;
     font-style: normal;
@@ -59,15 +59,15 @@ form.signin-form input{
     width: 370px;
     padding: 18px 15px;
     border-radius: 8px;
-    border: 1px solid var(--Linkbrary-primary-color-2);
-    background: var(--Linkbrary-white);    
+    border: 1px solid var(--Lightgray);
+    background: var(--Blusherwhite);    
     margin-top: 12px;
     margin-bottom: 24px;
     align-items: center;
 }
 
 form.signin-form input:focus{
-    border: 1px solid var(--Linkbrary-primary-color);
+    border: 1px solid var(--purpleblue);
 }
 
 form.signin-form input#password-box{
@@ -80,7 +80,7 @@ form.signin-form input#signin-button{
     background: var(--gra-purpleblue-to-skyblue);    
     margin-top: 30px;
     margin-bottom: 2px; /* flex-gap: 30px*/
-    color: var(--Grey-Light);
+    color: var(--Beigewhite);
     font-family: Pretendard;
     font-size: 18px;
     font-style: normal;
@@ -99,12 +99,12 @@ div.sns-signin{
     padding: 12px 24px;
 
     border-radius: 8px;
-    background: var(--Linkbrary-gray10);    
-    border: 1px solid var(--Linkbrary-gray20);
+    background: var(--Whitegray);    
+    border: 1px solid var(--Lightgray);
 }
 
 div.sns-signin-text{
-    color: var(--Linkbrary-gray100);
+    color: var(--Darkblue-gray);
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
