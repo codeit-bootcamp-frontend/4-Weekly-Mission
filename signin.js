@@ -36,16 +36,17 @@ const moveFolderPage = (e) => {
   changeInputColor();
 };
 
-const enter = (e) => {
-  if (e.key === "Enter") {
+const enter = ({key}) => {
+  if (key === "Enter") {
     moveFolderPage();
   }
 };
 
-const showPassword = (e) => {
+const showPassword = ({ target }) => {
   const password = document.querySelector(".input-pw");
-  if (e.target.classList.contains("img-eye")) {
-    e.target.classList.toggle("active");
+  const { classList } = target;
+  if (classList.contains("img-eye")) {
+    classList.toggle("active");
     password.type = password.type === "password" ? "text" : "password";
   }
 };
