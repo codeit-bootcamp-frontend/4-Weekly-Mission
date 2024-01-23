@@ -25,3 +25,7 @@ pwInputRepeat.addEventListener('focus', function () {
 emailInput.addEventListener('focusout', function () {
   signFunctions.usingEmailCheck(emailInput, emailError);
 });
+
+pwInput.addEventListener('focusout', function () {
+  signFunctions.signupPasswordErrorCheck(pwInput, pwError, pwOnOffImg[0]);
+});

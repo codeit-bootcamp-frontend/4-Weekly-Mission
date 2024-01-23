@@ -90,3 +90,16 @@ export function passwordVisibleSwitch(isPasswordVisible, pwOnOffImg, pwInput) {
     isPasswordVisible[0] = false;
   }
 }
+
+//회원가입 비밀번호 값 에러 확인 메서드
+export function signupPasswordErrorCheck(pwInput, pwError, pwOnOffImg) {
+  const pwValue = pwInput.value;
+  if (pwValue.length < 8 || Number(pwValue) || /^[a-zA-Z]+$/.test(pwValue)) {
+    pwError.innerHTML = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
+    pwOnOffImg.style.bottom = '2.9375rem';
+    inputBorderRed(pwInput, pwError);
+  } else {
+    pwOnOffImg.style.bottom = '1.1875rem';
+    inputBorderGray(pwInput, pwError);
+  }
+}
