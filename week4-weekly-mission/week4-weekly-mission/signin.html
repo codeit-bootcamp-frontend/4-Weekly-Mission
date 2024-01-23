@@ -16,7 +16,6 @@
     <script src="function.js"></script>
 </head>
 <body>
-    
     <main>
         <div class="login">
             <div class="frame1">
@@ -34,19 +33,23 @@
                 <div class="frameemail">
                     <span id="info">이메일</span>
                     <input type="id" id="inputid" placeholder="id">
+                    <span class="idalert"></span>
                 </div>
+                
                 <div class="framepassword">
                     <span id="info">비밀번호</span>
                     <div class="password-container">
                         <input type="password" id="inputpassword" placeholder="비밀번호">
                         <img src="./imglogin/eye-off.jpg" id="togglePassword" style="cursor: pointer;" />
                     </div>
+                    <span class="passwordalert"></span>
                 </div>
+                
             </div>
             <div class="loginbutton">
-                <a href="./" style="text-decoration: none;">
-                    <button>로그인</button>
-                </a>
+                <button style="text-decoration: none;" class="loginbtn" >
+                    로그인
+                </button>
             </div>
             <div class="footerframe">
                 <span>소셜 로그인</span>

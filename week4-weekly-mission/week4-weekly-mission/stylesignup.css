@@ -1,0 +1,763 @@
+* {
+    box-sizing: border-box;
+  }
+body{
+    margin:0;
+}
+/*mobile*/
+@media (min-width:375px) and (max-width:767px){
+    main{
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background: var(--Linkbrary-bg, #F0F6FF);
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+    .login{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        max-width: 400px;
+        width:100%;
+    }
+    .frame1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .frame2{
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .frame2 span{
+        color: var(--black, #000);
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px; 
+    }
+    .frame2 a{
+        color: var(--Linkbrary-primary-color, #6D6AFE);
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    .framelogin{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        width:100%;
+    }
+    
+    .frameemail{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        width:100%;
+    }
+    .framepassword{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width:100%;
+    }
+    .confirmpassword{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width:100%;
+    }
+    #info{
+        color: var(--black, #000);
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .password-container {
+        position: relative;
+    }
+    #inputid, #inputpassword,#inputconfirm{
+        display: flex;
+        width: 100%;
+        padding: 18px 15px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+        background: var(--Linkbrary-white, #FFF);
+    }
+    .password-container img {
+        position: absolute;
+        right: 20px;
+        top: 19px;
+        width: 16px; 
+        height: 16px;
+    }
+    
+    #confirm{
+        color: var(--Linkbrary-red, #FF5B56);
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .loginbutton{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width:100%;
+    }
+    .loginbutton button{
+        display: flex;
+        width: 100%;
+        padding: 16px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        border:none;
+        background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+        color: var(--Grey-Light, #F5F5F5);
+        font-family: Pretendard;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    .footerframe{
+        display: flex;
+        width: 100%;
+        padding: 12px 24px;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 8px;
+        border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+        background: var(--Linkbrary-gray10, #E7EFFB);
+    }
+    .footerframe span{
+        color: var(--Linkbrary-gray100, #373740);
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .social{
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 16px;
+    }
+    .input-container {
+        position: relative;
+        width: 42px;  
+        height: 42px; 
+        display: flex;
+    }
+    #googletopimg,#googlebottomimg{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        
+    }
+    #googletopimg{
+        position: absolute;
+        z-index:1;
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+    }
+    #kakaotopimg,#kakaobottomimg{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    #kakaotopimg{
+        width: 26px;
+        height: 24px;
+        flex-shrink: 0;
+        position: absolute;
+        z-index:1;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+    }
+}
+/*tablet*/
+@media (min-width:768px) and (max-width:1199px){
+    main{
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background: var(--Linkbrary-bg, #F0F6FF);
+    }
+    .login{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .frame1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .frame2{
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .frame2 span{
+        color: var(--black, #000);
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px; 
+    }
+    .frame2 a{
+        color: var(--Linkbrary-primary-color, #6D6AFE);
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    .framelogin{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+    
+    .frameemail{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .framepassword{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .confirmpassword{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    #info{
+        color: var(--black, #000);
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .password-container {
+        position: relative;
+    }
+    #inputid, #inputpassword,#inputconfirm{
+        display: flex;
+        width: 400px;
+        padding: 18px 15px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+        background: var(--Linkbrary-white, #FFF);
+    }
+    .password-container img {
+        position: absolute;
+        right: 20px;
+        top: 19px;
+        width: 16px; 
+        height: 16px;
+    }
+    
+    #confirm{
+        color: var(--Linkbrary-red, #FF5B56);
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .loginbutton{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .loginbutton button{
+        display: flex;
+        width: 400px;
+        padding: 16px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        border:none;
+        background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+        color: var(--Grey-Light, #F5F5F5);
+        font-family: Pretendard;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    .footerframe{
+        display: flex;
+        width: 400px;
+        padding: 12px 24px;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 8px;
+        border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+        background: var(--Linkbrary-gray10, #E7EFFB);
+    }
+    .footerframe span{
+        color: var(--Linkbrary-gray100, #373740);
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .social{
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 16px;
+    }
+    .input-container {
+        position: relative;
+        width: 42px;  
+        height: 42px; 
+        display: flex;
+    }
+    #googletopimg,#googlebottomimg{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        
+    }
+    #googletopimg{
+        position: absolute;
+        z-index:1;
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+    }
+    #kakaotopimg,#kakaobottomimg{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    #kakaotopimg{
+        width: 26px;
+        height: 24px;
+        flex-shrink: 0;
+        position: absolute;
+        z-index:1;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+    }
+}
+/*pc*/
+@media(min-width:1200px){
+    main{
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        background: var(--Linkbrary-bg, #F0F6FF);
+    }
+    .login{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .frame1{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .frame2{
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    .frame2 span{
+        color: var(--black, #000);
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px; 
+    }
+    .frame2 a{
+        color: var(--Linkbrary-primary-color, #6D6AFE);
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    .framelogin{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+    }
+    
+    .frameemail{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .framepassword{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .confirmpassword{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    #info{
+        color: var(--black, #000);
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .password-container {
+        position: relative;
+    }
+    #inputid, #inputpassword,#inputconfirm{
+        display: flex;
+        width: 400px;
+        padding: 18px 15px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+        background: var(--Linkbrary-white, #FFF);
+    }
+    .password-container img {
+        position: absolute;
+        right: 20px;
+        top: 19px;
+        width: 16px; 
+        height: 16px;
+    }
+    
+    #confirm{
+        color: var(--Linkbrary-red, #FF5B56);
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .loginbutton{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+    .loginbutton button{
+        display: flex;
+        width: 400px;
+        padding: 16px 20px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        border:none;
+        background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+        color: var(--Grey-Light, #F5F5F5);
+        font-family: Pretendard;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+    .footerframe{
+        display: flex;
+        width: 400px;
+        padding: 12px 24px;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 8px;
+        border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+        background: var(--Linkbrary-gray10, #E7EFFB);
+    }
+    .footerframe span{
+        color: var(--Linkbrary-gray100, #373740);
+        font-family: Pretendard;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .social{
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 16px;
+    }
+    .input-container {
+        position: relative;
+        width: 42px;  
+        height: 42px; 
+        display: flex;
+    }
+    #googletopimg,#googlebottomimg{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        
+    }
+    #googletopimg{
+        position: absolute;
+        z-index:1;
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+    }
+    #kakaotopimg,#kakaobottomimg{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    }
+    #kakaotopimg{
+        width: 26px;
+        height: 24px;
+        flex-shrink: 0;
+        position: absolute;
+        z-index:1;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, -50%);
+    }
+    
+}
+/*
+main{
+    display: flex;
+    width: 100%;
+    padding: 238px 0px 116px 0px;
+    justify-content: center;
+    align-items: center;
+    background: var(--Linkbrary-bg, #F0F6FF);
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+.frame1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.frame2{
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+.frame2 span{
+    color: var(--black, #000);
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; 
+}
+.frame2 a{
+    color: var(--Linkbrary-primary-color, #6D6AFE);
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.framelogin{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.frameemail{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+.framepassword{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+.confirmpassword{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+#info{
+    color: var(--black, #000);
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.password-container {
+    position: relative;
+}
+#inputid, #inputpassword,#inputconfirm{
+    display: flex;
+    width: 400px;
+    padding: 18px 15px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+    background: var(--Linkbrary-white, #FFF);
+}
+.password-container img {
+    position: absolute;
+    right: 20px;
+    top: 19px;
+    width: 16px; 
+    height: 16px;
+}
+
+#confirm{
+    color: var(--Linkbrary-red, #FF5B56);
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.loginbutton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+.loginbutton button{
+    display: flex;
+    width: 400px;
+    padding: 16px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 8px;
+    border:none;
+    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+    color: var(--Grey-Light, #F5F5F5);
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+.footerframe{
+    display: flex;
+    width: 400px;
+    padding: 12px 24px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+    background: var(--Linkbrary-gray10, #E7EFFB);
+}
+.social{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 16px;
+}
+.input-container {
+    position: relative;
+    width: 42px;  
+    height: 42px; 
+    display: flex;
+}
+#googletopimg,#googlebottomimg{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    
+}
+#googletopimg{
+    position: absolute;
+    z-index:1;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
+#kakaotopimg,#kakaobottomimg{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+#kakaotopimg{
+    width: 26px;
+    height: 24px;
+    flex-shrink: 0;
+    position: absolute;
+    z-index:1;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+}
