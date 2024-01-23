@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,26 +28,45 @@
             </div>
           </div>
         </div>
-        <form action="">
+        <form id="signForm" action="/folder" method="post">
           <div class="inputs">
             <div class="input-container">
               <label for="email">이메일</label>
-              <div class="input-background">
-                <input type="email" name="email" id="email" />
+              <div class="input-box">
+                <div class="input-background">
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    data-type="email"
+                    required
+                  />
+                </div>
+                <div class="input-message"></div>
               </div>
             </div>
             <div class="input-container">
               <label for="password">비밀번호</label>
-              <div class="input-background">
-                <input type="password" name="password" id="password" />
-                <img
-                  src="/images/sign/eye_off.svg"
-                  alt="비밀번호 숨기기 이미지"
-                />
+              <div class="input-box">
+                <div class="input-background">
+                  <input
+                    type="password"
+                    name="password"
+                    data-type="password"
+                    required
+                  />
+                  <img
+                    src="/images/sign/eye_off.svg"
+                    class="input-blind-toggle"
+                    data-type="on"
+                    alt="비밀번호 숨기기 이미지"
+                  />
+                </div>
+                <div class="input-message"></div>
               </div>
             </div>
           </div>
-          <a href="" class="btn-link">로그인</a>
+          <button type="submit" class="btn-link">로그인</button>
         </form>
       </div>
       <div class="footer">
@@ -65,5 +84,6 @@
         </div>
       </div>
     </div>
+    <script src="/js/sign.js"></script>
   </body>
 </html>

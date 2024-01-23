@@ -98,6 +98,12 @@ body {
   line-height: normal;
 }
 
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.38rem;
+}
+
 .input-background {
   position: relative;
 }
@@ -109,6 +115,7 @@ body {
   top: 0;
   bottom: 0;
   margin: auto 0.94rem;
+  cursor: pointer;
 }
 
 .input-container input {
@@ -131,9 +138,28 @@ body {
   background-color: var(--Linkbrary-white);
 }
 
+.input-container input.error {
+  outline: 0.06rem solid var(--Linkbrary-red);
+}
+
+.input-message {
+  display: none;
+  font-size: 0.88rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.input-message.error {
+  display: block;
+  color: var(--Linkbrary-red);
+}
+
 form .btn-link {
   font-size: 1.13rem;
   padding: 1.25rem 1rem;
+  width: 100%;
+  border: none;
 }
 
 .footer {
