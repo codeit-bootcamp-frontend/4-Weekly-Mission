@@ -78,8 +78,17 @@ header a {
   line-height: 150%;
 }
 
-.sign-input:focus {
+.input-box input:focus {
   border-color: var(--primary);
+}
+
+input.error {
+  border-color: var(--red);
+}
+
+.error-message {
+  color: var(--red);
+  font-size: 1.4rem;
 }
 
 .sign-password {
@@ -88,7 +97,7 @@ header a {
 
 .eye-button {
   position: absolute;
-  bottom: 2.2rem;
+  top: 5rem;
   right: 1.6rem;
   width: 1.6rem;
   height: 1.6rem;
