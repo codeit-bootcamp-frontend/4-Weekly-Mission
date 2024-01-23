@@ -7,7 +7,8 @@ const eyeIcon = document.querySelector(".eye-icon");
 
 /* 이메일 유효성 검사 */
 const isValidEmail = () => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex =
+    /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
   if (email.value === "") {
     emailError.innerHTML = "이메일을 입력해 주세요.";
   } else if (!emailRegex.test(email.value)) {
