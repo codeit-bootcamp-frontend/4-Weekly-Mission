@@ -1,0 +1,51 @@
+/* 공통요소 */
+
+* {
+   box-sizing: border-box;
+}
+
+
+html {
+   font-family: acme, 'Noto Sans KR', sans-serif;
+   font-size: 62.5%;
+}
+
+:root {
+   --LBrary-Primary-color: #6D6AFE;
+   --LBrary-Red: #FF5B56;
+   --LBrary-Black: #111322;
+   --LBrary-White: #ffffff;
+   --LBrary-SkyBlue: #6AE3FE;
+   --LBrary-Gray100: #3E3E43; 
+   --LBrary-Gray60: #9FA6B2;
+   --LBrary-Gray20: #CCD5e3;
+   --LBrary-Gray10: #E7EFFB;
+   --LBrary-GrayLight: #f5f5f5;
+   --LBrary-Background: #f0f6ff;
+   --Gra-Primary-to-Skyblue: linear-gradient(91deg, var(--LBrary-Primary-color) 0.12%, var(--LBrary-SkyBlue) 101.84%);
+}
+
+
+body {
+   background-color: var(--LBrary-Background);
+}
+
+.buttonBasicStyle {
+   display: flex;
+   color: var(--LBrary-GrayLight);
+   font-size: 1.8rem;
+   font-weight: 600;
+   padding: 16px 20px;
+   border: none;
+   border-radius: 8px;
+   background: var(--Gra-Primary-to-Skyblue);
+   justify-content: center;
+   align-items: center;
+   text-decoration: none;
+   line-height: 100%;
+}
+
+button:hover {
+   cursor: pointer;
+   
+}
