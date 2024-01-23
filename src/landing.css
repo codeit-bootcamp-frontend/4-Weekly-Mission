@@ -24,6 +24,7 @@ nav{
   top: 0;
   width: 100%;
   background-color: #edf7ff;
+  
 }
 
 .gnb{
@@ -32,8 +33,10 @@ nav{
   align-items: center;
   width: 100%;
   height: 94px;
-  padding: 20px 200px;
-  
+  padding: 0 200px;
+  @media (min-width: 365px) and (max-width: 1199px) {
+    padding: 0 32px;
+  }
 }
 
 .cta-a {
@@ -65,6 +68,16 @@ header {
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  padding-top: 70px;
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    padding-top: 40px;
+  }
+
+  @media (min-width: 365px) and (max-width: 767px) {
+    padding-top: 28px;
+    gap: 24px;
+  }
 }
 
 .header-title {
@@ -72,7 +85,11 @@ header {
   font-size: 64px;
   font-weight: 700;
   line-height: 80px;
+  width: 800px;
   margin: 0;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: 500px;
+  }
 }
 
 .header-GR {
@@ -101,8 +118,14 @@ header {
 .header-img {
   width: 1200px;
   height: 590px;
-
-
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: 698px;
+    height: 343px;
+  }
+  @media (min-width: 365px) and (max-width: 767px) {
+    width: 100%;
+    height: fit-content;
+  }
 }
 
 .title {
@@ -113,12 +136,16 @@ header {
   margin: 0;
 }
 
+.content-box {
+  padding-top: 70px;
+}
+
 .content-A {
   display: grid;
   justify-content: center;
   width: 100%;
   height: 550px;
-  padding: 120px 461px 50px 461px;
+  padding: 50px 0;
   column-gap: 157px;
   grid-template-columns: 291px 550px;
   grid-template-areas: 
@@ -127,6 +154,17 @@ header {
     "D I"
     ". I";
 
+  @media (min-width: 768px) and (max-width: 1199px) {
+    height: 415px;
+    column-gap: 51px;
+    grid-template-columns: 291px 415px;
+  }
+    @media (min-width: 365px) and (max-width: 767px) {
+    grid-template-areas:
+      "T"
+      "I"
+      "D";
+  }
 }
 
 .content-A-GR {
@@ -138,7 +176,6 @@ header {
 
 .description {
   color: #6B6B6B;
-  font-family: 'Abel', sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
@@ -150,6 +187,10 @@ header {
   width: 550px;
   height: 450px;
   grid-area: I;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: 385px;
+    height: 315px;
+  }
 }
 
 .content-B {
@@ -165,6 +206,11 @@ header {
     "I T"
     "I D"
     "I .";
+    @media (min-width: 768px) and (max-width: 1199px) {
+      height: 415px;
+      column-gap: 51px;
+      grid-template-columns: 415px 291px;
+    }
 }
 
 
@@ -188,6 +234,11 @@ header {
     "T I"
     "D I"
     ". I";
+    @media (min-width: 768px) and (max-width: 1199px) {
+      height: 415px;
+      column-gap: 51px;
+      grid-template-columns: 291px 415px;
+    }
 }
 
 .content-C-GR {
@@ -211,6 +262,11 @@ header {
   "I T"
   "I D"
   "I .";
+  @media (min-width: 768px) and (max-width: 1199px) {
+    height: 415px;
+    column-gap: 51px;
+    grid-template-columns: 415px 291px;
+  }
 }
 
 .content-D-GR {
@@ -271,28 +327,4 @@ footer {
   display: flex;
   gap: 12px;
   height: 20px;
-}
-
-@media (min-width: 1200px) {
-
-}
-
-@media (min-width: 768px) and (max-width: 1199px) {
-  .gnb{
-    padding: 20px 32px;
-  }
-
-  .header-img {
-    width: 698px;
-    height: 343px;
-  }
-
-  .content-img {
-    width: 385px;
-    height: 315px;
-  }
-}
-
-@media (min-width: 375px) {
-  
 }

@@ -21,14 +21,16 @@
         </p>
       </div>
 
-      <form>
+      <form id="form">
         <div class="email">
-          <label for="username">이메일</label>
-          <input id="username" name="username">
+          <label for="usernemail">이메일</label>
+          <input id="useremail" class="sign-input" name="이메일">
+          <p id="email-error-message" class="error-message"></p>
         </div>
         <div class="pw">
             <label for="password">비밀번호</label>
-            <input id="password" name="password" type="password">
+            <input id="password" class="sign-input" name="비밀번호" type="password">
+            <p id="pw-error-message" class="error-message"></p>
         </div>
         <div>
         <button class="cta" type="submit">로그인</button>
@@ -47,6 +49,7 @@
         </a>
       </div>
     </div>
-  </div>    
+  </div>
+  <script src="./src/sign.js"></script>    
 </body>
 </html>
