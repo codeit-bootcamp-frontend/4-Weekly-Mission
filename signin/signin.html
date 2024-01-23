@@ -8,42 +8,37 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="signup.css">
+        <link rel="stylesheet" href="signin.css">
+        <script src="signin.js"></script>
     </head>
-    <body>
+    <body onkeydown="Enter_login()">
         <div class="content">
             <div class="title">
-                <a class="logo" href="./"><img src="image/signin/logo.svg"></a>
-                <div class="signin">
-                    <span>이미 회원이신가요?</span>
-                    <a href="./signin.html">로그인 하기</a>
+                <a class="logo" href="./"><img src="../image/signin/logo.svg" alt = "logo"></a>
+                <div class="signup">
+                    <span>회원이 아니신가요?</span>
+                    <a href="../signup/signup.html">회원가입하기</a>
                 </div>
             </div>
             <div class = "info">
                 <p>이메일</p>
-                <input id ="email" type="text" name="email">
+                <input id ="email" class="focus_blue" type="text" name="email" oninput = "email_check()">
+                <p class ="email_result result"></p>
             </div>
             <div class = "info">
                 <p>비밀번호</p>
                 <div>
-                    <input id ="pwd" type="password" name="pwd">
-                    <img class="check" src="./image/signin/eye-on.svg">
+                    <input id ="pwd" class="focus_blue" type="password" name="pwd">
+                    <img class="check" src="../image/signin/eye-off.svg" onclick="active()" alt ="비밀번호 보기">
                 </div>
-                
+                <p class ="pwd_result result"></p>
             </div>
-            <div class = "info">
-                <p>비밀번호 확인</p>
-                <div>
-                    <input id ="repwd" type="password" name="repwd">
-                    <img class="check" src="./image/signin/eye-on.svg">
-                </div>
-            </div>
-            <button id="signup">회원가입</button>
+            <button class="signin" onclick="login()">로그인</button>
             <div class="sns_signin">
                 <p>소셜 로그인</p>
                 <div class="icons">
-                    <a href="https://www.google.com"><img class="google" src="./image/signin/google.png" ></a>
-                    <a href="https://www.kakaocorp.com/page/"><img class="kakao" src="./image/signin/99FE484C5C3451F218 1.svg"></a>
+                    <a href="https://www.google.com"><img class="google" src="../image/signin/google.png"  alt="google"></a>
+                    <a href="https://www.kakaocorp.com/page/"><img class="kakao" src="../image/signin/99FE484C5C3451F218 1.svg" alt = "kakao"></a>
                 </div>
             </div>
         </div>

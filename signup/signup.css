@@ -1,4 +1,14 @@
-﻿* {
+﻿:root{
+    --Linkbrary-primary-color: #6D6AFE;
+    --black: #000;
+    --Linkbrary-gray20: #CCD5E3;
+    --Linkbrary-white: #FFF;
+    --gra-purpleblue-to-skyblue: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+    --Grey-Light: #F5F5F5;
+    --Linkbrary-gray10: #E7EFFB;
+}
+
+* {
     box-sizing: border-box;
   }
 
@@ -31,14 +41,14 @@ body{
     height: 38px;
 }
 
-.signup{
+.signin{
     display: flex;
     align-items: flex-start;
     gap: 8px;
 }
 
-.signup>span{
-    color: var(--black, #000);
+.signin>span{
+    color: var(--black);
     font-family: Pretendard;
     font-size: 16px;
     font-style: normal;
@@ -46,8 +56,8 @@ body{
     line-height: 24px; /* 150% */
 }
 
-.signup>a{
-    color: var(--Linkbrary-primary-color, #6D6AFE);
+.signin>a{
+    color: var(--Linkbrary-primary-color);
     font-family: Pretendard;
     font-size: 16px;
     font-style: normal;
@@ -65,13 +75,14 @@ body{
     margin:0;
 }
 .info>a{
-    color: var(--black, #000);
+    color: var(--black);
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
 }
+
 .info>div{
     position: relative;
     display: flex;
@@ -79,21 +90,22 @@ body{
     align-items: center;
 }
 
-input{
+.focus_blue{
     display: flex;
     width: 400px;
     padding: 18px 15px;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
-    border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
-    background: var(--Linkbrary-white, #FFF);
+    border: 1px solid var(--Linkbrary-gray20);
+    background: var(--Linkbrary-white);
 }
 
-input:focus{
+.focus_blue:focus{
+    outline:none;
     border-radius: 8px;
-    border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
-    background: var(--Linkbrary-white, #FFF);
+    border: 1px solid var(--Linkbrary-primary-color);
+    background: var(--Linkbrary-white);
 }
 
 .check{
@@ -103,7 +115,8 @@ input:focus{
     height: 16px;
 }
 
-#signin{
+
+#signup{
     display: flex;
     width: 400px;
     padding: 16px 20px;
@@ -112,14 +125,15 @@ input:focus{
     gap: 10px;
     border:none;
     border-radius: 8px;
-    background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
-    color: var(--Grey-Light, #F5F5F5);
+    background: var(--gra-purpleblue-to-skyblue);
+    color: var(--Grey-Light);
     font-family: Pretendard;
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
 }
+
 
 .sns_signin{
     display: flex;
@@ -128,8 +142,8 @@ input:focus{
     justify-content: space-between;
     align-items: center;
     border-radius: 8px;
-    border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
-    background: var(--Linkbrary-gray10, #E7EFFB);
+    border: 1px solid var(--Linkbrary-gray20);
+    background: var(--Linkbrary-gray10);
 }
 .icons{
     display: flex;
@@ -149,3 +163,5 @@ input:focus{
     padding:10px;
 }
 
+
+/*week3*/
