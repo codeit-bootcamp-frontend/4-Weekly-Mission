@@ -39,9 +39,7 @@ function passwordText(pm) {
 function login() {
   const correctEmail = "test@codeit.kr";
   const correctPassword = "codeit101";
-  const enterEmail = EMAIL.value;
-  const enterPassword = PASSWORD.value;
-  if (correctEmail == enterEmail && correctPassword == enterPassword) {
+  if (correctEmail == EMAIL.value && correctPassword == PASSWORD.value) {
     let link = "page.html";
     console.log("success");
     location.href = link;
