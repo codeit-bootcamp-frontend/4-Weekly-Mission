@@ -7,6 +7,7 @@ import {
   passwordCheckErrorMessageElement,
   loginBtn,
   eyeBtn,
+  eyeBtnCheck,
   isEmpty,
   isValidEmail,
   isExistingEmail,

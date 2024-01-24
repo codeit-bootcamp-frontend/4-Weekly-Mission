@@ -15,8 +15,9 @@ const passwordCheckErrorMessageElement = document.querySelector("#error-password
 //로그인 버튼
 const loginBtn = document.querySelector(".btn-login");
 
-//비밀번호 btn-eye
-const eyeBtn = document.querySelector(".btn-eye");
+//비밀번호 보이기 버튼
+const eyeBtn = document.querySelector("#password-eye");
+const eyeBtnCheck = document.querySelector("#password-check-eye");
 
 //유효한 로그인 정보
 const VALID_USER = {
