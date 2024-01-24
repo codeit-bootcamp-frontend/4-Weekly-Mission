@@ -55,6 +55,10 @@ function checkPasswordError() {
 
 //비밀번호 확인 에러 검사
 function checkPasswordCheckError() {
+  if (isEmpty(passwordCheckInput.value)) {
+    return showError(passwordCheckInput, passwordCheckErrorMessageElement, "비밀번호를 입력해 주세요.");
+  }
+
   if (!isSamePassword(passwordInput.value, passwordCheckInput.value)) {
     return showError(passwordCheckInput, passwordCheckErrorMessageElement, "비밀번호가 일치하지 않아요.");
   }
@@ -62,14 +66,15 @@ function checkPasswordCheckError() {
   return hideError(passwordCheckInput, passwordCheckErrorMessageElement);
 }
 
-//로그인 성공/실패
-function checkLogin() {
+//회원가입 성공/실패
+function checkSignUp() {
   if (isValidUser(emailInput, passwordInput)) {
     return (location.href = "../folder/index.html");
   }
 
-  showError(emailInput, emailErrorMessageElement, "이메일을 확인해 주세요.");
-  showError(passwordInput, passwordErrorMessageElement, "비밀번호를 확인해 주세요.");
+  checkEmailError();
+  checkPasswordError();
+  checkPasswordCheckError();
   return;
 }
 
@@ -86,10 +91,10 @@ function togglePassword() {
  * KEY BINDING
  ********************/
 
-//엔터 키로 checkLogin 호출
-function checkLoginByEnter(event) {
+//엔터 키로 checkSignUp 호출
+function checkSignUpByEnter(event) {
   if (event.key === "Enter") {
-    checkLogin();
+    checkSignUp();
   }
 }
 
@@ -100,6 +105,6 @@ function checkLoginByEnter(event) {
 emailInput.addEventListener("focusout", checkEmailError);
 passwordInput.addEventListener("focusout", checkPasswordError);
 passwordCheckInput.addEventListener("focusout", checkPasswordCheckError);
-loginBtn.addEventListener("click", checkLogin);
-document.body.addEventListener("keypress", checkLoginByEnter);
+loginBtn.addEventListener("click", checkSignUp);
+document.body.addEventListener("keypress", checkSignUpByEnter);
 eyeBtn.addEventListener("click", togglePassword);
