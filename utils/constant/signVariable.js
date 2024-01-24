@@ -7,3 +7,4 @@ export const PASSWORD_ERROR_MESSAGE = {
   empty: '비밀번호를 입력해 주세요.',
   validation: '비밀번호를 확인해 주세요.'
 };
+export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
