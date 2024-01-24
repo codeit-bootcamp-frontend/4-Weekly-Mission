@@ -8,19 +8,19 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
-    <link rel="stylesheet" href="./style/sign.css" />
+    <link rel="stylesheet" href="../style/sign.css" />
   </head>
   <body>
     <header>
-      <a class="logo-link" href="index.html">
-        <img class="header-logo" src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
+      <a class="logo-link" href="/index.html">
+        <img class="header-logo" src="../images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
       </a>
       <p class="header-message">
-        회원이 아니신가요?<a class="header-link" href="signup.html">회원 가입하기</a>
+        회원이 아니신가요?<a class="header-link" href="./signup.html">회원 가입하기</a>
       </p>
     </header>
     <div class="sign-box">
-      <form class="sign-form" action="/folder.html">
+      <form class="sign-form" action="./folder.html">
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
@@ -35,7 +35,7 @@
             <p class="empty-password-error">비밀번호를 입력해 주세요.</p>
             <p class="password-validation-message">비밀번호를 확인해 주세요.</p>
             <button class="eye-button" type="button" onclick="togglePasswordVisibility()">
-              <img class="eye-button-icon" src="./images/eye-off.svg" />
+              <img class="eye-button-icon" src="../images/eye-off.svg" />
             </button>
           </div>
         </div>
@@ -45,14 +45,14 @@
         <span class="sns-text">소셜 로그인</span>
         <div class="sns-links">
           <a class="sns-link google-link" href="https://www.google.com/">
-            <img src="./images/google.png" />
+            <img src="../images/google.png" />
           </a>
           <a class="sns-link kakao-link" href="https://www.kakaocorp.com/page/">
-            <img src="./images/kakao.svg" />
+            <img src="../images/kakao.svg" />
           </a>
         </div>
       </div>
     </div>
-    <script src="sign.js"></script>
+    <script src="../utils/sign.js"></script>
   </body>
 </html>
