@@ -60,7 +60,7 @@
   }
 
   .input-field-container {
-    height: 53.5px;
+    height: 54px;
     width: 100%;
   }
 }
@@ -81,6 +81,7 @@
 
 /*인풋 필드 블록 > 내부 svg = password-icon */
 .password-icon {
+  cursor: pointer;
   position: relative;
   top: -64%;
   right: -90%;

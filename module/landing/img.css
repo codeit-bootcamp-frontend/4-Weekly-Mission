@@ -30,8 +30,8 @@
 @media (max-width: 1199px) and (min-width: 768px) {
   /* 이미지 블록 사이즈 */
   .img_auth_size {
-    width: 650.303px;
-    height: 383.114px;
+    width: 650px;
+    height: 383px;
   }
 
   .img_default_size {
