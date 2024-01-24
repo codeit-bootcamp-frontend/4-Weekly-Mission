@@ -14,7 +14,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  background: var(--Linkbrary-bg);
+  background: var(--bg-color);
   z-index: 99;
 }
 .header__inner {
@@ -36,10 +36,10 @@ body {
   border-radius: 0.8rem;
   background-image: linear-gradient(
     135deg,
-    var(--Linkbrary-primary-color) 0%,
+    var(--primary-color) 0%,
     #6ae3fe 100%
   );
-  color: var(--Linkbrary-white);
+  color: var(--white);
   font-size: 1.8rem;
   font-weight: 600;
 }
@@ -53,7 +53,7 @@ body {
   align-items: center;
   width: 100%;
   margin-top: 9.4rem;
-  background: var(--Linkbrary-bg);
+  background: var(--bg-color);
 }
 .content-main__inner {
   padding-top: 7rem;
@@ -81,11 +81,8 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background: var(
-    --gra-purpleblue-to-skyblue,
-    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
-  );
-  color: var(--Linkbrary-white);
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: var(--white);
   font-size: 1.8rem;
   font-weight: 600;
   line-height: normal;
@@ -130,7 +127,7 @@ main {
 }
 .content-desc {
   grid-area: desc;
-  color: #6b6b6b;
+  color: var(--addition-color);
   font-size: 1.6rem;
   font-weight: 500;
   line-height: 150%;
@@ -142,32 +139,25 @@ main {
 }
 
 .content-title--gradient1 {
-  background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  background: var(--gradient-pink-to-blue);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .content-title--gradient2 {
-  background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+  background: var(--gradient-yellow-to-blue);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .content-title--gradient3 {
-  background: linear-gradient(
-    99deg,
-    #6d7ccd 19.76%,
-    rgba(82, 136, 133, 0.22) 52.69%
-  );
+  background: var(--gradient-purple-gray);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 .content-title--gradient4 {
-  background: var(
-    --Fandom-K-gra-blue-to-pink,
-    linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%)
-  );
+  background: var(--gradient-blue-to-pink);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -176,7 +166,7 @@ main {
 .content-desc {
   font-size: 1.6rem;
   font-weight: 500;
-  color: #6b6b6b;
+  color: var(--addition-color);
   line-height: 150%;
 }
 .content-img {
@@ -199,7 +189,7 @@ footer {
   padding-top: 3.2rem;
   display: flex;
   justify-content: center;
-  background: var(--The-julge-black);
+  background: var(--julge-black);
 }
 .footer__inner {
   width: 100%;

@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--Linkbrary-bg);
+  background-color: var(--bg-color);
 }
 
 .sign__container {
@@ -39,13 +39,13 @@
   height: 3.8rem;
 }
 .sign-header__message {
-  color: var(--Linkbrary-Black);
+  color: var(--black);
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 2.4rem;
 }
 .sign-header__link {
-  color: var(--Linkbrary-primary-color);
+  color: var(--primary-color);
   font-size: 1.6rem;
   font-weight: 600;
   line-height: normal;
@@ -66,7 +66,7 @@
   gap: 1.2rem;
 }
 .sign-form__inputbox label {
-  color: var(--Linkbrary-Black);
+  color: var(--black);
   font-size: 1.4rem;
   font-weight: 400;
 }
@@ -74,14 +74,14 @@
   width: 40rem;
   padding: 1.8rem 1.5rem;
   border-radius: 0.8rem;
-  border: 1px solid var(--Linkbrary-gray20);
-  background: var(--Linkbrary-white);
+  border: 1px solid var(--gray20);
+  background: var(--white);
 }
 .sign-form__inputbox input:focus {
-  outline-color: var(--Linkbrary-primary-color);
+  outline-color: var(--primary-color);
 }
 .sign-form__inputbox input::placeholder {
-  color: var(--Linkbrary-gray100);
+  color: var(--gray100);
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
@@ -103,13 +103,15 @@
   justify-content: center;
   align-items: center;
   border-radius: 0.8rem;
-  background: var(
-    --gra-purpleblue-to-skyblue,
-    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
-  );
-  color: var(--Linkbrary-white);
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: var(--white);
   font-size: 1.8rem;
   font-weight: 600;
+}
+
+.sign__error-msg {
+  color: var(--red);
+  font-size: 1.4rem;
 }
 
 /* ---- Sign(Social) ---- */
@@ -121,11 +123,11 @@
   justify-content: space-between;
   align-items: center;
   border-radius: 0.8rem;
-  border: 1px solid var(--Linkbrary-gray20);
-  background: var(--Linkbrary-gray10);
+  border: 1px solid var(--gray20);
+  background: var(--gray10);
 }
 .sign-social__title {
-  color: var(--Linkbrary-gray100);
+  color: var(--gray100);
   font-size: 1.4rem;
   font-weight: 400;
   line-height: normal;
@@ -148,7 +150,7 @@
   height: 2.2rem;
 }
 .google {
-  background-color: var(--Linkbrary-white);
+  background-color: var(--white);
   border: 0.1rem solid #d3d4dd;
 }
 .kakao {

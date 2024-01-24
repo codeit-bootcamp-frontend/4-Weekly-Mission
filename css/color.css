@@ -1,0 +1,33 @@
+:root {
+  --primary-color: #6d6afe;
+  --addition-color: #6b6b6b;
+  --red: #ff5b56;
+  --white: #fff;
+  --julge-black: #111322;
+  --black: #000;
+  --gray100: #373740;
+  --gray60: #9fa6b2;
+  --gray20: #ccd5e3;
+  --gray10: #e7effb;
+  --bg-color: #f0f6ff;
+  --gradient-pink-to-blue: linear-gradient(
+    96deg,
+    #fe8a8a 1.72%,
+    #a4ceff 74.97%
+  );
+  --gradient-yellow-to-blue: linear-gradient(
+    277deg,
+    #6fbaff 59.22%,
+    #ffd88b 93.66%
+  );
+  --gradient-purple-gray: linear-gradient(
+    99deg,
+    #6d7ccd 19.76%,
+    rgba(82, 136, 133, 0.22) 52.69%
+  );
+  --gradient-blue-to-pink: linear-gradient(
+    271deg,
+    #fe578f -9.84%,
+    #68e8f9 107.18%
+  );
+}
