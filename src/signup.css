@@ -72,7 +72,7 @@ body {
   font-weight: 600;
 }
 
-.form {
+#form {
   display: flex;
   flex-direction: column;
   width: 100%;
