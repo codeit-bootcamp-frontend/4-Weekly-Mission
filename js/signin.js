@@ -15,7 +15,7 @@ const errorMessages = {
     invalidPassword: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
     passwordMismatch: "비밀번호가 일치하지 않아요.",
     checkEmail: "이메일을 확인해주세요",
-    checkPassword: "이메일을 확인해주세요"
+    checkPassword: "비밀번호를 확인해주세요"
 };
 
 let isCheckingEmail= false;
