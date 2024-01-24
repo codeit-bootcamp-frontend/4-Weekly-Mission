@@ -1,19 +1,15 @@
-// DOM 요소들을 가져오는 함수
-const get = (selector) => document.querySelector(selector);
+import * as DOM from './lib/DOM.js'
+import {
+  EMAIL_ERROR_MESSAGE,
+  PASSWORD_ERROR_MESSAGE
+} from './constant/signVariable.js'
 
 // 아이디, 비밀번호 input 요소들
-const SIGN_EMAIL_INPUT = get('#email-input');
-const SIGN_PASSWORD_INPUT = get('#password-input');
-
-// 에러 메시지 요소들
-const EMPTY_EMAIL_ERROR_MESSAGE = get('.empty-email-error'); //이메일을 입력해 주세요
-const INVALID_EMAIL_FORMAT_MESSAGE = get('.correct-email-error');//올바른 이메일 주소가 아닙니다
-const EMPTY_PASSWORD_ERROR_MESSAGE = get('.empty-password-error');//비밀번호를 입력해 주세요
-const EMAIL_VALIDATION_MESSAGE = get('.email-validation-message');//이메일을 확인해 주세요
-const PASSWORD_VALIDATION_MESSAGE = get('.password-validation-message');//비밀번호를 확인해 주세요
+const SIGN_EMAIL_INPUT = DOM.selectElement('#email-input');
+const SIGN_PASSWORD_INPUT = DOM.selectElement('#password-input');
 
 // 눈 아이콘 버튼
-const EYE_BUTTON = get('.eye-button-icon');
+const EYE_BUTTON = DOM.selectElement('.eye-button-icon');
 
 //클래스 이름 상수화
 const SHOW_ERROR_CLASS_NAME = 'show-error';
@@ -116,3 +112,12 @@ function togglePasswordVisibility() {
   SIGN_PASSWORD_INPUT.type = passwordFieldType === 'password' ? 'text' : 'password';
   EYE_BUTTON.src = `./images/eye-${passwordFieldType === 'password' ? 'on' : 'off'}.svg`;
 };
+
+let haha = "hihi"
+let inputbox = document.querySelector('.sign-input-box')
+const li = document.createElement('p')
+li.textContent = `${EMAIL_ERROR_MESSAGE.empty}`
+li.className = 'emptu-email'
+inputbox.appendChild(li)
+DOM.createTagAndclassWithText(inputbox, 'emptu-email', EMAIL_ERROR_MESSAGE.validation)
+DOM.chageText(EMAIL_ERROR_MESSAGE.empty)
