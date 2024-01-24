@@ -6,15 +6,17 @@
 body {
     background: var(--Linkbrary-bg);
     font-family: Pretendard;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+}
+
+.none {
+    display: none;
 }
 
 .login {
     display: flex;
-    width: 90rem;
-    padding: 14.875rem 0rem 15.75rem 0rem;
+    margin: 0 auto;
+    padding: 238px 0 253px 0;
+    max-width: 90rem;
     justify-content: center;
     align-items: center;
     background: var(--Linkbrary-bg);
@@ -85,7 +87,6 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.75rem;
 }
 
 .input-title {
@@ -94,6 +95,7 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    padding-bottom: 12px;
 }
 
 .input-style {
@@ -128,6 +130,7 @@ body {
     width: 1rem;
     height: 1rem;
     transform: translateY(50%);
+    cursor: pointer;
 }
 
 .login-btn {
@@ -184,14 +187,28 @@ body {
     width: 2.625rem;
     height: 2.625rem;
     flex-shrink: 0;
-    cursor: pointer;
 }
+
+.error {
+    color: var(--Linkbrary-red);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 6px;
+}
+
+.error-redline {
+    border-color: var(--Linkbrary-red);
+}
+
+/* Tablet */
 
 @media (max-width: 1199px) {
 
     .login {
-        width: 74.9375rem;
-        padding: 12.5rem 24.9375rem 18.1875rem 25rem;
+        padding: 238px 0 253px 0;
+        width: 400px;
     }
 
     .social-icon {
@@ -201,16 +218,13 @@ body {
     }
 }
 
+/* mobile */
+
 @media (max-width : 767px) {
 
-    body {
-        margin: 0 auto;
-        max-width: 400px;
-    }
-
     .login {
-        display: inline-flex;
-        padding: 7.5rem 2rem 14.5625rem 2.0625rem;
+        padding: 120px 0 233px 0;
+        width: 325px;
     }
 
     .input-style {
