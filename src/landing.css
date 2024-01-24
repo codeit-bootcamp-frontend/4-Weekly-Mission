@@ -273,9 +273,6 @@ footer {
 
 
 
-
-
-
 /*모바일*/
 
 @media(max-width: 767px){
@@ -373,7 +370,7 @@ footer {
   }
   /*필요없는 줄 바꿈 무력화*/
   br{
-    display:none !important;
+    display:none;
  }
   /*버튼 조정*/
   .cta-long {

@@ -15,6 +15,16 @@ header {
   row-gap: 1.6rem;
 }
 
+small{
+  padding: 0px 1.0rem;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--red);
+}
+
 .logo-link {
   display: flex;
   justify-content: center;
@@ -91,9 +101,11 @@ header {
   border-color: var(--primary);
 }
 
+
 .eye-button {
+  display: inline-block;
   position: absolute;
-  bottom: 2.2rem;
+  top: 5.1rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -153,12 +165,6 @@ header {
   background-color: #f5e14b;
 }
 
-
-
-/*테블릿에선 변함이 없지만 일단 작성해둡니다.*/
-@media(max-width: 1199px) and (min-width: 768px){
-
-}
 
 
 
