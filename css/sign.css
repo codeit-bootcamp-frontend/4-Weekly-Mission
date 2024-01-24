@@ -11,7 +11,7 @@ body {
   gap: 3.2rem;
 }
 
-.sign-box {
+#sign-box {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -97,15 +97,16 @@ input:focus {
 
 /* 에러 발생 시 변동 사항 */
 
-.error-message {
+#errorEmail,
+#errorPassword {
+  display: none;
   color: var(--red);
   font-size: 1.4rem;
   margin-bottom: 1.4rem;
-  display: block;
   width: 100%;
 }
 
-.error input {
+#sign-box .errorBdr {
   border-color: var(--red);
 }
 
