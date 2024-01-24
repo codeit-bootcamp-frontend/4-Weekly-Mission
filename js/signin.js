@@ -1,5 +1,4 @@
-// 이메일 형식 검사 정규식
-const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+import { isVaildEmail } from "../utils/isVaildEmail";
 
 // 이메일, 비밀번호 input 선택
 const emailInputBox = document.querySelector("#email-inputbox");
