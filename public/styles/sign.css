@@ -1,8 +1,10 @@
 * {
   box-sizing: border-box;
+  margin: 0;
+  font-family: "Pretendard";
 }
 body {
-  background-color: #f0f6ff;
+  background-color: var(--background);
   display: flex;
   width: 100%;
   padding: 7.5rem 0;
@@ -23,43 +25,86 @@ button {
   gap: 1.875rem;
   width: 25rem;
 }
+.sign-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
 a {
   font-size: 1rem;
-  color: var(--Linkbrary-primary-color, #6d6afe);
+  color: var(--primary);
+}
+#logo {
+  height: 2.375rem;
 }
 .sign-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
+  row-gap: 1.5rem;
+}
+.sign-form div {
+  display: flex;
+  flex-direction: column;
 }
 .sign-form label {
   text-align: left;
   font-size: 0.875rem;
   margin-bottom: 0.75rem;
 }
-.sign-form input {
+.signInput {
   border-radius: 0.5rem;
-  border: 0.0625rem solid var(--Linkbrary-gray20, #ccd5e3);
-  background: var(--Linkbrary-white, #fff);
+  border: 0.0625rem solid var(--gray20);
+  background: var(--white);
   font-size: 1rem;
   padding: 1.125rem 0.9375rem;
-  margin-bottom: 1.5rem;
 }
+.errorInput {
+  border: 0.0625rem solid var(--red);
+}
+.password-form {
+  position: relative;
+}
+.eye {
+  width: 1rem;
+  content: url("/public/images/eye-off.svg");
+
+  position: absolute;
+  top: 3rem;
+  left: 23rem;
+
+  cursor: pointer;
+}
+.eye.on {
+  content: url("/public/images/eye-on.svg");
+}
+
 input:focus {
   outline: none;
-  border-color: var(--Linkbrary-primary-color, #6d6afe);
+  border-color: var(--primary);
 }
 .sign-form button {
-  /* width: 25rem; */
   padding: 1rem 1.25rem;
-  color: #f5f5f5;
+  color: var(--Grey-Light);
   border: none;
   border-radius: 0.5rem;
-  background: var(
-    --gra-purpleblue-to-skyblue,
-    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
-  );
+  background: var(--gra-purpleblue-to-skyblue);
+
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.errorMsg {
+  margin-top: 0.38rem;
+  color: var(--red);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: left;
 }
 .sign-another {
   display: flex;
@@ -67,13 +112,13 @@ input:focus {
   justify-content: space-between;
   align-items: center;
   border-radius: 0.5rem;
-  border: 0.0625rem solid var(--Linkbrary-gray20, #ccd5e3);
-  background: var(--Linkbrary-gray10, #e7effb);
+  border: 0.0625rem solid var(--gray20);
+  background: var(--gray10);
 }
 .sign-another p {
   margin: 0;
   font-size: 0.875rem;
-  color: var(--Linkbrary-gray100, #373740);
+  color: var(--gray100);
   word-break: keep-all;
 }
 .social-login {

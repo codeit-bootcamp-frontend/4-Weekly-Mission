@@ -4,34 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SignUp</title>
-    <link rel="stylesheet" href="src/sign.css" />
+    <link rel="stylesheet" href="public/styles/sign.css" />
+    <link rel="stylesheet" href="public/styles/colors.css" />
   </head>
   <body>
     <main class="sign">
-      <div>
-        <a href="/"><img src="images/logo.svg" height="38p;" /></a>
+      <div class="sign-header">
+        <a href="/"><img id="logo" src="public/images/logo.svg" /></a>
         <p>이미 회원이신가요? <a href="signin.html">로그인 하기</a></p>
       </div>
       <div>
         <form class="sign-form">
-          <label for="email">이메일</label>
-          <input type="email" name="email" placeholder="" />
-          <label for="password">비밀번호</label>
-          <input type="password" name="password" placeholder="" />
-          <label for="password-check">비밀번호 확인</label>
-          <input type="password" name="password-check" placeholder="" />
+          <div>
+            <label for="email">이메일</label>
+            <input id="email" class="signInput" type="email" name="email" />
+          </div>
+          <div>
+            <label for="password">비밀번호</label>
+            <input
+              id="password"
+              class="signInput"
+              type="password"
+              name="password"
+            />
+          </div>
+          <div>
+            <label for="password-check">비밀번호 확인</label>
+            <input
+              id="password-check"
+              class="signInput"
+              type="password"
+              name="password-check"
+            />
+          </div>
           <button>회원가입</button>
         </form>
       </div>
       <div class="sign-another">
         <p>다른 방식으로 가입하기</p>
         <div class="social-login">
-          <a href="https://www.google.com/"><img src="images/google.png" /></a>
+          <a href="https://www.google.com/"
+            ><img src="public/images/google.png"
+          /></a>
           <a href="https://www.kakaocorp.com/page/">
-            <img src="images/kakao.png"
+            <img src="public/images/kakao.png"
           /></a>
         </div>
       </div>
     </main>
+    <script src="src/sign.js"></script>
   </body>
 </html>
