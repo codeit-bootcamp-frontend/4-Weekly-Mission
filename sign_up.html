@@ -19,22 +19,26 @@
         <p>이미 회원이신가요? <a href="sign_in.html">로그인 하기</a></p>
       </div>
 
-      <div class="input-container">
+      <div class="input-container email-container">
         <label for="email">이메일</label>
         <input type="email" id="email" placeholder="codeit@codeit.com" />
+        <span class="emailError"></span>
       </div>
       <div class="input-container">
         <label for="password">비밀번호</label>
-        <div class="ps-container">
-          <img src="images/eye.svg" />
+        <div class="pw-container">
+          <img class="eye" src="images/eye.svg" />
+          <span class="line-through"></span>
           <input type="password" id="password" placeholder="********" />
         </div>
+        <span class="pwError"></span>
       </div>
       <div class="input-container">
         <label for="password">비밀번호 확인</label>
-        <div class="ps-container">
-          <img src="images/eye.svg" />
-          <input type="password" id="password" placeholder="********" />
+        <div class="pw-container">
+          <img class="eye" src="images/eye.svg" />
+          <span class="line-through"></span>
+          <input type="password" id="password-check" placeholder="********" />
         </div>
       </div>
 
@@ -42,14 +46,15 @@
       <div class="social-login">
         <p>다른 방식으로 가입하기</p>
         <div class="icon-container">
-          <a href="https://www.google.com" target="_blank"
+          <a href="https://www.google.com"
             ><img class="icon" src="images/googleicon.svg"
           /></a>
-          <a href="https://www.kakaocorp.com/page/" target="_blank"
+          <a href="https://www.kakaocorp.com/page/"
             ><img class="icon kakao" src="images/kakaoicon.svg" />
           </a>
         </div>
       </div>
     </div>
+    <script src="js/sign.js"></script>
   </body>
 </html>
