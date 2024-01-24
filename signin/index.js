@@ -8,7 +8,7 @@ import {
   checkLogin,
   checkLoginByEnter,
   togglePassword,
-} from "../js/utility.js";
+} from "../js/common_sign.js";
 
 /********************
  * EVENT HANDLER
