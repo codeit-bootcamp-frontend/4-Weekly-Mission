@@ -23,14 +23,6 @@ import {
 } from "../scripts/utils.js";
 
 /********************
- * VARIABLE DEFINTION
- ********************/
-
-/********************
- * UTILITY FUNCTION
- ********************/
-
-/********************
  * ACTIVE FUNCTION
  ********************/
 
