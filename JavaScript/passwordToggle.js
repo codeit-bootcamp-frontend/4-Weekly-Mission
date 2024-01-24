@@ -14,6 +14,10 @@ function passwordToggle(event) {
    }
 }
 
-for (let i = 0 ; i < passToggleBtn.length ; i++) {
-   passToggleBtn[i].addEventListener ('click', passwordToggle)
+// 다중 토글 버튼 초기화 함수
+
+export default function toggleAssign() {
+   for (let btn of passToggleBtn) {
+      btn.addEventListener ('click', passwordToggle)
+   }
 }

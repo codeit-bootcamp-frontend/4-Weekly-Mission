@@ -20,7 +20,9 @@
          <form>
             <section>
                <label for="loginEmailInput">이메일</label>
-               <input id="loginEmailInput" type="email" placeholder="codeit@codeit.com">
+               <div> <!-- focus event를 함수 하나로 표현하기 위한 div-->
+                  <input id="loginEmailInput" type="email" placeholder="codeit@codeit.com">
+               </div>
                <p class="errorMessagePreset" id="emailErrorMessege"></p>
             </section>
 
@@ -33,7 +35,7 @@
                <p class="errorMessagePreset" id="passErrorMessege"></p>
             </section>
             
-            <button type="submit" id="loginConfirmButton" class="buttonBasicStyle">로그인</button>
+            <button type="submit" id="confirmBtn" class="buttonBasicStyle">로그인</button>
          </form>          
 
          <footer>
@@ -45,7 +47,6 @@
          </footer>
 
       </main>  
-      <script src="./JavaScript/signIn.js"></script>
-      <script src="./JavaScript/passwordHide.js"></script>
+      <script type="module" src="./JavaScript/signIn.js"></script>
    </body>
 </html>
