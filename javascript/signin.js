@@ -6,13 +6,8 @@ const errorPassword = document.querySelector('#errorPassword');
 const passwordCover = document.querySelector('.eyecon');
 let isPasswordCovered = false;
 
-import {
-  isEmailRegex,
-  isInputEmpty,
-  togglePasswordByEyecon as togglePassword,
-  showError,
-  clearError,
-} from './sign-error.js';
+import { isEmailRegex, isInputEmpty, showError, clearError } from './sign-error.js';
+import { togglePasswordByEyecon as togglePassword } from './toggle-password.js';
 
 //////////////// 함수 정의 ////////////////////
 
