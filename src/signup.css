@@ -72,7 +72,7 @@ body {
   font-weight: 600;
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -93,7 +93,7 @@ form {
   color: #ff5b56;
 }
 
-label {
+.sign-label {
   font-size: 14px;
   font-weight: 400;
 }

@@ -140,7 +140,7 @@ header {
   padding-top: 70px;
 }
 
-.content-A {
+.content-text-image {
   display: grid;
   justify-content: center;
   width: 100%;
@@ -193,7 +193,7 @@ header {
   }
 }
 
-.content-B {
+.content-image-text {
   display: grid;
   justify-content: center;
   column-gap: 157px;
@@ -221,25 +221,6 @@ header {
   -webkit-text-fill-color: transparent;
 }
 
-.content-C {
-  display: grid;
-  justify-content: center;
-  column-gap: 157px;
-  width: 100%;
-  height: 550px;
-  padding: 50px 461px;
-  grid-template-columns: 291px 550px;
-  grid-template-areas: 
-    ". I"
-    "T I"
-    "D I"
-    ". I";
-    @media (min-width: 768px) and (max-width: 1199px) {
-      height: 415px;
-      column-gap: 51px;
-      grid-template-columns: 291px 415px;
-    }
-}
 
 .content-C-GR {
   background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
@@ -248,26 +229,6 @@ header {
   -webkit-text-fill-color: transparent;
 }
 
-
-.content-D {
-  display: grid;
-  justify-content: center;
-  column-gap: 157px;
-  width: 100%;
-  height: 550px;
-  padding: 50px 461px;
-  grid-template-columns: 550px 291px;
-  grid-template-areas: 
-  "I ."
-  "I T"
-  "I D"
-  "I .";
-  @media (min-width: 768px) and (max-width: 1199px) {
-    height: 415px;
-    column-gap: 51px;
-    grid-template-columns: 415px 291px;
-  }
-}
 
 .content-D-GR {
   background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%));
@@ -302,7 +263,7 @@ footer {
   align-items: flex-start;
 }
 
-.foot1 {
+.copyright {
   color: #676767;
   text-align: center;
   font-family: Acme;
@@ -310,12 +271,12 @@ footer {
   font-weight: 400;
 }
 
-.foot2 {
+.footer-links {
   display: flex;
   gap: 30px;
 }
 
-.foot2-link {
+.footer-link {
   color: #CFCFCF;
   font-family: 'Acme', sans-serif;
   font-size: 16px;
@@ -323,7 +284,7 @@ footer {
   text-decoration-line: none;
 }
 
-.foot3 {
+.sns {
   display: flex;
   gap: 12px;
   height: 20px;
