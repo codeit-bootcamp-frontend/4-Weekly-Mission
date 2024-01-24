@@ -10,24 +10,26 @@ const inputtedLoginPasswordCheck = document.querySelector('#loginPasswordInput')
 const orderCheckEmail = document.querySelector('#loginConfirmButton');
 
 
-function submitLoginData(event)  {
+const submitLoginData = function (event)  {
    event.preventDefault();
-   let userVerification = 0
+   
+   //입력받은 값
+   const emailValue = inputtedLoginEmailCheck.value
+   const passwordValue = inputtedLoginPasswordCheck.value
 
-   for (let i = 0 ; i < registeredAccounts.length ; i++) {
-      if (inputtedLoginEmailCheck.value == registeredAccounts[i]['email']) {
-         if (inputtedLoginPasswordCheck.value == registeredAccounts[i]['password']) {
-            userVerification = true
-            window.location.replace("folder.html");
-         }
-      } 
-   }
+   //에러메시지 출력 장소
+   const emailErrorMessage = inputtedLoginEmailCheck.parentElement.lastElementChild
+   const passwordErrorMessage = inputtedLoginPasswordCheck.parentElement.parentElement.lastElementChild
 
-   if (!userVerification) {
-      inputtedLoginEmailCheck.classList.add('signError')
+   const isAccountSigned = registeredAccounts.find(
+      (account) => account.email == emailValue && account.password == passwordValue)
+
+   if (!isAccountSigned) {     inputtedLoginEmailCheck.classList.add('signError')
       inputtedLoginPasswordCheck.classList.add('signError')
-      inputtedLoginEmailCheck.parentElement.lastElementChild.textContent = '이메일을 확인해 주세요.'
-      inputtedLoginPasswordCheck.parentElement.parentElement.lastElementChild.textContent = '비밀번호를 확인해 주세요.' 
+      emailErrorMessage.textContent = '이메일을 확인해 주세요.'
+      passwordErrorMessage.textContent = '비밀번호를 확인해 주세요.' 
+   } else {
+      window.location.replace("folder.html");
    }
 }
 
@@ -36,17 +38,19 @@ orderCheckEmail.addEventListener('click' , submitLoginData)
 
 
 // 이메일 포커스
-function emailFocusOut(event) {
+const emailFocusOut = function (event) {
+   const errorMessageSection = event.target.parentElement.lastElementChild
+
    if (event.target.value == '') {
       event.target.classList.add('signError')
-      event.target.parentElement.lastElementChild.textContent = '이메일을 입력해 주세요.'
+      errorMessageSection.textContent = '이메일을 입력해 주세요.'
    } else if (!event.target.value.match(mailFormat)) {
       event.target.classList.add('signError')
-      event.target.parentElement.lastElementChild.textContent = '올바른 이메일 주소가 아닙니다.'
+      errorMessageSection.textContent = '올바른 이메일 주소가 아닙니다.'
    }
 }
 
-function emailFocusIn(event) {
+const emailFocusIn = function (event) {
    inputtedLoginEmailCheck.classList.remove('signError')
    event.target.parentElement.lastElementChild.textContent = ''
 }
@@ -57,14 +61,14 @@ inputtedLoginEmailCheck.addEventListener('blur' , emailFocusOut)
 
 
 // 패스워드 포커스
-function passwordFocusOut(event) {
+const passwordFocusOut = function (event) {
    if (event.target.value == '') {
       event.target.classList.add('signError')
       event.target.parentElement.parentElement.lastElementChild.textContent = '비밀번호를 입력해 주세요.' 
    }
 }
 
-function passwordFocusIn(event) {
+const passwordFocusIn = function (event) {
    inputtedLoginPasswordCheck.classList.remove('signError')
    event.target.parentElement.parentElement.lastElementChild.textContent = ''
 }
