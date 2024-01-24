@@ -1,6 +1,6 @@
 import { EMAIL_INPUT, PASSWORD_INPUT, TEST_EMAIL, TEST_PW, inputError } from '../common.js';
 
-const LOGIN_BTN = document.querySelector('button.login');
+const SIGNUP_BTN = document.querySelector('button.signup');
 
 // 로그인 실패 시 메세지
 function loginError(element, message) {
@@ -61,7 +61,7 @@ EMAIL_INPUT.addEventListener('focusin', removeError);
 PASSWORD_INPUT.addEventListener('focusout', passwordChecker);
 PASSWORD_INPUT.addEventListener('focusin', removeError);
 
-LOGIN_BTN.addEventListener('click', signInChecker);
+SIGNUP_BTN.addEventListener('click', signInChecker);
 
 
 
