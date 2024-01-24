@@ -1,28 +1,23 @@
 import {
   emailInput,
   passwordInput,
+  passwordCheckInput,
   emailErrorMessageElement,
   passwordErrorMessageElement,
+  passwordCheckErrorMessageElement,
   loginBtn,
   eyeBtn,
   isEmpty,
   isValidEmail,
   isExistingEmail,
   isValidPassword,
+  isSamePassword,
   showError,
   hideError,
   isValidUser,
   showPassword,
   hidePassword,
 } from "../js/utility.js";
-
-/********************
- * VARIABLE DEFINTION
- ********************/
-
-/********************
- * UTILITY FUNCTION
- ********************/
 
 /********************
  * ACTIVE FUNCTION
@@ -56,6 +51,15 @@ function checkPasswordError() {
   }
 
   return hideError(passwordInput, passwordErrorMessageElement);
+}
+
+//비밀번호 확인 에러 검사
+function checkPasswordCheckError() {
+  if (!isSamePassword(passwordInput.value, passwordCheckInput.value)) {
+    return showError(passwordCheckInput, passwordCheckErrorMessageElement, "비밀번호가 일치하지 않아요.");
+  }
+
+  return hideError(passwordCheckInput, passwordCheckErrorMessageElement);
 }
 
 //로그인 성공/실패
@@ -95,6 +99,7 @@ function checkLoginByEnter(event) {
 
 emailInput.addEventListener("focusout", checkEmailError);
 passwordInput.addEventListener("focusout", checkPasswordError);
+passwordCheckInput.addEventListener("focusout", checkPasswordCheckError);
 loginBtn.addEventListener("click", checkLogin);
 document.body.addEventListener("keypress", checkLoginByEnter);
 eyeBtn.addEventListener("click", togglePassword);

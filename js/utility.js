@@ -5,10 +5,12 @@
 //이메일, 비밀번호 input
 const emailInput = document.querySelector("#input-email");
 const passwordInput = document.querySelector("#input-password");
+const passwordCheckInput = document.querySelector("#input-password-check");
 
 //이메일, 비밀번호 error-message
 const emailErrorMessageElement = document.querySelector("#error-email");
 const passwordErrorMessageElement = document.querySelector("#error-password");
+const passwordCheckErrorMessageElement = document.querySelector("#error-password-check");
 
 //로그인 버튼
 const loginBtn = document.querySelector(".btn-login");
@@ -77,12 +79,17 @@ function validatePassword(passwordString) {
   return true;
 }
 
-//이메일 양식 유효성 검사
+//비밀번호 양식 유효성 검사
 function isValidPassword(passwordInputValue) {
   if (validatePassword(passwordInputValue)) {
     return true;
   }
   return false;
+}
+
+//비밀번호 확인 유효성 검사
+function isSamePassword(passwordInputValue, passwordCheckInputValue) {
+  return passwordInputValue === passwordCheckInputValue;
 }
 
 //인풋 에러 켜기 -> 에러 테두리 스타일 추가, 에러 메시지 출력
@@ -133,14 +140,17 @@ function hidePassword() {
 export {
   emailInput,
   passwordInput,
+  passwordCheckInput,
   emailErrorMessageElement,
   passwordErrorMessageElement,
+  passwordCheckErrorMessageElement,
   loginBtn,
   eyeBtn,
   isEmpty,
   isValidEmail,
   isExistingEmail,
   isValidPassword,
+  isSamePassword,
   showError,
   hideError,
   isValidUser,
