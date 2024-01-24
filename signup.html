@@ -14,27 +14,28 @@
       <section class="section-input">
         <div id="email">
           <p>이메일</p>
-          <input type="email">
+          <input type="email" class="email-input" status="정상" placeholder="내용 입력">
         </div>
         <div id="password">
           <p>비밀번호</p>
-          <div id="password-input">
-            <input type="password">
-            <img src="assets/icons/eye.png" alt="eye_icon">
+          <div id="password-input-div">
+            <input type="password" class="password-input" status="정상" placeholder="내용 입력">
+            <img src="assets/icons/eye-off.png" alt="eye_off_icon" class="PwdEyeIcon">
           </div>
         </div>
       </section>
-      <button id="signinBtn">로그인</button>
+      <a><button id="signinBtn" class="loginBtn" type="button">로그인</button></a>
       <div class="social-login">
         <span>소셜 로그인</span>
         <div class="icon-google">
-          <a href="https://www.google.com/"><img src="assets/icons/google.png" id="icon" alt="google_icon"></a>
+          <a href="https://www.google.com/"><img src="assets/icons/icon_google.png" id="icon" alt="google_icon"></a>
         </div>
         <div class="icon-kakao">
-          <a href="https://www.kakaocorp.com/page/"><img src="assets/icons/kakao.png" id="icon" alt="kakao_icon"></a>
+          <a href="https://www.kakaocorp.com/page/"><img src="assets/icons/icon_kakao.png" id="icon" alt="kakao_icon"></a>
         </div>
       </div>  
     </div>  
+    <script src="js/login.js"></script>
   </body>
     
 </html>

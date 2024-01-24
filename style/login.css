@@ -11,15 +11,15 @@ html {
   --Red: #FF5B56;
   --Black: #111322;
   --White: #FFFFFF;
-  --Grey_F: #F0F6FF;
-  --Grey_E: #E7EFFB;
-  --Grey_C: #CCD5E3;
-  --Grey_9: #9FA6B2;
-  --Grey_3: #3E3E43;
+  --Grey_100: #F0F6FF;
+  --Grey_200: #E7EFFB;
+  --Grey_300: #CCD5E3;
+  --Grey_400: #9FA6B2;
+  --Grey_500: #3E3E43;
 }
 
 body,header {
-  background-color: var(--Grey_F);
+  background-color: var(--Grey_100);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,17 +53,25 @@ header p {
   margin-bottom: 24px;
 }
 
-#password-input {
+#password-input-div {
   position: relative;
 }
 
-#password-input img {
+.PwdEyeIcon {
   width: 16px;
   height: 16px;
   position: absolute;
   top: 19px;
   right: 16px;
   cursor: pointer;
+}
+
+.errorMsg {
+  font-size: 14px;
+  font-style: normal;
+  color: var(--Red);
+  font-weight: 400;
+  margin-top: 6px;
 }
 
 section {
@@ -76,19 +84,30 @@ section p {
   font-weight: 400;
 }
 
-section input {
+/* 아이디와 비밀번호 input 스타일 지정 */
+
+[status="정상"] {
   width: 100%;
   border-radius: 8px;
-  border: 1px solid var(--Grey_C);
+  border: 1px solid var(--Grey_300);
   padding: 18px 15px;
 }
 
-input:focus {
+[status="정상"]:focus {
   border: 1px solid var(--Primary);
   outline: none;
 }
 
-Button {
+[status="에러"] { 
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--Grey_300);
+  padding: 18px 15px;
+  border: 1px solid var(--Red);
+  outline: none;
+}
+
+.loginBtn {
   width: 100%;
   background: linear-gradient(91deg, var(--Primary) 0.12%, #6AE3FE 101.84%);
   padding: 16px 20px;
@@ -107,9 +126,9 @@ Button {
   display: flex;
   align-items: center;
   padding: 12px 24px;
-  background-color: var(--Grey_E);
+  background-color: var(--Grey_200);
   border-radius: 8px;
-  border: 1px solid var(--Grey_C);
+  border: 1px solid var(--Grey_300);
 }
 
 .social-login span {

@@ -3,12 +3,6 @@
   <head>
     <title>Linkbrary</title>
     <meta charset="utf-8">
-    <meta name="description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요">
-    <meta property="og:title" content="Linkbrary">
-    <meta property="og:url" content="https://linkbrary-minjeong.netlify.app">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://linkbrary-minjeong.netlify.app/assets/cards/cards_img.png">
-    <meta property="og:description" content="세상의 모든 정보를 십게 저장하고 관리해 보세요.">
     <link rel="stylesheet" href="style/login.css">
   </head>
   <body>
@@ -20,31 +14,31 @@
       <section class="section-input">
         <div id="email">
           <p>이메일</p>
-          <input type="email">
+          <input type="email" class="email-input" status="정상" placeholder="내용 입력">
         </div>
         <div id="password">
           <p>비밀번호</p>
-          <div id="password-input">
-            <input type="password">
-            <img src="assets/icons/eye.png" alt="eye_icon">
+          <div id = "password-input-div">
+            <input type="password" class="password-input" status="정상" placeholder="내용 입력">
+            <img src="assets/icons/eye-off.png" alt="eye_off_icon" class="PwdEyeIcon">
           </div>
         </div>
         <div id="password-check">
           <p>비밀번호 확인</p>
           <div id="password-input">
-            <input type="password">
-            <img src="assets/icons/eye.png" alt="eye_icon">
+            <input type="password" class="password-input" status="정상" placeholder="내용 입력">
+            <img src="assets/icons/eye-off.png" alt="eye_off_icon" class="PwdEyeIcon">
           </div>
         </div>
       </section>
-      <button id="signupBtn">회원가입</button>
+      <button id="signupBtn" class="loginBtn">회원가입</button>
       <div class="social-login">
         <span>다른 방식으로 가입하기</span>
         <div class="icon-google">
-          <a href="https://www.google.com/"><img src="assets/icons/google.png" id="icon" alt="google_icon"></a>
+          <a href="https://www.google.com/"><img src="assets/icons/icon_google.png" id="icon" alt="google_icon"></a>
         </div>
         <div class="icon-kakao">
-          <a href="https://www.kakaocorp.com/page/"><img src="assets/icons/kakao.png" id="icon" alt="kakao_icon"></a>
+          <a href="https://www.kakaocorp.com/page/"><img src="assets/icons/icon_kakao.png" id="icon" alt="kakao_icon"></a>
         </div>
       </div>  
     </div>  
