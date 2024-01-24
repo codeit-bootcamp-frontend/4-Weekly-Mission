@@ -1,50 +1,52 @@
-const userid = document.querySelector("#email");
-const userpw = document.querySelector("#password");
-const userpwCheck = document.querySelector("#password-check");
+const userID = document.querySelector("#email");
+const userPW = document.querySelector("#password");
+const userPWCheck = document.querySelector("#password-check");
 const emailError = document.querySelector(".emailError");
 const pwError = document.querySelector(".pwError");
 const signInButton = document.querySelector(".sign-in-button");
-const eye = document.querySelectorAll(".eye");
-const lineThrough = document.querySelectorAll(".line-through");
+const pwContainer = document.querySelector(".pw-container");
+const checkPWContainer = document.querySelector(".check-pw-container");
+
+function errorStyle(textStyle, boxStyle) {
+  textStyle.style.color = "red";
+  boxStyle.style.border = "1px solid red";
+}
+
+function clearStyle(textStyle, boxStyle) {
+  textStyle.textContent = "";
+  boxStyle.style.border = "";
+}
 
 function validEmail(obj) {
   if (obj.value === "") {
     emailError.textContent = "이메일을 입력해주세요.";
-    emailError.style.color = "red";
-    userid.style.border = "1px solid red";
+    errorStyle(emailError, userID);
   } else if (validEmailCheck(obj) == false) {
-    console.log(obj.value);
     emailError.textContent = "올바른 이메일 주소가 아닙니다.";
-    emailError.style.color = "red";
-    userid.style.border = "1px solid red";
+    errorStyle(emailError, userID);
   } else {
-    emailError.textContent = "";
-    userid.style.border = "";
+    clearStyle(emailError, userID);
   }
 }
 
 function validPassword(obj) {
   if (obj.value === "") {
     pwError.textContent = "비밀번호를 입력해주세요.";
-    pwError.style.color = "red";
-    userpw.style.border = "1px solid red";
+    errorStyle(pwError, userPW);
   } else {
-    pwError.textContent = "";
-    userpw.style.border = "";
+    clearStyle(pwError, userPW);
   }
 }
 
 function goUrl() {
-  if (userid.value === "test@codeit.com" && userpw.value === "codeit101") {
+  if (userID.value === "test@codeit.com" && userPW.value === "codeit101") {
     let link = "folder/";
     location.href = link;
   } else {
     emailError.textContent = "이메일을 확인해주세요.";
-    emailError.style.color = "red";
-    userid.style.border = "1px solid red";
+    errorStyle(emailError, userID);
     pwError.textContent = "비밀번호를 확인해주세요.";
-    pwError.style.color = "red";
-    userpw.style.border = "1px solid red";
+    errorStyle(pwError, userPW);
   }
 }
 
@@ -55,39 +57,31 @@ function enterLogin(e) {
 }
 
 function validEmailCheck(obj) {
-  var pattern =
+  let pattern =
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-  return obj.value.match(pattern) != null;
+  return !!obj.value.match(pattern);
 }
 
 function showPW(e) {
-  if (userpw.type === "password") {
-    userpw.type = "text";
-    lineThrough[0].style.display = "block";
-  } else {
-    userpw.type = "password";
-    lineThrough[0].style.display = "none";
-  }
+  const lineThrough = this.querySelector(".line-through");
+  const pwInput = this.querySelector("#password");
+  if (e.target.classList.contains("eyePW"))
+    if (pwInput.type === "password") {
+      pwInput.type = "text";
+      lineThrough.style.display = "block";
+    } else {
+      pwInput.type = "password";
+      lineThrough.style.display = "none";
+    }
 }
 
-//For sign-up.html
-function showPWCheck(e) {
-  if (userpwCheck.type === "password") {
-    userpwCheck.type = "text";
-    lineThrough[1].style.display = "block";
-  } else {
-    userpwCheck.type = "password";
-    lineThrough[1].style.display = "none";
-  }
-}
-
-userid.addEventListener("focusout", (e) => {
+userID.addEventListener("focusout", (e) => {
   validEmail(e.target);
 });
-userpw.addEventListener("focusout", (e) => {
+userPW.addEventListener("focusout", (e) => {
   validPassword(e.target);
 });
 signInButton.addEventListener("click", goUrl);
 document.addEventListener("keypress", enterLogin);
-eye[0].addEventListener("click", showPW);
-eye[1].addEventListener("click", showPWCheck);
+pwContainer.addEventListener("click", showPW);
+checkPWContainer.addEventListener("click", showPW);
