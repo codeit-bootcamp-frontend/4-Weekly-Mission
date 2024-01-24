@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Linkbrary</title>
-    <link rel="stylesheet" href="./css/signUp.css" />
+    <link rel="stylesheet" href="../css/signIn.css" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -14,26 +15,27 @@
   <body>
     <div class="content">
       <div class="container">
-        <div class="signup-content">
+        <div class="login-content">
           <div class="header">
-            <a href="index.html">
+            <a href="../index.html">
               <img
                 class="logo"
-                src="./images/signIn/logo.svg"
+                src="../images/signIn/logo.svg"
                 alt="Linkbrary 로고"
               />
             </a>
 
-            <div class="signin-title">
-              <p>이미 회원이신가요?</p>
-              <a href="./signIn.html">로그인하기</a>
+            <div class="signup-title">
+              <p>회원이 아니신가요?</p>
+              <a href="./signUp.html">회원 가입하기</a>
             </div>
           </div>
 
-          <form class="signup-form">
+          <form class="login-form">
             <div class="input">
               <label for="email">이메일</label>
               <input type="email" id="email" />
+              <span class="email-error"></span>
             </div>
 
             <div class="input">
@@ -41,42 +43,31 @@
               <div class="input-box">
                 <input type="password" id="password" class="" test />
                 <img
-                  src="./images//signIn/eye-off.svg"
+                  src="../images/signIn/eye-off.svg"
                   class="eye-icon"
                   alt="눈동자 아이콘"
                 />
               </div>
-            </div>
-
-            <div class="input">
-              <label for="password-repeat">비밀번호 확인</label>
-              <div class="input-box">
-                <input type="password" id="password-repeat" class="" test />
-                <img
-                  src="./images//signIn/eye-off.svg"
-                  class="eye-icon"
-                  alt="눈동자 아이콘"
-                />
-              </div>
+              <span class="password-error"></span>
             </div>
           </form>
-          <button class="signup-button">회원가입</button>
+          <button class="login-button">로그인</button>
         </div>
 
-        <div class="signupbtn-socialsignup">
-          <div class="social-signup">
-            다른 방식으로 가입하기
+        <div class="lgbtn-sociallogin">
+          <div class="social-login">
+            소셜 로그인
             <div class="social-icon">
               <a href="https://www.google.com/">
                 <div class="google-icon">
                   <img
                     class="google-circle"
-                    src="./images/signIn/icon_google.svg"
+                    src="../images/signIn/icon_google.svg"
                     alt="구글 아이콘"
                   />
                   <img
                     class="google-logo"
-                    src="./images/signIn/google.png"
+                    src="../images/signIn/google.png"
                     alt="구글 아이콘"
                   />
                 </div>
@@ -86,12 +77,12 @@
                 <div class="kakao-icon">
                   <img
                     class="kakao-circle"
-                    src="./images/signIn/icon_kakao.svg"
+                    src="../images/signIn/icon_kakao.svg"
                     alt="카카오 아이콘"
                   />
                   <img
                     class="kakao-logo"
-                    src="./images//signIn/icon_kakao2.svg"
+                    src="../images/signIn/icon_kakao2.svg"
                     alt="카카오 아이콘"
                   />
                 </div>
@@ -101,5 +92,6 @@
         </div>
       </div>
     </div>
+    <script src="../js/sign.js"></script>
   </body>
 </html>

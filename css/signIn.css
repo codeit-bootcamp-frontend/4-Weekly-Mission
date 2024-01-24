@@ -69,7 +69,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 6px;
 }
 
 .input label {
@@ -78,6 +78,7 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 6px;
 }
 
 .input input {
@@ -99,6 +100,15 @@ body {
 .input input:focus {
   border: 1px solid var(--linkbrary-primary-color);
   outline: none;
+}
+
+.email-error,
+.password-error {
+  color: var(--linkbrary-red);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .input-box {
