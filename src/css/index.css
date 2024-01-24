@@ -77,16 +77,47 @@ a {
 }
 
 .card_contents {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 30px;
+    display: grid;
+    justify-content: space-evenly;
+    gap: 16px;
+}
+
+.card_contents:nth-of-type(even) {
+    grid-template-areas:
+      "image ."
+      "image title"
+      "image description"
+      "image .";
+    /*모바일 사이즈*/
+    @media (min-width: 375px) and (max-width: 767px) {
+        grid-template-areas:
+    "title"
+    "image"
+    "description";
+    }
+}
+
+.card_contents:nth-of-type(odd) {
+    grid-template-areas:
+      ". image"
+      "title image"
+      "description image"
+      ". image";
+    /*모바일 사이즈*/
+    @media (min-width: 375px) and (max-width: 767px) {
+        grid-template-areas:
+    "title"
+    "image"
+    "description";
+    }
 }
 
 .txt_contents_title {
     font-size: 48px;
     font-weight: 700;
     line-height: 58px;
+
+    grid-area: title;
 }
 
 .txt_gradient_pinktoblue {
@@ -127,12 +158,16 @@ a {
     letter-spacing: 0px;
     text-align: left;
     color: #6B6B6B;
+
+    grid-area: description;
 }
 
 .img_landing {
     width: 550px;
     height: 450px;
     border-radius: 15px;
+
+    grid-area: image;
 }
 
 .txt_copyright {
@@ -151,7 +186,8 @@ a {
     gap: 10px;
 }
 
-@media (max-width: 1199px) and (min-width: 768px) {
+/*태블릿 사이즈*/
+@media (min-width: 768px) and (max-width: 1199px) {
     header {
         padding: 30px 32px;
     }
@@ -179,8 +215,8 @@ a {
     }
 }
 
-
-@media (max-width: 767px) and (min-width: 376px) {
+/*모바일 사이즈*/
+@media (min-width: 375px) and (max-width: 767px) {
     header {
         padding: 30px 32px;
     }
@@ -199,11 +235,6 @@ a {
         display: none;
     }
 
-    img {
-        width: 100% !important;
-        height: auto !important;
-    }
-
     .span_br {
         display: block;
     }
@@ -217,9 +248,9 @@ a {
         width: 38%;
     }
 
-    .card_contents {
-        flex-direction: column;
-        align-items: flex-start;
+    .img_main_banner {
+        width: 100%;
+        height: auto;
     }
 
     .txt_contents_title {
@@ -230,6 +261,8 @@ a {
     .img_landing {
         order: 1;
         margin-bottom: 10px;
+        width: 100%;
+        height: auto;
     }
 
     .txt_copyright {

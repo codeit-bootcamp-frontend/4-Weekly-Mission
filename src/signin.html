@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Linkbrary</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link href="css/style.css" rel="stylesheet">
     <link href="css/login.css" rel="stylesheet">
+
+    <title>Linkbrary</title>
 </head>
 <body>
 <div class="container_login">
@@ -13,18 +17,22 @@
         <span>회원이 아니신가요?</span>
         <a href="signup.html">회원 가입하기</a>
     </div>
-    <form>
+    <form action="folder.html">
         <div class="input">
             <label for="email">이메일</label>
             <input id="email" name="email" type="text">
+            <span class="error_message"></span>
         </div>
         <div class="input">
             <label for="password">비밀번호</label>
             <input id="password" name="password" type="password"/>
-            <img class="icon_view_password" src="resource/view_password_icon.png"/>
+            <button type="button" class="btn_eye"><img class="icon_view_password"
+                                                       src="resource/eye_close_icon.png"/>
+            </button>
+            <span class="error_message"></span>
         </div>
     </form>
-    <button class="btn_gradient btn_login">로그인</button>
+    <button type="submit" id="btn_signin_submit" class="btn_gradient btn_login">로그인</button>
     <div class="container_social">
         <div>소셜 로그인</div>
         <div class="icons_social">
@@ -33,6 +41,6 @@
         </div>
     </div>
 </div>
-
+<script src="js/signin.js"></script>
 </body>
 </html>
