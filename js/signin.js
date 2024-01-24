@@ -50,18 +50,22 @@ function checkingEmail(type){
     if(email.value.trim()==""){
         emailErrorMessage.innerHTML=errorMessages.emailRequired;
         email.style.border= "0.1rem solid var(--red)";
+        isCheckingEmail= false;
     }else if(checkEmail.test(email.value.trim())){
         emailErrorMessage.innerHTML="";
         email.style.border= "0.1rem solid var(--gray20)";
+        isCheckingEmail= true;
     }else{
         emailErrorMessage.innerHTML=errorMessages.invalidEmail;
         email.style.border= "0.1rem solid var(--red)";
+        isCheckingEmail= false;
     }
 
     if(type=='signup'){
         if(email.value.trim()===`test@codeit.com`){
             emailErrorMessage.innerHTML=errorMessages.duplicateEmail;
             email.style.border= "0.1rem solid var(--red)";
+            isCheckingEmail= false;
         }
     }
 }
