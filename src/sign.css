@@ -89,12 +89,25 @@ header {
   border-color: var(--primary);
 }
 
+.error {
+  border-color: var(--red);
+}
+
+#error-message-pw, #error-message-id {
+  color: var(--red);
+  display: none;
+}
+
 .eye-button {
   position: absolute;
   bottom: 2.2rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
+}
+
+#eye-on {
+  display: none;
 }
 
 .cta {
