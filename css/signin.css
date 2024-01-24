@@ -15,23 +15,19 @@ header {
   gap: 1.6rem;
 }
 
-header img {
+.title-logo {
   width: 21.058rem;
 }
 
-.signup {
-  text-align: center;
-}
-
-.signup a {
-  text-decoration: 1.5px underline;
+.change-in_up {
+  text-decoration: 0.15rem underline;
   color: var(--primary);
   font-size: 1.6rem;
   font-weight: 600;
 }
 
 /** main **/
-main {
+body {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,21 +35,28 @@ main {
   gap: 3.2rem;
 }
 
-#login-form {
+form {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
 .password-box {
   position: relative;
 }
 
-.password-box img {
+#password-onoff {
   width: 1.6rem;
   position: absolute;
   top: 2.2rem;
   right: 1.5rem;
+  cursor: pointer;
 }
 
 #login-form input {
@@ -61,13 +64,13 @@ main {
   padding-right: 4rem;
   width: 40rem;
   height: 6rem;
-  border-radius: 8px;
-  border: 1px solid #d5ddea;
+  border-radius: 0.8rem;
+  border: 0.1rem solid #d5ddea;
   outline-color: var(--primary);
 }
 
-.login-button {
-  border-radius: 8px;
+#login-button {
+  border-radius: 0.8rem;
   background: linear-gradient(90deg, var(--primary), #6ae3fe);
   border: none;
   color: #f5f5f5;
@@ -86,8 +89,8 @@ main {
   width: 40rem;
   height: 6.6rem;
   background-color: var(--gray4);
-  border-radius: 8px;
-  border: 1px solid var(--gray3);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--gray3);
 
   font-size: 1.4rem;
   font-weight: 400;
@@ -95,20 +98,54 @@ main {
   padding: 1.2rem 2.4rem;
 }
 
-.social-login-icon {
-  display: flex;
-  gap: 1.6rem;
-}
-
-.social-login-icon img {
+.social-icon img {
   flex-shrink: 0;
   width: 4.2rem;
 }
 
-/** Tablet **/
-@media (max-width: 1199px) {
+.social-icon {
+  display: flex;
+  gap: 1.6rem;
 }
 
 /** Mobile **/
 @media (max-width: 767px) {
+  body {
+    margin-left: 3.2rem;
+    margin-right: 3.2rem;
+  }
+
+  /** form **/
+  #login-form input {
+    padding: 1.8rem 1.5rem;
+    width: 94vw;
+    max-width: 40rem;
+  }
+
+  /** social-login **/
+  .social-login {
+    width: 94vw;
+    max-width: 40rem;
+  }
+}
+
+/** JS 관련 스타일 **/
+#email-error-message,
+#pw-error-message {
+  font-size: 1.7rem;
+  color: var(--red);
+}
+
+.hidden {
+  display: none;
+}
+
+#email-inputbox.error-box,
+#pw-inputbox.error-box {
+  padding-left: 1rem;
+  padding-right: 4rem;
+  width: 40rem;
+  height: 6rem;
+  border-radius: 0.8rem;
+  border: 0.2rem solid var(--red);
 }
