@@ -5,9 +5,10 @@ import {
   passwordErrorMessageElement,
   loginBtn,
   eyeBtn,
-  VALID_USER,
   isEmpty,
   isValidEmail,
+  isExistingEmail,
+  isValidPassword,
   showError,
   hideError,
   isValidUser,
@@ -16,45 +17,12 @@ import {
 } from "../js/utility.js";
 
 /********************
- * UTILITY FUNCTION
+ * VARIABLE DEFINTION
  ********************/
 
-//이메일 중복 검사
-function isExistingEmail(emailInputValue) {
-  if (emailInputValue === VALID_USER.email) {
-    return true;
-  }
-
-  return false;
-}
-
-//비밀번호 양식
-function validatePassword(passwordString) {
-  // 값이 8자 미만인 경우
-  if (passwordString.length < 8) {
-    return false;
-  }
-
-  // 값이 숫자만 포함된 경우
-  if (/^\d+$/.test(passwordString)) {
-    return false;
-  }
-
-  // 값이 문자열만 포함된 경우
-  if (/^[a-zA-Z]+$/.test(passwordString)) {
-    return false;
-  }
-
-  return true;
-}
-
-//이메일 양식 유효성 검사
-function isValidPassword(passwordInputValue) {
-  if (validatePassword(passwordInputValue)) {
-    return true;
-  }
-  return false;
-}
+/********************
+ * UTILITY FUNCTION
+ ********************/
 
 /********************
  * ACTIVE FUNCTION
