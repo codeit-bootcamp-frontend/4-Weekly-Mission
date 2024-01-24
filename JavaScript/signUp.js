@@ -1,4 +1,4 @@
-import {inputFocus, emailBlur, passwordBlur} from './focus.js'
+import {inputFocus, emailBlur, passwordBlur} from './input.js'
 import {registeredAccounts} from './accountData.js'
 import passToggleReset from './passwordToggle.js';
 
@@ -11,6 +11,7 @@ const signupPasswordCheckInput = document.querySelector('#signupPasswordCheckInp
 const confirmBtn = document.querySelector('#confirmBtn');
 
 // 기본 이벤트 등록
+
 signupEmailInput.addEventListener('focus' , inputFocus)
 signupEmailInput.addEventListener('blur' , emailBlur)
 
@@ -20,8 +21,12 @@ signupPasswordInput.addEventListener('blur' , passwordBlur)
 signupPasswordCheckInput.addEventListener('focus' , inputFocus)
 signupPasswordCheckInput.addEventListener('blur' , passwordBlur)
 
+// 기본 이벤트 등록 끝
 
 
 // 회원가입 함수
+const submitSignupData = function () {
+   
+}
 
-confirmBtn.addEventListener('click' , submitLoginData)
+confirmBtn.addEventListener('click' , submitSignUpData)
