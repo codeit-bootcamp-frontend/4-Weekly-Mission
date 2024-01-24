@@ -1,4 +1,5 @@
 :root {
+  /* Color */
   --primary: #6D6AFE;
   --red: #FF5B56;
   --black: #111322;
@@ -19,4 +20,29 @@
   --blue-to-yellow: linear-gradient(304deg, #6fbaff 0%, #ffd88b 100%);
   --blue-to-white: linear-gradient(133deg, #2945c7 0%, #dbe1f8 100%);
   --red-to-blue: linear-gradient(310deg, #fe578f 0%, #68e8f9 100%);
+
+  /* z-index */
+  --gnb-high: 10;
+}
+
+/* 링크로 인한 밑줄 없애기 */
+.no-underline {
+  text-decoration: none;
+}
+
+/* 버튼 */
+.btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  border: none;
+  background: var(--purple-to-blue);
+  color: var(--grey-light);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }

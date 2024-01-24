@@ -80,11 +80,8 @@ input {
 }
 
 input:focus {
-  outline: 1px solid var(--primary);
-}
-
-.repeat input:focus {
-  outline: 1px solid var(--red);
+  border-color: var(--primary);
+  outline: none;
 }
 
 .password-icon {
@@ -92,39 +89,15 @@ input:focus {
   width: 100%;
 }
 
-.password-icon .icon-eye-off {
+.password-icon .icon-eye {
   position: absolute;
   top: 18px;
   right: 15px;
 }
 
-.password-wrong {
-  color: var(--red);
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.sign-button {
-  cursor: pointer;
-  display: flex;
-  padding: 16px 20px;
-  justify-content: center;
-  align-items: center;
-  align-self: stretch;
-  gap: 10px;
+.signin, .signup {
   width: 100%;
-  border-radius: 8px;
-  background: var(--purple-to-blue);
-}
-
-.sign-button div {
-  color: var(--grey-light);
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  padding: 16px 20px;
 }
 
 .social {
