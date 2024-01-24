@@ -100,6 +100,7 @@ export {
   passwordErrorMessageElement,
   loginBtn,
   eyeBtn,
+  VALID_USER,
   isEmpty,
   isValidEmail,
   showError,
