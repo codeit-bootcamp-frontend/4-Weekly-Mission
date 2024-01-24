@@ -68,6 +68,15 @@ header {
   row-gap: 1.2rem;
 }
 
+.sign-input-box.error input {
+  border: 1px solid var(--red, #ff5b56);
+}
+
+.sign-input-box.error p {
+  color: var(--red, #ff5b56);
+  font-size: 1.5rem;
+}
+
 .sign-password {
   position: relative;
 }
@@ -91,7 +100,7 @@ header {
 
 .eye-button {
   position: absolute;
-  bottom: 2.2rem;
+  top: 5.2rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -154,7 +163,7 @@ header {
 @media (max-width: 767px) {
   body {
     margin: 0 auto;
-    padding: 120px 32px 233px 32px;
+    padding: 12rem 3.2rem 23.3rem 3.22rem;
     max-width: 400px;
     width: 100%;
   }

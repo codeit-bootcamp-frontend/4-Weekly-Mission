@@ -1,6 +1,6 @@
 @import './global.css';
 
-body {
+main {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -97,7 +97,7 @@ section {
   align-content: center;
   width: 100%;
   height: 55rem;
-  padding: 50px 0;
+  padding: 5rem 0;
 }
 
 section:nth-of-type(odd) {
@@ -106,7 +106,7 @@ section:nth-of-type(odd) {
     'title image'
     'description image'
     '. image'
-    /291px 55rem;
+    /29rem 55rem;
 }
 
 section:nth-of-type(even) {
@@ -115,7 +115,7 @@ section:nth-of-type(even) {
     'image title'
     'image description'
     'image .'
-    /550px 29.1rem;
+    /55rem 29.1rem;
 }
 
 .title {
@@ -126,16 +126,16 @@ section:nth-of-type(even) {
   letter-spacing: -0.03rem;
 }
 
-.title-1-gradient {
+.text-1-gradient {
   background-image: linear-gradient(117deg, #fe8a8a 2.29%, #a4ceff 100%);
 }
-.title-2-gradient {
+.text-2-gradient {
   background-image: linear-gradient(304deg, #6fbaff 0%, #ffd88b 100%);
 }
-.title-3-gradient {
+.text-3-gradient {
   background-image: linear-gradient(133deg, #2945c7 0%, #dbe1f8 100%);
 }
-.title-4-gradient {
+.text-4-gradient {
   background-image: linear-gradient(310deg, #fe578f 0%, #68e8f9 100%);
 }
 
@@ -197,28 +197,28 @@ footer {
 
 @media (max-width: 1199px) {
   .gnb {
-    padding: 0 32px;
+    padding: 0 3.2rem;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
   header {
-    padding: 40px 250px 0px 250px;
+    padding: 4rem 25rem 0rem 25rem;
   }
 
   .hero-image {
-    width: 650.303px;
-    height: 383.114px;
+    width: 65rem;
+    height: 38rem;
   }
 
   .content-image {
-    width: 385px;
-    height: 315px;
+    width: 38.5rem;
+    height: 31.5rem;
   }
 
   section {
-    column-gap: 51px;
-    height: 455px;
+    column-gap: 5rem;
+    height: 45.5rem;
   }
 
   section:nth-of-type(odd) {
@@ -242,13 +242,13 @@ footer {
   .hero-image {
     width: 100%;
     height: auto;
-    padding: 0 32px;
+    padding: 0 3.2rem;
   }
 
   .content-image {
     width: 100%;
     height: auto;
-    padding: 0 32px;
+    padding: 0 3.2rem;
   }
 
   section {
@@ -267,6 +267,6 @@ footer {
 
   .footer-box {
     white-space: nowrap;
-    padding: 0 32px;
+    padding: 0 3.2rem;
   }
 }
