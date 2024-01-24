@@ -13,7 +13,9 @@ const errorMessages = {
     passwordRequired: "비밀번호를 입력해주세요.",
     passwordRepeatRequired: "비밀번호 재확인칸을 입력해주세요.",
     invalidPassword: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
-    passwordMismatch: "비밀번호가 일치하지 않아요."
+    passwordMismatch: "비밀번호가 일치하지 않아요.",
+    checkEmail: "이메일을 확인해주세요",
+    checkPassword: "이메일을 확인해주세요"
 };
 
 let isCheckingEmail= false;
@@ -46,19 +48,19 @@ function checkingEmail(type){
 
     //이메일 체크
     if(email.value.trim()==""){
-        emailErrorMessage.innerHTML=emailRequired;
+        emailErrorMessage.innerHTML=errorMessages.emailRequired;
         email.style.border= "0.1rem solid var(--red)";
     }else if(checkEmail.test(email.value.trim())){
         emailErrorMessage.innerHTML="";
         email.style.border= "0.1rem solid var(--gray20)";
     }else{
-        emailErrorMessage.innerHTML=invalidEmail;
+        emailErrorMessage.innerHTML=errorMessages.invalidEmail;
         email.style.border= "0.1rem solid var(--red)";
     }
 
     if(type=='signup'){
         if(email.value.trim()===`test@codeit.com`){
-            emailErrorMessage.innerHTML=duplicateEmail;
+            emailErrorMessage.innerHTML=errorMessages.duplicateEmail;
             email.style.border= "0.1rem solid var(--red)";
         }
     }
@@ -72,7 +74,7 @@ function checkingPassword(){
 
     //비밀번호 체크
     if(password.value.trim()==""){
-        passwordErrorMessage.innerHTML=passwordRequired;
+        passwordErrorMessage.innerHTML=errorMessages.passwordRequired;
         password.style.border= "0.1rem solid var(--red)";
         isCheckingPassword= false;
     }else if(checkPassword.test(password.value.trim())){
@@ -80,7 +82,7 @@ function checkingPassword(){
         password.style.border= "0.1rem solid var(--gray20)";
         isCheckingPassword= true;
     }else{
-        passwordErrorMessage.innerHTML=invalidPassword;
+        passwordErrorMessage.innerHTML=errorMessages.invalidPassword;
         password.style.border= "0.1rem solid var(--red)";
         isCheckingPassword= false;
     }
@@ -88,7 +90,7 @@ function checkingPassword(){
 
 function checkingPasswordRepeat(){
     if(passwordRepeat.value.trim()==""){
-        passwordRepeatErrorMessage.innerHTML=passwordRepeatRequired;
+        passwordRepeatErrorMessage.innerHTML=errorMessages.passwordRepeatRequired;
         passwordRepeat.style.border= "0.1rem solid var(--red)";
         isCheckingPasswordRepeatEmail= false;
     }else if(password.value.trim()==passwordRepeat.value.trim()){
@@ -96,7 +98,7 @@ function checkingPasswordRepeat(){
         passwordRepeat.style.border= "0.1rem solid var(--gray20)";
         isCheckingPasswordRepeatEmail= true;
     }else{
-        passwordRepeatErrorMessage.innerHTML=passwordMismatch;
+        passwordRepeatErrorMessage.innerHTML=errorMessages.passwordMismatch;
         passwordRepeat.style.border= "0.1rem solid var(--red)";
         isCheckingPasswordRepeatEmail= false;
     }
@@ -118,15 +120,15 @@ form.addEventListener("submit",(e)=>{
             //폴더 페이지 미완성으로 인한 임시
             location.href='/folder.html';
         }else if(email.value.trim()!="test@codeit.com" && password.value.trim()=="codeit101"){
-            emailErrorMessage.innerHTML="이메일을 확인해주세요.";
+            emailErrorMessage.innerHTML=errorMessages.checkEmail;
             email.style.border= "0.1rem solid var(--red)";
         }else if(email.value.trim()=="test@codeit.com" && password.value.trim()!="codeit101"){
-            passwordErrorMessage.innerHTML="비밀번호를 확인해주세요.";
+            passwordErrorMessage.innerHTML=errorMessages.checkPassword;
             password.style.border= "0.1rem solid var(--red)";
         }else{
-            emailErrorMessage.innerHTML="이메일을 확인해주세요.";
+            emailErrorMessage.innerHTML=errorMessages.checkEmail;
             email.style.border= "0.1rem solid var(--red)";
-            passwordErrorMessage.innerHTML="비밀번호를 확인해주세요.";
+            passwordErrorMessage.innerHTML=errorMessages.checkPassword;
             password.style.border= "0.1rem solid var(--red)";
         }
     }else if(e.target.id ==='signup'){
