@@ -58,7 +58,7 @@
       position: relative;
    }
 
-   .passwordSeenButton {
+   .passToggleBtn {
       background-image: url(../Assets/Icons/eye-off.svg);
       background-size: contain;
       width: 16px;
