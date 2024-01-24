@@ -8,7 +8,6 @@ body {
   min-width: 320px;
   line-height: normal;
   color: #000;
-  background: var(--color-gray-200);
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
