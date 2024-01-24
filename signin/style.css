@@ -1,3 +1,4 @@
+/* pc우선 */
 * {
   box-sizing: border-box;
 }
@@ -10,7 +11,7 @@ body {
 }
 
 main {
-  margin: 238px auto 116px;
+  margin: 238px auto 252px;
   width: 400px;
 }
 
@@ -30,7 +31,7 @@ main {
   margin: 16px 0 30px;
 }
 
-.already_user {
+.not_user {
   color: var(--black, #000);
   font-size: 16px;
   font-style: normal;
@@ -103,19 +104,7 @@ main {
   outline: 1px solid var(--Linkbrary-primary-color, #6d6afe);
 }
 
-#pw_check {
-  display: flex;
-  width: 400px;
-  padding: 18px 15px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  border: none;
-  background: var(--Linkbrary-white, #fff);
-  outline: none;
-}
-
-.signin {
+.login {
   display: flex;
   width: 400px;
   padding: 16px 20px;
@@ -134,7 +123,7 @@ main {
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  margin: 54px 0 32px;
+  cursor: pointer;
 }
 
 .social {
@@ -171,10 +160,65 @@ main {
   width: 22px;
   height: 22px;
 }
+/* 4주차 */
 
+.email-request {
+  display: none;
+}
+.email-request-show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
+.email-checker {
+  display: none;
+}
+.email-checker-show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
+.pw-request {
+  display: none;
+}
+.pw-request-show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
+.check-email,
+.check-pw {
+  display: none;
+}
+.check-email-show,
+.check-pw-show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
 @media (max-width: 767px) {
   main {
-    margin: 120px auto 120px;
+    margin: 120px auto 233px;
     /* max(auto, 32px)는 사용 불가 */
     width: min(84%, 400px);
     /* 이렇게 하면 화면 너비가 400 이하일 때 여백이 32px 미만이 됨. 그럼 어떻게 하지? */
@@ -183,7 +227,7 @@ main {
   #email,
   .pwform,
   #pw,
-  .signin,
+  .login,
   .social {
     width: 100%;
   }

@@ -1,0 +1,208 @@
+/* 모바일 우선 */
+
+body {
+  font-size: 18px;
+  font-family: Pretendard, Arial, sans-serif;
+  margin: 0;
+  background: var(--Linkbrary-bg, #f0f6ff);
+  display: flex;
+  justify-content: center;
+  font-style: normal;
+}
+.center {
+  text-align: center;
+}
+
+.logo {
+  width: 210.583px;
+  height: 38px;
+}
+
+.user {
+  gap: 8px;
+  margin: 16px 0 30px;
+}
+.signup {
+  color: var(--Linkbrary-primary-color, #6d6afe);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+}
+.label {
+  color: var(--black, #000);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+}
+#email-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-white, #fff);
+  margin: 12px 0 24px;
+}
+#email-input:focus {
+  outline: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+}
+
+.pwform {
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-white, #fff);
+  margin: 12px 0 30px;
+}
+
+#pw-input {
+  display: flex;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: none;
+  background: var(--Linkbrary-white, #fff);
+  outline: none;
+}
+
+.pwform:focus-within {
+  outline: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+}
+.social {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-gray10, #e7effb);
+  margin: 32px 0 0;
+  font-size: 14px;
+}
+.social_icon {
+  gap: 16px;
+}
+.google,
+.kakao {
+  position: relative;
+}
+
+.icon-background {
+  width: 42px;
+  height: 42px;
+}
+
+.icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 22px;
+  height: 22px;
+}
+
+#email-input,
+.pwform,
+#pw-input,
+.login-button,
+.social {
+  width: 100%;
+}
+
+.not_user {
+  color: var(--black, #000);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.eyeoff-button {
+  border: 0;
+  background-color: transparent;
+  margin: 0 15px 0 0;
+}
+
+.login-button {
+  padding: 16px 20px;
+  gap: 10px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  color: var(--Grey-Light, #f5f5f5);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: normal;
+}
+main {
+  margin: 120px 32px 233px;
+  /* max(auto, 32px)는 사용 불가 */
+  width: min(84%, 400px);
+}
+
+/* 4주차 */
+
+.email-request {
+  display: none;
+}
+
+.email-checker {
+  display: none;
+}
+.email-checker-show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
+.pw-request {
+  display: none;
+}
+.pw-request-show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
+.check-email,
+.check-pw {
+  display: none;
+}
+.check-email-show,
+.check-pw-show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
+
+.email-request-show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
+
+@media (min-width: 768px) {
+  main {
+    margin: 238px auto 252px;
+    width: 400px;
+  }
+  #email-input,
+  .pwform,
+  #pw-input,
+  .login-button,
+  .social {
+    width: 400px;
+  }
+}

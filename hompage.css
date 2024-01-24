@@ -1,3 +1,4 @@
+/* pc우선 */
 * {
   box-sizing: border-box;
 }
@@ -37,7 +38,6 @@ header {
 
 .login {
   color: var(--Grey-Light, #f5f5f5);
-  font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -83,7 +83,6 @@ h1 {
 .add_link {
   text-decoration: none;
   color: var(--Grey-Light, #f5f5f5);
-  font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -119,7 +118,6 @@ h1 {
 
 h2 {
   color: #000;
-  font-family: Pretendard;
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
@@ -135,7 +133,6 @@ h2 {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: Pretendard;
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
@@ -148,7 +145,6 @@ h2 {
 
 p {
   color: #6b6b6b;
-  font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -161,7 +157,7 @@ p {
 .images {
   width: 550px;
   height: 450px;
-  background-image: url("landing_image/_img\ 1.png");
+  background-image: url("public/images/landing_image/_img-1.png");
   background-position: center;
   background-size: cover;
   flex-shrink: 0;
@@ -176,7 +172,7 @@ p {
 }
 
 .change_name_folder {
-  background-image: url("landing_image/img\ 4.png");
+  background-image: url("public/images/landing_image/img-4.png");
   width: 550px;
   height: 450px;
   background-position: center;
@@ -205,7 +201,6 @@ p {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: Pretendard;
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
@@ -213,7 +208,7 @@ p {
 }
 
 .share_folder {
-  background-image: url("landing_image/img3\ 1.png");
+  background-image: url("public/images/landing_image/img3-1.png");
   width: 550px;
   height: 469px;
   flex-shrink: 0;
@@ -239,7 +234,7 @@ p {
 }
 
 .screenshot {
-  background-image: url("landing_image/_img4\ 1.png");
+  background-image: url("public/images/landing_image/_img4-1.png");
   background-position: center;
   background-size: cover;
   width: 550px;
@@ -255,7 +250,6 @@ p {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: Pretendard;
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
