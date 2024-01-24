@@ -1,8 +1,8 @@
-@import "./global.css";
+@import '../src/global.css';
 
 html {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
   font-weight: 400;
 }
 
@@ -30,6 +30,7 @@ main {
   gap: 1.6rem;
 }
 
+.head > a,
 .logo_img {
   height: 3.8rem;
 }
@@ -42,7 +43,7 @@ main {
   line-height: 150%;
 }
 
-.mv_signin {
+.move_signin {
   color: var(--primary);
   font-size: 1.6rem;
   font-weight: 600;
@@ -74,7 +75,9 @@ input {
   align-items: center;
   border-radius: 0.8rem;
   border: 1px solid var(--gray20);
-  background: var(--Linkbrary-white, #FFF);
+  background: var(--Linkbrary-white, #fff);
+  line-height: 150%;
+  font-size: 1.6rem;
 }
 
 .signup_button {
@@ -85,9 +88,9 @@ input {
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background: linear-gradient(91deg, var(--primary) 0.12%, #6AE3FE 101.84%);
+  background: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
   text-decoration: none;
-  color: #F5F5F5;
+  color: #f5f5f5;
   font-size: 1.8rem;
   font-weight: 600;
 }
@@ -106,15 +109,14 @@ input {
   font-size: 1.4rem;
 }
 
-.signup_block img {
-  width: 42px;
-  height: 42px;
+.signup_block a {
+  width: 4.2rem;
+  height: 4.2rem;
   flex-shrink: 0;
 }
 
 .social_signup_img {
   display: flex;
-  align-items: flex-start;
   gap: 16px;
 }
 
@@ -128,14 +130,8 @@ input {
   bottom: 2.2rem;
   width: 1.6rem;
   height: 1.6rem;
-  fill: #FFF;
+  fill: #fff;
 }
-
-/* .diff_password {
-  display: inline-block;
-  color: var(--red);
-  margin-top: 6px;
-} */
 
 /* Tablet 사이즈 */
 @media (max-width: 1199px) {

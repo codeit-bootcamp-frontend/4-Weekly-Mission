@@ -1,8 +1,8 @@
-@import "./global.css";
+@import 'src/global.css';
 
 html {
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -24,7 +24,7 @@ nav {
   z-index: 100;
 }
 
-.nav {
+.nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -34,7 +34,7 @@ nav {
   width: 100%;
 }
 
-.nav > a {
+.nav-container > a {
   display: flex;
   cursor: pointer;
 }
@@ -60,13 +60,13 @@ header {
   display: flex;
   width: 100%;
   flex-direction: column;
-  align-items: center; /* 이 코드가 없으면 글씨가 칸에 맞게 줄어듦 */
+  align-items: center;
   background: var(--background);
 }
 
 .main_section {
   display: flex;
-  margin: 0 ;
+  margin: 0;
   flex-direction: column;
   align-items: center;
   row-gap: 4rem;
@@ -82,16 +82,13 @@ h1 {
 }
 
 h1 span {
-  background: linear-gradient(119deg, var(--primary) 0%, #FF9F9F 100%);
+  background: linear-gradient(119deg, var(--primary) 0%, #ff9f9f 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.hidden_tablet {
-  display: block;
-}
-
+.hidden_tablet,
 .hidden_mobile {
   display: block;
 }
@@ -107,7 +104,7 @@ h1 span {
 .exam_img {
   width: 120rem;
   height: 59rem;
-} 
+}
 
 article {
   padding-top: 7rem;
@@ -116,33 +113,74 @@ article {
   align-items: center;
 }
 
-.back_white {
-  background-color: #fff;
+.contents {
+  display: grid;
+  justify-content: center;
+  row-gap: 1.6rem;
   width: 100%;
-  height: 55rem;
-  padding: 5rem 0;
+  height: fit-content;
+  padding: 4rem 3.2rem;
+
+  @media (min-width: 768px) {
+    height: 41.5rem;
+    column-gap: 5.1rem;
+    row-gap: 1rem;
+    padding: 5rem 0;
+  }
+
+  @media (min-width: 1200px) {
+    height: 55rem;
+    column-gap: 15.7rem;
+  }
 }
 
-.contents {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  column-gap: 15.7rem;
-  /* 아래는 글자 줄바꿈 고치는 코드 */
-  white-space: nowrap;
-  overflow-x: auto;
+.contents:nth-of-type(odd) {
+  grid-template-areas:
+    'title'
+    'image'
+    'description';
+
+  @media (min-width: 768px) {
+    grid-template-areas:
+      '. image'
+      'title image'
+      'description image'
+      '. image';
+    grid-template-columns: 26.2rem 38.5rem;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 29.1rem 55rem;
+  }
+}
+
+.contents:nth-of-type(even) {
+  grid-template:
+    'title'
+    'image'
+    'description';
+
+  @media (min-width: 768px) {
+    grid-template-areas:
+      'image .'
+      'image title'
+      'image description'
+      'image .';
+    grid-template-columns: 38.5rem 26.2rem;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 55rem 29.1rem;
+  }
 }
 
 .contents h2 {
   color: #000;
   font-size: 4.8rem;
-  font-style: normal;
   font-weight: 700;
   line-height: 5.8rem;
   letter-spacing: -0.03rem;
-  margin-top: 0;
-  margin-bottom: 1rem;
+  grid-area: title;
 }
 
 .subtitle1 {
@@ -150,19 +188,6 @@ article {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.subtext {
-  color: #6B6B6B;
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 150%;
-}
-
-.content-image {
-  width: 55rem;
-  height: 45rem;
 }
 
 .subtitle2 {
@@ -186,6 +211,21 @@ article {
   -webkit-text-fill-color: transparent;
 }
 
+.subtext {
+  color: #6b6b6b;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+  grid-area: description;
+}
+
+.content-image {
+  width: 55rem;
+  height: 45rem;
+  grid-area: image;
+}
+
 footer {
   display: flex;
   justify-content: center;
@@ -194,43 +234,55 @@ footer {
   width: 100%;
   background-color: var(--black);
   height: 16rem;
-  padding-top: 3.2rem;
-  
 }
 
-footer > div {
+.footer-box {
   width: 100%;
-  display: flex;
+  height: 100%;
+  display: grid;
   justify-content: space-between;
-  /* max-width: 192rem; */
-  /* height: fit-content; */
-  padding: 0 10.4rem;
+  grid-template:
+    'footer_center sns'
+    '. .' 1fr
+    'copyright .';
+  padding: 3.2rem;
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    grid-template: 'copyright footer_center sns';
+    height: fit-content;
+    max-width: 192rem;
+    padding: 3.2rem 10.4rem 0;
+  }
 }
 
-footer > div > p {
+.copyright {
+  grid-area: copyright;
   color: #676767;
-  text-align: center;
   font-family: Acme;
   font-size: 1.6rem;
   font-weight: 400;
-  margin: 0;
 }
 
 .footer_center {
+  grid-area: footer_center;
   display: flex;
   padding-right: 1.8rem;
   align-items: flex-start;
   gap: 3rem;
 }
 
-.footer_p, .footer_faq {
-  color: #CFCFCF;
+.footer_link {
+  color: #cfcfcf;
   font-family: Acme;
+  column-gap: 3rem;
   font-size: 1.6rem;
   font-weight: 400;
 }
 
 .sns {
+  grid-area: sns;
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
@@ -238,11 +290,11 @@ footer > div > p {
 
 /* Tablet 사이즈 */
 @media (max-width: 1199px) {
-  .nav {
+  .nav-container {
     padding: 0 3.2rem;
     max-width: 864px;
   }
-  
+
   .hidden_pc {
     display: block;
   }
@@ -258,18 +310,10 @@ footer > div > p {
   .exam_img {
     width: 69.8rem;
     height: 34.3rem;
-  } 
+  }
 
   article {
     padding-top: 3rem;
-  }
-
-  .back_white {
-    height: 41.5rem;
-  }
-
-  .contents {
-    column-gap: 5.1rem;
   }
 
   .content-image {
@@ -280,6 +324,10 @@ footer > div > p {
 
 /* Mobile 사이즈 */
 @media (max-width: 767px) {
+  .nav-container {
+    height: 6.3rem;
+  }
+
   .logo {
     width: 8.8rem;
   }
@@ -289,7 +337,7 @@ footer > div > p {
     font-size: 1.4rem;
     font-weight: 600;
   }
-  
+
   .Login_button {
     width: 8rem;
   }
@@ -298,7 +346,7 @@ footer > div > p {
     row-gap: 2.4rem;
     padding-top: 2.8rem;
   }
-  
+
   h1 {
     font-size: 3.2rem;
     line-height: 4.2rem;
@@ -307,30 +355,15 @@ footer > div > p {
   .link_add_button {
     width: 20rem;
   }
-  
+
   .exam_img {
     margin: 0 3.2rem;
     width: 100%;
     height: 100%;
-  } 
+  }
 
   article {
     padding-top: 0;
-    margin: 0 3.2rem;
-  }
-
-  .back_white {
-    height: auto;
-    padding: 4rem 0;
-  }
-
-  .contents {
-    flex-direction: column;
-    row-gap: 2.4rem;
-  }
-
-  .contents img {
-    order: 10;
   }
 
   .contents h2 {
@@ -340,17 +373,10 @@ footer > div > p {
 
   .subtext {
     font-size: 1.5rem;
-    order: 20;
   }
 
-  .hidden_pc {
-    display: block;
-  }
-
-  .hidden_tablet {
-    display: block;
-  }
-
+  .hidden_pc,
+  .hidden_tablet,
   .hidden_mobile {
     display: none;
   }
@@ -358,5 +384,9 @@ footer > div > p {
   .content-image {
     width: 100%;
     height: 100%;
+  }
+
+  footer {
+    margin: 4rem auto 0;
   }
 }
