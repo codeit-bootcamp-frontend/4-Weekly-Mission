@@ -95,8 +95,6 @@ function isSamePassword(passwordInputValue, passwordCheckInputValue) {
 
 //인풋 에러 켜기 -> 에러 테두리 스타일 추가, 에러 메시지 출력
 function showError(input, errorElement, message) {
-  input.classList.add("sign-input-error");
-  errorElement.textContent = message;
   errorElement.classList.remove("hidden");
 }
 
