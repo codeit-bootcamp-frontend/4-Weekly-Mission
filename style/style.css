@@ -9,15 +9,15 @@
   --Red: #FF5B56;
   --Black: #111322;
   --White: #FFFFFF;
-  --Grey_F: #F0F6FF;
-  --Grey_E: #E7EFFB;
-  --Grey_C: #CCD5E3;
-  --Grey_9: #9FA6B2;
-  --Grey_3: #3E3E43;
+  --Grey_100: #F0F6FF;
+  --Grey_200: #E7EFFB;
+  --Grey_300: #CCD5E3;
+  --Grey_400: #9FA6B2;
+  --Grey_500: #3E3E43;
 }
 
 header,.section-top {
-  background-color: var(--Grey_F);
+  background-color: var(--Grey_100);
 }
 
 header {
@@ -147,7 +147,7 @@ br.line-break {
 .section-cards{
   width: 550px;
   height: 450px;
-  background-color: var(--Grey_F);
+  background-color: var(--Grey_100);
   display: flex;
   overflow: hidden;
   justify-content: center;
