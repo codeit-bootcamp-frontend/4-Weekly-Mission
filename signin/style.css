@@ -5,6 +5,21 @@
     font-family: Pretendard;
 }
 
+.warning {
+    color: var(--Linkbrary-red, #FF5B56);
+    /* Linkbrary/body2-regular */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 5px;
+}
+
+.hide {
+    display: none;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -29,11 +44,10 @@ font-size: 14px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+margin-top:24px
 }
 
-form {
-    margin-top: 30px;
-}
+
 
 input {
     display: flex;
@@ -44,12 +58,17 @@ input {
     border-radius: 8px;
     border: 1px solid gray;
     background: var(--Linkbrary-white, #FFF);
-    margin: 12px 0 24px
+    margin: 12px 0 0px
 }
 
 input:focus {
     border: 1px solid #6D6AFE;
     outline: none !important;
+}
+
+.wrong{
+    outline: none !important;
+border: 1px solid var(--Linkbrary-red, #FF5B56);
 }
 
 button {
