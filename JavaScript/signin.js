@@ -1,9 +1,7 @@
 
-import {} from './passwordHide'
-const registeredEmails = {
-   email: ['test@codeit.com'], 
-   password: ['codeit101']
-}
+const registeredAccounts = [
+   {email : 'test@codeit.com' , password : 'codeit101'}
+]
 
 const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
@@ -16,9 +14,9 @@ function submitLoginData(event)  {
    event.preventDefault();
    let userVerification = 0
 
-   for (let i = 0 ; i < registeredEmails.email.length ; i++) {
-      if (inputtedLoginEmailCheck.value == registeredEmails.email[i]) {
-         if (inputtedLoginPasswordCheck.value == registeredEmails.password[i]) {
+   for (let i = 0 ; i < registeredAccounts.length ; i++) {
+      if (inputtedLoginEmailCheck.value == registeredAccounts[i]['email']) {
+         if (inputtedLoginPasswordCheck.value == registeredAccounts[i]['password']) {
             userVerification = true
             window.location.replace("folder.html");
          }
