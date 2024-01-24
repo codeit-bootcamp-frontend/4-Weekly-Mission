@@ -1,6 +1,7 @@
 @import url("global.css");
 
 .body-container {
+  height: 100%;
   background-color: var(--Linkbrary-bg);
 }
 
