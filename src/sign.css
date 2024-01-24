@@ -16,6 +16,12 @@ body {
   align-items: center;
   background-color: #F0F6FF;
   font-family: 'Pretendard-Regular';
+  @media (min-width: 365px) and (max-width: 767px) {
+    padding: 120px 32px 0;
+  }
+  @media (min-width: 768px) and (max-width: 1199px) {
+    padding: 200px 0;
+  }
 }
 
 .container {
@@ -30,6 +36,11 @@ body {
   align-items: center;
   gap: 30px;
   width: 400px;
+  @media (min-width: 365px) and (max-width: 767px) {
+    width: 100%;
+    max-width: 400px;
+  }
+
 }
 
 .header {
@@ -61,7 +72,7 @@ body {
   font-weight: 600;
 }
 
-form {
+#form {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -74,7 +85,15 @@ form {
   gap: 12px;
 }
 
-label {
+.error-message {
+  display: block;
+  margin-top: -4px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ff5b56;
+}
+
+.sign-label {
   font-size: 14px;
   font-weight: 400;
 }
@@ -85,12 +104,16 @@ label {
   gap: 12px;
 }
 
-input {
+.sign-input {
   padding: 18px 15px;
   border-radius: 8px;
   border: 1px solid #ccd5e3;
   font-size: 16px;
   line-height: 150%;
+}
+
+.sign-input:focus {
+  border-color: #6D6AFE;
 }
 
 .cta {
@@ -116,6 +139,10 @@ input {
   border-radius: 8px;
   border: 1px solid #CCD5E3;
   background-color: #E7EFFB;
+  @media (min-width: 365px) and (max-width: 767px) {
+    width: 100%;
+    max-width: 400px;
+  }
 }
 
 .sns-text {
@@ -148,16 +175,4 @@ input {
   height: 42px;
   border-radius: 50%;
   background-color: #f5e14b;
-}
-
-@media (min-width: 768px) and (max-width: 1199px) {
-  body {
-    padding: 200px 400px 291px;
-  }
-}
-
-@media (min-width: 375px) and (max-width: 767px){
-  body{
-    padding: 120px 32px 233px ;
-  }
 }

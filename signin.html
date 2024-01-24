@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>로그인</title>
-  <link rel="stylesheet" href="./src/signup.css">
+  <link rel="stylesheet" href="./src/sign.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abel&family=Acme&display=swap" rel="stylesheet">
@@ -21,14 +21,16 @@
         </p>
       </div>
 
-      <form>
+      <form id="form">
         <div class="email">
-          <label for="username">이메일</label>
-          <input id="username" name="username">
+          <label for="usernemail" class="sign-label">이메일</label>
+          <input id="useremail" class="sign-input" name="이메일">
+          <p id="email-error-message" class="error-message"></p>
         </div>
         <div class="pw">
-            <label for="password">비밀번호</label>
-            <input id="password" name="password" type="password">
+            <label for="password" class="sign-label">비밀번호</label>
+            <input id="password" class="sign-input" name="비밀번호" type="password">
+            <p id="pw-error-message" class="error-message"></p>
         </div>
         <div>
         <button class="cta" type="submit">로그인</button>
@@ -40,13 +42,14 @@
       <span class="sns-text">소셜 로그인</span>
       <div class="sns-links">
         <a class="google-link" href="https://www.google.com/">
-          <img src="./images/google.png" />
+          <img src="./images/google.png" alt="구글계정으로 로그인"/>
         </a>
         <a class="kakao-link" href="https://www.kakaocorp.com/page/">
-          <img src="./images/99FE484C5C3451F218 1.png" />
+          <img src="./images/99FE484C5C3451F218 1.png" alt="카카오계정으로 로그인"/>
         </a>
       </div>
     </div>
-  </div>    
+  </div>
+  <script src="./src/sign.js"></script>    
 </body>
 </html>
