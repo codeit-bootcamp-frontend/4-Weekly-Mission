@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>로그인</title>
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./src/sign.css" />
+  </head>
+  <body>
+    <header>
+      <a class="logo-link" href="index.html">
+        <img
+          class="header-logo"
+          src="./images/logo.svg"
+          alt="홈으로 연결된 Linkbrary 로고"
+        />
+      </a>
+      <p class="header-message">
+        회원이 아니신가요?<a class="header-link" href="signup.html"
+          >회원 가입하기</a
+        >
+      </p>
+    </header>
+    <div class="sign-box">
+      <form class="sign-form">
+        <div class="sign-inputs">
+          <div class="sign-input-box">
+            <label class="sign-input-label">이메일</label>
+            <input class="sign-input" />
+          </div>
+          <div class="sign-input-box sign-password">
+            <label class="sign-input-label">비밀번호</label>
+            <input class="sign-input" type="password" />
+            <button class="eye-button" type="button">
+              <img src="./images/eye-off.svg" />
+            </button>
+          </div>
+        </div>
+        <button class="cta" type="submit">로그인</button>
+      </form>
+      <div class="sns-box">
+        <span class="sns-text">소셜 로그인</span>
+        <div class="sns-links">
+          <a class="sns-link google-link" href="https://www.google.com/">
+            <img src="./images/google.png" />
+          </a>
+          <a class="sns-link kakao-link" href="https://www.kakaocorp.com/page/">
+            <img src="./images/kakao.svg" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .querySelector(".sign-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // 폼의 기본 동작을 막음
+
+          // 이메일과 비밀번호 입력란 값 가져오기
+          var emailInput = document.querySelector('.sign-input[type="email"]');
+          var passwordInput = document.querySelector(
+            '.sign-input[type="password"]'
+          );
+
+          // 에러 메시지 요소 가져오기
+          var emailErrorMessage = document.createElement("p");
+          emailErrorMessage.className = "error-message";
+          emailErrorMessage.textContent = "이메일을 확인해 주세요.";
+
+          var passwordErrorMessage = document.createElement("p");
+          passwordErrorMessage.className = "error-message";
+          passwordErrorMessage.textContent = "비밀번호를 확인해 주세요.";
+
+          // 이메일 유효성 검사
+          if (!validateEmail(emailInput.value.trim())) {
+            showErrorMessage(emailInput, emailErrorMessage);
+          } else {
+            hideErrorMessage(emailInput, emailErrorMessage);
+          }
+
+          // 비밀번호 유효성 검사
+          if (passwordInput.value.trim() === "") {
+            showErrorMessage(passwordInput, passwordErrorMessage);
+          } else {
+            hideErrorMessage(passwordInput, passwordErrorMessage);
+          }
+
+          // 예시로 주어진 이메일과 비밀번호와 비교
+          if (
+            emailInput.value.trim() === "test@codeit.com" &&
+            passwordInput.value.trim() === "codeit101"
+          ) {
+            // 로그인 성공 시 페이지 이동
+            window.location.href = "/folder";
+          } else {
+            // 로그인 실패 시 처리 (예: 에러 메시지 표시)
+            alert("이메일 또는 비밀번호가 올바르지 않습니다.");
+          }
+        });
+
+      function validateEmail(email) {
+        // 간단한 이메일 형식 검사를 수행할 수 있습니다.
+        // 본래 이메일 유효성 검사는 더 복잡해질 수 있습니다.
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      function showErrorMessage(inputElement, errorMessageElement) {
+        var inputBox = inputElement.closest(".sign-input-box");
+        inputBox.appendChild(errorMessageElement);
+      }
+
+      function hideErrorMessage(inputElement, errorMessageElement) {
+        var inputBox = inputElement.closest(".sign-input-box");
+        if (inputBox.contains(errorMessageElement)) {
+          inputBox.removeChild(errorMessageElement);
+        }
+      }
+    </script>
+  </body>
+</html>
