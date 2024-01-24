@@ -24,17 +24,19 @@
       <div class="sign-inputs">
         <div class="sign-input-box">
           <label class="sign-input-label">이메일</label>
-          <input class="sign-input" />
+          <input id="email-input" class="sign-input" type="email"/>
+          <div id="email-error" class="error-message"></div>
         </div>
         <div class="sign-input-box sign-password">
           <label class="sign-input-label">비밀번호</label>
-          <input class="sign-input" type="password" />
-          <button class="eye-button" type="button">
-            <img src="./images/eye-off.svg" />
+          <input id="pwd-input" class="sign-input" type="password" />
+          <button id="eye-button" class="eye-button" type="button">
+            <img id="eye-img" src="./images/eye-off.svg" />
           </button>
         </div>
+        <div id="pwd-error" class="error-message"></div>
       </div>
-      <button class="cta" type="submit">로그인</button>
+      <button id="login-btn" class="cta" type="button">로그인</button>
     </form>
     <div class="sns-box">
       <span class="sns-text">소셜 로그인</span>
@@ -48,6 +50,7 @@
       </div>
     </div>
   </div>
+  <script src="js/sign.js"></script>
 </body>
 
 </html>
