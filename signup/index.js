@@ -15,9 +15,11 @@ import {
   isSamePassword,
   showError,
   hideError,
-  isValidUser,
+  isValidSignUp,
   showPassword,
   hidePassword,
+  showPasswordCheck,
+  hidePasswordCheck,
 } from "../js/utility.js";
 
 /********************
@@ -69,7 +71,8 @@ function checkPasswordCheckError() {
 
 //회원가입 성공/실패
 function checkSignUp() {
-  if (isValidUser(emailInput, passwordInput)) {
+  console.log(isValidSignUp(emailInput.value, passwordInput.value, passwordCheckInput.value));
+  if (isValidSignUp(emailInput.value, passwordInput.value, passwordCheckInput.value)) {
     return (location.href = "../folder/index.html");
   }
 
@@ -86,6 +89,15 @@ function togglePassword() {
   }
 
   return hidePassword();
+}
+
+//eyeBtnCheck 비밀번호 확인 토글
+function togglePasswordCheck() {
+  if (passwordCheckInput.type === "password") {
+    return showPasswordCheck();
+  }
+
+  return hidePasswordCheck();
 }
 
 /********************
@@ -109,3 +121,4 @@ passwordCheckInput.addEventListener("focusout", checkPasswordCheckError);
 loginBtn.addEventListener("click", checkSignUp);
 document.body.addEventListener("keypress", checkSignUpByEnter);
 eyeBtn.addEventListener("click", togglePassword);
+eyeBtnCheck.addEventListener("click", togglePasswordCheck);

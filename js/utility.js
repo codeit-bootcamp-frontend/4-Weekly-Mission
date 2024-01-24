@@ -62,18 +62,18 @@ function isExistingEmail(emailInputValue) {
 
 //비밀번호 양식
 function validatePassword(passwordString) {
-  // 값이 8자 미만인 경우
+  //8자 미만인 경우
   if (passwordString.length < 8) {
     return false;
   }
 
-  // 값이 숫자만 포함된 경우
-  if (/^\d+$/.test(passwordString)) {
+  //숫자가 없는 경우
+  if (!/\d/.test(passwordString)) {
     return false;
   }
 
-  // 값이 문자열만 포함된 경우
-  if (/^[a-zA-Z]+$/.test(passwordString)) {
+  //영문이 없는 경우
+  if (!/[a-zA-Z]/.test(passwordString)) {
     return false;
   }
 
@@ -116,21 +116,60 @@ function getUserByLoginInfo(emailInputValue, passwordInputValue) {
 }
 
 //로그인 유효성 검사
-function isValidUser(emailInput, passwordInput) {
-  return getUserByLoginInfo(emailInput.value, passwordInput.value);
+function isValidUser(emailInputValue, passwordInputValue) {
+  return getUserByLoginInfo(emailInputValue, passwordInputValue);
+}
+
+//회원가입 유효성 검사
+function isValidSignUp(emailInputValue, passwordInputValue, passwordCheckInputValue) {
+  if (!isValidEmail(emailInputValue)) {
+    console.log(`case 1`);
+    return false;
+  }
+
+  if (isExistingEmail(emailInputValue)) {
+    console.log(`case 2`);
+    return false;
+  }
+
+  if (!isValidPassword(passwordInputValue)) {
+    console.log(`case 3`);
+    return false;
+  }
+
+  if (!isSamePassword(passwordInputValue, passwordCheckInputValue)) {
+    console.log(`case 4`);
+    return false;
+  }
+
+  return true;
 }
 
 //eyeBtn 비밀번호 보이게
 function showPassword() {
-  const imgElement = document.querySelector(".icon-eye");
+  const imgElement = document.querySelector("#password-eye .icon-eye");
   passwordInput.type = "text";
   imgElement.src = "../public/icon/eye-on.svg";
 }
 
 //eyeBtn 비밀번호 안보이게
 function hidePassword() {
-  const imgElement = document.querySelector(".icon-eye");
+  const imgElement = document.querySelector("#password-eye .icon-eye");
   passwordInput.type = "password";
+  imgElement.src = "../public/icon/eye-off.svg";
+}
+
+//eyeBtnCheck 비밀번호 확인 보이게
+function showPasswordCheck() {
+  const imgElement = document.querySelector("#password-check-eye .icon-eye");
+  passwordCheckInput.type = "text";
+  imgElement.src = "../public/icon/eye-on.svg";
+}
+
+//eyeBtnCheck 비밀번호 확인 안보이게
+function hidePasswordCheck() {
+  const imgElement = document.querySelector("#password-check-eye .icon-eye");
+  passwordCheckInput.type = "password";
   imgElement.src = "../public/icon/eye-off.svg";
 }
 
@@ -147,6 +186,7 @@ export {
   passwordCheckErrorMessageElement,
   loginBtn,
   eyeBtn,
+  eyeBtnCheck,
   isEmpty,
   isValidEmail,
   isExistingEmail,
@@ -155,6 +195,9 @@ export {
   showError,
   hideError,
   isValidUser,
+  isValidSignUp,
   showPassword,
   hidePassword,
+  showPasswordCheck,
+  hidePasswordCheck,
 };

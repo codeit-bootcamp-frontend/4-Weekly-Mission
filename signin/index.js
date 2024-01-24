@@ -42,7 +42,7 @@ function checkPasswordError() {
 
 //로그인 성공/실패
 function checkLogin() {
-  if (isValidUser(emailInput, passwordInput)) {
+  if (isValidUser(emailInput.value, passwordInput.value)) {
     return (location.href = "../folder/index.html");
   }
 
