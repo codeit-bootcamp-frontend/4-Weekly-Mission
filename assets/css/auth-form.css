@@ -94,6 +94,14 @@ body {
   position: absolute;
   right: 22px;
   top: 22px;
+  width: 16px;
+  height: 16px;
+}
+
+.password-show img {
+  width: 100%;
+  display: block;
+  pointer-events: none;
 }
 
 .input-message {
@@ -118,6 +126,8 @@ body {
 =============================================*/
 .input-layout.invalid p {
   color: var(--red);
+  margin-top: 6px;
+  font-size: 14px;
 }
 
 .input-layout.invalid .input-layout__input {
