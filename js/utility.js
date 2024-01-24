@@ -41,8 +41,8 @@ function validateEmail(emailString) {
 }
 
 //이메일 양식 유효성 검사
-function isValidEmail() {
-  if (validateEmail(emailInput.value)) {
+function isValidEmail(emailInputValue) {
+  if (validateEmail(emailInputValue)) {
     return true;
   }
   return false;
