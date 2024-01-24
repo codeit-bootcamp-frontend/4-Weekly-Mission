@@ -92,7 +92,7 @@ header {
 
 .eye-button {
   position: absolute;
-  bottom: 2.2rem;
+  top: 5.1rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -149,4 +149,26 @@ header {
 .kakao-link {
   padding-top: 0.2rem;
   background-color: #f5e14b;
+}
+
+.empty-email-error, 
+.correct-email-error, 
+.empty-password-error, 
+.email-validation-message, 
+.password-validation-message{
+  display: none;
+  color: var(--Linkbrary-red, #FF5B56);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.red-border{
+  border: 1px solid var(--Linkbrary-red, #FF5B56);
+  background: var(--Linkbrary-white, #FFF);
+}
+
+.show-error {
+  display: block; 
 }
