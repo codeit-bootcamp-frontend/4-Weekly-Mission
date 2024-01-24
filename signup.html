@@ -18,7 +18,7 @@
         </a>
         <div class="title-context">
           <div>이미 회원이신가요?</div>
-          <a class="title-signup" href="signin.html">로그인 하기</a>
+          <a class="title-signup" href="./signin.html">로그인 하기</a>
         </div>
       </div>
     </header>
@@ -27,30 +27,30 @@
       <form class="sign">
         <div class="sign-text">
           <label for="email">이메일</label>
-          <input name="email" type="email">
+          <input id="sign-email" name="email" type="email">
+          <div id="email-message"><!-- 이메일 입력 정보 --></div>
         </div>
 
         <div class="sign-text">
           <label for="password">비밀번호</label>
           <div class="password-icon">
-            <input name="password" type="password">
-            <img class="icon-eye-off" src="images/eye-off.svg">
+            <input id="sign-password" name="password" type="password">
+            <img class="icon-eye" src="./images/eye-off.svg" alt="eye-off">
           </div>
+          <div id="password-message"><!-- 비밀번호 입력 정보 --></div>
         </div>
 
         <div class="sign-text">
           <label for="password-repeat">비밀번호 확인</label>
-          <div class="password-icon repeat">
-            <input name="password-repeat" type="password">
-            <img class="icon-eye-off" src="images/eye-off.svg">
+          <div class="password-icon">
+            <input id="sign-password-repeat" name="password-repeat" type="password">
+            <img class="icon-eye" src="./images/eye-off.svg" alt="eye-off">
           </div>
-          <div class="password-wrong">비밀번호가 다릅니다</div>
+          <div id="password-repeat-message"><!-- 비밀번호 일치 정보 --></div>
         </div>
-      </div>
 
-      <div class="sign-button">
-        <div>회원가입</div>
-      </div>
+        <button class="btn signup">회원가입</button>
+      </form>
 
       <div class=" social">
         <div class="social-sign">다른 방식으로 가입하기</div>
@@ -66,5 +66,7 @@
         </div>
       </div>
     </main>
+
+    <script src="scripts/sign.js"></script>
   </body>
 </html>

@@ -18,7 +18,7 @@
         </a>
         <div class="title-context">
           <div>회원이 아니신가요?</div>
-          <a class="title-signup" href="signup.html">회원가입 하기</a>
+          <a class="title-signup" href="./signup.html">회원가입 하기</a>
         </div>
       </div>
     </header>
@@ -27,22 +27,22 @@
       <form class="sign">
         <div class="sign-text">
           <label for="email">이메일</label>
-          <input name="email" type="email">
+          <input id="sign-email" name="email" type="email">
+          <div id="email-message"><!-- 이메일 입력 정보 --></div>
         </div>
 
         <div class="sign-text">
           <label for="password">비밀번호</label>
           <div class="password-icon">
-            <input name="password" type="password">
-            <img class="icon-eye-off" src="images/eye-off.svg" alt="eye-off">
+            <input id="sign-password" name="password" type="password">
+            <img class="icon-eye" src="./images/eye-off.svg" alt="eye-off">
           </div>
+          <div id="password-message"><!-- 비밀번호 입력 정보 --></div>
         </div>
 
-        <div class="sign-button">
-          <div>로그인</div>
-        </div>
+        <button class="btn signin">로그인</button>
       </form>
-
+      
       <div class=" social">
         <div class="social-sign">소셜 로그인</div>
         <div class="social-icon">
@@ -57,5 +57,7 @@
         </div>
       </div>
     </main>
+
+    <script src="scripts/sign.js"></script>
   </body>
 </html>
