@@ -20,18 +20,18 @@
       </p>
     </header>
     <div class="sign-box">
-      <form class="sign-form" id="sign-form">
+      <form class="sign-form" id="signin">
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" id="email" value="" autoComplete="off" onfocusout="checkingE()" onfocusin="focusing()"/>
+            <input class="sign-input" id="email" value="" autoComplete="off" onfocusout="checkingEmail()" onfocusin="focusing(emailErrorMessage,email)"/>
             <small id="error-email"></small>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" id="password" type="password" value="" autoComplete="off" onfocusout="checkingP()" onfocusin="focusing2()"/>
+            <input class="sign-input" id="password" type="password" value="" autoComplete="off" onfocusout="checkingPassword()" onfocusin="focusing(passwordErrorMessage,password)"/>
             <small id="error-password"></small>
-            <button class="eye-button" type="button" id="eye-button">
+            <button class="eye-button" type="button" id="eye-button" onclick="eyeBlink(password,eye)">
               <img src="./images/eye-off.svg" id="eye"/>
             </button>
             
