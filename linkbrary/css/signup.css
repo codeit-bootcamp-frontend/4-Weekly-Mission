@@ -60,7 +60,8 @@
 .sign_up_form {
     display: flex;
     flex-direction: column;
-    gap: 2.4rem;
+    gap: 1rem;
+
 }
 
 .input_box {
@@ -78,7 +79,7 @@
     /* width: 40rem; */
     padding: 18px 15px;
     border-radius: 8px;
-    border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
+    border: 1px solid var(--Linkbrary-primary-color,#CCD5E3);
     background: var(--Linkbrary-white, #FFF);
     color: var(--Linkbrary-gray100, #373740);
     font-size: 1.6rem;
@@ -99,6 +100,7 @@
     border-radius: 8px;
     border: none;
     background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
+    margin-top: 1.5rem;
 }
 
 .icon_input_box {
@@ -108,8 +110,9 @@
 
 .pw_icon {
     position: absolute;
-    top:58%;
+    top:44%;
     right: 1.5rem;
+    cursor: pointer;
 }
 
 .social_sign_up_box {
@@ -142,6 +145,26 @@ align-items: center;
 }
 
 .input:focus{
-    border-color: blue;
+    border-color: #6D6AFE;
     outline: none;
+}
+
+
+.input_error {
+    border: 1px solid #FF5B56;
+    outline: none;
+}
+
+.error_msg {
+    color:  #FF5B56;
+    font-size: 1.4rem;
+    opacity: 0;
+}
+
+.view_error {
+    opacity: 1;
+}
+
+.display_none {
+    display: none;
 }
