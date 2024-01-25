@@ -9,9 +9,7 @@ function createErrorMessage(text) {
 }
 
 // 이메일 형식 검증 함수
-function isEmailValid(email) {
-  return EMAIL_REGEX.test(email);
-}
+const isEmailValid = (email) => EMAIL_REGEX.test(email);
 
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
