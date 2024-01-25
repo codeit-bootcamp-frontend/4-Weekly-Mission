@@ -7,6 +7,7 @@ const emailMessage = document.createElement("div");
 const passwordMessage = document.createElement("div");
 const rePasswordMessage = document.createElement("div");
 const signupBtn = document.querySelector(".cta");
+const eyeBtn = document.querySelectorAll(".eye-button");
 
 const isValidEmail = () => {
   const email_regex =
@@ -72,7 +73,17 @@ const handleClickBtn = (e) => {
     location.href = "./folder.html";
   }
 };
+const showPw = () => {
+  passwordInput.setAttribute("type", "text");
+  rePasswordInput.setAttribute("type", "text");
+  eyeBtn.forEach((v) => {
+    return (v.style.display = "none");
+  });
+};
+
 emailInput.addEventListener("focusout", handleFocusoutEmail);
 passwordInput.addEventListener("focusout", handleFocusoutPassword);
 rePasswordInput.addEventListener("focusout", handleFocusoutRePassword);
 signupBtn.addEventListener("click", handleClickBtn);
+eyeBtn[0].addEventListener("click", showPw);
+eyeBtn[1].addEventListener("click", showPw);
