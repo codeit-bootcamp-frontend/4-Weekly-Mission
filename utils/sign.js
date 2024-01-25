@@ -6,84 +6,49 @@ import {
   EMAIL_REGEX
 } from './constant/signVariable.js'
 
-// 아이디, 비밀번호 input 요소들
-const signEmailInput = DOM.selectElement('#email-input');
-const signPasswordInput = DOM.selectElement('#password-input');
+const signEmailSection = DOM.selectElement('.sign-email')
+const signPasswordSection = DOM.selectElement('.sign-password')
+const signEmailInput = DOM.selectElement('#email-input')
+const signPasswordInput = DOM.selectElement('#password-input')
+DOM.createTagAndclassWithText(signEmailSection, 'email-error', '')
+DOM.createTagAndclassWithText(signPasswordSection, 'password-error', '')
+const emailError = signEmailSection.lastChild
+const passwordError = signPasswordSection.lastChild
+signEmailSection.lastChild.className
+
+
+function showErrorMsg(inputElement, textElement, text){
+  inputElement.classList.add('red-border')
+  textElement?.classList.remove('hidden')
+  DOM.changeText(textElement, text)
+}
+
+// showErrorMsg(signEmailInput, emailError, '안녕')
 
 // 눈 아이콘 버튼
-const EYE_BUTTON = DOM.selectElement('.eye-button-icon');
+const EYE_BUTTON = DOM.selectElement('.eye-button-icon')
 
 //클래스 이름 상수화
-const SHOW_ERROR_CLASS_NAME = 'show-error';
-const RED_BORDER_CLASS_NAME = 'red-border';
+const SHOW_ERROR_CLASS_NAME = 'show-error'
+const RED_BORDER_CLASS_NAME = 'red-border'
 
-function isEmailInvalid(){
-  const emailValue = signEmailInput.value.trim();
-  if (!EMAIL_REGEX.test(emailValue)) {
-    return true;
+function handleEmailFocusout(){
+  if(input.isFormatValue(signEmailInput)){
+    showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.empty)
+    return
   }
-  return false; 
-}
-function isEmailFormatError(){
-  const emailValue = signEmailInput.value.trim();
-  if (emailValue === '') {
-    return true;
-  }
-  return false;
-}
-function isPasswordFormatError(){
-  const passwordValue = signPasswordInput.value.trim();
-  if(passwordValue === ''){
-    return true
-  }
-  return false
 }
 
-// target에 className에 해당하는 class를 추가한다.
-function addClassList(target, className){
-  target.classList.add(className)
-}
 
-// target에 className에 해당하는 class를 제거한다.
-function removeClassList(target, className){
-  target.classList.remove(className)
-}
+signEmailInput?.addEventListener('focusout',handleEmailFocusout)
 
-function initEmailErrorStatus(){
-  removeClassList(EMPTY_EMAIL_ERROR_MESSAGE, SHOW_ERROR_CLASS_NAME)
-  removeClassList(signEmailInput, RED_BORDER_CLASS_NAME)
-  removeClassList(INVALID_EMAIL_FORMAT_MESSAGE, SHOW_ERROR_CLASS_NAME)
-  removeClassList(EMAIL_VALIDATION_MESSAGE, SHOW_ERROR_CLASS_NAME)
-}
 
-function initPasswordErrorStatus(){
-  removeClassList(EMPTY_PASSWORD_ERROR_MESSAGE, SHOW_ERROR_CLASS_NAME)
-  removeClassList(signPasswordInput, RED_BORDER_CLASS_NAME)
-  removeClassList(PASSWORD_VALIDATION_MESSAGE, SHOW_ERROR_CLASS_NAME)
-}
 
-signEmailInput.addEventListener('focusout', function() {
-  initEmailErrorStatus()
-  if(isEmailFormatError()) {
-    addClassList(EMPTY_EMAIL_ERROR_MESSAGE, SHOW_ERROR_CLASS_NAME)
-    addClassList(signEmailInput, RED_BORDER_CLASS_NAME)
-    removeClassList(INVALID_EMAIL_FORMAT_MESSAGE, SHOW_ERROR_CLASS_NAME)
-    removeClassList(EMAIL_VALIDATION_MESSAGE, SHOW_ERROR_CLASS_NAME)
-  } else if(isEmailInvalid()) {
-    addClassList(INVALID_EMAIL_FORMAT_MESSAGE, SHOW_ERROR_CLASS_NAME)
-    addClassList(signEmailInput, RED_BORDER_CLASS_NAME)
-    removeClassList(EMPTY_EMAIL_ERROR_MESSAGE, SHOW_ERROR_CLASS_NAME)
-  }
-});
 
-signPasswordInput.addEventListener('focusout', function() {
-  initPasswordErrorStatus()
-  if(isPasswordFormatError()) {
-    addClassList(EMPTY_PASSWORD_ERROR_MESSAGE, SHOW_ERROR_CLASS_NAME)
-    addClassList(signPasswordInput, RED_BORDER_CLASS_NAME)
-    removeClassList(PASSWORD_VALIDATION_MESSAGE, SHOW_ERROR_CLASS_NAME)
-  }
-});
+
+
+
+
 
 function submitLogin(){
   const emailValue = signEmailInput.value.trim();
@@ -113,12 +78,3 @@ function togglePasswordVisibility() {
   signPasswordInput.type = passwordFieldType === 'password' ? 'text' : 'password';
   EYE_BUTTON.src = `./images/eye-${passwordFieldType === 'password' ? 'on' : 'off'}.svg`;
 };
-
-let haha = "hihi"
-let inputbox = document.querySelector('.sign-input-box')
-const li = document.createElement('p')
-li.textContent = `${EMAIL_ERROR_MESSAGE.empty}`
-li.className = 'emptu-email'
-inputbox.appendChild(li)
-DOM.createTagAndclassWithText(inputbox, 'emptu-email', EMAIL_ERROR_MESSAGE.validation)
-DOM.chageText(EMAIL_ERROR_MESSAGE.empty)
