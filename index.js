@@ -9,18 +9,11 @@ passwordError.classList.add("error-message");
 const eyeBtn = document.querySelector(".eye-button");
 const loginBtn = document.querySelector(".cta");
 
-const updateEmail = () => {
-  return emailInput.value;
-};
-const updatePassword = () => {
-  return passwordInput.value;
-};
 const isValidEmail = () => {
   const email_regex =
     /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 
-  const emailValue = updateEmail();
-  if (email_regex.test(emailValue)) {
+  if (email_regex.test(emailInput.value)) {
     return true;
   } else {
     return false;
@@ -28,7 +21,10 @@ const isValidEmail = () => {
 };
 const isValidAccount = (event) => {
   event.preventDefault();
-  if (updateEmail() === "test@codeit.com" && updatePassword() === "codeit101") {
+  if (
+    updateEmail() === "test@codeit.com" &&
+    passwordInput.value === "codeit101"
+  ) {
     location.href = "./folder.html";
   } else if (
     updateEmail() !== "test@codeit.com" &&
