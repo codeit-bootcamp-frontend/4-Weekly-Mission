@@ -1,3 +1,5 @@
+import {ERROR_MESSAGE } from "../constant.js";
+
 const emailDiv = document.querySelector('#email');
 const pwdDiv = document.querySelector('#password');
 const emailInput = document.querySelector('.email-input');
@@ -12,7 +14,7 @@ function errorMsg(errorCase) {
   let newNode = document.createElement('div');
 
   if(errorCase === "NoEmail") {          // email 값 없이 focusout시 
-      newNode.innerHTML = "<p>이메일을 입력해 주세요</p>"
+      newNode.innerHTML = `<p>${ERROR_MESSAGE.email.invalid}</p>`
       newNode.classList.add(errorCase,'errorMsg');
       newNode.setAttribute('sort', 'email');
 
