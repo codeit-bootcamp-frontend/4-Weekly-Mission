@@ -1,14 +1,19 @@
 const selectElement = (selector) => document.querySelector(selector);
-const addTag = document.createElement('p')
 
 function createTagAndclassWithText (element, className, text){
+  if (!element) return;
+  const addTag = document.createElement('p')
+  console.log(element)
   addTag.textContent = text
   addTag.className = className
   element.appendChild(addTag)
 }
 
-function chageText(text){
-  addTag.textContent = text
+function changeText(textElement, text){
+  console.log(textElement)
+  if(textElement){
+    textElement.textContent = text
+  }
 }
 
-export {selectElement, createTagAndclassWithText, chageText}
+export {selectElement, createTagAndclassWithText, changeText}

@@ -37,10 +37,34 @@ function handleEmailFocusout(){
     showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.empty)
     return
   }
+  if(input.isRegexMatch(signEmailInput, EMAIL_REGEX)){
+    emailError?.classList.add('hidden')
+    return
+  }
+  showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.invalid)
+}
+
+function handleEmailFocusin(){
+  signEmailInput.classList.remove('red-border')
+}
+
+function handlePasswordFocusout(){
+  if(input.isFormatValue(signPasswordInput)){
+    showErrorMsg(signPasswordInput, passwordError, PASSWORD_ERROR_MESSAGE.empty)
+    return
+  }
+  passwordError.classList.add('hidden')
+}
+
+function handlePasswordFocusin(){
+  signPasswordInput.classList.remove('red-border')
 }
 
 
-signEmailInput?.addEventListener('focusout',handleEmailFocusout)
+signEmailInput.addEventListener('focusout',handleEmailFocusout)
+signEmailInput.addEventListener('focusin',handleEmailFocusin)
+signPasswordInput.addEventListener('focusout', handlePasswordFocusout)
+signPasswordInput.addEventListener('focusin', handlePasswordFocusin)
 
 
 
