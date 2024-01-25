@@ -25,18 +25,18 @@
           <div class="sign-input-box">
             <label for='email' class="text-medium">이메일</label>
             <input id='email' class="sign-input" />
-            <div class = "error-message text-medium hidden">이메일을 입력해 주세요</div>
-            <div class = "error-message text-medium hidden">올바른 이메일 주소가 아닙니다.</div>
-            <div class = "error-message text-medium hidden">이메일을 확인해 주세요.</div>
+            <div id = "emailErrorMessage" class = "error-message text-medium hidden">이메일을 입력해 주세요</div>
+            <div id = "emailFormatErroMessage" class = "error-message text-medium hidden">올바른 이메일 주소가 아닙니다.</div>
+            <div id = "emailCheckErrorMessage" class = "error-message text-medium hidden">이메일을 확인해 주세요.</div>
           </div>
           <div class="sign-input-box sign-password">
             <label for='password' class="text-medium">비밀번호</label>
             <input id='password' class="sign-input" type="password" />
-            <button class="eye-button" type="button">
+            <button id="eye-button" class="eye-button" type="button">
               <img src="./assets/logo/eye-off.svg" />
             </button>
-            <div class = "error-message text-medium hidden">비밀번호를 입력해 주세요.</div>
-            <div class = "error-message text-medium hidden">비밀번호를 확인해 주세요</div>
+            <div id = "passwordErrorMessage" class = "error-message text-medium hidden">비밀번호를 입력해 주세요.</div>
+            <div id = "passwordCheckMessage" class = "error-message text-medium hidden">비밀번호를 확인해 주세요</div>
           </div>
         </div>
         <button id = "login-button" class="cta" type="submit">로그인</button>
@@ -53,6 +53,6 @@
         </div>
       </div>
     </div>
-    <script src = "/script/signin.js"></script>
+    <script type = "module" src = "/script/signin.js"></script>
   </body>
 </html>
