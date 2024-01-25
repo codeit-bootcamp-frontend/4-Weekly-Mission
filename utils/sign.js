@@ -5,7 +5,8 @@ import {
   EMAIL_ERROR_MESSAGE,
   PASSWORD_ERROR_MESSAGE,
   EMAIL_REGEX,
-  USERS
+  USERS,
+  PASSWORD_EYE_ICON
 } from './constant/signVariable.js'
 
 const signEmailSection = DOM.selectElement('.sign-email')
@@ -17,15 +18,13 @@ DOM.createTagAndclassWithText(signPasswordSection, 'password-error', '')
 const emailError = signEmailSection.lastChild
 const passwordError = signPasswordSection.lastChild
 const loginButton = DOM.selectElement('.login-button')
+const eyeImg = DOM.selectElement('.eye-button-icon')
 
 function showErrorMsg(inputElement, textElement, text){
   inputElement.classList.add('red-border')
   textElement?.classList.remove('hidden')
   DOM.changeText(textElement, text)
 }
-
-// 눈 아이콘 버튼
-const EYE_BUTTON = DOM.selectElement('.eye-button-icon')
 
 function handleEmailFocusout(){
   if(input.isFormatValue(signEmailInput)){
@@ -70,8 +69,19 @@ function handleLoginButton(){
   showErrorMsg(signPasswordInput, passwordError, PASSWORD_ERROR_MESSAGE.validation)
 }
 
+function handleChangePasswordType(){
+  const passwordType = signPasswordInput.type
+  const passwordChangeType = passwordType === 'password' ? 'text' : 'password'
+  signPasswordInput.type = passwordChangeType
+  passwordChangeType === 'password' 
+    ? eyeImg.src = PASSWORD_EYE_ICON.passwordType.src 
+    : eyeImg.src = PASSWORD_EYE_ICON.textType.src
+}
+
+
 signEmailInput.addEventListener('focusout',handleEmailFocusout)
 signEmailInput.addEventListener('focusin',handleEmailFocusin)
 signPasswordInput.addEventListener('focusout', handlePasswordFocusout)
 signPasswordInput.addEventListener('focusin', handlePasswordFocusin)
 loginButton.addEventListener('click', handleLoginButton)
+eyeImg.addEventListener('click', handleChangePasswordType)

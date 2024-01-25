@@ -9,3 +9,7 @@ export const PASSWORD_ERROR_MESSAGE = {
 };
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export const USERS = [{ id: 'test@codeit.com', password: 'codeit101' }];
+export const PASSWORD_EYE_ICON = {
+  textType: {src: '../../images/eye-on.svg', alt: 'eye-on'},
+  passwordType: {src: '../../images/eye-off.svg', alt: 'eye-off'}
+}
