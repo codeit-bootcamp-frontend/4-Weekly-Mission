@@ -60,25 +60,14 @@
   outline: none;
 }
 
-.js-input-profile-error {
-  border: 0.3rem solid var(--red);
-  outline: none;
-}
-
-.js-input-profile-error-blank-msg,
-.js-input-profile-error-invalid-msg,
-.js-input-profile-error-incorrect-msg {
-  margin-top: -1rem;
-  color: var(--red);
-}
-
 .input-error-msg {
   margin-top: -1rem;
   color: var(--red);  
 }
 
-.js-input-profile-error-msg-order {
-  order: 3;
+.js-input-profile-error {
+  border: 0.3rem solid var(--red);
+  outline: none;
 }
 
 .js-display-none {

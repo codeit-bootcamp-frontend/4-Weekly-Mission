@@ -20,7 +20,6 @@ const ERROR_MSG = {
     EMAIL: '이메일을 확인해 주세요.',
     PASSWORD: '비밀번호를 확인해 주세요.'
   }
-
 }
 
 const $ = (selector, element = document) => element.querySelector(selector);
@@ -78,7 +77,8 @@ const addErrorToIncorrectInput = (input) => {
 const loginHandler = (e) => {
   const emailInput = $('#email').value;
   const passwordInput = $('#password').value;
-
+  
+  // 마스터 계정이 아닌 경우 일단 다 차단
   if(isMaster(emailInput, passwordInput))
     window.location.href = './folder.html';
   else {
