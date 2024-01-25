@@ -11,7 +11,7 @@ body {
     gap: 3.2rem;
 }
 
-#sign-box {
+.sign-box {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -104,6 +104,11 @@ input:focus {
     font-size: 1.4rem;
     margin-bottom: 1.4rem;
     width: 100%;
+}
+
+#errorEmail.errorShown,
+#errorPassword.errorShown {
+    display: block;
 }
 
 .sign-box .errorBdr {
