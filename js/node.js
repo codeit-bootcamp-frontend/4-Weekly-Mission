@@ -27,9 +27,11 @@ function inputDeleteNode(type) {
     case "email" : 
       emailDiv.children[2] ? emailDiv.children[2].remove() : null
       emailInput.setAttribute('status', 'steady');
+      break;
     case "password" :
       pwdDiv.children[2] ? pwdDiv.children[2].remove() : null
       pwdInput.setAttribute('status', 'steady');
+      break;
   }
 }
 

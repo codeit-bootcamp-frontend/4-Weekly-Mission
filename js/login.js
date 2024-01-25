@@ -1,5 +1,5 @@
 import {ERROR_MESSAGE } from "../constant.js";
-import { emailCheck } from "./validation.js"; 
+import { emailCheck, passwordCheck } from "./validation.js"; 
 import { inputAddNode, inputDeleteNode } from "./node.js";
 
 const emailDiv = document.querySelector('#email');
@@ -26,6 +26,9 @@ function errorMsg(errorCase) {
     case "NoPwd" :
       inputAddNode('password', ERROR_MESSAGE.password.empty, errorCase);
       break;
+    case "wrongPwd" :
+      inputAddNode('password', ERROR_MESSAGE.password.invalid, errorCase);
+      break;
     case "Other": 
       inputAddNode('email', ERROR_MESSAGE.email.check, errorCase);
       inputAddNode('password', ERROR_MESSAGE.password.check, errorCase);
@@ -45,7 +48,11 @@ function emailHandlerFunc(email) {
 
 // 비밀번호 input 핸들러 함수
 function passwordHandlerFuc(password) {
-  password ? inputDeleteNode('password') : errorMsg("NoPwd")
+  if(password) {
+    passwordCheck(password) ? inputDeleteNode('password') : errorMsg("wrongPwd")
+  } else {
+    errorMsg("NoPwd");
+  }
   pwdVal = password;
 }
 
