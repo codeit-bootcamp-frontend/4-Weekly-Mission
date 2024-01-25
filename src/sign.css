@@ -92,7 +92,8 @@ header {
   border-color: var(--primary);
 }
 
-.eye-button {
+.eye-button,
+.eye-button-check {
   position: absolute;
   top: 5rem;
   right: 1.5rem;
