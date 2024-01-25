@@ -22,13 +22,13 @@
     <div class="sign-box">
       <form class="sign-form">
         <div class="sign-inputs">
-          <div class="sign-input-box">
+          <div class="sign-input-box sign-email">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <input id="email-input" class="sign-input" />
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
+            <input id="password-input"  class="sign-input" type="password" />
             <button class="eye-button" type="button">
               <img src="../images/eye-off.svg" />
             </button>
@@ -55,5 +55,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="../utils/sign.js"></script>
   </body>
 </html>
