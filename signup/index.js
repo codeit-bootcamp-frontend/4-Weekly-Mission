@@ -25,6 +25,16 @@ function createErrorSpanElement(parentPlace, place) {
   span.style.top = '-6px';
 }
 
+function styleErrorBorder(inputSlectorName) {
+  let inputElement = document.querySelector(inputSlectorName);
+  inputElement.style.outline = "1px solid red";
+}
+
+function removeBorderStyle(inputSlectorName) {
+  let inputElement = document.querySelector(inputSlectorName);
+  inputElement.style.outline = "none";
+}
+
 function printErrorMessage(place, errorSentence) {
   let errorMessage = document.querySelector(place);
   errorMessage.textContent = errorSentence;
@@ -32,18 +42,22 @@ function printErrorMessage(place, errorSentence) {
 
 function noInputFocusOut() {
   resetElement(".input-form-email", ".errorMessage-email");
+  removeBorderStyle(".input-email");
 
   if (email.value.trim() === "") {
     createErrorSpanElement(".input-form-email", "errorMessage-email");
+    styleErrorBorder(".input-email")
     printErrorMessage(".errorMessage-email", "이메일을 입력해 주세요");
   }
 }
 
 function noInputFocusOutPassword() {
   resetElement(".input-form-password", ".errorMessage");
+  removeBorderStyle(".input-password");
 
   if (password.value.trim() === "") {
     createErrorSpanElement(".input-form-password", "errorMessage");
+    styleErrorBorder(".input-password");
     printErrorMessage(".errorMessage", "비밀번호를 입력해 주세요");
   }
 }
@@ -56,19 +70,22 @@ function notValidEmailInput() {
   }
 
   resetElement(".input-form-email", ".errorMessage-email");
+  removeBorderStyle(".input-email");
   
   if (emailRegex.test(email.value)) {
     console.log("Email")
     return
   } else {
     createErrorSpanElement(".input-form-email", "errorMessage-email");
+    styleErrorBorder(".input-email");
     printErrorMessage(".errorMessage-email", '올바른 이메일 주소가 아닙니다');
   }
 }
 
-function focusIn(place) {
+function focusIn(inputElementSelectorName, place) {
   let errorMessage = document.querySelector(place); 
   if (errorMessage) {
+    removeBorderStyle(inputElementSelectorName);
     errorMessage.remove();
   }
 }
@@ -95,21 +112,27 @@ function notPasswordFormat() {
 
   if (passwordFormat.length < 8 || /^[a-zA-Z]+$/.test(passwordFormat) || /^[0-9]+$/.test(passwordFormat)) {
     createErrorSpanElement(".input-form-password", "errorMessage");
+    styleErrorBorder(".input-password");
     printErrorMessage(".errorMessage", "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요");
   }
 }
 
 function loginFail() {
   resetElement(".input-form-email", ".errorMessage-email");
+  removeBorderStyle(".input-email");
+
   createErrorSpanElement(".input-form-email", "errorMessage-email");
+  styleErrorBorder(".input-email");
   printErrorMessage(".errorMessage-email", '이미 사용 중인 이메일 입니다');
 }
 
 function passwordisNotEqual() {
   resetElement(".input-form-password-confirm", ".errorMessage-confirm");
+  removeBorderStyle(".input-password-confirm");
 
   if (password.value !== passwordConfirm.value) {
     createErrorSpanElement(".input-form-password-confirm", "errorMessage-confirm");
+    styleErrorBorder(".input-password-confirm");
     printErrorMessage(".errorMessage-confirm", "비밀번호가 일치하지 않아요");
   }
 }
@@ -140,9 +163,9 @@ email.addEventListener("focusout", aleadyUse);
 password.addEventListener("focusout", noInputFocusOutPassword);
 password.addEventListener("focusout", notPasswordFormat);
 email.addEventListener("input", notValidEmailInput);
-email.addEventListener("focusin", () => focusIn(".errorMessage-email"));
-password.addEventListener("focusin", () => focusIn(".errorMessage"));
-passwordConfirm.addEventListener("focusin", () => focusIn(".errorMessage-confirm"));
+email.addEventListener("focusin", () => focusIn(".input-email" ,".errorMessage-email"));
+password.addEventListener("focusin", () => focusIn(".input-password", ".errorMessage"));
+passwordConfirm.addEventListener("focusin", () => focusIn(".input-password-confirm" ,".errorMessage-confirm"));
 passwordConfirm.addEventListener("change", passwordisNotEqual);
 loginButton.addEventListener("click", signupCheck);
 passwordConfirm.addEventListener("keydown", pressEnterForFolderPage);

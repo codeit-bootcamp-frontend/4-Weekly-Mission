@@ -75,6 +75,10 @@
   outline: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
 }
 
+.input-field_error-style {
+  outline: 1px solid var(red);
+}
+
 .input-field_color {
   background-color: #FFF;
 }
