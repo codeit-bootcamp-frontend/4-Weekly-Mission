@@ -72,10 +72,10 @@ const toggleEye = (input) => {
 
   if (input.type === "password") {
     input.type = "text";
-    input.nextElementSibling.src = eyeOn; // 다음 형제 요소의 이미지를 변경
+    input.nextElementSibling.src = eyeOn;
   } else {
     input.type = "password";
-    input.nextElementSibling.src = eyeOff; // 다음 형제 요소의 이미지를 변경
+    input.nextElementSibling.src = eyeOff;
   }
 };
 
