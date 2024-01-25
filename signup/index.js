@@ -82,23 +82,36 @@ function focusIn(place) {
 // 로그인 시도
 function pressEnterForFolderPage(e) {
   if (e.key === "Enter") {
-    folderPage();
+    aleadyUse();
   }
 }
 
 function aleadyUse() {
   let folderEmail = "test@codeit.com";
-  let folderPassword = "codeit101";
+  //let folderPassword = "codeit101";
 
   if (email.value === folderEmail) {
-    signupFail();
+    loginFail();
   } else {
-    // 로그인 실패 시 적절한 처리
+    // 로그인 성공 시 적절한 처리
     //window.location.replace("../folder");
   }
 }
 
-function signupFail() {
+function notPasswordFormat() {
+  let passwordFormat = password.value;
+
+  if (passwordFormat === "") {
+    return;
+  } // 에러 메세지 중복 회피
+
+  if (passwordFormat.length < 8 || /^[a-zA-Z]+$/.test(passwordFormat) || /^[0-9]+$/.test(passwordFormat)) {
+    createErrorSpanElement(".input-form-password", "errorMessage");
+    printErrorMessage(".errorMessage", "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요");
+  }
+}
+
+function loginFail() {
   // 이메일
   resetElement(".input-form-email", ".errorMessage-email");
   createErrorSpanElement(".input-form-email", "errorMessage-email");
@@ -123,9 +136,11 @@ function togglePassword() {
 email.addEventListener("focusout", noInputFocusOut);
 email.addEventListener("focusout", aleadyUse);
 password.addEventListener("focusout", noInputFocusOutPassword);
+password.addEventListener("focusout", notPasswordFormat);
 email.addEventListener("input", notValidEmailInput);
 email.addEventListener("focusin", () => focusIn(".errorMessage-email"));
 password.addEventListener("focusin", () => focusIn(".errorMessage"));
+passwordConfirm.addEventListener("focusin", () => focusIn(".errorMessage"));
 //loginButton.addEventListener("click", folderPage);
 password.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", togglePassword);
