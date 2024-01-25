@@ -9,7 +9,7 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
-    <link rel="stylesheet" href="/css/Sign.css" />
+    <link rel="stylesheet" href="/css/sign.css" />
   </head>
   <body>
     <form action="">
@@ -22,14 +22,19 @@
         </div>
         <div class="login-container">
           <label for="email">이메일</label>
-          <input type="text" id="email" />
+          <input type="email" class="email" />
           <label for="password">비밀번호</label>
-          <input type="password" id="password" />
-          <a href="" class="eye-image"
-            ><img src="/icons/eye-off.svg" alt=""
-          /></a>
+          <div class="password-box">
+            <input type="password" class="password" />
+            <a href="" class="eye-off"
+              ><img src="/icons/eye-off.svg" alt=""
+            /></a>
+            <a href="" class="eye-on invisible"
+              ><img src="/icons/eye-on.svg" alt=""
+            /></a>
+          </div>
         </div>
-        <button>로그인</button>
+        <button type="button" class="loginBtn">로그인</button>
         <footer>
           <div>소셜 로그인</div>
           <div class="link-box">
@@ -43,5 +48,6 @@
         </footer>
       </div>
     </form>
+    <script src="script/sign.js"></script>
   </body>
 </html>
