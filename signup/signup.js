@@ -5,6 +5,9 @@ const passwordError = document.querySelector(".passwordError");
 const passwordConfirm = document.querySelector("#passwordConfirm");
 const passwordConfirmError = document.querySelector(".passwordConfirmError");
 
+const eyeOpen = document.querySelector(".eyeOpen");
+const eyeClose = document.querySelector(".eyeClose");
+
 const form = document.querySelector("#form");
 
 function emailOnFocusOut(e) {
@@ -77,9 +80,23 @@ function onSubmit(e) {
   location.href = "/folder";
 }
 
+function eyeOpenOnClick(e) {
+  e.target.classList.add("display_none");
+  eyeClose.classList.remove("display_none");
+  password.type = "password";
+}
+
+function eyeCloseOnClick(e) {
+  e.target.classList.add("display_none");
+  eyeOpen.classList.remove("display_none");
+  password.type = "text";
+}
+
 email.addEventListener("focusout", emailOnFocusOut);
 email.addEventListener("input", emailOnInput);
 password.addEventListener("focusout", passwordOnFocusOut);
 password.addEventListener("input", passwordOnInput);
 passwordConfirm.addEventListener("input", passwordConfirmOnInput);
+eyeOpen.addEventListener("click", eyeOpenOnClick);
+eyeClose.addEventListener("click", eyeCloseOnClick);
 form.addEventListener("submit", onSubmit);
