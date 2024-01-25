@@ -1,36 +1,9 @@
-const email = document.querySelector("#email");
+import * as AuthUtils from "./modules/AuthUtils.js";
+
 const password = document.querySelector("#password");
-const emailError = document.querySelector(".email-error");
 const passwordError = document.querySelector(".password-error");
 const loginButton = document.querySelector(".login-button");
 const eyeIcon = document.querySelector(".eye-icon");
-
-const setInvalidStyle = (element) => {
-  element.style.border = "1px solid #ff5b56";
-};
-
-const setValidStyle = (element) => {
-  element.style.border = "";
-};
-
-/* 이메일 유효성 검사 */
-const handleEmailValidation = () => {
-  const EMAIL_CHECK_MESSAGE = "이메일을 입력해 주세요.";
-  const EMAIL_ERROR_MESSAGE = "올바른 이메일 주소가 아닙니다.";
-  const emailRegex =
-    /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-
-  if (email.value === "") {
-    setInvalidStyle(email);
-    emailError.innerHTML = EMAIL_CHECK_MESSAGE;
-  } else if (!emailRegex.test(email.value)) {
-    setInvalidStyle(email);
-    emailError.innerHTML = EMAIL_ERROR_MESSAGE;
-  } else {
-    setValidStyle(email);
-    emailError.innerHTML = "";
-  }
-};
 
 /* 비밀번호 유효성 검사 */
 const handlePasswordValidation = () => {
@@ -79,7 +52,7 @@ const togglePasswordVisibility = () => {
       : "../images/signIn/eye-on.png";
 };
 
-email.addEventListener("blur", handleEmailValidation);
+email.addEventListener("blur", AuthUtils.handleEmailValidation);
 password.addEventListener("blur", handlePasswordValidation);
 loginButton.addEventListener("click", redirectToFolderPage);
 document.addEventListener("keypress", enterKey);
