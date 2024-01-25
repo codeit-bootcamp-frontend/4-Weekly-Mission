@@ -40,8 +40,8 @@ const checkPassword = () => {
 }
 /**
  * 이메일 가입 여부 확인 함수
- * codit에 가입한 이메일, 비번 참조
- * @returns
+ * codeit에 가입한 이메일, 비번 참조
+ * @returns 불린값
  */
 const isEmailConfirmed = () => {
     const codeit = { email: 'test@codeit.com', password: 'codeit101' }
@@ -53,7 +53,7 @@ const isEmailConfirmed = () => {
 /**
  *지정된 이메일 확인 후 /folder로 이동 or 에러 메세지
  * @param {*} event 해당 함수를 발생하는 이벤트
- * @returns
+ * @returns 불린값
  */
 const validateEmail = (event) => {
     if (isEmailConfirmed()) {

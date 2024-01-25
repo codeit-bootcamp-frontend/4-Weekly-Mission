@@ -1,7 +1,17 @@
 import { emailRegex } from './constants.js'
 
+/**
+ * 해당 값의 빈 값 여부 확인
+ * @param {*} input 확인할 input
+ * @returns 불린값
+ */
 const isInputEmpty = (input) => input === ''
 
+/**
+ * 이메일 형식 확인
+ * @param {*} input 확인할 이메일
+ * @returns 불린값
+ */
 const isEmailValid = (input) => emailRegex.test(input)
 
 /**에러 표시 함수
