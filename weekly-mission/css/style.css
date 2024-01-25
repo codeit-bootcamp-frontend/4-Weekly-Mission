@@ -57,7 +57,7 @@ body{
 .main-visual {
     width: 100%;
     height: 100vh;
-    background: #F0F6FF;
+    background: var(--clr-bg);
     padding-top: 8rem;
     max-height: vmax;
     
@@ -181,7 +181,7 @@ body{
 
 #footer {
     margin-top: 4rem;
-    background: #111322;
+    background: var(--clr-bk);
     font-family: Arial;
 }
 
@@ -219,6 +219,8 @@ nav {
 
 }
 
+
+/* 테블릿 화면 css */
 @media screen and (min-width :48rem) {
     #header>.header-inner {
         max-width: 75%;
@@ -328,6 +330,7 @@ nav {
 }
 
 
+/* 데스크톱 화면 css */
 @media screen and (min-width :75rem) {
     .main-visual {
         margin-bottom: 7rem;

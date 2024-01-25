@@ -13,11 +13,13 @@ html{
     --clr-rd: #ff5b56;
     --clr-bk: #111322;
     --clr-wt: #ffffff;
-    --clr-bg: #3E3E43;
-    --clr-mbg: #9FA6B2;
-    --clr-mg: #CCD5E3;
-    --clr-mlg: #E7EFFB;
-    --clr-lg: #F0F6FF;
+
+    --clr-gray100: #3E3E43;
+    --clr-gray60: #9FA6B2;
+    --clr-gray20: #CCD5E3;
+    --clr-gray10: #E7EFFB;
+    --clr-bg: #F0F6FF;
+
 }
 
 .btn{
