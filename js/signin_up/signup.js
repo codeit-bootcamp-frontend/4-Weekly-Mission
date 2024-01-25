@@ -2,12 +2,6 @@ import * as common from "./common_login.js";
 import { inputAddNode, inputDeleteNode } from "../node.js";
 import { emailDiv, emailInput, pwdInput, signinBtn, pwdEyeIcon} from "../declaration.js";
 
-// enter키 입력으로 로그인 실행 
-function EnterLogin(key) {
-  if(key === 'Enter') {
-    common.trySignup();
-  }
-}
 
 // 로그인 시도 함수
 function trySignup(email,password) {
@@ -15,6 +9,13 @@ function trySignup(email,password) {
     signinBtn.parentElement.setAttribute('href',"/folder.html");
   } else {
     common.errorMsg("Other"); 
+  }
+}
+
+// enter키 입력으로 로그인 실행 
+function EnterLogin(key) {
+  if(key === 'Enter') {
+    trySignup();
   }
 }
 
