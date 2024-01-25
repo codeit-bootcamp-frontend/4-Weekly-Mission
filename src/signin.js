@@ -53,7 +53,7 @@ const eyeOffIcon = '/assets/icon/eye-off.svg';
 const changeEyeIcon = () => {
   eyeIcon.classList.toggle('on');
   if (eyeIcon.classList.contains('on')) {
-    password.removeAttribute('type');
+    password.setAttribute('type', 'text');
     changeImage(eyeIcon, eyeOnIcon);
     return;
   }
