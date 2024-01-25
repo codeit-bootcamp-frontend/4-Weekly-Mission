@@ -5,13 +5,15 @@ const passwordError = document.querySelector(".passwordError");
 const passwordConfirm = document.querySelector("#passwordConfirm");
 const passwordConfirmError = document.querySelector(".passwordConfirmError");
 
+const form = document.querySelector("#form");
+
 function emailOnFocusOut(e) {
   if (!e.target.value?.trim()) {
     emailError.textContent = "이메일을 입력해 주세요.";
     e.target.classList.add("inputError");
     return;
   }
-  if (!emailRegex.test(e.target.value)) {
+  if (!EMAIL_REGEX.test(e.target.value)) {
     emailError.textContent = "올바른 이메일 주소가 아닙니다.";
     e.target.classList.add("inputError");
     return;
@@ -52,7 +54,32 @@ function passwordOnInput(e) {
   e.target.classList.remove("inputError");
 }
 
+function passwordConfirmOnInput(e) {
+  passwordConfirmError.textContent = "";
+  e.target.classList.remove("inputError");
+}
+
+function onSubmit(e) {
+  e.preventDefault();
+  if (
+    emailError.classList.contains("inputError") ||
+    password.classList.contains("inputError")
+  ) {
+    return;
+  }
+
+  if (passwordConfirm.value !== password.value) {
+    passwordConfirmError.textContent = "비밀번호가 일치하지 않아요.";
+    passwordConfirm.classList.add("inputError");
+    return;
+  }
+
+  location.href = "/folder";
+}
+
 email.addEventListener("focusout", emailOnFocusOut);
 email.addEventListener("input", emailOnInput);
 password.addEventListener("focusout", passwordOnFocusOut);
 password.addEventListener("input", passwordOnInput);
+passwordConfirm.addEventListener("input", passwordConfirmOnInput);
+form.addEventListener("submit", onSubmit);
