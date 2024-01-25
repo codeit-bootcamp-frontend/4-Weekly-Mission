@@ -1,13 +1,13 @@
-const inputEmail = document.querySelector("#email");
-const inputPassword = document.querySelector("#password");
-const emailErrorMessage = document.querySelector(".email-error-message");
-const passwordErrorMessage = document.querySelector(".passwrod-error-message");
-const form = document.querySelector(".sign-form");
+const inputEmail=document.querySelector("#email");
+const inputPassword=document.querySelector("#password");
+const emailErrorMessage=document.querySelector(".email-error-message");
+const passwordErrorMessage=document.querySelector(".passwrod-error-message");
+const form=document.querySelector(".sign-form");
 
 function CorretEmail(e){
-    let emailRegex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
+    let emailRegex=new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
     
-    if(e.target.value === ""){
+    if(e.target.value===""){
         emailErrorMessage.textContent = "이메일을 입력해 주세요.";
         emailErrorMessage.classList.add("error-text");
         e.target.classList.add("error-box");
