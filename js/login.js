@@ -65,16 +65,13 @@ function errorMsg(errorCase) {
 
  // 에러 메세지 제거와, input 상태 정상으로
  function delError(type) {
-  if(type === "email") {
-    if(emailDiv.children[2]) {
-      emailDiv.children[2].remove();
-    }
-    emailInput.setAttribute('status', 'steady');
-  } else if(type === "password") {
-    if(pwdDiv.children[2]) {
-      pwdDiv.children[2].remove();
-    }
-    pwdInput.setAttribute('status', 'steady');
+  switch(type) {
+    case "email" : 
+      emailDiv.children[2] ? emailDiv.children[2].remove() : null
+      emailInput.setAttribute('status', 'steady');
+    case "password" :
+      pwdDiv.children[2] ? pwdDiv.children[2].remove() : null
+      pwdInput.setAttribute('status', 'steady');
   }
  }
 
