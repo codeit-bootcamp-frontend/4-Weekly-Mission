@@ -36,15 +36,9 @@ emailInput.addEventListener('focusout', function () {
     }
 });
 
-function isValidEmail(email) { //isValidEmail function을 제작하면됨. 음 .com. .kr등의 pop했을 때 양식을 만들어준다? 정도로 가자 질문!!!
-    let spotcount = atsigncount = 0;
-
-    for(let word of email) {
-        if(word === '.') spotcount++;
-        else if (word ==='@') atsigncount++;
-    }
-    
-    return spotcount === 1 && atsigncount ===1;
+const EMAIL_REGEX = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
+function isValidEmail(email) { 
+    return EMAIL_REGEX.test(email);
 }
 
 /*이메일: test@codeit.com, 비밀번호: codeit101 으로 로그인 시도할 경우, 
