@@ -1,3 +1,5 @@
+import { EMAIL_REGEX } from './constants.js';
+
 // 에러 메시지 생성 함수
 function createErrorMessage(text) {
   const errorMessage = document.createElement('div');
@@ -8,8 +10,7 @@ function createErrorMessage(text) {
 
 // 이메일 형식 검증 함수
 function isEmailValid(email) {
-  const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
-  return pattern.test(email);
+  return EMAIL_REGEX.test(email);
 }
 
 document.addEventListener('DOMContentLoaded', function () {
