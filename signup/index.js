@@ -59,6 +59,10 @@ function noInputFocusOutPassword() {
 function notValidEmailInput() {
   let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  if (email.value === "") {
+    return;
+  }
+
   // 기존 오류 엘리먼트를 삭제
   resetElement(".input-form-email", ".errorMessage-email");
   
@@ -83,7 +87,7 @@ function focusIn(place) {
 // 로그인 시도
 function pressEnterForFolderPage(e) {
   if (e.key === "Enter") {
-    aleadyUse();
+    signupCheck();
   }
 }
 
@@ -144,6 +148,17 @@ function togglePassword(element, icon) {
   }
 }
 
+function signupCheck() {
+  // 모든 사항 점검
+  noInputFocusOut();
+  aleadyUse();
+  noInputFocusOutPassword();
+  notPasswordFormat();
+  notValidEmailInput();
+  notValidEmailInput();
+  passwordisNotEqual();
+}
+
 email.addEventListener("focusout", noInputFocusOut);
 email.addEventListener("focusout", aleadyUse);
 password.addEventListener("focusout", noInputFocusOutPassword);
@@ -153,7 +168,7 @@ email.addEventListener("focusin", () => focusIn(".errorMessage-email"));
 password.addEventListener("focusin", () => focusIn(".errorMessage"));
 passwordConfirm.addEventListener("focusin", () => focusIn(".errorMessage-confirm"));
 passwordConfirm.addEventListener("change", passwordisNotEqual);
-//loginButton.addEventListener("click", folderPage);
-password.addEventListener("keydown", pressEnterForFolderPage);
+loginButton.addEventListener("click", signupCheck);
+passwordConfirm.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
 passwordConfimIcon.addEventListener("click", () => togglePassword(passwordConfirm, passwordConfimIcon));
