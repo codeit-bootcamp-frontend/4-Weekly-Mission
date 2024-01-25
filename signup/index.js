@@ -123,7 +123,14 @@ function loginFail() {
   //printErrorMessage(".errorMessage", "비밀번호를 확인해 주세요");
 }
 
+function passwordisNotEqual() {
+  resetElement(".input-form-password-confirm", ".errorMessage-confirm");
 
+  if (password.value !== passwordConfirm.value) {
+    createErrorSpanElement(".input-form-password-confirm", "errorMessage-confirm");
+    printErrorMessage(".errorMessage-confirm", "비밀번호가 일치하지 않아요");
+  }
+}
 
 // 비밀번호 보이기
 function togglePassword(element, icon) {
@@ -144,7 +151,8 @@ password.addEventListener("focusout", notPasswordFormat);
 email.addEventListener("input", notValidEmailInput);
 email.addEventListener("focusin", () => focusIn(".errorMessage-email"));
 password.addEventListener("focusin", () => focusIn(".errorMessage"));
-passwordConfirm.addEventListener("focusin", () => focusIn(".errorMessage"));
+passwordConfirm.addEventListener("focusin", () => focusIn(".errorMessage-confirm"));
+passwordConfirm.addEventListener("change", passwordisNotEqual);
 //loginButton.addEventListener("click", folderPage);
 password.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
