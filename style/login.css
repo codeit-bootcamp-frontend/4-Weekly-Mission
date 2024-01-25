@@ -53,11 +53,11 @@ header p {
   margin-bottom: 24px;
 }
 
-#password-input-div {
+#password-input-div,#password-input-div2 {
   position: relative;
 }
 
-.PwdEyeIcon {
+.PwdEyeIcon,.PwdEyeIcon2 {
   width: 16px;
   height: 16px;
   position: absolute;

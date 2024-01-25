@@ -5,6 +5,7 @@ import { inputDeleteNode } from "../node.js";
 import { emailDiv, emailInput, pwdInput, pwdInput2, signinBtn, pwdEyeIcon} from "../declaration.js";
 
 const pwdDiv2 = document.querySelector('#password-check');
+const pwdEyeIcon2 = document.querySelector('.PwdEyeIcon2');
 
 let emailVal = "", pwdVal = "", pwdVal2 = "";
 
@@ -56,7 +57,19 @@ function emailHandlerFunc(email) {
 // enter키 입력으로 회원가입 실행 
 function EnterSignin(key) {
   if(key === 'Enter') {
-    console.log("dd");
+    trySignin(emailVal, pwdVal);
+  }
+}
+
+// 비밀번호 확인 input 눈모양 클릭 실행 함수
+export function EyePwd2(EyeStatus) {
+  if(EyeStatus.classList.contains('off')) {
+    pwdEyeIcon2.setAttribute('src',"assets/icons/eye-off.png");
+    pwdInput2.setAttribute('type', 'password');
+
+  } else {
+    pwdEyeIcon2.setAttribute('src',"assets/icons/eye-on.png");
+    pwdInput2.setAttribute('type', 'text');
   }
 }
 
@@ -93,4 +106,9 @@ signinBtn.addEventListener('click', function(e) {
 pwdEyeIcon.addEventListener('click', function(e) {
   e.target.classList.toggle('off');
   common.EyePwd(e.target);
+})
+
+pwdEyeIcon2.addEventListener('click', function(e) {
+  e.target.classList.toggle('off');
+  EyePwd2(e.target);
 })
