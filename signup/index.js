@@ -21,18 +21,30 @@ function emailChecker(e) {
     if (!EMAIL_INPUT.value) {
         const ENTER_EMAIL = "이메일을 입력해 주세요."
         inputError(e, ENTER_EMAIL);
-    } else if (EMAIL_INPUT.validity.typeMismatch) {
+    } 
+    
+    if (EMAIL_INPUT.validity.typeMismatch) {
         const NOT_AN_EMAIL = "올바른 이메일 주소가 아닙니다."
         inputError(e, NOT_AN_EMAIL);
+    }
+    
+    if (EMAIL_INPUT.value === TEST_EMAIL) {
+        const EXISTING_EMAIL = "이미 사용 중인 이메일입니다.";
+        inputError(e, EXISTING_EMAIL);
     }
 }
 
 // 비밀번호 인풋 검사
 function passwordChecker(e) {
-    if (!PASSWORD_INPUT.value) {
-        const ENTER_PW = "비밀번호를 입력해 주세요."
-        inputError(e, ENTER_PW);
-    } 
+    const PW_REQUIREMENT = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
+    let pwCopy = PASSWORD_INPUT.value;
+    pwCopy = [...pwCopy];
+
+    if (PASSWORD_INPUT.value.length < 8 || Boolean(PASSWORD_INPUT.value / 1) || PASSWORD_INPUT.value / 1 === 0) {
+        inputError(e, PW_REQUIREMENT);
+    } else if (pwCopy.every(element => !(element / 1))) {
+        inputError(e, PW_REQUIREMENT);
+    }
 }
 
 // 에러 표시 숨기기
@@ -62,6 +74,4 @@ PASSWORD_INPUT.addEventListener('focusout', passwordChecker);
 PASSWORD_INPUT.addEventListener('focusin', removeError);
 
 SIGNUP_BTN.addEventListener('click', signInChecker);
-
-
 
