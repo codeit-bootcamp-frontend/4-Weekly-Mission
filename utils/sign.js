@@ -1,6 +1,7 @@
 import * as DOM from './lib/DOM.js'
 import * as input from './lib/inputVerification.js'
 import * as action from './lib/action.js'
+import * as handleEvent from './lib/eventKey.js'
 import {
   EMAIL_ERROR_MESSAGE,
   PASSWORD_ERROR_MESSAGE,
@@ -74,9 +75,17 @@ function handleChangePasswordType(){
   passwordChangeType === 'password' ? eyeImg.src = PASSWORD_EYE_ICON.passwordType.src : eyeImg.src = PASSWORD_EYE_ICON.textType.src
 }
 
+function handlerEnter(){
+  handleEvent.enter(()=>{
+    loginButton.click()
+  })
+}
+
 signEmailInput.addEventListener('focusout',handleEmailFocusout)
 signEmailInput.addEventListener('focusin',handleEmailFocusin)
 signPasswordInput.addEventListener('focusout', handlePasswordFocusout)
 signPasswordInput.addEventListener('focusin', handlePasswordFocusin)
 loginButton.addEventListener('click', handleLoginButton)
+signEmailInput.addEventListener('keydown', handlerEnter)
+signPasswordInput.addEventListener('keydown', handlerEnter)
 eyeImg.addEventListener('click', handleChangePasswordType)
