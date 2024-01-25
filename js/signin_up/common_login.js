@@ -3,7 +3,8 @@ import { emailCheck, passwordCheck } from "../validation.js";
 import { inputAddNode, inputDeleteNode } from "../node.js";
 import { emailDiv, emailInput, pwdInput, signinBtn, pwdEyeIcon} from "../declaration.js";
 
-export let [emailVal, pwdVal] = ["", ""];
+export let emailVal = ""
+export let pwdVal = "";
 
 // 에러 메세지 출력 함수
 export function errorMsg(errorCase) {
@@ -39,16 +40,6 @@ export function emailHandlerFunc(email) {
     errorMsg("NoEmail");
   }
   emailVal = email; 
-}
-
-// 비밀번호 input 핸들러 함수
-export function passwordHandlerFuc(password) {
-  if(password) {
-    passwordCheck(password) ? inputDeleteNode('password') : errorMsg("wrongPwd")
-  } else {
-    errorMsg("NoPwd");
-  }
-  pwdVal = password;
 }
 
 // password input 눈모양 클릭 실행 함수

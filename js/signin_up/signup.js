@@ -1,4 +1,5 @@
 import * as common from "./common_login.js";
+import { inputAddNode, inputDeleteNode } from "../node.js";
 import { emailDiv, emailInput, pwdInput, signinBtn, pwdEyeIcon} from "../declaration.js";
 
 // enter키 입력으로 로그인 실행 
@@ -17,20 +18,26 @@ function trySignup(email,password) {
   }
 }
 
+function passwordHandlerFuc(password) {
+  password ? inputDeleteNode('password') : common.errorMsg("NoPwd");
+  console.log(common.pwdVal)
+  // common.pwdVal = password;
+}
+
 // email input 이벤트 함수 등록
 emailInput.addEventListener('focusout', function(e) {
   common.emailHandlerFunc(e.target.value);
 });
 emailInput.addEventListener('keypress', function(e) {
-  common.EnterLogin(e.key);
+  EnterLogin(e.key);
 });
 
 // password input 이벤트 함수 등록
 pwdInput.addEventListener('focusout', function(e) {
-  common.passwordHandlerFuc(e.target.value);
+  passwordHandlerFuc(e.target.value);
 });
 pwdInput.addEventListener('keypress', function(e) {
-  common.EnterLogin(e.key);
+  EnterLogin(e.key);
 });
 
 // 로그인 버튼 이벤트 함수 등록

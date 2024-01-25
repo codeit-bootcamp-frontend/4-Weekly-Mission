@@ -1,6 +1,16 @@
 import * as common from "./common_login.js";
 import { emailDiv, emailInput, pwdInput, signinBtn, pwdEyeIcon} from "../declaration.js";
 
+// 비밀번호 input 핸들러 함수
+export function passwordHandlerFuc(password) {
+  if(password) {
+    passwordCheck(password) ? inputDeleteNode('password') : errorMsg("wrongPwd")
+  } else {
+    errorMsg("NoPwd");
+  }
+  pwdVal = password;
+}
+
 // email input 이벤트 함수 등록
 emailInput.addEventListener('focusout', function(e) {
   common.emailHandlerFunc(e.target.value);
