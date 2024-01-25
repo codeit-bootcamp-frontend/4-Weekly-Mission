@@ -19,12 +19,15 @@ function isEmpty(text) {
 function removeError(messageType) {
   messageType.classList.remove("show");
   messageType.textContent = "";
+  messageType.previousElementSibling.classList.remove("red-outline");
 }
 
 function toggleError(messageType, text) {
   removeError(messageType);
   messageType.classList.add("show");
   messageType.textContent = text;
+  console.log(messageType.previousElementSibling);
+  messageType.previousElementSibling.classList.add("red-outline");
 }
 
 //눈모양 아이콘

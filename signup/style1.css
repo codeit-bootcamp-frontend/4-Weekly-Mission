@@ -168,6 +168,11 @@ main {
   position: relative;
   top: -20px;
 }
+
+.red-outline {
+  border: none;
+  outline: 1px solid var(--Linkbrary-red, #ff5b56);
+}
 @media (min-width: 768px) {
   main {
     margin: 238px auto 116px;
