@@ -3,6 +3,7 @@ const password_input = document.querySelector("#signin_password");
 const error_email = document.querySelector("#error_email");
 const error_password = document.querySelector("#error_password");
 const eyes = document.querySelector(".eye_button");
+const emailRegex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
 
 // 이메일 검사
 function validateEmail() {
@@ -42,7 +43,6 @@ function validatePassword() {
 
 //이메일 유효성 검사
 function isValidEmail(email) {
-    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
