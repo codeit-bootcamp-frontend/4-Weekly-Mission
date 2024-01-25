@@ -1,6 +1,7 @@
 let email = document.querySelector(".input-email");
 let password = document.querySelector(".input-password");
-let loginButton = document.querySelector(".button-login");
+let passwordConfirm = document.querySelector(".input-password-confirm");
+let loginButton = document.querySelector(".button-signup");
 let passwordIcon = document.querySelector(".password-icon");
 
 function resetElement(parentPlace, place) {
@@ -85,28 +86,27 @@ function pressEnterForFolderPage(e) {
   }
 }
 
-function folderPage() {
+function aleadyUse() {
   let folderEmail = "test@codeit.com";
   let folderPassword = "codeit101";
 
-  if (email.value === folderEmail && password.value === folderPassword) {
-    // 로그인 성공 시 "/folder" 페이지로 이동
-    window.location.replace("../folder");
+  if (email.value === folderEmail) {
+    signupFail();
   } else {
     // 로그인 실패 시 적절한 처리
-    loginFail();
+    //window.location.replace("../folder");
   }
 }
 
-function loginFail() {
+function signupFail() {
   // 이메일
   resetElement(".input-form-email", ".errorMessage-email");
   createErrorSpanElement(".input-form-email", "errorMessage-email");
-  printErrorMessage(".errorMessage-email", '이메일을 확인해 주세요');
+  printErrorMessage(".errorMessage-email", '이미 사용 중인 이메일 입니다');
   // 비밀 번호
-  resetElement(".input-form-password", ".errorMessage");
-  createErrorSpanElement(".input-form-password", "errorMessage");
-  printErrorMessage(".errorMessage", "비밀번호를 확인해 주세요");
+  //resetElement(".input-form-password", ".errorMessage");
+  //createErrorSpanElement(".input-form-password", "errorMessage");
+  //printErrorMessage(".errorMessage", "비밀번호를 확인해 주세요");
 }
 
 // 비밀번호 보이기
@@ -121,6 +121,7 @@ function togglePassword() {
 }
 
 email.addEventListener("focusout", noInputFocusOut);
+email.addEventListener("focusout", aleadyUse);
 password.addEventListener("focusout", noInputFocusOutPassword);
 email.addEventListener("input", notValidEmailInput);
 email.addEventListener("focusin", () => focusIn(".errorMessage-email"));
