@@ -35,8 +35,11 @@ function errorMsg(errorCase) {
 
 // 이메일 input 핸들러
 function emailHandlerFunc(email) {
-  email ? emailCheck(email) : errorMsg("NoEmail");
-  emailCheck(email) ? inputDeleteNode('email') : errorMsg("wrongEmail")
+  if(email) {
+    emailCheck(email) ? inputDeleteNode('email') : errorMsg("wrongEmail")
+  } else {
+    errorMsg("NoEmail");
+  }
   emailVal = email; 
 }
 
