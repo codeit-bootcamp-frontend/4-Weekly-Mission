@@ -14,8 +14,8 @@ function passwordToggle(event) {
    }
 }
 
-// 다중 토글 버튼 초기화 함수
 
+// 다중 토글 버튼 초기화 함수
 export default function toggleAssign() {
    for (let btn of passToggleBtn) {
       btn.addEventListener ('click', passwordToggle)

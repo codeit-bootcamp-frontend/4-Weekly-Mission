@@ -1,4 +1,4 @@
-import {inputFocus, inputBlur, printError} from './input.js'
+import {inputFocus, inputBlur, printError, errorMessage} from './input.js'
 import {loginCheck} from './accountData.js'
 import passToggleReset from './passwordToggle.js';
 
@@ -9,19 +9,8 @@ const loginEmailInput = document.querySelector('#loginEmailInput');
 const loginPasswordInput = document.querySelector('#loginPasswordInput');
 const confirmBtn = document.querySelector('#confirmBtn');
 
-const errorMessage = {
-   email : '이메일을 입력해 주세요.',
-   password : '비밀번호를 입력해 주세요.',
-   mismatchEmail : '이메일을 확인해 주세요.',
-   mismatchPassword : '비밀번호를 확인해 주세요.' 
-}
-
-
-// 이벤트 등록
 
 // 이메일 리스너
-
-
 loginEmailInput.addEventListener('focus' , inputFocus)
 loginEmailInput.addEventListener('blur' , () => inputBlur(loginEmailInput, errorMessage.email))
 
