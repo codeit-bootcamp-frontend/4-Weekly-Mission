@@ -14,29 +14,29 @@ function errorMsg(errorCase) {
   let newNode = document.createElement('div');
 
   if(errorCase === "NoEmail") {          // email 값 없이 focusout시 
-      newNode.innerHTML = `<p>${ERROR_MESSAGE.email.invalid}</p>`
+      newNode.innerHTML = `<p>${ERROR_MESSAGE.email.empty}</p>`
       newNode.classList.add(errorCase,'errorMsg');
       newNode.setAttribute('sort', 'email');
 
   } else if(errorCase === "wrongEmail") { // email 형식에 맞지 않은 경우
-      newNode.innerHTML = "<p>올바른 이메일 주소가 아닙니다.</p>"
+      newNode.innerHTML = `<p>${ERROR_MESSAGE.email.invalid}</p>`
       newNode.classList.add(errorCase,'errorMsg');
       newNode.setAttribute('sort', 'email');
       emailDiv.append(newNode);
 
   } else if(errorCase === "NoPwd") {      // password 값 없이 focusout시 
-      newNode.innerHTML = "<p>비밀번호을 입력해 주세요</p>"
+      newNode.innerHTML = `<p>${ERROR_MESSAGE.password.empty}</p>`
       newNode.classList.add(errorCase,'errorMsg');
       newNode.setAttribute('sort', 'password');
 
   } else if(errorCase === "Other") {      // 이외의 로그인 시도의 경우
-      newNode.innerHTML = "<p>이메일을 확인해 주세요</p>"
+      newNode.innerHTML = `<p>${ERROR_MESSAGE.email.check}</p>`
       newNode.classList.add(errorCase,'errorMsg');
       newNode.setAttribute('sort', 'email');
 
       let newNodePwd = document.createElement('div');
       pwdInput.setAttribute('status','error');
-      newNodePwd.innerHTML = "<p>비밀번호을 확인해 주세요</p>"
+      newNodePwd.innerHTML = `<p>${ERROR_MESSAGE.password.check}</p>`
       newNodePwd.classList.add(errorCase,'errorMsg');
       if(!pwdDiv.children[2]) {
         pwdDiv.append(newNodePwd);
@@ -79,7 +79,7 @@ function errorMsg(errorCase) {
 
  // 이메일 유효성 체크 함수
  function emailCheck(email_address){     
-    email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+    let email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
     let checkElement = emailDiv.lastElementChild.classList;
     if(!email_regex.test(email_address)){ 
         errorMsg("wrongEmail");
