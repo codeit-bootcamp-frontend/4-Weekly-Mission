@@ -14,8 +14,8 @@ const isEmailValid = (email) => EMAIL_REGEX.test(email);
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
-  const signInButton = document.querySelector('.cta');
-  const watchPassword = document.querySelector('.eye-button');
+  const signInButton = document.getElementById('cta');
+  const watchPassword = document.getElementById('eye-button');
 
   const emailErrorMessage = createErrorMessage('');
   emailErrorMessage.style.dsiplay = 'none';

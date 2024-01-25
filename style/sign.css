@@ -89,7 +89,7 @@ body {
   border-color: var(--primary);
 }
 
-.eye-button {
+#eye-button {
   position: absolute;
   top: 5.2rem;
   right: 1.5rem;
@@ -97,7 +97,7 @@ body {
   height: 1.6rem;
 }
 
-.cta {
+#cta {
   display: flex;
   justify-content: center;
   align-items: center;
