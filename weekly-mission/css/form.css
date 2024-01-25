@@ -10,10 +10,12 @@ input{
     border: none;
 }
 
+
 .fullLayout-screen{
     min-height: 100vh;
     width: 100%;
     background-color: var(--clr-bg);
+
 }
 
 .sublayout-container{
@@ -42,12 +44,16 @@ input{
 }
 
 .user-input__box.email{
+
     margin-bottom: 1.5rem;
 }
 
 .user-input__box.password{
     margin-bottom: 4rem;
+
 }
+
+
 
 .user-input__box > label{
     display: block;
@@ -75,6 +81,8 @@ input{
     
 }
 
+
+
 .input-wrap input:focus{
     border: 1px solid var(--clr-pm);
 }
@@ -82,6 +90,7 @@ input{
 .input-wrap{
    position: relative;
 }
+
 
 .error-message{
     color:var(--clr-rd);
@@ -93,13 +102,8 @@ input{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    top:50%;
-    transform: translateY(-50%);
-    right:5%;
-    cursor: pointer;
-   
-}
+
+
 
 #submit-btn{
     width: 100%;
@@ -121,6 +125,7 @@ input{
     font-size: 1.4rem;
     border-radius: 8px;
     border:1px solid  var(--clr-gray20);
+
 }
 
 .social-icon__box{
@@ -138,11 +143,14 @@ input{
 }
 
 .social-icon.google{
+
     background:var(--clr-wt) ;
+
 }
 .social-icon.kakao{
     background:rgba(245, 225, 75, 1) ;
 }
+
 
 
 /* 모바일 화면 css */
@@ -153,6 +161,7 @@ input{
     .sublayout-container{
         width: 100%;
         padding-top: 5vw;
+
     }
     .form__container{
         width: 100%;

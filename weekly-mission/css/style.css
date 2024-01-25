@@ -219,6 +219,7 @@ nav {
 
 }
 
+
 /* 테블릿 화면 css */
 @media screen and (min-width :48rem) {
     #header>.header-inner {
@@ -327,6 +328,7 @@ nav {
         order: 2;
     }
 }
+
 
 /* 데스크톱 화면 css */
 @media screen and (min-width :75rem) {
