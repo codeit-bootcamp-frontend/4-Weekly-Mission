@@ -1,8 +1,6 @@
 @import "./colors.css";
-@import "./set.css";
-@import url("https://fonts.googleapis.com/css2?family=Abel&family=Noto+Sans+KR&family=Poppins&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Abel&family=Acme&family=Noto+Sans+KR&family=Poppins&display=swap");
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+@import "./reset.css";
+@import "./font.css";
 
 body {
   padding-top: 23.8rem;
@@ -82,6 +80,7 @@ header {
 }
 
 .sign-input {
+  position: relative;
   padding: 1.8rem 1.5rem;
   border-radius: 0.8rem;
   border: 0.1rem solid var(--gray20);
@@ -95,7 +94,7 @@ header {
 
 .eye-button {
   position: absolute;
-  bottom: 2.2rem;
+  top: 5rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -112,6 +111,7 @@ header {
   color: #f5f5f5;
   font-size: 1.8rem;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .sns-box {
@@ -153,6 +153,15 @@ header {
 .kakao-link {
   padding-top: 0.2rem;
   background-color: #f5e14b;
+}
+
+.empty-input {
+  border: 1px solid red;
+}
+
+.empty-message {
+  color: red;
+  font-size: 14px;
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
