@@ -30,10 +30,10 @@ emailInput.addEventListener('focusout', function () {
     const emailValue = emailInput.value.trim(); 
     if (emailValue && !isValidEmail(emailValue)) { //빈문자열이 아니면서 이메일 형식과 맞지 않을 때 
         emailFormatErrorMessage.style.display = 'block'; //화면에 보여줌
-        emailInput.parentElement.lastElementChild.after(emailFormatErrorMessage);
-    } else {
-        emailFormatErrorMessage.style.display = 'none';
-    }
+        emailInput.after(emailFormatErrorMessage);
+        return;
+    } 
+    emailFormatErrorMessage.style.display = 'none';
 });
 
 const EMAIL_REGEX = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
