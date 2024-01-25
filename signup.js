@@ -1,5 +1,6 @@
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");
+const passwordCheck = document.getElementById("passwordCheck");
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
 
@@ -63,3 +64,27 @@ passwordInput.addEventListener("blur", function () {
   );
   handleBlur(passwordInput, passwordMessage);
 });
+
+//눈 모양 아이콘 이벤트
+const toggleEye = (input) => {
+  const eyeOff = "/images/eye-off.svg";
+  const eyeOn = "/images/eye-on.svg";
+
+  if (input.type === "password") {
+    input.type = "text";
+    input.nextElementSibling.src = eyeOn; // 다음 형제 요소의 이미지를 변경
+  } else {
+    input.type = "password";
+    input.nextElementSibling.src = eyeOff; // 다음 형제 요소의 이미지를 변경
+  }
+};
+
+document.querySelector(".eye-button").addEventListener("click", function () {
+  toggleEye(document.getElementById("passwordInput"));
+});
+
+document
+  .querySelector(".eye-button-check")
+  .addEventListener("click", function () {
+    toggleEye(document.getElementById("passwordCheck"));
+  });
