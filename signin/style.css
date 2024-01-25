@@ -69,7 +69,7 @@ body {
   color: var(--gray100);
 }
 
-.eye-img {
+.eye-img-password {
   position: absolute;
   top: 48px;
   right: 16px;
@@ -86,7 +86,7 @@ body {
   border: none;
 }
 
-:is(.errorMessage-email, .errorMessage-password)  {
+:is(.errorMessage-email, .errorMessage-password) {
   color: var(--red);
   font-size: 14px;
   margin-top: 6px;

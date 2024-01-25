@@ -65,7 +65,7 @@ body {
   outline: none;
 }
 
-.eye-img {  
+:is(.eye-img-password, .eye-img-password-check) {  
   position: absolute;
   top: 48px;
   right: 16px;
@@ -80,6 +80,28 @@ body {
   font-weight: 600;
   background-image: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
   border: none;
+}
+
+:is(.errorMessage-email, .errorMessage-password, .errorMessage-password-check) {
+  color: var(--red);
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.signin-form .red-border {
+  border: 1px solid var(--red);
+}
+
+.hidden {
+  display: none;
+}
+
+.eye-open {
+  content: url(../asset/img/signup/eye-on.png)
+}
+
+.eye-closed {
+  content: url(../asset/img/signup/Vector.png)
 }
 
 /*********************

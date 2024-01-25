@@ -15,19 +15,22 @@ const user = new User('test@codeit.com', 'codeit101')
        Constant
 *********************/
 
-// 이메일 유효성 검사 기준 코드
-const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
+// 유효성 검사 기준 코드
+const emailPattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
 
 /*********************
       UI Constant
 *********************/
 
 const signInForm = document.querySelector('.signin-form');
+
 const inputEmail = document.querySelector('#signin-email');
 const inputPassword = document.querySelector('#signin-password');
+
 const errorMessageEmail = document.querySelector('.errorMessage-email');
 const errorMessagePassword = document.querySelector('.errorMessage-password');
-const eyeImg = document.querySelector('.eye-img');
+
+const eyeImg = document.querySelector('.eye-img-password');
 
 /*********************
        Function
@@ -35,7 +38,7 @@ const eyeImg = document.querySelector('.eye-img');
 
 function isEmpty(text) { return text.length === 0 };
 
-function isEmailValid(text) { return pattern.test(text) };
+function isEmailValid(text) { return emailPattern.test(text) };
 
 function isAccountValid(email, password) {
   return (user.email === email && user.password === password);
