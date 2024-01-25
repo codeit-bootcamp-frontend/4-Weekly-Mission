@@ -1,4 +1,4 @@
-import { ERROR_MSG, REGEX_EMAIL, USER_INFO } from './constant.js';
+import { ERROR_MESSAGE, REGEX_EMAIL, USER_INFO } from './constant.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -11,9 +11,9 @@ errorEmail.className = 'error-text';
 
 function checkEmail() {
   if (!email.value) {
-    showInputError(email, errorEmail, ERROR_MSG.INPUT_EMAIL);
+    showInputError(email, errorEmail, ERROR_MESSAGE.EMPTY_EMAIL);
   } else if (validateEmail(email.value)) {
-    showInputError(email, errorEmail, ERROR_MSG.INPUT_EMAIL_ADDRESS);
+    showInputError(email, errorEmail, ERROR_MESSAGE.INVALID_EMAIL_ADDRESS);
   } else {
     errorEmail.remove();
     email.classList.remove('error-input');
@@ -31,7 +31,7 @@ errorPassword.className = 'error-text';
 
 function checkPassword() {
   if (!password.value) {
-    showInputError(password, errorPassword, ERROR_MSG.INPUT_PASSWORD);
+    showInputError(password, errorPassword, ERROR_MESSAGE.EMPTY_PASSWORD);
   } else {
     errorPassword.remove();
     password.classList.remove('error-input');
@@ -45,8 +45,8 @@ function submitForm(e) {
     email.value = '';
     window.location.href = '/pages/folder.html';
   } else {
-    showInputError(email, errorEmail, ERROR_MSG.CHECK_EMAIL);
-    showInputError(password, errorPassword, ERROR_MSG.CHECK_PASSWORD);
+    showInputError(email, errorEmail, ERROR_MESSAGE.INVAILD_EMAIL);
+    showInputError(password, errorPassword, ERROR_MESSAGE.INVAILD_PASSWORD);
   }
 }
 
