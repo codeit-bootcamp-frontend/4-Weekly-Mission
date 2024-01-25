@@ -33,7 +33,7 @@ function errorMsg(errorCase) {
       newNode.setAttribute('sort', 'email');
 
       let newNodePwd = document.createElement('div');
-      pwdInput.setAttribute('status','에러');
+      pwdInput.setAttribute('status','error');
       newNodePwd.innerHTML = "<p>비밀번호을 확인해 주세요</p>"
       newNodePwd.classList.add(errorCase,'errorMsg');
       if(!pwdDiv.children[2]) {
@@ -45,7 +45,7 @@ function errorMsg(errorCase) {
   }
   
   if(newNode.getAttribute('sort') === "email") {
-    emailInput.setAttribute('status','에러');
+    emailInput.setAttribute('status','error');
     if(!emailDiv.children[2]) {
       emailDiv.append(newNode);
     } else if(emailDiv.children[2]){
@@ -53,7 +53,7 @@ function errorMsg(errorCase) {
       emailDiv.append(newNode);
     }
   } else if (newNode.getAttribute('sort') === "password") {
-    pwdInput.setAttribute('status','에러');
+    pwdInput.setAttribute('status','error');
     if(!pwdDiv.children[2]) {
       pwdDiv.append(newNode);
     } else if(pwdDiv.children[2]){
@@ -69,12 +69,12 @@ function errorMsg(errorCase) {
     if(emailDiv.children[2]) {
       emailDiv.children[2].remove();
     }
-    emailInput.setAttribute('status', '정상');
+    emailInput.setAttribute('status', 'steady');
   } else if(type === "password") {
     if(pwdDiv.children[2]) {
       pwdDiv.children[2].remove();
     }
-    pwdInput.setAttribute('status', '정상');
+    pwdInput.setAttribute('status', 'steady');
   }
  }
 
