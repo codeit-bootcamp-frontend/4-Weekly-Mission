@@ -6,7 +6,6 @@ const form = document.querySelector(".sign-form");
 const emailMessage = document.createElement("div");
 const passwordMessage = document.createElement("div");
 const rePasswordMessage = document.createElement("div");
-const signupBtn = document.querySelector(".cta");
 const eyeBtn = document.querySelectorAll(".eye-button");
 
 const isValidEmail = () => {
@@ -36,13 +35,13 @@ const handleFocusoutEmail = () => {
   }
 };
 
-const strongPassword = (str) => {
+const isValidPassword = (str) => {
   return /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(str);
 };
 
 const handleFocusoutPassword = () => {
   passwordMessage.classList.remove("error-style");
-  if (!strongPassword(passwordInput.value)) {
+  if (!isValidPassword(passwordInput.value)) {
     passwordInput.after(passwordMessage);
     passwordMessage.textContent =
       "비밀번호는 영문,숫자 조합 8자 이상 입력해 주세요.";
@@ -84,6 +83,6 @@ const showPw = () => {
 emailInput.addEventListener("focusout", handleFocusoutEmail);
 passwordInput.addEventListener("focusout", handleFocusoutPassword);
 rePasswordInput.addEventListener("focusout", handleFocusoutRePassword);
-signupBtn.addEventListener("click", handleClickBtn);
+form.addEventListener("submit", handleClickBtn);
 eyeBtn[0].addEventListener("click", showPw);
 eyeBtn[1].addEventListener("click", showPw);
