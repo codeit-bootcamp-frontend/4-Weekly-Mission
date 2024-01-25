@@ -1,7 +1,38 @@
+import {ERROR_MESSAGE } from "../../constant.js";
 import * as common from "./common_login.js";
-import { passwordCheck } from "../validation.js"; 
+import { emailCheck, passwordCheck } from "../validation.js"; 
 import { inputDeleteNode } from "../node.js";
-import { emailDiv, emailInput, pwdInput, signinBtn, pwdEyeIcon} from "../declaration.js";
+import { emailDiv, emailInput, pwdInput, pwdInput2, signinBtn, pwdEyeIcon} from "../declaration.js";
+
+const pwdDiv2 = document.querySelector('#password-check');
+
+let emailVal = "", pwdVal = "", pwdVal2 = "";
+
+// 이메일 중복 확인 함수
+function isMatch (password1, password2) {
+  return password1 === password2;
+}
+
+// 이메일 중복 노드 추가 함수
+function addinUseError() {
+  console.log(pwdDiv2)
+  let newNode = document.createElement('div');
+  newNode.innerHTML = `<p>${ERROR_MESSAGE.password.recheck}</p>`;
+  newNode.classList.add("inUseEmail",'errorMsg');
+  pwdInput2.setAttribute('status','error');
+  pwdDiv2.children[2] ? pwdDiv2.children[2].remove() : null;
+  pwdDiv2.append(newNode);
+}
+
+// 회원가입 시도 함수
+function trySignin(email,password) {
+  if(email === "test@codeit.com") {
+    // signinBtn.parentElement.setAttribute('href',"/folder.html");
+    common.errorMsg('inUseEmail');
+  } else {
+    common.errorMsg("Other"); 
+  }
+}
 
 // 비밀번호 input 핸들러 함수
 function passwordHandlerFuc(password) {
@@ -12,8 +43,18 @@ function passwordHandlerFuc(password) {
   }
 }
 
-// enter키 입력으로 로그인 실행 
-function EnterLogin(key) {
+// 이메일 input 핸들러
+function emailHandlerFunc(email) {
+  if(email) {
+    emailCheck(email) ? inputDeleteNode('email') : common.errorMsg("wrongEmail")
+  } else {
+    common.errorMsg("NoEmail");
+  }
+  emailVal = email; 
+}
+
+// enter키 입력으로 회원가입 실행 
+function EnterSignin(key) {
   if(key === 'Enter') {
     console.log("dd");
   }
@@ -21,22 +62,35 @@ function EnterLogin(key) {
 
 // email input 이벤트 함수 등록
 emailInput.addEventListener('focusout', function(e) {
-  common.emailHandlerFunc(e.target.value);
+  emailHandlerFunc(e.target.value);
+  emailVal = e.target.value;
 });
 emailInput.addEventListener('keypress', function(e) {
-  EnterLogin(e.key);
+  EnterSignin(e.key);
 });
 
 // password input 이벤트 함수 등록
 pwdInput.addEventListener('focusout', function(e) {
   passwordHandlerFuc(e.target.value);
+  pwdVal = e.target.value;
 });
 pwdInput.addEventListener('keypress', function(e) {
-  EnterLogin(e.key);
+  EnterSignin(e.target.value);
 });
+
+pwdInput2.addEventListener('focusout', function(e) {
+  pwdVal2 = e.target.value;
+  isMatch(pwdVal, pwdVal2) ? null : addinUseError()
+})
+
+// 회원가입 버튼 이벤트 함수 등록
+signinBtn.addEventListener('click', function(e) {
+  trySignin(emailVal, pwdVal);
+  // console.log(isMatch(common.pwdVal,pwd2))
+ });
 
  // 눈모양 아이콘 이벤트 함수 등록
 pwdEyeIcon.addEventListener('click', function(e) {
   e.target.classList.toggle('off');
   common.EyePwd(e.target);
- })
+})
