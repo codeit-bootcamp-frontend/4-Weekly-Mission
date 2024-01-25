@@ -135,7 +135,7 @@ html {
   margin-top: 0.5rem;
 }
 
-.error-text {
+.error-message {
   color: var(--red);
   margin-top: 0.8rem;
 }
