@@ -18,5 +18,15 @@ function isRegexMatch(element, regex){
   if (!(element?.tagName === 'INPUT')) return
   return regex.test(element.value)
 }
+/**
+ * 
+ * @param {*} element - input element
+ * @param {*} value - 확인할 value
+ * @returns 
+ */
+function isValueMatch(element, value){
+  if (!(element?.tagName === 'INPUT')) return
+  return element.value === value
+}
 
-export {isFormatValue, isRegexMatch}
+export {isFormatValue, isRegexMatch, isValueMatch}

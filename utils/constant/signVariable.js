@@ -8,3 +8,4 @@ export const PASSWORD_ERROR_MESSAGE = {
   validation: '비밀번호를 확인해 주세요.'
 };
 export const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+export const USERS = [{ id: 'test@codeit.com', password: 'codeit101' }];
