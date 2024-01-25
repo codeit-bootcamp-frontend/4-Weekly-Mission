@@ -126,6 +126,6 @@ password.addEventListener("focusout", noInputFocusOutPassword);
 email.addEventListener("input", notValidEmailInput);
 email.addEventListener("focusin", () => focusIn(".errorMessage-email"));
 password.addEventListener("focusin", () => focusIn(".errorMessage"));
-loginButton.addEventListener("click", folderPage);
+//loginButton.addEventListener("click", folderPage);
 password.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", togglePassword);
