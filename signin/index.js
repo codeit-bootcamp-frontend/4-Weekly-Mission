@@ -12,6 +12,13 @@ class User {
 const user = new User('test@codeit.com', 'codeit101')
 
 /*********************
+       Constant
+*********************/
+
+// 이메일 유효성 검사 기준 코드
+const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
+
+/*********************
       UI Constant
 *********************/
 
@@ -28,7 +35,7 @@ const eyeImg = document.querySelector('.eye-img');
 
 function isEmpty(text) { return text.length === 0 };
 
-function isEmailValid(text) { return text.includes('@') };
+function isEmailValid(text) { return pattern.test(text) };
 
 function isAccountValid(email, password) {
   return (user.email === email && user.password === password);
@@ -57,10 +64,14 @@ function changePlaceholderFocusOut(e) {
 function emailError() {
   if (isEmpty(inputEmail.value)) {
     showErrorMessage(errorMessageEmail, '이메일을 입력해 주세요.');
-    inputEmail.classList.add('red-border')
-  } else if (!isEmailValid(inputEmail.value)) {
+    inputEmail.classList.add('red-border');
+    return;
+  } 
+
+  if (!isEmailValid(inputEmail.value)) {
     showErrorMessage(errorMessageEmail, '올바른 이메일 주소가 아닙니다.')
-    inputEmail.classList.add('red-border')
+    inputEmail.classList.add('red-border');
+    return;
   }
 };
 
@@ -76,6 +87,7 @@ function deleteError(e) {
     hideErorrMessage(errorMessageEmail);
     inputEmail.classList.remove('red-border');
   };
+
   if (e.target === inputPassword) {
     hideErorrMessage(errorMessagePassword);
     inputPassword.classList.remove('red-border');
