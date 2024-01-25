@@ -9,11 +9,11 @@ emailErrorMessage.innerText = '이메일을 입력해 주세요'
 
 emailInput.addEventListener('focusout', function(){
   if(!emailInput.value.trim()) { //trim의 값이 거짓일 때는 (빈 문자열 또는 공백만 포함일떄!) 즉, 지금 상태는 빈문자열일때!
-    emailErrorMessage.style.display = 'block'; // 화면에 보여줌
+    emailErrorMessage.classList.remove('hidden'); // 화면에 보여줌
     emailInput.classList.add('error-box');
     emailInput.parentElement.lastElementChild.after(emailErrorMessage);
   } else {
-    emailErrorMessage.style.display = 'none'; // 화면에 안보여줌
+    emailErrorMessage.classList.add('hidden'); // 화면에 안보여줌
     emailInput.classList.remove('error-box');
   }
 });
@@ -29,11 +29,11 @@ emailFormatErrorMessage.innerText = '올바른 이메일 주소가 아닙니다.
 emailInput.addEventListener('focusout', function () {
     const emailValue = emailInput.value.trim(); 
     if (emailValue && !isValidEmail(emailValue)) { //빈문자열이 아니면서 이메일 형식과 맞지 않을 때 
-        emailFormatErrorMessage.style.display = 'block'; //화면에 보여줌
+        emailFormatErrorMessage.classList.remove('hidden'); //화면에 보여줌
         emailInput.after(emailFormatErrorMessage);
         return;
     } 
-    emailFormatErrorMessage.style.display = 'none';
+    emailFormatErrorMessage.classList.add('hidden');
 });
 
 const EMAIL_REGEX = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
@@ -88,11 +88,11 @@ passwordErrorMessage.innerText = '비밀번호를 입력해 주세요.';
 
 passwordInput.addEventListener('focusout', function () {
     if (!passwordInput.value.trim()) {
-        passwordErrorMessage.style.display = 'block';
+        passwordErrorMessage.classList.remove('hidden');
         passwordInput.classList.add('error-box')
         passwordInput.parentElement.lastElementChild.after(passwordErrorMessage);
     } else {
-        passwordErrorMessage.style.display = 'none';
+        passwordErrorMessage.classList.add('hidden');
         passwordInput.classList.remove('error-box');
     }
 });
