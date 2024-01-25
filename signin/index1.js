@@ -41,11 +41,8 @@ function isEmpty(text) {
 }
 
 function removeError(messageType) {
-  for (i = 0; i < messageType.parentElement.children.length; i++) {
-    messageType.parentElement.children[i].classList.remove(
-      "email-request-show"
-    );
-  }
+  messageType.classList.remove("email-request-show");
+  messageType.textContent = "";
 }
 
 function toggleError(messageType, text) {
@@ -53,7 +50,6 @@ function toggleError(messageType, text) {
   messageType.classList.add("email-request-show");
   messageType.textContent = text;
 }
-function toggleError2(messageType, text) {}
 /**
  * Validates a user's login information.
  *
@@ -87,26 +83,26 @@ function validateUserLoginInfo(e) {
   if (e.target.id == "email-input") {
     const isEmailEmpty = isEmpty(email);
     if (isEmailEmpty) {
-      const emailRequest = document.querySelector(".email-request");
-      toggleError(emailRequest, "이메일을 입력하세요");
+      const emailErrorMessage = document.querySelector(".email-error-message");
+      toggleError(emailErrorMessage, "이메일을 입력해 주세요.");
       return false;
     }
     const isValidEmailFormat = isEmailFormat(email);
     if (!isValidEmailFormat && !isEmailEmpty) {
-      const emailChecker = document.querySelector(".email-checker");
-      toggleError(emailChecker, "잘못된 이메일 유형입니다");
+      const emailErrorMessage = document.querySelector(".email-error-message");
+      toggleError(emailErrorMessage, "올바른 이메일 주소가 아닙니다.");
       return false;
     }
   }
   if (e.target.id == "pw-input") {
     const isPasswordEmpty = isEmpty(password);
     if (isPasswordEmpty) {
-      const pwRequest = document.querySelector(".pw-request");
-      toggleError(pwRequest, "비밀번호를 입력하세요");
+      const pwErrorMessage = document.querySelector(".pw-error-message");
+      toggleError(pwErrorMessage, "비밀번호를 입력해 주세요.");
       return false;
     } else {
-      const pwRequest = document.querySelector(".pw-request");
-      removeError(pwRequest);
+      const pwErrorMessage = document.querySelector(".pw-error-message");
+      removeError(pwErrorMessage);
     }
   }
 
@@ -126,7 +122,7 @@ function handleLogin(e) {
     //     "email-request-show"
     //   );
     // }
-    removeError(e.target.nextElementSibling.children[0]);
+    removeError(e.target.nextElementSibling);
   }
 
   const email = emailInput.value;
@@ -140,10 +136,10 @@ function handleLogin(e) {
     !isEmpty(password)
   ) {
     if (!user) {
-      checkEmail = document.querySelector(".check-email");
-      checkPw = document.querySelector(".check-pw");
-      toggleError(checkEmail, "이메일을 확인하세요");
-      toggleError(checkPw, "비밀번호를 확인하세요");
+      const emailErrorMessage = document.querySelector(".email-error-message");
+      const pwErrorMessage = document.querySelector(".pw-error-message");
+      toggleError(emailErrorMessage, "이메일을 확인해 주세요.");
+      toggleError(pwErrorMessage, "비밀번호를 확인해 주세요.");
       return;
     } else {
       location.href = "../folder/index.html";

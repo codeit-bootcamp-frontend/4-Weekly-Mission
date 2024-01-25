@@ -1,4 +1,5 @@
 ///////////원래 파일
+//////////이 파일 말고 index1.js를 적용했습니다!
 
 const emailInput = document.querySelector("#email-input");
 const pwInput = document.querySelector("#pw-input");
