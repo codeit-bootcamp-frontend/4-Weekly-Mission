@@ -57,14 +57,12 @@ function handlePasswordFocusin(){
 function handleLoginButton(){
   signEmailInput.blur()
   signPasswordInput.blur()
-
   const isUserRegistered = USERS.some(user => 
       input.isValueMatch(signEmailInput, user.id) && input.isValueMatch(signPasswordInput, user.password)
     )
   if(isUserRegistered) {
     action.loginAction()
   }
-
   showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.validation)
   showErrorMsg(signPasswordInput, passwordError, PASSWORD_ERROR_MESSAGE.validation)
 }
@@ -73,11 +71,8 @@ function handleChangePasswordType(){
   const passwordType = signPasswordInput.type
   const passwordChangeType = passwordType === 'password' ? 'text' : 'password'
   signPasswordInput.type = passwordChangeType
-  passwordChangeType === 'password' 
-    ? eyeImg.src = PASSWORD_EYE_ICON.passwordType.src 
-    : eyeImg.src = PASSWORD_EYE_ICON.textType.src
+  passwordChangeType === 'password' ? eyeImg.src = PASSWORD_EYE_ICON.passwordType.src : eyeImg.src = PASSWORD_EYE_ICON.textType.src
 }
-
 
 signEmailInput.addEventListener('focusout',handleEmailFocusout)
 signEmailInput.addEventListener('focusin',handleEmailFocusin)
