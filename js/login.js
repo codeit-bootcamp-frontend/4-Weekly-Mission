@@ -1,7 +1,7 @@
 import {ERROR_MESSAGE } from "../constant.js";
+import { inputAddNode, inputDeleteNode } from "./node.js";
 
 const emailDiv = document.querySelector('#email');
-const pwdDiv = document.querySelector('#password');
 const emailInput = document.querySelector('.email-input');
 const pwdInput = document.querySelector('.password-input');
 const signinBtn = document.querySelector('#signinBtn');
@@ -15,55 +15,20 @@ function errorMsg(errorCase) {
 
   switch(errorCase) {
     case "NoEmail":
-      newNode.innerHTML = `<p>${ERROR_MESSAGE.email.empty}</p>`
-      newNode.classList.add(errorCase,'errorMsg');
-      newNode.setAttribute('sort', 'email');
+      inputAddNode('email', ERROR_MESSAGE.email.empty, errorCase);
       break;
     case "wrongEmail":
-      newNode.innerHTML = `<p>${ERROR_MESSAGE.email.invalid}</p>`
-      newNode.classList.add(errorCase,'errorMsg');
-      newNode.setAttribute('sort', 'email');
+      inputAddNode('email', ERROR_MESSAGE.email.invalid, errorCase);
       break;
+    case "inUseEmail":
+      inputAddNode('email', ERROR_MESSAGE.email.inUse, errorCase);
     case "NoPwd" :
-      newNode.innerHTML = `<p>${ERROR_MESSAGE.password.empty}</p>`
-      newNode.classList.add(errorCase,'errorMsg');
-      newNode.setAttribute('sort', 'password');
+      inputAddNode('password', ERROR_MESSAGE.password.empty, errorCase);
       break;
     case "Other": 
-      newNode.innerHTML = `<p>${ERROR_MESSAGE.email.check}</p>`
-      newNode.classList.add(errorCase,'errorMsg');
-      newNode.setAttribute('sort', 'email');
-
-      let newNodePwd = document.createElement('div');
-      pwdInput.setAttribute('status','error');
-      newNodePwd.innerHTML = `<p>${ERROR_MESSAGE.password.check}</p>`
-      newNodePwd.classList.add(errorCase,'errorMsg');
-      pwdDiv.children[2] ? pwdDiv.children[2].remove() : null;
-      pwdDiv.append(newNodePwd);
-
+      inputAddNode('email', ERROR_MESSAGE.email.check, errorCase);
+      inputAddNode('password', ERROR_MESSAGE.password.check, errorCase);
       break;
-  }
-  
-  if(newNode.getAttribute('sort') === "email") {
-    emailInput.setAttribute('status','error');
-    emailDiv.children[2] ? emailDiv.children[2].remove() : null;
-    emailDiv.append(newNode);
-  } else if (newNode.getAttribute('sort') === "password") {
-    pwdInput.setAttribute('status','error');
-    pwdDiv.children[2] ? pwdDiv.children[2].remove() : null;
-    pwdDiv.append(newNode);
-  }
- }
-
- // 에러 메세지 제거와, input 상태 정상으로
- function delError(type) {
-  switch(type) {
-    case "email" : 
-      emailDiv.children[2] ? emailDiv.children[2].remove() : null
-      emailInput.setAttribute('status', 'steady');
-    case "password" :
-      pwdDiv.children[2] ? pwdDiv.children[2].remove() : null
-      pwdInput.setAttribute('status', 'steady');
   }
  }
 
@@ -75,7 +40,7 @@ function errorMsg(errorCase) {
         errorMsg("wrongEmail");
         return false;
     } else{
-        delError('email');
+        inputDeleteNode('email');
         return true;
 	}
 }
@@ -88,7 +53,7 @@ function emailHandlerFunc(email) {
 
 // 비밀번호 input 핸들러 함수
 function passwordHandlerFuc(password) {
-  password ? delError('password') : errorMsg("NoPwd")
+  password ? inputDeleteNode('password') : errorMsg("NoPwd")
   pwdVal = password;
 }
 
@@ -100,6 +65,7 @@ function trySignin(email,password) {
     errorMsg("Other"); 
   }
 }
+
 
 // enter키 입력으로 로그인 실행 
 function EnterLogin(key) {
