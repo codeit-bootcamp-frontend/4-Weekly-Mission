@@ -1,12 +1,7 @@
 import {ERROR_MESSAGE } from "../../constant.js";
 import { emailCheck, passwordCheck } from "../validation.js"; 
 import { inputAddNode, inputDeleteNode } from "../node.js";
-
-export const emailDiv = document.querySelector('#email');
-export const emailInput = document.querySelector('.email-input');
-export const pwdInput = document.querySelector('.password-input');
-export const signinBtn = document.querySelector('#signinBtn');
-export const pwdEyeIcon = document.querySelector('.PwdEyeIcon');
+import { emailDiv, emailInput, pwdInput, signinBtn, pwdEyeIcon} from "../declaration.js";
 
 let [emailVal, pwdVal] = ["", ""];
 
