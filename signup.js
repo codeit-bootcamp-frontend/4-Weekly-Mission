@@ -1,5 +1,7 @@
 const emailInput = document.getElementById("emailInput");
+const passwordInput = document.getElementById("passwordInput");
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
 
 function createMessage(message) {
   const messageElement = document.createElement("p");
@@ -12,30 +14,52 @@ function emailValidChk(email) {
   return emailRegex.test(email);
 }
 
+function passwordValidChk(password) {
+  return passwordRegex.test(password);
+}
+
 function handleBlur(input, message) {
   const messageContainer = input.parentElement;
   const existingMessage = messageContainer.querySelector("p");
 
   if (input.value.trim() === "") {
+    // 입력 값이 비어있는 경우
     if (!existingMessage) {
+      // 에러 메시지가 이미 존재하지 않는 경우에만 메시지를 추가
       messageContainer.appendChild(message);
     }
     input.classList.add("empty-input");
   } else {
     if (existingMessage) {
+      // 입력 값이 비어있지 않은 경우 에러 메시지가 이미 존재하면 제거
       existingMessage.remove();
     }
     input.classList.remove("empty-input");
 
-    // 이메일 유효성 검사
-    if (input === emailInput && !emailValidChk(input.value)) {
-      const emailMessage = createMessage("올바른 이메일 주소가 아닙니다.");
-      messageContainer.appendChild(emailMessage);
+    // 유효성 검사 조건을 수행하고 그에 따라 에러 메시지 추가
+    if (
+      (input === emailInput && !emailValidChk(input.value)) ||
+      (input === passwordInput &&
+        (!passwordValidChk(input.value) ||
+          input.value.length < 8 ||
+          !/\d/.test(input.value) ||
+          !/[a-zA-Z]/.test(input.value)))
+    ) {
+      messageContainer.appendChild(message);
       input.classList.add("empty-input");
     }
   }
 }
 
 emailInput.addEventListener("blur", function () {
+  // 이메일 입력란에 포커스를 잃었을 때의 처리
   handleBlur(emailInput, createMessage("이메일을 입력해 주세요."));
+});
+
+passwordInput.addEventListener("blur", function () {
+  // 비밀번호 입력란에 포커스를 잃었을 때의 처리
+  const passwordMessage = createMessage(
+    "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
+  );
+  handleBlur(passwordInput, passwordMessage);
 });
