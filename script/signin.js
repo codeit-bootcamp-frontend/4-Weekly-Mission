@@ -44,8 +44,7 @@ function isValidEmail(email) { //isValidEmail function을 제작하면됨. 음 .
         else if (word ==='@') atsigncount++;
     }
     
-    if(spotcount === 1 && atsigncount ===1) return true;
-    else return false;
+    return spotcount === 1 && atsigncount ===1;
 }
 
 /*이메일: test@codeit.com, 비밀번호: codeit101 으로 로그인 시도할 경우, 
