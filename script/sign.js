@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
       eyeIcon.src = imgSrc;
       passwordInput.type = 'text';
     } else {
-      imgSrc = '../assets/icon/eye-off.svg';
+      const imgSrc = '../assets/icon/eye-off.svg';
       eyeIcon.src = imgSrc;
       passwordInput.type = 'password';
     }
