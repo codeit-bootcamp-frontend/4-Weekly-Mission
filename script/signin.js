@@ -69,12 +69,14 @@ passwordCheckMessage.className = 'error-message';
 passwordCheckMessage.classList.add('text-medium')
 passwordCheckMessage.innerText = '비밀번호를 확인해 주세요.';
 
+const USERS = [{id: 'test@codeit.com', password : 'codeit101'}];
+
 signInButton.addEventListener('click', function (event) {
     event.preventDefault();
     const emailValue = emailInput.value.trim();
     const passwordValue = passwordInput.value.trim();
 
-    if (emailValue === 'test@codeit.com' && passwordValue === 'codeit101') {
+    if (USERS[0].id === emailValue && USERS[0].password === passwordValue) {
         window.location.href = '../folder.html'; // 데이터베이스 접근이 예상되지만, 정상적 실행 확인을 위해 html 사이트로 연결
     } else {
         emailInput.parentElement.lastElementChild.after(emailCheckErrorMessage);
