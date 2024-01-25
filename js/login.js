@@ -1,4 +1,5 @@
 import {ERROR_MESSAGE } from "../constant.js";
+import { emailCheck } from "./validation.js"; 
 import { inputAddNode, inputDeleteNode } from "./node.js";
 
 const emailDiv = document.querySelector('#email');
@@ -32,22 +33,10 @@ function errorMsg(errorCase) {
   }
  }
 
- // 이메일 유효성 체크 함수
- function emailCheck(email_address){     
-    let email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
-    let checkElement = emailDiv.lastElementChild.classList;
-    if(!email_regex.test(email_address)){ 
-        errorMsg("wrongEmail");
-        return false;
-    } else{
-        inputDeleteNode('email');
-        return true;
-	}
-}
-
 // 이메일 input 핸들러
 function emailHandlerFunc(email) {
-  email ? emailCheck(email) : errorMsg("NoEmail")
+  email ? emailCheck(email) : errorMsg("NoEmail");
+  emailCheck(email) ? inputDeleteNode('email') : errorMsg("wrongEmail")
   emailVal = email; 
 }
 
