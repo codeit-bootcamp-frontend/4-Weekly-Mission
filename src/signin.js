@@ -9,7 +9,7 @@ const emailErrorMessage = document.getElementById('emailErrorMessage');
 const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 
 //Check email: 입력 여부 확인, 메일 형식 확인-------------------------------
-email.addEventListener('focusout', function () {
+const checkEmail = () => {
   if (!email.value) {
     showInputError(email);
     showErrorMessage(emailErrorMessage, ERROR_MESSAGE.EMPTY_EMAIL);
@@ -20,20 +20,20 @@ email.addEventListener('focusout', function () {
     return;
   }
   hideInputError(email, emailErrorMessage);
-});
+};
 
 //Check password: 입력 여부 확인-----------------------------------------
-password.addEventListener('focusout', function () {
+const checkPassword = () => {
   if (!password.value) {
     showInputError(password);
     showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.EMPTY_PASSWORD);
     return;
   }
   hideInputError(password, passwordErrorMessage);
-});
+};
 
 //Login: submit form--------------------------------------------------
-signinForm.addEventListener('submit', function (e) {
+const submitForm = e => {
   e.preventDefault();
   if (email.value === USER_INFO.ID && password.value === USER_INFO.PASSWORD) {
     email.value = '';
@@ -44,13 +44,13 @@ signinForm.addEventListener('submit', function (e) {
   showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL_ADDRESS);
   showInputError(password);
   showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.EMPTY_PASSWORD);
-});
+};
 
 //Change icon: eye-on/off----------------------------------------------
 const eyeOnIcon = '/assets/icon/eye-on.svg';
 const eyeOffIcon = '/assets/icon/eye-off.svg';
 
-eyeIcon.addEventListener('click', () => {
+const changeEyeIcon = () => {
   eyeIcon.classList.toggle('on');
   if (eyeIcon.classList.contains('on')) {
     password.removeAttribute('type');
@@ -59,27 +59,32 @@ eyeIcon.addEventListener('click', () => {
   }
   password.setAttribute('type', 'password');
   changeImage(eyeIcon, eyeOffIcon);
-});
+};
 
 //Util----------------------------------------------------------------
-function validateEmail(email_address) {
+const validateEmail = email_address => {
   return email_address.match(REGEX_EMAIL);
-}
+};
 
-function showInputError(inputElement) {
+const showInputError = inputElement => {
   inputElement.classList.add('error-input');
-}
+};
 
-function showErrorMessage(messageElement, message) {
+const showErrorMessage = (messageElement, message) => {
   messageElement.classList.remove('hidden');
   messageElement.textContent = message;
-}
+};
 
-function hideInputError(inputElement, messageElement) {
+const hideInputError = (inputElement, messageElement) => {
   inputElement.classList.remove('error-input');
   messageElement.classList.add('hidden');
-}
+};
 
-function changeImage(beforeImageElement, after) {
-  beforeImageElement.setAttribute('src', after);
-}
+const changeImage = (imageElement, imageSrc) => {
+  imageElement.setAttribute('src', imageSrc);
+};
+
+email.addEventListener('focusout', checkEmail);
+password.addEventListener('focusout', checkPassword);
+signinForm.addEventListener('submit', submitForm);
+eyeIcon.addEventListener('click', changeEyeIcon);
