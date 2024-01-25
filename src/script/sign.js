@@ -47,7 +47,8 @@ function isValidEmail(email) {
 }
 
 // 로그인
-function login() {
+function login(event) {
+    event.preventDefault();
     if (email_input.value === "test@codeit.com" && password_input.value === "codeit101") {
         window.location.href = "/folder";
     } else {
