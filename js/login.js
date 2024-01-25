@@ -13,23 +13,23 @@ let [emailVal, pwdVal] = ["", ""];
 function errorMsg(errorCase) {
   let newNode = document.createElement('div');
 
-  if(errorCase === "NoEmail") {          // email 값 없이 focusout시 
+  switch(errorCase) {
+    case "NoEmail":
       newNode.innerHTML = `<p>${ERROR_MESSAGE.email.empty}</p>`
       newNode.classList.add(errorCase,'errorMsg');
       newNode.setAttribute('sort', 'email');
-
-  } else if(errorCase === "wrongEmail") { // email 형식에 맞지 않은 경우
+      break;
+    case "wrongEmail":
       newNode.innerHTML = `<p>${ERROR_MESSAGE.email.invalid}</p>`
       newNode.classList.add(errorCase,'errorMsg');
       newNode.setAttribute('sort', 'email');
-      emailDiv.append(newNode);
-
-  } else if(errorCase === "NoPwd") {      // password 값 없이 focusout시 
+      break;
+    case "NoPwd" :
       newNode.innerHTML = `<p>${ERROR_MESSAGE.password.empty}</p>`
       newNode.classList.add(errorCase,'errorMsg');
       newNode.setAttribute('sort', 'password');
-
-  } else if(errorCase === "Other") {      // 이외의 로그인 시도의 경우
+      break;
+    case "Other": 
       newNode.innerHTML = `<p>${ERROR_MESSAGE.email.check}</p>`
       newNode.classList.add(errorCase,'errorMsg');
       newNode.setAttribute('sort', 'email');
@@ -44,6 +44,7 @@ function errorMsg(errorCase) {
         pwdDiv.children[2].remove();
         pwdDiv.append(newNodePwd);
       }
+      break;
   }
   
   if(newNode.getAttribute('sort') === "email") {
