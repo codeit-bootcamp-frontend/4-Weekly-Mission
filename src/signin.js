@@ -2,8 +2,8 @@ import { ERROR_MESSAGE, REGEX_EMAIL, USER_INFO } from './constant.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
-const signinForm = document.querySelector('.sign-signin-form');
-const eyeIcon = document.querySelector('.eye');
+const signinForm = document.getElementById('signinForm');
+const eyeIcon = document.getElementById('eyeIcon');
 
 //Check email: 입력 여부 확인, 메일 형식 확인-------------------------------
 const errorEmail = document.createElement('div');
