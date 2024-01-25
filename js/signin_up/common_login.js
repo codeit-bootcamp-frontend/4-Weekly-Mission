@@ -3,7 +3,7 @@ import { emailCheck, passwordCheck } from "../validation.js";
 import { inputAddNode, inputDeleteNode } from "../node.js";
 import { emailDiv, emailInput, pwdInput, signinBtn, pwdEyeIcon} from "../declaration.js";
 
-let [emailVal, pwdVal] = ["", ""];
+export let [emailVal, pwdVal] = ["", ""];
 
 // 에러 메세지 출력 함수
 export function errorMsg(errorCase) {
@@ -49,23 +49,6 @@ export function passwordHandlerFuc(password) {
     errorMsg("NoPwd");
   }
   pwdVal = password;
-}
-
-// 로그인 시도 함수
-export function trySignin(email,password) {
-  if(email === "test@codeit.com" && password === "codeit101") {
-    signinBtn.parentElement.setAttribute('href',"/folder.html");
-  } else {
-    errorMsg("Other"); 
-  }
-}
-
-
-// enter키 입력으로 로그인 실행 
-export function EnterLogin(key) {
-  if(key === 'Enter') {
-    trySignin();
-  }
 }
 
 // password input 눈모양 클릭 실행 함수
