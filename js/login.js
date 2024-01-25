@@ -38,31 +38,20 @@ function errorMsg(errorCase) {
       pwdInput.setAttribute('status','error');
       newNodePwd.innerHTML = `<p>${ERROR_MESSAGE.password.check}</p>`
       newNodePwd.classList.add(errorCase,'errorMsg');
-      if(!pwdDiv.children[2]) {
-        pwdDiv.append(newNodePwd);
-      } else if(pwdDiv.children[2]){
-        pwdDiv.children[2].remove();
-        pwdDiv.append(newNodePwd);
-      }
+      pwdDiv.children[2] ? pwdDiv.children[2].remove() : null;
+      pwdDiv.append(newNodePwd);
+
       break;
   }
   
   if(newNode.getAttribute('sort') === "email") {
     emailInput.setAttribute('status','error');
-    if(!emailDiv.children[2]) {
-      emailDiv.append(newNode);
-    } else if(emailDiv.children[2]){
-      emailDiv.children[2].remove();
-      emailDiv.append(newNode);
-    }
+    emailDiv.children[2] ? emailDiv.children[2].remove() : null;
+    emailDiv.append(newNode);
   } else if (newNode.getAttribute('sort') === "password") {
     pwdInput.setAttribute('status','error');
-    if(!pwdDiv.children[2]) {
-      pwdDiv.append(newNode);
-    } else if(pwdDiv.children[2]){
-      pwdDiv.children[2].remove();
-      pwdDiv.append(newNode);
-    }
+    pwdDiv.children[2] ? pwdDiv.children[2].remove() : null;
+    pwdDiv.append(newNode);
   }
  }
 
@@ -93,27 +82,18 @@ function errorMsg(errorCase) {
 
 // 이메일 input 핸들러
 function emailHandlerFunc(email) {
-  if(email === "") { // email 값 없이 focus out
-    errorMsg("NoEmail");
-  } else if (email !== "") {
-    emailCheck(email);
-  }
+  email ? emailCheck(email) : errorMsg("NoEmail")
   emailVal = email; 
 }
 
 // 비밀번호 input 핸들러 함수
 function passwordHandlerFuc(password) {
-  if(password === "") {
-    errorMsg("NoPwd");
-  } else if (password !== "") {
-    delError('password');
-  }
+  password ? delError('password') : errorMsg("NoPwd")
   pwdVal = password;
 }
 
 // 로그인 시도 함수
 function trySignin(email,password) {
-  console.log(email, password);
   if(email === "test@codeit.com" && password === "codeit101") {
     signinBtn.parentElement.setAttribute('href',"/folder.html");
   } else {
