@@ -3,8 +3,6 @@ import { emailCheck, passwordCheck } from "../validation.js";
 import { inputAddNode, inputDeleteNode } from "../node.js";
 import { emailDiv, emailInput, pwdInput, signinBtn, pwdEyeIcon} from "../declaration.js";
 
-export let emailVal = ""
-export let pwdVal = "";
 
 // 에러 메세지 출력 함수
 export function errorMsg(errorCase) {
@@ -32,24 +30,17 @@ export function errorMsg(errorCase) {
   }
  }
 
-// 이메일 input 핸들러
-export function emailHandlerFunc(email) {
-  if(email) {
-    emailCheck(email) ? inputDeleteNode('email') : errorMsg("wrongEmail")
-  } else {
-    errorMsg("NoEmail");
-  }
-  emailVal = email; 
-}
 
 // password input 눈모양 클릭 실행 함수
 export function EyePwd(EyeStatus) {
   if(EyeStatus.classList.contains('off')) {
     pwdEyeIcon.setAttribute('src',"assets/icons/eye-off.png");
     pwdInput.setAttribute('type', 'password');
+    pwdInput2 ? pwdInput2.setAttribute('type', 'password') : null
 
   } else {
     pwdEyeIcon.setAttribute('src',"assets/icons/eye-on.png");
     pwdInput.setAttribute('type', 'text');
+    pwdInput2 ? pwdInput2.setAttribute('type', 'text'); : null
   }
 }

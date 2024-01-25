@@ -1,12 +1,24 @@
 import * as common from "./common_login.js";
+import { emailCheck } from "../validation.js"; 
 import { inputAddNode, inputDeleteNode } from "../node.js";
-import { emailDiv, emailInput, pwdInput, signinBtn, pwdEyeIcon} from "../declaration.js";
+import { emailDiv, emailInput, pwdInput, signupBtn, pwdEyeIcon} from "../declaration.js";
 
+let emailVal = "", pwdVal = "";
+
+// 이메일 input 핸들러
+function emailHandlerFunc(email) {
+  if(email) {
+    emailCheck(email) ? inputDeleteNode('email') : common.errorMsg("wrongEmail")
+  } else {
+    common.errorMsg("NoEmail");
+  }
+  emailVal = email; 
+}
 
 // 로그인 시도 함수
 function trySignup(email,password) {
   if(email === "test@codeit.com" && password === "codeit101") {
-    signinBtn.parentElement.setAttribute('href',"/folder.html");
+    signupBtn.parentElement.setAttribute('href',"/folder.html");
   } else {
     common.errorMsg("Other"); 
   }
@@ -15,19 +27,18 @@ function trySignup(email,password) {
 // enter키 입력으로 로그인 실행 
 function EnterLogin(key) {
   if(key === 'Enter') {
-    trySignup();
+    trySignup(emailVal, pwdVal);
   }
 }
 
 function passwordHandlerFuc(password) {
   password ? inputDeleteNode('password') : common.errorMsg("NoPwd");
-  console.log(common.pwdVal)
-  // common.pwdVal = password;
+  pwdVal = password;
 }
 
 // email input 이벤트 함수 등록
 emailInput.addEventListener('focusout', function(e) {
-  common.emailHandlerFunc(e.target.value);
+  emailHandlerFunc(e.target.value);
 });
 emailInput.addEventListener('keypress', function(e) {
   EnterLogin(e.key);
@@ -42,8 +53,8 @@ pwdInput.addEventListener('keypress', function(e) {
 });
 
 // 로그인 버튼 이벤트 함수 등록
-signinBtn.addEventListener('click', function(e) {
-  trySignup(common.emailVal, common.pwdVal);
+signupBtn.addEventListener('click', function(e) {
+  trySignup(emailVal, pwdVal);
  });
 
 
