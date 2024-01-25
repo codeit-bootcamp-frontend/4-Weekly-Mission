@@ -17,13 +17,13 @@ const user = new User('test@codeit.com', 'codeit101');
 
 // 유효성 검사 기준 정규표현식
 const emailPattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
-const passwordPattern = /
+const passwordPattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
 
 /*********************
       UI Constant
 *********************/
 
-const signUpForm = document.querySelector('.signup-form');
+const signupForm = document.querySelector('.signup-form');
 
 const inputEmail = document.querySelector('#signup-email');
 const inputPassword = document.querySelector('#signup-password');
@@ -33,9 +33,6 @@ const errorMessageEmail = document.querySelector('.errorMessage-email');
 const errorMessagePassword = document.querySelector('.errorMessage-password');
 const errorMessagePasswordCheck = document.querySelector('.errorMessage-password-check');
 
-const eyeImgPassword = document.querySelector('.eye-img-password');
-const eyeImgPasswordCheck = document.querySelector('.eye-img-password-check');
-
 /*********************
        Function
 *********************/
@@ -43,7 +40,7 @@ const eyeImgPasswordCheck = document.querySelector('.eye-img-password-check');
 function isEmpty(text) { return text.length === 0 };
 
 function isEmailValid(text) { return emailPattern.test(text) };
-function isPasswordValid(text) {}
+function isPasswordValid(text) { return passwordPattern.test(text) };
 function isEmailDuplicated(text) { return user.email === text };
 
 function showErrorMessage(targetElement, errorMessage) {
@@ -80,7 +77,7 @@ function emailError() {
   }
 
   if (isEmailDuplicated(inputEmail.value)) {
-    showErrorMessage(errorMessageEmail, '이미 사용 중인 이메일입니다.')
+    showErrorMessage(errorMessageEmail, '이미 사용 중인 이메일입니다.');
     inputEmail.classList.add('red-border');
     return;
   }
@@ -88,21 +85,28 @@ function emailError() {
 
 function passwordError() {
   if (isEmpty(inputPassword.value)) {
-    showErrorMessage(errorMessagePassword, '비밀번호를 입력해 주세요.')
-    inputPassword.classList.add('red-border')
+    showErrorMessage(errorMessagePassword, '비밀번호를 입력해 주세요.');
+    inputPassword.classList.add('red-border');
+    return;
+  };
+
+  if (!isPasswordValid(inputPassword.value)) {
+    showErrorMessage(errorMessagePassword, '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.');
+    inputPassword.classList.add('red-border');
+    return;
   };
 };
 
 function passwordCheckError() {
   if (isEmpty(inputPasswordCheck.value)) {
-    showErrorMessage(errorMessagePassword, '비밀번호를 입력해 주세요.')
-    inputPassword.classList.add('red-border')
+    showErrorMessage(errorMessagePasswordCheck, '비밀번호를 입력해 주세요.')
+    inputPasswordCheck.classList.add('red-border')
     return;
   };
 
   if (inputPasswordCheck.value !== inputPassword.value) {
-    showErrorMessage(errorMessagePassword, '비밀번호가 일치하지 않습니다.')
-    inputPassword.classList.add('red-border')
+    showErrorMessage(errorMessagePasswordCheck, '비밀번호가 일치하지 않습니다.')
+    inputPasswordCheck.classList.add('red-border')
     return;
   }
 };
@@ -117,29 +121,54 @@ function deleteError(e) {
     hideErorrMessage(errorMessagePassword);
     inputPassword.classList.remove('red-border');
   };
+
+  if (e.target === inputPasswordCheck) {
+    hideErorrMessage(errorMessagePasswordCheck);
+    inputPasswordCheck.classList.remove('red-border');
+  };
 };
 
-function passwordToggle() {
+function passwordToggle( { target: eyeImg } ) {
   if (eyeImg.classList.contains('eye-open')) {
     eyeImg.classList.toggle('eye-open');
     eyeImg.classList.toggle('eye-closed'); 
-    inputPassword.setAttribute('type', 'password');
-  } else {
+    eyeImg.parentElement.firstElementChild.setAttribute('type', 'password');
+    return;
+  }
+
+  if (eyeImg.classList.contains('eye-closed')) {
     eyeImg.classList.toggle('eye-open');
     eyeImg.classList.toggle('eye-closed'); 
-    inputPassword.setAttribute('type', 'text');
+    eyeImg.parentElement.firstElementChild.setAttribute('type', 'text');
+    return;
   };
 };
 
-function login(e) {
+function onlyEngPassword() {
+  const filteredValue = inputPassword.value.replace(/[^a-zA-Z0-9!"#$%&'()*+,-./:;<=>?@[\\^_`{|}~]/g, '');
+  inputPassword.value = filteredValue;
+};
+
+function signup(e) {
   e.preventDefault();
 
-  if (!isAccountValid(inputEmail.value, inputPassword.value)) {
-    showErrorMessage(errorMessageEmail, '이메일을 확인해 주세요.');
-    showErrorMessage(errorMessagePassword, '비밀번호를 확인해 주세요.');
-    return alert('계정을 확인해주세요.')
+  const inputs = [ inputEmail, inputPassword, inputPasswordCheck ];
+
+  for (const input of inputs) {
+    input.focus();
+    input.blur();
   };
 
+  const filteredInputs = inputs.filter( (input) => input.classList.contains('red-border') );
+
+  if (filteredInputs.length) {
+    for (const input of filteredInputs) {
+      const error = input.parentElement.lastElementChild;
+      showErrorMessage(error, '확인 후 다시 작성해주세요.');
+    };
+    return;
+  };
+  
   return location.href = '../folder/index.html';
 };
 
@@ -147,13 +176,15 @@ function login(e) {
       EventHandler
 *********************/
 
-signUpForm.addEventListener('focusin', changePlaceholderFocusIn);
-signUpForm.addEventListener('focusout', changePlaceholderFocusOut);
-signUpForm.addEventListener('submit', login);
-signUpForm.addEventListener('focusin', deleteError);
+signupForm.addEventListener('focusin', changePlaceholderFocusIn);
+signupForm.addEventListener('focusout', changePlaceholderFocusOut);
+signupForm.addEventListener('submit', signup);
+signupForm.addEventListener('click', passwordToggle);
+signupForm.addEventListener('focusin', deleteError);
 
 inputEmail.addEventListener('focusout', emailError);
 
 inputPassword.addEventListener('focusout', passwordError);
+inputPassword.addEventListener('input', onlyEngPassword);
 
-eyeImg.addEventListener('click', passwordToggle);
+inputPasswordCheck.addEventListener('focusout', passwordCheckError);
