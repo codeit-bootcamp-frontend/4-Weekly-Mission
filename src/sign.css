@@ -7,7 +7,6 @@
 }
 
 html{
-  /*1rem = 10px*/
   font-size: 10px;
 }
 
@@ -140,6 +139,15 @@ header {
   width: 1.6rem;
   height: 1.6rem;
 }
+
+.verifyEye-button {
+  position: absolute;
+  margin-top:5.2rem;
+  right: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
 
 .cta {
   display: flex;

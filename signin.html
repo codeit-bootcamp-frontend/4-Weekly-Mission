@@ -22,20 +22,23 @@
     </header>
 
     <div class="sign-box">
-      <form class="sign-form">
+      <!--form 의 네이티브 함수인 onsubmit 활용하고 싶은데, 맞게 한 건지 모르겠네요...-->
+      <form class="sign-form" onsubmit="return loginUser()" >
 
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일
               <!--emailBox란 안에 이메일 입력이 들어간다.-->
-              <input id="emailBox" class="sign-input" type="email" name="email" />
+              <input id="emailBox" class="sign-input" type="email" name="email">
+              <p class="error-message hidden" id="email-error-message"></p>
             </label>
           </div>
 
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호
               <!--pwBox에 비밀번호 입력-->
-              <input id="pwBox" class="sign-input" type="password" />
+              <input id="pwBox" class="sign-input" type="password" name="password"/>
+              <p class="error-message hidden" id="password-error-message"></p>
               <!--눈 모양 아이콘-->
               <button class="eye-button" type="button">
                 <img src="./images/eye-off.svg" />
@@ -47,6 +50,7 @@
         <!--로그인 버튼-->
         <button id="loginBtn" class="cta" type="submit">로그인</button>
       </form>
+
       <div class="sns-box">
         <span class="sns-text">소셜 로그인</span>
         <div class="sns-links">
@@ -60,6 +64,7 @@
       </div>
     </div>
     <!--자바스크립트-->
-    <script src="./js/sign.js"></script>
+    <script src="./js/signin.js" type="module"></script>
+    <script src="./js/utiles.js" type="module"></script>
   </body>
 </html>
