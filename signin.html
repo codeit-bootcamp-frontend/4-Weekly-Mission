@@ -20,17 +20,23 @@
       </p>
     </header>
     <div class="sign-box">
-      <form class="sign-form">
+      <!--특정 아이디 비밀번호 입력하면 특정 페이지로 이동을 위해 id 설정-->
+      <form id="form" class="sign-form">
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <!--이메일 유효성 검사를 위해 id와 p태그 추가-->
+            <input id="email" class="sign-input errorBoxForm" />
+            <p id="errorMessageEmail" class="errorMessage errorTextForm"></p>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
-            <button class="eye-button" type="button">
-              <img src="./images/eye-off.svg" />
+            <input id="password" class="sign-input errorBoxForm" type="password" />
+            <!--비밀번호 유효성 검사를 위해 id와, p태그 추가-->
+            <p id="errorMessagePassword" class="errorMessage errorTextForm" ></p>
+            <!--눈 감고 뜨는거 클릭을 위해 id 추가-->
+            <button id="toggleEye" class="eye-button" type="button">
+              <img src="./images/eye-off.svg" id="eyeImage" />
             </button>
           </div>
         </div>
@@ -48,5 +54,6 @@
         </div>
       </div>
     </div>
+  <script src="./src/signin.js"></script>
   </body>
 </html>

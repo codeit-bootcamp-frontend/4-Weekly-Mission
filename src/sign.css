@@ -41,6 +41,16 @@
     color: var(--primary);
     border-bottom: 0.1rem solid var(--primary);
   }
+  /*유효성 검사 공통된 스타일*/
+  .errorTextForm {
+    display: inline-block;
+    color: var(--red);
+    font-size: 14px;
+  }
+
+  .errorBoxForm {
+    border: 0.1rem solid var(--red);
+  }
   
   .sign-box {
     width: 100%;
