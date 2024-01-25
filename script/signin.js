@@ -56,7 +56,7 @@ function isValidEmail(email) { //isValidEmail function을 제작하면됨. 음 .
 // 2가지 모두 같은 동작으로 진행되어서 묶어서 처리합니다..
 // 만약 해당 출력이 맞지 않는다면 이를 분해해서 if-else문 2개로 처리하면 됩니다.
 
-const signInButton = document.querySelector('.cta');
+const signInButton = document.getElementById('login-button');
 const passwordInput = document.getElementById('password'); // emailValue는 위에서 가져왔기 때문에 PWValue만 참조
 
 const emailCheckErrorMessage = document.createElement('div');
