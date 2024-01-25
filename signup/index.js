@@ -3,6 +3,7 @@ let password = document.querySelector(".input-password");
 let passwordConfirm = document.querySelector(".input-password-confirm");
 let loginButton = document.querySelector(".button-signup");
 let passwordIcon = document.querySelector(".password-icon");
+let passwordConfimIcon = document.querySelector(".password-confirm-icon");
 
 function resetElement(parentPlace, place) {
   let container = document.querySelector(parentPlace);
@@ -122,14 +123,17 @@ function loginFail() {
   //printErrorMessage(".errorMessage", "비밀번호를 확인해 주세요");
 }
 
+
+
 // 비밀번호 보이기
-function togglePassword() {
-  if (password.type === "password") {
-    password.type = "text";
-    passwordIcon.setAttribute("src", "../Publics/sign/eye-off.svg");
-  } else {
-    password.type = "password";
-    passwordIcon.setAttribute("src", "../Publics/sign/eye-on.svg");
+function togglePassword(element, icon) {
+  if (element.type === "password") {
+    element.type = "text";
+    icon.setAttribute("src", "../Publics/sign/eye-off.svg");
+  }
+  else {
+    element.type = "password";
+    icon.setAttribute("src", "../Publics/sign/eye-on.svg");
   }
 }
 
@@ -143,4 +147,5 @@ password.addEventListener("focusin", () => focusIn(".errorMessage"));
 passwordConfirm.addEventListener("focusin", () => focusIn(".errorMessage"));
 //loginButton.addEventListener("click", folderPage);
 password.addEventListener("keydown", pressEnterForFolderPage);
-passwordIcon.addEventListener("click", togglePassword);
+passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
+passwordConfimIcon.addEventListener("click", () => togglePassword(passwordConfirm, passwordConfimIcon));
