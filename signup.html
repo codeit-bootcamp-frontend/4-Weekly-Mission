@@ -28,26 +28,32 @@
       </p>
     </header>
     <div class="sign-box">
-      <form class="sign-form">
+      <form id="sign-form" class="sign-form">
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <input id="email" class="sign-input" />
+            <div id="emailError" class="error-message"></div>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
+            <input id="password" class="sign-input" type="password" />
             <button class="eye-button" type="button">
-              <img src="./assets/sign/eye.svg" />
+              <img id="eye1" src="./assets/sign/eye-off.svg" />
             </button>
           </div>
+          <div id="passwordError" class="error-message error-message-pwd"></div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호 확인</label>
-            <input class="sign-input" type="password" />
+            <input id="password-check" class="sign-input" type="password" />
             <button class="eye-button" type="button">
-              <img src="./assets/sign/eye.svg" />
+              <img id="eye2" src="./assets/sign/eye-off.svg" />
             </button>
           </div>
+          <div
+            id="passwordCheckError"
+            class="error-message error-message-pwd"
+          ></div>
         </div>
         <button class="cta" type="submit">회원가입</button>
       </form>
@@ -63,5 +69,6 @@
         </div>
       </div>
     </div>
+    <script src="./js/signup.js"></script>
   </body>
 </html>
