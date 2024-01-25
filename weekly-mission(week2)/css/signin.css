@@ -72,16 +72,17 @@
   color: var(--red);
 }
 
+.input-error-msg {
+  margin-top: -1rem;
+  color: var(--red);  
+}
+
 .js-input-profile-error-msg-order {
   order: 3;
 }
 
 .js-display-none {
   display: none;
-}
-
-.js-display-block {
-  display: block;
 }
 
 div.input-container {
