@@ -16,6 +16,18 @@ loginButton.addEventListener("click", function (event) {
   event.preventDefault();
   handleLogin(event);
 });
+emailInput.addEventListener("keypress", function (event) {
+  if (event.key == "Enter") {
+    event.preventDefault();
+    handleLogin(event);
+  }
+});
+passwordInput.addEventListener("keypress", function (event) {
+  if (event.key == "Enter") {
+    event.preventDefault();
+    handleLogin(event);
+  }
+});
 /**
  * Utility Logics
  */
@@ -122,7 +134,7 @@ function handleLogin(e) {
   // login 로직 실행
   const user = isValidUser({ email, password });
   if (
-    e.target.classList.value == "btn login-button" &&
+    (e.target.classList.value == "btn login-button" || e.type == "keypress") &&
     isEmailFormat(email) &&
     !isEmpty(email) &&
     !isEmpty(password)
