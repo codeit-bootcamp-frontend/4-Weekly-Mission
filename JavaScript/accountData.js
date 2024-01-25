@@ -1,4 +1,9 @@
-const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const passwordFormat = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+
+const formatCheck = function (text) {return text.match(mailFormat)}
+const passFormatCheck = function (password) {return password.match(passwordFormat)}
+
 
 const registeredAccounts = [
    {email : 'test@codeit.com' , password : 'codeit101'}
@@ -8,4 +13,8 @@ const loginCheck = (inputEmail, inputPassword) => (
    registeredAccounts.find( (account) => account.email == inputEmail && account.password == inputPassword)
 )
 
-export {mailFormat, registeredAccounts, loginCheck}
+const accountCheck = (inputEmail) => (
+   registeredAccounts.find( (account) => account.email == inputEmail)
+)
+
+export {registeredAccounts, loginCheck, accountCheck, formatCheck, passFormatCheck}
