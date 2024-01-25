@@ -23,7 +23,7 @@ body {
   gap: 8px;
   margin: 16px 0 30px;
 }
-.signup {
+.signin {
   color: var(--Linkbrary-primary-color, #6d6afe);
   font-size: 16px;
   font-style: normal;
@@ -37,7 +37,7 @@ body {
   font-weight: 400;
   line-height: normal;
 }
-#email {
+#email-input {
   display: flex;
   padding: 18px 15px;
   justify-content: center;
@@ -58,7 +58,7 @@ body {
   margin: 12px 0 30px;
 }
 
-#pw {
+#pw-input {
   display: flex;
   padding: 18px 15px;
   justify-content: center;
@@ -67,6 +67,10 @@ body {
   border: none;
   background: var(--Linkbrary-white, #fff);
   outline: none;
+}
+
+#email-input:focus {
+  outline: 1px solid var(--Linkbrary-primary-color, #6d6afe);
 }
 
 .pwform:focus-within {
@@ -101,10 +105,10 @@ body {
   height: 22px;
 }
 
-#email,
+#email-input,
 .pwform,
-#pw,
-.login,
+#pw-input,
+.signup-btn,
 .social {
   width: 100%;
 }
@@ -117,13 +121,13 @@ body {
   line-height: 24px; /* 150% */
 }
 
-.eyeoff {
+.eyeoff-button {
   border: 0;
   background-color: transparent;
   margin: 0 15px 0 0;
 }
 
-#pw_check {
+#pw-check {
   display: flex;
   width: 400px;
   padding: 18px 15px;
@@ -135,7 +139,7 @@ body {
   outline: none;
 }
 
-.signin {
+.signup-btn {
   padding: 16px 20px;
   gap: 10px;
   background: var(
@@ -155,15 +159,24 @@ main {
   width: min(84%, 400px);
 }
 
+.show {
+  display: block;
+  color: #ff5b56;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  position: relative;
+  top: -20px;
+}
 @media (min-width: 768px) {
   main {
     margin: 238px auto 116px;
     width: 400px;
   }
-  #email,
+  #email-input,
   .pwform,
-  #pw,
-  .signin,
+  #pw-input,
+  .signup-btn,
   .social {
     width: 400px;
   }

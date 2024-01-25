@@ -15,27 +15,38 @@
         /></a>
         <div class="user justify-center">
           <span class="already_user">이미 회원이신가요?</span>
-          <a class="signup" href="../signin/index.html">로그인 하기</a>
+          <a class="signin" href="../signin/index.html">로그인 하기</a>
         </div>
       </div>
       <form>
-        <label class="label" for="email">이메일</label><br />
-        <input id="email" name="email" type="email" />
-        <label class="label" for="pw">비밀번호</label><br />
-        <div class="pwform flex justify-center items-center">
-          <input id="pw" name="password" type="password" /><br />
-          <button class="eyeoff">
-            <img src="../public/images/signin-image/eye-off.png" />
-          </button>
+        <div class="form-group">
+          <label class="label" for="email">이메일</label><br />
+          <input id="email-input" name="email" type="email" />
+          <p class="email-error-message"></p>
         </div>
-        <label class="label" for="pw_check">비밀번호 확인</label><br />
-        <div class="pwform flex justify-center items-center">
-          <input id="pw_check" name="password_check" type="password" /><br />
-          <button class="eyeoff">
-            <img src="../public/images/signin-image/eye-off.png" />
-          </button>
+        <div class="form-group">
+          <label class="label" for="pw">비밀번호</label><br />
+          <div class="pwform flex justify-center items-center">
+            <input id="pw-input" name="password" type="password" /><br />
+            <button class="eyeoff-button">
+              <img src="../public/images/signin-image/eye-off.png" />
+            </button>
+          </div>
+          <p class="pw-error-message"></p>
         </div>
-        <button class="signin btn">회원가입</button>
+        <div class="form-group">
+          <label class="label" for="pw_check">비밀번호 확인</label><br />
+          <div class="pwform flex justify-center items-center">
+            <input id="pw-check" name="password_check" type="password" /><br />
+            <button class="eyeoff-button">
+              <img src="../public/images/signin-image/eye-off.png" />
+            </button>
+          </div>
+          <p class="pw-check-error-message"></p>
+        </div>
+        <div class="button-group">
+          <button class="signup-btn btn">회원가입</button>
+        </div>
         <div class="social flex justify-between items-center">
           <p>다른 방식으로 가입하기</p>
           <div class="social_icon flex">
@@ -67,5 +78,6 @@
         </div>
       </form>
     </main>
+    <script type="module" src="index.js"></script>
   </body>
 </html>

@@ -139,51 +139,15 @@ main {
 
 /* 4주차 */
 
-.email-request {
+.email-error-message {
   display: none;
 }
 
-.email-checker {
+.pw-error-message {
   display: none;
-}
-.email-checker-show {
-  display: block;
-  color: #ff5b56;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: normal;
-  position: relative;
-  top: -20px;
-}
-.pw-request {
-  display: none;
-}
-.pw-request-show {
-  display: block;
-  color: #ff5b56;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: normal;
-  position: relative;
-  top: -20px;
-}
-.check-email,
-.check-pw {
-  display: none;
-}
-.check-email-show,
-.check-pw-show {
-  display: block;
-  color: #ff5b56;
-  font-size: 14px;
-  font-weight: 400;
-  font-style: normal;
-  line-height: normal;
-  position: relative;
-  top: -20px;
 }
 
-.email-request-show {
+.show {
   display: block;
   color: #ff5b56;
   font-size: 14px;
