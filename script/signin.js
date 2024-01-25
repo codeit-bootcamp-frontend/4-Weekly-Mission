@@ -106,18 +106,22 @@ passwordInput.addEventListener('focusout', function () {
 비밀번호의 문자열이 보일 때는 사선이 없는 눈 모양 아이콘이 보이도록 합니다.*/ 
 
 const watchPassword = document.querySelector('.eye-button');
-const targetSrc = "./assets/logo/eye-on.svg"; //비교 대조군 생성
-let imgSrc = watchPassword.firstElementChild.src;
+const INPUT_BOX = watchPassword.previousElementSibling;
+const state = {
+    shouldPasswordVisible: watchPassword.previousElementSibling.type === 'text',
+    EYE_OFF_IMAGE: './assets/logo/eye-off.svg',
+    EYE_ON_IMAGE: './assets/logo/eye-on.svg'
+};
 
 watchPassword.addEventListener('click', function () {
+    state.shouldPasswordVisible = !state.shouldPasswordVisible;
 
-    if(imgSrc === targetSrc) {
-        imgSrc = "./assets/logo/eye-off.svg";
-        watchPassword.firstElementChild.src = imgSrc;
-        watchPassword.previousElementSibling.type = "password";
+    if (!state.shouldPasswordVisible) {
+        watchPassword.firstElementChild.src = state.EYE_OFF_IMAGE;
+        INPUT_BOX.type = 'password';
     } else {
-        imgSrc = targetSrc;
-        watchPassword.firstElementChild.src = imgSrc;
-        watchPassword.previousElementSibling.type = "text";
+        watchPassword.firstElementChild.src = state.EYE_ON_IMAGE;
+        INPUT_BOX.type = 'text';
     }
 });
+
