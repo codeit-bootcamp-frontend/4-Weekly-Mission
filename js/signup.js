@@ -59,6 +59,11 @@ const passwordInputFocusOut = (target) => {
   const textTarget =
     target.parentNode.parentNode.querySelector(".warning-text");
   const passwordInput = document.querySelector("#password-input");
+  if (type === 2 && passwordInput.value !== target.value) {
+    viewWarningText(textTarget, "비밀번호가 일치하지 않아요");
+    isVailed[type] = false;
+    return;
+  }
   if (checkPassword(target.value) === 0) {
     viewWarningText(textTarget, "비밀번호를 입력해주세요.");
     isVailed[type] = false;
@@ -70,12 +75,6 @@ const passwordInputFocusOut = (target) => {
       textTarget,
       "비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.",
     );
-    isVailed[type] = false;
-    return;
-  }
-
-  if (type === 2 && passwordInput.value !== target.value) {
-    viewWarningText(textTarget, "비밀번호가 일치하지 않아요");
     isVailed[type] = false;
     return;
   }
@@ -110,7 +109,9 @@ const signupBtnEnter = (e) => {
   }
 };
 
-InputFocusEvent(emailInput, emailInputFocustIn, emailInputFocustOut);
+InputFocusEvent(emailInput, emailInputFocustIn, (e) =>
+  emailInputFocustOut(e.target),
+);
 InputFocusEvent(
   password,
   (e) => passwordInputFocustIn(e.target),
