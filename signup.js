@@ -1,10 +1,9 @@
-import { getNewMessageElement, toggleEye } from "./utils.js";
+import { emailRegex, getNewMessageElement, toggleEye } from "./utils.js";
 
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");
 const passwordCheck = document.getElementById("passwordCheck");
 const loginButton = document.getElementById("loginButton");
-const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
 
 function emailValidChk(email) {

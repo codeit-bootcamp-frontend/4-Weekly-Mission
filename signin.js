@@ -1,9 +1,8 @@
-import { getNewMessageElement, toggleEye } from "./utils.js";
+import { emailRegex, getNewMessageElement, toggleEye } from "./utils.js";
 
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");
 const loginButton = document.getElementById("loginButton");
-const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 function emailValidChk(email) {
   return emailRegex.test(email);
