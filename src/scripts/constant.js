@@ -13,3 +13,10 @@ export const USER_INFO = {
   ID: 'test@codeit.com',
   PASSWORD: 'codeit101',
 };
+
+export const PATH = {
+  ICON_EYE_ON: '/assets/icon/eye-on.svg',
+  ICON_EYE_OFF: '/assets/icon/eye-off.svg',
+
+  PAGE_FOLDER: '/pages/folder.html',
+};

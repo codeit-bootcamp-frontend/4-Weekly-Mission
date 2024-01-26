@@ -1,4 +1,5 @@
-import { ERROR_MESSAGE, REGEX_EMAIL, USER_INFO } from './constant.js';
+import { ERROR_MESSAGE, PATH } from './constant.js';
+import { validateEmail, showInputError, showErrorMessage, hideInputError, changeImage, checkUserInfo } from './util.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -8,7 +9,7 @@ const eyeIcon = document.getElementById('eyeIcon');
 const emailErrorMessage = document.getElementById('emailErrorMessage');
 const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 
-//Check email: 입력 여부 확인, 메일 형식 확인-------------------------------
+//Check email: 입력 여부 확인, 메일 형식 확인-------------------------------------
 const checkEmail = () => {
   if (!email.value) {
     showInputError(email);
@@ -22,7 +23,7 @@ const checkEmail = () => {
   hideInputError(email, emailErrorMessage);
 };
 
-//Check password: 입력 여부 확인-----------------------------------------
+//Check password: 입력 여부 확인-----------------------------------------------
 const checkPassword = () => {
   if (!password.value) {
     showInputError(password);
@@ -32,12 +33,12 @@ const checkPassword = () => {
   hideInputError(password, passwordErrorMessage);
 };
 
-//Login: submit form--------------------------------------------------
+//Login: submit form--------------------------------------------------------
 const submitForm = e => {
   e.preventDefault();
-  if (email.value === USER_INFO.ID && password.value === USER_INFO.PASSWORD) {
+  if (checkUserInfo(email, password)) {
     email.value = '';
-    window.location.href = '/pages/folder.html';
+    window.location.href = PATH.PAGE_FOLDER;
     return;
   }
   showInputError(email);
@@ -46,44 +47,19 @@ const submitForm = e => {
   showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.EMPTY_PASSWORD);
 };
 
-//Change icon: eye-on/off----------------------------------------------
-const eyeOnIcon = '/assets/icon/eye-on.svg';
-const eyeOffIcon = '/assets/icon/eye-off.svg';
-
+//Change icon: eye-on/off----------------------------------------------------
 const changeEyeIcon = () => {
   eyeIcon.classList.toggle('on');
   if (eyeIcon.classList.contains('on')) {
     password.setAttribute('type', 'text');
-    changeImage(eyeIcon, eyeOnIcon);
+    changeImage(eyeIcon, PATH.ICON_EYE_ON);
     return;
   }
   password.setAttribute('type', 'password');
-  changeImage(eyeIcon, eyeOffIcon);
+  changeImage(eyeIcon, PATH.ICON_EYE_OFF);
 };
 
-//Util----------------------------------------------------------------
-const validateEmail = email_address => {
-  return email_address.match(REGEX_EMAIL);
-};
-
-const showInputError = inputElement => {
-  inputElement.classList.add('error-input');
-};
-
-const showErrorMessage = (messageElement, message) => {
-  messageElement.classList.remove('hidden');
-  messageElement.textContent = message;
-};
-
-const hideInputError = (inputElement, messageElement) => {
-  inputElement.classList.remove('error-input');
-  messageElement.classList.add('hidden');
-};
-
-const changeImage = (imageElement, imageSrc) => {
-  imageElement.setAttribute('src', imageSrc);
-};
-
+//EventListener---------------------------------------------------------------
 email.addEventListener('focusout', checkEmail);
 password.addEventListener('focusout', checkPassword);
 signinForm.addEventListener('submit', submitForm);
