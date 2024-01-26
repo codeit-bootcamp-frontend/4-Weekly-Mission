@@ -44,11 +44,10 @@ function isValidEmailFormat(emailInputValue) {
 }
 
 //이메일 중복 검사
-function isExistingEmail(emailInputValue) {
+function isEmailMatching(emailInputValue) {
   if (emailInputValue === VALID_USER.email) {
     return true;
   }
-
   return false;
 }
 
@@ -117,7 +116,7 @@ function isValidSignUp(emailInputValue, passwordInputValue, passwordCheckInputVa
     return false;
   }
 
-  if (isExistingEmail(emailInputValue)) {
+  if (isEmailMatching(emailInputValue)) {
     console.log(`case 2`);
     return false;
   }
@@ -179,7 +178,7 @@ export {
   eyeBtnCheck,
   isTextEmpty,
   isValidEmailFormat,
-  isExistingEmail,
+  isEmailMatching,
   isValidPassword,
   isSamePassword,
   showError,

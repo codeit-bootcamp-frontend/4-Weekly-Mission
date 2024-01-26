@@ -10,7 +10,7 @@ import {
   eyeBtnCheck,
   isTextEmpty,
   isValidEmailFormat,
-  isExistingEmail,
+  isEmailMatching,
   isValidPassword,
   isSamePassword,
   showError,
@@ -36,7 +36,7 @@ function checkEmailError() {
     return showError(emailInput, emailErrorMessageElement, "올바른 이메일 주소가 아닙니다.");
   }
 
-  if (isExistingEmail(emailInput.value)) {
+  if (isEmailMatching(emailInput.value)) {
     return showError(emailInput, emailErrorMessageElement, "이미 사용 중인 이메일입니다.");
   }
 
