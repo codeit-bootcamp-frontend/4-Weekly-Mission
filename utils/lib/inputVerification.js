@@ -4,10 +4,8 @@
  * @returns 
  */
 function isFormatValue(element){
-  if (!(element?.tagName === 'INPUT')) return
   return element.value.trim() === ''
 }
-
 /**
  * regex 유효성 확인
  * @param {*} element - input element
@@ -15,7 +13,6 @@ function isFormatValue(element){
  * @returns 
  */
 function isRegexMatch(element, regex){
-  if (!(element?.tagName === 'INPUT')) return
   return regex.test(element.value)
 }
 /**
@@ -25,12 +22,15 @@ function isRegexMatch(element, regex){
  * @returns 
  */
 function isValueMatch(element, value){
-  if (!(element?.tagName === 'INPUT')) return
   return element.value === value
 }
-
+/**
+ * 비밀번호 확인 
+ * @param {*} elementValue - 비밀번호 input
+ * @param {*} checkElementValue  - 비밀번호 확인 input
+ * @returns 
+ */
 function isPasswordValueMatch(elementValue, checkElementValue){
-  if (!(elementValue?.tagName === 'INPUT')) return
   return elementValue?.value.trim() !== checkElementValue?.value.trim()
 }
 
