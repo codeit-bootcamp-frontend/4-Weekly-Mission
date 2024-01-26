@@ -1,4 +1,4 @@
-import { viewWarningText, hiddenWarningText, checkEmail, checkPassword, visiblePassword} from "./login.js"
+import { viewWarningText, hiddenWarningText, checkEmail, checkPassword, visiblePassword} from "/js/login.js"
 
 const emailInput = document.querySelector('#email-input');
 const passwordInput = document.querySelector('#password-input');
@@ -11,7 +11,7 @@ const eyeBtn = document.querySelector('#password-eye-button');
 
 const loginBtnOnclick = () => {
     if(emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101') {
-        window.location.href = './folder';
+        window.location.href = '/page/folder';
     }
     else {
         viewWarningText(emailWarningText, '이메일을 확인해 주세요.');

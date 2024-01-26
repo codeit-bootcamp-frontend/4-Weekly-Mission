@@ -28,12 +28,12 @@ export const visiblePassword = (target) => {
     const flag = JSON.parse(el.getAttribute('visible'));
     if(flag) {
         el.setAttribute('visible', 'false');
-        target.src = '../images/eye-off.png';
+        target.src = '/images/eye-off.png';
         el.type = 'password';
     }
     else {
         el.setAttribute('visible', 'true');
-        target.src = '../images/eye-on.png';
+        target.src = '/images/eye-on.png';
         el.type = 'text';
     }
 }

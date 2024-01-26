@@ -1,4 +1,4 @@
-import { viewWarningText, hiddenWarningText,  checkEmail, checkPassword, visiblePassword} from "./login.js";
+import { viewWarningText, hiddenWarningText,  checkEmail, checkPassword, visiblePassword} from "/js/login.js";
 
 const emailInput = document.querySelector('#email-input');
 const emailWarningText = document.querySelector('#email-warning-text');
@@ -88,7 +88,7 @@ const signupBtnOnclick = () => {
         if(!flag) return
     }
     console.log(isVailed)
-    window.location.href = './folder';
+    window.location.href = '/page/folder';
 }
 
 const signupBtnEnter = (e) => {
