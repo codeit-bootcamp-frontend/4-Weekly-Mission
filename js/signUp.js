@@ -74,7 +74,6 @@ email.addEventListener("blur", handleEmailUsedValidation);
 password.addEventListener("blur", handlePasswordFormatValidation);
 passwordRepeat.addEventListener("blur", handlePasswordMatchValidation);
 signUpButton.addEventListener("click", redirectToFolderPage);
-// document.addEventListener("keypress", enterKey);
 document.addEventListener("keypress", (event) => {
   enterKey(event, redirectToFolderPage);
 });

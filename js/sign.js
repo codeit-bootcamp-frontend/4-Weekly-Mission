@@ -43,7 +43,6 @@ const redirectToFolderPage = () => {
 email.addEventListener("blur", handleEmailValidation);
 password.addEventListener("blur", handlePasswordValidation);
 loginButton.addEventListener("click", redirectToFolderPage);
-// document.addEventListener("keypress", enterKey);
 document.addEventListener("keypress", (event) => {
   enterKey(event, redirectToFolderPage);
 });
