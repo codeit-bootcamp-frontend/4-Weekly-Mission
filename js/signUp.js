@@ -66,7 +66,15 @@ const redirectToFolderPage = () => {
   }
 };
 
+/* enter키 입력 시 회원가입 실행 */
+const enterKey = (e) => {
+  if (e.keyCode == 13) {
+    redirectToFolderPage();
+  }
+};
+
 email.addEventListener("blur", handleEmailUsedValidation);
 password.addEventListener("blur", handlePasswordFormatValidation);
 passwordRepeat.addEventListener("blur", handlePasswordMatchValidation);
 signUpButton.addEventListener("click", redirectToFolderPage);
+document.addEventListener("keypress", enterKey);
