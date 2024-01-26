@@ -26,18 +26,22 @@ function showError($input, errorMessage) {
 function checkEmail() {
   if (emailRegex.test($emailInput.value)) {
     removeError($emailInput);
-  } else {
-    const message = $emailInput.value
-      ? "올바른 이메일 주소가 아닙니다."
-      : "이메일을 입력해주세요.";
-    showError($emailInput, message);
+    return;
   }
+
+  const message = $emailInput.value
+    ? "올바른 이메일 주소가 아닙니다."
+    : "이메일을 입력해주세요.";
+  showError($emailInput, message);
 }
 
 function checkPassword() {
-  $passwordInput.value
-    ? removeError($passwordInput)
-    : showError($passwordInput, "비밀번호를 입력해주세요.");
+  if ($passwordInput.value) {
+    removeError($passwordInput);
+    return;
+  }
+
+  showError($passwordInput, "비밀번호를 입력해주세요.");
 }
 
 function togglePassoword(e) {
@@ -47,13 +51,13 @@ function togglePassoword(e) {
     : "password";
 }
 
-function handleSubmit(e) {
-  if ($emailInput.value !== RIGHT_EMAIL) {
+function validateEmailAndPassword(e) {
+  if (
+    $emailInput.value !== RIGHT_EMAIL ||
+    $passwordInput.value !== RIGHT_PASSWORD
+  ) {
     e.preventDefault();
     showError($emailInput, "이메일을 확인해주세요.");
-  }
-  if ($passwordInput.value !== RIGHT_PASSWORD) {
-    e.preventDefault();
     showError($passwordInput, "비밀번호를 확인해주세요.");
   }
 }
@@ -61,4 +65,4 @@ function handleSubmit(e) {
 $emailInput.addEventListener("focusout", checkEmail);
 $passwordInput.addEventListener("focusout", checkPassword);
 $btnEye.addEventListener("click", togglePassoword);
-$form.addEventListener("submit", handleSubmit);
+$form.addEventListener("submit", validateEmailAndPassword);
