@@ -11,6 +11,9 @@ const loginBtn = querySelector("#login-button");
 // 눈 모양 아이콘 선택
 const passwordEyeIcon = querySelector("#password-eye-icon");
 
+// 로그인 폼 선택
+const loginForm = querySelector("#login-form");
+
 function checkEmail(event) {
   // errorMessage가 출력될 태그, input 태그 선택
   const emailValue = event.target.value.trim();
@@ -100,7 +103,7 @@ signinPasswordInput.addEventListener("focusout", checkPassword);
 loginBtn.addEventListener("click", tryLogin);
 
 // 엔터키로 로그인하기
-document.addEventListener("keydown", loginByEnter);
+loginForm.addEventListener("keydown", loginByEnter);
 
 // 눈 모양 아이콘 클릭시
 passwordEyeIcon.addEventListener("click", passwordShowHidden);
