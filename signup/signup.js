@@ -1,9 +1,9 @@
 const emailInput = document.querySelector('#email')
-const errorMessage = document.querySelector('.errorM')
+const errorMessage = document.querySelector('.errorMsg')
 const pwInput = document.querySelector('#password')
 const passwordCheck = document.querySelector('#passwordCheck')
-const errorPw = document.querySelector('.errorP')
-const errorPwCheck = document.querySelector('.errorPCheck')
+const errorPw = document.querySelector('.errorPw')
+const errorPwCheck = document.querySelector('.errorPwCheck')
 const form = document.querySelector('form')
 const eye = document.querySelector('.eye')
 const eyeCheck = document.querySelector('.eyeCheck')
@@ -52,8 +52,8 @@ function pwErrorCheck(e) {
 
 // 올바른 이메일 주소가 아닙니다
 function emailCheck(e) {
-  let e_style = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
-  if(e.target.value.trim() && !e_style.test(e.target.value)) {
+  const E_STYLE = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
+  if(e.target.value.trim() && !E_STYLE.test(e.target.value)) {
     errorMessage.textContent = '올바른 이메일 주소가 아닙니다.'
     emailInput.classList.add('inputError')
   } else{
@@ -71,22 +71,14 @@ function login(e) {
 
 //눈사진toggle
 function eye_toggle(e) {
-  if(e.target.getAttribute('src')=="../images/eye-off.svg") {
-    e.target.setAttribute('src', '../images/eye-on.svg')
-    pwInput.setAttribute('type', "")
-  } else{
-    e.target.setAttribute('src', '../images/eye-off.svg')
-    pwInput.setAttribute('type', 'password')
-  }
+  const IS_EYE_ON = e.target.getAttribute('src')=="../images/eye-off.svg"
+  e.target.setAttribute('src', IS_EYE_ON ? '../images/eye-on.svg' : '../images/eye-off.svg')
+  pwInput.setAttribute('type', IS_EYE_ON ? "" : 'password')
 }
 function eyeCheck_toggle(e) {
-  if(e.target.getAttribute('src')=="../images/eye-off.svg") {
-    e.target.setAttribute('src', '../images/eye-on.svg')
-    passwordCheck.setAttribute('type', "")
-  } else{
-    e.target.setAttribute('src', '../images/eye-off.svg')
-    passwordCheck.setAttribute('type', 'password')
-  }
+  const IS_EYE_ON = e.target.getAttribute('src')=="../images/eye-off.svg"
+  e.target.setAttribute('src', IS_EYE_ON ? '../images/eye-on.svg' : '../images/eye-off.svg')
+  passwordCheck.setAttribute('type', IS_EYE_ON ? "" : 'password')
 }
 
 emailInput.addEventListener('focusout', emailError)
