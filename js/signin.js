@@ -1,5 +1,6 @@
 import { emailRegex, isVaildEmail } from "../utils/isValidEmail.js";
 import { querySelector } from "../utils/querySelector.js";
+import { passwordTypeCheck } from "../functions/passwordTypeCheck.js";
 
 // 이메일, 비밀번호 input 선택
 const emailInputBox = querySelector("#signin-email-input");
@@ -80,18 +81,16 @@ function loginByEnter(event) {
 
 /** [심화] 눈 모양 아이콘 클릭시, 비밀번호 타입 변경하기 **/
 function passwordShowHidden() {
-  if (signinPasswordInput.getAttribute("type") === "password") {
-    passwordEyeIcon.setAttribute("src", "./images/logo_icon/eye_icon.png");
-    passwordEyeIcon.setAttribute("alt", "비밀번호 보기");
-    signinPasswordInput.setAttribute("type", "text");
-  } else if (signinPasswordInput.getAttribute("type") === "text") {
-    passwordEyeIcon.setAttribute(
-      "src",
-      "./images/logo_icon/hidden_eye_icon.png"
-    );
-    passwordEyeIcon.setAttribute("alt", "비밀번호 숨김");
-    signinPasswordInput.setAttribute("type", "password");
-  }
+  passwordTypeCheck(signinPasswordInput)
+    ? (passwordEyeIcon.setAttribute("src", "./images/logo_icon/eye_icon.png"),
+      passwordEyeIcon.setAttribute("alt", "비밀번호 보기"),
+      signinPasswordInput.setAttribute("type", "text"))
+    : (passwordEyeIcon.setAttribute(
+        "src",
+        "./images/logo_icon/hidden_eye_icon.png"
+      ),
+      passwordEyeIcon.setAttribute("alt", "비밀번호 숨김"),
+      signinPasswordInput.setAttribute("type", "password"));
 }
 
 /** 이벤트 등록 */
