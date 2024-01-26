@@ -1,15 +1,15 @@
-import {ERROR_MESSAGE } from "../../constant.js";
+import { ERROR_MESSAGE } from "../../constant.js";
 import * as common from "./common_login.js";
 import { emailCheck, passwordCheck, isMatch, checkEmailDupli } from "../validation.js"; 
 import { inputDeleteNode } from "../node.js";
-import { emailInput, pwdInput, signinBtn, pwdEyeIcon, pwdEyeIcon2, pwdInput2 } from "../declaration.js";
+import { emailDiv, pwdDiv, pwdDiv2, emailInput, pwdInput, signinBtn, pwdEyeIcon, pwdEyeIcon2, pwdInput2 } from "../declaration.js";
 
 let emailVal = "", pwdVal = "", pwdVal2 = "";
 
 // 회원가입 시도 함수
 function trySignin(email,password) {
-  if (emailCheck(email)){
-    signupBtn.parentElement.setAttribute('href',"/folder.html");
+  if(!emailDiv[2] && !pwdDiv[2] && !pwdDiv2[2]) {
+    signinBtn.parentElement.setAttribute('href',"/folder.html");
   }
 }
 

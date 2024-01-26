@@ -3,6 +3,7 @@ export const emailInput = document.querySelector('.email-input');
 
 export const pwdInput = document.querySelector('.password-input');
 export const pwdInput2 = document.querySelector('.password-input-check');
+export const pwdDiv = document.querySelector('#password');
 export const pwdDiv2 = document.querySelector('#password-check');
 
 export const signinBtn = document.querySelector('#signinBtn');
