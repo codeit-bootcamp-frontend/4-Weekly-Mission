@@ -75,7 +75,7 @@ nav>#login{
 .title>p{
     margin:0;
 }
-.title p>.hl{
+.title>p>.hl{
     background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
     background-clip: text;
     -webkit-background-clip: text;

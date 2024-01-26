@@ -115,7 +115,7 @@ body{
     z-index:1;
     outline: none;
     border-radius: 8px;
-    border: 1px solid red;
+    border: 1px solid var(--Linkbrary-red);
     background: var(--Linkbrary-white);
 }
 

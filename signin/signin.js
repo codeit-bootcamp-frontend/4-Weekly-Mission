@@ -1,10 +1,11 @@
-﻿let regex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+﻿const regex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
 
-function email_check(){
+function emailCheck(){
     const email = document.querySelector("#email");
     if (!email.value){
         document.querySelector('.email_result').innerText = "이메일을 입력해주세요";
         email.classList.add('focus_red');
+        return;
     }
     else if (!regex.test(email.value)){
         document.querySelector('.email_result').innerText = "올바른 이메일 주소가 아닙니다.";
@@ -32,7 +33,7 @@ function login(){
     }
 }
 
-function Enter_login(){
+function enterLogin(){
     const key_code = window.event.keyCode;
     if (key_code == 13){
         login();
