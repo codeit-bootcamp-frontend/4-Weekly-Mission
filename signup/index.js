@@ -1,29 +1,15 @@
+import {
+  createErrorSpanElement,
+  removeErrorElement,
+  errorMessageInElement,
+} from "../src/element.js";
+
 let email = document.querySelector(".input-email");
 let password = document.querySelector(".input-password");
 let passwordConfirm = document.querySelector(".input-password-confirm");
 let loginButton = document.querySelector(".button-signup");
 let passwordIcon = document.querySelector(".password-icon");
 let passwordConfimIcon = document.querySelector(".password-confirm-icon");
-
-function resetElement(parentPlace, place) {
-  let container = document.querySelector(parentPlace);
-
-  let oldErrorMessage = document.querySelector(place);
-  if (oldErrorMessage) {
-    container.removeChild(oldErrorMessage);
-  }
-}
-
-function createErrorSpanElement(parentPlace, place) {
-  let container = document.querySelector(parentPlace);
-
-  let span = document.createElement("span");
-  container.appendChild(span);
-  span.classList.add(place);
-  span.style.color = 'red';
-  span.style.position = 'relative';
-  span.style.top = '-6px';
-}
 
 function styleErrorBorder(inputSlectorName) {
   let inputElement = document.querySelector(inputSlectorName);
@@ -35,30 +21,25 @@ function removeBorderStyle(inputSlectorName) {
   inputElement.style.outline = "none";
 }
 
-function printErrorMessage(place, errorSentence) {
-  let errorMessage = document.querySelector(place);
-  errorMessage.textContent = errorSentence;
-}
-
 function noInputFocusOut() {
-  resetElement(".input-form-email", ".errorMessage-email");
+  removeErrorElement(".input-form-email");
   removeBorderStyle(".input-email");
 
   if (email.value.trim() === "") {
-    createErrorSpanElement(".input-form-email", "errorMessage-email");
+    createErrorSpanElement(".input-form-email");
     styleErrorBorder(".input-email")
-    printErrorMessage(".errorMessage-email", "이메일을 입력해 주세요");
+    errorMessageInElement(".input-form-email", "이메일을 입력해 주세요");
   }
 }
 
 function noInputFocusOutPassword() {
-  resetElement(".input-form-password", ".errorMessage");
+  removeErrorElement(".input-form-password");
   removeBorderStyle(".input-password");
 
   if (password.value.trim() === "") {
-    createErrorSpanElement(".input-form-password", "errorMessage");
+    createErrorSpanElement(".input-form-password");
     styleErrorBorder(".input-password");
-    printErrorMessage(".errorMessage", "비밀번호를 입력해 주세요");
+    errorMessageInElement(".input-form-password", "비밀번호를 입력해 주세요");
   }
 }
 
@@ -69,16 +50,16 @@ function notValidEmailInput() {
     return;
   }
 
-  resetElement(".input-form-email", ".errorMessage-email");
+  removeErrorElement(".input-form-email");
   removeBorderStyle(".input-email");
   
   if (emailRegex.test(email.value)) {
     console.log("Email")
     return
   } else {
-    createErrorSpanElement(".input-form-email", "errorMessage-email");
+    createErrorSpanElement(".input-form-email");
     styleErrorBorder(".input-email");
-    printErrorMessage(".errorMessage-email", '올바른 이메일 주소가 아닙니다');
+    errorMessageInElement(".input-form-email", "올바른 이메일 주소가 아닙니다");
   }
 }
 
@@ -111,29 +92,29 @@ function notPasswordFormat() {
   }
 
   if (passwordFormat.length < 8 || /^[a-zA-Z]+$/.test(passwordFormat) || /^[0-9]+$/.test(passwordFormat)) {
-    createErrorSpanElement(".input-form-password", "errorMessage");
+    createErrorSpanElement(".input-form-password");
     styleErrorBorder(".input-password");
-    printErrorMessage(".errorMessage", "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요");
+    errorMessageInElement(".input-form-password", "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요");
   }
 }
 
 function loginFail() {
-  resetElement(".input-form-email", ".errorMessage-email");
+  removeErrorElement(".input-form-email");
   removeBorderStyle(".input-email");
 
-  createErrorSpanElement(".input-form-email", "errorMessage-email");
+  createErrorSpanElement(".input-form-email");
   styleErrorBorder(".input-email");
-  printErrorMessage(".errorMessage-email", '이미 사용 중인 이메일 입니다');
+  errorMessageInElement(".input-form-email", "이미 사용 중인 이메일 입니다");
 }
 
 function passwordisNotEqual() {
-  resetElement(".input-form-password-confirm", ".errorMessage-confirm");
+  removeErrorElement(".input-form-password-confirm");
   removeBorderStyle(".input-password-confirm");
 
   if (password.value !== passwordConfirm.value) {
-    createErrorSpanElement(".input-form-password-confirm", "errorMessage-confirm");
+    createErrorSpanElement(".input-form-password-confirm");
     styleErrorBorder(".input-password-confirm");
-    printErrorMessage(".errorMessage-confirm", "비밀번호가 일치하지 않아요");
+    errorMessageInElement(".input-form-password-confirm", "비밀번호가 일치하지 않아요");
   }
 }
 
@@ -163,9 +144,9 @@ email.addEventListener("focusout", aleadyUse);
 password.addEventListener("focusout", noInputFocusOutPassword);
 password.addEventListener("focusout", notPasswordFormat);
 email.addEventListener("input", notValidEmailInput);
-email.addEventListener("focusin", () => focusIn(".input-email" ,".errorMessage-email"));
-password.addEventListener("focusin", () => focusIn(".input-password", ".errorMessage"));
-passwordConfirm.addEventListener("focusin", () => focusIn(".input-password-confirm" ,".errorMessage-confirm"));
+//email.addEventListener("focusin", () => focusIn(".input-email" ,".errorMessage-email"));
+//password.addEventListener("focusin", () => focusIn(".input-password", ".errorMessage"));
+//passwordConfirm.addEventListener("focusin", () => focusIn(".input-password-confirm" ,".errorMessage-confirm"));
 passwordConfirm.addEventListener("change", passwordisNotEqual);
 loginButton.addEventListener("click", signupCheck);
 passwordConfirm.addEventListener("keydown", pressEnterForFolderPage);

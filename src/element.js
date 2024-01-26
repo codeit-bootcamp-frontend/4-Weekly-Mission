@@ -1,5 +1,5 @@
 // 부모 엘리먼트 명만 인자로 가진다.
-export function createErrorSpanElement2(parentElementSlectorName) {
+export function createErrorSpanElement(parentElementSlectorName) {
   let parentElement = document.querySelector(parentElementSlectorName); // dot 필요
   let span = document.createElement("span");
   parentElement.appendChild(span);
