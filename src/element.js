@@ -2,7 +2,6 @@
 export function createErrorSpanElement2(parentElementSlectorName) {
   let parentElement = document.querySelector(parentElementSlectorName); // dot 필요
   let span = document.createElement("span");
-  console.log(span);
   parentElement.appendChild(span);
   
   let parentElementclassName = removeDot(parentElementSlectorName); // dot 제거

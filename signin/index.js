@@ -69,11 +69,8 @@ function notValidEmailInput() {
   }
 }
 
-function focusIn(place) {
-  let errorMessage = document.querySelector(place); 
-  if (errorMessage) {
-    errorMessage.remove();
-  }
+function focusIn(parentElementSlectorName) {
+  removeErrorElement(parentElementSlectorName)
 }
 
 function pressEnterForFolderPage(e) {
@@ -116,8 +113,8 @@ function togglePassword() {
 email.addEventListener("focusout", noInputFocusOut);
 password.addEventListener("focusout", noInputFocusOutPassword);
 email.addEventListener("input", notValidEmailInput);
-email.addEventListener("focusin", () => focusIn(".errorMessage-email"));
-password.addEventListener("focusin", () => focusIn(".errorMessage"));
+email.addEventListener("focusin", () => focusIn(".input-form-email"));
+password.addEventListener("focusin", () => focusIn(".input-form-password"));
 loginButton.addEventListener("click", folderPage);
 password.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", togglePassword);
