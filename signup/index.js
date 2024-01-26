@@ -12,7 +12,7 @@ import {
   isValidEmailFormat,
   isEmailMatching,
   isValidPassword,
-  isSamePassword,
+  isPasswordMatching,
   showError,
   hideError,
   isValidSignUp,
@@ -62,7 +62,7 @@ function checkPasswordCheckError() {
     return showError(passwordCheckInput, passwordCheckErrorMessageElement, "비밀번호를 입력해 주세요.");
   }
 
-  if (!isSamePassword(passwordInput.value, passwordCheckInput.value)) {
+  if (!isPasswordMatching(passwordInput.value, passwordCheckInput.value)) {
     return showError(passwordCheckInput, passwordCheckErrorMessageElement, "비밀번호가 일치하지 않아요.");
   }
 
