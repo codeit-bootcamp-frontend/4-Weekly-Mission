@@ -29,14 +29,23 @@
                 <div class="login-input">
                     <div class="input-menu">
                         <div class="input-title">이메일</div>
-                        <input type="email" class="input-style">
+                        <input type="email" class="input-style" id="signin-email-input">
+                        <div class="signin-email-error error none">
+                            이메일을 입력해 주세요.
+                        </div>
                     </div>
                     <div class="input-menu">
                         <div class="input-title">비밀번호</div>
-                        <div class="password-container">
-                            <input type="password" class="input-style">
-                            <img src="image/eye-off.svg" class="eye-off">
-                        </div>
+                        <form class="password-container">
+                            <input type="password" class="input-style " id="signin-password-input">
+                            <div class="password-icon">
+                                <img src="image/eye-off.svg" class="eye-off">
+                                <img src="image/eye-on.svg" class="eye-on none">
+                            </div>
+                            <div class="signin-password-error error none">
+                                비밀번호를 입력해주세요.
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="login-btn">
@@ -55,6 +64,9 @@
                 </div>
             </div>
         </div>
+
+        <script type='module' src="/javascript/signin.js"></script>
+        <script type="module" src="/javascript/module.js"></script>
 </body>
 
 </html>

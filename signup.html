@@ -29,22 +29,32 @@
                 <div class="signup-input">
                     <div class="input-menu">
                         <div class="input-title">이메일</div>
-                        <input type="email" class="input-style">
+                        <input type="email" class="input-style" id="signup-email-input">
+                        <div class="signup-email-error error none">
+                            이메일을 입력해 주세요.
+                        </div>
                     </div>
                     <div class="input-menu">
                         <div class="input-title">비밀번호</div>
                         <div class="password-container">
-                            <input type="password" class="input-style">
-                            <img src="image/eye-on.svg" class="eye-on">
+                            <input type="text" class="input-style" id="signup-password-input">
+                            <img src="image/eye-on.svg" class="eye-on show-password">
+                            <img src="image/eye-off.svg" class="eye-off hide-password none">
+                        </div>
+                        <div class="signup-password-error error none">
+                            비밀번호를 입력해주세요.
                         </div>
                     </div>
                     <div class="input-menu">
                         <div class="input-title">비밀번호 확인</div>
                         <div class="password-container">
-                            <input type="password" class="input-style">
-                            <img src="image/eye-on.svg" class="eye-on">
+                            <input type="text" class="input-style" id="signup-password-check-input">
+                            <img src="image/eye-on.svg" class="eye-on show-password-check">
+                            <img src="image/eye-off.svg" class="eye-off hide-password-check none">
                         </div>
-                        <div id="check">비밀번호가 다릅니다</div>
+                        <div class="signup-password-check-error error none">
+                            비밀번호를 입력해주세요.
+                        </div>
                     </div>
                 </div>
                 <div class="signup-btn">
@@ -63,6 +73,8 @@
                 </div>
             </div>
         </div>
+        <script type='module' src="/javascript/signup.js"></script>
+        <script type="module" src="/javascript/module.js"></script>
 </body>
 
 </html>

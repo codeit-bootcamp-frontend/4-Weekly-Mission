@@ -6,16 +6,17 @@
 body {
     background: var(--Linkbrary-bg);
     font-family: Pretendard;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
+.none {
+    display: none;
+}
 
 .signup {
     display: flex;
-    width: 1440px;
-    padding: 238px 0px 252px 0px;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 238px 0 117px 0;
     justify-content: center;
     align-items: center;
     background: var(--Linkbrary-bg);
@@ -48,7 +49,6 @@ body {
 
 .question-text {
     color: var(--black);
-
     font-size: 1rem;
     font-style: normal;
     font-weight: 400;
@@ -130,6 +130,7 @@ body {
     width: 1rem;
     height: 1rem;
     transform: translateY(50%);
+    cursor: pointer;
 }
 
 #check {
@@ -194,14 +195,28 @@ body {
     width: 2.625rem;
     height: 2.625rem;
     flex-shrink: 0;
-    cursor: pointer;
 }
+
+.error {
+    color: var(--Linkbrary-red);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 6px;
+}
+
+.error-redline {
+    border-color: var(--Linkbrary-red);
+}
+
+/* Tablet */
 
 @media (max-width: 1199px) {
 
-    .sign-up {
-        width: 74.9375rem;
-        padding: 12.5rem 24.9375rem 18.1875rem 25rem;
+    .signup {
+        padding: 238px 0 117px 0;
+        width: 400px;
     }
 
     .social-icon {
@@ -211,16 +226,13 @@ body {
     }
 }
 
+/* Tablet */
+
 @media (max-width : 767px) {
 
-    body {
-        margin: 0 auto;
-        max-width: 400px;
-    }
-
-    .sign-up {
-        display: inline-flex;
-        padding: 7.5rem 2rem 14.5625rem 2.0625rem;
+    .signup {
+        padding: 120px 0 120px 0;
+        width: 325px;
     }
 
     .input-style {
