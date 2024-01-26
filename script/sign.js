@@ -11,12 +11,13 @@ function createErrorMessage(text) {
 // 이메일 형식 검증 함수
 const isEmailValid = (email) => EMAIL_REGEX.test(email);
 
-document.addEventListener('DOMContentLoaded', function () {
-  const emailInput = document.getElementById('email');
-  const passwordInput = document.getElementById('password');
-  const signInButton = document.getElementById('cta');
-  const watchPassword = document.getElementById('eye-button');
+//변수 선언 모음
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const signInButton = document.getElementById('cta');
+const watchPassword = document.getElementById('eye-button');
 
+document.addEventListener('DOMContentLoaded', function () {
   const emailErrorMessage = createErrorMessage('');
   emailErrorMessage.style.dsiplay = 'none';
   const passwordErrorMessage = createErrorMessage('');
@@ -29,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
     emailErrorMessage.classList.remove('error-box');
   });
 
-  const handleEmailInputFocusIn = function () {
+  function handleEmailInputFocusIn() {
     const emailValue = emailInput.value.trim();
     if (!emailValue) {
       emailInput.classList.add('error-box');
@@ -44,9 +45,9 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
     emailInput.classList.remove('error-box');
-  };
+  }
 
-  emailInput.addEventListener('focusout', 'handleEmailInputFocusIn');
+  emailInput.addEventListener('focusout', handleEmailInputFocusIn);
 
   passwordInput.addEventListener('focusin', function () {
     passwordErrorMessage.style.display = 'none';
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!passwordValue) {
       passwordInput.classList.add('error-box');
       passwordErrorMessage.style.display = 'block';
-      passwordErrorMessage.innerText = '비밀번호 입력해주세용';
+      passwordErrorMessage.innerText = '비밀번호를 입력해주세요';
       return;
     }
   });
