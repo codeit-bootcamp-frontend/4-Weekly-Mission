@@ -20,7 +20,7 @@ import {
   hidePassword,
   showPasswordCheck,
   hidePasswordCheck,
-} from "../js/utility.js";
+} from "../scripts/utils.js";
 
 /********************
  * ACTIVE FUNCTION

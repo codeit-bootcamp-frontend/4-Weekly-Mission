@@ -12,7 +12,7 @@ import {
   isValidUser,
   showPassword,
   hidePassword,
-} from "../js/utility.js";
+} from "../scripts/utils.js";
 
 /********************
  * ACTIVE FUNCTION
