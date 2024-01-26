@@ -10,7 +10,7 @@ const MESSAGE = Object.freeze({
 
 const REGEX = Object.freeze({
   EMAIL_REGEX: /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  PW_REGEX: /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/,
+  PW_REGEX: /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9])\S{8,20}$/,
 });
 
 const ACTION = Object.freeze({

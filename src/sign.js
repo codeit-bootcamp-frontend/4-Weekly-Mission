@@ -29,18 +29,15 @@ const isValidFormat = (action, input) => {
 };
 
 const validateEmail = () => {
-  const emailValue = emailInput.value.trim();
-
-  if (emailValue === '') applyError(emailError, MESSAGE.REQUIRED_EMAIL, emailInput);
-  else if (!isValidFormat(ACTION.EMAIL, emailValue)) applyError(emailError, MESSAGE.INVALID_EMAIL_FORMAT, emailInput);
+  if (emailInput.value === '') applyError(emailError, MESSAGE.REQUIRED_EMAIL, emailInput);
+  else if (!isValidFormat(ACTION.EMAIL, emailInput.value))
+    applyError(emailError, MESSAGE.INVALID_EMAIL_FORMAT, emailInput);
   else resetError(emailError, emailInput);
 };
 
 const validatePw = () => {
-  const pwValue = pwInput.value.trim();
-
-  if (pwValue === '') applyError(pwError, MESSAGE.REQUIRED_PASSWORD, pwInput);
-  else if (!isValidFormat(ACTION.PW, pwValue)) applyError(pwError, MESSAGE.INVALID_PW_FORMAT, pwInput);
+  if (pwInput.value === '') applyError(pwError, MESSAGE.REQUIRED_PASSWORD, pwInput);
+  else if (!isValidFormat(ACTION.PW, pwInput.value)) applyError(pwError, MESSAGE.INVALID_PW_FORMAT, pwInput);
   else resetError(pwError, pwInput);
 };
 
@@ -60,14 +57,9 @@ const handleLoginFailure = () => {
 };
 
 const handleLogin = () => {
-  const emailValue = emailInput.value.trim();
-  const pwValue = pwInput.value.trim();
-
-  if (emailValue === 'test@codeit.com' && pwValue === 'codeit101') {
-    console.log('로그인 성공!');
+  if (emailInput.value === 'test@codeit.com' && pwInput.value === 'codeit101') {
     window.location.href = 'folder.html';
   } else {
-    console.log('로그인 실패!');
     handleLoginFailure();
   }
 };
