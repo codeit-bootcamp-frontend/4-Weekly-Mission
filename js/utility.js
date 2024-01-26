@@ -30,7 +30,7 @@ const VALID_USER = {
  ********************/
 
 //인풋이 비어있는지 검사
-function isEmpty(inputValue) {
+function isTextEmpty(inputValue) {
   if (inputValue === "") {
     return true;
   }
@@ -185,7 +185,7 @@ export {
   loginBtn,
   eyeBtn,
   eyeBtnCheck,
-  isEmpty,
+  isTextEmpty,
   isValidEmail,
   isExistingEmail,
   isValidPassword,

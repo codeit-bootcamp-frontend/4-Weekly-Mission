@@ -8,7 +8,7 @@ import {
   loginBtn,
   eyeBtn,
   eyeBtnCheck,
-  isEmpty,
+  isTextEmpty,
   isValidEmail,
   isExistingEmail,
   isValidPassword,
@@ -28,7 +28,7 @@ import {
 
 //이메일 에러 검사
 function checkEmailError() {
-  if (isEmpty(emailInput.value)) {
+  if (isTextEmpty(emailInput.value)) {
     return showError(emailInput, emailErrorMessageElement, "이메일을 입력해 주세요.");
   }
 
@@ -45,7 +45,7 @@ function checkEmailError() {
 
 //비밀번호 에러 검사
 function checkPasswordError() {
-  if (isEmpty(passwordInput.value)) {
+  if (isTextEmpty(passwordInput.value)) {
     return showError(passwordInput, passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
   }
 
@@ -58,7 +58,7 @@ function checkPasswordError() {
 
 //비밀번호 확인 에러 검사
 function checkPasswordCheckError() {
-  if (isEmpty(passwordCheckInput.value)) {
+  if (isTextEmpty(passwordCheckInput.value)) {
     return showError(passwordCheckInput, passwordCheckErrorMessageElement, "비밀번호를 입력해 주세요.");
   }
 
