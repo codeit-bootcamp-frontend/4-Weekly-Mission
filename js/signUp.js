@@ -50,6 +50,7 @@ const handlePasswordMatchValidation = () => {
   }
 };
 
+/* 유효한 회원가입 시도 시 페이지 이동 */
 const redirectToFolderPage = () => {
   const link = "./folder.html";
   const EMAIL_CHECK_MESSAGE = "이메일을 입력해 주세요.";
