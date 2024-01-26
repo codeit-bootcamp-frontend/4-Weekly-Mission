@@ -51,8 +51,8 @@ function isEmailMatching(emailInputValue) {
   return false;
 }
 
-//비밀번호 양식
-function validatePassword(passwordString) {
+//비밀번호 양식 유효성 검사
+function isValidPasswordFormat(passwordInputValue) {
   //8자 미만인 경우
   if (passwordString.length < 8) {
     return false;
@@ -66,14 +66,6 @@ function validatePassword(passwordString) {
     return false;
   }
   return true;
-}
-
-//비밀번호 양식 유효성 검사
-function isValidPassword(passwordInputValue) {
-  if (validatePassword(passwordInputValue)) {
-    return true;
-  }
-  return false;
 }
 
 //비밀번호 확인 유효성 검사
@@ -123,7 +115,7 @@ function isValidSignUp(emailInputValue, passwordInputValue, passwordCheckInputVa
     return false;
   }
 
-  if (!isValidPassword(passwordInputValue)) {
+  if (!isValidPasswordFormat(passwordInputValue)) {
     console.log(`case 3`);
     return false;
   }
@@ -181,7 +173,7 @@ export {
   isTextEmpty,
   isValidEmailFormat,
   isEmailMatching,
-  isValidPassword,
+  isValidPasswordFormat,
   isPasswordMatching,
   showError,
   hideError,
