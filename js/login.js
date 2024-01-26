@@ -22,13 +22,17 @@ const ERROR_MSG = {
   }
 }
 
+Object.freeze(MASTER_ACCOUNT);
+Object.freeze(REGEX);
+Object.freeze(ERROR_MSG);
+
 const $ = (selector, element = document) => element.querySelector(selector);
 const isMaster = (email, password) => email === MASTER_ACCOUNT['EMAIL'] && password === MASTER_ACCOUNT['PASSWORD'];
 const isEmail = (email) => REGEX['EMAIL'].test(email);
 const isBlank = (e) => e.target.value === '';
 
 // 비어있는 인풋에 에러메시지 추가
-const addErrorToBlankInput = (e) => {
+const addErrorMsgToBlankInput = (e) => {
   const blankInput = e.target;
   const errorMsg = $('.input-error-msg', blankInput.parentNode);
   if(isBlank(e)) {
@@ -46,7 +50,7 @@ const addErrorToBlankInput = (e) => {
   }
 }
 
-const addErrorToInvalidInput = (e) => {
+const addErrorMsgToInvalidInput = (e) => {
   const invalidEmailInput = e.target;
   const errorMsg = $('.input-error-msg', invalidEmailInput.parentNode);
   if(!isBlank(e)) {
@@ -62,7 +66,7 @@ const addErrorToInvalidInput = (e) => {
   }
 }
 
-const addErrorToIncorrectInput = (input) => {
+const addErrorMsgToIncorrectInput = (input) => {
   const incorrectInput = input;
   const errorMsg = $('.input-error-msg', incorrectInput.parentNode);
   incorrectInput.classList.add('js-input-profile-error');
@@ -82,8 +86,8 @@ const loginHandler = (e) => {
   if(isMaster(emailInput, passwordInput))
     window.location.href = './folder.html';
   else {
-    addErrorToIncorrectInput($('#email'));
-    addErrorToIncorrectInput($('#password'));
+    addErrorMsgToIncorrectInput($('#email'));
+    addErrorMsgToIncorrectInput($('#password'));
   }
 }
 
@@ -95,7 +99,7 @@ const submitOnEnter = function (e) {
   if(e.key === 'Enter') this.submit();
 }
 
-const togglePassword = () => {
+const togglePasswordVisibility = () => {
   const eyeIcon = $('.eye-icon');
   const passwordInput = $('#password', eyeIcon.parentNode);
   eyeIcon.classList.toggle('visibility');
@@ -109,11 +113,11 @@ const togglePassword = () => {
   }  
 }
 
-$('#email').addEventListener('blur', addErrorToBlankInput);
-$('#password').addEventListener('blur', addErrorToBlankInput);
-$('#email').addEventListener('blur', addErrorToInvalidInput);
+$('#email').addEventListener('blur', addErrorMsgToBlankInput);
+$('#password').addEventListener('blur', addErrorMsgToBlankInput);
+$('#email').addEventListener('blur', addErrorMsgToInvalidInput);
 $('.login-form').addEventListener('submit', noRefreshOnSubmit);
 $('.login-form').addEventListener('submit', loginHandler);
-$('.eye-icon').addEventListener('click', togglePassword);
+$('.eye-icon').addEventListener('click', togglePasswordVisibility);
 
 // $('.login-form').addEventListener('keydown', submitOnEnter);
