@@ -23,7 +23,7 @@ export const isMatchWithPassword = (target, inputPassword) => {
 
 // 기타 함수
 export const toggleViewPassword = (target) => {
-  const targetInput = target.parentElement.parentElement.querySelector("input");
+  const targetInput = target.parentElement.previousElementSibling;
 
   if (targetInput.getAttribute("type") === "password") {
     targetInput.setAttribute("type", "text");
