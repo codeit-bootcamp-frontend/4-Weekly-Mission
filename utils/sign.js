@@ -24,6 +24,7 @@ const emailError = signEmailSection.lastChild
 const passwordError = signPasswordSection.lastChild
 const passwordCheckError = signPasswordCheckSecion.lastChild
 const loginButton = DOM.selectElement('.login-button')
+const signUpButton = DOM.selectElement('.signup-button')
 const eyeImg = DOM.selectElement('.eye-button-icon')
 
 function showErrorMsg(inputElement, textElement, text){
@@ -87,6 +88,14 @@ function handleLoginButton(){
   showErrorMsg(signPasswordInput, passwordError, PASSWORD_ERROR_MESSAGE.validation)
 }
 
+function handleSineUpButton(){
+  if(input.isValueMatch(signEmailInput, USERS[0].id)){
+    showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.use)
+    return
+  }
+  action.loginAction() 
+}
+
 function handleChangePasswordType(){
   const passwordType = signPasswordInput.type
   const passwordChangeType = passwordType === 'password' ? 'text' : 'password'
@@ -100,6 +109,7 @@ function handlerEnter(){
   })
 }
 
+signUpButton.addEventListener('click', handleSineUpButton)
 eyeImg.addEventListener('click', handleChangePasswordType)
 signEmailInput.addEventListener('focusout',handleEmailFocusout)
 signEmailInput.addEventListener('focusin',handleEmailFocusin)
