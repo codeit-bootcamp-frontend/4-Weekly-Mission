@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
     emailErrorMessage.classList.remove('error-box');
   });
 
-  emailInput.addEventListener('focusout', function () {
+  const handleEmailInputFocusIn = function () {
     const emailValue = emailInput.value.trim();
     if (!emailValue) {
       emailInput.classList.add('error-box');
@@ -44,7 +44,9 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
     emailInput.classList.remove('error-box');
-  });
+  };
+
+  emailInput.addEventListener('focusout', 'handleEmailInputFocusIn');
 
   passwordInput.addEventListener('focusin', function () {
     passwordErrorMessage.style.display = 'none';
