@@ -1,6 +1,7 @@
 import { EMAIL_INPUT, PASSWORD_INPUT, TEST_EMAIL, TEST_PW, inputError } from '../common.js';
 
 const SIGNUP_BTN = document.querySelector('button.signup');
+const PW_REPEAT_INPUT = document.querySelector('#password-check')
 
 // 로그인 실패 시 메세지
 function loginError(element, message) {
@@ -47,6 +48,19 @@ function passwordChecker(e) {
     }
 }
 
+// 비밀번호확인란 검사
+function passwordRepeatChecker(e) {
+    const PW_NOT_SAME = "비밀번호가 일치하지 않아요.";
+
+    if (PW_REPEAT_INPUT.nextElementSibling.classList.contains('input-error-text')) {
+        removeError(e);
+    }
+
+    if (PASSWORD_INPUT.value !== PW_REPEAT_INPUT.value) {
+        inputError(e, PW_NOT_SAME);
+    }
+}
+
 // 에러 표시 숨기기
 function removeError(e) {
     if (e.target.nextElementSibling.classList.contains('input-error-text')) {
@@ -72,6 +86,7 @@ EMAIL_INPUT.addEventListener('focusout', emailChecker);
 EMAIL_INPUT.addEventListener('focusin', removeError);
 PASSWORD_INPUT.addEventListener('focusout', passwordChecker);
 PASSWORD_INPUT.addEventListener('focusin', removeError);
+PW_REPEAT_INPUT.addEventListener('keyup', passwordRepeatChecker);
 
 SIGNUP_BTN.addEventListener('click', signInChecker);
 
