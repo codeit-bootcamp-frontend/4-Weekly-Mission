@@ -3,14 +3,15 @@ import {
   emailError,
   password,
   passwordError,
+  eyeIcon,
   setInvalidStyle,
   setValidStyle,
   errorMessage,
   handleEmailValidation,
+  togglePasswordVisibility,
 } from "./modules/AuthUtils.js";
 
 const loginButton = document.querySelector(".login-button");
-const eyeIcon = document.querySelector(".eye-icon");
 
 /* 비밀번호 유효성 검사 */
 const handlePasswordValidation = () => {
@@ -45,19 +46,10 @@ const enterKey = (e) => {
   }
 };
 
-/* 눈동자아이콘 클릭 시 비밀번호 type 변경 */
-const togglePasswordVisibility = () => {
-  const type = password.type === "password" ? "text" : "password";
-  password.type = type;
-
-  eyeIcon.src =
-    type === "password"
-      ? "../images/signIn/eye-off.svg"
-      : "../images/signIn/eye-on.png";
-};
-
 email.addEventListener("blur", handleEmailValidation);
 password.addEventListener("blur", handlePasswordValidation);
 loginButton.addEventListener("click", redirectToFolderPage);
 document.addEventListener("keypress", enterKey);
-eyeIcon.addEventListener("click", togglePasswordVisibility);
+eyeIcon.addEventListener("click", () => {
+  togglePasswordVisibility(password, eyeIcon);
+});
