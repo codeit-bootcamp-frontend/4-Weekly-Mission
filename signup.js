@@ -4,10 +4,6 @@ const testCase = [
     email: 'test@codeit.com',
     password: 'codeit101',
   },
-  {
-    email: 'test@codeit.com',
-    password: 'codeit101',
-  },
 ]
 
 // 이메일 형식 확인하는 정규식
