@@ -1,5 +1,6 @@
 // 이메일 정규식
 import { EMAIL_REGEX } from './constants.js';
+import { VALID_USER } from './utils.js';
 
 // 에러 메시지 생성 함수
 function createErrorMessage(id, text) {
@@ -8,6 +9,11 @@ function createErrorMessage(id, text) {
   errorMessage.className = 'error-message text-medium';
   errorMessage.innerText = text;
   return errorMessage;
+}
+
+// 유저 인증 함수
+function authenticateUser(email, password) {
+  return email === VALID_USER.email && password === VALID_USER.password;
 }
 
 // 이메일 형식 검증 함수
@@ -50,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const emailValue = emailInput.value.trim();
     const passwordValue = passwordInput.value.trim();
 
-    if (emailValue === 'test@codeit.com' && passwordValue === 'codeit101') {
+    if (authenticateUser(emailValue, passwordValue)) {
       window.location.href = '../folder.html';
     } else {
       displayError(emailInput, emailErrorMessage, '이메일을 확인 해주세요.');
