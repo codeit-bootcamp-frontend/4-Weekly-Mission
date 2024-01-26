@@ -95,3 +95,28 @@ document
   .addEventListener("click", function () {
     toggleEye(document.getElementById("passwordCheck"));
   });
+
+//비밀번호 일치 확인
+function handlePasswordCheck() {
+  const password1 = passwordInput.value;
+  const password2 = passwordCheck.value;
+  const messageContainer = passwordCheck.parentElement;
+  const existingMessage = messageContainer.querySelector("p");
+
+  if (password1 !== password2) {
+    const passwordMismatchMessage =
+      createMessage("비밀번호가 일치하지 않아요.");
+
+    if (!existingMessage) {
+      messageContainer.appendChild(passwordMismatchMessage);
+    }
+    passwordCheck.classList.add("empty-input");
+  } else {
+    if (existingMessage) {
+      existingMessage.remove();
+    }
+    passwordCheck.classList.remove("empty-input");
+  }
+}
+
+passwordCheck.addEventListener("blur", handlePasswordCheck);
