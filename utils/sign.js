@@ -88,7 +88,9 @@ function handleLoginButton(){
   showErrorMsg(signPasswordInput, passwordError, PASSWORD_ERROR_MESSAGE.validation)
 }
 
-function handleSineUpButton(){
+function handleSigneUpButton(){
+  signEmailInput.blur()
+  signPasswordInput.blur()
   if(input.isValueMatch(signEmailInput, USERS[0].id)){
     showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.use)
     return
@@ -109,14 +111,14 @@ function handlerEnter(){
   })
 }
 
-signUpButton.addEventListener('click', handleSineUpButton)
+signUpButton.addEventListener('click', handleSigneUpButton)
 eyeImg.addEventListener('click', handleChangePasswordType)
 signEmailInput.addEventListener('focusout',handleEmailFocusout)
 signEmailInput.addEventListener('focusin',handleEmailFocusin)
+signEmailInput.addEventListener('keyup',handlerEnter)
+signPasswordInput.addEventListener('keyup',handlerEnter)
 signPasswordInput.addEventListener('focusout', handlePasswordFocusout)
 signPasswordInput.addEventListener('focusin', handlePasswordFocusin)
 signPasswordCheckInput.addEventListener('focusout', handlePasswordCheckFocusout)
 signPasswordCheckInput.addEventListener('focusin', handlePasswordCheckFocusin)
 loginButton.addEventListener('click', handleLoginButton)
-signEmailInput.addEventListener('keydown', handlerEnter)
-signPasswordInput.addEventListener('keydown', handlerEnter)
