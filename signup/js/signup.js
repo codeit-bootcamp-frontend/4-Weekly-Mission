@@ -1,9 +1,11 @@
+import { sign } from '/js/common.js';
+
 const PWD_VIEWS = document.querySelectorAll('.pwd-view');
 const PWD_CHECK = document.querySelector('.pwd-confirm');
 
 PWD_VIEWS.forEach((target) => {
     target.addEventListener('click', () => {
-        passwordSwitch(target);
+        sign.passwordSwitch(target);
     });
 });
 /*
