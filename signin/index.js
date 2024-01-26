@@ -66,6 +66,7 @@ function togglePassword() {
 //엔터 키로 checkLogin 호출
 function checkLoginByEnter(event) {
   if (event.key === "Enter") {
+    event.preventDefault();
     checkLogin();
   }
 }
