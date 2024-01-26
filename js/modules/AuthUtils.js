@@ -52,6 +52,13 @@ const togglePasswordVisibility = (inputElement, eyeIconElement) => {
       : "../../images/signIn/eye-on.png";
 };
 
+/* enter키 입력 시 로그인 및 회원가입 실행 */
+const enterKey = (e, funcitonElement) => {
+  if (e.keyCode == 13) {
+    funcitonElement();
+  }
+};
+
 export {
   email,
   emailError,
@@ -65,4 +72,5 @@ export {
   errorMessage,
   handleEmailValidation,
   togglePasswordVisibility,
+  enterKey,
 };
