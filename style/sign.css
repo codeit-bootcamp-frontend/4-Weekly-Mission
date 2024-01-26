@@ -152,7 +152,8 @@ header {
 }
 
 .email-error, 
-.password-error{
+.password-error,
+.password-check-error{
   color: var(--Linkbrary-red, #FF5B56);
   font-family: Pretendard;
   font-size: 14px;

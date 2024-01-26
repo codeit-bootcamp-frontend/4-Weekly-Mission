@@ -12,12 +12,16 @@ import {
 
 const signEmailSection = DOM.selectElement('.sign-email')
 const signPasswordSection = DOM.selectElement('.sign-password')
+const signPasswordCheckSecion = DOM.selectElement('#sign-password-check')
 const signEmailInput = DOM.selectElement('#email-input')
 const signPasswordInput = DOM.selectElement('#password-input')
+const signPasswordCheckInput = DOM.selectElement('#check-password')
 DOM.createTagAndclassWithText(signEmailSection, 'email-error', '')
 DOM.createTagAndclassWithText(signPasswordSection, 'password-error', '')
+DOM.createTagAndclassWithText(signPasswordCheckSecion, 'password-check-error', '')
 const emailError = signEmailSection.lastChild
 const passwordError = signPasswordSection.lastChild
+const passwordCheckError = signPasswordCheckSecion.lastChild
 const loginButton = DOM.selectElement('.login-button')
 const eyeImg = DOM.selectElement('.eye-button-icon')
 
@@ -55,14 +59,24 @@ function handlePasswordFocusin(){
   signPasswordInput.classList.remove('red-border')
 }
 
+function handlePasswordCheckFocusout(){
+  if(input.isPasswordValueMatch(signPasswordInput, signPasswordCheckInput)){
+    showErrorMsg(signPasswordCheckInput, passwordCheckError, PASSWORD_ERROR_MESSAGE.agreement)
+    return
+  }
+  passwordCheckError.classList.add('hidden')
+}
+
+function handlePasswordCheckFocusin(){
+  signPasswordCheckInput.classList.remove('red-border')
+}
+
 function handleLoginButton(){
   signEmailInput.blur()
   signPasswordInput.blur()
-  const isUserRegistered = USERS.some(user => 
-      input.isValueMatch(signEmailInput, user.id) && input.isValueMatch(signPasswordInput, user.password)
-    )
-  if(isUserRegistered) {
-    action.loginAction()
+  const isUserRegistered = USERS.some(user => input.isValueMatch(signEmailInput, user.id) && input.isValueMatch(signPasswordInput, user.password) )
+  if(isUserRegistered) { 
+    action.loginAction() 
   }
   showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.validation)
   showErrorMsg(signPasswordInput, passwordError, PASSWORD_ERROR_MESSAGE.validation)
@@ -81,11 +95,13 @@ function handlerEnter(){
   })
 }
 
+eyeImg.addEventListener('click', handleChangePasswordType)
 signEmailInput.addEventListener('focusout',handleEmailFocusout)
 signEmailInput.addEventListener('focusin',handleEmailFocusin)
 signPasswordInput.addEventListener('focusout', handlePasswordFocusout)
 signPasswordInput.addEventListener('focusin', handlePasswordFocusin)
+signPasswordCheckInput.addEventListener('focusout', handlePasswordCheckFocusout)
+signPasswordCheckInput.addEventListener('focusin', handlePasswordCheckFocusin)
 loginButton.addEventListener('click', handleLoginButton)
 signEmailInput.addEventListener('keydown', handlerEnter)
 signPasswordInput.addEventListener('keydown', handlerEnter)
-eyeImg.addEventListener('click', handleChangePasswordType)

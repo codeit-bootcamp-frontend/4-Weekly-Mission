@@ -29,4 +29,9 @@ function isValueMatch(element, value){
   return element.value === value
 }
 
-export {isFormatValue, isRegexMatch, isValueMatch}
+function isPasswordValueMatch(elementValue, checkElementValue){
+  if (!(elementValue?.tagName === 'INPUT')) return
+  return elementValue?.value.trim() !== checkElementValue?.value.trim()
+}
+
+export {isFormatValue, isRegexMatch, isValueMatch, isPasswordValueMatch}
