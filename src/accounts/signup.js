@@ -38,6 +38,12 @@ function validatePasswordInput(password) {
     );
     return;
   }
+
+  if (password.length<8 || !/[a-zA-Z]/.test(password) || !/\d/.test(password)) {
+    setInputError({ input: passwordInput, errorMessage: passwordErrorMessage },
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+      return;
+  }
   removeInputError({ input: passwordInput, errorMessage: passwordErrorMessage });
 }
 
@@ -55,6 +61,8 @@ function validatePasswordCheckInput(passwordcheck) {
   removeInputError({ input: passwordCheckInput, errorMessage: passwordCheckErrorMessage });
 
 }
+
+
 
 //눈모양 토글
 const passwordToggleButton = document.querySelector("#password-toggle");
