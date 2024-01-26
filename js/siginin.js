@@ -21,36 +21,32 @@ function checkIsUser(e) {
   window.location.href = 'folder.html';
 }
 
-function showEmailError(e) {
-  let exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
-
+function showInputErrorMessage(e) {
   if (!e.target.value) {
-    errorMsgEmail.innerText = `이메일을 입력해 주세요.`;
-    inputEmail.classList.add('border-red');
-    return;
+    if (e.target.type === 'email') {
+      errorMsgEmail.innerText = `이메일을 입력해 주세요.`;
+      inputEmail.classList.add('border-red');
+      return;
+    } else if (e.target.type === 'password') {
+      errorMsgPassword.innerText = `비밀번호를 입력해 주세요.`;
+      inputPassword.classList.add('border-red');
+      return;
+    }
   } else {
-    errorMsgEmail.innerText = ``;
-    inputEmail.classList.remove('border-red');
-  }
-
-  if (exptext.test(e.target.value) == false) {
-    errorMsgEmail.innerText = `올바른 이메일 주소가 아닙니다.`;
-    inputEmail.classList.add('border-red');
-    return;
-  } else {
-    errorMsgEmail.innerText = ``;
-    inputEmail.classList.remove('border-red');
-  }
-}
-
-function showPasswordError(e) {
-  if (!e.target.value) {
-    errorMsgPassword.innerText = `비밀번호를 입력해 주세요.`;
-    inputPassword.classList.add('border-red');
-    return;
-  } else {
-    errorMsgPassword.innerText = ``;
-    inputPassword.classList.remove('border-red');
+    if (e.target.type === 'email') {
+      const exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+      if (exptext.test(e.target.value) == false) {
+        errorMsgEmail.innerText = `올바른 이메일 주소가 아닙니다.`;
+        inputEmail.classList.add('border-red');
+        return;
+      } else {
+        errorMsgEmail.innerText = ``;
+        inputEmail.classList.remove('border-red');
+      }
+    } else if (e.target.type === 'password') {
+      errorMsgPassword.innerText = ``;
+      inputPassword.classList.remove('border-red');
+    }
   }
 }
 
@@ -66,7 +62,7 @@ function togglePasswordVisible(e) {
   }
 }
 
-inputEmail.addEventListener('focusout', showEmailError);
-inputPassword.addEventListener('focusout', showPasswordError);
+inputEmail.addEventListener('focusout', showInputErrorMessage);
+inputPassword.addEventListener('focusout', showInputErrorMessage);
 form.addEventListener('submit', checkIsUser);
 eyeBtn.addEventListener('click', togglePasswordVisible);
