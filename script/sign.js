@@ -58,10 +58,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (authenticateUser(emailValue, passwordValue)) {
       window.location.href = '../folder.html';
-    } else {
-      displayError(emailInput, emailErrorMessage, '이메일을 확인 해주세요.');
-      displayError(passwordInput, passwordErrorMessage, '비밀번호를 확인 해주세요.');
+      return;
     }
+    displayError(emailInput, emailErrorMessage, '이메일을 확인 해주세요.');
+    displayError(passwordInput, passwordErrorMessage, '비밀번호를 확인 해주세요.');
   });
 
   // 비밀번호 보기/가리기 버튼 클릭 이벤트 핸들러
