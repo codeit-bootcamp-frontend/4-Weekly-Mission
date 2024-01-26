@@ -5,6 +5,7 @@ import {
   passwordError,
   setInvalidStyle,
   setValidStyle,
+  errorMessage,
   handleEmailValidation,
 } from "./modules/AuthUtils.js";
 
@@ -26,17 +27,14 @@ const handlePasswordValidation = () => {
 
 /* 특정 아이디 및 비밀번호로 로그인 시도 시 페이지 이동 */
 const redirectToFolderPage = () => {
-  const EMAIL_ERROR_MESSAGE = "이메일을 확인해 주세요.";
-  const PASSWORD_ERROR_MESSAGE = "비밀번호를 확인해 주세요.";
-
   if (email.value === "test@codeit.com" && password.value === "codeit101") {
     const link = "./folder.html";
     location.href = link;
   } else {
     setInvalidStyle(email);
     setInvalidStyle(password);
-    emailError.innerHTML = EMAIL_ERROR_MESSAGE;
-    passwordError.innerHTML = PASSWORD_ERROR_MESSAGE;
+    emailError.innerHTML = errorMessage.EMAIL_CHECK_MESSAGE;
+    passwordError.innerHTML = errorMessage.PASSWORD_CHECK_MESSAGE;
   }
 };
 
