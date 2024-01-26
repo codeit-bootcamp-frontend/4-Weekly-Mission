@@ -24,3 +24,7 @@ export const CHECK_EMPTY_INPUT = (target) => {
   return target.value === "";
 };
 export const EMPTY_MESSAGE = "";
+
+// 리소스 관련 정보
+export const SRC_IMG_OPEN_EYE = "resource/eye_open_icon.png";
+export const SRC_IMG_CLOSE_EYE = "resource/eye_close_icon.png";

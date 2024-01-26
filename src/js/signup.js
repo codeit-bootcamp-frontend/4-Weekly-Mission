@@ -10,6 +10,8 @@ import {
   ERROR_MESSAGE_SPAN,
   REGEX_EMAIL,
   REGEX_PASSWORD,
+  SRC_IMG_CLOSE_EYE,
+  SRC_IMG_OPEN_EYE,
   TEST_USER_EMAIL,
 } from "./constant.js";
 
@@ -18,6 +20,7 @@ const inputPassword = document.querySelector("#password");
 const inputPasswordCheck = document.querySelector("#password_check");
 const btnSignupSubmit = document.querySelector("#btn_signup_submit");
 const form = document.querySelector("form");
+const btnEyes = document.querySelectorAll(".btn_eye");
 
 const checkEmailIsValid = (e) => {
   const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
@@ -95,6 +98,18 @@ const isValidSignup = (e) => {
   }
 };
 
+const toggleViewPassword = (e) => {
+  const targetInput =
+    e.target.parentElement.parentElement.querySelector("input");
+  if (targetInput.getAttribute("type") === "password") {
+    targetInput.setAttribute("type", "text");
+    e.target.setAttribute("src", SRC_IMG_OPEN_EYE);
+  } else {
+    targetInput.setAttribute("type", "password");
+    e.target.setAttribute("src", SRC_IMG_CLOSE_EYE);
+  }
+};
+
 inputEmail.addEventListener("focusout", checkEmailIsValid);
 inputPassword.addEventListener("focusout", checkPasswordIsValid);
 inputPasswordCheck.addEventListener("focusout", checkPasswordCheckIsValid);
@@ -104,4 +119,9 @@ form.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     isValidSignup(e);
   }
+});
+
+btnEyes.forEach((btnEye) => {
+  console.log(btnEye);
+  btnEye.addEventListener("click", toggleViewPassword);
 });
