@@ -1,4 +1,5 @@
 import {
+  Error,
   createErrorSpanElement,
   removeErrorElement,
   errorMessageInElement,
