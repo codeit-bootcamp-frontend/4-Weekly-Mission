@@ -1,6 +1,5 @@
 //@ts-check
-import InputHandler from './library/input.js'; import KeyHandler from './library/keyEvent.js';
-import DOMHandler from './library/DOM.js';
+import { InputHandler, KeyHandler, DOMHandler } from './library/utils.js';
 import {
   EMAIL_REGEX,
   EMAIL_MESSAGE,
@@ -10,7 +9,7 @@ import {
   loginAction
 } from './constant/signConfig.js';
 
-const emailInputId = 'login__input--email';
+const emailInputId = 'loginEmail';
 const passwordInputId = 'login__input--password';
 const emailErrorId = 'email__error';
 const passwordErrorId = 'password__error';
@@ -27,72 +26,69 @@ const eyeImg = DOMHandler.getById('eye-img');
 DOMHandler.addTextAfter(emailInput, emailErrorId, '');
 DOMHandler.addTextAfter(passwordInput, passwordErrorId, '');
 /** @type {HTMLElement} emailError*/
-const emailError = DOMHandler.getById(emailErrorId)
+const emailError = DOMHandler.getById(emailErrorId);
 /** @type {HTMLElement} passwordError*/
-const passwordError = DOMHandler.getById(passwordErrorId)
+const passwordError = DOMHandler.getById(passwordErrorId);
 /**
  * inputElement: ErrorColor, textElement: showErrorMessage
  * @param inputElement {HTMLInputElement | null} inputElement - inputElement
  * @param textElement {HTMLElement | null} textElement - textElement
  * @param text {string} text - textElement text
-*/
+ */
 const showErrorMessage = (inputElement, textElement, text) => {
-  inputElement?.classList.add('red-box')
-  textElement?.classList.remove('hidden')
-  DOMHandler.changeValue(textElement, text)
-}
+  inputElement?.classList.add('red-box');
+  textElement?.classList.remove('hidden');
+  DOMHandler.changeValue(textElement, text);
+};
 
 const handleEmailFocusIn = () => {
-  emailInput?.classList.remove('red-box')
-}
+  emailInput?.classList.remove('red-box');
+};
 
 const handlePasswordFocusIn = () => {
-  passwordInput?.classList.remove('red-box')
-}
+  passwordInput?.classList.remove('red-box');
+};
 
 const handleEmailFocusOut = () => {
   if (InputHandler.isMatchRegEx(emailInput, EMAIL_REGEX)) {
-    emailError?.classList.add('hidden')
-    return
-  }
-  if (InputHandler.isEmptyValue(emailInput)) {
-    showErrorMessage(emailInput, emailError, EMAIL_MESSAGE.empty)
+    emailError?.classList.add('hidden');
     return;
   }
-  showErrorMessage(emailInput, emailError, EMAIL_MESSAGE.invalid)
+  if (InputHandler.isEmptyValue(emailInput)) {
+    showErrorMessage(emailInput, emailError, EMAIL_MESSAGE.empty);
+    return;
+  }
+  showErrorMessage(emailInput, emailError, EMAIL_MESSAGE.invalid);
 };
 
 const handlePasswordFocusOut = () => {
   if (InputHandler.isEmptyValue(passwordInput)) {
-    showErrorMessage(passwordInput, passwordError, PASSWORD_MESSAGE.empty)
-    return
-  };
-  passwordError?.classList.add('hidden')
-}
+    showErrorMessage(passwordInput, passwordError, PASSWORD_MESSAGE.empty);
+    return;
+  }
+  passwordError?.classList.add('hidden');
+};
 
 const handleLogin = () => {
-  emailInput?.blur()
-  passwordInput?.blur()
+  emailInput?.blur();
+  passwordInput?.blur();
 
   const isUserSignedUp = USERS.some(
-    user =>
-      InputHandler.isMatchValue(emailInput, user.id) &&
-      InputHandler.isMatchValue(passwordInput, user.password)
+    user => InputHandler.isMatchValue(emailInput, user.id) && InputHandler.isMatchValue(passwordInput, user.password)
   );
 
   if (isUserSignedUp) {
     loginAction();
     return;
   }
-  showErrorMessage(emailInput, emailError, EMAIL_MESSAGE.fail)
-  showErrorMessage(passwordInput, passwordError, PASSWORD_MESSAGE.fail)
+  showErrorMessage(emailInput, emailError, EMAIL_MESSAGE.fail);
+  showErrorMessage(passwordInput, passwordError, PASSWORD_MESSAGE.fail);
 };
 
 const handleEnter = () => {
   if (!loginBtn) return;
   KeyHandler.enter(() => {
-    loginBtn?.click()
-
+    loginBtn?.click();
   });
 };
 

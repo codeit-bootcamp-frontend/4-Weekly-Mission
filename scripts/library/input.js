@@ -1,4 +1,3 @@
-//@ts-check
 /** @typedef { HTMLInputElement | null }  HTMLInputElements */
 export default class InputHandler {
   /** <input> 요소의 값이 비었는지 확인

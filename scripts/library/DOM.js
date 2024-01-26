@@ -1,7 +1,7 @@
 //@ts-check
 /** @typedef {HTMLElement | null} HTMLElements*/
 export default class DOMHandler {
-  /** 
+  /**
    * @param {HTMLElements} element - HTMLelement
    * @param {string} id - 추가할 태그 id
    * @param {string} text*/
@@ -22,12 +22,11 @@ export default class DOMHandler {
     element.innerText = text;
   };
 
-  /** 
+  /**
    * @param {string} id - css id
-   * @returns {any} 
+   * @returns {any}
    */
-  static getById = (id) => {
-    return document.querySelector(`#${id}`)
-  }
-
+  static getById = id => {
+    return document.querySelector(`#${id}`);
+  };
 }
