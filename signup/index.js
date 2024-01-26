@@ -55,7 +55,6 @@ function notValidEmailInput() {
   removeBorderStyle(".input-email");
   
   if (emailRegex.test(email.value)) {
-    console.log("Email")
     return
   } else {
     error.createErrorSpanElement(".input-form-email");
