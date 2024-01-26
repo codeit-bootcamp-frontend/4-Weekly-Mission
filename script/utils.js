@@ -1,7 +1,4 @@
-export const VALID_USER = {
-  email: 'test@codeit.com',
-  password: 'codeit101',
-};
+import { VALID_USER, EMAIL_REGEX } from './constants.js';
 
 export function createErrorMessage(id, text) {
   const errorMessage = document.getElementById(id) || document.createElement('div');
