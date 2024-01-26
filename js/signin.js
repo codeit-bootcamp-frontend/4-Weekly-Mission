@@ -23,16 +23,23 @@ function checkEmail(event) {
 
   if (emailValue === "") {
     // 공백일 경우
-    errorMessage.innerHTML = "이메일을 입력해주세요.";
-    emailInputBox.classList.add("error-box");
+    updateErrorMessage(
+      errorMessage,
+      "이메일을 입력해주세요.",
+      emailInputBox,
+      true
+    );
   } else if (isVaildEmail(emailValue)) {
     // 유효한 경우, .error-box 클래스 제거
-    errorMessage.innerHTML = "";
-    emailInputBox.classList.remove("error-box");
+    updateErrorMessage(errorMessage, "", emailInputBox, false);
   } else {
     // 유효하지 않은 경우
-    errorMessage.innerHTML = "올바른 이메일 주소가 아닙니다.";
-    emailInputBox.classList.add("error-box");
+    updateErrorMessage(
+      errorMessage,
+      "올바른 이메일 주소가 아닙니다.",
+      emailInputBox,
+      true
+    );
   }
 }
 
@@ -42,11 +49,14 @@ function checkPassword(event) {
   const errorMessageBox = querySelector("#password-error-message");
   // 공백일 경우
   if (passwordValue === "") {
-    errorMessageBox.innerHTML = "비밀번호를 입력해주세요.";
-    signinPasswordInput.classList.add("error-box");
+    updateErrorMessage(
+      errorMessageBox,
+      "비밀번호를 입력해주세요.",
+      signinPasswordInput,
+      true
+    );
   } else if (passwordValue !== "") {
-    errorMessageBox.innerHTML = "";
-    signinPasswordInput.classList.remove("error-box");
+    updateErrorMessage(errorMessageBox, "", signinPasswordInput, false);
   }
 }
 
@@ -65,10 +75,18 @@ function tryLogin() {
     passwordValue !== "codeit101"
   ) {
     // 아이디가 틀리거나, 비밀번호가 틀리는 경우
-    errorMessage.innerHTML = "이메일을 확인해주세요.";
-    emailInputBox.classList.add("error-box");
-    errorMessageBox.innerHTML = "비밀번호를 확인해주세요";
-    signinPasswordInput.classList.add("error-box");
+    updateErrorMessage(
+      errorMessage,
+      "이메일을 확인해주세요.",
+      emailInputBox,
+      true
+    );
+    updateErrorMessage(
+      errorMessageBox,
+      "비밀번호를 확인해주세요",
+      signinPasswordInput,
+      true
+    );
   }
 }
 
