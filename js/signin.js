@@ -14,10 +14,10 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('toggleEyePw function called');
     const type = passwordInput.getAttribute('type');
     if (type === 'password') {
-      passwordInput.setAttribute('type', 'text');
+      passwordInput.setAttribute('type', 'password');
       eyeIcon.src = './images/eye-on.svg'; 
     } else {
-      passwordInput.setAttribute('type', 'password');
+      passwordInput.setAttribute('type', 'text');
       eyeIcon.src = './images/eye-off.svg'; 
     }
 
@@ -85,17 +85,14 @@ document.addEventListener('DOMContentLoaded', function () {
     validatePassword();
 
     // 이메일과 비밀번호가 유효한 경우 로그인 시도
-    if (!emailError.style.display && !passwordError.style.display) {
-      let emailValue = emailInput.value.trim();
-      let passwordValue = passwordInput.value.trim();
+    let emailValue = emailInput.value.trim();
+    let passwordValue = passwordInput.value.trim();
 
-      // 로그인 시도 로직을 추가할 수 있습니다.
-      if (emailValue === 'test@codeit.com' && passwordValue === 'codeit101') {
-        window.location.href = '/folder';
-      } else {
-        showError(emailError, '이메일을 확인해 주세요.');
-        showError(passwordError, '비밀번호를 확인해 주세요.');
-      }
+    if (emailValue === 'test@codeit.com' && passwordValue === 'codeit101') {
+      window.location.href = '/folder';
+    } else {
+      showError(emailError, '이메일을 확인해 주세요.');
+      showError(passwordError, '비밀번호를 확인해 주세요.');
     }
   });
 
