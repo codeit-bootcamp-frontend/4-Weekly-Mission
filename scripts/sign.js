@@ -9,7 +9,7 @@ import {
   loginAction
 } from './constant/signConfig.js';
 
-const emailInputId = 'loginEmail';
+const emailInputId = 'login__input--email';
 const passwordInputId = 'login__input--password';
 const emailErrorId = 'email__error';
 const passwordErrorId = 'password__error';

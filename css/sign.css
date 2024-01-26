@@ -100,8 +100,8 @@
   color: var(--color-red);
 }
 
-#login__input--email:focus + #email__error,
-#login__input--password:focus + #password__error {
+.login__input--email:focus + #email__error,
+.login__input--password:focus + #password__error {
   display: none;
 }
 
