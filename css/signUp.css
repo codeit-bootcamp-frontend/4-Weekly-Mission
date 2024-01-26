@@ -102,7 +102,8 @@ body {
 }
 
 .email-error,
-.password-error {
+.password-error,
+.passwordRepeat-error {
   color: var(--linkbrary-red);
   font-size: 14px;
   font-style: normal;
