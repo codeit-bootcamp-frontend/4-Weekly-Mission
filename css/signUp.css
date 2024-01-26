@@ -120,7 +120,8 @@ body {
   flex: 1 0 0;
 }
 
-.eye-icon {
+.eye-icon,
+.repeat-eye-icon {
   position: absolute;
   right: 15px;
   cursor: pointer;
