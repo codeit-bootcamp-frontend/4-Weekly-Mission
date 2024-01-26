@@ -22,20 +22,23 @@
             <div class = "info">
                 <p>이메일</p>
                 <input id ="email" class = "focus_blue" type="text" name="email">
+                <p class ="email_result result"></p>
             </div>
             <div class = "info">
                 <p>비밀번호</p>
                 <div>
                     <input id ="pwd" class = "focus_blue" type="password" name="pwd">
-                    <img class="check" src="../image/signin/eye-on.svg" alt ="비밀번호 보기">
+                    <img class="check" src="../image/signin/eye-off.svg" alt ="비밀번호 보기">
                 </div>
+                <p class ="pwd_result result"></p>
             </div>
             <div class = "info">
                 <p>비밀번호 확인</p>
                 <div>
                     <input id ="repwd" class = "focus_blue" type="password" name="repwd">
-                    <img class="check" src="../image/signin/eye-on.svg" alt = "비밀번호 보기">
+                    <img class="check" src="../image/signin/eye-off.svg" alt = "비밀번호 보기">
                 </div>
+                <p class ="repwd_result result"></p>
             </div>
             <button id="signup">회원가입</button>
             <div class="sns_signin">
@@ -46,5 +49,6 @@
                 </div>
             </div>
         </div>
+        <script src="signup.js"></script>
     </body>
 </html>
