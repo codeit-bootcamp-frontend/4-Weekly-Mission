@@ -1,11 +1,10 @@
-import { viewWarningText, hiddenWarningText, checkEmail, checkPassword, visiblePassword} from "./login.js";
+import { viewWarningText, hiddenWarningText, checkEmail, checkPassword, visiblePassword} from "./login.js"
 
 const emailInput = document.querySelector('#email-input');
 const passwordInput = document.querySelector('#password-input');
 
 const emailWarningText = document.querySelector('#email-warning-text');
 const passwordWarningText = document.querySelector('#password-warning-text')
-
 
 const loginBtn = document.querySelector('#login-button');
 const eyeBtn = document.querySelector('#password-eye-button');

@@ -20,7 +20,7 @@ export const checkPassword = (value) => {
 }
 
 export const visiblePassword = (target) => {
-    const el = target.parentNode.querySelector('#password-input');
+    const el = target.parentNode.querySelector('input');
     const flag = JSON.parse(el.getAttribute('visible'));
     if(flag) {
         el.setAttribute('visible', 'false');
