@@ -16,18 +16,20 @@
         <a href="./signin.html" class="LoginA">로그인 하기</a>
       </div>
       <div class="LoginEmail">이메일</div>
-      <input type="text" name="email" placeholder="codeit@codeit.com" class="LoginInputEmail SignUpEmailInput">
+      <input type="text" name="email" class="LoginInputEmail SignUpEmailInput">
+      <div class="LoginEmailError"></div>
       <div class="LoginPw">비밀번호</div>
       <div class="NoSee">
         <input type="password" name="password" class="SignUpPwInput">
-        <button class="eye-button"><img src="./images/eye-off.svg"></button>
+        <img src="" class="eye-button">
       </div>
+      <div class="LoginPwError"></div>
       <div class="SignUpPw">비밀번호 확인</div>
       <div class="NoSee">
         <input type="password" name="password" class="SignUpPwCorrectInput">
-        <button class="eye-button"><img src="./images/eye-off.svg"></button>
+        <img src="" class="eye-button">
       </div>
-      <div class="SignUpNoPw">비밀번호가 다릅니다</div>
+      <div class="LoginPwCorrectError"></div>
       <button class="LoginBtn">회원가입</button>
       <div class="LoginSocial">
         <div>다른 방식으로 가입하기</div>
@@ -42,5 +44,6 @@
       </div>
     </form>
   </div>
+  <script src="./js/signup.js"></script>
 </body>
 </html>

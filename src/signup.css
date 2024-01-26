@@ -8,7 +8,7 @@
 .SignUpPw {
   font-size: 14px;
   font-weight: 400;
-  margin-top: 24px;
+  margin-top: 10px;
 }
 
 .SignUpNoPw {
@@ -16,4 +16,13 @@
   font-size: 14px;
   font-weight: 400;
   margin-top: 6px;
+}
+
+.LoginInputEmail, .SignUpPwInput, .SignUpPwCorrectInput {
+  margin-bottom: 6px;
+}
+
+.LoginEmailError, .LoginPwError, .LoginPwCorrectError {
+  color: red;
+  font-size: 14px;
 }
