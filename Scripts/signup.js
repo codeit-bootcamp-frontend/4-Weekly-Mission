@@ -18,16 +18,19 @@ const passCheckErrorSection = signupPasswordCheckInput.parentElement.parentEleme
 
 
 // 이메일 리스너 - 등록된 이메일 검증 조건 추가
+signupEmailInput.addEventListener('input' , () => inputFocus(emailErrorSection));
 signupEmailInput.addEventListener('focus' , () => inputFocus(emailErrorSection));
 signupEmailInput.addEventListener('blur' , () => inputBlur(errorType.email, emailErrorSection, !accountCheck(signupEmailInput.value), errorType.registeredEmail));
 
 
 // 패스워드 리스너 - 패스워드 형식 검증 조건 추가
+signupPasswordInput.addEventListener('input' , () => inputFocus(passwordErrorSection));
 signupPasswordInput.addEventListener('focus' , () => inputFocus(passwordErrorSection));
 signupPasswordInput.addEventListener('blur' , () => inputBlur(errorType.password, passwordErrorSection, passFormatCheck(signupPasswordInput.value), errorType.passwordNotValid));
 
 
 // 패스워드체크 리스너 - 패스워드체크 검증 조건 추가
+signupPasswordCheckInput.addEventListener('input' , () => inputFocus(passCheckErrorSection));
 signupPasswordCheckInput.addEventListener('focus' , () => inputFocus(passCheckErrorSection));
 signupPasswordCheckInput.addEventListener('blur' , () => inputBlur(errorType.password, passCheckErrorSection, passCheckCorrect(signupPasswordInput.value, signupPasswordCheckInput.value), errorType.mismatchPasswordCheck));
 

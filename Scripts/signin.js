@@ -15,11 +15,13 @@ const passwordErrorSection = loginPasswordInput.parentElement.parentElement.last
 
 
 // 이메일 리스너
+loginEmailInput.addEventListener('input' , () => inputFocus(emailErrorSection));
 loginEmailInput.addEventListener('focus' , () => inputFocus(emailErrorSection));
 loginEmailInput.addEventListener('blur' , () => inputBlur(errorType.email, emailErrorSection));
 
 
 // 패스워드 리스너
+loginPasswordInput.addEventListener('input' , () => inputFocus(passwordErrorSection));
 loginPasswordInput.addEventListener('focus' , () => inputFocus(passwordErrorSection));
 loginPasswordInput.addEventListener('blur' , () => inputBlur(errorType.password, passwordErrorSection));
 

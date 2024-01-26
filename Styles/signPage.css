@@ -59,7 +59,7 @@ input:focus{
 }
 
 .passToggleBtn {
-   background-image: url(../Assets/Icons/eye-off.svg);
+   background-image: url(../Images/Icons/eye-off.svg);
    background-size: contain;
    width: 16px;
    height: 16px;
@@ -71,7 +71,7 @@ input:focus{
 }
 
 .notHidden {
-   background-image: url(../Assets/Icons/eye-on.svg);
+   background-image: url(../Images/Icons/eye-on.svg);
 }
 
 .signError {
