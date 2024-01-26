@@ -16,6 +16,8 @@ import {
 const inputEmail = document.querySelector("#email");
 const inputPassword = document.querySelector("#password");
 const inputPasswordCheck = document.querySelector("#password_check");
+const btnSignupSubmit = document.querySelector("#btn_signup_submit");
+const form = document.querySelector("form");
 
 const checkEmailIsValid = (e) => {
   const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
@@ -80,6 +82,26 @@ const checkPasswordCheckIsValid = (e) => {
   return isValid;
 };
 
+const isValidSignup = (e) => {
+  e.preventDefault();
+  const isValidEmail = checkEmailIsValid({ target: inputEmail });
+  const isValidPassword = checkPasswordIsValid({ target: inputPassword });
+  const isValidPasswordCheck = checkPasswordCheckIsValid({
+    target: inputPasswordCheck,
+  });
+
+  if (isValidEmail && isValidPassword && isValidPasswordCheck) {
+    form.submit();
+  }
+};
+
 inputEmail.addEventListener("focusout", checkEmailIsValid);
 inputPassword.addEventListener("focusout", checkPasswordIsValid);
 inputPasswordCheck.addEventListener("focusout", checkPasswordCheckIsValid);
+
+btnSignupSubmit.addEventListener("click", isValidSignup);
+form.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    isValidSignup(e);
+  }
+});
