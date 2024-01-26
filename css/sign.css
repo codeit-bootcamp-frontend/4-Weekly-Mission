@@ -35,21 +35,28 @@
   height: 4rem;
   padding: 1rem;
   font-size: 1.2rem;
+  border: 1.2px solid var(--color-gray-500);
+  border-radius: 8px;
 }
 
 .login__input:focus {
-  border: 2px solid var(--color-primary);
+  border: 1.2px solid var(--color-primary);
   outline: none;
 }
 
-.login__input--password {
+.login__div {
+  text-align: left;
+}
+
+.login__div--password {
   position: relative;
 }
 
-.eye-off {
+.eye-img {
   position: absolute;
-  top: 35%;
+  top: 2.8rem;
   right: 5%;
+  cursor: pointer;
 }
 
 .login__btn {
@@ -63,6 +70,7 @@
   background: linear-gradient(to right, var(--color-primary), #6ae3fe);
   border: none;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .social-box {
@@ -72,7 +80,7 @@
   width: 100%;
   padding: 0.8rem 1.6rem;
   background: var(--color-gray-200);
-  border: 1px solid var(--color-gray-300);
+  border: 0.2rem solid var(--color-gray-300);
   border-radius: 8px;
 }
 
@@ -83,6 +91,26 @@
 
 .social-box__img {
   width: 3rem;
+}
+
+#email__error,
+#password__error {
+  margin: 0;
+  margin-right: auto;
+  color: var(--color-red);
+}
+
+.login__input--email:focus + #email__error,
+.login__input--password:focus + #password__error {
+  display: none;
+}
+
+.red-box {
+  border-color: var(--color-red);
+}
+
+.hidden {
+  display: none;
 }
 
 @media screen and (width >=375px) and (width <=767px) {

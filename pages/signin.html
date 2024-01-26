@@ -1,42 +1,48 @@
 <!doctype html>
 <html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Linkbrary</title>
+    <meta name="title" content="Linkbrary" />
+    <meta name="description" content="세상의 모든 정보를 쉽게 저장하고 관리해보세요" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/sign.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <title>week2</title>
-  <link rel="stylesheet" href="../css/global.css" />
-  <link rel="stylesheet" href="../css/sign.css" />
-</head>
-
-<body>
-  <main class="login">
-    <a class="logo" href="../index.html">
-      <img class="logo__img" src="../assets/icons/linkbrary-logo.svg" alt="linkbrary-logo" />
-    </a>
-    <p class="login__text">
-      회원이 아니신가요?
-      <a class="login__link" href="../pages/signup.html">회원 가입하기</a>
-    </p>
-    <form class="login__form">
-      <label class="login__label" for="email">이메일</label>
-      <input class="login__input" name="email" type="email" />
-      <label class="login__label" for="password">비밀번호</label>
-      <div class="login__input--password">
-        <input class="login__input" name="password" type="password" />
-        <img class="eye-off" src="../assets/icons/eye-off.svg" alt="eye-off-image" />
+  <body>
+    <main class="login">
+      <a class="logo" href="../index.html">
+        <img class="logo__img" src="../assets/icons/linkbrary-logo.svg" alt="linkbrary-logo" />
+      </a>
+      <p class="login__text">
+        회원이 아니신가요?
+        <a class="login__link" href="../pages/signup.html">회원 가입하기</a>
+      </p>
+      <form class="login__form">
+        <div class="login__div">
+          <label class="login__label" for="email">이메일</label>
+          <input class="login__input login__input--email" id="login__input--email" name="email" type="email" />
+        </div>
+        <div class="login__div login__div--password" id="login__div--password">
+          <label class="login__label" for="password">비밀번호</label>
+          <input class="login__input" id="login__input--password" name="password" type="password" />
+          <img class="eye-img" id="eye-img" src="../assets/icons/eye-off.svg" alt="eye-image" />
+        </div>
+        <button type="button" class="login__btn" id="login__btn">로그인</button>
+      </form>
+      <div class="social-box">
+        <p class="social-box__text">소셜 로그인</p>
+        <div class="social-box__logos">
+          <a href="https://www.google.com"
+            ><img class="social-box__img" src="../assets/icons/google-logo.svg" alt="google-logo"
+          /></a>
+          <a href="https://www.kakaocorp.com"
+            ><img class="social-box__img" src="../assets/icons/kakao-logo.svg" alt="kakao-logo"
+          /></a>
+        </div>
       </div>
-      <button class="login__btn">로그인</button>
-    </form>
-    <div class="social-box">
-      <p class="social-box__text">소셜 로그인</p>
-      <div class="social-box__logos">
-        <a href="https://www.google.com"><img class="social-box__img" src="../assets/icons/google-logo.svg"
-            alt="google-logo" /></a>
-        <a href="https://www.kakaocorp.co"><img class="social-box__img" src="../assets/icons/kakao-logo.svg"
-            alt="kakao-logo" /></a>
-      </div>
-    </div>
-  </main>
-</body>
-
+    </main>
+    <script type="module" src="../scripts/sign.js"></script>
+  </body>
 </html>

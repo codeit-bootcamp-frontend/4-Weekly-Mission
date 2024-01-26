@@ -1,10 +1,7 @@
 {
   "extends": ["stylelint-config-rational-order"],
-  "plugins": [
-    "stylelint-selector-bem-pattern",
-    "stylelint-order",
-    "stylelint-config-rational-order/plugin"
-  ],
+  "plugins": ["stylelint-selector-bem-pattern", "stylelint-order", "stylelint-config-rational-order/plugin"],
+  "ignoreFiles": ["**/*.js"],
   "rules": {
     "plugin/selector-bem-pattern": {
       "componentName": "[A-Z]+",
