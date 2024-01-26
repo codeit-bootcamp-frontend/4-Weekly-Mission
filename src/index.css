@@ -15,7 +15,7 @@ nav {
   background-color: #edf7ff;
 }
 
-.gnb {
+.navContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;

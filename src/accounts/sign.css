@@ -1,4 +1,4 @@
-@import "./global.css";
+@import "../global.css";
 
 body {
   background-color: var(--background);
@@ -90,51 +90,42 @@ header {
   font-weight: 400;
 }
 
-
-.sign-input-error-require {
-  font-size: 1.4rem;
-  font-weight: 400;
-  color:var(--red);
-  display:none;
-}
-
-.sign-input-error-incorrect {
-  font-size: 1.4rem;
-  font-weight: 400;
-  color:var(--red);
-  display:none;
-}
-
-
-.sign-input-error-check {
-  font-size: 1.4rem;
-  font-weight: 400;
-  color:var(--red);
-  display:none;
-}
-
-
-
-
 .sign-input {
   padding: 1.8rem 1.5rem;
   border-radius: 0.8rem;
   border: 0.1rem solid var(--gray20);
   font-size: 1.6rem;
   line-height: 150%;
+  padding-right: 3.4rem;
 }
 
 .sign-input:focus {
   border-color: var(--primary);
 }
 
-.sign-inputError{
+.sign-input.sign-input-error {
   border-color: var(--red);
+}
+
+.sign-input.sign-input-error:focus {
+  border-color: var(--red);
+}
+
+.error-message {
+  display: none;
+  margin-top: -0.4rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--red);
+}
+
+.error-message.error-message-on {
+  display: inline-block;
 }
 
 .eye-button {
   position: absolute;
-  bottom: 2.2rem;
+  top: 5.1rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
