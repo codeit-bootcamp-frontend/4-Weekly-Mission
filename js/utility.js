@@ -80,7 +80,7 @@ function isValidPassword(passwordInputValue) {
 }
 
 //비밀번호 확인 유효성 검사
-function isSamePassword(passwordInputValue, passwordCheckInputValue) {
+function isPasswordMatching(passwordInputValue, passwordCheckInputValue) {
   return passwordInputValue === passwordCheckInputValue;
 }
 
@@ -128,7 +128,7 @@ function isValidSignUp(emailInputValue, passwordInputValue, passwordCheckInputVa
     return false;
   }
 
-  if (!isSamePassword(passwordInputValue, passwordCheckInputValue)) {
+  if (!isPasswordMatching(passwordInputValue, passwordCheckInputValue)) {
     console.log(`case 4`);
     return false;
   }
@@ -182,7 +182,7 @@ export {
   isValidEmailFormat,
   isEmailMatching,
   isValidPassword,
-  isSamePassword,
+  isPasswordMatching,
   showError,
   hideError,
   isValidUser,
