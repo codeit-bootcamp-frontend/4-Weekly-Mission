@@ -1,8 +1,8 @@
-// 테스트 유저 계정 정보
+// 테스트 유저 계정 상수
 export const TEST_USER_EMAIL = "test@codeit.com";
 export const TEST_USER_PASSWORD = "codeit101";
 
-// 에러 표시 관련 정보
+// 에러 표시 관련 상수
 export const ERROR_MESSAGE_SPAN = (target) => {
   return target.parentElement.querySelector(".error_message");
 };
@@ -17,14 +17,11 @@ export const ERROR_MESSAGE_EXISTING_EMAIL = "이미 사용 중인 이메일입�
 export const ERROR_MESSAGE_INCONSISTENT_PASSWORD =
   "비밀번호가 일치하지 않아요.";
 
-// 형식 관련 정보
+// 형식 관련 상수
 export const REGEX_EMAIL = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 export const REGEX_PASSWORD = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
-export const CHECK_EMPTY_INPUT = (target) => {
-  return target.value === "";
-};
 export const EMPTY_MESSAGE = "";
 
-// 리소스 관련 정보
+// 리소스 관련 상수
 export const SRC_IMG_OPEN_EYE = "resource/eye_open_icon.png";
 export const SRC_IMG_CLOSE_EYE = "resource/eye_close_icon.png";

@@ -1,5 +1,4 @@
 import {
-  CHECK_EMPTY_INPUT,
   EMPTY_MESSAGE,
   ERROR_MESSAGE_EMPTY_EMAIL,
   ERROR_MESSAGE_EMPTY_PASSWORD,
@@ -8,38 +7,48 @@ import {
   ERROR_MESSAGE_INVALID_EMAIL,
   ERROR_MESSAGE_INVALID_PASSWORD,
   ERROR_MESSAGE_SPAN,
-  REGEX_EMAIL,
-  REGEX_PASSWORD,
-  SRC_IMG_CLOSE_EYE,
-  SRC_IMG_OPEN_EYE,
-  TEST_USER_EMAIL,
 } from "./constant.js";
+import {
+  isFilledInput,
+  isMatchWithPassword,
+  isUniqueEmail,
+  isValidEmailForm,
+  isValidPasswordForm,
+  toggleViewPassword,
+} from "./authFunctions.js";
+
+const form = document.querySelector("form");
 
 const inputEmail = document.querySelector("#email");
 const inputPassword = document.querySelector("#password");
 const inputPasswordCheck = document.querySelector("#password_check");
 const btnSignupSubmit = document.querySelector("#btn_signup_submit");
-const form = document.querySelector("form");
+
 const btnEyes = document.querySelectorAll(".btn_eye");
 
 const checkEmailIsValid = (e) => {
   const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
   let isValid = false;
 
-  if (CHECK_EMPTY_INPUT(e.target)) {
-    errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_EMAIL;
-    e.target.classList.add("error_input");
-  } else if (!REGEX_EMAIL.test(e.target.value)) {
-    errorMessageSpan.textContent = ERROR_MESSAGE_INVALID_EMAIL;
-    e.target.classList.add("error_input");
-  } else if (e.target.value === TEST_USER_EMAIL) {
-    errorMessageSpan.textContent = ERROR_MESSAGE_EXISTING_EMAIL;
-    e.target.classList.add("error_input");
-  } else {
+  const isFilled = isFilledInput(e.target);
+  const isValidForm = isValidEmailForm(e.target);
+  const isUnique = isUniqueEmail(e.target);
+
+  if (isFilled && isValidForm && isUnique) {
     errorMessageSpan.textContent = EMPTY_MESSAGE;
     e.target.classList.remove("error_input");
     isValid = true;
+  } else {
+    e.target.classList.add("error_input");
+    if (!isFilled) {
+      errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_EMAIL;
+    } else if (!isValidForm) {
+      errorMessageSpan.textContent = ERROR_MESSAGE_INVALID_EMAIL;
+    } else if (!isUnique) {
+      errorMessageSpan.textContent = ERROR_MESSAGE_EXISTING_EMAIL;
+    }
   }
+
   return isValid;
 };
 
@@ -49,20 +58,24 @@ const checkPasswordIsValid = (e) => {
 
   let isValid = false;
 
-  if (CHECK_EMPTY_INPUT(e.target)) {
-    errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_PASSWORD;
-    e.target.classList.add("error_input");
-    iconEye.classList.add("large_bottom");
-  } else if (!REGEX_PASSWORD.test(e.target.value)) {
-    errorMessageSpan.textContent = ERROR_MESSAGE_INVALID_PASSWORD;
-    e.target.classList.add("error_input");
-    iconEye.classList.add("large_bottom");
-  } else {
+  const isFilled = isFilledInput(e.target);
+  const isValidForm = isValidPasswordForm(e.target);
+
+  if (isFilled && isValidForm) {
     errorMessageSpan.textContent = EMPTY_MESSAGE;
     e.target.classList.remove("error_input");
     iconEye.classList.remove("large_bottom");
     isValid = true;
+  } else {
+    e.target.classList.add("error_input");
+    iconEye.classList.add("large_bottom");
+    if (!isFilled) {
+      errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_PASSWORD;
+    } else if (!isValidForm) {
+      errorMessageSpan.textContent = ERROR_MESSAGE_INVALID_PASSWORD;
+    }
   }
+
   return isValid;
 };
 
@@ -72,21 +85,30 @@ const checkPasswordCheckIsValid = (e) => {
 
   let isValid = false;
 
-  if (e.target.value !== inputPassword.value) {
-    errorMessageSpan.textContent = ERROR_MESSAGE_INCONSISTENT_PASSWORD;
-    e.target.classList.add("error_input");
-    iconEye.classList.add("large_bottom");
-  } else {
+  const isFilled = isFilledInput(e.target);
+  const isMatched = isMatchWithPassword(e.target, inputPassword);
+
+  if (isFilled && isMatched) {
     errorMessageSpan.textContent = EMPTY_MESSAGE;
     e.target.classList.remove("error_input");
     iconEye.classList.remove("large_bottom");
     isValid = true;
+  } else {
+    e.target.classList.add("error_input");
+    iconEye.classList.add("large_bottom");
+    if (!isFilled) {
+      errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_PASSWORD;
+    } else if (!isMatched) {
+      errorMessageSpan.textContent = ERROR_MESSAGE_INCONSISTENT_PASSWORD;
+    }
   }
+
   return isValid;
 };
 
 const isValidSignup = (e) => {
   e.preventDefault();
+
   const isValidEmail = checkEmailIsValid({ target: inputEmail });
   const isValidPassword = checkPasswordIsValid({ target: inputPassword });
   const isValidPasswordCheck = checkPasswordCheckIsValid({
@@ -98,22 +120,12 @@ const isValidSignup = (e) => {
   }
 };
 
-const toggleViewPassword = (e) => {
-  const targetInput =
-    e.target.parentElement.parentElement.querySelector("input");
-  if (targetInput.getAttribute("type") === "password") {
-    targetInput.setAttribute("type", "text");
-    e.target.setAttribute("src", SRC_IMG_OPEN_EYE);
-  } else {
-    targetInput.setAttribute("type", "password");
-    e.target.setAttribute("src", SRC_IMG_CLOSE_EYE);
-  }
-};
-
+// 에러 표시 이벤트
 inputEmail.addEventListener("focusout", checkEmailIsValid);
 inputPassword.addEventListener("focusout", checkPasswordIsValid);
 inputPasswordCheck.addEventListener("focusout", checkPasswordCheckIsValid);
 
+// 폼 제출 이벤트
 btnSignupSubmit.addEventListener("click", isValidSignup);
 form.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
@@ -121,7 +133,9 @@ form.addEventListener("keydown", (e) => {
   }
 });
 
+// 비밀번호 노출/가림 이벤트
 btnEyes.forEach((btnEye) => {
-  console.log(btnEye);
-  btnEye.addEventListener("click", toggleViewPassword);
+  btnEye.addEventListener("click", function (e) {
+    toggleViewPassword(e.target);
+  });
 });
