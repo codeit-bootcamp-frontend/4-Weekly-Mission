@@ -18,7 +18,7 @@ function emailHandlerFunc(email) {
 // 로그인 시도 함수
 function trySignup() {
   if(emailVal === "test@codeit.com" && pwdVal === "codeit101") {
-    return signupBtn.parentElement.setAttribute('href',"/folder.html");
+    return location.assign("folder.html");
   } else {
     return common.errorMsg("Other"); 
   }

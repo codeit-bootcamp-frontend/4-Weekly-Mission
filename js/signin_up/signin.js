@@ -29,6 +29,10 @@ function emailHandlerFunc(email) {
 function trySignin() {
   if((!emailDiv[2] && !pwdDiv[2] && !pwdDiv2[2]) && (emailVal&&pwdVal&&pwdVal2)) {
     return location.assign("folder.html");
+  } else {
+    emailInput.dispatchEvent(new Event('focusout'));
+    pwdInput.dispatchEvent(new Event('focusout'));
+    pwdInput2.dispatchEvent(new Event('focusout'));
   }
 }
 
@@ -51,6 +55,7 @@ emailInput.addEventListener('focusout', function(e) {
 });
 emailInput.addEventListener('keypress', function(e) {
   common.EnterLogin(e.key,trySignin);
+  console.log(emailVal)
 });
 
 // password input 이벤트 함수 등록
