@@ -25,19 +25,10 @@ function emailHandlerFunc(email) {
   emailVal = email; 
 }
 
-// enter키 입력으로 회원가입 실행 
-function EnterSignin(key) {
-  if(key === 'Enter') {
-    if(!emailDiv[2] && !pwdDiv[2] && !pwdDiv2[2]) {
-      signinBtn.parentElement.setAttribute('href',"/folder.html");
-    }
-  }
-}
-
 // 회원가입 시도 함수
 function trySignin() {
-  if(!emailDiv[2] && !pwdDiv[2] && !pwdDiv2[2]) {
-    signinBtn.parentElement.setAttribute('href',"/folder.html");
+  if((!emailDiv[2] && !pwdDiv[2] && !pwdDiv2[2]) && (emailVal&&pwdVal&&pwdVal2)) {
+    return location.assign("folder.html");
   }
 }
 
@@ -59,7 +50,7 @@ emailInput.addEventListener('focusout', function(e) {
   emailVal = e.target.value;
 });
 emailInput.addEventListener('keypress', function(e) {
-  EnterSignin(e.key);
+  common.EnterLogin(e.key,trySignin);
 });
 
 // password input 이벤트 함수 등록
@@ -68,7 +59,7 @@ pwdInput.addEventListener('focusout', function(e) {
   pwdVal = e.target.value;
 });
 pwdInput.addEventListener('keypress', function(e) {
-  EnterSignin(e.key);
+  common.EnterLogin(e.key,trySignin);
 });
 
 pwdInput2.addEventListener('focusout', function(e) {
@@ -76,13 +67,12 @@ pwdInput2.addEventListener('focusout', function(e) {
   isMatch(pwdVal, pwdVal2) ? inputDeleteNode("password2") : common.errorMsg("noMatchPwd")
 })
 pwdInput2.addEventListener('keypress', function(e) {
-  EnterSignin(e.key);
+  common.EnterLogin(e.key,trySignin);
 });
 
 // 회원가입 버튼 이벤트 함수 등록
 signinBtn.addEventListener('click', function(e) {
   trySignin();
-  // console.log(isMatch(common.pwdVal,pwd2))
  });
 
  // 눈모양 아이콘 이벤트 함수 등록
@@ -90,7 +80,6 @@ pwdEyeIcon.addEventListener('click', function(e) {
   e.target.classList.toggle('off');
   common.EyePwd(e.target);
 })
-
 pwdEyeIcon2.addEventListener('click', function(e) {
   e.target.classList.toggle('off');
   EyePwd2(e.target);

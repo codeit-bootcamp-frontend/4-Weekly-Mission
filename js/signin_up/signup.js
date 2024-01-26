@@ -16,18 +16,11 @@ function emailHandlerFunc(email) {
 }
 
 // 로그인 시도 함수
-function trySignup(email,password) {
-  if(email === "test@codeit.com" && password === "codeit101") {
-    signupBtn.parentElement.setAttribute('href',"/folder.html");
+function trySignup() {
+  if(emailVal === "test@codeit.com" && pwdVal === "codeit101") {
+    return signupBtn.parentElement.setAttribute('href',"/folder.html");
   } else {
-    common.errorMsg("Other"); 
-  }
-}
-
-// enter키 입력으로 로그인 실행 
-function EnterLogin(key) {
-  if(key === 'Enter') {
-    trySignup(emailVal, pwdVal);
+    return common.errorMsg("Other"); 
   }
 }
 
@@ -41,7 +34,7 @@ emailInput.addEventListener('focusout', function(e) {
   emailHandlerFunc(e.target.value);
 });
 emailInput.addEventListener('keypress', function(e) {
-  EnterLogin(e.key);
+  common.EnterLogin(e.key,trySignup);
 });
 
 // password input 이벤트 함수 등록
@@ -49,7 +42,7 @@ pwdInput.addEventListener('focusout', function(e) {
   passwordHandlerFuc(e.target.value);
 });
 pwdInput.addEventListener('keypress', function(e) {
-  EnterLogin(e.key);
+  common.EnterLogin(e.key, trySignup);
 });
 
 // 로그인 버튼 이벤트 함수 등록
