@@ -37,18 +37,10 @@ function isTextEmpty(inputValue) {
   return false;
 }
 
-//이메일 양식
-function validateEmail(emailString) {
-  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  return regex.test(emailString);
-}
-
 //이메일 양식 유효성 검사
-function isValidEmail(emailInputValue) {
-  if (validateEmail(emailInputValue)) {
-    return true;
-  }
-  return false;
+function isValidEmailFormat(emailInputValue) {
+  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return regex.test(emailInputValue);
 }
 
 //이메일 중복 검사
@@ -122,7 +114,7 @@ function isValidUser(emailInputValue, passwordInputValue) {
 
 //회원가입 유효성 검사
 function isValidSignUp(emailInputValue, passwordInputValue, passwordCheckInputValue) {
-  if (!isValidEmail(emailInputValue)) {
+  if (!isValidEmailFormat(emailInputValue)) {
     console.log(`case 1`);
     return false;
   }
@@ -188,7 +180,7 @@ export {
   eyeBtn,
   eyeBtnCheck,
   isTextEmpty,
-  isValidEmail,
+  isValidEmailFormat,
   isExistingEmail,
   isValidPassword,
   isSamePassword,
