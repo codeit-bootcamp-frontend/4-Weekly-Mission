@@ -2,8 +2,9 @@
 import { EMAIL_REGEX } from './constants.js';
 
 // 에러 메시지 생성 함수
-function createErrorMessage(text) {
-  const errorMessage = document.createElement('div');
+function createErrorMessage(id, text) {
+  const errorMessage = document.getElementById(id) || document.createElement('div');
+  errorMessage.id = id;
   errorMessage.className = 'error-message text-medium';
   errorMessage.innerText = text;
   return errorMessage;
@@ -20,39 +21,25 @@ document.addEventListener('DOMContentLoaded', function () {
   const watchPassword = document.getElementById('eye-button');
 
   // 에러 메시지 요소들 생성 및 초기화
-  const emailErrorMessage = createErrorMessage('');
-  emailErrorMessage.style.display = 'none';
-  const passwordErrorMessage = createErrorMessage('');
-  passwordErrorMessage.style.display = 'none';
+  const emailErrorMessage = createErrorMessage('email-error', '');
+  const passwordErrorMessage = createErrorMessage('password-error', '');
+
   emailInput.after(emailErrorMessage);
   passwordInput.after(passwordErrorMessage);
 
   // 이메일 입력란 focusin 이벤트 핸들러
   emailInput.addEventListener('focusin', function () {
-    emailErrorMessage.style.display = 'none';
-    emailErrorMessage.classList.remove('error-box');
+    clearError(emailInput, emailErrorMessage);
   });
 
   // 이메일 입력란 focusout 이벤트 핸들러
-  function handleEmailInputFocusIn() {
-    const emailValue = emailInput.value.trim();
-    if (!emailValue) {
-      displayError(emailInput, emailErrorMessage, '이메일을 입력해 주세요.');
-    } else if (!isEmailValid(emailValue)) {
-      displayError(emailInput, emailErrorMessage, '이메일을 확인해 주세요.');
-    } else {
-      clearError(emailInput, emailErrorMessage);
-    }
-  }
-
-  emailInput.addEventListener('focusout', handleEmailInputFocusIn);
+  emailInput.addEventListener('focusout', function () {
+    handleEmailInputFocusIn(emailInput, emailErrorMessage);
+  });
 
   // 비밀번호 입력란 focusout 이벤트 핸들러
   passwordInput.addEventListener('focusout', function () {
-    const passwordValue = passwordInput.value;
-    if (!passwordValue) {
-      displayError(passwordInput, passwordErrorMessage, '비밀번호를 입력해주세요');
-    }
+    handlePasswordInputFocusOut(passwordInput, passwordErrorMessage);
   });
 
   // 로그인 버튼 클릭 이벤트 핸들러
@@ -87,13 +74,30 @@ document.addEventListener('DOMContentLoaded', function () {
 function displayError(inputElement, errorMessageElement, message) {
   inputElement.classList.add('error-box');
   errorMessageElement.innerText = message;
-  errorMessageElement.style.display = 'block';
 }
 
 // 에러 초기화 함수
 function clearError(inputElement, errorMessageElement) {
   inputElement.classList.remove('error-box');
-  errorMessageElement.style.display = 'none';
+  errorMessageElement.innerText = '';
+}
+
+// 비밀번호 입력란 focusout 이벤트 핸들러
+function handlePasswordInputFocusOut(passwordInput, passwordErrorMessage) {
+  const passwordValue = passwordInput.value;
+  if (!passwordValue) {
+    displayError(passwordInput, passwordErrorMessage, '비밀번호를 입력해주세요');
+  }
+}
+
+// 이메일 입력란 focusout 이벤트 핸들러
+function handleEmailInputFocusIn(emailInput, emailErrorMessage) {
+  const emailValue = emailInput.value.trim();
+  if (!emailValue) {
+    displayError(emailInput, emailErrorMessage, '이메일을 입력해 주세요.');
+  } else if (!isEmailValid(emailValue)) {
+    displayError(emailInput, emailErrorMessage, '이메일을 확인해 주세요.');
+  }
 }
 
 // 비밀번호 가시성 토글 함수
