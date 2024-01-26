@@ -2,6 +2,9 @@ const email = document.querySelector("#email");
 const emailError = document.querySelector(".email-error");
 const password = document.querySelector("#password");
 const passwordError = document.querySelector(".password-error");
+const passwordRepeat = document.querySelector("#password-repeat");
+const eyeIcon = document.querySelector(".eye-icon");
+const repeatEyeIcon = document.querySelector(".repeat-eye-icon");
 
 const setInvalidStyle = (element) => {
   element.style.border = "1px solid #ff5b56";
@@ -39,13 +42,27 @@ const handleEmailValidation = () => {
   }
 };
 
+/* 눈동자아이콘 클릭 시 비밀번호 type 변경 */
+const togglePasswordVisibility = (inputElement, eyeIconElement) => {
+  const type = inputElement.type === "password" ? "text" : "password";
+  inputElement.type = type;
+  eyeIconElement.src =
+    type === "password"
+      ? "../../images/signIn/eye-off.svg"
+      : "../../images/signIn/eye-on.png";
+};
+
 export {
   email,
   emailError,
   password,
+  passwordRepeat,
   passwordError,
+  eyeIcon,
+  repeatEyeIcon,
   setInvalidStyle,
   setValidStyle,
   errorMessage,
   handleEmailValidation,
+  togglePasswordVisibility,
 };
