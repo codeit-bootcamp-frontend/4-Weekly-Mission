@@ -2,6 +2,12 @@ import { ERROR_MESSAGE } from "../../constant.js";
 import { inputAddNode } from "../node.js";
 import { pwdInput, pwdEyeIcon} from "../declaration.js";
 
+// enter키 입력으로 로그인 실행 
+export function EnterLogin(key, func) {
+  if(key === 'Enter') {
+    func
+  }
+}
 
 // 에러 메세지 출력 함수
 export function errorMsg(errorCase) {

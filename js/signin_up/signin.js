@@ -6,13 +6,6 @@ import { emailDiv, pwdDiv, pwdDiv2, emailInput, pwdInput, signinBtn, pwdEyeIcon,
 
 let emailVal = "", pwdVal = "", pwdVal2 = "";
 
-// 회원가입 시도 함수
-function trySignin(email,password) {
-  if(!emailDiv[2] && !pwdDiv[2] && !pwdDiv2[2]) {
-    signinBtn.parentElement.setAttribute('href',"/folder.html");
-  }
-}
-
 // 비밀번호 input 핸들러 함수
 function passwordHandlerFuc(password) {
   if(password) {
@@ -35,7 +28,16 @@ function emailHandlerFunc(email) {
 // enter키 입력으로 회원가입 실행 
 function EnterSignin(key) {
   if(key === 'Enter') {
-    trySignin(emailVal, pwdVal);
+    if(!emailDiv[2] && !pwdDiv[2] && !pwdDiv2[2]) {
+      signinBtn.parentElement.setAttribute('href',"/folder.html");
+    }
+  }
+}
+
+// 회원가입 시도 함수
+function trySignin() {
+  if(!emailDiv[2] && !pwdDiv[2] && !pwdDiv2[2]) {
+    signinBtn.parentElement.setAttribute('href',"/folder.html");
   }
 }
 
@@ -66,17 +68,20 @@ pwdInput.addEventListener('focusout', function(e) {
   pwdVal = e.target.value;
 });
 pwdInput.addEventListener('keypress', function(e) {
-  EnterSignin(e.target.value);
+  EnterSignin(e.key);
 });
 
 pwdInput2.addEventListener('focusout', function(e) {
   pwdVal2 = e.target.value;
   isMatch(pwdVal, pwdVal2) ? inputDeleteNode("password2") : common.errorMsg("noMatchPwd")
 })
+pwdInput2.addEventListener('keypress', function(e) {
+  EnterSignin(e.key);
+});
 
 // 회원가입 버튼 이벤트 함수 등록
 signinBtn.addEventListener('click', function(e) {
-  trySignin(emailVal, pwdVal);
+  trySignin();
   // console.log(isMatch(common.pwdVal,pwd2))
  });
 
