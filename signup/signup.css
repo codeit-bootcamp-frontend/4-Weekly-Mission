@@ -141,3 +141,6 @@ form{
 .red{
   color: red;
 }
+.inputError{
+  border: 1px solid red;
+}

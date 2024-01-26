@@ -12,24 +12,41 @@ const eyeCheck = document.querySelector('.eyeCheck')
 function emailError(e) {
   if(!e.target.value.trim()) {
     errorMessage.textContent = '이메일을 입력해 주세요.'
+    emailInput.classList.add('inputError')
   } else if(e.target.value=="test@codeit.com") {
     errorMessage.textContent = '이미 사용 중인 이메일입니다.'
+    emailInput.classList.add('inputError')
   } else{
     errorMessage.textContent=''
+    emailInput.classList.remove('inputError')
   }
 }
+
+function pwCheck(pw) {
+  const REG = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/
+  if(REG.test(pw)) return true
+  return false
+}
 function pwError(e) {
-  if(!e.target.value.trim()) {
+  let myPw = e.target.value
+  if(!myPw.trim()) {
     errorPw.textContent = '비밀번호를 입력해 주세요.'
+    pwInput.classList.add('inputError')
+  } else if(!pwCheck(myPw)) {
+    errorPw.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.'
+    pwInput.classList.add('inputError')
   } else{
     errorPw.textContent=''
+    pwInput.classList.remove('inputError')
   }
 }
 function pwErrorCheck(e) {
   if(pwInput.value!==passwordCheck.value) {
-    errorPwCheck.textContent = '비밀번호가 다릅니다.'
+    errorPwCheck.textContent = '비밀번호가 일치하지 않아요.'
+    pwInput.classList.add('inputError')
   } else{
     errorPwCheck.textContent=''
+    pwInput.classList.remove('inputError')
   }
 }
 
@@ -38,20 +55,18 @@ function emailCheck(e) {
   let e_style = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
   if(e.target.value.trim() && !e_style.test(e.target.value)) {
     errorMessage.textContent = '올바른 이메일 주소가 아닙니다.'
+    emailInput.classList.add('inputError')
   } else{
     errorMessage.content=''
+    emailInput.classList.remove('inputError')
   }
 }
 
 // 로그인 했을 때 /folder로 이동 & 확인해주세요
 function login(e) {
-  if(emailInput.value=="test@codeit.com" && pwInput.value=="codeit101") {
+  if(emailInput.value!=="test@codeit.com" && pwInput.value!=="codeit101") {
     return true
-  } else if(emailInput.value!=="test@codeit.com" || pwInput.value!=="codeit101"){
-    errorMessage.textContent = '이메일을 확인해 주세요.'
-    errorPw.textContent = '비밀번호를 확인해 주세요.'
-    return false
-  }
+  } else return false
 }
 
 //눈사진toggle
