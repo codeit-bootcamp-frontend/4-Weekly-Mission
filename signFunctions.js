@@ -142,3 +142,45 @@ export function signupPasswordCorrectCheck(
     inputBorderGray(pwInputRepeat, pwError);
   }
 }
+
+//회원가입 버튼 동작 메서드
+export function signUp(
+  emailInput,
+  pwInput,
+  pwInputRepeat,
+  emailError,
+  pwError,
+  pwRepeatError,
+  pwOnOffImg
+) {
+  const checkList = [true, true, true];
+  if (
+    !emailInput.value ||
+    emailFormatCheck(emailInput.value) === false ||
+    emailInput.value === 'test@codeit.com'
+  ) {
+    emailError.innerHTML = '이메일을 확인해 주세요.';
+    inputBorderRed(emailInput, emailError);
+    checkList[0] = false;
+  }
+  if (
+    pwInput.value.length < 8 ||
+    Number(pwInput.value) ||
+    /^[a-zA-Z]+$/.test(pwInput.value)
+  ) {
+    pwError.innerHTML = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
+    pwOnOffImg[0].style.bottom = '2.9375rem';
+    inputBorderRed(pwInput, pwError);
+    checkList[1] = false;
+  }
+  if (pwInput.value !== pwInputRepeat.value) {
+    pwRepeatError.innerHTML = '비밀번호가 일치하는지 확인해주세요.';
+    pwOnOffImg[1].style.bottom = '2.9375rem';
+    inputBorderRed(pwInputRepeat, pwRepeatError);
+    checkList[2] = false;
+  }
+
+  if (!checkList.includes(false)) {
+    window.location.href = './folder.html';
+  }
+}

@@ -49,3 +49,30 @@ pwOnOffImg.forEach(function (e) {
     );
   });
 });
+
+signButton.addEventListener('click', function (e) {
+  e.preventDefault();
+  signFunctions.signUp(
+    emailInput,
+    pwInput,
+    pwInputRepeat,
+    emailError,
+    pwError,
+    pwRepeatError,
+    pwOnOffImg
+  );
+});
+signButton.addEventListener('keypress', function (e) {
+  e.preventDefault();
+  if (e.key === 'Enter') {
+    signFunctions.signUp(
+      emailInput,
+      pwInput,
+      pwInputRepeat,
+      emailError,
+      pwError,
+      pwRepeatError,
+      pwOnOffImg
+    );
+  }
+});
