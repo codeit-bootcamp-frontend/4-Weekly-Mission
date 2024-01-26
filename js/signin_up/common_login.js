@@ -23,6 +23,9 @@ export function errorMsg(errorCase) {
     case "wrongPwd" :
       inputAddNode('password', ERROR_MESSAGE.password.invalid, errorCase);
       break;
+    case "noMatchPwd" : 
+      inputAddNode("password2", ERROR_MESSAGE.password.recheck, errorCase);
+      break;
     case "Other": 
       inputAddNode('email', ERROR_MESSAGE.email.check, errorCase);
       inputAddNode('password', ERROR_MESSAGE.password.check, errorCase);

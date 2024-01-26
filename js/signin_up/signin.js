@@ -2,18 +2,9 @@ import {ERROR_MESSAGE } from "../../constant.js";
 import * as common from "./common_login.js";
 import { emailCheck, passwordCheck, isMatch, checkEmailDupli } from "../validation.js"; 
 import { inputDeleteNode } from "../node.js";
-import { emailInput, pwdInput, pwdInput2, signinBtn, pwdEyeIcon, pwdEyeIcon2, pwdDiv2} from "../declaration.js";
+import { emailInput, pwdInput, signinBtn, pwdEyeIcon, pwdEyeIcon2, pwdInput2 } from "../declaration.js";
 
 let emailVal = "", pwdVal = "", pwdVal2 = "";
-
-// 비밀번호 재확인 함수
-function addinUseError() {
-  let newNode = document.createElement('div');
-  newNode.innerHTML = `<p>${ERROR_MESSAGE.password.recheck}</p>`;
-  pwdInput2.setAttribute('status','error');
-  pwdDiv2.children[2] ? pwdDiv2.children[2].remove() : null;
-  pwdDiv2.append(newNode);
-}
 
 // 회원가입 시도 함수
 function trySignin(email,password) {
@@ -80,7 +71,7 @@ pwdInput.addEventListener('keypress', function(e) {
 
 pwdInput2.addEventListener('focusout', function(e) {
   pwdVal2 = e.target.value;
-  isMatch(pwdVal, pwdVal2) ? null : addinUseError()
+  isMatch(pwdVal, pwdVal2) ? inputDeleteNode("password2") : common.errorMsg("noMatchPwd")
 })
 
 // 회원가입 버튼 이벤트 함수 등록
