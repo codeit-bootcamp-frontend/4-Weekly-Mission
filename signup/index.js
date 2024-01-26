@@ -11,7 +11,7 @@ import {
   isTextEmpty,
   isValidEmailFormat,
   isEmailMatching,
-  isValidPassword,
+  isValidPasswordFormat,
   isPasswordMatching,
   showError,
   hideError,
@@ -49,7 +49,7 @@ function checkPasswordError() {
     return showError(passwordInput, passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
   }
 
-  if (!isValidPassword(passwordInput.value)) {
+  if (!isValidPasswordFormat(passwordInput.value)) {
     return showError(passwordInput, passwordErrorMessageElement, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
   }
 
