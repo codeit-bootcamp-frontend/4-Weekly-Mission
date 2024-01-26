@@ -1,4 +1,4 @@
-import SIGN from './constants/VALIDATION.js';
+import { MESSAGE, REGEX } from './constants/SIGN.js';
 
 const emailInput = document.getElementById('email');
 const emailError = document.getElementById('email-error');
@@ -24,25 +24,25 @@ const resetError = (errorEl, input) => {
 };
 
 const isEmailFormat = (email) => {
-  return SIGN.EMAIL_REGEX.test(email);
+  return REGEX.EMAIL_REGEX.test(email);
 };
 const isPwFormat = (pw) => {
-  return SIGN.PW_REGEX.test(pw);
+  return REGEX.PW_REGEX.test(pw);
 };
 
 const validateEmail = () => {
   const emailValue = emailInput.value.trim();
 
-  if (emailValue === '') applyError(emailError, SIGN.REQUIRED_EMAIL, emailInput);
-  else if (!isEmailFormat(emailValue)) applyError(emailError, SIGN.INVALID_EMAIL_FORMAT, emailInput);
+  if (emailValue === '') applyError(emailError, MESSAGE.REQUIRED_EMAIL, emailInput);
+  else if (!isEmailFormat(emailValue)) applyError(emailError, MESSAGE.INVALID_EMAIL_FORMAT, emailInput);
   else resetError(emailError, emailInput);
 };
 
 const validatePw = () => {
   const pwValue = pwInput.value.trim();
 
-  if (pwValue === '') applyError(pwError, SIGN.REQUIRED_PASSWORD, pwInput);
-  else if (!isPwFormat(pwValue)) applyError(pwError, SIGN.INVALID_PW_FORMAT, pwInput);
+  if (pwValue === '') applyError(pwError, MESSAGE.REQUIRED_PASSWORD, pwInput);
+  else if (!isPwFormat(pwValue)) applyError(pwError, MESSAGE.INVALID_PW_FORMAT, pwInput);
   else resetError(pwError, pwInput);
 };
 
@@ -57,8 +57,8 @@ const handleClickPwToggle = () => {
 };
 
 const handleLoginFailure = () => {
-  applyError(emailError, SIGN.CHECK_EMAIL, emailInput);
-  applyError(pwError, SIGN.CHECK_PASSWORD, pwInput);
+  applyError(emailError, MESSAGE.CHECK_EMAIL, emailInput);
+  applyError(pwError, MESSAGE.CHECK_PASSWORD, pwInput);
 };
 
 const handleLogin = () => {
