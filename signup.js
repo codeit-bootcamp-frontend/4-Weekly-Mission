@@ -1,4 +1,4 @@
-import { toggleEye } from "./utils.js";
+import { getNewMessageElement, toggleEye } from "./utils.js";
 
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");
@@ -6,13 +6,6 @@ const passwordCheck = document.getElementById("passwordCheck");
 const loginButton = document.getElementById("loginButton");
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
-
-function createMessage(message) {
-  const messageElement = document.createElement("p");
-  messageElement.textContent = message;
-  messageElement.classList.add("empty-message");
-  return messageElement;
-}
 
 function emailValidChk(email) {
   return emailRegex.test(email);
@@ -55,7 +48,7 @@ function handleBlur(input, message) {
     // 이메일 중복 확인 조건을 수행하고 그에 따라 에러 메시지 추가
     if (input === emailInput && input.value === "test@codeit.com") {
       const duplicateEmailMessage =
-        createMessage("이미 사용 중인 이메일입니다.");
+        getNewMessageElement("이미 사용 중인 이메일입니다.");
       messageContainer.appendChild(duplicateEmailMessage);
       input.classList.add("empty-input");
     }
@@ -64,18 +57,18 @@ function handleBlur(input, message) {
 
 emailInput.addEventListener("blur", function () {
   // 이메일 입력란에 포커스를 잃었을 때의 처리
-  handleBlur(emailInput, createMessage("이메일을 입력해 주세요."));
+  handleBlur(emailInput, getNewMessageElement("이메일을 입력해 주세요."));
 });
 
 passwordInput.addEventListener("blur", function () {
   // 비밀번호 입력란에 포커스를 잃었을 때의 처리
-  const passwordMessage = createMessage(
+  const passwordMessage = getNewMessageElement(
     "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
   );
   handleBlur(passwordInput, passwordMessage);
 });
 
-//눈 모양 아이콘 이벤트
+//눈 모양 이벤트
 document.querySelector(".eye-button").addEventListener("click", function () {
   toggleEye(passwordInput);
 });
@@ -95,7 +88,7 @@ function handlePasswordCheck() {
 
   if (password1 !== password2) {
     const passwordMismatchMessage =
-      createMessage("비밀번호가 일치하지 않아요.");
+      getNewMessageElement("비밀번호가 일치하지 않아요.");
 
     if (!existingMessage) {
       messageContainer.appendChild(passwordMismatchMessage);
