@@ -44,7 +44,7 @@ const USER_TEST = {
   [INPUT_TYPE.PASSWORD]: 'codeit101',
 };
 
-const signForm = document.querySelector('#signForm');
+const signForm = document.querySelector('#sign-form');
 
 function handleFocusoutInput(event) {
   const target = event.target;
@@ -81,7 +81,7 @@ function handleFocusoutInput(event) {
 function handleSubmit(event) {
   event.preventDefault();
 
-  if (event.target.id.toUpperCase() !== 'SIGNFORM') return;
+  if (event.target.id !== 'sign-form') return;
 
   let valid = true;
   const emailInput = event.target['email'];
