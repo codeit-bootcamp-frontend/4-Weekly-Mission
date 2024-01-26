@@ -1,6 +1,7 @@
 import { emailRegex, isVaildEmail } from "../utils/isValidEmail.js";
 import { querySelector } from "../utils/querySelector.js";
 import { passwordTypeCheck } from "../functions/passwordTypeCheck.js";
+import { updateErrorMessage } from "../functions/updateErrorMessage.js";
 
 // 이메일, 비밀번호 input 선택
 const emailInputBox = querySelector("#signin-email-input");
