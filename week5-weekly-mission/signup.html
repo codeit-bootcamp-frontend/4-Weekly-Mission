@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <link rel="stylesheet" href="stylesignup.css">
+    <link rel="stylesheet" href="color.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Noto+Sans+KR:wght@400;600&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <main>
+        <div class="login">
+            <div class="frame1">
+                <a href = "./">
+                    <img src="./imglogin/logo.svg" alt="logo">
+                </a>
+                <div class="frame2">
+                    <span>이미 회원이신가요?</span>
+                    <a href="signin.html">
+                        로그인하기
+                    </a>
+                </div>
+            </div>
+            <div class="framelogin">
+                <div class="frameemail">
+                    <span id="info">이메일</span>
+                    <input type="id" id="inputId" placeholder="id">
+                    <span class="idAlert"></span>
+                </div>
+                <div class="framepassword">
+                    <span id="info">비밀번호</span>
+                    <div class="password-container">
+                        <input type="password" id="inputPassword" placeholder="비밀번호">
+                        <img src="./imglogin/eye-off.jpg" id="passwordIcon" alt="eye-icon" style="cursor: pointer;" />
+                        <span class="passwordAlert"></span>
+                    </div>
+                </div>
+                <div class="confirmpassword">
+                    <span id="info">비밀번호 확인</span>
+                    <div class="password-container">
+                    <input type="password" id="inputConfirm" placeholder="비밀번호 확인">
+                    <img src="./imglogin/eye-off.jpg" id="confirmIcon" alt="eye-icon" style="cursor: pointer;" />
+                    </div>
+                    <span class="confirmAlert"></span>
+                </div>   
+            </div>
+            <div class="loginbutton">
+                <a  class ="btn-login" style="text-decoration: none; cursor: pointer;">
+                    로그인
+                </a>
+            </div>
+            <div class="footerframe">
+                <span>다른 방식으로 가입하기</span>
+                <div class="social">
+                    <a href="https://www.google.com/webhp?hl=ko&sa=X&ved=0ahUKEwia29jE3caDAxVd0jQHHXGMCYAQPAgJ">
+                        <div class="input-container">
+                            <img id="googlebottomimg"  src="./imglogin/google.svg" alt="google-icon">
+                            <img id ="googletopimg" src ="./imglogin/google.png" alt="google-icon">
+                        </div>
+                    </a>
+                    <a href="https://www.kakaocorp.com/page/">
+                        <div class="input-container">
+                            <img id ="kakaobottomimg" src = "./imglogin/facebook.svg" alt="kakao-icon">
+                            <img id="kakaotopimg" src="./imglogin/kakao.svg" alt="kakao-icon">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="module"src="./function2.js"></script>
+    <script type="module" src="./module.js"></script>
+</body>
+</html>
