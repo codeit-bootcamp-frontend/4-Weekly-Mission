@@ -57,17 +57,14 @@ function validatePassword(passwordString) {
   if (passwordString.length < 8) {
     return false;
   }
-
   //숫자가 없는 경우
   if (!/\d/.test(passwordString)) {
     return false;
   }
-
   //영문이 없는 경우
   if (!/[a-zA-Z]/.test(passwordString)) {
     return false;
   }
-
   return true;
 }
 
@@ -100,10 +97,13 @@ function hideError(input, errorElement) {
 
 //유효한 유저 정보 반환
 function getUserByLoginInfo(emailInputValue, passwordInputValue) {
-  if (emailInputValue === VALID_USER.email && passwordInputValue === VALID_USER.password) {
-    return VALID_USER;
+  if (!isEmailMatching(emailInputValue)) {
+    return null;
   }
-  return null;
+  if (!isPasswordMatching(passwordInputValue)) {
+    return null;
+  }
+  return VALID_USER;
 }
 
 //로그인 유효성 검사
