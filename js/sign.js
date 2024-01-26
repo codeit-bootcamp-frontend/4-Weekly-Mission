@@ -1,7 +1,13 @@
-import * as AuthUtils from "./modules/AuthUtils.js";
+import {
+  email,
+  emailError,
+  password,
+  passwordError,
+  setInvalidStyle,
+  setValidStyle,
+  handleEmailValidation,
+} from "./modules/AuthUtils.js";
 
-const password = document.querySelector("#password");
-const passwordError = document.querySelector(".password-error");
 const loginButton = document.querySelector(".login-button");
 const eyeIcon = document.querySelector(".eye-icon");
 
@@ -52,7 +58,7 @@ const togglePasswordVisibility = () => {
       : "../images/signIn/eye-on.png";
 };
 
-email.addEventListener("blur", AuthUtils.handleEmailValidation);
+email.addEventListener("blur", handleEmailValidation);
 password.addEventListener("blur", handlePasswordValidation);
 loginButton.addEventListener("click", redirectToFolderPage);
 document.addEventListener("keypress", enterKey);
