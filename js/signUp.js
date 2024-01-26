@@ -2,14 +2,17 @@ import {
   email,
   emailError,
   password,
+  passwordRepeat,
   passwordError,
+  eyeIcon,
+  repeatEyeIcon,
   setInvalidStyle,
   setValidStyle,
   errorMessage,
   handleEmailValidation,
+  togglePasswordVisibility,
 } from "./modules/AuthUtils.js";
 
-const passwordRepeat = document.querySelector("#password-repeat");
 const passwordRepeatError = document.querySelector(".passwordRepeat-error");
 const signUpButton = document.querySelector(".signup-button");
 
@@ -78,3 +81,9 @@ password.addEventListener("blur", handlePasswordFormatValidation);
 passwordRepeat.addEventListener("blur", handlePasswordMatchValidation);
 signUpButton.addEventListener("click", redirectToFolderPage);
 document.addEventListener("keypress", enterKey);
+eyeIcon.addEventListener("click", () => {
+  togglePasswordVisibility(password, eyeIcon);
+});
+repeatEyeIcon.addEventListener("click", () => {
+  togglePasswordVisibility(passwordRepeat, repeatEyeIcon);
+});
