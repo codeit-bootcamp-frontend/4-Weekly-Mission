@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>signin</title>
-    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="stylesheet" href="../styles/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
@@ -12,8 +12,8 @@
 <body>
     <div class="signin-wrapper">
         <header>
-            <a href="/index.html" class="login-name"><img src="/images/logo.svg" alt="main logo"></a>
-            <p>회원이 아니신가요? <a href="/pages/singup.html">회원 가입하기</a></p>
+            <a href="../index.html" class="login-name"><img src="../images/logo.svg" alt="main logo"></a>
+            <p>회원이 아니신가요? <a href="./singup.html">회원 가입하기</a></p>
         </header>
         <form>
             <section id="email">
@@ -21,13 +21,15 @@
                     <p class="signin-tag">이메일</p>
                     <input id="email-input">
                 </label>
+                <p id= 'email-warning-text' class="warning-text">이메일을 입력해주세요.</p>
             </section>
             <section id="password">
                 <label>
                     <p class="signin-tag">비밀번호</p>
-                    <input id = 'password-input' type="password">
-                    <button id = 'password-eye-button' class="eyes" type="button" visible = 'false'><img src="/images/eye-off.png" alt="eye icon"></button>
+                    <input id = 'password-input' type="password" visible="false">
+                    <img id= 'password-eye-button' class="eyes" src="../images/eye-off.png" alt="eye icon">
                 </label>
+                <p id = 'password-warning-text' class="warning-text">비밀번호를 확인해 주세요.</p>
             </section>
             <button id = 'login-button' type="button" class="button">로그인</button>
         </form>
@@ -36,18 +38,17 @@
             <div class="social-icon">
                 <a href="https://www.google.com">
                     <div class="google-icon">
-                        <img src="/images/google.png" alt="google icon">
+                        <img src="../images/google.png" alt="google icon">
                     </div>
                 </a>
                 <a href="https://www.kakaocorp.com/page/">
                     <div class="kakao-icon">
-                        <img src="/images/kakao.svg" alt="kakao icon">
+                        <img src="../images/kakao.svg" alt="kakao icon">
                     </div>
                 </a>
             </div>
         </article>  
     </div>
-    <script src="/js/login.js"></script>
-    <script src="/js/signin.js"></script>
+    <script type = 'module' src="../js/signin.js"></script>
 </body>
 </html>

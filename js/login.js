@@ -1,52 +1,35 @@
-const emailInput = document.querySelector('#email-input');
-const email = document.querySelector('#email');
-const passwordInput = document.querySelector('#password-input');
-const password = document.querySelector('#password');
+export const viewWarningText = (target, message) => {
+    target.textContent = message;
+    target.style.visibility = "visible";
+}
 
+export const hiddenWarningText = (target) => {
+    target.style.visibility = "hidden";
+}
 
-let warningEmail = document.createElement('p');
-let warningPassword = document.createElement('p');
-warningEmail.setAttribute('class', 'warning-text');
-warningPassword.setAttribute('class', 'warning-text');
+export const checkEmail = (value) => {
+    const regex = new RegExp('[a-zA-Z0-9]+@[a-z]+\.[a-z]{2,3}');
+    if(value === '') return 0;
+    if(!regex.test(value)) return 1;
+    return 2;
+}
 
-const emailFocusOut = (e) => {
-    const regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+export const checkPassword = (value) => {
+    if(value === '') return 0;
+    return 2;
+}
 
-    if(e.target.value == '') {
-        warningEmail.textContent ='이메일을 입력해주세요';
-        email.appendChild(warningEmail);
-        emailInput.classList.add('warning-input');
-    }
-
-    else if(!regex.test(e.target.value)) {
-        warningEmail.textContent ='올바른 이메일 주소가 아닙니다.';
-        email.appendChild(warningEmail);
-        emailInput.classList.add('warning-input');
+export const visiblePassword = (target) => {
+    const el = target.parentNode.querySelector('#password-input');
+    const flag = JSON.parse(el.getAttribute('visible'));
+    if(flag) {
+        el.setAttribute('visible', 'false');
+        target.src = '../images/eye-off.png';
+        el.type = 'password';
     }
     else {
-        if(email.querySelector('.warning-text'))email.removeChild(warningEmail);
-        emailInput.classList.remove('warning-input');
+        el.setAttribute('visible', 'true');
+        target.src = '../images/eye-on.png';
+        el.type = 'text';
     }
 }
-
-const emailFocusIn = () => {
-    if(email.querySelector('.warning-text')) email.removeChild(warningEmail);
-}
-
-const passwordFocusOut = (e) => {
-    if(e.target.value == '') {
-        warningPassword.textContent = '비밀번호를 입력해주세요.';
-        password.appendChild(warningPassword);
-        passwordInput.classList.add('warning-input');
-    }
-    else passwordInput.classList.remove('warning-input');
-}
-
-const passwordFocusIn = () => {
-    if(password.querySelector('.warning-text')) password.removeChild(warningPassword);
-}
-
-emailInput.addEventListener('focusout', emailFocusOut);
-emailInput.addEventListener('focusin', emailFocusIn);
-passwordInput.addEventListener('focusout', passwordFocusOut);
-passwordInput.addEventListener('focusin', passwordFocusIn);

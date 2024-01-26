@@ -70,9 +70,9 @@ section label .eyes {
     position: absolute;
     width: 16px;
     height: 14px;
+    top: 50px;
     right: 16px;
     background-color: transparent;
-    border: 0;
 }
 
 section .warning-input {
@@ -80,11 +80,13 @@ section .warning-input {
 }
 
 section .warning-text {
+    margin: -10px 0;
     font-family: 'Pretendard', 'Noto Sans';
     font-weight: 400;
     font-size: 14px;
     color: #FF5B56;
     margin-top: 6px;
+    visibility: hidden;
 }
 
 .signin-tag {
