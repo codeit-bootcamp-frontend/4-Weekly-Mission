@@ -1,4 +1,4 @@
-import { isVaildEmail } from "../utils/isVaildEmail";
+import { emailRegex, isVaildEmail } from "../utils/isValidEmail.js";
 
 // 이메일, 비밀번호 input 선택
 const emailInputBox = document.querySelector("#email-inputbox");
@@ -19,7 +19,7 @@ function checkEmail(event) {
     // 공백일 경우
     errorMessage.innerHTML = "이메일을 입력해주세요.";
     emailInputBox.classList.add("error-box");
-  } else if (emailRegex.test(emailValue)) {
+  } else if (isVaildEmail(emailValue)) {
     // 유효한 경우, .error-box 클래스 제거
     errorMessage.innerHTML = "";
     emailInputBox.classList.remove("error-box");
