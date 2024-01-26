@@ -3,7 +3,6 @@ import * as common from "./common_login.js";
 import { emailCheck, passwordCheck } from "../validation.js"; 
 import { inputDeleteNode } from "../node.js";
 import { emailInput, pwdInput, pwdInput2, signinBtn, pwdEyeIcon, pwdEyeIcon2, pwdDiv2} from "../declaration.js";
-import { emailCheck } from "../validation.js";
 
 let emailVal = "", pwdVal = "", pwdVal2 = "";
 
@@ -12,12 +11,10 @@ function isMatch (password1, password2) {
   return password1 === password2;
 }
 
-// 이메일 중복 노드 추가 함수
+// 비밀번호 재확인 함수
 function addinUseError() {
-  console.log(pwdDiv2)
   let newNode = document.createElement('div');
   newNode.innerHTML = `<p>${ERROR_MESSAGE.password.recheck}</p>`;
-  newNode.classList.add("inUseEmail",'errorMsg');
   pwdInput2.setAttribute('status','error');
   pwdDiv2.children[2] ? pwdDiv2.children[2].remove() : null;
   pwdDiv2.append(newNode);
@@ -25,9 +22,7 @@ function addinUseError() {
 
 // 회원가입 시도 함수
 function trySignin(email,password) {
-  if(email === "test@codeit.com") {
-    common.errorMsg('inUseEmail');
-  } else if (emailCheck(email)){
+  if (emailCheck(email)){
     signupBtn.parentElement.setAttribute('href',"/folder.html");
   }
 }
@@ -43,12 +38,20 @@ function passwordHandlerFuc(password) {
 
 // 이메일 input 핸들러
 function emailHandlerFunc(email) {
-  if(email) {
-    emailCheck(email) ? inputDeleteNode('email') : common.errorMsg("wrongEmail")
-  } else {
-    common.errorMsg("NoEmail");
-  }
+  email ? (
+    checkEmailDupli(email) ? 
+      emailCheck(email) ? inputDeleteNode('email') : common.errorMsg("wrongEmail")
+    : common.errorMsg("inUseEmail")
+  ) : common.errorMsg("NoEmail")
   emailVal = email; 
+}
+
+//이메일 중복 확인 함수
+function checkEmailDupli(email) {
+  if(email === "test@code.com") {
+    return false;
+  }
+  return true;
 }
 
 // enter키 입력으로 회원가입 실행 
