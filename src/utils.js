@@ -1,6 +1,8 @@
 const SIGN_INPUT_ERROR_CLASSNAME = "sign-input-error";
 const ERROR_MESSAGE_CLASSNAME = "error-message-on";
 const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const isNumberOnly = /^\d+$/.test(password);
+const isAlphabeticOnly = /^[a-zA-Z]+$/.test(password);
 
 export function setInputError(elements, message) {
   elements.input.className += ` ${SIGN_INPUT_ERROR_CLASSNAME}`;
@@ -32,3 +34,15 @@ export const TEST_USER = {
   email: "test@codeit.com",
   password: "codeit101",
 };
+
+export function checkingPassword (password1, password2) {
+  return password1 === password2 ? true : false;
+}
+
+export function checkPasswordType(password) {
+  if (isNumberOnly || isAlphabeticOnly) {
+    return true;
+  } else {
+    return false;
+  }
+}
