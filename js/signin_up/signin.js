@@ -2,10 +2,8 @@ import {ERROR_MESSAGE } from "../../constant.js";
 import * as common from "./common_login.js";
 import { emailCheck, passwordCheck } from "../validation.js"; 
 import { inputDeleteNode } from "../node.js";
-import { emailDiv, emailInput, pwdInput, pwdInput2, signinBtn, pwdEyeIcon} from "../declaration.js";
-
-const pwdDiv2 = document.querySelector('#password-check');
-const pwdEyeIcon2 = document.querySelector('.PwdEyeIcon2');
+import { emailInput, pwdInput, pwdInput2, signinBtn, pwdEyeIcon, pwdEyeIcon2, pwdDiv2} from "../declaration.js";
+import { emailCheck } from "../validation.js";
 
 let emailVal = "", pwdVal = "", pwdVal2 = "";
 
@@ -28,10 +26,9 @@ function addinUseError() {
 // 회원가입 시도 함수
 function trySignin(email,password) {
   if(email === "test@codeit.com") {
-    // signinBtn.parentElement.setAttribute('href',"/folder.html");
     common.errorMsg('inUseEmail');
-  } else {
-    common.errorMsg("Other"); 
+  } else if (emailCheck(email)){
+    signupBtn.parentElement.setAttribute('href',"/folder.html");
   }
 }
 

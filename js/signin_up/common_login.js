@@ -1,7 +1,6 @@
-import {ERROR_MESSAGE } from "../../constant.js";
-import { emailCheck, passwordCheck } from "../validation.js"; 
-import { inputAddNode, inputDeleteNode } from "../node.js";
-import { emailDiv, emailInput, pwdInput,  signinBtn, pwdEyeIcon} from "../declaration.js";
+import { ERROR_MESSAGE } from "../../constant.js";
+import { inputAddNode } from "../node.js";
+import { pwdInput, pwdEyeIcon} from "../declaration.js";
 
 
 // 에러 메세지 출력 함수
@@ -33,12 +32,11 @@ export function errorMsg(errorCase) {
 
 // password input 눈모양 클릭 실행 함수
 export function EyePwd(EyeStatus) {
-  if(EyeStatus.classList.contains('off')) {
-    pwdEyeIcon.setAttribute('src',"assets/icons/eye-off.png");
-    pwdInput.setAttribute('type', 'password');
-
-  } else {
-    pwdEyeIcon.setAttribute('src',"assets/icons/eye-on.png");
-    pwdInput.setAttribute('type', 'text');
-  }
+  EyeStatus.classList.contains('off') ? (
+    pwdEyeIcon.setAttribute('src',"assets/icons/eye-off.png"),
+    pwdInput.setAttribute('type', 'password')
+  ):(
+    pwdEyeIcon.setAttribute('src',"assets/icons/eye-on.png"),
+    pwdInput.setAttribute('type', 'text')
+  )
 }

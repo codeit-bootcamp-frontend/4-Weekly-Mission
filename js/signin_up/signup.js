@@ -1,7 +1,7 @@
 import * as common from "./common_login.js";
 import { emailCheck } from "../validation.js"; 
-import { inputAddNode, inputDeleteNode } from "../node.js";
-import { emailDiv, emailInput, pwdInput, signupBtn, pwdEyeIcon} from "../declaration.js";
+import { inputDeleteNode } from "../node.js";
+import { emailInput, pwdInput, signupBtn, pwdEyeIcon} from "../declaration.js";
 
 let emailVal = "", pwdVal = "";
 
