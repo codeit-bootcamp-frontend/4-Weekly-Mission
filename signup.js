@@ -1,6 +1,7 @@
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");
 const passwordCheck = document.getElementById("passwordCheck");
+const loginButton = document.getElementById("loginButton");
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
 
@@ -120,3 +121,44 @@ function handlePasswordCheck() {
 }
 
 passwordCheck.addEventListener("blur", handlePasswordCheck);
+
+// 회원가입 시도
+function signUp(event) {
+  event.preventDefault();
+
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
+  const passwordCheckValue = passwordCheck.value.trim();
+
+  const emailContainer = emailInput.parentElement;
+  const passwordContainer = passwordInput.parentElement;
+  const passwordCheckContainer = passwordCheck.parentElement;
+
+  const existingEmailMessage = emailContainer.querySelector(".empty-message");
+  const existingPasswordMessage =
+    passwordContainer.querySelector(".empty-message");
+  const existingPasswordCheckMessage =
+    passwordCheckContainer.querySelector(".empty-message");
+
+  // 에러 메시지가 하나라도 있으면 이동하지 않음
+  if (
+    existingEmailMessage ||
+    existingPasswordMessage ||
+    existingPasswordCheckMessage
+  ) {
+    return;
+  }
+
+  // 모든 유효성 검사 통과 시
+  window.location.href = "/folder.html";
+}
+
+// 로그인 버튼 클릭 시 signUp 함수 호출
+loginButton.addEventListener("click", signUp);
+
+// Enter 키 눌렀을 때 signUp 함수 호출
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    signUp(event);
+  }
+});
