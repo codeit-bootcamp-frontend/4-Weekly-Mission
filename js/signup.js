@@ -9,7 +9,7 @@ const eyeBtn = document.querySelector('#password-eye-button');
 const eyeBtnCheck = document.querySelector('#password-check-eye-button');
 const signupBtn = document.querySelector('#signup-button');
 
-const isVailed = [false, false, false];
+let isVailed = [false, false, false];
 
 const checkPasswordType = (value) => {
     const regex1 = new RegExp('^[0-9]*$');
