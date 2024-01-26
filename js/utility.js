@@ -54,15 +54,15 @@ function isEmailMatching(emailInputValue) {
 //비밀번호 양식 유효성 검사
 function isValidPasswordFormat(passwordInputValue) {
   //8자 미만인 경우
-  if (passwordString.length < 8) {
+  if (passwordInputValue.length < 8) {
     return false;
   }
   //숫자가 없는 경우
-  if (!/\d/.test(passwordString)) {
+  if (!/\d/.test(passwordInputValue)) {
     return false;
   }
   //영문이 없는 경우
-  if (!/[a-zA-Z]/.test(passwordString)) {
+  if (!/[a-zA-Z]/.test(passwordInputValue)) {
     return false;
   }
   return true;
