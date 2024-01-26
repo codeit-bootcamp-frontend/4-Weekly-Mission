@@ -65,16 +65,8 @@ function handlePasswordCheckFocusout(){
   passwordCheckError.classList.add('hidden')
 }
 
-function handleEmailFocusin(){
-  signEmailInput.classList.remove('red-border')
-}
-
-function handlePasswordFocusin(){
-  signPasswordInput.classList.remove('red-border')
-}
-
-function handlePasswordCheckFocusin(){
-  signPasswordCheckInput.classList.remove('red-border')
+function handleInputFocusin(inputElement) {
+  inputElement.classList.remove('red-border');
 }
 
 function handleLoginButton(){
@@ -114,11 +106,11 @@ function handlerEnter(){
 signUpButton.addEventListener('click', handleSigneUpButton)
 eyeImg.addEventListener('click', handleChangePasswordType)
 signEmailInput.addEventListener('focusout',handleEmailFocusout)
-signEmailInput.addEventListener('focusin',handleEmailFocusin)
+signEmailInput.addEventListener('focusin', () => handleInputFocusin(signEmailInput));
 signEmailInput.addEventListener('keyup',handlerEnter)
 signPasswordInput.addEventListener('keyup',handlerEnter)
 signPasswordInput.addEventListener('focusout', handlePasswordFocusout)
-signPasswordInput.addEventListener('focusin', handlePasswordFocusin)
+signPasswordInput.addEventListener('focusin', () => handleInputFocusin(signPasswordInput));
 signPasswordCheckInput.addEventListener('focusout', handlePasswordCheckFocusout)
-signPasswordCheckInput.addEventListener('focusin', handlePasswordCheckFocusin)
+signPasswordCheckInput.addEventListener('focusin', () => handleInputFocusin(signPasswordCheckInput));
 loginButton.addEventListener('click', handleLoginButton)
