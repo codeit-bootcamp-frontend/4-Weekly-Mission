@@ -4,7 +4,7 @@ const INPUT_PASSWORD = document.querySelector('#password');
 const FORM = document.querySelector('#login-form-box');
 
 PWD_VIEW.addEventListener('click', function () {
-    pwdSwitch(this);
+    passwordSwitch(this);
 });
 INPUT_EMAIL.addEventListener('focusin', function () {
     errorBoxDisable(this);
@@ -27,14 +27,14 @@ INPUT_PASSWORD.addEventListener('focusout', function () {
 });
 
 FORM.addEventListener('submit', function (e) {
-    let email = this.querySelector('#email');
-    let password = this.querySelector('#password');
+    const EMAIL = this['email'];
+    const PASSWORD = this['password'];
 
-    if (email.value === 'test@codeit.com' && password.value === 'codeit101') {
+    if (EMAIL.value === 'test@codeit.com' && PASSWORD.value === 'codeit101') {
         this.submit();
     } else {
         e.preventDefault();
-        errorBoxEnable(email, '이메일을 확인해 주세요.');
-        errorBoxEnable(password, '비밀번호를 확인해 주세요.');
+        errorBoxEnable(EMAIL, '이메일을 확인해 주세요.');
+        errorBoxEnable(PASSWORD, '비밀번호를 확인해 주세요.');
     }
 });

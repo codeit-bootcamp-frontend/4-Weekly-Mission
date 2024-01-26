@@ -18,12 +18,12 @@
                 <form action="" method="post">
                     <div class="input-box">
                         <label for="email">이메일</label>
-                        <input type="text" id="email" class="form-input" />
+                        <input type="text" name="email" id="email" class="form-input" />
                     </div>
                     <div class="error-text" data-target="email"></div>
                     <div class="input-box">
                         <label for="password">비밀번호</label>
-                        <input type="password" id="password" class="form-input" />
+                        <input type="password" name="password" id="password" class="form-input" />
                         <div class="icon-box pwd-view" data-check="password">
                             <img src="/images/eye-off.png" alt="off" data-onoff="off" />
                         </div>
@@ -31,7 +31,12 @@
                     <div class="error-text" data-target="password"></div>
                     <div class="input-box">
                         <label for="password-confirm">비밀번호 확인</label>
-                        <input type="password" id="password-confirm" class="form-input pwd-confirm" />
+                        <input
+                            type="password"
+                            name="password-confirm"
+                            id="password-confirm"
+                            class="form-input pwd-confirm"
+                        />
                         <div class="icon-box pwd-view" data-check="password-confirm">
                             <img src="/images/eye-off.png" alt="off" data-onoff="off" />
                         </div>

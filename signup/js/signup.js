@@ -3,7 +3,7 @@ const PWD_CHECK = document.querySelector('.pwd-confirm');
 
 PWD_VIEWS.forEach((target) => {
     target.addEventListener('click', () => {
-        pwdSwitch(target);
+        passwordSwitch(target);
     });
 });
 /*
