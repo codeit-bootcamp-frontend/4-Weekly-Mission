@@ -1,4 +1,4 @@
-@import "style.css";
+@import "/styles/style.css";
 
 nav {
   background-color: var(--Gray5);
@@ -195,8 +195,6 @@ footer {
   width: 20px;
   height: 20px;
 }
-
-/*signin*/
 
 @media (max-width: 1199px) {
   nav {
