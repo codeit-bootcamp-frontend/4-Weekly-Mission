@@ -1,3 +1,5 @@
+import { eye, eye_toggle } from '../modules/sign_toggle';
+
 const emailInput = document.querySelector('#email')
 const errorMessage = document.querySelector('.errorMsg')
 const pwInput = document.querySelector('#password')
@@ -5,7 +7,7 @@ const passwordCheck = document.querySelector('#passwordCheck')
 const errorPw = document.querySelector('.errorPw')
 const errorPwCheck = document.querySelector('.errorPwCheck')
 const form = document.querySelector('form')
-const eye = document.querySelector('.eye')
+// const eye = document.querySelector('.eye')
 const eyeCheck = document.querySelector('.eyeCheck')
 
 // 입력해주세요
@@ -70,11 +72,11 @@ function login(e) {
 }
 
 //눈사진toggle
-function eye_toggle(e) {
-  const IS_EYE_ON = e.target.getAttribute('src')=="../images/eye-off.svg"
-  e.target.setAttribute('src', IS_EYE_ON ? '../images/eye-on.svg' : '../images/eye-off.svg')
-  pwInput.setAttribute('type', IS_EYE_ON ? "" : 'password')
-}
+// function eye_toggle(e) {
+//   const IS_EYE_ON = e.target.getAttribute('src')=="../images/eye-off.svg"
+//   e.target.setAttribute('src', IS_EYE_ON ? '../images/eye-on.svg' : '../images/eye-off.svg')
+//   pwInput.setAttribute('type', IS_EYE_ON ? "" : 'password')
+// }
 function eyeCheck_toggle(e) {
   const IS_EYE_ON = e.target.getAttribute('src')=="../images/eye-off.svg"
   e.target.setAttribute('src', IS_EYE_ON ? '../images/eye-on.svg' : '../images/eye-off.svg')

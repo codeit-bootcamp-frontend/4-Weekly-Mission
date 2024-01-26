@@ -2,10 +2,8 @@ const emailInput = document.querySelector('#email')
 const errorMessage = document.querySelector('.errorMsg')
 const pwInput = document.querySelector('#password')
 const errorPw = document.querySelector('.errorPw')
-const button = document.querySelector('.btn')
 const form = document.querySelector('form')
-const eye = document.querySelector('.eye')
-const inputs = document.querySelectorAll('.signInput')
+// const eye = document.querySelector('.eye')
 
 // 입력해주세요
 function emailError(e) {
@@ -55,11 +53,11 @@ function login(e) {
 }
 
 //눈사진toggle
-function eye_toggle(e) {
-  const IS_EYE_ON = e.target.getAttribute('src')=="../images/eye-off.svg"
-  e.target.setAttribute('src', IS_EYE_ON ? '../images/eye-on.svg' : '../images/eye-off.svg')
-  pwInput.setAttribute('type', IS_EYE_ON ? "" : 'password')
-}
+// function eye_toggle(e) {
+//   const IS_EYE_ON = e.target.getAttribute('src')=="../images/eye-off.svg"
+//   e.target.setAttribute('src', IS_EYE_ON ? '../images/eye-on.svg' : '../images/eye-off.svg')
+//   pwInput.setAttribute('type', IS_EYE_ON ? "" : 'password')
+// }
 
 emailInput.addEventListener('focusout', emailError)
 pwInput.addEventListener('focusout', pwError)
