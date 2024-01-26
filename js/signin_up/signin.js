@@ -1,15 +1,10 @@
 import {ERROR_MESSAGE } from "../../constant.js";
 import * as common from "./common_login.js";
-import { emailCheck, passwordCheck } from "../validation.js"; 
+import { emailCheck, passwordCheck, isMatch, checkEmailDupli } from "../validation.js"; 
 import { inputDeleteNode } from "../node.js";
 import { emailInput, pwdInput, pwdInput2, signinBtn, pwdEyeIcon, pwdEyeIcon2, pwdDiv2} from "../declaration.js";
 
 let emailVal = "", pwdVal = "", pwdVal2 = "";
-
-// 이메일 중복 확인 함수
-function isMatch (password1, password2) {
-  return password1 === password2;
-}
 
 // 비밀번호 재확인 함수
 function addinUseError() {
@@ -44,14 +39,6 @@ function emailHandlerFunc(email) {
     : common.errorMsg("inUseEmail")
   ) : common.errorMsg("NoEmail")
   emailVal = email; 
-}
-
-//이메일 중복 확인 함수
-function checkEmailDupli(email) {
-  if(email === "test@code.com") {
-    return false;
-  }
-  return true;
 }
 
 // enter키 입력으로 회원가입 실행 
