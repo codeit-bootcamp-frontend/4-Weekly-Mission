@@ -1,12 +1,13 @@
-import { emailRegex, getNewMessageElement, toggleEye } from "./utils.js";
+import {
+  emailRegex,
+  emailValidChk,
+  getNewMessageElement,
+  toggleEye,
+} from "./utils.js";
 
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");
 const loginButton = document.getElementById("loginButton");
-
-function emailValidChk(email) {
-  return emailRegex.test(email);
-}
 
 function handleBlur(input, message) {
   const messageContainer = input.parentElement;
