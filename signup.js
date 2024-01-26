@@ -49,6 +49,13 @@ function handleBlur(input, message) {
       messageContainer.appendChild(message);
       input.classList.add("empty-input");
     }
+    // 이메일 중복 확인 조건을 수행하고 그에 따라 에러 메시지 추가
+    if (input === emailInput && input.value === "test@codeit.com") {
+      const duplicateEmailMessage =
+        createMessage("이미 사용 중인 이메일입니다.");
+      messageContainer.appendChild(duplicateEmailMessage);
+      input.classList.add("empty-input");
+    }
   }
 }
 
