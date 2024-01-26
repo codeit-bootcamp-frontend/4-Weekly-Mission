@@ -1,3 +1,9 @@
+import {
+  createErrorSpanElement2,
+  removeErrorElement,
+  errorMessageInElement,
+} from "../src/element.js";
+
 let email = document.querySelector(".input-email");
 let password = document.querySelector(".input-password");
 let loginButton = document.querySelector(".button-login");
@@ -29,11 +35,14 @@ function printErrorMessage(place, errorSentence) {
 }
 
 function noInputFocusOut() {
-  resetElement(".input-form-email", ".errorMessage-email");
+  //resetElement(".input-form-email", ".errorMessage-email");
+  removeErrorElement(".input-form-email");
 
   if (email.value.trim() === "") {
-    createErrorSpanElement(".input-form-email", "errorMessage-email");
-    printErrorMessage(".errorMessage-email", "이메일을 입력해 주세요");
+    //createErrorSpanElement(".input-form-email", "errorMessage-email");
+    createErrorSpanElement2(".input-form-email");
+    //printErrorMessage(".errorMessage-email", "이메일을 입력해 주세요");
+    errorMessageInElement(".input-form-email", "이메일을 입력해 주세요");
   }
 }
 
