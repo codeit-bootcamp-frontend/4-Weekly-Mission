@@ -18,12 +18,12 @@ function passwordCheck(password) {
   }
 }
 
-// 이메일 중복 확인 함수
+// 비밀번호 중복 확인
 export function isMatch (password1, password2) {
   return password1 === password2;
 }
 
-//이메일 중복 확인 함수
+//이메일 중복 확인ㅇ
 export function checkEmailDupli(email) {
   if(email === "test@code.com") {
     return false;

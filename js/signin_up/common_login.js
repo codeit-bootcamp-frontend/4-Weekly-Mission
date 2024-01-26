@@ -16,6 +16,7 @@ export function errorMsg(errorCase) {
       break;
     case "inUseEmail":
       inputAddNode('email', ERROR_MESSAGE.email.inUse, errorCase);
+      break;
     case "NoPwd" :
       inputAddNode('password', ERROR_MESSAGE.password.empty, errorCase);
       break;
