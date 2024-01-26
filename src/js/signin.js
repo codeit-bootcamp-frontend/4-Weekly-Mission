@@ -1,3 +1,17 @@
+import {
+  CHECK_EMPTY_INPUT,
+  EMPTY_MESSAGE,
+  ERROR_MESSAGE_EMPTY_EMAIL,
+  ERROR_MESSAGE_EMPTY_PASSWORD,
+  ERROR_MESSAGE_INVALID_EMAIL,
+  ERROR_MESSAGE_SPAN,
+  ERROR_MESSAGE_WRONG_EMAIL,
+  ERROR_MESSAGE_WRONG_PASSWORD,
+  REGEX_EMAIL,
+  TEST_USER_EMAIL,
+  TEST_USER_PASSWORD,
+} from "./constant.js";
+
 const inputEmail = document.querySelector("#email");
 const inputPassword = document.querySelector("#password");
 const btnSigninSubmit = document.querySelector("#btn_signin_submit");
@@ -5,66 +19,54 @@ const form = document.querySelector("form");
 
 const btnEye = document.querySelector(".btn_eye");
 
-const correctEmail = "test@codeit.com";
-const correctPassword = "codeit101";
-
 const checkEmailIsValid = (e) => {
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  const errorMessage = e.target.parentElement.querySelector(".error_message");
+  const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
 
-  let isValid = false;
-
-  if (e.target.value === "") {
-    errorMessage.textContent = "이메일을 입력해 주세요.";
+  if (CHECK_EMPTY_INPUT(e.target)) {
+    errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_EMAIL;
     e.target.classList.add("error_input");
-  } else if (!emailRegex.test(e.target.value)) {
-    errorMessage.textContent = "올바른 이메일 주소가 아닙니다.";
+  } else if (!REGEX_EMAIL.test(e.target.value)) {
+    errorMessageSpan.textContent = ERROR_MESSAGE_INVALID_EMAIL;
     e.target.classList.add("error_input");
   } else {
-    errorMessage.textContent = "";
+    errorMessageSpan.textContent = EMPTY_MESSAGE;
     e.target.classList.remove("error_input");
-    isValid = true;
   }
-  return isValid;
 };
 
 const checkPasswordIsValid = (e) => {
-  const errorMessage = e.target.parentElement.querySelector(".error_message");
-  let isValid = false;
-  if (e.target.value === "") {
-    errorMessage.textContent = "비밀번호를 입력해 주세요.";
+  const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
+  const iconEye = e.target.parentElement.querySelector(".btn_eye");
+
+  if (CHECK_EMPTY_INPUT(e.target)) {
+    errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_PASSWORD;
     e.target.classList.add("error_input");
-    e.target.nextElementSibling.classList.add("large_bottom");
+    iconEye.classList.add("large_bottom");
   } else {
-    errorMessage.textContent = "";
+    errorMessageSpan.textContent = EMPTY_MESSAGE;
     e.target.classList.remove("error_input");
-    e.target.nextElementSibling.classList.remove("large_bottom");
-    isValid = true;
+    iconEye.classList.remove("large_bottom");
   }
-  return isValid;
 };
 
 const compareEmail = () => {
-  const errorMessage = inputEmail.parentElement.querySelector(".error_message");
-  if (inputEmail.value !== correctEmail) {
-    errorMessage.textContent = "이메일을 확인해 주세요.";
+  const errorMessageSpan = ERROR_MESSAGE_SPAN(inputEmail);
+  if (inputEmail.value !== TEST_USER_EMAIL) {
+    errorMessageSpan.textContent = ERROR_MESSAGE_WRONG_EMAIL;
     inputEmail.classList.add("error_input");
   }
-  return inputEmail.value === correctEmail;
+  return inputEmail.value === TEST_USER_EMAIL;
 };
 
 const comparePassword = () => {
-  const errorMessage =
-    inputPassword.parentElement.querySelector(".error_message");
-  const icon_eye = inputPassword.parentElement.querySelector(
-    ".icon_view_password",
-  );
-  if (inputPassword.value !== correctPassword) {
-    errorMessage.textContent = "비밀번호를 확인해 주세요.";
+  const errorMessageSpan = ERROR_MESSAGE_SPAN(inputPassword);
+  const iconEye = inputPassword.parentElement.querySelector(".btn_eye");
+  if (inputPassword.value !== TEST_USER_PASSWORD) {
+    errorMessageSpan.textContent = ERROR_MESSAGE_WRONG_PASSWORD;
     inputPassword.classList.add("error_input");
-    icon_eye.classList.add("large_bottom");
+    iconEye.classList.add("large_bottom");
   }
-  return inputPassword.value === correctPassword;
+  return inputPassword.value === TEST_USER_PASSWORD;
 };
 
 const compareUser = (e) => {
