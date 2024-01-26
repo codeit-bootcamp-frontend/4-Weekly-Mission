@@ -16,13 +16,13 @@ const checkEmailIsValid = (e) => {
 
   if (e.target.value === "") {
     errorMessage.textContent = "이메일을 입력해 주세요.";
-    e.target.classList.add("error_box");
+    e.target.classList.add("error_input");
   } else if (!emailRegex.test(e.target.value)) {
     errorMessage.textContent = "올바른 이메일 주소가 아닙니다.";
-    e.target.classList.add("error_box");
+    e.target.classList.add("error_input");
   } else {
     errorMessage.textContent = "";
-    e.target.classList.remove("error_box");
+    e.target.classList.remove("error_input");
     isValid = true;
   }
   return isValid;
@@ -33,11 +33,11 @@ const checkPasswordIsValid = (e) => {
   let isValid = false;
   if (e.target.value === "") {
     errorMessage.textContent = "비밀번호를 입력해 주세요.";
-    e.target.classList.add("error_box");
+    e.target.classList.add("error_input");
     e.target.nextElementSibling.classList.add("large_bottom");
   } else {
     errorMessage.textContent = "";
-    e.target.classList.remove("error_box");
+    e.target.classList.remove("error_input");
     e.target.nextElementSibling.classList.remove("large_bottom");
     isValid = true;
   }
@@ -47,7 +47,7 @@ const checkPasswordIsValid = (e) => {
 const compareEmail = () => {
   if (inputEmail.value !== correctEmail) {
     inputEmail.nextElementSibling.textContent = "이메일을 확인해 주세요.";
-    inputEmail.classList.add("error_box");
+    inputEmail.classList.add("error_input");
   }
   return inputEmail.value === correctEmail;
 };
@@ -56,7 +56,7 @@ const comparePassword = () => {
   if (inputPassword.value !== correctPassword) {
     inputPassword.nextElementSibling.nextElementSibling.textContent =
       "비밀번호를 확인해 주세요.";
-    inputPassword.classList.add("error_box");
+    inputPassword.classList.add("error_input");
     inputPassword.nextElementSibling.classList.add("large_bottom");
   }
   return inputPassword.value === correctPassword;

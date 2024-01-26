@@ -62,7 +62,7 @@ a {
     text-align: left;
 }
 
-.input {
+.input_group {
     display: flex;
     flex-direction: column;
 
@@ -71,7 +71,7 @@ a {
     position: relative;
 }
 
-.input:focus {
+.input_group:focus {
     border-color: var(--color-primary);
 }
 
@@ -123,7 +123,7 @@ button.btn_eye.large_bottom {
     gap: 16px;
 }
 
-.error_box {
+.error_input {
     border: 1px solid var(--color-red);
 }
 
