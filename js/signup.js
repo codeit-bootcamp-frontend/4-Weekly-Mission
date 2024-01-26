@@ -4,6 +4,7 @@ import {
   checkEmail,
   checkPassword,
   visiblePassword,
+  InputFocusEvent,
 } from "/js/login.js";
 
 const emailInput = document.querySelector("#email-input");
@@ -109,10 +110,12 @@ const signupBtnEnter = (e) => {
   }
 };
 
-emailInput.addEventListener("focusout", () => emailInputFocustOut(emailInput));
-emailInput.addEventListener("focusin", emailInputFocustIn);
-password.addEventListener("focusout", (e) => passwordInputFocusOut(e.target));
-password.addEventListener("focusin", (e) => passwordInputFocustIn(e.target));
+InputFocusEvent(emailInput, emailInputFocustIn, emailInputFocustOut);
+InputFocusEvent(
+  password,
+  (e) => passwordInputFocustIn(e.target),
+  (e) => passwordInputFocusOut(e.target),
+);
 eyeBtn.addEventListener("click", () => eyeBtnOnclick(eyeBtn));
 eyeBtnCheck.addEventListener("click", () => eyeBtnOnclick(eyeBtnCheck));
 signupBtn.addEventListener("click", signupBtnOnclick);

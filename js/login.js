@@ -36,3 +36,8 @@ export const visiblePassword = (target) => {
     el.type = "text";
   }
 };
+
+export const InputFocusEvent = (target, focusIn, focusOut) => {
+  target.addEventListener("focusin", focusIn);
+  target.addEventListener("focusout", focusOut);
+};
