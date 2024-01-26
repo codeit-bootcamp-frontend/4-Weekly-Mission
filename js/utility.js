@@ -88,11 +88,11 @@ function hideError(input, errorElement) {
 }
 
 //유효한 유저 정보 반환
-function getUserByLoginInfo(emailInputValue, passwordInputValue) {
-  if (!isEmailMatching(emailInputValue)) {
+function getUserByLoginInfo({ email, password }) {
+  if (!isEmailMatching(email)) {
     return null;
   }
-  if (!isPasswordMatching(passwordInputValue)) {
+  if (!isPasswordMatching(password)) {
     return null;
   }
   return VALID_USER;
@@ -100,7 +100,7 @@ function getUserByLoginInfo(emailInputValue, passwordInputValue) {
 
 //로그인 유효성 검사
 function isValidUser(emailInputValue, passwordInputValue) {
-  return getUserByLoginInfo(emailInputValue, passwordInputValue);
+  return getUserByLoginInfo({ emailInputValue, passwordInputValue });
 }
 
 //회원가입 유효성 검사
