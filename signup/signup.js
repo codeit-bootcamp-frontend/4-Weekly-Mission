@@ -1,45 +1,45 @@
 const emailInput = document.querySelector('#email')
-const errorM = document.querySelector('.errorM')
+const errorMessage = document.querySelector('.errorM')
 const pwInput = document.querySelector('#password')
 const passwordCheck = document.querySelector('#passwordCheck')
-const errorP = document.querySelector('.errorP')
-const errorPCheck = document.querySelector('.errorPCheck')
+const errorPw = document.querySelector('.errorP')
+const errorPwCheck = document.querySelector('.errorPCheck')
 const form = document.querySelector('form')
 const eye = document.querySelector('.eye')
 const eyeCheck = document.querySelector('.eyeCheck')
 
 // 입력해주세요
 function emailError(e) {
-  console.log('focusout')
-  // 왜 e.target.value=''하면 적용이 안되는지ㅠ
   if(!e.target.value.trim()) {
-    errorM.textContent = '이메일을 입력해 주세요.'
+    errorMessage.textContent = '이메일을 입력해 주세요.'
+  } else if(e.target.value=="test@codeit.com") {
+    errorMessage.textContent = '이미 사용 중인 이메일입니다.'
   } else{
-    errorM.textContent=''
+    errorMessage.textContent=''
   }
 }
 function pwError(e) {
   if(!e.target.value.trim()) {
-    errorP.textContent = '비밀번호를 입력해 주세요.'
+    errorPw.textContent = '비밀번호를 입력해 주세요.'
   } else{
-    errorP.textContent=''
+    errorPw.textContent=''
   }
 }
 function pwErrorCheck(e) {
   if(pwInput.value!==passwordCheck.value) {
-    errorPCheck.textContent = '비밀번호가 다릅니다.'
+    errorPwCheck.textContent = '비밀번호가 다릅니다.'
   } else{
-    errorPCheck.textContent=''
+    errorPwCheck.textContent=''
   }
 }
 
 // 올바른 이메일 주소가 아닙니다
 function emailCheck(e) {
   let e_style = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
-  if(!e_style.test(e.target.value)) {
-    errorM.textContent = '올바른 이메일 주소가 아닙니다.'
+  if(e.target.value.trim() && !e_style.test(e.target.value)) {
+    errorMessage.textContent = '올바른 이메일 주소가 아닙니다.'
   } else{
-    errorM.content=''
+    errorMessage.content=''
   }
 }
 
@@ -48,8 +48,8 @@ function login(e) {
   if(emailInput.value=="test@codeit.com" && pwInput.value=="codeit101") {
     return true
   } else if(emailInput.value!=="test@codeit.com" || pwInput.value!=="codeit101"){
-    errorM.textContent = '이메일을 확인해 주세요.'
-    errorP.textContent = '비밀번호를 확인해 주세요.'
+    errorMessage.textContent = '이메일을 확인해 주세요.'
+    errorPw.textContent = '비밀번호를 확인해 주세요.'
     return false
   }
 }
