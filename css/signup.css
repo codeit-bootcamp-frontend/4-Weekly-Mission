@@ -79,7 +79,8 @@ body {
 }
 
 .email-input,
-.password-input {
+.password-input,
+.password-check-input {
   width: 100%;
   padding: 1.8rem 1.5rem;
   border-radius: 0.8rem;
@@ -89,7 +90,8 @@ body {
 }
 
 .email-input:focus,
-.password-input:focus {
+.password-input:focus,
+.password-check-input:focus {
   border-color: var(--primary)
 }
 
