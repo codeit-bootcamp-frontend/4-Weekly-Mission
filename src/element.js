@@ -53,3 +53,13 @@ export class Error {
     errorElement.textContent = errorSentence;
   }
 }
+
+export function errorBorder(inputSlectorName) {
+  let inputElement = document.querySelector(inputSlectorName);
+  inputElement.style.outline = "1px solid red";
+}
+
+export function removeBorder(inputSlectorName) {
+  let inputElement = document.querySelector(inputSlectorName);
+  inputElement.style.outline = "none";
+}

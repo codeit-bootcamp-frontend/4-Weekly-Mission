@@ -1,6 +1,8 @@
 import {
   Error,
   resetErrorElement,
+  errorBorder,
+  removeBorder
 } from "../src/element.js";
 
 const error = new Error(true);
@@ -12,34 +14,24 @@ let loginButton = document.querySelector(".button-signup");
 let passwordIcon = document.querySelector(".password-icon");
 let passwordConfimIcon = document.querySelector(".password-confirm-icon");
 
-function styleErrorBorder(inputSlectorName) {
-  let inputElement = document.querySelector(inputSlectorName);
-  inputElement.style.outline = "1px solid red";
-}
-
-function removeBorderStyle(inputSlectorName) {
-  let inputElement = document.querySelector(inputSlectorName);
-  inputElement.style.outline = "none";
-}
-
 function noInputFocusOut() {
   error.removeErrorElement(".input-form-email");
-  removeBorderStyle(".input-email");
+  removeBorder(".input-email");
 
   if (email.value.trim() === "") {
     error.createErrorSpanElement(".input-form-email");
-    styleErrorBorder(".input-email")
+    errorBorder(".input-email")
     error.errorMessageInElement(".input-form-email", "이메일을 입력해 주세요");
   }
 }
 
 function noInputFocusOutPassword() {
   error.removeErrorElement(".input-form-password");
-  removeBorderStyle(".input-password");
+  removeBorder(".input-password");
 
   if (password.value.trim() === "") {
     error.createErrorSpanElement(".input-form-password");
-    styleErrorBorder(".input-password");
+    errorBorder(".input-password");
     error.errorMessageInElement(".input-form-password", "비밀번호를 입력해 주세요");
   }
 }
@@ -52,19 +44,19 @@ function notValidEmailInput() {
   }
 
   error.removeErrorElement(".input-form-email");
-  removeBorderStyle(".input-email");
+  removeBorder(".input-email");
   
   if (emailRegex.test(email.value)) {
     return
   } else {
     error.createErrorSpanElement(".input-form-email");
-    styleErrorBorder(".input-email");
+    errorBorder(".input-email");
     error.errorMessageInElement(".input-form-email", "올바른 이메일 주소가 아닙니다");
   }
 }
 
 function focusIn(parentElementSlectorName, inputSlectorName) {
-  removeBorderStyle(inputSlectorName);
+  removeBorder(inputSlectorName);
   resetErrorElement(parentElementSlectorName);
 }
 
@@ -90,27 +82,27 @@ function notPasswordFormat() {
 
   if (passwordFormat.length < 8 || /^[a-zA-Z]+$/.test(passwordFormat) || /^[0-9]+$/.test(passwordFormat)) {
     error.createErrorSpanElement(".input-form-password");
-    styleErrorBorder(".input-password");
+    errorBorder(".input-password");
     error.errorMessageInElement(".input-form-password", "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요");
   }
 }
 
 function loginFail() {
   error.removeErrorElement(".input-form-email");
-  removeBorderStyle(".input-email");
+  removeBorder(".input-email");
 
   error.createErrorSpanElement(".input-form-email");
-  styleErrorBorder(".input-email");
+  errorBorder(".input-email");
   error.errorMessageInElement(".input-form-email", "이미 사용 중인 이메일 입니다");
 }
 
 function passwordisNotEqual() {
   error.removeErrorElement(".input-form-password-confirm");
-  removeBorderStyle(".input-password-confirm");
+  removeBorder(".input-password-confirm");
 
   if (password.value !== passwordConfirm.value) {
     error.createErrorSpanElement(".input-form-password-confirm");
-    styleErrorBorder(".input-password-confirm");
+    errorBorder(".input-password-confirm");
     error.errorMessageInElement(".input-form-password-confirm", "비밀번호가 일치하지 않아요");
   }
 }
