@@ -1,5 +1,6 @@
 import {
-  Error
+  Error,
+  resetErrorElement,
 } from "../src/element.js";
 
 const error = new Error(true);
@@ -63,12 +64,9 @@ function notValidEmailInput() {
   }
 }
 
-function focusIn(inputElementSelectorName, place) {
-  let errorMessage = document.querySelector(place); 
-  if (errorMessage) {
-    removeBorderStyle(inputElementSelectorName);
-    errorMessage.remove();
-  }
+function focusIn(parentElementSlectorName, inputSlectorName) {
+  removeBorderStyle(inputSlectorName);
+  resetErrorElement(parentElementSlectorName);
 }
 
 function pressEnterForFolderPage(e) {
@@ -148,9 +146,9 @@ email.addEventListener("focusout", aleadyUse);
 password.addEventListener("focusout", noInputFocusOutPassword);
 password.addEventListener("focusout", notPasswordFormat);
 email.addEventListener("input", notValidEmailInput);
-//email.addEventListener("focusin", () => focusIn(".input-email" ,".errorMessage-email"));
-//password.addEventListener("focusin", () => focusIn(".input-password", ".errorMessage"));
-//passwordConfirm.addEventListener("focusin", () => focusIn(".input-password-confirm" ,".errorMessage-confirm"));
+email.addEventListener("focusin", () => focusIn(".input-form-email", ".input-email"));
+password.addEventListener("focusin", () => focusIn(".input-form-password", ".input-password"));
+passwordConfirm.addEventListener("focusin", () => focusIn(".input-form-password-confirm", ".input-password-confirm"));
 passwordConfirm.addEventListener("change", passwordisNotEqual);
 loginButton.addEventListener("click", signupCheck);
 passwordConfirm.addEventListener("keydown", pressEnterForFolderPage);

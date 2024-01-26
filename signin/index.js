@@ -1,9 +1,9 @@
 import {
   Error,
-  createErrorSpanElement,
-  removeErrorElement,
-  errorMessageInElement,
+  resetErrorElement,
 } from "../src/element.js";
+
+const error = new Error(true);
 
 let email = document.querySelector(".input-email");
 let password = document.querySelector(".input-password");
@@ -21,24 +21,24 @@ function removeBorderStyle(inputSlectorName) {
 }
 
 function noInputFocusOut() {
-  removeErrorElement(".input-form-email");
+  error.removeErrorElement(".input-form-email");
   removeBorderStyle(".input-email");
 
   if (email.value.trim() === "") {
-    createErrorSpanElement(".input-form-email");
+    error.createErrorSpanElement(".input-form-email");
     styleErrorBorder(".input-email")
-    errorMessageInElement(".input-form-email", "이메일을 입력해 주세요");
+    error.errorMessageInElement(".input-form-email", "이메일을 입력해 주세요");
   }
 }
 
 function noInputFocusOutPassword() {
-  removeErrorElement(".input-form-password");
+  error.removeErrorElement(".input-form-password");
   removeBorderStyle(".input-password");
 
   if (password.value.trim() === "") {
-    createErrorSpanElement(".input-form-password");
+    error.createErrorSpanElement(".input-form-password");
     styleErrorBorder(".input-password");
-    errorMessageInElement(".input-form-password", "비밀번호를 입력해 주세요");
+    error.errorMessageInElement(".input-form-password", "비밀번호를 입력해 주세요");
   }
 }
 
@@ -49,21 +49,22 @@ function notValidEmailInput() {
     return;
   }
 
-  removeErrorElement(".input-form-email");
+  error.removeErrorElement(".input-form-email");
   removeBorderStyle(".input-email");
   
   if (emailRegex.test(email.value)) {
     console.log("Email")
     return
   } else {
-    createErrorSpanElement(".input-form-email");
+    error.createErrorSpanElement(".input-form-email");
     styleErrorBorder(".input-email");
-    errorMessageInElement(".input-form-email", "올바른 이메일 주소가 아닙니다");
+    error.errorMessageInElement(".input-form-email", "올바른 이메일 주소가 아닙니다");
   }
 }
 
-function focusIn(parentElementSlectorName) {
-  removeErrorElement(parentElementSlectorName)
+function focusIn(parentElementSlectorName, inputSlectorName) {
+  removeBorderStyle(inputSlectorName);
+  resetErrorElement(parentElementSlectorName)
 }
 
 function pressEnterForFolderPage(e) {
@@ -84,15 +85,15 @@ function folderPage() {
 }
 
 function loginFail() {
-  removeErrorElement(".input-form-email");
-  createErrorSpanElement(".input-form-email");
+  error.removeErrorElement(".input-form-email");
+  error.createErrorSpanElement(".input-form-email");
   styleErrorBorder(".input-email");
-  errorMessageInElement(".input-form-email", "이메일을 확인해 주세요");
+  error.errorMessageInElement(".input-form-email", "이메일을 확인해 주세요");
 
-  removeErrorElement(".input-form-password");
-  createErrorSpanElement(".input-form-password");
+  error.removeErrorElement(".input-form-password");
+  error.createErrorSpanElement(".input-form-password");
   styleErrorBorder(".input-password");
-  errorMessageInElement(".input-form-password", "비밀번호를 확인해 주세요");
+  error.errorMessageInElement(".input-form-password", "비밀번호를 확인해 주세요");
 }
 
 function togglePassword() {
@@ -108,8 +109,8 @@ function togglePassword() {
 email.addEventListener("focusout", noInputFocusOut);
 password.addEventListener("focusout", noInputFocusOutPassword);
 email.addEventListener("input", notValidEmailInput);
-//email.addEventListener("focusin", () => focusIn(".input-form-email"));
-//password.addEventListener("focusin", () => focusIn(".input-form-password"));
+email.addEventListener("focusin", () => focusIn(".input-form-email", ".input-email"));
+password.addEventListener("focusin", () => focusIn(".input-form-password", ".input-password"));
 loginButton.addEventListener("click", folderPage);
 password.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", togglePassword);
