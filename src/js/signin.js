@@ -54,6 +54,9 @@ const compareEmail = () => {
   if (inputEmail.value !== TEST_USER_EMAIL) {
     errorMessageSpan.textContent = ERROR_MESSAGE_WRONG_EMAIL;
     inputEmail.classList.add("error_input");
+  } else {
+    errorMessageSpan.textContent = EMPTY_MESSAGE;
+    inputEmail.classList.remove("error_input");
   }
   return inputEmail.value === TEST_USER_EMAIL;
 };
@@ -65,6 +68,10 @@ const comparePassword = () => {
     errorMessageSpan.textContent = ERROR_MESSAGE_WRONG_PASSWORD;
     inputPassword.classList.add("error_input");
     iconEye.classList.add("large_bottom");
+  } else {
+    errorMessageSpan.textContent = EMPTY_MESSAGE;
+    inputPassword.classList.remove("error_input");
+    iconEye.classList.remove("large_bottom");
   }
   return inputPassword.value === TEST_USER_PASSWORD;
 };
