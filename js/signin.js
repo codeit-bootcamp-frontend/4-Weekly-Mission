@@ -1,22 +1,20 @@
+import {
+  handleInputError,
+  handleInputSuccess,
+  validateEmail,
+  validatePassword,
+} from "../utils/validation.js";
+
 // 이메일 입력 이벤트 핸들러
 function handleEmailInput() {
   const emailInput = document.getElementById("email");
   const emailError = document.getElementById("emailError");
   const email = emailInput.value.trim();
-  const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
-  if (email === "") {
-    emailError.textContent = "이메일을 입력해 주세요.";
-    emailInput.classList.remove("sign-input");
-    emailInput.classList.add("sign-input-error");
-  } else if (!emailRegex.test(email)) {
-    emailError.textContent = "올바른 이메일 주소가 아닙니다.";
-    emailInput.classList.remove("sign-input");
-    emailInput.classList.add("sign-input-error");
+  if (!validateEmail(email, emailError)) {
+    handleInputError(emailInput);
   } else {
-    emailError.textContent = "";
-    emailInput.classList.remove("sign-input-error");
-    emailInput.classList.add("sign-input");
+    handleInputSuccess(emailInput);
   }
 }
 
@@ -26,14 +24,10 @@ function handlePasswordInput() {
   const passwordError = document.getElementById("passwordError");
   const password = passwordInput.value.trim();
 
-  if (password === "") {
-    passwordError.textContent = "비밀번호를 입력해주세요.";
-    passwordInput.classList.remove("sign-input");
-    passwordInput.classList.add("sign-input-error");
+  if (!validatePassword(password, passwordError)) {
+    handleInputError(passwordInput);
   } else {
-    passwordError.textContent = "";
-    passwordInput.classList.remove("sign-input-error");
-    passwordInput.classList.add("sign-input");
+    handleInputSuccess(passwordInput);
   }
 }
 
