@@ -9,6 +9,7 @@ import {
   errorMessage,
   handleEmailValidation,
   togglePasswordVisibility,
+  enterKey,
 } from "./modules/AuthUtils.js";
 
 const loginButton = document.querySelector(".login-button");
@@ -39,17 +40,13 @@ const redirectToFolderPage = () => {
   }
 };
 
-/* enter키 입력 시 로그인 실행 */
-const enterKey = (e) => {
-  if (e.keyCode == 13) {
-    redirectToFolderPage();
-  }
-};
-
 email.addEventListener("blur", handleEmailValidation);
 password.addEventListener("blur", handlePasswordValidation);
 loginButton.addEventListener("click", redirectToFolderPage);
-document.addEventListener("keypress", enterKey);
+// document.addEventListener("keypress", enterKey);
+document.addEventListener("keypress", (event) => {
+  enterKey(event, redirectToFolderPage);
+});
 eyeIcon.addEventListener("click", () => {
   togglePasswordVisibility(password, eyeIcon);
 });

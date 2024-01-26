@@ -11,6 +11,7 @@ import {
   errorMessage,
   handleEmailValidation,
   togglePasswordVisibility,
+  enterKey,
 } from "./modules/AuthUtils.js";
 
 const passwordRepeatError = document.querySelector(".passwordRepeat-error");
@@ -69,18 +70,14 @@ const redirectToFolderPage = () => {
   }
 };
 
-/* enter키 입력 시 회원가입 실행 */
-const enterKey = (e) => {
-  if (e.keyCode == 13) {
-    redirectToFolderPage();
-  }
-};
-
 email.addEventListener("blur", handleEmailUsedValidation);
 password.addEventListener("blur", handlePasswordFormatValidation);
 passwordRepeat.addEventListener("blur", handlePasswordMatchValidation);
 signUpButton.addEventListener("click", redirectToFolderPage);
-document.addEventListener("keypress", enterKey);
+// document.addEventListener("keypress", enterKey);
+document.addEventListener("keypress", (event) => {
+  enterKey(event, redirectToFolderPage);
+});
 eyeIcon.addEventListener("click", () => {
   togglePasswordVisibility(password, eyeIcon);
 });
