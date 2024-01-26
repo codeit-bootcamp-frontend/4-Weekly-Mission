@@ -1,15 +1,4 @@
-@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard-dynamic-subset.css');
-@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
-@import url('color.css');
-@import url('reset.css');
-
-html,
-body,
-main,
-header,
-footer {
-  min-width: 320px;
-}
+@import url("global.css");
 
 .container {
   display: flex;
@@ -17,10 +6,8 @@ footer {
   align-items: center;
 }
 
-header {
+.main-wrapper {
   width: 100%;
-  margin: 0 auto;
-  background-color: var(--Linkbrary-bg);
 }
 
 .gnb {
@@ -41,29 +28,31 @@ header {
   position: relative;
   width: 100%;
   max-width: 192rem;
+}
+
+.title-bgcolor-wrapper {
   background-color: var(--Linkbrary-bg);
 }
 
-.wrapper {
-  width: 100%;
-  max-width: 192rem;
-  margin: 0 auto;
-}
-
 .section-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   max-width: 192rem;
   margin: 0 auto;
   padding-top: 7rem;
 }
 
-.header-title {
+.title-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 4rem;
   padding-top: 15rem;
   text-align: center;
+  max-width: 192rem;
+  margin: 0 auto;
 }
 
 .title-description {
@@ -71,7 +60,7 @@ header {
   font-weight: 700;
   flex-shrink: 0;
   line-height: 8rem;
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
 
 .pinkToBlue {
@@ -99,9 +88,13 @@ header {
   background-clip: text;
 }
 
-.header-img {
+.title-img {
   border-radius: 2.5rem;
-  background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.68%, #F0F6FF 94.76%);
+  background: linear-gradient(
+    180deg,
+    rgba(196, 196, 196, 0) 67.68%,
+    #f0f6ff 94.76%
+  );
 }
 
 .login-btn,
@@ -129,28 +122,28 @@ header {
 
 .section {
   display: grid;
-  grid-template-areas: 
-    'image .'
-    'image title'
-    'image description'
-    'image .';
+  grid-template-areas:
+    "image ."
+    "image title"
+    "image description"
+    "image .";
   row-gap: 1rem;
   column-gap: 15.7rem;
   padding: 5rem 0;
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
 
 .section:nth-child(odd) {
   display: grid;
-  grid-template-areas: 
-    '. image'
-    'title image'
-    'description image'
-    '. image';
+  grid-template-areas:
+    ". image"
+    "title image"
+    "description image"
+    ". image";
   row-gap: 1rem;
   column-gap: 15.7rem;
   padding: 5rem 0;
-  white-space: pre-wrap;
+  white-space: pre-line;
 }
 
 .section-title {
@@ -163,12 +156,12 @@ header {
 
 .section-description {
   grid-area: description;
-  color: #6B6B6B;
+  color: #6b6b6b;
   font-size: 1.6rem;
   font-weight: 500;
 }
 
-.section-image {
+.section-img {
   grid-area: image;
 }
 
@@ -193,7 +186,7 @@ footer {
 }
 
 .policy-link {
-  color: #CFCFCF;
+  color: #cfcfcf;
 }
 
 .footer-sns {
@@ -202,7 +195,7 @@ footer {
 }
 
 /* Mobile */
-@media(min-width: 320px) and (max-width: 767px) {
+@media (max-width: 767px) {
   .gnb-wrapper {
     padding: 1.3rem 3.2rem;
   }
@@ -232,11 +225,15 @@ footer {
     padding-top: 8rem;
   }
 
+  .title-img {
+    width: calc(100vw - 6.4rem);
+  }
+
   .title-description {
     font-size: 3.2rem;
     line-height: 4.2rem;
   }
-  
+
   .wrapper {
     padding-left: 3.2rem;
     padding-right: 3.2rem;
@@ -248,11 +245,12 @@ footer {
 
   .section,
   .section:nth-child(odd) {
-    grid-template-areas: 
-    'title title'
-    'image image'
-    'image image'
-    'description description';
+    width: calc(100vw - 6.4rem);
+    grid-template-areas:
+      "title title"
+      "image image"
+      "image image"
+      "description description";
     row-gap: 1.6rem;
     padding: 4rem 0;
     white-space: initial;
@@ -268,6 +266,10 @@ footer {
     font-size: 1.5rem;
     font-weight: 500;
     line-height: 150%;
+  }
+
+  .section-img {
+    width: 100%;
   }
 
   footer {
@@ -293,7 +295,7 @@ footer {
   }
 
   /* under 400px */
-  @media(max-width: 400px) {
+  @media (max-width: 400px) {
     .footer-policy {
       font-size: 1rem;
     }
@@ -305,7 +307,7 @@ footer {
 }
 
 /* Tablet */
-@media(min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   .gnb-wrapper {
     min-width: 76.8rem;
     max-width: calc(100vw - 36rem);
@@ -313,12 +315,12 @@ footer {
     margin: 0 auto;
   }
 
-  .header-img-container {
+  .title-img-container {
     width: 65rem;
     flex-shrink: 0;
   }
 
-  .section, 
+  .section,
   .section:nth-child(odd) {
     column-gap: 5.1rem;
   }
@@ -337,7 +339,7 @@ footer {
 }
 
 /* PC */
-@media(min-width: 1200px) {
+@media (min-width: 1200px) {
   img {
     max-width: none;
   }
