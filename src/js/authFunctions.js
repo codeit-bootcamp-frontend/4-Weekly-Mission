@@ -1,11 +1,6 @@
-import {
-  REGEX_EMAIL,
-  REGEX_PASSWORD,
-  SRC_IMG_CLOSE_EYE,
-  SRC_IMG_OPEN_EYE,
-  TEST_USER_EMAIL,
-} from "./constant.js";
+import {REGEX_EMAIL, REGEX_PASSWORD, SRC_IMG_CLOSE_EYE, SRC_IMG_OPEN_EYE, TEST_USER_EMAIL,} from "./constant.js";
 
+// 유효성 검증 관련 함수
 export const isFilledInput = (target) => {
   return !(target.value === "");
 };
@@ -26,6 +21,7 @@ export const isMatchWithPassword = (target, inputPassword) => {
   return target.value === inputPassword.value;
 };
 
+// 기타 함수
 export const toggleViewPassword = (target) => {
   const targetInput = target.parentElement.parentElement.querySelector("input");
 
