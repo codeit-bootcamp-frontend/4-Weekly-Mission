@@ -11,13 +11,12 @@ function createErrorMessage(text) {
 // 이메일 형식 검증 함수
 const isEmailValid = (email) => EMAIL_REGEX.test(email);
 
-//변수 선언 모음
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-const signInButton = document.getElementById('cta');
-const watchPassword = document.getElementById('eye-button');
-
 document.addEventListener('DOMContentLoaded', function () {
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const signInButton = document.getElementById('cta');
+  const watchPassword = document.getElementById('eye-button');
+
   const emailErrorMessage = createErrorMessage('');
   emailErrorMessage.style.dsiplay = 'none';
   const passwordErrorMessage = createErrorMessage('');
@@ -84,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // 비밀번호 보기/가리기 버튼 클릭 이벤트 처리
-  watchPassword.addEventListener('click', function () {
+  function eyeIconOnOffbtn() {
     const passwordInput = document.getElementById('password');
     const eyeIcon = document.getElementById('eye-icon');
     if (passwordInput.type === 'password') {
@@ -96,5 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
       eyeIcon.src = imgSrc;
       passwordInput.type = 'password';
     }
-  });
+  }
+
+  watchPassword.addEventListener('click', eyeIconOnOffbtn);
 });
