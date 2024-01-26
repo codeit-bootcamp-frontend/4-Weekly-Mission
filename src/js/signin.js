@@ -10,7 +10,7 @@ const correctPassword = "codeit101";
 
 const checkEmailIsValid = (e) => {
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  const errorMessage = e.target.nextElementSibling;
+  const errorMessage = e.target.parentElement.querySelector(".error_message");
 
   let isValid = false;
 
@@ -29,7 +29,7 @@ const checkEmailIsValid = (e) => {
 };
 
 const checkPasswordIsValid = (e) => {
-  const errorMessage = e.target.nextElementSibling.nextElementSibling;
+  const errorMessage = e.target.parentElement.querySelector(".error_message");
   let isValid = false;
   if (e.target.value === "") {
     errorMessage.textContent = "비밀번호를 입력해 주세요.";
@@ -45,19 +45,24 @@ const checkPasswordIsValid = (e) => {
 };
 
 const compareEmail = () => {
+  const errorMessage = inputEmail.parentElement.querySelector(".error_message");
   if (inputEmail.value !== correctEmail) {
-    inputEmail.nextElementSibling.textContent = "이메일을 확인해 주세요.";
+    errorMessage.textContent = "이메일을 확인해 주세요.";
     inputEmail.classList.add("error_input");
   }
   return inputEmail.value === correctEmail;
 };
 
 const comparePassword = () => {
+  const errorMessage =
+    inputPassword.parentElement.querySelector(".error_message");
+  const icon_eye = inputPassword.parentElement.querySelector(
+    ".icon_view_password",
+  );
   if (inputPassword.value !== correctPassword) {
-    inputPassword.nextElementSibling.nextElementSibling.textContent =
-      "비밀번호를 확인해 주세요.";
+    errorMessage.textContent = "비밀번호를 확인해 주세요.";
     inputPassword.classList.add("error_input");
-    inputPassword.nextElementSibling.classList.add("large_bottom");
+    icon_eye.classList.add("large_bottom");
   }
   return inputPassword.value === correctPassword;
 };
