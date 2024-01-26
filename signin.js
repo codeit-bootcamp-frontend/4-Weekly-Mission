@@ -1,3 +1,5 @@
+import { toggleEye } from "./utils.js";
+
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");
 const loginButton = document.getElementById("loginButton");
@@ -39,19 +41,9 @@ function handleBlur(input, message) {
 }
 
 //눈 모양 아이콘 이벤트
-const toggleEye = () => {
-  const eyeOff = "/images/eye-off.svg";
-  const eyeOn = "/images/eye-on.svg";
-  const passwordInput = document.getElementById("passwordInput");
-
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    document.querySelector(".eye-button").src = eyeOn;
-  } else {
-    passwordInput.type = "password";
-    document.querySelector(".eye-button").src = eyeOff;
-  }
-};
+document.querySelector(".eye-button").addEventListener("click", function () {
+  toggleEye(passwordInput);
+});
 
 emailInput.addEventListener("blur", function () {
   handleBlur(emailInput, createMessage("이메일을 입력해 주세요."));
@@ -60,8 +52,6 @@ emailInput.addEventListener("blur", function () {
 passwordInput.addEventListener("blur", function () {
   handleBlur(passwordInput, createMessage("비밀번호를 입력해 주세요."));
 });
-
-document.querySelector(".eye-button").addEventListener("click", toggleEye);
 
 function signIn(event) {
   const email = emailInput.value.trim();
