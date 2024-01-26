@@ -1,11 +1,9 @@
 const userID = document.querySelector("#email");
 const userPW = document.querySelector("#password");
-const userPWCheck = document.querySelector("#password-check");
 const emailError = document.querySelector(".emailError");
 const pwError = document.querySelector(".pwError");
 const signInButton = document.querySelector(".sign-in-button");
 const pwContainer = document.querySelector(".pw-container");
-const checkPWContainer = document.querySelector(".check-pw-container");
 
 function errorStyle(textStyle, boxStyle) {
   textStyle.style.color = "red";
@@ -33,15 +31,22 @@ function validPassword(obj) {
   if (obj.value === "") {
     pwError.textContent = "비밀번호를 입력해주세요.";
     errorStyle(pwError, userPW);
+  } else if (validPasswordCheck(obj) == false) {
+    pwError.textContent = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
+    errorStyle(pwError, userPW);
   } else {
     clearStyle(pwError, userPW);
   }
 }
 
 function goUrl() {
+  let link = "folder/";
+  location.href = link;
+}
+
+function validSignIn() {
   if (userID.value === "test@codeit.com" && userPW.value === "codeit101") {
-    let link = "folder/";
-    location.href = link;
+    goUrl();
   } else {
     emailError.textContent = "이메일을 확인해주세요.";
     errorStyle(emailError, userID);
@@ -51,14 +56,17 @@ function goUrl() {
 }
 
 function enterLogin(e) {
-  if (e.keyCode === 13) {
-    goUrl();
-  }
+  if (e.keyCode === 13) validSignIn();
 }
 
 function validEmailCheck(obj) {
   let pattern =
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+  return !!obj.value.match(pattern);
+}
+
+function validPasswordCheck(obj) {
+  let pattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
   return !!obj.value.match(pattern);
 }
 
@@ -81,7 +89,21 @@ userID.addEventListener("focusout", (e) => {
 userPW.addEventListener("focusout", (e) => {
   validPassword(e.target);
 });
-signInButton.addEventListener("click", goUrl);
-document.addEventListener("keypress", enterLogin);
+if (signInButton) {
+  signInButton.addEventListener("click", validSignIn);
+  document.addEventListener("keypress", enterLogin);
+}
 pwContainer.addEventListener("click", showPW);
-checkPWContainer.addEventListener("click", showPW);
+
+export {
+  userID,
+  userPW,
+  emailError,
+  pwError,
+  errorStyle,
+  clearStyle,
+  validEmailCheck,
+  goUrl,
+  validPasswordCheck,
+  showPW,
+};
