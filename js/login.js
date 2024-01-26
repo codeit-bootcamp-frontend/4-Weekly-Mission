@@ -1,10 +1,14 @@
 export const viewWarningText = (target, message) => {
+    const inputBox = target.parentNode.querySelector('input');
     target.textContent = message;
     target.style.visibility = "visible";
+    inputBox.classList.add('warning-input')
 }
 
 export const hiddenWarningText = (target) => {
+    const inputBox = target.parentNode.querySelector('input');
     target.style.visibility = "hidden";
+    inputBox.classList.remove('warning-input')
 }
 
 export const checkEmail = (value) => {

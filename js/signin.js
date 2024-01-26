@@ -20,7 +20,10 @@ const loginBtnOnclick = () => {
 }
 
 const loginBtnEnter = (e) => {
-    if(e.key === 'Enter') loginBtnOnclick();
+    if(e.key === 'Enter') {
+        loginBtnOnclick();
+        e.target.blur();
+    }
 }
 
 const emailInputFocustIn = () => {
