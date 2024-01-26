@@ -54,8 +54,8 @@ const loginButton = document.querySelector('#loginButton');
 loginButton.addEventListener('click', login);
 
 function loginButtonByEnter(e) {
-  if (e.key === 'Enter') {
-    login();
+  if (e.code === 'Enter') {
+    formname.submit();
     e.preventDefault();
   }
 }
