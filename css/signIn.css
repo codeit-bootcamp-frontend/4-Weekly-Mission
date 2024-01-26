@@ -78,6 +78,7 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 6px;
 }
 
 .input input {
@@ -94,7 +95,6 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: 24px;
-  margin-top: 6px;
 }
 
 .input input:focus {
