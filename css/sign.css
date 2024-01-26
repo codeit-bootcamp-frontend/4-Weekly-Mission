@@ -82,9 +82,11 @@ header {
   border-color: var(--primary);
 }
 
-.eye-button {
+
+.eye-button{
   position: absolute;
-  bottom: 2.2rem;
+  top: 5.2rem;
+
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -145,4 +147,14 @@ header {
 .text-medium {
   font-size: 1.4rem;
   font-weight: 400;
+
+}
+
+.error-message {
+  color : var(--red);
+}
+
+.error-box {
+  border-color : var(--red);
+
 }
