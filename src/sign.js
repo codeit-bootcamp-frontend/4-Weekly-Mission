@@ -1,4 +1,4 @@
-import { MESSAGE, REGEX } from './constants/SIGN.js';
+import { MESSAGE, REGEX, ACTION } from './constants/SIGN.js';
 
 const emailInput = document.getElementById('email');
 const emailError = document.getElementById('email-error');
@@ -23,18 +23,16 @@ const resetError = (errorEl, input) => {
   resetErrorStyle(input);
 };
 
-const isEmailFormat = (email) => {
-  return REGEX.EMAIL_REGEX.test(email);
-};
-const isPwFormat = (pw) => {
-  return REGEX.PW_REGEX.test(pw);
+const isValidFormat = (action, input) => {
+  if (action === ACTION.EMAIL) return REGEX.EMAIL_REGEX.test(input);
+  if (action === ACTION.PW) return REGEX.PW_REGEX.test(input);
 };
 
 const validateEmail = () => {
   const emailValue = emailInput.value.trim();
 
   if (emailValue === '') applyError(emailError, MESSAGE.REQUIRED_EMAIL, emailInput);
-  else if (!isEmailFormat(emailValue)) applyError(emailError, MESSAGE.INVALID_EMAIL_FORMAT, emailInput);
+  else if (!isValidFormat(ACTION.EMAIL, emailValue)) applyError(emailError, MESSAGE.INVALID_EMAIL_FORMAT, emailInput);
   else resetError(emailError, emailInput);
 };
 
@@ -42,7 +40,7 @@ const validatePw = () => {
   const pwValue = pwInput.value.trim();
 
   if (pwValue === '') applyError(pwError, MESSAGE.REQUIRED_PASSWORD, pwInput);
-  else if (!isPwFormat(pwValue)) applyError(pwError, MESSAGE.INVALID_PW_FORMAT, pwInput);
+  else if (!isValidFormat(ACTION.PW, pwValue)) applyError(pwError, MESSAGE.INVALID_PW_FORMAT, pwInput);
   else resetError(pwError, pwInput);
 };
 
