@@ -24,24 +24,24 @@
     <form class="signup">
       <div class="signup__email">
         <label for="email">이메일</label>
-        <input id="email" name="email" type="email" placeholder="이메일 주소 입력" required>
+        <input id="email" name="email" type="email" placeholder="이메일 주소 입력">
       </div>
       <div class="signup__pass">
         <label for="pass">비밀번호</label>
         <div class="signup__pass--toggle">
-          <input id="pass" name="pass" type="password" placeholder="비밀번호 입력" required>
+          <input id="pass" name="pass" type="password" placeholder="비밀번호 입력">
           <i class="fa-solid fa-eye-slash"></i>
         </div>
       </div>
-      <div class="signup__passRepeat">
-        <label for="passRepeat">비밀번호 확인</label>
+      <div class="signup__passCheck">
+        <label for="passCheck">비밀번호 확인</label>
         <div class="signup__pass--toggle">
-          <input id="passRepeat" name="passRepeat" type="password" placeholder="비밀번호 재입력" required>
+          <input id="passCheck" name="passCheck" type="password" placeholder="비밀번호 확인">
           <i class="fa-solid fa-eye-slash"></i>
         </div>
       </div>
       <button class="signup__Btn" type="submit">
-        로그인
+        회원가입
       </button>
     </form>
     <div class="snsBox">
@@ -60,5 +60,6 @@
       </ul>
     </div>
   </main>
+  <script type="module" src="./src/signup.js"></script>
 </body>
 </html>
