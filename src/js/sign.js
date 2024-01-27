@@ -1,12 +1,19 @@
 import { validateEmailInput } from './validate.js';
+import ERROR_MESSAGES from '../constant/errorMessages.js';
+import validValues from '../constant/validValues.js';
 
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
 const eyeButton = document.querySelector('.eye-button');
 const loginButton = document.querySelector('.sign-form-button');
 
-const validEmail = 'test@codeit.com';
-const validPassword = 'codeit101';
+const {
+  EMPTY_EMAIL_ERROR_MESSAGE,
+  INVALID_EMAIL_ERROR_MESSAGE,
+  WRONG_EMAIL_ERROR_MESSAGE,
+  EMPTY_PASSWORD_ERROR_MESSAGE,
+  WRONG_PASSWORD_ERROR_MESSAGE,
+} = ERROR_MESSAGES;
 
 const addErrorMessage = (parentElement, errorMessage) => {
   const existErrorMessage = parentElement.querySelector('p');
@@ -32,14 +39,14 @@ emailInput.addEventListener('blur', e => {
   const emailValue = e.target.value;
 
   if (!emailValue) {
-    addErrorMessage(signInputBox, '이메일을 입력해 주세요.');
+    addErrorMessage(signInputBox, EMPTY_EMAIL_ERROR_MESSAGE);
     return;
   }
 
   if (validateEmailInput(emailValue)) {
     removeErrorMessage(signInputBox);
   } else {
-    addErrorMessage(signInputBox, '올바른 이메일을 입력해 주세요.');
+    addErrorMessage(signInputBox, INVALID_EMAIL_ERROR_MESSAGE);
   }
 });
 
@@ -48,7 +55,7 @@ passwordInput.addEventListener('blur', e => {
   const passwordValue = e.target.value;
 
   if (!passwordValue) {
-    addErrorMessage(signInputPasswordBox, '비밀번호를 입력해 주세요.');
+    addErrorMessage(signInputPasswordBox, EMPTY_PASSWORD_ERROR_MESSAGE);
   } else {
     removeErrorMessage(signInputPasswordBox);
   }
@@ -56,7 +63,7 @@ passwordInput.addEventListener('blur', e => {
 
 loginButton.addEventListener('click', e => {
   e.preventDefault();
-  if (emailInput.value === validEmail && passwordInput.value === validPassword) {
+  if (emailInput.value === validValues.email && passwordInput.value === validValues.password) {
     window.location.href = '../pages/folder.html';
     return;
   }
@@ -64,8 +71,8 @@ loginButton.addEventListener('click', e => {
   const emailBox = emailInput.parentElement;
   const passwordBox = passwordInput.parentElement;
 
-  addErrorMessage(emailBox, '이메일을 확인해 주세요.');
-  addErrorMessage(passwordBox, '비밀번호를 확인해 주세요.');
+  addErrorMessage(emailBox, WRONG_EMAIL_ERROR_MESSAGE);
+  addErrorMessage(passwordBox, WRONG_PASSWORD_ERROR_MESSAGE);
 });
 
 eyeButton.addEventListener('click', () => {
