@@ -5,7 +5,11 @@ const errorMessageEmail = document.querySelector('.error-message[data-about=emai
 //이메일 형식 체크
 function checkEmailInput(event) {
     const userInput = returnInputValue(event);
-    let message = userInput === '' ? '이메일을 입력해주세요.' : /@/g.test(userInput) === false ? '올바른 이메일 형식이 아닙니다.' : '';
+    let message = userInput === '' 
+                        ? '이메일을 입력해주세요.' 
+                        : /@/g.test(userInput) === false 
+                            ? '올바른 이메일 형식이 아닙니다.' 
+                            : '';
     errorMessageEmail.textContent = message;
     addErrorClass(event.target, message);
     return;

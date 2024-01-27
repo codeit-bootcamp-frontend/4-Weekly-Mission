@@ -10,7 +10,13 @@ const errorMessageBoxes = document.querySelectorAll('.error-message');
 //이메일 체크
 function checkEmailInput(event) {
     const userInput = returnInputValue(event);
-    let message = userInput === '' ? '이메일을 입력해주세요.' : /@/g.test(userInput) === false ? '올바른 이메일 주소가 아닙니다.' : userInput === 'test@codeit.com' ? '이미 사용 중인 이메일 입니다.' : '';
+    let message = userInput === '' 
+                    ? '이메일을 입력해주세요.' 
+                    : /@/g.test(userInput) === false 
+                        ? '올바른 이메일 주소가 아닙니다.' 
+                        : userInput === 'test@codeit.com' 
+                            ? '이미 사용 중인 이메일 입니다.' 
+                            : '';
     errorMessageEmail.textContent = message;
     addErrorClass(event.target, message);
     return;
