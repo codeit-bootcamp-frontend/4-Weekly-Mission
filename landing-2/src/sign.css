@@ -1,21 +1,12 @@
 @import "./global.css";
 
-
 body {
+  padding-top: 23.8rem;
   background-color: var(--background);
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 3rem;
-  padding: 12rem 3.2rem 0;
-
-  @media (min-width: 768px) {
-    padding: 20rem 0 0;
-  }
-
-  @media (min-width: 1200px) {
-    padding: 23.8rem 0 0;
-  }
 }
 
 header {
@@ -55,12 +46,7 @@ header {
   flex-direction: column;
   align-items: center;
   row-gap: 3.2rem;
-  width: 100%;
-  max-width: 40rem;
-
-  @media (min-width: 768px) {
-    width: 40rem;
-  }
+  width: 40rem;
 }
 
 .sign-form {
@@ -74,7 +60,6 @@ header {
   display: flex;
   flex-direction: column;
   row-gap: 2.4rem;
-  position: relative;
 }
 
 .sign-input-box {
@@ -104,8 +89,7 @@ header {
   border-color: var(--primary);
 }
 
-.eye-button,
-.eye-button-correct {
+.eye-button {
   position: absolute;
   bottom: 2.2rem;
   right: 1.5rem;
@@ -165,12 +149,4 @@ header {
 .kakao-link {
   padding-top: 0.2rem;
   background-color: #f5e14b;
-}
-
-#error-msg-email,
-#error-msg-pwd,
-#error-msg-pwd-correct {
-  position: absolute;
-  top: 10rem;
-  inset-inline: auto;
 }
