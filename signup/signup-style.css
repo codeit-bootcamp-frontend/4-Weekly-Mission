@@ -75,23 +75,40 @@ input {
   align-items: center;
   border-radius: 0.8rem;
   border: 1px solid var(--gray20);
-  background: var(--Linkbrary-white, #fff);
   line-height: 150%;
   font-size: 1.6rem;
+}
+
+input:focus {
+  border-color: var(--primary);
+}
+
+.error {
+  color: var(--red);
+  font-size: 1.4rem;
+  margin-top: 0.6rem;
+}
+
+.inputError {
+  border-color: var(--red);
 }
 
 .signup_button {
   display: flex;
   width: 100%;
   padding: 16px 20px;
+  margin-top: 0.6rem;
   justify-content: center;
   align-items: center;
   gap: 10px;
   border-radius: 8px;
-  background: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%)
+  );
   text-decoration: none;
-  color: #f5f5f5;
-  font-size: 1.8rem;
+  color: var(--Grey-Light, #f5f5f5);
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -109,14 +126,15 @@ input {
   font-size: 1.4rem;
 }
 
-.signup_block a {
-  width: 4.2rem;
-  height: 4.2rem;
+.signup_block img {
+  width: 42px;
+  height: 42px;
   flex-shrink: 0;
 }
 
 .social_signup_img {
   display: flex;
+  align-items: flex-start;
   gap: 16px;
 }
 
@@ -124,13 +142,25 @@ input {
   position: relative;
 }
 
-.eye-button {
+.icon {
+  position: relative;
+}
+
+.icon {
+  position: relative;
+}
+
+.eye-icon {
   position: absolute;
   right: 1.5rem;
   bottom: 2.2rem;
   width: 1.6rem;
   height: 1.6rem;
-  fill: #fff;
+  cursor: pointer;
+}
+
+.eye-icon-on {
+  display: none;
 }
 
 /* Tablet 사이즈 */
