@@ -35,15 +35,26 @@ const isPasswordMatch = () => {
   }
 };
 
-//회원가입 로직 수정필요
-const handleSignUp = () => {
-  console.log('회원가입 성공');
+const validEmailForSignUp = () => {
+  return isValidateEmail() && !isDuplicateEmail();
 };
 
-emailInput.addEventListener('focusout', isDuplicateEmail);
+const validPwForSignUp = () => {
+  return isValidatePw() && isPasswordMatch();
+};
 
+const handleSignUp = (e) => {
+  e.preventDefault();
+
+  const isValidEmail = validEmailForSignUp();
+  const isValidPw = validPwForSignUp();
+
+  if (isValidEmail && isValidPw) window.location.href = 'folder.html';
+};
+
+emailInput.addEventListener('focusout', validEmailForSignUp);
 pwInput.addEventListener('focusout', isValidatePw);
-pwCheckInput.addEventListener('focusout', handlePasswordMatch);
+pwCheckInput.addEventListener('focusout', isPasswordMatch);
 pwToggle.addEventListener('click', () => handleClickPwToggle(pwInput, pwToggle));
 pwCheckToggle.addEventListener('click', () => handleClickPwToggle(pwCheckInput, pwCheckToggle));
 signUpForm.addEventListener('submit', (e) => handleSignUp(e));
