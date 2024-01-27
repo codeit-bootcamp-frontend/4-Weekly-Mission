@@ -6,6 +6,9 @@ const passwordInput = form.querySelector("#password-input");
 const patternMap = {
   emailValidation: (value) =>
     /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value),
+};
+
+const mockUp = {
   rightEmail: (value) => value === "test@codeit.com",
   rightPassword: (value) => value === "codeit101",
 };
@@ -63,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
       form.getElementById("errorMessage-email").style.display = "block";
       emailInput.style.borderColor = "var(--Linkbrary-red)";
       isValid = false;
-    } else if (!patternMap.rightEmail(emailInput)) {
+    } else if (!mockUp.rightEmail(emailInput)) {
       document.getElementById("errorMessage-email").textContent =
         "이메일을 확인해주세요.";
       document.getElementById("errorMessage-email").style.display = "block";
@@ -71,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
       isValid = false;
     }
 
-    if (!patternMap.rightPassword(passwordInput)) {
+    if (!mockUp.rightPassword(passwordInput)) {
       document.getElementById("errorMessage-password").textContent =
         "비밀번호를 확인해주세요.";
       document.getElementById("errorMessage-password").style.display = "block";
