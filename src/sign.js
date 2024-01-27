@@ -7,6 +7,7 @@ const pwError = document.getElementById('password-error');
 const pwCheckInput = document.getElementById('password-check');
 const pwCheckError = document.getElementById('password-check-error');
 const pwToggle = document.querySelector('.password-eye');
+const pwCheckToggle = document.querySelector('.password-check-eye');
 const signBtn = document.querySelector('.sign-normal__btn');
 
 const applyErrorStyle = (el) => {
@@ -43,14 +44,9 @@ const validatePw = () => {
   else resetError(pwError, pwInput);
 };
 
-const handleClickPwToggle = () => {
-  if (pwInput.type === 'password') {
-    pwInput.type = 'text';
-    pwToggle.src = 'public/images/eye-on.svg';
-  } else {
-    pwInput.type = 'password';
-    pwToggle.src = 'public/images/eye-off.svg';
-  }
+const handleClickPwToggle = (input, toggle) => {
+  input.type = input.type === 'password' ? 'text' : 'password';
+  toggle.src = input.type === 'password' ? 'public/images/eye-off.svg' : 'public/images/eye-on.svg';
 };
 
 const handleLoginFailure = () => {
@@ -89,4 +85,5 @@ pwInput.addEventListener('keydown', handleEnterKey);
 pwCheckInput.addEventListener('focusout', handlePasswordMatch);
 
 signBtn.addEventListener('click', handleLogin);
-pwToggle.addEventListener('click', handleClickPwToggle);
+pwToggle.addEventListener('click', () => handleClickPwToggle(pwInput, pwToggle));
+pwCheckToggle.addEventListener('click', () => handleClickPwToggle(pwCheckInput, pwCheckToggle));
