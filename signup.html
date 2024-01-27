@@ -14,7 +14,7 @@
       type="text/css"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
-    <script src="./src/sign.js" defer></script>
+    <script defer type="module" src="./src/sign.js"></script>
   </head>
   <body>
     <div class="main">
@@ -32,15 +32,7 @@
           <div class="inputs">
             <label for="email">이메일</label>
             <input id="email" type="text" onblur="validateEmail()" />
-            <p class="error-message" id="email-empty-message">
-              이메일을 입력해 주세요.
-            </p>
-            <p class="error-message" id="email-invalid-message">
-              올바른 이메일 주소가 아닙니다.
-            </p>
-            <p class="error-message" id="email-auth-message">
-              이메일을 확인해 주세요.
-            </p>
+            <p class="error-message" id="email-error"></p>
           </div>
 
           <div class="inputs">
@@ -56,12 +48,7 @@
                 />
               </div>
             </div>
-            <p class="error-message" id="password-empty-message">
-              비밀번호를 입력해 주세요.
-            </p>
-            <p class="error-message" id="password-auth-message">
-              비밀번호를 확인해 주세요.
-            </p>
+            <p class="error-message" id="password-error"></p>
           </div>
 
           <div class="inputs">
@@ -81,9 +68,7 @@
                 />
               </div>
             </div>
-            <p class="error-message" id="password-confirm-message">
-              비밀번호가 다릅니다.
-            </p>
+            <p class="error-message" id="pwCheck-error-msg"></p>
           </div>
           <button type="submit" class="signup">회원가입</button>
         </form>

@@ -1,59 +1,70 @@
+import { ERROR_MESSAGES, REGEX } from "./constants/VALIDATION.js";
+
+const emailError = document.querySelector("#email-error");
 const emailInput = document.querySelector("#email");
+const passwordError = document.querySelector("#password-error");
 const pwInput = document.querySelector("#password");
+const pwCheckError = document.querySelector("#pwCheck-error");
 const pwConfirmInput = document.querySelector("#password-confirm");
 
-// 이메일 유효성 검사
-function validateEmail() {
-  const errorMessage = document.querySelector("#email-empty-message");
-  const invalidEmailMessage = document.querySelector("#email-invalid-message");
+const showError = (errorEl, input, errorType) => {
+  errorEl.style.display = "block";
+  input.style.borderColor = "red";
+  errorEl.innerText = errorType;
+};
+const hideError = (input, errorEl) => {
+  input.style.borderColor = "";
+  errorEl.innerText = "";
+};
+const isValidFormat = (action, input) => {
+  if (action === "email") return REGEX.email.test(input);
+  if (action === "pw") return REGEX.pw.test(input);
+};
 
-  if (emailInput.value.trim() === "") {
-    errorMessage.style.display = "block";
-    emailInput.style.borderColor = "red";
-    invalidEmailMessage.style.display = "none";
-  } else {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(emailInput.value)) {
-      errorMessage.style.display = "none";
-      emailInput.style.borderColor = "red";
-      invalidEmailMessage.style.display = "block";
-    } else {
-      // 이메일이 올바른 경우
-      errorMessage.style.display = "none";
-      invalidEmailMessage.style.display = "none";
-      emailInput.style.borderColor = "#6D6AFE";
-    }
-  }
-}
+// 이메일 유효성 검사
+const validateEmail = () => {
+  const emailValue = emailInput.value.trim();
+
+  if (emailValue === "")
+    showError(emailError, emailInput, ERROR_MESSAGES.email_empty);
+  else if (!isValidFormat("email", emailValue))
+    showError(emailError, emailInput, ERROR_MESSAGES.email_invalid);
+  else hideError(emailInput, emailError);
+};
+emailInput.addEventListener("focusout", validateEmail);
 
 // 비밀번호 유효성 검사
-function validatePw() {
-  const errorMessage = document.querySelector("#password-empty-message");
+const validatePw = () => {
+  const passwordValue = pwInput.value.trim();
 
-  if (pwInput.value.trim() === "") {
-    errorMessage.style.display = "block";
-    pwInput.style.borderColor = "red";
-  } else {
-    errorMessage.style.display = "none";
-    pwInput.style.borderColor = "#6D6AFE";
-  }
-}
+  if (passwordValue === "")
+    showError(passwordError, pwInput, ERROR_MESSAGES.password_empty);
+  else if (!isValidFormat("pw", passwordValue))
+    showError(passwordError, pwInput, ERROR_MESSAGES.password_invalid);
+  else hideError(pwInput, passwordError);
+};
+pwInput.addEventListener("focusout", validatePw);
 
 // 비밀번호 확인 유효성 검사
-function validatePwConfirm() {
-  const errorMessage = document.querySelector("#password-confirm-message");
+const validatePwConfirm = () => {
+  const emptyMessage = document.querySelector("#pwConfirm-empty-message");
+  const invalidMessage = document.querySelector("#pwConfirm-invalid-message");
+
+  if (pwConfirmInput.value.trim() === "") {
+    showError(pwConfirmInput, emptyMessage);
+  } else {
+    hideError(pwConfirmInput, emptyMessage);
+  }
 
   if (pwInput.value.trim() !== pwConfirmInput.value.trim()) {
-    errorMessage.style.display = "block";
-    pwConfirmInput.style.borderColor = "red";
+    showError(pwConfirmInput, invalidMessage);
   } else {
-    errorMessage.style.display = "none";
-    pwInput.style.borderColor = "#6D6AFE";
+    hideError(pwConfirmInput, invalidMessage);
   }
-}
+};
 
 // 로그인 인증 검사
-function attemptLogin() {
+const attemptSignIn = () => {
   const emailAuth = document.querySelector("#email-auth-message");
   const passwordAuth = document.querySelector("#password-auth-message");
 
@@ -66,10 +77,10 @@ function attemptLogin() {
     emailInput.style.borderColor = "red";
     pwInput.style.borderColor = "red";
   }
-}
+};
 
 // 비밀번호 숨김 아이콘 동작
-function togglePwVisibility() {
+const togglePwVisibility = () => {
   const eyeIcon = document.querySelector("#pw-eyeIcon");
 
   if (pwInput.type === "password") {
@@ -79,11 +90,11 @@ function togglePwVisibility() {
     pwInput.type = "password";
     eyeIcon.src = "./public/images/sign/eye-off.png";
   }
-}
+};
 // 비밀번호 확인 숨김 아이콘 동작
-function togglePwConfirmVisibility() {
+const togglePwConfirmVisibility = () => {
   const eyeIcon = document.querySelector("#pwConfirm-eyeIcon");
-  console.log(pwConfirmInput.type);
+
   if (pwConfirmInput.type === "password") {
     pwConfirmInput.type = "text";
     eyeIcon.src = "./public/images/sign/eye-on.png";
@@ -91,4 +102,4 @@ function togglePwConfirmVisibility() {
     pwConfirmInput.type = "password";
     eyeIcon.src = "./public/images/sign/eye-off.png";
   }
-}
+};
