@@ -1,4 +1,4 @@
-import { returnInputValue, addErrorClass, eyeIconClickEvent } from './recycle.js';
+import { returnInputValue, addErrorClass, eyeIconClickEvent } from './js/recycle.js';
 const errorMessageEmail = document.querySelector('.error-message[data-about=email]');
 const userInputPassword = document.querySelector('#password');
 const errorMessgePassword = document.querySelector('.error-message[data-about=password]');
