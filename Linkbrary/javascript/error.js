@@ -18,7 +18,7 @@ function isValidEmail(email) {
 // pw 에러 상황
 function pwcheck(event){ 
   event.preventDefault(); // 한번만 적용
-  if(PW_INPUT.value?.trim()==false){
+  if(PW_INPUT[0].value?.trim()==false){
     showpwErrorMessage("비밀번호를 입력해 주세요.");
   }
 }

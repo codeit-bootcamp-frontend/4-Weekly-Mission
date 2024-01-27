@@ -19,26 +19,26 @@
         </div>
       </div>
       <form>
-        <div class="idbox">
+        <div class="idbox" id="idBox">
           <label for="username">이메일</label>
           <input id="username" name="username" placeholder="codeit@codeit.com">
         </div>
-        <div class="pwbox">
+        <div class="pwbox" id="pwBox">
           <label for="password">비밀번호</label>
-          <div class="pwtext">
-            <input id="password" name="password" type="password" placeholder="linkbrary2023">
-            <img src="./img/eye-on.svg" alt="eye-on">
+          <div class="pwtext" id="pwText">
+            <input class="password" name="password" type="password" placeholder="linkbrary2023">
+            <img class="eye" src="./img/eye-on.svg" alt="eye-on">
           </div>
         </div>
         <div class="pwbox_check">
           <label for="password_check">비밀번호 확인</label>
           <div class="pwtext_check">
-            <input id="password_check" name="password_check" type="password" placeholder="linkbrary20245">
-            <img src="./img/eye-on.svg" alt="eye-on">
+            <input class="password" id="password_check" name="password_check" type="password" placeholder="linkbrary20245">
+            <img class="eye" src="./img/eye-on.svg" alt="eye-on">
           </div>
         </div>
+        <button class="join_btn" id="loginBtn">회원가입</button>
       </form>
-      <button class="join_btn">회원가입</button>
     </div>
     <div class="social">
       <p>다른 형식으로 가입하기</p>
@@ -48,5 +48,7 @@
       </div>
     </div>
   </div>
+  <script src="./javascript/import.js"></script>
+  <script src="./javascript/eyes.js"></script>
 </body>
 </html>

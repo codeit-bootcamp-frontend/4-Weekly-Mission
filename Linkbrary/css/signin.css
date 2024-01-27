@@ -106,13 +106,13 @@ form .pwText{
   border: 1px solid #CCD5E3;
   background: #FFF;
 }
-form #password:focus{
+form .password:focus{
   outline: none;
 }
 form .pwText:focus-within{
   border: 3px solid #6D6AFE;
 }
-form #password{
+form .password{
   border: none;
   color: var(--Linkbrary-gray100, #373740);
   font-family: Pretendard;

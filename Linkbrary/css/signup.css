@@ -106,13 +106,13 @@ form .pwtext{
   border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
   background: var(--Linkbrary-white, #FFF);
 }
-form #password:focus{
+form .password:focus{
   outline: 0.1rem solid var(--Linkbrary-primary-color);
 }
 form .pwtext:focus-within{
   border: 3px solid var(--Linkbrary-primary-color, #6D6AFE);
 }
-form #password{
+form .password{
   border: none;
   color: var(--Linkbrary-gray100, #373740);
   font-family: Pretendard;
@@ -133,21 +133,8 @@ form .pwtext_check{
   border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
   background: var(--Linkbrary-white, #FFF);
 }
-form #password_check:focus{
-  outline: 0.1rem solid var(--Linkbrary-primary-color);
-}
 form .pwtext_check:focus-within{
   border: 3px solid var(--Linkbrary-primary-color, #6D6AFE);
-}
-form #password_check{
-  border: none;
-  color: var(--Linkbrary-gray100, #373740);
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 150% */
-  width: 100%;
 }
 .join_btn{
   display: flex;

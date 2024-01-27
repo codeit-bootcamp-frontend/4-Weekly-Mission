@@ -19,5 +19,5 @@ function focusPW(){
 // input 포커스
 ID_INPUT.addEventListener("focusout",event=> idcheck(event));
 ID_INPUT.addEventListener("focusin", focusID);
-PW_INPUT.addEventListener("focusout",event=> pwcheck(event));
-PW_INPUT.addEventListener("focusin", focusPW);
+PW_INPUT[0].addEventListener("focusout",event=> pwcheck(event));
+PW_INPUT[0].addEventListener("focusin", focusPW);
