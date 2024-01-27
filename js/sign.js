@@ -25,18 +25,18 @@ emailInput.addEventListener('blur', e => {
 
   if (emailValue) {
     if (validateEmailInput(emailValue)) {
-      signInputBox.classList.remove('error');
+      signInputBox.classList.remove('invalid-input-error');
       removeErrorMessage(signInputBox);
     } else if (existingError) {
       existingError.innerText = '올바른 이메일을 입력해 주세요.';
     } else {
-      signInputBox.classList.add('error');
+      signInputBox.classList.add('invalid-input-error');
       addErrorMessage(signInputBox, '올바른 이메일을 입력해 주세요.');
     }
   } else if (existingError) {
     existingError.innerText = '이메일을 입력해 주세요.';
   } else {
-    signInputBox.classList.add('error');
+    signInputBox.classList.add('invalid-input-error');
     addErrorMessage(signInputBox, '이메일을 입력해 주세요.');
   }
 });
@@ -48,13 +48,13 @@ passwordInput.addEventListener('blur', e => {
 
   if (passwordValue) {
     if (existingError) {
-      signInputPasswordBox.classList.remove('error');
+      signInputPasswordBox.classList.remove('invalid-input-error');
       removeErrorMessage(signInputPasswordBox);
     }
   } else if (existingError) {
     existingError.innerText = '비밀번호를 입력해 주세요.';
   } else {
-    signInputPasswordBox.classList.add('error');
+    signInputPasswordBox.classList.add('invalid-input-error');
     addErrorMessage(signInputPasswordBox, '비밀번호를 입력해 주세요.');
   }
 });
@@ -71,13 +71,13 @@ loginButton.addEventListener('click', e => {
     if (existingEmailError) {
       existingEmailError.innerText = '이메일을 확인해 주세요.';
     } else {
-      emailBox.classList.add('error');
+      emailBox.classList.add('invalid-input-error');
       addErrorMessage(emailBox, '이메일을 확인해 주세요.');
     }
     if (existingPasswordError) {
       existingPasswordError.innerText = '비밀번호를 확인해 주세요.';
     } else {
-      passwordBox.classList.add('error');
+      passwordBox.classList.add('invalid-input-error');
       addErrorMessage(passwordBox, '비밀번호를 확인해 주세요.');
     }
   }
