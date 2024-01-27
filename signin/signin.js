@@ -20,7 +20,7 @@ emailInput.addEventListener("focusout", function (e) {
   if (email === "") {
     errorMessage.style.display = "block";
     emailInput.style.borderColor = "var(--Linkbrary-red)";
-  } else {
+  } else {FpassW
     errorMessage.style.display = "none";
   }
 });
