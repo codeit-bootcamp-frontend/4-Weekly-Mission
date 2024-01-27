@@ -59,7 +59,7 @@
               <a class="sign-header__link" href="/signup.html">회원 가입하기</a>
             </p>
           </div>
-          <form class="sign-form">
+          <form id="signin-form" class="sign-form">
             <div class="sign-form__inputbox">
               <label for="email">이메일</label>
               <input id="email" name="email" type="text" placeholder="이메일을 입력해주세요" />
@@ -75,8 +75,8 @@
               </div>
               <div id="password-error" class="sign__error-msg"></div>
             </div>
+            <button id="signin-btn" class="sign-normal__btn" type="submit">로그인</button>
           </form>
-          <button id="signin-btn" class="sign-normal__btn" type="submit">로그인</button>
         </section>
         <!-- 소셜 로그인 영역 -->
         <section class="sign-social">

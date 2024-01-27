@@ -9,10 +9,9 @@ import {
   validateEmail,
   validatePw,
   handleClickPwToggle,
-  handleEnterKey,
 } from './utils/auth.js';
 
-const signInBtn = document.querySelector('#signin-btn');
+const signInform = document.querySelector('#signin-form');
 
 const handleLoginFailure = () => {
   applyError(emailError, MESSAGE.CHECK_EMAIL, emailInput);
@@ -20,7 +19,9 @@ const handleLoginFailure = () => {
 };
 
 // 로그인 로직 수정필요
-const handleLogin = () => {
+const handleLogin = (e) => {
+  e.preventDefault();
+
   if (emailInput.value === TEST_AUTH.EMAIL && pwInput.value === TEST_AUTH.PW) {
     window.location.href = 'folder.html';
   } else {
@@ -29,10 +30,6 @@ const handleLogin = () => {
 };
 
 emailInput.addEventListener('focusout', validateEmail);
-emailInput.addEventListener('keydown', (e) => handleEnterKey(e, handleLogin));
-
 pwInput.addEventListener('focusout', validatePw);
-pwInput.addEventListener('keydown', (e) => handleEnterKey(e, handleLogin));
 pwToggle.addEventListener('click', () => handleClickPwToggle(pwInput, pwToggle));
-
-signInBtn.addEventListener('click', handleLogin);
+signInform.addEventListener('submit', (e) => handleLogin(e));

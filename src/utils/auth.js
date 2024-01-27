@@ -45,10 +45,6 @@ const handleClickPwToggle = (input, toggle) => {
   toggle.src = input.type === 'password' ? 'public/images/eye-off.svg' : 'public/images/eye-on.svg';
 };
 
-const handleEnterKey = (e, func) => {
-  if (e.key === 'Enter') func();
-};
-
 export {
   emailInput,
   emailError,
@@ -60,5 +56,4 @@ export {
   validateEmail,
   validatePw,
   handleClickPwToggle,
-  handleEnterKey,
 };
