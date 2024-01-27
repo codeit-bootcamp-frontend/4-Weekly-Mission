@@ -1,15 +1,15 @@
 // valid input 관련 element
-const emailInput = document.querySelector("#signin_email");
+const emailInput = document.querySelector("#signin-email");
 const emailValidText = document.querySelector("#email_valid_text");
-const pwInput = document.querySelector("#signin_password");
-const pwValidText = document.querySelector("#pw_valid_text");
+const pwInput = document.querySelector("#signin-password");
+const pwValidText = document.querySelector("#pw-valid-text");
 
 // 심화 : password eye button
-const pwHiddenBtn = document.querySelector("#pw_hidden_btn");
+const pwHiddenBtn = document.querySelector("#pw-hidden-btn");
 pwHiddenBtn.innerHTML = '<img src="./images/eye-off.svg" />';
 
 // signin form
-const signinForm = document.querySelector("#signin_form");
+const signinForm = document.querySelector("#signin-form");
 
 // email 정규식
 const regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
