@@ -28,20 +28,45 @@
           <section class="field">
             <label for="email">이메일</label>
             <input id="email" type="email" name="email" />
+            <div class="error emailError"></div>
           </section>
           <section class="field">
             <label for="password">비밀번호</label>
             <div class="icon_wrap">
-              <img class="icon" src="/assets/eye-on.svg" alt="eye close icon" />
-              <input id="password" type="text" name="password" />
+              <img
+                class="icon eyeOpen"
+                src="/assets/eye-on.svg"
+                alt="eye open icon"
+              />
+              <img
+                class="icon eyeClose"
+                src="/assets/eye-off.svg"
+                alt="eye close icon"
+              />
+              <input id="password" type="password" name="password" />
             </div>
+            <div class="error passwordError"></div>
           </section>
           <section class="field">
-            <label for="password">비밀번호 확인</label>
+            <label for="passwordConfirm">비밀번호 확인</label>
             <div class="icon_wrap">
-              <img class="icon" src="/assets/eye-on.svg" alt="eye close icon" />
-              <input id="password" type="text" name="password-confirm" />
+              <img
+                class="icon eyeOpen"
+                src="/assets/eye-on.svg"
+                alt="eye open icon"
+              />
+              <img
+                class="icon eyeClose"
+                src="/assets/eye-off.svg"
+                alt="eye close icon"
+              />
+              <input
+                id="passwordConfirm"
+                type="password"
+                name="passwordConfirm"
+              />
             </div>
+            <div class="error passwordConfirmError"></div>
           </section>
         </div>
         <button class="btn type_full">회원가입</button>
@@ -58,5 +83,7 @@
         </div>
       </div>
     </main>
+
+    <script type="module" src="./signup.js"></script>
   </body>
 </html>
