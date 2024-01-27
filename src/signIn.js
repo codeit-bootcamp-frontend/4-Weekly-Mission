@@ -6,8 +6,8 @@ import {
   pwError,
   pwToggle,
   applyError,
-  validateEmail,
-  validatePw,
+  isValidateEmail,
+  isValidatePw,
   handleClickPwToggle,
 } from './utils/auth.js';
 
@@ -18,7 +18,6 @@ const handleLoginFailure = () => {
   applyError(pwError, MESSAGE.CHECK_PASSWORD, pwInput);
 };
 
-// 로그인 로직 수정필요
 const handleLogin = (e) => {
   e.preventDefault();
 
@@ -29,7 +28,7 @@ const handleLogin = (e) => {
   }
 };
 
-emailInput.addEventListener('focusout', validateEmail);
-pwInput.addEventListener('focusout', validatePw);
+emailInput.addEventListener('focusout', isValidateEmail);
+pwInput.addEventListener('focusout', isValidatePw);
 pwToggle.addEventListener('click', () => handleClickPwToggle(pwInput, pwToggle));
 signInform.addEventListener('submit', (e) => handleLogin(e));

@@ -27,17 +27,30 @@ const isValidFormat = (action, input) => {
   if (action === ACTION.PW) return REGEX.PW_REGEX.test(input);
 };
 
-const validateEmail = () => {
-  if (emailInput.value === '') applyError(emailError, MESSAGE.REQUIRED_EMAIL, emailInput);
-  else if (!isValidFormat(ACTION.EMAIL, emailInput.value))
+const isValidateEmail = () => {
+  if (emailInput.value === '') {
+    applyError(emailError, MESSAGE.REQUIRED_EMAIL, emailInput);
+    return false;
+  } else if (!isValidFormat(ACTION.EMAIL, emailInput.value)) {
     applyError(emailError, MESSAGE.INVALID_EMAIL_FORMAT, emailInput);
-  else resetError(emailError, emailInput);
+    return false;
+  } else {
+    resetError(emailError, emailInput);
+    return true;
+  }
 };
 
-const validatePw = () => {
-  if (pwInput.value === '') applyError(pwError, MESSAGE.REQUIRED_PASSWORD, pwInput);
-  else if (!isValidFormat(ACTION.PW, pwInput.value)) applyError(pwError, MESSAGE.INVALID_PW_FORMAT, pwInput);
-  else resetError(pwError, pwInput);
+const isValidatePw = () => {
+  if (pwInput.value === '') {
+    applyError(pwError, MESSAGE.REQUIRED_PASSWORD, pwInput);
+    return false;
+  } else if (!isValidFormat(ACTION.PW, pwInput.value)) {
+    applyError(pwError, MESSAGE.INVALID_PW_FORMAT, pwInput);
+    return false;
+  } else {
+    resetError(pwError, pwInput);
+    return true;
+  }
 };
 
 const handleClickPwToggle = (input, toggle) => {
@@ -53,7 +66,7 @@ export {
   pwToggle,
   applyError,
   resetError,
-  validateEmail,
-  validatePw,
+  isValidateEmail,
+  isValidatePw,
   handleClickPwToggle,
 };
