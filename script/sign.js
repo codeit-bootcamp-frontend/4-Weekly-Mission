@@ -8,6 +8,7 @@ const eyeOff = document.querySelector(".eye-off");
 const eyeOn = document.querySelector(".eye-on");
 const loginBtn = document.querySelector(".login-btn");
 
+//에러태그를 생성하는 함수 입니다.
 function makeError(type, errorType) {
   const errorTag = document.createElement("p");
   errorTag.textContent = errorType;

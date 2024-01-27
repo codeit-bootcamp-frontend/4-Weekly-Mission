@@ -12,6 +12,7 @@ const eyeOff_2 = document.querySelector(".eye-off-2");
 const eyeOn_2 = document.querySelector(".eye-on-2");
 const joinBtn = document.querySelector(".join-btn");
 
+//에러태그를 생성하는 함수 입니다.
 function makeError(type, errorType) {
   const errorTag = document.createElement("p");
   errorTag.textContent = errorType;
@@ -111,7 +112,7 @@ function removeIfPasswordCheckError() {
   }
 }
 
-//로그인 버튼의 이벤트를 구현한 함수입니다.
+//회원가입 버튼의 이벤트를 구현한 함수입니다.
 function join() {
   if (
     emailValid(inputEmail.value) &&
@@ -120,11 +121,6 @@ function join() {
   ) {
     window.location.assign("./folder");
   } else {
-    console.log(
-      emailValid(inputEmail.value) &&
-        passwordValid(inputPassword.value) &&
-        isPasswordSame(inputPassword.value, inputPasswordCheck.value)
-    );
     removeIfEmailError();
     removeIfPasswordError();
     removeIfPasswordCheckError();
@@ -133,7 +129,7 @@ function join() {
     addPasswordCheckError();
   }
 }
-//keypress가 일어났을때 Enter키를 눌렀는지 확인하고 Login()을 실행하는 함수입니다.
+//keypress가 일어났을때 Enter키를 눌렀는지 확인하고 join()을 실행하는 함수입니다.
 function enterjoin(e) {
   if (e.key === "Enter") {
     join();
@@ -154,7 +150,7 @@ function eyeClick(e) {
   }
   e.preventDefault();
 }
-
+//비밀번호 확인에 있는 이미지를 클릭했을때 눈의 이미지를 토글하는 함수입니다. 토글시 비밀번호의 노출여부도 바뀝니다.
 function eyeClick_2(e) {
   if (e.target.parentElement === eyeOff_2) {
     eyeOff_2.classList.add("visible");
