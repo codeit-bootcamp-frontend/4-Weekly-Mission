@@ -2,10 +2,12 @@ const MESSAGE = Object.freeze({
   REQUIRED_EMAIL: '이메일을 입력해 주세요.',
   INVALID_EMAIL_FORMAT: '올바른 이메일 주소가 아닙니다.',
   CHECK_EMAIL: '이메일을 확인해 주세요.',
+  DUPLICATE_EMAIL: '이미 사용 중인 이메일입니다.',
 
   REQUIRED_PASSWORD: '비밀번호를 입력해 주세요.',
   INVALID_PW_FORMAT: '8~20자 공백없이 영문/숫자/특수문자를 포함해 주세요.',
   CHECK_PASSWORD: '비밀번호를 확인해 주세요.',
+  NOT_MATCH_PASSWORD: '비밀번호가 일치하지 않아요.',
 });
 
 const REGEX = Object.freeze({
