@@ -27,9 +27,6 @@ footer {
   display: flex;
   gap: 12px;
 }
-.footer-sns > li {
-  display: inline-block;
-}
 
 /* media query */
 /* tablet */
