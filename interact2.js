@@ -9,6 +9,7 @@ const errmsg=document.createElement('p'); //에러메시지
 const emailtest = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //이메일 테스팅 코드
 
 function emaininput(e){
+  //console.log(e.target.value);
 
   if(e.target.value==''){
     errmsg.textContent='이메일을 입력해 주세요.';
@@ -26,6 +27,7 @@ function emaininput(e){
     else{
 
       if(errmsg.textContent && e.target.value!='test@codeit.com'){ //만약에 올바른 이메일 주소를 작성하였으면 에러메시지 삭제
+        errmsg.textContent='';
         errmsg.remove();
       }
 
@@ -37,6 +39,7 @@ function emaininput(e){
     }
     
   }
+  
 }
 
 inputel.addEventListener('focusout',emaininput);
@@ -77,6 +80,7 @@ function passwordinput(e){
     else{ 
       strcnt=0;
       numcnt=0;
+      errmsg2.textContent=''; //안의 내용 삭제 후 태그 지우기
       errmsg2.remove();
     } //비밀번호 형식에 맞는 경우
 
@@ -88,6 +92,7 @@ function passwordinput(e){
     errmsg2.textContent='비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
     passwordframe.append(errmsg2);
   }
+
 
 }
 
@@ -109,9 +114,63 @@ function compPassword(e){
   }
 
   else{
+    errmsgChk.textContent='';
     errmsgChk.remove();
   }
 
 }
 
 inputpassChk.addEventListener('focusout',compPassword);
+
+
+
+//회원가입을 실행할 경우, 문제가 있는 경우 문제가 있는 input에 에러 메세지로 알립니다.
+//이외의 유효한 회원가입 시도의 경우, “/folder”로 이동합니다.
+//회원가입 버튼 클릭 또는 Enter키 입력으로 회원가입 실행돼야 합니다.
+
+
+const signupBtn=document.querySelector('.login');
+
+
+//클릭을 위한 함수
+function signUp() {
+
+  emaininput({ target: { value: inputel.value } }); // 이메일 입력 함수 호출
+  passwordinput({ target: { value: inputpass.value } }); // 비밀번호 입력 함수 호출
+  compPassword({ target: { value: inputpassChk.value } }); // 비밀번호 확인 함수 호출
+
+  
+  if (errmsg.textContent=='' && errmsg2.textContent=='' && errmsgChk.textContent=='') {
+    // 유효성 검사 통과
+    location.href = "/folder.html"; //페이지 이동
+  }
+
+}
+
+signupBtn.addEventListener('click',signUp);
+
+
+
+//엔터키를 위한 함수
+function enterKey(e) {
+
+  if(e.key=='Enter'){
+    emaininput({ target: { value: inputel.value } }); // 이메일 입력 함수 호출
+    passwordinput({ target: { value: inputpass.value } }); // 비밀번호 입력 함수 호출
+    compPassword({ target: { value: inputpassChk.value } }); // 비밀번호 확인 함수 호출
+ 
+    if (errmsg.textContent=='' && errmsg2.textContent=='' && errmsgChk.textContent=='') {
+      // 유효성 검사 통과
+      location.href = "/folder.html"; //페이지 이동
+    }
+ 
+  }
+
+}
+
+
+inputel.addEventListener('keydown',enterKey);
+inputpass.addEventListener('keydown',enterKey);
+inputpassChk.addEventListener('keydown',enterKey);
+
+
