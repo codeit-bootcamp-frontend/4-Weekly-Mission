@@ -33,9 +33,10 @@
   <body>
 
 
-    <nav>
-      <div class="gnb">
-        
+    <div>
+      
+      <nav class="gnb">
+      <!--nav는 감싸고 있는 요소들이 navigation 목적을 지니고 있다-->  
         <a class ="logo" href="index.html">
           <img src="./images/logo.svg" alt="홈으로 연결된 Linkbrary" />
         </a>
@@ -43,132 +44,135 @@
         <a class="cta cta-short" href="signin.html">
           <span class ="cta-logo">로그인</span>
         </a>
+      </nav>
+      
+    </div>
 
-      </div>
-    </nav>
-
-    <header>
+    <banner-section>
       <div class="banner-header">
         <h1 class="slogan">
           <span class="slogan-gradient background-clip-text"> 세상의 모든 정보</span>를
           <br />
-          쉽게 저장하고<br class="mobile"><br class="tablet"> 관리해 보세요
+          쉽게 저장하고<br class="mobile-view"><br class="tablet-view"> 관리해 보세요
         </h1>
         <a class="cta cta-long" href="signup.html">
           <span class ="cta-logo">링크 추가하기</span>
         </a>
+
         <img src="./images/banner.png" class="banner-image" alt="Linkbrary 서비스 소개" />
+      
       </div>
-    </header>
-    <article>
-      <section>
+    </banner-section>
+    
+    <section>
+      <article>
 
         <div class="left-side">
           <h2 class="title">
-            <span class="title-1-gradient background-clip-text"> 원하는 링크</span>를
-            <br class = "tablet"><br class = "PC">
+            <span class="title-gradient-1 background-clip-text"> 원하는 링크</span>를
+            <br class = "tablet-view"><br class = "pc-view">
             저장하세요
           </h2>
           <!--모바일에서만 이 이미지가 보인다.-->
-          <img src="./images/feature-1.png" class="mobile content-image" alt="링크의 내용이 담긴 카드들" />
+          <img src="./images/feature-1.png" class="mobile-view content-image" alt="링크의 내용이 담긴 카드들"/>
           <p class="description">
             나중에 읽고 싶은 글, 다시 보고 싶은 영상,
-            <br class="tablet"><br class="PC">
+            <br class="tablet-view"><br class="pc-view">
             사고 싶은 옷, 기억하고 싶은 모든 것을
-            <br class="tablet"><br class="PC">
+            <br class="tablet-view"><br class="pc-view">
             한 공간에 저장하세요.
           </p>
         </div>
 
         <div class="right-side">
-          <!--PC, Tablet 은 이 이미지가 보인다.-->
-          <img src="./images/feature-1.png" class="tablet content-image" alt="링크의 내용이 담긴 카드들" />
-          <img src="./images/feature-1.png" class="PC content-image" alt="링크의 내용이 담긴 카드들" />
+          <!--pc, tablet에선 이 이미지가 보인다.-->
+          <img src="./images/feature-1.png" class="tablet-view content-image" alt="링크의 내용이 담긴 카드들" />
+          <img src="./images/feature-1.png" class="pc-view content-image" alt="링크의 내용이 담긴 카드들" />
         </div>
 
-      </section>
+      </article>
 
-      <section>
+      <article>
         <div class="left-side">
-          <img src="./images/feature-2.png" class="tablet content-image" alt="폴더 이름 변경 기능" />
-          <img src="./images/feature-2.png" class="PC content-image" alt="폴더 이름 변경 기능" />
+          <img src="./images/feature-2.png" class="tablet-view content-image" alt="폴더 이름 변경 기능" />
+          <img src="./images/feature-2.png" class="pc-view content-image" alt="폴더 이름 변경 기능" />
         </div>
         <div class="right-side">
           <h2 class="title">
             링크를 폴더로
-            <br class = "tablet"><br class = "PC">
-            <span class="title-2-gradient background-clip-text">관리</span>하세요
+            <br class = "tablet-view"><br class = "pc-view">
+            <span class="title-gradient-2 background-clip-text">관리</span>하세요
           </h2>
-          <img src="./images/feature-2.png" class="mobile content-image" alt="폴더 이름 변경 기능" />
+          <img src="./images/feature-2.png" class="mobile-view content-image" alt="폴더 이름 변경 기능" />
           <p class="description">
             나만의 폴더를 무제한으로 만들고
-            <br class="tablet"><br class="PC">
+            <br class="tablet-view"><br class="pc-view">
             다양하게 활용할 수 있습니다.
           </p>
         </div>
        
-      </section>
+      </article>
 
-      <section>
+      <article>
         <div class="left-side">
           <h2 class="title">
             저장한 링크를
-            <br class = "tablet"><br class = "PC">
-            <span class="title-3-gradient background-clip-text">공유</span>해 보세요
+            <br class = "tablet-view"><br class = "pc-view">
+            <span class="title-gradient-3 background-clip-text">공유</span>해 보세요
           </h2>
-          <img src="./images/feature-3.png" class="mobile content-image" alt="폴더 공유 기능" />
+          <img src="./images/feature-3.png" class="mobile-view content-image" alt="폴더 공유 기능" />
           <p class="description">
-            여러 링크를 폴더에 담고 공유할 수<br class="tablet"><br class="PC">
+            여러 링크를 폴더에 담고 공유할 수<br class="tablet-view"><br class="pc-view">
             있습니다.
             
-            가족, 친구, 동료들에게 쉽고<br class="tablet"><br class="PC">
+            가족, 친구, 동료들에게 쉽고<br class="tablet-view"><br class="pc-view">
             빠르게 링크를
             
             공유해 보세요.
           </p>
         </div>
         <div class="right-side">
-          <img src="./images/feature-3.png" class="tablet content-image" alt="폴더 공유 기능" />
-          <img src="./images/feature-3.png" class="PC content-image" alt="폴더 공유 기능" />
+          <img src="./images/feature-3.png" class="tablet-view content-image" alt="폴더 공유 기능" />
+          <img src="./images/feature-3.png" class="pc-view content-image" alt="폴더 공유 기능" />
         </div>
-      </section>
+      </article>
 
-      <section>
+      <article>
 
         <div class="left-side">
-          <img src="./images/feature-4.png" class="tablet content-image" alt="링크 검색 기능" />
-          <img src="./images/feature-4.png" class="PC content-image" alt="링크 검색 기능" />
+          <img src="./images/feature-4.png" class="tablet-view content-image" alt="링크 검색 기능" />
+          <img src="./images/feature-4.png" class="pc-view content-image" alt="링크 검색 기능" />
         </div>
 
         <div class="right-side">
           <h2 class="title">
             저장한 링크를
-            <br class = "tablet"><br class = "PC">
-            <span class="title-4-gradient background-clip-text">검색</span>해 보세요
+            <br class = "tablet-view"><br class = "pc-view">
+            <span class="title-gradient-4 background-clip-text">검색</span>해 보세요
           </h2>
-          <img src="./images/feature-4.png" class="mobile content-image" alt="링크 검색 기능" />
+          <img src="./images/feature-4.png" class="mobile-view content-image" alt="링크 검색 기능" />
           <p class="description">중요한 정보들을 검색으로 쉽게
-          <br class="tablet"><br class="PC">찾아보세요.</p>
+          <br class="tablet-view"><br class="pc-view">찾아보세요.</p>
         </div>
 
-      </section>
-    </article>
+      </article>
+    </section>
     <footer>
       <div class="footer-box">
         
         <div class="footer-section">
 
-          <span class="tablet copyright">©codeit - 2023</span>
-          <span class="PC copyright">©codeit - 2023</span>
+          <span class="tablet-view copyright">©codeit - 2023</span>
+          <span class="pc-view copyright">©codeit - 2023</span>
           
           
           <div class="footer-links">
             <a class="footer-link" href="privacy.html">Privacy Policy</a>
-            <a class="tablet footer-link" href="faq.html">FAQ</a>
-            <a class="PC footer-link" href="faq.html">FAQ</a>
+            <a class="tablet-view footer-link" href="faq.html">FAQ</a>
+            <a class="pc-view footer-link" href="faq.html">FAQ</a>
           </div>
-          <div class="mobile footer-links">
-            <a class="mobile footer-link" href="faq.html">FAQ</a>
+          <div class="mobile-view footer-links">
+            <a class="mobile-view footer-link" href="faq.html">FAQ</a>
           </div>
 
           <div class="sns">
@@ -187,7 +191,7 @@
           </div>
 
         </div>
-          <span class="mobile copyright">©codeit - 2023</span>
+          <span class="mobile-view copyright">©codeit - 2023</span>
       </div>
     </footer>
   </body>
