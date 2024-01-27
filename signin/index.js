@@ -45,15 +45,19 @@ function removeError(e) {
 
 // 로그인 검사
 function signInChecker(e) {
-        if (EMAIL_INPUT.value === TEST_EMAIL && PASSWORD_INPUT.value === TEST_PW) {
-            location.replace('/folder');
-        } else {
-            const CHECK_YOUR_EMAIL = '이메일을 확인해 주세요.';
-            const CHECK_YOUR_PW = '비밀번호를 확인해 주세요.';
+    if (e.type === 'keydown' && e.key !== 'Enter') {
+        return;
+    }
 
-            loginError(EMAIL_INPUT, CHECK_YOUR_EMAIL);
-            loginError(PASSWORD_INPUT, CHECK_YOUR_PW);
-        }
+    if (EMAIL_INPUT.value === TEST_EMAIL && PASSWORD_INPUT.value === TEST_PW) {
+        location.replace('/folder');
+    } else {
+        const CHECK_YOUR_EMAIL = '이메일을 확인해 주세요.';
+        const CHECK_YOUR_PW = '비밀번호를 확인해 주세요.';
+
+        loginError(EMAIL_INPUT, CHECK_YOUR_EMAIL);
+        loginError(PASSWORD_INPUT, CHECK_YOUR_PW);
+    }
 }
 
 EMAIL_INPUT.addEventListener('focusout', emailChecker);
@@ -62,6 +66,7 @@ PASSWORD_INPUT.addEventListener('focusout', passwordChecker);
 PASSWORD_INPUT.addEventListener('focusin', removeError);
 
 LOGIN_BTN.addEventListener('click', signInChecker);
+document.querySelector('body').addEventListener('keydown', signInChecker);
 
 
 
