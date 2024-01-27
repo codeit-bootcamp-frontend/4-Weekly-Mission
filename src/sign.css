@@ -90,7 +90,7 @@ header {
 }
 .eye-button {
     position: absolute;
-    bottom: 2.2rem;
+    top: 5.2rem;
     right: 1.5rem;
     width: 1.6rem;
     height: 1.6rem;
@@ -157,10 +157,18 @@ header {
 /* ------- Mobile  ------- */
 @media (max-width: 767px) {
     body {
-        padding: 12rem 3.2rem 23.3rem 3.2rem;
+        padding: 12rem 3.2rem 0;
     }
     .sign-box {
         width: 100%;
         max-width: 40rem;
     }
+}
+
+/* input error시에 추가될 스타일 */
+.error-border {
+    border-color: var(--red);
+}
+.error-text {
+    color: var(--red);
 }
