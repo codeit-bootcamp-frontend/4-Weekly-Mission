@@ -6,6 +6,7 @@ const passwordError = document.querySelector("#password-error");
 const pwInput = document.querySelector("#password");
 const pwCheckError = document.querySelector("#pwCheck-error");
 const pwConfirmInput = document.querySelector("#password-confirm");
+const form = document.querySelector("form");
 
 const showError = (errorEl, input, errorType) => {
   errorEl.style.display = "block";
@@ -62,22 +63,26 @@ const validatePwConfirm = () => {
     hideError(pwConfirmInput, invalidMessage);
   }
 };
+const handleSignInFail = () => {
+  showError(emailError, emailInput, ERROR_MESSAGES.email_check);
+  hideError(passwordError, pwInput, ERROR_MESSAGES.password_check);
+};
 
 // 로그인 인증 검사
-const attemptSignIn = () => {
-  const emailAuth = document.querySelector("#email-auth-message");
-  const passwordAuth = document.querySelector("#password-auth-message");
+const handleSignIn = (e) => {
+  const emailValue = emailInput.value.trim();
+  const pwValue = pwInput.value.trim();
 
-  if (emailInput.value === "test@codeit.com" && pwInput.value === "codeit101") {
-    window.location.href = "./folder.html";
+  if (emailValue === "test@codeit.com" && pwValue === "codeit101") {
+    console.log("로그인 성공!");
+    window.location.href = "folder.html";
   } else {
-    // 로그인 실패 시 처리
-    emailAuth.style.display = "block";
-    passwordAuth.style.display = "block";
-    emailInput.style.borderColor = "red";
-    pwInput.style.borderColor = "red";
+    console.log("로그인 실패!");
+    handleSignInFail();
   }
+  e.preventDefault();
 };
+form.addEventListener("submit", handleSignIn);
 
 // 비밀번호 숨김 아이콘 동작
 const togglePwVisibility = () => {
