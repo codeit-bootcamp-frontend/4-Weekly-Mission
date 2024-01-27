@@ -1,4 +1,6 @@
-import { validEmail, validPassword } from "../utils/ValidID";
+// 유효한 email, password 값
+const validEmail = "test@codeit.com";
+const validPassword = "codeit101";
 
 const checkValidLogin = function (email, password) {
   if (email === validEmail && password === validPassword) {
@@ -9,3 +11,5 @@ const checkValidLogin = function (email, password) {
     return 0;
   }
 };
+
+export { checkValidLogin };

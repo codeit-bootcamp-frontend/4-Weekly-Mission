@@ -3,17 +3,9 @@ import { querySelector } from "../utils/querySelector.js";
 import { passwordTypeCheck } from "../functions/passwordTypeCheck.js";
 import { updateErrorMessage } from "../functions/updateErrorMessage.js";
 import { typeToText, typeToPassword } from "./functions/passwordShowHidden.js";
+import { checkValidLogin } from "./functions/CheckValidLogin.js";
 
-// 이메일, 비밀번호 input 선택
-const emailInputBox = querySelector("#signin-email-input");
-const signinPasswordInput = querySelector("#signin-password-input");
-
-// 로그인 버튼 선택
-const loginBtn = querySelector("#login-button");
-
-// 로그인 폼 선택
-const loginForm = querySelector("#login-form");
-
+/** 이메일 입력 값이 유효한 지 확인 */
 function checkEmail(event) {
   const emailValue = event.target.value.trim();
   const errorMessage = querySelector("#email-error-message");
@@ -37,6 +29,7 @@ function checkEmail(event) {
   }
 }
 
+/** 비밀번호 입력 유무 확인 */
 function checkPassword(event) {
   const passwordValue = event.target.value;
   const errorMessageBox = querySelector("#password-error-message");
@@ -60,12 +53,16 @@ function tryLogin() {
   const errorMessage = querySelector("#email-error-message");
   const errorMessageBox = querySelector("#password-error-message");
 
-  if (emailValue === "test@codeit.com" && passwordValue === "codeit101") {
+  if (checkValidLogin(emailValue, passwordValue) === 1) {
     location.href = "folder.html";
-  } else if (
-    emailValue !== "test@codeit.com" ||
-    passwordValue !== "codeit101"
-  ) {
+  } else if (checkValidLogin(emailValue, passwordValue) === -1) {
+    updateErrorMessage(
+      errorMessageBox,
+      "비밀번호를 확인해주세요",
+      signinPasswordInput,
+      true
+    );
+  } else {
     updateErrorMessage(
       errorMessage,
       "이메일을 확인해주세요.",
@@ -96,6 +93,12 @@ function passwordShowHidden() {
     ? typeToText(passwordEyeIcon, signinPasswordInput)
     : typeToPassword(passwordEyeIcon, signinPasswordInput);
 }
+
+// 이벤트 등록을 위한 변수 설정
+const emailInputBox = querySelector("#signin-email-input");
+const signinPasswordInput = querySelector("#signin-password-input");
+const loginBtn = querySelector("#login-button");
+const loginForm = querySelector("#login-form");
 
 /** 이벤트 등록 */
 emailInputBox.addEventListener("focusout", checkEmail); // 이메일 입력이 유효한지
