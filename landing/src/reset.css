@@ -1,19 +1,23 @@
 
+/* user agent stylesheet 초기화 */
+
 
 * {
   box-sizing: border-box;
   margin: 0;
   font-family: "Pretendard";
+  word-break: keep-all;
 }
 
+html,
 body {
-	line-height: 1;
+  font-size: 62.5%;
 }
-
 
 a {
-  cursor: pointer;
+  color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 
 input:focus {
@@ -26,3 +30,4 @@ button {
   background-color: unset;
   cursor: pointer;
 }
+
