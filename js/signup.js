@@ -1,9 +1,12 @@
 const form = document.querySelector('.frame-input');
 const inputEmail = document.querySelector('.input-email input');
 const inputPassword = document.querySelector('.input-pw input');
+const inputPasswordCheck = document.querySelector('#check-pw input');
 const errorMsgEmail = document.querySelector('.error-email');
 const errorMsgPassword = document.querySelector('.error-pw');
+const errorMsgPasswordCheck = document.querySelector('.error-check-pw');
 const showPasswordBtn = document.querySelector('.show-pw-btn');
+const showPasswordCheckBtn = document.querySelector('.show-pw-check-btn');
 
 // 이메일 : test@codeit.com, 비밀번호 : codeit101 으로 로그인 시, '/folder' 페이지로 이동
 function checkIsUser(e) {
@@ -22,6 +25,7 @@ function checkIsUser(e) {
 }
 
 function showInputErrorMessage(e) {
+  console.log(e.target);
   if (!e.target.value) {
     if (e.target.type === 'email') {
       errorMsgEmail.innerText = `이메일을 입력해 주세요.`;
@@ -62,7 +66,20 @@ function togglePasswordVisible(e) {
   }
 }
 
+function togglePasswordCheckVisible(e) {
+  if (e.target.classList.contains('invisible')) {
+    showPasswordCheckBtn.src = '../images/eye-on.svg';
+    inputPasswordCheck.type = 'text';
+    e.target.classList.remove('invisible');
+  } else {
+    showPasswordCheckBtn.src = '../images/eye-off.svg';
+    inputPasswordCheck.type = 'password';
+    e.target.classList.add('invisible');
+  }
+}
+
 inputEmail.addEventListener('focusout', showInputErrorMessage);
 inputPassword.addEventListener('focusout', showInputErrorMessage);
 form.addEventListener('submit', checkIsUser);
 showPasswordBtn.addEventListener('click', togglePasswordVisible);
+showPasswordCheckBtn.addEventListener('click', togglePasswordCheckVisible);
