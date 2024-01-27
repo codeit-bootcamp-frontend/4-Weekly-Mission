@@ -139,11 +139,7 @@ main {
 
 /* 4주차 */
 
-.email-error-message {
-  display: none;
-}
-
-.pw-error-message {
+.error-message {
   display: none;
 }
 
