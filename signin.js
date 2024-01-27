@@ -34,17 +34,17 @@ function handleBlur(input, message) {
   }
 }
 
-//눈 모양 아이콘 이벤트
-document.querySelector(".eye-button").addEventListener("click", function () {
-  toggleEye(passwordInput);
-});
-
 emailInput.addEventListener("blur", function () {
   handleBlur(emailInput, getNewMessageElement("이메일을 입력해 주세요."));
 });
 
 passwordInput.addEventListener("blur", function () {
   handleBlur(passwordInput, getNewMessageElement("비밀번호를 입력해 주세요."));
+});
+
+//눈 모양 아이콘 이벤트
+document.querySelector(".eye-button").addEventListener("click", function () {
+  toggleEye(passwordInput);
 });
 
 function signIn(event) {
