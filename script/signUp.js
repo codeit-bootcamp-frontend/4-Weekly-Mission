@@ -1,3 +1,6 @@
+import { emailValid, passwordValid, isPasswordSame } from "./valid.js";
+import { ERROR_MESSAGE } from "./errorType.js";
+
 //변수 선언
 const loginContainer = document.querySelector(".login-container");
 const inputEmail = document.querySelector(".email");
@@ -7,26 +10,7 @@ const eyeOff = document.querySelector(".eye-off");
 const eyeOn = document.querySelector(".eye-on");
 const eyeOff_2 = document.querySelector(".eye-off-2");
 const eyeOn_2 = document.querySelector(".eye-on-2");
-const loginBtn = document.querySelector(".login-btn");
 const joinBtn = document.querySelector(".join-btn");
-
-const ERROR_MESSAGE = {
-  email: {
-    empty: "이메일을 입력해주세요.",
-    invalid: "올바른 이메일 주소가 아닙니다.",
-    check: "이메일을 확인해 주세요.",
-    inUse: "이미 사용 중인 이메일입니다.",
-  },
-  password: {
-    empty: "비밀번호을 입력해 주세요",
-    invalid: "비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.",
-    check: "비밀번호을 확인해 주세요",
-  },
-  passwordcheck: {
-    check: "비밀번호을 확인해 주세요",
-    recheck: "비밀번호가 일치하지 않아요.",
-  },
-};
 
 function makeError(type, errorType) {
   const errorTag = document.createElement("p");
@@ -70,9 +54,16 @@ function addEmailError() {
 
 //비밀번호에러를 추가하는 함수입니다.
 function addPasswordError() {
+  const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
+
   if (inputPassword.value === "") {
     removeIfPasswordError();
     makeError("password", ERROR_MESSAGE.password.empty);
+  }
+
+  if (inputPassword.value !== "" && !passwordRegex.test(inputPassword.value)) {
+    removeIfPasswordError();
+    makeError("password", ERROR_MESSAGE.password.invalid);
   }
 }
 
@@ -123,11 +114,17 @@ function removeIfPasswordCheckError() {
 //로그인 버튼의 이벤트를 구현한 함수입니다.
 function join() {
   if (
-    inputEmail.value !== "test@codeit.com" &&
-    inputPassword.value === inputPasswordCheck.value
+    emailValid(inputEmail.value) &&
+    passwordValid(inputPassword.value) &&
+    isPasswordSame(inputPassword.value, inputPasswordCheck.value)
   ) {
     window.location.assign("./folder");
   } else {
+    console.log(
+      emailValid(inputEmail.value) &&
+        passwordValid(inputPassword.value) &&
+        isPasswordSame(inputPassword.value, inputPasswordCheck.value)
+    );
     removeIfEmailError();
     removeIfPasswordError();
     removeIfPasswordCheckError();
@@ -145,7 +142,6 @@ function enterjoin(e) {
 }
 //눈이미지를 클릭했을때 눈의 이미지를 토글하는 함수입니다. 토글시 비밀번호의 노출여부도 바뀝니다.
 function eyeClick(e) {
-  console.log(e.target.parentElement);
   if (e.target.parentElement === eyeOff) {
     eyeOff.classList.add("visible");
     eyeOn.classList.remove("invisible");
@@ -158,8 +154,8 @@ function eyeClick(e) {
   }
   e.preventDefault();
 }
+
 function eyeClick_2(e) {
-  console.log(e.target.parentElement);
   if (e.target.parentElement === eyeOff_2) {
     eyeOff_2.classList.add("visible");
     eyeOn_2.classList.remove("invisible");

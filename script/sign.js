@@ -1,3 +1,5 @@
+import { ERROR_MESSAGE } from "./errorType.js";
+
 //변수 선언
 const loginContainer = document.querySelector(".login-container");
 const inputEmail = document.querySelector(".email");
@@ -5,21 +7,6 @@ const inputPassword = document.querySelector(".password");
 const eyeOff = document.querySelector(".eye-off");
 const eyeOn = document.querySelector(".eye-on");
 const loginBtn = document.querySelector(".login-btn");
-
-const ERROR_MESSAGE = {
-  email: {
-    empty: "이메일을 입력해주세요.",
-    invalid: "올바른 이메일 주소가 아닙니다.",
-    check: "이메일을 확인해 주세요.",
-    inUse: "이미 사용 중인 이메일입니다.",
-  },
-  password: {
-    empty: "비밀번호을 입력해 주세요",
-    invalid: "비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.",
-    check: "비밀번호을 확인해 주세요",
-    recheck: "비밀번호가 일치하지 않아요.",
-  },
-};
 
 function makeError(type, errorType) {
   const errorTag = document.createElement("p");
@@ -32,6 +19,12 @@ function makeError(type, errorType) {
     errorTag.classList.add("password-error");
     inputPassword.after(errorTag);
     inputPassword.classList.add("input-error");
+    eyeOff.classList.add("eye-error");
+    loginContainer.classList.add("error");
+  } else if (type === "passwordcheck") {
+    errorTag.classList.add("password-check-error");
+    inputPasswordCheck.after(errorTag);
+    inputPasswordCheck.classList.add("input-error");
     eyeOff.classList.add("eye-error");
     loginContainer.classList.add("error");
   }
@@ -53,9 +46,16 @@ function addEmailError() {
 
 //비밀번호에러를 추가하는 함수입니다.
 function addPasswordError() {
+  const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
+
   if (inputPassword.value === "") {
     removeIfPasswordError();
     makeError("password", ERROR_MESSAGE.password.empty);
+  }
+
+  if (inputPassword.value !== "" && !passwordRegex.test(inputPassword.value)) {
+    removeIfPasswordError();
+    makeError("password", ERROR_MESSAGE.password.invalid);
   }
 }
 
