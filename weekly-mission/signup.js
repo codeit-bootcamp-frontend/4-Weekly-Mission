@@ -1,4 +1,4 @@
-import { returnInputValue, addErrorClass, eyeIconClickEvent } from './recycle.js'
+import { returnInputValue, addErrorClass, eyeIconClickEvent } from './recycle.js';
 const errorMessageEmail = document.querySelector('.error-message[data-about=email]');
 const userInputPassword = document.querySelector('#password');
 const errorMessgePassword = document.querySelector('.error-message[data-about=password]');
@@ -13,7 +13,7 @@ function checkEmailInput(event) {
     let message = userInput === '' ? '이메일을 입력해주세요.' : /@/g.test(userInput) === false ? '올바른 이메일 주소가 아닙니다.' : userInput === 'test@codeit.com' ? '이미 사용 중인 이메일 입니다.' : '';
     errorMessageEmail.textContent = message;
     addErrorClass(event.target, message);
-    return
+    return;
 }
 
 //비밀번호 조합 체크
@@ -22,17 +22,17 @@ function checkPasswordLength(event) {
     let message = userInput.length < 8 || /[\d][a-z]/ig.test(userInput) === false ? '비밀번호는 영문, 숫자 조합8자 이상 입력해 주세요.' : '';
     errorMessgePassword.textContent = message;
     addErrorClass(event.target, message);
-    return
+    return;
 }
 
 //비밀번호 같은지 체크
 function samePasswordCheck(event) {
     const password = userInputPassword.value;
     const passwordCheckInput = returnInputValue(event);
-    let message = password === passwordCheckInput ? '' : '비밀번호가 일치하지 않아요.'
+    let message = password === passwordCheckInput ? '' : '비밀번호가 일치하지 않아요.';
     errorMessageCheck.textContent = message;
     addErrorClass(event.target, message);
-    return
+    return;
 }
 
 //폼제출 이벤트 함수
@@ -45,8 +45,8 @@ function submitSignupFormEvent(e) {
 //폼제출시 input태그가 비어있으면 알림 함수
 function checkEmptyInput() {
     const inputes = document.querySelectorAll('input');
-    if (inputes[0].value === '') alert(`${inputes[0].dataset['value']}을 입력해주세요.`)
-    else if (inputes[1].value === '') alert(`${inputes[1].dataset['value']}를 입력해주세요.`)
+    if (inputes[0].value === '') return alert(`${inputes[0].dataset['value']}을 입력해주세요.`);
+    else if (inputes[1].value === '') return alert(`${inputes[1].dataset['value']}를 입력해주세요.`);
     else {
         let check = '';
         errorMessageBoxes.forEach(v => check += v.textContent);
@@ -56,14 +56,15 @@ function checkEmptyInput() {
 
 //에러메세지 강조 함수
 function repeatAnimation() {
-    errorMessageBoxes.forEach(v => {
-        if (v.textContent !== '') {
-            v.classList.add('active');
-            setTimeout(() => {
-                v.classList.remove('active')
-            }, 550)
-        }
-    })
+    errorMessageBoxes
+        .forEach(v => {
+            if (v.textContent !== '') {
+                v.classList.add('active');
+                setTimeout(() => {
+                    v.classList.remove('active')
+                }, 550)
+            }
+        })
 }
 
 
