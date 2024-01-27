@@ -31,7 +31,7 @@ function isValueMatch(element, value){
  * @returns 
  */
 function isPasswordValueMatch(elementValue, checkElementValue){
-  return elementValue?.value.trim() !== checkElementValue?.value.trim()
+  return elementValue?.value.trim() == checkElementValue?.value.trim()
 }
 
 export {isFormatValue, isRegexMatch, isValueMatch, isPasswordValueMatch}

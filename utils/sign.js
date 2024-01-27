@@ -16,16 +16,64 @@ const signPasswordSection = DOM.selectElement('.sign-password')
 const signPasswordCheckSecion = DOM.selectElement('#sign-password-check')
 const signEmailInput = DOM.selectElement('#email-input')
 const signPasswordInput = DOM.selectElement('#password-input')
-const signPasswordCheckInput = DOM.selectElement('#check-password')
 DOM.createTagAndclassWithText(signEmailSection, 'email-error', '')
 DOM.createTagAndclassWithText(signPasswordSection, 'password-error', '')
-DOM.createTagAndclassWithText(signPasswordCheckSecion, 'password-check-error', '')
 const emailError = signEmailSection.lastChild
 const passwordError = signPasswordSection.lastChild
-const passwordCheckError = signPasswordCheckSecion.lastChild
+const eyeImg = DOM.selectElement('.eye-button-icon')
 const loginButton = DOM.selectElement('.login-button')
 const signUpButton = DOM.selectElement('.signup-button')
-const eyeImg = DOM.selectElement('.eye-button-icon')
+const currentPageURL = window.location.href
+
+if (currentPageURL.includes("signup.html")) {
+  const signPasswordCheckInput = DOM.selectElement('#check-password')
+  DOM.createTagAndclassWithText(signPasswordCheckSecion, 'password-check-error', '')
+  const passwordCheckError = signPasswordCheckSecion?.lastChild
+
+  function handlePasswordCheckFocusout(){
+    if(input.isFormatValue(signPasswordCheckInput)){
+      showErrorMsg(signPasswordCheckInput, passwordCheckError, PASSWORD_ERROR_MESSAGE.empty)
+      return
+    }
+    if(input.isPasswordValueMatch(signPasswordInput, signPasswordCheckInput)){
+      passwordCheckError?.classList.add('hidden')
+      return
+    }
+    showErrorMsg(signPasswordCheckInput, passwordCheckError, PASSWORD_ERROR_MESSAGE.agreement)
+  }
+
+  function handleSignUpButton(){
+    signEmailInput.blur()
+    signPasswordInput.blur()
+    if(input.isValueMatch(signEmailInput, USERS[0].id)){
+      showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.use)
+      return
+    }
+    if (!signEmailInput.value || !signPasswordInput.value || !signPasswordCheckInput.value) {
+      alert('모든 입력 필드에 값을 입력하세요.')
+      return;
+    }
+    action.loginAction()
+  }
+
+  signPasswordCheckInput.addEventListener('focusout', handlePasswordCheckFocusout)
+  signPasswordCheckInput.addEventListener('focusin', () => handleInputFocusin(signPasswordCheckInput));
+  signUpButton.addEventListener('click', handleSignUpButton)
+
+}else if(currentPageURL.includes("signin.html")){
+  function handleLoginButton(){
+    signEmailInput.blur()
+    signPasswordInput.blur()
+    const isUserRegistered = USERS.some(user => input.isValueMatch(signEmailInput, user.id) && input.isValueMatch(signPasswordInput, user.password) )
+    if(isUserRegistered) { 
+      action.loginAction() 
+    }
+    showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.validation)
+    showErrorMsg(signPasswordInput, passwordError, PASSWORD_ERROR_MESSAGE.validation)
+  }
+
+  loginButton.addEventListener('click', handleLoginButton)
+}
 
 function showErrorMsg(inputElement, textElement, text){
   inputElement.classList.add('red-border')
@@ -57,37 +105,8 @@ function handlePasswordFocusout(){
   showErrorMsg(signPasswordInput, passwordError, PASSWORD_ERROR_MESSAGE.set)
 }
 
-function handlePasswordCheckFocusout(){
-  if(input.isPasswordValueMatch(signPasswordInput, signPasswordCheckInput)){
-    showErrorMsg(signPasswordCheckInput, passwordCheckError, PASSWORD_ERROR_MESSAGE.agreement)
-    return
-  }
-  passwordCheckError.classList.add('hidden')
-}
-
 function handleInputFocusin(inputElement) {
   inputElement.classList.remove('red-border');
-}
-
-function handleLoginButton(){
-  signEmailInput.blur()
-  signPasswordInput.blur()
-  const isUserRegistered = USERS.some(user => input.isValueMatch(signEmailInput, user.id) && input.isValueMatch(signPasswordInput, user.password) )
-  if(isUserRegistered) { 
-    action.loginAction() 
-  }
-  showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.validation)
-  showErrorMsg(signPasswordInput, passwordError, PASSWORD_ERROR_MESSAGE.validation)
-}
-
-function handleSigneUpButton(){
-  signEmailInput.blur()
-  signPasswordInput.blur()
-  if(input.isValueMatch(signEmailInput, USERS[0].id)){
-    showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.use)
-    return
-  }
-  action.loginAction() 
 }
 
 function handleChangePasswordType(){
@@ -103,7 +122,6 @@ function handlerEnter(){
   })
 }
 
-signUpButton.addEventListener('click', handleSigneUpButton)
 eyeImg.addEventListener('click', handleChangePasswordType)
 signEmailInput.addEventListener('focusout',handleEmailFocusout)
 signEmailInput.addEventListener('focusin', () => handleInputFocusin(signEmailInput));
@@ -111,6 +129,3 @@ signEmailInput.addEventListener('keyup',handlerEnter)
 signPasswordInput.addEventListener('keyup',handlerEnter)
 signPasswordInput.addEventListener('focusout', handlePasswordFocusout)
 signPasswordInput.addEventListener('focusin', () => handleInputFocusin(signPasswordInput));
-signPasswordCheckInput.addEventListener('focusout', handlePasswordCheckFocusout)
-signPasswordCheckInput.addEventListener('focusin', () => handleInputFocusin(signPasswordCheckInput));
-loginButton.addEventListener('click', handleLoginButton)
