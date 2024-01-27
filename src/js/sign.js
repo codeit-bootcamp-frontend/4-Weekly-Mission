@@ -1,4 +1,4 @@
-import { validateEmailInput } from './validate.js';
+import { validateEmailInput } from './utils/validate.js';
 import ERROR_MESSAGES from '../constant/errorMessages.js';
 import validValues from '../constant/validValues.js';
 
