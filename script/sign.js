@@ -6,43 +6,59 @@ const eyeOff = document.querySelector(".eye-off");
 const eyeOn = document.querySelector(".eye-on");
 const loginBtn = document.querySelector(".login-btn");
 
-//이메일이 공란일때 추가할 에러 p태그를 생성하는 함수 입니다.
-function makeEmptyEmailError() {
-  const errorEmptyEmail = document.createElement("p");
-  errorEmptyEmail.textContent = "이메일을 입력해 주세요";
-  errorEmptyEmail.classList.add("email-error");
-  inputEmail.after(errorEmptyEmail);
-  inputEmail.classList.add("input-error");
+const ERROR_MESSAGE = {
+  email: {
+    empty: "이메일을 입력해주세요.",
+    invalid: "올바른 이메일 주소가 아닙니다.",
+    check: "이메일을 확인해 주세요.",
+    inUse: "이미 사용 중인 이메일입니다.",
+  },
+  password: {
+    empty: "비밀번호을 입력해 주세요",
+    invalid: "비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.",
+    check: "비밀번호을 확인해 주세요",
+    recheck: "비밀번호가 일치하지 않아요.",
+  },
+};
+
+function makeError(type, errorType) {
+  const errorTag = document.createElement("p");
+  errorTag.textContent = errorType;
+  if (type === "email") {
+    errorTag.classList.add("email-error");
+    inputEmail.after(errorTag);
+    inputEmail.classList.add("input-error");
+  } else if (type === "password") {
+    errorTag.classList.add("password-error");
+    inputPassword.after(errorTag);
+    inputPassword.classList.add("input-error");
+    eyeOff.classList.add("eye-error");
+    loginContainer.classList.add("error");
+  }
 }
-//이메일의 형식이 틀릴때 추가할 에러 p태그를 생성하는 함수 입니다.
-function makeWrongEmailError() {
-  const errorEmptyEmail = document.createElement("p");
-  errorEmptyEmail.textContent = "올바른 이메일 주소가 아닙니다.";
-  errorEmptyEmail.classList.add("email-error");
-  inputEmail.after(errorEmptyEmail);
-  inputEmail.classList.add("input-error");
-}
-//이메일을 확인할때의 에러 p태그를 생성하는 함수 입니다.
-function makeCheckEmailError() {
-  const errorEmptyEmail = document.createElement("p");
-  errorEmptyEmail.textContent = "이메일을 확인해 주세요";
-  errorEmptyEmail.classList.add("email-error");
-  inputEmail.after(errorEmptyEmail);
-  inputEmail.classList.add("input-error");
-}
+
 //이메일에러를 추가하는 함수입니다.
 function addEmailError() {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // 간단한 이메일 유효성 검사 정규식
 
   if (inputEmail.value === "") {
     removeIfEmailError();
-    makeEmptyEmailError();
+    makeError("email", ERROR_MESSAGE.email.empty);
   }
   if (inputEmail.value !== "" && !emailRegex.test(inputEmail.value)) {
     removeIfEmailError();
-    makeWrongEmailError();
+    makeError("email", ERROR_MESSAGE.email.check);
   }
 }
+
+//비밀번호에러를 추가하는 함수입니다.
+function addPasswordError() {
+  if (inputPassword.value === "") {
+    removeIfPasswordError();
+    makeError("password", ERROR_MESSAGE.password.empty);
+  }
+}
+
 //이메일에서 오류태그인 p태그가 연속적으로 쌓이는 것을 방지하기 위한 에러태그가 있다면 제거하는 함수입니다.
 function removeIfEmailError() {
   const errorEmptyEmail = document.querySelector(".email-error");
@@ -52,35 +68,7 @@ function removeIfEmailError() {
     inputEmail.classList.remove("input-error");
   }
 }
-//비밀번호가 공란일때 에러 p태그를 생성하는 함수입니다.
-//오류함수를 합치고 싶었으나 에러 태그를 생성하면 눈 이미지의 위치변화도 있기 때문에
-//이메일과 비밀번호 에러 생성함수를 따로 만들었습니다.
-function makeEmptyPasswordError() {
-  const errorEmptyPassword = document.createElement("p");
-  errorEmptyPassword.textContent = "비밀번호를 입력해 주세요";
-  errorEmptyPassword.classList.add("password-error");
-  inputPassword.after(errorEmptyPassword);
-  inputPassword.classList.add("input-error");
-  eyeOff.classList.add("eye-error");
-  loginContainer.classList.add("error");
-}
-//비밀번호가 유효하지 않을때 에러 p태그를 생성하는 함수입니다.
-function makeCheckPasswordError() {
-  const errorEmptyPassword = document.createElement("p");
-  errorEmptyPassword.textContent = "비밀번호를 확인해 주세요";
-  errorEmptyPassword.classList.add("password-error");
-  inputPassword.after(errorEmptyPassword);
-  inputPassword.classList.add("input-error");
-  eyeOff.classList.add("eye-error");
-  loginContainer.classList.add("error");
-}
-//비밀번호에러를 추가하는 함수입니다.
-function addPasswordError() {
-  if (inputPassword.value === "") {
-    removeIfPasswordError();
-    makeEmptyPasswordError();
-  }
-}
+
 //비밀번호에서 오류태그인 p태그가 연속적으로 쌓이는 것을 방지하기 위한 에러태그가 있다면 제거하는 함수입니다.
 function removeIfPasswordError() {
   const errorEmptyPassword = document.querySelector(".password-error");
@@ -102,8 +90,8 @@ function Login() {
   } else {
     removeIfEmailError();
     removeIfPasswordError();
-    makeCheckEmailError();
-    makeCheckPasswordError();
+    makeError("email", ERROR_MESSAGE.email.check);
+    makeError("password", ERROR_MESSAGE.password.check);
   }
 }
 //keypress가 일어났을때 Enter키를 눌렀는지 확인하고 Login()을 실행하는 함수입니다.
