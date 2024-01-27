@@ -17,6 +17,7 @@ const user = new User('test@codeit.com', 'codeit101')
 
 // 유효성 검사 기준 코드
 const emailPattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
+const passwordPattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
 
 /*********************
       UI Constant
@@ -30,8 +31,6 @@ const inputPassword = document.querySelector('#signin-password');
 const errorMessageEmail = document.querySelector('.errorMessage-email');
 const errorMessagePassword = document.querySelector('.errorMessage-password');
 
-const eyeImg = document.querySelector('.eye-img-password');
-
 /*********************
        Function
 *********************/
@@ -39,15 +38,25 @@ const eyeImg = document.querySelector('.eye-img-password');
 function isEmpty(text) { return text.length === 0 };
 
 function isEmailValid(text) { return emailPattern.test(text) };
+function isPasswordValid(text) { return passwordPattern.test(text) };
 
-function isAccountValid(email, password) {
-  return (user.email === email && user.password === password);
+function verifyAccount(email, password) { 
+  if ( email !== user.email ) {
+    return false
+  }
+
+  if ( password !== user.password) {
+    return false
+  }
+
+  return true;
 };
 
 function showErrorMessage(targetElement, errorMessage) {
   targetElement.classList.remove('hidden');
   targetElement.textContent = errorMessage;
 };
+
 function hideErorrMessage(targetElement) {
   targetElement.classList.add('hidden');
 };
@@ -97,25 +106,47 @@ function deleteError(e) {
   };
 };
 
-function togglePasswordVisibility() {
+function togglePasswordVisibility( { target: eyeImg } ) {
   if (eyeImg.classList.contains('eye-open')) {
     eyeImg.classList.toggle('eye-open');
     eyeImg.classList.toggle('eye-closed'); 
-    inputPassword.setAttribute('type', 'password');
-  } else {
+    eyeImg.parentElement.firstElementChild.setAttribute('type', 'password');
+    return;
+  }
+
+  if (eyeImg.classList.contains('eye-closed')) {
     eyeImg.classList.toggle('eye-open');
     eyeImg.classList.toggle('eye-closed'); 
-    inputPassword.setAttribute('type', 'text');
+    eyeImg.parentElement.firstElementChild.setAttribute('type', 'text');
+    return;
   };
 };
 
 function login(e) {
   e.preventDefault();
 
-  if (!isAccountValid(inputEmail.value, inputPassword.value)) {
+  if (!isEmailValid(inputEmail.value)) {
     showErrorMessage(errorMessageEmail, '이메일을 확인해 주세요.');
+    inputEmail.classList.add('red-border');
     showErrorMessage(errorMessagePassword, '비밀번호를 확인해 주세요.');
-    return alert('계정을 확인해주세요.')
+    inputPassword.classList.add('red-border');
+    return;
+  }
+
+  if (!isPasswordValid(inputPassword.value)) {
+    showErrorMessage(errorMessageEmail, '이메일을 확인해 주세요.');
+    inputEmail.classList.add('red-border');
+    showErrorMessage(errorMessagePassword, '비밀번호를 확인해 주세요.');
+    inputPassword.classList.add('red-border');
+    return;
+  }
+
+  if (!verifyAccount(inputEmail.value, inputPassword.value)) {
+    showErrorMessage(errorMessageEmail, '이메일을 확인해 주세요.');
+    inputEmail.classList.add('red-border');
+    showErrorMessage(errorMessagePassword, '비밀번호를 확인해 주세요.');
+    inputPassword.classList.add('red-border');
+    return;
   };
 
   return location.href = '../folder/index.html';
@@ -129,6 +160,7 @@ signInForm.addEventListener('focusin', changePlaceholderFocusIn);
 signInForm.addEventListener('focusout', changePlaceholderFocusOut);
 signInForm.addEventListener('submit', login);
 signInForm.addEventListener('focusin', deleteError);
+signInForm.addEventListener('click', togglePasswordVisibility)
 
 inputEmail.addEventListener('focusout', emailError);
 

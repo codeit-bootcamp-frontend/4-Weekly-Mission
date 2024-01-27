@@ -47,6 +47,7 @@ function showErrorMessage(targetElement, errorMessage) {
   targetElement.classList.remove('hidden');
   targetElement.textContent = errorMessage;
 };
+
 function hideErorrMessage(targetElement) {
   targetElement.classList.add('hidden');
 };
@@ -128,6 +129,7 @@ function deleteError(e) {
   };
 };
 
+// 이벤트 위임을 사용하면 불가피하게 'firstElementChild'와 같은 상대적 노드 주소를 쓰게되는데, 아래의 사용과 같은 경우에도 너무 위험한 코드인 걸까요? 아예 상대주소는 피하는 방향으로 가는게 맞을지 궁금합니다.
 function togglePasswordVisibility( { target: eyeImg } ) {
   if (eyeImg.classList.contains('eye-open')) {
     eyeImg.classList.toggle('eye-open');
@@ -149,6 +151,7 @@ function onlyEngPassword() {
   inputPassword.value = filteredValue;
 };
 
+// signup 함수도 login 함수처럼 이메일 검사 -> 비밀번호 검사 -> 비밀번호 확인 검사 순으로 로직을 만들어서 하는게 좋을까요? 너무 함수가 길어지는 것 같아서 피하게 되는 것 같습니다.
 function signup(e) {
   e.preventDefault();
 
