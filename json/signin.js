@@ -21,12 +21,8 @@ function checkInputEmail(event) {
     errorMessage.innerHTML = '<p>이메일을 입력해 주세요.</p>';
     emailInput.after(errorMessage);
   } else if (!emailCheck(event.target.value)) {
-    errorMessage.remove();
     errorMessage.innerHTML = '<p>올바른 이메일 주소가 아닙니다.</p>';
     emailInput.after(errorMessage);
-  } else {
-    errorMessage.style.display = 'none';
-    emailInput.classList.remove('error-border');
   }
 }
 
@@ -38,10 +34,14 @@ function checkInputPassword(event) {
   if (event.target.value === '') {
     errorMessage.innerHTML = '<p>비밀번호를 입력해 주세요.</p>';
     passwordInput.after(errorMessage);
-  } else {
-    errorMessage.style.display = 'none';
-    passwordInput.classList.remove('error-border')
   }
+}
+
+/*에러메시지 초기화하는 함수*/
+function removeError(e) {
+	if (e.target.nextElementSibling.classList.contains('error-message')) {
+    e.target.nextElementSibling.remove();
+	}
 }
 
 /*로그인을 시도할 때 일어나는 경우에 대한 함수*/
@@ -64,8 +64,10 @@ function tryLogin(event) {
 
 
 /*이벤트 핸들러 등록*/
+emailInput.addEventListener('focusin', removeError);
 emailInput.addEventListener('focusout', checkInputEmail);
 emailInput.addEventListener('keyup', keyCode => {13});
+passwordInput.addEventListener('focusin', removeError);
 passwordInput.addEventListener('focusout', checkInputPassword);
 passwordInput.addEventListener('keyup', keyCode => {13});
 confirmBtn.addEventListener('click', tryLogin);
