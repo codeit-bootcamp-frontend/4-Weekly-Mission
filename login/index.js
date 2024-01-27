@@ -16,13 +16,12 @@ function handleFocusOut(e) {
 
     if (e.target.classList.contains('login-email')) {
       e.target.nextElementSibling.textContent = '이메일을 입력해 주세요.';
+      e.target.classList.add('input_error');
     }
     else if (e.target.classList.contains('login-password')) {
       e.target.nextElementSibling.textContent = '비밀번호를 입력해 주세요.';
+      e.target.classList.add('input_error');
     }
-
-    e.target.classList.add('input_error');
-
   }
 }
 
