@@ -78,10 +78,6 @@ $inputList.forEach(($input) =>
 //주어진 아이디, 비번 아니면 로그인 불가
 
 $form.addEventListener("submit", function (e) {
-  console.log(
-    !mockUp.rightEmail($inputList[0].value) ||
-      !mockUp.rightPassword($inputList[1].value)
-  );
   if (
     !mockUp.rightEmail($inputList[0].value) ||
     !mockUp.rightPassword($inputList[1].value)
