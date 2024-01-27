@@ -1,4 +1,4 @@
-import * as input from './commonChange_input.js';
+import * as input from '../commonChange_input.js';
 
 //로컬 스토리지에 accessToken이 있는 경우 folder로 이동 
 window.onload = function(){
@@ -120,8 +120,8 @@ async function handlesignupButtonClick(event) {
       return;
     }
     if (response.status == 200) { //회원가입시
-      // localStorage.setItem('SignupAccessToken', response.data.accessToken);
-      // localStorage.setItem('SignupRefreshToken', response.data.refreshToken);
+      // localStorage.setItem('SignupAccessToken', accessToken);  //토큰 저장 but 제대로수행 x(help!)
+      // localStorage.setItem('SignupRefreshToken', refreshToken);
         window.location.href = "/folder";
     }
     else {

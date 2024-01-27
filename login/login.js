@@ -1,4 +1,4 @@
-import * as input from './commonChange_input.js';
+import * as input from '../commonChange_input.js';
 
 //로컬 스토리지에 accessToken이 있는 경우 folder로 이동 
 window.onload = function(){
@@ -59,8 +59,8 @@ async function handleLoginButtonClick(event) {
     });
     const response_json = await response.text();
     if (response.status == 200) {
-      // localStorage.setItem('LoginAccessToken',response.data.accessToken);
-      // localStorage.setItem('LoginRefreshToken', response.data.refreshToken);
+      // localStorage.setItem('LoginAccessToken',accessToken);
+      // localStorage.setItem('LoginRefreshToken',refreshToken);
       window.location.href = "/folder";
     }
     else {

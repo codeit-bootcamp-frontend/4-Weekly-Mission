@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>로그인</title>
-  <link rel="stylesheet" href="loginin.css">
+  <title>회원 가입하기</title>
+  <link rel="stylesheet" href="signup.css">
   <script src="https://kit.fontawesome.com/9466166f5a.js" crossorigin="anonymous"></script> <!--폰트어썸 cdn 스크립트 주소-->
   <link rel="stylesheet" as="style" crossorigin
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
@@ -13,12 +13,11 @@
 
 <body>
   <main>
-    <section class="login">
-      <article class="login__info">
-        <div class="login__logoSection">
-          <a class="login_logoSection--logo" href="/">
-            <svg class="login__logo--svg" xmlns="http://www.w3.org/2000/svg" width="133" height="24"
-              viewBox="0 0 133 24" fill="none">
+    <section class="signup">
+      <article class="signup__container">
+        <div class="signup__logoSection">
+          <a class="signup_logoSection--logo" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="133" height="24" viewBox="0 0 133 24" fill="none">
               <path d="M5.20583 15.7049V0.792232H0V20.2718H14.9638V15.7049H5.20583Z" fill="#6D6AFE" />
               <path d="M21.6801 20.2718V5.12621H16.4743V20.2718H21.6801ZM21.6801 3.96117V0H16.4743V3.96117H21.6801Z"
                 fill="#6D6AFE" />
@@ -45,48 +44,58 @@
                 fill="#6D6AFE" />
             </svg>
           </a>
-          <div class="login__logSection--text">
+        
+          <div class="signup__logoSection--text">
             <p>
-              회원이 아니신가요? <a class="logo__logosection--link" href="./signup.html">회원가입하기</a>
+              이미 회원이신가요? <a href="../login/loginin.html">로그인하기</a>
             </p>
           </div>
         </div>
-        <form class="login__form">
-          <div class="login__inputsection">
-          <div class="login__form--infobox">
-            <label for="login__email-form" class="login__form--label-text">이메일</label>
-            <input id="login__email-form" name="email" type="email" placeholder="내용 입력">
-            <p class="login__email-form--error"></p>
-          </div>
-          <div class="login__form--infobox">
-            <label for="login__password-form" class="login__form--label-text">비밀번호</label>
-            <div class="login__password-container">
-              <input id="login__password-form" name="password" type="password" placeholder="내용 입력">
-              <i class="password__toggle-icon fa-solid fa-eye"></i>
-              <p class="login__password-form--error"></p>
+      </div>
+        <form class="sign__form">
+          <div class="signup__inputsection">
+            <div class="signup__form--inputbox">
+              <label for="signup__email-form" class="signup__form--label-text">이메일</label>
+              <input id="signup__email-form" name="email" type="email" placeholder="내용 입력">
+              <p class="signup__email-form--error"></p>
+            </div>
+            <div class="signup__form--inputbox">
+              <label for="signup__password-form" class="signup__form--label-text">비밀번호</label>
+              <div class="signup__password-container">
+                <input id="signup__password-form" name="password" type="password" placeholder="내용 입력">
+                <i class="password__toggle-icon fa-solid fa-eye"></i>
+                <p class="signup__password-form--error"></p>
+              </div>
+            </div>
+            <div class="signup__form--inputbox">
+              <label for="signup__pwscheck-form" class="signup__form--label-text">비밀번호 확인</label>
+              <div class="signup__password-container">
+                <input id="signup__pwscheck-form" name="pwcheck" type="password" placeholder="내용 입력">
+                <i class="pwcheck__toggle-icon fa-solid fa-eye"></i>
+                <p class="signup__pwcheck-form--error"></p>
+              </div>
             </div>
           </div>
-        </div>
-          <button type="button" class="login__form--loginBt" href="#">로그인</button>
+          <button type="button" class="signup__form--signupBt" href="#">회원가입</button>
         </form>
       </article>
-      <article class="login-another">
+      <article class="signup-another">
         <p>
-          <span>소셜 로그인</span>
+          <span>다른 방식으로 가입하기</span>
         </p>
-        <div>
-          <a class="login-another__google" href="#">
-            <img src="./img/google.png">
+        <div class="link">
+          <a class="signup-another__google" href="#">
+            <img src="../img/google.png">
           </a>
-          <a class="login-another__kakao" href="#">
-            <img src="./img/kakaotalk.png">
+          <a class="signup-another__kakao" href="#">
+            <img src="../img/kakaotalk.png">
           </a>
         </div>
       </article>
     </section>
   </main>
 
-  <script type="module" src="login.js"></script>
+  <script type="module" src="signup.js"></script>
 </body>
 
 </html>

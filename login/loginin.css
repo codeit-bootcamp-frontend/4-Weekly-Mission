@@ -75,14 +75,14 @@ html {
 
 /* 폼 작성 부분 */
 .login__form {
+  width: 100%;
+}
+
+.login__inputsection{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  width: 100%;
-}
-
-.login__button-form{
   width: 100%;
 }
 
@@ -109,6 +109,7 @@ html {
   border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
   background: var(--Linkbrary-white, #FFF);
 }
+
 .login__form--label-text{
   font-size: 14px;
   font-weight: 400;
@@ -123,6 +124,7 @@ html {
   background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
   width: 100%;
   padding: 16px 20px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,4 +175,9 @@ html {
     width: 100%;
     max-width: 400px;
   }
+}
+
+.login-another__google,
+.login-another__kakao{
+  display: inline-block;
 }

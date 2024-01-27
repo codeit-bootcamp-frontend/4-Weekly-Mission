@@ -76,14 +76,13 @@ html {
 
 /* 폼 작성 부분 */
 .sign__form {
+  width: 100%;
+}
+.signup__inputsection{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 24px;
-  width: 100%;
-}
-
-.sign__button-form{
   width: 100%;
 }
 
@@ -120,6 +119,7 @@ html {
   background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
   width: 100%;
   padding: 16px 20px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,4 +173,9 @@ html {
     max-width: 400px;   
     width: 100%;
   }
+}
+
+.signup-another__google,
+.signup-another__kakao{
+  display: inline-block;
 }
