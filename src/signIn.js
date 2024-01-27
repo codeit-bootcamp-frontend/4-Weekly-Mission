@@ -12,7 +12,7 @@ import {
   handleEnterKey,
 } from './utils/auth.js';
 
-const signBtn = document.querySelector('.sign-normal__btn');
+const signInBtn = document.querySelector('#signin-btn');
 
 const handleLoginFailure = () => {
   applyError(emailError, MESSAGE.CHECK_EMAIL, emailInput);
@@ -35,4 +35,4 @@ pwInput.addEventListener('focusout', validatePw);
 pwInput.addEventListener('keydown', (e) => handleEnterKey(e, handleLogin));
 pwToggle.addEventListener('click', () => handleClickPwToggle(pwInput, pwToggle));
 
-signBtn.addEventListener('click', handleLogin);
+signInBtn.addEventListener('click', handleLogin);
