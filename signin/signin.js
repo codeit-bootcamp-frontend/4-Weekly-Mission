@@ -38,7 +38,13 @@ const togglePasswordVisibility = () => {
   }
 };
 
+const removeEmpty = (input) => {
+  return input.replace(/(\s*)/g, '');
+};
+
 const emailInputCheck = (e) => {
+  e.target.value = removeEmpty(e.target.value);
+
   if (e.target.value.length <= 0) {
     emailError.textContent = '이메일을 입력해 주세요.';
     e.target.classList.add('inputError');
@@ -52,6 +58,8 @@ const emailInputCheck = (e) => {
 };
 
 const passwordInputCheck = (e) => {
+  e.target.value = removeEmpty(e.target.value);
+
   if (e.target.value.length <= 0) {
     passwordError.textContent = '비밀번호를 입력해 주세요.';
     e.target.classList.add('inputError');
