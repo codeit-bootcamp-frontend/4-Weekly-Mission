@@ -43,12 +43,20 @@ function checkPassword(event) {
   const passwordValue = event.target.value;
   const errorMessageBox = querySelector("#password-error-message");
 
-  updateErrorMessage(
-    errorMessageBox,
-    passwordValue === "" ? "비밀번호를 입력해주세요." : "",
-    signupPasswordInput,
-    passwordValue === ""
-  );
+  if (passwordValue === "") {
+    updateErrorMessage(
+      errorMessageBox,
+      "비밀번호를 입력해주세요.",
+      signupPasswordInput,
+      true
+    );
+  } else if (passwordValue)
+    updateErrorMessage(
+      errorMessageBox,
+      passwordValue === "" ? "비밀번호를 입력해주세요." : "",
+      signupPasswordInput,
+      passwordValue === ""
+    );
 }
 
 /** 비밀번호 확인 */
@@ -58,7 +66,9 @@ function checkPasswordRepeat(event) {
 
   updateErrorMessage(
     errorMessageBox,
-    passwordValue === "" ? "비밀번호를 입력해주세요." : "",
+    passwordValue === ""
+      ? "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
+      : "",
     signupPasswordInput,
     passwordValue === ""
   );
