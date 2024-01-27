@@ -5,6 +5,9 @@ const passwordInput = document.querySelector('#password');
 const eyeButton = document.querySelector('.eye-button');
 const loginButton = document.querySelector('.sign-form-button');
 
+const validEmail = 'test@codeit.com';
+const validPassword = 'codeit101';
+
 const addErrorMessage = (parentElement, errorMessage) => {
   const errorTag = document.createElement('p');
   errorTag.innerText = errorMessage;
@@ -61,7 +64,7 @@ passwordInput.addEventListener('blur', e => {
 
 loginButton.addEventListener('click', e => {
   e.preventDefault();
-  if (emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101') {
+  if (emailInput.value === validEmail && passwordInput.value === validPassword) {
     window.location.href = '../pages/folder.html';
   } else {
     const emailBox = emailInput.parentElement;
