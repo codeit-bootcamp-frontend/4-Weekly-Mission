@@ -1,6 +1,7 @@
 const emailInput = document.querySelector("#email");
 const passwordInput = document.querySelector("#password");
 const confirmBtn = document.querySelector('#confirm-button');
+const eyeBtn = document.querySelector('.eye-btn');
 const email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
 
 /*email 형식인지 체크해주는 함수*/
@@ -57,10 +58,23 @@ function tryLogin(event) {
   }
 }
 
+/*비밀번호 on/off 버튼*/
+function passwordToggle(e) {
+  e.preventDefault();
+  if (passwordInput.getAttribute("type") === "password") {
+    passwordInput.setAttribute("type", "text");
+    eyeBtn.innerHTML = '<img alt="eye-on" src="images/eye-on.svg">';
+  } else {
+    passwordInput.setAttribute("type", "password");
+    eyeBtn.innerHTML = '<img alt="eye-off" src="images/eye-off.svg">';
+  }
+}
+
 
 /*이벤트 핸들러 등록*/
-emailInput.addEventListener('focusin', removeError);
-emailInput.addEventListener('focusout', checkInputEmail);
-passwordInput.addEventListener('focusin', removeError);
-passwordInput.addEventListener('focusout', checkInputPassword);
+emailInput.addEventListener('focusin', removeErrorMessage);
+emailInput.addEventListener('focusout', validEmailInput);
+passwordInput.addEventListener('focusin', removeErrorMessage);
+passwordInput.addEventListener('focusout', validPasswordInput);
 confirmBtn.addEventListener('click', tryLogin);
+eyeBtn.addEventListener('click', passwordToggle);
