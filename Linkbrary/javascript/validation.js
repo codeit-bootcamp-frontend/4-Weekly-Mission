@@ -76,7 +76,7 @@ function focusPW(){
 // 로그인 시도
 function IDTry(event) {
   if (ID_INPUT.value === "test@codeit.com"&&PW_INPUT.value === "codeit101") {
-    window.location.href = "./faq.html";
+    window.location.href = "./folder.html";
   } 
   if(ID_INPUT.value !== "test@codeit.com"){
     showidErrorMessage("이메일을 확인해주세요.");
