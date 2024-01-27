@@ -1,29 +1,30 @@
-const inputEmail = document.querySelector('#login-email');
-const inputPassword = document.querySelector('#login-password');
-const loginButton = document.querySelector('#login-button');
+const INPUT_EMAIL = document.querySelector('#login-email');
+const INPUT_PASSWORD = document.querySelector('#login-password');
+const LOGIN_BUTTON = document.querySelector('#login-button');
+const FORM_ELEMENT = document.querySelector('#signin-form');
 
-inputEmail.addEventListener('focusout', noInput);
-inputEmail.addEventListener('focusout', emailCheck);
-inputEmail.addEventListener('keyup', enterKey);
+INPUT_EMAIL.addEventListener('focusout', handleFocusOut);
+INPUT_EMAIL.addEventListener('focusout', emailCheck);
 
-inputPassword.addEventListener('focusout', noInput);
-inputPassword.addEventListener('keyup', enterKey);
+INPUT_PASSWORD.addEventListener('focusout', handleFocusOut);
 
-loginButton.addEventListener('click', correctInput);
+// LOGIN_BUTTON.addEventListener('click', handleSubmit);
+
+FORM_ELEMENT.addEventListener('submit', handleSubmit)
 
 
 // input 없을 때 에러 메세지
-function noInput(e) {
+function handleFocusOut(e) {
   if (e.target.value === '') {
 
     if (e.target.classList.contains('login-email')) {
       e.target.nextElementSibling.textContent = '이메일을 입력해 주세요.';
-      e.target.style.border = '1px solid #FF5B56';
     }
     else if (e.target.classList.contains('login-password')) {
       e.target.nextElementSibling.textContent = '비밀번호를 입력해 주세요.';
-      e.target.style.border = '1px solid #FF5B56';
     }
+
+    e.target.classList.add('input_error');
 
   }
 }
@@ -31,13 +32,9 @@ function noInput(e) {
 
 // 이메일 유효성 확인
 function emailValidation(input) {
-  let reg_email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+  const REG_EMAIL = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 
-  if (!reg_email.test(input)) {
-    return false;
-  } else {
-    return true;
-  }
+  return REG_EMAIL.test(input);
 }
 
 function emailCheck(e) {
@@ -45,7 +42,7 @@ function emailCheck(e) {
 
     if (!emailValidation(e.target.value)) {
       e.target.nextElementSibling.textContent = '올바른 이메일 주소가 아닙니다.';
-      e.target.style.border = '1px solid #FF5B56';
+      e.target.classList.add('input_error');
     }
 
   }
@@ -53,20 +50,14 @@ function emailCheck(e) {
 
 
 // 이메일, 비밀번호 일치 시 페이지 이동
-function correctInput(e) {
-  if (inputEmail.value === 'test@codeit.com' && inputPassword.value === 'codeit101') {
-    window.location.href = "/folder";
+function handleSubmit(e) {  // FIXME: 입력 정보 일치 시 HTML ERROR 405 발생
+  if (INPUT_EMAIL.value === 'test@codeit.com' && INPUT_PASSWORD.value === 'codeit101') {
+    FORM_ELEMENT.submit();
   } 
   else {
-    inputEmail.nextElementSibling.textContent = '이메일을 확인해 주세요.';
-    inputEmail.style.border = '1px solid #FF5B56';
-    inputPassword.nextElementSibling.textContent = '비밀번호를 확인해 주세요.';
-    inputPassword.style.border = '1px solid #FF5B56';
+    INPUT_EMAIL.nextElementSibling.textContent = '이메일을 확인해 주세요.';
+    INPUT_EMAIL.classList.add('input_error');
+    INPUT_PASSWORD.nextElementSibling.textContent = '비밀번호를 확인해 주세요.';
+    INPUT_PASSWORD.classList.add('input_error');
   }
 }
-
-function enterKey(e) {
-  if (e.keyCode === 13) {
-    correctInput();
-  }
-} 

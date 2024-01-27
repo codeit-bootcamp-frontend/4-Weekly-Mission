@@ -84,7 +84,8 @@ header {
   line-height: normal;
 }
 
-.login_form input {
+.login-email,
+.login-password {
   position: relative;
 
   border: 1px solid #373740;
@@ -112,7 +113,8 @@ header {
   font-weight: 400;
 }
 
-.link_login {
+#login-button {
+  border: none;
   border-radius: 8px;
   padding: 16px 20px;
   background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
@@ -201,4 +203,11 @@ header {
     width: 100%;
     max-width: 400px;
   }
+}
+
+
+/* 이벤트 관련 */
+
+.input_error {
+  border: 1px solid #FF5B56;
 }
