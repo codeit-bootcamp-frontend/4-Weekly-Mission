@@ -22,17 +22,13 @@ function emailChecker(e) {
     if (!EMAIL_INPUT.value) {
         const ENTER_EMAIL = "이메일을 입력해 주세요."
         inputError(e, ENTER_EMAIL);
-    } 
-    
-    if (EMAIL_INPUT.validity.typeMismatch) {
+    } else if (EMAIL_INPUT.validity.typeMismatch) {
         const NOT_AN_EMAIL = "올바른 이메일 주소가 아닙니다."
         inputError(e, NOT_AN_EMAIL);
-    }
-    
-    if (EMAIL_INPUT.value === TEST_EMAIL) {
+    } else if (EMAIL_INPUT.value === TEST_EMAIL) {
         const EXISTING_EMAIL = "이미 사용 중인 이메일입니다.";
         inputError(e, EXISTING_EMAIL);
-    }
+    } 
 }
 
 // 비밀번호 인풋 검사
@@ -69,18 +65,28 @@ function removeError(e) {
     }
 }
 
-// 로그인 검사
-function signInChecker(e) {
-        if (EMAIL_INPUT.value === TEST_EMAIL && PASSWORD_INPUT.value === TEST_PW) {
-            location.replace('/folder');
-        } else {
-            const CHECK_YOUR_EMAIL = '이메일을 확인해 주세요.';
-            const CHECK_YOUR_PW = '비밀번호를 확인해 주세요.';
+// 회원가입 검사
+function signUpChecker(e) {
+    let pwCopy = PASSWORD_INPUT.value;
+    pwCopy = [...pwCopy];
 
-            loginError(EMAIL_INPUT, CHECK_YOUR_EMAIL);
-            loginError(PASSWORD_INPUT, CHECK_YOUR_PW);
-        }
-}
+    const INVALID_EMAIL = !EMAIL_INPUT.value || EMAIL_INPUT.validity.typeMismatch || EMAIL_INPUT.value === TEST_EMAIL;
+    const INVALID_PW = PASSWORD_INPUT.value.length < 8 || Boolean(PASSWORD_INPUT.value / 1) || PASSWORD_INPUT.value / 1 === 0 || pwCopy.every(element => !(element / 1));
+
+    if (INVALID_EMAIL) {
+        const CHECK_YOUR_EMAIL = '이메일을 확인해 주세요.';
+        loginError(EMAIL_INPUT, CHECK_YOUR_EMAIL);
+    } 
+    
+    if (INVALID_PW) {
+        const CHECK_YOUR_PW = '비밀번호를 확인해 주세요.';
+        loginError(PASSWORD_INPUT, CHECK_YOUR_PW);
+    } 
+
+    if (!INVALID_EMAIL && !INVALID_PW) {
+        location.replace('/folder');
+    }
+}   
 
 EMAIL_INPUT.addEventListener('focusout', emailChecker);
 EMAIL_INPUT.addEventListener('focusin', removeError);
@@ -88,5 +94,5 @@ PASSWORD_INPUT.addEventListener('focusout', passwordChecker);
 PASSWORD_INPUT.addEventListener('focusin', removeError);
 PW_REPEAT_INPUT.addEventListener('keyup', passwordRepeatChecker);
 
-SIGNUP_BTN.addEventListener('click', signInChecker);
+SIGNUP_BTN.addEventListener('click', signUpChecker);
 
