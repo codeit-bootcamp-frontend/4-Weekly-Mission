@@ -4,6 +4,8 @@ const emailInput = document.getElementById('email');
 const emailError = document.getElementById('email-error');
 const pwInput = document.getElementById('password');
 const pwError = document.getElementById('password-error');
+const pwCheckInput = document.getElementById('password-check');
+const pwCheckError = document.getElementById('password-check-error');
 const pwToggle = document.querySelector('.password-eye');
 const signBtn = document.querySelector('.sign-normal__btn');
 
@@ -73,11 +75,18 @@ const handleDuplicateEmail = () => {
   else validateEmail();
 };
 
+const handlePasswordMatch = () => {
+  if (pwCheckInput.value !== pwInput.value) applyError(pwCheckError, MESSAGE.NOT_MATCH_PASSWORD, pwCheckInput);
+  else resetError(pwCheckError, pwCheckInput);
+};
+
 emailInput.addEventListener('focusout', handleDuplicateEmail);
 emailInput.addEventListener('keydown', handleEnterKey);
 
 pwInput.addEventListener('focusout', validatePw);
 pwInput.addEventListener('keydown', handleEnterKey);
+
+pwCheckInput.addEventListener('focusout', handlePasswordMatch);
 
 signBtn.addEventListener('click', handleLogin);
 pwToggle.addEventListener('click', handleClickPwToggle);
