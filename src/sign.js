@@ -4,7 +4,7 @@ const emailError = document.querySelector("#email-error");
 const emailInput = document.querySelector("#email");
 const passwordError = document.querySelector("#password-error");
 const pwInput = document.querySelector("#password");
-const pwCheckError = document.querySelector("#pwCheck-error");
+const pwConfirmError = document.querySelector("#pwConfirm-error");
 const pwConfirmInput = document.querySelector("#password-confirm");
 const form = document.querySelector("form");
 
@@ -13,9 +13,9 @@ const showError = (errorEl, input, errorType) => {
   input.style.borderColor = "red";
   errorEl.innerText = errorType;
 };
-const hideError = (input, errorEl) => {
-  input.style.borderColor = "";
+const hideError = (errorEl, input) => {
   errorEl.innerText = "";
+  input.style.borderColor = "";
 };
 const isValidFormat = (action, input) => {
   if (action === "email") return REGEX.email.test(input);
@@ -30,7 +30,7 @@ const validateEmail = () => {
     showError(emailError, emailInput, ERROR_MESSAGES.email_empty);
   else if (!isValidFormat("email", emailValue))
     showError(emailError, emailInput, ERROR_MESSAGES.email_invalid);
-  else hideError(emailInput, emailError);
+  else hideError(emailError, emailInput);
 };
 emailInput.addEventListener("focusout", validateEmail);
 
@@ -42,27 +42,23 @@ const validatePw = () => {
     showError(passwordError, pwInput, ERROR_MESSAGES.password_empty);
   else if (!isValidFormat("pw", passwordValue))
     showError(passwordError, pwInput, ERROR_MESSAGES.password_invalid);
-  else hideError(pwInput, passwordError);
+  else hideError(passwordError, pwInput);
 };
 pwInput.addEventListener("focusout", validatePw);
 
 // 비밀번호 확인 유효성 검사
 const validatePwConfirm = () => {
-  const emptyMessage = document.querySelector("#pwConfirm-empty-message");
-  const invalidMessage = document.querySelector("#pwConfirm-invalid-message");
+  const passwordValue = pwInput.value.trim();
+  const pwConfirmValue = pwConfirmInput.value.trim();
 
-  if (pwConfirmInput.value.trim() === "") {
-    showError(pwConfirmInput, emptyMessage);
-  } else {
-    hideError(pwConfirmInput, emptyMessage);
-  }
-
-  if (pwInput.value.trim() !== pwConfirmInput.value.trim()) {
-    showError(pwConfirmInput, invalidMessage);
-  } else {
-    hideError(pwConfirmInput, invalidMessage);
-  }
+  if (pwConfirmValue === "")
+    showError(pwConfirmError, pwConfirmInput, ERROR_MESSAGES.pwConfirm_empty);
+  else if (passwordValue !== pwConfirmValue)
+    showError(pwConfirmError, pwConfirmInput, ERROR_MESSAGES.pwConfirm_invalid);
+  else hideError(pwConfirmError, pwConfirmInput);
 };
+pwConfirmInput.addEventListener("focusout", validatePwConfirm);
+
 const handleSignInFail = () => {
   showError(emailError, emailInput, ERROR_MESSAGES.email_check);
   hideError(passwordError, pwInput, ERROR_MESSAGES.password_check);

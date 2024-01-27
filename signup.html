@@ -28,17 +28,17 @@
             <a href="./signin.html">로그인 하기</a>
           </div>
         </div>
-        <form onsubmit="attemptLogin(); return false;">
+        <form>
           <div class="inputs">
             <label for="email">이메일</label>
-            <input id="email" type="text" onblur="validateEmail()" />
+            <input id="email" type="text" />
             <p class="error-message" id="email-error"></p>
           </div>
 
           <div class="inputs">
             <label for="password">비밀번호</label>
             <div class="pw-container">
-              <input id="password" type="password" onblur="validatePw()" />
+              <input id="password" type="password" />
               <div class="pw-show">
                 <img
                   id="pw-eyeIcon"
@@ -54,11 +54,7 @@
           <div class="inputs">
             <label for="password-confirm">비밀번호 확인</label>
             <div class="pw-container">
-              <input
-                id="password-confirm"
-                type="password"
-                onblur="validatePwConfirm()"
-              />
+              <input id="password-confirm" type="password" />
               <div class="pw-show">
                 <img
                   id="pwConfirm-eyeIcon"
@@ -68,7 +64,7 @@
                 />
               </div>
             </div>
-            <p class="error-message" id="pwCheck-error-msg"></p>
+            <p class="error-message" id="pwConfirm-error"></p>
           </div>
           <button type="submit" class="signup">회원가입</button>
         </form>

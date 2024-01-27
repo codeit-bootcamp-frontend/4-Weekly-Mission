@@ -4,14 +4,14 @@ export const ERROR_MESSAGES = Object.freeze({
   email_check: "이메일을 확인해 주세요.",
 
   password_empty: "비밀번호를 입력해 주세요.",
-  password_invalid: "8~20자 공백없이 영문/숫자/특수문자를 포함해 주세요.",
+  password_invalid: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
   password_check: "비밀번호를 확인해 주세요.",
 
-  pwCheck_empty: "비밀번호 확인을 입력해 주세요.",
-  pwCheck_invalid: "비밀번호가 다릅니다.",
+  pwConfirm_empty: "비밀번호 확인을 입력해 주세요.",
+  pwConfirm_invalid: "비밀번호가 다릅니다.",
 });
 
 export const REGEX = Object.freeze({
   email: /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-  pw: /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,20}$/,
+  pw: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
 });
