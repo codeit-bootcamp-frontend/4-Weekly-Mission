@@ -39,6 +39,7 @@
                     name="email"
                     id="email"
                     data-type="email"
+                    data-validation="on"
                     required
                   />
                   <div class="input-message"></div>
@@ -55,10 +56,13 @@
                     name="password"
                     id="password"
                     data-type="password"
+                    data-validation="on"
                     required
                   />
                   <img
                     src="/images/sign/eye_on.svg"
+                    class="input-blind-toggle"
+                    data-type="on"
                     alt="비밀번호 보이기 이미지"
                   />
                 </div>
@@ -71,13 +75,16 @@
                 <div class="input-background">
                   <input
                     type="text"
-                    name="password-repeat"
+                    name="password_repeat"
                     id="password-repeat"
-                    data-type="password"
+                    data-type="password_repeat"
+                    data-validation="on"
                     required
                   />
                   <img
                     src="/images/sign/eye_on.svg"
+                    class="input-blind-toggle"
+                    data-type="on"
                     alt="비밀번호 보이기 이미지"
                   />
                 </div>

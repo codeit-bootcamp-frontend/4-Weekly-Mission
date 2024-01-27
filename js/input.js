@@ -1,18 +1,22 @@
-import { validateEmail } from './validation.js';
+import { validateEmail, validatePassword } from './validation.js';
 import { CLASS } from './class.js';
 
 export const INPUT_TYPE = {
   EMAIL: 'EMAIL',
   PASSWORD: 'PASSWORD',
+  PASSWORD_REPEAT: 'PASSWORD_REPEAT',
 };
 
 const INPUT_MESSAGE_EMPTY = {
   [INPUT_TYPE.EMAIL]: '이메일을 입력해 주세요.',
   [INPUT_TYPE.PASSWORD]: '비밀번호를 입력해 주세요.',
+  [INPUT_TYPE.PASSWORD_REPEAT]: '비밀번호를 입력해 주세요.',
 };
 
 const INPUT_MESSAGE_PATTERN_ERROR = {
   [INPUT_TYPE.EMAIL]: '올바른 이메일 주소가 아닙니다.',
+  [INPUT_TYPE.PASSWORD]: '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
+  [INPUT_TYPE.PASSWORD_REPEAT]: '비밀번호가 일치하지 않아요.',
 };
 
 export const INPUT_MESSAGE_LOGIN_ERROR = {
@@ -43,6 +47,7 @@ const BLIND_INPUT_TYPE = {
 };
 
 export function handleFocusoutInput(event) {
+  const scope = event.currentTarget;
   const target = event.target;
 
   if (target.tagName.toUpperCase() !== 'INPUT') return;
@@ -52,7 +57,8 @@ export function handleFocusoutInput(event) {
   if (!INPUT_TYPE.hasOwnProperty(type)) return;
 
   const value = target.value;
-  const validation = target.dataset.validation?.toUpperCase();
+  const validation =
+    target.dataset.validation?.toUpperCase() === ON_OFF.ON ? true : false;
   const messageBox = target.parentElement.nextElementSibling;
   let message = '';
 
@@ -66,11 +72,7 @@ export function handleFocusoutInput(event) {
     return printMessage(messageBox, message, CLASS.ERROR);
   }
 
-  if (
-    type === INPUT_TYPE.EMAIL &&
-    validation === ON_OFF.ON &&
-    !validateEmail(value)
-  ) {
+  if (validation && !validateInput(type, value, scope)) {
     target.classList.add(CLASS.ERROR);
     message = INPUT_MESSAGE_PATTERN_ERROR[type];
     return printMessage(messageBox, message, CLASS.ERROR);
@@ -99,6 +101,19 @@ export function handleClickBlindButton(event) {
   target.setAttribute('src', BLIND_IMAGE_SRC[blindType]);
   target.setAttribute('alt', BLIND_IMAGE_ALT[blindType]);
   target.setAttribute('data-type', blindType);
+}
+
+function validateInput(type, value, scope = document) {
+  if (type === INPUT_TYPE.EMAIL) {
+    return validateEmail(value);
+  } else if (type === INPUT_TYPE.PASSWORD) {
+    return validatePassword(value);
+  } else if (type === INPUT_TYPE.PASSWORD_REPEAT) {
+    const passwordInput = scope.querySelector('input[data-type="password"');
+    return passwordInput.value === value;
+  } else {
+    return false;
+  }
 }
 
 export function printMessage(target, message, className) {
