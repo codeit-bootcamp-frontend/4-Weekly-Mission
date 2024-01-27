@@ -20,4 +20,9 @@ const ACTION = Object.freeze({
   PW: 'PW',
 });
 
-export { MESSAGE, REGEX, ACTION };
+const TEST_AUTH = Object.freeze({
+  EMAIL: 'test@codeit.com',
+  PW: 'codeit101',
+});
+
+export { MESSAGE, REGEX, ACTION, TEST_AUTH };
