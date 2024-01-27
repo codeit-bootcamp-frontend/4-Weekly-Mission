@@ -35,7 +35,7 @@ const errorMessage = {
 // 에러 발생시 input 태그 아래 에러 메세지 삽입
 function inputErrorMessage(inputID, errorType) {
   const targetNode = document.querySelector(`#${inputID}`);
-  targetNode.classList.add("input-error");
+  targetNode.classList.add("error");
 
   const errorSpan = document.createElement("span");
   errorSpan.classList.add("error-message");
@@ -89,7 +89,7 @@ function validCheck(e) {
   ) {
     inputErrorMessage(inputID, "fail");
   } else {
-    e.target.classList.remove("input-error");
+    e.target.classList.remove("error");
   }
 }
 
@@ -110,7 +110,7 @@ function loginAttempt(e) {
 }
 
 // 비밀번호 암호화 토글
-function encodePassword(e) {
+function handleClickEyeIcon(e) {
   let targetClass = e.target.parentElement.classList;
   let inputEl = e.target.parentElement.previousElementSibling;
   const iconOff = "icon-eye-off";
@@ -127,5 +127,5 @@ function encodePassword(e) {
 }
 
 loginFormEl.addEventListener("focusout", validCheck);
-loginBtnEl.addEventListener("click", loginAttempt);
-encodePwBtn.addEventListener("click", encodePassword);
+loginFormEl.addEventListener("submit", loginAttempt);
+encodePwBtn.addEventListener("click", handleClickEyeIcon);

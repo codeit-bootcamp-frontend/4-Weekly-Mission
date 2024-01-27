@@ -113,7 +113,7 @@ input:focus {
   border-color: var(--color-primary);
 }
 
-input.input-error {
+input.error {
   border-color: var(--color-red);
 }
 
