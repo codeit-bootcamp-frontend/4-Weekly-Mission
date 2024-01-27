@@ -16,12 +16,16 @@
       <form action="" id="signup-form">
         <label for="input-email-signup">이메일</label>
         <input id="input-email-signup" type="email" placeholder="codeit@codeit.com" class="gap" />
+        <div class="error-message-email error-message"></div>
         <label for="input-password-signup">비밀번호</label>
         <input id="input-password-signup" type="password" class="gap" />
-        <label for="input-password-signup">비밀번호 확인</label>
-        <input id="input-password-signup" type="password" />
+        <div class="error-message-password error-message"></div>
+        <label for="input-password-signup-check">비밀번호 확인</label>
+        <input id="input-password-signup-check" type="password" />
+        <div class="error-message-password error-message"></div>
+        <button>회원가입</button>
       </form>
-      <button type="submit" form="signup-form" src="">회원가입</button>
+
       <div class="social-login">
         <div>다른 방식으로 가입하기</div>
         <div class="social-login-icons">
@@ -51,5 +55,6 @@
         </div>
       </div>
     </section>
+    <script type="module" src="/js/signup.js"></script>
   </body>
 </html>

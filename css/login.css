@@ -64,7 +64,7 @@ section {
 }
 
 form {
-  margin: 1.88rem 0 0.38rem;
+  margin: 1.88rem 0 0;
 }
 
 input {
@@ -101,6 +101,7 @@ button {
 
   display: flex;
   width: 100%;
+  margin-top: 0.38rem;
   margin-bottom: 2rem;
   padding: 1rem 1.25rem;
   justify-content: center;
@@ -110,6 +111,9 @@ button {
   border-radius: 0.5rem;
   border: 0px;
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%));
+
+  /* 해당 부분 지우고 하면 커서가 안나타남 */
+  cursor: pointer;
 }
 
 .social-login {
