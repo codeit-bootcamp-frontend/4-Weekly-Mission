@@ -31,15 +31,10 @@ if (currentPageURL.includes("signup.html")) {
   const passwordCheckError = signPasswordCheckSecion?.lastChild
 
   function handlePasswordCheckFocusout(){
-    if(input.isFormatValue(signPasswordCheckInput)){
-      showErrorMsg(signPasswordCheckInput, passwordCheckError, PASSWORD_ERROR_MESSAGE.empty)
-      return
+    handleInputFocusout(signPasswordCheckInput, passwordCheckError, null, PASSWORD_ERROR_MESSAGE);
+    if (!input.isPasswordValueMatch(signPasswordInput, signPasswordCheckInput)) {
+      showErrorMsg(signPasswordCheckInput, passwordCheckError, PASSWORD_ERROR_MESSAGE.agreement);
     }
-    if(input.isPasswordValueMatch(signPasswordInput, signPasswordCheckInput)){
-      passwordCheckError?.classList.add('hidden')
-      return
-    }
-    showErrorMsg(signPasswordCheckInput, passwordCheckError, PASSWORD_ERROR_MESSAGE.agreement)
   }
 
   function handleSignUpButton(){
@@ -59,6 +54,7 @@ if (currentPageURL.includes("signup.html")) {
   signPasswordCheckInput.addEventListener('focusout', handlePasswordCheckFocusout)
   signPasswordCheckInput.addEventListener('focusin', () => handleInputFocusin(signPasswordCheckInput));
   signUpButton.addEventListener('click', handleSignUpButton)
+  signPasswordCheckInput.addEventListener('keyup',handlerEnter)
 
 }else if(currentPageURL.includes("signin.html")){
   function handleLoginButton(){
@@ -75,6 +71,18 @@ if (currentPageURL.includes("signup.html")) {
   loginButton.addEventListener('click', handleLoginButton)
 }
 
+function handleInputFocusout(inputElement, errorElement, regex, errorMessage) {
+  if (input.isFormatValue(inputElement)) {
+    showErrorMsg(inputElement, errorElement, errorMessage.empty);
+    return;
+  }
+  if (regex && !input.isRegexMatch(inputElement, regex)) {
+    showErrorMsg(inputElement, errorElement, errorMessage.invalid);
+    return;
+  }
+  errorElement?.classList.add('hidden');
+}
+
 function showErrorMsg(inputElement, textElement, text){
   inputElement.classList.add('red-border')
   textElement?.classList.remove('hidden')
@@ -82,27 +90,12 @@ function showErrorMsg(inputElement, textElement, text){
 }
 
 function handleEmailFocusout(){
-  if(input.isFormatValue(signEmailInput)){
-    showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.empty)
-    return
-  }
-  if(input.isRegexMatch(signEmailInput, EMAIL_REGEX)){
-    emailError?.classList.add('hidden')
-    return
-  }
-  showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.invalid)
+  handleInputFocusout(signEmailInput, emailError, EMAIL_REGEX, EMAIL_ERROR_MESSAGE);
+
 }
 
 function handlePasswordFocusout(){
-  if(input.isFormatValue(signPasswordInput)){
-    showErrorMsg(signPasswordInput, passwordError, PASSWORD_ERROR_MESSAGE.empty)
-    return
-  }
-  if(input.isRegexMatch(signPasswordInput, PASSWORD_REGEX)){
-    passwordError.classList.add('hidden')
-    return
-  }
-  showErrorMsg(signPasswordInput, passwordError, PASSWORD_ERROR_MESSAGE.set)
+  handleInputFocusout(signPasswordInput, passwordError, PASSWORD_REGEX, PASSWORD_ERROR_MESSAGE);
 }
 
 function handleInputFocusin(inputElement) {
@@ -118,7 +111,7 @@ function handleChangePasswordType(){
 
 function handlerEnter(){
   handleEvent.enter(()=>{
-    loginButton.click()
+    currentPageURL.includes("signup.html") ? signUpButton.click() : loginButton.click()
   })
 }
 
