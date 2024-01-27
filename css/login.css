@@ -62,7 +62,7 @@ section {
 }
 
 form {
-	margin: 1.88rem 0;
+	margin: 1.88rem 0 0.38rem;
 }
 
 input {
@@ -76,9 +76,15 @@ input {
 	background: var(--Linkbrary-white, var(--white));
 }
 
-.gap {
-	margin-bottom: 1.5rem;
+.error-message-email, .error-message-password{
+	height: 1.5rem;
 }
+
+
+
+/* .gap {
+	gap: 1.5rem;
+} */
 
 input:focus {
 	border: 1px solid var(--Linkbrary-primary-color, var(--primary));
@@ -103,8 +109,6 @@ button {
 	border-radius: 0.5rem;
 	border: 0px;
 	background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%));
-
-	cursor: pointer;
 }
 
 .social-login {

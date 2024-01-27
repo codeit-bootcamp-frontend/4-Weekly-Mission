@@ -6,10 +6,6 @@
 	color: #000;
 }
 
-html {
-	font-size: 16px;
-}
-
 header {
 	display: flex;
 	justify-content: space-between;
@@ -51,7 +47,6 @@ header {
 }
 
 a {
-	cursor: pointer;
 	text-decoration: none;
 }
 
