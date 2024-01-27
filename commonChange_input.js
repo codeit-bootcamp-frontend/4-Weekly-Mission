@@ -10,7 +10,9 @@ export function emailHandleInputFocusOut(inputElement, errorElement) {
     errorElement.style.display = 'block';
     inputElement.style.borderColor = '#FF5B56'; // 테두리 색상 변경  
   } else {
-    noError(inputElement, errorElement);
+    errorElement.style.display = 'none';
+    errorElement.textContent = '';
+    inputElement.style.borderColor = '#CCD5E3';
   }
 }
 
@@ -21,7 +23,9 @@ export function passwordHandleFocusOut(inputElement, errorElement) {
     errorElement.style.display = 'block';
     inputElement.style.borderColor = '#FF5B56'; 
   } else {
-    noError(inputElement, errorElement);
+    errorElement.style.display = 'none';
+    errorElement.textContent = '';
+    inputElement.style.borderColor = '#CCD5E3';
   }
 }
 
@@ -44,8 +48,5 @@ export function togglePasswordType(passwordInput,passwordIcon) {
   }
 }
 
-export const noError = (inputElement,errorElement) => {
-  errorElement.style.display = 'none';
-  errorElement.textContent = '';
-  inputElement.style.borderColor = '#CCD5E3';
-}
+
+

@@ -48,7 +48,7 @@ function handleLoginButtonClick(event) {
 }
 
 //이메일 비밀번호가 틀렸을 때
-const loginCheck = () => {
+const loginCheck = function () {
   loginPwError.textContent = '비밀번호를 확인해 주세요.';
   loginPwError.style.display = 'block';
   loginPwInput.style.borderColor = '#FF5B56'; 
