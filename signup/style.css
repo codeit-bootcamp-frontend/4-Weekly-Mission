@@ -6,6 +6,7 @@
   justify-content: center;
   background-color: var(--Linkbrary-bg);
 }
+
 header > a > svg {
   cursor: pointer;
 }
@@ -60,6 +61,7 @@ header {
   font-weight: 600;
   margin-bottom: 32px;
 }
+
 .social-login {
   display: flex;
   width: 350px;
@@ -71,30 +73,6 @@ header {
   background: var(--Linkbrary-gray10);
   gap: 16px;
 }
-
-#errorMessage-email {
-  display: none;
-  margin-top: 5px;
-  color: var(--Linkbrary-red);
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-#errorMessage-password {
-  display: none;
-  color: var(--Linkbrary-red);
-  position: relative;
-  top: -18px;
-  margin-top: 5px;
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
 .kakao-svg-wrapper {
   position: relative;
   right: 0;
@@ -113,7 +91,6 @@ section.password {
 section.password > img {
   margin: 0;
 }
-
 /* 여기 구글, 카카오 아이콘 위치 조절이 어려워요! */
 .google {
   display: flex;

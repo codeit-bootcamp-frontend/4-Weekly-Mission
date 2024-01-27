@@ -58,8 +58,8 @@
           </svg>
         </a>
         <div class="signup">
-          <p>회원이 아니신가요?</p>
-          <a href="#">회원 가입하기</a>
+          <p>이미 회원이신가요?</p>
+          <a href="#">로그인 하기</a>
         </div>
       </header>
 
@@ -67,22 +67,30 @@
         <form class="sign-form" action="/login" method="post">
           <section class="email">
             <p>이메일</p>
-            <input id="email-input" type="text" />
-            <p id="errorMessage-email">이메일을 입력해 주세요</p>
+            <input id="email-input" type="email" />
           </section>
 
           <section class="password">
             <p>비밀번호</p>
             <input id="passWord-input" type="password" />
             <img src="../assets/eye-off.png" />
-            <p id="errorMessage-password">비밀번호를 입력해 주세요</p>
           </section>
 
-          <button type="submit" class="CTA">로그인</button>
+          <!-- 이 "비밀번호 확인"이 위치가 아래로 밀리는데 margin 조절해도 변화가 없고 하네요..
+        해결할 방법이 있나요? 위의 이메일 section과 다르게 input bottom에서 section이 
+      안 끝나고 여백이 생깁니다 -->
+
+          <section class="password">
+            <p>비밀번호 확인</p>
+            <input id="passWord-input" type="password" />
+            <img src="../assets/eye-off.png" />
+          </section>
+
+          <button type="submit" class="CTA">회원가입</button>
         </form>
 
         <section class="social-login">
-          <p>소셜 로그인</p>
+          <p>다른 방식으로 가입하기</p>
           <div class="social-container">
             <div class="google">
               <svg
@@ -163,5 +171,4 @@
       </main>
     </div>
   </body>
-  <script src="./signin.js"></script>
 </html>
