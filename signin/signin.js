@@ -1,61 +1,63 @@
 const emailInput = document.querySelector('#email')
-const errorM = document.querySelector('.errorM')
+const errorMessage = document.querySelector('.errorMsg')
 const pwInput = document.querySelector('#password')
-const errorP = document.querySelector('.errorP')
-const button = document.querySelector('.btn')
+const errorPw = document.querySelector('.errorPw')
 const form = document.querySelector('form')
-const eye = document.querySelector('.eye')
-const inputs = document.querySelectorAll('.signInput')
+// const eye = document.querySelector('.eye')
 
 // 입력해주세요
 function emailError(e) {
-  console.log('focusout')
-  // 왜 e.target.value=''하면 적용이 안되는지ㅠ
   if(!e.target.value.trim()) {
-    errorM.textContent = '이메일을 입력해 주세요.'
+    errorMessage.textContent = '이메일을 입력해 주세요.'
+    emailInput.classList.add('inputError')
   } else{
-    errorM.textContent=''
+    errorMessage.textContent=''
+    emailInput.classList.remove('inputError')
   }
 }
 function pwError(e) {
   if(!e.target.value.trim()) {
-    errorP.textContent = '비밀번호를 입력해 주세요.'
+    errorPw.textContent = '비밀번호를 입력해 주세요.'
+    pwInput.classList.add('inputError')
   } else{
-    errorP.textContent=''
+    errorPw.textContent=''
+    pwInput.classList.remove('inputError')
   }
 }
 
 // 올바른 이메일 주소가 아닙니다
 function emailCheck(e) {
-  let e_style = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
-  if(!e_style.test(e.target.value)) {
-    errorM.textContent = '올바른 이메일 주소가 아닙니다.'
+  const E_STYLE = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
+  if(E_STYLE.test(e.target.value)) {
+    errorMessage.content=''
+    emailInput.classList.remove('inputError')
   } else{
-    errorM.content=''
+    errorMessage.textContent = '올바른 이메일 주소가 아닙니다.'
+    emailInput.classList.add('inputError')
   }
 }
 
 // 로그인 했을 때 /folder로 이동 & 확인해주세요
 function login(e) {
   if(emailInput.value=="test@codeit.com" && pwInput.value=="codeit101") {
+    emailInput.classList.remove('inputError')
+    pwInput.classList.remove('inputError')
     return true
-  } else if(emailInput.value!=="test@codeit.com" || pwInput.value!=="codeit101"){
-    errorM.textContent = '이메일을 확인해 주세요.'
-    errorP.textContent = '비밀번호를 확인해 주세요.'
+  } else {
+    errorMessage.textContent = '이메일을 확인해 주세요.'
+    errorPw.textContent = '비밀번호를 확인해 주세요.'
+    emailInput.classList.add('inputError')
+    pwInput.classList.add('inputError')
     return false
   }
 }
 
 //눈사진toggle
-function eye_toggle(e) {
-  if(e.target.getAttribute('src')=="../images/eye-off.svg") {
-    e.target.setAttribute('src', '../images/eye-on.svg')
-    pwInput.setAttribute('type', "")
-  } else{
-    e.target.setAttribute('src', '../images/eye-off.svg')
-    pwInput.setAttribute('type', 'password')
-  }
-}
+// function eye_toggle(e) {
+//   const IS_EYE_ON = e.target.getAttribute('src')=="../images/eye-off.svg"
+//   e.target.setAttribute('src', IS_EYE_ON ? '../images/eye-on.svg' : '../images/eye-off.svg')
+//   pwInput.setAttribute('type', IS_EYE_ON ? "" : 'password')
+// }
 
 emailInput.addEventListener('focusout', emailError)
 pwInput.addEventListener('focusout', pwError)

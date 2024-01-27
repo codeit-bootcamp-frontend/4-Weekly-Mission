@@ -37,7 +37,6 @@ nav{
     padding: 0 20rem;
   }
 }
-/* width 878~1200px사이에 로그인버튼 오른쪽으로만 파란색 부분이 왔다갔다합니다 */
 
 .logo{
   height: 2rem;
@@ -229,7 +228,7 @@ section img{
     width: 55rem;
   }
 }
-.break{
+br{
   display: none;
   @media (min-width: 768px) {
     display: inline;

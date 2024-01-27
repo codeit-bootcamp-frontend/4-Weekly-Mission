@@ -1,77 +1,86 @@
+import { eye, eye_toggle } from '../modules/sign_toggle';
+
 const emailInput = document.querySelector('#email')
-const errorM = document.querySelector('.errorM')
+const errorMessage = document.querySelector('.errorMsg')
 const pwInput = document.querySelector('#password')
 const passwordCheck = document.querySelector('#passwordCheck')
-const errorP = document.querySelector('.errorP')
-const errorPCheck = document.querySelector('.errorPCheck')
+const errorPw = document.querySelector('.errorPw')
+const errorPwCheck = document.querySelector('.errorPwCheck')
 const form = document.querySelector('form')
-const eye = document.querySelector('.eye')
+// const eye = document.querySelector('.eye')
 const eyeCheck = document.querySelector('.eyeCheck')
 
 // 입력해주세요
 function emailError(e) {
-  console.log('focusout')
-  // 왜 e.target.value=''하면 적용이 안되는지ㅠ
   if(!e.target.value.trim()) {
-    errorM.textContent = '이메일을 입력해 주세요.'
+    errorMessage.textContent = '이메일을 입력해 주세요.'
+    emailInput.classList.add('inputError')
+  } else if(e.target.value=="test@codeit.com") {
+    errorMessage.textContent = '이미 사용 중인 이메일입니다.'
+    emailInput.classList.add('inputError')
   } else{
-    errorM.textContent=''
+    errorMessage.textContent=''
+    emailInput.classList.remove('inputError')
   }
 }
+
+function pwCheck(pw) {
+  const REG = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/
+  if(REG.test(pw)) return true
+  return false
+}
 function pwError(e) {
-  if(!e.target.value.trim()) {
-    errorP.textContent = '비밀번호를 입력해 주세요.'
+  let myPw = e.target.value
+  if(!myPw.trim()) {
+    errorPw.textContent = '비밀번호를 입력해 주세요.'
+    pwInput.classList.add('inputError')
+  } else if(!pwCheck(myPw)) {
+    errorPw.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.'
+    pwInput.classList.add('inputError')
   } else{
-    errorP.textContent=''
+    errorPw.textContent=''
+    pwInput.classList.remove('inputError')
   }
 }
 function pwErrorCheck(e) {
   if(pwInput.value!==passwordCheck.value) {
-    errorPCheck.textContent = '비밀번호가 다릅니다.'
+    errorPwCheck.textContent = '비밀번호가 일치하지 않아요.'
+    pwInput.classList.add('inputError')
   } else{
-    errorPCheck.textContent=''
+    errorPwCheck.textContent=''
+    pwInput.classList.remove('inputError')
   }
 }
 
 // 올바른 이메일 주소가 아닙니다
 function emailCheck(e) {
-  let e_style = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
-  if(!e_style.test(e.target.value)) {
-    errorM.textContent = '올바른 이메일 주소가 아닙니다.'
+  const E_STYLE = /([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/
+  if(e.target.value.trim() && !E_STYLE.test(e.target.value)) {
+    errorMessage.textContent = '올바른 이메일 주소가 아닙니다.'
+    emailInput.classList.add('inputError')
   } else{
-    errorM.content=''
+    errorMessage.content=''
+    emailInput.classList.remove('inputError')
   }
 }
 
 // 로그인 했을 때 /folder로 이동 & 확인해주세요
 function login(e) {
-  if(emailInput.value=="test@codeit.com" && pwInput.value=="codeit101") {
+  if(emailInput.value!=="test@codeit.com" && pwInput.value!=="codeit101") {
     return true
-  } else if(emailInput.value!=="test@codeit.com" || pwInput.value!=="codeit101"){
-    errorM.textContent = '이메일을 확인해 주세요.'
-    errorP.textContent = '비밀번호를 확인해 주세요.'
-    return false
-  }
+  } else return false
 }
 
 //눈사진toggle
-function eye_toggle(e) {
-  if(e.target.getAttribute('src')=="../images/eye-off.svg") {
-    e.target.setAttribute('src', '../images/eye-on.svg')
-    pwInput.setAttribute('type', "")
-  } else{
-    e.target.setAttribute('src', '../images/eye-off.svg')
-    pwInput.setAttribute('type', 'password')
-  }
-}
+// function eye_toggle(e) {
+//   const IS_EYE_ON = e.target.getAttribute('src')=="../images/eye-off.svg"
+//   e.target.setAttribute('src', IS_EYE_ON ? '../images/eye-on.svg' : '../images/eye-off.svg')
+//   pwInput.setAttribute('type', IS_EYE_ON ? "" : 'password')
+// }
 function eyeCheck_toggle(e) {
-  if(e.target.getAttribute('src')=="../images/eye-off.svg") {
-    e.target.setAttribute('src', '../images/eye-on.svg')
-    passwordCheck.setAttribute('type', "")
-  } else{
-    e.target.setAttribute('src', '../images/eye-off.svg')
-    passwordCheck.setAttribute('type', 'password')
-  }
+  const IS_EYE_ON = e.target.getAttribute('src')=="../images/eye-off.svg"
+  e.target.setAttribute('src', IS_EYE_ON ? '../images/eye-on.svg' : '../images/eye-off.svg')
+  passwordCheck.setAttribute('type', IS_EYE_ON ? "" : 'password')
 }
 
 emailInput.addEventListener('focusout', emailError)

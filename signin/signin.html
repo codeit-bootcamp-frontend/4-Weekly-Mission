@@ -18,32 +18,32 @@
       </p>
     </header>
     <div class="signInBox">
-      <form action="/folder.html" onsubmit="return login()">
+      <form action="/folder.html" onsubmit="login()">
         <div class="inputs">
           <div class="inputBox">
             <label for="email" class="signLabel">이메일</label>
             <input id="email" type="email" class="signInput" />
-            <div class="red errorM"></div>
+            <div class="red errorMsg"></div>
           </div>
           <div class="inputBox inputPw">
             <label for="password" class="signLabel">비밀번호</label>
             <input id="password" type="password" class="signInput" />
             <button>
-              <img src="../images/eye-off.svg" class="eye" />
+              <img src="../images/eye-off.svg" class="eye" alt="eyeToggle" />
             </button>
-            <div class="red errorP"></div>
+            <div class="red errorPw"></div>
           </div>
         </div>
-        <button type="submit" class="btn">로그인</button>
+        <button type="submit" class="loginButton">로그인</button>
       </form>
       <div class="snsBox">
         <div class="socialLogin">소셜 로그인</div>
         <div class="snsLinks">
           <a href="https://www.google.com/" class="snsLink googleLink">
-            <img src="../images/google.png" />
+            <img src="../images/google.png" alt="google" />
           </a>
           <a href="https://www.kakaocorp.com/page/" class="snsLink kakaoLink">
-            <img src="../images/kakao.svg" />
+            <img src="../images/kakao.svg" alt="kakao" />
           </a>
         </div>
       </div>
