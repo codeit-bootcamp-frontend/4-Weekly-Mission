@@ -10,6 +10,7 @@ function checkEmail(event) {
   const emailValue = event.target.value.trim();
   const errorMessage = querySelector("#email-error-message");
 
+  // 공백일 때
   if (emailValue === "") {
     updateErrorMessage(
       errorMessage,
@@ -17,9 +18,11 @@ function checkEmail(event) {
       emailInputBox,
       true
     );
+    // 이메일 형식에 맞을 때
   } else if (isVaildEmail(emailValue)) {
     updateErrorMessage(errorMessage, "", emailInputBox, false);
-  } else {
+  } // 이메일 형식에 맞지 않을 때
+  else {
     updateErrorMessage(
       errorMessage,
       "올바른 이메일 주소가 아닙니다.",

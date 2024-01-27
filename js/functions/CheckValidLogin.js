@@ -2,6 +2,7 @@
 const validEmail = "test@codeit.com";
 const validPassword = "codeit101";
 
+/** 로그인 정보 맞으면 0, 비밀번호만 틀리면 -1, 둘 다 틀리면 0 반환 */
 const checkValidLogin = function (email, password) {
   if (email === validEmail && password === validPassword) {
     return 1;
@@ -12,4 +13,4 @@ const checkValidLogin = function (email, password) {
   }
 };
 
-export { checkValidLogin };
+export { validEmail, checkValidLogin };

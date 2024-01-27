@@ -60,7 +60,8 @@ label {
   cursor: pointer;
 }
 
-#login-form input {
+#login-form input,
+#signup-form input {
   padding-left: 1rem;
   padding-right: 4rem;
   width: 40rem;
@@ -70,7 +71,8 @@ label {
   outline-color: var(--primary);
 }
 
-#login-button {
+#login-button,
+#signup-button {
   border-radius: 0.8rem;
   background: linear-gradient(90deg, var(--primary), #6ae3fe);
   border: none;
@@ -82,7 +84,8 @@ label {
 }
 
 /** social-login **/
-.social-login {
+.social-login,
+.social-signup {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -138,7 +141,8 @@ label {
 }
 
 #signin-email-input.error-box,
-#signin-password-input.error-box {
+#signin-password-input.error-box,
+#password-repeat-error-message.error-box {
   padding-left: 1rem;
   padding-right: 4rem;
   width: 40rem;
