@@ -1,4 +1,4 @@
-import { MESSAGE, REGEX, ACTION } from './constants/SIGN.js';
+import { MESSAGE, REGEX, ACTION, TEST_AUTH } from './constants/SIGN.js';
 
 const emailInput = document.getElementById('email');
 const emailError = document.getElementById('email-error');
@@ -68,7 +68,12 @@ const handleEnterKey = (e) => {
   if (e.key === 'Enter') handleLogin();
 };
 
-emailInput.addEventListener('focusout', validateEmail);
+const handleDuplicateEmail = () => {
+  if (emailInput.value === TEST_AUTH.EMAIL) applyError(emailError, MESSAGE.DUPLICATE_EMAIL, emailInput);
+  else validateEmail();
+};
+
+emailInput.addEventListener('focusout', handleDuplicateEmail);
 emailInput.addEventListener('keydown', handleEnterKey);
 
 pwInput.addEventListener('focusout', validatePw);
