@@ -25,7 +25,6 @@ function checkIsUser(e) {
 }
 
 function showInputErrorMessage(e) {
-  console.log(e.target);
   if (!e.target.value) {
     if (e.target.type === 'email') {
       errorMsgEmail.innerText = `이메일을 입력해 주세요.`;
@@ -43,13 +42,22 @@ function showInputErrorMessage(e) {
         errorMsgEmail.innerText = `올바른 이메일 주소가 아닙니다.`;
         inputEmail.classList.add('border-red');
         return;
+      } else if (e.target.value === 'test@codeit.com') {
+        errorMsgEmail.innerText = `이미 사용 중인 이메일입니다.`;
+        inputEmail.classList.add('border-red');
       } else {
         errorMsgEmail.innerText = ``;
         inputEmail.classList.remove('border-red');
       }
     } else if (e.target.type === 'password') {
-      errorMsgPassword.innerText = ``;
-      inputPassword.classList.remove('border-red');
+      const pwReg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+      if (!pwReg.test(e.target.value)) {
+        errorMsgPassword.innerText = `비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.`;
+        inputPassword.classList.add('border-red');
+      } else {
+        errorMsgPassword.innerText = ``;
+        inputPassword.classList.remove('border-red');
+      }
     }
   }
 }
