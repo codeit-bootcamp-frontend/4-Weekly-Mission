@@ -20,12 +20,12 @@ body {
   min-width: 340px;
 }
 
-.sign_logo {
+.sign-logo {
   width: 210px;
   height: 38px;
 }
 
-.login_info {
+.login-info {
   margin: 16px auto;
   color: var(--black);
   font-family: Pretendard;
@@ -35,13 +35,13 @@ body {
   line-height: 24px;
 }
 
-.login_info a {
+.login-info a {
   color: var(--primary);
   font-weight: 600;
   line-height: normal;
 }
 
-.form_box {
+.form-box {
   width: 400px;
   margin: 30px;
   display: flex;
@@ -49,7 +49,7 @@ body {
   align-items: stretch;
 }
 
-.form_label {
+.form-label {
   color: var(--black);
   font-family: Pretendard;
   font-size: 14px;
@@ -59,14 +59,14 @@ body {
   margin-bottom: 12px;
 }
 
-.form_input_elements {
+.form-input-elements {
   display: flex;
   flex-direction: column;
   align-items: stretch;
   margin-bottom: 24px;
 }
 
-.form_input {
+.form-input {
   padding: 18px 15px;
   height: 60px;
   border-radius: 8px;
@@ -74,11 +74,11 @@ body {
   background: var(--white);
 }
 
-.form_input:focus {
+.form-input:focus {
   border: 1px solid var(--primary);
 }
 
-.error_txt {
+.error-txt {
   color: red;
   margin: 2px;
   display: none;
@@ -89,12 +89,12 @@ body {
   justify-content: flex-end;
 }
 
-.password .form_input {
+.password .form-input {
   width: 100%;
   position: relative;
 }
 
-.btn_password_icon {
+.btn-password-icon {
   margin: 14px;
   width: 30px;
   height: 30px;
@@ -104,17 +104,17 @@ body {
   background-color: white;
 }
 
-.icon_eye_close{
+.icon-eye-close{
   display:none;
 }
 
 
-.btn_password_icon_imgs {
+.btn-password-icon-imgs {
   margin: 0;
   width: 30px;
 }
 
-.login_button {
+.login-btn {
   display: block;
   border-radius: 8px;
   height: 50px;
@@ -131,7 +131,7 @@ body {
   font-weight: 600;
 }
 
-.social_login_box {
+.social-login-box {
   margin-top: 32px;
   display: flex;
   width: 400px;
@@ -144,12 +144,12 @@ body {
   background: var(--gray4);
 }
 
-.social_icons {
+.social-icons {
   display: flex;
   justify-content: center;
 }
 
-.social_icon_link {
+.social-icon-link {
   padding: 10px;
   text-decoration: none;
   flex-shrink: 0;
@@ -161,15 +161,15 @@ body {
   margin-right: 16px;
 }
 
-.back_color_yellow {
+.back-color-yellow {
   background: #f5e14b;
 }
 
-.back_color_white {
+.back-color-white {
   background: var(--white);
 }
 
-.social_login_icon {
+.social-login-icon {
   width: 22px;
 }
 
@@ -188,17 +188,17 @@ body {
     width: 100%;
   }
 
-  .form_box {
+  .form-box {
     width: 100%;
     max-width: 400px;
   }
 
-  .login_button {
+  .login-btn {
     width: 100%;
     max-width: 400px;
   }
 
-  .social_login_box {
+  .social-login-box {
     width: 100%;
     max-width: 400px;
   }

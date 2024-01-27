@@ -13,49 +13,49 @@
   <body>
     <div class="contents">
       <a href="./">
-        <img class="sign_logo" src="./images/logo.png" alt="Linkbrary" />
+        <img class="sign-logo" src="./images/logo.png" alt="Linkbrary" />
       </a>
-      <div class="login_info">
-        회원이 아니신가요? <a href="./signup.html" target="_self">회원가입하기</a>
+      <div class="login-info">
+        회원이 아니신가요? <a href="./signup.html">회원가입하기</a>
       </div>
-      <form class="form_box">
-        <div class="form_input_elements">
-          <label class="form_label" for="emailInput">이메일</label>
-          <input class="form_input" type="email" id="emailInput"  onkeydown="enterkey('email')"/>
-          <p class="error_txt" id="emptyEmailError">이메일을 입력해주세요.</p>
-          <p class="error_txt" id="wrongEmailError">올바른 이메일 주소가 아닙니다.</p>
-          <p class="error_txt" id="checkEmailError">이메일을 확인해주세요.</p>
+      <form class="form-box">
+        <div class="form-input-elements">
+          <label class="form-label" for="email-input">이메일</label>
+          <input class="form-input" type="email" id="email-input"/>
+          <p class="error-txt empty-email-error-msg">이메일을 입력해주세요.</p>
+          <p class="error-txt wrong-email-error-msg">올바른 이메일 주소가 아닙니다.</p>
+          <p class="error-txt check-email-error-msg">이메일을 확인해주세요.</p>
         </div>
-        <div class="form_input_elements">
-          <label class="form_label" for="passwordInput">비밀번호</label>
+        <div class="form-input-elements">
+          <label class="form-label" for="passwordInput">비밀번호</label>
           <div class="password">
-            <input class="form_input" type="password" id="passwordInput" onkeydown="enterkey()"/>
-            <button class="btn_password_icon password_close" type="button">
-              <img class="btn_password_icon_imgs icon_eye_open" src="./images/icon-open-eye.png"></img>
-              <img class="btn_password_icon_imgs icon_eye_close" src="./images/icon-close-eye.png"></img>
+            <input class="form-input" type="password" id="passwordInput"/>
+            <button class="btn-password-icon password-close" type="button">
+              <img class="btn-password-icon-imgs icon-eye-open" src="./images/icon-open-eye.png"></img>
+              <img class="btn-password-icon-imgs icon-eye-close" src="./images/icon-close-eye.png"></img>
             </button>
           </div>
-          <p class="error_txt" id="emptyPasswordError">비밀번호를 입력해주세요.</p>
-          <p class="error_txt" id="checkPasswordError">비밀번호를 확인해주세요.</p>
+          <p class="error-txt empty-password-error-msg">비밀번호를 입력해주세요.</p>
+          <p class="error-txt check-password-error-msg">비밀번호를 확인해주세요.</p>
         </div>
-        <a class="login_button" id="btnLogin" onclick="loginBtnClick(this)">로그인</a>
+        <a class="login-btn js-btn-login" onclick="loginBtnClick(this)" type='submit'>로그인</a>
       </form>
-      <div class="social_login_box">
+      <div class="social-login-box">
         <p>소셜 로그인</p>
-        <div class="social_icons">
-          <div class="social_icon_link back_color_white">
-            <a href="https://www.google.com/" target="_self">
+        <div class="social-icons">
+          <div class="social-icon-link back-color-white">
+            <a href="https://www.google.com/">
               <img
-                class="social_login_icon"
+                class="social-login-icon"
                 src="./images/icon-google.png"
                 alt="icon-google"
               />
             </a>
           </div>
-          <div class="social_icon_link back_color_yellow">
-            <a href="https://www.kakaocorp.com/page/" target="_self">
+          <div class="social-icon-link back-color-yellow">
+            <a href="https://www.kakaocorp.com/page/">
               <img
-                class="social_login_icon"
+                class="social-login-icon"
                 src="./images/icon-kakao.png"
                 alt="icon-kakao"
               />
@@ -64,6 +64,6 @@
         </div>
       </div>
     </div>
-    <script src="./js/signin.js"></script>
+    <script type="module" src="./js/signin.js"></script>
   </body>
 </html>
