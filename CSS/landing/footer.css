@@ -24,7 +24,6 @@ footer {
   color: var(--white);
 }
 .footer-sns {
-  list-style: none;
   display: flex;
   gap: 12px;
 }
