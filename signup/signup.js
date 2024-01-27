@@ -2,17 +2,18 @@ import {
   form,
   email,
   emailError,
+  passwordError,
   eyeIcon,
   TEST_EMAIL,
-  TEST_PASSWORD,
   isEmail,
   removeEmpty,
+  eyeIconOn,
+  eyeIconOff,
 } from '../src/common/sign.js';
 
 const passwordCheck = document.querySelector('.password_check');
 const passwordReCheck = document.querySelector('.password_recheck');
 
-const passwordError = document.querySelector('.password-error');
 const passwordErrorCheck = document.querySelector('.password-error-check');
 
 let isValid = [false, false, false];
@@ -20,10 +21,17 @@ let isValid = [false, false, false];
 const onSubmit = (e) => {
   e.preventDefault();
 
-  if (isValid[0] === false) emailError.textContent = '이메일을 확인해 주세요.';
-  if (isValid[1] === false) passwordError.textContent = '비밀번호를 확인해 주세요.';
-  if (isValid[2] === false) passwordErrorCheck.textContent = '비밀번호를 확인해 주세요.';
-  else location.href = '/folder/folder.html';
+  if (isValid[0] === false) {
+    emailError.textContent = '이메일을 확인해 주세요.';
+  }
+  if (isValid[1] === false) {
+    passwordError.textContent = '비밀번호를 확인해 주세요.';
+  }
+  if (isValid[2] === false) {
+    passwordErrorCheck.textContent = '비밀번호를 확인해 주세요.';
+  } else if (isValid.includes(false) === false) {
+    location.href = '/folder/folder.html';
+  }
 };
 
 const emailInputCheck = (e) => {
@@ -95,10 +103,50 @@ const passwordInputRecheck = (e) => {
   }
 };
 
-form.addEventListener('submit', onSubmit);
+const togglePasswordVisibility1 = () => {
+  if (passwordCheck.type === 'password') {
+    passwordCheck.type = 'text';
+    eyeIconOff[0].style.display = 'none';
+    eyeIconOn[0].style.display = 'inline-block';
+  } else {
+    passwordCheck.type = 'password';
+    eyeIconOff[0].style.display = 'inline-block';
+    eyeIconOn[0].style.display = 'none';
+  }
+};
+
+const togglePasswordVisibility2 = () => {
+  if (passwordReCheck.type === 'password') {
+    passwordReCheck.type = 'text';
+    eyeIconOff[1].style.display = 'none';
+    eyeIconOn[1].style.display = 'inline-block';
+  } else {
+    passwordReCheck.type = 'password';
+    eyeIconOff[1].style.display = 'inline-block';
+    eyeIconOn[1].style.display = 'none';
+  }
+};
+
+const eyeIconClick1 = (e) => {
+  if (e.target.classList.contains('eye-icon')) {
+    togglePasswordVisibility1();
+  }
+};
+
+const eyeIconClick2 = (e) => {
+  if (e.target.classList.contains('eye-icon')) {
+    togglePasswordVisibility2();
+  }
+};
 
 email.addEventListener('focusout', emailInputCheck);
 
 passwordCheck.addEventListener('focusout', passwordInputCheck);
 
 passwordReCheck.addEventListener('focusout', passwordInputRecheck);
+
+eyeIcon[0].addEventListener('click', eyeIconClick1);
+
+eyeIcon[1].addEventListener('click', eyeIconClick2);
+
+form.addEventListener('submit', onSubmit);

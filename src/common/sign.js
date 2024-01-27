@@ -3,10 +3,11 @@ const form = document.querySelector('form');
 const email = document.querySelector('#email');
 
 const emailError = document.querySelector('.email-error');
+const passwordError = document.querySelector('.password-error');
 
-const eyeIcon = document.querySelector('.icon');
-const eyeIconOn = document.querySelector('.eye-icon-on');
-const eyeIconOff = document.querySelector('.eye-icon-off');
+const eyeIcon = document.querySelectorAll('.icon');
+const eyeIconOn = document.querySelectorAll('.eye-icon-on');
+const eyeIconOff = document.querySelectorAll('.eye-icon-off');
 
 const TEST_EMAIL = 'test@codeit.com';
 const TEST_PASSWORD = 'codeit101';
@@ -26,6 +27,7 @@ export {
   form,
   email,
   emailError,
+  passwordError,
   eyeIcon,
   eyeIconOn,
   eyeIconOff,

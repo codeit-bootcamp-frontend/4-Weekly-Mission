@@ -2,6 +2,7 @@ import {
   form,
   email,
   emailError,
+  passwordError,
   eyeIcon,
   TEST_EMAIL,
   TEST_PASSWORD,
@@ -12,8 +13,6 @@ import {
 } from '../src/common/sign.js';
 
 const password = document.querySelector('#password');
-
-const passwordError = document.querySelector('.password-error');
 
 const onSubmit = (e) => {
   e.preventDefault();
@@ -56,12 +55,12 @@ const passwordInputCheck = (e) => {
 const togglePasswordVisibility = () => {
   if (password.type === 'password') {
     password.type = 'text';
-    eyeIconOff.style.display = 'none';
-    eyeIconOn.style.display = 'inline-block';
+    eyeIconOff[0].style.display = 'none';
+    eyeIconOn[0].style.display = 'inline-block';
   } else {
     password.type = 'password';
-    eyeIconOff.style.display = 'inline-block';
-    eyeIconOn.style.display = 'none';
+    eyeIconOff[0].style.display = 'inline-block';
+    eyeIconOn[0].style.display = 'none';
   }
 };
 
@@ -77,4 +76,4 @@ email.addEventListener('focusout', emailInputCheck);
 
 password.addEventListener('focusout', passwordInputCheck);
 
-eyeIcon.addEventListener('click', eyeIconClick);
+eyeIcon[0].addEventListener('click', eyeIconClick);
