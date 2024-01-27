@@ -1,70 +1,64 @@
-const form = document.querySelector(".sign-form");
-const email = document.querySelector("#email");
-const password = document.querySelector("#password");
+import { ERROR_MESSAGE, TEST_USER, emailCheck } from "./constant.js";
 
-const pEmail = document.createElement("p");
-const pPwd = document.createElement("p");
-
-const testEmail = "test@codeit.com";
-const testPwd = "codeit101";
-
+const formElement = document.querySelector(".sign-form");
+const emailElement = document.getElementById("email");
+const passwordElement = document.getElementById("password");
 const eyeImg = document.querySelector(".eye");
 
-function reset_Ptag() {
-  email.after(pEmail);
-  pEmail.classList.add("errorMsg");
-  password.after(pPwd);
-  pPwd.classList.add("errorMsg");
-}
+const focusOutHandler = (e) => {
+  const currentInput = e.target;
+  const currentValue = currentInput.value;
+  const currentClassList = currentInput.classList;
+  const errorMsgElement = currentInput.nextElementSibling;
 
-function focusOutEmail() {
-  if (!email.value) {
-    pEmail.textContent = "이메일을 입력해 주세요.";
-    email.classList.add("errorInput");
-  } else if (!email.value.includes("@")) {
-    pEmail.textContent = "올바른 이메일 주소가 아닙니다.";
-    email.classList.add("errorInput");
+  const isEmail = currentInput.type === "email";
+  const noInputText = isEmail
+    ? ERROR_MESSAGE.NO_INPUT_EMAIL
+    : ERROR_MESSAGE.NO_INPUT_PASSWORD;
+
+  if (!currentValue) {
+    currentClassList.add("errorInput");
+    errorMsgElement.textContent = noInputText;
+  } else if (isEmail && !emailCheck(currentValue)) {
+    currentClassList.add("errorInput");
+    errorMsgElement.textContent = ERROR_MESSAGE.INVALID_EMAIL;
   } else {
-    pEmail.remove();
-    email.classList.remove("errorInput");
+    currentClassList.remove("errorInput");
+    errorMsgElement.textContent = "";
   }
-}
+};
 
-function focusOutPwd() {
-  if (!password.value) {
-    pPwd.textContent = "비밀번호를 입력해 주세요.";
-    password.classList.add("errorInput");
-  } else {
-    pPwd.remove();
-    password.classList.remove("errorInput");
-  }
-}
+const submitForm = (e) => {
+  const emailInput = e.target[0];
+  const passwordInput = e.target[1];
 
-function submitForm(e) {
   e.preventDefault();
-  reset_Ptag();
-  if (email.value === testEmail && password.value === testPwd) {
+  console.log();
+  if (
+    emailInput.value === TEST_USER.ID &&
+    passwordInput.value === TEST_USER.PASSWORD
+  ) {
     window.location.href = "/folder";
-    email.value = "";
   } else {
-    pEmail.textContent = "이메일을 확인해 주세요.";
-    pPwd.textContent = "비밀번호를 확인해 주세요.";
-    email.classList.add("errorInput");
-    password.classList.add("errorInput");
+    emailInput.nextElementSibling.textContent = ERROR_MESSAGE.CONFIRM_EMAIL;
+    passwordInput.nextElementSibling.textContent =
+      ERROR_MESSAGE.CONFIRM_PASSWORD;
+    emailInput.classList.add("errorInput");
+    passwordInput.classList.add("errorInput");
   }
-}
+};
 
-function eyeClickHandler() {
+const eyeClickHandler = () => {
   eyeImg.classList.toggle("on");
   if (eyeImg.classList.contains("on")) {
     password.removeAttribute("type");
   } else {
     password.setAttribute("type", "password");
   }
-}
+};
 
-reset_Ptag();
-email.addEventListener("focusout", focusOutEmail);
-password.addEventListener("focusout", focusOutPwd);
-form.addEventListener("submit", submitForm);
+emailElement.addEventListener("focusout", focusOutHandler);
+passwordElement.addEventListener("focusout", focusOutHandler);
+
+formElement.addEventListener("submit", submitForm);
 eyeImg.addEventListener("click", eyeClickHandler);
