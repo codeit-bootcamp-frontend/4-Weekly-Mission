@@ -1,4 +1,4 @@
-@import url("../style.css");
+@import url('../style.css');
 
 body {
   background: var(--color-gray-200);
@@ -43,7 +43,7 @@ body {
 }
 
 .link::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -0.3rem;
   display: block;

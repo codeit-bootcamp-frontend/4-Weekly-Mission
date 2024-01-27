@@ -1,4 +1,4 @@
-@import url("../style.css");
+@import url('../style.css');
 
 .header-area {
   position: sticky;
@@ -78,18 +78,18 @@
 
 .section-area:nth-of-type(odd) {
   grid-template:
-    ". image"
-    "title image"
-    "desc image"
-    ". image" / 30.2rem 55rem;
+    '. image'
+    'title image'
+    'desc image'
+    '. image' / 30.2rem 55rem;
 }
 
 .section-area:nth-of-type(even) {
   grid-template:
-    "image ."
-    "image title"
-    "image desc"
-    "image ."/55rem 30.2rem;
+    'image .'
+    'image title'
+    'image desc'
+    'image .'/55rem 30.2rem;
 }
 
 .section-area .title {
@@ -130,21 +130,14 @@
 }
 
 .gradient.blue-to-gray {
-  background: linear-gradient(
-    99deg,
-    #6d7ccd 60%,
-    rgba(82, 136, 133, 0.22) 100%
-  );
+  background: linear-gradient(99deg, #6d7ccd 60%, rgba(82, 136, 133, 0.22) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .gradient.blue-to-blue {
-  background: var(
-    --Fandom-K-gra-blue-to-pink,
-    linear-gradient(271deg, #fe578f -150%, #68e8f9 110%)
-  );
+  background: var(--Fandom-K-gra-blue-to-pink, linear-gradient(271deg, #fe578f -150%, #68e8f9 110%));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -217,18 +210,18 @@
 
   .section-area:nth-of-type(odd) {
     grid-template:
-      ". image"
-      "title image"
-      "desc image"
-      ". image" / 28rem 38.5rem;
+      '. image'
+      'title image'
+      'desc image'
+      '. image' / 28rem 38.5rem;
   }
 
   .section-area:nth-of-type(even) {
     grid-template:
-      "image ."
-      "image title"
-      "image desc"
-      "image ."/38.5rem 28rem;
+      'image .'
+      'image title'
+      'image desc'
+      'image .'/38.5rem 28rem;
   }
 
   .desc {
@@ -288,9 +281,9 @@
 
   .section-area:nth-of-type(n) {
     grid-template:
-      "title"
-      "image"
-      "desc"/100%;
+      'title'
+      'image'
+      'desc'/100%;
     gap: 0;
     padding: 4rem 3.2rem;
   }
