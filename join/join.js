@@ -26,11 +26,15 @@ function emailFormat(email) {
   return iemailFormat.test(email);
 } // => 이메일 형식
 
+const correctEmail = "test@codeit.kr";
+
 function emailText(em) {
   if (em.target.value == "") {
     addEmailErrorMsg("* 이메일을 입력해주세요.");
   } else if (!emailFormat(em.target.value)) {
     addEmailErrorMsg("* 올바른 이메일을 입력해주세요.");
+  } else if (correctEmail == EMAIL.value) {
+    addEmailErrorMsg("* 이미 사용 중인 이메일입니다.");
   } else {
     addEmailErrorMsg("");
   }
@@ -54,7 +58,6 @@ function passwordCheckText(pm) {
 }
 
 function login() {
-  const correctEmail = "test@codeit.kr";
   const correctPassword = "codeit101";
   if (correctEmail == EMAIL.value && correctPassword == PASSWORD.value) {
     let link = "page.html";
