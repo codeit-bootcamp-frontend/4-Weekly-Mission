@@ -3,32 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/signin.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/signin.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  <script src="../javascript/validation.js"></script>
   <title>Linkbrary signin</title>
 </head>
 <body>
   <div class="signin">
     <div class="contents">
       <div class="title">
-        <a href="/"><img src="./img/logo.svg" alt="logo"></a>
+        <a href="./index.html"><img src="./img/logo.svg" alt="logo"></a>
         <div class="description">
           <p>회원이 아니신가요?</p>
           <a href="./signup.html">회원 가입하기</a>
         </div>
       </div>
       <form>
-        <div class="idbox">
+        <div class="idbox" id="idbox">
           <label for="username">이메일</label>
-          <div class="idtext">
-            <input id="username" name="username" placeholder="codeit@codeit.com">
-          </div>
+          <input id="username" name="username" placeholder="codeit@codeit.com">
         </div>
-        <div class="pwbox">
+        <div class="pwbox" id="pwbox">
           <label for="password">비밀번호</label>
-          <div class="pwtext">
+          <div class="pwtext" id="pwtext">
             <input id="password" name="password" type="password" placeholder="••••••••">
             <img src="./img/eye-off.svg" alt="eye-off">
           </div>
@@ -44,5 +41,6 @@
       </div>
     </div>
   </div>
+  <script src="./javascript/validation.js"></script>
 </body>
 </html>
