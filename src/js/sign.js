@@ -9,56 +9,48 @@ const validEmail = 'test@codeit.com';
 const validPassword = 'codeit101';
 
 const addErrorMessage = (parentElement, errorMessage) => {
-  const errorTag = document.createElement('p');
-  errorTag.innerText = errorMessage;
-  parentElement.append(errorTag);
+  const existErrorMessage = parentElement.querySelector('p');
+
+  if (existErrorMessage) {
+    existErrorMessage.innerText = errorMessage;
+  } else {
+    parentElement.classList.add('invalid-input-error');
+    const errorTag = document.createElement('p');
+    errorTag.innerText = errorMessage;
+    parentElement.append(errorTag);
+  }
 };
 
 const removeErrorMessage = parentElement => {
+  parentElement.classList.remove('invalid-input-error');
   const errorTag = parentElement.querySelector('p');
-  if (errorTag) {
-    errorTag.remove();
-  }
+  errorTag.remove();
 };
 
 emailInput.addEventListener('blur', e => {
   const signInputBox = e.target.parentElement;
   const emailValue = e.target.value;
-  const existingError = signInputBox.querySelector('p');
 
-  if (emailValue) {
-    if (validateEmailInput(emailValue)) {
-      signInputBox.classList.remove('invalid-input-error');
-      removeErrorMessage(signInputBox);
-    } else if (existingError) {
-      existingError.innerText = '올바른 이메일을 입력해 주세요.';
-    } else {
-      signInputBox.classList.add('invalid-input-error');
-      addErrorMessage(signInputBox, '올바른 이메일을 입력해 주세요.');
-    }
-  } else if (existingError) {
-    existingError.innerText = '이메일을 입력해 주세요.';
-  } else {
-    signInputBox.classList.add('invalid-input-error');
+  if (!emailValue) {
     addErrorMessage(signInputBox, '이메일을 입력해 주세요.');
+    return;
+  }
+
+  if (validateEmailInput(emailValue)) {
+    removeErrorMessage(signInputBox);
+  } else {
+    addErrorMessage(signInputBox, '올바른 이메일을 입력해 주세요.');
   }
 });
 
 passwordInput.addEventListener('blur', e => {
   const signInputPasswordBox = e.target.parentElement;
   const passwordValue = e.target.value;
-  const existingError = signInputPasswordBox.querySelector('p');
 
-  if (passwordValue) {
-    if (existingError) {
-      signInputPasswordBox.classList.remove('invalid-input-error');
-      removeErrorMessage(signInputPasswordBox);
-    }
-  } else if (existingError) {
-    existingError.innerText = '비밀번호를 입력해 주세요.';
-  } else {
-    signInputPasswordBox.classList.add('invalid-input-error');
+  if (!passwordValue) {
     addErrorMessage(signInputPasswordBox, '비밀번호를 입력해 주세요.');
+  } else {
+    removeErrorMessage(signInputPasswordBox);
   }
 });
 
@@ -66,24 +58,14 @@ loginButton.addEventListener('click', e => {
   e.preventDefault();
   if (emailInput.value === validEmail && passwordInput.value === validPassword) {
     window.location.href = '../pages/folder.html';
-  } else {
-    const emailBox = emailInput.parentElement;
-    const passwordBox = passwordInput.parentElement;
-    const existingEmailError = emailBox.querySelector('p');
-    const existingPasswordError = passwordBox.querySelector('p');
-    if (existingEmailError) {
-      existingEmailError.innerText = '이메일을 확인해 주세요.';
-    } else {
-      emailBox.classList.add('invalid-input-error');
-      addErrorMessage(emailBox, '이메일을 확인해 주세요.');
-    }
-    if (existingPasswordError) {
-      existingPasswordError.innerText = '비밀번호를 확인해 주세요.';
-    } else {
-      passwordBox.classList.add('invalid-input-error');
-      addErrorMessage(passwordBox, '비밀번호를 확인해 주세요.');
-    }
+    return;
   }
+
+  const emailBox = emailInput.parentElement;
+  const passwordBox = passwordInput.parentElement;
+
+  addErrorMessage(emailBox, '이메일을 확인해 주세요.');
+  addErrorMessage(passwordBox, '비밀번호를 확인해 주세요.');
 });
 
 eyeButton.addEventListener('click', () => {
