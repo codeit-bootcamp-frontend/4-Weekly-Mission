@@ -1,3 +1,3 @@
-import sign from './module_sign.js';
+import moduleSign from './module_sign.js';
 
-export { sign };
+export { moduleSign };

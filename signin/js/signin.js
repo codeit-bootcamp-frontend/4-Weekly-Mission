@@ -1,34 +1,30 @@
-import { sign } from '/js/common.js';
+import { moduleSign } from '/js/common.js';
 
 const PWD_VIEW = document.querySelector('.pwd-view');
 const INPUT_EMAIL = document.querySelector('#email');
 const INPUT_PASSWORD = document.querySelector('#password');
 const FORM = document.querySelector('#login-form-box');
-const LOGIN_INFO = {
-    email: 'test@codeit.com',
-    password: 'codeit101',
-};
 
 PWD_VIEW.addEventListener('click', function () {
-    sign.passwordSwitch(this);
+    moduleSign.passwordSwitch(this);
 });
-INPUT_EMAIL.addEventListener('focusin', function (e) {
-    sign.errorBoxToggle(e, this);
+INPUT_EMAIL.addEventListener('focusin', function () {
+    moduleSign.errorBoxToggle(this);
 });
-INPUT_EMAIL.addEventListener('focusout', function (e) {
+INPUT_EMAIL.addEventListener('focusout', function () {
     if (this.value == '') {
-        sign.errorBoxToggle(e, this, '이메일을 입력해 주세요.');
-    } else if (!sign.emailValidChk(this.value)) {
-        sign.errorBoxToggle(e, this, '올바른 이메일 주소가 아닙니다.');
+        moduleSign.errorBoxToggle(this, '이메일을 입력해 주세요.');
+    } else if (moduleSign.emailValidChk(this.value)) {
+        moduleSign.errorBoxToggle(this, '올바른 이메일 주소가 아닙니다.');
     }
 });
 
-INPUT_PASSWORD.addEventListener('focusin', function (e) {
-    sign.errorBoxToggle(e, this);
+INPUT_PASSWORD.addEventListener('focusin', function () {
+    moduleSign.errorBoxToggle(this);
 });
-INPUT_PASSWORD.addEventListener('focusout', function (e) {
+INPUT_PASSWORD.addEventListener('focusout', function () {
     if (this.value == '') {
-        sign.errorBoxToggle(e, this, '비밀번호를 입력해 주세요.');
+        moduleSign.errorBoxToggle(this, '비밀번호를 입력해 주세요.');
     }
 });
 
@@ -37,11 +33,11 @@ FORM.addEventListener('submit', function (e) {
     const PASSWORD = this['password'];
 
     // 로그인 정보 대조 후 submit
-    if (EMAIL.value === LOGIN_INFO.email && PASSWORD.value === LOGIN_INFO.password) {
+    if (EMAIL.value === moduleSign.LOGIN_INFO.email && PASSWORD.value === moduleSign.LOGIN_INFO.password) {
         this.submit();
     } else {
         e.preventDefault();
-        sign.errorBoxToggle(e, EMAIL, '이메일을 확인해 주세요.');
-        sign.errorBoxToggle(e, PASSWORD, '비밀번호를 확인해 주세요.');
+        moduleSign.errorBoxToggle(EMAIL, '이메일을 확인해 주세요.');
+        moduleSign.errorBoxToggle(PASSWORD, '비밀번호를 확인해 주세요.');
     }
 });

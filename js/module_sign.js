@@ -1,12 +1,23 @@
 const EMAIL_PATTERN = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
+const PASSWORD_PATTERN = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/; // 규칙 : 영문, 숫자 조합 8자 이상 입력해야한다
+const LOGIN_INFO = {
+    email: 'test@codeit.com',
+    password: 'codeit101',
+};
 
 // 이메일 형식 체크
 function emailValidChk(email) {
-    return EMAIL_PATTERN.test(email);
+    return !EMAIL_PATTERN.test(email);
+}
+// 비밀번호 생성 규칙 검사
+function passwordRoleCheck(value) {
+    console.log(value);
+    return !PASSWORD_PATTERN.test(value);
 }
 // 이벤트 타입에 따른 에러박스 토글
-function errorBoxToggle(event, el, text) {
-    if (event.type == 'focusin') {
+// 에러 메시지가 있으면 활성, 없으면 비활성 분기
+function errorBoxToggle(el, text) {
+    if (!text) {
         errorBoxDisable(el);
     } else {
         errorBoxEnable(el, text);
@@ -45,8 +56,22 @@ function passwordSwitch(targetElement) {
     }
 }
 
+// 비밀번호 - 비밀번호 확인 값 대조
+function passwordConfirm(el) {
+    const PASSWORD = document.querySelector('#password');
+
+    if (PASSWORD.value != el.value) {
+        errorBoxToggle(el, '비밀번호가 다릅니다');
+    } else {
+        errorBoxToggle(el);
+    }
+}
+
 export default {
     emailValidChk,
     errorBoxToggle,
     passwordSwitch,
+    passwordConfirm,
+    passwordRoleCheck,
+    LOGIN_INFO,
 };
