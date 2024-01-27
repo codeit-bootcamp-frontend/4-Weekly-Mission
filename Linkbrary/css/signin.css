@@ -95,7 +95,7 @@ form #username:focus{
   border: 3px solid #6D6AFE;
   outline: 0.1rem solid #6D6AFE;
 }
-form .pwtext{
+form .pwText{
   display: flex;
   flex-direction: row;
   width: 400px;
@@ -109,7 +109,7 @@ form .pwtext{
 form #password:focus{
   outline: none;
 }
-form .pwtext:focus-within{
+form .pwText:focus-within{
   border: 3px solid #6D6AFE;
 }
 form #password{
@@ -122,7 +122,7 @@ form #password{
   line-height: 24px; /* 150% */
   width: 100%;
 }
-#login_btn{
+#loginBtn{
   display: flex;
   width: 100%;
   padding: 16px 20px;
@@ -179,7 +179,7 @@ form #password{
     max-width: 400px;
   }
 
-  form .pwtext {
+  form .pwText {
     width: 100%;
     max-width: 400px;
   }

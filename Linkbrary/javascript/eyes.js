@@ -1,6 +1,4 @@
-// input값 가져오기
-const EYE = document.getElementById("eye");
-
+// 눈표시바뀌는 기능
 function changeEyes(){
   if(EYE.alt==='eye-off'){ // 현재 off면
     // on으로 변경
@@ -15,5 +13,5 @@ function changeEyes(){
   }
 }
 
-// 클릭
+// 눈모양 클릭
 EYE.addEventListener("click", changeEyes);
