@@ -1,4 +1,4 @@
-import { returnInputValue, addErrorClass, eyeIconClickEvent } from './js/recycle.js';
+import { returnInputValue, addErrorClass, eyeIconClickEvent } from './recycle.js';
 const errorMessageEmail = document.querySelector('.error-message[data-about=email]');
 const userInputPassword = document.querySelector('#password');
 const errorMessgePassword = document.querySelector('.error-message[data-about=password]');
@@ -19,7 +19,7 @@ function checkEmailInput(event) {
 //비밀번호 조합 체크
 function checkPasswordLength(event) {
     const userInput = returnInputValue(event);
-    let message = userInput.length < 8 || /[0-9a-z]/ig.test(userInput) === false ? '비밀번호는 영문, 숫자 조합8자 이상 입력해 주세요.' : '';
+    let message =   /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/.test(userInput) === false ? '비밀번호는 영문, 숫자 조합8자 이상 입력해 주세요.' : '';
     errorMessgePassword.textContent = message;
     addErrorClass(event.target, message);
     return;
