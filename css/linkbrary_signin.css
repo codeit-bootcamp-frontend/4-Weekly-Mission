@@ -75,12 +75,6 @@
     flex-direction: column;
     gap: 1.2rem;
   }
-  .password-repeat{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
   .eye{
     width: 1.6rem;
     height: 1.6rem;
@@ -111,17 +105,8 @@
     border: 0.1rem solid var(--gray3-color);
     background-color: var(--white-color);
   }
-  #password-repeat{
-    display: flex;
-    width: 32.5rem;
-    padding: 1.8rem 1.5rem;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.8rem;
-    border: 0.1rem solid var(--gray3-color);
-    background-color: var(--white-color);
-  }
   .boxmain{
+    cursor: pointer;
     display: flex;
     width: 32.5rem;
     padding: 1.6rem 2rem;
@@ -257,12 +242,6 @@ label{
   flex-direction: column;
   gap: 1.2rem;
 }
-.password-repeat{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
 .eye{
   width: 1.6rem;
   height: 1.6rem;
@@ -284,16 +263,6 @@ outline : 0.1rem solid var(--primary-color);
   background-color: var(--white-color);
 }
 #password{
-  display: flex;
-  width: 40rem;
-  padding: 1.8rem 1.5rem;
-  justify-content: center;
-  align-items: center;
-  border-radius: 0.8rem;
-  border: 0.1rem solid var(--gray3-color);
-  background-color: var(--white-color);
-}
-#password-repeat{
   display: flex;
   width: 40rem;
   padding: 1.8rem 1.5rem;
