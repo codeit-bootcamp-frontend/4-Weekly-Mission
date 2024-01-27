@@ -2,7 +2,7 @@ import { inputFocusBorderChange, addEventPwHiddenBtn } from "./util.js";
 
 // valid input 관련 element
 const emailInput = document.querySelector("#signin-email");
-const emailValidText = document.querySelector("#email_valid_text");
+const emailValidText = document.querySelector("#email-valid-text");
 const pwInput = document.querySelector("#signin-password");
 const pwValidText = document.querySelector("#pw-valid-text");
 
