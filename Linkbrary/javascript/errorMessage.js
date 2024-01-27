@@ -16,12 +16,25 @@ function showidErrorMessage(message){
 function showpwErrorMessage(message){ 
   if(!document.getElementById('pwErrorMessage')){
     // input 색상변경
-    PW_TEXT.style.border = '3px solid #FF5B56';
+    PW_TEXT[0].style.border = '3px solid #FF5B56';
     // p 메세지표출
     const errormessage = document.createElement("p");
     errormessage.id = 'pwErrorMessage'
     errormessage.textContent = message;
     errormessage.style.color = '#FF5B56';
-    PWBOX.appendChild(errormessage);
+    PWBOX[0].appendChild(errormessage);
+  }
+}
+// 에러메세지표시(pwcheck)
+function showpwcheckErrorMessage(message){
+  if(!document.getElementById('pwcheckErrorMessage')){
+    // input 색상변경
+    PW_TEXT[1].style.border = '3px solid #FF5B56';
+    // p 메세지표출
+    const errormessage = document.createElement("p");
+    errormessage.id = 'pwcheckErrorMessage'
+    errormessage.textContent = message;
+    errormessage.style.color = '#FF5B56';
+    PWBOX[1].appendChild(errormessage);
   }
 }

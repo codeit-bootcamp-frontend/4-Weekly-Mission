@@ -95,7 +95,7 @@ form #username:focus{
   border: 3px solid var(--Linkbrary-primary-color, #6D6AFE);
   outline: 0.1rem solid var(--Linkbrary-primary-color);
 }
-form .pwtext{
+form .pwText{
   display: flex;
   flex-direction: row;
   width: 400px;
@@ -106,11 +106,11 @@ form .pwtext{
   border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
   background: var(--Linkbrary-white, #FFF);
 }
+form .pwText:focus-within{
+  border: 3px solid var(--Linkbrary-primary-color, #6D6AFE);
+}
 form .password:focus{
   outline: 0.1rem solid var(--Linkbrary-primary-color);
-}
-form .pwtext:focus-within{
-  border: 3px solid var(--Linkbrary-primary-color, #6D6AFE);
 }
 form .password{
   border: none;
@@ -121,20 +121,6 @@ form .password{
   font-weight: 400;
   line-height: 24px; /* 150% */
   width: 100%;
-}
-form .pwtext_check{
-  display: flex;
-  flex-direction: row;
-  width: 400px;
-  padding: 18px 15px;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
-  background: var(--Linkbrary-white, #FFF);
-}
-form .pwtext_check:focus-within{
-  border: 3px solid var(--Linkbrary-primary-color, #6D6AFE);
 }
 .join_btn{
   display: flex;
@@ -191,11 +177,11 @@ form .pwtext_check:focus-within{
     width: 100%;
     max-width: 400px;
   }
-  form .pwtext{
+  form .pwText{
     width: 100%;
     max-width: 400px;
   }
-  form .pwtext_check{
+  form .pwText_check{
     width: 100%;
     max-width: 400px;
   }
