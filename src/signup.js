@@ -70,7 +70,7 @@ function passErrorMessage (e) {
     errorMessage(passInput, '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.');
   }
   //올바른 값으로 수정
-  else if (validateEmail(passInput.value)) {
+  else if (validatePass(passInput.value)) {
     if (passInput.parentElement.parentElement.querySelector('.errorMessage')) {
       passInput.parentElement.parentElement.querySelector('.errorMessage').remove();
       passInput.style.borderColor = '#CCD5E3';
@@ -128,3 +128,4 @@ toggle.addEventListener('click', toggleIcon);
 // 잘 안된거
 // signin up => css 통합
 // toggle icon 관련 두 아이콘에 한번에 적용하고 싶어서 querySelectorAll로 선택하면 에러가 나옴
+// 로그인, 회원가입 페이지에 공통적으로 사용하는 로직이 있다면, 반복하지 않고 공통된 로직을 모듈로 분리해 사용해 주세요.
