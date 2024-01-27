@@ -49,8 +49,23 @@ document.addEventListener("DOMContentLoaded", function () {
   function loginUser() {
     const emailValue = emailInput.value;
     const passwordValue = passwordInput.value;
+    //test@codeit.com
+    const user = getUserByEmail(emailValue);
 
     // 특정 계정으로 로그인 했을 때
+    if (!user) {
+      //에러메세지 출력
+      throw new error("이메일 또는 비밀번호를 확인하세요!");
+    }
+
+    const isPasswordMatching = user.password === password;
+
+    if (!isPasswordMatching) {
+      throw new Error("메일 또는 비밀번호를 확인하세요");
+    }
+    //로그인 무사 진행시 folder 페이지로 이동
+    window.location.href = "./folder.html";
+    /*
     if (emailValue === "test@codeit.com" && passwordValue === "codeit101") {
       window.location.href = "./folder.html";
     } else {
@@ -60,7 +75,18 @@ document.addEventListener("DOMContentLoaded", function () {
       errorDiv.textContent = "이메일 또는 비밀번호가 올바르지 않습니다.";
       showErrorMessage(errorDiv, emailInput);
       showErrorMessage(createPasswordError(), passwordInput);
+      
+    }*/
+  }
+  //특정 계정 아이디로 로그인 시도
+  function getUserByEmail(email) {
+    const user = { email: "test@codeit.com", password: "codeit101" };
+
+    if (user.email === email) {
+      return user;
     }
+
+    return null;
   }
 
   // 비밀번호 확인
