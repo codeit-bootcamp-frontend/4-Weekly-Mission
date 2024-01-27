@@ -1,3 +1,5 @@
+import { inputFocusBorderChange, addEventPwHiddenBtn } from "./util.js";
+
 // valid input 관련 element
 const emailInput = document.querySelector("#signin-email");
 const emailValidText = document.querySelector("#email_valid_text");
@@ -6,7 +8,6 @@ const pwValidText = document.querySelector("#pw-valid-text");
 
 // 심화 : password eye button
 const pwHiddenBtn = document.querySelector("#pw-hidden-btn");
-pwHiddenBtn.innerHTML = '<img src="./images/eye-off.svg" />';
 
 // signin form
 const signinForm = document.querySelector("#signin-form");
@@ -17,6 +18,9 @@ const regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
 // let isValidId = false;
 // let isValidPw = false;
 let isToggleEyes = false;
+
+// password hidden button init setting function
+addEventPwHiddenBtn(pwHiddenBtn, pwInput, isToggleEyes);
 
 // focus on
 emailInput.addEventListener("focus", function () {
@@ -81,31 +85,3 @@ signinForm.addEventListener("submit", function (e) {
     );
   }
 });
-
-// 심화 : pw eye button 클릭 이벤트 추가 > type - password, text toggle event
-pwHiddenBtn.addEventListener("click", function (e) {
-  if (e.pointerId === 1) {
-    e.preventDefault();
-    isToggleEyes = !isToggleEyes;
-    if (isToggleEyes) {
-      pwHiddenBtn.innerHTML = '<img src="./images/eye-on.svg" />';
-      pwInput.type = "text";
-    } else {
-      pwHiddenBtn.innerHTML = '<img src="./images/eye-off.svg" />';
-      pwInput.type = "password";
-    }
-  }
-});
-
-// focus 및 action에 따른 input border style changer
-function inputFocusBorderChange(type, inputElm, textElm, text = "") {
-  let borderStyle = "1px solid #CCD5E3";
-  if (type === "focus_on") {
-    borderStyle = "1px solid #6D6AFE";
-  } else if (type === "valid_error") {
-    borderStyle = "1px solid #FF5B56";
-  }
-  inputElm.style.border = borderStyle;
-  inputElm.style.outline = "none";
-  textElm.textContent = text;
-}
