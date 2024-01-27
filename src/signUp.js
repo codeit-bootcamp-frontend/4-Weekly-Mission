@@ -6,24 +6,33 @@ import {
   pwToggle,
   applyError,
   resetError,
-  validateEmail,
-  validatePw,
+  isValidateEmail,
+  isValidatePw,
   handleClickPwToggle,
 } from './utils/auth.js';
 
 const pwCheckInput = document.getElementById('password-check');
 const pwCheckError = document.getElementById('password-check-error');
 const pwCheckToggle = document.querySelector('.password-check-eye');
-const signUpBtn = document.querySelector('#signup-btn');
+const signUpForm = document.querySelector('#signup-form');
 
-const handlePasswordMatch = () => {
-  if (pwCheckInput.value !== pwInput.value) applyError(pwCheckError, MESSAGE.NOT_MATCH_PASSWORD, pwCheckInput);
-  else resetError(pwCheckError, pwCheckInput);
+const isDuplicateEmail = () => {
+  if (emailInput.value === TEST_AUTH.EMAIL) {
+    applyError(emailError, MESSAGE.DUPLICATE_EMAIL, emailInput);
+    return true;
+  } else {
+    return false;
+  }
 };
 
-const handleDuplicateEmail = () => {
-  if (emailInput.value === TEST_AUTH.EMAIL) applyError(emailError, MESSAGE.DUPLICATE_EMAIL, emailInput);
-  else validateEmail();
+const isPasswordMatch = () => {
+  if (pwCheckInput.value !== pwInput.value) {
+    applyError(pwCheckError, MESSAGE.NOT_MATCH_PASSWORD, pwCheckInput);
+    return false;
+  } else {
+    resetError(pwCheckError, pwCheckInput);
+    return true;
+  }
 };
 
 //회원가입 로직 수정필요
@@ -31,11 +40,10 @@ const handleSignUp = () => {
   console.log('회원가입 성공');
 };
 
-emailInput.addEventListener('focusout', handleDuplicateEmail);
+emailInput.addEventListener('focusout', isDuplicateEmail);
 
-pwInput.addEventListener('focusout', validatePw);
+pwInput.addEventListener('focusout', isValidatePw);
 pwCheckInput.addEventListener('focusout', handlePasswordMatch);
 pwToggle.addEventListener('click', () => handleClickPwToggle(pwInput, pwToggle));
 pwCheckToggle.addEventListener('click', () => handleClickPwToggle(pwCheckInput, pwCheckToggle));
-
-signUpBtn.addEventListener('click', handleSignUp);
+signUpForm.addEventListener('submit', (e) => handleSignUp(e));
