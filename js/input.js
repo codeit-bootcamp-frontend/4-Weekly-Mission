@@ -30,8 +30,8 @@ export const INPUT_MESSAGE_LOGIN_ERROR = {
 };
 
 const ON_OFF = {
-  ON: 'ON',
-  OFF: 'OFF',
+  ON: 'on',
+  OFF: 'off',
 };
 
 const BLIND_TYPE = { ...ON_OFF };
@@ -63,30 +63,29 @@ export function handleFocusoutInput(event) {
 
   const value = target.value;
   const validation =
-    target.dataset.validation?.toUpperCase() === ON_OFF.ON ? true : false;
+    target.dataset.validation?.toLowerCase() === ON_OFF.ON ? true : false;
   const messageBox = target.parentElement.nextElementSibling;
-  let message = '';
 
-  target.classList.remove(CLASS.ERROR);
-  messageBox.classList.remove(CLASS.ERROR);
-  messageBox.textContent = '';
+  removeError(target);
+  removeError(messageBox);
 
   if (!value) {
-    target.classList.add(CLASS.ERROR);
-    message = INPUT_MESSAGE_EMPTY[type];
-    return printMessage(messageBox, message, CLASS.ERROR);
+    addEmptyError(type, target, messageBox);
+    return;
   }
 
   if (validation && !validateInput(type, value, scope)) {
-    target.classList.add(CLASS.ERROR);
-    message = INPUT_MESSAGE_PATTERN_ERROR[type];
-    return printMessage(messageBox, message, CLASS.ERROR);
+    addPatternError(type, target, messageBox);
+    return;
   }
 
-  if (type === INPUT_TYPE.EMAIL && !confirmUserEmail(value)) {
-    target.classList.add(CLASS.ERROR);
-    message = INPUT_MESSAGE_SAME_ERROR[type];
-    return printMessage(messageBox, message, CLASS.ERROR);
+  if (
+    scope.id === 'signup-form' &&
+    type === INPUT_TYPE.EMAIL &&
+    !confirmSameUserEmail(value)
+  ) {
+    addSameError(type, target, messageBox);
+    return;
   }
 }
 
@@ -127,8 +126,35 @@ function validateInput(type, value, scope = document) {
   }
 }
 
-function confirmUserEmail(email) {
+function confirmSameUserEmail(email) {
   return !(USER_TEST.EMAIL === email);
+}
+
+export function addLoginError(type, target, messageBox) {
+  target.classList.add(CLASS.ERROR);
+  printMessage(messageBox, INPUT_MESSAGE_LOGIN_ERROR[type], CLASS.ERROR);
+}
+
+function addEmptyError(type, target, messageBox) {
+  target.classList.add(CLASS.ERROR);
+  printMessage(messageBox, INPUT_MESSAGE_EMPTY[type], CLASS.ERROR);
+}
+
+function addPatternError(type, target, messageBox) {
+  target.classList.add(CLASS.ERROR);
+  printMessage(messageBox, INPUT_MESSAGE_PATTERN_ERROR[type], CLASS.ERROR);
+}
+
+function addSameError(type, target, messageBox) {
+  target.classList.add(CLASS.ERROR);
+  printMessage(messageBox, INPUT_MESSAGE_SAME_ERROR[type], CLASS.ERROR);
+}
+
+export function removeError(target) {
+  target.classList.remove(CLASS.ERROR);
+  if (target.classList.contains('input-message')) {
+    target.textContent = '';
+  }
 }
 
 export function printMessage(target, message, className) {
