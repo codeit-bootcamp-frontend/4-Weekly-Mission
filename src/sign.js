@@ -2,6 +2,7 @@ import * as DOM from './lib/DOM.js'
 import * as input from './lib/inputVerification.js'
 import * as action from './lib/action.js'
 import * as handleEvent from './lib/eventKey.js'
+import { signGlobals } from './signGlobals.js'
 import {
   EMAIL_ERROR_MESSAGE,
   PASSWORD_ERROR_MESSAGE,
@@ -11,40 +12,26 @@ import {
   PASSWORD_REGEX
 } from './constant/signVariable.js'
 
-const signEmailSection = DOM.selectElement('.sign-email')
-const signPasswordSection = DOM.selectElement('.sign-password')
-const signPasswordCheckSecion = DOM.selectElement('#sign-password-check')
-const signEmailInput = DOM.selectElement('#email-input')
-const signPasswordInput = DOM.selectElement('#password-input')
-DOM.createTagAndclassWithText(signEmailSection, 'email-error', '')
-DOM.createTagAndclassWithText(signPasswordSection, 'password-error', '')
-const emailError = signEmailSection.lastChild
-const passwordError = signPasswordSection.lastChild
-const eyeImg = DOM.selectElement('.eye-button-icon')
-const loginButton = DOM.selectElement('.login-button')
-const signUpButton = DOM.selectElement('.signup-button')
-const currentPageURL = window.location.href
-
-if (currentPageURL.includes("signup.html")) {
+if (signGlobals.currentPageURL.includes("signup.html")) {
   const signPasswordCheckInput = DOM.selectElement('#check-password')
-  DOM.createTagAndclassWithText(signPasswordCheckSecion, 'password-check-error', '')
-  const passwordCheckError = signPasswordCheckSecion?.lastChild
+  DOM.createTagAndclassWithText(signGlobals.signPasswordCheckSecion, 'password-check-error', '')
+  const passwordCheckError = signGlobals.signPasswordCheckSecion?.lastChild
 
   function handlePasswordCheckFocusout(){
     handleInputFocusout(signPasswordCheckInput, passwordCheckError, null, PASSWORD_ERROR_MESSAGE);
-    if (!input.isPasswordValueMatch(signPasswordInput, signPasswordCheckInput)) {
+    if (!input.isPasswordValueMatch(signGlobals.signPasswordInput, signPasswordCheckInput)) {
       showErrorMsg(signPasswordCheckInput, passwordCheckError, PASSWORD_ERROR_MESSAGE.agreement);
     }
   }
 
-  function handleSignUpButton(){
-    signEmailInput.blur()
-    signPasswordInput.blur()
-    if(input.isValueMatch(signEmailInput, USERS[0].id)){
-      showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.use)
+  function SignUpButton(){
+    signGlobals.signEmailInput.blur()
+    signGlobals.signPasswordInput.blur()
+    if(input.isValueMatch(signGlobals.signEmailInput, USERS[0].id)){
+      showErrorMsg(signGlobals.signEmailInput, signGlobals.emailError, EMAIL_ERROR_MESSAGE.use)
       return
     }
-    if (!signEmailInput.value || !signPasswordInput.value || !signPasswordCheckInput.value) {
+    if (!signGlobals.signEmailInput.value || !signGlobals.signPasswordInput.value || !signPasswordCheckInput.value) {
       alert('모든 입력 필드에 값을 입력하세요.')
       return;
     }
@@ -53,34 +40,36 @@ if (currentPageURL.includes("signup.html")) {
 
   signPasswordCheckInput.addEventListener('focusout', handlePasswordCheckFocusout)
   signPasswordCheckInput.addEventListener('focusin', () => handleInputFocusin(signPasswordCheckInput));
-  signUpButton.addEventListener('click', handleSignUpButton)
+  signGlobals.signUpButton.addEventListener('click', SignUpButton)
   signPasswordCheckInput.addEventListener('keyup',handlerEnter)
 
-}else if(currentPageURL.includes("signin.html")){
-  function handleLoginButton(){
-    signEmailInput.blur()
-    signPasswordInput.blur()
-    const isUserRegistered = USERS.some(user => input.isValueMatch(signEmailInput, user.id) && input.isValueMatch(signPasswordInput, user.password) )
+}else if(signGlobals.currentPageURL.includes("signin.html")){
+  function LoginButton(){
+    signGlobals.signEmailInput.blur()
+    signGlobals.signPasswordInput.blur()
+    const isUserRegistered = USERS.some(user => input.isValueMatch(signGlobals.signEmailInput, user.id) && input.isValueMatch(signGlobals.signPasswordInput, user.password) )
     if(isUserRegistered) { 
       action.loginAction() 
     }
-    showErrorMsg(signEmailInput, emailError, EMAIL_ERROR_MESSAGE.validation)
-    showErrorMsg(signPasswordInput, passwordError, PASSWORD_ERROR_MESSAGE.validation)
+    showErrorMsg(signGlobals.signEmailInput, signGlobals.emailError, EMAIL_ERROR_MESSAGE.validation)
+    showErrorMsg(signGlobals.signPasswordInput, signGlobals.passwordError, PASSWORD_ERROR_MESSAGE.validation)
   }
 
-  loginButton.addEventListener('click', handleLoginButton)
+  signGlobals.loginButton.addEventListener('click', LoginButton)
 }
 
 function handleInputFocusout(inputElement, errorElement, regex, errorMessage) {
   if (input.isFormatValue(inputElement)) {
     showErrorMsg(inputElement, errorElement, errorMessage.empty);
-    return;
+    return
   }
   if (regex && !input.isRegexMatch(inputElement, regex)) {
-    showErrorMsg(inputElement, errorElement, errorMessage.invalid);
-    return;
+    console.log(errorMessage.set)
+    const combinedErrorMessage = [errorMessage.invalid, errorMessage.set].filter(msg => msg !== undefined).join(' ');
+    showErrorMsg(inputElement, errorElement, combinedErrorMessage);
+    return
   }
-  errorElement?.classList.add('hidden');
+  errorElement?.classList.add('hidden')
 }
 
 function showErrorMsg(inputElement, textElement, text){
@@ -90,12 +79,12 @@ function showErrorMsg(inputElement, textElement, text){
 }
 
 function handleEmailFocusout(){
-  handleInputFocusout(signEmailInput, emailError, EMAIL_REGEX, EMAIL_ERROR_MESSAGE);
+  handleInputFocusout(signGlobals.signEmailInput, signGlobals.emailError, EMAIL_REGEX, EMAIL_ERROR_MESSAGE);
 
 }
 
 function handlePasswordFocusout(){
-  handleInputFocusout(signPasswordInput, passwordError, PASSWORD_REGEX, PASSWORD_ERROR_MESSAGE);
+  handleInputFocusout(signGlobals.signPasswordInput, signGlobals.passwordError, PASSWORD_REGEX, PASSWORD_ERROR_MESSAGE);
 }
 
 function handleInputFocusin(inputElement) {
@@ -103,22 +92,22 @@ function handleInputFocusin(inputElement) {
 }
 
 function handleChangePasswordType(){
-  const passwordType = signPasswordInput.type
+  const passwordType = signGlobals.signPasswordInput.type
   const passwordChangeType = passwordType === 'password' ? 'text' : 'password'
-  signPasswordInput.type = passwordChangeType
-  passwordChangeType === 'password' ? eyeImg.src = PASSWORD_EYE_ICON.passwordType.src : eyeImg.src = PASSWORD_EYE_ICON.textType.src
+  signGlobals.signPasswordInput.type = passwordChangeType
+  passwordChangeType === 'password' ? signGlobals.eyeImg.src = PASSWORD_EYE_ICON.passwordType.src : signGlobals.eyeImg.src = PASSWORD_EYE_ICON.textType.src
 }
 
 function handlerEnter(){
   handleEvent.enter(()=>{
-    currentPageURL.includes("signup.html") ? signUpButton.click() : loginButton.click()
+    signGlobals.currentPageURL.includes("signup.html") ? signGlobals.signUpButton.click() : signGlobals.loginButton.click()
   })
 }
 
-eyeImg.addEventListener('click', handleChangePasswordType)
-signEmailInput.addEventListener('focusout',handleEmailFocusout)
-signEmailInput.addEventListener('focusin', () => handleInputFocusin(signEmailInput));
-signEmailInput.addEventListener('keyup',handlerEnter)
-signPasswordInput.addEventListener('keyup',handlerEnter)
-signPasswordInput.addEventListener('focusout', handlePasswordFocusout)
-signPasswordInput.addEventListener('focusin', () => handleInputFocusin(signPasswordInput));
+signGlobals.eyeImg.addEventListener('click', handleChangePasswordType)
+signGlobals.signEmailInput.addEventListener('focusout',handleEmailFocusout)
+signGlobals.signEmailInput.addEventListener('focusin', () => handleInputFocusin(signGlobals.signEmailInput));
+signGlobals.signEmailInput.addEventListener('keyup',handlerEnter)
+signGlobals.signPasswordInput.addEventListener('keyup',handlerEnter)
+signGlobals.signPasswordInput.addEventListener('focusout', handlePasswordFocusout)
+signGlobals.signPasswordInput.addEventListener('focusin', () => handleInputFocusin(signGlobals.signPasswordInput));
