@@ -8,56 +8,38 @@
 </head>
 <body>
   <div class="content">
-    <form>
       <div class="signin">
-        <div>
           <a href="./index.html">
-            <img src="./img/sign-logo.png">
+            <img src="./img/logo.svg" alt="홈으로 연결된 Linkbrary 로고">
           </a>
-        </div>
         <div class="signup">
-          <div>
             <p>회원이 아니신가요?</p>
-          </div>
-          <div>
             <a href="./signup.html">회원 가입하기</a>
-          </div>
         </div>
       </div>
 
       <div class="inputContainer">
         <div class="email">
-          <div class="label_email">
             <label for="email">이메일</label>
-          </div>
-          <div class="input">
-            <input id="email" type="id" placeholder="codeit@codeit.com">
-            <span id="signinEmailError"></span>
+          <div class="inputBox">
+            <input id="email" type="text" name="email" placeholder="codeit@codeit.com">
+            <span id="signinEmailError" class="signError"></span>
           </div>
         </div>
 
         <div class="password">
-          <div class="label_password">
             <label for="password">비밀번호</label>
-          </div>
-          <div class="input">
-            <input id="password" type="password">
-            <span id="signinPwError"></span>
+          <div class="inputBox">
+            <input id="password" type="password" name="password">
+            <span id="signinPwError" class="signError"></span>
           </div>
         </div>
       </div>
 
-      <div class="button">
-        <button id="loginButton" class="signButton"><span class="sign">로그인</span></button>
-      </div>
+        <button id="loginButton" class="signButton">로그인</button>
 
-    </form>
-
-    <section>
       <div class="social">
-        <div>
           <p>소셜 로그인</p>
-        </div>
         <div class="icon">
             <a class="googleIcon" href="https://www.google.com/">
               <img alt="구글로 로그인" src="./img/google-icon.svg">
@@ -67,9 +49,8 @@
             </a>
         </div>
       </div>
-    </section>
   </div>
 
-  <script src="./js/sign.js"></script>
+  <script src="./js/signin.js"></script>
 </body>
 </html>

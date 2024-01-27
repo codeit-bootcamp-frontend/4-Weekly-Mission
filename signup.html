@@ -8,63 +8,46 @@
 </head>
 <body>
   <div class="content">
-    <form>
       <div class="signin">
-        <div>
           <a href="./index.html">
-            <img src="./img/sign-logo.png">
+            <img src="./img/logo.svg" alt="홈으로 연결된 Linkbrary 로고">
           </a>
-        </div>
         <div class="signup">
-          <div>
             <p>이미 회원이신가요?</p>
-          </div>
-          <div>
             <a href="./signin.html">로그인하기</a>
-          </div>
         </div>
       </div>
 
       <div class="inputContainer">
         <div class="email">
-          <div class="label_email">
             <label for="email">이메일</label>
-          </div>
-          <div class="input_email">
-            <input type="text" id="email" name="email" placeholder="codeit@codeit.com">
+          <div class="inputBox">
+            <input id="email" type="text" name="email" placeholder="codeit@codeit.com">
+            <span id="emailError" class="signError"></span>
           </div>
         </div>
 
         <div class="password">
-          <div class="label_password">
             <label for="password">비밀번호</label>
-          </div>
-          <div class="input_password">
-            <input id="password" name="password" type="password">
+          <div class="inputBox">
+            <input id="password" type="password" name="password">
+            <span id="pwError" class="signError"></span>
           </div>
         </div>
 
         <div class="password">
-          <div class="label_password">
-            <label for="password">비밀번호 확인</label>
-          </div>
-          <div class="input_password">
-            <input id="password" name="password" type="password">
+            <label for="passwordCheck">비밀번호 확인</label>
+          <div class="inputBox">
+            <input id="passwordCheck" type="password" name="passwordCheck">
+            <span id="pwCheckError" class="signError"></span>
           </div>
         </div>
       </div>
 
-      <div class="button">
-        <button class="signButton"><span class="sign">회원가입</span></button>
-      </div>
+        <button id="signBtn" class="signButton">회원가입</button>
 
-    </form>
-
-    <section>
       <div class="social">
-        <div>
           <p>다른 방식으로 가입하기</p>
-        </div>
         <div class="icon">
           <a class="googleIcon" href="https://www.google.com/">
             <img alt="구글로 로그인" src="./img/google-icon.svg">
@@ -74,8 +57,8 @@
           </a>
         </div>
       </div>
-    </section>
   </div>
 
+  <script src="./js/signup.js"></script>
 </body>
 </html>
