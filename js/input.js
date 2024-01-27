@@ -1,5 +1,6 @@
 import { validateEmail, validatePassword } from './validation.js';
 import { CLASS } from './class.js';
+import { USER_TEST } from './test.js';
 
 export const INPUT_TYPE = {
   EMAIL: 'EMAIL',
@@ -17,6 +18,10 @@ const INPUT_MESSAGE_PATTERN_ERROR = {
   [INPUT_TYPE.EMAIL]: '올바른 이메일 주소가 아닙니다.',
   [INPUT_TYPE.PASSWORD]: '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
   [INPUT_TYPE.PASSWORD_REPEAT]: '비밀번호가 일치하지 않아요.',
+};
+
+const INPUT_MESSAGE_SAME_ERROR = {
+  [INPUT_TYPE.EMAIL]: '이미 사용 중인 이메일입니다.',
 };
 
 export const INPUT_MESSAGE_LOGIN_ERROR = {
@@ -77,6 +82,12 @@ export function handleFocusoutInput(event) {
     message = INPUT_MESSAGE_PATTERN_ERROR[type];
     return printMessage(messageBox, message, CLASS.ERROR);
   }
+
+  if (type === INPUT_TYPE.EMAIL && !confirmUserEmail(value)) {
+    target.classList.add(CLASS.ERROR);
+    message = INPUT_MESSAGE_SAME_ERROR[type];
+    return printMessage(messageBox, message, CLASS.ERROR);
+  }
 }
 
 export function handleClickBlindButton(event) {
@@ -114,6 +125,10 @@ function validateInput(type, value, scope = document) {
   } else {
     return false;
   }
+}
+
+function confirmUserEmail(email) {
+  return !(USER_TEST.EMAIL === email);
 }
 
 export function printMessage(target, message, className) {
