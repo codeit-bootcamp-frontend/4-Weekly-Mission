@@ -8,6 +8,11 @@ function validateEmail(email) {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 }
+//비밀번호 유효성 검사
+function validatePass (password) {
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+  return passwordRegex.test(password);
+}
 
 //에러 메세지 함수
 function errorMessage (input, message) {
@@ -56,7 +61,7 @@ function passErrorMessage (e) {
     errorMessage(passInput, '비밀번호를 입력해주세요.');
   }
   //올바른 값으로 수정
-  else if (validateEmail(passInput.value)) {
+  else if (validatePass(passInput.value)) {
     if (passInput.parentElement.parentElement.querySelector('.errorMessage')) {
       passInput.parentElement.parentElement.querySelector('.errorMessage').remove();
       passInput.style.borderColor = '#CCD5E3'
