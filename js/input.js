@@ -20,10 +20,12 @@ export const INPUT_MESSAGE_LOGIN_ERROR = {
   [INPUT_TYPE.PASSWORD]: '비밀번호를 확인해 주세요.',
 };
 
-const BLIND_TYPE = {
-  ON: 'on',
-  OFF: 'off',
+const ON_OFF = {
+  ON: 'ON',
+  OFF: 'OFF',
 };
+
+const BLIND_TYPE = { ...ON_OFF };
 
 const BLIND_IMAGE_SRC = {
   [BLIND_TYPE.ON]: '/images/sign/eye_off.svg',
@@ -45,8 +47,12 @@ export function handleFocusoutInput(event) {
 
   if (target.tagName.toUpperCase() !== 'INPUT') return;
 
+  const type = target.dataset.type?.toUpperCase();
+
+  if (!INPUT_TYPE.hasOwnProperty(type)) return;
+
   const value = target.value;
-  const type = target.dataset.type.toUpperCase();
+  const validation = target.dataset.validation?.toUpperCase();
   const messageBox = target.parentElement.nextElementSibling;
   let message = '';
 
@@ -60,7 +66,11 @@ export function handleFocusoutInput(event) {
     return printMessage(messageBox, message, CLASS.ERROR);
   }
 
-  if (type === INPUT_TYPE.EMAIL && !validateEmail(value)) {
+  if (
+    type === INPUT_TYPE.EMAIL &&
+    validation === ON_OFF.ON &&
+    !validateEmail(value)
+  ) {
     target.classList.add(CLASS.ERROR);
     message = INPUT_MESSAGE_PATTERN_ERROR[type];
     return printMessage(messageBox, message, CLASS.ERROR);
