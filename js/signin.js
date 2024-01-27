@@ -34,16 +34,12 @@ function checkPassword(event) {
   const passwordValue = event.target.value;
   const errorMessageBox = querySelector("#password-error-message");
 
-  if (passwordValue === "") {
-    updateErrorMessage(
-      errorMessageBox,
-      "비밀번호를 입력해주세요.",
-      signinPasswordInput,
-      true
-    );
-  } else if (passwordValue !== "") {
-    updateErrorMessage(errorMessageBox, "", signinPasswordInput, false);
-  }
+  updateErrorMessage(
+    errorMessageBox,
+    passwordValue === "" ? "비밀번호를 입력해주세요." : "",
+    signinPasswordInput,
+    passwordValue === ""
+  );
 }
 
 /** 로그인 시도 */
