@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <title>로그인</title>
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
     <link
       rel="stylesheet"
       type="text/css"
@@ -24,14 +28,16 @@
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <input id="email-input" class="sign-input" />
+            <span class="error-message" id="email-error"></span> <!-- 이메일 에러 메시지 -->
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
-            <button class="eye-button" type="button">
-              <img src="./images/eye-off.svg" />
+            <input id="password-input" class="sign-input" type="password" />
+            <button class="eye-button" type="button" id="toggle-password">
+              <img src="./images/eye-off.svg" id="eye-icon" />
             </button>
+            <span class="error-message" id="password-error"></span> <!-- 비밀번호 에러 메시지 -->
           </div>
         </div>
         <button class="cta" type="submit">로그인</button>
@@ -48,5 +54,6 @@
         </div>
       </div>
     </div>
+    <script src="signin.js"></script>
   </body>
 </html>
