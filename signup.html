@@ -7,50 +7,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
-    <form>
-      <main class="signup_body">
-        <header class="signup_header">
-          <a href="/"><img src="images/logo.svg" class="logo" /></a>
-          <p>
-            이미 회원이신가요?
-            <a class="signin" href="/signin.html">로그인 하기</a>
-          </p>
-        </header>
-        <div class="signup_info">
-          <div>
-            <label for="signup_email"> 이메일</label>
-            <input id="signup_email" name="email" type="email" />
+    <main>
+      <form>
+        <div class="signup_body">
+          <header class="signup_header">
+            <a href="/"><img src="images/logo.svg" class="logo" /></a>
+            <p>
+              이미 회원이신가요?
+              <a class="signin" href="/signin.html">로그인 하기</a>
+            </p>
+          </header>
+          <div class="signup_info">
+            <div>
+              <label for="signup_email"> 이메일</label>
+              <input id="signup_email" name="email" type="email" />
+            </div>
+            <div>
+              <label for="signup_password"> 비밀번호</label>
+              <input id="signup_password" name="password" type="password" />
+              <button>
+                <img src="./images/eye-off.svg" />
+              </button>
+            </div>
+            <div>
+              <label for="signup_password-chk"> 비밀번호 확인</label>
+              <input id="signup_password-chk" name="password" type="password" />
+              <button>
+                <img src="./images/eye-off.svg" />
+              </button>
+            </div>
           </div>
-          <div>
-            <label for="signup_password"> 비밀번호</label>
-            <input id="signup_password" name="password" type="password" />
-            <button>
-              <img src="./images/eye-off.svg" />
-            </button>
-          </div>
-          <div>
-            <label for="signup_password-chk"> 비밀번호 확인</label>
-            <input id="signup_password-chk" name="password" type="password" />
-            <button>
-              <img src="./images/eye-off.svg" />
-            </button>
+          <button type="submit" class="signup_button">회원가입</button>
+        </div>
+        <div class="signup_body">
+          <div class="social_signup">
+            <p>다른 방식으로 가입하기</p>
+            <div>
+              <a href="https://www.google.com/"
+                ><img src="./images/google_logo.png"
+              /></a>
+              <a href="https://www.kakaocorp.com/page/"
+                ><img src="./images/kakao_logo.png"
+              /></a>
+            </div>
           </div>
         </div>
-        <button type="submit" class="signup_button">회원가입</button>
-      </main>
-      <div class="signup_body">
-        <div class="social_signup">
-          <p>다른 방식으로 가입하기</p>
-          <div>
-            <a href="https://www.google.com/"
-              ><img src="./images/google_logo.png"
-            /></a>
-            <a href="https://www.kakaocorp.com/page/"
-              ><img src="./images/kakao_logo.png"
-            /></a>
-          </div>
-        </div>
-      </div>
-    </form>
+      </form>
+    </main>
   </body>
 </html>
