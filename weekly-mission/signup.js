@@ -11,28 +11,11 @@ const eyeIconImges = document.querySelectorAll('.show-password > img')
 
 //이메일 체그
 function checkEmailInput(){
-    let message;
     const userInput = userInputEmail.value;
-    if(userInput === ''){
-        message = '이메일을 입력해주세요.';
-        errorMessageEmail.textContent = message;
-        userInputEmail.classList.add('error');
-        return;
-    } else if(/@/g.test(userInput) === false){
-        message = '올바른 이메일 주소가 아닙니다.';
-        errorMessageEmail.textContent = message;
-        userInputEmail.classList.add('error');
-        return;
-    } else if(userInput === 'test@codeit.com'){
-        message = '이미 사용 중인 이메일 입니다.'
-        errorMessageEmail.textContent = message;
-        userInputEmail.classList.add('error');
-        return;
-    }else{
-        errorMessageEmail.textContent = '';
-        userInputEmail.classList.remove('error');
-        return;
-    }
+    let message = userInput === '' ? '이메일을 입력해주세요.' : /@/g.test(userInput) === false ? '올바른 이메일 주소가 아닙니다.' : userInput === 'test@codeit.com' ? '이미 사용 중인 이메일 입니다.' : '';
+    errorMessageEmail.textContent = message;
+    message !== '' ?  userInputEmail.classList.add('error') : userInputEmail.classList.remove('error');
+    
 }
 
 //비밀번호 조합 체크
@@ -74,11 +57,10 @@ function eyeIconClickEvent(e){
 function submitSignupFormEvent(e){
     e.preventDefault();
     checkEmptyInput();
- 
 
 }
 
-
+//폼제출시 input태그가 비어있으면 알림 함수
 function checkEmptyInput(){
     const inputes = document.querySelectorAll('input');
     if(inputes[0].value === '') alert(`${inputes[0].dataset['value']}을 입력해주세요.`)
@@ -92,7 +74,6 @@ function checkEmptyInput(){
 
 //에러메세지 강조 함수
 function repeatAnimation(){
-    console.log(2)
     errorMessageBoxes.forEach(v=>{
         if(v.textContent !== ''){
             v.classList.add('active');

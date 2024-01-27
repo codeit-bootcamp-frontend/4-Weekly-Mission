@@ -6,16 +6,10 @@ const signinForm = document.querySelector('#form-signin');
 
 //이메일 형식 체크
 function checkEmailInput(){
-    if(emailInput.value === ''){
-        errorMessageEmail.textContent = '이메일을 입력해주세요.'
-        emailInput.classList.add('error');
-    }else if(/@/g.test(emailInput.value) === false){
-        errorMessageEmail.textContent = '올바른 이메일형식이 아닙니다'
-        emailInput.classList.add('error');
-    }else{
-        errorMessageEmail.textContent = '';
-        emailInput.classList.remove('error');
-    }
+    let message = emailInput.value === '' ? '이메일을 입력해주세요.' : /@/g.test(emailInput.value) === false ? '올바른 이메일 형식이 아닙니다.' : '';
+    errorMessageEmail.textContent = message;
+    message !== '' ?  emailInput.classList.add('error') : emailInput.classList.remove('error');
+
 }
 
 //비밀번호 표시 아이콘 이벤트
@@ -33,7 +27,6 @@ function eyeIconClickEvent(e){
 //폼 제출 이벤트
 function submitFormEvent(e){
     e.preventDefault();
-    console.log(2)
     if(emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101'){
         window.location = '/folder'
     }else{
