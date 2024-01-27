@@ -1,3 +1,4 @@
+const form = document.querySelector('#sign-box')
 const emailInput = document.querySelector('#signup-email')
 const errorEmail = document.querySelector('#errorEmail')
 const passwordInput = document.querySelector('#signup-password')
@@ -20,19 +21,7 @@ const isEmailUsed = (input) => {
     return input === codeit.email
 }
 
-/**
- * 비밀번호 유효성 확인
- * 8자 이상이며 문자와 숫자의 혼용 여부 확인
- * @param {*} input 확인할 비밀번호
- * @returns 위 사항을 동시에 만족하는지에 대한 불린값
- */
-const isPasswordValid = (input) => {
-    const minPasswordLength = 8
-    return PASSWORD_REGEX.test(input) && input.length >= minPasswordLength
-}
-
-/**이메일 확인 함수
- * 이메일 확인 후 error 메세지 출력
+/**이메일 확인 후 error 메세지 출력
  */
 const checkEmail = () => {
     const email = emailInput.value.trim()
@@ -52,9 +41,25 @@ const checkEmail = () => {
     }
 }
 
-/**
- * 비번 확인 함수
- * 빈 input 시 error 메세지 출력
+/**이메일 사용 가능 여부를 불린으로 반환
+ * @returns 이메일 사용 가능 여부
+ */
+const IsEmailUsable = () => {
+    const email = emailInput.value.trim()
+    return !isInputEmpty(email) && isEmailValid(email) && !isEmailUsed(email)
+}
+
+/** 비밀번호 유효성 확인
+ * 8자 이상이며 문자와 숫자의 혼용 여부 확인
+ * @param {*} input 확인할 비밀번호
+ * @returns 위 사항을 동시에 만족하는지에 대한 불린값
+ */
+const isPasswordValid = (input) => {
+    const minPasswordLength = 8
+    return PASSWORD_REGEX.test(input) && input.length >= minPasswordLength
+}
+
+/**비밀번호 확인 함수
  */
 const checkPassword = () => {
     const password = passwordInput.value.trim()
@@ -66,13 +71,36 @@ const checkPassword = () => {
         )
     }
 }
-
+/**비밀번호 재확인 함수
+ */
 const checkPasswordConfirm = () => {
     const passwordCheck = passwordCheckInput.value.trim()
     const password = passwordInput.value.trim()
     if (passwordCheck !== password) {
         showError(passwordCheckInput, errorPasswordCheck, '비밀번호가 일치하지 않아요.')
     }
+}
+
+//todo//
+//비밀번호 input 상수 꺼내기
+const IsPasswordUsable = () => {
+    const passwordCheck = passwordCheckInput.value.trim()
+    const password = passwordInput.value.trim()
+    return isPasswordValid(password) && passwordCheck === password
+}
+
+//todo//
+//계정 유효성 확인하기
+const validateAccount = (event) => {
+    if (IsEmailUsable() && IsPasswordUsable()) {
+        event.preventDefault()
+        window.location.href = '../html/folder.html'
+        return
+    }
+    event.preventDefault()
+    checkEmail()
+    checkPassword()
+    checkPasswordConfirm()
 }
 
 /////////핸들러 함수///////
@@ -98,3 +126,5 @@ emailInput.addEventListener('focusout', handleEmailFocusout)
 passwordInput.addEventListener('focusout', handlePasswordFocusout)
 // 비번 확인 이벤트 리스너 부여
 passwordCheckInput.addEventListener('focusout', handlePasswordCheckFocusout)
+// 로그인 버튼 입력 시 이메일 비번 확인 후 이동
+form.addEventListener('submit', validateAccount)
