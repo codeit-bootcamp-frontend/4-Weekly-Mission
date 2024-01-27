@@ -47,13 +47,14 @@ function checkInputPassword(event) {
 /*로그인을 시도할 때 일어나는 경우에 대한 함수*/
 function tryLogin(event) {
   if (emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101') {
+    event.preventDefault();
     window.location.href = "folder.html";
   } else if (emailInput.value !== 'test@codeit.com' && passwordInput.value === 'codeit101') {
+    event.preventDefault();
     emailInput.nextElementSibling.textContent = '이메일을 확인해 주세요.';
-    event.preventDefault();
   } else if (emailInput.value === 'test@codeit.com' && passwordInput.value !== 'codeit101') {
-    passwordInput.nextElementSibling.textContent = '비밀번호를 확인해 주세요.';
     event.preventDefault();
+    passwordInput.nextElementSibling.textContent = '비밀번호를 확인해 주세요.';
   } else {
     emailInput.nextElementSibling.textContent = '이메일을 확인해 주세요.';
     passwordInput.nextElementSibling.textContent = '비밀번호를 확인해 주세요.';
