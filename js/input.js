@@ -29,7 +29,7 @@ export const INPUT_MESSAGE_LOGIN_ERROR = {
   [INPUT_TYPE.PASSWORD]: '비밀번호를 확인해 주세요.',
 };
 
-const ON_OFF = {
+export const ON_OFF = {
   ON: 'on',
   OFF: 'off',
 };
@@ -113,7 +113,7 @@ export function handleClickBlindButton(event) {
   target.setAttribute('data-type', blindType);
 }
 
-function validateInput(type, value, scope = document) {
+export function validateInput(type, value, scope = document) {
   if (type === INPUT_TYPE.EMAIL) {
     return validateEmail(value);
   } else if (type === INPUT_TYPE.PASSWORD) {
@@ -126,7 +126,7 @@ function validateInput(type, value, scope = document) {
   }
 }
 
-function confirmSameUserEmail(email) {
+export function confirmSameUserEmail(email) {
   return !(USER_TEST.EMAIL === email);
 }
 
@@ -135,17 +135,17 @@ export function addLoginError(type, target, messageBox) {
   printMessage(messageBox, INPUT_MESSAGE_LOGIN_ERROR[type], CLASS.ERROR);
 }
 
-function addEmptyError(type, target, messageBox) {
+export function addEmptyError(type, target, messageBox) {
   target.classList.add(CLASS.ERROR);
   printMessage(messageBox, INPUT_MESSAGE_EMPTY[type], CLASS.ERROR);
 }
 
-function addPatternError(type, target, messageBox) {
+export function addPatternError(type, target, messageBox) {
   target.classList.add(CLASS.ERROR);
   printMessage(messageBox, INPUT_MESSAGE_PATTERN_ERROR[type], CLASS.ERROR);
 }
 
-function addSameError(type, target, messageBox) {
+export function addSameError(type, target, messageBox) {
   target.classList.add(CLASS.ERROR);
   printMessage(messageBox, INPUT_MESSAGE_SAME_ERROR[type], CLASS.ERROR);
 }
