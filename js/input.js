@@ -74,6 +74,11 @@ export function handleClickBlindButton(event) {
   if (!target.classList.contains('input-blind-toggle')) return;
 
   const input = target.previousElementSibling;
+  const valueLength = input.value.length;
+  input.focus();
+  setTimeout(() => {
+    input.setSelectionRange(valueLength, valueLength);
+  }, 0);
 
   const blindType =
     target.dataset.type.toLowerCase() === BLIND_TYPE.ON
