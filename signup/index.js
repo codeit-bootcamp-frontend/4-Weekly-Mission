@@ -94,7 +94,7 @@ function signUpChecker(e) {
     } 
 
     if (!INVALID_EMAIL && !INVALID_PW && !INVALID_PW_REPEAT) {
-        location.replace('/folder');
+        location.assign('/folder');
     }
 }   
 

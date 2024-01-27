@@ -50,7 +50,7 @@ function signInChecker(e) {
     }
 
     if (EMAIL_INPUT.value === TEST_EMAIL && PASSWORD_INPUT.value === TEST_PW) {
-        location.replace('/folder');
+        location.assign('/folder');
     } else {
         const CHECK_YOUR_EMAIL = '이메일을 확인해 주세요.';
         const CHECK_YOUR_PW = '비밀번호를 확인해 주세요.';
