@@ -2,9 +2,11 @@ const emailInput = document.querySelector('#signup-email')
 const errorEmail = document.querySelector('#errorEmail')
 const passwordInput = document.querySelector('#signup-password')
 const errorPassword = document.querySelector('#errorPassword')
+const passwordCheckInput = document.querySelector('#signup-password-repeat')
+const errorPasswordCheck = document.querySelector('#errorPasswordCheck')
 
 import { isEmailValid, isInputEmpty, showError, clearError } from './sign-error.js'
-import { passwordRegex } from './constants.js'
+import { PASSWORD_REGEX } from './constants.js'
 
 /////////////////////////////////////
 
@@ -26,7 +28,7 @@ const isEmailUsed = (input) => {
  */
 const isPasswordValid = (input) => {
     const minPasswordLength = 8
-    return passwordRegex.test(input) && input.length >= minPasswordLength
+    return PASSWORD_REGEX.test(input) && input.length >= minPasswordLength
 }
 
 /**이메일 확인 함수
@@ -65,6 +67,14 @@ const checkPassword = () => {
     }
 }
 
+const checkPasswordConfirm = () => {
+    const passwordCheck = passwordCheckInput.value.trim()
+    const password = passwordInput.value.trim()
+    if (passwordCheck !== password) {
+        showError(passwordCheckInput, errorPasswordCheck, '비밀번호가 일치하지 않아요.')
+    }
+}
+
 /////////핸들러 함수///////
 
 const handleEmailFocusout = () => {
@@ -75,6 +85,10 @@ const handlePasswordFocusout = () => {
     clearError(passwordInput, errorPassword)
     checkPassword()
 }
+const handlePasswordCheckFocusout = () => {
+    clearError(passwordCheckInput, errorPasswordCheck)
+    checkPasswordConfirm()
+}
 
 //////////////// 함수 사용////////////////////
 
@@ -82,3 +96,5 @@ const handlePasswordFocusout = () => {
 emailInput.addEventListener('focusout', handleEmailFocusout)
 // 비번 이벤트 리스너 부여
 passwordInput.addEventListener('focusout', handlePasswordFocusout)
+// 비번 확인 이벤트 리스너 부여
+passwordCheckInput.addEventListener('focusout', handlePasswordCheckFocusout)

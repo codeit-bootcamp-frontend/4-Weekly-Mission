@@ -1,4 +1,4 @@
-import { emailRegex } from './constants.js'
+import { EMAIL_REGEX } from './constants.js'
 
 /**
  * 해당 값의 빈 값 여부 확인
@@ -12,7 +12,7 @@ const isInputEmpty = (input) => input === ''
  * @param {*} input 확인할 이메일
  * @returns 불린값
  */
-const isEmailValid = (input) => emailRegex.test(input)
+const isEmailValid = (input) => EMAIL_REGEX.test(input)
 
 /**에러 표시 함수
  * @param {*} inputElement 오류가 발생한 input
