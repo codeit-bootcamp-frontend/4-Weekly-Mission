@@ -91,7 +91,7 @@ header {
   border-color: var(--primary);
 }
 
-.eye-button {
+.eye-button, .eye-button2 {
   position: absolute;
   top: 5.3rem;
   right: 1.5rem;
@@ -153,7 +153,7 @@ header {
   background-color: #f5e14b;
 }
 
-.email-error-message, .email-format-error-message, .password-error-message {
+.email-error-message, .email-format-error-message, .password-error-message, .password-check-error-message {
   color: red;
   font-size: 14px;
   display: none;
