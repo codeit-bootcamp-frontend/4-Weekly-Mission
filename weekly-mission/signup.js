@@ -47,6 +47,7 @@ function checkEmptyInput() {
     const inputes = document.querySelectorAll('input');
     if (inputes[0].value === '') return alert(`${inputes[0].dataset['value']}을 입력해주세요.`);
     else if (inputes[1].value === '') return alert(`${inputes[1].dataset['value']}를 입력해주세요.`);
+    else if (inputes[2].value === '') return alert(`${inputes[2].dataset['value']}을 해주세요.`);
     else {
         let check = '';
         errorMessageBoxes.forEach(v => check += v.textContent);
