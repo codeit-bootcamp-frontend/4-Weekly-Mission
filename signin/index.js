@@ -97,7 +97,7 @@ function deleteError(e) {
   };
 };
 
-function passwordToggle() {
+function togglePasswordVisibility() {
   if (eyeImg.classList.contains('eye-open')) {
     eyeImg.classList.toggle('eye-open');
     eyeImg.classList.toggle('eye-closed'); 
@@ -133,5 +133,3 @@ signInForm.addEventListener('focusin', deleteError);
 inputEmail.addEventListener('focusout', emailError);
 
 inputPassword.addEventListener('focusout', passwordError);
-
-eyeImg.addEventListener('click', passwordToggle);

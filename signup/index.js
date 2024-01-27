@@ -128,7 +128,7 @@ function deleteError(e) {
   };
 };
 
-function passwordToggle( { target: eyeImg } ) {
+function togglePasswordVisibility( { target: eyeImg } ) {
   if (eyeImg.classList.contains('eye-open')) {
     eyeImg.classList.toggle('eye-open');
     eyeImg.classList.toggle('eye-closed'); 
@@ -179,7 +179,7 @@ function signup(e) {
 signupForm.addEventListener('focusin', changePlaceholderFocusIn);
 signupForm.addEventListener('focusout', changePlaceholderFocusOut);
 signupForm.addEventListener('submit', signup);
-signupForm.addEventListener('click', passwordToggle);
+signupForm.addEventListener('click', togglePasswordVisibility);
 signupForm.addEventListener('focusin', deleteError);
 
 inputEmail.addEventListener('focusout', emailError);
