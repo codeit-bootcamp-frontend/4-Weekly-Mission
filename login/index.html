@@ -24,7 +24,7 @@
     </header>
 
     <div class="login_form">
-      <form id="signin-form" action="/folder" method="post" onsubmit="return false">
+      <form id="signin-form" action="/folder" method="get" onsubmit="return false">
         <div>
           <label for="login-email">이메일</label>
           <input id="login-email" class="login-email" type="email" placeholder="이메일을 입력해주세요.">
@@ -36,7 +36,7 @@
           <div class="error_message"></div>
         </div>
 
-        <button type="submit" id="login-button" href="#">
+        <button type="submit" id="login-button">
           로그인
         </button>
       </form>

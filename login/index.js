@@ -1,14 +1,11 @@
 const INPUT_EMAIL = document.querySelector('#login-email');
 const INPUT_PASSWORD = document.querySelector('#login-password');
-const LOGIN_BUTTON = document.querySelector('#login-button');
 const FORM_ELEMENT = document.querySelector('#signin-form');
 
 INPUT_EMAIL.addEventListener('focusout', handleFocusOut);
 INPUT_EMAIL.addEventListener('focusout', emailCheck);
 
 INPUT_PASSWORD.addEventListener('focusout', handleFocusOut);
-
-// LOGIN_BUTTON.addEventListener('click', handleSubmit);
 
 FORM_ELEMENT.addEventListener('submit', handleSubmit)
 
@@ -50,7 +47,7 @@ function emailCheck(e) {
 
 
 // 이메일, 비밀번호 일치 시 페이지 이동
-function handleSubmit(e) {  // FIXME: 입력 정보 일치 시 HTML ERROR 405 발생
+function handleSubmit(e) {
   if (INPUT_EMAIL.value === 'test@codeit.com' && INPUT_PASSWORD.value === 'codeit101') {
     FORM_ELEMENT.submit();
   } 

@@ -23,26 +23,29 @@
       </div>
     </div>
 
-    <div class="login_form">
-      <form>
+    <div class="signup_form">
+      <form id="signup-form" action="/folder" method="get" onsubmit="return false">
         <div>
-          <label for="login-email">이메일</label>
-          <input id="login-email" type="email">
+          <label for="signup-email">이메일</label>
+          <input id="signup-email" class="signup-email" type="email" placeholder="이메일을 입력해주세요.">
+          <div class="error_message"></div>
         </div>
         <div>
-          <label for="login-password">비밀번호</label>
-          <input id="login-password" type="password">
+          <label for="signup-password">비밀번호</label>
+          <input id="signup-password" class="signup-password" type="password" placeholder="비밀번호를 입력해주세요.">
+          <div class="error_message"></div>
         </div>
         <div>
           <label for="check-password">비밀번호 확인</label>
-          <input id="check-password" type="password">
+          <input id="check-password" class="check-password" type="password" placeholder="비밀번호를 입력해주세요.">
+          <div class="error_message"></div>
         </div>
+        
+        <button type="submit" id="signup-button">
+          회원가입
+        </button>
       </form>
     </div>
-
-    <a class="link_login" href="#">
-      회원가입
-    </a>
   </div>
 
   <div class="sns_login">
@@ -58,5 +61,7 @@
       </a>
     </div>
   </div>
+
+  <script src="./index.js"></script>
 </body>
 </html>
