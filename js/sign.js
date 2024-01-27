@@ -44,7 +44,7 @@ const USER_TEST = {
   [INPUT_TYPE.PASSWORD]: 'codeit101',
 };
 
-const signForm = document.querySelector('#signForm');
+const signForm = document.querySelector('#sign-form');
 
 function handleFocusoutInput(event) {
   const target = event.target;
@@ -66,12 +66,7 @@ function handleFocusoutInput(event) {
     return printMessage(messageBox, message, ERROR_CLASS);
   }
 
-  let valid = true;
-  if (type === INPUT_TYPE.EMAIL) {
-    valid = validateEmail(value);
-  }
-
-  if (!valid) {
+  if (type === INPUT_TYPE.EMAIL && !validateEmail(value)) {
     target.classList.add(ERROR_CLASS);
     message = INPUT_MESSAGE_PATTERN_ERROR[type];
     return printMessage(messageBox, message, ERROR_CLASS);
@@ -81,7 +76,7 @@ function handleFocusoutInput(event) {
 function handleSubmit(event) {
   event.preventDefault();
 
-  if (event.target.id.toUpperCase() !== 'SIGNFORM') return;
+  if (event.target.id !== 'sign-form') return;
 
   let valid = true;
   const emailInput = event.target['email'];
@@ -137,9 +132,11 @@ function handleClickBlindButton(event) {
   if (!target.classList.contains('input-blind-toggle')) return;
 
   const input = target.previousElementSibling;
-  let blindType = target.dataset.type.toLowerCase();
 
-  blindType = blindType === BLIND_TYPE.ON ? BLIND_TYPE.OFF : BLIND_TYPE.ON;
+  const blindType =
+    target.dataset.type.toLowerCase() === BLIND_TYPE.ON
+      ? BLIND_TYPE.OFF
+      : BLIND_TYPE.ON;
 
   input.setAttribute('type', BLIND_INPUT_TYPE[blindType]);
   target.setAttribute('src', BLIND_IMAGE_SRC[blindType]);
