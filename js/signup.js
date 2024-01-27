@@ -86,8 +86,19 @@ function togglePasswordCheckVisible(e) {
   }
 }
 
+function checkPassword(e) {
+  if (e.target.value !== inputPassword.value) {
+    errorMsgPasswordCheck.innerText = `비밀번호가 일치하지 않아요.`;
+    inputPasswordCheck.classList.add('border-red');
+  } else {
+    errorMsgPasswordCheck.innerText = ``;
+    inputPasswordCheck.classList.remove('border-red');
+  }
+}
+
 inputEmail.addEventListener('focusout', showInputErrorMessage);
 inputPassword.addEventListener('focusout', showInputErrorMessage);
 form.addEventListener('submit', checkIsUser);
 showPasswordBtn.addEventListener('click', togglePasswordVisible);
 showPasswordCheckBtn.addEventListener('click', togglePasswordCheckVisible);
+inputPasswordCheck.addEventListener('focusout', checkPassword);
