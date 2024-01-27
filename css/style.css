@@ -48,7 +48,6 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    /* gap: 600px; */
     align-items: center;
   }
 
@@ -118,7 +117,6 @@
   }
 
   article {
-    /* padding-top: 3rem; */
     padding-bottom: 4rem;
   }
 
@@ -223,7 +221,6 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    /* gap: 600px; */
     align-items: center;
   }
 

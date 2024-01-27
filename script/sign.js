@@ -4,7 +4,7 @@ const inputEmail = document.querySelector(".email");
 const inputPassword = document.querySelector(".password");
 const eyeOff = document.querySelector(".eye-off");
 const eyeOn = document.querySelector(".eye-on");
-const loginBtn = document.querySelector(".loginBtn");
+const loginBtn = document.querySelector(".login-btn");
 
 //이메일이 공란일때 추가할 에러 p태그를 생성하는 함수 입니다.
 function makeEmptyEmailError() {

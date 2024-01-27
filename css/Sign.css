@@ -25,7 +25,6 @@ body {
   .logo-container {
     text-align: center;
     color: var(--black, #000);
-    /* Linkbrary/body1-regular */
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 400;
@@ -34,7 +33,6 @@ body {
 
   .logo-container a {
     color: var(--Linkbrary-primary-color, #6d6afe);
-    /* Linkbrary/body 1-semibold */
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 600;
@@ -64,7 +62,6 @@ body {
 
   label {
     color: var(--black, #000);
-    /* Linkbrary/body2-regular */
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
@@ -83,7 +80,6 @@ body {
   }
 
   .email-error {
-    /* background-color: blue; */
     margin-bottom: 1rem;
     font-size: 1.4rem;
     font-style: normal;
@@ -93,8 +89,6 @@ body {
   }
 
   .password-error {
-    /* background-color: blue; */
-    /* margin-bottom: 0.2rem; */
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 400;
@@ -160,7 +154,6 @@ body {
 
   footer {
     color: var(--Linkbrary-gray100, #373740);
-    /* Linkbrary/body2-regular */
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
@@ -229,7 +222,6 @@ body {
   .logo-container {
     text-align: center;
     color: var(--black, #000);
-    /* Linkbrary/body1-regular */
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 400;
@@ -238,7 +230,6 @@ body {
 
   .logo-container a {
     color: var(--Linkbrary-primary-color, #6d6afe);
-    /* Linkbrary/body 1-semibold */
     font-size: 1.6rem;
     font-style: normal;
     font-weight: 600;
@@ -276,7 +267,6 @@ body {
 
   label {
     color: var(--black, #000);
-    /* Linkbrary/body2-regular */
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
@@ -295,7 +285,6 @@ body {
   }
 
   .email-error {
-    /* background-color: blue; */
     margin-bottom: 1rem;
     font-size: 1.4rem;
     font-style: normal;
@@ -305,8 +294,6 @@ body {
   }
 
   .password-error {
-    /* background-color: blue; */
-    /* margin-bottom: 0.2rem; */
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 400;
@@ -374,7 +361,6 @@ body {
 
   footer {
     color: var(--Linkbrary-gray100, #373740);
-    /* Linkbrary/body2-regular */
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
