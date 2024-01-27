@@ -4,6 +4,11 @@ const emailError = document.querySelector('#signinEmailError');
 const pwError = document.querySelector('#signinPwError');
 const loginBtn = document.querySelector('#loginButton');
 
+const testEmail = "test@codeit.com";
+const testPw = "codeit101";
+
+const emailCheck = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_\.-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+
   document.addEventListener('keydown', function(event) {
     if (event.key === "Enter") {
       login();
@@ -16,9 +21,6 @@ const loginBtn = document.querySelector('#loginButton');
 
 
 function login() {
-  const testEmail = "test@codeit.com";
-  const testPw = "codeit101";
-
   if (email.value === testEmail && password.value === testPw) {
     window.location.href = './folder.html'
   }
@@ -33,22 +35,25 @@ function login() {
 }
 
 function emailF() {
-  let emailCheck = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_\.-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-
   if (!email.value) {
+    email.classList.add('inputError');
     emailError.textContent = "이메일을 입력해 주세요";
   } else if (!emailCheck.test(email.value)) {
-      emailError.textContent = "올바른 이메일 주소가 아닙니다.";
+    email.classList.add('inputError');
+    emailError.textContent = "올바른 이메일 주소가 아닙니다.";
   } else {
-      emailError.textContent = '';
+    email.classList.remove('inputError');
+    emailError.textContent = '';
   }
 }
 
 
 function passwordF() {
   if (!password.value) {
+    password.classList.add('inputError');
     pwError.textContent = "비밀번호를 입력해 주세요";
   } else {
+    password.classList.remove('inputError');
     pwError.textContent = '';
   }
 }

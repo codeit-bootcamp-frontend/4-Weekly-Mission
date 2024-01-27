@@ -19,6 +19,17 @@ form {
   gap: 30px;
 }
 
+input {
+  display: flex;
+  width: 400px;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #CCD5E3;
+  background: #FFF;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -68,7 +79,7 @@ form {
   gap: 24px;
 }
 
-.input {
+.inputBox {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -82,44 +93,12 @@ form {
   gap: 12px;
 }
 
-#email {
-  display: flex;
-  width: 400px;
-  padding: 18px 15px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid #CCD5E3;
-  background: #FFF;
-}
-
-#email:focus{
-  display: flex;
-  width: 400px;
-  padding: 18px 15px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid #6D6AFE;
-  background: #FFF;
-}
-
 #email::placeholder {
   color: #373740;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 24px; /* 150% */
-}
-
-#signinEmailError {
-  color: var(--Linkbrary-red, #FF5B56);
-  /* Linkbrary/body2-regular */
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .password {
@@ -129,29 +108,7 @@ form {
   gap: 12px;
 }
 
-#password {
-  display: flex;
-  width: 400px;
-  padding: 18px 15px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid #CCD5E3;
-  background: #FFF;
-}
-
-#password:focus {
-  display: flex;
-  width: 400px;
-  padding: 18px 15px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  border: 1px solid #6D6AFE;
-  background: #FFF;
-}
-
-#signinPwError {
+.signError {
   color: var(--Linkbrary-red, #FF5B56);
   /* Linkbrary/body2-regular */
   font-family: Pretendard;
@@ -159,14 +116,14 @@ form {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  }
+}
 
-.sign { 
-  color: #F5F5F5;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+/* .inputFocus {
+  border-color: #6D6AFE;
+} */
+
+.inputError {
+  border-color: #FF5B56;
 }
 
 .signButton {
@@ -179,6 +136,12 @@ form {
   border: none;
   border-radius: 8px;
   background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  
+  color: #F5F5F5;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 .social {
@@ -210,4 +173,3 @@ form {
   height: 42px;
   flex-shrink: 0;
 }
-
