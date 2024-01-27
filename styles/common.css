@@ -65,6 +65,7 @@ input {
   margin-top: 12px;
   cursor: pointer;
   outline: none;
+  margin-bottom: 0;
 }
 
 .input-error {
@@ -102,4 +103,14 @@ input {
 }
 #passWord-input:focus {
   border: 1px solid var(--Linkbrary-primary-color);
+}
+
+.errorMessage {
+  color: var(--Linkbrary-red);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 6px;
 }
