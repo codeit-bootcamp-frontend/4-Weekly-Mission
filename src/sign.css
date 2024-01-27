@@ -59,13 +59,24 @@ header {
 .sign-inputs {
   display: flex;
   flex-direction: column;
-  row-gap: 2.4rem;
+  row-gap: 1rem;
 }
 
 .sign-input-box {
   display: flex;
   flex-direction: column;
   row-gap: 1.2rem;
+}
+
+/* 로그인에러메세지 */
+.error_box{
+  color:  #FF5B56;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: none;
 }
 
 .sign-password {
@@ -83,6 +94,10 @@ header {
   border: 0.1rem solid var(--gray20);
   font-size: 1.6rem;
   line-height: 150%;
+}
+
+.error_box_border {
+  border: 0.1rem solid var(--red);
 }
 
 .sign-input:focus {
