@@ -72,6 +72,7 @@ function signUpChecker(e) {
 
     const INVALID_EMAIL = !EMAIL_INPUT.value || EMAIL_INPUT.validity.typeMismatch || EMAIL_INPUT.value === TEST_EMAIL;
     const INVALID_PW = PASSWORD_INPUT.value.length < 8 || Boolean(PASSWORD_INPUT.value / 1) || PASSWORD_INPUT.value / 1 === 0 || pwCopy.every(element => !(element / 1));
+    const INVALID_PW_REPEAT = PASSWORD_INPUT.value !== PW_REPEAT_INPUT.value;
 
     if (INVALID_EMAIL) {
         const CHECK_YOUR_EMAIL = '이메일을 확인해 주세요.';
@@ -83,7 +84,12 @@ function signUpChecker(e) {
         loginError(PASSWORD_INPUT, CHECK_YOUR_PW);
     } 
 
-    if (!INVALID_EMAIL && !INVALID_PW) {
+    if (INVALID_PW_REPEAT) {
+        const CHECK_YOUR_PW = '비밀번호가 일치하지 않아요.';
+        loginError(PW_REPEAT_INPUT, CHECK_YOUR_PW);
+    } 
+
+    if (!INVALID_EMAIL && !INVALID_PW && !INVALID_PW_REPEAT) {
         location.replace('/folder');
     }
 }   
@@ -95,4 +101,3 @@ PASSWORD_INPUT.addEventListener('focusin', removeError);
 PW_REPEAT_INPUT.addEventListener('keyup', passwordRepeatChecker);
 
 SIGNUP_BTN.addEventListener('click', signUpChecker);
-
