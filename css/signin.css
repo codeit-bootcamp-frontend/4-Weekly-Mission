@@ -51,7 +51,8 @@ label {
   position: relative;
 }
 
-#password-eye-icon {
+#password-eye-icon,
+.password-eye-icon {
   width: 1.6rem;
   position: absolute;
   top: 2.2rem;
@@ -134,10 +135,6 @@ label {
 #password-error-message {
   font-size: 1.7rem;
   color: var(--red);
-}
-
-.hidden {
-  display: none;
 }
 
 #signin-email-input.error-box,

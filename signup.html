@@ -18,30 +18,30 @@
 
   <main>
     <form method="post" action="" id="signup-form">
-      <label for="signup-id">
+      <label id="signin-email-section" class="form" for="signup-email-input">
         <p>이메일</p>
-        <input id="signup-id" name="email" type="e-mail" />
-        <p class="error-message-email hidden"></p>
+        <input id="signup-email-input" type="e-mail" />
+        <p id="email-error-message"></p>
       </label>
 
-      <label for="signup-password">
+      <label id="signup-password-section" for="signin-password-input">
         <p>비밀번호</p>
         <div class="password-box">
-          <input id="signup-password" name="password" type="password" />
-          <img id="password-onoff" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" />
+          <input id="signup-password-input" type="password" />
+          <img class="password-eye-icon" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" />
         </div>
-        <p class="error-message-email hidden"></p>
+        <p id="password-error-message"></p>
       </label>
 
-      <label for="repeat-password">
+      <label id="signup-password-repeat-section" for="signup-password-repeat-input">
         <p>비밀번호 확인</p>
         <div class="password-box">
-          <input type="password" name="repeat-password" id="repeat-password" />
-          <img class="password-onoff" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" />
-          <p class="error-message-email hidden"></p>
+          <input id="signup-password-repeat-input" type="password" />
+          <img class="password-eye-icon" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" />
+          <p id="password-repeat-error-message"></p>
         </div>
       </label>
-      <button class="signup-button">회원가입</button>
+      <button type="button" class="signup-button">회원가입</button>
     </form>
   </main>
 

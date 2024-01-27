@@ -5,7 +5,7 @@ import { updateErrorMessage } from "../functions/updateErrorMessage.js";
 import { typeToText, typeToPassword } from "./functions/passwordShowHidden.js";
 import { checkValidLogin } from "./functions/CheckValidLogin.js";
 
-/** 이메일 입력 값이 유효한 지 확인 */
+/** 이메일 입력 값이 유효한 지 확인하는 함수 */
 function checkEmail(event) {
   const emailValue = event.target.value.trim();
   const errorMessage = querySelector("#email-error-message");
