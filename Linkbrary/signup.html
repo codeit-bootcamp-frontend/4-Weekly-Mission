@@ -24,7 +24,7 @@
       </p>
     </header>
     <div class="sign-box">
-      <form class="sign-form">
+      <form id="form" class="sign-form">
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
@@ -35,7 +35,7 @@
             <label class="sign-input-label">비밀번호</label>
             <input id="password" class="sign-input" type="password" />
             <p id="password-error-message" class="error-message"></p>
-            <button class="eye-button" type="button">
+            <button id="password-toggle" class="eye-button" type="button">
               <img src="./images/eye-off.svg" />
             </button>
           </div>
@@ -43,7 +43,7 @@
             <label class="sign-input-label">비밀번호 확인</label>
             <input id="password-check" class="sign-input" type="password" />
             <p id="password-check-error-message" class="error-message"></p>
-            <button class="eye-button" type="button">
+            <button id="password-check-toggle" class="eye-button" type="button">
               <img src="./images/eye-off.svg" />
             </button>
           </div>

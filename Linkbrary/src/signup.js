@@ -2,6 +2,7 @@ import {
   setInputError,
   removeInputError,
   isEmailValid,
+  isPasswordValid,
   togglePassword,
   TEST_USER,
 } from "./utils.js";
@@ -42,7 +43,31 @@ function validatePasswordInput(password) {
     );
     return;
   }
+  if (!isPasswordValid(password)) {
+    setInputError(
+      { input: passwordInput, errorMessage: passwordErrorMessage },
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
+    );
+    return;
+  }
   removeInputError({ input: passwordInput, errorMessage: passwordErrorMessage });
+}
+
+const passwordCheckInput = document.querySelector("#password-check");
+const passwordCheckErrorMessage = document.querySelector("#password-check-error-message");
+let passwordCorrect = true;
+passwordCheckInput.addEventListener("focusout", (event) => validatePasswordCheckInput(event.target.value));
+function validatePasswordCheckInput(password) {
+  passwordCorrect = (password === passwordInput.value);
+  console.log(password, passwordInput.value, isCorrect);
+  if (!passwordCorrect) {
+    setInputError(
+      { input: passwordCheckInput, errorMessage: passwordCheckErrorMessage },
+      "비밀번호가 일치하지 않아요."
+    );
+    return;
+  }
+  removeInputError({ input: passwordCheckInput, errorMessage: passwordCheckErrorMessage });
 }
 
 
@@ -51,13 +76,19 @@ passwordToggleButton.addEventListener("click", () =>
   togglePassword(passwordInput, passwordToggleButton)
 );
 
+const passwordCheckToggleButton = document.querySelector("#password-check-toggle");
+passwordCheckToggleButton.addEventListener("click", () =>
+  togglePassword(passwordCheckInput, passwordCheckToggleButton)
+);
+
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
 function submitForm(event) {
   event.preventDefault();
 
-  const isTestUser =
-    emailInput.value === TEST_USER.email && passwordInput.value === TEST_USER.password;
+  const isTestUser 
+  = isEmailValid(emailInput.value) && isPasswordValid(passwordInput.value)
+    && passwordCorrect && (emailInput.value !== TEST_USER.email);
 
   if (isTestUser) {
     location.href = "/folder";
