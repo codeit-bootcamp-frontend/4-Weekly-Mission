@@ -1,14 +1,13 @@
 const emailInput = document.querySelector('#email');
-const errorMessageEmail = document.querySelector('#about-email');
-const errorMessagePassword = document.querySelector('#about-password');
-const form = document.querySelector('#form');
+const errorMessageEmail = document.querySelector('.error-message[data-about=email]');
 const passwordInput = document.querySelector('#password');
 const eyeIconImg = document.querySelector('.show-password > img');
+const signinForm = document.querySelector('#form-signin');
 
 //이메일 형식 체크
 function checkEmailInput(){
     if(emailInput.value === ''){
-        errorMessageEmail.textContent = '이메일을 입력해주세요!'
+        errorMessageEmail.textContent = '이메일을 입력해주세요.'
         emailInput.classList.add('error');
     }else if(/@/g.test(emailInput.value) === false){
         errorMessageEmail.textContent = '올바른 이메일형식이 아닙니다'
@@ -20,34 +19,32 @@ function checkEmailInput(){
 }
 
 //비밀번호 표시 아이콘 이벤트
-function eyeIconClickEvent(){
-    eyeIconImg.classList.toggle('hidden');
-    if(eyeIconImg.classList.contains('hidden')){
-         eyeIconImg.src = './img/eye-off.svg';
-         passwordInput.type = 'password';
-    }else{
-         eyeIconImg.src = './img/eye-on.svg';
-         passwordInput.type = 'text';
+function eyeIconClickEvent(e){
+    if(e.target.tagName === 'IMG'){
+        e.target.classList.toggle('hidden')
+        const input = e.target.parentNode.previousElementSibling;
+        const imgSrc = e.target.classList.contains('hidden') ? './img/eye-off.svg' : './img/eye-on.svg';
+        e.target.src = imgSrc;
+        e.target.classList.contains('hidden') ? input.type = 'password' : input.type = 'text';
+        return;
     }
 }
 
 //폼 제출 이벤트
 function submitFormEvent(e){
     e.preventDefault();
+    console.log(2)
     if(emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101'){
         window.location = '/folder'
     }else{
-        errorMessageEmail.textContent = '이메일을 확인해주세요.';
-        errorMessagePassword.textContent = '비밀번호를 확인해주세요.'
-        emailInput.classList.add('error');
-        passwordInput.classList.add('error');
-
+        alert('이메일, 비밀번호를 확인해주세요.');
     } 
 }
 
-email.addEventListener('focusout', checkEmailInput);
+emailInput.addEventListener('focusout', checkEmailInput);
 
-form.addEventListener('submit',submitFormEvent );
+signinForm.addEventListener('submit',submitFormEvent );
 
-eyeIconImg.addEventListener('click',eyeIconClickEvent);
+eyeIconImg.addEventListener('click',eyeIconClickEvent );
+
 

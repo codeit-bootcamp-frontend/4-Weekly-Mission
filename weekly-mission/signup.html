@@ -16,32 +16,34 @@
                 <p class="message">이미 회원이신가요? <a href="./signin.html">로그인 하기</a></p>
             </div>
             <div class="form__container">
-                <form action="" id="form">
+                <form action="" id="form-signup">
                     <div class="user-input__box email">
                         <label for="email">이메일</label>
                         <p class="input-wrap">
-                            <input type="email" placeholder="이메일을 입력해주세요" id="email">
+                            <input type="email" placeholder="이메일을 입력해주세요" id="email" data-value="이메일">
                             
                         </p>
-                        <p class="error-message"></p>
+                        <p class="error-message" data-about="email"></p>
                     </div>
                     <div class="user-input__box password">
                         <label for="password">비밀번호</label>
                         <p class="input-wrap">
-                            <input type="password" placeholder="비밀번호를 입력해주세요" id="password">
+                            <input type="password" placeholder="비밀번호를 입력해주세요" id="password" data-value="비밀번호">
                             <span class="show-password">
-                                <img src="./img/eye-off.svg" alt="비밀번호보기 아이콘">
+                                <img class="hidden" src="./img/eye-off.svg" alt="비밀번호보기 아이콘">
                             </span>
                         </p>
+                        <p class="error-message" data-about="password"></p>
                     </div>
                     <div class="user-input__box password">
                         <label for="password">비밀번호 확인</label>
                         <p class="input-wrap">
                             <input type="password" placeholder="비밀번호를 입력해주세요" id="password-check">
                             <span class="show-password">
-                                <img src="./img/eye-off.svg" alt="" class="hidden">
+                                <img class="hidden" src="./img/eye-off.svg" alt="">
                             </span>
                         </p>
+                        <p class="error-message" data-about="password-check"></p>
                     </div>
                     <button class="btn" type="submit" id="submit-btn">회원가입</button>
                 </form>
@@ -63,5 +65,7 @@
             </div>
         </div>
     </div>
+
+    <script src="./signup.js"></script>
 </body>
 </html>

@@ -20,7 +20,7 @@ input{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 9vw;
+    padding-top: 7vw;
     gap: 3.2rem;
 }
 
@@ -46,7 +46,7 @@ input{
 }
 
 .user-input__box.password{
-    margin-bottom: 4rem;
+    margin-bottom: 1.5rem;
 }
 
 .user-input__box > label{
@@ -64,7 +64,7 @@ input{
     line-height: 2.4rem;
 }
 
-#email.error, #password.error{
+#email.error, #password.error, #password-check.error{
     border:1px solid var(--clr-rd);
 }
 
@@ -72,7 +72,29 @@ input{
     width: 100%;
     height: 20px;
     user-select: none;
+    color:var(--clr-rd);
+    font-size: 1.3rem;
+    margin-top: 1rem;
     
+}
+
+.error-message.active{
+    animation: transcolor .5s linear;
+}
+
+@keyframes transcolor{
+    0%{
+        color : transparent;
+    }
+    20%{
+        color:var(--clr-rd);
+    }
+    40%{
+        color: transparent;
+    }
+    60%{
+        color:var(--clr-rd);
+    }
 }
 
 .input-wrap input:focus{
@@ -81,12 +103,6 @@ input{
 
 .input-wrap{
    position: relative;
-}
-
-.error-message{
-    color:var(--clr-rd);
-    font-size: 1.3rem;
-    margin-top: 1rem;
 }
 
 .show-password{

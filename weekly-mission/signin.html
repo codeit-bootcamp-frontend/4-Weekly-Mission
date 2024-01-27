@@ -19,23 +19,23 @@
                 <p class="message">회원이 아니신가요? <a href="./signup.html">회원 가입하기</a></p>
             </div>
             <div class="form__container">
-                <form action="" id="form">
+                <form action="" id="form-signin">
                     <div class="user-input__box email">
                         <label for="email">이메일</label>
                         <p class="input-wrap">
                             <input type="email" placeholder="이메일을 입력해주세요" id="email">
                         </p>
-                        <p class="error-message" id="about-email"></p>
+                        <p class="error-message" data-about="email"></p>
                     </div>
                     <div class="user-input__box password">
                         <label for="password">비밀번호</label>
                         <p class="input-wrap">
                             <input type="password" placeholder="비밀번호를 입력해주세요" id="password">
                             <span class="show-password">
-                               <img src="./img/eye-off.svg" alt="비밀번호보기 아이콘">
+                               <img class="hidden" src="./img/eye-off.svg" alt="비밀번호보기 아이콘">
                             </span>
                         </p>
-                        <p class="error-message" id="about-password"></p>
+                        <p class="error-message" data-about="password"></p>
                     </div>
                     <button class="btn" type="submit" id="submit-btn">로그인</button>
                 </form>
@@ -57,6 +57,7 @@
             </div>
         </div>
     </div>
+  
     <script src="./login.js"></script>
 </body>
 
