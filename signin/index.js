@@ -1,23 +1,18 @@
 /*********************
-        Account
+       Import
 *********************/
 
-class User {
-  constructor(email, password) {
-    this.email = email;
-    this.password = password;
-  }
-}
-
-const user = new User('test@codeit.com', 'codeit101')
-
-/*********************
-       Constant
-*********************/
-
-// 유효성 검사 기준 코드
-const emailPattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
-const passwordPattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
+import {
+  user,
+  isEmpty,
+  isEmailValid,
+  isPasswordValid,
+  showErrorMessage,
+  hideErorrMessage,
+  changePlaceholderFocusIn,
+  changePlaceholderFocusOut,
+  togglePasswordVisibility,
+} from "../scripts/utils.js";
 
 /*********************
       UI Constant
@@ -35,11 +30,6 @@ const errorMessagePassword = document.querySelector('.errorMessage-password');
        Function
 *********************/
 
-function isEmpty(text) { return text.length === 0 };
-
-function isEmailValid(text) { return emailPattern.test(text) };
-function isPasswordValid(text) { return passwordPattern.test(text) };
-
 function verifyAccount(email, password) { 
   if ( email !== user.email ) {
     return false
@@ -52,26 +42,9 @@ function verifyAccount(email, password) {
   return true;
 };
 
-function showErrorMessage(targetElement, errorMessage) {
-  targetElement.classList.remove('hidden');
-  targetElement.textContent = errorMessage;
-};
-
-function hideErorrMessage(targetElement) {
-  targetElement.classList.add('hidden');
-};
-
 /*********************
     Event Function
 *********************/
-
-function changePlaceholderFocusIn(e) {
-  e.target.setAttribute('placeholder', '내용 작성 중..');
-};
-
-function changePlaceholderFocusOut(e) {
-  e.target.setAttribute('placeholder', '내용 입력');
-};
 
 function emailError() {
   if (isEmpty(inputEmail.value)) {
@@ -103,22 +76,6 @@ function deleteError(e) {
   if (e.target === inputPassword) {
     hideErorrMessage(errorMessagePassword);
     inputPassword.classList.remove('red-border');
-  };
-};
-
-function togglePasswordVisibility( { target: eyeImg } ) {
-  if (eyeImg.classList.contains('eye-open')) {
-    eyeImg.classList.toggle('eye-open');
-    eyeImg.classList.toggle('eye-closed'); 
-    eyeImg.parentElement.firstElementChild.setAttribute('type', 'password');
-    return;
-  }
-
-  if (eyeImg.classList.contains('eye-closed')) {
-    eyeImg.classList.toggle('eye-open');
-    eyeImg.classList.toggle('eye-closed'); 
-    eyeImg.parentElement.firstElementChild.setAttribute('type', 'text');
-    return;
   };
 };
 
