@@ -9,7 +9,7 @@ function emailValidCheck(email_address){
 }
 
 /*입력받은 email 값을 판별하고 조건에 맞는 에러메시지를 출력하는 함수*/
-function checkInputEmail(e) {
+function validEmailInput(e) {
   const errorMessage = document.createElement('div');
   errorMessage.classList.add('error-message');
   emailInput.classList.add('error-border');
@@ -21,7 +21,7 @@ function checkInputEmail(e) {
 }
 
 /*입력받은 password 값을 판별하고 조건에 맞는 에러메시지를 출력하는 함수*/
-function checkInputPassword(e) {
+function validPasswordInput(e) {
   const errorMessage = document.createElement('div');
   errorMessage.classList.add('error-message');
   passwordInput.classList.add('error-border');
@@ -32,7 +32,7 @@ function checkInputPassword(e) {
 }
 
 /*에러메시지 초기화하는 함수*/
-function removeError(e) {
+function removeErrorMessage(e) {
 	if (e.target.nextElementSibling.classList.contains('error-message')) {
     e.target.nextElementSibling.remove();
 	}
