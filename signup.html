@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/signup.css">
   <title>signup</title>
+  <script defer type="module" src="./js/Signup.js"></script>
 </head>
 <body>
   <div class="container">
@@ -17,24 +18,27 @@
           <div class="user_email user">
             <label for="user_email">이메일</label>
             <input type="text" id="user_email" name="user_email">
+            <p class="error_massage error_massage_id"></p>
           </div>
           <div class="user_password user">
             <label for="user_password">비밀번호</label>
             <input type="password" id="user_password" name="user_password">
+            <p class="error_massage error_massage_pw"></p>
             <div class="password_icon">
-              <img src="/icon/eye-off.svg" alt="비밀번호 가리기">
-              <img src="/icon/eye-on.svg" alt="비밀번호 보이기">
+              <img src="/icon/eye-off.svg" alt="비밀번호 가리기" class="pw_hide">
+              <img src="/icon/eye-on.svg" alt="비밀번호 보이기" class="pw_block">
             </div>
           </div>
           <div class="user_password_confirm user">
             <label for="user_password_confirm">비밀번호 확인</label>
             <input type="password" id="user_password_confirm" name="user_password_confirm">
+            <p class="error_massage error_massage_pw_confirm"></p>
             <div class="password_icon">
-              <img src="/icon/eye-off.svg" alt="비밀번호 가리기">
-              <img src="/icon/eye-on.svg" alt="비밀번호 보이기">
+              <img src="/icon/eye-off.svg" alt="비밀번호 가리기" class="pw_hide" >
+              <img src="/icon/eye-on.svg" alt="비밀번호 보이기" class="pw_block" >
             </div>
           </div>
-          <button type="submit">회원가입</button>
+          <button type="submit" class="submit_btn">회원가입</button>
       </form>
       <div class="social_login">
         <p>소셜로그인</p>

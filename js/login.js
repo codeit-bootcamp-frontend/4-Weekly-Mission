@@ -1,3 +1,4 @@
+import {togglePasswordVisibility} from "./PasswordType.js"
 
 const email = document.querySelector("#user_email");
 const password = document.querySelector("#user_password");
@@ -36,7 +37,7 @@ function inputValueCheck(e){
  else if(e.target.name === "user_password"){
   e.preventDefault();
   const passwordValue = password.value;
-  let control = true;
+  const control = passwordValue === "";
 
   setErrorMessage(
     errorMassagePw,
@@ -75,24 +76,13 @@ submitButton.addEventListener('keypress', function (e) {
   }
 });
 
-function togglePasswordVisibility(show) {
-  pwHideIcon.style.display = show ? "none" : "block";
-  pwBlockIcon.style.display = show ? "block" : "none";
-  password.type = show ? "text" : "password";
-}
-
-function togglePasswordVisibility(show) {
-  pwHideIcon.style.display = show ? "none" : "block";
-  pwBlockIcon.style.display = show ? "block" : "none";
-  password.type = show ? "text" : "password";
-}
 
 pwHideIcon.addEventListener("click", () => {
-  togglePasswordVisibility(true);
+  togglePasswordVisibility(true, pwHideIcon, pwBlockIcon, password);
 });
 
 pwBlockIcon.addEventListener("click", () => {
-  togglePasswordVisibility(false);
+  togglePasswordVisibility(false, pwHideIcon, pwBlockIcon, password);
 });
 
 
