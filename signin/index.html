@@ -66,16 +66,16 @@
       <main>
         <form class="sign-form" action="/login" method="post">
           <section class="email">
-            <p>이메일</p>
-            <input id="email-input" type="text" />
-            <p id="errorMessage-email">이메일을 입력해 주세요</p>
+            <label>이메일</label>
+            <input class="email input" type="text" name="email" />
+            <p class="errorMessage email"></p>
           </section>
 
           <section class="password">
-            <p>비밀번호</p>
-            <input id="passWord-input" type="password" />
+            <label>비밀번호</label>
+            <input class="password input" type="password" name="password" />
             <img src="../assets/eye-off.png" />
-            <p id="errorMessage-password">비밀번호를 입력해 주세요</p>
+            <p class="errorMessage password"></p>
           </section>
 
           <button type="submit" class="CTA">로그인</button>

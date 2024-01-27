@@ -68,7 +68,7 @@ input {
 }
 
 .input-error {
-  outline: 1px solid var(--Linkbrary-red);
+  border: 1px solid var(--Linkbrary-red);
 }
 
 .social-login {
