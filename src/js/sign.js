@@ -88,11 +88,8 @@ loginButton.addEventListener('click', e => {
 
 eyeButton.addEventListener('click', () => {
   const imgTag = eyeButton.querySelector('img');
-  if (passwordInput.type === 'password') {
-    passwordInput.type = 'text';
-    imgTag.src = '../images/eye-on.svg';
-  } else {
-    passwordInput.type = 'password';
-    imgTag.src = '../images/eye-off.svg';
-  }
+  const isPasswordType = passwordInput.type === 'password';
+
+  passwordInput.type = isPasswordType ? 'text' : 'password';
+  imgTag.src = isPasswordType ? '../images/eye-on.svg' : '../images/eye-off.svg';
 });
