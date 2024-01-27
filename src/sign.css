@@ -89,6 +89,10 @@ label {
   border-color: var(--Linkbrary-red, #FF5B56);
 }
 
+.hidden{
+  display: none;
+}
+
 .social-login {
   display: flex;
   align-items: center;
