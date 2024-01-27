@@ -45,7 +45,7 @@ function passwordChecker(e) {
 }
 
 // 비밀번호확인란 검사
-function passwordRepeatChecker(e) {
+function passwordRepeatChecker(e) {    
     const PW_NOT_SAME = "비밀번호가 일치하지 않아요.";
 
     if (PW_REPEAT_INPUT.nextElementSibling.classList.contains('input-error-text')) {
@@ -67,6 +67,10 @@ function removeError(e) {
 
 // 회원가입 검사
 function signUpChecker(e) {
+    if (e.type === 'keydown' && e.key !== 'Enter') {
+        return;
+    }
+
     let pwCopy = PASSWORD_INPUT.value;
     pwCopy = [...pwCopy];
 
@@ -101,3 +105,4 @@ PASSWORD_INPUT.addEventListener('focusin', removeError);
 PW_REPEAT_INPUT.addEventListener('keyup', passwordRepeatChecker);
 
 SIGNUP_BTN.addEventListener('click', signUpChecker);
+document.querySelector('body').addEventListener('keydown', signUpChecker);
