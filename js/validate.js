@@ -3,4 +3,4 @@ const validateEmailInput = input => {
   return emailPattern.test(input);
 };
 
-export default validateEmailInput;
+export { validateEmailInput };

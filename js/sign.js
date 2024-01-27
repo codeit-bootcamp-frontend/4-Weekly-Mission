@@ -1,9 +1,9 @@
-import validateEmailInput from './validate.js';
+import { validateEmailInput } from './validate.js';
 
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
 const eyeButton = document.querySelector('.eye-button');
-const submitButton = document.querySelector('.cta');
+const loginButton = document.querySelector('.sign-form-button');
 
 const addErrorMessage = (parentElement, errorMessage) => {
   const errorTag = document.createElement('p');
@@ -59,7 +59,7 @@ passwordInput.addEventListener('blur', e => {
   }
 });
 
-submitButton.addEventListener('click', e => {
+loginButton.addEventListener('click', e => {
   e.preventDefault();
   if (emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101') {
     window.location.href = '../pages/folder.html';
