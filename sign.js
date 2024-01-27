@@ -31,7 +31,6 @@ function validatePw() {
   const errorMessage = document.querySelector("#password-empty-message");
 
   if (pwInput.value.trim() === "") {
-    console.log("hi");
     errorMessage.style.display = "block";
     pwInput.style.borderColor = "red";
   } else {
