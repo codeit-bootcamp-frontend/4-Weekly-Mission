@@ -10,7 +10,7 @@ const validatePasswordInput = passwordValue => {
   const isOnlyStringValue = /^[a-zA-Z]+$/.test(passwordValue);
   const isOnlyNumberValue = /^\d+$/.test(passwordValue);
 
-  return isInvalidLength || isOnlyStringValue || isOnlyNumberValue;
+  return !(isInvalidLength || isOnlyStringValue || isOnlyNumberValue);
 };
 
 export { validateEmailInput, validatePasswordInput };
