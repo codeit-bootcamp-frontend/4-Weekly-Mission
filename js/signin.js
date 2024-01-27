@@ -5,6 +5,7 @@ const emailErrorMessage =document.getElementById('error-email');
 const passwordErrorMessage = document.getElementById('error-password');
 const passwordRepeat = document.getElementById("passwordR");
 const passwordRepeatErrorMessage = document.getElementById('error-passwordR');
+const eyeButton = document.querySelector('.eye-button');
 
 const errorMessages = {
     emailRequired: "이메일을 입력해주세요.",
@@ -29,7 +30,7 @@ function focusing(errorName,styleName){
 }
 
 //눈 비밀번호 표시 / 미표시
-function eyeBlink(input,icon){
+function eyeBlink(input,icon){ 
     if(input.type=="password"){
         input.type="text";
         icon.src="../images/eye-on.svg"
@@ -46,11 +47,13 @@ function checkingEmail(type){
     //이메일 체크를 위한 정규식
     const checkEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
 
+    //실패시 체크값 디폴트
+    isCheckingEmail=false;
+
     //이메일 체크
     if(email.value.trim()==""){
         emailErrorMessage.innerHTML=errorMessages.emailRequired;
         email.style.border= "0.1rem solid var(--red)";
-        isCheckingEmail= false;
     }else if(checkEmail.test(email.value.trim())){
         emailErrorMessage.innerHTML="";
         email.style.border= "0.1rem solid var(--gray20)";
@@ -58,14 +61,12 @@ function checkingEmail(type){
     }else{
         emailErrorMessage.innerHTML=errorMessages.invalidEmail;
         email.style.border= "0.1rem solid var(--red)";
-        isCheckingEmail= false;
     }
 
     if(type=='signup'){
         if(email.value.trim()===`test@codeit.com`){
             emailErrorMessage.innerHTML=errorMessages.duplicateEmail;
             email.style.border= "0.1rem solid var(--red)";
-            isCheckingEmail= false;
         }
     }
 }
@@ -76,11 +77,13 @@ function checkingPassword(){
     //비밀번호 체크를 위한 정규식
     const checkPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,30}$/
 
+    //실패시 체크값 디폴트
+    isCheckingPassword=false;
+
     //비밀번호 체크
     if(password.value.trim()==""){
         passwordErrorMessage.innerHTML=errorMessages.passwordRequired;
         password.style.border= "0.1rem solid var(--red)";
-        isCheckingPassword= false;
     }else if(checkPassword.test(password.value.trim())){
         passwordErrorMessage.innerHTML="";
         password.style.border= "0.1rem solid var(--gray20)";
@@ -88,15 +91,19 @@ function checkingPassword(){
     }else{
         passwordErrorMessage.innerHTML=errorMessages.invalidPassword;
         password.style.border= "0.1rem solid var(--red)";
-        isCheckingPassword= false;
     }
 }
 
+
+//비밀번호 확인란
 function checkingPasswordRepeat(){
+
+    //실패시 체크값 디폴트
+    isCheckingPasswordRepeatEmail= false;
+
     if(passwordRepeat.value.trim()==""){
         passwordRepeatErrorMessage.innerHTML=errorMessages.passwordRepeatRequired;
         passwordRepeat.style.border= "0.1rem solid var(--red)";
-        isCheckingPasswordRepeatEmail= false;
     }else if(password.value.trim()==passwordRepeat.value.trim()){
         passwordRepeatErrorMessage.innerHTML="";
         passwordRepeat.style.border= "0.1rem solid var(--gray20)";
@@ -104,19 +111,16 @@ function checkingPasswordRepeat(){
     }else{
         passwordRepeatErrorMessage.innerHTML=errorMessages.passwordMismatch;
         passwordRepeat.style.border= "0.1rem solid var(--red)";
-        isCheckingPasswordRepeatEmail= false;
     }
 }
-
-
 
 //addEventListener를 이용한 체크 시스템
 form.addEventListener("submit",(e)=>{
 
-
     //새로고침 방지
     e.preventDefault();
 
+    //타겟 확인
     console.log(e.target.id);
 
     if(e.target.id ==='signin'){
