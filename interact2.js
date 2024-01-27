@@ -95,4 +95,23 @@ inputpass.addEventListener('focusout',passwordinput);
 
 
 
+//비밀번호 input과 비밀번호 확인 input의 값이 다른 경우, 비밀번호 확인 input 아래에 “비밀번호가 일치하지 않아요.” 에러 메세지를 보입니다.
 
+
+const inputpassChk=document.querySelector('#passwordinputChk'); //비밀번호 확인 input 박스
+const passwordframeChk=document.querySelector('#passwordframeChk'); //비밀번호 확인 input 박스 frame
+const errmsgChk=document.createElement('p'); //에러메시지
+
+function compPassword(e){
+  if(e.target.value!=inputpass.value){
+    errmsgChk.textContent='비밀번호가 일치하지 않아요.';
+    passwordframeChk.append(errmsgChk);
+  }
+
+  else{
+    errmsgChk.remove();
+  }
+
+}
+
+inputpassChk.addEventListener('focusout',compPassword);
