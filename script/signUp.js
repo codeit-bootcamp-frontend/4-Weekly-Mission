@@ -2,9 +2,13 @@
 const loginContainer = document.querySelector(".login-container");
 const inputEmail = document.querySelector(".email");
 const inputPassword = document.querySelector(".password");
+const inputPasswordCheck = document.querySelector("#password-check");
 const eyeOff = document.querySelector(".eye-off");
 const eyeOn = document.querySelector(".eye-on");
+const eyeOff_2 = document.querySelector(".eye-off-2");
+const eyeOn_2 = document.querySelector(".eye-on-2");
 const loginBtn = document.querySelector(".login-btn");
+const joinBtn = document.querySelector(".join-btn");
 
 const ERROR_MESSAGE = {
   email: {
@@ -16,6 +20,9 @@ const ERROR_MESSAGE = {
   password: {
     empty: "비밀번호을 입력해 주세요",
     invalid: "비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.",
+    check: "비밀번호을 확인해 주세요",
+  },
+  passwordcheck: {
     check: "비밀번호을 확인해 주세요",
     recheck: "비밀번호가 일치하지 않아요.",
   },
@@ -32,6 +39,12 @@ function makeError(type, errorType) {
     errorTag.classList.add("password-error");
     inputPassword.after(errorTag);
     inputPassword.classList.add("input-error");
+    eyeOff.classList.add("eye-error");
+    loginContainer.classList.add("error");
+  } else if (type === "passwordcheck") {
+    errorTag.classList.add("password-check-error");
+    inputPasswordCheck.after(errorTag);
+    inputPasswordCheck.classList.add("input-error");
     eyeOff.classList.add("eye-error");
     loginContainer.classList.add("error");
   }
@@ -63,6 +76,14 @@ function addPasswordError() {
   }
 }
 
+//비밀번호확인 에러를 추가하는 함수입니다.
+function addPasswordCheckError() {
+  if (inputPasswordCheck.value !== inputPassword.value) {
+    removeIfPasswordCheckError();
+    makeError("passwordcheck", ERROR_MESSAGE.passwordcheck.recheck);
+  }
+}
+
 //이메일에서 오류태그인 p태그가 연속적으로 쌓이는 것을 방지하기 위한 에러태그가 있다면 제거하는 함수입니다.
 function removeIfEmailError() {
   const errorEmptyEmail = document.querySelector(".email-error");
@@ -84,24 +105,41 @@ function removeIfPasswordError() {
     loginContainer.classList.remove("error");
   }
 }
+
+//비밀번호에서 오류태그인 p태그가 연속적으로 쌓이는 것을 방지하기 위한 에러태그가 있다면 제거하는 함수입니다.
+function removeIfPasswordCheckError() {
+  const errorEmptyPasswordCheck = document.querySelector(
+    ".password-check-error"
+  );
+
+  if (errorEmptyPasswordCheck) {
+    errorEmptyPasswordCheck.remove();
+    inputPasswordCheck.classList.remove("input-error");
+    eyeOff.classList.remove("eye-error");
+    loginContainer.classList.remove("error");
+  }
+}
+
 //로그인 버튼의 이벤트를 구현한 함수입니다.
-function Login() {
+function join() {
   if (
-    inputEmail.value === "test@codeit.com" &&
-    inputPassword.value === "codeit101"
+    inputEmail.value !== "test@codeit.com" &&
+    inputPassword.value === inputPasswordCheck.value
   ) {
     window.location.assign("./folder");
   } else {
     removeIfEmailError();
     removeIfPasswordError();
-    makeError("email", ERROR_MESSAGE.email.check);
-    makeError("password", ERROR_MESSAGE.password.check);
+    removeIfPasswordCheckError();
+    addEmailError();
+    addPasswordError();
+    addPasswordCheckError();
   }
 }
 //keypress가 일어났을때 Enter키를 눌렀는지 확인하고 Login()을 실행하는 함수입니다.
-function enterLogin(e) {
+function enterjoin(e) {
   if (e.key === "Enter") {
-    Login();
+    join();
     e.preventDefault();
   }
 }
@@ -109,16 +147,29 @@ function enterLogin(e) {
 function eyeClick(e) {
   console.log(e.target.parentElement);
   if (e.target.parentElement === eyeOff) {
-    eyeOff.classList.add("invisible");
+    eyeOff.classList.add("visible");
     eyeOn.classList.remove("invisible");
     inputPassword.type = "text";
   }
   if (e.target.parentElement === eyeOn) {
     eyeOn.classList.add("invisible");
-    eyeOff.classList.remove("invisible");
+    eyeOff.classList.remove("visible");
     inputPassword.type = "password";
   }
-
+  e.preventDefault();
+}
+function eyeClick_2(e) {
+  console.log(e.target.parentElement);
+  if (e.target.parentElement === eyeOff_2) {
+    eyeOff_2.classList.add("visible");
+    eyeOn_2.classList.remove("invisible");
+    inputPasswordCheck.type = "text";
+  }
+  if (e.target.parentElement === eyeOn_2) {
+    eyeOn_2.classList.add("invisible");
+    eyeOff_2.classList.remove("visible");
+    inputPasswordCheck.type = "password";
+  }
   e.preventDefault();
 }
 
@@ -127,7 +178,11 @@ inputEmail.addEventListener("focusout", addEmailError);
 inputEmail.addEventListener("focusin", removeIfEmailError);
 inputPassword.addEventListener("focusout", addPasswordError);
 inputPassword.addEventListener("focusin", removeIfPasswordError);
-loginBtn.addEventListener("click", Login);
-document.body.addEventListener("keypress", enterLogin);
+inputPasswordCheck.addEventListener("focusout", addPasswordCheckError);
+inputPasswordCheck.addEventListener("focusin", removeIfPasswordCheckError);
+joinBtn.addEventListener("click", join);
+document.body.addEventListener("keypress", enterjoin);
 eyeOff.addEventListener("click", eyeClick);
 eyeOn.addEventListener("click", eyeClick);
+eyeOff_2.addEventListener("click", eyeClick_2);
+eyeOn_2.addEventListener("click", eyeClick_2);

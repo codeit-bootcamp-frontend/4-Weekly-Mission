@@ -8,6 +8,10 @@ body {
   display: none;
 }
 
+.visible {
+  display: inline;
+}
+
 @media (min-width: 375px) and (max-width: 767px) {
   form {
     display: flex;
@@ -89,6 +93,14 @@ body {
   }
 
   .password-error {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--Linkbrary-red);
+  }
+
+  .password-check-error {
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 400;
@@ -301,6 +313,14 @@ body {
     color: var(--Linkbrary-red);
   }
 
+  .password-check-error {
+    font-size: 1.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    color: var(--Linkbrary-red);
+  }
+
   .password-box {
     position: relative;
   }
@@ -310,7 +330,9 @@ body {
   }
 
   .eye-off,
-  .eye-on {
+  .eye-on,
+  .eye-off-2,
+  .eye-on-2 {
     width: 1.5rem;
     height: 1.5rem;
     position: absolute;
@@ -325,13 +347,13 @@ body {
     right: 1.5rem;
   }
 
-  .eye-off-2 {
+  /* .eye-off-2 {
     width: 16px;
     height: 16px;
     position: absolute;
     top: 3.3rem;
     right: 1.5rem;
-  }
+  } */
 
   #password-check {
     margin-top: 1.2rem;
