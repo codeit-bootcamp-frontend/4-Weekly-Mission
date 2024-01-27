@@ -174,3 +174,41 @@ inputpass.addEventListener('keydown',enterKey);
 inputpassChk.addEventListener('keydown',enterKey);
 
 
+//심화 요구사항
+//눈 모양 아이콘 클릭시 비밀번호의 문자열이 보이기도 하고, 가려지기도 합니다.
+//비밀번호의 문자열이 가려질 때는 눈 모양 아이콘에는 사선이 그어져있고, 비밀번호의 문자열이 보일 때는 사선이 없는 눈 모양 아이콘이 보이도록 합니다.
+
+const icon=document.querySelector('#icon'); //비밀번호 눈 아이콘
+const iconChk=document.querySelector('#iconChk'); //비밀번호 확인 눈 아이콘
+
+function iconChange(input,Icon){ //공통된 함수
+
+  if(input.value){ //비밀번호 값이 있는 경우에만
+
+    if(input.type=='password'){ //서로 바꿔주기
+      input.type='text';
+      Icon.src='./images/eye-on.PNG';
+    }
+    else{
+      input.type='password';
+      Icon.src='./images/eye-off.svg';
+    }
+
+  }
+
+
+}
+
+
+//각각의 이벤트 등록을 위한 함수 구현
+
+function clickicon1(){
+  iconChange(inputpass,icon);
+}
+
+function clickicon2(){
+  iconChange(inputpassChk,iconChk);
+}
+
+icon.addEventListener('click',clickicon1);
+iconChk.addEventListener('click',clickicon2);
