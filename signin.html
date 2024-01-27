@@ -15,12 +15,14 @@
         <a href="./signup.html" class="LoginA">회원 가입하기</a>
       </div>
       <div class="LoginEmail">이메일</div>
-      <input type="text" name="email" placeholder="codeit@codeit.com" class="LoginInputEmail">
+      <input type="text" name="email" class="LoginInputEmail">
+      <div class="LoginEmailError"></div>
       <div class="LoginPw">비밀번호</div>
       <div class="NoSee">
-        <input type="password" name="password">
-        <button class="eye-button"><img src="./images/eye-off.svg"></button>
+        <input type="password" name="password" class="LoginInputPw">
+        <img src="" class="eye-button eye-button-Login">
       </div>
+      <div class="LoginPasswordError"></div>
       
       <button class="LoginBtn">로그인</button>
       <div class="LoginSocial">
@@ -36,5 +38,6 @@
       </div>
     </form>
   </div>
+  <script src="./js/signin.js"></script>
 </body>
 </html>

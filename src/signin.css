@@ -46,6 +46,10 @@ body {
   font-weight: 400;
 }
 
+.LoginPw {
+  margin-top: 10px;
+}
+
 input {
   display: flex;
   width: 400px;
@@ -57,8 +61,8 @@ input {
   margin-top: 12px;
 }
 
-.LoginInputEmail {
-  margin-bottom: 24px;
+.LoginInputEmail, .LoginInputPw {
+  margin-bottom: 6px;
 }
 
 .LoginBtn {
@@ -142,6 +146,27 @@ input:focus {
   right: 20px;
   bottom: 13px;
   background-color: #fff;
+}
+
+.eye-button-Login {
+  border: none;
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  background-color: #fff;
+}
+
+.eye-button-Login:hover {
+  cursor: pointer;
+}
+
+.LoginEmailError, .LoginPasswordError {
+  color: red;
+  font-size: 14px;
+}
+
+.LoginBtn:hover {
+  cursor: pointer;
 }
 
 @media (max-width: 1199px) {
