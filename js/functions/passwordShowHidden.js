@@ -12,4 +12,16 @@ function typeToPassword(imgTag, input) {
   input.setAttribute("type", "text");
 }
 
-export { typeToText, typeToPassword };
+/** 비밀번호 input의 현재 속성이 password인지 확인하는 함수 */
+const passwordTypeCheck = function (passwordInput) {
+  return passwordInput.getAttribute("type") === "password";
+};
+
+/** 눈 아이콘 클릭시 텍스트 보기 & 숨기기 전환하는 함수*/
+const passwordShowHidden = function (imgTag, input) {
+  passwordTypeCheck(input)
+    ? typeToText(imgTag, input)
+    : typeToPassword(imgTag, input);
+};
+
+export { typeToText, typeToPassword, passwordTypeCheck, passwordShowHidden };

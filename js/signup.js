@@ -1,23 +1,18 @@
 import { emailRegex, isVaildEmail } from "./utils/isValidEmail.js";
 import { querySelector } from "./utils/querySelector.js";
-import { passwordTypeCheck } from "./functions/passwordTypeCheck.js";
 import { updateErrorMessage } from "./functions/updateErrorMessage.js";
-import { typeToText, typeToPassword } from "./functions/passwordShowHidden.js";
+import {
+  typeToText,
+  typeToPassword,
+  passwordTypeCheck,
+  passwordShowHidden,
+} from "./functions/passwordShowHidden.js";
 import { checkValidLogin, validEmail } from "./functions/CheckValidLogin.js";
 import { isVaildPassword } from "../utils/isValidPassword.js";
 import {
   checkSignupEmail,
   checkSignupPassword,
 } from "./functions/checkValidSignup.js";
-
-// 이벤트 등록을 위한 변수 설정
-const emailInputBox = querySelector("#signup-email-input");
-const signupPasswordInput = querySelector("#signup-password-input");
-const signupPasswordRepeatInput = querySelector(
-  "#signup-password-repeat-input"
-);
-const signupBtn = querySelector("#signup-button");
-const signupForm = querySelector("#signup-form");
 
 /** 이메일 입력 값이 유효한 지 확인하는 함수 */
 function checkEmail(event) {
@@ -116,10 +111,28 @@ function signupByEnter(event) {
   }
 }
 
+// 이벤트 등록을 위한 변수 설정
+const emailInputBox = querySelector("#signup-email-input");
+const signupPasswordInput = querySelector("#signup-password-input");
+const signupPasswordRepeatInput = querySelector(
+  "#signup-password-repeat-input"
+);
+const signupBtn = querySelector("#signup-button");
+const signupForm = querySelector("#signup-form");
+const passwordEyeIcon = querySelector("#password-eye-icon");
+const passwordRepeatEyeIcon = querySelector("#password-repeat-eye-icon");
+
 /** 이벤트 등록 */
 emailInputBox.addEventListener("focusout", checkEmail); // 이메일 입력이 유효한지
 signupPasswordInput.addEventListener("focusout", checkPassword); //비밀번호를 입력했는지
 signupPasswordRepeatInput.addEventListener("focusout", checkPasswordRepeat); // 비밀번호 확인
 signupBtn.addEventListener("click", trySignup); // 회원가입 시도
 signupForm.addEventListener("keydown", signupByEnter); // 엔터키로 로그인하기
-// passwordEyeIcon.addEventListener("click", passwordShowHidden); // 비밀번호 보기 & 숨기기
+
+// 눈 모양 아이콘 클릭시, 비밀번호 보기 & 숨기기 전환 이벤트 등록
+passwordEyeIcon.addEventListener("click", function () {
+  passwordShowHidden(passwordEyeIcon, signupPasswordInput);
+});
+passwordRepeatEyeIcon.addEventListener("click", function () {
+  passwordShowHidden(passwordRepeatEyeIcon, signupPasswordRepeatInput);
+});

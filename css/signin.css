@@ -52,7 +52,7 @@ label {
 }
 
 #password-eye-icon,
-.password-eye-icon {
+#password-repeat-eye-icon {
   width: 1.6rem;
   position: absolute;
   top: 2.2rem;
