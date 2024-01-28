@@ -1,33 +1,33 @@
 import { MESSAGE, REGEX, ACTION } from '../constants/SIGN.js';
 
-const emailInput = document.getElementById('email');
-const emailError = document.getElementById('email-error');
-const pwInput = document.getElementById('password');
-const pwError = document.getElementById('password-error');
-const pwToggle = document.querySelector('.password-eye');
+export const emailInput = document.getElementById('email');
+export const emailError = document.getElementById('email-error');
+export const pwInput = document.getElementById('password');
+export const pwError = document.getElementById('password-error');
+export const pwToggle = document.querySelector('.password-eye');
 
-const applyErrorStyle = (el) => {
+export const applyErrorStyle = (el) => {
   el.style.border = '1px solid var(--red)';
 };
-const resetErrorStyle = (el) => {
+export const resetErrorStyle = (el) => {
   el.style.border = '';
 };
 
-const applyError = (errorEl, errorMsg, input) => {
+export const applyError = (errorEl, errorMsg, input) => {
   errorEl.innerText = errorMsg;
   applyErrorStyle(input);
 };
-const resetError = (errorEl, input) => {
+export const resetError = (errorEl, input) => {
   errorEl.innerText = '';
   resetErrorStyle(input);
 };
 
-const isValidFormat = (action, input) => {
+export const isValidFormat = (action, input) => {
   if (action === ACTION.EMAIL) return REGEX.EMAIL_REGEX.test(input);
   if (action === ACTION.PW) return REGEX.PW_REGEX.test(input);
 };
 
-const isValidateEmail = () => {
+export const isValidateEmail = () => {
   if (emailInput.value === '') {
     applyError(emailError, MESSAGE.REQUIRED_EMAIL, emailInput);
     return false;
@@ -40,7 +40,7 @@ const isValidateEmail = () => {
   }
 };
 
-const isValidatePw = () => {
+export const isValidatePw = () => {
   if (pwInput.value === '') {
     applyError(pwError, MESSAGE.REQUIRED_PASSWORD, pwInput);
     return false;
@@ -53,20 +53,7 @@ const isValidatePw = () => {
   }
 };
 
-const handleClickPwToggle = (input, toggle) => {
+export const handleClickPwToggle = (input, toggle) => {
   input.type = input.type === 'password' ? 'text' : 'password';
   toggle.src = input.type === 'password' ? 'public/images/eye-off.svg' : 'public/images/eye-on.svg';
-};
-
-export {
-  emailInput,
-  emailError,
-  pwInput,
-  pwError,
-  pwToggle,
-  applyError,
-  resetError,
-  isValidateEmail,
-  isValidatePw,
-  handleClickPwToggle,
 };
