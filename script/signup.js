@@ -77,6 +77,6 @@ signInButton.addEventListener('click', function (event) {
     event.preventDefault();
     const passwordValue = passwordInput.value.trim();
     const passwordConfirmValue = passwordConfirmInput.value.trim();
-    if(passwordValue === passwordConfirmValue) {makeVisiable(passwordMatchErrorMessage); return;}
-    makeInvisiable(passwordMatchErrorMessage);
+    if(passwordValue !== passwordConfirmValue) {makeVisiable(passwordMatchErrorMessage); return;}
+    window.location.href = goToFolderhtml;
 });
