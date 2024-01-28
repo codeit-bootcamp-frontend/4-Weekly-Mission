@@ -46,16 +46,15 @@
                 name="email"
                 placeholder="codeit@codeit.com"
               />
+              <span class="error-message email hidden"></span>
             </label>
             <label>
               비밀번호
               <div class="password-box">
                 <input id="password-input" type="password" name="password" />
-                <i class="icon-eye-off">
-                  <span class="path1"></span>
-                  <span class="path2"></span>
-                </i>
+                <i class="icon-eye-off"> </i>
               </div>
+              <span class="error-message password hidden"></span>
             </label>
 
             <button class="btn btn-login" type="submit">로그인</button>
@@ -81,6 +80,6 @@
         </section>
       </div>
     </div>
-    <script src="/login.js"></script>
+    <script type="module" src="./signin.js"></script>
   </body>
 </html>

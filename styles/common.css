@@ -29,23 +29,13 @@ i {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-eye-on .path1:before {
+.icon-eye-on:before {
   content: "\e90b";
-  color: rgb(255, 255, 255);
+  color: #373740;
 }
-.icon-eye-on .path2:before {
-  content: "\e90c";
-  margin-left: -1em;
-  color: rgb(55, 55, 64);
-}
-.icon-eye-off .path1:before {
+.icon-eye-off:before {
   content: "\e900";
-  color: rgb(255, 255, 255);
-}
-.icon-eye-off .path2:before {
-  content: "\e901";
-  margin-left: -1em;
-  color: rgb(55, 55, 64);
+  color: #373740;
 }
 .icon-google-login .path1:before {
   content: "\e902";

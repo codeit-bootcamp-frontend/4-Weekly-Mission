@@ -45,26 +45,23 @@
                 name="email"
                 placeholder="codeit@codeit.com"
               />
+              <span class="error-message email hidden"></span>
             </label>
             <label>
               비밀번호
               <div class="password-box">
                 <input id="password-input" type="password" name="password" />
-                <i class="icon-eye-off">
-                  <span class="path1"></span>
-                  <span class="path2"></span>
-                </i>
+                <i class="icon-eye-off password"></i>
               </div>
+              <span class="error-message password hidden"></span>
             </label>
             <label>
               비밀번호 확인
               <div class="password-box">
                 <input id="pw-check-input" type="password" name="checkpw" />
-                <i class="icon-eye-off">
-                  <span class="path1"></span>
-                  <span class="path2"></span>
-                </i>
+                <i class="icon-eye-off checkpw"></i>
               </div>
+              <span class="error-message checkpw hidden"></span>
             </label>
 
             <button class="btn btn-signup" type="submit">회원가입</button>
@@ -90,6 +87,6 @@
         </section>
       </div>
     </div>
-    <script src="/login.js"></script>
+    <script type="module" src="./signup.js"></script>
   </body>
 </html>
