@@ -3,7 +3,7 @@ import * as variable from './variable.js';
 
 variable.signForm.children[0].children[0].children[1].addEventListener('focusout', signFunction.emailValidation);
 
-variable.signForm.children[0].children[1].children[1].addEventListener('focusout', signFunction.passwordValidation);
+variable.signForm.children[0].children[1].addEventListener('focusout', signFunction.passwordValidation);
 
 variable.signForm.addEventListener('submit', signFunction.signFormValidation);
 

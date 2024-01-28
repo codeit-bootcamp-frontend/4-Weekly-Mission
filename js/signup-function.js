@@ -58,22 +58,12 @@ export const signFormValidation = function(event) {
   }
 }
 
-export const eyeImgChange = function() {
-  if(variable.signForm.children[0].children[1].children[1].type === 'password') {
-    variable.signForm.children[0].children[1].children[1].type = 'text';
-    variable.signForm.children[0].children[1].children[2].children[0].src = '../../images/eye-on.png';
+export const eyeImgChange = function(e) {
+  if(e.currentTarget.previousElementSibling.type === 'password') {
+    e.currentTarget.previousElementSibling.type = 'text';
+    e.currentTarget.children[0].src = '../../images/eye-on.png';
   } else {
-    variable.signForm.children[0].children[1].children[1].type = 'password';
-    variable.signForm.children[0].children[1].children[2].children[0].src = '../../images/eye-off.svg';
-  }
-}
-
-export const eyeImgChange2 = function() {
-  if(variable.signForm.children[0].children[2].children[1].type === 'password') {
-    variable.signForm.children[0].children[2].children[1].type = 'text';
-    variable.signForm.children[0].children[2].children[2].children[0].src = '../../images/eye-on.png';
-  } else {
-    variable.signForm.children[0].children[2].children[1].type = 'password';
-    variable.signForm.children[0].children[2].children[2].children[0].src = '../../images/eye-off.svg';
+    e.currentTarget.previousElementSibling.type = 'password';
+    e.currentTarget.children[0].src = '../../images/eye-off.svg';
   }
 }

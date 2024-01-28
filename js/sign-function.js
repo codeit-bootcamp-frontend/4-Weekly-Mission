@@ -61,12 +61,13 @@ export const signFormValidation = function(event) {
   }
 }
 
-export const eyeImgChange = function() {
-  if(variable.signForm.children[0].children[1].children[1].type === 'password') {
+export const eyeImgChange = function(e) {
+  if(e.currentTarget.previousElementSibling.type === 'password') {
     variable.signForm.children[0].children[1].children[1].type = 'text';
     variable.signForm.children[0].children[1].children[2].children[0].src = '../../images/eye-on.png';
   } else {
     variable.signForm.children[0].children[1].children[1].type = 'password';
     variable.signForm.children[0].children[1].children[2].children[0].src = '../../images/eye-off.svg';
   }
+  e.stopPropagation();
 }

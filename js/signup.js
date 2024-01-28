@@ -11,4 +11,4 @@ variable.signForm.addEventListener('submit', signFunction.signFormValidation);
 
 variable.signForm.children[0].children[1].children[2].addEventListener('click', signFunction.eyeImgChange);
 
-variable.signForm.children[0].children[2].children[2].addEventListener('click', signFunction.eyeImgChange2);
+variable.signForm.children[0].children[2].children[2].addEventListener('click', signFunction.eyeImgChange);
