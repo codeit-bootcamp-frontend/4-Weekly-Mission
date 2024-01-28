@@ -5,24 +5,29 @@ import {
   displayError,
   clearError,
   handlePasswordInputFocusOut,
+  handlePasswordCheckInputFocusOut,
   handleEmailInputFocusIn,
   togglePasswordVisibility,
 } from './utils.js';
 
+import { VALID_USER } from './constants.js';
+
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
-
+  const passwordcheckInput = document.getElementById('passwordcheck');
   const signInButton = document.getElementById('cta');
   const watchPassword = document.getElementById('eye-button');
 
   // 에러 메시지 요소들 생성 및 초기화
   const emailErrorMessage = createErrorMessage('email-error', '');
   const passwordErrorMessage = createErrorMessage('password-error', '');
+  const passwordCheckErrorMessage = createErrorMessage('password-check-error', ''); // 추가: 비밀번호 확인 에러 메시지
 
   // 이메일, 비밀번호 입력란 뒤에 에러 메시지 요소 추가
   emailInput.after(emailErrorMessage);
   passwordInput.after(passwordErrorMessage);
+  passwordcheckInput.after(passwordCheckErrorMessage); // 추가: 비밀번호 확인 에러 메시지
 
   // 이메일 입력란 focusin 이벤트 핸들러
   emailInput.addEventListener('focusin', function () {
@@ -32,6 +37,10 @@ document.addEventListener('DOMContentLoaded', function () {
   // 이메일 입력란 focusout 이벤트 핸들러
   emailInput.addEventListener('focusout', function () {
     handleEmailInputFocusIn(emailInput, emailErrorMessage);
+    // 추가: 이미 사용 중인 이메일 여부 검사
+    if (emailInput.value.trim() === VALID_USER.email) {
+      displayError(emailInput, emailErrorMessage, '이미 사용 중인 이메일입니다.');
+    }
   });
 
   // 비밀번호 입력란 focusout 이벤트 핸들러
@@ -39,11 +48,17 @@ document.addEventListener('DOMContentLoaded', function () {
     handlePasswordInputFocusOut(passwordInput, passwordErrorMessage);
   });
 
+  // 비밀번호 확인 입력란 focusout 이벤트 핸들러
+  passwordcheckInput.addEventListener('focusout', function () {
+    handlePasswordCheckInputFocusOut(passwordcheckInput, passwordCheckErrorMessage, passwordInput);
+  });
+
   // 로그인 버튼 클릭 이벤트 핸들러
   signInButton.addEventListener('click', function (event) {
     event.preventDefault();
     emailInput.blur();
     passwordInput.blur();
+    passwordcheckInput.blur(); // 추가: 비밀번호 확인 input도 blur 처리
     const emailValue = emailInput.value.trim();
     const passwordValue = passwordInput.value.trim();
 
@@ -67,8 +82,16 @@ document.addEventListener('DOMContentLoaded', function () {
   // 비밀번호 보기/가리기 버튼 클릭 이벤트 핸들러
   watchPassword.addEventListener('click', function () {
     const eyeIcon = document.getElementById('eye-icon');
+    const eyeIconCheck = document.getElementById('eye-icon-check');
     const imgSrc = passwordInput.type === 'password' ? 'eye-on.svg' : 'eye-off.svg';
 
+    // 비밀번호 확인의 가시성 토글 함수 호출
+    togglePasswordVisibility(
+      passwordcheckInput,
+      eyeIcon,
+      imgSrc,
+      passwordcheckInput.type === 'password' ? 'text' : 'password'
+    );
     // 비밀번호 가시성 토글 함수 호출
     togglePasswordVisibility(
       passwordInput,
