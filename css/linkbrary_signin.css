@@ -67,25 +67,31 @@
   .email{
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
   }
   .password{
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
   }
-  .eye{
+  .eye-button{
+    position: relative;
+  }
+  .eye-one{
+    background-image : url(/image/eye-on.png);
+    position: absolute;
+    bottom: 1.8rem;
+    right: 1.5rem;
     width: 1.6rem;
     height: 1.6rem;
-    position: absolute;
-    bottom : 1.9rem;
-    right: 1.6rem;
+  }
+  .eye-one.off{
+    background-image : url(/image/eye-off.png);
   }
   input:focus{
   outline : 0.1rem solid var(--primary-color);
   }
   #email{
+    margin-top: 1.2rem;
     display: flex;
     width: 32.5rem;
     padding: 1.8rem 1.5rem;
@@ -96,6 +102,7 @@
     background-color: var(--white-color);
   }
   #password{
+    margin-top: 1.2rem;
     display: flex;
     width: 32.5rem;
     padding: 1.8rem 1.5rem;
@@ -106,12 +113,13 @@
     background-color: var(--white-color);
   }
   .boxmain{
-    cursor: pointer;
     display: flex;
     width: 32.5rem;
+    cursor : pointer;
     padding: 1.6rem 2rem;
     justify-content: center;
     align-items: center;
+    border: 1rem;
     border-radius: 0.8rem;
     background: linear-gradient(91deg, var(--primary-color) 0.12%, #6AE3FE 101.84%);
   }
@@ -174,6 +182,18 @@
     height: 2.2rem;
     flex-shrink: 0;
   } 
+  .error-message{
+   margin-top: 0.6rem ;
+   color: var(--red-color);
+   font-size: 1.4rem;
+   font-weight: 400;
+  }
+  #email.boder-error{
+    border: 1px solid var(--red-color);
+  }
+  #password.boder-error{
+    border: 1px solid var(--red-color);
+  }
 }
 @media(min-width : 768px){
 body {
@@ -234,19 +254,16 @@ label{
 .email{
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
 }
 .password{
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
 }
-.eye{
+.eye-one{
   width: 1.6rem;
   height: 1.6rem;
   position: absolute;
-  bottom : 1.9rem;
   right: 1.6rem;
 }
 input:focus{
@@ -274,6 +291,7 @@ outline : 0.1rem solid var(--primary-color);
 }
 .boxmain{
   display: flex;
+  cursor : pointer;
   width: 40rem;
   padding: 1.6rem 2rem;
   justify-content: center;

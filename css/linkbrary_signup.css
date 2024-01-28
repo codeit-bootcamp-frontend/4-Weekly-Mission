@@ -67,31 +67,47 @@
   .email{
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
   }
   .password{
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
   }
   .password-repeat{
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
   }
-  .eye{
+  .eye-button{
+    position: relative;
+  }
+  .eye-one{
+    background-image : url(/image/eye-on.png);
+    position: absolute;
+    bottom: 1.8rem;
+    right: 1.5rem;
     width: 1.6rem;
     height: 1.6rem;
+  }
+  .eye-one.off{
+    background-image : url(/image/eye-off.png);
+  }
+  .eye-two{
+    background-image : url(/image/eye-on.png);
     position: absolute;
-    bottom : 1.9rem;
-    right: 1.6rem;
+    bottom: 1.8rem;
+    right: 1.5rem;
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+  .eye-two.off{
+    background-image : url(/image/eye-off.png);
   }
   input:focus{
   outline : 0.1rem solid var(--primary-color);
   }
   #email{
+    margin-top: 1.2rem;
     display: flex;
     width: 32.5rem;
     padding: 1.8rem 1.5rem;
@@ -102,6 +118,18 @@
     background-color: var(--white-color);
   }
   #password{
+    margin-top: 1.2rem;
+    display: flex;
+    width: 32.5rem;
+    padding: 1.8rem 1.5rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.8rem;
+    border: 0.1rem solid var(--gray3-color);
+    background-color: var(--white-color);
+  }
+  #password-repeat{
+    margin-top: 1.2rem;
     display: flex;
     width: 32.5rem;
     padding: 1.8rem 1.5rem;
@@ -115,9 +143,11 @@
     display: flex;
     width: 32.5rem;
     padding: 1.6rem 2rem;
+    cursor: pointer;
     justify-content: center;
     align-items: center;
     border-radius: 0.8rem;
+    border: 1rem;
     background: linear-gradient(91deg, var(--primary-color) 0.12%, #6AE3FE 101.84%);
   }
   .boxmain > h1{
@@ -179,6 +209,21 @@
     height: 2.2rem;
     flex-shrink: 0;
   } 
+  .error-message{
+    margin-top: 0.6rem ;
+    color: var(--red-color);
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+  #email.boder-error{
+      border: 1px solid var(--red-color);
+  }
+  #password.boder-error{
+      border: 1px solid var(--red-color);
+  }
+  #password-repeat.boder-error{
+    border: 1px solid var(--red-color);
+}
 }
 @media(min-width : 768px){
 body {
@@ -239,23 +284,25 @@ label{
 .email{
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
 }
 .password{
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
 }
-.eye{
+.eye-one{
   width: 1.6rem;
   height: 1.6rem;
   position: absolute;
-  bottom : 1.9rem;
+  right: 1.6rem;
+}
+.eye-two{
+  width: 1.6rem;
+  height: 1.6rem;
+  position: absolute;
   right: 1.6rem;
 }
 input:focus{
-  font-size: 1.4rem;
   outline : 0.1rem solid var(--primary-color);
 }
 #email{
@@ -278,9 +325,20 @@ input:focus{
   border: 0.1rem solid var(--gray3-color);
   background-color: var(--white-color);
 }
+#password-repeat{
+  display: flex;
+  width: 40rem;
+  padding: 1.8rem 1.5rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--gray3-color);
+  background-color: var(--white-color);
+}
 .boxmain{
   display: flex;
   width: 40rem;
+  cursor: pointer;
   padding: 1.6rem 2rem;
   justify-content: center;
   align-items: center;
