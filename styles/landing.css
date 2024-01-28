@@ -247,6 +247,7 @@ footer {
   align-self: stretch;
   border-radius: 1.875rem;
   box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.02);
+  background-color: var(--Linkbrary-white, #ffffff);
 }
 
 .footer-container {
@@ -298,12 +299,20 @@ footer {
 
 /* 미디어 쿼리 : 화면의 너비가 1920px 이상일 때 적용될 스타일 */
 @media screen and (min-width: 1920px) {
-  #landing-nav,
-  .contents-01-container {
-    width: 100%;
-    max-width: 120rem;
+  body {
     background: var(--Linkbrary-bg, #f0f6ff);
+  }
+
+  #landing-main {
+    width: 100%;
     margin: 0 auto;
+  }
+
+  .contents-02,
+  .contents-03,
+  .contents-04,
+  .contents-05 {
+    background-color: var(--Linkbrary-white, #ffffff);
   }
 }
 
