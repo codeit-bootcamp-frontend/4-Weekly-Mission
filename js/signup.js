@@ -4,10 +4,6 @@ import { updateErrorMessage } from "./functions/updateErrorMessage.js";
 import { passwordShowHidden } from "./functions/passwordShowHidden.js";
 import { checkValidLogin, validEmail } from "./functions/CheckValidLogin.js";
 import { isVaildPassword } from "../utils/isValidPassword.js";
-import {
-  checkSignupEmail,
-  checkSignupPassword,
-} from "./functions/checkValidSignup.js";
 
 /** 이메일 입력 값이 유효한 지 확인하는 함수 */
 function checkEmail(event) {
@@ -124,7 +120,7 @@ signupPasswordRepeatInput.addEventListener("focusout", checkPasswordRepeat); // 
 signupBtn.addEventListener("click", trySignup); // 회원가입 시도
 signupForm.addEventListener("keydown", signupByEnter); // 엔터키로 로그인하기
 
-// 눈 모양 아이콘 클릭시, 비밀번호 보기 & 숨기기 전환 이벤트 등록
+// 비밀번호 보기 & 숨기기
 passwordEyeIcon.addEventListener("click", function () {
   passwordShowHidden(passwordEyeIcon, signupPasswordInput);
 });
