@@ -20,40 +20,26 @@
                     <form>
                         <div class="email">
                             <label for="sign_email">이메일</label>
-                            <input id="sign_email" type="email" onblur="duplicateEmail()" />
+                            <input id="sign_email" type="email" />
                             <p id="error_email" class="error-message"></p>
                         </div>
                         <div class="password">
                             <label for="sign_password">비밀번호</label>
                             <div class="password_input">
-                                <input
-                                    id="sign_password"
-                                    type="password"
-                                    onblur="checkPassword()"
-                                />
-                                <button class="eye_button" type="button" onclick="toggleEye()" />
+                                <input id="sign_password" type="password" />
+                                <button class="eye_button" type="button" />
                             </div>
                             <p id="error_password" class="error-message"></p>
                         </div>
                         <div class="confirm_password">
                             <label for="sign_confirm_password">비밀번호 확인</label>
                             <div class="password_input">
-                                <input
-                                    id="sign_confirm_password"
-                                    type="password"
-                                    onblur="checkConfirmPassword()"
-                                />
-                                <button
-                                    class="eye_button"
-                                    type="button"
-                                    onclick="confirmToggleEye()"
-                                />
+                                <input id="sign_confirm_password" type="password" />
+                                <button class="confirm_eye_button" type="button" />
                             </div>
                             <p id="error_confirm_password" class="error-message"></p>
                         </div>
-                        <button class="signup_button" type="submit" onclick="signup(event)">
-                            회원가입
-                        </button>
+                        <button class="signup_button" type="submit">회원가입</button>
                     </form>
                 </div>
             </section>
@@ -67,6 +53,6 @@
                 </div>
             </section>
         </main>
-        <script src="/src/script/sign.js"></script>
+        <script src="/src/script/signup.js" type="module"></script>
     </body>
 </html>

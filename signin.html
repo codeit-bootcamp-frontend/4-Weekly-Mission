@@ -20,28 +20,18 @@
                     <form>
                         <div class="email">
                             <label for="sign_email">이메일</label>
-                            <input id="sign_email" type="email" onblur="validateEmail()" />
+                            <input id="sign_email" type="email" />
                             <p id="error_email" class="error-message"></p>
                         </div>
                         <div class="password">
                             <label for="sign_password">비밀번호</label>
                             <div class="password_input">
-                                <input
-                                    id="sign_password"
-                                    type="password"
-                                    onblur="validatePassword()"
-                                />
-                                <button
-                                    class="eye_button"
-                                    type="button"
-                                    onclick="toggleEye()"
-                                ></button>
+                                <input id="sign_password" type="password" />
+                                <button class="eye_button" type="button"></button>
                             </div>
                             <p id="error_password" class="error-message"></p>
                         </div>
-                        <button class="login_button" type="submit" onclick="login(event)">
-                            로그인
-                        </button>
+                        <button class="login_button" type="submit">로그인</button>
                     </form>
                 </div>
             </section>
@@ -55,6 +45,6 @@
                 </div>
             </section>
         </main>
-        <script src="/src/script/sign.js"></script>
+        <script src="/src/script/signin.js" type="module"></script>
     </body>
 </html>
