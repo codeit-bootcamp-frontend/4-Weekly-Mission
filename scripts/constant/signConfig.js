@@ -28,7 +28,7 @@ export const INPUT_IDS = {
   emailErrorElementId: 'email-error',
   passwordErrorElementId: 'login-password-error',
   passwordCheckErrorElementId: 'login-password-check-error',
-  loginButtonId: 'login-button',
+  loginFormId: 'login-form',
   eyeImagePasswordId: 'eye-image-password',
   eyeImagePasswordCheckId: 'eye-image-password-check'
 };

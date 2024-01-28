@@ -25,7 +25,7 @@ const {
   emailErrorElementId,
   passwordErrorElementId,
   passwordCheckErrorElementId,
-  loginButtonId,
+  loginFormId,
   eyeImagePasswordId,
   eyeImagePasswordCheckId
 } = INPUT_IDS;
@@ -37,7 +37,7 @@ const passwordElement = DOMHandler.getById(passwordElementId);
 /** @type {HTMLButtonElement} loginButton*/
 const passwordCheckElement = DOMHandler.getById(passwordCheckElementId);
 /** @type {HTMLButtonElement} loginButton*/
-const loginButton = DOMHandler.getById(loginButtonId);
+const loginForm = DOMHandler.getById(loginFormId);
 /** @type {HTMLImageElement} eyeImage*/
 const eyeImagePassword = DOMHandler.getById(eyeImagePasswordId);
 const eyeImagePasswordCheck = DOMHandler.getById(eyeImagePasswordCheckId);
@@ -71,6 +71,6 @@ emailElement?.addEventListener('focusin', () => deleteRedBox(emailElement));
 passwordElement?.addEventListener('focusout', () => checkValidPassword(passwordElement, passwordErrorElement));
 passwordElement?.addEventListener('focusin', () => deleteRedBox(passwordElement));
 passwordCheckElement?.addEventListener('focusout', handlePasswordCheck);
-loginButton?.addEventListener('submit', handleSignUp);
+loginForm?.addEventListener('submit', handleSignUp);
 eyeImagePassword?.addEventListener('click', () => toggleImage(passwordElement, eyeImagePassword));
 eyeImagePasswordCheck?.addEventListener('click', () => toggleImage(passwordCheckElement, eyeImagePasswordCheck));
