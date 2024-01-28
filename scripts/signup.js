@@ -13,11 +13,10 @@ function isValidEmail(email) {
 
 // 에러메세지가 이미 존재하는지 확인
 function alertExist(email) {
-  return email.classList.contains('red-box');
+  return email.classList.contains('red-box') && alert.classList.contains('red');
 }
 
 email.addEventListener('focusout', (e) => {
-  // 논리 연산자 or 사용해서 중복 제거
   if (email.value === ' ' || !isValidEmail(email)) {
     if (!alertExist(email)) {
       email.classList.add('red-box');
@@ -26,6 +25,12 @@ email.addEventListener('focusout', (e) => {
         email.value === ''
           ? '이메일을 입력해 주세요'
           : '올바른 이메일 주소가 아닙니다.';
+      alert.classList.add('red');
+      document.querySelector('.email').append(alert);
+    } else if (email.value === EXIST_EMAIL) {
+      email.classList.add('red-box');
+      let alert = document.createElement('p');
+      alert.textContent = '이미 사용 중인 이메일입니다.';
       alert.classList.add('red');
       document.querySelector('.email').append(alert);
     }
@@ -40,11 +45,17 @@ email.addEventListener('focusin', (e) => {
   }
 });
 
+// 비밀번호가 조건을 충족하지 않는 경우 에러 메시지 출력
 PW.addEventListener('focusout', (e) => {
-  if (PW.value === '') {
+  const password = PW.value;
+  const isLengthValid = password.length >= 8;
+  const containsLetter = /[a-zA-Z]/.test(password);
+  const containsNumber = /[0-9]/.test(password);
+
+  if (!isLengthValid || !(containsLetter && containsNumber)) {
     PW.classList.add('red-box');
     let alert = document.createElement('p');
-    alert.textContent = '비밀번호를 입력해 주세요.';
+    alert.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
     alert.classList.add('red');
     document.querySelector('.password').append(alert);
   }
