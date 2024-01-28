@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         emailInput.addEventListener.add("invalid");
       }
       // 정해진 비밀번호가 입력되지 않은 경우
-      if (passwordError !== "codeit101") {
+      if (passwordValue !== "codeit101") {
         passwordError.textContent = "비밀번호를 확인해 주세요";
         passwordInput.addEventListener.add("invalid");
       }
