@@ -69,7 +69,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+  gap: 6px;
 }
 
 .input label {
@@ -78,6 +78,7 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  margin-bottom: 6px;
 }
 
 .input input {
@@ -101,6 +102,16 @@ body {
   outline: none;
 }
 
+.email-error,
+.password-error,
+.passwordRepeat-error {
+  color: var(--linkbrary-red);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
 .input-box {
   position: relative;
   display: flex;
@@ -109,7 +120,8 @@ body {
   flex: 1 0 0;
 }
 
-.eye-icon {
+.eye-icon,
+.repeat-eye-icon {
   position: absolute;
   right: 15px;
   cursor: pointer;

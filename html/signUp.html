@@ -34,6 +34,7 @@
             <div class="input">
               <label for="email">이메일</label>
               <input type="email" id="email" />
+              <span class="email-error"></span>
             </div>
 
             <div class="input">
@@ -46,6 +47,7 @@
                   alt="눈동자 아이콘"
                 />
               </div>
+              <span class="password-error"></span>
             </div>
 
             <div class="input">
@@ -54,10 +56,11 @@
                 <input type="password" id="password-repeat" class="" test />
                 <img
                   src="../images/signIn/eye-off.svg"
-                  class="eye-icon"
+                  class="repeat-eye-icon"
                   alt="눈동자 아이콘"
                 />
               </div>
+              <span class="passwordRepeat-error"></span>
             </div>
           </form>
           <button class="signup-button">회원가입</button>
@@ -101,5 +104,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="../js/signUp.js"></script>
   </body>
 </html>
