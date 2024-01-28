@@ -6,6 +6,7 @@
 function isFormatValue(element){
   return element.value.trim() === ''
 }
+
 /**
  * regex 유효성 확인
  * @param {*} element - input element
@@ -15,6 +16,7 @@ function isFormatValue(element){
 function isRegexMatch(element, regex){
   return regex.test(element.value)
 }
+
 /**
  * 
  * @param {*} element - input element
@@ -24,6 +26,7 @@ function isRegexMatch(element, regex){
 function isValueMatch(element, value){
   return element.value === value
 }
+
 /**
  * 비밀번호 확인 
  * @param {*} elementValue - 비밀번호 input
