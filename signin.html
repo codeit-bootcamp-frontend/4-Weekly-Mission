@@ -3,12 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      as="style"
-      crossorigin
-      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
-    />
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link rel="stylesheet" href="/src/signin.css" />
     <title>Linkbrary</title>
   </head>
@@ -16,12 +11,7 @@
     <main>
       <div class="login-form">
         <div class="header">
-          <a href="/"
-            ><img
-              class="header-logo"
-              src="/public/img/logo.svg"
-              alt="홈 연결 로고"
-          /></a>
+          <a href="/"><img class="header-logo" src="/public/img/logo.svg" alt="홈 연결 로고" /></a>
           <p class="header-message">
             회원이 아니신가요?
             <a class="header-signup-link" href="signup.html">회원 가입하기</a>
@@ -30,29 +20,21 @@
         <form id="login-form" action="">
           <div class="email-container">
             <label class="sign-label" for="email-input">이메일</label>
-            <input
-              id="email-input"
-              class="sign-input"
-              type="email"
-              placeholder="codeit@codeit.com"
-            />
+            <input id="email-input" class="sign-input" type="email" placeholder="codeit@codeit.com" />
             <div id="email-error-message" class="error-message"></div>
           </div>
           <div class="password-container">
             <label class="sign-label" for="password-input">비밀번호</label>
-            <input
-              id="password-input"
-              class="sign-input"
-              name="password"
-              type="password"
-            />
+            <div class="password-toggle">
+              <input id="password-input" class="sign-input" name="password" type="password" />
+              <button id="eye-off" type="button">
+                <img src="/public/img/eye-off.svg" />
+              </button>
+              <button id="eye-on" class="hide" type="button">
+                <img src="/public/img/eye-on.svg" />
+              </button>
+            </div>
             <div id="password-error-message" class="error-message"></div>
-            <button class="eye-off" type="button">
-              <img src="/public/img/eye-off.svg" />
-            </button>
-            <button class="eye-on" type="button" style="display: none">
-              <img src="/public/img/eye-on.svg" />
-            </button>
           </div>
           <button class="button-login" type="submit">로그인</button>
         </form>
@@ -63,10 +45,7 @@
           <a class="social-img google-img" href="https://www.google.com">
             <img src="/public/img/google.png" alt="google 로그인" />
           </a>
-          <a
-            class="social-img kakao-img"
-            href="https://www.kakaocorp.com/page/"
-          >
+          <a class="social-img kakao-img" href="https://www.kakaocorp.com/page/">
             <img src="/public/img/kakao.svg" alt="kakao 로그인" />
           </a>
         </div>

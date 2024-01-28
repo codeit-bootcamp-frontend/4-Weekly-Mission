@@ -288,8 +288,19 @@ footer {
   }
 
   .sub-description {
-    white-space: initial;
+    white-space: pre-wrap;
+    word-break: keep-all;
     font-size: 1.5rem;
+  }
+
+  .main-description {
+    order: 1;
+  }
+  .content-img {
+    order: 2;
+  }
+  .sub-description {
+    order: 3;
   }
 
   footer {
@@ -347,6 +358,10 @@ footer {
 
   .description {
     width: 26.2rem;
+  }
+
+  .sub-description {
+    word-break: keep-all;
   }
 
   .content-img {
