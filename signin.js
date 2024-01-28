@@ -74,4 +74,6 @@ export {
   toggleButtonPw,
   eyeOff, 
   eyeOn,
+  addClassError,
+  removeClassError,
 };

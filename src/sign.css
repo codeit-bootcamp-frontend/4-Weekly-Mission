@@ -93,12 +93,12 @@ header {
   border-color: var(--red);
 }
 
-#error-message-pw, #error-message-id {
+#error-message-pw, #error-message-id, #error-message-pw-check {
   color: var(--red);
   display: none;
 }
 
-.eye-button {
+.eye-button, .eye-button-1 {
   position: absolute;
   top: 5.1rem;
   right: 1.5rem;
@@ -106,9 +106,10 @@ header {
   height: 1.6rem;
 }
 
-#eye-on {
+#eye-on, #eye-on-1 {
   display: none;
 }
+
 
 .cta {
   display: flex;
