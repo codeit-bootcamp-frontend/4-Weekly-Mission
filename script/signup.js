@@ -6,6 +6,7 @@ import {
   passwordErrorMessage,
   verifyPasswordErrorMessage,
   eyeIcon,
+  verifyEyeIcon,
   loginBtn,
   handleEyeIconClick,
 } from "./common.js";
@@ -60,7 +61,7 @@ loginBtn.addEventListener("click", (event) => {
     passwordErrorMessage.textContent === "" &&
     verifyPasswordErrorMessage.textContent === ""
   ) {
-    window.location.href = "/folder";
+    signForm.submit();
   } else {
     if (emailErrorMessage.textContent !== "") {
       emailErrorMessage.textContent = "이메일을 확인해 주세요";
@@ -77,4 +78,9 @@ loginBtn.addEventListener("click", (event) => {
 //eye-icon click event
 eyeIcon.addEventListener("click", () => {
   handleEyeIconClick(passwordInput, eyeIcon);
+});
+
+//eye-icon click event
+verifyEyeIcon.addEventListener("click", () => {
+  handleEyeIconClick(verifyPasswordInput, verifyEyeIcon);
 });

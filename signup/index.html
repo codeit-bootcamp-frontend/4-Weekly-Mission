@@ -16,25 +16,48 @@
         <a href="/signin">로그인 하기</a>
       </div>
 
-      <form class="sign-form" action="">
+      <form
+        class="sign-form"
+        action="/forder"
+        method="get"
+        onsubmit="return false"
+      >
         <div class="sign-form-wrapper">
           <!-- email -->
           <p>이메일</p>
-          <input class="sign-email" type="email" placeholder="이메일" />
+          <input
+            class="sign-email"
+            type="email"
+            placeholder="이메일"
+            required
+          />
+          <span class="sign-email-error"></span>
 
           <!-- password -->
           <p>비밀번호</p>
           <div class="sign-password">
-            <input type="password" placeholder="비밀번호" />
+            <input
+              type="password"
+              placeholder="비밀번호"
+              autocomplete="off"
+              required
+            />
             <img class="eye-icon" src="../assets/svg/eye-off.svg" alt="" />
           </div>
+          <span class="sign-password-error"></span>
 
-          <!-- confirm password -->
+          <!-- verify password -->
           <p>비밀번호 확인</p>
-          <div class="sign-password">
-            <input type="password" placeholder="비밀번호 확인" />
-            <img class="eye-icon" src="../assets/svg/eye-off.svg" alt="" />
+          <div class="sign-verify-password">
+            <input
+              type="password"
+              placeholder="비밀번호 확인"
+              autocomplete="off"
+              required
+            />
+            <img class="verify-eye-icon" src="../assets/svg/eye-off.svg" alt="" />
           </div>
+          <span class="sign-verify-password-error"></span>
         </div>
         <input class="sign-btn" type="submit" value="회원가입" />
       </form>
@@ -51,6 +74,6 @@
         </ul>
       </div>
     </div>
-    <script src="../script/signin.js"></script>
+    <script type="module" src="../script/signup.js"></script>
   </body>
 </html>

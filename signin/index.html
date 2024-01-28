@@ -16,7 +16,12 @@
         <a href="/signup">회원 가입하기</a>
       </div>
 
-      <form class="sign-form" action="">
+      <form
+        class="sign-form"
+        action="/folder"
+        method="get"
+        onsubmit="return false"
+      >
         <div class="sign-form-wrapper">
           <!-- email -->
           <p>이메일</p>
@@ -31,7 +36,12 @@
           <!-- password -->
           <p>비밀번호</p>
           <div class="sign-password">
-            <input type="password" placeholder="비밀번호" required />
+            <input
+              type="password"
+              placeholder="비밀번호"
+              autocomplete="off"
+              required
+            />
             <img class="eye-icon" src="../assets/svg/eye-off.svg" alt="" />
           </div>
           <span class="sign-password-error"></span>
@@ -51,6 +61,6 @@
         </ul>
       </div>
     </div>
-    <script src="../script/signin.js"></script>
+    <script type="module" src="../script/signin.js"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
 import {
+  signForm,
   emailInput,
   passwordInput,
   emailErrorMessage,
@@ -35,7 +36,7 @@ loginBtn.addEventListener("click", (event) => {
     emailInput.value === "test@codeit.com" &&
     passwordInput.value === "codeit101"
   ) {
-    window.location.href = "/folder";
+    signForm.submit();
   } else {
     if (emailInput.value !== "test@codeit.com") {
       emailErrorMessage.textContent = "이메일을 확인해 주세요";
