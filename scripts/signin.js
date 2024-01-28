@@ -28,8 +28,7 @@ const emailErrorElement = DOMHandler.getById(emailErrorElementId);
 /** @type {HTMLElement} passwordErrorElement*/
 const passwordErrorElement = DOMHandler.getById(passwordErrorElementId);
 
-const handleLogin = (event, emailElement, passwordElement) => {
-  event.preventDefault();
+const handleLogin = (emailElement, passwordElement) => {
   const isSignedUp = isUserSignedUp(USERS, emailElement, passwordElement);
   if (isSignedUp) {
     loginAction();
@@ -44,4 +43,7 @@ emailElement?.addEventListener('focusin', () => deleteRedBox(emailElement));
 passwordElement?.addEventListener('focusout', () => checkEmptyPassword(passwordElement, passwordErrorElement));
 passwordElement?.addEventListener('focusin', () => deleteRedBox(passwordElement));
 eyeImage?.addEventListener('click', () => toggleImage(passwordElement, eyeImage));
-loginButton?.addEventListener('click', event => handleLogin(event, emailElement, passwordElement));
+loginButton?.addEventListener('click', event => {
+  event.preventDefault();
+  handleLogin(emailElement, passwordElement);
+});
