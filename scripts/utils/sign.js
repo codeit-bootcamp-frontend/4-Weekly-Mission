@@ -5,7 +5,8 @@ import {
   EMAIL_MESSAGE,
   SHOW_PASSWORD_ICON,
   PASSWORD_MESSAGE,
-  PASSWORD_REGEX
+  PASSWORD_REGEX,
+  USERS
 } from '../constant/signConfig.js';
 
 /**
@@ -34,6 +35,13 @@ export const checkEmail = (emailElement, emailErrorElement) => {
     return;
   }
   showErrorMessage(emailElement, emailErrorElement, EMAIL_MESSAGE.invalid);
+};
+
+export const checkExistEmail = (emailElement, emailErrorElement) => {
+  if (isExistEmail(USERS, emailElement)) {
+    showErrorMessage(emailElement, emailErrorElement, EMAIL_MESSAGE.exist);
+    return;
+  }
 };
 
 export const checkValidPassword = (passwordElement, passwordErrorElement) => {
@@ -65,9 +73,13 @@ export const toggleImage = (passwordElement, eyeImage) => {
   }
 };
 
-export const isUserSignedUp = (USERS, emailElement, passwordElement) => {
+export const isValidUser = (USERS, emailElement, passwordElement) => {
   return USERS.some(
     user =>
       InputHandler.isMatchValue(emailElement, user.id) && InputHandler.isMatchValue(passwordElement, user.password)
   );
+};
+
+export const isExistEmail = (USERS, emailElement) => {
+  return USERS.some(user => InputHandler.isMatchValue(emailElement, user.id));
 };

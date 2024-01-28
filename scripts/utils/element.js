@@ -16,7 +16,7 @@ export class InputHandler {
    * @param {RegExp} regEx - 검사할 정규표현식
    */
   static isMatchRegEx = (element, regEx) => {
-    if (!(element?.tagName === 'INPUT')) return;
+    if (element?.tagName !== 'INPUT') return;
     return regEx.test(element.value);
   };
 
@@ -26,10 +26,16 @@ export class InputHandler {
    * @param {string} value - 확인할 값
    */
   static isMatchValue = (element, value) => {
-    if (!(element?.tagName === 'INPUT')) return;
+    if (element?.tagName !== 'INPUT') return;
     return element.value === value;
   };
+
+  static isMatchElement = (elementA, elementB) => {
+    if (elementA?.tagName !== 'INPUT' || elementB?.tagName !== 'INPUT') return;
+    return elementA.value === elementB.value;
+  };
 }
+
 export class DOMHandler {
   /**
    * @param {HTMLElements} element - HTMLelement

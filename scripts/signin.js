@@ -6,6 +6,7 @@ import {
   checkEmptyPassword,
   deleteRedBox,
   isUserSignedUp,
+  isValidUser,
   showErrorMessage,
   toggleImage
 } from './utils/sign.js';
@@ -29,8 +30,8 @@ const emailErrorElement = DOMHandler.getById(emailErrorElementId);
 const passwordErrorElement = DOMHandler.getById(passwordErrorElementId);
 
 const handleLogin = (emailElement, passwordElement) => {
-  const isSignedUp = isUserSignedUp(USERS, emailElement, passwordElement);
-  if (isSignedUp) {
+  const isValid = isValidUser(USERS, emailElement, passwordElement);
+  if (isValid) {
     loginAction();
     return;
   }
