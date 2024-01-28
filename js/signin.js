@@ -12,21 +12,17 @@ loginForm.addEventListener("submit", function (event) {
   const emailValue = emailInput.value.trim();
   const passwordValue = passwordInput.value.trim();
 
-  if (emailValue == "test@codeit.com" && passwordValue == "codeit101") {
-    pathTo("folder");
-  } else {
+  if (emailValue !== "test@codeit.com") {
     showError(emailInput, "이메일을 확인해 주세요.");
+  } else if (passwordValue !== "codeit101") {
     showError(passwordInput, "비밀번호를 확인해 주세요.");
+  } else {
+    pathTo("folder");
   }
 });
 
-emailInput.addEventListener("focusout", function () {
-  isValidateEmail();
-});
-
-passwordInput.addEventListener("focusout", function () {
-  validatePassword();
-});
+emailInput.addEventListener("focusout", isValidateEmail);
+passwordInput.addEventListener("focusout", validatePassword);
 
 function isValidateEmail() {
   const emailValue = emailInput.value.trim();

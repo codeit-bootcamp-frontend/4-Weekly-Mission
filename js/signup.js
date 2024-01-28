@@ -11,31 +11,23 @@ loginForm.addEventListener("submit", function (event) {
 
   const emailValue = emailInput.value.trim();
   const passwordValue = passwordInput.value.trim();
-  const errorMessage = document.getElementsByClassName("error-message");
 
-  const isEmptyErrorMessages = Array.from(errorMessage).every((el) => el.textContent === "");
-
-  //조건이 허용될 때 folder path로 이동되는 부분 수정하기
-  if (emailValue !== "test@codeit.com" && emailValue && passwordValue && passwordCheck) {
-    pathTo("folder");
-  } else {
+  if (emailValue === "test@codeit.com") {
+    showError(emailInput, "이미 사용 중인 이메일입니다.");
+  } else if (emailValue.length === 0) {
     showError(emailInput, "이메일을 확인해 주세요.");
-    showError(passwordInput, "비밀번호를 확인해 주세요.");
-    showError(passwordCheck, "비밀번호를 확인해 주세요.");
+  } else if (!passwordValue) {
+    showError(passwordInput, "비밀번호를 입력해주세요.");
+  } else if (passwordCheck.value.trim() !== passwordValue) {
+    showError(passwordCheck, "비밀번호가 일치하지 않아요.");
+  } else {
+    pathTo("folder");
   }
 });
 
-emailInput.addEventListener("focusout", function () {
-  isValidateEmail();
-});
-
-passwordInput.addEventListener("focusout", function () {
-  validatePassword(passwordInput);
-});
-
-passwordCheck.addEventListener("focusout", function () {
-  validatePasswordCheck();
-});
+emailInput.addEventListener("focusout", isValidateEmail);
+passwordInput.addEventListener("focusout", () => validatePassword(passwordInput));
+passwordCheck.addEventListener("focusout", validatePasswordCheck);
 
 function isValidateEmail() {
   const emailValue = emailInput.value.trim();
