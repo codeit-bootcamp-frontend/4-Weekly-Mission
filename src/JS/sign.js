@@ -5,9 +5,9 @@ const errorMessagePassword = document.querySelector('#error-message-password');
 const emailInput = document.querySelector('#emailInput');
 const passwordInput = document.querySelector('#passwordInput');
 const submitBtn = document.querySelector('#submitBtn');
-const eyeBtn = document.querySelector('#eyeBtn');
-const eyeOff = document.querySelector('#offEye');
-const eyeOn = document.querySelector('#onEye');
+const passwordEyeBtn = document.querySelector('#passwordEyeBtn');
+const passwordEyeOff = document.querySelector('#passwordEyeOff');
+const passwordEyeOn = document.querySelector('#passwordEyeOn');
 
 function checkValidationEmail(email_address){     
 	let email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
@@ -29,16 +29,16 @@ function errorMsgRemove(input, msgType){
   msgType.classList.add('display-none');
 }; // 에러 메세지 지우기
 
-function toggleEyeBtn(){
+function togglePasswordEyeBtn(){
   if(passwordInput.getAttribute('type') === 'password'){
     passwordInput.setAttribute('type', 'text'); // 비밀번호 보이기
-    eyeOff.classList.add('display-none'); // 눈 아이콘 변경
-    eyeOn.classList.remove('display-none');
+    passwordEyeOff.classList.add('display-none'); // 눈 아이콘 변경
+    passwordEyeOn.classList.remove('display-none');
   } else {
     passwordInput.setAttribute('type', 'password'); // 비밀번호 가리기
-    eyeOn.classList.add('display-none'); // 눈 아이콘 변경
-    eyeOff.classList.remove('display-none');
+    passwordEyeOn.classList.add('display-none'); // 눈 아이콘 변경
+    passwordEyeOff.classList.remove('display-none');
   }
 }; // 비밀번호 보이기/가리기
 
-export { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn, eyeBtn, eyeOff, eyeOn, checkValidationEmail, errorMsgAdd, errorMsgRemove, toggleEyeBtn };
+export { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn, passwordEyeBtn, passwordEyeOff, passwordEyeOn, checkValidationEmail, errorMsgAdd, errorMsgRemove, togglePasswordEyeBtn };

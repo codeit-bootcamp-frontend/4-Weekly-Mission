@@ -1,4 +1,4 @@
-import { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn as loginBtn, eyeBtn, checkValidationEmail, errorMsgAdd, errorMsgRemove, toggleEyeBtn } from './sign.js';
+import { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn as loginBtn, passwordEyeBtn, checkValidationEmail, errorMsgAdd, errorMsgRemove, togglePasswordEyeBtn } from './sign.js';
 
 function checkEmail(){
   if (emailInput.value === ""){
@@ -58,4 +58,4 @@ signForm.addEventListener('keydown', function(event){
     tryLogin(e);
   };
 });
-eyeBtn.addEventListener('click', toggleEyeBtn);
+passwordEyeBtn.addEventListener('click', togglePasswordEyeBtn);
