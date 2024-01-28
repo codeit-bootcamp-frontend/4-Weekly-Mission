@@ -1,5 +1,9 @@
 import { validateEmail, validatePassword, togglePasswordVisibility } from './validation.js';
 
+function isEmailInUse(email) {
+  return email === "test@codeit.com";
+}
+
 function validateConfirmPassword() {
   const password = document.getElementById("password-input").value;
   const confirmPassword = document.getElementById("confirm-password-input").value;
@@ -15,7 +19,11 @@ document.addEventListener("DOMContentLoaded", function() {
   const confirmPasswordError = document.getElementById("confirm-password-error");
 
   emailInput.addEventListener("focusout", function() {
-    emailError.textContent = validateEmail(emailInput.value);
+    let errorMessage = validateEmail(emailInput.value);
+    if (isEmailInUse(emailInput.value)) {
+      errorMessage = "이미 사용 중인 이메일입니다.";
+    }
+    emailError.textContent = errorMessage;
   });
 
   passwordInput.addEventListener("focusout", function() {
@@ -28,6 +36,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   document.querySelector(".sign-form").addEventListener("submit", function(event) {
     event.preventDefault();
+    if (!emailError.textContent && !passwordError.textContent && !confirmPasswordError.textContent) {
+      window.location.href = "/folder";
+    }
   });
 
   const togglePasswordButtons = document.querySelectorAll(".eye-button");

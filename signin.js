@@ -24,5 +24,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
   document.querySelector(".sign-form").addEventListener("submit", function(event) {
     event.preventDefault();
+    
+    if (emailInput.value === "test@codeit.com" && passwordInput.value === "codeit101") {
+      window.location.href = "/folder";
+    } else {
+      if (emailInput.value !== "test@codeit.com") {
+        emailError.textContent = "이메일을 확인해 주세요.";
+      }
+      if (passwordInput.value !== "codeit101") {
+        passwordError.textContent = "비밀번호를 확인해 주세요.";
+      }
+    }
   });
 });
