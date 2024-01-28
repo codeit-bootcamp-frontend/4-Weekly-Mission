@@ -329,4 +329,8 @@ body {
       display: inline-block;
     }
   }
+
+  .footerContainer__sns--hideMaker {
+    list-style: none;
+  }
 }
