@@ -1,4 +1,4 @@
-import VALIDATION_MESSAGES from "./constants.js";
+import { VALIDATION_MESSAGES } from "./constants.js";
 
 /**
  * 폼 유효성 검사 및 상호작용을 위한 초기화
