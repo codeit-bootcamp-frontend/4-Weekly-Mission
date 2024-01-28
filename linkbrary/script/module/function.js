@@ -29,7 +29,7 @@ function checkInputNull(e, error_msg, whatInput) {
 // 이메일 유효성 확인(공백X)
 function validateEmailInput(e, error_msg ,regExp) {
     if(regExp.test(e.target.value) == true) {
-       error_msg.classList.remove("view_error")
+        error_msg.classList.remove("view_error")
         e.target.classList.remove("input_error")
     } else if(regExp.test(e.target.value) == false && e.target.value != "") {
        error_msg.innerHTML = "올바른 이메일 주소가 아닙니다"
@@ -49,8 +49,9 @@ function validatePasswordInput(e, regExp, error_msg) {
 
 // 비밀번호 확인 함수
 function passwordConfirm(password, repeatPassword, error_msg) {
-    if(password.value !== repeatPassword.value) {
+    if(password.value !== repeatPassword.value && repeatPassword.value !== "") {
         error_msg.classList.add('view_error')
+        error_msg.innerHTML = "비밀번호가 다릅니다"
         repeatPassword.classList.add('input_error')
     }
 }
@@ -58,7 +59,6 @@ function passwordConfirm(password, repeatPassword, error_msg) {
 // 이메일 중복확인
 function checkDuplicate(e, error_msg) {
     if(e.target.value == "test@codeit.com") {
-        console.log(e.target.value)
         e.target.classList.add("input_error")
         error_msg.classList.add('view_error')
         error_msg.innerHTML = "이미 사용 중인 이메일입니다"
@@ -81,7 +81,7 @@ function checkEmailPwOnLogin(e, email_input, pw_input, email_error_msg, password
 }
 
 // 회원가입 시도시 모든 인풋값 검사 
-function checkEmailPwSignUp(e, email_input, pw_input, repeat_pw_input) {
+function checkEmailPwSignUp(e, email_input, pw_input, repeat_pw_input, email_error_msg, password_error_msg, repeat_password_error_msg) {
     e.preventDefault()
    let arr = [email_input.value, pw_input.value, repeat_pw_input.value]
 
@@ -95,7 +95,26 @@ function checkEmailPwSignUp(e, email_input, pw_input, repeat_pw_input) {
    }
 
     // 후에 회원가입 기능 추가
+    if(email_input.value == "") {
+        email_input.classList.add("input_error")
+        email_error_msg.innerHTML = "이메일을 입력해주세요"
+        email_error_msg.classList.add("view_error")
+    }
+
+    if(pw_input.value == "") {
+        pw_input.classList.add("input_error")
+        password_error_msg.innerHTML = "비밀번호를 입력해주세요"
+        password_error_msg.classList.add("view_error")
+    }
+
+    if(repeat_pw_input.value == "") {
+        repeat_pw_input.classList.add('input_error')
+        repeat_password_error_msg.innerHTML = "비밀번호 확인값을 입력해주세요"
+        repeat_password_error_msg.classList.add("view_error")
+
+    }
 }
+
 // 눈 아이콘 클릭 함수 (close - > open)
 function showPasswordInput(e, open, input) {
     e.target.classList.add('display_none')
@@ -124,7 +143,5 @@ const function_module = {
     checkDuplicate : checkDuplicate,
     checkEmailPwSignUp : checkEmailPwSignUp
 }
-
-
 
 export default function_module

@@ -15,7 +15,6 @@ const pw_icon_open = document.querySelector(".pw_icon_open")
 const pw_repeat_icon_close = document.querySelector(".pw_repeat_icon_close")
 const pw_repeat_icon_open = document.querySelector(".pw_repeat_icon_open")
 
-
 const tags = {
     email_input : email_input,
     email_error_msg : email_error_msg,
