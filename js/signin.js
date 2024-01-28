@@ -76,13 +76,6 @@ function tryLogin() {
   }
 }
 
-/** enter키로 로그인 */
-function loginByEnter(event) {
-  if (event.key === "Enter") {
-    tryLogin();
-  }
-}
-
 // 이벤트 등록을 위한 변수 설정
 const emailInputBox = querySelector("#signin-email-input");
 const signinPasswordInput = querySelector("#signin-password-input");
@@ -94,7 +87,10 @@ const passwordEyeIcon = querySelector("#password-eye-icon");
 emailInputBox.addEventListener("focusout", checkEmail); // 이메일 입력이 유효한지
 signinPasswordInput.addEventListener("focusout", checkPassword); //비밀번호를 입력했는지
 loginBtn.addEventListener("click", tryLogin); // 로그인 시도
-loginForm.addEventListener("keydown", loginByEnter); // 엔터키로 로그인하기
+loginForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  tryLogin();
+});
 passwordEyeIcon.addEventListener("click", function () {
   passwordShowHidden(passwordEyeIcon, signinPasswordInput);
 }); // 비밀번호 보기 & 숨기기

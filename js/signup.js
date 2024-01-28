@@ -95,13 +95,6 @@ function trySignup() {
   }
 }
 
-/** enter키로 회원가입 */
-function signupByEnter(event) {
-  if (event.key === "Enter") {
-    trySignup();
-  }
-}
-
 // 이벤트 등록을 위한 변수 설정
 const emailInputBox = querySelector("#signup-email-input");
 const signupPasswordInput = querySelector("#signup-password-input");
@@ -117,8 +110,13 @@ const passwordRepeatEyeIcon = querySelector("#password-repeat-eye-icon");
 emailInputBox.addEventListener("focusout", checkEmail); // 이메일 입력이 유효한지
 signupPasswordInput.addEventListener("focusout", checkPassword); //비밀번호를 입력했는지
 signupPasswordRepeatInput.addEventListener("focusout", checkPasswordRepeat); // 비밀번호 확인
-signupBtn.addEventListener("click", trySignup); // 회원가입 시도
-signupForm.addEventListener("keydown", signupByEnter); // 엔터키로 로그인하기
+
+// 회원 가입
+signupBtn.addEventListener("click", trySignup);
+signupForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  trySignup();
+});
 
 // 비밀번호 보기 & 숨기기
 passwordEyeIcon.addEventListener("click", function () {

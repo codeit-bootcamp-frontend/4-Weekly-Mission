@@ -1,49 +1,63 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signin</title>
+    <link rel="stylesheet" href="./css/signin.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>signin</title>
-  <link rel="stylesheet" href="./css/signin.css" />
-</head>
+  <body>
+    <header>
+      <a href="index.html"
+        ><img
+          class="title-logo"
+          src="./images/logo_icon/Linkbrary_title_logo.png"
+          alt="링크브러리 로고"
+      /></a>
+      <p>
+        회원이 아니신가요?
+        <a class="change-in_up" href="./signup.html">회원 가입하기</a>
+      </p>
+    </header>
 
-<body>
-  <header>
-    <a href="index.html"><img class="title-logo" src="./images/logo_icon/Linkbrary_title_logo.png" alt="링크브러리 로고" /></a>
-    <p> 회원이 아니신가요? <a class="change-in_up" href="./signup.html">회원 가입하기</a> </p>
-  </header>
+    <main>
+      <form method="post" action="" id="login-form">
+        <label id="signin-email-section" class="form" for="signin-email-input">
+          <p>이메일</p>
+          <input id="signin-email-input" type="e-mail" />
+          <p id="email-error-message"></p>
+        </label>
 
-  <main>
-    <form method="post" action="" id="login-form">
-      <label id="signin-email-section" class="form" for="signin-email-input">
-        <p>이메일</p>
-        <input id="signin-email-input" type="e-mail" />
-        <p id="email-error-message"></p>
-      </label>
+        <label id="signin-password-section" for="signin-password-input">
+          <p>비밀번호</p>
+          <div class="password-box">
+            <input id="signin-password-input" type="password" />
+            <img
+              id="password-eye-icon"
+              src="./images/logo_icon/hidden_eye_icon.png"
+              alt="비밀번호 숨김"
+            />
+          </div>
+          <p id="password-error-message"></p>
+        </label>
+        <button type="submit" id="login-button">로그인</button>
+      </form>
+    </main>
 
-      <label id="signin-password-section" for="signin-password-input">
-        <p>비밀번호</p>
-        <div class="password-box">
-          <input id="signin-password-input" type="password" />
-          <img id="password-eye-icon" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" />
+    <footer>
+      <div class="social-login">
+        <p>소셜 로그인</p>
+        <div class="social-icon">
+          <a href="https://www.google.com/"
+            ><img src="./images/social_icon/google.png" alt="구글"
+          /></a>
+          <a href="https://www.kakaocorp.com/page/"
+            ><img src="./images/social_icon/kakatalk.png" alt="카카오톡"
+          /></a>
         </div>
-        <p id="password-error-message"></p>
-      </label>
-      <button type="button" id="login-button">로그인</button>
-    </form>
-  </main>
-
-  <footer>
-    <div class="social-login">
-      <p>소셜 로그인</p>
-      <div class="social-icon">
-        <a href="https://www.google.com/"><img src="./images/social_icon/google.png" alt="구글" /></a>
-        <a href="https://www.kakaocorp.com/page/"><img src="./images/social_icon/kakatalk.png" alt="카카오톡" /></a>
       </div>
-    </div>
-  </footer>
-  <script type="module" src="./js/signin.js"></script>
-</body>
-
+    </footer>
+    <script type="module" src="./js/signin.js"></script>
+  </body>
 </html>
