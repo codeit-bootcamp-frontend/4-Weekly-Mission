@@ -8,45 +8,42 @@
   <title>로그인</title>
 </head>
 <body>
-  <div class="login">
-    <header>
-      <div>
-        <a href="/"><img class="header-logo" src="/assets/image/logo.png"></a>
-      </div>
-      <div class="header-signup">
-        회원이 아니신가요? <a class="signup" href="/signup">회원 가입하기</a>
-      </div>
-    </header>
-    <section>
-      <div class="contents-frame">
-        <form class="contents-form" action="/folder.html" onsubmit="return login()">
-          <label for="email">이메일</label>
-          <input type="email" name="email" id="email" placeholder="이메일">
-          <label for="password">비밀번호</label>
-          <div class="password-container">
-            <div>
-              <input type="password" name="password" id="password" placeholder="비밀번호">
-            </div>
-            <div class="password-eye-container">
-              <img class="password-eye" src="/assets/image/eye-on.png">
-            </div>
+  <header>
+    <div>
+      <a href="/"><img class="header-logo" src="/assets/image/logo.png"></a>
+    </div>
+    <div class="header-signup">
+      회원이 아니신가요? <a class="signup" href="/signup">회원 가입하기</a>
+    </div>
+  </header>
+
+  <section>
+    <div class="contents-frame">
+      <form action="/folder.html" onsubmit="login()">
+        <div class="contents-form">
+          <div class="input-container">
+            <label for="email">이메일</label>
+            <input type="email" name="email" id="email" placeholder="이메일">
           </div>
-          <button type="submit">로그인</button>
-        </form>
-      </div>
-    </section>
-    <footer>
+          <div class="input-container input-password">
+            <label for="password">비밀번호</label>
+            <input type="password" name="password" id="password" placeholder="비밀번호">
+            <img class="password-eye" src="/assets/image/eye-on.png">
+          </div>
+        </div>
+        <button class="form-submit" type="submit">로그인</button>
+      </form>
       <div class="footer-frame">
         <div class="footer-social-Login-text">
           소셜 로그인
         </div>
-        <div class="footer-socialLogin-image">
-          <a class="footer-image" href="https://www.google.com/"><img src="/assets/image/Google.png"></a>
-          <a class="footer-image" href="https://www.kakaocorp.com/page/"><img src="/assets/image/Kakaotalk.png"></a>
+        <div class="footer-social-Login-image">
+          <a class="footer-image" href="https://www.google.com/"><img src="/assets/image/Google.png" alt="구글 로그인"></a>
+          <a class="footer-image" href="https://www.kakaocorp.com/page/"><img src="/assets/image/Kakaotalk.png" alt="카카오톡 로그인"></a>
         </div>
       </div>
-    </footer>
-  </div>
+    </div>
+  </section>
   <script src="index.js"></script>
 </body>
 </html>
