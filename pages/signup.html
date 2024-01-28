@@ -20,31 +20,38 @@
         <a class="login__link" href="../pages/signin.html">로그인 하기</a>
       </p>
       <form class="login__form">
-        <label class="login__label" for="email">이메일</label>
-        <input class="login__input login__input--email" name="email" type="email" />
-        <label class="login__label" for="password">비밀번호</label>
-        <div class="login__div--password">
-          <input class="login__input login__input--password" name="password" type="password" />
-          <img class="eye-img" src="../assets/icons/eye-off.svg" alt="eye-off-이미지" />
+        <div class="login__div">
+          <label class="login__label" for="email">이메일</label>
+          <input class="login__input login__input--email" id="login-email" name="email" type="email" />
         </div>
-        <label class="login__label" for="password-check">비밀번호 확인</label>
-        <div class="login__div--password">
-          <input class="login__input login__input--password-check" name="password-check" type="password" />
-          <img class="eye-img" src="../assets/icons/eye-off.svg" alt="eye-off-이미지" />
+        <div class="login__div login__div--password">
+          <label class="login__label" for="password">비밀번호</label>
+          <input class="login__input login__input--password" id="login-password" name="password" type="password" />
+          <img class="eye-img" id="eye-img" src="../assets/icons/eye-off.svg" alt="eye-image" />
         </div>
-        <button class="login__btn">로그인</button>
+        <div class="login__div login__div--password">
+          <label class="login__label" for="password-check">비밀번호확인</label>
+          <input
+            class="login__input login__input--password"
+            id="login-password-check"
+            name="password-check"
+            type="password" />
+          <img class="eye-img" id="eye-img" src="../assets/icons/eye-off.svg" alt="eye-image" />
+        </div>
+        <button class="login__btn" id="login-btn">로그인</button>
       </form>
       <div class="social-box">
-        <p class="social-box__text">다른 방식으로 가입하기</p>
+        <p class="social-box__text">소셜 로그인</p>
         <div class="social-box__logos">
-          <a href="https://www.google.com"
-            ><img class="social-box__img" src="../assets/icons/google-logo.svg" alt="google-logo"
-          /></a>
-          <a href="https://www.kakaocorp.com"
-            ><img class="social-box__img" src="../assets/icons/kakao-logo.svg" alt="kakao-logo"
-          /></a>
+          <a href="https://www.google.com">
+            <img class="social-box__img" src="../assets/icons/google-logo.svg" alt="google-logo" />
+          </a>
+          <a href="https://www.kakaocorp.com">
+            <img class="social-box__img" src="../assets/icons/kakao-logo.svg" alt="kakao-logo" />
+          </a>
         </div>
       </div>
     </main>
+    <script type="module" src="../scripts/sign.js"></script>
   </body>
 </html>
