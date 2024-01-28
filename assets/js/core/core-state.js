@@ -1,7 +1,15 @@
 class FormState {
+  static instance
   #data
+
   constructor(initialValue) {
     this.#data = initialValue
+  }
+
+  static getInstance(initialValue) {
+    if (FormState.instance) return instance
+    FormState.instance = new FormState(initialValue)
+    return FormState.instance
   }
 
   get data() {
@@ -13,10 +21,11 @@ class FormState {
   }
 }
 
-const formState = new FormState({
+const initialValue = {
   email: "",
   password: "",
   passwordConfirm: "",
-})
+}
+const formState = FormState.getInstance(initialValue)
 
 export default formState
