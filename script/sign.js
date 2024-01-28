@@ -12,6 +12,7 @@ import {
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
+
   const signInButton = document.getElementById('cta');
   const watchPassword = document.getElementById('eye-button');
 
@@ -45,6 +46,12 @@ document.addEventListener('DOMContentLoaded', function () {
     passwordInput.blur();
     const emailValue = emailInput.value.trim();
     const passwordValue = passwordInput.value.trim();
+
+    // 이메일 유효성 검증
+    if (!isEmailValid(emailValue)) {
+      displayError(emailInput, emailErrorMessage, '올바른 이메일 주소가 아닙니다.');
+      return;
+    }
 
     // 사용자 인증 성공 시, 페이지 이동
     if (authenticateUser(emailValue, passwordValue)) {

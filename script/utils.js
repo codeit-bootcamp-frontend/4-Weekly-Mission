@@ -33,6 +33,13 @@ export function handlePasswordInputFocusOut(passwordInput, passwordErrorMessage)
   }
 }
 
+export function handlePasswordCheckInputFocusOut(passwordcheckInput, passwordCheckErrorMessage) {
+  const passwordValue = passwordcheckInput.value;
+  if (!passwordValue) {
+    displayError(passwordcheckInput, passwordCheckErrorMessage, '비밀번호가 다릅니다.');
+  }
+}
+
 export function handleEmailInputFocusIn(emailInput, emailErrorMessage) {
   const emailValue = emailInput.value.trim();
   if (!emailValue) {
