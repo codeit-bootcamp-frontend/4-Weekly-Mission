@@ -1,4 +1,4 @@
-import {email, password, eye, blur, login} from '../common/loginCommon.js';
+import {email, password, eye, blur, login, enterEvent} from '../common/loginCommon.js';
 
 //email focus out 이벤트
 email.selector.addEventListener('blur', () => blur(email.selector));
@@ -12,3 +12,5 @@ eye.selector.addEventListener('click', eye.eyeClick);
 // 로그인 성공 이벤트
 login.btn.addEventListener('click', () => login.validation());
 
+// 엔터 이벤트
+window.addEventListener('keyup', (e) => enterEvent(e));

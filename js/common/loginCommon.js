@@ -6,5 +6,7 @@ import eye from './input/password/eyeOnOff.js';
 import blur from './input/inputCommon.js';
 import login from './button/loginBtn.js'
 import signup from './button/signupBtn.js'
+import enterEvent from './button/enterKey.js'
 
-export {email, errMsg, password, init, eye, blur, login, signup}
+
+export {email, errMsg, password, init, eye, blur, login, signup, enterEvent}
