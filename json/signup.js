@@ -42,6 +42,10 @@ function validPasswordInput(e) {
 
 /*입력받은 password-check 값을 판별하고 조건에 맞는 에러메시지를 출력하는 함수*/
 function validPasswordCheckInput(e) {
+  if (e.target.value === '') {
+    addError(passwordCheckInput, passwordCheckError, '비밀번호를 입력해 주세요.');
+    return;
+  }
   if (e.target.value !== passwordInput.value) {
     addError(passwordCheckInput, passwordCheckError, '비밀번호가 일치하지 않아요.');
     return;
