@@ -10,7 +10,7 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
     <link rel="stylesheet" href="css/sign.css" />
-    <script defer type="module" src="/src/sign.js"></script>
+    <script defer type="module" src="/src/signIn.js"></script>
   </head>
   <body>
     <div class="sign">
@@ -19,17 +19,8 @@
         <section class="sign-normal">
           <div class="sign-header">
             <a class="sign-header__logo" href="/"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="212"
-                height="38"
-                viewBox="0 0 212 38"
-                fill="none"
-              >
-                <path
-                  d="M8.95088 24.866V1.25437H0.708313V32.0971H24.4011V24.866H8.95088Z"
-                  fill="#6D6AFE"
-                />
+              ><svg xmlns="http://www.w3.org/2000/svg" width="212" height="38" viewBox="0 0 212 38" fill="none">
+                <path d="M8.95088 24.866V1.25437H0.708313V32.0971H24.4011V24.866H8.95088Z" fill="#6D6AFE" />
                 <path
                   d="M35.0352 32.0971V8.1165H26.7926V32.0971H35.0352ZM35.0352 6.27184V0H26.7926V6.27184H35.0352Z"
                   fill="#6D6AFE"
@@ -68,59 +59,34 @@
               <a class="sign-header__link" href="/signup.html">회원 가입하기</a>
             </p>
           </div>
-          <form class="sign-form">
+          <form id="signin-form" class="sign-form">
             <div class="sign-form__inputbox">
               <label for="email">이메일</label>
-              <input
-                id="email"
-                name="email"
-                type="text"
-                placeholder="이메일을 입력해주세요"
-              />
+              <input id="email" name="email" type="text" placeholder="이메일을 입력해주세요" />
               <div id="email-error" class="sign__error-msg"></div>
             </div>
             <div class="sign-form__inputbox">
               <label for="password">비밀번호</label>
               <div class="password-input">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  placeholder="비밀번호를 입력해주세요"
-                />
+                <input id="password" name="password" type="password" placeholder="비밀번호를 입력해주세요" />
                 <div class="password-icon">
-                  <img
-                    class="password-eye"
-                    src="public/images/eye-off.svg"
-                    alt="eye-off-icon"
-                  />
+                  <img class="password-eye" src="public/images/eye-off.svg" alt="eye-off-icon" />
                 </div>
               </div>
               <div id="password-error" class="sign__error-msg"></div>
             </div>
+            <button id="signin-btn" class="sign-normal__btn" type="submit">로그인</button>
           </form>
-          <button class="sign-normal__btn" type="submit">로그인</button>
         </section>
         <!-- 소셜 로그인 영역 -->
         <section class="sign-social">
           <div class="sign-social__title">소셜로그인</div>
           <div class="sign-social__badges">
             <a class="sign-social__badge google" href="https://www.google.com/">
-              <img
-                class="sign-social__badge-img"
-                src="public/images/google-logo.png"
-                alt="google-icon"
-              />
+              <img class="sign-social__badge-img" src="public/images/google-logo.png" alt="google-icon" />
             </a>
-            <a
-              class="sign-social__badge kakao"
-              href="https://www.kakaocorp.com/page/"
-            >
-              <img
-                class="sign-social__badge-img"
-                src="public/images/kakao-logo.svg"
-                alt="kakao-icon"
-              />
+            <a class="sign-social__badge kakao" href="https://www.kakaocorp.com/page/">
+              <img class="sign-social__badge-img" src="public/images/kakao-logo.svg" alt="kakao-icon" />
             </a>
           </div>
         </section>
