@@ -27,12 +27,18 @@ export function clearError(inputElement, errorMessageElement) {
 }
 
 export function handlePasswordInputFocusOut(passwordInput, passwordErrorMessage) {
-  const passwordValue = passwordInput.value;
-  if (!passwordValue) {
-    displayError(passwordInput, passwordErrorMessage, '비밀번호를 입력해주세요');
-  } else {
-    clearError(passwordInput, passwordErrorMessage);
+  const passwordValue = passwordInput.value.trim();
+
+  if (passwordValue.length < 8 || !(/[a-zA-Z]/.test(passwordValue) && /\d/.test(passwordValue))) {
+    displayError(
+      passwordInput,
+      passwordErrorMessage,
+      '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.'
+    );
+    return;
   }
+
+  clearError(passwordInput, passwordErrorMessage);
 }
 
 export function handlePasswordCheckInputFocusOut(passwordcheckInput, passwordCheckErrorMessage) {
