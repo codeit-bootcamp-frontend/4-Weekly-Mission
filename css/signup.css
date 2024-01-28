@@ -56,6 +56,17 @@ input:focus {
   outline: none;
 }
 
+.error-border {
+  border: 1px solid var(--red);
+  margin: 12px auto 6px;
+}
+
+.error-message {
+  font-size: 14px;
+  color: var(--red);
+  font-weight: 400;
+}
+
 input::placeholder {
   color: #373740;
   font-size: 16px;
@@ -66,12 +77,12 @@ input::placeholder {
 
 .password-info {
   position: relative;
+  margin-bottom: 24px;
 }
 
 .password-info button {
   position: absolute;
   top: -2px;
-  bottom: 0;
   right: 16px;
   width: 20px;
   background: none;

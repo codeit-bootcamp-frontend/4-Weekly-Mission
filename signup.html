@@ -19,22 +19,25 @@
         <div class="input-email">
           <label for="email">이메일</label>
           <input id="email" name="email" type="email" placeholder="e-mail">
+          <div class="email-error"></div>
         </div>
         <div class="input-password">
           <label for="password">비밀번호</label>
           <div class="password-info">
             <input id="password" name="password" type="password" placeholder="비밀번호">
-            <button type="button"><img alt="blind" src="images/eye-on.svg"></button>
+            <button class="eye-btn" type="button"><img alt="blind" src="images/eye-on.svg"></button>
+            <div class="password-error"></div>
           </div>
         </div>
         <div class="password-check">
           <label for="password-check">비밀번호 확인</label>
           <div class="password-info">
             <input id="password-check" name="password-check" type="password" placeholder="비밀번호 확인">
-            <button type="button"><img alt="blind" src="images/eye-on.svg"></button>
+            <button class="eye-btn" type="button"><img alt="blind" src="images/eye-on.svg"></button>
+            <div class="password-check-error"></div>
           </div>
         </div>
-        <button type="submit">회원가입</button>
+        <button id="confirm-button" type="submit">회원가입</button>
         <div class="sns-login">
           다른 방식으로 가입하기
           <div class="sns-link-buttons">

@@ -66,10 +66,6 @@ input:focus {
   font-weight: 400;
 }
 
-.error-message p {
-  margin-top: 0;
-}
-
 input::placeholder {
   color: #373740;
   font-size: 16px;
