@@ -49,12 +49,22 @@ function validatePassword() {
     }
 }
 
+function checkPassword() {
+    if (!isValidPassword(password.value)) {
+        createError(password, passwordError, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+    } else {
+        validatePassword();
+    }
+}
+
 // 비밀번호 확인 검사
 function checkConfirmPassword() {
     const isConfirmPassword = password.value === confirmPassword.value;
 
-    if (isConfirmPassword) {
+    if (!isConfirmPassword) {
         createError(confirmPassword, confirmPasswordError, "비밀번호가 다릅니다.");
+    } else {
+        clearError(confirmPassword, confirmPasswordError);
     }
 }
 
@@ -83,6 +93,11 @@ function login(event) {
 function toggleEye() {
     const inputType = password.type === "password" ? "text" : "password";
     password.type = inputType;
+}
+
+function confirmToggleEye() {
+    const inputType = confirmPassword.type === "password" ? "text" : "password";
+    confirmPassword.type = inputType;
 }
 
 // 에러 발생
