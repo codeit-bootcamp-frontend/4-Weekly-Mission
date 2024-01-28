@@ -11,8 +11,8 @@ export function isValidEmail(email) {
 }
 
 //비밀번호의 유효성 검사
-export function isValidPassword(email) { 
-  return PASSWORD_REGEX.test(email);
+export function isValidPassword(password) { 
+  return PASSWORD_REGEX.test(password);
 }
 
 /**
