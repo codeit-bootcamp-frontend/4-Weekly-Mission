@@ -21,24 +21,21 @@
       <form class="form-box">
         <div class="form-input-elements">
           <label class="form-label" for="email-input">이메일</label>
-          <input class="form-input" type="email" id="email-input"/>
-          <p class="error-txt empty-email-error-msg">이메일을 입력해주세요.</p>
-          <p class="error-txt wrong-email-error-msg">올바른 이메일 주소가 아닙니다.</p>
-          <p class="error-txt check-email-error-msg">이메일을 확인해주세요.</p>
+          <input class="form-input js-email-input" id="js-email-input" type="email"/>
+          <p class="error-txt js-email-error-msg"></p>
         </div>
         <div class="form-input-elements">
-          <label class="form-label" for="passwordInput">비밀번호</label>
+          <label class="form-label" for="password-input">비밀번호</label>
           <div class="password">
-            <input class="form-input" type="password" id="passwordInput"/>
-            <button class="btn-password-icon password-close" type="button">
+            <input class="form-input js-password-input" id="password-input" type="password"/>
+            <button class="btn-password-icon" type="button">
               <img class="btn-password-icon-imgs icon-eye-open" src="./images/icon-open-eye.png"></img>
               <img class="btn-password-icon-imgs icon-eye-close" src="./images/icon-close-eye.png"></img>
             </button>
           </div>
-          <p class="error-txt empty-password-error-msg">비밀번호를 입력해주세요.</p>
-          <p class="error-txt check-password-error-msg">비밀번호를 확인해주세요.</p>
+          <p class="error-txt js-password-error-msg"></p>
         </div>
-        <a class="login-btn js-btn-login" onclick="loginBtnClick(this)" type='submit'>로그인</a>
+        <a class="login-btn js-btn-login" type='submit'>로그인</a>
       </form>
       <div class="social-login-box">
         <p>소셜 로그인</p>

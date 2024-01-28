@@ -1,4 +1,4 @@
-@import url("./color.css");
+@import url('./color.css');
 
 * {
   box-sizing: border-box;
@@ -59,8 +59,14 @@ body {
   margin-bottom: 12px;
 }
 
-.form-input {
+.form-input-elements {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
   margin-bottom: 24px;
+}
+
+.form-input {
   padding: 18px 15px;
   height: 60px;
   border-radius: 8px;
@@ -70,6 +76,12 @@ body {
 
 .form-input:focus {
   border: 1px solid var(--primary);
+}
+
+.error-txt {
+  color: red;
+  margin: 2px;
+  display: none;
 }
 
 .password {
@@ -90,6 +102,20 @@ body {
   padding: 0;
   position: absolute;
   background-color: white;
+}
+
+.btn-password-check-icon {
+  margin: 14px;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  padding: 0;
+  position: absolute;
+  background-color: white;
+}
+
+.icon-eye-close {
+  display: none;
 }
 
 .btn-password-icon-imgs {
