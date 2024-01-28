@@ -84,15 +84,24 @@ input:focus {
   outline: none;
 }
 
-.password-icon {
+.password-eye {
   position: relative;
   width: 100%;
 }
 
-.password-icon .icon-eye {
+.password-eye .eye {
   position: absolute;
   top: 18px;
   right: 15px;
+}
+
+.message{
+  color: var(--red);
+  font-size: 14px;
+}
+
+.error{
+  border: 1px solid var(--red);
 }
 
 .signin, .signup {
