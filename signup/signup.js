@@ -5,6 +5,8 @@ const emailInput = document.querySelector('#email');
 const emailError = document.querySelector('#emailError');
 const passwordInput = document.querySelector('#password');
 const passwordError = document.querySelector('#passwordError');
+const passwordCheckInput = document.querySelector('#passwordCheck');
+const passwordCheckError = document.querySelector('#passwordCheckError');
 
 //email 에러 메시지 호출
 emailInput.addEventListener('focusout', handleEmailCheck);
@@ -41,5 +43,17 @@ function handlePasswordCheck() {
   } else {
     passwordInput.classList.remove('invalid');
     passwordError.innerHTML = '';
+  }
+}
+
+//비밀번호 input과 비밀번호 확인 Input 일치 검사
+passwordCheckInput.addEventListener('focusout', passwordSameCheck);
+function passwordSameCheck() {
+  if (passwordInput.value !== passwordCheckInput.value) {
+    passwordCheckInput.classList.add('invalid');
+    passwordCheckError.innerHTML = '비밀번호가 일치하지 않아요.';
+  } else {
+    passwordCheckInput.classList.remove('invalid');
+    passwordCheckError.innerHTML = '';
   }
 }
