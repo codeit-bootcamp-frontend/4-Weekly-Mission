@@ -31,6 +31,9 @@ export class InputHandler {
   };
 
   static isMatchElement = (elementA, elementB) => {
+    console.log(elementA.value);
+    console.log(elementB.value);
+    console.log(elementA.value === elementB.value);
     if (elementA?.tagName !== 'INPUT' || elementB?.tagName !== 'INPUT') return;
     return elementA.value === elementB.value;
   };

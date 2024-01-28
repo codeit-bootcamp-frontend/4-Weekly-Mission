@@ -1,14 +1,7 @@
 //@ts-check
-import { DOMHandler, InputHandler } from './utils/element.js';
+import { DOMHandler } from './utils/element.js';
 import { EMAIL_MESSAGE, USERS, PASSWORD_MESSAGE, loginAction, INPUT_IDS } from './constant/signConfig.js';
-import {
-  checkEmail,
-  checkEmptyPassword,
-  deleteRedBox,
-  isValidUser,
-  showErrorMessage,
-  toggleImage
-} from './utils/sign.js';
+import { SignHandler } from './utils/sign.js';
 
 const {
   emailElementId,
@@ -23,9 +16,9 @@ const {
 const emailElement = DOMHandler.getById(emailElementId);
 /** @type {HTMLInputElement} passwordElement*/
 const passwordElement = DOMHandler.getById(passwordElementId);
-/** @type {HTMLButtonElement} loginButton*/
+/** @type {HTMLButtonElement} loginForm*/
 const loginForm = DOMHandler.getById(loginFormId);
-/** @type {HTMLImageElement} eyeImage*/
+/** @type {HTMLImageElement} eyeImagePassword*/
 const eyeImagePassword = DOMHandler.getById(eyeImagePasswordId);
 DOMHandler.addPAfterElement(emailElement, emailErrorElementId, 'error-text');
 DOMHandler.addPAfterElement(passwordElement, passwordErrorElementId, 'error-text');
@@ -34,22 +27,25 @@ const emailErrorElement = DOMHandler.getById(emailErrorElementId);
 /** @type {HTMLElement} passwordErrorElement*/
 const passwordErrorElement = DOMHandler.getById(passwordErrorElementId);
 
+/** @param {Event} event*/
 const handleSubmit = event => {
   event.preventDefault();
   passwordElement.blur();
   emailElement.blur();
-  const isValid = isValidUser(USERS, emailElement, passwordElement);
+  const isValid = SignHandler.isValidUser(USERS, emailElement, passwordElement);
   if (isValid) {
     loginAction();
     return;
   }
-  showErrorMessage(emailElement, emailErrorElement, EMAIL_MESSAGE.fail);
-  showErrorMessage(passwordElement, passwordErrorElement, PASSWORD_MESSAGE.fail);
+  SignHandler.showErrorMessage(emailElement, emailErrorElement, EMAIL_MESSAGE.fail);
+  SignHandler.showErrorMessage(passwordElement, passwordErrorElement, PASSWORD_MESSAGE.fail);
 };
 
-emailElement?.addEventListener('focusout', () => checkEmail(emailElement, emailErrorElement));
-emailElement?.addEventListener('focusin', () => deleteRedBox(emailElement));
-passwordElement?.addEventListener('focusout', () => checkEmptyPassword(passwordElement, passwordErrorElement));
-passwordElement?.addEventListener('focusin', () => deleteRedBox(passwordElement));
-eyeImagePassword?.addEventListener('click', () => toggleImage(passwordElement, eyeImagePassword));
+emailElement?.addEventListener('focusout', () => SignHandler.checkEmail(emailElement, emailErrorElement));
+emailElement?.addEventListener('focusin', () => SignHandler.deleteRedBox(emailElement));
+passwordElement?.addEventListener('focusout', () =>
+  SignHandler.checkEmptyPassword(passwordElement, passwordErrorElement)
+);
+passwordElement?.addEventListener('focusin', () => SignHandler.deleteRedBox(passwordElement));
+eyeImagePassword?.addEventListener('click', () => SignHandler.toggleImage(passwordElement, eyeImagePassword));
 loginForm?.addEventListener('submit', handleSubmit);

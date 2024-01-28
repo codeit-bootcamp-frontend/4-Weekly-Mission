@@ -1,4 +1,9 @@
 //@ts-check
+/**
+ * @typedef {object} user
+ * @property {string} id
+ * @property {string} password
+ */
 import { DOMHandler, InputHandler } from './element.js';
 import {
   EMAIL_REGEX,
@@ -9,77 +14,100 @@ import {
   USERS
 } from '../constant/signConfig.js';
 
-/**
- * inputElement: ErrorColor, textElement: showErrorMessage
- * @param inputElement {HTMLInputElement | null} inputElement - inputElement
- * @param textElement {HTMLElement | null} textElement - textElement
- * @param text {string} text - textElement text
- */
-export const showErrorMessage = (inputElement, textElement, text) => {
-  inputElement?.classList.add('red-box');
-  textElement?.classList.remove('hidden');
-  DOMHandler.changeValue(textElement, text);
-};
-
-export const deleteRedBox = element => {
-  element?.classList.remove('red-box');
-};
-
-export const checkEmail = (emailElement, emailErrorElement) => {
-  if (InputHandler.isMatchRegEx(emailElement, EMAIL_REGEX)) {
-    emailErrorElement?.classList.add('hidden');
-    return;
-  }
-  if (InputHandler.isEmptyValue(emailElement)) {
-    showErrorMessage(emailElement, emailErrorElement, EMAIL_MESSAGE.empty);
-    return;
-  }
-  showErrorMessage(emailElement, emailErrorElement, EMAIL_MESSAGE.invalid);
-};
-
-export const checkExistEmail = (emailElement, emailErrorElement) => {
-  if (isExistEmail(USERS, emailElement)) {
-    showErrorMessage(emailElement, emailErrorElement, EMAIL_MESSAGE.exist);
-    return;
-  }
-};
-
-export const checkValidPassword = (passwordElement, passwordErrorElement) => {
-  if (InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX)) {
+export class SignHandler {
+  /**
+   * @param inputElement {HTMLInputElement} inputElement - inputElement
+   * @param textElement {HTMLElement} textElement - textElement
+   * @param text {string} text - textElement text
+   */
+  static showErrorMessage = (inputElement, textElement, text) => {
+    inputElement?.classList.add('red-box');
+    textElement?.classList.remove('hidden');
+    DOMHandler.changeValue(textElement, text);
+  };
+  /** @param {HTMLElement} element*/
+  static deleteRedBox = element => {
+    element?.classList.remove('red-box');
+  };
+  /**
+   * @param {HTMLInputElement} emailElement
+   * @param {HTMLElement} emailErrorElement
+   */
+  static checkEmail = (emailElement, emailErrorElement) => {
+    if (InputHandler.isMatchRegEx(emailElement, EMAIL_REGEX)) {
+      emailErrorElement?.classList.add('hidden');
+      return;
+    }
+    if (InputHandler.isEmptyValue(emailElement)) {
+      this.showErrorMessage(emailElement, emailErrorElement, EMAIL_MESSAGE.empty);
+      return;
+    }
+    this.showErrorMessage(emailElement, emailErrorElement, EMAIL_MESSAGE.invalid);
+  };
+  /**
+   * @param {HTMLInputElement} emailElement
+   * @param {HTMLElement} emailErrorElement
+   */
+  static checkExistEmail = (emailElement, emailErrorElement) => {
+    if (this.isExistEmail(USERS, emailElement)) {
+      this.showErrorMessage(emailElement, emailErrorElement, EMAIL_MESSAGE.exist);
+      return;
+    }
+  };
+  /**
+   * @param {HTMLInputElement} passwordElement
+   * @param {HTMLElement} passwordErrorElement
+   */
+  static checkValidPassword = (passwordElement, passwordErrorElement) => {
+    if (InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX)) {
+      passwordErrorElement?.classList.add('hidden');
+      return;
+    }
+    this.showErrorMessage(passwordElement, passwordErrorElement, PASSWORD_MESSAGE.invalid);
+  };
+  /**
+   * @param {HTMLInputElement} passwordElement
+   * @param {HTMLElement} passwordErrorElement
+   */
+  static checkEmptyPassword = (passwordElement, passwordErrorElement) => {
+    if (InputHandler.isEmptyValue(passwordElement)) {
+      this.showErrorMessage(passwordElement, passwordErrorElement, PASSWORD_MESSAGE.empty);
+      return;
+    }
     passwordErrorElement?.classList.add('hidden');
-    return;
-  }
-  showErrorMessage(passwordElement, passwordErrorElement, PASSWORD_MESSAGE.invalid);
-};
-
-export const checkEmptyPassword = (passwordElement, passwordErrorElement) => {
-  if (InputHandler.isEmptyValue(passwordElement)) {
-    showErrorMessage(passwordElement, passwordErrorElement, PASSWORD_MESSAGE.empty);
-    return;
-  }
-  passwordErrorElement?.classList.add('hidden');
-};
-
-export const toggleImage = (passwordElement, eyeImage) => {
-  if (!passwordElement || !eyeImage) return;
-  if (passwordElement.type === 'password') {
-    passwordElement.type = 'text';
-    eyeImage.src = SHOW_PASSWORD_ICON.visible.src;
-    eyeImage.alt = SHOW_PASSWORD_ICON.visible.alt;
-  } else {
-    passwordElement.type = 'password';
-    eyeImage.src = SHOW_PASSWORD_ICON.invisible.src;
-    eyeImage.alt = SHOW_PASSWORD_ICON.invisible.alt;
-  }
-};
-
-export const isValidUser = (USERS, emailElement, passwordElement) => {
-  return USERS.some(
-    user =>
-      InputHandler.isMatchValue(emailElement, user.id) && InputHandler.isMatchValue(passwordElement, user.password)
-  );
-};
-
-export const isExistEmail = (USERS, emailElement) => {
-  return USERS.some(user => InputHandler.isMatchValue(emailElement, user.id));
-};
+  };
+  /**
+   * @param {HTMLInputElement} passwordElement
+   * @param {HTMLImageElement} eyeImage
+   */
+  static toggleImage = (passwordElement, eyeImage) => {
+    if (!passwordElement || !eyeImage) return;
+    if (passwordElement.type === 'password') {
+      passwordElement.type = 'text';
+      eyeImage.src = SHOW_PASSWORD_ICON.visible.src;
+      eyeImage.alt = SHOW_PASSWORD_ICON.visible.alt;
+    } else {
+      passwordElement.type = 'password';
+      eyeImage.src = SHOW_PASSWORD_ICON.invisible.src;
+      eyeImage.alt = SHOW_PASSWORD_ICON.invisible.alt;
+    }
+  };
+  /**
+   * @param {user[]} USERS
+   * @param {HTMLInputElement} emailElement
+   * @param {HTMLInputElement} passwordElement
+   * */
+  static isValidUser = (USERS, emailElement, passwordElement) => {
+    return USERS.some(
+      user =>
+        InputHandler.isMatchValue(emailElement, user.id) && InputHandler.isMatchValue(passwordElement, user.password)
+    );
+  };
+  /**
+   * @param {user[]} USERS
+   * @param {HTMLInputElement} emailElement
+   * */
+  static isExistEmail = (USERS, emailElement) => {
+    return USERS.some(user => InputHandler.isMatchValue(emailElement, user.id));
+  };
+}
