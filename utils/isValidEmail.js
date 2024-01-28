@@ -6,4 +6,4 @@ function isVaildEmail(email) {
   return emailRegex.test(email);
 }
 
-export { emailRegex, isVaildEmail };
+export { isVaildEmail };

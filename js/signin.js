@@ -1,4 +1,4 @@
-import { emailRegex, isVaildEmail } from "../utils/isValidEmail.js";
+import { isVaildEmail } from "../utils/isValidEmail.js";
 import { querySelector } from "../utils/querySelector.js";
 import { updateErrorMessage } from "../functions/updateErrorMessage.js";
 import { passwordShowHidden } from "./functions/passwordShowHidden.js";
