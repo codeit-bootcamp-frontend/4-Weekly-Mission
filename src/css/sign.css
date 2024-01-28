@@ -50,7 +50,7 @@ section {
     align-items: flex-start;
     gap: 8px;
 
-    color: var(--black, #000);
+    color: var(--Black, #000);
     font-family: Pretendard;
     font-size: 16px;
     font-style: normal;
@@ -91,7 +91,7 @@ section {
 .email label,
 .password label,
 .re_password {
-    color: var(--black, #000);
+    color: var(--Black, #000);
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
@@ -161,7 +161,7 @@ input[type="text"] + .eye_button {
     border: none;
     border-radius: 8px;
     background: var(--gra-purpleblue-to-skyblue);
-    color: var(--Grey-Light);
+    color: var(--Grey-light);
     font-size: 1.8rem;
     font-weight: 600;
     cursor: pointer;
