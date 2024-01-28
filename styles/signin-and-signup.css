@@ -134,7 +134,8 @@
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
 }
 
-label[for="password"] {
+label[for="password"],
+label[for="confirmPassword"] {
   margin-top: 0.75rem;
 }
 
@@ -155,7 +156,6 @@ label[for="password"] {
   width: 1rem;
 }
 
-.password-error-message,
 .error-message {
   color: var(--Linkbrary-red, #ff5b56);
   font-size: 0.875rem;

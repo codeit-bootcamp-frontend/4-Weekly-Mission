@@ -53,12 +53,13 @@
                   class="eye-icon"
                 />
               </div>
-              <label for="password">비밀번호 확인</label>
+              <p id="passwordError" class="error-message"></p>
+              <label for="confirmPassword">비밀번호 확인</label>
               <div class="password-container">
                 <input
                   type="password"
-                  id="password"
-                  name="password"
+                  id="confirmPassword"
+                  name="confirmPassword"
                   class="auth-form-input"
                 />
                 <img
@@ -67,7 +68,7 @@
                   class="eye-icon"
                 />
               </div>
-              <!-- <p class="password-error-message">비밀번호가 다릅니다</p> -->
+              <p id="confirmPasswordError" class="error-message"></p>
             </form>
           </div>
           <button form="signForm" type="submit" class="base-button">
