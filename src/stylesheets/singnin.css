@@ -1,5 +1,6 @@
-html {
-  background-color: var(--Linkbrary-bg);
+html,
+body {
+  background-color: var(--bg);
 }
 
 body {
@@ -8,7 +9,7 @@ body {
   margin: 238px auto 252px;
 }
 
-/* ----- haeder ----- */
+/* ---------- haeder ---------- */
 header {
   display: flex;
   width: 100%;
@@ -25,7 +26,7 @@ header {
 }
 
 /* ---------- main ---------- */
-.singMessage {
+.sign-message {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,18 +36,17 @@ header {
   font-size: 1rem;
 }
 
-.singMessage span {
+.sign-message span {
   font-weight: 400;
   line-height: 1.5rem; /* 150% */
 }
 
-.singMessage a {
-  color: var(--Linkbrary-primary-color);
+.sign-message a {
+  color: var(--primary-color);
   font-weight: 600;
   line-height: normal;
 }
 
-/* form */
 form {
   display: flex;
   width: 100%;
@@ -69,34 +69,53 @@ input {
   display: flex;
   width: 100%;
   height: 3.75rem;
-  
-  padding: 1.125rem 0.9375rem;
-  
-  border-radius: 0.5rem;
-  border: 1px solid var(--Linkbrary-gray20);
-  background: var(--Linkbrary-white);
-}
 
-input[type="text"]~svg {
-  position: absolute;
-  bottom: 22px;
-  right: 15px;
+  padding: 1.125rem 0.9375rem;
+
+  border-radius: 0.5rem;
+  border: 1px solid var(--gray20);
+  background: var(--white);
 }
 
 input:focus {
-  outline: 1px solid var(--Linkbrary-primary-color);
+  outline: 1px solid var(--primary-color);
+}
+
+.password-eye {
+  position: absolute;
+  top: 50px;
+  right: 15px;
+}
+
+.eye-off {
+  display: inline;
+}
+
+.eye-on {
+  display: none;
+}
+
+.error {
+  outline: 1px solid var(--red);
+}
+
+.error-message {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--red);
 }
 
 /* loginBtn */
-.loginBtn {
+.login-button {
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
   height: 3.375rem;
-  margin: 1.88rem 0 2rem;
+  margin: 1.33rem 0 2rem;
 
-  color: var(--Grey-Light, #F5F5F5);
+  color: var(--Grey-Light, #f5f5f5);
   font-size: 1.125rem;
   font-weight: 600;
   line-height: normal;
@@ -104,11 +123,14 @@ input:focus {
 
   border: none;
   border-radius: 0.5rem;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--Linkbrary-primary-color) 0.12%, #6AE3FE 101.84%));
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, var(--primary-color) 0.12%, #6ae3fe 101.84%)
+  );
 }
 
 /* snsLoginBtn */
-.snsLoginBtn {
+.sns-login-button {
   display: flex;
   width: 100%;
   height: 4.125rem;
@@ -118,23 +140,23 @@ input:focus {
   align-items: center;
 
   border-radius: 0.5rem;
-  border: 1px solid var(--Linkbrary-gray20);
-  background: var(--Linkbrary-gray10);
+  border: 1px solid var(--gray20);
+  background: var(--gray10);
 }
 
-.snsLoginBtn>span {
-  color: var(--Linkbrary-gray100);
+.sns-login-button > span {
+  color: var(--gray100);
   font-size: 0.875rem;
   font-weight: 400;
   line-height: normal;
 }
 
-.snsLoginIcon {
+.sns-login-icon {
   display: flex;
   gap: 1rem;
 }
 
-.snsLoginIcon>a {
+.sns-login-icon > a {
   display: flex;
   width: 2.625rem;
   height: 2.625rem;
@@ -143,6 +165,6 @@ input:focus {
   border-radius: 100%;
 }
 
-.snsLoginIcon>a:last-of-type {
-  background-color: #F5E14B;
+.sns-login-icon > a:last-of-type {
+  background-color: #f5e14b;
 }
