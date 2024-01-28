@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0,maximum-scale=1,user-scalable=no"
+    />
+    <title>로그인</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="./css/sign.css" />
+  </head>
+  <body>
+    <header>
+      <a class="logo-link" href="index.html">
+        <img
+          class="header-logo"
+          src="./images/logo.svg"
+          alt="홈으로 이동 로고"
+        />
+      </a>
+      <p class="header-message">
+        회원이 아니신가요?<a class="header-link" href="signup.html"
+          >회원 가입하기</a
+        >
+      </p>
+    </header>
+    <div class="sign-box">
+      <form class="sign-form">
+        <div class="sign-inputs">
+          <!-- focus out 할 때 값이 없을 경우 아래에 "이메일을 입력해 주세요." || 이메일 형식 아닐 때 -->
+          <div class="sign-input-box">
+            <label class="sign-input-label">이메일</label>
+            <input class="sign-input" />
+            <input class="sign-input" id="error-message-email" />
+          </div>
+          <div class="sign-input-box sign-password">
+            <!-- 이메일과 동일. -->
+            <label class="sign-input-label">비밀번호</label>
+            <input class="sign-input" id="password-input" type="password" />
+            <input class="sign-input" id="error-message-password" />
+            <button class="eye-button" type="button">
+              <img src="./images/eye-off.svg" />
+            </button>
+            <p class="retry" hidden>내용을 다시 작성해 주세요.</p>
+          </div>
+        </div>
+        <button class="cta" type="submit">로그인</button>
+        <!-- 로그인 버튼 클릭 || Enter키 입력시 로그인 실행 -->
+      </form>
+      <div class="sns-box">
+        <span class="sns-text">소셜 로그인</span>
+        <div class="sns-links">
+          <a class="sns-link google-link" href="https://www.google.com/">
+            <img src="./images/google.png" />
+          </a>
+          <a class="sns-link kakao-link" href="https://www.kakaocorp.com/page/">
+            <img src="./images/kakao.svg" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="signin.js"></script>
+  </body>
+</html>
