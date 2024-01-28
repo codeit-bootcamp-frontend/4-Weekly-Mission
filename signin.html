@@ -14,24 +14,24 @@
       <section class="section-input">
         <div id="email">
           <p>이메일</p>
-          <input type="email" class="email-input" status="정상" placeholder="내용 입력">
+          <input type="email" class="email-input" status="steady" placeholder="내용 입력">
         </div>
         <div id="password">
           <p>비밀번호</p>
           <div id = "password-input-div">
-            <input type="password" class="password-input" status="정상" placeholder="내용 입력">
-            <img src="assets/icons/eye-off.png" alt="eye_off_icon" class="PwdEyeIcon">
+            <input type="password" class="password-input" status="steady" placeholder="내용 입력">
+            <img src="assets/icons/eye_off.png" alt="eye_off_icon" class="PwdEyeIcon">
           </div>
         </div>
         <div id="password-check">
           <p>비밀번호 확인</p>
-          <div id="password-input">
-            <input type="password" class="password-input" status="정상" placeholder="내용 입력">
-            <img src="assets/icons/eye-off.png" alt="eye_off_icon" class="PwdEyeIcon">
+          <div id="password-input-div2">
+            <input type="password" class="password-input-check" status="steady" placeholder="내용 입력">
+            <img src="assets/icons/eye_off.png" alt="eye_off_icon" class="PwdEyeIcon2">
           </div>
         </div>
       </section>
-      <button id="signupBtn" class="loginBtn">회원가입</button>
+      <a><button id="signinBtn" class="loginBtn" type="button">회원가입</button></a>
       <div class="social-login">
         <span>다른 방식으로 가입하기</span>
         <div class="icon-google">
@@ -42,6 +42,6 @@
         </div>
       </div>  
     </div>  
+    <script type="module" src="./js/sign/signin.js"></script>
   </body>
-    
 </html>
