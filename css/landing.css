@@ -322,6 +322,7 @@ footer {
   }
 
   section {
+    width: 100%;
     padding: 4rem 3.2rem;
   }
 
@@ -336,10 +337,11 @@ footer {
   }
   
   .description {
+    width: 100%;
     grid-row: 3 / 4;
-    width: 32.5rem;
     font-size: 1.5rem;
     font-weight: 500;
+    word-spacing: -0.1rem;
   }
 
   .line-break-pc-tablet {
@@ -347,6 +349,7 @@ footer {
   }
 
   .section-content::after {
+    min-width: calc(100% - 6.4rem);
     grid-row: 2 / 3;
     height: 0;
     padding-top: calc(450 / 550 * 100%);
@@ -361,7 +364,7 @@ footer {
     padding: 0;
     display: grid;
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-    gap: 6rem;
+    row-gap: 6rem;
   }
 
   .footer-content > span {
