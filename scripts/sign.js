@@ -9,11 +9,11 @@ import {
   loginAction
 } from './constant/signConfig.js';
 
-const emailInputId = 'login__input--email';
-const passwordInputId = 'login__input--password';
-const emailErrorId = 'email__error';
-const passwordErrorId = 'password__error';
-const loginBtnId = 'login__btn';
+const emailInputId = 'login-email';
+const passwordInputId = 'login-password';
+const emailErrorId = 'email-error';
+const passwordErrorId = 'password-error';
+const loginBtnId = 'login-btn';
 
 /** @type {HTMLInputElement | null} emailInput*/
 const emailInput = DOMHandler.getById(emailInputId);
