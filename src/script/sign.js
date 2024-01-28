@@ -43,9 +43,9 @@ function validatePassword() {
 }
 
 // 비밀번호 토글
-function toggleEye() {
-    const inputType = password.type === "password" ? "text" : "password";
-    password.type = inputType;
+function toggleEye(value) {
+    const inputType = value.type === "password" ? "text" : "password";
+    value.type = inputType;
 }
 
 // 이메일 유효성 검사

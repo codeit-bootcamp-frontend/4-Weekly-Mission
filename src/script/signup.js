@@ -59,15 +59,10 @@ function signup(event) {
     }
 }
 
-function confirmToggleEye() {
-    const inputType = confirmPassword.type === "password" ? "text" : "password";
-    confirmPassword.type = inputType;
-}
-
 // 이벤트 핸들러
 email.addEventListener("focusout", () => duplicateEmail());
 password.addEventListener("focusout", () => checkPassword());
-eyeButton.addEventListener("click", () => toggleEye());
+eyeButton.addEventListener("click", () => toggleEye(password));
 confirmPassword.addEventListener("focusout", () => checkConfirmPassword());
-confirmEyeButton.addEventListener("click", () => confirmToggleEye());
+confirmEyeButton.addEventListener("click", () => toggleEye(confirmPassword));
 signupButton.addEventListener("click", (e) => signup(e));
