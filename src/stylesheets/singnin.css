@@ -1,5 +1,6 @@
-html {
-  background-color: var(--Linkbrary-bg);
+html,
+body {
+  background-color: var(--bg);
 }
 
 body {
@@ -8,7 +9,7 @@ body {
   margin: 238px auto 252px;
 }
 
-/* ----- haeder ----- */
+/* ---------- haeder ---------- */
 header {
   display: flex;
   width: 100%;
@@ -41,12 +42,11 @@ header {
 }
 
 .sign-message a {
-  color: var(--Linkbrary-primary-color);
+  color: var(--primary-color);
   font-weight: 600;
   line-height: normal;
 }
 
-/* form */
 form {
   display: flex;
   width: 100%;
@@ -73,28 +73,47 @@ input {
   padding: 1.125rem 0.9375rem;
 
   border-radius: 0.5rem;
-  border: 1px solid var(--Linkbrary-gray20);
-  background: var(--Linkbrary-white);
-}
-
-input[type="text"] ~ svg {
-  position: absolute;
-  bottom: 22px;
-  right: 15px;
+  border: 1px solid var(--gray20);
+  background: var(--white);
 }
 
 input:focus {
-  outline: 1px solid var(--Linkbrary-primary-color);
+  outline: 1px solid var(--primary-color);
 }
 
-/* login-button */
+.password-eye {
+  position: absolute;
+  top: 50px;
+  right: 15px;
+}
+
+.eye-off {
+  display: inline;
+}
+
+.eye-on {
+  display: none;
+}
+
+.error {
+  outline: 1px solid var(--red);
+}
+
+.error-message {
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--red);
+}
+
+/* loginBtn */
 .login-button {
   display: flex;
   width: 100%;
   justify-content: center;
   align-items: center;
   height: 3.375rem;
-  margin: 1.88rem 0 2rem;
+  margin: 1.33rem 0 2rem;
 
   color: var(--Grey-Light, #f5f5f5);
   font-size: 1.125rem;
@@ -106,15 +125,11 @@ input:focus {
   border-radius: 0.5rem;
   background: var(
     --gra-purpleblue-to-skyblue,
-    linear-gradient(
-      91deg,
-      var(--Linkbrary-primary-color) 0.12%,
-      #6ae3fe 101.84%
-    )
+    linear-gradient(91deg, var(--primary-color) 0.12%, #6ae3fe 101.84%)
   );
 }
 
-/* sns-login-button */
+/* snsLoginBtn */
 .sns-login-button {
   display: flex;
   width: 100%;
@@ -125,12 +140,12 @@ input:focus {
   align-items: center;
 
   border-radius: 0.5rem;
-  border: 1px solid var(--Linkbrary-gray20);
-  background: var(--Linkbrary-gray10);
+  border: 1px solid var(--gray20);
+  background: var(--gray10);
 }
 
 .sns-login-button > span {
-  color: var(--Linkbrary-gray100);
+  color: var(--gray100);
   font-size: 0.875rem;
   font-weight: 400;
   line-height: normal;
