@@ -46,6 +46,11 @@ main {
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: var(--Linkbrary-white, #fff);
 }
+.error_box {
+  border-radius: 8px;
+  border: 1.5px solid var(--Linkbrary-red, #ff5b56);
+  background: var(--Linkbrary-white, #fff);
+}
 .error {
   color: var(--Linkbrary-red, #ff5b56);
   font-family: Pretendard;
@@ -54,7 +59,7 @@ main {
   line-height: 3em;
   font-size: 12px;
 }
-.login_btn {
+.join_btn {
   width: 400px;
   padding: 16px 20px;
   border: none;
@@ -64,6 +69,7 @@ main {
     linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
   );
   color: white;
+  cursor: pointer;
 }
 footer {
   margin-top: 32px;
