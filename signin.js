@@ -1,4 +1,4 @@
-
+import * as signJs from "./sign.js";
 
 
 const myInputEmail = document.querySelector('.input-email');
@@ -9,36 +9,31 @@ const login = document.querySelector('.cta');
 const toggleButtonPw = document.querySelector('.eye-button');
 const eyeOn = document.getElementById('eye-on');
 const eyeOff = document.getElementById('eye-off');
-
-// 검색하여 email 형식이 맞는 지 확인하는 방법을 찾음.
-function isValidEmail(email) {
-  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
+const addClassError = (errorClass, currentClass, errorMessage) => {
+  errorClass.style.display = 'block';
+  currentClass.classList.add('error');
+  errorClass.textContent = errorMessage;
+};
+const removeClassError = (errorMessage, currentClass) => {
+  errorMessage.style.display = 'none';
+  currentClass.classList.remove('error');
+};
 
 myInputEmail.addEventListener('focusout', function() {
   if (myInputEmail.value === '') {
-    errorMessageId.textContent = '이메일 주소를 입력해 주세요.';
-    errorMessageId.style.display = 'block';
-    myInputEmail.classList.add('error');
-  } else if (!isValidEmail(myInputEmail.value.trim())) {
-    errorMessageId.textContent = '올바른 이메일 주소가 아닙니다.';
-    errorMessageId.style.display = 'block';
-    myInputEmail.classList.add('error');
+    addClassError(errorMessageId, myInputEmail, signJs.ErrorMessage.NoInputId);
+  } else if (!signJs.isValidEmail(myInputEmail.value)) {
+    addClassError(errorMessageId, myInputEmail, signJs.ErrorMessage.InvalidId);
   } else {
-    errorMessageId.style.display = 'none';
-    myInputEmail.classList.remove('error');
+    removeClassError(errorMessageId, myInputEmail);
   }
 });
 
 myInputPassword.addEventListener('focusout', function() {
   if (myInputPassword.value === '') {
-    errorMessagePw.textContent = '비밀번호를 입력해 주세요.';
-    errorMessagePw.style.display = 'block';
-    myInputPassword.classList.add('error');
+    addClassError(errorMessagePw, myInputPassword, signJs.ErrorMessage.NoInputPassword);
   } else {
-    errorMessagePw.style.display = 'none';
-    myInputPassword.classList.remove('error');
+    removeClassError(errorMessagePw, myInputPassword);
   }
 });
 
@@ -48,12 +43,8 @@ login.addEventListener('click', function() {
   if (myInputEmail.value === answerEmail && myInputPassword.value == answerPassword) {
     window.location.href = '/folder';
   } else {
-    errorMessageId.textContent = '이메일을 확인해 주세요.';
-    errorMessageId.style.display = 'block';
-    myInputEmail.classList.add('error');
-    errorMessagePw.textContent = '비밀번호를 확인해 주세요.';
-    errorMessagePw.style.display = 'block';
-    myInputPassword.classList.add('error');
+    addClassError(errorMessageId, myInputEmail, signJs.ErrorMessage.WrongId);
+    addClassError(errorMessagePw, myInputPassword, signJs.ErrorMessage.WrongPassword);
   }
 });
 
@@ -62,8 +53,7 @@ document.querySelector('.sign-form').addEventListener('submit', function(event) 
   event.preventDefault();
 });
 
-
-function togglePassword() {
+toggleButtonPw.addEventListener('click', function() {
   if (myInputPassword.type === 'password') {
     myInputPassword.type = 'text';
     eyeOn.style.display = 'none';
@@ -73,5 +63,15 @@ function togglePassword() {
     eyeOn.style.display = 'block';
     eyeOff.style.display = 'none';
   }
-}
+});
 
+export { 
+  myInputEmail, 
+  myInputPassword, 
+  errorMessageId, 
+  errorMessagePw,
+  login, 
+  toggleButtonPw,
+  eyeOff, 
+  eyeOn,
+};
