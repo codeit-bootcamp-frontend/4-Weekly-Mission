@@ -168,7 +168,7 @@ header {
 
 #error-msg-email,
 #error-msg-pwd,
-#error-msg-pwd-correct {
+#error-msg-pwdCorrect {
   position: absolute;
   top: 10rem;
   inset-inline: auto;
