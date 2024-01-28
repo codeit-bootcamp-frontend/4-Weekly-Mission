@@ -1,43 +1,32 @@
-import {EMAIL_REGEX, USERS, VISIABLE_STATE} from './constant.js'
+import {EMAIL_ERROR_MESSAGE, EMAIL_REGEX, PASSWORD_ERROR_MESSAGE, USERS, VISIABLE_STATE} from './constant.js'
 import { getElementById , addClass, removeClass} from './dom/domhelper.js';
-import { isEmptyString, isVisiable, makeInvisiable, makeVisiable, isValidEmail, isValidPassword } from './functions/signFunction.js';
+import { isEmptyString, isValidEmail, isValidPassword, showError, hideError } from './functions/signFunction.js';
 import { goToFolderhtml } from './temporary.js';
 
 
 // About Email Error
+const emailInput = getElementById('email');
 const emailErrorMessage = getElementById('emailErrorMessage');
 
-
 // About Password Error
+const passwordInput = getElementById('password');
 const passwordErrorMessage = getElementById('passwordErrorMessage');
 
+// About Button
+const signInButton = getElementById('login-button');
+const watchPassword = getElementById('eye-button');
 
-//INPUT section
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-
-//Button section
-const signInButton = document.getElementById('login-button');
-const watchPassword = document.getElementById('eye-button');
-
-emailInput.addEventListener('focusout', function(){
-    const emailValue = emailInput.value.trim(); 
-    if(!isEmptyString(emailValue)) {makeInvisiable(emailErrorMessage);return;}
-    makeVisiable(emailErrorMessage);
+emailInput.addEventListener('focusout', function () {
+    const emailValue = emailInput.value.trim();
+    if(isEmptyString(emailValue)){showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isEmpty); return;}
+    if(!isValidEmail(emailValue)){showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isNotRightFormat); return;}
+    hideError(emailInput, emailErrorMessage);
 });
 
 passwordInput.addEventListener('focusout', function () {
     const passwordValue = passwordInput.value.trim();
-    if(!isEmptyString(passwordValue)) {makeInvisiable(passwordErrorMessage);return;} 
-    makeVisiable(passwordErrorMessage);
-});
-
-emailInput.addEventListener('focusout', function () {
-    const emailValue = emailInput.value.trim();
-    if (!isEmptyString(emailValue) && isValidEmail(emailValue)) {
-        makeInvisiable(emailFormatErrorMessage); return;} 
-    if (isEmptyString(emailValue)) {makeInvisiable(emailFormatErrorMessage); return;}
-    makeVisiable(emailFormatErrorMessage);
+    if(isEmptyString(passwordValue)) {showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.isEmpty); return;}
+    hideError(passwordInput, passwordErrorMessage);
 });
 
 signInButton.addEventListener('click', function (event) {

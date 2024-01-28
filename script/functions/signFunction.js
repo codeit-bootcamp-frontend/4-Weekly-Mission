@@ -20,8 +20,8 @@ export function isValidPassword(email) {
   *@param {*} errorTextElement 오류 메세지를 표시할 div
   *@param {string} message 오류 내용
 */
-const showError = (inputElement, errorTextElement , message) => {
-  addClass(inputElement, 'errorBdr');
+export const showError = (inputElement, errorTextElement , message) => {
+  addClass(inputElement, 'error-box');
   makeVisiable(errorTextElement);
   errorTextElement.textContent = message;
 }
@@ -30,7 +30,7 @@ const showError = (inputElement, errorTextElement , message) => {
   *@param {*} inputElement 오류가 발생한 input
   *@param {*} errorTextElement 오류 메세지를 표시할 div
 */
-const hideError = (inputElement, errorTextElement) => {
-  removeClass(inputElement, 'errorBdr');
+export const hideError = (inputElement, errorTextElement) => {
+  removeClass(inputElement, 'error-box');
   makeInvisiable(errorTextElement);
 }

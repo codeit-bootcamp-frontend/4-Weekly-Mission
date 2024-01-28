@@ -22,7 +22,6 @@ const passwordConfirmInput = document.getElementById('password_confirm');
 const signInButton = document.getElementById('login-button');
 const watchPassword = document.getElementById('eye-button');
 
-const goToFolderhtml = '../folder.html';
 
 
 emailInput.addEventListener('focusout', function(){
