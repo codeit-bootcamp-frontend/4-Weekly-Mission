@@ -9,7 +9,7 @@ function typeToText(imgTag, input) {
 function typeToPassword(imgTag, input) {
   imgTag.setAttribute("src", "./images/logo_icon/hidden_eye_icon.png");
   imgTag.setAttribute("alt", "비밀번호 보기");
-  input.setAttribute("type", "text");
+  input.setAttribute("type", "password");
 }
 
 /** 비밀번호 input의 현재 속성이 password인지 확인하는 함수 */
@@ -24,4 +24,4 @@ const passwordShowHidden = function (imgTag, input) {
     : typeToPassword(imgTag, input);
 };
 
-export { typeToText, typeToPassword, passwordTypeCheck, passwordShowHidden };
+export { passwordShowHidden };

@@ -2,7 +2,7 @@ import { emailRegex, isVaildEmail } from "../utils/isValidEmail.js";
 import { querySelector } from "../utils/querySelector.js";
 import { passwordTypeCheck } from "../functions/passwordTypeCheck.js";
 import { updateErrorMessage } from "../functions/updateErrorMessage.js";
-import { typeToText, typeToPassword } from "./functions/passwordShowHidden.js";
+import { passwordShowHidden } from "./functions/passwordShowHidden.js";
 import { checkValidLogin } from "./functions/CheckValidLogin.js";
 
 /** 이메일 입력 값이 유효한 지 확인하는 함수 */
@@ -84,24 +84,18 @@ function loginByEnter(event) {
   }
 }
 
-/** 비밀번호 보기 & 숨기기 **/
-function passwordShowHidden() {
-  const passwordEyeIcon = querySelector("#password-eye-icon"); // 눈 모양 아이콘 선택
-
-  passwordTypeCheck(signinPasswordInput)
-    ? typeToText(passwordEyeIcon, signinPasswordInput)
-    : typeToPassword(passwordEyeIcon, signinPasswordInput);
-}
-
 // 이벤트 등록을 위한 변수 설정
 const emailInputBox = querySelector("#signin-email-input");
 const signinPasswordInput = querySelector("#signin-password-input");
 const loginBtn = querySelector("#login-button");
 const loginForm = querySelector("#login-form");
+const passwordEyeIcon = querySelector("#password-eye-icon");
 
 /** 이벤트 등록 */
 emailInputBox.addEventListener("focusout", checkEmail); // 이메일 입력이 유효한지
 signinPasswordInput.addEventListener("focusout", checkPassword); //비밀번호를 입력했는지
 loginBtn.addEventListener("click", tryLogin); // 로그인 시도
 loginForm.addEventListener("keydown", loginByEnter); // 엔터키로 로그인하기
-passwordEyeIcon.addEventListener("click", passwordShowHidden); // 비밀번호 보기 & 숨기기
+passwordEyeIcon.addEventListener("click", function () {
+  passwordShowHidden(passwordEyeIcon, signinPasswordInput);
+}); // 비밀번호 보기 & 숨기기
