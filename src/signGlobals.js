@@ -13,6 +13,7 @@ export const signGlobals = (function() {
   const eyeImg = DOM.selectElement('.eye-button-icon');
   const loginButton = DOM.selectElement('.login-button');
   const signUpButton = DOM.selectElement('.signup-button');
+  const signPasswordCheckInput = DOM.selectElement('#check-password')
   const currentPageURL = window.location.href;
 
   return {
@@ -26,6 +27,7 @@ export const signGlobals = (function() {
     eyeImg,
     loginButton,
     signUpButton,
+    signPasswordCheckInput,
     currentPageURL
   };
 })();
