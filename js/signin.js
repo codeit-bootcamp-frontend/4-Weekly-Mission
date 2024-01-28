@@ -1,3 +1,5 @@
+import { isValidEmail,removeErrorMsg,clickEyeIcon } from "./signcommon.js";
+
 const emailInput=document.querySelector('#emailInput');
 const emailContainer=document.querySelector('.email-container')
 const errorMsgEmail=document.createElement('p');
@@ -38,12 +40,6 @@ function focusInPwd(){
     passwordInput.classList.remove('focusout');
 }
 
-//이메일 정규식
-function isValidEmail(email) {
-    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailValid.test(email);
-}
-
 function passwordErrorMessage(e){
     removeErrorMsg(errorMsgPassword);
     // 비밀번호 input에서 focus out 할 때, 값이 없을 경우 아래에 “비밀번호를 입력해 주세요.” 에러 메세지를 보입니다.
@@ -55,9 +51,6 @@ function passwordErrorMessage(e){
     
 }
 
-function removeErrorMsg(errorMsg) {
-    errorMsg.remove();
-}
 const signIn=document.querySelector('button');
 function clickLogin(){
     //이메일: test@codeit.com, 비밀번호: codeit101 으로 로그인 시도할 경우, “/folder” 페이지로 이동합니다.
@@ -87,17 +80,17 @@ function enterLogin(e){
 
 const eyeIcon=document.querySelector('.show-icon');
 
-function clickEyeIcon(){
-    if(passwordInput.type=='password'){
-        passwordInput.setAttribute('type','text');
-        eyeIcon.src="./assets/eye-on.png"
-    }
-    else{
-        passwordInput.setAttribute('type', 'password');
-        eyeIcon.src="./assets/eye-off.png"
-    }
+// function clickEyeIcon(){
+//     if(passwordInput.type=='password'){
+//         passwordInput.setAttribute('type','text');
+//         eyeIcon.src="./assets/eye-on.png"
+//     }
+//     else{
+//         passwordInput.setAttribute('type', 'password');
+//         eyeIcon.src="./assets/eye-off.png"
+//     }
     
-}
+// }
 
 emailInput.addEventListener('focusout',emailErrorMessage);
 emailInput.addEventListener('focusin',focusInEmail);
@@ -106,4 +99,6 @@ passwordInput.addEventListener('focusin',focusInPwd);
 signIn.addEventListener('click',clickLogin);
 emailInput.addEventListener('keypress',enterLogin);
 passwordInput.addEventListener('keypress',enterLogin);
-eyeIcon.addEventListener('click',clickEyeIcon);
+eyeIcon.addEventListener('click',()=>{
+    clickEyeIcon(passwordInput,eyeIcon);
+});
