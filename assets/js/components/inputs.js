@@ -49,13 +49,11 @@ class RegisterPasswordInput extends FormInput {
 
   validation(value) {
     if (isEmpty(value)) {
-      console.log("empty")
       showError({ ...this.update, errorMessage: "비밀번호를 입력해주세요." })
       return false
     }
 
     if (!isPasswordValid(value)) {
-      console.log("valid")
       showError({ ...this.update, errorMessage: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요." })
       return false
     }
@@ -185,7 +183,6 @@ class LoginPasswordInput extends FormInput {
   }
 
   toggleIconHandler(event) {
-    console.log(event.target)
     this.inputTypeToggle(this.inputElement)
     this.passwordChangeIcon(event.target.children[0])
   }
@@ -197,7 +194,6 @@ class LoginPasswordInput extends FormInput {
   }
 
   addEvent() {
-    console.log(this.inputElement.nextElementSibling)
     this.inputElement.nextElementSibling.addEventListener("click", this.toggleIconHandler.bind(this))
   }
 }

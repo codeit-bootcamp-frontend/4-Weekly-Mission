@@ -20,7 +20,6 @@ export default class FormInput {
   focusoutHandler(event) {
     formState.data = { name: this.type, value: event.target.value }
     const validation = this.validation(event.target.value)
-    console.log(validation)
     validation && removeError({ ...this.update, errorMessage: "" })
   }
 
