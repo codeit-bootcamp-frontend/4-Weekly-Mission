@@ -34,17 +34,17 @@ const checkPassword = () => {
 };
 
 //Login: submit form--------------------------------------------------------
-const submitForm = e => {
-  e.preventDefault();
+const submitForm = event => {
+  event.preventDefault();
   if (checkUserInfo(email, password)) {
     email.value = '';
     window.location.href = PATH.PAGE_FOLDER;
     return;
   }
   showInputError(email);
-  showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL_ADDRESS);
+  showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL);
   showInputError(password);
-  showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.EMPTY_PASSWORD);
+  showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.INVALID_PASSWORD);
 };
 
 //Change icon: eye-on/off----------------------------------------------------
