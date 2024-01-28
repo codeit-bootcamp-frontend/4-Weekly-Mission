@@ -88,4 +88,21 @@ const handleInputFocusout = ($target, $errorMessageList) => {
   errorMessageStatus($errorMessageList, $target, invalidKey);
 };
 
+//눈 모양 클릭하면 비번 보이고 다시 한 번 클릭하면 비번 가려지기
+const eyeImages = $form.querySelectorAll("img");
+eyeImages.forEach((eyeImage) =>
+  eyeImage.addEventListener("click", function (e) {
+    console.log("click");
+    let currentType = e.target.parentElement.querySelector("input").type;
+    if (currentType === "text") {
+      e.target.src = "https://cdn-icons-png.flaticon.com/128/4743/4743038.png";
+      // local file안에 넣어둔 파일로는 get 404 문제가 생기네욤... 이유가 무엇일까요? "./assets/eye-off.png"; 이렇게 경로 작성했습니다!
+      e.target.parentElement.querySelector("input").type = "password";
+    } else {
+      e.target.src =
+        "https://cdn-icons-png.flaticon.com/128/12169/12169055.png";
+      e.target.parentElement.querySelector("input").type = "text";
+    }
+  })
+);
 export { mockUp, handleInputFocusout, errorMessageStatus, formValidator };
