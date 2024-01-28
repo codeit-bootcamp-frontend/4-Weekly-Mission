@@ -7,6 +7,9 @@ const passwordMessage = document.createElement("div");
 const rePasswordMessage = document.createElement("div");
 const eyeBtn = document.querySelectorAll(".eye-button");
 
+emailMessage.classList.add("error-message");
+passwordMessage.classList.add("error-message");
+
 import { isValidEmail } from "./common.js";
 
 const handleFocusoutEmail = () => {
