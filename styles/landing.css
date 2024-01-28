@@ -477,39 +477,22 @@ footer {
   .contents-05-container {
     width: 100%;
     height: auto;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start; */
     gap: 1.5rem;
-  }
-
-  .contents-02-container::after {
-    width: 100%;
-    height: 0;
-    padding-top: calc((450 / 550) * 100%);
-  }
-
-  .contents-03-container::before {
-    width: 100%;
-    height: 0;
-    padding-top: calc((450 / 550) * 100%);
-  }
-
-  .contents-04-container::after {
-    width: 100%;
-    height: 0;
-    padding-top: calc((450 / 550) * 100%);
-  }
-
-  .contents-05-container::before {
-    width: 100%;
-    height: 0;
-    padding-top: calc((450 / 550) * 100%);
   }
 
   .contents-05-container {
     min-height: 21.99432rem;
+  }
+
+  .contents-02-container::after,
+  .contents-03-container::before,
+  .contents-04-container::after,
+  .contents-05-container::before {
+    display: none;
   }
 
   .contents-02-text,
@@ -518,10 +501,17 @@ footer {
   .contents-05-text {
     width: 100%;
     align-self: stretch;
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+      "first"
+      "second"
+      "third";
   }
 
   .text-subheading {
     font-size: 1.5rem;
+    grid-area: first;
   }
 
   .text-subheading-01,
@@ -529,8 +519,38 @@ footer {
     display: inline;
   }
 
+  .contents-02 .text-subheading::after,
+  .contents-03 .text-subheading::after,
+  .contents-04 .text-subheading::after,
+  .contents-05 .text-subheading::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 0;
+    margin-top: 1.25rem;
+    background-image: url("/image/landing/img1.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    padding-top: calc((450 / 550) * 100%);
+    grid-area: second;
+  }
+
+  .contents-03 .text-subheading::after {
+    background-image: url("/image/landing/img2.png");
+  }
+
+  .contents-04 .text-subheading::after {
+    background-image: url("/image/landing/img3.png");
+  }
+
+  .contents-05 .text-subheading::after {
+    background-image: url("/image/landing/img4.png");
+  }
+
   .description {
     font-size: 0.9375rem;
+    grid-area: third;
   }
 
   .description span {
