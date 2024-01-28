@@ -33,11 +33,8 @@ signInButton.addEventListener('click', function (event) {
     event.preventDefault();
     const emailValue = emailInput.value.trim();
     const passwordValue = passwordInput.value.trim();
-    if (USERS[0].id === emailValue && USERS[0].password === passwordValue) {
-        window.location.href = goToFolderhtml;
-    }
-    makeVisiable(emailCheckErrorMessage);
-    makeVisiable(passwordCheckMessage);
+    if (USERS[0].id === emailValue && USERS[0].password === passwordValue) { window.location.href = goToFolderhtml; return;}
+    showError(emailInput,emailErrorMessage,EMAIL_ERROR_MESSAGE.haveToCheck); showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.haveToCheck);
 });
 
 watchPassword.addEventListener('click', function () {
