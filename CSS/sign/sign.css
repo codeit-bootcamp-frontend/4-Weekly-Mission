@@ -41,7 +41,8 @@
 }
 
 .sign-email,
-.sign-password {
+.sign-password,
+.sign-verify-password {
   margin: 12px 0;
   border-radius: 8px;
   width: 100%;
@@ -54,12 +55,14 @@
   height: 60px;
 }
 
-.sign-password {
+.sign-password,
+.sign-verify-password {
   display: flex;
   position: relative;
 }
 
-.sign-password input {
+.sign-password input,
+.sign-verify-password input {
   border-radius: 8px;
   height: 60px;
   border: none;
@@ -67,7 +70,8 @@
   width: 100%;
 }
 
-.eye-icon {
+.eye-icon,
+.verify-eye-icon {
   position: absolute;
   right: 15px;
   top: 22px;
@@ -75,7 +79,8 @@
 }
 
 .sign-email:focus,
-.sign-password input:focus {
+.sign-password input:focus,
+.sign-verify-password input:focus {
   outline: none;
   border: 1px solid var(--primary);
 }
@@ -131,7 +136,8 @@
 
 /* error message */
 .sign-email-error,
-.sign-password-error {
+.sign-password-error,
+.sign-verify-password-error {
   color: var(--red);
   font-size: 14px;
   font-weight: 400;

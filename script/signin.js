@@ -1,13 +1,13 @@
-// input
-const emailInput = document.querySelector(".sign-email");
-const passwordInput = document.querySelector(".sign-password input");
-
-// error Message
-const emailErrorMessage = document.querySelector(".sign-email-error");
-const passwordErrorMessage = document.querySelector(".sign-password-error");
-
-const eyeIcon = document.querySelector(".eye-icon");
-const loginBtn = document.querySelector(".sign-btn");
+import {
+  signForm,
+  emailInput,
+  passwordInput,
+  emailErrorMessage,
+  passwordErrorMessage,
+  eyeIcon,
+  loginBtn,
+  handleEyeIconClick,
+} from "./common.js";
 
 // emailInput focusout events
 emailInput.addEventListener("focusout", () => {
@@ -36,8 +36,7 @@ loginBtn.addEventListener("click", (event) => {
     emailInput.value === "test@codeit.com" &&
     passwordInput.value === "codeit101"
   ) {
-    console.log("yes!");
-    window.location.href = "/folder";
+    signForm.submit();
   } else {
     if (emailInput.value !== "test@codeit.com") {
       emailErrorMessage.textContent = "이메일을 확인해 주세요";
@@ -51,11 +50,5 @@ loginBtn.addEventListener("click", (event) => {
 
 //eye-icon click event
 eyeIcon.addEventListener("click", () => {
-  const passwordType =
-    passwordInput.getAttribute("type") === "password" ? "text" : "password";
-  passwordInput.setAttribute("type", passwordType);
-
-  passwordType === "password"
-    ? eyeIcon.setAttribute("src", "../assets/svg/eye-off.svg")
-    : eyeIcon.setAttribute("src", "../assets/svg/eye-on.svg");
+  handleEyeIconClick(passwordInput, eyeIcon);
 });

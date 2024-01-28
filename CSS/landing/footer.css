@@ -24,12 +24,8 @@ footer {
   color: var(--white);
 }
 .footer-sns {
-  list-style: none;
   display: flex;
   gap: 12px;
-}
-.footer-sns > li {
-  display: inline-block;
 }
 
 /* media query */
