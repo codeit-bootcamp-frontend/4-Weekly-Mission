@@ -1,90 +1,55 @@
-// 테스트 계정 설정
-const testCase = {
-  email: 'test@codeit.com',
-  password: 'codeit101',
-}
-
-// 이메일 형식 확인하는 정규식
-const emailForm = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i
+import { accountInfo, emailForm, passwordFrom } from "./javascript/account.js"
+import { inputFunction } from "./javascript/signFunction.js"
+import { passwordToggle } from "./javascript/passwordToggle.js"
 
 // 
 const inputEmail = document.querySelector('.email-input')
 const inputPassword = document.querySelector('.password-input')
-const loginButton = document.querySelector('.sign-btn')
-const togglePassword = document.querySelector('.eye-btn')
-
-// email foucus, blur 함수
-function emailFocus(e) {
-  inputEmail.classList.remove('input-error')
-  e.target.parentElement.lastElementChild.textContent = ''
-}
-
-function emailBlur(e) {
-  if (e.target.value === '') {
-    e.target.classList.add('input-error')
-    e.target.parentElement.lastElementChild.textContent = '이메일을 입력해 주세요.'
-  }
-  else if (!e.target.value.match(emailForm)) {
-    e.target.classList.add('input-error')
-    e.target.parentElement.lastElementChild.textContent = '올바른 이메일 주소가 아닙니다.'
-  }
-}
-
-inputEmail.addEventListener('focus', emailFocus)
-inputEmail.addEventListener('blur', emailBlur)
-
-// password foucus, blur 함수
-function passwordFocus(e) {
-  inputPassword.classList.remove('input-error')
-  e.target.parentElement.parentElement.lastElementChild.textContent = ''
-}
-
-function passwordBlur(e) {
-  if (e.target.value === '') {
-    e.target.classList.add('input-error')
-    e.target.parentElement.parentElement.lastElementChild.textContent = '비밀번호를 입력해 주세요.'
-  }
-}
-
-inputPassword.addEventListener('focus', passwordFocus)
-inputPassword.addEventListener('blur', passwordBlur)
-
+const signButton = document.querySelector('.sign-btn')
 
 // 로그인 버튼, 경우에 따른 케이스 적용
 function submitButton(e) {
   e.preventDefault()
-  if (inputEmail.value === testCase.email && inputPassword.value === testCase.password) {
+
+  const inputEmailValue = inputEmail.value
+  const inputPasswordValue = inputPassword.value
+  const matchingAccountEmail = accountInfo.find((item) => item.email === inputEmailValue)
+  const matchingAccountPassword = accountInfo.find((item) => item.password === inputPasswordValue)
+  
+
+  const inputErrorHandler = (inputType, errorMessage, type) => {
+    if (type === 'email') {
+      inputType.classList.add('input-error')
+      inputType.parentElement.lastElementChild.textContent = errorMessage
+    }
+    else {
+      inputType.classList.add('input-error')
+      inputType.parentElement.parentElement.lastElementChild.textContent = errorMessage
+    }
+  }
+
+  if (inputEmailValue === matchingAccountEmail?.email && inputPasswordValue === matchingAccountPassword?.password) {
     window.location.replace('folder.html')
   }
-  else if (inputEmail.value === testCase.email && inputPassword.value !== testCase.password) {
-    inputPassword.classList.add('input-error')
-    inputPassword.parentElement.parentElement.lastElementChild.textContent = '비밀번호를 확인해 주세요'
+  else if (inputEmailValue === matchingAccountEmail?.email && inputPasswordValue !== matchingAccountPassword?.password) {
+    inputErrorHandler(inputPassword, '비밀번호를 확인해 주세요', 'password')
   }
-  else if (inputEmail.value !== testCase.email && inputPassword.value === testCase.password) {
-    inputEmail.classList.add('input-error')
-    inputEmail.parentElement.lastElementChild.textContent = '이메일을 확인해 주세요'
+  else if (inputEmailValue !== matchingAccountEmail?.email && inputPasswordValue === matchingAccountPassword?.password) {
+    inputErrorHandler(inputEmail, '이메일을 확인해 주세요', 'email')
   }
   else {
-    inputPassword.classList.add('input-error')
-    inputPassword.parentElement.parentElement.lastElementChild.textContent = '비밀번호를 확인해 주세요'
-    inputEmail.classList.add('input-error')
-    inputEmail.parentElement.lastElementChild.textContent = '이메일을 확인해 주세요'
+    inputErrorHandler(inputPassword, '비밀번호를 확인해 주세요', 'password')
+    inputErrorHandler(inputEmail, '이메일을 확인해 주세요', 'email')
   }
 }
 
-loginButton.addEventListener('click', submitButton)
+// 이메일 입력란에 focus, blur 이벤트 추가
+inputEmail.addEventListener('focus', (e) => inputFunction.emailFocus(e))
+inputEmail.addEventListener('blur', (e) => inputFunction.emailBlur(e, emailForm, accountInfo))
 
+// 비밀번호 입력란에 focus, blur 이벤트 추가
+inputPassword.addEventListener('focus', (e) => inputFunction.passwordFocus(e))
+inputPassword.addEventListener('blur', (e) => inputFunction.passwordBlur(e, passwordFrom))
 
-// passwordToggle(show and hide)
-function passwordToggle(e) {
-  if (e.target.classList.contains('off-eye-btn')) {
-    e.target.classList.remove('off-eye-btn')
-    e.target.previousElementSibling.setAttribute('type', 'password')
-  }
-  else {
-    e.target.classList.add('off-eye-btn')
-    e.target.previousElementSibling.setAttribute('type', 'text')
-  }
-}
-
-togglePassword.addEventListener('click', passwordToggle)
+// 로그인 버튼에 click 이벤트 추가
+signButton.addEventListener('click', submitButton)
