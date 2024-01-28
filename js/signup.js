@@ -3,7 +3,8 @@ import { querySelector } from "./utils/querySelector.js";
 import { passwordTypeCheck } from "./functions/passwordTypeCheck.js";
 import { updateErrorMessage } from "./functions/updateErrorMessage.js";
 import { typeToText, typeToPassword } from "./functions/passwordShowHidden.js";
-import { checkValidLogin } from "./functions/CheckValidLogin.js";
+import { checkValidLogin, validEmail } from "./functions/CheckValidLogin.js";
+import { isVaildPassword } from "../utils/isValidPassword.js";
 
 // 이벤트 등록을 위한 변수 설정
 const emailInputBox = querySelector("#signup-email-input");
@@ -26,7 +27,14 @@ function checkEmail(event) {
       emailInputBox,
       true
     );
-  } else if (isVaildEmail(emailValue)) {
+  } else if (emailValue === validEmail) {
+    updateErrorMessage(
+      errorMessage,
+      "이미 사용 중인 이메일 입니다.",
+      emailInputBox,
+      true
+    );
+  } else if (isVaildEmail(emailValue) === true) {
     updateErrorMessage(errorMessage, "", emailInputBox, false);
   } else {
     updateErrorMessage(
@@ -38,7 +46,7 @@ function checkEmail(event) {
   }
 }
 
-/** 비밀번호 입력 유무 확인 */
+/** 비밀번호 입력 값이 유효한지 확인하는 함수 */
 function checkPassword(event) {
   const passwordValue = event.target.value;
   const errorMessageBox = querySelector("#password-error-message");
@@ -46,17 +54,20 @@ function checkPassword(event) {
   if (passwordValue === "") {
     updateErrorMessage(
       errorMessageBox,
-      "비밀번호를 입력해주세요.",
+      "비밀번호를 입력해 주세요.",
       signupPasswordInput,
       true
     );
-  } else if (passwordValue)
+  } else if (isVaildPassword(passwordValue) === true) {
+    updateErrorMessage(errorMessageBox, "", signupPasswordInput, false);
+  } else {
     updateErrorMessage(
       errorMessageBox,
-      passwordValue === "" ? "비밀번호를 입력해주세요." : "",
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
       signupPasswordInput,
-      passwordValue === ""
+      true
     );
+  }
 }
 
 /** 비밀번호 확인 */
