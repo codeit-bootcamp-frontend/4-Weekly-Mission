@@ -4,11 +4,8 @@ const loginButton = document.querySelector('.submit');
 const eyeIcon = document.querySelector('.eye-button');
 
 //이메일 형식 검증 function
-function validationEmail(email) {
-  if(!/^([a-zA-Z0-9_\.-]+)@([a-zA-Z0-9_\-]+)\.([a-zA-Z]{2,})$/.test(email)) {
-    return false;
-  }
-  return true;
+function isValidEmail(email) {
+  return /^([a-zA-Z0-9_\.-]+)@([a-zA-Z0-9_\-]+)\.([a-zA-Z]{2,})$/.test(email);
 }
 
 emailInput.addEventListener("focusout", validateEmail);
@@ -24,7 +21,7 @@ function validateEmail() {
 
   if (emailInput.value === "") {
     createErrorMessage("이메일을 입력해 주세요.", emailInput);
-  } else if (!validationEmail(emailInput.value)) {
+  } else if (!isValidEmail(emailInput.value)) {
     createErrorMessage("올바른 이메일 주소가 아닙니다.", emailInput);
   }
 }
@@ -97,19 +94,19 @@ function createErrorMessage(message, inputElement) {
   inputElement.parentElement.appendChild(newError);
 }
 
-const initialIconPath = './img/login/eye-off.svg';
-eyeIcon.style.backgroundImage = `url(${initialIconPath})`;
+// 이미지의 초기 경로
+const initialIconPath = eyeIcon.querySelector('img').src;
 
 function togglePassword(e) {
   e.preventDefault();
   if (passwordInput.type === 'password') {
     // 비밀번호 문자열을 보이도록 변경
     passwordInput.type = 'text';
-    eyeIcon.style.backgroundImage = 'url(./img/login/eye-on.svg)';
+    eyeIcon.querySelector('img').src = './img/login/eye-on.svg';
   } else {
     // 비밀번호 문자열을 가려지도록 변경
     passwordInput.type = 'password';
-    eyeIcon.style.backgroundImage = 'url(./img/login/eye-off.svg)';
+    eyeIcon.querySelector('img').src = initialIconPath;
   }
 }
 
