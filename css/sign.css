@@ -99,8 +99,8 @@
   color: var(--color-red);
 }
 
-.login-email:focus + .error-text,
-.login-password:focus + .error-text {
+.login__input--email:focus + .error-text,
+.login__input--password:focus + .error-text {
   display: none;
 }
 

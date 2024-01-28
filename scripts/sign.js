@@ -69,7 +69,10 @@ const handlePasswordFocusOut = () => {
   passwordError?.classList.add('hidden');
 };
 
-const handleLogin = () => {
+/**
+ * @param {Event} event*/
+const handleLogin = event => {
+  event?.preventDefault();
   emailInput?.blur();
   passwordInput?.blur();
 
@@ -83,13 +86,6 @@ const handleLogin = () => {
   }
   showErrorMessage(emailInput, emailError, EMAIL_MESSAGE.fail);
   showErrorMessage(passwordInput, passwordError, PASSWORD_MESSAGE.fail);
-};
-
-const handleEnter = () => {
-  if (!loginBtn) return;
-  KeyHandler.enter(() => {
-    loginBtn?.click();
-  });
 };
 
 const handleImgeClick = () => {
@@ -107,9 +103,7 @@ const handleImgeClick = () => {
 
 emailInput?.addEventListener('focusout', handleEmailFocusOut);
 emailInput?.addEventListener('focusin', handleEmailFocusIn);
-emailInput?.addEventListener('keydown', handleEnter);
 passwordInput?.addEventListener('focusout', handlePasswordFocusOut);
 passwordInput?.addEventListener('focusin', handlePasswordFocusIn);
-passwordInput?.addEventListener('keydown', handleEnter);
 eyeImg?.addEventListener('click', handleImgeClick);
 loginBtn?.addEventListener('click', handleLogin);
