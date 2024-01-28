@@ -1,12 +1,6 @@
 import { FormInput, formState } from "../core/index.js"
 import { removeError, showError } from "../utils/ui.js"
-import {
-  isEmpty,
-  isNotEmailValid,
-  isNotPasswordMatch,
-  isExistingEmail,
-  isNotPasswordValid,
-} from "../utils/validation.js"
+import { isEmpty, isEmailValid, isPasswordMatch, isExistingEmail, isPasswordValid } from "../utils/validation.js"
 
 class RegisterEmailInput extends FormInput {
   constructor(inputElement) {
@@ -19,7 +13,7 @@ class RegisterEmailInput extends FormInput {
       return false
     }
 
-    if (isNotEmailValid(value)) {
+    if (!isEmailValid(value)) {
       showError({
         ...this.update,
         errorMessage: "올바른 이메일 주소가 아닙니다.",
@@ -55,29 +49,32 @@ class RegisterPasswordInput extends FormInput {
 
   validation(value) {
     if (isEmpty(value)) {
+      console.log("empty")
       showError({ ...this.update, errorMessage: "비밀번호를 입력해주세요." })
       return false
     }
 
-    if (isNotPasswordValid(value)) {
+    if (!isPasswordValid(value)) {
+      console.log("valid")
       showError({ ...this.update, errorMessage: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요." })
       return false
     }
 
-    if (isNotPasswordMatch(value, formState.data.passwordConfirm)) {
+    if (!isEmpty(formState.data.passwordConfirm) && !isPasswordMatch(value, formState.data.passwordConfirm)) {
       showError({
         ...this.update,
         ...this.passwordConfirmData,
         errorMessage: "비밀번호가 일치하지 않아요.",
       })
       return false
-    } else {
+    }
+
+    if (isPasswordMatch(value, formState.data.passwordConfirm))
       removeError({
         ...this.update,
         ...this.passwordConfirmData,
         errorMessage: "",
       })
-    }
 
     return true
   }
@@ -114,7 +111,7 @@ class RegisterPasswordConfirmInput extends FormInput {
       return false
     }
 
-    if (isNotPasswordMatch(value, formState.data.password)) {
+    if (!isPasswordMatch(value, formState.data.password)) {
       showError({
         ...this.update,
         errorMessage: "비밀번호가 일치하지 않아요.",
@@ -156,7 +153,7 @@ class LoginEmailInput extends FormInput {
       return false
     }
 
-    if (isNotEmailValid(value)) {
+    if (!isEmailValid(value)) {
       showError({
         ...this.update,
         errorMessage: "올바른 이메일 주소가 아닙니다.",

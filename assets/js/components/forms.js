@@ -1,7 +1,7 @@
 import { Form, formState } from "../core/index.js"
 import { TEST_USER } from "../auth/index.js"
 import { showError } from "../utils/ui.js"
-import { isEmpty, isNotEmailValid, isNotPasswordMatch, isNotPasswordValid } from "../utils/validation.js"
+import { isEmpty, isEmailValid, isPasswordMatch, isPasswordValid, isExistingEmail } from "../utils/validation.js"
 
 class LoginForm extends Form {
   emailValidation(value, emailInput) {
@@ -18,7 +18,7 @@ class LoginForm extends Form {
       return false
     }
 
-    if (isNotEmailValid(value)) {
+    if (!isEmailValid(value)) {
       showError({
         inputRootElement,
         errorElement,
@@ -89,11 +89,21 @@ class RegisterForm extends Form {
       return false
     }
 
-    if (isNotEmailValid(value)) {
+    if (!isEmailValid(value)) {
       showError({
         inputRootElement,
         errorElement,
         errorMessage: "이메일 형식이 유효하지 않습니다.",
+        className: this.ERROR_CLASS_NAME,
+      })
+      return false
+    }
+
+    if (isExistingEmail(value)) {
+      showError({
+        inputRootElement,
+        errorElement,
+        errorMessage: "이미 사용 중인 이메일입니다.",
         className: this.ERROR_CLASS_NAME,
       })
       return false
@@ -116,7 +126,7 @@ class RegisterForm extends Form {
       return false
     }
 
-    if (isNotPasswordValid(value)) {
+    if (!isPasswordValid(value)) {
       showError({ ...this.update, errorMessage: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요." })
       return false
     }
@@ -138,7 +148,7 @@ class RegisterForm extends Form {
       return false
     }
 
-    if (isNotPasswordMatch(value, formState.data.password)) {
+    if (!isPasswordMatch(value, formState.data.password)) {
       showError({
         inputRootElement,
         errorElement,
