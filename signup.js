@@ -19,6 +19,8 @@ const submitButton = (e) => {
   const inputPasswordValue = inputPassword.value
   const inputPasswordCheckValue = inputCheckPassword.value
   const matchingAccountEmail = accountInfo.find((item) => item.email === inputEmailValue)
+  const signupAccount = matchingAccountEmail?.email !== inputEmailValue && inputPasswordValue === inputPasswordCheckValue &&
+  !inputEmailValue.match(emailForm) && !inputPasswordValue.match(passwordFrom) && inputPasswordValue.length >= 8
 
   if (inputEmailValue === '') {
     return
@@ -26,8 +28,12 @@ const submitButton = (e) => {
   else if (matchingAccountEmail?.email === inputEmailValue) {
     return
   }
-  else if (matchingAccountEmail?.email !== inputEmailValue && inputPasswordValue === inputPasswordCheckValue && inputPasswordValue.length >= 8) {
+  else if (signupAccount) {
     window.location.replace('folder.html')
+  }
+  else if (inputPasswordValue !== inputPasswordCheckValue) {
+    inputCheckPassword.classList.add('input-error')
+    inputCheckPassword.parentElement.parentElement.lastElementChild.textContent = '비밀번호가 일치하지 않아요.'
   }
 }
 
