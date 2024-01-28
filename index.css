@@ -1,5 +1,6 @@
-@import "common.css";
-@import "reset.css";
+@import "style/common.css";
+@import "style/reset.css";
+@import "style/color.css";
 
 * {
     box-sizing: border-box;
