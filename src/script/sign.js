@@ -1,7 +1,9 @@
 const email = document.querySelector("#sign_email");
 const password = document.querySelector("#sign_password");
+const confirmPassword = document.querySelector("#sign_confirm_password");
 const emailError = document.querySelector("#error_email");
 const passwordError = document.querySelector("#error_password");
+const confirmPasswordError = document.querySelector("#error_confirm_password");
 const eyes = document.querySelector(".eye_button");
 const emailRegex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
 const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
@@ -47,6 +49,15 @@ function validatePassword() {
     }
 }
 
+// 비밀번호 확인 검사
+function checkConfirmPassword() {
+    const isConfirmPassword = password.value === confirmPassword.value;
+
+    if (isConfirmPassword) {
+        createError(confirmPassword, confirmPasswordError, "비밀번호가 다릅니다.");
+    }
+}
+
 // 이메일 유효성 검사
 function isValidEmail(email) {
     return emailRegex.test(email);
@@ -56,9 +67,6 @@ function isValidEmail(email) {
 function isValidPassword(password) {
     return passwordRegex.test(password);
 }
-
-// 비밀번호 확인 검사
-function checkConfirmPassword() {}
 
 // 로그인
 function login(event) {
