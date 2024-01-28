@@ -18,25 +18,25 @@
         <div class="signin__box">
             <!-- 메인 문구 영역(타이틀, 회원가입 링크) -->
             <div class="signin__title">
-                <a href="index.html"><img class="signin__title--img" src="./img/logo.svg" alt="로고 이미지"></a>
-                <div class="signin__text">회원이 아니신가요? <a class="signin__text--register" href="signup.html">회원 가입하기</a></div>
+                <a href="index.html"><img class="signin__logo" src="./img/logo.svg" alt="로고 이미지"></a>
+                <p class="signin__text">회원이 아니신가요? <a class="signin__text--register" href="signup.html">회원 가입하기</a></p>
             </div>
             <!-- 폼 태그 -->
             <form class="sigin__form">
-                <div class="signin__input__area">
+                <div class="signin__input--area">
                     <!-- 이메일 -->
                     <div class="signin__email">
-                        <label class="signin__label" for="emailInput">이메일</label>
-                        <input id="signin__input--email" type="email" name="email" required>
-                        <div class="signin__email--error"></div>
+                        <label class="signin__label" for="input--email">이메일</label>
+                        <input id="input--email" class="signin--input--email" type="email" name="email" required autofocus>
+                        <p class="signin__email--error"></p>
                     </div>
                     <!-- 비밀번호 -->
                     <div class="signin__password">
-                        <label class="signin__label" for="pwInput">비밀번호</label>
+                        <label class="signin__label" for="input--password">비밀번호</label>
                         <div class="signin__password--relative">
-                            <input id="signin__input--password" type="password" name="pw" required>
+                            <input id="input--password" class="signin--input--password" type="password" name="pw" required>
                             <i class="fa-solid fa-eye"></i>
-                            <div class="signin__password--error"></div>
+                            <p class="signin__password--error"></p>
                         </div>
                     </div>
                 </div>

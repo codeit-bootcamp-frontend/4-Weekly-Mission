@@ -51,7 +51,7 @@ body{
     text-align: center;
 }
 
-.signin__title--img{
+.signin__logo{
     width: 13.16144rem;
     height: 2.375rem;
 }
@@ -74,7 +74,7 @@ body{
     gap: 1.88rem;
 }
 
-.signin__input__area{
+.signin__input--area{
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -91,7 +91,7 @@ body{
 }
 
 
-#signin__input--email, #signin__input--password{
+.signin--input--email, .signin--input--password{
     padding: 1.125rem 0.9375rem;
     border-radius: 0.5rem;
     background-color: var(--Linkbrary-white);
@@ -100,7 +100,7 @@ body{
     width: calc(100% - 1.875rem);
 }
 
-#signin__input--email:focus, #signin__input--password:focus{
+.signin--input--email:focus, .signin--input--password:focus{
     border: 1px solid var(--Linkbrary-primary-color);
 }
 
@@ -110,6 +110,7 @@ body{
     margin-top: 0.38rem;
     font-weight: 400;
     font-style: normal;
+    display: none;
 }
 
 .signin__button{
