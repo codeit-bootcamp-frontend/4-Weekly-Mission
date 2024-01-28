@@ -5,14 +5,19 @@ import {
   checkEmail,
   checkEmptyPassword,
   deleteRedBox,
-  isUserSignedUp,
   isValidUser,
   showErrorMessage,
   toggleImage
 } from './utils/sign.js';
 
-const { emailElementId, passwordElementId, emailErrorElementId, passwordErrorElementId, loginButtonId, eyeImageId } =
-  INPUT_IDS;
+const {
+  emailElementId,
+  passwordElementId,
+  emailErrorElementId,
+  passwordErrorElementId,
+  loginButtonId,
+  eyeImagePasswordId
+} = INPUT_IDS;
 
 /** @type {HTMLInputElement} emailInput*/
 const emailElement = DOMHandler.getById(emailElementId);
@@ -21,7 +26,7 @@ const passwordElement = DOMHandler.getById(passwordElementId);
 /** @type {HTMLButtonElement} loginButton*/
 const loginButton = DOMHandler.getById(loginButtonId);
 /** @type {HTMLImageElement} eyeImage*/
-const eyeImage = DOMHandler.getById(eyeImageId);
+const eyeImagePassword = DOMHandler.getById(eyeImagePasswordId);
 DOMHandler.addPAfterElement(emailElement, emailErrorElementId, 'error-text');
 DOMHandler.addPAfterElement(passwordElement, passwordErrorElementId, 'error-text');
 /** @type {HTMLElement} emailErrorElement*/
@@ -29,7 +34,8 @@ const emailErrorElement = DOMHandler.getById(emailErrorElementId);
 /** @type {HTMLElement} passwordErrorElement*/
 const passwordErrorElement = DOMHandler.getById(passwordErrorElementId);
 
-const handleLogin = (emailElement, passwordElement) => {
+const handleSubmit = event => {
+  event.preventDefault();
   const isValid = isValidUser(USERS, emailElement, passwordElement);
   if (isValid) {
     loginAction();
@@ -43,8 +49,5 @@ emailElement?.addEventListener('focusout', () => checkEmail(emailElement, emailE
 emailElement?.addEventListener('focusin', () => deleteRedBox(emailElement));
 passwordElement?.addEventListener('focusout', () => checkEmptyPassword(passwordElement, passwordErrorElement));
 passwordElement?.addEventListener('focusin', () => deleteRedBox(passwordElement));
-eyeImage?.addEventListener('click', () => toggleImage(passwordElement, eyeImage));
-loginButton?.addEventListener('click', event => {
-  event.preventDefault();
-  handleLogin(emailElement, passwordElement);
-});
+eyeImagePassword?.addEventListener('click', () => toggleImage(passwordElement, eyeImagePassword));
+loginButton?.addEventListener('submit', handleSubmit);

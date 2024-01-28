@@ -1,6 +1,22 @@
-import { INPUT_IDS, PASSWORD_MESSAGE } from './constant/signConfig.js';
+import {
+  EMAIL_REGEX,
+  INPUT_IDS,
+  PASSWORD_MESSAGE,
+  PASSWORD_REGEX,
+  USERS,
+  loginAction,
+  signUpAction
+} from './constant/signConfig.js';
 import { DOMHandler, InputHandler } from './utils/element.js';
-import { checkEmail, checkExistEmail, checkValidPassword, deleteRedBox, showErrorMessage } from './utils/sign.js';
+import {
+  checkEmail,
+  checkExistEmail,
+  checkValidPassword,
+  deleteRedBox,
+  isExistEmail,
+  showErrorMessage,
+  toggleImage
+} from './utils/sign.js';
 
 const {
   emailElementId,
@@ -10,7 +26,8 @@ const {
   passwordErrorElementId,
   passwordCheckErrorElementId,
   loginButtonId,
-  eyeImageId
+  eyeImagePasswordId,
+  eyeImagePasswordCheckId
 } = INPUT_IDS;
 
 /** @type {HTMLInputElement} emailInput*/
@@ -22,7 +39,8 @@ const passwordCheckElement = DOMHandler.getById(passwordCheckElementId);
 /** @type {HTMLButtonElement} loginButton*/
 const loginButton = DOMHandler.getById(loginButtonId);
 /** @type {HTMLImageElement} eyeImage*/
-const eyeImage = DOMHandler.getById(eyeImageId);
+const eyeImagePassword = DOMHandler.getById(eyeImagePasswordId);
+const eyeImagePasswordCheck = DOMHandler.getById(eyeImagePasswordCheckId);
 DOMHandler.addPAfterElement(emailElement, emailErrorElementId, 'error-text');
 DOMHandler.addPAfterElement(passwordElement, passwordErrorElementId, 'error-text');
 DOMHandler.addPAfterElement(passwordCheckElement, passwordCheckErrorElementId, 'error-text');
@@ -33,8 +51,18 @@ const passwordErrorElement = DOMHandler.getById(passwordErrorElementId);
 const passwordCheckErrorElement = DOMHandler.getById(passwordCheckErrorElementId);
 
 const handlePasswordCheck = () => {
-  if (!InputHandler.isMatchElement(passwordElement, passwordCheckElement))
+  if (!InputHandler.isMatchElement(passwordElement, passwordCheckElement)) {
     showErrorMessage(passwordCheckElement, passwordCheckErrorElement, PASSWORD_MESSAGE.match);
+  }
+};
+
+const handleSignUp = event => {
+  event.preventDefault();
+  const checkEmail = InputHandler.isMatchRegEx(emailElement, EMAIL_REGEX) && !isExistEmail(USERS, emailElement);
+  const checkPassword =
+    InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX) &&
+    InputHandler.isMatchElement(passwordElement, passwordCheckElement);
+  if (checkEmail && checkPassword) return signUpAction();
 };
 
 emailElement?.addEventListener('focusout', () => checkEmail(emailElement, emailErrorElement));
@@ -43,3 +71,6 @@ emailElement?.addEventListener('focusin', () => deleteRedBox(emailElement));
 passwordElement?.addEventListener('focusout', () => checkValidPassword(passwordElement, passwordErrorElement));
 passwordElement?.addEventListener('focusin', () => deleteRedBox(passwordElement));
 passwordCheckElement?.addEventListener('focusout', handlePasswordCheck);
+loginButton?.addEventListener('submit', handleSignUp);
+eyeImagePassword?.addEventListener('click', () => toggleImage(passwordElement, eyeImagePassword));
+eyeImagePasswordCheck?.addEventListener('click', () => toggleImage(passwordCheckElement, eyeImagePasswordCheck));
