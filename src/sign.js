@@ -1,8 +1,8 @@
 import * as DOM from './lib/DOM.js'
-import * as input from './lib/inputVerification.js'
 import * as action from './lib/action.js'
 import * as handleEvent from './lib/eventKey.js'
 import { signGlobals } from './signGlobals.js'
+import {handleInputFocusout, showErrorMsg, handleInputFocusin} from './lib/formErrorHandling.js'
 import {
   EMAIL_ERROR_MESSAGE,
   PASSWORD_ERROR_MESSAGE,
@@ -58,37 +58,12 @@ if (signGlobals.currentPageURL.includes("signup.html")) {
   signGlobals.loginButton.addEventListener('click', LoginButton)
 }
 
-function handleInputFocusout(inputElement, errorElement, regex, errorMessage) {
-  if (input.isFormatValue(inputElement)) {
-    showErrorMsg(inputElement, errorElement, errorMessage.empty);
-    return
-  }
-  if (regex && !input.isRegexMatch(inputElement, regex)) {
-    console.log(errorMessage.set)
-    const combinedErrorMessage = [errorMessage.invalid, errorMessage.set].filter(msg => msg !== undefined).join(' ');
-    showErrorMsg(inputElement, errorElement, combinedErrorMessage);
-    return
-  }
-  errorElement?.classList.add('hidden')
-}
-
-function showErrorMsg(inputElement, textElement, text){
-  inputElement.classList.add('red-border')
-  textElement?.classList.remove('hidden')
-  DOM.changeText(textElement, text)
-}
-
 function handleEmailFocusout(){
   handleInputFocusout(signGlobals.signEmailInput, signGlobals.emailError, EMAIL_REGEX, EMAIL_ERROR_MESSAGE);
-
 }
 
 function handlePasswordFocusout(){
   handleInputFocusout(signGlobals.signPasswordInput, signGlobals.passwordError, PASSWORD_REGEX, PASSWORD_ERROR_MESSAGE);
-}
-
-function handleInputFocusin(inputElement) {
-  inputElement.classList.remove('red-border');
 }
 
 function handleChangePasswordType(){
