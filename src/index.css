@@ -267,6 +267,7 @@ section:nth-of-type(even) {
 }
 .lastTitleGradient{
   background-image: linear-gradient(310deg, #fe578f 0%, #68e8f9 100%);
+
 }
 
 /* footer 표시 */
