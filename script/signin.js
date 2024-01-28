@@ -1,8 +1,7 @@
-import {EMAIL_ERROR_MESSAGE, EMAIL_REGEX, PASSWORD_ERROR_MESSAGE, USERS, VISIABLE_STATE} from './constant.js'
-import { getElementById , addClass, removeClass} from './dom/domhelper.js';
-import { isEmptyString, isValidEmail, isValidPassword, showError, hideError } from './functions/signFunction.js';
+import {EMAIL_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE, USERS, VISIABLE_STATE} from './constant.js'
+import { getElementById} from './dom/domhelper.js';
+import { isEmptyString, isValidEmail, showError, hideError, showPassword, hidePassword } from './functions/signFunction.js';
 import { goToFolderhtml } from './temporary.js';
-
 
 // About Email Error
 const emailInput = getElementById('email');
@@ -13,8 +12,8 @@ const passwordInput = getElementById('password');
 const passwordErrorMessage = getElementById('passwordErrorMessage');
 
 // About Button
-const signInButton = getElementById('login-button');
-const watchPassword = getElementById('eye-button');
+const loginButton = getElementById('login-button');
+const eyeButton = getElementById('eye-button');
 
 emailInput.addEventListener('focusout', function () {
     const emailValue = emailInput.value.trim();
@@ -29,7 +28,7 @@ passwordInput.addEventListener('focusout', function () {
     hideError(passwordInput, passwordErrorMessage);
 });
 
-signInButton.addEventListener('click', function (event) {
+loginButton.addEventListener('click', function (event) {
     event.preventDefault();
     const emailValue = emailInput.value.trim();
     const passwordValue = passwordInput.value.trim();
@@ -37,13 +36,7 @@ signInButton.addEventListener('click', function (event) {
     showError(emailInput,emailErrorMessage,EMAIL_ERROR_MESSAGE.haveToCheck); showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.haveToCheck);
 });
 
-watchPassword.addEventListener('click', function () {
-    if (passwordInput.type === 'text' ? true : false) {
-        watchPassword.firstElementChild.src = VISIABLE_STATE.invisiable;
-        passwordInput.type = 'password';
-    } else {
-        watchPassword.firstElementChild.src = VISIABLE_STATE.visiable;
-        passwordInput.type = 'text';
-    }
+eyeButton.addEventListener('click', function () {
+    if (passwordInput.type === 'text') {showPassword(passwordInput, eyeButton); return;}
+    hidePassword(passwordInput,eyeButton);
 });
-

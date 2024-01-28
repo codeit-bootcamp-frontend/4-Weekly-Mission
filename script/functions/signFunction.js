@@ -1,4 +1,4 @@
-import {EMAIL_REGEX, PASSWORD_REGEX} from '../constant.js'
+import {EMAIL_REGEX, PASSWORD_REGEX, VISIABLE_STATE} from '../constant.js'
 import { addClass, makeInvisiable, makeVisiable, removeClass } from '../dom/domhelper.js';
 
 //빈 문자열인지 체크
@@ -33,4 +33,22 @@ export const showError = (inputElement, errorTextElement , message) => {
 export const hideError = (inputElement, errorTextElement) => {
   removeClass(inputElement, 'error-box');
   makeInvisiable(errorTextElement);
+}
+
+/**
+ * @param {*} inputElement button 이 있는 input 
+ * @param {*} buttonElement input안의 button element
+ */
+export const showPassword = (inputElement, buttonElement) => {
+  buttonElement.firstElementChild.src = VISIABLE_STATE.invisiable;
+  inputElement.type = 'password';
+}
+
+/**
+ * @param {*} inputElement button 이 있는 input 
+ * @param {*} buttonElement input안의 button element
+ */
+export const hidePassword = (inputElement, buttonElement) => {
+  buttonElement.firstElementChild.src = VISIABLE_STATE.visiable;
+  inputElement.type = 'text';
 }
