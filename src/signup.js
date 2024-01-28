@@ -65,19 +65,19 @@ function validatePasswordInput(password) {
   removeInputError({ input: passwordInput, errorMessage: passwordErrorMessage });
 }
 
-// const passwordValidationInput = document.querySelector("#passwordValidation");
-// const passwordValidationErrorMessage = document.querySelector("#passwordValidationErrorMessage");
-// passwordValidationInput.addEventListener("focusout", (event) => validatePasswordInput(event.target.value));
-// function validatePasswordInput(password) {
-//   if (password === passwordInput) {
-//     setInputError(
-//       { input: passwordValidationInput, errorMessage: passwordValidationErrorMessage },
-//       "비밀번호가 일치하지 않아요."
-//     );
-//     return;
-//   }
-//   removeInputError({ input: passwordValidationInput, errorMessage: passwordValidationErrorMessage });
-// }
+const passwordValidationInput = document.querySelector("#passwordValidation");
+const passwordValidationErrorMessage = document.querySelector("#passwordValidationErrorMessage");
+passwordValidationInput.addEventListener("focusout", (event) => validatePasswordInput(event.target.value));
+function validatePasswordInput(password) {
+  if (password === passwordInput) {
+    setInputError(
+      { input: passwordValidationInput, errorMessage: passwordValidationErrorMessage },
+      "비밀번호가 일치하지 않아요."
+    );
+    return;
+  }
+  removeInputError({ input: passwordValidationInput, errorMessage: passwordValidationErrorMessage });
+}
 
 const passwordToggleButton = document.querySelector("#passwordToggle");
 passwordToggleButton.addEventListener("click", () =>
@@ -100,10 +100,6 @@ function submitForm(event) {
   setInputError(
     { input: passwordInput, errorMessage: passwordErrorMessage },
     "비밀번호를 확인해주세요."
-  );
-  setInputError(
-    { input: passwordValidationInput, errorMessage: passwordValidationErrorMessage },
-    "비밀번호가 일치하지 않아요."
   );
 }
 
