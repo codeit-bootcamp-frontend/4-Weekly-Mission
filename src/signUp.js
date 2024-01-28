@@ -41,14 +41,6 @@ const handleSignUp = (e) => {
   ) {
     alert("회원가입 성공!");
     window.location.href = "folder.html";
-  } else {
-    // 이메일 에러 시 메세지
-    if (isDuplicateEmail) isDuplicateEmail;
-    else if (validateEmail === false) handleFail("email");
-    // 비밀번호 에러 시 메세지
-    if (!validatePw) handleFail("pw");
-    // 비밀번호 확인 에러 시 메세지
-    if (!validatePwConfirm) handleFail("pwConfirm");
   }
 };
 
