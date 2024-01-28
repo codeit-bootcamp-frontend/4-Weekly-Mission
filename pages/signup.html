@@ -12,28 +12,32 @@
   <div class="sign">
     <div class="sign-container">
       <div class="login">
-        <div class="sign-logo">
+        <div class="sign-logo-box">
           <a href="/">
             <img class="sign-logo" src="/assets/image/logo.svg" alt="링크라이브러리 로고.">
           </a>
-          <p>이미 회원이신가요?
+          <p>
+            이미 회원이신가요?
             <a class="sign-signup-to-login" href="signin.html">로그인 하기</a>
           </p>
         </div>
-        <form class="sign-signup-form">
+        <form id="signupForm" class="sign-signup-form">
           <div class="sign-input-box">
             <label for="email" class="sign-input-label">이메일</label>
             <input id="email" class="sign-input" type="email" />
+            <div id="emailErrorMessage" class="error-message hidden">이메일 에러메시지</div>
           </div>
           <div class="sign-input-box sign-password">
             <label for="password" class="sign-input-label">비밀번호</label>
-            <input id="password" class="sign-input" type="password"></input>
-            <img class="eye" src="/assets/icon/eye-on.svg">
+            <input id="password" class="sign-input" type="password" />
+            <img id="eyeIcon" class="eye" src="/assets/icon/eye-off.svg">
+            <div id="passwordErrorMessage" class="error-message hidden">비밀번호 에러메시지</div>
           </div>
           <div class="sign-input-box sign-password">
             <label for="password" class="sign-input-label">비밀번호 확인</label>
             <input id="password" class="sign-input" type="password"></input>
-            <img class="eye" src="/assets/icon/eye-on.svg">
+            <img id="eyeIcon" class="eye" src="/assets/icon/eye-off.svg">
+            <div id="passwordCheckErrorMessage" class="error-message hidden">비밀번호 확인 에러메시지</div>
           </div>
         </form>
         <button href="signup.html" class="btn-sign-login">회원가입</button>
@@ -51,7 +55,7 @@
       </div>
     </div>
   </div>
-  </div>
+  <script type="module" src="/src/scripts/signup.js"></script>
 </body>
 
 </html>
