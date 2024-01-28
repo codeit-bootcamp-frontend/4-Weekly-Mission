@@ -98,10 +98,13 @@ input {
   margin: 0;
 }
 
-#email-input:focus {
+.email.input:focus {
   border: 1px solid var(--Linkbrary-primary-color);
 }
-#passWord-input:focus {
+.password.input:focus {
+  border: 1px solid var(--Linkbrary-primary-color);
+}
+.passwordConfirm.input:focus {
   border: 1px solid var(--Linkbrary-primary-color);
 }
 

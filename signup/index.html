@@ -64,23 +64,40 @@
       </header>
 
       <main>
-        <form class="sign-form" action="/login" method="post">
+        <form class="sign-form" action="../signin/index.html" method="post">
           <section class="email">
             <p>이메일</p>
-            <input id="email-input" type="email" />
+            <input
+              class="email input"
+              type="email"
+              name="email"
+              placeholder="내용 입력"
+            />
+            <p class="errorMessage email"></p>
           </section>
 
           <section class="password">
-            <p>비밀번호</p>
-            <input id="passWord-input" type="password" />
+            <label>비밀번호</label>
+            <input
+              class="password input"
+              type="password"
+              name="password"
+              placeholder="내용 입력"
+            />
             <img src="../assets/eye-off.png" />
+            <p class="errorMessage password"></p>
           </section>
 
-
-          <section class="password">
-            <p>비밀번호 확인</p>
-            <input id="passWord-input" type="password" />
+          <section class="password confirm">
+            <label>비밀번호 확인</label>
+            <input
+              class="passwordConfirm input"
+              type="password"
+              name="passwordconfirm"
+              placeholder="내용 입력"
+            />
             <img src="../assets/eye-off.png" />
+            <p class="errorMessage passwordconfirm"></p>
           </section>
 
           <button type="submit" class="CTA">회원가입</button>
@@ -168,4 +185,5 @@
       </main>
     </div>
   </body>
+  <script src="./signup.js" type="module"></script>
 </html>

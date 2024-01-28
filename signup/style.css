@@ -141,6 +141,12 @@ section.password > img {
   justify-content: center;
 }
 
+.errorMessage.password,
+.errorMessage.passwordconfirm {
+  position: relative;
+  top: -16px;
+}
+
 /* 태블릿 사이즈 */
 @media screen and (1199px >= width >= 768px) {
   .container {
