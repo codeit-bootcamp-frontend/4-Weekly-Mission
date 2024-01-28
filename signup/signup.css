@@ -178,3 +178,23 @@ button {
     margin-right: 32px;
   }
 }
+
+.invalid {
+  border: 1px solid #ff5b56;
+}
+
+#emailError {
+  font-family: Pretendard;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.8px;
+  color: #ff5b56;
+}
+
+#passwordError {
+  font-family: Pretendard;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.8px;
+  color: #ff5b56;
+}

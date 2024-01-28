@@ -16,23 +16,24 @@
         </div>
         <p class="question">이미 회원이신가요? <a href="/signin">로그인 하기</a></p>
       </section>
-      <section class="middle">
+      <form class="middle">
         <div class="input">
           <p>이메일</p>
-          <input type="email" placeholder="codeit@codeit.com" />
+          <input id="email" type="email" placeholder="codeit@codeit.com" />
+          <span id="emailError"></span>
         </div>
-        <div class="input">
+        <div class="input" id="password">
           <p>비밀번호</p>
           <input type="password" placeholder="linkbrary2023" />
         </div>
-        <div class="input">
+        <div class="input" id="passwordCheck">
           <p>비밀번호 확인</p>
           <input class="passwordCheck" type="password" placeholder="linkbrary20245" />
           <p class="errorMessage">비밀번호가 다릅니다</p>
         </div>
-      </section>
-      <section class="bottom">
         <button>회원가입</button>
+      </form>
+      <section class="bottom">
         <div class="socialLogin">
           <p>다른 방식으로 가입하기</p>
           <div class="sns">
@@ -42,5 +43,6 @@
         </div>
       </section>
     </main>
+    <script src="signup.js" type="module"></script>
   </body>
 </html>
