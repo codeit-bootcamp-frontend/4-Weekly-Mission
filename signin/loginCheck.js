@@ -10,7 +10,6 @@ function login() {
 
   if (emailValue === validEmail && passwordValue === validPassword) {
     window.location.href = './folder';
-    return;
   }
 
   if (emailValue !== validEmail) {
@@ -23,5 +22,14 @@ function login() {
     passwordError.innerHTML = '비밀번호를 확인해 주세요.';
   }
 }
+
+document.querySelector('.middle').addEventListener('submit', function (e) {
+  e.preventDefault();
+  login();
+});
+
+//로그인 버튼에 이벤트 리스너 등록
+const loginButton = document.querySelector('#loginButton');
+loginButton.addEventListener('click', login);
 
 export default login;
