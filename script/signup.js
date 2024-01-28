@@ -10,10 +10,13 @@ const emailCheckErrorMessage = document.getElementById('emailCheckErrorMessage')
 // ERROR_MESSAGE for password
 const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 const passwordCheckMessage = document.getElementById('passwordCheckMessage');
+const passwordFormatErrorMessage = document.getElementById('passwordFormatMessage');
+const passwordMatchErrorMessage = document.getElementById('passwordMatchErrorMessage');
 
 //INPUT section
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
+const passwordConfirmInput = document.getElementById('password_confirm');
 
 //Button section
 const signInButton = document.getElementById('login-button');
@@ -42,6 +45,13 @@ emailInput.addEventListener('focusout', function () {
     makeVisiable(emailFormatErrorMessage);
 });
 
+passwordInput.addEventListener('focusout', function () {
+    const passwordValue = passwordInput.value.trim();
+    if(!isEmptyString(passwordValue) && isValidPassword(passwordValue)) {
+        makeInvisiable(passwordFormatErrorMessage);return;} 
+    makeVisiable(passwordFormatErrorMessage);
+});
+
 signInButton.addEventListener('click', function (event) {
     event.preventDefault();
     const emailValue = emailInput.value.trim();
@@ -63,3 +73,10 @@ watchPassword.addEventListener('click', function () {
     }
 });
 
+signInButton.addEventListener('click', function (event) {
+    event.preventDefault();
+    const passwordValue = passwordInput.value.trim();
+    const passwordConfirmValue = passwordConfirmInput.value.trim();
+    if(passwordValue === passwordConfirmValue) {makeVisiable(passwordMatchErrorMessage); return;}
+    makeInvisiable(passwordMatchErrorMessage);
+});
