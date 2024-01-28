@@ -6,47 +6,44 @@ export function isValidEmail(email) {
 }
 
 export const emailValidation = function() {
-  let emailInput = variable.email.value.trim();
-  let emailFormatErrorMessage = document.querySelector('.email-format-error-message');
+  let emailInput = variable.signForm.children[0].children[0].children[1].value.trim();
   
   if (emailInput === '') {
-    variable.emailErrorMessage.style.display = 'block';
-    emailFormatErrorMessage.style.display = 'none';
-    variable.email.style.border = '0.1rem solid var(--red)';
+    variable.signForm.children[0].children[0].children[2].style.display = 'block';
+    variable.signForm.children[0].children[0].children[2].textContent = '이메일을 입력해주세요.';
+    variable.signForm.children[0].children[0].children[1].style.border = '0.1rem solid var(--red)';
   } else if(!isValidEmail(emailInput)) {
-    variable.emailErrorMessage.style.display = 'none';
-    emailFormatErrorMessage.style.display = 'block';
-    variable.email.style.border = '0.1rem solid var(--red)';
+    variable.signForm.children[0].children[0].children[2].style.display = 'block';
+    variable.signForm.children[0].children[0].children[2].textContent = '올바른 이메일 주소가 아닙니다.';
+    variable.signForm.children[0].children[0].children[1].style.border = '0.1rem solid var(--red)';
   } else if(emailInput === 'test@codeit.com') {
-    variable.emailErrorMessage.style.display = 'block';
-    variable.emailErrorMessage.textContent = '이미 사용 중인 이메일입니다.';
-    emailFormatErrorMessage.style.display = 'none';
-    variable.email.style.border = '0.1rem solid var(--red)';
+    variable.signForm.children[0].children[0].children[2].style.display = 'block';
+    variable.signForm.children[0].children[0].children[2].textContent = '이미 사용 중인 이메일입니다.';
+    variable.signForm.children[0].children[0].children[1].style.border = '0.1rem solid var(--red)';
   } else {
-    variable.emailErrorMessage.style.display = 'none';
-    emailFormatErrorMessage.style.display = 'none';
+    variable.signForm.children[0].children[0].children[2].style.display = 'none';
     return 1;
   }
 }
 
 export const passwordValidation = function() {
-  let passwordInput = variable.password.value.trim();
+  let passwordInput = variable.signForm.children[0].children[1].children[1].value.trim();
   if(passwordInput.length >= 8 && /\d/.test(passwordInput) && /[a-zA-Z]/.test(passwordInput)) {
-    variable.passwordErrorMessage.style.display = 'none';
+    variable.signForm.children[0].children[1].children[3].style.display = 'none';
     return 1;
   } else {
-    variable.passwordErrorMessage.style.display = 'block';
-    variable.passwordErrorMessage.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.'
+    variable.signForm.children[0].children[1].children[3].style.display = 'block';
+    variable.signForm.children[0].children[1].children[3].textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.'
   }
 }
 
 export const passwordChecking = function() {
-  let passwordInput = variable.password.value.trim();
-  let passwordCheckInput = variable.passwordCheck.value.trim();
+  let passwordInput = variable.signForm.children[0].children[1].children[1].value.trim();
+  let passwordCheckInput = variable.signForm.children[0].children[2].children[1].value.trim();
   if(passwordInput != passwordCheckInput) {
-    variable.passwordCheckErrorMessage.style.display = 'block';
+    variable.signForm.children[0].children[2].children[3].style.display = 'block';
   } else {
-    variable.passwordCheckErrorMessage.style.display = 'none';
+    variable.signForm.children[0].children[2].children[3].style.display = 'none';
     return 1;
   }
 }
@@ -62,21 +59,21 @@ export const signFormValidation = function(event) {
 }
 
 export const eyeImgChange = function() {
-  if(variable.password.type === 'password') {
-    variable.password.type = 'text';
-    variable.eyeImage.src = '../../images/eye-on.png';
+  if(variable.signForm.children[0].children[1].children[1].type === 'password') {
+    variable.signForm.children[0].children[1].children[1].type = 'text';
+    variable.signForm.children[0].children[1].children[2].children[0].src = '../../images/eye-on.png';
   } else {
-    variable.password.type = 'password';
-    variable.eyeImage.src = '../../images/eye-off.svg';
+    variable.signForm.children[0].children[1].children[1].type = 'password';
+    variable.signForm.children[0].children[1].children[2].children[0].src = '../../images/eye-off.svg';
   }
 }
 
 export const eyeImgChange2 = function() {
-  if(variable.passwordCheck.type === 'password') {
-    variable.passwordCheck.type = 'text';
-    variable.eyeImage2.src = '../../images/eye-on.png';
+  if(variable.signForm.children[0].children[2].children[1].type === 'password') {
+    variable.signForm.children[0].children[2].children[1].type = 'text';
+    variable.signForm.children[0].children[2].children[2].children[0].src = '../../images/eye-on.png';
   } else {
-    variable.passwordCheck.type = 'password';
-    variable.eyeImage2.src = '../../images/eye-off.svg';
+    variable.signForm.children[0].children[2].children[1].type = 'password';
+    variable.signForm.children[0].children[2].children[2].children[0].src = '../../images/eye-off.svg';
   }
 }

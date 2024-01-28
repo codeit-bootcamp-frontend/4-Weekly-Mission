@@ -6,57 +6,67 @@ export function isValidEmail(email) {
 }
 
 export const emailValidation = function() {
-  let emailInput = variable.email.value.trim();
-  let emailFormatErrorMessage = document.querySelector('.email-format-error-message');
+  let emailInput = variable.signForm.children[0].children[0].children[1].value.trim();
   
   if (emailInput === '') {
-    variable.emailErrorMessage.style.display = 'block';
-    emailFormatErrorMessage.style.display = 'none';
-    variable.email.style.border = '0.1rem solid var(--red)';
+    variable.signForm.children[0].children[0].lastElementChild.style.display = 'block';
+    variable.signForm.children[0].children[0].lastElementChild.textContent = '이메일을 입력해주세요.';
+    variable.signForm.children[0].children[0].children[1].style.border = '0.1rem solid var(--red)';
   } else if(!isValidEmail(emailInput)) {
-    variable.emailErrorMessage.style.display = 'none';
-    emailFormatErrorMessage.style.display = 'block';
-    variable.email.style.border = '0.1rem solid var(--red)';
+    variable.signForm.children[0].children[0].lastElementChild.style.display = 'block';
+    variable.signForm.children[0].children[0].lastElementChild.textContent = '올바른 이메일 주소가 아닙니다.';
+    variable.signForm.children[0].children[0].children[1].style.border = '0.1rem solid var(--red)';
   } else {
-    variable.emailErrorMessage.style.display = 'none';
-    emailFormatErrorMessage.style.display = 'none';
-    variable.email.style.border = '0.1rem solid var(--gray20)';
+    variable.signForm.children[0].children[0].lastElementChild.style.display = 'none';
+    variable.signForm.children[0].children[0].children[1].style.border = '0.1rem solid var(--gray20)';
   }
 }
 
 export const passwordValidation = function() {
-  let passwordInput = this.value.trim();
+  let passwordInput = variable.signForm.children[0].children[1].children[1].value.trim();
 
   if (passwordInput === '') {
-    variable.passwordErrorMessage.style.display = 'block';
-    document.querySelector('#password').style.border = '0.1rem solid var(--red)';
+    variable.signForm.children[0].children[1].lastElementChild.style.display = 'block';
+    variable.signForm.children[0].children[1].children[1].style.border = '0.1rem solid var(--red)';
   } else {
-    variable.passwordErrorMessage.style.display = 'none';
-    document.querySelector('#password').style.border = '0.1rem solid var(--gray20)';
+    variable.signForm.children[0].children[1].lastElementChild.style.display = 'none';
+    variable.signForm.children[0].children[1].children[1].style.border = '0.1rem solid var(--gray20)';
   }
 }
 
 export const signFormValidation = function(event) {
   event.preventDefault();
 
-  if(variable.email.value === 'test@codeit.com' && variable.password.value === 'codeit101') {
+  if(variable.signForm.children[0].children[0].children[1].value === 'test@codeit.com' && variable.signForm.children[0].children[1].children[1].value === 'codeit101') {
     window.location.href = '../folder.html';
+  } else if (variable.signForm.children[0].children[0].children[1].value === 'test@codeit.com' && variable.signForm.children[0].children[1].children[1].value !== 'codeit101'){
+    variable.signForm.children[0].children[0].children[2].style.display = 'none';
+    variable.signForm.children[0].children[1].children[3].textContent = '비밀번호를 확인해 주세요.';
+    variable.signForm.children[0].children[1].children[3].style.display = 'block';
+    variable.signForm.children[0].children[0].children[1].style.border = '0.1rem solid var(--gray20)';
+    variable.signForm.children[0].children[1].children[1].style.border = '0.1rem solid var(--red)';
+  } else if(variable.signForm.children[0].children[0].children[1].value !== 'test@codeit.com' && variable.signForm.children[0].children[1].children[1].value === 'codeit101') {
+    variable.signForm.children[0].children[0].children[2].textContent = '이메일을 확인해주세요.';
+    variable.signForm.children[0].children[0].children[2].style.display = 'block';
+    variable.signForm.children[0].children[1].children[3].style.display = 'none';
+    variable.signForm.children[0].children[0].children[1].style.border = '0.1rem solid var(--red)';
+    variable.signForm.children[0].children[1].children[1].style.border = '0.1rem solid var(--gray20)';
   } else {
-    variable.emailErrorMessage.textContent = '이메일을 확인해주세요.'
-    variable.emailErrorMessage.style.display = 'block';
-    variable.passwordErrorMessage.textContent = '비밀번호를 확인해 주세요.'
-    variable.passwordErrorMessage.style.display = 'block';
-    document.querySelector('#email').style.border = '0.1rem solid var(--red)';
-    document.querySelector('#password').style.border = '0.1rem solid var(--red)';
+    variable.signForm.children[0].children[0].children[2].textContent = '이메일을 확인해주세요.';
+    variable.signForm.children[0].children[0].children[2].style.display = 'block';
+    variable.signForm.children[0].children[1].children[3].textContent = '비밀번호를 확인해 주세요.';
+    variable.signForm.children[0].children[1].children[3].style.display = 'block';
+    variable.signForm.children[0].children[0].children[1].style.border = '0.1rem solid var(--red)';
+    variable.signForm.children[0].children[1].children[1].style.border = '0.1rem solid var(--red)';
   }
 }
 
 export const eyeImgChange = function() {
-  if(variable.password.type === 'password') {
-    variable.password.type = 'text';
-    variable.eyeImage.src = '../../images/eye-on.png';
+  if(variable.signForm.children[0].children[1].children[1].type === 'password') {
+    variable.signForm.children[0].children[1].children[1].type = 'text';
+    variable.signForm.children[0].children[1].children[2].children[0].src = '../../images/eye-on.png';
   } else {
-    variable.password.type = 'password';
-    variable.eyeImage.src = '../../images/eye-off.svg';
+    variable.signForm.children[0].children[1].children[1].type = 'password';
+    variable.signForm.children[0].children[1].children[2].children[0].src = '../../images/eye-off.svg';
   }
 }
