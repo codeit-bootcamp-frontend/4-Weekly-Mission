@@ -109,10 +109,17 @@ function trySignup() {
   }
 }
 
+/** enter키로 회원가입 */
+function signupByEnter(event) {
+  if (event.key === "Enter") {
+    trySignup();
+  }
+}
+
 /** 이벤트 등록 */
 emailInputBox.addEventListener("focusout", checkEmail); // 이메일 입력이 유효한지
 signupPasswordInput.addEventListener("focusout", checkPassword); //비밀번호를 입력했는지
 signupPasswordRepeatInput.addEventListener("focusout", checkPasswordRepeat); // 비밀번호 확인
 signupBtn.addEventListener("click", trySignup); // 회원가입 시도
-// signupForm.addEventListener("keydown", signupByEnter); // 엔터키로 로그인하기
+signupForm.addEventListener("keydown", signupByEnter); // 엔터키로 로그인하기
 // passwordEyeIcon.addEventListener("click", passwordShowHidden); // 비밀번호 보기 & 숨기기
