@@ -97,6 +97,14 @@ body {
   height: 1.6rem;
 }
 
+#eye-button-check {
+  position: absolute;
+  top: 5.2rem;
+  right: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
 #cta {
   display: flex;
   justify-content: center;

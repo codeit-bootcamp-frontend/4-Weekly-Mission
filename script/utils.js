@@ -30,13 +30,17 @@ export function handlePasswordInputFocusOut(passwordInput, passwordErrorMessage)
   const passwordValue = passwordInput.value;
   if (!passwordValue) {
     displayError(passwordInput, passwordErrorMessage, '비밀번호를 입력해주세요');
+  } else {
+    clearError(passwordInput, passwordErrorMessage);
   }
 }
 
 export function handlePasswordCheckInputFocusOut(passwordcheckInput, passwordCheckErrorMessage) {
   const passwordValue = passwordcheckInput.value;
   if (!passwordValue) {
-    displayError(passwordcheckInput, passwordCheckErrorMessage, '비밀번호가 다릅니다.');
+    displayError(passwordcheckInput, passwordCheckErrorMessage, '비밀번호가 일치하지 않아요.');
+  } else {
+    clearError(passwordcheckInput, passwordCheckErrorMessage);
   }
 }
 

@@ -66,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function () {
       displayError(passwordcheckInput, passwordCheckErrorMessage, '비밀번호를 다시 입력해주세요.');
     } else if (passwordCheckValue !== passwordValue) {
       displayError(passwordcheckInput, passwordCheckErrorMessage, '비밀번호가 일치하지 않아요.');
+    } else {
+      clearError(passwordcheckInput, passwordCheckErrorMessage);
     }
   }
 
@@ -105,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
     togglePasswordVisibility(
       passwordcheckInput,
       eyeIconCheck,
-      imgSrc,
+      imgSrcCheck,
       passwordcheckInput.type === 'password' ? 'text' : 'password'
     );
     // 비밀번호 가시성 토글 함수 호출
@@ -116,4 +118,6 @@ document.addEventListener('DOMContentLoaded', function () {
       passwordInput.type === 'password' ? 'text' : 'password'
     );
   });
+  // 추가: 비밀번호 확인 입력란의 에러 제거
+  clearError(passwordcheckInput, passwordCheckErrorMessage);
 });

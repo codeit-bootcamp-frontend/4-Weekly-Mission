@@ -12,7 +12,6 @@ import {
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
-  const passwordcheckInput = document.getElementById('passwordcheck');
   const signInButton = document.getElementById('cta');
   const watchPassword = document.getElementById('eye-button');
 
