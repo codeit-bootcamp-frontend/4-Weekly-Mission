@@ -34,20 +34,21 @@
             <label for='password' class="text-medium">비밀번호</label>
             <input id='password' class="sign-input" type="password" />
             <div id = "passwordErrorMessage" class = "error-message text-medium hidden">비밀번호를 입력해 주세요.</div>
-            <div id = "passwordCheckMessage" class = "error-message text-medium hidden">비밀번호를 확인해 주세요</div>
-            <button class="eye-button" type="button">
+            <div id = "passwordCheckMessage" class = "error-message text-medium hidden">비밀번호를 확인해 주세요.</div>
+            <div id = "passwordFormatMessage" class = "error-message text-medium hidden">비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.</div>
+            <button id = "eye-button" class="eye-button" type="button">
               <img src="./assets/logo/eye-off.svg" />
             </button>
           </div>
           <div class="sign-input-box sign-password">
             <label for='password_comfirm' class="text-medium">비밀번호 확인</label>
             <input id='password_comfirm' class="sign-input" type="password" />
-            <button class="eye-button" type="button">
+            <button id = "eye-button" class="eye-button" type="button">
               <img src="./assets/logo/eye-off.svg" />
             </button>
           </div>
         </div>
-        <button class="cta" type="submit">회원가입</button>
+        <button id="signInButton" class="cta" type="submit">회원가입</button>
       </form>
       <div class="sns-box">
         <span class="sns-text">다른 방식으로 가입하기</span>

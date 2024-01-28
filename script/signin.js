@@ -1,5 +1,5 @@
 import {EMAIL_REGEX, USERS, VISIABLE_STATE} from './constant.js'
-import { isEmptyString, isVisiable, makeInvisiable, makeVisiable, isValidEmail } from './functions/signFunction.js';
+import { isEmptyString, isVisiable, makeInvisiable, makeVisiable, isValidEmail, isValidPassword } from './functions/signFunction.js';
 
 
 // ERROR_MESSAGE for email
@@ -9,7 +9,8 @@ const emailCheckErrorMessage = document.getElementById('emailCheckErrorMessage')
 
 // ERROR_MESSAGE for password
 const passwordErrorMessage = document.getElementById('passwordErrorMessage');
-const passwordCheckEMessage = document.getElementById('passwordCheckMessage');
+const passwordCheckMessage = document.getElementById('passwordCheckMessage');
+const passwordFormatErrorMessage = document.getElementById('passwordFormatMessage');
 
 //INPUT section
 const emailInput = document.getElementById('email');
@@ -40,6 +41,13 @@ emailInput.addEventListener('focusout', function () {
         makeInvisiable(emailFormatErrorMessage); return;} 
     if (isEmptyString(emailValue)) {makeInvisiable(emailFormatErrorMessage); return;}
     makeVisiable(emailFormatErrorMessage);
+});
+
+passwordInput.addEventListener('focusout', function () {
+    const passwordValue = passwordInput.value.trim();
+    if(!isEmptyString(passwordValue) && isValidPassword(passwordValue)) {
+        makeInvisiable(passwordFormatErrorMessage);return;} 
+    makeVisiable(passwordFormatErrorMessage);
 });
 
 signInButton.addEventListener('click', function (event) {
