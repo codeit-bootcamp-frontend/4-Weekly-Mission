@@ -24,6 +24,17 @@ function validateEmail() {
     }
 }
 
+// 사용중인 이메일 검사
+function duplicateEmail() {
+    const isDuplicate = email.value === "test@codeit.com";
+
+    if (isDuplicate) {
+        createError(email, emailError, "이미 사용 중인 이메일입니다.");
+    } else {
+        validateEmail();
+    }
+}
+
 // 비밀번호 검사
 function validatePassword() {
     // 비밀번호 값이 없는 경우
