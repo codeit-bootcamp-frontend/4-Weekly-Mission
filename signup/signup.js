@@ -1,3 +1,4 @@
+import signupCheck from './signupCheck.js';
 import emailValidate from '../utils/emailValidate.js';
 import passwordValidate from '../utils/passwordValidate.js';
 
@@ -57,3 +58,5 @@ function passwordSameCheck() {
     passwordCheckError.innerHTML = '';
   }
 }
+
+signupCheck;
