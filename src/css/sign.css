@@ -130,7 +130,8 @@ input:focus {
     color: var(--Linkbrary-red);
 }
 
-.eye_button {
+.eye_button,
+.confirm_eye_button {
     position: absolute;
     top: 45%;
     right: 15px;
