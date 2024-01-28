@@ -3,7 +3,7 @@ const emailInput = document.querySelector('#signin-email')
 const passwordInput = document.querySelector('#signin-password')
 const errorEmail = document.querySelector('#errorEmail')
 const errorPassword = document.querySelector('#errorPassword')
-const passwordCover = document.querySelector('.eyecon')
+const passwordCover = document.querySelector('#eyecon-password')
 let isPasswordCovered = false
 
 import { isEmailValid, isInputEmpty, showError, clearError } from './sign-error.js'

@@ -5,8 +5,13 @@ const passwordInput = document.querySelector('#signup-password')
 const errorPassword = document.querySelector('#errorPassword')
 const passwordCheckInput = document.querySelector('#signup-password-repeat')
 const errorPasswordCheck = document.querySelector('#errorPasswordCheck')
+const passwordCover = document.querySelector('#eyecon-password')
+const passwordCheckCover = document.querySelector('#eyecon-password-repeat')
+let isPasswordCovered = false
+let isPasswordCheckCovered = false
 
 import { isEmailValid, isInputEmpty, showError, clearError } from './sign-error.js'
+import { togglePasswordByEyecon as togglePassword } from './toggle-password.js'
 import { PASSWORD_REGEX } from './constants.js'
 
 /////////////////////////////////////
@@ -81,16 +86,12 @@ const checkPasswordConfirm = () => {
     }
 }
 
-//todo//
-//비밀번호 input 상수 꺼내기
 const IsPasswordUsable = () => {
     const passwordCheck = passwordCheckInput.value.trim()
     const password = passwordInput.value.trim()
     return isPasswordValid(password) && passwordCheck === password
 }
 
-//todo//
-//계정 유효성 확인하기
 const validateAccount = (event) => {
     if (IsEmailUsable() && IsPasswordUsable()) {
         event.preventDefault()
@@ -118,6 +119,16 @@ const handlePasswordCheckFocusout = () => {
     checkPasswordConfirm()
 }
 
+const handlePasswordClick = () => {
+    togglePassword(passwordInput, isPasswordCovered, passwordCover)
+    isPasswordCovered = !isPasswordCovered
+}
+///todo///
+// 비밀번호 눈 아이콘이랑 비밀번호 재확인 아이콘 분리
+const handlePasswordCheckClick = () => {
+    togglePassword(passwordCheckInput, isPasswordCheckCovered, passwordCheckCover)
+    isPasswordCheckCovered = !isPasswordCheckCovered
+}
 //////////////// 함수 사용////////////////////
 
 // 이메일 이벤트 리스너 부여
@@ -128,3 +139,7 @@ passwordInput.addEventListener('focusout', handlePasswordFocusout)
 passwordCheckInput.addEventListener('focusout', handlePasswordCheckFocusout)
 // 로그인 버튼 입력 시 이메일 비번 확인 후 이동
 form.addEventListener('submit', validateAccount)
+// 비번 가리기 버튼 리스너 부여
+passwordCover.addEventListener('click', handlePasswordClick)
+// 비번 재확인 가리기 버튼 리스너 부여
+passwordCheckCover.addEventListener('click', handlePasswordCheckClick)
