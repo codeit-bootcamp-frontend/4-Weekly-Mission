@@ -36,16 +36,16 @@
                 id="email"
                 name="email"
                 class="auth-form-input"
-                value="codeit@codeit.com"
+                placeholder="codeit@codeit.com"
               />
+              <p id="emailError" class="error-message"></p>
               <label for="password">비밀번호</label>
               <div class="password-container">
-                <!-- 피그마상에서 비밀번호가 그대로 보여 type="password" 미기입 -->
                 <input
+                  type="password"
                   id="password"
                   name="password"
                   class="auth-form-input"
-                  value="linkbrary2023"
                 />
                 <img
                   src="../image/icons/eye-on.svg"
@@ -55,12 +55,11 @@
               </div>
               <label for="password">비밀번호 확인</label>
               <div class="password-container">
-                <!-- 피그마상에서 비밀번호가 그대로 보여 type="password" 미기입 -->
                 <input
+                  type="password"
                   id="password"
                   name="password"
                   class="auth-form-input"
-                  value="linkbrary20245"
                 />
                 <img
                   src="../image/icons/eye-on.svg"
@@ -91,5 +90,6 @@
         </section>
       </article>
     </main>
+    <script type="module" src="../scripts/signup.js"></script>
   </body>
 </html>
