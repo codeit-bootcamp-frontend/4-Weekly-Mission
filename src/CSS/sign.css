@@ -113,13 +113,9 @@ header {
   border: 0.1rem solid var(--red);
 }
 
-#error-message-email {
-  color: var(--red);
-  font-size: 1.4rem;
-  font-weight: 400;
-}
-
-#error-message-password {
+#error-message-email,
+#error-message-password,
+#error-message-password-check {
   color: var(--red);
   font-size: 1.4rem;
   font-weight: 400;

@@ -55,7 +55,7 @@ passwordInput.addEventListener('focusout', checkPassword);
 loginBtn.addEventListener('click', tryLogin);
 signForm.addEventListener('keydown', function(event){
   if (event.key === 'Enter'){
-    tryLogin(e);
+    tryLogin(event);
   };
 });
 passwordEyeBtn.addEventListener('click', togglePasswordEyeBtn);
