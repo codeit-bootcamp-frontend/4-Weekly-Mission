@@ -52,7 +52,7 @@ function checkLogin(event) {
       passwordInput.value === "codeit101"
     ) {
       // 로그인 성공 시 페이지 이동
-      window.location.href = "/folder";
+      window.location.href = "/folder.html";
     } else {
       // 로그인 실패 시 오류 메시지 표시
       emailError.textContent = "이메일을 확인해 주세요.";

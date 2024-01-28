@@ -1,55 +1,76 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <title>회원가입</title>
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <title>회원가입</title>
-  <link rel="stylesheet" as="style" crossorigin
-    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css">
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body class="signup-page">
-  <form class="signup">
-    <div class="signup-div1">
-      <div class="signup-title">
-        <a href="/" target="_self">
-          <img class="signin-logo" src="./images/logo.png" alt="회원가입페이지로고">
-        </a>
-        <div class="signup-title-text">이미 회원이신가요?
-          <a class="signup-text-link" href="/signin.html">로그인하기</a>
+  <body class="signup-page">
+    <form class="signup">
+      <div class="signup-div1">
+        <div class="signup-title">
+          <a href="/" target="_self">
+            <img
+              class="signin-logo"
+              src="./images/logo.png"
+              alt="회원가입페이지로고"
+            />
+          </a>
+          <div class="signup-title-text">
+            이미 회원이신가요?
+            <a class="signup-text-link" href="/signin.html">로그인하기</a>
+          </div>
         </div>
-      </div>
-      <div class="signup-input">
+        <div class="signup-input">
+          <div>
+            <label>이메일</label>
+            <input id="email" name="email" type="text" placeholder="Email" />
+            <p id="email-error" class="error-message"></p>
+          </div>
+          <div>
+            <label>비밀번호</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="비밀번호"
+            />
+            <p id="password-error" class="error-message"></p>
+          </div>
+          <div>
+            <label>비밀번호 확인</label>
+            <input
+              id="password-check"
+              name="passwordcheck"
+              type="password"
+              placeholder="비밀번호"
+            />
+            <p id="password-check-error" class="error-message"></p>
+          </div>
+        </div>
         <div>
-          <label>이메일</label>
-          <input name="email" type="text" placeholder="Email">
-        </div>
-        <div>
-          <label>비밀번호</label>
-          <input name="password" type="text" placeholder="비밀번호">
-        </div>
-        <div>
-          <label>비밀번호 확인</label>
-          <input name="passwordcheck" type="text" placeholder="비밀번호">
+          <button id="signup-btn" class="signup-button">회원가입</button>
         </div>
       </div>
-      <div>
-        <button class="signup-button">회원가입</button>
+      <div class="signup-div2">
+        <div class="anotherway-txt">다른 방식으로 가입하기</div>
+        <div class="social-img">
+          <a href="https://www.google.com/" target="_blank">
+            <img src="./images/google.png" alt="google" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/" target="_blank">
+            <img src="./images/kakaotalk.png" alt="kakaotalk" />
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="signup-div2">
-      <div class="anotherway-txt">다른 방식으로 가입하기</div>
-      <div class="social-img">
-        <a href="https://www.google.com/" target="_blank">
-          <img src="./images/google.png" alt="google">
-        </a>
-        <a href="https://www.kakaocorp.com/page/" target="_blank">
-          <img src="./images/kakaotalk.png" alt="kakaotalk">
-        </a>
-      </div>
-    </div>
-  </form>
-</body>
-
+    </form>
+    <script src="signup.js"></script>
+  </body>
 </html>
