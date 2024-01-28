@@ -10,8 +10,10 @@ const emailRegex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
 
 // 이메일 검사
 function validateEmail() {
+    const isEmpty = email.value.trim() === "";
+
     // 이메일 값이 없는 경우
-    if (email.value.trim() === "") {
+    if (isEmpty) {
         createError(email, emailError, "이메일을 입력해 주세요.");
         return;
     }
@@ -28,8 +30,10 @@ function validateEmail() {
 
 // 비밀번호 검사
 function validatePassword() {
+    const isEmpty = password.value.trim() === "";
+
     // 비밀번호 값이 없는 경우
-    if (password.value.trim() === "") {
+    if (isEmpty) {
         createError(password, passwordError, "비밀번호를 입력해 주세요.");
     }
     // 비밀번호 값이 있는 경우
