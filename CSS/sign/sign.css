@@ -70,7 +70,8 @@
   width: 100%;
 }
 
-.eye-icon {
+.eye-icon,
+.verify-eye-icon {
   position: absolute;
   right: 15px;
   top: 22px;
