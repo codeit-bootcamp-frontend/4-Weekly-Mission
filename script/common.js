@@ -16,15 +16,16 @@ const verifyPasswordErrorMessage = document.querySelector(
 );
 
 const eyeIcon = document.querySelector(".eye-icon");
+const verifyEyeIcon = document.querySelector(".verify-eye-icon");
 const loginBtn = document.querySelector(".sign-btn");
 
-// eye icon click handler
-const handleEyeIconClick = (passwordInput, eyeIcon) => {
-  const passwordType =
-    passwordInput.getAttribute("type") === "password" ? "text" : "password";
-  passwordInput.setAttribute("type", passwordType);
+// eye icon click
+const handleEyeIconClick = (inputElement, eyeIcon) => {
+  const inputType =
+    inputElement.getAttribute("type") === "password" ? "text" : "password";
+  inputElement.setAttribute("type", inputType);
 
-  passwordType === "password"
+  inputElement === "password"
     ? eyeIcon.setAttribute("src", "../assets/svg/eye-off.svg")
     : eyeIcon.setAttribute("src", "../assets/svg/eye-on.svg");
 };
@@ -38,6 +39,7 @@ export {
   passwordErrorMessage,
   verifyPasswordErrorMessage,
   eyeIcon,
+  verifyEyeIcon,
   loginBtn,
   handleEyeIconClick,
 };
