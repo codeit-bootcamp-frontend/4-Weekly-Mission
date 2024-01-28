@@ -9,13 +9,9 @@ import {
   validateEmail,
   validatePw,
   eyeToggle,
-  showError,
-  hideError,
+  handleSignInFail,
 } from "./auth.js";
-const handleSignInFail = () => {
-  showError(emailError, emailInput, ERROR_MESSAGES.email_check);
-  showError(pwError, pwInput, ERROR_MESSAGES.password_check);
-};
+
 const handleSignIn = (e) => {
   e.preventDefault();
   const emailValue = emailInput.value.trim();
@@ -29,6 +25,7 @@ const handleSignIn = (e) => {
     handleSignInFail();
   }
 };
+
 emailInput.addEventListener("focusout", validateEmail);
 pwInput.addEventListener("focusout", validatePw);
 form.addEventListener("submit", (e) => handleSignIn(e));

@@ -9,15 +9,12 @@ import {
   validateEmail,
   validatePw,
   eyeToggle,
+  handleSignInFail,
 } from "./auth";
 const pwConfirmError = document.querySelector("#pwConfirm-error");
 const pwConfirmInput = document.querySelector("#password-confirm");
 const pwConfirmToggle = document.querySelector("#pwConfirm-eyeIcon");
 
-const handleSignInFail = () => {
-  showError(emailError, emailInput, ERROR_MESSAGES.email_check);
-  hideError(pwError, pwInput, ERROR_MESSAGES.password_check);
-};
 const handleSignUp = (e) => {
   const emailValue = emailInput.value.trim();
   const pwValue = pwInput.value.trim();

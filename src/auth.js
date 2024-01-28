@@ -61,10 +61,10 @@ const validatePwConfirm = () => {
 };
 // pwConfirmInput.addEventListener("focusout", validatePwConfirm);
 
-// const handleSignInFail = () => {
-//   showError(emailError, emailInput, ERROR_MESSAGES.email_check);
-//   hideError(pwError, pwInput, ERROR_MESSAGES.password_check);
-// };
+export const handleSignInFail = () => {
+  showError(emailError, emailInput, ERROR_MESSAGES.email_check);
+  showError(pwError, pwInput, ERROR_MESSAGES.password_check);
+};
 
 // 로그인 인증 검사
 // const handleSignIn = (e) => {
