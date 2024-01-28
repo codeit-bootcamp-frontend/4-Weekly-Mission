@@ -4,13 +4,12 @@ import {handleInputFocusin} from './lib/formErrorHandling.js'
 import * as signUtils from './utils/signUtils.js'
 
 if (signGlobals.currentPageURL.includes("signup.html")) {
-  const signPasswordCheckInput = DOM.selectElement('#check-password')
   DOM.createTagAndclassWithText(signGlobals.signPasswordCheckSecion, 'password-check-error', '')
 
-  signPasswordCheckInput.addEventListener('focusout',signUtils.handlePasswordCheckFocusout)
-  signPasswordCheckInput.addEventListener('focusin', () => handleInputFocusin(signPasswordCheckInput))
+  signGlobals.signPasswordCheckInput.addEventListener('focusout',signUtils.handlePasswordCheckFocusout)
+  signGlobals.signPasswordCheckInput.addEventListener('focusin', () => handleInputFocusin(signGlobals.signPasswordCheckInput))
   signGlobals.signUpButton.addEventListener('click',signUtils.handleSignUpButton )
-  signPasswordCheckInput.addEventListener('keyup',signUtils.handleEnter)
+  signGlobals.signPasswordCheckInput.addEventListener('keyup',signUtils.handleEnter)
 
 }else if(signGlobals.currentPageURL.includes("signin.html")){
   signGlobals.loginButton.addEventListener('click', signUtils.handleLoginButton)
