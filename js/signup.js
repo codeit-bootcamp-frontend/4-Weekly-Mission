@@ -44,3 +44,34 @@ function passwordCheck() {
     createErrorMessage("비밀번호가 다릅니다.", confirmPasswordInput);
   }
 }
+
+signupButton.addEventListener("click", function(e) {
+  e.preventDefault();
+  signup();
+});
+
+function signup() {
+  const email = emailInput
+  const password = passwordInput
+  const confirmPassword = confirmPasswordInput
+  
+  function newPage() {
+    const link = '/folder.html'
+    location.href = link;
+  }
+
+  const notHasError = !email.classList.contains('error') && !password.classList.contains("error") && !confirmPassword.classList.contains("error");
+
+  if (notHasError) {
+    newPage();
+  } else {
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  let pressedKey = e.key
+  if (pressedKey === 'Enter') {
+    e.preventDefault();
+    signup();
+  }
+});
