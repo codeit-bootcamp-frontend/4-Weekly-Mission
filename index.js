@@ -11,7 +11,7 @@ passwordError.classList.add("error-message");
 const eyeBtn = document.querySelector(".eye-button");
 const loginBtn = document.querySelector(".cta");
 
-const isValidAccount = (event) => {
+const handleClickBtn = (event) => {
   event.preventDefault();
   if (
     emailInput.value === "test@codeit.com" &&
@@ -22,39 +22,35 @@ const isValidAccount = (event) => {
     emailInput.value !== "test@codeit.com" &&
     passwordInput.value === "codeit101"
   ) {
-    isNotValidEmail();
+    displayEmailError();
   } else if (
     emailInput.value === "test@codeit.com" &&
     passwordInput.value !== "codeit101"
   ) {
-    isNotValidPassword();
+    displayPwError();
   } else if (
     emailInput.value !== "test@codeit.com" &&
     passwordInput.value !== "codeit101"
   ) {
-    isNotValidAll();
+    displayAllErrors();
   }
 };
-const isNotValidEmail = () => {
+const displayEmailError = () => {
   emailInput.after(emailError);
   emailError.textContent = "이메일을 확인해 주세요.";
   emailInput.style.border = "1px solid #ff5b45";
 };
 
-const isNotValidPassword = () => {
+const displayPwError = () => {
   passwordInput.after(passwordError);
   passwordError.textContent = "비밀번호를 확인해 주세요.";
   passwordInput.style.border = "1px solid #ff5b45";
 };
-const isNotValidAll = () => {
-  emailInput.after(emailError);
-  emailError.textContent = "이메일을 확인해 주세요.";
-  passwordInput.after(passwordError);
-  passwordError.textContent = "비밀번호를 확인해 주세요.";
-  emailInput.style.border = "1px solid #ff5b45";
-  passwordInput.style.border = "1px solid #ff5b45";
+const displayAllErrors = () => {
+  displayEmailError();
+  displayPwError();
 };
-const focusoutEmail = (event) => {
+const handleFocusoutEmail = (event) => {
   if (event.target.value.length === 0) {
     emailInput.after(emailError);
     emailError.textContent = "이메일을 입력해 주세요.";
@@ -69,7 +65,7 @@ const focusoutEmail = (event) => {
   }
 };
 
-const focusoutPassword = (event) => {
+const handleFocusoutPw = (event) => {
   if (event.target.value.length === 0) {
     passwordInput.after(passwordError);
     passwordError.textContent = "비밀번호를 입력해 주세요.";
@@ -77,13 +73,13 @@ const focusoutPassword = (event) => {
     passwordError.remove();
   }
 };
-const showPw = () => {
+const handleClickEyes = () => {
   passwordInput.setAttribute("type", "text");
   eyeBtn.style.display = "none";
 };
 
-emailInput.addEventListener("focusout", focusoutEmail);
-passwordInput.addEventListener("focusout", focusoutPassword);
+emailInput.addEventListener("focusout", handleFocusoutEmail);
+passwordInput.addEventListener("focusout", handleFocusoutPw);
 
-eyeBtn.addEventListener("click", showPw);
-loginBtn.addEventListener("click", isValidAccount);
+eyeBtn.addEventListener("click", handleClickEyes);
+loginBtn.addEventListener("click", handleClickBtn);
