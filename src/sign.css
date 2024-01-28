@@ -102,6 +102,12 @@ header {
   border-color: var(--primary);
 }
 
+#id-warning, #pw-warning, #pwcheck-warning{
+  display: none;
+  color: red;
+  font-size: 13px;
+}
+
 .eye-button {
   position: absolute;
   bottom: 2.2rem;
