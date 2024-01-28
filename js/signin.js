@@ -18,11 +18,10 @@ function login() {
   const enteredPassword = passwordInput.value;
   
   function newPage() {
-    let link = '/folder.html'
+    const link = '/folder.html'
     location.href = link;
   }
 
-  // 기존 에러 메시지 삭제
   const emailError = emailInput.parentElement.querySelector(".error-message");
   if (emailError) {
     emailError.remove();

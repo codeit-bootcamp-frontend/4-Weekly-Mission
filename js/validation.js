@@ -3,12 +3,24 @@ export function isValidEmail(email) {
 }
 
 export function createErrorMessage(message, inputElement) {
-  const newError = document.createElement("p");
-  newError.textContent = message;
-  newError.classList.add("error-message");
+  const existingErrorMessage = inputElement.parentElement.querySelector('.error-message');
 
-  inputElement.classList.add("error");
-  inputElement.parentElement.appendChild(newError);
+  // 이미 같은 종류의 에러 메시지가 표시되어 있다면 중복 표시 방지
+  if (!existingErrorMessage || existingErrorMessage.textContent !== message) {
+    const newError = document.createElement("p");
+    newError.textContent = message;
+    newError.classList.add("error-message");
+
+    inputElement.classList.add("error");
+
+    // 이미 에러 메시지가 있다면 제거
+    if (existingErrorMessage) {
+      existingErrorMessage.remove();
+    }
+
+    // 에러 메시지 추가
+    inputElement.parentElement.appendChild(newError);
+  }
 }
 
 export function validateEmail(emailInput) {
