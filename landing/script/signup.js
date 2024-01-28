@@ -1,4 +1,4 @@
-//변수 email과 password에 input값 선언
+//DOM
 const userInput = {
   email: document.querySelector("input[name=email]"),
   password: document.querySelector("input[name=password]"),
@@ -26,39 +26,37 @@ const eyeImgCorrect = document.querySelector(".eye-button-correct img");
 //이메일 포커스 아웃 이벤트 발생 시 유효성 검사
 email.addEventListener("focusout", (event) => {
   if (!event.target.value) {
-    email.style.borderColor = "black";
-    errorMsgEmail.style.color = "red";
-    errorMsgEmail.innerHTML = "이메일을 입력해주세요.";
+    email.classList.add("error-msg");
+    errorMsgEmail.textContent = "이메일을 입력해주세요.";
   } else if (!regexEmail.test(event.target.value)) {
-    email.style.borderColor = "red";
-    errorMsgEmail.style.color = "red";
-    errorMsgEmail.innerHTML = "올바른 이메일 주소가 아닙니다.";
+    email.classList.add("error-msg");
+    errorMsgEmail.textContent = "올바른 이메일 주소가 아닙니다.";
   } else {
-    errorMsgEmail.innerHTML = "";
+    email.classList.remove("error-msg");
+    errorMsgEmail.textContent = "";
   }
 });
 //비밀번호 포커스 아웃 인벤트 발생 시 유효성 검사
 password.addEventListener("focusout", (event) => {
   if (!event.target.value) {
-    password.style.borderColor = "black";
-    errorMsgPwd.style.color = "red";
-    errorMsgPwd.innerHTML = "비밀번호를 입력해주세요.";
+    password.classList.add("error-msg");
+    errorMsgPwd.textContent = "비밀번호를 입력해주세요.";
   } else if (!regexPwd.test(event.target.value)) {
-    password.style.borderColor = "red";
-    errorMsgPwd.style.color = "red";
-    errorMsgPwd.innerHTML = "올바른 비밀번호가 아닙니다.";
+    password.classList.add("error-msg");
+    errorMsgPwd.textContent = "올바른 비밀번호가 아닙니다.";
   } else {
-    errorMsgPwd.innerHTML = "";
+    password.classList.remove("error-msg");
+    errorMsgPwd.textContent = "";
   }
 });
 //비밀번호 확인 포커스 아웃 인벤트 발생 시 유효성 검사
 pwdCorrect.addEventListener("focusout", (event) => {
   if (!(password.value === pwdCorrect.value)) {
-    pwdCorrect.style.borderColor = "red";
-    errorMsgPwdCorrect.style.color = "red";
-    errorMsgPwdCorrect.innerHTML = "비밀번호가 다릅니다.";
+    pwdCorrect.classList.add("error-msg");
+    errorMsgPwdCorrect.textContent = "비밀번호가 다릅니다.";
   } else {
-    errorMsgPwdCorrect.innerHTML = "";
+    pwdCorrect.classList.remove("error-msg");
+    errorMsgPwdCorrect.textContent = "";
   }
 });
 /*form태그는 버튼을 누르면 링크를 이동하는 기본동작이 있다

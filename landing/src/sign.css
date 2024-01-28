@@ -172,4 +172,9 @@ header {
   position: absolute;
   top: 10rem;
   inset-inline: auto;
+  color: #ff5b56;
+}
+/*클래스로 변환할 에러 메시지*/
+.error-msg {
+  border-color: #ff5b56;
 }
