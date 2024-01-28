@@ -18,8 +18,9 @@
           <div>
             <label for="email">이메일</label>
             <input id="email" class="signInput" type="email" name="email" />
+            <p class="errorMsg"></p>
           </div>
-          <div>
+          <div class="password-form signUp">
             <label for="password">비밀번호</label>
             <input
               id="password"
@@ -27,8 +28,10 @@
               type="password"
               name="password"
             />
+            <p class="errorMsg"></p>
+            <img class="eye" id="eye-password" />
           </div>
-          <div>
+          <div class="password-form signUp">
             <label for="password-check">비밀번호 확인</label>
             <input
               id="password-check"
@@ -36,7 +39,10 @@
               type="password"
               name="password-check"
             />
+            <p class="errorMsg"></p>
+            <img class="eye" id="eye-password-check" />
           </div>
+
           <button>회원가입</button>
         </form>
       </div>
@@ -52,6 +58,6 @@
         </div>
       </div>
     </main>
-    <script src="src/sign.js"></script>
+    <script src="src/signUp.js" type="module"></script>
   </body>
 </html>
