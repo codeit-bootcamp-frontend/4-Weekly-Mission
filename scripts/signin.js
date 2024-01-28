@@ -36,6 +36,8 @@ const passwordErrorElement = DOMHandler.getById(passwordErrorElementId);
 
 const handleSubmit = event => {
   event.preventDefault();
+  passwordElement.blur();
+  emailElement.blur();
   const isValid = isValidUser(USERS, emailElement, passwordElement);
   if (isValid) {
     loginAction();

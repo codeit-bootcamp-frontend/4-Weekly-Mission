@@ -58,6 +58,9 @@ const handlePasswordCheck = () => {
 
 const handleSignUp = event => {
   event.preventDefault();
+  emailElement.blur();
+  passwordElement.blur();
+  passwordCheckElement.blur();
   const checkEmail = InputHandler.isMatchRegEx(emailElement, EMAIL_REGEX) && !isExistEmail(USERS, emailElement);
   const checkPassword =
     InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX) &&
