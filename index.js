@@ -1,12 +1,12 @@
-import { isValidEmail } from "./common.js";
+import { printEmailError } from "./common.js";
 
 const emailInput = document.querySelector(".email-input");
-const emailError = document.createElement("div");
+const emailMessage = document.createElement("div");
 
 const passwordInput = document.querySelector(".password-input");
 const passwordError = document.createElement("div");
 
-emailError.classList.add("error-message");
+emailMessage.classList.add("error-message");
 passwordError.classList.add("error-message");
 const eyeBtn = document.querySelector(".eye-button");
 const loginBtn = document.querySelector(".cta");
@@ -36,8 +36,8 @@ const handleClickBtn = (event) => {
   }
 };
 const displayEmailError = () => {
-  emailInput.after(emailError);
-  emailError.textContent = "이메일을 확인해 주세요.";
+  emailInput.after(emailMessage);
+  emailMessage.textContent = "이메일을 확인해 주세요.";
   emailInput.style.border = "1px solid #ff5b45";
 };
 
@@ -51,24 +51,14 @@ const displayAllErrors = () => {
   displayPwError();
 };
 const handleFocusoutEmail = (event) => {
-  if (event.target.value.length === 0) {
-    emailInput.after(emailError);
-    emailError.textContent = "이메일을 입력해 주세요.";
-  } else if (
-    event.target.value.length !== 0 &&
-    isValidEmail(emailInput.value)
-  ) {
-    emailError.remove();
-  } else if (!isValidEmail(emailInput.value)) {
-    emailInput.after(emailError);
-    emailError.textContent = "올바른 이메일 주소가 아닙니다.";
-  }
+  printEmailError(emailMessage, emailInput);
 };
 
 const handleFocusoutPw = (event) => {
   if (event.target.value.length === 0) {
     passwordInput.after(passwordError);
     passwordError.textContent = "비밀번호를 입력해 주세요.";
+    passwordInput.style.border = "1px solid #ff5b45";
   } else {
     passwordError.remove();
   }
