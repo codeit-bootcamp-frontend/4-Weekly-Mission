@@ -23,12 +23,14 @@
         <div class="contents-form">
           <div class="input-container">
             <label for="email">이메일</label>
-            <input type="email" name="email" id="email" placeholder="이메일">
+            <input type="email" name="email" id="email" class="signin-id-input" placeholder="이메일">
+            <div class="id-error-message"></div>
           </div>
           <div class="input-container input-password">
             <label for="password">비밀번호</label>
-            <input type="password" name="password" id="password" placeholder="비밀번호">
+            <input type="password" name="password" id="password" class="signin-pw-input" placeholder="비밀번호">
             <img class="password-eye" src="/assets/image/eye-on.png">
+            <div class="pw-error-message"></div>
           </div>
         </div>
         <button class="form-submit" type="submit">로그인</button>
