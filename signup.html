@@ -13,46 +13,57 @@
   <body>
     <div class="contents">
       <a href="./">
-        <img class="sign_logo" src="./images/logo.png" alt="Linkbrary" />
+        <img class="sign-logo" src="./images/logo.png" alt="Linkbrary"/>
       </a>
-      <div class="login_info">
-        이미 회원이신가요? <a href="./signin.html" target="_self">로그인하기</a>
+      <div class="login-info">
+        이미 회원이신가요? <a href="./signin.html">로그인하기</a>
       </div>
-      <form class="form_box">
-        <label class="form_label" for="emailInput">이메일</label>
-        <input class="form_input" id="emailInput" type="email" />
-        <label class="form_label" for="passwordInput">비밀번호</label>
-        <div class="password">
-          <input class="form_input" id="passwordInput" type="password" />
-          <button class="btn_password_icon">
-            <img class="btn_password_icon_imgs icon_eye_open" src="./images/icon-open-eye.png"></img>
-          </button>
+      <form class="form-box">
+        <div class="form-input-elements">
+          <label class="form-label" for="email-input">이메일</label>
+          <input class="form-input js-email-input" id="js-email-input" type="email"/>
+          <p class="error-txt js-email-error-msg"></p>
         </div>
-        <label class="form_label" for="passwordCheck">비밀번호 확인</label>
-        <div class="password">
-          <input class="form_input" id="passwordCheck" type="password" />
-          <button class="btn_password_icon">
-            <img class="btn_password_icon_imgs icon_eye_open" src="./images/icon-open-eye.png"></img>
-          </button>
+        <div class="form-input-elements">
+          <label class="form-label" for="password-input">비밀번호</label>
+          <div class="password">
+            <input class="form-input js-password-input" id="password-input" type="password"/>
+            <button class="btn-password-icon" type="button">
+              <img class="btn-password-icon-imgs icon-eye-open" src="./images/icon-open-eye.png"></img>
+              <img class="btn-password-icon-imgs icon-eye-close" src="./images/icon-close-eye.png"></img>
+            </button>
+          </div>
+          <p class="error-txt js-password-error-msg"></p>
         </div>
+        <div class="form-input-elements">
+          <label class="form-label" for="password-check">비밀번호 확인</label>
+          <div class="password">
+            <input class="form-input js-password-check-input" id="password-check" type="password" />
+            <button class="btn-password-check-icon" type="button">
+              <img class="btn-password-icon-imgs icon-eye-open" src="./images/icon-open-eye.png"></img>
+              <img class="btn-password-icon-imgs icon-eye-close" src="./images/icon-close-eye.png"></img>
+            </button>
+          </div>
+          <p class="error-txt js-password-check-error-msg"></p>
+        </div>
+        <a class="signup-btn js-btn-join" type='submit'>회원가입</a>
       </form>
-      <a class="signup_button" href="./">회원가입</a>
-      <div class="social_login_box">
+      <div class="social-login-box">
         <p>다른 방식으로 가입하기</p>
-        <div class="social_icons">
-          <div class="social_icon_link back_color_white">
-            <a href="https://www.google.com/" target="_self">
+        <div class="social-icons">
+          <div class="social-icon-link back-color-white">
+            <a href="https://www.google.com/">
               <img
-                class="social_login_icon"
+                class="social-login-icon"
                 src="./images/icon-google.png"
                 alt="icon-google"
               />
             </a>
           </div>
-          <div class="social_icon_link back_color_yellow">
-            <a href="https://www.kakaocorp.com/page/" target="_self">
+          <div class="social-icon-link back-color-yellow">
+            <a href="https://www.kakaocorp.com/page/">
               <img
-                class="social_login_icon"
+                class="social-login-icon"
                 src="./images/icon-kakao.png"
                 alt="icon-kakao"
               />
@@ -61,6 +72,6 @@
         </div>
       </div>
     </div>
-    <script src="./js/signup.js"></script>
+    <script src="./js/signup.js" type="module"></script>
   </body>
 </html>
