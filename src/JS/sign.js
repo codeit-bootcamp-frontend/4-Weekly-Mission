@@ -29,29 +29,6 @@ function errorMsgRemove(input, msgType){
   msgType.classList.add('display-none');
 }; // 에러 메세지 지우기
 
-function checkEmail(){
-  if (emailInput.value === ""){
-        errorMsgAdd(emailInput, errorMessageEmail, "이메일을 입력해 주세요");
-        return false;
-      } else if (!checkValidationEmail(emailInput.value)){
-        errorMsgAdd(emailInput, errorMessageEmail, "올바른 이메일 주소가 아닙니다");
-        return false;
-      } else {
-        errorMsgRemove(emailInput, errorMessageEmail);
-        return true;
-      };
-}; // 이메일 유효성 체크
-
-function checkPassword(){
-  if (passwordInput.value === ""){
-    errorMsgAdd(passwordInput, errorMessagePassword, "비밀번호를 입력해 주세요");
-    return false;
-  } else {
-    errorMsgRemove(passwordInput, errorMessagePassword);
-    return true;
-  }
-}; // 비밀번호 유효성 체크
-
 function toggleEyeBtn(){
   if(passwordInput.getAttribute('type') === 'password'){
     passwordInput.setAttribute('type', 'text'); // 비밀번호 보이기
@@ -64,4 +41,4 @@ function toggleEyeBtn(){
   }
 }; // 비밀번호 보이기/가리기
 
-export { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn, eyeBtn, eyeOff, eyeOn, checkValidationEmail, errorMsgAdd, errorMsgRemove, checkEmail, checkPassword, toggleEyeBtn };
+export { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn, eyeBtn, eyeOff, eyeOn, checkValidationEmail, errorMsgAdd, errorMsgRemove, toggleEyeBtn };

@@ -1,4 +1,27 @@
-import {signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn as loginBtn, eyeBtn, errorMsgAdd, checkEmail, checkPassword, toggleEyeBtn} from './sign.js';
+import { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn as loginBtn, eyeBtn, checkValidationEmail, errorMsgAdd, errorMsgRemove, toggleEyeBtn } from './sign.js';
+
+function checkEmail(){
+  if (emailInput.value === ""){
+        errorMsgAdd(emailInput, errorMessageEmail, "이메일을 입력해 주세요");
+        return false;
+      } else if (!checkValidationEmail(emailInput.value)){
+        errorMsgAdd(emailInput, errorMessageEmail, "올바른 이메일 주소가 아닙니다");
+        return false;
+      } else {
+        errorMsgRemove(emailInput, errorMessageEmail);
+        return true;
+      };
+}; // 이메일 유효성 체크
+
+function checkPassword(){
+  if (passwordInput.value === ""){
+    errorMsgAdd(passwordInput, errorMessagePassword, "비밀번호를 입력해 주세요");
+    return false;
+  } else {
+    errorMsgRemove(passwordInput, errorMessagePassword);
+    return true;
+  }
+}; // 비밀번호 유효성 체크
 
 function loginCheck(){
   if(checkEmail() && checkPassword()){ // 먼저 이메일과 비밀번호의 유효성 확인
