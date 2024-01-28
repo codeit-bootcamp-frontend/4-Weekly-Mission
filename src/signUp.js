@@ -22,14 +22,6 @@ const isDuplicateEmail = () => {
     return true;
   } else return false;
 };
-const handleFail = (error) => {
-  if (error === "email")
-    showError(emailError, emailInput, ERROR_MESSAGES.email_check);
-  else if (error === "pw")
-    showError(pwError, pwInput, ERROR_MESSAGES.password_check);
-  else
-    showError(pwConfirmError, pwConfirmInput, ERROR_MESSAGES.pwConfirm_check);
-};
 
 const handleSignUp = (e) => {
   e.preventDefault();
