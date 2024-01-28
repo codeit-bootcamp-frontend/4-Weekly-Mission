@@ -8,7 +8,7 @@ export function Validator(inputId, errorId, regex, errorMessage, type, page) {
 
   if (inputElement.value.trim() === '') {
     errorElement.textContent = errorMessage; // 기본 에러메시지 설정
-  } else if (!regex.test(inputElement.value) && type !== 'pwd') {
+  } else if (!regex.test(inputElement.value) && type === 'id') {
     errorElement.textContent = '올바른 이메일 주소가 아닙니다.';
   } else if (inputElement.value.trim() === 'test@codeit.com' && type === 'id' && page === 'signup') {
     errorElement.textContent = '이미 사용 중인 이메일입니다.';
