@@ -1,3 +1,5 @@
+import { isValidEmail } from "./common.js";
+
 const emailInput = document.querySelector(".email-input");
 const emailError = document.createElement("div");
 
@@ -9,57 +11,59 @@ passwordError.classList.add("error-message");
 const eyeBtn = document.querySelector(".eye-button");
 const loginBtn = document.querySelector(".cta");
 
-const isValidEmail = () => {
-  const email_regex =
-    /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-
-  if (email_regex.test(emailInput.value)) {
-    return true;
-  } else {
-    return false;
-  }
-};
 const isValidAccount = (event) => {
   event.preventDefault();
   if (
-    updateEmail() === "test@codeit.com" &&
+    emailInput.value === "test@codeit.com" &&
     passwordInput.value === "codeit101"
   ) {
     location.href = "./folder.html";
   } else if (
-    updateEmail() !== "test@codeit.com" &&
-    updatePassword() === "codeit101"
+    emailInput.value !== "test@codeit.com" &&
+    passwordInput.value === "codeit101"
   ) {
-    emailInput.after(emailError);
-    emailError.textContent = "이메일을 확인해 주세요.";
-    emailInput.style.border = "1px solid #ff5b45";
+    isNotValidEmail();
   } else if (
-    updateEmail() === "test@codeit.com" &&
-    updatePassword() !== "codeit101"
+    emailInput.value === "test@codeit.com" &&
+    passwordInput.value !== "codeit101"
   ) {
-    passwordInput.after(passwordError);
-    passwordError.textContent = "비밀번호를 확인해 주세요.";
-    passwordInput.style.border = "1px solid #ff5b45";
+    isNotValidPassword();
   } else if (
-    updateEmail() !== "test@codeit.com" &&
-    updatePassword() !== "codeit101"
+    emailInput.value !== "test@codeit.com" &&
+    passwordInput.value !== "codeit101"
   ) {
-    emailInput.after(emailError);
-    emailError.textContent = "이메일을 확인해 주세요.";
-    passwordInput.after(passwordError);
-    passwordError.textContent = "비밀번호를 확인해 주세요.";
-    emailInput.style.border = "1px solid #ff5b45";
-    passwordInput.style.border = "1px solid #ff5b45";
+    isNotValidAll();
   }
 };
+const isNotValidEmail = () => {
+  emailInput.after(emailError);
+  emailError.textContent = "이메일을 확인해 주세요.";
+  emailInput.style.border = "1px solid #ff5b45";
+};
 
+const isNotValidPassword = () => {
+  passwordInput.after(passwordError);
+  passwordError.textContent = "비밀번호를 확인해 주세요.";
+  passwordInput.style.border = "1px solid #ff5b45";
+};
+const isNotValidAll = () => {
+  emailInput.after(emailError);
+  emailError.textContent = "이메일을 확인해 주세요.";
+  passwordInput.after(passwordError);
+  passwordError.textContent = "비밀번호를 확인해 주세요.";
+  emailInput.style.border = "1px solid #ff5b45";
+  passwordInput.style.border = "1px solid #ff5b45";
+};
 const focusoutEmail = (event) => {
   if (event.target.value.length === 0) {
     emailInput.after(emailError);
     emailError.textContent = "이메일을 입력해 주세요.";
-  } else if (event.target.value.length !== 0 && isValidEmail()) {
+  } else if (
+    event.target.value.length !== 0 &&
+    isValidEmail(emailInput.value)
+  ) {
     emailError.remove();
-  } else if (!isValidEmail()) {
+  } else if (!isValidEmail(emailInput.value)) {
     emailInput.after(emailError);
     emailError.textContent = "올바른 이메일 주소가 아닙니다.";
   }
@@ -78,10 +82,7 @@ const showPw = () => {
   eyeBtn.style.display = "none";
 };
 
-emailInput.addEventListener("input", updateEmail);
 emailInput.addEventListener("focusout", focusoutEmail);
-
-passwordInput.addEventListener("input", updatePassword);
 passwordInput.addEventListener("focusout", focusoutPassword);
 
 eyeBtn.addEventListener("click", showPw);

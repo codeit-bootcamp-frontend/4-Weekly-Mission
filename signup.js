@@ -1,29 +1,20 @@
 const emailInput = document.querySelector(".email-input");
 const passwordInput = document.querySelector(".password-input");
 const rePasswordInput = document.querySelector(".check-password");
-const signInput = document.querySelector(".sign-input");
 const form = document.querySelector(".sign-form");
 const emailMessage = document.createElement("div");
 const passwordMessage = document.createElement("div");
 const rePasswordMessage = document.createElement("div");
 const eyeBtn = document.querySelectorAll(".eye-button");
 
-const isValidEmail = () => {
-  const email_regex =
-    /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+import { isValidEmail } from "./common.js";
 
-  if (email_regex.test(emailInput.value)) {
-    return true;
-  } else {
-    return false;
-  }
-};
 const handleFocusoutEmail = () => {
   emailMessage.classList.remove("error-style");
   if (emailInput.value.length === 0) {
     emailInput.after(emailMessage);
     emailMessage.textContent = "이메일을 입력해주세요.";
-  } else if (!isValidEmail()) {
+  } else if (!isValidEmail(emailInput.value)) {
     emailInput.after(emailMessage);
     emailMessage.textContent = "올바른 이메일 주소가 아닙니다.";
   } else if (emailInput.value === "test@codeit.com") {
