@@ -131,10 +131,11 @@ html {
   width: 100%;
 }
 
-.password__toggle-icon {
+.password__toggle-icon,
+.pwcheck__toggle-icon {
   position: absolute;
   right: 15px;
-  top: 18px;
+  top: 30px;
 }
 
 
