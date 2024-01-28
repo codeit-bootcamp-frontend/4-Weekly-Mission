@@ -52,6 +52,11 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
+// 비밀번호 유효성 검사
+function isValidPassword(password) {
+    return passwordRegex.test(password);
+}
+
 // 로그인
 function login(event) {
     event.preventDefault();
