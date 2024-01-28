@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   emailInput.addEventListener("blur", validateEmail);
   passwordInput.addEventListener("blur", validatePassword);
 
+  // 이메일 유효성 검사 함수
   function validateEmail() {
     const emailValue = emailInput.value;
     if (!emailValue) {
@@ -26,14 +27,17 @@ document.addEventListener("DOMContentLoaded", function () {
     return true;
   }
 
+  // 비밀번호 유효성 검사 함수
   function validatePassword() {
     const passwordValue = passwordInput.value;
     if (!passwordValue) {
       document.querySelector("#passwordError").textContent =
         "비밀번호를 입력해 주세요.";
+      passwordInput.classList.add("invalid");
       return false;
     }
     document.querySelector("passwordError").textContent = "";
+    passwordInput.classList.remove("invalid");
     return true;
   }
 
