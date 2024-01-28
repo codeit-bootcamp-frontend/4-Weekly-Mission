@@ -1,5 +1,5 @@
 import {EMAIL_ERROR_MESSAGE, PASSWORD_CONFIRM_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE} from './constant.js'
-import { getElementById} from './dom/domhelper.js';
+import { getElementById, noErrorMessage} from './dom/domhelper.js';
 import { isEmptyString, isValidEmail, showError, hideError, isValidPassword, hidePassword, showPassword } from './functions/signFunction.js';
 import { goToFolderhtml } from './temporary.js';
 
@@ -44,9 +44,7 @@ passwordConfirmInput.addEventListener('focusout', function() {
 
 signInButton.addEventListener('click', function (event) {
     event.preventDefault();
-    const emailValue = emailInput.value.trim();
-    const passwordValue = passwordInput.value.trim();
-    
+    if(noErrorMessage(emailErrorMessage) && noErrorMessage(passwordErrorMessage) && noErrorMessage(passwordConfirmErrorMessage)) window.location.href = goToFolderhtml;
 });
 
 eyeButtonPassword.addEventListener('click', function () {
