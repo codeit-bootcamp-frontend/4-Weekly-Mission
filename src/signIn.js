@@ -9,8 +9,12 @@ import {
   validateEmail,
   validatePw,
   eyeToggle,
-  handleFail,
 } from "./auth.js";
+
+const handleFail = () => {
+  showError(emailError, emailInput, ERROR_MESSAGES.email_check);
+  showError(pwError, pwInput, ERROR_MESSAGES.password_check);
+};
 
 const handleSignIn = (e) => {
   e.preventDefault();

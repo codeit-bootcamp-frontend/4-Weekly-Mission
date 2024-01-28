@@ -1,40 +1,63 @@
-import { ERROR_MESSAGES, REGEX } from "./constants/VALIDATION.js";
+import { TEST_AUTH, ERROR_MESSAGES } from "./constants/VALIDATION.js";
 import {
   emailError,
   emailInput,
   pwError,
   pwInput,
+  pwConfirmError,
+  pwConfirmInput,
   form,
   pwToggle,
+  pwConfirmToggle,
   validateEmail,
   validatePw,
+  validatePwConfirm,
   eyeToggle,
-  handleFail,
-} from "./auth";
-const pwConfirmError = document.querySelector("#pwConfirm-error");
-const pwConfirmInput = document.querySelector("#password-confirm");
-const pwConfirmToggle = document.querySelector("#pwConfirm-eyeIcon");
+  showError,
+} from "./auth.js";
+
+const isDuplicateEmail = () => {
+  if (emailInput.value.trim() === TEST_AUTH.email) {
+    showError(emailError, emailInput, ERROR_MESSAGES.email_duplicate);
+    return true;
+  } else return false;
+};
+const handleFail = (error) => {
+  if (error === "email")
+    showError(emailError, emailInput, ERROR_MESSAGES.email_check);
+  else if (error === "pw")
+    showError(pwError, pwInput, ERROR_MESSAGES.password_check);
+  else
+    showError(pwConfirmError, pwConfirmInput, ERROR_MESSAGES.pwConfirm_check);
+};
 
 const handleSignUp = (e) => {
-  const emailValue = emailInput.value.trim();
-  const pwValue = pwInput.value.trim();
-
-  if (emailValue === "test@codeit.com" && pwValue === "codeit101") {
-    alert("로그인 성공!");
+  e.preventDefault();
+  if (
+    !isDuplicateEmail() &&
+    validateEmail() &&
+    validatePw() &&
+    validatePwConfirm()
+  ) {
+    alert("회원가입 성공!");
     window.location.href = "folder.html";
   } else {
-    alert("로그인 실패!");
-    handleFail();
+    // 이메일 에러 시 메세지
+    if (isDuplicateEmail) isDuplicateEmail;
+    else if (validateEmail === false) handleFail("email");
+    // 비밀번호 에러 시 메세지
+    if (!validatePw) handleFail("pw");
+    // 비밀번호 확인 에러 시 메세지
+    if (!validatePwConfirm) handleFail("pwConfirm");
   }
-  e.preventDefault();
 };
 
 emailInput.addEventListener("focusout", validateEmail);
+emailInput.addEventListener("focusout", isDuplicateEmail);
 pwInput.addEventListener("focusout", validatePw);
 pwConfirmInput.addEventListener("focusout", validatePwConfirm);
 form.addEventListener("submit", (e) => handleSignUp(e));
 pwToggle.addEventListener("click", () => eyeToggle(pwInput, pwToggle));
-
 pwConfirmToggle.addEventListener("click", () =>
   eyeToggle(pwConfirmInput, pwConfirmToggle)
 );

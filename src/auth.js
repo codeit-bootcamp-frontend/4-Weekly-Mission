@@ -6,6 +6,9 @@ export const pwError = document.querySelector("#password-error");
 export const pwInput = document.querySelector("#password");
 export const form = document.querySelector("form");
 export const pwToggle = document.querySelector("#pw-eyeIcon");
+export const pwConfirmError = document.querySelector("#pwConfirm-error");
+export const pwConfirmInput = document.querySelector("#password-confirm");
+export const pwConfirmToggle = document.querySelector("#pwConfirm-eyeIcon");
 
 export const showError = (errorEl, input, errorType) => {
   errorEl.style.display = "block";
@@ -26,39 +29,49 @@ const isValidFormat = (action, input) => {
 export const validateEmail = () => {
   const emailValue = emailInput.value.trim();
 
-  if (emailValue === "")
+  if (emailValue === "") {
     showError(emailError, emailInput, ERROR_MESSAGES.email_empty);
-  else if (!isValidFormat("email", emailValue))
+    return false;
+  } else if (!isValidFormat("email", emailValue)) {
     showError(emailError, emailInput, ERROR_MESSAGES.email_invalid);
-  else hideError(emailError, emailInput);
+    return false;
+  } else {
+    hideError(emailError, emailInput);
+    return true;
+  }
 };
 
 // 비밀번호 유효성 검사
 export const validatePw = () => {
   const passwordValue = pwInput.value.trim();
 
-  if (passwordValue === "")
+  if (passwordValue === "") {
     showError(pwError, pwInput, ERROR_MESSAGES.password_empty);
-  else if (!isValidFormat("pw", passwordValue))
+    return false;
+  } else if (!isValidFormat("pw", passwordValue)) {
     showError(pwError, pwInput, ERROR_MESSAGES.password_invalid);
-  else hideError(pwError, pwInput);
+    return false;
+  } else {
+    hideError(pwError, pwInput);
+    return true;
+  }
 };
 
 // 비밀번호 확인 유효성 검사
-const validatePwConfirm = () => {
+export const validatePwConfirm = () => {
   const passwordValue = pwInput.value.trim();
   const pwConfirmValue = pwConfirmInput.value.trim();
 
-  if (pwConfirmValue === "")
+  if (pwConfirmValue === "") {
     showError(pwConfirmError, pwConfirmInput, ERROR_MESSAGES.pwConfirm_empty);
-  else if (passwordValue !== pwConfirmValue)
-    showError(pwConfirmError, pwConfirmInput, ERROR_MESSAGES.pwConfirm_invalid);
-  else hideError(pwConfirmError, pwConfirmInput);
-};
-
-export const handleFail = () => {
-  showError(emailError, emailInput, ERROR_MESSAGES.email_check);
-  showError(pwError, pwInput, ERROR_MESSAGES.password_check);
+    return false;
+  } else if (passwordValue !== pwConfirmValue) {
+    showError(pwConfirmError, pwConfirmInput, ERROR_MESSAGES.pwConfirm_check);
+    return false;
+  } else {
+    hideError(pwConfirmError, pwConfirmInput);
+    return true;
+  }
 };
 
 // 비밀번호 확인 숨김 아이콘 동작
