@@ -61,7 +61,7 @@ const validatePwConfirm = () => {
 };
 // pwConfirmInput.addEventListener("focusout", validatePwConfirm);
 
-export const handleSignInFail = () => {
+export const handleFail = () => {
   showError(emailError, emailInput, ERROR_MESSAGES.email_check);
   showError(pwError, pwInput, ERROR_MESSAGES.password_check);
 };

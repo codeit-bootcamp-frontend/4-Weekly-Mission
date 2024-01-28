@@ -9,7 +9,7 @@ import {
   validateEmail,
   validatePw,
   eyeToggle,
-  handleSignInFail,
+  handleFail,
 } from "./auth.js";
 
 const handleSignIn = (e) => {
@@ -22,7 +22,7 @@ const handleSignIn = (e) => {
     window.location.href = "folder.html";
   } else {
     alert("로그인 실패!");
-    handleSignInFail();
+    handleFail();
   }
 };
 

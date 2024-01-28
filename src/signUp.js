@@ -9,7 +9,7 @@ import {
   validateEmail,
   validatePw,
   eyeToggle,
-  handleSignInFail,
+  handleFail,
 } from "./auth";
 const pwConfirmError = document.querySelector("#pwConfirm-error");
 const pwConfirmInput = document.querySelector("#password-confirm");
@@ -24,7 +24,7 @@ const handleSignUp = (e) => {
     window.location.href = "folder.html";
   } else {
     alert("로그인 실패!");
-    handleSignInFail();
+    handleFail();
   }
   e.preventDefault();
 };
