@@ -1,114 +1,101 @@
-const form = document.querySelector('.sign-form');
-const inputs = document.querySelector('.sign-inputs');
+const signForm = document.querySelector('#signForm');
 const errorMessageEmail = document.querySelector('#error-message-email');
 const errorMessagePassword = document.querySelector('#error-message-password');
-const email = document.querySelector('#email');
-const password = document.querySelector('#password');
+const emailInput = document.querySelector('#emailInput');
+const passwordInput = document.querySelector('#passwordInput');
+const loginBtn = document.querySelector('#loginBtn');
+const eyeBtn = document.querySelector('.eye-button');
+const eyeOff = document.querySelector('#offEye');
+const eyeOn = document.querySelector('#onEye');
 
-function testEmail(email_address){     
+function checkValidationEmail(email_address){     
 	email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
 	if(!email_regex.test(email_address)){ 
 		return false; 
 	} else {
 		return true;
 	};
-};
+}; // 이메일이 정규식인지 확인해서 불린값 리턴함
 
-function validateEmail(e){
-  if(!testEmail(e.target.value) && e.target.value !== ''){
-    e.target.classList.add('sign-input-error');
-    errorMessageEmail.innerHTML = "올바른 이메일 주소가 아닙니다";
-    errorMessageEmail.classList.remove('display-none');
-  } else {
-    e.target.classList.remove('sign-input-error');
-    errorMessageEmail.classList.add('display-none');
-  };
-};
+function errorMsgAdd(input, msgType, errText){
+  input.classList.add('sign-input-error');
+  msgType.innerHTML = errText;
+  msgType.classList.remove('display-none');
+}; // 에러 메세지 출력
 
-function typeEmail(e){
-  if (email.value === ""){
-    email.classList.add('sign-input-error');
-    errorMessageEmail.innerHTML = "이메일을 입력해 주세요";
-    errorMessageEmail.classList.remove('display-none');
-  };
-};
+function errorMsgRemove(input, msgType){
+  input.classList.remove('sign-input-error');
+  msgType.classList.add('display-none');
+}; // 에러 메세지 지우기
 
-inputs.firstElementChild.addEventListener('focusout', validateEmail);
-inputs.firstElementChild.addEventListener('focusout', typeEmail);
+function checkEmail(){
+  if (emailInput.value === ""){
+        errorMsgAdd(emailInput, errorMessageEmail, "이메일을 입력해 주세요");
+        return false;
+      } else if (!checkValidationEmail(emailInput.value)){
+        errorMsgAdd(emailInput, errorMessageEmail, "올바른 이메일 주소가 아닙니다");
+        return false;
+      } else {
+        errorMsgRemove(emailInput, errorMessageEmail);
+        return true;
+      };
+}; // 이메일 유효성 체크
 
-function typePassword(e){
-  if (password.value === ""){
-    password.classList.add('sign-input-error');
-    errorMessagePassword.innerHTML = "비밀번호를 입력해 주세요";
-    errorMessagePassword.classList.remove('display-none');
-  } else {
-    password.classList.remove('sign-input-error');
-    errorMessagePassword.classList.add('display-none');
-  }
-};
-
-inputs.lastElementChild.addEventListener('focusout', typePassword);
-
-function loginEmailCheck(){
-  if (email.value === "test@codeit.kr"){
-    return true;
-  } else {
-    email.classList.add('sign-input-error');
-    errorMessageEmail.innerHTML = "이메일을 확인해 주세요";
-    errorMessageEmail.classList.remove('display-none');
+function checkPassword(){
+  if (passwordInput.value === ""){
+    errorMsgAdd(passwordInput, errorMessagePassword, "비밀번호를 입력해 주세요");
     return false;
-  }
-};
-
-function loginPasswordCheck(){
-  if (password.value === "codeit101"){
-    return true;
   } else {
-    password.classList.add('sign-input-error');
-    errorMessagePassword.innerHTML = "비밀번호를 확인해 주세요";
-    errorMessagePassword.classList.remove('display-none');
-    return false;
+    errorMsgRemove(passwordInput, errorMessagePassword);
+    return true;
   }
-};
+}; // 비밀번호 유효성 체크
 
-function loginCheck(e){
+function loginCheck(){
+  if(checkEmail() && checkPassword()){ // 먼저 이메일과 비밀번호의 유효성 확인
+    if(emailInput.value === 'test@codeit.com' && passwordInput.value === "codeit101"){
+      return true;
+    } else if (emailInput.value !== 'test@codeit.com' && passwordInput.value !== "codeit101"){
+      errorMsgAdd(emailInput, errorMessageEmail, '이메일을 확인해 주세요');
+      errorMsgAdd(passwordInput, errorMessagePassword, "비밀번호를 확인해 주세요");
+      return false;
+    } else if (emailInput.value !== 'test@codeit.com'){
+      errorMsgAdd(emailInput, errorMessageEmail, '이메일을 확인해 주세요');
+      return false;
+    } else if (passwordInput.value !== "codeit101"){
+      errorMsgAdd(passwordInput, errorMessagePassword, "비밀번호를 확인해 주세요");
+      return false;
+    };
+  };
+}; // 허락된 계정인지 확인
+
+function tryLogin(e){
   e.preventDefault();
-  if (loginEmailCheck() && loginPasswordCheck()){
-    let link = 'folder.html';
+  if(loginCheck()){
+    let link = '/folder.html';
     window.location.href = link;
   };
-};
-
-form.lastElementChild.addEventListener('click', loginCheck);
-document.addEventListener('keypress', function(e){
-  if (e.key === 'enter'){
-    loginCheck(e);
-  }
-});
-
-const eyeBtn = document.querySelector('.eye-button');
-
-function switchType(){
-  if(password.getAttribute('type') === 'password'){
-    password.setAttribute('type', 'text');
-  } else {
-    password.setAttribute('type', 'password');
-  }
-};
-
-function switchEye(){
-  if(password.getAttribute('type') === 'password'){
-    eyeBtn.lastElementChild.setAttribute('class', 'display-none');
-    eyeBtn.firstElementChild.removeAttribute('class');
-  } else {
-    eyeBtn.firstElementChild.setAttribute('class', 'display-none');
-    eyeBtn.lastElementChild.removeAttribute('class');
-  }
-};
+}; // 로그인 시도
 
 function toggleEyeBtn(){
-  switchType();
-  switchEye();
-};
+  if(passwordInput.getAttribute('type') === 'password'){
+    passwordInput.setAttribute('type', 'text'); // 비밀번호 보이기
+    eyeOff.classList.add('display-none'); // 눈 아이콘 변경
+    eyeOn.classList.remove('display-none');
+  } else {
+    passwordInput.setAttribute('type', 'password'); // 비밀번호 가리기
+    eyeOn.classList.add('display-none'); // 눈 아이콘 변경
+    eyeOff.classList.remove('display-none');
+  }
+}; // 비밀번호 보이기/가리기
 
+// 이벤트 관리
+emailInput.addEventListener('focusout', checkEmail);
+passwordInput.addEventListener('focusout', checkPassword);
+loginBtn.addEventListener('click', tryLogin);
+signForm.addEventListener('keydown', function(event){
+  if (event.key === 'Enter'){
+    tryLogin(e);
+  };
+});
 eyeBtn.addEventListener('click', toggleEyeBtn);
