@@ -1,42 +1,17 @@
-const toggleIcon = document.getElementById('eyeIcon');
-const emailInput = document.getElementById('userEmail');
-const passwordInput = document.getElementById('password');
-const emailError = document.getElementById('emailError');
-const passwordError = document.getElementById('passwordError');
+import {
+  isValidEmail,
+  showErrorMessage,
+  hideErrorMessage,
+  passwordToggle,
+
+  toggleIcon,
+  emailInput,
+  passwordInput,
+  emailError,
+  passwordError,
+} from './common.js';
+
 const loginButton = document.getElementById('signinButton');
-
-toggleIcon.addEventListener('click', () => {
-  if (passwordInput.type === 'password') {
-    passwordInput.type = 'text';
-    toggleIcon.src = "img/eye-on.png"; 
-  } else {
-    passwordInput.type = 'password';
-    toggleIcon.src = "img/eye-off.png"; 
-  }
-});
-
-emailInput.addEventListener('focusout', validateEmail);
-passwordInput.addEventListener('focusout', validatePassword);
-loginButton.addEventListener('click', attemptLogin);
-window.addEventListener('keypress', handleKeyPress);
-
-
-function isValidEmail(email) {
-    // 간단한 이메일 형식 검사
-    return /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,8}$/.test(email);
-  }
-
-function showErrorMessage(element, message) {
-    element.textContent = message;
-    element.style.display = 'block';
-    element.previousElementSibling.style.borderColor = 'red'; // 테두리 색상 빨간색으로 변경
-}
-  
-function hideErrorMessage(element) {
-    element.textContent = '';
-    element.style.display = 'none';
-    element.previousElementSibling.style.borderColor = ''; // 테두리 색상 초기화
-}
 
 function validateEmail() {
   const emailValue = emailInput.value.trim();
@@ -61,13 +36,13 @@ function validatePassword() {
 }
 
 function handleKeyPress(e) {
-    if(e.key === 'Enter') {
-        attemptLogin();
-        e.preventDefault();
-    }
+  if(e.key === 'Enter') {
+      attemptLogin();
+      e.preventDefault(); //엔터키 누를 시 form을 form의 action 속성으로 전송하는 기본 동작 방지
+  }
 }
 
-function attemptLogin() {
+function attemptLogin(e) {
   validateEmail();
   validatePassword();
 
@@ -77,6 +52,7 @@ function attemptLogin() {
   if (emailValue === 'test@codeit.com' && passwordValue === 'codeit101') {
     // 로그인 성공 시 페이지 이동
     console.log('로그인 성공');
+    e.preventDefault(); //submit 버튼 클릭 시 페이지가 새로고침되는 기본 동작 방지
     window.location.href = 'folder.html';
   } else {
     if (emailValue !== 'test@codeit.com') {
@@ -87,3 +63,9 @@ function attemptLogin() {
     }
   }
 }
+
+emailInput.addEventListener('focusout', validateEmail);
+passwordInput.addEventListener('focusout', validatePassword);
+toggleIcon.addEventListener('click', passwordToggle);
+loginButton.addEventListener('click', attemptLogin);
+window.addEventListener('keypress', handleKeyPress);

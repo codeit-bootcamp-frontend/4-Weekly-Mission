@@ -26,7 +26,7 @@
                     <label for="password">비밀번호</label>
                     <input id="password" class="inputBlank" type="password" name="password">
                     <div id="passwordError" class="errorMessage">비밀번호를 입력해 주세요.</div>
-                    <img id="eyeIcon" src="img/eye-off.png">
+                    <img id="eyeIcon" class="eyeIcon" src="img/eye-off.png">
                 </div>
             </div>
             <button class="signinButton" id="signinButton" type="submit">로그인</button>
@@ -39,6 +39,7 @@
             </div>
         </div>
     </div>
-    <script src="signin.js"></script>
+    <script type="module" src="common.js" defer></script>
+    <script type="module" src="signin.js" defer></script>
 </body>
 </html>
