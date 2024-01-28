@@ -1,10 +1,12 @@
 const emailInput = document.getElementById('email-input');
 const emailError = document.getElementById('email-error');
+const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
+
 
 function emailErrorMessage() {
   if (emailInput.value.trim() === '') {
     emailError.textContent = '이메일을 입력해 주세요';
-  } else if (emailInput.value.indexOf('@') === -1 || emailInput.value.indexOf('.') === -1) {
+  } else if (!emailRegex.test(emailInput.value)) {
     emailError.textContent = '올바른 이메일 주소가 아닙니다';
   } else {
     emailError.textContent = '';
@@ -44,22 +46,28 @@ pwdInput.addEventListener('focusout', pwdErrorMessage);
 
 const loginBtn = document.getElementById('login-btn');
 
-function login(){
+function login() {
   if (emailInput.value.trim() === 'test@codeit.com' && pwdInput.value.trim() === 'codeit101') {
     location.href = 'folder.html';
   } else {
-    emailError.textContent = '이메일을 확인해 주세요';
-    pwdError.textContent = '비밀번호를 확인해 주세요';
-    emailInput.classList.remove('sign-input');
-    emailInput.classList.add('sign-input-error');
-    pwdInput.classList.remove('sign-input');
-    pwdInput.classList.add('sign-input-error');
+
+    if (emailInput.value.trim() !== 'test@codeit.com') {
+      emailError.textContent = '이메일을 확인해 주세요';
+      emailInput.classList.remove('sign-input');
+      emailInput.classList.add('sign-input-error');
+    }
+    if (pwdInput.value.trim() !== 'codeit101') {
+      pwdError.textContent = '비밀번호를 확인해 주세요';
+      pwdInput.classList.remove('sign-input');
+      pwdInput.classList.add('sign-input-error');
+    }
+
   }
 };
 loginBtn.addEventListener('click', login);
 
-function loginEnter(e){
-  if(e.key === 'Enter'){
+function loginEnter(e) {
+  if (e.key === 'Enter') {
     login();
   }
 };
@@ -69,14 +77,14 @@ pwdInput.addEventListener('keypress', loginEnter);
 const eyeBtn = document.getElementById('eye-button');
 const eyeImg = document.getElementById('eye-img');
 
-function pwdEye(){
-  if (pwdInput.type === 'password'){
+function pwdEye() {
+  if (pwdInput.type === 'password') {
     pwdInput.type = 'text'
     eyeImg.src = "./images/eye-on.svg"
   } else {
     pwdInput.type = 'password'
     eyeImg.src = "./images/eye-off.svg"
   }
-  
+
 }
 eyeBtn.addEventListener('click', pwdEye);
