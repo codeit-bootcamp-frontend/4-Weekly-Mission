@@ -140,69 +140,133 @@ header {
 }
 
 /* content 표시 */
-.content{
-  padding-top: 7rem;
-  padding-bottom: 12rem;
+article{
+  padding-bottom: 4rem;
+
+  @media (min-width: 768px) {
+    padding-top: 3rem;
+    padding-bottom: 12rem;
+  }
+
+  @media (min-width: 1200px) {
+    padding-top: 7rem;
+  }
 }
-.contentpart{
-  display: flex;
+section{
+  display: grid;
   justify-content: center;
-  align-items: center;
-  column-gap: 15rem;
+  row-gap: 1.6rem;
   width: 100%;
-  height: 55rem;
-  padding: 50px 0;
+  height: fit-content;
+  padding: 4rem 3.2rem;
+
+  @media (min-width: 768px) {
+    height: 41.5rem;
+    column-gap: 5.1rem;
+    row-gap: 1rem;
+    padding: 5rem 0;
+  }
+
+  @media (min-width: 1200px) {
+    height: 55rem;
+    column-gap: 15.7rem;
+  }
+}
+section:nth-of-type(odd) {
+  grid-template-areas:
+    "title"
+    "image"
+    "description";
+
+  @media (min-width: 768px) {
+    grid-template-areas:
+      ". image"
+      "title image"
+      "description image"
+      ". image";
+    grid-template-columns: 26.2rem 38.5rem;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 29.1rem 55rem;
+  }
+}
+
+section:nth-of-type(even) {
+  grid-template:
+    "title"
+    "image"
+    "description";
+
+  @media (min-width: 768px) {
+    grid-template-areas:
+      "image ."
+      "image title"
+      "image description"
+      "image .";
+    grid-template-columns: 38.5rem 26.2rem;
+  }
+
+  @media (min-width: 1200px) {
+    grid-template-columns: 55rem 29.1rem;
+  }
 }
 .title {
-  font-size: 4.8rem;
+  grid-area: title;
   font-weight: 700;
-  line-height: 5.8rem;
   letter-spacing: -0.03rem;
-}
-.contentfront{
-  width: 29.1rem;
-}
-.contentback{
-  width: 55rem;
+  font-size: 2.4rem;
+
+  @media (min-width: 768px) {
+    font-size: 4.8rem;
+    line-height: 5.8rem;
+  }
 }
 .description{
-  padding-top: 1rem;
-  font-size: 1.6rem;
+  grid-area: description;
+  font-size: 1.5rem;
   font-weight: 500;
   color: #6b6b6b;
   line-height: 150%;
+
+  @media (min-width: 768px) {
+    font-size: 1.6rem;
+  }
 }
-.contentimage {
-  width: 55rem;
-  height: 45rem;
+.brDisplay {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: inline;
+  }
+}
+.contentImage {
+  grid-area: image;
+  width: 100%;
+  padding-top: 0.4rem;
+
+  @media (min-width: 768px) {
+    width: 38.5rem;
+    height: 31.5rem;
+    padding-top: 0;
+  }
+
+  @media (min-width: 1200px) {
+    width: 55rem;
+    height: 45rem;
+  }
 }
 .firstTitleGradient{
   background-image: linear-gradient(117deg, #fe8a8a 2.29%, #a4ceff 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
 }
-.content3gradient{
+.secondTitleGradient{
   background-image: linear-gradient(304deg, #6fbaff 0%, #ffd88b 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
 }
-.content4gradient{
+.thirdTitleGradient{
   background-image: linear-gradient(133deg, #2945c7 0%, #dbe1f8 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
 }
-.content5gradient{
+.lastTitleGradient{
   background-image: linear-gradient(310deg, #fe578f 0%, #68e8f9 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-.reverse{
-  flex-direction: row-reverse;
-  justify-content: flex-start;
 }
 
 /* footer 표시 */
@@ -211,76 +275,47 @@ footer{
   justify-content: center;
   width: 100%;
   height: 16rem;
-  padding-top: 3.2rem;
   background-color: var(--black);
 }
-.footerbox{
-  display: flex;
+.footerBox{
+  display: grid;
   justify-content: space-between;
+  grid-template:
+    "footer-links sns"
+    ". ." 1fr
+    "copyright .";
   width: 100%;
-  max-width: 192rem;
-  height: fit-content;
-  padding: 0 10.4rem;
+  padding: 3.2rem;
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    grid-template: "copyright footer-links sns";
+    height: fit-content;
+    max-width: 192rem;
+    padding: 3.2rem 10.4rem 0;
+  }
 }
 .copyright {
+  grid-area: copyright;
   color: #676767;
   font-family: Arial;
   font-size: 1.6rem;
 }
-.companylaw{
+.footerLinks{
+  grid-area: footer-links;
   display: flex;
   column-gap: 3rem;
   padding-right: 1.8rem;
+}
+.footerLink{
   color: #cfcfcf;
   font-family: Arial;
   font-size: 1.6rem;
 }
 .sns {
+  grid-area: sns;
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
-}
-
-
-/* 반응형 표시 */
-
-/* 태블릿 */
-@media screen and (min-width: 768px) and (max-width: 1199px) {
-  header{
-    padding: 0;
-    margin-bottom: 5%;
-  }
-  br{
-    display: none !important;
-    word-break: keep-all;
-  }
-  .mainimage{
-    width: 80%;
-    padding: 0;
-    flex-shrink: 0;
-  }
-  .contentpart{
-    display: block;
-    margin-bottom: 20rem;
-    word-break: keep-all;
-  }
-  .description{
-    padding-bottom: 5rem;
-  }
-}
-
-/* 모바일 */
-@media (max-width: 767px) {
-  br{
-    display: none !important;
-    word-break: keep-all;
-  }
-  .mainimage{
-    width: 50rem;
-    padding: 0;
-    flex-shrink: 0;
-  }
-  .contentpart{
-    display: block;
-  }
 }
