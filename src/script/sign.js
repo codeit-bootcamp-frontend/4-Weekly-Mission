@@ -1,5 +1,5 @@
-const email = document.querySelector("#signin_email");
-const password = document.querySelector("#signin_password");
+const email = document.querySelector("#sign_email");
+const password = document.querySelector("#sign_password");
 const emailError = document.querySelector("#error_email");
 const passwordError = document.querySelector("#error_password");
 const eyes = document.querySelector(".eye_button");
@@ -56,6 +56,9 @@ function isValidEmail(email) {
 function isValidPassword(password) {
     return passwordRegex.test(password);
 }
+
+// 비밀번호 확인 검사
+function checkConfirmPassword() {}
 
 // 로그인
 function login(event) {
