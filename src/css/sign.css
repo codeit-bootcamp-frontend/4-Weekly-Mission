@@ -141,6 +141,10 @@ input:focus {
     cursor: pointer;
 }
 
+input[type="text"] + .eye_button {
+    background-image: url("../images/eye-on.svg");
+}
+
 /* 버튼 */
 /* .button {
     width: 100%;

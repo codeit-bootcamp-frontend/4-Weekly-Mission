@@ -65,13 +65,8 @@ function login(event) {
 
 // 비밀번호 토글
 function toggleEye() {
-    if (password_input.type === "password") {
-        password_input.type = "text";
-        eyes.style.backgroundImage = "url('../src/images/eye-on.svg')";
-    } else {
-        password_input.type = "password";
-        eyes.style.backgroundImage = "url('../src/images/eye-off.svg')";
-    }
+    const inputType = password_input.type === "password" ? "text" : "password";
+    password_input.type = inputType;
 }
 
 // 테두리 색 바꾸기
