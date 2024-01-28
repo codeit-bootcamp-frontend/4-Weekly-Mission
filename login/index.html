@@ -24,30 +24,30 @@
     </header>
 
     <div class="login_form">
-      <form>
+      <form id="signin-form" action="/folder" method="get" onsubmit="return false">
         <div>
           <label for="login-email">이메일</label>
-          <input id="login-email" class="login-email" type="email">
+          <input id="login-email" class="login-email" type="email" placeholder="이메일을 입력해주세요.">
           <div class="error_message"></div>
         </div>
         <div>
           <label for="login-password">비밀번호</label>
-          <input id="login-password" class="login-password" type="password">
+          <input id="login-password" class="login-password" type="password" placeholder="비밀번호를 입력해주세요.">
           <div class="error_message"></div>
         </div>
+
+        <button type="submit" id="login-button">
+          로그인
+        </button>
       </form>
     </div>
-
-    <a id="login-button" class="link_login" href="#">
-      로그인
-    </a>
   </div>
 
   <div class="sns_login">
     소셜 로그인
     <div class="button_sns">
       <a class="image_google" href="http://www.google.com/">
-        <img class="image_background" src="/images/google_background.svg">
+        <img class="image_background" src="/images/google_background.svg">  <!--TODO: css로 수정 예정-->
         <img class="image_icon" src="/images/google_icon.png">
       </a>
       <a class="image_kakaotalk" href="http://www.kakaocorp.com/page/">
