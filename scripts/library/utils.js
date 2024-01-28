@@ -1,18 +1,6 @@
 //@ts-check
 /** @typedef {HTMLElement | null} HTMLElements*/
 /** @typedef { HTMLInputElement | null }  HTMLInputElements */
-export class KeyHandler {
-  /**
-   *
-   * @param {KeyboardEvent} event - keyboardEvent
-   * @param {Function} callback - event.key = 'Enter"일때 실행할 Fucntion
-   */
-  static enter = callback => {
-    if (event.key === 'Enter') {
-      callback();
-    }
-  };
-}
 export class InputHandler {
   /** <input> 요소의 값이 비었는지 확인
    * @param {HTMLInputElements} element - inputElement
