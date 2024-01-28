@@ -17,20 +17,20 @@
         <span>이미 회원이신가요?</span>
         <a href="signin.html">로그인하기</a>
     </div>
-    <form>
-        <div class="input">
+    <form action="folder.html">
+        <div class="input_group">
             <label for="email">이메일</label>
             <input id="email" name="email" type="text">
             <span class="error_message"></span>
         </div>
-        <div class="input">
+        <div class="input_group">
             <label for="password">비밀번호</label>
             <input id="password" name="password" type="password"/>
             <button type="button" class="btn_eye"><img class="icon_view_password"
                                                        src="resource/eye_close_icon.png"/></button>
             <span class="error_message"></span>
         </div>
-        <div class="input">
+        <div class="input_group">
             <label for="password_check">비밀번호 확인</label>
             <input id="password_check" name="password_check" type="password"/>
             <button type="button" class="btn_eye"><img class="icon_view_password"
@@ -38,7 +38,7 @@
             <span class="error_message"></span>
         </div>
     </form>
-    <button class="btn_gradient btn_login">회원가입</button>
+    <button id="btn_signup_submit" class="btn_gradient btn_login">회원가입</button>
     <div class="container_social">
         <div>다른 방식으로 가입하기</div>
         <div class="icons_social">
@@ -47,5 +47,6 @@
         </div>
     </div>
 </div>
+<script type="module" src="js/signup.js"></script>
 </body>
 </html>
