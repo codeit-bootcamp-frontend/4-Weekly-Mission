@@ -20,7 +20,6 @@ function isValidEmail(emailAdress) {
 
 function showErrorMessage(element, message) {
     const inputChild = element === inputBoxEmail ? element.children[1] : element.children[2];
-    console.log(inputChild);
     const lastChild = element.lastElementChild;
 
     if(lastChild === inputChild) {
@@ -86,15 +85,18 @@ function eventKeyUpEnter(e) {
     }
 }
 
+function clickEyeIcon(element, image) {
+    if(element.type === "password") {
+        element.type = "text";
+        image.src = "./images/eye-on.png";
+    } else {
+        element.type = "password";
+        image.src = "./images/eye-off.png";
+    }
+}
 // press eye-icon
 function eventClickEye() {
-    if(inputPassword.type === "password") {
-        inputPassword.type = "text";
-        eyeImg.src = "./images/eye-on.png";
-    } else {
-        inputPassword.type = "password";
-        eyeImg.src = "./images/eye-off.png";
-    }
+    clickEyeIcon(inputPassword, eyeImg);
 }
 
 inputEmail.addEventListener('focusout', eventFocusOutEmail);
@@ -102,3 +104,7 @@ inputPassword.addEventListener('focusout', eventFocusOutPassword);
 loginButton.addEventListener('click', eventClickBtn);
 document.addEventListener('keyup', eventKeyUpEnter);
 eyeButton.addEventListener('click', eventClickEye);
+
+export {USER_EMAIL, USER_PASSWORD, inputEmail, inputBoxEmail, 
+        inputPassword, inputBoxPassword, loginButton, eyeButton, eyeImg,
+        isValidEmail, showErrorMessage, removeMessage, clickEyeIcon, eventClickEye}
