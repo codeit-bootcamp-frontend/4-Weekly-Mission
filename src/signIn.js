@@ -1,4 +1,4 @@
-import { ERROR_MESSAGES, REGEX } from "./constants/VALIDATION.js";
+import { TEST_AUTH } from "./constants/VALIDATION.js";
 import {
   emailError,
   emailInput,
@@ -17,7 +17,7 @@ const handleSignIn = (e) => {
   const emailValue = emailInput.value.trim();
   const pwValue = pwInput.value.trim();
 
-  if (emailValue === "test@codeit.com" && pwValue === "codeit101") {
+  if (emailValue === TEST_AUTH.email && pwValue === TEST_AUTH.pw) {
     alert("로그인 성공!");
     window.location.href = "folder.html";
   } else {

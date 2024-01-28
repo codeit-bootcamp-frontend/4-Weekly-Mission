@@ -4,11 +4,8 @@ export const emailError = document.querySelector("#email-error");
 export const emailInput = document.querySelector("#email");
 export const pwError = document.querySelector("#password-error");
 export const pwInput = document.querySelector("#password");
-// const pwConfirmError = document.querySelector("#pwConfirm-error");
-// const pwConfirmInput = document.querySelector("#password-confirm");
 export const form = document.querySelector("form");
 export const pwToggle = document.querySelector("#pw-eyeIcon");
-// const pwConfirmToggle = document.querySelector("#pwConfirm-eyeIcon");
 
 export const showError = (errorEl, input, errorType) => {
   errorEl.style.display = "block";
@@ -34,7 +31,6 @@ export const validateEmail = () => {
     showError(emailError, emailInput, ERROR_MESSAGES.email_invalid);
   else hideError(emailError, emailInput);
 };
-// emailInput.addEventListener("focusout", validateEmail);
 
 // 비밀번호 유효성 검사
 export const validatePw = () => {
@@ -46,7 +42,6 @@ export const validatePw = () => {
     showError(pwError, pwInput, ERROR_MESSAGES.password_invalid);
   else hideError(pwError, pwInput);
 };
-// pwInput.addEventListener("focusout", validatePw);
 
 // 비밀번호 확인 유효성 검사
 const validatePwConfirm = () => {
@@ -59,7 +54,6 @@ const validatePwConfirm = () => {
     showError(pwConfirmError, pwConfirmInput, ERROR_MESSAGES.pwConfirm_invalid);
   else hideError(pwConfirmError, pwConfirmInput);
 };
-// pwConfirmInput.addEventListener("focusout", validatePwConfirm);
 
 export const handleFail = () => {
   showError(emailError, emailInput, ERROR_MESSAGES.email_check);
