@@ -1,6 +1,12 @@
 //@ts-check
 import { DOMHandler, InputHandler } from './element.js';
-import { EMAIL_REGEX, EMAIL_MESSAGE, SHOW_PASSWORD_ICON, PASSWORD_MESSAGE } from '../constant/signConfig.js';
+import {
+  EMAIL_REGEX,
+  EMAIL_MESSAGE,
+  SHOW_PASSWORD_ICON,
+  PASSWORD_MESSAGE,
+  PASSWORD_REGEX
+} from '../constant/signConfig.js';
 
 /**
  * inputElement: ErrorColor, textElement: showErrorMessage
@@ -18,7 +24,7 @@ export const deleteRedBox = element => {
   element?.classList.remove('red-box');
 };
 
-export const checkEmailInput = (emailElement, emailErrorElement) => {
+export const checkEmail = (emailElement, emailErrorElement) => {
   if (InputHandler.isMatchRegEx(emailElement, EMAIL_REGEX)) {
     emailErrorElement?.classList.add('hidden');
     return;
@@ -30,7 +36,15 @@ export const checkEmailInput = (emailElement, emailErrorElement) => {
   showErrorMessage(emailElement, emailErrorElement, EMAIL_MESSAGE.invalid);
 };
 
-export const checkPasswordInput = (passwordElement, passwordErrorElement) => {
+export const checkValidPassword = (passwordElement, passwordErrorElement) => {
+  if (InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX)) {
+    passwordErrorElement?.classList.add('hidden');
+    return;
+  }
+  showErrorMessage(passwordElement, passwordErrorElement, PASSWORD_MESSAGE.invalid);
+};
+
+export const checkEmptyPassword = (passwordElement, passwordErrorElement) => {
   if (InputHandler.isEmptyValue(passwordElement)) {
     showErrorMessage(passwordElement, passwordErrorElement, PASSWORD_MESSAGE.empty);
     return;

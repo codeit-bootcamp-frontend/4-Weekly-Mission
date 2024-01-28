@@ -59,7 +59,7 @@
   cursor: pointer;
 }
 
-.login__btn {
+.login__button {
   display: flex;
   align-items: center;
   justify-content: center;

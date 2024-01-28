@@ -1,14 +1,14 @@
 //@ts-check
-import { DOMHandler, InputHandler } from './utils.js/element.js';
+import { DOMHandler, InputHandler } from './utils/element.js';
 import { EMAIL_MESSAGE, USERS, PASSWORD_MESSAGE, loginAction, INPUT_IDS } from './constant/signConfig.js';
 import {
-  checkEmailInput,
-  checkPasswordInput,
+  checkEmail,
+  checkEmptyPassword,
   deleteRedBox,
   isUserSignedUp,
   showErrorMessage,
   toggleImage
-} from './utils.js/sign.js';
+} from './utils/sign.js';
 
 const { emailElementId, passwordElementId, emailErrorElementId, passwordErrorElementId, loginButtonId, eyeImageId } =
   INPUT_IDS;
@@ -29,7 +29,7 @@ const emailErrorElement = DOMHandler.getById(emailErrorElementId);
 const passwordErrorElement = DOMHandler.getById(passwordErrorElementId);
 
 const handleLogin = (event, emailElement, passwordElement) => {
-  event?.preventDefault();
+  event.preventDefault();
   const isSignedUp = isUserSignedUp(USERS, emailElement, passwordElement);
   if (isSignedUp) {
     loginAction();
@@ -39,9 +39,9 @@ const handleLogin = (event, emailElement, passwordElement) => {
   showErrorMessage(passwordElement, passwordErrorElement, PASSWORD_MESSAGE.fail);
 };
 
-emailElement?.addEventListener('focusout', () => checkEmailInput(emailElement, emailErrorElement));
+emailElement?.addEventListener('focusout', () => checkEmail(emailElement, emailErrorElement));
 emailElement?.addEventListener('focusin', () => deleteRedBox(emailElement));
-passwordElement?.addEventListener('focusout', () => checkPasswordInput(passwordElement, passwordErrorElement));
+passwordElement?.addEventListener('focusout', () => checkEmptyPassword(passwordElement, passwordErrorElement));
 passwordElement?.addEventListener('focusin', () => deleteRedBox(passwordElement));
 eyeImage?.addEventListener('click', () => toggleImage(passwordElement, eyeImage));
 loginButton?.addEventListener('click', event => handleLogin(event, emailElement, passwordElement));
