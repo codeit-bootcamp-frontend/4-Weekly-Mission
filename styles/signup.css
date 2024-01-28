@@ -36,14 +36,14 @@ header .signup a {
 }
 
 /* 이메일, 비밀번호 입력 */
-main {
+form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
 }
 
-main label {
+form label {
   color: var(--black, #000);
   font-size: 0.875rem;
   font-style: normal;
@@ -51,7 +51,7 @@ main label {
   line-height: normal;
 }
 
-main input {
+form input {
   width: 100%;
   padding: 1.125rem 0.9375rem;
   justify-content: center;
@@ -61,13 +61,13 @@ main input {
   background: var(--Linkbrary-white, #fff);
 }
 
-main input:focus {
+form input:focus {
   border-radius: 0.5rem;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: var(--Linkbrary-white, #fff);
 }
 
-main .email,
+form .email,
 .password,
 .password-check {
   display: flex;
@@ -75,11 +75,11 @@ main .email,
   gap: 0.75rem;
 }
 
-main .inputPW {
+form .inputPW {
   position: relative;
 }
 
-main .eye-off {
+form .eye-off {
   position: absolute;
   right: 0;
   margin: 1.12rem 0.94rem 1.12rem auto;
