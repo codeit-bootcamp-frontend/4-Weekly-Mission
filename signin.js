@@ -4,10 +4,12 @@ function validateEmail(email) {
   return regex.test(email);
 }
 
+
 //비밀번호 형식(대문자,특수문자,영어,숫자 조합)
 function validatePassword(password) {
   const regexExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
   return regexExp.test(password);
+
 }
 
 // 이메일 유효성 검사
