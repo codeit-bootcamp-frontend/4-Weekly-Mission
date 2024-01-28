@@ -1,4 +1,5 @@
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
+const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
 export const testUser = {
   email: "test@codeit.com",
@@ -8,6 +9,11 @@ export const testUser = {
 /*email 형식인지 체크해주는 함수*/
 export function emailValidCheck(email_address){     
 	return EMAIL_REGEX.test(email_address);
+}
+
+/*password가 최소 8자 && 영문/숫자 조합인지 체크해주는 함수*/
+export function passwordValidCheck(password){     
+	return PASSWORD_REGEX.test(password);
 }
 
 /*에러메시지를 추가하는 함수*/
