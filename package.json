@@ -5,9 +5,7 @@
   "repository": "https://github.com/zoonyoung/4-Weekly-Mission.git",
   "author": "<9851248@gmail.com>",
   "license": "MIT",
-  "dependencies": {
-    "prettier": "3.2.4"
-  },
+  "dependencies": {},
   "devDependencies": {
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0"

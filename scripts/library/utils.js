@@ -33,13 +33,13 @@ export class InputHandler {
 export class DOMHandler {
   /**
    * @param {HTMLElements} element - HTMLelement
-   * @param {string} id - 추가할 태그 id
-   * @param {string} text*/
-  static addTextAfter = (element, id, text) => {
+   * @param {string=} id - (opt)추가할 태그 id
+   * @param {string=} className - (opt) 추가할 className*/
+  static addPAfterElement = (element, id, className) => {
     if (!element) return;
     const textTag = document.createElement('p');
-    textTag.textContent = text;
-    textTag.id = id;
+    if (id) textTag.id = id;
+    if (className) textTag.classList.add(className);
     element.after(textTag);
   };
   /**

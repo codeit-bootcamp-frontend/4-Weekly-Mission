@@ -1,5 +1,5 @@
 //@ts-check
-import { InputHandler, KeyHandler, DOMHandler } from './library/utils.js';
+import { InputHandler, DOMHandler } from './library/utils.js';
 import {
   EMAIL_REGEX,
   EMAIL_MESSAGE,
@@ -23,8 +23,8 @@ const passwordInput = DOMHandler.getById(passwordInputId);
 const loginBtn = DOMHandler.getById(loginBtnId);
 /** @type {HTMLImageElement} eyeImg*/
 const eyeImg = DOMHandler.getById('eye-img');
-DOMHandler.addTextAfter(emailInput, emailErrorId, '');
-DOMHandler.addTextAfter(passwordInput, passwordErrorId, '');
+DOMHandler.addPAfterElement(emailInput, emailErrorId, 'error-text');
+DOMHandler.addPAfterElement(passwordInput, passwordErrorId, 'error-text');
 /** @type {HTMLElement} emailError*/
 const emailError = DOMHandler.getById(emailErrorId);
 /** @type {HTMLElement} passwordError*/
