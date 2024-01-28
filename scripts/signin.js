@@ -1,4 +1,5 @@
 import { isValidEmail } from "./inputValidation.js";
+import { togglePasswordVisibility } from "./togglePasswordVisibility.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   const emailInput = document.querySelector("#email");
@@ -75,14 +76,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 비밀번호 보이기/숨기기 토글 함수
+  // 비밀번호 보이기/숨기기
   togglePasswordIcon.addEventListener("click", function () {
-    const type =
-      passwordInput.getAttribute("type") === "password" ? "text" : "password";
-    passwordInput.setAttribute("type", type);
-    this.src =
-      type === "password"
-        ? "../image/icons/eye-off.svg"
-        : "../image/icons/eye-on.svg";
+    togglePasswordVisibility(passwordInput, this);
   });
 });
