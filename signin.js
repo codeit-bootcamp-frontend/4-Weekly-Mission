@@ -1,3 +1,6 @@
+
+
+
 const myInputEmail = document.querySelector('.input-email');
 const myInputPassword = document.querySelector('.input-password');
 const errorMessageId = document.getElementById('error-message-id');
