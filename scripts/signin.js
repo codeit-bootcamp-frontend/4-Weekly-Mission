@@ -1,3 +1,4 @@
+import { ADMIN_EMAIL, ADMIN_PASSWORD } from "./base.js";
 import { isValidEmail } from "./inputValidation.js";
 import { togglePasswordVisibility } from "./togglePasswordVisibility.js";
 
@@ -60,16 +61,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordError = document.querySelector("#passwordError");
 
     // 정해진 이메일과 비밀번호가 입력된 경우
-    if (emailValue === "test@codeit.com" && passwordValue === "codeit101") {
+    if (emailValue === ADMIN_EMAIL && passwordValue === ADMIN_PASSWORD) {
       window.location.href = "component/folder.html";
     } else {
       // 정해진 이메일이 입력되지 않은 경우
-      if (emailValue !== "test@codeit.com") {
+      if (emailValue !== ADMIN_EMAIL) {
         emailError.textContent = "이메일을 확인해 주세요";
         emailInput.addEventListener.add("invalid");
       }
       // 정해진 비밀번호가 입력되지 않은 경우
-      if (passwordValue !== "codeit101") {
+      if (passwordValue !== ADMIN_PASSWORD) {
         passwordError.textContent = "비밀번호를 확인해 주세요";
         passwordInput.addEventListener.add("invalid");
       }

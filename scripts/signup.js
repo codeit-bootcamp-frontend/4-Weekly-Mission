@@ -1,3 +1,4 @@
+import { ADMIN_EMAIL } from "./base.js";
 import { isValidEmail, isValidPassword } from "./inputValidation.js";
 import { togglePasswordVisibility } from "./togglePasswordVisibility.js";
 
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
       emailError.textContent = "올바른 이메일 주소가 아닙니다.";
       emailInput.classList.add("invalid");
       // test@codeit.com이 입력된 경우
-    } else if (emailValue === "test@codeit.com") {
+    } else if (emailValue === ADMIN_EMAIL) {
       emailError.textContent = "이미 사용 중인 이메일입니다.";
       emailInput.classList.add("invalid");
       // 이메일 입력부분이 비어있지 않은 경우 + 이메일 형식이 유효한 형식인 경우
