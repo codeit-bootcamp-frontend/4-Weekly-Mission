@@ -5,7 +5,8 @@ const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
 const confirmPasswordInput = document.querySelector('#confirm-password');
 const signupButton = document.querySelector('.submit');
-const eyeIcon = document.querySelector('.eye-button');
+const passwordEyeIcon = document.querySelector('.sign-password .eye-button');
+const confirmPasswordEyeIcon = document.querySelector('.sign-password-check .eye-button');
 
 emailInput.addEventListener("focusout", () => {
   validateEmail(emailInput);
@@ -75,3 +76,7 @@ document.addEventListener('keydown', function(e) {
     signup();
   }
 });
+
+passwordEyeIcon.addEventListener('click', (e) => togglePassword(e, passwordInput, passwordEyeIcon));
+
+confirmPasswordEyeIcon.addEventListener('click', (e) => togglePassword(e, confirmPasswordInput, confirmPasswordEyeIcon));
