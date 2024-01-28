@@ -64,7 +64,7 @@ input:focus {
 }
 
 .input-container + .password-mismatch-message {
-    color: #FF5B56;
+    color: var(--red-color);
     font-size: 14px;
     font-weight: 400;
     align-self: flex-start;
@@ -79,8 +79,8 @@ input:focus {
     justify-content: space-between;
     align-items: center;
     border-radius: 8px;
-    border: 1px solid #CCD5E3;
-    background: #E7EFFB;
+    border: 1px solid var(--Linkbrary-gray20);
+    background: var(--gray10-color);
     color: #373740;
     font-size: 14px;
     font-weight: 400;
