@@ -1,4 +1,4 @@
-import {EMAIL_ERROR_MESSAGE, PASSWORD_CONFIRM_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE, USERS} from './constant.js'
+import {EMAIL_ERROR_MESSAGE, PASSWORD_CONFIRM_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE} from './constant.js'
 import { getElementById} from './dom/domhelper.js';
 import { isEmptyString, isValidEmail, showError, hideError, isValidPassword, hidePassword, showPassword } from './functions/signFunction.js';
 import { goToFolderhtml } from './temporary.js';
@@ -46,8 +46,7 @@ signInButton.addEventListener('click', function (event) {
     event.preventDefault();
     const emailValue = emailInput.value.trim();
     const passwordValue = passwordInput.value.trim();
-    if (USERS[0].id === emailValue && USERS[0].password === passwordValue) { window.location.href = goToFolderhtml; return;}
-    showError(emailInput,emailErrorMessage,EMAIL_ERROR_MESSAGE.haveToCheck); showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.haveToCheck);
+    
 });
 
 eyeButtonPassword.addEventListener('click', function () {

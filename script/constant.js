@@ -1,7 +1,7 @@
 //EMAIL_REGEX
 export const EMAIL_REGEX = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
 
-export const PASSWORD_REGEX = /(?=.\d)(?=.[a-z]).{8,}/
+export const PASSWORD_REGEX = /(?=.*\d)(?=.*[a-zA-Z]).{8,}/;
 
 //USER_INFO
 export const USERS = [{id: 'test@codeit.com', password : 'codeit101'}];
