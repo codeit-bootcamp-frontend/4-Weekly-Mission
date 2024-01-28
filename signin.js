@@ -6,8 +6,6 @@ const myInputPassword = document.querySelector('.input-password');
 const errorMessageId = document.getElementById('error-message-id');
 const errorMessagePw = document.getElementById('error-message-pw');
 const login = document.querySelector('.cta');
-const answerEmail = 'test@codeit.com';
-const answerPassword = 'codeit101';
 const toggleButtonPw = document.querySelector('.eye-button');
 const eyeOn = document.getElementById('eye-on');
 const eyeOff = document.getElementById('eye-off');
@@ -45,6 +43,8 @@ myInputPassword.addEventListener('focusout', function() {
 });
 
 login.addEventListener('click', function() { 
+  const answerEmail = 'test@codeit.com';
+  const answerPassword = 'codeit101';
   if (myInputEmail.value === answerEmail && myInputPassword.value == answerPassword) {
     window.location.href = '/folder';
   } else {
