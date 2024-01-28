@@ -53,6 +53,22 @@ document.addEventListener('DOMContentLoaded', function () {
     handlePasswordCheckInputFocusOut(passwordcheckInput, passwordCheckErrorMessage, passwordInput);
   });
 
+  // 비밀번호 확인 입력란 focusout 이벤트 핸들러에서 비밀번호 일치 여부 체크
+  function handlePasswordCheckInputFocusOut(
+    passwordcheckInput,
+    passwordCheckErrorMessage,
+    passwordInput
+  ) {
+    const passwordCheckValue = passwordcheckInput.value.trim();
+    const passwordValue = passwordInput.value.trim();
+
+    if (!passwordCheckValue) {
+      displayError(passwordcheckInput, passwordCheckErrorMessage, '비밀번호를 다시 입력해주세요.');
+    } else if (passwordCheckValue !== passwordValue) {
+      displayError(passwordcheckInput, passwordCheckErrorMessage, '비밀번호가 일치하지 않아요.');
+    }
+  }
+
   // 로그인 버튼 클릭 이벤트 핸들러
   signInButton.addEventListener('click', function (event) {
     event.preventDefault();
@@ -84,11 +100,11 @@ document.addEventListener('DOMContentLoaded', function () {
     const eyeIcon = document.getElementById('eye-icon');
     const eyeIconCheck = document.getElementById('eye-icon-check');
     const imgSrc = passwordInput.type === 'password' ? 'eye-on.svg' : 'eye-off.svg';
-
+    const imgSrcCheck = passwordcheckInput.type === 'password' ? 'eye-on.svg' : 'eye-off.svg';
     // 비밀번호 확인의 가시성 토글 함수 호출
     togglePasswordVisibility(
       passwordcheckInput,
-      eyeIcon,
+      eyeIconCheck,
       imgSrc,
       passwordcheckInput.type === 'password' ? 'text' : 'password'
     );
