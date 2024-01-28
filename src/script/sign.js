@@ -89,6 +89,20 @@ function login(event) {
     }
 }
 
+function signup(event) {
+    event.preventDefault();
+    duplicateEmail();
+    checkPassword();
+    checkConfirmPassword();
+    if (
+        emailError.innerText === "" &&
+        passwordError.innerText === "" &&
+        confirmPasswordError.innerText === ""
+    ) {
+        window.location.href = "/folder";
+    }
+}
+
 // 비밀번호 토글
 function toggleEye() {
     const inputType = password.type === "password" ? "text" : "password";
@@ -125,5 +139,6 @@ function addErrorMessage(value, str) {
 
 // 에러 메세지 삭제
 function deleteErrorMessage(value) {
+    value.innerText = "";
     value.style.display = "none";
 }
