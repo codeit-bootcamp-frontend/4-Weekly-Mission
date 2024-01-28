@@ -135,14 +135,15 @@ label {
 
 /** JS 관련 스타일 **/
 #email-error-message,
-#password-error-message {
+#password-error-message,
+#password-repeat-error-message {
   font-size: 1.7rem;
   color: var(--red);
 }
 
 #signin-email-input.error-box,
 #signin-password-input.error-box,
-#password-repeat-error-message.error-box {
+#signup-password-repeat-input.error-box {
   padding-left: 1rem;
   padding-right: 4rem;
   width: 40rem;
