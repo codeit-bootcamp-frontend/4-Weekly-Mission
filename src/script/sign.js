@@ -9,20 +9,20 @@ const emailRegex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
 function validateEmail() {
     // 이메일 값이 없는 경우
     if (email_input.value.trim() === "") {
-        email_input.style.border = "1px solid var(--Linkbrary-red)";
-        error_email.innerText = "이메일을 입력해 주세요.";
-        error_email.style.display = "block";
+        changeBorder(email_input, "red");
+        changeError(error_email, "이메일을 입력해 주세요.");
+        return;
     }
     // 올바른 이메일 주소가 아닐 경우
     else if (!isValidEmail(email_input.value)) {
-        email_input.style.border = "1px solid var(--Linkbrary-red)";
-        error_email.innerText = "올바른 이메일 주소가 아닙니다.";
-        error_email.style.display = "block";
+        changeBorder(email_input, "red");
+        changeError(error_email, "올바른 이메일 주소가 아닙니다.");
+        return;
     }
     // 이메일 값이 있는 경우
     else {
-        email_input.style.border = "1px solid var(--Linkbrary-gray20)";
-        error_email.style.display = "none";
+        changeBorder(email_input);
+        clearError(error_email);
     }
 }
 
@@ -30,14 +30,14 @@ function validateEmail() {
 function validatePassword() {
     // 비밀번호 값이 없는 경우
     if (password_input.value.trim() === "") {
-        password_input.style.border = "1px solid var(--Linkbrary-red)";
-        error_password.innerText = "비밀번호를 입력해 주세요.";
-        error_password.style.display = "block";
+        changeBorder(password_input, "red");
+        changeError(error_password, "비밀번호를 입력해 주세요.");
+        return;
     }
     // 비밀번호 값이 있는 경우
     else {
-        password_input.style.border = "1px solid var(--Linkbrary-gray20)";
-        error_password.style.display = "none";
+        changeBorder(password_input);
+        clearError(error_password);
     }
 }
 
@@ -53,14 +53,12 @@ function login(event) {
         window.location.href = "/folder";
     } else {
         if (error_email.style.display === "none") {
-            email_input.style.border = "1px solid var(--Linkbrary-red)";
-            error_email.innerText = "이메일을 확인해 주세요.";
-            error_email.style.display = "block";
+            changeBorder(email_input, "red");
+            changeError(error_email, "이메일을 확인해 주세요.");
         }
         if (error_password.style.display === "none") {
-            password_input.style.border = "1px solid var(--Linkbrary-red)";
-            error_password.innerText = "비밀번호를 확인해 주세요.";
-            error_password.style.display = "block";
+            changeBorder(email_ipassword_inputnput, "red");
+            changeError(error_password, "비밀번호를 확인해 주세요.");
         }
     }
 }
@@ -81,4 +79,20 @@ function toggleEye() {
         password_input.type = "password";
         eyes.style.backgroundImage = "url('../src/images/eye-off.svg')";
     }
+}
+
+// 테두리 색 바꾸기
+function changeBorder(value, color = "gray20") {
+    value.style.border = `1px solid var(--Linkbrary-${color})`;
+}
+
+// 에러 메세지 추가
+function changeError(value, str) {
+    value.innerText = str;
+    value.style.display = "block";
+}
+
+// 에러 메세지 삭제
+function clearError(value) {
+    value.style.display = "none";
 }
