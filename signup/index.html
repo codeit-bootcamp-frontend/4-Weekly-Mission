@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="signup.css">
-    <link rel="stylesheet" href="../color.css">
 <body>
     <div>
         <div class="page-logo">
@@ -21,14 +20,17 @@
         </div>
     </div>
 
-    <form class="signup-form">
+    <form class="signup-form form" action="../folder" onsubmit="return signupFormSubmit();">
         <label for="email-box">이메일</label>
         <input id="email-box" name="email" type="email" placeholder="codeit@codeit.com">
+        <div class="email-message"></div>
         <label for="password-box">비밀번호</label>
-        <input id="password-box" name="password" type="password">
+        <input class="password-area eye-off" id="password-box" name="password" type="password">
+        <div class="password-message"></div>
         <label for="password-check-box">비밀번호 확인</label>
-        <input id="password-check-box" name="password-check" type="password">        
-        <input id="signup-button" type="button" value="회원가입">
+        <input class="password-area eye-off" id="password-check-box" name="password-check" type="password">        
+        <div class="password-check-message"></div>
+        <input id="signup-button" type="submit" value="회원가입">
     </form>
     
     <div class="sns-signup">
@@ -38,5 +40,6 @@
             <a href="https://www.kakaocorp.com/page/"><img src="../image/social-kakaotalk.svg"></a>
         </div>
     </div>
+    <script type="module" src="./signup.js"></script>
 </body>
 </html>

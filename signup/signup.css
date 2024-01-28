@@ -1,14 +1,17 @@
+@import "../style/common.css";
+@import "../style/reset.css";
+@import "../style/color.css";
+
 *{
     box-sizing: border-box;
 }
 
 body{
-    background: var(--Linkbrary-bg);
+    background: var(--Lightblue);
     display:flex;
     flex-direction: column;
     align-items: center;
     gap: 30px;
-
     margin: 0;
     padding-top: 238px;
     padding-bottom: 252px;
@@ -30,13 +33,9 @@ div.signup-text{
 
 div.signup-text .signin-link{
     padding-bottom: 5px;
-    
-    color: var(--Linkbrary-primary-color);
-    font-family: Pretendard;
+    color: var(--purpleblue);
     font-size: 16px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;    
 }
 
 form.signup-form{
@@ -46,29 +45,51 @@ form.signup-form{
 
 form.signup-form label{
     color: var(--black);
-    font-family: Pretendard;
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;    
+    margin-top: 24px;
 }
 
 form.signup-form input{
     width: 370px;
     padding: 18px 15px;
     border-radius: 8px;
-    border: 1px solid var(--Linkbrary-primary-color-2);
-    background: var(--Linkbrary-white);    
+    border: 1px solid var(--Lightgray);
+    background: var(--Blusherwhite);    
     margin-top: 12px;
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
 }
 
-form.signup-form input:focus{
-    border: 1px solid var(--Linkbrary-primary-color);
+form input:focus{
+    border: 1px solid var(--purpleblue);
 }
 
-form.signup-form input#password-check-box{
-    margin: 0;
+form input#password-check-box{
+    margin-bottom: 0;
+}
+
+form input.password-area.eye-off{
+    background-image: url('../image/eye-off.svg');
+    background-position: center right 15px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+form input.password-area.eye-on{
+    background-image: url('../image/eye-on.svg');
+    background-position: center right 15px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/*에러 처리*/
+form input.error{
+    border: 1px solid var(--red);
+}
+
+.error-message{
+    padding-top: 6px;
+    color: var(--red);
 }
 
 form.signup-form input#signup-button{
@@ -76,14 +97,9 @@ form.signup-form input#signup-button{
     background: var(--gra-purpleblue-to-skyblue);    
     margin-top: 30px;
     margin-bottom: 2px; /*flex-gap: 30px*/
-
-    color: var(--Grey-Light);
-    font-family: Pretendard;
+    color: var(--Beigewhite);
     font-size: 18px;
-    font-style: normal;
     font-weight: 600;
-    line-height: normal;    
-
     cursor: pointer;
 }
 
@@ -94,19 +110,15 @@ div.sns-signup{
     padding: 12px 24px;
     justify-content: space-between;
     align-items: center;  
-
     border-radius: 8px;
-    border: 1px solid var(--Linkbrary-gray20);
-    background: var(--Linkbrary-gray10);    
+    border: 1px solid var(--Lightgray);
+    background: var(--Whitegray);    
 }
 
 div.sns-signup-text{
-    color: var(--Linkbrary-gray100);
-    font-family: Pretendard;
+    color: var(--Darkblue-gray);
     font-size: 14px;
-    font-style: normal;
     font-weight: 400;
-    line-height: normal;    
 }
 
 div.sns-signup-image{
@@ -117,23 +129,21 @@ div.sns-signup-image{
 div.sns-signup-image img{
     width: 42px;
     height: 42px;
-
     cursor: pointer;
 }
 
 /*pc*/
-@media(min-width: 1200px){
+/* @media(min-width: 1200px){
 
-}
+} */
 
 /*tablet*/
-@media(min-width: 768px){
+/* @media(min-width: 768px){
 
-
-}
+} */
 
 /*mobile*/
-@media (min-width: 375px) and (max-width: 767px) {
+@media (max-width: 767px){
     body {
         padding: 120px 32px 233px;
         width: 100%;
