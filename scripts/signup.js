@@ -13,11 +13,11 @@ function isValidEmail(email) {
 
 // 에러메세지가 이미 존재하는지 확인
 function alertExist(email) {
-  return email.classList.contains('red-box') && alert.classList.contains('red');
+  return email.classList.contains('red-box');
 }
 
 email.addEventListener('focusout', (e) => {
-  if (email.value === ' ' || !isValidEmail(email)) {
+  if (email.value === '' || !isValidEmail(email)) {
     if (!alertExist(email)) {
       email.classList.add('red-box');
       let alert = document.createElement('p');
@@ -38,9 +38,9 @@ email.addEventListener('focusout', (e) => {
 });
 
 email.addEventListener('focusin', (e) => {
-  email.value = '';
+  // email.value = '';
   if (alertExist(email)) {
-    document.querySelector('.red').remove();
+    email.nextElementSibling.remove();
     email.classList.remove('red-box');
   }
 });
@@ -64,7 +64,7 @@ PW.addEventListener('focusout', (e) => {
 PW.addEventListener('focusin', (e) => {
   PW.value = '';
   if (alertExist(PW)) {
-    document.querySelector('.red').remove();
+    PW.parentElement.nextElementSibling.remove();
     PW.classList.remove('red-box');
   }
 });
