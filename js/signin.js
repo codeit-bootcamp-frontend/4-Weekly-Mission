@@ -1,52 +1,33 @@
+import {
+  Validator,
+  emailRegex,
+  pwdRegex,
+  errorInput,
+  pwdEye,
+} from "./modules/signModule.js";
+
+const pwdInput = document.getElementById('pwd-input')
 const emailInput = document.getElementById('email-input');
-const emailError = document.getElementById('email-error');
-const emailRegex = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
 
-
-function emailErrorMessage() {
-  if (emailInput.value.trim() === '') {
-    emailError.textContent = '이메일을 입력해 주세요';
-  } else if (!emailRegex.test(emailInput.value)) {
-    emailError.textContent = '올바른 이메일 주소가 아닙니다';
-  } else {
-    emailError.textContent = '';
-  }
-
-  if (emailError.textContent.trim() === '') {
-    emailInput.classList.add('sign-input');
-    emailInput.classList.remove('sign-input-error');
-  } else {
-    emailInput.classList.remove('sign-input');
-    emailInput.classList.add('sign-input-error');
-  }
-
+// 이메일 유효검사
+function emailValidator() {
+  Validator('email-input', 'email-error', emailRegex, '이메일을 입력해 주세요.', 'id', 'signin')
+  errorInput('email-input', 'email-error')
 }
-emailInput.addEventListener('focusout', emailErrorMessage);
+document.getElementById('email-input').addEventListener('focusout', emailValidator);
 
-const pwdInput = document.getElementById('pwd-input');
-const pwdError = document.getElementById('pwd-error');
-
-function pwdErrorMessage() {
-  if (pwdInput.value.trim() === '') {
-    pwdError.textContent = '비밀번호를 입력해 주세요';
-  } else {
-    pwdError.textContent = '';
-  }
-
-  if (pwdError.textContent.trim() === '') {
-    pwdInput.classList.add('sign-input');
-    pwdInput.classList.remove('sign-input-error');
-  } else {
-    pwdInput.classList.remove('sign-input');
-    pwdInput.classList.add('sign-input-error');
-  }
-
+// 비밀번호 유효검사 
+function pwdValidator() {
+  Validator('pwd-input', 'pwd-error', pwdRegex, '비밀번호를 입력해 주세요.', 'pwd', 'signin')
+  errorInput('pwd-input', 'pwd-error')
 }
-pwdInput.addEventListener('focusout', pwdErrorMessage);
+document.getElementById('pwd-input').addEventListener('focusout', pwdValidator);
 
-const loginBtn = document.getElementById('login-btn');
+// 로그인 버튼
+function signIn() {
+  const emailError = document.getElementById('email-error')
+  const pwdError = document.getElementById('pwd-error')
 
-function login() {
   if (emailInput.value.trim() === 'test@codeit.com' && pwdInput.value.trim() === 'codeit101') {
     location.href = 'folder.html';
   } else {
@@ -64,27 +45,18 @@ function login() {
 
   }
 };
-loginBtn.addEventListener('click', login);
+document.getElementById('signin-btn').addEventListener('click', signIn);
 
 function loginEnter(e) {
   if (e.key === 'Enter') {
-    login();
+    signIn();
   }
 };
 emailInput.addEventListener('keypress', loginEnter);
 pwdInput.addEventListener('keypress', loginEnter);
 
-const eyeBtn = document.getElementById('eye-button');
-const eyeImg = document.getElementById('eye-img');
-
-function pwdEye() {
-  if (pwdInput.type === 'password') {
-    pwdInput.type = 'text'
-    eyeImg.src = "./images/eye-on.svg"
-  } else {
-    pwdInput.type = 'password'
-    eyeImg.src = "./images/eye-off.svg"
-  }
-
+// 비밀번호 숨기기 & 보이기
+function pwdShowHide1() {
+  pwdEye('pwd-input', 'pwd-eye-img');
 }
-eyeBtn.addEventListener('click', pwdEye);
+document.getElementById('pwd-eye-btn').addEventListener('click', pwdShowHide1);
