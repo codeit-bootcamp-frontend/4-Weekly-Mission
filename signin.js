@@ -8,7 +8,7 @@ const inputPassword = document.querySelector('.password-input')
 const signButton = document.querySelector('.sign-btn')
 
 // 로그인 버튼, 경우에 따른 케이스 적용
-function submitButton(e) {
+const submitButton = (e) => {
   e.preventDefault()
 
   const inputEmailValue = inputEmail.value
