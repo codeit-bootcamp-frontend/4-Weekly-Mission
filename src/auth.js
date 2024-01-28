@@ -16,6 +16,7 @@ export const hideError = (errorEl, input) => {
   errorEl.innerText = "";
   input.style.borderColor = "";
 };
+
 const isValidFormat = (action, input) => {
   if (action === "email") return REGEX.email.test(input);
   if (action === "pw") return REGEX.pw.test(input);
@@ -60,22 +61,6 @@ export const handleFail = () => {
   showError(pwError, pwInput, ERROR_MESSAGES.password_check);
 };
 
-// 로그인 인증 검사
-// const handleSignIn = (e) => {
-//   const emailValue = emailInput.value.trim();
-//   const pwValue = pwInput.value.trim();
-
-//   if (emailValue === "test@codeit.com" && pwValue === "codeit101") {
-//     alert("로그인 성공!");
-//     window.location.href = "folder.html";
-//   } else {
-//     alert("로그인 실패!");
-//     handleSignInFail();
-//   }
-//   e.preventDefault();
-// };
-// form.addEventListener("submit", handleSignIn);
-
 // 비밀번호 확인 숨김 아이콘 동작
 export const eyeToggle = (input, eyeIcon) => {
   if (input.type === "password") {
@@ -86,9 +71,3 @@ export const eyeToggle = (input, eyeIcon) => {
     eyeIcon.src = "./public/images/sign/eye-off.png";
   }
 };
-
-// pwToggle.addEventListener("click", () => eyeToggle(pwInput, pwToggle));
-
-// pwConfirmToggle.addEventListener("click", () =>
-//   eyeToggle(pwConfirmInput, pwConfirmToggle)
-// );
