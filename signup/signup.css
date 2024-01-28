@@ -47,6 +47,7 @@ form.signup-form label{
     color: var(--black);
     font-size: 14px;
     font-weight: 400;
+    margin-top: 24px;
 }
 
 form.signup-form input{
@@ -56,15 +57,39 @@ form.signup-form input{
     border: 1px solid var(--Lightgray);
     background: var(--Blusherwhite);    
     margin-top: 12px;
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
 }
 
-form.signup-form input:focus{
+form input:focus{
     border: 1px solid var(--purpleblue);
 }
 
-form.signup-form input#password-check-box{
+form input#password-check-box{
     margin-bottom: 0;
+}
+
+form input.password-area.eye-off{
+    background-image: url('../image/eye-off.svg');
+    background-position: center right 15px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+form input.password-area.eye-on{
+    background-image: url('../image/eye-on.svg');
+    background-position: center right 15px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+/*에러 처리*/
+form input.error{
+    border: 1px solid var(--red);
+}
+
+.error-message{
+    padding-top: 6px;
+    color: var(--red);
 }
 
 form.signup-form input#signup-button{

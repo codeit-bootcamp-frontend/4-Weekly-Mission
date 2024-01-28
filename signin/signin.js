@@ -55,6 +55,23 @@ function passwordCheck(){
 }
 passwordBox.addEventListener('focusout', passwordCheck);
 
+//비밀번호 눈 모양 이미지 토글 
+function passwordImageToggle(event){
+    const offsetWidth = event.currentTarget.offsetWidth;
+    const offsetHeight = event.currentTarget.offsetHeight;
+    const offsetX = event.offsetX;
+    const offsetY = event.currentTarget.offsetY;
+
+    const clickWidth = (offsetX > offsetWidth-32) && (offsetX < offsetWidth-16);
+
+    if(clickWidth){
+        event.currentTarget.classList.contains('eye-off') ? event.currentTarget.classList.replace('eye-off', 'eye-on') : event.currentTarget.classList.replace('eye-on', 'eye-off'); 
+        event.currentTarget.classList.contains('eye-off') ? event.currentTarget.setAttribute('type', 'password') : event.currentTarget.setAttribute('type', 'text'); 
+    }
+}
+
+passwordBox.addEventListener('click', passwordImageToggle);
+
 //로그인 시도
 function signinFormSubmit(){
     if(emailBox.value === 'test@codeit.com' && passwordBox.value === 'codeit101'){
@@ -72,21 +89,11 @@ function signinFormSubmit(){
     }
 }
 
-//비밀번호 눈 모양 이미지 토글 
-function passwordImageToggle(event){
-    const offsetWidth = event.currentTarget.offsetWidth;
-    const offsetHeight = event.currentTarget.offsetHeight;
-    const offsetX = event.offsetX;
-    const offsetY = event.currentTarget.offsetY;
+// signinForm.addEventListener('submit', signinFormSubmit);
 
-    const clickWidth = (offsetX > offsetWidth-32) && (offsetX < offsetWidth-16);
-
-    if(clickWidth){
-        passwordBox.classList.contains('eye-off') ? passwordBox.classList.replace('eye-off', 'eye-on') : passwordBox.classList.replace('eye-on', 'eye-off'); 
-        passwordBox.classList.contains('eye-off') ? passwordBox.setAttribute('type', 'password') : passwordBox.setAttribute('type', 'text'); 
-
-    }
-}
-
-passwordBox.addEventListener('click', passwordImageToggle);
-
+export{
+    emailPattern,
+    emailBox, passwordBox,
+    emailErrorMessage, passwordErrorMessage,
+    emailValueCheck, passwordImageToggle
+};

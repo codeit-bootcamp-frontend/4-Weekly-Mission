@@ -20,14 +20,11 @@
         </div>
     </div>
 
-    <form class="signin-form" action="../folder" onsubmit="return signinFormSubmit()">
+    <form class="signin-form form" action="../folder" onsubmit="return signinFormSubmit();">
         <label for="email-box">이메일</label>
         <input class="signin-box" id="email-box" name="email" type="email" placeholder="codeit@codeit.com">
         <div class="email-message"></div>
         <label for="password-box">비밀번호</label>
-        <!-- <div contenteditable class="signin-box" id="password-box" name="password" type="password">
-            <a href=""><img></a>
-        </div> -->
         <input class="password-box eye-off" id="password-box" name="password" type="password">
         <div class="password-message"></div>
         <input id="signin-button" type="submit" value="로그인">
@@ -40,6 +37,6 @@
             <a href="https://www.kakaocorp.com/page/"><img src="../image/social-kakaotalk.svg"></a>
         </div>
     </div>
-    <script src="./signin.js"></script>
+    <script type="module" src="./signin.js"></script>
 </body>
 </html>
