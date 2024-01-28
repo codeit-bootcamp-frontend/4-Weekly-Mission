@@ -1,6 +1,5 @@
 import { emailRegex, isVaildEmail } from "../utils/isValidEmail.js";
 import { querySelector } from "../utils/querySelector.js";
-import { passwordTypeCheck } from "../functions/passwordTypeCheck.js";
 import { updateErrorMessage } from "../functions/updateErrorMessage.js";
 import { passwordShowHidden } from "./functions/passwordShowHidden.js";
 import { checkValidLogin } from "./functions/CheckValidLogin.js";
