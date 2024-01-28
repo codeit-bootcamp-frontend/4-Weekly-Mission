@@ -1,12 +1,12 @@
+import createError from "./error/createError.js";
+import clearError from "./error/clearError.js";
+
 const email = document.querySelector("#sign_email");
 const password = document.querySelector("#sign_password");
-const confirmPassword = document.querySelector("#sign_confirm_password");
 const emailError = document.querySelector("#error_email");
 const passwordError = document.querySelector("#error_password");
-const confirmPasswordError = document.querySelector("#error_confirm_password");
-const eyes = document.querySelector(".eye_button");
+const eyeButton = document.querySelector(".eye_button");
 const emailRegex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
-const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
 
 // 이메일 검사
 function validateEmail() {
@@ -26,17 +26,6 @@ function validateEmail() {
     }
 }
 
-// 사용중인 이메일 검사
-function duplicateEmail() {
-    const isDuplicate = email.value === "test@codeit.com";
-
-    if (isDuplicate) {
-        createError(email, emailError, "이미 사용 중인 이메일입니다.");
-    } else {
-        validateEmail();
-    }
-}
-
 // 비밀번호 검사
 function validatePassword() {
     // 비밀번호 값이 없는 경우
@@ -49,23 +38,10 @@ function validatePassword() {
     }
 }
 
-function checkPassword() {
-    if (!isValidPassword(password.value)) {
-        createError(password, passwordError, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
-    } else {
-        validatePassword();
-    }
-}
-
-// 비밀번호 확인 검사
-function checkConfirmPassword() {
-    const isConfirmPassword = password.value === confirmPassword.value;
-
-    if (!isConfirmPassword) {
-        createError(confirmPassword, confirmPasswordError, "비밀번호가 다릅니다.");
-    } else {
-        clearError(confirmPassword, confirmPasswordError);
-    }
+// 비밀번호 토글
+function toggleEye() {
+    const inputType = password.type === "password" ? "text" : "password";
+    password.type = inputType;
 }
 
 // 이메일 유효성 검사
@@ -73,72 +49,5 @@ function isValidEmail(email) {
     return emailRegex.test(email);
 }
 
-// 비밀번호 유효성 검사
-function isValidPassword(password) {
-    return passwordRegex.test(password);
-}
-
-// 로그인
-function login(event) {
-    event.preventDefault();
-    if (email.value === "test@codeit.com" && password.value === "codeit101") {
-        window.location.href = "/folder";
-    } else {
-        createError(email, emailError, "이메일을 확인해 주세요.");
-        createError(password, passwordError, "비밀번호를 확인해 주세요.");
-    }
-}
-
-function signup(event) {
-    event.preventDefault();
-    duplicateEmail();
-    checkPassword();
-    checkConfirmPassword();
-    if (
-        emailError.innerText === "" &&
-        passwordError.innerText === "" &&
-        confirmPasswordError.innerText === ""
-    ) {
-        window.location.href = "/folder";
-    }
-}
-
-// 비밀번호 토글
-function toggleEye() {
-    const inputType = password.type === "password" ? "text" : "password";
-    password.type = inputType;
-}
-
-function confirmToggleEye() {
-    const inputType = confirmPassword.type === "password" ? "text" : "password";
-    confirmPassword.type = inputType;
-}
-
-// 에러 발생
-function createError(input, error, str) {
-    changeBorder(input);
-    addErrorMessage(error, str);
-}
-
-// 에러 해결
-function clearError(input, error) {
-    changeBorder(input, "gray20");
-    deleteErrorMessage(error);
-}
-
-// 테두리 색 바꾸기
-function changeBorder(value, color = "red") {
-    value.style.border = `1px solid var(--Linkbrary-${color})`;
-}
-
-// 에러 메세지 추가
-function addErrorMessage(value, str) {
-    value.innerText = str;
-    value.style.display = "block";
-}
-
-// 에러 메세지 삭제
-function deleteErrorMessage(value) {
-    value.innerText = "";
-    value.style.display = "none";
-}
+export { email, password, emailError, passwordError, eyeButton };
+export { validateEmail, validatePassword, toggleEye };
