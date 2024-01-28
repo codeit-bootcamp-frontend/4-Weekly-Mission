@@ -1,15 +1,16 @@
 import {EMAIL_REGEX, USERS, VISIABLE_STATE} from './constant.js'
+import { getElementById , addClass, removeClass} from './dom/domhelper.js';
 import { isEmptyString, isVisiable, makeInvisiable, makeVisiable, isValidEmail, isValidPassword } from './functions/signFunction.js';
+import { goToFolderhtml } from './temporary.js';
 
 
-// ERROR_MESSAGE for email
-const emailErrorMessage = document.getElementById('emailErrorMessage');
-const emailFormatErrorMessage = document.getElementById('emailFormatErroMessage');
-const emailCheckErrorMessage = document.getElementById('emailCheckErrorMessage');
+// About Email Error
+const emailErrorMessage = getElementById('emailErrorMessage');
 
-// ERROR_MESSAGE for password
-const passwordErrorMessage = document.getElementById('passwordErrorMessage');
-const passwordCheckMessage = document.getElementById('passwordCheckMessage');
+
+// About Password Error
+const passwordErrorMessage = getElementById('passwordErrorMessage');
+
 
 //INPUT section
 const emailInput = document.getElementById('email');
@@ -18,9 +19,6 @@ const passwordInput = document.getElementById('password');
 //Button section
 const signInButton = document.getElementById('login-button');
 const watchPassword = document.getElementById('eye-button');
-
-const goToFolderhtml = '../folder.html';
-
 
 emailInput.addEventListener('focusout', function(){
     const emailValue = emailInput.value.trim(); 

@@ -9,3 +9,11 @@ export function addClass(element, className) {
 export function removeClass(element, className) {
   element.classList.remove(className);
 }
+
+export function makeVisiable(element) {
+  element.classList.remove('hidden');
+}
+
+export function makeInvisiable(element) {
+  element.classList.add('hidden');
+}
