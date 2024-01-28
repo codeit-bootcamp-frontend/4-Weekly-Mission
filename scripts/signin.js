@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const emailInput = document.querySelector("#email");
   const passwordInput = document.querySelector("#password");
+  const loginButton = document.querySelector(".base-button");
   const togglePasswordIcon = document.querySelector(
     "#togglePasswordVisibility"
   );
@@ -41,11 +42,36 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // 이메일 및 비밀번호 입력 필드에 이벤트 리스너 추가
   emailInput.addEventListener("blur", handleEmailInput);
   emailInput.addEventListener("input", handleEmailInput);
   passwordInput.addEventListener("blur", handlePasswordInput);
   passwordInput.addEventListener("input", handlePasswordInput);
+
+  loginButton.addEventListener("click", function (event) {
+    // 폼의 기본 제출 동작을 방지
+    event.preventDefault();
+
+    const emailValue = emailInput.value;
+    const passwordValue = passwordInput.value;
+    const emailError = document.querySelector("#emailError");
+    const passwordError = document.querySelector("#passwordError");
+
+    // 정해진 이메일과 비밀번호가 입력된 경우
+    if (emailValue === "test@codeit.com" && passwordValue === "codeit101") {
+      window.location.href = "component/folder.html";
+    } else {
+      // 정해진 이메일이 입력되지 않은 경우
+      if (emailValue !== "test@codeit.com") {
+        emailError.textContent = "이메일을 확인해 주세요";
+        emailInput.addEventListener.add("invalid");
+      }
+      // 정해진 비밀번호가 입력되지 않은 경우
+      if (passwordError !== "codeit101") {
+        passwordError.textContent = "비밀번호를 확인해 주세요";
+        passwordInput.addEventListener.add("invalid");
+      }
+    }
+  });
 
   // 비밀번호 보이기/숨기기 토글 함수
   togglePasswordIcon.addEventListener("click", function () {
