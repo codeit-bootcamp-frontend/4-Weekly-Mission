@@ -17,6 +17,15 @@ export const SHOW_PASSWORD_ICON = {
   invisible: { src: '../assets/icons/eye-off.svg', alt: 'eye-off' }
 };
 
+export const INPUT_IDS = {
+  emailElementId: 'login-email',
+  passwordElementId: 'login-password',
+  passwordCheckElementId: 'login-password-check',
+  emailErrorElementId: 'email-error',
+  passwordErrorElementId: 'password-error',
+  loginButtonId: 'login-button',
+  eyeImageId: 'eye-image'
+};
 export const loginAction = () => {
   return (window.location.href = '../pages/folder.html');
 };
