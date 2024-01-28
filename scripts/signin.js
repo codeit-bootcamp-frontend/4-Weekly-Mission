@@ -1,3 +1,5 @@
+import { isValidEmail } from "./inputValidation.js";
+
 document.addEventListener("DOMContentLoaded", function () {
   const emailInput = document.querySelector("#email");
   const passwordInput = document.querySelector("#password");
@@ -83,10 +85,4 @@ document.addEventListener("DOMContentLoaded", function () {
         ? "../image/icons/eye-off.svg"
         : "../image/icons/eye-on.svg";
   });
-
-  // 이메일 주소 유효성 검사 함수
-  function isValidEmail(email) {
-    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    return regex.test(email);
-  }
 });
