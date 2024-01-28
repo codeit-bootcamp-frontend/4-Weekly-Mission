@@ -64,6 +64,9 @@ function trySignUp(event) {
 emailInput.addEventListener('focusout', validEmailInput);
 passwordInput.addEventListener('focusout', validPasswordInput);
 passwordCheckInput.addEventListener('focusout', validPasswordCheckInput);
+emailInput.addEventListener('keypress', () => removeError(emailInput, emailError));
+passwordInput.addEventListener('keypress', () => removeError(passwordInput, passwordError));
+passwordCheckInput.addEventListener('keypress', () => removeError(passwordCheckInput, passwordCheckError));
 confirmBtn.addEventListener('click', trySignUp);
 eyeBtn.addEventListener('click', () => passwordToggle(passwordInput, eyeBtn));
 anotherEyeBtn.addEventListener('click', () => passwordToggle(passwordCheckInput, anotherEyeBtn));

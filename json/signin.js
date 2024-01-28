@@ -45,5 +45,7 @@ function tryLogin(event) {
 /*이벤트 핸들러 등록*/
 emailInput.addEventListener('focusout', validEmailInput);
 passwordInput.addEventListener('focusout', validPasswordInput);
+emailInput.addEventListener('keypress', () => removeError(emailInput, emailError));
+passwordInput.addEventListener('keypress', () => removeError(passwordInput, passwordError));
 confirmBtn.addEventListener('click', tryLogin);
 eyeBtn.addEventListener('click', () => passwordToggle(passwordInput, eyeBtn));
