@@ -4,6 +4,8 @@ import {
   isEmailValid,
   togglePassword,
   TEST_USER,
+  isPasswordValidString,
+  isPasswordValidNumber,
 } from "./utils.js";
 
 const emailInput = document.querySelector("#email");
@@ -39,6 +41,17 @@ function validatePasswordInput(password) {
     setInputError(
       { input: passwordInput, errorMessage: passwordErrorMessage },
       "비밀번호를 입력해주세요."
+    );
+    return;
+  }
+  if (
+    password.length < 8 ||
+    !isPasswordValidString(password) ||
+    !isPasswordValidNumber(password)
+  ) {
+    setInputError(
+      { input: passwordInput, errorMessage: passwordErrorMessage },
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
     );
     return;
   }

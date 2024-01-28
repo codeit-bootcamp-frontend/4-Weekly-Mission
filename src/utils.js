@@ -1,6 +1,8 @@
 const SIGN_INPUT_ERROR_CLASSNAME = "sign-input-error";
 const ERROR_MESSAGE_CLASSNAME = "error-message-on";
 const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const PASSWORD_REGEX_STRING = /[a-zA-Z]/;
+const PASSWORD_REGEX_NUMBER = /\d/;
 
 export function setInputError(elements, message) {
   elements.input.className += ` ${SIGN_INPUT_ERROR_CLASSNAME}`;
@@ -21,14 +23,26 @@ export function isEmailValid(email) {
 export function togglePassword(input, toggleButton) {
   if (input.getAttribute("type") === "password") {
     input.setAttribute("type", "text");
-    toggleButton.getElementsByTagName("img")[0].setAttribute("src", "./images/eye-on.svg");
+    toggleButton
+      .getElementsByTagName("img")[0]
+      .setAttribute("src", "./images/eye-on.svg");
     return;
   }
   input.setAttribute("type", "password");
-  toggleButton.getElementsByTagName("img")[0].setAttribute("src", "./images/eye-off.svg");
+  toggleButton
+    .getElementsByTagName("img")[0]
+    .setAttribute("src", "./images/eye-off.svg");
 }
 
 export const TEST_USER = {
   email: "test@codeit.com",
   password: "codeit101",
 };
+
+export function isPasswordValidString(password) {
+  return new RegExp(PASSWORD_REGEX_STRING).test(password);
+}
+
+export function isPasswordValidNumber(password) {
+  return new RegExp(PASSWORD_REGEX_NUMBER).test(password);
+}
