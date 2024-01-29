@@ -84,17 +84,22 @@ function hideError(input, errorElement) {
   errorElement.classList.add("hidden");
 }
 
+//일치하는 유저 데이터 찾아서 반환
+function getValidUserInfo({ emailInputValue, passwordInputValue }) {
+  if (VALID_USER.email !== emailInputValue) {
+    return null;
+  }
+
+  if (VALID_USER.password !== passwordInputValue) {
+    return null;
+  }
+
+  return VALID_USER;
+}
+
 //로그인 유효성 검사
 function isValidUser(emailInputValue, passwordInputValue) {
-  if (emailInputValue !== VALID_USER.email) {
-    return false;
-  }
-
-  if (passwordInputValue !== VALID_USER.password) {
-    return false;
-  }
-
-  return true;
+  return getValidUserInfo({ emailInputValue, passwordInputValue });
 }
 
 //회원가입 유효성 검사
