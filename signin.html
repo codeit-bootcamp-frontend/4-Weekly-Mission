@@ -13,36 +13,25 @@
                     <a href="/" class="logo"></a>
                     <div class="sub_title">
                         <p>회원이 아니신가요?</p>
-                        <a href="/signup" class="join_link">회원 가입하기</a>
+                        <a href="/signup.html" class="join_link">회원 가입하기</a>
                     </div>
                 </div>
                 <div class="login">
                     <form>
                         <div class="email">
-                            <label for="signin_email">이메일</label>
-                            <input id="signin_email" type="email" onblur="validateEmail()" />
-                            <p id="error_email" class="error-message">이메일을 입력해 주세요.</p>
+                            <label for="sign_email">이메일</label>
+                            <input id="sign_email" type="email" />
+                            <p id="error_email" class="error-message"></p>
                         </div>
                         <div class="password">
-                            <label for="signin_password">비밀번호</label>
+                            <label for="sign_password">비밀번호</label>
                             <div class="password_input">
-                                <input
-                                    id="signin_password"
-                                    type="password"
-                                    onblur="validatePassword()"
-                                />
-                                <button
-                                    class="eye_button"
-                                    type="button"
-                                    onclick="toggleEye()"
-                                ></button>
+                                <input id="sign_password" type="password" />
+                                <button class="eye_button" type="button"></button>
                             </div>
-
-                            <p id="error_password" class="error-message">
-                                비밀번호를 입력해 주세요.
-                            </p>
+                            <p id="error_password" class="error-message"></p>
                         </div>
-                        <button class="login_button" type="button" onclick="login()">로그인</button>
+                        <button class="login_button" type="submit">로그인</button>
                     </form>
                 </div>
             </section>
@@ -56,6 +45,6 @@
                 </div>
             </section>
         </main>
-        <script src="/src/script/sign.js"></script>
+        <script src="/src/script/signin.js" type="module"></script>
     </body>
 </html>

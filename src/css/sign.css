@@ -50,7 +50,7 @@ section {
     align-items: flex-start;
     gap: 8px;
 
-    color: var(--black, #000);
+    color: var(--Black, #000);
     font-family: Pretendard;
     font-size: 16px;
     font-style: normal;
@@ -80,7 +80,7 @@ section {
 
 .email,
 .password,
-.re_password {
+.confirm_password {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -90,8 +90,8 @@ section {
 
 .email label,
 .password label,
-.re_password {
-    color: var(--black, #000);
+.confirm_password {
+    color: var(--Black, #000);
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
@@ -119,7 +119,7 @@ input:focus {
 }
 
 .password_input,
-.re_password_input {
+.confirm_password_input {
     width: 100%;
     position: relative;
 }
@@ -130,7 +130,8 @@ input:focus {
     color: var(--Linkbrary-red);
 }
 
-.eye_button {
+.eye_button,
+.confirm_eye_button {
     position: absolute;
     top: 45%;
     right: 15px;
@@ -139,6 +140,10 @@ input:focus {
     background-image: url("../images/eye-off.svg");
     border: none;
     cursor: pointer;
+}
+
+input[type="text"] + .eye_button {
+    background-image: url("../images/eye-on.svg");
 }
 
 /* 버튼 */
@@ -157,7 +162,7 @@ input:focus {
     border: none;
     border-radius: 8px;
     background: var(--gra-purpleblue-to-skyblue);
-    color: var(--Grey-Light);
+    color: var(--Grey-light);
     font-size: 1.8rem;
     font-weight: 600;
     cursor: pointer;

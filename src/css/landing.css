@@ -162,7 +162,7 @@ main section:nth-child(2) {
     grid-row: 1/2;
     margin: auto;
     margin-bottom: 10px;
-    color: var(--black);
+    color: var(--Black);
     font-size: 4.8rem;
     font-weight: 700;
     letter-spacing: -0.3px;
@@ -171,7 +171,7 @@ main section:nth-child(2) {
 .contents_description {
     grid-row: 2/3;
     align-self: stretch;
-    color: var(--Dove-Gray-light);
+    color: var(--Dove-gray-light);
     font-size: 1.6rem;
     font-weight: 400;
     line-height: 1.5; /* 24px */
@@ -209,7 +209,7 @@ footer {
 }
 
 .codeIt {
-    color: var(--Dove-Gray);
+    color: var(--Dove-gray);
     text-align: center;
     font-family: Acme;
     font-size: 1.6rem;
