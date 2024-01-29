@@ -1,11 +1,5 @@
 import { PATH } from './constant.js';
-import {
-  checkAvailableEmail,
-  checkAvailablePassword,
-  checkPasswordMatch,
-  checkPassword,
-  changeEyeIcon,
-} from './sign.js';
+import { checkAvailableEmail, checkAvailablePassword, checkPasswordMatch, changeEyeIcon } from './sign.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -41,9 +35,9 @@ const submitForm = event => {
     email.value &&
     password.value &&
     passwordCheck.value &&
-    !email.classList.contains('hidden') &&
-    !password.classList.contains('hidden') &&
-    !passwordCheck.classList.contains('hidden')
+    !emailErrorMessage.classList.contains('hidden') &&
+    !passwordErrorMessage.classList.contains('hidden') &&
+    !passwordCheckErrorMessage.classList.contains('hidden')
   ) {
     email.value = '';
     window.location.href = PATH.PAGE_FOLDER;
