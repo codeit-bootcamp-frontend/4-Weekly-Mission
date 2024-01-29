@@ -44,11 +44,12 @@ export const checkPassword = (passwordElement, errorMessageElement) => {
 };
 
 export const checkAvailablePassword = (passwordElement, errorMessageElement) => {
-  checkPassword(passwordElement, errorMessageElement);
   if (!validatePassword(passwordElement.value)) {
     showInputError(passwordElement);
     showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_PASSWORD);
+    return;
   }
+  checkPassword(passwordElement, errorMessageElement);
 };
 
 //Check passwordCheck: 입력 여부 및 값 확인--------------------------------------
@@ -56,7 +57,9 @@ export const checkPasswordMatch = (passwordElement, passwordCheckElement, errorM
   if (!checkValueMatch(passwordElement, passwordCheckElement)) {
     showInputError(passwordCheckElement);
     showErrorMessage(errorMessageElement, ERROR_MESSAGE.MISMATCH_PASSWORD);
+    return;
   }
+  checkPassword(passwordCheckElement, errorMessageElement);
 };
 
 //Change icon: eye-on/off---------------------------------------------------

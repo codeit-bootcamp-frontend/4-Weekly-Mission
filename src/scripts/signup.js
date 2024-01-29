@@ -1,5 +1,4 @@
-import { ERROR_MESSAGE, PATH } from './constant.js';
-import { showInputError, showErrorMessage, checkUserInfo } from './util.js';
+import { PATH } from './constant.js';
 import {
   checkAvailableEmail,
   checkAvailablePassword,
@@ -27,24 +26,28 @@ email.addEventListener('focusout', () => checkAvailableEmail(email, emailErrorMe
 password.addEventListener('focusout', () => checkAvailablePassword(password, passwordErrorMessage));
 
 //Check passwordCheck: 입력 여부 및 값 확인
-passwordCheck.addEventListener('change', () => checkPasswordMatch(password, passwordCheck, passwordCheckErrorMessage));
-passwordCheck.addEventListener('focusout', () => checkPassword(passwordCheck, passwordCheckErrorMessage));
+passwordCheck.addEventListener('focusout', () =>
+  checkPasswordMatch(password, passwordCheck, passwordCheckErrorMessage)
+);
 
 //Change icon: eye-on/off
 eyeIcon.addEventListener('click', () => changeEyeIcon(eyeIcon, password));
 eyeIconCheck.addEventListener('click', () => changeEyeIcon(eyeIconCheck, passwordCheck));
 
-//Login: submit form
+//SignUp: submit form
 const submitForm = event => {
   event.preventDefault();
-  if (checkUserInfo(email, password)) {
+  if (
+    email.value &&
+    password.value &&
+    passwordCheck.value &&
+    !email.classList.contains('hidden') &&
+    !password.classList.contains('hidden') &&
+    !passwordCheck.classList.contains('hidden')
+  ) {
     email.value = '';
     window.location.href = PATH.PAGE_FOLDER;
     return;
   }
-  showInputError(email);
-  showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL);
-  showInputError(password);
-  showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.INVALID_PASSWORD);
 };
 signupForm.addEventListener('submit', submitForm);
