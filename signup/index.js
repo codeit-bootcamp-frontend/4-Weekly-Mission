@@ -14,11 +14,11 @@ let loginButton = document.querySelector(".button-signup");
 let passwordIcon = document.querySelector(".password-icon");
 let passwordConfimIcon = document.querySelector(".password-confirm-icon");
 
-function noInputFocusOut(parentElementSlectorName, inputSlectorName, errorSentence) {
+function noInputFocusOut(element, parentElementSlectorName, inputSlectorName, errorSentence) {
   error.removeErrorElement(parentElementSlectorName);
   removeBorder(inputSlectorName);
 
-  if (email.value.trim() === "") {
+  if (element.value.trim() === "") {
     error.createErrorSpanElement(parentElementSlectorName);
     errorBorder(inputSlectorName)
     error.errorMessageInElement(parentElementSlectorName, errorSentence);
@@ -121,9 +121,9 @@ function signupCheck() {
   }
 }
 
-email.addEventListener("focusout", () => noInputFocusOut(".input-form-email", ".input-email", "이메일을 입력해 주세요"));
+email.addEventListener("focusout", () => noInputFocusOut(email, ".input-form-email", ".input-email", "이메일을 입력해 주세요"));
 email.addEventListener("focusout", aleadyUse);
-password.addEventListener("focusout", () => noInputFocusOut(".input-form-password", ".input-password", "비밀번호를 입력해 주세요"));
+password.addEventListener("focusout", () => noInputFocusOut(password, ".input-form-password", ".input-password", "비밀번호를 입력해 주세요"));
 password.addEventListener("focusout", notPasswordFormat);
 email.addEventListener("input", notValidEmailInput);
 email.addEventListener("focusin", () => focusIn(".input-form-email", ".input-email"));
