@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="join.css" />
+    <link rel="stylesheet" href="login.css" />
     <title>linkdrary_login</title>
   </head>
   <body>
@@ -12,36 +12,36 @@
         <img id="logo" src="signin/logo.svg" alt=""
       /></a>
       <div id="join">
-        이미 회원이신가요?
-        <a id="join_a" href="../login/login.html">로그인 하기</a>
+        회원이 아니신가요?
+        <a id="join_a" href="../join/join.html">회원 가입하기</a>
       </div>
     </header>
     <main>
-      <div class="input">
+      <div class="input email_box">
         <p class="input_name">이메일</p>
-        <input class="input_box" type="text" placeholder="codeit@codeit.com" />
-      </div>
-
-      <div class="input">
-        <p class="input_name">비밀번호</p>
-        <input class="input_box" type="password" placeholder="linkbrary2023" />
-      </div>
-
-      <div class="input">
-        <p class="input_name">비밀번호 확인</p>
         <input
-          class="input_box red"
-          type="password"
-          placeholder="linkbrary2023"
+          id="email"
+          class="input_box"
+          type="text"
+          placeholder="codeit@codeit.com"
         />
-        <p class="password_check">비밀번호가 다릅니다</p>
+        <div class="email_error error"></div>
       </div>
-
-      <button class="login_btn">회원가입</button>
+      <div class="input password_box">
+        <p class="input_name">비밀번호</p>
+        <input
+          id="password"
+          class="input_box"
+          type="password"
+          placeholder="password"
+        />
+        <div class="password_error error"></div>
+      </div>
+      <button class="login_btn">로그인</button>
     </main>
     <footer>
-      <p>다른 방식으로 가입하기</p>
-      <div>
+      <p>소셜 로그인</p>
+      <div class="social_btns">
         <a class="social_btn google" href="http://www.google.com">
           <img
             style="width: 24px; height: 24px"
@@ -50,10 +50,11 @@
             alt=""
           />
         </a>
-        <a class="social_btn kakao" href="http://www.kakaocorp.com">
+        <a class="social_btn kakao" href="http://kakaocorp.com">
           <img class="social_img" src="image/kakao.svg" alt="" />
         </a>
       </div>
     </footer>
+    <script src="./login.js"></script>
   </body>
 </html>

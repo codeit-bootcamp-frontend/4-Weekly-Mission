@@ -19,25 +19,36 @@
     <main>
       <div class="input">
         <p class="input_name">이메일</p>
-        <input class="input_box" type="text" placeholder="codeit@codeit.com" />
+        <input
+          id="email"
+          class="input_box"
+          type="email"
+          placeholder="codeit@codeit.com"
+        />
+        <div class="email_error error"></div>
       </div>
-
       <div class="input">
         <p class="input_name">비밀번호</p>
-        <input class="input_box" type="password" placeholder="linkbrary2023" />
+        <input
+          id="password"
+          class="input_box"
+          type="password"
+          placeholder="linkbrary2023"
+        />
+        <div class="password_error error"></div>
       </div>
-
       <div class="input">
         <p class="input_name">비밀번호 확인</p>
         <input
+          id="password_check"
           class="input_box red"
           type="password"
           placeholder="linkbrary2023"
         />
-        <p class="password_check">비밀번호가 다릅니다</p>
+        <div class="password_error_check error"></div>
       </div>
 
-      <button class="login_btn">회원가입</button>
+      <button class="join_btn">회원가입</button>
     </main>
     <footer>
       <p>다른 방식으로 가입하기</p>
@@ -55,5 +66,6 @@
         </a>
       </div>
     </footer>
+    <script src="./join.js"></script>
   </body>
 </html>

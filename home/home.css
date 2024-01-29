@@ -238,6 +238,9 @@ footer {
     margin: 70px 0;
     gap: 24px;
   }
+  .left {
+    flex-direction: column-reverse;
+  }
   .texts {
     width: 100%;
   }
