@@ -70,6 +70,9 @@ header {
 .error-message {
   color: #ff5b45;
 }
+.error-style {
+  display: none;
+}
 .sign-input-box {
   display: flex;
   flex-direction: column;
