@@ -82,6 +82,28 @@ body {
   border: none;
 }
 
+:is(.errorMessage-email, .errorMessage-password, .errorMessage-password-check) {
+  color: var(--red);
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+.signup-form .red-border {
+  border: 1px solid var(--red);
+}
+
+.hidden {
+  display: none;
+}
+
+.eye-open {
+  content: url(../asset/img/signup/eye-on.png)
+}
+
+.eye-closed {
+  content: url(../asset/img/signup/Vector.png)
+}
+
 /*********************
       social-login
 *********************/

@@ -21,20 +21,23 @@
 
     <form class="signup-form flex-col">
       <div>
-        <label for="signup-email">이메일</label>
-        <input id="signup-email" name="email" type="email">
-      </div>
-      <div>
-        <label for="signup-password">비밀번호
-          <input id="signup-password" name="password" type="text">
-          <img class="eye-img" src="../asset/img/signup/eye-on.png">
+        <label for="signup-email">이메일
+          <input id="signup-email" name="email" type="email" placeholder="내용 입력">
+          <p class="hidden errorMessage-email"></p>
         </label>
       </div>
       <div>
-        <label for="signup-password-check">
-          비밀번호 확인
-          <input id="signup-password-check" name="password" type="text">
-          <img class="eye-img" src="../asset/img/signup/eye-on.png">
+        <label for="signup-password">비밀번호
+          <input id="signup-password" name="password" type="password" placeholder="내용 입력">
+          <img class="eye-img eye-closed">
+          <p class="hidden errorMessage-password"></p>
+        </label>
+      </div>
+      <div>
+        <label for="signup-password-check">비밀번호 확인
+          <input id="signup-password-check" name="password" type="password" placeholder="내용 입력">
+          <img class="eye-img eye-closed">
+          <p class="hidden errorMessage-password-check"></p>
         </label>
       </div>
       <button class="btn">회원가입</button>
@@ -54,6 +57,6 @@
 
   </div>
 
-  <script src="index.js"></script>
+  <script type="module" src="index.js"></script>
 </body>
 </html>

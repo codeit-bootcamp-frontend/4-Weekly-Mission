@@ -86,7 +86,7 @@ body {
   border: none;
 }
 
-:is(.errorMessage-email, .errorMessage-password)  {
+:is(.errorMessage-email, .errorMessage-password) {
   color: var(--red);
   font-size: 14px;
   margin-top: 6px;
