@@ -25,21 +25,24 @@
       <div class="sign-inputs">
         <div class="sign-input-content">
           <label for="email">이메일</label>
-          <input id="email" type="text" />
+          <input id="email" class="email-input" type="text" placeholder="codeit@codeit.com" />
+          <span class="error-message"></span>
         </div>
-        <div class="sign-input-content sign-password-content">
+        <div class="sign-input-content">
           <label for="password">비밀번호</label>
-          <input id="password" type="password" />
-          <button class="eye-btn" type="button">
-            <img src="./images/eye-off.svg" alt="password on-off img" />
-          </button>
+          <div class="sign-password-content">
+            <input id="password" class="password-input" type="password" placeholder="‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧" />
+            <button class="eye-btn" type="button"></button>
+          </div>
+          <span class="error-message"></span>
         </div>
-        <div class="sign-input-content sign-password-content">
+        <div class="sign-input-content">
           <label for="password-check">비밀번호 확인</label>
-          <input id="password-check" type="password" />
-          <button class="eye-btn" type="button">
-            <img src="./images/eye-off.svg" alt="password on-off img" />
-          </button>
+          <div class="sign-password-content">
+            <input id="password-check" class="password-check-input" type="password" placeholder="‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧" />
+            <button class="eye-btn" type="button"></button>
+          </div>
+          <span class="error-message"></span>
         </div>
       </div>
       <button class="sign-btn" type="submit">회원가입</button>
@@ -56,5 +59,6 @@
       </div>
     </div> 
   </div>
+  <script type="module" src="./signup.js"></script>
 </body>
 </html>
