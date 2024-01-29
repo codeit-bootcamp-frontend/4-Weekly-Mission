@@ -23,7 +23,7 @@ function checkEmailInput(event) {
 }
 
 //비밀번호 조합 체크
-function checkPasswordLength(event) {
+function checkPasswordPattern(event) {
     const userInput = returnInputValue(event);
     let message =   /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/.test(userInput) === false ? '비밀번호는 영문, 숫자 조합8자 이상 입력해 주세요.' : '';
     errorMessgePassword.textContent = message;
@@ -51,9 +51,9 @@ function submitSignupFormEvent(e) {
 //폼제출시 input태그가 비어있으면 알림 함수
 function checkEmptyInput() {
     const inputes = document.querySelectorAll('input');
-    if (inputes[0].value === '') return alert(`${inputes[0].dataset['value']}을 입력해주세요.`);
-    else if (inputes[1].value === '') return alert(`${inputes[1].dataset['value']}를 입력해주세요.`);
-    else if (inputes[2].value === '') return alert(`${inputes[2].dataset['value']}을 해주세요.`);
+    if (inputes[0].value.trim() === '') return alert(`${inputes[0].dataset['value']}을 입력해주세요.`);
+    else if (inputes[1].value.trim() === '') return alert(`${inputes[1].dataset['value']}를 입력해주세요.`);
+    else if (inputes[2].value.trim() === '') return alert(`${inputes[2].dataset['value']}을 해주세요.`);
     else {
         let check = '';
         errorMessageBoxes.forEach(v => check += v.textContent);
@@ -77,7 +77,7 @@ function repeatAnimation() {
 
 
 document.querySelector('#email').addEventListener('focusout', checkEmailInput);
-userInputPassword.addEventListener('focusout', checkPasswordLength);
+userInputPassword.addEventListener('focusout', checkPasswordPattern);
 document.querySelector('#password-check').addEventListener('focusout', samePasswordCheck);
 document.querySelector('#form-signup').addEventListener('submit', submitSignupFormEvent);
 document.querySelectorAll('.show-password > img').forEach(v => v.addEventListener('click', eyeIconClickEvent));
