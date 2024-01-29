@@ -1,4 +1,4 @@
-const togglePassword = document.querySelectorAll('.eye-btn')
+const passwordEncryptButtonList = document.querySelectorAll('.eye-btn')
 
 // passwordToggle(show and hide)
 const passwordToggle = (e) => {
@@ -13,7 +13,7 @@ const passwordToggle = (e) => {
 }
 
 for (let i = 0; i < togglePassword.length; i++) {
-  togglePassword[i].addEventListener('click', passwordToggle)
+  passwordEncryptButtonList[i].addEventListener('click', passwordToggle)
 }
 
 export { passwordToggle }
