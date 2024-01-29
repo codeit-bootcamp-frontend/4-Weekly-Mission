@@ -65,10 +65,11 @@ input {
   margin-top: 12px;
   cursor: pointer;
   outline: none;
+  margin-bottom: 0;
 }
 
 .input-error {
-  outline: 1px solid var(--Linkbrary-red);
+  border: 1px solid var(--Linkbrary-red);
 }
 
 .social-login {
@@ -97,9 +98,22 @@ input {
   margin: 0;
 }
 
-#email-input:focus {
+.email.input:focus {
   border: 1px solid var(--Linkbrary-primary-color);
 }
-#passWord-input:focus {
+.password.input:focus {
   border: 1px solid var(--Linkbrary-primary-color);
+}
+.passwordConfirm.input:focus {
+  border: 1px solid var(--Linkbrary-primary-color);
+}
+
+.errorMessage {
+  color: var(--Linkbrary-red);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-top: 6px;
 }

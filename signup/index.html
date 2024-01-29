@@ -59,31 +59,45 @@
         </a>
         <div class="signup">
           <p>이미 회원이신가요?</p>
-          <a href="#">로그인 하기</a>
+          <a href="../signin/index.html">로그인 하기</a>
         </div>
       </header>
 
       <main>
-        <form class="sign-form" action="/login" method="post">
+        <form class="sign-form" action="../signin/index.html" method="post">
           <section class="email">
             <p>이메일</p>
-            <input id="email-input" type="email" />
+            <input
+              class="email input"
+              type="email"
+              name="email"
+              placeholder="내용 입력"
+            />
+            <p class="errorMessage email"></p>
           </section>
 
           <section class="password">
-            <p>비밀번호</p>
-            <input id="passWord-input" type="password" />
+            <label>비밀번호</label>
+            <input
+              class="password input"
+              type="password"
+              name="password"
+              placeholder="내용 입력"
+            />
             <img src="../assets/eye-off.png" />
+            <p class="errorMessage password"></p>
           </section>
 
-          <!-- 이 "비밀번호 확인"이 위치가 아래로 밀리는데 margin 조절해도 변화가 없고 하네요..
-        해결할 방법이 있나요? 위의 이메일 section과 다르게 input bottom에서 section이 
-      안 끝나고 여백이 생깁니다 -->
-
-          <section class="password">
-            <p>비밀번호 확인</p>
-            <input id="passWord-input" type="password" />
+          <section class="password confirm">
+            <label>비밀번호 확인</label>
+            <input
+              class="passwordConfirm input"
+              type="password"
+              name="passwordconfirm"
+              placeholder="내용 입력"
+            />
             <img src="../assets/eye-off.png" />
+            <p class="errorMessage passwordconfirm"></p>
           </section>
 
           <button type="submit" class="CTA">회원가입</button>
@@ -171,4 +185,5 @@
       </main>
     </div>
   </body>
+  <script src="./signup.js" type="module"></script>
 </html>
