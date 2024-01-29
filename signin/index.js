@@ -1,141 +1,114 @@
-///////////원래 파일
-
+/////////////모듈러하게 작성한 파일
+import {
+  isEmailFormat,
+  isEmpty,
+  removeError,
+  toggleError,
+  toggleErrorVisibility,
+} from "./common.js";
+/**
+ * HTML DOM Elements
+ */
 const emailInput = document.querySelector("#email-input");
-const pwInput = document.querySelector("#pw-input");
+const passwordInput = document.querySelector("#pw-input");
+
 const loginButton = document.querySelector(".login-button");
-const eyeoffButton = document.querySelector(".eyeoff-button");
+const showPasswordButton = document.querySelectorAll(".eyeoff-button");
+const emailErrorMessage = document.querySelector(".email-error");
+const pwErrorMessage = document.querySelector(".pw-error");
 
-function emailRequest(event) {
-  //이메일을 입력해 주세요.
-  if (emailInput.value == "") {
-    let emrq = document.querySelector(".email-request");
-    emrq.classList.add("email-request-show");
-    emrq.textContent = "이메일을 입력해 주세요.";
-  }
-  let emchrs = document.querySelector(".email-checker-show");
-  if (emchrs) {
-    emchrs.classList.remove("email-checker-show");
-  }
-  let ckems = document.querySelector(".check-email-show");
-  if (ckems) {
-    ckems.classList.remove("check-email-show");
-  }
-}
-function removeEmailRequest(event) {
-  let emrqs = document.querySelector(".email-request-show");
-  if (emrqs) {
-    emrqs.classList.remove("email-request-show");
-  }
-}
-
-emailInput.addEventListener("focusout", emailRequest);
-emailInput.addEventListener("focusin", removeEmailRequest);
-
-function emailChecker(event) {
-  //올바른 이메일 주소가 아닙니다.
-  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  let emchrs = document.querySelector(".email-checker-show");
-  if (!regex.test(emailInput.value) && emailInput.value != "") {
-    let emchr = document.querySelector(".email-checker");
-    emchr.classList.add("email-checker-show");
-    emchr.textContent = "올바른 이메일 주소가 아닙니다.";
-  } else if (emchrs) {
-    emchrs.classList.remove("email-checker-show");
-  }
-  const ckems = document.querySelector(".check-email-show");
-  if (ckems) {
-    ckems.classList.remove("check-email-show");
-  }
-  if (emailInput.value != "") {
-    removeEmailRequest();
-  }
-}
-emailInput.addEventListener("focusout", emailChecker);
-
-function pwRequest(event) {
-  //비밀번호를 입력해 주세요
-  if (pwInput.value == "") {
-    let pwrq = document.querySelector(".pw-request");
-    pwrq.classList.add("pw-request-show");
-    pwrq.textContent = "비밀번호를 입력해 주세요.";
-  }
-  let ckpws = document.querySelector(".check-pw-show");
-  if (ckpws) {
-    ckpws.classList.remove("check-pw-show");
-  }
-}
-
-function removePwRequest(event) {
-  let pwrqs = document.querySelector(".pw-request-show");
-  if (pwrqs) {
-    pwrqs.classList.remove("pw-request-show");
-  }
-}
-
-pwInput.addEventListener("focusout", pwRequest);
-pwInput.addEventListener("focusin", removePwRequest);
-
-function loginFunction(event) {
-  //이메일(비밀번호)을 확인해주세요.
-  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  if (emailInput.value == "test@codeit.com" && pwInput.value == "codeit101") {
-    window.location.href = "../folder/index.html";
-  } else if (emailInput.value != "" && pwInput.value != "") {
-    if (regex.test(emailInput.value)) {
-      const checkEmail = document.querySelector(".check-email");
-      const checkPw = document.querySelector(".check-pw");
-      checkEmail.classList.add("check-email-show");
-      checkEmail.textContent = "이메일을 확인해 주세요.";
-      checkPw.classList.add("check-pw-show");
-      checkPw.textContent = "비밀번호를 확인해 주세요.";
-      let emchrs = document.querySelector(".email-checker-show");
-      if (emchrs) {
-        emchrs.classList.remove("email-checker-show");
-      }
-      removePwRequest();
-    } else {
-      emailChecker();
-    }
-  } else if (emailInput.value == "") {
-    emailRequest();
-  } else if (pwInput.value == "") {
-    pwRequest();
-    emailChecker();
-  }
-}
+/**
+ * UI Event Listeners
+ */
+emailInput.addEventListener("focusout", isValidEmail);
+passwordInput.addEventListener("focusout", isValidPassword);
+// emailInput.addEventListener("focusout", handleLogin);
+// passwordInput.addEventListener("focusout", handleLogin);
 loginButton.addEventListener("click", function (event) {
   event.preventDefault();
-  loginFunction();
+
+  handleLogin(event);
 });
+
+//onSubmit을 활용하면 eyeoff-button이 클릭되는데 어떻게 해야 할까요?
 emailInput.addEventListener("keypress", function (event) {
   if (event.key == "Enter") {
     event.preventDefault();
-    loginFunction();
+    handleLogin(event);
   }
 });
-pwInput.addEventListener("keypress", function (event) {
+passwordInput.addEventListener("keypress", function (event) {
   if (event.key == "Enter") {
     event.preventDefault();
-    loginFunction();
+    handleLogin(event);
   }
 });
-//눈모양 아이콘
-function pwVisibility(event) {
-  if (pwInput.type == "password") {
-    pwInput.type = "text";
-    eyeoffButton.removeChild(eyeoffButton.getElementsByTagName("img")[0]);
-    const eyeonImg = document.createElement("img");
-    eyeonImg.setAttribute("src", "../public/images/signin-image/eye-on.png");
-    eyeoffButton.prepend(eyeonImg);
+
+function isValidEmail() {
+  const email = emailInput.value;
+  const isEmailEmpty = isEmpty(email);
+  removeError(emailErrorMessage);
+  if (isEmailEmpty) {
+    toggleError(emailErrorMessage, "이메일을 입력해 주세요.");
+    return false;
+  }
+  const isValidEmailFormat = isEmailFormat(email);
+  if (!isValidEmailFormat && !isEmailEmpty) {
+    toggleError(emailErrorMessage, "올바른 이메일 주소가 아닙니다.");
+    return false;
+  }
+  return true;
+}
+
+function isValidPassword() {
+  const password = passwordInput.value;
+  const isPasswordEmpty = isEmpty(password);
+  removeError(pwErrorMessage);
+  if (isPasswordEmpty) {
+    toggleError(pwErrorMessage, "비밀번호를 입력해 주세요.");
+    return false;
   } else {
-    pwInput.type = "password";
-    eyeoffButton.removeChild(eyeoffButton.getElementsByTagName("img")[0]);
-    const eyeoffImg = document.createElement("img");
-    eyeoffImg.setAttribute("src", "../public/images/signin-image/eye-off.png");
-    eyeoffButton.prepend(eyeoffImg);
+    removeError(pwErrorMessage);
+    return true;
   }
 }
-eyeoffButton.addEventListener("click", function (event) {
+
+function checkEmailInput() {
+  toggleError(emailErrorMessage, "이메일을 확인해 주세요.");
+}
+
+function checkPasswordInput() {
+  toggleError(pwErrorMessage, "비밀번호를 확인해 주세요.");
+}
+
+function isValidUser(loginInfo) {
+  const validUserSchema = { email: "test@codeit.com", password: "codeit101" };
+  const { email, password } = loginInfo;
+  if (email !== validUserSchema.email) {
+    return false;
+  }
+  if (password !== validUserSchema.password) {
+    return false;
+  }
+  location.href = "../folder/index.html";
+  return true;
+}
+
+function handleLogin() {
+  const email = emailInput.value;
+  const password = passwordInput.value;
+  if (isValidEmail() && isValidPassword()) {
+    const loginInfo = { email: email, password: password };
+    if (!isValidUser(loginInfo)) {
+      checkEmailInput();
+      checkPasswordInput();
+    }
+  }
+}
+
+//눈모양 아이콘
+
+showPasswordButton[0].addEventListener("click", function (event) {
   event.preventDefault();
-  pwVisibility();
+  toggleErrorVisibility(passwordInput, event, 0);
 });
