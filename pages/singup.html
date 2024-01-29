@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="/styles/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="signin-wrapper">
+        <header>
+            <a href="/index.html" class="login-name"><img src="/images/logo.svg" alt = 'main logo'></a>
+            <p>이미 회원이신가요? <a href="/pages/signin.html">로그인 하기</a></p>
+        </header>
+        <form>
+            <section>
+                <label>
+                    <p class="signin-tag">이메일</p>
+                    <input type="text">
+                </label>
+            </section>
+            <section>
+                <label>
+                    <p class="signin-tag">비밀번호</p>
+                    <input type="password">
+                    <button class="eyes"><img src="/images/eye-off.png" alt="eye icon"></button>
+                </label>
+            </section>
+            <section>
+                <label>
+                    <p class="signin-tag">비밀번호 확인</p>
+                    <input type="password">
+                    <button class="eyes">
+                        <button class="eyes"><img src="/images/eye-off.png" alt="eye icon"></button>
+                    </button>
+                </label>
+            </section>
+            <button type="button" class="button">회원가입</button>
+        </form>
+        <article>
+            <p>다른 방식으로 가입하기</p>
+            <div class="social-icon">
+                <a href="https://www.google.com">
+                    <div class="google-icon">
+                        <img src="/images/google.png" alt="google icon">
+                    </div>
+                </a>
+                <a href="https://www.kakaocorp.com/page/">
+                    <div class="kakao-icon">
+                        <img src="/images/kakao.svg" alt="kakao icon">
+                    </div>
+                </a>
+            </div>
+        </article>  
+    </div>
+</body>
+</html>
