@@ -2,20 +2,24 @@ import { querySelector } from "./querySelector";
 import { updateErrorMessage } from "../functions/updateErrorMessage";
 import { passwordShowHidden } from "../functions/passwordShowHidden";
 import { checkValidLogin } from "../functions/CheckValidLogin";
-import {
-  signinEmailInput,
-  signinPasswordInput,
-  loginBtn,
-  loginForm,
-  passwordEyeIcon,
-  signupEmailInput,
-  signupPasswordInput,
-  signupPasswordRepeatInput,
-  signupBtn,
-  signupForm,
-  eyeIconPassword,
-  passwordRepeatEyeIcon,
-} from "./commonsBase";
+
+// signin에서 사용하는 변수
+export const signinEmailInput = querySelector("#signin-email-input");
+export const signinPasswordInput = querySelector("#signin-password-input");
+export const loginBtn = querySelector("#login-button");
+export const loginForm = querySelector("#login-form");
+export const passwordEyeIcon = querySelector("#password-eye-icon");
+
+// signup에서 사용하는 변수
+export const signupEmailInput = querySelector("#signup-email-input");
+export const signupPasswordInput = querySelector("#signup-password-input");
+export const signupPasswordRepeatInput = querySelector(
+  "#signup-password-repeat-input"
+);
+export const signupBtn = querySelector("#signup-button");
+export const signupForm = querySelector("#signup-form");
+export const eyeIconPassword = querySelector("#password-eye-icon");
+export const passwordRepeatEyeIcon = querySelector("#password-repeat-eye-icon");
 
 // 함수 정리를 위한 함수
 /** 이메일 입력값에 따른 에러 메세지 출력 함수 */
@@ -78,7 +82,6 @@ export function showHidePassword(eyeIcon, passwordInput) {
 // }
 
 export function checkPasswordValidity(event, isValidPassword) {
-  const passwordInput = event.target;
   const passwordValue = event.target.value.trim();
   const errorMessageBox = querySelector("#password-error-message");
 
@@ -86,16 +89,16 @@ export function checkPasswordValidity(event, isValidPassword) {
     updatePasswordErrorMessage(
       errorMessageBox,
       "비밀번호를 입력해 주세요.",
-      passwordInput,
+      signinPasswordInput,
       true
     );
   } else if (isValidPassword(passwordValue)) {
-    updatePasswordErrorMessage(errorMessageBox, "", passwordInput, false);
+    updatePasswordErrorMessage(errorMessageBox, "", signinPasswordInput, false);
   } else {
     updatePasswordErrorMessage(
       errorMessageBox,
       "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
-      passwordInput,
+      signinPasswordInput,
       true
     );
   }
