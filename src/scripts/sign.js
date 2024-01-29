@@ -1,5 +1,5 @@
 import { ERROR_MESSAGE, PATH } from './constant.js';
-import { validateEmail, showInputError, showErrorMessage, hideInputError, changeImage } from './util.js';
+import { validateEmail, showInputError, showErrorMessage, hideInputError, changeImage, checkUserId } from './util.js';
 
 //Check email: 입력 여부 확인, 메일 형식 확인-------------------------------------
 export const checkEmail = (emailElement, errorMessageElement) => {
@@ -14,6 +14,15 @@ export const checkEmail = (emailElement, errorMessageElement) => {
     return;
   }
   hideInputError(emailElement, errorMessageElement);
+};
+
+export const checkAvailableEmail = (emailElement, errorMessageElement) => {
+  checkEmail(emailElement, errorMessageElement);
+  if (checkUserId(emailElement)) {
+    showInputError(emailElement);
+    showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
+    return;
+  }
 };
 
 //Check password: 입력 여부 확인-----------------------------------------------

@@ -1,6 +1,6 @@
 import { ERROR_MESSAGE, PATH } from './constant.js';
 import { showInputError, showErrorMessage, checkUserInfo } from './util.js';
-import { checkEmail, checkPassword, changeEyeIcon } from './sign.js';
+import { checkEmail, checkPassword, changeEyeIcon, checkAvailableEmail } from './sign.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -15,7 +15,7 @@ const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 const passwordCheckErrorMessage = document.getElementById('passwordCheckErrorMessage');
 
 //Check email: 입력 여부 확인, 메일 형식 확인
-email.addEventListener('focusout', () => checkEmail(email, emailErrorMessage));
+email.addEventListener('focusout', () => checkAvailableEmail(email, emailErrorMessage));
 
 //Check password: 입력 여부 확인
 password.addEventListener('focusout', () => checkPassword(password, passwordErrorMessage));

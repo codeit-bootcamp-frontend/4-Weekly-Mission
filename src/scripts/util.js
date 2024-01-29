@@ -22,6 +22,10 @@ export const changeImage = (imageElement, imageSrc) => {
   imageElement.setAttribute('src', imageSrc);
 };
 
-export const checkUserInfo = (id, password) => {
-  return id.value === USER_INFO.ID && password.value === USER_INFO.PASSWORD;
+export const checkUserInfo = (idElement, passwordElement) => {
+  return idElement.value === USER_INFO.ID && passwordElement.value === USER_INFO.PASSWORD;
+};
+
+export const checkUserId = idElement => {
+  return idElement.value === USER_INFO.ID;
 };
