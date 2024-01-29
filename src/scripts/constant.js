@@ -8,6 +8,7 @@ export const ERROR_MESSAGE = {
 
   UNAVAILABLE_EMAIL: '이미 사용 중인 이메일입니다.',
   UNAVAILABLE_PASSWORD: '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
+  MISMATCH_PASSWORD: '비밀번호가 일치하지 않아요.',
 };
 
 export const REGEX = {

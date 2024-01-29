@@ -7,6 +7,7 @@ import {
   hideInputError,
   changeImage,
   checkUserId,
+  checkValueMatch,
 } from './util.js';
 
 //Check email: 입력 여부 확인, 메일 형식 확인-------------------------------------
@@ -47,6 +48,14 @@ export const checkAvailablePassword = (passwordElement, errorMessageElement) => 
   if (!validatePassword(passwordElement.value)) {
     showInputError(passwordElement);
     showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_PASSWORD);
+  }
+};
+
+//Check passwordCheck: 입력 여부 및 값 확인--------------------------------------
+export const checkPasswordMatch = (passwordElement, passwordCheckElement, errorMessageElement) => {
+  if (!checkValueMatch(passwordElement, passwordCheckElement)) {
+    showInputError(passwordCheckElement);
+    showErrorMessage(errorMessageElement, ERROR_MESSAGE.MISMATCH_PASSWORD);
   }
 };
 

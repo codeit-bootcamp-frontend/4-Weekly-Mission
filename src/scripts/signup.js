@@ -1,6 +1,12 @@
 import { ERROR_MESSAGE, PATH } from './constant.js';
 import { showInputError, showErrorMessage, checkUserInfo } from './util.js';
-import { checkAvailableEmail, checkAvailablePassword, checkPassword, changeEyeIcon } from './sign.js';
+import {
+  checkAvailableEmail,
+  checkAvailablePassword,
+  checkPasswordMatch,
+  checkPassword,
+  changeEyeIcon,
+} from './sign.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -20,7 +26,8 @@ email.addEventListener('focusout', () => checkAvailableEmail(email, emailErrorMe
 //Check password: 입력 여부 확인
 password.addEventListener('focusout', () => checkAvailablePassword(password, passwordErrorMessage));
 
-//Check passwordCheck: 입력 여부 확인
+//Check passwordCheck: 입력 여부 및 값 확인
+passwordCheck.addEventListener('change', () => checkPasswordMatch(password, passwordCheck, passwordCheckErrorMessage));
 passwordCheck.addEventListener('focusout', () => checkPassword(passwordCheck, passwordCheckErrorMessage));
 
 //Change icon: eye-on/off
