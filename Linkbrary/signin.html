@@ -3,38 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/reset.css">
-  <link rel="stylesheet" href="../css/signin.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/signin.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  <script src="../javascript/validation.js"></script>
   <title>Linkbrary signin</title>
 </head>
 <body>
   <div class="signin">
     <div class="contents">
       <div class="title">
-        <a href="/"><img src="./img/logo.svg" alt="logo"></a>
+        <a href="./index.html"><img src="./img/logo.svg" alt="logo"></a>
         <div class="description">
           <p>회원이 아니신가요?</p>
           <a href="./signup.html">회원 가입하기</a>
         </div>
       </div>
       <form>
-        <div class="idbox">
+        <div class="idBox" id="idBox">
           <label for="username">이메일</label>
-          <div class="idtext">
-            <input id="username" name="username" placeholder="codeit@codeit.com">
-          </div>
+          <input id="username" name="username" placeholder="codeit@codeit.com">
         </div>
-        <div class="pwbox">
+        <div class="pwBox" id="pwBox">
           <label for="password">비밀번호</label>
-          <div class="pwtext">
-            <input id="password" name="password" type="password" placeholder="••••••••">
-            <img src="./img/eye-off.svg" alt="eye-off">
+          <div class="pwText" id="pwText">
+            <input id="password" class="password" name="password" type="password" placeholder="••••••••">
+            <img class="eye" src="./img/eye-off.svg" alt="eye-off">
           </div>
         </div>
+        <button type="submit" id="loginBtn">로그인</button>
       </form>
-      <button type="submit" id="login_btn">로그인</button>
     </div>
     <div class="social">
       <p>소셜 로그인</p>
@@ -44,5 +41,11 @@
       </div>
     </div>
   </div>
+  <script src="./javascript/import.js"></script>
+  <script src="./javascript/error.js"></script>
+  <script src="./javascript/errorMessage.js"></script>
+  <script src="./javascript/focus.js"></script>
+  <script src="./javascript/eyes.js"></script>
+  <script src="./javascript/login.js"></script>
 </body>
 </html>
