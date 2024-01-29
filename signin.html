@@ -24,23 +24,23 @@
     </header>
 
     <main>
-      <form class="sign">
+      <form class="sign" type="submit">
         <div class="sign-text">
-          <label for="email">이메일</label>
-          <input id="sign-email" name="email" type="email">
-          <div id="email-message"><!-- 이메일 입력 정보 --></div>
+          <label for="sign-email">이메일</label>
+          <input class="input sign-email" name="email" type="email">
+          <div class="email message"><!-- 이메일 입력 정보 --></div>
         </div>
 
         <div class="sign-text">
-          <label for="password">비밀번호</label>
-          <div class="password-icon">
-            <input id="sign-password" name="password" type="password">
-            <img class="icon-eye" src="./images/eye-off.svg" alt="eye-off">
+          <label for="sign-password">비밀번호</label>
+          <div class="password-eye">
+            <input class="input sign-password" name="password" type="password">
+            <img class="eye" src="./images/eye-off.svg" alt="eye">
           </div>
-          <div id="password-message"><!-- 비밀번호 입력 정보 --></div>
+          <div class="password message"><!-- 비밀번호 입력 정보 --></div>
         </div>
 
-        <button class="btn signin">로그인</button>
+        <button class="btn signin" type="submit">로그인</button>
       </form>
       
       <div class=" social">
