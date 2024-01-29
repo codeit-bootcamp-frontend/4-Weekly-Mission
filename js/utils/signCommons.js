@@ -2,24 +2,20 @@ import { querySelector } from "./querySelector";
 import { updateErrorMessage } from "../functions/updateErrorMessage";
 import { passwordShowHidden } from "../functions/passwordShowHidden";
 import { checkValidLogin } from "../functions/CheckValidLogin";
-
-// signin에서 사용하는 변수
-export const signinEmailInput = querySelector("#signin-email-input");
-export const signinPasswordInput = querySelector("#signin-password-input");
-export const loginBtn = querySelector("#login-button");
-export const loginForm = querySelector("#login-form");
-export const passwordEyeIcon = querySelector("#password-eye-icon");
-
-// signup에서 사용하는 변수
-export const signupEmailInput = querySelector("#signup-email-input");
-export const signupPasswordInput = querySelector("#signup-password-input");
-export const signupPasswordRepeatInput = querySelector(
-  "#signup-password-repeat-input"
-);
-export const signupBtn = querySelector("#signup-button");
-export const signupForm = querySelector("#signup-form");
-export const eyeIconPassword = querySelector("#password-eye-icon");
-export const passwordRepeatEyeIcon = querySelector("#password-repeat-eye-icon");
+import {
+  signinEmailInput,
+  signinPasswordInput,
+  loginBtn,
+  loginForm,
+  passwordEyeIcon,
+  signupEmailInput,
+  signupPasswordInput,
+  signupPasswordRepeatInput,
+  signupBtn,
+  signupForm,
+  eyeIconPassword,
+  passwordRepeatEyeIcon,
+} from "./commonsBase";
 
 // 함수 정리를 위한 함수
 /** 이메일 입력값에 따른 에러 메세지 출력 함수 */

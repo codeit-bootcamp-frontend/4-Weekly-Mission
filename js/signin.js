@@ -3,6 +3,15 @@ import { querySelector } from "./utils/querySelector.js";
 import { updateErrorMessage } from "./functions/updateErrorMessage.js";
 import { passwordShowHidden } from "./functions/passwordShowHidden.js";
 import { checkValidLogin } from "./functions/CheckValidLogin.js";
+import {
+  signinEmailInput,
+  signinPasswordInput,
+  loginBtn,
+  loginForm,
+  passwordEyeIcon,
+  checkPasswordValidity,
+  tryLogin,
+} from "./utils/signCommons.js";
 
 /** 이메일 입력 값이 유효한 지 확인하는 함수 */
 function checkEmail(event) {
