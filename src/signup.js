@@ -19,16 +19,17 @@ function validateEmailInput(email) {
       { input: emailInput, errorMessage: emailErrorMessage },
       "이메일을 입력해주세요."
     );
-    return;
+    return false;
   }
   if (!isEmailValid(email)) {
     setInputError(
       { input: emailInput, errorMessage: emailErrorMessage },
       "올바른 이메일 주소가 아닙니다."
     );
-    return;
+    return false;
   }
   removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
+  return true;
 }
 
 const passwordInput = document.querySelector("#passwordInput");
@@ -42,7 +43,7 @@ function validatePasswordInput(password) {
       { input: passwordInput, errorMessage: passwordErrorMessage },
       "비밀번호를 입력해주세요."
     );
-    return;
+    return false;
   }
   if (
     password.length < 8 ||
@@ -53,12 +54,13 @@ function validatePasswordInput(password) {
       { input: passwordInput, errorMessage: passwordErrorMessage },
       "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
     );
-    return;
+    return false;
   }
   removeInputError({
     input: passwordInput,
     errorMessage: passwordErrorMessage,
   });
+  return true;
 }
 
 const passwordCheckInput = document.querySelector("#passwordCheckInput");
@@ -74,12 +76,13 @@ function validatePasswordCheckInput(password) {
       { input: passwordCheckInput, errorMessage: passwordCheckErrorMessage },
       "비밀번호가 일치하지 않아요."
     );
-    return;
+    return false;
   }
   removeInputError({
     input: passwordCheckInput,
     errorMessage: passwordCheckErrorMessage,
   });
+  return true;
 }
 
 const passwordToggleButton = document.querySelector(".password-toggle");
@@ -99,23 +102,17 @@ signForm.addEventListener("submit", submitForm);
 function submitForm(event) {
   event.preventDefault();
 
-  const isTestUser =
-    emailInput.value === TEST_USER.email &&
-    passwordInput.value === TEST_USER.password;
+  validateEmailInput(emailInput.value);
+  validatePasswordInput(passwordInput.value);
+  validatePasswordCheckInput(passwordCheckInput.value);
 
-  if (isTestUser) {
-    setInputError(
-      { input: emailInput, errorMessage: emailErrorMessage },
-      "이미 사용 중인 이메일입니다."
-    );
-    return;
+  if (
+    validateEmailInput(emailInput.value) &&
+    validatePasswordInput(passwordInput.value) &&
+    validatePasswordCheckInput(passwordCheckInput.value)
+  ) {
+    const successPageURL = "../folder.html";
+
+    window.location.href = successPageURL;
   }
-  setInputError(
-    { input: emailInput, errorMessage: emailErrorMessage },
-    "이메일을 확인해주세요."
-  );
-  setInputError(
-    { input: passwordInput, errorMessage: passwordErrorMessage },
-    "비밀번호를 확인해주세요."
-  );
 }
