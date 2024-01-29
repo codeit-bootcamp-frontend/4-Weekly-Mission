@@ -6,4 +6,4 @@ function isVaildPassword(password) {
   return passwordRegex.test(password);
 }
 
-export { passwordRegex, isVaildPassword };
+export { isVaildPassword };
