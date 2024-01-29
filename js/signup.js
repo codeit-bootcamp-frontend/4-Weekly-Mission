@@ -1,7 +1,6 @@
 import  {vaildEmail, vaildPW, vaildConfirmPW, focusOut} from "./vaild.js" 
 import { API_PATH_SIGNUP, API_PATH_CHECK_EMAIL } from "./api-path.js";
 import { pwInputTypeChange } from "./pw-input-type.js";
-import { regexEamil, regexPassword } from "./regExp.js";
 
 window.onload = function(){
     const emailInput = document.querySelector(".signup--input--email")
@@ -15,21 +14,14 @@ window.onload = function(){
     const pwConfirmError = document.querySelector(".signup__password--confirm--error");
 
     // 이메일 중복확인 => 회원가입
-    async function registerEmailCheck(){
-        if(!regexEamil.test(emailInput.value)){
-            emailError.textContent = "올바른 이메일 주소가 아닙니다.";
-        }
-        else if(!regexPassword.test(pwInput.value) || !regexPassword.test(pwConfirmInput.value)){
-            pwError.textContent = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
-        }
-        else if(pwInput.value !== pwConfirmInput.value){
-            pwConfirmError.textContent = "비밀번호가 일치하지 않아요.";
-            
-        }
-        const eamilCheck = {
-            email: emailInput.value
-        }
+    async function register(){
         try{
+            await vaildEmail(emailInput, emailError);
+            await vaildPW(pwInput, pwError);
+            await vaildConfirmPW(pwConfirmInput, pwConfirmError);
+            const eamilCheck = {
+                email: emailInput.value
+            }
             const response = await fetch(API_PATH_CHECK_EMAIL, {
                 method : "POST",
                 headers: {
@@ -39,46 +31,40 @@ window.onload = function(){
             })
             const result = await response.json();
             if(response.ok){
-              register();
+                // 이메일 중복확인 에러 발생하지 않을 시 => 회원가입 로직 실행
+                const userInfo = {
+                    email: emailInput.value,
+                    password: pwInput.value
+                }
+                const response = await fetch(API_PATH_SIGNUP, {
+                    method : "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                const result = await response.json();
+                if(response.ok){
+                    // 회원가입 에러 발생하지 않을 시
+                    alert("회원가입 성공 - 로그인 페이지로 이동합니다.");
+                    location.href = "./signin.html";
+                }else{
+                    console.error(result.error);
+                }
             }else{
                 emailError.style.display = "block";
                 emailError.textContent = "이미 사용 중인 이메일입니다.";
                 console.error(result.error);
             }
         } catch(error){
-            return console.error(result.error);
+            return alert(error);
         }
-    }
-    // 회원 가입
-    async function register(){
-        try{
-            const userInfo = {
-                email: emailInput.value,
-                password: pwInput.value
-            }
-            const response = await fetch(API_PATH_SIGNUP, {
-                method : "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userInfo)
-            })
-            const result = await response.json();
-            if(response.ok){
-                location.href = "./folder.html";
-            }else{
-                console.error(result.error);
-            }
-        }catch(error){
-            return console.log(error);
-        } 
     }
 
     form.addEventListener("submit", (e) =>{
         e.preventDefault(); // 페이지 리로드 방지
-        registerEmailCheck();
+        register();
     });
-
     // 포커스 아웃 이벤트
     focusOut(emailInput, emailError, vaildEmail);
     focusOut(pwInput, pwError, vaildPW);

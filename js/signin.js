@@ -4,8 +4,7 @@ import { pwInputTypeChange } from "./pw-input-type.js";
 import { authCheck } from "./auth-check.js";
 
 window.onload = function(){
-    authCheck();
-    // localStorage.clear();
+    authCheck(); // 로그인 상태 체크
     const emailInput = document.querySelector(".signin--input--email")
     const pwInput = document.querySelector(".signin--input--password");
     const form = document.querySelector(".sigin__form");
@@ -40,7 +39,7 @@ window.onload = function(){
                 console.error(result.error);
             }
         } catch(error){
-            console.log(error);
+            return console.log(error);
         }
     }
 
