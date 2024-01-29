@@ -35,57 +35,67 @@ function passwordFormat(password) {
 
 const correctEmail = "test@codeit.kr";
 
-function emailText(em) {
-  if (em.target.value == "") {
+function emailText() {
+  if (EMAIL.value == "") {
     addEmailErrorMsg("* 이메일을 입력해주세요.");
-  } else if (!emailFormat(em.target.value)) {
+    return false;
+  } else if (!emailFormat(EMAIL.value)) {
     addEmailErrorMsg("* 올바른 이메일을 입력해주세요.");
+    return false;
   } else if (correctEmail == EMAIL.value) {
     addEmailErrorMsg("* 이미 사용 중인 이메일입니다.");
+    return false;
   } else {
     addEmailErrorMsg("");
     EMAIL.classList.remove("error_box");
+    return true;
   }
 }
-function passwordText(pm) {
-  if (pm.target.value == "") {
+function passwordText() {
+  if (PASSWORD.value == "") {
     addPasswordErrorMsg("* 비밀번호를 입력해주세요.");
-  } else if (!passwordFormat(pm.target.value)) {
+    return false;
+  } else if (!passwordFormat(PASSWORD.value)) {
     addPasswordErrorMsg("* 비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+    return false;
   } else {
     addPasswordErrorMsg("");
     PASSWORD.classList.remove("error_box");
+    return true;
   }
 }
 
-function passwordCheckText(pm) {
-  if (pm.target.value == "") {
+function passwordCheckText() {
+  if (PASSWORD_CHECK.value == "") {
     addPasswordErrorCheckMsg("* 비밀번호를 입력해주세요.");
+    return false;
   } else if (PASSWORD.value == PASSWORD_CHECK.value) {
     addPasswordErrorCheckMsg("");
     PASSWORD_CHECK.classList.remove("error_box");
+    return true;
   } else {
     addPasswordErrorCheckMsg("* 비밀번호가 일치하지 않아요.");
+    return false;
   }
 }
 
-function join() {
-  if (EMAIL.value == "" || PASSWORD.value == "" || PASSWORD_CHECK.value == "") {
-    addEmailErrorMsg("* 이메일을 확인해주세요.");
-    addPasswordErrorMsg("* 비밀번호를 확인해주세요.");
-    addPasswordErrorCheckMsg("* 비밀번호를 확인해주세요.");
-  } else if (PASSWORD.value !== PASSWORD_CHECK.value) {
-    addPasswordErrorMsg("* 비밀번호를 확인해주세요.");
-    addPasswordErrorCheckMsg("* 비밀번호를 확인해주세요.");
-  } else if (!emailFormat(EMAIL.value)) {
-    addEmailErrorMsg("* 이메일을 확인해주세요.");
-  } else {
+function join(event) {
+  event.preventDefault();
+  if (emailText() && passwordText() && passwordCheckText()) {
     let link = "page.html";
     location.href = link;
   }
 }
 
 JOIN_BTN.addEventListener("click", join);
+document
+  .getElementById("join-form")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      join();
+    }
+  });
+
 EMAIL.addEventListener("blur", emailText);
 PASSWORD.addEventListener("blur", passwordText);
 PASSWORD_CHECK.addEventListener("blur", passwordCheckText);
