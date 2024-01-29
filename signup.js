@@ -1,4 +1,5 @@
-import { accountInfo, emailForm, passwordFrom } from "./javascript/account.js"
+import { accountInfo } from "./javascript/account.js"
+import { emailRegex, passwordRegex } from "./javascript/regex.js"
 import { inputFunction } from "./javascript/signFunction.js"
 import { passwordToggle } from "./javascript/passwordToggle.js"
 
@@ -20,7 +21,7 @@ const submitButton = (e) => {
   const inputPasswordCheckValue = inputCheckPassword.value
   const matchingAccountEmail = accountInfo.find((item) => item.email === inputEmailValue)
   const signupAccount = matchingAccountEmail?.email !== inputEmailValue && inputPasswordValue === inputPasswordCheckValue &&
-  !inputEmailValue.match(emailForm) && !inputPasswordValue.match(passwordFrom) && inputPasswordValue.length >= 8
+  !inputEmailValue.match(emailRegex) && !inputPasswordValue.match(passwordRegex) && inputPasswordValue.length >= 8
 
   if (inputEmailValue === '') {
     return
@@ -39,11 +40,11 @@ const submitButton = (e) => {
 
 // 이메일 입력란에 focus, blur 이벤트 추가
 inputEmail.addEventListener('focus', (e) => inputFunction.emailFocus(e))
-inputEmail.addEventListener('blur', (e) => inputFunction.emailBlur(e, emailForm, accountInfo, inputEmail, signupValidation))
+inputEmail.addEventListener('blur', (e) => inputFunction.emailBlur(e, emailRegex, accountInfo, inputEmail, signupValidation))
 
 // 비밀번호 입력란에 focus, blur 이벤트 추가
 inputPassword.addEventListener('focus', (e) => inputFunction.passwordFocus(e))
-inputPassword.addEventListener('blur', (e) => inputFunction.passwordBlur(e, passwordFrom, signupValidation))
+inputPassword.addEventListener('blur', (e) => inputFunction.passwordBlur(e, passwordRegex, signupValidation))
 
 // 비밀번호 확인 입력란에 focus, blur 이벤트 추가
 inputCheckPassword.addEventListener('focus', (e) => inputFunction.passwordCheckFocus(e))

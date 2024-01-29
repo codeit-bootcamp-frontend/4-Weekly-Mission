@@ -6,14 +6,14 @@ const inputFunction = {
   },
 
   // 이메일 입력란에서 blur 일 때 이벤트 핸들러
-  emailBlur: (e, emailForm, accountInfo, inputEmail, signupValidation = false) => {
+  emailBlur: (e, emailRegex, accountInfo, inputEmail, signupValidation = false) => {
     const matchingAccountEmail = accountInfo.find((item) => item.email === inputEmail?.value)
   
     if (e.target.value === '') {
       e.target.classList.add('input-error')
       e.target.parentElement.lastElementChild.textContent = '이메일을 입력해 주세요.'
     }
-    else if (!e.target.value.match(emailForm)) {
+    else if (!e.target.value.match(emailRegex)) {
       e.target.classList.add('input-error')
       e.target.parentElement.lastElementChild.textContent = '올바른 이메일 주소가 아닙니다.'
     }
@@ -30,12 +30,12 @@ const inputFunction = {
   },
 
   // 비밀번호 입력란에서 blur 일 때 이벤트 핸들러
-  passwordBlur: (e, passwordFrom, signupValidation = false) => {
+  passwordBlur: (e, passwordRegex, signupValidation = false) => {
     if (e.target.value === '') {
       e.target.classList.add('input-error')
       e.target.parentElement.parentElement.lastElementChild.textContent = '비밀번호를 입력해 주세요.'
     }
-    else if (signupValidation && !e.target.value.match(passwordFrom)) {
+    else if (signupValidation && !e.target.value.match(passwordRegex)) {
       e.target.classList.add('input-error')
       e.target.parentElement.parentElement.lastElementChild.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.'
     }

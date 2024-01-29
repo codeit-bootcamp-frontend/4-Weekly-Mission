@@ -1,4 +1,5 @@
-import { accountInfo, emailForm, passwordFrom } from "./javascript/account.js"
+import { accountInfo } from "./javascript/account.js"
+import { emailRegex, passwordRegex } from "./javascript/regex.js"
 import { inputFunction } from "./javascript/signFunction.js"
 import { passwordToggle } from "./javascript/passwordToggle.js"
 
@@ -45,11 +46,11 @@ const submitButton = (e) => {
 
 // 이메일 입력란에 focus, blur 이벤트 추가
 inputEmail.addEventListener('focus', (e) => inputFunction.emailFocus(e))
-inputEmail.addEventListener('blur', (e) => inputFunction.emailBlur(e, emailForm, accountInfo))
+inputEmail.addEventListener('blur', (e) => inputFunction.emailBlur(e, emailRegex, accountInfo))
 
 // 비밀번호 입력란에 focus, blur 이벤트 추가
 inputPassword.addEventListener('focus', (e) => inputFunction.passwordFocus(e))
-inputPassword.addEventListener('blur', (e) => inputFunction.passwordBlur(e, passwordFrom))
+inputPassword.addEventListener('blur', (e) => inputFunction.passwordBlur(e, passwordRegex))
 
 // 로그인 버튼에 click 이벤트 추가
 signButton.addEventListener('click', submitButton)
