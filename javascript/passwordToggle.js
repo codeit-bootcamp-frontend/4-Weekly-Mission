@@ -1,19 +1,15 @@
-const passwordEncryptButtonList = document.querySelectorAll('.eye-btn')
-
 // passwordToggle(show and hide)
 const passwordToggle = (e) => {
-  if (e.target.classList.contains('off-eye-btn')) {
-    e.target.classList.remove('off-eye-btn')
-    e.target.previousElementSibling.setAttribute('type', 'password')
-  }
-  else {
-    e.target.classList.add('off-eye-btn')
-    e.target.previousElementSibling.setAttribute('type', 'text')
-  }
-}
+  const encryptClass = 'off-eye-btn'
 
-for (let i = 0; i < togglePassword.length; i++) {
-  passwordEncryptButtonList[i].addEventListener('click', passwordToggle)
+  if (e.target.classList.contains(encryptClass)) {
+    e.target.classList.remove(encryptClass)
+    e.target.previousElementSibling.setAttribute('type', 'password')
+    return
+  }
+
+  e.target.classList.add(encryptClass)
+  e.target.previousElementSibling.setAttribute('type', 'text')
 }
 
 export { passwordToggle }

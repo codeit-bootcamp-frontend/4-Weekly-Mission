@@ -7,6 +7,7 @@ import { passwordToggle } from "./javascript/passwordToggle.js"
 const inputEmail = document.querySelector('.email-input')
 const inputPassword = document.querySelector('.password-input')
 const inputCheckPassword = document.querySelector('.password-check-input')
+const passwordEncryptButtonList = document.querySelectorAll('.eye-btn')
 const signButton = document.querySelector('.sign-btn')
 
 // signFunction에서 조건을 주고 실행해야 하는 이벤트를 조절
@@ -49,6 +50,11 @@ inputPassword.addEventListener('blur', (e) => inputFunction.passwordBlur(e, pass
 // 비밀번호 확인 입력란에 focus, blur 이벤트 추가
 inputCheckPassword.addEventListener('focus', (e) => inputFunction.passwordCheckFocus(e))
 inputCheckPassword.addEventListener('blur', (e) => inputFunction.passwordCheckBlur(e, inputPassword))
+
+// 비밀번호 암호화 토글 click 이벤트 추가
+for (let i = 0; i < passwordEncryptButtonList.length; i++) {
+  passwordEncryptButtonList[i].addEventListener('click', passwordToggle)
+}
 
 // 회원가입 버튼에 click 이벤트 추가
 signButton.addEventListener('click', submitButton)

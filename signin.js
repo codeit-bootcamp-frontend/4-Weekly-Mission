@@ -6,6 +6,7 @@ import { passwordToggle } from "./javascript/passwordToggle.js"
 // 
 const inputEmail = document.querySelector('.email-input')
 const inputPassword = document.querySelector('.password-input')
+const passwordEncryptButtonList = document.querySelectorAll('.eye-btn')
 const signButton = document.querySelector('.sign-btn')
 
 // 로그인 버튼, 경우에 따른 케이스 적용
@@ -51,6 +52,9 @@ inputEmail.addEventListener('blur', (e) => inputFunction.emailBlur(e, emailRegex
 // 비밀번호 입력란에 focus, blur 이벤트 추가
 inputPassword.addEventListener('focus', (e) => inputFunction.passwordFocus(e))
 inputPassword.addEventListener('blur', (e) => inputFunction.passwordBlur(e, passwordRegex))
+
+// 비밀번호 암호화 토글 click 이벤트 추가
+passwordEncryptButtonList.addEventListener('click', passwordToggle)
 
 // 로그인 버튼에 click 이벤트 추가
 signButton.addEventListener('click', submitButton)
