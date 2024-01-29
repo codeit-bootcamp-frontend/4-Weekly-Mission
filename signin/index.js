@@ -47,6 +47,7 @@ function checkLogin() {
     showError(passwordInput, passwordErrorMessageElement, "비밀번호를 확인해 주세요.");
     return;
   }
+
   return (location.href = "../folder/index.html");
 }
 

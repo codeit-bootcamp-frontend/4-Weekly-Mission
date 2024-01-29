@@ -72,14 +72,14 @@ function checkPasswordCheckError() {
 //회원가입 성공/실패
 function checkSignUp() {
   console.log(isValidSignUp(emailInput.value, passwordInput.value, passwordCheckInput.value));
-  if (isValidSignUp(emailInput.value, passwordInput.value, passwordCheckInput.value)) {
-    return (location.href = "../folder/index.html");
+  if (!isValidSignUp(emailInput.value, passwordInput.value, passwordCheckInput.value)) {
+    checkEmailError();
+    checkPasswordError();
+    checkPasswordCheckError();
+    return;
   }
 
-  checkEmailError();
-  checkPasswordError();
-  checkPasswordCheckError();
-  return;
+  return (location.href = "../folder/index.html");
 }
 
 //eyeBtn 비밀번호 토글
