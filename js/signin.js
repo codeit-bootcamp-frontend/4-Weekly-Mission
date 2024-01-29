@@ -14,18 +14,18 @@ function checkEmail(event) {
     updateErrorMessage(
       errorMessage,
       "이메일을 입력해주세요.",
-      emailInputBox,
+      signinEmailInput,
       true
     );
     // 이메일 형식에 맞을 때
   } else if (isVaildEmail(emailValue)) {
-    updateErrorMessage(errorMessage, "", emailInputBox, false);
+    updateErrorMessage(errorMessage, "", signinEmailInput, false);
   } // 이메일 형식에 맞지 않을 때
   else {
     updateErrorMessage(
       errorMessage,
       "올바른 이메일 주소가 아닙니다.",
-      emailInputBox,
+      signinEmailInput,
       true
     );
   }
@@ -46,7 +46,7 @@ function checkPassword(event) {
 
 /** 로그인 시도 */
 function tryLogin() {
-  const emailValue = emailInputBox.value;
+  const emailValue = signinEmailInput.value;
   const passwordValue = signinPasswordInput.value;
   const errorMessage = querySelector("#email-error-message");
   const errorMessageBox = querySelector("#password-error-message");
@@ -64,7 +64,7 @@ function tryLogin() {
     updateErrorMessage(
       errorMessage,
       "이메일을 확인해주세요.",
-      emailInputBox,
+      signinEmailInput,
       true
     );
     updateErrorMessage(
@@ -77,14 +77,14 @@ function tryLogin() {
 }
 
 // 이벤트 등록을 위한 변수 설정
-const emailInputBox = querySelector("#signin-email-input");
+const signinEmailInput = querySelector("#signin-email-input");
 const signinPasswordInput = querySelector("#signin-password-input");
 const loginBtn = querySelector("#login-button");
 const loginForm = querySelector("#login-form");
 const passwordEyeIcon = querySelector("#password-eye-icon");
 
 /** 이벤트 등록 */
-emailInputBox.addEventListener("focusout", checkEmail); // 이메일 입력이 유효한지
+signinEmailInput.addEventListener("focusout", checkEmail); // 이메일 입력이 유효한지
 signinPasswordInput.addEventListener("focusout", checkPassword); //비밀번호를 입력했는지
 loginBtn.addEventListener("click", tryLogin); // 로그인 시도
 loginForm.addEventListener("submit", function (event) {

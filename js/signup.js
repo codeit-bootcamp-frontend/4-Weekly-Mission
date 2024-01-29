@@ -14,23 +14,23 @@ function checkEmail(event) {
     updateErrorMessage(
       errorMessage,
       "이메일을 입력해주세요.",
-      emailInputBox,
+      signupEmailInput,
       true
     );
   } else if (emailValue === validEmail) {
     updateErrorMessage(
       errorMessage,
       "이미 사용 중인 이메일 입니다.",
-      emailInputBox,
+      signupEmailInput,
       true
     );
   } else if (isVaildEmail(emailValue) === true) {
-    updateErrorMessage(errorMessage, "", emailInputBox, false);
+    updateErrorMessage(errorMessage, "", signupEmailInput, false);
   } else {
     updateErrorMessage(
       errorMessage,
       "올바른 이메일 주소가 아닙니다.",
-      emailInputBox,
+      signupEmailInput,
       true
     );
   }
@@ -87,7 +87,7 @@ function checkPasswordRepeat() {
 
 function trySignup() {
   if (
-    emailInputBox.classList.contains("error-box") === false &&
+    signupEmailInput.classList.contains("error-box") === false &&
     signupPasswordInput.classList.contains("error-box") === false &&
     signupPasswordRepeatInput.classList.contains("error-box") === false
   ) {
@@ -96,18 +96,18 @@ function trySignup() {
 }
 
 // 이벤트 등록을 위한 변수 설정
-const emailInputBox = querySelector("#signup-email-input");
+const signupEmailInput = querySelector("#signup-email-input");
 const signupPasswordInput = querySelector("#signup-password-input");
 const signupPasswordRepeatInput = querySelector(
   "#signup-password-repeat-input"
 );
 const signupBtn = querySelector("#signup-button");
 const signupForm = querySelector("#signup-form");
-const passwordEyeIcon = querySelector("#password-eye-icon");
+const eyeIconPassword = querySelector("#password-eye-icon");
 const passwordRepeatEyeIcon = querySelector("#password-repeat-eye-icon");
 
 /** 이벤트 등록 */
-emailInputBox.addEventListener("focusout", checkEmail); // 이메일 입력이 유효한지
+signupEmailInput.addEventListener("focusout", checkEmail); // 이메일 입력이 유효한지
 signupPasswordInput.addEventListener("focusout", checkPassword); //비밀번호를 입력했는지
 signupPasswordRepeatInput.addEventListener("focusout", checkPasswordRepeat); // 비밀번호 확인
 
@@ -119,8 +119,8 @@ signupForm.addEventListener("submit", function (event) {
 });
 
 // 비밀번호 보기 & 숨기기
-passwordEyeIcon.addEventListener("click", function () {
-  passwordShowHidden(passwordEyeIcon, signupPasswordInput);
+eyeIconPassword.addEventListener("click", function () {
+  passwordShowHidden(eyeIconPassword, signupPasswordInput);
 });
 passwordRepeatEyeIcon.addEventListener("click", function () {
   passwordShowHidden(passwordRepeatEyeIcon, signupPasswordRepeatInput);
