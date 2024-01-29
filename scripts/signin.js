@@ -35,7 +35,7 @@ email.addEventListener('focusout', (e) => {
 email.addEventListener('focusin', (e) => {
   email.value = '';
   if (alertExist(email)) {
-    document.querySelector('.red').remove();
+    email.nextElementSibling.remove();
     email.classList.remove('red-box');
   }
 });
@@ -53,7 +53,7 @@ PW.addEventListener('focusout', (e) => {
 PW.addEventListener('focusin', (e) => {
   PW.value = '';
   if (alertExist(PW)) {
-    document.querySelector('.red').remove();
+    PW.parentElement.nextElementSibling.remove();
     PW.classList.remove('red-box');
   }
 });
