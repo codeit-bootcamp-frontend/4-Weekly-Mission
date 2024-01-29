@@ -102,9 +102,29 @@ header {
   border-color: var(--primary);
 }
 
+.sign-input.sign-input-error {
+  border-color: var(--red);
+}
+
+.sign-input.sign-input-error:focus {
+  border-color: var(--red);
+}
+
+.error-message {
+  display: none;
+  margin-top: -0.4rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--red);
+}
+
+.error-message.error-message-on {
+  display: inline-block;
+}
+
 .eye-button {
   position: absolute;
-  bottom: 2.2rem;
+  top: 5.1rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -162,15 +182,4 @@ header {
 .kakao-link {
   padding-top: 0.2rem;
   background-color: #f5e14b;
-}
-
-/* 에러 케이스 */
-
-.input-border-red {
-  border-color: var(--red);
-}
-
-.error-message {
-  color: var(--red);
-  font-size: 1.4rem;
 }
