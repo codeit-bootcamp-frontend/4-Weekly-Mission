@@ -12,10 +12,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* signin 이랑 상단 여백을 어떻게 똑같이 해야할지 모르겠어요 ㅠㅠ */
 }
 
-.signup {
+.login {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,30 +52,55 @@ footer {
   height: 38px;
 }
 
-.header-signin {
+.header-signup {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
   color: #000;
 }
 
-.signin {
+.signup {
   font-size: 16px;
   font-weight: 600;
   line-height: 19.09px;
   color: #6D6AFE;
 }
 
-.contents-frame {
-  width: 400px;
-}
-
-.contents-form {
+section {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 24px;
+  margin-top: 24px;
+}
+
+.contents-frame {
+  gap: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 20px;
+}
+
+.contents-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-password {
+  position: relative;
 }
 
 .contents-form label {
@@ -92,25 +116,17 @@ footer {
   outline-color: #6D6AFE;
 }
 
-.password-container {
-  position: relative;
-  width: 100%;
-}
-
-.password-eye-container {
+.password-eye {
   position: absolute;
-  top: 50%;
+  top: 52px;
   right: 15px;
+  width: 16px;
+  height: 16px;
   transform: translateY(-50%);
   cursor: pointer;
 }
 
-.password-eye {
-  width: 16px;
-  height: 16px;
-}
-
-.contents-form button {
+.form-submit {
   width: 100%;
   padding: 16px 20px;
   border-radius: 8px;
@@ -133,16 +149,17 @@ footer {
   border: 1px solid #CCD5E3;
   padding: 12px 24px;
   background-color: #E7EFFB;
+  margin-top: 30px;
 }
 
-.footer-socialLogin-text {
+.footer-social-Login-text {
   font-size: 14px;
   font-weight: 400;
   line-height: 16.71px;
   color: #373740;
 }
 
-.footer-socialLogin-image {
+.footer-social-Login-image {
   display: flex;
   gap: 16px;
 }
