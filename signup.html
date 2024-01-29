@@ -15,22 +15,22 @@
     </div>
     
 
-    <form>
-        <div class="email-input">
+    <form id="signup-form">
+        <div class="email-container">
             <label>이메일</label><br>
-            <input name="email" placeholder="email">
+            <input class="email-input" name="email" id="emailInput" placeholder="email">
         </div>
         <div class="password-container">
             <label>비밀번호</label><br>  
-            <input class="password-input" placeholder="password" type="password">
+            <input class="password-input" id="passwordInput" placeholder="password" type="password">
             <img class="show-icon" src="./assets/eye.png" >
         </div>
-        <div class="password-container">
-            <label>비밀번호 확인</label><br>
-            <input class="password-input" placeholder="password" type="password">
-            <img class="show-icon" src="./assets/eye.png" >
+        <div class="password-vertify-container">
+            <label>비밀번호 확인</label><br>    
+            <input class="password-vertify-input" id="passwordVertifyInput" placeholder="password" type="password">
+            <img class="show-icon2" src="./assets/eye.png" >
         </div>
-        <button>회원가입</button>
+        <button class="signup-btn" type="button">회원가입</button>
     </form>
     <div class="social-signup">
         <div class="social-login">
@@ -42,6 +42,6 @@
             <a href="#"><img class="social-logo" src="./assets/kakao.png"></a>
         </div>
     </div>
-    
+    <script type="module" src="./js/signup.js"></script>
 </body>
 </html>
