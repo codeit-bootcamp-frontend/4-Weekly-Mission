@@ -24,28 +24,28 @@
       </p>
     </header>
     <div class="sign-box">
-      <form class="sign-form">
+      <form class="sign-form" id="signForm">
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
             <div class="sign-input-box-include-error">
-              <input class="sign-input" id="email" />
+              <input class="sign-input" id="emailInput" />
               <p id="error-message-email" class="display-none"></p>
             </div>
           </div>
           <div class="sign-input-box">
             <label class="sign-input-label">비밀번호</label>
             <div class="sign-input-box-include-error sign-password">
-              <input class="sign-input" type="password" id="password" />
+              <input class="sign-input" type="password" id="passwordInput" />
               <p id="error-message-password" class="display-none"></p>
-              <button class="eye-button" type="button">
-                <img src="./images/eye-off.svg" />
-                <img src="./images/eye-on.svg" class="display-none" />
+              <button class="eye-button" type="button" id="passwordEyeBtn">
+                <img src="./images/eye-off.svg" id="passwordEyeOff" />
+                <img src="./images/eye-on.svg" id="passwordEyeOn" class="display-none" />
               </button>
             </div>
           </div>
         </div>
-        <button class="cta" type="submit">로그인</button>
+        <button class="cta" type="submit" id="submitBtn">로그인</button>
       </form>
       <div class="sns-box">
         <span class="sns-text">소셜 로그인</span>
@@ -59,6 +59,6 @@
         </div>
       </div>
     </div>
-    <script src="./src/JS/sign.js"></script>
+    <script type="module" src="./src/JS/signin.js"></script>
   </body>
-</html>
+  </html>

@@ -24,28 +24,39 @@
       </p>
     </header>
     <div class="sign-box">
-      <form class="sign-form">
+      <form class="sign-form" id="signForm">
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <div class="sign-input-box-include-error">
+              <input class="sign-input" id="emailInput" />
+              <p id="error-message-email" class="display-none"></p>
+            </div>
           </div>
-          <div class="sign-input-box sign-password">
+          <div class="sign-input-box">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
-            <button class="eye-button" type="button">
-              <img src="./images/eye-off.svg" />
-            </button>
+            <div class="sign-input-box-include-error sign-password">
+              <input class="sign-input" type="password" id="passwordInput" />
+              <p id="error-message-password" class="display-none"></p>
+              <button class="eye-button" type="button" id="passwordEyeBtn">
+                <img src="./images/eye-off.svg" id="passwordEyeOff" />
+                <img src="./images/eye-on.svg" id="passwordEyeOn" class="display-none" />
+              </button>
+            </div>
           </div>
-          <div class="sign-input-box sign-password">
+          <div class="sign-input-box">
             <label class="sign-input-label">비밀번호 확인</label>
-            <input class="sign-input" type="password" />
-            <button class="eye-button" type="button">
-              <img src="./images/eye-off.svg" />
-            </button>
+            <div class="sign-input-box-include-error sign-password">
+              <input class="sign-input" type="password" id="passwordCheckInput"/>
+              <p id="error-message-password-check" class="display-none"></p>
+              <button class="eye-button" type="button" id="passwordCheckEyeBtn">
+                <img src="./images/eye-off.svg" id="passwordCheckEyeOff" />
+                <img src="./images/eye-on.svg" id="passwordCheckEyeOn" class="display-none" />
+              </button>
+            </div>
           </div>
         </div>
-        <button class="cta" type="submit">회원가입</button>
+        <button class="cta" type="submit" id="submitBtn">회원가입</button>
       </form>
       <div class="sns-box">
         <span class="sns-text">다른 방식으로 가입하기</span>
@@ -59,5 +70,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="./src/JS/signup.js"></script>
   </body>
 </html>
