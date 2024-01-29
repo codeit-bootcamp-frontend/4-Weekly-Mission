@@ -23,7 +23,7 @@
 }
 
 .signup-container {
-  height: 39.25rem;
+  min-height: 39.25rem;
 }
 
 /* 1. 상단 auth 영역 */
@@ -37,7 +37,7 @@
 }
 
 .signup-auth {
-  height: 33.125rem;
+  min-height: 33.125rem;
 }
 
 /* 1-1. 로고 & signup link 영역 */
@@ -91,7 +91,7 @@
 }
 
 .auth-fields-signup {
-  height: 21.125rem;
+  min-height: 21.125rem;
 }
 
 .auth-form {
@@ -134,7 +134,8 @@
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
 }
 
-label[for="password"] {
+label[for="password"],
+label[for="confirmPassword"] {
   margin-top: 0.75rem;
 }
 
@@ -155,7 +156,6 @@ label[for="password"] {
   width: 1rem;
 }
 
-.password-error-message,
 .error-message {
   color: var(--Linkbrary-red, #ff5b56);
   font-size: 0.875rem;
@@ -191,18 +191,9 @@ label[for="password"] {
   gap: 1rem;
 }
 
-.kakaotalk-bg {
-  display: flex;
-  background-image: url("../image/icons/kakaotalk-bg.svg");
+.kakaotalk-icon {
   width: 2.625rem;
   height: 2.625rem;
-  justify-content: center;
-  align-items: center;
-}
-
-.kakaotalk-icon {
-  width: 1.625rem;
-  height: 1.5rem;
 }
 
 /*  */
