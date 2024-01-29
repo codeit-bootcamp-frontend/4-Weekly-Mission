@@ -1,6 +1,6 @@
 header,
 .hero {
-  background-color: var(--Linkbrary-bg);
+  background-color: var(--bg);
 }
 
 /* ---------- header(nav) ----------*/
@@ -44,11 +44,7 @@ nav {
   border-radius: 8px;
   background: var(
     --gra-purpleblue-to-skyblue,
-    linear-gradient(
-      91deg,
-      var(--Linkbrary-primary-color) 0.12%,
-      #6ae3fe 101.84%
-    )
+    linear-gradient(91deg, var(--primary-color) 0.12%, #6ae3fe 101.84%)
   );
 }
 
@@ -79,7 +75,7 @@ nav {
 .contents01 .gradient-text {
   background: linear-gradient(
     91deg,
-    var(--Linkbrary-primary-color) 17.28%,
+    var(--primary-color) 17.28%,
     #ff9f9f 74.98%
   );
   background-clip: text;
@@ -105,11 +101,7 @@ nav {
   border-radius: 8px;
   background: var(
     --gra-purpleblue-to-skyblue,
-    linear-gradient(
-      91deg,
-      var(--Linkbrary-primary-color) 0.12%,
-      #6ae3fe 101.84%
-    )
+    linear-gradient(91deg, var(--primary-color) 0.12%, #6ae3fe 101.84%)
   );
 }
 
@@ -215,7 +207,7 @@ nav {
 .footer {
   display: flex;
   justify-content: center;
-  background: var(--The-julge-black);
+  background: var(--black);
   margin-top: 7.5rem;
 }
 

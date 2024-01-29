@@ -140,8 +140,8 @@ html {
 }
 
 body {
-  color: var(--color-black);
-  background: var(--color-white);
+  color: #000000;
+  background: #ffffff;
 }
 
 button,
