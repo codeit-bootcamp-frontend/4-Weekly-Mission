@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <link rel="stylesheet" href="css/signin.css">
+    <script defer type="module" src="json/signin.js"></script>
   </head>
   <body>
     <div class="content">
@@ -19,12 +20,14 @@
         <div class="input-email">
           <label for="email">이메일</label>
           <input id="email" name="email" type="email" placeholder="e-mail">
+          <div class="email-error"></div>
         </div>
         <div class="input-password">
           <label for="password">비밀번호</label>
           <div class="password-info">
             <input id="password" name="password" type="password" placeholder="비밀번호">
-            <button id="eye-icon" type="button"><img alt="blind" src="images/eye-on.svg"></button>
+            <button class="eye-btn" type="button"><img alt="eye-off" src="images/eye-off.svg"></button>
+            <div class="password-error"></div>
           </div>
         </div>
         <button id="confirm-button" type="submit">로그인</button>
@@ -37,6 +40,5 @@
         </div>
       </form>
     </div>
-    <script src="json/signin.js"></script>
   </body>
 </html>
