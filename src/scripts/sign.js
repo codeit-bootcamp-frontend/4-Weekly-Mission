@@ -9,6 +9,7 @@ export const checkEmail = (emailElement, errorMessageElement) => {
     return;
   }
   if (!validateEmail(emailElement.value)) {
+    showInputError(emailElement);
     showErrorMessage(errorMessageElement, ERROR_MESSAGE.INVALID_EMAIL_ADDRESS);
     return;
   }

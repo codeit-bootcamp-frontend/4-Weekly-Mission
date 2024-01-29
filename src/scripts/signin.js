@@ -4,6 +4,7 @@ import { checkEmail, checkPassword, changeEyeIcon } from './sign.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
+
 const signinForm = document.getElementById('signinForm');
 const eyeIcon = document.getElementById('eyeIcon');
 
