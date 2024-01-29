@@ -3,7 +3,6 @@ import {
   passwordInput,
   emailErrorMessageElement,
   passwordErrorMessageElement,
-  loginBtn,
   eyeBtn,
   isTextEmpty,
   isValidEmailFormat,
@@ -41,7 +40,7 @@ function checkPasswordError() {
 }
 
 //로그인 성공/실패
-function checkLogin() {
+function checkSignIn() {
   if (!isValidUser(emailInput.value, passwordInput.value)) {
     showError(emailInput, emailErrorMessageElement, "이메일을 확인해 주세요.");
     showError(passwordInput, passwordErrorMessageElement, "비밀번호를 확인해 주세요.");
@@ -49,6 +48,12 @@ function checkLogin() {
   }
 
   return (location.href = "../folder/index.html");
+}
+
+//버튼 클릭 / 인풋 focus 상태에서 엔터 키로 checkLogin 호출
+function onSubmit(e) {
+  e.preventDefault();
+  checkSignIn();
 }
 
 //eyeBtn 비밀번호 토글
@@ -61,23 +66,10 @@ function togglePassword() {
 }
 
 /********************
- * KEY BINDING
- ********************/
-
-//엔터 키로 checkLogin 호출
-function checkLoginByEnter(event) {
-  if (event.key === "Enter") {
-    event.preventDefault();
-    checkLogin();
-  }
-}
-
-/********************
  * EVENT HANDLER
  ********************/
 
 emailInput.addEventListener("focusout", checkEmailError);
 passwordInput.addEventListener("focusout", checkPasswordError);
-loginBtn.addEventListener("click", checkLogin);
-document.body.addEventListener("keypress", checkLoginByEnter);
+document.querySelector("form").addEventListener("submit", onSubmit);
 eyeBtn.addEventListener("click", togglePassword);

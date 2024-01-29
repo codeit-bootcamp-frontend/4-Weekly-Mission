@@ -12,9 +12,6 @@ const emailErrorMessageElement = document.querySelector("#error-email");
 const passwordErrorMessageElement = document.querySelector("#error-password");
 const passwordCheckErrorMessageElement = document.querySelector("#error-password-check");
 
-//로그인 버튼
-const loginBtn = document.querySelector(".btn-login");
-
 //비밀번호 보이기 버튼
 const eyeBtn = document.querySelector("#password-eye");
 const eyeBtnCheck = document.querySelector("#password-check-eye");
@@ -34,6 +31,7 @@ function isTextEmpty(inputValue) {
   if (inputValue === "") {
     return true;
   }
+
   return false;
 }
 
@@ -43,24 +41,23 @@ function isValidEmailFormat(emailInputValue) {
   return regex.test(emailInputValue);
 }
 
-//이메일 중복 검사
+//회원가입 이메일 중복 검사
 function isEmailMatching(emailInputValue) {
-  if (emailInputValue === VALID_USER.email) {
-    return true;
-  }
-  return false;
+  return emailInputValue === VALID_USER.email;
 }
 
-//비밀번호 양식 유효성 검사
+//회원가입 비밀번호 양식 유효성 검사
 function isValidPasswordFormat(passwordInputValue) {
   //8자 미만인 경우
   if (passwordInputValue.length < 8) {
     return false;
   }
+
   //숫자가 없는 경우
   if (!/\d/.test(passwordInputValue)) {
     return false;
   }
+
   //영문이 없는 경우
   if (!/[a-zA-Z]/.test(passwordInputValue)) {
     return false;
@@ -68,7 +65,7 @@ function isValidPasswordFormat(passwordInputValue) {
   return true;
 }
 
-//비밀번호 확인 유효성 검사
+//회원가입 비밀번호 확인 유효성 검사
 function isPasswordMatching(passwordInputValue, passwordCheckInputValue) {
   return passwordInputValue === passwordCheckInputValue;
 }
@@ -87,20 +84,17 @@ function hideError(input, errorElement) {
   errorElement.classList.add("hidden");
 }
 
-//유효한 유저 정보 반환
-function getUserByLoginInfo({ email, password }) {
-  if (!isEmailMatching(email)) {
-    return null;
-  }
-  if (!isPasswordMatching(password)) {
-    return null;
-  }
-  return VALID_USER;
-}
-
 //로그인 유효성 검사
 function isValidUser(emailInputValue, passwordInputValue) {
-  return getUserByLoginInfo({ emailInputValue, passwordInputValue });
+  if (emailInputValue !== VALID_USER.email) {
+    return false;
+  }
+
+  if (passwordInputValue !== VALID_USER.password) {
+    return false;
+  }
+
+  return true;
 }
 
 //회원가입 유효성 검사
@@ -167,7 +161,6 @@ export {
   emailErrorMessageElement,
   passwordErrorMessageElement,
   passwordCheckErrorMessageElement,
-  loginBtn,
   eyeBtn,
   eyeBtnCheck,
   isTextEmpty,

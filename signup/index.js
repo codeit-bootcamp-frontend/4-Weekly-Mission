@@ -5,7 +5,6 @@ import {
   emailErrorMessageElement,
   passwordErrorMessageElement,
   passwordCheckErrorMessageElement,
-  loginBtn,
   eyeBtn,
   eyeBtnCheck,
   isTextEmpty,
@@ -71,7 +70,6 @@ function checkPasswordCheckError() {
 
 //회원가입 성공/실패
 function checkSignUp() {
-  console.log(isValidSignUp(emailInput.value, passwordInput.value, passwordCheckInput.value));
   if (!isValidSignUp(emailInput.value, passwordInput.value, passwordCheckInput.value)) {
     checkEmailError();
     checkPasswordError();
@@ -80,6 +78,12 @@ function checkSignUp() {
   }
 
   return (location.href = "../folder/index.html");
+}
+
+//버튼 클릭 / 인풋 focus 상태에서 엔터 키로 checkSignUp 호출
+function onSubmit(e) {
+  e.preventDefault();
+  checkSignUp();
 }
 
 //eyeBtn 비밀번호 토글
@@ -101,24 +105,12 @@ function togglePasswordCheck() {
 }
 
 /********************
- * KEY BINDING
- ********************/
-
-//엔터 키로 checkSignUp 호출
-function checkSignUpByEnter(event) {
-  if (event.key === "Enter") {
-    checkSignUp();
-  }
-}
-
-/********************
  * EVENT HANDLER
  ********************/
 
 emailInput.addEventListener("focusout", checkEmailError);
 passwordInput.addEventListener("focusout", checkPasswordError);
 passwordCheckInput.addEventListener("focusout", checkPasswordCheckError);
-loginBtn.addEventListener("click", checkSignUp);
-document.body.addEventListener("keypress", checkSignUpByEnter);
+document.querySelector("form").addEventListener("submit", onSubmit);
 eyeBtn.addEventListener("click", togglePassword);
 eyeBtnCheck.addEventListener("click", togglePasswordCheck);
