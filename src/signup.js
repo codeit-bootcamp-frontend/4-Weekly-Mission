@@ -87,6 +87,13 @@ passwordToggleButton.addEventListener("click", () =>
   togglePassword(passwordInput, passwordToggleButton)
 );
 
+const passwordCheckToggleButton = document.querySelector(
+  ".password-check-toggle"
+);
+passwordCheckToggleButton.addEventListener("click", () =>
+  togglePassword(passwordCheckInput, passwordCheckToggleButton)
+);
+
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
 function submitForm(event) {
