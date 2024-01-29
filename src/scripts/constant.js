@@ -7,9 +7,13 @@ export const ERROR_MESSAGE = {
   INVALID_PASSWORD: '비밀번호를 확인해 주세요.',
 
   UNAVAILABLE_EMAIL: '이미 사용 중인 이메일입니다.',
+  UNAVAILABLE_PASSWORD: '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
 };
 
-export const REGEX_EMAIL = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+export const REGEX = {
+  EMAIL: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/,
+  PASSWORD: /(?=.*\d)(?=.*[a-zA-Z]).{8,}/,
+};
 
 export const USER_INFO = {
   ID: 'test@codeit.com',

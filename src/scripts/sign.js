@@ -1,5 +1,13 @@
 import { ERROR_MESSAGE, PATH } from './constant.js';
-import { validateEmail, showInputError, showErrorMessage, hideInputError, changeImage, checkUserId } from './util.js';
+import {
+  validateEmail,
+  validatePassword,
+  showInputError,
+  showErrorMessage,
+  hideInputError,
+  changeImage,
+  checkUserId,
+} from './util.js';
 
 //Check email: 입력 여부 확인, 메일 형식 확인-------------------------------------
 export const checkEmail = (emailElement, errorMessageElement) => {
@@ -21,7 +29,6 @@ export const checkAvailableEmail = (emailElement, errorMessageElement) => {
   if (checkUserId(emailElement)) {
     showInputError(emailElement);
     showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
-    return;
   }
 };
 
@@ -33,6 +40,14 @@ export const checkPassword = (passwordElement, errorMessageElement) => {
     return;
   }
   hideInputError(passwordElement, errorMessageElement);
+};
+
+export const checkAvailablePassword = (passwordElement, errorMessageElement) => {
+  checkPassword(passwordElement, errorMessageElement);
+  if (!validatePassword(passwordElement.value)) {
+    showInputError(passwordElement);
+    showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_PASSWORD);
+  }
 };
 
 //Change icon: eye-on/off---------------------------------------------------

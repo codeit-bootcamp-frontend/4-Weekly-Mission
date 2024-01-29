@@ -1,7 +1,11 @@
-import { REGEX_EMAIL, USER_INFO } from './constant.js';
+import { REGEX, USER_INFO } from './constant.js';
 
 export const validateEmail = email_address => {
-  return email_address.match(REGEX_EMAIL);
+  return email_address.match(REGEX.EMAIL);
+};
+
+export const validatePassword = password => {
+  return password.match(REGEX.PASSWORD);
 };
 
 export const showInputError = inputElement => {
