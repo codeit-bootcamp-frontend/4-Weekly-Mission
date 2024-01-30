@@ -1,13 +1,11 @@
 import emailValidate from '../utils/emailValidate.js';
 import passwordValidate from '../utils/passwordValidate.js';
 
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-const passwordCheckInput = document.getElementById('passwordCheck');
-
 //회원가입 실행 시 에러 메시지 호출 또는 페이지 이동
 function signupCheck() {
-  const emailValue = emailInput.value;
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const passwordCheckInput = document.getElementById('passwordCheck');
   const passwordValue = passwordInput.value;
   const passwordCheckValue = passwordCheckInput.value;
   const checkEmail = emailValidate(emailInput.value);
@@ -27,6 +25,7 @@ function signupCheck() {
     passwordInput.classList.add('invalid');
     passwordError.innerHTML = '비밀번호를 확인해 주세요.';
   }
+
   if (passwordValue !== passwordCheckValue) {
     passwordCheckInput.classList.add('invalid');
     passwordCheckError.innerHTML = '비밀번호가 일치하지 않아요.';
