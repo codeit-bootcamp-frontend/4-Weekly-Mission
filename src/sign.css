@@ -1,13 +1,20 @@
 @import "./global.css";
 
 body {
-  padding-top: 23.8rem;
-  padding-bottom: 25.2rem;
   background-color: var(--background);
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 3rem;
+  padding: 12rem 3.2rem 0;
+
+  @media (min-width: 768px) {
+    padding: 20rem 0 0;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 23.8rem 0 0;
+  }
 }
 
 header {
@@ -31,7 +38,6 @@ header {
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 150%;
-  justify-content: center;
 }
 
 .header-link {
@@ -48,7 +54,12 @@ header {
   flex-direction: column;
   align-items: center;
   row-gap: 3.2rem;
-  width: 40rem;
+  width: 100%;
+  max-width: 40rem;
+
+  @media (min-width: 768px) {
+    width: 40rem;
+  }
 }
 
 .sign-form {
@@ -91,9 +102,29 @@ header {
   border-color: var(--primary);
 }
 
+.sign-input.sign-input-error {
+  border-color: var(--red);
+}
+
+.sign-input.sign-input-error:focus {
+  border-color: var(--red);
+}
+
+.error-message {
+  display: none;
+  margin-top: -0.4rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--red);
+}
+
+.error-message.error-message-on {
+  display: inline-block;
+}
+
 .eye-button {
   position: absolute;
-  top: 5.3rem;
+  top: 5.1rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
@@ -151,27 +182,4 @@ header {
 .kakao-link {
   padding-top: 0.2rem;
   background-color: #f5e14b;
-}
-
-.email-error-message, .email-format-error-message, .password-error-message {
-  color: red;
-  font-size: 14px;
-  display: none;
-}
-
-@media (min-width: 375px) and (max-width: 767px) {
-  body {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-
-  header {
-    width: 100%;
-    max-width: 400px;
-  }
-
-  .sign-box {
-    width: 100%;
-    max-width: 400px;
-  }
 }
