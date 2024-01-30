@@ -3,13 +3,13 @@ import emailValidate from '../utils/emailValidate.js';
 
 login;
 
+const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
 
 //email 에러 메시지 호출
 emailInput.addEventListener('focusout', handleEmailCheck);
 function handleEmailCheck() {
   const isEmailValid = emailValidate(emailInput.value);
-  const emailInput = document.querySelector('#email');
   const emailError = document.querySelector('#emailError');
   if (!isEmailValid) {
     emailInput.classList.add('invalid');

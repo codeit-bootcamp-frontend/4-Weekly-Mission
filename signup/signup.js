@@ -2,12 +2,12 @@ import signupCheck from './signupCheck.js';
 import emailValidate from '../utils/emailValidate.js';
 import passwordValidate from '../utils/passwordValidate.js';
 
-const emailInput = document.querySelector('#email');
-const emailError = document.querySelector('#emailError');
-const passwordInput = document.querySelector('#password');
-const passwordError = document.querySelector('#passwordError');
-const passwordCheckInput = document.querySelector('#passwordCheck');
-const passwordCheckError = document.querySelector('#passwordCheckError');
+const emailInput = document.getElementById('email');
+const emailError = document.getElementById('emailError');
+const passwordInput = document.getElementById('password');
+const passwordError = document.getElementById('passwordError');
+const passwordCheckInput = document.getElementById('passwordCheck');
+const passwordCheckError = document.getElementById('passwordCheckError');
 
 //email 에러 메시지 호출
 emailInput.addEventListener('focusout', handleEmailCheck);
