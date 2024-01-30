@@ -1,7 +1,7 @@
 import { form, btn } from "./elements.js";
-import { showPassword } from "./functions/showPassword.js";
-import { showErrorMsgSignup as showErrorMsg } from "./functions/showErrorMsg.js";
-import { moveFolderSignup as moveFolderPage } from "./functions/moveFolderPage.js";
+import { showPassword } from "./utils/showPassword.js";
+import { showErrorMsgSignup as showErrorMsg } from "./utils/showErrorMsg.js";
+import { moveFolderSignup as moveFolderPage } from "./utils/moveFolderPage.js";
 
 form.addEventListener("focusout", showErrorMsg);
 form.addEventListener("click", showPassword);
