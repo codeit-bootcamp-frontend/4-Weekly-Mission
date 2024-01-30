@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #6d6afe;
+  --red: #ff5b56;
+
+  --black: #111322;
+  --white: #ffffff;
+
+  --gray00: #f0f6ff;
+  --gray10: #e7effb;
+  --gray20: #ccd5e3;
+  --gray60: #9fa6b2;
+  --gray100: #3e3e43;
+
+  --Grey-Light: #f5f5f5;
+  --Linkbrary-bg: #f0f6ff;
+
+  --gra-purpleblue-to-skyblue: linear-gradient(
+    91deg,
+    #6d6afe 0.12%,
+    #6ae3fe 101.84%
+  );
+}
+
+html {
+  /* 1rem = 10px */
+  font-size: 10px;
+}
+
+body {
+  font-family: "pretendard", "맑은 고딕", sans-serif;
+  font-style: normal;
+  line-height: normal;
+}

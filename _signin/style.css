@@ -1,31 +1,64 @@
-html {
-  font-family: Pretendard, sans-serif;
-  word-break: keep-all;
+:root {
+  --primary: #6d6afe;
+  --red: #ff5b56;
+
+  --black: #111322;
+  --white: #ffffff;
+
+  --gray00: #f0f6ff;
+  --gray10: #e7effb;
+  --gray20: #ccd5e3;
+  --gray60: #9fa6b2;
+  --gray100: #3e3e43;
+
+  --Grey-Light: #f5f5f5;
+  --Linkbrary-bg: #f0f6ff;
+
+  --Fandom-K-gra-blue-to-pink: linear-gradient(
+    271deg,
+    #fe578f -9.84%,
+    #68e8f9 107.18%
+  );
+
+  --gra-purpleblue-to-skyblue: linear-gradient(
+    91deg,
+    #6d6afe 0.12%,
+    #6ae3fe 101.84%
+  );
 }
-* {
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-body {
-  margin: 0;
-  display: flex;
 
-  padding: 238px 0px 116px 0px;
+body {
+  font-family: Pretendard, sans-serif;
+  word-break: keep-all;
+  display: flex;
+  height: 100vh;
   justify-content: center;
   align-items: center;
-  background: var(--Linkbrary-bg, #f0f6ff);
+  background: var(--Linkbrary-bg);
 }
+
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 32px;
 }
+
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
 }
+
 .social-login {
   display: flex;
   width: 400px;
@@ -36,6 +69,7 @@ form {
   border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
   background: var(--Linkbrary-gray10, #e7effb);
 }
+
 .login-frame {
   display: flex;
   flex-direction: column;
@@ -69,6 +103,7 @@ label {
   line-height: normal;
 }
 input {
+  margin-top: 12px;
   display: flex;
   width: 400px;
   padding: 18px 15px;
@@ -83,7 +118,7 @@ input:focus {
   border-color: blue;
   outline: none;
 }
-input.button {
+button.button {
   display: flex;
   width: 400px;
   padding: 16px 20px;
@@ -101,7 +136,9 @@ input.button {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+}
+.input-frame p {
+  margin-top: 6px;
 }
 .social-login-logo {
   display: flex;
@@ -130,4 +167,18 @@ a,
     width: 100%;
     max-width: 400px;
   }
+}
+.errormsg {
+  color: var(--Linkbrary-red, #ff5b56);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+input.border-red {
+  border-color: red;
+}
+p {
+  margin: 0;
 }
