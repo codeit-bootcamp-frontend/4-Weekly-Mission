@@ -7,7 +7,7 @@ export function getPasswordInput(login) {
 }
 
 export function getPasswordCheck() {
-  return document.getElementById(`input-password-signup-check`);
+  return document.getElementById('input-password-signup-check');
 }
 
 export function getLoginForm(login) {

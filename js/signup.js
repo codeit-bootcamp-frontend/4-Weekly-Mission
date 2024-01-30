@@ -5,15 +5,15 @@ import {
   emailValidate,
   getPasswordCheck,
   passwordPattern,
-} from './variable.js';
-import { showError, hideError, pathTo } from './func.js';
+} from './variable';
+import { showError, hideError, pathTo } from './func';
 
 const emailInput = getEmailInput('signup');
 const passwordInput = getPasswordInput('signup');
 const passwordCheck = getPasswordCheck();
 const loginForm = getLoginForm('signup');
 
-loginForm.addEventListener('submit', function (event) {
+loginForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
   const emailValue = emailInput.value.trim();
@@ -31,12 +31,6 @@ loginForm.addEventListener('submit', function (event) {
     pathTo('folder');
   }
 });
-
-emailInput.addEventListener('focusout', isValidateEmail);
-passwordInput.addEventListener('focusout', () =>
-  validatePassword(passwordInput),
-);
-passwordCheck.addEventListener('focusout', validatePasswordCheck);
 
 function isValidateEmail() {
   const emailValue = emailInput.value.trim();
@@ -74,3 +68,9 @@ function validatePasswordCheck() {
     validatePassword(passwordCheck);
   }
 }
+
+emailInput.addEventListener('focusout', isValidateEmail);
+passwordInput.addEventListener('focusout', () =>
+  validatePassword(passwordInput),
+);
+passwordCheck.addEventListener('focusout', validatePasswordCheck);

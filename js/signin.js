@@ -3,8 +3,8 @@ import {
   getPasswordInput,
   getLoginForm,
   emailValidate,
-} from './variable.js';
-import { showError, hideError, pathTo } from './func.js';
+} from './variable';
+import { showError, hideError, pathTo } from './func';
 
 const emailInput = getEmailInput('signin');
 const passwordInput = getPasswordInput('signin');
@@ -25,9 +25,6 @@ loginForm.addEventListener('submit', (event) => {
     pathTo('folder');
   }
 });
-
-emailInput.addEventListener('focusout', isValidateEmail);
-passwordInput.addEventListener('focusout', validatePassword);
 
 function isValidateEmail() {
   const emailValue = emailInput.value.trim();
@@ -50,3 +47,6 @@ function validatePassword() {
     hideError(passwordInput);
   }
 }
+
+emailInput.addEventListener('focusout', isValidateEmail);
+passwordInput.addEventListener('focusout', validatePassword);
