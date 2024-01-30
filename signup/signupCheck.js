@@ -12,6 +12,7 @@ function signupCheck() {
   const passwordCheckValue = passwordCheckInput.value;
   const checkEmail = emailValidate(emailInput.value);
   const checkPassword = passwordValidate(passwordInput.value);
+  const passwordCheckError = document.querySelector('#passwordCheckError');
 
   if (checkEmail && checkPassword) {
     window.location.href = './folder';
@@ -25,6 +26,10 @@ function signupCheck() {
   if (!checkPassword) {
     passwordInput.classList.add('invalid');
     passwordError.innerHTML = '비밀번호를 확인해 주세요.';
+  }
+  if (passwordValue !== passwordCheckValue) {
+    passwordCheckInput.classList.add('invalid');
+    passwordCheckError.innerHTML = '비밀번호가 일치하지 않아요.';
   }
 }
 

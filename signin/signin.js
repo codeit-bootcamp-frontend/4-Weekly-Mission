@@ -2,7 +2,6 @@ import login from './loginCheck.js';
 import emailValidate from '../utils/emailValidate.js';
 
 login;
-emailValidate;
 
 const emailInput = document.querySelector('#email');
 const emailError = document.querySelector('#emailError');
