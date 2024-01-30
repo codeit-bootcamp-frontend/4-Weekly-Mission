@@ -102,7 +102,7 @@ function validPasswordCheck(obj) {
 function showPW(e) {
   const lineThrough = this.querySelector(".line-through");
   const pwInput = this.querySelector("#password");
-  if (e.target.classList.contains("eyePW"))
+  if (e.target.classList.contains("eye-PW"))
     if (pwInput.type === "password") {
       pwInput.type = "text";
       lineThrough.style.display = "block";
