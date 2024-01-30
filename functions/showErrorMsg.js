@@ -3,42 +3,65 @@ import { emailMsg, passwordMsg, passwordCheckMsg, passwordInput } from "../eleme
 import { isValidEmail, isValidPassword } from "../utils/validator.js";
 import { isUseAlready } from "./isUseAlready.js";
 import { isPasswordCorrect } from "./isPasswordCorrect.js";
+import { ERROR_MESSAGES } from "../utils/messages.js";
 
-export const showErrorMsgSignin = (e) => {
-  const { value, classList } = e.target;
-  let errorMsg = "";
-  if (classList.contains("input-email")) {
-    if (!value) errorMsg = "이메일을 입력해 주세요.";
-    else if (!isValidEmail(value)) errorMsg = "올바른 이메일 주소가 아닙니다.";
-    emailMsg.innerHTML = errorMsg;
-  } else if (classList.contains("input-pw")) {
-    errorMsg = value ? "" : "비밀번호를 확인해 주세요.";
-    passwordMsg.innerHTML = errorMsg;
-  }
-  changeInputColor();
+const signin = {
+  getEmailError(value) {
+    if (!value) return ERROR_MESSAGES.emptyEmail;
+    if (!isValidEmail(value)) return ERROR_MESSAGES.invalidEmail;
+    return "";
+  },
+  getPasswordError(value) {
+    return value ? "" : ERROR_MESSAGES.emptyPassword;
+  },
 };
 
-export const showErrorMsgSignup = (e) => {
-  const { value, classList } = e.target;
+const singup = {
+  getEmailError(value) {
+    if (!value) return ERROR_MESSAGES.emptyEmail;
+    if (!isValidEmail(value)) return ERROR_MESSAGES.invalidEmail;
+    if (isUseAlready(value)) return ERROR_MESSAGES.alreadyInUse;
+    return "";
+  },
+  getPasswordError(value) {
+    if (!isValidPassword(value)) return ERROR_MESSAGES.invalidPassword;
+    return "";
+  },
+  getPasswordIncorrectError(value) {
+    if (!isPasswordCorrect(passwordInput.value, value)) return ERROR_MESSAGES.incorrectPassword;
+    return "";
+  },
+};
+
+export const showErrorMsgSignin = ({ target }) => {
+  const { value, classList } = target;
   let errorMsg = "";
   if (classList.contains("input-email")) {
-    if (!value) errorMsg = "이메일을 입력해 주세요.";
-    else if (!isValidEmail(value)) errorMsg = "올바른 이메일 주소가 아닙니다.";
-    else if (isUseAlready(value)) errorMsg = "이미 사용 중인 이메일입니다.";
-    emailMsg.innerHTML = errorMsg;
+    errorMsg = signin.getEmailError(value);
   } else if (classList.contains("input-pw")) {
-    if (!isValidPassword(value)) errorMsg = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
-    passwordMsg.innerHTML = errorMsg;
-  } else if (classList.contains("input-pw-check")) {
-    if (value) {
-      if (isPasswordCorrect(passwordInput.value, value)) {
-        passwordCheckMsg.classList.add("hidden");
-      } else {
-        passwordCheckMsg.classList.remove("hidden");
-      }
-    } else {
-      passwordCheckMsg.classList.add("hidden");
-    }
+    errorMsg = signin.getPasswordError(value);
   }
-  changeInputColor();
+  const messageElement = classList.contains("input-email") ? emailMsg : passwordMsg;
+  messageElement.innerHTML = errorMsg;
+  changeInputColor(messageElement, target);
+};
+
+export const showErrorMsgSignup = ({ target }) => {
+  const { value, classList } = target;
+  let errorMsg = "";
+  if (classList.contains("input-email")) {
+    errorMsg = singup.getEmailError(value);
+  } else if (classList.contains("input-pw")) {
+    errorMsg = singup.getPasswordError(value);
+  } else if (classList.contains("input-pw-check")) {
+    errorMsg = singup.getPasswordIncorrectError(value);
+  }
+
+  let messageElement;
+  if (classList.contains("input-email")) messageElement = emailMsg;
+  else if (classList.contains("input-pw")) messageElement = passwordMsg;
+  else if (classList.contains("input-pw-check")) messageElement = passwordCheckMsg;
+
+  messageElement.innerHTML = errorMsg;
+  changeInputColor(messageElement, target);
 };
