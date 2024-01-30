@@ -1,0 +1,144 @@
+@import url("./reset.css");
+@import url("./color.css");
+
+.body-box {
+  background: var(--backgroundcolor);
+}
+
+.main-position {
+  padding: 120px 32px 233px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 464px;
+  margin: 0 auto;
+}
+
+nav a img {
+  width: 100%;
+}
+
+form {
+  width: 100%;
+}
+
+.join-us {
+  margin-top: 16px;
+  margin-bottom: 30px;
+  line-height: 24px;
+}
+
+.join-us a {
+  color: var(--primary);
+  text-decoration: underline;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.input-case {
+  border-radius: 8px;
+  padding: 18px 15px;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--gray);
+}
+
+.border-color {
+  border-color: var(--red);
+}
+
+.input-case:focus {
+  border: 1px solid var(--primary);
+}
+
+.h-12 {
+  width: 100%;
+  height: 12px;
+  margin-bottom: 0;
+}
+
+.h-24 {
+  width: 100%;
+  height: 24px;
+  margin-bottom: 0;
+}
+
+.sign-title {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.signin-button {
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  background: linear-gradient(91deg, var(--primary) 0.12%, var(--skyblue) 101.84%);
+  padding: 16px 20px;
+  margin-top: 6px;
+  width: 100%;
+}
+
+.login-footer {
+  border-radius: 8px;
+  border: 1px solid var(--gray);
+  background: var(--silver);
+  width: 100%;
+  height: auto;
+  margin-top: 32px;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-login {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--darkgray);
+}
+
+.login-footer a:first-child {
+  margin-right: 16px;
+}
+
+.login-footer div a img {
+  width: 42px;
+}
+
+.eye-icon {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+}
+
+.relative {
+  position: relative;
+}
+
+.img-box {
+  line-height: 0;
+}
+
+.error-text-email,
+.error-text-password {
+  font-size: 14px;
+  color: var(--red);
+}
+
+@media (min-width: 768px) {
+  .main-position {
+    padding: 200px 0 291px;
+    max-width: 400px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main-position {
+    padding: 238px 0 253px;
+  }
+}
