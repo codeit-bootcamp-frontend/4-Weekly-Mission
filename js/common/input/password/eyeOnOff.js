@@ -1,11 +1,7 @@
-import password from "./passwordValidtaion.js";
+const eyeIcon = document.querySelector('i[data-icon="eyeIcon"]');
+const eyeIcon2 = document.querySelector('i[data-icon="eyeIcon2"]');
 
-const selector = document.querySelector('i[data-icon="eyeIcon"]');
-const selector2 = document.querySelector('i[data-icon="eyeIcon2"]');
-
-const eyeClick = (e) => changeOnOff(e);
-
-const changeOnOff = (e) => {
+const toggleEyeIcon = (e) => {
   if(e.target.classList.contains('eye-off')){ //off에서 on으로
     e.target.classList.remove('eye-off');
     e.target.classList.add('eye-on');
@@ -18,4 +14,4 @@ const changeOnOff = (e) => {
   }
 }
  
-export default {selector, selector2, eyeClick};
+export default {eyeIcon, eyeIcon2, toggleEyeIcon};
