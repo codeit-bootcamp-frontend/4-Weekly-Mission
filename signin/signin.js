@@ -26,10 +26,10 @@ function passwordValidate() {
   if (!passwordInput.value.trim()) {
     passwordInput.classList.add('invalid');
     passwordError.innerHTML = '비밀번호를 입력해 주세요.';
-  } else {
-    passwordInput.classList.remove('invalid');
-    passwordError.innerHTML = '';
+    return;
   }
+  passwordInput.classList.remove('invalid');
+  passwordError.innerHTML = '';
 }
 
 passwordInput.addEventListener('focusout', passwordValidate);
