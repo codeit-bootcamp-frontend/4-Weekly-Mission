@@ -3,21 +3,22 @@
    <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="Styles/reset.css">
-      <link rel="stylesheet" href="Styles/defaultStyle.css">
-      <link rel="stylesheet" href="Styles/signPage.css">
+      <link rel="stylesheet" href="/Styles/reset.css">
+      <link rel="stylesheet" href="/Styles/defaultStyle.css">
+      <link rel="stylesheet" href="/Styles/signPage.css">
       <link href="https://fonts.googleapis.com/css2?family=Acme&family=Noto+Sans+KR:wght@400;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-      <title>SignInPage</title>
+      <link rel="icon" href="/favicon.png">
+      <title>signinPage</title>
       </head>
    <body>
       <main class="signPageOuterLineLimit">
          
          <header>
-            <a href="index.html"><img src="Assets/logos/logo.svg" alt="Linkbrary Logo"></a>
-            <div><a>회원이 아니신가요?</a><a href="signup.html">회원가입 하기</a></div>
+            <a href="/index.html"><img src="/Images/logos/logo.svg" alt="Linkbrary Logo"></a>
+            <div>회원이 아니신가요?<a href="./signup.html">회원가입 하기</a></div>
          </header>
 
-         <form action="">
+         <form>
             <section>
                <label for="loginEmailInput">이메일</label>
                <input id="loginEmailInput" type="email" placeholder="codeit@codeit.com">
@@ -28,24 +29,23 @@
                <label for="loginPasswordInput">비밀번호</label>
                <div class="seenButtonPositionOrigin">
                   <input id="loginPasswordInput" type="password" placeholder="‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧">
-                  <button class="passwordSeenButton" type="button">
+                  <button class="passToggleBtn" type="button">
                </div>
                <p class="errorMessagePreset" id="passErrorMessege"></p>
             </section>
             
-            <button type="submit" id="loginConfirmButton" class="buttonBasicStyle">로그인</button>
+            <button type="submit" id="confirmBtn" class="buttonBasic">로그인</button>
          </form>          
 
          <footer>
             <a>소셜 로그인</a>
             <div class="socialLoginIcons">
-               <a href="https://www.google.com/" ><img class="socialLoginIcon" src="Assets/Icons/google.svg" alt="Google"></a>
-               <a href="https://www.kakaocorp.com/"><img class="socialLoginIcon" src="Assets/Icons/social_kakaotalk.png" alt="kakaoTalk"></a>
+               <a href="https://www.google.com/" ><img class="socialLoginIcon" src="/Images/Icons/google.svg" alt="Google"></a>
+               <a href="https://www.kakaocorp.com/"><img class="socialLoginIcon" src="/Images/Icons/social_kakaotalk.png" alt="kakaoTalk"></a>
             </div>
          </footer>
 
       </main>  
-      <script src="./JavaScript/signIn.js"></script>
-      <script src="./JavaScript/passwordHide.js"></script>
+      <script type="module" src="/Scripts/signin.js"></script>
    </body>
 </html>

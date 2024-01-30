@@ -1,328 +1,328 @@
 /* 랜딩 페이지 */
 
-   /* 랜딩페이지 텍스트 그라데이션 */
+/* 랜딩페이지 텍스트 그라데이션 */
 
-   .purplePinkGradation {
-      background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-   } /*세상의 모든 정보*/
+.purplePinkGradation {
+   background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+} /*세상의 모든 정보*/
 
-   .redBlueGradation {
-      background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-   } /*원하는 링크*/
+.redBlueGradation {
+   background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+} /*원하는 링크*/
 
-   .orangeBlueGradation {
-      background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-   } /*관리*/
-   
-   .blueWhiteGradation {
-      background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-   } /*공유*/
+.orangeBlueGradation {
+   background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+} /*관리*/
 
-   .bluePinkGradation {
-      background: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-   } /*검색*/
-   
-   /*랜딩 페이지 색상 팔레트 끝*/
+.blueWhiteGradation {
+   background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+} /*공유*/
 
+.bluePinkGradation {
+   background: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
+   background-clip: text;
+   -webkit-text-fill-color: transparent;
+} /*검색*/
 
-   body > header {
-      background-color: var(--LBrary-Background);
-      position: sticky;
-      margin: 0;
-      top: 0;      
-   }
-
-   body > header > .flexibleHeaderInTablet {
-      display: flex;
-      padding: 20px 200px;
-      align-items: center;
-      justify-content: space-between;
-   }
-
-   .flexibleHeaderInTablet > a.buttonBasicStyle {
-      width: 128px;
-   }
+/*랜딩 페이지 색상 팔레트 끝*/
 
 
+body > header {
+   background-color: var(--LBrary-Background);
+   position: sticky;
+   margin: 0;
+   top: 0;      
+}
 
-   main > header { 
-      width: 100%;
-   }
+body > header > .flexibleHeaderInTablet {
+   display: flex;
+   padding: 20px 200px;
+   align-items: center;
+   justify-content: space-between;
+}
 
-   main > header div {
-      display: flex;
-      flex-direction: column;
-      background-color: var(--LBrary-Background);
-      width: 100%;
-      max-width: 1200px;
-      justify-content: flex-end;
-      align-items: center;
-      margin: 0 auto;  
-      padding: 70px 0 0;
-      gap: 40px;
-      font-size: 6.4rem;
-      text-align: center;
-      font-weight: 700;
-      line-height: 125%;
-   }
-
-   main > header > div::after{
-      content: '';
-      background-image: url(../Assets/images/landingPage/main_Image.png);
-      background-size: contain;
-      width: 100%;
-      height: 500px;
-      background-position: center bottom;
-      margin: 0;
-      background-repeat: no-repeat;
-   }
-
-   h1 {
-      max-width: 80%;
-   }
-
-   main a.buttonBasicStyle {
-         width: 350px;
-   }
+.flexibleHeaderInTablet > a.buttonBasic {
+   width: 128px;
+}
 
 
 
-   .landingArticleBackgroundDecoration {
-      background-color: var(--LBrary-White); 
-      width: 100%; 
-      padding-bottom: 120px;
-      padding-top: 70px;
-   }
+main > header { 
+   width: 100%;
+}
 
-   article {
-      /*모바일 변환시 이미지의 배열 순서 문제를 
-      태그 수준에서 최적화 하기 위해 최대 사이즈에서도 flex가 아닌 grid로 구성*/
-      grid-template-columns: repeat(2, 1fr);
-      display: grid;
-      padding: 50px 0;
-      width: 100%;
-      max-width: 981px;
-      margin: 0 auto;
-      gap: 10px 147px;
-   }
+main > header div {
+   display: flex;
+   flex-direction: column;
+   background-color: var(--LBrary-Background);
+   width: 100%;
+   max-width: 1200px;
+   justify-content: flex-end;
+   align-items: center;
+   margin: 0 auto;  
+   padding: 70px 0 0;
+   gap: 40px;
+   font-size: 6.4rem;
+   text-align: center;
+   font-weight: 700;
+   line-height: 125%;
+}
 
-   article::after {
-      content: '';
-      background-size: 100%;
-      background-repeat: no-repeat;
-      grid-row: 1 / 3;
-      width: 550px;
-      height: 450px;
-   }
+main > header > div::after{
+   content: '';
+   background-image: url(../Images/images/index/main_Image.png);
+   background-size: contain;
+   width: 100%;
+   height: 500px;
+   background-position: center bottom;
+   margin: 0;
+   background-repeat: no-repeat;
+}
 
-   article:nth-of-type(1)::after {
-      background-image: url(../Assets/images/landingPage/main_image1.png);
-   }
+h1 {
+   max-width: 80%;
+}
 
-   article:nth-of-type(2)::after {
-      grid-column: 1;
-      background-image: url(../Assets/images/landingPage/main_image2.png);
-   }
-
-   article:nth-of-type(3)::after {
-      background-image: url(../Assets/images/landingPage/main_image3.png);
-   }
-
-   article:nth-of-type(4)::after {
-      grid-column: 1;
-      background-image: url(../Assets/images/landingPage/main_image4.png);
-   }   
-
-   article h2 {
-      font-size: 4.8rem;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-      grid-row: 1;
-      margin: auto;
-      margin-bottom: 0;
-      margin-left: 0;
-   }
-
-   article p {
-      color: #6B6B6B;
-      font-size: 1.6rem;
-      font-weight: 400;
-      line-height: 24px;
-      margin: auto;
-      margin-top: 0;
-      margin-left: 0;
-   }
+main a.buttonBasic {
+      width: 350px;
+}
 
 
 
+.landingArticleBackgroundDecoration {
+   background-color: var(--LBrary-White); 
+   width: 100%; 
+   padding-bottom: 120px;
+   padding-top: 70px;
+}
 
-   footer {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      background-color: var(--LBrary-Black);
-      width: 100%;
-      margin: 0;
-      padding: 32px 104px 64px;
-      height: 160px;
-   }
+article {
+   /*모바일 변환시 이미지의 배열 순서 문제를 
+   태그 수준에서 최적화 하기 위해 최대 사이즈에서도 flex가 아닌 grid로 구성*/
+   grid-template-columns: repeat(2, 1fr);
+   display: grid;
+   padding: 50px 0;
+   width: 100%;
+   max-width: 981px;
+   margin: 0 auto;
+   gap: 10px 147px;
+}
 
-   .corperateInformation {
-      color: #676767;
-      text-align: left;
-      font-family: acme;
-      font-size: 1.6rem;
-      font-weight: 400;
-   }
+article::after {
+   content: '';
+   background-size: 100%;
+   background-repeat: no-repeat;
+   grid-row: 1 / 3;
+   width: 550px;
+   height: 450px;
+}
 
-   .footerPravay {
-      display: flex;
-      gap: 30px;
-      font-family: acme;
-      font-size: 1.6rem;
-      font-weight: 400;
-   }
+article:nth-of-type(1)::after {
+   background-image: url(../Images/images/index/main_image1.png);
+}
 
-   .footerPravay a {
-      text-decoration: none;
-      color: #CFCFCF;
-   }
+article:nth-of-type(2)::after {
+   grid-column: 1;
+   background-image: url(../Images/images/index/main_image2.png);
+}
 
-   .footerSocial {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      justify-content: end;
-   }
+article:nth-of-type(3)::after {
+   background-image: url(../Images/images/index/main_image3.png);
+}
+
+article:nth-of-type(4)::after {
+   grid-column: 1;
+   background-image: url(../Images/images/index/main_image4.png);
+}   
+
+article h2 {
+   font-size: 4.8rem;
+   font-weight: 700;
+   letter-spacing: -0.3px;
+   grid-row: 1;
+   margin: auto;
+   margin-bottom: 0;
+   margin-left: 0;
+}
+
+article p {
+   color: #6B6B6B;
+   font-size: 1.6rem;
+   font-weight: 400;
+   line-height: 24px;
+   margin: auto;
+   margin-top: 0;
+   margin-left: 0;
+}
+
+
+
+
+footer {
+   display: flex;
+   align-items: baseline;
+   justify-content: space-between;
+   background-color: var(--LBrary-Black);
+   width: 100%;
+   margin: 0;
+   padding: 32px 104px 64px;
+   height: 160px;
+}
+
+.corperateInformation {
+   color: #676767;
+   text-align: left;
+   font-family: acme;
+   font-size: 1.6rem;
+   font-weight: 400;
+}
+
+.footerPravay {
+   display: flex;
+   gap: 30px;
+   font-family: acme;
+   font-size: 1.6rem;
+   font-weight: 400;
+}
+
+.footerPravay a {
+   text-decoration: none;
+   color: #CFCFCF;
+}
+
+.footerSocial {
+   display: flex;
+   gap: 12px;
+   align-items: center;
+   justify-content: end;
+}
 
 
 
 /* 태블릿 반응형 */
 
-   @media (max-width: 1199px) {
-      body > header {
-         margin: 0;
-      }
-
-      body > header > .flexibleHeaderInTablet {
-         width: 100%;
-         padding: 20px 32px;
-         margin: 0 auto;
-         max-width: 864px;
-      }
-
-      
-      
-      main header div {
-         max-width: 698px;
-      }
-
-      main > header > div {
-      /*태블릿 사이즈에서 보기 편하게 헤드라인을 줄임*/
-         width: 80%;
-      }
-
-      main header >div::after{
-         height: 0;
-         padding-top: calc(590/1200*100%);
-      }
-
-
-      article {
-      /*원본은 51px이나, 줄넘김 현상이 발생하여 가독성을 높이기 위해 줄임*/
-         max-width: 698px;
-         row-gap: 10px;
-         column-gap: 42px;
-      }
-
-      article::after {
-         width: 385px;
-         height: 315px;
-      }
+@media (max-width: 1199px) {
+   body > header {
+      margin: 0;
    }
+
+   body > header > .flexibleHeaderInTablet {
+      width: 100%;
+      padding: 20px 32px;
+      margin: 0 auto;
+      max-width: 864px;
+   }
+
+   
+   
+   main header div {
+      max-width: 698px;
+   }
+
+   main > header > div {
+   /*태블릿 사이즈에서 보기 편하게 헤드라인을 줄임*/
+      width: 80%;
+   }
+
+   main header >div::after{
+      height: 0;
+      padding-top: calc(590/1200*100%);
+   }
+
+
+   article {
+   /*원본은 51px이나, 줄넘김 현상이 발생하여 가독성을 높이기 위해 줄임*/
+      max-width: 698px;
+      row-gap: 10px;
+      column-gap: 42px;
+   }
+
+   article::after {
+      width: 385px;
+      height: 315px;
+   }
+}
 
 /* 모바일 반응형 */
 
-   @media (max-width: 767px) {
-      body > header > div img {
-         width: 88.6px;
-      }
+@media (max-width: 767px) {
+   body > header > div img {
+      width: 88.6px;
+   }
 
-      .flexibleHeaderInTablet > a.buttonBasicStyle {
-         width: 80px;
-         font-size: 1.4rem;
-         padding: 10px 16px;
-      }
+   .flexibleHeaderInTablet > a.buttonBasic {
+      width: 80px;
+      font-size: 1.4rem;
+      padding: 10px 16px;
+   }
 
 
 
-      main header div {
-         font-size: 3.2rem;
-         padding: 28px 32px 0;
-      }
+   main header div {
+      font-size: 3.2rem;
+      padding: 28px 32px 0;
+   }
 
-      h1 {
-         max-width: 100%;
-      }
+   h1 {
+      max-width: 100%;
+   }
 
-      main > header div > img {
-         width: 100%;
-      }
+   main > header div > img {
+      width: 100%;
+   }
 
-      main a.buttonBasicStyle {
-         width: 200px;
-         font-size: 1.4rem;
-      }
+   main a.buttonBasic {
+      width: 200px;
+      font-size: 1.4rem;
+   }
 
-      .articleWhiteBackground {
-         padding-bottom: 40px;
-      }
+   .articleWhiteBackground {
+      padding-bottom: 40px;
+   }
 
-      article{
-         grid-template-columns: 1fr;
-         padding: 40px;
-         gap: 0;
-      }
+   article{
+      grid-template-columns: 1fr;
+      padding: 40px;
+      gap: 0;
+   }
 
-      article h2 {
-         font-size: 2.4rem;
-         margin-bottom: 20px;
-         grid-row: 1;
-      }
+   article h2 {
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+      grid-row: 1;
+   }
 
-      article p {
-         font-size: 1.5rem;
-         margin-top: 16px;
-         grid-row: 3;
-      }
+   article p {
+      font-size: 1.5rem;
+      margin-top: 16px;
+      grid-row: 3;
+   }
 
-      article::after{
-         width: 100%;
-         grid-column: 1;
-         grid-row: 2;
-         height : 0;
-         padding-top: calc(900/1100*100%);
-	
-      }
+   article::after{
+      width: 100%;
+      grid-column: 1;
+      grid-row: 2;
+      height : 0;
+      padding-top: calc(900/1100*100%);
 
-      footer {
-         display: grid;
-         grid-template-columns: 1fr 1fr;
-         padding: 32px;      
-         row-gap: 60px;
-      }
+   }
 
-      footer .corperateInformation {
-         grid-row: 2;
-      }
+   footer {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 32px;      
+      row-gap: 60px;
+   }
+
+   footer .corperateInformation {
+      grid-row: 2;
+   }
 }

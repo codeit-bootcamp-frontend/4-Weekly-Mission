@@ -1,126 +1,126 @@
 /* 로그인 페이지 */
 
-   main {
-      margin: 238px auto auto;
-      width: 400px;
-   }
+main {
+   margin: 238px auto auto;
+   width: 400px;
+}
 
-   header {
-      width: max-content;
-      margin: auto;
-      color: var(--LBrary-Black);
-      font-size: 1.6rem;
-      font-weight: 400;
-      line-height: 150%;
-   }
+header {
+   width: max-content;
+   margin: auto;
+   color: var(--LBrary-Black);
+   font-size: 1.6rem;
+   font-weight: 400;
+   line-height: 150%;
+}
 
-   header a > img {
-      width: 100%;
-      margin-bottom: 16px;
-   }
+header a > img {
+   width: 100%;
+   margin-bottom: 16px;
+}
 
-   header > div {   
-   display: flex; gap: 8px;
-   }
-
-
-
-   main form {   
-      margin-top: 30px;
-      width: 100%; 
-   }
-
-   main Section {
-      margin-bottom: 24px;
-   }
-
-   Label {
-      display: block;
-      color: var(--LBrary-black);
-      font-size: 1.4rem;
-      font-weight: 400;
-      margin-bottom: 12px;
-   }
-
-   input {
-      padding: 18px 15px;
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid var(--LBrary-Gray20);
-      background: var(--LBrary-White);
-   }
-
-   input:focus{ 
-      outline-color: var(--LBrary-Primary-color);
-   }
-
-   .seenButtonPositionOrigin {
-      position: relative;
-   }
-
-   .passwordSeenButton {
-      background-image: url(../Assets/Icons/eye-off.svg);
-      background-size: contain;
-      width: 16px;
-      height: 16px;
-      position: absolute;
-      top: 50%;
-      right: 15px;
-      transform: translate(0, -50%);
-      border: none;
-   }
-
-   .notHidden {
-      background-image: url(../Assets/Icons/eye-on.svg);
-   }
-
-   .errorInputDesign {
-      border: 1px solid var(--LBrary-Red);
-   }
-
-   .errorMessagePreset {
-      color: var(--LBrary-Red);
-      font-size: 1.4rem;
-      font-weight: 400;
-      margin-top: 6px;
-   }
-
-   form > .buttonBasicStyle {
-      width: 100%;
-      margin-top: 30px;
-   }
+header > div {   
+display: flex; gap: 8px;
+}
 
 
 
+main form {   
+   margin-top: 30px;
+   width: 100%; 
+}
+
+main Section {
+   margin-bottom: 24px;
+}
+
+Label {
+   display: block;
+   color: var(--LBrary-black);
+   font-size: 1.4rem;
+   font-weight: 400;
+   margin-bottom: 12px;
+}
+
+input {
+   padding: 18px 15px;
+   width: 100%;
+   border-radius: 8px;
+   border: 1px solid var(--LBrary-Gray20);
+   background: var(--LBrary-White);
+}
+
+input:focus{ 
+   outline-color: var(--LBrary-Primary-color);
+}
+
+.seenButtonPositionOrigin {
+   position: relative;
+}
+
+.passToggleBtn {
+   background-image: url(../Images/Icons/eye-off.svg);
+   background-size: contain;
+   width: 16px;
+   height: 16px;
+   position: absolute;
+   top: 50%;
+   right: 15px;
+   transform: translate(0, -50%);
+   border: none;
+}
+
+.notHidden {
+   background-image: url(../Images/Icons/eye-on.svg);
+}
+
+.signError {
+   border: 1px solid var(--LBrary-Red);
+}
+
+.errorMessagePreset {
+   color: var(--LBrary-Red);
+   font-size: 1.4rem;
+   font-weight: 400;
+   margin-top: 6px;
+}
+
+form > .buttonBasic {
+   width: 100%;
+   margin-top: 30px;
+}
 
 
-   footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: 8px;
-      border: 1px solid var(--LBrary-Gray20);
-      background-color: var(--LBrary-Gray10);
-      width: 100%;
-      margin: 32px 0;
-      padding: 12px 24px;
-      font-size: 1.4rem;
-      color: var(--LBrary-Gray50);
-   }
 
-   .socialLoginIcons {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-   }
 
-   .socialLoginIcon {
-      display: flex;
-      position: relative;
-      height: 42px;
-      width: 42px;  
-   }
+
+footer {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   border-radius: 8px;
+   border: 1px solid var(--LBrary-Gray20);
+   background-color: var(--LBrary-Gray10);
+   width: 100%;
+   margin: 32px 0;
+   padding: 12px 24px;
+   font-size: 1.4rem;
+   color: var(--LBrary-Gray50);
+}
+
+.socialLoginIcons {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 16px;
+}
+
+.socialLoginIcon {
+   display: flex;
+   position: relative;
+   height: 42px;
+   width: 42px;  
+}
 
 
 
@@ -128,11 +128,11 @@
 
 /* 모바일 반응형 */
 
-   @media (max-width: 767px) {
-      main {
-         width: 100%;
-         max-width: 464px;
-         margin: 120px auto auto;
-         padding: 0 32px;
-      }
+@media (max-width: 767px) {
+   main {
+      width: 100%;
+      max-width: 464px;
+      margin: 120px auto auto;
+      padding: 0 32px;
+   }
 }

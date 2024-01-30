@@ -30,7 +30,7 @@ body {
    background-color: var(--LBrary-Background);
 }
 
-.buttonBasicStyle {
+.buttonBasic {
    display: flex;
    color: var(--LBrary-GrayLight);
    font-size: 1.8rem;
@@ -47,5 +47,4 @@ body {
 
 button:hover {
    cursor: pointer;
-   
 }
