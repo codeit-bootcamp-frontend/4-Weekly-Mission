@@ -89,13 +89,13 @@ function enterLogin(e) {
 }
 
 function validEmailCheck(obj) {
-  let pattern =
+  const pattern =
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
   return !!obj.value.match(pattern);
 }
 
 function validPasswordCheck(obj) {
-  let pattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+  const pattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
   return !!obj.value.match(pattern);
 }
 
