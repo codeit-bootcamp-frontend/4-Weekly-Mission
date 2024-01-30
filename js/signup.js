@@ -46,8 +46,9 @@ window.onload = function(){
                 const result = await response.json();
                 if(response.ok){
                     // 회원가입 에러 발생하지 않을 시
-                    alert("회원가입 성공 - 로그인 페이지로 이동합니다.");
-                    location.href = "./signin.html";
+                    localStorage.setItem("accessToken", result.data.accessToken);
+                    localStorage.setItem("refreshToken", result.data.refreshToken);
+                    location.href = "./folder.html";
                 }else{
                     console.error(result.error);
                 }
