@@ -17,20 +17,23 @@
                 <a href="/signin">로그인 하기</a>
             </section>
             <section class="login_middle">
-                <form>
+                <form class="signup_form">
                     <div>
                         <label for="email">이메일</label>
-                        <input id="email" type="text">
+                        <input id="email" class="email" type="text">
+                        <p class="error_text"></p>
                     </div> 
                     <div>
                         <label for="password">비밀번호</label>
-                        <input id="password" type="password">
-                        <button class="pwd_icon">비밀번호 숨김</button>
+                        <input id="password" class="password" type="password">
+                        <button type="button" class="pwd_icon">비밀번호 숨김</button>
+                        <p class="error_text password_text"></p>
                     </div>
                     <div>
                         <label for="password_check">비밀번호 확인</label>
-                        <input id="password_check" type="password">
-                        <button class="pwd_icon">비밀번호 숨김</button>
+                        <input id="password_check" type="password" class="password_check">
+                        <button type="button" class="pwd_icon">비밀번호 숨김</button>
+                        <p class="error_text password_check_text"></p>
                     </div>
                     <input type="submit" value="회원가입">
                 </form>
@@ -46,5 +49,6 @@
             </section>
         </main>
     </div>
+    <script type="module" src="./resource/js/signup.js"></script>
 </body>
 </html>
