@@ -28,7 +28,7 @@
             </div>
           </div>
         </div>
-        <form id="signForm" action="/folder" method="post">
+        <form id="signin-form" action="/folder" method="post">
           <div class="inputs">
             <div class="input-container">
               <label for="email">이메일</label>
@@ -39,6 +39,7 @@
                     name="email"
                     id="email"
                     data-type="email"
+                    data-validation="on"
                     required
                   />
                 </div>
@@ -84,6 +85,6 @@
         </div>
       </div>
     </div>
-    <script src="/js/sign.js"></script>
+    <script type="module" src="/js/signin.js"></script>
   </body>
 </html>

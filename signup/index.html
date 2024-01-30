@@ -28,7 +28,7 @@
             </div>
           </div>
         </div>
-        <form id="signForm" action="/folder" method="post">
+        <form id="signup-form" action="/folder" method="post">
           <div class="inputs">
             <div class="input-container">
               <label for="email">이메일</label>
@@ -39,11 +39,11 @@
                     name="email"
                     id="email"
                     data-type="email"
+                    data-validation="on"
                     required
                   />
-                  <div class="input-message"></div>
                 </div>
-                <div class="input-message">내용을 다시 작성해주세요</div>
+                <div class="input-message"></div>
               </div>
             </div>
             <div class="input-container">
@@ -55,10 +55,13 @@
                     name="password"
                     id="password"
                     data-type="password"
+                    data-validation="on"
                     required
                   />
                   <img
                     src="/images/sign/eye_on.svg"
+                    class="input-blind-toggle"
+                    data-type="off"
                     alt="비밀번호 보이기 이미지"
                   />
                 </div>
@@ -71,13 +74,16 @@
                 <div class="input-background">
                   <input
                     type="text"
-                    name="password-repeat"
+                    name="password_repeat"
                     id="password-repeat"
-                    data-type="password"
+                    data-type="password_repeat"
+                    data-validation="on"
                     required
                   />
                   <img
                     src="/images/sign/eye_on.svg"
+                    class="input-blind-toggle"
+                    data-type="off"
                     alt="비밀번호 보이기 이미지"
                   />
                 </div>
@@ -103,6 +109,6 @@
         </div>
       </div>
     </div>
-    <script src="/js/sign.js"></script>
+    <script type="module" src="/js/signup.js"></script>
   </body>
 </html>
