@@ -11,7 +11,7 @@ const ERROR_MESSAGE = {
     check: '비밀번호을 확인해 주세요',
     recheck: "비밀번호가 일치하지 않아요."
   }
-  }
+}
   
 
 export { ERROR_MESSAGE };
