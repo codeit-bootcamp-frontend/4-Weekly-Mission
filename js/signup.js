@@ -53,12 +53,12 @@ window.onload = function(){
                     localStorage.setItem("refreshToken", result.data.refreshToken);
                     location.href = "./folder.html";
                 }else{
-                    // console.error(result.error);
+                    console.error(result.error);
                 }
             }else{
                 emailError.style.display = "block";
                 emailError.textContent = "이미 사용 중인 이메일입니다.";
-                // console.error(result.error);
+                console.error(result.error);
             }
         } catch(error){
             return alert(error);
