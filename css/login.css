@@ -1,6 +1,6 @@
-@import url("./reset.css");
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
-@import url("./root.css");
+@import url('./reset.css');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+@import url('./root.css');
 
 /* 최대 400px */
 * {
@@ -110,7 +110,10 @@ button {
 
   border-radius: 0.5rem;
   border: 0px;
-  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%));
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%)
+  );
 
   /* 해당 부분 지우고 하면 커서가 안나타남 */
   cursor: pointer;
