@@ -96,8 +96,14 @@ header {
   border: 0.1rem solid var(--gray20);
   font-size: 1.6rem;
   line-height: 150%;
+  color: #373740;
 }
-
+.sign-input:focus {
+  border-color: #6d6afe;
+}
+.sign-input::placeholder {
+  color: #9fa6b2;
+}
 .sign-input:focus {
   border-color: var(--primary);
 }
@@ -172,3 +178,13 @@ header {
   line-height: 16.8px;
   color: red;
 }
+
+
+.error {
+  color: var(--red);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.8px;
+}
+
+
