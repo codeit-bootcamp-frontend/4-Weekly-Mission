@@ -14,7 +14,7 @@ const signButton = document.querySelector('.sign-btn')
 const signupValidation = true
 
 // 회원가입 버튼, 경우에 따른 케이스 적용
-const submitButton = (e) => {
+const onSubmit = (e) => {
   e.preventDefault()
 
   const inputEmailValue = inputEmail.value
