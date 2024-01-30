@@ -3,7 +3,7 @@ import validateEmail from '../utils/emailValidate.js';
 
 login;
 
-const emailInput = document.getElementsById('email');
+const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 
 //email 에러 메시지 호출
