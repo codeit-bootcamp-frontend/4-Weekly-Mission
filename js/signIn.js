@@ -44,10 +44,39 @@ function goUrl() {
   location.href = link;
 }
 
-function validSignIn() {
-  if (userID.value === "test@codeit.com" && userPW.value === "codeit101") {
+async function signInAPI(email, password) {
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(errorMessage);
+    }
+
+    const data = await response.json();
+    console.log("API Response:", data);
+  } catch (error) {
+    console.error("Error during API call:", error.message);
+    throw error;
+  }
+}
+
+async function validSignIn() {
+  try {
+    if (userID.value === "" || userPW.value === "") {
+      throw new Error("Email and password are required");
+    }
+
+    await signInAPI(userID.value, userPW.value);
+
     goUrl();
-  } else {
+  } catch (error) {
     emailError.textContent = "이메일을 확인해주세요.";
     errorStyle(emailError, userID);
     pwError.textContent = "비밀번호를 확인해주세요.";
