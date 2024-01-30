@@ -1,7 +1,6 @@
 import { changeInputColor } from "./changeInputColor.js";
 import { emailMsg, passwordMsg, passwordCheckMsg, passwordInput } from "../elements.js";
 import { isValidEmail, isValidPassword } from "./validator.js";
-import { isUseAlready } from "./isUseAlready.js";
 import { isPasswordCorrect } from "./isPasswordCorrect.js";
 import { ERROR_MESSAGES } from "./messages.js";
 
@@ -20,7 +19,6 @@ const signup = {
   getEmailError(value) {
     if (!value) return ERROR_MESSAGES.emptyEmail;
     if (!isValidEmail(value)) return ERROR_MESSAGES.invalidEmail;
-    if (isUseAlready(value)) return ERROR_MESSAGES.alreadyInUse;
     return "";
   },
   getPasswordError(value) {

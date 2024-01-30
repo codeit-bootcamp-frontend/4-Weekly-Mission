@@ -1,53 +1,64 @@
 import { emailMsg, passwordMsg, emailInput, passwordInput, passwordCheck, passwordCheckMsg } from "../elements.js";
-import { EMAIL, PASSWORD } from "../auth.js";
 import { changeInputColor } from "./changeInputColor.js";
 import { isValidEmail, isValidPassword } from "./validator.js";
-import { isUseAlready } from "./isUseAlready.js";
 import { isPasswordCorrect } from "./isPasswordCorrect.js";
 import { ERROR_MESSAGES } from "./messages.js";
 import { redirectToFolderPage } from "./redirectToFolderPage.js";
+import { login, signup } from "./auth.js";
 
 /**
  * 에러메시지를 노출하고 싶은 Element와 노출하고 싶은 메시지를 받아서 단순 UI를 변경해주는 함수
  * @param {HTMLElement} 메시지 Element
+ * @param {HTMLElement} input Element
  * @param {string}  노출하고 싶은 에러메시지
  */
-const showErrorMessage = (messageElement, errorMessage) => {
+const showErrorMessage = (messageElement, inputElement, errorMessage) => {
   if (errorMessage) {
     messageElement.innerHTML = errorMessage; // 오류 메시지를 표시
     messageElement.style.display = "block"; // 메시지가 보이도록 설정
+    changeInputColor(messageElement, inputElement);
   } else {
     messageElement.style.display = "none"; // 오류 메시지가 없으면 메시지를 숨김
   }
 };
 
-export const moveFolderSignin = (e) => {
-  const isEmailValid = emailInput.value === EMAIL;
-  const isPasswordValid = passwordInput.value === PASSWORD;
+export const moveFolderSignin = () => {
+  const dataToSubmit = {
+    email: emailInput.value,
+    password: passwordInput.value,
+  };
 
-  if (isEmailValid && isPasswordValid) {
-    redirectToFolderPage("folder.html");
-  }
-
-  showErrorMessage(emailMsg, isEmailValid ? "" : ERROR_MESSAGES.emptyEmail);
-  showErrorMessage(passwordMsg, isPasswordValid ? "" : ERROR_MESSAGES.emptyPassword);
-
-  changeInputColor();
+  login(dataToSubmit)
+    .then(() => {
+      redirectToFolderPage("folder.html");
+    })
+    .catch(() => {
+      showErrorMessage(emailMsg, emailInput, ERROR_MESSAGES.emptyEmail);
+      showErrorMessage(passwordMsg, passwordInput, ERROR_MESSAGES.emptyPassword);
+    });
 };
 
 export const moveFolderSignup = (e) => {
   const [email, password, check] = [emailInput.value, passwordInput.value, passwordCheck.value];
-  const isEmailValid = email && isValidEmail(email) && !isUseAlready(email);
+  const isEmailValid = email && isValidEmail(email);
   const isPasswordValid = password && isValidPassword(password);
   const isPasswordCheck = check && isPasswordCorrect(password, check);
 
   if (isEmailValid && isPasswordValid && isPasswordCheck) {
-    redirectToFolderPage("folder.html");
+    const dataToSubmit = {
+      email: email,
+    };
+
+    signup(dataToSubmit)
+      .then(() => {
+        redirectToFolderPage("folder.html");
+      })
+      .catch(() => {
+        showErrorMessage(emailMsg, emailInput, ERROR_MESSAGES.emptyEmail);
+      });
   }
 
-  showErrorMessage(emailMsg, isEmailValid ? "" : ERROR_MESSAGES.emptyEmail);
-  showErrorMessage(passwordMsg, isPasswordValid ? "" : ERROR_MESSAGES.invalidPassword);
-  showErrorMessage(passwordCheckMsg, isPasswordCheck ? "" : ERROR_MESSAGES.incorrectPassword);
-
-  changeInputColor();
+  showErrorMessage(emailMsg, emailInput, isEmailValid ? "" : ERROR_MESSAGES.emptyEmail);
+  showErrorMessage(passwordMsg, passwordInput, isPasswordValid ? "" : ERROR_MESSAGES.invalidPassword);
+  showErrorMessage(passwordCheckMsg, passwordCheck, isPasswordCheck ? "" : ERROR_MESSAGES.incorrectPassword);
 };
