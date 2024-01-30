@@ -3,8 +3,8 @@ const ERROR_MESSAGE_CLASSNAME = "error-message-on";
 const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
 export function setInputError(elements, message) {
-  elements.input.classList.add(`${SIGN_INPUT_ERROR_CLASSNAME}`);
-  elements.errorMessage.classList.add(`${ERROR_MESSAGE_CLASSNAME}`);
+  elements.input.className += ` ${SIGN_INPUT_ERROR_CLASSNAME}`;
+  elements.errorMessage.className += ` ${ERROR_MESSAGE_CLASSNAME}`;
   elements.errorMessage.textContent = message;
 }
 

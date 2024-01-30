@@ -55,15 +55,15 @@ function submitForm(event) {
     location.href = "./folder.html";
     return;
   }
-  if(emailInput.value === TEST_USER.email && passwordInput.value !== TEST_USER.password){
+  if(emailInput.value !== TEST_USER.email && passwordInput.value === TEST_USER.password) {
+    setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
+    return;
+  }
+  if(emailInput.value === TEST_USER.email && passwordInput.value !== TEST_USER.password) {
     setInputError(
       { input: passwordInput, errorMessage: passwordErrorMessage },
       "비밀번호를 확인해주세요."
     );
-    return;
-  }
-  if(emailInput.value !== TEST_USER.email && passwordInput.value === TEST_USER.password){
-    setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
     return;
   }
   setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
