@@ -1,1 +1,0 @@
-export const signForm = document.querySelector('.sign-form');
