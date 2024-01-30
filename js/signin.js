@@ -1,18 +1,17 @@
-import { TEST_EMAIL, TEST_PASSWORD } from './variable';
+import { TEST_EMAIL, TEST_PASSWORD } from './variable.js';
 import {
   getEmailInput,
   getPasswordInput,
   getLoginForm,
-} from './helpers/utils/index';
-import { emailValidate } from './constants/regex/index';
-import { showError, hideError, pathTo } from './func';
+} from './helpers/utils/index.js';
+import { emailValidate } from './constants/regex/index.js';
+import { showError, hideError, pathTo } from './func.js';
 
 const emailInput = getEmailInput('signin');
 const passwordInput = getPasswordInput('signin');
 const loginForm = getLoginForm('signin');
 
 loginForm.addEventListener('submit', (event) => {
-  // preventDefault를 쓰고 form 타입을 사용해야 reload를 막을 수 있었네요...
   event.preventDefault();
 
   const emailValue = emailInput.value.trim();
