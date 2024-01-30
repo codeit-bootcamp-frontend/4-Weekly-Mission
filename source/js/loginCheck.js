@@ -22,8 +22,8 @@ function login() {
     passwordError.innerHTML = '비밀번호를 확인해 주세요.';
   }
 }
-
-document.querySelector('.middle').addEventListener('submit', function (e) {
+const signinForm = document.getElementById('signinForm');
+signinForm.addEventListener('submit', function (e) {
   e.preventDefault();
   login();
 });
