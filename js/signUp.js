@@ -19,7 +19,7 @@ const signUpButton = document.querySelector(".signup-button");
 
 /* 회원가입 이메일 유효성 검사 */
 const handleEmailUsedValidation = () => {
-  if (email.value === "test@codeit.com") {
+  if (email.value === errorMessage.ALREADY_EMAIL) {
     setInvalidStyle(email);
     emailError.innerHTML = errorMessage.EMAIL_USED_MESSAGE;
   } else {
@@ -54,7 +54,7 @@ const handlePasswordMatchValidation = () => {
 const redirectToFolderPage = () => {
   const link = "./folder.html";
 
-  if (email.value === "test@codeit.com") {
+  if (email.value === errorMessage.ALREADY_EMAIL) {
     setInvalidStyle(email);
     emailError.innerHTML = errorMessage.EMAIL_USED_MESSAGE;
   } else if (email.value === "") {

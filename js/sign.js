@@ -29,7 +29,10 @@ const handlePasswordValidation = () => {
 
 /* 특정 아이디 및 비밀번호로 로그인 시도 시 페이지 이동 */
 const redirectToFolderPage = () => {
-  if (email.value === "test@codeit.com" && password.value === "codeit101") {
+  if (
+    email.value === errorMessage.ALREADY_EMAIL &&
+    password.value === "codeit101"
+  ) {
     const link = "./folder.html";
     location.href = link;
   } else {
