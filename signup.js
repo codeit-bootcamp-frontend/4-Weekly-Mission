@@ -31,7 +31,7 @@ const onSubmit = (e) => {
     return
   }
   else if (signupAccount) {
-    window.location.replace('folder.html')
+    window.location.assign('folder.html')
   }
   else if (inputPasswordValue !== inputPasswordCheckValue) {
     inputCheckPassword.classList.add('input-error')
@@ -57,4 +57,4 @@ for (let i = 0; i < passwordEncryptButtonList.length; i++) {
 }
 
 // 회원가입 버튼에 click 이벤트 추가
-signButton.addEventListener('click', submitButton)
+signButton.addEventListener('click', onSubmit)

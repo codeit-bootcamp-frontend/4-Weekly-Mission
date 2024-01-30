@@ -31,7 +31,7 @@ const onSubmit = (e) => {
   }
 
   if (inputEmailValue === matchingAccountEmail?.email && inputPasswordValue === matchingAccountPassword?.password) {
-    window.location.replace('folder.html')
+    window.location.assign('folder.html')
   }
   else if (inputEmailValue === matchingAccountEmail?.email && inputPasswordValue !== matchingAccountPassword?.password) {
     inputErrorHandler(inputPassword, '비밀번호를 확인해 주세요', 'password')
@@ -57,4 +57,4 @@ inputPassword.addEventListener('blur', (e) => inputFunction.passwordBlur(e, pass
 passwordEncryptButtonList.addEventListener('click', passwordToggle)
 
 // 로그인 버튼에 click 이벤트 추가
-signButton.addEventListener('click', submitButton)
+signButton.addEventListener('click', onSubmit)
