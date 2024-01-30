@@ -21,6 +21,7 @@ function handleEmailCheck() {
 }
 
 //password 에러 메시지 호출
+passwordInput.addEventListener('focusout', passwordValidate);
 function passwordValidate() {
   const passwordError = document.querySelector('#passwordError');
   if (!passwordInput.value.trim()) {
@@ -31,7 +32,5 @@ function passwordValidate() {
   passwordInput.classList.remove('invalid');
   passwordError.innerHTML = '';
 }
-
-passwordInput.addEventListener('focusout', passwordValidate);
 
 export default passwordValidate;
