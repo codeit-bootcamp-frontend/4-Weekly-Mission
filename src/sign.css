@@ -86,7 +86,6 @@ body {
 }
 
 .error-message {
-  display: block;
   margin-top: -4px;
   font-size: 14px;
   font-weight: 400;
