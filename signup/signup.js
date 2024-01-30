@@ -1,6 +1,6 @@
 import signupCheck from './signupCheck.js';
 import validateEmail from '../utils/emailValidate.js';
-import passwordValidate from '../utils/passwordValidate.js';
+import validatePassword from '../utils/passwordValidate.js';
 
 const emailInput = document.getElementById('email');
 const emailError = document.getElementById('emailError');
@@ -37,7 +37,7 @@ function usedEmailCheck() {
 //password 에러 메시지 호출
 passwordInput.addEventListener('focusout', handlePasswordCheck);
 function handlePasswordCheck() {
-  const checkPassword = passwordValidate(passwordInput.value);
+  const checkPassword = validatePassword(passwordInput.value);
   if (!checkPassword) {
     passwordInput.classList.add('invalid');
     passwordError.innerHTML = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';

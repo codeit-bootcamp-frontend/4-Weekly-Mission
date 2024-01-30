@@ -1,6 +1,6 @@
-function passwordValidate(password) {
+function validatePassword(password) {
   const passwordPattern = new RegExp('^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$');
   return passwordPattern.test(password);
 }
 
-export default passwordValidate;
+export default validatePassword;

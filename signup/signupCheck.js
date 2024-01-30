@@ -1,5 +1,5 @@
 import validateEmail from '../utils/emailValidate.js';
-import passwordValidate from '../utils/passwordValidate.js';
+import validatePassword from '../utils/passwordValidate.js';
 
 //회원가입 실행 시 에러 메시지 호출 또는 페이지 이동
 function signupCheck() {
@@ -9,7 +9,7 @@ function signupCheck() {
   const passwordValue = passwordInput.value;
   const passwordCheckValue = passwordCheckInput.value;
   const checkEmail = validateEmail(emailInput.value);
-  const checkPassword = passwordValidate(passwordInput.value);
+  const checkPassword = validatePassword(passwordInput.value);
   const passwordCheckError = document.getElementById('passwordCheckError');
 
   if (checkEmail && checkPassword) {
