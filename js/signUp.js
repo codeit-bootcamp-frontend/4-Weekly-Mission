@@ -22,11 +22,11 @@ const checkPWContainer = document.querySelector(".check-pw-container");
 let isValidPasswordCheck = false;
 
 function isValidEmail(obj) {
-  if (obj.value !== "" && validEmailCheck(obj) === true) return true;
+  return obj.value !== "" && validEmailCheck(obj);
 }
 
 function isValidPassword(obj) {
-  if (obj.value !== "" && validPasswordCheck(obj) === true) return true;
+  return obj.value !== "" && validPasswordCheck(obj);
 }
 
 function validSignUp() {
