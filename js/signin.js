@@ -12,7 +12,6 @@ const eyeOnButton = querySelector("#eye-on");
 const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
 // 이메일 입력
-
 emailInput.addEventListener("focusout", validateEmailInput);
 
 function validateEmailInput() {

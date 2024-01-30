@@ -94,6 +94,30 @@ main {
   outline: 0.1rem solid var(--Linkbrary-primary-color);
 }
 
+.sign-input.error-focus:focus {
+  outline: none;
+}
+
+.password-toggle {
+  position: relative;
+}
+
+#password-input,
+#password-confirm-input {
+  width: 100%;
+}
+
+.error-message {
+  margin-top: 0.6rem;
+  font-size: 1.4rem;
+  line-height: 1.7rem;
+  color: var(--Linkbrary-red);
+}
+
+.sign-input-error {
+  border: 0.1rem solid var(--Linkbrary-red);
+}
+
 button {
   border: none;
   cursor: pointer;
@@ -104,12 +128,25 @@ button {
   position: relative;
 }
 
-.eye-off {
+#eye-off,
+#eye-on,
+#eye-off-confirm,
+#eye-on-confirm {
   position: absolute;
-  bottom: 2rem;
+  top: 50%;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
+  cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }
 
 .button-login {

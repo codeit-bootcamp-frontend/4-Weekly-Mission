@@ -95,7 +95,7 @@ main {
 }
 
 .sign-input.error-focus:focus {
-  outline: none; /* 에러가 있는 경우 포커스 테두리를 제거 */
+  outline: none;
 }
 
 .password-toggle {
