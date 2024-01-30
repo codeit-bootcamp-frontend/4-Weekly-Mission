@@ -5,6 +5,7 @@ import {
   emailValidate,
   getPasswordCheck,
   passwordPattern,
+  TEST_EMAIL,
 } from './variable';
 import { showError, hideError, pathTo } from './func';
 
@@ -19,7 +20,7 @@ loginForm.addEventListener('submit', (event) => {
   const emailValue = emailInput.value.trim();
   const passwordValue = passwordInput.value.trim();
 
-  if (emailValue === 'test@codeit.com') {
+  if (emailValue === TEST_EMAIL) {
     showError(emailInput, '이미 사용 중인 이메일입니다.');
   } else if (emailValue.length === 0) {
     showError(emailInput, '이메일을 확인해 주세요.');

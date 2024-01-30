@@ -3,6 +3,8 @@ import {
   getPasswordInput,
   getLoginForm,
   emailValidate,
+  TEST_EMAIL,
+  TEST_PASSWORD,
 } from './variable';
 import { showError, hideError, pathTo } from './func';
 
@@ -17,9 +19,9 @@ loginForm.addEventListener('submit', (event) => {
   const emailValue = emailInput.value.trim();
   const passwordValue = passwordInput.value.trim();
 
-  if (emailValue !== 'test@codeit.com') {
+  if (emailValue !== TEST_EMAIL) {
     showError(emailInput, '이메일을 확인해 주세요.');
-  } else if (passwordValue !== 'codeit101') {
+  } else if (passwordValue !== TEST_PASSWORD) {
     showError(passwordInput, '비밀번호를 확인해 주세요.');
   } else {
     pathTo('folder');
