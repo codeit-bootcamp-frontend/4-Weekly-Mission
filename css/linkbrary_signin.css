@@ -77,7 +77,7 @@
     position: relative;
   }
   .eye-one{
-    background-image : url(/image/eye-on.png);
+    background-image : url(/image/eye-off.png);
     position: absolute;
     bottom: 1.8rem;
     right: 1.5rem;
@@ -85,7 +85,7 @@
     height: 1.6rem;
   }
   .eye-one.off{
-    background-image : url(/image/eye-off.png);
+    background-image : url(/image/eye-on.png);
   }
   input:focus{
   outline : 0.1rem solid var(--primary-color);
