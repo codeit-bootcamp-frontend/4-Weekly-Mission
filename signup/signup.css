@@ -33,7 +33,7 @@ main {
   text-align: center;
 }
 
-.middle {
+#signupForm {
   display: flex;
   flex-direction: column;
   gap: 24px;

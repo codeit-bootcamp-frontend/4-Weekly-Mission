@@ -1,4 +1,4 @@
-import emailValidate from '../utils/emailValidate.js';
+import validateEmail from '../utils/emailValidate.js';
 import passwordValidate from '../utils/passwordValidate.js';
 
 //회원가입 실행 시 에러 메시지 호출 또는 페이지 이동
@@ -8,7 +8,7 @@ function signupCheck() {
   const passwordCheckInput = document.getElementById('passwordCheck');
   const passwordValue = passwordInput.value;
   const passwordCheckValue = passwordCheckInput.value;
-  const checkEmail = emailValidate(emailInput.value);
+  const checkEmail = validateEmail(emailInput.value);
   const checkPassword = passwordValidate(passwordInput.value);
   const passwordCheckError = document.getElementById('passwordCheckError');
 
@@ -32,7 +32,8 @@ function signupCheck() {
   }
 }
 
-document.querySelector('.middle').addEventListener('submit', function (e) {
+const signupForm = document.getElementById('signupForm');
+signupForm.addEventListener('submit', function (e) {
   e.preventDefault();
   signupCheck();
 });

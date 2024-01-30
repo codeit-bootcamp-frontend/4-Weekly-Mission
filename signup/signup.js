@@ -1,5 +1,5 @@
 import signupCheck from './signupCheck.js';
-import emailValidate from '../utils/emailValidate.js';
+import validateEmail from '../utils/emailValidate.js';
 import passwordValidate from '../utils/passwordValidate.js';
 
 const emailInput = document.getElementById('email');
@@ -12,7 +12,7 @@ const passwordCheckError = document.getElementById('passwordCheckError');
 //email 에러 메시지 호출
 emailInput.addEventListener('focusout', handleEmailCheck);
 function handleEmailCheck() {
-  const checkEmail = emailValidate(emailInput.value);
+  const checkEmail = validateEmail(emailInput.value);
   if (!checkEmail) {
     emailInput.classList.add('invalid');
     emailError.innerHTML = emailInput.value.trim() ? '올바른 이메일 주소가 아닙니다.' : '이메일을 입력해 주세요.';

@@ -1,5 +1,5 @@
 import login from './loginCheck.js';
-import emailValidate from '../utils/emailValidate.js';
+import validateEmail from '../utils/emailValidate.js';
 
 login;
 
@@ -9,7 +9,7 @@ const passwordInput = document.getElementById('password');
 //email 에러 메시지 호출
 emailInput.addEventListener('focusout', handleEmailCheck);
 function handleEmailCheck() {
-  const isEmailValid = emailValidate(emailInput.value);
+  const isEmailValid = validateEmail(emailInput.value);
   const emailError = document.getElementById('emailError');
   if (!isEmailValid) {
     emailInput.classList.add('invalid');
