@@ -95,6 +95,10 @@ input.error {
   position: relative;
 }
 
+.sign-password-check {
+  position: relative;
+}
+
 .eye-button {
   position: absolute;
   top: 5rem;
