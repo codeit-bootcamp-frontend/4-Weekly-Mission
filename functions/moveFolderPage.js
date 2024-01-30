@@ -3,7 +3,7 @@ import { EMAIL, PASSWORD } from "../auth.js";
 import { changeInputColor } from "./changeInputColor.js";
 import { isValidEmail, isValidPassword } from "../utils/validator.js";
 import { isUseAlready } from "./isUseAlready.js";
-import { isCheckPassword } from "./isCheckPassword.js";
+import { isPasswordCorrect } from "./isPasswordCorrect.js";
 
 export const moveFolderSignin = (e) => {
   const isEmailValid = emailInput.value === EMAIL;
@@ -22,7 +22,7 @@ export const moveFolderSignup = (e) => {
   const [email, password, check] = [emailInput.value, passwordInput.value, passwordCheck.value];
   const isEmailValid = email && isValidEmail(email) && !isUseAlready(email);
   const isPasswordValid = password && isValidPassword(password);
-  const isPasswordCheck = check && isCheckPassword(check);
+  const isPasswordCheck = check && isPasswordCorrect(check);
 
   if (isEmailValid && isPasswordValid && isPasswordCheck) {
     location.href = "folder.html";
