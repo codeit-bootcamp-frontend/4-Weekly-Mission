@@ -5,7 +5,7 @@
   }
   //비밀번호 기준값 지정
   function basePassword(password) {
-    const passwordRegex = /^[a-zA-Z0-9]{8,}$/;
+    const passwordRegex = /(?=.*\d)(?=.*[a-zA-Z]).{8,}/;
     return passwordRegex.test(password);
   }
 
