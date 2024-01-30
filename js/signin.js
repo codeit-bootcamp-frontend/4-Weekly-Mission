@@ -1,11 +1,10 @@
+import { TEST_EMAIL, TEST_PASSWORD } from './variable';
 import {
   getEmailInput,
   getPasswordInput,
   getLoginForm,
-  emailValidate,
-  TEST_EMAIL,
-  TEST_PASSWORD,
-} from './variable';
+} from './helpers/utils/index';
+import { emailValidate } from './constants/regex/index';
 import { showError, hideError, pathTo } from './func';
 
 const emailInput = getEmailInput('signin');
