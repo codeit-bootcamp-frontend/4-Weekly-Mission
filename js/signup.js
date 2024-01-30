@@ -33,7 +33,7 @@ loginForm.addEventListener('submit', (event) => {
   }
 });
 
-function isValidateEmail() {
+function validateEmail() {
   const emailValue = emailInput.value.trim();
 
   if (emailValue === '') {
@@ -70,7 +70,7 @@ function validatePasswordCheck() {
   }
 }
 
-emailInput.addEventListener('focusout', isValidateEmail);
+emailInput.addEventListener('focusout', validateEmail);
 passwordInput.addEventListener('focusout', () =>
   validatePassword(passwordInput),
 );

@@ -28,7 +28,7 @@ loginForm.addEventListener('submit', (event) => {
   }
 });
 
-function isValidateEmail() {
+function validateEmail() {
   const emailValue = emailInput.value.trim();
 
   if (emailValue === '') {
@@ -50,5 +50,5 @@ function validatePassword() {
   }
 }
 
-emailInput.addEventListener('focusout', isValidateEmail);
+emailInput.addEventListener('focusout', validateEmail);
 passwordInput.addEventListener('focusout', validatePassword);
