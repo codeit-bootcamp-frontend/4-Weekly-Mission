@@ -3,13 +3,16 @@ import {
   userPW,
   emailError,
   pwError,
+  pwContainer,
   errorStyle,
   clearStyle,
+  validEmail,
+  validPassword,
   validEmailCheck,
   goUrl,
   validPasswordCheck,
   showPW,
-} from "./signIn.js";
+} from "./signUtils.js";
 
 const userPWCheck = document.querySelector(".check-password");
 const checkPWError = document.querySelector(".check-pw-error");
@@ -67,8 +70,12 @@ function checkPassword(obj) {
 }
 
 userID.addEventListener("focusout", (e) => {
+  validEmail(e.target);
   emailAlreadyExist(e.target);
   isValidEmail(e.target);
+});
+userPW.addEventListener("focusout", (e) => {
+  validPassword(e.target);
 });
 userPWCheck.addEventListener("focusout", (e) => {
   checkPassword(e.target);
@@ -76,4 +83,5 @@ userPWCheck.addEventListener("focusout", (e) => {
 });
 signUpButton.addEventListener("click", validSignUp);
 document.addEventListener("keypress", enterLogin);
+pwContainer.addEventListener("click", showPW);
 checkPWContainer.addEventListener("click", showPW);
