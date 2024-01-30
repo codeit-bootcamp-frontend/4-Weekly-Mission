@@ -15,6 +15,7 @@ const setValidStyle = (element) => {
 };
 
 const errorMessage = {
+  ALREADY_EMAIL: "test@codeit.com",
   EMAIL_INPUT_MESSAGE: "이메일을 입력해 주세요.",
   EMAIL_ERROR_MESSAGE: "올바른 이메일 주소가 아닙니다.",
   EMAIL_CHECK_MESSAGE: "이메일을 확인해 주세요.",
