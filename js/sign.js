@@ -10,7 +10,7 @@ import {
   handleEmailValidation,
   togglePasswordVisibility,
   enterKey,
-} from "./modules/AuthUtils.js";
+} from "./modules/auth-utils.js";
 
 const loginButton = document.querySelector(".login-button");
 

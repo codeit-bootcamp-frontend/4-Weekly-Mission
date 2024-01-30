@@ -12,7 +12,7 @@ import {
   handleEmailValidation,
   togglePasswordVisibility,
   enterKey,
-} from "./modules/AuthUtils.js";
+} from "./modules/auth-utils.js";
 
 const passwordRepeatError = document.querySelector(".passwordRepeat-error");
 const signUpButton = document.querySelector(".signup-button");
