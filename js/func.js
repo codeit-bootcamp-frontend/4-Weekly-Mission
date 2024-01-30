@@ -16,6 +16,6 @@ export function hideError(input) {
   errorInput.style.border = '1px solid var(--Linkbrary-gray20, var(--gray-3))';
 }
 
-export function pathTo(pth) {
-  window.location.href = `/${pth}`;
+export function pathTo(path) {
+  window.location.href = `/${path}`;
 }
