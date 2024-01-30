@@ -46,10 +46,9 @@ const handleEmailValidation = () => {
 const togglePasswordVisibility = (inputElement, eyeIconElement) => {
   const type = inputElement.type === "password" ? "text" : "password";
   inputElement.type = type;
-  eyeIconElement.src =
-    type === "password"
-      ? "../../images/signIn/eye-off.svg"
-      : "../../images/signIn/eye-on.png";
+  eyeIconElement.src = `../../images/signIn/eye-${
+    type === "password" ? "off" : "on"
+  }.png`;
 };
 
 /* enter키 입력 시 로그인 및 회원가입 실행 */
