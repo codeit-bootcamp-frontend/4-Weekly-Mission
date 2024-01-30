@@ -69,6 +69,7 @@ label {
   line-height: normal;
 }
 input {
+  margin-top: 12px;
   display: flex;
   width: 400px;
   padding: 18px 15px;
@@ -101,7 +102,9 @@ input.button {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 12px;
+}
+.input-frame p {
+  margin-top: 6px;
 }
 .social-login-logo {
   display: flex;
@@ -130,4 +133,18 @@ a,
     width: 100%;
     max-width: 400px;
   }
+}
+.errormsg {
+  color: var(--Linkbrary-red, #ff5b56);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+input.border-red {
+  border-color: red;
+}
+p {
+  margin: 0;
 }
