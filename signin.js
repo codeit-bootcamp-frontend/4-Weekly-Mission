@@ -6,7 +6,7 @@ import { passwordToggle } from "./javascript/passwordToggle.js"
 // 
 const inputEmail = document.querySelector('.email-input')
 const inputPassword = document.querySelector('.password-input')
-const passwordEncryptButtonList = document.querySelectorAll('.eye-btn')
+const passwordEncryptButtonList = document.querySelector('.eye-btn')
 const signButton = document.querySelector('.sign-btn')
 
 // 로그인 버튼, 경우에 따른 케이스 적용

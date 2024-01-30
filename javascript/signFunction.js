@@ -7,8 +7,8 @@ const inputFunction = {
 
   // 이메일 입력란에서 blur 일 때 이벤트 핸들러
   emailBlur: (e, emailRegex, accountInfo, inputEmail, signupValidation = false) => {
-    const matchingAccountEmail = accountInfo.find((item) => item.email === inputEmail?.value)
-  
+    const matchedEmail = accountInfo.find((item) => item.email === inputEmail?.value)?.email
+
     if (e.target.value === '') {
       e.target.classList.add('input-error')
       e.target.parentElement.lastElementChild.textContent = '이메일을 입력해 주세요.'
@@ -17,7 +17,7 @@ const inputFunction = {
       e.target.classList.add('input-error')
       e.target.parentElement.lastElementChild.textContent = '올바른 이메일 주소가 아닙니다.'
     }
-    else if (signupValidation && e.target.value === matchingAccountEmail?.email) {
+    else if (signupValidation && e.target.value === matchedEmail) {
       e.target.classList.add('input-error')
       e.target.parentElement.lastElementChild.textContent = '이미 사용 중인 이메일입니다.'
     }
