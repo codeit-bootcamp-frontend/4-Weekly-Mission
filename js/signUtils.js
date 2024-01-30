@@ -1,5 +1,5 @@
 const userID = document.querySelector("#email");
-const userPW = document.querySelector("#password");
+const userPW = document.querySelector(".password");
 const emailError = document.querySelector(".emailError");
 const pwError = document.querySelector(".pwError");
 const pwContainer = document.querySelector(".pw-container");
@@ -56,7 +56,7 @@ export function validPasswordCheck(obj) {
 
 export function showPW(e) {
   const lineThrough = this.querySelector(".line-through");
-  const pwInput = this.querySelector("#password");
+  const pwInput = this.querySelector(".password");
   if (e.target.classList.contains("eye-PW"))
     if (pwInput.type === "password") {
       pwInput.type = "text";
