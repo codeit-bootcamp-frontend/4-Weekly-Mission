@@ -1,7 +1,7 @@
 import {email, password, eye, blur, login, enterEvent} from '../common/loginCommon.js';
 
 //email focus out 이벤트
-email.selector.addEventListener('blur', (e) => blur.loginEmail(e));
+email.selector.addEventListener('blur', (e) => blur.signinEmail(e));
 
 //비밀번호 focus out 이벤트
 password.selector.addEventListener('blur', (e) => blur.signinPassword(e));

@@ -11,35 +11,44 @@ const isPasswordValid = (password) => {
 
 //비밀번호 유효성 검사(로그인)
 const validateSigninPasswordInput = (e) => {
-  isEmpty(e);
+  if(isEmpty(e)){
+    errMsg(e, '비밀번호를 입력해 주세요.');
+  }
 }
 
 //비밀번호 유효성 검사(회원가입)
 const validateSignupPasswordInput = (e) => {
-  isEmpty(e);
-  isValid(e);
+  if(isEmpty(e)){
+    errMsg(e, '비밀번호를 입력해 주세요.');
+  }else if(isValid(e)){
+    errMsg(e, '비밀번호는 영문,숫자 조합 8자 이상 입력해 주세요.');
+  }
 }
 
 //비밀번호 확인 유효성 검사(회원가입)
 const validateSignupPasswordChkInput = (e) => {
-  isEmpty(e);
-  isMatch(e);
+  if(isEmpty(e)){
+    errMsg(e, '비밀번호를 입력해 주세요.');
+  }else if(isMatch(e)){
+    errMsg(e, '비밀번호가 일치하지 않아요.');
+  }
 }
 
 const isEmpty = (e) => {
   if(!e.value) {
-    errMsg(e, '비밀번호를 입력해 주세요.');
+    return true;
   }
 }
 
 const isMatch = (e) => {
   if(e.value !== selector.value){
-    errMsg(e, '비밀번호가 일치하지 않아요.');
+    return true;
   }
 }
+
 const isValid = (e) => {
   if(isPasswordValid(e.value)){
-    errMsg(e, '비밀번호는 영문,숫자 조합 8자 이상 입력해 주세요.');
+    return true;
   }
 }
 
