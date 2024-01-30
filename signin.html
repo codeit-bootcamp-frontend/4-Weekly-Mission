@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>로그인 </title>
-  <link rel="stylesheet" href="css/style_signin.css">
+  <link rel="stylesheet" href="css/style_sign.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 </head>
 <body>
@@ -19,7 +19,7 @@
           <a class="signup-a primary" href="signup.html">회원 가입하기</a>
         </div>
       </div>
-      <form action="" method="get">
+      <form action="">
         <div class="input-box">
           <label class="input-font-size black" for="email">이메일</label>
           <input class="black" id="email" type="email">
@@ -27,7 +27,7 @@
         </div>
         <div class="input-box">
           <label class="input-font-size black" for="password">비밀번호</label>
-          <i id="eyeIcon" class="eye-off"></i>
+          <i data-icon="eyeIcon" class="eye-off"></i>
           <input class="black" id="password" type="password">
           <div class="errMsg"></div>
         </div>
@@ -48,6 +48,6 @@
       </div>
     </div>
   </main>
-  <script src="./js/signin.js"></script>
+  <script type="module" src="./js/signin/signin.js"></script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>회원가입</title>
-  <link rel="stylesheet" href="css/style_signup.css">
+  <link rel="stylesheet" href="css/style_sign.css">
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
 </head>
 <body>
@@ -22,21 +22,25 @@
       <div>
         <form action="" method="get">
           <div class="input-box">
-            <div class="input-font-size black">이메일</div>
-            <input id="email" type="email">
+            <label class="input-font-size black" for="email">이메일</label>
+            <input class="black" id="email" type="email" >
+            <div class="errMsg"></div>
           </div>
           <div class="input-box">
-            <div class="input-font-size black">비밀번호</div>
-            <input class="eye-on" id="password" type="text">
+            <label class="input-font-size black" for="password">비밀번호</label>
+            <i data-icon="eyeIcon" class="eye-off"></i>
+            <input class="black" id="password" type="password">
+            <div class="errMsg"></div>
           </div>
           <div class="input-box">
-            <div class="input-font-size black">비밀번호 확인</div>
-            <input class="eye-on border-red" id="password-chk" type="text">
-            <span class="input-font-size red">비밀번호가 다릅니다.</span>
+            <label class="input-font-size black" for="password">비밀번호 확인</label>
+            <i data-icon="eyeIcon2" class="eye-off"></i>
+            <input class="black" id="password-chk" type="password">
+            <div class="errMsg"></div>
           </div>
         </form>
       </div>
-      <button class="login-btn white">회원가입</button>
+      <button id="signupBtn" class="login-btn white">회원가입</button>
     </div>
     <div class="social-login">
       <span class="social-font-size">다음 방식으로 가입하기</span>
@@ -52,5 +56,6 @@
       </div>
     </div>
   </main>
+  <script type="module" src="./js/signup/signup.js"></script>
 </body>
 </html>
