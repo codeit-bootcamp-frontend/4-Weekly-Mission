@@ -1,5 +1,5 @@
-const emailInput = document.querySelector('#email');
-const passwordInput = document.querySelector('#password');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
 
 //특정 이메일과 비밀번호 입력 시 페이지 이동
 function login() {
@@ -29,7 +29,7 @@ document.querySelector('.middle').addEventListener('submit', function (e) {
 });
 
 //로그인 버튼에 이벤트 리스너 등록
-const loginButton = document.querySelector('#loginButton');
+const loginButton = document.getElementById('loginButton');
 loginButton.addEventListener('click', login);
 
 export default login;

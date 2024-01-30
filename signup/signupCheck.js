@@ -1,9 +1,9 @@
 import emailValidate from '../utils/emailValidate.js';
 import passwordValidate from '../utils/passwordValidate.js';
 
-const emailInput = document.querySelector('#email');
-const passwordInput = document.querySelector('#password');
-const passwordCheckInput = document.querySelector('#passwordCheck');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
+const passwordCheckInput = document.getElementById('passwordCheck');
 
 //회원가입 실행 시 에러 메시지 호출 또는 페이지 이동
 function signupCheck() {
@@ -12,7 +12,7 @@ function signupCheck() {
   const passwordCheckValue = passwordCheckInput.value;
   const checkEmail = emailValidate(emailInput.value);
   const checkPassword = passwordValidate(passwordInput.value);
-  const passwordCheckError = document.querySelector('#passwordCheckError');
+  const passwordCheckError = document.getElementById('passwordCheckError');
 
   if (checkEmail && checkPassword) {
     window.location.href = './folder';
@@ -39,7 +39,7 @@ document.querySelector('.middle').addEventListener('submit', function (e) {
 });
 
 //회원가입 버튼에 이벤트 리스너 등록
-const signupButton = document.querySelector('#signupButton');
+const signupButton = document.getElementById('signupButton');
 signupButton.addEventListener('click', signupCheck);
 
 export default signupCheck;
