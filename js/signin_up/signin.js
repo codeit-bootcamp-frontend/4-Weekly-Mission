@@ -43,6 +43,7 @@ async function accountRequest(email, password) {
       })
     const result = await response.json();
     await window.localStorage.setItem('accessToken',result.data.accessToken);
+    await location.assign("folder.html");
   } catch(e) {
     console.log(e);
   }
@@ -50,6 +51,7 @@ async function accountRequest(email, password) {
 
 // 로컬 스토리지에 accssToken이 있는 경우 folder페이지로 이동
 (() => {
+    // window.localStorage.removeItem('accessToken');
     window.localStorage.getItem('accessToken')? location.assign("folder.html") : null
 })();
 
