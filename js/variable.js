@@ -1,7 +1,7 @@
 //Login(signin, signout) Variable
-export const TESTEMAIL = 'test@codeit.com';
-export const TESTPASSWORD = 'codeit101';
+export const MAIL_TEST = 'test@codeit.com';
+export const PASSWORD_TEST = 'codeit101';
 
-export const INPUTEMPTY = 0;
-export const INPUTINVAILED = 1;
-export const INPUTCORRECT = 2;
+export const EMPTY_INPUT = 0;
+export const INVAILED_INPUT = 1;
+export const CORRECT_INPUT = 2;
