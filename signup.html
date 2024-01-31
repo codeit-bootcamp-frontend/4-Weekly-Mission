@@ -18,7 +18,7 @@
           <a href="./signin.html">로그인 하기</a>
         </div>
       </header>
-      <main>
+      <form class="form-area">
         <div class="email">
           <label for="email">이메일</label>
           <input type="email" id="email" />
@@ -34,10 +34,10 @@
             />
           </div>
         </div>
-        <div class="password-check">
-          <label for="pw">비밀번호 확인</label>
+        <div class="check-password">
+          <label for="check-pw">비밀번호 확인</label>
           <div class="inputPW">
-            <input type="password" id="pw" />
+            <input type="password" id="check-pw" />
             <img
               class="eye-off"
               src="./assets/signin/eye-off.svg"
@@ -45,21 +45,22 @@
             />
           </div>
         </div>
-      </main>
-      <div class="login">
-        <button onclick="location.href ='./'">회원가입</button>
-        <div class="social-login">
-          <p>다른 방식으로 가입하기</p>
-          <div class="links">
-            <a href="https://www.google.com/">
-              <img src="./assets/signin/Component 2.svg" alt="google link" />
-            </a>
-            <a href="https://www.kakaocorp.com/page/">
-              <img src="./assets/signin/Component 3.svg" alt="kakao link" />
-            </a>
+        <div class="login">
+          <button onclick="location.href ='./'">회원가입</button>
+          <div class="social-login">
+            <p>다른 방식으로 가입하기</p>
+            <div class="links">
+              <a href="https://www.google.com/">
+                <img src="./assets/signin/Component 2.svg" alt="google link" />
+              </a>
+              <a href="https://www.kakaocorp.com/page/">
+                <img src="./assets/signin/Component 3.svg" alt="kakao link" />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
+    <script type="module" src="./scripts/signup.js"></script>
   </body>
 </html>
