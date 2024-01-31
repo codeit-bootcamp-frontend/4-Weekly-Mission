@@ -15,34 +15,40 @@ function emailHandlerFunc(email) {
   emailVal = email; 
 }
 
+// const user = {
+//   "email": "test@codeit.com",
+//   "password": "sprint101",
+// }
+
 // 로그인 시도 함수
 function trySignin() {
   emailInput.dispatchEvent(new Event('focusout'));
   pwdInput.dispatchEvent(new Event('focusout'));
-  if(emailVal === "test@codeit.com" && pwdVal === "codeit101") {
-    return accountRequest();
+  if(emailVal) {
+    return accountRequest(emailVal, pwdVal);
   } else {
     return common.errorMsg("Other"); 
   }
-}
+};
 
-const user = {
-  "email": "test@codeit.com",
-  "password": "codeit101",
-}
+// 로그인 시도 시 서버 리퀘스트 요청
+async function accountRequest(email, password) {
+  const user = {
+    "email": email, //test@codeit.com 
+    "password": password, // sprint101
+  }
 
-async function accountRequest() {
   try {
       const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(user),
       })
     const result = await response.text();
     await console.log(result);
-    return await location.assign("folder.html");
+    // await location.assign("folder.html");
   } catch(e) {
     console.log(e);
   }
