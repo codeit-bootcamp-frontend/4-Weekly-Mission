@@ -62,6 +62,32 @@ const checkPasswordIsValid = (e) => {
   iconEye.classList.remove("large_bottom");
 };
 
+const showEmailError = (isVisible, errorMessage = EMPTY_MESSAGE) => {
+  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(inputEmail);
+  errorMessageSpan.textContent = errorMessage;
+
+  if (isVisible) {
+    inputEmail.classList.add("error_input");
+    return;
+  }
+  inputEmail.classList.remove("error_input");
+};
+
+const showPasswordError = (isVisible, errorMessage = EMPTY_MESSAGE) => {
+  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(inputPassword);
+  const iconEye = document.querySelector(".btn_eye");
+  errorMessageSpan.textContent = errorMessage;
+
+  if (isVisible) {
+    inputPassword.classList.add("error_input");
+    iconEye.classList.add("large_bottom");
+    return;
+  }
+
+  inputPassword.classList.remove("error_input");
+  iconEye.classList.remove("large_bottom");
+};
+
 const handleSignIn = (e) => {
   e.preventDefault();
 
@@ -77,23 +103,31 @@ const handleSignIn = (e) => {
     },
     body: JSON.stringify(credentials),
   })
-    .then((response) => response.json())
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      } else {
+        throw new Error("Login Error");
+      }
+    })
     .then((result) => result?.["data"])
     .then((data) => {
-      localStorage.setItem("accessToken", data["accessToken"]);
-      location.href = "folder.html";
+      if (data) {
+        showEmailError(false);
+        showPasswordError(false);
+
+        localStorage.setItem("accessToken", data["accessToken"]);
+        location.href = "folder.html";
+      }
     })
-    .catch(() => {
-      const errorMessageSpanEmail = GET_ERROR_MESSAGE_SPAN(inputEmail);
-      const errorMessageSpanPassword = GET_ERROR_MESSAGE_SPAN(inputPassword);
-      const iconEye = inputPassword.parentElement.querySelector(".btn_eye");
-
-      errorMessageSpanEmail.textContent = ERROR_MESSAGE_WRONG_EMAIL;
-      inputEmail.classList.add("error_input");
-
-      errorMessageSpanPassword.textContent = ERROR_MESSAGE_WRONG_PASSWORD;
-      inputPassword.classList.add("error_input");
-      iconEye.classList.add("large_bottom");
+    .catch((error) => {
+      if (error.message === "Login Error") {
+        // 로그인 API 요청시 발생한 에러일 경우에만 에러 표시
+        showEmailError(true, ERROR_MESSAGE_WRONG_EMAIL);
+        showPasswordError(true, ERROR_MESSAGE_WRONG_PASSWORD);
+      } else {
+        console.log(error.message);
+      }
     });
 };
 
