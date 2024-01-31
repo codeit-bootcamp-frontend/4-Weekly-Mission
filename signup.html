@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles/signin.css" />
+    <link rel="stylesheet" href="styles/signup.css" />
   </head>
   <body>
     <div class="frame-main">
@@ -29,6 +29,8 @@
             placeholder="내용 입력"
           />
         </div>
+        <div class="error-email error-msg"></div>
+
         <div class="form-input input-pw">
           <label for="signin-pw">비밀번호</label>
           <input
@@ -37,16 +39,29 @@
             id="signin-pw"
             placeholder="내용 입력"
           />
+          <img
+            class="show-pw-btn invisible"
+            src="./images/eye-off.svg"
+            alt="eye-off"
+          />
         </div>
-        <div class="form-input input-pw">
-          <label for="signin-pw">비밀번호 확인</label>
+        <div class="error-pw error-msg"></div>
+        <div class="form-input input-pw" id="check-pw">
+          <label for="input-check-pw">비밀번호 확인</label>
           <input
             type="password"
             name="userPassword"
-            id="signin-pw"
+            id="input-check-pw"
             placeholder="내용 입력"
           />
+          <img
+            class="show-pw-check-btn invisible"
+            src="./images/eye-off.svg"
+            alt="eye-off"
+          />
         </div>
+        <div class="error-check-pw error-msg"></div>
+
         <input class="signin-btn" type="submit" value="회원가입" />
       </form>
       <div class="frame-social-signin">
@@ -64,5 +79,6 @@
         </div>
       </div>
     </div>
+    <script src="./js/signup.js"></script>
   </body>
 </html>
