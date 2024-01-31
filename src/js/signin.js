@@ -48,17 +48,15 @@ const checkPasswordIsValid = (e) => {
 
   const isFilled = isFilledInput(e.target);
 
-  if (isFilled) {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    e.target.classList.remove("error_input");
-    iconEye.classList.remove("large_bottom");
-  } else {
+  if (!isFilled) {
+    errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_PASSWORD;
     e.target.classList.add("error_input");
     iconEye.classList.add("large_bottom");
-    if (!isFilled) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_PASSWORD;
-    }
+    return;
   }
+  errorMessageSpan.textContent = EMPTY_MESSAGE;
+  e.target.classList.remove("error_input");
+  iconEye.classList.remove("large_bottom");
 };
 
 const compareEmail = () => {
