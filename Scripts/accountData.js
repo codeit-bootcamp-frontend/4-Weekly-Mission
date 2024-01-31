@@ -8,17 +8,19 @@ const registeredAccounts = [
 
 
 // 형식 체크 함수
-const formatCheck = function (text) {return text.match(mailFormat);};
-const passFormatCheck = function (password) {return password.match(passwordFormat);};
+const formatCheck = (text) => (text.match(mailFormat));
+const passFormatCheck = (password) => (password.match(passwordFormat));
 
 
 // sign 체크 함수
 const loginCheck = (inputEmail, inputPassword) => (
    registeredAccounts.find( (account) => account.email == inputEmail && account.password == inputPassword)
 );
+
 const accountCheck = (inputEmail) => (
    registeredAccounts.find((account) => account.email == inputEmail)
 );
+
 const passCheckCorrect = (password, passCheck) => (password == passCheck);
 
 

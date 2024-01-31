@@ -1,4 +1,4 @@
-import {inputFocus, inputBlur, printError, errorType} from './signFunction.js';
+import {inputFocus, inputBlur, printError, ERROR_TYPE} from './signFunction.js';
 import {accountCheck, formatCheck, passFormatCheck, passCheckCorrect} from './accountData.js';
 import passToggleReset from './passwordToggle.js';
 
@@ -20,23 +20,23 @@ const passCheckErrorSection = signupPasswordCheckInput.parentElement.parentEleme
 // 이메일 리스너 - 등록된 이메일 검증 조건 추가
 signupEmailInput.addEventListener('input' , () => inputFocus(emailErrorSection));
 signupEmailInput.addEventListener('focus' , () => inputFocus(emailErrorSection));
-signupEmailInput.addEventListener('blur' , () => inputBlur(errorType.email, emailErrorSection, !accountCheck(signupEmailInput.value), errorType.registeredEmail));
+signupEmailInput.addEventListener('blur' , () => inputBlur(ERROR_TYPE.EMAIL_SECTION_BLANK, emailErrorSection, !accountCheck(signupEmailInput.value), ERROR_TYPE.EMAIL_IS_ALREADY_REGISTERED));
 
 
 // 패스워드 리스너 - 패스워드 형식 검증 조건 추가
 signupPasswordInput.addEventListener('input' , () => inputFocus(passwordErrorSection));
 signupPasswordInput.addEventListener('focus' , () => inputFocus(passwordErrorSection));
-signupPasswordInput.addEventListener('blur' , () => inputBlur(errorType.password, passwordErrorSection, passFormatCheck(signupPasswordInput.value), errorType.passwordNotValid));
+signupPasswordInput.addEventListener('blur' , () => inputBlur(ERROR_TYPE.PW_SECTION_BLANK, passwordErrorSection, passFormatCheck(signupPasswordInput.value), ERROR_TYPE.PW_IS_NOT_VALID));
 
 
 // 패스워드체크 리스너 - 패스워드체크 검증 조건 추가
 signupPasswordCheckInput.addEventListener('input' , () => inputFocus(passCheckErrorSection));
 signupPasswordCheckInput.addEventListener('focus' , () => inputFocus(passCheckErrorSection));
-signupPasswordCheckInput.addEventListener('blur' , () => inputBlur(errorType.password, passCheckErrorSection, passCheckCorrect(signupPasswordInput.value, signupPasswordCheckInput.value), errorType.mismatchPasswordCheck));
+signupPasswordCheckInput.addEventListener('blur' , () => inputBlur(ERROR_TYPE.PW_SECTION_BLANK, passCheckErrorSection, passCheckCorrect(signupPasswordInput.value, signupPasswordCheckInput.value), ERROR_TYPE.PW_CHECK_MISMATCH_WITH_PASSWORD));
 
 
 // 회원가입 함수
-function submitSignupData() {
+function submitSignupData(event) {
    event.preventDefault();
 
    const emailInput = signupEmailInput.value;
@@ -50,17 +50,17 @@ function submitSignupData() {
    let signupValid = true;
 
    // 오류가 초기화 됐을 때도 제출할 시 모든 오류가 표시되도록 모든 경우의 수 고려 필요
-   if (!formatCheck(emailInput)) {printError(signupEmailInput, emailErrorSection, errorType.emailNotValid); signupValid = false;}; // 이메일 형식 안맞음!
-   if (!passFormatCheck(passInput)) {printError(signupPasswordInput, passwordErrorSection,errorType.passwordNotValid); signupValid = false;}; // 패스워드 형식이 맞지 않음!!
-   if (!passCheckCorrect) {printError(signupPasswordCheckInput, passCheckErrorSection, errorType.mismatchPasswordCheck); signupValid = false;}; // 패스워드 체크가 다름!
-   if (isAccountRegistered) {printError(signupEmailInput, emailErrorSection, errorType.registeredEmail); signupValid = false;}; // 이미 사용중인 이메일!   
-   if (!emailInput) {printError(signupEmailInput, emailErrorSection, errorType.email); signupValid = false;}; // 이메일 없음!
-   if (!passInput) {printError(signupPasswordInput, passwordErrorSection,errorType.password); signupValid = false;}; // 패스워드 없음!
-   if (!passCheckInput) {printError(signupPasswordCheckInput, passCheckErrorSection,errorType.password); signupValid = false;}; // 패스워드 체크 없음!
+   if (!formatCheck(emailInput)) {printError(signupEmailInput, emailErrorSection, ERROR_TYPE.EMAIL_IS_NOT_VALID); signupValid = false;}; // 이메일 형식 안맞음!
+   if (!passFormatCheck(passInput)) {printError(signupPasswordInput, passwordErrorSection,ERROR_TYPE.PW_IS_NOT_VALID); signupValid = false;}; // 패스워드 형식이 맞지 않음!!
+   if (!passCheckCorrect) {printError(signupPasswordCheckInput, passCheckErrorSection, ERROR_TYPE.PW_CHECK_MISMATCH_WITH_PASSWORD); signupValid = false;}; // 패스워드 체크가 다름!
+   if (isAccountRegistered) {printError(signupEmailInput, emailErrorSection, ERROR_TYPE.EMAIL_IS_ALREADY_REGISTERED); signupValid = false;}; // 이미 사용중인 이메일!   
+   if (!emailInput) {printError(signupEmailInput, emailErrorSection, ERROR_TYPE.EMAIL_SECTION_BLANK); signupValid = false;}; // 이메일 없음!
+   if (!passInput) {printError(signupPasswordInput, passwordErrorSection,ERROR_TYPE.PW_SECTION_BLANK); signupValid = false;}; // 패스워드 없음!
+   if (!passCheckInput) {printError(signupPasswordCheckInput, passCheckErrorSection,ERROR_TYPE.PW_SECTION_BLANK); signupValid = false;}; // 패스워드 체크 없음!
 
    if (signupValid) {
       window.location.href = './folder.html';
    } 
 }
 
-confirmBtn.addEventListener('click' , () => submitSignupData());
+confirmBtn.addEventListener('click' , (event) => submitSignupData(event));

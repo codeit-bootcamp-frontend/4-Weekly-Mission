@@ -1,4 +1,4 @@
-import {inputFocus, inputBlur, printError, errorType} from './signFunction.js'
+import {inputFocus, inputBlur, printError, ERROR_TYPE} from './signFunction.js'
 import {loginCheck} from './accountData.js';
 import passToggleReset from './passwordToggle.js';
 
@@ -17,13 +17,13 @@ const passwordErrorSection = loginPasswordInput.parentElement.parentElement.last
 // 이메일 리스너
 loginEmailInput.addEventListener('input' , () => inputFocus(emailErrorSection));
 loginEmailInput.addEventListener('focus' , () => inputFocus(emailErrorSection));
-loginEmailInput.addEventListener('blur' , () => inputBlur(errorType.email, emailErrorSection));
+loginEmailInput.addEventListener('blur' , () => inputBlur(ERROR_TYPE.EMAIL_SECTION_BLANK, emailErrorSection));
 
 
 // 패스워드 리스너
 loginPasswordInput.addEventListener('input' , () => inputFocus(passwordErrorSection));
 loginPasswordInput.addEventListener('focus' , () => inputFocus(passwordErrorSection));
-loginPasswordInput.addEventListener('blur' , () => inputBlur(errorType.password, passwordErrorSection));
+loginPasswordInput.addEventListener('blur' , () => inputBlur(ERROR_TYPE.PW_SECTION_BLANK, passwordErrorSection));
 
 
 // 로그인 정보 제출
@@ -38,8 +38,8 @@ const submitLoginData = function (event)  {
    const isAccountSigned = loginCheck(emailValue, passwordValue);
 
    if (!isAccountSigned) {
-      printError(loginEmailInput, emailErrorSection, errorType.mismatchEmail);
-      printError(loginPasswordInput, passwordErrorSection, errorType.mismatchPassword);
+      printError(loginEmailInput, emailErrorSection, ERROR_TYPE.EMAIL_MISMATCH_WITH_ACCOUNT);
+      printError(loginPasswordInput, passwordErrorSection, ERROR_TYPE.PW_MISMATCH_WITH_ACCOUNT);
    } else {
       window.location.href = './folder.html';
    }
