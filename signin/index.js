@@ -70,8 +70,11 @@ function folderPage() {
 }
 
 function requestLogin() {
-  fetch("https://bootcamp-api.codeit.kr/api/users", {
+  fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify(superUser),
   })
   .then((response) => {
