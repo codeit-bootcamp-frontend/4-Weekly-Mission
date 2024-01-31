@@ -1,15 +1,15 @@
 import {
-  EMPTY_MESSAGE,
   ERROR_MESSAGE_EMPTY_EMAIL,
   ERROR_MESSAGE_EMPTY_PASSWORD,
   ERROR_MESSAGE_INVALID_EMAIL,
   ERROR_MESSAGE_WRONG_EMAIL,
   ERROR_MESSAGE_WRONG_PASSWORD,
-  GET_ERROR_MESSAGE_SPAN,
 } from "./constant.js";
 import {
   isFilledInput,
   isValidEmailForm,
+  showEmailError,
+  showPasswordError,
   toggleViewPassword,
 } from "./authFunctions.js";
 
@@ -27,65 +27,27 @@ if (localStorage.getItem("accessToken")) {
 }
 
 const checkEmailIsValid = (e) => {
-  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(e.target);
-
   const isFilled = isFilledInput(e.target);
   const isValidForm = isValidEmailForm(e.target);
 
-  if (isFilled && isValidForm) {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    e.target.classList.remove("error_input");
-  } else {
-    e.target.classList.add("error_input");
-    if (!isFilled) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_EMAIL;
-    } else if (!isValidForm) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_INVALID_EMAIL;
-    }
+  if (!isFilled) {
+    showEmailError(true, e.target, ERROR_MESSAGE_EMPTY_EMAIL);
+    return;
+  } else if (!isValidForm) {
+    showEmailError(true, e.target, ERROR_MESSAGE_INVALID_EMAIL);
+    return;
   }
+  showEmailError(false, e.target);
 };
 
 const checkPasswordIsValid = (e) => {
-  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(e.target);
-  const iconEye = e.target.parentElement.querySelector(".btn_eye");
-
   const isFilled = isFilledInput(e.target);
 
   if (!isFilled) {
-    errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_PASSWORD;
-    e.target.classList.add("error_input");
-    iconEye.classList.add("large_bottom");
+    showPasswordError(true, e.target, ERROR_MESSAGE_EMPTY_PASSWORD);
     return;
   }
-  errorMessageSpan.textContent = EMPTY_MESSAGE;
-  e.target.classList.remove("error_input");
-  iconEye.classList.remove("large_bottom");
-};
-
-const showEmailError = (isVisible, errorMessage = EMPTY_MESSAGE) => {
-  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(inputEmail);
-  errorMessageSpan.textContent = errorMessage;
-
-  if (isVisible) {
-    inputEmail.classList.add("error_input");
-    return;
-  }
-  inputEmail.classList.remove("error_input");
-};
-
-const showPasswordError = (isVisible, errorMessage = EMPTY_MESSAGE) => {
-  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(inputPassword);
-  const iconEye = document.querySelector(".btn_eye");
-  errorMessageSpan.textContent = errorMessage;
-
-  if (isVisible) {
-    inputPassword.classList.add("error_input");
-    iconEye.classList.add("large_bottom");
-    return;
-  }
-
-  inputPassword.classList.remove("error_input");
-  iconEye.classList.remove("large_bottom");
+  showPasswordError(false, e.target);
 };
 
 const handleSignIn = (e) => {
@@ -113,8 +75,8 @@ const handleSignIn = (e) => {
     .then((result) => result?.["data"])
     .then((data) => {
       if (data) {
-        showEmailError(false);
-        showPasswordError(false);
+        showEmailError(false, inputEmail);
+        showPasswordError(false, inputPassword);
 
         localStorage.setItem("accessToken", data["accessToken"]);
         location.href = "folder.html";
@@ -123,8 +85,8 @@ const handleSignIn = (e) => {
     .catch((error) => {
       if (error.message === "Login Error") {
         // 로그인 API 요청시 발생한 에러일 경우에만 에러 표시
-        showEmailError(true, ERROR_MESSAGE_WRONG_EMAIL);
-        showPasswordError(true, ERROR_MESSAGE_WRONG_PASSWORD);
+        showEmailError(true, inputEmail, ERROR_MESSAGE_WRONG_EMAIL);
+        showPasswordError(true, inputPassword, ERROR_MESSAGE_WRONG_PASSWORD);
       } else {
         console.log(error.message);
       }

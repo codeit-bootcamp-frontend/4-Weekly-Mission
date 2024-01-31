@@ -1,4 +1,12 @@
-import {REGEX_EMAIL, REGEX_PASSWORD, SRC_IMG_CLOSE_EYE, SRC_IMG_OPEN_EYE, TEST_USER_EMAIL,} from "./constant.js";
+import {
+  EMPTY_MESSAGE,
+  GET_ERROR_MESSAGE_SPAN,
+  REGEX_EMAIL,
+  REGEX_PASSWORD,
+  SRC_IMG_CLOSE_EYE,
+  SRC_IMG_OPEN_EYE,
+  TEST_USER_EMAIL,
+} from "./constant.js";
 
 // 유효성 검증 관련 함수
 export const isFilledInput = (target) => {
@@ -19,6 +27,41 @@ export const isValidPasswordForm = (target) => {
 
 export const isMatchWithPassword = (target, inputPassword) => {
   return target.value && target.value === inputPassword.value;
+};
+
+// 에러표시 UI 구현 함수
+export const showEmailError = (
+  isVisible,
+  target,
+  errorMessage = EMPTY_MESSAGE,
+) => {
+  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(target);
+  errorMessageSpan.textContent = errorMessage;
+
+  if (isVisible) {
+    target.classList.add("error_input");
+    return;
+  }
+  target.classList.remove("error_input");
+};
+
+export const showPasswordError = (
+  isVisible,
+  target,
+  errorMessage = EMPTY_MESSAGE,
+) => {
+  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(target);
+  const iconEye = document.querySelector(".btn_eye");
+  errorMessageSpan.textContent = errorMessage;
+
+  if (isVisible) {
+    target.classList.add("error_input");
+    iconEye.classList.add("large_bottom");
+    return;
+  }
+
+  target.classList.remove("error_input");
+  iconEye.classList.remove("large_bottom");
 };
 
 // 기타 함수

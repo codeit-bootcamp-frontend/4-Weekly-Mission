@@ -14,6 +14,8 @@ import {
   isUniqueEmail,
   isValidEmailForm,
   isValidPasswordForm,
+  showEmailError,
+  showPasswordError,
   toggleViewPassword,
 } from "./authFunctions.js";
 
@@ -32,54 +34,44 @@ if (localStorage.getItem("accessToken")) {
 }
 
 const checkEmailIsValid = (e) => {
-  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(e.target);
   let isValid = false;
 
   const isFilled = isFilledInput(e.target);
   const isValidForm = isValidEmailForm(e.target);
   const isUnique = isUniqueEmail(e.target);
 
-  if (isFilled && isValidForm && isUnique) {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    e.target.classList.remove("error_input");
-    isValid = true;
-  } else {
-    e.target.classList.add("error_input");
-    if (!isFilled) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_EMAIL;
-    } else if (!isValidForm) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_INVALID_EMAIL;
-    } else if (!isUnique) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_EXISTING_EMAIL;
-    }
+  if (!isFilled) {
+    showEmailError(true, e.target, ERROR_MESSAGE_EMPTY_EMAIL);
+    return;
+  } else if (!isValidForm) {
+    showEmailError(true, e.target, ERROR_MESSAGE_INVALID_EMAIL);
+    return;
+  } else if (!isUnique) {
+    showEmailError(true, e.target, ERROR_MESSAGE_EXISTING_EMAIL);
+    return;
   }
+  showEmailError(false, e.target);
+  isValid = true;
 
   return isValid;
 };
 
 const checkPasswordIsValid = (e) => {
-  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(e.target);
-  const iconEye = e.target.parentElement.querySelector(".btn_eye");
-
   let isValid = false;
 
   const isFilled = isFilledInput(e.target);
   const isValidForm = isValidPasswordForm(e.target);
 
-  if (isFilled && isValidForm) {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    e.target.classList.remove("error_input");
-    iconEye.classList.remove("large_bottom");
-    isValid = true;
-  } else {
-    e.target.classList.add("error_input");
-    iconEye.classList.add("large_bottom");
-    if (!isFilled) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_PASSWORD;
-    } else if (!isValidForm) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_INVALID_PASSWORD;
-    }
+  if (!isFilled) {
+    showPasswordError(true, e.target, ERROR_MESSAGE_EMPTY_PASSWORD);
+    return;
+  } else if (!isValidForm) {
+    showPasswordError(true, e.target, ERROR_MESSAGE_INVALID_PASSWORD);
+    return;
   }
+
+  showPasswordError(false, e.target);
+  isValid = true;
 
   return isValid;
 };
