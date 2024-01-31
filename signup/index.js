@@ -159,9 +159,9 @@ async function requestSignUp() {
     if (error.state === true) {
       if (response.status === 200) {
         window.location.replace("../folder");
+      } else {
+        aleadyUse();
       }
-    } else {
-
     }
   })
   .catch((error) => {
