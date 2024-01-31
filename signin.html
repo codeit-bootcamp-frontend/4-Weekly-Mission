@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <title>Linkbrary</title>
     <meta charset="utf-8">
+      <title>Linkbrary</title>
     <link rel="stylesheet" href="style/login.css">
   </head>
   <body>
     <div class="fullFrame">
       <header>
-        <a href="/"> <img src="assets/login_logo.png" alt="login_logo"> </a>
-        <p>이미 회원이신가요? <a href="/signup.html" id="header-link"><span>로그인 하기</span></a></p>
+        <a href="index.html"><img src="assets/login_logo.png" alt="login_logo"></a>
+        <p>회원이 아니신가요? <a href="signup.html" id="header-link"><span>회원 가입하기</span></a></p>
       </header>
       <section class="section-input">
         <div id="email">
@@ -18,22 +18,15 @@
         </div>
         <div id="password">
           <p>비밀번호</p>
-          <div id = "password-input-div">
+          <div id="password-input-div">
             <input type="password" class="password-input" status="steady" placeholder="내용 입력">
             <img src="assets/icons/eye-off.png" alt="eye_off_icon" class="PwdEyeIcon">
           </div>
         </div>
-        <div id="password-check">
-          <p>비밀번호 확인</p>
-          <div id="password-input-div2">
-            <input type="password" class="password-input-check" status="steady" placeholder="내용 입력">
-            <img src="assets/icons/eye-off.png" alt="eye_off_icon" class="PwdEyeIcon2">
-          </div>
-        </div>
       </section>
-      <a><button id="signinBtn" class="loginBtn" type="button">회원가입</button></a>
+      <a><button id="signinBtn" class="loginBtn" type="button">로그인</button></a>
       <div class="social-login">
-        <span>다른 방식으로 가입하기</span>
+        <span>소셜 로그인</span>
         <div class="icon-google">
           <a href="https://www.google.com/"><img src="assets/icons/icon_google.png" id="icon" alt="google_icon"></a>
         </div>
@@ -42,6 +35,7 @@
         </div>
       </div>  
     </div>  
-    <script type="module" src="./js/signin_up/signin.js"></script>
+    <script src="js/signin_up/signin.js" type="module"></script>
   </body>
+    
 </html>
