@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login</title>
     <link rel="stylesheet" href="./stylesheets/components/sign.css" />
-    <script type="module" src="index.js"></script>
+    <script type="module" src="./scripts/signin.js"></script>
   </head>
   <body>
     <div class="container">
@@ -19,7 +19,7 @@
         </p>
       </header>
 
-      <form action="folder.html" class="form-area">
+      <form action="folder.html" class="form-area" id="sign-form">
         <label class="label" for="email">이메일</label>
         <div class="input-group">
           <input type="email" name="email" id="email" class="input" />
@@ -29,7 +29,7 @@
         <label class="label" for="password">비밀번호</label>
         <div class="input-group password">
           <input type="password" name="password" id="password" class="input" />
-          <button type="button" class="ico-eye"></button>
+          <button type="button" class="ico-eye" aria-label="눈모양 아이콘"></button>
         </div>
         <p class="msg-error hidden"></p>
 
@@ -41,18 +41,12 @@
         <ul class="button-list">
           <li class="button-item google">
             <a href="https://www.google.com/">
-              <img
-                src="images/icons/google-logo-color.png"
-                alt="구글로 로그인"
-              />
+              <img src="images/icons/google-logo-color.png" alt="구글로 로그인" />
             </a>
           </li>
           <li class="button-item kakao">
             <a href="https://www.kakaocorp.com/page/">
-              <img
-                src="images/icons/kakao-logo-color.svg"
-                alt="카카오로 로그인"
-              />
+              <img src="images/icons/kakao-logo-color.svg" alt="카카오로 로그인" />
             </a>
           </li>
         </ul>
