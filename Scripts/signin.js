@@ -1,6 +1,6 @@
 import {inputFocus, inputBlur, printError, ERROR_TYPE} from './signFunction.js'
 import {loginCheck} from './accountData.js';
-import pwTypeToggleBtnAssign from './passwordToggle.js';
+import pwTypeToggleBtnAssign from './pwTypeToggle.js';
 
 // 비밀번호 토글 초기화 및 함수 등록
 pwTypeToggleBtnAssign();
