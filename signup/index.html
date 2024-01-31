@@ -24,16 +24,19 @@
           <div class="inputContainer">
             <label for="email">이메일</label>
             <input type="email" name="email" id="email" placeholder="이메일">
+            <div class="idErrorMessage"></div>
           </div>
           <div class="inputContainer inputPassword">
             <label for="password">비밀번호</label>
             <input type="password" name="password" id="password" placeholder="비밀번호">
             <img class="passwordEye" src="/assets/image/eye-on.png">
+            <div class="pwErrorMessage"></div>
           </div>
           <div class="inputContainer inputPassword">
             <label for="password">비밀번호 확인</label>
             <input type="password" name="password" id="password" placeholder="비밀번호">
             <img class="passwordEye" src="/assets/image/eye-on.png">
+            <div class="pwRepeatErrorMessage"></div>
           </div>
         </div>
         <button class="formSubmit" type="submit">회원가입</button>
@@ -49,6 +52,6 @@
       </div>
     </div>
   </section>
-  <script src="index.js"></script>
+  <script src="./index.js"></script>
 </body>
 </html>

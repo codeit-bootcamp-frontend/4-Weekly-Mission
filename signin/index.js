@@ -37,7 +37,7 @@ function emailValidation() {
     idErrorMessage.style.color = '#FF5B56';
     email.classList.add('emailValidError');
     email.style.borderColor = '#FF5B56';
-  }
+  } 
 }
 
 email.addEventListener('focusout', emailValidation);
