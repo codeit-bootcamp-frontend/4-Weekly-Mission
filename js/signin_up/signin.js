@@ -5,6 +5,12 @@ import { emailInput, pwdInput, signinBtn, pwdEyeIcon} from "../declaration.js";
 
 let emailVal = "", pwdVal = "";
 
+// 로컬 스토리지에 accssToken이 있는 경우 folder페이지로 이동
+(() => {
+  window.localStorage.removeItem('accessToken');
+  window.localStorage.getItem('accessToken')? location.assign("folder.html") : null
+})();
+
 // 이메일 input 핸들러
 function emailHandlerFunc(email) {
   if(email) {
@@ -19,7 +25,8 @@ function emailHandlerFunc(email) {
 function trySignin() {
   emailInput.dispatchEvent(new Event('focusout'));
   pwdInput.dispatchEvent(new Event('focusout'));
-  if(emailVal) {
+
+  if(emailVal&&pwdVal) {
     return accountRequest(emailVal, pwdVal);
   } else {
     return common.errorMsg("Other"); 
@@ -48,12 +55,6 @@ async function accountRequest(email, password) {
     console.log(e);
   }
 }
-
-// 로컬 스토리지에 accssToken이 있는 경우 folder페이지로 이동
-(() => {
-    window.localStorage.removeItem('accessToken');
-    window.localStorage.getItem('accessToken')? location.assign("folder.html") : null
-})();
 
 function passwordHandlerFuc(password) {
   password ? inputDeleteNode('password') : common.errorMsg("NoPwd");

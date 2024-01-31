@@ -6,6 +6,13 @@ import { emailDiv, pwdDiv, pwdDiv2, emailInput, pwdInput, signupBtn, pwdEyeIcon,
 
 let emailVal = "", pwdVal = "", pwdVal2 = "";
 
+// 로컬 스토리지에 accssToken이 있는 경우 folder페이지로 이동
+(() => {
+  window.localStorage.removeItem('accessToken');
+  window.localStorage.getItem('accessToken')? location.assign("folder.html") : null
+})();
+
+
 // 비밀번호 input 핸들러 함수
 function passwordHandlerFuc(password) {
   if(password) {
@@ -29,31 +36,66 @@ async function checkEmailDupli(emailAdress) {
         body: JSON.stringify(emailJson),
       })
     const result = await response.json();
-    await console.log(result);
-
+    await printEmailError(result);
   } catch(e) {
     console.log(e);
+  } 
+}
+
+// 이메일 에러 메세지에 따른 에러 출력
+function printEmailError(error) {
+  const message = error.error.message;
+  console.log(message)
+  if(message === "이미 존재하는 이메일입니다.") {
+    common.errorMsg("inUseEmail");
+    return
+  } 
+  if(message === "올바른 이메일이 아닙니다.") {
+    common.errorMsg('wrongEmail');
   }
 }
 
 // 이메일 input 핸들러
 function emailHandlerFunc(email) {
   email ? (
-    checkEmailDupli(email) ? 
-      emailCheck(email) ? inputDeleteNode('email') : common.errorMsg("wrongEmail")
-    : common.errorMsg("inUseEmail")
-  ) : common.errorMsg("NoEmail")
+    checkEmailDupli(email) ? printEmailError(checkEmailDupli(email)) : null
+  ) : null
   emailVal = email; 
 }
 
 // 회원가입 시도 함수
 function trySignup() {
+  emailInput.dispatchEvent(new Event('focusout'));
+  pwdInput.dispatchEvent(new Event('focusout'));
+  pwdInput2.dispatchEvent(new Event('focusout'));
+
   if((!emailDiv[2] && !pwdDiv[2] && !pwdDiv2[2]) && (emailVal&&pwdVal&&pwdVal2)) {
-    return location.assign("folder.html");
+    return accountRequest(emailVal, pwdVal);
   } else {
-    emailInput.dispatchEvent(new Event('focusout'));
-    pwdInput.dispatchEvent(new Event('focusout'));
-    pwdInput2.dispatchEvent(new Event('focusout'));
+    common.errorMsg("Other"); 
+  }
+}
+
+// 회원가입 시도 시 서버 리퀘스트 요청
+async function accountRequest(email, password) {
+  const user = {
+    "email": email,
+    "password": password, 
+  }
+
+  try {
+      const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      })
+    const result = await response.json();
+    await window.localStorage.setItem('accessToken',result.data.accessToken);
+    await location.assign("folder.html");
+  } catch(e) {
+    console.log(e);
   }
 }
 
