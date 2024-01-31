@@ -107,8 +107,9 @@ const eyeBtnOnclick = target => {
 const checkInputValidation = ([...args]) => {
   for (let {target, callback} of args) {
     for (let method of callback) {
-      if (method(target) !== INPUTCORRECT) {
-        if (method(target) !== true) return false;
+      const result = method(target);
+      if (result !== INPUTCORRECT && result !== true) {
+        return false;
       }
     }
   }
