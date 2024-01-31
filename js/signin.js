@@ -19,7 +19,7 @@ const emailInput = document.querySelector('#email-input');
 const passwordInput = document.querySelector('#password-input');
 const emailWarningText = document.querySelector('#email-warning-text');
 const passwordWarningText = document.querySelector('#password-warning-text');
-const loginForm = document.querySelector('#login-form');
+const loginForm = document.querySelector('#signin-form');
 const eyeBtn = document.querySelector('#password-eye-button');
 
 let inputData = {

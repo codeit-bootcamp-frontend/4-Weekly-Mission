@@ -7,6 +7,8 @@ import {
   InputFocusEvent,
 } from '/js/login.js';
 
+import {TESTEMAIL, INPUTEMPTY, INPUTINVAILED} from '/js/variable.js';
+
 const emailInput = document.querySelector('#email-input');
 const emailWarningText = document.querySelector('#email-warning-text');
 const passwordInput = document.querySelector('#password-input');
@@ -14,9 +16,21 @@ const passwordCheckInput = document.querySelector('#password-check-input');
 const password = document.querySelector('#password');
 const eyeBtn = document.querySelector('#password-eye-button');
 const eyeBtnCheck = document.querySelector('#password-check-eye-button');
-const signupBtn = document.querySelector('#signup-button');
+const signupForm = document.querySelector('#signup-form');
+
+const PASSWORD = 1;
+const PASSWORDCHECK = 2;
 
 let isVailed = [false, false, false];
+let dataInput = {
+  email: null,
+  password: null,
+  passwordCheck: null,
+};
+
+const inputOnChange = (e, target) => {
+  dataInput[target] = e.target.value;
+};
 
 const checkPasswordType = value => {
   const regex1 = new RegExp('^[0-9]*$');
@@ -28,21 +42,21 @@ const checkPasswordType = value => {
   return true;
 };
 
-const emailInputFocustOut = target => {
-  if (target.value === 'test@codeit.com') {
+const emailInputFocustOut = () => {
+  if (dataInput.email === TESTEMAIL) {
     viewWarningText(emailWarningText, '이미 사용 중인 이메일입니다.');
     isVailed[0] = false;
     return;
   }
 
-  const status = checkEmail(target.value);
-  if (status === 0) {
+  const status = checkEmail(dataInput.email);
+  if (status === INPUTEMPTY) {
     viewWarningText(emailWarningText, '이메일을 입력해주세요.');
     isVailed[0] = false;
     return;
   }
 
-  if (status === 1) {
+  if (status === INPUTINVAILED) {
     viewWarningText(emailWarningText, '올바른 이메일 주소가 아닙니다.');
     isVailed[0] = false;
     return;
@@ -55,22 +69,24 @@ const emailInputFocustIn = () => {
 };
 
 const passwordInputFocusOut = target => {
-  const type = target.id === 'password-input' ? 1 : 2;
+  const type = target.id === 'password-input' ? PASSWORD : PASSWORDCHECK;
   const textTarget =
     target.parentNode.parentNode.querySelector('.warning-text');
-  const passwordInput = document.querySelector('#password-input');
-  if (type === 2 && passwordInput.value !== target.value) {
+  if (
+    type === PASSWORDCHECK &&
+    dataInput.password !== dataInput.passwordCheck
+  ) {
     viewWarningText(textTarget, '비밀번호가 일치하지 않아요');
     isVailed[type] = false;
     return;
   }
-  if (checkPassword(target.value) === 0) {
+  if (checkPassword(dataInput.password) === INPUTEMPTY) {
     viewWarningText(textTarget, '비밀번호를 입력해주세요.');
     isVailed[type] = false;
     return;
   }
 
-  if (!checkPasswordType(target.value)) {
+  if (!checkPasswordType(dataInput.password)) {
     viewWarningText(
       textTarget,
       '비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.',
@@ -91,7 +107,8 @@ const eyeBtnOnclick = target => {
   visiblePassword(target);
 };
 
-const signupBtnOnclick = () => {
+const signupBtnOnclick = e => {
+  e.preventDefault();
   emailInputFocustOut(emailInput);
   passwordInputFocusOut(passwordInput);
   passwordInputFocusOut(passwordCheckInput);
@@ -100,13 +117,6 @@ const signupBtnOnclick = () => {
   }
   console.log(isVailed);
   window.location.href = '/page/folder';
-};
-
-const signupBtnEnter = e => {
-  if (e.key === 'Enter') {
-    e.target.blur();
-    signupBtnOnclick();
-  }
 };
 
 InputFocusEvent(emailInput, emailInputFocustIn, e =>
@@ -119,5 +129,9 @@ InputFocusEvent(
 );
 eyeBtn.addEventListener('click', () => eyeBtnOnclick(eyeBtn));
 eyeBtnCheck.addEventListener('click', () => eyeBtnOnclick(eyeBtnCheck));
-signupBtn.addEventListener('click', signupBtnOnclick);
-document.addEventListener('keyup', signupBtnEnter);
+signupForm.addEventListener('submit', signupBtnOnclick);
+emailInput.addEventListener('change', e => inputOnChange(e, 'email'));
+passwordInput.addEventListener('change', e => inputOnChange(e, 'password'));
+passwordCheckInput.addEventListener('change', e =>
+  inputOnChange(e, 'passwordCheck'),
+);
