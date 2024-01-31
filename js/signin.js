@@ -27,7 +27,7 @@ let inputData = {
   password: null,
 };
 
-const loginBtnOnclick = e => {
+const submitInput = e => {
   e.preventDefault();
   if (inputData.email === TESTEMAIL && inputData.password === TESTPASSWORD) {
     window.location.href = '/page/folder';
@@ -73,5 +73,5 @@ InputFocusEvent(emailInput, emailInputFocustIn, emailInputFocustOut);
 InputFocusEvent(passwordInput, passwordInputFocustIn, passwordInputFocusOut);
 emailInput.addEventListener('change', e => inputOnChange(e, 'email'));
 passwordInput.addEventListener('change', e => inputOnChange(e, 'password'));
-loginForm.addEventListener('submit', loginBtnOnclick);
+loginForm.addEventListener('submit', submitInput);
 eyeBtn.addEventListener('click', eyeBtnOnclick);

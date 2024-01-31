@@ -47,7 +47,6 @@ const checkPasswordType = value => {
 };
 
 const emailInputFocustOut = () => {
-  console.log('f-email');
   if (dataInput.email === TESTEMAIL) {
     viewWarningText(emailWarningText, '이미 사용 중인 이메일입니다.');
     return;
@@ -116,7 +115,7 @@ const checkInputValidation = ([...args]) => {
   return true;
 };
 
-const signupBtnOnclick = e => {
+const submitInput = e => {
   e.preventDefault();
   let dataInspect = [
     {target: dataInput.email, callback: [checkEmail]},
@@ -147,7 +146,7 @@ InputFocusEvent(
 );
 eyeBtn.addEventListener('click', () => eyeBtnOnclick(eyeBtn));
 eyeBtnCheck.addEventListener('click', () => eyeBtnOnclick(eyeBtnCheck));
-signupForm.addEventListener('submit', signupBtnOnclick);
+signupForm.addEventListener('submit', submitInput);
 emailInput.addEventListener('change', e => inputOnChange(e, 'email'));
 passwordInput.addEventListener('change', e => inputOnChange(e, 'password'));
 passwordCheckInput.addEventListener('change', e =>
