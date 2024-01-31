@@ -15,11 +15,6 @@ function emailHandlerFunc(email) {
   emailVal = email; 
 }
 
-// const user = {
-//   "email": "test@codeit.com",
-//   "password": "sprint101",
-// }
-
 // 로그인 시도 함수
 function trySignin() {
   emailInput.dispatchEvent(new Event('focusout'));
@@ -35,7 +30,7 @@ function trySignin() {
 async function accountRequest(email, password) {
   const user = {
     "email": email, //test@codeit.com 
-    "password": password, // sprint101
+    "password": password, //sprint101
   }
 
   try {
@@ -46,8 +41,9 @@ async function accountRequest(email, password) {
         },
         body: JSON.stringify(user),
       })
-    const result = await response.text();
-    await console.log(result);
+    const result = await response.json();
+    await window.localStorage.setItem('accessToken',result.data.accessToken);
+    // await console.log(window.localStorage.getItem('accessToken'));
     // await location.assign("folder.html");
   } catch(e) {
     console.log(e);
