@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
 }
 body {
   margin: 15%;
@@ -12,12 +13,10 @@ body {
 #join {
   margin-top: 16px;
   color: var(--black, #000);
-  font-family: Pretendard;
   font-weight: 400;
 }
 #join_a {
   color: var(--Linkbrary-primary-color, #6d6afe);
-  font-family: Pretendard;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -32,7 +31,6 @@ main {
 .input_name {
   margin: 0 0 12px 0;
   color: var(--black, #000);
-  font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -46,9 +44,9 @@ main {
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: var(--Linkbrary-white, #fff);
 }
-.error_box {
-  border-radius: 8px;
-  border: 1.5px solid var(--Linkbrary-red, #ff5b56);
+.red {
+  margin-top: 6px;
+  border: 1px solid var(--Linkbrary-red, #ff5b56);
   background: var(--Linkbrary-white, #fff);
 }
 .error {
@@ -59,7 +57,7 @@ main {
   line-height: 3em;
   font-size: 12px;
 }
-.join_btn {
+.login_btn {
   width: 400px;
   padding: 16px 20px;
   border: none;
@@ -84,7 +82,6 @@ footer {
 }
 footer p {
   color: var(--Linkbrary-gray100, #373740);
-  font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -103,12 +100,12 @@ footer div {
   height: 42px;
 }
 .google {
-  background-image: url(signin/icon/google.svg);
+  background-image: url(../icon/google.svg);
   background-size: contain;
   padding: 10px;
 }
 .kakao {
-  background-image: url(signin/icon/kakao.svg);
+  background-image: url(../icon/kakao-back.svg);
   background-size: contain;
   padding: 10px 8px;
 }

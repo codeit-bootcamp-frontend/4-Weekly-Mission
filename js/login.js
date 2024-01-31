@@ -8,11 +8,11 @@ const LOGIN_BTN = document.querySelector(".login_btn");
 
 function addEmailErrorMsg(message) {
   emailError.innerText = message;
-} // => email message 추가
+} // => email error message 추가
 
 function addPasswordErrorMsg(message) {
   passwordError.innerText = message;
-} // => email message 추가
+} // => password error message 추가
 
 function emailFormat(email) {
   const iemailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -28,6 +28,7 @@ function emailText(em) {
     addEmailErrorMsg("");
   }
 }
+
 function passwordText(pm) {
   if (pm.target.value == "") {
     addPasswordErrorMsg("* 비밀번호를 입력해주세요.");
@@ -41,7 +42,6 @@ function login() {
   const correctPassword = "codeit101";
   if (correctEmail == EMAIL.value && correctPassword == PASSWORD.value) {
     let link = "page.html";
-    console.log("success");
     location.href = link;
   } else {
     addEmailErrorMsg("* 이메일을 확인해주세요.");
