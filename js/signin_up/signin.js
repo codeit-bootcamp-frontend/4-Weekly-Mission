@@ -51,7 +51,7 @@ async function accountRequest(email, password) {
 
 // 로컬 스토리지에 accssToken이 있는 경우 folder페이지로 이동
 (() => {
-    // window.localStorage.removeItem('accessToken');
+    window.localStorage.removeItem('accessToken');
     window.localStorage.getItem('accessToken')? location.assign("folder.html") : null
 })();
 

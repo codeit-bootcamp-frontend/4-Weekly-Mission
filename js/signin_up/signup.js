@@ -1,6 +1,6 @@
 import { ERROR_MESSAGE } from "../../constant.js";
 import * as common from "./common_login.js";
-import { emailCheck, passwordCheck, isMatch, checkEmailDupli } from "../validation.js"; 
+import { emailCheck, passwordCheck, isMatch} from "../validation.js"; 
 import { inputDeleteNode } from "../node.js";
 import { emailDiv, pwdDiv, pwdDiv2, emailInput, pwdInput, signupBtn, pwdEyeIcon, pwdEyeIcon2, pwdInput2 } from "../declaration.js";
 
@@ -12,6 +12,27 @@ function passwordHandlerFuc(password) {
     passwordCheck(password) ? inputDeleteNode('password') : common.errorMsg("wrongPwd")
   } else {
     common.errorMsg("NoPwd");
+  }
+}
+
+//이메일 중복 확인 리퀘스트 요청
+async function checkEmailDupli(emailAdress) {
+  const emailJson = {
+    "email" : emailAdress,
+  }
+  try {
+      const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailJson),
+      })
+    const result = await response.json();
+    await console.log(result);
+
+  } catch(e) {
+    console.log(e);
   }
 }
 
@@ -55,7 +76,6 @@ emailInput.addEventListener('focusout', function(e) {
 });
 emailInput.addEventListener('keypress', function(e) {
   common.EnterLogin(e.key,trySignup);
-  console.log(emailVal)
 });
 
 // password input 이벤트 함수 등록
