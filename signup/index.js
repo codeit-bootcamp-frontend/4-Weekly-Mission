@@ -59,7 +59,6 @@ async function aleadyUse() {
   const objectForJSON = {};
   let validateAleadyUse = email.value;
   objectForJSON.email = validateAleadyUse;
-  console.log(objectForJSON)
   requestAleadyUse(objectForJSON);
 }
 
@@ -78,6 +77,7 @@ function requestAleadyUse(objectForJSON) {
     } else {
       error.removeErrorElement(".input-form-email");
       removeBorder(".input-email");
+      console.log("pass")
     }
   })
   .catch((error) => {
@@ -136,18 +136,37 @@ async function signupCheck() {
   noInputFocusOut(".input-form-password", ".input-password", "비밀번호를 입력해 주세요");
   notPasswordFormat();
   notValidEmailInput();
-  notValidEmailInput();
   passwordisNotEqual();
-  await aleadyUse();
 
-  await next();
+  await requestSignUp();
 }
 
-async function next() {
-  if (error.state === true) {
-    console.log(error.state)
-    //window.location.replace("../folder");
-  }
+async function requestSignUp() {
+  const objectForJSON = {};
+  let requestEmail = email.value;
+  let requestpassword = password.value;
+  objectForJSON.email = requestEmail;
+  objectForJSON.password = requestpassword;
+
+  fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(objectForJSON),
+  })
+  .then((response) => {
+    if (error.state === true) {
+      if (response.status === 200) {
+        window.location.replace("../folder");
+      }
+    } else {
+
+    }
+  })
+  .catch((error) => {
+    console.error('fetch 요청 실패:', error);
+  });
 }
 
 email.addEventListener("focusout", () => noInputFocusOut(email, ".input-form-email", ".input-email", "이메일을 입력해 주세요"));
