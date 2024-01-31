@@ -144,11 +144,10 @@ align-items: center;
     cursor: pointer;
 }
 
-.input:focus{
+.input_focus {
     border-color: #6D6AFE;
     outline: none;
-}
-
+} 
 
 .input_error {
     border: 1px solid #FF5B56;
@@ -156,7 +155,7 @@ align-items: center;
 }
 
 .error_msg {
-    color:  #FF5B56;
+    color: var(--Linkbrary-red, #FF5B56);
     font-size: 1.4rem;
     opacity: 0;
 }
