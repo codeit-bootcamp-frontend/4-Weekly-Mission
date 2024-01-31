@@ -1,30 +1,4 @@
-const MASTER_ACCOUNT = {
-  EMAIL: 'test@codeit.com',
-  PASSWORD: 'codeit101'
-}
-
-const REGEX = {
-  EMAIL: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
-  PASSWORD: '',
-}
-
-const ERROR_MSG = {
-  BLANK: {
-    EMAIL: '이메일을 입력해 주세요.',
-    PASSWORD: '비밀번호를 입력해 주세요.'
-  },
-  INVALID: {
-    EMAIL: '올바른 이메일 주소가 아닙니다.'
-  },
-  INCORRECT:{
-    EMAIL: '이메일을 확인해 주세요.',
-    PASSWORD: '비밀번호를 확인해 주세요.'
-  }
-}
-
-Object.freeze(MASTER_ACCOUNT);
-Object.freeze(REGEX);
-Object.freeze(ERROR_MSG);
+import {MASTER_ACCOUNT, REGEX, ERROR_MSG} from './constants.js';
 
 const $ = (selector, element = document) => element.querySelector(selector);
 const isMaster = (email, password) => email === MASTER_ACCOUNT['EMAIL'] && password === MASTER_ACCOUNT['PASSWORD'];
@@ -35,10 +9,11 @@ const isBlank = (e) => e.target.value === '';
 const addErrorMsgToBlankInput = (e) => {
   const blankInput = e.target;
   const errorMsg = $('.input-error-msg', blankInput.parentNode);
+
   if(isBlank(e)) {
     blankInput.classList.add('js-input-profile-error');
     errorMsg.classList.remove('js-display-none');
-    // input이 id인지 email인지 체크
+    // input이 email인지 password인지 체크
     if(blankInput.getAttribute('id') === 'email')
       errorMsg.textContent = ERROR_MSG.BLANK.EMAIL;
     else 
@@ -50,10 +25,10 @@ const addErrorMsgToBlankInput = (e) => {
   }
 }
 
-const addErrorMsgToInvalidInput = (e) => {
-  const invalidEmailInput = e.target;
+const addErrorMsgToInvalidInput = (emailInput) => {
+  const invalidEmailInput = emailInput.target;
   const errorMsg = $('.input-error-msg', invalidEmailInput.parentNode);
-  if(!isBlank(e)) {
+  if(!isBlank(emailInput)) {
     if(!isEmail(invalidEmailInput.value)){
       invalidEmailInput.classList.add('js-input-profile-error');
       errorMsg.classList.remove('js-display-none');
@@ -71,14 +46,14 @@ const addErrorMsgToIncorrectInput = (input) => {
   const errorMsg = $('.input-error-msg', incorrectInput.parentNode);
   incorrectInput.classList.add('js-input-profile-error');
   errorMsg.classList.remove('js-display-none');     
-  // input이 id인지 email인지 체크
+  // input이 email인지 password인지 체크
   if(incorrectInput.getAttribute('id') === 'email')
     errorMsg.textContent = ERROR_MSG.INCORRECT.EMAIL;
   else 
     errorMsg.textContent = ERROR_MSG.INCORRECT.PASSWORD;
 }
 
-const loginHandler = (e) => {
+const loginHandler = () => {
   const emailInput = $('#email').value;
   const passwordInput = $('#password').value;
   
