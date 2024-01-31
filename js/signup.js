@@ -118,7 +118,7 @@ const checkInputValidation = ([...args]) => {
 
 const submitInput = e => {
   e.preventDefault();
-  let dataInspect = [
+  const dataInspect = [
     {target: dataInput.email, callback: [checkEmail]},
     {target: dataInput.password, callback: [checkPassword]},
     {
