@@ -61,3 +61,23 @@ function emailAlready() {
 }
 
 email.addEventListener('focusout', emailAlready);
+
+// 비밀번호 자릿수 & 형식에 맞지 않을 때
+function pwValidation() {
+  const pwVaildErrMessage = '비밀번호는 영문,숫자 조합 8자 이상 입력해 주세요.';
+  const pwRegExp = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/
+
+  const pwInput = password.value.trim();
+  if (pwInput && !pwRegExp.test(pwInput)) {
+    pwErrorMessage.textContent = pwVaildErrMessage;
+    pwErrorMessage.style.color = '#FF5B56';
+    password.classList.add('pwVaildError');
+    password.style.borderColor = '#FF5B56';
+  } else {
+    pwErrorMessage.textContent='';
+    password.classList.remove('pwError');
+    password.style.borderColor = '';
+  }
+}
+
+password.addEventListener('focusout', pwValidation);
