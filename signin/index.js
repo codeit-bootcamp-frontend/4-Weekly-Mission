@@ -58,18 +58,18 @@ function pressEnterForFolderPage(e) {
   }
 }
 
-async function folderPage() {
+function folderPage() {
   let folderEmail = "test@codeit.com";
   let folderPassword = "codeit101";
 
   if (email.value === folderEmail && password.value === folderPassword) {
-    await requestLogin();
+    requestLogin();
   } else {
     loginFail();
   } 
 }
 
-async function requestLogin() {
+function requestLogin() {
   fetch("https://bootcamp-api.codeit.kr/api/users", {
     method: "POST",
     body: JSON.stringify(superUser),
