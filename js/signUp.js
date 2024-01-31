@@ -29,19 +29,29 @@ function isValidPassword(obj) {
   return obj.value !== "" && validPasswordCheck(obj);
 }
 
-function validSignUp() {
-  if (isValidEmail(userID) && isValidPassword(userPW) && isValidPasswordCheck) {
+async function validSignUp() {
+  clearErrors();
+  //check if email already exists after email validation
+  let isEmailExist = isValidEmail(userID);
+
+  if (isEmailExist) {
+    await emailAlreadyExist(userID);
+    isEmailExist = !emailError.textContent; //if no error message appears, isEmailExist becomes true
+  }
+
+  if (isEmailExist && isValidPassword(userPW) && isValidPasswordCheck) {
     goUrl();
   }
-  if (isValidEmail(userID) !== true) {
-    emailError.textContent = "이메일을 다시 확인주세요!";
+
+  if (!isValidEmail(userID)) {
+    emailError.textContent = "이메일을 다시 확인해주세요!";
     errorStyle(emailError, userID);
   }
-  if (isValidPassword(userPW) !== true) {
+  if (!isValidPassword(userPW)) {
     pwError.textContent = "비밀번호를 다시 확인해주세요!";
     errorStyle(pwError, userPW);
   }
-  if (isValidPasswordCheck !== true) {
+  if (!isValidPasswordCheck) {
     errorStyle(checkPWError, userPWCheck);
     checkPWError.textContent = "비밀번호를 일치시켜주세요!";
   }
@@ -51,10 +61,25 @@ function enterLogin(e) {
   if (e.keyCode === 13) validSignUp();
 }
 
-function emailAlreadyExist(obj) {
-  if (obj.value === "test@codeit.com") {
-    emailError.textContent = "이미 사용 중인 이메일입니다.";
-    errorStyle(emailError, userID);
+async function emailAlreadyExist(obj) {
+  try {
+    const response = await fetch(
+      "https://bootcamp-api.codeit.kr/api/check-email",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: obj.value }),
+      }
+    );
+
+    if (response.status === 409) {
+      emailError.textContent = "이미 사용 중인 이메일입니다.";
+      errorStyle(emailError, userID);
+    }
+  } catch (error) {
+    console.error("Error checking email existence:", error);
   }
 }
 
@@ -69,9 +94,14 @@ function checkPassword(obj) {
   }
 }
 
+function clearErrors() {
+  clearStyle(emailError, userID);
+  clearStyle(pwError, userPW);
+  clearStyle(checkPWError, userPWCheck);
+}
+
 userID.addEventListener("focusout", (e) => {
   validEmail(e.target);
-  emailAlreadyExist(e.target);
   isValidEmail(e.target);
 });
 userPW.addEventListener("focusout", (e) => {
