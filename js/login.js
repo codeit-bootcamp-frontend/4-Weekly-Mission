@@ -1,3 +1,4 @@
+import {togglePasswordVisibility} from "./PasswordType.js"
 
 const email = document.querySelector("#user_email");
 const password = document.querySelector("#user_password");
@@ -14,40 +15,41 @@ function borderStyleHandler(element, isFocused) {
   element.classList.toggle('focused', isFocused);
 }
 
-email.addEventListener('blur', function(e) {
-  e.preventDefault();
-  const email_value = email.value;
-  const isValidEmail = emailRegex.test(email_value);
-  if(email_value === ""){
-    errorMassageId.innerText = "이메일을 입력해 주세요"
-  }else{
-    if (!isValidEmail) {
-      console.log('성공');
-      errorMassageId.innerText = "올바른 이메일 주소가 아닙니다."
-    } else {
-      console.log('실패');
-      errorMassageId.innerText = ""
-    }
-  }
+function setErrorMessage(messageType, errorMessage){
+  return messageType.innerText = errorMessage
+}
+
+function inputValueCheck(e){
+ if( e.target.name === "user_email"){
+
+  e.preventDefault(); 
+  const emailValue = email.value;
+  const isValidEmail = emailRegex.test(emailValue);
+
+  setErrorMessage(
+    errorMassageId,
+    emailValue === "" ? "이메일을 입력해 주세요." :
+    !isValidEmail ? "올바른 이메일 주소가 아닙니다." : ""
+  );
 
   borderStyleHandler(email, !isValidEmail);
-});
-
-password.addEventListener('blur', function(e) {
+ }
+ else if(e.target.name === "user_password"){
   e.preventDefault();
-  const password_value = password.value;
-  let control = true;
+  const passwordValue = password.value;
+  const control = passwordValue === "";
 
-  if (password_value === "") {
-    errorMassagePw.innerText = "비밀번호를 입력해 주세요"
-    control = true;
-  } else {
-    errorMassagePw.innerText = ""
-    control = false;
-  }
+  setErrorMessage(
+    errorMassagePw,
+    passwordValue === "" ? "비밀번호를 입력해 주세요" : ""
+  );
 
   borderStyleHandler(password, control);
-});
+ }
+}
+
+email.addEventListener('blur', inputValueCheck);
+password.addEventListener('blur', inputValueCheck );
 
 function signIn(emailValue, passwordValue) {
   let control = false;
@@ -55,12 +57,13 @@ function signIn(emailValue, passwordValue) {
     window.location.replace('./folder.html');
   } else {
     control = true;
-    errorMassageId.innerText = '이메일을 확인해 주세요.';
-    errorMassagePw.innerText = '비밀번호를 확인해 주세요.';
+    setErrorMessage(errorMassageId,"이메일을 확인해 주세요.");
+    setErrorMessage(errorMassagePw,"비밀번호를 확인해 주세요.");
     borderStyleHandler(email, control)
     borderStyleHandler(password, control)
   }
 }
+
 //버튼에 클릭,엔터 이벤트시에 로그인 함수 기능 추가
 submitButton.addEventListener('click', function (e) {
   e.preventDefault();
@@ -73,18 +76,14 @@ submitButton.addEventListener('keypress', function (e) {
   }
 });
 
-pwHideIcon.addEventListener("click" , () => {
-  pwHideIcon.style.display = "none"
-  pwBlockIcon.style.display = "block"
-  password.type = "text"
-})
 
-pwBlockIcon.addEventListener("click" , () => {
-  pwBlockIcon.style.display = "none"
-  pwHideIcon.style.display = "block"
-  password.type = "password"
-})
+pwHideIcon.addEventListener("click", () => {
+  togglePasswordVisibility(true, pwHideIcon, pwBlockIcon, password);
+});
 
+pwBlockIcon.addEventListener("click", () => {
+  togglePasswordVisibility(false, pwHideIcon, pwBlockIcon, password);
+});
 
 
 
