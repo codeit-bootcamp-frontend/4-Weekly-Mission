@@ -14,28 +14,47 @@ export function clearStyle(textStyle, boxStyle) {
   boxStyle.style.border = "";
 }
 
-export function validEmail(obj) {
+export function validateInput(
+  obj,
+  errorElement,
+  validationFunction,
+  inputErrorMessage,
+  emptyErrorMessage
+) {
   if (obj.value === "") {
-    emailError.textContent = "이메일을 입력해주세요.";
-    errorStyle(emailError, userID);
-  } else if (validEmailCheck(obj) == false) {
-    emailError.textContent = "올바른 이메일 주소가 아닙니다.";
-    errorStyle(emailError, userID);
+    errorElement.textContent = emptyErrorMessage;
+    errorStyle(errorElement, obj);
+  } else if (!validationFunction(obj)) {
+    errorElement.textContent = inputErrorMessage;
+    errorStyle(errorElement, obj);
   } else {
-    clearStyle(emailError, userID);
+    clearStyle(errorElement, obj);
   }
 }
 
+export function validEmail(obj) {
+  const emptyErrorMessage = "이메일을 입력해주세요.";
+  const inputErrorMessage = "올바른 이메일 주소가 아닙니다.";
+  validateInput(
+    obj,
+    emailError,
+    validEmailCheck,
+    inputErrorMessage,
+    emptyErrorMessage
+  );
+}
+
 export function validPassword(obj) {
-  if (obj.value === "") {
-    pwError.textContent = "비밀번호를 입력해주세요.";
-    errorStyle(pwError, userPW);
-  } else if (validPasswordCheck(obj) == false) {
-    pwError.textContent = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
-    errorStyle(pwError, userPW);
-  } else {
-    clearStyle(pwError, userPW);
-  }
+  const emptyErrorMessage = "비밀번호를 입력해주세요.";
+  const inputErrorMessage =
+    "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
+  validateInput(
+    obj,
+    pwError,
+    validPasswordCheck,
+    inputErrorMessage,
+    emptyErrorMessage
+  );
 }
 
 export function goUrl() {
