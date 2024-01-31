@@ -22,6 +22,7 @@ async function signInAPI(email, password) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`, // Sign in with access token
       },
       body: JSON.stringify({ email, password }),
     });
@@ -31,12 +32,25 @@ async function signInAPI(email, password) {
       throw new Error(errorMessage);
     }
 
-    const data = await response.json();
-    console.log("API Response:", data);
+    const responseData = await response.json();
+    const accessToken = responseData.data.accessToken;
+
+    if (!accessToken) {
+      throw new Error("Access token not found in the response");
+    }
+
+    // Store the access token
+    storeAccessToken(accessToken);
+    return accessToken;
   } catch (error) {
     console.error("Error during API call:", error.message);
     throw error;
   }
+}
+
+// Storing the access token in local storage
+function storeAccessToken(token) {
+  localStorage.setItem("accessToken", token);
 }
 
 async function validSignIn() {
@@ -45,9 +59,14 @@ async function validSignIn() {
       throw new Error("Email and password are required");
     }
 
-    await signInAPI(userID.value, userPW.value);
+    const accessToken = await signInAPI(userID.value, userPW.value);
 
-    goUrl();
+    if (accessToken) {
+      storeAccessToken(accessToken);
+      goUrl();
+    } else {
+      throw new Error("Access token not found in the response");
+    }
   } catch (error) {
     emailError.textContent = "이메일을 확인해주세요.";
     errorStyle(emailError, userID);
