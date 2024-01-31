@@ -8,6 +8,26 @@ const registeredAccounts = [
    {email : 'test@codeit.com' , password : 'codeit101'}
 ];
 
+const isThisEmailNotRegisteredInServer = async function (inputtedAccountEmail) {
+   const EmailWhichWantToBeCheck = {email : inputtedAccountEmail}
+   const responseAboutAccountData = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+      method : 'POST',
+      headers : {
+         "Content-type": "application/json"
+      },
+      body : JSON.stringify(EmailWhichWantToBeCheck)
+   });
+   return (responseAboutAccountData.status == 200)
+}
+
+const accountRegisterWasSuccessful = async (inputtedAccountData) => {
+   await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+      method : 'POST',
+      headers : {
+         "Content-type" : "application/json"},
+      body : JSON.stringify(inputtedAccountData)
+      }
+   )}
 
 // 형식 체크 함수
 const formatCheck = (text) => (text.match(mailFormat));
@@ -26,4 +46,4 @@ const accountCheck = (inputEmail) => (
 const isPwCheckWasCorrectWithPw = (inputtedPw, inputtedPwCheck) => (inputtedPw == inputtedPwCheck);
 
 
-export {registeredAccounts, loginCheck, accountCheck, formatCheck, passFormatCheck, isPwCheckWasCorrectWithPw};
+export {registeredAccounts, loginCheck, accountCheck, formatCheck, passFormatCheck, isPwCheckWasCorrectWithPw, isThisEmailNotRegisteredInServer, accountRegisterWasSuccessful};

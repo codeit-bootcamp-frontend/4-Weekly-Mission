@@ -12,37 +12,47 @@ const ERROR_TYPE = {
    ERROR_IS_NOT_IDENTIFIED : '식별되지 않은 로직 오류'
 };
 
+const isThisLoginWasSuccessful =  async function (TriedAccountInformation, url) {
+   const serverResponseAboutAccount = await fetch (url, {
+      method : 'POST',
+         headers : {
+            "Content-type": "application/json"
+         }, 
+      body : JSON.stringify(TriedAccountInformation)
+   })
+   return serverResponseAboutAccount.status == 200
+}
+
 const printError = function (erroredInput, messageSection, message) {
    erroredInput.classList.add('signError');
    messageSection.textContent = message;
 };
 
 // Focus
-const inputFocus = function (errorSection) {
-   event.target.classList.remove('signError');
+const inputFocus = function (e, errorSection) {
+   e.target.classList.remove('signError');
    errorSection.textContent = '';
 };
 
 // Blur - 별다른 조건이 없을 경우, input의 값 유무
-const inputBlur = function (errorMessage, errorMessageSection, customCondition = true, customConditionError = ERROR_TYPE.ERROR_IS_NOT_IDENTIFIED) {
-   const blurTarget = event.target;
-   const sectionValue = blurTarget.value;
-   const isEmailSection = blurTarget.type == 'email';
+const inputBlur = function (e, errorMessageSection, errorMessage, customCondition = true, customConditionError = ERROR_TYPE.ERROR_IS_NOT_IDENTIFIED) {
+   const sectionValue = e.target.value;
+   const isEmailSection = e.target.type == 'email';
 
    // Email Input인 경우의 형식 검사. value가 null인 경우보다 먼저 검사하여 덮어씌우지 않게 함
    if (isEmailSection && !formatCheck(sectionValue)) {
-      printError(blurTarget, errorMessageSection, ERROR_TYPE.EMAIL_IS_NOT_VALID);
+      printError(e.target, errorMessageSection, ERROR_TYPE.EMAIL_IS_NOT_VALID);
    }  
 
    // customCondition 추가 검사. 기본적으론 Pass됨
    if (!customCondition) {
-      printError(blurTarget, errorMessageSection, customConditionError);
+      printError(e.target, errorMessageSection, customConditionError);
    }
 
    if (!sectionValue) {
-      printError(blurTarget, errorMessageSection, errorMessage);
+      printError(e.target, errorMessageSection, errorMessage);
    }
 }
 
 
-export {inputFocus, inputBlur, printError, ERROR_TYPE};
+export {inputFocus, inputBlur, printError, isThisLoginWasSuccessful, ERROR_TYPE};
