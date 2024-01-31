@@ -1,3 +1,5 @@
+import {INPUTEMPTY, INPUTINVAILED, INPUTCORRECT} from '/js/variable.js';
+
 export const viewWarningText = (target, message) => {
   const inputBox = target.parentNode.querySelector('input');
   target.textContent = message;
@@ -13,20 +15,20 @@ export const hiddenWarningText = target => {
 
 export const checkEmail = value => {
   const regex = new RegExp('[a-zA-Z0-9]+@[a-z]+.[a-z]{2,3}');
-  if (value === '') return 0;
-  if (!regex.test(value)) return 1;
-  return 2;
+  if (value === null || value === '') return INPUTEMPTY;
+  if (!regex.test(value)) return INPUTINVAILED;
+  return INPUTCORRECT;
 };
 
 export const checkPassword = value => {
-  if (value === '') return 0;
-  return 2;
+  if (value === null || value === '') return INPUTEMPTY;
+  return INPUTCORRECT;
 };
 
 export const visiblePassword = target => {
   const el = target.parentNode.querySelector('input');
-  const flag = JSON.parse(el.getAttribute('visible'));
-  if (flag) {
+  const viewPassword = JSON.parse(el.getAttribute('visible'));
+  if (viewPassword) {
     el.setAttribute('visible', 'false');
     target.src = '/images/eye-off.png';
     el.type = 'password';

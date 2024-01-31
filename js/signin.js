@@ -7,18 +7,29 @@ import {
   InputFocusEvent,
 } from '/js/login.js';
 
+import {
+  TESTEMAIL,
+  TESTPASSWORD,
+  INPUTEMPTY,
+  INPUTINVAILED,
+  INPUTCORRECT,
+} from '/js/variable.js';
+
 const emailInput = document.querySelector('#email-input');
 const passwordInput = document.querySelector('#password-input');
 const emailWarningText = document.querySelector('#email-warning-text');
 const passwordWarningText = document.querySelector('#password-warning-text');
-const loginBtn = document.querySelector('#login-button');
+const loginForm = document.querySelector('#login-form');
 const eyeBtn = document.querySelector('#password-eye-button');
 
-const loginBtnOnclick = () => {
-  if (
-    emailInput.value === 'test@codeit.com' &&
-    passwordInput.value === 'codeit101'
-  ) {
+let inputData = {
+  email: null,
+  password: null,
+};
+
+const loginBtnOnclick = e => {
+  e.preventDefault();
+  if (inputData.email === TESTEMAIL && inputData.password === TESTPASSWORD) {
     window.location.href = '/page/folder';
   } else {
     viewWarningText(emailWarningText, '이메일을 확인해 주세요.');
@@ -26,42 +37,41 @@ const loginBtnOnclick = () => {
   }
 };
 
-const loginBtnEnter = e => {
-  if (e.key === 'Enter') {
-    loginBtnOnclick();
-    e.target.blur();
-  }
-};
-
 const emailInputFocustIn = () => {
   hiddenWarningText(emailWarningText);
 };
 
-const emailInputFocustOut = e => {
-  const status = checkEmail(e.target.value);
-  if (status === 0) viewWarningText(emailWarningText, '이메일을 입력해주세요.');
-  else if (status === 1)
+const emailInputFocustOut = () => {
+  const status = checkEmail(inputData.email);
+  if (status === INPUTEMPTY)
+    viewWarningText(emailWarningText, '이메일을 입력해주세요.');
+  else if (status === INPUTINVAILED)
     viewWarningText(emailWarningText, '올바른 이메일 주소가 아닙니다.');
-  else if (status === 2) hiddenWarningText(emailWarningText);
+  else if (status === INPUTCORRECT) hiddenWarningText(emailWarningText);
 };
 
 const passwordInputFocustIn = () => {
   hiddenWarningText(passwordWarningText);
 };
 
-const passwordInputFocusOut = e => {
-  const status = checkPassword(e.target.value);
-  if (status === 0)
+const passwordInputFocusOut = () => {
+  const status = checkPassword(inputData.password);
+  if (status === INPUTEMPTY)
     viewWarningText(passwordWarningText, '비밀번호를  입력해주세요');
-  else if (status === 2) hiddenWarningText(passwordWarningText);
+  else if (status === INPUTCORRECT) hiddenWarningText(passwordWarningText);
 };
 
 const eyeBtnOnclick = () => {
   visiblePassword(eyeBtn);
 };
 
+const inputOnChange = (e, target) => {
+  inputData[target] = e.target.value;
+};
+
 InputFocusEvent(emailInput, emailInputFocustIn, emailInputFocustOut);
 InputFocusEvent(passwordInput, passwordInputFocustIn, passwordInputFocusOut);
-loginBtn.addEventListener('click', loginBtnOnclick);
-document.addEventListener('keyup', loginBtnEnter);
+emailInput.addEventListener('change', e => inputOnChange(e, 'email'));
+passwordInput.addEventListener('change', e => inputOnChange(e, 'password'));
+loginForm.addEventListener('submit', loginBtnOnclick);
 eyeBtn.addEventListener('click', eyeBtnOnclick);
