@@ -47,12 +47,12 @@ footer {
   gap: 10px;
 }
 
-.header-logo {
+.headerLogo {
   width: 210.58px;
   height: 38px;
 }
 
-.header-signup {
+.headerSignup {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -76,7 +76,7 @@ section {
   margin-top: 24px;
 }
 
-.contents-frame {
+.contentsFrame {
   gap: 20px;
 }
 
@@ -87,28 +87,28 @@ form {
   gap: 20px;
 }
 
-.contents-form {
+.contentsForm {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.input-container {
+.inputContainer {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.input-password {
+.inputPassword {
   position: relative;
 }
 
-.contents-form label {
+.contentsForm label {
   text-align: left;
   width: 100%;
 }
 
-.contents-form input {
+.contentsForm input {
   width: 100%;
   padding: 18px 15px;
   border-radius: 8px;
@@ -116,7 +116,7 @@ form {
   outline-color: #6D6AFE;
 }
 
-.password-eye {
+.passwordEye {
   position: absolute;
   top: 52px;
   right: 15px;
@@ -126,7 +126,7 @@ form {
   cursor: pointer;
 }
 
-.form-submit {
+.formSubmit {
   width: 100%;
   padding: 16px 20px;
   border-radius: 8px;
@@ -140,7 +140,7 @@ form {
   cursor: pointer;
 }
 
-.footer-frame {
+.footerFrame {
   width: 400px;
   display: flex;
   align-items: center;
@@ -152,19 +152,19 @@ form {
   margin-top: 30px;
 }
 
-.footer-social-Login-text {
+.footerSocialLoginText {
   font-size: 14px;
   font-weight: 400;
   line-height: 16.71px;
   color: #373740;
 }
 
-.footer-social-Login-image {
+.footerSocialLoginImage {
   display: flex;
   gap: 16px;
 }
 
-.footer-image {
+.footerImage {
   width: 42px;
   height: 42px;
   gap: 0 16px;
