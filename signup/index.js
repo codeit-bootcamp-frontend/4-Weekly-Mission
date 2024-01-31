@@ -138,7 +138,9 @@ async function signupCheck() {
   notValidEmailInput();
   passwordisNotEqual();
 
-  await requestSignUp();
+  if (error.state === true) {
+    await requestSignUp();
+  }
 }
 
 async function requestSignUp() {
@@ -156,12 +158,10 @@ async function requestSignUp() {
     body: JSON.stringify(objectForJSON),
   })
   .then((response) => {
-    if (error.state === true) {
-      if (response.status === 200) {
-        window.location.replace("../folder");
-      } else {
-        aleadyUse();
-      }
+    if (response.status === 200) {
+      window.location.replace("../folder");
+    } else {
+      aleadyUse();
     }
   })
   .catch((error) => {
