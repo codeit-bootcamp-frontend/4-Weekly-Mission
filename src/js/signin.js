@@ -3,9 +3,9 @@ import {
   ERROR_MESSAGE_EMPTY_EMAIL,
   ERROR_MESSAGE_EMPTY_PASSWORD,
   ERROR_MESSAGE_INVALID_EMAIL,
-  ERROR_MESSAGE_SPAN,
   ERROR_MESSAGE_WRONG_EMAIL,
   ERROR_MESSAGE_WRONG_PASSWORD,
+  GET_ERROR_MESSAGE_SPAN,
 } from "./constant.js";
 import {
   isFilledInput,
@@ -22,7 +22,7 @@ const btnSignInSubmit = document.querySelector("#btn_signin_submit");
 const btnEye = document.querySelector(".btn_eye");
 
 const checkEmailIsValid = (e) => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
+  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(e.target);
 
   const isFilled = isFilledInput(e.target);
   const isValidForm = isValidEmailForm(e.target);
@@ -41,7 +41,7 @@ const checkEmailIsValid = (e) => {
 };
 
 const checkPasswordIsValid = (e) => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
+  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(e.target);
   const iconEye = e.target.parentElement.querySelector(".btn_eye");
 
   const isFilled = isFilledInput(e.target);
@@ -79,8 +79,8 @@ const handleSignIn = (e) => {
       location.href = "folder.html";
     })
     .catch(() => {
-      const errorMessageSpanEmail = ERROR_MESSAGE_SPAN(inputEmail);
-      const errorMessageSpanPassword = ERROR_MESSAGE_SPAN(inputPassword);
+      const errorMessageSpanEmail = GET_ERROR_MESSAGE_SPAN(inputEmail);
+      const errorMessageSpanPassword = GET_ERROR_MESSAGE_SPAN(inputPassword);
       const iconEye = inputPassword.parentElement.querySelector(".btn_eye");
 
       errorMessageSpanEmail.textContent = ERROR_MESSAGE_WRONG_EMAIL;

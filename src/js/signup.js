@@ -6,7 +6,7 @@ import {
   ERROR_MESSAGE_INCONSISTENT_PASSWORD,
   ERROR_MESSAGE_INVALID_EMAIL,
   ERROR_MESSAGE_INVALID_PASSWORD,
-  ERROR_MESSAGE_SPAN,
+  GET_ERROR_MESSAGE_SPAN,
 } from "./constant.js";
 import {
   isFilledInput,
@@ -27,7 +27,7 @@ const btnSignupSubmit = document.querySelector("#btn_signup_submit");
 const btnEyes = document.querySelectorAll(".btn_eye");
 
 const checkEmailIsValid = (e) => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
+  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(e.target);
   let isValid = false;
 
   const isFilled = isFilledInput(e.target);
@@ -53,7 +53,7 @@ const checkEmailIsValid = (e) => {
 };
 
 const checkPasswordIsValid = (e) => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
+  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(e.target);
   const iconEye = e.target.parentElement.querySelector(".btn_eye");
 
   let isValid = false;
@@ -80,7 +80,7 @@ const checkPasswordIsValid = (e) => {
 };
 
 const checkPasswordCheckIsValid = (e) => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
+  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(e.target);
   const iconEye = e.target.parentElement.querySelector(".btn_eye");
 
   let isValid = false;

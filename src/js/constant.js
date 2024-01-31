@@ -3,7 +3,7 @@ export const TEST_USER_EMAIL = "test@codeit.com";
 export const TEST_USER_PASSWORD = "codeit101";
 
 // 에러 표시 관련 상수
-export const ERROR_MESSAGE_SPAN = (target) => {
+export const GET_ERROR_MESSAGE_SPAN = (target) => {
   return target.parentElement.querySelector(".error_message");
 };
 export const ERROR_MESSAGE_EMPTY_EMAIL = "이메일을 입력해 주세요.";
