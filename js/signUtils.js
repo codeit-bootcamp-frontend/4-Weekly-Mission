@@ -86,4 +86,8 @@ export function showPW(e) {
     }
 }
 
+export function storeAccessToken(token) {
+  localStorage.setItem("accessToken", token);
+}
+
 export { userID, userPW, emailError, pwError, pwContainer };

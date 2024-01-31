@@ -12,6 +12,7 @@ import {
   goUrl,
   validPasswordCheck,
   showPW,
+  storeAccessToken,
 } from "./signUtils.js";
 
 const userPWCheck = document.querySelector(".check-password");
@@ -48,10 +49,6 @@ async function signUpAPI(email, password) {
     console.error("Error during sign-up API call:", error.message);
     throw error;
   }
-}
-
-function storeAccessToken(token) {
-  localStorage.setItem("accessToken", token);
 }
 
 async function validSignUp() {

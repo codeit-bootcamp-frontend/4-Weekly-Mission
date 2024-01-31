@@ -12,6 +12,7 @@ import {
   goUrl,
   validPasswordCheck,
   showPW,
+  storeAccessToken,
 } from "./signUtils.js";
 
 const signInButton = document.querySelector(".sign-in-button");
@@ -27,17 +28,8 @@ async function signInAPI(email, password) {
       body: JSON.stringify({ email, password }),
     });
 
-    if (!response.ok) {
-      const errorMessage = await response.text();
-      throw new Error(errorMessage);
-    }
-
     const responseData = await response.json();
     const accessToken = responseData.data.accessToken;
-
-    if (!accessToken) {
-      throw new Error("Access token not found in the response");
-    }
 
     // Store the access token
     storeAccessToken(accessToken);
@@ -49,16 +41,9 @@ async function signInAPI(email, password) {
 }
 
 // Storing the access token in local storage
-function storeAccessToken(token) {
-  localStorage.setItem("accessToken", token);
-}
 
 async function validSignIn() {
   try {
-    if (userID.value === "" || userPW.value === "") {
-      throw new Error("Email and password are required");
-    }
-
     const accessToken = await signInAPI(userID.value, userPW.value);
 
     if (accessToken) {
