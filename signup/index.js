@@ -1,7 +1,6 @@
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
-const idInput = document.querySelectorAll('.signinIdInput');
-const pwInput = document.querySelectorAll('.signinPwInput');
+const passwordRepeat = document.querySelector('#passwordRepeat');
 const idErrorMessage = document.querySelector('.idErrorMessage');
 const pwErrorMessage = document.querySelector('.pwErrorMessage');
 const pwRepeatErrorMessage = document.querySelector('.pwRepeatErrorMessage');
@@ -81,3 +80,21 @@ function pwValidation() {
 }
 
 password.addEventListener('focusout', pwValidation);
+
+// 비밀번호 & 비밀번호 확인 일치하지 않을 때
+function pwRepCorrect() {
+  const pwRepErrMessage = '비밀번호가 일치하지 않아요.';
+
+  if (!(password.value === passwordRepeat.value)) {
+    pwRepeatErrorMessage.textContent = pwRepErrMessage;
+    pwRepeatErrorMessage.style.color = '#FF5B56';
+    passwordRepeat.classList.add('pwRepError');
+    passwordRepeat.style.borderColor = '#FF5B56';
+  } else {
+    pwRepeatErrorMessage.textContent='';
+    passwordRepeat.classList.remove('pwRepError');
+    passwordRepeat.style.borderColor = '';
+  }
+}
+
+passwordRepeat.addEventListener('focusout', pwRepCorrect);
