@@ -43,13 +43,15 @@ async function accountRequest(email, password) {
       })
     const result = await response.json();
     await window.localStorage.setItem('accessToken',result.data.accessToken);
-    // await console.log(window.localStorage.getItem('accessToken'));
-    // await location.assign("folder.html");
   } catch(e) {
     console.log(e);
   }
-  
 }
+
+// 로컬 스토리지에 accssToken이 있는 경우 folder페이지로 이동
+(() => {
+    window.localStorage.getItem('accessToken')? location.assign("folder.html") : null
+})();
 
 function passwordHandlerFuc(password) {
   password ? inputDeleteNode('password') : common.errorMsg("NoPwd");
