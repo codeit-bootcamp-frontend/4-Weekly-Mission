@@ -1,28 +1,15 @@
-const emailInput = document.querySelector('#email');
-const passwordInput = document.querySelector('#password');
-const loginBtn = document.querySelector('button.login');
+import { EMAIL_INPUT, PASSWORD_INPUT, TEST_EMAIL, TEST_PW, inputError } from '../common.js';
 
-const testEmail = 'test@codeit.com';
-const testPw = 'codeit101';
-
-// 인풋 입력 에러 시
-function inputError(e, message) {
-    e.target.classList.add('input-error');
-    
-    const span = document.createElement('span');
-    span.classList.add('input-error-text');
-    span.textContent = message;
-    e.target.after(span);
-}
+const LOGIN_BTN = document.querySelector('button.login');
 
 // 로그인 실패 시 메세지
 function loginError(element, message) {
     element.classList.add('input-error');
     
-    const span = document.createElement('span');
-    span.classList.add('input-error-text');
-    span.textContent = message;
-    element.after(span);
+    const SPAN = document.createElement('span');
+    SPAN.classList.add('input-error-text');
+    SPAN.textContent = message;
+    element.after(SPAN);
 
     if (element.nextElementSibling.nextElementSibling.tagName === 'SPAN') {
         element.nextElementSibling.nextElementSibling.remove();
@@ -31,20 +18,20 @@ function loginError(element, message) {
 
 // 이메일 인풋 검사
 function emailChecker(e) {
-    if (!emailInput.value) {
-        const enterEmail = "이메일을 입력해 주세요."
-        inputError(e, enterEmail);
-    } else if (emailInput.validity.typeMismatch) {
-        const notAnEmail = "올바른 이메일 주소가 아닙니다."
-        inputError(e, notAnEmail);
+    if (!EMAIL_INPUT.value) {
+        const ENTER_EMAIL = "이메일을 입력해 주세요."
+        inputError(e, ENTER_EMAIL);
+    } else if (EMAIL_INPUT.validity.typeMismatch) {
+        const NOT_AN_EMAIL = "올바른 이메일 주소가 아닙니다."
+        inputError(e, NOT_AN_EMAIL);
     }
 }
 
 // 비밀번호 인풋 검사
 function passwordChecker(e) {
-    if (!passwordInput.value) {
-        const enterPassword = "비밀번호를 입력해 주세요."
-        inputError(e, enterPassword);
+    if (!PASSWORD_INPUT.value) {
+        const ENTER_PW = "비밀번호를 입력해 주세요."
+        inputError(e, ENTER_PW);
     } 
 }
 
@@ -58,23 +45,28 @@ function removeError(e) {
 
 // 로그인 검사
 function signInChecker(e) {
-        if (emailInput.value === testEmail && passwordInput.value === testPw) {
-            location.replace('/folder');
-        } else {
-            const checkYourEmail = '이메일을 확인해 주세요.';
-            const checkYourPassword = '비밀번호를 확인해 주세요.';
+    if (e.type === 'keydown' && e.key !== 'Enter') {
+        return;
+    }
 
-            loginError(emailInput, checkYourEmail);
-            loginError(passwordInput, checkYourPassword);
-        }
+    if (EMAIL_INPUT.value === TEST_EMAIL && PASSWORD_INPUT.value === TEST_PW) {
+        location.assign('/folder');
+    } else {
+        const CHECK_YOUR_EMAIL = '이메일을 확인해 주세요.';
+        const CHECK_YOUR_PW = '비밀번호를 확인해 주세요.';
+
+        loginError(EMAIL_INPUT, CHECK_YOUR_EMAIL);
+        loginError(PASSWORD_INPUT, CHECK_YOUR_PW);
+    }
 }
 
-emailInput.addEventListener('focusout', emailChecker);
-emailInput.addEventListener('focusin', removeError);
-passwordInput.addEventListener('focusout', passwordChecker);
-passwordInput.addEventListener('focusin', removeError);
+EMAIL_INPUT.addEventListener('focusout', emailChecker);
+EMAIL_INPUT.addEventListener('focusin', removeError);
+PASSWORD_INPUT.addEventListener('focusout', passwordChecker);
+PASSWORD_INPUT.addEventListener('focusin', removeError);
 
-loginBtn.addEventListener('click', signInChecker);
+LOGIN_BTN.addEventListener('click', signInChecker);
+document.querySelector('body').addEventListener('keydown', signInChecker);
 
 
 
