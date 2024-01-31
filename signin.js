@@ -6,9 +6,9 @@ import { emailFocus, emailBlur, passwordFocus, passwordBlur } from "./javascript
 const inputEmail = document.querySelector('.email-input')
 const inputPassword = document.querySelector('.password-input')
 const passwordEncryptButtonList = document.querySelector('.eye-btn')
-const signButton = document.querySelector('.sign-btn')
 const errorEmailMessage = document.querySelector('.error-email-message')
 const errorPasswordMessage = document.querySelector('.error-password-message')
+const signButton = document.querySelector('.sign-btn')
 
 // 로그인 버튼, 경우에 따른 케이스 적용
 const onSubmit = (e) => {
