@@ -74,7 +74,7 @@ nav {
   background: #F0F6FF;
 }
 
-.h1 {
+.section1Title {
   text-align: center;
   font-size: 64px;
   font-style: normal;
@@ -83,11 +83,7 @@ nav {
   margin: 0;
 }
 
-.h1 p {
-  margin: 0;
-}
-
-.h1 span {
+.section1Title span {
   background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -120,7 +116,7 @@ nav {
 }
 
 /* section */
-.section_content {
+.sectionContent {
   display: flex;
   align-items: center;
   gap: 157px;
@@ -134,7 +130,7 @@ nav {
   align-items: center;
 }
 
-.section2_title {
+.section2Title {
   display: flex;
   width: 291px;
   flex-direction: column;
@@ -142,7 +138,7 @@ nav {
   gap: 10px;  
 }
 
-.section2_title h2 {
+.section2Title h2 {
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
@@ -151,14 +147,14 @@ nav {
   margin: 0;
 }
 
-.section2_title span {
+.section2Title span {
   background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.section2_title > p {
+.section2Title p {
   color: #6B6B6B;
   font-size: 16px;
   font-style: normal;
@@ -185,7 +181,7 @@ nav {
   height: 450px;
 }
 
-.section3_title {
+.section3Title {
   display: flex;
   width: 291px;
   flex-direction: column;
@@ -193,7 +189,7 @@ nav {
   gap: 10px;
 }
 
-.section3_title h2 {
+.section3Title h2 {
   color: #000;
   font-size: 48px;
   font-style: normal;
@@ -203,14 +199,14 @@ nav {
   margin: 0;
 }
 
-.section3_title span {
+.section3Title span {
   background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.section3_title p {
+.section3Title p {
   color: #6B6B6B;
   font-size: 16px;
   font-style: normal;
@@ -227,7 +223,7 @@ nav {
   align-items: center;
 }
 
-.section4_title {
+.section4Title {
   display: flex;
   width: 291px;
   flex-direction: column;
@@ -235,7 +231,7 @@ nav {
   gap: 10px;
 }
 
-.section4_title h2 {
+.section4Title h2 {
   color: #000;
   font-size: 48px;
   font-style: normal;
@@ -245,7 +241,7 @@ nav {
   margin: 0;
 }
 
-.section4_title span {
+.section4Title span {
   background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -256,7 +252,7 @@ nav {
   line-height: normal;
 }
 
-.section4_title p {
+.section4Title p {
   color: #6B6B6B;
   font-size: 16px;
   font-style: normal;
@@ -284,7 +280,7 @@ nav {
   height: 450px;
 }
 
-.section5_title {
+.section5Title {
   display: flex;
   width: 291px;
   flex-direction: column;
@@ -292,7 +288,7 @@ nav {
   gap: 10px;
 }
 
-.section5_title h2 {
+.section5Title h2 {
   color: #000;
   font-size: 48px;
   font-style: normal;
@@ -302,7 +298,7 @@ nav {
   margin: 0;
 }
 
-.section5_title span {
+.section5Title span {
   background: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -313,7 +309,7 @@ nav {
   line-height: normal;
 }
 
-.section5_title p {
+.section5Title p {
   color: #6B6B6B;
   font-size: 16px;
   font-style: normal;
@@ -332,7 +328,7 @@ footer {
   border-radius: 30px;
 }
 
-.footer {
+.section6 {
   display: flex;
   height: 160px;
   padding: 32px 104px 64px;
@@ -343,7 +339,7 @@ footer {
   background: #111322;
 }
 
-.footer_content {
+.footerContent {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
