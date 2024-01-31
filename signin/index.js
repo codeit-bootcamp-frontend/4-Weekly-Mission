@@ -5,6 +5,11 @@ import {
   removeBorder
 } from "../src/element.js";
 
+const superUser = { 
+  email: "test@codeit.com",
+  password: "sprint101"
+}
+
 const error = new Error(true);
 
 let email = document.querySelector(".input-email");
@@ -53,15 +58,34 @@ function pressEnterForFolderPage(e) {
   }
 }
 
-function folderPage() {
+async function folderPage() {
   let folderEmail = "test@codeit.com";
   let folderPassword = "codeit101";
 
   if (email.value === folderEmail && password.value === folderPassword) {
-    window.location.replace("../folder");
+    await requestLogin();
   } else {
     loginFail();
-  }
+  } 
+}
+
+async function requestLogin() {
+  fetch("https://bootcamp-api.codeit.kr/api/users", {
+    method: "POST",
+    body: JSON.stringify(superUser),
+  })
+  .then((response) => {
+    if (response.status === 200) {
+      // 응답이 200인 경우에만 페이지를 이동
+      window.location.replace("../folder");
+    } else {
+      console.error('서버 응답이 성공적이지 않습니다. 상태 코드:', response.status);
+    }
+  })
+  .catch((error) => {
+    // fetch 요청 자체가 실패한 경우에 대한 처리
+    console.error('fetch 요청 실패:', error);
+  });
 }
 
 function loginFail() {
