@@ -21,6 +21,11 @@ const btnSignInSubmit = document.querySelector("#btn_signin_submit");
 
 const btnEye = document.querySelector(".btn_eye");
 
+// localStorage에 accessToken이 존재할 경우 /folder로 이동
+if (localStorage.getItem("accessToken")) {
+  location.href = "folder.html";
+}
+
 const checkEmailIsValid = (e) => {
   const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(e.target);
 
