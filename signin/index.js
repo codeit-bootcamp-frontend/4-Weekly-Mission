@@ -21,7 +21,7 @@ function noInputFocusOut(element, parentElementSlectorName, inputSlectorName, er
   error.removeErrorElement(parentElementSlectorName);
   removeBorder(inputSlectorName);
 
-  if (element.value.trim() === "") {
+  if (element.value === "") {
     error.createErrorSpanElement(parentElementSlectorName);
     errorBorder(inputSlectorName)
     error.errorMessageInElement(parentElementSlectorName, errorSentence);
