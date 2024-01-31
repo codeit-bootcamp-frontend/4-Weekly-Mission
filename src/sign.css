@@ -150,3 +150,11 @@ header {
   padding-top: 0.2rem;
   background-color: #f5e14b;
 }
+
+.error {
+  border: 1px solid var(--red);
+}
+
+.error-message {
+  color: var(--red);
+}
