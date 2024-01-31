@@ -44,22 +44,21 @@ async function checkEmail(emailAdress) {
 
 // 이메일 에러 메세지에 따른 에러 출력
 function printEmailError(error) {
+  if(!error.error) {
+    return inputDeleteNode('email');
+  }
   const message = error.error.message;
-  console.log(message)
   if(message === "이미 존재하는 이메일입니다.") {
-    common.errorMsg("inUseEmail");
-    return
+    return common.errorMsg("inUseEmail");
   } 
   if(message === "올바른 이메일이 아닙니다.") {
-    common.errorMsg('wrongEmail');
+    return common.errorMsg('wrongEmail');
   }
 }
 
 // 이메일 input 핸들러
 function emailHandlerFunc(email) {
-  email ? (
-    checkEmail(email) ? printEmailError(checkEmailDupli(email)) : null
-  ) : common.errorMsg('NoEmail');
+  email ? checkEmail(email) : common.errorMsg('NoEmail');
   emailVal = email; 
 }
 
@@ -82,14 +81,13 @@ async function accountRequest(email, password) {
     "email": email,
     "password": password, 
   }
-
   try {
-      const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(user),
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+    },
+      body: JSON.stringify(user),
       })
     const result = await response.json();
     await window.localStorage.setItem('accessToken',result.data.accessToken);
