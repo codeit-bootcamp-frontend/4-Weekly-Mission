@@ -30,31 +30,27 @@ function toggleError(messageType, text) {
 }
 
 //눈모양 아이콘
-function showPassword(input, event, i) {
+function showPassword(input, showButton) {
   input.type = "text";
-  showPasswordButton[i].removeChild(
-    showPasswordButton[i].getElementsByTagName("img")[0]
-  );
+  showButton.removeChild(showButton.getElementsByTagName("img")[0]);
   const eyeonImg = document.createElement("img");
   eyeonImg.setAttribute("src", "../public/images/signin-image/eye-on.png");
-  showPasswordButton[i].prepend(eyeonImg);
+  showButton.prepend(eyeonImg);
 }
 
-function hidePassword(input, event, i) {
+function hidePassword(input, showButton) {
   input.type = "password";
-  showPasswordButton[i].removeChild(
-    showPasswordButton[i].getElementsByTagName("img")[0]
-  );
+  showButton.removeChild(showButton.getElementsByTagName("img")[0]);
   const eyeoffImg = document.createElement("img");
   eyeoffImg.setAttribute("src", "../public/images/signin-image/eye-off.png");
-  showPasswordButton[i].prepend(eyeoffImg);
+  showButton.prepend(eyeoffImg);
 }
 
-function toggleErrorVisibility(input, event, i) {
+function toggleErrorVisibility(input, showButton) {
   if (input.type == "password") {
-    showPassword(input, event, i);
+    showPassword(input, showButton);
   } else {
-    hidePassword(input, event, i);
+    hidePassword(input, showButton);
   }
 }
 
