@@ -1,4 +1,4 @@
-@import "/styles/style.css";
+@import '/styles/style.css';
 
 body {
   display: flex;
@@ -24,7 +24,7 @@ header .login-name {
 }
 
 header p {
-  font-family: "Pretendard", "Noto Sans";
+  font-family: 'Pretendard', 'Noto Sans';
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
@@ -57,7 +57,7 @@ section input {
   line-height: 24px;
 }
 
-section input[type="password"] {
+section input[type='password'] {
   letter-spacing: 7px;
 }
 
@@ -80,7 +80,7 @@ section .warning-input {
 
 section .warning-text {
   margin: -10px 0;
-  font-family: "Pretendard", "Noto Sans";
+  font-family: 'Pretendard', 'Noto Sans';
   font-weight: 400;
   font-size: 14px;
   color: #ff5b56;
@@ -89,7 +89,7 @@ section .warning-text {
 }
 
 .signin-tag {
-  font-family: "Pretendard", "Noto Sans";
+  font-family: 'Pretendard', 'Noto Sans';
   font-weight: 400;
   font-size: 14px;
   line-height: 16.71px;
@@ -100,7 +100,7 @@ section .warning-text {
   width: 100%;
   height: 54px;
   margin-top: 32px;
-  font-family: "Pretendard", "Noto Sans";
+  font-family: 'Pretendard', 'Noto Sans';
   font-weight: 600;
   font-size: 18px;
 }
@@ -119,7 +119,7 @@ article {
 }
 
 article p {
-  font-family: "Pretendard", "Noto Sans";
+  font-family: 'Pretendard', 'Noto Sans';
   font-weight: 400;
   font-size: 14px;
   color: #373740;

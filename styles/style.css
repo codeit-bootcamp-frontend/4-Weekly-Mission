@@ -1,4 +1,4 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 :root {
   --Primary: #6d6afe;
   --Red: #ff5b56;
@@ -35,7 +35,7 @@ body {
   cursor: pointer;
   font-size: 18px;
   font-weight: 600;
-  font-family: "Pretendard", "Noto Sans";
+  font-family: 'Pretendard', 'Noto Sans';
 }
 
 @media (max-width: 767px) {
