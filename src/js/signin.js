@@ -6,8 +6,6 @@ import {
   ERROR_MESSAGE_SPAN,
   ERROR_MESSAGE_WRONG_EMAIL,
   ERROR_MESSAGE_WRONG_PASSWORD,
-  TEST_USER_EMAIL,
-  TEST_USER_PASSWORD,
 } from "./constant.js";
 import {
   isFilledInput,
@@ -59,46 +57,39 @@ const checkPasswordIsValid = (e) => {
   iconEye.classList.remove("large_bottom");
 };
 
-const compareEmail = () => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(inputEmail);
-
-  if (inputEmail.value !== TEST_USER_EMAIL) {
-    errorMessageSpan.textContent = ERROR_MESSAGE_WRONG_EMAIL;
-    inputEmail.classList.add("error_input");
-  } else {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    inputEmail.classList.remove("error_input");
-  }
-
-  return inputEmail.value === TEST_USER_EMAIL;
-};
-
-const comparePassword = () => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(inputPassword);
-  const iconEye = inputPassword.parentElement.querySelector(".btn_eye");
-
-  if (inputPassword.value !== TEST_USER_PASSWORD) {
-    errorMessageSpan.textContent = ERROR_MESSAGE_WRONG_PASSWORD;
-    inputPassword.classList.add("error_input");
-    iconEye.classList.add("large_bottom");
-  } else {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    inputPassword.classList.remove("error_input");
-    iconEye.classList.remove("large_bottom");
-  }
-
-  return inputPassword.value === TEST_USER_PASSWORD;
-};
-
-const compareUser = (e) => {
+const handleSignIn = (e) => {
   e.preventDefault();
 
-  const isCorrectEmail = compareEmail();
-  const isCorrectPassword = comparePassword();
+  const credentials = {
+    email: inputEmail.value,
+    password: inputPassword.value,
+  };
 
-  if (isCorrectEmail && isCorrectPassword) {
-    form.submit();
-  }
+  fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(credentials),
+  })
+    .then((response) => response.json())
+    .then((result) => result?.["data"])
+    .then((data) => {
+      localStorage.setItem("accessToken", data["accessToken"]);
+      location.href = "folder.html";
+    })
+    .catch(() => {
+      const errorMessageSpanEmail = ERROR_MESSAGE_SPAN(inputEmail);
+      const errorMessageSpanPassword = ERROR_MESSAGE_SPAN(inputPassword);
+      const iconEye = inputPassword.parentElement.querySelector(".btn_eye");
+
+      errorMessageSpanEmail.textContent = ERROR_MESSAGE_WRONG_EMAIL;
+      inputEmail.classList.add("error_input");
+
+      errorMessageSpanPassword.textContent = ERROR_MESSAGE_WRONG_PASSWORD;
+      inputPassword.classList.add("error_input");
+      iconEye.classList.add("large_bottom");
+    });
 };
 
 // 에러 표시 이벤트
@@ -106,10 +97,10 @@ inputEmail.addEventListener("focusout", checkEmailIsValid);
 inputPassword.addEventListener("focusout", checkPasswordIsValid);
 
 // 폼 제출 이벤트
-btnSignInSubmit.addEventListener("click", compareUser);
+btnSignInSubmit.addEventListener("click", handleSignIn);
 form.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    compareUser(e);
+    handleSignIn(e);
   }
 });
 
