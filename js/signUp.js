@@ -29,6 +29,31 @@ function isValidPassword(obj) {
   return obj.value !== "" && validPasswordCheck(obj);
 }
 
+async function signUpAPI(email, password) {
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const responseData = await response.json();
+    const accessToken = responseData.data.accessToken;
+
+    storeAccessToken(accessToken);
+    return accessToken;
+  } catch (error) {
+    console.error("Error during sign-up API call:", error.message);
+    throw error;
+  }
+}
+
+function storeAccessToken(token) {
+  localStorage.setItem("accessToken", token);
+}
+
 async function validSignUp() {
   clearErrors();
   //check if email already exists after email validation
@@ -40,7 +65,14 @@ async function validSignUp() {
   }
 
   if (isEmailExist && isValidPassword(userPW) && isValidPasswordCheck) {
-    goUrl();
+    const accessToken = await signUpAPI(userID.value, userPW.value);
+
+    if (accessToken) {
+      storeAccessToken(accessToken);
+      goUrl();
+    } else {
+      throw new Error("Access token not found in the response");
+    }
   }
 
   if (!isValidEmail(userID)) {
