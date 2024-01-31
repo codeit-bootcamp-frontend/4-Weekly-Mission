@@ -22,8 +22,8 @@ function passwordHandlerFuc(password) {
   }
 }
 
-//이메일 중복 확인 리퀘스트 요청
-async function checkEmailDupli(emailAdress) {
+//이메일 유효 검사 리퀘스트 요청
+async function checkEmail(emailAdress) {
   const emailJson = {
     "email" : emailAdress,
   }
@@ -58,8 +58,8 @@ function printEmailError(error) {
 // 이메일 input 핸들러
 function emailHandlerFunc(email) {
   email ? (
-    checkEmailDupli(email) ? printEmailError(checkEmailDupli(email)) : null
-  ) : null
+    checkEmail(email) ? printEmailError(checkEmailDupli(email)) : null
+  ) : common.errorMsg('NoEmail');
   emailVal = email; 
 }
 
