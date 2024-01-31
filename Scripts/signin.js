@@ -1,9 +1,9 @@
 import {inputFocus, inputBlur, printError, ERROR_TYPE} from './signFunction.js'
 import {loginCheck} from './accountData.js';
-import passToggleReset from './passwordToggle.js';
+import pwTypeToggleBtnAssign from './passwordToggle.js';
 
 // 비밀번호 토글 초기화 및 함수 등록
-passToggleReset();
+pwTypeToggleBtnAssign();
 
 const loginEmailInput = document.querySelector('#loginEmailInput');
 const loginPasswordInput = document.querySelector('#loginPasswordInput');

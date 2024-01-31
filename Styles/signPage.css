@@ -58,7 +58,7 @@ input:focus{
    position: relative;
 }
 
-.passToggleBtn {
+.pwTextTypeToggleBtn {
    background-image: url(../Images/Icons/eye-off.svg);
    background-size: contain;
    width: 16px;
@@ -70,7 +70,7 @@ input:focus{
    border: none;
 }
 
-.notHidden {
+.pwTextInputIsNotHidden {
    background-image: url(../Images/Icons/eye-on.svg);
 }
 
