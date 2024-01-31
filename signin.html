@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
     <meta
       name="viewport"
@@ -24,21 +26,23 @@
       </p>
     </header>
     <div class="sign-box">
-      <form class="sign-form">
+      <form id="form" class="sign-form">
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input id = "email-signin" class="sign-input" />
+            <input id="email" class="sign-input" />
+            <p id="email-error-message" class="error-message"></p>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input id="password-signin" class="sign-input" type="password" />
-            <button class="eye-button" type="button">
-                <img src="./images/eye-off.svg" />
+            <input id="password" class="sign-input" type="password" />
+            <p id="password-error-message" class="error-message"></p>
+            <button id="password-toggle" class="eye-button" type="button">
+              <img src="./images/eye-off.svg" />
             </button>
+          </div>
         </div>
-        </div>
-        <button id = "login-button" class="cta" type="submit">로그인</button>
+        <button class="cta" type="submit">로그인</button>
       </form>
       <div class="sns-box">
         <span class="sns-text">소셜 로그인</span>
@@ -52,6 +56,6 @@
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="./src/signin.js"></script>
   </body>
 </html>
