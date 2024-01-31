@@ -7,6 +7,6 @@ import blur from './input/inputCommon.js';
 import login from './button/loginBtn.js'
 import signup from './button/signupBtn.js'
 import enterEvent from './button/enterKey.js'
+import token from './token/tokenSetting.js';
 
-
-export {email, errMsg, password, init, eye, blur, login, signup, enterEvent}
+export {email, errMsg, password, init, eye, blur, login, signup, enterEvent, token}

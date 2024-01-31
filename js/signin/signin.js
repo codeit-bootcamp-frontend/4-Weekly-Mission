@@ -1,4 +1,4 @@
-import {email, password, eye, blur, login, enterEvent} from '../common/loginCommon.js';
+import {email, password, eye, blur, login, enterEvent, token} from '../common/loginCommon.js';
 
 //email focus out 이벤트
 email.selector.addEventListener('blur', (e) => blur.signinEmail(e));
@@ -14,3 +14,8 @@ login.btn.addEventListener('click', () => login.validation());
 
 // 엔터 이벤트
 window.addEventListener('keyup', (e) => enterEvent(e));
+
+// accessToken확인되면 folder로 이동
+if(token.isUserTokenExist()){
+  window.location.href = 'folder.html'
+}
