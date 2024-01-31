@@ -1,18 +1,13 @@
+import {
+  emailRegex,
+  emailValidChk,
+  getNewMessageElement,
+  toggleEye,
+} from "./utils.js";
+
 const emailInput = document.getElementById("emailInput");
 const passwordInput = document.getElementById("passwordInput");
 const loginButton = document.getElementById("loginButton");
-const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-function createMessage(message) {
-  const messageElement = document.createElement("p");
-  messageElement.textContent = message;
-  messageElement.classList.add("empty-message");
-  return messageElement;
-}
-
-function emailValidChk(email) {
-  return emailRegex.test(email);
-}
 
 function handleBlur(input, message) {
   const messageContainer = input.parentElement;
@@ -31,37 +26,26 @@ function handleBlur(input, message) {
 
     // 이메일 유효성 검사
     if (input === emailInput && !emailValidChk(input.value)) {
-      const emailMessage = createMessage("올바른 이메일 주소가 아닙니다.");
+      const emailMessage =
+        getNewMessageElement("올바른 이메일 주소가 아닙니다.");
       messageContainer.appendChild(emailMessage);
       input.classList.add("empty-input");
     }
   }
 }
 
-//눈 모양 아이콘 이벤트
-const toggleEye = () => {
-  const eyeOff = "/images/eye-off.svg";
-  const eyeOn = "/images/eye-on.svg";
-  const passwordInput = document.getElementById("passwordInput");
-
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    document.querySelector(".eye-button").src = eyeOn;
-  } else {
-    passwordInput.type = "password";
-    document.querySelector(".eye-button").src = eyeOff;
-  }
-};
-
 emailInput.addEventListener("blur", function () {
-  handleBlur(emailInput, createMessage("이메일을 입력해 주세요."));
+  handleBlur(emailInput, getNewMessageElement("이메일을 입력해 주세요."));
 });
 
 passwordInput.addEventListener("blur", function () {
-  handleBlur(passwordInput, createMessage("비밀번호를 입력해 주세요."));
+  handleBlur(passwordInput, getNewMessageElement("비밀번호를 입력해 주세요."));
 });
 
-document.querySelector(".eye-button").addEventListener("click", toggleEye);
+//눈 모양 아이콘 이벤트
+document.querySelector(".eye-button").addEventListener("click", function () {
+  toggleEye(passwordInput);
+});
 
 function signIn(event) {
   const email = emailInput.value.trim();
@@ -89,13 +73,13 @@ function signIn(event) {
   } else {
     // 로그인 실패 - 에러 메시지 표시
     if (email !== "test@codeit.com") {
-      const emailMessage = createMessage("이메일을 확인해 주세요.");
+      const emailMessage = getNewMessageElement("이메일을 확인해 주세요.");
       const parentElement = document.querySelector(".sign-input-box");
       parentElement.appendChild(emailMessage);
     }
 
     if (password !== "codeit101") {
-      const passwordMessage = createMessage("비밀번호를 확인해 주세요.");
+      const passwordMessage = getNewMessageElement("비밀번호를 확인해 주세요.");
       const parentElement = document.querySelector(".sign-password");
       parentElement.appendChild(passwordMessage);
     }
