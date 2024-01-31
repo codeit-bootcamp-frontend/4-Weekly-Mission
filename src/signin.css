@@ -94,6 +94,18 @@ main {
   outline: 0.1rem solid var(--Linkbrary-primary-color);
 }
 
+.sign-input.error-focus:focus {
+  outline: none;
+}
+
+.password-toggle {
+  position: relative;
+}
+
+#password-input {
+  width: 100%;
+}
+
 .error-message {
   margin-top: 0.6rem;
   font-size: 1.4rem;
@@ -110,14 +122,23 @@ button {
   cursor: pointer;
 }
 
-.eye-off,
-.eye-on {
+#eye-off,
+#eye-on {
   position: absolute;
-  bottom: 2.6rem;
+  top: 50%;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
   cursor: pointer;
+  transform: translateY(-50%);
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }
 
 .button-login {
