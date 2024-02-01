@@ -17,13 +17,39 @@ emailInput.addEventListener("focusout", () => {
   if (emailInput.value === "") {
     emailErrorMessage.textContent = "이메일을 입력해 주세요";
   }
-  // 바꾼 부분!
-  else if (emailInput.value === "test@codeit.com") {
-    emailErrorMessage.textContent = "이미 사용 중인 이메일입니다";
-  } else if (!emailRegex.test(emailInput.value)) {
+  // else if (emailInput.value === "test@codeit.com") {
+  //   emailErrorMessage.textContent = "이미 사용 중인 이메일입니다";
+  // }
+  else if (!emailRegex.test(emailInput.value)) {
     emailErrorMessage.textContent = "올바른 이메일 주소가 아닙니다";
   } else {
     emailErrorMessage.textContent = "";
+  }
+});
+
+emailInput.addEventListener("focusout", async () => {
+  try {
+    const checkEmailUrl = "https://bootcamp-api.codeit.kr/api/check-email";
+    const checkEmailData = { email: emailInput.value };
+
+    const response = await fetch(checkEmailUrl, {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(checkEmailData),
+    });
+    const checkEmailDataJson = await response.json();
+
+    if (response.ok) {
+      const isUsableEmail = checkEmailDataJson.data.isUsableNickname;
+      console.log("사용 가능", isUsableEmail);
+    } else if (emailInput.value !== "") {
+      throw new Error();
+    }
+  } catch (error) {
+    emailErrorMessage.textContent = `이미 사용 중인 이메일입니다`;
+    console.log(`ERROR: ${error}`);
   }
 });
 
@@ -55,24 +81,49 @@ verifyPasswordInput.addEventListener("focusout", () => {
 });
 
 //loginBtn click event
-loginBtn.addEventListener("click", (event) => {
-  if (
-    emailErrorMessage.textContent === "" &&
-    passwordErrorMessage.textContent === "" &&
-    verifyPasswordErrorMessage.textContent === ""
-  ) {
-    signForm.submit();
-  } else {
-    if (emailErrorMessage.textContent !== "") {
-      emailErrorMessage.textContent = "이메일을 확인해 주세요";
-    } else if (passwordErrorMessage.textContent !== "") {
-      passwordErrorMessage.textContent = "비밀번호를 확인해 주세요";
-    } else if (verifyPasswordErrorMessage.textContent !== "") {
-      verifyPasswordErrorMessage.textContent =
-        "비밀번호가 일치한지 확인해 주세요";
-    }
-  }
+loginBtn.addEventListener("click", async (event) => {
   event.preventDefault();
+  try {
+    if (
+      emailErrorMessage.textContent === "" &&
+      passwordErrorMessage.textContent === "" &&
+      verifyPasswordErrorMessage.textContent === ""
+    ) {
+      const signUpUrl = "https://bootcamp-api.codeit.kr/api/sign-up";
+      const signUpData = {
+        email: emailInput.value,
+        password: passwordInput.value,
+      };
+
+      const response = await fetch(signUpUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(signUpData),
+      });
+      const signUpDataJson = await response.json();
+      const accessToken = signUpDataJson.data.accessToken;
+      if (response.ok) {
+        window.location.href = "/folder";
+        localStorage.setItem("access-token", accessToken);
+        console.log(accessToken);
+      } else {
+        throw new Error();
+      }
+    } else {
+      if (emailErrorMessage.textContent !== "") {
+        emailErrorMessage.textContent = "이메일을 확인해 주세요";
+      } else if (passwordErrorMessage.textContent !== "") {
+        passwordErrorMessage.textContent = "비밀번호를 확인해 주세요";
+      } else if (verifyPasswordErrorMessage.textContent !== "") {
+        verifyPasswordErrorMessage.textContent =
+          "비밀번호가 일치한지 확인해 주세요";
+      }
+    }
+  } catch (error) {
+    console.log(`ERROR: ${error.message}`);
+  }
 });
 
 //eye-icon click event
