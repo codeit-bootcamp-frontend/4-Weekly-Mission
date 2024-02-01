@@ -129,6 +129,8 @@ function signUp(event) {
     existingPasswordCheckMessage
   ) {
     return;
+  } else if (!email || !password || !passwordCheck) {
+    return;
   }
 
   // 모든 유효성 검사 통과 시
