@@ -14,16 +14,22 @@ const {
 
 /** @type {HTMLInputElement} emailInput*/
 const emailElement = DOMHandler.getById(emailElementId);
+
 /** @type {HTMLInputElement} passwordElement*/
 const passwordElement = DOMHandler.getById(passwordElementId);
+
 /** @type {HTMLButtonElement} loginForm*/
 const loginForm = DOMHandler.getById(loginFormId);
+
 /** @type {HTMLImageElement} eyeImagePassword*/
 const passwordEyeImageElement = DOMHandler.getById(passwordEyeImageId);
+
 DOMHandler.addPAfterElement(emailElement, emailErrorElementId, 'error-text');
 DOMHandler.addPAfterElement(passwordElement, passwordErrorElementId, 'error-text');
+
 /** @type {HTMLElement} emailErrorElement*/
 const emailErrorElement = DOMHandler.getById(emailErrorElementId);
+
 /** @type {HTMLElement} passwordErrorElement*/
 const passwordErrorElement = DOMHandler.getById(passwordErrorElementId);
 

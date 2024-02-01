@@ -24,23 +24,32 @@ const {
 
 /** @type {HTMLInputElement} emailInput*/
 const emailElement = DOMHandler.getById(emailElementId);
+
 /** @type {HTMLInputElement} passwordElement*/
 const passwordElement = DOMHandler.getById(passwordElementId);
+
 /** @type {HTMLInputElement} loginButton*/
 const passwordCheckElement = DOMHandler.getById(passwordCheckElementId);
+
 /** @type {HTMLFormElement} loginForm*/
 const loginForm = DOMHandler.getById(loginFormId);
+
 /** @type {HTMLImageElement} eyeImagePassword*/
 const passwordEyeImageElement = DOMHandler.getById(passwordEyeImageId);
+
 /** @type {HTMLImageElement} eyeImagePasswordCheck*/
 const passwordCheckEyeImageElement = DOMHandler.getById(passwordCheckEyeImageId);
+
 DOMHandler.addPAfterElement(emailElement, emailErrorElementId, 'error-text');
 DOMHandler.addPAfterElement(passwordElement, passwordErrorElementId, 'error-text');
 DOMHandler.addPAfterElement(passwordCheckElement, passwordCheckErrorElementId, 'error-text');
+
 /** @type {HTMLElement} emailErrorElement*/
 const emailErrorElement = DOMHandler.getById(emailErrorElementId);
+
 /** @type {HTMLElement} passwordErrorElement*/
 const passwordErrorElement = DOMHandler.getById(passwordErrorElementId);
+
 /** @type {HTMLElement} passwordCheckErrorElement*/
 const passwordCheckErrorElement = DOMHandler.getById(passwordCheckErrorElementId);
 
@@ -111,7 +120,6 @@ const handleSignUp = event => {
   emailElement.blur();
   passwordElement.blur();
   passwordCheckElement.blur();
-
   const checkEmail = InputHandler.isMatchRegEx(emailElement, EMAIL_REGEX) && !SignHandler.isExistEmail(emailElement);
   const checkPassword =
     InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX) &&
