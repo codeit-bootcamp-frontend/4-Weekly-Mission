@@ -1,6 +1,5 @@
-import {MASTER_ACCOUNT, REGEX, ERROR_MSG} from './constants.js';
+import {MASTER_ACCOUNT, REGEX, ERROR_MSG, $} from './constants.js';
 
-const $ = (selector, element = document) => element.querySelector(selector);
 const isMaster = (email, password) => email === MASTER_ACCOUNT['EMAIL'] && password === MASTER_ACCOUNT['PASSWORD'];
 const isEmail = (email) => REGEX['EMAIL'].test(email);
 const isBlank = (e) => e.target.value === '';
