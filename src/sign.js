@@ -1,70 +1,114 @@
-const form = document.querySelector(".sign-form");
-const email = document.querySelector("#email");
-const password = document.querySelector("#password");
+import {
+  ERROR_MESSAGE,
+  TEST_USER,
+  emailCheck,
+  passwordCheck,
+} from "./constant.js";
 
-const pEmail = document.createElement("p");
-const pPwd = document.createElement("p");
+const setErrorMessage = (currentElement, errorMsg) => {
+  currentElement.classList.add("errorInput");
+  currentElement.nextElementSibling.textContent = errorMsg;
+};
+const removeErrorMessage = (currentElement) => {
+  currentElement.classList.remove("errorInput");
+  currentElement.nextElementSibling.textContent = "";
+};
 
-const testEmail = "test@codeit.com";
-const testPwd = "codeit101";
-
-const eyeImg = document.querySelector(".eye");
-
-function reset_Ptag() {
-  email.after(pEmail);
-  pEmail.classList.add("errorMsg");
-  password.after(pPwd);
-  pPwd.classList.add("errorMsg");
-}
-
-function focusOutEmail() {
-  if (!email.value) {
-    pEmail.textContent = "이메일을 입력해 주세요.";
-    email.classList.add("errorInput");
-  } else if (!email.value.includes("@")) {
-    pEmail.textContent = "올바른 이메일 주소가 아닙니다.";
-    email.classList.add("errorInput");
-  } else {
-    pEmail.remove();
-    email.classList.remove("errorInput");
+const noInputValue = (currentElement) => {
+  const noInputText =
+    currentElement.type === "email"
+      ? ERROR_MESSAGE.NO_INPUT_EMAIL
+      : ERROR_MESSAGE.NO_INPUT_PASSWORD;
+  if (!currentElement.value) {
+    setErrorMessage(currentElement, noInputText);
   }
-}
+};
 
-function focusOutPwd() {
-  if (!password.value) {
-    pPwd.textContent = "비밀번호를 입력해 주세요.";
-    password.classList.add("errorInput");
+const isValidEmail = (currentElement) => {
+  if (!emailCheck(currentElement.value)) {
+    setErrorMessage(currentElement, ERROR_MESSAGE.INVALID_EMAIL);
   } else {
-    pPwd.remove();
-    password.classList.remove("errorInput");
+    removeErrorMessage(currentElement);
   }
-}
+};
+const isValidPassword = (currentElement) => {
+  if (!passwordCheck(currentElement.value)) {
+    setErrorMessage(currentElement, ERROR_MESSAGE.INVALID_PASSWORD);
+  } else {
+    removeErrorMessage(currentElement);
+  }
+};
 
-function submitForm(e) {
-  e.preventDefault();
-  reset_Ptag();
-  if (email.value === testEmail && password.value === testPwd) {
+const confirmEmail = (currentElement) => {
+  if (currentElement.value === TEST_USER.ID) {
+    setErrorMessage(currentElement, ERROR_MESSAGE.REGISTERED_EMAIL);
+  }
+};
+const confirmPasswordMatch = (currentElement) => {
+  const passwordElement = document.getElementById("password");
+
+  if (currentElement.value !== passwordElement.value) {
+    setErrorMessage(currentElement, ERROR_MESSAGE.DO_NOT_MATCH_PASSWORD);
+  } else {
+    removeErrorMessage(currentElement);
+  }
+};
+const confirmUserLogin = (currentElement) => {
+  const email = currentElement[0];
+  const password = currentElement[1];
+
+  if (email.value === TEST_USER.ID && password.value === TEST_USER.PASSWORD) {
     window.location.href = "/folder";
-    email.value = "";
   } else {
-    pEmail.textContent = "이메일을 확인해 주세요.";
-    pPwd.textContent = "비밀번호를 확인해 주세요.";
-    email.classList.add("errorInput");
-    password.classList.add("errorInput");
+    setErrorMessage(email, ERROR_MESSAGE.CONFIRM_EMAIL);
+    setErrorMessage(password, ERROR_MESSAGE.CONFIRM_PASSWORD);
   }
-}
+};
+const confirmForm = (currentForm) => {
+  const emailElement = currentForm[0];
+  const passwordElement = currentForm[1];
+  const passwordConfirmElement = currentForm[2];
 
-function eyeClickHandler() {
-  eyeImg.classList.toggle("on");
-  if (eyeImg.classList.contains("on")) {
-    password.removeAttribute("type");
+  if (!emailCheck(emailElement.value) || emailElement.value === TEST_USER.ID) {
+    setErrorMessage(emailElement, ERROR_MESSAGE.CONFIRM_EMAIL);
+  }
+  if (!passwordCheck(passwordElement.value)) {
+    setErrorMessage(password, ERROR_MESSAGE.CONFIRM_PASSWORD);
+  }
+  if (passwordElement.value !== passwordConfirmElement.value) {
+    setErrorMessage(passwordConfirmElement, ERROR_MESSAGE.CONFIRM_PASSWORD);
+  }
+};
+
+const confirmUserRegister = (currentElement) => {
+  confirmForm(currentElement);
+  const elementsArr = [...currentElement];
+  const satisfy = elementsArr.some((element) =>
+    element.classList.contains("errorInput")
+  );
+  if (!satisfy) {
+    window.location.href = "/folder";
+  }
+};
+
+const eyeClickHandler = (e) => {
+  const currentPassword = e.target.parentElement.children[1];
+  e.target.classList.toggle("on");
+  if (e.target.classList.contains("on")) {
+    currentPassword.removeAttribute("type");
   } else {
-    password.setAttribute("type", "password");
+    currentPassword.setAttribute("type", "password");
   }
-}
+};
 
-reset_Ptag();
-email.addEventListener("focusout", focusOutEmail);
-password.addEventListener("focusout", focusOutPwd);
-form.addEventListener("submit", submitForm);
-eyeImg.addEventListener("click", eyeClickHandler);
+export {
+  noInputValue,
+  isValidEmail,
+  isValidPassword,
+  confirmEmail,
+  confirmPasswordMatch,
+  confirmUserLogin,
+  confirmUserRegister,
+  eyeClickHandler,
+  removeErrorMessage,
+};
