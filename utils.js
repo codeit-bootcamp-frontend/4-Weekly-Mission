@@ -1,7 +1,7 @@
 export const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 //이메일 유효성 검사
-export function emailValidChk(email) {
+export function validateEmail(email) {
   return emailRegex.test(email);
 }
 

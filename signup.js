@@ -1,6 +1,6 @@
 import {
   emailRegex,
-  emailValidChk,
+  validateEmail,
   getNewMessageElement,
   toggleEye,
 } from "./utils.js";
@@ -11,7 +11,7 @@ const passwordCheck = document.getElementById("passwordCheck");
 const loginButton = document.getElementById("loginButton");
 const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
 
-function passwordValidChk(password) {
+function validatePassword(password) {
   return passwordRegex.test(password);
 }
 
@@ -35,9 +35,9 @@ function handleBlur(input, message) {
 
     // 유효성 검사 조건을 수행하고 그에 따라 에러 메시지 추가
     if (
-      (input === emailInput && !emailValidChk(input.value)) ||
+      (input === emailInput && !validateEmail(input.value)) ||
       (input === passwordInput &&
-        (!passwordValidChk(input.value) ||
+        (!validatePassword(input.value) ||
           input.value.length < 8 ||
           !/\d/.test(input.value) ||
           !/[a-zA-Z]/.test(input.value)))

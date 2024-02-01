@@ -1,6 +1,6 @@
 import {
   emailRegex,
-  emailValidChk,
+  validateEmail,
   getNewMessageElement,
   toggleEye,
 } from "./utils.js";
@@ -25,7 +25,7 @@ function handleBlur(input, message) {
     input.classList.remove("empty-input");
 
     // 이메일 유효성 검사
-    if (input === emailInput && !emailValidChk(input.value)) {
+    if (input === emailInput && !validateEmail(input.value)) {
       const emailMessage =
         getNewMessageElement("올바른 이메일 주소가 아닙니다.");
       messageContainer.appendChild(emailMessage);
