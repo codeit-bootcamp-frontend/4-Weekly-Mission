@@ -16,6 +16,7 @@ const cover = {
 import { isEmailValid, isInputEmpty, showError, clearError } from './sign-error.js'
 import { togglePasswordByEyecon as togglePassword } from './toggle-password.js'
 import { PASSWORD_REGEX, errorMsg, minPasswordLength } from './constants.js'
+import { codeit } from './user-data.js'
 
 /////////////////////////////////////
 
@@ -24,10 +25,7 @@ import { PASSWORD_REGEX, errorMsg, minPasswordLength } from './constants.js'
  * @param {*} input 확인할 이메일
  * @returns 중복 여부 불린값
  */
-const isEmailUsed = (input) => {
-    const codeit = { email: 'test@codeit.com' }
-    return input === codeit.email
-}
+const isEmailUsed = (input) => ( input === codeit.email )
 
 /**이메일 확인 후 error 메세지 출력
  */
@@ -94,7 +92,7 @@ const IsPasswordUsable = () => {
     return isPasswordValid(password) && passwordCheck === password
 }
 
-const validateAccount = (event) => {
+const handleFormSubmit = (event) => {
     event.preventDefault()
     if (IsEmailUsable() && IsPasswordUsable()) {
         window.location.href = '../html/folder.html'
@@ -138,7 +136,7 @@ passwordInput.addEventListener('focusout', handlePasswordFocusout)
 // 비번 확인 이벤트 리스너 부여
 passwordCheckInput.addEventListener('focusout', handlePasswordCheckFocusout)
 // 로그인 버튼 입력 시 이메일 비번 확인 후 이동
-form.addEventListener('submit', validateAccount)
+form.addEventListener('submit', handleFormSubmit)
 // 비번 가리기 버튼 리스너 부여
 passwordCover.addEventListener('click', handlePasswordClick)
 // 비번 재확인 가리기 버튼 리스너 부여

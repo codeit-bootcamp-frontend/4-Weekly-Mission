@@ -9,6 +9,7 @@ const cover = {isPasswordCovered: false}
 import { isEmailValid, isInputEmpty, showError, clearError } from './sign-error.js'
 import { togglePasswordByEyecon as togglePassword } from './toggle-password.js'
 import { errorMsg } from './constants.js'
+import { codeit } from './user-data.js'
 
 //////////////// 함수 정의 ////////////////////
 
@@ -45,7 +46,6 @@ const checkPassword = () => {
  * @returns 불린값
  */
 const isEmailConfirmed = () => {
-    const codeit = { email: 'test@codeit.com', password: 'codeit101' }
     const email = emailInput.value.trim()
     const password = passwordInput.value.trim()
     return email === codeit.email && password === codeit.password
