@@ -1,4 +1,4 @@
-import {isValidEmail} from './accountData.js'
+import {isValidEmail} from './accountDataVerification.js'
 import {returnAccessToken} from './tokenHandle.js'
 
 const ERROR_TYPE = {

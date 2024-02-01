@@ -1,5 +1,5 @@
 import {inputFocus, inputBlur, printError, accountRegisterWasSuccessful, ERROR_TYPE} from './signFunction.js';
-import {isValidEmail, isValidPw, isValidPwChecking, isThisEmailNotRegisteredInServer} from './accountData.js';
+import {isValidEmail, isValidPw, isValidPwChecking, isThisEmailNotRegisteredInServer} from './accountDataVerification.js';
 import pwTypeToggleAssign from './pwTypeToggle.js';
 import {RedirectToFolderIfClientHasToken} from './tokenHandle.js'
 // 토큰이 있을 경우 folder로 리다이렉트
