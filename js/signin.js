@@ -7,6 +7,7 @@ const passwordRepeat = document.getElementById("passwordR");
 const passwordRepeatErrorMessage = document.getElementById('error-passwordR');
 const eyeButton = document.querySelector('.eye-button');
 
+
 const errorMessages = {
     emailRequired: "이메일을 입력해주세요.",
     invalidEmail: "올바른 이메일 주소가 아닙니다.",
@@ -42,33 +43,31 @@ function eyeBlink(input,icon){
 }
  
 //이메일
-function checkingEmail(type){
+function checkingEmail(){
 
     //이메일 체크를 위한 정규식
     const checkEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
+
+    const emailTrim = email.value.trim();
 
     //실패시 체크값 디폴트
     isCheckingEmail=false;
 
     //이메일 체크
-    if(email.value.trim()==""){
+    if(emailTrim==""){
         emailErrorMessage.innerHTML=errorMessages.emailRequired;
         email.style.border= "0.1rem solid var(--red)";
-    }else if(checkEmail.test(email.value.trim())){
+    }else if(checkEmail.test(emailTrim)){
         emailErrorMessage.innerHTML="";
-        email.style.border= "0.1rem solid var(--gray20)";
         isCheckingEmail= true;
+        email.style.border= "0.1rem solid var(--gray20)";
     }else{
         emailErrorMessage.innerHTML=errorMessages.invalidEmail;
         email.style.border= "0.1rem solid var(--red)";
     }
 
-    if(type=='signup'){
-        if(email.value.trim()===`test@codeit.com`){
-            emailErrorMessage.innerHTML=errorMessages.duplicateEmail;
-            email.style.border= "0.1rem solid var(--red)";
-        }
-    }
+    //테스트 중
+    //isCheckingEmail ? email.style.border= "0.1rem solid var(--gray20)" : email.style.border= "0.1rem solid var(--red)";
 }
 
 //비밀번호
@@ -77,21 +76,22 @@ function checkingPassword(){
     //비밀번호 체크를 위한 정규식
     const checkPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,30}$/
 
+    const passwordTrim = password.value.trim();
+
     //실패시 체크값 디폴트
     isCheckingPassword=false;
 
     //비밀번호 체크
-    if(password.value.trim()==""){
+    if(passwordTrim==""){
         passwordErrorMessage.innerHTML=errorMessages.passwordRequired;
-        password.style.border= "0.1rem solid var(--red)";
-    }else if(checkPassword.test(password.value.trim())){
+    }else if(checkPassword.test(passwordTrim)){
         passwordErrorMessage.innerHTML="";
-        password.style.border= "0.1rem solid var(--gray20)";
         isCheckingPassword= true;
     }else{
         passwordErrorMessage.innerHTML=errorMessages.invalidPassword;
-        password.style.border= "0.1rem solid var(--red)";
     }
+
+    isCheckingPassword ? password.style.border= "0.1rem solid var(--gray20)" : password.style.border= "0.1rem solid var(--red)";
 }
 
 
@@ -101,17 +101,18 @@ function checkingPasswordRepeat(){
     //실패시 체크값 디폴트
     isCheckingPasswordRepeatEmail= false;
 
-    if(passwordRepeat.value.trim()==""){
+    const passwordRepeatTrim = passwordRepeat.value.trim();
+
+    if(passwordRepeatTrim==""){
         passwordRepeatErrorMessage.innerHTML=errorMessages.passwordRepeatRequired;
-        passwordRepeat.style.border= "0.1rem solid var(--red)";
-    }else if(password.value.trim()==passwordRepeat.value.trim()){
+    }else if(passwordTrim==passwordRepeatTrim){
         passwordRepeatErrorMessage.innerHTML="";
-        passwordRepeat.style.border= "0.1rem solid var(--gray20)";
         isCheckingPasswordRepeatEmail= true;
     }else{
         passwordRepeatErrorMessage.innerHTML=errorMessages.passwordMismatch;
-        passwordRepeat.style.border= "0.1rem solid var(--red)";
     }
+
+    isCheckingPasswordRepeatEmail ? passwordRepeat.style.border= "0.1rem solid var(--gray20)" : passwordRepeat.style.border= "0.1rem solid var(--red)";
 }
 
 //addEventListener를 이용한 체크 시스템
@@ -124,24 +125,48 @@ form.addEventListener("submit",(e)=>{
     console.log(e.target.id);
 
     if(e.target.id ==='signin'){
-        if(email.value.trim()=="test@codeit.com" && password.value.trim()=="codeit101"){
+        if(isCheckingEmail==true && isCheckingPassword==true){
             //폴더 페이지 미완성으로 인한 임시
-            location.href='/folder.html';
-        }else if(email.value.trim()!="test@codeit.com" && password.value.trim()=="codeit101"){
-            emailErrorMessage.innerHTML=errorMessages.checkEmail;
-            email.style.border= "0.1rem solid var(--red)";
-        }else if(email.value.trim()=="test@codeit.com" && password.value.trim()!="codeit101"){
-            passwordErrorMessage.innerHTML=errorMessages.checkPassword;
-            password.style.border= "0.1rem solid var(--red)";
+            const user = {
+                email: emailTrim,
+                password: passwordTrim
+            }
+            const token = "user";
+            fetch('https://bootcamp-api.codeit.kr/api/sign-in',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                  },
+                body: JSON.stringify(user)
+            })
+            .then(response => response.ok ? location.href = '/folder.html' : console.error('로그인 실패'))
+            .catch(error => {
+            console.error('Error:', error);
+            });
         }else{
-            emailErrorMessage.innerHTML=errorMessages.checkEmail;
-            email.style.border= "0.1rem solid var(--red)";
-            passwordErrorMessage.innerHTML=errorMessages.checkPassword;
-            password.style.border= "0.1rem solid var(--red)";
+            checkingEmail();
+            checkingPassword();
         }
     }else if(e.target.id ==='signup'){
         if(isCheckingEmail == true && isCheckingPasswordRepeatEmail==true && isCheckingPassword == true){
-            location.href='/folder.html';
+            const user = {
+                email: emailTrim,
+                password: passwordTrim
+            }
+            const token = "user";
+            fetch('https://bootcamp-api.codeit.kr/api/sign-up',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                  },
+                body: JSON.stringify(user)
+            })
+            .then(response => response.ok ? location.href = '/folder.html' : console.error('회원가입 실패'))
+            .catch(error => {
+            console.error('Error:', error);
+            });
         }else{
             checkingEmail();
             checkingPassword();
