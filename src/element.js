@@ -61,5 +61,7 @@ export function errorBorder(inputSlectorName) {
 
 export function removeBorder(inputSlectorName) {
   let inputElement = document.querySelector(inputSlectorName);
-  inputElement.style.outline = "none";
+  if (inputElement) {
+    inputElement.style.outline = "none";
+  }
 }
