@@ -74,7 +74,7 @@ input:focus {
     align-items: center;
     border-radius: 8px;
     border: 1px solid #CCD5E3;
-    background: #E7EFFB;
+    background: var(--gray10-color);
     color: #373740;
     font-size: 14px;
     font-weight: 400;
@@ -105,14 +105,14 @@ input:focus {
 }
 
 .error-message {
-    color: #FF5B56;
+    color: var(--red-color);
     font-size: 14px;
     font-weight: 400;
     align-self: flex-start;
 }
 
 .error {
-    border: 1px solid red;
+    border: 1px solid var(--red-color);
 }
 
 @media (max-width: 767px) {
