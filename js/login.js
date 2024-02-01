@@ -1,5 +1,12 @@
 import {EMPTY_INPUT, INVAILED_INPUT, CORRECT_INPUT} from '/js/variable.js';
 
+export const checkLoginStatus = () => {
+  const accessToken = localStorage.getItem('accessToken');
+  if (accessToken) {
+    window.location.href = '/pages/folder';
+  }
+};
+
 export const viewWarningText = (target, message) => {
   const inputBox = target.parentNode.querySelector('input');
   target.textContent = message;

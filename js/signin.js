@@ -5,6 +5,7 @@ import {
   checkPassword,
   visiblePassword,
   InputFocusEvent,
+  checkLoginStatus,
 } from '/js/login.js';
 
 import {EMPTY_INPUT, INVAILED_INPUT, CORRECT_INPUT} from '/js/variable.js';
@@ -15,6 +16,10 @@ const emailWarningText = document.querySelector('#email-warning-text');
 const passwordWarningText = document.querySelector('#password-warning-text');
 const loginForm = document.querySelector('#signin-form');
 const eyeBtn = document.querySelector('#password-eye-button');
+
+window.onload = () => {
+  checkLoginStatus();
+};
 
 let inputData = {
   email: null,
