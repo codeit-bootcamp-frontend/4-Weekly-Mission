@@ -45,11 +45,13 @@ function isValidUser(emailInputValue, passwordInputValue) {
 
 //이메일 에러 검사
 function validateEmail() {
-  if (isTextEmpty(emailInput.value)) {
+  const email = emailInput.value;
+
+  if (isTextEmpty(email)) {
     return showError(emailInput, emailErrorMessageElement, "이메일을 입력해 주세요.");
   }
 
-  if (!isValidEmailFormat(emailInput.value)) {
+  if (!isValidEmailFormat(email)) {
     return showError(emailInput, emailErrorMessageElement, "올바른 이메일 주소가 아닙니다.");
   }
 
@@ -58,7 +60,9 @@ function validateEmail() {
 
 //비밀번호 에러 검사
 function validatePassword() {
-  if (isTextEmpty(passwordInput.value)) {
+  const password = passwordInput.value;
+
+  if (isTextEmpty(password)) {
     return showError(passwordInput, passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
   }
 
