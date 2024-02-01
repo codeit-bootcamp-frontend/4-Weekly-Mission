@@ -53,11 +53,11 @@ header p {
   margin-bottom: 24px;
 }
 
-#password-input-div {
+#password-input-div,#password-input-div2 {
   position: relative;
 }
 
-.PwdEyeIcon {
+.PwdEyeIcon,.PwdEyeIcon2 {
   width: 16px;
   height: 16px;
   position: absolute;
@@ -86,19 +86,19 @@ section p {
 
 /* 아이디와 비밀번호 input 스타일 지정 */
 
-[status="정상"] {
+[status="steady"] {
   width: 100%;
   border-radius: 8px;
   border: 1px solid var(--Grey_300);
   padding: 18px 15px;
 }
 
-[status="정상"]:focus {
+[status="steady"]:focus {
   border: 1px solid var(--Primary);
   outline: none;
 }
 
-[status="에러"] { 
+[status="error"] { 
   width: 100%;
   border-radius: 8px;
   border: 1px solid var(--Grey_300);
