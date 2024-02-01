@@ -147,6 +147,7 @@ function handleRegister(e) {
   }
 
   //회원가입 성공
+  //const newUser = createUser({ email, password })
   return (location.href = "../folder/index.html");
 }
 
