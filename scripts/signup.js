@@ -124,7 +124,7 @@ const handleSignUp = event => {
   const checkPassword =
     InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX) &&
     InputHandler.isMatchElement(passwordElement, passwordCheckElement);
-  if (checkEmail && checkPassword) return SignHandler.navigateTo(SIGNUP_PATH);
+  if (checkEmail && checkPassword) SignHandler.navigateTo(SIGNUP_PATH);
 };
 
 emailElement?.addEventListener('focusout', handleEmailElementFocusOut);
