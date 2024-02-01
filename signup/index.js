@@ -15,7 +15,7 @@ import {
   hidePassword,
 } from "../scripts/ui-sign.js";
 
-import { VALID_USER, isValidEmailFormat } from "../scripts/utils-sign.js";
+import { isValidEmailFormat, getUserByEmail } from "../scripts/utils-sign.js";
 
 import {
   passwordCheckInput,
@@ -28,11 +28,6 @@ import {
 /********************
  * UTILITY FUNCTION
  ********************/
-
-//회원가입 이메일 중복 검사
-function isEmailMatching(emailInputValue) {
-  return emailInputValue === VALID_USER.email;
-}
 
 //회원가입 비밀번호 양식 유효성 검사
 function isValidPasswordFormat(passwordInputValue) {
@@ -50,31 +45,6 @@ function isValidPasswordFormat(passwordInputValue) {
   if (!/[a-zA-Z]/.test(passwordInputValue)) {
     return false;
   }
-  return true;
-}
-
-//회원가입 유효성 검사
-function isValidSignUp(emailInputValue, passwordInputValue, passwordCheckInputValue) {
-  if (!isValidEmailFormat(emailInputValue)) {
-    console.log(`case 1`);
-    return false;
-  }
-
-  if (isEmailMatching(emailInputValue)) {
-    console.log(`case 2`);
-    return false;
-  }
-
-  if (!isValidPasswordFormat(passwordInputValue)) {
-    console.log(`case 3`);
-    return false;
-  }
-
-  if (passwordInputValue !== passwordCheckInputValue) {
-    console.log(`case 4`);
-    return false;
-  }
-
   return true;
 }
 
@@ -132,26 +102,51 @@ function validatePasswordCheck() {
   return hideError(passwordCheckInput, passwordCheckErrorMessageElement);
 }
 
-//회원가입 성공/실패
-function checkSignUp() {
+//버튼 클릭 / 인풋 focus 상태에서 엔터로 회원가입 로직 실행
+function handleRegister(e) {
+  e.preventDefault();
+
   const email = emailInput.value;
   const password = passwordInput.value;
   const passwordCheck = passwordCheckInput.value;
 
-  if (!isValidSignUp(email, password, passwordCheck)) {
+  //이메일 형식을 만족하지 않을 경우 회원가입 실패
+  if (!isValidEmailFormat(email)) {
     validateEmail();
     validatePassword();
     validatePasswordCheck();
     return;
   }
 
-  return (location.href = "../folder/index.html");
-}
+  //email과 일치하는 유저 저장 / 없으면 null
+  const user = getUserByEmail(email);
 
-//버튼 클릭 / 인풋 focus 상태에서 엔터 키로 checkSignUp 호출
-function onSubmit(e) {
-  e.preventDefault();
-  checkSignUp();
+  //user가 있을 경우 동일한 이메일 존재하므로 회원가입 실패
+  if (user) {
+    validateEmail();
+    validatePassword();
+    validatePasswordCheck();
+    return;
+  }
+
+  //비밀번호 형식을 만족하지 않을 경우 회원가입 실패
+  if (!isValidPasswordFormat(password)) {
+    validateEmail();
+    validatePassword();
+    validatePasswordCheck();
+    return;
+  }
+
+  //비밀번호와 비밀번호 확인이 동일하지 않을 경우 회원가입 실패
+  if (password !== passwordCheck) {
+    validateEmail();
+    validatePassword();
+    validatePasswordCheck();
+    return;
+  }
+
+  //회원가입 성공
+  return (location.href = "../folder/index.html");
 }
 
 //eyeBtn 비밀번호 토글
@@ -179,6 +174,6 @@ function togglePasswordCheck() {
 emailInput.addEventListener("focusout", validateEmail);
 passwordInput.addEventListener("focusout", validatePassword);
 passwordCheckInput.addEventListener("focusout", validatePasswordCheck);
-formElement.addEventListener("submit", onSubmit);
+formElement.addEventListener("submit", handleRegister);
 eyeBtn.addEventListener("click", togglePassword);
 eyeBtnCheck.addEventListener("click", togglePasswordCheck);

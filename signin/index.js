@@ -15,20 +15,7 @@ import {
   hidePassword,
 } from "../scripts/ui-sign.js";
 
-import { VALID_USER, isValidEmailFormat } from "../scripts/utils-sign.js";
-
-/********************
- * UTILITY FUNCTION
- ********************/
-
-//이메일이 일치하는 유저 데이터 반환
-function getUserByEmail(emailInputValue) {
-  if (VALID_USER.email !== emailInputValue) {
-    return null;
-  }
-
-  return VALID_USER;
-}
+import { isValidEmailFormat, getUserByEmail } from "../scripts/utils-sign.js";
 
 /********************
  * ACTIVE FUNCTION
@@ -60,7 +47,7 @@ function validatePassword() {
   return hideError(passwordInput, passwordErrorMessageElement);
 }
 
-//버튼 클릭 / 인풋 focus 상태에서 엔터 키로 checkLogin 호출
+//버튼 클릭 / 인풋 focus 상태에서 엔터로 로그인 로직 실행
 function handleLogin(e) {
   e.preventDefault();
 

@@ -20,4 +20,13 @@ function isValidEmailFormat(emailInputValue) {
   return regex.test(emailInputValue);
 }
 
-export { VALID_USER, isValidEmailFormat };
+//이메일이 일치하는 유저 데이터 반환
+function getUserByEmail(emailInputValue) {
+  if (VALID_USER.email !== emailInputValue) {
+    return null;
+  }
+
+  return VALID_USER;
+}
+
+export { VALID_USER, isValidEmailFormat, getUserByEmail };
