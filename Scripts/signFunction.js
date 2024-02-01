@@ -1,4 +1,4 @@
-import {formatCheck} from './accountData.js'
+import {isValidEmail} from './accountData.js'
 import {returnAccessToken} from './tokenHandle.js'
 
 const ERROR_TYPE = {
@@ -29,24 +29,26 @@ const inputBlur = function (e, errorMessageSection, errorMessage, customConditio
    const sectionValue = e.target.value;
    const isEmailSection = e.target.type == 'email';
 
-   // Email Input인 경우의 형식 검사. value가 null인 경우보다 먼저 검사하여 덮어씌우지 않게 함
-   if (isEmailSection && !formatCheck(sectionValue)) {
-      printError(e.target, errorMessageSection, ERROR_TYPE.EMAIL_IS_NOT_VALID);
-   }  
-
-   // customCondition 추가 검사. 기본적으론 Pass됨
-   if (!customCondition) {
-      printError(e.target, errorMessageSection, customConditionError);
-   }
-
    if (!sectionValue) {
       printError(e.target, errorMessageSection, errorMessage);
+      return;
+   }
+
+   // customCondition 추가 검사. 기본적으로 Pass
+   if (!customCondition) {
+      printError(e.target, errorMessageSection, customConditionError);
+      return;
+   }
+
+   // Email Input인 경우의 형식 검사.
+   if (isEmailSection && !isValidEmail(sectionValue)) {
+      printError(e.target, errorMessageSection, ERROR_TYPE.EMAIL_IS_NOT_VALID);
    }
 }
 
 // 로그인 시도 성공여부의 Boolean값
-const isThisLoginWasSuccessful =  async function (TriedAccountInformation, url) {
-   const serverResponseAboutAccount = await fetch (url, {
+const isThisLoginWasSuccessful =  async function (TriedAccountInformation) {
+   const serverResponseAboutAccount = await fetch ('https://bootcamp-api.codeit.kr/api/sign-in', {
       method : 'POST',
          headers : {
             "Content-type": "application/json"

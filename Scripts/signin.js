@@ -5,7 +5,6 @@ import {RedirectToFolderIfClientHasToken} from './tokenHandle.js'
 // 토큰이 있을 경우 folder로 리다이렉트
 RedirectToFolderIfClientHasToken();
 
-
 // 비밀번호 토글 초기화 및 함수 등록
 pwTypeToggleBtnAssign();
 
@@ -31,7 +30,7 @@ loginPasswordInput.addEventListener('blur' , (e) => inputBlur(e, passwordErrorSe
 
 
 // 로그인 정보 제출
-const submitLoginData = async function (e)  {
+const signinDataSubmit = async function (e)  {
    e.preventDefault();
    
    //입력받은 값
@@ -43,7 +42,7 @@ const submitLoginData = async function (e)  {
    }
 
    try {
-      const signinAttemptResponse = await isThisLoginWasSuccessful(triedLoginAccountData, 'https://bootcamp-api.codeit.kr/api/sign-in')
+      const signinAttemptResponse = await isThisLoginWasSuccessful(triedLoginAccountData)
       if (!signinAttemptResponse) {
          throw new Error()
       }
@@ -54,5 +53,5 @@ const submitLoginData = async function (e)  {
    }
 }
 
-confirmBtn.addEventListener('click' , (event) => submitLoginData(event));
+confirmBtn.addEventListener('click' , (event) => signinDataSubmit(event));
 

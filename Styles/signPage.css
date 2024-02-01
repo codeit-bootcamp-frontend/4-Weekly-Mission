@@ -54,7 +54,7 @@ input:focus{
    outline-color: var(--LBrary-Primary-color);
 }
 
-.seenButtonPositionOrigin {
+.pwTextTypeToggleBtnOriginPosition {
    position: relative;
 }
 
@@ -78,7 +78,7 @@ input:focus{
    border: 1px solid var(--LBrary-Red);
 }
 
-.errorMessagePreset {
+.errMessage {
    color: var(--LBrary-Red);
    font-size: 1.4rem;
    font-weight: 400;
