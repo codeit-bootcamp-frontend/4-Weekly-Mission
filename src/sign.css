@@ -93,22 +93,23 @@ header {
   border-color: var(--red);
 }
 
-#error-message-pw, #error-message-id {
+#error-message-pw, #error-message-id, #error-message-pw-check {
   color: var(--red);
   display: none;
 }
 
-.eye-button {
+.eye-button, .eye-button-1 {
   position: absolute;
-  bottom: 2.2rem;
+  top: 5.1rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
 }
 
-#eye-on {
+#eye-on, #eye-on-1 {
   display: none;
 }
+
 
 .cta {
   display: flex;

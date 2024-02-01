@@ -24,21 +24,26 @@
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" />
+            <input class="sign-input input-email" type="email" placeholder="이메일">
+            <p id="error-message-id"></p>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" />
+            <input class="sign-input input-password input-password-get" type="password" placeholder="비밀 번호">
             <button class="eye-button" type="button">
-              <img src="/images/eye-off.png" />
+              <img src="/images/eye-off.png" id="eye-off">
+              <img src="/images/eye-on.png" id="eye-on">
             </button>
+            <p id="error-message-pw"></p>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호 확인</label>
-            <input class="sign-input" type="password" />
-            <button class="eye-button" type="button">
-              <img src="/images/eye-off.png" />
+            <input class="sign-input input-password input-password-check" type="password" placeholder="비밀 번호 확인">
+            <button class="eye-button-1" type="button">
+              <img src="/images/eye-off.png" id="eye-off-1">
+              <img src="/images/eye-on.png" id="eye-on-1">
             </button>
+            <p id="error-message-pw-check"></p>
           </div>
         </div>
         <button class="cta" type="submit">회원가입</button>
@@ -55,5 +60,6 @@
         </div>
       </div>
     </div>
+    <script type="module" src="signup.js"></script>
   </body>
 </html>
