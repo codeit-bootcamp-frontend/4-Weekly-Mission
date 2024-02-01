@@ -1,0 +1,383 @@
+ @import './basis.css';
+
+a {
+    text-decoration: none;
+}
+
+header,
+main,
+footer {
+    display: block;
+}
+
+
+body{
+    font-family:Pretendard ;
+}
+#header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 500;
+    height: 5.5rem;
+    backdrop-filter: blur(10px);
+}
+
+#header>.header-inner {
+    max-width: 85%;
+    margin: 0 auto;
+    position: relative;
+}
+
+#logo {
+    position: absolute;
+    top: 1.5rem;
+    left: 0;
+}
+
+.link {
+    display: block;
+    text-align: center;
+    color: #F5F5F5;
+    font-size: 1.4rem;
+    letter-spacing: -0.3px;
+    padding: 1rem 1.6rem;
+
+}
+
+#login {
+
+    position: absolute;
+    top: 0.8rem;
+    right: 0;
+    width: 8rem;
+}
+
+.main-visual {
+    width: 100%;
+    height: 100vh;
+    background: var(--clr-bg);
+    padding-top: 8rem;
+    max-height: vmax;
+    
+}
+
+.main-visual__wrap {
+    width: 90%;
+    margin: auto;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.main-visual__title {
+    text-align: center;
+    font-size: 3.2rem;
+    white-space: pre-line;
+    font-weight: 700;
+    line-height: 4.2rem;
+    margin-bottom: 2.4rem;
+}
+
+.main-visual__title.desktop{
+    display: none;
+}
+
+.main-visual__title>.linear-text {
+    background: linear-gradient(91deg, #6D6AFE 17.28%, #FF9F9F 74.98%);
+    background-clip: text;
+    color: transparent;
+}
+
+#add-link {
+    display: block;
+    width: 21rem;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 2.4rem;
+}
+
+.main-visual__img {
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+}
+
+.main-visual__img>img {
+    display: block;
+    width: 90%;
+    margin: auto;
+    position: relative;
+    top:15%;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.08);
+   
+}
+
+.main-service {
+    width: 75%;
+    margin: auto;
+    /* background-color: #6AE3FE; */
+}
+
+.main-service__section {
+    padding: 4rem 0px;
+}
+
+.main-service__title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: -3px;
+    margin-bottom: 2rem;
+}
+
+.main-service__img {
+    width: 100%;
+    margin-bottom: 1.6rem;
+}
+
+.main-service__img>img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.main-service__description {
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 150%;
+    color: #6b6b6b;
+    display: none;
+}
+
+.main-service__description.mobaile {
+    display: block;
+}
+
+.main-service__section:first-child .linear-text {
+    background: linear-gradient(97deg, #FE8A8A 1.73%, #A4CEFF 33.89%);
+    background-clip: text;
+    color: transparent;
+}
+
+.main-service__section:nth-child(2) .linear-text {
+    background: linear-gradient(276deg, #6FBAFF 44.56%, #FFD88B 60.93%);
+    background-clip: text;
+    color: transparent;
+}
+
+.main-service__section:nth-child(3) .linear-text {
+    background: linear-gradient(181deg, #6D7CCD 53.86%, rgba(82, 136, 133, 0.22) 99.4%);
+    background-clip: text;
+    color: transparent;
+}
+
+.main-service__section:last-child .linear-text {
+    background: linear-gradient(275deg, #FE578F 27.48%, #68E8F9 59.2%);
+    background-clip: text;
+    color: transparent;
+}
+
+#footer {
+    margin-top: 4rem;
+    background: var(--clr-bk);
+    font-family: Arial;
+}
+
+.footer-inner {
+    padding: 3.2rem 0px 6.4rem;
+    width: 85%;
+    margin: auto;
+
+}
+
+.footer-inner__menu {
+    display: inline-flex;
+    gap: 3rem;
+
+}
+
+.footer-inner__menu>a {
+    color: #CFCFCF;
+    font-size: 1.6rem;
+}
+
+nav {
+    float: right;
+}
+
+.footer-inner__social {
+    display: flex;
+    gap: 1.2rem;
+}
+
+.footer-inner>p {
+    margin-top: 6rem;
+    color: #676767;
+    font-size: 1.6rem;
+
+}
+
+/* 테블릿 화면 css */
+@media screen and (min-width :48rem) {
+    #header>.header-inner {
+        max-width: 75%;
+
+    }
+
+    .main-visual {
+        margin-bottom: 3rem;
+        min-height: 70rem;
+    }
+    .main-visual__wrap{
+        height: 100%;
+    }
+    .main-visual__img {
+        height: 100%;
+    }
+    .main-visual__img>img {
+        top:0;
+    }
+
+    .main-visual__title {
+
+        font-size: 5rem;
+        line-height: 5.5rem;
+    }
+
+
+    #add-link {
+        padding: 1.6rem 2rem;
+        margin-bottom: 4rem;
+        width: 35rem;
+    }
+
+    .main-service {
+        width: 70%;
+
+    }
+
+    .main-service__section {
+        padding: 5rem 0px;
+    }
+
+    .main-service__description {
+        display: block;
+        font-size: 1.6rem;
+        white-space: pre-line;
+    }
+
+    .main-service__section:nth-child(2n) .main-service__img {
+        order: 0;
+    }
+
+    .main-service__section:nth-child(2n) .main-service__content {
+        order: 1;
+    }
+
+    .main-service__description.mobaile {
+        display: none;
+    }
+
+    .main-service__container {
+        display: flex;
+        gap: 5.1rem;
+        align-items: center;
+
+
+    }
+
+    .main-service__content {
+        min-width: 25rem;
+        flex-grow: 1;
+    }
+
+    .main-service__title {
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        white-space: pre-line;
+    }
+
+    .main-service__img {
+        width: 39rem;
+        margin-bottom: 0px;
+        flex-basis: 39rem;
+
+
+    }
+
+    .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        height: 16rem;
+    }
+
+    .footer-inner>p {
+        margin-top: 0px;
+        order: 0;
+
+    }
+
+    .footer-inner__menu {
+        order: 1;
+    }
+
+    #nav-social {
+        order: 2;
+    }
+}
+
+/* 데스크톱 화면 css */
+@media screen and (min-width :75rem) {
+    .main-visual {
+        margin-bottom: 7rem;
+        height: 100vh;
+        overflow: hidden;
+        padding-top: 10rem;
+        max-height: 100vh;
+    }
+    .main-visual__wrap{
+        height: 100%;
+    }
+    .main-visual__img {
+        height: 100%;
+        width: 80%;
+        margin: auto;
+    }
+    .main-visual__img>img {
+        top:5%;
+    }
+
+    .main-visual__title {
+        white-space: normal;
+        width: 70%;
+        margin: 0px auto 4rem;
+        word-break: break-all;
+        text-align: center;
+
+
+    }
+
+    .main-service__container {
+        gap: 15.7rem;
+        justify-content: center;
+    }
+
+    .main-service__container>.main-service__content {
+        flex-grow: 0;
+    }
+
+    .main-service__img {
+        flex-basis: 55rem;
+    }
+    .main-visual__title{
+        display: none;
+    }
+    .main-visual__title.desktop{
+        display: block;
+        width: 100%;
+        white-space: pre-line;
+    }
+
+}

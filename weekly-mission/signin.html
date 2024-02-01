@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./css/form.css">
+</head>
+
+<body>
+
+    <div class="fullLayout-screen ">
+        <div class="sublayout-container">
+            <div class="layout-header__wrap">
+                <a href="./index.html" id="logo">
+                   <img src="./img/logo.svg" alt="Linkbrary로고이미지">
+                </a>
+                <p class="message">회원이 아니신가요? <a href="./signup.html">회원 가입하기</a></p>
+            </div>
+            <div class="form__container">
+                <form action="" id="form-signin">
+                    <div class="user-input__box email">
+                        <label for="email">이메일</label>
+                        <p class="input-wrap">
+                            <input type="email" placeholder="이메일을 입력해주세요" id="email">
+                        </p>
+                        <p class="error-message" data-about="email"></p>
+                    </div>
+                    <div class="user-input__box password">
+                        <label for="password">비밀번호</label>
+                        <p class="input-wrap">
+                            <input type="password" placeholder="비밀번호를 입력해주세요" id="password">
+                            <span class="show-password">
+                               <img class="hidden" src="./img/eye-off.svg" alt="비밀번호보기 아이콘">
+                            </span>
+                        </p>
+                        <p class="error-message" data-about="password"></p>
+                    </div>
+                    <button class="btn" type="submit" id="submit-btn">로그인</button>
+                </form>
+            </div>
+            <div class="social-login__container">
+                <span>소셜 로그인</span>
+                <div class="social-icon__box">
+                    <a href="https://www.google.com/" target="_blank">
+                        <span class="social-icon google">
+                            <img src="./img/google-logo.png" alt="구글 로고">
+                        </span>
+                    </a>
+                    <a href="https://www.kakaocorp.com/page/" target="_blank">
+                        <span class="social-icon kakao">
+                            <img src="./img/kakao.png" alt="카카오 로고">
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <script type="module" src="./js/login.js"></script>
+</body>
+
+</html>

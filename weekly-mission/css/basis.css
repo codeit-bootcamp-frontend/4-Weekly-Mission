@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+:root {
+    --clr-pm: #6d6afe;
+    --clr-rd: #ff5b56;
+    --clr-bk: #111322;
+    --clr-wt: #ffffff;
+    --clr-gray100: #3E3E43;
+    --clr-gray60: #9FA6B2;
+    --clr-gray20: #CCD5E3;
+    --clr-gray10: #E7EFFB;
+    --clr-bg: #F0F6FF;
+}
+
+.btn{
+    background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+    border-radius: 8px;
+    outline: none;
+    border: none;
+    font-size: 1.8rem;
+
+}
+
+.ff-pre{
+    font-family: Pretendard;
+}
+
+.ff-ari{
+    font-family: Arial;
+}
