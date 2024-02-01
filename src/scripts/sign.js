@@ -26,7 +26,7 @@ export const checkEmail = (emailElement, errorMessageElement) => {
 };
 
 export const checkAvailableEmail = (emailElement, errorMessageElement) => {
-  if (checkUserId(emailElement)) {
+  if (checkUserId(emailElement.value)) {
     showInputError(emailElement);
     showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
   }

@@ -29,7 +29,7 @@ const EyeIconHandler = () => {
 //Login: submit form
 const SigninSubmitHandler = event => {
   event.preventDefault();
-  if (checkUserInfo(email, password)) {
+  if (checkUserInfo(email.value, password.value)) {
     email.value = '';
     window.location.href = PATH.PAGE_FOLDER;
     return;
