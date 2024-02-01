@@ -11,7 +11,7 @@ import {
   hideErorrMessage,
   changePlaceholderFocusIn,
   changePlaceholderFocusOut,
-  togglePasswordVisibility,
+  toggleInputVisibility,
 } from "../scripts/utils.js";
 
 /*********************
@@ -25,6 +25,8 @@ const inputPassword = document.querySelector('#signin-password');
 
 const errorMessageEmail = document.querySelector('.errorMessage-email');
 const errorMessagePassword = document.querySelector('.errorMessage-password');
+
+const showButtonPassword = document.querySelector('.eye-img-password');
 
 /*********************
        Function
@@ -43,7 +45,7 @@ function verifyAccount(email, password) {
 };
 
 /*********************
-    Event Function
+     EventHandler
 *********************/
 
 function emailError() {
@@ -79,6 +81,10 @@ function deleteError(e) {
   };
 };
 
+function togglePasswordVisibility() {
+  toggleInputVisibility(inputPassword, showButtonPassword);
+}
+
 function login(e) {
   e.preventDefault();
 
@@ -110,15 +116,15 @@ function login(e) {
 };
 
 /*********************
-      EventHandler
+  Event Registration
 *********************/
 
 signInForm.addEventListener('focusin', changePlaceholderFocusIn);
 signInForm.addEventListener('focusout', changePlaceholderFocusOut);
 signInForm.addEventListener('submit', login);
 signInForm.addEventListener('focusin', deleteError);
-signInForm.addEventListener('click', togglePasswordVisibility)
 
 inputEmail.addEventListener('focusout', emailError);
-
 inputPassword.addEventListener('focusout', passwordError);
+
+showButtonPassword.addEventListener('click', togglePasswordVisibility);

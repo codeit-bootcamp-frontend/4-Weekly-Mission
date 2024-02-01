@@ -69,7 +69,7 @@ body {
   color: var(--gray100);
 }
 
-.eye-img {
+.eye-img-password {
   position: absolute;
   top: 48px;
   right: 16px;

@@ -12,7 +12,7 @@ import {
   hideErorrMessage,
   changePlaceholderFocusIn,
   changePlaceholderFocusOut,
-  togglePasswordVisibility,
+  toggleInputVisibility,
 } from "../scripts/utils.js";
 
 /*********************
@@ -29,6 +29,9 @@ const errorMessageEmail = document.querySelector('.errorMessage-email');
 const errorMessagePassword = document.querySelector('.errorMessage-password');
 const errorMessagePasswordCheck = document.querySelector('.errorMessage-password-check');
 
+const showButtonPassword = document.querySelector('.eye-img-password');
+const showButtonPasswordCheck = document.querySelector('.eye-img-password-check');
+
 /*********************
        Function
 *********************/
@@ -36,7 +39,7 @@ const errorMessagePasswordCheck = document.querySelector('.errorMessage-password
 function isEmailDuplicated(text) { return user.email === text };
 
 /*********************
-    Event Function
+     EventHandler
 *********************/
 
 function emailError() {
@@ -104,13 +107,19 @@ function deleteError(e) {
   };
 };
 
-// 비밀번호가 visible 하게 되면 type = 'text' 가 되면서, 한글 비밀번호 설정이 가능해지다보니 넣은 함수입니다. 이런 방식보다 더 효율적인 방법이 있는지 궁금합니다.
 function onlyEngPassword() {
   const filteredValue = inputPassword.value.replace(/[^a-zA-Z0-9!"#$%&'()*+,-./:;<=>?@[\\^_`{|}~]/g, '');
   inputPassword.value = filteredValue;
 };
 
-// signup 함수도 login 함수처럼 이메일 검사 -> 비밀번호 검사 -> 비밀번호 확인 검사 순으로 로직을 만들어서 하는게 좋을까요?
+function togglePasswordVisibility() {
+  toggleInputVisibility(inputPassword, showButtonPassword);
+}
+
+function togglePasswordCheckVisibility() {
+  toggleInputVisibility(inputPasswordCheck, showButtonPasswordCheck);
+}
+
 function signup(e) {
   e.preventDefault();
 
@@ -135,18 +144,18 @@ function signup(e) {
 };
 
 /*********************
-      EventHandler
+  Event Registration
 *********************/
 
 signupForm.addEventListener('focusin', changePlaceholderFocusIn);
 signupForm.addEventListener('focusout', changePlaceholderFocusOut);
 signupForm.addEventListener('submit', signup);
-signupForm.addEventListener('click', togglePasswordVisibility);
 signupForm.addEventListener('focusin', deleteError);
 
 inputEmail.addEventListener('focusout', emailError);
-
 inputPassword.addEventListener('focusout', passwordError);
 inputPassword.addEventListener('input', onlyEngPassword);
-
 inputPasswordCheck.addEventListener('focusout', passwordCheckError);
+
+showButtonPassword.addEventListener('click', togglePasswordVisibility);
+showButtonPasswordCheck.addEventListener('click', togglePasswordCheckVisibility);
