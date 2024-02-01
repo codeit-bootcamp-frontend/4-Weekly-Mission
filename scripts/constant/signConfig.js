@@ -29,8 +29,8 @@ export const INPUT_IDS = {
   passwordErrorElementId: 'login-password-error',
   passwordCheckErrorElementId: 'login-password-check-error',
   loginFormId: 'login-form',
-  eyeImagePasswordId: 'eye-image-password',
-  eyeImagePasswordCheckId: 'eye-image-password-check'
+  passwordEyeImageId: 'eye-image-password',
+  passwordCheckEyeImageId: 'eye-image-password-check'
 };
 export const loginAction = () => {
   return (window.location.href = '../pages/folder.html');
