@@ -4,7 +4,7 @@ const emailRegEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const pwRegEx = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
 
-const isThisEmailNotRegisteredInServer = async function (inputtedAccountEmail) {
+const EmailRegisterStatusInServer = async function (inputtedAccountEmail) {
    const EmailWhichWantToBeCheck = {email : inputtedAccountEmail}
    const responseAboutAccountData = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
       method : 'POST',
@@ -13,7 +13,7 @@ const isThisEmailNotRegisteredInServer = async function (inputtedAccountEmail) {
       },
       body : JSON.stringify(EmailWhichWantToBeCheck)
    });
-   return (responseAboutAccountData.status == 200)
+   return responseAboutAccountData.status
 }
 
 // 체크 함수
@@ -22,4 +22,4 @@ const isValidPw = (password) => (Boolean(password.match(pwRegEx)));
 const isValidPwChecking = (inputtedPw, inputtedPwCheck) => (inputtedPw == inputtedPwCheck);
 
 
-export {isValidEmail, isValidPw, isValidPwChecking, isThisEmailNotRegisteredInServer};
+export {isValidEmail, isValidPw, isValidPwChecking, EmailRegisterStatusInServer};

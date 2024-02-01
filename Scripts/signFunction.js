@@ -28,21 +28,21 @@ const focusToInput = function (e, errSection) {
 const blurFromInput = function (e, errMsgSection, errMsg, customCondition = true, customConditionErr = ERROR_TYPE.ERROR_IS_NOT_IDENTIFIED) {
    const sectionValue = e.target.value;
    const isEmailSection = e.target.type == 'email';
-
+   
    if (!sectionValue) {
       errPrint(e.target, errMsgSection, errMsg);
-      return;
-   }
-
-   // customCondition 추가 검사. 기본적으로 Pass
-   if (!customCondition) {
-      errPrint(e.target, errMsgSection, customConditionErr);
       return;
    }
 
    // Email Input인 경우의 형식 검사.
    if (isEmailSection && !isValidEmail(sectionValue)) {
       errPrint(e.target, errMsgSection, ERROR_TYPE.EMAIL_IS_NOT_VALID);
+      return;
+   }
+   
+   // customCondition 추가 검사. 기본적으로 Pass
+   if (!customCondition) {
+      errPrint(e.target, errMsgSection, customConditionErr);
    }
 }
 
