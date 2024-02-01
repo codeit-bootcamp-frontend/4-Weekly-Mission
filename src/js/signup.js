@@ -30,22 +30,20 @@ if (localStorage.getItem("accessToken")) {
 }
 
 const checkEmailIsValid = (e) => {
-  let isValid = false;
-
   const isFilled = isFilledInput(e.target);
   const isValidForm = isValidEmailForm(e.target);
 
   if (!isFilled) {
     showErrorMessage(true, e.target, "email", ERROR_MESSAGE_EMPTY_EMAIL);
-    return isValid;
+    return;
   } else if (!isValidForm) {
     showErrorMessage(true, e.target, "email", ERROR_MESSAGE_INVALID_EMAIL);
-    return isValid;
+    return;
   }
   // 이메일 인풋이 채워져있고, 올바른 형식일 때, 중복 이메일인지 확인하는 로직
   // 재사용하지 않으므로 즉시 실행 함수로 처리
   (async function requestCheckEmailApi() {
-    const emailInfo = {
+    const emailBody = {
       email: e.target.value,
     };
     try {
@@ -56,7 +54,7 @@ const checkEmailIsValid = (e) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(emailInfo),
+          body: JSON.stringify(emailBody),
         },
       );
       if (response.ok) {
@@ -65,7 +63,6 @@ const checkEmailIsValid = (e) => {
 
         if (isUsableNickname) {
           showErrorMessage(false, e.target, "email");
-          isValid = true;
         }
       } else if (response.status === 409) {
         throw new Error("Email Conflict");
@@ -79,13 +76,9 @@ const checkEmailIsValid = (e) => {
       }
     }
   })();
-
-  return isValid;
 };
 
 const checkPasswordIsValid = (e) => {
-  let isValid = false;
-
   const isFilled = isFilledInput(e.target);
   const isValidForm = isValidPasswordForm(e.target);
 
@@ -103,9 +96,6 @@ const checkPasswordIsValid = (e) => {
   }
 
   showErrorMessage(false, e.target, "password");
-  isValid = true;
-
-  return isValid;
 };
 
 const checkPasswordCheckIsValid = (e) => {
@@ -133,17 +123,41 @@ const checkPasswordCheckIsValid = (e) => {
   return isValid;
 };
 
-const isValidSignup = (e) => {
+const handleSignUp = (e) => {
   e.preventDefault();
 
-  const isValidEmail = checkEmailIsValid({ target: inputEmail });
-  const isValidPassword = checkPasswordIsValid({ target: inputPassword });
   const isValidPasswordCheck = checkPasswordCheckIsValid({
     target: inputPasswordCheck,
   });
 
-  if (isValidEmail && isValidPassword && isValidPasswordCheck) {
-    form.submit();
+  // email과 password에 대한 에러는 API 단에서 검증해주므로, password 확인만 검증해줌.
+  if (isValidPasswordCheck) {
+    (async function requestSignUpApi() {
+      try {
+        const registrationBody = {
+          email: inputEmail.value,
+          password: inputPassword.value,
+        };
+
+        const response = await fetch(
+          "https://bootcamp-api.codeit.kr/api/sign-up",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(registrationBody),
+          },
+        );
+        if (response.ok) {
+          location.href = "folder.html";
+        } else {
+          throw new Error("SignUp Error");
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    })();
   }
 };
 
@@ -153,10 +167,10 @@ inputPassword.addEventListener("focusout", checkPasswordIsValid);
 inputPasswordCheck.addEventListener("focusout", checkPasswordCheckIsValid);
 
 // 폼 제출 이벤트
-btnSignupSubmit.addEventListener("click", isValidSignup);
+btnSignupSubmit.addEventListener("click", handleSignUp);
 form.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    isValidSignup(e);
+    handleSignUp(e);
   }
 });
 
