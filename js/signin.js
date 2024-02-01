@@ -7,13 +7,7 @@ import {
   InputFocusEvent,
 } from '/js/login.js';
 
-import {
-  TESTEMAIL,
-  TESTPASSWORD,
-  INPUTEMPTY,
-  INPUTINVAILED,
-  INPUTCORRECT,
-} from '/js/variable.js';
+import {EMPTY_INPUT, INVAILED_INPUT, CORRECT_INPUT} from '/js/variable.js';
 
 const emailInput = document.querySelector('#email-input');
 const passwordInput = document.querySelector('#password-input');
@@ -27,11 +21,20 @@ let inputData = {
   password: null,
 };
 
-const submitInput = e => {
+const submitInput = async e => {
   e.preventDefault();
-  if (inputData.email === TESTEMAIL && inputData.password === TESTPASSWORD) {
+  try {
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+      method: 'POST',
+      headers: {
+        'content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputData),
+    });
+    const result = JSON.parse(await response.text());
+    localStorage.setItem('accessToken', result.data.accessToken);
     window.location.href = '/page/folder';
-  } else {
+  } catch {
     viewWarningText(emailWarningText, '이메일을 확인해 주세요.');
     viewWarningText(passwordWarningText, '비밀번호를 확인해 주세요.');
   }
@@ -43,11 +46,11 @@ const emailInputFocustIn = () => {
 
 const emailInputFocustOut = () => {
   const status = checkEmail(inputData.email);
-  if (status === INPUTEMPTY)
+  if (status === EMPTY_INPUT)
     viewWarningText(emailWarningText, '이메일을 입력해주세요.');
-  else if (status === INPUTINVAILED)
+  else if (status === INVAILED_INPUT)
     viewWarningText(emailWarningText, '올바른 이메일 주소가 아닙니다.');
-  else if (status === INPUTCORRECT) hiddenWarningText(emailWarningText);
+  else if (status === CORRECT_INPUT) hiddenWarningText(emailWarningText);
 };
 
 const passwordInputFocustIn = () => {
@@ -56,9 +59,9 @@ const passwordInputFocustIn = () => {
 
 const passwordInputFocusOut = () => {
   const status = checkPassword(inputData.password);
-  if (status === INPUTEMPTY)
+  if (status === EMPTY_INPUT)
     viewWarningText(passwordWarningText, '비밀번호를  입력해주세요');
-  else if (status === INPUTCORRECT) hiddenWarningText(passwordWarningText);
+  else if (status === CORRECT_INPUT) hiddenWarningText(passwordWarningText);
 };
 
 const eyeBtnOnclick = () => {

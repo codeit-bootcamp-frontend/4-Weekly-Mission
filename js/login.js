@@ -1,4 +1,4 @@
-import {INPUTEMPTY, INPUTINVAILED, INPUTCORRECT} from '/js/variable.js';
+import {EMPTY_INPUT, INVAILED_INPUT, CORRECT_INPUT} from '/js/variable.js';
 
 export const viewWarningText = (target, message) => {
   const inputBox = target.parentNode.querySelector('input');
@@ -15,14 +15,14 @@ export const hiddenWarningText = target => {
 
 export const checkEmail = value => {
   const regex = new RegExp('[a-zA-Z0-9]+@[a-z]+.[a-z]{2,3}');
-  if (value === null || value === '') return INPUTEMPTY;
-  if (!regex.test(value)) return INPUTINVAILED;
-  return INPUTCORRECT;
+  if (value === null || value === '') return EMPTY_INPUT;
+  if (!regex.test(value)) return INVAILED_INPUT;
+  return CORRECT_INPUT;
 };
 
 export const checkPassword = value => {
-  if (value === null || value === '') return INPUTEMPTY;
-  return INPUTCORRECT;
+  if (value === null || value === '') return EMPTY_INPUT;
+  return CORRECT_INPUT;
 };
 
 export const visiblePassword = target => {

@@ -8,10 +8,10 @@ import {
 } from '/js/login.js';
 
 import {
-  TESTEMAIL,
-  INPUTEMPTY,
-  INPUTINVAILED,
-  INPUTCORRECT,
+  MAIL_TEST,
+  EMPTY_INPUT,
+  INVAILED_INPUT,
+  CORRECT_INPUT,
 } from '/js/variable.js';
 
 const emailInput = document.querySelector('#email-input');
@@ -47,18 +47,18 @@ const checkPasswordType = value => {
 };
 
 const emailInputFocustOut = () => {
-  if (dataInput.email === TESTEMAIL) {
+  if (dataInput.email === MAIL_TEST) {
     viewWarningText(emailWarningText, '이미 사용 중인 이메일입니다.');
     return;
   }
 
   const status = checkEmail(dataInput.email);
-  if (status === INPUTEMPTY) {
+  if (status === EMPTY_INPUT) {
     viewWarningText(emailWarningText, '이메일을 입력해주세요.');
     return;
   }
 
-  if (status === INPUTINVAILED) {
+  if (status === INVAILED_INPUT) {
     viewWarningText(emailWarningText, '올바른 이메일 주소가 아닙니다.');
     return;
   }
@@ -80,7 +80,7 @@ const passwordInputFocusOut = target => {
     viewWarningText(textTarget, '비밀번호가 일치하지 않아요');
     return;
   }
-  if (checkPassword(dataInput.password) === INPUTEMPTY) {
+  if (checkPassword(dataInput.password) === EMPTY_INPUT) {
     viewWarningText(textTarget, '비밀번호를 입력해주세요.');
     return;
   }
@@ -108,7 +108,7 @@ const checkInputValidation = ([...args]) => {
   for (let {target, callback} of args) {
     for (let method of callback) {
       const result = method(target);
-      if (result !== INPUTCORRECT && result !== true) {
+      if (result !== CORRECT_INPUT && result !== true) {
         return false;
       }
     }
