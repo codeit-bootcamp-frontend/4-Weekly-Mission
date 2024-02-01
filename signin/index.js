@@ -63,6 +63,7 @@ function signInChecker(e) {
     })
         .then((response) => {
             if (response.status === 200) {
+                EMAIL_INPUT.value = '';
                 location.assign('/folder');
             } else {
                 const CHECK_YOUR_EMAIL = '이메일을 확인해 주세요.';
