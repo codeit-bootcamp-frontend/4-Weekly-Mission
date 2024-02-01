@@ -1,4 +1,8 @@
-import { validateEmail, validatePassword } from './validation.js';
+import {
+  validateEmail,
+  validatePassword,
+  validatePasswordRepeat,
+} from './validation.js';
 import { CLASS } from './class.js';
 import { USER_TEST } from './test.js';
 
@@ -114,15 +118,19 @@ export function handleClickBlindButton(event) {
 }
 
 export function validateInput(type, value, scope = document) {
-  if (type === INPUT_TYPE.EMAIL) {
-    return validateEmail(value);
-  } else if (type === INPUT_TYPE.PASSWORD) {
-    return validatePassword(value);
-  } else if (type === INPUT_TYPE.PASSWORD_REPEAT) {
-    const passwordInput = scope.querySelector('input[data-type="password"');
-    return passwordInput.value === value;
-  } else {
-    return false;
+  switch (type) {
+    case INPUT_TYPE.EMAIL:
+      return validateEmail(value);
+    case INPUT_TYPE.PASSWORD:
+      return validatePassword(value);
+    case INPUT_TYPE.PASSWORD_REPEAT:
+      return validatePasswordRepeat(
+        value,
+        'input[data-type="password"]',
+        scope
+      );
+    default:
+      return false;
   }
 }
 
