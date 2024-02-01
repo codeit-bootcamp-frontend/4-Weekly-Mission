@@ -89,15 +89,17 @@ function isValidSignUp(emailInputValue, passwordInputValue, passwordCheckInputVa
 
 //이메일 에러 검사
 function validateEmail() {
-  if (isTextEmpty(emailInput.value)) {
+  const email = emailInput.value;
+
+  if (isTextEmpty(email)) {
     return showError(emailInput, emailErrorMessageElement, "이메일을 입력해 주세요.");
   }
 
-  if (!isValidEmailFormat(emailInput.value)) {
+  if (!isValidEmailFormat(email)) {
     return showError(emailInput, emailErrorMessageElement, "올바른 이메일 주소가 아닙니다.");
   }
 
-  if (isEmailMatching(emailInput.value)) {
+  if (isEmailMatching(email)) {
     return showError(emailInput, emailErrorMessageElement, "이미 사용 중인 이메일입니다.");
   }
 
@@ -106,11 +108,13 @@ function validateEmail() {
 
 //비밀번호 에러 검사
 function validatePassword() {
-  if (isTextEmpty(passwordInput.value)) {
+  const password = passwordInput.value;
+
+  if (isTextEmpty(password)) {
     return showError(passwordInput, passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
   }
 
-  if (!isValidPasswordFormat(passwordInput.value)) {
+  if (!isValidPasswordFormat(password)) {
     return showError(passwordInput, passwordErrorMessageElement, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
   }
 
@@ -119,11 +123,14 @@ function validatePassword() {
 
 //비밀번호 확인 에러 검사
 function validatePasswordCheck() {
-  if (isTextEmpty(passwordCheckInput.value)) {
+  const password = passwordInput.value;
+  const passwordCheck = passwordCheckInput.value;
+
+  if (isTextEmpty(passwordCheck)) {
     return showError(passwordCheckInput, passwordCheckErrorMessageElement, "비밀번호를 입력해 주세요.");
   }
 
-  if (!isPasswordMatching(passwordInput.value, passwordCheckInput.value)) {
+  if (!isPasswordMatching(password, passwordCheck)) {
     return showError(passwordCheckInput, passwordCheckErrorMessageElement, "비밀번호가 일치하지 않아요.");
   }
 
@@ -132,7 +139,11 @@ function validatePasswordCheck() {
 
 //회원가입 성공/실패
 function checkSignUp() {
-  if (!isValidSignUp(emailInput.value, passwordInput.value, passwordCheckInput.value)) {
+  const email = emailInput.value;
+  const password = passwordInput.value;
+  const passwordCheck = passwordCheckInput.value;
+
+  if (!isValidSignUp(email, password, passwordCheck)) {
     validateEmail();
     validatePassword();
     validatePasswordCheck();

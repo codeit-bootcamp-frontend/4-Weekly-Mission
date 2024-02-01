@@ -71,7 +71,10 @@ function validatePassword() {
 
 //로그인 성공/실패
 function checkSignIn() {
-  if (!isValidUser(emailInput.value, passwordInput.value)) {
+  const email = emailInput.value;
+  const password = passwordInput.value;
+
+  if (!isValidUser(email, password)) {
     showError(emailInput, emailErrorMessageElement, "이메일을 확인해 주세요.");
     showError(passwordInput, passwordErrorMessageElement, "비밀번호를 확인해 주세요.");
     return;
