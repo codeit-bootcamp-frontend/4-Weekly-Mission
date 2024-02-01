@@ -151,8 +151,10 @@ const handleSignUp = (e) => {
         );
         if (response.ok) {
           location.href = "folder.html";
-        } else {
+        } else if (response.status === 400) {
           throw new Error("SignUp Error");
+        } else {
+          throw new Error("Other Error");
         }
       } catch (error) {
         console.log(error.message);
