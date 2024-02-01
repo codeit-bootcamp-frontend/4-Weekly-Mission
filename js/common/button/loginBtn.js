@@ -20,12 +20,12 @@ async function handleSuccessfulLoginAndRedirect(){
         password: passwordInput,
       }),
     })
-
+    
     const result = await postRequestOfCodeitAPI.json();
     const accessTokenData = result.data.accessToken;
     
     //유저 토큰 로컬 스토리지 저장
-    tokenSetting.saveToLocalStorage('user', accessTokenData)
+    tokenSetting.saveToLocalStorage(emailInput, accessTokenData)
 
     return location.href = 'folder.html';
   } catch (error) {
@@ -34,10 +34,10 @@ async function handleSuccessfulLoginAndRedirect(){
     errMsg(email.selector, '이메일을 확인해 주세요.');
     errMsg(password.selector, '비밀번호를 확인해 주세요.');
   }
-  
 }
 
-function validation() {
+function validation(e) {
+  e.preventDefault();//submit방지
   //초기화
   init(email.selector);
   init(password.selector);

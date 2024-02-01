@@ -1,4 +1,4 @@
-import {email, password, eye, blur, signup, enterEvent} from '../common/loginCommon.js';
+import {email, password, eye, blur, signup, enterEvent, token} from '../common/loginCommon.js';
 
 //email focus out 이벤트
 email.selector.addEventListener('blur', (e) => blur.signupEmail(e));
@@ -14,7 +14,12 @@ eye.eyeIcon.addEventListener('click', (e) => eye.toggleEyeIcon(e));
 eye.eyeIcon2.addEventListener('click', (e) => eye.toggleEyeIcon(e));
 
 // 회원가입 클릭 이벤트
-signup.btn.addEventListener('click', () => signup.validation());
+signup.btn.addEventListener('click', (e) => signup.validation(e));
 
 // 엔터 이벤트
 window.addEventListener('keyup', (e) => enterEvent(e));
+
+// 로컬 스토리지에 토큰 존재 시 folder로 이동
+if(token.isLocalStorageExist()){
+  window.location.href = 'folder.html'
+}

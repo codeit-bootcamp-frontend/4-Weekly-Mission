@@ -10,12 +10,12 @@ password.selector.addEventListener('blur', (e) => blur.signinPassword(e));
 eye.eyeIcon.addEventListener('click', (e) => eye.toggleEyeIcon(e));
 
 // 로그인 성공 이벤트
-login.btn.addEventListener('click', () => login.validation());
+login.btn.addEventListener('click', (e) => login.validation(e));
 
 // 엔터 이벤트
 window.addEventListener('keyup', (e) => enterEvent(e));
 
-// accessToken확인되면 folder로 이동
-if(token.isUserTokenExist()){
+// 로컬 스토리지에 토큰 존재 시 folder로 이동
+if(token.isLocalStorageExist()){
   window.location.href = 'folder.html'
 }
