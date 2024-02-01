@@ -13,36 +13,36 @@ const ERROR_TYPE = {
    ERROR_IS_NOT_IDENTIFIED : '식별되지 않은 로직 오류'
 };
 
-const printError = function (erroredInput, messageSection, message) {
-   erroredInput.classList.add('signError');
-   messageSection.textContent = message;
+const printErr = function (erredInput, msgSection, msg) {
+   erredInput.classList.add('signErr');
+   msgSection.textContent = msg;
 };
 
 // Focus
-const inputFocus = function (e, errorSection) {
-   e.target.classList.remove('signError');
-   errorSection.textContent = '';
+const inputFocus = function (e, errSection) {
+   e.target.classList.remove('signErr');
+   errSection.textContent = '';
 };
 
 // Blur - 별다른 조건이 없을 경우, input의 값 유무
-const inputBlur = function (e, errorMessageSection, errorMessage, customCondition = true, customConditionError = ERROR_TYPE.ERROR_IS_NOT_IDENTIFIED) {
+const inputBlur = function (e, errMsgSection, errMsg, customCondition = true, customConditionErr = ERROR_TYPE.ERROR_IS_NOT_IDENTIFIED) {
    const sectionValue = e.target.value;
    const isEmailSection = e.target.type == 'email';
 
    if (!sectionValue) {
-      printError(e.target, errorMessageSection, errorMessage);
+      printErr(e.target, errMsgSection, errMsg);
       return;
    }
 
    // customCondition 추가 검사. 기본적으로 Pass
    if (!customCondition) {
-      printError(e.target, errorMessageSection, customConditionError);
+      printErr(e.target, errMsgSection, customConditionErr);
       return;
    }
 
    // Email Input인 경우의 형식 검사.
    if (isEmailSection && !isValidEmail(sectionValue)) {
-      printError(e.target, errorMessageSection, ERROR_TYPE.EMAIL_IS_NOT_VALID);
+      printErr(e.target, errMsgSection, ERROR_TYPE.EMAIL_IS_NOT_VALID);
    }
 }
 
@@ -78,4 +78,4 @@ const accountRegisterWasSuccessful = async (inputtedAccountData) => {
 }
 
 
-export {inputFocus, inputBlur, printError, isThisLoginWasSuccessful,accountRegisterWasSuccessful , ERROR_TYPE};
+export {inputFocus, inputBlur, printErr, isThisLoginWasSuccessful,accountRegisterWasSuccessful , ERROR_TYPE};

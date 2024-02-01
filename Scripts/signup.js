@@ -1,4 +1,4 @@
-import {inputFocus, inputBlur, printError, accountRegisterWasSuccessful, ERROR_TYPE} from './signFunction.js';
+import {inputFocus, inputBlur, printErr, accountRegisterWasSuccessful, ERROR_TYPE} from './signFunction.js';
 import {isValidEmail, isValidPw, isValidPwChecking, isThisEmailNotRegisteredInServer} from './accountDataVerification.js';
 import pwTypeToggleAssign from './pwTypeToggle.js';
 import {RedirectToFolderIfClientHasToken} from './tokenHandle.js'
@@ -60,15 +60,15 @@ const submitSignupData = async function (e) {
    // 오류가 초기화 됐을 때도 제출할 시 모든 오류가 표시되도록 모든 경우의 수 고려 필요
    try {
       const isThisEmailNotOccupied = await isThisEmailNotRegisteredInServer(triedSignupAccountData.email)
-      if (!isValidEmail(emailInput)) {printError(emailInput, emailErrSection, ERROR_TYPE.EMAIL_IS_NOT_VALID); signupValid = false;}; // 이메일 형식 안맞음!
-      if (!isValidPw(passInput)) {printError(pwInput, pwErrSection,ERROR_TYPE.PW_IS_NOT_VALID); signupValid = false;}; // 패스워드 형식이 맞지 않음!!
-      if (!isValidPwChecking) {printError(pwCheckInput, pwCheckErrSection, ERROR_TYPE.PW_CHECK_MISMATCH_WITH_PASSWORD); signupValid = false;}; // 패스워드 체크가 다름!
-      if (!emailInput) {printError(emailInput, emailErrSection, ERROR_TYPE.EMAIL_SECTION_BLANK); signupValid = false;}; // 이메일 없음!
-      if (!passInput) {printError(pwInput, pwErrSection,ERROR_TYPE.PW_SECTION_BLANK); signupValid = false;}; // 패스워드 없음!
-      if (!passCheckInput) {printError(pwCheckInput, pwCheckErrSection,ERROR_TYPE.PW_SECTION_BLANK); signupValid = false;}; // 패스워드 체크 없음!
+      if (!isValidEmail(emailInput)) {printErr(emailInput, emailErrSection, ERROR_TYPE.EMAIL_IS_NOT_VALID); signupValid = false;}; // 이메일 형식 안맞음!
+      if (!isValidPw(passInput)) {printErr(pwInput, pwErrSection,ERROR_TYPE.PW_IS_NOT_VALID); signupValid = false;}; // 패스워드 형식이 맞지 않음!!
+      if (!isValidPwChecking) {printErr(pwCheckInput, pwCheckErrSection, ERROR_TYPE.PW_CHECK_MISMATCH_WITH_PASSWORD); signupValid = false;}; // 패스워드 체크가 다름!
+      if (!emailInput) {printErr(emailInput, emailErrSection, ERROR_TYPE.EMAIL_SECTION_BLANK); signupValid = false;}; // 이메일 없음!
+      if (!passInput) {printErr(pwInput, pwErrSection,ERROR_TYPE.PW_SECTION_BLANK); signupValid = false;}; // 패스워드 없음!
+      if (!passCheckInput) {printErr(pwCheckInput, pwCheckErrSection,ERROR_TYPE.PW_SECTION_BLANK); signupValid = false;}; // 패스워드 체크 없음!
       if (!isThisEmailNotOccupied) {throw new Error();}
    } catch {
-      printError(emailInput, emailErrSection, ERROR_TYPE.EMAIL_IS_ALREADY_REGISTERED); signupValid = false; // 이미 사용중인 이메일!   
+      printErr(emailInput, emailErrSection, ERROR_TYPE.EMAIL_IS_ALREADY_REGISTERED); signupValid = false; // 이미 사용중인 이메일!   
       signupValid = false;
    }
 

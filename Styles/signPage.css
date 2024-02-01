@@ -74,11 +74,11 @@ input:focus{
    background-image: url(../Images/Icons/eye-on.svg);
 }
 
-.signError {
+.signErr {
    border: 1px solid var(--LBrary-Red);
 }
 
-.errMessage {
+.errMsg {
    color: var(--LBrary-Red);
    font-size: 1.4rem;
    font-weight: 400;

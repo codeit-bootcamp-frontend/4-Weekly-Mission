@@ -1,4 +1,4 @@
-import {inputFocus, inputBlur, printError, isThisLoginWasSuccessful, ERROR_TYPE} from './signFunction.js'
+import {inputFocus, inputBlur, printErr, isThisLoginWasSuccessful, ERROR_TYPE} from './signFunction.js'
 import pwTypeToggleBtnAssign from './pwTypeToggle.js';
 import {RedirectToFolderIfClientHasToken} from './tokenHandle.js'
 
@@ -48,8 +48,8 @@ const signinDataSubmit = async function (e)  {
       }
       window.location.href = './folder.html';
    } catch {
-      printError(emailInput, emailErrTextSection, ERROR_TYPE.EMAIL_MISMATCH_WITH_ACCOUNT);
-      printError(pwInput, pwErrTextSection, ERROR_TYPE.PW_MISMATCH_WITH_ACCOUNT);
+      printErr(emailInput, emailErrTextSection, ERROR_TYPE.EMAIL_MISMATCH_WITH_ACCOUNT);
+      printErr(pwInput, pwErrTextSection, ERROR_TYPE.PW_MISMATCH_WITH_ACCOUNT);
    }
 }
 
