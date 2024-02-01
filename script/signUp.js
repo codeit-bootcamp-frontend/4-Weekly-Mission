@@ -1,12 +1,16 @@
+import { emailValid, passwordValid, isPasswordSame } from "./valid.js";
 import { ERROR_MESSAGE } from "./errorType.js";
 
 //변수 선언
 const loginContainer = document.querySelector(".login-container");
 const inputEmail = document.querySelector(".email");
 const inputPassword = document.querySelector(".password");
+const inputPasswordCheck = document.querySelector("#password-check");
 const eyeOff = document.querySelector(".eye-off");
 const eyeOn = document.querySelector(".eye-on");
-const loginBtn = document.querySelector(".login-btn");
+const eyeOff_2 = document.querySelector(".eye-off-2");
+const eyeOn_2 = document.querySelector(".eye-on-2");
+const joinBtn = document.querySelector(".join-btn");
 
 //에러태그를 생성하는 함수 입니다.
 function makeError(type, errorType) {
@@ -43,6 +47,10 @@ function addEmailError() {
     removeIfEmailError();
     makeError("email", ERROR_MESSAGE.email.check);
   }
+  if (inputEmail.value === "test@codeit.com") {
+    removeIfEmailError();
+    makeError("email", ERROR_MESSAGE.email.inUse);
+  }
 }
 
 //비밀번호에러를 추가하는 함수입니다.
@@ -57,6 +65,14 @@ function addPasswordError() {
   if (inputPassword.value !== "" && !passwordRegex.test(inputPassword.value)) {
     removeIfPasswordError();
     makeError("password", ERROR_MESSAGE.password.invalid);
+  }
+}
+
+//비밀번호확인 에러를 추가하는 함수입니다.
+function addPasswordCheckError() {
+  if (inputPasswordCheck.value !== inputPassword.value) {
+    removeIfPasswordCheckError();
+    makeError("passwordcheck", ERROR_MESSAGE.passwordcheck.recheck);
   }
 }
 
@@ -81,41 +97,71 @@ function removeIfPasswordError() {
     loginContainer.classList.remove("error");
   }
 }
-//로그인 버튼의 이벤트를 구현한 함수입니다.
-function Login() {
+
+//비밀번호에서 오류태그인 p태그가 연속적으로 쌓이는 것을 방지하기 위한 에러태그가 있다면 제거하는 함수입니다.
+function removeIfPasswordCheckError() {
+  const errorEmptyPasswordCheck = document.querySelector(
+    ".password-check-error"
+  );
+
+  if (errorEmptyPasswordCheck) {
+    errorEmptyPasswordCheck.remove();
+    inputPasswordCheck.classList.remove("input-error");
+    eyeOff.classList.remove("eye-error");
+    loginContainer.classList.remove("error");
+  }
+}
+
+//회원가입 버튼의 이벤트를 구현한 함수입니다.
+function join() {
   if (
-    inputEmail.value === "test@codeit.com" &&
-    inputPassword.value === "codeit101"
+    emailValid(inputEmail.value) &&
+    passwordValid(inputPassword.value) &&
+    isPasswordSame(inputPassword.value, inputPasswordCheck.value)
   ) {
     window.location.assign("./folder");
   } else {
     removeIfEmailError();
     removeIfPasswordError();
-    makeError("email", ERROR_MESSAGE.email.check);
-    makeError("password", ERROR_MESSAGE.password.check);
+    removeIfPasswordCheckError();
+    addEmailError();
+    addPasswordError();
+    addPasswordCheckError();
   }
 }
-//keypress가 일어났을때 Enter키를 눌렀는지 확인하고 Login()을 실행하는 함수입니다.
-function enterLogin(e) {
+//keypress가 일어났을때 Enter키를 눌렀는지 확인하고 join()을 실행하는 함수입니다.
+function enterjoin(e) {
   if (e.key === "Enter") {
-    Login();
+    join();
     e.preventDefault();
   }
 }
 //눈이미지를 클릭했을때 눈의 이미지를 토글하는 함수입니다. 토글시 비밀번호의 노출여부도 바뀝니다.
 function eyeClick(e) {
-  console.log(e.target.parentElement);
   if (e.target.parentElement === eyeOff) {
-    eyeOff.classList.add("invisible");
+    eyeOff.classList.add("visible");
     eyeOn.classList.remove("invisible");
     inputPassword.type = "text";
   }
   if (e.target.parentElement === eyeOn) {
     eyeOn.classList.add("invisible");
-    eyeOff.classList.remove("invisible");
+    eyeOff.classList.remove("visible");
     inputPassword.type = "password";
   }
-
+  e.preventDefault();
+}
+//비밀번호 확인에 있는 이미지를 클릭했을때 눈의 이미지를 토글하는 함수입니다. 토글시 비밀번호의 노출여부도 바뀝니다.
+function eyeClick_2(e) {
+  if (e.target.parentElement === eyeOff_2) {
+    eyeOff_2.classList.add("visible");
+    eyeOn_2.classList.remove("invisible");
+    inputPasswordCheck.type = "text";
+  }
+  if (e.target.parentElement === eyeOn_2) {
+    eyeOn_2.classList.add("invisible");
+    eyeOff_2.classList.remove("visible");
+    inputPasswordCheck.type = "password";
+  }
   e.preventDefault();
 }
 
@@ -124,7 +170,11 @@ inputEmail.addEventListener("focusout", addEmailError);
 inputEmail.addEventListener("focusin", removeIfEmailError);
 inputPassword.addEventListener("focusout", addPasswordError);
 inputPassword.addEventListener("focusin", removeIfPasswordError);
-loginBtn.addEventListener("click", Login);
-document.body.addEventListener("keypress", enterLogin);
+inputPasswordCheck.addEventListener("focusout", addPasswordCheckError);
+inputPasswordCheck.addEventListener("focusin", removeIfPasswordCheckError);
+joinBtn.addEventListener("click", join);
+document.body.addEventListener("keypress", enterjoin);
 eyeOff.addEventListener("click", eyeClick);
 eyeOn.addEventListener("click", eyeClick);
+eyeOff_2.addEventListener("click", eyeClick_2);
+eyeOn_2.addEventListener("click", eyeClick_2);

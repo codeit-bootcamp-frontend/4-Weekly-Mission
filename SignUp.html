@@ -26,8 +26,11 @@
           <label for="password">비밀번호</label>
           <div class="password-box">
             <input type="password" class="password" />
-            <a href="" class="eye-off"
+            <a href="" class="eye-off visible"
               ><img src="/icons/eye-off.svg" alt=""
+            /></a>
+            <a href="" class="eye-on invisible"
+              ><img src="/icons/eye-on.svg" alt=""
             /></a>
           </div>
           <label for="password-check" class="password-check-label"
@@ -38,9 +41,12 @@
             <a href="" class="eye-off-2"
               ><img src="/icons/eye-off.svg" alt=""
             /></a>
+            <a href="" class="eye-on-2 invisible"
+              ><img src="/icons/eye-on.svg" alt=""
+            /></a>
           </div>
         </div>
-        <button type="button">로그인</button>
+        <button type="button" class="join-btn">회원가입</button>
         <footer>
           <div>다른 방식으로 가입하기</div>
           <div class="link-box">
@@ -54,5 +60,6 @@
         </footer>
       </div>
     </form>
+    <script type="module" src="script/signUp.js"></script>
   </body>
 </html>
