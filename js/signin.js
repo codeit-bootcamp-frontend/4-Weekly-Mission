@@ -36,12 +36,16 @@ const submitInput = async e => {
       },
       body: JSON.stringify(inputData),
     });
-    const result = JSON.parse(await response.text());
-    localStorage.setItem('accessToken', result.data.accessToken);
-    window.location.href = '/page/folder';
-  } catch {
-    viewWarningText(emailWarningText, '이메일을 확인해 주세요.');
-    viewWarningText(passwordWarningText, '비밀번호를 확인해 주세요.');
+    if (response.status === 200) {
+      const result = JSON.parse(await response.text());
+      localStorage.setItem('accessToken', result.data.accessToken);
+      window.location.href = '/page/folder';
+    } else {
+      viewWarningText(emailWarningText, '이메일을 확인해 주세요.');
+      viewWarningText(passwordWarningText, '비밀번호를 확인해 주세요.');
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
