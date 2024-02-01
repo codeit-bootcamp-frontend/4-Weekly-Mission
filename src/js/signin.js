@@ -52,36 +52,40 @@ const checkPasswordIsValid = (e) => {
 const handleSignIn = (e) => {
   e.preventDefault();
 
-  const credentials = {
-    email: inputEmail.value,
-    password: inputPassword.value,
-  };
+  (async function requestSignInApi() {
+    try {
+      const credentials = {
+        email: inputEmail.value,
+        password: inputPassword.value,
+      };
 
-  fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(credentials),
-  })
-    .then((response) => {
+      const response = await fetch(
+        "https://bootcamp-api.codeit.kr/api/sign-in",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(credentials),
+        },
+      );
       if (response.ok) {
-        return response.json();
-      } else {
-        throw new Error("Login Error");
-      }
-    })
-    .then((result) => result?.["data"])
-    .then((data) => {
-      if (data) {
+        const responseJson = await response.json();
+        const tokenData = responseJson["data"];
+        const accessTokenData = tokenData["accessToken"];
+
         showErrorMessage(false, inputEmail, "email");
         showErrorMessage(false, inputPassword, "password");
 
-        localStorage.setItem("accessToken", data["accessToken"]);
+        localStorage.setItem("accessToken", accessTokenData);
         location.href = "folder.html";
+      } else if (response.status === 400) {
+        throw new Error("Login Error");
+      } else {
+        throw new Error("Other Error");
       }
-    })
-    .catch((error) => {
+    } catch (error) {
+      console.log(error.message);
       if (error.message === "Login Error") {
         // 로그인 API 요청시 발생한 에러일 경우에만 에러 표시
         showErrorMessage(true, inputEmail, "email", ERROR_MESSAGE_WRONG_EMAIL);
@@ -91,10 +95,9 @@ const handleSignIn = (e) => {
           "password",
           ERROR_MESSAGE_WRONG_PASSWORD,
         );
-      } else {
-        console.log(error.message);
       }
-    });
+    }
+  })();
 };
 
 // 에러 표시 이벤트
