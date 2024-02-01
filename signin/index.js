@@ -1,3 +1,5 @@
+/* Service Logic */
+
 import {
   emailInput,
   passwordInput,
