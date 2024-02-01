@@ -8,6 +8,9 @@ body {
     font-family: Pretendard;
 }
 
+.none {
+    display: none;
+}
 
 .signup {
     display: flex;
@@ -127,6 +130,7 @@ body {
     width: 1rem;
     height: 1rem;
     transform: translateY(50%);
+    cursor: pointer;
 }
 
 #check {
@@ -193,6 +197,18 @@ body {
     flex-shrink: 0;
 }
 
+.error {
+    color: var(--Linkbrary-red);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-top: 6px;
+}
+
+.error-redline {
+    border-color: var(--Linkbrary-red);
+}
 /* Tablet */
 
 @media (max-width: 1199px) {
