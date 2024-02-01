@@ -30,7 +30,7 @@ const validator = {
     },
   },
 };
-const userList = {
+const userMap = {
   codeit: {
     email: "test@codeit.com",
     password: "codeit101",
@@ -49,7 +49,6 @@ const inputErrorMessageList = [
 // function
 function findInvalidKey(name, value) {
   const validationList = validator.validationMap[name];
-  console.log(validationList);
   const invalidKey = validationList.find(
     (key) => !validator.validations[key].validate(value)
   );
@@ -76,11 +75,11 @@ function toggleErrorStatus(target, invalidKey) {
 // Event Handler
 function handleFormSubmit(e) {
   e.preventDefault();
-  const emailInputEl = loginFormEl.querySelector("#email-input");
-  const pwInputEl = loginFormEl.querySelector("#password-input");
+  const emailInputEl = e.target.querySelector("#email-input");
+  const pwInputEl = e.target.querySelector("#password-input");
   if (
-    emailInputEl.value === userList.codeit.email &&
-    pwInputEl.value === userList.codeit.password
+    emailInputEl.value === userMap.codeit.email &&
+    pwInputEl.value === userMap.codeit.password
   ) {
     window.location.replace("/folder");
   } else {
@@ -92,14 +91,14 @@ function handleFormSubmit(e) {
 }
 
 function handleInputFocusout({ target }) {
-  if (target.tagName === "INPUT") {
-    const { name, value } = target;
-    const invalidKey = findInvalidKey(name, value);
-    toggleErrorStatus(target, invalidKey);
-  }
+  const { name, value } = target;
+  const invalidKey = findInvalidKey(name, value);
+  toggleErrorStatus(target, invalidKey);
 }
 
 // Event Listener
 loginFormEl.addEventListener("submit", handleFormSubmit);
-loginFormEl.addEventListener("focusout", handleInputFocusout);
+formInputList.forEach((el) =>
+  el.addEventListener("focusout", handleInputFocusout)
+);
 loginFormEl.addEventListener("click", handleClickEyeIcon);

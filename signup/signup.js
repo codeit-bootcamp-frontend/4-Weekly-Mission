@@ -84,14 +84,14 @@ function handleFormSubmit(e) {
 }
 
 function handleInputFocusout({ target }) {
-  if (target.tagName === "INPUT") {
-    const { name, value } = target;
-    const invalidKey = findInvalidKey(name, value);
-    toggleErrorStatus(target, invalidKey);
-  }
+  const { name, value } = target;
+  const invalidKey = findInvalidKey(name, value);
+  toggleErrorStatus(target, invalidKey);
 }
 
 // Event Listener
 loginFormEl.addEventListener("submit", handleFormSubmit);
-loginFormEl.addEventListener("focusout", handleInputFocusout);
+formInputList.forEach((el) =>
+  el.addEventListener("focusout", handleInputFocusout)
+);
 loginFormEl.addEventListener("click", handleClickEyeIcon);

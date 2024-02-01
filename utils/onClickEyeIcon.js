@@ -13,12 +13,13 @@ function handleClickEyeIcon({ target }) {
     return;
   }
   const inputIndex = eyeIconList.indexOf(target);
-  if (target.classList.contains(EYE_ICON_OFF)) {
-    passwordInputList[inputIndex].type = "text";
+  const targetInput = passwordInputList[inputIndex];
+  if (targetInput.type === "password") {
+    targetInput.type = "text";
     target.classList.add(EYE_ICON_ON);
     target.classList.remove(EYE_ICON_OFF);
   } else {
-    passwordInputList[inputIndex].type = "password";
+    targetInput.type = "password";
     target.classList.add(EYE_ICON_OFF);
     target.classList.remove(EYE_ICON_ON);
   }
