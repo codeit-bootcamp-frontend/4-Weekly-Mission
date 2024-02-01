@@ -133,6 +133,7 @@ form{
 /* error메시지 */
 .red{
   color: red;
+  font-size: 1rem;
 }
 .inputError{
   border: 1px solid red;
