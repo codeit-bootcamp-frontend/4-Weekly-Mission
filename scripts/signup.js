@@ -18,8 +18,8 @@ const {
   passwordErrorElementId,
   passwordCheckErrorElementId,
   loginFormId,
-  eyeImagePasswordId,
-  eyeImagePasswordCheckId
+  passwordEyeImageId,
+  passwordCheckEyeImageId
 } = INPUT_IDS;
 
 /** @type {HTMLInputElement} emailInput*/
@@ -31,9 +31,9 @@ const passwordCheckElement = DOMHandler.getById(passwordCheckElementId);
 /** @type {HTMLFormElement} loginForm*/
 const loginForm = DOMHandler.getById(loginFormId);
 /** @type {HTMLImageElement} eyeImagePassword*/
-const passwordEyeImageElement = DOMHandler.getById(eyeImagePasswordId);
+const passwordEyeImageElement = DOMHandler.getById(passwordEyeImageId);
 /** @type {HTMLImageElement} eyeImagePasswordCheck*/
-const passwordCheckEyeImageElement = DOMHandler.getById(eyeImagePasswordCheckId);
+const passwordCheckEyeImageElement = DOMHandler.getById(passwordCheckEyeImageId);
 DOMHandler.addPAfterElement(emailElement, emailErrorElementId, 'error-text');
 DOMHandler.addPAfterElement(passwordElement, passwordErrorElementId, 'error-text');
 DOMHandler.addPAfterElement(passwordCheckElement, passwordCheckErrorElementId, 'error-text');
@@ -54,7 +54,7 @@ const handleEmailElementFocusOut = () => {
     emailErrorElement?.classList.add('hidden');
     return;
   }
-  emailElement.classList.remove('red-box');
+  emailElement.classList.add('red-box');
   if (InputHandler.isEmptyValue(emailElement)) {
     SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.empty);
     return;
@@ -67,12 +67,17 @@ const handleEmailElementFocusIn = () => {
 };
 
 const handlePasswordElementFocusOut = () => {
+  passwordElement.classList.add('red-box');
+  if (InputHandler.isEmptyValue(passwordElement)) {
+    SignHandler.showErrorMessage(passwordErrorElement, PASSWORD_MESSAGE.empty);
+    return;
+  }
   if (InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX)) {
     passwordErrorElement?.classList.add('hidden');
+    passwordElement.classList.remove('red-box');
     return;
   }
   SignHandler.showErrorMessage(passwordErrorElement, PASSWORD_MESSAGE.invalid);
-  passwordElement.classList.add('red-box');
 };
 
 const handlePasswordElementFocusIn = () => {
@@ -89,7 +94,7 @@ const handlePasswordCheckElementFocusOut = () => {
 };
 
 const handlePasswordCheckElementFocusIn = () => {
-  passwordElement.classList.remove('red-box');
+  passwordCheckElement.classList.remove('red-box');
 };
 
 const handlePasswordEyeImageClick = () => {
