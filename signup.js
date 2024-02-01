@@ -55,30 +55,6 @@ function handleBlur(input, message) {
   }
 }
 
-emailInput.addEventListener("blur", function () {
-  // 이메일 입력란에 포커스를 잃었을 때의 처리
-  handleBlur(emailInput, getNewMessageElement("이메일을 입력해 주세요."));
-});
-
-passwordInput.addEventListener("blur", function () {
-  // 비밀번호 입력란에 포커스를 잃었을 때의 처리
-  const passwordMessage = getNewMessageElement(
-    "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
-  );
-  handleBlur(passwordInput, passwordMessage);
-});
-
-//눈 모양 이벤트
-document.querySelector(".eye-button").addEventListener("click", function () {
-  toggleEye(passwordInput);
-});
-
-document
-  .querySelector(".eye-button-check")
-  .addEventListener("click", function () {
-    toggleEye(passwordCheck);
-  });
-
 //비밀번호 일치 확인
 function handlePasswordCheck() {
   const password1 = passwordInput.value;
@@ -101,8 +77,6 @@ function handlePasswordCheck() {
     passwordCheck.classList.remove("empty-input");
   }
 }
-
-passwordCheck.addEventListener("blur", handlePasswordCheck);
 
 // 회원가입 시도
 function signUp(event) {
@@ -136,6 +110,32 @@ function signUp(event) {
   // 모든 유효성 검사 통과 시
   window.location.href = "/folder.html";
 }
+
+emailInput.addEventListener("blur", function () {
+  // 이메일 입력란에 포커스를 잃었을 때의 처리
+  handleBlur(emailInput, getNewMessageElement("이메일을 입력해 주세요."));
+});
+
+passwordInput.addEventListener("blur", function () {
+  // 비밀번호 입력란에 포커스를 잃었을 때의 처리
+  const passwordMessage = getNewMessageElement(
+    "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
+  );
+  handleBlur(passwordInput, passwordMessage);
+});
+
+//눈 모양 이벤트
+document.querySelector(".eye-button").addEventListener("click", function () {
+  toggleEye(passwordInput);
+});
+
+document
+  .querySelector(".eye-button-check")
+  .addEventListener("click", function () {
+    toggleEye(passwordCheck);
+  });
+
+passwordCheck.addEventListener("blur", handlePasswordCheck);
 
 // 로그인 버튼 클릭 시 signUp 함수 호출
 loginButton.addEventListener("click", signUp);
