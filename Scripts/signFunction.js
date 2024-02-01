@@ -1,5 +1,5 @@
 import {isValidEmail} from './accountDataVerification.js'
-import {returnAccessToken} from './tokenHandle.js'
+import {accessTokenReturn} from './tokenHandle.js'
 
 const ERROR_TYPE = {
    EMAIL_SECTION_BLANK : '이메일을 입력해 주세요.',
@@ -13,38 +13,39 @@ const ERROR_TYPE = {
    ERROR_IS_NOT_IDENTIFIED : '식별되지 않은 로직 오류'
 };
 
-const printErr = function (erredInput, msgSection, msg) {
+const errPrint = function (erredInput, msgSection, msg) {
    erredInput.classList.add('signErr');
    msgSection.textContent = msg;
 };
 
 // Focus
-const inputFocus = function (e, errSection) {
+const focusToInput = function (e, errSection) {
    e.target.classList.remove('signErr');
    errSection.textContent = '';
 };
 
 // Blur - 별다른 조건이 없을 경우, input의 값 유무
-const inputBlur = function (e, errMsgSection, errMsg, customCondition = true, customConditionErr = ERROR_TYPE.ERROR_IS_NOT_IDENTIFIED) {
+const blurFromInput = function (e, errMsgSection, errMsg, customCondition = true, customConditionErr = ERROR_TYPE.ERROR_IS_NOT_IDENTIFIED) {
    const sectionValue = e.target.value;
    const isEmailSection = e.target.type == 'email';
 
    if (!sectionValue) {
-      printErr(e.target, errMsgSection, errMsg);
+      errPrint(e.target, errMsgSection, errMsg);
       return;
    }
 
    // customCondition 추가 검사. 기본적으로 Pass
    if (!customCondition) {
-      printErr(e.target, errMsgSection, customConditionErr);
+      errPrint(e.target, errMsgSection, customConditionErr);
       return;
    }
 
    // Email Input인 경우의 형식 검사.
    if (isEmailSection && !isValidEmail(sectionValue)) {
-      printErr(e.target, errMsgSection, ERROR_TYPE.EMAIL_IS_NOT_VALID);
+      errPrint(e.target, errMsgSection, ERROR_TYPE.EMAIL_IS_NOT_VALID);
    }
 }
+
 
 // 로그인 시도 성공여부의 Boolean값
 const isThisLoginWasSuccessful =  async function (TriedAccountInformation) {
@@ -59,23 +60,24 @@ const isThisLoginWasSuccessful =  async function (TriedAccountInformation) {
 
    // 성공시 로컬 스토리지에 accessToken을 기록
    if (isLoginSuccess) {
-      const accountAccessToken = returnAccessToken(serverResponseAboutAccount)
+      const accountAccessToken = accessTokenReturn(serverResponseAboutAccount)
       localStorage.setItem('accessToken', accountAccessToken)
    }  
    return isLoginSuccess
 }
 
+
 // 회원가입 성공시 토큰 반환
-const accountRegisterWasSuccessful = async (inputtedAccountData) => {
+const accountRegister = async (inputtedAccountData) => {
    const serverResponseAboutAccount = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
       method : 'POST',
       headers : {
          "Content-type" : "application/json"},
       body : JSON.stringify(inputtedAccountData)
       })
-   const accountAccessToken = returnAccessToken(serverResponseAboutAccount)
+   const accountAccessToken = accessTokenReturn(serverResponseAboutAccount)
    localStorage.setItem('accessToken', accountAccessToken)
 }
 
 
-export {inputFocus, inputBlur, printErr, isThisLoginWasSuccessful,accountRegisterWasSuccessful , ERROR_TYPE};
+export {focusToInput, blurFromInput, errPrint, isThisLoginWasSuccessful,accountRegister , ERROR_TYPE};

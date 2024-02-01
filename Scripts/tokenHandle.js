@@ -2,13 +2,13 @@ const isAccessTokenValid = () => {
    return Boolean(localStorage.getItem('accessToken'))
 }
 
-const RedirectToFolderIfClientHasToken = () => {
+const pageRedirectToFolderIfClientHasToken = () => {
    if (isAccessTokenValid()) {
       window.location.href = './folder.html';
    }
 }
 
-const  returnAccessToken = async function (response) {
+const  accessTokenReturn = async function (response) {
    const responseConvertToText = await response.text()
    const responseObjectData = await JSON.parse(responseConvertToText)
    return responseObjectData.data.accessToken
@@ -19,4 +19,4 @@ const accessTokenRemoveFromLocalStorageToLogout = () => {
    window.location.href = '/index.html'
 }
 
-export {RedirectToFolderIfClientHasToken, returnAccessToken, accessTokenRemoveFromLocalStorageToLogout}
+export {pageRedirectToFolderIfClientHasToken, accessTokenReturn, accessTokenRemoveFromLocalStorageToLogout}
