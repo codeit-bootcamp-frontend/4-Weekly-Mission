@@ -79,11 +79,16 @@ function requestLogin() {
   })
   .then((response) => {
     if (response.status === 200) {
-      // 응답이 200인 경우에만 페이지를 이동
-      window.location.replace("../folder");
+      return response.text();
     } else {
       console.error('서버 응답이 성공적이지 않습니다. 상태 코드:', response.status);
     }
+  })
+  .then((result) => {
+    const jsonToObject = JSON.parse(result);
+    const accessToken = jsonToObject.data.accessToken;
+    localStorage.setItem("accessToken", accessToken);
+    //window.location.replace("../folder");
   })
   .catch((error) => {
     // fetch 요청 자체가 실패한 경우에 대한 처리

@@ -159,10 +159,17 @@ async function requestSignUp() {
   })
   .then((response) => {
     if (response.status === 200) {
-      window.location.replace("../folder");
+      //window.location.replace("../folder");
+      return response.text();
     } else {
       aleadyUse();
     }
+  })
+  .then((result) => {
+    const jsonToObject = JSON.parse(result);
+    const accessToken = jsonToObject.data.accessToken;
+    localStorage.setItem("accessToken", accessToken);
+    console.log(jsonToObject)
   })
   .catch((error) => {
     console.error('fetch 요청 실패:', error);
