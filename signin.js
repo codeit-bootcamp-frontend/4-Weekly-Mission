@@ -1,7 +1,7 @@
 import { accountInfo } from "./javascript/account.js"
 import { passwordToggle } from "./javascript/passwordToggle.js"
 import { emailFocus, emailBlur, passwordFocus, passwordBlur } from "./javascript/signFunction.js"
-
+import { login } from "./javascript/api/auth/login.js"
 // 
 const inputEmail = document.querySelector('.email-input')
 const inputPassword = document.querySelector('.password-input')
@@ -31,7 +31,7 @@ const onSubmit = (e) => {
   }
 
   if (inputEmailValue === matchedEmail && inputPasswordValue === matchedPassword) {
-    window.location.assign('folder.html')
+    login()
   }
   else if (inputEmailValue === matchedEmail && inputPasswordValue !== matchedPassword) {
     inputErrorHandler(inputPassword, '비밀번호를 확인해 주세요', 'password')
