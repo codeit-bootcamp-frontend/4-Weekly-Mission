@@ -1,6 +1,9 @@
-import {inputFocus, inputBlur, printError, ERROR_TYPE} from './signFunction.js';
-import {accountCheck, formatCheck, passFormatCheck, isPwCheckWasCorrectWithPw, isThisEmailNotRegisteredInServer, accountRegisterWasSuccessful} from './accountData.js';
+import {inputFocus, inputBlur, printError, accountRegisterWasSuccessful, ERROR_TYPE} from './signFunction.js';
+import {formatCheck, passFormatCheck, isPwCheckWasCorrectWithPw, isThisEmailNotRegisteredInServer} from './accountData.js';
 import pwTypeToggleAssign from './pwTypeToggle.js';
+import {RedirectToFolderIfClientHasToken} from './tokenHandle.js'
+// 토큰이 있을 경우 folder로 리다이렉트
+RedirectToFolderIfClientHasToken();
 
 // 비밀번호 토글 초기화
 pwTypeToggleAssign();
@@ -21,7 +24,7 @@ const passCheckErrorSection = signupPasswordCheckInput.parentElement.parentEleme
 signupEmailInput.addEventListener('input' , (e) => inputFocus(e, emailErrorSection));
 signupEmailInput.addEventListener('focus' , (e) => inputFocus(e, emailErrorSection));
 signupEmailInput.addEventListener('blur' , (e) => inputBlur(
-   e, emailErrorSection, ERROR_TYPE.EMAIL_SECTION_BLANK,!accountCheck(signupEmailInput.value), ERROR_TYPE.EMAIL_IS_ALREADY_REGISTERED));
+   e, emailErrorSection, ERROR_TYPE.EMAIL_SECTION_BLANK,!isThisEmailNotRegisteredInServer(signupEmailInput.value), ERROR_TYPE.EMAIL_IS_ALREADY_REGISTERED));
 
 
 // 패스워드 리스너 - 패스워드 형식 검증 조건 추가
@@ -47,15 +50,13 @@ const submitSignupData = async function (e) {
    const passCheckInput = signupPasswordCheckInput.value;
 
    // 계정정보 유효 확인
-   
+   let signupValid = true;
    const isPwCheckWasCorrectWithPw = passInput === passCheckInput;
-
    const triedSignupAccountData = {
       email : emailInput,
       password : passInput
    }
-
-   let signupValid = true;
+   
 
 
    // 오류가 초기화 됐을 때도 제출할 시 모든 오류가 표시되도록 모든 경우의 수 고려 필요

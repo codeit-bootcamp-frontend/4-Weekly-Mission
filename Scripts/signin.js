@@ -1,5 +1,10 @@
 import {inputFocus, inputBlur, printError, isThisLoginWasSuccessful, ERROR_TYPE} from './signFunction.js'
 import pwTypeToggleBtnAssign from './pwTypeToggle.js';
+import {RedirectToFolderIfClientHasToken} from './tokenHandle.js'
+
+// 토큰이 있을 경우 folder로 리다이렉트
+RedirectToFolderIfClientHasToken();
+
 
 // 비밀번호 토글 초기화 및 함수 등록
 pwTypeToggleBtnAssign();
@@ -50,3 +55,4 @@ const submitLoginData = async function (e)  {
 }
 
 confirmBtn.addEventListener('click' , (event) => submitLoginData(event));
+

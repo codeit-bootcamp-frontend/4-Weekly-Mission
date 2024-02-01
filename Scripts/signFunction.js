@@ -1,4 +1,5 @@
 import {formatCheck} from './accountData.js'
+import {returnAccessToken} from './tokenHandle.js'
 
 const ERROR_TYPE = {
    EMAIL_SECTION_BLANK : '이메일을 입력해 주세요.',
@@ -11,17 +12,6 @@ const ERROR_TYPE = {
    PW_CHECK_MISMATCH_WITH_PASSWORD : '비밀번호가 일치하지 않아요.',
    ERROR_IS_NOT_IDENTIFIED : '식별되지 않은 로직 오류'
 };
-
-const isThisLoginWasSuccessful =  async function (TriedAccountInformation, url) {
-   const serverResponseAboutAccount = await fetch (url, {
-      method : 'POST',
-         headers : {
-            "Content-type": "application/json"
-         }, 
-      body : JSON.stringify(TriedAccountInformation)
-   })
-   return serverResponseAboutAccount.status == 200
-}
 
 const printError = function (erroredInput, messageSection, message) {
    erroredInput.classList.add('signError');
@@ -54,5 +44,36 @@ const inputBlur = function (e, errorMessageSection, errorMessage, customConditio
    }
 }
 
+// 로그인 시도 성공여부의 Boolean값
+const isThisLoginWasSuccessful =  async function (TriedAccountInformation, url) {
+   const serverResponseAboutAccount = await fetch (url, {
+      method : 'POST',
+         headers : {
+            "Content-type": "application/json"
+         }, 
+      body : JSON.stringify(TriedAccountInformation)
+   })
+   const isLoginSuccess = serverResponseAboutAccount.status == 200
 
-export {inputFocus, inputBlur, printError, isThisLoginWasSuccessful, ERROR_TYPE};
+   // 성공시 로컬 스토리지에 accessToken을 기록
+   if (isLoginSuccess) {
+      const accountAccessToken = returnAccessToken(serverResponseAboutAccount)
+      localStorage.setItem('accessToken', accountAccessToken)
+   }  
+   return isLoginSuccess
+}
+
+// 회원가입 성공시 토큰 반환
+const accountRegisterWasSuccessful = async (inputtedAccountData) => {
+   const serverResponseAboutAccount = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+      method : 'POST',
+      headers : {
+         "Content-type" : "application/json"},
+      body : JSON.stringify(inputtedAccountData)
+      })
+   const accountAccessToken = returnAccessToken(serverResponseAboutAccount)
+   localStorage.setItem('accessToken', accountAccessToken)
+}
+
+
+export {inputFocus, inputBlur, printError, isThisLoginWasSuccessful,accountRegisterWasSuccessful , ERROR_TYPE};
