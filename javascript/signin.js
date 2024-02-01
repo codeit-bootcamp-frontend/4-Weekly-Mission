@@ -62,4 +62,3 @@ loginBtn.addEventListener("click", checkValidation);
 window.addEventListener("keypress", enterBtn);
 eyeOff.addEventListener("click", toggleShowPassword);
 eyeOn.addEventListener("click", toggleShowPassword);
-
