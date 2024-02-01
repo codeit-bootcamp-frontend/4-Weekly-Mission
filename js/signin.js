@@ -14,7 +14,6 @@ function handleSubmit(event) {
 
   if (event.target.id !== 'signin-form') return;
 
-  let valid = true;
   const inputEmail = event.target['email'];
   const inputPassword = event.target['password'];
   const messageBoxEmail = inputEmail.parentElement.nextElementSibling;
@@ -26,14 +25,12 @@ function handleSubmit(event) {
   removeError(messageBoxPassword);
 
   if (USER_TEST.EMAIL !== inputEmail.value) {
-    valid = false;
     addLoginError(INPUT_TYPE.EMAIL, inputEmail, messageBoxEmail);
+    return;
   } else if (USER_TEST.PASSWORD !== inputPassword.value) {
-    valid = false;
     addLoginError(INPUT_TYPE.PASSWORD, inputPassword, messageBoxPassword);
+    return;
   }
-
-  if (!valid) return;
 
   // event.target.submit();
   window.location.href = '/folder';
