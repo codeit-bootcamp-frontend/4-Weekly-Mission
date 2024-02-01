@@ -1,19 +1,43 @@
 /* Service Logic */
 
+import { isTextEmpty } from "../scripts/utils.js";
+
 import {
   emailInput,
   passwordInput,
   emailErrorMessageElement,
   passwordErrorMessageElement,
   eyeBtn,
-  isTextEmpty,
-  isValidEmailFormat,
+  formElement,
   showError,
   hideError,
-  isValidUser,
   showPassword,
   hidePassword,
-} from "../scripts/utils.js";
+} from "../scripts/ui-sign.js";
+
+import { VALID_USER, isValidEmailFormat } from "../scripts/utils-sign.js";
+
+/********************
+ * UTILITY FUNCTION
+ ********************/
+
+//일치하는 유저 데이터 찾아서 반환
+function getValidUserInfo({ emailInputValue, passwordInputValue }) {
+  if (VALID_USER.email !== emailInputValue) {
+    return null;
+  }
+
+  if (VALID_USER.password !== passwordInputValue) {
+    return null;
+  }
+
+  return VALID_USER;
+}
+
+//로그인 유효성 검사
+function isValidUser(emailInputValue, passwordInputValue) {
+  return getValidUserInfo({ emailInputValue, passwordInputValue });
+}
 
 /********************
  * ACTIVE FUNCTION
@@ -73,5 +97,5 @@ function togglePassword() {
 
 emailInput.addEventListener("focusout", validateEmail);
 passwordInput.addEventListener("focusout", validatePassword);
-document.querySelector("form").addEventListener("submit", onSubmit);
+formElement.addEventListener("submit", onSubmit);
 eyeBtn.addEventListener("click", togglePassword);

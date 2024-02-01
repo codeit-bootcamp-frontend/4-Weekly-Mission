@@ -1,27 +1,87 @@
 /* Service Logic */
 
+import { isTextEmpty } from "../scripts/utils.js";
+
 import {
   emailInput,
   passwordInput,
-  passwordCheckInput,
   emailErrorMessageElement,
   passwordErrorMessageElement,
-  passwordCheckErrorMessageElement,
   eyeBtn,
-  eyeBtnCheck,
-  isTextEmpty,
-  isValidEmailFormat,
-  isEmailMatching,
-  isValidPasswordFormat,
-  isPasswordMatching,
+  formElement,
   showError,
   hideError,
-  isValidSignUp,
   showPassword,
   hidePassword,
+} from "../scripts/ui-sign.js";
+
+import { VALID_USER, isValidEmailFormat } from "../scripts/utils-sign.js";
+
+import {
+  passwordCheckInput,
+  passwordCheckErrorMessageElement,
+  eyeBtnCheck,
   showPasswordCheck,
   hidePasswordCheck,
-} from "../scripts/utils.js";
+} from "./ui.js";
+
+/********************
+ * UTILITY FUNCTION
+ ********************/
+
+//회원가입 이메일 중복 검사
+function isEmailMatching(emailInputValue) {
+  return emailInputValue === VALID_USER.email;
+}
+
+//회원가입 비밀번호 양식 유효성 검사
+function isValidPasswordFormat(passwordInputValue) {
+  //8자 미만인 경우
+  if (passwordInputValue.length < 8) {
+    return false;
+  }
+
+  //숫자가 없는 경우
+  if (!/\d/.test(passwordInputValue)) {
+    return false;
+  }
+
+  //영문이 없는 경우
+  if (!/[a-zA-Z]/.test(passwordInputValue)) {
+    return false;
+  }
+  return true;
+}
+
+//회원가입 비밀번호 확인 유효성 검사
+function isPasswordMatching(passwordInputValue, passwordCheckInputValue) {
+  return passwordInputValue === passwordCheckInputValue;
+}
+
+//회원가입 유효성 검사
+function isValidSignUp(emailInputValue, passwordInputValue, passwordCheckInputValue) {
+  if (!isValidEmailFormat(emailInputValue)) {
+    console.log(`case 1`);
+    return false;
+  }
+
+  if (isEmailMatching(emailInputValue)) {
+    console.log(`case 2`);
+    return false;
+  }
+
+  if (!isValidPasswordFormat(passwordInputValue)) {
+    console.log(`case 3`);
+    return false;
+  }
+
+  if (!isPasswordMatching(passwordInputValue, passwordCheckInputValue)) {
+    console.log(`case 4`);
+    return false;
+  }
+
+  return true;
+}
 
 /********************
  * ACTIVE FUNCTION
@@ -113,6 +173,6 @@ function togglePasswordCheck() {
 emailInput.addEventListener("focusout", validateEmail);
 passwordInput.addEventListener("focusout", validatePassword);
 passwordCheckInput.addEventListener("focusout", validatePasswordCheck);
-document.querySelector("form").addEventListener("submit", onSubmit);
+formElement.addEventListener("submit", onSubmit);
 eyeBtn.addEventListener("click", togglePassword);
 eyeBtnCheck.addEventListener("click", togglePasswordCheck);
