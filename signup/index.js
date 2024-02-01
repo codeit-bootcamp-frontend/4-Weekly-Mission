@@ -53,11 +53,6 @@ function isValidPasswordFormat(passwordInputValue) {
   return true;
 }
 
-//회원가입 비밀번호 확인 유효성 검사
-function isPasswordMatching(passwordInputValue, passwordCheckInputValue) {
-  return passwordInputValue === passwordCheckInputValue;
-}
-
 //회원가입 유효성 검사
 function isValidSignUp(emailInputValue, passwordInputValue, passwordCheckInputValue) {
   if (!isValidEmailFormat(emailInputValue)) {
@@ -75,7 +70,7 @@ function isValidSignUp(emailInputValue, passwordInputValue, passwordCheckInputVa
     return false;
   }
 
-  if (!isPasswordMatching(passwordInputValue, passwordCheckInputValue)) {
+  if (passwordInputValue !== passwordCheckInputValue) {
     console.log(`case 4`);
     return false;
   }
