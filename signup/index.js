@@ -43,7 +43,7 @@ function validateEmail() {
 }
 
 //비밀번호 에러 검사
-function checkPasswordError() {
+function validatePassword() {
   if (isTextEmpty(passwordInput.value)) {
     return showError(passwordInput, passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
   }
@@ -72,7 +72,7 @@ function checkPasswordCheckError() {
 function checkSignUp() {
   if (!isValidSignUp(emailInput.value, passwordInput.value, passwordCheckInput.value)) {
     validateEmail();
-    checkPasswordError();
+    validatePassword();
     checkPasswordCheckError();
     return;
   }
@@ -109,7 +109,7 @@ function togglePasswordCheck() {
  ********************/
 
 emailInput.addEventListener("focusout", validateEmail);
-passwordInput.addEventListener("focusout", checkPasswordError);
+passwordInput.addEventListener("focusout", validatePassword);
 passwordCheckInput.addEventListener("focusout", checkPasswordCheckError);
 document.querySelector("form").addEventListener("submit", onSubmit);
 eyeBtn.addEventListener("click", togglePassword);

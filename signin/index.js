@@ -31,7 +31,7 @@ function validateEmail() {
 }
 
 //비밀번호 에러 검사
-function checkPasswordError() {
+function validatePassword() {
   if (isTextEmpty(passwordInput.value)) {
     return showError(passwordInput, passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
   }
@@ -70,6 +70,6 @@ function togglePassword() {
  ********************/
 
 emailInput.addEventListener("focusout", validateEmail);
-passwordInput.addEventListener("focusout", checkPasswordError);
+passwordInput.addEventListener("focusout", validatePassword);
 document.querySelector("form").addEventListener("submit", onSubmit);
 eyeBtn.addEventListener("click", togglePassword);
