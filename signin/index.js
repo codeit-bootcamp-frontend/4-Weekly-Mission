@@ -12,10 +12,10 @@ const superUser = {
 
 const error = new Error(true);
 
-let email = document.querySelector(".input-email");
-let password = document.querySelector(".input-password");
-let loginButton = document.querySelector(".button-login");
-let passwordIcon = document.querySelector(".password-icon");
+const email = document.querySelector(".input-email");
+const password = document.querySelector(".input-password");
+const loginButton = document.querySelector(".button-login");
+const passwordIcon = document.querySelector(".password-icon");
 
 function noInputFocusOut(element, parentElementSlectorName, inputSlectorName, errorSentence) {
   error.removeErrorElement(parentElementSlectorName);
@@ -29,7 +29,7 @@ function noInputFocusOut(element, parentElementSlectorName, inputSlectorName, er
 }
 
 function notValidEmailInput() {
-  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (email.value === "") {
     return;
@@ -59,8 +59,8 @@ function pressEnterForFolderPage(e) {
 }
 
 function folderPage() {
-  let folderEmail = "test@codeit.com";
-  let folderPassword = "codeit101";
+  const folderEmail = "test@codeit.com";
+  const folderPassword = "codeit101";
 
   if (email.value === folderEmail && password.value === folderPassword) {
     requestLogin();

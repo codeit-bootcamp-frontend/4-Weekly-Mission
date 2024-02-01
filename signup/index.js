@@ -7,12 +7,12 @@ import {
 
 const error = new Error(true);
 
-let email = document.querySelector(".input-email");
-let password = document.querySelector(".input-password");
-let passwordConfirm = document.querySelector(".input-password-confirm");
-let loginButton = document.querySelector(".button-signup");
-let passwordIcon = document.querySelector(".password-icon");
-let passwordConfimIcon = document.querySelector(".password-confirm-icon");
+const email = document.querySelector(".input-email");
+const password = document.querySelector(".input-password");
+const passwordConfirm = document.querySelector(".input-password-confirm");
+const loginButton = document.querySelector(".button-signup");
+const passwordIcon = document.querySelector(".password-icon");
+const passwordConfimIcon = document.querySelector(".password-confirm-icon");
 
 function noInputFocusOut(element, parentElementSlectorName, inputSlectorName, errorSentence) {
   error.removeErrorElement(parentElementSlectorName);
@@ -57,7 +57,7 @@ function pressEnterForFolderPage(e) {
 
 async function aleadyUse() {
   const objectForJSON = {};
-  let validateAleadyUse = email.value;
+  const validateAleadyUse = email.value;
   objectForJSON.email = validateAleadyUse;
   requestAleadyUse(objectForJSON);
 }
@@ -87,7 +87,7 @@ function requestAleadyUse(objectForJSON) {
 }
 
 function notPasswordFormat() {
-  let passwordFormat = password.value;
+  const passwordFormat = password.value;
 
   if (passwordFormat === "") {
     return;
@@ -145,8 +145,8 @@ async function signupCheck() {
 
 async function requestSignUp() {
   const objectForJSON = {};
-  let requestEmail = email.value;
-  let requestpassword = password.value;
+  const requestEmail = email.value;
+  const requestpassword = password.value;
   objectForJSON.email = requestEmail;
   objectForJSON.password = requestpassword;
 
