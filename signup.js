@@ -1,5 +1,7 @@
 import { accountInfo } from "./javascript/account.js"
+import { register } from "./javascript/api/auth/register.js"
 import { passwordToggle } from "./javascript/passwordToggle.js"
+import { emailRegex, passwordRegex } from "./javascript/regex.js"
 import { emailFocus, emailBlur, passwordFocus, passwordBlur, passwordCheckFocus, passwordCheckBlur } from "./javascript/signFunction.js"
 
 // 
@@ -13,6 +15,10 @@ const errorPasswordMessage = document.querySelector('.error-password-message')
 const errorPasswordCheckMessage = document.querySelector('.error-password-check-message')
 const signButton = document.querySelector('.sign-btn')
 
+// 토큰이 존재한다면 folder.html 이동
+const token = localStorage.getItem('accessToken')
+  token ? window.location.assign('folder.html') : ''
+
 // signFunction에서 조건을 주고 실행해야 하는 이벤트를 조절
 const signupValidation = true
 
@@ -24,9 +30,9 @@ const onSubmit = (e) => {
   const inputPasswordValue = inputPassword.value
   const inputPasswordCheckValue = inputCheckPassword.value
   const matchedEmail = accountInfo.find((item) => item.email === inputEmailValue)?.email
-  const signupAccount = matchedEmail !== inputEmailValue && inputPasswordValue === inputPasswordCheckValue &&
-  !inputEmailValue.match(emailRegex) && !inputPasswordValue.match(passwordRegex) && inputPasswordValue.length >= 8
-
+  const signupAccount = matchedEmail !== inputEmailValue && inputPasswordValue === inputPasswordCheckValue && 
+  inputEmailValue.match(emailRegex) && inputPasswordValue.match(passwordRegex) && inputPasswordValue.length >= 8
+  
   if (inputEmailValue === '') {
     return
   }
@@ -34,7 +40,7 @@ const onSubmit = (e) => {
     return
   }
   else if (signupAccount) {
-    window.location.assign('folder.html')
+    register()
   }
   else if (inputPasswordValue !== inputPasswordCheckValue) {
     inputCheckPassword.classList.add('input-error')

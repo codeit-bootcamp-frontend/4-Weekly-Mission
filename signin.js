@@ -1,7 +1,8 @@
 import { accountInfo } from "./javascript/account.js"
+import { login } from "./javascript/api/auth/login.js"
 import { passwordToggle } from "./javascript/passwordToggle.js"
 import { emailFocus, emailBlur, passwordFocus, passwordBlur } from "./javascript/signFunction.js"
-import { login } from "./javascript/api/auth/login.js"
+
 // 
 const inputEmail = document.querySelector('.email-input')
 const inputPassword = document.querySelector('.password-input')
@@ -9,6 +10,10 @@ const passwordEncryptButtonList = document.querySelector('.eye-btn')
 const errorEmailMessage = document.querySelector('.error-email-message')
 const errorPasswordMessage = document.querySelector('.error-password-message')
 const signButton = document.querySelector('.sign-btn')
+
+// 토큰이 존재한다면 folder.html 이동
+const token = localStorage.getItem('accessToken')
+  token ? window.location.assign('folder.html') : ''
 
 // 로그인 버튼, 경우에 따른 케이스 적용
 const onSubmit = (e) => {

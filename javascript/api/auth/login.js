@@ -4,7 +4,7 @@ const login = async () => {
   const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
     method: 'POST',
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(accountInfo[0]),
   })
