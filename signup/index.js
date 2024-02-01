@@ -42,7 +42,7 @@ function isEmailDuplicated(text) { return user.email === text };
      EventHandler
 *********************/
 
-function emailError() {
+function validateEmailInput() {
   if (isEmpty(inputEmail.value)) {
     showErrorMessage(errorMessageEmail, '이메일을 입력해 주세요.');
     inputEmail.classList.add('red-border');
@@ -62,7 +62,7 @@ function emailError() {
   }
 };
 
-function passwordError() {
+function validatePasswordInput() {
   if (isEmpty(inputPassword.value)) {
     showErrorMessage(errorMessagePassword, '비밀번호를 입력해 주세요.');
     inputPassword.classList.add('red-border');
@@ -76,7 +76,7 @@ function passwordError() {
   };
 };
 
-function passwordCheckError() {
+function validatePasswordCheckInput() {
   if (isEmpty(inputPasswordCheck.value)) {
     showErrorMessage(errorMessagePasswordCheck, '비밀번호를 입력해 주세요.')
     inputPasswordCheck.classList.add('red-border')
@@ -90,7 +90,7 @@ function passwordCheckError() {
   }
 };
 
-function deleteError(e) {
+function deleteErrorMessage(e) {
   if (e.target === inputEmail) {
     hideErorrMessage(errorMessageEmail);
     inputEmail.classList.remove('red-border');
@@ -150,12 +150,12 @@ function signup(e) {
 signupForm.addEventListener('focusin', changePlaceholderFocusIn);
 signupForm.addEventListener('focusout', changePlaceholderFocusOut);
 signupForm.addEventListener('submit', signup);
-signupForm.addEventListener('focusin', deleteError);
+signupForm.addEventListener('focusin', deleteErrorMessage);
 
-inputEmail.addEventListener('focusout', emailError);
-inputPassword.addEventListener('focusout', passwordError);
+inputEmail.addEventListener('focusout', validateEmailInput);
+inputPassword.addEventListener('focusout', validatePasswordInput);
 inputPassword.addEventListener('input', onlyEngPassword);
-inputPasswordCheck.addEventListener('focusout', passwordCheckError);
+inputPasswordCheck.addEventListener('focusout', validatePasswordCheckInput);
 
 showButtonPassword.addEventListener('click', togglePasswordVisibility);
 showButtonPasswordCheck.addEventListener('click', togglePasswordCheckVisibility);

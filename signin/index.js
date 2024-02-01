@@ -48,7 +48,7 @@ function verifyAccount(email, password) {
      EventHandler
 *********************/
 
-function emailError() {
+function validateEmailInput() {
   if (isEmpty(inputEmail.value)) {
     showErrorMessage(errorMessageEmail, '이메일을 입력해 주세요.');
     inputEmail.classList.add('red-border');
@@ -62,14 +62,14 @@ function emailError() {
   }
 };
 
-function passwordError() {
+function validatePasswordInput() {
   if (isEmpty(inputPassword.value)) {
     showErrorMessage(errorMessagePassword, '비밀번호를 입력해 주세요.')
     inputPassword.classList.add('red-border')
   };
 };
 
-function deleteError(e) {
+function deleteErrorMessage(e) {
   if (e.target === inputEmail) {
     hideErorrMessage(errorMessageEmail);
     inputEmail.classList.remove('red-border');
@@ -122,9 +122,9 @@ function login(e) {
 signInForm.addEventListener('focusin', changePlaceholderFocusIn);
 signInForm.addEventListener('focusout', changePlaceholderFocusOut);
 signInForm.addEventListener('submit', login);
-signInForm.addEventListener('focusin', deleteError);
+signInForm.addEventListener('focusin', deleteErrorMessage);
 
-inputEmail.addEventListener('focusout', emailError);
-inputPassword.addEventListener('focusout', passwordError);
+inputEmail.addEventListener('focusout', validateEmailInput);
+inputPassword.addEventListener('focusout', validatePasswordInput);
 
 showButtonPassword.addEventListener('click', togglePasswordVisibility);
