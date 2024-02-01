@@ -108,8 +108,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // 비밀번호 입력란 focus out 이벤트 리스너 추가
   passwordInput.addEventListener('focusout', validatePassword);
 
-  // eyeIcon.addEventListener('click', function(event) {
-  //   toggleEyePw(event);
-  // })
+  eyeIcon.addEventListener('click', function(event) {
+    toggleEyePw(event);
+  })
 });
 
