@@ -26,7 +26,6 @@ export const checkEmail = (emailElement, errorMessageElement) => {
 };
 
 export const checkAvailableEmail = (emailElement, errorMessageElement) => {
-  checkEmail(emailElement, errorMessageElement);
   if (checkUserId(emailElement)) {
     showInputError(emailElement);
     showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
@@ -44,22 +43,18 @@ export const checkPassword = (passwordElement, errorMessageElement) => {
 };
 
 export const checkAvailablePassword = (passwordElement, errorMessageElement) => {
-  if (!validatePassword(passwordElement.value)) {
+  if (!validatePassword(passwordElement.value) && passwordElement.value) {
     showInputError(passwordElement);
     showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_PASSWORD);
-    return;
   }
-  checkPassword(passwordElement, errorMessageElement);
 };
 
 //Check passwordCheck: 입력 여부 및 값 확인--------------------------------------
 export const checkPasswordMatch = (passwordElement, passwordCheckElement, errorMessageElement) => {
-  if (!checkValueMatch(passwordElement, passwordCheckElement)) {
+  if (!checkValueMatch(passwordElement, passwordCheckElement) && passwordCheckElement.value) {
     showInputError(passwordCheckElement);
     showErrorMessage(errorMessageElement, ERROR_MESSAGE.MISMATCH_PASSWORD);
-    return;
   }
-  checkPassword(passwordCheckElement, errorMessageElement);
 };
 
 //Change icon: eye-on/off---------------------------------------------------

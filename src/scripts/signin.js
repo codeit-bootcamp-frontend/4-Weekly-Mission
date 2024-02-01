@@ -12,16 +12,22 @@ const emailErrorMessage = document.getElementById('emailErrorMessage');
 const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 
 //Check email: 입력 여부 확인, 메일 형식 확인
-email.addEventListener('focusout', () => checkEmail(email, emailErrorMessage));
+const SigninEmailHandler = () => {
+  checkEmail(email, emailErrorMessage);
+};
 
 //Check password: 입력 여부 확인
-password.addEventListener('focusout', () => checkPassword(password, passwordErrorMessage));
+const SigninPasswordHandler = () => {
+  checkPassword(password, passwordErrorMessage);
+};
 
 //Change icon: eye-on/off
-eyeIcon.addEventListener('click', () => changeEyeIcon(eyeIcon, password));
+const EyeIconHandler = () => {
+  changeEyeIcon(eyeIcon, password);
+};
 
 //Login: submit form
-const submitForm = event => {
+const SigninSubmitHandler = event => {
   event.preventDefault();
   if (checkUserInfo(email, password)) {
     email.value = '';
@@ -33,4 +39,10 @@ const submitForm = event => {
   showInputError(password);
   showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.INVALID_PASSWORD);
 };
-signinForm.addEventListener('submit', submitForm);
+
+//Event Listener
+email.addEventListener('focusout', SigninEmailHandler);
+password.addEventListener('focusout', SigninPasswordHandler);
+eyeIcon.addEventListener('click', EyeIconHandler);
+
+signinForm.addEventListener('submit', SigninSubmitHandler);

@@ -1,5 +1,12 @@
 import { PATH } from './constant.js';
-import { checkAvailableEmail, checkAvailablePassword, checkPasswordMatch, changeEyeIcon } from './sign.js';
+import {
+  checkEmail,
+  checkAvailableEmail,
+  checkPassword,
+  checkAvailablePassword,
+  checkPasswordMatch,
+  changeEyeIcon,
+} from './sign.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -14,22 +21,34 @@ const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 const passwordCheckErrorMessage = document.getElementById('passwordCheckErrorMessage');
 
 //Check email: 입력 여부 확인, 메일 형식 확인
-email.addEventListener('focusout', () => checkAvailableEmail(email, emailErrorMessage));
+const SignupEmailHandler = () => {
+  checkEmail(email, emailErrorMessage);
+  checkAvailableEmail(email, emailErrorMessage);
+};
 
 //Check password: 입력 여부 확인
-password.addEventListener('focusout', () => checkAvailablePassword(password, passwordErrorMessage));
+const SignupPasswordHandler = () => {
+  checkPassword(password, passwordErrorMessage);
+  checkAvailablePassword(password, passwordErrorMessage);
+};
 
 //Check passwordCheck: 입력 여부 및 값 확인
-passwordCheck.addEventListener('focusout', () =>
-  checkPasswordMatch(password, passwordCheck, passwordCheckErrorMessage)
-);
+const PasswordCheckHandler = () => {
+  checkPassword(passwordCheck, passwordCheckErrorMessage);
+  checkPasswordMatch(password, passwordCheck, passwordCheckErrorMessage);
+};
 
 //Change icon: eye-on/off
-eyeIcon.addEventListener('click', () => changeEyeIcon(eyeIcon, password));
-eyeIconCheck.addEventListener('click', () => changeEyeIcon(eyeIconCheck, passwordCheck));
+const EyeIconHandler = () => {
+  changeEyeIcon(eyeIcon, password);
+};
+
+const EyeIconCheckHandler = () => {
+  changeEyeIcon(eyeIconCheck, passwordCheck);
+};
 
 //SignUp: submit form
-const submitForm = event => {
+const SignupSubmitHandler = event => {
   event.preventDefault();
   if (
     email.value &&
@@ -44,4 +63,13 @@ const submitForm = event => {
     return;
   }
 };
-signupForm.addEventListener('submit', submitForm);
+
+//Event Listener
+email.addEventListener('focusout', SignupEmailHandler);
+password.addEventListener('focusout', SignupPasswordHandler);
+eyeIcon.addEventListener('click', EyeIconHandler);
+
+passwordCheck.addEventListener('focusout', PasswordCheckHandler);
+eyeIconCheck.addEventListener('click', EyeIconCheckHandler);
+
+signupForm.addEventListener('submit', SignupSubmitHandler);
