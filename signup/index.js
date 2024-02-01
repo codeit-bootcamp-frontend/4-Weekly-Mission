@@ -159,7 +159,6 @@ async function requestSignUp() {
   })
   .then((response) => {
     if (response.status === 200) {
-      //window.location.replace("../folder");
       return response.text();
     } else {
       aleadyUse();
@@ -169,7 +168,8 @@ async function requestSignUp() {
     const jsonToObject = JSON.parse(result);
     const accessToken = jsonToObject.data.accessToken;
     localStorage.setItem("accessToken", accessToken);
-    console.log(jsonToObject)
+
+    window.location.replace("../folder");
   })
   .catch((error) => {
     console.error('fetch 요청 실패:', error);
@@ -189,3 +189,10 @@ loginButton.addEventListener("click", signupCheck);
 passwordConfirm.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
 passwordConfimIcon.addEventListener("click", () => togglePassword(passwordConfirm, passwordConfimIcon));
+document.addEventListener('DOMContentLoaded', function() {
+  const accessToken = localStorage.getItem('accessToken');
+
+  if (accessToken) {
+    window.location.href = '../folder';
+  }
+});

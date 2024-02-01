@@ -88,7 +88,8 @@ function requestLogin() {
     const jsonToObject = JSON.parse(result);
     const accessToken = jsonToObject.data.accessToken;
     localStorage.setItem("accessToken", accessToken);
-    //window.location.replace("../folder");
+
+    window.location.replace("../folder");
   })
   .catch((error) => {
     // fetch 요청 자체가 실패한 경우에 대한 처리
@@ -126,3 +127,12 @@ password.addEventListener("focusin", () => focusIn(".input-form-password", ".inp
 loginButton.addEventListener("click", folderPage);
 password.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", togglePassword);
+document.addEventListener('DOMContentLoaded', function() {
+  // 로컬 스토리지에서 accessToken을 가져옵니다.
+  const accessToken = localStorage.getItem('accessToken');
+
+  // 만약 accessToken이 있다면 "/folder" 페이지로 리다이렉트합니다.
+  if (accessToken) {
+    window.location.href = '../folder';
+  }
+});
