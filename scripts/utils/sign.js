@@ -45,10 +45,15 @@ export class SignHandler {
         InputHandler.isMatchValue(emailElement, user.id) && InputHandler.isMatchValue(passwordElement, user.password)
     );
   };
+
   /**
    * @param {HTMLInputElement} emailElement
    * */
   static isExistEmail = emailElement => {
     return USERS.some(user => InputHandler.isMatchValue(emailElement, user.id));
+  };
+
+  static navigateTo = path => {
+    window.location.href = path;
   };
 }

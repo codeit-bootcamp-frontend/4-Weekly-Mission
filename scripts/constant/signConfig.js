@@ -30,11 +30,8 @@ export const INPUT_IDS = {
   passwordCheckErrorElementId: 'login-password-check-error',
   loginFormId: 'login-form',
   passwordEyeImageId: 'eye-image-password',
-  passwordCheckEyeImageId: 'eye-image-password-check'
+  eyeImagePasswordCheckId: 'eye-image-password-check'
 };
-export const loginAction = () => {
-  return (window.location.href = '../pages/folder.html');
-};
-export const signUpAction = () => {
-  return (window.location.href = '../pages/folder.html');
-};
+
+export const LGOIN_PATH = '../pages/folder.html';
+export const SIGNUP_PATH = '../pages/folder.html';

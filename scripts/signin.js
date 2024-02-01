@@ -1,6 +1,13 @@
 //@ts-check
 import { DOMHandler, InputHandler } from './utils/element.js';
-import { EMAIL_MESSAGE, PASSWORD_MESSAGE, loginAction, INPUT_IDS, EMAIL_REGEX } from './constant/signConfig.js';
+import {
+  EMAIL_MESSAGE,
+  PASSWORD_MESSAGE,
+  loginAction,
+  INPUT_IDS,
+  EMAIL_REGEX,
+  LGOIN_PATH
+} from './constant/signConfig.js';
 import { SignHandler } from './utils/sign.js';
 
 const {
@@ -74,7 +81,7 @@ const handleSubmit = event => {
   emailElement.blur();
   const isValid = SignHandler.isValidUser(emailElement, passwordElement);
   if (isValid) {
-    loginAction();
+    SignHandler.navigateTo(LGOIN_PATH);
     return;
   }
   SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.fail);

@@ -5,7 +5,7 @@ import {
   INPUT_IDS,
   PASSWORD_MESSAGE,
   PASSWORD_REGEX,
-  signUpAction
+  SIGNUP_PATH
 } from './constant/signConfig.js';
 import { DOMHandler, InputHandler } from './utils/element.js';
 import { SignHandler } from './utils/sign.js';
@@ -124,7 +124,7 @@ const handleSignUp = event => {
   const checkPassword =
     InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX) &&
     InputHandler.isMatchElement(passwordElement, passwordCheckElement);
-  if (checkEmail && checkPassword) return signUpAction();
+  if (checkEmail && checkPassword) return SignHandler.navigateTo(SIGNUP_PATH);
 };
 
 emailElement?.addEventListener('focusout', handleEmailElementFocusOut);
