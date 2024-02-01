@@ -7,12 +7,7 @@ import {
   InputFocusEvent,
 } from '/js/login.js';
 
-import {
-  MAIL_TEST,
-  EMPTY_INPUT,
-  INVAILED_INPUT,
-  CORRECT_INPUT,
-} from '/js/variable.js';
+import {EMPTY_INPUT, INVAILED_INPUT, CORRECT_INPUT} from '/js/variable.js';
 
 const emailInput = document.querySelector('#email-input');
 const emailWarningText = document.querySelector('#email-warning-text');
@@ -46,10 +41,26 @@ const checkPasswordType = value => {
   return true;
 };
 
-const emailInputFocustOut = () => {
-  if (dataInput.email === MAIL_TEST) {
-    viewWarningText(emailWarningText, '이미 사용 중인 이메일입니다.');
-    return;
+const emailInputFocustOut = async () => {
+  try {
+    const emailData = {email: dataInput.email};
+    console.log(emailData);
+    const response = await fetch(
+      'https://bootcamp-api.codeit.kr/api/check-email',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData),
+      },
+    );
+    if (response.status === 409) {
+      viewWarningText(emailWarningText, '이미 사용 중인 이메일입니다.');
+      return;
+    }
+  } catch (error) {
+    console.log(error);
   }
 
   const status = checkEmail(dataInput.email);
@@ -69,6 +80,7 @@ const emailInputFocustIn = () => {
 };
 
 const checkPasswordEqual = () => {
+  console.log(dataInput.password === dataInput.passwordCheck);
   return dataInput.password === dataInput.passwordCheck;
 };
 
@@ -76,7 +88,8 @@ const passwordInputFocusOut = target => {
   const type = target.id === 'password-input' ? PASSWORD : PASSWORDCHECK;
   const textTarget =
     target.parentNode.parentNode.querySelector('.warning-text');
-  if (type === PASSWORDCHECK && checkPasswordEqual()) {
+  console.log(dataInput);
+  if (type === PASSWORDCHECK && !checkPasswordEqual()) {
     viewWarningText(textTarget, '비밀번호가 일치하지 않아요');
     return;
   }
@@ -116,7 +129,7 @@ const checkInputValidation = ([...args]) => {
   return true;
 };
 
-const submitInput = e => {
+const submitInput = async e => {
   e.preventDefault();
   const dataInspect = [
     {target: dataInput.email, callback: [checkEmail]},
@@ -129,7 +142,31 @@ const submitInput = e => {
 
   const signupPass = checkInputValidation(dataInspect);
   if (signupPass) {
-    window.location.href = '/page/folder';
+    try {
+      const signupData = {
+        email: dataInput.email,
+        password: dataInput.password,
+      };
+      const response = await fetch(
+        'https://bootcamp-api.codeit.kr/api/sign-up',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(signupData),
+        },
+      );
+      if (response.status === 200) {
+        const result = JSON.parse(await response.text());
+        localStorage.setItem('accessToken', result.data.accessToken);
+        window.location.href = '/page/folder';
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+    //window.location.href = '/page/folder';
   } else {
     emailInput.blur(emailInputFocustOut(emailInput));
     password.blur(passwordInputFocusOut(passwordInput));
