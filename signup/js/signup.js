@@ -1,5 +1,11 @@
 import * as moduleSign from '/js/module_sign.js';
 
+document.addEventListener('DOMContentLoaded', function () {
+    if (localStorage.getItem('accessToken')) {
+        window.location.href = '/folder';
+    }
+});
+
 const INPUT_EMAIL = document.querySelector('#email');
 const INPUT_PASSWORD = document.querySelector('#password');
 const FORM = document.querySelector('#signup-form-box');
@@ -26,10 +32,17 @@ INPUT_EMAIL.addEventListener('focusin', function () {
 INPUT_EMAIL.addEventListener('focusout', function () {
     if (this.value == '') {
         moduleSign.errorBoxToggle(this, '이메일을 입력해 주세요.');
-    } else if (moduleSign.emailValidCheck(this.value)) {
-        moduleSign.errorBoxToggle(this, '올바른 이메일 주소가 아닙니다.');
-    } else if (this.value == moduleSign.LOGIN_INFO.email) {
-        moduleSign.errorBoxToggle(this, '이미 사용 중인 이메일입니다.');
+    } else {
+        moduleSign
+            .apiEmailCheck(this.value)
+            .then((response) => {
+                console.log(response);
+                moduleSign.errorBoxToggle(this);
+            })
+            .catch((error) => {
+                console.log(error);
+                moduleSign.errorBoxToggle(this, error);
+            });
     }
 });
 
@@ -47,14 +60,24 @@ INPUT_PASSWORD.addEventListener('focusout', function () {
 });
 
 FORM.addEventListener('submit', function (e) {
-    // 하나라도 에러가 발생하면 submit 막기
-    FORM_INPUT.forEach((el) => {
-        // focusout를 하면서 값을 다 비우고 전송하는 것 방지
-        el.focus();
-        el.blur();
-
-        if (el.classList.contains('error-box')) {
-            e.preventDefault();
-        }
-    });
+    e.preventDefault();
+    const FORM_DATA = {
+        email: this['email'].value,
+        password: this['password'].value,
+    };
+    moduleSign
+        .apiSignup(FORM_DATA)
+        .then((response) => {
+            this.action = '/folder';
+            this.method = 'post';
+            this.submit();
+        })
+        .catch((error) => {
+            // 하나라도 에러가 발생하면 submit 막기
+            FORM_INPUT.forEach((el) => {
+                // focusout를 하면서 값을 다 비우고 전송하는 것 방지
+                el.focus();
+                el.blur();
+            });
+        });
 });

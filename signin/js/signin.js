@@ -1,5 +1,11 @@
 import * as moduleSign from '/js/module_sign.js';
 
+document.addEventListener('DOMContentLoaded', function () {
+    if (localStorage.getItem('accessToken')) {
+        window.location.href = '/folder';
+    }
+});
+
 const PWD_VIEW = document.querySelector('.pwd-view');
 const INPUT_EMAIL = document.querySelector('#email');
 const INPUT_PASSWORD = document.querySelector('#password');
@@ -29,15 +35,21 @@ INPUT_PASSWORD.addEventListener('focusout', function () {
 });
 
 FORM.addEventListener('submit', function (e) {
-    const EMAIL = this['email'];
-    const PASSWORD = this['password'];
-
-    // 로그인 정보 대조 후 submit
-    if (EMAIL.value === moduleSign.LOGIN_INFO.email && PASSWORD.value === moduleSign.LOGIN_INFO.password) {
-        this.submit();
-    } else {
-        e.preventDefault();
-        moduleSign.errorBoxToggle(EMAIL, '이메일을 확인해 주세요.');
-        moduleSign.errorBoxToggle(PASSWORD, '비밀번호를 확인해 주세요.');
-    }
+    e.preventDefault(); // submit 안막으면 비동기 실행 종료전에 submit됨
+    const FORM_DATA = {
+        email: this['email'].value,
+        password: this['password'].value,
+    };
+    moduleSign
+        .apiSignin(FORM_DATA)
+        .then((response) => {
+            this.action = '/folder';
+            this.method = 'post';
+            this.submit();
+        })
+        .catch((error) => {
+            e.preventDefault();
+            moduleSign.errorBoxToggle(INPUT_EMAIL, '이메일을 확인해 주세요.');
+            moduleSign.errorBoxToggle(INPUT_PASSWORD, '비밀번호를 확인해 주세요.');
+        });
 });

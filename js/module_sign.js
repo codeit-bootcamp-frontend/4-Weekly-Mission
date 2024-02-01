@@ -2,7 +2,7 @@ export const EMAIL_PATTERN = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/
 export const PASSWORD_PATTERN = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/; // 규칙 : 영문, 숫자 조합 8자 이상 입력해야한다
 export const LOGIN_INFO = {
     email: 'test@codeit.com',
-    password: 'codeit101',
+    password: 'sprint101',
 };
 
 // 이메일 형식 체크
@@ -59,5 +59,71 @@ export function passwordConfirm(el) {
         errorBoxToggle(el, '비밀번호가 다릅니다');
     } else {
         errorBoxToggle(el);
+    }
+}
+// 로그인 api
+export async function apiSignin(formData) {
+    try {
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+        if (response.status == 200) {
+            // 성공시
+            const result = await response.json();
+            window.localStorage.setItem('accessToken', result.data.accessToken);
+            return Promise.resolve('success');
+        } else if (response.status == 400) {
+            return Promise.reject('fail');
+        }
+    } catch (error) {
+        alert('통신이 원활하지 않습니다. 다시 시도해주십시요');
+    }
+}
+// 회원가입 api
+export async function apiSignup(formData) {
+    try {
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+        if (response.status == 200) {
+            // 성공시
+            const result = await response.json();
+            window.localStorage.setItem('accessToken', result.data.accessToken);
+            return Promise.resolve('success');
+        } else if (response.status == 400) {
+            return Promise.reject('fail');
+        }
+    } catch (error) {
+        alert('통신이 원활하지 않습니다. 다시 시도해주십시요');
+    }
+}
+export async function apiEmailCheck(email) {
+    const formData = {
+        email: email,
+    };
+    try {
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+        if (response.status == 200) {
+            return Promise.resolve('success');
+        } else {
+            const result = await response.json();
+            return Promise.reject(result.error.message);
+        }
+    } catch (error) {
+        console.log(error);
     }
 }
