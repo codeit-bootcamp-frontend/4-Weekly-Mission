@@ -49,15 +49,30 @@ function signInChecker(e) {
         return;
     }
 
-    if (EMAIL_INPUT.value === TEST_EMAIL && PASSWORD_INPUT.value === TEST_PW) {
-        location.assign('/folder');
-    } else {
-        const CHECK_YOUR_EMAIL = '이메일을 확인해 주세요.';
-        const CHECK_YOUR_PW = '비밀번호를 확인해 주세요.';
+    const SIGN_IN_REQUEST_BODY = {
+        email: EMAIL_INPUT.value,
+        password: PASSWORD_INPUT.value
+    };
 
-        loginError(EMAIL_INPUT, CHECK_YOUR_EMAIL);
-        loginError(PASSWORD_INPUT, CHECK_YOUR_PW);
-    }
+    fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(SIGN_IN_REQUEST_BODY)
+    })
+        .then((response) => {
+            if (response.status === 200) {
+                location.assign('/folder');
+            } else {
+                const CHECK_YOUR_EMAIL = '이메일을 확인해 주세요.';
+                const CHECK_YOUR_PW = '비밀번호를 확인해 주세요.';
+        
+                loginError(EMAIL_INPUT, CHECK_YOUR_EMAIL);
+                loginError(PASSWORD_INPUT, CHECK_YOUR_PW);        
+            }
+        })
+        .catch((error) => { console.log(error); });
 }
 
 EMAIL_INPUT.addEventListener('focusout', emailChecker);
