@@ -48,16 +48,13 @@ const EyeIconCheckHandler = () => {
 };
 
 //SignUp: submit form
+const isEmailValid = email.value && !emailErrorMessage.classList.contains('hidden');
+const isPasswordValid = password.value && !passwordErrorMessage.classList.contains('hidden');
+const isPasswordCheckValid = passwordCheck.value && !passwordCheckErrorMessage.classList.contains('hidden');
+
 const SignupSubmitHandler = event => {
   event.preventDefault();
-  if (
-    email.value &&
-    password.value &&
-    passwordCheck.value &&
-    !emailErrorMessage.classList.contains('hidden') &&
-    !passwordErrorMessage.classList.contains('hidden') &&
-    !passwordCheckErrorMessage.classList.contains('hidden')
-  ) {
+  if (isEmailValid && isPasswordValid && isPasswordCheckValid) {
     email.value = '';
     window.location.href = PATH.PAGE_FOLDER;
     return;
