@@ -22,12 +22,8 @@ import { VALID_USER, isValidEmailFormat } from "../scripts/utils-sign.js";
  ********************/
 
 //이메일이 일치하는 유저 데이터 반환
-function getUserByEmail({ emailInputValue, passwordInputValue }) {
+function getUserByEmail(emailInputValue) {
   if (VALID_USER.email !== emailInputValue) {
-    return null;
-  }
-
-  if (VALID_USER.password !== passwordInputValue) {
     return null;
   }
 
@@ -72,7 +68,7 @@ function handleLogin(e) {
   const password = passwordInput.value;
 
   //email과 일치하는 유저 저장 / 없으면 null
-  const user = getUserByEmail();
+  const user = getUserByEmail(email);
 
   //null일 경우 데이터베이스에 user가 존재하지 않으므로 로그인 실패
   if (user === null) {
