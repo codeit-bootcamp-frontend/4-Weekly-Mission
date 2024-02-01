@@ -97,9 +97,7 @@ input:focus {
 
 /* 에러 발생 시 변동 사항 */
 
-#errorEmail,
-#errorPassword,
-#errorPasswordCheck {
+.errorText {
     display: none;
     color: var(--red);
     font-size: 1.4rem;
@@ -107,9 +105,7 @@ input:focus {
     width: 100%;
 }
 
-#errorEmail.errorShown,
-#errorPassword.errorShown,
-#errorPasswordCheck.errorShown {
+.errorText.errorShown {
     display: block;
 }
 

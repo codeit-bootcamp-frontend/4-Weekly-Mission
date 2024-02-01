@@ -7,12 +7,15 @@ const passwordCheckInput = document.querySelector('#signup-password-repeat')
 const errorPasswordCheck = document.querySelector('#errorPasswordCheck')
 const passwordCover = document.querySelector('#eyecon-password')
 const passwordCheckCover = document.querySelector('#eyecon-password-repeat')
-let isPasswordCovered = false
-let isPasswordCheckCovered = false
+const cover = {
+    isPasswordCovered: false,
+    isPasswordCheckCovered: false
+}
+
 
 import { isEmailValid, isInputEmpty, showError, clearError } from './sign-error.js'
 import { togglePasswordByEyecon as togglePassword } from './toggle-password.js'
-import { PASSWORD_REGEX } from './constants.js'
+import { PASSWORD_REGEX, errorMsg, minPasswordLength } from './constants.js'
 
 /////////////////////////////////////
 
@@ -32,17 +35,17 @@ const checkEmail = () => {
     const email = emailInput.value.trim()
     // 이메일 미입력 에러
     if (isInputEmpty(email)) {
-        showError(emailInput, errorEmail, '이메일을 입력해 주세요.')
+        showError(emailInput, errorEmail, errorMsg.emptyEmail)
         return
     }
     // 이메일 형식 확인
     if (!isEmailValid(email)) {
-        showError(emailInput, errorEmail, '올바른 이메일 주소가 아닙니다.')
+        showError(emailInput, errorEmail, errorMsg.invalidEmail)
         return
     }
     // 이메일 중복 확인
     if (isEmailUsed(email)) {
-        showError(emailInput, errorEmail, '이미 사용 중인 이메일입니다.')
+        showError(emailInput, errorEmail, errorMsg.usedEmail)
     }
 }
 
@@ -60,7 +63,6 @@ const IsEmailUsable = () => {
  * @returns 위 사항을 동시에 만족하는지에 대한 불린값
  */
 const isPasswordValid = (input) => {
-    const minPasswordLength = 8
     return PASSWORD_REGEX.test(input) && input.length >= minPasswordLength
 }
 
@@ -72,7 +74,7 @@ const checkPassword = () => {
         showError(
             passwordInput,
             errorPassword,
-            '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.'
+            errorMsg.invalidPassword
         )
     }
 }
@@ -82,7 +84,7 @@ const checkPasswordConfirm = () => {
     const passwordCheck = passwordCheckInput.value.trim()
     const password = passwordInput.value.trim()
     if (passwordCheck !== password) {
-        showError(passwordCheckInput, errorPasswordCheck, '비밀번호가 일치하지 않아요.')
+        showError(passwordCheckInput, errorPasswordCheck, errorMsg.differentPassword)
     }
 }
 
@@ -93,12 +95,11 @@ const IsPasswordUsable = () => {
 }
 
 const validateAccount = (event) => {
+    event.preventDefault()
     if (IsEmailUsable() && IsPasswordUsable()) {
-        event.preventDefault()
         window.location.href = '../html/folder.html'
         return
     }
-    event.preventDefault()
     checkEmail()
     checkPassword()
     checkPasswordConfirm()
@@ -120,14 +121,13 @@ const handlePasswordCheckFocusout = () => {
 }
 
 const handlePasswordClick = () => {
-    togglePassword(passwordInput, isPasswordCovered, passwordCover)
-    isPasswordCovered = !isPasswordCovered
+    togglePassword(passwordInput, cover.isPasswordCovered, passwordCover)
+    cover.isPasswordCovered = !cover.isPasswordCovered
 }
-///todo///
-// 비밀번호 눈 아이콘이랑 비밀번호 재확인 아이콘 분리
+
 const handlePasswordCheckClick = () => {
-    togglePassword(passwordCheckInput, isPasswordCheckCovered, passwordCheckCover)
-    isPasswordCheckCovered = !isPasswordCheckCovered
+    togglePassword(passwordCheckInput, cover.isPasswordCheckCovered, passwordCheckCover)
+    cover.isPasswordCheckCovered = !cover.isPasswordCheckCovered
 }
 //////////////// 함수 사용////////////////////
 
