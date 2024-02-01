@@ -18,7 +18,7 @@ import {
  ********************/
 
 //이메일 에러 검사
-function checkEmailError() {
+function validateEmail() {
   if (isTextEmpty(emailInput.value)) {
     return showError(emailInput, emailErrorMessageElement, "이메일을 입력해 주세요.");
   }
@@ -69,7 +69,7 @@ function togglePassword() {
  * EVENT HANDLER
  ********************/
 
-emailInput.addEventListener("focusout", checkEmailError);
+emailInput.addEventListener("focusout", validateEmail);
 passwordInput.addEventListener("focusout", checkPasswordError);
 document.querySelector("form").addEventListener("submit", onSubmit);
 eyeBtn.addEventListener("click", togglePassword);

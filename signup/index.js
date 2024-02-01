@@ -26,7 +26,7 @@ import {
  ********************/
 
 //이메일 에러 검사
-function checkEmailError() {
+function validateEmail() {
   if (isTextEmpty(emailInput.value)) {
     return showError(emailInput, emailErrorMessageElement, "이메일을 입력해 주세요.");
   }
@@ -71,7 +71,7 @@ function checkPasswordCheckError() {
 //회원가입 성공/실패
 function checkSignUp() {
   if (!isValidSignUp(emailInput.value, passwordInput.value, passwordCheckInput.value)) {
-    checkEmailError();
+    validateEmail();
     checkPasswordError();
     checkPasswordCheckError();
     return;
@@ -108,7 +108,7 @@ function togglePasswordCheck() {
  * EVENT HANDLER
  ********************/
 
-emailInput.addEventListener("focusout", checkEmailError);
+emailInput.addEventListener("focusout", validateEmail);
 passwordInput.addEventListener("focusout", checkPasswordError);
 passwordCheckInput.addEventListener("focusout", checkPasswordCheckError);
 document.querySelector("form").addEventListener("submit", onSubmit);
