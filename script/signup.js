@@ -5,9 +5,9 @@ import {
   displayError,
   clearError,
   handlePasswordInputFocusOut,
-  handlePasswordCheckInputFocusOut,
   handleEmailInputFocusIn,
   togglePasswordVisibility,
+  checkDuplicateEmail,
 } from './utils.js';
 
 import { VALID_USER } from './constants.js';
@@ -37,12 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // 이메일 입력란 focusout 이벤트 핸들러
   emailInput.addEventListener('focusout', function () {
     handleEmailInputFocusIn(emailInput, emailErrorMessage);
-    // 추가: 이미 사용 중인 이메일 여부 검사
-    if (emailInput.value.trim() === VALID_USER.email) {
-      displayError(emailInput, emailErrorMessage, '이미 사용 중인 이메일입니다.');
-    }
+    checkDuplicateEmail(emailInput, emailErrorMessage);
   });
-
   // 비밀번호 입력란 focusout 이벤트 핸들러
   passwordInput.addEventListener('focusout', function () {
     handlePasswordInputFocusOut(passwordInput, passwordErrorMessage);
