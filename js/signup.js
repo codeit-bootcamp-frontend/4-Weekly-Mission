@@ -5,6 +5,7 @@ import {
   checkPassword,
   visiblePassword,
   InputFocusEvent,
+  checkLoginStatus,
 } from '/js/login.js';
 
 import {EMPTY_INPUT, INVAILED_INPUT, CORRECT_INPUT} from '/js/variable.js';
@@ -20,6 +21,10 @@ const signupForm = document.querySelector('#signup-form');
 
 const PASSWORD = 1;
 const PASSWORDCHECK = 2;
+
+window.onload = () => {
+  checkLoginStatus();
+};
 
 let dataInput = {
   email: null,
@@ -44,7 +49,6 @@ const checkPasswordType = value => {
 const emailInputFocustOut = async () => {
   try {
     const emailData = {email: dataInput.email};
-    console.log(emailData);
     const response = await fetch(
       'https://bootcamp-api.codeit.kr/api/check-email',
       {
