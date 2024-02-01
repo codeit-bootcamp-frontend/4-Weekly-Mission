@@ -1,4 +1,4 @@
-import { moduleSign } from '/js/common.js';
+import * as moduleSign from '/js/module_sign.js';
 
 const PWD_VIEW = document.querySelector('.pwd-view');
 const INPUT_EMAIL = document.querySelector('#email');
@@ -14,7 +14,7 @@ INPUT_EMAIL.addEventListener('focusin', function () {
 INPUT_EMAIL.addEventListener('focusout', function () {
     if (this.value == '') {
         moduleSign.errorBoxToggle(this, '이메일을 입력해 주세요.');
-    } else if (moduleSign.emailValidChk(this.value)) {
+    } else if (moduleSign.emailValidCheck(this.value)) {
         moduleSign.errorBoxToggle(this, '올바른 이메일 주소가 아닙니다.');
     }
 });
