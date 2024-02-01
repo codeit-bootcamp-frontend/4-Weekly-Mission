@@ -11,7 +11,6 @@ import {
 import {
   isFilledInput,
   isMatchWithPassword,
-  isUniqueEmail,
   isValidEmailForm,
   isValidPasswordForm,
   showEmailError,
@@ -28,7 +27,7 @@ const btnSignupSubmit = document.querySelector("#btn_signup_submit");
 
 const btnEyes = document.querySelectorAll(".btn_eye");
 
-// localStorage에 accessToken이 존재할 경우 /folder로 이동
+// localStorage에 accessToken이 존재할 경우 '/folder'로 이동
 if (localStorage.getItem("accessToken")) {
   location.href = "folder.html";
 }
@@ -38,20 +37,51 @@ const checkEmailIsValid = (e) => {
 
   const isFilled = isFilledInput(e.target);
   const isValidForm = isValidEmailForm(e.target);
-  const isUnique = isUniqueEmail(e.target);
 
   if (!isFilled) {
     showEmailError(true, e.target, ERROR_MESSAGE_EMPTY_EMAIL);
-    return;
+    return isValid;
   } else if (!isValidForm) {
     showEmailError(true, e.target, ERROR_MESSAGE_INVALID_EMAIL);
-    return;
-  } else if (!isUnique) {
-    showEmailError(true, e.target, ERROR_MESSAGE_EXISTING_EMAIL);
-    return;
+    return isValid;
   }
-  showEmailError(false, e.target);
-  isValid = true;
+  // 이메일 인풋이 채워져있고, 올바른 형식일 때, 중복 이메일인지 확인하는 로직
+  // 재사용하지 않으므로 즉시 실행 함수로 처리
+  (async function requestCheckEmailApi() {
+    const emailInfo = {
+      email: e.target.value,
+    };
+    try {
+      const response = await fetch(
+        "https://bootcamp-api.codeit.kr/api/check-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(emailInfo),
+        },
+      );
+      if (response.ok) {
+        const emailForCheck = await response.json();
+        const isUsableNickname = emailForCheck["data"]["isUsableNickname"];
+
+        if (isUsableNickname) {
+          showEmailError(false, e.target);
+          isValid = true;
+        }
+      } else if (response.status === 409) {
+        throw new Error("Email Conflict");
+      } else {
+        throw new Error("Other Error");
+      }
+    } catch (error) {
+      console.log(error.message);
+      if (error.message === "Email Conflict") {
+        showEmailError(true, e.target, ERROR_MESSAGE_EXISTING_EMAIL);
+      }
+    }
+  })();
 
   return isValid;
 };

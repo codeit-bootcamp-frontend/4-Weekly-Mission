@@ -5,7 +5,6 @@ import {
   REGEX_PASSWORD,
   SRC_IMG_CLOSE_EYE,
   SRC_IMG_OPEN_EYE,
-  TEST_USER_EMAIL,
 } from "./constant.js";
 
 // 유효성 검증 관련 함수
@@ -15,10 +14,6 @@ export const isFilledInput = (target) => {
 
 export const isValidEmailForm = (target) => {
   return target.value && REGEX_EMAIL.test(target.value);
-};
-
-export const isUniqueEmail = (target) => {
-  return target.value && target.value !== TEST_USER_EMAIL;
 };
 
 export const isValidPasswordForm = (target) => {
