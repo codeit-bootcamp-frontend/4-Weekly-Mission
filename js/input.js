@@ -100,21 +100,31 @@ export function handleClickBlindButton(event) {
   if (!target.classList.contains('input-blind-toggle')) return;
 
   const input = target.previousElementSibling;
-  const valueLength = input.value.length;
-  input.focus();
-  setTimeout(() => {
-    input.setSelectionRange(valueLength, valueLength);
-  }, 0);
 
+  togglePasswordBlind(input, target);
+}
+
+function togglePasswordBlind(input, toggleButton) {
   const blindType =
-    target.dataset.type.toLowerCase() === BLIND_TYPE.ON
+    toggleButton.dataset.type.toLowerCase() === BLIND_TYPE.ON
       ? BLIND_TYPE.OFF
       : BLIND_TYPE.ON;
 
   input.setAttribute('type', BLIND_INPUT_TYPE[blindType]);
-  target.setAttribute('src', BLIND_IMAGE_SRC[blindType]);
-  target.setAttribute('alt', BLIND_IMAGE_ALT[blindType]);
-  target.setAttribute('data-type', blindType);
+  toggleButton.setAttribute('src', BLIND_IMAGE_SRC[blindType]);
+  toggleButton.setAttribute('alt', BLIND_IMAGE_ALT[blindType]);
+  toggleButton.setAttribute('data-type', blindType);
+
+  input.focus();
+  setCursorToEnd(input);
+}
+
+function setCursorToEnd(input) {
+  const valueLength = input.value.length;
+
+  setTimeout(() => {
+    input.setSelectionRange(valueLength, valueLength);
+  }, 0);
 }
 
 export function validateInput(type, value, scope = document) {
