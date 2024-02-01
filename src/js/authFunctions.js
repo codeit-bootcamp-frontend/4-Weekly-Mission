@@ -25,38 +25,28 @@ export const isMatchWithPassword = (target, inputPassword) => {
 };
 
 // 에러표시 UI 구현 함수
-export const showEmailError = (
+export const showErrorMessage = (
   isVisible,
   target,
+  type,
   errorMessage = EMPTY_MESSAGE,
 ) => {
   const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(target);
+  const iconEye = target.parentElement.querySelector(".btn_eye");
+
   errorMessageSpan.textContent = errorMessage;
 
   if (isVisible) {
     target.classList.add("error_input");
+    if (type === "password") {
+      iconEye.classList.add("large_bottom");
+    }
     return;
   }
   target.classList.remove("error_input");
-};
-
-export const showPasswordError = (
-  isVisible,
-  target,
-  errorMessage = EMPTY_MESSAGE,
-) => {
-  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(target);
-  const iconEye = document.querySelector(".btn_eye");
-  errorMessageSpan.textContent = errorMessage;
-
-  if (isVisible) {
-    target.classList.add("error_input");
-    iconEye.classList.add("large_bottom");
-    return;
+  if (type === "password") {
+    iconEye.classList.remove("large_bottom");
   }
-
-  target.classList.remove("error_input");
-  iconEye.classList.remove("large_bottom");
 };
 
 // 기타 함수

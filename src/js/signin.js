@@ -8,8 +8,7 @@ import {
 import {
   isFilledInput,
   isValidEmailForm,
-  showEmailError,
-  showPasswordError,
+  showErrorMessage,
   toggleViewPassword,
 } from "./authFunctions.js";
 
@@ -31,23 +30,23 @@ const checkEmailIsValid = (e) => {
   const isValidForm = isValidEmailForm(e.target);
 
   if (!isFilled) {
-    showEmailError(true, e.target, ERROR_MESSAGE_EMPTY_EMAIL);
+    showErrorMessage(true, e.target, "email", ERROR_MESSAGE_EMPTY_EMAIL);
     return;
   } else if (!isValidForm) {
-    showEmailError(true, e.target, ERROR_MESSAGE_INVALID_EMAIL);
+    showErrorMessage(true, e.target, "email", ERROR_MESSAGE_INVALID_EMAIL);
     return;
   }
-  showEmailError(false, e.target);
+  showErrorMessage(false, e.target, "email");
 };
 
 const checkPasswordIsValid = (e) => {
   const isFilled = isFilledInput(e.target);
 
   if (!isFilled) {
-    showPasswordError(true, e.target, ERROR_MESSAGE_EMPTY_PASSWORD);
+    showErrorMessage(true, e.target, "password", ERROR_MESSAGE_EMPTY_PASSWORD);
     return;
   }
-  showPasswordError(false, e.target);
+  showErrorMessage(false, e.target, "password");
 };
 
 const handleSignIn = (e) => {
@@ -75,8 +74,8 @@ const handleSignIn = (e) => {
     .then((result) => result?.["data"])
     .then((data) => {
       if (data) {
-        showEmailError(false, inputEmail);
-        showPasswordError(false, inputPassword);
+        showErrorMessage(false, inputEmail, "email");
+        showErrorMessage(false, inputPassword, "password");
 
         localStorage.setItem("accessToken", data["accessToken"]);
         location.href = "folder.html";
@@ -85,8 +84,13 @@ const handleSignIn = (e) => {
     .catch((error) => {
       if (error.message === "Login Error") {
         // 로그인 API 요청시 발생한 에러일 경우에만 에러 표시
-        showEmailError(true, inputEmail, ERROR_MESSAGE_WRONG_EMAIL);
-        showPasswordError(true, inputPassword, ERROR_MESSAGE_WRONG_PASSWORD);
+        showErrorMessage(true, inputEmail, "email", ERROR_MESSAGE_WRONG_EMAIL);
+        showErrorMessage(
+          true,
+          inputPassword,
+          "password",
+          ERROR_MESSAGE_WRONG_PASSWORD,
+        );
       } else {
         console.log(error.message);
       }

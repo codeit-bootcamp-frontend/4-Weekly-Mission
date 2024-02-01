@@ -1,20 +1,17 @@
 import {
-  EMPTY_MESSAGE,
   ERROR_MESSAGE_EMPTY_EMAIL,
   ERROR_MESSAGE_EMPTY_PASSWORD,
   ERROR_MESSAGE_EXISTING_EMAIL,
   ERROR_MESSAGE_INCONSISTENT_PASSWORD,
   ERROR_MESSAGE_INVALID_EMAIL,
   ERROR_MESSAGE_INVALID_PASSWORD,
-  GET_ERROR_MESSAGE_SPAN,
 } from "./constant.js";
 import {
   isFilledInput,
   isMatchWithPassword,
   isValidEmailForm,
   isValidPasswordForm,
-  showEmailError,
-  showPasswordError,
+  showErrorMessage,
   toggleViewPassword,
 } from "./authFunctions.js";
 
@@ -39,10 +36,10 @@ const checkEmailIsValid = (e) => {
   const isValidForm = isValidEmailForm(e.target);
 
   if (!isFilled) {
-    showEmailError(true, e.target, ERROR_MESSAGE_EMPTY_EMAIL);
+    showErrorMessage(true, e.target, "email", ERROR_MESSAGE_EMPTY_EMAIL);
     return isValid;
   } else if (!isValidForm) {
-    showEmailError(true, e.target, ERROR_MESSAGE_INVALID_EMAIL);
+    showErrorMessage(true, e.target, "email", ERROR_MESSAGE_INVALID_EMAIL);
     return isValid;
   }
   // 이메일 인풋이 채워져있고, 올바른 형식일 때, 중복 이메일인지 확인하는 로직
@@ -67,7 +64,7 @@ const checkEmailIsValid = (e) => {
         const isUsableNickname = emailForCheck["data"]["isUsableNickname"];
 
         if (isUsableNickname) {
-          showEmailError(false, e.target);
+          showErrorMessage(false, e.target, "email");
           isValid = true;
         }
       } else if (response.status === 409) {
@@ -78,7 +75,7 @@ const checkEmailIsValid = (e) => {
     } catch (error) {
       console.log(error.message);
       if (error.message === "Email Conflict") {
-        showEmailError(true, e.target, ERROR_MESSAGE_EXISTING_EMAIL);
+        showErrorMessage(true, e.target, "email", ERROR_MESSAGE_EXISTING_EMAIL);
       }
     }
   })();
@@ -93,42 +90,45 @@ const checkPasswordIsValid = (e) => {
   const isValidForm = isValidPasswordForm(e.target);
 
   if (!isFilled) {
-    showPasswordError(true, e.target, ERROR_MESSAGE_EMPTY_PASSWORD);
+    showErrorMessage(true, e.target, "password", ERROR_MESSAGE_EMPTY_PASSWORD);
     return;
   } else if (!isValidForm) {
-    showPasswordError(true, e.target, ERROR_MESSAGE_INVALID_PASSWORD);
+    showErrorMessage(
+      true,
+      e.target,
+      "password",
+      ERROR_MESSAGE_INVALID_PASSWORD,
+    );
     return;
   }
 
-  showPasswordError(false, e.target);
+  showErrorMessage(false, e.target, "password");
   isValid = true;
 
   return isValid;
 };
 
 const checkPasswordCheckIsValid = (e) => {
-  const errorMessageSpan = GET_ERROR_MESSAGE_SPAN(e.target);
-  const iconEye = e.target.parentElement.querySelector(".btn_eye");
-
   let isValid = false;
 
   const isFilled = isFilledInput(e.target);
   const isMatched = isMatchWithPassword(e.target, inputPassword);
 
-  if (isFilled && isMatched) {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    e.target.classList.remove("error_input");
-    iconEye.classList.remove("large_bottom");
-    isValid = true;
-  } else {
-    e.target.classList.add("error_input");
-    iconEye.classList.add("large_bottom");
-    if (!isFilled) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_PASSWORD;
-    } else if (!isMatched) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_INCONSISTENT_PASSWORD;
-    }
+  if (!isFilled) {
+    showErrorMessage(true, e.target, "password", ERROR_MESSAGE_EMPTY_PASSWORD);
+    return isValid;
   }
+  if (!isMatched) {
+    showErrorMessage(
+      true,
+      e.target,
+      "password",
+      ERROR_MESSAGE_INCONSISTENT_PASSWORD,
+    );
+    return isValid;
+  }
+  showErrorMessage(false, e.target, "password");
+  isValid = true;
 
   return isValid;
 };
