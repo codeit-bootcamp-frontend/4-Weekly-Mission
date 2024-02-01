@@ -7,7 +7,7 @@ const passwordError = document.querySelector(".password_error");
 const PASSWORD_CHECK = document.getElementById("password_check");
 const passwordError_check = document.querySelector(".password_error_check");
 
-const JOIN_BTN = document.querySelector(".join_btn");
+const JOIN_BTN = document.querySelector(".login_btn");
 
 function addEmailErrorMsg(message) {
   emailError.innerText = message;
@@ -82,19 +82,19 @@ function passwordCheckText() {
 function join(event) {
   event.preventDefault();
   if (emailText() && passwordText() && passwordCheckText()) {
-    let link = "page.html";
+    let link = "../html/page.html";
     location.href = link;
   }
 }
 
 JOIN_BTN.addEventListener("click", join);
-document
-  .getElementById("join-form")
-  .addEventListener("keydown", function (event) {
-    if (event.key === "Enter") {
-      join();
-    }
-  });
+// document
+//   .getElementById("join-form")
+//   .addEventListener("keydown", function (event) {
+//     if (event.key === "Enter") {
+//       join();
+//     }
+//   });
 
 EMAIL.addEventListener("blur", emailText);
 PASSWORD.addEventListener("blur", passwordText);

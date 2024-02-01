@@ -8,10 +8,12 @@ const LOGIN_BTN = document.querySelector(".login_btn");
 
 function addEmailErrorMsg(message) {
   emailError.innerText = message;
+  EMAIL.classList.add("error_box");
 } // => email error message 추가
 
 function addPasswordErrorMsg(message) {
   passwordError.innerText = message;
+  PASSWORD.classList.add("error_box");
 } // => password error message 추가
 
 function emailFormat(email) {
@@ -19,21 +21,23 @@ function emailFormat(email) {
   return iemailFormat.test(email);
 } // => 이메일 형식
 
-function emailText(em) {
-  if (em.target.value == "") {
+function emailText() {
+  if (EMAIL.value == "") {
     addEmailErrorMsg("* 이메일을 입력해주세요.");
-  } else if (!emailFormat(em.target.value)) {
+  } else if (!emailFormat(EMAIL.value)) {
     addEmailErrorMsg("* 올바른 이메일을 입력해주세요.");
   } else {
     addEmailErrorMsg("");
+    EMAIL.classList.remove("error_box");
   }
 }
 
-function passwordText(pm) {
-  if (pm.target.value == "") {
+function passwordText() {
+  if (PASSWORD.value == "") {
     addPasswordErrorMsg("* 비밀번호를 입력해주세요.");
   } else {
     addPasswordErrorMsg("");
+    PASSWORD.classList.remove("error_box");
   }
 }
 
@@ -41,7 +45,7 @@ function login() {
   const correctEmail = "test@codeit.kr";
   const correctPassword = "codeit101";
   if (correctEmail == EMAIL.value && correctPassword == PASSWORD.value) {
-    let link = "page.html";
+    let link = "../html/page.html";
     location.href = link;
   } else {
     addEmailErrorMsg("* 이메일을 확인해주세요.");
