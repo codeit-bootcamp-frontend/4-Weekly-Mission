@@ -79,40 +79,24 @@ function pwRepCorrect() {
 passwordRepeat.addEventListener('focusout', pwRepCorrect);
 
 // 회원가입 시도시 오류가 있는 경우
-function checkFormErrors() {
-  const emailInput = email.value.trim();
-  const pwInput = password.value.trim();
-  const emailError = !emailInput || !emailRegExp.test(emailInput);
-  const pwError = !pwInput || !pwRegExp.test(pwInput);
-  const pwRepeatError = password.value !== passwordRepeat.value;
+function signUp(event) {
+  idErrorMessage.textContent = '';
+  pwErrorMessage.textContent = '';
+  pwRepeatErrorMessage.textContent = '';
 
-  if (emailError) {
-    emailNoneValue();
-    emailValidation();
-    emailAlready();
-    
-    if (!emailError) {
-      emailAlready();
-    }
-  }
+  emailFocusOut();
+  pwValidation();
+  pwRepCorrect();
 
-  if (pwError) {
-    pwValidation();
-  }
-
-  if (pwRepeatError) {
-    pwRepCorrect();
-  }
-
-  return emailError || pwError || pwRepeatError;
-}
-
-function signup(event) {
-  event.preventDefault();
-
-  const hasErrors = checkFormErrors();
-
-  if (!hasErrors) {
-    window.location.href = '/folder';
+  if (
+    idErrorMessage.textContent ||
+    pwErrorMessage.textContent ||
+    pwRepeatErrorMessage.textContent
+  ) {
+    event.preventDefault();
+  } else {
+    window.location.href = '/folder.html';
   }
 }
+
+form.addEventListener('submit', signUp);
