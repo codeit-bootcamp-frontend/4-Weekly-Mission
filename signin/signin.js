@@ -1,10 +1,17 @@
 import { EMAIL_REGEX, TEST_EMAIL, TEST_PW } from "/js/account/constant.js";
 import { eyeOpen, eyeClose } from "/js/account/passwordIconToggle.js";
-import { email, emailError } from "/js/account/email.js";
-import { password, passwordError } from "/js/account/password.js";
 import { emailTest } from "../js/account/util.js";
+import { onInput } from "../js/account/util.js";
+
+const email = document.querySelector("#email");
+const emailError = document.querySelector(".emailError");
+const password = document.querySelector("#password");
+const passwordError = document.querySelector(".passwordError");
 
 const form = document.querySelector("#form");
+
+onInput(email, emailError);
+onInput(password, passwordError);
 
 function onSubmit(event) {
   event.preventDefault();

@@ -1,13 +1,19 @@
 import { EMAIL_REGEX, TEST_EMAIL } from "/js/account/constant.js";
 import { eyeOpen, eyeClose } from "/js/account/passwordIconToggle.js";
-import { email, emailError } from "/js/account/email.js";
-import { password, passwordError } from "/js/account/password.js";
-import { emailTest } from "../js/account/util.js";
+import { emailTest, onInput } from "../js/account/util.js";
 
+const email = document.querySelector("#email");
+const emailError = document.querySelector(".emailError");
+const password = document.querySelector("#password");
+const passwordError = document.querySelector(".passwordError");
 const passwordConfirm = document.querySelector("#passwordConfirm");
 const passwordConfirmError = document.querySelector(".passwordConfirmError");
 
 const form = document.querySelector("#form");
+
+onInput(email, emailError);
+onInput(password, passwordError);
+onInput(passwordConfirm, passwordConfirmError);
 
 function OnFocusOutEmail(e) {
   if (emailTest(e.target, emailError)) {
@@ -34,11 +40,6 @@ function OnFocusOutPassword(e) {
   e.target.classList.remove("inputError");
 }
 
-function OnInputPasswordConfirm(e) {
-  passwordConfirmError.textContent = "";
-  e.target.classList.remove("inputError");
-}
-
 function onSubmit(e) {
   e.preventDefault();
   if (
@@ -59,5 +60,4 @@ function onSubmit(e) {
 
 email.addEventListener("focusout", OnFocusOutEmail);
 password.addEventListener("focusout", OnFocusOutPassword);
-passwordConfirm.addEventListener("input", OnInputPasswordConfirm);
 form.addEventListener("submit", onSubmit);

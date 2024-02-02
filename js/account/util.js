@@ -14,3 +14,12 @@ export function emailTest(email, emailError) {
     return true;
   }
 }
+
+export function onInput(target, targetError) {
+  function handler(e) {
+    targetError.textContent = "";
+    e.target.classList.remove("inputError");
+  }
+
+  target.addEventListener("input", handler);
+}
