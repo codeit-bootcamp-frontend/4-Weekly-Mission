@@ -5,6 +5,8 @@ const emailErrorMessage =document.getElementById('error-email');
 const passwordErrorMessage = document.getElementById('error-password');
 const passwordRepeat = document.getElementById("passwordR");
 const passwordRepeatErrorMessage = document.getElementById('error-passwordR');
+const eyeButton = document.querySelector('.eye-button');
+
 
 const errorMessages = {
     emailRequired: "이메일을 입력해주세요.",
@@ -29,7 +31,7 @@ function focusing(errorName,styleName){
 }
 
 //눈 비밀번호 표시 / 미표시
-function eyeBlink(input,icon){
+function eyeBlink(input,icon){ 
     if(input.type=="password"){
         input.type="text";
         icon.src="../images/eye-on.svg"
@@ -41,29 +43,27 @@ function eyeBlink(input,icon){
 }
  
 //이메일
-function checkingEmail(type){
+function checkingEmail(){
 
     //이메일 체크를 위한 정규식
     const checkEmail = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
 
+    const emailTrim = email.value.trim();
+
+    //실패시 체크값 디폴트
+    isCheckingEmail=false;
+
     //이메일 체크
-    if(email.value.trim()==""){
+    if(emailTrim==""){
         emailErrorMessage.innerHTML=errorMessages.emailRequired;
-        email.style.border= "0.1rem solid var(--red)";
-    }else if(checkEmail.test(email.value.trim())){
+    }else if(checkEmail.test(emailTrim)){
         emailErrorMessage.innerHTML="";
-        email.style.border= "0.1rem solid var(--gray20)";
+        isCheckingEmail= true;
     }else{
         emailErrorMessage.innerHTML=errorMessages.invalidEmail;
-        email.style.border= "0.1rem solid var(--red)";
     }
 
-    if(type=='signup'){
-        if(email.value.trim()===`test@codeit.com`){
-            emailErrorMessage.innerHTML=errorMessages.duplicateEmail;
-            email.style.border= "0.1rem solid var(--red)";
-        }
-    }
+    isCheckingEmail ? email.style.border= "0.1rem solid var(--gray20)" : email.style.border= "0.1rem solid var(--red)";
 }
 
 //비밀번호
@@ -72,68 +72,125 @@ function checkingPassword(){
     //비밀번호 체크를 위한 정규식
     const checkPassword = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,30}$/
 
+    const passwordTrim = password.value.trim();
+
+    //실패시 체크값 디폴트
+    isCheckingPassword=false;
+
     //비밀번호 체크
-    if(password.value.trim()==""){
+    if(passwordTrim==""){
         passwordErrorMessage.innerHTML=errorMessages.passwordRequired;
-        password.style.border= "0.1rem solid var(--red)";
-        isCheckingPassword= false;
-    }else if(checkPassword.test(password.value.trim())){
+    }else if(checkPassword.test(passwordTrim)){
         passwordErrorMessage.innerHTML="";
-        password.style.border= "0.1rem solid var(--gray20)";
         isCheckingPassword= true;
     }else{
         passwordErrorMessage.innerHTML=errorMessages.invalidPassword;
-        password.style.border= "0.1rem solid var(--red)";
-        isCheckingPassword= false;
     }
+
+    isCheckingPassword ? password.style.border= "0.1rem solid var(--gray20)" : password.style.border= "0.1rem solid var(--red)";
 }
 
+
+//비밀번호 확인란
 function checkingPasswordRepeat(){
-    if(passwordRepeat.value.trim()==""){
+
+    //실패시 체크값 디폴트
+    isCheckingPasswordRepeatEmail= false;
+
+    const passwordRepeatTrim = passwordRepeat.value.trim();
+
+    if(passwordRepeatTrim==""){
         passwordRepeatErrorMessage.innerHTML=errorMessages.passwordRepeatRequired;
-        passwordRepeat.style.border= "0.1rem solid var(--red)";
-        isCheckingPasswordRepeatEmail= false;
-    }else if(password.value.trim()==passwordRepeat.value.trim()){
+    }else if(password.value.trim()==passwordRepeatTrim){
         passwordRepeatErrorMessage.innerHTML="";
-        passwordRepeat.style.border= "0.1rem solid var(--gray20)";
         isCheckingPasswordRepeatEmail= true;
     }else{
         passwordRepeatErrorMessage.innerHTML=errorMessages.passwordMismatch;
-        passwordRepeat.style.border= "0.1rem solid var(--red)";
-        isCheckingPasswordRepeatEmail= false;
+    }
+
+    isCheckingPasswordRepeatEmail ? passwordRepeat.style.border= "0.1rem solid var(--gray20)" : passwordRepeat.style.border= "0.1rem solid var(--red)";
+}
+
+//로그인 정보주고받기
+async function fetchSignin (){
+    try{
+        const user = {
+            email: email.value.trim(),
+            password: password.value.trim()
+        }
+        const token = "user";
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(user)
+        });
+        response.ok ? (location.href = '/folder.html') : errorMessage();
+
+        async function errorMessage (){
+            const errorMessage = await response.json();
+            console.error(errorMessage.error.message);
+        }
+    }catch(error){
+        console.error(error.message);
     }
 }
 
+//현재 작업중 추후에 합칠 예정
+async function fetchSignUp (){
+    try{
+        const user = {
+            email: email.value.trim(),
+            password: password.value.trim()
+        }
+        const token = "user";
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(user)
+        });
+        response.ok ? (location.href = '/folder.html') : errorMessage();
 
+        async function errorMessage (){
+            const errorMessage = await response.json();
+            console.error(errorMessage.error.message);
+        }
+    }catch(error){
+        console.error(error.message);
+    }
+}
 
 //addEventListener를 이용한 체크 시스템
 form.addEventListener("submit",(e)=>{
 
-
     //새로고침 방지
     e.preventDefault();
 
+    //타겟 확인
     console.log(e.target.id);
 
+    const user = {
+        email: email.value.trim(),
+        password: password.value.trim()
+    }
+    const token = "user";
+
     if(e.target.id ==='signin'){
-        if(email.value.trim()=="test@codeit.com" && password.value.trim()=="codeit101"){
-            //폴더 페이지 미완성으로 인한 임시
-            location.href='/folder.html';
-        }else if(email.value.trim()!="test@codeit.com" && password.value.trim()=="codeit101"){
-            emailErrorMessage.innerHTML=errorMessages.checkEmail;
-            email.style.border= "0.1rem solid var(--red)";
-        }else if(email.value.trim()=="test@codeit.com" && password.value.trim()!="codeit101"){
-            passwordErrorMessage.innerHTML=errorMessages.checkPassword;
-            password.style.border= "0.1rem solid var(--red)";
+        if(isCheckingEmail==true && isCheckingPassword==true){
+            fetchSignin();
         }else{
-            emailErrorMessage.innerHTML=errorMessages.checkEmail;
-            email.style.border= "0.1rem solid var(--red)";
-            passwordErrorMessage.innerHTML=errorMessages.checkPassword;
-            password.style.border= "0.1rem solid var(--red)";
+            checkingEmail();
+            checkingPassword();
         }
     }else if(e.target.id ==='signup'){
         if(isCheckingEmail == true && isCheckingPasswordRepeatEmail==true && isCheckingPassword == true){
-            location.href='/folder.html';
+            //현재 작업중...
+            fetchSignUp();
         }else{
             checkingEmail();
             checkingPassword();
@@ -141,3 +198,5 @@ form.addEventListener("submit",(e)=>{
         }
     }
 });
+
+export { focusing, eyeBlink, checkingEmail, checkingPassword, checkingPasswordRepeat, fetchSignin, fetchSignUp };

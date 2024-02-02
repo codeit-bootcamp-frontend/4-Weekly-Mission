@@ -24,22 +24,22 @@
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" id="email" onfocusout="checkingEmail('signup')" onfocusin="focusing(emailErrorMessage,email)"/>
+            <input class="sign-input" id="email" autocomplete="username"/>
             <small id="error-email"></small>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" type="password" id="password" onfocusout="checkingPassword()" onfocusin="focusing(passwordErrorMessage,password)"/>
+            <input class="sign-input" type="password" id="password" autocomplete="current-password"/>
             <small id="error-password"></small>
-            <button class="eye-button" type="button" id="eye-button" onclick="eyeBlink(password,eye)">
+            <button class="eye-button" type="button" id="eye-button">
               <img src="./images/eye-off.svg" id="eye"/>
             </button>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호 확인</label>
-            <input class="sign-input" type="password" id="passwordR" onfocusout="checkingPasswordRepeat()" onfocusin="focusing(passwordRepeatErrorMessage,passwordRepeat)"/>
+            <input class="sign-input" type="password" id="passwordR" autocomplete="current-password"/>
             <small id="error-passwordR"></small>
-            <button class="eye-button" type="button" id="eye-button2" onclick="eyeBlink(passwordR,eye2)">
+            <button class="eye-button" type="button" id="eye-button2">
               <img src="./images/eye-off.svg" id="eye2"/>
             </button>
           </div>
@@ -58,6 +58,6 @@
         </div>
       </div>
     </div>
-    <script src="./js/signin.js"></script>
+    <script type="module" src="./js/jsUtil.js"></script>
   </body>
 </html>
