@@ -41,6 +41,13 @@ function eyeBlink(input,icon){
         icon.src="../images/eye-off.svg"
     }
 }
+
+//엑세스 토큰 저장
+
+function containAccessToken(accessToken) {
+    localStorage.setItem('accessToken', accessToken);
+}
+
  
 //이메일
 function checkingEmail(){
@@ -119,6 +126,7 @@ async function fetchSignin (){
             password: password.value.trim()
         }
         const token = "user";
+
         const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in',{
             method: 'POST',
             headers: {
@@ -138,33 +146,39 @@ async function fetchSignin (){
     }
 }
 
-// //현재 작업중 추후에 합칠 예정
-// async function fetchSignUp (){
-//     try{
-//         const user = {
-//             email: email.value.trim(),
-//             password: password.value.trim()
-//         }
-//         const token = "user";
-//         console.log(user.email);
-//         const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up',{
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 'Authorization': `Bearer ${token}`
-//             },
-//             body: JSON.stringify(user)
-//         });
-//         console.log(response);
+//현재 작업중 추후에 합칠 예정
+async function fetchSignUp (){
+    try{
+        const user = {
+            email: email.value.trim(),
+            password: password.value.trim()
+        }
+        const token = "user";
 
-//         async function errorMessage (){
-//             const errorMessage = await response.json();
-//             console.error(errorMessage.error.message);
-//         }
-//     }catch(error){
-//         console.error(error.message);
-//     }
-// }
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(user)
+        });
+        if(response.ok){
+            const data = await response.json();
+            containAccessToken(data.accessToken);
+            location.href = '/folder.html';
+        }else{
+            errorMessage();
+        }
+
+        async function errorMessage (){
+            const errorMessage = await response.json();
+            console.error(errorMessage.error.message);
+        }
+    }catch(error){
+        console.error(error.message);
+    }
+}
 
 //addEventListener를 이용한 체크 시스템
 form.addEventListener("submit",(e)=>{
@@ -175,12 +189,6 @@ form.addEventListener("submit",(e)=>{
     //타겟 확인
     console.log(e.target.id);
 
-    const user = {
-        email: email.value.trim(),
-        password: password.value.trim()
-    }
-    const token = "user";
-
     if(e.target.id ==='signin'){
         if(isCheckingEmail==true && isCheckingPassword==true){
             fetchSignin();
@@ -190,7 +198,6 @@ form.addEventListener("submit",(e)=>{
         }
     }else if(e.target.id ==='signup'){
         if(isCheckingEmail == true && isCheckingPasswordRepeatEmail==true && isCheckingPassword == true){
-            //현재 작업중...
             fetchSignUp();
         }else{
             checkingEmail();
