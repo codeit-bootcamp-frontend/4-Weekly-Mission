@@ -11,19 +11,16 @@ const eye = document.querySelector('.eye')
 const eyeCheck = document.querySelector('.eyeCheck')
 
 // email
-function checkEmailApi() {
+function checkDuplication(emailId) {
   fetch('https://bootcamp-api.codeit.kr/api/check-email', {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({ email: "test@codeit.com" })
+    body: JSON.stringify({ email: emailId })
   })
   .then((response) => {
-    if(response.status===200) {
-    return true
-    }
-    return false
+    return response.status===200 ? true : false
   })
 }
 
@@ -36,7 +33,7 @@ function emailError(email) {
     putError({input: emailInput, errorMessage: errorEmail}, '올바른 이메일 주소가 아닙니다.')
     return false;
   }
-  if(!checkEmailApi()) {
+  if(!checkDuplication(email)) {
     putError({input: emailInput, errorMessage: errorEmail}, '이미 사용 중인 이메일입니다.')
     return false;
   }
@@ -78,46 +75,43 @@ eye.addEventListener('click', () => togglePW(pwInput, eye))
 //check password toggle
 eyeCheck.addEventListener('click', () => togglePW(passwordCheck, eyeCheck))
 
-// 로그인 했을 때 /folder로 이동 & 확인해주세요
-// function login(e) {
-//   e.preventDefault();
-//   const isEmailValid = emailError(emailInput.value)
-//   const isPasswordValid = pwError(pwInput.value)
-//   const isPasswordCheckValid = checkPwError(passwordCheck.value)
+//로그인 했을 때 /folder로 이동 & 확인해주세요
+function signUpApi(mail, pw) {
+  const isEmailValid = emailError(mail)
+  const isPasswordValid = pwError(pw)
+  const isPasswordCheckValid = checkPwError(pw)
+  if(isEmailValid && isPasswordValid && isPasswordCheckValid) {
+    fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ 
+        email: mail, 
+        password: pw
+      })
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      if(result.accessToken) {
+        localStorage.setItem('accessToken', result.accessToken)
+        location.href='../folder.html'
+      }
+    })
+    .catch((error) => console.log(error))
+  }
+}
 
-//   if(isEmailValid && isPasswordValid && isPasswordCheckValid) {
-//     location.href = '../folder.html'
-//   }
-// }
+//페이지 로드 시 accessToken 갖고 있으면 /folder로 이동
+document.addEventListener('DOMContentLoaded', () => {
+  if(localStorage.getItem('accessToken')) {
+    location.href='../folder.html'
+  }
+})
 
-// form.addEventListener('submit', login)
+function signUp(e) {
+  e.preventDefault()
+  signUpApi(emailInput.value, pwInput.value)
+}
 
-// function checkEmailApi() {
-//   fetch('https://bootcamp-api.codeit.kr/api/check-email', {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json"
-//     },
-//     body: JSON.stringify({ email: "test@codeit.com" })
-//   })
-//   .then((response) => response.status===200 ? true : false )
-// }
-//   .then((response) => {
-//     if(response.status===200 && isEmailValid && isPasswordValid && isPasswordCheckValid) {
-//       fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/json"
-//         },
-//         body: JSON.stringify({ email, password })
-//       })
-//       .then((response) => {
-//         if(response.status === 200) {
-//           location.href='../folder.html'
-//           return
-//         }
-//       })
-//     }
-//   })
-// }
-form.addEventListener('submit', checkEmailApi)
+form.addEventListener('submit', signUp)
