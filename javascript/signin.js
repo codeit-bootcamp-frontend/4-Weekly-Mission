@@ -4,12 +4,14 @@ const passwordInput = document.querySelector('#signin-password')
 const errorEmail = document.querySelector('#errorEmail')
 const errorPassword = document.querySelector('#errorPassword')
 const passwordCover = document.querySelector('#eyecon-password')
-const cover = {isPasswordCovered: false}
+const cover = { isPasswordCovered: false }
+const email = emailInput.value.trim()
+const password = passwordInput.value.trim()
 
 import { isEmailValid, isInputEmpty, showError, clearError } from './sign-error.js'
 import { togglePasswordByEyecon as togglePassword } from './toggle-password.js'
 import { errorMsg } from './constants.js'
-import { codeit } from './user-data.js'
+import { confirmLogin } from './post.js'
 
 //////////////// 함수 정의 ////////////////////
 
@@ -17,7 +19,6 @@ import { codeit } from './user-data.js'
  * 이메일 형식과 빈 input 확인 후 error 메세지 출력
  */
 const checkEmail = () => {
-    const email = emailInput.value.trim()
     // 이메일 미입력 에러
     if (isInputEmpty(email)) {
         showError(emailInput, errorEmail, errorMsg.emptyEmail)
@@ -35,20 +36,9 @@ const checkEmail = () => {
  * 빈 input 시 error 메세지 출력
  */
 const checkPassword = () => {
-    const password = passwordInput.value.trim()
     if (isInputEmpty(password)) {
         showError(passwordInput, errorPassword, errorMsg.emptyPassword)
     }
-}
-/**
- * 이메일 가입 여부 확인 함수
- * codeit에 가입한 이메일, 비번 참조
- * @returns 불린값
- */
-const isEmailConfirmed = () => {
-    const email = emailInput.value.trim()
-    const password = passwordInput.value.trim()
-    return email === codeit.email && password === codeit.password
 }
 
 /**
@@ -56,15 +46,25 @@ const isEmailConfirmed = () => {
  * @param {*} event 해당 함수를 발생하는 이벤트
  * @returns 불린값
  */
-const validateEmail = (event) => {
-    if (isEmailConfirmed()) {
-        event.preventDefault()
-        window.location.href = '../html/folder.html'
-        return
+const validateEmail = async (event) => {
+    const userData = {
+        email: email,
+        password: password,
     }
-    showError(emailInput, errorEmail, errorMsg.checkEmail)
-    showError(passwordInput, errorPassword, errorMsg.checkPassword)
+
     event.preventDefault()
+    try {
+        const result = await confirmLogin(userData)
+
+        if (result.ok) {
+            window.location.href = '../html/folder.html'
+            return
+        }
+        showError(emailInput, errorEmail, errorMsg.checkEmail)
+        showError(passwordInput, errorPassword, errorMsg.checkPassword)
+    } catch (error) {
+        console.error('Error during email validation:', error)
+    }
 }
 
 /////////핸들러 함수///////
