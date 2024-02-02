@@ -3,8 +3,6 @@
 *********************/
 
 import {
-  User,
-  user,
   isEmpty,
   isEmailValid,
   isPasswordValid,
@@ -36,13 +34,37 @@ const showButtonPasswordCheck = document.querySelector('.eye-img-password-check'
        Function
 *********************/
 
-function isEmailDuplicated(text) { return user.email === text };
+async function isEmailDuplicated(email) {
+  const url = 'https://bootcamp-api.codeit.kr/api/check-email';
+  const data = { "email": email };
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return !response.ok
+};
+
+async function registAccount(email, password) {
+  const url = 'https://bootcamp-api.codeit.kr/api/sign-up';
+  const data = {"email": email, "password": password};
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (response.ok) {
+    return location.href = '../folder/index.html';
+  } else {
+    alert('서버 상의 문제로 회원 가입에 실패하였습니다. 다시 시도해주세요.');
+  }
+}
 
 /*********************
      EventHandler
 *********************/
 
-function validateEmailInput() {
+async function validateEmailInput() {
   if (isEmpty(inputEmail.value)) {
     showErrorMessage(errorMessageEmail, '이메일을 입력해 주세요.');
     inputEmail.classList.add('red-border');
@@ -55,11 +77,15 @@ function validateEmailInput() {
     return;
   }
 
-  if (isEmailDuplicated(inputEmail.value)) {
-    showErrorMessage(errorMessageEmail, '이미 사용 중인 이메일입니다.');
-    inputEmail.classList.add('red-border');
+  try {
+    if (await isEmailDuplicated(inputEmail.value)) {
+        showErrorMessage(errorMessageEmail, '이미 사용 중인 이메일입니다.');
+        inputEmail.classList.add('red-border');
+        return;
+    }
+  } catch {
     return;
-  }
+  };
 };
 
 function validatePasswordInput() {
@@ -120,31 +146,42 @@ function togglePasswordCheckVisibility() {
   toggleInputVisibility(inputPasswordCheck, showButtonPasswordCheck);
 }
 
-function signup(e) {
+async function signup(e) {
   e.preventDefault();
 
-  const inputs = [ inputEmail, inputPassword, inputPasswordCheck ];
-
-  for (const input of inputs) {
-    input.focus();
-    input.blur();
-  };
-
-  const filteredInputs = inputs.filter( (input) => input.classList.contains('red-border') );
-
-  if (filteredInputs.length) {
-    for (const input of filteredInputs) {
-      const error = input.parentElement.lastElementChild;
-      showErrorMessage(error, '확인 후 다시 작성해주세요.');
-    };
+  if (!isEmailValid(inputEmail.value)) {
+    showErrorMessage(errorMessageEmail, '올바른 이메일 주소가 아닙니다.');
+    inputEmail.classList.add('red-border');
     return;
-  };
-  
-  return location.href = '../folder/index.html';
+  }
+
+  if (!isPasswordValid(inputPassword.value)) {
+    showErrorMessage(errorMessagePassword, '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.');
+    inputPassword.classList.add('red-border');
+    return;
+  }
+
+  if (inputPasswordCheck.value !== inputPassword.value) {
+    showErrorMessage(errorMessagePasswordCheck, '비밀번호가 일치하지 않습니다.')
+    inputPasswordCheck.classList.add('red-border')
+    return;
+  }
+
+  try { 
+    if (await isEmailDuplicated(inputEmail.value)) {
+      showErrorMessage(errorMessageEmail, '이미 사용 중인 이메일입니다.');
+      inputEmail.classList.add('red-border');
+      return;
+    }
+
+    return await registAccount(inputEmail.value, inputPassword.value);
+  } catch {
+    alert('서버 접근 중 오류가 발생했습니다.');
+  }
 };
 
 /*********************
-  Event Registration
+ EventHandler Binding
 *********************/
 
 signupForm.addEventListener('focusin', changePlaceholderFocusIn);

@@ -3,7 +3,6 @@
 *********************/
 
 import {
-  user,
   isEmpty,
   isEmailValid,
   isPasswordValid,
@@ -32,16 +31,15 @@ const showButtonPassword = document.querySelector('.eye-img-password');
        Function
 *********************/
 
-function verifyAccount(email, password) { 
-  if ( email !== user.email ) {
-    return false
-  }
-
-  if ( password !== user.password) {
-    return false
-  }
-
-  return true;
+async function checkUserExistence(email, password) { 
+  const url = 'https://bootcamp-api.codeit.kr/api/sign-in';
+  const data = {"email": email, "password": password};
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return response.ok;
 };
 
 /*********************
@@ -85,7 +83,7 @@ function togglePasswordVisibility() {
   toggleInputVisibility(inputPassword, showButtonPassword);
 }
 
-function login(e) {
+async function login(e) {
   e.preventDefault();
 
   if (!isEmailValid(inputEmail.value)) {
@@ -104,19 +102,24 @@ function login(e) {
     return;
   }
 
-  if (!verifyAccount(inputEmail.value, inputPassword.value)) {
-    showErrorMessage(errorMessageEmail, '이메일을 확인해 주세요.');
-    inputEmail.classList.add('red-border');
-    showErrorMessage(errorMessagePassword, '비밀번호를 확인해 주세요.');
-    inputPassword.classList.add('red-border');
+  try {
+    if (await !checkUserExistence(inputEmail.value, inputPassword.value)) {
+      showErrorMessage(errorMessageEmail, '이메일을 확인해 주세요.');
+      inputEmail.classList.add('red-border');
+      showErrorMessage(errorMessagePassword, '비밀번호를 확인해 주세요.');
+      inputPassword.classList.add('red-border');
+      return;
+    };
+  } catch {
+    alert('서버 접근 중 문제가 발생하였습니다.');
     return;
-  };
+  }
 
   return location.href = '../folder/index.html';
 };
 
 /*********************
-  Event Registration
+ EventHandler Binding
 *********************/
 
 signInForm.addEventListener('focusin', changePlaceholderFocusIn);

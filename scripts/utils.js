@@ -1,17 +1,4 @@
 /*********************
-        Account
-*********************/
-
-class User {
-  constructor(email, password) {
-    this.email = email;
-    this.password = password;
-  }
-}
-
-const user = new User('test@codeit.com', 'codeit101')
-
-/*********************
   Validation Function
 *********************/
 
@@ -69,8 +56,6 @@ function toggleInputVisibility(inputElement, showButton) {
 *********************/
 
 export {
-  User,
-  user,
   isEmpty,
   isEmailValid,
   isPasswordValid,
