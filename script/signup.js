@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
   const passwordcheckInput = document.getElementById('passwordcheck');
-  const signInButton = document.getElementById('cta');
+  const signInButton = document.getElementById('btn_login');
   const watchPassword = document.getElementById('eye-button');
 
   // 에러 메시지 요소들 생성 및 초기화
