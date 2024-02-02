@@ -8,7 +8,7 @@ const passwordConfirmError = document.querySelector(".passwordConfirmError");
 
 const form = document.querySelector("#form");
 
-function emailOnFocusOut(e) {
+function OnFocusOutEmail(e) {
   if (!e.target.value?.trim()) {
     emailError.textContent = "이메일을 입력해 주세요.";
     e.target.classList.add("inputError");
@@ -29,7 +29,7 @@ function emailOnFocusOut(e) {
   e.target.classList.remove("inputError");
 }
 
-function passwordOnFocusOut(e) {
+function OnFocusOutPassword(e) {
   const password = e.target.value;
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
   if (password.length < 8 || !passwordRegex.test(password)) {
@@ -42,7 +42,7 @@ function passwordOnFocusOut(e) {
   e.target.classList.remove("inputError");
 }
 
-function passwordConfirmOnInput(e) {
+function OnInputPasswordConfirm(e) {
   passwordConfirmError.textContent = "";
   e.target.classList.remove("inputError");
 }
@@ -65,7 +65,7 @@ function onSubmit(e) {
   location.href = "/folder";
 }
 
-email.addEventListener("focusout", emailOnFocusOut);
-password.addEventListener("focusout", passwordOnFocusOut);
-passwordConfirm.addEventListener("input", passwordConfirmOnInput);
+email.addEventListener("focusout", OnFocusOutEmail);
+password.addEventListener("focusout", OnFocusOutPassword);
+passwordConfirm.addEventListener("input", OnInputPasswordConfirm);
 form.addEventListener("submit", onSubmit);
