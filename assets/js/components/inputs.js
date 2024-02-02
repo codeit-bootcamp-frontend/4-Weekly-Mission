@@ -1,6 +1,13 @@
 import { FormInput, formState } from "../core/index.js"
 import { removeError, showError } from "../utils/ui.js"
-import { isEmpty, isEmailValid, isPasswordMatch, isExistingEmail, isPasswordValid } from "../utils/validation.js"
+import {
+  isEmpty,
+  isEmailValid,
+  isPasswordMatch,
+  isExistingEmail,
+  isPasswordValid,
+  errorMessages,
+} from "../utils/validation.js"
 
 class RegisterEmailInput extends FormInput {
   constructor(inputElement) {
@@ -8,29 +15,11 @@ class RegisterEmailInput extends FormInput {
   }
 
   validation(value) {
-    if (isEmpty(value)) {
-      showError({ ...this.update, errorMessage: "이메일을 입력해주세요." })
-      return false
-    }
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+    if (!isEmailValid(value)) return { result: false, errorType: "notValid" }
+    if (isExistingEmail(value)) return { result: false, errorType: "existing" }
 
-    if (!isEmailValid(value)) {
-      showError({
-        ...this.update,
-        errorMessage: "올바른 이메일 주소가 아닙니다.",
-      })
-      return false
-    }
-
-    if (isExistingEmail(value)) {
-      showError({
-        ...this.update,
-        errorMessage: "이미 사용 중인 이메일입니다.",
-      })
-
-      return false
-    }
-
-    return true
+    return { result: true, errorType: null }
   }
 }
 
@@ -48,24 +37,10 @@ class RegisterPasswordInput extends FormInput {
   }
 
   validation(value) {
-    if (isEmpty(value)) {
-      showError({ ...this.update, errorMessage: "비밀번호를 입력해주세요." })
-      return false
-    }
-
-    if (!isPasswordValid(value)) {
-      showError({ ...this.update, errorMessage: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요." })
-      return false
-    }
-
-    if (!isEmpty(formState.data.passwordConfirm) && !isPasswordMatch(value, formState.data.passwordConfirm)) {
-      showError({
-        ...this.update,
-        ...this.passwordConfirmData,
-        errorMessage: "비밀번호가 일치하지 않아요.",
-      })
-      return false
-    }
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+    if (!isPasswordValid(value)) return { result: false, errorType: "notValid" }
+    if (!isEmpty(formState.data.passwordConfirm) && !isPasswordMatch(value, formState.data.passwordConfirm))
+      return { result: false, errorType: "notMatch" }
 
     if (isPasswordMatch(value, formState.data.passwordConfirm))
       removeError({
@@ -74,7 +49,7 @@ class RegisterPasswordInput extends FormInput {
         errorMessage: "",
       })
 
-    return true
+    return { result: true, errorType: null, isMatch: true }
   }
 
   passwordChangeIcon(iconElement) {
@@ -104,20 +79,10 @@ class RegisterPasswordConfirmInput extends FormInput {
   }
 
   validation(value) {
-    if (isEmpty(value)) {
-      showError({ ...this.update, errorMessage: "비밀번호를 입력해주세요." })
-      return false
-    }
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+    if (!isPasswordMatch(value, formState.data.password)) return { result: false, errorType: "notMatch" }
 
-    if (!isPasswordMatch(value, formState.data.password)) {
-      showError({
-        ...this.update,
-        errorMessage: "비밀번호가 일치하지 않아요.",
-      })
-      return false
-    }
-
-    return true
+    return { result: true, errorType: null }
   }
 
   inputTypeToggle(inputElement) {
@@ -146,20 +111,10 @@ class LoginEmailInput extends FormInput {
   }
 
   validation(value) {
-    if (isEmpty(value)) {
-      showError({ ...this.update, errorMessage: "이메일을 입력해주세요." })
-      return false
-    }
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+    if (!isEmailValid(value)) return { result: false, errorType: "notValid" }
 
-    if (!isEmailValid(value)) {
-      showError({
-        ...this.update,
-        errorMessage: "올바른 이메일 주소가 아닙니다.",
-      })
-      return false
-    }
-
-    return true
+    return { result: true, errorType: null }
   }
 }
 
@@ -170,12 +125,8 @@ class LoginPasswordInput extends FormInput {
   }
 
   validation(value) {
-    if (isEmpty(value)) {
-      showError({ ...this.update, errorMessage: "비밀번호를 입력해주세요." })
-      return false
-    }
-
-    return true
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+    return { result: true, errorType: null }
   }
 
   inputTypeToggle(inputElement) {

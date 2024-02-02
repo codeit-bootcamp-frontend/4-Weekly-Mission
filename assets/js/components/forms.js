@@ -1,51 +1,53 @@
 import { Form, formState } from "../core/index.js"
 import { TEST_USER } from "../auth/index.js"
 import { showError } from "../utils/ui.js"
-import { isEmpty, isEmailValid, isPasswordMatch, isPasswordValid, isExistingEmail } from "../utils/validation.js"
+import {
+  isEmpty,
+  isEmailValid,
+  isPasswordMatch,
+  isPasswordValid,
+  isExistingEmail,
+  errorMessages,
+} from "../utils/validation.js"
 
 class LoginForm extends Form {
-  emailValidation(value, emailInput) {
-    const inputRootElement = document.querySelector(`.input-layout-${emailInput.name}`)
-    const errorElement = inputRootElement.querySelector(".input-error")
+  emailValidation(value) {
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+    if (!isEmailValid(value)) return { result: false, errorType: "notValid" }
 
-    if (isEmpty(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "이메일을 입력해주세요.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    if (!isEmailValid(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "이메일 형식이 유효하지 않습니다.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    return true
+    return { result: true, errorType: "" }
   }
 
-  passwordValidation(value, passwordInput) {
+  passwordValidation(value) {
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+
+    return { result: true, errorType: "" }
+  }
+
+  setEmailErrorMessage(emailInput, errorType) {
+    const inputRootElement = document.querySelector(`.input-layout-${emailInput.name}`)
+    const errorElement = inputRootElement.querySelector(".input-error")
+    const errorMessage = errorMessages.email[errorType]
+
+    return showError({
+      inputRootElement,
+      errorElement,
+      errorMessage: errorMessage,
+      className: this.ERROR_CLASS_NAME,
+    })
+  }
+
+  setPasswordErrorMessage(passwordInput, errorType) {
     const inputRootElement = document.querySelector(`.input-layout-${passwordInput.name}`)
     const errorElement = inputRootElement.querySelector(".input-error")
+    const errorMessage = errorMessages.password[errorType]
 
-    if (isEmpty(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "비밀번호를 입력해주세요.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    return true
+    return showError({
+      inputRootElement,
+      errorElement,
+      errorMessage: errorMessage,
+      className: this.ERROR_CLASS_NAME,
+    })
   }
 
   compare(existingUser, formData) {
@@ -62,12 +64,16 @@ class LoginForm extends Form {
 
     this.setFormData()
 
-    const emailIsValid = this.emailValidation(email, this.inputEmailElement)
-    const passwordIsValid = this.passwordValidation(password, this.inputPasswordElement)
+    const emailValidationResult = this.emailValidation(email)
+    const passwordValidationResult = this.passwordValidation(password)
 
-    const formIsValid = emailIsValid && passwordIsValid
+    !emailValidationResult.result && this.setEmailErrorMessage(this.inputEmailElement, emailValidationResult.errorType)
+    !passwordValidationResult.result &&
+      this.setPasswordErrorMessage(this.inputPasswordElement, passwordValidationResult.errorType)
 
-    if (formIsValid)
+    const isFormValid = emailValidationResult.result && passwordValidationResult.result
+
+    if (isFormValid)
       return this.compare(TEST_USER, { email, password })
         ? this.success()
         : alert("이메일이나 비밀번호가 맞지 않습니다.")
@@ -75,90 +81,65 @@ class LoginForm extends Form {
 }
 
 class RegisterForm extends Form {
-  emailValidation(value, emailInput) {
+  setEmailErrorMessage(emailInput, errorType) {
     const inputRootElement = document.querySelector(`.input-layout-${emailInput.name}`)
     const errorElement = inputRootElement.querySelector(".input-error")
+    const errorMessage = errorMessages.email[errorType]
 
-    if (isEmpty(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "이메일을 입력해주세요.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    if (!isEmailValid(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "이메일 형식이 유효하지 않습니다.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    if (isExistingEmail(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "이미 사용 중인 이메일입니다.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    return true
+    return showError({
+      inputRootElement,
+      errorElement,
+      errorMessage: errorMessage,
+      className: this.ERROR_CLASS_NAME,
+    })
   }
 
-  passwordValidation(value, passwordInput) {
+  setPasswordErrorMessage(passwordInput, errorType) {
     const inputRootElement = document.querySelector(`.input-layout-${passwordInput.name}`)
     const errorElement = inputRootElement.querySelector(".input-error")
+    const errorMessage = errorMessages.password[errorType]
 
-    if (isEmpty(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "비밀번호를 입력해주세요.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    if (!isPasswordValid(value)) {
-      showError({ ...this.update, errorMessage: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요." })
-      return false
-    }
-
-    return true
+    return showError({
+      inputRootElement,
+      errorElement,
+      errorMessage: errorMessage,
+      className: this.ERROR_CLASS_NAME,
+    })
   }
 
-  passwordConfirmValidation(value, passwordConfirmInput) {
+  setPasswordComfirmErrorMessage(passwordConfirmInput, errorType) {
     const inputRootElement = document.querySelector(`.input-layout-${passwordConfirmInput.name}`)
     const errorElement = inputRootElement.querySelector(".input-error")
+    const errorMessage = errorMessages.password[errorType]
 
-    if (isEmpty(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "비밀번호를 입력해주세요.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
+    return showError({
+      inputRootElement,
+      errorElement,
+      errorMessage: errorMessage,
+      className: this.ERROR_CLASS_NAME,
+    })
+  }
 
-    if (!isPasswordMatch(value, formState.data.password)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "비밀번호가 일치하지 않습니다.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
+  emailValidation(value) {
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+    if (!isEmailValid(value)) return { result: false, errorType: "notValid" }
+    if (isExistingEmail(value)) return { result: false, errorType: "existing" }
 
-    return true
+    return { result: true, errorType: null }
+  }
+
+  passwordValidation(value) {
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+    if (!isPasswordValid(value)) return { result: false, errorType: "notValid" }
+
+    return { result: true, errorType: null }
+  }
+
+  passwordConfirmValidation(value) {
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+    if (!isPasswordMatch(value, formState.data.password)) return { result: false, errorType: "notMatch" }
+
+    return { result: true, errorType: null }
   }
 
   success() {
@@ -169,11 +150,21 @@ class RegisterForm extends Form {
     event.preventDefault()
     const { email, password, passwordConfirm } = this.formState.data
 
-    const emailIsValid = this.emailValidation(email, this.inputEmailElement)
-    const passwordIsValid = this.passwordValidation(password, this.inputPasswordElement)
-    const passwordConfirmIsValid = this.passwordConfirmValidation(passwordConfirm, this.inputPasswordConfirmElement)
+    const emailValidationResult = this.emailValidation(email, this.inputEmailElement)
+    const passwordValidationResult = this.passwordValidation(password, this.inputPasswordElement)
+    const passwordConfirmValidationResult = this.passwordConfirmValidation(
+      passwordConfirm,
+      this.inputPasswordConfirmElement
+    )
 
-    const formIsValid = emailIsValid && passwordIsValid && passwordConfirmIsValid
+    !emailValidationResult.result && this.setEmailErrorMessage(this.inputEmailElement, emailValidationResult.errorType)
+    !passwordValidationResult.result &&
+      this.setPasswordErrorMessage(this.inputPasswordElement, passwordValidationResult.errorType)
+    !passwordConfirmValidationResult.result &&
+      this.setPasswordComfirmErrorMessage(this.inputPasswordConfirmElement, passwordConfirmValidationResult.errorType)
+
+    const formIsValid =
+      emailValidationResult.result && passwordValidationResult.result && passwordConfirmValidationResult.result
 
     if (formIsValid) this.success()
   }
