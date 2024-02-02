@@ -3,18 +3,18 @@ import {
   resetErrorElement,
   errorBorder,
 } from "../src/element.js";
-
-const superUser = { 
-  email: "test@codeit.com",
-  password: "sprint101"
-}
+import { 
+  staticName,
+  errorMessage,
+  superUser
+} from "../src/static.js";
 
 const error = new Error(true);
 
-const email = document.querySelector(".input-email");
-const password = document.querySelector(".input-password");
-const loginButton = document.querySelector(".button-login");
-const passwordIcon = document.querySelector(".password-icon");
+const email = document.querySelector(staticName.elementSeletor.email);
+const password = document.querySelector(staticName.elementSeletor.password);
+const loginButton = document.querySelector(staticName.buttonSelector.signin);
+const passwordIcon = document.querySelector(staticName.iconSelector.password);
 
 function noInputFocusOut(element, parentElementSelectorName, inputSelectorName, errorSentence) {
   error.removeErrorElement(parentElementSelectorName);
@@ -33,14 +33,14 @@ function notValidEmailInput() {
     return;
   }
 
-  error.removeErrorElement(".input-form-email");
+  error.removeErrorElement(staticName.parentElementSeletor.email);
   
   if (emailRegex.test(email.value)) {
     return
   } else {
-    error.createErrorSpanElement(".input-form-email");
-    errorBorder(".input-email");
-    error.errorMessageInElement(".input-form-email", "올바른 이메일 주소가 아닙니다");
+    error.createErrorSpanElement(staticName.parentElementSeletor.email);
+    errorBorder(staticName.elementSeletor.email);
+    error.errorMessageInElement(staticName.parentElementSeletor.email, errorMessage.notCorrectFormat.email);
   }
 }
 
@@ -55,10 +55,7 @@ function pressEnterForFolderPage(e) {
 }
 
 function folderPage() {
-  const folderEmail = "test@codeit.com";
-  const folderPassword = "codeit101";
-
-  if (email.value === folderEmail && password.value === folderPassword) {
+  if (email.value === superUser.email && password.value === superUser.password) {
     requestLogin();
   } else {
     loginFail();
@@ -94,15 +91,15 @@ function requestLogin() {
 }
 
 function loginFail() {
-  error.removeErrorElement(".input-form-email");
-  error.createErrorSpanElement(".input-form-email");
-  errorBorder(".input-email");
-  error.errorMessageInElement(".input-form-email", "이메일을 확인해 주세요");
+  error.removeErrorElement(staticName.parentElementSeletor.email);
+  error.createErrorSpanElement(staticName.parentElementSeletor.email);
+  errorBorder(staticName.elementSeletor.email);
+  error.errorMessageInElement(staticName.parentElementSeletor.email, errorMessage.loginFail.email);
 
-  error.removeErrorElement(".input-form-password");
-  error.createErrorSpanElement(".input-form-password");
-  errorBorder(".input-password");
-  error.errorMessageInElement(".input-form-password", "비밀번호를 확인해 주세요");
+  error.removeErrorElement(staticName.parentElementSeletor.password);
+  error.createErrorSpanElement(staticName.parentElementSeletor.password);
+  errorBorder(staticName.elementSeletor.password);
+  error.errorMessageInElement(staticName.parentElementSeletor.password, errorMessage.loginFail.password);
 }
 
 function togglePassword() {
@@ -115,11 +112,21 @@ function togglePassword() {
   }
 }
 
-email.addEventListener("focusout", () => noInputFocusOut(email, ".input-form-email", ".input-email", "이메일을 입력해 주세요"));
-password.addEventListener("focusout", () => noInputFocusOut(password, ".input-form-password", ".input-password", "비밀번호를 입력해 주세요"));
+email.addEventListener("focusout", () => noInputFocusOut(
+  email,
+  staticName.parentElementSeletor.email,
+  staticName.elementSeletor.email,
+  errorMessage.isEmpty.email
+));
+password.addEventListener("focusout", () => noInputFocusOut(
+  password, 
+  staticName.parentElementSeletor.password, 
+  staticName.elementSeletor.password, 
+  errorMessage.isEmpty.password
+));
 email.addEventListener("input", notValidEmailInput);
-email.addEventListener("focusin", () => focusIn(".input-form-email"));
-password.addEventListener("focusin", () => focusIn(".input-form-password"));
+email.addEventListener("focusin", () => focusIn(staticName.parentElementSeletor.email));
+password.addEventListener("focusin", () => focusIn(staticName.parentElementSeletor.password));
 loginButton.addEventListener("click", folderPage);
 password.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", togglePassword);

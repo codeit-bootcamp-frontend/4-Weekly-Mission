@@ -3,15 +3,20 @@ import {
   resetErrorElement,
   errorBorder,
 } from "../src/element.js";
+import { 
+  staticName,
+  errorMessage,
+  superUser
+} from "../src/static.js";
 
 const error = new Error(true);
 
-const email = document.querySelector(".input-email");
-const password = document.querySelector(".input-password");
-const passwordConfirm = document.querySelector(".input-password-confirm");
-const loginButton = document.querySelector(".button-signup");
-const passwordIcon = document.querySelector(".password-icon");
-const passwordConfimIcon = document.querySelector(".password-confirm-icon");
+const email = document.querySelector(staticName.elementSeletor.email);
+const password = document.querySelector(staticName.elementSeletor.password);
+const passwordConfirm = document.querySelector(staticName.elementSeletor.passwordConfirm);
+const loginButton = document.querySelector(staticName.buttonSelector.signup);
+const passwordIcon = document.querySelector(staticName.iconSelector.password);
+const passwordConfimIcon = document.querySelector(staticName.iconSelector.passwordConfirm);
 
 function noInputFocusOut(element, parentElementSelectorName, inputSelectorName, errorSentence) {
   error.removeErrorElement(parentElementSelectorName);
@@ -30,14 +35,14 @@ function notValidEmailInput() {
     return;
   }
 
-  error.removeErrorElement(".input-form-email");
+  error.removeErrorElement(staticName.parentElementSeletor.email);
   
   if (emailRegex.test(email.value)) {
     return
   } else {
-    error.createErrorSpanElement(".input-form-email");
-    errorBorder(".input-email");
-    error.errorMessageInElement(".input-form-email", "올바른 이메일 주소가 아닙니다");
+    error.createErrorSpanElement(staticName.parentElementSeletor.email);
+    errorBorder(staticName.elementSeletor.email);
+    error.errorMessageInElement(staticName.parentElementSeletor.email, errorMessage.notCorrectFormat.email);
   }
 }
 
@@ -89,27 +94,27 @@ function notPasswordFormat() {
   }
 
   if (passwordFormat.length < 8 || /^[a-zA-Z]+$/.test(passwordFormat) || /^[0-9]+$/.test(passwordFormat)) {
-    error.createErrorSpanElement(".input-form-password");
-    errorBorder(".input-password");
-    error.errorMessageInElement(".input-form-password", "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요");
+    error.createErrorSpanElement(staticName.parentElementSeletor.password);
+    errorBorder(staticName.elementSeletor.password);
+    error.errorMessageInElement(staticName.parentElementSeletor.password, errorMessage.notCorrectFormat.password);
   }
 }
 
 function loginDuplication() {
-  error.removeErrorElement(".input-form-email");
+  error.removeErrorElement(staticName.parentElementSeletor.email);
 
-  error.createErrorSpanElement(".input-form-email");
-  errorBorder(".input-email");
-  error.errorMessageInElement(".input-form-email", "이미 사용 중인 이메일 입니다");
+  error.createErrorSpanElement(staticName.parentElementSeletor.email);
+  errorBorder(staticName.elementSeletor.email);
+  error.errorMessageInElement(staticName.parentElementSeletor.email, errorMessage.aleadyUseEmail);
 }
 
-function passwordisNotEqual() {
-  error.removeErrorElement(".input-form-password-confirm");
+function passwordIsNotEqual() {
+  error.removeErrorElement(staticName.parentElementSeletor.passwordConfirm);
 
   if (password.value !== passwordConfirm.value) {
-    error.createErrorSpanElement(".input-form-password-confirm");
-    errorBorder(".input-password-confirm");
-    error.errorMessageInElement(".input-form-password-confirm", "비밀번호가 일치하지 않아요");
+    error.createErrorSpanElement(staticName.parentElementSeletor.passwordConfirm);
+    errorBorder(staticName.elementSeletor.passwordConfirm);
+    error.errorMessageInElement(staticName.parentElementSeletor.passwordConfirm, errorMessage.passwordIsNotEqual);
   }
 }
 
@@ -125,11 +130,19 @@ function togglePassword(element, icon) {
 }
 
 async function signupCheck() {
-  noInputFocusOut(".input-form-email", ".input-email", "이메일을 입력해 주세요");
-  noInputFocusOut(".input-form-password", ".input-password", "비밀번호를 입력해 주세요");
+  noInputFocusOut(
+    staticName.parentElementSeletor.email, 
+    staticName.elementSeletor.email, 
+    errorMessage.isEmpty.email
+  );
+  noInputFocusOut(
+    staticName.parentElementSeletor.password, 
+    staticName.elementSeletor.password, 
+    errorMessage.isEmpty.password
+  );
   notPasswordFormat();
   notValidEmailInput();
-  passwordisNotEqual();
+  passwordIsNotEqual();
 
   if (error.state === true) {
     await requestSignUp();
@@ -169,15 +182,34 @@ async function requestSignUp() {
   });
 }
 
-email.addEventListener("focusout", () => noInputFocusOut(email, ".input-form-email", ".input-email", "이메일을 입력해 주세요"));
+email.addEventListener("focusout", () => noInputFocusOut(
+  email,
+  staticName.parentElementSeletor.email,
+  staticName.elementSeletor.email,
+  errorMessage.isEmpty.email
+));
+password.addEventListener("focusout", () => noInputFocusOut(
+  password,
+  staticName.parentElementSeletor.password, 
+  staticName.elementSeletor.password, 
+  errorMessage.isEmpty.password
+));
 email.addEventListener("change", aleadyUse);
-password.addEventListener("focusout", () => noInputFocusOut(password, ".input-form-password", ".input-password", "비밀번호를 입력해 주세요"));
 password.addEventListener("focusout", notPasswordFormat);
 email.addEventListener("input", notValidEmailInput);
-email.addEventListener("focusin", () => focusIn(".input-form-email", ".input-email"));
-password.addEventListener("focusin", () => focusIn(".input-form-password", ".input-password"));
-passwordConfirm.addEventListener("focusin", () => focusIn(".input-form-password-confirm", ".input-password-confirm"));
-passwordConfirm.addEventListener("change", passwordisNotEqual);
+email.addEventListener("focusin", () => focusIn(
+  staticName.parentElementSeletor.email,
+  staticName.elementSeletor.email,
+));
+password.addEventListener("focusin", () => focusIn(
+  staticName.parentElementSeletor.password,
+  staticName.elementSeletor.password,
+));
+passwordConfirm.addEventListener("focusin", () => focusIn(
+  staticName.parentElementSeletor.passwordConfirm, 
+  staticName.elementSeletor.passwordConfirm,
+));
+passwordConfirm.addEventListener("change", passwordIsNotEqual);
 loginButton.addEventListener("click", signupCheck);
 passwordConfirm.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
