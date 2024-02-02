@@ -1,17 +1,22 @@
 import { EMAIL_REGEX, TEST_EMAIL, TEST_PW } from "/js/account/constant.js";
-import { eyeOpen, eyeClose } from "/js/account/passwordIconToggle.js";
 import { emailTest } from "../js/account/util.js";
 import { onInput } from "../js/account/util.js";
+import { iconToggle } from "../js/account/util.js";
 
 const email = document.querySelector("#email");
 const emailError = document.querySelector(".emailError");
 const password = document.querySelector("#password");
 const passwordError = document.querySelector(".passwordError");
+const pwdToggleBtn = document.querySelector(".pwdToggleBtn");
 
 const form = document.querySelector("#form");
 
 onInput(email, emailError);
 onInput(password, passwordError);
+
+pwdToggleBtn.addEventListener("click", (e) => {
+  iconToggle(password, e.target);
+});
 
 function onSubmit(event) {
   event.preventDefault();
@@ -34,8 +39,6 @@ function OnFocusOutPassword(e) {
     e.target.classList.add("inputError");
     return;
   }
-  passwordError.textContent = "";
-  e.target.classList.remove("inputError");
 }
 
 email.addEventListener("focusout", OnFocusOutEmail);

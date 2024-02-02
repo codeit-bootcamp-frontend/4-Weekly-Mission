@@ -23,3 +23,13 @@ export function onInput(target, targetError) {
 
   target.addEventListener("input", handler);
 }
+
+export function iconToggle(input, iconImage) {
+  if (input.type === "password") {
+    iconImage.src = "/assets/eye-on.svg";
+    input.type = "text";
+  } else {
+    iconImage.src = "/assets/eye-off.svg";
+    input.type = "password";
+  }
+}

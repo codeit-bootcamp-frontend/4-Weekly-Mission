@@ -1,6 +1,5 @@
 import { EMAIL_REGEX, TEST_EMAIL } from "/js/account/constant.js";
-import { eyeOpen, eyeClose } from "/js/account/passwordIconToggle.js";
-import { emailTest, onInput } from "../js/account/util.js";
+import { emailTest, iconToggle, onInput } from "../js/account/util.js";
 
 const email = document.querySelector("#email");
 const emailError = document.querySelector(".emailError");
@@ -8,12 +7,22 @@ const password = document.querySelector("#password");
 const passwordError = document.querySelector(".passwordError");
 const passwordConfirm = document.querySelector("#passwordConfirm");
 const passwordConfirmError = document.querySelector(".passwordConfirmError");
+const pwdToggleBtn = document.querySelector(".pwdToggleBtn");
+const pwdConfirmToggleBtn = document.querySelector(".pwdConfirmToggleBtn");
 
 const form = document.querySelector("#form");
 
 onInput(email, emailError);
 onInput(password, passwordError);
 onInput(passwordConfirm, passwordConfirmError);
+
+pwdToggleBtn.addEventListener("click", (e) => {
+  iconToggle(password, e.target);
+});
+
+pwdConfirmToggleBtn.addEventListener("click", (e) => {
+  iconToggle(passwordConfirm, e.target);
+});
 
 function OnFocusOutEmail(e) {
   if (emailTest(e.target, emailError)) {
@@ -36,8 +45,6 @@ function OnFocusOutPassword(e) {
     e.target.classList.add("inputError");
     return;
   }
-  passwordError.textContent = "";
-  e.target.classList.remove("inputError");
 }
 
 function onSubmit(e) {
