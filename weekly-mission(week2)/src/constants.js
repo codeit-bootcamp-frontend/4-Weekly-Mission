@@ -21,11 +21,10 @@ const ERROR_MESSAGE = Object.freeze({
     INCORRECT: '비밀번호를 확인해 주세요.'
   },
   PASSWORD_CONFIRM: {
-    INCORRECT: '비밀번호가 일치하지 않아요.'
+    MISMATCH: '비밀번호가 일치하지 않아요.'
   },
 });
 
-const ERROR_SELECTOR = 'input-error-msg';
 const $ = (selector, element = document) => element.querySelector(selector);
 
 export { MASTER_ACCOUNT, REGEX, ERROR_MESSAGE, $};
