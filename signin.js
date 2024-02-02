@@ -70,7 +70,7 @@ document.querySelector('.sign-form').addEventListener('submit', function(event) 
   event.preventDefault();
 });
 
-toggleButtonPw.addEventListener('click', toggleEyeImage);
+toggleButtonPw.addEventListener('click', () => toggleEyeImage);
 
 export { 
   myInputEmail, 
