@@ -65,7 +65,25 @@ function removeError(e) {
     }
 }
 
-// 이메일중복확인 리퀘스트 
+// 회원가입 리퀘스트
+async function registerRequest() {
+    const REGISTER_BODY = {
+        email: EMAIL_INPUT.value,
+        password: PASSWORD_INPUT.value
+    };
+
+    const REGISTER_RESPONSE = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(REGISTER_BODY)
+    });
+    if (REGISTER_RESPONSE.status === 400) return false;
+    else if (REGISTER_RESPONSE.status === 200) return true;
+}
+
+// 이메일중복확인 후 회원가입 리퀘스트 
 async function checkThisEmail() {   
     try {
         const CHECK_EMAIL_RESPONSE = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
@@ -77,7 +95,7 @@ async function checkThisEmail() {
         });
         
         if (CHECK_EMAIL_RESPONSE.status === 409) return false;
-        else if (CHECK_EMAIL_RESPONSE.status === 200) return true;
+        else if (CHECK_EMAIL_RESPONSE.status === 200 && await registerRequest()) return true;
     } catch (error) {
         console.log(error);
     }
@@ -118,7 +136,7 @@ async function signUpChecker(e) {
     } 
 
     if (!INVALID_EMAIL && !INVALID_PW && !INVALID_PW_REPEAT && EMAIL_NOT_IN_USE) {
-
+        EMAIL_INPUT.value = '';
         location.assign('/folder');
     }
 }   
