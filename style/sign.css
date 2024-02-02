@@ -151,12 +151,9 @@ header {
   background-color: #f5e14b;
 }
 
-.empty-email-error, 
-.correct-email-error, 
-.empty-password-error, 
-.email-validation-message, 
-.password-validation-message{
-  display: none;
+.email-error, 
+.password-error,
+.password-check-error{
   color: var(--Linkbrary-red, #FF5B56);
   font-family: Pretendard;
   font-size: 14px;
@@ -168,7 +165,6 @@ header {
   border: 1px solid var(--Linkbrary-red, #FF5B56);
   background: var(--Linkbrary-white, #FFF);
 }
-
-.show-error {
-  display: block; 
+.hidden{
+  display: none;
 }
