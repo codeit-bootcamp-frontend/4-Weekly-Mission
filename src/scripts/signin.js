@@ -1,7 +1,7 @@
-import  {vaildEmail, vaildPW, focusOut} from "./vaild.js" 
-import { API_PATH_SIGNIN } from "./api-path.js";
-import { pwInputTypeChange } from "./pw-input-type.js";
-import { authCheck } from "./auth-check.js";
+import  {vaildEmail, vaildPW, focusOut} from "../utils/vaild.js" 
+import { API_PATH_SIGNIN } from "../services/api-path.js";
+import { pwInputTypeChange } from "../utils/pw-input-type.js";
+import { authCheck } from "../utils/auth-check.js";
 
 window.onload = function(){
     authCheck(); // 로그인 상태 체크

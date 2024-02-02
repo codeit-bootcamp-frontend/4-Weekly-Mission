@@ -7,7 +7,7 @@ window.onload = function(){
         try{
             const response = await fetch("https://bootcamp-api.codeit.kr/api/sample/user");
             const result = await response.json();
-            console.log(result)
+            // console.log(loginBtn)
             if(response.ok){
                 loginBtn.style.display = "none";
                 headerUserInfo.style.display = "flex";
@@ -21,9 +21,6 @@ window.onload = function(){
         }
         
     })();
-
-
-
 
     (async function folderLoad(){
         const userImg = document.querySelector(".profile__img");

@@ -1,7 +1,7 @@
-import  {vaildEmail, vaildPW, vaildConfirmPW, focusOut} from "./vaild.js" 
-import { API_PATH_SIGNUP, API_PATH_CHECK_EMAIL } from "./api-path.js";
-import { pwInputTypeChange } from "./pw-input-type.js";
-import { authCheck } from "./auth-check.js";
+import  {vaildEmail, vaildPW, vaildConfirmPW, focusOut} from "../utils/vaild.js" 
+import { API_PATH_SIGNUP, API_PATH_CHECK_EMAIL } from "../services/api-path.js";
+import { pwInputTypeChange } from "../utils/pw-input-type.js";
+import { authCheck } from "../utils/auth-check.js";
 
 window.onload = function(){
     authCheck();
