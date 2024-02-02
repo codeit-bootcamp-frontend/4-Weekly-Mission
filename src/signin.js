@@ -29,6 +29,7 @@ const validateEmailInput = (email) => {
 
 emailInput.addEventListener("focusout", (event) => validateEmailInput(event.target.value));
 
+
 const passwordInput = document.querySelector("#password");
 const passwordErrorMessage = document.querySelector("#password-error-message");
 
