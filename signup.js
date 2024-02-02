@@ -1,6 +1,7 @@
 import {
-  emailRegex,
-  validateEmail,
+  updateInputState,
+  handleEmailValidation,
+  handleValidation,
   getNewMessageElement,
   toggleEye,
 } from "./utils.js";
@@ -16,42 +17,24 @@ function validatePassword(password) {
 }
 
 function handleBlur(input, message) {
-  const messageContainer = input.parentElement;
-  const existingMessage = messageContainer.querySelector("p");
+  updateInputState(input, message);
 
-  if (input.value.trim() === "") {
-    // 입력 값이 비어있는 경우
-    if (!existingMessage) {
-      // 에러 메시지가 이미 존재하지 않는 경우에만 메시지를 추가
-      messageContainer.appendChild(message);
-    }
-    input.classList.add("empty-input");
-  } else {
-    if (existingMessage) {
-      // 입력 값이 비어있지 않은 경우 에러 메시지가 이미 존재하면 제거
-      existingMessage.remove();
-    }
-    input.classList.remove("empty-input");
-
-    // 유효성 검사 조건을 수행하고 그에 따라 에러 메시지 추가
-    if (
-      (input === emailInput && !validateEmail(input.value)) ||
-      (input === passwordInput &&
-        (!validatePassword(input.value) ||
-          input.value.length < 8 ||
-          !/\d/.test(input.value) ||
-          !/[a-zA-Z]/.test(input.value)))
-    ) {
-      messageContainer.appendChild(message);
-      input.classList.add("empty-input");
-    }
-    // 이메일 중복 확인 조건을 수행하고 그에 따라 에러 메시지 추가
-    if (input === emailInput && input.value === "test@codeit.com") {
-      const duplicateEmailMessage =
-        getNewMessageElement("이미 사용 중인 이메일입니다.");
-      messageContainer.appendChild(duplicateEmailMessage);
-      input.classList.add("empty-input");
-    }
+  if (input === emailInput) {
+    handleEmailValidation(input);
+  }
+  if (
+    input === passwordInput &&
+    (!validatePassword(input.value) ||
+      input.value.length < 8 ||
+      !/\d/.test(input.value) ||
+      !/[a-zA-Z]/.test(input.value))
+  ) {
+    // getNewMessageElement 대신에 message를 그대로 사용
+    handleValidation(input, message, () => false);
+  }
+  // 이메일 중복 확인 조건을 수행하고 그에 따라 에러 메시지 추가
+  if (input === emailInput && input.value === "test@codeit.com") {
+    handleValidation(input, "이미 사용 중인 이메일입니다.", () => true);
   }
 }
 

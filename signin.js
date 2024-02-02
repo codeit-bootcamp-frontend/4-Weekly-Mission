@@ -1,6 +1,6 @@
 import {
-  emailRegex,
-  validateEmail,
+  updateInputState,
+  handleEmailValidation,
   getNewMessageElement,
   toggleEye,
 } from "./utils.js";
@@ -10,27 +10,11 @@ const passwordInput = document.getElementById("passwordInput");
 const loginButton = document.getElementById("loginButton");
 
 function handleBlur(input, message) {
-  const messageContainer = input.parentElement;
-  const existingMessage = messageContainer.querySelector("p");
+  updateInputState(input, message);
 
-  if (input.value.trim() === "") {
-    if (!existingMessage) {
-      messageContainer.appendChild(message);
-    }
-    input.classList.add("empty-input");
-  } else {
-    if (existingMessage) {
-      existingMessage.remove();
-    }
-    input.classList.remove("empty-input");
-
-    // 이메일 유효성 검사
-    if (input === emailInput && !validateEmail(input.value)) {
-      const emailMessage =
-        getNewMessageElement("올바른 이메일 주소가 아닙니다.");
-      messageContainer.appendChild(emailMessage);
-      input.classList.add("empty-input");
-    }
+  // 이메일 유효성 검사
+  if (input === emailInput) {
+    handleEmailValidation(input);
   }
 }
 
