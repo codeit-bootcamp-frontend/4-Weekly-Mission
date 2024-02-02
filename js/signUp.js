@@ -12,14 +12,18 @@ import {
   handleEmailValidation,
   togglePasswordVisibility,
   enterKey,
+  redirectFolder,
+  saveAccessToken,
 } from "./modules/auth-utils.js";
 
 const passwordRepeatError = document.querySelector(".passwordRepeat-error");
 const signUpButton = document.querySelector(".signup-button");
 
 /* 회원가입 이메일 유효성 검사 */
-const handleEmailUsedValidation = () => {
-  if (email.value === errorMessage.ALREADY_EMAIL) {
+const handleEmailUsedValidation = async () => {
+  const emailValue = email.value;
+  const isDuplicate = await checkEmailDuplicate(emailValue);
+  if (isDuplicate) {
     setInvalidStyle(email);
     emailError.innerHTML = errorMessage.EMAIL_USED_MESSAGE;
   } else {
@@ -47,6 +51,30 @@ const handlePasswordMatchValidation = () => {
   } else {
     setValidStyle(passwordRepeat);
     passwordRepeatError.innerHTML = "";
+  }
+};
+
+/* 이메일 중복확인 함수 */
+const checkEmailDuplicate = async (email) => {
+  try {
+    const response = await fetch(
+      "https://bootcamp-api.codeit.kr/api/check-email",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      }
+    );
+
+    if (response.status === 409) {
+      setInvalidStyle(email);
+      emailError.innerHTML = errorMessage.EMAIL_USED_MESSAGE;
+    }
+  } catch (error) {
+    console.error("이메일 중복 확인 실패", error.message);
+    return true; // 중복 확인 실패 시 중복으로 처리
   }
 };
 
