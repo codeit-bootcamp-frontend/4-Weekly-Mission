@@ -1,4 +1,4 @@
-import { focusing, eyeBlink, checkingEmail, checkingPassword, checkingPasswordRepeat, fetchSignin, fetchSignUp } from './signin.js';
+import { focusing, eyeBlink, checkingEmail, checkingPassword, checkingPasswordRepeat, fetchSign } from './signin.js';
 
 // 이메일 관련 요소들
 const email = document.getElementById('email');
