@@ -5,12 +5,12 @@ export function emailHandleInputFocusOut(inputElement, errorElement) {
     errorElement.textContent = '이메일을 입력해 주세요.';
     errorElement.style.display = 'block';
     inputElement.style.borderColor = '#FF5B56'; // 테두리 색상 변경
-  } else if(!isValidEmail(inputElement.value)) {
+  } else if(!validateEmail(inputElement.value)) {
     errorElement.textContent = '올바른 이메일 주소가 아닙니다.';
     errorElement.style.display = 'block';
     inputElement.style.borderColor = '#FF5B56'; // 테두리 색상 변경  
   } else {
-    noError(inputElement, errorElement);
+    setNormalStyle(inputElement, errorElement);
   }
 }
 
@@ -21,11 +21,11 @@ export function passwordHandleFocusOut(inputElement, errorElement) {
     errorElement.style.display = 'block';
     inputElement.style.borderColor = '#FF5B56'; 
   } else {
-    noError(inputElement, errorElement);
+    setNormalStyle(inputElement, errorElement);
   }
 }
 
-export function isValidEmail(email) {
+export function validateEmail(email) {
   // 간단한 이메일 유효성 검사를 위한 정규 표현식 사용
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -44,7 +44,7 @@ export function togglePasswordType(passwordInput,passwordIcon) {
   }
 }
 
-export const noError = (inputElement,errorElement) => {
+export const setNormalStyle = (inputElement,errorElement) => {
   errorElement.style.display = 'none';
   errorElement.textContent = '';
   inputElement.style.borderColor = '#CCD5E3';

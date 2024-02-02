@@ -119,7 +119,7 @@ html {
   outline: none;
 }
 
-.login__info--loginBt {
+.login__form--loginBt {
   background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
   width: 100%;
   padding: 16px 20px;
@@ -132,6 +132,10 @@ html {
   font-size: 18px;
   font-weight: 600;
   border: 0px;
+}
+
+.login__form--loginBt:hover {
+  cursor: pointer;
 }
 
 .login__password-container {

@@ -94,6 +94,11 @@ html {
   width: 100%;
 }
 
+.signup__form--label-text {
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .signup__form--inputbox input {
   display: flex;
   width: 100%;
@@ -124,6 +129,10 @@ html {
   font-size: 18px;
   font-weight: 600;
   border: 0px;
+}
+
+.signup__form--signupBt:hover {
+  cursor: pointer;
 }
 
 .signup__password-container {

@@ -1,24 +1,26 @@
 import * as input from './commonChange_input.js';
 
+//이메일 part
 const loginEmailInput = document.querySelector('#login__email-form');
-const loginPwInput = document.querySelector('#login__password-form');
 const loginEmailError = document.querySelector('.login__email-form--error');
-const loginPwError = document.querySelector('.login__password-form--error');
-
-const loginButton = document.querySelector('.login__info--loginBt');
-const loginPasswordIcon = document.querySelector('.password__toggle-icon');
 
 loginEmailInput.addEventListener('focusout', loginEmailFocusOut);
-loginPwInput.addEventListener('focusout', loginpwFocusOut);
-loginPasswordIcon.addEventListener('click', passwordToggleIcon);
-loginButton.addEventListener('click', handleLoginButtonClick);
 loginEmailInput.addEventListener('keyup',handleLoginButtonEnter);
-loginPwInput.addEventListener('keyup',handleLoginButtonEnter);
 
 //이메일 입력 확인
 function loginEmailFocusOut(event) {
   input.emailHandleInputFocusOut(loginEmailInput,loginEmailError);
 }
+
+
+//비밀번호 part
+const loginPwInput = document.querySelector('#login__password-form');
+const loginPwError = document.querySelector('.login__password-form--error');
+const loginPasswordIcon = document.querySelector('.password__toggle-icon'); //비밀번호 토글 아이콘
+
+loginPwInput.addEventListener('focusout', loginpwFocusOut);
+loginPwInput.addEventListener('keyup',handleLoginButtonEnter);
+loginPasswordIcon.addEventListener('click', passwordToggleIcon);
 
 //비밀번호 확인
 function loginpwFocusOut(event) {
@@ -30,12 +32,10 @@ function passwordToggleIcon(event) {
   input.togglePasswordType(loginPwInput,loginPasswordIcon);
 }
 
-//엔터키
-function handleLoginButtonEnter(event) {
-  if (event.code === 'Enter') {
-    handleLoginButtonClick();
-  } 
-}
+//버튼 part
+const loginButton = document.querySelector('.login__form--loginBt');
+
+loginButton.addEventListener('click', handleLoginButtonClick);
 
 //로그인 버튼 클릭 시
 function handleLoginButtonClick(event) {
@@ -55,4 +55,11 @@ const loginCheck = () => {
   loginEmailError.textContent = '이메일을 확인해 주세요.';
   loginEmailError.style.display = 'block';
   loginEmailInput.style.borderColor = '#FF5B56'; 
+}
+
+//input태그에서 엔터키 눌렀을 때
+function handleLoginButtonEnter(event) {
+  if (event.code === 'Enter') {
+    handleLoginButtonClick();
+  } 
 }
