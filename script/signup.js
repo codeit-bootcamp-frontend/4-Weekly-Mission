@@ -28,8 +28,9 @@ document.addEventListener('DOMContentLoaded', function () {
   passwordInput.after(passwordErrorMessage);
   passwordcheckInput.after(passwordCheckErrorMessage); // 추가: 비밀번호 확인 에러 메시지
 
-  // 이메일 입력란 focusin 이벤트 핸들러
+  // 이메일 입력란 focusin 이벤트 핸들러 등록
   emailInput.addEventListener('focusin', function () {
+    handleEmailInputFocusIn(emailInput, emailErrorMessage);
     clearError(emailInput, emailErrorMessage);
   });
 
