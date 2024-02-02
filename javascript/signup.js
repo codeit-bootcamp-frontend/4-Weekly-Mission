@@ -9,23 +9,15 @@ const passwordCover = document.querySelector('#eyecon-password')
 const passwordCheckCover = document.querySelector('#eyecon-password-repeat')
 const cover = {
     isPasswordCovered: false,
-    isPasswordCheckCovered: false
+    isPasswordCheckCovered: false,
 }
-
 
 import { isEmailValid, isInputEmpty, showError, clearError } from './sign-error.js'
 import { togglePasswordByEyecon as togglePassword } from './toggle-password.js'
 import { PASSWORD_REGEX, errorMsg, minPasswordLength } from './constants.js'
-import { codeit } from './user-data.js'
+import { isEmailUsed } from './post.js'
 
 /////////////////////////////////////
-
-/**
- * 이메일 중복 확인 함수
- * @param {*} input 확인할 이메일
- * @returns 중복 여부 불린값
- */
-const isEmailUsed = (input) => ( input === codeit.email )
 
 /**이메일 확인 후 error 메세지 출력
  */
@@ -69,11 +61,7 @@ const isPasswordValid = (input) => {
 const checkPassword = () => {
     const password = passwordInput.value.trim()
     if (!isPasswordValid(password)) {
-        showError(
-            passwordInput,
-            errorPassword,
-            errorMsg.invalidPassword
-        )
+        showError(passwordInput, errorPassword, errorMsg.invalidPassword)
     }
 }
 /**비밀번호 재확인 함수

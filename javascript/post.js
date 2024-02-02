@@ -19,4 +19,22 @@ const confirmLogin = async (data) => {
     }
 }
 
-export { confirmLogin }
+const isEmailUsed = async (input) => {
+    const emailData = { email: input }
+
+    const url = 'https://bootcamp-api.codeit.kr/docs/api/check-email'
+    try {
+        const result = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(emailData),
+        })
+        return result.ok
+    } catch (error) {
+        console.error('Error during email confirmation:', error)
+    }
+}
+
+export { confirmLogin, isEmailUsed }
