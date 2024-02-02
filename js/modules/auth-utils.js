@@ -65,6 +65,11 @@ const redirectFolder = () => {
   location.href = link;
 };
 
+/* accessToken 로컬스토리지에 저장 함수 */
+const saveAccessToken = (token) => {
+  localStorage.setItem("accessToken", token);
+};
+
 export {
   email,
   emailError,
@@ -80,4 +85,5 @@ export {
   togglePasswordVisibility,
   enterKey,
   redirectFolder,
+  saveAccessToken,
 };
