@@ -11,6 +11,7 @@ import {
   togglePasswordVisibility,
   enterKey,
   redirectFolder,
+  saveAccessToken,
 } from "./modules/auth-utils.js";
 
 const loginButton = document.querySelector(".login-button");
@@ -28,20 +29,22 @@ const handlePasswordValidation = () => {
   }
 };
 
-/* 특정 이메일과 비밀번호를 사용하여 로그인을 시도하는 API 호출 함수 */
 const signInApi = async (email, password) => {
   try {
     const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify({ email, password }),
     });
 
     const responseData = await response.json();
-    console.log(responseData);
-    return responseData;
+    const accessToken = responseData.data.accessToken;
+
+    saveAccessToken(accessToken);
+    return accessToken;
   } catch (error) {
     console.error("URL 호출 실패:", error.message);
   }
@@ -53,14 +56,10 @@ const redirectToFolderPage = async () => {
     const emailValue = email.value;
     const passwordValue = password.value;
 
-    if (
-      emailValue === errorMessage.ALREADY_EMAIL &&
-      passwordValue === "sprint101"
-    ) {
-      const dataValue = await signInApi(emailValue, passwordValue);
-      if (dataValue) {
-        redirectFolder();
-      }
+    const dataValue = await signInApi(emailValue, passwordValue);
+    if (dataValue) {
+      saveAccessToken(dataValue);
+      redirectFolder();
     }
   } catch (error) {
     console.error("로그인 에러:", error.message);
