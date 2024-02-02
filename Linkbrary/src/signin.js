@@ -45,7 +45,7 @@ passwordToggleButton.addEventListener("click", () =>
 
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
-function submitForm(event) {
+async function submitForm(event) {
   event.preventDefault();
 
   const isTestUser =
@@ -55,6 +55,31 @@ function submitForm(event) {
     location.href = "/folder";
     return;
   }
+
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: emailInput.value,
+        password: passwordInput.value,
+      }),
+    });
+
+    if (response.ok) {
+      location.href = "/folder";
+    } else {
+      // 로그인이 실패한 경우 처리 (예: 오류 메시지 표시)
+      const responseData = await response.json();
+      // API 응답을 기반으로 오류 처리를 사용자 정의할 수 있습니다.
+      console.error("로그인 실패:", responseData.message);
+    }
+  } catch (error) {
+    console.error("로그인 중 오류 발생:", error);
+  }
+
   setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
   setInputError(
     { input: passwordInput, errorMessage: passwordErrorMessage },
