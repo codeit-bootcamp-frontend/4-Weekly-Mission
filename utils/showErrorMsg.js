@@ -5,32 +5,56 @@ import { isPasswordCorrect } from "./isPasswordCorrect.js";
 import { ERROR_MESSAGES } from "./messages.js";
 
 const signin = {
+  /**
+   * 이메일을 입력하지 않았거나 유효하지 않은 이메일을 입력했을 때 에러메시지를 띄웁니다.
+   * @param {string} value - 이메일
+   */
   getEmailError(value) {
     if (!value) return ERROR_MESSAGES.emptyEmail;
     if (!isValidEmail(value)) return ERROR_MESSAGES.invalidEmail;
     return "";
   },
+  /**
+   * 비밀번호를 입력하지 않았을 때 에러메시지를 띄웁니다.
+   * @param {string} value - 비밀번호
+   */
   getPasswordError(value) {
     return value ? "" : ERROR_MESSAGES.emptyPassword;
   },
 };
 
 const signup = {
+  /**
+   * 이메일을 입력하지 않았거나 유효하지 않은 이메일을 입력했을 때 에러메시지를 띄웁니다.
+   * @param {string} value - 이메일
+   */
   getEmailError(value) {
     if (!value) return ERROR_MESSAGES.emptyEmail;
     if (!isValidEmail(value)) return ERROR_MESSAGES.invalidEmail;
     return "";
   },
+  /**
+   * 유효하지 않은 비밀번호를 입력했을 때 에러메시지를 띄웁니다.
+   * @param {string} value - 비밀번호
+   */
   getPasswordError(value) {
     if (!isValidPassword(value)) return ERROR_MESSAGES.invalidPassword;
     return "";
   },
+  /**
+   * 비밀번호와 확인 비밀번호가 일치하지 않으면 에러메시지를 띄웁니다.
+   * @param {string} value - 확인 비밀번호
+   */
   getPasswordIncorrectError(value) {
     if (!isPasswordCorrect(passwordInput.value, value)) return ERROR_MESSAGES.incorrectPassword;
     return "";
   },
 };
 
+/**
+ * input 요소에 focusout 이벤트가 발생 시 조건을 확인 후 에러메시지를 띄웁니다.
+ * @param {HTMLElement} target - Element
+ */
 export const showErrorMsgSignin = ({ target }) => {
   const { value, classList } = target;
 
@@ -47,6 +71,10 @@ export const showErrorMsgSignin = ({ target }) => {
   changeInputColor(messageElement, target);
 };
 
+/**
+ * input 요소에 focusout 이벤트가 발생 시 조건을 확인 후 에러메시지를 띄웁니다.
+ * @param {HTMLElement} target - Element
+ */
 export const showErrorMsgSignup = ({ target }) => {
   const { value, classList } = target;
 

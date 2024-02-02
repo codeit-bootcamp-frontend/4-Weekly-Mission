@@ -1,5 +1,5 @@
 /**
- * 유효한 이메일 인지 확인하는 함수
+ * 이메일 형식에 맞는지 확인합니다.
  * @param {string} 이메일
  */
 export const isValidEmail = (email) => {
@@ -8,7 +8,7 @@ export const isValidEmail = (email) => {
 };
 
 /**
- * 유효한 비밀번호 인지 확인하는 함수
+ * 입력된 비밀번호가 8자 이상 문자와 숫자가 있는지 확인합니다.
  * @param {string} 비밀번호
  */
 export const isValidPassword = (password) => {

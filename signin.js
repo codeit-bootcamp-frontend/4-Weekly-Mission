@@ -5,7 +5,7 @@ import { showErrorMsgSignin as showErrorMsg } from "./utils/showErrorMsg.js";
 import { moveFolderSignin as moveFolderPage } from "./utils/moveFolderPage.js";
 import { redirectToFolderPage } from "./utils/redirectToFolderPage.js";
 
-if (isLogin()) redirectToFolderPage("folder.html");
+//if (isLogin()) redirectToFolderPage("folder.html");
 
 form.addEventListener("focusout", showErrorMsg);
 form.addEventListener("click", showPassword);

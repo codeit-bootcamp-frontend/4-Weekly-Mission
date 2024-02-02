@@ -3,5 +3,5 @@
  * @param {string} 리디렉션할 URL
  */
 export const redirectToFolderPage = (url) => {
-    location.href = url;
+  location.href = url;
 };

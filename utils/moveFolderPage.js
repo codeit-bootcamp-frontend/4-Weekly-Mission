@@ -7,10 +7,10 @@ import { redirectToFolderPage } from "./redirectToFolderPage.js";
 import { login, signup } from "./auth.js";
 
 /**
- * 에러메시지를 노출하고 싶은 Element와 노출하고 싶은 메시지를 받아서 단순 UI를 변경해주는 함수
- * @param {HTMLElement} 메시지 Element
- * @param {HTMLElement} input Element
- * @param {string}  노출하고 싶은 에러메시지
+ * 에러메시지를 노출하고 싶은 Element와 노출하고 싶은 메시지를 받아서 단순 UI를 변경해줍니다.
+ * @param {HTMLElement} messageElement - 메시지 Element
+ * @param {HTMLElement} inputElement - input Element
+ * @param {string}  errorMessage - 노출하고 싶은 에러메시지
  */
 const showErrorMessage = (messageElement, inputElement, errorMessage) => {
   if (errorMessage) {
@@ -22,6 +22,10 @@ const showErrorMessage = (messageElement, inputElement, errorMessage) => {
   }
 };
 
+/**
+ * 로그인 성공 시 folder.html로 이동합니다.
+ * 실패 시 에러 메시지를 띄웁니다.
+ */
 export const moveFolderSignin = () => {
   const dataToSubmit = {
     email: emailInput.value,
@@ -30,7 +34,7 @@ export const moveFolderSignin = () => {
 
   login(dataToSubmit)
     .then(() => {
-      redirectToFolderPage("folder.html");
+      //redirectToFolderPage("folder.html");
     })
     .catch(() => {
       showErrorMessage(emailMsg, emailInput, ERROR_MESSAGES.emptyEmail);
@@ -38,6 +42,10 @@ export const moveFolderSignin = () => {
     });
 };
 
+/**
+ * 회원가입 성공 시 folder.html로 이동합니다.
+ * 실패 시 에러 메시지를 띄웁니다.
+ */
 export const moveFolderSignup = (e) => {
   const [email, password, check] = [emailInput.value, passwordInput.value, passwordCheck.value];
   const isEmailValid = email && isValidEmail(email);

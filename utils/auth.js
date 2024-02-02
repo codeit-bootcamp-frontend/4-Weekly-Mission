@@ -1,8 +1,10 @@
 import { API_URL } from "./api.js";
 
 /**
- *  
- * @param {object} 이메일과 비밀번호
+ * 이메일과 비밀번호를 body에 담아 post 요청을 보냅니다.
+ * 로그인 성공 시 accessToken을 로컬 스토리지에 저장합니다.
+ * @param {Object} data - 이메일과 비밀번호
+ * @returns {Promise<Response>}
  */
 export const login = async (data) => {
   const response = await fetch(`${API_URL}/api/sign-in`, {
@@ -20,8 +22,9 @@ export const login = async (data) => {
 };
 
 /**
- * 
- * @param {object} 이메일
+ * 이메일을 body에 담아 post 요청을 보내 이메일 중복을 확인합니다.
+ * @param {Object} data - 이메일
+ * @returns {Promise<Response>}
  */
 export const signup = async (data) => {
   const response = await fetch(`${API_URL}/api/check-email`, {
