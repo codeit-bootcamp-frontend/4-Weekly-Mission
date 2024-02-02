@@ -18,38 +18,43 @@ function borderStyleHandler(element, isFocused) {
 function setErrorMessage(messageType, errorMessage){
   return messageType.innerText = errorMessage
 }
-
-function inputValueCheck(e){
- if( e.target.name === "user_email"){
-
+function emailValidator(e){
   e.preventDefault(); 
   const emailValue = email.value;
   const isValidEmail = emailRegex.test(emailValue);
 
-  setErrorMessage(
-    errorMassageId,
-    emailValue === "" ? "이메일을 입력해 주세요." :
-    !isValidEmail ? "올바른 이메일 주소가 아닙니다." : ""
-  );
+  if(emailValue === ""){
+    setErrorMessage(errorMassageId, "이메일을 입력해 주세요.")
+  }
+  else if(!isValidEmail){
+    setErrorMessage(errorMassageId, "올바른 이메일 주소가 아닙니다.")
+  }
+  else{
+    setErrorMessage(errorMassageId, "")
+  }
 
   borderStyleHandler(email, !isValidEmail);
- }
- else if(e.target.name === "user_password"){
+}
+
+function passwordValidator(e){
   e.preventDefault();
   const passwordValue = password.value;
   const control = passwordValue === "";
 
-  setErrorMessage(
-    errorMassagePw,
-    passwordValue === "" ? "비밀번호를 입력해 주세요" : ""
-  );
 
+  if(passwordValue === ""){
+    setErrorMessage(errorMassagePw,  "비밀번호를 입력해 주세요")
+  }
+  else{
+    setErrorMessage(errorMassagePw, "")
+  }
   borderStyleHandler(password, control);
- }
 }
 
-email.addEventListener('blur', inputValueCheck);
-password.addEventListener('blur', inputValueCheck );
+
+
+email.addEventListener('blur', emailValidator);
+password.addEventListener('blur', passwordValidator );
 
 function signIn(emailValue, passwordValue) {
   let control = false;
@@ -84,7 +89,3 @@ pwHideIcon.addEventListener("click", () => {
 pwBlockIcon.addEventListener("click", () => {
   togglePasswordVisibility(false, pwHideIcon, pwBlockIcon, password);
 });
-
-
-
-

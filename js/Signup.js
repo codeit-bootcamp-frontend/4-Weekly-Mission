@@ -22,55 +22,68 @@ function setErrorMessage(messageType, errorMessage){
   return messageType.innerText = errorMessage
 }
 
-function inputValueCheck(e){
-  if( e.target.name === "user_email"){
- 
-   e.preventDefault(); 
-   const emailValue = email.value;
-   const isValidEmail = emailRegex.test(emailValue);
- 
-   setErrorMessage(
-     errorMassageId,
-     emailValue === "" ? "이메일을 입력해 주세요." :
-     !isValidEmail ? "올바른 이메일 주소가 아닙니다." : 
-     emailValue === "test@codeit.com" ?  "이미 사용 중인 이메일입니다." : ""
-   );
- 
-   borderStyleHandler(email, !isValidEmail);
+function emailValidator(e){
+  e.preventDefault(); 
+  const emailValue = email.value;
+  const isValidEmail = emailRegex.test(emailValue);
+
+  if(emailValue === ""){
+    setErrorMessage(errorMassageId, "이메일을 입력해 주세요.")
   }
-  else if(e.target.name === "user_password"){
-   e.preventDefault();
+  else if(!isValidEmail){
+    setErrorMessage(errorMassageId, "올바른 이메일 주소가 아닙니다.")
+  }
+  else if(emailValue === "test@codeit.com"){
+    setErrorMessage(errorMassageId, "이미 사용 중인 이메일입니다.")
+  }
+  else{
+    setErrorMessage(errorMassageId, "")
+  }
+
+  borderStyleHandler(email, !isValidEmail);
+}
+
+function passwordValidator(e){
+  e.preventDefault();
    const passwordValue = password.value;
    const isValidPassword = passwordRegex.test(passwordValue);
- 
-   setErrorMessage(
-     errorMassagePw,
-     passwordValue === "" ? "비밀번호를 입력해 주세요" : 
-     !isValidPassword ? "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요" : ""
-   );
- 
-   borderStyleHandler(password, !isValidPassword);
+
+
+  if(passwordValue === ""){
+    setErrorMessage(errorMassagePw,  "비밀번호를 입력해 주세요")
   }
-  else if(e.target.name === "user_password_confirm"){
-    e.preventDefault(); 
-    const passwordValue = password.value;
-    const passwordConfirmValue = passwordConfirm.value;
-
-    setErrorMessage(
-      errorMassagePwConfirm,
-      passwordConfirmValue === "" ? "비밀번호를 입력해 주세요" : 
-      passwordValue !== passwordConfirmValue ? "비밀번호가 일치하지 않아요." : ""
-    )
-
-    const isFocused = passwordValue === passwordConfirmValue && passwordConfirmValue !== "";
-
-    borderStyleHandler(passwordConfirm, !isFocused);
+  else if(!isValidPassword){
+    setErrorMessage(errorMassagePw, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요")
   }
- }
+  else{
+    setErrorMessage(errorMassagePw, "")
+  }
+  borderStyleHandler(password, !isValidPassword);
+}
+
+function pwConfirmValidator(e){
+  e.preventDefault(); 
+  const passwordValue = password.value;
+  const passwordConfirmValue = passwordConfirm.value;
+
+  if(passwordConfirmValue === ""){
+    setErrorMessage(errorMassagePwConfirm,  "비밀번호를 입력해 주세요")
+  }
+  else if( passwordValue !== passwordConfirmValue){
+    setErrorMessage(errorMassagePwConfirm, "비밀번호가 일치하지 않아요.")
+  }
+  else{
+    setErrorMessage(errorMassagePwConfirm, "")
+  }
+
+  const isFocused = passwordValue === passwordConfirmValue && passwordConfirmValue !== "";
+
+  borderStyleHandler(passwordConfirm, !isFocused);
+}
  
- email.addEventListener('blur', inputValueCheck);
- password.addEventListener('blur', inputValueCheck );
- passwordConfirm.addEventListener('blur', inputValueCheck );
+ email.addEventListener('blur', emailValidator);
+ password.addEventListener('blur', passwordValidator );
+ passwordConfirm.addEventListener('blur', pwConfirmValidator );
 
  function signIn(emailValue, passwordValue, passwordConFirmValue) {
   let control = false;
@@ -106,20 +119,20 @@ submitButton.addEventListener('keypress', function (e) {
   }
 });
 
-function passwordTypeHandler(e, index){
+function passwordTypeHandler(e, index, type){
   const pwHideIconElement = pwHideIcon[index];
   const pwBlockIconElement = pwBlockIcon[index];
 
   if(e.target.className === "pw_hide"){
-    togglePasswordVisibility(true, pwHideIconElement, pwBlockIconElement, password);
+    togglePasswordVisibility(true, pwHideIconElement, pwBlockIconElement, type);
   }
   else{
-    togglePasswordVisibility(false, pwHideIconElement, pwBlockIconElement, password);
+    togglePasswordVisibility(false, pwHideIconElement, pwBlockIconElement, type);
   }
 }
 
-pwHideIcon[0].addEventListener("click", (e) => passwordTypeHandler(e, 0));
-pwBlockIcon[0].addEventListener("click", (e) => passwordTypeHandler(e, 0));
-pwHideIcon[1].addEventListener("click", (e) => passwordTypeHandler(e, 1));
-pwBlockIcon[1].addEventListener("click", (e) => passwordTypeHandler(e, 1));
+pwHideIcon[0].addEventListener("click", (e) => passwordTypeHandler(e, 0, password));
+pwBlockIcon[0].addEventListener("click", (e) => passwordTypeHandler(e, 0, password));
 
+pwHideIcon[1].addEventListener("click", (e) => passwordTypeHandler(e, 1, passwordConfirm));
+pwBlockIcon[1].addEventListener("click", (e) => passwordTypeHandler(e, 1, passwordConfirm));
