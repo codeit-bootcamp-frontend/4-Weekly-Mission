@@ -138,32 +138,33 @@ async function fetchSignin (){
     }
 }
 
-//현재 작업중 추후에 합칠 예정
-async function fetchSignUp (){
-    try{
-        const user = {
-            email: email.value.trim(),
-            password: password.value.trim()
-        }
-        const token = "user";
-        const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify(user)
-        });
-        response.ok ? (location.href = '/folder.html') : errorMessage();
+// //현재 작업중 추후에 합칠 예정
+// async function fetchSignUp (){
+//     try{
+//         const user = {
+//             email: email.value.trim(),
+//             password: password.value.trim()
+//         }
+//         const token = "user";
+//         console.log(user.email);
+//         const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up',{
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `Bearer ${token}`
+//             },
+//             body: JSON.stringify(user)
+//         });
+//         console.log(response);
 
-        async function errorMessage (){
-            const errorMessage = await response.json();
-            console.error(errorMessage.error.message);
-        }
-    }catch(error){
-        console.error(error.message);
-    }
-}
+//         async function errorMessage (){
+//             const errorMessage = await response.json();
+//             console.error(errorMessage.error.message);
+//         }
+//     }catch(error){
+//         console.error(error.message);
+//     }
+// }
 
 //addEventListener를 이용한 체크 시스템
 form.addEventListener("submit",(e)=>{
