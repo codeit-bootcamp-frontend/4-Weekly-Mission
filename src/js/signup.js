@@ -43,9 +43,11 @@ const checkEmailIsValid = (e) => {
   // 이메일 인풋이 채워져있고, 올바른 형식일 때, 중복 이메일인지 확인하는 로직
   // 재사용하지 않으므로 즉시 실행 함수로 처리
   (async function requestCheckEmailApi() {
+    //request body로 보낼 이메일 정보
     const emailBody = {
       email: e.target.value,
     };
+
     try {
       const response = await fetch(
         "https://bootcamp-api.codeit.kr/api/check-email",
@@ -57,6 +59,7 @@ const checkEmailIsValid = (e) => {
           body: JSON.stringify(emailBody),
         },
       );
+
       if (response.ok) {
         const emailForCheck = await response.json();
         const isUsableNickname = emailForCheck["data"]["isUsableNickname"];
@@ -65,8 +68,10 @@ const checkEmailIsValid = (e) => {
           showErrorMessage(false, e.target, "email");
         }
       } else if (response.status === 409) {
+        // 이메일 중복 에러
         throw new Error("Email Conflict");
       } else {
+        // 기타 에러
         throw new Error("Other Error");
       }
     } catch (error) {
@@ -134,6 +139,7 @@ const handleSignUp = (e) => {
   if (isValidPasswordCheck) {
     (async function requestSignUpApi() {
       try {
+        //request body로 보낼 회원가입 정보
         const registrationBody = {
           email: inputEmail.value,
           password: inputPassword.value,
@@ -149,11 +155,14 @@ const handleSignUp = (e) => {
             body: JSON.stringify(registrationBody),
           },
         );
+
         if (response.ok) {
           location.href = "folder.html";
         } else if (response.status === 400) {
+          // 회원가입 에러
           throw new Error("SignUp Error");
         } else {
+          // 기타 에러
           throw new Error("Other Error");
         }
       } catch (error) {

@@ -54,7 +54,8 @@ const handleSignIn = (e) => {
 
   (async function requestSignInApi() {
     try {
-      const credentials = {
+      // request body로 보낼 로그인 정보
+      const credentialsBody = {
         email: inputEmail.value,
         password: inputPassword.value,
       };
@@ -66,9 +67,10 @@ const handleSignIn = (e) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(credentials),
+          body: JSON.stringify(credentialsBody),
         },
       );
+
       if (response.ok) {
         const responseJson = await response.json();
         const tokenData = responseJson["data"];
@@ -80,8 +82,10 @@ const handleSignIn = (e) => {
         localStorage.setItem("accessToken", accessTokenData);
         location.href = "folder.html";
       } else if (response.status === 400) {
+        // 로그인 에러
         throw new Error("Login Error");
       } else {
+        // 서버 에러 등 기타 에러
         throw new Error("Other Error");
       }
     } catch (error) {
