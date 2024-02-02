@@ -1,13 +1,14 @@
 import { isVaildEmail } from "./utils/isValidEmail.js";
-import { querySelector } from "./utils/querySelector.js";
+import { querySelector } from "./utils/commons/querySelector.js";
 import { updateErrorMessage } from "./utils/updateErrorMessage.js";
 import { toggleShowPassword } from "./utils/passwordShowHidden.js";
 import { validEmail } from "./utils/constants.js";
 import { isVaildPassword } from "./utils/isValidPassword.js";
+import { targetValue } from "./utils/commons/value.trim.js";
 
 /** 이메일 입력 값이 유효한 지 확인하는 함수 */
 function checkEmail(event) {
-  const emailValue = event.target.value.trim();
+  const emailValue = targetValue(event);
   const errorMessage = querySelector("#email-error-message");
 
   if (emailValue === "") {
@@ -38,7 +39,7 @@ function checkEmail(event) {
 
 /** 비밀번호 입력 값이 유효한지 확인하는 함수 */
 function checkPassword(event) {
-  const passwordValue = event.target.value.trim();
+  const passwordValue = targetValue(event);
   const errorMessageBox = querySelector("#password-error-message");
 
   if (passwordValue === "") {

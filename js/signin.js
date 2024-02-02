@@ -1,12 +1,25 @@
 import { isVaildEmail } from "./utils/isValidEmail.js";
-import { querySelector } from "./utils/querySelector.js";
+import { querySelector } from "./utils/commons/querySelector.js";
 import { updateErrorMessage } from "./utils/updateErrorMessage.js";
 import { toggleShowPassword } from "./utils/passwordShowHidden.js";
 import { checkValidLogin } from "./utils/CheckValidLogin.js";
+import { targetValue } from "./utils/commons/value.trim.js";
+import {
+  SIGNIN_SUCCESS_VALUE,
+  PASSWORD_INVALID_VALUE,
+  NOT,
+} from "./utils/constants.js";
+
+// 이벤트 등록을 위한 변수 설정
+const signinEmailInput = querySelector("#signin-email-input");
+const signinPasswordInput = querySelector("#signin-password-input");
+const loginBtn = querySelector("#login-button");
+const loginForm = querySelector("#login-form");
+const passwordEyeIcon = querySelector("#password-eye-icon");
 
 /** 이메일 입력 값이 유효한 지 확인하는 함수 */
 function checkEmail(event) {
-  const emailValue = event.target.value.trim();
+  const emailValue = targetValue(event);
   const errorMessage = querySelector("#email-error-message");
 
   // 공백일 때
@@ -31,30 +44,31 @@ function checkEmail(event) {
   }
 }
 
-function tryLogin(checkValidLogin) {
+function tryLogin() {
   const emailValue = signinEmailInput.value;
   const passwordValue = signinPasswordInput.value;
   const errorMessage = querySelector("#email-error-message");
   const errorMessageBox = querySelector("#password-error-message");
 
   const loginResult = checkValidLogin(emailValue, passwordValue);
-  if (loginResult === 1) {
+
+  if (loginResult === SIGNIN_SUCCESS_VALUE) {
     location.href = "folder.html";
-  } else if (loginResult === -1) {
-    updatePasswordErrorMessage(
+  } else if (loginResult === PASSWORD_INVALID_VALUE) {
+    updateErrorMessage(
       errorMessageBox,
       "비밀번호를 확인해주세요",
       signinPasswordInput,
       true
     );
   } else {
-    updateEmailErrorMessage(
+    updateErrorMessage(
       errorMessage,
       "이메일을 확인해주세요.",
       signinEmailInput,
       true
     );
-    updatePasswordErrorMessage(
+    updateErrorMessage(
       errorMessageBox,
       "비밀번호를 확인해주세요",
       signinEmailInput,
@@ -75,13 +89,6 @@ function checkPassword(event) {
     passwordValue === ""
   );
 }
-
-// 이벤트 등록을 위한 변수 설정
-const signinEmailInput = querySelector("#signin-email-input");
-const signinPasswordInput = querySelector("#signin-password-input");
-const loginBtn = querySelector("#login-button");
-const loginForm = querySelector("#login-form");
-const passwordEyeIcon = querySelector("#password-eye-icon");
 
 /** 이벤트 등록 */
 signinEmailInput.addEventListener("focusout", checkEmail); // 이메일 입력이 유효한지
