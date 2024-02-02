@@ -19,7 +19,8 @@ const removeClassError = (errorMessage, currentClass) => {
   currentClass.classList.remove('error');
 };
 
-myInputEmail.addEventListener('focusout', function() {
+
+function emailInputCheck() {
   if (myInputEmail.value === '') {
     addClassError(errorMessageId, myInputEmail, signJs.ErrorMessage.NoInputId);
   } else if (!signJs.isValidEmail(myInputEmail.value)) {
@@ -27,33 +28,28 @@ myInputEmail.addEventListener('focusout', function() {
   } else {
     removeClassError(errorMessageId, myInputEmail);
   }
-});
+}
 
-myInputPassword.addEventListener('focusout', function() {
+function passwordInputCheck() {
   if (myInputPassword.value === '') {
     addClassError(errorMessagePw, myInputPassword, signJs.ErrorMessage.NoInputPassword);
   } else {
     removeClassError(errorMessagePw, myInputPassword);
   }
-});
+}
 
-login.addEventListener('click', function() { 
+function emailInputValueCheck() {
   const answerEmail = 'test@codeit.com';
   const answerPassword = 'codeit101';
-  if (myInputEmail.value === answerEmail && myInputPassword.value == answerPassword) {
+  if (myInputEmail.value === answerEmail && myInputPassword.value === answerPassword) {
     window.location.href = '/folder';
   } else {
     addClassError(errorMessageId, myInputEmail, signJs.ErrorMessage.WrongId);
     addClassError(errorMessagePw, myInputPassword, signJs.ErrorMessage.WrongPassword);
   }
-});
+}
 
-// 검색하여 form 제출 시 페이지 새로고침되지 않게 함.
-document.querySelector('.sign-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-});
-
-toggleButtonPw.addEventListener('click', function() {
+function toggleEyeImage() {
   if (myInputPassword.type === 'password') {
     myInputPassword.type = 'text';
     eyeOn.style.display = 'none';
@@ -63,7 +59,18 @@ toggleButtonPw.addEventListener('click', function() {
     eyeOn.style.display = 'block';
     eyeOff.style.display = 'none';
   }
+}
+
+myInputEmail.addEventListener('focusout', emailInputCheck);
+myInputPassword.addEventListener('focusout', passwordInputCheck);
+login.addEventListener('click', emailInputValueCheck);
+
+// 검색하여 form 제출 시 페이지 새로고침되지 않게 함.
+document.querySelector('.sign-form').addEventListener('submit', function(event) {
+  event.preventDefault();
 });
+
+toggleButtonPw.addEventListener('click', toggleEyeImage);
 
 export { 
   myInputEmail, 
@@ -76,4 +83,8 @@ export {
   eyeOn,
   addClassError,
   removeClassError,
+  emailInputCheck,
+  passwordInputCheck,
+  emailInputValueCheck,
+  toggleEyeImage,
 };
