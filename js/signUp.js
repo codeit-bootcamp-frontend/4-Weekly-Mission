@@ -99,22 +99,36 @@ const signUpApi = async (email, password) => {
 };
 
 /* 유효한 회원가입 시도 시 페이지 이동 */
-const redirectToFolderPage = () => {
-  const link = "./folder.html";
+const redirectToFolderPage = async () => {
+  try {
+    const emailValue = email.value;
+    const passwordValue = password.value;
+    const passwordRepeatValue = passwordRepeat.value;
 
-  if (email.value === errorMessage.ALREADY_EMAIL) {
-    setInvalidStyle(email);
-    emailError.innerHTML = errorMessage.EMAIL_USED_MESSAGE;
-  } else if (email.value === "") {
-    setInvalidStyle(email);
-    emailError.innerHTML = errorMessage.EMAIL_INPUT_MESSAGE;
-  } else if (password.value === "") {
-    setInvalidStyle(password);
-    passwordError.innerHTML = errorMessage.PASSWORD_FORMAT_MESSAGE;
-  } else if (passwordRepeat.value !== password.value) {
-    handlePasswordMatchValidation();
-  } else {
-    location.href = link;
+    const isDuplicate = await checkEmailDuplicate(emailValue);
+    const signUpResponse = await signUpApi(emailValue, passwordValue);
+
+    if (signUpResponse) {
+      saveAccessToken(signUpResponse);
+      redirectFolder();
+    } else {
+      throw new Error("error");
+    }
+
+    if (isDuplicate) {
+      setInvalidStyle(email);
+      emailError.innerHTML = errorMessage.EMAIL_USED_MESSAGE;
+    } else if (emailValue === "") {
+      setInvalidStyle(email);
+      emailError.innerHTML = errorMessage.EMAIL_INPUT_MESSAGE;
+    } else if (passwordValue === "") {
+      setInvalidStyle(password);
+      passwordError.innerHTML = errorMessage.PASSWORD_FORMAT_MESSAGE;
+    } else if (passwordRepeatValue !== passwordValue) {
+      handlePasswordMatchValidation();
+    }
+  } catch (error) {
+    console.error("오류 발생:", error.message);
   }
 };
 
