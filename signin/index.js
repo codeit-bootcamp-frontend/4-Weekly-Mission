@@ -17,14 +17,14 @@ const password = document.querySelector(".input-password");
 const loginButton = document.querySelector(".button-login");
 const passwordIcon = document.querySelector(".password-icon");
 
-function noInputFocusOut(element, parentElementSlectorName, inputSlectorName, errorSentence) {
-  error.removeErrorElement(parentElementSlectorName);
-  removeBorder(inputSlectorName);
+function noInputFocusOut(element, parentElementSelectorName, inputSelectorName, errorSentence) {
+  error.removeErrorElement(parentElementSelectorName);
+  removeBorder(inputSelectorName);
 
   if (element.value === "") {
-    error.createErrorSpanElement(parentElementSlectorName);
-    errorBorder(inputSlectorName)
-    error.errorMessageInElement(parentElementSlectorName, errorSentence);
+    error.createErrorSpanElement(parentElementSelectorName);
+    errorBorder(inputSelectorName)
+    error.errorMessageInElement(parentElementSelectorName, errorSentence);
   }
 }
 
@@ -47,9 +47,9 @@ function notValidEmailInput() {
   }
 }
 
-function focusIn(parentElementSlectorName, inputSlectorName) {
-  removeBorder(inputSlectorName);
-  resetErrorElement(parentElementSlectorName)
+function focusIn(parentElementSelectorName, inputSelectorName) {
+  removeBorder(inputSelectorName);
+  resetErrorElement(parentElementSelectorName)
 }
 
 function pressEnterForFolderPage(e) {
