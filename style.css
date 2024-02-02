@@ -42,7 +42,7 @@ html {
     #6ae3fe 101.84%
   );
 }
-_ .gnb {
+.gnb {
   display: flex;
   padding: 20px 200px;
   flex-direction: column;
@@ -334,7 +334,7 @@ footer {
 }
 /************************ Mobile 스타일 ***************************/
 
-@media screen and (min-width: 375px) and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .section1 {
     padding-top: 40px;
   }
