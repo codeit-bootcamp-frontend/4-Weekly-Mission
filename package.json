@@ -1,18 +1,13 @@
 {
-  "dependencies": {
-    "live-server": "^1.2.2",
-    "stylelint-selector-bem-pattern": "^3.0.1"
-  },
+  "name": "linkbrary",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/zoonyoung/4-Weekly-Mission.git",
+  "author": "<9851248@gmail.com>",
+  "license": "MIT",
+  "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "^7.23.4",
-    "@babel/core": "^7.23.7",
-    "@babel/preset-env": "^7.23.8",
-    "jest": "^29.7.0",
-    "prettier": "3.2.2",
-    "stylelint": "^16.1.0",
-    "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^36.0.0",
-    "stylelint-order": "^6.0.4"
-  },
-  "type": "module"
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0"
+  }
 }

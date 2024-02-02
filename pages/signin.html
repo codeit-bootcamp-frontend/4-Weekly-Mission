@@ -19,30 +19,30 @@
         회원이 아니신가요?
         <a class="login__link" href="../pages/signup.html">회원 가입하기</a>
       </p>
-      <form class="login__form">
+      <form class="login__form" id="login-form">
         <div class="login__div">
           <label class="login__label" for="email">이메일</label>
-          <input class="login__input login__input--email" id="login__input--email" name="email" type="email" />
+          <input class="login__input login__input--email" id="login-email" name="email" type="email" />
         </div>
-        <div class="login__div login__div--password" id="login__div--password">
+        <div class="login__div login__div--password">
           <label class="login__label" for="password">비밀번호</label>
-          <input class="login__input" id="login__input--password" name="password" type="password" />
-          <img class="eye-img" id="eye-img" src="../assets/icons/eye-off.svg" alt="eye-image" />
+          <input class="login__input login__input--password" id="login-password" name="password" type="password" />
+          <img class="eye-image" id="eye-image-password" src="../assets/icons/eye-off.svg" alt="eye-image" />
         </div>
-        <button type="button" class="login__btn" id="login__btn">로그인</button>
+        <button class="login__button" id="login-button">로그인</button>
       </form>
       <div class="social-box">
         <p class="social-box__text">소셜 로그인</p>
         <div class="social-box__logos">
-          <a href="https://www.google.com"
-            ><img class="social-box__img" src="../assets/icons/google-logo.svg" alt="google-logo"
-          /></a>
-          <a href="https://www.kakaocorp.com"
-            ><img class="social-box__img" src="../assets/icons/kakao-logo.svg" alt="kakao-logo"
-          /></a>
+          <a href="https://www.google.com">
+            <img class="social-box__img" src="../assets/icons/google-logo.svg" alt="google-logo" />
+          </a>
+          <a href="https://www.kakaocorp.com">
+            <img class="social-box__img" src="../assets/icons/kakao-logo.svg" alt="kakao-logo" />
+          </a>
         </div>
       </div>
     </main>
-    <script type="module" src="../scripts/sign.js"></script>
+    <script type="module" src="../scripts/signin.js"></script>
   </body>
 </html>

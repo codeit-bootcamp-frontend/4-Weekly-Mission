@@ -52,14 +52,14 @@
   position: relative;
 }
 
-.eye-img {
+.eye-image {
   position: absolute;
   top: 2.8rem;
   right: 5%;
   cursor: pointer;
 }
 
-.login__btn {
+.login__button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -93,15 +93,14 @@
   width: 3rem;
 }
 
-#email__error,
-#password__error {
+.error-text {
   margin: 0;
   margin-right: auto;
   color: var(--color-red);
 }
 
-.login__input--email:focus + #email__error,
-.login__input--password:focus + #password__error {
+.login__input--email:focus + .error-text,
+.login__input--password:focus + .error-text {
   display: none;
 }
 

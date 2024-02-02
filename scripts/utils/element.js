@@ -1,18 +1,6 @@
 //@ts-check
 /** @typedef {HTMLElement | null} HTMLElements*/
 /** @typedef { HTMLInputElement | null }  HTMLInputElements */
-export class KeyHandler {
-  /**
-   *
-   * @param {KeyboardEvent} event - keyboardEvent
-   * @param {Function} callback - event.key = 'Enter"일때 실행할 Fucntion
-   */
-  static enter = callback => {
-    if (event.key === 'Enter') {
-      callback();
-    }
-  };
-}
 export class InputHandler {
   /** <input> 요소의 값이 비었는지 확인
    * @param {HTMLInputElements} element - inputElement
@@ -28,7 +16,7 @@ export class InputHandler {
    * @param {RegExp} regEx - 검사할 정규표현식
    */
   static isMatchRegEx = (element, regEx) => {
-    if (!(element?.tagName === 'INPUT')) return;
+    if (element?.tagName !== 'INPUT') return;
     return regEx.test(element.value);
   };
 
@@ -38,20 +26,26 @@ export class InputHandler {
    * @param {string} value - 확인할 값
    */
   static isMatchValue = (element, value) => {
-    if (!(element?.tagName === 'INPUT')) return;
+    if (element?.tagName !== 'INPUT') return;
     return element.value === value;
   };
+
+  static isMatchElement = (elementA, elementB) => {
+    if (elementA?.tagName !== 'INPUT' || elementB?.tagName !== 'INPUT') return;
+    return elementA.value === elementB.value;
+  };
 }
+
 export class DOMHandler {
   /**
    * @param {HTMLElements} element - HTMLelement
-   * @param {string} id - 추가할 태그 id
-   * @param {string} text*/
-  static addTextAfter = (element, id, text) => {
+   * @param {string=} id - (opt)추가할 태그 id
+   * @param {string=} className - (opt) 추가할 className*/
+  static addPAfterElement = (element, id, className) => {
     if (!element) return;
     const textTag = document.createElement('p');
-    textTag.textContent = text;
-    textTag.id = id;
+    if (id) textTag.id = id;
+    if (className) textTag.classList.add(className);
     element.after(textTag);
   };
   /**
