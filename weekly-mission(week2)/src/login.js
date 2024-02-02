@@ -33,17 +33,18 @@ const addErrorMsgToInvalidInput = (e) => {
   if(e.target.value === '') return;
 
   const errorMsg = $('.input-error-msg', e.target.parentNode);
-  const inputType = e.target.getAttribute('id');
+  const inputType = e.target.getAttribute('id');  // emailInput id : 'email', passwordInput id : 'password'
   
-  if(!isValid[`${inputType}`](e.target.value)) {
-    e.target.classList.add('js-input-profile-error');
-    errorMsg.classList.remove('hidden');
-    errorMsg.textContent = ERROR_MESSAGE[`${inputType.toUpperCase()}`].INVALID;
-  }
-  else {
+  if(isValid[`${inputType}`](e.target.value)) {
     e.target.classList.remove('js-input-profile-error');
     errorMsg.classList.add('hidden');
+    return;
   }
+
+  e.target.classList.add('js-input-profile-error');
+  errorMsg.classList.remove('hidden');
+  errorMsg.textContent = ERROR_MESSAGE[`${inputType.toUpperCase()}`].INVALID;
+
 }
 
 const addErrorMsgToIncorrectInput = (input) => {
