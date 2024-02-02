@@ -11,34 +11,40 @@ const addErrorMsgToDuplicateInput = (e) => {
     }
 }
 
-const addErrorMsgToMismatchConfirm = (e) => {
-  if(e.target.value === '') return;
-
-  const errorMsg = $('.input-error-msg', e.target.parentNode);
+const addErrorMsgToMismatchConfirm = () => {
   const passwordInput = $('.password');
+  const passwordConfirmInput = $('.password-confirm');
+  const errorMsg = $('.input-error-msg', passwordConfirmInput.parentNode);
 
-  if(e.target.value !== passwordInput.value) {
-    e.target.classList.add('js-input-profile-error');
-    errorMsg.classList.remove('hidden');
-    errorMsg.textContent = ERROR_MESSAGE.PASSWORD_CONFIRM.MISMATCH;
+  if(passwordConfirmInput.value === passwordInput.value) {
+    passwordConfirmInput.classList.remove('js-input-profile-error');
+    errorMsg.classList.add('hidden'); 
+    return;
   }
-  else {
-    e.target.classList.remove('js-input-profile-error');
-    errorMsg.classList.add('hidden');
-  }
+
+  passwordConfirmInput.classList.add('js-input-profile-error');
+  errorMsg.classList.remove('hidden');
+  errorMsg.textContent = ERROR_MESSAGE.PASSWORD_CONFIRM.MISMATCH;
 }
 
 const signUpHandler = (e) => {
   e.preventDefault();
-  
+  addErrorMsgToMismatchConfirm();
+
   const inputs = document.querySelectorAll('.input-profile', e.target);
+  inputs.forEach((input) => {
+    input.dispatchEvent(new Event('blur'));
+  });
+
   const hasError = [...inputs].some((input) => {
     return input.classList.contains('js-input-profile-error');
   });
+  const hasBlankInput = [...inputs].some((input) => input.value === '')
 
-  if(!hasError) {
-    window.location.href = '/folder.html';
-  }
+  if(hasError) return;
+  if(hasBlankInput) return;
+
+  window.location.href = '/folder.html';
 }
 
 export { addErrorMsgToDuplicateInput, addErrorMsgToMismatchConfirm, signUpHandler };
