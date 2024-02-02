@@ -2,6 +2,7 @@ import { EMAIL_REGEX, TEST_EMAIL } from "/js/account/constant.js";
 import { eyeOpen, eyeClose } from "/js/account/passwordIconToggle.js";
 import { email, emailError } from "/js/account/email.js";
 import { password, passwordError } from "/js/account/password.js";
+import { emailTest } from "../js/account/util.js";
 
 const passwordConfirm = document.querySelector("#passwordConfirm");
 const passwordConfirmError = document.querySelector(".passwordConfirmError");
@@ -9,24 +10,15 @@ const passwordConfirmError = document.querySelector(".passwordConfirmError");
 const form = document.querySelector("#form");
 
 function OnFocusOutEmail(e) {
-  if (!e.target.value?.trim()) {
-    emailError.textContent = "이메일을 입력해 주세요.";
-    e.target.classList.add("inputError");
+  if (emailTest(e.target, emailError)) {
     return;
   }
-  if (!EMAIL_REGEX.test(e.target.value)) {
-    emailError.textContent = "올바른 이메일 주소가 아닙니다.";
-    e.target.classList.add("inputError");
-    return;
-  }
+
   if (e.target.value === TEST_EMAIL) {
     emailError.textContent = "이미 사용 중인 이메일입니다.";
     e.target.classList.add("inputError");
     return;
   }
-
-  emailError.textContent = "";
-  e.target.classList.remove("inputError");
 }
 
 function OnFocusOutPassword(e) {
