@@ -1,7 +1,8 @@
 // 이메일 유효성 검사
 function emailCheck(email_address){     
   let email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
-  return email_address.test(email_address);
+  console.log(email_regex.test(email_address))
+  return Boolean(email_regex.test(email_address));
 }
 
 // 비밀번호 유효성 검사
