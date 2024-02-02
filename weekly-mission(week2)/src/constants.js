@@ -8,22 +8,7 @@ const REGEX = Object.freeze({
   PASSWORD: /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/,
 });
 
-const ERROR_MSG = Object.freeze({
-  BLANK: {
-    EMAIL: '이메일을 입력해 주세요.',
-    PASSWORD: '비밀번호를 입력해 주세요.'
-  },
-  INVALID: {
-    EMAIL: '올바른 이메일 주소가 아닙니다.'
-  },
-  INCORRECT:{
-    EMAIL: '이메일을 확인해 주세요.',
-    PASSWORD: '비밀번호를 확인해 주세요.',
-    PASSWORD_CONFIRM: '비밀번호가 일치하지 않아요',
-  }
-});
-
-const ERROR_MESSAGE_V2 = Object.freeze({
+const ERROR_MESSAGE = Object.freeze({
   EMAIL: {
     BLANK: '이메일을 입력해 주세요.',
     INVALID: '올바른 이메일 주소가 아닙니다.',
@@ -43,4 +28,4 @@ const ERROR_MESSAGE_V2 = Object.freeze({
 const ERROR_SELECTOR = 'input-error-msg';
 const $ = (selector, element = document) => element.querySelector(selector);
 
-export { MASTER_ACCOUNT, REGEX, ERROR_MSG, ERROR_MESSAGE_V2, $};
+export { MASTER_ACCOUNT, REGEX, ERROR_MESSAGE, $};

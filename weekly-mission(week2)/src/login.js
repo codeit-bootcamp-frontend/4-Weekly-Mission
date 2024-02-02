@@ -1,61 +1,64 @@
-import {MASTER_ACCOUNT, REGEX, ERROR_MSG, $} from './constants.js';
+import { MASTER_ACCOUNT, REGEX, ERROR_MESSAGE, $ } from './constants.js';
+import { addErrorToDuplicateInput } from './signup.js';
 
-const isMaster = (email, password) => email === MASTER_ACCOUNT['EMAIL'] && password === MASTER_ACCOUNT['PASSWORD'];
-const isEmail = (email) => REGEX['EMAIL'].test(email);
-const isBlank = (e) => e.target.value === '';
+const isMaster = (email, password) => email === MASTER_ACCOUNT.EMAIL && password === MASTER_ACCOUNT.PASSWORD;
+const isValid = {
+  email: (email) => REGEX.EMAIL.test(email),
+  password: (password) => REGEX.PASSWORD.test(password)
+};
 
 // 비어있는 인풋에 에러메시지 추가
 const addErrorMsgToBlankInput = (e) => {
-  const blankInput = e.target;
-  const errorMsg = $('.input-error-msg', blankInput.parentNode);
+  if(e.target.value !== '') return;
 
-  if(isBlank(e)) {
-    blankInput.classList.add('js-input-profile-error');
-    errorMsg.classList.remove('js-display-none');
-    // input이 email인지 password인지 체크
-    if(blankInput.getAttribute('id') === 'email')
-      errorMsg.textContent = ERROR_MSG.BLANK.EMAIL;
-    else 
-      errorMsg.textContent = ERROR_MSG.BLANK.PASSWORD;
+  const errorMsg = $('.input-error-msg', e.target.parentNode);
+  e.target.classList.add('js-input-profile-error');
+  errorMsg.classList.remove('hidden');
+
+  // input이 email인지 password인지 체크
+  if(e.target.getAttribute('id') === 'email') {
+    errorMsg.textContent = ERROR_MESSAGE.EMAIL.BLANK;
   }
-  else {  // 인풋이 비어있지 않은 경우
-    blankInput.classList.remove('js-input-profile-error');
-    errorMsg.classList.add('js-display-none');
+  else {
+    errorMsg.textContent = ERROR_MESSAGE.PASSWORD.BLANK;
   }
 }
 
-const addErrorMsgToInvalidInput = (emailInput) => {
-  const invalidEmailInput = emailInput.target;
-  const errorMsg = $('.input-error-msg', invalidEmailInput.parentNode);
-  if(!isBlank(emailInput)) {
-    if(!isEmail(invalidEmailInput.value)){
-      invalidEmailInput.classList.add('js-input-profile-error');
-      errorMsg.classList.remove('js-display-none');
-      errorMsg.textContent = ERROR_MSG.INVALID.EMAIL;
-    }
-    else {
-      invalidEmailInput.classList.remove('js-input-profile-error');
-      errorMsg.classList.add('js-display-none');
-    }
+const addErrorMsgToInvalidInput = (e) => {
+  if(e.target.value === '') return;
+
+  const errorMsg = $('.input-error-msg', e.target.parentNode);
+  const inputType = e.target.getAttribute('id');
+  
+  if(!isValid[`${inputType}`](e.target.value)){
+    e.target.classList.add('js-input-profile-error');
+    errorMsg.classList.remove('hidden');
+    errorMsg.textContent = ERROR_MESSAGE[`${inputType.toUpperCase()}`].INVALID;
+  }
+  else {
+    e.target.classList.remove('js-input-profile-error');
+    errorMsg.classList.add('hidden');
   }
 }
 
 const addErrorMsgToIncorrectInput = (input) => {
-  const incorrectInput = input;
-  const errorMsg = $('.input-error-msg', incorrectInput.parentNode);
-  incorrectInput.classList.add('js-input-profile-error');
-  errorMsg.classList.remove('js-display-none');     
+  const errorMsg = $('.input-error-msg', input.parentNode);
+  input.classList.add('js-input-profile-error');
+  errorMsg.classList.remove('hidden');     
+  
   // input이 email인지 password인지 체크
-  if(incorrectInput.getAttribute('id') === 'email')
-    errorMsg.textContent = ERROR_MSG.INCORRECT.EMAIL;
+  if(input.getAttribute('id') === 'email')
+    errorMsg.textContent = ERROR_MESSAGE.EMAIL.INCORRECT;
   else 
-    errorMsg.textContent = ERROR_MSG.INCORRECT.PASSWORD;
+    errorMsg.textContent = ERROR_MESSAGE.PASSWORD.INCORRECT;
 }
 
-const loginHandler = () => {
+const loginHandler = (e) => {
+  e.preventDefault();
+
   const emailInput = $('#email').value;
   const passwordInput = $('#password').value;
-  
+
   // 마스터 계정이 아닌 경우 일단 다 차단
   if(isMaster(emailInput, passwordInput))
     window.location.href = './folder.html';
@@ -65,33 +68,30 @@ const loginHandler = () => {
   }
 }
 
-const noRefreshOnSubmit = (e) => {
-  e.preventDefault();
-}
-
-const submitOnEnter = function (e) {
-  if(e.key === 'Enter') this.submit();
-}
-
-const togglePasswordVisibility = () => {
-  const eyeIcon = $('.eye-icon');
-  const passwordInput = $('#password', eyeIcon.parentNode);
-  eyeIcon.classList.toggle('visibility');
-  if(eyeIcon.classList.contains('visibility')) {
-    eyeIcon.setAttribute('src', 'images/eye-on.svg');
+const togglePasswordVisibility = (e) => {
+  const passwordInput = $('#password', e.target.parentNode);
+  e.target.classList.toggle('visibility');
+  if(e.target.classList.contains('visibility')) {
+    e.target.setAttribute('src', 'images/eye-on.svg');
     passwordInput.setAttribute('type', 'text');
   }
   else {
-    eyeIcon.setAttribute('src', 'images/eye-off.svg');
+    e.target.setAttribute('src', 'images/eye-off.svg');
     passwordInput.setAttribute('type', 'password');
   }  
 }
 
+// sign-in && sign-up handler
+const eyeIcons = document.querySelectorAll('.eye-icon');
+eyeIcons.forEach((eyeIcon) => eyeIcon.addEventListener('click', togglePasswordVisibility));
+
 $('#email').addEventListener('blur', addErrorMsgToBlankInput);
 $('#password').addEventListener('blur', addErrorMsgToBlankInput);
 $('#email').addEventListener('blur', addErrorMsgToInvalidInput);
-$('.login-form').addEventListener('submit', noRefreshOnSubmit);
 $('.login-form').addEventListener('submit', loginHandler);
-$('.eye-icon').addEventListener('click', togglePasswordVisibility);
 
-// $('.login-form').addEventListener('keydown', submitOnEnter);
+// only sign-up handler
+if($('#email').classList.contains('sign-up')) {
+  $('#email').addEventListener('blur', addErrorToDuplicateInput);
+  $('#password').addEventListener('blur', addErrorMsgToInvalidInput);
+}
