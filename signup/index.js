@@ -65,22 +65,46 @@ function removeError(e) {
     }
 }
 
+// 이메일중복확인 리퀘스트 
+async function checkThisEmail() {   
+    try {
+        const CHECK_EMAIL_RESPONSE = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({email: EMAIL_INPUT.value})
+        });
+        
+        if (CHECK_EMAIL_RESPONSE.status === 409) return false;
+        else if (CHECK_EMAIL_RESPONSE.status === 200) return true;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 // 회원가입 검사
-function signUpChecker(e) {
+async function signUpChecker(e) {
     if (e.type === 'keydown' && e.key !== 'Enter') {
         return;
     }
 
+    const EMAIL_NOT_IN_USE = await checkThisEmail();
     let pwCopy = PASSWORD_INPUT.value;
     pwCopy = [...pwCopy];
 
-    const INVALID_EMAIL = !EMAIL_INPUT.value || EMAIL_INPUT.validity.typeMismatch || EMAIL_INPUT.value === TEST_EMAIL;
+    const INVALID_EMAIL = !EMAIL_INPUT.value || EMAIL_INPUT.validity.typeMismatch;
     const INVALID_PW = PASSWORD_INPUT.value.length < 8 || Boolean(PASSWORD_INPUT.value / 1) || PASSWORD_INPUT.value / 1 === 0 || pwCopy.every(element => !(element / 1));
     const INVALID_PW_REPEAT = PASSWORD_INPUT.value !== PW_REPEAT_INPUT.value;
 
     if (INVALID_EMAIL) {
         const CHECK_YOUR_EMAIL = '이메일을 확인해 주세요.';
         loginError(EMAIL_INPUT, CHECK_YOUR_EMAIL);
+    } 
+
+    if (!EMAIL_NOT_IN_USE) {
+        const IS_BEING_USED = '이미 사용 중인 이메일입니다.';
+        loginError(EMAIL_INPUT, IS_BEING_USED);
     } 
     
     if (INVALID_PW) {
@@ -93,7 +117,8 @@ function signUpChecker(e) {
         loginError(PW_REPEAT_INPUT, CHECK_YOUR_PW);
     } 
 
-    if (!INVALID_EMAIL && !INVALID_PW && !INVALID_PW_REPEAT) {
+    if (!INVALID_EMAIL && !INVALID_PW && !INVALID_PW_REPEAT && EMAIL_NOT_IN_USE) {
+
         location.assign('/folder');
     }
 }   
