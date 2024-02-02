@@ -1,19 +1,20 @@
-import { changeInputColor } from "./changeInputColor.js";
 import { emailMsg, passwordMsg, passwordCheckMsg, passwordInput } from "../elements.js";
-import { isValidEmail, isValidPassword } from "./validator.js";
-import { isPasswordCorrect } from "./isPasswordCorrect.js";
 import { ERROR_MESSAGES } from "./messages.js";
+import { changeInputColor } from "./changeInputColor.js";
+import { isPasswordCorrect } from "./isPasswordCorrect.js";
+import { isValidEmail, isValidPassword } from "./validator.js";
+
+/**
+ * 이메일을 입력하지 않았거나 유효하지 않은 이메일을 입력했을 때 에러메시지를 띄웁니다.
+ * @param {string} value - 이메일
+ */
+const getEmailError = (value) => {
+  if (!value) return ERROR_MESSAGES.emptyEmail;
+  if (!isValidEmail(value)) return ERROR_MESSAGES.invalidEmail;
+  return "";
+};
 
 const signin = {
-  /**
-   * 이메일을 입력하지 않았거나 유효하지 않은 이메일을 입력했을 때 에러메시지를 띄웁니다.
-   * @param {string} value - 이메일
-   */
-  getEmailError(value) {
-    if (!value) return ERROR_MESSAGES.emptyEmail;
-    if (!isValidEmail(value)) return ERROR_MESSAGES.invalidEmail;
-    return "";
-  },
   /**
    * 비밀번호를 입력하지 않았을 때 에러메시지를 띄웁니다.
    * @param {string} value - 비밀번호
@@ -24,15 +25,6 @@ const signin = {
 };
 
 const signup = {
-  /**
-   * 이메일을 입력하지 않았거나 유효하지 않은 이메일을 입력했을 때 에러메시지를 띄웁니다.
-   * @param {string} value - 이메일
-   */
-  getEmailError(value) {
-    if (!value) return ERROR_MESSAGES.emptyEmail;
-    if (!isValidEmail(value)) return ERROR_MESSAGES.invalidEmail;
-    return "";
-  },
   /**
    * 유효하지 않은 비밀번호를 입력했을 때 에러메시지를 띄웁니다.
    * @param {string} value - 비밀번호
@@ -60,7 +52,7 @@ export const showErrorMsgSignin = ({ target }) => {
 
   let errorMsg = "";
   if (classList.contains("input-email")) {
-    errorMsg = signin.getEmailError(value);
+    errorMsg = getEmailError(value);
   } else if (classList.contains("input-pw")) {
     errorMsg = signin.getPasswordError(value);
   }
@@ -80,7 +72,7 @@ export const showErrorMsgSignup = ({ target }) => {
 
   let errorMsg = "";
   if (classList.contains("input-email")) {
-    errorMsg = signup.getEmailError(value);
+    errorMsg = getEmailError(value);
   } else if (classList.contains("input-pw")) {
     errorMsg = signup.getPasswordError(value);
   } else if (classList.contains("input-pw-check")) {

@@ -1,10 +1,10 @@
 import { emailMsg, passwordMsg, emailInput, passwordInput, passwordCheck, passwordCheckMsg } from "../elements.js";
-import { changeInputColor } from "./changeInputColor.js";
-import { isValidEmail, isValidPassword } from "./validator.js";
-import { isPasswordCorrect } from "./isPasswordCorrect.js";
-import { ERROR_MESSAGES } from "./messages.js";
-import { redirectToFolderPage } from "./redirectToFolderPage.js";
 import { login, signup } from "./auth.js";
+import { ERROR_MESSAGES } from "./messages.js";
+import { changeInputColor } from "./changeInputColor.js";
+import { isPasswordCorrect } from "./isPasswordCorrect.js";
+import { isValidEmail, isValidPassword } from "./validator.js";
+import { redirectToFolderPage } from "./redirectToFolderPage.js";
 
 /**
  * 에러메시지를 노출하고 싶은 Element와 노출하고 싶은 메시지를 받아서 단순 UI를 변경해줍니다.
@@ -34,7 +34,7 @@ export const moveFolderSignin = () => {
 
   login(dataToSubmit)
     .then(() => {
-      //redirectToFolderPage("folder.html");
+      redirectToFolderPage("folder.html");
     })
     .catch(() => {
       showErrorMessage(emailMsg, emailInput, ERROR_MESSAGES.emptyEmail);
@@ -46,7 +46,7 @@ export const moveFolderSignin = () => {
  * 회원가입 성공 시 folder.html로 이동합니다.
  * 실패 시 에러 메시지를 띄웁니다.
  */
-export const moveFolderSignup = (e) => {
+export const moveFolderSignup = () => {
   const [email, password, check] = [emailInput.value, passwordInput.value, passwordCheck.value];
   const isEmailValid = email && isValidEmail(email);
   const isPasswordValid = password && isValidPassword(password);
@@ -62,7 +62,7 @@ export const moveFolderSignup = (e) => {
         redirectToFolderPage("folder.html");
       })
       .catch(() => {
-        showErrorMessage(emailMsg, emailInput, ERROR_MESSAGES.emptyEmail);
+        showErrorMessage(emailMsg, emailInput, ERROR_MESSAGES.alreadyInUse);
       });
   }
 

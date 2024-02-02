@@ -7,7 +7,7 @@ import { API_URL } from "./api.js";
  * @returns {Promise<Response>}
  */
 export const login = async (data) => {
-  const response = await fetch(`${API_URL}/api/sign-in`, {
+  const response = await fetch(`${API_URL}/sign-in`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
@@ -16,7 +16,7 @@ export const login = async (data) => {
   });
   const result = await response.json();
   if (result.data.accessToken) {
-    localStorage.setItem("user", result.data.accessToken);
+    localStorage.setItem("access_token", result.data.accessToken);
   }
   return response;
 };
@@ -27,7 +27,7 @@ export const login = async (data) => {
  * @returns {Promise<Response>}
  */
 export const signup = async (data) => {
-  const response = await fetch(`${API_URL}/api/check-email`, {
+  const response = await fetch(`${API_URL}/check-email`, {
     method: "POST",
     headers: {
       "Content-type": "application/json",
