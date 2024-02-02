@@ -7,8 +7,4 @@ const checkSignupPassword = function (passwordCheck) {
   passwordCheck.classList.contains("error-box");
 };
 
-const checkSignupPasswordRepeat = function (passwordRepeatCheck) {
-  passwordRepeatCheck.classList.contains("error-box");
-};
-
 export { checkSignupEmail, checkSignupPassword };

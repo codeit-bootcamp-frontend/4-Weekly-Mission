@@ -2,7 +2,7 @@ import { isVaildEmail } from "./utils/isValidEmail.js";
 import { querySelector } from "./utils/querySelector.js";
 import { updateErrorMessage } from "./utils/updateErrorMessage.js";
 import { toggleShowPassword } from "./utils/passwordShowHidden.js";
-import { validEmail } from "./utils/CheckValidLogin.js";
+import { validEmail } from "./utils/constants.js";
 import { isVaildPassword } from "./utils/isValidPassword.js";
 
 /** 이메일 입력 값이 유효한 지 확인하는 함수 */
