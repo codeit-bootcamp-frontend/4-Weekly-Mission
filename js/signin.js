@@ -43,9 +43,17 @@ function eyeBlink(input,icon){
 }
 
 //엑세스 토큰 저장
-
 function containAccessToken(accessToken) {
     localStorage.setItem('accessToken', accessToken);
+}
+
+//엑세스 토큰 저장 여부 확인
+function haveAccessToken() {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+        // accessToken이 있는 경우에는 '/folder' 페이지로 이동
+        window.location.href = '/folder.html';
+    }
 }
 
  
