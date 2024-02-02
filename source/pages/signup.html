@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signup</title>
+    <link rel="stylesheet" href="../style/signup.css" />
+  </head>
+  <body>
+    <main>
+      <section class="top">
+        <div class="logo">
+          <a href="/">
+            <img class="logo" src="../images/logo.png" alt="Linkbrary로고" />
+          </a>
+        </div>
+        <p class="question">이미 회원이신가요? <a href="./signin">로그인 하기</a></p>
+      </section>
+      <form id="signupForm" action="./folder">
+        <div class="input">
+          <p>이메일</p>
+          <input id="email" type="email" placeholder="codeit@codeit.com" />
+          <span id="emailError"></span>
+        </div>
+        <div class="input">
+          <p>비밀번호</p>
+          <input id="password" type="password" placeholder="linkbrary2023" />
+          <span id="passwordError"></span>
+        </div>
+        <div class="input">
+          <p>비밀번호 확인</p>
+          <input id="passwordCheck" type="password" placeholder="linkbrary20245" />
+          <span id="passwordCheckError"></span>
+        </div>
+        <button id="signupButton">회원가입</button>
+      </form>
+      <section class="bottom">
+        <div class="socialLogin">
+          <p>다른 방식으로 가입하기</p>
+          <div class="sns">
+            <img src="../images/chrome.svg" href="" alt="크롬 아이콘" />
+            <img src="../images/kakao.svg" href="" alt="카카오 아이콘" />
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="../js/signup.js" type="module"></script>
+  </body>
+</html>
