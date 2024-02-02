@@ -15,10 +15,8 @@ let emailVal = "", pwdVal = "";
 function emailHandlerFunc(email) {
   if(email) {
     emailCheck(email) ? inputDeleteNode('email') : common.errorMsg("wrongEmail")
-  } else {
-    common.errorMsg("NoEmail");
-  }
-  emailVal = email; 
+  } 
+  return  common.errorMsg("NoEmail");
 }
 
 // 로그인 시도 함수
@@ -28,9 +26,8 @@ function trySignin() {
 
   if(emailVal&&pwdVal) {
     return accountRequest(emailVal, pwdVal);
-  } else {
-    return common.errorMsg("Other"); 
-  }
+  } 
+  return common.errorMsg("Other"); 
 };
 
 // 로그인 시도 시 서버 리퀘스트 요청
@@ -64,6 +61,7 @@ function passwordHandlerFuc(password) {
 // email input 이벤트 함수 등록
 emailInput.addEventListener('focusout', function(e) {
   emailHandlerFunc(e.target.value);
+  emailVal = e.target.value;
 });
 emailInput.addEventListener('keypress', function(e) {
   common.EnterLogin(e.key,trySignin);
@@ -72,6 +70,7 @@ emailInput.addEventListener('keypress', function(e) {
 // password input 이벤트 함수 등록
 pwdInput.addEventListener('focusout', function(e) {
   passwordHandlerFuc(e.target.value);
+  pwdVal = e.target.value;
 });
 pwdInput.addEventListener('keypress', function(e) {
   common.EnterLogin(e.key, trySignin);

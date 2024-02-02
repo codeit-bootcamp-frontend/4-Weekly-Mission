@@ -1,6 +1,5 @@
-import { ERROR_MESSAGE } from "../../constant.js";
 import * as common from "./common_login.js";
-import { emailCheck, passwordCheck, isMatch} from "../validation.js"; 
+import { passwordCheck, isMatch} from "../validation.js"; 
 import { inputDeleteNode } from "../node.js";
 import { emailDiv, pwdDiv, pwdDiv2, emailInput, pwdInput, signupBtn, pwdEyeIcon, pwdEyeIcon2, pwdInput2 } from "../declaration.js";
 
@@ -17,16 +16,18 @@ let emailVal = "", pwdVal = "", pwdVal2 = "";
 function passwordHandlerFuc(password) {
   if(password) {
     passwordCheck(password) ? inputDeleteNode('password') : common.errorMsg("wrongPwd")
-  } else {
-    common.errorMsg("NoPwd");
-  }
+    return;
+  } 
+  common.errorMsg("NoPwd");
 }
 
 //이메일 유효 검사 리퀘스트 요청
 async function checkEmail(emailAdress) {
+
   const emailJson = {
     "email" : emailAdress,
   }
+
   try {
       const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
         method: 'POST',
@@ -44,10 +45,11 @@ async function checkEmail(emailAdress) {
 
 // 이메일 에러 메세지에 따른 에러 출력
 function printEmailError(error) {
-  if(!error.error) {
+  let errorMsg = error.error;
+  if(!errorMsg) {
     return inputDeleteNode('email');
   }
-  const message = error.error.message;
+  const message = errorMsg.message;
   if(message === "이미 존재하는 이메일입니다.") {
     return common.errorMsg("inUseEmail");
   } 
@@ -70,9 +72,8 @@ function trySignup() {
 
   if((!emailDiv[2] && !pwdDiv[2] && !pwdDiv2[2]) && (emailVal&&pwdVal&&pwdVal2)) {
     return accountRequest(emailVal, pwdVal);
-  } else {
-    common.errorMsg("Other"); 
-  }
+  } 
+  common.errorMsg("Other"); 
 }
 
 // 회원가입 시도 시 서버 리퀘스트 요청
