@@ -15,7 +15,7 @@ const cover = {
 import { isEmailValid, isInputEmpty, showError, clearError } from './sign-error.js'
 import { togglePasswordByEyecon as togglePassword } from './toggle-password.js'
 import { PASSWORD_REGEX, errorMsg, minPasswordLength } from './constants.js'
-import { isEmailUsed } from './post.js'
+import { isEmailUsed, confirmSignup } from './post.js'
 
 /////////////////////////////////////
 
@@ -37,14 +37,6 @@ const checkEmail = () => {
     if (isEmailUsed(email)) {
         showError(emailInput, errorEmail, errorMsg.usedEmail)
     }
-}
-
-/**이메일 사용 가능 여부를 불린으로 반환
- * @returns 이메일 사용 가능 여부
- */
-const IsEmailUsable = () => {
-    const email = emailInput.value.trim()
-    return !isInputEmpty(email) && isEmailValid(email) && !isEmailUsed(email)
 }
 
 /** 비밀번호 유효성 확인
@@ -80,15 +72,25 @@ const IsPasswordUsable = () => {
     return isPasswordValid(password) && passwordCheck === password
 }
 
-const handleFormSubmit = (event) => {
-    event.preventDefault()
-    if (IsEmailUsable() && IsPasswordUsable()) {
-        window.location.href = '../html/folder.html'
-        return
+const handleFormSubmit = async (event) => {
+    const userData = {
+        email: email,
+        password: password,
     }
-    checkEmail()
-    checkPassword()
-    checkPasswordConfirm()
+
+    event.preventDefault()
+    try {
+        const result = await confirmSignup(userData)
+        if (result.ok) {
+            window.location.href = '../html/folder.html'
+            return
+        }
+        checkEmail()
+        checkPassword()
+        checkPasswordConfirm()
+    } catch (error) {
+        console.error('Error during signup:', error)
+    }
 }
 
 /////////핸들러 함수///////

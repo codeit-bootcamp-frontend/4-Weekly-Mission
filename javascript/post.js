@@ -37,4 +37,20 @@ const isEmailUsed = async (input) => {
     }
 }
 
-export { confirmLogin, isEmailUsed }
+const confirmSignup = async (data) => {
+    const url = 'https://bootcamp-api.codeit.kr/docs/api/sign-up'
+    try {
+        const result = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        return result
+    } catch (error) {
+        console.error('Error during signup:', error)
+    }
+}
+
+export { confirmLogin, isEmailUsed, confirmSignup }
