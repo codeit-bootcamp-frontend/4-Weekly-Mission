@@ -7,14 +7,14 @@ let emailVal = "", pwdVal = "";
 
 // 로컬 스토리지에 accssToken이 있는 경우 folder페이지로 이동
 (() => {
-  window.localStorage.removeItem('accessToken');
-  window.localStorage.getItem('accessToken')? location.assign("folder.html") : null
+  localStorage.remove('accessToken');
+  localStorage.get('accessToken')? location.assign("folder.html") : null
 })();
 
 // 이메일 input 핸들러
 function emailHandlerFunc(email) {
   if(email) {
-    emailCheck(email) ? inputDeleteNode('email') : common.errorMsg("wrongEmail")
+    return emailCheck(email) ? inputDeleteNode('email') : common.errorMsg("wrongEmail")
   } 
   return  common.errorMsg("NoEmail");
 }
@@ -46,7 +46,7 @@ async function accountRequest(email, password) {
         body: JSON.stringify(user),
       })
     const result = await response.json();
-    await window.localStorage.setItem('accessToken',result.data.accessToken);
+    await localStorage.save('accessToken',result.data.accessToken)
     await location.assign("folder.html");
   } catch(e) {
     console.log(e);

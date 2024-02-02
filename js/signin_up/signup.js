@@ -1,22 +1,23 @@
 import * as common from "./common_login.js";
+import { ERROR_MESSAGE } from "/constant.js";
 import { passwordCheck, isMatch} from "../validation.js"; 
 import { inputDeleteNode } from "../node.js";
 import { emailDiv, pwdDiv, pwdDiv2, emailInput, pwdInput, signupBtn, pwdEyeIcon, pwdEyeIcon2, pwdInput2 } from "../declaration.js";
+import { localStorage } from "../localStorage.js";
 
 let emailVal = "", pwdVal = "", pwdVal2 = "";
 
 // 로컬 스토리지에 accssToken이 있는 경우 folder페이지로 이동
 (() => {
-  window.localStorage.removeItem('accessToken');
-  window.localStorage.getItem('accessToken')? location.assign("folder.html") : null
+  localStorage.remove('accessToken');
+  localStorage.get('accessToken')? location.assign("folder.html") : null
 })();
 
 
 // 비밀번호 input 핸들러 함수
 function passwordHandlerFuc(password) {
   if(password) {
-    passwordCheck(password) ? inputDeleteNode('password') : common.errorMsg("wrongPwd")
-    return;
+    return passwordCheck(password) ? inputDeleteNode('password') : common.errorMsg("wrongPwd");
   } 
   common.errorMsg("NoPwd");
 }
@@ -49,11 +50,12 @@ function printEmailError(error) {
   if(!errorMsg) {
     return inputDeleteNode('email');
   }
+
   const message = errorMsg.message;
-  if(message === "이미 존재하는 이메일입니다.") {
+  if(message === ERROR_MESSAGE.email.inUse) {
     return common.errorMsg("inUseEmail");
   } 
-  if(message === "올바른 이메일이 아닙니다.") {
+  if(message === ERROR_MESSAGE.email.invalid) {
     return common.errorMsg('wrongEmail');
   }
 }
@@ -91,7 +93,7 @@ async function accountRequest(email, password) {
       body: JSON.stringify(user),
       })
     const result = await response.json();
-    await window.localStorage.setItem('accessToken',result.data.accessToken);
+    await localStorage.save('accessToken',result.data.accessToken)
     await location.assign("folder.html");
   } catch(e) {
     console.log(e);
