@@ -27,13 +27,15 @@ function submitFormEvent(e) {
     } else {
          alert('이메일, 비밀번호를 확인해주세요.');
     }
-    
+    handleRequestLogin(emailInput.value, passwordInput.value);
 }
 
-async function handleRequestLogin(){
+
+// url요청 함수  
+async function handleRequestLogin(email, password){
     const userData = {
-        email : 'test@codeit.com',
-        password : 'sprint101'
+        email : email,
+        password : password
     }
     try{
         const requestResult = await fetch(
@@ -50,15 +52,13 @@ async function handleRequestLogin(){
         const accessToken = request.data.accessToken;
         if(requestResult.status === 200){
             localStorage.setItem('accessToken', JSON.stringify(accessToken));
-            window.location = '/folder'
+            window.location = '/folder.html'
         }else{
             console.log(`서버의 응답이 옳바르지 않습니다. 오류코드 : ${requestResult.status}`)
         }
     }catch(err){
-        console.log('서버 요청 중 문제가 발생했습니다.')
+        console.log(`서버 요청 중 문제가 발생했습니다.`)
     }
-    
-    
 } 
 
 //로컬스토리지에 accessToken값이 있는지확인
@@ -67,7 +67,7 @@ async function handleRequestLogin(){
    if(token === null){
         handleRequestLogin();
    }else{
-        window.location ='/folder';
+        window.location ='/folder.html';
    }
 })()
 

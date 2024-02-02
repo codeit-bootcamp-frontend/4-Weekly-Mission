@@ -74,6 +74,7 @@ function repeatAnimation() {
         })
 }
 
+
 (async function isDuplicateEmailCheck(){
     const email = {
         email : 'test@codeit.com'
@@ -89,7 +90,8 @@ function repeatAnimation() {
                 body : JSON.stringify(email)
             }
         ) 
-    
+    const result = await request.json()
+    console.log(result)
    
 })()
 
