@@ -14,6 +14,20 @@ import {
 } from "../scripts/utils.js";
 
 /*********************
+        IIFE
+*********************/
+
+// 로컬 스토리지에 'accessToken' 이 존재하면 folder 파일로 이동하는게 과제 조건이어서 구현했습니다.
+// 혹시 앞으로의 코드 리뷰에 도움이 되실까 해서 코드잇 API 문서 페이지 주소 남기겠습니다.
+// https://bootcamp-api.codeit.kr/docs
+(function () {
+  const myAccessToken = window.localStorage.getItem('accessToken');
+  if (myAccessToken) {
+    location.href = '../folder/index.html';
+  };
+})()
+
+/*********************
       UI Constant
 *********************/
 
@@ -34,6 +48,7 @@ const showButtonPasswordCheck = document.querySelector('.eye-img-password-check'
        Function
 *********************/
 
+// 이메일을 통해 유저정보를 얻어오는 API 가 없고, /api/check-email 로 이메일이 중복되는지만 확인받을 수 있어서 getUserByEmail 함수는 사용하지 못했습니다.
 async function isEmailDuplicated(email) {
   const url = 'https://bootcamp-api.codeit.kr/api/check-email';
   const data = { "email": email };
@@ -45,6 +60,7 @@ async function isEmailDuplicated(email) {
   return !response.ok
 };
 
+// 회원가입이 성공적으로 이루어지면 accessToken 을 로컬 스토리지에 저장하고 folder 페이지로 이동.
 async function registAccount(email, password) {
   const url = 'https://bootcamp-api.codeit.kr/api/sign-up';
   const data = {"email": email, "password": password};
@@ -54,6 +70,8 @@ async function registAccount(email, password) {
     body: JSON.stringify(data),
   });
   if (response.ok) {
+    const json = await response.json();
+    window.localStorage.setItem("accessToken", json.data.accessToken)
     return location.href = '../folder/index.html';
   } else {
     alert('서버 상의 문제로 회원 가입에 실패하였습니다. 다시 시도해주세요.');

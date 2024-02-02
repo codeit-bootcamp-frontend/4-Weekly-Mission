@@ -14,6 +14,20 @@ import {
 } from "../scripts/utils.js";
 
 /*********************
+        IIFE
+*********************/
+
+// 로컬 스토리지에 'accessToken' 이 존재하면 folder 파일로 이동하는게 과제 조건이어서 구현했습니다.
+// 혹시 앞으로의 코드 리뷰에 도움이 되실까 해서 코드잇 API 문서 페이지 주소 남기겠습니다.
+// https://bootcamp-api.codeit.kr/docs
+(function () {
+  const myAccessToken = window.localStorage.getItem('accessToken');
+  if (myAccessToken) {
+    location.href = '../folder/index.html';
+  };
+})()
+
+/*********************
       UI Constant
 *********************/
 
@@ -31,7 +45,8 @@ const showButtonPassword = document.querySelector('.eye-img-password');
        Function
 *********************/
 
-async function checkUserExistence(email, password) { 
+// 입력한 이메일, 비밀번호에 대한 계정이 존재하면 accessToken 을 로컬 스토리지에 저장하고 true 를 반환.
+async function isUserExistence(email, password) { 
   const url = 'https://bootcamp-api.codeit.kr/api/sign-in';
   const data = {"email": email, "password": password};
   const response = await fetch(url, {
@@ -39,6 +54,10 @@ async function checkUserExistence(email, password) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
   });
+  if (response.ok) {
+    const json = await response.json();
+    window.localStorage.setItem("accessToken", json.data.accessToken);
+  }
   return response.ok;
 };
 
@@ -103,7 +122,7 @@ async function login(e) {
   }
 
   try {
-    if (await !checkUserExistence(inputEmail.value, inputPassword.value)) {
+    if (await !isUserExistence(inputEmail.value, inputPassword.value)) {
       showErrorMessage(errorMessageEmail, '이메일을 확인해 주세요.');
       inputEmail.classList.add('red-border');
       showErrorMessage(errorMessagePassword, '비밀번호를 확인해 주세요.');
@@ -115,7 +134,7 @@ async function login(e) {
     return;
   }
 
-  return location.href = '../folder/index.html';
+  // return location.href = '../folder/index.html';
 };
 
 /*********************
