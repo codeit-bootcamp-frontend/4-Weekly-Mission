@@ -16,22 +16,28 @@ const joinBtn = document.querySelector(".join-btn");
 function makeError(type, errorType) {
   const errorTag = document.createElement("p");
   errorTag.textContent = errorType;
-  if (type === "email") {
-    errorTag.classList.add("email-error");
-    inputEmail.after(errorTag);
-    inputEmail.classList.add("input-error");
-  } else if (type === "password") {
-    errorTag.classList.add("password-error");
-    inputPassword.after(errorTag);
-    inputPassword.classList.add("input-error");
-    eyeOff.classList.add("eye-error");
-    loginContainer.classList.add("error");
-  } else if (type === "passwordcheck") {
-    errorTag.classList.add("password-check-error");
-    inputPasswordCheck.after(errorTag);
-    inputPasswordCheck.classList.add("input-error");
-    eyeOff.classList.add("eye-error");
-    loginContainer.classList.add("error");
+  switch (type) {
+    case "email":
+      errorTag.classList.add("email-error");
+      inputEmail.after(errorTag);
+      inputEmail.classList.add("input-error");
+      break;
+    case "password":
+      errorTag.classList.add("password-error");
+      inputPassword.after(errorTag);
+      inputPassword.classList.add("input-error");
+      eyeOff.classList.add("eye-error");
+      loginContainer.classList.add("error");
+      break;
+    case "passwordcheck":
+      errorTag.classList.add("password-check-error");
+      inputPasswordCheck.after(errorTag);
+      inputPasswordCheck.classList.add("input-error");
+      eyeOff.classList.add("eye-error");
+      loginContainer.classList.add("error");
+      break;
+    default:
+      break;
   }
 }
 
@@ -137,7 +143,7 @@ function enterjoin(e) {
   }
 }
 //눈이미지를 클릭했을때 눈의 이미지를 토글하는 함수입니다. 토글시 비밀번호의 노출여부도 바뀝니다.
-function eyeClick(e) {
+function eyeToggleForPassword(e) {
   if (e.target.parentElement === eyeOff) {
     eyeOff.classList.add("visible");
     eyeOn.classList.remove("invisible");
@@ -151,7 +157,7 @@ function eyeClick(e) {
   e.preventDefault();
 }
 //비밀번호 확인에 있는 이미지를 클릭했을때 눈의 이미지를 토글하는 함수입니다. 토글시 비밀번호의 노출여부도 바뀝니다.
-function eyeClick_2(e) {
+function eyeToggleForPasswordCheck(e) {
   if (e.target.parentElement === eyeOff_2) {
     eyeOff_2.classList.add("visible");
     eyeOn_2.classList.remove("invisible");
@@ -174,7 +180,7 @@ inputPasswordCheck.addEventListener("focusout", addPasswordCheckError);
 inputPasswordCheck.addEventListener("focusin", removeIfPasswordCheckError);
 joinBtn.addEventListener("click", join);
 document.body.addEventListener("keypress", enterjoin);
-eyeOff.addEventListener("click", eyeClick);
-eyeOn.addEventListener("click", eyeClick);
-eyeOff_2.addEventListener("click", eyeClick_2);
-eyeOn_2.addEventListener("click", eyeClick_2);
+eyeOff.addEventListener("click", eyeToggleForPassword);
+eyeOn.addEventListener("click", eyeToggleForPassword);
+eyeOff_2.addEventListener("click", eyeToggleForPasswordCheck);
+eyeOn_2.addEventListener("click", eyeToggleForPasswordCheck);
