@@ -15,26 +15,26 @@ export function errorMsg(errorCase) {
 
   switch(errorCase) {
     case "NoEmail":
-      inputAddNode('email', ERROR_MESSAGE.email.empty, errorCase);
+      inputAddNode({type:'email', message:ERROR_MESSAGE.email.empty, errorCase:errorCase});
       break;
     case "wrongEmail":
-      inputAddNode('email', ERROR_MESSAGE.email.invalid, errorCase);
+      inputAddNode({type:'email', message: ERROR_MESSAGE.email.invalid, errorCase:errorCase });
       break;
     case "inUseEmail":
-      inputAddNode('email', ERROR_MESSAGE.email.inUse, errorCase);
+      inputAddNode({ type:'email', message: ERROR_MESSAGE.email.inUse, errorCase:errorCase });
       break;
     case "NoPwd" :
-      inputAddNode('password', ERROR_MESSAGE.password.empty, errorCase);
+      inputAddNode({ type:'password', message:ERROR_MESSAGE.password.empty, errorCase:errorCase });
       break;
     case "wrongPwd" :
-      inputAddNode('password', ERROR_MESSAGE.password.invalid, errorCase);
+      inputAddNode({ type:'password', message:ERROR_MESSAGE.password.invalid, errorCase:errorCase });
       break;
     case "noMatchPwd" : 
-      inputAddNode("password2", ERROR_MESSAGE.password.recheck, errorCase);
+      inputAddNode({ type:"password2", message:ERROR_MESSAGE.password.recheck, errorCase:errorCase });
       break;
     case "Other": 
-      inputAddNode('email', ERROR_MESSAGE.email.check, errorCase);
-      inputAddNode('password', ERROR_MESSAGE.password.check, errorCase);
+      inputAddNode({ type:'email', message:ERROR_MESSAGE.email.check, errorCase:errorCase });
+      inputAddNode({ type:'password', message:ERROR_MESSAGE.password.check, errorCase:errorCase });
       break;
   }
  }
