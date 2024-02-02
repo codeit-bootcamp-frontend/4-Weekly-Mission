@@ -78,6 +78,26 @@ const checkEmailDuplicate = async (email) => {
   }
 };
 
+const signUpApi = async (email, password) => {
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const responseData = await response.json();
+    const accessToken = responseData.data.accessToken;
+    saveAccessToken(accessToken);
+    return accessToken;
+  } catch (error) {
+    console.error("회원가입 요청 실패:", error.message);
+    throw new Error("회원가입 요청 실패");
+  }
+};
+
 /* 유효한 회원가입 시도 시 페이지 이동 */
 const redirectToFolderPage = () => {
   const link = "./folder.html";
