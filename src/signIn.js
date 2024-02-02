@@ -1,4 +1,5 @@
-import { MESSAGE, TEST_AUTH } from './constants/SIGN.js';
+import { postLogin } from './api/authAPI.js';
+import { MESSAGE } from './constants/SIGN.js';
 import {
   emailInput,
   emailError,
@@ -18,13 +19,19 @@ const handleLoginFailure = () => {
   applyError(pwError, MESSAGE.CHECK_PASSWORD, pwInput);
 };
 
-const handleLogin = (e) => {
+const handleLogin = async (e) => {
   e.preventDefault();
 
-  if (emailInput.value === TEST_AUTH.EMAIL && pwInput.value === TEST_AUTH.PW) {
+  const email = emailInput.value;
+  const password = pwInput.value;
+
+  try {
+    await postLogin({ email, password });
+    alert('로그인 성공🥳');
     window.location.href = 'folder.html';
-  } else {
+  } catch (error) {
     handleLoginFailure();
+    alert('로그인 실패🥹');
   }
 };
 
