@@ -1,7 +1,11 @@
-import { REGEX_EMAIL, USER_INFO } from './constant.js';
+import { REGEX, USER_INFO } from './constant.js';
 
-export const validateEmail = email_address => {
-  return email_address.match(REGEX_EMAIL);
+export const validateEmail = email => {
+  return email.match(REGEX.EMAIL);
+};
+
+export const validatePassword = password => {
+  return password.match(REGEX.PASSWORD);
 };
 
 export const showInputError = inputElement => {
@@ -22,6 +26,14 @@ export const changeImage = (imageElement, imageSrc) => {
   imageElement.setAttribute('src', imageSrc);
 };
 
+export const checkValueMatch = (firstElement, secondElement) => {
+  return firstElement.value === secondElement.value;
+};
+
 export const checkUserInfo = (id, password) => {
-  return id.value === USER_INFO.ID && password.value === USER_INFO.PASSWORD;
+  return id === USER_INFO.ID && password === USER_INFO.PASSWORD;
+};
+
+export const checkUserId = id => {
+  return id === USER_INFO.ID;
 };
