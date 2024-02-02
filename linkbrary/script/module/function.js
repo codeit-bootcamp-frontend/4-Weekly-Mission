@@ -1,7 +1,7 @@
 // 인풋창 포커스시 보더 파란색으로 변경
 function activeInput(e) {
-    e.target.classList.replace("input_error", "input_focus")
     e.target.classList.add("input_focus")
+    e.target.classList.replace("input_error", "input_focus")
 }
 
 // 포커스 아웃시 보더 파란색 없애기
@@ -10,58 +10,58 @@ function blurInput(e) {
 }
 
 // 인풋창 포커스시 에러 메세지 삭제
-function remove_error_msg(error_msg) {
-    error_msg.classList.remove("view_error")
+function removeErrorMessage(errorMessageElement) {
+    errorMessageElement .classList.remove("view_error")
 }
 
 // 인풋값 공백 확인 함수
-function checkInputNull(e, error_msg, whatInput) {
+function checkInputNull(e, errorMessageElement , whatInput) {
     if(e.target.value == "") {
-       error_msg.innerHTML = `${whatInput} 입력해 주세요`
+        errorMessageElement.innerHTML = `${whatInput} 입력해 주세요`
        e.target.classList.add("input_error")
-       error_msg.classList.add("view_error")
+       errorMessageElement.classList.add("view_error")
    } else {
        e.target.classList.remove("input_error")
-       error_msg.classList.remove("view_error")
+       errorMessageElement.classList.remove("view_error")
    }
 }
 
 // 이메일 유효성 확인(공백X)
-function validateEmailInput(e, error_msg ,regExp) {
+function validateEmailInput(e, errorMessageElement,regExp) {
     if(regExp.test(e.target.value) == true) {
-        error_msg.classList.remove("view_error")
+        errorMessageElement.classList.remove("view_error")
         e.target.classList.remove("input_error")
     } else if(regExp.test(e.target.value) == false && e.target.value != "") {
-       error_msg.innerHTML = "올바른 이메일 주소가 아닙니다"
-       error_msg.classList.add("view_error")
+        errorMessageElement.innerHTML = "올바른 이메일 주소가 아닙니다"
+        errorMessageElement.classList.add("view_error")
         e.target.classList.add("input_error")
     }
 }
 
 // 비밀번호 유효성 확인 
-function validatePasswordInput(e, regExp, error_msg) {
+function validatePasswordInput(e, regExp, errorMessageElement) {
     if(regExp.test(e.target.value) == false && e.target.value !== "") {
-        error_msg.innerHTML = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요"
-        error_msg.classList.add('view_error')
+        errorMessageElement.innerHTML = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요"
+        errorMessageElement.classList.add('view_error')
         e.target.classList.add('input_error')
     }
 }
 
 // 비밀번호 확인 함수
-function passwordConfirm(password, repeatPassword, error_msg) {
+function passwordConfirm(password, repeatPassword, errorMessageElement) {
     if(password.value !== repeatPassword.value && repeatPassword.value !== "") {
-        error_msg.classList.add('view_error')
-        error_msg.innerHTML = "비밀번호가 다릅니다"
+        errorMessageElement.classList.add('view_error')
+        errorMessageElement.innerHTML = "비밀번호가 다릅니다"
         repeatPassword.classList.add('input_error')
     }
 }
 
 // 이메일 중복확인
-function checkDuplicate(e, error_msg) {
-    if(e.target.value == "test@codeit.com") {
+function checkDuplicate(e, errorMessageElement) {
+    if(e.target.value === "test@codeit.com") {
         e.target.classList.add("input_error")
-        error_msg.classList.add('view_error')
-        error_msg.innerHTML = "이미 사용 중인 이메일입니다"
+        errorMessageElement.classList.add('view_error')
+        errorMessageElement.innerHTML = "이미 사용 중인 이메일입니다"
     }
 }
 
@@ -129,10 +129,16 @@ function coverPasswordInput(e, close, input) {
     input.type = "password"
 }
 
+
+function test(a, b, c) {
+    function x(a) {
+        
+    }
+}
 const function_module = {
     activeInput :  activeInput,
     blurInput : blurInput,
-    remove_error_msg : remove_error_msg,
+    removeErrorMessage : removeErrorMessage,
     checkInputNull : checkInputNull,
     validateEmailInput : validateEmailInput,
     checkEmailPwOnLogin : checkEmailPwOnLogin,
@@ -141,7 +147,9 @@ const function_module = {
     validatePasswordInput : validatePasswordInput,
     passwordConfirm : passwordConfirm,
     checkDuplicate : checkDuplicate,
-    checkEmailPwSignUp : checkEmailPwSignUp
+    checkEmailPwSignUp : checkEmailPwSignUp,
+    test : test,
+    test2 : test2
 }
 
 export default function_module
