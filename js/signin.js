@@ -221,5 +221,7 @@ form.addEventListener("submit",(e)=>{
     }
 });
 
+//엑세스 토큰 확인시 바로 곧바로 작동
+document.addEventListener("DOMContentLoaded", haveAccessToken);
 
 export { focusing, eyeBlink, checkingEmail, checkingPassword, checkingPasswordRepeat, fetchSignin, fetchSignUp };
