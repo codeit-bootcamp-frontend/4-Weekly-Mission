@@ -1,9 +1,8 @@
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
-const idInput = document.querySelectorAll('.signinIdInput');
-const pwInput = document.querySelectorAll('.signinPwInput');
 const idErrorMessage = document.querySelector('.idErrorMessage');
 const pwErrorMessage = document.querySelector('.pwErrorMessage');
+const passwordEye = document.querySelector('.passwordEye');
 const form = document.querySelector('form');
 
 // email input 포커스 아웃을 했는데 값이 없을때
@@ -84,3 +83,16 @@ function login(event) {
 }
 
 form.addEventListener('submit', login);
+
+// 눈 모양 클릭하면 비밀번호 보이게 하는 기능
+function togglePassword() {
+  if (password.type === 'password') {
+    password.type = 'text';
+    passwordEye.src = '/assets/image/eye-on.png';
+  } else {
+    password.type = 'password';
+    passwordEye.src = '/assets/image/eye-off.png';
+  }
+}
+
+passwordEye.addEventListener('click', togglePassword);
