@@ -5,6 +5,24 @@
     font-family: Pretendard;
 }
 
+
+
+.warning {
+    color: var(--Linkbrary-red, #FF5B56);
+    width: auto;
+    /* Linkbrary/body2-regular */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    /* margin-top: 5px; */
+}
+
+.hide {
+    display: none;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -24,16 +42,15 @@
 
 .labels {
     color: var(--black, #000);
-font-family: Pretendard;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top:24px
 }
 
-form {
-    margin-top: 30px;
-}
+
 
 input {
     display: flex;
@@ -44,12 +61,17 @@ input {
     border-radius: 8px;
     border: 1px solid gray;
     background: var(--Linkbrary-white, #FFF);
-    margin: 12px 0 24px
+    margin: 12px 0
 }
 
 input:focus {
     border: 1px solid #6D6AFE;
     outline: none !important;
+}
+
+.wrong{
+    outline: none !important;
+    border: 1px solid var(--Linkbrary-red, #FF5B56);
 }
 
 button {
@@ -87,28 +109,38 @@ button {
     background: var(--Linkbrary-gray10, #E7EFFB);
 }
 
+.placeholder{
+    position: relative;
+}
+
+#hider, #hider2 {
+    position: absolute;
+    top: 20px;
+    left: 370px;
+}
+
+#shower, #shower2 {
+    position: absolute;
+    top: 21px;
+    left: 370px;
+}
+
 .icons {
+    background-color: #E7EFFB;
     display: flex;
     gap:16px;
 }
 
-.icon {
-    width: 42px;
-    height: 42px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+.google {
+    background-color: var(--white);
+    border: 0.1rem solid #d3d4dd;
+  }
+  
+.kakao {
+    padding-top: 0.2rem;
+    background-color: #f5e14b;
 }
 
-.kakao{
-    position: relative;
-}
-
-.kakao svg{
-    position: absolute;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
 
 @media (max-width: 1199px)  {
     .container {
@@ -124,7 +156,7 @@ button {
         width: 100%;
         max-width: 400px;
     }
-    button, #email, #password {
+    button, #email, #password, #password-check {
         width: 100%;
 
     }
