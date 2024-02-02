@@ -97,7 +97,15 @@ body {
   height: 1.6rem;
 }
 
-#cta {
+#eye-button-check {
+  position: absolute;
+  top: 5.2rem;
+  right: 1.5rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+#btn_login {
   display: flex;
   justify-content: center;
   align-items: center;

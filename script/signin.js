@@ -46,6 +46,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const emailValue = emailInput.value.trim();
     const passwordValue = passwordInput.value.trim();
 
+    // 이메일 유효성 검증
+    if (!isEmailValid(emailValue)) {
+      displayError(emailInput, emailErrorMessage, '올바른 이메일 주소가 아닙니다.');
+      return;
+    }
+
     // 사용자 인증 성공 시, 페이지 이동
     if (authenticateUser(emailValue, passwordValue)) {
       window.location.href = '../folder.html';
@@ -62,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const eyeIcon = document.getElementById('eye-icon');
     const imgSrc = passwordInput.type === 'password' ? 'eye-on.svg' : 'eye-off.svg';
 
-    // 비밀번호 가시성 토글 함수 호출
+    // 비밀번호의 가시성 토글 함수 호출
     togglePasswordVisibility(
       passwordInput,
       eyeIcon,

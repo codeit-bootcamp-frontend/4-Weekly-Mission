@@ -1,4 +1,4 @@
-import { VALID_USER, EMAIL_REGEX } from './constants.js';
+import { VALID_USER, EMAIL_REGEX, PASSWORD_REGEX } from './constants.js';
 
 export function createErrorMessage(id, text) {
   const errorMessage = document.getElementById(id) || document.createElement('div');
@@ -26,23 +26,42 @@ export function clearError(inputElement, errorMessageElement) {
   errorMessageElement.innerText = '';
 }
 
-export function handlePasswordInputFocusOut(passwordInput, passwordErrorMessage) {
-  const passwordValue = passwordInput.value;
-  if (!passwordValue) {
-    displayError(passwordInput, passwordErrorMessage, '비밀번호를 입력해주세요');
+export const handlePasswordInputFocusOut = (passwordInput, passwordErrorMessage) => {
+  const passwordValue = passwordInput.value.trim();
+
+  if (!PASSWORD_REGEX.test(passwordValue)) {
+    displayError(
+      passwordInput,
+      passwordErrorMessage,
+      '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.'
+    );
+    return;
   }
-}
+};
 
 export function handleEmailInputFocusIn(emailInput, emailErrorMessage) {
   const emailValue = emailInput.value.trim();
   if (!emailValue) {
     displayError(emailInput, emailErrorMessage, '이메일을 입력해 주세요.');
-  } else if (!isEmailValid(emailValue)) {
+    return;
+  }
+  if (!isEmailValid(emailValue)) {
     displayError(emailInput, emailErrorMessage, '이메일을 확인해 주세요.');
+    return;
   }
 }
 
 export function togglePasswordVisibility(passwordInput, eyeIcon, imgSrc, inputType) {
   eyeIcon.src = `../assets/icon/${imgSrc}`;
   passwordInput.type = inputType;
+}
+
+export function checkDuplicateEmail(emailInput, emailErrorMessage) {
+  if (isEmailAlreadyUsed(emailInput)) {
+    displayError(emailInput, emailErrorMessage, '이미 사용 중인 이메일입니다.');
+  }
+}
+
+export function isEmailAlreadyUsed(emailInput) {
+  return emailInput.value.trim() === VALID_USER.email;
 }
