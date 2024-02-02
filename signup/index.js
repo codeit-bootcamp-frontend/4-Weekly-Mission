@@ -4,6 +4,8 @@ const passwordRepeat = document.querySelector('#passwordRepeat');
 const idErrorMessage = document.querySelector('.idErrorMessage');
 const pwErrorMessage = document.querySelector('.pwErrorMessage');
 const pwRepeatErrorMessage = document.querySelector('.pwRepeatErrorMessage');
+const passwordEye = document.querySelector('.passwordEye');
+const passwordRepEye = document.querySelector('.passwordRepEye');
 const form = document.querySelector('form');
 const TEST_EMAIL = 'test@codeit.com';
 
@@ -100,3 +102,29 @@ function signUp(event) {
 }
 
 form.addEventListener('submit', signUp);
+
+// 눈 모양 클릭시 비밀번호 보이게 하는 기능
+function togglePassword() {
+  if (password.type === 'password') {
+    password.type = 'text';
+    passwordEye.src = '/assets/image/eye-on.png';
+  } else {
+    password.type = 'password';
+    passwordEye.src = '/assets/image/eye-off.png';
+  }
+}
+
+passwordEye.addEventListener('click', togglePassword);
+
+// 눈 모양 클릭시 비밀번호 확인 보이게 하는 기능
+function togglePasswordRep() {
+  if (passwordRepeat.type === 'password') {
+    passwordRepeat.type = 'text';
+    passwordRepEye.src = '/assets/image/eye-on.png';
+  } else {
+    passwordRepeat.type = 'password';
+    passwordRepEye.src = '/assets/image/eye-off.png';
+  }
+}
+
+passwordRepEye.addEventListener('click', togglePasswordRep);

@@ -126,6 +126,16 @@ form {
   cursor: pointer;
 }
 
+.passwordRepEye {
+  position: absolute;
+  top: 52px;
+  right: 15px;
+  width: 16px;
+  height: 16px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
 .formSubmit {
   width: 100%;
   padding: 16px 20px;
