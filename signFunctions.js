@@ -1,3 +1,4 @@
+const signinUrl = 'https://bootcamp-api.codeit.kr/api/sign-in';
 //이메일 유효성 검사 메서드
 export function emailFormatCheck(email) {
   const email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
@@ -20,20 +21,41 @@ export function inputBorderGray(inputElement, errorElement) {
 }
 
 //로그인 기능 매서드
-export function signIn(emailInput, pwInput, emailError, pwError, pwOnOffImg) {
-  if (emailInput.value == 'test@codeit.com' && pwInput.value == 'codeit101') {
-    window.location.href = './folder.html';
-  } else {
-    emailError.innerHTML = '이메일을 확인해 주세요.';
-    pwError.innerHTML = '비밀번호를 확인해 주세요.';
-    inputBorderRed(emailInput, emailError);
-    pwOnOffImg.style.bottom = '2.9375rem';
-    inputBorderRed(pwInput, pwError);
-  }
+export async function signIn(
+  emailInput,
+  pwInput,
+  emailError,
+  pwError,
+  pwOnOffImg
+) {
+  const signData = {
+    email: emailInput.value,
+    password: pwInput.value,
+  };
+  try {
+    const response = await fetch(signinUrl, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(signData),
+    });
+    const result = await response.json();
+    if (response.ok) {
+      localStorage.setItem('accessToken', result.data.accessToken);
+      localStorage.setItem('refreshToken', result.data.refreshToken);
+      location.href = './folder.html';
+    } else {
+      emailError.innerHTML = '이메일을 확인해 주세요.';
+      pwError.innerHTML = '비밀번호를 확인해 주세요.';
+      inputBorderRed(emailInput, emailError);
+      pwOnOffImg.style.bottom = '2.9375rem';
+      inputBorderRed(pwInput, pwError);
+    }
+  } catch {}
 }
 
 // 이메일 에러 검사 메서드
-
 // 1. 작성 되었는지, 유효한 이메일인지 검사
 export function emailErrorCheck(inputElement, errorElement) {
   const emailValue = inputElement.value;
