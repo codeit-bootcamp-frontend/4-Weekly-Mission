@@ -31,11 +31,8 @@ function emailOnFocusOut(e) {
 
 function passwordOnFocusOut(e) {
   const password = e.target.value;
-  if (
-    password.length < 8 ||
-    password.split("").every((el) => isNaN(Number(el))) ||
-    password.split("").every((el) => !isNaN(Number(el)))
-  ) {
+  const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+  if (password.length < 8 || !passwordRegex.test(password)) {
     passwordError.textContent =
       "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
     e.target.classList.add("inputError");
