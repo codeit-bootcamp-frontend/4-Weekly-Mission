@@ -67,7 +67,7 @@ function handlePasswordPtag() {
 
 //로그인 함수
 function loginCheck(e) {
-  event.preventDefault();
+  e.preventDefault();
   if (isValidUser()) {
     console.log("good");
     window.location.href = "/folder/index.html";
