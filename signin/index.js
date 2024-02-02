@@ -3,6 +3,8 @@ const inputPassword = document.querySelector("input#password");
 const emailPtag = document.querySelector("p#email-error-message");
 const passwordPtag = document.querySelector("p#password-error-message");
 const loginButton = document.querySelector("button.cta");
+const toggleButton = document.querySelector("button.toggle-button");
+const eyeImage = document.querySelector("button.toggle-button img");
 
 // 유저 생성
 const VALID_USER = {
@@ -56,6 +58,7 @@ function handleEmailPtag() {
   }
   hideError(inputEmail, emailPtag);
 }
+
 //비밀번호 에러 핸들링 함수
 function handlePasswordPtag() {
   if (isTextEmpty(inputPassword.value)) {
@@ -63,6 +66,20 @@ function handlePasswordPtag() {
     return;
   }
   hideError(inputPassword, passwordPtag);
+}
+
+//비밀번호 토글 함수
+function handleToggleButton() {
+  if (inputPassword.type === "password") {
+    inputPassword.type = "text";
+    eyeImage.src = "images/eye-on.svg";
+    return;
+  }
+  if (inputPassword.type === "text") {
+    inputPassword.type = "password";
+    eyeImage.src = "images/eye-off.svg";
+    return;
+  }
 }
 
 //로그인 함수
@@ -86,9 +103,8 @@ function enterToSubmit(e) {
 
 inputEmail.addEventListener("focusout", handleEmailPtag);
 inputPassword.addEventListener("focusout", handlePasswordPtag);
-
+toggleButton.addEventListener("click", handleToggleButton);
 document.addEventListener("keypress", enterToSubmit);
-document.addEventListener("submit", loginCheck);
-
+loginButton.addEventListener("click", loginCheck);
 //input type=sumbmit으로 한거 a태그나 버튼으로 바꿀지 이유는 submit이 위임 혹은 버블링이 되어
 //form태그를 선택해야 submit이 가능했다.
