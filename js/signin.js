@@ -56,18 +56,14 @@ function checkingEmail(){
     //이메일 체크
     if(emailTrim==""){
         emailErrorMessage.innerHTML=errorMessages.emailRequired;
-        email.style.border= "0.1rem solid var(--red)";
     }else if(checkEmail.test(emailTrim)){
         emailErrorMessage.innerHTML="";
         isCheckingEmail= true;
-        email.style.border= "0.1rem solid var(--gray20)";
     }else{
         emailErrorMessage.innerHTML=errorMessages.invalidEmail;
-        email.style.border= "0.1rem solid var(--red)";
     }
 
-    //테스트 중
-    //isCheckingEmail ? email.style.border= "0.1rem solid var(--gray20)" : email.style.border= "0.1rem solid var(--red)";
+    isCheckingEmail ? email.style.border= "0.1rem solid var(--gray20)" : email.style.border= "0.1rem solid var(--red)";
 }
 
 //비밀번호
@@ -105,7 +101,7 @@ function checkingPasswordRepeat(){
 
     if(passwordRepeatTrim==""){
         passwordRepeatErrorMessage.innerHTML=errorMessages.passwordRepeatRequired;
-    }else if(passwordTrim==passwordRepeatTrim){
+    }else if(password.value.trim()==passwordRepeatTrim){
         passwordRepeatErrorMessage.innerHTML="";
         isCheckingPasswordRepeatEmail= true;
     }else{
@@ -113,6 +109,60 @@ function checkingPasswordRepeat(){
     }
 
     isCheckingPasswordRepeatEmail ? passwordRepeat.style.border= "0.1rem solid var(--gray20)" : passwordRepeat.style.border= "0.1rem solid var(--red)";
+}
+
+//로그인 정보주고받기
+async function fetchSignin (){
+    try{
+        const user = {
+            email: email.value.trim(),
+            password: password.value.trim()
+        }
+        const token = "user";
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(user)
+        });
+        response.ok ? (location.href = '/folder.html') : errorMessage();
+
+        async function errorMessage (){
+            const errorMessage = await response.json();
+            console.error(errorMessage.error.message);
+        }
+    }catch(error){
+        console.error(error.message);
+    }
+}
+
+//현재 작업중 추후에 합칠 예정
+async function fetchSignUp (){
+    try{
+        const user = {
+            email: email.value.trim(),
+            password: password.value.trim()
+        }
+        const token = "user";
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify(user)
+        });
+        response.ok ? (location.href = '/folder.html') : errorMessage();
+
+        async function errorMessage (){
+            const errorMessage = await response.json();
+            console.error(errorMessage.error.message);
+        }
+    }catch(error){
+        console.error(error.message);
+    }
 }
 
 //addEventListener를 이용한 체크 시스템
@@ -124,49 +174,23 @@ form.addEventListener("submit",(e)=>{
     //타겟 확인
     console.log(e.target.id);
 
+    const user = {
+        email: email.value.trim(),
+        password: password.value.trim()
+    }
+    const token = "user";
+
     if(e.target.id ==='signin'){
         if(isCheckingEmail==true && isCheckingPassword==true){
-            //폴더 페이지 미완성으로 인한 임시
-            const user = {
-                email: emailTrim,
-                password: passwordTrim
-            }
-            const token = "user";
-            fetch('https://bootcamp-api.codeit.kr/api/sign-in',{
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                  },
-                body: JSON.stringify(user)
-            })
-            .then(response => response.ok ? location.href = '/folder.html' : console.error('로그인 실패'))
-            .catch(error => {
-            console.error('Error:', error);
-            });
+            fetchSignin();
         }else{
             checkingEmail();
             checkingPassword();
         }
     }else if(e.target.id ==='signup'){
         if(isCheckingEmail == true && isCheckingPasswordRepeatEmail==true && isCheckingPassword == true){
-            const user = {
-                email: emailTrim,
-                password: passwordTrim
-            }
-            const token = "user";
-            fetch('https://bootcamp-api.codeit.kr/api/sign-up',{
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                  },
-                body: JSON.stringify(user)
-            })
-            .then(response => response.ok ? location.href = '/folder.html' : console.error('회원가입 실패'))
-            .catch(error => {
-            console.error('Error:', error);
-            });
+            //현재 작업중...
+            fetchSignUp();
         }else{
             checkingEmail();
             checkingPassword();
@@ -174,3 +198,5 @@ form.addEventListener("submit",(e)=>{
         }
     }
 });
+
+export { focusing, eyeBlink, checkingEmail, checkingPassword, checkingPasswordRepeat, fetchSignin, fetchSignUp };

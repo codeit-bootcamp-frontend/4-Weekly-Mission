@@ -24,17 +24,16 @@
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
-            <input class="sign-input" id="email" onfocusout="checkingEmail()" onfocusin="focusing(emailErrorMessage,email)" autocomplete="username"/>
+            <input class="sign-input" id="email" autocomplete="username"/>
             <small id="error-email"></small>
           </div>
           <div class="sign-input-box sign-password">
             <label class="sign-input-label">비밀번호</label>
-            <input class="sign-input" id="password" type="password" onfocusout="checkingPassword()" onfocusin="focusing(passwordErrorMessage,password)" autocomplete="current-password"/>
+            <input class="sign-input" id="password" type="password" autocomplete="current-password"/>
             <small id="error-password"></small>
-            <button class="eye-button" type="button" id="eye-button" onclick="eyeBlink(password,eye)">
+            <button class="eye-button" type="button" id="eye-button">
               <img src="./images/eye-off.svg" id="eye"/>
             </button>
-            
           </div>
         </div>
         <button class="cta" type="submit" id="loginButton">로그인</button>
@@ -51,6 +50,6 @@
         </div>
       </div>
     </div>
-    <script src="./js/signin.js"></script>
+    <script type="module" src="./js/jsUtil.js"></script>
   </body>
 </html>
