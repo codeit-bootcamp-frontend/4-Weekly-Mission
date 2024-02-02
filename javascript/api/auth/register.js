@@ -1,6 +1,7 @@
 const register = async () => {
   const inputEmail = document.querySelector('.email-input')
   const inputPassword = document.querySelector('.password-input')
+  const errorEmailMessage = document.querySelector('.error-email-message')
   const emailCheck = {
     email: inputEmail.value
   }
@@ -12,7 +13,6 @@ const register = async () => {
     },
     body: JSON.stringify(emailCheck),
   })
-  const result = await response.json()
 
   if (response.status === 200) {
     const userInfo = {
@@ -30,7 +30,10 @@ const register = async () => {
     const result = await response.json()
     localStorage.setItem('accessToken', result.data.accessToken)
     window.location.assign('folder.html')
+    return
   }
+  inputEmail.classList.add('input-error')
+  errorEmailMessage.textContent = '이미 사용 중인 이메일입니다.'
 }
 
 export { register }
