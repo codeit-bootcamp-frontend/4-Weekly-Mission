@@ -39,24 +39,6 @@ export function handlePasswordInputFocusOut(passwordInput, passwordErrorMessage)
   }
 }
 
-export function handlePasswordCheckInputFocusOut(
-  passwordcheckInput,
-  passwordCheckErrorMessage,
-  passwordInput
-) {
-  const passwordCheckValue = passwordcheckInput.value.trim();
-  const passwordValue = passwordInput.value.trim();
-
-  if (!passwordCheckValue) {
-    displayError(passwordcheckInput, passwordCheckErrorMessage, '비밀번호를 다시 입력해주세요.');
-    return;
-  }
-  if (passwordCheckValue !== passwordValue) {
-    displayError(passwordcheckInput, passwordCheckErrorMessage, '비밀번호가 일치하지 않아요.');
-    return;
-  }
-}
-
 export function handleEmailInputFocusIn(emailInput, emailErrorMessage) {
   const emailValue = emailInput.value.trim();
   if (!emailValue) {
