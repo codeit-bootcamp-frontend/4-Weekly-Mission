@@ -18,10 +18,10 @@ const passwordTypeCheck = function (passwordInput) {
 };
 
 /** 눈 아이콘 클릭시 텍스트 보기 & 숨기기 전환하는 함수*/
-const passwordShowHidden = function (imgTag, input) {
+const toggleShowPassword = function (imgTag, input) {
   passwordTypeCheck(input)
     ? showPasswordAttributes(imgTag, input)
     : hidePasswordAttributes(imgTag, input);
 };
 
-export { passwordShowHidden };
+export { toggleShowPassword };

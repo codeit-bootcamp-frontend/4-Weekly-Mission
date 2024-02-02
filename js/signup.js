@@ -1,7 +1,7 @@
 import { isVaildEmail } from "./utils/isValidEmail.js";
 import { querySelector } from "./utils/querySelector.js";
 import { updateErrorMessage } from "./utils/updateErrorMessage.js";
-import { passwordShowHidden } from "./utils/passwordShowHidden.js";
+import { toggleShowPassword } from "./utils/passwordShowHidden.js";
 import { validEmail } from "./utils/CheckValidLogin.js";
 import { isVaildPassword } from "./utils/isValidPassword.js";
 
@@ -120,8 +120,8 @@ signupForm.addEventListener("submit", function (event) {
 
 // 비밀번호 보기 & 숨기기
 eyeIconPassword.addEventListener("click", function () {
-  passwordShowHidden(eyeIconPassword, signupPasswordInput);
+  toggleShowPassword(eyeIconPassword, signupPasswordInput);
 });
 passwordRepeatEyeIcon.addEventListener("click", function () {
-  passwordShowHidden(passwordRepeatEyeIcon, signupPasswordRepeatInput);
+  toggleShowPassword(passwordRepeatEyeIcon, signupPasswordRepeatInput);
 });

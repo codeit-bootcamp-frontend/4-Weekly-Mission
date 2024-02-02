@@ -1,7 +1,7 @@
 import { isVaildEmail } from "./utils/isValidEmail.js";
 import { querySelector } from "./utils/querySelector.js";
 import { updateErrorMessage } from "./utils/updateErrorMessage.js";
-import { passwordShowHidden } from "./utils/passwordShowHidden.js";
+import { toggleShowPassword } from "./utils/passwordShowHidden.js";
 import { checkValidLogin } from "./utils/CheckValidLogin.js";
 
 /** 이메일 입력 값이 유효한 지 확인하는 함수 */
@@ -92,5 +92,5 @@ loginForm.addEventListener("submit", function (event) {
   tryLogin();
 });
 passwordEyeIcon.addEventListener("click", function () {
-  passwordShowHidden(passwordEyeIcon, signinPasswordInput);
+  toggleShowPassword(passwordEyeIcon, signinPasswordInput);
 }); // 비밀번호 보기 & 숨기기
