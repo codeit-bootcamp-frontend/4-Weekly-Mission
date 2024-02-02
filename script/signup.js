@@ -5,12 +5,11 @@ import {
   displayError,
   clearError,
   handlePasswordInputFocusOut,
+  handlePasswordCheckInputFocusOut,
   handleEmailInputFocusIn,
   togglePasswordVisibility,
   checkDuplicateEmail,
 } from './utils.js';
-
-import { VALID_USER } from './constants.js';
 
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
@@ -50,22 +49,9 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // 비밀번호 확인 입력란 focusout 이벤트 핸들러에서 비밀번호 일치 여부 체크
-  function handlePasswordCheckInputFocusOut(
-    passwordcheckInput,
-    passwordCheckErrorMessage,
-    passwordInput
-  ) {
-    const passwordCheckValue = passwordcheckInput.value.trim();
-    const passwordValue = passwordInput.value.trim();
-
-    if (!passwordCheckValue) {
-      displayError(passwordcheckInput, passwordCheckErrorMessage, '비밀번호를 다시 입력해주세요.');
-    } else if (passwordCheckValue !== passwordValue) {
-      displayError(passwordcheckInput, passwordCheckErrorMessage, '비밀번호가 일치하지 않아요.');
-    } else {
-      clearError(passwordcheckInput, passwordCheckErrorMessage);
-    }
-  }
+  passwordcheckInput.addEventListener('focusout', function () {
+    handlePasswordCheckInputFocusOut(passwordcheckInput, passwordCheckErrorMessage, passwordInput);
+  });
 
   // 로그인 버튼 클릭 이벤트 핸들러
   signInButton.addEventListener('click', function (event) {
