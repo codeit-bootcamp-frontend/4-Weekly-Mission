@@ -1,9 +1,10 @@
 const ERROR_MESSAGE = {
   email: {
     empty: "이메일을 입력해주세요.",
-    invalid: "올바른 이메일 주소가 아닙니다.",
+    invalid: "올바른 이메일이 아닙니다.",
     check: "이메일을 확인해 주세요.",
-    inUse: "이미 사용 중인 이메일입니다.",
+    inUse: "이미 존재하는 이메일입니다.",
+
   },
   password: {
     empty: "비밀번호을 입력해 주세요",
