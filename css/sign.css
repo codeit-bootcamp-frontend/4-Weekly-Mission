@@ -4,9 +4,6 @@
 }
 
 html, body {
-    /*width: 1920px;
-    margin: 0 auto;
-    padding: 0;*/
     overflow-x: hidden;
     overflow-y: scroll;
 }
