@@ -25,14 +25,19 @@
             <div class="email">
                 <label for="signin-email">이메일</label>
                 <input id="signin-email" type="email" placeholder="codeit@coeit.com" />
-                <div id="errorEmail"></div>
+                <div id="errorEmail" class="errorText"></div>
             </div>
             <div class="password">
                 <label for="signin-password">비밀번호</label>
                 <div>
-                    <img class="eyecon" src="../image/icon/eye_closed.svg" alt="눈 아이콘" />
+                    <img
+                        id="eyecon-password"
+                        class="eyecon"
+                        src="../image/icon/eye_closed.svg"
+                        alt="눈 아이콘"
+                    />
                     <input id="signin-password" type="password" />
-                    <div id="errorPassword"></div>
+                    <div id="errorPassword" class="errorText"></div>
                 </div>
             </div>
             <button type="submit">로그인</button>
@@ -48,7 +53,6 @@
                 /></a>
             </div>
         </div>
-        <script type="module" src="../javascript/constants.js"></script>
         <script type="module" src="../javascript/signin.js"></script>
     </body>
 </html>

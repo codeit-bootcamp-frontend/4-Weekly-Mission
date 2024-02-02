@@ -3,11 +3,13 @@ const emailInput = document.querySelector('#signin-email')
 const passwordInput = document.querySelector('#signin-password')
 const errorEmail = document.querySelector('#errorEmail')
 const errorPassword = document.querySelector('#errorPassword')
-const passwordCover = document.querySelector('.eyecon')
-let isPasswordCovered = false
+const passwordCover = document.querySelector('#eyecon-password')
+const cover = {isPasswordCovered: false}
 
 import { isEmailValid, isInputEmpty, showError, clearError } from './sign-error.js'
 import { togglePasswordByEyecon as togglePassword } from './toggle-password.js'
+import { errorMsg } from './constants.js'
+import { codeit } from './user-data.js'
 
 //////////////// 함수 정의 ////////////////////
 
@@ -18,12 +20,12 @@ const checkEmail = () => {
     const email = emailInput.value.trim()
     // 이메일 미입력 에러
     if (isInputEmpty(email)) {
-        showError(emailInput, errorEmail, '이메일을 입력해 주세요.')
+        showError(emailInput, errorEmail, errorMsg.emptyEmail)
         return
     }
     // 이메일 형식 확인
     if (!isEmailValid(email)) {
-        showError(emailInput, errorEmail, '올바른 이메일 주소가 아닙니다.')
+        showError(emailInput, errorEmail, errorMsg.invalidEmail)
         return
     }
 }
@@ -35,7 +37,7 @@ const checkEmail = () => {
 const checkPassword = () => {
     const password = passwordInput.value.trim()
     if (isInputEmpty(password)) {
-        showError(passwordInput, errorPassword, '비밀번호를 입력해 주세요.')
+        showError(passwordInput, errorPassword, errorMsg.emptyPassword)
     }
 }
 /**
@@ -44,7 +46,6 @@ const checkPassword = () => {
  * @returns 불린값
  */
 const isEmailConfirmed = () => {
-    const codeit = { email: 'test@codeit.com', password: 'codeit101' }
     const email = emailInput.value.trim()
     const password = passwordInput.value.trim()
     return email === codeit.email && password === codeit.password
@@ -61,8 +62,8 @@ const validateEmail = (event) => {
         window.location.href = '../html/folder.html'
         return
     }
-    showError(emailInput, errorEmail, '이메일을 확인해 주세요.')
-    showError(passwordInput, errorPassword, '비밀번호를 확인해 주세요.')
+    showError(emailInput, errorEmail, errorMsg.checkEmail)
+    showError(passwordInput, errorPassword, errorMsg.checkPassword)
     event.preventDefault()
 }
 
@@ -79,8 +80,8 @@ const handlePasswordFocusout = () => {
 }
 
 const handlePasswordClick = () => {
-    togglePassword(passwordInput, isPasswordCovered, passwordCover)
-    isPasswordCovered = !isPasswordCovered
+    togglePassword(passwordInput, cover.isPasswordCovered, passwordCover)
+    cover.isPasswordCovered = !cover.isPasswordCovered
 }
 
 //////////////// 함수 사용////////////////////
