@@ -143,7 +143,13 @@ async function fetchSignin (){
             },
             body: JSON.stringify(user)
         });
-        response.ok ? (location.href = '/folder.html') : errorMessage();
+        if(response.ok){
+            const data = await response.json();
+            containAccessToken(data.accessToken);
+            location.href = '/folder.html';
+        }else{
+            errorMessage();
+        }
 
         async function errorMessage (){
             const errorMessage = await response.json();
@@ -154,7 +160,7 @@ async function fetchSignin (){
     }
 }
 
-//현재 작업중 추후에 합칠 예정
+//회원가입
 async function fetchSignUp (){
     try{
         const user = {
@@ -214,5 +220,6 @@ form.addEventListener("submit",(e)=>{
         }
     }
 });
+
 
 export { focusing, eyeBlink, checkingEmail, checkingPassword, checkingPasswordRepeat, fetchSignin, fetchSignUp };
