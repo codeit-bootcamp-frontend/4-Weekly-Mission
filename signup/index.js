@@ -1,8 +1,9 @@
-const inputEmail = document.querySelector("input#email");
-const inputPassword = document.querySelector("input#password");
-const emailPtag = document.querySelector("p#email-error-message");
-const passwordPtag = document.querySelector("p#password-error-message");
-const loginButton = document.querySelector("button.cta");
+const inputEmail = document.querySelector(".input-frame input#email");
+const inputPassword = document.querySelector(".input-frame input#password");
+const emailPtag = document.querySelector("p.email");
+const passwordPtag = document.querySelector("p.password");
+const inputbutton = document.querySelector("button.button");
+const loginform = document.querySelector("#login-form");
 
 // 유저 생성
 const VALID_USER = {
@@ -66,11 +67,11 @@ function handlePasswordPtag() {
 }
 
 //로그인 함수
-function loginCheck(e) {
+function loginCheck(event) {
   event.preventDefault();
   if (isValidUser()) {
     console.log("good");
-    window.location.href = "/folder/index.html";
+    window.location.href = "/folder";
     return;
   }
   showError(inputEmail, emailPtag, "이메일을 확인해주세요.");
@@ -87,8 +88,9 @@ function enterToSubmit(e) {
 inputEmail.addEventListener("focusout", handleEmailPtag);
 inputPassword.addEventListener("focusout", handlePasswordPtag);
 
-document.addEventListener("keypress", enterToSubmit);
-document.addEventListener("submit", loginCheck);
+loginform.addEventListener("keypress", enterToSubmit);
+loginform.addEventListener("submit", loginCheck);
+inputbutton.addEventListener("submit", loginCheck);
 
 //input type=sumbmit으로 한거 a태그나 버튼으로 바꿀지 이유는 submit이 위임 혹은 버블링이 되어
 //form태그를 선택해야 submit이 가능했다.

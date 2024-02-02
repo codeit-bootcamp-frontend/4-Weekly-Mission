@@ -45,3 +45,7 @@
   justify-content: center;
   align-items: center;
 }
+
+input.login-input.border-red {
+  border-color: red;
+}
