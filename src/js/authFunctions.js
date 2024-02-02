@@ -36,6 +36,7 @@ export const showErrorMessage = (
 
   errorMessageSpan.textContent = errorMessage;
 
+  // 에러 메시지 표시
   if (isVisible) {
     target.classList.add("error_input");
     if (type === "password") {
@@ -43,6 +44,7 @@ export const showErrorMessage = (
     }
     return;
   }
+  // 에러 메시지 제거
   target.classList.remove("error_input");
   if (type === "password") {
     iconEye.classList.remove("large_bottom");
