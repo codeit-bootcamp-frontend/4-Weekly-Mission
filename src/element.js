@@ -32,10 +32,6 @@ export class Error {
     let parentElementclassName = removeDot(parentElementSlectorName); // dot 제거
     let errorClassName = errorName(parentElementclassName);
     span.classList.add(errorClassName);
-  
-    span.style.color = 'red';
-    span.style.position = 'relative';
-    span.style.top = '-6px';
   }
 
   removeErrorElement(parentElementSlectorName) {
@@ -56,12 +52,5 @@ export class Error {
 
 export function errorBorder(inputSlectorName) {
   let inputElement = document.querySelector(inputSlectorName);
-  inputElement.style.outline = "1px solid red";
-}
-
-export function removeBorder(inputSlectorName) {
-  let inputElement = document.querySelector(inputSlectorName);
-  if (inputElement) {
-    inputElement.style.outline = "none";
-  }
+  inputElement.classList.add("error-border");
 }

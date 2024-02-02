@@ -2,7 +2,6 @@ import {
   Error,
   resetErrorElement,
   errorBorder,
-  removeBorder
 } from "../src/element.js";
 
 const superUser = { 
@@ -19,7 +18,6 @@ const passwordIcon = document.querySelector(".password-icon");
 
 function noInputFocusOut(element, parentElementSelectorName, inputSelectorName, errorSentence) {
   error.removeErrorElement(parentElementSelectorName);
-  removeBorder(inputSelectorName);
 
   if (element.value === "") {
     error.createErrorSpanElement(parentElementSelectorName);
@@ -36,7 +34,6 @@ function notValidEmailInput() {
   }
 
   error.removeErrorElement(".input-form-email");
-  removeBorder(".input-email");
   
   if (emailRegex.test(email.value)) {
     return
@@ -47,8 +44,7 @@ function notValidEmailInput() {
   }
 }
 
-function focusIn(parentElementSelectorName, inputSelectorName) {
-  removeBorder(inputSelectorName);
+function focusIn(parentElementSelectorName) {
   resetErrorElement(parentElementSelectorName)
 }
 
@@ -122,8 +118,8 @@ function togglePassword() {
 email.addEventListener("focusout", () => noInputFocusOut(email, ".input-form-email", ".input-email", "이메일을 입력해 주세요"));
 password.addEventListener("focusout", () => noInputFocusOut(password, ".input-form-password", ".input-password", "비밀번호를 입력해 주세요"));
 email.addEventListener("input", notValidEmailInput);
-email.addEventListener("focusin", () => focusIn(".input-form-email", ".input-email"));
-password.addEventListener("focusin", () => focusIn(".input-form-password", ".input-password"));
+email.addEventListener("focusin", () => focusIn(".input-form-email"));
+password.addEventListener("focusin", () => focusIn(".input-form-password"));
 loginButton.addEventListener("click", folderPage);
 password.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", togglePassword);

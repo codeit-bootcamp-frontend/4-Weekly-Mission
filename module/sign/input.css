@@ -90,3 +90,26 @@
   top: -64%;
   right: -90%;
 }
+
+/*인풋 폼 블록 > 에러 */
+.input-form-email-errorMessage {
+  color : red;
+  position : relative;
+  top : -6px;
+}
+
+.input-form-password-errorMessage {
+  color : red;
+  position : relative;
+  top : -6px;
+}
+
+.input-form-password-confirm-errorMessage {
+  color : red;
+  position : relative;
+  top : -6px;
+}
+
+.error-border {
+  outline: 1px solid red;
+}

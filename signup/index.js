@@ -2,7 +2,6 @@ import {
   Error,
   resetErrorElement,
   errorBorder,
-  removeBorder
 } from "../src/element.js";
 
 const error = new Error(true);
@@ -16,7 +15,6 @@ const passwordConfimIcon = document.querySelector(".password-confirm-icon");
 
 function noInputFocusOut(element, parentElementSelectorName, inputSelectorName, errorSentence) {
   error.removeErrorElement(parentElementSelectorName);
-  removeBorder(inputSelectorName);
 
   if (element.value === "") {
     error.createErrorSpanElement(parentElementSelectorName);
@@ -33,7 +31,6 @@ function notValidEmailInput() {
   }
 
   error.removeErrorElement(".input-form-email");
-  removeBorder(".input-email");
   
   if (emailRegex.test(email.value)) {
     return
@@ -44,8 +41,7 @@ function notValidEmailInput() {
   }
 }
 
-function focusIn(parentElementSelectorName, inputSelectorName) {
-  removeBorder(inputSelectorName);
+function focusIn(parentElementSelectorName) {
   resetErrorElement(parentElementSelectorName);
 }
 
@@ -76,7 +72,6 @@ function requestAleadyUse(objectForJSON) {
       console.log(error.state)
     } else {
       error.removeErrorElement(".input-form-email");
-      removeBorder(".input-email");
       console.log("pass")
     }
   })
@@ -102,7 +97,6 @@ function notPasswordFormat() {
 
 function loginDuplication() {
   error.removeErrorElement(".input-form-email");
-  removeBorder(".input-email");
 
   error.createErrorSpanElement(".input-form-email");
   errorBorder(".input-email");
@@ -111,7 +105,6 @@ function loginDuplication() {
 
 function passwordisNotEqual() {
   error.removeErrorElement(".input-form-password-confirm");
-  removeBorder(".input-password-confirm");
 
   if (password.value !== passwordConfirm.value) {
     error.createErrorSpanElement(".input-form-password-confirm");
