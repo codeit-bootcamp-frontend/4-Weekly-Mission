@@ -59,6 +59,12 @@ const enterKey = (e, funcitonElement) => {
   }
 };
 
+/* 폴더 이동 함수 */
+const redirectFolder = () => {
+  const link = "./folder.html";
+  location.href = link;
+};
+
 export {
   email,
   emailError,
@@ -73,4 +79,5 @@ export {
   handleEmailValidation,
   togglePasswordVisibility,
   enterKey,
+  redirectFolder,
 };
