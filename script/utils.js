@@ -57,9 +57,8 @@ export function handlePasswordCheckInputFocusOut(
     displayError(passwordcheckInput, passwordCheckErrorMessage, '비밀번호가 일치하지 않아요.');
     return;
   }
-  {
-    clearError(passwordcheckInput, passwordCheckErrorMessage);
-  }
+
+  clearError(passwordcheckInput, passwordCheckErrorMessage);
 }
 
 export function handleEmailInputFocusIn(emailInput, emailErrorMessage) {

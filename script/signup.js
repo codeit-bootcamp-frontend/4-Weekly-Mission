@@ -53,6 +53,15 @@ document.addEventListener('DOMContentLoaded', function () {
     handlePasswordCheckInputFocusOut(passwordcheckInput, passwordCheckErrorMessage, passwordInput);
   });
 
+  // 비밀번호 입력란 focusin 이벤트 핸들러
+  passwordInput.addEventListener('focusin', function () {
+    clearError(passwordInput, passwordErrorMessage);
+  });
+
+  // 비밀번호 확인 입력란 focusin 이벤트 핸들러
+  passwordcheckInput.addEventListener('focusin', function () {
+    clearError(passwordcheckInput, passwordCheckErrorMessage);
+  });
   // 로그인 버튼 클릭 이벤트 핸들러
   signInButton.addEventListener('click', function (event) {
     event.preventDefault();
