@@ -2,9 +2,7 @@ import { TEST_AUTH, ERROR_MESSAGES } from "./constants/VALIDATION.js";
 import {
   emailError,
   emailInput,
-  pwError,
   pwInput,
-  pwConfirmError,
   pwConfirmInput,
   form,
   pwToggle,
