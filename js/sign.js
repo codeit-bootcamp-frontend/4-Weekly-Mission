@@ -60,13 +60,14 @@ const redirectToFolderPage = async () => {
     if (dataValue) {
       saveAccessToken(dataValue);
       redirectFolder();
+    } else {
+      setInvalidStyle(email);
+      setInvalidStyle(password);
+      emailError.innerHTML = errorMessage.EMAIL_CHECK_MESSAGE;
+      passwordError.innerHTML = errorMessage.PASSWORD_CHECK_MESSAGE;
     }
   } catch (error) {
     console.error("로그인 에러:", error.message);
-    setInvalidStyle(email);
-    setInvalidStyle(password);
-    emailError.innerHTML = errorMessage.EMAIL_CHECK_MESSAGE;
-    passwordError.innerHTML = errorMessage.PASSWORD_CHECK_MESSAGE;
   }
 };
 
