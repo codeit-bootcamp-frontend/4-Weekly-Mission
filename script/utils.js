@@ -26,7 +26,7 @@ export function clearError(inputElement, errorMessageElement) {
   errorMessageElement.innerText = '';
 }
 
-export function handlePasswordInputFocusOut(passwordInput, passwordErrorMessage) {
+export const handlePasswordInputFocusOut = (passwordInput, passwordErrorMessage) => {
   const passwordValue = passwordInput.value.trim();
 
   if (!PASSWORD_REGEX.test(passwordValue)) {
@@ -37,7 +37,7 @@ export function handlePasswordInputFocusOut(passwordInput, passwordErrorMessage)
     );
     return;
   }
-}
+};
 
 export function handleEmailInputFocusIn(emailInput, emailErrorMessage) {
   const emailValue = emailInput.value.trim();
