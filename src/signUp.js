@@ -17,12 +17,9 @@ const pwCheckToggle = document.querySelector('.password-check-eye');
 const signUpForm = document.querySelector('#signup-form');
 
 const isDuplicateEmail = () => {
-  if (emailInput.value === TEST_AUTH.EMAIL) {
-    applyError(emailError, MESSAGE.DUPLICATE_EMAIL, emailInput);
-    return true;
-  } else {
-    return false;
-  }
+  if (emailInput.value !== TEST_AUTH.EMAIL) return false;
+  applyError(emailError, MESSAGE.DUPLICATE_EMAIL, emailInput);
+  return true;
 };
 
 const isPasswordMatch = () => {
