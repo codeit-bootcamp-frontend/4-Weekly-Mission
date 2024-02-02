@@ -1,8 +1,28 @@
 const signinUrl = 'https://bootcamp-api.codeit.kr/api/sign-in';
+const emailCheckUrl = 'https://bootcamp-api.codeit.kr/api/check-email';
 //이메일 유효성 검사 메서드
 export function emailFormatCheck(email) {
   const email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
   return email_regex.test(email);
+}
+//이메일 중복 확인 메서드
+async function isUsableEmail(emailValue) {
+  try {
+    const signData = { email: emailValue };
+    const response = await fetch(emailCheckUrl, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(signData),
+    });
+    const result = await response.json();
+    if (response.ok) {
+      return result.data.isUsableNickname;
+    }
+  } catch (e) {
+    return e;
+  }
 }
 
 /*파랑(focus), 빨강(error), 그레이(default) 색으로 border변경,
@@ -46,8 +66,8 @@ export async function signIn(
       localStorage.setItem('refreshToken', result.data.refreshToken);
       location.href = './folder.html';
     } else {
-      emailError.innerHTML = '이메일을 확인해 주세요.';
-      pwError.innerHTML = '비밀번호를 확인해 주세요.';
+      emailError.textContent = '이메일을 확인해 주세요.';
+      pwError.textContent = '비밀번호를 확인해 주세요.';
       inputBorderRed(emailInput, emailError);
       pwOnOffImg.style.bottom = '2.9375rem';
       inputBorderRed(pwInput, pwError);
@@ -60,10 +80,10 @@ export async function signIn(
 export function emailErrorCheck(inputElement, errorElement) {
   const emailValue = inputElement.value;
   if (!emailValue) {
-    errorElement.innerHTML = '이메일을 입력해 주세요.';
+    errorElement.textContent = '이메일을 입력해 주세요.';
     inputBorderRed(inputElement, errorElement);
   } else if (emailFormatCheck(emailValue) === false) {
-    errorElement.innerHTML = '올바른 이메일 주소가 아닙니다.';
+    errorElement.textContent = '올바른 이메일 주소가 아닙니다.';
     inputBorderRed(inputElement, errorElement);
   } else {
     inputBorderGray(inputElement, errorElement);
@@ -72,14 +92,15 @@ export function emailErrorCheck(inputElement, errorElement) {
 // 2. 회원가입에서 사용중인 이메일인지 검사(1번 내용 포함)
 export function usingEmailCheck(emailInput, emailError) {
   const emailValue = emailInput.value;
+
   if (!emailValue) {
-    emailError.innerHTML = '이메일을 입력해 주세요.';
+    emailError.textContent = '이메일을 입력해 주세요.';
     inputBorderRed(emailInput, emailError);
   } else if (emailFormatCheck(emailValue) === false) {
-    emailError.innerHTML = '올바른 이메일 주소가 아닙니다.';
+    emailError.textContent = '올바른 이메일 주소가 아닙니다.';
     inputBorderRed(emailInput, emailError);
-  } else if (emailInput.value === 'test@codeit.com') {
-    emailError.innerHTML = '이미 사용중인 이메일 입니다.';
+  } else if (!isUsableEmail(emailValue)) {
+    emailError.textContent = '이미 사용중인 이메일 입니다.';
     inputBorderRed(emailInput, emailError);
   } else {
     inputBorderGray(emailInput, emailError);
@@ -91,7 +112,7 @@ export function signinPasswordErrorCheck(pwInput, pwError, pwOnOffImg) {
   const pwValue = pwInput.value;
 
   if (!pwValue) {
-    pwError.innerHTML = '비밀번호를 입력해 주세요.';
+    pwError.textContent = '비밀번호를 입력해 주세요.';
     pwOnOffImg.style.bottom = '2.9375rem';
     inputBorderRed(pwInput, pwError);
   } else {
@@ -139,7 +160,7 @@ export function signupPasswordVisibleSwitch(
 export function signupPasswordErrorCheck(pwInput, pwError, pwOnOffImg) {
   const pwValue = pwInput.value;
   if (pwValue.length < 8 || Number(pwValue) || /^[a-zA-Z]+$/.test(pwValue)) {
-    pwError.innerHTML = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
+    pwError.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
     pwOnOffImg.style.bottom = '2.9375rem';
     inputBorderRed(pwInput, pwError);
   } else {
@@ -156,7 +177,7 @@ export function signupPasswordCorrectCheck(
   pwOnOffImg
 ) {
   if (pwInput.value !== pwInputRepeat.value) {
-    pwError.innerHTML = '비밀번호가 일치하지 않아요.';
+    pwError.textContent = '비밀번호가 일치하지 않아요.';
     pwOnOffImg.style.bottom = '2.9375rem';
     inputBorderRed(pwInputRepeat, pwError);
   } else {
@@ -179,9 +200,9 @@ export function signUp(
   if (
     !emailInput.value ||
     emailFormatCheck(emailInput.value) === false ||
-    emailInput.value === 'test@codeit.com'
+    isEmailUsing(emailInput.value)
   ) {
-    emailError.innerHTML = '이메일을 확인해 주세요.';
+    emailError.textContent = '이메일을 확인해 주세요.';
     inputBorderRed(emailInput, emailError);
     checkList[0] = false;
   }
@@ -190,13 +211,13 @@ export function signUp(
     Number(pwInput.value) ||
     /^[a-zA-Z]+$/.test(pwInput.value)
   ) {
-    pwError.innerHTML = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
+    pwError.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
     pwOnOffImg[0].style.bottom = '2.9375rem';
     inputBorderRed(pwInput, pwError);
     checkList[1] = false;
   }
   if (pwInput.value !== pwInputRepeat.value) {
-    pwRepeatError.innerHTML = '비밀번호가 일치하는지 확인해주세요.';
+    pwRepeatError.textContent = '비밀번호가 일치하는지 확인해주세요.';
     pwOnOffImg[1].style.bottom = '2.9375rem';
     inputBorderRed(pwInputRepeat, pwRepeatError);
     checkList[2] = false;
