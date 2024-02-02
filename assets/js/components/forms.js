@@ -110,7 +110,7 @@ class RegisterForm extends Form {
   setPasswordComfirmErrorMessage(passwordConfirmInput, errorType) {
     const inputRootElement = document.querySelector(`.input-layout-${passwordConfirmInput.name}`)
     const errorElement = inputRootElement.querySelector(".input-error")
-    const errorMessage = errorMessages.password[errorType]
+    const errorMessage = errorMessages.passwordConfirm[errorType]
 
     return showError({
       inputRootElement,

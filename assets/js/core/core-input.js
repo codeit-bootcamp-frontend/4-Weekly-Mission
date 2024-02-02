@@ -15,11 +15,24 @@ export default class FormInput {
       errorMessage: "",
       className: this.ERROR_CLASS_NAME,
     }
+
+    this.passwordConfirmData = {
+      inputElement: document.querySelector(".input-passwordConfirm"),
+      inputRootElement: document.querySelector(".input-layout-passwordConfirm"),
+      errorElement: document.querySelector(".input-layout-passwordConfirm").querySelector(".input-error"),
+    }
     this.attach()
   }
 
   setErrorMessage(errorType) {
-    const errorMessage = errorMessages[this.inputElement.name][errorType]
+    const isPasswordMatchType = errorType === "notMatch"
+    const inputElementName = isPasswordMatchType && "passwordConfirm"
+    const errorMessage = errorMessages[inputElementName || this.inputElement.name][errorType]
+
+    if (inputElementName) {
+      return showError({ ...this.update, ...this.passwordConfirmData, errorMessage })
+    }
+
     showError({ ...this.update, errorMessage })
   }
 

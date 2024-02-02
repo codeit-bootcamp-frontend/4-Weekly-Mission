@@ -27,20 +27,15 @@ class RegisterPasswordInput extends FormInput {
   constructor(inputElement) {
     super(inputElement)
 
-    this.passwordConfirmData = {
-      inputElement: document.querySelector(".input-passwordConfirm"),
-      inputRootElement: document.querySelector(".input-layout-passwordConfirm"),
-      errorElement: document.querySelector(".input-layout-passwordConfirm").querySelector(".input-error"),
-    }
-
     this.addEvent()
   }
 
   validation(value) {
     if (isEmpty(value)) return { result: false, errorType: "empty" }
     if (!isPasswordValid(value)) return { result: false, errorType: "notValid" }
-    if (!isEmpty(formState.data.passwordConfirm) && !isPasswordMatch(value, formState.data.passwordConfirm))
+    if (!isEmpty(formState.data.passwordConfirm) && !isPasswordMatch(value, formState.data.passwordConfirm)) {
       return { result: false, errorType: "notMatch" }
+    }
 
     if (isPasswordMatch(value, formState.data.passwordConfirm))
       removeError({
