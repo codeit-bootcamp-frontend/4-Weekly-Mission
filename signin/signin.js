@@ -29,11 +29,11 @@ function onSubmit(event) {
   }
 }
 
-function OnFocusOutEmail(e) {
+function onFocusOutEmail(e) {
   emailTest(e.target, emailError);
 }
 
-function OnFocusOutPassword(e) {
+function onFocusOutPassword(e) {
   if (!e.target.value) {
     passwordError.textContent = "비밀번호를 입력해 주세요.";
     e.target.classList.add("inputError");
@@ -41,6 +41,6 @@ function OnFocusOutPassword(e) {
   }
 }
 
-email.addEventListener("focusout", OnFocusOutEmail);
-password.addEventListener("focusout", OnFocusOutPassword);
+email.addEventListener("focusout", onFocusOutEmail);
+password.addEventListener("focusout", onFocusOutPassword);
 form.addEventListener("submit", onSubmit);

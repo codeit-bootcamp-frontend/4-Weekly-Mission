@@ -24,7 +24,7 @@ pwdConfirmToggleBtn.addEventListener("click", (e) => {
   iconToggle(passwordConfirm, e.target);
 });
 
-function OnFocusOutEmail(e) {
+function onFocusOutEmail(e) {
   if (emailTest(e.target, emailError)) {
     return;
   }
@@ -36,7 +36,7 @@ function OnFocusOutEmail(e) {
   }
 }
 
-function OnFocusOutPassword(e) {
+function onFocusOutPassword(e) {
   const password = e.target.value;
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
   if (password.length < 8 || !passwordRegex.test(password)) {
@@ -65,6 +65,6 @@ function onSubmit(e) {
   location.href = "/folder";
 }
 
-email.addEventListener("focusout", OnFocusOutEmail);
-password.addEventListener("focusout", OnFocusOutPassword);
+email.addEventListener("focusout", onFocusOutEmail);
+password.addEventListener("focusout", onFocusOutPassword);
 form.addEventListener("submit", onSubmit);
