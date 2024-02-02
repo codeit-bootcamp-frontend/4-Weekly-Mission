@@ -37,8 +37,6 @@ export function handlePasswordInputFocusOut(passwordInput, passwordErrorMessage)
     );
     return;
   }
-
-  clearError(passwordInput, passwordErrorMessage);
 }
 
 export function handlePasswordCheckInputFocusOut(
