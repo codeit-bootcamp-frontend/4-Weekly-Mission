@@ -1,4 +1,4 @@
-import { VALID_USER, EMAIL_REGEX } from './constants.js';
+import { VALID_USER, EMAIL_REGEX, PASSWORD_REGEX } from './constants.js';
 
 export function createErrorMessage(id, text) {
   const errorMessage = document.getElementById(id) || document.createElement('div');
@@ -29,7 +29,7 @@ export function clearError(inputElement, errorMessageElement) {
 export function handlePasswordInputFocusOut(passwordInput, passwordErrorMessage) {
   const passwordValue = passwordInput.value.trim();
 
-  if (passwordValue.length < 8 || !(/[a-zA-Z]/.test(passwordValue) && /\d/.test(passwordValue))) {
+  if (!PASSWORD_REGEX.test(passwordValue)) {
     displayError(
       passwordInput,
       passwordErrorMessage,
