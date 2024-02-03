@@ -16,40 +16,17 @@ export default class FormInput {
       className: this.ERROR_CLASS_NAME,
     }
 
-    this.passwordConfirmData = {
-      inputElement: document.querySelector(".input-passwordConfirm"),
-      inputRootElement: document.querySelector(".input-layout-passwordConfirm"),
-      errorElement: document.querySelector(".input-layout-passwordConfirm").querySelector(".input-error"),
-    }
     this.attach()
   }
 
   setErrorMessage(errorType) {
-    const isPasswordMatchType = errorType === "notMatch"
-    const inputElementName = isPasswordMatchType && "passwordConfirm"
-    const errorMessage = errorMessages[inputElementName || this.inputElement.name][errorType]
-
-    if (inputElementName) {
-      return showError({ ...this.update, ...this.passwordConfirmData, errorMessage })
-    }
-
+    const errorMessage = errorMessages[this.inputElement.name][errorType]
     showError({ ...this.update, errorMessage })
   }
 
-  removePasswordMatchError(validation) {
-    validation?.isMatch &&
-      removeError({
-        ...this.update,
-        ...this.passwordConfirmData,
-        errorMessage: "",
-      })
-  }
-
-  focusoutHandler(event) {
+  async focusoutHandler(event) {
     formState.data = { name: this.type, value: event.target.value }
-    const validation = this.validation(event.target.value)
-
-    this.removePasswordMatchError(validation)
+    const validation = await this.validation(event.target.value)
 
     !validation.result && this.setErrorMessage(validation.errorType)
     validation.result && removeError({ ...this.update, errorMessage: "" })

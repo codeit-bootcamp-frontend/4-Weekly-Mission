@@ -1,4 +1,6 @@
+import { CHECK_EMAIL } from "../api/index.js"
 import { FormInput, formState } from "../core/index.js"
+import { requestHTTP } from "../utils/http.js"
 import { removeError, showError } from "../utils/ui.js"
 import {
   isEmpty,
@@ -14,10 +16,10 @@ class RegisterEmailInput extends FormInput {
     super(inputElement)
   }
 
-  validation(value) {
+  async validation(value) {
     if (isEmpty(value)) return { result: false, errorType: "empty" }
     if (!isEmailValid(value)) return { result: false, errorType: "notValid" }
-    if (isExistingEmail(value)) return { result: false, errorType: "existing" }
+    if (await isExistingEmail(value)) return { result: false, errorType: "existing" }
 
     return { result: true, errorType: null }
   }
@@ -26,6 +28,12 @@ class RegisterEmailInput extends FormInput {
 class RegisterPasswordInput extends FormInput {
   constructor(inputElement) {
     super(inputElement)
+
+    this.passwordConfirmData = {
+      inputElement: document.querySelector(".input-passwordConfirm"),
+      inputRootElement: document.querySelector(".input-layout-passwordConfirm"),
+      errorElement: document.querySelector(".input-layout-passwordConfirm").querySelector(".input-error"),
+    }
 
     this.addEvent()
   }
@@ -36,7 +44,7 @@ class RegisterPasswordInput extends FormInput {
     if (!isEmpty(formState.data.passwordConfirm) && !isPasswordMatch(value, formState.data.passwordConfirm))
       return { result: false, errorType: "notMatch" }
 
-    return { result: true, errorType: null, isMatch: true }
+    return { result: true, errorType: null }
   }
 
   passwordChangeIcon(iconElement) {
@@ -56,6 +64,34 @@ class RegisterPasswordInput extends FormInput {
 
   addEvent() {
     this.inputElement.nextElementSibling.addEventListener("click", this.toggleIconHandler.bind(this))
+  }
+
+  setErrorMessage(errorType) {
+    const isPasswordMatchType = errorType === "notMatch"
+    const inputElementName = isPasswordMatchType && "passwordConfirm"
+    const errorMessage = errorMessages[inputElementName || this.inputElement.name][errorType]
+
+    if (inputElementName) {
+      return showError({ ...this.update, ...this.passwordConfirmData, errorMessage })
+    }
+
+    showError({ ...this.update, errorMessage })
+  }
+
+  focusoutHandler(event) {
+    formState.data = { name: this.type, value: event.target.value }
+    const validation = this.validation(event.target.value)
+
+    !validation.result && this.setErrorMessage(validation.errorType)
+
+    if (validation.result) {
+      validation.result && removeError({ ...this.update, errorMessage: "" })
+      removeError({
+        ...this.update,
+        ...this.passwordConfirmData,
+        errorMessage: "",
+      })
+    }
   }
 }
 

@@ -1,4 +1,5 @@
-import { TEST_USER } from "../auth/index.js"
+import { CHECK_EMAIL } from "../api/index.js"
+import { requestHTTP } from "./http.js"
 
 export const isEmpty = (value) => value.trim().length === 0
 
@@ -7,7 +8,21 @@ export const isEmailValid = (value) => {
   return !isEmpty(value) && pattern.test(value)
 }
 
-export const isExistingEmail = (value) => value === TEST_USER.email
+export const isExistingEmail = async (email) => {
+  try {
+    const responseData = await requestHTTP(CHECK_EMAIL, {
+      method: "POST",
+      body: JSON.stringify({ email }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+
+    return "error" in responseData ? true : false
+  } catch (error) {
+    return true
+  }
+}
 
 export const isPasswordMatch = (value, passwordValue) => value === passwordValue
 

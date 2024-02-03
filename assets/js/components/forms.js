@@ -1,5 +1,4 @@
 import { Form, formState } from "../core/index.js"
-import { TEST_USER } from "../auth/index.js"
 import { showError } from "../utils/ui.js"
 import {
   isEmpty,
@@ -9,6 +8,9 @@ import {
   isExistingEmail,
   errorMessages,
 } from "../utils/validation.js"
+import { requestHTTP } from "../utils/http.js"
+import { LOGIN, REGISTER } from "../api/index.js"
+import { setLocalStorage } from "../utils/localStorage.js"
 
 class LoginForm extends Form {
   emailValidation(value) {
@@ -54,11 +56,22 @@ class LoginForm extends Form {
     return existingUser.email === formData.email && existingUser.password === formData.password
   }
 
-  success() {
-    return (location.href = "/folder")
+  async response(email, password) {
+    try {
+      const data = await requestHTTP(LOGIN, {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+      })
+
+      if (data?.error) throw new Error("이메일과 비밀번호를 다시 입력해주세요.")
+
+      return (location.href = "/folder")
+    } catch (error) {
+      return alert(error.message)
+    }
   }
 
-  submitHandler(event) {
+  async submitHandler(event) {
     event.preventDefault()
     const { email, password } = this.formState.data
 
@@ -73,10 +86,23 @@ class LoginForm extends Form {
 
     const isFormValid = emailValidationResult.result && passwordValidationResult.result
 
-    if (isFormValid)
-      return this.compare(TEST_USER, { email, password })
-        ? this.success()
-        : alert("이메일이나 비밀번호가 맞지 않습니다.")
+    if (!isFormValid) return alert("이메일이나 비밀번호가 맞지 않습니다.")
+
+    try {
+      const data = await requestHTTP(LOGIN, {
+        method: "POST",
+        body: JSON.stringify({ email, password }),
+        headers: { "Content-Type": "application/json" },
+      })
+
+      if (data?.error) throw new Error("이메일과 비밀번호를 확인 해주세요.")
+
+      setLocalStorage("user", data.data.accessToken)
+
+      return (location.href = "/folder")
+    } catch (error) {
+      return alert(error.message)
+    }
   }
 }
 
@@ -142,11 +168,25 @@ class RegisterForm extends Form {
     return { result: true, errorType: null }
   }
 
-  success() {
-    location.href = "/folder"
+  async request() {
+    try {
+      const data = await requestHTTP(REGISTER, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      })
+
+      console.log(data)
+
+      // return this.success()
+    } catch (error) {
+      alert(error.message)
+    }
   }
 
-  submitHandler(event) {
+  async submitHandler(event) {
     event.preventDefault()
     const { email, password, passwordConfirm } = this.formState.data
 
@@ -163,10 +203,24 @@ class RegisterForm extends Form {
     !passwordConfirmValidationResult.result &&
       this.setPasswordComfirmErrorMessage(this.inputPasswordConfirmElement, passwordConfirmValidationResult.errorType)
 
-    const formIsValid =
+    const isFormValid =
       emailValidationResult.result && passwordValidationResult.result && passwordConfirmValidationResult.result
 
-    if (formIsValid) this.success()
+    if (!isFormValid) return alert("이메일이나 비밀번호를 다시 확인해주세요.")
+
+    try {
+      const data = await requestHTTP(REGISTER, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      })
+
+      if (data?.error) throw new Error("이메일과 비밀번호를 확인 해주세요.")
+
+      return (location.href = "/folder")
+    } catch (error) {
+      return alert(error.message)
+    }
   }
 }
 
