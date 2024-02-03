@@ -14,6 +14,7 @@ import {
   togglePassword,
   hasTokenInStorage
 } from "../src/eventHandler.js";
+import { requestAleadyUse } from "../src/api/request.js";
 
 const error = new Error(true);
 
@@ -56,7 +57,7 @@ function pressEnterForFolderPage(e) {
   }
 }
 
-async function aleadyUse() {
+/*async function aleadyUse() {
   const objectForJSON = {};
   const validateAleadyUse = email.value;
   objectForJSON.email = validateAleadyUse;
@@ -83,7 +84,7 @@ function requestAleadyUse(objectForJSON) {
     // fetch 요청 자체가 실패한 경우에 대한 처리
     console.error('fetch 요청 실패:', error);
   });
-}
+}*/
 
 function notPasswordFormat() {
   const passwordFormat = password.value;
@@ -96,6 +97,13 @@ function notPasswordFormat() {
     error.createErrorSpanElement(staticName.parentElementSeletor.password);
     errorBorder(staticName.elementSeletor.password);
     error.errorMessageInElement(staticName.parentElementSeletor.password, errorMessage.notCorrectFormat.password);
+  }
+}
+
+async function aleadyUse(emailElement) {
+  const isAleadyUse = await requestAleadyUse(emailElement);
+  if (isAleadyUse === true) {
+    loginDuplication();
   }
 }
 
@@ -184,8 +192,8 @@ password.addEventListener("focusout", () => handleFocusOutForPassword(
   errorMessage.isEmpty.password,
   errorMessage.notCorrectFormat.password
 ));
-email.addEventListener("change", aleadyUse);
-password.addEventListener("focusout", notPasswordFormat);
+email.addEventListener("change", () => aleadyUse(email));
+//password.addEventListener("focusout", notPasswordFormat);
 email.addEventListener("focusin", () => handleFocusIn(
   staticName.parentElementSeletor.email,
   staticName.elementSeletor.email,

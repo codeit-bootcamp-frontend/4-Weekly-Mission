@@ -1,13 +1,27 @@
 import { urls } from "./url.js";
 import { superUser } from "../static.js";
 
+// 로그인 요청
 export async function requestLogin() {
   const response = await postRequest(urls.signin, superUser);
-  const signinResult = await responseSignin(response);
-  await saveAccessToken(signinResult);
+  const signinSuccess = await responseSignin(response);
+  await saveAccessToken(signinSuccess);
 }
 
-export async function postRequest(url, objectForBody) {
+//회원 가입 요청
+
+// 중복 요청
+export async function requestAleadyUse(emailElement) {
+  const objectForJSON = {};
+  const validateAleadyUse = emailElement.value;
+  objectForJSON.email = validateAleadyUse;
+
+  const response = await postRequest(urls.aleadyUse, objectForJSON);
+  const isAleadyUse = await responseAleadyUse(response);
+  return isAleadyUse;
+}
+
+async function postRequest(url, objectForBody) {
   const response = await fetch(url, {
     method: "POST",
     headers: {
@@ -26,39 +40,18 @@ async function responseSignin(response) {
   console.error('서버 응답이 성공적이지 않습니다. 상태 코드:', response.status);
 }
 
+async function responseAleadyUse(response) {
+  if (response.status === 409) {
+    //loginDuplication();
+    return true;
+  }
+  return false;
+}
+
 async function saveAccessToken(result) {
   const jsonToObject = JSON.parse(result);
   const accessToken = jsonToObject.data.accessToken;
   localStorage.setItem("accessToken", accessToken);
-}
-
-async function aleadyUse() {
-  const objectForJSON = {};
-  const validateAleadyUse = email.value;
-  objectForJSON.email = validateAleadyUse;
-  requestAleadyUse(objectForJSON);
-}
-
-function requestAleadyUse(objectForJSON) {
-  fetch(urls.aleadyUse, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(objectForJSON),
-  })
-  .then((response) => {
-    if (response.status === 409) {
-      loginDuplication();
-      console.log(error.state)
-    } else {
-      //error.removeErrorElement(".input-form-email");
-    }
-  })
-  .catch((error) => {
-    // fetch 요청 자체가 실패한 경우에 대한 처리
-    console.error('fetch 요청 실패:', error);
-  });
 }
 
 async function requestSignUp() {

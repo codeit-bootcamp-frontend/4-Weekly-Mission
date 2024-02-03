@@ -12,7 +12,6 @@ export function hasTokenInStorage() {
   }
 }
 
-
 // 포커스인 이벤트: 에러 엘리먼트를 제거한다.
 export function handleFocusIn(parentElementSelectorName) {
   errorElement.removeErrorElement(parentElementSelectorName);

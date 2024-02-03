@@ -14,7 +14,7 @@ import {
   togglePassword,
   hasTokenInStorage
 } from "../src/eventHandler.js";
-import { requestLogin, postRequest } from "../src/api/request.js";
+import { requestLogin } from "../src/api/request.js";
 import { urls } from "../src/api/url.js";
 
 const error = new Error(true);
