@@ -36,9 +36,20 @@ export default class FormInput {
     showError({ ...this.update, errorMessage })
   }
 
+  removePasswordMatchError(validation) {
+    validation?.isMatch &&
+      removeError({
+        ...this.update,
+        ...this.passwordConfirmData,
+        errorMessage: "",
+      })
+  }
+
   focusoutHandler(event) {
     formState.data = { name: this.type, value: event.target.value }
     const validation = this.validation(event.target.value)
+
+    this.removePasswordMatchError(validation)
 
     !validation.result && this.setErrorMessage(validation.errorType)
     validation.result && removeError({ ...this.update, errorMessage: "" })
