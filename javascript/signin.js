@@ -14,7 +14,7 @@ import { confirmLogin } from './post.js'
 
 //////////////// 함수 정의 ////////////////////
 
-if (accessToken) window.location.href = '../html/folder.html'
+// if (accessToken) window.location.href = '../html/folder.html'
 
 /**이메일 확인 함수
  * 이메일 형식과 빈 input 확인 후 error 메세지 출력
@@ -49,7 +49,7 @@ const checkPassword = () => {
  * @param {*} event 해당 함수를 발생하는 이벤트
  * @returns 불린값
  */
-const validateEmail = async (event) => {
+const handleFormSubmit = async (event) => {
     const emailData = emailInput.value.trim()
     const passwordData = passwordInput.value.trim()
     const userData = {
@@ -65,10 +65,10 @@ const validateEmail = async (event) => {
             window.location.href = '../html/folder.html'
             return
         }
-        showError(emailInput, errorEmail, errorMsg.checkEmail)
-        showError(passwordInput, errorPassword, errorMsg.checkPassword)
     } catch (error) {
         console.error('Error during email validation:', error)
+        showError(emailInput, errorEmail, errorMsg.checkEmail)
+        showError(passwordInput, errorPassword, errorMsg.checkPassword)
     }
 }
 
@@ -98,6 +98,6 @@ emailInput.addEventListener('focusout', handleEmailFocusout)
 passwordInput.addEventListener('focusout', handlePasswordFocusout)
 
 // 로그인 버튼 입력 시 이메일 비번 확인 후 이동
-form.addEventListener('submit', validateEmail)
+form.addEventListener('submit', handleFormSubmit)
 // 비번 가리기 버튼 리스너 부여
 passwordCover.addEventListener('click', handlePasswordClick)
