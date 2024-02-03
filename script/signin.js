@@ -1,6 +1,6 @@
 import {EMAIL_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE, USERS} from './constant.js'
 import { getElementById} from './dom/domhelper.js';
-import { isEmptyString, isValidEmail, showError, hideError, showPassword, hidePassword } from './functions/signFunction.js';
+import { isEmptyString, isValidEmail, showError, hideError, showPassword, hidePassword } from './functions/sign.js';
 import { goToFolderhtml } from './temporary.js';
 
 // About Email Error

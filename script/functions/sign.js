@@ -15,6 +15,18 @@ export function isValidPassword(password) {
   return PASSWORD_REGEX.test(password);
 }
 
+export function isValidEmailFormat(emailValue) {
+  return !isEmptyString(emailValue) && isValidEmail(emailValue) && emailValue !== 'test@codeit.com'; 
+}
+
+export function isValidPasswordFormat (passwordValue) {
+  return !isEmptyString(passwordValue) && isValidPassword(passwordValue);
+}
+
+export function isValidPasswordConfirmFormat (passwordConfirmValue) {
+  return passwordValue === passwordConfirmValue;
+}
+
 /**
   *@param {*} inputElement 오류가 발생한 input
   *@param {*} errorTextElement 오류 메세지를 표시할 div
@@ -52,3 +64,4 @@ export const hidePassword = (inputElement, buttonElement) => {
   buttonElement.firstElementChild.src = VISIABLE_STATE.visiable;
   inputElement.type = 'text';
 }
+
