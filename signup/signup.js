@@ -4,10 +4,11 @@ import {
   emailError,
   passwordError,
   eyeIcon,
-  isEmail,
-  removeEmpty,
   eyeIconOn,
   eyeIconOff,
+  isEmail,
+  removeEmpty,
+  togglePasswordVisibility,
 } from '../src/common/sign.js';
 
 import {
@@ -52,7 +53,7 @@ const emailInputCheck = (e) => {
     emailError.textContent = EMPTY_EMAIL_MESSAGE;
     e.target.classList.add('inputError');
     isValid[0] = false;
-  } else if (!isEmail(e.target.email.value)) {
+  } else if (!isEmail(e.target.value)) {
     emailError.textContent = ERROR_EMAIL_MESSAGE;
     e.target.classList.add('inputError');
     isValid[0] = false;
@@ -114,39 +115,19 @@ const passwordInputRecheck = (e) => {
   }
 };
 
-const togglePasswordVisibility1 = () => {
-  if (passwordCheck.type === 'password') {
-    passwordCheck.type = 'text';
-    eyeIconOff[0].style.display = 'none';
-    eyeIconOn[0].style.display = 'inline-block';
-  } else {
-    passwordCheck.type = 'password';
-    eyeIconOff[0].style.display = 'inline-block';
-    eyeIconOn[0].style.display = 'none';
-  }
-};
-
-const togglePasswordVisibility2 = () => {
-  if (passwordReCheck.type === 'password') {
-    passwordReCheck.type = 'text';
-    eyeIconOff[1].style.display = 'none';
-    eyeIconOn[1].style.display = 'inline-block';
-  } else {
-    passwordReCheck.type = 'password';
-    eyeIconOff[1].style.display = 'inline-block';
-    eyeIconOn[1].style.display = 'none';
-  }
-};
-
 const eyeIconClick1 = (e) => {
   if (e.target.classList.contains('eye-icon')) {
-    togglePasswordVisibility1();
+    const eyeOff = eyeIconOff[0];
+    const eyeOn = eyeIconOn[0];
+    togglePasswordVisibility(passwordCheck, eyeOff, eyeOn);
   }
 };
 
 const eyeIconClick2 = (e) => {
   if (e.target.classList.contains('eye-icon')) {
-    togglePasswordVisibility2();
+    const eyeOff = eyeIconOff[1];
+    const eyeOn = eyeIconOn[1];
+    togglePasswordVisibility(passwordReCheck, eyeOff, eyeOn);
   }
 };
 

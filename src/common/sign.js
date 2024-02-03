@@ -20,6 +20,18 @@ const removeEmpty = (input) => {
   return input.replace(/(\s*)/g, '');
 };
 
+const togglePasswordVisibility = (password, eyeOff, eyeOn) => {
+  if (password.type === 'password') {
+    password.type = 'text';
+    eyeOff.style.display = 'none';
+    eyeOn.style.display = 'inline-block';
+  } else {
+    password.type = 'password';
+    eyeOff.style.display = 'inline-block';
+    eyeOn.style.display = 'none';
+  }
+};
+
 export {
   form,
   email,
@@ -30,4 +42,5 @@ export {
   eyeIconOff,
   isEmail,
   removeEmpty,
+  togglePasswordVisibility,
 };

@@ -4,10 +4,11 @@ import {
   emailError,
   passwordError,
   eyeIcon,
-  isEmail,
-  removeEmpty,
   eyeIconOn,
   eyeIconOff,
+  isEmail,
+  removeEmpty,
+  togglePasswordVisibility,
 } from '../src/common/sign.js';
 
 import {
@@ -39,7 +40,7 @@ const emailInputCheck = (e) => {
   if (e.target.value.length <= 0) {
     emailError.textContent = EMPTY_EMAIL_MESSAGE;
     e.target.classList.add('inputError');
-  } else if (!isEmail(e.target.email.value)) {
+  } else if (!isEmail(e.target.value)) {
     emailError.textContent = ERROR_EMAIL_MESSAGE;
     e.target.classList.add('inputError');
   } else {
@@ -60,21 +61,11 @@ const passwordInputCheck = (e) => {
   }
 };
 
-const togglePasswordVisibility = () => {
-  if (password.type === 'password') {
-    password.type = 'text';
-    eyeIconOff[0].style.display = 'none';
-    eyeIconOn[0].style.display = 'inline-block';
-  } else {
-    password.type = 'password';
-    eyeIconOff[0].style.display = 'inline-block';
-    eyeIconOn[0].style.display = 'none';
-  }
-};
-
 const eyeIconClick = (e) => {
   if (e.target.classList.contains('eye-icon')) {
-    togglePasswordVisibility();
+    const eyeOff = eyeIconOff[0];
+    const eyeOn = eyeIconOn[0];
+    togglePasswordVisibility(password, eyeOff, eyeOn);
   }
 };
 
