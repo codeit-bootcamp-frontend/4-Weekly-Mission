@@ -8,7 +8,7 @@ tags.email_input.addEventListener('blur', function_module.blurInput)
 tags.email_input.addEventListener('focus', () => {function_module.removeErrorMessage(tags.email_error_msg)})
 tags.email_input.addEventListener("blur", (e) => {function_module.checkInputNull(e, tags.email_error_msg, "이메일을")})
 tags.email_input.addEventListener("blur", (e) => {function_module.validateEmailInput(e, tags.email_error_msg, tags.email_regExp)})
-tags.email_input.addEventListener('blur', (e) => {function_module.checkDuplicate(e, tags.email_error_msg)})
+tags.email_input.addEventListener('blur', (e) => {function_module.checkEmailDuplicate(e, tags.email_input,tags.email_error_msg)})
 
 tags.pw_input.addEventListener('focus', function_module.activeInput)
 tags.pw_input.addEventListener('blur', function_module.blurInput)
@@ -31,6 +31,14 @@ tags.pw_repeat_icon_close.addEventListener('click', (e) => {function_module.show
 tags.pw_repeat_icon_open.addEventListener('click', (e) => {function_module.coverPasswordInput(e, tags.pw_repeat_icon_close, tags.repeat_pw_input)})
 
 const sign_up_btn = document.querySelector('.sign_up_btn')
+sign_up_btn.addEventListener('click', (e) => {
+    e.preventDefault()
+    function_module.fetchSignUp(e, tags.email_input, tags.pw_input, tags.repeat_pw_input)
+})
+sign_up_btn.addEventListener('click' , (e) => {
+    e.preventDefault()
+    function_module.checkEmailDuplicate(e, tags.email_input)
+})
 sign_up_btn.addEventListener('click' , (e) => {
     function_module.checkEmailPwSignUp(
         e, tags.email_input, tags.pw_input, tags.repeat_pw_input, tags.email_error_msg, tags.password_error_msg, tags.repeat_password_error_msg)})

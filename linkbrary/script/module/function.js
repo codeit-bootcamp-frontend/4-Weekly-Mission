@@ -56,15 +56,6 @@ function passwordConfirm(password, repeatPassword, errorMessageElement) {
     }
 }
 
-// 이메일 중복확인
-function checkDuplicate(e, errorMessageElement) {
-    if(e.target.value === "test@codeit.com") {
-        e.target.classList.add("input_error")
-        errorMessageElement.classList.add('view_error')
-        errorMessageElement.innerHTML = "이미 사용 중인 이메일입니다"
-    }
-}
-
 // 로그인 시도시 이메일 & 패스워드 학인
 function checkEmailPwOnLogin(e, email_input, pw_input, email_error_msg, password_error_msg) {
     e.preventDefault();
@@ -132,14 +123,6 @@ function coverPasswordInput(e, close, input) {
     input.type = "password"
 }
 
-
-const member = {
-    email: "test@codeit.com",
-    password: "sprint101",
-    
-}
-
-
 // api 로그인 함수 
 async function fetchLogin(e, email_input, password_input) {
     e.preventDefault()
@@ -156,17 +139,44 @@ async function fetchLogin(e, email_input, password_input) {
             body : JSON.stringify(loginValue),
          })
          if(response.status == 200) {
-            localStorage.setItem("accessToken",result.data.accessToken )
             document.location.href = "/pages/folder.html"
          }
         const result = await response.json()
+        await localStorage.setItem("accessToken", result.data.accessToken )
+         console.log(result)
+    } catch(error) {
+        console.log(error)
+    }
+}
 
-        console.log(result)
+
+//  api 이메일 중복 함수 
+async function checkEmailDuplicate(e, email_input, errorMessageElement) {
+    e.preventDefault()
+    const emailValue = {
+        email : email_input.value,
+    }
+    try {
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+           method : 'POST',
+           headers : {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify(emailValue),
+         })
+         
+        const result = await response.json() 
+     
+         if(response.status == 409 && email_input.value != "") {
+            e.target.classList.add("input_error")
+            errorMessageElement.classList.add('view_error')
+            errorMessageElement.innerHTML = "이미 사용 중인 이메일입니다"
+         }
+       
     } catch(error) {
         console.log(error.type)
     }
 }
-
 
 // 액세스 토큰 검사 함수
 function checkAccessToken() {
@@ -174,6 +184,32 @@ function checkAccessToken() {
         location.href = "/pages/folder.html"
     }
 }
+
+async function fetchSignUp(e, email_input, pw_input, repeat_pw_input) {
+    e.preventDefault()
+    const signUpValue = {
+        email : email_input.value,
+        password : pw_input.value
+    }
+
+    try {
+        const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+            method : 'POST',
+            headers : {
+                "Content-Type" : "application/json",
+            },
+            body : JSON.stringify(signUpValue)
+        })
+
+       
+        if(pw_input.value === repeat_pw_input.value && response.status == 200) {
+            document.location.href = "/pages/folder.html"
+         }
+    } catch(error) {
+        console.log(error)
+    }
+}
+
 const function_module = {
     activeInput :  activeInput,
     blurInput : blurInput,
@@ -185,11 +221,12 @@ const function_module = {
     coverPasswordInput : coverPasswordInput,
     validatePasswordInput : validatePasswordInput,
     passwordConfirm : passwordConfirm,
-    checkDuplicate : checkDuplicate,
+    checkEmailDuplicate : checkEmailDuplicate,
     checkEmailPwSignUp : checkEmailPwSignUp,
     fetchLogin : fetchLogin,
-    checkAccessToken : checkAccessToken
-
+    checkAccessToken : checkAccessToken,
+    checkEmailDuplicate : checkEmailDuplicate,
+    fetchSignUp :  fetchSignUp
 }
 
 export default function_module
