@@ -62,24 +62,41 @@ password.addEventListener('focusout', passwordNoneValue);
 
 // 로그인 아이디/비밀번호가 틀릴 때
 const TEST_EMAIL = 'test@codeit.com';
-const TEST_PW = 'codeit101';
+const TEST_PW = 'sprint101';
+
+async function signinAPI(email, pw) {
+
+  try {
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: TEST_EMAIL,
+        password: TEST_PW,
+      }),
+    });
+
+    if (
+      email === TEST_EMAIL &&
+      pw === TEST_PW &&
+      response.status === 200) {
+      window.location.href = "../folder.html";
+    } else {
+      password.classList.add('pwError');
+      pwErrorMessage.textContent = '이메일 또는 비밀번호가 잘못되었습니다.';
+      pwErrorMessage.style.color = '#FF5B56';
+      password.style.borderColor = '#FF5B56';
+    }
+  } catch (error) {
+    console.error('로그인 요청 중 오류 발생:', error);
+  }
+}
 
 function login(event) {
   event.preventDefault();
-
-  if (email.value === TEST_EMAIL && password.value === TEST_PW) {
-    window.location.href = "/folder";
-  } else {
-    idErrorMessage.classList.add('emailError');
-    idErrorMessage.textContent = '이메일을 확인해 주세요.';
-    idErrorMessage.style.color = '#FF5B56';
-    email.style.borderColor = '#FF5B56';
-
-    pwErrorMessage.classList.add('error-message-password');
-    pwErrorMessage.textContent = '비밀번호를 확인해 주세요.';
-    pwErrorMessage.style.color = '#FF5B56';
-    password.style.borderColor = '#FF5B56';
-  }
+  signinAPI(email.value, password.value);
 }
 
 form.addEventListener('submit', login);
