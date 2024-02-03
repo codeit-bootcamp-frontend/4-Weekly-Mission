@@ -11,7 +11,6 @@ import {
 } from '../src/common/sign.js';
 
 import {
-  TEST_EMAIL,
   EMAIL_CHECK_MESSAGE,
   PASSWORD_CHECK_MESSAGE,
   EMPTY_EMAIL_MESSAGE,

@@ -4,6 +4,8 @@ import {
   emailError,
   passwordError,
   eyeIcon,
+  TEST_EMAIL,
+  TEST_PASSWORD,
   isEmail,
   removeEmpty,
   eyeIconOn,
@@ -11,8 +13,6 @@ import {
 } from '../src/common/sign.js';
 
 import {
-  TEST_EMAIL,
-  TEST_PASSWORD,
   EMAIL_CHECK_MESSAGE,
   PASSWORD_CHECK_MESSAGE,
   EMPTY_EMAIL_MESSAGE,
