@@ -11,11 +11,6 @@ FORM_ELEMENT.addEventListener('submit', handleSubmit);
 
 
 // 이메일 유효성 확인
-function emailValidation(input) {
-  const REG_EMAIL = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-  return REG_EMAIL.test(input);
-}
-
 function handleEmailFocusout(e) {
   if (INPUT_EMAIL.value === '') {
     INPUT_EMAIL.nextElementSibling.textContent = '이메일을 입력해 주세요.';
@@ -23,21 +18,30 @@ function handleEmailFocusout(e) {
     return false;
   }
 
-  if (INPUT_EMAIL.value === 'test@codeit.com') {
-    INPUT_EMAIL.nextElementSibling.textContent = '이미 사용 중인 이메일입니다.';
+  emailValidation();
+
+  return true;
+}
+
+async function emailValidation () {
+  const EMAIL_ADDRESS = {
+    email: INPUT_EMAIL.value
+  }
+
+  const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(EMAIL_ADDRESS)
+  });
+
+  const result = await response.json();
+  if (!response.ok) {
+    INPUT_EMAIL.nextElementSibling.textContent = result.error.message;
     INPUT_EMAIL.classList.add('input_error');
     return false;
   }
-
-  if (INPUT_EMAIL.value !== '') {
-    if (!emailValidation(INPUT_EMAIL.value)) {
-      INPUT_EMAIL.nextElementSibling.textContent = '올바른 이메일 주소가 아닙니다.';
-      INPUT_EMAIL.classList.add('input_error');
-      return false;
-    }
-  }
-
-  return true;
 }
 
 
@@ -76,17 +80,32 @@ let checkFunctions = [
 ]
 
 function handleSubmit(e) {
-  let count = 0;
+  e.preventDefault();
 
   for (let checkFunction of checkFunctions) {
     if (checkFunction(e) === false) {
-      e.preventDefault();
       checkFunction(e);
-      count++;
     }
   }
 
-  if (count === 0) {
-    FORM_ELEMENT.submit();
+  finalValidation()
+}
+
+async function finalValidation() {
+  const USER = {
+    email: INPUT_EMAIL.value,
+    password: INPUT_PASSWORD.value
   }
-} 
+
+  const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(USER)
+  })
+
+  if (response.ok) {
+    window.location.href = '/folder';
+  }
+}
