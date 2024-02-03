@@ -48,6 +48,7 @@ a {
 
 input:focus {
   outline: none;
+  border-color: blue;
 }
 
 button {

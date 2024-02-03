@@ -11,14 +11,14 @@
     />
     <title>Linkbrary</title>
   </head>
-  <body class="flex flex-center">
+  <body class="flex justify-center">
     <div class="container w-full">
       <form class="login-form w-full">
         <div class="login-form-header flex flex-column">
-          <a class="flex flex-center" href="/">
+          <a class="flex justify-center" href="/">
             <img class="logo" src="images/logo.svg" />
           </a>
-          <p class="header-message flex flex-center fs-16">
+          <p class="header-message flex justify-center align-center fs-16">
             이미 회원이신가요?
             <a id="signup-link" href="../signin/index.html"> 로그인 하기 </a>
           </p>
@@ -44,7 +44,10 @@
               class="login-input fs-16"
               type="password"
             />
-            <p id="password-error-message" class="error-message fs-14"></p>
+            <p
+              id="confirm-password-error-message"
+              class="error-message fs-14"
+            ></p>
             <button
               id="confirm-password-toggle"
               class="toggle-button"
@@ -54,7 +57,7 @@
             </button>
           </div>
         </div>
-        <button class="cta w-full fs-18" type="submit">회원가입</button>
+        <button class="btn w-full fs-18" type="submit">회원가입</button>
       </form>
       <div class="social-login-box w-full">
         <p class="social-login-text fs-14">다른 방식으로 가입하기</p>

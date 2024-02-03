@@ -1,6 +1,10 @@
 @import url("../css/reset.css");
 @import url("../css/common.css");
 
+* {
+  font-family: "pretendard";
+}
+
 body {
   padding-top: 23.8rem;
   background-color: var(--Linkbrary-bg);
@@ -72,10 +76,6 @@ input {
   height: 4.2rem;
 }
 
-.login-input:focus {
-  border-color: blue;
-}
-
 .login-input {
   line-height: 150%;
   padding: 1.8rem 1.5rem;
@@ -83,7 +83,7 @@ input {
   border: 0.1rem solid var(--gray20);
 }
 
-.cta {
+.btn {
   background: var(--gra-purpleblue-to-skyblue);
   height: 5.4rem;
   border-radius: 0.8rem;

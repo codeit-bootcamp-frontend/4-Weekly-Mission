@@ -41,11 +41,18 @@
   flex-direction: row;
 }
 
-.flex-center {
+.justify-center {
   justify-content: center;
+}
+
+.align-center {
   align-items: center;
 }
 
-input.login-input.border-red {
+input.border-red {
   border-color: red;
+}
+
+.text-center {
+  text-align: center;
 }

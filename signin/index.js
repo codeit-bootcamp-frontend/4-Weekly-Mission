@@ -2,7 +2,7 @@ const inputEmail = document.querySelector("input#email");
 const inputPassword = document.querySelector("input#password");
 const emailPtag = document.querySelector("p#email-error-message");
 const passwordPtag = document.querySelector("p#password-error-message");
-const loginButton = document.querySelector("button.cta");
+const loginButton = document.querySelector("button.btn");
 const toggleButton = document.querySelector("button.toggle-button");
 const eyeImagePassword = document.querySelector("button.toggle-button img");
 
@@ -86,7 +86,6 @@ function handleToggleButton() {
 function loginCheck(e) {
   e.preventDefault();
   if (isValidUser()) {
-    console.log("good");
     window.location.href = "/folder/index.html";
     return;
   }
