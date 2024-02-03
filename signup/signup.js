@@ -34,10 +34,10 @@ function onFocusOutEmail(e) {
     return;
   }
 
-  if (e.target.value === TEST_EMAIL) {
-    setInputError(e.target, emailError, "이미 사용 중인 이메일입니다.");
-    return;
-  }
+  // if (e.target.value === TEST_EMAIL) {
+  //   setInputError(e.target, emailError, "이미 사용 중인 이메일입니다.");
+  //   return;
+  // }
 }
 
 function onFocusOutPassword(e) {
@@ -55,10 +55,6 @@ function onFocusOutPassword(e) {
 
 function onSubmit(e) {
   e.preventDefault();
-
-  // !email.value?.trim() ||
-  // !password.value?.trim() ||
-  // !passwordConfirm.value?.trim() ||
 
   if (!email.value?.trim()) {
     setInputError(email, emailError, "이메일을 입력해주세요");
@@ -90,7 +86,25 @@ function onSubmit(e) {
     return;
   }
 
-  location.href = "/folder";
+  fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify({ email: email.value }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      if (data.error) {
+        setInputError(email, emailError, data.error.message);
+        return;
+      }
+      if (data.data.isUsableNickname) {
+        location.href = "/folder";
+      }
+    })
+    .catch((error) => console.log(error));
 }
 
 email.addEventListener("focusout", onFocusOutEmail);

@@ -25,7 +25,18 @@ function onSubmit(event) {
   event.preventDefault();
 
   if (email.value === TEST_EMAIL && password.value === TEST_PW) {
-    location.href = "/folder";
+    fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({ email: email.value, password: password.value }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        location.href = "/folder";
+      });
   } else {
     emailError.textContent = "이메일을 확인해 주세요.";
     passwordError.textContent = "비밀번호를 확인해 주세요.";

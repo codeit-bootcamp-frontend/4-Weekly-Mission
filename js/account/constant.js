@@ -3,4 +3,4 @@ export const EMAIL_REGEX = new RegExp(
 );
 
 export const TEST_EMAIL = "test@codeit.com";
-export const TEST_PW = "codeit101";
+export const TEST_PW = "sprint101";
