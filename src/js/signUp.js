@@ -3,6 +3,7 @@ import { addErrorMessage, removeErrorMessage } from '../utils/errorMessageContro
 import { emailInputEventHandler, eyeButtonEventHandler } from '../utils/eventHandler.js';
 import validValues from '../constant/validValues.js';
 import { validatePasswordInput } from '../utils/validate.js';
+import { checkDuplicateEmail } from '../utils/api.js';
 
 const {
   DUPLICATE_EMAIL_ERROR_MESSAGE,
@@ -17,14 +18,16 @@ const passwordConfirmInputTag = document.querySelector('#passwordConfirm');
 const eyeButtonTagList = document.querySelectorAll('.eye-button');
 const signUpButtonTag = document.querySelector('.sign-form-button');
 
-emailInputTag.addEventListener('blur', e => {
+emailInputTag.addEventListener('blur', async e => {
   const signInputBoxTag = e.target.parentElement;
   const errorTag = signInputBoxTag.querySelector('p');
   const emailValue = e.target.value;
 
   emailInputEventHandler(signInputBoxTag, emailValue, errorTag);
 
-  if (emailValue === validValues.email) {
+  const result = await checkDuplicateEmail(emailValue);
+
+  if (!result) {
     addErrorMessage(signInputBoxTag, DUPLICATE_EMAIL_ERROR_MESSAGE, errorTag);
   }
 });

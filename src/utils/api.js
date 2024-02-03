@@ -27,4 +27,29 @@ const postLoginData = async (email, password) => {
   }
 };
 
-export { postLoginData };
+const checkDuplicateEmail = async email => {
+  try {
+    const inputEmailData = {
+      email: email,
+    };
+
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(inputEmailData),
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    return true;
+  } catch (error) {
+    console.error('Error: ', error);
+    return false;
+  }
+};
+
+export { postLoginData, checkDuplicateEmail };
