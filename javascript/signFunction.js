@@ -1,6 +1,7 @@
-import { accountInfo } from "./account.js"
+import { register } from "./api/auth/register.js"
 import { emailRegex, passwordRegex } from "./regex.js"
 
+// 이메일 입력란에서 focus 일 때 이벤트 핸들러
 const emailFocus = (inputEmail, errorMessage) => {
   inputEmail.classList.remove('input-error')
   errorMessage.textContent = ''
@@ -8,19 +9,19 @@ const emailFocus = (inputEmail, errorMessage) => {
 
 // 이메일 입력란에서 blur 일 때 이벤트 핸들러
 const emailBlur = (inputEmail, errorMessage, signupValidation = false) => {
-  const matchedEmail = accountInfo.find((item) => item.email === inputEmail?.value)?.email
-
   if (inputEmail.value === '') {
     inputEmail.classList.add('input-error')
     errorMessage.textContent = '이메일을 입력해 주세요.'
+    return
   }
-  else if (!inputEmail.value.match(emailRegex)) {
+  if (!inputEmail.value.match(emailRegex)) {
     inputEmail.classList.add('input-error')
     errorMessage.textContent = '올바른 이메일 주소가 아닙니다.'
+    return
   }
-  else if (signupValidation && inputEmail.value === matchedEmail) {
-    inputEmail.classList.add('input-error')
-    errorMessage.textContent = '이미 사용 중인 이메일입니다.'
+  if (signupValidation) {
+    register()
+    return
   }
 }
 
@@ -35,10 +36,12 @@ const passwordBlur =  (inputPassword, errorMessage, signupValidation = false) =>
   if (inputPassword.value === '') {
     inputPassword.classList.add('input-error')
     errorMessage.textContent = '비밀번호를 입력해 주세요.'
+    return
   }
-  else if (signupValidation && !inputPassword.value.match(passwordRegex)) {
+  if (signupValidation && !inputPassword.value.match(passwordRegex)) {
     inputPassword.classList.add('input-error')
     errorMessage.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.'
+    return
   }
 }
 

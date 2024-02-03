@@ -21,9 +21,10 @@ const onSubmit = (e) => {
 
   const inputEmailValue = inputEmail.value
   const inputPasswordValue = inputPassword.value
-  const matchedEmail = accountInfo.find((item) => item.email === inputEmailValue)?.email
-  const matchedPassword = accountInfo.find((item) => item.password === inputPasswordValue)?.password
-  
+  const findEmail = accountInfo.find((item) => item.email === inputEmailValue)?.email
+  const findPassword = accountInfo.find((item) => item.password === inputPasswordValue)?.password
+  const matchedEmail = inputEmailValue === findEmail
+  const matchedPassword = inputPasswordValue === findPassword
 
   const inputErrorHandler = (inputType, errorMessage, type) => {
     if (type === 'email') {
@@ -35,19 +36,20 @@ const onSubmit = (e) => {
     errorPasswordMessage.textContent = errorMessage
   }
 
-  if (inputEmailValue === matchedEmail && inputPasswordValue === matchedPassword) {
+  if (matchedEmail && matchedPassword) {
     login()
+    return
   }
-  else if (inputEmailValue === matchedEmail && inputPasswordValue !== matchedPassword) {
+  if (matchedEmail && !matchedPassword) {
     inputErrorHandler(inputPassword, '비밀번호를 확인해 주세요', 'password')
+    return
   }
-  else if (inputEmailValue !== matchedEmail && inputPasswordValue === matchedPassword) {
+  if (!matchedEmail && matchedPassword) {
     inputErrorHandler(inputEmail, '이메일을 확인해 주세요', 'email')
+    return
   }
-  else {
-    inputErrorHandler(inputPassword, '비밀번호를 확인해 주세요', 'password')
-    inputErrorHandler(inputEmail, '이메일을 확인해 주세요', 'email')
-  }
+  inputErrorHandler(inputPassword, '비밀번호를 확인해 주세요', 'password')
+  inputErrorHandler(inputEmail, '이메일을 확인해 주세요', 'email')
 }
 
 // 이메일 입력란에 focus, blur 이벤트 추가
