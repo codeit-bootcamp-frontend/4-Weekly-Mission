@@ -1,7 +1,10 @@
 import { EMAIL_REGEX, TEST_EMAIL, TEST_PW } from "/js/account/constant.js";
-import { emailTest } from "../js/account/util.js";
-import { onInput } from "../js/account/util.js";
-import { iconToggle } from "../js/account/util.js";
+import {
+  emailTest,
+  onInput,
+  iconToggle,
+  setInputError,
+} from "../js/account/util.js";
 
 const email = document.querySelector("#email");
 const emailError = document.querySelector(".emailError");
@@ -35,8 +38,7 @@ function onFocusOutEmail(e) {
 
 function onFocusOutPassword(e) {
   if (!e.target.value) {
-    passwordError.textContent = "비밀번호를 입력해 주세요.";
-    e.target.classList.add("inputError");
+    setInputError(e.target, passwordError, "비밀번호를 입력해 주세요.");
     return;
   }
 }

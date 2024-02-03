@@ -1,5 +1,10 @@
 import { EMAIL_REGEX, TEST_EMAIL } from "/js/account/constant.js";
-import { emailTest, iconToggle, onInput } from "../js/account/util.js";
+import {
+  emailTest,
+  iconToggle,
+  onInput,
+  setInputError,
+} from "../js/account/util.js";
 
 const email = document.querySelector("#email");
 const emailError = document.querySelector(".emailError");
@@ -30,8 +35,7 @@ function onFocusOutEmail(e) {
   }
 
   if (e.target.value === TEST_EMAIL) {
-    emailError.textContent = "이미 사용 중인 이메일입니다.";
-    e.target.classList.add("inputError");
+    setInputError(e.target, emailError, "이미 사용 중인 이메일입니다.");
     return;
   }
 }
@@ -40,25 +44,49 @@ function onFocusOutPassword(e) {
   const password = e.target.value;
   const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
   if (password.length < 8 || !passwordRegex.test(password)) {
-    passwordError.textContent =
-      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
-    e.target.classList.add("inputError");
+    setInputError(
+      e.target,
+      passwordError,
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
+    );
     return;
   }
 }
 
 function onSubmit(e) {
   e.preventDefault();
+
+  // !email.value?.trim() ||
+  // !password.value?.trim() ||
+  // !passwordConfirm.value?.trim() ||
+
+  if (!email.value?.trim()) {
+    setInputError(email, emailError, "이메일을 입력해주세요");
+  }
+  if (!password.value?.trim()) {
+    setInputError(password, passwordError, "비밀번호를 입력해주세요");
+  }
+  if (!passwordConfirm.value?.trim()) {
+    setInputError(
+      passwordConfirm,
+      passwordConfirmError,
+      "비밀번호를 다시한번 입력해주세요."
+    );
+  }
+
   if (
-    emailError.classList.contains("inputError") ||
+    email.classList.contains("inputError") ||
     password.classList.contains("inputError")
   ) {
     return;
   }
 
   if (passwordConfirm.value !== password.value) {
-    passwordConfirmError.textContent = "비밀번호가 일치하지 않아요.";
-    passwordConfirm.classList.add("inputError");
+    setInputError(
+      passwordConfirm,
+      passwordConfirmError,
+      "비밀번호가 일치하지 않아요."
+    );
     return;
   }
 
