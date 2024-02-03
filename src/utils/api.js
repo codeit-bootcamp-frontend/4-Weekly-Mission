@@ -1,3 +1,7 @@
+import CODEIT_API_URL from '../constant/url.js';
+
+const { CODEIT_API_SIGN_IN, CODEIT_API_SIGN_UP, CODEIT_API_CHECK_EMAIL } = CODEIT_API_URL;
+
 const postLoginData = async (email, password) => {
   try {
     const loginData = {
@@ -5,7 +9,7 @@ const postLoginData = async (email, password) => {
       password: password,
     };
 
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+    const response = await fetch(CODEIT_API_SIGN_IN, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +40,7 @@ const checkDuplicateEmail = async email => {
       email: email,
     };
 
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+    const response = await fetch(CODEIT_API_CHECK_EMAIL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -62,7 +66,7 @@ const postRegisterData = async (email, password) => {
       password: password,
     };
 
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+    const response = await fetch(CODEIT_API_SIGN_UP, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
