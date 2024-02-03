@@ -17,7 +17,6 @@ const login = async () => {
   if (response.status === 200) {
     const result = await response.json()
     localStorage.setItem('accessToken', result.data.accessToken)
-    window.location.assign('folder.html')
   }
 }
 

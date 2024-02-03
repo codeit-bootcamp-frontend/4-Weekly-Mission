@@ -1,4 +1,4 @@
-import { register } from "./api/auth/register.js"
+import { emailDoubleCheck } from "./api/auth/emailCheck.js"
 import { emailRegex, passwordRegex } from "./regex.js"
 
 // 이메일 입력란에서 focus 일 때 이벤트 핸들러
@@ -20,7 +20,7 @@ const emailBlur = (inputEmail, errorMessage, signupValidation = false) => {
     return
   }
   if (signupValidation) {
-    register()
+    emailDoubleCheck()
     return
   }
 }

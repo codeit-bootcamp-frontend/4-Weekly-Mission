@@ -38,6 +38,7 @@ const onSubmit = (e) => {
 
   if (matchedEmail && matchedPassword) {
     login()
+    window.location.assign('folder.html')
     return
   }
   if (matchedEmail && !matchedPassword) {
