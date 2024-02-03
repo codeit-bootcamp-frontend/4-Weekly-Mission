@@ -1,4 +1,4 @@
-import { setToken } from "../token.js";
+import { setToken } from "../utils/token.js";
 
 const baseURL = "https://bootcamp-api.codeit.kr";
 
