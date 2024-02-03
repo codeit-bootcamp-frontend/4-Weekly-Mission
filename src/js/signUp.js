@@ -1,7 +1,6 @@
 import ERROR_MESSAGES from '../constant/errorMessages.js';
 import { addErrorMessage, removeErrorMessage } from '../utils/errorMessageController.js';
 import { emailInputEventHandler, eyeButtonEventHandler } from '../utils/eventHandler.js';
-import validValues from '../constant/validValues.js';
 import { validatePasswordInput } from '../utils/validate.js';
 import { checkDuplicateEmail, postRegisterData } from '../utils/api.js';
 import { initializeSignPage } from '../utils/init.js';

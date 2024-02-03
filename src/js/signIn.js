@@ -1,5 +1,4 @@
 import ERROR_MESSAGES from '../constant/errorMessages.js';
-import validValues from '../constant/validValues.js';
 import { addErrorMessage } from '../utils/errorMessageController.js';
 import { emailInputEventHandler, passwordInputEventHandler, eyeButtonEventHandler } from '../utils/eventHandler.js';
 import { postLoginData } from '../utils/api.js';
