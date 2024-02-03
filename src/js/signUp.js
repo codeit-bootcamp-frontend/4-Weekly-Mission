@@ -3,7 +3,7 @@ import { addErrorMessage, removeErrorMessage } from '../utils/errorMessageContro
 import { emailInputEventHandler, eyeButtonEventHandler } from '../utils/eventHandler.js';
 import validValues from '../constant/validValues.js';
 import { validatePasswordInput } from '../utils/validate.js';
-import { checkDuplicateEmail } from '../utils/api.js';
+import { checkDuplicateEmail, postRegisterData } from '../utils/api.js';
 
 const {
   DUPLICATE_EMAIL_ERROR_MESSAGE,
@@ -57,7 +57,7 @@ passwordConfirmInputTag.addEventListener('blur', e => {
   }
 });
 
-signUpButtonTag.addEventListener('click', e => {
+signUpButtonTag.addEventListener('click', async e => {
   e.preventDefault();
   const signInputList = document.querySelectorAll('.sign-input');
   signInputList.forEach(element => {
@@ -70,7 +70,11 @@ signUpButtonTag.addEventListener('click', e => {
 
   const invalidInputErrorClassList = document.querySelectorAll('.invalid-input-error');
   if (invalidInputErrorClassList.length === 0) {
-    window.location.href = '../pages/folder.html';
+    const result = await postRegisterData(emailInputTag.value, passwordInputTag.value);
+
+    if (result) {
+      window.location.href = '../pages/folder.html';
+    }
   }
 });
 
