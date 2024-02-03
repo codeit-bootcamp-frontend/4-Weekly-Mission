@@ -4,12 +4,23 @@ import {
   emailError,
   passwordError,
   eyeIcon,
-  TEST_EMAIL,
   isEmail,
   removeEmpty,
   eyeIconOn,
   eyeIconOff,
 } from '../src/common/sign.js';
+
+import {
+  TEST_EMAIL,
+  EMAIL_CHECK_MESSAGE,
+  PASSWORD_CHECK_MESSAGE,
+  EMPTY_EMAIL_MESSAGE,
+  EMPTY_PASSWORD_MESSAGE,
+  ERROR_EMAIL_MESSAGE,
+  DUPLICATE_EMAIL_MESSAGE,
+  ERROR_INVALID_PASSWORD_MESSAGE,
+  ERROR_MATCH_PASSWORD_MESSAGE,
+} from '../src/common/constants.js';
 
 const passwordCheck = document.querySelector('.password_check');
 const passwordReCheck = document.querySelector('.password_recheck');
@@ -22,13 +33,13 @@ const onSubmit = (e) => {
   e.preventDefault();
 
   if (isValid[0] === false) {
-    emailError.textContent = '이메일을 확인해 주세요.';
+    emailError.textContent = EMAIL_CHECK_MESSAGE;
   }
   if (isValid[1] === false) {
-    passwordError.textContent = '비밀번호를 확인해 주세요.';
+    passwordError.textContent = PASSWORD_CHECK_MESSAGE;
   }
   if (isValid[2] === false) {
-    passwordErrorCheck.textContent = '비밀번호를 확인해 주세요.';
+    passwordErrorCheck.textContent = PASSWORD_CHECK_MESSAGE;
   } else if (isValid.includes(false) === false) {
     location.href = '/folder/folder.html';
   }
@@ -38,15 +49,15 @@ const emailInputCheck = (e) => {
   e.target.value = removeEmpty(e.target.value);
 
   if (e.target.value.length <= 0) {
-    emailError.textContent = '이메일을 입력해 주세요.';
+    emailError.textContent = EMPTY_EMAIL_MESSAGE;
     e.target.classList.add('inputError');
     isValid[0] = false;
-  } else if (!isEmail(email.value)) {
-    emailError.textContent = '올바른 이메일 주소가 아닙니다.';
+  } else if (!isEmail(e.target.email.value)) {
+    emailError.textContent = ERROR_EMAIL_MESSAGE;
     e.target.classList.add('inputError');
     isValid[0] = false;
   } else if (e.target.value === TEST_EMAIL) {
-    emailError.textContent = '이미 사용 중인 이메일입니다.';
+    emailError.textContent = DUPLICATE_EMAIL_MESSAGE;
     isValid[0] = false;
   } else {
     emailError.textContent = '';
@@ -59,7 +70,7 @@ const passwordInputCheck = (e) => {
   e.target.value = removeEmpty(e.target.value);
 
   if (e.target.value.length <= 0) {
-    passwordError.textContent = '비밀번호를 입력해 주세요.';
+    passwordError.textContent = EMPTY_PASSWORD_MESSAGE;
     e.target.classList.add('inputError');
     isValid[1] = false;
   } else if (
@@ -67,7 +78,7 @@ const passwordInputCheck = (e) => {
     !/\d/.test(e.target.value) ||
     !/[a-zA-Z]/.test(e.target.value)
   ) {
-    passwordError.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
+    passwordError.textContent = ERROR_INVALID_PASSWORD_MESSAGE;
     e.target.classList.add('inputError');
     isValid[1] = false;
   } else {
@@ -81,7 +92,7 @@ const passwordInputRecheck = (e) => {
   e.target.value = removeEmpty(e.target.value);
 
   if (e.target.value.length <= 0) {
-    passwordErrorCheck.textContent = '비밀번호를 입력해 주세요.';
+    passwordErrorCheck.textContent = EMPTY_PASSWORD_MESSAGE;
     e.target.classList.add('inputError');
     isValid[2] = false;
   } else if (
@@ -89,11 +100,11 @@ const passwordInputRecheck = (e) => {
     !/\d/.test(e.target.value) ||
     !/[a-zA-Z]/.test(e.target.value)
   ) {
-    passwordErrorCheck.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
+    passwordErrorCheck.textContent = ERROR_INVALID_PASSWORD_MESSAGE;
     e.target.classList.add('inputError');
     isValid[2] = false;
   } else if (passwordCheck.value !== e.target.value) {
-    passwordErrorCheck.textContent = '비밀번호가 일치하지 않아요.';
+    passwordErrorCheck.textContent = ERROR_MATCH_PASSWORD_MESSAGE;
     e.target.classList.add('inputError');
     isValid[2] = false;
   } else {
