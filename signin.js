@@ -51,11 +51,14 @@ function signIn(event) {
   })
     .then((response) => {
       if (response.status === 200) {
-        // 응답이 200인 경우에만 페이지를 이동
-        window.location.replace("./folder.html");
+        return response.json();
       } else {
-        console.error(response.status);
+        throw new Error("로그인 실패");
       }
+    })
+    .then((response) => {
+      localStorage.setItem("access-token", response.data.accessToken);
+      window.location.replace("./folder.html");
     })
     .catch((error) => {
       // fetch 요청 자체가 실패한 경우에 대한 처리
@@ -68,7 +71,7 @@ function signIn(event) {
     parentElement.appendChild(emailMessage);
   }
 
-  if (password !== "codeit101") {
+  if (password !== "sprint101") {
     const passwordMessage = getNewMessageElement("비밀번호를 확인해 주세요.");
     const parentElement = document.querySelector(".sign-password");
     parentElement.appendChild(passwordMessage);
