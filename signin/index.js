@@ -4,18 +4,29 @@ import {
   isEmpty,
   removeError,
   toggleError,
-  toggleErrorVisibility,
+  showHidePassword,
 } from "./common.js";
 
-window.onload = function () {
-  // 로컬 스토리지에서 accessToken 가져오기
+// window.onload = function () {
+//   // 로컬 스토리지에서 accessToken 가져오기
+//   const storedAccessToken = localStorage.getItem("accessToken");
+
+//   // accessToken이 존재하는 경우 '/folder' 페이지로 이동
+//   if (storedAccessToken) {
+//     window.location.href = "../folder/index.html";
+//   }
+// };
+
+window.addEventListener("load", function (e) {
   const storedAccessToken = localStorage.getItem("accessToken");
 
-  // accessToken이 존재하는 경우 '/folder' 페이지로 이동
-  if (storedAccessToken) {
-    window.location.href = "../folder/index.html";
+  if (!storedAccessToken) {
+    //안티패턴 활용
+    return null;
   }
-};
+
+  return (window.location.href = "../folder/index.html");
+});
 
 /**
  * HTML DOM Elements
@@ -23,39 +34,36 @@ window.onload = function () {
 const emailInput = document.querySelector("#email-input");
 const passwordInput = document.querySelector("#pw-input");
 const loginButton = document.querySelector(".login-button");
-const showPasswordButton = document.querySelectorAll(".eyeoff-button")[0];
+const eyeImgElement =
+  document.querySelectorAll(".eyeoff-button")[0].firstElementChild;
 const emailErrorMessage = document.querySelector(".email-error");
 const pwErrorMessage = document.querySelector(".pw-error");
-
+const signinFormElement = document.querySelector(".signin-form");
 /**
  * UI Event Listeners
  */
-emailInput.addEventListener("focusout", isValidEmail);
-passwordInput.addEventListener("focusout", isValidPassword);
-// emailInput.addEventListener("focusout", handleLogin);
-// passwordInput.addEventListener("focusout", handleLogin);
-loginButton.addEventListener("click", function (event) {
-  event.preventDefault();
-
-  handleLogin(event);
-});
+emailInput.addEventListener("focusout", validateEmail);
+passwordInput.addEventListener("focusout", validatePassword);
+loginButton.addEventListener("click", handleLogin);
 
 //onSubmit을 활용하면 eyeoff-button이 클릭되는데 어떻게 해야 할까요?
-emailInput.addEventListener("keypress", function (event) {
-  if (event.key == "Enter") {
-    event.preventDefault();
-    handleLogin(event);
-  }
-});
-passwordInput.addEventListener("keypress", function (event) {
-  if (event.key == "Enter") {
-    event.preventDefault();
-    handleLogin(event);
-  }
-});
+// emailInput.addEventListener("keypress", function (event) {
+//   if (event.key == "Enter") {
+//     event.preventDefault();
+//     handleLogin(event);
+//   }
+// });
+// passwordInput.addEventListener("keypress", function (event) {
+//   if (event.key == "Enter") {
+//     event.preventDefault();
+//     handleLogin(event);
+//   }
+// });
+
+signinFormElement.addEventListener("submit", handleLogin);
 
 //이메일 에러 확인
-function isValidEmail() {
+function validateEmail() {
   const email = emailInput.value;
   const isEmailEmpty = isEmpty(email);
   removeError(emailErrorMessage);
@@ -72,7 +80,7 @@ function isValidEmail() {
 }
 
 //비밀번호 에러 확인
-function isValidPassword() {
+function validatePassword() {
   const password = passwordInput.value;
   removeError(pwErrorMessage);
   if (isEmpty(password)) {
@@ -95,7 +103,12 @@ async function isValidUser(loginInfo) {
     });
 
     if (!response.ok) {
-      throw new Error(response.statusText);
+      // throw new Error(response.statusText);
+      // const errorResponse = await response.json();
+      // const errorMessage = errorResponse.error.message;
+      // throw new Error(errorMessage);
+      //error을 던지면 서버 오류와 같이 처리되기 때문에 그냥 false를 리턴
+      return false;
     }
 
     const result = await response.json();
@@ -104,19 +117,22 @@ async function isValidUser(loginInfo) {
     location.href = "../folder/index.html";
     return true;
   } catch (err) {
-    return false;
+    alert("서버 오류가 발생했습니다.");
   }
 }
 
 //로그인 시도
-async function handleLogin() {
+async function handleLogin(e) {
+  e.preventDefault();
   try {
     const email = emailInput.value;
     const password = passwordInput.value;
-    if (isValidEmail() && isValidPassword()) {
+    if (validateEmail() && validatePassword()) {
       const loginInfo = { email: email, password: password };
       const isValidUserResult = await isValidUser(loginInfo);
-      if (!isValidUserResult) {
+      //서버 오류가 발생하면 isValidUserResult가 undefined
+      //회원가입 정보가 틀렸는데 서버 오류가 아닐 때
+      if (!isValidUserResult && isValidUserResult !== undefined) {
         toggleError(emailErrorMessage, "이메일을 확인해 주세요.");
         toggleError(pwErrorMessage, "비밀번호를 확인해 주세요.");
       }
@@ -128,7 +144,7 @@ async function handleLogin() {
 
 //눈모양 아이콘
 
-showPasswordButton.addEventListener("click", function (event) {
+eyeImgElement.addEventListener("click", function (event) {
   event.preventDefault();
-  toggleErrorVisibility(passwordInput, showPasswordButton);
+  showHidePassword(passwordInput, eyeImgElement);
 });
