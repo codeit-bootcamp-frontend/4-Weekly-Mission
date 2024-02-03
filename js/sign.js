@@ -1,43 +1,40 @@
-// // 이메일 입력
-// const querySelector = (selector) => document.querySelector(selector);
+// 이메일 유효성 검사
+export function isValidEmail(email) {
+  const EMAIL_REGEX = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return EMAIL_REGEX.test(email);
+}
 
-// const emailInput = querySelector("#email-input");
-// const emailErrorMessage = querySelector("#email-error-message");
+// 비밀번호 유효성 검사
+export function isValidPassword(password) {
+  const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  return PASSWORD_REGEX.test(password);
+}
 
-// emailInput.addEventListener("focusout", validateEmailInput);
+// 오류 메시지 표시
+export function showErrorMessage(inputElement, messageElement, message) {
+  messageElement.textContent = message;
+  messageElement.classList.add("show");
+  inputElement.classList.add("sign-input-error");
+  inputElement.classList.add("error-focus");
+}
 
-// function validateEmailInput(emailInput, emailErrorMessage, isValidateEmail, showEmailErrorMessage, hideEmailErrorMessage) {
-//   const email = emailInput.value.trim();
+// 오류 메시지 숨기기
+export function hideErrorMessage(inputElement, messageElement) {
+  messageElement.textContent = "";
+  messageElement.classList.remove("show");
+  inputElement.classList.remove("sign-input-error");
+  inputElement.classList.remove("error-focus");
+}
 
-//   if (email === "") {
-//     showEmailErrorMessage(emailErrorMessage, "이메일을 입력해 주세요.");
-//     return;
-//   }
-
-//   if (!isValidateEmail(email)) {
-//     showEmailErrorMessage(emailErrorMessage, "올바른 이메일 주소가 아닙니다.");
-//     return;
-//   }
-
-//   hideEmailErrorMessage(emailInput, emailErrorMessage);
-// }
-
-// function isValidateEmail(email) {
-//   return EMAIL_REGEX.test(email);
-// }
-
-// function showEmailErrorMessage(message) {
-//   emailErrorMessage.textContent = message;
-//   emailErrorMessage.classList.add("show");
-//   emailInput.classList.add("sign-input-error");
-//   emailInput.classList.add("error-focus");
-// }
-
-// function hideEmailErrorMessage() {
-//   emailErrorMessage.textContent = "";
-//   emailErrorMessage.classList.remove("show");
-//   emailInput.classList.remove("sign-input-error");
-//   emailInput.classList.remove("error-focus");
-// }
-
-// export { emailInput, emailErrorMessage, validateEmailInput, isValidateEmail, showEmailErrorMessage, hideEmailErrorMessage };
+// 눈 아이콘 클릭 핸들러
+export function togglePasswordVisibility(inputElement, eyeOffButton, eyeOnButton) {
+  if (inputElement.type === "password") {
+    inputElement.type = "text";
+    eyeOffButton.classList.add("hide");
+    eyeOnButton.classList.remove("hide");
+  } else {
+    inputElement.type = "password";
+    eyeOffButton.classList.remove("hide");
+    eyeOnButton.classList.add("hide");
+  }
+}
