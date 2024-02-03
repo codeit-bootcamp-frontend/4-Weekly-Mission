@@ -1,4 +1,4 @@
-import { isEmailDuplicate } from './api/authAPI.js';
+import { isEmailDuplicate, postSignUp } from './api/authAPI.js';
 import { MESSAGE, TEST_AUTH } from './constants/SIGN.js';
 import {
   emailInput,
@@ -45,13 +45,18 @@ const validPwForSignUp = () => {
   return isValidatePw() && isPasswordMatch();
 };
 
-const handleSignUp = (e) => {
+const handleSignUp = async (e) => {
   e.preventDefault();
 
-  const isValidEmail = validEmailForSignUp();
-  const isValidPw = validPwForSignUp();
-
-  if (isValidEmail && isValidPw) window.location.href = 'folder.html';
+  try {
+    if (validPwForSignUp()) {
+      await postSignUp({ email: emailInput.value, password: pwInput.value });
+      alert('회원가입 성공🥳');
+      window.location.href = 'folder.html';
+    }
+  } catch (error) {
+    alert('회원가입을 다시 시도 해주세요😭');
+  }
 };
 
 emailInput.addEventListener('focusout', validEmailForSignUp);

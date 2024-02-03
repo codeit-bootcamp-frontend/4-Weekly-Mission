@@ -6,7 +6,7 @@ const postLogin = async ({ email, password }) => {
     const res = await post(API.AUTH.SIGN_IN, { email, password });
     return res;
   } catch (error) {
-    console.log(error);
+    console.log('로그인 중 오류 발생');
     throw error;
   }
 };
@@ -16,9 +16,19 @@ const isEmailDuplicate = async ({ email }) => {
     const res = await post(API.AUTH.EMAIL_DUPLICATE, { email });
     return res;
   } catch (error) {
-    console.log('이메일 중복확인 중 오류 발생', error);
+    console.log('이메일 중복확인 중 오류 발생');
     throw error;
   }
 };
 
-export { postLogin, isEmailDuplicate };
+const postSignUp = async ({ email, password }) => {
+  try {
+    const res = await post(API.AUTH.SIGN_UP, { email, password });
+    return res;
+  } catch (error) {
+    console.log('회원가입 중 오류 발생');
+    throw error;
+  }
+};
+
+export { postLogin, isEmailDuplicate, postSignUp };
