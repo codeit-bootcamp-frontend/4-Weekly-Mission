@@ -99,7 +99,22 @@ function checkSignup(event) {
       passwordError.style.display === "none" &&
       passwordCheckError.style.display === "none"
     ) {
-      window.location.href = "/folder.html";
+      const signupData = {
+        email: emailInput.value,
+        password: passwordInput.value,
+      };
+      // 서버로 유효한 회원가입 형식 체크
+      fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(signupData),
+      }).then((response) => {
+        if (response.status == 200) {
+          window.location.href = "/folder.html";
+        }
+      });
     }
   }
 }
