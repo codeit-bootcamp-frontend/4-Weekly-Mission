@@ -37,3 +37,24 @@ export const emailCheckInquire = async (data) => {
     console.error(e);
   }
 };
+
+export const signUpInquire = async (data) => {
+  try {
+    const res = await fetch(`${baseURL}/api/sign-up`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    if (res.ok) {
+      const token = await res.json();
+      setToken(token);
+      return res;
+    } else {
+      throw new Error("회원가입 실패");
+    }
+  } catch (e) {
+    console.error(e);
+  }
+};

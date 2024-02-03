@@ -1,4 +1,4 @@
-import { TEST_AUTH, ERROR_MESSAGES } from "./constants/VALIDATION.js";
+import { ERROR_MESSAGES } from "./constants/VALIDATION.js";
 import {
   emailError,
   emailInput,
@@ -14,14 +14,19 @@ import {
   showError,
   isValidFormat,
 } from "./auth.js";
-import { emailCheckInquire } from "./services/auth.js";
+import { emailCheckInquire, signUpInquire } from "./services/auth.js";
 import { getTokens } from "./token.js";
+
 const tokens = getTokens();
+const email = emailInput.value.trim();
+const password = pwInput.value.trim();
+const pwConfirm = pwConfirmInput.value.trim();
+
 if (tokens.accessToken) window.location.href = "folder.html";
+
 const validateEmailDuplication = async () => {
-  const email = emailInput.value.trim();
   const userData = {
-    email: email,
+    email: emailInput.value.trim(),
   };
   try {
     const result = await emailCheckInquire(userData);
@@ -36,31 +41,37 @@ const validateEmailDuplication = async () => {
 };
 
 const isEmailDuplicate = await validateEmailDuplication();
-const isEmailValid =
-  emailInput.value.trim() !== "" &&
-  isValidFormat("email", emailInput.value.trim());
-const isPwValid =
-  pwInput.value.trim() !== "" && isValidFormat("pw", pwInput.value.trim());
-const isPwConfirmValid =
-  pwConfirmInput.value.trim() !== "" &&
-  pwInput.value.trim() === pwConfirmInput.value.trim();
+const isEmailValid = email !== "" && isValidFormat("email", email);
+const isPwValid = password !== "" && isValidFormat("pw", password);
+const isPwConfirmValid = pwConfirm !== "" && password === pwConfirm;
 
-const handleSignUp = (e) => {
+const handleSignUp = async (e) => {
   e.preventDefault();
+  const userData = {
+    email: emailInput.value.trim(),
+    password: pwInput.value.trim(),
+  };
   const isAllValid =
     !isEmailDuplicate && isEmailValid && isPwValid && isPwConfirmValid;
-  console.log("!isEmailDuplicate", !isEmailDuplicate);
-  console.log(isValidFormat("email", emailInput.value.trim()));
-  console.log(emailInput.value.trim() !== "");
-  console.log("isEmailValid", isEmailValid);
-  console.log("isPwValid", isPwValid);
-  console.log("isPwConfirmValid", isPwConfirmValid);
+  // console.log("!isEmailDuplicate", !isEmailDuplicate);
+  // console.log(isValidFormat("email", emailInput.value.trim()));
+  // console.log(emailInput.value.trim() !== "");
+  // console.log("isEmailValid", isEmailValid);
+  // console.log("isPwValid", isPwValid);
+  // console.log("isPwConfirmValid", isPwConfirmValid);
 
-  if (isAllValid) {
-    alert("회원가입 성공!");
-    window.location.href = "folder.html";
+  // if (isAllValid) {
+  try {
+    const result = await signUpInquire(userData);
+    if (result.ok) {
+      alert("회원가입 성공!");
+      window.location.href = "folder.html";
+    }
+  } catch (e) {
+    console.error(e);
   }
 };
+// };
 
 const handleEmailInput = () => {
   validateEmail();

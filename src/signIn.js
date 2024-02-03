@@ -13,7 +13,9 @@ import {
 } from "./auth.js";
 import { loginInquire } from "./services/auth.js";
 import { getTokens } from "./token.js";
+
 const tokens = getTokens();
+
 if (tokens.accessToken) window.location.href = "folder.html";
 
 const handleFail = () => {
