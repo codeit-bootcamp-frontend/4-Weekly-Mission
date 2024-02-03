@@ -1,100 +1,61 @@
-import {
-  ERROR_MESSAGE,
-  TEST_USER,
-  emailCheck,
-  passwordCheck,
-} from "./constant.js";
+import { ERROR_MESSAGE, TEST_USER } from "./constant.js";
+import { emailCheck, passwordCheck } from "./utils.js";
 
-const setErrorMessage = (currentElement, errorMsg) => {
+const setError = (currentElement, errorTextElement, errorMessage) => {
   currentElement.classList.add("errorInput");
-  currentElement.nextElementSibling.textContent = errorMsg;
+  errorTextElement.textContent = errorMessage;
 };
-const removeErrorMessage = (currentElement) => {
+const removeError = (currentElement, errorTextElement) => {
   currentElement.classList.remove("errorInput");
-  currentElement.nextElementSibling.textContent = "";
+  errorTextElement.textContent = "";
 };
 
-const noInputValue = (currentElement) => {
-  const noInputText =
-    currentElement.type === "email"
-      ? ERROR_MESSAGE.NO_INPUT_EMAIL
-      : ERROR_MESSAGE.NO_INPUT_PASSWORD;
-  if (!currentElement.value) {
-    setErrorMessage(currentElement, noInputText);
-  }
-};
-
-const isValidEmail = (currentElement) => {
-  if (!emailCheck(currentElement.value)) {
-    setErrorMessage(currentElement, ERROR_MESSAGE.INVALID_EMAIL);
-  } else {
-    removeErrorMessage(currentElement);
-  }
-};
-const isValidPassword = (currentElement) => {
-  if (!passwordCheck(currentElement.value)) {
-    setErrorMessage(currentElement, ERROR_MESSAGE.INVALID_PASSWORD);
-  } else {
-    removeErrorMessage(currentElement);
-  }
-};
-
-const confirmEmail = (currentElement) => {
-  if (currentElement.value === TEST_USER.ID) {
-    setErrorMessage(currentElement, ERROR_MESSAGE.REGISTERED_EMAIL);
-  }
-};
-const confirmPasswordMatch = (currentElement) => {
-  const passwordElement = document.getElementById("password");
-
-  if (currentElement.value !== passwordElement.value) {
-    setErrorMessage(currentElement, ERROR_MESSAGE.DO_NOT_MATCH_PASSWORD);
-  } else {
-    removeErrorMessage(currentElement);
-  }
-};
-const confirmUserLogin = (currentElement) => {
+const confirmUserLogin = (currentElement, emailErrorElement, passwordErrorElement) => {
   const email = currentElement[0];
   const password = currentElement[1];
 
   if (email.value === TEST_USER.ID && password.value === TEST_USER.PASSWORD) {
     window.location.href = "/folder";
   } else {
-    setErrorMessage(email, ERROR_MESSAGE.CONFIRM_EMAIL);
-    setErrorMessage(password, ERROR_MESSAGE.CONFIRM_PASSWORD);
+    setError(email, emailErrorElement, ERROR_MESSAGE.CONFIRM_EMAIL);
+    setError(password, passwordErrorElement, ERROR_MESSAGE.CONFIRM_PASSWORD);
   }
 };
-const confirmForm = (currentForm) => {
-  const emailElement = currentForm[0];
-  const passwordElement = currentForm[1];
-  const passwordConfirmElement = currentForm[2];
-
+const confirmEmail = (emailElement, emailErrorElement) => {
   if (!emailCheck(emailElement.value) || emailElement.value === TEST_USER.ID) {
-    setErrorMessage(emailElement, ERROR_MESSAGE.CONFIRM_EMAIL);
+    setError(emailElement, emailErrorElement, ERROR_MESSAGE.CONFIRM_EMAIL);
+    return false;
+  } else {
+    removeError(emailElement, emailErrorElement);
+    return true;
   }
+};
+const confirmPassword = (passwordElement, passwordErrorElement) => {
   if (!passwordCheck(passwordElement.value)) {
-    setErrorMessage(password, ERROR_MESSAGE.CONFIRM_PASSWORD);
+    setError(passwordElement, passwordErrorElement, ERROR_MESSAGE.CONFIRM_PASSWORD);
+    return false;
+  } else {
+    removeError(passwordElement, passwordErrorElement);
+    return true;
   }
-  if (passwordElement.value !== passwordConfirmElement.value) {
-    setErrorMessage(passwordConfirmElement, ERROR_MESSAGE.CONFIRM_PASSWORD);
+};
+const confirmPasswordCheck = (pwElement, pwCheckElement, pwCheckErrorElement) => {
+  if (pwElement.value !== pwCheckElement.value) {
+    setError(pwCheckElement, pwCheckErrorElement, ERROR_MESSAGE.CONFIRM_PASSWORD);
+    return false;
+  } else {
+    removeError(pwCheckElement, pwCheckErrorElement);
+    return true;
   }
 };
 
-const confirmUserRegister = (currentElement) => {
-  confirmForm(currentElement);
-  const elementsArr = [...currentElement];
-  const satisfy = elementsArr.some((element) =>
-    element.classList.contains("errorInput")
-  );
-  if (!satisfy) {
-    window.location.href = "/folder";
-  }
+const registerUser = () => {
+  window.location.href = "/folder";
 };
 
-const eyeClickHandler = (e) => {
-  const currentPassword = e.target.parentElement.children[1];
-  e.target.classList.toggle("on");
-  if (e.target.classList.contains("on")) {
+const toggleEye = (currentPassword, currentEye) => {
+  currentEye.classList.toggle("on");
+  if (currentEye.classList.contains("on")) {
     currentPassword.removeAttribute("type");
   } else {
     currentPassword.setAttribute("type", "password");
@@ -102,13 +63,12 @@ const eyeClickHandler = (e) => {
 };
 
 export {
-  noInputValue,
-  isValidEmail,
-  isValidPassword,
-  confirmEmail,
-  confirmPasswordMatch,
+  setError,
+  removeError,
   confirmUserLogin,
-  confirmUserRegister,
-  eyeClickHandler,
-  removeErrorMessage,
+  confirmEmail,
+  confirmPassword,
+  confirmPasswordCheck,
+  registerUser,
+  toggleEye,
 };

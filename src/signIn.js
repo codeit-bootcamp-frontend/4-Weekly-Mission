@@ -1,34 +1,43 @@
-import {
-  noInputValue,
-  isValidEmail,
-  removeErrorMessage,
-  confirmUserLogin,
-  eyeClickHandler,
-} from "./sign.js";
+import { setError, removeError, confirmUserLogin, toggleEye } from "./sign.js";
+import { ERROR_MESSAGE } from "./constant.js";
+import { emailCheck } from "./utils.js";
 
 const formElement = document.querySelector(".sign-form");
 const emailElement = document.getElementById("email");
 const passwordElement = document.getElementById("password");
-const eyePassword = document.querySelector(".eye");
+const emailErrorElement = document.getElementById("emailErrorMessage");
+const passwordErrorElement = document.getElementById("passwordErrorMessage");
+const eyePassword = document.getElementById("eyePassword");
 
-const focusOutHandler = (e) => {
-  const currentInput = e.target;
-  if (!currentInput.value) {
-    noInputValue(currentInput); //값이 없는지 확인
-  } else if (currentInput.type === "email") {
-    isValidEmail(currentInput); //이메일 유효성 체크
+const emailFocusOutHandler = () => {
+  if (!emailElement.value) {
+    setError(emailElement, emailErrorElement, ERROR_MESSAGE.NO_INPUT_EMAIL); //값이 없으면
+  } else if (!emailCheck(emailElement.value)) {
+    setError(emailElement, emailErrorElement, ERROR_MESSAGE.INVALID_EMAIL); //이메일 유효성 체크
   } else {
-    removeErrorMessage(currentInput);
+    removeError(emailElement, emailErrorElement);
+  }
+};
+
+const passwordFocusOutHandler = () => {
+  if (!passwordElement.value) {
+    setError(passwordElement, passwordErrorElement, ERROR_MESSAGE.NO_INPUT_PASSWORD);
+  } else {
+    removeError(passwordElement, passwordErrorElement);
   }
 };
 
 const submitLoginForm = (e) => {
   e.preventDefault();
-  confirmUserLogin(e.target);
+  confirmUserLogin(e.target, emailErrorElement, passwordErrorElement);
 };
 
-emailElement.addEventListener("focusout", focusOutHandler);
-passwordElement.addEventListener("focusout", focusOutHandler);
+const eyePasswordHandler = () => {
+  toggleEye(passwordElement, eyePassword);
+};
+
+emailElement.addEventListener("focusout", emailFocusOutHandler);
+passwordElement.addEventListener("focusout", passwordFocusOutHandler);
 
 formElement.addEventListener("submit", submitLoginForm);
-eyePassword.addEventListener("click", eyeClickHandler);
+eyePassword.addEventListener("click", eyePasswordHandler);

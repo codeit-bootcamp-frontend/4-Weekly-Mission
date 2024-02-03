@@ -1,47 +1,84 @@
+import { ERROR_MESSAGE, TEST_USER } from "./constant.js";
 import {
-  noInputValue,
-  isValidEmail,
-  isValidPassword,
+  setError,
+  removeError,
   confirmEmail,
-  confirmPasswordMatch,
-  confirmUserRegister,
-  eyeClickHandler,
+  confirmPassword,
+  confirmPasswordCheck,
+  registerUser,
+  toggleEye,
 } from "./sign.js";
+import { emailCheck, passwordCheck } from "./utils.js";
 
 const formElement = document.querySelector(".sign-form");
 const emailElement = document.getElementById("email");
 const passwordElement = document.getElementById("password");
-const passwordConfirmElement = document.getElementById("password-check");
+const passwordCheckElement = document.getElementById("password-check");
+const emailErrorElement = document.getElementById("emailErrorMessage");
+const passwordErrorElement = document.getElementById("passwordErrorMessage");
+const passwordCheckErrorElement = document.getElementById("passwordCheckErrorMessage");
+
 const eyePassword = document.getElementById("eye-password");
 const eyePasswordCheck = document.getElementById("eye-password-check");
 
-const focusOutHandler = (e) => {
-  const currentInput = e.target;
-  const isEmail = currentInput.type === "email";
-  const isPassword = currentInput.id === "password";
-  const isPasswordConfirm = currentInput.id === "password-check";
+const emailFocusOutHandler = () => {
+  if (!emailElement.value) {
+    setError(emailElement, emailErrorElement, ERROR_MESSAGE.NO_INPUT_EMAIL); //값이 없으면
+  } else if (!emailCheck(emailElement.value)) {
+    setError(emailElement, emailErrorElement, ERROR_MESSAGE.INVALID_EMAIL); //이메일 유효성 체크
+  } else if (emailElement.value === TEST_USER.ID) {
+    setError(emailElement, emailErrorElement, ERROR_MESSAGE.REGISTERED_EMAIL);
+  } else {
+    removeError(emailElement, emailErrorElement);
+  }
+};
 
-  if (!currentInput.value) {
-    noInputValue(currentInput); //값이 없는지 확인
-  } else if (isEmail) {
-    isValidEmail(currentInput); //이메일 유효성 체크
-    confirmEmail(currentInput); //사용중인 이메일인지 확인
-  } else if (isPassword) {
-    isValidPassword(currentInput); //비밀번호 유효성 체크
-  } else if (isPasswordConfirm) {
-    confirmPasswordMatch(currentInput); //비밀번호와 비밀번호 확인 일치 확인
+const passwordFocusOutHandler = () => {
+  if (!passwordElement.value) {
+    setError(passwordElement, passwordErrorElement, ERROR_MESSAGE.NO_INPUT_PASSWORD);
+  } else if (!passwordCheck(passwordElement.value)) {
+    setError(passwordElement, passwordErrorElement, ERROR_MESSAGE.INVALID_PASSWORD);
+  } else {
+    removeError(passwordElement, passwordErrorElement);
+  }
+};
+
+const passwordCheckFocusOutHandler = () => {
+  if (!passwordCheckElement.value) {
+    setError(passwordCheckElement, passwordCheckErrorElement, ERROR_MESSAGE.NO_INPUT_PASSWORD);
+  } else if (passwordElement.value !== passwordCheckElement.value) {
+    setError(
+      passwordCheckElement,
+      passwordCheckErrorElement,
+      ERROR_MESSAGE.DO_NOT_MATCH_PASSWORD
+    );
+  } else {
+    removeError(passwordCheckElement, passwordCheckErrorElement);
   }
 };
 
 const submitRegisterForm = (e) => {
   e.preventDefault();
-  confirmUserRegister(e.target);
+  if (
+    confirmEmail(emailElement, emailErrorElement) &&
+    confirmPassword(passwordElement, passwordErrorElement) &&
+    confirmPasswordCheck(passwordElement, passwordCheckElement, passwordCheckErrorElement)
+  ) {
+    registerUser();
+  }
 };
 
-emailElement.addEventListener("focusout", focusOutHandler);
-passwordElement.addEventListener("focusout", focusOutHandler);
-passwordConfirmElement.addEventListener("focusout", focusOutHandler);
+const eyePasswordHandler = () => {
+  toggleEye(passwordElement, eyePassword);
+};
+const eyePasswordCheckHandler = () => {
+  toggleEye(passwordCheckElement, eyePasswordCheck);
+};
+
+emailElement.addEventListener("focusout", emailFocusOutHandler);
+passwordElement.addEventListener("focusout", passwordFocusOutHandler);
+passwordCheckElement.addEventListener("focusout", passwordCheckFocusOutHandler);
 
 formElement.addEventListener("submit", submitRegisterForm);
-eyePassword.addEventListener("click", eyeClickHandler);
-eyePasswordCheck.addEventListener("click", eyeClickHandler);
+eyePassword.addEventListener("click", eyePasswordHandler);
+eyePasswordCheck.addEventListener("click", eyePasswordCheckHandler);

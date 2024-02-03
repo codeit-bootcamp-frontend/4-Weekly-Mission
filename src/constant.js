@@ -10,16 +10,6 @@ export const ERROR_MESSAGE = {
   CONFIRM_PASSWORD: "비밀번호를 확인해 주세요.",
 };
 
-export const emailCheck = (confirmEmail) => {
-  const email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
-  return !email_regex.test(confirmEmail) ? false : true;
-};
-
-export const passwordCheck = (confirmPassword) => {
-  const password_regax = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
-  return !password_regax.test(confirmPassword) ? false : true;
-};
-
 export const TEST_USER = {
   ID: "test@codeit.com",
   PASSWORD: "codeit101",
