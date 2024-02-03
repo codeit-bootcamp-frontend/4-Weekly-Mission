@@ -1,3 +1,4 @@
+import { isEmailDuplicate } from './api/authAPI.js';
 import { MESSAGE, TEST_AUTH } from './constants/SIGN.js';
 import {
   emailInput,
@@ -16,10 +17,14 @@ const pwCheckError = document.getElementById('password-check-error');
 const pwCheckToggle = document.querySelector('.password-check-eye');
 const signUpForm = document.querySelector('#signup-form');
 
-const isDuplicateEmail = () => {
-  if (emailInput.value !== TEST_AUTH.EMAIL) return false;
-  applyError(emailError, MESSAGE.DUPLICATE_EMAIL, emailInput);
-  return true;
+const isDuplicateEmail = async () => {
+  try {
+    await isEmailDuplicate({ email: emailInput.value });
+    return false;
+  } catch (error) {
+    applyError(emailError, MESSAGE.DUPLICATE_EMAIL, emailInput);
+    return true;
+  }
 };
 
 const isPasswordMatch = () => {
