@@ -10,6 +10,8 @@ const emailError = document.getElementById('email__error-msg');
 const pwError = document.getElementById('pw__error-msg');
 const pwRepeatError = document.getElementById('pw-repeat__error-msg');
 
+window.onload = signFunctions.checkAccessToken();
+
 //focus in event
 emailInput.addEventListener('focus', function () {
   signFunctions.inputBorderBlue(emailInput);

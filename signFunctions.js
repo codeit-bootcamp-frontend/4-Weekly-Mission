@@ -64,7 +64,6 @@ export async function signIn(
     const result = await response.json();
     if (response.ok) {
       localStorage.setItem('accessToken', result.data.accessToken);
-      localStorage.setItem('refreshToken', result.data.refreshToken);
       location.href = './folder.html';
     } else {
       emailError.textContent = '이메일을 확인해 주세요.';
@@ -246,7 +245,13 @@ async function signupFetch(data) {
   const result = await response.json();
   if (response.ok) {
     localStorage.setItem('accessToken', result.data.accessToken);
-    localStorage.setItem('refreshToken', result.data.refreshToken);
+    location.href = './folder.html';
+  }
+}
+
+// 회원가입및 로그인 페이지 접속시 토큰 검사 함수
+export function checkAccessToken() {
+  if (localStorage.getItem('accessToken')) {
     location.href = './folder.html';
   }
 }
