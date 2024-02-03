@@ -74,14 +74,14 @@ const IsPasswordUsable = () => {
 
 const handleFormSubmit = async (event) => {
     const userData = {
-        email: email,
-        password: password,
+        email: emailInput.value.trim(),
+        password: passwordInput.value.trim(),
     }
 
     event.preventDefault()
     try {
         const result = await confirmSignup(userData)
-        if (result.ok) {
+        if (result.ok && IsPasswordUsable()) {
             window.location.href = '../html/folder.html'
             return
         }

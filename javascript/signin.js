@@ -5,8 +5,6 @@ const errorEmail = document.querySelector('#errorEmail')
 const errorPassword = document.querySelector('#errorPassword')
 const passwordCover = document.querySelector('#eyecon-password')
 const cover = { isPasswordCovered: false }
-const email = emailInput.value.trim()
-const password = passwordInput.value.trim()
 
 import { isEmailValid, isInputEmpty, showError, clearError } from './sign-error.js'
 import { togglePasswordByEyecon as togglePassword } from './toggle-password.js'
@@ -19,6 +17,7 @@ import { confirmLogin } from './post.js'
  * 이메일 형식과 빈 input 확인 후 error 메세지 출력
  */
 const checkEmail = () => {
+    const email = emailInput.value.trim()
     // 이메일 미입력 에러
     if (isInputEmpty(email)) {
         showError(emailInput, errorEmail, errorMsg.emptyEmail)
@@ -36,6 +35,7 @@ const checkEmail = () => {
  * 빈 input 시 error 메세지 출력
  */
 const checkPassword = () => {
+    const password = passwordInput.value.trim()
     if (isInputEmpty(password)) {
         showError(passwordInput, errorPassword, errorMsg.emptyPassword)
     }
@@ -47,9 +47,11 @@ const checkPassword = () => {
  * @returns 불린값
  */
 const validateEmail = async (event) => {
+    const emailData = emailInput.value.trim()
+    const passwordData = passwordInput.value.trim()
     const userData = {
-        email: email,
-        password: password,
+        email: emailData,
+        password: passwordData,
     }
 
     event.preventDefault()
