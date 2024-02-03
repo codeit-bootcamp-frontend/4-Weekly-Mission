@@ -1,7 +1,9 @@
 const INPUT_EMAIL = document.querySelector('#signup_email');
 const INPUT_PASSWORD = document.querySelector('#signup_password');
 const INPUT_PASSWORD_CHECK = document.querySelector('#check_password')
-const ERROR_MESSAGE = document.querySelector('#error_message');
+const ERROR_MESSAGE_EMAIL = document.querySelector('#error_message_email');
+const ERROR_MESSAGE_PASSWORD = document.querySelector('#error_message_password');
+const ERROR_MESSAGE_PASSWORD_CHECK = document.querySelector('#error_message_password_check');
 const FORM_ELEMENT = document.querySelector('#signup_form');
 
 INPUT_EMAIL.addEventListener('focusout', handleEmailFocusout);
@@ -13,17 +15,17 @@ FORM_ELEMENT.addEventListener('submit', handleSubmit);
 // 이메일 유효성 확인
 function handleEmailFocusout(e) {
   if (INPUT_EMAIL.value === '') {
-    INPUT_EMAIL.nextElementSibling.textContent = '이메일을 입력해 주세요.';
+    ERROR_MESSAGE_EMAIL.textContent = '이메일을 입력해 주세요.';
     INPUT_EMAIL.classList.add('input_error');
     return false;
   }
 
-  emailValidation();
+  emailValidation(e);
 
   return true;
 }
 
-async function emailValidation () {
+async function emailValidation (e) {
   const EMAIL_ADDRESS = {
     email: INPUT_EMAIL.value
   }
@@ -36,9 +38,9 @@ async function emailValidation () {
     body: JSON.stringify(EMAIL_ADDRESS)
   });
 
-  const result = await response.json();
+  const result = await response.json(e);
   if (!response.ok) {
-    INPUT_EMAIL.nextElementSibling.textContent = result.error.message;
+    e.target.nextElementSibling.textContent = result.error.message;
     INPUT_EMAIL.classList.add('input_error');
     return false;
   }
@@ -53,7 +55,7 @@ function passwordValidation(input) {
 
 function handlePasswordFocusout(e) {
   if (!passwordValidation(INPUT_PASSWORD.value)) {
-    INPUT_PASSWORD.nextElementSibling.textContent = '비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.';
+    ERROR_MESSAGE_PASSWORD.textContent = '비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.';
     INPUT_PASSWORD.classList.add('input_error');
     return false;
   }
@@ -63,7 +65,7 @@ function handlePasswordFocusout(e) {
 
 function handlePasswordCheckFocusout(e) {
   if (INPUT_PASSWORD.value !== INPUT_PASSWORD_CHECK.value) {
-    INPUT_PASSWORD_CHECK.nextElementSibling.textContent = '비밀번호가 일치하지 않아요.';
+    ERROR_MESSAGE_PASSWORD_CHECK.textContent = '비밀번호가 일치하지 않아요.';
     INPUT_PASSWORD_CHECK.classList.add('input_error');
     return false;
   }
@@ -92,7 +94,7 @@ function handleSubmit(e) {
 }
 
 async function finalValidation() {
-  const USER = {
+  const user = {
     email: INPUT_EMAIL.value,
     password: INPUT_PASSWORD.value
   }
@@ -102,7 +104,7 @@ async function finalValidation() {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(USER)
+    body: JSON.stringify(user)
   })
 
   if (response.ok) {
