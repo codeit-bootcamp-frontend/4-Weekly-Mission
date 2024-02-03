@@ -1,3 +1,4 @@
+// import axios from "axios";
 import {
   handleEmailInput,
   handlePasswordInput,
@@ -6,7 +7,6 @@ import {
 
 import { MASTER_EMAIL, MASTER_PASSWORD } from "../constant/user.js";
 import { validateEmail, validatePassword } from "../utils/validation.js";
-
 /**
  * 로그인 폼 제출 이벤트 핸들러
  *
@@ -23,12 +23,32 @@ function handleSignFormSubmit(event) {
   const isEmailValid = validateEmail(emailInput.value, emailError, "signin");
   const isPasswordValid = validatePassword(passwordInput.value, passwordError);
 
+  const url = "https://bootcamp-api.codeit.kr/api/sign-in";
+
   if (isEmailValid && isPasswordValid) {
     if (
       emailInput.value === MASTER_EMAIL &&
       passwordInput.value === MASTER_PASSWORD
     ) {
-      window.location.href = "/folder";
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: "test@codeit.com",
+          password: "sprint101",
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => data.data.accessToken)
+        .then((accessToken) => {
+          localStorage.setItem("accessToken", accessToken);
+          window.location.href = "/folder";
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } else {
       handleLoginError(emailInput, passwordInput, emailError, passwordError);
     }
@@ -85,3 +105,12 @@ document
 document
   .getElementById("eye1")
   .addEventListener("click", () => handleEyeClick("eye1"));
+
+// 페이지 접근 시 로컬 스토리지에 accessToken이 있으면 /folder로 이동
+document.addEventListener("DOMContentLoaded", () => {
+  const accessToken = localStorage.getItem("accessToken");
+
+  if (accessToken) {
+    window.location.href = "/folder";
+  }
+});

@@ -35,8 +35,26 @@ function handleSignFormSubmit(event) {
 
   // 이메일, 비밀번호, 비밀번호 확인 모두 입력되었을 때
   if (isEmailValid && isPasswordValid && isPasswordCheckValid) {
-    window.location.href = "/folder";
+    fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: emailInput.value,
+        password: passwordInput.value,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => data.data.accessToken)
+      .then((accessToken) => {
+        localStorage.setItem("accessToken", accessToken);
+        window.location.href = "/folder";
+      })
+      .catch((err) => console.log(err));
   }
+
+  //
 }
 
 // 이메일 입력 이벤트 등록
@@ -67,3 +85,12 @@ document
 document
   .getElementById("eye2")
   .addEventListener("click", () => handleEyeClick("eye2"));
+
+// 페이지 접근 시 로컬 스토리지에 accessToken이 있으면 /folder로 이동
+document.addEventListener("DOMContentLoaded", () => {
+  const accessToken = localStorage.getItem("accessToken");
+
+  if (accessToken) {
+    window.location.href = "/folder";
+  }
+});

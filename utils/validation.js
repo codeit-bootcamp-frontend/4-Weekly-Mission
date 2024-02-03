@@ -16,10 +16,28 @@ export function validateEmail(email, emailError, page) {
   } else if (!EMAIL_REGREX.test(email)) {
     emailError.textContent = "올바른 이메일 주소가 아닙니다.";
     return false;
-  } else if (email === MASTER_EMAIL && page === "signup") {
-    emailError.textContent = "이미 사용 중인 이메일입니다.";
-    return false;
-  } else {
+  }
+
+  if (page === "signup") {
+    fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          if (data.error.message) {
+            emailError.textContent = "이미 사용 중인 이메일입니다.";
+            return false;
+          }
+        }
+        return true;
+      })
+      .catch((err) => console.log(err));
+
     emailError.textContent = "";
     return true;
   }
