@@ -7,17 +7,17 @@
 //이메일, 비밀번호 input
 const emailInput = document.querySelector("#input-email");
 const passwordInput = document.querySelector("#input-password");
-const passwordCheckInput = document.querySelector("#input-password-check");
+const confirmPasswordInput = document.querySelector("#input-confirm-password");
 
 //이메일, 비밀번호 error-message
 const emailErrorMessageElement = document.querySelector("#error-email");
 const passwordErrorMessageElement = document.querySelector("#error-password");
-const passwordCheckErrorMessageElement = document.querySelector("#error-password-check");
+const confirmPasswordErrorMessageElement = document.querySelector("#error-confirm-password");
 
 //비밀번호 보이기 버튼
 const eyeBtn = document.querySelector("#password-eye");
-const eyeBtnCheck = document.querySelector("#password-check-eye");
-const eyeImgElement = document.querySelector("#password-check-eye .icon-eye");
+const eyeBtnCheck = document.querySelector("#confirm-password-eye");
+const eyeImgElement = document.querySelector("#confirm-password-eye .icon-eye");
 
 //form element
 const formElement = document.querySelector(".sign");
@@ -55,24 +55,24 @@ function hidePassword() {
 }
 
 //eyeBtnCheck 비밀번호 확인 보이게
-function showPasswordCheck() {
-  passwordCheckInput.type = "text";
+function showConfirmPassword() {
+  confirmPasswordInput.type = "text";
   eyeImgElement.src = "../public/icon/eye-on.svg";
 }
 
 //eyeBtnCheck 비밀번호 확인 안보이게
-function hidePasswordCheck() {
-  passwordCheckInput.type = "password";
+function hideConfirmPassword() {
+  confirmPasswordInput.type = "password";
   eyeImgElement.src = "../public/icon/eye-off.svg";
 }
 
 export {
   emailInput,
   passwordInput,
-  passwordCheckInput,
+  confirmPasswordInput,
   emailErrorMessageElement,
   passwordErrorMessageElement,
-  passwordCheckErrorMessageElement,
+  confirmPasswordErrorMessageElement,
   eyeBtn,
   eyeBtnCheck,
   formElement,
@@ -80,6 +80,6 @@ export {
   hideError,
   showPassword,
   hidePassword,
-  showPasswordCheck,
-  hidePasswordCheck,
+  showConfirmPassword,
+  hideConfirmPassword,
 };

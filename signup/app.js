@@ -5,19 +5,19 @@ import { VALID_USER } from "../scripts/userdb.js";
 import {
   emailInput,
   passwordInput,
+  confirmPasswordInput,
   emailErrorMessageElement,
   passwordErrorMessageElement,
+  confirmPasswordErrorMessageElement,
   eyeBtn,
+  eyeBtnCheck,
   formElement,
   showError,
   hideError,
   showPassword,
   hidePassword,
-  passwordCheckInput,
-  passwordCheckErrorMessageElement,
-  eyeBtnCheck,
-  showPasswordCheck,
-  hidePasswordCheck,
+  showConfirmPassword,
+  hideConfirmPassword,
 } from "./ui.js";
 
 /********************
@@ -98,19 +98,19 @@ function validatePassword() {
 }
 
 //비밀번호 확인 에러 검사
-function validatePasswordCheck() {
+function validateConfirmPassword() {
   const password = passwordInput.value;
-  const passwordCheck = passwordCheckInput.value;
+  const confirmPassword = confirmPasswordInput.value;
 
-  if (isTextEmpty(passwordCheck)) {
-    return showError(passwordCheckInput, passwordCheckErrorMessageElement, "비밀번호를 입력해 주세요.");
+  if (isTextEmpty(confirmPassword)) {
+    return showError(confirmPasswordInput, confirmPasswordErrorMessageElement, "비밀번호를 입력해 주세요.");
   }
 
-  if (password !== passwordCheck) {
-    return showError(passwordCheckInput, passwordCheckErrorMessageElement, "비밀번호가 일치하지 않아요.");
+  if (password !== confirmPassword) {
+    return showError(confirmPasswordInput, confirmPasswordErrorMessageElement, "비밀번호가 일치하지 않아요.");
   }
 
-  return hideError(passwordCheckInput, passwordCheckErrorMessageElement);
+  return hideError(confirmPasswordInput, confirmPasswordErrorMessageElement);
 }
 
 //버튼 클릭 / 인풋 focus 상태에서 엔터로 회원가입 로직 실행
@@ -119,13 +119,13 @@ function handleRegister(e) {
 
   const email = emailInput.value;
   const password = passwordInput.value;
-  const passwordCheck = passwordCheckInput.value;
+  const confirmPassword = confirmPasswordInput.value;
 
   //이메일 형식을 만족하지 않을 경우 회원가입 실패
   if (!isValidEmailFormat(email)) {
     validateEmail();
     validatePassword();
-    validatePasswordCheck();
+    validateConfirmPassword();
     return;
   }
 
@@ -136,7 +136,7 @@ function handleRegister(e) {
   if (user) {
     validateEmail();
     validatePassword();
-    validatePasswordCheck();
+    validateConfirmPassword();
     return;
   }
 
@@ -144,15 +144,15 @@ function handleRegister(e) {
   if (!isValidPasswordFormat(password)) {
     validateEmail();
     validatePassword();
-    validatePasswordCheck();
+    validateConfirmPassword();
     return;
   }
 
   //비밀번호와 비밀번호 확인이 동일하지 않을 경우 회원가입 실패
-  if (password !== passwordCheck) {
+  if (password !== confirmPassword) {
     validateEmail();
     validatePassword();
-    validatePasswordCheck();
+    validateConfirmPassword();
     return;
   }
 
@@ -171,12 +171,12 @@ function togglePassword() {
 }
 
 //eyeBtnCheck 비밀번호 확인 토글
-function togglePasswordCheck() {
-  if (passwordCheckInput.type === "password") {
-    return showPasswordCheck();
+function toggleConfirmPassword() {
+  if (confirmPasswordInput.type === "password") {
+    return showConfirmPassword();
   }
 
-  return hidePasswordCheck();
+  return hideConfirmPassword();
 }
 
 /********************
@@ -185,7 +185,7 @@ function togglePasswordCheck() {
 
 emailInput.addEventListener("focusout", validateEmail);
 passwordInput.addEventListener("focusout", validatePassword);
-passwordCheckInput.addEventListener("focusout", validatePasswordCheck);
+confirmPasswordInput.addEventListener("focusout", validateConfirmPassword);
 formElement.addEventListener("submit", handleRegister);
 eyeBtn.addEventListener("click", togglePassword);
-eyeBtnCheck.addEventListener("click", togglePasswordCheck);
+eyeBtnCheck.addEventListener("click", toggleConfirmPassword);
