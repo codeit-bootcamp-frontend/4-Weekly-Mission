@@ -1,5 +1,6 @@
 @import url("./reset.css");
 @import url("./color.css");
+@import url("./util.css");
 
 .body-box {
   background: var(--backgroundcolor);
@@ -40,27 +41,15 @@ form {
   padding: 18px 15px;
   width: 100%;
   height: auto;
-  border: 1px solid var(--gray);
+  border: 1px solid var(--gray-20);
 }
 
-.border-color {
+.error-border {
   border-color: var(--red);
 }
 
 .input-case:focus {
   border: 1px solid var(--primary);
-}
-
-.h-12 {
-  width: 100%;
-  height: 12px;
-  margin-bottom: 0;
-}
-
-.h-24 {
-  width: 100%;
-  height: 24px;
-  margin-bottom: 0;
 }
 
 .sign-title {
@@ -82,7 +71,7 @@ form {
 
 .login-footer {
   border-radius: 8px;
-  border: 1px solid var(--gray);
+  border: 1px solid var(--gray-20);
   background: var(--silver);
   width: 100%;
   height: auto;
@@ -96,7 +85,7 @@ form {
 .social-login {
   font-size: 14px;
   font-weight: 400;
-  color: var(--darkgray);
+  color: var(--gray-10);
 }
 
 .login-footer a:first-child {
@@ -120,12 +109,8 @@ form {
   position: relative;
 }
 
-.img-box {
-  line-height: 0;
-}
-
-.error-text-email,
-.error-text-password {
+.email-error-message,
+.password-error-message {
   font-size: 14px;
   color: var(--red);
 }

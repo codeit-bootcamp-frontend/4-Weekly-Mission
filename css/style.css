@@ -1,6 +1,6 @@
 @import url("./reset.css");
 @import url("./color.css");
-
+@import url("./util.css");
 
 .nav-box {
     width: 100%;
@@ -22,10 +22,6 @@
     cursor: pointer;
 }
 
-.img-box {
-    line-height: 0;
-}
-
 .login-button {
     width: 80px;
     height: auto;
@@ -35,6 +31,7 @@
     font-size: 14px;
     font-weight: 600;
     background-image: linear-gradient(91deg, var(--primary) 0.12%, var(--skyblue) 101.84%);
+    text-align: center;
 }
 
 .main-container {
@@ -111,7 +108,7 @@ footer {
 
 footer button {
     background-color: transparent;
-    color: var(--lightgray);
+    color: var(--gray-30);
 }
 
 .codeit-text {
@@ -128,16 +125,6 @@ footer button {
     flex-direction: column;
     align-items: flex-start;
     gap: 60px
-}
-
-.h-16 {
-    width: 100%;
-    height: 16px;
-}
-
-.h-20 {
-    width: 100%;
-    height: 20px;
 }
 
 .gradient1 {
