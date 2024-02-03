@@ -30,7 +30,7 @@ export const INPUT_IDS = {
   passwordCheckErrorElementId: 'login-password-check-error',
   loginFormId: 'login-form',
   passwordEyeImageId: 'eye-image-password',
-  eyeImagePasswordCheckId: 'eye-image-password-check'
+  passwordCheckEyeImageId: 'eye-image-password-check'
 };
 
 export const LGOIN_PATH = '../pages/folder.html';

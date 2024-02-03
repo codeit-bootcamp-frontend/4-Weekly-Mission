@@ -54,6 +54,7 @@ const passwordErrorElement = DOMHandler.getById(passwordErrorElementId);
 const passwordCheckErrorElement = DOMHandler.getById(passwordCheckErrorElementId);
 
 const handleEmailElementFocusOut = () => {
+  emailElement.classList.remove('red-box');
   if (SignHandler.isExistEmail(emailElement)) {
     SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.exist);
     emailElement.classList.add('red-box');
@@ -71,39 +72,29 @@ const handleEmailElementFocusOut = () => {
   SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.invalid);
 };
 
-const handleEmailElementFocusIn = () => {
-  emailElement.classList.remove('red-box');
-};
-
 const handlePasswordElementFocusOut = () => {
-  passwordElement.classList.add('red-box');
+  passwordElement.classList.remove('red-box');
   if (InputHandler.isEmptyValue(passwordElement)) {
     SignHandler.showErrorMessage(passwordErrorElement, PASSWORD_MESSAGE.empty);
+    passwordElement.classList.add('red-box');
     return;
   }
   if (InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX)) {
     passwordErrorElement?.classList.add('hidden');
-    passwordElement.classList.remove('red-box');
     return;
   }
   SignHandler.showErrorMessage(passwordErrorElement, PASSWORD_MESSAGE.invalid);
-};
-
-const handlePasswordElementFocusIn = () => {
-  passwordElement.classList.remove('red-box');
+  passwordElement.classList.add('red-box');
 };
 
 const handlePasswordCheckElementFocusOut = () => {
+  passwordCheckElement.classList.remove('red-box');
   if (InputHandler.isMatchElement(passwordElement, passwordCheckElement)) {
     passwordCheckErrorElement.classList.add('hidden');
     return;
   }
   SignHandler.showErrorMessage(passwordCheckErrorElement, PASSWORD_MESSAGE.match);
   passwordCheckElement.classList.add('red-box');
-};
-
-const handlePasswordCheckElementFocusIn = () => {
-  passwordCheckElement.classList.remove('red-box');
 };
 
 const handlePasswordEyeImageClick = () => {
@@ -128,11 +119,8 @@ const handleSignUp = event => {
 };
 
 emailElement?.addEventListener('focusout', handleEmailElementFocusOut);
-emailElement?.addEventListener('focusin', handleEmailElementFocusIn);
 passwordElement?.addEventListener('focusout', handlePasswordElementFocusOut);
-passwordElement?.addEventListener('focusin', handlePasswordElementFocusIn);
 passwordCheckElement?.addEventListener('focusout', handlePasswordCheckElementFocusOut);
-passwordCheckElement?.addEventListener('focusin', handlePasswordCheckElementFocusIn);
 passwordEyeImageElement?.addEventListener('click', handlePasswordEyeImageClick);
 passwordCheckEyeImageElement?.addEventListener('click', handlePasswordCheckEyeImageClick);
 loginForm?.addEventListener('submit', handleSignUp);
