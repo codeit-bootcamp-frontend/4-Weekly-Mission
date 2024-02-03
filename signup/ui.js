@@ -1,3 +1,5 @@
+/* DOM Element Selector & Controller */
+
 /********************
  * VARIABLE DEFINTION
  ********************/

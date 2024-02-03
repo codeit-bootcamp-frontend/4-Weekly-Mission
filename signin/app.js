@@ -1,7 +1,7 @@
 /* Service Logic */
 
 import { isTextEmpty } from "../scripts/utils.js";
-import { isValidEmailFormat, getUserByEmail } from "../scripts/userdb.js";
+import { VALID_USER } from "../scripts/userdb.js";
 import {
   emailInput,
   passwordInput,
@@ -13,7 +13,7 @@ import {
   hideError,
   showPassword,
   hidePassword,
-} from "../ui.js";
+} from "./ui.js";
 
 /********************
  * UTILITY FUNCTION
