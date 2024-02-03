@@ -4,7 +4,7 @@
  * @returns
  */
 const confirmLogin = async (data) => {
-    const url = 'https://bootcamp-api.codeit.kr/docs/api/sign-in'
+    const url = 'https://bootcamp-api.codeit.kr/api/sign-in'
     try {
         const result = await fetch(url, {
             method: 'POST',
@@ -22,7 +22,7 @@ const confirmLogin = async (data) => {
 const isEmailUsed = async (input) => {
     const emailData = { email: input }
 
-    const url = 'https://bootcamp-api.codeit.kr/docs/api/check-email'
+    const url = 'https://bootcamp-api.codeit.kr/api/check-email'
     try {
         const result = await fetch(url, {
             method: 'POST',
@@ -31,14 +31,15 @@ const isEmailUsed = async (input) => {
             },
             body: JSON.stringify(emailData),
         })
-        return result.ok
+        console.log(result.status)
+        return !result.ok
     } catch (error) {
-        console.error('Error during email confirmation:', error)
+        console.error('Error:', error)
     }
 }
 
 const confirmSignup = async (data) => {
-    const url = 'https://bootcamp-api.codeit.kr/docs/api/sign-up'
+    const url = 'https://bootcamp-api.codeit.kr/api/sign-up'
     try {
         const result = await fetch(url, {
             method: 'POST',

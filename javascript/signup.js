@@ -21,7 +21,7 @@ import { isEmailUsed, confirmSignup } from './post.js'
 
 /**이메일 확인 후 error 메세지 출력
  */
-const checkEmail = () => {
+const checkEmail = async () => {
     const email = emailInput.value.trim()
     // 이메일 미입력 에러
     if (isInputEmpty(email)) {
@@ -34,7 +34,8 @@ const checkEmail = () => {
         return
     }
     // 이메일 중복 확인
-    if (isEmailUsed(email)) {
+    if (await isEmailUsed(email)) {
+        console.log('hey')
         showError(emailInput, errorEmail, errorMsg.usedEmail)
     }
 }
