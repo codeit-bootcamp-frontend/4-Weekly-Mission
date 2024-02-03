@@ -10,6 +10,13 @@ input{
     border: none;
 }
 
+button{
+    outline: none;
+    border: none;
+    padding : 5px;
+    background-color: transparent;
+}
+
 .fullLayout-screen{
     min-height: 100vh;
     width: 100%;
@@ -78,24 +85,7 @@ input{
     
 }
 
-.error-message.active{
-    animation: transcolor .5s linear;
-}
 
-@keyframes transcolor{
-    0%{
-        color : transparent;
-    }
-    20%{
-        color:var(--clr-rd);
-    }
-    40%{
-        color: transparent;
-    }
-    60%{
-        color:var(--clr-rd);
-    }
-}
 
 .input-wrap input:focus{
     border: 1px solid var(--clr-pm);
