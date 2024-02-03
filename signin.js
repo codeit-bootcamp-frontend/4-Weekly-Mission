@@ -38,7 +38,9 @@ function passwordInputCheck() {
   }
 }
 
+
 function emailInputValueCheck() {
+  signIn(myInputEmail.value, myInputPassword.value)
   const answerEmail = 'test@codeit.com';
   const answerPassword = 'codeit101';
   if (myInputEmail.value === answerEmail && myInputPassword.value === answerPassword) {
@@ -49,13 +51,14 @@ function emailInputValueCheck() {
   }
 }
 
+
 function toggleEyeImage() {
-  if (myInputPassword.type === 'password') {
-    myInputPassword.type = 'text';
+  if (myInputPassword.type === 'text') {
+    myInputPassword.type = 'password';
     eyeOn.style.display = 'none';
     eyeOff.style.display = 'block';
   } else {
-    myInputPassword.type = 'password';
+    myInputPassword.type = 'text';
     eyeOn.style.display = 'block';
     eyeOff.style.display = 'none';
   }
@@ -63,14 +66,64 @@ function toggleEyeImage() {
 
 myInputEmail.addEventListener('focusout', emailInputCheck);
 myInputPassword.addEventListener('focusout', passwordInputCheck);
-login.addEventListener('click', emailInputValueCheck);
+/* login.addEventListener('click', emailInputValueCheck);*/
 
 // 검색하여 form 제출 시 페이지 새로고침되지 않게 함.
 document.querySelector('.sign-form').addEventListener('submit', function(event) {
   event.preventDefault();
+  signIn()
 });
 
-toggleButtonPw.addEventListener('click', () => toggleEyeImage);
+toggleButtonPw.addEventListener('click', toggleEyeImage);
+
+
+
+function signIn() {
+  const answerEmail = 'test@codeit.com';
+  const answerPassword = 'sprint101';
+
+  const data = {
+    email: answerEmail,
+    password: answerPassword
+  };
+
+  const inputData = {
+    email: myInputEmail.value,
+    password: myInputPassword.value
+  };
+
+  fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then((response) => {
+    if (response.status === 200) {
+      return response.json();
+    } else {
+      addClassError(errorMessageId, myInputEmail, signJs.ErrorMessage.WrongId);
+      addClassError(errorMessagePw, myInputPassword, signJs.ErrorMessage.WrongPassword);
+    }
+  })
+  .then((responseData) => {
+    console.log('서버 응답 데이터:', responseData);
+
+    // 서버 응답 데이터와 입력된 데이터 비교
+    if (data.email === inputData.email && data.password === inputData.password) {
+      window.location.href = '/folder';
+    } else {
+      console.log('이메일 또는 비밀번호가 일치하지 않습니다.');
+    }
+  })
+  .catch(error => {
+    console.error('요청 실패:', error);
+  });
+}
+
+
+
 
 export { 
   myInputEmail, 

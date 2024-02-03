@@ -49,12 +49,12 @@ function emailInputValueCheck() {
   }
 
 function toggleEyeImage1() {
-   if (checkMyInputPassword.type === 'password') {
-     checkMyInputPassword.type = 'text';
+   if (checkMyInputPassword.type === 'text') {
+     checkMyInputPassword.type = 'password';
      eyeOn1.style.display = 'none';
      eyeOff1.style.display = 'block';
    } else {
-     checkMyInputPassword.type = 'password';
+     checkMyInputPassword.type = 'text';
      eyeOn1.style.display = 'block';
      eyeOff1.style.display = 'none';
    }

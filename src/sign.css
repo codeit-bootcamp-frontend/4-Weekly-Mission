@@ -106,6 +106,10 @@ header {
   height: 1.6rem;
 }
 
+#eye-on, #eye-on-1 {
+  display: none;
+}
+
 .cta {
   display: flex;
   justify-content: center;
