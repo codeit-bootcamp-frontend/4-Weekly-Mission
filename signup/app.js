@@ -65,21 +65,26 @@ function isValidPasswordFormat(passwordInputValue) {
 //이메일 에러 검사
 function validateEmail() {
   const email = emailInput.value;
-  const user = getUserByEmail(email);
 
   if (isTextEmpty(email)) {
-    return showError(emailInput, emailErrorMessageElement, "이메일을 입력해 주세요.");
+    showError(emailInput, emailErrorMessageElement, "이메일을 입력해 주세요.");
+    return false;
   }
 
   if (!isValidEmailFormat(email)) {
-    return showError(emailInput, emailErrorMessageElement, "올바른 이메일 주소가 아닙니다.");
+    showError(emailInput, emailErrorMessageElement, "올바른 이메일 주소가 아닙니다.");
+    return false;
   }
+
+  const user = getUserByEmail(email);
 
   if (email === user.email) {
-    return showError(emailInput, emailErrorMessageElement, "이미 사용 중인 이메일입니다.");
+    showError(emailInput, emailErrorMessageElement, "이미 사용 중인 이메일입니다.");
+    return false;
   }
 
-  return hideError(emailInput, emailErrorMessageElement);
+  hideError(emailInput, emailErrorMessageElement);
+  return true;
 }
 
 //비밀번호 에러 검사
@@ -87,14 +92,17 @@ function validatePassword() {
   const password = passwordInput.value;
 
   if (isTextEmpty(password)) {
-    return showError(passwordInput, passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
+    showError(passwordInput, passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
+    return false;
   }
 
   if (!isValidPasswordFormat(password)) {
-    return showError(passwordInput, passwordErrorMessageElement, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+    showError(passwordInput, passwordErrorMessageElement, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
+    return false;
   }
 
-  return hideError(passwordInput, passwordErrorMessageElement);
+  hideError(passwordInput, passwordErrorMessageElement);
+  return true;
 }
 
 //비밀번호 확인 에러 검사
@@ -103,62 +111,46 @@ function validateConfirmPassword() {
   const confirmPassword = confirmPasswordInput.value;
 
   if (isTextEmpty(confirmPassword)) {
-    return showError(confirmPasswordInput, confirmPasswordErrorMessageElement, "비밀번호를 입력해 주세요.");
+    showError(confirmPasswordInput, confirmPasswordErrorMessageElement, "비밀번호를 입력해 주세요.");
+    return false;
   }
 
   if (password !== confirmPassword) {
-    return showError(confirmPasswordInput, confirmPasswordErrorMessageElement, "비밀번호가 일치하지 않아요.");
+    showError(confirmPasswordInput, confirmPasswordErrorMessageElement, "비밀번호가 일치하지 않아요.");
+    return false;
   }
 
-  return hideError(confirmPasswordInput, confirmPasswordErrorMessageElement);
+  hideError(confirmPasswordInput, confirmPasswordErrorMessageElement);
+  return true;
 }
 
 //버튼 클릭 / 인풋 focus 상태에서 엔터로 회원가입 로직 실행
 function handleRegister(e) {
   e.preventDefault();
 
-  const email = emailInput.value;
-  const password = passwordInput.value;
-  const confirmPassword = confirmPasswordInput.value;
+  //
+  const continueRegister = true;
 
-  //이메일 형식을 만족하지 않을 경우 회원가입 실패
-  if (!isValidEmailFormat(email)) {
-    validateEmail();
-    validatePassword();
-    validateConfirmPassword();
-    return;
+  //이메일 조건을 만족하지 않을 경우 회원가입 실패
+  if (!validateEmail()) {
+    continueRegister = false;
   }
 
-  //email과 일치하는 유저 저장 / 없으면 null
-  const user = getUserByEmail(email);
-
-  //user가 있을 경우 동일한 이메일 존재하므로 회원가입 실패
-  if (user) {
-    validateEmail();
-    validatePassword();
-    validateConfirmPassword();
-    return;
+  //비밀번호 조건을 만족하지 않을 경우 회원가입 실패
+  if (!validatePassword()) {
+    continueRegister = false;
   }
 
-  //비밀번호 형식을 만족하지 않을 경우 회원가입 실패
-  if (!isValidPasswordFormat(password)) {
-    validateEmail();
-    validatePassword();
-    validateConfirmPassword();
-    return;
-  }
-
-  //비밀번호와 비밀번호 확인이 동일하지 않을 경우 회원가입 실패
-  if (password !== confirmPassword) {
-    validateEmail();
-    validatePassword();
-    validateConfirmPassword();
-    return;
+  //비밀번호 확인 조건을 만족하지 않을 경우 회원가입 실패
+  if (!validateConfirmPassword()) {
+    continueRegister = false;
   }
 
   //회원가입 성공
-  //const newUser = createUser({ email, password })
-  return (location.href = "../folder/index.html");
+  if (continueRegister) {
+    //const newUser = createUser({ email, password })
+    return (location.href = "../folder/index.html");
+  }
 }
 
 //eyeBtn 비밀번호 토글
