@@ -88,7 +88,9 @@ function handleLogin(e) {
   }
 
   //로그인 성공
-  return (location.href = "../folder");
+  hideError(emailInput, emailErrorMessageElement);
+  hideError(passwordInput, passwordErrorMessageElement);
+  return (location.href = "../folder/index.html");
 }
 
 /********************
