@@ -4,11 +4,6 @@ import { updateErrorMessage } from "./utils/updateErrorMessage.js";
 import { toggleShowPassword } from "./utils/passwordShowHidden.js";
 import { checkValidLogin } from "./utils/CheckValidLogin.js";
 import { targetValue } from "./utils/commons/value.trim.js";
-import {
-  SIGNIN_SUCCESS_VALUE,
-  PASSWORD_INVALID_VALUE,
-  NOT,
-} from "./utils/constants.js";
 
 // 이벤트 등록을 위한 변수 설정
 const signinEmailInput = querySelector("#signin-email-input");
@@ -44,36 +39,29 @@ function checkEmail(event) {
   }
 }
 
-function tryLogin() {
-  const emailValue = signinEmailInput.value;
-  const passwordValue = signinPasswordInput.value;
-  const errorMessage = querySelector("#email-error-message");
-  const errorMessageBox = querySelector("#password-error-message");
+// 로그인 시도
+async function tryLogin() {
+  const inputUser = {
+    email: signinEmailInput.value,
+    password: signinPasswordInput.value,
+  };
 
-  const loginResult = checkValidLogin(emailValue, passwordValue);
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputUser),
+    });
 
-  if (loginResult === SIGNIN_SUCCESS_VALUE) {
-    location.href = "folder.html";
-  } else if (loginResult === PASSWORD_INVALID_VALUE) {
-    updateErrorMessage(
-      errorMessageBox,
-      "비밀번호를 확인해주세요",
-      signinPasswordInput,
-      true
-    );
-  } else {
-    updateErrorMessage(
-      errorMessage,
-      "이메일을 확인해주세요.",
-      signinEmailInput,
-      true
-    );
-    updateErrorMessage(
-      errorMessageBox,
-      "비밀번호를 확인해주세요",
-      signinEmailInput,
-      true
-    );
+    if (response.ok) {
+      location.href = "folder.html";
+    } else {
+      console.log("로그인 실패");
+    }
+  } catch (error) {
+    console.log(error.message);
   }
 }
 

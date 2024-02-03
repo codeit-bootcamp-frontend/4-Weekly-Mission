@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>signin</title>
   <link rel="stylesheet" href="./css/signin.css" />
+  <script src="./js/api/api.js"></script>
 </head>
 
 <body>
@@ -28,7 +29,7 @@
       <label id="signin-password-section" for="signin-password-input">
         <p>비밀번호</p>
         <div class="password-box">
-          <input id="signin-password-input" type="password" />
+          <input id="signin-password-input" type="password" autocomplete="on" />
           <img id="password-eye-icon" src="./images/logo_icon/hidden_eye_icon.png" alt="비밀번호 숨김" />
         </div>
         <p id="password-error-message"></p>
