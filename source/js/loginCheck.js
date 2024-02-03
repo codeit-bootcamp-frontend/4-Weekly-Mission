@@ -2,22 +2,25 @@ const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 
 //특정 이메일과 비밀번호 입력 시 페이지 이동
-function login() {
+async function login() {
   const emailValue = emailInput.value;
   const passwordValue = passwordInput.value;
-  const validEmail = 'test@codeit.com';
-  const validPassword = 'codeit101';
 
-  if (emailValue === validEmail && passwordValue === validPassword) {
-    window.location.href = './folder';
-  }
-
-  if (emailValue !== validEmail) {
+  //POST request 보내기
+  try {
+    const result = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+      method: 'POST',
+      headers: { 'content-Type': 'application/json' },
+      body: JSON.stringify({ email: emailValue, password: passwordValue }),
+    });
+    window.location.href = '/folder';
+    if (!result.ok) {
+      throw new Error(result.statusText);
+    }
+  } catch (error) {
+    console.log(error);
     emailInput.classList.add('invalid');
     emailError.innerHTML = '이메일을 확인해 주세요.';
-  }
-
-  if (passwordValue !== validPassword) {
     passwordInput.classList.add('invalid');
     passwordError.innerHTML = '비밀번호를 확인해 주세요.';
   }
@@ -30,6 +33,5 @@ signinForm.addEventListener('submit', function (e) {
 
 //로그인 버튼에 이벤트 리스너 등록
 const loginButton = document.getElementById('loginButton');
-loginButton.addEventListener('click', login);
 
 export default login;
