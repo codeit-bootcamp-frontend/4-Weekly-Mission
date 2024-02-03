@@ -11,6 +11,7 @@ const cover = {
     isPasswordCovered: false,
     isPasswordCheckCovered: false,
 }
+const accessToken = localStorage.accessToken
 
 import { isEmailValid, isInputEmpty, showError, clearError } from './sign-error.js'
 import { togglePasswordByEyecon as togglePassword } from './toggle-password.js'
@@ -18,6 +19,8 @@ import { PASSWORD_REGEX, errorMsg, minPasswordLength } from './constants.js'
 import { isEmailUsed, confirmSignup } from './post.js'
 
 /////////////////////////////////////
+
+if (accessToken) window.location.href = '../html/folder.html'
 
 /**이메일 확인 후 error 메세지 출력
  */
@@ -35,7 +38,6 @@ const checkEmail = async () => {
     }
     // 이메일 중복 확인
     if (await isEmailUsed(email)) {
-        console.log('hey')
         showError(emailInput, errorEmail, errorMsg.usedEmail)
     }
 }

@@ -6,14 +6,19 @@
 const confirmLogin = async (data) => {
     const url = 'https://bootcamp-api.codeit.kr/api/sign-in'
     try {
-        const result = await fetch(url, {
+        const response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
             body: JSON.stringify(data),
         })
-        return result
+        if (response.ok) {
+            const result = await response.json()
+            localStorage.setItem('accessToken', result.data.accessToken)
+            localStorage.setItem('refreshToken', result.data.refreshToken)
+            return response
+        }
     } catch (error) {
         console.error('Error during login:', error)
     }
@@ -41,14 +46,19 @@ const isEmailUsed = async (input) => {
 const confirmSignup = async (data) => {
     const url = 'https://bootcamp-api.codeit.kr/api/sign-up'
     try {
-        const result = await fetch(url, {
+        const response = await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json',
             },
             body: JSON.stringify(data),
         })
-        return result
+        if (response.ok) {
+            const result = response.json()
+            localStorage.setItem('accessToken', result.data.accessToken)
+            localStorage.setItem('refreshToken', result.data.refreshToken)
+            return response
+        }
     } catch (error) {
         console.error('Error during signup:', error)
     }
