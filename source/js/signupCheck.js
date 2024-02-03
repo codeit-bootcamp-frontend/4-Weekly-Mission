@@ -36,10 +36,6 @@ signupForm.addEventListener('submit', function (e) {
 
 export default signupCheck;
 
-//   if (checkEmail && checkPassword) {
-//     window.location.href = './folder';
-//   }
-
 //   if (!checkEmail) {
 //     emailInput.classList.add('invalid');
 //     emailError.innerHTML = '이메일을 확인해 주세요.';
