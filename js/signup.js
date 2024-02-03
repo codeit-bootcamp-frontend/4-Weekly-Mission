@@ -1,7 +1,7 @@
 const form = document.querySelector('.frame-input');
 const inputEmail = document.querySelector('.input-email input');
-const inputPassword = document.querySelector('.input-pw input');
-const inputPasswordCheck = document.querySelector('#check-pw input');
+const inputPassword = document.querySelector('#input-pw input');
+const inputPasswordCheck = document.querySelector('#input-pw-check input');
 const errorMsgEmail = document.querySelector('.error-email');
 const errorMsgPassword = document.querySelector('.error-pw');
 const errorMsgPasswordCheck = document.querySelector('.error-check-pw');
@@ -9,7 +9,7 @@ const showPasswordBtn = document.querySelector('.show-pw-btn');
 const showPasswordCheckBtn = document.querySelector('.show-pw-check-btn');
 
 // 이메일 : test@codeit.com, 비밀번호 : codeit101 으로 로그인 시, '/folder' 페이지로 이동
-function checkIsUser(e) {
+function checkIsValidUser(e) {
   e.preventDefault();
 
   if (inputEmail.value !== 'test@codeit.com') {
@@ -63,25 +63,18 @@ function showInputErrorMessage(e) {
 }
 
 function togglePasswordVisible(e) {
-  if (e.target.classList.contains('invisible')) {
-    showPasswordBtn.src = '../images/eye-on.svg';
-    inputPassword.type = 'text';
-    e.target.classList.remove('invisible');
-  } else {
-    showPasswordBtn.src = '../images/eye-off.svg';
-    inputPassword.type = 'password';
-    e.target.classList.add('invisible');
-  }
-}
+  const eventTargetFormId = e.target.parentElement.id;
+  const eventTargetInput = document.querySelector(
+    `#${eventTargetFormId} input`
+  );
 
-function togglePasswordCheckVisible(e) {
   if (e.target.classList.contains('invisible')) {
-    showPasswordCheckBtn.src = '../images/eye-on.svg';
-    inputPasswordCheck.type = 'text';
+    e.target.src = '../images/eye-on.svg';
+    eventTargetInput.type = 'text';
     e.target.classList.remove('invisible');
   } else {
-    showPasswordCheckBtn.src = '../images/eye-off.svg';
-    inputPasswordCheck.type = 'password';
+    e.target.src = '../images/eye-off.svg';
+    eventTargetInput.type = 'password';
     e.target.classList.add('invisible');
   }
 }
@@ -98,7 +91,7 @@ function checkPassword(e) {
 
 inputEmail.addEventListener('focusout', showInputErrorMessage);
 inputPassword.addEventListener('focusout', showInputErrorMessage);
-form.addEventListener('submit', checkIsUser);
+form.addEventListener('submit', checkIsValidUser);
 showPasswordBtn.addEventListener('click', togglePasswordVisible);
-showPasswordCheckBtn.addEventListener('click', togglePasswordCheckVisible);
+showPasswordCheckBtn.addEventListener('click', togglePasswordVisible);
 inputPasswordCheck.addEventListener('focusout', checkPassword);
