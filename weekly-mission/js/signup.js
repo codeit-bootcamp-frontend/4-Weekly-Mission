@@ -1,14 +1,19 @@
+
 import {dicideAddErrorClass, eyeIconClickEvent, checkAccessHistory,isEmptyInput } from './recycle.js';
+
 const errorMessageEmail = document.querySelector('.error-message[data-about=email]');
 const userInputPassword = document.querySelector('#password');
 const errorMessgePassword = document.querySelector('.error-message[data-about=password]');
 const errorMessageCheck = document.querySelector('.error-message[data-about=password-check]');
+
 const inputs = document.querySelectorAll('input');
+
 
 
 
 //이메일 체크
 function checkEmailInput(event) {
+
     const userInput = event.target.value;
     let message = '';
     if(isEmptyInput(userInput)) message = '이메일을 입력해주세요.'
@@ -16,10 +21,12 @@ function checkEmailInput(event) {
     else if(userInput === 'test@codeit.com') message = '이미 사용 중인 이메일 입니다'
     errorMessageEmail.textContent = message;
     dicideAddErrorClass(event.target, message);
+
 }
 
 //비밀번호 조합 체크
 function checkPasswordPattern(event) {
+
     const userInput = event.target.value;
     let message = '';
     if(isEmptyInput(userInput)) message = '비밀번호를 입력해주세요.'
@@ -27,11 +34,13 @@ function checkPasswordPattern(event) {
     errorMessgePassword.textContent = message;
     dicideAddErrorClass(event.target, message);
 
+
 }
 
 //비밀번호 같은지 체크
 function samePasswordCheck(event) {
     const password = userInputPassword.value;
+
     const passwordCheckInput = event.target.value;
     let message = '';
     if(isEmptyInput(passwordCheckInput)) message = '비밀번호를 확인해주세요.'
@@ -44,6 +53,7 @@ function samePasswordCheck(event) {
 //폼제출 이벤트 함수
 function submitSignupFormEvent(e) {
     e.preventDefault();
+
     checkContainErrorClass();
 
 }
@@ -92,9 +102,12 @@ checkAccessHistory();
 
 
 
+
 document.querySelector('#email').addEventListener('focusout', checkEmailInput);
 userInputPassword.addEventListener('focusout', checkPasswordPattern);
 document.querySelector('#password-check').addEventListener('focusout', samePasswordCheck);
 document.querySelector('#form-signup').addEventListener('submit', submitSignupFormEvent);
 
+
 document.querySelectorAll('.show-password').forEach(v => v.addEventListener('click', eyeIconClickEvent));
+

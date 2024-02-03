@@ -1,3 +1,4 @@
+
 import { dicideAddErrorClass, eyeIconClickEvent, checkAccessHistory, isEmptyInput } from './recycle.js';
 const errorMessageEmail = document.querySelector('.error-message[data-about=email]');
 const errorMessagePassword = document.querySelector('.error-message[data-about=password]');
@@ -21,13 +22,15 @@ function checkPasswordInput(event) {
     if (isEmptyInput(userInput)) message = '비밀번호를 입력해주세요.'
     errorMessagePassword.textContent = message;
     dicideAddErrorClass(event.target, message);
-}
+
+
 
 
 
 //폼 제출 이벤트
 function submitFormEvent(e) {
     e.preventDefault();
+
     if (emailInput.value === 'test@codeit.com' && passwordInput.value === 'codeit101') {
         window.location = '/folder';
     } else {
@@ -78,5 +81,6 @@ passwordInput.addEventListener('focusout', checkPasswordInput)
 document.querySelector('#form-signin').addEventListener('submit', submitFormEvent);
 
 document.querySelector('.show-password').addEventListener('click', eyeIconClickEvent);
+
 
 

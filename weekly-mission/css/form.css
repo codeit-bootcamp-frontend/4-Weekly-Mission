@@ -10,6 +10,7 @@ input{
     border: none;
 }
 
+
 button{
     outline: none;
     border: none;
@@ -21,6 +22,7 @@ button{
     min-height: 100vh;
     width: 100%;
     background-color: var(--clr-bg);
+
 }
 
 .sublayout-container{
@@ -49,10 +51,12 @@ button{
 }
 
 .user-input__box.email{
+
     margin-bottom: 1.5rem;
 }
 
 .user-input__box.password{
+
     margin-bottom: 1.5rem;
 }
 
@@ -87,6 +91,7 @@ button{
 
 
 
+
 .input-wrap input:focus{
     border: 1px solid var(--clr-pm);
 }
@@ -94,6 +99,7 @@ button{
 .input-wrap{
    position: relative;
 }
+
 
 .show-password{
     display: inline-flex;
@@ -106,6 +112,7 @@ button{
     cursor: pointer;
    
 }
+
 
 #submit-btn{
     width: 100%;
@@ -127,6 +134,7 @@ button{
     font-size: 1.4rem;
     border-radius: 8px;
     border:1px solid  var(--clr-gray20);
+
 }
 
 .social-icon__box{
@@ -144,11 +152,14 @@ button{
 }
 
 .social-icon.google{
+
     background:var(--clr-wt) ;
+
 }
 .social-icon.kakao{
     background:rgba(245, 225, 75, 1) ;
 }
+
 
 
 /* 모바일 화면 css */
@@ -159,6 +170,7 @@ button{
     .sublayout-container{
         width: 100%;
         padding-top: 5vw;
+
     }
     .form__container{
         width: 100%;

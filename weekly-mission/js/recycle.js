@@ -1,11 +1,14 @@
 
+
 //타켓 input 에러 클래스 추가 여부
 function dicideAddErrorClass(target, message) {
+
     const inputClass = target.classList;
     return message !== '' ? inputClass.add('error') : inputClass.remove('error');
 }
 
 //비밀번호 표시 아이콘 이벤트
+
 function eyeIconClickEvent(e) {
     
     if (e.target.tagName === 'BUTTON') {
@@ -42,3 +45,5 @@ const isIncludeClassName = (target ,name) => target.classList.contains(name);
 
 
 export { dicideAddErrorClass, eyeIconClickEvent, checkAccessHistory, isEmptyInput }
+
+
