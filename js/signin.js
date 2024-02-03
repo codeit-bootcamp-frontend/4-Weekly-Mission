@@ -2,9 +2,7 @@ import { isVaildEmail } from "./utils/isValidEmail.js";
 import { querySelector } from "./utils/commons/querySelector.js";
 import { updateErrorMessage } from "./utils/updateErrorMessage.js";
 import { toggleShowPassword } from "./utils/passwordShowHidden.js";
-import { checkValidLogin } from "./utils/CheckValidLogin.js";
 import { targetValue } from "./utils/commons/value.trim.js";
-import { FAULT_PASSWORD, NOT } from "./utils/constants.js";
 
 const signinEmailInput = querySelector("#signin-email-input");
 const signinPasswordInput = querySelector("#signin-password-input");
