@@ -21,6 +21,10 @@ function handleBlur(input, message) {
 function signIn(event) {
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
+  const data = {
+    email: email,
+    password: password,
+  };
 
   // 이메일, 비밀번호 에러 메시지 초기화
   const emailContainer = emailInput.parentElement;
@@ -38,22 +42,36 @@ function signIn(event) {
     existingPasswordMessage.remove();
   }
 
-  if (email === "test@codeit.com" && password === "codeit101") {
-    // 로그인 성공
-    window.location.href = "/folder.html";
-  } else {
-    // 로그인 실패 - 에러 메시지 표시
-    if (email !== "test@codeit.com") {
-      const emailMessage = getNewMessageElement("이메일을 확인해 주세요.");
-      const parentElement = document.querySelector(".sign-input-box");
-      parentElement.appendChild(emailMessage);
-    }
+  fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      if (response.status === 200) {
+        // 응답이 200인 경우에만 페이지를 이동
+        window.location.replace("./folder.html");
+      } else {
+        console.error(response.status);
+      }
+    })
+    .catch((error) => {
+      // fetch 요청 자체가 실패한 경우에 대한 처리
+      console.error(error);
+    });
+  // 로그인 실패 - 에러 메시지 표시
+  if (email !== "test@codeit.com") {
+    const emailMessage = getNewMessageElement("이메일을 확인해 주세요.");
+    const parentElement = document.querySelector(".sign-input-box");
+    parentElement.appendChild(emailMessage);
+  }
 
-    if (password !== "codeit101") {
-      const passwordMessage = getNewMessageElement("비밀번호를 확인해 주세요.");
-      const parentElement = document.querySelector(".sign-password");
-      parentElement.appendChild(passwordMessage);
-    }
+  if (password !== "codeit101") {
+    const passwordMessage = getNewMessageElement("비밀번호를 확인해 주세요.");
+    const parentElement = document.querySelector(".sign-password");
+    parentElement.appendChild(passwordMessage);
   }
 }
 
