@@ -1,4 +1,5 @@
 const signinUrl = 'https://bootcamp-api.codeit.kr/api/sign-in';
+const signupUrl = 'https://bootcamp-api.codeit.kr/api/sign-up';
 const emailCheckUrl = 'https://bootcamp-api.codeit.kr/api/check-email';
 //이메일 유효성 검사 메서드
 export function emailFormatCheck(email) {
@@ -21,7 +22,7 @@ async function isUsableEmail(emailValue) {
       return result.data.isUsableNickname;
     }
   } catch (e) {
-    return e;
+    return false;
   }
 }
 
@@ -90,16 +91,16 @@ export function emailErrorCheck(inputElement, errorElement) {
   }
 }
 // 2. 회원가입에서 사용중인 이메일인지 검사(1번 내용 포함)
-export function usingEmailCheck(emailInput, emailError) {
+export async function usingEmailCheck(emailInput, emailError) {
   const emailValue = emailInput.value;
-
+  const emailUsable = await isUsableEmail(emailValue);
   if (!emailValue) {
     emailError.textContent = '이메일을 입력해 주세요.';
     inputBorderRed(emailInput, emailError);
   } else if (emailFormatCheck(emailValue) === false) {
     emailError.textContent = '올바른 이메일 주소가 아닙니다.';
     inputBorderRed(emailInput, emailError);
-  } else if (!isUsableEmail(emailValue)) {
+  } else if (!emailUsable) {
     emailError.textContent = '이미 사용중인 이메일 입니다.';
     inputBorderRed(emailInput, emailError);
   } else {
@@ -187,7 +188,7 @@ export function signupPasswordCorrectCheck(
 }
 
 //회원가입 버튼 동작 메서드
-export function signUp(
+export async function signUp(
   emailInput,
   pwInput,
   pwInputRepeat,
@@ -197,10 +198,11 @@ export function signUp(
   pwOnOffImg
 ) {
   const checkList = [true, true, true];
+  const emailUsable = await isUsableEmail(emailInput.value);
   if (
     !emailInput.value ||
     emailFormatCheck(emailInput.value) === false ||
-    isEmailUsing(emailInput.value)
+    !emailUsable
   ) {
     emailError.textContent = '이메일을 확인해 주세요.';
     inputBorderRed(emailInput, emailError);
@@ -224,6 +226,27 @@ export function signUp(
   }
 
   if (!checkList.includes(false)) {
-    window.location.href = './folder.html';
+    const signupData = {
+      email: emailInput.value,
+      password: pwInput.value,
+    };
+    signupFetch(signupData);
+  }
+}
+
+//회원가입 메서드
+async function signupFetch(data) {
+  const response = await fetch(signupUrl, {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+  const result = await response.json();
+  if (response.ok) {
+    localStorage.setItem('accessToken', result.data.accessToken);
+    localStorage.setItem('refreshToken', result.data.refreshToken);
+    location.href = './folder.html';
   }
 }
