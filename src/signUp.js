@@ -10,6 +10,7 @@ import {
   isValidateEmail,
   isValidatePw,
   handleClickPwToggle,
+  redirectIfTokenExists,
 } from './utils/auth.js';
 
 const pwCheckInput = document.getElementById('password-check');
@@ -59,6 +60,7 @@ const handleSignUp = async (e) => {
   }
 };
 
+window.addEventListener('DOMContentLoaded', redirectIfTokenExists('signup-token'));
 emailInput.addEventListener('focusout', validEmailForSignUp);
 pwInput.addEventListener('focusout', isValidatePw);
 pwCheckInput.addEventListener('focusout', isPasswordMatch);

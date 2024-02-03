@@ -10,6 +10,7 @@ import {
   isValidateEmail,
   isValidatePw,
   handleClickPwToggle,
+  redirectIfTokenExists,
 } from './utils/auth.js';
 
 const signInform = document.querySelector('#signin-form');
@@ -35,6 +36,7 @@ const handleLogin = async (e) => {
   }
 };
 
+window.addEventListener('DOMContentLoaded', redirectIfTokenExists('login-token'));
 emailInput.addEventListener('focusout', isValidateEmail);
 pwInput.addEventListener('focusout', isValidatePw);
 pwToggle.addEventListener('click', () => handleClickPwToggle(pwInput, pwToggle));
