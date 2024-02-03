@@ -12,7 +12,7 @@ function checkAccessToken() {
   //디버깅용 accessToken 제거
   //localStorage.removeItem("accessToken");
   if (accessToken) {
-    // return (location.href = "../folder/index.html");
+    return (location.href = "../folder/index.html");
   }
 }
 
