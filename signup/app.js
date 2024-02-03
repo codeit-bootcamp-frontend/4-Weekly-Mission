@@ -56,24 +56,24 @@ async function getDuplicateEmail(emailInputValue) {
       body: JSON.stringify(email),
     });
 
+    const result = await response.json();
+
     //성공: 중복되지 않은 이메일 반환
     if (response.status === 200) {
-      const result = await response.json();
       console.log("중복되지 않은 이메일:", result);
-
       return email;
     }
 
     //실패: null 반환
     if (response.status === 409) {
-      console.error("요청 실패: 중복된 이메일");
+      console.error("요청 실패: 중복된 이메일", result.error.message);
       return null;
     }
 
-    console.error("요청 오류: 서버 오류");
+    console.error("요청 오류: 서버 오류", result.error.message);
     return null;
   } catch (error) {
-    console.error("에러 발생:", error);
+    console.error("에러 발생:", error.message);
     return null;
   }
 }
@@ -91,28 +91,26 @@ async function getUserInfo(userInput) {
       },
       body: JSON.stringify(user),
     });
+    const result = await response.json();
 
     //성공: 유저 정보 반환
     if (response.status === 200) {
-      const result = await response.json();
       console.log("회원가입 성공:", result);
-
       //로컬 스토리지에 accessToken 저장
       localStorage.setItem("accessToken", result.accessToken);
-
       return user;
     }
 
     //실패: null 반환
     if (response.status === 400) {
-      console.log("회원가입 실패: 잘못된 요청");
+      console.log("회원가입 실패:", result.error.message);
       return null;
     }
 
-    console.log("회원가입 오류: 서버 오류");
+    console.log("회원가입 오류:", result.error.message);
     return null;
   } catch (error) {
-    console.error("에러 발생:", error);
+    console.error("에러 발생:", error.message);
     return null;
   }
 }
