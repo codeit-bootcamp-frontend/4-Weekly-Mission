@@ -70,10 +70,6 @@
   outline: none;
 }
 
-.hidden {  
-  display: none;
-}
-
 div.input-container {
   display: flex;
   flex-direction: column;
@@ -149,7 +145,8 @@ footer {
 @media (max-width: 767px) {
   .container {
     max-width: 40rem;
-    min-width: 25.6rem; /* 32rem - 6.4rem */
+    min-width: 25.6rem;
+    /* 32rem - 6.4rem */
     width: calc(100vw - 6.4rem);
   }
 }

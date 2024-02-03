@@ -62,16 +62,12 @@
 
 .input-error-msg {
   margin-top: -1rem;
-  color: var(--red);  
+  color: var(--red);
 }
 
 .js-input-profile-error {
   border: 0.3rem solid var(--red);
   outline: none;
-}
-
-.hidden {
-  display: none;
 }
 
 div.input-container {
@@ -149,7 +145,8 @@ footer {
 @media (max-width: 767px) {
   .container {
     max-width: 40rem;
-    min-width: 25.6rem; /* 32rem - 6.4rem */
+    min-width: 25.6rem;
+    /* 32rem - 6.4rem */
     width: calc(100vw - 6.4rem);
   }
 }
