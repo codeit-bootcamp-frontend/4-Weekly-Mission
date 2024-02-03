@@ -2,6 +2,7 @@ import ERROR_MESSAGES from '../constant/errorMessages.js';
 import validValues from '../constant/validValues.js';
 import { addErrorMessage } from '../utils/errorMessageController.js';
 import { emailInputEventHandler, passwordInputEventHandler, eyeButtonEventHandler } from '../utils/eventHandler.js';
+import { postLoginData } from '../utils/api.js';
 
 const emailInputTag = document.querySelector('#email');
 const passwordInputTag = document.querySelector('#password');
@@ -26,9 +27,10 @@ passwordInputTag.addEventListener('blur', e => {
   passwordInputEventHandler(signInputPasswordBoxTag, passwordValue, errorTag);
 });
 
-signInButtonTag.addEventListener('click', e => {
+signInButtonTag.addEventListener('click', async e => {
   e.preventDefault();
   if (emailInputTag.value === validValues.email && passwordInputTag.value === validValues.password) {
+    await postLoginData(emailInputTag.value, passwordInputTag.value);
     window.location.href = '../pages/folder.html';
     return;
   }
