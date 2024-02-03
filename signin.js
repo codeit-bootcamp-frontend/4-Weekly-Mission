@@ -102,3 +102,10 @@ document.addEventListener("keydown", function (event) {
     signIn(event);
   }
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const accessToken = localStorage.getItem("access-token");
+  if (accessToken) {
+    window.location.href = "/folder.html";
+  }
+});
