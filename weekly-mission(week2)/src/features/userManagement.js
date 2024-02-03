@@ -4,6 +4,10 @@ import { signInHandler } from "./signIn.js";
 import * as errorHandler from "../view/addErrorMessageToInput.js";
 import togglePasswordVisibility from "../view/passwordVisibility.js";
 
+if(localStorage.getItem("accessToken") !== null) {
+  window.location.href = './folder.html';
+}
+
 // sign-in && sign-up handler
 eyeIcons.forEach((eyeIcon) => eyeIcon.addEventListener('click', togglePasswordVisibility));
 
