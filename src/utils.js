@@ -117,3 +117,41 @@ export function checkingPassword(password1, password2) {
 export function checkPasswordType(password) {
   return NUMERIC_ONLY_PATTERN.test(password) || ALPHABETIC_ONLY_PATTERN.test(password);
 };
+
+/**
+ * 로컬 스토리지에 accessToken 저장
+ * @param {string} accessToken - 저장할 accessToken
+ */
+export function saveAccessTokenToLocalStorage(accessToken) {
+  localStorage.setItem("accessToken", accessToken);
+}
+
+/**
+ * 로그인 페이지로 이동
+ */
+export function redirectToLoginPage() {
+  location.href = "/login";
+}
+
+/**
+ * 회원가입 페이지로 이동
+ */
+export function redirectToSignupPage() {
+  location.href = "/signup";
+}
+
+/**
+ * 로그인 또는 회원가입 성공 시 처리
+ * @param {string} accessToken - 받은 accessToken
+ */
+export function handleSuccessLoginOrSignup(accessToken) {
+  saveAccessTokenToLocalStorage(accessToken);
+  redirectToFolderPage();
+}
+
+/**
+ * 폴더 페이지로 이동
+ */
+export function redirectToFolderPage() {
+  location.href = "/folder";
+}

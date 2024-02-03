@@ -4,6 +4,8 @@ import {
   isEmailValid,
   togglePassword,
   TEST_USER,
+  saveAccessTokenToLocalStorage,
+  redirectToFolderPage,
 } from "./utils.js";
 /**
  * 이메일 입력 필드를 검증하고 에러 메시지를 표시
@@ -44,21 +46,42 @@ function validatePasswordInput(password) {
  * 회원가입 양식을 제출
  * @param {Event} event - 제출 이벤트
  */
-function submitForm(event) {
+async function submitForm(event) {
   event.preventDefault();
 
   const isTestUser =
     emailInput.value === TEST_USER.email && passwordInput.value === TEST_USER.password;
 
   if (isTestUser) {
-    location.href = "/folder";
-    return;
+    try {
+      const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: TEST_USER.email,
+          password: TEST_USER.password,
+        }),
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        handleSuccessLoginOrSignup(responseData.accessToken);
+      } else {
+        const responseData = await response.json();
+        setInputError({ input: emailInput, errorMessage: emailErrorMessage }, responseData.message);
+      }
+    } catch (error) {
+      console.error("로그인 중 오류 발생:", error);
+    }
+  } else {
+    setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
+    setInputError(
+      { input: passwordInput, errorMessage: passwordErrorMessage },
+      "비밀번호를 확인해주세요."
+    );
   }
-  setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
-  setInputError(
-    { input: passwordInput, errorMessage: passwordErrorMessage },
-    "비밀번호를 확인해주세요."
-  );
 }
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
@@ -69,11 +92,9 @@ const passwordErrorMessage = document.querySelector("#password-error-message");
 passwordInput.addEventListener("focusout", (event) => validatePasswordInput(event.target.value));
 
 const passwordToggleButton = document.querySelector("#password-toggle");
-/**
- * 비밀번호 토글 버튼을 클릭하여 비밀번호 가시성을 전환
- */
 passwordToggleButton.addEventListener("click", () =>
   togglePassword(passwordInput, passwordToggleButton)
 );
+
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
