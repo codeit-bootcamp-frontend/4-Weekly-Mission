@@ -22,3 +22,18 @@ export const loginInquire = async (data) => {
     console.error(e);
   }
 };
+
+export const emailCheckInquire = async (data) => {
+  try {
+    const res = await fetch(`${baseURL}/api/check-email`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    return res;
+  } catch (e) {
+    console.error(e);
+  }
+};

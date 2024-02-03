@@ -1,4 +1,4 @@
-export const getToken = (res) => {
+export const setToken = (res) => {
   const accessToken = res.data.accessToken;
   const refreshToken = res.data.refreshToken;
   localStorage.setItem("accessToken", accessToken);
