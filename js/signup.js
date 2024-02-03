@@ -1,19 +1,17 @@
+import {
+  emailInput,
+  passwordInput,
+  emailErrorMessage,
+  passwordErrorMessage,
+  passwordConfirmInput,
+  passwordConfirmErrorMessage,
+  signupForm,
+  eyeOffButton,
+  eyeOnButton,
+  eyeOffConfirmButton,
+  eyeOnConfirmButton,
+} from "./elements.js";
 import { isValidEmail, isValidPassword, showErrorMessage, hideErrorMessage, togglePasswordVisibility } from "./sign.js";
-
-const querySelector = (selector) => document.querySelector(selector);
-
-const emailInput = querySelector("#email-input");
-const passwordInput = querySelector("#password-input");
-const emailErrorMessage = querySelector("#email-error-message");
-const passwordErrorMessage = querySelector("#password-error-message");
-const passwordConfirmInput = querySelector("#password-confirm-input");
-const passwordConfirmErrorMessage = querySelector("#password-confirm-error-message");
-const signupForm = querySelector("#signup-form");
-
-const eyeOffButton = querySelector("#eye-off");
-const eyeOnButton = querySelector("#eye-on");
-const eyeOffConfirmButton = querySelector("#eye-off-confirm");
-const eyeOnConfirmButton = querySelector("#eye-on-confirm");
 
 // 이메일 입력
 emailInput.addEventListener("focusout", () => {
