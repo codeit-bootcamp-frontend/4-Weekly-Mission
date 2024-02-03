@@ -1,8 +1,8 @@
 import ERROR_MESSAGES from '../constant/errorMessages.js';
-import { addErrorMessage, removeErrorMessage } from './utils/errorMessageController.js';
-import { emailInputEventHandler, eyeButtonEventHandler } from './utils/eventHandler.js';
+import { addErrorMessage, removeErrorMessage } from '../utils/errorMessageController.js';
+import { emailInputEventHandler, eyeButtonEventHandler } from '../utils/eventHandler.js';
 import validValues from '../constant/validValues.js';
-import { validatePasswordInput } from './utils/validate.js';
+import { validatePasswordInput } from '../utils/validate.js';
 
 const {
   DUPLICATE_EMAIL_ERROR_MESSAGE,

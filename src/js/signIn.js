@@ -1,7 +1,7 @@
 import ERROR_MESSAGES from '../constant/errorMessages.js';
 import validValues from '../constant/validValues.js';
-import { addErrorMessage } from './utils/errorMessageController.js';
-import { emailInputEventHandler, passwordInputEventHandler, eyeButtonEventHandler } from './utils/eventHandler.js';
+import { addErrorMessage } from '../utils/errorMessageController.js';
+import { emailInputEventHandler, passwordInputEventHandler, eyeButtonEventHandler } from '../utils/eventHandler.js';
 
 const emailInputTag = document.querySelector('#email');
 const passwordInputTag = document.querySelector('#password');
