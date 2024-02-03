@@ -4,11 +4,22 @@ import { superUser } from "../static.js";
 // 로그인 요청
 export async function requestLogin() {
   const response = await postRequest(urls.signin, superUser);
-  const signinSuccess = await responseSignin(response);
+  const signinSuccess = await responseSign(response);
   await saveAccessToken(signinSuccess);
 }
 
 //회원 가입 요청
+export async function requestSignup() {
+  const objectForJSON = {};
+  const requestEmail = email.value;
+  const requestpassword = password.value;
+  objectForJSON.email = requestEmail;
+  objectForJSON.password = requestpassword;
+
+  const response = await postRequest(urls.signup, objectForJSON);
+  const signupSuccess = await responseSign(response);
+  await saveAccessToken(signupSuccess);
+}
 
 // 중복 요청
 export async function requestAleadyUse(emailElement) {
@@ -32,7 +43,7 @@ async function postRequest(url, objectForBody) {
   return response;
 }
 
-async function responseSignin(response) {
+async function responseSign(response) {
   if (response.status === 200) {
     return response.text();
   } 
@@ -52,37 +63,4 @@ async function saveAccessToken(result) {
   const jsonToObject = JSON.parse(result);
   const accessToken = jsonToObject.data.accessToken;
   localStorage.setItem("accessToken", accessToken);
-}
-
-async function requestSignUp() {
-  const objectForJSON = {};
-  const requestEmail = email.value;
-  const requestpassword = password.value;
-  objectForJSON.email = requestEmail;
-  objectForJSON.password = requestpassword;
-
-  fetch(urls.signup, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(objectForJSON),
-  })
-  .then((response) => {
-    if (response.status === 200) {
-      return response.text();
-    } else {
-      aleadyUse();
-    }
-  })
-  .then((result) => {
-    const jsonToObject = JSON.parse(result);
-    const accessToken = jsonToObject.data.accessToken;
-    localStorage.setItem("accessToken", accessToken);
-
-    window.location.replace("../folder");
-  })
-  .catch((error) => {
-    console.error('fetch 요청 실패:', error);
-  });
 }

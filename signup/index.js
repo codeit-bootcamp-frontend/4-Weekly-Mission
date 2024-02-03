@@ -5,7 +5,6 @@ import {
 import { 
   staticName,
   errorMessage,
-  superUser
 } from "../src/static.js";
 import {
   handleFocusIn,
@@ -14,7 +13,7 @@ import {
   togglePassword,
   hasTokenInStorage
 } from "../src/eventHandler.js";
-import { requestAleadyUse } from "../src/api/request.js";
+import { requestAleadyUse, requestSignup } from "../src/api/request.js";
 
 const error = new Error(true);
 
@@ -39,8 +38,6 @@ function notValidEmailInput() {
   if (email.value === "") {
     return;
   }
-
-  //error.removeErrorElement(staticName.parentElementSeletor.email);
   
   if (emailRegex.test(email.value)) {
     return
@@ -56,35 +53,6 @@ function pressEnterForFolderPage(e) {
     signupCheck();
   }
 }
-
-/*async function aleadyUse() {
-  const objectForJSON = {};
-  const validateAleadyUse = email.value;
-  objectForJSON.email = validateAleadyUse;
-  requestAleadyUse(objectForJSON);
-}
-
-function requestAleadyUse(objectForJSON) {
-  fetch("https://bootcamp-api.codeit.kr/api/check-email", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(objectForJSON),
-  })
-  .then((response) => {
-    if (response.status === 409) {
-      loginDuplication();
-      console.log(error.state)
-    } else {
-      //error.removeErrorElement(".input-form-email");
-    }
-  })
-  .catch((error) => {
-    // fetch 요청 자체가 실패한 경우에 대한 처리
-    console.error('fetch 요청 실패:', error);
-  });
-}*/
 
 function notPasswordFormat() {
   const passwordFormat = password.value;
@@ -141,41 +109,8 @@ async function signupCheck() {
   passwordIsNotEqual();
 
   if (error.state === true) {
-    await requestSignUp();
+    await requestSignup();
   }
-}
-
-async function requestSignUp() {
-  const objectForJSON = {};
-  const requestEmail = email.value;
-  const requestpassword = password.value;
-  objectForJSON.email = requestEmail;
-  objectForJSON.password = requestpassword;
-
-  fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(objectForJSON),
-  })
-  .then((response) => {
-    if (response.status === 200) {
-      return response.text();
-    } else {
-      aleadyUse();
-    }
-  })
-  .then((result) => {
-    const jsonToObject = JSON.parse(result);
-    const accessToken = jsonToObject.data.accessToken;
-    localStorage.setItem("accessToken", accessToken);
-
-    window.location.replace("../folder");
-  })
-  .catch((error) => {
-    console.error('fetch 요청 실패:', error);
-  });
 }
 
 email.addEventListener("focusout", () => handleFocusOutForEmail(

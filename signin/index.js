@@ -15,7 +15,6 @@ import {
   hasTokenInStorage
 } from "../src/eventHandler.js";
 import { requestLogin } from "../src/api/request.js";
-import { urls } from "../src/api/url.js";
 
 const error = new Error(true);
 
