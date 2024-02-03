@@ -15,7 +15,7 @@ import {
   hidePassword,
 } from "../scripts/ui-sign.js";
 
-import { isValidEmailFormat, getUserByEmail } from "../scripts/utils-sign.js";
+import { isValidEmailFormat, getUserByEmail } from "../scripts/userdb.js";
 
 import {
   passwordCheckInput,
@@ -28,6 +28,21 @@ import {
 /********************
  * UTILITY FUNCTION
  ********************/
+
+//이메일 양식 유효성 검사
+function isValidEmailFormat(emailInputValue) {
+  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return regex.test(emailInputValue);
+}
+
+//이메일이 일치하는 유저 데이터 반환
+function getUserByEmail(emailInputValue) {
+  if (VALID_USER.email !== emailInputValue) {
+    return null;
+  }
+
+  return VALID_USER;
+}
 
 //회원가입 비밀번호 양식 유효성 검사
 function isValidPasswordFormat(passwordInputValue) {
