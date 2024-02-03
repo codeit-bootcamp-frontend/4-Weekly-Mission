@@ -4,6 +4,7 @@ import { updateErrorMessage } from "./utils/updateErrorMessage.js";
 import { toggleShowPassword } from "./utils/passwordShowHidden.js";
 import { checkValidLogin } from "./utils/CheckValidLogin.js";
 import { targetValue } from "./utils/commons/value.trim.js";
+import { FAULT_PASSWORD, NOT } from "./utils/constants.js";
 
 const signinEmailInput = querySelector("#signin-email-input");
 const signinPasswordInput = querySelector("#signin-password-input");
@@ -54,7 +55,29 @@ async function tryLogin() {
     if (response.ok) {
       location.href = "folder.html";
     } else {
-      console.log("로그인 실패");
+      const errorMessage = querySelector("#email-error-message");
+      const errorMessageBox = querySelector("#password-error-message");
+
+      response.email === inputUser.email &&
+      response.password.password !== inputUser.password
+        ? updateErrorMessage(
+            errorMessageBox,
+            "비밀번호를 확인해주세요.",
+            signinPasswordInput,
+            signinPasswordInput.value === ""
+          )
+        : (updateErrorMessage(
+            errorMessage,
+            "이메일을 확인해주세요.",
+            signinEmailInput,
+            signinEmailInput.value === ""
+          ),
+          updateErrorMessage(
+            errorMessageBox,
+            "비밀번호를 확인해주세요.",
+            signinPasswordInput,
+            signinPasswordInput.value === ""
+          ));
     }
   } catch (error) {
     console.log(error.message);
