@@ -80,6 +80,7 @@ function handleSubmit(e) {
 
   for (let checkFunction of checkFunctions) {
     if (checkFunction(e) === false) {
+      e.preventDefault();
       checkFunction(e);
       count++;
     }
