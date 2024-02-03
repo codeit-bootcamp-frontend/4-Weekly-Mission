@@ -131,26 +131,29 @@ function handleRegister(e) {
   //회원가입 성공/실패 플래그
   let continueRegister = true;
 
-  //이메일 조건을 만족하지 않을 경우 회원가입 실패
+  //이메일 조건을 만족하지 않을 경우
   if (!validateEmail()) {
     continueRegister = false;
   }
 
-  //비밀번호 조건을 만족하지 않을 경우 회원가입 실패
+  //비밀번호 조건을 만족하지 않을 경우
   if (!validatePassword()) {
     continueRegister = false;
   }
 
-  //비밀번호 확인 조건을 만족하지 않을 경우 회원가입 실패
+  //비밀번호 확인 조건을 만족하지 않을 경우
   if (!validateConfirmPassword()) {
     continueRegister = false;
   }
 
-  //회원가입 성공
-  if (continueRegister) {
-    //const newUser = createUser({ email, password })
-    return (location.href = "../folder/index.html");
+  //회원가입 실패
+  if (!continueRegister) {
+    return;
   }
+
+  //회원가입 성공
+  //const newUser = createUser({ email, password })
+  location.href = "../folder/index.html";
 }
 
 //eyeBtn 비밀번호 토글
