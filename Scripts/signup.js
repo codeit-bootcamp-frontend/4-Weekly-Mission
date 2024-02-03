@@ -80,7 +80,7 @@ const submitSignupData = async function (e) {
 
    if (signupValid) {
       await accountRegister(triedSignupAccountData)
-      //window.location.href = './folder.html';
+      window.location.href = './folder.html';
    } 
 }
 
