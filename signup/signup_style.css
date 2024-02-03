@@ -81,9 +81,7 @@ body {
   line-height: normal;
 }
 
-.signup-email,
-.signup-password,
-.check-password {
+.signup_input {
   position: relative;
 
   border: 1px solid #373740;
@@ -99,7 +97,7 @@ body {
   line-height: 24px;
 }
 
-#signup-form input:focus {
+.signup_input:focus {
   border: 1px solid #6D6AFE;
   outline: none;
 }
@@ -111,7 +109,7 @@ body {
   font-weight: 400;
 }
 
-#signup-button {
+#signup_button {
   border: none;
   border-radius: 8px;
   padding: 16px 20px;

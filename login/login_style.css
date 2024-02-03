@@ -84,8 +84,7 @@ header {
   line-height: normal;
 }
 
-.login-email,
-.login-password {
+.login_input {
   position: relative;
 
   border: 1px solid #373740;
@@ -101,7 +100,7 @@ header {
   line-height: 24px;
 }
 
-.login_form input:focus {
+.login_input:focus {
   border: 1px solid #6D6AFE;
   outline: none;
 }
@@ -113,7 +112,7 @@ header {
   font-weight: 400;
 }
 
-#login-button {
+#login_button {
   border: none;
   border-radius: 8px;
   padding: 16px 20px;

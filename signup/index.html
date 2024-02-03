@@ -24,24 +24,24 @@
     </div>
 
     <div class="signup_form">
-      <form id="signup-form" action="/folder" method="get" onsubmit="return false">
+      <form id="signup_form" action="/folder" method="get" onsubmit="return false">
         <div>
-          <label for="signup-email">이메일</label>
-          <input id="signup-email" class="signup-email" type="email" placeholder="이메일을 입력해주세요.">
+          <label for="signup_email">이메일</label>
+          <input id="signup_email" class="signup_input" type="email" placeholder="이메일을 입력해주세요.">
           <div class="error_message"></div>
         </div>
         <div>
-          <label for="signup-password">비밀번호</label>
-          <input id="signup-password" class="signup-password" type="password" placeholder="비밀번호를 입력해주세요.">
+          <label for="signup_password">비밀번호</label>
+          <input id="signup_password" class="signup_input" type="password" placeholder="비밀번호를 입력해주세요.">
           <div class="error_message"></div>
         </div>
         <div>
-          <label for="check-password">비밀번호 확인</label>
-          <input id="check-password" class="check-password" type="password" placeholder="비밀번호를 입력해주세요.">
-          <div class="error_message"></div>
+          <label for="check_password">비밀번호 확인</label>
+          <input id="check_password" class="signup_input" type="password" placeholder="비밀번호를 입력해주세요.">
+          <div id="error_message"></div>
         </div>
         
-        <button type="submit" id="signup-button">
+        <button type="submit" id="signup_button">
           회원가입
         </button>
       </form>

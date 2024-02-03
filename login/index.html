@@ -24,19 +24,19 @@
     </header>
 
     <div class="login_form">
-      <form id="signin-form" action="/folder" method="get" onsubmit="return false">
+      <form id="signin_form" action="/folder" method="post">
         <div>
-          <label for="login-email">이메일</label>
-          <input id="login-email" class="login-email" type="email" placeholder="이메일을 입력해주세요.">
+          <label for="login_email">이메일</label>
+          <input id="login_email" class="login_input" type="email" placeholder="이메일을 입력해주세요.">
           <div class="error_message"></div>
         </div>
         <div>
-          <label for="login-password">비밀번호</label>
-          <input id="login-password" class="login-password" type="password" placeholder="비밀번호를 입력해주세요.">
-          <div class="error_message"></div>
+          <label for="login_password">비밀번호</label>
+          <input id="login_password" class="login_input" type="password" placeholder="비밀번호를 입력해주세요.">
+          <div id="error_message"></div>
         </div>
 
-        <button type="submit" id="login-button">
+        <button type="submit" id="login_button">
           로그인
         </button>
       </form>
