@@ -10,6 +10,7 @@ import {
 import {
   handleFocusIn,
   handleFocusOut,
+  togglePassword
 } from "../src/eventHandler.js";
 
 const error = new Error(true);
@@ -114,17 +115,6 @@ function passwordIsNotEqual() {
     error.createErrorSpanElement(staticName.parentElementSeletor.passwordConfirm);
     errorBorder(staticName.elementSeletor.passwordConfirm);
     error.errorMessageInElement(staticName.parentElementSeletor.passwordConfirm, errorMessage.passwordIsNotEqual);
-  }
-}
-
-function togglePassword(element, icon) {
-  if (element.type === "password") {
-    element.type = "text";
-    icon.setAttribute("src", "../Publics/sign/eye-off.svg");
-  }
-  else {
-    element.type = "password";
-    icon.setAttribute("src", "../Publics/sign/eye-on.svg");
   }
 }
 

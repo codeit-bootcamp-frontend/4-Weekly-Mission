@@ -10,6 +10,7 @@ import {
 import {
   handleFocusIn,
   handleFocusOut,
+  togglePassword,
 } from "../src/eventHandler.js";
 
 const error = new Error(true);
@@ -83,16 +84,6 @@ function loginFail() {
   error.errorMessageInElement(staticName.parentElementSeletor.password, errorMessage.loginFail.password);
 }
 
-function togglePassword() {
-  if (password.type === "password") {
-    password.type = "text";
-    passwordIcon.setAttribute("src", "../Publics/sign/eye-off.svg");
-  } else {
-    password.type = "password";
-    passwordIcon.setAttribute("src", "../Publics/sign/eye-on.svg");
-  }
-}
-
 email.addEventListener("focusout", () => handleFocusOut(
   email,
   staticName.elementSeletor.email,
@@ -106,12 +97,11 @@ password.addEventListener("focusout", () => noInputFocusOut(
   staticName.elementSeletor.password, 
   errorMessage.isEmpty.password
 ));
-//email.addEventListener("focusout", notValidEmailInput);
 email.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.email));
 password.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.password));
 loginButton.addEventListener("click", folderPage);
 password.addEventListener("keydown", pressEnterForFolderPage);
-passwordIcon.addEventListener("click", togglePassword);
+passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
 document.addEventListener('DOMContentLoaded', function() {
   // 로컬 스토리지에서 accessToken을 가져옵니다.
   const accessToken = localStorage.getItem('accessToken');
