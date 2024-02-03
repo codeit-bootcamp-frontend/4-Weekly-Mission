@@ -1,6 +1,5 @@
 import {
   Error,
-  resetErrorElement,
   errorBorder,
 } from "../src/element.js";
 import { 
@@ -8,6 +7,10 @@ import {
   errorMessage,
   superUser
 } from "../src/static.js";
+import {
+  handleFocusIn,
+  handleFocusOut,
+} from "../src/eventHandler.js";
 
 const error = new Error(true);
 
@@ -24,28 +27,6 @@ function noInputFocusOut(element, parentElementSelectorName, inputSelectorName, 
     errorBorder(inputSelectorName)
     error.errorMessageInElement(parentElementSelectorName, errorSentence);
   }
-}
-
-function notValidEmailInput() {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (email.value === "") {
-    return;
-  }
-
-  error.removeErrorElement(staticName.parentElementSeletor.email);
-  
-  if (emailRegex.test(email.value)) {
-    return
-  } else {
-    error.createErrorSpanElement(staticName.parentElementSeletor.email);
-    errorBorder(staticName.elementSeletor.email);
-    error.errorMessageInElement(staticName.parentElementSeletor.email, errorMessage.notCorrectFormat.email);
-  }
-}
-
-function focusIn(parentElementSelectorName) {
-  resetErrorElement(parentElementSelectorName)
 }
 
 function pressEnterForFolderPage(e) {
@@ -112,11 +93,12 @@ function togglePassword() {
   }
 }
 
-email.addEventListener("focusout", () => noInputFocusOut(
+email.addEventListener("focusout", () => handleFocusOut(
   email,
-  staticName.parentElementSeletor.email,
   staticName.elementSeletor.email,
-  errorMessage.isEmpty.email
+  staticName.parentElementSeletor.email,
+  errorMessage.isEmpty.email,
+  errorMessage.notCorrectFormat.email
 ));
 password.addEventListener("focusout", () => noInputFocusOut(
   password, 
@@ -124,9 +106,9 @@ password.addEventListener("focusout", () => noInputFocusOut(
   staticName.elementSeletor.password, 
   errorMessage.isEmpty.password
 ));
-email.addEventListener("input", notValidEmailInput);
-email.addEventListener("focusin", () => focusIn(staticName.parentElementSeletor.email));
-password.addEventListener("focusin", () => focusIn(staticName.parentElementSeletor.password));
+//email.addEventListener("focusout", notValidEmailInput);
+email.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.email));
+password.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.password));
 loginButton.addEventListener("click", folderPage);
 password.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", togglePassword);
