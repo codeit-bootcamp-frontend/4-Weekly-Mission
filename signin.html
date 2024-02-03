@@ -11,7 +11,7 @@
 <body>
   <header class="headerWrap">
     <a class="headerWrap__logo" href="./index.html">
-      <img src="../img/logo-signin.svg">
+      <img src="./img/logo-signin.svg">
     </a>
     <h2 class="headerWrap__text">
       회원이 아니신가요? 
@@ -28,10 +28,8 @@
       </div>
       <div class="signin__pass">
         <label for="pass">비밀번호</label>
-        <div class="signin__pass--toggle">
-          <input id="pass" name="pass" type="password" placeholder="비밀번호 입력">
-          <i class="fa-solid fa-eye-slash"></i>
-        </div>
+        <input class="signin--addToggle" id="pass" name="pass" type="password" placeholder="비밀번호 입력">
+        <i class="fa-solid fa-eye-slash"></i>
       </div>
       <button class="signin__Btn" type="submit">
         로그인

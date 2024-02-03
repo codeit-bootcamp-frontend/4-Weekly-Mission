@@ -83,6 +83,7 @@ main {
     align-items: flex-start;
     gap: 12px;
     width: 100%;
+    position: relative;
     
     #email, 
     #pass {
@@ -101,17 +102,12 @@ main {
     }
   }
   
-  .signin__pass--toggle {
-    position: relative;
-    width: 100%;
-    
-    .fa-solid {
-      width: 16px;
-      height: 16px;
-      position: absolute;
-      top: 24px;
-      right: 15px;
-    }
+  .fa-solid {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 52px;
+    right: 16px;
   }
   
   input:focus {

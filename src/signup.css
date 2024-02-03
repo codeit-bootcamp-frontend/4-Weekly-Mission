@@ -70,20 +70,12 @@ main {
   width: 100%;
   max-width: 400px;
 
-  .signup__pass--toggle {
-    position: relative;
-    width: 100%;
-    height: auto;
-
-    .fa-solid, 
-    .fa-eye-slash {
-      width: 16px;
-      height: 16px;
-      position: absolute;
-      top: 24px;
-      right: 15px;
-      z-index: 1000;
-    }
+  .fa-solid {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 52px;
+    right: 16px;
   }
 
   .signup__email,
@@ -94,6 +86,7 @@ main {
     justify-content: center;
     gap: 12px;
     width: 100%;
+    position: relative;
   }
 
   #email,
