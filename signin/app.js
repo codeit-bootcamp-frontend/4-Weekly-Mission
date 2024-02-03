@@ -104,13 +104,10 @@ async function handleLogin(e) {
   //1. 클라이언트 로그인 양식 검사
   let checkLoginForm = true;
 
-  if (isTextEmpty(userInput.email)) {
+  if (!validateEmail()) {
     checkLoginForm = false;
   }
-  if (!isValidEmailFormat(userInput.email)) {
-    checkLoginForm = false;
-  }
-  if (isTextEmpty(userInput.password)) {
+  if (!validatePassword()) {
     checkLoginForm = false;
   }
   if (!checkLoginForm) {
