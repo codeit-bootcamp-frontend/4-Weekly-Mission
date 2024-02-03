@@ -21,6 +21,11 @@ export default class Form {
     }
   }
 
+  setUserStorage(token) {
+    localStorage.setItem("user", token)
+    return (location.href = "/folder")
+  }
+
   attach() {
     this.formElement.addEventListener("submit", this.submitHandler.bind(this))
   }

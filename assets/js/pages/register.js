@@ -1,10 +1,8 @@
-import { getUserStorage } from "../auth/index.js"
 import { RegisterForm } from "../components/forms.js"
 import { RegisterEmailInput, RegisterPasswordConfirmInput, RegisterPasswordInput } from "../components/inputs.js"
-import { navigate } from "../utils/navigate.js"
 
-if (getUserStorage) {
-  navigate("/folder")
+if (localStorage.getItem("user")) {
+  location.href = "/folder"
 }
 
 const form = document.querySelector(".form")

@@ -1,15 +1,7 @@
-import { CHECK_EMAIL } from "../api/index.js"
 import { FormInput, formState } from "../core/index.js"
-import { requestHTTP } from "../utils/http.js"
 import { removeError, showError } from "../utils/ui.js"
-import {
-  isEmpty,
-  isEmailValid,
-  isPasswordMatch,
-  isExistingEmail,
-  isPasswordValid,
-  errorMessages,
-} from "../utils/validation.js"
+import { isEmpty, isEmailValid, isPasswordMatch, isPasswordValid, errorMessages } from "../utils/validation.js"
+import authService from "../service/index.js"
 
 class RegisterEmailInput extends FormInput {
   constructor(inputElement) {
@@ -19,7 +11,7 @@ class RegisterEmailInput extends FormInput {
   async validation(value) {
     if (isEmpty(value)) return { result: false, errorType: "empty" }
     if (!isEmailValid(value)) return { result: false, errorType: "notValid" }
-    if (await isExistingEmail(value)) return { result: false, errorType: "existing" }
+    if (await authService.isExistingEmail(value)) return { result: false, errorType: "existing" }
 
     return { result: true, errorType: null }
   }

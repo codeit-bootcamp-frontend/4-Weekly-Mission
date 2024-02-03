@@ -1,27 +1,11 @@
 import { CHECK_EMAIL } from "../api/index.js"
-import { requestHTTP } from "./http.js"
+import { requestHTTP } from "./httpRequest.js"
 
 export const isEmpty = (value) => value.trim().length === 0
 
 export const isEmailValid = (value) => {
   const pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/
   return !isEmpty(value) && pattern.test(value)
-}
-
-export const isExistingEmail = async (email) => {
-  try {
-    const responseData = await requestHTTP(CHECK_EMAIL, {
-      method: "POST",
-      body: JSON.stringify({ email }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-
-    return "error" in responseData ? true : false
-  } catch (error) {
-    return true
-  }
 }
 
 export const isPasswordMatch = (value, passwordValue) => value === passwordValue
