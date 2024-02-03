@@ -96,6 +96,10 @@ function signUp(event) {
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
   const passwordCheckValue = passwordCheck.value.trim();
+  const data = {
+    email: email,
+    password: password,
+  };
 
   const emailContainer = emailInput.parentElement;
   const passwordContainer = passwordInput.parentElement;
@@ -119,7 +123,25 @@ function signUp(event) {
   }
 
   // 모든 유효성 검사 통과 시
-  window.location.href = "/folder.html";
+  fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      if (response.status === 200) {
+        // 응답이 200인 경우에만 페이지를 이동
+        window.location.replace("./folder.html");
+      } else {
+        console.error(response.status);
+      }
+    })
+    .catch((error) => {
+      // fetch 요청 자체가 실패한 경우에 대한 처리
+      console.error(error);
+    });
 }
 
 emailInput.addEventListener("blur", function () {
