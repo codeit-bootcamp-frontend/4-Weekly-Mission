@@ -19,13 +19,13 @@ const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 // 이메일 입력
 emailInput.addEventListener("focusout", validateEmailInput);
 
-function isValidateEmail(email) {
+function isValidEmail(email) {
   return EMAIL_REGEX.test(email);
 }
 
 function validateEmailInput() {
   const email = emailInput.value.trim();
-  const testEmail = "test@codeit.com";
+  const TEST_EMAIL = "test@codeit.com";
 
   if (email === "") {
     showEmailErrorMessage("이메일을 입력해 주세요.");
@@ -37,7 +37,7 @@ function validateEmailInput() {
     return;
   }
 
-  if (email === testEmail) {
+  if (email === TEST_EMAIL) {
     showEmailErrorMessage("이미 사용 중인 이메일입니다.");
     return;
   }
@@ -62,7 +62,7 @@ function hideEmailErrorMessage() {
 // 비밀번호 입력
 passwordInput.addEventListener("focusout", validatePasswordInput);
 
-function isValidatePassword(password) {
+function isValidPassword(password) {
   return PASSWORD_REGEX.test(password);
 }
 
@@ -160,11 +160,10 @@ function formSubmit(event) {
 
   if (isValid) {
     window.location.href = "/folder";
-    return;
   }
 }
 
-// 눈 아이콘 클릭시 문자열 보이거나 숨기기
+// 눈 아이콘 클릭시 비밀번호 보이거나 숨기기
 eyeOffButton.addEventListener("click", handleClickEyeOffButton);
 eyeOnButton.addEventListener("click", handleClickEyeOnButton);
 eyeOffConfirmButton.addEventListener("click", handleClickEyeOffConfirmButton);

@@ -1,3 +1,5 @@
+import { isValidEmail, isValidPassword, showErrorMessage, hideErrorMessage, togglePasswordVisibility } from "./sign.js";
+
 const querySelector = (selector) => document.querySelector(selector);
 
 const emailInput = querySelector("#email-input");
@@ -22,7 +24,7 @@ function validateEmailInput() {
     return;
   }
 
-  if (!isValidateEmail(email)) {
+  if (!isValidEmail(email)) {
     showEmailErrorMessage("올바른 이메일 주소가 아닙니다.");
     return;
   }
@@ -30,7 +32,7 @@ function validateEmailInput() {
   hideEmailErrorMessage();
 }
 
-function isValidateEmail(email) {
+function isValidEmail(email) {
   return EMAIL_REGEX.test(email);
 }
 
@@ -84,19 +86,19 @@ function formSubmit(event) {
 
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
-  const testEmail = "test@codeit.com";
-  const testPassword = "codeit101";
+  const TEST_EMAIL = "test@codeit.com";
+  const TEST_PASSWORD = "codeit101";
 
-  if (email === testEmail && password === testPassword) {
+  if (email === TEST_EMAIL && password === TEST_PASSWORD) {
     window.location.href = "/folder";
     return;
   }
 
-  if (email !== testEmail) {
+  if (email !== TEST_EMAIL) {
     showEmailErrorMessage("이메일을 확인해 주세요.");
   }
 
-  if (password !== testPassword) {
+  if (password !== TEST_PASSWORD) {
     showPasswordErrorMessage("비밀번호를 확인해 주세요.");
   }
 }
