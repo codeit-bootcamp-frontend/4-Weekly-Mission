@@ -19,23 +19,23 @@
         회원이 아니신가요? <a href="./signup.html">회원가입하기</a>
       </div>
       <form class="login-form">
-        <label class="sign-title">
+        <label for="email" class="sign-title">
           이메일
         </label>
         <div class="h-12"></div>
-        <input class="input-case email-input" name="email" type="email">
-        <div class="h-24 error-text-email"></div>
-        <label class="sign-title">
+        <input id="email" class="input-case email-input" name="email" type="email">
+        <div class="h-24 email-error-message"></div>
+        <label for="password" class="sign-title">
           비밀번호
         </label>
         <div class="h-12"></div>
         <div class="relative">
-          <input class="input-case password-input" name="password" type="password" autoComplete="off">
+          <input id="password" class="input-case password-input" name="password" type="password" autoComplete="off">
           <div class="eye-icon img-box">
-            <img src="./image/eye-off.png" width="100%" height="100%">
+            <img class="eye-icon-change" src="./image/eye-off.png" width="100%" height="100%">
           </div>
         </div>
-        <div class="h-24 error-text-password"></div>
+        <div class="h-24 password-error-message"></div>
         <button class="signin-button" type="submit">
           로그인
         </button>
@@ -43,12 +43,12 @@
       <footer class="login-footer">
         <div class="social-login">소셜로그인</div>
         <div class="img-box">
-          <a href="https://www.google.com" target="_blank"><img src="./image/icon-google.svg"></a>
-          <a href="https://www.kakaocorp.com/page" target="_blank"><img src="./image/icon-kakaotalk.svg"></a>
+          <a href="https://www.google.com" target="_blank" rel="noreferrer noopener"><img src="./image/icon-google.svg"></a>
+          <a href="https://www.kakaocorp.com/page" target="_blank" rel="noreferrer noopener"><img src="./image/icon-kakaotalk.svg"></a>
         </div>
       </footer>
     </div>
   </div>
-  <script type="module" src="./js/login.js"></script>
+  <script type="module" src="./js/signin.js"></script>
 </body>
 </html>

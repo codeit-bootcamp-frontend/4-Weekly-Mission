@@ -1,0 +1,26 @@
+
+.h-12 {
+  width: 100%;
+  height: 12px;
+  margin-bottom: 0;
+}
+
+.h-24 {
+  width: 100%;
+  height: 24px;
+  margin-bottom: 0;
+}
+
+.h-16 {
+  width: 100%;
+  height: 16px;
+}
+
+.h-20 {
+  width: 100%;
+  height: 20px;
+}
+
+.img-box {
+  line-height: 0;
+}
