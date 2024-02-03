@@ -22,23 +22,29 @@ const eyeButtonForConfirm = getElementById('eye-button-password-confirm');
 
 emailInput.addEventListener('focusout', function () {
     const emailValue = emailInput.value.trim();
-    if(isEmptyString(emailValue)){showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isEmpty); return;}
-    if(!isValidEmail(emailValue)){showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isNotRightFormat); return;}
-    if(emailValue === 'test@codeit.com'){showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isUsing); return;}
+    if(isEmptyString(emailValue)){
+        showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isEmpty); return;}
+    if(!isValidEmail(emailValue)){
+        showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isNotRightFormat); return;}
+    if(emailValue === 'test@codeit.com'){
+        showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isUsing); return;}
     hideError(emailInput, emailErrorMessage);
 });
 
 passwordInput.addEventListener('focusout', function () {
     const passwordValue = passwordInput.value.trim();
-    if(isEmptyString(passwordValue)) {showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.isEmpty); return;}
-    if(!isValidPassword(passwordValue)) {showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.isNotRightFormat); return;}
+    if(isEmptyString(passwordValue)) {
+        showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.isEmpty); return;}
+    if(!isValidPassword(passwordValue)) {
+        showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.isNotRightFormat); return;}
     hideError(passwordInput, passwordErrorMessage);
 });
 
 passwordConfirmInput.addEventListener('focusout', function() {
     const passwordValue = passwordInput.value.trim();
     const passwordConfirmValue = passwordConfirmInput.value.trim();
-    if(passwordValue !== passwordConfirmValue) {showError(passwordConfirmInput, passwordConfirmErrorMessage, PASSWORD_CONFIRM_ERROR_MESSAGE.isNotMatch); return;}
+    if(passwordValue !== passwordConfirmValue) {
+        showError(passwordConfirmInput, passwordConfirmErrorMessage, PASSWORD_CONFIRM_ERROR_MESSAGE.isNotMatch); return;}
     hideError(passwordConfirmInput, passwordConfirmErrorMessage);
 });
 
@@ -48,12 +54,14 @@ signInButton.addEventListener('click', function (event) {
 });
 
 eyeButtonPassword.addEventListener('click', function () {
-    if (passwordInput.type === 'text') {showPassword(passwordInput, eyeButtonPassword); return;}
+    if (passwordInput.type === 'text') {
+        showPassword(passwordInput, eyeButtonPassword); return;}
     hidePassword(passwordInput,eyeButtonPassword);
 });
 
 eyeButtonForConfirm.addEventListener('click', function () {
-    if (passwordConfirmInput.type === 'text') {showPassword(passwordConfirmInput, eyeButtonForConfirm); return;}
+    if (passwordConfirmInput.type === 'text') {
+        showPassword(passwordConfirmInput, eyeButtonForConfirm); return;}
     hidePassword(passwordConfirmInput,eyeButtonForConfirm);
 });
 
