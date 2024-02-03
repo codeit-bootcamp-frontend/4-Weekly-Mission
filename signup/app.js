@@ -14,10 +14,8 @@ import {
   formElement,
   showError,
   hideError,
-  showPassword,
-  hidePassword,
-  showConfirmPassword,
-  hideConfirmPassword,
+  togglePassword,
+  toggleConfirmPassword,
 } from "./ui.js";
 
 /********************
@@ -131,11 +129,6 @@ function handleRegister(e) {
   //회원가입 성공/실패 플래그
   let continueRegister = true;
 
-  //이메일 조건을 만족하지 않을 경우
-  if (!validateEmail()) {
-    continueRegister = false;
-  }
-
   //비밀번호 조건을 만족하지 않을 경우
   if (!validatePassword()) {
     continueRegister = false;
@@ -146,32 +139,20 @@ function handleRegister(e) {
     continueRegister = false;
   }
 
+  //이메일 조건을 만족하지 않을 경우
+  if (!validateEmail()) {
+    continueRegister = false;
+  }
+
   //회원가입 실패
   if (!continueRegister) {
+    console.log(`회원가입 실패`);
     return;
   }
 
   //회원가입 성공
   //const newUser = createUser({ email, password })
-  location.href = "../folder/index.html";
-}
-
-//eyeBtn 비밀번호 토글
-function togglePassword() {
-  if (passwordInput.type === "password") {
-    return showPassword();
-  }
-
-  return hidePassword();
-}
-
-//eyeBtnCheck 비밀번호 확인 토글
-function toggleConfirmPassword() {
-  if (confirmPasswordInput.type === "password") {
-    return showConfirmPassword();
-  }
-
-  return hideConfirmPassword();
+  return (location.href = "../folder");
 }
 
 /********************

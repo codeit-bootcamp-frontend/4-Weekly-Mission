@@ -11,8 +11,7 @@ import {
   formElement,
   showError,
   hideError,
-  showPassword,
-  hidePassword,
+  togglePassword,
 } from "./ui.js";
 
 /********************
@@ -89,16 +88,7 @@ function handleLogin(e) {
   }
 
   //로그인 성공
-  return (location.href = "../folder/index.html");
-}
-
-//eyeBtn 비밀번호 토글
-function togglePassword() {
-  if (passwordInput.type === "password") {
-    return showPassword();
-  }
-
-  return hidePassword();
+  return (location.href = "../folder");
 }
 
 /********************

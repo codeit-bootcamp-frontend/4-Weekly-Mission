@@ -50,6 +50,15 @@ function hidePassword() {
   imgElement.src = "../public/icon/eye-off.svg";
 }
 
+//eyeBtn 비밀번호 토글
+function togglePassword() {
+  if (passwordInput.type === "password") {
+    return showPassword();
+  }
+
+  return hidePassword();
+}
+
 export {
   emailInput,
   passwordInput,
@@ -59,6 +68,5 @@ export {
   formElement,
   showError,
   hideError,
-  showPassword,
-  hidePassword,
+  togglePassword,
 };

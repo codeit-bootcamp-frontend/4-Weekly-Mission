@@ -66,6 +66,24 @@ function hideConfirmPassword() {
   eyeImgElement.src = "../public/icon/eye-off.svg";
 }
 
+//eyeBtn 비밀번호 토글
+function togglePassword() {
+  if (passwordInput.type === "password") {
+    return showPassword();
+  }
+
+  return hidePassword();
+}
+
+//eyeBtnCheck 비밀번호 확인 토글
+function toggleConfirmPassword() {
+  if (confirmPasswordInput.type === "password") {
+    return showConfirmPassword();
+  }
+
+  return hideConfirmPassword();
+}
+
 export {
   emailInput,
   passwordInput,
@@ -78,8 +96,6 @@ export {
   formElement,
   showError,
   hideError,
-  showPassword,
-  hidePassword,
-  showConfirmPassword,
-  hideConfirmPassword,
+  togglePassword,
+  toggleConfirmPassword,
 };
