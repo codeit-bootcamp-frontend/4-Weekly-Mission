@@ -28,91 +28,77 @@ const passwordReCheck = document.querySelector('.password_recheck');
 
 const passwordErrorCheck = document.querySelector('.password-error-check');
 
-let isValid = [false, false, false];
+const emailInput = (event) => {
+  event.value = removeEmpty(event.value);
 
-const onSubmit = (e) => {
-  e.preventDefault();
-
-  if (isValid[0] === false) {
-    emailError.textContent = EMAIL_CHECK_MESSAGE;
-  }
-  if (isValid[1] === false) {
-    passwordError.textContent = PASSWORD_CHECK_MESSAGE;
-  }
-  if (isValid[2] === false) {
-    passwordErrorCheck.textContent = PASSWORD_CHECK_MESSAGE;
-  } else if (isValid.includes(false) === false) {
-    location.href = '/folder/folder.html';
+  if (event.value.length <= 0) {
+    emailError.textContent = EMPTY_EMAIL_MESSAGE;
+    event.classList.add('inputError');
+    return false;
+  } else if (!isEmail(event.value)) {
+    emailError.textContent = ERROR_EMAIL_MESSAGE;
+    event.classList.add('inputError');
+    return false;
+  } else if (event.value === TEST_EMAIL) {
+    emailError.textContent = DUPLICATE_EMAIL_MESSAGE;
+    return false;
+  } else {
+    emailError.textContent = '';
+    event.classList.remove('inputError');
+    return true;
   }
 };
 
 const emailInputCheck = (e) => {
-  e.target.value = removeEmpty(e.target.value);
+  emailInput(e.target);
+};
 
-  if (e.target.value.length <= 0) {
-    emailError.textContent = EMPTY_EMAIL_MESSAGE;
-    e.target.classList.add('inputError');
-    isValid[0] = false;
-  } else if (!isEmail(e.target.value)) {
-    emailError.textContent = ERROR_EMAIL_MESSAGE;
-    e.target.classList.add('inputError');
-    isValid[0] = false;
-  } else if (e.target.value === TEST_EMAIL) {
-    emailError.textContent = DUPLICATE_EMAIL_MESSAGE;
-    isValid[0] = false;
+const passwordInput = (event) => {
+  event.value = removeEmpty(event.value);
+
+  if (event.value.length <= 0) {
+    passwordError.textContent = EMPTY_PASSWORD_MESSAGE;
+    event.classList.add('inputError');
+    return false;
+  } else if (event.value.length < 8 || !/\d/.test(event.value) || !/[a-zA-Z]/.test(event.value)) {
+    passwordError.textContent = ERROR_INVALID_PASSWORD_MESSAGE;
+    event.classList.add('inputError');
+    return false;
   } else {
-    emailError.textContent = '';
-    e.target.classList.remove('inputError');
-    isValid[0] = true;
+    passwordError.textContent = '';
+    event.classList.remove('inputError');
+    return true;
   }
 };
 
 const passwordInputCheck = (e) => {
-  e.target.value = removeEmpty(e.target.value);
+  passwordInput(e.target);
+};
 
-  if (e.target.value.length <= 0) {
-    passwordError.textContent = EMPTY_PASSWORD_MESSAGE;
-    e.target.classList.add('inputError');
-    isValid[1] = false;
-  } else if (
-    e.target.value.length < 8 ||
-    !/\d/.test(e.target.value) ||
-    !/[a-zA-Z]/.test(e.target.value)
-  ) {
-    passwordError.textContent = ERROR_INVALID_PASSWORD_MESSAGE;
-    e.target.classList.add('inputError');
-    isValid[1] = false;
+const passwordReInput = (event) => {
+  event.value = removeEmpty(event.value);
+
+  if (event.value.length <= 0) {
+    passwordErrorCheck.textContent = EMPTY_PASSWORD_MESSAGE;
+    event.classList.add('inputError');
+    return false;
+  } else if (event.value.length < 8 || !/\d/.test(event.value) || !/[a-zA-Z]/.test(event.value)) {
+    passwordErrorCheck.textContent = ERROR_INVALID_PASSWORD_MESSAGE;
+    event.classList.add('inputError');
+    return false;
+  } else if (passwordCheck.value !== event.value) {
+    passwordErrorCheck.textContent = ERROR_MATCH_PASSWORD_MESSAGE;
+    event.classList.add('inputError');
+    return false;
   } else {
-    passwordError.textContent = '';
-    e.target.classList.remove('inputError');
-    isValid[1] = true;
+    passwordErrorCheck.textContent = '';
+    event.classList.remove('inputError');
+    return true;
   }
 };
 
 const passwordInputRecheck = (e) => {
-  e.target.value = removeEmpty(e.target.value);
-
-  if (e.target.value.length <= 0) {
-    passwordErrorCheck.textContent = EMPTY_PASSWORD_MESSAGE;
-    e.target.classList.add('inputError');
-    isValid[2] = false;
-  } else if (
-    e.target.value.length < 8 ||
-    !/\d/.test(e.target.value) ||
-    !/[a-zA-Z]/.test(e.target.value)
-  ) {
-    passwordErrorCheck.textContent = ERROR_INVALID_PASSWORD_MESSAGE;
-    e.target.classList.add('inputError');
-    isValid[2] = false;
-  } else if (passwordCheck.value !== e.target.value) {
-    passwordErrorCheck.textContent = ERROR_MATCH_PASSWORD_MESSAGE;
-    e.target.classList.add('inputError');
-    isValid[2] = false;
-  } else {
-    passwordErrorCheck.textContent = '';
-    e.target.classList.remove('inputError');
-    isValid[2] = true;
-  }
+  passwordReInput(e.target);
 };
 
 const eyeIconClick1 = (e) => {
@@ -128,6 +114,26 @@ const eyeIconClick2 = (e) => {
     const eyeOff = eyeIconOff[1];
     const eyeOn = eyeIconOn[1];
     togglePasswordVisibility(passwordReCheck, eyeOff, eyeOn);
+  }
+};
+
+const onSubmit = (e) => {
+  e.preventDefault();
+
+  const isEmailValid = emailInput(e.target.email);
+  const isPasswordValid = passwordInput(e.target.password);
+  const isPassWordReValid = passwordReInput(e.target.password_recheck);
+
+  if (isEmailValid === false) {
+    emailError.textContent = EMAIL_CHECK_MESSAGE;
+  }
+  if (isPasswordValid === false) {
+    passwordError.textContent = PASSWORD_CHECK_MESSAGE;
+  }
+  if (isPassWordReValid === false) {
+    passwordErrorCheck.textContent = PASSWORD_CHECK_MESSAGE;
+  } else if (isEmailValid && isPasswordValid && isPassWordReValid) {
+    location.href = '/folder/folder.html';
   }
 };
 
