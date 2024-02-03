@@ -80,12 +80,56 @@ function pwConfirmValidator(e){
 
   borderStyleHandler(passwordConfirm, !isFocused);
 }
- 
+
  email.addEventListener('blur', emailValidator);
  password.addEventListener('blur', passwordValidator );
  passwordConfirm.addEventListener('blur', pwConfirmValidator );
 
- function signIn(emailValue, passwordValue, passwordConFirmValue) {
+ // 중복된 이메일 체크 로직
+ async function emailCheckRequest(id){
+  const url = "https://bootcamp-api.codeit.kr/api/check-email";
+  const loginData = {
+    email : id,
+  }
+  try{
+    const response = await fetch(url,{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginData),
+    })
+    console.log(response.status)
+    return response.status
+  }catch(e){
+    console.log(e)
+  }
+}
+
+// 회원가입 로직
+async function signupRequest(id, password){
+  const url = "https://bootcamp-api.codeit.kr/api/sign-up";
+  const signData = {
+    email : id,
+    password: password
+  }
+  try{
+    const response = await fetch(url,{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(signData),
+    })
+    const {data} = await response.json()
+    localStorage.setItem("accessToken", data.accessToken);
+    window.location.href = "/folder";
+  }catch(e){
+    console.log(e)
+  }
+}
+
+ async function signIn(emailValue, passwordValue, passwordConFirmValue) {
   let control = false;
   const isValidEmail = emailRegex.test(emailValue);
   const isValidPassword = passwordRegex.test(passwordValue);
@@ -102,7 +146,14 @@ function pwConfirmValidator(e){
     borderStyleHandler(passwordConfirm, control);
   } 
   else {
-    window.location.replace('./folder.html');
+    const CheckEmail = await emailCheckRequest(emailValue)
+
+    if(CheckEmail === 409){
+      alert("중복된 이메일입니다.")
+    }
+    else if(CheckEmail === 200){
+      signupRequest(emailValue, passwordValue)
+    }
   } 
 
 }
