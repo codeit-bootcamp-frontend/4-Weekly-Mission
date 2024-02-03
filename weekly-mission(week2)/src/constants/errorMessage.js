@@ -1,13 +1,3 @@
-const MASTER_ACCOUNT = Object.freeze({
-  EMAIL: 'test@codeit.com',
-  PASSWORD: 'codeit101'
-});
-
-const REGEX = Object.freeze({
-  EMAIL: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i,
-  PASSWORD: /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/,
-});
-
 const ERROR_MESSAGE = Object.freeze({
   EMAIL: {
     BLANK: '이메일을 입력해 주세요.',
@@ -25,6 +15,4 @@ const ERROR_MESSAGE = Object.freeze({
   },
 });
 
-const $ = (selector, element = document) => element.querySelector(selector);
-
-export { MASTER_ACCOUNT, REGEX, ERROR_MESSAGE, $};
+export default ERROR_MESSAGE;
