@@ -22,17 +22,17 @@
             회원이 아니신가요? <a class="signup-link" href="signup.html">회원 가입하기</a>
           </div>
         </div>
-        <form class="login-form">
+        <form class="login-form sign-in">
           <div class="input-container">
             <div class="input-row">
               <label class="input-label" for="email">이메일</label>
-              <input class="input-profile" id="email" name="email" type="email">
+              <input class="input-profile email" id="email" name="email" type="email">
               <p class="input-error-msg"></p>
             </div>
             <div class="input-row">
               <img class="eye-icon" src="images/eye-off.svg">
               <label class="input-label" for="password">비밀번호</label>
-              <input class="input-profile" id="password" name="password" type="password">
+              <input class="input-profile password" id="password" name="password" type="password">
               <p class="input-error-msg"></p>
             </div>
           </div>
@@ -52,6 +52,6 @@
       </footer>
     </div>
   </div>
-  <script src="../js/login.js"></script>
+  <script type="module" src="./src/features/userManagement.js"></script>
 </body>
 </html>

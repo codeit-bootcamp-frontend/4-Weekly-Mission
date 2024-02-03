@@ -60,6 +60,20 @@
   outline: none;
 }
 
+.input-error-msg {
+  margin-top: -1rem;
+  color: var(--red);
+}
+
+.js-input-profile-error {
+  border: 0.3rem solid var(--red);
+  outline: none;
+}
+
+.hidden {  
+  display: none;
+}
+
 div.input-container {
   display: flex;
   flex-direction: column;
