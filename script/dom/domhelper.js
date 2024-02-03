@@ -10,7 +10,7 @@ export function removeClass(element, className) {
   element.classList.remove(className);
 }
 
-export function noErrorMessage(element) {
+export function haveErrorMessage(element) {
   return element.classList.contains('hidden');
 }
 
