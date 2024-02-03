@@ -7,6 +7,7 @@ const inputPassword = document.querySelector(".password");
 const eyeOff = document.querySelector(".eye-off");
 const eyeOn = document.querySelector(".eye-on");
 const loginBtn = document.querySelector(".login-btn");
+const url = "https://bootcamp-api.codeit.kr";
 
 //에러태그를 생성하는 함수 입니다.
 function makeError(type, errorType) {
@@ -88,26 +89,36 @@ function removeIfPasswordError() {
   }
 }
 //로그인 버튼의 이벤트를 구현한 함수입니다.
-function Login() {
-  if (
-    inputEmail.value === "test@codeit.com" &&
-    inputPassword.value === "codeit101"
-  ) {
-    window.location.assign("./folder");
-  } else {
-    removeIfEmailError();
-    removeIfPasswordError();
-    makeError("email", ERROR_MESSAGE.email.check);
-    makeError("password", ERROR_MESSAGE.password.check);
+async function Login() {
+  const data = {
+    email: inputEmail.value,
+    password: inputPassword.value,
+  };
+
+  try {
+    const response = await fetch(`${url}/api/sign-in`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+    console.log(response);
+    if (response.ok) {
+      window.location.assign("./folder");
+    }
+  } catch (err) {
+    console.log(err);
   }
 }
-//keypress가 일어났을때 Enter키를 눌렀는지 확인하고 Login()을 실행하는 함수입니다.
+
 function enterLogin(e) {
   if (e.key === "Enter") {
-    Login();
+    postLogin();
     e.preventDefault();
   }
 }
+
 //눈이미지를 클릭했을때 눈의 이미지를 토글하는 함수입니다. 토글시 비밀번호의 노출여부도 바뀝니다.
 function eyeToggleForPassword(e) {
   console.log(e.target.parentElement);
