@@ -29,8 +29,9 @@ passwordInputTag.addEventListener('blur', e => {
 
 signInButtonTag.addEventListener('click', async e => {
   e.preventDefault();
-  if (emailInputTag.value === validValues.email && passwordInputTag.value === validValues.password) {
-    await postLoginData(emailInputTag.value, passwordInputTag.value);
+  const result = await postLoginData(emailInputTag.value, passwordInputTag.value);
+
+  if (result) {
     window.location.href = '../pages/folder.html';
     return;
   }

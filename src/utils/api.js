@@ -22,8 +22,11 @@ const postLoginData = async (email, password) => {
     } = await response.json();
 
     localStorage.setItem('accessToken', accessToken);
+
+    return true;
   } catch (error) {
     console.error('Error: ', error);
+    return false;
   }
 };
 
