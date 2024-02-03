@@ -103,10 +103,12 @@ async function Login() {
       },
       body: JSON.stringify(data),
     });
-    console.log(response);
-    // if (response.ok) {
-    //   window.location.assign("./folder");
-    // }
+    if (response.ok) {
+      const responseData = await response.json();
+      const accessToken = responseData.data.accessToken;
+      localStorage.setItem("accessToken", accessToken);
+      window.location.assign("./folder");
+    }
   } catch (err) {
     console.log(err);
   }
@@ -136,7 +138,15 @@ function eyeToggleForPassword(e) {
   e.preventDefault();
 }
 
+function checkAccessTokenOnLoginPage() {
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    window.location.href = "/folder"; // accessToken이 있는 경우 "/folder" 페이지로 이동
+  }
+}
+
 //이벤트 핸들러 적용
+document.addEventListener("DOMContentLoaded", checkAccessTokenOnLoginPage);
 inputEmail.addEventListener("focusout", addEmailError);
 inputEmail.addEventListener("focusin", removeIfEmailError);
 inputPassword.addEventListener("focusout", addPasswordError);

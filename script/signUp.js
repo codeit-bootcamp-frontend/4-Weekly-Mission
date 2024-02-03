@@ -138,8 +138,10 @@ async function join() {
         },
         body: JSON.stringify(data),
       });
-      console.log(response);
       if (response.ok) {
+        const responseData = await response.json();
+        const accessToken = responseData.data.accessToken;
+        localStorage.setItem("accessToken", accessToken);
         window.location.assign("./folder");
       }
     } catch (err) {
@@ -193,8 +195,15 @@ function eyeToggleForPasswordCheck(e) {
   e.preventDefault();
 }
 
+function checkAccessTokenOnLoginPage() {
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    window.location.href = "/folder"; // accessToken이 있는 경우 "/folder" 페이지로 이동
+  }
+}
+
 //이벤트 핸들러 적용
-// inputEmail.addEventListener("focusout", addEmailError);
+document.addEventListener("DOMContentLoaded", checkAccessTokenOnLoginPage);
 inputEmail.addEventListener("focusin", removeIfEmailError);
 inputPassword.addEventListener("focusout", addPasswordError);
 inputPassword.addEventListener("focusin", removeIfPasswordError);
