@@ -119,7 +119,7 @@ function removeIfPasswordCheckError() {
   }
 }
 
-//회원가입 버튼의 이벤트를 구현한 함수입니다.
+//회원가입 버튼의 이벤트를 구현한 함수입니다. async await을 이용하여 구현하였습니다.
 async function join() {
   if (
     passwordValid(inputPassword.value) &&
@@ -195,6 +195,7 @@ function eyeToggleForPasswordCheck(e) {
   e.preventDefault();
 }
 
+//accessToken이 있는지 확인하는 함수입니다.
 function checkAccessTokenOnLoginPage() {
   const accessToken = localStorage.getItem("accessToken");
   if (accessToken) {
