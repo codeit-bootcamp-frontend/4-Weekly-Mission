@@ -1,8 +1,13 @@
-import { addErrorMsgToMismatchConfirm } from "../view/addErrorMessageToInput.js";
+import { signUp } from "../apis/signupUser.js";
+import { emailInput, passwordInput } from "../constants/dom.js";
 
 export const signUpHandler = (e) => {
   e.preventDefault();
-  addErrorMsgToMismatchConfirm();
+  
+  const inputAccount = {
+    email: emailInput.value,
+    password: passwordInput.value
+  };
 
   const inputs = document.querySelectorAll('.input-profile', e.target);
   inputs.forEach((input) => {
@@ -17,5 +22,5 @@ export const signUpHandler = (e) => {
   if (hasError) return;
   if (hasBlankInput) return;
 
-  window.location.href = '/folder.html';
+  signUp(inputAccount);
 }
