@@ -14,8 +14,8 @@ export const signUpHandler = (e) => {
   });
   const hasBlankInput = [...inputs].some((input) => input.value === '')
 
-  if(hasError) return;
-  if(hasBlankInput) return;
+  if (hasError) return;
+  if (hasBlankInput) return;
 
   window.location.href = '/folder.html';
 }

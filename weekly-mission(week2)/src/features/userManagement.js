@@ -12,12 +12,12 @@ passwordInput.addEventListener('blur', errorHandler.addErrorMsgToBlankInput);
 emailInput.addEventListener('blur', errorHandler.addErrorMsgToInvalidInput);
 
 // only sign-in handler
-if(loginForm.classList.contains('sign-in')) {
+if (loginForm.classList.contains('sign-in')) {
   loginForm.addEventListener('submit', signInHandler);
 }
 
 // only sign-up handler
-if(loginForm.classList.contains('sign-up')) {
+if (loginForm.classList.contains('sign-up')) {
   emailInput.addEventListener('blur', errorHandler.addErrorMsgToDuplicateInput);
   passwordInput.addEventListener('blur', errorHandler.addErrorMsgToInvalidInput);
   passwordConfirmInput.addEventListener('blur', errorHandler.addErrorMsgToMismatchConfirm);

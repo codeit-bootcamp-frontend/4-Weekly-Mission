@@ -7,9 +7,9 @@ import { isValid } from '../constants/validate.js';
 const addErrorMsgToBlankInput = (e) => {
   const errorMsg = $('.input-error-msg', e.target.parentNode);
 
-  if(e.target.value !== '') {
+  if (e.target.value !== '') {
     e.target.classList.remove('js-input-profile-error');
-    errorMsg.classList.add('hidden') ;
+    errorMsg.classList.add('hidden');
     return;
   }
 
@@ -17,7 +17,7 @@ const addErrorMsgToBlankInput = (e) => {
   errorMsg.classList.remove('hidden');
 
   // input이 email인지 password인지 체크
-  if(e.target.getAttribute('id') === 'email') {
+  if (e.target.getAttribute('id') === 'email') {
     errorMsg.textContent = ERROR_MESSAGE.EMAIL.BLANK;
   }
   else {
@@ -26,12 +26,12 @@ const addErrorMsgToBlankInput = (e) => {
 }
 
 const addErrorMsgToInvalidInput = (e) => {
-  if(e.target.value === '') return;
+  if (e.target.value === '') return;
 
   const errorMsg = $('.input-error-msg', e.target.parentNode);
   const inputType = e.target.getAttribute('id');  // emailInput id : 'email', passwordInput id : 'password'
-  
-  if(isValid[`${inputType}`](e.target.value)) {
+
+  if (isValid[`${inputType}`](e.target.value)) {
     e.target.classList.remove('js-input-profile-error');
     errorMsg.classList.add('hidden');
     return;
@@ -46,10 +46,10 @@ const addErrorMsgToInvalidInput = (e) => {
 const addErrorMsgToIncorrectInput = (input) => {
   const errorMsg = $('.input-error-msg', input.parentNode);
   input.classList.add('js-input-profile-error');
-  errorMsg.classList.remove('hidden');     
-  
+  errorMsg.classList.remove('hidden');
+
   // input이 email인지 password인지 체크
-  if(input.getAttribute('id') === 'email') {
+  if (input.getAttribute('id') === 'email') {
     errorMsg.textContent = ERROR_MESSAGE.EMAIL.INCORRECT;
   }
   else {
@@ -60,28 +60,27 @@ const addErrorMsgToIncorrectInput = (input) => {
 const addErrorMsgToDuplicateInput = (e) => {
   const errorMsg = $('.input-error-msg', e.target.parentNode);
 
-  if(e.target.value === MASTER_ACCOUNT.EMAIL)
-  {
-      e.target.classList.add('js-input-profile-error');
-      errorMsg.classList.remove('hidden');
-      errorMsg.textContent = ERROR_MESSAGE.EMAIL.DUPLICATE;
+  if (e.target.value === MASTER_ACCOUNT.EMAIL) {
+    e.target.classList.add('js-input-profile-error');
+    errorMsg.classList.remove('hidden');
+    errorMsg.textContent = ERROR_MESSAGE.EMAIL.DUPLICATE;
   }
 }
 
 const addErrorMsgToMismatchConfirm = () => {
-const passwordInput = $('.password');
-const passwordConfirmInput = $('.password-confirm');
-const errorMsg = $('.input-error-msg', passwordConfirmInput.parentNode);
+  const passwordInput = $('.password');
+  const passwordConfirmInput = $('.password-confirm');
+  const errorMsg = $('.input-error-msg', passwordConfirmInput.parentNode);
 
-if(passwordConfirmInput.value === passwordInput.value) {
-  passwordConfirmInput.classList.remove('js-input-profile-error');
-  errorMsg.classList.add('hidden'); 
-  return;
-}
+  if (passwordConfirmInput.value === passwordInput.value) {
+    passwordConfirmInput.classList.remove('js-input-profile-error');
+    errorMsg.classList.add('hidden');
+    return;
+  }
 
-passwordConfirmInput.classList.add('js-input-profile-error');
-errorMsg.classList.remove('hidden');
-errorMsg.textContent = ERROR_MESSAGE.PASSWORD_CONFIRM.MISMATCH;
+  passwordConfirmInput.classList.add('js-input-profile-error');
+  errorMsg.classList.remove('hidden');
+  errorMsg.textContent = ERROR_MESSAGE.PASSWORD_CONFIRM.MISMATCH;
 }
 
 export { addErrorMsgToBlankInput, addErrorMsgToInvalidInput, addErrorMsgToIncorrectInput, addErrorMsgToDuplicateInput, addErrorMsgToMismatchConfirm };

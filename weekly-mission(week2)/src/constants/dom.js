@@ -5,4 +5,4 @@ const passwordConfirmInput = $('.password-confirm');
 const loginForm = $('.login-form');
 const eyeIcons = document.querySelectorAll('.eye-icon');
 
-export {$, emailInput, passwordInput, passwordConfirmInput, loginForm, eyeIcons };
+export { $, emailInput, passwordInput, passwordConfirmInput, loginForm, eyeIcons };

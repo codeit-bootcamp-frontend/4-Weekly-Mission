@@ -1,4 +1,4 @@
-import REGEX  from "./regex.js";
+import REGEX from "./regex.js";
 
 export const isValid = {
   email: (email) => REGEX.EMAIL.test(email),
