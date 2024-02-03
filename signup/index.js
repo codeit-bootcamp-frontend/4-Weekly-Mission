@@ -9,7 +9,8 @@ import {
 } from "../src/static.js";
 import {
   handleFocusIn,
-  handleFocusOut,
+  handleFocusOutForEmail,
+  handleFocusOutForPassword,
   togglePassword
 } from "../src/eventHandler.js";
 
@@ -23,8 +24,6 @@ const passwordIcon = document.querySelector(staticName.iconSelector.password);
 const passwordConfimIcon = document.querySelector(staticName.iconSelector.passwordConfirm);
 
 function noInputFocusOut(element, parentElementSelectorName, inputSelectorName, errorSentence) {
-  //error.removeErrorElement(parentElementSelectorName);
-
   if (element.value === "") {
     error.createErrorSpanElement(parentElementSelectorName);
     errorBorder(inputSelectorName)
@@ -76,8 +75,7 @@ function requestAleadyUse(objectForJSON) {
       loginDuplication();
       console.log(error.state)
     } else {
-      error.removeErrorElement(".input-form-email");
-      console.log("pass")
+      //error.removeErrorElement(".input-form-email");
     }
   })
   .catch((error) => {
@@ -171,18 +169,19 @@ async function requestSignUp() {
   });
 }
 
-email.addEventListener("focusout", () => handleFocusOut(
+email.addEventListener("focusout", () => handleFocusOutForEmail(
   email,
   staticName.elementSeletor.email,
   staticName.parentElementSeletor.email,
   errorMessage.isEmpty.email,
   errorMessage.notCorrectFormat.email
 ));
-password.addEventListener("focusout", () => noInputFocusOut(
+password.addEventListener("focusout", () => handleFocusOutForPassword(
   password,
-  staticName.parentElementSeletor.password, 
   staticName.elementSeletor.password, 
-  errorMessage.isEmpty.password
+  staticName.parentElementSeletor.password, 
+  errorMessage.isEmpty.password,
+  errorMessage.notCorrectFormat.password
 ));
 email.addEventListener("change", aleadyUse);
 password.addEventListener("focusout", notPasswordFormat);

@@ -9,7 +9,8 @@ import {
 } from "../src/static.js";
 import {
   handleFocusIn,
-  handleFocusOut,
+  handleFocusOutForEmail,
+  notInput,
   togglePassword,
 } from "../src/eventHandler.js";
 
@@ -84,17 +85,17 @@ function loginFail() {
   error.errorMessageInElement(staticName.parentElementSeletor.password, errorMessage.loginFail.password);
 }
 
-email.addEventListener("focusout", () => handleFocusOut(
+email.addEventListener("focusout", () => handleFocusOutForEmail(
   email,
   staticName.elementSeletor.email,
   staticName.parentElementSeletor.email,
   errorMessage.isEmpty.email,
   errorMessage.notCorrectFormat.email
 ));
-password.addEventListener("focusout", () => noInputFocusOut(
+password.addEventListener("focusout", () => notInput(
   password, 
-  staticName.parentElementSeletor.password, 
   staticName.elementSeletor.password, 
+  staticName.parentElementSeletor.password, 
   errorMessage.isEmpty.password
 ));
 email.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.email));

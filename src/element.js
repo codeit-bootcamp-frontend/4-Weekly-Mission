@@ -60,7 +60,6 @@ export const errorElement = {
     let parentElement = document.querySelector(parentElementSlectorName); // dot 필요
     let span = document.createElement("span");
     parentElement.appendChild(span);
-    console.log(parentElementSlectorName)
     
     let parentElementclassName = removeDot(parentElementSlectorName); // dot 제거
     let errorClassName = errorName(parentElementclassName);
