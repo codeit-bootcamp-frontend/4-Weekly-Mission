@@ -1,6 +1,8 @@
 import tags from "./module/tags.js"
 import function_module from "./module/function.js"
 
+function_module.checkAccessToken()
+
 tags.email_input.addEventListener('focus', function_module.activeInput)
 tags.email_input.addEventListener('blur', function_module.blurInput)
 tags.email_input.addEventListener('focus', () => {function_module.removeErrorMessage(tags.email_error_msg)})
@@ -19,5 +21,4 @@ const signInBtn = document.querySelector('.sign_in_btn')
 signInBtn.addEventListener('click', (e) => {
     function_module.checkEmailPwOnLogin(e, tags.email_input, tags.pw_input, tags.email_error_msg, tags.password_error_msg)})
 
-tags.email_input.addEventListener('blur', function_module.test)
-tags.email_input.addEventListener('blur', function_module.test2(function_module.test))
+signInBtn.addEventListener('click', (e) => {function_module.fetchLogin(e, tags.email_input, tags.pw_input)})

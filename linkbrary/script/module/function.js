@@ -68,6 +68,7 @@ function checkDuplicate(e, errorMessageElement) {
 // 로그인 시도시 이메일 & 패스워드 학인
 function checkEmailPwOnLogin(e, email_input, pw_input, email_error_msg, password_error_msg) {
     e.preventDefault();
+    
     if(email_input.value == "test@codeit.com" && pw_input.value == "codeit101") {
         document.location.href = "/pages/folder.html"
     } else {
@@ -83,6 +84,7 @@ function checkEmailPwOnLogin(e, email_input, pw_input, email_error_msg, password
 // 회원가입 시도시 모든 인풋값 검사 
 function checkEmailPwSignUp(e, email_input, pw_input, repeat_pw_input, email_error_msg, password_error_msg, repeat_password_error_msg) {
     e.preventDefault()
+   
    let arr = [email_input.value, pw_input.value, repeat_pw_input.value]
 
      if(email_input.classList.contains("input_error") == false &&
@@ -123,6 +125,7 @@ function showPasswordInput(e, open, input) {
 }
 
 // 눈 아이콘 클릭 함수 (open - > close)
+
 function coverPasswordInput(e, close, input) {
     e.target.classList.add('display_none')
     close.classList.remove("display_none")
@@ -130,9 +133,45 @@ function coverPasswordInput(e, close, input) {
 }
 
 
-function test(a, b, c) {
-    function x(a) {
-        
+const member = {
+    email: "test@codeit.com",
+    password: "sprint101",
+    
+}
+
+
+// api 로그인 함수 
+async function fetchLogin(e, email_input, password_input) {
+    e.preventDefault()
+    const loginValue = {
+        email : email_input.value,
+        password : password_input.value
+    }
+    try {
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+           method : 'POST',
+           headers : {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify(loginValue),
+         })
+         if(response.status == 200) {
+            localStorage.setItem("accessToken",result.data.accessToken )
+            document.location.href = "/pages/folder.html"
+         }
+        const result = await response.json()
+
+        console.log(result)
+    } catch(error) {
+        console.log(error.type)
+    }
+}
+
+
+// 액세스 토큰 검사 함수
+function checkAccessToken() {
+    if(localStorage.getItem('accessToken') != undefined) {
+        location.href = "/pages/folder.html"
     }
 }
 const function_module = {
@@ -148,8 +187,9 @@ const function_module = {
     passwordConfirm : passwordConfirm,
     checkDuplicate : checkDuplicate,
     checkEmailPwSignUp : checkEmailPwSignUp,
-    test : test,
-    test2 : test2
+    fetchLogin : fetchLogin,
+    checkAccessToken : checkAccessToken
+
 }
 
 export default function_module

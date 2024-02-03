@@ -1,6 +1,8 @@
 import tags from "./module/tags.js"
 import function_module from "./module/function.js"
 
+function_module.checkAccessToken()
+
 tags.email_input.addEventListener('focus', function_module.activeInput)
 tags.email_input.addEventListener('blur', function_module.blurInput)
 tags.email_input.addEventListener('focus', () => {function_module.removeErrorMessage(tags.email_error_msg)})
