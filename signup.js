@@ -17,11 +17,16 @@ function validatePassword(password) {
 }
 
 function handleBlur(input, message) {
+  const data = {
+    email: input.value,
+  };
+
   updateInputState(input, message);
 
   if (input === emailInput) {
     handleEmailValidation(input);
   }
+
   if (
     input === passwordInput &&
     (!validatePassword(input.value) ||
@@ -33,8 +38,31 @@ function handleBlur(input, message) {
     handleValidation(input, message, () => false);
   }
   // 이메일 중복 확인 조건을 수행하고 그에 따라 에러 메시지 추가
-  if (input === emailInput && input.value === "test@codeit.com") {
-    handleValidation(input, "이미 사용 중인 이메일입니다.", () => true);
+  if (input === emailInput) {
+    fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          console.log("이메일을 사용할 수 있습니다.");
+        } else if (response.status === 409) {
+          handleValidation(
+            input,
+            getNewMessageElement("이미 사용 중인 이메일입니다."),
+            () => false
+          );
+        } else {
+          console.error(response.status);
+        }
+      })
+      .catch((error) => {
+        // fetch 요청 자체가 실패한 경우에 대한 처리
+        console.error(error);
+      });
   }
 }
 
