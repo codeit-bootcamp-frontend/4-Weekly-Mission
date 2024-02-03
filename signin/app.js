@@ -1,7 +1,7 @@
 /* Service Logic */
 
 import { isTextEmpty } from "../scripts/utils.js";
-import { VALID_USER } from "../scripts/service.js";
+import { isValidEmailFormat, checkAccessToken } from "../scripts/service.js";
 import {
   emailInput,
   passwordInput,
@@ -18,19 +18,43 @@ import {
  * UTILITY FUNCTION
  ********************/
 
-//이메일 양식 유효성 검사
-function isValidEmailFormat(emailInputValue) {
-  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  return regex.test(emailInputValue);
-}
+//api/sign-in post request
+async function getUserInfo(userInput) {
+  const url = new URL("https://bootcamp-api.codeit.kr/api/sign-in");
+  const user = userInput;
 
-//이메일이 일치하는 유저 데이터 반환
-function getUserByEmail(emailInputValue) {
-  if (VALID_USER.email !== emailInputValue) {
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    //성공: 유저 정보 반환
+    if (response.status === 200) {
+      const result = await response.json();
+      console.log("로그인 성공:", result);
+
+      //로컬 스토리지에 accessToken 저장
+      localStorage.setItem("accessToken", result.accessToken);
+
+      return user;
+    }
+
+    //실패: null 반환
+    if (response.status === 400) {
+      console.error("로그인 실패: 잘못된 요청");
+      return null;
+    }
+
+    console.error("로그인 오류: 서버 오류");
+    return null;
+  } catch (error) {
+    console.error("에러 발생:", error);
     return null;
   }
-
-  return VALID_USER;
 }
 
 /********************
@@ -42,14 +66,17 @@ function validateEmail() {
   const email = emailInput.value;
 
   if (isTextEmpty(email)) {
-    return showError(emailInput, emailErrorMessageElement, "이메일을 입력해 주세요.");
+    showError(emailInput, emailErrorMessageElement, "이메일을 입력해 주세요.");
+    return false;
   }
 
   if (!isValidEmailFormat(email)) {
-    return showError(emailInput, emailErrorMessageElement, "올바른 이메일 주소가 아닙니다.");
+    showError(emailInput, emailErrorMessageElement, "올바른 이메일 주소가 아닙니다.");
+    return false;
   }
 
-  return hideError(emailInput, emailErrorMessageElement);
+  hideError(emailInput, emailErrorMessageElement);
+  return true;
 }
 
 //비밀번호 에러 검사
@@ -57,31 +84,46 @@ function validatePassword() {
   const password = passwordInput.value;
 
   if (isTextEmpty(password)) {
-    return showError(passwordInput, passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
+    showError(passwordInput, passwordErrorMessageElement, "비밀번호를 입력해 주세요.");
+    return false;
   }
 
-  return hideError(passwordInput, passwordErrorMessageElement);
+  hideError(passwordInput, passwordErrorMessageElement);
+  return true;
 }
 
 //버튼 클릭 / 인풋 focus 상태에서 엔터로 로그인 로직 실행
-function handleLogin(e) {
+async function handleLogin(e) {
   e.preventDefault();
 
-  const email = emailInput.value;
-  const password = passwordInput.value;
+  const userInput = {
+    email: emailInput.value,
+    password: passwordInput.value,
+  };
 
-  //email과 일치하는 유저 저장 / 없으면 null
-  const user = getUserByEmail(email);
+  //1. 클라이언트 로그인 양식 검사
+  let checkLoginForm = true;
 
-  //null일 경우 데이터베이스에 user가 존재하지 않으므로 로그인 실패
-  if (user === null) {
+  if (isTextEmpty(userInput.email)) {
+    checkLoginForm = false;
+  }
+  if (!isValidEmailFormat(userInput.email)) {
+    checkLoginForm = false;
+  }
+  if (isTextEmpty(userInput.password)) {
+    checkLoginForm = false;
+  }
+  if (!checkLoginForm) {
     showError(emailInput, emailErrorMessageElement, "이메일을 확인해 주세요.");
     showError(passwordInput, passwordErrorMessageElement, "비밀번호를 확인해 주세요.");
     return;
   }
 
-  //데이터베이스에 user가 존재하지만 password가 동일하지 않은 경우 로그인 실패
-  if (user.password !== password) {
+  //2. 양식 검사 통과하면 네트워크 로그인 요청
+  const user = await getUserInfo(userInput);
+
+  //로그인 실패
+  if (!user) {
     showError(emailInput, emailErrorMessageElement, "이메일을 확인해 주세요.");
     showError(passwordInput, passwordErrorMessageElement, "비밀번호를 확인해 주세요.");
     return;
@@ -97,6 +139,7 @@ function handleLogin(e) {
  * EVENT HANDLER
  ********************/
 
+checkAccessToken();
 emailInput.addEventListener("focusout", validateEmail);
 passwordInput.addEventListener("focusout", validatePassword);
 formElement.addEventListener("submit", handleLogin);

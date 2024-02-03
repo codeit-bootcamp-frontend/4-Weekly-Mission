@@ -1,7 +1,7 @@
 /* Service Logic */
 
 import { isTextEmpty } from "../scripts/utils.js";
-import { VALID_USER } from "../scripts/service.js";
+import { isValidEmailFormat, checkAccessToken } from "../scripts/service.js";
 import {
   emailInput,
   passwordInput,
@@ -22,21 +22,6 @@ import {
  * UTILITY FUNCTION
  ********************/
 
-//이메일 양식 유효성 검사
-function isValidEmailFormat(emailInputValue) {
-  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  return regex.test(emailInputValue);
-}
-
-//이메일이 일치하는 유저 데이터 반환
-function getUserByEmail(emailInputValue) {
-  if (VALID_USER.email !== emailInputValue) {
-    return null;
-  }
-
-  return VALID_USER;
-}
-
 //회원가입 비밀번호 양식 유효성 검사
 function isValidPasswordFormat(passwordInputValue) {
   //8자 미만인 경우
@@ -53,7 +38,83 @@ function isValidPasswordFormat(passwordInputValue) {
   if (!/[a-zA-Z]/.test(passwordInputValue)) {
     return false;
   }
+
   return true;
+}
+
+//api/check-email post request
+async function getDuplicateEmail(emailInputValue) {
+  const url = new URL("https://bootcamp-api.codeit.kr/api/check-email");
+  const email = { email: emailInputValue };
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(email),
+    });
+
+    //성공: 중복되지 않은 이메일 반환
+    if (response.status === 200) {
+      const result = await response.json();
+      console.log("중복되지 않은 이메일:", result);
+
+      return email;
+    }
+
+    //실패: null 반환
+    if (response.status === 409) {
+      console.error("요청 실패: 중복된 이메일");
+      return null;
+    }
+
+    console.error("요청 오류: 서버 오류");
+    return null;
+  } catch (error) {
+    console.error("에러 발생:", error);
+    return null;
+  }
+}
+
+//api/sign-up post request
+async function getUserInfo(userInput) {
+  const url = new URL("https://bootcamp-api.codeit.kr/api/sign-up");
+  const user = userInput;
+
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+
+    //성공: 유저 정보 반환
+    if (response.status === 200) {
+      const result = await response.json();
+      console.log("회원가입 성공:", result);
+
+      //로컬 스토리지에 accessToken 저장
+      localStorage.setItem("accessToken", result.accessToken);
+
+      return user;
+    }
+
+    //실패: null 반환
+    if (response.status === 400) {
+      console.log("회원가입 실패: 잘못된 요청");
+      return null;
+    }
+
+    console.log("회원가입 오류: 서버 오류");
+    return null;
+  } catch (error) {
+    console.error("에러 발생:", error);
+    return null;
+  }
 }
 
 /********************
@@ -61,9 +122,10 @@ function isValidPasswordFormat(passwordInputValue) {
  ********************/
 
 //이메일 에러 검사
-function validateEmail() {
+async function validateEmail() {
   const email = emailInput.value;
 
+  //클라이언트 양식 검사
   if (isTextEmpty(email)) {
     showError(emailInput, emailErrorMessageElement, "이메일을 입력해 주세요.");
     return false;
@@ -74,9 +136,10 @@ function validateEmail() {
     return false;
   }
 
-  const user = getUserByEmail(email);
+  //네트워크 중복 검사
+  const userEmail = await getDuplicateEmail(email);
 
-  if (user) {
+  if (!userEmail) {
     showError(emailInput, emailErrorMessageElement, "이미 사용 중인 이메일입니다.");
     return false;
   }
@@ -123,42 +186,50 @@ function validateConfirmPassword() {
 }
 
 //버튼 클릭 / 인풋 focus 상태에서 엔터로 회원가입 로직 실행
-function handleRegister(e) {
+async function handleRegister(e) {
   e.preventDefault();
 
-  //회원가입 성공/실패 플래그
-  let continueRegister = true;
+  const userInput = {
+    email: emailInput.value,
+    password: passwordInput.value,
+  };
 
-  //비밀번호 조건을 만족하지 않을 경우
+  //1. 클라이언트 회원가입 양식 검사
+  let checkRegisterForm = true;
+
+  if (!(await validateEmail())) {
+    checkRegisterForm = false;
+  }
   if (!validatePassword()) {
-    continueRegister = false;
+    checkRegisterForm = false;
   }
-
-  //비밀번호 확인 조건을 만족하지 않을 경우
   if (!validateConfirmPassword()) {
-    continueRegister = false;
+    checkRegisterForm = false;
+  }
+  if (!checkRegisterForm) {
+    return;
   }
 
-  //이메일 조건을 만족하지 않을 경우
-  if (!validateEmail()) {
-    continueRegister = false;
-  }
+  //2. 양식 검사 통과하면 네트워크 회원가입 요청
+  const user = await getUserInfo(userInput);
 
   //회원가입 실패
-  if (!continueRegister) {
-    console.log(`회원가입 실패`);
+  if (!user) {
+    // console.log("회원가입 실패");
     return;
   }
 
   //회원가입 성공
-  //const newUser = createUser({ email, password })
-  return (location.href = "../folder/index.html");
+  hideError(emailInput, emailErrorMessageElement);
+  hideError(passwordInput, passwordErrorMessageElement);
+  // return (location.href = "../folder/index.html");
 }
 
 /********************
  * EVENT HANDLER
  ********************/
 
+checkAccessToken();
 emailInput.addEventListener("focusout", validateEmail);
 passwordInput.addEventListener("focusout", validatePassword);
 confirmPasswordInput.addEventListener("focusout", validateConfirmPassword);
