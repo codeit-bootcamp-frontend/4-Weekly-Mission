@@ -11,6 +11,7 @@ const eyeOn = document.querySelector(".eye-on");
 const eyeOff_2 = document.querySelector(".eye-off-2");
 const eyeOn_2 = document.querySelector(".eye-on-2");
 const joinBtn = document.querySelector(".join-btn");
+const url = "https://bootcamp-api.codeit.kr";
 
 //에러태그를 생성하는 함수 입니다.
 function makeError(type, errorType) {
@@ -119,13 +120,33 @@ function removeIfPasswordCheckError() {
 }
 
 //회원가입 버튼의 이벤트를 구현한 함수입니다.
-function join() {
+async function join() {
   if (
-    emailValid(inputEmail.value) &&
     passwordValid(inputPassword.value) &&
     isPasswordSame(inputPassword.value, inputPasswordCheck.value)
   ) {
-    window.location.assign("./folder");
+    try {
+      const data = {
+        email: inputEmail.value,
+        password: inputPassword.value,
+      };
+
+      const response = await fetch(`${url}/api/sign-up`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      console.log(response);
+      if (response.ok) {
+        window.location.assign("./folder");
+      }
+    } catch (err) {
+      console.log(err);
+      removeIfEmailError();
+      addEmailError();
+    }
   } else {
     removeIfEmailError();
     removeIfPasswordError();
@@ -135,6 +156,7 @@ function join() {
     addPasswordCheckError();
   }
 }
+
 //keypress가 일어났을때 Enter키를 눌렀는지 확인하고 join()을 실행하는 함수입니다.
 function enterjoin(e) {
   if (e.key === "Enter") {
@@ -172,7 +194,7 @@ function eyeToggleForPasswordCheck(e) {
 }
 
 //이벤트 핸들러 적용
-inputEmail.addEventListener("focusout", addEmailError);
+// inputEmail.addEventListener("focusout", addEmailError);
 inputEmail.addEventListener("focusin", removeIfEmailError);
 inputPassword.addEventListener("focusout", addPasswordError);
 inputPassword.addEventListener("focusin", removeIfPasswordError);
