@@ -102,7 +102,7 @@ body {
   outline: none;
 }
 
-.error_message {
+#error_message {
   color: #FF5B56;
   font-family: Pretendard;
   font-size: 14px;

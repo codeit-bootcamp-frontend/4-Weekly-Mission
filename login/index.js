@@ -7,6 +7,7 @@ INPUT_EMAIL.addEventListener('focusout', handleEmailFocusout);
 INPUT_PASSWORD.addEventListener('focusout', handlePasswordFocusout);
 
 FORM_ELEMENT.addEventListener('submit', handleSubmit)
+FORM_ELEMENT.addEventListener('submit', handleFormPostSubmit)
 
 
 // 이메일 유효성 확인
@@ -49,5 +50,28 @@ function handleSubmit(e) {
     INPUT_EMAIL.classList.add('input_error');
     INPUT_PASSWORD.nextElementSibling.textContent = '비밀번호를 확인해 주세요.';
     INPUT_PASSWORD.classList.add('input_error');
+  }
+}
+
+
+// POST 응답
+async function handleFormPostSubmit(e) {
+  e.preventDefault();
+
+  const TEST_ACCOUNT = {
+    email: INPUT_EMAIL.value,
+    password: INPUT_PASSWORD.value
+  }
+
+  const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(TEST_ACCOUNT)
+  })
+
+  if (response.ok) {
+    window.location.href = '/folder'
   }
 }
