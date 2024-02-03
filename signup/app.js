@@ -78,7 +78,7 @@ function validateEmail() {
 
   const user = getUserByEmail(email);
 
-  if (email === user.email) {
+  if (user) {
     showError(emailInput, emailErrorMessageElement, "이미 사용 중인 이메일입니다.");
     return false;
   }
@@ -128,8 +128,8 @@ function validateConfirmPassword() {
 function handleRegister(e) {
   e.preventDefault();
 
-  //
-  const continueRegister = true;
+  //회원가입 성공/실패 플래그
+  let continueRegister = true;
 
   //이메일 조건을 만족하지 않을 경우 회원가입 실패
   if (!validateEmail()) {
