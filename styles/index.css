@@ -1,4 +1,4 @@
-@import "/styles/style.css";
+@import '/styles/style.css';
 
 nav {
   background-color: var(--Gray5);
@@ -42,7 +42,7 @@ header {
 
 .title {
   text-align: center;
-  font-family: "Pretendard", "Noto Sans";
+  font-family: 'Pretendard', 'Noto Sans';
   font-size: 64px;
   font-weight: 700;
   line-height: 80px;
@@ -84,19 +84,19 @@ section {
 
 section:nth-of-type(even) {
   grid-template:
-    "image ."
-    "image title"
-    "image subtitle"
-    "image ."
+    'image .'
+    'image title'
+    'image subtitle'
+    'image .'
     /550px 291px;
 }
 
 section:nth-of-type(odd) {
   grid-template:
-    ". image"
-    "title image"
-    "subtitle image"
-    ". image"
+    '. image'
+    'title image'
+    'subtitle image'
+    '. image'
     / 291px 550px;
 }
 
@@ -110,7 +110,7 @@ section:nth-of-type(odd) {
 
 .content-text-main {
   grid-area: title;
-  font-family: "Pretendard", "Noto Sans";
+  font-family: 'Pretendard', 'Noto Sans';
   font-weight: 700;
   font-size: 48px;
   line-height: 57.6px;
@@ -120,7 +120,7 @@ section:nth-of-type(odd) {
 
 .content-text-sub {
   grid-area: subtitle;
-  font-family: "Abel", "Noto Sans";
+  font-family: 'Abel', 'Noto Sans';
   margin-top: 10px;
   font-weight: 400;
   font-size: 16px;
@@ -223,19 +223,19 @@ footer {
 
   section:nth-of-type(even) {
     grid-template:
-      "image ."
-      "image title"
-      "image subtitle"
-      "image ."
+      'image .'
+      'image title'
+      'image subtitle'
+      'image .'
       /385px 262px;
   }
 
   section:nth-of-type(odd) {
     grid-template:
-      ". image"
-      "title image"
-      "subtitle image"
-      ". image"
+      '. image'
+      'title image'
+      'subtitle image'
+      '. image'
       /262px 385px;
   }
 
