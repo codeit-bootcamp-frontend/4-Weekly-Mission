@@ -1,7 +1,8 @@
 import { LoginForm } from "../components/forms.js"
 import { LoginEmailInput, LoginPasswordInput } from "../components/inputs.js"
+import { getUserStorageWithExpireTime } from "../service/localStorage.js"
 
-if (localStorage.getItem("user")) {
+if (getUserStorageWithExpireTime("token")) {
   location.href = "/folder"
 }
 

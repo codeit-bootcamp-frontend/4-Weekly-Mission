@@ -1,7 +1,8 @@
 import { RegisterForm } from "../components/forms.js"
 import { RegisterEmailInput, RegisterPasswordConfirmInput, RegisterPasswordInput } from "../components/inputs.js"
+import { getUserStorageWithExpireTime } from "../service/localStorage.js"
 
-if (localStorage.getItem("user")) {
+if (getUserStorageWithExpireTime("token")) {
   location.href = "/folder"
 }
 

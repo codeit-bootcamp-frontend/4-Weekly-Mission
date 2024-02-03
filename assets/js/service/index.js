@@ -30,10 +30,6 @@ class AuthService {
       body: JSON.stringify({ email, password }),
     })
   }
-
-  getUserStorage() {
-    return localStorage.getItem("user")
-  }
 }
 
 const authService = new AuthService(AuthAPI)

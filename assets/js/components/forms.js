@@ -2,6 +2,7 @@ import { Form, formState } from "../core/index.js"
 import { showError } from "../utils/ui.js"
 import { isEmpty, isEmailValid, isPasswordMatch, isPasswordValid, errorMessages } from "../utils/validation.js"
 import authService from "../service/index.js"
+import { setUserStorageWithExpireTime } from "../service/localStorage.js"
 
 class LoginForm extends Form {
   emailValidation(value) {
@@ -64,10 +65,10 @@ class LoginForm extends Form {
 
     if (!isFormValid) return alert("이메일이나 비밀번호가 맞지 않습니다.")
 
-    const {
-      data: { accessToken },
-    } = await authService.login(email, password)
-    this.setUserStorage(accessToken)
+    const { data } = await authService.login(email, password)
+
+    setUserStorageWithExpireTime("token", data, 30)
+    location.href = "/folder"
   }
 }
 
@@ -156,10 +157,10 @@ class RegisterForm extends Form {
 
     if (!isFormValid) return alert("이메일이나 비밀번호를 다시 확인해주세요.")
 
-    const {
-      data: { accessToken },
-    } = await authService.register(email, password)
-    this.setUserStorage(accessToken)
+    const { data } = await authService.register(email, password)
+
+    setUserStorageWithExpireTime("token", data, 30)
+    location.href = "/folder"
   }
 }
 
