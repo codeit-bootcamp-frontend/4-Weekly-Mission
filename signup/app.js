@@ -57,6 +57,7 @@ async function getDuplicateEmail(emailInputValue) {
     });
 
     const result = await response.json();
+    const errorMessage = result.error.message;
 
     //성공: 중복되지 않은 이메일 반환
     if (response.status === 200) {
@@ -66,11 +67,11 @@ async function getDuplicateEmail(emailInputValue) {
 
     //실패: null 반환
     if (response.status === 409) {
-      console.error("요청 실패: 중복된 이메일", result.error.message);
+      console.error("요청 실패: 중복된 이메일", errorMessage);
       return null;
     }
 
-    console.error("요청 오류: 서버 오류", result.error.message);
+    console.error("요청 오류: 서버 오류", errorMessage);
     return null;
   } catch (error) {
     console.error("에러 발생:", error.message);
@@ -92,6 +93,7 @@ async function getUserInfo(userInput) {
       body: JSON.stringify(user),
     });
     const result = await response.json();
+    const errorMessage = result.error.message;
 
     //성공: 유저 정보 반환
     if (response.status === 200) {
@@ -103,11 +105,11 @@ async function getUserInfo(userInput) {
 
     //실패: null 반환
     if (response.status === 400) {
-      console.log("회원가입 실패:", result.error.message);
+      console.log("회원가입 실패:", errorMessage);
       return null;
     }
 
-    console.log("회원가입 오류:", result.error.message);
+    console.log("회원가입 오류:", errorMessage);
     return null;
   } catch (error) {
     console.error("에러 발생:", error.message);

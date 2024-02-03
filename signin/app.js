@@ -33,6 +33,7 @@ async function getUserInfo(userInput) {
     });
 
     const result = await response.json();
+    const errorMessage = result.error.message;
 
     //성공: 유저 정보 반환
     if (response.status === 200) {
@@ -46,11 +47,11 @@ async function getUserInfo(userInput) {
 
     //실패: null 반환
     if (response.status === 400) {
-      console.error("로그인 실패:", result.error.message);
+      console.error("로그인 실패:", errorMessage);
       return null;
     }
 
-    console.error("로그인 오류:", result.error.message);
+    console.error("로그인 오류:", errorMessage);
     return null;
   } catch (error) {
     console.error("에러 발생:", error.message);
