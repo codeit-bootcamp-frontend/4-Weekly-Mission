@@ -1,4 +1,5 @@
 import { ERROR_MESSAGES, REGEX } from "./constants/VALIDATION.js";
+import { getTokens } from "./token.js";
 
 export const emailError = document.querySelector("#email-error");
 export const emailInput = document.querySelector("#email");
@@ -10,6 +11,10 @@ export const pwConfirmError = document.querySelector("#pwConfirm-error");
 export const pwConfirmInput = document.querySelector("#password-confirm");
 export const pwConfirmToggle = document.querySelector("#pwConfirm-eyeIcon");
 
+export const checkLoginStatus = () => {
+  const tokens = getTokens();
+  if (tokens.accessToken) window.location.href = "folder.html";
+};
 export const showError = (errorEl, input, errorType) => {
   errorEl.style.display = "block";
   input.style.borderColor = "red";

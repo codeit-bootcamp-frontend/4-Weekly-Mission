@@ -13,16 +13,15 @@ import {
   eyeToggle,
   showError,
   isValidFormat,
+  checkLoginStatus,
 } from "./auth.js";
 import { emailCheckInquire, signUpInquire } from "./services/authRequest.js";
-import { getTokens } from "./token.js";
 
-const tokens = getTokens();
+checkLoginStatus();
+
 const email = emailInput.value.trim();
 const password = pwInput.value.trim();
 const pwConfirm = pwConfirmInput.value.trim();
-
-if (tokens.accessToken) window.location.href = "folder.html";
 
 const validateEmailDuplication = async () => {
   const userData = {

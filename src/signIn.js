@@ -10,13 +10,11 @@ import {
   validatePw,
   eyeToggle,
   showError,
+  checkLoginStatus,
 } from "./auth.js";
 import { loginInquire } from "./services/authRequest.js";
-import { getTokens } from "./token.js";
 
-const tokens = getTokens();
-
-if (tokens.accessToken) window.location.href = "folder.html";
+checkLoginStatus();
 
 const handleFail = () => {
   showError(emailError, emailInput, ERROR_MESSAGES.email_check);
