@@ -151,9 +151,6 @@ function handleRegister(e) {
   }
 
   //회원가입 성공
-  hideError(emailInput, emailErrorMessageElement);
-  hideError(passwordInput, passwordErrorMessageElement);
-  hideError(confirmPasswordInput, confirmPasswordErrorMessageElement);
   //const newUser = createUser({ email, password })
   return (location.href = "../folder/index.html");
 }
