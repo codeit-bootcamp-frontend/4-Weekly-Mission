@@ -5,7 +5,7 @@
 const inputel=document.querySelector('#emailinput'); //이메일 input 박스
 const emailframe=document.querySelector('#emailframe'); //이메일 input 박스 frame
 const errmsg=document.createElement('p'); //에러메시지
-let emailtest = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //이메일 테스팅 코드
+const emailtest = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //이메일 테스팅 코드
 
 function emaininput(e){
   if(e.target.value==''){

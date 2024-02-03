@@ -11,7 +11,8 @@
 
     </div>
 
-    <div class="content2">
+    
+      <div class="content2">
         <div class="frame">
             <div class="frame1">
                 <img class="logo" src="./images/logo.svg" onclick="location.href='/'">
@@ -19,22 +20,22 @@
                     <span class="comment1">이미 회원이신가요?</span> <a class="comment2" href="/signin.html">로그인 하기</a>
                 </div>
         
-                <div class="emailframe">
+                <div id="emailframe" class="emailframe">
                     <span class="comment3">이메일</span>
-                    <input type="email" class="email" value="codeit@codeit.com">
+                    <input type="email" class="email" id="emailinput" value="codeit@codeit.com">
                 </div>
         
-                <div class="emailframe">
+                <div id="passwordframe" class="emailframe">
                     <span class="comment3">비밀번호</span>
-                    <input class="email" value="codeit@codeit.com">
-                    <img class="eyeicon" src="./images/eye-off.svg">
+                    <input type="password" class="email" id="passwordinput" value="codeit@codeit.com">
+                    <img id="icon" class="eyeicon" src="./images/eye-off.svg">
                 </div>
 
-                <div class="emailframe">
+                <div id="passwordframeChk" class="emailframe">
                     <span class="comment3">비밀번호 확인</span>
-                    <input  class="email" value="codeit@codeit.com">
-                    <img class="eyeicon" src="./images/eye-off.svg">
-                    <span class="diff">비밀번호가 다릅니다</span>
+                    <input type="password" class="email" id="passwordinputChk" value="codeit@codeit.com">
+                    <img id="iconChk" class="eyeicon" src="./images/eye-off.svg">
+                    <!--<span class="diff">비밀번호가 다릅니다</span>-->
                 </div>
         
                 <div class="login">
@@ -42,6 +43,7 @@
                 </div>
                 
             </div>
+          
         
             <div class="frame2">
                 <span class="comment4">다른 방식으로 가입하기</span>
@@ -66,6 +68,6 @@
         
     </div>
 
-    
+    <script src="interact2.js"></script>
 </body>
 </html>
