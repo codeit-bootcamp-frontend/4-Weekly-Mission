@@ -106,16 +106,29 @@ const handlePasswordCheckEyeImageClick = () => {
 };
 
 /** @param {Event} event */
-const handleSignUp = event => {
+const handleSignUp = async event => {
   event.preventDefault();
-  emailElement.blur();
-  passwordElement.blur();
-  passwordCheckElement.blur();
-  const checkEmail = InputHandler.isMatchRegEx(emailElement, EMAIL_REGEX) && !SignHandler.isExistEmail(emailElement);
+
+  const checkEmail = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ email: emailElement.value })
+  });
+
   const checkPassword =
     InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX) &&
     InputHandler.isMatchElement(passwordElement, passwordCheckElement);
-  if (checkEmail && checkPassword) SignHandler.navigateTo(SIGNUP_PATH);
+
+  if (checkEmail && checkPassword)
+    fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ email: emailElement.value, password: passwordElement.value })
+    }).then(() => SignHandler.navigateTo(SIGNUP_PATH));
 };
 
 emailElement?.addEventListener('focusout', handleEmailElementFocusOut);

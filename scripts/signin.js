@@ -68,13 +68,13 @@ const handlepasswordEyeImageClick = () => {
 /** @param {Event} event*/
 const handleSubmit = event => {
   event.preventDefault();
-  const account = { email: emailElement.value, password: passwordElement.value };
+
   fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(account)
+    body: JSON.stringify({ email: emailElement.value, password: passwordElement.value })
   })
     .then(response => {
       if (response.ok) SignHandler.navigateTo(LGOIN_PATH);
