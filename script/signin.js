@@ -1,65 +1,42 @@
-import {EMAIL_REGEX, USERS, VISIABLE_STATE} from './constant.js'
-import { isEmptyString, isVisiable, makeInvisiable, makeVisiable, isValidEmail } from './functions/signFunction.js';
+import {EMAIL_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE, USERS} from './constant.js'
+import { getElementById} from './dom/domhelper.js';
+import { isEmptyString, isValidEmail, showError, hideError, showPassword, hidePassword } from './functions/sign.js';
+import { goToFolderhtml } from './temporary.js';
 
+// About Email Error
+const emailInput = getElementById('email');
+const emailErrorMessage = getElementById('emailErrorMessage');
 
-// ERROR_MESSAGE for email
-const emailErrorMessage = document.getElementById('emailErrorMessage');
-const emailFormatErrorMessage = document.getElementById('emailFormatErroMessage');
-const emailCheckErrorMessage = document.getElementById('emailCheckErrorMessage');
+// About Password Error
+const passwordInput = getElementById('password');
+const passwordErrorMessage = getElementById('passwordErrorMessage');
 
-// ERROR_MESSAGE for password
-const passwordErrorMessage = document.getElementById('passwordErrorMessage');
-const passwordCheckEMessage = document.getElementById('passwordCheckMessage');
+// About Button
+const loginButton = getElementById('login-button');
+const eyeButton = getElementById('eye-button');
 
-//INPUT section
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
-
-//Button section
-const signInButton = document.getElementById('login-button');
-const watchPassword = document.getElementById('eye-button');
-
-const goToFolderhtml = '../folder.html';
-
-
-emailInput.addEventListener('focusout', function(){
-    const emailValue = emailInput.value.trim(); 
-    if(!isEmptyString(emailValue)) {makeInvisiable(emailErrorMessage);return;}
-    makeVisiable(emailErrorMessage);
+emailInput.addEventListener('focusout', function () {
+    const emailValue = emailInput.value.trim();
+    if(isEmptyString(emailValue)){showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isEmpty); return;}
+    if(!isValidEmail(emailValue)){showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isNotRightFormat); return;}
+    hideError(emailInput, emailErrorMessage);
 });
 
 passwordInput.addEventListener('focusout', function () {
     const passwordValue = passwordInput.value.trim();
-    if(!isEmptyString(passwordValue)) {makeInvisiable(passwordErrorMessage);return;} 
-    makeVisiable(passwordErrorMessage);
+    if(isEmptyString(passwordValue)) {showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.isEmpty); return;}
+    hideError(passwordInput, passwordErrorMessage);
 });
 
-emailInput.addEventListener('focusout', function () {
-    const emailValue = emailInput.value.trim();
-    if (!isEmptyString(emailValue) && isValidEmail(emailValue)) {
-        makeInvisiable(emailFormatErrorMessage); return;} 
-    if (isEmptyString(emailValue)) {makeInvisiable(emailFormatErrorMessage); return;}
-    makeVisiable(emailFormatErrorMessage);
-});
-
-signInButton.addEventListener('click', function (event) {
+loginButton.addEventListener('click', function (event) {
     event.preventDefault();
     const emailValue = emailInput.value.trim();
     const passwordValue = passwordInput.value.trim();
-    if (USERS[0].id === emailValue && USERS[0].password === passwordValue) {
-        window.location.href = goToFolderhtml;
-    }
-    makeVisiable(emailCheckErrorMessage);
-    makeVisiable(passwordCheckMessage);
+    if (USERS[0].id === emailValue && USERS[0].password === passwordValue) { window.location.href = goToFolderhtml; return;}
+    showError(emailInput,emailErrorMessage,EMAIL_ERROR_MESSAGE.haveToCheck); showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.haveToCheck);
 });
 
-watchPassword.addEventListener('click', function () {
-    if (passwordInput.type === 'text' ? true : false) {
-        watchPassword.firstElementChild.src = VISIABLE_STATE.invisiable;
-        passwordInput.type = 'password';
-    } else {
-        watchPassword.firstElementChild.src = VISIABLE_STATE.visiable;
-        passwordInput.type = 'text';
-    }
+eyeButton.addEventListener('click', function () {
+    if (passwordInput.type === 'text') {showPassword(passwordInput, eyeButton); return;}
+    hidePassword(passwordInput,eyeButton);
 });
-
