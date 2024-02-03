@@ -8,3 +8,7 @@ html {
   font-family: Pretendard;
   min-width: 320px;
 }
+
+.hidden {
+  display: none;
+}

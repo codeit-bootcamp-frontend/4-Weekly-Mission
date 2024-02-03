@@ -1,7 +1,7 @@
-import MASTER_ACCOUNT from '../constants/accounts.js';
 import ERROR_MESSAGE from '../constants/errorMessage.js';
 import { $ } from '../constants/dom.js';
 import { isValid } from '../constants/validate.js';
+import { isDuplicateEmail } from '../apis/signupUser.js';
 
 // 비어있는 인풋에 에러메시지 추가
 const addErrorMsgToBlankInput = (e) => {
@@ -57,10 +57,13 @@ const addErrorMsgToIncorrectInput = (input) => {
   }
 }
 
-const addErrorMsgToDuplicateInput = (e) => {
-  const errorMsg = $('.input-error-msg', e.target.parentNode);
+const addErrorMsgToDuplicateInput = async (e) => {
+  if(e.target.value === '') return;
 
-  if (e.target.value === MASTER_ACCOUNT.EMAIL) {
+  const errorMsg = $('.input-error-msg', e.target.parentNode);
+  const inputEmail = { email: e.target.value };
+
+  if (await isDuplicateEmail(inputEmail)) {
     e.target.classList.add('js-input-profile-error');
     errorMsg.classList.remove('hidden');
     errorMsg.textContent = ERROR_MESSAGE.EMAIL.DUPLICATE;

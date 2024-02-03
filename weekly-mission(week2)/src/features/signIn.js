@@ -1,20 +1,19 @@
-import MASTER_ACCOUNT from "../constants/accounts.js";
-import { $ } from "../constants/dom.js";
 import { addErrorMsgToIncorrectInput } from "../view/addErrorMessageToInput.js";
+import { emailInput, passwordInput } from "../constants/dom.js";
+import signIn from "../apis/signInUser.js";
 
-const isMaster = (email, password) => email === MASTER_ACCOUNT.EMAIL && password === MASTER_ACCOUNT.PASSWORD;
-
-export const signInHandler = (e) => {
+export const signInHandler = async (e) => {
   e.preventDefault();
 
-  const emailInput = $('.email').value;
-  const passwordInput = $('.password').value;
+  const inputAccount = {
+    email: emailInput.value,
+    password: passwordInput.value
+  };
 
-  // 마스터 계정이 아닌 경우 일단 다 차단
-  if (isMaster(emailInput, passwordInput)) {
-    window.location.href = './folder.html';
-  }
+  // 로그인
+  if (await signIn(inputAccount)) return;
 
-  addErrorMsgToIncorrectInput($('.email'));
-  addErrorMsgToIncorrectInput($('.password'));
+  // 실패시 에러메시지 출력
+  addErrorMsgToIncorrectInput(emailInput);
+  addErrorMsgToIncorrectInput(passwordInput);
 }
