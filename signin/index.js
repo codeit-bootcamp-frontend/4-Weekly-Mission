@@ -12,7 +12,10 @@ import {
   handleFocusOutForEmail,
   notInput,
   togglePassword,
+  hasTokenInStorage
 } from "../src/eventHandler.js";
+import { requestLogin, postRequest } from "../src/api/request.js";
+import { urls } from "../src/api/url.js";
 
 const error = new Error(true);
 
@@ -21,56 +24,19 @@ const password = document.querySelector(staticName.elementSeletor.password);
 const loginButton = document.querySelector(staticName.buttonSelector.signin);
 const passwordIcon = document.querySelector(staticName.iconSelector.password);
 
-function noInputFocusOut(element, parentElementSelectorName, inputSelectorName, errorSentence) {
-  error.removeErrorElement(parentElementSelectorName);
-
-  if (element.value === "") {
-    error.createErrorSpanElement(parentElementSelectorName);
-    errorBorder(inputSelectorName)
-    error.errorMessageInElement(parentElementSelectorName, errorSentence);
-  }
-}
-
 function pressEnterForFolderPage(e) {
   if (e.key === "Enter") {
-    folderPage();
+    routefolderPage();
   }
 }
 
-function folderPage() {
+async function routefolderPage() {
   if (email.value === superUser.email && password.value === superUser.password) {
-    requestLogin();
+    await requestLogin();
+    window.location.replace("../folder");
   } else {
     loginFail();
   } 
-}
-
-function requestLogin() {
-  fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(superUser),
-  })
-  .then((response) => {
-    if (response.status === 200) {
-      return response.text();
-    } else {
-      console.error('서버 응답이 성공적이지 않습니다. 상태 코드:', response.status);
-    }
-  })
-  .then((result) => {
-    const jsonToObject = JSON.parse(result);
-    const accessToken = jsonToObject.data.accessToken;
-    localStorage.setItem("accessToken", accessToken);
-
-    window.location.replace("../folder");
-  })
-  .catch((error) => {
-    // fetch 요청 자체가 실패한 경우에 대한 처리
-    console.error('fetch 요청 실패:', error);
-  });
 }
 
 function loginFail() {
@@ -100,15 +66,7 @@ password.addEventListener("focusout", () => notInput(
 ));
 email.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.email));
 password.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.password));
-loginButton.addEventListener("click", folderPage);
+loginButton.addEventListener("click", routefolderPage);
 password.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
-document.addEventListener('DOMContentLoaded', function() {
-  // 로컬 스토리지에서 accessToken을 가져옵니다.
-  const accessToken = localStorage.getItem('accessToken');
-
-  // 만약 accessToken이 있다면 "/folder" 페이지로 리다이렉트합니다.
-  if (accessToken) {
-    window.location.href = '../folder';
-  }
-});
+document.addEventListener('DOMContentLoaded', hasTokenInStorage);

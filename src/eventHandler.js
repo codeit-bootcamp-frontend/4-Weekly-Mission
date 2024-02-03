@@ -3,6 +3,16 @@ import {
   errorElement,
 } from "./element.js";
 
+//전역 이벤트 : 로컬 스토리지에 토근이 있을 경우, 폴더 페이지 이동
+export function hasTokenInStorage() {
+  const accessToken = localStorage.getItem('accessToken');
+
+  if (accessToken) {
+    window.location.href = '../folder';
+  }
+}
+
+
 // 포커스인 이벤트: 에러 엘리먼트를 제거한다.
 export function handleFocusIn(parentElementSelectorName) {
   errorElement.removeErrorElement(parentElementSelectorName);

@@ -11,7 +11,8 @@ import {
   handleFocusIn,
   handleFocusOutForEmail,
   handleFocusOutForPassword,
-  togglePassword
+  togglePassword,
+  hasTokenInStorage
 } from "../src/eventHandler.js";
 
 const error = new Error(true);
@@ -202,10 +203,4 @@ loginButton.addEventListener("click", signupCheck);
 passwordConfirm.addEventListener("keydown", pressEnterForFolderPage);
 passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
 passwordConfimIcon.addEventListener("click", () => togglePassword(passwordConfirm, passwordConfimIcon));
-document.addEventListener('DOMContentLoaded', function() {
-  const accessToken = localStorage.getItem('accessToken');
-
-  if (accessToken) {
-    window.location.href = '../folder';
-  }
-});
+document.addEventListener('DOMContentLoaded', hasTokenInStorage);
