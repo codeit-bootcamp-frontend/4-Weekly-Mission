@@ -11,7 +11,7 @@ import {
   eyeToggle,
   showError,
 } from "./auth.js";
-import { getToken } from "./token.js";
+import { loginInquire } from "./services/auth.js";
 
 const handleFail = () => {
   showError(emailError, emailInput, ERROR_MESSAGES.email_check);
@@ -20,7 +20,6 @@ const handleFail = () => {
 
 const handleSignIn = async (e) => {
   e.preventDefault();
-  const baseURL = "https://bootcamp-api.codeit.kr";
 
   const email = emailInput.value.trim();
   const password = pwInput.value.trim();
@@ -29,20 +28,10 @@ const handleSignIn = async (e) => {
     password: password,
   };
   try {
-    const res = await fetch(`${baseURL}/api/sign-in`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
-    if (res.ok) {
-      const token = await res.json();
-      getToken(token);
+    const result = await loginInquire(userData);
+    if (result.ok) {
       alert("로그인 성공!");
       window.location.href = "folder.html";
-    } else {
-      throw new Error("로그인 실패");
     }
   } catch (e) {
     console.error(e);
