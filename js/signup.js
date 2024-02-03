@@ -2,11 +2,20 @@ import { isVaildEmail } from "./utils/isValidEmail.js";
 import { querySelector } from "./utils/commons/querySelector.js";
 import { updateErrorMessage } from "./utils/updateErrorMessage.js";
 import { toggleShowPassword } from "./utils/passwordShowHidden.js";
-import { validEmail } from "./utils/constants.js";
 import { isVaildPassword } from "./utils/isValidPassword.js";
 import { targetValue } from "./utils/commons/value.trim.js";
 
-/** 이메일 입력 값이 유효한 지 확인하는 함수 */
+// 이벤트 등록을 위한 변수 설정
+const signupEmailInput = querySelector("#signup-email-input");
+const signupPasswordInput = querySelector("#signup-password-input");
+const signupPasswordRepeatInput = querySelector(
+  "#signup-password-repeat-input"
+);
+const signupBtn = querySelector("#signup-button");
+const signupForm = querySelector("#signup-form");
+const eyeIconPassword = querySelector("#password-eye-icon");
+const passwordRepeatEyeIcon = querySelector("#password-repeat-eye-icon");
+
 function checkEmail(event) {
   const emailValue = targetValue(event);
   const errorMessage = querySelector("#email-error-message");
@@ -15,13 +24,6 @@ function checkEmail(event) {
     updateErrorMessage(
       errorMessage,
       "이메일을 입력해주세요.",
-      signupEmailInput,
-      true
-    );
-  } else if (emailValue === validEmail) {
-    updateErrorMessage(
-      errorMessage,
-      "이미 사용 중인 이메일 입니다.",
       signupEmailInput,
       true
     );
@@ -37,9 +39,8 @@ function checkEmail(event) {
   }
 }
 
-/** 비밀번호 입력 값이 유효한지 확인하는 함수 */
 function checkPassword(event) {
-  const passwordValue = targetValue(event);
+  const passwordValue = signupPasswordInput.value;
   const errorMessageBox = querySelector("#password-error-message");
 
   if (passwordValue === "") {
@@ -49,7 +50,7 @@ function checkPassword(event) {
       signupPasswordInput,
       true
     );
-  } else if (isVaildPassword(passwordValue) === true) {
+  } else if (isVaildPassword(passwordValue)) {
     updateErrorMessage(errorMessageBox, "", signupPasswordInput, false);
   } else {
     updateErrorMessage(
@@ -58,10 +59,10 @@ function checkPassword(event) {
       signupPasswordInput,
       true
     );
+    console.log(isVaildEmail(passwordValue));
   }
 }
 
-/** 비밀번호 입력값과 확인 값이 맞는지 확인 */
 function checkPasswordRepeat() {
   const passwordValue = querySelector("#signup-password-input").value;
   const passwordRepeatValue = querySelector(
@@ -86,26 +87,34 @@ function checkPasswordRepeat() {
       );
 }
 
-function trySignup() {
-  if (
-    signupEmailInput.classList.contains("error-box") === false &&
-    signupPasswordInput.classList.contains("error-box") === false &&
-    signupPasswordRepeatInput.classList.contains("error-box") === false
-  ) {
-    location.href = "folder.html";
+async function trySignup() {
+  const inputUser = {
+    email: signupEmailInput.value,
+    password: signupPasswordInput.value,
+  };
+
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputUser),
+    });
+
+    if (response.ok) {
+      if (
+        signupEmailInput.classList.contains("error-box") === false &&
+        signupPasswordInput.classList.contains("error-box") === false &&
+        signupPasswordRepeatInput.classList.contains("error-box") === false
+      ) {
+        location.href = "folder.html";
+      }
+    }
+  } catch (error) {
+    console.error(error.message);
   }
 }
-
-// 이벤트 등록을 위한 변수 설정
-const signupEmailInput = querySelector("#signup-email-input");
-const signupPasswordInput = querySelector("#signup-password-input");
-const signupPasswordRepeatInput = querySelector(
-  "#signup-password-repeat-input"
-);
-const signupBtn = querySelector("#signup-button");
-const signupForm = querySelector("#signup-form");
-const eyeIconPassword = querySelector("#password-eye-icon");
-const passwordRepeatEyeIcon = querySelector("#password-repeat-eye-icon");
 
 /** 이벤트 등록 */
 signupEmailInput.addEventListener("focusout", checkEmail); // 이메일 입력이 유효한지
@@ -113,7 +122,7 @@ signupPasswordInput.addEventListener("focusout", checkPassword); //비밀번호�
 signupPasswordRepeatInput.addEventListener("focusout", checkPasswordRepeat); // 비밀번호 확인
 
 // 회원 가입
-signupBtn.addEventListener("click", trySignup);
+// signupBtn.addEventListener("click", trySignup);
 signupForm.addEventListener("submit", function (event) {
   event.preventDefault();
   trySignup();
