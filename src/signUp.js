@@ -15,7 +15,9 @@ import {
   isValidFormat,
 } from "./auth.js";
 import { emailCheckInquire } from "./services/auth.js";
-
+import { getTokens } from "./token.js";
+const tokens = getTokens();
+if (tokens.accessToken) window.location.href = "folder.html";
 const validateEmailDuplication = async () => {
   const email = emailInput.value.trim();
   const userData = {
@@ -26,7 +28,6 @@ const validateEmailDuplication = async () => {
     if (result.status === 409) {
       throw new Error("이메일 중복");
     }
-    console.log(result.ok);
     return result.ok;
   } catch (e) {
     console.error(e);
