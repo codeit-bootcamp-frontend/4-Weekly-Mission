@@ -104,9 +104,9 @@ async function Login() {
       body: JSON.stringify(data),
     });
     console.log(response);
-    if (response.ok) {
-      window.location.assign("./folder");
-    }
+    // if (response.ok) {
+    //   window.location.assign("./folder");
+    // }
   } catch (err) {
     console.log(err);
   }
@@ -114,7 +114,7 @@ async function Login() {
 
 function enterLogin(e) {
   if (e.key === "Enter") {
-    postLogin();
+    Login();
     e.preventDefault();
   }
 }
