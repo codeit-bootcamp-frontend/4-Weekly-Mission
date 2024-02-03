@@ -20,24 +20,24 @@
           <div class="sign-inputs">
             <div class="sign-input-box">
               <label class="sign-input-label">이메일</label>
-              <input class="sign-input" />
+              <input class="sign-input" type="email" placeholder="내용 입력" />
             </div>
             <div class="sign-input-box sign-password">
-              <label class="sign-input-label">비밀번호</label>
-              <input class="sign-input" type="password" />
               <button class="eye-button" type="button">
-                <img src="./images/eye-off.png" />
+                <img id="eye-id" src="./images/eye-off.png" alt="비밀번호 마킹 토글" />
               </button>
+              <label for="password" class="sign-input-label">비밀번호</label>
+              <input id="password" class="sign-input" type="password" placeholder="내용 입력" />
             </div>
-            <div class="sign-input-box sign-password">
-                <label class="sign-input-label">비밀번호 확인</label>
-                <input class="sign-input" type="password" />
-                <button class="eye-button" type="button">
-                  <img src="./images/eye-off.png" />
-                </button>
+            <div class="sign-input-box sign-password-check">
+              <button class="eye-button-check" type="button">
+                <img id="eye-id-check" src="./images/eye-off.png" alt="비밀번호 마킹 토글" />
+              </button>
+              <label for="password-check" class="sign-input-label">비밀번호 확인</label>
+              <input id="password-check" class="sign-input" type="password" placeholder="내용 입력" />
             </div>
           </div>
-          <button class="cta" type="submit">회원가입</button>
+          <button class="cta" type="button">회원가입</button>
         </form>
         <div class="sns-box">
           <span class="sns-text">다른 방식으로 가입하기</span>
@@ -51,5 +51,6 @@
           </div>
         </div>
       </div>
+      <script type="module" src="./javascript/signup.js"></script>
 </body>
 </html>

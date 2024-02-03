@@ -69,7 +69,7 @@ header {
     flex-direction: column;
     row-gap: 1.2rem;
 }
-.sign-password {
+.sign-password, .sign-password-check {
     position: relative;
 }
 .sign-input-label {
@@ -88,7 +88,7 @@ header {
 .sign-input:focus {
     border-color: var(--primary);
 }
-.eye-button {
+.eye-button, .eye-button-check {
     position: absolute;
     top: 5.2rem;
     right: 1.5rem;
