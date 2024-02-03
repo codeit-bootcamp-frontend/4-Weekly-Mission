@@ -1,7 +1,7 @@
 /* Service Logic */
 
 import { isTextEmpty } from "../scripts/utils.js";
-import { VALID_USER } from "../scripts/userdb.js";
+import { VALID_USER } from "../scripts/service.js";
 import {
   emailInput,
   passwordInput,
