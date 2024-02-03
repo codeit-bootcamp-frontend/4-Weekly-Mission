@@ -3,6 +3,7 @@ import validValues from '../constant/validValues.js';
 import { addErrorMessage } from '../utils/errorMessageController.js';
 import { emailInputEventHandler, passwordInputEventHandler, eyeButtonEventHandler } from '../utils/eventHandler.js';
 import { postLoginData } from '../utils/api.js';
+import { initializeSignPage } from '../utils/init.js';
 
 const emailInputTag = document.querySelector('#email');
 const passwordInputTag = document.querySelector('#password');
@@ -51,3 +52,5 @@ eyeButtonTag.addEventListener('click', () => {
 
   eyeButtonEventHandler(passwordInputTag, eyeImageTag, isPasswordType);
 });
+
+initializeSignPage();

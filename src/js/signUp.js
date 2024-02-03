@@ -4,6 +4,7 @@ import { emailInputEventHandler, eyeButtonEventHandler } from '../utils/eventHan
 import validValues from '../constant/validValues.js';
 import { validatePasswordInput } from '../utils/validate.js';
 import { checkDuplicateEmail, postRegisterData } from '../utils/api.js';
+import { initializeSignPage } from '../utils/init.js';
 
 const {
   DUPLICATE_EMAIL_ERROR_MESSAGE,
@@ -85,3 +86,5 @@ eyeButtonTagList.forEach(eyeButtonTag => {
     eyeButtonEventHandler(passwordInputTag, eyeImageTag, isPasswordType);
   });
 });
+
+initializeSignPage();
