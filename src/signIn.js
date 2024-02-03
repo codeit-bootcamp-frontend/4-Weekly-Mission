@@ -11,7 +11,7 @@ import {
   eyeToggle,
   showError,
 } from "./auth.js";
-import { loginInquire } from "./services/auth.js";
+import { loginInquire } from "./services/authRequest.js";
 import { getTokens } from "./token.js";
 
 const tokens = getTokens();

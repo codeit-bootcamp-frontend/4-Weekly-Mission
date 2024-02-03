@@ -14,7 +14,7 @@ import {
   showError,
   isValidFormat,
 } from "./auth.js";
-import { emailCheckInquire, signUpInquire } from "./services/auth.js";
+import { emailCheckInquire, signUpInquire } from "./services/authRequest.js";
 import { getTokens } from "./token.js";
 
 const tokens = getTokens();
