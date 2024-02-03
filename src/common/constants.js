@@ -11,6 +11,8 @@ const ERROR_INVALID_PASSWORD_MESSAGE = '비밀번호는 영문, 숫자 조합 8�
 const ERROR_MATCH_PASSWORD_MESSAGE = '비밀번호가 일치하지 않아요.';
 
 export {
+  TEST_EMAIL,
+  TEST_PASSWORD,
   EMAIL_CHECK_MESSAGE,
   PASSWORD_CHECK_MESSAGE,
   EMPTY_EMAIL_MESSAGE,
