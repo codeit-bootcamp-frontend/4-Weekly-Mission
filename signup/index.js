@@ -72,13 +72,14 @@ async function registerRequest() {
         password: PASSWORD_INPUT.value
     };
 
-    const REGISTER_RESPONSE = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+    const REGISTER_RESPONSE = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
         body: JSON.stringify(REGISTER_BODY)
     });
+    
     if (REGISTER_RESPONSE.status === 400) return false;
     else if (REGISTER_RESPONSE.status === 200) return true;
 }
