@@ -63,6 +63,6 @@ password.addEventListener("focusout", () => notInput(
 email.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.email));
 password.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.password));
 loginButton.addEventListener("click", () => signinCheck(email, password, urls.signin));
-password.addEventListener("keydown", () => pressEnterForsignin(email, password, urls.signin));
+password.addEventListener("keydown", (e) => pressEnterForsignin(e, email, password, urls.signin));
 passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
 document.addEventListener('DOMContentLoaded', hasTokenInStorage);

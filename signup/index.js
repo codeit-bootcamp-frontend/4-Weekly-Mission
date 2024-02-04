@@ -110,7 +110,7 @@ passwordConfirm.addEventListener("focusin", () => handleFocusIn(
 ));
 passwordConfirm.addEventListener("change", () => passwordIsNotEqual(password, passwordConfirm));
 loginButton.addEventListener("click", () => signupCheck(email, password, passwordConfirm, urls.signup, urls.aleadyUse));
-passwordConfirm.addEventListener("keydown", () => pressEnterForsignup(email, password, passwordConfirm, urls.signup, urls.aleadyUse));
+passwordConfirm.addEventListener("keydown", (e) => pressEnterForsignup(e, email, password, passwordConfirm, urls.signup, urls.aleadyUse));
 passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
 passwordConfimIcon.addEventListener("click", () => togglePassword(passwordConfirm, passwordConfimIcon));
 document.addEventListener('DOMContentLoaded', hasTokenInStorage);

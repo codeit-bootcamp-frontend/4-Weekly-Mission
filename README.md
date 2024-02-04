@@ -40,7 +40,7 @@
 - [x] 값을 하드 코딩하지 않는다.
 
 ## 코드 컨벤션 관련
-- [ ] 이름을 통해, 의도를 드러낸다. (https://jacking75.github.io/ETC_good_function_name/ 참고)
+- [x] 이름을 통해, 의도를 드러낸다. (https://jacking75.github.io/ETC_good_function_name/ 참고)
 - [x] 축약하지 않는다.
 - [x] 공백도 코딩 컨벤션이다.
 - [x] 공백 라인 의미있게 사용한다.
