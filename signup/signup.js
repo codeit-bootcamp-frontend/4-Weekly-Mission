@@ -73,7 +73,7 @@ function enterSignup(e){
 
 function active(e){
     const sibling = e.target.previousElementSibling;
-    console.log(sibling)
+    // console.log(sibling)
     sibling.classList.toggle('active')
     
     if (sibling.classList.contains('active')){

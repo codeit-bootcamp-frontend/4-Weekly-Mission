@@ -5,6 +5,8 @@ const email = document.querySelector("#email");
 const signinBtn = document.querySelector('.signin');
 const pwd = document.querySelector('#pwd');
 const activeimgs = document.querySelectorAll(".check");
+const email_check = document.querySelector('.email_result')
+const pwd_check = document.querySelector('.pwd_result')
 
 function emailCheck(e){
     if (!e.target.value){
@@ -23,16 +25,36 @@ function emailCheck(e){
     // console.log(e.target.value)
 }
 
-function login(){
-    if (email.value == 'test@codeit.com' & pwd.value =='codeit101'){
-        window.location.href='../folder.html';
-    }
-    else{
+ function login(){
+    // const email_check = email.value;
+    // const password_check= pwd.value;
+    // console.log(email_check, password_check)
+    fetch('https://bootcamp-api.codeit.kr/api/sign-in',{
+        method:"POST",
+        headers:{"Content-Type":"application/json",
+        },
+        body:JSON.stringify({
+            email : email.value,
+            password: pwd.value
+        }),
+    })
+    .then((res)=>{
+        //console.log(res.json())
+            return res.json()
+    })
+    .then(result=>{
+        console.log(result)
+        if (result.data.accessToken){
+            window.location.href='../folder.html';
+        }
+    })
+    .catch((err)=>{
+        console.log(err)
         document.querySelector('.email_result').innerText = "이메일을 확인해주세요";
         document.querySelector('.pwd_result').innerText = "비밀번호를 확인해주세요";
         email.classList.add('focus_red');
         pwd.classList.add('focus_red');
-    }
+    })
 }
 
 function enterLogin(e){
