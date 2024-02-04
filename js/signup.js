@@ -13,6 +13,13 @@ import {
 } from "./elements.js";
 import { isValidEmail, isValidPassword, showErrorMessage, hideErrorMessage, togglePasswordVisibility } from "./sign.js";
 
+document.addEventListener("DOMContentLoaded", () => {
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    window.location.href = "/folder.html";
+  }
+});
+
 // 이메일 입력
 emailInput.addEventListener("focusout", async () => {
   const email = emailInput.value.trim();
@@ -108,7 +115,9 @@ signupForm.addEventListener("submit", async (event) => {
         body: JSON.stringify({ email, password }),
       });
 
+      const data = await signUpResponse.json();
       if (signUpResponse.ok) {
+        localStorage.setItem("accessToken", data.accessToken);
         window.location.href = "/folder.html";
       }
     } catch (error) {

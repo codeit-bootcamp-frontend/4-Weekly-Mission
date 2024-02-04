@@ -1,6 +1,13 @@
 import { emailInput, passwordInput, emailErrorMessage, passwordErrorMessage, loginForm, eyeOffButton, eyeOnButton } from "./elements.js";
 import { isValidEmail, showErrorMessage, hideErrorMessage, togglePasswordVisibility } from "./sign.js";
 
+document.addEventListener("DOMContentLoaded", () => {
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    window.location.href = "/folder.html";
+  }
+});
+
 // 이메일 입력
 emailInput.addEventListener("focusout", () => {
   const email = emailInput.value.trim();
@@ -40,7 +47,9 @@ loginForm.addEventListener("submit", async (event) => {
       body: JSON.stringify({ email, password }),
     });
 
+    const data = await response.json();
     if (response.ok) {
+      localStorage.setItem("accessToken", data.accessToken);
       window.location.href = "/folder.html";
     } else {
       const errorData = await response.json();
