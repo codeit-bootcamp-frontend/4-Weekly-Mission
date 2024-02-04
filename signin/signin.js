@@ -32,3 +32,23 @@ $form.addEventListener("submit", function (e) {
     e.preventDefault();
   }
 });
+
+//login logic
+const postData = async () => {
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/docs/api/sign-in", {
+      method: "POST",
+      body: {
+        email: {},
+        password: {},
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    window.location.href = "../forder/forder.js";
+  } catch (error) {
+    console.log(error);
+  }
+};

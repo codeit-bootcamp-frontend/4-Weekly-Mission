@@ -95,12 +95,10 @@ eyeImages.forEach((eyeImage) =>
     console.log("click");
     let currentType = e.target.parentElement.querySelector("input").type;
     if (currentType === "text") {
-      e.target.src = "https://cdn-icons-png.flaticon.com/128/4743/4743038.png";
-      // local file안에 넣어둔 파일로는 get 404 문제가 생기네욤... 이유가 무엇일까요? "./assets/eye-off.png"; 이렇게 경로 작성했습니다!
+      e.target.src = "../assets/eye-off.png";
       e.target.parentElement.querySelector("input").type = "password";
     } else {
-      e.target.src =
-        "https://cdn-icons-png.flaticon.com/128/12169/12169055.png";
+      e.target.src = "../assets/eye-on.png";
       e.target.parentElement.querySelector("input").type = "text";
     }
   })
