@@ -70,8 +70,8 @@ signPassword.addEventListener("focusout", function (event) {
   }
 });
 // 상수 선언
-const checkEmailUrl = "https://bootcamp-api.codeitttt.kr/docs/api/check-email";
-const signUpUrl = "https://bootcamp-api.codeitttt.kr/docs/api/sign-up";
+const checkEmailUrl = "https://bootcamp-api.codeit.kr/api/check-email";
+const signUpUrl = "https://bootcamp-api.codeit.kr/api/sign-up";
 const $myEmail = "test@codeit.com";
 
 // 이메일 중복 확인 함수
@@ -85,7 +85,7 @@ async function checkEmail(email) {
       body: JSON.stringify({ email: email }),
     });
 
-    if (response.ok) {
+    if (response.status === 200) {
       const data = await response.json();
       return data.available;
     } else {
@@ -110,6 +110,9 @@ async function signUp(email, password) {
 
     if (response.status === 200) {
       window.location.href = "./folder.html"; // 성공 시 페이지 이동
+      // 엑세스 토큰 저장
+      const body = await response.json();
+      localStorage.setItem("accessToken", body.data.accessToken);
     } else {
       console.error("회원가입 실패:", response.statusText);
       // 실패했을 때
@@ -124,7 +127,7 @@ const sign = document.querySelector(".sign-form");
 sign.addEventListener("submit", function (e) {
   e.preventDefault();
   if (errorEmail.innerHTML === "" && errorPassword.innerHTML === "") {
-    window.location.href = "./folder.html";
+    signUp(emailInput.value, passwordInput.value);
     return;
   }
   if (errorEmail.innerHTML !== "") {

@@ -71,15 +71,10 @@ logIn.addEventListener("submit", function (e) {
   const email = emailInput.value;
   const password = passwordInput.value;
 
-  if (myEmail === email && myPassword === password) {
-    window.location.href = "./folder.html";
-  } else {
-    errorEmail.value = "이메일을 확인해 주세요.";
-    errorPassword.value = "비밀번호를 확인해 주세요.";
-  }
+  signIn(email, password);
 });
 // post 요청
-const signInUrl = "https://bootcamp-api.codeit.kr/docs/api/sign-in";
+const signInUrl = "https://bootcamp-api.codeit.kr/api/sign-in";
 
 async function signIn(email, password) {
   try {
@@ -93,8 +88,12 @@ async function signIn(email, password) {
         password: password,
       }),
     });
+
     if (response.status === 200) {
       window.location.href = "./folder.html";
+      // 엑세스 토큰 저장
+      const body = await response.json();
+      localStorage.setItem("accessToken", body.data.accessToken);
     } else {
       console.error("로그인 실패:", response.statusText);
     }
