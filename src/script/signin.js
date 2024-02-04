@@ -9,13 +9,16 @@ import {
     eyeButton,
 } from "./sign.js";
 import { createError } from "./error/errorRelated.js";
+import { checkUserInfo } from "./verification.js";
 
 const loginButton = document.querySelector(".login_button");
 
 // 로그인
 function login(event) {
     event.preventDefault();
-    if (email.value === "test@codeit.com" && password.value === "codeit101") {
+    const isLogin = checkUserInfo(email.value, password.value);
+
+    if (isLogin) {
         window.location.href = "/folder.html";
         return;
     }

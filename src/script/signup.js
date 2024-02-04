@@ -9,16 +9,16 @@ import {
     eyeButton,
 } from "./sign.js";
 import { createError, clearError } from "./error/errorRelated.js";
+import { checkEmail, isValidPassword } from "./verification.js";
 
 const confirmPassword = document.querySelector("#sign_confirm_password");
 const confirmPasswordError = document.querySelector("#error_confirm_password");
 const confirmEyeButton = document.querySelector(".confirm_eye_button");
 const signupButton = document.querySelector(".signup_button");
-const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
 
 // 사용중인 이메일 검사
 function duplicateEmail() {
-    const isDuplicate = email.value === "test@codeit.com";
+    const isDuplicate = checkEmail(email.value);
 
     if (isDuplicate) {
         createError(email, emailError, "이미 사용 중인 이메일입니다.");
@@ -45,11 +45,6 @@ function checkConfirmPassword() {
         return;
     }
     clearError(confirmPassword, confirmPasswordError);
-}
-
-// 비밀번호 유효성 검사
-function isValidPassword(password) {
-    return passwordRegex.test(password);
 }
 
 function signup(event) {

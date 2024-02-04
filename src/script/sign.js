@@ -1,11 +1,12 @@
 import { createError, clearError } from "./error/errorRelated.js";
+import { isValidEmail } from "./verification.js";
 
 const email = document.querySelector("#sign_email");
 const password = document.querySelector("#sign_password");
 const emailError = document.querySelector("#error_email");
 const passwordError = document.querySelector("#error_password");
 const eyeButton = document.querySelector(".eye_button");
-const emailRegex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
+// const emailRegex = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-za-z0-9\-]+/;
 
 // 이메일 검사
 function validateEmail() {
@@ -45,9 +46,17 @@ function toggleEye(target) {
 }
 
 // 이메일 유효성 검사
-function isValidEmail(email) {
-    return emailRegex.test(email);
-}
+// function isValidEmail(email) {
+//     return emailRegex.test(email);
+// }
 
-export { email, password, emailError, passwordError, eyeButton };
-export { validateEmail, validatePassword, toggleEye };
+export {
+    validateEmail,
+    validatePassword,
+    toggleEye,
+    email,
+    password,
+    emailError,
+    passwordError,
+    eyeButton,
+};
