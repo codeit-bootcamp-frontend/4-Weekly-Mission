@@ -4,6 +4,7 @@ import { updateErrorMessage } from "./utils/updateErrorMessage.js";
 import { toggleShowPassword } from "./utils/passwordShowHidden.js";
 import { isVaildPassword } from "./utils/isValidPassword.js";
 import { targetValue } from "./utils/commons/value.trim.js";
+import { getContains } from "./utils/commons/getContains.js";
 
 // 이벤트 등록을 위한 변수 설정
 const signupEmailInput = querySelector("#signup-email-input");
@@ -104,14 +105,33 @@ async function trySignup() {
 
     if (response.ok) {
       if (
-        signupEmailInput.classList.contains("error-box") === false &&
-        signupPasswordInput.classList.contains("error-box") === false &&
-        signupPasswordRepeatInput.classList.contains("error-box") === false
+        getContains(signupEmailInput, "error-box") === false &&
+        getContains(signupPasswordInput, "error-box") === false &&
+        getContains(signupPasswordRepeatInput, "error-box") === false
       ) {
         location.href = "folder.html";
       }
     }
-  } catch (error) {
+  } catch {
+    const errorMessage = querySelector("#email-error-message");
+
+    updateErrorMessage(
+      errorMessage,
+      "이메일을 확인해주세요.",
+      signupEmailInput,
+      true
+    );
+
+    // if (error.message === "User already registered") {
+    //   const errorMessage = querySelector("#email-error-message");
+
+    //   updateErrorMessage(
+    //     errorMessage,
+    //     "이메일을 확인해주세요.",
+    //     signupEmailInput,
+    //     true
+    //   );
+    // }
     console.error(error.message);
   }
 }
