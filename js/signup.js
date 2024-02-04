@@ -1,6 +1,6 @@
-import { handleFocusoutInput, handleClickBlindButton } from './input.js';
-import { CLASS } from './class.js';
-import { API } from './api.js';
+import { handleFocusoutInput, handleClickBlindButton } from './common/input.js';
+import { CLASS } from './common/class.js';
+import { API } from './api/api.js';
 
 const signupForm = document.querySelector('#signup-form');
 
@@ -49,7 +49,13 @@ async function signup(user = {}) {
       throw new Error(`TODO: ${response.status} error handling.`);
     }
 
-    let json = await response.json();
+    let result = await response.json();
+
+    const accessToken = result.data?.accessToken;
+    const refreshToken = result.data?.refreshToken;
+
+    localStorage.setItem('accessToken', accessToken);
+    localStorage.setItem('refreshToken', refreshToken);
 
     return true;
   } catch (error) {

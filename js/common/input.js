@@ -4,7 +4,7 @@ import {
   validatePasswordRepeat,
 } from './validation.js';
 import { CLASS } from './class.js';
-import { checkDuplicateEmail } from './sign.js';
+import { checkDuplicateEmail } from '../api/auth.js';
 
 export const INPUT_TYPE = {
   EMAIL: 'EMAIL',

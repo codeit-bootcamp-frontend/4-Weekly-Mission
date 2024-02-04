@@ -4,8 +4,8 @@ import {
   removeError,
   INPUT_TYPE,
   addLoginError,
-} from './input.js';
-import { API } from './api.js';
+} from './common/input.js';
+import { API } from './api/api.js';
 
 const signinForm = document.querySelector('#signin-form');
 
@@ -54,7 +54,13 @@ async function signin(user = {}) {
       throw new Error(`TODO: ${response.status} error handling.`);
     }
 
-    let json = await response.json();
+    let result = await response.json();
+
+    const accessToken = result.data?.accessToken;
+    const refreshToken = result.data?.refreshToken;
+
+    localStorage.setItem('accessToken', accessToken);
+    localStorage.setItem('refreshToken', refreshToken);
 
     return true;
   } catch (error) {
