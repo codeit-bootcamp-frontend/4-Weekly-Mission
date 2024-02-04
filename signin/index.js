@@ -64,7 +64,7 @@ password.addEventListener('focusout', passwordNoneValue);
 const TEST_EMAIL = 'test@codeit.com';
 const TEST_PW = 'sprint101';
 
-async function signinAPI(email, pw) {
+async function signInAPI(email, pw) {
 
   try {
     const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
@@ -96,7 +96,7 @@ async function signinAPI(email, pw) {
 
 function login(event) {
   event.preventDefault();
-  signinAPI(email.value, password.value);
+  signInAPI(email.value, password.value);
 }
 
 form.addEventListener('submit', login);

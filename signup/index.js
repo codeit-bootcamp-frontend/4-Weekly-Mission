@@ -80,24 +80,53 @@ function pwRepCorrect() {
 
 passwordRepeat.addEventListener('focusout', pwRepCorrect);
 
-// 회원가입 시도시 오류가 있는 경우
+// 이메일 중복 확인
+async function checkAccount(email) {
+  const TEST_EMAIL = 'test@codeit.com';
+  const response = await fetch(
+    "https://bootcamp-api.codeit.kr/api/check-email",
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(TEST_EMAIL),
+    }
+  );
+
+  if (response.status === 409) {
+    alert("이미 존재하는 이메일입니다.");
+    return false;
+  }
+  
+  return true;
+}
+
+async function signUpAPI(email, pw) {
+  const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify({
+      email: email,
+      password: pw,
+    }),
+  });
+
+  if (response.status === 200) {
+    window.location.href = "../folder.html";
+    return true;
+  }
+
+  console.error("Sign-up failed:", response.status);
+  return false;
+}
+
 function signUp(event) {
-  idErrorMessage.textContent = '';
-  pwErrorMessage.textContent = '';
-  pwRepeatErrorMessage.textContent = '';
-
-  emailFocusOut();
-  pwValidation();
-  pwRepCorrect();
-
-  if (
-    idErrorMessage.textContent ||
-    pwErrorMessage.textContent ||
-    pwRepeatErrorMessage.textContent
-  ) {
-    event.preventDefault();
-  } else {
-    window.location.href = '/folder.html';
+  event.preventDefault();
+  if (checkAccount(email.value)) {
+    signUpAPI(email.value, password.value);
   }
 }
 
