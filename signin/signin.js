@@ -46,6 +46,7 @@ function emailCheck(e){
         console.log(result)
         if (result.data.accessToken){
             window.location.href='../folder.html';
+            localStorage.setItem('accessToken',result.data.accessToken);
         }
     })
     .catch((err)=>{
