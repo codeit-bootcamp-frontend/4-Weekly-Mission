@@ -1,39 +1,58 @@
 import { validateEmail, validatePassword, togglePasswordVisibility } from './validation.js';
+import { saveAccessToken, redirectToFolderIfLoggedIn } from './auth.js';
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
+  redirectToFolderIfLoggedIn();
+
   const emailInput = document.getElementById("email-input");
   const passwordInput = document.getElementById("password-input");
   const emailError = document.getElementById("email-error");
   const passwordError = document.getElementById("password-error");
-  const togglePassword = document.getElementById("toggle-password");
+  const signInForm = document.querySelector(".sign-form");
+  const togglePasswordButton = document.getElementById("toggle-password");
   const eyeIcon = document.getElementById("eye-icon");
 
-  emailInput.addEventListener("focusout", function() {
+  emailInput.addEventListener("focusout", () => {
     const errorMessage = validateEmail(emailInput.value);
     emailError.textContent = errorMessage;
   });
 
-  passwordInput.addEventListener("focusout", function() {
+  passwordInput.addEventListener("focusout", () => {
     const errorMessage = validatePassword(passwordInput.value);
     passwordError.textContent = errorMessage;
   });
 
-  togglePassword.addEventListener("click", function() {
+  togglePasswordButton.addEventListener("click", () => {
     togglePasswordVisibility(passwordInput, eyeIcon);
   });
 
-  document.querySelector(".sign-form").addEventListener("submit", function(event) {
+  signInForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    
-    if (emailInput.value === "test@codeit.com" && passwordInput.value === "codeit101") {
-      window.location.href = "/folder";
-    } else {
-      if (emailInput.value !== "test@codeit.com") {
-        emailError.textContent = "이메일을 확인해 주세요.";
+
+    fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: emailInput.value,
+        password: passwordInput.value,
+      }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        saveAccessToken(data.accessToken);
+        window.location.href = "/folder";
+      } else {
+        emailError.textContent = "로그인에 실패했습니다.";
+        passwordError.textContent = "";
       }
-      if (passwordInput.value !== "codeit101") {
-        passwordError.textContent = "비밀번호를 확인해 주세요.";
-      }
-    }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      emailError.textContent = "로그인 과정에서 오류가 발생했습니다.";
+      passwordError.textContent = "";
+    });
   });
 });

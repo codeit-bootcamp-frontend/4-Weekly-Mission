@@ -1,51 +1,81 @@
 import { validateEmail, validatePassword, togglePasswordVisibility } from './validation.js';
+import { saveAccessToken, redirectToFolderIfLoggedIn } from './auth.js';
 
-function isEmailInUse(email) {
-  return email === "test@codeit.com";
-}
-
-function validateConfirmPassword() {
+const validateConfirmPassword = () => {
   const password = document.getElementById("password-input").value;
   const confirmPassword = document.getElementById("confirm-password-input").value;
-  return password === confirmPassword ? "" : "비밀번호가 일치하지 않아요.";
+  return password === confirmPassword ? "" : "비밀번호가 불일치";
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
+  redirectToFolderIfLoggedIn();
+
   const emailInput = document.getElementById("email-input");
   const passwordInput = document.getElementById("password-input");
   const confirmPasswordInput = document.getElementById("confirm-password-input");
   const emailError = document.getElementById("email-error");
   const passwordError = document.getElementById("password-error");
   const confirmPasswordError = document.getElementById("confirm-password-error");
+  const signUpForm = document.querySelector(".sign-form");
+  const togglePasswordButtons = document.querySelectorAll(".eye-button");
 
-  emailInput.addEventListener("focusout", function() {
-    let errorMessage = validateEmail(emailInput.value);
-    if (isEmailInUse(emailInput.value)) {
-      errorMessage = "이미 사용 중인 이메일입니다.";
-    }
+  emailInput.addEventListener("focusout", () => {
+    const errorMessage = validateEmail(emailInput.value);
     emailError.textContent = errorMessage;
   });
 
-  passwordInput.addEventListener("focusout", function() {
-    passwordError.textContent = validatePassword(passwordInput.value);
+  passwordInput.addEventListener("focusout", () => {
+    const errorMessage = validatePassword(passwordInput.value);
+    passwordError.textContent = errorMessage;
   });
 
-  confirmPasswordInput.addEventListener("focusout", function() {
+  confirmPasswordInput.addEventListener("focusout", () => {
     confirmPasswordError.textContent = validateConfirmPassword();
   });
 
-  document.querySelector(".sign-form").addEventListener("submit", function(event) {
+  signUpForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    if (!emailError.textContent && !passwordError.textContent && !confirmPasswordError.textContent) {
-      window.location.href = "/folder";
+    
+    if (validateEmail(emailInput.value) || validatePassword(passwordInput.value) || validateConfirmPassword()) {
+      emailError.textContent = validateEmail(emailInput.value);
+      passwordError.textContent = validatePassword(passwordInput.value);
+      confirmPasswordError.textContent = validateConfirmPassword();
+      return;
     }
+
+    fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: emailInput.value,
+        password: passwordInput.value,
+      }),
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        saveAccessToken(data.accessToken);
+        window.location.href = "/folder";
+      } else {
+        emailError.textContent = "회원가입에 실패했습니다.";
+        passwordError.textContent = "";
+        confirmPasswordError.textContent = "";
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      emailError.textContent = "회원가입 과정에서 오류가 발생했습니다.";
+      passwordError.textContent = "";
+      confirmPasswordError.textContent = "";
+    });
   });
 
-  const togglePasswordButtons = document.querySelectorAll(".eye-button");
   togglePasswordButtons.forEach(button => {
-    const input = button.previousElementSibling;
-    const eyeIcon = button.querySelector('img');
-    button.addEventListener("click", function() {
+    button.addEventListener("click", () => {
+      const input = button.previousElementSibling;
+      const eyeIcon = button.querySelector('img');
       togglePasswordVisibility(input, eyeIcon);
     });
   });
