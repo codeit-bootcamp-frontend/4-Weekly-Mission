@@ -8,7 +8,7 @@ const loginButton = document.querySelector(".login_button");
 function login(event) {
     event.preventDefault();
     if (email.value === "test@codeit.com" && password.value === "codeit101") {
-        window.location.href = "/folder";
+        window.location.href = "/folder.html";
         return;
     }
     createError(email, emailError, "이메일을 확인해 주세요.");
