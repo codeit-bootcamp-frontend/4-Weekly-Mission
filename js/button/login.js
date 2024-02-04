@@ -1,5 +1,6 @@
-import { createErrorMessage } from "../error.js";
-import { saveAccessToken } from '../accessToken.js'
+import { createErrorMessage } from "../error/error.js";
+import { saveAccessToken } from '../accessToken.js';
+import errorMessages from '../error/errorMessage.js';
 
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
@@ -22,8 +23,8 @@ async function login() {
       saveAccessToken(data.data.accessToken);
       return location.href = 'folder.html';
     } else {
-      createErrorMessage(emailInput, "이메일을 확인해주세요.")
-      createErrorMessage(passwordInput, "비밀번호를 확인해주세요.")
+      createErrorMessage(emailInput, errorMessages.EMAIL_CONFIRMATION_ERROR)
+      createErrorMessage(passwordInput, errorMessages.PASSWORD_CONFIRMATION_ERROR)
     }
 
   } catch (error) {

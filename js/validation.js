@@ -1,4 +1,6 @@
-import { createErrorMessage } from './error.js'
+import { createErrorMessage } from './error/error.js'
+import errorMessages from './error/errorMessage.js';
+
 //이메일 정규식
 export function isValidEmail(email) {
   return /^([a-zA-Z0-9_\.-]+)@([a-zA-Z0-9_\-]+)\.([a-zA-Z]{2,})$/.test(email);
@@ -18,9 +20,9 @@ export function validateEmail(event) {
   }
 
   if (emailInput.value === "") {
-    createErrorMessage(emailInput, "이메일을 입력해 주세요.");
+    createErrorMessage(emailInput, errorMessages.EMAIL_REQUIRED);
   } else if (!isValidEmail(emailInput.value)) {
-    createErrorMessage(emailInput, "올바른 이메일 주소가 아닙니다.");
+    createErrorMessage(emailInput, errorMessages.INVALID_EMAIL);
   }
 }
 //비밀번호 validation
@@ -34,7 +36,7 @@ export function validatePassword(event) {
   }
 
   if (passwordInput.value === "") {
-    createErrorMessage(passwordInput, "비밀번호를 입력해 주세요.");
+    createErrorMessage(passwordInput, errorMessages.PASSWORD_REQUIRED);
   }
 }
 //비밀번호 정규식 validation
@@ -44,7 +46,7 @@ export function validatePasswordRegex(event) {
   const regex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
 
   if (!regex.test(password)) {
-    createErrorMessage(passwordInput, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요");
+    createErrorMessage(passwordInput, errorMessages.INVALID_PASSWORD);
   }
 }
 //비밀번호 확인
@@ -53,7 +55,7 @@ export function passwordCheck(passwordInput, confirmPasswordInput) {
   const confirmPassword = confirmPasswordInput.value;
 
   if (password !== confirmPassword) {
-    createErrorMessage(confirmPasswordInput, "비밀번호가 다릅니다.");
+    createErrorMessage(confirmPasswordInput, errorMessages.PASSWORD_MISMATCH);
   }
 }
 //이메일 중복
@@ -71,7 +73,7 @@ export async function emailCheck(event) {
     });
 
     if (response.status === 409) {
-      createErrorMessage(emailInput, "이미 사용 중인 이메일입니다.");
+      createErrorMessage(emailInput, errorMessages.PASSWORD_MISMATCH);
     }
   } catch (error) {
     console.log(`에러메세지 : ${error}`);

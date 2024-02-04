@@ -1,4 +1,4 @@
-import { isInputValid } from './validation.js';
+import { isInputValid } from '../validation.js';
 
 export function createErrorMessage(inputElement, message) {
 
