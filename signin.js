@@ -19,7 +19,10 @@ const removeClassError = (errorMessage, currentClass) => {
   currentClass.classList.remove('error');
 };
 
-(function() {alreadyLogin();})();
+
+document.addEventListener('DOMContentLoaded', function() {
+  alreadyLogin();
+});
 
 
 
@@ -125,12 +128,11 @@ function signIn() {
 }
 
 function alreadyLogin() {
-  const accessToken = localStorage.getItem('accessToken');
+  const accessToken = localStorage.getItem('access-token');
   if (accessToken) {
     window.location.href = '/folder';
   }
 }
-
 
 
 
