@@ -45,7 +45,7 @@ function duplicateEmail(e){
         return res.json()
     })
     .then(result=>{
-        console.log(result)
+        // console.log(result)
         if(result.data.isUsableNickname){
             checkEmail.innerText="사용 가능한 이메일입니다."
             checkEmail.style.color ="blue"
@@ -83,9 +83,28 @@ function repwdCheck(e){
 }
 
 function signup(){
-    console.log("hi")
+    // console.log("hi")
     if (checkEmail.innerText ==='사용 가능한 이메일입니다.' && checkPwd.innerText =='' && checkRepwd.innerText==''&& email.value &&pwd.value&&repwd.value){
-        window.location.href='../folder.html';
+        fetch("https://bootcamp-api.codeit.kr/api/sign-up",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+            },
+            body:JSON.stringify({
+                email : email.value,
+                password: pwd.value
+            }),
+        })
+        .then((res)=> {return res.json()})
+        .then(result => {
+            // console.log(result)
+            if (result.data.accessToken){
+                window.location.href='../folder.html';
+            }
+        })
+        .catch((err)=> {
+                alert("회원가입 오류입니다. 잠시 후 시도해주세요.")
+        })
     }
 
 }
