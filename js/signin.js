@@ -6,6 +6,7 @@ import {
   addLoginError,
 } from './common/input.js';
 import { API } from './api/api.js';
+import { isLogin } from './api/auth.js';
 import * as UTILS from './common/utils.js';
 
 const signinForm = document.querySelector('#signin-form');
@@ -73,3 +74,10 @@ async function signin(user = {}) {
 signinForm.addEventListener('focusout', handleFocusoutInput);
 signinForm.addEventListener('click', handleClickBlindButton);
 signinForm.addEventListener('submit', handleSubmit);
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    if (await isLogin()) UTILS.redirect('/folder');
+  } catch (error) {
+    console.log(`TODO: handling ${error}`);
+  }
+});

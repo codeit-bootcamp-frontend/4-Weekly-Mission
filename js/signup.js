@@ -1,6 +1,7 @@
 import { handleFocusoutInput, handleClickBlindButton } from './common/input.js';
 import { CLASS } from './common/class.js';
 import { API } from './api/api.js';
+import { isLogin } from './api/auth.js';
 import * as UTILS from './common/utils.js';
 
 const signupForm = document.querySelector('#signup-form');
@@ -68,3 +69,10 @@ async function signup(user = {}) {
 signupForm.addEventListener('focusout', handleFocusoutInput);
 signupForm.addEventListener('click', handleClickBlindButton);
 signupForm.addEventListener('submit', handleSubmit);
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    if (await isLogin()) UTILS.redirect('/folder');
+  } catch (error) {
+    console.log(`TODO: handling ${error}`);
+  }
+});
