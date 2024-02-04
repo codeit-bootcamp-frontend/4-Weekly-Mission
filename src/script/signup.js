@@ -60,9 +60,9 @@ function signup(event) {
 }
 
 // 이벤트 핸들러
-email.addEventListener("focusout", () => duplicateEmail());
-password.addEventListener("focusout", () => checkPassword());
+email.addEventListener("focusout", duplicateEmail);
+password.addEventListener("focusout", checkPassword);
 eyeButton.addEventListener("click", () => toggleEye(password));
-confirmPassword.addEventListener("focusout", () => checkConfirmPassword());
+confirmPassword.addEventListener("focusout", checkConfirmPassword);
 confirmEyeButton.addEventListener("click", () => toggleEye(confirmPassword));
-signupButton.addEventListener("click", (e) => signup(e));
+signupButton.addEventListener("click", signup);

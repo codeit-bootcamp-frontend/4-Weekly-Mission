@@ -16,7 +16,7 @@ function login(event) {
 }
 
 // 이벤트 핸들러
-email.addEventListener("focusout", () => validateEmail());
-password.addEventListener("focusout", () => validatePassword());
+email.addEventListener("focusout", validateEmail);
+password.addEventListener("focusout", validatePassword);
 eyeButton.addEventListener("click", () => toggleEye(password));
-loginButton.addEventListener("click", (e) => login(e));
+loginButton.addEventListener("click", login);
