@@ -1,10 +1,13 @@
 import { isValidEmail, showError, clearError, togglePasswordVisibility } from './formUtils.js';
 import { VALIDATION_MESSAGES } from "./constants.js";
+import { checkEmail, signUp } from './api.js';
+import { checkAccessTokenAndRedirect, saveAccessToken } from './storage.js';
 
 /**
  * 폼 유효성 검사 및 상호작용을 위한 초기화
  */
 document.addEventListener('DOMContentLoaded', function () {
+    checkAccessTokenAndRedirect();
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
     const confirmPasswordInput = document.getElementById('confirmPassword');
@@ -15,18 +18,27 @@ document.addEventListener('DOMContentLoaded', function () {
      * 이메일 필드 유효성 검사
      * @returns {boolean} - 이메일이 유효하면 true 그렇지 않으면 false
      */
-    function validateEmail() {
+    async function validateEmail() {
         clearError(emailInput);
+    
         if (!emailInput.value) {
             showError(emailInput, VALIDATION_MESSAGES.email.empty);
             return false;
         }
+    
         if (!isValidEmail(emailInput.value)) {
             showError(emailInput, VALIDATION_MESSAGES.email.invalid);
             return false;
         }
-        if (emailInput.value === 'test@codeit.com') {
-            showError(emailInput, VALIDATION_MESSAGES.email.alreadyInUse);
+    
+        try {
+            const response = await checkEmail(emailInput.value);
+            if (!response.data) {
+                showError(emailInput, VALIDATION_MESSAGES.email.alreadyInUse);
+                return false;
+            }
+        } catch (error) {
+            alert(VALIDATION_MESSAGES.network.emailCheckError);
             return false;
         }
         return true;
@@ -62,14 +74,26 @@ document.addEventListener('DOMContentLoaded', function () {
     * 회원가입 폼 제출 이벤트
     * @param {Event} event - 폼 제출 이벤트 객체
     */
-    function handleSignup(event) {
+    async function handleSignup(event) {
         event.preventDefault();
-        const isEmailValid = validateEmail();
+    
+        const isEmailValid = await validateEmail();
         const isPasswordValid = validatePassword();
         const isConfirmPasswordValid = validateConfirmPassword();
     
         if (isEmailValid && isPasswordValid && isConfirmPasswordValid) {
-            window.location.href = '/folder.html';
+            try {
+                const response = await signUp(emailInput.value, passwordInput.value);
+                if (!response.data) {
+                    showError(emailInput, VALIDATION_MESSAGES.email.incorrect);
+                    showError(passwordInput, VALIDATION_MESSAGES.password.incorrect);
+                    return;
+                }
+                saveAccessToken(response.data.accessToken);
+                window.location.href = '/folder.html';
+            } catch (error) {
+                alert(VALIDATION_MESSAGES.network.signupError);
+            }
         }
     }
 
