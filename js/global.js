@@ -7,12 +7,12 @@ export const testUser = {
 };
 
 /*email 형식인지 체크해주는 함수*/
-export function emailValidCheck(email_address){     
+export function emailValidCheck(email_address) {
 	return EMAIL_REGEX.test(email_address);
 }
 
 /*password가 최소 8자 && 영문/숫자 조합인지 체크해주는 함수*/
-export function passwordValidCheck(password){     
+export function passwordValidCheck(password) {
 	return PASSWORD_REGEX.test(password);
 }
 
