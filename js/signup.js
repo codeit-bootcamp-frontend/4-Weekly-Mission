@@ -12,15 +12,17 @@ const anotherEyeBtn = document.querySelector('.eye-btn2');
 
 /*입력받은 email 값을 판별하고 조건에 맞는 에러메시지를 출력하는 함수*/
 function validEmailInput(e) {
-  if (e.target.value === '') {
+  const emailValue = e.target.value.trim();
+
+  if (emailValue === '') {
     addError(emailInput, emailError, '이메일을 입력해 주세요.');
     return;
   } 
-  if (!checkEmailValid(e.target.value)) {
+  if (!checkEmailValid(emailValue)) {
     addError(emailInput, emailError, '올바른 이메일 주소가 아닙니다.');
     return;
   }
-  if (e.target.value === testUser.email) {
+  if (emailValue === testUser.email) {
     addError(emailInput, emailError, '이미 사용 중인 이메일 입니다.');
     return;
   }
@@ -29,11 +31,13 @@ function validEmailInput(e) {
 
 /*입력받은 password 값을 판별하고 조건에 맞는 에러메시지를 출력하는 함수*/
 function validPasswordInput(e) {
-  if (e.target.value === '') {
+  const pwValue = e.target.value;
+
+  if (pwValue === '') {
     addError(passwordInput, passwordError, '비밀번호를 입력해 주세요.');
     return;
   }
-  if (!checkPasswordValid(e.target.value)) {
+  if (!checkPasswordValid(pwValue)) {
     addError(passwordInput, passwordError, '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.');
     return;
   }
@@ -42,11 +46,13 @@ function validPasswordInput(e) {
 
 /*입력받은 password-check 값을 판별하고 조건에 맞는 에러메시지를 출력하는 함수*/
 function validPasswordCheckInput(e) {
-  if (e.target.value === '') {
+  const pwCheckValue = e.target.value;
+
+  if (pwCheckValue === '') {
     addError(passwordCheckInput, passwordCheckError, '비밀번호를 입력해 주세요.');
     return;
   }
-  if (e.target.value !== passwordInput.value) {
+  if (pwCheckValue !== passwordInput.value) {
     addError(passwordCheckInput, passwordCheckError, '비밀번호가 일치하지 않아요.');
     return;
   }

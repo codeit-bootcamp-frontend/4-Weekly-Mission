@@ -9,11 +9,13 @@ const eyeBtn = document.querySelector('.eye-btn');
 
 /*입력받은 email 값을 판별하고 조건에 맞는 에러메시지를 출력하는 함수*/
 function validEmailInput(e) {
-  if (e.target.value === '') {
+  const emailValue = e.target.value.trim();
+  
+  if (emailValue === '') {
     addError(emailInput, emailError, '이메일을 입력해 주세요.');
     return;
   } 
-  if (!checkEmailValid(e.target.value)) {
+  if (!checkEmailValid(emailValue)) {
     addError(emailInput, emailError, '올바른 이메일 주소가 아닙니다.');
     return;
   }
@@ -22,7 +24,9 @@ function validEmailInput(e) {
 
 /*입력받은 password 값을 판별하고 조건에 맞는 에러메시지를 출력하는 함수*/
 function validPasswordInput(e) {
-  if (e.target.value === '') {
+  const pwValue = e.target.value;
+
+  if (pwValue === '') {
     addError(passwordInput, passwordError, '비밀번호를 입력해 주세요.');
     return;
   }
