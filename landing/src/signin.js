@@ -55,7 +55,7 @@ passwordToggleButton.addEventListener("click", () =>
 
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
-function submitForm(event) {
+async function submitForm(event) {
   event.preventDefault();
 
   const isTestUser =
@@ -63,22 +63,25 @@ function submitForm(event) {
     passwordInput.value === TEST_USER.password;
 
   if (isTestUser) {
-    fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
-      headers: { "Content-Type": "application/json" },
-      method: "POST",
-      body: JSON.stringify({
-        email: TEST_USER.email,
-        password: TEST_USER.password,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        localStorage.setItem("accessToken", data.accessToken);
-        if (localStorage.getItem("accessToken")) {
-          location.href = "/folder";
-        }
-      })
-      .catch((error) => console.error("Error:", error));
+    try {
+      const response = await fetch("https://bootcai.codeit.kr/api/sign-in", {
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        body: JSON.stringify({
+          email: TEST_USER.email,
+          password: TEST_USER.password,
+        }),
+      });
+
+      const data = await response.json();
+      localStorage.setItem("accessToken", data.accessToken);
+
+      if (localStorage.getItem("accessToken")) {
+        location.href = "/folder";
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
 
     return;
   }
