@@ -1,6 +1,6 @@
 import handleClickEyeIcon from "/utils/onClickEyeIcon.js";
 import userAuth from "/utils/userAuth.js";
-import checkAccessToken from "../utils/checkAccessToken.js";
+import checkAccessToken from "/utils/checkAccessToken.js";
 
 checkAccessToken();
 
