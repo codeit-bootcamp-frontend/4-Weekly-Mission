@@ -71,8 +71,10 @@ function emailInputCheck() {
 function emailInputValueCheck() {
   if (getMyInputPassword.value !== checkMyInputPassword.value) 
     addClassError(errorMessagePwCheck, checkMyInputPassword, signJs.ErrorMessage.UnmatchedPassword);
-  else if (checkError(errorMessageId) && checkError(errorMessagePw) && checkError(errorMessagePwCheck) && myInputPassword.value !== '' && getMyInputPassword.value === checkMyInputPassword.value)
+  /*
+    else if (checkError(errorMessageId) && checkError(errorMessagePw) && checkError(errorMessagePwCheck) && myInputPassword.value !== '' && getMyInputPassword.value === checkMyInputPassword.value)
     registerAccount();
+  */
   }
 
 function toggleEyeImage1() {
@@ -152,6 +154,8 @@ function registerAccount() {
 document.querySelector('.signup-form').addEventListener('submit', function(event) {
   event.preventDefault();
   apiCheckEmail();
+  if (checkError(errorMessageId) && checkError(errorMessagePw) && checkError(errorMessagePwCheck) && myInputPassword.value !== '' && getMyInputPassword.value === checkMyInputPassword.value)
+    registerAccount();
 });
 
 toggleButtonPw.addEventListener('click', toggleEyeImage);

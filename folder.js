@@ -1,6 +1,10 @@
+
+const removeDelete = document.getElementById('delete');
+
+
+removeDelete.addEventListener('click', removeAccessToken);
+
 function removeAccessToken() {
   localStorage.removeItem("access-token");
 }
 
-// 함수 호출
-removeAccessToken();
