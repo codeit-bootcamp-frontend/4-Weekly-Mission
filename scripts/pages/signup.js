@@ -1,5 +1,6 @@
-import { showError, removeError } from '../utils/errorUtils.js';
+import { ERROR_MESSAGE, API } from '../utils/constant.js';
 import { $btnEye, $confirmPasswordInput, $emailInput, $form, $passwordInput } from '../utils/nodes.js';
+import { showError, removeError } from '../utils/errorUtils.js';
 import {
   isEmailExisting,
   isValidEmail,
@@ -8,7 +9,6 @@ import {
   checkValidEmail,
   togglePassword,
 } from '../pages/sign.js';
-import { ERROR_MESSAGE, API } from '../utils/constant.js';
 
 const checkExistEmail = async e => {
   if (await isEmailExisting(e.target.value)) {

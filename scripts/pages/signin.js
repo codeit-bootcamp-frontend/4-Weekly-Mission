@@ -1,7 +1,7 @@
+import { ERROR_MESSAGE, API } from '../utils/constant.js';
+import { $emailInput, $passwordInput, $btnEye, $form } from '../utils/nodes.js';
 import { showError, removeError } from '../utils/errorUtils.js';
 import { checkValidEmail, togglePassword } from '../pages/sign.js';
-import { $emailInput, $passwordInput, $btnEye, $form } from '../utils/nodes.js';
-import { ERROR_MESSAGE, API } from '../utils/constant.js';
 
 const checkEmptyPassword = e => {
   if (!e.target.value) {

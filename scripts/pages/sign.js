@@ -1,6 +1,6 @@
-import { showError, removeError } from '../utils/errorUtils.js';
-import { $emailInput, $passwordInput } from '../utils/nodes.js';
 import { ERROR_MESSAGE, API } from '../utils/constant.js';
+import { $emailInput, $passwordInput } from '../utils/nodes.js';
+import { showError, removeError } from '../utils/errorUtils.js';
 
 export const isValidEmail = value => {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
