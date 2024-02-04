@@ -69,7 +69,55 @@ signPassword.addEventListener("focusout", function (event) {
     return;
   }
 });
+// 상수 선언
+const checkEmailUrl = "https://bootcamp-api.codeitttt.kr/docs/api/check-email";
+const signUpUrl = "https://bootcamp-api.codeitttt.kr/docs/api/sign-up";
+const $myEmail = "test@codeit.com";
 
+// 이메일 중복 확인 함수
+async function checkEmail(email) {
+  try {
+    const response = await fetch(checkEmailUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email }),
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      return data.available;
+    } else {
+      console.error("이메일 중복 확인 실패:", response.statusText);
+      return false;
+    }
+  } catch (error) {
+    console.error("오류 발생:", error);
+    return false;
+  }
+}
+// 회원가입 함수
+async function signUp(email, password) {
+  try {
+    const response = await fetch(signUpUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email, password: password }),
+    });
+
+    if (response.ok) {
+      window.location.href = "./folder.html"; // 성공 시 페이지 이동
+    } else {
+      console.error("회원가입 실패:", response.statusText);
+      // 실패했을 때
+    }
+  } catch (error) {
+    console.error("오류 발생:", error);
+  }
+}
 // 회원가입 버튼 누를 시
 const sign = document.querySelector(".sign-form");
 
