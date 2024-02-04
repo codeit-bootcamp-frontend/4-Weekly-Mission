@@ -6,7 +6,7 @@ function validateEmail(email) {
 
 //비밀번호 형식(대문자,특수문자,영어,숫자 조합)
 function validatePassword(password) {
-  const regexExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
+  const regexExp = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
   return regexExp.test(password);
 }
 
@@ -18,11 +18,16 @@ emailInput.addEventListener("focusout", function () {
   const email = emailInput.value;
 
   if (email === "") {
-    errorEmail.value = "이메일을 입력하세요.";
-  } else if (!validateEmail(email)) {
-    errorEmail.value = "올바른 이메일 주소가 아닙니다.";
-  } else {
-    errorEmail.value = "올바른 이메일 형식입니다.";
+    errorEmail.innerHTML = "이메일을 입력하세요.";
+    return;
+  }
+  if (!validateEmail(email)) {
+    errorEmail.innerHTML = "올바른 이메일 주소가 아닙니다.";
+    return;
+  }
+  if (validateEmail(email)) {
+    errorEmail.innerHTML = "";
+    return;
   }
 });
 
@@ -38,11 +43,16 @@ passwordInput.addEventListener("focusout", function () {
   const password = passwordInput.value;
 
   if (password === "") {
-    errorPassword.value = "비밀번호를 입력하세요.";
-  } else if (!validatePassword(password)) {
-    errorPassword.value = "올바른 비밀번호가 아닙니다.";
-  } else {
-    errorPassword.value = "올바른 비밀번호 형식입니다.";
+    errorPassword.innerHTML = "비밀번호를 입력하세요.";
+    return;
+  }
+  if (!validatePassword(password)) {
+    errorPassword.innerHTML = "올바른 비밀번호가 아닙니다.";
+    return;
+  }
+  if (validatePassword(password)) {
+    errorPassword.innerHTMLe = "";
+    return;
   }
 });
 

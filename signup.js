@@ -88,5 +88,3 @@ sign.addEventListener("submit", function (e) {
     return;
   }
 });
-
-// 심화 요구 사항은 아직 구현을 못해서 차차 올리겠습니다!....
