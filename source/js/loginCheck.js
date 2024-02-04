@@ -13,9 +13,10 @@ async function login() {
       headers: { 'content-Type': 'application/json' },
       body: JSON.stringify({ email: emailValue, password: passwordValue }),
     });
-    window.location.href = '/folder';
     if (!result.ok) {
       throw new Error(result.statusText);
+    } else {
+      window.location.href = '../pages/folder.html';
     }
   } catch (error) {
     console.log(error);

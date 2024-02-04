@@ -19,9 +19,21 @@ async function signupCheck() {
       headers: { 'content-Type': 'application/json' },
       body: JSON.stringify({ email: emailInput.value, password: passwordValue, passwordCheck: passwordCheckValue }),
     });
-    window.location.href = '/folder';
-    if (!result.ok) {
-      throw new Error(result.statusText);
+    if (emailInput.value === 'test@codeit.com') {
+      alert('중복된 이메일은 사용할 수 없습니다.');
+    } else if (!checkEmail) {
+      emailInput.classList.add('invalid');
+      emailError.innerHTML = '이메일을 확인해 주세요.';
+    } else if (!checkPassword) {
+      passwordInput.classList.add('invalid');
+      passwordError.innerHTML = '비밀번호를 확인해 주세요.';
+    } else if (passwordValue !== passwordCheckValue) {
+      passwordCheckInput.classList.add('invalid');
+      passwordCheckError.innerHTML = '비밀번호가 일치하지 않아요.';
+    } else if (!result.ok) {
+      throw new Error('회원가입에 실패했습니다.');
+    } else {
+      window.location.href = '/folder';
     }
   } catch (error) {
     console.log(error);
@@ -35,19 +47,3 @@ signupForm.addEventListener('submit', function (e) {
 });
 
 export default signupCheck;
-
-//   if (!checkEmail) {
-//     emailInput.classList.add('invalid');
-//     emailError.innerHTML = '이메일을 확인해 주세요.';
-//   }
-
-//   if (!checkPassword) {
-//     passwordInput.classList.add('invalid');
-//     passwordError.innerHTML = '비밀번호를 확인해 주세요.';
-//   }
-
-//   if (passwordValue !== passwordCheckValue) {
-//     passwordCheckInput.classList.add('invalid');
-//     passwordCheckError.innerHTML = '비밀번호가 일치하지 않아요.';
-//   }
-// }
