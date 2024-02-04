@@ -12,6 +12,6 @@ export const fetchRequest = async (url, method, data) => {
 
     return res;
   } catch (e) {
-    console.error(e);
+    throw Error(e);
   }
 };

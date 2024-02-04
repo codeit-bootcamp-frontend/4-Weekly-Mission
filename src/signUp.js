@@ -19,10 +19,6 @@ import { emailCheckInquire, signUpInquire } from "./services/authAPI.js";
 
 checkLoginStatus();
 
-const email = emailInput.value.trim();
-const password = pwInput.value.trim();
-const pwConfirm = pwConfirmInput.value.trim();
-
 const validateEmailDuplication = async () => {
   const userData = {
     email: emailInput.value.trim(),
@@ -42,6 +38,10 @@ const validateEmailDuplication = async () => {
 const handleSignUp = async (e) => {
   e.preventDefault();
 
+  const email = emailInput.value.trim();
+  const password = pwInput.value.trim();
+  const pwConfirm = pwConfirmInput.value.trim();
+
   const isEmailDuplicate = await validateEmailDuplication();
   const isEmailValid = email !== "" && isValidFormat("email", email);
   const isPwValid = password !== "" && isValidFormat("pw", password);
@@ -52,26 +52,20 @@ const handleSignUp = async (e) => {
     password: pwInput.value.trim(),
   };
   const isAllValid =
-    !isEmailDuplicate && isEmailValid && isPwValid && isPwConfirmValid;
-  // console.log("!isEmailDuplicate", !isEmailDuplicate);
-  // console.log(isValidFormat("email", emailInput.value.trim()));
-  // console.log(emailInput.value.trim() !== "");
-  // console.log("isEmailValid", isEmailValid);
-  // console.log("isPwValid", isPwValid);
-  // console.log("isPwConfirmValid", isPwConfirmValid);
+    isEmailDuplicate && isEmailValid && isPwValid && isPwConfirmValid;
 
-  // if (isAllValid) {
-  try {
-    const result = await signUpInquire(userData);
-    if (result.ok) {
-      alert("회원가입 성공!");
-      window.location.href = "folder.html";
+  if (isAllValid) {
+    try {
+      const result = await signUpInquire(userData);
+      if (result.ok) {
+        alert("회원가입 성공!");
+        window.location.href = "folder.html";
+      }
+    } catch (e) {
+      console.error(e);
     }
-  } catch (e) {
-    console.error(e);
   }
 };
-// };
 
 const handleEmailInput = () => {
   validateEmail();

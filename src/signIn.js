@@ -27,8 +27,8 @@ const handleSignIn = async (e) => {
   const email = emailInput.value.trim();
   const password = pwInput.value.trim();
   const userData = {
-    email: email,
-    password: password,
+    email,
+    password,
   };
   try {
     const result = await loginInquire(userData);
