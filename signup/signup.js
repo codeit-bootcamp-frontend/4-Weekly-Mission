@@ -39,13 +39,26 @@ const emailInput = (event) => {
     emailError.textContent = ERROR_EMAIL_MESSAGE;
     event.classList.add('inputError');
     return false;
-  } else if (event.value === TEST_EMAIL) {
-    emailError.textContent = DUPLICATE_EMAIL_MESSAGE;
-    return false;
-  } else {
-    emailError.textContent = '';
-    event.classList.remove('inputError');
-    return true;
+  }
+  try {
+    fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({ email: event.value }),
+    }).then((response) => {
+      if (response.status === 200) {
+        emailError.textContent = '';
+        event.classList.remove('inputError');
+        return true;
+      } else if (response.status === 409) {
+        emailError.textContent = DUPLICATE_EMAIL_MESSAGE;
+        return false;
+      }
+    });
+  } catch (e) {
+    console.log(e);
   }
 };
 

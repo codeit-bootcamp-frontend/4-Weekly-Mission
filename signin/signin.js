@@ -13,7 +13,6 @@ import {
 
 import {
   TEST_EMAIL,
-  TEST_PASSWORD,
   EMAIL_CHECK_MESSAGE,
   PASSWORD_CHECK_MESSAGE,
   EMPTY_EMAIL_MESSAGE,
@@ -24,7 +23,7 @@ import {
 const password = document.querySelector('#password');
 
 const userAuth = {
-  email: 'test@codeit.com',
+  email: TEST_EMAIL,
   password: 'sprint101',
 };
 
