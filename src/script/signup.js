@@ -15,18 +15,18 @@ function duplicateEmail() {
 
     if (isDuplicate) {
         createError(email, emailError, "이미 사용 중인 이메일입니다.");
-    } else {
-        validateEmail();
+        return;
     }
+    validateEmail();
 }
 
 // 비밀번호 조합 확인
 function checkPassword() {
     if (!isValidPassword(password.value)) {
         createError(password, passwordError, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.");
-    } else {
-        validatePassword();
+        return;
     }
+    validatePassword();
 }
 
 // 비밀번호 확인 검사
@@ -35,9 +35,9 @@ function checkConfirmPassword() {
 
     if (!isConfirmPassword) {
         createError(confirmPassword, confirmPasswordError, "비밀번호가 다릅니다.");
-    } else {
-        clearError(confirmPassword, confirmPasswordError);
+        return;
     }
+    clearError(confirmPassword, confirmPasswordError);
 }
 
 // 비밀번호 유효성 검사
@@ -55,7 +55,7 @@ function signup(event) {
         passwordError.innerText === "" &&
         confirmPasswordError.innerText === ""
     ) {
-        window.location.href = "/folder";
+        window.location.href = "/folder.html";
     }
 }
 

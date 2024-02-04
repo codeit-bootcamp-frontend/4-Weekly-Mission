@@ -9,10 +9,10 @@ function login(event) {
     event.preventDefault();
     if (email.value === "test@codeit.com" && password.value === "codeit101") {
         window.location.href = "/folder";
-    } else {
-        createError(email, emailError, "이메일을 확인해 주세요.");
-        createError(password, passwordError, "비밀번호를 확인해 주세요.");
+        return;
     }
+    createError(email, emailError, "이메일을 확인해 주세요.");
+    createError(password, passwordError, "비밀번호를 확인해 주세요.");
 }
 
 // 이벤트 핸들러
