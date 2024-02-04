@@ -16,7 +16,7 @@ FORM_ELEMENT.addEventListener('submit', handleSubmit);
 function handleEmailFocusout(e) {
   if (INPUT_EMAIL.value === '') {
     ERROR_MESSAGE_EMAIL.textContent = '이메일을 입력해 주세요.';
-    INPUT_EMAIL.classList.add('input_error');
+    addClassList(INPUT_EMAIL, 'input_error');
     return false;
   }
 
@@ -41,7 +41,7 @@ async function emailValidation (e) {
   const result = await response.json(e);
   if (!response.ok) {
     e.target.nextElementSibling.textContent = result.error.message;
-    INPUT_EMAIL.classList.add('input_error');
+    addClassList(INPUT_EMAIL, 'input_error');
     return false;
   }
 }
@@ -56,7 +56,7 @@ function passwordValidation(input) {
 function handlePasswordFocusout(e) {
   if (!passwordValidation(INPUT_PASSWORD.value)) {
     ERROR_MESSAGE_PASSWORD.textContent = '비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.';
-    INPUT_PASSWORD.classList.add('input_error');
+    addClassList(INPUT_PASSWORD, 'input_error');
     return false;
   }
   
@@ -66,7 +66,7 @@ function handlePasswordFocusout(e) {
 function handlePasswordCheckFocusout(e) {
   if (INPUT_PASSWORD.value !== INPUT_PASSWORD_CHECK.value) {
     ERROR_MESSAGE_PASSWORD_CHECK.textContent = '비밀번호가 일치하지 않아요.';
-    INPUT_PASSWORD_CHECK.classList.add('input_error');
+    addClassList(INPUT_PASSWORD_CHECK, 'input_error');
     return false;
   }
 
@@ -110,4 +110,10 @@ async function finalValidation() {
   if (response.ok) {
     window.location.href = '/folder';
   }
+}
+
+
+// 스타일 추가
+function addClassList(target, className) {
+  target.classList.add(className)
 }
