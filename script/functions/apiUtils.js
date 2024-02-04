@@ -1,3 +1,6 @@
+import { goToFolderhtml } from "../temporary";
+import { getTokenInLocalStorage, saveTokenInLocalStorage } from "./token";
+
 const apiUrl = 'https://bootcamp-api.codeit.kr/api';
 
 const postRequest = (endpoint, data) => {
@@ -14,8 +17,9 @@ export const postData = async (endpoint, data) => {
   try {
     const response = await postRequest(endpoint, data);
     const responseData = await response.json();
-    if(responseData.success) {
-      window.location.href = '../folder.html';
+    if(responseData.success) { 
+      saveTokenInLocalStorage('accessToken', true); //true 는 아무런 값도 아님.
+      window.location.href = goToFolderhtml;
       return;
     }
     console.error("Login Failure");
@@ -41,7 +45,8 @@ export const checkEmailData = async (endpoint, emaildata, data) => {
     const responseSignUp = postRequest(sign-up, data);
     const responseDataSignUp = await responseSignUp.json();
     if(responseDataSignUp.success) {
-      window.location.href = '../folder.html';
+      saveTokenInLocalStorage('accessToken', true); //true 는 아무런 값도 아님.
+      window.location.href = goToFolderhtml;
       return;
     }
   }
@@ -49,3 +54,10 @@ export const checkEmailData = async (endpoint, emaildata, data) => {
     console.error('Error : Network Connection Failure', error);
   }
 }
+
+
+// 심화 요구사항에 맞춘 임시 코드
+const myLocalStorageHaveAccessToken = () => {
+  if(getTokenInLocalStorage('accessToken')) window.location.href = goToFolderhtml;
+}
+export const accessToken = myLocalStorageHaveAccessToken();
