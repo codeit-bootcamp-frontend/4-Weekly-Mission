@@ -64,7 +64,6 @@ function trySignUp(event) {
   event.preventDefault();
   if (emailError.textContent === '' && passwordError.textContent === '' && passwordCheckError.textContent === '') {
     window.location.href = "folder.html";
-    return;
   }
 }
 
