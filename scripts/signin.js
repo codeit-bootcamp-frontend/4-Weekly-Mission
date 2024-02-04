@@ -19,7 +19,6 @@ const accessToken = localStorage.getItem("accessToken");
 // 로그인 페이지에 접근시 로컬 스토리지에 accessToken이 있는 경우 “/folder” 페이지로 이동
 if (accessToken) {
   window.location.href = FOLDER_URL;
-  return;
 }
 
 // 이메일 입력 처리 함수 : 유효성 검사 및 에러 메시지 관리
