@@ -1,7 +1,7 @@
-import { accountInfo } from "./javascript/account.js"
-import { login } from "./javascript/api/auth/login.js"
-import { passwordToggle } from "./javascript/passwordToggle.js"
-import { emailFocus, emailBlur, passwordFocus, passwordBlur } from "./javascript/signFunction.js"
+import { accountInfo } from "./account.js"
+import { login } from "./api/auth/login.js"
+import { passwordToggle } from "./passwordToggle.js"
+import { emailFocus, emailBlur, passwordFocus, passwordBlur } from "./signFunction.js"
 
 // 
 const inputEmail = document.querySelector('.email-input')

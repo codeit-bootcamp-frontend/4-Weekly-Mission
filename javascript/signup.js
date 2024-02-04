@@ -1,8 +1,8 @@
-import { accountInfo } from "./javascript/account.js"
-import { register } from "./javascript/api/auth/register.js"
-import { passwordToggle } from "./javascript/passwordToggle.js"
-import { emailRegex, passwordRegex } from "./javascript/regex.js"
-import { emailFocus, emailBlur, passwordFocus, passwordBlur, passwordCheckFocus, passwordCheckBlur } from "./javascript/signFunction.js"
+import { accountInfo } from "./account.js"
+import { register } from "./api/auth/register.js"
+import { passwordToggle } from "./passwordToggle.js"
+import { emailRegex, passwordRegex } from "./regex.js"
+import { emailFocus, emailBlur, passwordFocus, passwordBlur, passwordCheckFocus, passwordCheckBlur } from "./signFunction.js"
 
 // 
 const inputEmail = document.querySelector('.email-input')
