@@ -1,4 +1,5 @@
-import {testUser, checkEmailValid, checkPasswordValid, addError, removeError, hiddenPasswordToggle} from "./global.js";
+import {testUserList, checkEmailValid, checkPasswordValid, addError, removeError, hiddenPasswordToggle} from "./global.js";
+import errorMessage from "./error-message.js";
 const emailInput = document.querySelector("#email");
 const emailError = document.querySelector(".email-error");
 const passwordInput = document.querySelector("#password");
@@ -15,15 +16,15 @@ function validEmailInput(e) {
   const emailValue = e.target.value.trim();
 
   if (emailValue === '') {
-    addError(emailInput, emailError, '이메일을 입력해 주세요.');
+    addError(emailInput, emailError, errorMessage.EMAIL_REQUIRED);
     return;
   } 
   if (!checkEmailValid(emailValue)) {
-    addError(emailInput, emailError, '올바른 이메일 주소가 아닙니다.');
+    addError(emailInput, emailError, errorMessage.EMAIL_INVALID);
     return;
   }
-  if (emailValue === testUser.email) {
-    addError(emailInput, emailError, '이미 사용 중인 이메일 입니다.');
+  if (testUserList.find((test) => emailValue === test.email)) {
+    addError(emailInput, emailError, errorMessage.EMAIL_ALREADY_USE);
     return;
   }
   removeError(emailInput, emailError);
@@ -34,11 +35,11 @@ function validPasswordInput(e) {
   const pwValue = e.target.value;
 
   if (pwValue === '') {
-    addError(passwordInput, passwordError, '비밀번호를 입력해 주세요.');
+    addError(passwordInput, passwordError, errorMessage.PW_REQUIRED);
     return;
   }
   if (!checkPasswordValid(pwValue)) {
-    addError(passwordInput, passwordError, '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.');
+    addError(passwordInput, passwordError, errorMessage.PW_INVALID);
     return;
   }
   removeError(passwordInput, passwordError);
@@ -49,11 +50,11 @@ function validPasswordCheckInput(e) {
   const pwCheckValue = e.target.value;
 
   if (pwCheckValue === '') {
-    addError(passwordCheckInput, passwordCheckError, '비밀번호를 입력해 주세요.');
+    addError(passwordCheckInput, passwordCheckError, errorMessage.PW_REQUIRED);
     return;
   }
   if (pwCheckValue !== passwordInput.value) {
-    addError(passwordCheckInput, passwordCheckError, '비밀번호가 일치하지 않아요.');
+    addError(passwordCheckInput, passwordCheckError, errorMessage.PW_NOT_MATCH);
     return;
   }
   removeError(passwordCheckInput, passwordCheckError);

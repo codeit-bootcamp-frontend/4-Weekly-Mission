@@ -1,4 +1,5 @@
-import {testUser, checkEmailValid, addError, removeError, hiddenPasswordToggle} from "./global.js";
+import {testUserList, checkEmailValid, addError, removeError, hiddenPasswordToggle} from "./global.js";
+import errorMessage from "./error-message.js";
 const emailInput = document.querySelector("#email");
 const emailError = document.querySelector(".email-error");
 const passwordInput = document.querySelector("#password");
@@ -12,11 +13,11 @@ function validEmailInput(e) {
   const emailValue = e.target.value.trim();
   
   if (emailValue === '') {
-    addError(emailInput, emailError, '이메일을 입력해 주세요.');
+    addError(emailInput, emailError, errorMessage.EMAIL_REQUIRED);
     return;
   } 
   if (!checkEmailValid(emailValue)) {
-    addError(emailInput, emailError, '올바른 이메일 주소가 아닙니다.');
+    addError(emailInput, emailError, errorMessage.EMAIL_INVALID);
     return;
   }
   removeError(emailInput, emailError);
@@ -27,21 +28,35 @@ function validPasswordInput(e) {
   const pwValue = e.target.value;
 
   if (pwValue === '') {
-    addError(passwordInput, passwordError, '비밀번호를 입력해 주세요.');
+    addError(passwordInput, passwordError, errorMessage.PW_REQUIRED);
     return;
   }
   removeError(passwordInput, passwordError);
 }
 
 /*로그인을 시도할 때 일어나는 경우에 대한 함수*/
-function tryLogin(event) {
-  event.preventDefault();
-  if (emailInput.value === testUser.email && passwordInput.value === testUser.password) {
-    window.location.href = "folder.html";
+
+// function tryLogin(event) {
+//   event.preventDefault();
+//   if (emailInput.value === testUser.email && passwordInput.value === testUser.password) {
+//     window.location.href = "folder.html";
+//     return;
+//   }
+//   addError(emailInput, emailError, errorMessage.CHECK_EMAIL);
+//   addError(passwordInput, passwordError, errorMessage.CHECK_PW);
+// }
+
+function tryLogin(e) {
+  e.preventDefault();
+  const accountInput = {email: emailInput.value, password: passwordInput.value} ;
+  const checkAccountValid = testUserList.find((test) => test.email === accountInput.email && test.password === accountInput.password);
+
+  if (checkAccountValid) {
+    window.location.href="folder.html"
     return;
   }
-  addError(emailInput, emailError, '이메일을 확인해 주세요.');
-  addError(passwordInput, passwordError, '비밀번호를 확인해 주세요.');
+  addError(emailInput, emailError, errorMessage.CHECK_EMAIL);
+  addError(passwordInput, passwordError, errorMessage.CHECK_PW);
 }
 
 
