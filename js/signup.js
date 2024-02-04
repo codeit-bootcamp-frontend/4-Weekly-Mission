@@ -2,6 +2,8 @@ import { $ } from './utils/dom.js';
 import { REGEX } from './constants/regex.js';
 import { KEY } from './constants/key.js';
 import { MESSAGE } from './constants/message.js';
+import { POST_API } from './constants/apiRequest.js';
+import { API_URL } from './constants/apiUrls.js';
 
 import {
   setEmailErrorStyle,
@@ -45,14 +47,8 @@ const checkEmail = async (inputEmail) => {
     email: inputEmail,
   };
   try {
-    const response = await fetch(
-      'https://bootcamp-api.codeit.kr/api/check-email',
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(bodyData),
-      }
-    );
+    const response = await POST_API(API_URL.USER.CHECK_EMAIL, bodyData);
+
     if (response.status === 409) {
       setEmailErrorStyle(MESSAGE.ERROR.ALREADY_IN_USE_EMAIL);
       return;
@@ -158,14 +154,7 @@ const signup = async (email, password) => {
     password,
   };
   try {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(bodyData),
-    });
-
+    const response = await POST_API(API_URL.AUTH.SIGN_UP, loginData);
     const result = JSON.parse(await response.text());
 
     if (response.status === 200) {

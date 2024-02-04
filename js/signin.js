@@ -2,6 +2,8 @@ import { $ } from './utils/dom.js';
 import { REGEX } from './constants/regex.js';
 import { KEY } from './constants/key.js';
 import { MESSAGE } from './constants/message.js';
+import { POST_API } from './constants/apiRequest.js';
+import { API_URL } from './constants/apiUrls.js';
 
 import {
   setEmailErrorStyle,
@@ -83,19 +85,13 @@ $loginButton.addEventListener('click', () => {
 });
 
 const login = async (email, password) => {
-  const loginData = {
-    email,
-    password,
-  };
   try {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(loginData),
-    });
+    const loginData = {
+      email,
+      password,
+    };
 
+    const response = await POST_API(API_URL.AUTH.SIGN_IN, loginData);
     const result = JSON.parse(await response.text());
 
     if (response.status === 200) {
