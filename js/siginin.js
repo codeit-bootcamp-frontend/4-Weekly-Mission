@@ -5,6 +5,39 @@ const errorMsgEmail = document.querySelector('.error-email');
 const errorMsgPassword = document.querySelector('.error-pw');
 const showPasswordBtn = document.querySelector('.show-pw-btn');
 
+// 페이지 접근시 localStorage에 accessToken이 있을 경우, folder.html로 이동
+(() => {
+  const myAccessToken = window.localStorage.getItem('accessToken');
+  if (myAccessToken) {
+    window.location.href = 'folder.html';
+  }
+})();
+
+async function signinRequestPost() {
+  const url = 'https://bootcamp-api.codeit.kr/api/sign-in';
+  const newUser = {
+    email: inputEmail.value,
+    password: inputPassword.value,
+  };
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    });
+    const responseStatus = response.status;
+    if (responseStatus === 200) {
+      const { data } = await response.json();
+      localStorage.setItem('accessToken', data.accessToken);
+      window.location.href = 'folder.html';
+    }
+  } catch (err) {
+    console.log(err.message);
+  }
+}
+
 // 이메일 : test@codeit.com, 비밀번호 : codeit101 으로 로그인 시, '/folder' 페이지로 이동
 function checkIsUser(e) {
   e.preventDefault();
@@ -13,12 +46,11 @@ function checkIsUser(e) {
     alert(`이메일을 확인해 주세요.`);
     return;
   }
-  if (inputPassword.value !== 'codeit101') {
+  if (inputPassword.value !== 'sprint101') {
     alert(`비밀번호를 확인해 주세요.`);
     return;
   }
-
-  window.location.href = 'folder.html';
+  signinRequestPost();
 }
 
 function showInputErrorMessage(e) {
