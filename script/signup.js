@@ -1,7 +1,18 @@
-import {EMAIL_ERROR_MESSAGE, PASSWORD_CONFIRM_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE} from './constant.js'
-import { getElementById} from './dom/domhelper.js';
+import { EMAIL_ERROR_MESSAGE, PASSWORD_CONFIRM_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE } from './constant.js';
+import { getElementById } from './dom/domhelper.js';
 import { checkEmailData, myLocalStorageHaveAccessToken } from './functions/apiUtils.js';
-import { isEmptyString, isValidEmail, showError, hideError, isValidPassword, hidePassword, showPassword, isValidEmailFormat, isValidPasswordFormat, isValidPasswordConfirmFormat } from './functions/sign.js';
+import {
+  isEmptyString,
+  isValidEmail,
+  showError,
+  hideError,
+  isValidPassword,
+  hidePassword,
+  showPassword,
+  isValidEmailFormat,
+  isValidPasswordFormat,
+  isValidPasswordConfirmFormat,
+} from './functions/sign.js';
 
 // About Email Error
 const emailInput = getElementById('email');
@@ -22,53 +33,74 @@ const eyeButtonForConfirm = getElementById('eye-button-password-confirm');
 
 myLocalStorageHaveAccessToken();
 
-emailInput.addEventListener('focusout', function () {
-    const emailValue = emailInput.value.trim();
-    if(isEmptyString(emailValue)){
-        showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isEmpty); return;}
-    if(!isValidEmail(emailValue)){
-        showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isNotRightFormat); return;}
-    if(emailValue === 'test@codeit.com'){
-        showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isUsing); return;}
-    hideError(emailInput, emailErrorMessage);
-});
+const EmailInputError = () => {
+  const emailValue = emailInput.value.trim();
+  if (isEmptyString(emailValue)) {
+    showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isEmpty);
+    return;
+  }
+  if (!isValidEmail(emailValue)) {
+    showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isNotRightFormat);
+    return;
+  }
+  if (emailValue === 'test@codeit.com') {
+    showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isUsing);
+    return;
+  }
+  hideError(emailInput, emailErrorMessage);
+};
 
-passwordInput.addEventListener('focusout', function () {
-    const passwordValue = passwordInput.value.trim();
-    if(isEmptyString(passwordValue)) {
-        showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.isEmpty); return;}
-    if(!isValidPassword(passwordValue)) {
-        showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.isNotRightFormat); return;}
-    hideError(passwordInput, passwordErrorMessage);
-});
+const passwordInputError = () => {
+  const passwordValue = passwordInput.value.trim();
+  if (isEmptyString(passwordValue)) {
+    showError(passwordInput, passwordErrorMessage, PASSWORD_ERROR_MESSAGE.isEmpty);
+    return;
+  }
+  if (!isValidPassword(passwordValue)) {
+    showError(passwordInput, passwordErrorMessage, PASSWORD_ERROR_MESSAGE.isNotRightFormat);
+    return;
+  }
+  hideError(passwordInput, passwordErrorMessage);
+};
 
-passwordConfirmInput.addEventListener('focusout', function() {
-    const passwordValue = passwordInput.value.trim();
-    const passwordConfirmValue = passwordConfirmInput.value.trim();
-    if(passwordValue !== passwordConfirmValue) {
-        showError(passwordConfirmInput, passwordConfirmErrorMessage, PASSWORD_CONFIRM_ERROR_MESSAGE.isNotMatch); return;}
-    hideError(passwordConfirmInput, passwordConfirmErrorMessage);
-});
+const passwordConfirmInputError = () => {
+  const passwordValue = passwordInput.value.trim();
+  const passwordConfirmValue = passwordConfirmInput.value.trim();
+  if (passwordValue !== passwordConfirmValue) {
+    showError(passwordConfirmInput, passwordConfirmErrorMessage, PASSWORD_CONFIRM_ERROR_MESSAGE.isNotMatch);
+    return;
+  }
+  hideError(passwordConfirmInput, passwordConfirmErrorMessage);
+};
 
-signInButton.addEventListener('click', function (event) {
-    event.preventDefault();
-    const emailValue = emailInput.value.trim();
-    const passwordValue = passwordInput.value.trim();
-    const passwordConfirmValue = passwordConfirmInput.value.trim();
-    const submitTemporary = {emailValue, passwordValue};
-    if (isValidEmailFormat(emailValue) && isValidPasswordFormat(passwordValue) && isValidPasswordConfirmFormat(passwordValue,passwordConfirmValue)) {
-        checkEmailData('/api/check-email',emailValue,submitTemporary);}
-});
+const pressSignUpButtonError = event => {
+  event.preventDefault();
+  const emailValue = emailInput.value.trim();
+  const passwordValue = passwordInput.value.trim();
+  const passwordConfirmValue = passwordConfirmInput.value.trim();
+  const submitTemporary = { emailValue, passwordValue };
+  if (isValidEmailFormat(emailValue) && isValidPasswordFormat(passwordValue) && isValidPasswordConfirmFormat(passwordValue, passwordConfirmValue)) {
+    checkEmailData('/api/check-email', emailValue, submitTemporary);
+  }
+};
 
 eyeButtonPassword.addEventListener('click', function () {
-    if (passwordInput.type === 'text') {
-        showPassword(passwordInput, eyeButtonPassword); return;}
-    hidePassword(passwordInput,eyeButtonPassword);
+  if (passwordInput.type === 'text') {
+    showPassword(passwordInput, eyeButtonPassword);
+    return;
+  }
+  hidePassword(passwordInput, eyeButtonPassword);
 });
 
 eyeButtonForConfirm.addEventListener('click', function () {
-    if (passwordConfirmInput.type === 'text') {
-        showPassword(passwordConfirmInput, eyeButtonForConfirm); return;}
-    hidePassword(passwordConfirmInput,eyeButtonForConfirm);
+  if (passwordConfirmInput.type === 'text') {
+    showPassword(passwordConfirmInput, eyeButtonForConfirm);
+    return;
+  }
+  hidePassword(passwordConfirmInput, eyeButtonForConfirm);
 });
 
+emailInput.addEventListener('focusout', EmailInputError);
+passwordInput.addEventListener('focusout', passwordInputError);
+passwordConfirmInput.addEventListener('focusout', passwordConfirmInputError);
+signInButton.addEventListener('click', pressSignUpButtonError);
