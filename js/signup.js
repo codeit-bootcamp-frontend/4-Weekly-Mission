@@ -44,13 +44,14 @@ function validatePassword(password) {
 
   if (passwordValue === '') {
     showError(password, '비밀번호를 입력해주세요.');
-    return;
+    return false;
   }
   if (!passwordPattern.test(passwordValue)) {
     showError(password, '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.');
-    return;
+    return false;
   }
   hideError(password);
+  return true;
 }
 
 function validatePasswordCheck() {
@@ -59,7 +60,9 @@ function validatePasswordCheck() {
 
   if (passwordValue !== passwordValueCheck && passwordValueCheck !== '') {
     showError(passwordCheck, '비밀번호가 일치하지 않아요.');
+    return false;
   }
+  return true;
 }
 
 emailInput.addEventListener('focusout', validateEmail);
@@ -68,29 +71,52 @@ passwordInput.addEventListener('focusout', () =>
 );
 passwordCheck.addEventListener('focusout', validatePasswordCheck);
 
+// 회원가입 파트에서 비밀번호 확인에 대한 에러 메세지가 안나옵니다 ㅠㅠ
+// 혹시 제가 어디서 잘못했는지 확인해주실 수 있을까요 ㅠㅠ
 loginForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
   const passwordValue = passwordInput.value.trim();
 
   if (validateEmail()) {
-    return;
+    return false;
   }
   if (!passwordValue) {
     showError(passwordInput, '비밀번호를 입력해주세요.');
-    return;
+    return false;
   }
   if (!passwordPattern.test(passwordValue)) {
     showError(
       passwordInput,
       '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
     );
-    return;
+    return false;
   }
   if (passwordCheck.value.trim() !== passwordValue) {
     showError(passwordCheck, '비밀번호가 일치하지 않아요.');
-    return;
+    return false;
   }
 
   pathTo('folder');
+  return true;
 });
+
+// loginForm.addEventListener('submit', async (event) => {
+//   event.preventDefault();
+
+//   // const passwordValue = passwordInput.value.trim();
+
+//   if (!validateEmail()) {
+//     return false;
+//   }
+//   if (!validatePassword(passwordInput)) {
+//     return false;
+//   }
+//   if (!validatePasswordCheck()) {
+//     // 비밀번호 확인 부분에 에러가 안뜹니다 ㅠㅠ
+//     // showError(passwordCheck, '비밀번호가 일치하지 않아요.');
+//     return false;
+//   }
+//   pathTo('folder');
+//   return true;
+// });
