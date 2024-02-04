@@ -79,23 +79,25 @@ function passwordCheckText() {
   }
 }
 
-function join(event) {
+ async function join(event) {
   event.preventDefault();
   if (emailText() && passwordText() && passwordCheckText()) {
     let link = "../html/page.html";
     location.href = link;
+    const newMember = {
+      "email": EMAIL.value,
+      "password": PASSWORD.value,
+    }
+    fetch('https://bootcamp-api.codeit.kr/docs/api/sign-in', {
+      method: 'POST',
+      body: JSON.stringify(newMember),
+    })
+      .then((response) => response.text())
+      .then((result) => {console.log(result)})
   }
-}
+ }
 
 JOIN_BTN.addEventListener("click", join);
-// document
-//   .getElementById("join-form")
-//   .addEventListener("keydown", function (event) {
-//     if (event.key === "Enter") {
-//       join();
-//     }
-//   });
-
 EMAIL.addEventListener("blur", emailText);
 PASSWORD.addEventListener("blur", passwordText);
 PASSWORD_CHECK.addEventListener("blur", passwordCheckText);
