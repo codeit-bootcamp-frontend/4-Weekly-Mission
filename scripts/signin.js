@@ -67,12 +67,12 @@ document.addEventListener("DOMContentLoaded", function () {
       // 정해진 이메일이 입력되지 않은 경우
       if (emailValue !== ADMIN_EMAIL) {
         emailError.textContent = "이메일을 확인해 주세요";
-        emailInput.addEventListener.add("invalid");
+        emailInput.classList.add("invalid");
       }
       // 정해진 비밀번호가 입력되지 않은 경우
       if (passwordValue !== ADMIN_PASSWORD) {
         passwordError.textContent = "비밀번호를 확인해 주세요";
-        passwordInput.addEventListener.add("invalid");
+        passwordInput.classList.add("invalid");
       }
     }
   });
