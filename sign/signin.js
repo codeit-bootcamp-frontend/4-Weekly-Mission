@@ -1,12 +1,9 @@
 import {
   emailCheck,
+  errorColorChange,
+  errorColorRomove,
 } from "./utils.js";
 
-
-//error 디자인 설정하기
-function errorColorChange(e){
-  e.classList.add('sign-input-error');
-}
 
 
 
@@ -23,7 +20,10 @@ function emailErrorMessageHandler(e){
   }else if(!emailCheck(email.value)){
     emailError.textContent = '올바른 이메일 주소가 아닙니다.';
     errorColorChange(email);
-  }else emailError.textContent = '';
+  }else {
+    emailError.textContent = '';
+    errorColorRomove(email);
+  }
 }
 
 email.addEventListener("focusout",emailErrorMessageHandler);
@@ -38,7 +38,10 @@ function passwordErrorMessageHandler(e){
   if(!password.value){
     PasswordError.textContent =  '비밀번호를 입력해 주세요.';
     errorColorChange(password);
-  }else PasswordError.textContent = '';
+  }else {
+    PasswordError.textContent = '';
+    errorColorRomove(password);
+  }
 }
 password.addEventListener("focusout",passwordErrorMessageHandler);
 
