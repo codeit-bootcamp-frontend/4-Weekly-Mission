@@ -21,7 +21,7 @@ const handleSignIn = async () => {
     localStorage.setItem('loginAccessToken', responseData.data.accessToken)
     const accessToken = localStorage.getItem('loginAccessToken');
     if (accessToken) {
-      // window.location.href = '../../pages/folder.html';
+      window.location.href = '../../pages/folder.html';
       console.log('찐으로 로그인')
     }
   } catch (error) {
@@ -37,7 +37,7 @@ const handleSignUp = async () => {
     localStorage.setItem('signupAccessToken', responseData.data.accessToken)
     const accessToken = localStorage.getItem('signupAccessToken');
     if (accessToken) {
-      // window.location.href = '../../pages/folder.html';
+      window.location.href = '../../pages/folder.html';
       console.log('찐으로 회원가입')
     }
   } catch (error) {
@@ -58,10 +58,10 @@ export function handlePasswordCheckFocusout() {
 export function handleSignUpButton() {
   signGlobals.signEmailInput.blur()
   signGlobals.signPasswordInput.blur()
-  // if (input.isValueMatch(signGlobals.signEmailInput, USERS[0].id)) {
-  //   formErrorHandling.showErrorMsg(signGlobals.signEmailInput, signGlobals.emailError, EMAIL_ERROR_MESSAGE.use)
-  //   return
-  // }
+  if (input.isValueMatch(signGlobals.signEmailInput, USERS[0].id)) {
+    formErrorHandling.showErrorMsg(signGlobals.signEmailInput, signGlobals.emailError, EMAIL_ERROR_MESSAGE.use)
+    return
+  }
   if (!signGlobals.signEmailInput.value || !signGlobals.signPasswordInput.value || !signGlobals.signPasswordCheckInput.value) {
     alert('모든 입력 필드에 값을 입력하세요.')
     return
@@ -73,13 +73,13 @@ export function handleLoginButton() {
   signGlobals.signEmailInput.blur()
   signGlobals.signPasswordInput.blur()
   handleSignIn()
-  // const isUserRegistered = USERS.some(user => input.isValueMatch(signGlobals.signEmailInput, user.id) && input.isValueMatch(signGlobals.signPasswordInput, user.password))
-  // if (isUserRegistered) {
-  //   action.loginAction()
-  // }else if (!isUserRegistered){
-  //   formErrorHandling.showErrorMsg(signGlobals.signEmailInput, signGlobals.emailError, EMAIL_ERROR_MESSAGE.validation)
-  //   formErrorHandling.showErrorMsg(signGlobals.signPasswordInput, signGlobals.passwordError, PASSWORD_ERROR_MESSAGE.validation)
-  // }
+  const isUserRegistered = USERS.some(user => input.isValueMatch(signGlobals.signEmailInput, user.id) && input.isValueMatch(signGlobals.signPasswordInput, user.password))
+  if (isUserRegistered) {
+    action.loginAction()
+  }else if (!isUserRegistered){
+    formErrorHandling.showErrorMsg(signGlobals.signEmailInput, signGlobals.emailError, EMAIL_ERROR_MESSAGE.validation)
+    formErrorHandling.showErrorMsg(signGlobals.signPasswordInput, signGlobals.passwordError, PASSWORD_ERROR_MESSAGE.validation)
+  }
 }
 
 export function handleEmailFocusout() {
