@@ -51,7 +51,7 @@ async function signin(user = {}) {
     const response = await fetch(API.getSignInUrl(), options);
 
     if (!response.ok) {
-      throw Error(`TODO: ${response.status} response error handling`);
+      throw new Error(`TODO: ${response.status} error handling.`);
     }
 
     let json = await response.json();
