@@ -32,14 +32,40 @@ function emaininput(e){
 inputel.addEventListener('focusout',emaininput);
 
 
-//이메일: test@codeit.com, 비밀번호: codeit101 으로 로그인 시도할 경우, “/folder” 페이지로 이동합니다.
+//https://bootcamp-api.codeit.kr/docs 에 명세된 “/api/sign-in”으로 { “email”: “test@codeit.com”, “password”: “sprint101” } 
+//POST 요청해서 성공 응답을 받으면 “/folder”로 이동합니다.
 
 const btnlogin=document.querySelector('.login');
 const inputel2=document.querySelector('#passwordinput');
 
-function clicklogin(){
-  if(inputel.value=='test@codeit.com' && inputel2.value=='codeit101'){
-    location.href='/folder.html';
+async function clicklogin(){
+
+
+  try{
+    const response= await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', // JSON 형태로 데이터를 전송한다는 헤더 추가
+      },
+      body: JSON.stringify({
+        "email": inputel.value,
+        "password": inputel2.value
+      })
+    });
+
+
+    if(response.status==200){
+      location.href='/folder.html';
+    }
+
+    else{
+      throw new Error('로그인 시도에 실패하셨습니다!');
+    }
+
+  }
+
+  catch(error){
+    console.log(error);
   }
 }
 
@@ -68,21 +94,21 @@ inputpass.addEventListener('focusout',passwordinput);
 //이외의 로그인 시도의 경우, 이메일 input 아래에 “이메일을 확인해 주세요.”
 //, 비밀번호 input 아래에 “비밀번호를 확인해 주세요.” 에러 메세지를 보입니다.
 
-function logincheck(){
-  if(inputel.value=='test@codeit.com' && inputel2.value=='codeit101'){
-    location.href='/folder.html';
-    errmsg.remove();
-    errmsg2.remove();
-  }
-  else{
-    errmsg.textContent='이메일을 입력해 주세요.';
-    emailframe.append(errmsg);
-    errmsg2.textContent='비밀번호를 입력해 주세요.';
-    passwordframe.append(errmsg2);
-  }
-}
+// function logincheck(){
+//   if(inputel.value=='test@codeit.com' && inputel2.value=='codeit101'){
+//     location.href='/folder.html';
+//     errmsg.remove();
+//     errmsg2.remove();
+//   }
+//   else{
+//     errmsg.textContent='이메일을 입력해 주세요.';
+//     emailframe.append(errmsg);
+//     errmsg2.textContent='비밀번호를 입력해 주세요.';
+//     passwordframe.append(errmsg2);
+//   }
+// }
 
-btnlogin.addEventListener('click',logincheck);
+// btnlogin.addEventListener('click',logincheck);
 
 
 //로그인 버튼 클릭 또는 Enter키 입력으로 로그인 실행돼야 합니다.
@@ -90,7 +116,7 @@ btnlogin.addEventListener('click',logincheck);
 
 function enterbtn(e){
   if(e.key=='Enter'){
-    logincheck();
+    clicklogin();
   }
   //console.log(234234);
 }
