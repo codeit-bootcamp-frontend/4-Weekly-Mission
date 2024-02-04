@@ -5,6 +5,7 @@ import {
   getLoginForm,
 } from './helpers/utils/index.js';
 import { emailValidate } from './constants/regex/index.js';
+// import { showError, hideError } from './func.js';
 import { showError, hideError, pathTo } from './func.js';
 
 const emailInput = getEmailInput('signin');
@@ -25,7 +26,22 @@ loginForm.addEventListener('submit', (event) => {
     showError(passwordInput, '비밀번호를 확인해 주세요.');
     return;
   }
-  pathTo('folder');
+
+  fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: emailValue,
+      password: passwordValue,
+    }),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      window.localStorage.setItem('accessToken', result.data.accessToken);
+      return pathTo('folder');
+    });
 });
 
 function validateEmail() {
