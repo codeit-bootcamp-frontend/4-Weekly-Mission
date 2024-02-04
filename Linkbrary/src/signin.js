@@ -43,6 +43,13 @@ passwordToggleButton.addEventListener("click", () =>
   togglePassword(passwordInput, passwordToggleButton)
 );
 
+function checkAccessToken() {
+  if (localStorage.getItem('accessToken')) {
+    location.href = './folder.html';
+  }
+}
+window.onload = checkAccessToken();
+
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
 async function submitForm(event) {

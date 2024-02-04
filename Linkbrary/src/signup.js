@@ -7,6 +7,9 @@ import {
   TEST_USER,
 } from "./utils.js";
 
+
+
+
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
 emailInput.addEventListener("focusout", (event) => validateEmailInput(event.target.value));
@@ -105,6 +108,13 @@ const confirmPasswordToggleButton = document.querySelector("#confirm-password-to
 confirmPasswordToggleButton.addEventListener("click", () =>
   togglePassword(confirmPasswordInput, confirmPasswordToggleButton)
 );
+
+function checkAccessToken() {
+  if (localStorage.getItem('accessToken')) {
+    location.href = './folder.html';
+  }
+}
+window.onload = checkAccessToken();
 
 const signForm = document.querySelector("#form");
 signForm.addEventListener("submit", submitForm);
