@@ -5,7 +5,6 @@ import {
   INPUT_TYPE,
   addLoginError,
 } from './input.js';
-import { USER_TEST } from './test.js';
 import { API } from './api.js';
 
 const signinForm = document.querySelector('#signin-form');
@@ -25,14 +24,6 @@ async function handleSubmit(event) {
   removeError(messageBoxEmail);
   removeError(messageBoxPassword);
 
-  // if (USER_TEST.EMAIL !== inputEmail.value) {
-  //   addLoginError(INPUT_TYPE.EMAIL, inputEmail, messageBoxEmail);
-  //   return;
-  // } else if (USER_TEST.PASSWORD !== inputPassword.value) {
-  //   addLoginError(INPUT_TYPE.PASSWORD, inputPassword, messageBoxPassword);
-  //   return;
-  // }
-
   const isSignin = await signin({
     email: inputEmail.value,
     password: inputPassword.value,
@@ -47,7 +38,7 @@ async function handleSubmit(event) {
   window.location.href = '/folder';
 }
 
-async function signin(user) {
+async function signin(user = {}) {
   try {
     const options = {
       method: 'POST',
