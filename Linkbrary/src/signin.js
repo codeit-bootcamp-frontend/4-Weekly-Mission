@@ -48,14 +48,6 @@ signForm.addEventListener("submit", submitForm);
 async function submitForm(event) {
   event.preventDefault();
 
-  const isTestUser =
-    emailInput.value === TEST_USER.email && passwordInput.value === TEST_USER.password;
-
-  if (isTestUser) {
-    location.href = "/folder";
-    return;
-  }
-
   try {
     const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
       method: "POST",
@@ -82,6 +74,4 @@ async function submitForm(event) {
   } catch (error) {
     console.error("로그인 중 오류 발생:", error);
   }
-
-  
 }
