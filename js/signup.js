@@ -1,9 +1,10 @@
 import { handleFocusoutInput, handleClickBlindButton } from './input.js';
 import { CLASS } from './class.js';
+import { API } from './api.js';
 
 const signupForm = document.querySelector('#signup-form');
 
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
 
   const form = event.target;
@@ -22,8 +23,39 @@ function handleSubmit(event) {
 
   if (!isValid) return;
 
-  // event.target.submit();
+  const isSignup = await signup({
+    email: form.email?.value,
+    password: form.password?.value,
+  });
+
+  if (!isSignup) return;
+
   window.location.href = '/folder';
+}
+
+async function signup(user = {}) {
+  try {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    };
+
+    const response = await fetch(API.getSignUpUrl(), options);
+
+    if (!response.ok) {
+      throw new Error(`TODO: ${response.status} error handling.`);
+    }
+
+    let json = await response.json();
+
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 }
 
 signupForm.addEventListener('focusout', handleFocusoutInput);
