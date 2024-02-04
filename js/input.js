@@ -4,7 +4,7 @@ import {
   validatePasswordRepeat,
 } from './validation.js';
 import { CLASS } from './class.js';
-import { USER_TEST } from './test.js';
+import { checkDuplicateEmail } from './sign.js';
 
 export const INPUT_TYPE = {
   EMAIL: 'EMAIL',
@@ -55,7 +55,7 @@ const BLIND_INPUT_TYPE = {
   [BLIND_TYPE.OFF]: 'text',
 };
 
-export function handleFocusoutInput(event) {
+export async function handleFocusoutInput(event) {
   const scope = event.currentTarget;
   const target = event.target;
 
@@ -83,13 +83,12 @@ export function handleFocusoutInput(event) {
     return;
   }
 
-  if (
-    scope.id === 'signup-form' &&
-    type === INPUT_TYPE.EMAIL &&
-    !confirmSameUserEmail(value)
-  ) {
-    addSameError(type, target, messageBox);
-    return;
+  if (scope.id === 'signup-form' && type === INPUT_TYPE.EMAIL) {
+    const validEmail = await checkDuplicateEmail(value);
+    if (!validEmail) {
+      addSameError(type, target, messageBox);
+      return;
+    }
   }
 }
 
