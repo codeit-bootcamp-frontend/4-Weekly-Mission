@@ -5,7 +5,7 @@ const mockUp = {
 //Dom
 const $form = document.querySelector(".sign-form");
 const $inputList = [...$form.querySelectorAll("input")];
-const $errorMessageList = [...document.querySelectorAll(".errorMessage")];
+
 //validator
 const formValidator = {
   validationMap: {
@@ -62,7 +62,7 @@ const errorMessageStatus = ($errorMessageList, $target, invalidKey) => {
 
   if (invalidKey) {
     $target.classList.add("input-error");
-
+    console.log(errorMessageNode);
     errorMessageNode.textContent =
       formValidator.vaildations[invalidKey].message;
   } else {
@@ -71,12 +71,6 @@ const errorMessageStatus = ($errorMessageList, $target, invalidKey) => {
   }
 };
 
-//focusout 콜백 함수
-const handleInputFocusout = ($target, $errorMessageList) => {
-  const { value, name } = $target;
-  const invalidKey = formValidator.findIvnalidKey(name, value);
-  errorMessageStatus($errorMessageList, $target, invalidKey);
-};
 //password 확인을 위해 저장
 let password;
 $inputList[1].addEventListener("input", function (e) {
@@ -97,4 +91,4 @@ eyeImages.forEach((eyeImage) =>
     }
   })
 );
-export { mockUp, handleInputFocusout, errorMessageStatus, formValidator };
+export { mockUp, errorMessageStatus, formValidator };

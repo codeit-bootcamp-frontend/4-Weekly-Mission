@@ -5,6 +5,9 @@ const $form = document.querySelector(".sign-form");
 const $inputList = [...$form.querySelectorAll("input")];
 const $errorMessageList = [...document.querySelectorAll(".errorMessage")];
 
+let isFormValid = false;
+let invalidKeylist = [true, true];
+
 //focusout 콜백 함수
 const handleInputFocusout = ($target, $errorMessageList) => {
   const { value, name } = $target;
@@ -19,12 +22,34 @@ $inputList.forEach(($input) =>
   })
 );
 
-//signin post 전송
+//signin logic
 $form.addEventListener("submit", async function (e) {
   e.preventDefault();
   const success = await postData();
-  if (success) {
-    $form.submit();
+  
+  if (invalidKeylist.includes(true)) {
+    //하나라도 true이면 submit 방지
+
+    $inputList.forEach(($input, i) => {
+      const { value, name } = $input;
+      
+      
+      const invalidKey = formValidator.findIvnalidKey(name, value);
+      invalidKeylist[i] = Boolean(invalidKey);
+
+      errorMessageStatus($errorMessageList, $input, invalidKey);
+
+      // 유효하지 않은 입력이 발견되면, isFormValid를 false로 설정
+      if (invalidKey) {
+        isFormValid = false;
+        
+      }
+    });
+  } else {
+    if (success) {
+      $form.submit();
+      alert("submit");
+    }
   }
 });
 
