@@ -129,6 +129,5 @@ window.onload = () => {
 }
 
 // signin signup css 통합 = 까먹음
-// localStorage.setItem('accessToken', result.accessToken); 무슨말인지는 모르지만 일단 사용
 // folder로 이동되지 않음
 // 구현이 제대로 된것같지가 않음
