@@ -42,7 +42,7 @@ function loginProcess() {
   const emailValue = document.querySelector('#email').value
   const passwordValue = document.querySelector('#password').value
 
-  //if (emailValue !== 'test@codeit.com')
+  
   if (!emailValue || !checkisValidEmail(emailValue)) {
     return false;
   } else {

@@ -81,7 +81,7 @@ function passwordTypeToggle(event, id){
   $imageNode.setAttribute('src',targetType === 'password' ? './images/eye-on.svg' : './images/eye-off.svg' )
 }
 
-//유효한 회원가입형식 emailValidateCheck()에 넣나??
+
 async function signUp(email,password){
   const url = 'https://bootcamp-api.codeit.kr/api/sign-up';
   const response = await fetch(url,{
