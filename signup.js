@@ -108,7 +108,7 @@ async function signUp(email, password) {
       body: JSON.stringify({ email: email, password: password }),
     });
 
-    if (response.ok) {
+    if (response.status === 200) {
       window.location.href = "./folder.html"; // 성공 시 페이지 이동
     } else {
       console.error("회원가입 실패:", response.statusText);
