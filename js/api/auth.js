@@ -1,5 +1,4 @@
 import { API } from './api.js';
-import { getLocalStorage } from '../common/utils.js';
 
 export async function checkDuplicateEmail(email) {
   try {
@@ -25,7 +24,7 @@ export async function checkDuplicateEmail(email) {
 }
 
 export async function isLogin() {
-  const accessToken = getLocalStorage('accessToken');
+  const accessToken = localStorage.getItem('accessToken');
 
   if (!accessToken) return false;
 

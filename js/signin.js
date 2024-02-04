@@ -7,7 +7,7 @@ import {
 } from './common/input.js';
 import { API } from './api/api.js';
 import { isLogin } from './api/auth.js';
-import * as UTILS from './common/utils.js';
+import { redirect } from './common/utils.js';
 
 const signinForm = document.querySelector('#signin-form');
 
@@ -37,7 +37,7 @@ async function handleSubmit(event) {
     return;
   }
 
-  UTILS.redirect('/folder');
+  redirect('/folder');
 }
 
 async function signin(user = {}) {
@@ -61,8 +61,8 @@ async function signin(user = {}) {
     const accessToken = result.data?.accessToken;
     const refreshToken = result.data?.refreshToken;
 
-    UTILS.setLocalStorage('accessToken', accessToken);
-    UTILS.setLocalStorage('refreshToken', refreshToken);
+    localStorage.setItem('accessToken', accessToken);
+    localStorage.setItem('refreshToken', refreshToken);
 
     return true;
   } catch (error) {
@@ -76,7 +76,7 @@ signinForm.addEventListener('click', handleClickBlindButton);
 signinForm.addEventListener('submit', handleSubmit);
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    if (await isLogin()) UTILS.redirect('/folder');
+    if (await isLogin()) redirect('/folder');
   } catch (error) {
     console.log(`TODO: handling ${error}`);
   }

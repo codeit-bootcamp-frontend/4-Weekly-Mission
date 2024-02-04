@@ -1,7 +1,7 @@
-import { redirect, removeLocalstorage } from './common/utils.js';
+import { redirect } from './common/utils.js';
 
 setTimeout(() => {
-  removeLocalstorage('accessToken');
-  removeLocalstorage('refreshToken');
+  localStorage.removeItem('accessToken');
+  localStorage.removeItem('refreshToken');
   redirect('/');
 }, 10000);
