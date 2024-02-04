@@ -2,7 +2,7 @@ import { validateEmail, validatePassword, validatePasswordRegex, passwordCheck }
 import { togglePassword } from './button/passwordToggle.js';
 import { handleEnterKey } from './button/enterKey.js'
 import { emailCheck } from './validation.js';
-import { signup } from './button/signupBtn.js';
+import { signup } from './button/signup.js';
 import { getAccessToken } from './accessToken.js';
 
 const emailInput = document.querySelector('#email');

@@ -1,7 +1,7 @@
 import { validateEmail, validatePassword } from './validation.js';
 import { togglePassword } from './button/passwordToggle.js';
 import { handleEnterKey } from './button/enterKey.js';
-import { login } from './button/loginBtn.js';
+import { login } from './button/login.js';
 import { getAccessToken } from './accessToken.js';
 
 const emailInput = document.querySelector('#email');
