@@ -1,4 +1,10 @@
-import { INVALID_CLASS, ADMIN_EMAIL } from "./base.js";
+import {
+  INVALID_CLASS,
+  ADMIN_EMAIL,
+  FOLDER_URL,
+  API_SIGN_UP,
+  API_CHECK_EMAIL,
+} from "./base.js";
 import { isValidEmail, isValidPassword } from "./inputValidation.js";
 import { togglePasswordVisibility } from "./togglePasswordVisibility.js";
 
@@ -13,6 +19,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const togglePasswordCheckIcon = document.querySelector(
     "#togglePasswordCheckVisibility"
   );
+  const accessToken = localStorage.getItem("accessToken");
+
+  // 회원가입 페이지에 접근시 로컬 스토리지에 accessToken이 있는 경우 “/folder” 페이지로 이동
+  if (accessToken) {
+    window.location.href = FOLDER_URL;
+    return;
+  }
 
   // 이메일 입력 처리 함수 : 유효성 검사 및 에러 메시지 관리
   function handleEmailInput() {
@@ -113,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleSignUp(event) {
     event.preventDefault();
     if (validateSignUp()) {
-      window.location.href = "/component/folder.html";
+      window.location.href = FOLDER_URL;
     }
   }
 

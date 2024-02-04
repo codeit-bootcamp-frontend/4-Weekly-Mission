@@ -3,7 +3,7 @@ import {
   ADMIN_EMAIL,
   ADMIN_PASSWORD,
   FOLDER_URL,
-  API_SIGNIN,
+  API_SIGN_IN,
   HTTP_STATUS_OK,
   HTTP_STATUS_BAD_REQUEST,
 } from "./base.js";
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
     async function signInAndRedirect(email, password) {
       try {
         // 'https://bootcamp-api.codeit.kr/api/sign-in'에 POST 요청 보내기
-        const response = await fetch(API_SIGNIN, {
+        const response = await fetch(API_SIGN_IN, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -7,6 +7,8 @@ export const ADMIN_PASSWORD = "codeit101";
 */
 export const ADMIN_PASSWORD = "sprint101";
 export const FOLDER_URL = "/component/folder.html";
-export const API_SIGNIN = "https://bootcamp-api.codeit.kr/api/sign-in";
+export const API_SIGN_IN = "https://bootcamp-api.codeit.kr/api/sign-in";
+export const API_SIGN_UP = "https://bootcamp-api.codeit.kr/api/sign-up";
+export const API_CHECK_EMAIL = "https://bootcamp-api.codeit.kr/api/check-email";
 export const HTTP_STATUS_OK = 200;
 export const HTTP_STATUS_BAD_REQUEST = 400;
