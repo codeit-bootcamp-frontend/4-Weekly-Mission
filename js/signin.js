@@ -8,7 +8,9 @@ import {
   autoLogin,
 } from "./modules/signModule.js";
 
-// 이메일 유효검사
+/**
+ * 이메일 유효성 검사 후 인풋 필드 스타일 변경
+ */
 function validateEmailInput() {
 
   if (!validateEmail('signin')) {
@@ -20,7 +22,9 @@ function validateEmailInput() {
 }
 document.getElementById('email-input').addEventListener('focusout', validateEmailInput);
 
-// 비밀번호 유효검사 
+/**
+ * 비밀번호 유효성 검사 후 인풋 필드 스타일 변경
+ */
 function validatePasswordInput() {
 
   if (!validatePassword('signin')) {
@@ -31,7 +35,10 @@ function validatePasswordInput() {
 }
 document.getElementById('pwd-input').addEventListener('focusout', validatePasswordInput);
 
-// 로그인 버튼
+/**
+ * 로그인 버튼 클릭 시 동작
+ * @param {Event} e - 클릭 이벤트 
+ */
 function signIn(e) {
   e.preventDefault();
 
@@ -78,10 +85,13 @@ function signIn(e) {
 };
 document.getElementById('signin-btn').addEventListener('click', signIn);
 
-// 비밀번호 숨기기 & 보이기
-
+/**
+ * 비밀번호 숨기기 & 보이기
+ */
 document.getElementById('pwd-eye-btn').addEventListener('click', () => pwdEye('pwd-input', 'pwd-eye-img'));
 
 
-// 로그인 기록있으면 자동로그인..?
+/**
+ * 페이지 로드 시 자동 로그인 시도
+ */
 window.addEventListener('load', autoLogin)

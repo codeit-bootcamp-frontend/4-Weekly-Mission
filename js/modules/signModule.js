@@ -1,12 +1,29 @@
+/**
+ * 정규 표현식: 이메일 주소의 유효성 검사
+ * @type {RegExp}
+ */
 const EMAIL_REGEX = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,4}$/;
+
+/**
+ * 정규 표현식: 이메일 주소의 유효성 검사
+ * @type {RegExp}
+ */
 const PASSWORD_REGEX = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,}$/;
-// 테스트 유저 객체
+
+/**
+ * 테스트를 위한 유저 객체
+ * @type {{email: string, password: string}}
+ */
 export const TEST_USER = {
   email: "test@codeit.com",
   password: "codeit101",
 };
 
-// 이메일 유효검사
+/**
+ * 이메일 유효성 검사 함수
+ * @param {string} page - 현재 페이지의 유형 
+ * @returns {boolean} - 이메일 유효성 여부
+ */
 export function validateEmail(page) {
 
   const email = document.getElementById('email-input').value.trim();
@@ -28,7 +45,11 @@ export function validateEmail(page) {
 
 }
 
-// 비밀번호 유효검사
+/**
+ * 비밀번호 유효성 검사 함수
+ * @param {string} page - 현재 페이지의 유형 
+ * @returns {boolean} - 비밀번호 유효성 여부
+ */
 export function validatePassword(page) {
 
   const password = document.getElementById('pwd-input').value.trim();
@@ -46,7 +67,10 @@ export function validatePassword(page) {
   }
 }
 
-// 유효검사 실패 인풋
+/**
+ * 유효성 검사 실패 시 인풋 필드 스타일 변경
+ * @param {string} inputId - 인풋 필드 id 
+ */
 export function inputError(inputId) {
 
   const inputElement = document.getElementById(inputId);
@@ -54,7 +78,10 @@ export function inputError(inputId) {
   inputElement.classList.remove('sign-input');
   inputElement.classList.add('sign-input-error');
 }
-// 유효검사 성공 인풋
+/**
+ * 유효성 검사 성공 시 인풋 필드 스타일 변경
+ * @param {string} inputId - 인풋 필드 id 
+ */
 export function inputSuccess(inputId) {
 
   const inputElement = document.getElementById(inputId);
@@ -63,7 +90,11 @@ export function inputSuccess(inputId) {
   inputElement.classList.remove('sign-input-error');
 }
 
-// 비밀번호 숨기기 & 보이기
+/**
+ * 비밀번호 숨기기 및 보이기
+ * @param {string} pwd - 비밀번호 인풋 id 
+ * @param {string} eye - 눈 모양 아이콘 id
+ */
 export function pwdEye(pwd, eye) {
   const pwdInput = document.getElementById(pwd)
   const eyeImg = document.getElementById(eye);
@@ -77,11 +108,13 @@ export function pwdEye(pwd, eye) {
   }
 }
 
-// 자동 로그인
+/**
+ * 자동 로그인 
+ */
 export function autoLogin() {
   const accessToken = localStorage.getItem('accessToken')
 
-  if (accessToken){
+  if (accessToken) {
     location.href = 'folder.html'
-  } 
+  }
 }
