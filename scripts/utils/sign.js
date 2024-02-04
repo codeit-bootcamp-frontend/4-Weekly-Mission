@@ -38,7 +38,7 @@ export class SignHandler {
   /**
    * @param {HTMLInputElement} emailElement
    * @param {HTMLInputElement} passwordElement
-   * */
+   */
   static isValidUser = (emailElement, passwordElement) => {
     return USERS.some(
       user =>
@@ -53,10 +53,16 @@ export class SignHandler {
     return USERS.some(user => InputHandler.isMatchValue(emailElement, user.id));
   };
 
+  /**
+   * @param {string} path
+   */
   static navigateTo = path => {
     window.location.href = path;
   };
 
+  /**
+   * @param {string} path
+   */
   static checkAccessToken = path => {
     const localToken = localStorage.getItem('accessToken');
     if (localToken) this.navigateTo(path);
