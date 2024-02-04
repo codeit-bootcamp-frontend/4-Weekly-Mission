@@ -62,6 +62,7 @@ async function submitForm(event) {
 
     if (response.ok) {
       location.href = "/folder";
+      // 로그인 시 성공 응답으로 받은 accessToken을 로컬 스토리지에 저장
       localStorage.setItem('accessToken', result.data.accessToken);
       localStorage.setItem('refreshToken', result.data.refreshToken);
     } else {
