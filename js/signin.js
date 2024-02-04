@@ -12,6 +12,11 @@ import {
 } from './view/error.js';
 import { displayPassword } from './view/signin/index.js';
 
+const getAccessToken = localStorage.getItem('accessToken');
+if (getAccessToken) {
+  location.href = './folder.html';
+}
+
 const $emailInput = $('.js-email-input');
 const $passwordInput = $('.js-password-input');
 
