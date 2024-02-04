@@ -102,9 +102,6 @@ function signIn() {
   .then((response) => {
     if (response.status === 200) {
       return response.json();
-    } else {
-      addClassError(errorMessageId, myInputEmail, signJs.ErrorMessage.WrongId);
-      addClassError(errorMessagePw, myInputPassword, signJs.ErrorMessage.WrongPassword);
     }
   })
   .then((responseData) => {
@@ -112,9 +109,11 @@ function signIn() {
 
     // 서버 응답 데이터와 입력된 데이터 비교
     if (data.email === inputData.email && data.password === inputData.password) {
+      localStorage.setItem("access-token", responseData.data.accessToken);
       window.location.href = '/folder';
     } else {
-      console.log('이메일 또는 비밀번호가 일치하지 않습니다.');
+      addClassError(errorMessageId, myInputEmail, signJs.ErrorMessage.WrongId);
+      addClassError(errorMessagePw, myInputPassword, signJs.ErrorMessage.WrongPassword);
     }
   })
   .catch(error => {
@@ -122,6 +121,14 @@ function signIn() {
   });
 }
 
+function alreadyLogin() {
+  const accessToken = localStorage.getItem('accessToken');
+  if (accessToken) {
+    window.location.href = '/folder';
+  }
+}
+
+alreadyLogin();
 
 
 
@@ -138,6 +145,5 @@ export {
   removeClassError,
   emailInputCheck,
   passwordInputCheck,
-  emailInputValueCheck,
   toggleEyeImage,
 };
