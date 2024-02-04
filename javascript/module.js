@@ -19,13 +19,13 @@ export const validation = {
     },
     isUnvalidSignupEmail(email, password, passwordcheck) {
         return (
-            (!EMAILREGEX.test(email) || email === "test@codeit.com") &&
+            (!EMAILREGEX.test(email) &&
             (PASSWORDREGEX.test(password) && password === passwordcheck)
         );
     },
     isUnvalidSignupPassword(email, password, passwordcheck) {
         return (
-            (!PASSWORDREGEX.test(password) || password !== passwordcheck) &&
+            (!PASSWORDREGEX.test(password) &&
             (EMAILREGEX.test(email) && email !== "test@Codeit.com")
         );
     }
