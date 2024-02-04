@@ -1,4 +1,5 @@
-import { emailRegex, errorMessage, validation, showError, hideError, passwordRegex } from "./module.js";
+import { validation, showError, hideError, checkAccessToken } from "./module.js";
+import { PASSWORDREGEX, ERROREMEESAGE, EMAILREGEX } from "./constants.js";
 
 const emailInput = document.getElementById("signup-email-input");
 const emailErrorMessage = document.querySelector(".signup-email-error");
@@ -12,56 +13,106 @@ const eyeOn = document.querySelector(".hide-password");
 const eyeOffCheck = document.querySelector(".show-password-check");
 const eyeOnCheck = document.querySelector(".hide-password-check");
 
+// 이메일 에러 확인
 
 function errorEmail() {
     const emailValue = emailInput.value;
-    if (validation.isEmpty(emailValue)) {
-        showError(emailErrorMessage, emailInput, errorMessage.emptyEmail);
-    } else if (!emailRegex.test(emailValue)) {
-        showError(emailErrorMessage, emailInput, errorMessage.unValidEmailFormat);
-    } else if (validation.isAlreadyUse(emailValue)) {
-        showError(emailErrorMessage, emailInput, errorMessage.alreadyUseEamil);
+    if (validation.isEmptyEmail(emailValue)) {
+        showError(emailErrorMessage, emailInput, ERROREMEESAGE.EMPTYEMAIL);
+    } else if (!EMAILREGEX.test(emailValue)) {
+        showError(emailErrorMessage, emailInput, ERROREMEESAGE.UNVAILDEMAILFORMAT);
     } else {
         hideError(emailErrorMessage, emailInput);
     }
 }
 
+// 비밀번호 에러 확인
+
 function errorPassword() {
     const passwordValue = passwordInput.value;
-    if (validation.isEmpty(passwordValue)) {
-        showError(passwordErrorMessage, passwordInput, errorMessage.emptyPassword);
-    } else if (!passwordRegex.test(passwordValue)) {
-        showError(passwordErrorMessage, passwordInput, errorMessage.unValidPasswordFormat);
+    if (validation.isEmptyPassword(passwordValue)) {
+        showError(passwordErrorMessage, passwordInput, ERROREMEESAGE.EMPTYPASSWORD);
+    } else if (!PASSWORDREGEX.test(passwordValue)) {
+        showError(passwordErrorMessage, passwordInput, ERROREMEESAGE.UNVAILDPASSOWRDFORMAT);
     } else {
         hideError(passwordErrorMessage, passwordInput);
     }
 }
 
+// 비밀번호 비밀번호 확인 일치 여부 확인
+
 function checkPassword() {
     const passwordValue = passwordInput.value;
     const passwordcheckValue = passwordCheckInput.value;
     if (validation.isDifferentPassowrd(passwordValue, passwordcheckValue)) {
-        showError(passwordCheckErrorMessage, passwordCheckInput, errorMessage.differPassword);
+        showError(passwordCheckErrorMessage, passwordCheckInput, ERROREMEESAGE.DIFFERPASSOWRD);
     } else {
         hideError(passwordCheckErrorMessage, passwordCheckInput);
     }
 }
 
-function checkValidation() {
+// 입력값 확인
+
+async function checkValidation() {
     const emailValue = emailInput.value;
     const passwordValue = passwordInput.value;
     const passwordCheckValue = passwordCheckInput.value;
-    if (validation.isValidSignup(emailValue, passwordValue, passwordCheckValue)) {
-        location.href = "/folder";
-    } else if (validation.isUnvalidSignupEmail(emailValue, passwordValue, passwordCheckValue)) {
-        showError(emailErrorMessage, emailInput, errorMessage.unValidEmail);
-    } else if (validation.isUnvalidSignupPassword(emailValue, passwordValue, passwordCheckValue)) {
-        showError(passwordErrorMessage, passwordInput, errorMessage.unValidPassword);
-        showError(passwordCheckErrorMessage, passwordCheckInput, errorMessage.unValidPassword);
-    } else {
-        showError(emailErrorMessage, emailInput, errorMessage.unValidEmail);
-        showError(passwordErrorMessage, passwordInput, errorMessage.unValidPassword);
-        showError(passwordCheckErrorMessage, passwordCheckInput, errorMessage.unValidPassword);
+
+    //이메일 확인
+
+    try {
+        const userData = {
+            email: emailValue,
+            password: passwordValue
+        };
+
+        if (!EMAILREGEX.test(emailValue)) {
+            showError(emailErrorMessage, emailInput, ERROREMEESAGE.UNVALIDEMAIL);
+        } else {
+            const emailResponse = await fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(userData.email)
+            });
+
+            if (emailResponse.ok) {
+                const emailData = await emailResponse.json();
+                if (emailData.exists) {
+                    showError(emailErrorMessage, emailInput, ERROREMEESAGE.ALREADYUSEEMAIL);
+                    return;
+                }
+            }
+        }
+
+        // 비밀번호 확인
+
+        errorPassword();
+        checkPassword();
+
+        // 모든 조건을 만족할 경우 회원가입 성공
+
+        if (validation.isValidSignup(emailValue, passwordValue, passwordCheckValue)) {
+            const signUpResponse = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(userData)
+            });
+
+            if (signUpResponse.ok) {
+                const data = await signUpResponse.json();
+                localStorage.setItem('accessToken', data.accessToken);
+                checkAccessToken();
+            } else {
+                showError(emailErrorMessage, emailInput, ERROREMEESAGE.UNVALIDEMAIL);
+                showError(passwordErrorMessage, passwordInput, ERROREMEESAGE.UNVALIDPASSWORD);
+            }
+        }
+    } catch (error) {
+        console.error("Error:", error);
     }
 }
 
@@ -83,8 +134,6 @@ function enterBtn(e) {
         e.preventDefault();
     }
 }
-
-
 
 emailInput.addEventListener("blur", errorEmail);
 passwordInput.addEventListener("blur", errorPassword);
