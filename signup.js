@@ -88,3 +88,21 @@ sign.addEventListener("submit", function (e) {
     return;
   }
 });
+
+// 눈모양 버튼 기능 구현
+const eyeButtons = document.querySelectorAll(".eye-button");
+
+eyeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const passwordInput = button.previousElementSibling;
+    const isPasswordVisible = passwordInput.type === "text";
+
+    if (isPasswordVisible) {
+      passwordInput.type = "password";
+      button.querySelector("img").src = "./images/eye-off.svg";
+    } else {
+      passwordInput.type = "text";
+      button.querySelector("img").src = "./images/eye-on.svg";
+    }
+  });
+});

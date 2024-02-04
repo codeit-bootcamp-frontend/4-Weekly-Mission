@@ -78,23 +78,15 @@ logIn.addEventListener("submit", function (e) {
   }
 });
 
-// 아이콘 클릭
 const eyeButton = document.querySelector(".eye-button");
-const pwInput = document.querySelector("#password-input");
+const $passwordInput = document.getElementById("password-input");
 
 eyeButton.addEventListener("click", () => {
-  const icon =
-    pwInput.type === "password"
-      ? "./images/eye-off-with-dash.svg" // svg 파일 넣는 법 잘 모르겠습니다...
-      : "./images/eye-on.svg";
-  passwordInput.setAttribute(
-    "type",
-    passwordInput.getAttribute("type") === "password" ? "text" : "password"
-  );
+  if ($passwordInput.type === "password") {
+    $passwordInput.type = "text";
+    eyeButton.innerHTML = `<img src="./images/eye-on.svg" />`;
+  } else {
+    $passwordInput.type = "password";
+    eyeButton.innerHTML = `<img src="./images/eye-off.svg" />`;
+  }
 });
-
-// 질문사항
-// 1. 요소를 숨겼다가 특정 동작을 행했을 때 다시 나타내는 법.
-// 2. svg 파일 넣는 방법.
-// 3. submit? enter?
-// 4. 눈 모양 아이콘이 에러메세지(비밀번호)칸으로 이동하는데 해결방법 모르겠슴다.
