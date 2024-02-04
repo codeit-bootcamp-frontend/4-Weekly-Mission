@@ -14,7 +14,7 @@ import {
 import { isValidEmail, isValidPassword, showErrorMessage, hideErrorMessage, togglePasswordVisibility } from "./sign.js";
 
 // 이메일 입력
-emailInput.addEventListener("focusout", () => {
+emailInput.addEventListener("focusout", async () => {
   const email = emailInput.value.trim();
   const TEST_EMAIL = "test@codeit.com";
 
@@ -27,10 +27,24 @@ emailInput.addEventListener("focusout", () => {
     return;
   }
   if (email === TEST_EMAIL) {
-    showErrorMessage(emailInput, emailErrorMessage, "이미 사용 중인 이메일입니다.");
-    return;
+    try {
+      const response = await fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.status === 409) {
+        showErrorMessage(emailInput, emailErrorMessage, "이미 사용 중인 이메일입니다.");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  } else {
+    hideErrorMessage(emailInput, emailErrorMessage);
   }
-  hideErrorMessage(emailInput, emailErrorMessage);
 });
 
 // 비밀번호 입력
@@ -86,7 +100,7 @@ signupForm.addEventListener("submit", async (event) => {
 
   if (isValid) {
     try {
-      const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      const signUpResponse = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -94,7 +108,7 @@ signupForm.addEventListener("submit", async (event) => {
         body: JSON.stringify({ email, password }),
       });
 
-      if (response.ok) {
+      if (signUpResponse.ok) {
         window.location.href = "/folder.html";
       }
     } catch (error) {
