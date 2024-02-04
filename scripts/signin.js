@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const emailError = document.querySelector("#emailError");
 
     // 이메일 입력부분이 비어 있는 경우
-    if (!emailValue) {
+    if (!emailValue.trim()) {
       emailError.textContent = "이메일을 입력해 주세요.";
       emailInput.classList.add(INVALID_CLASS);
     }
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordError = document.querySelector("#passwordError");
 
     // 비밀번호 입력부분이 비어 있는 경우
-    if (!passwordValue) {
+    if (!passwordValue.trim()) {
       passwordError.textContent = "비밀번호를 입력해 주세요.";
       passwordInput.classList.add(INVALID_CLASS);
     }
