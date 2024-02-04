@@ -48,8 +48,8 @@ const handleSignUp = async (e) => {
   const isPwConfirmValid = pwConfirm !== "" && password === pwConfirm;
 
   const userData = {
-    email: emailInput.value.trim(),
-    password: pwInput.value.trim(),
+    email,
+    password,
   };
   const isAllValid =
     isEmailDuplicate && isEmailValid && isPwValid && isPwConfirmValid;
