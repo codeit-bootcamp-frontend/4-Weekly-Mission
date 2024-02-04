@@ -86,28 +86,13 @@ passCheckInput.addEventListener('focusout', (e) => {
   }
 });
 
-//회원가입 시도
-const signForm = document.querySelector('.signup');
-signForm.addEventListener('submit', (e) => {
-  const validateSignUp = validateEmail(emailInput.value) && validatePass(passInput.value);
-  //현재페이지에서 테스트
-  e.preventDefault();
-  
-  if (validateSignUp) {
-    window.location.href = "./folder";
-  } else {
-    setErrorMessageToElement (emailInput, '이메일을 확인해주세요.');
-    setErrorMessageToElement (passInput, '비밀번호를 확인해주세요.');
-    setErrorMessageToElement (passCheckInput, '비밀번호를 확인해주세요.');
-  }
-});
 
 //눈 모양 클릭
 const toggle = document.querySelectorAll ('.fa-solid');
 toggle.forEach (toggle => {
   toggle.addEventListener('click', (e) => {
     const toggleIcon = toggle.previousElementSibling;
-
+    
     if (toggleIcon.type === 'password') {
       toggleIcon.type = 'text';
       toggle.classList.remove('fa-eye-slash');
@@ -120,7 +105,72 @@ toggle.forEach (toggle => {
   })
 });
 
+//회원가입 시도
+// signForm.addEventListener('submit', (e) => {
+//   const validateSignUp = validateEmail(emailInput.value) && validatePass(passInput.value);
+//   //현재페이지에서 테스트
+//   e.preventDefault();
+  
+//   if (validateSignUp) {
+//     window.location.href = "./folder";
+//   } else {
+//     setErrorMessageToElement (emailInput, '이메일을 확인해주세요.');
+//     setErrorMessageToElement (passInput, '비밀번호를 확인해주세요.');
+//     setErrorMessageToElement (passCheckInput, '비밀번호를 확인해주세요.');
+//   }
+// });
 
+const signForm = document.querySelector('.signup');
+signForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const userEmail = emailInput.value;
 
-// 잘 안된거
-// signin up => css 통합
+  // 중복확인
+  try {
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userEmail }),
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      // 중복확인 메세지 출력
+      if (result.duplicate) {
+        setErrorMessageToElement (emailInput, '이미 사용중인 이메일 입니다.');
+      } else {
+        // 성공
+        const successSignUp = await fetch ('https://bootcamp-api.codeit.kr/docs/api/sign-up', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ userEmail }),
+        });
+
+        if (successSignUp.ok) {
+          const successSignUpResult = await successSignUp.json();
+          window.location.href = './forder.html';
+        } else {
+          setErrorMessageToElement (emailInput, '이메일을 확인해주세요.');
+          setErrorMessageToElement (passInput, '비밀번호를 확인해주세요.');
+          setErrorMessageToElement (passCheckInput, '비밀번호를 확인해주세요.');
+        }
+      }
+    }
+  } catch (error) {
+    console.error(error);
+  }
+})
+
+window.onload = () => {
+  const accessToken = localStorage.getItem('accessToken');
+  if (accessToken) {
+    window.location.href = './folder.html';
+  }
+};
+
+// 구현이 제대로 된거같지 않음
+// 비밀번호 확인 로직 추가 필요해보임

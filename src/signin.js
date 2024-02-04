@@ -62,22 +62,6 @@ passInput.addEventListener('focusout', (e) => {
   }
 });
 
-//로그인 시도
-const signForm = document.querySelector('.signin');
-signForm.addEventListener('submit', (e =>{
-  //현재페이지에서 테스트
-  e.preventDefault();
-  
-  const tryCorrectId = emailInput.value === 'test@codeit.com' && passInput.value === 'codeit101'
-
-  if (tryCorrectId) {
-    window.location.href = "./folder";
-  } else {
-    setErrorMessageToElement (emailInput, '이메일을 확인해주세요.');
-    setErrorMessageToElement (passInput, '비밀번호를 확인해주세요.');
-  }
-}));
-
 //눈 모양 클릭
 const toggle = document.querySelector('.fa-solid');
 toggle.addEventListener('click', (e) => {
@@ -92,4 +76,59 @@ toggle.addEventListener('click', (e) => {
     toggle.classList.remove('fa-eye');
     toggle.classList.add('fa-eye-slash');
   }
+});
+
+//로그인 시도
+// signForm.addEventListener('submit', (e) => {
+  //   //현재페이지에서 테스트
+  //   e.preventDefault();
+  
+  //   const tryCorrectId = emailInput.value === 'test@codeit.com' && passInput.value === 'codeit101'
+  
+  //   if (tryCorrectId) {
+    //     window.location.href = "./folder";
+    //   } else {
+      //     setErrorMessageToElement (emailInput, '이메일을 확인해주세요.');
+//     setErrorMessageToElement (passInput, '비밀번호를 확인해주세요.');
+//   }
+// });
+
+const signForm = document.querySelector('.signin');
+signForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const userEmail = emailInput.value;
+  const userPassword = passInput.value;
+
+  try {
+    const response = await fetch ('https://bootcamp-api.codeit.kr/docs/api/sign-in', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json',
+      }, 
+      body: JSON.stringify({ userEmail, userPassword }),
+    });
+    
+    if (response.ok) {
+      const result = await response.json();
+      localStorage.setItem('accessToken', result.accessToken);
+      window.location.href = './forder.html';
+    } else {
+      setErrorMessageToElement (emailInput, '이메일을 확인해주세요.');
+      setErrorMessageToElement (passInput, '비밀번호를 확인해주세요.');
+    }
+  } catch (error) {
+    console.error(error);
+  }
 })
+
+window.onload = () => {
+  const accessToken = localStorage.getItem('accessToken');
+  if (accessToken) {
+    window.location.href = './forder.html';
+  }
+}
+
+// signin signup css 통합 = 까먹음
+// localStorage.setItem('accessToken', result.accessToken); 무슨말인지는 모르지만 일단 사용
+// folder로 이동되지 않음
+// 구현이 제대로 된것같지가 않음
