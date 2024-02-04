@@ -1,5 +1,6 @@
 import {EMAIL_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE, USERS} from './constant.js'
 import { getElementById} from './dom/domhelper.js';
+import { myLocalStorageHaveAccessToken, postData } from './functions/apiUtils.js';
 import { isEmptyString, isValidEmail, showError, hideError, showPassword, hidePassword } from './functions/sign.js';
 import { goToFolderhtml } from './temporary.js';
 
@@ -15,16 +16,21 @@ const passwordErrorMessage = getElementById('passwordErrorMessage');
 const loginButton = getElementById('login-button');
 const eyeButton = getElementById('eye-button');
 
+myLocalStorageHaveAccessToken();
+
 emailInput.addEventListener('focusout', function () {
     const emailValue = emailInput.value.trim();
-    if(isEmptyString(emailValue)){showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isEmpty); return;}
-    if(!isValidEmail(emailValue)){showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isNotRightFormat); return;}
+    if(isEmptyString(emailValue)){
+        showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isEmpty); return;}
+    if(!isValidEmail(emailValue)){
+        showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isNotRightFormat); return;}
     hideError(emailInput, emailErrorMessage);
 });
 
 passwordInput.addEventListener('focusout', function () {
     const passwordValue = passwordInput.value.trim();
-    if(isEmptyString(passwordValue)) {showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.isEmpty); return;}
+    if(isEmptyString(passwordValue)) {
+        showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.isEmpty); return;}
     hideError(passwordInput, passwordErrorMessage);
 });
 
@@ -32,11 +38,17 @@ loginButton.addEventListener('click', function (event) {
     event.preventDefault();
     const emailValue = emailInput.value.trim();
     const passwordValue = passwordInput.value.trim();
-    if (USERS[0].id === emailValue && USERS[0].password === passwordValue) { window.location.href = goToFolderhtml; return;}
-    showError(emailInput,emailErrorMessage,EMAIL_ERROR_MESSAGE.haveToCheck); showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.haveToCheck);
+    // 겹치는 내용이라고 임의로 판단해서 주석 처리.
+    // if (USERS[0].id === emailValue && USERS[0].password === passwordValue) {
+    //     window.location.href = goToFolderhtml; return;} 
+    const checkTemporary = {emailValue, passwordValue};
+    postData('/api/sign-in', checkTemporary);
+    showError(emailInput,emailErrorMessage,EMAIL_ERROR_MESSAGE.haveToCheck);
+    showError(passwordInput,passwordErrorMessage,PASSWORD_ERROR_MESSAGE.haveToCheck);
 });
 
 eyeButton.addEventListener('click', function () {
-    if (passwordInput.type === 'text') {showPassword(passwordInput, eyeButton); return;}
+    if (passwordInput.type === 'text') {
+        showPassword(passwordInput, eyeButton); return;}
     hidePassword(passwordInput,eyeButton);
 });

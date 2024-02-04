@@ -1,7 +1,7 @@
 import {EMAIL_ERROR_MESSAGE, PASSWORD_CONFIRM_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE} from './constant.js'
 import { getElementById} from './dom/domhelper.js';
+import { checkEmailData, myLocalStorageHaveAccessToken } from './functions/apiUtils.js';
 import { isEmptyString, isValidEmail, showError, hideError, isValidPassword, hidePassword, showPassword, isValidEmailFormat, isValidPasswordFormat, isValidPasswordConfirmFormat } from './functions/sign.js';
-import { goToFolderhtml } from './temporary.js';
 
 // About Email Error
 const emailInput = getElementById('email');
@@ -19,6 +19,8 @@ const passwordConfirmErrorMessage = getElementById('passwordConfirmErrorMessage'
 const signInButton = getElementById('sign-up-button');
 const eyeButtonPassword = getElementById('eye-button-password');
 const eyeButtonForConfirm = getElementById('eye-button-password-confirm');
+
+myLocalStorageHaveAccessToken();
 
 emailInput.addEventListener('focusout', function () {
     const emailValue = emailInput.value.trim();
@@ -53,8 +55,9 @@ signInButton.addEventListener('click', function (event) {
     const emailValue = emailInput.value.trim();
     const passwordValue = passwordInput.value.trim();
     const passwordConfirmValue = passwordConfirmInput.value.trim();
-    if (isValidEmailFormat(emailValue) && isValidPasswordFormat(passwordValue) && isValidPasswordConfirmFormat(passwordConfirmValue)) {
-        window.location.href = goToFolderhtml};
+    const submitTemporary = {emailValue, passwordValue};
+    if (isValidEmailFormat(emailValue) && isValidPasswordFormat(passwordValue) && isValidPasswordConfirmFormat(passwordValue,passwordConfirmValue)) {
+        checkEmailData('/api/check-email',emailValue,submitTemporary);}
 });
 
 eyeButtonPassword.addEventListener('click', function () {

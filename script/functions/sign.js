@@ -23,7 +23,7 @@ export function isValidPasswordFormat (passwordValue) {
   return !isEmptyString(passwordValue) && isValidPassword(passwordValue);
 }
 
-export function isValidPasswordConfirmFormat (passwordConfirmValue) {
+export function isValidPasswordConfirmFormat (passwordValue, passwordConfirmValue) {
   return passwordValue === passwordConfirmValue;
 }
 
@@ -43,7 +43,7 @@ export const showError = (inputElement, errorTextElement , message) => {
   *@param {*} errorTextElement 오류 메세지를 표시할 div
 */
 export const hideError = (inputElement, errorTextElement) => {
-  removeClass(inputElement, 'error-box');
+  removeClass(inputElement, 'error-box'); 
   makeInvisiable(errorTextElement);
 }
 
