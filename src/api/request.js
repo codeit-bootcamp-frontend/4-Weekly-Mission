@@ -1,28 +1,26 @@
-import { urls } from "./url.js";
-
 // 로그인 요청
-export async function requestLogin(emailElement, passwordElement) {
+export async function requestLogin(emailElement, passwordElement, signinUrl) {
   const objectForJSON =  makeObjectForJSON(emailElement, passwordElement);
 
-  const response = await postRequest(urls.signin, objectForJSON);
+  const response = await postRequest(signinUrl, objectForJSON);
   const signinSuccess = await responseSign(response);
   await saveAccessToken(signinSuccess);
 }
 
 //회원 가입 요청
-export async function requestSignup(emailElement, passwordElement) {
+export async function requestSignup(emailElement, passwordElement, signupUrl) {
   const objectForJSON =  makeObjectForJSON(emailElement, passwordElement);
 
-  const response = await postRequest(urls.signup, objectForJSON);
+  const response = await postRequest(signupUrl, objectForJSON);
   const signupSuccess = await responseSign(response);
   await saveAccessToken(signupSuccess);
 }
 
 // 중복 요청
-export async function requestAleadyUse(emailElement) {
+export async function requestAleadyUse(emailElement, aleadyUseUrl) {
   const objectForJSON =  makeObjectForJSON(emailElement, null);
 
-  const response = await postRequest(urls.aleadyUse, objectForJSON);
+  const response = await postRequest(aleadyUseUrl, objectForJSON);
   const isAleadyUse = await responseAleadyUse(response);
   return isAleadyUse;
 }

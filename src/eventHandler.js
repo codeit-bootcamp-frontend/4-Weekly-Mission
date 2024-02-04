@@ -13,8 +13,9 @@ export function hasTokenInStorage() {
 }
 
 // 포커스인 이벤트: 에러 엘리먼트를 제거한다.
-export function handleFocusIn(parentElementSelectorName) {
+export function handleFocusIn(parentElementSelectorName, inputSlectorName) {
   errorElement.removeErrorElement(parentElementSelectorName);
+  errorElement.removeErrorBorder(inputSlectorName);
 }
 
 // 포커스 아웃 이벤트(이메일) : 입력값에 따라 없을 경우, 포멧에 맞지 않을 경우를 검증한다.

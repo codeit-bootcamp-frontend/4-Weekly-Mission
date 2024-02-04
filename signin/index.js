@@ -8,18 +8,19 @@ import {
   hasTokenInStorage
 } from "../src/eventHandler.js"; // 공통 핸들러 호출
 import { requestLogin } from "../src/api/request.js";
+import { urls } from "../src/api/url.js";
 
 // 키보드 이벤트 : 엔터를 누르면, 로그인을 시도한다.
-function pressEnterForsignin(e, emailElement, passwordElement) {
+function pressEnterForsignin(e, emailElement, passwordElement, signinUrl) {
   if (e.key === "Enter") {
-    signinCheck(emailElement, passwordElement);
+    signinCheck(emailElement, passwordElement, signinUrl);
   }
 }
 
 // 클릭 이벤트: 로그인을 시도한다.
-async function signinCheck(emailElement, passwordElement) {
+async function signinCheck(emailElement, passwordElement, signinUrl) {
   try {
-    await requestLogin(emailElement, passwordElement);
+    await requestLogin(emailElement, passwordElement, signinUrl);
     window.location.replace("../folder");
   } catch {
     loginFail();
@@ -61,7 +62,7 @@ password.addEventListener("focusout", () => notInput(
 ));
 email.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.email));
 password.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.password));
-loginButton.addEventListener("click", () => signinCheck(email, password));
-password.addEventListener("keydown", () => pressEnterForsignin(email, password));
+loginButton.addEventListener("click", () => signinCheck(email, password, urls.signin));
+password.addEventListener("keydown", () => pressEnterForsignin(email, password, urls.signin));
 passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
 document.addEventListener('DOMContentLoaded', hasTokenInStorage);

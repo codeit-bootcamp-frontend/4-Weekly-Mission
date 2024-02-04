@@ -11,18 +11,19 @@ import {
   requestAleadyUse, 
   requestSignup 
 } from "../src/api/request.js";
+import { urls } from "../src/api/url.js";
 
 // 체인지 이벤트 : 이메일 중복을 검증한다.
-async function aleadyUse(emailElement) {
-  const isAleadyUse = await requestAleadyUse(emailElement);
+async function aleadyUse(emailElement, aleadyUseUrl) {
+  const isAleadyUse = await requestAleadyUse(emailElement, aleadyUseUrl);
   if (isAleadyUse === true) {
     loginDuplication();
   }
 }
 
 function loginDuplication() {
-  errorElement.removeErrorElement(staticName.parentElementSeletor.email);
-  errorElement.removeErrorBorder(staticName.elementSeletor.email);
+  //errorElement.removeErrorElement(staticName.parentElementSeletor.email);
+  //errorElement.removeErrorBorder(staticName.elementSeletor.email);
 
   errorElement.createErrorSpanElement(staticName.parentElementSeletor.email);
   errorElement.errorBorder(staticName.elementSeletor.email);
@@ -42,14 +43,14 @@ function passwordIsNotEqual(passwordElement, passwordConfirmElement) {
 }
 
 // 키보드 이벤트 : 엔터를 누르면, 회원가입을 시도한다.
-function pressEnterForsignup(e, emailElement, passwordElement, passwordConfirmElement) {
+function pressEnterForsignup(e, emailElement, passwordElement, passwordConfirmElement, signupUrl) {
   if (e.key === "Enter") {
-    signupCheck(emailElement, passwordElement, passwordConfirmElement);
+    signupCheck(emailElement, passwordElement, passwordConfirmElement, signupUrl);
   }
 }
 
 // 클릭 이벤트: 회원가입을 시도한다.
-async function signupCheck(emailElement, passwordElement, passwordConfirmElement) {
+async function signupCheck(emailElement, passwordElement, passwordConfirmElement, signupUrl) {
   handleFocusOutForEmail(
     email,
     staticName.elementSeletor.email,
@@ -66,7 +67,7 @@ async function signupCheck(emailElement, passwordElement, passwordConfirmElement
   )
   passwordIsNotEqual(passwordElement, passwordConfirmElement);
 
-  await requestSignup(emailElement, passwordElement);
+  await requestSignup(emailElement, passwordElement, signupUrl);
 }
 
 // 선언을 아래에서 한다: 전역 객체를 함수에서 접근하지 않는다.
@@ -91,7 +92,7 @@ password.addEventListener("focusout", () => handleFocusOutForPassword(
   errorMessage.isEmpty.password,
   errorMessage.notCorrectFormat.password
 ));
-email.addEventListener("change", () => aleadyUse(email));
+email.addEventListener("change", () => aleadyUse(email, urls.aleadyUse));
 email.addEventListener("focusin", () => handleFocusIn(
   staticName.parentElementSeletor.email,
   staticName.elementSeletor.email,
@@ -105,8 +106,8 @@ passwordConfirm.addEventListener("focusin", () => handleFocusIn(
   staticName.elementSeletor.passwordConfirm,
 ));
 passwordConfirm.addEventListener("change", () => passwordIsNotEqual(password, passwordConfirm));
-passwordConfirm.addEventListener("keydown", () => pressEnterForsignup(email, password, passwordConfirm));
-loginButton.addEventListener("click", () => signupCheck(email, password, passwordConfirm));
+loginButton.addEventListener("click", () => signupCheck(email, password, passwordConfirm, urls.signup));
+passwordConfirm.addEventListener("keydown", () => pressEnterForsignup(email, password, passwordConfirm, urls.signup));
 passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
 passwordConfimIcon.addEventListener("click", () => togglePassword(passwordConfirm, passwordConfimIcon));
 document.addEventListener('DOMContentLoaded', hasTokenInStorage);
