@@ -1,5 +1,5 @@
 // 회원가입 시도
-function RegisterTry(event) {
+function registerTry(event) {
   event.preventDefault();
   if (idError===false && pwError===false && pwcheckError===false) { //성공
     window.location.href = "./folder.html";
@@ -13,4 +13,4 @@ function RegisterTry(event) {
 }
 
 // 버튼 클릭
-LOGIN_BUTTON.addEventListener("click", RegisterTry);
+LOGIN_BUTTON.addEventListener("click", registerTry);
