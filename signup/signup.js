@@ -12,7 +12,6 @@ import {
 } from '../src/common/sign.js';
 
 import {
-  TEST_EMAIL,
   EMAIL_CHECK_MESSAGE,
   PASSWORD_CHECK_MESSAGE,
   EMPTY_EMAIL_MESSAGE,
@@ -28,7 +27,7 @@ const passwordReCheck = document.querySelector('.password_recheck');
 
 const passwordErrorCheck = document.querySelector('.password-error-check');
 
-const emailInput = (event) => {
+const emailInput = async (event) => {
   event.value = removeEmpty(event.value);
 
   if (event.value.length <= 0) {
@@ -39,26 +38,28 @@ const emailInput = (event) => {
     emailError.textContent = ERROR_EMAIL_MESSAGE;
     event.classList.add('inputError');
     return false;
-  }
-  try {
-    fetch('https://bootcamp-api.codeit.kr/api/check-email', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json',
-      },
-      body: JSON.stringify({ email: event.value }),
-    }).then((response) => {
+  } else {
+    try {
+      const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({ email: event.value }),
+      });
       if (response.status === 200) {
+        console.log(response.status);
         emailError.textContent = '';
         event.classList.remove('inputError');
         return true;
       } else if (response.status === 409) {
+        console.log(response.status);
         emailError.textContent = DUPLICATE_EMAIL_MESSAGE;
         return false;
       }
-    });
-  } catch (e) {
-    console.log(e);
+    } catch (e) {
+      console.log(e);
+    }
   }
 };
 
@@ -130,10 +131,10 @@ const eyeIconClick2 = (e) => {
   }
 };
 
-const onSubmit = (e) => {
+const onSubmit = async (e) => {
   e.preventDefault();
 
-  const isEmailValid = emailInput(e.target.email);
+  const isEmailValid = await emailInput(e.target.email);
   const isPasswordValid = passwordInput(e.target.password);
   const isPassWordReValid = passwordReInput(e.target.password_recheck);
 
@@ -146,7 +147,17 @@ const onSubmit = (e) => {
   if (isPassWordReValid === false) {
     passwordErrorCheck.textContent = PASSWORD_CHECK_MESSAGE;
   } else if (isEmailValid && isPasswordValid && isPassWordReValid) {
-    location.href = '/folder/folder.html';
+    fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({ email: e.target.email.value, password: e.target.password.value }),
+    })
+      .then((response) => response.text())
+      .then((result) => {
+        location.href = '/folder/folder.html';
+      });
   }
 };
 
