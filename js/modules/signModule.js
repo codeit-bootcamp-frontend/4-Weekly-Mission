@@ -63,7 +63,7 @@ export function inputSuccess(inputId) {
   inputElement.classList.remove('sign-input-error');
 }
 
-// // 비밀번호 숨기기 & 보이기
+// 비밀번호 숨기기 & 보이기
 export function pwdEye(pwd, eye) {
   const pwdInput = document.getElementById(pwd)
   const eyeImg = document.getElementById(eye);
@@ -75,4 +75,13 @@ export function pwdEye(pwd, eye) {
     pwdInput.type = 'password'
     eyeImg.src = "../images/eye-off.svg"
   }
+}
+
+// 자동 로그인
+export function autoLogin() {
+  const accessToken = localStorage.getItem('accessToken')
+
+  if (accessToken){
+    location.href = 'folder.html'
+  } 
 }

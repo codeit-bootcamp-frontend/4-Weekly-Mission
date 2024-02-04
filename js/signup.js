@@ -4,6 +4,7 @@ import {
   inputError,
   inputSuccess,
   pwdEye,
+  autoLogin,
 } from "./modules/signModule.js";
 
 // 이메일 유효검사
@@ -51,16 +52,34 @@ document.getElementById('pwd-check-input').addEventListener('focusout', pwdCheck
 // 회원가입 버튼
 function signUp(e) {
   e.preventDefault();
-  
+
+  const email = document.getElementById('email-input').value.trim();
+
   const isEmail = validateEmail('signup');
   const isPassword = validatePassword('signup');
   const isPasswordCheck = pwdCheck()
 
 
   if (isEmail && isPassword && isPasswordCheck) {
-    location.href = 'folder.html';
+    fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        email: email,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        location.href = 'folder.html'
+      })
+      .catch((error) => {
+        alert('회원가입에 실패했습니다. 다시 시도해주세요.');
+      })
   } else {
-    
+
     validateEmailInput()
 
     validatePasswordInput()
@@ -72,11 +91,9 @@ document.getElementById('signup-btn').addEventListener('click', signUp);
 
 
 // 비밀번호 숨기기 & 보이기
-function pwdShowHide1() {
-  pwdEye('pwd-input', 'pwd-eye-img');
-}
-function pwdShowHide2() {
-  pwdEye('pwd-check-input', 'pwdcheck-eye-img');
-}
-document.getElementById('pwd-eye-btn').addEventListener('click', pwdShowHide1);
-document.getElementById('pwdcheck-eye-btn').addEventListener('click', pwdShowHide2);
+
+document.getElementById('pwd-eye-btn').addEventListener('click', () => pwdEye('pwd-input', 'pwd-eye-img'));
+document.getElementById('pwdcheck-eye-btn').addEventListener('click', () => pwdEye('pwd-check-input', 'pwdcheck-eye-img'));
+
+// 로그인 기록있으면 자동로그인..?
+window.addEventListener('load', autoLogin)
