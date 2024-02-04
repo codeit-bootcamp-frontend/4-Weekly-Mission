@@ -1,11 +1,11 @@
-const $form = document.querySelector(".sign-form");
-const $inputList = [...$form.querySelectorAll("input")];
-
 const mockUp = {
   rightEmail: (value) => value === "test@codeit.com",
   rightPassword: (value) => value === "codeit101",
 };
-
+//Dom
+const $form = document.querySelector(".sign-form");
+const $inputList = [...$form.querySelectorAll("input")];
+const $errorMessageList = [...document.querySelectorAll(".errorMessage")];
 //validator
 const formValidator = {
   validationMap: {
@@ -75,11 +75,6 @@ const errorMessageStatus = ($errorMessageList, $target, invalidKey) => {
     errorMessageNode.textContent = "";
   }
 };
-//password 확인을 위해 저장
-let password;
-$inputList[1].addEventListener("input", function (e) {
-  password = e.target.value;
-});
 
 //focusout 콜백 함수
 const handleInputFocusout = ($target, $errorMessageList) => {
@@ -87,6 +82,11 @@ const handleInputFocusout = ($target, $errorMessageList) => {
   const invalidKey = formValidator.findIvnalidKey(name, value);
   errorMessageStatus($errorMessageList, $target, invalidKey);
 };
+//password 확인을 위해 저장
+let password;
+$inputList[1].addEventListener("input", function (e) {
+  password = e.target.value;
+});
 
 //눈 모양 클릭하면 비번 보이고 다시 한 번 클릭하면 비번 가려지기
 const eyeImages = $form.querySelectorAll("img");
