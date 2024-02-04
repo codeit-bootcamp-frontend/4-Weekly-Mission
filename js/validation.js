@@ -37,3 +37,22 @@ export function validatePassword(event) {
     createErrorMessage(passwordInput, "비밀번호를 입력해 주세요.");
   }
 }
+
+export function validatePasswordRegex(event) {
+  const passwordInput = event.target;
+  const password = passwordInput.value;
+  const regex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
+
+  if (!regex.test(password)) {
+    createErrorMessage(passwordInput, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요");
+  }
+}
+
+export function passwordCheck() {
+  const password = passwordInput.value;
+  const confirmPassword = confirmPasswordInput.value;
+
+  if (password !== confirmPassword) {
+    createErrorMessage(confirmPasswordInput, "비밀번호가 다릅니다.");
+  }
+}

@@ -1,6 +1,7 @@
-import { validateEmail, validatePassword } from './validation.js';
+import { validateEmail, validatePassword, validatePasswordRegex, passwordCheck } from './validation.js';
 import { togglePassword} from './passwordToggle.js';
 import { createErrorMessage } from './error.js'
+import {handleEnterKey} from './button/enterKey.js'
 
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
@@ -28,26 +29,7 @@ passwordInput.addEventListener("focusout", (event) => {
   validatePasswordRegex(event);
 });
 
-function validatePasswordRegex(event) {
-  const passwordInput = event.target;
-  const password = passwordInput.value;
-  const regex = /^(?=.*[A-Za-z])(?=.*\d).{8,}$/;
-
-  if (!regex.test(password)) {
-    createErrorMessage(passwordInput, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요");
-  }
-}
-
 confirmPasswordInput.addEventListener("focusout", passwordCheck);
-
-function passwordCheck() {
-  const password = passwordInput.value;
-  const confirmPassword = confirmPasswordInput.value;
-
-  if (password !== confirmPassword) {
-    createErrorMessage(confirmPasswordInput, "비밀번호가 다릅니다.");
-  }
-}
 
 signupButton.addEventListener("click", function(e) {
   e.preventDefault();
@@ -64,14 +46,7 @@ function signup() {
   }
 }
 
-document.addEventListener('keydown', function(e) {
-  let pressedKey = e.key
-  if (pressedKey === 'Enter') {
-    e.preventDefault();
-    signup();
-  }
-});
+document.addEventListener('keydown', (e) => handleEnterKey(e, signup));
 
 passwordEyeIcon.addEventListener('click', (e) => togglePassword(e, passwordInput, passwordEyeIcon));
-
 confirmPasswordEyeIcon.addEventListener('click', (e) => togglePassword(e, confirmPasswordInput, confirmPasswordEyeIcon));
