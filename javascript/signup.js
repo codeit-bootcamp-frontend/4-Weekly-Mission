@@ -1,5 +1,5 @@
 import {USER_EMAIL} from './regex.js';
-import {isValidEmail, isValidPassword, showErrorMessage, removeMessage, clickEyeIcon, eventClickEye} from './utils.js'
+import {checkUsableEmail, isValidEmail, isValidPassword, showErrorMessage, removeMessage, clickEyeIcon, eventClickEye} from './utils.js'
 import {inputEmail, inputBoxEmail, inputPassword, inputBoxPassword, loginButton, eyeButton,
         inputPasswordCheck, inputBoxPasswordCheck, eyeButtonCheck, eyeImgCheck} from './constants.js';
 
@@ -19,6 +19,7 @@ function eventFocusOutEmail() {
     // error message remove
     else if(isValidEmail(inputEmail.value)) {
         removeMessage(inputBoxEmail);
+        checkUsableEmail(inputEmail.value);
     }
 }
 // focus-out password
@@ -44,16 +45,40 @@ function eventFocusOutPasswordCheck() {
     }
 }
 // signup button click
-function eventClickBtnSignup() {
-    if( isValidEmail(inputEmail.value)
-        && isValidPassword(inputPassword.value)
-        && inputPasswordCheck.value === inputPassword.value ) {
-            window.location.href = "/folder";
+async function eventClickBtnSignup() {
+    try {
+        // 이메일 또는 패스워드 형식에 맞지 않는 값 입력시 에러 처리
+        if( !isValidEmail(inputEmail.value)
+        || !isValidPassword(inputPassword.value)
+        || !(inputPasswordCheck.value === inputPassword.value) ) {
+            throw new Error("unusable sign-up form.");
         }
-    else {
+
+        // POST 메소드로 가입 가능 여부 체크
+        const signupForm = {
+            email: inputEmail.value,
+            password: inputPassword.value
+        };
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(signupForm),
+        })
+        if (response.ok) {
+            window.location.href = "/folder";
+        } else {
+            alert("이미 사용 중인 이메일입니다.");
+            throw new Error("already registered.");
+        }
+    } catch (error) {
+        console.log(error);
         eventFocusOutEmail();
         eventFocusOutPassword();
         eventFocusOutPasswordCheck();
+    } finally {
+        console.log('exit');
     }
 }
 function eventKeyUpEnterSignup(e) {

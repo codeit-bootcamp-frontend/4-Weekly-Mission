@@ -1,6 +1,31 @@
 import {REGEX_EMAIL, REGEX_PASSWORD} from './regex.js';
 import {inputBoxEmail, inputPassword, eyeImg} from './constants.js';
 
+
+async function checkUsableEmail(givenEmail) {
+    try {
+        const signupEmail = {
+            email: givenEmail,
+        };
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(signupEmail),
+        })
+        if(response.ok) {
+            return true;
+        } else {
+            throw new Error('Duplicated Email.');
+        }
+    }
+    catch (error) {
+        console.log(error);
+        showErrorMessage(inputBoxEmail, "중복된 이메일 입니다.");
+    }
+}
+
 function isValidEmail(emailAdress) {
     return REGEX_EMAIL.test(emailAdress);
 }
@@ -45,4 +70,4 @@ function eventClickEye() {
     clickEyeIcon(inputPassword, eyeImg);
 }
 
-export {isValidEmail, isValidPassword, showErrorMessage, removeMessage, clickEyeIcon, eventClickEye}
+export {checkUsableEmail, isValidEmail, isValidPassword, showErrorMessage, removeMessage, clickEyeIcon, eventClickEye}

@@ -29,15 +29,36 @@ function eventFocusOutPassword() {
     }
 }
 // login button click
-function eventClickBtn() {
-    if(inputEmail.value === USER_EMAIL && inputPassword.value === USER_PASSWORD) {
-        window.location.href = "/folder"
-    }
-    if(inputEmail.value !== USER_EMAIL) {
-        showErrorMessage(inputBoxEmail, "아이디를 확인해주세요.");
-    }
-    if(inputPassword.value !== USER_PASSWORD) {
-        showErrorMessage(inputBoxPassword, "비밀번호를 확인해주세요.");
+async function eventClickBtn() {
+    try {
+        // POST 메소드로 로그인 가능 여부 체크
+        const signinForm = {
+            email: inputEmail.value,
+            password: inputPassword.value
+        };
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(signinForm),
+        })
+        if (response.ok) {
+            window.location.href = "/folder";
+        } else {
+            alert("로그인 실패!\n아이디 또는 패스워드를 확인해주세요.")
+            throw new Error("signin Error");
+        }
+    } catch (error) {
+        console.log(error);
+        if(inputEmail.value !== USER_EMAIL) {
+            showErrorMessage(inputBoxEmail, "아이디를 확인해주세요.");
+        }
+        if(inputPassword.value !== USER_PASSWORD) {
+            showErrorMessage(inputBoxPassword, "비밀번호를 확인해주세요.");
+        }
+    } finally {
+        console.log('exit');
     }
 }
 // press Enter
