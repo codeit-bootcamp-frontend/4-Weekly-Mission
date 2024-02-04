@@ -1,5 +1,5 @@
-import { ERROR_MESSAGES, REGEX } from "./constants/VALIDATION.js";
-import { getTokens } from "./utils/token.js";
+import { ERROR_MESSAGES, REGEX } from "../constants/VALIDATION.js";
+import { getTokens } from "./token.js";
 
 export const emailError = document.querySelector("#email-error");
 export const emailInput = document.querySelector("#email");

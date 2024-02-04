@@ -11,8 +11,8 @@ import {
   eyeToggle,
   showError,
   checkLoginStatus,
-} from "./auth.js";
-import { loginInquire } from "./services/authRequest.js";
+} from "./utils/auth.js";
+import { loginInquire } from "./services/authAPI.js";
 
 checkLoginStatus();
 

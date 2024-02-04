@@ -14,8 +14,8 @@ import {
   showError,
   isValidFormat,
   checkLoginStatus,
-} from "./auth.js";
-import { emailCheckInquire, signUpInquire } from "./services/authRequest.js";
+} from "./utils/auth.js";
+import { emailCheckInquire, signUpInquire } from "./services/authAPI.js";
 
 checkLoginStatus();
 
@@ -39,13 +39,14 @@ const validateEmailDuplication = async () => {
   }
 };
 
-const isEmailDuplicate = await validateEmailDuplication();
-const isEmailValid = email !== "" && isValidFormat("email", email);
-const isPwValid = password !== "" && isValidFormat("pw", password);
-const isPwConfirmValid = pwConfirm !== "" && password === pwConfirm;
-
 const handleSignUp = async (e) => {
   e.preventDefault();
+
+  const isEmailDuplicate = await validateEmailDuplication();
+  const isEmailValid = email !== "" && isValidFormat("email", email);
+  const isPwValid = password !== "" && isValidFormat("pw", password);
+  const isPwConfirmValid = pwConfirm !== "" && password === pwConfirm;
+
   const userData = {
     email: emailInput.value.trim(),
     password: pwInput.value.trim(),
@@ -76,6 +77,7 @@ const handleEmailInput = () => {
   validateEmail();
   validateEmailDuplication();
 };
+
 emailInput.addEventListener("focusout", handleEmailInput);
 pwInput.addEventListener("focusout", validatePw);
 pwConfirmInput.addEventListener("focusout", validatePwConfirm);
