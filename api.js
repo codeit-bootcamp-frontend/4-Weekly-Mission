@@ -1,3 +1,5 @@
+/*
+
 export function signIn() {
   const answerEmail = 'test@codeit.com';
   const answerPassword = 'sprint101';
@@ -93,3 +95,5 @@ export function registerAccount() {
     
   })
 }
+
+*/

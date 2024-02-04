@@ -1,6 +1,5 @@
 import { isValidEmail, alreadyLogin } from "./sign.js";
 import { ErrorMessage } from "./constant.js";
-import { signIn } from "./api.js";
 
 const myInputEmail = document.querySelector('.input-email');
 const myInputPassword = document.querySelector('.input-password');
@@ -21,8 +20,6 @@ const removeClassError = (errorMessage, currentClass) => {
 };
 
 document.addEventListener('DOMContentLoaded', alreadyLogin);
-
-
 
 function toggleEyeImage() {
   if (myInputPassword.type === 'text') {
@@ -54,6 +51,49 @@ function emailInputCheck() {
   }
 }
 
+function signIn() {
+  const answerEmail = 'test@codeit.com';
+  const answerPassword = 'sprint101';
+
+  const data = {
+    email: answerEmail,
+    password: answerPassword
+  };
+
+  const inputData = {
+    email: myInputEmail.value,
+    password: myInputPassword.value
+  };
+
+  fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then((response) => {
+    if (response.status === 200) {
+      return response.json();
+    }
+  })
+  .then((responseData) => {
+    console.log('서버 응답 데이터:', responseData);
+
+    // 서버 응답 데이터와 입력된 데이터 비교
+    if (data.email === inputData.email && data.password === inputData.password) {
+      localStorage.setItem("access-token", responseData.data.accessToken);
+      window.location.href = '/folder';
+    } else {
+      addClassError(errorMessageId, myInputEmail, ErrorMessage.WrongId);
+      addClassError(errorMessagePw, myInputPassword, ErrorMessage.WrongPassword);
+      console.log('여기서도 실행중');
+    }
+  })
+  .catch(error => {
+    console.error('요청 실패:', error);
+  });
+}
 
 myInputEmail.addEventListener('focusout', emailInputCheck);
 myInputPassword.addEventListener('focusout', passwordInputCheckSignIn);
