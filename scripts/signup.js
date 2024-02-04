@@ -4,7 +4,7 @@ import {
   FOLDER_URL,
   API_SIGN_UP,
   API_CHECK_EMAIL,
-} from "./base.js";
+} from "./constants.js";
 import { isValidEmail, isValidPassword } from "./inputValidation.js";
 import { togglePasswordVisibility } from "./togglePasswordVisibility.js";
 

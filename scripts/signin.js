@@ -6,7 +6,7 @@ import {
   API_SIGN_IN,
   HTTP_STATUS_OK,
   HTTP_STATUS_BAD_REQUEST,
-} from "./base.js";
+} from "./constants.js";
 import { isValidEmail } from "./inputValidation.js";
 import { togglePasswordVisibility } from "./togglePasswordVisibility.js";
 
