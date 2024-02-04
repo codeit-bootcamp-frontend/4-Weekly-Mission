@@ -6,60 +6,85 @@ const repwd = document.querySelector("#repwd");
 const signupBtn = document.querySelector("#signup");
 const body = document.querySelector("body");
 const activeimgs = document.querySelectorAll(".check");
+const checkEmail = document.querySelector('.email_result')
+const checkPwd = document.querySelector('.pwd_result')
+const checkRepwd = document.querySelector('.repwd_result')
 
 function emailCheck(e){
     if (!e.target.value){
-        document.querySelector('.email_result').innerText = "이메일을 입력해주세요";
+        checkEmail.innerText = "이메일을 입력해주세요";
+        checkEmail.style.color ="var(--Linkbrary-red)"
         e.target.classList.add('focus_red');
         return;
     }
     else if (!emailRegex.test(e.target.value)){
-        document.querySelector('.email_result').innerText = "올바른 이메일 주소가 아닙니다.";
-        e.target.classList.add('focus_red');
-        return
-    }
-    else if (e.target.value == "test@codeit.com"){
-        document.querySelector('.email_result').innerText = "이미 사용 중인 이메일입니다.";
+        checkEmail.innerText = "올바른 이메일 주소가 아닙니다.";
+        checkEmail.style.color ="var(--Linkbrary-red)"
         e.target.classList.add('focus_red');
         return
     }
     else{
-        document.querySelector('.email_result').innerText = "";
+        checkEmail.innerText = "";
         e.target.classList.remove('focus_red');
     }
     // console.log(e.target.value)
 }
 
+function duplicateEmail(e){
+    fetch("https://bootcamp-api.codeit.kr/api/check-email",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json",
+        },
+        body:JSON.stringify({
+            email : e.target.value
+        }),
+    })
+    .then((res)=>{
+        // console.log(res.json())
+        return res.json()
+    })
+    .then(result=>{
+        console.log(result)
+        if(result.data.isUsableNickname){
+            checkEmail.innerText="사용 가능한 이메일입니다."
+            checkEmail.style.color ="blue"
+        }
+    })
+    .catch((err)=>{
+        checkEmail.innerText="이미 사용 중인 이메일입니다."
+        checkEmail.style.color ="var(--Linkbrary-red)"
+        email.classList.add('focus_red');
+    })
+}
+
 function pwdCheck(e){
     if (!pwdRegex.test(e.target.value)){
-        document.querySelector('.pwd_result').innerText = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
+        checkPwd.innerText = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
         e.target.classList.add('focus_red');
         return
     }
     else{
-        document.querySelector('.pwd_result').innerText = "";
+        checkPwd.innerText = "";
         e.target.classList.remove('focus_red');
     }
 }
 
 function repwdCheck(e){
     if(pwd.value != e.target.value){
-        document.querySelector('.repwd_result').innerText = "비밀번호가 일치하지 않아요.";
+        checkRepwd.innerText = "비밀번호가 일치하지 않아요.";
         e.target.classList.add('focus_red');
         return
     }
     else{
-        document.querySelector('.repwd_result').innerText = "";
+        checkRepwd.innerText = "";
         e.target.classList.remove('focus_red');
     }  
 }
 
 function signup(){
     console.log("hi")
-    checkEmail = document.querySelector('.email_result').innerText
-    checkPwd = document.querySelector('.pwd_result').innerText
-    checkRepwd = document.querySelector('.repwd_result').innerText
-    if (checkEmail ==='' && checkPwd =='' && checkRepwd==''){
+    if (checkEmail.innerText ==='사용 가능한 이메일입니다.' && checkPwd.innerText =='' && checkRepwd.innerText==''&& email.value &&pwd.value&&repwd.value){
         window.location.href='../folder.html';
     }
 
@@ -87,6 +112,7 @@ function active(e){
 }
 
 email.addEventListener("input", emailCheck);
+email.addEventListener("change", duplicateEmail);
 pwd.addEventListener("input",pwdCheck);
 repwd.addEventListener("input",repwdCheck);
 signupBtn.addEventListener("click",signup);
