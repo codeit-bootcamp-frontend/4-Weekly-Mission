@@ -1,4 +1,4 @@
-import { ADMIN_EMAIL, ADMIN_PASSWORD } from "./base.js";
+import { INVALID_CLASS, ADMIN_EMAIL, ADMIN_PASSWORD } from "./base.js";
 import { isValidEmail } from "./inputValidation.js";
 import { togglePasswordVisibility } from "./togglePasswordVisibility.js";
 
@@ -18,15 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // 이메일 입력부분이 비어 있는 경우
     if (!emailValue) {
       emailError.textContent = "이메일을 입력해 주세요.";
-      emailInput.classList.add("invalid");
+      emailInput.classList.add(INVALID_CLASS);
       // 이메일 입력부분이 비어있지 않는 경우 + 이메일 형식이 유효한지 확인 후 유효하지 않은 경우
     } else if (!isValidEmail(emailValue)) {
       emailError.textContent = "올바른 이메일 주소가 아닙니다.";
-      emailInput.classList.add("invalid");
+      emailInput.classList.add(INVALID_CLASS);
       // 이메일 입력부분이 비어있지 않은 경우 + 이메일 형식이 유효한 형식인 경우
     } else {
       emailError.textContent = "";
-      emailInput.classList.remove("invalid");
+      emailInput.classList.remove(INVALID_CLASS);
     }
   }
 
@@ -38,11 +38,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // 비밀번호 입력부분이 비어 있는 경우
     if (!passwordValue) {
       passwordError.textContent = "비밀번호를 입력해 주세요.";
-      passwordInput.classList.add("invalid");
+      passwordInput.classList.add(INVALID_CLASS);
       // 비밀번호 입력부분이 비어있지 않은 경우
     } else {
       passwordError.textContent = "";
-      passwordInput.classList.remove("invalid");
+      passwordInput.classList.remove(INVALID_CLASS);
     }
   }
 
@@ -67,12 +67,12 @@ document.addEventListener("DOMContentLoaded", function () {
       // 정해진 이메일이 입력되지 않은 경우
       if (emailValue !== ADMIN_EMAIL) {
         emailError.textContent = "이메일을 확인해 주세요";
-        emailInput.classList.add("invalid");
+        emailInput.classList.add(INVALID_CLASS);
       }
       // 정해진 비밀번호가 입력되지 않은 경우
       if (passwordValue !== ADMIN_PASSWORD) {
         passwordError.textContent = "비밀번호를 확인해 주세요";
-        passwordInput.classList.add("invalid");
+        passwordInput.classList.add(INVALID_CLASS);
       }
     }
   });

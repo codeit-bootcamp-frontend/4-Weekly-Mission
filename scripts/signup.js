@@ -1,4 +1,4 @@
-import { ADMIN_EMAIL } from "./base.js";
+import { INVALID_CLASS, ADMIN_EMAIL } from "./base.js";
 import { isValidEmail, isValidPassword } from "./inputValidation.js";
 import { togglePasswordVisibility } from "./togglePasswordVisibility.js";
 
@@ -22,19 +22,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // 이메일 입력부분이 비어 있는 경우
     if (!emailValue) {
       emailError.textContent = "이메일을 입력해 주세요.";
-      emailInput.classList.add("invalid");
+      emailInput.classList.add(INVALID_CLASS);
       // 이메일 입력부분이 비어있지 않는 경우 + 이메일 형식이 유효하지 않은 경우
     } else if (!isValidEmail(emailValue)) {
       emailError.textContent = "올바른 이메일 주소가 아닙니다.";
-      emailInput.classList.add("invalid");
+      emailInput.classList.add(INVALID_CLASS);
       // test@codeit.com이 입력된 경우
     } else if (emailValue === ADMIN_EMAIL) {
       emailError.textContent = "이미 사용 중인 이메일입니다.";
-      emailInput.classList.add("invalid");
+      emailInput.classList.add(INVALID_CLASS);
       // 이메일 입력부분이 비어있지 않은 경우 + 이메일 형식이 유효한 형식인 경우
     } else {
       emailError.textContent = "";
-      emailInput.classList.remove("invalid");
+      emailInput.classList.remove(INVALID_CLASS);
     }
   }
 
@@ -50,39 +50,39 @@ document.addEventListener("DOMContentLoaded", function () {
     // 현재 입력 필드에 따라 에러 메시지 지우기
     if (event.target === passwordInput) {
       passwordError.textContent = "";
-      passwordInput.classList.remove("invalid");
+      passwordInput.classList.remove(INVALID_CLASS);
     } else if (event.target === confirmPasswordInput) {
       confirmPasswordError.textContent = "";
-      confirmPasswordInput.classList.remove("invalid");
+      confirmPasswordInput.classList.remove(INVALID_CLASS);
     }
 
     // 비밀번호 입력부분이 비어 있는 경우
     if (!passwordValue) {
       passwordError.textContent = "비밀번호를 입력해 주세요.";
-      passwordInput.classList.add("invalid");
+      passwordInput.classList.add(INVALID_CLASS);
       // 비밀번호 입력부분이 비어있지 않는 경우 + 비밀번호 형식이 유효하지 않은 경우
     } else if (!isValidPassword(passwordValue)) {
       passwordError.textContent =
         "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
-      passwordInput.classList.add("invalid");
+      passwordInput.classList.add(INVALID_CLASS);
       // 비밀번호 입력부분이 비어있지 않은 경우 + 비밀번호 형식이 유효한 형식인 경우
     } else {
       passwordError.textContent = "";
-      passwordInput.classList.remove("invalid");
+      passwordInput.classList.remove(INVALID_CLASS);
     }
 
     // 비밀번호 확인 입력부분이 비어 있는 경우
     if (!confirmPasswordValue) {
       confirmPasswordError.textContent = "비밀번호를 입력해 주세요.";
-      confirmPasswordInput.classList.add("invalid");
+      confirmPasswordInput.classList.add(INVALID_CLASS);
       // 비밀번호와 비밀번호 확인이 일치하지 않는 경우
     } else if (passwordValue !== confirmPasswordValue) {
       confirmPasswordError.textContent = "비밀번호가 일치하지 않아요.";
-      confirmPasswordInput.classList.add("invalid");
+      confirmPasswordInput.classList.add(INVALID_CLASS);
       // 비밀번호 확인 입력부분이 비어있지 않은 경우 + 비밀번호 형식이 유효한 형식인 경우
     } else {
       confirmPasswordError.textContent = "";
-      confirmPasswordInput.classList.remove("invalid");
+      confirmPasswordInput.classList.remove(INVALID_CLASS);
     }
   }
 
