@@ -10,8 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const togglePasswordIcon = document.querySelector(
     "#togglePasswordVisibility"
   );
-  const togglePasswordIcon2 = document.querySelector(
-    "#togglePasswordVisibility2"
+  const togglePasswordCheckIcon = document.querySelector(
+    "#togglePasswordCheckVisibility"
   );
 
   // 이메일 입력 처리 함수 : 유효성 검사 및 에러 메시지 관리
@@ -121,5 +121,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 비밀번호와 비밀번호 확인 필드에 대한 토글 설정
   setupPasswordToggle(passwordInput, togglePasswordIcon);
-  setupPasswordToggle(confirmPasswordInput, togglePasswordIcon2);
+  setupPasswordToggle(confirmPasswordInput, togglePasswordCheckIcon);
 });
