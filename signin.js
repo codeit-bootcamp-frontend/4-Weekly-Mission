@@ -62,11 +62,12 @@ passwordInput.addEventListener("keyup", function () {
 
 // test code
 const myEmail = "test@codeit.com";
-const myPassword = "code101";
+const myPassword = "sprint101";
 
 const logIn = document.querySelector(".sign-form");
 logIn.addEventListener("submit", function (e) {
   e.preventDefault();
+
   const email = emailInput.value;
   const password = passwordInput.value;
 
@@ -77,6 +78,30 @@ logIn.addEventListener("submit", function (e) {
     errorPassword.value = "비밀번호를 확인해 주세요.";
   }
 });
+// post 요청
+const signInUrl = "https://bootcamp-api.codeit.kr/docs/api/sign-in";
+
+async function signIn(email, password) {
+  try {
+    const response = await fetch(signInUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    });
+    if (response.status === 200) {
+      window.location.href = "./folder.html";
+    } else {
+      console.error("로그인 실패:", response.statusText);
+    }
+  } catch (error) {
+    console.error("오류 발생", error);
+  }
+}
 
 const eyeButton = document.querySelector(".eye-button");
 const $passwordInput = document.getElementById("password-input");
