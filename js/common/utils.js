@@ -9,7 +9,7 @@ const getLocalStorage = (key) => {
 
 const setLocalStorage = (key, value) => {
   if (!key || !value) return;
-  localStorage.setItem();
+  localStorage.setItem(key, value);
 };
 
 const removeLocalstorage = (key) => {
