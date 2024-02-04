@@ -2,9 +2,10 @@
 export function togglePasswordVisibility(passwordInput, toggleIcon) {
   const type =
     passwordInput.getAttribute("type") === "password" ? "text" : "password";
-  passwordInput.setAttribute("type", type);
-  toggleIcon.src =
+  const imageUrl =
     type === "password"
       ? "../image/icons/eye-off.svg"
       : "../image/icons/eye-on.svg";
+  passwordInput.setAttribute("type", type);
+  toggleIcon.src = imageUrl;
 }
