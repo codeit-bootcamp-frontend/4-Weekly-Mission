@@ -1,4 +1,4 @@
-import {testUserList, checkEmailValid, addError, removeError, hiddenPasswordToggle} from "./global.js";
+import { testUserList, checkEmailValid, addError, removeError, hiddenPasswordToggle } from "./global.js";
 import errorMessage from "./error-message.js";
 import { loginAccount } from "./api.js";
 const emailInput = document.querySelector("#email");
@@ -55,7 +55,7 @@ function tryLogin(e) {
   const checkPassword = testUserList.find((test) => test.password === passwordValue);
 
   if (checkEmail && checkPassword) {
-    loginAccount();
+    loginAccount()
     // window.location.href="folder.html"
     return;
   }
@@ -69,6 +69,12 @@ function tryLogin(e) {
   }
   addError(emailInput, emailError, errorMessage.CHECK_EMAIL);
   addError(passwordInput, passwordError, errorMessage.CHECK_PW);
+}
+
+/* accessToken이 존재하면 folder로 이동 */
+const haveToken = localStorage.getItem('accessToken');
+if (haveToken) {
+  window.location.href('folder.html');
 }
 
 

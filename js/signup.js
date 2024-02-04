@@ -1,5 +1,6 @@
-import {testUserList, checkEmailValid, checkPasswordValid, addError, removeError, hiddenPasswordToggle} from "./global.js";
+import { testUserList, checkEmailValid, checkPasswordValid, addError, removeError, hiddenPasswordToggle } from "./global.js";
 import errorMessage from "./error-message.js";
+import { addNewAccount } from "./api.js";
 const emailInput = document.querySelector("#email");
 const emailError = document.querySelector(".email-error");
 const passwordInput = document.querySelector("#password");
@@ -66,7 +67,8 @@ function trySignUp(e) {
   const isInputWhiteSpace = emailInput.value === '' || passwordInput.value === '' || passwordCheckInput.value === '';
   const notHaveError = emailError.textContent === '' && passwordError.textContent === '' && passwordCheckError.textContent === '';
   if (!isInputWhiteSpace && notHaveError) {
-    window.location.href = "folder.html";
+    addNewAccount(emailInput, passwordInput);
+    // window.location.href = "folder.html";
     return;
   }
   addError(emailInput, emailError, errorMessage.CHECK_EMAIL);
@@ -74,6 +76,11 @@ function trySignUp(e) {
   addError(passwordCheckInput, passwordCheckError, errorMessage.PW_NOT_MATCH);
 }
 
+/* accessToken이 존재하면 folder로 이동 */
+const haveToken = localStorage.getItem('accessToken');
+if (haveToken) {
+  window.location.href('folder.html');
+}
 
 
 /*이벤트 핸들러 등록*/
