@@ -1,4 +1,4 @@
-import { findErrorMessage } from './tags.js';
+import { findErrorMessage } from './nodes.js';
 
 const removeError = $input => {
   const $msg = findErrorMessage($input);
