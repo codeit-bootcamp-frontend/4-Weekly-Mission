@@ -34,6 +34,12 @@ const response = await fetch(codeitApiUrl,{
 function correctEmail(e){
     let emailRegex=new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
 
+const passwordErrorMessage=document.querySelector(".passwrod-error-message");
+const form=document.querySelector(".sign-form");
+
+function corretEmail(e){
+    let emailRegex=new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
+    
     if(e.target.value===""){
         emailErrorMessage.textContent = "이메일을 입력해 주세요.";
         emailErrorMessage.classList.add("error-text");
@@ -49,8 +55,10 @@ function correctEmail(e){
     }
 }
 
+
 function correctPassword(e){
     if(e.target.value===""){
+
         passwordErrorMessage.textContent = "비밀번호를 입력해 주세요.";
         passwordErrorMessage.classList.add("error-text");
         e.target.classList.add("error-box");
@@ -79,3 +87,4 @@ inputEmail.addEventListener('focusout',correctEmail);
 inputPassword.addEventListener('focusout',correctPassword);
 form.addEventListener('submit',submitButton);
 // response.addEventListener('submin',submitButton);
+
