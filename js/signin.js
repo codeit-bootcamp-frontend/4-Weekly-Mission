@@ -1,5 +1,9 @@
-import { inputFocusBorderChange, addEventPwHiddenBtn } from "./util.js";
-
+import {
+  inputFocusBorderChange,
+  addEventPwHiddenBtn,
+  loginSuccess,
+} from "./util.js";
+import { postReqeustApi } from "./requestApi.js";
 // valid input 관련 element
 const emailInput = document.querySelector("#signin-email");
 const emailValidText = document.querySelector("#email-valid-text");
@@ -18,6 +22,12 @@ const regex = new RegExp("[a-z0-9]+@[a-z]+.[a-z]{2,3}");
 // let isValidId = false;
 // let isValidPw = false;
 let isToggleEyes = false;
+
+window.onload = function () {
+  if (localStorage.getItem("accessToken")) {
+    window.location.href = "/folder";
+  }
+};
 
 // password hidden button init setting function
 addEventPwHiddenBtn(pwHiddenBtn, pwInput, isToggleEyes);
@@ -68,20 +78,28 @@ pwInput.addEventListener("focusout", function () {
 // form submit (enter, submit click)
 signinForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  if (emailInput.value === "test@codeit.com" && pwInput.value === "codeit101") {
-    window.location.href = "/folder";
-  } else {
-    inputFocusBorderChange(
-      "valid_error",
-      emailInput,
-      emailValidText,
-      "이메일을 확인해 주세요."
-    );
-    inputFocusBorderChange(
-      "valid_error",
-      pwInput,
-      pwValidText,
-      "비밀번호를 확인해 주세요."
-    );
-  }
+  const id = emailInput.value;
+  const pw = pwInput.value;
+
+  postReqeustApi("api/sign-in", {
+    email: id,
+    password: pw,
+  })
+    .then((result) => {
+      loginSuccess(result?.data);
+    })
+    .catch((err) => {
+      inputFocusBorderChange(
+        "valid_error",
+        emailInput,
+        emailValidText,
+        "이메일을 확인해 주세요."
+      );
+      inputFocusBorderChange(
+        "valid_error",
+        pwInput,
+        pwValidText,
+        "비밀번호를 확인해 주세요."
+      );
+    });
 });
