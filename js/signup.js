@@ -61,11 +61,17 @@ function validPasswordCheckInput(e) {
 }
 
 /*유효한 회원가입을 시도할 때 일어나는 경우에 대한 함수*/
-function trySignUp(event) {
-  event.preventDefault();
-  if (emailError.textContent === '' && passwordError.textContent === '' && passwordCheckError.textContent === '') {
+function trySignUp(e) {
+  e.preventDefault();
+  const isInputWhiteSpace = emailInput.value === '' || passwordInput.value === '' || passwordCheckInput.value === '';
+  const notHaveError = emailError.textContent === '' && passwordError.textContent === '' && passwordCheckError.textContent === '';
+  if (!isInputWhiteSpace && notHaveError) {
     window.location.href = "folder.html";
+    return;
   }
+  addError(emailInput, emailError, errorMessage.CHECK_EMAIL);
+  addError(passwordInput, passwordError, errorMessage.CHECK_PW);
+  addError(passwordCheckInput, passwordCheckError, errorMessage.PW_NOT_MATCH);
 }
 
 
