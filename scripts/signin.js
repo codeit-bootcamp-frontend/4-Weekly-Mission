@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // 정해진 이메일과 비밀번호가 입력된 경우
     if (emailValue === ADMIN_EMAIL && passwordValue === ADMIN_PASSWORD) {
-      window.location.href = "component/folder.html";
+      window.location.href = "/component/folder.html";
     } else {
       // 정해진 이메일이 입력되지 않은 경우
       if (emailValue !== ADMIN_EMAIL) {

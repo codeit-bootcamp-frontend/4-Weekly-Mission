@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function handleSignUp(event) {
     event.preventDefault();
     if (validateSignUp()) {
-      window.location.href = "component/folder.html";
+      window.location.href = "/component/folder.html";
     }
   }
 
