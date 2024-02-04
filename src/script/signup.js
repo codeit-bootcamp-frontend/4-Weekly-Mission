@@ -1,7 +1,14 @@
-import { email, password, emailError, passwordError, eyeButton } from "./sign.js";
-import { validateEmail, validatePassword, toggleEye } from "./sign.js";
-import createError from "./error/createError.js";
-import clearError from "./error/clearError.js";
+import {
+    validateEmail,
+    validatePassword,
+    toggleEye,
+    email,
+    password,
+    emailError,
+    passwordError,
+    eyeButton,
+} from "./sign.js";
+import { createError, clearError } from "./error/errorRelated.js";
 
 const confirmPassword = document.querySelector("#sign_confirm_password");
 const confirmPasswordError = document.querySelector("#error_confirm_password");

@@ -1,5 +1,4 @@
-import createError from "./error/createError.js";
-import clearError from "./error/clearError.js";
+import { createError, clearError } from "./error/errorRelated.js";
 
 const email = document.querySelector("#sign_email");
 const password = document.querySelector("#sign_password");
