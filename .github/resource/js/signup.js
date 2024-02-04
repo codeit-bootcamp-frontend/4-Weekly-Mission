@@ -1,48 +1,90 @@
-import { email, error, error_pwd, emailRegex, password, hostname, showError, deleteError, email_form } from './login.js';
+import { email, error, errorPwd, emailRegex, password, showError, deleteError, emailForm } from './auth.js';
+import { accessTokenSet } from './accessToken.js';
 
-const signup_form = document.querySelector('.signup_form');
-const error_pwd_check = document.querySelector('.password_check_text');
-const password_check = document.querySelector('.password_check');
-const pwd_string = /^[0-9]*$/;
-const pwd_num = /^[a-zA-Z]*$/;
+const signupForm = document.querySelector('.signup_form');
+const errorPwdCheck = document.querySelector('.password_check_text');
+const passwordCheck = document.querySelector('.password_check');
+const pwdString = /^[0-9]*$/;
+const pwdNum = /^[a-zA-Z]*$/;
 
 // 이메일 사용중 확인
-const email_using = () => {
-    if(email.value === 'test@codeit.com') {
-        showError(email, error, 'email_use');
-    } else if(emailRegex.test(email.value) && email.value !== '' && email.value !== 'test@codeit.com') {
+const emailUsing = () => {
+    if(emailRegex.test(email.value) && email.value !== '') {
         deleteError(email, error);
     }
 }
-email.addEventListener('focusout', email_using);
+email.addEventListener('focusout', emailUsing);
 
 // 비밀번호 정규식 비교
-const pwd_regex = () => {
-    if(password.value.length < 8 || pwd_string.test(password.value) || pwd_num.test(password.value)) {
-        showError(password, error_pwd, 'pwd_wrong');
+const pwdRegex = () => {
+    if(password.value.length < 8 || pwdString.test(password.value) || pwdNum.test(password.value)) {
+        showError(password, errorPwd, 'pwdWrong');
     } else {
-        deleteError(password, error_pwd);
+        deleteError(password, errorPwd);
     }
 }
-password.addEventListener('focusout' , pwd_regex);
+password.addEventListener('focusout' , pwdRegex);
 
 // 비밀번호 동일값 비교
-const pwd_same = () => {
-    if(password_check.value !== password.value) {
-        showError(password_check, error_pwd_check, 'pwd_inc');
+const pwdSame = () => {
+    if(passwordCheck.value !== password.value) {
+        showError(passwordCheck, errorPwdCheck, 'pwdInc');
     }
+}
+
+// 토큰 생성 후 페이지 이동
+const accessTokenCheck = () => {
+    fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: email.value,
+            password: password.value,
+        }),
+    })
+    .then(response => response.json())
+    .then(result => {
+        accessTokenSet(result);
+    })
+}
+
+// 이메일 중복 체크
+const duplicationCheck = () => {
+    fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: email.value,
+        }),
+    })
+    .then(response => response.json())
+    .then(result => {
+        if(result.data.isUsableNickname) {
+            accessTokenCheck(result);
+        }
+    })
+    .catch(errors => {
+        showError(email, error, 'emailUse');
+    })
+}
+
+const errorFunction = () => {
+    pwdRegex();
+    emailForm();
+    emailUsing();
+    pwdSame();
 }
 
 // 회원가입 폼
-signup_form.addEventListener('submit', (e) => {
-    if(email.value !== 'test@codeit.com' && emailRegex.test(email.value) && password.value.length >= 8 && !pwd_string.test(password.value) && !pwd_num.test(password.value) && password_check.value === password.value) {
-        e.preventDefault();
-        window.location.href = hostname;
+signupForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if(emailRegex.test(email.value) && email.value !== '' && password.value.length >= 8 && !pwdString.test(password.value) && !pwdNum.test(password.value) && passwordCheck.value === password.value) {
+        duplicationCheck();
     } else {
-        e.preventDefault();
-        pwd_regex();
-        email_form();
-        email_using();
-        pwd_same();
+        errorFunction();
     }
 })
