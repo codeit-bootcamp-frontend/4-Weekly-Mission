@@ -83,12 +83,13 @@ export async function handleFocusoutInput(event) {
     return;
   }
 
-  if (scope.id === 'signup-form' && type === INPUT_TYPE.EMAIL) {
-    const validEmail = await checkDuplicateEmail(value);
-    if (!validEmail) {
-      addSameError(type, target, messageBox);
-      return;
-    }
+  if (
+    scope.id === 'signup-form' &&
+    type === INPUT_TYPE.EMAIL &&
+    !(await checkDuplicateEmail(value))
+  ) {
+    addSameError(type, target, messageBox);
+    return;
   }
 }
 
