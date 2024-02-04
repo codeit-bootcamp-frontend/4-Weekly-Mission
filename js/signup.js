@@ -121,17 +121,6 @@ async function trySignup() {
       signupEmailInput,
       true
     );
-
-    // if (error.message === "User already registered") {
-    //   const errorMessage = querySelector("#email-error-message");
-
-    //   updateErrorMessage(
-    //     errorMessage,
-    //     "이메일을 확인해주세요.",
-    //     signupEmailInput,
-    //     true
-    //   );
-    // }
     console.error(error.message);
   }
 }
