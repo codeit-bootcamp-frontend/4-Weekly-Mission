@@ -84,23 +84,25 @@ const pressSignUpButtonError = event => {
   }
 };
 
-eyeButtonPassword.addEventListener('click', function () {
+const pressEyeButton = () => {
   if (passwordInput.type === 'text') {
     showPassword(passwordInput, eyeButtonPassword);
     return;
   }
   hidePassword(passwordInput, eyeButtonPassword);
-});
+};
 
-eyeButtonForConfirm.addEventListener('click', function () {
+const pressEyeButtonForConfirm = () => {
   if (passwordConfirmInput.type === 'text') {
     showPassword(passwordConfirmInput, eyeButtonForConfirm);
     return;
   }
   hidePassword(passwordConfirmInput, eyeButtonForConfirm);
-});
+};
 
 emailInput.addEventListener('focusout', EmailInputError);
 passwordInput.addEventListener('focusout', passwordInputError);
 passwordConfirmInput.addEventListener('focusout', passwordConfirmInputError);
 signInButton.addEventListener('click', pressSignUpButtonError);
+eyeButtonPassword.addEventListener('click', pressEyeButton);
+eyeButtonForConfirm.addEventListener('click', pressEyeButtonForConfirm);
