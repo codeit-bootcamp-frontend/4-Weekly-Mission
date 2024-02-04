@@ -23,11 +23,27 @@ import {
 
 const password = document.querySelector('#password');
 
+const userAuth = {
+  email: 'test@codeit.com',
+  password: 'sprint101',
+};
+
 const onSubmit = (e) => {
   e.preventDefault();
 
-  if (e.target.email.value === TEST_EMAIL && e.target.password.value === TEST_PASSWORD) {
-    location.href = '/folder/folder.html';
+  if (e.target.email.value === userAuth.email && e.target.password.value === userAuth.password) {
+    fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify(userAuth),
+    })
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result);
+        location.href = '/folder/folder.html';
+      });
   } else {
     emailError.textContent = EMAIL_CHECK_MESSAGE;
     passwordError.textContent = PASSWORD_CHECK_MESSAGE;
