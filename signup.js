@@ -16,8 +16,8 @@ const errorPasswordCheckMessage = document.querySelector('.error-password-check-
 const signButton = document.querySelector('.sign-btn')
 
 // 토큰이 존재한다면 folder.html 이동
-const token = localStorage.getItem('accessToken')
-  token ? window.location.assign('folder.html') : ''
+const tokenExistence = localStorage.getItem('accessToken')
+tokenExistence ? window.location.assign('folder.html') : ''
 
 // signFunction에서 조건을 주고 실행해야 하는 이벤트를 조절
 const signupValidation = true
@@ -46,7 +46,6 @@ const onSubmit = (e) => {
   }
   if (signupAccount) {
     register()
-    window.location.assign('folder.html')
     return
   }
   if (!matchedPasswordAndPasswordCheck) {

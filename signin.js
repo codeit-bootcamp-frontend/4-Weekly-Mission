@@ -12,8 +12,8 @@ const errorPasswordMessage = document.querySelector('.error-password-message')
 const signButton = document.querySelector('.sign-btn')
 
 // 토큰이 존재한다면 folder.html 이동
-const token = localStorage.getItem('accessToken')
-  token ? window.location.assign('folder.html') : ''
+const tokenExistence = localStorage.getItem('accessToken')
+tokenExistence ? window.location.assign('folder.html') : ''
 
 // 로그인 버튼, 경우에 따른 케이스 적용
 const onSubmit = (e) => {
@@ -38,7 +38,6 @@ const onSubmit = (e) => {
 
   if (matchedEmail && matchedPassword) {
     login()
-    window.location.assign('folder.html')
     return
   }
   if (matchedEmail && !matchedPassword) {

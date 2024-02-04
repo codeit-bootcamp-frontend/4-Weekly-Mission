@@ -28,7 +28,7 @@ const register = async () => {
     })
     const result = await response.json()
     localStorage.setItem('accessToken', result.data.accessToken)
-    // window.location.assign('folder.html')
+    window.location.assign('folder.html')
     return
   }
 }
