@@ -27,3 +27,13 @@ export function addEventPwHiddenBtn(pwHiddenBtn, pwInput, toggle) {
     }
   });
 }
+
+export function loginSuccess(data) {
+  const accessToken = data?.accessToken;
+  const refreshToken = data?.refreshToken;
+  // 로컬스토리지에 저장
+  localStorage.setItem("accessToken", accessToken);
+  localStorage.setItem("refreshToken", refreshToken);
+  // 정상적인 로그인일 경우 /folder 로 이동
+  window.location.href = "/folder";
+}
