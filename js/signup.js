@@ -1,11 +1,10 @@
-import { TEST_EMAIL } from './variable.js';
 import {
   getEmailInput,
   getPasswordInput,
   getLoginForm,
   getPasswordCheck,
 } from './helpers/utils/index.js';
-import { emailValidate, passwordPattern } from './constants/regex/index.js';
+import { passwordPattern } from './constants/regex/index.js';
 import { showError, hideError, pathTo } from './func.js';
 
 const emailInput = getEmailInput('signup');
@@ -13,54 +12,31 @@ const passwordInput = getPasswordInput('signup');
 const passwordCheck = getPasswordCheck();
 const loginForm = getLoginForm('signup');
 
-loginForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-
+async function validateEmail() {
   const emailValue = emailInput.value.trim();
-  const passwordValue = passwordInput.value.trim();
+  const response = await fetch(
+    'https://bootcamp-api.codeit.kr/api/check-email',
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: emailValue,
+      }),
+    },
+  );
 
-  if (emailValue === TEST_EMAIL) {
-    showError(emailInput, '이미 사용 중인 이메일입니다.');
-    return;
-  }
-  if (emailValue.length === 0) {
-    showError(emailInput, '이메일을 확인해 주세요.');
-    return;
-  }
-  if (!passwordValue) {
-    showError(passwordInput, '비밀번호를 입력해주세요.');
-    return;
-  }
-  if (passwordCheck.value.trim() !== passwordValue) {
-    showError(passwordCheck, '비밀번호가 일치하지 않아요.');
-    return;
-  }
-  if (!passwordPattern.test(passwordValue)) {
-    showError(
-      passwordInput,
-      '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
-    );
-    return;
-  }
-  pathTo('folder');
-});
+  const responseData = await response.json();
 
-function validateEmail() {
-  const emailValue = emailInput.value.trim();
-
-  if (emailValue === '') {
-    showError(emailInput, '이메일을 입력해주세요.');
-    return;
-  }
-  if (!emailValidate.test(emailValue)) {
-    showError(emailInput, '올바른 이메일 주소가 아닙니다.');
-    return;
-  }
-  if (emailValue === 'test@codeit.com') {
-    showError(emailInput, '이미 사용 중인 이메일입니다.');
-    return;
+  if (!response.ok) {
+    // 400이랑 409에 대한 경우만 따로 지정해야하는지?
+    // API에서 400, 409에 관한 내용만 나와있어서 궁금합니다!
+    if (response.status === 409 || response.status === 400) {
+      showError(emailInput, responseData.error.message);
+      return false;
+    }
   }
   hideError(emailInput);
+  return true;
 }
 
 function validatePassword(password) {
@@ -83,9 +59,7 @@ function validatePasswordCheck() {
 
   if (passwordValue !== passwordValueCheck && passwordValueCheck !== '') {
     showError(passwordCheck, '비밀번호가 일치하지 않아요.');
-    return;
   }
-  validatePassword(passwordCheck);
 }
 
 emailInput.addEventListener('focusout', validateEmail);
@@ -93,3 +67,30 @@ passwordInput.addEventListener('focusout', () =>
   validatePassword(passwordInput),
 );
 passwordCheck.addEventListener('focusout', validatePasswordCheck);
+
+loginForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const passwordValue = passwordInput.value.trim();
+
+  if (validateEmail()) {
+    return;
+  }
+  if (!passwordValue) {
+    showError(passwordInput, '비밀번호를 입력해주세요.');
+    return;
+  }
+  if (!passwordPattern.test(passwordValue)) {
+    showError(
+      passwordInput,
+      '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.',
+    );
+    return;
+  }
+  if (passwordCheck.value.trim() !== passwordValue) {
+    showError(passwordCheck, '비밀번호가 일치하지 않아요.');
+    return;
+  }
+
+  pathTo('folder');
+});
