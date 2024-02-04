@@ -3,5 +3,5 @@ import { redirect, removeLocalstorage } from './common/utils.js';
 setTimeout(() => {
   removeLocalstorage('accessToken');
   removeLocalstorage('refreshToken');
-  redirect('/main');
+  redirect('/');
 }, 10000);
