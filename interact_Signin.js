@@ -118,7 +118,6 @@ function enterbtn(e){
   if(e.key=='Enter'){
     clicklogin();
   }
-  //console.log(234234);
 }
 
 inputel.addEventListener('keydown',enterbtn);
