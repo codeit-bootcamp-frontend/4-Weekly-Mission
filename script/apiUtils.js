@@ -30,13 +30,18 @@ export const postData = async (endpoint, data) => {
  * @param {*} data Email 데이터
  * @returns 
  */
-export const checkEmailData = async (endpoint, data) => {
+export const checkEmailData = async (endpoint, emaildata, data) => {
   try {
-    const response = await postRequest(endpoint, data);
+    const response = await postRequest(endpoint, emaildata);
     const responseData = await response.json();
-
     if(responseData.success) {
       console.error("Same Email");
+      return;
+    }
+    const responseSignUp = postRequest(sign-up, data);
+    const responseDataSignUp = await responseSignUp.json();
+    if(responseDataSignUp.success) {
+      window.location.href = '../folder.html';
       return;
     }
   }
