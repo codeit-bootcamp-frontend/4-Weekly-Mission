@@ -9,12 +9,16 @@ export const ErrorMessage = {
   CantUseId: "이미 사용 중인 이메일입니다.",
 };
 
+
+//  함수를 따로 공통화하는 것이 편하다..
+
+
 export const isValidEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
 };
 
 export const isValidPassword = (password) => {
-  const passwordRegex = /^[A-Za-z0-9][A-Za-z0-9]*$/;
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]*$/;
   return passwordRegex.test(password);
 };

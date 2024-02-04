@@ -49,7 +49,7 @@ header {
   width: 40rem;
 }
 
-.sign-form {
+.sign-form, .signup-form {
   display: flex;
   flex-direction: column;
   row-gap: 3rem;

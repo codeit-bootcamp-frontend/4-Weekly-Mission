@@ -20,10 +20,11 @@ const removeClassError = (errorMessage, currentClass) => {
 };
 
 
+/*
 document.addEventListener('DOMContentLoaded', function() {
   alreadyLogin();
 });
-
+*/
 
 
 function emailInputCheck() {
@@ -75,10 +76,12 @@ myInputPassword.addEventListener('focusout', passwordInputCheck);
 /* login.addEventListener('click', emailInputValueCheck);*/
 
 // 검색하여 form 제출 시 페이지 새로고침되지 않게 함.
+/*
 document.querySelector('.sign-form').addEventListener('submit', function(event) {
   event.preventDefault();
   signIn()
 });
+*/
 
 toggleButtonPw.addEventListener('click', toggleEyeImage);
 
@@ -120,6 +123,7 @@ function signIn() {
     } else {
       addClassError(errorMessageId, myInputEmail, signJs.ErrorMessage.WrongId);
       addClassError(errorMessagePw, myInputPassword, signJs.ErrorMessage.WrongPassword);
+      console.log('여기서도 실행중');
     }
   })
   .catch(error => {
@@ -127,12 +131,13 @@ function signIn() {
   });
 }
 
-function alreadyLogin() {
+/* function alreadyLogin() {
   const accessToken = localStorage.getItem('access-token');
   if (accessToken) {
     window.location.href = '/folder';
   }
 }
+*/
 
 
 
