@@ -80,16 +80,39 @@ function passwordVertifyError(e){
     }
 }
 const signUp=document.querySelector('.signup-btn');
-function clickSignup(){
-    if(isValidEmail(inputEmail)&&isValidPassword(inputPassword)){
-        console.log("input",inputPassword,"vertify",vertifyPassword);
-        
-        if(inputPassword==vertifyPassword){
-            window.location.href = '../folder.html';
+async function clickSignup(){
+    const userData={
+        email:emailInput.value.trim(),
+        password:passwordInput.value.trim(),
+    }
+    try{
+        if(isValidEmail(inputEmail)&&isValidPassword(inputPassword)){
+            // console.log("input",inputPassword,"vertify",vertifyPassword);
+            if(inputPassword==vertifyPassword){
+                const response= await fetch("https://bootcamp-api.codeit.kr/api/sign-up",{
+                method:"POST",
+                headers:{'content-Type':"application/json"},
+                body:JSON.stringify(userData),
+                });
+                if(response.ok){
+                    const responseData = await response.json();
+                    localStorage.setItem('accessToken', responseData.data.accessToken); //회원가입시 받은 accessToken을 로컬 스토리지에 저장
+                    location.href="./folder.html"
+                }
+                else{
+                    errorMsgEmail.textContent='이미 사용 중인 이메일입니다.'
+                    emailContainer.append(errorMsgEmail);
+                    emailInput.classList.add('error');
+                }
+            }
+            else{
+                throw new Error('회원가입 실패');
+            }
+            
         }
         
     }
-    else{
+    catch(error){
         if(!isValidEmail(inputEmail)){
             errorMsgEmail.textContent='올바른 이메일 주소가 아닙니다.'
             emailContainer.append(errorMsgEmail);
@@ -110,11 +133,8 @@ function clickSignup(){
             emailContainer.append(errorMsgEmail);
             emailInput.classList.add('error');
         }
-        // emailErrorMessage(inputEmail);
-        // passwordErrorMessage(inputPassword);
-        // passwordVertifyError(vertifyPassword);
-        console.log("input",inputPassword,"vertify",vertifyPassword);
     }
+    
 }
 const eyeIcon=document.querySelector('.show-icon');
 const eyeIcon2=document.querySelector('.show-icon2');
@@ -136,3 +156,11 @@ document
             clickSignup();
         }
     })
+
+// 로그인/회원가입 페이지에 접근시 로컬 스토리지에 accessToken이 있는 경우 “/folder” 페이지로 이동합니다.
+document.addEventListener('DOMContentLoaded', function() {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+        window.location.href = '/folder.html';
+    }
+});
