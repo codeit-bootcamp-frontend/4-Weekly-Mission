@@ -1,4 +1,8 @@
 import handleClickEyeIcon from "/utils/onClickEyeIcon.js";
+import userAuth from "/utils/userAuth.js";
+import checkAccessToken from "../utils/checkAccessToken.js";
+
+checkAccessToken();
 
 // const
 const validator = {
@@ -28,12 +32,6 @@ const validator = {
       validate: (value) => value,
       message: "비밀번호를 확인해 주세요.",
     },
-  },
-};
-const userMap = {
-  codeit: {
-    email: "test@codeit.com",
-    password: "codeit101",
   },
 };
 const ERROR_CLASS = "error";
@@ -75,19 +73,28 @@ function toggleErrorStatus(target, invalidKey) {
 // Event Handler
 function handleFormSubmit(e) {
   e.preventDefault();
-  const emailInputEl = e.target.querySelector("#email-input");
-  const pwInputEl = e.target.querySelector("#password-input");
-  if (
-    emailInputEl.value === userMap.codeit.email &&
-    pwInputEl.value === userMap.codeit.password
-  ) {
-    window.location.replace("/folder");
-  } else {
-    formInputList.forEach((target) => {
-      const { name } = target;
-      toggleErrorStatus(target, [`notSignup${name}`]);
+  const userInputList = formInputList.reduce((acc, { name, value }) => {
+    let userInput = { [name]: value };
+    return { ...acc, ...userInput };
+  }, {});
+  const signInAttempt = userAuth(userInputList, "/api/sign-in");
+  signInAttempt
+    .then((res) => {
+      const ACCESS_TOKEN = res.data.accessToken;
+      return ACCESS_TOKEN;
+    })
+    .then((ACCESS_TOKEN) => {
+      if (ACCESS_TOKEN) {
+        localStorage.setItem("accessToken", ACCESS_TOKEN);
+        window.location.replace("/folder");
+      }
+    })
+    .catch((err) => {
+      formInputList.forEach((target) => {
+        const { name } = target;
+        toggleErrorStatus(target, [`notSignup${name}`]);
+      });
     });
-  }
 }
 
 function handleInputFocusout({ target }) {
