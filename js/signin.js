@@ -1,5 +1,6 @@
 import {testUserList, checkEmailValid, addError, removeError, hiddenPasswordToggle} from "./global.js";
 import errorMessage from "./error-message.js";
+import { loginAccount } from "./api.js";
 const emailInput = document.querySelector("#email");
 const emailError = document.querySelector(".email-error");
 const passwordInput = document.querySelector("#password");
@@ -54,7 +55,8 @@ function tryLogin(e) {
   const checkPassword = testUserList.find((test) => test.password === passwordValue);
 
   if (checkEmail && checkPassword) {
-    window.location.href="folder.html"
+    loginAccount();
+    // window.location.href="folder.html"
     return;
   }
   if (!checkEmail && checkPassword) {
