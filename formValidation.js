@@ -92,7 +92,6 @@ $inputList[1].addEventListener("input", function (e) {
 const eyeImages = $form.querySelectorAll("img");
 eyeImages.forEach((eyeImage) =>
   eyeImage.addEventListener("click", function (e) {
-    console.log("click");
     let currentType = e.target.parentElement.querySelector("input").type;
     if (currentType === "text") {
       e.target.src = "../assets/eye-off.png";

@@ -26,6 +26,8 @@ $inputList.forEach(($input) =>
 //주어진 아이디, 비번 아니면 로그인 불가
 $form.addEventListener("submit", function (e) {
   e.preventDefault();
+  postData();
+
   if (
     mockUp.rightEmail($inputList[0].value) &&
     mockUp.rightPassword($inputList[1].value)
@@ -35,20 +37,19 @@ $form.addEventListener("submit", function (e) {
 });
 
 //login logic
-let emailInput = $inputList[0].value;
-let passwordInput = $inputList[1].value;
+
 const postData = async () => {
   try {
-    const response = await fetch(
-      "https://bootcamp-api.codeit.kr/docs/api/sign-in",
-      {
-        method: "POST",
-        body: {
-          email: { emailInput },
-          password: { passwordInput },
-        },
-      }
-    );
+    let emailInput = $inputList[0].value;
+    let passwordInput = $inputList[1].value;
+
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      body: {
+        email: { emailInput },
+        password: { passwordInput },
+      },
+    });
 
     if (!response.ok) {
       throw new Error("Network response was not ok");
