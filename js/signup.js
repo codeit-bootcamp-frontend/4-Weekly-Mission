@@ -55,7 +55,7 @@ passwordConfirmInput.addEventListener("focusout", () => {
 });
 
 // 회원가입 폼 제출
-signupForm.addEventListener("submit", (event) => {
+signupForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const email = emailInput.value.trim();
   const password = passwordInput.value.trim();
@@ -85,7 +85,21 @@ signupForm.addEventListener("submit", (event) => {
   }
 
   if (isValid) {
-    window.location.href = "/folder";
+    try {
+      const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        window.location.href = "/folder.html";
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
 });
 

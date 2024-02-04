@@ -41,7 +41,7 @@ loginForm.addEventListener("submit", async (event) => {
     });
 
     if (response.ok) {
-      window.location.href = "/folder";
+      window.location.href = "/folder.html";
     } else {
       const errorData = await response.json();
       if (errorData.error) {
