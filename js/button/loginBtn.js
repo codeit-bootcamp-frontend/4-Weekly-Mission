@@ -1,4 +1,5 @@
 import { createErrorMessage } from "../error.js";
+import { saveAccessToken } from '../accessToken.js'
 
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
@@ -16,7 +17,9 @@ async function login() {
       }),
     });
 
+    const data = await response.json();
     if (response.ok) {
+      saveAccessToken(data.data.accessToken);
       return location.href = 'folder.html';
     } else {
       createErrorMessage(emailInput, "이메일을 확인해주세요.")

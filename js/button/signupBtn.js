@@ -1,4 +1,4 @@
-import { createErrorMessage } from "../error.js";
+import { saveAccessToken } from '../accessToken.js'
 
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
@@ -16,7 +16,9 @@ export async function signup() {
       }),
     });
 
+    const data = await response.json();
     if (response.ok) {
+      saveAccessToken(data.data.accessToken);
       return location.href = 'folder.html';
     }
   } catch (error) {
