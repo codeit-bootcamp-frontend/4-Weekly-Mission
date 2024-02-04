@@ -3,6 +3,7 @@ import { togglePassword } from './button/passwordToggle.js';
 import { handleEnterKey } from './button/enterKey.js'
 import { emailCheck } from './validation.js';
 import { signup } from './button/signupBtn.js';
+import { getAccessToken } from './accessToken.js';
 
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
@@ -24,6 +25,12 @@ confirmPasswordInput.addEventListener("focusout", passwordCheck);
 
 signupButton.addEventListener("click", signup);
 document.addEventListener('keydown', (e) => handleEnterKey(e, signup));
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (getAccessToken()) { 
+    location.href = 'folder.html';
+  }
+});
 
 passwordEyeIcon.addEventListener('click', (e) => togglePassword(e, passwordInput, passwordEyeIcon));
 confirmPasswordEyeIcon.addEventListener('click', (e) => togglePassword(e, confirmPasswordInput, confirmPasswordEyeIcon));
