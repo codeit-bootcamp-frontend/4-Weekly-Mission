@@ -40,9 +40,9 @@ function validatePassword() {
 }
 
 // 비밀번호 토글
-function toggleEye(value) {
-    const inputType = value.type === "password" ? "text" : "password";
-    value.type = inputType;
+function toggleEye(target) {
+    const inputType = target.type === "password" ? "text" : "password";
+    target.type = inputType;
 }
 
 // 이메일 유효성 검사
