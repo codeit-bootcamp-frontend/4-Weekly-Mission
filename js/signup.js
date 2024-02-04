@@ -1,6 +1,7 @@
 import { handleFocusoutInput, handleClickBlindButton } from './common/input.js';
 import { CLASS } from './common/class.js';
 import { API } from './api/api.js';
+import * as UTILS from './common/utils.js';
 
 const signupForm = document.querySelector('#signup-form');
 
@@ -30,7 +31,7 @@ async function handleSubmit(event) {
 
   if (!isSignup) return;
 
-  window.location.href = '/folder';
+  UTILS.redirect('/folder');
 }
 
 async function signup(user = {}) {
@@ -54,8 +55,8 @@ async function signup(user = {}) {
     const accessToken = result.data?.accessToken;
     const refreshToken = result.data?.refreshToken;
 
-    localStorage.setItem('accessToken', accessToken);
-    localStorage.setItem('refreshToken', refreshToken);
+    UTILS.setLocalStorage('accessToken', accessToken);
+    UTILS.setLocalStorage('refreshToken', refreshToken);
 
     return true;
   } catch (error) {

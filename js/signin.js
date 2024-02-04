@@ -6,6 +6,7 @@ import {
   addLoginError,
 } from './common/input.js';
 import { API } from './api/api.js';
+import * as UTILS from './common/utils.js';
 
 const signinForm = document.querySelector('#signin-form');
 
@@ -35,7 +36,7 @@ async function handleSubmit(event) {
     return;
   }
 
-  window.location.href = '/folder';
+  UTILS.redirect('/folder');
 }
 
 async function signin(user = {}) {
@@ -59,8 +60,8 @@ async function signin(user = {}) {
     const accessToken = result.data?.accessToken;
     const refreshToken = result.data?.refreshToken;
 
-    localStorage.setItem('accessToken', accessToken);
-    localStorage.setItem('refreshToken', refreshToken);
+    UTILS.setLocalStorage('accessToken', accessToken);
+    UTILS.setLocalStorage('refreshToken', refreshToken);
 
     return true;
   } catch (error) {
