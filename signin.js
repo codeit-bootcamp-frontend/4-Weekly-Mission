@@ -14,8 +14,8 @@ function validatePassword(password) {
 const emailInput = document.querySelector(".sign-input");
 const errorEmail = document.querySelector("#error-message-email");
 
-emailInput.addEventListener("focusout", function () {
-  const email = emailInput.value;
+emailInput.addEventListener("focusout", function (event) {
+  const email = event.target.value;
 
   if (email === "") {
     errorEmail.innerHTML = "이메일을 입력하세요.";
@@ -39,8 +39,8 @@ emailInput.addEventListener("keyup", function () {
 const passwordInput = document.querySelector("#password-input");
 const errorPassword = document.querySelector("#error-message-password");
 
-passwordInput.addEventListener("focusout", function () {
-  const password = passwordInput.value;
+passwordInput.addEventListener("focusout", function (event) {
+  const password = event.target.value;
 
   if (password === "") {
     errorPassword.innerHTML = "비밀번호를 입력하세요.";
