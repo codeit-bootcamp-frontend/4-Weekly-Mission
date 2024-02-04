@@ -4,6 +4,7 @@ import {
   isEmailValid,
   togglePassword,
   TEST_USER,
+  signIn,
 } from './utils.js';
 
 const emailInput = document.querySelector('#email');
@@ -55,6 +56,7 @@ passwordToggleButton.addEventListener('click', () =>
 
 const signForm = document.querySelector('#form');
 signForm.addEventListener('submit', submitForm);
+
 function submitForm(event) {
   event.preventDefault();
 
@@ -63,7 +65,7 @@ function submitForm(event) {
     passwordInput.value === TEST_USER.password;
 
   if (isTestUser) {
-    location.href = '/folder';
+    location.href = '/folder.html';
     return;
   }
   setInputError(
@@ -74,29 +76,11 @@ function submitForm(event) {
     { input: passwordInput, errorMessage: passwordErrorMessage },
     '비밀번호를 확인해주세요.'
   );
+
+  const requestData = {
+    email: 'test@codeit.com',
+    password: 'sprint101',
+  };
+
+  signIn(requestData);
 }
-
-const requestData = {
-  email: 'test@codeit.com',
-  password: 'sprint101',
-};
-
-fetch('/api/sign-in', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(requestData),
-})
-  .then((response) => {
-    if (response.ok) {
-      // 요청이 성공하면 '/folder'로 이동
-      window.location.href = '/folder';
-    } else {
-      // 요청이 실패하면 에러 처리
-      console.error('Failed to sign in:', response.statusText);
-    }
-  })
-  .catch((error) => {
-    console.error('Error during sign-in:', error);
-  });
