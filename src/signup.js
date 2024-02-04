@@ -9,7 +9,7 @@ import {
 
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
-emailInput.addEventListener("focusout", (event) => validateEmailInput(event.target.value));
+
 function validateEmailInput(email) {
   if (email === "") {
     setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 입력해주세요.");
@@ -33,9 +33,10 @@ function validateEmailInput(email) {
   return true;
 }
 
+emailInput.addEventListener("focusout", (event) => validateEmailInput(event.target.value));
+
 const passwordInput = document.querySelector("#password");
 const passwordErrorMessage = document.querySelector("#password-error-message");
-passwordInput.addEventListener("focusout", (event) => validatePasswordInput(event.target.value));
 
 function validatePasswordInput(password) {
   if (password === "" || !isPasswordValid(password)) {
@@ -49,11 +50,11 @@ function validatePasswordInput(password) {
   return true;
 }
 
+passwordInput.addEventListener("focusout", (event) => validatePasswordInput(event.target.value));
+
 const confirmPasswordInput = document.querySelector("#confirm-password");
 const confirmPasswordErrorMessage = document.querySelector("#confirm-password-error-message");
-confirmPasswordInput.addEventListener("focusout", (event) =>
-  validateConfirmPasswordInput(event.target.value)
-);
+
 function validateConfirmPasswordInput(confirmPassword) {
   if (confirmPassword === "" || !isPasswordValid(confirmPassword)) {
     setInputError(
@@ -73,6 +74,11 @@ function validateConfirmPasswordInput(confirmPassword) {
   return true;
 }
 
+confirmPasswordInput.addEventListener("focusout", (event) =>
+  validateConfirmPasswordInput(event.target.value)
+);
+
+
 const passwordToggleButton = document.querySelector("#password-toggle");
 passwordToggleButton.addEventListener("click", () =>
   togglePassword(passwordInput, passwordToggleButton)
@@ -84,7 +90,7 @@ confirmPasswordToggleButton.addEventListener("click", () =>
 );
 
 const signForm = document.querySelector("#form");
-signForm.addEventListener("submit", submitForm);
+
 function submitForm(event) {
   event.preventDefault();
 
@@ -96,3 +102,5 @@ function submitForm(event) {
     location.href = "./folder.html";
   }
 }
+
+signForm.addEventListener("submit", submitForm);

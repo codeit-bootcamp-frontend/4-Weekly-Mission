@@ -8,7 +8,7 @@ import {
 
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
-emailInput.addEventListener("focusout", (event) => validateEmailInput(event.target.value));
+
 function validateEmailInput(email) {
   if (email === "") {
     setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 입력해주세요.");
@@ -24,9 +24,12 @@ function validateEmailInput(email) {
   removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
 }
 
+emailInput.addEventListener("focusout", (event) => validateEmailInput(event.target.value));
+
+
 const passwordInput = document.querySelector("#password");
 const passwordErrorMessage = document.querySelector("#password-error-message");
-passwordInput.addEventListener("focusout", (event) => validatePasswordInput(event.target.value));
+
 function validatePasswordInput(password) {
   if (password === "") {
     setInputError(
@@ -38,13 +41,17 @@ function validatePasswordInput(password) {
   removeInputError({ input: passwordInput, errorMessage: passwordErrorMessage });
 }
 
+passwordInput.addEventListener("focusout", (event) => validatePasswordInput(event.target.value));
+
+
 const passwordToggleButton = document.querySelector("#password-toggle");
+
 passwordToggleButton.addEventListener("click", () =>
   togglePassword(passwordInput, passwordToggleButton)
 );
 
 const signForm = document.querySelector("#form");
-signForm.addEventListener("submit", submitForm);
+
 function submitForm(event) {
   event.preventDefault();
 
@@ -72,3 +79,5 @@ function submitForm(event) {
     "비밀번호를 확인해주세요."
   );
 }
+
+signForm.addEventListener("submit", submitForm);
