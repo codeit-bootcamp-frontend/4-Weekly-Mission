@@ -15,6 +15,11 @@ export const VALIDATION_MESSAGES = {
         empty: "비밀번호를 입력해 주세요.",
         weak: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
         mismatch: "비밀번호가 다릅니다."
+    },
+    network: {
+        signinError: "로그인 처리 중 문제가 발생했습니다. 나중에 다시 시도해주세요.",
+        signupError: "회원가입 처리 중 문제가 발생했습니다. 나중에 다시 시도해주세요.",
+        emailCheckError: "이메일 중복확인 처리 중 문제가 발생했습니다. 나중에 다시 시도해주세요."
     }
 };
 
