@@ -33,10 +33,30 @@ $emailInput.addEventListener('blur', (e) => {
     return;
   }
 
-  if ($emailInput.value === TEST_CODE.EMAIL) {
-    setEmailErrorStyle(MESSAGE.ERROR.ALREADY_IN_USE_EMAIL);
-  }
+  checkEmail($emailInput.value);
 });
+
+const checkEmail = async (inputEmail) => {
+  const bodyData = {
+    email: inputEmail,
+  };
+  try {
+    const response = await fetch(
+      'https://bootcamp-api.codeit.kr/api/check-email',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bodyData),
+      }
+    );
+    if (response.status === 409) {
+      setEmailErrorStyle(MESSAGE.ERROR.ALREADY_IN_USE_EMAIL);
+      return;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 $passwordInput.addEventListener('blur', (e) => {
   const { value } = e.target;
@@ -123,5 +143,31 @@ $joinButton.addEventListener('click', () => {
     return;
   }
 
-  location.href = './folder.html';
+  signup($emailInput.value, $passwordInput.value);
 });
+
+const signup = async (email, password) => {
+  console.log(`email = ${email} // password = ${password}`);
+  const bodyData = {
+    email,
+    password,
+  };
+  try {
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(bodyData),
+    });
+
+    const result = JSON.parse(await response.text());
+
+    if (response.status === 200) {
+      localStorage.setItem('accessToken', result.data.accessToken);
+      location.href = './folder.html';
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
