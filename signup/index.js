@@ -1,73 +1,18 @@
-import {
-  Error,
-  errorBorder,
-} from "../src/element.js";
-import { 
-  staticName,
-  errorMessage,
-} from "../src/static.js";
+import { errorElement } from "../src/element.js";
+import { staticName, errorMessage } from "../src/static.js";
 import {
   handleFocusIn,
   handleFocusOutForEmail,
   handleFocusOutForPassword,
   togglePassword,
   hasTokenInStorage
-} from "../src/eventHandler.js";
-import { requestAleadyUse, requestSignup } from "../src/api/request.js";
+} from "../src/eventHandler.js"; // 공통 핸들러 호출
+import { 
+  requestAleadyUse, 
+  requestSignup 
+} from "../src/api/request.js";
 
-const error = new Error(true);
-
-const email = document.querySelector(staticName.elementSeletor.email);
-const password = document.querySelector(staticName.elementSeletor.password);
-const passwordConfirm = document.querySelector(staticName.elementSeletor.passwordConfirm);
-const loginButton = document.querySelector(staticName.buttonSelector.signup);
-const passwordIcon = document.querySelector(staticName.iconSelector.password);
-const passwordConfimIcon = document.querySelector(staticName.iconSelector.passwordConfirm);
-
-function noInputFocusOut(element, parentElementSelectorName, inputSelectorName, errorSentence) {
-  if (element.value === "") {
-    error.createErrorSpanElement(parentElementSelectorName);
-    errorBorder(inputSelectorName)
-    error.errorMessageInElement(parentElementSelectorName, errorSentence);
-  }
-}
-
-function notValidEmailInput() {
-  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (email.value === "") {
-    return;
-  }
-  
-  if (emailRegex.test(email.value)) {
-    return
-  } else {
-    error.createErrorSpanElement(staticName.parentElementSeletor.email);
-    errorBorder(staticName.elementSeletor.email);
-    error.errorMessageInElement(staticName.parentElementSeletor.email, errorMessage.notCorrectFormat.email);
-  }
-}
-
-function pressEnterForFolderPage(e) {
-  if (e.key === "Enter") {
-    signupCheck();
-  }
-}
-
-function notPasswordFormat() {
-  const passwordFormat = password.value;
-
-  if (passwordFormat === "") {
-    return;
-  }
-
-  if (passwordFormat.length < 8 || /^[a-zA-Z]+$/.test(passwordFormat) || /^[0-9]+$/.test(passwordFormat)) {
-    error.createErrorSpanElement(staticName.parentElementSeletor.password);
-    errorBorder(staticName.elementSeletor.password);
-    error.errorMessageInElement(staticName.parentElementSeletor.password, errorMessage.notCorrectFormat.password);
-  }
-}
-
+// 체인지 이벤트 : 이메일 중복을 검증한다.
 async function aleadyUse(emailElement) {
   const isAleadyUse = await requestAleadyUse(emailElement);
   if (isAleadyUse === true) {
@@ -76,42 +21,61 @@ async function aleadyUse(emailElement) {
 }
 
 function loginDuplication() {
-  error.removeErrorElement(staticName.parentElementSeletor.email);
+  errorElement.removeErrorElement(staticName.parentElementSeletor.email);
+  errorElement.removeErrorBorder(staticName.elementSeletor.email);
 
-  error.createErrorSpanElement(staticName.parentElementSeletor.email);
-  errorBorder(staticName.elementSeletor.email);
-  error.errorMessageInElement(staticName.parentElementSeletor.email, errorMessage.aleadyUseEmail);
+  errorElement.createErrorSpanElement(staticName.parentElementSeletor.email);
+  errorElement.errorBorder(staticName.elementSeletor.email);
+  errorElement.errorMessageInElement(staticName.parentElementSeletor.email, errorMessage.aleadyUseEmail);
 }
 
-function passwordIsNotEqual() {
-  error.removeErrorElement(staticName.parentElementSeletor.passwordConfirm);
+// 체인지 이벤트 : 비밀 번호와 비밀 번호 확인이 같은지 검증한다.
+function passwordIsNotEqual(passwordElement, passwordConfirmElement) {
+  errorElement.removeErrorElement(staticName.parentElementSeletor.passwordConfirm);
+  errorElement.removeErrorBorder(staticName.elementSeletor.passwordConfirm);
 
-  if (password.value !== passwordConfirm.value) {
-    error.createErrorSpanElement(staticName.parentElementSeletor.passwordConfirm);
-    errorBorder(staticName.elementSeletor.passwordConfirm);
-    error.errorMessageInElement(staticName.parentElementSeletor.passwordConfirm, errorMessage.passwordIsNotEqual);
+  if (passwordElement.value !== passwordConfirmElement.value) {
+    errorElement.createErrorSpanElement(staticName.parentElementSeletor.passwordConfirm);
+    errorElement.errorBorder(staticName.elementSeletor.passwordConfirm);
+    errorElement.errorMessageInElement(staticName.parentElementSeletor.passwordConfirm, errorMessage.passwordIsNotEqual);
   }
 }
 
-async function signupCheck() {
-  noInputFocusOut(
-    staticName.parentElementSeletor.email, 
-    staticName.elementSeletor.email, 
-    errorMessage.isEmpty.email
-  );
-  noInputFocusOut(
-    staticName.parentElementSeletor.password, 
+// 키보드 이벤트 : 엔터를 누르면, 회원가입을 시도한다.
+function pressEnterForsignup(e, emailElement, passwordElement, passwordConfirmElement) {
+  if (e.key === "Enter") {
+    signupCheck(emailElement, passwordElement, passwordConfirmElement);
+  }
+}
+
+// 클릭 이벤트: 회원가입을 시도한다.
+async function signupCheck(emailElement, passwordElement, passwordConfirmElement) {
+  handleFocusOutForEmail(
+    email,
+    staticName.elementSeletor.email,
+    staticName.parentElementSeletor.email,
+    errorMessage.isEmpty.email,
+    errorMessage.notCorrectFormat.email
+  )
+  handleFocusOutForPassword(
+    password,
     staticName.elementSeletor.password, 
-    errorMessage.isEmpty.password
-  );
-  notPasswordFormat();
-  notValidEmailInput();
-  passwordIsNotEqual();
+    staticName.parentElementSeletor.password, 
+    errorMessage.isEmpty.password,
+    errorMessage.notCorrectFormat.password
+  )
+  passwordIsNotEqual(passwordElement, passwordConfirmElement);
 
-  if (error.state === true) {
-    await requestSignup();
-  }
+  await requestSignup(emailElement, passwordElement);
 }
+
+// 선언을 아래에서 한다: 전역 객체를 함수에서 접근하지 않는다.
+const email = document.querySelector(staticName.elementSeletor.email);
+const password = document.querySelector(staticName.elementSeletor.password);
+const passwordConfirm = document.querySelector(staticName.elementSeletor.passwordConfirm);
+const passwordIcon = document.querySelector(staticName.iconSelector.password);
+const passwordConfimIcon = document.querySelector(staticName.iconSelector.passwordConfirm);
+const loginButton = document.querySelector(staticName.buttonSelector.signup);
 
 email.addEventListener("focusout", () => handleFocusOutForEmail(
   email,
@@ -128,7 +92,6 @@ password.addEventListener("focusout", () => handleFocusOutForPassword(
   errorMessage.notCorrectFormat.password
 ));
 email.addEventListener("change", () => aleadyUse(email));
-//password.addEventListener("focusout", notPasswordFormat);
 email.addEventListener("focusin", () => handleFocusIn(
   staticName.parentElementSeletor.email,
   staticName.elementSeletor.email,
@@ -141,9 +104,9 @@ passwordConfirm.addEventListener("focusin", () => handleFocusIn(
   staticName.parentElementSeletor.passwordConfirm, 
   staticName.elementSeletor.passwordConfirm,
 ));
-passwordConfirm.addEventListener("change", passwordIsNotEqual);
-loginButton.addEventListener("click", signupCheck);
-passwordConfirm.addEventListener("keydown", pressEnterForFolderPage);
+passwordConfirm.addEventListener("change", () => passwordIsNotEqual(password, passwordConfirm));
+passwordConfirm.addEventListener("keydown", () => pressEnterForsignup(email, password, passwordConfirm));
+loginButton.addEventListener("click", () => signupCheck(email, password, passwordConfirm));
 passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
 passwordConfimIcon.addEventListener("click", () => togglePassword(passwordConfirm, passwordConfimIcon));
 document.addEventListener('DOMContentLoaded', hasTokenInStorage);

@@ -1,20 +1,17 @@
 import { urls } from "./url.js";
-import { superUser } from "../static.js";
 
 // 로그인 요청
-export async function requestLogin() {
-  const response = await postRequest(urls.signin, superUser);
+export async function requestLogin(emailElement, passwordElement) {
+  const objectForJSON =  makeObjectForJSON(emailElement, passwordElement);
+
+  const response = await postRequest(urls.signin, objectForJSON);
   const signinSuccess = await responseSign(response);
   await saveAccessToken(signinSuccess);
 }
 
 //회원 가입 요청
-export async function requestSignup() {
-  const objectForJSON = {};
-  const requestEmail = email.value;
-  const requestpassword = password.value;
-  objectForJSON.email = requestEmail;
-  objectForJSON.password = requestpassword;
+export async function requestSignup(emailElement, passwordElement) {
+  const objectForJSON =  makeObjectForJSON(emailElement, passwordElement);
 
   const response = await postRequest(urls.signup, objectForJSON);
   const signupSuccess = await responseSign(response);
@@ -23,13 +20,25 @@ export async function requestSignup() {
 
 // 중복 요청
 export async function requestAleadyUse(emailElement) {
-  const objectForJSON = {};
-  const validateAleadyUse = emailElement.value;
-  objectForJSON.email = validateAleadyUse;
+  const objectForJSON =  makeObjectForJSON(emailElement, null);
 
   const response = await postRequest(urls.aleadyUse, objectForJSON);
   const isAleadyUse = await responseAleadyUse(response);
   return isAleadyUse;
+}
+
+function makeObjectForJSON(emailElement, passwordElement) {
+  const objectForJSON = {};
+  const requestEmail = emailElement.value;
+  objectForJSON.email = requestEmail;
+
+  if(!passwordElement) { // 이메일만 있을 경우, 이메일 객체만 담고 넘긴다.
+    return objectForJSON;
+  }
+
+  const requestpassword = passwordElement.value;
+  objectForJSON.password = requestpassword;
+  return objectForJSON;
 }
 
 async function postRequest(url, objectForBody) {
@@ -53,7 +62,6 @@ async function responseSign(response) {
 
 async function responseAleadyUse(response) {
   if (response.status === 409) {
-    //loginDuplication();
     return true;
   }
   return false;

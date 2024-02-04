@@ -1,54 +1,50 @@
-import {
-  Error,
-  errorBorder,
-} from "../src/element.js";
-import { 
-  staticName,
-  errorMessage,
-  superUser
-} from "../src/static.js";
+import { errorElement } from "../src/element.js";
+import { staticName, errorMessage } from "../src/static.js";
 import {
   handleFocusIn,
   handleFocusOutForEmail,
   notInput,
   togglePassword,
   hasTokenInStorage
-} from "../src/eventHandler.js";
+} from "../src/eventHandler.js"; // 공통 핸들러 호출
 import { requestLogin } from "../src/api/request.js";
 
-const error = new Error(true);
+// 키보드 이벤트 : 엔터를 누르면, 로그인을 시도한다.
+function pressEnterForsignin(e, emailElement, passwordElement) {
+  if (e.key === "Enter") {
+    signinCheck(emailElement, passwordElement);
+  }
+}
 
+// 클릭 이벤트: 로그인을 시도한다.
+async function signinCheck(emailElement, passwordElement) {
+  try {
+    await requestLogin(emailElement, passwordElement);
+    window.location.replace("../folder");
+  } catch {
+    loginFail();
+  }
+}
+
+function loginFail() {
+  errorElement.removeErrorElement(staticName.parentElementSeletor.email);
+  errorElement.removeErrorBorder(staticName.elementSeletor.email);
+  errorElement.createErrorSpanElement(staticName.parentElementSeletor.email);
+  errorElement.errorBorder(staticName.elementSeletor.email);
+  errorElement.errorMessageInElement(staticName.parentElementSeletor.email, errorMessage.loginFail.email);
+
+  errorElement.removeErrorElement(staticName.parentElementSeletor.password);
+  errorElement.removeErrorBorder(staticName.elementSeletor.password);
+  errorElement.createErrorSpanElement(staticName.parentElementSeletor.password);
+  errorElement.errorBorder(staticName.elementSeletor.password);
+  errorElement.errorMessageInElement(staticName.parentElementSeletor.password, errorMessage.loginFail.password);
+}
+
+// 선언을 아래에서 한다: 전역 객체를 함수에서 접근하지 않는다.
 const email = document.querySelector(staticName.elementSeletor.email);
 const password = document.querySelector(staticName.elementSeletor.password);
 const loginButton = document.querySelector(staticName.buttonSelector.signin);
 const passwordIcon = document.querySelector(staticName.iconSelector.password);
-
-function pressEnterForFolderPage(e) {
-  if (e.key === "Enter") {
-    routefolderPage();
-  }
-}
-
-async function routefolderPage() {
-  if (email.value === superUser.email && password.value === superUser.password) {
-    await requestLogin();
-    window.location.replace("../folder");
-  } else {
-    loginFail();
-  } 
-}
-
-function loginFail() {
-  error.removeErrorElement(staticName.parentElementSeletor.email);
-  error.createErrorSpanElement(staticName.parentElementSeletor.email);
-  errorBorder(staticName.elementSeletor.email);
-  error.errorMessageInElement(staticName.parentElementSeletor.email, errorMessage.loginFail.email);
-
-  error.removeErrorElement(staticName.parentElementSeletor.password);
-  error.createErrorSpanElement(staticName.parentElementSeletor.password);
-  errorBorder(staticName.elementSeletor.password);
-  error.errorMessageInElement(staticName.parentElementSeletor.password, errorMessage.loginFail.password);
-}
 
 email.addEventListener("focusout", () => handleFocusOutForEmail(
   email,
@@ -65,7 +61,7 @@ password.addEventListener("focusout", () => notInput(
 ));
 email.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.email));
 password.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.password));
-loginButton.addEventListener("click", routefolderPage);
-password.addEventListener("keydown", pressEnterForFolderPage);
+loginButton.addEventListener("click", () => signinCheck(email, password));
+password.addEventListener("keydown", () => pressEnterForsignin(email, password));
 passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
 document.addEventListener('DOMContentLoaded', hasTokenInStorage);
