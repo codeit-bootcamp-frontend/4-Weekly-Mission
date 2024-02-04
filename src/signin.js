@@ -1,6 +1,6 @@
 
 const TEST_EMAIL = "test@codeit.com";
-const TEST_PWD = "codeit101";
+const TEST_PWD = "sprint101";
 
 const signinEmail = document.getElementById("email");
 const errEmail = document.getElementById("emailErrorMessage");
