@@ -1,82 +1,104 @@
-import { $, SIGN_INFO_REGEX } from './common.js';
+import { $ } from './utils/dom.js';
+import { REGEX } from './constants/regex.js';
+import { KEY } from './constants/key.js';
+import { MESSAGE } from './constants/message.js';
+import { POST_API } from './constants/apiRequest.js';
+import { API_URL } from './constants/apiUrls.js';
+
 import {
   setEmailErrorStyle,
   resetEmailStyle,
   setPasswordErrorStyle,
   resetPasswordStyle,
-  styleLoginError,
-} from './signErrorStyle.js';
-import { hidePassword, showPassword } from './passwordShowStyle.js';
+  resetStyleLoginError,
+} from './view/error.js';
+import { displayPassword } from './view/signin/index.js';
 
-const $jsEmailInput = $('.js-email-input');
-const $jsPasswordInput = $('.js-password-input');
+const getAccessToken = localStorage.getItem('accessToken');
+if (getAccessToken) {
+  location.href = './folder.html';
+}
 
-$jsEmailInput.addEventListener('blur', (e) => {
+const $emailInput = $('.js-email-input');
+const $passwordInput = $('.js-password-input');
+
+$emailInput.addEventListener('blur', (e) => {
+  const { value } = e.target;
   resetEmailStyle();
 
-  if (e.target.value === '') {
-    setEmailErrorStyle('이메일을 입력해주세요.');
+  if (value === '') {
+    setEmailErrorStyle(MESSAGE.ERROR.EMPTY_EMAIL);
     return;
   }
 
-  if (!SIGN_INFO_REGEX.email.test(e.target.value)) {
-    setEmailErrorStyle('올바른 이메일 주소가 아닙니다.');
-    return;
+  if (!REGEX.EMAIL.test(value)) {
+    setEmailErrorStyle(MESSAGE.ERROR.REGEX_EMAIL);
   }
 });
 
-$jsPasswordInput.addEventListener('blur', (e) => {
+$passwordInput.addEventListener('blur', (e) => {
+  const { value } = e.target;
   resetPasswordStyle();
 
-  if (e.target.value === '') {
-    setPasswordErrorStyle('비밀번호를 입력해주세요.');
+  if (value === '') {
+    setPasswordErrorStyle(MESSAGE.ERROR.EMPTY_PASSWORD);
     return;
   }
 
-  if (!SIGN_INFO_REGEX.password.test(e.target.value)) {
-    setPasswordErrorStyle('비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.');
+  if (!REGEX.PASSWORD.test(value)) {
+    setPasswordErrorStyle(MESSAGE.ERROR.REGEX_PASSWORD);
   }
 });
 
-const ENTER_KEY = 'Enter';
-
-$jsEmailInput.addEventListener('keydown', (e) => {
-  e.key === ENTER_KEY && $jsPasswordInput.focus();
+$emailInput.addEventListener('keydown', (e) => {
+  if (e.key === KEY.ENTER) {
+    $passwordInput.focus();
+  }
 });
 
-$jsPasswordInput.addEventListener('keydown', (e) => {
-  const ENTER_KEY = 'Enter';
-  e.key === ENTER_KEY && $loginButton.click();
+$passwordInput.addEventListener('keydown', (e) => {
+  if (e.key === KEY.ENTER) {
+    $loginButton.click();
+  }
 });
 
 const $btnPasswordIcon = $('.btn-password-icon');
+const $eyeOpenIcon = $('.eye-open-icon');
+const $eyeCloseIcon = $('.eye-close-icon');
 
 $btnPasswordIcon.addEventListener('click', () => {
-  if ($jsPasswordInput.type === 'text') {
-    hidePassword($jsPasswordInput);
-    return;
-  }
-  if ($jsPasswordInput.type === 'password') {
-    showPassword($jsPasswordInput);
-  }
+  displayPassword(
+    $passwordInput.type,
+    $passwordInput,
+    $eyeOpenIcon,
+    $eyeCloseIcon
+  );
 });
 
 const $loginButton = $('.js-btn-login');
-const TEST_EMAIL_ADDRESS = 'test@codeit.com';
 
 $loginButton.addEventListener('click', () => {
   resetEmailStyle();
   resetPasswordStyle();
 
-  const TEST_PASSWORD = 'codeit101';
-
-  if (
-    $jsEmailInput.value !== TEST_EMAIL_ADDRESS ||
-    $jsPasswordInput.value !== TEST_PASSWORD
-  ) {
-    styleLoginError('check');
-    return;
-  }
-
-  location.href = './folder.html';
+  login($emailInput.value, $passwordInput.value);
 });
+
+const login = async (email, password) => {
+  try {
+    const loginData = {
+      email,
+      password,
+    };
+
+    const response = await POST_API(API_URL.AUTH.SIGN_IN, loginData);
+    const result = JSON.parse(await response.text());
+
+    if (response.status === 200) {
+      localStorage.setItem('accessToken', result.data.accessToken);
+      location.href = './folder.html';
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};

@@ -78,10 +78,17 @@ body {
   border: 1px solid var(--primary);
 }
 
+.border-red {
+  border: 1px solid var(--red);
+}
+
+.display-hidden {
+  display: none;
+}
+
 .error-txt {
   color: red;
   margin: 2px;
-  display: none;
 }
 
 .password {
@@ -102,10 +109,6 @@ body {
   padding: 0;
   position: absolute;
   background-color: white;
-}
-
-.icon-eye-close {
-  display: none;
 }
 
 .btn-password-icon-imgs {

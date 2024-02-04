@@ -1,4 +1,10 @@
-import { $, SIGN_INFO_REGEX } from './common.js';
+import { $ } from './utils/dom.js';
+import { REGEX } from './constants/regex.js';
+import { KEY } from './constants/key.js';
+import { MESSAGE } from './constants/message.js';
+import { POST_API } from './constants/apiRequest.js';
+import { API_URL } from './constants/apiUrls.js';
+
 import {
   setEmailErrorStyle,
   resetEmailStyle,
@@ -6,110 +12,156 @@ import {
   resetPasswordStyle,
   setPasswordCheckErrorStyle,
   resetPasswordCheckStyle,
-} from './signErrorStyle.js';
-import { hidePassword, showPassword } from './passwordShowStyle.js';
+} from './view/error.js';
+import { displayPassword } from './view/signin/index.js';
 
-const $jsEmailInput = $('.js-email-input');
-const $jsPasswordInput = $('.js-password-input');
-const $jsPasswordCheckInput = $('.js-password-check-input');
+const getAccessToken = localStorage.getItem('accessToken');
+if (getAccessToken) {
+  location.href = './folder.html';
+}
 
-$jsEmailInput.addEventListener('blur', (e) => {
+const $emailInput = $('.js-email-input');
+const $passwordInput = $('.js-password-input');
+const $passwordConfirmInput = $('.js-password-confirm-input');
+
+$emailInput.addEventListener('blur', (e) => {
+  const { value } = e.target;
+
   resetEmailStyle();
 
-  if (e.target.value === '') {
-    setEmailErrorStyle('이메일을 입력해주세요.');
+  if (value === '') {
+    setEmailErrorStyle(MESSAGE.ERROR.EMPTY_EMAIL);
     return;
   }
 
-  if (!SIGN_INFO_REGEX.email.test(e.target.value)) {
-    setEmailErrorStyle('올바른 이메일 주소가 아닙니다.');
+  if (!REGEX.EMAIL.test(value)) {
+    setEmailErrorStyle(MESSAGE.ERROR.REGEX_EMAIL);
     return;
   }
 
-  if ($jsEmailInput.value === TEST_EMAIL_ADDRESS) {
-    setEmailErrorStyle('이미 사용 중인 이메일입니다.');
-  }
+  checkEmail($emailInput.value);
 });
 
-$jsPasswordInput.addEventListener('blur', (e) => {
+const checkEmail = async (inputEmail) => {
+  const bodyData = {
+    email: inputEmail,
+  };
+  try {
+    const response = await POST_API(API_URL.USER.CHECK_EMAIL, bodyData);
+
+    if (response.status === 409) {
+      setEmailErrorStyle(MESSAGE.ERROR.ALREADY_IN_USE_EMAIL);
+      return;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+$passwordInput.addEventListener('blur', (e) => {
+  const { value } = e.target;
   resetPasswordStyle();
 
-  if (e.target.value === '') {
-    setPasswordErrorStyle('비밀번호를 입력해주세요.');
+  if (value === '') {
+    setPasswordErrorStyle(MESSAGE.ERROR.EMPTY_PASSWORD);
     return;
   }
 
-  if (!SIGN_INFO_REGEX.password.test(e.target.value)) {
-    setPasswordErrorStyle('비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.');
+  if (!REGEX.PASSWORD.test(value)) {
+    setPasswordErrorStyle(MESSAGE.ERROR.REGEX_PASSWORD);
   }
 });
 
-$jsPasswordCheckInput.addEventListener('blur', (e) => {
+$passwordConfirmInput.addEventListener('blur', (e) => {
   resetPasswordCheckStyle();
 
   if (e.target.value === '') {
-    setPasswordCheckErrorStyle('비밀번호를 입력해주세요.');
+    setPasswordCheckErrorStyle(MESSAGE.ERROR.EMPTY_PASSWORD);
     return;
   }
 
-  if ($jsPasswordInput.value !== e.target.value) {
-    setPasswordCheckErrorStyle('비밀번호가 일치하지 않아요.');
+  if ($passwordInput.value !== e.target.value) {
+    setPasswordCheckErrorStyle(MESSAGE.ERROR.MISMATCH_PASSWORD);
   }
 });
 
 const $joinButton = $('.js-btn-join');
-const TEST_EMAIL_ADDRESS = 'test@codeit.com';
 
-const ENTER_KEY = 'Enter';
-$jsEmailInput.addEventListener('keydown', (e) => {
-  e.key === ENTER_KEY && $jsPasswordInput.focus();
+$emailInput.addEventListener('keydown', (e) => {
+  if (e.key === KEY.ENTER) {
+    $passwordInput.focus();
+  }
 });
 
-$jsPasswordInput.addEventListener('keydown', (e) => {
-  e.key === ENTER_KEY && $jsPasswordCheckInput.focus();
+$passwordInput.addEventListener('keydown', (e) => {
+  if (e.key === KEY.ENTER) {
+    $passwordConfirmInput.focus();
+  }
 });
 
-$jsPasswordCheckInput.addEventListener('keydown', (e) => {
-  e.key === ENTER_KEY && $joinButton.click();
+$passwordConfirmInput.addEventListener('keydown', (e) => {
+  if (e.key === KEY.ENTER) {
+    $joinButton.click();
+  }
 });
 
 const $btnPasswordIcon = $('.btn-password-icon');
+const $eyeOpenIcon = $('.eye-open-icon');
+const $eyeCloseIcon = $('.eye-close-icon');
 
 $btnPasswordIcon.addEventListener('click', () => {
-  if ($jsPasswordInput.type === 'text') {
-    hidePassword($jsPasswordInput);
-    return;
-  }
-  if ($jsPasswordInput.type === 'password') {
-    showPassword($jsPasswordInput);
-  }
+  displayPassword(
+    $passwordInput.type,
+    $passwordInput,
+    $eyeOpenIcon,
+    $eyeCloseIcon
+  );
 });
 
-const $btnPasswordCheckIcon = $('.btn-password-check-icon');
+const $btnPasswordConfirmIcon = $('.btn-password-confirm-icon');
 
-$btnPasswordCheckIcon.addEventListener('click', () => {
-  if ($jsPasswordCheckInput.type === 'text') {
-    hidePassword($jsPasswordCheckInput);
-    return;
-  }
-  if ($jsPasswordCheckInput.type === 'password') {
-    showPassword($jsPasswordCheckInput);
-  }
+$btnPasswordConfirmIcon.addEventListener('click', () => {
+  displayPassword(
+    $passwordConfirmInput.type,
+    $passwordConfirmInput,
+    $eyeOpenIcon,
+    $eyeCloseIcon
+  );
 });
 
 $joinButton.addEventListener('click', () => {
+  //클래스형태로 수정하기
   const errorStyle = '1px solid var(--red)';
-  const emailStyle = $jsEmailInput.style.border;
-  const passwordStyle = $jsPasswordInput.style.border;
-  const passwordCheckStyle = $jsPasswordCheckInput.style.border;
+  const emailStyle = $emailInput.style.border;
+  const passwordStyle = $passwordInput.style.border;
+  const passwordConfirmStyle = $passwordConfirmInput.style.border;
 
   if (
     emailStyle === errorStyle ||
     passwordStyle === errorStyle ||
-    passwordCheckStyle === errorStyle
+    passwordConfirmStyle === errorStyle
   ) {
     return;
   }
 
-  location.href = './folder.html';
+  signup($emailInput.value, $passwordInput.value);
 });
+
+const signup = async (email, password) => {
+  console.log(`email = ${email} // password = ${password}`);
+  const bodyData = {
+    email,
+    password,
+  };
+  try {
+    const response = await POST_API(API_URL.AUTH.SIGN_UP, loginData);
+    const result = JSON.parse(await response.text());
+
+    if (response.status === 200) {
+      localStorage.setItem('accessToken', result.data.accessToken);
+      location.href = './folder.html';
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
