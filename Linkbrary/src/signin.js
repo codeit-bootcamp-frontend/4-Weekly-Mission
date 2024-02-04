@@ -61,9 +61,9 @@ async function submitForm(event) {
     });
 
     if (response.ok) {
+      location.href = "/folder";
       localStorage.setItem('accessToken', result.data.accessToken);
       localStorage.setItem('refreshToken', result.data.refreshToken);
-      location.href = "/folder";
     } else {
       setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
       setInputError(
