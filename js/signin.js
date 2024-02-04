@@ -48,11 +48,21 @@ function validPasswordInput(e) {
 
 function tryLogin(e) {
   e.preventDefault();
-  const accountInput = {email: emailInput.value, password: passwordInput.value} ;
-  const checkAccountValid = testUserList.find((test) => test.email === accountInput.email && test.password === accountInput.password);
+  const emailValue = emailInput.value;
+  const passwordValue = passwordInput.value;
+  const checkEmail = testUserList.find((test) => test.email === emailValue);
+  const checkPassword = testUserList.find((test) => test.password === passwordValue);
 
-  if (checkAccountValid) {
+  if (checkEmail && checkPassword) {
     window.location.href="folder.html"
+    return;
+  }
+  if (!checkEmail && checkPassword) {
+    addError(emailInput, emailError, errorMessage.CHECK_EMAIL);
+    return;
+  }
+  if (checkEmail && !checkPassword) {
+    addError(passwordInput, passwordError, errorMessage.CHECK_PW);
     return;
   }
   addError(emailInput, emailError, errorMessage.CHECK_EMAIL);
