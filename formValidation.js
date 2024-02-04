@@ -9,7 +9,7 @@ const $errorMessageList = [...document.querySelectorAll(".errorMessage")];
 //validator
 const formValidator = {
   validationMap: {
-    email: ["requireEmail", "mustBeEmailFormation", "alreadyUsed"],
+    email: ["requireEmail", "mustBeEmailFormation"],
     password: ["requirePassword", "mustBePasswordFormation"],
     passwordconfirm: ["wrongPassword"],
   },
@@ -25,11 +25,6 @@ const formValidator = {
       validate: (value) =>
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value),
       message: "올바른 이메일 주소가 아닙니다",
-    },
-
-    alreadyUsed: {
-      validate: (value) => !mockUp.rightEmail(value),
-      message: "이미 사용 중인 이메일입니다.",
     },
 
     mustBePasswordFormation: {

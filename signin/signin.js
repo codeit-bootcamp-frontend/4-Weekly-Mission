@@ -1,8 +1,4 @@
-import {
-  mockUp,
-  errorMessageStatus,
-  formValidator,
-} from "../formValidation.js";
+import { errorMessageStatus, formValidator } from "../formValidation.js";
 
 //Dom
 const $form = document.querySelector(".sign-form");
@@ -23,39 +19,43 @@ $inputList.forEach(($input) =>
   })
 );
 
-//주어진 아이디, 비번 아니면 로그인 불가
-$form.addEventListener("submit", function (e) {
+//signin post 전송
+$form.addEventListener("submit", async function (e) {
   e.preventDefault();
-  postData();
-
-  if (
-    mockUp.rightEmail($inputList[0].value) &&
-    mockUp.rightPassword($inputList[1].value)
-  ) {
+  const success = await postData();
+  if (success) {
     $form.submit();
   }
 });
-
-//login logic
 
 const postData = async () => {
   try {
     let emailInput = $inputList[0].value;
     let passwordInput = $inputList[1].value;
 
+    console.log(emailInput);
+
+    const data = JSON.stringify({
+      email: emailInput,
+      password: passwordInput,
+    });
+    console.log(data);
+
     const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
       method: "POST",
-      body: {
-        email: { emailInput },
-        password: { passwordInput },
+      body: data,
+      headers: {
+        "Content-Type": "application/json",
       },
     });
 
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
-    window.location.href = "../forder/forder.js";
+    alert("success");
+    return true;
   } catch (error) {
     alert("로그인에 실패했습니다.");
+    return false;
   }
 };
