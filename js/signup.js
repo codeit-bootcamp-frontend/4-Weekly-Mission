@@ -1,9 +1,10 @@
 import  {vaildEmail, vaildPW, vaildConfirmPW, focusOut} from "./vaild.js" 
-import { userInfo } from "./user-info.js";
+import { API_PATH_SIGNUP, API_PATH_CHECK_EMAIL } from "./api-path.js";
 import { pwInputTypeChange } from "./pw-input-type.js";
-import { regexEamil, regexPassword } from "./regExp.js";
+import { authCheck } from "./auth-check.js";
 
 window.onload = function(){
+    authCheck();
     const emailInput = document.querySelector(".signup--input--email")
     const pwInput = document.querySelector(".signup--input--password");
     const pwConfirmInput = document.querySelector(".signup--input--password--confirm");
@@ -14,24 +15,53 @@ window.onload = function(){
     const pwError = document.querySelector(".signup__password--error");
     const pwConfirmError = document.querySelector(".signup__password--confirm--error");
 
-    // 회원 가입 함수
-    function register(){
-        // 유효성 검사(정규 표현식)
-        if(!regexEamil.test(emailInput.value)){
-            emailError.textContent = "올바른 이메일 주소가 아닙니다.";
-        }
-        else if(!regexPassword.test(pwInput.value) || !regexPassword.test(pwConfirmInput.value)){
-            pwError.textContent = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
-        }
-        // 이메일 중복확인, 패스워드 일치 여부
-        else if(userInfo.email === emailInput.value){
-            emailError.textContent = "이미 사용 중인 이메일입니다.";
-        }
-        else if(pwInput.value !== pwConfirmInput.value){
-            pwConfirmError.textContent = "비밀번호가 일치하지 않아요.";
-            
-        }else{
-            location.href = '/folder.html';
+    // 이메일 중복확인 => 회원가입
+    async function register(){
+        try{
+            await vaildEmail(emailInput, emailError);
+            await vaildPW(pwInput, pwError);
+            await vaildConfirmPW(pwConfirmInput, pwConfirmError);
+            await passwordDiffCheck(pwInput, pwConfirmInput);
+            const eamilCheck = {
+                email: emailInput.value
+            }
+            const response = await fetch(API_PATH_CHECK_EMAIL, {
+                method : "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(eamilCheck)
+            })
+            const result = await response.json();
+            if(response.ok){
+                // 이메일 중복확인 에러 발생하지 않을 시 => 회원가입 로직 실행
+                const userInfo = {
+                    email: emailInput.value,
+                    password: pwInput.value
+                }
+                const response = await fetch(API_PATH_SIGNUP, {
+                    method : "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userInfo)
+                })
+                const result = await response.json();
+                if(response.ok){
+                    // 회원가입 에러 발생하지 않을 시
+                    localStorage.setItem("accessToken", result.data.accessToken);
+                    localStorage.setItem("refreshToken", result.data.refreshToken);
+                    location.href = "./folder.html";
+                }else{
+                    console.error(result.error);
+                }
+            }else{
+                emailError.style.display = "block";
+                emailError.textContent = "이미 사용 중인 이메일입니다.";
+                console.error(result.error);
+            }
+        } catch(error){
+            return alert(error);
         }
     }
 
@@ -39,7 +69,6 @@ window.onload = function(){
         e.preventDefault(); // 페이지 리로드 방지
         register();
     });
-
     // 포커스 아웃 이벤트
     focusOut(emailInput, emailError, vaildEmail);
     focusOut(pwInput, pwError, vaildPW);
@@ -48,5 +77,12 @@ window.onload = function(){
     // 비밀번호 인풋 타입 변경, 아이콘 변경
     pwInputTypeChange(pwEyeIcon, pwInput)
     pwInputTypeChange(pwConfirmEyeIcon, pwConfirmInput)
+
+     const passwordDiffCheck = async (pw, pwConfirm) => {
+        if(pw.value !== pwConfirm.value){
+            pwError.textContent = "비밀번호가 일치하지 않습니다.";
+            throw new Error("비밀번호가 일치하지 않습니다!");
+        }
+    } 
 }
         

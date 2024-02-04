@@ -109,60 +109,38 @@ html{
     background: var(--Linkbrary-bg);
     text-align: center;
 }
-.link__box{
-    width: 50rem;
-    position: relative;
+
+.profile{
+    background-color: var(--Linkbrary-bg);
+    width: 100%;
+    padding: 1.25rem 0 3.75rem;
+}
+
+.profile__user{
     margin: 0 auto;
-    @media screen and (max-width: 1124px) {
-        width: 41.5rem;
-    }
-
-    @media screen and (max-width: 767px) {
-        width: 20.3125rem;
-    }
-}
-.link__inputtext{
-    width: 50rem;
-    padding: 1rem 1.25rem;
-    height: 4.3215rem;
-    border-radius: 0.9375rem;
-    border: 1px solid var(--Linkbrary-primary-color);
-    outline: none;
-    @media screen and (max-width: 1124px) {
-        width: 41.5rem;
-    }
-
-    @media screen and (max-width: 767px) {
-        padding: 0.5rem 0.62rem;
-        width: 20.3125rem;
-    }
+    text-align: center;
+    width: auto;
+    display: flex;
+    flex-direction: column;
 }
 
-.link__inputtext::placeholder{
-    background-image: url("../img/link.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
+.profile__img{
+    width: 3.75rem;
+    height: 3.75rem;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.profile__nickname{
     font-size: 1rem;
+    line-height: 1.5rem; 
+    margin-top: 0.75rem;
 }
 
-.link__add{
-    padding: 0.625rem 1rem;
-    width: 5rem;
-    height: 2.3125rem;
-    font-size: 0.85rem;
+.profile__bookmark{
+    font-size: 2.5rem;
     font-weight: 600;
-    border-radius: 0.5rem;
-    background: var(--gra-purpleblue-to-skyblue);
-    border: none;
-    outline: none;
-    color: var(--Grey-Light, #F5F5F5);
-    position: absolute;
-    right: 1.25rem;
-    top: 1rem;
-    @media screen and (max-width: 767px) {
-        right: 0.62rem;
-        top: 1rem;
-    }
+    margin-top: 1.25rem;
 }
 
 /* 메인 컨텐츠 부분 */
@@ -237,13 +215,6 @@ html{
     }
 }
 
-.content__star{
-    position: absolute;
-    z-index: 999;
-    top: 0.94rem;
-    right: 0.94rem;
-}
-
 .content__img{
     width: 21.25rem;
     height: 15.85913rem;
@@ -260,36 +231,6 @@ html{
     padding: 0.94rem 1.25rem;
     height: auto;
     border-radius: 0rem 0rem 0.9375rem 0.9375rem;
-}
-
-.content__box{
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-}
-
-.kebab__lists{
-    position: absolute;
-    box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.10);
-    right: -3rem;
-    background: #fff;
-    font-size: 0.875rem;
-    z-index: 99;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 0.125rem; 
-    display: none;
-}
-
-.kebab__list{
-    width: 6.25rem;
-    padding: 0.44rem 0.75rem;
-}
-
-.kebab__list:hover{
-    background-color: #E7EFFB;
-    color: #6D6AFE;
 }
 
 .content__timediff{
