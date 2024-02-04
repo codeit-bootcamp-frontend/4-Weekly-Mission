@@ -1,4 +1,4 @@
-import {testUser, emailValidCheck, addError, removeError, passwordToggle} from "./global.js";
+import {testUser, checkEmailValid, addError, removeError, hiddenPasswordToggle} from "./global.js";
 const emailInput = document.querySelector("#email");
 const emailError = document.querySelector(".email-error");
 const passwordInput = document.querySelector("#password");
@@ -13,7 +13,7 @@ function validEmailInput(e) {
     addError(emailInput, emailError, '이메일을 입력해 주세요.');
     return;
   } 
-  if (!emailValidCheck(e.target.value)) {
+  if (!checkEmailValid(e.target.value)) {
     addError(emailInput, emailError, '올바른 이메일 주소가 아닙니다.');
     return;
   }
@@ -48,4 +48,4 @@ passwordInput.addEventListener('focusout', validPasswordInput);
 emailInput.addEventListener('keypress', () => removeError(emailInput, emailError));
 passwordInput.addEventListener('keypress', () => removeError(passwordInput, passwordError));
 confirmBtn.addEventListener('click', tryLogin);
-eyeBtn.addEventListener('click', () => passwordToggle(passwordInput, eyeBtn));
+eyeBtn.addEventListener('click', () => hiddenPasswordToggle(passwordInput, eyeBtn));
