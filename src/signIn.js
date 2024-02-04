@@ -1,6 +1,6 @@
 import { setError, removeError, confirmUserLogin, toggleEye } from "./sign.js";
 import { ERROR_MESSAGE } from "./constant.js";
-import { emailCheck } from "./utils.js";
+import { checkAccessToken, emailCheck } from "./utils.js";
 
 const formElement = document.querySelector(".sign-form");
 const emailElement = document.getElementById("email");
@@ -8,6 +8,19 @@ const passwordElement = document.getElementById("password");
 const emailErrorElement = document.getElementById("emailErrorMessage");
 const passwordErrorElement = document.getElementById("passwordErrorMessage");
 const eyePassword = document.getElementById("eyePassword");
+
+// const redirectPageAuthenticatedUser = ()=>{
+
+// }
+// (function (x, y) {
+// 	console.log(x + y);
+// })(3, 5);
+
+// (() => {
+//   if (checkAccessToken()) {
+//     redirectPage("folder");
+//   }
+// })();
 
 const emailFocusOutHandler = () => {
   if (!emailElement.value) {
@@ -35,7 +48,7 @@ const submitLoginForm = (e) => {
 const eyePasswordHandler = () => {
   toggleEye(passwordElement, eyePassword);
 };
-
+checkAccessToken("folder");
 emailElement.addEventListener("focusout", emailFocusOutHandler);
 passwordElement.addEventListener("focusout", passwordFocusOutHandler);
 

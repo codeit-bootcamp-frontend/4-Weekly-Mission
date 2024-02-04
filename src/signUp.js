@@ -6,9 +6,10 @@ import {
   confirmPassword,
   confirmPasswordCheck,
   registerUser,
+  isDuplicateEmail,
   toggleEye,
 } from "./sign.js";
-import { emailCheck, passwordCheck } from "./utils.js";
+import { emailCheck, passwordCheck, checkAccessToken } from "./utils.js";
 
 const formElement = document.querySelector(".sign-form");
 const emailElement = document.getElementById("email");
@@ -21,15 +22,18 @@ const passwordCheckErrorElement = document.getElementById("passwordCheckErrorMes
 const eyePassword = document.getElementById("eye-password");
 const eyePasswordCheck = document.getElementById("eye-password-check");
 
-const emailFocusOutHandler = () => {
+const emailFocusOutHandler = async () => {
   if (!emailElement.value) {
-    setError(emailElement, emailErrorElement, ERROR_MESSAGE.NO_INPUT_EMAIL); //값이 없으면
+    setError(emailElement, emailErrorElement, ERROR_MESSAGE.NO_INPUT_EMAIL);
   } else if (!emailCheck(emailElement.value)) {
-    setError(emailElement, emailErrorElement, ERROR_MESSAGE.INVALID_EMAIL); //이메일 유효성 체크
-  } else if (emailElement.value === TEST_USER.ID) {
-    setError(emailElement, emailErrorElement, ERROR_MESSAGE.REGISTERED_EMAIL);
+    setError(emailElement, emailErrorElement, ERROR_MESSAGE.INVALID_EMAIL);
   } else {
-    removeError(emailElement, emailErrorElement);
+    const isDuplicate = await isDuplicateEmail(email.value);
+    if (!isDuplicate) {
+      setError(emailElement, emailErrorElement, ERROR_MESSAGE.REGISTERED_EMAIL);
+    } else {
+      removeError(emailElement, emailErrorElement);
+    }
   }
 };
 
@@ -57,14 +61,16 @@ const passwordCheckFocusOutHandler = () => {
   }
 };
 
-const submitRegisterForm = (e) => {
+const submitRegisterForm = async (e) => {
   e.preventDefault();
+  const isDuplicate = await isDuplicateEmail(email.value);
   if (
+    isDuplicate &&
     confirmEmail(emailElement, emailErrorElement) &&
     confirmPassword(passwordElement, passwordErrorElement) &&
     confirmPasswordCheck(passwordElement, passwordCheckElement, passwordCheckErrorElement)
   ) {
-    registerUser();
+    registerUser(emailElement.value, passwordElement.value);
   }
 };
 
@@ -75,6 +81,7 @@ const eyePasswordCheckHandler = () => {
   toggleEye(passwordCheckElement, eyePasswordCheck);
 };
 
+checkAccessToken("folder");
 emailElement.addEventListener("focusout", emailFocusOutHandler);
 passwordElement.addEventListener("focusout", passwordFocusOutHandler);
 passwordCheckElement.addEventListener("focusout", passwordCheckFocusOutHandler);
