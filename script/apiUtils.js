@@ -15,10 +15,10 @@ export const postData = async (endpoint, data) => {
     const response = await postRequest(endpoint, data);
     const responseData = await response.json();
     if(responseData.success) {
-      window.location.href = '../folder.html'
+      window.location.href = '../folder.html';
       return;
     }
-    console.error("Login Failure")
+    console.error("Login Failure");
   }catch (error){
     console.error('Error : Network Connection Failure', error);
   }
@@ -26,8 +26,8 @@ export const postData = async (endpoint, data) => {
 
 /**
  * 
- * @param {*} api뒤에 들어갈 이메일 중복 확인을 위한 위치
- * @param {*} data 
+ * @param {*} endpoint api뒤에 들어갈 이메일 중복 확인을 위한 위치
+ * @param {*} data Email 데이터
  * @returns 
  */
 export const checkEmailData = async (endpoint, data) => {
@@ -36,10 +36,9 @@ export const checkEmailData = async (endpoint, data) => {
     const responseData = await response.json();
 
     if(responseData.success) {
-      window.location.href = '../folder.html'
+      console.error("Same Email");
       return;
     }
-    console.error("Login Failure")
   }
   catch (error){
     console.error('Error : Network Connection Failure', error);
