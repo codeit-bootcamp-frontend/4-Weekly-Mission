@@ -1,4 +1,4 @@
-import { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn as signUpBtn, passwordEyeBtn, checkValidationEmail, errorMsgAdd, errorMsgRemove, togglePasswordEyeBtn } from './sign.js';
+import { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn as signUpBtn, passwordEyeBtn, passwordEyeOff, passwordEyeOn, checkValidationEmail, errorMsgAdd, errorMsgRemove, toggleEyeBtn } from './sign.js';
 
 // 회원가입에서 필요한 비밀번호 확인용 변수
 const errorMessagePasswordCheck = document.querySelector('#error-message-password-check');
@@ -46,20 +46,14 @@ function checkPassword(){
 }; // 비밀번호 공란 검사 및 유효성 검사
 
 function checkPasswordCheck(){
-  if (passwordCheckInput.value === ""){
-    errorMsgAdd(passwordCheckInput, errorMessagePasswordCheck, "비밀번호를 입력해 주세요");
-    return false;
-  } else if (!checkValidationpassword(passwordCheckInput.value)){
-    errorMsgAdd(passwordCheckInput, errorMessagePasswordCheck, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요");
-    return false;
-  } else if(passwordCheckInput.value !== passwordInput.value){
+  if(passwordCheckInput.value !== passwordInput.value){
     errorMsgAdd(passwordCheckInput, errorMessagePasswordCheck, "비밀번호가 일치하지 않아요");
     return false;
   } else {
     errorMsgRemove(passwordCheckInput, errorMessagePasswordCheck);
     return true;
   };
-}; // 비밀번호 확인의 공란 검사 및 유효성 검사 및 일치 여부 확인
+}; // 비밀번호 확인의 일치 여부 확인
 
 function trySignUp(e){
   e.preventDefault();
@@ -68,18 +62,6 @@ function trySignUp(e){
     window.location.href = link;
   };
 }; // 회원가입 시도
-
-function togglePasswordCheckEyeBtn(){
-  if(passwordCheckInput.getAttribute('type') === 'password'){
-    passwordCheckInput.setAttribute('type', 'text'); // 비밀번호 보이기
-    passwordCheckEyeOff.classList.add('display-none'); // 눈 아이콘 변경
-    passwordCheckEyeOn.classList.remove('display-none');
-  } else {
-    passwordCheckInput.setAttribute('type', 'password'); // 비밀번호 가리기
-    passwordCheckEyeOn.classList.add('display-none'); // 눈 아이콘 변경
-    passwordCheckEyeOff.classList.remove('display-none');
-  }
-}; // 비밀번호 확인 보이기/가리기
 
 // 이벤트 관리
 emailInput.addEventListener('focusout', checkEmail);
@@ -91,5 +73,9 @@ signForm.addEventListener('keydown', function(event){
     trySignUp(event);
   };
 });
-passwordEyeBtn.addEventListener('click', togglePasswordEyeBtn);
-passwordCheckEyeBtn.addEventListener('click', togglePasswordCheckEyeBtn);
+passwordEyeBtn.addEventListener('click', function(){
+  toggleEyeBtn(passwordInput, passwordEyeOff, passwordEyeOn);
+}); // 비밀번호 보이기/가리기
+passwordCheckEyeBtn.addEventListener('click', function(){
+  toggleEyeBtn(passwordCheckInput, passwordCheckEyeOff, passwordCheckEyeOn);
+}); // 비밀번호 확인 보이기/가리기

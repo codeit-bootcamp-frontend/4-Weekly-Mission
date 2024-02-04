@@ -1,4 +1,4 @@
-import { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn as loginBtn, passwordEyeBtn, checkValidationEmail, errorMsgAdd, errorMsgRemove, togglePasswordEyeBtn } from './sign.js';
+import { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn as loginBtn, passwordEyeBtn, passwordEyeOff, passwordEyeOn, checkValidationEmail, errorMsgAdd, errorMsgRemove, toggleEyeBtn } from './sign.js';
 
 function checkEmail(){
   if (emailInput.value === ""){
@@ -58,4 +58,6 @@ signForm.addEventListener('keydown', function(event){
     tryLogin(event);
   };
 });
-passwordEyeBtn.addEventListener('click', togglePasswordEyeBtn);
+passwordEyeBtn.addEventListener('click', function(){
+  toggleEyeBtn(passwordInput, passwordEyeOff, passwordEyeOn);
+}); // 비밀번호 보이기/가리기
