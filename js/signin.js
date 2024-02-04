@@ -1,13 +1,14 @@
-import { createErrorMessage, validateEmail, validatePassword } from './validation.js';
+import { validateEmail, validatePassword } from './validation.js';
 import { togglePassword} from './passwordToggle.js';
+import { createErrorMessage } from './error.js'
 
 const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
 const loginButton = document.querySelector('.submit');
 const eyeIcon = document.querySelector('.eye-button');
 
-emailInput.addEventListener("focusout", () => validateEmail(emailInput));
-passwordInput.addEventListener("focusout", () => validatePassword(passwordInput));
+emailInput.addEventListener("focusout", validateEmail);
+passwordInput.addEventListener("focusout", validatePassword); 
 
 // 로그인 버튼 클릭 시 로그인 실행
 loginButton.addEventListener("click", login);
@@ -16,29 +17,13 @@ loginButton.addEventListener("click", login);
 function login() {
   const enteredEmail = emailInput.value;
   const enteredPassword = passwordInput.value;
-  
-  function newPage() {
-    const link = '/folder.html'
-    location.href = link;
-  }
-
-  const emailError = emailInput.parentElement.querySelector(".error-message");
-  if (emailError) {
-    emailError.remove();
-    emailInput.classList.remove("error");
-  }
-
-  const passwordError = passwordInput.parentElement.querySelector(".error-message");
-  if (passwordError) {
-    passwordError.remove();
-    passwordInput.classList.remove("error");
-  }
 
   if (enteredEmail === 'test@codeit.com' && enteredPassword === 'codeit101') {
-    newPage();
+    const link = '/folder.html'
+    location.href = link;
   } else {
-    createErrorMessage("이메일을 확인해 주세요.", emailInput);
-    createErrorMessage("비밀번호를 확인해 주세요.", passwordInput);
+    createErrorMessage(emailInput, "이메일을 확인해 주세요.");
+    createErrorMessage(passwordInput, "비밀번호를 확인해 주세요.");
   }
 }
 

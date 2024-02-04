@@ -1,29 +1,15 @@
+import { createErrorMessage } from './error.js'
+
 export function isValidEmail(email) {
   return /^([a-zA-Z0-9_\.-]+)@([a-zA-Z0-9_\-]+)\.([a-zA-Z]{2,})$/.test(email);
 }
 
-export function createErrorMessage(message, inputElement) {
-  const existingErrorMessage = inputElement.parentElement.querySelector('.error-message');
-
-  // 이미 같은 종류의 에러 메시지가 표시되어 있다면 중복 표시 방지
-  if (!existingErrorMessage || existingErrorMessage.textContent !== message) {
-    const newError = document.createElement("p");
-    newError.textContent = message;
-    newError.classList.add("error-message");
-
-    inputElement.classList.add("error");
-
-    // 이미 에러 메시지가 있다면 제거
-    if (existingErrorMessage) {
-      existingErrorMessage.remove();
-    }
-
-    // 에러 메시지 추가
-    inputElement.parentElement.appendChild(newError);
-  }
+export function isInputValid(inputElement) {
+  return !inputElement.classList.contains("error");
 }
 
-export function validateEmail(emailInput) {
+export function validateEmail(event) {
+  const emailInput = event.target;
   const emailError = emailInput.parentElement.querySelector(".error-message");
 
   if (emailError) {
@@ -32,13 +18,14 @@ export function validateEmail(emailInput) {
   }
 
   if (emailInput.value === "") {
-    createErrorMessage("이메일을 입력해 주세요.", emailInput);
+    createErrorMessage(emailInput, "이메일을 입력해 주세요.");
   } else if (!isValidEmail(emailInput.value)) {
-    createErrorMessage("올바른 이메일 주소가 아닙니다.", emailInput);
+    createErrorMessage(emailInput, "올바른 이메일 주소가 아닙니다.");
   }
 }
 
-export function validatePassword(passwordInput) {
+export function validatePassword(event) {
+  const passwordInput = event.target;
   const passwordError = passwordInput.parentElement.querySelector(".error-message");
 
   if (passwordError) {
@@ -47,6 +34,6 @@ export function validatePassword(passwordInput) {
   }
 
   if (passwordInput.value === "") {
-    createErrorMessage("비밀번호를 입력해 주세요.", passwordInput);
+    createErrorMessage(passwordInput, "비밀번호를 입력해 주세요.");
   }
 }
