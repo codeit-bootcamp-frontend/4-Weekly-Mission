@@ -43,31 +43,34 @@ function passwordIsNotEqual(passwordElement, passwordConfirmElement) {
 }
 
 // 키보드 이벤트 : 엔터를 누르면, 회원가입을 시도한다.
-function pressEnterForsignup(e, emailElement, passwordElement, passwordConfirmElement, signupUrl) {
+function pressEnterForsignup(e, emailElement, passwordElement, passwordConfirmElement, signupUrl, aleadyUseUrl) {
   if (e.key === "Enter") {
-    signupCheck(emailElement, passwordElement, passwordConfirmElement, signupUrl);
+    signupCheck(emailElement, passwordElement, passwordConfirmElement, signupUrl, aleadyUseUrl);
   }
 }
 
 // 클릭 이벤트: 회원가입을 시도한다.
-async function signupCheck(emailElement, passwordElement, passwordConfirmElement, signupUrl) {
-  handleFocusOutForEmail(
-    email,
-    staticName.elementSeletor.email,
-    staticName.parentElementSeletor.email,
-    errorMessage.isEmpty.email,
-    errorMessage.notCorrectFormat.email
-  )
-  handleFocusOutForPassword(
-    password,
-    staticName.elementSeletor.password, 
-    staticName.parentElementSeletor.password, 
-    errorMessage.isEmpty.password,
-    errorMessage.notCorrectFormat.password
-  )
-  passwordIsNotEqual(passwordElement, passwordConfirmElement);
-
-  await requestSignup(emailElement, passwordElement, signupUrl);
+async function signupCheck(emailElement, passwordElement, passwordConfirmElement, signupUrl, aleadyUseUrl) {
+  try {
+    await requestSignup(emailElement, passwordElement, signupUrl);
+    await aleadyUse(emailElement, aleadyUseUrl);
+  } catch {
+    handleFocusOutForEmail(
+      email,
+      staticName.elementSeletor.email,
+      staticName.parentElementSeletor.email,
+      errorMessage.isEmpty.email,
+      errorMessage.notCorrectFormat.email
+    )
+    handleFocusOutForPassword(
+      password,
+      staticName.elementSeletor.password, 
+      staticName.parentElementSeletor.password, 
+      errorMessage.isEmpty.password,
+      errorMessage.notCorrectFormat.password
+    )
+    passwordIsNotEqual(passwordElement, passwordConfirmElement);
+  }
 }
 
 // 선언을 아래에서 한다: 전역 객체를 함수에서 접근하지 않는다.
@@ -106,8 +109,8 @@ passwordConfirm.addEventListener("focusin", () => handleFocusIn(
   staticName.elementSeletor.passwordConfirm,
 ));
 passwordConfirm.addEventListener("change", () => passwordIsNotEqual(password, passwordConfirm));
-loginButton.addEventListener("click", () => signupCheck(email, password, passwordConfirm, urls.signup));
-passwordConfirm.addEventListener("keydown", () => pressEnterForsignup(email, password, passwordConfirm, urls.signup));
+loginButton.addEventListener("click", () => signupCheck(email, password, passwordConfirm, urls.signup, urls.aleadyUse));
+passwordConfirm.addEventListener("keydown", () => pressEnterForsignup(email, password, passwordConfirm, urls.signup, urls.aleadyUse));
 passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
 passwordConfimIcon.addEventListener("click", () => togglePassword(passwordConfirm, passwordConfimIcon));
 document.addEventListener('DOMContentLoaded', hasTokenInStorage);
