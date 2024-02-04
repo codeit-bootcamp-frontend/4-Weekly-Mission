@@ -63,12 +63,17 @@ async function checkEmailDuplication(email) {
       body: JSON.stringify({ email }),
     });
 
+    // 응답코드 200 : 중복되지 않은 이메일 확인
     if (response.status === HTTP_STATUS_OK) {
       const data = await response.json();
       return data.isDuplicated;
-    } else if (response.status === HTTP_STATUS_CONFLICT) {
+    }
+    // 응답코드 409 : 사용할 수 없는 중복된 이메일 오류
+    else if (response.status === HTTP_STATUS_CONFLICT) {
       return true;
-    } else {
+    }
+    // 그외 응답코드
+    else {
       throw new Error("서버 오류");
     }
   } catch (error) {
@@ -148,7 +153,6 @@ function validateSignUp() {
 }
 
 async function handleSignUp(event) {
-  console.log("Form submitted");
   event.preventDefault();
 
   if (!validateSignUp()) {
@@ -167,6 +171,7 @@ async function handleSignUp(event) {
   }
 
   try {
+    // 'https://bootcamp-api.codeit.kr/api/sign-up'에 POST 요청 보내기
     const response = await fetch(API_SIGN_UP, {
       method: "POST",
       headers: {
@@ -178,14 +183,19 @@ async function handleSignUp(event) {
       }),
     });
 
+    // 응답코드 200 : 회원가입 성공
     if (response.status === HTTP_STATUS_OK) {
       const data = await response.json();
       localStorage.setItem("accessToken", data.accessToken);
       window.location.href = FOLDER_URL;
-    } else if (response.status === HTTP_STATUS_BAD_REQUEST) {
+    }
+    // 응답코드 400 : 회원가입 오류
+    else if (response.status === HTTP_STATUS_BAD_REQUEST) {
       console.error("회원가입 오류");
       alert("회원가입 형식이 올바르지 않습니다.");
-    } else {
+    }
+    // 그외 응답코드
+    else {
       throw new Error("서버 오류");
     }
   } catch (error) {
