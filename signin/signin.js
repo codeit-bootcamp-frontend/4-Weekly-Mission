@@ -33,13 +33,10 @@ const postData = async () => {
     let emailInput = $inputList[0].value;
     let passwordInput = $inputList[1].value;
 
-    console.log(emailInput);
-
     const data = JSON.stringify({
       email: emailInput,
       password: passwordInput,
     });
-    console.log(data);
 
     const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
       method: "POST",
