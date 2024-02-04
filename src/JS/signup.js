@@ -14,9 +14,6 @@ function checkEmail(){
   } else if (!checkValidationEmail(emailInput.value)){
     errorMsgAdd(emailInput, errorMessageEmail, "올바른 이메일 주소가 아닙니다");
     return false;
-  } else if (emailInput.value === 'test@codeit.com'){
-    errorMsgAdd(emailInput, errorMessageEmail, "이미 사용 중인 이메일입니다");
-    return false;
   } else {
     errorMsgRemove(emailInput, errorMessageEmail);
     return true;
@@ -55,13 +52,57 @@ function checkPasswordCheck(){
   };
 }; // 비밀번호 확인의 일치 여부 확인
 
-function trySignUp(e){
-  e.preventDefault();
-  if(checkEmail() && checkPassword() && checkPasswordCheck()){
-    let link = '/folder.html';
-    window.location.href = link;
+async function checkSameEmailFetch() {
+  try {
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email',{
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json", // 타입 지정 안해줘서 삽질 오래함;;;
+      },
+      body: JSON.stringify({ email: emailInput.value }),
+    });
+    if (response.status === 200) { // 중복 아닌 경우
+      return true;
+    } else { // 중복인경우 에러 생성
+      throw new Error('sameEmail');
+    }
+  } catch (error) { // 에러 메세지 출력
+    errorMsgAdd(emailInput, errorMessageEmail, "이미 사용 중인 이메일입니다");
+    return false;
+  }
+} // 이메일 중복 검사 요청
+
+
+async function signUpFetch() {
+  try {
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json", // 타입 지정 안해줘서 삽질 오래함;;;
+    },
+    body: JSON.stringify({
+      email: emailInput.value,
+      password: passwordInput.value,
+      }),
+    });
+    if (response.status === 200) { // 회원가입 성공 후 이동
+      window.location.href = '/folder.html';
+    } else {
+      throw new Error('Fail');
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}; // 회원가입 리퀘스트 요청
+
+function trySignUp(event){
+  event.preventDefault();
+  if(checkEmail() && checkPassword() && checkPasswordCheck()){ // 각각의 인풋 공란 및 정규식 검사
+    if(checkSameEmailFetch()){ // 이메일 중복 확인
+      signUpFetch() // 회원가입 요청
+    }
   };
-}; // 회원가입 시도
+}; // 회원가입 시도 에러가 409에러가 남.. 해결하려고 몇시간 해봤지만 안돼서 기능 구현에 집중함
 
 // 이벤트 관리
 emailInput.addEventListener('focusout', checkEmail);

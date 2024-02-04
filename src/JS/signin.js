@@ -23,31 +23,35 @@ function checkPassword(){
   }
 }; // 비밀번호 유효성 체크
 
-function loginCheck(){
-  if(checkEmail() && checkPassword()){ // 먼저 이메일과 비밀번호의 유효성 확인
-    if(emailInput.value === 'test@codeit.com' && passwordInput.value === "codeit101"){
-      return true;
-    } else if (emailInput.value !== 'test@codeit.com' && passwordInput.value !== "codeit101"){
-      errorMsgAdd(emailInput, errorMessageEmail, '이메일을 확인해 주세요');
-      errorMsgAdd(passwordInput, errorMessagePassword, "비밀번호를 확인해 주세요");
-      return false;
-    } else if (emailInput.value !== 'test@codeit.com'){
-      errorMsgAdd(emailInput, errorMessageEmail, '이메일을 확인해 주세요');
-      return false;
-    } else if (passwordInput.value !== "codeit101"){
-      errorMsgAdd(passwordInput, errorMessagePassword, "비밀번호를 확인해 주세요");
-      return false;
-    };
-  };
-}; // 허락된 계정인지 확인
+async function loginFetch() {
+  try {
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json", // 타입 지정 안해줘서 삽질 오래함;;;
+    },
+    body: JSON.stringify({
+      email: emailInput.value,
+      password: passwordInput.value,
+      }),
+    });
+    if (response.status === 200) { // 가입된 계정이면 로그인 됨
+      window.location.href = '/folder.html';
+    } else { // 아닌 경우 에러 발생
+      throw new Error('authApiError')
+    }
+  } catch (error) { // 에러메세지 출력
+    errorMsgAdd(emailInput, errorMessageEmail, '이메일을 확인해 주세요');
+    errorMsgAdd(passwordInput, errorMessagePassword, "비밀번호를 확인해 주세요");
+  }
+}; // 로그인 가능 계정인지 서버에 확인 및 아닐경우 에러메세지 출력
 
-function tryLogin(e){
-  e.preventDefault();
-  if(loginCheck()){
-    let link = '/folder.html';
-    window.location.href = link;
+function tryLogin(event){
+  event.preventDefault(); // 브라우저 기본 동작 멈춤
+  if (checkEmail() && checkPassword()) { // 로그인 전에 이메일, 비밀번호 공란 검사 및 이메일 정규식 검사
+    loginFetch(); // 허가된 계정인지 확인하는 리퀘스트 보냄
   };
-}; // 로그인 시도
+}; // 로그인 시도 할때 전체적인 모든 기능들의 로직을 담당함
 
 // 이벤트 관리
 emailInput.addEventListener('focusout', checkEmail);
