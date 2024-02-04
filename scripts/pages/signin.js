@@ -1,10 +1,11 @@
 import { showError, removeError } from '../utils/errorUtils.js';
 import { checkValidEmail, togglePassword } from '../pages/sign.js';
 import { $emailInput, $passwordInput, $btnEye, $form } from '../utils/nodes.js';
+import { ERROR_MESSAGE, API } from '../utils/constant.js';
 
 const checkEmptyPassword = e => {
   if (!e.target.value) {
-    showError(e.target, '비밀번호를 입력해주세요.');
+    showError(e.target, ERROR_MESSAGE.emptyPassword);
     return;
   }
 
@@ -23,7 +24,7 @@ $form.addEventListener('submit', async e => {
       password: $passwordInput.value,
     };
 
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+    const response = await fetch(API.signIn, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -41,8 +42,8 @@ $form.addEventListener('submit', async e => {
     localStorage.setItem('accessToken', accessToken);
     location.href = '/folder.html';
   } catch (err) {
-    showError($emailInput, '이메일을 확인해주세요.');
-    showError($passwordInput, '비밀번호를 확인해주세요.');
+    showError($emailInput, ERROR_MESSAGE.confirmEmail);
+    showError($passwordInput, ERROR_MESSAGE.confirmPassword);
   }
 });
 

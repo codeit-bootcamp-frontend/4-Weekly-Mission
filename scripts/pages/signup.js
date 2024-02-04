@@ -8,10 +8,11 @@ import {
   checkValidEmail,
   togglePassword,
 } from '../pages/sign.js';
+import { ERROR_MESSAGE, API } from '../utils/constant.js';
 
 const checkExistEmail = async e => {
   if (await isEmailExisting(e.target.value)) {
-    showError(e.target, '이미 사용 중인 이메일입니다.');
+    showError(e.target, ERROR_MESSAGE.existEmail);
     return;
   }
 
@@ -20,7 +21,7 @@ const checkExistEmail = async e => {
 
 const checkValidPassword = e => {
   if (!isValidPassword(e.target.value)) {
-    showError(e.target, '비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.');
+    showError(e.target, ERROR_MESSAGE.invalidatePassword);
     return;
   }
 
@@ -29,7 +30,7 @@ const checkValidPassword = e => {
 
 const checkMatchPassword = e => {
   if (!isMatchPassword(e.target.value)) {
-    showError(e.target, '비밀번호가 일치하지 않아요.');
+    showError(e.target, ERROR_MESSAGE.confirmPasswordMatch);
     return;
   }
 
@@ -45,18 +46,18 @@ $form.addEventListener('submit', async e => {
   e.preventDefault();
 
   if (!isValidEmail($emailInput.value)) {
-    const message = $emailInput.value ? '올바른 이메일 주소가 아닙니다.' : '이메일을 입력해주세요.';
+    const message = $emailInput.value ? ERROR_MESSAGE.invalidateEmail : ERROR_MESSAGE.emptyEmail;
     showError($emailInput, message);
     return;
   }
 
   if (!isValidPassword($passwordInput.value)) {
-    showError($passwordInput, '비밀번호는 영문, 숫자 조합 8자 이상 입력해주세요.');
+    showError($passwordInput, ERROR_MESSAGE.invalidatePassword);
     return;
   }
 
   if (!isMatchPassword($confirmPasswordInput.value)) {
-    showError($confirmPasswordInput, '비밀번호가 일치하지 않아요.');
+    showError($confirmPasswordInput, ERROR_MESSAGE.confirmPasswordMatch);
     return;
   }
 
@@ -66,7 +67,7 @@ $form.addEventListener('submit', async e => {
       password: $passwordInput.value,
     };
 
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+    const response = await fetch(API.signUp, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -80,6 +81,6 @@ $form.addEventListener('submit', async e => {
 
     location.href = '/folder.html';
   } catch (err) {
-    showError($emailInput, '이미 사용 중인 이메일입니다.');
+    showError($emailInput, ERROR_MESSAGE.existEmail);
   }
 });

@@ -1,5 +1,6 @@
 import { showError, removeError } from '../utils/errorUtils.js';
 import { $emailInput, $passwordInput } from '../utils/nodes.js';
+import { ERROR_MESSAGE, API } from '../utils/constant.js';
 
 export const isValidEmail = value => {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -12,7 +13,7 @@ export const isValidPassword = value => {
 export const isMatchPassword = value => $passwordInput.value === value;
 export const isEmailExisting = async () => {
   try {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+    const response = await fetch(API.checkEmail, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +37,7 @@ export const checkValidEmail = e => {
     return;
   }
 
-  const message = e.target.value ? '올바른 이메일 주소가 아닙니다.' : '이메일을 입력해주세요.';
+  const message = e.target.value ? ERROR_MESSAGE.invalidateEmail : ERROR_MESSAGE.emptyEmail;
   showError(e.target, message);
 };
 
