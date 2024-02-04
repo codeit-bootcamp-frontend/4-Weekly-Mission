@@ -2,7 +2,6 @@ import { $ } from './utils/dom.js';
 import { REGEX } from './constants/regex.js';
 import { KEY } from './constants/key.js';
 import { MESSAGE } from './constants/message.js';
-import { TEST_CODE } from './constants/testCode.js';
 
 import {
   setEmailErrorStyle,
@@ -130,6 +129,7 @@ $btnPasswordConfirmIcon.addEventListener('click', () => {
 });
 
 $joinButton.addEventListener('click', () => {
+  //클래스형태로 수정하기
   const errorStyle = '1px solid var(--red)';
   const emailStyle = $emailInput.style.border;
   const passwordStyle = $passwordInput.style.border;
