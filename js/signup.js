@@ -8,8 +8,6 @@ import {
 
 // 이메일 유효검사
 function validateEmailInput() {
-  const email = document.getElementById('email-input').value.trim();
-  const emailError = document.getElementById('email-error');
 
   if (!validateEmail('signup')) {
     inputError('email-input');
@@ -22,9 +20,6 @@ document.getElementById('email-input').addEventListener('focusout', validateEmai
 
 // 비밀번호 유효검사 
 function validatePasswordInput() {
-
-  const password = document.getElementById('pwd-input').value.trim();
-  const passwordError = document.getElementById('pwd-error');
 
   if (!validatePassword('signup')) {
     inputError('pwd-input');
