@@ -116,7 +116,7 @@ header {
     align-items: center;
     border-radius: 8px;
     background: var(--gra-purpleblue-to-skyblue);
-    color: var(--Grey-Light);
+    color: var(--Grey-light);
     font-size: 1.8rem;
     font-weight: 600;
     text-decoration: none;
