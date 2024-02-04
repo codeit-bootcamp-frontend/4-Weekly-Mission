@@ -4,11 +4,11 @@
   padding: 0;
 }
 
-.signup-another__google,
-.signup-another__kakao,
-.signup__form--signupBt,
-.signup_logoSection--logo
- {
+
+.login_logoSection--logo,
+.login__info--loginBt,
+.login-another__google,
+.login-another__kakao {
   text-decoration: none;
 }
 
@@ -20,7 +20,7 @@ html {
   background: var(--Linkbrary-bg, #F0F6FF);
 }
 
-.signup {
+.login {
   display: flex;
   padding: 238px 0 253px;
   justify-content: center;
@@ -29,17 +29,16 @@ html {
   gap: 32px;
 
   @media screen and (max-width:1199px) {
-    padding: 200px 0 178px 0;    
+    padding: 200px 0 291px 0;    
   }
 
   @media screen and (max-width:767px) {
-    padding: 120px 32px 120px 32px;    
+    padding: 120px 32px 233px 32px;    
     width: 100%;
   }
 }
 
-/* 상단 부분  */
-.signup__container {
+.login__info {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,35 +46,39 @@ html {
   width: 400px;
 
   @media screen and (max-width:767px) {
-    max-width: 400px;   
     width: 100%;
+    max-width: 400px;
   }
 }
 
-.signup__logoSection svg {
+.login__logo--svg {
   width: 210.583px;
   height: 38px;
 }
 
-.signup__logoSection {
+.login__logoSection {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
 }
 
-.signup__logoSection--text {
+.login__logSection--text {
   color: var(--black, #000);
   font-weight: 400;
   line-height: 24px;
 }
 
-.signup__logoSection--text a {
+.logo__logosection--link {
   font-weight: 600;
 }
 
 /* 폼 작성 부분 */
-.sign__form {
+.login__form {
+  width: 100%;
+}
+
+.login__inputsection{
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -83,18 +86,20 @@ html {
   width: 100%;
 }
 
-.sign__button-form{
-  width: 100%;
-}
-
-.signup__form--inputbox {
+.login__form--infobox {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  /* gap: 12px; */
   width: 100%;
 }
 
-.signup__form--inputbox input {
+#login__email-form,
+#login__password-form {
+  margin-top: 12px;
+}
+
+.login__form--infobox input {
   display: flex;
   width: 100%;
   padding: 18px 15px;
@@ -103,18 +108,23 @@ html {
   border-radius: 8px;
   border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
   background: var(--Linkbrary-white, #FFF);
-  margin-top: 12px;
 }
 
-.signup__form--inputbox input:focus {
+.login__form--label-text{
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.login__form--infobox input:focus {
   border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
   outline: none;
 }
 
-.signup__form--signupBt {
+.login__form--loginBt {
   background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
   width: 100%;
   padding: 16px 20px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,22 +136,23 @@ html {
   border: 0px;
 }
 
-.signup__password-container {
+.login__form--loginBt:hover {
+  cursor: pointer;
+}
+
+.login__password-container {
   position: relative;
   width: 100%;
 }
 
-.password__toggle-icon,
-.pwcheck__toggle-icon {
+.password__toggle-icon {
   position: absolute;
   right: 15px;
-  top: 18px;
+  top: 30px;
 }
 
-
-.signup__email-form--error,
-.signup__password-form--error,
-.signup__pwcheck-form--error {
+.login__email-form--error,
+.login__password-form--error {
   display: none;
   color: #FF5B56;
   font-size: 14px;
@@ -150,7 +161,7 @@ html {
 }
 
 /* 하단 부분 */
-.signup-another {
+.login-another {
   display: flex;
   width: 400px;
   padding: 12px 24px;
@@ -161,7 +172,12 @@ html {
   background: var(--Linkbrary-gray10, #E7EFFB);
 
   @media screen and (max-width:767px) {
-    max-width: 400px;   
     width: 100%;
+    max-width: 400px;
   }
+}
+
+.login-another__google,
+.login-another__kakao{
+  display: inline-block;
 }
