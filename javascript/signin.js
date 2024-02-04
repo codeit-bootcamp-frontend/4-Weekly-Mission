@@ -1,8 +1,9 @@
 import {USER_EMAIL, USER_PASSWORD} from './regex.js';
-import {isValidEmail, showErrorMessage, removeMessage, eventClickEye} from './utils.js';
+import {isValidEmail, showErrorMessage, removeMessage, eventClickEye, signRecord} from './utils.js';
 import {inputEmail, inputBoxEmail, inputPassword, inputBoxPassword, loginButton, eyeButton} from './constants.js';
 
 
+signRecord();
 // focus-out email
 function eventFocusOutEmail() {
     // no email value
@@ -44,6 +45,8 @@ async function eventClickBtn() {
         body: JSON.stringify(signinForm),
         })
         if (response.ok) {
+            const result = await response.json();
+            localStorage.setItem('accessToken', result['data']['accessToken']);
             window.location.href = "/folder";
         } else {
             alert("로그인 실패!\n아이디 또는 패스워드를 확인해주세요.")

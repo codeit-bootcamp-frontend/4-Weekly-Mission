@@ -70,4 +70,10 @@ function eventClickEye() {
     clickEyeIcon(inputPassword, eyeImg);
 }
 
-export {checkUsableEmail, isValidEmail, isValidPassword, showErrorMessage, removeMessage, clickEyeIcon, eventClickEye}
+function signRecord() {
+    if(localStorage.getItem('accessToken') != null) {
+        window.location.href = "/folder";
+    }
+}
+
+export {checkUsableEmail, isValidEmail, isValidPassword, showErrorMessage, removeMessage, clickEyeIcon, eventClickEye, signRecord}

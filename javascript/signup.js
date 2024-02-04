@@ -1,8 +1,10 @@
 import {USER_EMAIL} from './regex.js';
-import {checkUsableEmail, isValidEmail, isValidPassword, showErrorMessage, removeMessage, clickEyeIcon, eventClickEye} from './utils.js'
+import {checkUsableEmail, isValidEmail, isValidPassword, showErrorMessage, removeMessage, clickEyeIcon, eventClickEye, signRecord} from './utils.js'
 import {inputEmail, inputBoxEmail, inputPassword, inputBoxPassword, loginButton, eyeButton,
         inputPasswordCheck, inputBoxPasswordCheck, eyeButtonCheck, eyeImgCheck} from './constants.js';
 
+
+signRecord();
 // focus-out email
 function eventFocusOutEmail() {
     // no email value
@@ -67,6 +69,8 @@ async function eventClickBtnSignup() {
         body: JSON.stringify(signupForm),
         })
         if (response.ok) {
+            const result = await response.json();
+            localStorage.setItem('accessToken', result['data']['accessToken']);
             window.location.href = "/folder";
         } else {
             alert("이미 사용 중인 이메일입니다.");
