@@ -1,67 +1,56 @@
-const email = document.querySelector('#email');
-const password = document.querySelector('#password');
+import {
+  email,
+  password,
+  signBtn,
+  inputFocusEvent,
+  signupEmail,
+  signupPw,
+  pwToggleIcon,
+  pwToggle,
+} from './common.js'
+
 const passwordCheck = document.querySelector('#passwordCheck');
-const emailError = document.querySelector('#emailError');
-const pwError = document.querySelector('#pwError');
 const pwCheckError = document.querySelector('#pwCheckError');
-const signBtn = document.querySelector('#signBtn');
+const pwCheckToggleIcon = document.querySelector('#pwCheckToggleIcon');
 
-const testEmail = "test@codeit.com";
+const inputElements = [email, password, passwordCheck];
+inputFocusEvent(inputElements);
 
-const emailReg = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_\.-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-const passwordReg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/
+document.addEventListener('DOMContentLoaded', function () {
+  const storedToken = localStorage.getItem('accessToken');
 
-  document.addEventListener('keydown', function(event) {
-    if (event.key === "Enter") {
-      sign();
+  if (storedToken) {
+    window.location.href = './folder.html';
+    localStorage.removeItem('accessToken');
+  }
+});
+
+document.addEventListener('keydown', function(event) {
+  if (event.key === "Enter") {
+    signup();
+  }
+});
+
+function signup() {
+  fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify({ email: email.value, password: password.value}),
+  })
+  .then(response => {
+    if(response.ok) {
+      const accessToken = response.accessToken;
+      localStorage.setItem('accessToken', accessToken);
+      window.location.href = './folder.html';
+    } else if (response.status === 400) {
+      throw new Error('회원가입 오류');
     }
-  });
-
-  signBtn.addEventListener('click', sign);
-  // email.addEventListener('focusin', inputFocus(email));
-  // password.addEventListener('focusin', inputFocus(password));
-  // passwordCheck.addEventListener('focusin', inputFocus(passwordCheck));
-  email.addEventListener('focusout', emailF);
-  password.addEventListener('focusout', passwordF);
-  passwordCheck.addEventListener('focusout', pwCheck);
-
-function sign() {
-  if (emailReg.test(email.value) && passwordReg.test(password.value) && password.value === passwordCheck.value) {
-    window.location.href = './folder.html'
-  }
-}
-
-// function inputFocus(e) {
-//   e.classList.add('inputFocus');
-// }
-
-function emailF() {
-  if (!email.value) {
-    email.classList.add('inputError');
-    emailError.textContent = "이메일을 입력해 주세요";
-  } else if (!emailReg.test(email.value)) {
-    email.classList.add('inputError');
-    emailError.textContent = "올바른 이메일 주소가 아닙니다.";
-  } else if (email.value === testEmail) {
-    email.classList.add('inputError');
-    emailError.textContent = "이미 사용 중인 이메일입니다.";
-  } else {
-    email.classList.remove('inputError');
-    emailError.textContent = '';
-  }
-}
-
-function passwordF() {
-  if (!password.value) {
-    password.classList.add('inputError');
-    pwError.textContent = "비밀번호를 입력해 주세요";
-  } else if (!passwordReg.test(password.value)) {
-    password.classList.add('inputError');
-    pwError.textContent = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
-  } else {
-    password.classList.remove('inputError');
-    pwError.textContent = '';
-  }
+  })
+  .catch(error => {
+    console.log(error);
+  })
 }
 
 function pwCheck() {
@@ -73,3 +62,15 @@ function pwCheck() {
     pwCheckError.textContent = '';
   }
 }
+
+signBtn.addEventListener('click', signup);
+email.addEventListener('focusout', signupEmail);
+password.addEventListener('focusout', signupPw);
+passwordCheck.addEventListener('focusout', pwCheck);
+
+pwToggleIcon.addEventListener('click', function() {
+  pwToggle(password, pwToggleIcon);
+});
+pwCheckToggleIcon.addEventListener('click', function() {
+  pwToggle(passwordCheck, pwCheckToggleIcon);
+});

@@ -1,59 +1,63 @@
-const email = document.querySelector('#email');
-const password = document.querySelector('#password');
-const emailError = document.querySelector('#signinEmailError');
-const pwError = document.querySelector('#signinPwError');
-const loginBtn = document.querySelector('#loginButton');
+import {
+  email,
+  emailError,
+  password,
+  pwError,
+  signBtn,
+  inputFocusEvent,
+  emailF,
+  passwordF,
+  pwToggleIcon,
+  pwToggle,
+} from './common.js';
 
-const testEmail = "test@codeit.com";
-const testPw = "codeit101";
-
-const emailCheck = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_\.-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+const inputElements = [email, password];
+inputFocusEvent(inputElements);
 
   document.addEventListener('keydown', function(event) {
     if (event.key === "Enter") {
-      login();
+      signin();
     }
   });
 
-  loginBtn.addEventListener('click', login);
+  document.addEventListener('DOMContentLoaded', function () {
+    const storedToken = localStorage.getItem('accessToken');
+  
+    if (storedToken) {
+      window.location.href = './folder.html';
+      localStorage.removeItem('accessToken');
+    }
+  });
+
+  function signin() {
+    fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({email: email.value, password: password.value}),
+    })
+    .then(response => {
+      if (response.ok) {
+        const accessToken = response.accessToken;
+        localStorage.setItem('accessToken', accessToken);
+        window.location.href = './folder.html';
+      } else if (response.status === 400) {
+        email.classList.add('inputError');
+        emailError.textContent = '이메일을 확인해 주세요';
+        password.classList.add('inputError');
+        pwError.textContent = '비밀번호를 확인해 주세요';
+        throw new Error('로그인 오류');
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  }
+
+  signBtn.addEventListener('click', signin);
   email.addEventListener('focusout', emailF);
   password.addEventListener('focusout', passwordF);
-
-
-function login() {
-  if (email.value === testEmail && password.value === testPw) {
-    window.location.href = './folder.html'
-  }
-
-  if (email.value !== testEmail) {
-    emailError.textContent = '이메일을 확인해 주세요';
-  }
-
-  if (password.value !== testPw) {
-    pwError.textContent = '비밀번호를 확인해 주세요';
-  }
-}
-
-function emailF() {
-  if (!email.value) {
-    email.classList.add('inputError');
-    emailError.textContent = "이메일을 입력해 주세요";
-  } else if (!emailCheck.test(email.value)) {
-    email.classList.add('inputError');
-    emailError.textContent = "올바른 이메일 주소가 아닙니다.";
-  } else {
-    email.classList.remove('inputError');
-    emailError.textContent = '';
-  }
-}
-
-
-function passwordF() {
-  if (!password.value) {
-    password.classList.add('inputError');
-    pwError.textContent = "비밀번호를 입력해 주세요";
-  } else {
-    password.classList.remove('inputError');
-    pwError.textContent = '';
-  }
-}
+  pwToggleIcon.addEventListener('click', function() {
+    pwToggle(password, pwToggleIcon);
+  });
