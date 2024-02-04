@@ -17,6 +17,10 @@ const pwdConfirmToggleBtn = document.querySelector(".pwdConfirmToggleBtn");
 
 const form = document.querySelector("#form");
 
+if (localStorage.getItem("accessToken")) {
+  location.href = "/folder";
+}
+
 onInput(email, emailError);
 onInput(password, passwordError);
 onInput(passwordConfirm, passwordConfirmError);
@@ -33,11 +37,6 @@ function onFocusOutEmail(e) {
   if (emailTest(e.target, emailError)) {
     return;
   }
-
-  // if (e.target.value === TEST_EMAIL) {
-  //   setInputError(e.target, emailError, "이미 사용 중인 이메일입니다.");
-  //   return;
-  // }
 }
 
 function onFocusOutPassword(e) {
@@ -101,7 +100,8 @@ function onSubmit(e) {
         return;
       }
       if (data.data.isUsableNickname) {
-        location.href = "/folder";
+        console.log(data);
+        // location.href = "/folder";
       }
     })
     .catch((error) => console.log(error));

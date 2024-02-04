@@ -14,6 +14,10 @@ const pwdToggleBtn = document.querySelector(".pwdToggleBtn");
 
 const form = document.querySelector("#form");
 
+if (localStorage.getItem("accessToken")) {
+  location.href = "/folder";
+}
+
 onInput(email, emailError);
 onInput(password, passwordError);
 
@@ -34,7 +38,7 @@ function onSubmit(event) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        localStorage.setItem("accessToken", data.data.accessToken);
         location.href = "/folder";
       });
   } else {
