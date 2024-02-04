@@ -48,9 +48,7 @@ export function validatePasswordRegex(event) {
   }
 }
 //비밀번호 확인
-export function passwordCheck() {
-  const confirmPasswordInput = document.querySelector('#confirm-password');
-  const passwordInput = document.querySelector('#password');
+export function passwordCheck(passwordInput, confirmPasswordInput) {
   const password = passwordInput.value;
   const confirmPassword = confirmPasswordInput.value;
 

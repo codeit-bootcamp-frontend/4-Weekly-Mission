@@ -21,7 +21,10 @@ passwordInput.addEventListener("focusout", (event) => {
   validatePassword(event);
   validatePasswordRegex(event);
 });
-confirmPasswordInput.addEventListener("focusout", passwordCheck);
+
+confirmPasswordInput.addEventListener("focusout", function() {
+  passwordCheck(passwordInput, confirmPasswordInput);
+});
 
 signupButton.addEventListener("click", signup);
 document.addEventListener('keydown', (e) => handleEnterKey(e, signup));
