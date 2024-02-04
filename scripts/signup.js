@@ -22,6 +22,8 @@ const {
   passwordCheckEyeImageId
 } = INPUT_IDS;
 
+SignHandler.checkAccessToken(SIGNUP_PATH);
+
 /** @type {HTMLInputElement} emailInput*/
 const emailElement = DOMHandler.getById(emailElementId);
 
@@ -117,18 +119,26 @@ const handleSignUp = async event => {
     body: JSON.stringify({ email: emailElement.value })
   });
 
+  console.log(checkEmail);
   const checkPassword =
     InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX) &&
     InputHandler.isMatchElement(passwordElement, passwordCheckElement);
 
   if (checkEmail && checkPassword)
-    fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+    fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ email: emailElement.value, password: passwordElement.value })
-    }).then(() => SignHandler.navigateTo(SIGNUP_PATH));
+    })
+      .then(response => response.json())
+      .then(data => {
+        if (data.error) throw new Error('회원가입 실패');
+        const accessToken = data.data.accessToken;
+        localStorage.setItem('accessToken', accessToken);
+        SignHandler.navigateTo(SIGNUP_PATH);
+      });
 };
 
 emailElement?.addEventListener('focusout', handleEmailElementFocusOut);

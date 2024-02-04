@@ -56,4 +56,9 @@ export class SignHandler {
   static navigateTo = path => {
     window.location.href = path;
   };
+
+  static checkAccessToken = path => {
+    const localToken = localStorage.getItem('accessToken');
+    if (localToken) this.navigateTo(path);
+  };
 }

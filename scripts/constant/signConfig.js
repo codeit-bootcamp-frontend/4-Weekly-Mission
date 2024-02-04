@@ -33,5 +33,5 @@ export const INPUT_IDS = {
   passwordCheckEyeImageId: 'eye-image-password-check'
 };
 
-export const LGOIN_PATH = '../pages/folder.html';
+export const LOGIN_PATH = '../pages/folder.html';
 export const SIGNUP_PATH = '../pages/folder.html';

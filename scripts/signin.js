@@ -1,6 +1,6 @@
 //@ts-check
 import { DOMHandler, InputHandler } from './utils/element.js';
-import { EMAIL_MESSAGE, PASSWORD_MESSAGE, INPUT_IDS, EMAIL_REGEX, LGOIN_PATH } from './constant/signConfig.js';
+import { EMAIL_MESSAGE, PASSWORD_MESSAGE, INPUT_IDS, EMAIL_REGEX, LOGIN_PATH } from './constant/signConfig.js';
 import { SignHandler } from './utils/sign.js';
 
 const {
@@ -11,6 +11,8 @@ const {
   loginFormId,
   passwordEyeImageId
 } = INPUT_IDS;
+
+SignHandler.checkAccessToken(LOGIN_PATH);
 
 /** @type {HTMLInputElement} emailInput*/
 const emailElement = DOMHandler.getById(emailElementId);
@@ -55,10 +57,6 @@ const handlePasswordElementFocusOut = () => {
   passwordElement.classList.remove('red-box');
 };
 
-// const handlePasswordElementFocusIn = () => {
-//   passwordElement.classList.remove('red-box');
-// };
-
 const handlepasswordEyeImageClick = () => {
   console.log(123);
 
@@ -68,6 +66,8 @@ const handlepasswordEyeImageClick = () => {
 /** @param {Event} event*/
 const handleSubmit = event => {
   event.preventDefault();
+  emailElement.blur();
+  passwordElement.blur();
 
   fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
     method: 'POST',
@@ -76,9 +76,12 @@ const handleSubmit = event => {
     },
     body: JSON.stringify({ email: emailElement.value, password: passwordElement.value })
   })
-    .then(response => {
-      if (response.ok) SignHandler.navigateTo(LGOIN_PATH);
-      else throw new Error(`${response.status}`);
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) throw new Error('등록되지 않은 계정');
+      const accessToken = data.data.accessToken;
+      localStorage.setItem('accessToken', accessToken);
+      SignHandler.navigateTo(LOGIN_PATH);
     })
     .catch(error => {
       SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.fail);
