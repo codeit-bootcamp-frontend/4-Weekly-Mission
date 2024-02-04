@@ -19,6 +19,9 @@ const removeClassError = (errorMessage, currentClass) => {
   currentClass.classList.remove('error');
 };
 
+(function() {alreadyLogin();})();
+
+
 
 function emailInputCheck() {
   if (myInputEmail.value === '') {
@@ -128,7 +131,7 @@ function alreadyLogin() {
   }
 }
 
-alreadyLogin();
+
 
 
 
