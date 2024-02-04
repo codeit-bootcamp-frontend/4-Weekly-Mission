@@ -1,5 +1,5 @@
 import { validateEmail, validatePassword, validatePasswordRegex, passwordCheck } from './validation.js';
-import { togglePassword } from './passwordToggle.js';
+import { togglePassword } from './button/passwordToggle.js';
 import { handleEnterKey } from './button/enterKey.js'
 import { emailCheck } from './validation.js';
 

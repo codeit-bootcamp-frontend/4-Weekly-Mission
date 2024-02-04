@@ -1,5 +1,5 @@
 import { validateEmail, validatePassword } from './validation.js';
-import { togglePassword } from './passwordToggle.js';
+import { togglePassword } from './button/passwordToggle.js';
 import { handleEnterKey } from './button/enterKey.js';
 import { login } from './button/loginBtn.js';
 
