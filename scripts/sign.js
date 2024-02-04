@@ -113,7 +113,7 @@ function submitSignin() {
 
   if(email === "test@codeit.com" && password === "sprint101") {
     if(localStorage.getItem('accessToken')) {
-      //window.location.replace("./folder.html");
+      window.location.replace("./folder.html");
     }
     postSign(email, password, pathName);
   } else {
