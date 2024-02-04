@@ -124,7 +124,7 @@ input:focus {
     position: relative;
 }
 
-.error-message {
+.error_message {
     display: none;
     font-size: 1.4rem;
     color: var(--Linkbrary-red);
@@ -169,7 +169,7 @@ input[type="text"] + .eye_button {
 }
 
 /* 소셜 로그인 */
-.social-login {
+.social_login {
     /* 레이아웃 */
     display: flex;
     width: 100%;
@@ -189,7 +189,7 @@ input[type="text"] + .eye_button {
     line-height: normal;
 }
 
-.social-icons {
+.social_icons {
     display: flex;
     align-items: flex-start;
     gap: 16px;
