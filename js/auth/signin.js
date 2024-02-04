@@ -1,13 +1,12 @@
 import { signIn } from './api.js';
 import { isValidEmail, showError, clearError, togglePasswordVisibility } from './formUtils.js';
 import { VALIDATION_MESSAGES } from "./constants.js";
-import { checkAccessTokenAndRedirect, saveAccessToken } from './storage.js';
+import { saveAccessToken } from './storage.js';
 
 /**
  * 폼 유효성 검사 및 상호작용을 위한 초기화
  */
 document.addEventListener('DOMContentLoaded', () => {
-    checkAccessTokenAndRedirect();
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
     const form = document.querySelector('form');
