@@ -69,20 +69,19 @@ async function submitForm(event) {
     });
 
     if (response.ok) {
+      localStorage.setItem('accessToken', result.data.accessToken);
+      localStorage.setItem('refreshToken', result.data.refreshToken);
       location.href = "/folder";
     } else {
-      // 로그인이 실패한 경우 처리 (예: 오류 메시지 표시)
-      const responseData = await response.json();
-      // API 응답을 기반으로 오류 처리를 사용자 정의할 수 있습니다.
-      console.error("로그인 실패:", responseData.message);
+      setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
+      setInputError(
+        { input: passwordInput, errorMessage: passwordErrorMessage },
+        "비밀번호를 확인해주세요."
+      );
     }
   } catch (error) {
     console.error("로그인 중 오류 발생:", error);
   }
 
-  setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
-  setInputError(
-    { input: passwordInput, errorMessage: passwordErrorMessage },
-    "비밀번호를 확인해주세요."
-  );
+  
 }
