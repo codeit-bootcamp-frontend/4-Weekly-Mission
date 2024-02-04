@@ -8,6 +8,8 @@ const signButton = document.getElementById('signin-button');
 const emailError = document.getElementById('email__error-msg');
 const pwError = document.getElementById('pw__error-msg');
 
+window.onload = signFunctions.checkAccessToken();
+
 // focus in 시에 파란색테두리 변경
 emailInput.addEventListener('focus', function () {
   signFunctions.inputBorderBlue(emailInput);
