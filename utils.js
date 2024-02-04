@@ -1,5 +1,6 @@
 const USER_EMAIL = "test@codeit.com";
 const USER_PASSWORD = "codeit101";
+const API = "https://bootcamp-api.codeit.kr/api";
 
 function emailFormatCheck(email) {
   var regex =
@@ -28,6 +29,68 @@ function errorMessageHidden(errorQuerySelector) {
   errorQuerySelector.style.visibility = "hidden";
 }
 
+async function emailIsValid(signupInfo) {
+  try {
+    const response = await fetch(`${API}/check-email`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: signupInfo.email }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      let useableEmail = data.data.isUsableNickname;
+      emailIsValid = true;
+      if (useableEmail) {
+        await signInFetch(signupInfo);
+      }
+    } else {
+      errorMessageVisibleAndTextChange(
+        document.getElementById("emailErrorBox"),
+        "이미 가입된 이메일입니다."
+      );
+      throw new Error(data);
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+async function signInFetch(loginInfo) {
+  try {
+    const response = await fetch(`${API}/sign-in`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginInfo),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      localStorage.setItem("accessToken", data.data.accessToken);
+      window.location.href = "success.html";
+      return data;
+    } else {
+      errorMessageVisibleAndTextChange(
+        document.getElementById("emailErrorBox"),
+        "비밀번호 또는 아이디를 체크해주세요."
+      );
+      errorMessageVisibleAndTextChange(
+        document.getElementById("passwordErrorBox"),
+        "비밀번호 또는 아이디를 체크해주세요."
+      );
+      throw new Error(data);
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
 const isPasswordAndEmailMatch = (email, password) => {
   return USER_EMAIL === email && USER_PASSWORD === password;
 };
@@ -39,5 +102,7 @@ export {
   errorMessageVisibleAndTextChange,
   errorMessageHidden,
   isPasswordAndEmailMatch,
+  signInFetch,
+  emailIsValid,
   USER_EMAIL,
 };

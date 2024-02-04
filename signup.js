@@ -158,7 +158,7 @@ function onSubmitSignupForm(e) {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
+        console.log(data.data.isUsableNickname);
         let useableEmail = data.data.isUsableNickname;
         emailIsValid = true;
         if (useableEmail) {

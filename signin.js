@@ -5,6 +5,7 @@ import {
   errorMessageVisibleAndTextChange,
   errorMessageHidden,
   isPasswordAndEmailMatch,
+  signInFetch,
 } from "./utils.js";
 
 const emailInput = document.querySelector(".sign-input");
@@ -44,7 +45,7 @@ function passwordCheck(e) {
   }
 }
 
-function onSubmitIdAndPassword(e) {
+async function onSubmitIdAndPassword(e) {
   e.preventDefault();
 
   const email = emailInput.value;
@@ -54,36 +55,7 @@ function onSubmitIdAndPassword(e) {
     password: password,
   };
 
-  fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(loginInfo),
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log(data);
-      localStorage.setItem("accessToken", data.data.accessToken);
-      window.location.href = "success.html";
-      console.log(localStorage.getItem("accessToken"));
-    })
-    .catch((error) => {
-      console.error("There was a problem with your fetch operation:", error);
-      errorMessageVisibleAndTextChange(
-        emailErrorMessage,
-        "비밀번호 또는 아이디를 체크해주세요."
-      );
-      errorMessageVisibleAndTextChange(
-        passwordErrorMessage,
-        "비밀번호 또는 아이디를 체크해주세요."
-      );
-    });
+  await signInFetch(loginInfo);
 }
 
 emailInput.addEventListener("mouseout", emailCheck);
