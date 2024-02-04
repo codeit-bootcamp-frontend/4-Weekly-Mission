@@ -129,8 +129,59 @@ function onSubmitSignupForm(e) {
     errorMessageHidden(checkPasswordErrorMessage);
   }
 
+  // if (isValid) {
+  //   window.location.href = "success.html";
+  // }
+
   if (isValid) {
-    window.location.href = "success.html";
+    let emailIsValid = false;
+    const signupInfo = {
+      email: email,
+      password: password,
+    };
+
+    fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          errorMessageVisibleAndTextChange(
+            emailErrorMessage,
+            "이미 가입된 이메일입니다."
+          );
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        let useableEmail = data.data.isUsableNickname;
+        emailIsValid = true;
+        if (useableEmail) {
+          fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(signupInfo),
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Network response was not ok");
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log(data.data.accessToken);
+              localStorage.setItem("accessToken", data.data.accessToken);
+              window.location.href = "success.html";
+            });
+        }
+      });
   }
 }
 
