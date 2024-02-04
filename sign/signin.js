@@ -1,13 +1,7 @@
+import {
+  emailCheck,
+} from "./utils.js";
 
-
-function emailCheck(email_address){     
-	const email_regex = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-	if(!email_regex.test(email_address)){ 
-		return false; 
-	}else{
-		return true;
-	}
-}
 
 //error 디자인 설정하기
 function errorColorChange(e){
