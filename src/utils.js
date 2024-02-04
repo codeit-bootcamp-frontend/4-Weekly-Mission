@@ -25,13 +25,9 @@ export function isPasswordValid(password) {
 }
 
 export function togglePassword(input, toggleButton) {
-  if (input.getAttribute("type") === "password") {
-    input.setAttribute("type", "text");
-    toggleButton.getElementsByTagName("img")[0].setAttribute("src", "./images/eye-on.svg");
-    return;
-  }
-  input.setAttribute("type", "password");
-  toggleButton.getElementsByTagName("img")[0].setAttribute("src", "./images/eye-off.svg");
+  const currentType = input.getAttribute("type");
+  input.setAttribute("type", currentType === "password" ? "text" : "password");
+  toggleButton.querySelector("img").setAttribute("src", `./images/eye-${currentType === "password" ? "on" : "off"}.svg`);
 }
 
 export const TEST_USER = {
