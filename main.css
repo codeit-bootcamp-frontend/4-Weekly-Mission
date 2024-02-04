@@ -1,4 +1,4 @@
-@import "palette.css";
+@import "./css/common.css";
 *{
   box-sizing : border-box;
 }

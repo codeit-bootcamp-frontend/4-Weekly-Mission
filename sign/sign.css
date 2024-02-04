@@ -1,4 +1,4 @@
-@import "../css/global.css";
+@import "../css/common.css";
 
 body {
   background-color: var(--background);
@@ -111,16 +111,16 @@ header {
 }
 
 .error-message {
-  display: none;
+  /* display: none; */
   margin-top: -0.4rem;
   font-size: 1.4rem;
   font-weight: 400;
   color: var(--red);
 }
 
-.error-message.error-message-on {
+/* .error-message.error-message-on {
   display: inline-block;
-}
+} */
 
 .eye-button {
   position: absolute;

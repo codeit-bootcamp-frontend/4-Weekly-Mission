@@ -14,6 +14,7 @@
     />
     <link rel="stylesheet" href="./sign.css" />
   </head>
+
   <body>
     <header>
       <a class="logo-link" href="../index.html">
@@ -23,8 +24,10 @@
         회원이 아니신가요?<a class="header-link" href="signup.html">회원 가입하기</a>
       </p>
     </header>
+
     <div class="sign-box">
-      <form id="form" class="sign-form">
+
+      <form id="form" class="sign-form" action="../folder/index.html" method="post">
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
@@ -42,6 +45,7 @@
         </div>
         <button class="cta" type="submit">로그인</button>
       </form>
+
       <div class="sns-box">
         <span class="sns-text">소셜 로그인</span>
         <div class="sns-links">
@@ -53,7 +57,9 @@
           </a>
         </div>
       </div>
+
     </div>
-    <!-- <script type="module" src="./src/signin.js"></script> -->
+    
+    <script src="./signin.js"></script> <!--type="module"  수정 예정-->
   </body>
 </html>
