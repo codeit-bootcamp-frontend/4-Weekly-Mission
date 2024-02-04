@@ -1,6 +1,6 @@
 import { handleFocusoutInput, handleClickBlindButton } from './common/input.js';
 import { CLASS } from './common/class.js';
-import { API } from './api/api.js';
+import API from './api/api.js';
 import { isLogin } from './api/auth.js';
 import { redirect } from './common/utils.js';
 

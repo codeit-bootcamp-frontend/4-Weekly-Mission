@@ -1,4 +1,4 @@
-export const API = (() => {
+const API = (() => {
   const URL = 'https://bootcamp-api.codeit.kr/';
   const URL_API = 'api';
   const CHECK_EMAIL = '/check-email';
@@ -16,3 +16,5 @@ export const API = (() => {
     },
   };
 })();
+
+export default API;
