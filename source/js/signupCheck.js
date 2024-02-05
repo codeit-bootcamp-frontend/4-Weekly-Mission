@@ -1,5 +1,6 @@
 import validateEmail from '../utils/emailValidate.js';
 import validatePassword from '../utils/passwordValidate.js';
+import postFetcher from '../utils/postRequest.js';
 
 //회원가입 실행 시 에러 메시지 호출 또는 페이지 이동
 async function signupCheck() {
@@ -15,21 +16,16 @@ async function signupCheck() {
 
   //유효한 회원가입 형식 POST request 보내기
   try {
-    const emailCheckResult = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
-      method: 'POST',
-      headers: { 'content-Type': 'application/json' },
-      body: JSON.stringify({ email: emailValue }),
-    });
+    const emailCheckResult = await postFetcher('api/check-email', 'email: emailValue');
     if (emailCheckResult.status === 409) {
       emailInput.classList.add('invalid');
       emailError.innerHTML = '중복된 이메일 입니다.';
       console.error('Error: ' + emailCheckResult.status);
     } else {
-      const result = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
-        method: 'POST',
-        headers: { 'content-Type': 'application/json' },
-        body: JSON.stringify({ email: emailValue, password: passwordValue, passwordCheck: passwordCheckValue }),
-      });
+      const result = await postFetcher(
+        'api/sign-up',
+        'email: emailValue, password: passwordValue, passwordCheck: passwordCheckValue',
+      );
       if (!checkEmail) {
         emailInput.classList.add('invalid');
         emailError.innerHTML = '이메일을 확인해 주세요.';

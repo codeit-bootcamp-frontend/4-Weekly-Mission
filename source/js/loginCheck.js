@@ -1,3 +1,5 @@
+import postFetcher from '../utils/postRequest.js';
+
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 
@@ -8,11 +10,7 @@ async function login() {
 
   //POST request 보내기
   try {
-    const result = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
-      method: 'POST',
-      headers: { 'content-Type': 'application/json' },
-      body: JSON.stringify({ email: emailValue, password: passwordValue }),
-    });
+    const result = await postFetcher('api/sign-in', 'email: emailValue, password: passwordValue');
     if (!result.ok) {
       console.error('Error: ' + result.status);
       emailInput.classList.add('invalid');
