@@ -29,16 +29,16 @@ function errorMsgRemove(input, msgType){
   msgType.classList.add('display-none');
 }; // 에러 메세지 지우기
 
-function togglePasswordEyeBtn(){
-  if(passwordInput.getAttribute('type') === 'password'){
-    passwordInput.setAttribute('type', 'text'); // 비밀번호 보이기
-    passwordEyeOff.classList.add('display-none'); // 눈 아이콘 변경
-    passwordEyeOn.classList.remove('display-none');
+function toggleEyeBtn(targetInput, eyeOff, eyeOn){
+  if(targetInput.getAttribute('type') === 'password'){
+    targetInput.setAttribute('type', 'text'); // 비밀번호 보이기
+    eyeOff.classList.add('display-none'); // 눈 아이콘 변경
+    eyeOn.classList.remove('display-none');
   } else {
-    passwordInput.setAttribute('type', 'password'); // 비밀번호 가리기
-    passwordEyeOn.classList.add('display-none'); // 눈 아이콘 변경
-    passwordEyeOff.classList.remove('display-none');
+    targetInput.setAttribute('type', 'password'); // 비밀번호 가리기
+    eyeOn.classList.add('display-none'); // 눈 아이콘 변경
+    eyeOff.classList.remove('display-none');
   }
-}; // 비밀번호 보이기/가리기
+}; // 비밀번호 눈 모양 버튼 보이기/가리기 기능 추가
 
-export { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn, passwordEyeBtn, passwordEyeOff, passwordEyeOn, checkValidationEmail, errorMsgAdd, errorMsgRemove, togglePasswordEyeBtn };
+export { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn, passwordEyeBtn, passwordEyeOff, passwordEyeOn, checkValidationEmail, errorMsgAdd, errorMsgRemove, toggleEyeBtn };

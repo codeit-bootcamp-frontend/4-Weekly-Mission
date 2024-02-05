@@ -1,4 +1,4 @@
-import { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn as signUpBtn, passwordEyeBtn, checkValidationEmail, errorMsgAdd, errorMsgRemove, togglePasswordEyeBtn } from './sign.js';
+import { signForm, errorMessageEmail, errorMessagePassword, emailInput, passwordInput, submitBtn as signUpBtn, passwordEyeBtn, passwordEyeOff, passwordEyeOn, checkValidationEmail, errorMsgAdd, errorMsgRemove, toggleEyeBtn } from './sign.js';
 
 // 회원가입에서 필요한 비밀번호 확인용 변수
 const errorMessagePasswordCheck = document.querySelector('#error-message-password-check');
@@ -13,9 +13,6 @@ function checkEmail(){
     return false;
   } else if (!checkValidationEmail(emailInput.value)){
     errorMsgAdd(emailInput, errorMessageEmail, "올바른 이메일 주소가 아닙니다");
-    return false;
-  } else if (emailInput.value === 'test@codeit.com'){
-    errorMsgAdd(emailInput, errorMessageEmail, "이미 사용 중인 이메일입니다");
     return false;
   } else {
     errorMsgRemove(emailInput, errorMessageEmail);
@@ -46,40 +43,66 @@ function checkPassword(){
 }; // 비밀번호 공란 검사 및 유효성 검사
 
 function checkPasswordCheck(){
-  if (passwordCheckInput.value === ""){
-    errorMsgAdd(passwordCheckInput, errorMessagePasswordCheck, "비밀번호를 입력해 주세요");
-    return false;
-  } else if (!checkValidationpassword(passwordCheckInput.value)){
-    errorMsgAdd(passwordCheckInput, errorMessagePasswordCheck, "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요");
-    return false;
-  } else if(passwordCheckInput.value !== passwordInput.value){
+  if(passwordCheckInput.value !== passwordInput.value){
     errorMsgAdd(passwordCheckInput, errorMessagePasswordCheck, "비밀번호가 일치하지 않아요");
     return false;
   } else {
     errorMsgRemove(passwordCheckInput, errorMessagePasswordCheck);
     return true;
   };
-}; // 비밀번호 확인의 공란 검사 및 유효성 검사 및 일치 여부 확인
+}; // 비밀번호 확인의 일치 여부 확인
 
-function trySignUp(e){
-  e.preventDefault();
-  if(checkEmail() && checkPassword() && checkPasswordCheck()){
-    let link = '/folder.html';
-    window.location.href = link;
-  };
-}; // 회원가입 시도
-
-function togglePasswordCheckEyeBtn(){
-  if(passwordCheckInput.getAttribute('type') === 'password'){
-    passwordCheckInput.setAttribute('type', 'text'); // 비밀번호 보이기
-    passwordCheckEyeOff.classList.add('display-none'); // 눈 아이콘 변경
-    passwordCheckEyeOn.classList.remove('display-none');
-  } else {
-    passwordCheckInput.setAttribute('type', 'password'); // 비밀번호 가리기
-    passwordCheckEyeOn.classList.add('display-none'); // 눈 아이콘 변경
-    passwordCheckEyeOff.classList.remove('display-none');
+async function checkSameEmailFetch() {
+  try {
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email',{
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json", // 타입 지정 안해줘서 삽질 오래함;;;
+      },
+      body: JSON.stringify({ email: emailInput.value }),
+    });
+    if (response.status === 200) { // 중복 아닌 경우
+      return true;
+    } else { // 중복인경우 에러 생성
+      throw new Error('sameEmail');
+    }
+  } catch (error) { // 에러 메세지 출력
+    errorMsgAdd(emailInput, errorMessageEmail, "이미 사용 중인 이메일입니다");
+    return false;
   }
-}; // 비밀번호 확인 보이기/가리기
+} // 이메일 중복 검사 요청
+
+
+async function signUpFetch() {
+  try {
+    const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+    method: 'POST',
+    headers: {
+      "Content-Type": "application/json", // 타입 지정 안해줘서 삽질 오래함;;;
+    },
+    body: JSON.stringify({
+      email: emailInput.value,
+      password: passwordInput.value,
+      }),
+    });
+    if (response.status === 200) { // 회원가입 성공 후 이동
+      window.location.href = '/folder.html';
+    } else {
+      throw new Error('Fail');
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}; // 회원가입 리퀘스트 요청
+
+function trySignUp(event){
+  event.preventDefault();
+  if(checkEmail() && checkPassword() && checkPasswordCheck()){ // 각각의 인풋 공란 및 정규식 검사
+    if(checkSameEmailFetch()){ // 이메일 중복 확인
+      signUpFetch() // 회원가입 요청
+    }
+  };
+}; // 회원가입 시도 에러가 409에러가 남.. 해결하려고 몇시간 해봤지만 안돼서 기능 구현에 집중함
 
 // 이벤트 관리
 emailInput.addEventListener('focusout', checkEmail);
@@ -91,5 +114,9 @@ signForm.addEventListener('keydown', function(event){
     trySignUp(event);
   };
 });
-passwordEyeBtn.addEventListener('click', togglePasswordEyeBtn);
-passwordCheckEyeBtn.addEventListener('click', togglePasswordCheckEyeBtn);
+passwordEyeBtn.addEventListener('click', function(){
+  toggleEyeBtn(passwordInput, passwordEyeOff, passwordEyeOn);
+}); // 비밀번호 보이기/가리기
+passwordCheckEyeBtn.addEventListener('click', function(){
+  toggleEyeBtn(passwordCheckInput, passwordCheckEyeOff, passwordCheckEyeOn);
+}); // 비밀번호 확인 보이기/가리기
