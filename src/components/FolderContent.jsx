@@ -1,16 +1,14 @@
 import AddImg from "../assets/add.svg";
 import { useState, useEffect, useCallback } from "react";
-// import Card from "./Card";
 import Cards from "./Cards";
 import UtilList from "./UtilList";
+import {API_PATH_USER_FOLDER, API_PATH_ALL_LINK, API_PATH_CATEGORY_LINK} from "../services/api-path";
 
 
 const DEFAULT_CATEGORY = [{
         id: 0,
         name: "전체",
      }];
-
-const userId = 10;
      
 function FolderContent(){
     const [categoryList, setCategoryList] = useState(DEFAULT_CATEGORY);
@@ -21,7 +19,7 @@ function FolderContent(){
     useEffect(() => {
         const userCategoryLoad = async() => {
             try{
-                const response = await fetch(`https://bootcamp-api.codeit.kr/api/users/${userId}/folders`,{
+                const response = await fetch(API_PATH_USER_FOLDER, {
                     method: "GET",
                 });
                 const result = await response.json();
@@ -38,7 +36,7 @@ function FolderContent(){
 
     const allLinkLoad = useCallback(async() => {
         try{
-            const response = await fetch(`https://bootcamp-api.codeit.kr/api/users/${userId}/links`,{
+            const response = await fetch(API_PATH_ALL_LINK, {
                 method: "GET"
             });
             const result = await response.json();
@@ -59,7 +57,7 @@ function FolderContent(){
 
     const handleViewCategory = async(id, name) => {
         try{
-            const response = await fetch(`https://bootcamp-api.codeit.kr/api/users/10/links?folderId=${id}`,{
+            const response = await fetch(API_PATH_CATEGORY_LINK(id),{
                 method: "GET"
             });
             const result = await response.json();
@@ -72,7 +70,13 @@ function FolderContent(){
         }catch(err){
             return console.log(err);
         }
-    }   
+    } 
+    
+    // const handleKebabClick = (e) => {
+    //     if(e.target.className !== "content__kebab"){
+    //         setKebabClick(false);
+    //     }
+    // }
     
     return (
         <main className="folder">
@@ -90,7 +94,7 @@ function FolderContent(){
                     {categoryList.map(category => {
                         const isSelect = selectCategory === category.id;
                         return <li onClick={
-                            () => category.id === 0 ? allLinkLoad() :handleViewCategory(category.id, category.name)} 
+                            () => category.id === 0 ? allLinkLoad() : handleViewCategory(category.id, category.name)} 
                             style={{
                                 backgroundColor: isSelect ? "#6D6AFE" : "#FFFFFF",
                                 color: isSelect ? "#FFFFFF" : "#000000",

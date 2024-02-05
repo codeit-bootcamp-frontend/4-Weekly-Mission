@@ -1,8 +1,6 @@
 import Cards from "./Cards";
 import {useEffect, useState} from 'react';
 import { API_PATH_SAMPLE_FOLDER } from "../services/api-path";
-// import Card from "./Card";
-
 
 function ShaerContent(){
     const [profileImg, setProfileImg] = useState(null);

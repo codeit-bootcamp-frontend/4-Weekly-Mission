@@ -17,7 +17,8 @@ function Cards({linkList, option}){
                 const createDate = new Date(linkCreated);
                 const timeDiffText = getTimeDiff(linkCreated);
                 const coustomDate = getCoustomDate(createDate);
-                return <Card key={id} date={coustomDate} url={url} imgSrc={imgSrc} timeDiff={timeDiffText} content={description} option={option}></Card>
+                return <Card key={id} date={coustomDate} url={url} imgSrc={imgSrc} timeDiff={timeDiffText} 
+                content={description} option={option}></Card>
             })}
         </div>
     )
