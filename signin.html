@@ -24,7 +24,9 @@
       </p>
     </header>
     <div class="sign-box">
-      <form class="sign-form">
+      <!-- <form class="sign-form"> -->
+      <div class="sign-form">
+        <!-- 폼태그없애고 실험하기/폼태그 캔슬 찾아보기/ 멘토님께 폼태그 꼭 해야하는 이유? -->
         <div class="sign-inputs">
           <div class="sign-input-box">
             <label class="sign-input-label">이메일</label>
@@ -41,7 +43,8 @@
           </div>
         </div>
         <button class="cta" type="submit">로그인</button>
-      </form>
+      </div>
+      <!-- </form> -->
       <div class="sns-box">
         <span class="sns-text">소셜 로그인</span>
         <div class="sns-links">
@@ -57,61 +60,6 @@
 
 
 
-    <script>
-
-
-
-      //이메일 빈값/형식체크(정규식 알아보기)
-      let emailInput = document.querySelector('#input-email')
-
-      emailInput.addEventListener('blur', function(){
-        if (!emailInput.value){
-          document.querySelector('#id-warning').style.display = 'block';
-        }
-        else if (!emailInput.value.includes('@')){
-          document.querySelector('#id-warning').style.display = 'block'
-          document.querySelector('#id-warning').innerHTML = '이메일 형식으로 입력해주세요'
-        }
-      })
-
-
-
-
-
-
-
-
-
-
-
-      //비밀번호 빈값 체크
-      //warning message 이후 비밀번호 보기 버튼 자리이탈함...
-      //비밀번호 보안 알아보기
-      let passwordInput = document.querySelector('#input-password')
-
-      passwordInput.addEventListener('blur', function(){
-        console.log(passwordInput.value)
-        if (!passwordInput.value){
-          document.querySelector('#pw-warning').style.display = 'block'
-        }
-      })
-
-      //관리자 이메일 관리자 페이지 이동
-      //이동이 안 됨..
-      
-      // function enterKey() {
-        
-      //   if (window.event.keyCode == 13) {
-      //       // if (emailInput === 'test@codeit.com' && passwordInput === 'codeit101'){
-      //       //   location.href = 'folder.html'
-      //       // }
-      //       alert('확인')
-      //       location.href = '/'
-      //   }
-      // }
-
-
-
-    </script>
+    <script src="signin.js"></script>
   </body>
 </html>
