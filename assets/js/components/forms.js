@@ -1,6 +1,5 @@
 import { Form, formState } from "../core/index.js"
-import { showError } from "../utils/ui.js"
-import { isEmpty, isEmailValid, isPasswordMatch, isPasswordValid, errorMessages } from "../utils/validation.js"
+import { isEmpty, isEmailValid, isPasswordMatch, isPasswordValid } from "../utils/validation.js"
 import authService from "../service/index.js"
 import { setUserStorageWithExpireTime } from "../service/localStorage.js"
 
@@ -18,32 +17,6 @@ class LoginForm extends Form {
     return { result: true, errorType: "" }
   }
 
-  setEmailErrorMessage(emailInput, errorType) {
-    const inputRootElement = document.querySelector(`.input-layout-${emailInput.name}`)
-    const errorElement = inputRootElement.querySelector(".input-error")
-    const errorMessage = errorMessages.email[errorType]
-
-    return showError({
-      inputRootElement,
-      errorElement,
-      errorMessage: errorMessage,
-      className: this.ERROR_CLASS_NAME,
-    })
-  }
-
-  setPasswordErrorMessage(passwordInput, errorType) {
-    const inputRootElement = document.querySelector(`.input-layout-${passwordInput.name}`)
-    const errorElement = inputRootElement.querySelector(".input-error")
-    const errorMessage = errorMessages.password[errorType]
-
-    return showError({
-      inputRootElement,
-      errorElement,
-      errorMessage: errorMessage,
-      className: this.ERROR_CLASS_NAME,
-    })
-  }
-
   compare(existingUser, formData) {
     return existingUser.email === formData.email && existingUser.password === formData.password
   }
@@ -57,9 +30,9 @@ class LoginForm extends Form {
     const emailValidationResult = this.emailValidation(email)
     const passwordValidationResult = this.passwordValidation(password)
 
-    !emailValidationResult.result && this.setEmailErrorMessage(this.inputEmailElement, emailValidationResult.errorType)
+    !emailValidationResult.result && this.setErrorMessage(this.inputEmailElement, emailValidationResult.errorType)
     !passwordValidationResult.result &&
-      this.setPasswordErrorMessage(this.inputPasswordElement, passwordValidationResult.errorType)
+      this.setErrorMessage(this.inputPasswordElement, passwordValidationResult.errorType)
 
     const isFormValid = emailValidationResult.result && passwordValidationResult.result
 
@@ -73,45 +46,6 @@ class LoginForm extends Form {
 }
 
 class RegisterForm extends Form {
-  setEmailErrorMessage(emailInput, errorType) {
-    const inputRootElement = document.querySelector(`.input-layout-${emailInput.name}`)
-    const errorElement = inputRootElement.querySelector(".input-error")
-    const errorMessage = errorMessages.email[errorType]
-
-    return showError({
-      inputRootElement,
-      errorElement,
-      errorMessage: errorMessage,
-      className: this.ERROR_CLASS_NAME,
-    })
-  }
-
-  setPasswordErrorMessage(passwordInput, errorType) {
-    const inputRootElement = document.querySelector(`.input-layout-${passwordInput.name}`)
-    const errorElement = inputRootElement.querySelector(".input-error")
-    const errorMessage = errorMessages.password[errorType]
-
-    return showError({
-      inputRootElement,
-      errorElement,
-      errorMessage: errorMessage,
-      className: this.ERROR_CLASS_NAME,
-    })
-  }
-
-  setPasswordComfirmErrorMessage(passwordConfirmInput, errorType) {
-    const inputRootElement = document.querySelector(`.input-layout-${passwordConfirmInput.name}`)
-    const errorElement = inputRootElement.querySelector(".input-error")
-    const errorMessage = errorMessages.passwordConfirm[errorType]
-
-    return showError({
-      inputRootElement,
-      errorElement,
-      errorMessage: errorMessage,
-      className: this.ERROR_CLASS_NAME,
-    })
-  }
-
   async emailValidation(value) {
     if (isEmpty(value)) return { result: false, errorType: "empty" }
     if (!isEmailValid(value)) return { result: false, errorType: "notValid" }
@@ -148,10 +82,9 @@ class RegisterForm extends Form {
       this.inputPasswordConfirmElement
     )
 
-    !emailResult && this.setEmailErrorMessage(this.inputEmailElement, emailError)
-    !passwordResult && this.setPasswordErrorMessage(this.inputPasswordElement, passwordError)
-    !passwordConfirmResult &&
-      this.setPasswordComfirmErrorMessage(this.inputPasswordConfirmElement, passwordConfirmError)
+    !emailResult && this.setErrorMessage(this.inputEmailElement, emailError)
+    !passwordResult && this.setErrorMessage(this.inputPasswordElement, passwordError)
+    !passwordConfirmResult && this.setErrorMessage(this.inputPasswordConfirmElement, passwordConfirmError)
 
     const isFormValid = emailResult && passwordResult && passwordConfirmResult
 
