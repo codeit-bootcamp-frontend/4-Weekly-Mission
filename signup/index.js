@@ -1,8 +1,10 @@
-const INPUT_EMAIL = document.querySelector('#signup-email');
-const INPUT_PASSWORD = document.querySelector('#signup-password');
-const INPUT_PASSWORD_CHECK = document.querySelector('#check-password')
-const ERROR_MESSAGE = document.querySelector('.error_message');
-const FORM_ELEMENT = document.querySelector('#signup-form');
+const INPUT_EMAIL = document.querySelector('#signup_email');
+const INPUT_PASSWORD = document.querySelector('#signup_password');
+const INPUT_PASSWORD_CHECK = document.querySelector('#check_password')
+const ERROR_MESSAGE_EMAIL = document.querySelector('#error_message_email');
+const ERROR_MESSAGE_PASSWORD = document.querySelector('#error_message_password');
+const ERROR_MESSAGE_PASSWORD_CHECK = document.querySelector('#error_message_password_check');
+const FORM_ELEMENT = document.querySelector('#signup_form');
 
 INPUT_EMAIL.addEventListener('focusout', handleEmailFocusout);
 INPUT_PASSWORD.addEventListener('focusout', handlePasswordFocusout);
@@ -11,28 +13,36 @@ FORM_ELEMENT.addEventListener('submit', handleSubmit);
 
 
 // 이메일 유효성 확인
-function emailValidation(input) {
-  const REG_EMAIL = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
-  return REG_EMAIL.test(input);
-}
-
 function handleEmailFocusout(e) {
   if (INPUT_EMAIL.value === '') {
-    INPUT_EMAIL.nextElementSibling.textContent = '이메일을 입력해 주세요.';
-    INPUT_EMAIL.classList.add('input_error');
-
+    ERROR_MESSAGE_EMAIL.textContent = '이메일을 입력해 주세요.';
+    addClassList(INPUT_EMAIL, 'input_error');
     return false;
+  }
 
-  } else if (INPUT_EMAIL.value !== '') {
-    if (INPUT_EMAIL.value === 'test@codeit.com') {
-      INPUT_EMAIL.nextElementSibling.textContent = '이미 사용 중인 이메일입니다.';
-      INPUT_EMAIL.classList.add('input_error');
-      return false;
-    } else if (!emailValidation(INPUT_EMAIL.value)) {
-      INPUT_EMAIL.nextElementSibling.textContent = '올바른 이메일 주소가 아닙니다.';
-      INPUT_EMAIL.classList.add('input_error');
-      return false;
-    }
+  emailValidation(e);
+
+  return true;
+}
+
+async function emailValidation (e) {
+  const EMAIL_ADDRESS = {
+    email: INPUT_EMAIL.value
+  }
+
+  const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(EMAIL_ADDRESS)
+  });
+
+  const result = await response.json(e);
+  if (!response.ok) {
+    e.target.nextElementSibling.textContent = result.error.message;
+    addClassList(INPUT_EMAIL, 'input_error');
+    return false;
   }
 }
 
@@ -45,24 +55,26 @@ function passwordValidation(input) {
 
 function handlePasswordFocusout(e) {
   if (!passwordValidation(INPUT_PASSWORD.value)) {
-    INPUT_PASSWORD.nextElementSibling.textContent = '비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.';
-    INPUT_PASSWORD.classList.add('input_error');
-
+    ERROR_MESSAGE_PASSWORD.textContent = '비밀번호는 영문,숫자 조합 8자 이상 입력해주세요.';
+    addClassList(INPUT_PASSWORD, 'input_error');
     return false;
   }
+  
+  return true;
 }
 
 function handlePasswordCheckFocusout(e) {
   if (INPUT_PASSWORD.value !== INPUT_PASSWORD_CHECK.value) {
-    INPUT_PASSWORD_CHECK.nextElementSibling.textContent = '비밀번호가 일치하지 않아요.';
-    INPUT_PASSWORD_CHECK.classList.add('input_error');
-
+    ERROR_MESSAGE_PASSWORD_CHECK.textContent = '비밀번호가 일치하지 않아요.';
+    addClassList(INPUT_PASSWORD_CHECK, 'input_error');
     return false;
   }
+
+  return true;
 }
 
 
-// 회원 가입 실행 시 유효성 확인
+// 제출 시 유효성 확인
 let checkFunctions = [
   handleEmailFocusout,
   handlePasswordFocusout,
@@ -70,18 +82,38 @@ let checkFunctions = [
 ]
 
 function handleSubmit(e) {
-  let count = 0;
-  console.log(count);
+  e.preventDefault();
 
   for (let checkFunction of checkFunctions) {
     if (checkFunction(e) === false) {
       checkFunction(e);
-      count++;
     }
   }
-  console.log(count);
 
-  if (count === 0) {
-    FORM_ELEMENT.submit();
+  finalValidation()
+}
+
+async function finalValidation() {
+  const user = {
+    email: INPUT_EMAIL.value,
+    password: INPUT_PASSWORD.value
   }
-} 
+
+  const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(user)
+  })
+
+  if (response.ok) {
+    window.location.href = '/folder';
+  }
+}
+
+
+// 스타일 추가
+function addClassList(target, className) {
+  target.classList.add(className)
+}
