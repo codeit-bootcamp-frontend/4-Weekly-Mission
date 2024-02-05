@@ -10,6 +10,7 @@ import {
 
 const inputEmailPlaceholderMessage = "이메일을 입력해주세요.";
 const invalidEmailErrorMessage = "올바른 이메일 주소가 아닙니다.";
+
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
 emailInput.addEventListener("focusout", (event) =>
