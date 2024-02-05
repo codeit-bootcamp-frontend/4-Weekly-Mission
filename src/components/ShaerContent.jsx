@@ -1,15 +1,14 @@
-import getTimeDiff from "../utils/getTimeDiff";
-import getCoustomDate from "../utils/getCoustomDate";
+import Cards from "./Cards";
 import {useEffect, useState} from 'react';
 import { API_PATH_SAMPLE_FOLDER } from "../services/api-path";
-import Card from "./Card";
+// import Card from "./Card";
 
 
 function ShaerContent(){
     const [profileImg, setProfileImg] = useState(null);
     const [folderOwner, setFolderOwner] = useState(null);
     const [folderName, setFolderName] = useState(null);
-    const [userLinkArray, setUserLinkArray] = useState([]);
+    const [linkList, setLinkList] = useState([]);
    
 
     useEffect(() => {
@@ -29,7 +28,7 @@ function ShaerContent(){
                 setProfileImg(result.folder.owner.profileImageSource);
                 setFolderOwner(result.folder.owner.name);
                 setFolderName(result.folder.name);
-                setUserLinkArray(result.folder.links);
+                setLinkList(result.folder.links);
             }catch(e){
                 console.error(e);
             }
@@ -51,20 +50,7 @@ function ShaerContent(){
     </section>
     <section className="content"> 
         <input className="content__search" type="search" placeholder="🔍   링크를 검색해 보세요."/>
-        <div className="content__cards">
-            <div
-            style={{
-                display : userLinkArray.length ? "none" : "block",
-            }}
-            className="content__blank">저장된 링크가 없습니다</div>
-            {userLinkArray.map(link => {
-                const {id, createdAt, imageSource, description, url} = link;
-                const createDate = new Date(createdAt);
-                const timeDiffText = getTimeDiff(createdAt);
-                const coustomDate = getCoustomDate(createDate);
-                return <Card key={id} date={coustomDate} url={url} imgSrc={imageSource} timeDiff={timeDiffText} content={description}></Card>
-            })}
-        </div>
+        <Cards linkList={linkList} option={false}/>
     </section>
     </main>
 }

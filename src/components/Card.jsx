@@ -1,7 +1,7 @@
 import DefalutCardImg from "../assets/default-card-img.svg";
 import StarImg from "../assets/star.svg";
 import KebabImg from "../assets/kebab.svg";
-function Card({url, imgSrc, timeDiff, content, date, option=false}){
+function Card({url, imgSrc, timeDiff, content, date, option}){
     return (
         <a href={url} className="content__card">
             {option && <img className="content__star" src={StarImg} alt="별 아이콘"/>}

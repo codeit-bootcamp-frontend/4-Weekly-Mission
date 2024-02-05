@@ -1,21 +1,22 @@
 import AddImg from "../assets/add.svg";
 import { useState, useEffect, useCallback } from "react";
-import Card from "./Card";
+// import Card from "./Card";
+import Cards from "./Cards";
 import UtilList from "./UtilList";
-import getTimeDiff from "../utils/getTimeDiff";
-import getCoustomDate from "../utils/getCoustomDate";
+
 
 const DEFAULT_CATEGORY = [{
         id: 0,
         name: "전체",
-     }]
+     }];
+
+const userId = 10;
      
 function FolderContent(){
     const [categoryList, setCategoryList] = useState(DEFAULT_CATEGORY);
     const [selectCategory, setSelectCategory] = useState(0);
     const [viewCategory, setViewCategory] = useState("전체"); 
     const [linkList, setLinkList] = useState([]);
-    const [userId, setUserId] = useState(10);
 
     useEffect(() => {
         const userCategoryLoad = async() => {
@@ -54,7 +55,7 @@ function FolderContent(){
 
     useEffect(() => {
         allLinkLoad();
-    }, [allLinkLoad]);
+    }, []);
 
     const handleViewCategory = async(id, name) => {
         try{
@@ -114,21 +115,7 @@ function FolderContent(){
                     <UtilList value="delete" text="삭제"/>
                 </ul>
             </div>
-
-            <div className="content__cards">
-                <div 
-                style={{
-                    display: linkList.length ? "none" : "block",
-                }}
-                className="content__blank">저장된 링크가 없습니다</div>
-                {linkList.map(link => {
-                    const {id, created_at, image_source, description, url} = link;
-                    const createDate = new Date(created_at);
-                    const timeDiffText = getTimeDiff(created_at);
-                    const coustomDate = getCoustomDate(createDate);
-                    return <Card key={id} url={url} imgSrc={image_source} timeDiff={timeDiffText} content={description} date={coustomDate} option={true}></Card>
-                })}
-            </div>
+            <Cards linkList={linkList} option={true}/>
         </section>
     </main>
     )
