@@ -16,6 +16,11 @@ nav {
   align-items: center;
 }
 
+.main-logo {
+  width: 133px;
+  height: 24px;
+}
+
 .user-profile {
   display: flex;
   align-items: center;
@@ -66,7 +71,7 @@ nav {
 article {
   width: 100%;
   background-color: var(--White);
-  padding: 24px 0px;
+  padding: 40px 0px;
   text-align: center;
 }
 .card-search {
@@ -87,7 +92,7 @@ article {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px 25px;
   width: 1060px;
-  margin: 20px auto 0;
+  margin: 40px auto 0;
 }
 
 .card-search-button {
@@ -164,7 +169,7 @@ article {
 /*Footer*/
 footer {
   width: 100%;
-  padding: 120px 0 0 0;
+  padding: 60px 0 0;
   background-color: var(--White);
 }
 
@@ -241,13 +246,18 @@ footer {
     width: 100%;
   }
 
+  .main-logo {
+    width: 88px;
+    height: 16px;
+  }
+
   .profile-email {
     display: none;
   }
 
   /*card*/
   article {
-    padding: 16px 0;
+    padding: 28px 0;
   }
 
   .card-search-button {
@@ -264,6 +274,7 @@ footer {
     width: 325px;
     gap: 20px;
     grid-template-columns: 1fr;
+    margin-top: 32px;
   }
   /*footer*/
   footer {
