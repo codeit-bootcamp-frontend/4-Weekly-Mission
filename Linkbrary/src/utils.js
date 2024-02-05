@@ -1,7 +1,6 @@
 const SIGN_INPUT_ERROR_CLASSNAME = "sign-input-error";
 const ERROR_MESSAGE_CLASSNAME = "error-message-on";
 const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-const PASSWORD_REGEX = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
 export function setInputError(elements, message) {
   elements.input.className += ` ${SIGN_INPUT_ERROR_CLASSNAME}`;
@@ -20,7 +19,9 @@ export function isEmailValid(email) {
 }
 
 export function isPasswordValid(password) {
-  return new RegExp(PASSWORD_REGEX).test(password);
+  const isEightLettersOrMore = password.length >= 8;
+  const hasNumberAndCharacter = password.match(/[0-9]/g) && password.match(/[a-zA-Z]/gi);
+  return isEightLettersOrMore && hasNumberAndCharacter;
 }
 
 export function togglePassword(input, toggleButton) {
@@ -37,5 +38,3 @@ export const TEST_USER = {
   email: "test@codeit.com",
   password: "codeit101",
 };
-
-
