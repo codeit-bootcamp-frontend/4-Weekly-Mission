@@ -30,10 +30,6 @@ export const checkValueMatch = (firstElement, secondElement) => {
   return firstElement.value === secondElement.value;
 };
 
-export const checkUserInfo = (id, password) => {
-  return id === USER_INFO.ID && password === USER_INFO.PASSWORD;
-};
-
 export const checkUserId = id => {
   return id === USER_INFO.ID;
 };

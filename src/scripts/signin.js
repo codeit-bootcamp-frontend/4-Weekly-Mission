@@ -1,6 +1,7 @@
-import { ERROR_MESSAGE, PATH } from './constant.js';
-import { showInputError, showErrorMessage, checkUserInfo } from './util.js';
+import { ERROR_MESSAGE } from './constant.js';
+import { showInputError, showErrorMessage } from './util.js';
 import { checkEmail, checkPassword, changeEyeIcon } from './sign.js';
+import { signin } from './api.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -10,6 +11,10 @@ const eyeIcon = document.getElementById('eyeIcon');
 
 const emailErrorMessage = document.getElementById('emailErrorMessage');
 const passwordErrorMessage = document.getElementById('passwordErrorMessage');
+
+const signinInfo = {
+  "email": email.value, "password": password.value,
+}
 
 //Check email: 입력 여부 확인, 메일 형식 확인
 const SigninEmailHandler = () => {
@@ -29,11 +34,7 @@ const EyeIconHandler = () => {
 //Login: submit form
 const SigninSubmitHandler = event => {
   event.preventDefault();
-  if (checkUserInfo(email.value, password.value)) {
-    email.value = '';
-    window.location.href = PATH.PAGE_FOLDER;
-    return;
-  }
+  signin('/sign-in', signinInfo);
   showInputError(email);
   showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL);
   showInputError(password);
