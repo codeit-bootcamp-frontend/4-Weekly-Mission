@@ -137,6 +137,13 @@ article {
 .card-image {
   width: 340px;
   height: 200px;
+  overflow: hidden;
+}
+
+.card-data-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .card-date-difference {

@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import defaultImage from '../../assets/Images/non_image.png';
 
 export default function Card({ link }) {
   const { imageSource, createdAt, description, url } = link;
   const date = new Date(createdAt).toLocaleDateString();
+  const cardDiv = useRef(null);
+  const cardImage = useRef(null);
 
   const upDateStauts = (createdDate) => {
     const currentTime = new Date().getTime();
@@ -22,12 +25,36 @@ export default function Card({ link }) {
       return `${parseInt(timeDiffMonth)} months ago`;
     return `${parseInt(timeDiffyear)} years ago`;
   };
+
+  const cardMouseOver = () => {
+    cardDiv.current.style.border = '2px solid #6D6AFE';
+    cardImage.current.style.transform = 'scale(1.3)';
+  };
+
+  const cardMouseOut = () => {
+    console.log(cardDiv.current);
+    cardDiv.current.style.border = '0';
+    cardImage.current.style.transform = 'scale(1)';
+  };
+
   const status = link.createdAt ? upDateStauts(createdAt) : null;
   return (
-    <div className="card">
+    <div
+      className="card"
+      ref={cardDiv}
+      onMouseOver={cardMouseOver}
+      onMouseOut={cardMouseOut}
+    >
       <a href={url} target="_blank" rel="noreferrer">
         <section>
-          <img src={imageSource} className="card-image" alt="card-image"></img>
+          <div className="card-image">
+            <img
+              src={imageSource ? imageSource : defaultImage}
+              className="card-data-image"
+              alt="card-image"
+              ref={cardImage}
+            ></img>
+          </div>
           <div className="card-content">
             <p className="card-date-difference">{status}</p>
             <p className="card-description">{description}</p>
