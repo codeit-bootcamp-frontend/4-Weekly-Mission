@@ -90,12 +90,22 @@ article {
   margin: 20px auto 0;
 }
 
-.card-search-icon {
+.card-search-button {
   position: relative;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   left: -1040px;
   top: 3px;
+  border: 0;
+}
+
+.card-search-button:hover {
+  cursor: pointer;
+}
+
+.card-search-icon {
+  width: 16px;
+  height: 16px;
 }
 
 /*card.js*/
@@ -211,7 +221,7 @@ footer {
     width: 704px;
   }
 
-  .card-search-icon {
+  .card-search-button {
     left: -684px;
   }
   .content-wrapper {
@@ -240,8 +250,7 @@ footer {
     padding: 16px 0;
   }
 
-  .card-search-icon {
-    position: relative;
+  .card-search-button {
     left: -305px;
   }
 
