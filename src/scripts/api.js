@@ -21,3 +21,21 @@ export const signin = async (endPoint, signinInfo) => {
     console.log(error);
   }
 }
+
+export const checkEmailInfo = async (endPoint, emailInfo) => {
+  try {
+    const response = await fetch(`${baseUrl}${endPoint}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(emailInfo),
+    });
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
+    return await response.json();
+  } catch (error) {
+    console.log(error);
+  }
+}
