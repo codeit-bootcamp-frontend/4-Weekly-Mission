@@ -1,13 +1,14 @@
 const SIGN_INPUT_ERROR_CLASSNAME = "sign-input-error";
 const ERROR_MESSAGE_CLASSNAME = "error-message-on";
-const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-const PASSWORD_REGEX_STRING = /[a-zA-Z]/;
-const PASSWORD_REGEX_NUMBER = /\d/;
+const EMAIL_REGEX = new RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g);
+const PASSWORD_REGEX_STRING = new RegExp(/[a-zA-Z]/);
+const PASSWORD_REGEX_NUMBER = new RegExp(/\d/);
 
 export function setInputError(elements, message) {
-  elements.input.className += ` ${SIGN_INPUT_ERROR_CLASSNAME}`;
-  elements.errorMessage.className += ` ${ERROR_MESSAGE_CLASSNAME}`;
-  elements.errorMessage.textContent = message;
+  const { input, errorMessage } = elements;
+  input.classList.add(SIGN_INPUT_ERROR_CLASSNAME);
+  errorMessage.classList.add(ERROR_MESSAGE_CLASSNAME);
+  errorMessage.textContent = message;
 }
 
 export function removeInputError(elements) {
@@ -17,7 +18,7 @@ export function removeInputError(elements) {
 }
 
 export function isEmailValid(email) {
-  return new RegExp(EMAIL_REGEX).test(email);
+  return EMAIL_REGEX.test(email);
 }
 
 export function togglePassword(input, toggleButton) {
@@ -36,13 +37,13 @@ export function togglePassword(input, toggleButton) {
 
 export const TEST_USER = {
   email: "test@codeit.com",
-  password: "codeit101",
+  password: "sprint101",
 };
 
 export function isPasswordValidString(password) {
-  return new RegExp(PASSWORD_REGEX_STRING).test(password);
+  return PASSWORD_REGEX_STRING.test(password);
 }
 
 export function isPasswordValidNumber(password) {
-  return new RegExp(PASSWORD_REGEX_NUMBER).test(password);
+  return PASSWORD_REGEX_NUMBER.test(password);
 }

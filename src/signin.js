@@ -67,8 +67,7 @@ passwordToggleButton.addEventListener("click", () =>
 );
 
 const signForm = document.querySelector("#form");
-signForm.addEventListener("submit", submitForm);
-function submitForm(event) {
+signForm.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   const isTestUser =
@@ -90,4 +89,4 @@ function submitForm(event) {
     { input: passwordInput, errorMessage: passwordErrorMessage },
     "비밀번호를 확인해주세요."
   );
-}
+});
