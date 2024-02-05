@@ -13,7 +13,6 @@ export async function handleSignIn(emailInput, passwordInput) {
       }),
     });
     const result = await response.json();
-    console.log(result);
     if (response.status === 200) {
       location.href = "./folder.html";
       const accessToken = result.data.accessToken;
@@ -24,7 +23,7 @@ export async function handleSignIn(emailInput, passwordInput) {
   }
 }
 
-export async function requestEmailCheckAPi(emailInput, passwordInput) {
+export async function requestEmailCheckApi(emailInput, passwordInput) {
   try {
     const responseCheckEmail = await fetch(
       "https://bootcamp-api.codeit.kr/api/check-email",
@@ -37,9 +36,9 @@ export async function requestEmailCheckAPi(emailInput, passwordInput) {
       }
     );
     const checkEmailResult = await responseCheckEmail.json();
-    console.log(checkEmailResult);
     if (checkEmailResult.data.isUsableNickname === true) {
-      requestSignupApi(emailInput, passwordInput);
+      const isSuccessSignup = requestSignupApi(emailInput, passwordInput);
+      return isSuccessSignup;
     }
     if (checkEmailResult.status === 409) {
       console.error("[ERROR] 이메일 중복 에러");
@@ -60,7 +59,6 @@ export async function requestSignupApi(emailInput, passwordInput) {
       }),
     });
     const result = await response.json();
-    console.log(result);
     if (response.status === 200) {
       const accessToken = result.data.accessToken;
       localStorage.setItem("accessToken", accessToken);

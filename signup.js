@@ -1,7 +1,7 @@
 import { printEmailError } from "./common.js";
 // import { duplicationCheckAPI } from "./api.js";
 // import { signupApi } from "./api.js";
-import { requestEmailCheckAPi } from "./api.js";
+import { requestEmailCheckApi } from "./api.js";
 const emailInput = document.querySelector(".email-input");
 const passwordInput = document.querySelector(".password-input");
 const rePasswordInput = document.querySelector(".check-password");
@@ -68,20 +68,18 @@ const handleFocusoutRePassword = () => {
 
 const handleClickBtn = async (e) => {
   e.preventDefault();
+  const isEmailCheckSuccess = await requestEmailCheckApi(
+    emailInput.value,
+    passwordInput.value
+  );
   if (
-    (await requestEmailCheckAPi(emailInput.value, passwordInput.value)) &&
+    isEmailCheckSuccess &&
     handleFocusoutPassword() &&
     handleFocusoutRePassword()
   ) {
     location.href = "./folder.html";
   }
 };
-
-// const handleClickBtn = async (e) => {
-//   e.preventDefault();
-//   console.log("a");
-//   await requestEmailCheckAPi(emailInput.value, passwordInput.value);
-// };
 
 const showPw = () => {
   passwordInput.setAttribute("type", "text");
