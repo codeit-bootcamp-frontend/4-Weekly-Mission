@@ -9,6 +9,7 @@ import {
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
 
+
 function validateEmailInput(email) {
   if (email === "") {
     setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 입력해주세요.");
@@ -24,11 +25,13 @@ function validateEmailInput(email) {
   removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
 }
 
+
 emailInput.addEventListener("focusout", (event) => validateEmailInput(event.target.value));
 
 
 const passwordInput = document.querySelector("#password");
 const passwordErrorMessage = document.querySelector("#password-error-message");
+
 
 function validatePasswordInput(password) {
   if (password === "") {
@@ -45,6 +48,7 @@ passwordInput.addEventListener("focusout", (event) => validatePasswordInput(even
 
 
 const passwordToggleButton = document.querySelector("#password-toggle");
+
 
 passwordToggleButton.addEventListener("click", () =>
   togglePassword(passwordInput, passwordToggleButton)
@@ -86,6 +90,7 @@ async function submitForm(event) {
       return;
     }
     setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
+
     setInputError(
       { input: passwordInput, errorMessage: passwordErrorMessage },
       "비밀번호를 확인해주세요."
@@ -94,3 +99,4 @@ async function submitForm(event) {
 }
 
 signForm.addEventListener("submit", submitForm);
+

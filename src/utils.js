@@ -5,6 +5,7 @@ const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 export function setInputError(elements, message) {
   elements.input.className += ` ${SIGN_INPUT_ERROR_CLASSNAME}`;
   elements.errorMessage.className += ` ${ERROR_MESSAGE_CLASSNAME}`;
+
   elements.errorMessage.textContent = message;
 }
 
@@ -28,9 +29,11 @@ export function togglePassword(input, toggleButton) {
   const currentType = input.getAttribute("type");
   input.setAttribute("type", currentType === "password" ? "text" : "password");
   toggleButton.querySelector("img").setAttribute("src", `./images/eye-${currentType === "password" ? "on" : "off"}.svg`);
+
 }
 
 export const TEST_USER = {
   email: "test@codeit.com",
   password: "sprint101",
 };
+

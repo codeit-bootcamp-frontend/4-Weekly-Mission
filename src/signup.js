@@ -11,6 +11,7 @@ const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
 
 async function validateEmailInput(email) {
+
   if (email === "") {
     setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 입력해주세요.");
     return false;
@@ -35,6 +36,7 @@ async function validateEmailInput(email) {
     removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
     return true;
   } else {
+
     setInputError(
       { input: emailInput, errorMessage: emailErrorMessage },
       "이미 사용 중인 이메일입니다."
@@ -47,6 +49,7 @@ emailInput.addEventListener("focusout", async (event) => await validateEmailInpu
 
 const passwordInput = document.querySelector("#password");
 const passwordErrorMessage = document.querySelector("#password-error-message");
+
 
 function validatePasswordInput(password) {
   if (password === "" || !isPasswordValid(password)) {
@@ -64,6 +67,7 @@ passwordInput.addEventListener("focusout", (event) => validatePasswordInput(even
 
 const confirmPasswordInput = document.querySelector("#confirm-password");
 const confirmPasswordErrorMessage = document.querySelector("#confirm-password-error-message");
+
 
 function validateConfirmPasswordInput(confirmPassword) {
   if (confirmPassword === "" || !isPasswordValid(confirmPassword)) {
@@ -89,6 +93,7 @@ confirmPasswordInput.addEventListener("focusout", (event) =>
 );
 
 
+
 const passwordToggleButton = document.querySelector("#password-toggle");
 passwordToggleButton.addEventListener("click", () =>
   togglePassword(passwordInput, passwordToggleButton)
@@ -105,6 +110,7 @@ async function submitForm(event) {
   event.preventDefault();
 
   const isEmailInputValid = await validateEmailInput(emailInput.value);
+
   const isPasswordInputValid = validatePasswordInput(passwordInput.value);
   const isConfirmPasswordInputValid = validateConfirmPasswordInput(confirmPasswordInput.value);
 
@@ -130,3 +136,4 @@ async function submitForm(event) {
 }
 
 signForm.addEventListener("submit", submitForm);
+
