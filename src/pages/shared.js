@@ -1,3 +1,4 @@
+/*eslint-disable */
 import React, { useEffect, useState } from 'react';
 import Header from '../components/sharedPageComponents/header';
 import Contents from '../components/sharedPageComponents/contents';
@@ -11,6 +12,7 @@ export default function Main() {
     userImage: null,
     name: null,
   });
+  const [cardData, setCardData] = useState(null);
   useEffect(() => {
     userData();
     folderData();
@@ -47,6 +49,7 @@ export default function Main() {
           userImage: folder.owner.profileImageSource,
           name: folder.name,
         });
+        setCardData(folder.links);
       }
     } catch (error) {
       console.log(error);
@@ -55,7 +58,7 @@ export default function Main() {
   return (
     <>
       <Header userProfile={userProfile} folder={folder}></Header>
-      <Contents></Contents>
+      <Contents links={cardData}></Contents>
       <Footer></Footer>
     </>
   );
