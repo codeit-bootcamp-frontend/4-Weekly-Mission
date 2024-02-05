@@ -13,22 +13,34 @@ export default function Header() {
   }, []);
 
   const userData = async () => {
-    const response = await fetch(
-      'https://bootcamp-api.codeit.kr/api/sample/user',
-    );
-    const result = await response.json();
-    setUserProfileImage(result.profileImageSource);
-    setUserProfileEmail(result.email);
+    try {
+      const response = await fetch(
+        'https://bootcamp-api.codeit.kr/api/sample/user',
+      );
+      const result = await response.json();
+      if (response.ok) {
+        setUserProfileImage(result.profileImageSource);
+        setUserProfileEmail(result.email);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const folderData = async () => {
-    const response = await fetch(
-      'https://bootcamp-api.codeit.kr/api/sample/folder',
-    );
-    const { folder } = await response.json();
-    setFolderUserImage(folder.owner.profileImageSource);
-    setFolderUserName(folder.owner.name);
-    setFolderName(folder.name);
+    try {
+      const response = await fetch(
+        'https://bootcamp-api.codeit.kr/api/sample/folder',
+      );
+      const { folder } = await response.json();
+      if (response.ok) {
+        setFolderUserImage(folder.owner.profileImageSource);
+        setFolderUserName(folder.owner.name);
+        setFolderName(folder.name);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
