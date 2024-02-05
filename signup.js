@@ -1,8 +1,13 @@
 import { form, btn } from "./elements.js";
-import { showPassword } from "./functions/showPassword.js";
-import { showErrorMsgSignup as showErrorMsg } from "./functions/showErrorMsg.js";
-import { moveFolderSignup as moveFolderPage } from "./functions/moveFolderPage.js";
+import { isLogin } from "./utils/status.js";
+import { showPassword } from "./utils/showPassword.js";
+import { redirectToFolderPage } from "./utils/redirectToFolderPage.js";
+import { showErrorMsgSignup as showErrorMsg } from "./utils/showErrorMsg.js";
+import { moveFolderSignup as moveFolderPage } from "./utils/moveFolderPage.js";
 
+window.addEventListener("DOMContentLoaded", () => {
+  if (isLogin()) redirectToFolderPage("folder.html");
+});
 form.addEventListener("focusout", showErrorMsg);
 form.addEventListener("click", showPassword);
 btn.addEventListener("click", moveFolderPage);
