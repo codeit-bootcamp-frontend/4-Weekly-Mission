@@ -19,7 +19,7 @@ export default class Form {
 
   setFormData() {
     for (const element of this.inputElements) {
-      formState.data = { name: element.name, value: element.value }
+      this.formState.data = { name: element.name, value: element.value }
     }
   }
 
