@@ -18,12 +18,12 @@
       </p>
     </header>
     <div class="signInBox">
-      <form action="/folder.html" onsubmit="login()">
+      <form>
         <div class="inputs">
           <div class="inputBox">
             <label for="email" class="signLabel">이메일</label>
             <input id="email" type="email" class="signInput" />
-            <div class="red errorMsg"></div>
+            <div class="red errorEmail"></div>
           </div>
           <div class="inputBox inputPw">
             <label for="password" class="signLabel">비밀번호</label>
@@ -49,6 +49,6 @@
       </div>
     </div>
 
-    <script src="./signin.js"></script>
+    <script type="module" src="./signin.js"></script>
   </body>
 </html>
