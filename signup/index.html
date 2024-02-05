@@ -10,45 +10,48 @@
 <body>
   <header>
     <div>
-      <a href="/"><img class="header-logo" src="/assets/image/logo.png"></a>
+      <a href="/"><img class="headerLogo" src="/assets/image/logo.png" alt="logo"></a>
     </div>
-    <div class="header-signup">
+    <div class="headerSignup">
       이미 회원이신가요? <a class="signup" href="/signin">로그인 하기</a>
     </div>
   </header>
 
   <section>
-    <div class="contents-frame">
-      <form action="/folder.html" onsubmit="login()">
-        <div class="contents-form">
-          <div class="input-container">
+    <div class="contentsFrame">
+      <form action="/folder.html" onsubmit="signup()">
+        <div class="contentsForm">
+          <div class="inputContainer">
             <label for="email">이메일</label>
             <input type="email" name="email" id="email" placeholder="이메일">
+            <div class="idErrorMessage"></div>
           </div>
-          <div class="input-container input-password">
+          <div class="inputContainer inputPassword">
             <label for="password">비밀번호</label>
             <input type="password" name="password" id="password" placeholder="비밀번호">
-            <img class="password-eye" src="/assets/image/eye-on.png">
+            <img class="passwordEye" src="/assets/image/eye-off.png" alt="eye">
+            <div class="pwErrorMessage"></div>
           </div>
-          <div class="input-container input-password">
+          <div class="inputContainer inputPassword">
             <label for="password">비밀번호 확인</label>
-            <input type="password" name="password" id="password" placeholder="비밀번호">
-            <img class="password-eye" src="/assets/image/eye-on.png">
+            <input type="password" name="passwordRepeat" id="passwordRepeat" placeholder="비밀번호 확인">
+            <img class="passwordRepEye" src="/assets/image/eye-off.png" alt="eye">
+            <div class="pwRepeatErrorMessage"></div>
           </div>
         </div>
-        <button class="form-submit" type="submit">회원가입</button>
+        <button class="formSubmit" type="submit">회원가입</button>
       </form>
-      <div class="footer-frame">
-        <div class="footer-social-Login-text">
+      <div class="footerFrame">
+        <div class="footerSocialLoginText">
           다른 방식으로 가입하기
         </div>
-        <div class="footer-social-Login-image">
-          <a class="footer-image" href="https://www.google.com/"><img src="/assets/image/Google.png" alt="구글 로그인"></a>
-          <a class="footer-image" href="https://www.kakaocorp.com/page/"><img src="/assets/image/Kakaotalk.png" alt="카카오톡 로그인"></a>
+        <div class="footerSocialLoginImage">
+          <a class="footerImage" href="https://www.google.com/"><img src="/assets/image/Google.png" alt="구글 회원가입"></a>
+          <a class="footerImage" href="https://www.kakaocorp.com/page/"><img src="/assets/image/Kakaotalk.png" alt="카카오톡 회원가입"></a>
         </div>
       </div>
     </div>
   </section>
-  <script src="index.js"></script>
+  <script src="./index.js"></script>
 </body>
 </html>
