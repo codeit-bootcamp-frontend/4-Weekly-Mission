@@ -1,6 +1,6 @@
 import { REGEXP_EMAIL, REGEXP_PASSWORD} from "./regExp.js";
 
-async function vaildEmail(emailInput, emailError) {
+ function vaildEmail(emailInput, emailError) {
     if(!emailInput.value){
         emailError.style.display = "block";
         emailError.textContent = "이메일을 입력해 주세요.";
@@ -15,7 +15,7 @@ async function vaildEmail(emailInput, emailError) {
     }
 }
 
-async function vaildPW(pwInput, pwError, pwLength = true){
+ function vaildPW(pwInput, pwError, pwLength = true){
     if(!pwInput.value){
         pwError.style.display = "block";
         pwError.textContent = "비밀번호를 입력해 주세요.";
@@ -30,7 +30,7 @@ async function vaildPW(pwInput, pwError, pwLength = true){
     }
 }
 
-async function vaildConfirmPW(pwInput, pwError, pwLength = true){
+ function vaildConfirmPW(pwInput, pwError, pwLength = true){
     if(!pwInput.value){
         pwError.style.display = "block";
         pwError.textContent = "비밀번호를 입력해 주세요.";

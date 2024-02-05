@@ -1,4 +1,4 @@
-function pwInputTypeChange(eyeIcon, pwInput) { 
+function togglePasswordVisibility(eyeIcon, pwInput) { 
     eyeIcon.addEventListener("click", () => {
         if(pwInput.type == 'password'){
             pwInput.type = 'text';
@@ -13,4 +13,4 @@ function pwInputTypeChange(eyeIcon, pwInput) {
     });
 }
 
-export { pwInputTypeChange };
+export { togglePasswordVisibility };

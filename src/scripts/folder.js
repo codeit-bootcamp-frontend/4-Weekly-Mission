@@ -159,12 +159,14 @@ window.onload = function(){
         const starImg = createCustomElement("img", "content__star", "../img/star.svg");
         const contentImg = createCustomElement("img", "content__img", image_source);
         const infoTag = createCustomElement("div", "content__info");
+
         const infoBoxTag = createCustomElement("div", "content__box");
         const timeDiffTag = createCustomElement("div", "content__timediff", timeDiffText);
         const kebab = createCustomElement("img", "content__kebab", "../img/kebab.svg");
         const kebabLists = createCustomElement("ul", "kebab__lists");
         const kebabList1 = createCustomElement("li", "kebab__list", "삭제하기")
         const kebabList2 = createCustomElement("li", "kebab__list", "폴더에 추가")
+
         const contentText = createCustomElement("div", "content__text", description);
         const cotentDate = createCustomElement("div", "content__date", coustomDate);
         infoBoxTag.append(timeDiffTag);
@@ -208,6 +210,6 @@ window.onload = function(){
             kebabList.style.display = "none";
         }
     })
-
 }
+
 

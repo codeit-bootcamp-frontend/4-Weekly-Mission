@@ -1,4 +1,4 @@
-function timeDiff(date){
+function getTimeDiff(date){
     const today = new Date();
     const targetDate = new Date(date)
     const minute = (today - targetDate) / (1000 * 60);
@@ -25,4 +25,4 @@ function timeDiff(date){
     }
 }
 
-export default timeDiff;
+export default getTimeDiff;

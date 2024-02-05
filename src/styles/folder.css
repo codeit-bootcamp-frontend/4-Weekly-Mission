@@ -136,7 +136,7 @@ html{
 }
 
 .link__inputtext::placeholder{
-    background-image: url("../img/link.svg");
+    background-image: url("../assets/link.svg");
     background-repeat: no-repeat;
     background-size: contain;
     font-size: 1rem;
@@ -207,22 +207,23 @@ html{
 }
 
 .category__list{
-    padding: 0.5rem 0.75rem;
+    padding: 0.6rem 0.75rem 0.5rem;
     border-radius: 0.3125rem;
     border: 1px solid var(--Linkbrary-primary-color);
+    cursor: pointer;
 }
 
-.active,
 .category__list:hover{
     background-color: var(--Linkbrary-primary-color);
-    color: #FFF;
-}
+    color: #FFFFFF;
+} 
 
 .category__add{
     display: flex;
     align-items: center;
     gap: 0.25rem;
     height: 2rem;
+    cursor: pointer;
     @media screen and (max-width: 767px) {
         display: none;
     }
@@ -327,7 +328,7 @@ html{
 
 .content__star{
     position: absolute;
-    z-index: 999;
+    z-index: 10;
     top: 0.94rem;
     right: 0.94rem;
 }
