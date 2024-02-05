@@ -103,7 +103,7 @@ passwordCheckToggleButton.addEventListener("click", () =>
   togglePassword(passwordCheckInput, passwordCheckToggleButton)
 );
 
-const signForm = document.querySelector("#form");
+const signForm = document.querySelector(".sign-form");
 const successPageURL = "../folder.html";
 signForm.addEventListener("submit", submitForm);
 function submitForm(event) {

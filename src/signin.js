@@ -72,11 +72,13 @@ passwordToggleButton.addEventListener("click", () =>
   togglePassword(passwordInput, passwordToggleButton)
 );
 
-const usedEmailErrorMessage = "이미 사용 중인 이메일입니다.";
-const verifyEmailMessage = "이메일을 확인해주세요.";
-const verifyPasswordMessage = "비밀번호를 확인해주세요.";
-const signForm = document.querySelector("#form");
-signForm.addEventListener("submit", async (event) => {
+const loginFailureMessage = "이메일 혹은 비밀번호를 확인해주세요.";
+
+const API_URL = "https://bootcamp-api.codeit.kr/api/sign-in";
+const successPageURL = "../folder.html";
+
+const signForm = document.querySelector(".sign-form");
+signForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const isTestUser =
@@ -84,18 +86,38 @@ signForm.addEventListener("submit", async (event) => {
     passwordInput.value === TEST_USER.password;
 
   if (isTestUser) {
-    setInputError(
-      { input: emailInput, errorMessage: emailErrorMessage },
-      usedEmailErrorMessage
-    );
+    window.location.href = successPageURL;
     return;
   }
-  setInputError(
-    { input: emailInput, errorMessage: emailErrorMessage },
-    verifyEmailMessage
-  );
-  setInputError(
-    { input: passwordInput, errorMessage: passwordErrorMessage },
-    verifyPasswordMessage
-  );
+
+  fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: emailInput.value,
+      password: passwordInput.value,
+    }),
+  })
+    .then((response) => {
+      if (response.ok) {
+        window.location.href = successPageURL;
+      } else {
+        return response.json();
+      }
+    })
+    .then((errorData) => {
+      setInputError(
+        { input: emailInput, errorMessage: emailErrorMessage },
+        errorData.message || loginFailureMessage
+      );
+    })
+    .catch((error) => {
+      console.error(loginFailureMessage, error);
+      setInputError(
+        { input: emailInput, errorMessage: emailErrorMessage },
+        loginFailureMessage
+      );
+    });
 });
