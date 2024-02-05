@@ -1,6 +1,3 @@
-import { CHECK_EMAIL } from "../api/index.js"
-import { requestHTTP } from "./httpRequest.js"
-
 export const isEmpty = (value) => value.trim().length === 0
 
 export const isEmailValid = (value) => {
