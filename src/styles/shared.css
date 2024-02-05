@@ -1,5 +1,6 @@
 @import '/src/styles/index.css';
 
+/*Header*/
 nav {
   background-color: var(--Gray5);
   position: sticky;
@@ -34,9 +35,89 @@ nav {
   color: #373740;
 }
 
+.folder {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px 60px;
+  gap: 12px;
+  align-items: center;
+}
+
+.folder-user-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 47px;
+}
+
+.folder-user-name {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.folder-folder-name {
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  margin-top: 8px;
+}
+
+/*Contents*/
+.content-wrapper {
+  width: 100%;
+  height: 1000px;
+  background-color: var(--White);
+}
+
+/*Footer*/
+footer {
+  width: 100%;
+  padding: 120px 0 0 0;
+  background-color: var(--White);
+}
+
+.footer-banner {
+  display: flex;
+  height: 160px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 32px 104px 64px 104px;
+  background: #111322;
+}
+
+.copyright {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.26px;
+  text-align: center;
+  color: #676767;
+}
+
+.description {
+  display: flex;
+  gap: 30px;
+}
+
+.description a {
+  color: #cfcfcf;
+  text-decoration: none;
+}
+
+.footer-icon {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-icon img {
+  width: 20px;
+  height: 20px;
+}
+
 @media (max-width: 1199px) {
+  /*Header*/
   nav {
-    padding: 20px 32px;
+    padding: 33px 32px;
   }
 
   .menu {
@@ -46,11 +127,48 @@ nav {
 }
 
 @media (max-width: 767px) {
+  /*Header*/
   nav {
     padding: 13px 32px;
   }
 
   .menu {
     width: 100%;
+  }
+
+  .profile-email {
+    display: none;
+  }
+
+  /*footer*/
+  footer {
+    padding-top: 40px;
+    height: 160px;
+  }
+
+  .footer-banner {
+    padding: 32px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 60px 0;
+  }
+
+  .copyright {
+    text-align: left;
+    order: 3;
+  }
+
+  .description {
+    order: 1;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .footer-icon {
+    justify-content: flex-end;
+    align-items: center;
+    order: 2;
+    gap: 12px;
   }
 }
