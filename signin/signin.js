@@ -1,4 +1,8 @@
 import handleClickEyeIcon from "/utils/onClickEyeIcon.js";
+import userAuth from "/utils/userAuth.js";
+import checkAccessToken from "/utils/checkAccessToken.js";
+
+checkAccessToken();
 
 // const
 const validator = {
@@ -30,12 +34,6 @@ const validator = {
     },
   },
 };
-const userList = {
-  codeit: {
-    email: "test@codeit.com",
-    password: "codeit101",
-  },
-};
 const ERROR_CLASS = "error";
 const HIDDEN_CLASS = "hidden";
 
@@ -49,7 +47,6 @@ const inputErrorMessageList = [
 // function
 function findInvalidKey(name, value) {
   const validationList = validator.validationMap[name];
-  console.log(validationList);
   const invalidKey = validationList.find(
     (key) => !validator.validations[key].validate(value)
   );
@@ -76,30 +73,39 @@ function toggleErrorStatus(target, invalidKey) {
 // Event Handler
 function handleFormSubmit(e) {
   e.preventDefault();
-  const emailInputEl = loginFormEl.querySelector("#email-input");
-  const pwInputEl = loginFormEl.querySelector("#password-input");
-  if (
-    emailInputEl.value === userList.codeit.email &&
-    pwInputEl.value === userList.codeit.password
-  ) {
-    window.location.replace("/folder");
-  } else {
-    formInputList.forEach((target) => {
-      const { name } = target;
-      toggleErrorStatus(target, [`notSignup${name}`]);
+  const userInputList = formInputList.reduce((acc, { name, value }) => {
+    let userInput = { [name]: value };
+    return { ...acc, ...userInput };
+  }, {});
+  const signInAttempt = userAuth(userInputList, "/api/sign-in");
+  signInAttempt
+    .then((res) => {
+      const ACCESS_TOKEN = res.data.accessToken;
+      return ACCESS_TOKEN;
+    })
+    .then((ACCESS_TOKEN) => {
+      if (ACCESS_TOKEN) {
+        localStorage.setItem("accessToken", ACCESS_TOKEN);
+        window.location.replace("/folder");
+      }
+    })
+    .catch((err) => {
+      formInputList.forEach((target) => {
+        const { name } = target;
+        toggleErrorStatus(target, [`notSignup${name}`]);
+      });
     });
-  }
 }
 
 function handleInputFocusout({ target }) {
-  if (target.tagName === "INPUT") {
-    const { name, value } = target;
-    const invalidKey = findInvalidKey(name, value);
-    toggleErrorStatus(target, invalidKey);
-  }
+  const { name, value } = target;
+  const invalidKey = findInvalidKey(name, value);
+  toggleErrorStatus(target, invalidKey);
 }
 
 // Event Listener
 loginFormEl.addEventListener("submit", handleFormSubmit);
-loginFormEl.addEventListener("focusout", handleInputFocusout);
+formInputList.forEach((el) =>
+  el.addEventListener("focusout", handleInputFocusout)
+);
 loginFormEl.addEventListener("click", handleClickEyeIcon);

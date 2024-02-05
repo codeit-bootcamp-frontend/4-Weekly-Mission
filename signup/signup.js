@@ -1,4 +1,9 @@
 import handleClickEyeIcon from "/utils/onClickEyeIcon.js";
+import userAuth from "/utils/userAuth.js";
+import checkAccessToken from "/utils/checkAccessToken.js";
+
+checkAccessToken();
+
 // const
 const validator = {
   validationMap: {
@@ -78,20 +83,27 @@ function handleFormSubmit(e) {
     const invalidKey = findInvalidKey(name, value);
     toggleErrorStatus(target, invalidKey);
   });
+  const userInputEmail = loginFormEl.querySelector("#email-input");
+  const userEmail = {
+    [userInputEmail.name]: userInputEmail.value,
+  };
   if (formInputList.every((el) => !el.classList.contains(ERROR_CLASS))) {
-    window.location.replace("/folder");
+    const signUpAttempt = userAuth(userEmail, "/api/check-email");
+    signUpAttempt.then((res) => {
+      if (res.data.isUsableNickname) window.location.replace("/folder");
+    });
   }
 }
 
 function handleInputFocusout({ target }) {
-  if (target.tagName === "INPUT") {
-    const { name, value } = target;
-    const invalidKey = findInvalidKey(name, value);
-    toggleErrorStatus(target, invalidKey);
-  }
+  const { name, value } = target;
+  const invalidKey = findInvalidKey(name, value);
+  toggleErrorStatus(target, invalidKey);
 }
 
 // Event Listener
 loginFormEl.addEventListener("submit", handleFormSubmit);
-loginFormEl.addEventListener("focusout", handleInputFocusout);
+formInputList.forEach((el) =>
+  el.addEventListener("focusout", handleInputFocusout)
+);
 loginFormEl.addEventListener("click", handleClickEyeIcon);
