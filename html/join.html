@@ -3,17 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="join.css" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>linkdrary_login</title>
   </head>
   <body>
     <header>
-      <a href="../home/home.html">
-        <img id="logo" src="signin/logo.svg" alt=""
+      <a href="../html/home.html">
+        <img id="logo" src="../image/logo.svg" alt=""
       /></a>
       <div id="join">
         이미 회원이신가요?
-        <a id="join_a" href="../login/login.html">로그인 하기</a>
+        <a id="join_a" href="../html/login.html">로그인 하기</a>
       </div>
     </header>
     <main>
@@ -41,14 +45,14 @@
         <p class="input_name">비밀번호 확인</p>
         <input
           id="password_check"
-          class="input_box red"
+          class="input_box"
           type="password"
           placeholder="linkbrary2023"
         />
         <div class="password_error_check error"></div>
       </div>
 
-      <button class="join_btn">회원가입</button>
+      <button class="login_btn">회원가입</button>
     </main>
     <footer>
       <p>다른 방식으로 가입하기</p>
@@ -57,15 +61,15 @@
           <img
             style="width: 24px; height: 24px"
             class="social_img"
-            src="image/google.png"
+            src="../icon/google.png"
             alt=""
           />
         </a>
         <a class="social_btn kakao" href="http://www.kakaocorp.com">
-          <img class="social_img" src="image/kakao.svg" alt="" />
+          <img class="social_img" src="../icon/kakao.svg" alt="" />
         </a>
       </div>
     </footer>
-    <script src="./join.js"></script>
+    <script src="../js/join.js"></script>
   </body>
 </html>
