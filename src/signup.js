@@ -98,6 +98,7 @@ passwordCheckToggleButton.addEventListener("click", () =>
 );
 
 const signForm = document.querySelector("#form");
+const successPageURL = "../folder.html";
 signForm.addEventListener("submit", submitForm);
 function submitForm(event) {
   event.preventDefault();
@@ -111,8 +112,6 @@ function submitForm(event) {
     validatePasswordInput(passwordInput.value) &&
     validatePasswordCheckInput(passwordCheckInput.value)
   ) {
-    const successPageURL = "../folder.html";
-
     window.location.href = successPageURL;
   }
 }
