@@ -14,16 +14,16 @@ async function login() {
       body: JSON.stringify({ email: emailValue, password: passwordValue }),
     });
     if (!result.ok) {
-      throw new Error(result.statusText);
+      console.error('Error: ' + result.status);
+      emailInput.classList.add('invalid');
+      emailError.innerHTML = '이메일을 확인해 주세요.';
+      passwordInput.classList.add('invalid');
+      passwordError.innerHTML = '비밀번호를 확인해 주세요.';
     } else {
       window.location.href = '../pages/folder.html';
     }
   } catch (error) {
-    console.log(error);
-    emailInput.classList.add('invalid');
-    emailError.innerHTML = '이메일을 확인해 주세요.';
-    passwordInput.classList.add('invalid');
-    passwordError.innerHTML = '비밀번호를 확인해 주세요.';
+    console.error(error);
   }
 }
 const signinForm = document.getElementById('signinForm');

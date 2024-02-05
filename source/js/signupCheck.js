@@ -23,7 +23,7 @@ async function signupCheck() {
     if (emailCheckResult.status === 409) {
       emailInput.classList.add('invalid');
       emailError.innerHTML = '중복된 이메일 입니다.';
-      throw new Error(emailCheckResult.statusText);
+      console.error('Error: ' + emailCheckResult.status);
     } else {
       const result = await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
         method: 'POST',
@@ -40,13 +40,13 @@ async function signupCheck() {
         passwordCheckInput.classList.add('invalid');
         passwordCheckError.innerHTML = '비밀번호가 일치하지 않아요.';
       } else if (!result.ok) {
-        throw new Error('회원가입에 실패했습니다.');
+        console.error('회원가입에 실패했습니다.');
       } else {
         window.location.href = '../pages/folder.html';
       }
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 }
 const signupForm = document.getElementById('signupForm');
