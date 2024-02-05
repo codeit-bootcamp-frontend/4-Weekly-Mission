@@ -1,24 +1,25 @@
-@import "palette.css";
+@import "./css/common.css";
 *{
   box-sizing : border-box;
 }
 
 body{
   font-family: Pretendard;
+  font-style: normal;
   display: flex;
   flex-direction: column; 
   margin: 0;
   align-items: center;
 } 
 
-nav {
+nav#gnb {
   display: flex;
   padding: 20px 200px;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   align-self: stretch;
-  background: var(--Linkbrary-bg, #F0F6FF);
+  background: var(--background, #F0F6FF);
   position: sticky;
   inset:0;
 }
@@ -30,9 +31,7 @@ nav .wrapper{
 }
 nav .login-button{
   color: var(--Grey-Light, #F5F5F5);
-  font-family: Pretendard;
   font-size: 18px;
-  font-style: normal;
   font-weight: 600;
   line-height: normal;
   text-decoration: none;
@@ -64,17 +63,13 @@ nav .login-button{
 }
 .bg .wrapper{
   text-align: center;
-  font-family: Pretendard;
   font-size: 64px;
-  font-style: normal;
   font-weight: 700;
   line-height: 80px; /* 125% */
 }
 .bg h1{
   color: #000;
-  font-family: Pretendard;
   font-size: 64px;
-  font-style: normal;
   font-weight: 700;
   line-height: 80px;
 }
@@ -91,14 +86,10 @@ nav .login-button{
   justify-content: center;
   align-items: center;
   gap: 10px;
-
   border-radius: 8px;
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%));
-
   color: var(--Grey-Light, #F5F5F5);
-  font-family: Pretendard;
   font-size: 18px;
-  font-style: normal;
   font-weight: 600;
   line-height: normal;
 }
@@ -122,20 +113,16 @@ main .wrapper{
 }
 main h2{
   align-self: stretch;
-
-  font-family: Pretendard;
   font-size: 48px;
-  font-style: normal;
   font-weight: 700;
   line-height: normal;
   letter-spacing: -0.3px;
 }
 main p{
-
   color: #6B6B6B;
   font-family: Abel;
   font-size: 16px;
-  font-style: normal;
+
   font-weight: 400;
   line-height: 150%; /* 24px */
 }
@@ -150,9 +137,7 @@ main #color2{
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: Pretendard;
   font-size: 48px;
-  font-style: normal;
   font-weight: 700;
   line-height: normal;
   letter-spacing: -0.3px;
@@ -162,9 +147,7 @@ main #color3{
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: Pretendard;
   font-size: 48px;
-  font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
@@ -173,9 +156,7 @@ main #color4{
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-family: Pretendard;
   font-size: 48px;
-  font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
@@ -191,7 +172,7 @@ footer{
   align-items: center;
   flex-shrink: 0;
   align-self: stretch;
-  background: var(--The-julge-black, #111322);
+  background: var(--black, #111322);
   margin-top: 120px;
 }
 footer .container{
@@ -205,7 +186,6 @@ footer .left-wrapper{
   text-align: center;
   font-family: Acme;
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
   line-height: normal;
 }
@@ -224,7 +204,7 @@ footer a{
   color: #CFCFCF;
   font-family: Acme;
   font-size: 16px;
-  font-style: normal;
+
   font-weight: 400;
   line-height: normal;
 }
@@ -264,9 +244,8 @@ footer p{
   }
   .header h1{
   text-align: center;
-  font-family: Pretendard;
   font-size: 32px;
-  font-style: normal;
+
   font-weight: 700;
   line-height: 42px; /* 131.25% */
   }
@@ -274,7 +253,6 @@ footer p{
   width: 302.792px;
   height: 178.712px;
   flex-shrink: 0;
-
   border-radius: 25px;
   background: linear-gradient(180deg, rgba(196, 196, 196, 0.00) 67.54%, #F0F6FF 126.94%);
   box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.08);
@@ -289,9 +267,7 @@ footer p{
     
   }
   main h2{
-    font-family: Pretendard;
     font-size: 24px;
-    font-style: normal;
     font-weight: 700;
     line-height: normal;
     letter-spacing: -0.3px;
