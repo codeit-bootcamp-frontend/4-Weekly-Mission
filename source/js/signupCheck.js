@@ -10,8 +10,8 @@ async function signupCheck() {
   const passwordCheckInput = document.getElementById('passwordCheck');
   const passwordValue = passwordInput.value;
   const passwordCheckValue = passwordCheckInput.value;
-  const checkEmail = validateEmail(emailInput.value);
-  const checkPassword = validatePassword(passwordInput.value);
+  const isEmail = validateEmail(emailInput.value);
+  const isPassword = validatePassword(passwordInput.value);
   const passwordCheckError = document.getElementById('passwordCheckError');
 
   //유효한 회원가입 형식 POST request 보내기
@@ -26,10 +26,10 @@ async function signupCheck() {
         'api/sign-up',
         'email: emailValue, password: passwordValue, passwordCheck: passwordCheckValue',
       );
-      if (!checkEmail) {
+      if (!isEmail) {
         emailInput.classList.add('invalid');
         emailError.innerHTML = '이메일을 확인해 주세요.';
-      } else if (!checkPassword) {
+      } else if (!isPassword) {
         passwordInput.classList.add('invalid');
         passwordError.innerHTML = '비밀번호를 확인해 주세요.';
       } else if (passwordValue !== passwordCheckValue) {
