@@ -8,7 +8,7 @@ export default function Header({ userProfile, folder }) {
       <nav>
         <div className="menu">
           <a href="">
-            <img src={logo} className="main-logo" />
+            <img src={logo} className="main-logo" alt="logo" />
           </a>
           <div className="user-profile">
             <img

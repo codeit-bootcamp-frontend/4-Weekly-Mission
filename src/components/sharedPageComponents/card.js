@@ -4,9 +4,9 @@ export default function Card({ link }) {
   const { imageSource, createdAt, description, url } = link;
   const date = new Date(createdAt).toLocaleDateString();
 
-  const upDateStauts = (date) => {
+  const upDateStauts = (createdDate) => {
     const currentTime = new Date().getTime();
-    const time = new Date(date).getTime();
+    const time = new Date(createdDate).getTime();
     const timeDiffMinute = (currentTime - time) / (1000 * 60);
     const timeDiffHour = timeDiffMinute / 60;
     const timeDiffDay = timeDiffHour / 24;
@@ -25,9 +25,9 @@ export default function Card({ link }) {
   const status = link.createdAt ? upDateStauts(createdAt) : null;
   return (
     <div className="card">
-      <a href={url}>
+      <a href={url} target="_blank" rel="noreferrer">
         <section>
-          <img src={imageSource} className="card-image"></img>
+          <img src={imageSource} className="card-image" alt="card-image"></img>
           <div className="card-content">
             <p className="card-date-difference">{status}</p>
             <p className="card-description">{description}</p>
