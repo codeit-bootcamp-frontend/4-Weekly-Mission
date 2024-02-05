@@ -1,9 +1,7 @@
 import AddImg from "../assets/add.svg";
-import ShareImg from "../assets/share.svg";
-import ModifyImg from "../assets/modify.svg";
-import DeleteImg from "../assets/delete.svg";
 import { useState, useEffect, useCallback } from "react";
 import Card from "./Card";
+import UtilList from "./UtilList";
 import getTimeDiff from "../utils/getTimeDiff";
 import getCoustomDate from "../utils/getCoustomDate";
 
@@ -15,6 +13,7 @@ const DEFAULT_CATEGORY = [{
 function FolderContent(){
     const [categoryList, setCategoryList] = useState(DEFAULT_CATEGORY);
     const [selectCategory, setSelectCategory] = useState(0);
+    const [viewCategory, setViewCategory] = useState("전체"); 
     const [linkList, setLinkList] = useState([]);
     const [userId, setUserId] = useState(10);
 
@@ -47,6 +46,7 @@ function FolderContent(){
             }
             setLinkList(result.data);
             setSelectCategory(0);
+            setViewCategory("전체");
         }catch(err){
             return console.log(err);
         }
@@ -56,7 +56,7 @@ function FolderContent(){
         allLinkLoad();
     }, [allLinkLoad]);
 
-    const handleViewCategory = async(id) => {
+    const handleViewCategory = async(id, name) => {
         try{
             const response = await fetch(`https://bootcamp-api.codeit.kr/api/users/10/links?folderId=${id}`,{
                 method: "GET"
@@ -67,6 +67,7 @@ function FolderContent(){
             }
             setLinkList(result.data);
             setSelectCategory(id);
+            setViewCategory(name);
         }catch(err){
             return console.log(err);
         }
@@ -88,7 +89,7 @@ function FolderContent(){
                     {categoryList.map(category => {
                         const isSelect = selectCategory === category.id;
                         return <li onClick={
-                            () => category.id === 0 ? allLinkLoad() :handleViewCategory(category.id)} 
+                            () => category.id === 0 ? allLinkLoad() :handleViewCategory(category.id, category.name)} 
                             style={{
                                 backgroundColor: isSelect ? "#6D6AFE" : "#FFFFFF",
                                 color: isSelect ? "#FFFFFF" : "#000000",
@@ -102,20 +103,15 @@ function FolderContent(){
             </div>
 
             <div className="content__header">
-                <p className="content__title">전체</p>
-                <ul className="content__util">
-                    <li className="content__util--list">
-                        <img className="content__util--img" src={ShareImg} alt="공유 아이콘"/>
-                        <span className="content__util--text">공유</span>
-                    </li>
-                    <li className="content__util--list">
-                        <img className="content__util--img" src={ModifyImg} alt="수정 아이콘"/>
-                        <span className="content__util--text">이름 변경</span>
-                    </li>
-                    <li className="content__util--list">
-                        <img className="content__util--img" src={DeleteImg} alt="삭제 아이콘"/>
-                        <span className="content__util--text">삭제</span>
-                    </li>
+                <p className="content__title">{viewCategory}</p>
+                <ul 
+                style={{
+                    display: viewCategory === "전체" ? "none" : "flex",
+                }}
+                className="content__util">
+                    <UtilList value="share" text="공유"/>
+                    <UtilList value="modify" text="수정"/>
+                    <UtilList value="delete" text="삭제"/>
                 </ul>
             </div>
 

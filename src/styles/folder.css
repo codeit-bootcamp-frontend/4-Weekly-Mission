@@ -276,6 +276,7 @@ html{
     color: var(--Linkbrary-gray60);
     font-size: 0.875rem;
     font-weight: 600;
+    margin-left: 0.25rem;
 }
 
 /* 콘텐츠 본문 */

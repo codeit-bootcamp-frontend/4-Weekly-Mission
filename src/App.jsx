@@ -3,8 +3,8 @@ import Folder from "./components/Folder";
 function App() {
   return (
     <div className="App">
-    <Share/>
-    {/* <Folder/> */}
+    {/* <Share/> */}
+    <Folder/>
     </div>
   );
 }
