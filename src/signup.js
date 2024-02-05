@@ -3,7 +3,6 @@ import {
   removeInputError,
   isEmailValid,
   togglePassword,
-  TEST_USER,
   isPasswordValidString,
   isPasswordValidNumber,
 } from "./utils.js";
