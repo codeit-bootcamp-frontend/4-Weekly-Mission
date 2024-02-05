@@ -12,10 +12,6 @@ const eyeIcon = document.getElementById('eyeIcon');
 const emailErrorMessage = document.getElementById('emailErrorMessage');
 const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 
-const signinInfo = {
-  "email": email.value, "password": password.value,
-}
-
 //Check email: 입력 여부 확인, 메일 형식 확인
 const SigninEmailHandler = () => {
   checkEmail(email, emailErrorMessage);
@@ -34,7 +30,10 @@ const EyeIconHandler = () => {
 //Login: submit form
 const SigninSubmitHandler = event => {
   event.preventDefault();
-  signin('/sign-in', signinInfo);
+  signin('/sign-in', {
+    "email": email.value, "password": password.value,
+  });
+  console.log(email.value, password.value);
   showInputError(email);
   showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL);
   showInputError(password);

@@ -7,6 +7,7 @@ import {
   checkPasswordMatch,
   changeEyeIcon,
 } from './sign.js';
+import { signup } from './api.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -48,15 +49,16 @@ const EyeIconCheckHandler = () => {
 };
 
 //SignUp: submit form
-const isEmailValid = email.value && !emailErrorMessage.classList.contains('hidden');
-const isPasswordValid = password.value && !passwordErrorMessage.classList.contains('hidden');
-const isPasswordCheckValid = passwordCheck.value && !passwordCheckErrorMessage.classList.contains('hidden');
-
 const SignupSubmitHandler = event => {
+  const isEmailValid = email.value && emailErrorMessage.classList.contains('hidden');
+  const isPasswordValid = password.value && passwordErrorMessage.classList.contains('hidden');
+  const isPasswordCheckValid = passwordCheck.value && passwordCheckErrorMessage.classList.contains('hidden');
+
   event.preventDefault();
   if (isEmailValid && isPasswordValid && isPasswordCheckValid) {
-    email.value = '';
-    window.location.href = PATH.PAGE_FOLDER;
+    // email.value = '';
+    // window.location.href = PATH.PAGE_FOLDER;
+    signup('/sign-up', { "email": email.value, "password": password.value });
     return;
   }
 };
