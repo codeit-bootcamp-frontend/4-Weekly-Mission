@@ -52,22 +52,33 @@ function passwordErrorMessage(e){
 }
 
 const signIn=document.querySelector('button');
-function clickLogin(){
-    //이메일: test@codeit.com, 비밀번호: codeit101 으로 로그인 시도할 경우, “/folder” 페이지로 이동합니다.
-    const testEmail = 'test@codeit.com';
-    const testPassword = 'codeit101';
-    const enteredEmail=emailInput.value.trim();
-    const enteredPwd=passwordInput.value;
-    if(enteredEmail==testEmail&&enteredPwd==testPassword){
-        console.log("success")
-        window.location.href = '../folder.html';
+async function clickLogin(){
+    //이메일: test@codeit.com, 비밀번호: sprint101 으로 로그인 시도할 경우, “/folder” 페이지로 이동합니다.
+    const userData={
+        email:emailInput.value.trim(),
+        password:passwordInput.value.trim(),
     }
-    else{
-    //이외의 로그인 시도의 경우, 이메일 input 아래에 “이메일을 확인해 주세요.”, 비밀번호 input 아래에 “비밀번호를 확인해 주세요.” 에러 메세지를 보입니다.
+    try{   
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in',{
+            method:"POST",
+            headers:{'content-Type':"application/json"},
+            body:JSON.stringify(userData),
+        });
+        if(response.ok){          
+            const responseData = await response.json();
+            localStorage.setItem('accessToken', responseData.data.accessToken); // 로그인시 받은 accessToken을 로컬 스토리지에 저장
+            location.href = "./folder.html";
+        }
+        else{
+            throw new Error('로그인 실패');
+        }
+    }
+    catch(error){
         errorMsgEmail.textContent='이메일을 확인해 주세요.';
         errorMsgPassword.textContent='비밀번호를 확인해 주세요.';
         emailContainer.append(errorMsgEmail);
         passwrodConatiner.append(errorMsgPassword);
+        console.error(error);
     }
 }
 
@@ -80,18 +91,6 @@ function enterLogin(e){
 
 const eyeIcon=document.querySelector('.show-icon');
 
-// function clickEyeIcon(){
-//     if(passwordInput.type=='password'){
-//         passwordInput.setAttribute('type','text');
-//         eyeIcon.src="./assets/eye-on.png"
-//     }
-//     else{
-//         passwordInput.setAttribute('type', 'password');
-//         eyeIcon.src="./assets/eye-off.png"
-//     }
-    
-// }
-
 emailInput.addEventListener('focusout',emailErrorMessage);
 emailInput.addEventListener('focusin',focusInEmail);
 passwordInput.addEventListener('focusout',passwordErrorMessage);
@@ -101,4 +100,12 @@ emailInput.addEventListener('keypress',enterLogin);
 passwordInput.addEventListener('keypress',enterLogin);
 eyeIcon.addEventListener('click',()=>{
     clickEyeIcon(passwordInput,eyeIcon);
+});
+
+// 로그인/회원가입 페이지에 접근시 로컬 스토리지에 accessToken이 있는 경우 “/folder” 페이지로 이동합니다.
+document.addEventListener('DOMContentLoaded', function() {
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+        window.location.href = '/folder.html';
+    }
 });
