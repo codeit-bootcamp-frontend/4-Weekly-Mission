@@ -15,12 +15,17 @@ export const printEmailError = (emailMessage, emailInput) => {
     emailInput.after(emailMessage);
     emailMessage.textContent = "올바른 이메일 주소가 아닙니다.";
     emailInput.style.border = "1px solid #ff5b45";
-  } else if (emailInput.value === "test@codeit.com") {
-    emailInput.after(emailMessage);
-    emailMessage.textContent = "이미 사용 중인 이메일입니다.";
-    emailInput.style.border = "1px solid #ff5b45";
   } else {
     emailMessage.classList.add("error-style");
+    emailInput.style.border = "1px solid #ccd5e3";
     return true;
+  }
+};
+
+export const checkAccessToken = (pageSrc) => {
+  if (localStorage.getItem("accessToken")) {
+    location.href = "./folder.html";
+  } else {
+    location.href = `${pageSrc}`;
   }
 };

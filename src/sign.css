@@ -73,6 +73,7 @@ header {
 .error-style {
   display: none;
 }
+
 .sign-input-box {
   display: flex;
   flex-direction: column;
