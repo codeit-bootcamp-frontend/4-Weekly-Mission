@@ -30,7 +30,7 @@ async function validateEmailInput(email) {
     },
     body: JSON.stringify({email}),
   });
-
+  
   if(response.ok) {
     removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
     return true;
