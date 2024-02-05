@@ -1,0 +1,56 @@
+@import '/src/styles/index.css';
+
+nav {
+  background-color: var(--Gray5);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  gap: 8px;
+  padding: 20px 200px;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.profile-image {
+  width: 28px;
+  height: 28px;
+  border-radius: 14px;
+}
+
+.profile-email {
+  font-weight: 400;
+  font-size: 14px;
+  color: #373740;
+}
+
+@media (max-width: 1199px) {
+  nav {
+    padding: 20px 32px;
+  }
+
+  .menu {
+    width: 703px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 767px) {
+  nav {
+    padding: 13px 32px;
+  }
+
+  .menu {
+    width: 100%;
+  }
+}
