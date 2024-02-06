@@ -1,8 +1,9 @@
 import ERROR_MESSAGES from '../constant/errorMessages.js';
-import { addErrorMessage, removeErrorMessage } from './utils/errorMessageController.js';
-import { emailInputEventHandler, eyeButtonEventHandler } from './utils/eventHandler.js';
-import validValues from '../constant/validValues.js';
-import { validatePasswordInput } from './utils/validate.js';
+import { addErrorMessage, removeErrorMessage } from '../utils/errorMessageController.js';
+import { emailInputEventHandler, eyeButtonEventHandler } from '../utils/eventHandler.js';
+import { validatePasswordInput } from '../utils/validate.js';
+import { checkDuplicateEmail, postRegisterData } from '../utils/api.js';
+import { initializeSignPage } from '../utils/init.js';
 
 const {
   DUPLICATE_EMAIL_ERROR_MESSAGE,
@@ -17,14 +18,16 @@ const passwordConfirmInputTag = document.querySelector('#passwordConfirm');
 const eyeButtonTagList = document.querySelectorAll('.eye-button');
 const signUpButtonTag = document.querySelector('.sign-form-button');
 
-emailInputTag.addEventListener('blur', e => {
+emailInputTag.addEventListener('blur', async e => {
   const signInputBoxTag = e.target.parentElement;
   const errorTag = signInputBoxTag.querySelector('p');
   const emailValue = e.target.value;
 
   emailInputEventHandler(signInputBoxTag, emailValue, errorTag);
 
-  if (emailValue === validValues.email) {
+  const result = await checkDuplicateEmail(emailValue);
+
+  if (!result) {
     addErrorMessage(signInputBoxTag, DUPLICATE_EMAIL_ERROR_MESSAGE, errorTag);
   }
 });
@@ -54,7 +57,7 @@ passwordConfirmInputTag.addEventListener('blur', e => {
   }
 });
 
-signUpButtonTag.addEventListener('click', e => {
+signUpButtonTag.addEventListener('click', async e => {
   e.preventDefault();
   const signInputList = document.querySelectorAll('.sign-input');
   signInputList.forEach(element => {
@@ -67,7 +70,11 @@ signUpButtonTag.addEventListener('click', e => {
 
   const invalidInputErrorClassList = document.querySelectorAll('.invalid-input-error');
   if (invalidInputErrorClassList.length === 0) {
-    window.location.href = '../pages/folder.html';
+    const result = await postRegisterData(emailInputTag.value, passwordInputTag.value);
+
+    if (result) {
+      window.location.href = '../pages/folder.html';
+    }
   }
 });
 
@@ -78,3 +85,5 @@ eyeButtonTagList.forEach(eyeButtonTag => {
     eyeButtonEventHandler(passwordInputTag, eyeImageTag, isPasswordType);
   });
 });
+
+initializeSignPage();

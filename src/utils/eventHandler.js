@@ -1,6 +1,6 @@
 import { validateEmailInput } from './validate.js';
 import { addErrorMessage, removeErrorMessage } from './errorMessageController.js';
-import ERROR_MESSAGES from '../../constant/errorMessages.js';
+import ERROR_MESSAGES from '../constant/errorMessages.js';
 
 const { EMPTY_EMAIL_ERROR_MESSAGE, INVALID_EMAIL_ERROR_MESSAGE, EMPTY_PASSWORD_ERROR_MESSAGE } = ERROR_MESSAGES;
 
