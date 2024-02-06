@@ -1,4 +1,3 @@
-import { PATH } from './constant.js';
 import {
   checkEmail,
   checkAvailableEmail,
@@ -7,7 +6,7 @@ import {
   checkPasswordMatch,
   changeEyeIcon,
 } from './sign.js';
-import { signup } from './api.js';
+import { sign } from './api.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -60,7 +59,7 @@ const SignupSubmitHandler = event => {
 
   event.preventDefault();
   if (isEmailValid && isPasswordValid && isPasswordCheckValid) {
-    signup('/sign-up', signupInfo);
+    sign('/sign-up', signupInfo);
     return;
   }
 };

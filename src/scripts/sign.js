@@ -6,7 +6,6 @@ import {
   showErrorMessage,
   hideInputError,
   changeImage,
-  checkUserId,
   checkValueMatch,
 } from './util.js';
 import { checkEmailInfo } from './api.js';

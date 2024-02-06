@@ -1,4 +1,4 @@
-import { REGEX, USER_INFO } from './constant.js';
+import { REGEX } from './constant.js';
 
 export const validateEmail = email => {
   return email.match(REGEX.EMAIL);
@@ -28,8 +28,4 @@ export const changeImage = (imageElement, imageSrc) => {
 
 export const checkValueMatch = (firstElement, secondElement) => {
   return firstElement.value === secondElement.value;
-};
-
-export const checkUserId = id => {
-  return id === USER_INFO.ID;
 };

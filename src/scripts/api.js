@@ -2,20 +2,22 @@ import { PATH } from './constant.js';
 
 const baseUrl = 'https://bootcamp-api.codeit.kr/api';
 
-export const signin = async (endPoint, signinInfo) => {
+const postRequest = (endPoint, userInfo) => {
+  return fetch(`${baseUrl}${endPoint}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(userInfo),
+  });
+}
+
+export const sign = async (endPoint, signInfo) => {
   try {
-    const response = await fetch(`${baseUrl}${endPoint}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(signinInfo),
-    });
+    const response = await postRequest(endPoint, signInfo);
     if (!response.ok) {
       throw new Error(response.status);
     }
-    const result = await response.text();
-    console.log(result);
     window.location.href = PATH.PAGE_FOLDER;
   } catch (error) {
     console.log(error);
@@ -24,37 +26,11 @@ export const signin = async (endPoint, signinInfo) => {
 
 export const checkEmailInfo = async (endPoint, emailInfo) => {
   try {
-    const response = await fetch(`${baseUrl}${endPoint}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(emailInfo),
-    });
+    const response = await postRequest(endPoint, emailInfo);
     if (!response.ok) {
       throw new Error(response.status);
     }
     return await response.json();
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-export const signup = async (endPoint, signupInfo) => {
-  try {
-    const response = await fetch(`${baseUrl}${endPoint}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(signupInfo),
-    });
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    const result = await response.text();
-    console.log(result);
-    window.location.href = PATH.PAGE_FOLDER;
   } catch (error) {
     console.log(error);
   }
