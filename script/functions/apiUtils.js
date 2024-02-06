@@ -3,19 +3,19 @@ import { getTokenInLocalStorage, saveTokenInLocalStorage } from './token.js';
 
 const apiUrl = 'https://bootcamp-api.codeit.kr/api';
 
-const postRequest = (endpoint, data) => {
+const postRequest = (endpoint, userInfo) => {
   return fetch(`${apiUrl}${endpoint}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(userInfo),
   });
 };
 
-export const postSignInData = async (endpoint, data) => {
+export const postSignInData = async (endpoint, signInfo) => {
   try {
-    const response = await postRequest(endpoint, data);
+    const response = await postRequest(endpoint, signInfo);
     const responseData = await response.json();
     if (responseData.success) {
       saveTokenInLocalStorage('accessToken', true); //true 는 아무런 값도 아님.
@@ -34,15 +34,22 @@ export const postSignInData = async (endpoint, data) => {
  * @param {*} data Email 데이터
  * @returns
  */
-export const checkEmailData = async (endpoint, emaildata, data) => {
+export const checkEmailData = async (endpoint, emailInfo) => {
   try {
-    const response = await postRequest(endpoint, emaildata);
+    const response = await postRequest(endpoint, emailInfo);
     const responseData = await response.json();
     if (responseData.success) {
       console.error('Same Email');
       return;
     }
-    const responseSignUp = await postRequest('sign-up', data);
+  } catch (error) {
+    console.error('Error : Network Connection Failure', error);
+  }
+};
+
+export const postSignUpData = async (endpoint = 'sign-up', userInfo) => {
+  try {
+    const responseSignUp = await postRequest(endpoint, userInfo);
     const responseDataSignUp = await responseSignUp.json();
     if (responseDataSignUp.success) {
       saveTokenInLocalStorage('accessToken', true); //true 는 아무런 값도 아님.
