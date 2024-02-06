@@ -120,7 +120,6 @@ const handleSignUp = async event => {
     body: JSON.stringify({ email: emailElement.value })
   });
 
-  console.log(checkEmail);
   const checkPassword =
     InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX) &&
     InputHandler.isMatchElement(passwordElement, passwordCheckElement);

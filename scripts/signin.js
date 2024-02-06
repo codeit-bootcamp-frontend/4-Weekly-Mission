@@ -65,8 +65,6 @@ const handlePasswordElementFocusOut = () => {
 };
 
 const handlepasswordEyeImageClick = () => {
-  console.log(123);
-
   SignHandler.toggleImage(passwordElement, passwordEyeImageElement);
 };
 
