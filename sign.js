@@ -8,36 +8,14 @@ const masterId= {
     email: "test@codeit.com",
     password: "sprint101"
 };
+
 const codeitApiUrl="https://bootcamp-api.codeit.kr/api/sign-in";
 
-//url-POST 요청
-const response = await fetch(codeitApiUrl,{
-    method:"POST",
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(masterId)
-  })
-  .then(response => {
-    if(response.ok){
-        return response.json();
-    }
-  })
-  .then(data => {
+if(localStorage.getItem("accessToken")){
     location.href="/folder.html";
-  })
-  .catch(error => {
-    throw new Error('error');
-  })
-    
+}
 
 function correctEmail(e){
-    let emailRegex=new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
-
-const passwordErrorMessage=document.querySelector(".passwrod-error-message");
-const form=document.querySelector(".sign-form");
-
-function corretEmail(e){
     let emailRegex=new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
     
     if(e.target.value===""){
@@ -58,7 +36,6 @@ function corretEmail(e){
 
 function correctPassword(e){
     if(e.target.value===""){
-
         passwordErrorMessage.textContent = "비밀번호를 입력해 주세요.";
         passwordErrorMessage.classList.add("error-text");
         e.target.classList.add("error-box");
@@ -69,22 +46,45 @@ function correctPassword(e){
     }
 }
 
-function submitButton(e){
+async function submitButton(e){
     e.preventDefault();
-    if(inputEmail.value === "test@codeit.com" && inputPassword.value === "codeit101"){
-        location.href="/folder.html"
-    }else{
+
+    //url-POST 요청
+        await fetch(codeitApiUrl,{
+        method:"POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: inputEmail.value,
+            password: inputPassword.value
+        })
+    })
+    .then(response => {
+        if(response.ok){
+            return response.json();
+        } else {
+            throw new Error('error');
+        }
+    })
+    .then(data => {
+        console.log(data.data.accessToken);
+        localStorage.setItem('accessToken',data.data.accessToken)
+        location.href="/folder.html";
+    })
+    .catch(error => {
         emailErrorMessage.textContent = "이메일을 확인해 주세요.";
         emailErrorMessage.classList.add("error-text");
         inputEmail.classList.add("error-box");
         passwordErrorMessage.textContent = "비밀번호를 확인해 주세요.";
         passwordErrorMessage.classList.add("error-text");
         inputPassword.classList.add("error-box");
-    }
+        console.error(error);
+    })
 }
+
+
 
 inputEmail.addEventListener('focusout',correctEmail);
 inputPassword.addEventListener('focusout',correctPassword);
 form.addEventListener('submit',submitButton);
-// response.addEventListener('submin',submitButton);
-

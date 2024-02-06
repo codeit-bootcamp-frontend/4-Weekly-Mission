@@ -6,7 +6,9 @@ const passwordErrorMessage=document.querySelector(".passwrod-error-message");
 const checkPasswordErrorMessage=document.querySelector(".check-passwrod-error-message");
 const form=document.querySelector(".sign-form");
 
-function corretEmail(e){
+const checkEmailApiUrl="https://bootcamp-api.codeit.kr/api/check-email";
+
+async function corretEmail(e){
     let emailRegex=new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}');
     
     if(e.target.value===""){
@@ -17,14 +19,36 @@ function corretEmail(e){
         emailErrorMessage.textContent="올바른 이메일 주소가 아닙니다.";
         emailErrorMessage.classList.add("error-text");
         e.target.classList.add("error-box");
-    }else if(e.target.value==="test@codeit.com"){
-        emailErrorMessage.textContent="이미 사용 중인 이메일입니다.";
-        emailErrorMessage.classList.add("error-text");
-        e.target.classList.add("error-box");
     }else{
-        emailErrorMessage.textContent="";
-        emailErrorMessage.classList.remove("error-text");
-        e.target.classList.remove("error-box");
+        await fetch(checkEmailApiUrl,{
+            method:"POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: inputEmail.value,
+            })
+        })
+        .then(response => {
+            if(response.ok){
+                return response.json();
+            } else {
+                throw new Error('error');
+            }
+        })
+        .then(data => {
+            console.log(data);
+            emailErrorMessage.textContent="";
+            emailErrorMessage.classList.remove("error-text");
+            e.target.classList.remove("error-box");
+        })
+        .catch(error => {
+            emailErrorMessage.textContent="이미 사용 중인 이메일입니다.";
+            emailErrorMessage.classList.add("error-text");
+            e.target.classList.add("error-box");
+            console.error(error);
+        })
+        
     }
 }
 
