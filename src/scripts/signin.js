@@ -29,15 +29,20 @@ const EyeIconHandler = () => {
 
 //Login: submit form
 const SigninSubmitHandler = event => {
+  const signinInfo = {
+    "email": email.value, "password": password.value
+  }
+
   event.preventDefault();
-  signin('/sign-in', {
-    "email": email.value, "password": password.value,
-  });
-  console.log(email.value, password.value);
-  showInputError(email);
-  showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL);
-  showInputError(password);
-  showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.INVALID_PASSWORD);
+  signin('/sign-in', signinInfo)
+    .then((result) => {
+      if (!result) {
+        showInputError(email);
+        showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL);
+        showInputError(password);
+        showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.INVALID_PASSWORD);
+      }
+    });
 };
 
 //Event Listener

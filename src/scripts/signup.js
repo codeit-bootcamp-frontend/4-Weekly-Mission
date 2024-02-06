@@ -54,11 +54,13 @@ const SignupSubmitHandler = event => {
   const isPasswordValid = password.value && passwordErrorMessage.classList.contains('hidden');
   const isPasswordCheckValid = passwordCheck.value && passwordCheckErrorMessage.classList.contains('hidden');
 
+  const signupInfo = {
+    "email": email.value, "password": password.value
+  }
+
   event.preventDefault();
   if (isEmailValid && isPasswordValid && isPasswordCheckValid) {
-    // email.value = '';
-    // window.location.href = PATH.PAGE_FOLDER;
-    signup('/sign-up', { "email": email.value, "password": password.value });
+    signup('/sign-up', signupInfo);
     return;
   }
 };

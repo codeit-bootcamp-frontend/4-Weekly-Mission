@@ -27,16 +27,15 @@ export const checkEmail = (emailElement, errorMessageElement) => {
 };
 
 export const checkAvailableEmail = (emailElement, errorMessageElement) => {
-  // if (checkUserId(emailElement.value)) {
-  //   showInputError(emailElement);
-  //   showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
-  // }
-  checkEmailInfo('/check-email', { email: emailElement.value }).then((result) => {
-    if (!result) {
-      showInputError(emailElement);
-      showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
-    }
-  });
+  const emailInfo = { email: emailElement.value };
+  if (emailElement.value) {
+    checkEmailInfo('/check-email', emailInfo)
+      .then((result) => {
+        if (!result) {
+          showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
+        }
+      });
+  }
 };
 
 //Check password: 입력 여부 확인-----------------------------------------------
