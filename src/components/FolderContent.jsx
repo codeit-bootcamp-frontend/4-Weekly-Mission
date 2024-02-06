@@ -1,21 +1,23 @@
 import AddImg from "../assets/add.svg";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import Cards from "./Cards";
 import UtilList from "./UtilList";
 import {API_PATH_USER_FOLDER, API_PATH_ALL_LINK, API_PATH_CATEGORY_LINK} from "../services/api-path";
-
 
 const DEFAULT_CATEGORY = [{
         id: 0,
         name: "전체",
      }];
-     
-function FolderContent(){
-    const [categoryList, setCategoryList] = useState(DEFAULT_CATEGORY);
-    const [selectCategory, setSelectCategory] = useState(0);
-    const [viewCategory, setViewCategory] = useState("전체"); 
-    const [linkList, setLinkList] = useState([]);
 
+function FolderContent(){
+    const [categoryList, setCategoryList] = useState(DEFAULT_CATEGORY); // 유저가 가지고 있는 카테고리
+    const [selectCategory, setSelectCategory] = useState({ // 현재 선택중인 카테고리
+        id: 0,
+        name: "전체"
+    }) 
+    const [linkList, setLinkList] = useState([]); // 유저가 가지고 있는 링크
+
+    // 유저가 가지고 있는 카테고리 로드(데이터 통신, 첫 렌더링 시에만 실행)
     useEffect(() => {
         const userCategoryLoad = async() => {
             try{
@@ -32,51 +34,51 @@ function FolderContent(){
             }
         };
         userCategoryLoad();
-    }, [])
+    }, []);
 
-    const allLinkLoad = useCallback(async() => {
+    // [전체] 카테고리에 있는 링크 로드(데이터 통신, 첫 렌더링 시에 실행, 전체 카테고리 클릭시 실행)
+    const allLinkLoad = async() => {
         try{
             const response = await fetch(API_PATH_ALL_LINK, {
-                method: "GET"
+                method: "GET",
             });
             const result = await response.json();
             if(!response.ok){
                 throw new Error("API 요청 에러 발생");
             }
             setLinkList(result.data);
-            setSelectCategory(0);
-            setViewCategory("전체");
+            setSelectCategory({
+                id: 0,
+                name: "전체"
+            })
         }catch(err){
             return console.log(err);
         }
-    }, []);
+    };
 
     useEffect(() => {
         allLinkLoad();
     }, []);
 
-    const handleViewCategory = async(id, name) => {
+    // 카테고리 안에 있는 링크 로드( [전체] 카테고리 이외의 카테고리 클릭시 실행) 
+    const handleSelectCategory = async(id, name) => {
         try{
-            const response = await fetch(API_PATH_CATEGORY_LINK(id),{
-                method: "GET"
+            const response = await fetch(API_PATH_CATEGORY_LINK+id,{
+                method: "GET",
             });
             const result = await response.json();
             if(!response.ok){
                 throw new Error("API 요청 에러 발생");
             }
             setLinkList(result.data);
-            setSelectCategory(id);
-            setViewCategory(name);
+            setSelectCategory({
+                id,
+                name
+            })
         }catch(err){
             return console.log(err);
         }
     } 
-    
-    // const handleKebabClick = (e) => {
-    //     if(e.target.className !== "content__kebab"){
-    //         setKebabClick(false);
-    //     }
-    // }
     
     return (
         <main className="folder">
@@ -92,9 +94,9 @@ function FolderContent(){
             <div className="content__category">
                 <ul className="category__box">
                     {categoryList.map(category => {
-                        const isSelect = selectCategory === category.id;
+                        const isSelect = selectCategory.id === category.id; // 현재 선택된 카테고리 ID와 카테고리 ID가 맞다면 true
                         return <li onClick={
-                            () => category.id === 0 ? allLinkLoad() : handleViewCategory(category.id, category.name)} 
+                            () => category.id === 0 ? allLinkLoad() : handleSelectCategory(category.id, category.name)} 
                             style={{
                                 backgroundColor: isSelect ? "#6D6AFE" : "#FFFFFF",
                                 color: isSelect ? "#FFFFFF" : "#000000",
@@ -108,10 +110,10 @@ function FolderContent(){
             </div>
 
             <div className="content__header">
-                <p className="content__title">{viewCategory}</p>
+                <p className="content__title">{selectCategory.name}</p>
                 <ul 
                 style={{
-                    display: viewCategory === "전체" ? "none" : "flex",
+                    display: selectCategory.name === "전체" ? "none" : "flex",
                 }}
                 className="content__util">
                     <UtilList value="share" text="공유"/>
@@ -119,7 +121,7 @@ function FolderContent(){
                     <UtilList value="delete" text="삭제"/>
                 </ul>
             </div>
-            <Cards linkList={linkList} option={true}/>
+            <Cards linkList={linkList} option={true} />
         </section>
     </main>
     )

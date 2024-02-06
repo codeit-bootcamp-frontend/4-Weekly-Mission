@@ -22,7 +22,8 @@ function Card({url, imgSrc, timeDiff, content, date, option}){
                 {option ? 
                 <div className="content__box">
                      <div className="content__timediff">{timeDiff}</div>
-                     <img onClick={ () => setKebabClick(true)}
+                     <img
+                     onClick={() => setKebabClick(!kebabClick)}
                       className="content__kebab" src={KebabImg} alt="케밥 아이콘"/>
                      <ul 
                      style={{

@@ -10,7 +10,7 @@ function UtilList({value, text}){
     }
     return ( 
     <li className="content__util--list">
-    <img className="content__util--img" src={imageObj[value]} alt={`${value} image`}/>
+    <img className="content__util--img" src={imageObj[value]} alt={`${value}이미지`}/>
     <span className="content__util--text">{text}</span>
     </li>
     )
