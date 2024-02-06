@@ -7,11 +7,6 @@ a {
   text-decoration: none;
 }
 
-/* 반응형 */
-@media (min-width:375px) and (max-width:1199px) {
-
-}
-
 /* 상단 내비게이션 바 */
 nav {
   display: flex;
@@ -25,17 +20,11 @@ nav {
   width: 100%;
 }
 
-.nav {
+.gnb {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
-}
-
-.logo a {
-  width: 133px;
-  height: 24px;
-  color: #6D6AFE;
 }
 
 .logo {
@@ -90,7 +79,7 @@ nav {
   -webkit-text-fill-color: transparent;
 }
 
-.link_add {
+.linkAdd {
   display: flex;
   width: 350px;
   padding: 16px 20px;
@@ -99,9 +88,6 @@ nav {
   gap: 10px;
   border-radius: 8px;
   background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
-}
-
-.link_add > a {
   color: #F5F5F5;
   font-size: 18px;
   font-style: normal;
@@ -116,29 +102,28 @@ nav {
 }
 
 /* section */
+section {
+  display: flex;
+  padding: 50px 461px;
+  justify-content: center;
+  align-items: center;
+}
+
 .sectionContent {
   display: flex;
   align-items: center;
   gap: 157px;
 }
 
-/* section2 */
-.section2 {
-  display: flex;
-  padding: 120px 461px 50px;
-  justify-content: center;
-  align-items: center;
-}
-
-.section2Title {
+.titleBox {
   display: flex;
   width: 291px;
   flex-direction: column;
   align-items: flex-start;
-  gap: 10px;  
+  gap: 10px;
 }
 
-.section2Title h2 {
+.sectionTitle {
   font-size: 48px;
   font-style: normal;
   font-weight: 700;
@@ -147,175 +132,47 @@ nav {
   margin: 0;
 }
 
-.section2Title span {
+.description {
+  color: #6B6B6B;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+  margin: 0;
+}
+
+.sectionImage {
+  width: 550px;
+  height: 450px;
+}
+
+/* span */
+.section2Title {
   background: linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.section2Title p {
-  color: #6B6B6B;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%; /* 24px */
-  margin: 0;
-}
-
-.section2 img {
-  width: 550px;
-  height: 450px;
-}
-
-/* section3 */
-.section3 {
-  display: flex;
-  padding: 50px 461px;
-  justify-content: center;
-  align-items: center;
-}
-
-.section3 img {
-  width: 550px;
-  height: 450px;
-}
-
 .section3Title {
-  display: flex;
-  width: 291px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.section3Title h2 {
-  color: #000;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.3px;
-  margin: 0;
-}
-
-.section3Title span {
   background: linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.section3Title p {
-  color: #6B6B6B;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%; /* 24px */
-  margin: 0;
-}
-
-/* section4 */
-.section4 {
-  display: flex;
-  padding: 50px 461px;
-  justify-content: center;
-  align-items: center;
-}
-
 .section4Title {
-  display: flex;
-  width: 291px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.section4Title h2 {
-  color: #000;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.3px;
-  margin: 0;
-}
-
-.section4Title span {
   background: linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-.section4Title p {
-  color: #6B6B6B;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%; /* 24px */
-  margin: 0;
-}
-
-.section4 img {
-  width: 570px;
-  height: 469px;
-  flex-shrink: 0;
-}
-
-/* section5 */
-.section5 {
-  display: flex;
-  padding: 50px 461px;
-  justify-content: center;
-  align-items: center;
-}
-
-.section5 img {
-  width: 550px;
-  height: 450px;
 }
 
 .section5Title {
-  display: flex;
-  width: 291px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.section5Title h2 {
-  color: #000;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: -0.3px;
-  margin: 0;
-}
-
-.section5Title span {
   background: linear-gradient(271deg, #FE578F -9.84%, #68E8F9 107.18%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 48px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-.section5Title p {
-  color: #6B6B6B;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%; /* 24px */
-  margin: 0;
 }
 
 /* footer */
@@ -346,7 +203,7 @@ footer {
   align-self: stretch;
 }
 
-.codeit p {
+.codeit{
   color: #676767;
   text-align: center;
   font-size: 16px;

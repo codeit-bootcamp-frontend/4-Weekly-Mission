@@ -108,6 +108,19 @@ input {
   gap: 12px;
 }
 
+.toggleIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  cursor: pointer;
+  margin-top: -8px;
+}
+
+.pwInputBox {
+  position: relative;
+  display: inline-block;
+}
+
 .signError {
   color: var(--Linkbrary-red, #FF5B56);
   /* Linkbrary/body2-regular */
@@ -118,9 +131,10 @@ input {
   line-height: normal;
 }
 
-/* .inputFocus {
+.inputFocus {
+  outline: none;
   border-color: #6D6AFE;
-} */
+}
 
 .inputError {
   border-color: #FF5B56;

@@ -1,64 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/sign-style.css">
-  <title>signin</title>
-</head>
-<body>
-  <div class="content">
-      <div class="signin">
-          <a href="./index.html">
-            <img src="./img/logo.svg" alt="홈으로 연결된 Linkbrary 로고">
-          </a>
-        <div class="signup">
-            <p>이미 회원이신가요?</p>
-            <a href="./signin.html">로그인하기</a>
-        </div>
-      </div>
-
-      <div class="inputContainer">
-        <div class="email">
-            <label for="email">이메일</label>
-          <div class="inputBox">
-            <input id="email" type="text" name="email" placeholder="codeit@codeit.com">
-            <span id="emailError" class="signError"></span>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/sign-style.css">
+    <title>signup</title>
+  </head>
+  <body>
+    <div class="content">
+        <div class="signin">
+            <a href="./index.html">
+              <img src="./img/logo.svg" alt="홈으로 연결된 Linkbrary 로고">
+            </a>
+          <div class="signup">
+              <p>이미 회원이신가요?</p>
+              <a href="./signin.html">로그인하기</a>
           </div>
         </div>
-
-        <div class="password">
-            <label for="password">비밀번호</label>
-          <div class="inputBox">
-            <input id="password" type="password" name="password">
-            <span id="pwError" class="signError"></span>
+        <div class="inputContainer">
+          <div class="email">
+              <label for="email">이메일</label>
+            <div class="inputBox">
+              <input id="email" type="text" name="email" placeholder="codeit@codeit.com">
+              <span id="emailError" class="signError"></span>
+            </div>
+          </div>
+          <div class="password">
+              <label for="password">비밀번호</label>
+            <div class="inputBox">
+              <div class="pwInputBox">
+                <input id="password" type="password" name="password">
+                <img id="pwToggleIcon" class="toggleIcon" src="./img/eye-off.svg" alt="비밀번호 가리기">
+              </div>
+              <span id="pwError" class="signError"></span>
+            </div>
+          </div>
+          <div class="password">
+              <label for="passwordCheck">비밀번호 확인</label>
+            <div class="inputBox">
+              <div class="pwInputBox">
+                <input id="passwordCheck" type="password" name="passwordCheck">
+                <img id="pwCheckToggleIcon" class="toggleIcon" src="./img/eye-off.svg" alt="비밀번호 가리기">
+              </div>
+              <span id="pwCheckError" class="signError"></span>
+            </div>
           </div>
         </div>
-
-        <div class="password">
-            <label for="passwordCheck">비밀번호 확인</label>
-          <div class="inputBox">
-            <input id="passwordCheck" type="password" name="passwordCheck">
-            <span id="pwCheckError" class="signError"></span>
-          </div>
-        </div>
-      </div>
-
         <button id="signBtn" class="signButton">회원가입</button>
-
-      <div class="social">
-          <p>다른 방식으로 가입하기</p>
-        <div class="icon">
-          <a class="googleIcon" href="https://www.google.com/">
-            <img alt="구글로 로그인" src="./img/google-icon.svg">
-          </a>
-          <a class="kakaoIcon" href="https://www.kakaocorp.com/page/">
-            <img alt="카카오로 로그인" src="./img/kakao-icon.svg">
-          </a>
+        <div class="social">
+            <p>다른 방식으로 가입하기</p>
+          <div class="icon">
+            <a class="googleIcon" href="https://www.google.com/">
+              <img alt="구글로 로그인" src="./img/google-icon.svg">
+            </a>
+            <a class="kakaoIcon" href="https://www.kakaocorp.com/page/">
+              <img alt="카카오로 로그인" src="./img/kakao-icon.svg">
+            </a>
+          </div>
         </div>
-      </div>
-  </div>
-
-  <script src="./js/signup.js"></script>
-</body>
+    </div>
+    <script type="module" src="./js/signup.js"></script>
+    <script type="module" src="./js/common.js"></script>
+  </body>
 </html>
