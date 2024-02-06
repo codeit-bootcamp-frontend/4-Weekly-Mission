@@ -14,6 +14,7 @@ const loginBtn = document.querySelector(".cta");
 const signupBtn = document.querySelector(".header-link");
 const handleClickBtn = (event) => {
   event.preventDefault();
+  displayEmailError();
   handleFocusoutPw();
   displayPwError();
   handleSignIn(emailInput.value, passwordInput.value);
