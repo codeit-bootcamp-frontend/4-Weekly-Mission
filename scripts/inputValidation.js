@@ -6,7 +6,6 @@ export function isValidEmail(email) {
 
 // 비밀번호 유효성 검사 함수
 export function isValidPassword(password) {
-  const regex =
-    /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+  const regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
   return regex.test(password);
 }
