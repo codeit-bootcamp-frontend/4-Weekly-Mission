@@ -1,0 +1,112 @@
+body {
+  background-color: var(--Linkbrary-bg);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons {
+  display: flex;
+  gap: 8px;
+}
+
+.kakao_bg {
+  background-color: #f5e14b;
+  padding: 10px;
+  border-radius: 9999px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error {
+  color: var(--Linkbrary-red);
+  font-size: 1.4rem;
+  margin-top: 6px;
+}
+
+.main {
+  width: 400px;
+  padding: 0 32px;
+  box-sizing: content-box;
+}
+
+.main-header {
+  text-align: center;
+}
+
+.main-logo {
+  margin-bottom: 16px;
+}
+
+.main-logo img {
+  width: 210px;
+}
+
+.main-header-contents {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.main-header-contents a {
+  color: var(--Linkbrary-primary-color);
+  text-decoration: underline;
+}
+
+#form .container {
+  padding: 30px 0;
+}
+
+#form input {
+  display: block;
+  width: 100%;
+  border: 1px solid var(--Linkbrary-gray20);
+  padding: 18px 15px;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+#form input:focus {
+  border-color: var(--Linkbrary-primary-color, #6d6afe);
+}
+
+#form input.inputError {
+  border: 1px solid var(--Linkbrary-red);
+}
+
+.icon_wrap {
+  position: relative;
+}
+
+.field .icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.field label {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.field + .field {
+  margin-top: 24px;
+}
+
+.main-footer {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  font-weight: 400;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20);
+  background-color: var(--Linkbrary-gray10);
+  padding: 12px 24px;
+}

@@ -1,4 +1,4 @@
-import "./App.css";
+import styles from "./App.module.css";
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
           Learn React
         </a>
       </header>
+      <div className={styles.box}>...</div>
     </div>
   );
 }
