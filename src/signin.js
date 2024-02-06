@@ -8,6 +8,9 @@ import {
   isPasswordValidNumber,
 } from "./utils.js";
 
+const inputEmailPlaceholderMessage = "이메일을 입력해주세요.";
+const invalidEmailErrorMessage = "올바른 이메일 주소가 아닙니다.";
+
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
 emailInput.addEventListener("focusout", (event) =>
@@ -17,20 +20,24 @@ function validateEmailInput(email) {
   if (email === "") {
     setInputError(
       { input: emailInput, errorMessage: emailErrorMessage },
-      "이메일을 입력해주세요."
+      inputEmailPlaceholderMessage
     );
     return;
   }
   if (!isEmailValid(email)) {
     setInputError(
       { input: emailInput, errorMessage: emailErrorMessage },
-      "올바른 이메일 주소가 아닙니다."
+      invalidEmailErrorMessage
     );
     return;
   }
   removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
 }
 
+const inputPasswordPlaceholderMessage = "비밀번호를 입력해주세요.";
+const passwordLength = 8;
+const passwordRequirementMessage =
+  "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
 const passwordInput = document.querySelector("#password");
 const passwordErrorMessage = document.querySelector("#password-error-message");
 passwordInput.addEventListener("focusout", (event) =>
@@ -40,18 +47,18 @@ function validatePasswordInput(password) {
   if (password === "") {
     setInputError(
       { input: passwordInput, errorMessage: passwordErrorMessage },
-      "비밀번호를 입력해주세요."
+      inputPasswordPlaceholderMessage
     );
     return;
   }
   if (
-    password.length < 8 ||
+    password.length < passwordLength ||
     !isPasswordValidString(password) ||
     !isPasswordValidNumber(password)
   ) {
     setInputError(
       { input: passwordInput, errorMessage: passwordErrorMessage },
-      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요."
+      passwordRequirementMessage
     );
     return;
   }
@@ -66,9 +73,13 @@ passwordToggleButton.addEventListener("click", () =>
   togglePassword(passwordInput, passwordToggleButton)
 );
 
-const signForm = document.querySelector("#form");
-signForm.addEventListener("submit", submitForm);
-function submitForm(event) {
+const loginFailureMessage = "이메일 혹은 비밀번호를 확인해주세요.";
+
+const API_URL = "https://bootcamp-api.codeit.kr/api/sign-in";
+const successPageURL = "../folder.html";
+
+const signForm = document.querySelector(".sign-form");
+signForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const isTestUser =
@@ -76,18 +87,38 @@ function submitForm(event) {
     passwordInput.value === TEST_USER.password;
 
   if (isTestUser) {
-    setInputError(
-      { input: emailInput, errorMessage: emailErrorMessage },
-      "이미 사용 중인 이메일입니다."
-    );
+    window.location.href = successPageURL;
     return;
   }
-  setInputError(
-    { input: emailInput, errorMessage: emailErrorMessage },
-    "이메일을 확인해주세요."
-  );
-  setInputError(
-    { input: passwordInput, errorMessage: passwordErrorMessage },
-    "비밀번호를 확인해주세요."
-  );
-}
+
+  fetch(API_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: emailInput.value,
+      password: passwordInput.value,
+    }),
+  })
+    .then((response) => {
+      if (response.ok) {
+        window.location.href = successPageURL;
+      } else {
+        return response.json();
+      }
+    })
+    .then((errorData) => {
+      setInputError(
+        { input: emailInput, errorMessage: emailErrorMessage },
+        errorData.message || loginFailureMessage
+      );
+    })
+    .catch((error) => {
+      console.error(loginFailureMessage, error);
+      setInputError(
+        { input: emailInput, errorMessage: emailErrorMessage },
+        loginFailureMessage
+      );
+    });
+});
