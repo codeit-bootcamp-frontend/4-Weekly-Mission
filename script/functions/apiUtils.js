@@ -19,7 +19,8 @@ export const postSignData = async (endpoint, signInfo) => {
     if (!response.ok) {
       throw new Error(response.status);
     }
-    saveTokenInLocalStorage('accessToken', true); //true 는 아무런 값도 아님.
+    const result = await response.json();
+    saveTokenInLocalStorage('accessToken', result.data.accessToken);
     window.location.href = goToFolderhtml;
   } catch (error) {
     console.error('Error : Network Connection Failure', error);
@@ -38,12 +39,13 @@ export const checkEmailData = async (endpoint, emailInfo) => {
     if (!response.ok) {
       throw new Error(response.status);
     }
+    return await response.json();
   } catch (error) {
     console.error('Error : Network Connection Failure', error);
   }
 };
 
 // 심화 요구사항에 맞춘 임시 코드
-export const checkAccessToken = () => {
-  if (getTokenInLocalStorage('accessToken')) window.location.href = goToFolderhtml;
+export const checkAccessToken = path => {
+  if (getTokenInLocalStorage('accessToken')) window.location.href = path;
 };

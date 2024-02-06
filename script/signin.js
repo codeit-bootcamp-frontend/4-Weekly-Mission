@@ -1,6 +1,6 @@
 import { EMAIL_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE } from './constant.js';
 import { getElementById } from './dom/domhelper.js';
-import { checkAccessToken, postSignInData } from './functions/apiUtils.js';
+import { checkAccessToken, postSignData } from './functions/apiUtils.js';
 import { isEmptyString, isValidEmail, showError, hideError, showPassword, hidePassword } from './functions/sign.js';
 
 // About Email Error
@@ -17,51 +17,57 @@ const eyeButton = getElementById('eye-button');
 
 checkAccessToken();
 
-const EmailInputError = () => {
+const validateEmail = () => {
   const emailValue = emailInput.value.trim();
   if (isEmptyString(emailValue)) {
     showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isEmpty);
-    return;
+    return false;
   }
   if (!isValidEmail(emailValue)) {
     showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isNotRightFormat);
-    return;
+    return false;
   }
   hideError(emailInput, emailErrorMessage);
+  return true;
 };
 
-const passwordInputError = () => {
+const validatePassword = () => {
   const passwordValue = passwordInput.value.trim();
   if (isEmptyString(passwordValue)) {
     showError(passwordInput, passwordErrorMessage, PASSWORD_ERROR_MESSAGE.isEmpty);
-    return;
+    return false;
   }
   hideError(passwordInput, passwordErrorMessage);
+  return true;
 };
 
-const pressSignInButtonError = event => {
+const handleSignInButtonClick = async event => {
   event.preventDefault();
-  const emailValue = emailInput.value.trim();
-  const passwordValue = passwordInput.value.trim();
-  // 겹치는 내용이라고 임의로 판단해서 주석 처리.
-  // if (USERS[0].id === emailValue && USERS[0].password === passwordValue) {
-  //     window.location.href = goToFolderhtml; return;}
-  const checkTemporary = { emailValue, passwordValue };
-  postSignInData('/api /sign-in', checkTemporary);
-  showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.haveToCheck);
-  showError(passwordInput, passwordErrorMessage, PASSWORD_ERROR_MESSAGE.haveToCheck);
+
+  const isEmailValid = validateEmail();
+  const isPasswordValid = validatePassword();
+
+  if (isEmailValid && isPasswordValid) {
+    const emailValue = emailInput.value.trim();
+    const passwordValue = passwordInput.value.trim();
+    const signInfo = { email: emailValue, password: passwordValue };
+    try {
+      await postSignData('/sign-in', signInfo);
+    } catch (error) {
+      console.error('Error occurred during sign-in:', error);
+    }
+  }
 };
 
-const pressEyeButton = () => {
+const handleEyeButtonClick = () => {
   if (passwordInput.type === 'text') {
     showPassword(passwordInput, eyeButton);
-    return;
+  } else {
+    hidePassword(passwordInput, eyeButton);
   }
-  hidePassword(passwordInput, eyeButton);
 };
 
-// 이벤트 함수 분리
-emailInput.addEventListener('focusout', EmailInputError);
-passwordInput.addEventListener('focusout', passwordInputError);
-loginButton.addEventListener('click', pressSignInButtonError);
-eyeButton.addEventListener('click', pressEyeButton);
+emailInput.addEventListener('focusout', validateEmail);
+passwordInput.addEventListener('focusout', validatePassword);
+loginButton.addEventListener('click', handleSignInButtonClick);
+eyeButton.addEventListener('click', handleEyeButtonClick);
