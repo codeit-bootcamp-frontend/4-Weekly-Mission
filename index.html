@@ -1,123 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Linkbrary">
-  <meta property="og:title" content="Linkbrary">
-  <meta property="og:description" content="세상의 모든 정보를 쉽게 저장하고 관리해보세요.">
-  <meta property="og:image" content="./images/image28.png">
-  <meta property="og:url" content="/">
-  <link rel="stylesheet" href="./src/stylesheets/main.css">
-  <link rel="stylesheet" href="./src/stylesheets/style.css">
-  <title>Linkbrary</title>
-</head>
-
-<body>
-  <header>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Linkbrary</title>
+    <meta property="og:title" content="Linkbrary" key="title" />
+    <meta
+      name="description"
+      property="og:description"
+      content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요"
+      key="description"
+    />
+    <meta
+      property="og:image"
+      content="https://visitbusan.net/uploadImgs/files/cntnts/20211130150754165_wufrotr"
+      key="image"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@linkbrary" />
+    <meta name="twitter:title" content="Linkbrary" />
+    <meta name="twitter:description" content="세상의 모든 정보를 쉽게 저장하고 관리해 보세요" />
+    <meta
+      name="twitter:image"
+      content="https://visitbusan.net/uploadImgs/files/cntnts/20211130150754165_wufrotr"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <link rel="stylesheet" href="./src/landing.css" />
+  </head>
+  <body>
     <nav>
-      <a href="./index.html" class="logo">
-        <img src="./src/images/logo.svg" alt="Linkbrary 로고">
-      </a>
-      <a href="./src/pages/signin.html" class="signin-button">로그인</a>
+      <div class="gnb">
+        <a href="index.html">
+          <img class="logo" src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
+        </a>
+        <a class="cta cta-short" href="signin.html">
+          <span>로그인</span>
+        </a>
+      </div>
     </nav>
-  </header>
-
-  <main>
-    <section class="hero">
-      <section class="contents01">
-        <div>
-          <p><span class="gradient-text">세상의 모든 정보</span>를</p>
-          <p><span>쉽게 저장하고 </span>관리해보세요</p>
-        </div>
-        <a href="./src/pages//signup.html" class="link-add-button">링크 추가하기</a>
-        <div class="dim"></div>
+    <header>
+      <div class="hero-header">
+        <h1 class="slogan">
+          <span class="slogan-gradient background-clip-text"> 세상의 모든 정보</span>를
+          <br />
+          쉽게 저장하고 관리해 보세요
+        </h1>
+        <a class="cta cta-long" href="signup.html">
+          <span>링크 추가하기</span>
+        </a>
+        <img src="./images/hero.png" class="hero-image" alt="Linkbrary 서비스 소개" />
+      </div>
+    </header>
+    <article>
+      <section>
+        <h2 class="title">
+          <span class="title-1-gradient background-clip-text"> 원하는 링크</span>를 저장하세요
+        </h2>
+        <p class="description">
+          나중에 읽고 싶은 글, 다시 보고 싶은 영상,
+          <br class="line-break-tablet-desktop" />
+          사고 싶은 옷, 기억하고 싶은 모든 것을
+          <br class="line-break-tablet-desktop" />
+          한 공간에 저장하세요.
+        </p>
+        <img src="./images/image1.png" class="content-image" alt="링크의 내용이 담긴 카드들" />
       </section>
-    </section>
-
-    <section class="contents02">
-      <article class="content">
-        <div class="content-text">
-          <p class="desc-title">
-            <span><span class="gradient-text">원하는 링크</span>를</span>
-            저장하세요
-          </p>
-          <p class="desc pc-break-line">
-            <span>나중에 읽고 싶은 글, 다시 보고 싶은 영상,</span>
-            <span>사고 싶은 옷, 기억하고 싶은 모든 것을</span>
-            <span>한 공간에 저장하세요.</span>
-          </p>
+      <section>
+        <h2 class="title">
+          링크를 폴더로
+          <span class="title-2-gradient background-clip-text">관리</span>하세요
+        </h2>
+        <p class="description">
+          나만의 폴더를 무제한으로 만들고
+          <br class="line-break-tablet-desktop" />
+          다양하게 활용할 수 있습니다.
+        </p>
+        <img src="./images/image2.png" class="content-image" alt="폴더 이름 변경 기능" />
+      </section>
+      <section>
+        <h2 class="title">
+          저장한 링크를
+          <span class="title-3-gradient background-clip-text">공유</span>해 보세요
+        </h2>
+        <p class="description">
+          여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게 쉽고 빠르게 링크를
+          공유해 보세요.
+        </p>
+        <img src="./images/image3.png" class="content-image" alt="폴더 공유 기능" />
+      </section>
+      <section>
+        <h2 class="title">
+          저장한 링크를
+          <span class="title-4-gradient background-clip-text">검색</span>해 보세요
+        </h2>
+        <p class="description">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
+        <img src="./images/image4.png" class="content-image" alt="링크 검색 기능" />
+      </section>
+    </article>
+    <footer>
+      <div class="footer-box">
+        <span class="copyright">©codeit - 2023</span>
+        <div class="footer-links">
+          <a class="footer-link" href="privacy.html">Privacy Policy</a>
+          <a class="footer-link" href="faq.html">FAQ</a>
         </div>
-        <img src="./src/images/save_link_image.png" alt="링크를 저장">
-      </article>
-
-      <article class="content">
-        <img src="./src/images/management_image.png" alt="링크를 관리">
-        <div class="content-text">
-          <p class="desc-title">
-            <span>링크를 폴더로</span>
-            <span><span class="gradient-text">관리</span>하세요</span>
-          </p>
-          <p class="desc pc-break-line">
-            <span>나만의 폴더를 무제한으로 만들고</span>
-            <span>다양하게 활용할 수 있습니다.</span>
-          </p>
+        <div class="sns">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./images/facebook.svg" alt="facebook 홈페이지로 연결된 facebook 로고" />
+          </a>
+          <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./images/twitter.svg" alt="twitter 홈페이지로 연결된 twitter 로고" />
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./images/youtube.svg" alt="youtube 홈페이지로 연결된 youtube 로고" />
+          </a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+            <img src="./images/instagram.svg" alt="instagram 홈페이지로 연결된 instagram 로고" />
+          </a>
         </div>
-      </article>
-
-      <article class="content">
-        <div class="content-text">
-          <p class="desc-title">
-            <span>저장한 링크를</span>
-            <span><span class="gradient-text">공유</span>해 보세요</span>
-          </p>
-          <p class="desc pc-break-line">
-            <span><span>여러 링크를 폴더에 담고 공유할 수 있습니다.</span>
-              <span>가족, 친구, 동료들에게 쉽고 빠르게 링크를 </span>
-              <span>공유해 보세요.</span></span>
-          </p>
-        </div>
-        <img src="./src/images/share_image.png" alt="링크를 공유">
-      </article>
-
-      <article class="content">
-        <img src="./src/images/search_image.png" alt="링크를 검색">
-        <div class="content-text">
-          <p class="desc-title">
-            <span>저장한 링크를</span>
-            <span class="gradient-text">검색</span>해 보세요
-          </p>
-          <p class="desc pc-break-line">중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
-        </div>
-      </article>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <section class="footer-container">
-      <span class="info-title">©codeit - 2023</span>
-      <div class="footer-link">
-        <a href="./src/pages/privacy.html">Privacy Policy</a>
-        <a href="./src/pages/faq.html">FAQ</a>
       </div>
-      <div class="footer-link media_button_container">
-        <a href="https://www.facebook.com/" target="_blank">
-          <img class="footer-sns-botton" src="./src/images/sns/akar-icons_facebook-fill.png" alt="페이스북 아이콘">
-        </a>
-        <a href="https://twitter.com/" target="_blank">
-          <img class="footer-sns-botton" src="./src/images/sns/akar-icons_twitter-fill.png" alt="트위터 아이콘">
-        </a>
-        <a href="https://www.youtube.com/" target="_blank">
-          <img class="footer-sns-botton" src="./src/images/sns/akar-icons_youtube-fill.png" alt="유튜브 아이콘">
-        </a>
-        <a href="https://www.instagram.com/" target="_blank">
-          <img class="footer-sns-botton" src="./src/images/sns/ant-design_instagram-filled.png" alt="인스타그램 아이콘">
-        </a>
-      </div>
-    </section>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>
