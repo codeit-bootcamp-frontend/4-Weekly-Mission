@@ -42,15 +42,21 @@ function passwordText() {
 }
 
 function login() {
-  const correctEmail = "test@codeit.kr";
-  const correctPassword = "codeit101";
-  if (correctEmail == EMAIL.value && correctPassword == PASSWORD.value) {
-    let link = "../html/page.html";
-    location.href = link;
-  } else {
-    addEmailErrorMsg("* 이메일을 확인해주세요.");
-    addPasswordErrorMsg("* 비밀번호를 확인해주세요.");
-  }
+  fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email: EMAIL.value, password: PASSWORD.value }),
+  }).then((response) => {
+    if (response.status === 200) {
+      let link = "../html/page.html";
+      location.href = link;
+    } else {
+      addEmailErrorMsg("* 이메일을 확인해주세요.");
+      addPasswordErrorMsg("* 비밀번호를 확인해주세요.");
+    }
+  });
 }
 
 EMAIL.addEventListener("blur", emailText);

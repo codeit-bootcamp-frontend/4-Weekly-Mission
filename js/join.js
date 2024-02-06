@@ -67,7 +67,7 @@ function passwordText() {
 
 function passwordCheckText() {
   if (PASSWORD_CHECK.value === "") {
-    addPasswordErrorCheckMsg("* 비밀번호를 입력해주세요");
+    addPasswordErrorCheckMsg("* 비밀번호를 입력해주세요.");
     return false;
   } else if (PASSWORD.value === PASSWORD_CHECK.value) {
     addPasswordErrorCheckMsg("");
@@ -79,23 +79,40 @@ function passwordCheckText() {
   }
 }
 
- async function join(event) {
+async function join(event) {
   event.preventDefault();
   if (emailText() && passwordText() && passwordCheckText()) {
-    let link = "../html/page.html";
-    location.href = link;
-    const newMember = {
-      "email": EMAIL.value,
-      "password": PASSWORD.value,
-    }
-    fetch('https://bootcamp-api.codeit.kr/docs/api/sign-in', {
-      method: 'POST',
-      body: JSON.stringify(newMember),
-    })
-      .then((response) => response.text())
-      .then((result) => {console.log(result)})
+    fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: EMAIL.value }),
+    }).then((response) => {
+      if (response.status === 200) {
+        fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: EMAIL.value,
+            password: PASSWORD.value,
+          }),
+        }).then((response) => {
+          if (response.status === 200) {
+            let link = "../html/page.html";
+            location.href = link;
+          } else {
+            return;
+          }
+        });
+      } else {
+        return;
+      }
+    });
   }
- }
+}
 
 JOIN_BTN.addEventListener("click", join);
 EMAIL.addEventListener("blur", emailText);
