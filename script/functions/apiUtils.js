@@ -1,7 +1,7 @@
 import { goToFolderhtml } from '../temporary.js';
 import { getTokenInLocalStorage, saveTokenInLocalStorage } from './token.js';
 
-const apiUrl = 'https://bootcamp-api.codeit.kr/docs';
+const apiUrl = 'https://bootcamp-api.codeit.kr/api';
 
 const postRequest = (endpoint, data) => {
   return fetch(`${apiUrl}${endpoint}`, {
