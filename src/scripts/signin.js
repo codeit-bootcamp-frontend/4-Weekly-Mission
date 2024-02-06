@@ -1,6 +1,6 @@
 import { ERROR_MESSAGE } from './constant.js';
 import { showInputError, showErrorMessage } from './util.js';
-import { checkEmail, checkPassword, changeEyeIcon } from './sign.js';
+import { checkAccessToken, checkEmail, checkPassword, changeEyeIcon } from './sign.js';
 import { sign } from './api.js';
 
 const email = document.getElementById('email');
@@ -11,6 +11,9 @@ const eyeIcon = document.getElementById('eyeIcon');
 
 const emailErrorMessage = document.getElementById('emailErrorMessage');
 const passwordErrorMessage = document.getElementById('passwordErrorMessage');
+
+//Check token: 토큰 확인
+checkAccessToken();
 
 //Check email: 입력 여부 확인, 메일 형식 확인
 const SigninEmailHandler = () => {

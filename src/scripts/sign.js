@@ -10,6 +10,12 @@ import {
 } from './util.js';
 import { checkEmailInfo } from './api.js';
 
+//Check token: 토큰 확인------------------------------------------------------
+export const checkAccessToken = () => {
+  const localToken = localStorage.getItem('accessToken');
+  if (localToken) window.location.href = PATH.PAGE_FOLDER;
+};
+
 //Check email: 입력 여부 확인, 메일 형식 확인-------------------------------------
 export const checkEmail = (emailElement, errorMessageElement) => {
   if (!emailElement.value) {
@@ -30,9 +36,7 @@ export const checkAvailableEmail = (emailElement, errorMessageElement) => {
   if (emailElement.value) {
     checkEmailInfo('/check-email', emailInfo)
       .then((result) => {
-        if (!result) {
-          showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
-        }
+        if (!result) showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
       });
   }
 };

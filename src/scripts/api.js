@@ -18,6 +18,9 @@ export const sign = async (endPoint, signInfo) => {
     if (!response.ok) {
       throw new Error(response.status);
     }
+    const result = await response.json();
+    const token = result.data.accessToken;
+    localStorage.setItem('accessToken', token);
     window.location.href = PATH.PAGE_FOLDER;
   } catch (error) {
     console.log(error);

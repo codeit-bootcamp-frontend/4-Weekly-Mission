@@ -1,4 +1,5 @@
 import {
+  checkAccessToken,
   checkEmail,
   checkAvailableEmail,
   checkPassword,
@@ -19,6 +20,9 @@ const eyeIconCheck = document.getElementById('eyeIconCheck');
 const emailErrorMessage = document.getElementById('emailErrorMessage');
 const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 const passwordCheckErrorMessage = document.getElementById('passwordCheckErrorMessage');
+
+//Check token: 토큰 확인
+checkAccessToken();
 
 //Check email: 입력 여부 확인, 메일 형식 확인
 const SignupEmailHandler = () => {
