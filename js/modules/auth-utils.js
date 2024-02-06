@@ -15,6 +15,7 @@ const setValidStyle = (element) => {
 };
 
 const errorMessage = {
+  ALREADY_EMAIL: "test@codeit.com",
   EMAIL_INPUT_MESSAGE: "이메일을 입력해 주세요.",
   EMAIL_ERROR_MESSAGE: "올바른 이메일 주소가 아닙니다.",
   EMAIL_CHECK_MESSAGE: "이메일을 확인해 주세요.",
@@ -46,10 +47,9 @@ const handleEmailValidation = () => {
 const togglePasswordVisibility = (inputElement, eyeIconElement) => {
   const type = inputElement.type === "password" ? "text" : "password";
   inputElement.type = type;
-  eyeIconElement.src =
-    type === "password"
-      ? "../../images/signIn/eye-off.svg"
-      : "../../images/signIn/eye-on.png";
+  eyeIconElement.src = `../../images/signIn/eye-${
+    type === "password" ? "off" : "on"
+  }.png`;
 };
 
 /* enter키 입력 시 로그인 및 회원가입 실행 */
@@ -57,6 +57,17 @@ const enterKey = (e, funcitonElement) => {
   if (e.keyCode == 13) {
     funcitonElement();
   }
+};
+
+/* 폴더 이동 함수 */
+const redirectFolder = () => {
+  const link = "./folder.html";
+  location.href = link;
+};
+
+/* accessToken 로컬스토리지에 저장 함수 */
+const saveAccessToken = (token) => {
+  localStorage.setItem("accessToken", token);
 };
 
 export {
@@ -73,4 +84,6 @@ export {
   handleEmailValidation,
   togglePasswordVisibility,
   enterKey,
+  redirectFolder,
+  saveAccessToken,
 };

@@ -12,14 +12,18 @@ import {
   handleEmailValidation,
   togglePasswordVisibility,
   enterKey,
-} from "./modules/AuthUtils.js";
+  redirectFolder,
+  saveAccessToken,
+} from "./modules/auth-utils.js";
 
 const passwordRepeatError = document.querySelector(".passwordRepeat-error");
 const signUpButton = document.querySelector(".signup-button");
 
 /* 회원가입 이메일 유효성 검사 */
-const handleEmailUsedValidation = () => {
-  if (email.value === "test@codeit.com") {
+const handleEmailUsedValidation = async () => {
+  const emailValue = email.value;
+  const isDuplicate = await checkEmailDuplicate(emailValue);
+  if (isDuplicate) {
     setInvalidStyle(email);
     emailError.innerHTML = errorMessage.EMAIL_USED_MESSAGE;
   } else {
@@ -50,23 +54,81 @@ const handlePasswordMatchValidation = () => {
   }
 };
 
-/* 유효한 회원가입 시도 시 페이지 이동 */
-const redirectToFolderPage = () => {
-  const link = "./folder.html";
+/* 이메일 중복확인 함수 */
+const checkEmailDuplicate = async (email) => {
+  try {
+    const response = await fetch(
+      "https://bootcamp-api.codeit.kr/api/check-email",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      }
+    );
 
-  if (email.value === "test@codeit.com") {
-    setInvalidStyle(email);
-    emailError.innerHTML = errorMessage.EMAIL_USED_MESSAGE;
-  } else if (email.value === "") {
-    setInvalidStyle(email);
-    emailError.innerHTML = errorMessage.EMAIL_INPUT_MESSAGE;
-  } else if (password.value === "") {
-    setInvalidStyle(password);
-    passwordError.innerHTML = errorMessage.PASSWORD_FORMAT_MESSAGE;
-  } else if (passwordRepeat.value !== password.value) {
-    handlePasswordMatchValidation();
-  } else {
-    location.href = link;
+    if (response.status === 409) {
+      setInvalidStyle(email);
+      emailError.innerHTML = errorMessage.EMAIL_USED_MESSAGE;
+    }
+  } catch (error) {
+    console.error("이메일 중복 확인 실패", error.message);
+    return true; // 중복 확인 실패 시 중복으로 처리
+  }
+};
+
+const signUpApi = async (email, password) => {
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const responseData = await response.json();
+    const accessToken = responseData.data.accessToken;
+    saveAccessToken(accessToken);
+    return accessToken;
+  } catch (error) {
+    console.error("회원가입 요청 실패:", error.message);
+    throw new Error("회원가입 요청 실패");
+  }
+};
+
+/* 유효한 회원가입 시도 시 페이지 이동 */
+const redirectToFolderPage = async () => {
+  try {
+    const emailValue = email.value;
+    const passwordValue = password.value;
+    const passwordRepeatValue = passwordRepeat.value;
+
+    const isDuplicate = await checkEmailDuplicate(emailValue);
+    const signUpResponse = await signUpApi(emailValue, passwordValue);
+
+    if (signUpResponse) {
+      saveAccessToken(signUpResponse);
+      redirectFolder();
+    } else {
+      throw new Error("error");
+    }
+
+    if (isDuplicate) {
+      setInvalidStyle(email);
+      emailError.innerHTML = errorMessage.EMAIL_USED_MESSAGE;
+    } else if (emailValue === "") {
+      setInvalidStyle(email);
+      emailError.innerHTML = errorMessage.EMAIL_INPUT_MESSAGE;
+    } else if (passwordValue === "") {
+      setInvalidStyle(password);
+      passwordError.innerHTML = errorMessage.PASSWORD_FORMAT_MESSAGE;
+    } else if (passwordRepeatValue !== passwordValue) {
+      handlePasswordMatchValidation();
+    }
+  } catch (error) {
+    console.error("오류 발생:", error.message);
   }
 };
 

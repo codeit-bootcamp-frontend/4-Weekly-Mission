@@ -10,7 +10,9 @@ import {
   handleEmailValidation,
   togglePasswordVisibility,
   enterKey,
-} from "./modules/AuthUtils.js";
+  redirectFolder,
+  saveAccessToken,
+} from "./modules/auth-utils.js";
 
 const loginButton = document.querySelector(".login-button");
 
@@ -27,16 +29,45 @@ const handlePasswordValidation = () => {
   }
 };
 
+const signInApi = async (email, password) => {
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify({ email, password }),
+    });
+
+    const responseData = await response.json();
+    const accessToken = responseData.data.accessToken;
+
+    saveAccessToken(accessToken);
+    return accessToken;
+  } catch (error) {
+    console.error("URL 호출 실패:", error.message);
+  }
+};
+
 /* 특정 아이디 및 비밀번호로 로그인 시도 시 페이지 이동 */
-const redirectToFolderPage = () => {
-  if (email.value === "test@codeit.com" && password.value === "codeit101") {
-    const link = "./folder.html";
-    location.href = link;
-  } else {
-    setInvalidStyle(email);
-    setInvalidStyle(password);
-    emailError.innerHTML = errorMessage.EMAIL_CHECK_MESSAGE;
-    passwordError.innerHTML = errorMessage.PASSWORD_CHECK_MESSAGE;
+const redirectToFolderPage = async () => {
+  try {
+    const emailValue = email.value;
+    const passwordValue = password.value;
+
+    const dataValue = await signInApi(emailValue, passwordValue);
+    if (dataValue) {
+      saveAccessToken(dataValue);
+      redirectFolder();
+    } else {
+      setInvalidStyle(email);
+      setInvalidStyle(password);
+      emailError.innerHTML = errorMessage.EMAIL_CHECK_MESSAGE;
+      passwordError.innerHTML = errorMessage.PASSWORD_CHECK_MESSAGE;
+    }
+  } catch (error) {
+    console.error("로그인 에러:", error.message);
   }
 };
 
