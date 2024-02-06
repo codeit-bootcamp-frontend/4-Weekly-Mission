@@ -4,138 +4,160 @@ import {
   emailError,
   passwordError,
   eyeIcon,
-  TEST_EMAIL,
-  isEmail,
-  removeEmpty,
   eyeIconOn,
   eyeIconOff,
+  isEmail,
+  removeEmpty,
+  togglePasswordVisibility,
 } from '../src/common/sign.js';
+
+import {
+  EMAIL_CHECK_MESSAGE,
+  PASSWORD_CHECK_MESSAGE,
+  EMPTY_EMAIL_MESSAGE,
+  EMPTY_PASSWORD_MESSAGE,
+  ERROR_EMAIL_MESSAGE,
+  DUPLICATE_EMAIL_MESSAGE,
+  ERROR_INVALID_PASSWORD_MESSAGE,
+  ERROR_MATCH_PASSWORD_MESSAGE,
+} from '../src/common/constants.js';
 
 const passwordCheck = document.querySelector('.password_check');
 const passwordReCheck = document.querySelector('.password_recheck');
 
 const passwordErrorCheck = document.querySelector('.password-error-check');
 
-let isValid = [false, false, false];
+const emailInput = async (event) => {
+  event.value = removeEmpty(event.value);
 
-const onSubmit = (e) => {
-  e.preventDefault();
-
-  if (isValid[0] === false) {
-    emailError.textContent = '이메일을 확인해 주세요.';
-  }
-  if (isValid[1] === false) {
-    passwordError.textContent = '비밀번호를 확인해 주세요.';
-  }
-  if (isValid[2] === false) {
-    passwordErrorCheck.textContent = '비밀번호를 확인해 주세요.';
-  } else if (isValid.includes(false) === false) {
-    location.href = '/folder/folder.html';
+  if (event.value.length <= 0) {
+    emailError.textContent = EMPTY_EMAIL_MESSAGE;
+    event.classList.add('inputError');
+    return false;
+  } else if (!isEmail(event.value)) {
+    emailError.textContent = ERROR_EMAIL_MESSAGE;
+    event.classList.add('inputError');
+    return false;
+  } else {
+    try {
+      const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify({ email: event.value }),
+      });
+      if (response.status === 200) {
+        console.log(response.status);
+        emailError.textContent = '';
+        event.classList.remove('inputError');
+        return true;
+      } else if (response.status === 409) {
+        console.log(response.status);
+        emailError.textContent = DUPLICATE_EMAIL_MESSAGE;
+        return false;
+      }
+    } catch (e) {
+      console.log(e);
+    }
   }
 };
 
 const emailInputCheck = (e) => {
-  e.target.value = removeEmpty(e.target.value);
+  emailInput(e.target);
+};
 
-  if (e.target.value.length <= 0) {
-    emailError.textContent = '이메일을 입력해 주세요.';
-    e.target.classList.add('inputError');
-    isValid[0] = false;
-  } else if (!isEmail(email.value)) {
-    emailError.textContent = '올바른 이메일 주소가 아닙니다.';
-    e.target.classList.add('inputError');
-    isValid[0] = false;
-  } else if (e.target.value === TEST_EMAIL) {
-    emailError.textContent = '이미 사용 중인 이메일입니다.';
-    isValid[0] = false;
+const passwordInput = (event) => {
+  event.value = removeEmpty(event.value);
+
+  if (event.value.length <= 0) {
+    passwordError.textContent = EMPTY_PASSWORD_MESSAGE;
+    event.classList.add('inputError');
+    return false;
+  } else if (event.value.length < 8 || !/\d/.test(event.value) || !/[a-zA-Z]/.test(event.value)) {
+    passwordError.textContent = ERROR_INVALID_PASSWORD_MESSAGE;
+    event.classList.add('inputError');
+    return false;
   } else {
-    emailError.textContent = '';
-    e.target.classList.remove('inputError');
-    isValid[0] = true;
+    passwordError.textContent = '';
+    event.classList.remove('inputError');
+    return true;
   }
 };
 
 const passwordInputCheck = (e) => {
-  e.target.value = removeEmpty(e.target.value);
+  passwordInput(e.target);
+};
 
-  if (e.target.value.length <= 0) {
-    passwordError.textContent = '비밀번호를 입력해 주세요.';
-    e.target.classList.add('inputError');
-    isValid[1] = false;
-  } else if (
-    e.target.value.length < 8 ||
-    !/\d/.test(e.target.value) ||
-    !/[a-zA-Z]/.test(e.target.value)
-  ) {
-    passwordError.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
-    e.target.classList.add('inputError');
-    isValid[1] = false;
+const passwordReInput = (event) => {
+  event.value = removeEmpty(event.value);
+
+  if (event.value.length <= 0) {
+    passwordErrorCheck.textContent = EMPTY_PASSWORD_MESSAGE;
+    event.classList.add('inputError');
+    return false;
+  } else if (event.value.length < 8 || !/\d/.test(event.value) || !/[a-zA-Z]/.test(event.value)) {
+    passwordErrorCheck.textContent = ERROR_INVALID_PASSWORD_MESSAGE;
+    event.classList.add('inputError');
+    return false;
+  } else if (passwordCheck.value !== event.value) {
+    passwordErrorCheck.textContent = ERROR_MATCH_PASSWORD_MESSAGE;
+    event.classList.add('inputError');
+    return false;
   } else {
-    passwordError.textContent = '';
-    e.target.classList.remove('inputError');
-    isValid[1] = true;
+    passwordErrorCheck.textContent = '';
+    event.classList.remove('inputError');
+    return true;
   }
 };
 
 const passwordInputRecheck = (e) => {
-  e.target.value = removeEmpty(e.target.value);
-
-  if (e.target.value.length <= 0) {
-    passwordErrorCheck.textContent = '비밀번호를 입력해 주세요.';
-    e.target.classList.add('inputError');
-    isValid[2] = false;
-  } else if (
-    e.target.value.length < 8 ||
-    !/\d/.test(e.target.value) ||
-    !/[a-zA-Z]/.test(e.target.value)
-  ) {
-    passwordErrorCheck.textContent = '비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.';
-    e.target.classList.add('inputError');
-    isValid[2] = false;
-  } else if (passwordCheck.value !== e.target.value) {
-    passwordErrorCheck.textContent = '비밀번호가 일치하지 않아요.';
-    e.target.classList.add('inputError');
-    isValid[2] = false;
-  } else {
-    passwordErrorCheck.textContent = '';
-    e.target.classList.remove('inputError');
-    isValid[2] = true;
-  }
-};
-
-const togglePasswordVisibility1 = () => {
-  if (passwordCheck.type === 'password') {
-    passwordCheck.type = 'text';
-    eyeIconOff[0].style.display = 'none';
-    eyeIconOn[0].style.display = 'inline-block';
-  } else {
-    passwordCheck.type = 'password';
-    eyeIconOff[0].style.display = 'inline-block';
-    eyeIconOn[0].style.display = 'none';
-  }
-};
-
-const togglePasswordVisibility2 = () => {
-  if (passwordReCheck.type === 'password') {
-    passwordReCheck.type = 'text';
-    eyeIconOff[1].style.display = 'none';
-    eyeIconOn[1].style.display = 'inline-block';
-  } else {
-    passwordReCheck.type = 'password';
-    eyeIconOff[1].style.display = 'inline-block';
-    eyeIconOn[1].style.display = 'none';
-  }
+  passwordReInput(e.target);
 };
 
 const eyeIconClick1 = (e) => {
   if (e.target.classList.contains('eye-icon')) {
-    togglePasswordVisibility1();
+    const eyeOff = eyeIconOff[0];
+    const eyeOn = eyeIconOn[0];
+    togglePasswordVisibility(passwordCheck, eyeOff, eyeOn);
   }
 };
 
 const eyeIconClick2 = (e) => {
   if (e.target.classList.contains('eye-icon')) {
-    togglePasswordVisibility2();
+    const eyeOff = eyeIconOff[1];
+    const eyeOn = eyeIconOn[1];
+    togglePasswordVisibility(passwordReCheck, eyeOff, eyeOn);
+  }
+};
+
+const onSubmit = async (e) => {
+  e.preventDefault();
+
+  const isEmailValid = await emailInput(e.target.email);
+  const isPasswordValid = passwordInput(e.target.password);
+  const isPassWordReValid = passwordReInput(e.target.password_recheck);
+
+  if (isEmailValid === false) {
+    emailError.textContent = EMAIL_CHECK_MESSAGE;
+  }
+  if (isPasswordValid === false) {
+    passwordError.textContent = PASSWORD_CHECK_MESSAGE;
+  }
+  if (isPassWordReValid === false) {
+    passwordErrorCheck.textContent = PASSWORD_CHECK_MESSAGE;
+  } else if (isEmailValid && isPasswordValid && isPassWordReValid) {
+    fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({ email: e.target.email.value, password: e.target.password.value }),
+    })
+      .then((response) => response.text())
+      .then((result) => {
+        location.href = '/folder/folder.html';
+      });
   }
 };
 
