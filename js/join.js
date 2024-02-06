@@ -67,7 +67,7 @@ function passwordText() {
 
 function passwordCheckText() {
   if (PASSWORD_CHECK.value === "") {
-    addPasswordErrorCheckMsg("* 비밀번호를 입력해주세요.");
+    addPasswordErrorCheckMsg("* 비밀번호를 입력해주세요");
     return false;
   } else if (PASSWORD.value === PASSWORD_CHECK.value) {
     addPasswordErrorCheckMsg("");
