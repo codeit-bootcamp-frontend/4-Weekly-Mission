@@ -1,12 +1,12 @@
 /**
  * 이메일 정규 상수
  */
-const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 /**
  * 비밀번호 정규 상수
  */
-const PASSWORD_REGEX = /(?=.*\d)(?=.*[a-z]).{8,}/
+const PASSWORD_REGEX = /(?=.*\d)(?=.*[a-z]).{8,}/;
 
 const errorMsg = {
     emptyEmail: '이메일을 입력해 주세요.',
@@ -17,8 +17,14 @@ const errorMsg = {
     checkPassword: '비밀번호를 확인해 주세요.',
     usedEmail: '이미 사용 중인 이메일입니다.',
     differentPassword: '비밀번호가 일치하지 않아요.',
-}
+};
 
-const minPasswordLength = 8
+const minPasswordLength = 8;
 
-export { EMAIL_REGEX, PASSWORD_REGEX, errorMsg, minPasswordLength }
+const URL = {
+    main: `https://bootcamp-api.codeit.kr/api/`,
+    signin: `sign-in`,
+    checkEmail: `check-email`,
+};
+
+export { EMAIL_REGEX, PASSWORD_REGEX, errorMsg, minPasswordLength, URL };
