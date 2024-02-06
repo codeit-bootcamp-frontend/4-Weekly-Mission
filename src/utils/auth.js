@@ -1,3 +1,4 @@
+import { getTokenFromLocalStorage } from '../api/tokenSetting.js';
 import { MESSAGE, REGEX, ACTION } from '../constants/SIGN.js';
 
 export const emailInput = document.getElementById('email');
@@ -56,4 +57,10 @@ export const isValidatePw = () => {
 export const handleClickPwToggle = (input, toggle) => {
   input.type = input.type === 'password' ? 'text' : 'password';
   toggle.src = input.type === 'password' ? 'public/images/eye-off.svg' : 'public/images/eye-on.svg';
+};
+
+export const redirectIfTokenExists = (token) => {
+  if (getTokenFromLocalStorage(token)) {
+    window.location.href = 'folder.html';
+  }
 };

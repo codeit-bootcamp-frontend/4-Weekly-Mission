@@ -1,3 +1,4 @@
+import { isEmailDuplicate, postSignUp } from './api/authAPI.js';
 import { MESSAGE, TEST_AUTH } from './constants/SIGN.js';
 import {
   emailInput,
@@ -9,6 +10,7 @@ import {
   isValidateEmail,
   isValidatePw,
   handleClickPwToggle,
+  redirectIfTokenExists,
 } from './utils/auth.js';
 
 const pwCheckInput = document.getElementById('password-check');
@@ -16,12 +18,13 @@ const pwCheckError = document.getElementById('password-check-error');
 const pwCheckToggle = document.querySelector('.password-check-eye');
 const signUpForm = document.querySelector('#signup-form');
 
-const isDuplicateEmail = () => {
-  if (emailInput.value === TEST_AUTH.EMAIL) {
+const isDuplicateEmail = async () => {
+  try {
+    await isEmailDuplicate({ email: emailInput.value });
+    return false;
+  } catch (error) {
     applyError(emailError, MESSAGE.DUPLICATE_EMAIL, emailInput);
     return true;
-  } else {
-    return false;
   }
 };
 
@@ -43,15 +46,21 @@ const validPwForSignUp = () => {
   return isValidatePw() && isPasswordMatch();
 };
 
-const handleSignUp = (e) => {
+const handleSignUp = async (e) => {
   e.preventDefault();
 
-  const isValidEmail = validEmailForSignUp();
-  const isValidPw = validPwForSignUp();
-
-  if (isValidEmail && isValidPw) window.location.href = 'folder.html';
+  try {
+    if (validPwForSignUp()) {
+      await postSignUp({ email: emailInput.value, password: pwInput.value });
+      alert('회원가입 성공🥳');
+      window.location.href = 'folder.html';
+    }
+  } catch (error) {
+    alert('회원가입을 다시 시도 해주세요😭');
+  }
 };
 
+window.addEventListener('DOMContentLoaded', redirectIfTokenExists('signup-token'));
 emailInput.addEventListener('focusout', validEmailForSignUp);
 pwInput.addEventListener('focusout', isValidatePw);
 pwCheckInput.addEventListener('focusout', isPasswordMatch);
