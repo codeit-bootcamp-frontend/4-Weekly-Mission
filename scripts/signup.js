@@ -3,6 +3,7 @@ import {
   EMAIL_MESSAGE,
   EMAIL_REGEX,
   INPUT_IDS,
+  LOCALSTORAGE_ACCESSTOKEN,
   PASSWORD_MESSAGE,
   PASSWORD_REGEX,
   SIGNUP_PATH
@@ -136,7 +137,7 @@ const handleSignUp = async event => {
       .then(data => {
         if (data.error) throw new Error('회원가입 실패');
         const accessToken = data.data.accessToken;
-        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem(LOCALSTORAGE_ACCESSTOKEN, accessToken);
         SignHandler.navigateTo(SIGNUP_PATH);
       });
 };

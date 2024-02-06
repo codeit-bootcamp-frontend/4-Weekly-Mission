@@ -1,6 +1,13 @@
 //@ts-check
 import { DOMHandler, InputHandler } from './utils/element.js';
-import { EMAIL_MESSAGE, PASSWORD_MESSAGE, INPUT_IDS, EMAIL_REGEX, LOGIN_PATH } from './constant/signConfig.js';
+import {
+  EMAIL_MESSAGE,
+  PASSWORD_MESSAGE,
+  INPUT_IDS,
+  EMAIL_REGEX,
+  LOGIN_PATH,
+  LOCALSTORAGE_ACCESSTOKEN
+} from './constant/signConfig.js';
 import { SignHandler } from './utils/sign.js';
 
 const {
@@ -80,7 +87,7 @@ const handleSubmit = event => {
     .then(data => {
       if (data.error) throw new Error('등록되지 않은 계정');
       const accessToken = data.data.accessToken;
-      localStorage.setItem('accessToken', accessToken);
+      localStorage.setItem(LOCALSTORAGE_ACCESSTOKEN, accessToken);
       SignHandler.navigateTo(LOGIN_PATH);
     })
     .catch(error => {

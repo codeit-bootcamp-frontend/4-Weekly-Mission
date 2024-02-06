@@ -35,3 +35,4 @@ export const INPUT_IDS = {
 
 export const LOGIN_PATH = '../pages/folder.html';
 export const SIGNUP_PATH = '../pages/folder.html';
+export const LOCALSTORAGE_ACCESSTOKEN = 'accesstoken';
