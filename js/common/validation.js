@@ -7,3 +7,8 @@ export function validatePassword(password) {
   const regex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
   return regex.test(password);
 }
+
+export function validatePasswordRepeat(repeatValue, target, scope = document) {
+  const passwordInput = scope.querySelector(target);
+  return passwordInput && passwordInput.value === repeatValue;
+}

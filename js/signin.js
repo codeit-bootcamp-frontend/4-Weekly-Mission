@@ -4,17 +4,18 @@ import {
   removeError,
   INPUT_TYPE,
   addLoginError,
-} from './input.js';
-import { USER_TEST } from './test.js';
+} from './common/input.js';
+import API from './api/api.js';
+import { isLogin } from './api/auth.js';
+import { redirect } from './common/utils.js';
 
 const signinForm = document.querySelector('#signin-form');
 
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
 
   if (event.target.id !== 'signin-form') return;
 
-  let valid = true;
   const inputEmail = event.target['email'];
   const inputPassword = event.target['password'];
   const messageBoxEmail = inputEmail.parentElement.nextElementSibling;
@@ -25,20 +26,58 @@ function handleSubmit(event) {
   removeError(messageBoxEmail);
   removeError(messageBoxPassword);
 
-  if (USER_TEST.EMAIL !== inputEmail.value) {
-    valid = false;
+  const isSignin = await signin({
+    email: inputEmail.value,
+    password: inputPassword.value,
+  });
+
+  if (!isSignin) {
     addLoginError(INPUT_TYPE.EMAIL, inputEmail, messageBoxEmail);
-  } else if (USER_TEST.PASSWORD !== inputPassword.value) {
-    valid = false;
     addLoginError(INPUT_TYPE.PASSWORD, inputPassword, messageBoxPassword);
+    return;
   }
 
-  if (!valid) return;
+  redirect('/folder');
+}
 
-  // event.target.submit();
-  window.location.href = '/folder';
+async function signin(user = {}) {
+  try {
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    };
+
+    const response = await fetch(API.getSignInUrl(), options);
+
+    if (!response.ok) {
+      throw new Error(`TODO: ${response.status} error handling.`);
+    }
+
+    let result = await response.json();
+
+    const accessToken = result.data?.accessToken;
+    const refreshToken = result.data?.refreshToken;
+
+    localStorage.setItem('accessToken', accessToken);
+    localStorage.setItem('refreshToken', refreshToken);
+
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 }
 
 signinForm.addEventListener('focusout', handleFocusoutInput);
 signinForm.addEventListener('click', handleClickBlindButton);
 signinForm.addEventListener('submit', handleSubmit);
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    if (await isLogin()) redirect('/folder');
+  } catch (error) {
+    console.log(`TODO: handling ${error}`);
+  }
+});

@@ -1,6 +1,10 @@
-import { validateEmail, validatePassword } from './validation.js';
+import {
+  validateEmail,
+  validatePassword,
+  validatePasswordRepeat,
+} from './validation.js';
 import { CLASS } from './class.js';
-import { USER_TEST } from './test.js';
+import { checkDuplicateEmail } from '../api/auth.js';
 
 export const INPUT_TYPE = {
   EMAIL: 'EMAIL',
@@ -51,7 +55,7 @@ const BLIND_INPUT_TYPE = {
   [BLIND_TYPE.OFF]: 'text',
 };
 
-export function handleFocusoutInput(event) {
+export async function handleFocusoutInput(event) {
   const scope = event.currentTarget;
   const target = event.target;
 
@@ -82,7 +86,7 @@ export function handleFocusoutInput(event) {
   if (
     scope.id === 'signup-form' &&
     type === INPUT_TYPE.EMAIL &&
-    !confirmSameUserEmail(value)
+    !(await checkDuplicateEmail(value))
   ) {
     addSameError(type, target, messageBox);
     return;
@@ -96,33 +100,47 @@ export function handleClickBlindButton(event) {
   if (!target.classList.contains('input-blind-toggle')) return;
 
   const input = target.previousElementSibling;
-  const valueLength = input.value.length;
-  input.focus();
-  setTimeout(() => {
-    input.setSelectionRange(valueLength, valueLength);
-  }, 0);
 
+  togglePasswordBlind(input, target);
+}
+
+function togglePasswordBlind(input, toggleButton) {
   const blindType =
-    target.dataset.type.toLowerCase() === BLIND_TYPE.ON
+    toggleButton.dataset.type.toLowerCase() === BLIND_TYPE.ON
       ? BLIND_TYPE.OFF
       : BLIND_TYPE.ON;
 
   input.setAttribute('type', BLIND_INPUT_TYPE[blindType]);
-  target.setAttribute('src', BLIND_IMAGE_SRC[blindType]);
-  target.setAttribute('alt', BLIND_IMAGE_ALT[blindType]);
-  target.setAttribute('data-type', blindType);
+  toggleButton.setAttribute('src', BLIND_IMAGE_SRC[blindType]);
+  toggleButton.setAttribute('alt', BLIND_IMAGE_ALT[blindType]);
+  toggleButton.setAttribute('data-type', blindType);
+
+  input.focus();
+  setCursorToEnd(input);
+}
+
+function setCursorToEnd(input) {
+  const valueLength = input.value.length;
+
+  setTimeout(() => {
+    input.setSelectionRange(valueLength, valueLength);
+  }, 0);
 }
 
 export function validateInput(type, value, scope = document) {
-  if (type === INPUT_TYPE.EMAIL) {
-    return validateEmail(value);
-  } else if (type === INPUT_TYPE.PASSWORD) {
-    return validatePassword(value);
-  } else if (type === INPUT_TYPE.PASSWORD_REPEAT) {
-    const passwordInput = scope.querySelector('input[data-type="password"');
-    return passwordInput.value === value;
-  } else {
-    return false;
+  switch (type) {
+    case INPUT_TYPE.EMAIL:
+      return validateEmail(value);
+    case INPUT_TYPE.PASSWORD:
+      return validatePassword(value);
+    case INPUT_TYPE.PASSWORD_REPEAT:
+      return validatePasswordRepeat(
+        value,
+        'input[data-type="password"]',
+        scope
+      );
+    default:
+      return false;
   }
 }
 
