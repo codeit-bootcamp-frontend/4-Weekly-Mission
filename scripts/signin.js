@@ -1,4 +1,5 @@
 //@ts-check
+import { useAxios } from './utils/axios.js';
 import { DOMHandler, InputHandler } from './utils/element.js';
 import {
   EMAIL_MESSAGE,
@@ -10,6 +11,8 @@ import {
 } from './constant/signConfig.js';
 import { SignHandler } from './utils/sign.js';
 
+// SignHandler.checkAccessToken(LOGIN_PATH);
+
 const {
   emailElementId,
   passwordElementId,
@@ -18,8 +21,6 @@ const {
   loginFormId,
   passwordEyeImageId
 } = INPUT_IDS;
-
-SignHandler.checkAccessToken(LOGIN_PATH);
 
 /** @type {HTMLInputElement} emailInput*/
 const emailElement = DOMHandler.getById(emailElementId);
@@ -69,32 +70,27 @@ const handlepasswordEyeImageClick = () => {
 };
 
 /** @param {Event} event*/
-const handleSubmit = event => {
+const handleSubmit = async event => {
   event.preventDefault();
   emailElement.blur();
   passwordElement.blur();
 
-  fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ email: emailElement.value, password: passwordElement.value })
-  })
-    .then(response => response.json())
-    .then(data => {
-      if (data.error) throw new Error('등록되지 않은 계정');
-      const accessToken = data.data.accessToken;
-      localStorage.setItem(LOCALSTORAGE_ACCESSTOKEN, accessToken);
-      SignHandler.navigateTo(LOGIN_PATH);
-    })
-    .catch(error => {
-      SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.fail);
-      emailElement.classList.add('red-box');
-      SignHandler.showErrorMessage(passwordErrorElement, PASSWORD_MESSAGE.fail);
-      passwordElement.classList.add('red-box');
-      console.error(error);
+  const axios = useAxios();
+  try {
+    const { data: response } = await axios.post('/api/sign-in', {
+      email: emailElement.value,
+      password: passwordElement.value
     });
+    const accessToken = response.accessToken;
+    localStorage.setItem(LOCALSTORAGE_ACCESSTOKEN, accessToken);
+    SignHandler.navigateTo(LOGIN_PATH);
+  } catch (err) {
+    console.error(err.message);
+    SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.fail);
+    emailElement.classList.add('red-box');
+    SignHandler.showErrorMessage(passwordErrorElement, PASSWORD_MESSAGE.fail);
+    passwordElement.classList.add('red-box');
+  }
 };
 
 emailElement?.addEventListener('focusout', handleEmailElementFocusOut);

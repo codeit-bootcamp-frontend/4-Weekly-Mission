@@ -1,7 +1,5 @@
 //@ts-check
 import {
-  EMAIL_MESSAGE,
-  EMAIL_REGEX,
   INPUT_IDS,
   LOCALSTORAGE_ACCESSTOKEN,
   PASSWORD_MESSAGE,
@@ -10,6 +8,9 @@ import {
 } from './constant/signConfig.js';
 import { DOMHandler, InputHandler } from './utils/element.js';
 import { SignHandler } from './utils/sign.js';
+import { useAxios } from './utils/axios.js';
+
+// SignHandler.checkAccessToken(SIGNUP_PATH);
 
 const {
   emailElementId,
@@ -22,8 +23,6 @@ const {
   passwordEyeImageId,
   passwordCheckEyeImageId
 } = INPUT_IDS;
-
-SignHandler.checkAccessToken(SIGNUP_PATH);
 
 /** @type {HTMLInputElement} emailInput*/
 const emailElement = DOMHandler.getById(emailElementId);
@@ -56,25 +55,19 @@ const passwordErrorElement = DOMHandler.getById(passwordErrorElementId);
 /** @type {HTMLElement} passwordCheckErrorElement*/
 const passwordCheckErrorElement = DOMHandler.getById(passwordCheckErrorElementId);
 
-const handleEmailElementFocusOut = () => {
+const handleEmailElementFocusOut = async () => {
   emailElement.classList.remove('red-box');
-  if (SignHandler.isExistEmail(emailElement)) {
-    SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.exist);
-    emailElement.classList.add('red-box');
-    return;
-  }
-  if (InputHandler.isMatchRegEx(emailElement, EMAIL_REGEX)) {
-    emailErrorElement?.classList.add('hidden');
-    return;
-  }
-  emailElement.classList.add('red-box');
-  if (InputHandler.isEmptyValue(emailElement)) {
-    SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.empty);
-    return;
-  }
-  SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.invalid);
-};
+  const axios = useAxios();
 
+  try {
+    await axios.post('/api/check-email', { email: emailElement.value });
+    emailErrorElement?.classList.add('hidden');
+  } catch (err) {
+    const error = err.response.data.error;
+    SignHandler.showErrorMessage(emailErrorElement, error.message);
+    emailElement.classList.add('red-box');
+  }
+};
 const handlePasswordElementFocusOut = () => {
   passwordElement.classList.remove('red-box');
   if (InputHandler.isEmptyValue(passwordElement)) {
@@ -111,34 +104,30 @@ const handlePasswordCheckEyeImageClick = () => {
 /** @param {Event} event */
 const handleSignUp = async event => {
   event.preventDefault();
+  emailElement.blur();
+  passwordElement.blur();
+  passwordCheckElement.blur();
 
-  const checkEmail = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ email: emailElement.value })
-  });
-
+  const axios = useAxios();
+  const checkEmail = await axios.post('/api/check-email', { email: emailElement.value });
+  console.log(checkEmail);
   const checkPassword =
     InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX) &&
     InputHandler.isMatchElement(passwordElement, passwordCheckElement);
-
-  if (checkEmail && checkPassword)
-    fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email: emailElement.value, password: passwordElement.value })
-    })
-      .then(response => response.json())
-      .then(data => {
-        if (data.error) throw new Error('회원가입 실패');
-        const accessToken = data.data.accessToken;
-        localStorage.setItem(LOCALSTORAGE_ACCESSTOKEN, accessToken);
-        SignHandler.navigateTo(SIGNUP_PATH);
+  if (checkEmail && checkPassword) {
+    try {
+      const { data: response } = await axios.post('/api/sign-up', {
+        email: emailElement.value,
+        password: passwordElement.value
       });
+      const accessToken = response.data.accessToken;
+      console.log(accessToken);
+      localStorage.setItem(LOCALSTORAGE_ACCESSTOKEN, accessToken);
+      SignHandler.navigateTo(SIGNUP_PATH);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 };
 
 emailElement?.addEventListener('focusout', handleEmailElementFocusOut);

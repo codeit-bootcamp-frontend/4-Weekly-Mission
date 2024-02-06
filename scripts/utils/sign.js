@@ -5,7 +5,7 @@
  * @property {string} password
  */
 import { DOMHandler, InputHandler } from './element.js';
-import { SHOW_PASSWORD_ICON, USERS } from '../constant/signConfig.js';
+import { LOCALSTORAGE_ACCESSTOKEN, SHOW_PASSWORD_ICON, USERS } from '../constant/signConfig.js';
 
 export class SignHandler {
   /**
@@ -64,7 +64,7 @@ export class SignHandler {
    * @param {string} path
    */
   static checkAccessToken = path => {
-    const localToken = localStorage.getItem('accessToken');
+    const localToken = localStorage.getItem(LOCALSTORAGE_ACCESSTOKEN);
     if (localToken) this.navigateTo(path);
   };
 }
