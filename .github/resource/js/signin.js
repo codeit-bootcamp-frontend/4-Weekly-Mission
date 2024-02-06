@@ -1,24 +1,46 @@
-import { password, hostname } from './login.js'
+import { email, password, emailRegex, showError, deleteError, errorPwd, error } from './auth.js'
+import { accessTokenSet } from './accessToken.js';
 
-// 로그인 폼
+const url = 'https://bootcamp-api.codeit.kr/api/sign-in';
+
 const form = document.querySelector('.login_form');
 form.addEventListener('submit', (e) => {
-    if(email.value.trim() === 'test@codeit.com' && password.value === 'codeit101') {
         e.preventDefault();
-        window.location.href = hostname;
-    } else {
-        e.preventDefault();
-        showError(email, error, 'email_check');
-        showError(password, error_pwd, 'pwd_check');
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                email: email.value,
+                password: password.value,
+            }),
+        })
+        .then(response => {
+            if(!response.ok) { // reponse.ok 결과는 status가 200-299 일 때 true가 된다고 한다.
+                throw new Error(`Status: ${response.status}`); // 200~299 이외의 다른 status 라면 error를 발생시키고 catch 문으로 넘어간다.
+            }
+            return response.json();
+        })
+        .then(result => {
+            accessTokenSet(result);
+        })
+        .catch(errors => {
+            if(email.value !== 'test@codeit.com') {
+                showError(email, error, 'email_check');
+            } else if(password.value !== 'sprint101') {
+                showError(password, errorPwd, 'pwdCheck');
+            }
+        })
     }
-});
+);
 
 // 비밀번호 input
 password.addEventListener('focusout', () => {
     if(password.value === '') {
-        showError(password, error_pwd, 'pwd_empty');
+        showError(password, errorPwd, 'pwdEmpty');
     } else if(password.value !== '') {
-        deleteError(password, error_pwd);
+        deleteError(password, errorPwd);
     }
 });
 
