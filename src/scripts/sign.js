@@ -36,7 +36,10 @@ export const checkAvailableEmail = (emailElement, errorMessageElement) => {
   if (emailElement.value) {
     checkEmailInfo('/check-email', emailInfo)
       .then((result) => {
-        if (!result) showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
+        if (!result) {
+          showInputError(emailElement);
+          showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
+        }
       });
   }
 };
