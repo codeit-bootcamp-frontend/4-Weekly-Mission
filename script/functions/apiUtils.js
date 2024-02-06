@@ -13,16 +13,14 @@ const postRequest = (endpoint, userInfo) => {
   });
 };
 
-export const postSignInData = async (endpoint, signInfo) => {
+export const postSignData = async (endpoint, signInfo) => {
   try {
     const response = await postRequest(endpoint, signInfo);
-    const responseData = await response.json();
-    if (responseData.success) {
-      saveTokenInLocalStorage('accessToken', true); //true 는 아무런 값도 아님.
-      window.location.href = goToFolderhtml;
-      return;
+    if (!response.ok) {
+      throw new Error(response.status);
     }
-    console.error('Login Failure');
+    saveTokenInLocalStorage('accessToken', true); //true 는 아무런 값도 아님.
+    window.location.href = goToFolderhtml;
   } catch (error) {
     console.error('Error : Network Connection Failure', error);
   }
@@ -37,24 +35,8 @@ export const postSignInData = async (endpoint, signInfo) => {
 export const checkEmailData = async (endpoint, emailInfo) => {
   try {
     const response = await postRequest(endpoint, emailInfo);
-    const responseData = await response.json();
-    if (responseData.success) {
-      console.error('Same Email');
-      return;
-    }
-  } catch (error) {
-    console.error('Error : Network Connection Failure', error);
-  }
-};
-
-export const postSignUpData = async (endpoint = 'sign-up', userInfo) => {
-  try {
-    const responseSignUp = await postRequest(endpoint, userInfo);
-    const responseDataSignUp = await responseSignUp.json();
-    if (responseDataSignUp.success) {
-      saveTokenInLocalStorage('accessToken', true); //true 는 아무런 값도 아님.
-      window.location.href = goToFolderhtmllderhtml;
-      return;
+    if (!response.ok) {
+      throw new Error(response.status);
     }
   } catch (error) {
     console.error('Error : Network Connection Failure', error);
