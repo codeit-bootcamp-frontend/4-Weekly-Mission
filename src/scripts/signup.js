@@ -21,9 +21,11 @@ const emailErrorMessage = document.getElementById('emailErrorMessage');
 const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 const passwordCheckErrorMessage = document.getElementById('passwordCheckErrorMessage');
 
-localStorage.removeItem('accesstoken');
+//토큰 삭제 (확인용)
+//localStorage.removeItem('accesstoken');
+
 //Check token: 토큰 확인
-// checkAccessToken();
+checkAccessToken();
 
 //Check email: 입력 여부 확인, 메일 형식 확인
 const SignupEmailHandler = () => {
