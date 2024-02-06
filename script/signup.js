@@ -10,6 +10,8 @@ import {
   checkDuplicateEmail,
 } from './utils.js';
 
+import { signUp } from './apiUtils.js';
+
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
@@ -79,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function () {
     clearError(passwordcheckInput, passwordCheckErrorMessage);
   });
   // 로그인 버튼 클릭 이벤트 핸들러
-  signInButton.addEventListener('click', function (event) {
+  signInButton.addEventListener('click', async function (event) {
     event.preventDefault();
     emailInput.blur();
     passwordInput.blur();
@@ -91,6 +93,19 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!isEmailValid(emailValue)) {
       displayError(emailInput, emailErrorMessage, '올바른 이메일 주소가 아닙니다.');
       return;
+    }
+
+    // 이메일 중복 확인
+    if (checkDuplicateEmail(emailInput, emailErrorMessage)) {
+      return;
+    }
+
+    // 회원가입 요청
+    const signUpResult = signUp(emailValue, passwordValue);
+    if (signUpResult.success) {
+      window.location.href = '../folder.html';
+    } else {
+      displayError(emailInput, emailErrorMessage, '이메일 또는 비밀번호를 확인해 주세요.');
     }
 
     // 사용자 인증 성공 시, 페이지 이동
