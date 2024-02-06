@@ -1,0 +1,23 @@
+
+
+#Header{
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 3.2rem 0;
+    background-color: #F0F6FF;
+}
+
+.Header-inner{
+    width: 75%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.Header-logo{
+    display: inline-block;
+}
