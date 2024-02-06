@@ -1,70 +1,22 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# 기본 요청 사항
+- [ ] 상단 네비게이션 바, 푸터는 랜딩페이지와 동일한 스타일, 규칙으로 만들어 주세요.
+- [ ] 카드 컴포넌트를 클릭하면 해당하는 링크로 새로운 창을 띄워서 이동하게 해주세요.
+- [ ] 카드 컴포넌트에서 createdAt 데이터 기준으로 현재 Date와 차이에 따라 아래와 같은 규칙으로 설정해 주세요.
+  - [ ]  2분 미만은 “1 minute ago”
+  - [ ]  59분 이하는 “OO minutes ago”
+  - [ ]  60분 이상은 “1 hour ago”
+  - [ ]  23시간 이하는 “OO hours ago”
+  - [ ]  24시간 이상은 “1 day ago”
+  - [ ]  30일 이하는 “OO days ago”
+  - [ ]  31일 이상은 “1 month ago”
+  - [ ]  11달 이하는 “OO months ago”
+  - [ ]  12달 이상은 “1 year ago”
+  - [ ]  OO달 이상은 “{OO/12(소수점 버린 정수)} years ago”
+- [ ] 프로필 영역의 데이터는 https://bootcamp-api.codeit.kr/docs 에 명세된 “/api/sample/user”를 활용해 주세요.
+- [ ] 프로필 데이터가 없는 경우 “로그인” 버튼이 보이게 해주세요.
+- [ ] 폴더 소유자, 폴더 이름 영역, 링크들에 대한 데이터는 “/api/sample/folder”를 활용해 주세요.(여기서 폴더란 링크들의 정보가 저장되어 있는 객체를 의미합니다. shared 페이지는 외부 유저에게 자신의 폴더 데이터 하나를 공유할 때 유저가 보게되는 화면 입니다.@디자인 시안에서 “프로필 이미지”는 폴더 소유자의 프로필, “@코드잇”은 폴더 소유자 이름, “⭐️ 즐겨찾기”는 폴더 이름이에요.)
+- [ ] Tablet에서 카드 리스트가 화면의 너비 1124px를 기준으로 이상일 때는 3열로 작을 때는 2열로 배치해 주세요.
+- [ ] 검색바의 검색 기능은 추후 만듭니다.
+- [ ] Tablet, Mobile에서 검색바, 카드 리스트의 좌우 최소 여백은 32px로 설정해 주세요.
+- [ ] Static, no image, Hover 상태만 고려해 카드 컴포넌트를 만들어 주세요. (다른 상태의 디자인, 기능은 추후 만들어요.)
+- [ ] Hover 상태에서 이미지가 기존 크기의 130%로 커지게 해주세요.
