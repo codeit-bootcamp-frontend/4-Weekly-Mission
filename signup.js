@@ -10,8 +10,8 @@ function validateEmail(email) {
 const emailInput = document.querySelector(".sign-input");
 const errorEmail = document.querySelector("#error-message-email");
 
-emailInput.addEventListener("focusout", function () {
-  const email = emailInput.value;
+emailInput.addEventListener("focusout", function (event) {
+  const email = event.target.value;
 
   if (email === "") {
     errorEmail.innerHTML = "이메일을 입력하세요.";
@@ -41,8 +41,8 @@ const passwordInput = document.querySelector("#password-input");
 const signPassword = document.querySelector("#sign-password");
 const errorPassword = document.querySelector("#error-message-password");
 
-passwordInput.addEventListener("focusout", function () {
-  const password = passwordInput.value;
+passwordInput.addEventListener("focusout", function (event) {
+  const password = event.target.value;
   if (password === "") {
     errorPassword.innerHTML = "비밀번호 입력하세요.";
     return;
@@ -57,8 +57,8 @@ passwordInput.addEventListener("focusout", function () {
   }
 });
 
-signPassword.addEventListener("focusout", function () {
-  const signpassword = signPassword.value;
+signPassword.addEventListener("focusout", function (event) {
+  const signpassword = event.target.value;
   const password = passwordInput.value;
   if (signpassword !== password) {
     errorPassword.innerHTML = "비밀번호가 일치하지 않습니다.";
@@ -69,14 +69,65 @@ signPassword.addEventListener("focusout", function () {
     return;
   }
 });
+// 상수 선언
+const checkEmailUrl = "https://bootcamp-api.codeit.kr/api/check-email";
+const signUpUrl = "https://bootcamp-api.codeit.kr/api/sign-up";
+const $myEmail = "test@codeit.com";
 
+// 이메일 중복 확인 함수
+async function checkEmail(email) {
+  try {
+    const response = await fetch(checkEmailUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email }),
+    });
+
+    if (response.status === 200) {
+      const data = await response.json();
+      return data.available;
+    } else {
+      console.error("이메일 중복 확인 실패:", response.statusText);
+      return false;
+    }
+  } catch (error) {
+    console.error("오류 발생:", error);
+    return false;
+  }
+}
+// 회원가입 함수
+async function signUp(email, password) {
+  try {
+    const response = await fetch(signUpUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: email, password: password }),
+    });
+
+    if (response.status === 200) {
+      window.location.href = "./folder.html"; // 성공 시 페이지 이동
+      // 엑세스 토큰 저장
+      const body = await response.json();
+      localStorage.setItem("accessToken", body.data.accessToken);
+    } else {
+      console.error("회원가입 실패:", response.statusText);
+      // 실패했을 때
+    }
+  } catch (error) {
+    console.error("오류 발생:", error);
+  }
+}
 // 회원가입 버튼 누를 시
 const sign = document.querySelector(".sign-form");
 
 sign.addEventListener("submit", function (e) {
   e.preventDefault();
   if (errorEmail.innerHTML === "" && errorPassword.innerHTML === "") {
-    window.location.href = "./folder.html";
+    signUp(emailInput.value, passwordInput.value);
     return;
   }
   if (errorEmail.innerHTML !== "") {
@@ -89,4 +140,20 @@ sign.addEventListener("submit", function (e) {
   }
 });
 
-// 심화 요구 사항은 아직 구현을 못해서 차차 올리겠습니다!....
+// 눈모양 버튼 기능 구현
+const eyeButtons = document.querySelectorAll(".eye-button");
+
+eyeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const passwordInput = button.previousElementSibling;
+    const isPasswordVisible = passwordInput.type === "text";
+
+    if (isPasswordVisible) {
+      passwordInput.type = "password";
+      button.querySelector("img").src = "./images/eye-off.svg";
+    } else {
+      passwordInput.type = "text";
+      button.querySelector("img").src = "./images/eye-on.svg";
+    }
+  });
+});
