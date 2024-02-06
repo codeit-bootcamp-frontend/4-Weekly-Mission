@@ -22,18 +22,6 @@ function handleEmailCheck() {
   emailError.innerHTML = '';
 }
 
-//사용 중인 email 에러 호출
-emailInput.addEventListener('focusout', usedEmailCheck);
-function usedEmailCheck() {
-  const emailValue = emailInput.value;
-  const usedEmail = 'test@codeit.com';
-
-  if (emailValue === usedEmail) {
-    emailInput.classList.add('invalid');
-    emailError.innerHTML = '이미 사용 중인 이메일입니다.';
-  }
-}
-
 //password 에러 메시지 호출
 passwordInput.addEventListener('focusout', handlePasswordCheck);
 function handlePasswordCheck() {
