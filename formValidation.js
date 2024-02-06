@@ -1,15 +1,15 @@
-const $form = document.querySelector(".sign-form");
-const $inputList = [...$form.querySelectorAll("input")];
-
 const mockUp = {
   rightEmail: (value) => value === "test@codeit.com",
   rightPassword: (value) => value === "codeit101",
 };
+//Dom
+const $form = document.querySelector(".sign-form");
+const $inputList = [...$form.querySelectorAll("input")];
 
 //validator
 const formValidator = {
   validationMap: {
-    email: ["requireEmail", "mustBeEmailFormation", "alreadyUsed"],
+    email: ["requireEmail", "mustBeEmailFormation"],
     password: ["requirePassword", "mustBePasswordFormation"],
     passwordconfirm: ["wrongPassword"],
   },
@@ -25,11 +25,6 @@ const formValidator = {
       validate: (value) =>
         /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value),
       message: "올바른 이메일 주소가 아닙니다",
-    },
-
-    alreadyUsed: {
-      validate: (value) => !mockUp.rightEmail(value),
-      message: "이미 사용 중인 이메일입니다.",
     },
 
     mustBePasswordFormation: {
@@ -67,7 +62,7 @@ const errorMessageStatus = ($errorMessageList, $target, invalidKey) => {
 
   if (invalidKey) {
     $target.classList.add("input-error");
-
+    console.log(errorMessageNode);
     errorMessageNode.textContent =
       formValidator.vaildations[invalidKey].message;
   } else {
@@ -75,34 +70,25 @@ const errorMessageStatus = ($errorMessageList, $target, invalidKey) => {
     errorMessageNode.textContent = "";
   }
 };
+
 //password 확인을 위해 저장
 let password;
 $inputList[1].addEventListener("input", function (e) {
   password = e.target.value;
 });
 
-//focusout 콜백 함수
-const handleInputFocusout = ($target, $errorMessageList) => {
-  const { value, name } = $target;
-  const invalidKey = formValidator.findIvnalidKey(name, value);
-  errorMessageStatus($errorMessageList, $target, invalidKey);
-};
-
 //눈 모양 클릭하면 비번 보이고 다시 한 번 클릭하면 비번 가려지기
 const eyeImages = $form.querySelectorAll("img");
 eyeImages.forEach((eyeImage) =>
   eyeImage.addEventListener("click", function (e) {
-    console.log("click");
     let currentType = e.target.parentElement.querySelector("input").type;
     if (currentType === "text") {
-      e.target.src = "https://cdn-icons-png.flaticon.com/128/4743/4743038.png";
-      // local file안에 넣어둔 파일로는 get 404 문제가 생기네욤... 이유가 무엇일까요? "./assets/eye-off.png"; 이렇게 경로 작성했습니다!
+      e.target.src = "../assets/eye-off.png";
       e.target.parentElement.querySelector("input").type = "password";
     } else {
-      e.target.src =
-        "https://cdn-icons-png.flaticon.com/128/12169/12169055.png";
+      e.target.src = "../assets/eye-on.png";
       e.target.parentElement.querySelector("input").type = "text";
     }
   })
 );
-export { mockUp, handleInputFocusout, errorMessageStatus, formValidator };
+export { mockUp, errorMessageStatus, formValidator };
