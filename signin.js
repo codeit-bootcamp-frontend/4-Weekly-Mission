@@ -5,6 +5,7 @@ import {
   errorMessageVisibleAndTextChange,
   errorMessageHidden,
   isPasswordAndEmailMatch,
+  signInFetch,
 } from "./utils.js";
 
 const emailInput = document.querySelector(".sign-input");
@@ -44,25 +45,17 @@ function passwordCheck(e) {
   }
 }
 
-function onSubmitIdAndPassword(e) {
+async function onSubmitIdAndPassword(e) {
   e.preventDefault();
 
   const email = emailInput.value;
   const password = passwordInput.value;
+  const loginInfo = {
+    email: email,
+    password: password,
+  };
 
-  if (isPasswordAndEmailMatch(email, password)) {
-    window.location.href = "success.html";
-    return;
-  } else {
-    errorMessageVisibleAndTextChange(
-      emailErrorMessage,
-      "이메일을 확인해 주세요."
-    );
-    errorMessageVisibleAndTextChange(
-      passwordErrorMessage,
-      "비밀번호를 확인해 주세요."
-    );
-  }
+  await signInFetch(loginInfo);
 }
 
 emailInput.addEventListener("mouseout", emailCheck);
