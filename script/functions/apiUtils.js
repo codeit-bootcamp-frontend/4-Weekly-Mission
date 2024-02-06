@@ -13,7 +13,7 @@ const postRequest = (endpoint, data) => {
   });
 };
 
-export const postData = async (endpoint, data) => {
+export const postSignInData = async (endpoint, data) => {
   try {
     const response = await postRequest(endpoint, data);
     const responseData = await response.json();
@@ -55,6 +55,6 @@ export const checkEmailData = async (endpoint, emaildata, data) => {
 };
 
 // 심화 요구사항에 맞춘 임시 코드
-export const myLocalStorageHaveAccessToken = () => {
+export const checkAccessToken = () => {
   if (getTokenInLocalStorage('accessToken')) window.location.href = goToFolderhtml;
 };

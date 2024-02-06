@@ -1,6 +1,6 @@
 import { EMAIL_ERROR_MESSAGE, PASSWORD_CONFIRM_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE } from './constant.js';
 import { getElementById } from './dom/domhelper.js';
-import { checkEmailData, myLocalStorageHaveAccessToken } from './functions/apiUtils.js';
+import { checkEmailData, checkAccessToken } from './functions/apiUtils.js';
 import {
   isEmptyString,
   isValidEmail,
@@ -31,7 +31,7 @@ const signInButton = getElementById('sign-up-button');
 const eyeButtonPassword = getElementById('eye-button-password');
 const eyeButtonForConfirm = getElementById('eye-button-password-confirm');
 
-myLocalStorageHaveAccessToken();
+checkAccessToken();
 
 const EmailInputError = () => {
   const emailValue = emailInput.value.trim();
