@@ -42,7 +42,7 @@ export const checkEmailData = async (endpoint, emaildata, data) => {
       console.error('Same Email');
       return;
     }
-    const responseSignUp = postRequest('sign-up', data);
+    const responseSignUp = await postRequest('sign-up', data);
     const responseDataSignUp = await responseSignUp.json();
     if (responseDataSignUp.success) {
       saveTokenInLocalStorage('accessToken', true); //true 는 아무런 값도 아님.

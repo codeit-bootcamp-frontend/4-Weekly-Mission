@@ -1,6 +1,6 @@
 import { EMAIL_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE } from './constant.js';
 import { getElementById } from './dom/domhelper.js';
-import { checkAccessToken, postData } from './functions/apiUtils.js';
+import { checkAccessToken, postSignInData } from './functions/apiUtils.js';
 import { isEmptyString, isValidEmail, showError, hideError, showPassword, hidePassword } from './functions/sign.js';
 
 // About Email Error
@@ -47,7 +47,7 @@ const pressSignInButtonError = event => {
   // if (USERS[0].id === emailValue && USERS[0].password === passwordValue) {
   //     window.location.href = goToFolderhtml; return;}
   const checkTemporary = { emailValue, passwordValue };
-  postData('/api /sign-in', checkTemporary);
+  postSignInData('/api /sign-in', checkTemporary);
   showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.haveToCheck);
   showError(passwordInput, passwordErrorMessage, PASSWORD_ERROR_MESSAGE.haveToCheck);
 };
