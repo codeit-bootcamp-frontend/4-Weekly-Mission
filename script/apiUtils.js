@@ -21,16 +21,19 @@ async function requestAPI(endpoint, method, body) {
 export async function checkEmailDuplicate(email) {
   try {
     const response = await requestAPI('/check-email', 'POST', { email });
+    const data = await response.json();
+
     if (response.ok) {
-      const data = await response.json();
-      return data.duplicated; // 중복된 이메일인지 여부 반환
+      // API 요청이 성공한 경우
+      return { success: true, duplicated: data.duplicated };
     } else {
-      console.error('이메일 중복 확인 실패:', response.statusText);
-      return false; // 중복 확인 실패 시 false 반환
+      // API 요청이 실패한 경우
+      return { success: false, error: response.statusText };
     }
   } catch (error) {
+    // API 요청 중 예외가 발생한 경우
     console.error('이메일 중복 확인 중 오류 발생:', error);
-    return false; // 중복 확인 중 오류 발생 시 false 반환
+    return { success: false, error: 'Unexpected error occurred' };
   }
 }
 
