@@ -1,6 +1,7 @@
 import {
-  emailRegex,
-  emailValidChk,
+  updateInputState,
+  handleEmailValidation,
+  handleValidation,
   getNewMessageElement,
   toggleEye,
 } from "./utils.js";
@@ -11,48 +12,139 @@ const passwordCheck = document.getElementById("passwordCheck");
 const loginButton = document.getElementById("loginButton");
 const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
 
-function passwordValidChk(password) {
+function validatePassword(password) {
   return passwordRegex.test(password);
 }
 
 function handleBlur(input, message) {
-  const messageContainer = input.parentElement;
+  const data = {
+    email: input.value,
+  };
+
+  updateInputState(input, message);
+
+  if (input === emailInput) {
+    handleEmailValidation(input);
+  }
+
+  if (
+    input === passwordInput &&
+    (!validatePassword(input.value) ||
+      input.value.length < 8 ||
+      !/\d/.test(input.value) ||
+      !/[a-zA-Z]/.test(input.value))
+  ) {
+    // getNewMessageElement 대신에 message를 그대로 사용
+    handleValidation(input, message, () => false);
+  }
+  // 이메일 중복 확인 조건을 수행하고 그에 따라 에러 메시지 추가
+  if (input === emailInput) {
+    fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          console.log("이메일을 사용할 수 있습니다.");
+        } else if (response.status === 409) {
+          handleValidation(
+            input,
+            getNewMessageElement("이미 사용 중인 이메일입니다."),
+            () => false
+          );
+        } else {
+          console.error(response.status);
+        }
+      })
+      .catch((error) => {
+        // fetch 요청 자체가 실패한 경우에 대한 처리
+        console.error(error);
+      });
+  }
+}
+
+//비밀번호 일치 확인
+function handlePasswordCheck() {
+  const password1 = passwordInput.value;
+  const password2 = passwordCheck.value;
+  const messageContainer = passwordCheck.parentElement;
   const existingMessage = messageContainer.querySelector("p");
 
-  if (input.value.trim() === "") {
-    // 입력 값이 비어있는 경우
+  if (password1 !== password2) {
+    const passwordMismatchMessage =
+      getNewMessageElement("비밀번호가 일치하지 않아요.");
+
     if (!existingMessage) {
-      // 에러 메시지가 이미 존재하지 않는 경우에만 메시지를 추가
-      messageContainer.appendChild(message);
+      messageContainer.appendChild(passwordMismatchMessage);
     }
-    input.classList.add("empty-input");
+    passwordCheck.classList.add("empty-input");
   } else {
     if (existingMessage) {
-      // 입력 값이 비어있지 않은 경우 에러 메시지가 이미 존재하면 제거
       existingMessage.remove();
     }
-    input.classList.remove("empty-input");
-
-    // 유효성 검사 조건을 수행하고 그에 따라 에러 메시지 추가
-    if (
-      (input === emailInput && !emailValidChk(input.value)) ||
-      (input === passwordInput &&
-        (!passwordValidChk(input.value) ||
-          input.value.length < 8 ||
-          !/\d/.test(input.value) ||
-          !/[a-zA-Z]/.test(input.value)))
-    ) {
-      messageContainer.appendChild(message);
-      input.classList.add("empty-input");
-    }
-    // 이메일 중복 확인 조건을 수행하고 그에 따라 에러 메시지 추가
-    if (input === emailInput && input.value === "test@codeit.com") {
-      const duplicateEmailMessage =
-        getNewMessageElement("이미 사용 중인 이메일입니다.");
-      messageContainer.appendChild(duplicateEmailMessage);
-      input.classList.add("empty-input");
-    }
+    passwordCheck.classList.remove("empty-input");
   }
+}
+
+// 회원가입 시도
+function signUp(event) {
+  event.preventDefault();
+
+  const email = emailInput.value.trim();
+  const password = passwordInput.value.trim();
+  const passwordCheckValue = passwordCheck.value.trim();
+  const data = {
+    email: email,
+    password: password,
+  };
+
+  const emailContainer = emailInput.parentElement;
+  const passwordContainer = passwordInput.parentElement;
+  const passwordCheckContainer = passwordCheck.parentElement;
+
+  const existingEmailMessage = emailContainer.querySelector(".empty-message");
+  const existingPasswordMessage =
+    passwordContainer.querySelector(".empty-message");
+  const existingPasswordCheckMessage =
+    passwordCheckContainer.querySelector(".empty-message");
+
+  // 에러 메시지가 하나라도 있으면 이동하지 않음
+  if (
+    existingEmailMessage ||
+    existingPasswordMessage ||
+    existingPasswordCheckMessage
+  ) {
+    return;
+  } else if (!email || !password || !passwordCheck) {
+    return;
+  }
+
+  // 모든 유효성 검사 통과 시
+  fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        throw new Error("로그인 실패");
+      }
+    })
+    .then((response) => {
+      localStorage.setItem("access-token", response.data.accessToken);
+      window.location.replace("./folder.html");
+    })
+    .catch((error) => {
+      // fetch 요청 자체가 실패한 경우에 대한 처리
+      console.error(error);
+    });
 }
 
 emailInput.addEventListener("blur", function () {
@@ -79,61 +171,7 @@ document
     toggleEye(passwordCheck);
   });
 
-//비밀번호 일치 확인
-function handlePasswordCheck() {
-  const password1 = passwordInput.value;
-  const password2 = passwordCheck.value;
-  const messageContainer = passwordCheck.parentElement;
-  const existingMessage = messageContainer.querySelector("p");
-
-  if (password1 !== password2) {
-    const passwordMismatchMessage =
-      getNewMessageElement("비밀번호가 일치하지 않아요.");
-
-    if (!existingMessage) {
-      messageContainer.appendChild(passwordMismatchMessage);
-    }
-    passwordCheck.classList.add("empty-input");
-  } else {
-    if (existingMessage) {
-      existingMessage.remove();
-    }
-    passwordCheck.classList.remove("empty-input");
-  }
-}
-
 passwordCheck.addEventListener("blur", handlePasswordCheck);
-
-// 회원가입 시도
-function signUp(event) {
-  event.preventDefault();
-
-  const email = emailInput.value.trim();
-  const password = passwordInput.value.trim();
-  const passwordCheckValue = passwordCheck.value.trim();
-
-  const emailContainer = emailInput.parentElement;
-  const passwordContainer = passwordInput.parentElement;
-  const passwordCheckContainer = passwordCheck.parentElement;
-
-  const existingEmailMessage = emailContainer.querySelector(".empty-message");
-  const existingPasswordMessage =
-    passwordContainer.querySelector(".empty-message");
-  const existingPasswordCheckMessage =
-    passwordCheckContainer.querySelector(".empty-message");
-
-  // 에러 메시지가 하나라도 있으면 이동하지 않음
-  if (
-    existingEmailMessage ||
-    existingPasswordMessage ||
-    existingPasswordCheckMessage
-  ) {
-    return;
-  }
-
-  // 모든 유효성 검사 통과 시
-  window.location.href = "/folder.html";
-}
 
 // 로그인 버튼 클릭 시 signUp 함수 호출
 loginButton.addEventListener("click", signUp);
@@ -142,5 +180,12 @@ loginButton.addEventListener("click", signUp);
 document.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     signUp(event);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const accessToken = localStorage.getItem("access-token");
+  if (accessToken) {
+    window.location.href = "/folder.html";
   }
 });
