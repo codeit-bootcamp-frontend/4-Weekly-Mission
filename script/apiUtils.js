@@ -1,3 +1,4 @@
+import { redirectIfAccessTokenExists } from './utils.js';
 const apiURL = 'https://bootcamp-api.codeit.kr/api';
 
 // 공통 API 요청 함수
@@ -69,10 +70,4 @@ export async function signIn(email, password) {
   }
 }
 
-// 페이지 로드 시 accessToken 체크
-document.addEventListener('DOMContentLoaded', function () {
-  const accessToken = localStorage.getItem('accessToken');
-  if (accessToken) {
-    window.location.href = '/folder'; // accessToken이 있으면 /folder 페이지로 이동
-  }
-});
+document.addEventListener('DOMContentLoaded', redirectIfAccessTokenExists);
