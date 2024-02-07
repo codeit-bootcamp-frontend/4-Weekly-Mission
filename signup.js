@@ -1,5 +1,7 @@
 import { printEmailError } from "./common.js";
-
+// import { duplicationCheckAPI } from "./api.js";
+// import { signupApi } from "./api.js";
+import { requestEmailCheckApi } from "./api.js";
 const emailInput = document.querySelector(".email-input");
 const passwordInput = document.querySelector(".password-input");
 const rePasswordInput = document.querySelector(".check-password");
@@ -13,8 +15,24 @@ emailMessage.classList.add("error-message");
 passwordMessage.classList.add("error-message");
 rePasswordMessage.classList.add("error-message");
 
+export const printDuplicationEmailError = () => {
+  if (emailInput.value === "test@codeit.com") {
+    emailMessage.classList.remove("error-style");
+    emailInput.after(emailMessage);
+    emailMessage.textContent = "이미 사용 중인 이메일입니다.";
+    emailInput.style.border = "1px solid #ff5b45";
+    return false;
+  } else {
+    return true;
+  }
+};
 const handleFocusoutEmail = () => {
-  printEmailError(emailMessage, emailInput);
+  if (
+    printDuplicationEmailError() &&
+    printEmailError(emailMessage, emailInput)
+  ) {
+    return true;
+  }
 };
 
 const isValidPassword = (str) => {
@@ -30,6 +48,7 @@ const handleFocusoutPassword = () => {
     passwordInput.style.border = "1px solid #ff5b45";
   } else {
     passwordMessage.classList.add("error-style");
+    passwordInput.style.border = "1px solid #ccd5e3";
     return true;
   }
 };
@@ -42,20 +61,26 @@ const handleFocusoutRePassword = () => {
     rePasswordInput.style.border = "1px solid #ff5b45";
   } else {
     rePasswordMessage.classList.add("error-style");
+    rePasswordInput.style.border = "1px solid #ccd5e3";
     return true;
   }
 };
 
-const handleClickBtn = (e) => {
+const handleClickBtn = async (e) => {
   e.preventDefault();
+  const isEmailCheckSuccess = await requestEmailCheckApi(
+    emailInput.value,
+    passwordInput.value
+  );
   if (
-    handleFocusoutEmail() &&
+    isEmailCheckSuccess &&
     handleFocusoutPassword() &&
     handleFocusoutRePassword()
   ) {
     location.href = "./folder.html";
   }
 };
+
 const showPw = () => {
   passwordInput.setAttribute("type", "text");
   rePasswordInput.setAttribute("type", "text");
