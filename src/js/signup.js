@@ -1,19 +1,17 @@
 import {
-  EMPTY_MESSAGE,
   ERROR_MESSAGE_EMPTY_EMAIL,
   ERROR_MESSAGE_EMPTY_PASSWORD,
   ERROR_MESSAGE_EXISTING_EMAIL,
   ERROR_MESSAGE_INCONSISTENT_PASSWORD,
   ERROR_MESSAGE_INVALID_EMAIL,
   ERROR_MESSAGE_INVALID_PASSWORD,
-  ERROR_MESSAGE_SPAN,
 } from "./constant.js";
 import {
   isFilledInput,
   isMatchWithPassword,
-  isUniqueEmail,
   isValidEmailForm,
   isValidPasswordForm,
+  showErrorMessage,
   toggleViewPassword,
 } from "./authFunctions.js";
 
@@ -26,97 +24,151 @@ const btnSignupSubmit = document.querySelector("#btn_signup_submit");
 
 const btnEyes = document.querySelectorAll(".btn_eye");
 
-const checkEmailIsValid = (e) => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
-  let isValid = false;
+// localStorage에 accessToken이 존재할 경우 '/folder'로 이동
+if (localStorage.getItem("accessToken")) {
+  location.href = "folder.html";
+}
 
+const checkEmailIsValid = (e) => {
   const isFilled = isFilledInput(e.target);
   const isValidForm = isValidEmailForm(e.target);
-  const isUnique = isUniqueEmail(e.target);
 
-  if (isFilled && isValidForm && isUnique) {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    e.target.classList.remove("error_input");
-    isValid = true;
-  } else {
-    e.target.classList.add("error_input");
-    if (!isFilled) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_EMAIL;
-    } else if (!isValidForm) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_INVALID_EMAIL;
-    } else if (!isUnique) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_EXISTING_EMAIL;
-    }
+  if (!isFilled) {
+    showErrorMessage(true, e.target, "email", ERROR_MESSAGE_EMPTY_EMAIL);
+    return;
+  } else if (!isValidForm) {
+    showErrorMessage(true, e.target, "email", ERROR_MESSAGE_INVALID_EMAIL);
+    return;
   }
+  // 이메일 인풋이 채워져있고, 올바른 형식일 때, 중복 이메일인지 확인하는 로직
+  // 재사용하지 않으므로 즉시 실행 함수로 처리
+  (async function requestCheckEmailApi() {
+    //request body로 보낼 이메일 정보
+    const emailBody = {
+      email: e.target.value,
+    };
 
-  return isValid;
+    try {
+      const response = await fetch(
+        "https://bootcamp-api.codeit.kr/api/check-email",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(emailBody),
+        },
+      );
+
+      if (response.ok) {
+        const emailForCheck = await response.json();
+        const isUsableNickname = emailForCheck["data"]["isUsableNickname"];
+
+        if (isUsableNickname) {
+          showErrorMessage(false, e.target, "email");
+        }
+      } else if (response.status === 409) {
+        // 이메일 중복 에러
+        throw new Error("Email Conflict");
+      } else {
+        // 기타 에러
+        throw new Error("Other Error");
+      }
+    } catch (error) {
+      console.log(error.message);
+      if (error.message === "Email Conflict") {
+        showErrorMessage(true, e.target, "email", ERROR_MESSAGE_EXISTING_EMAIL);
+      }
+    }
+  })();
 };
 
 const checkPasswordIsValid = (e) => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
-  const iconEye = e.target.parentElement.querySelector(".btn_eye");
-
-  let isValid = false;
-
   const isFilled = isFilledInput(e.target);
   const isValidForm = isValidPasswordForm(e.target);
 
-  if (isFilled && isValidForm) {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    e.target.classList.remove("error_input");
-    iconEye.classList.remove("large_bottom");
-    isValid = true;
-  } else {
-    e.target.classList.add("error_input");
-    iconEye.classList.add("large_bottom");
-    if (!isFilled) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_PASSWORD;
-    } else if (!isValidForm) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_INVALID_PASSWORD;
-    }
+  if (!isFilled) {
+    showErrorMessage(true, e.target, "password", ERROR_MESSAGE_EMPTY_PASSWORD);
+    return;
+  } else if (!isValidForm) {
+    showErrorMessage(
+      true,
+      e.target,
+      "password",
+      ERROR_MESSAGE_INVALID_PASSWORD,
+    );
+    return;
   }
 
-  return isValid;
+  showErrorMessage(false, e.target, "password");
 };
 
 const checkPasswordCheckIsValid = (e) => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
-  const iconEye = e.target.parentElement.querySelector(".btn_eye");
-
   let isValid = false;
 
   const isFilled = isFilledInput(e.target);
   const isMatched = isMatchWithPassword(e.target, inputPassword);
 
-  if (isFilled && isMatched) {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    e.target.classList.remove("error_input");
-    iconEye.classList.remove("large_bottom");
-    isValid = true;
-  } else {
-    e.target.classList.add("error_input");
-    iconEye.classList.add("large_bottom");
-    if (!isFilled) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_PASSWORD;
-    } else if (!isMatched) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_INCONSISTENT_PASSWORD;
-    }
+  if (!isFilled) {
+    showErrorMessage(true, e.target, "password", ERROR_MESSAGE_EMPTY_PASSWORD);
+    return isValid;
   }
+  if (!isMatched) {
+    showErrorMessage(
+      true,
+      e.target,
+      "password",
+      ERROR_MESSAGE_INCONSISTENT_PASSWORD,
+    );
+    return isValid;
+  }
+  showErrorMessage(false, e.target, "password");
+  isValid = true;
 
   return isValid;
 };
 
-const isValidSignup = (e) => {
+const handleSignUp = (e) => {
   e.preventDefault();
 
-  const isValidEmail = checkEmailIsValid({ target: inputEmail });
-  const isValidPassword = checkPasswordIsValid({ target: inputPassword });
   const isValidPasswordCheck = checkPasswordCheckIsValid({
     target: inputPasswordCheck,
   });
 
-  if (isValidEmail && isValidPassword && isValidPasswordCheck) {
-    form.submit();
+  // email과 password에 대한 에러는 API 단에서 검증해주므로, password 확인만 검증해줌.
+  if (isValidPasswordCheck) {
+    (async function requestSignUpApi() {
+      try {
+        //request body로 보낼 회원가입 정보
+        const registrationBody = {
+          email: inputEmail.value,
+          password: inputPassword.value,
+        };
+
+        const response = await fetch(
+          "https://bootcamp-api.codeit.kr/api/sign-up",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(registrationBody),
+          },
+        );
+
+        if (response.ok) {
+          location.href = "folder.html";
+        } else if (response.status === 400) {
+          // 회원가입 에러
+          throw new Error("SignUp Error");
+        } else {
+          // 기타 에러
+          throw new Error("Other Error");
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    })();
   }
 };
 
@@ -126,10 +178,10 @@ inputPassword.addEventListener("focusout", checkPasswordIsValid);
 inputPasswordCheck.addEventListener("focusout", checkPasswordCheckIsValid);
 
 // 폼 제출 이벤트
-btnSignupSubmit.addEventListener("click", isValidSignup);
+btnSignupSubmit.addEventListener("click", handleSignUp);
 form.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    isValidSignup(e);
+    handleSignUp(e);
   }
 });
 

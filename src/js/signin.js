@@ -1,17 +1,14 @@
 import {
-  EMPTY_MESSAGE,
   ERROR_MESSAGE_EMPTY_EMAIL,
   ERROR_MESSAGE_EMPTY_PASSWORD,
   ERROR_MESSAGE_INVALID_EMAIL,
-  ERROR_MESSAGE_SPAN,
   ERROR_MESSAGE_WRONG_EMAIL,
   ERROR_MESSAGE_WRONG_PASSWORD,
-  TEST_USER_EMAIL,
-  TEST_USER_PASSWORD,
 } from "./constant.js";
 import {
   isFilledInput,
   isValidEmailForm,
+  showErrorMessage,
   toggleViewPassword,
 } from "./authFunctions.js";
 
@@ -23,84 +20,88 @@ const btnSignInSubmit = document.querySelector("#btn_signin_submit");
 
 const btnEye = document.querySelector(".btn_eye");
 
-const checkEmailIsValid = (e) => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
+// localStorage에 accessToken이 존재할 경우 /folder로 이동
+if (localStorage.getItem("accessToken")) {
+  location.href = "folder.html";
+}
 
+const checkEmailIsValid = (e) => {
   const isFilled = isFilledInput(e.target);
   const isValidForm = isValidEmailForm(e.target);
 
-  if (isFilled && isValidForm) {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    e.target.classList.remove("error_input");
-  } else {
-    e.target.classList.add("error_input");
-    if (!isFilled) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_EMAIL;
-    } else if (!isValidForm) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_INVALID_EMAIL;
-    }
+  if (!isFilled) {
+    showErrorMessage(true, e.target, "email", ERROR_MESSAGE_EMPTY_EMAIL);
+    return;
+  } else if (!isValidForm) {
+    showErrorMessage(true, e.target, "email", ERROR_MESSAGE_INVALID_EMAIL);
+    return;
   }
+  showErrorMessage(false, e.target, "email");
 };
 
 const checkPasswordIsValid = (e) => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(e.target);
-  const iconEye = e.target.parentElement.querySelector(".btn_eye");
-
   const isFilled = isFilledInput(e.target);
 
-  if (isFilled) {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    e.target.classList.remove("error_input");
-    iconEye.classList.remove("large_bottom");
-  } else {
-    e.target.classList.add("error_input");
-    iconEye.classList.add("large_bottom");
-    if (!isFilled) {
-      errorMessageSpan.textContent = ERROR_MESSAGE_EMPTY_PASSWORD;
-    }
+  if (!isFilled) {
+    showErrorMessage(true, e.target, "password", ERROR_MESSAGE_EMPTY_PASSWORD);
+    return;
   }
+  showErrorMessage(false, e.target, "password");
 };
 
-const compareEmail = () => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(inputEmail);
-
-  if (inputEmail.value !== TEST_USER_EMAIL) {
-    errorMessageSpan.textContent = ERROR_MESSAGE_WRONG_EMAIL;
-    inputEmail.classList.add("error_input");
-  } else {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    inputEmail.classList.remove("error_input");
-  }
-
-  return inputEmail.value === TEST_USER_EMAIL;
-};
-
-const comparePassword = () => {
-  const errorMessageSpan = ERROR_MESSAGE_SPAN(inputPassword);
-  const iconEye = inputPassword.parentElement.querySelector(".btn_eye");
-
-  if (inputPassword.value !== TEST_USER_PASSWORD) {
-    errorMessageSpan.textContent = ERROR_MESSAGE_WRONG_PASSWORD;
-    inputPassword.classList.add("error_input");
-    iconEye.classList.add("large_bottom");
-  } else {
-    errorMessageSpan.textContent = EMPTY_MESSAGE;
-    inputPassword.classList.remove("error_input");
-    iconEye.classList.remove("large_bottom");
-  }
-
-  return inputPassword.value === TEST_USER_PASSWORD;
-};
-
-const compareUser = (e) => {
+const handleSignIn = (e) => {
   e.preventDefault();
 
-  const isCorrectEmail = compareEmail();
-  const isCorrectPassword = comparePassword();
+  (async function requestSignInApi() {
+    try {
+      // request body로 보낼 로그인 정보
+      const credentialsBody = {
+        email: inputEmail.value,
+        password: inputPassword.value,
+      };
 
-  if (isCorrectEmail && isCorrectPassword) {
-    form.submit();
-  }
+      const response = await fetch(
+        "https://bootcamp-api.codeit.kr/api/sign-in",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(credentialsBody),
+        },
+      );
+
+      if (response.ok) {
+        const responseJson = await response.json();
+        const tokenData = responseJson["data"];
+        const accessTokenData = tokenData["accessToken"];
+
+        showErrorMessage(false, inputEmail, "email");
+        showErrorMessage(false, inputPassword, "password");
+
+        localStorage.setItem("accessToken", accessTokenData);
+        location.href = "folder.html";
+      } else if (response.status === 400) {
+        // 로그인 에러
+        throw new Error("Login Error");
+      } else {
+        // 서버 에러 등 기타 에러
+        throw new Error("Other Error");
+      }
+    } catch (error) {
+      console.log(error.message);
+      if (error.message === "Login Error") {
+        // 로그인 API 요청시 발생한 에러일 경우에만 에러 표시
+        showErrorMessage(true, inputEmail, "email", ERROR_MESSAGE_WRONG_EMAIL);
+        showErrorMessage(
+          true,
+          inputPassword,
+          "password",
+          ERROR_MESSAGE_WRONG_PASSWORD,
+        );
+      }
+    }
+  })();
 };
 
 // 에러 표시 이벤트
@@ -108,10 +109,10 @@ inputEmail.addEventListener("focusout", checkEmailIsValid);
 inputPassword.addEventListener("focusout", checkPasswordIsValid);
 
 // 폼 제출 이벤트
-btnSignInSubmit.addEventListener("click", compareUser);
+btnSignInSubmit.addEventListener("click", handleSignIn);
 form.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    compareUser(e);
+    handleSignIn(e);
   }
 });
 
