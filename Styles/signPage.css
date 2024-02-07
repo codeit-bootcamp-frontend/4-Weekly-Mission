@@ -54,11 +54,11 @@ input:focus{
    outline-color: var(--LBrary-Primary-color);
 }
 
-.seenButtonPositionOrigin {
+.pwTextTypeToggleBtnOriginPosition {
    position: relative;
 }
 
-.passToggleBtn {
+.pwTextTypeToggleBtn {
    background-image: url(../Images/Icons/eye-off.svg);
    background-size: contain;
    width: 16px;
@@ -70,15 +70,15 @@ input:focus{
    border: none;
 }
 
-.notHidden {
+.pwTextInputIsNotHidden {
    background-image: url(../Images/Icons/eye-on.svg);
 }
 
-.signError {
+.signErr {
    border: 1px solid var(--LBrary-Red);
 }
 
-.errorMessagePreset {
+.errMsg {
    color: var(--LBrary-Red);
    font-size: 1.4rem;
    font-weight: 400;

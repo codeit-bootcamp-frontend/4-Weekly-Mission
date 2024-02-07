@@ -1,66 +1,87 @@
-import {inputFocus, inputBlur, printError, errorType} from './signFunction.js';
-import {accountCheck, formatCheck, passFormatCheck, passCheckCorrect} from './accountData.js';
-import passToggleReset from './passwordToggle.js';
+import {focusToInput, blurFromInput, errPrint, accountRegister, ERROR_TYPE} from './signFunction.js';
+import {isValidEmail, isValidPw, isValidPwChecking, EmailRegisterStatusInServer} from './accountDataVerification.js';
+import pwTypeToggleAssign from './pwTypeToggle.js';
+import {pageRedirectToFolderIfClientHasToken} from './tokenHandle.js'
+// 토큰이 있을 경우 folder로 리다이렉트
+pageRedirectToFolderIfClientHasToken();
 
 // 비밀번호 토글 초기화
-passToggleReset();
+pwTypeToggleAssign();
 
-const signupEmailInput = document.querySelector('#signupEmailInput');
-const signupPasswordInput = document.querySelector('#signupPasswordInput');
-const signupPasswordCheckInput = document.querySelector('#signupPasswordCheckInput');
+const emailInput = document.querySelector('#emailInput');
+const pwInput = document.querySelector('#pwInput');
+const pwCheckInput = document.querySelector('#pwCheckInput');
 const confirmBtn = document.querySelector('#confirmBtn');
 
 
-//에러메시지 출력 장소
-const emailErrorSection = signupEmailInput.parentElement.lastElementChild;
-const passwordErrorSection = signupPasswordInput.parentElement.parentElement.lastElementChild;
-const passCheckErrorSection = signupPasswordCheckInput.parentElement.parentElement.lastElementChild;
+// 에러메시지 출력 장소
+const emailErrSection = document.querySelector('#emailErrMsg');
+const pwErrSection = document.querySelector('#pwErrMsg');
+const pwCheckErrSection = document.querySelector('#pwCheckErrMsg');
 
 
 // 이메일 리스너 - 등록된 이메일 검증 조건 추가
-signupEmailInput.addEventListener('input' , () => inputFocus(emailErrorSection));
-signupEmailInput.addEventListener('focus' , () => inputFocus(emailErrorSection));
-signupEmailInput.addEventListener('blur' , () => inputBlur(errorType.email, emailErrorSection, !accountCheck(signupEmailInput.value), errorType.registeredEmail));
+const blurFromInputAwaitingEmailCheck = async function(e) {   
+   const isThisEmailNotRegistered = await EmailRegisterStatusInServer(emailInput.value) != 409
+   blurFromInput(e, emailErrSection, ERROR_TYPE.EMAIL_SECTION_BLANK, isThisEmailNotRegistered, ERROR_TYPE.EMAIL_IS_ALREADY_REGISTERED);
+}
+
+emailInput.addEventListener('input' , (e) => focusToInput(e, emailErrSection));
+emailInput.addEventListener('focus' , (e) => focusToInput(e, emailErrSection));
+emailInput.addEventListener('blur', (e) => blurFromInputAwaitingEmailCheck(e));
 
 
 // 패스워드 리스너 - 패스워드 형식 검증 조건 추가
-signupPasswordInput.addEventListener('input' , () => inputFocus(passwordErrorSection));
-signupPasswordInput.addEventListener('focus' , () => inputFocus(passwordErrorSection));
-signupPasswordInput.addEventListener('blur' , () => inputBlur(errorType.password, passwordErrorSection, passFormatCheck(signupPasswordInput.value), errorType.passwordNotValid));
+pwInput.addEventListener('input' , (e) => focusToInput(e, pwErrSection));
+pwInput.addEventListener('focus' , (e) => focusToInput(e, pwErrSection));
+pwInput.addEventListener('blur' , (e) => blurFromInput(
+   e, pwErrSection, ERROR_TYPE.PW_SECTION_BLANK,isValidPw(pwInput.value), ERROR_TYPE.PW_IS_NOT_VALID));
 
 
 // 패스워드체크 리스너 - 패스워드체크 검증 조건 추가
-signupPasswordCheckInput.addEventListener('input' , () => inputFocus(passCheckErrorSection));
-signupPasswordCheckInput.addEventListener('focus' , () => inputFocus(passCheckErrorSection));
-signupPasswordCheckInput.addEventListener('blur' , () => inputBlur(errorType.password, passCheckErrorSection, passCheckCorrect(signupPasswordInput.value, signupPasswordCheckInput.value), errorType.mismatchPasswordCheck));
+pwCheckInput.addEventListener('input' , (e) => focusToInput(e, pwCheckErrSection));
+pwCheckInput.addEventListener('focus' , (e) => focusToInput(e, pwCheckErrSection));
+pwCheckInput.addEventListener('blur' , (e) => blurFromInput(
+   e, pwCheckErrSection, ERROR_TYPE.PW_SECTION_BLANK, isValidPwChecking(pwInput.value, pwCheckInput.value), ERROR_TYPE.PW_CHECK_MISMATCH_WITH_PASSWORD));
 
 
 // 회원가입 함수
-function submitSignupData() {
-   event.preventDefault();
+const submitSignupData = async function (e) {
+   e.preventDefault();
 
-   const emailInput = signupEmailInput.value;
-   const passInput = signupPasswordInput.value;
-   const passCheckInput = signupPasswordCheckInput.value;
+   const triedEmail = emailInput.value;
+   const triedPw = pwInput.value;
+   const triedPwCheck = pwCheckInput.value;
 
    // 계정정보 유효 확인
-   const isAccountRegistered = accountCheck(emailInput);
-   const passCheckCorrect = passInput === passCheckInput;
-
    let signupValid = true;
+   const isValidPwChecking = triedPw === triedPwCheck;
+   const triedSignupAccountData = {
+      email : triedEmail,  
+      password : triedPw
+   }
+   const isThisEmailNotOccupied = await EmailRegisterStatusInServer(triedSignupAccountData.email)
 
    // 오류가 초기화 됐을 때도 제출할 시 모든 오류가 표시되도록 모든 경우의 수 고려 필요
-   if (!formatCheck(emailInput)) {printError(signupEmailInput, emailErrorSection, errorType.emailNotValid); signupValid = false;}; // 이메일 형식 안맞음!
-   if (!passFormatCheck(passInput)) {printError(signupPasswordInput, passwordErrorSection,errorType.passwordNotValid); signupValid = false;}; // 패스워드 형식이 맞지 않음!!
-   if (!passCheckCorrect) {printError(signupPasswordCheckInput, passCheckErrorSection, errorType.mismatchPasswordCheck); signupValid = false;}; // 패스워드 체크가 다름!
-   if (isAccountRegistered) {printError(signupEmailInput, emailErrorSection, errorType.registeredEmail); signupValid = false;}; // 이미 사용중인 이메일!   
-   if (!emailInput) {printError(signupEmailInput, emailErrorSection, errorType.email); signupValid = false;}; // 이메일 없음!
-   if (!passInput) {printError(signupPasswordInput, passwordErrorSection,errorType.password); signupValid = false;}; // 패스워드 없음!
-   if (!passCheckInput) {printError(signupPasswordCheckInput, passCheckErrorSection,errorType.password); signupValid = false;}; // 패스워드 체크 없음!
+   try {
+      if (!isValidEmail(triedEmail)) {errPrint(emailInput, emailErrSection, ERROR_TYPE.EMAIL_IS_NOT_VALID); signupValid = false;}; // 이메일 형식 안맞음!
+      if (!isValidPw(triedPw)) {errPrint(pwInput, pwErrSection,ERROR_TYPE.PW_IS_NOT_VALID); signupValid = false;}; // 패스워드 형식이 맞지 않음!!
+      if (!isValidPwChecking) {errPrint(pwCheckInput, pwCheckErrSection, ERROR_TYPE.PW_CHECK_MISMATCH_WITH_PASSWORD); signupValid = false;}; // 패스워드 체크가 다름!
+      if (!triedEmail) {errPrint(emailInput, emailErrSection, ERROR_TYPE.EMAIL_SECTION_BLANK); signupValid = false;}; // 이메일 없음!
+      if (!triedPw) {errPrint(pwInput, pwErrSection,ERROR_TYPE.PW_SECTION_BLANK); signupValid = false;}; // 패스워드 없음!
+      if (!triedPwCheck) {errPrint(pwCheckInput, pwCheckErrSection,ERROR_TYPE.PW_SECTION_BLANK); signupValid = false;}; // 패스워드 체크 없음!
+      if (isThisEmailNotOccupied != 200) {throw new Error();}
+   } catch {
+      if (isThisEmailNotOccupied == 409) {
+         errPrint(emailInput, emailErrSection, ERROR_TYPE.EMAIL_IS_ALREADY_REGISTERED); // 이미 사용중인 이메일!   
+      }
+      signupValid = false;
+   }
 
    if (signupValid) {
+      await accountRegister(triedSignupAccountData)
       window.location.href = './folder.html';
    } 
 }
 
-confirmBtn.addEventListener('click' , () => submitSignupData());
+confirmBtn.addEventListener('click' , (e) => submitSignupData(e));
