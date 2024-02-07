@@ -1,5 +1,4 @@
 
-
 #Header{
     width: 100%;
     position: fixed;
@@ -7,6 +6,7 @@
     left: 0;
     padding: 3.2rem 0;
     background-color: #F0F6FF;
+    height: 9.3rem;
 }
 
 .Header-inner{

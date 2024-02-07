@@ -10,7 +10,7 @@ html{
 
 a{
   text-decoration: none;
-
+  color:#000 ;
 }
 
 .btn{
@@ -21,4 +21,8 @@ a{
   color: #F5F5F5;
   font-size: 1.8rem;
   font-weight: 600;
+}
+
+li{
+  list-style: none;
 }

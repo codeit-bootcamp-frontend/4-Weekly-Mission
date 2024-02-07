@@ -1,12 +1,15 @@
-import { requestProfileData } from '../../api';
+
+import FolderIfm from '../folderIfm/FolderIfm';
 import Header from '../header/Header';
+import Main from '../main/Main';
 import './App.css';
 
 function App() {
-  requestProfileData();
+
   return (
    <>
       <Header />
+      <Main />
    </>
   );
 }

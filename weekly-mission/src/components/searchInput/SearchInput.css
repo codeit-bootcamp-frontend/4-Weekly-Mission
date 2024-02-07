@@ -1,0 +1,26 @@
+.search-box {
+    display: flex;
+    padding: 0 1.5rem;
+    border-radius: 10px;
+    background: #F5F5F5;
+    gap: 1.6rem;
+    align-items: center;
+    user-select: none;
+}
+
+
+
+.search-form{
+    width: 100%;
+    height: 5.4rem;
+}
+
+.search-form > input{
+    outline: none;
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    height: 100%;
+    padding: 5px 0;
+    font-size: 1.6rem;
+}

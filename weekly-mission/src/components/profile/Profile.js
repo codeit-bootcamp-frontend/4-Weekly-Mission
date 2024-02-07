@@ -1,7 +1,7 @@
 import './Profile.css'
 
 function Profile({userData}){
-  
+
     return (
         <div className="Profile">
             <div className="Profile-img">
