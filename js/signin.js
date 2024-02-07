@@ -1,62 +1,97 @@
 import {
-  Validator,
-  emailRegex,
-  pwdRegex,
-  errorInput,
+  TEST_USER,
+  validateEmail,
+  validatePassword,
+  inputError,
+  inputSuccess,
   pwdEye,
+  autoLogin,
 } from "./modules/signModule.js";
 
-const pwdInput = document.getElementById('pwd-input')
-const emailInput = document.getElementById('email-input');
+/**
+ * 이메일 유효성 검사 후 인풋 필드 스타일 변경
+ */
+function validateEmailInput() {
 
-// 이메일 유효검사
-function emailValidator() {
-  Validator('email-input', 'email-error', emailRegex, '이메일을 입력해 주세요.', 'id', 'signin')
-  errorInput('email-input', 'email-error')
+  if (!validateEmail('signin')) {
+    inputError('email-input');
+  } else {
+    inputSuccess('email-input');
+  }
+
 }
-document.getElementById('email-input').addEventListener('focusout', emailValidator);
+document.getElementById('email-input').addEventListener('focusout', validateEmailInput);
 
-// 비밀번호 유효검사 
-function pwdValidator() {
-  Validator('pwd-input', 'pwd-error', pwdRegex, '비밀번호를 입력해 주세요.', 'pwd', 'signin')
-  errorInput('pwd-input', 'pwd-error')
+/**
+ * 비밀번호 유효성 검사 후 인풋 필드 스타일 변경
+ */
+function validatePasswordInput() {
+
+  if (!validatePassword('signin')) {
+    inputError('pwd-input');
+  } else {
+    inputSuccess('pwd-input');
+  }
 }
-document.getElementById('pwd-input').addEventListener('focusout', pwdValidator);
+document.getElementById('pwd-input').addEventListener('focusout', validatePasswordInput);
 
-// 로그인 버튼
-function signIn() {
+/**
+ * 로그인 버튼 클릭 시 동작
+ * @param {Event} e - 클릭 이벤트 
+ */
+function signIn(e) {
+  e.preventDefault();
+
+  const email = document.getElementById('email-input').value.trim();
+  const password = document.getElementById('pwd-input').value.trim();
   const emailError = document.getElementById('email-error')
   const pwdError = document.getElementById('pwd-error')
 
-  if (emailInput.value.trim() === 'test@codeit.com' && pwdInput.value.trim() === 'codeit101') {
-    location.href = 'folder.html';
+  if (email === TEST_USER.email && password === TEST_USER.password) {
+    fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        email: "test@codeit.com",
+        password: "sprint101",
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => data.data.accessToken)
+      .then((accessToken) => {
+        localStorage.setItem('accessToken', accessToken);
+        location.href = 'folder.html'
+      })
+      .catch((error) => {
+        alert('로그인에 실패했습니다. 다시 시도해주세요.');
+
+      })
+
   } else {
 
-    if (emailInput.value.trim() !== 'test@codeit.com') {
+    if (email !== TEST_USER.email) {
       emailError.textContent = '이메일을 확인해 주세요';
-      emailInput.classList.remove('sign-input');
-      emailInput.classList.add('sign-input-error');
+      inputError('email-input');
     }
-    if (pwdInput.value.trim() !== 'codeit101') {
+    if (password !== TEST_USER.password) {
       pwdError.textContent = '비밀번호를 확인해 주세요';
-      pwdInput.classList.remove('sign-input');
-      pwdInput.classList.add('sign-input-error');
+      inputError('pwd-input');
     }
 
   }
 };
 document.getElementById('signin-btn').addEventListener('click', signIn);
 
-function loginEnter(e) {
-  if (e.key === 'Enter') {
-    signIn();
-  }
-};
-emailInput.addEventListener('keypress', loginEnter);
-pwdInput.addEventListener('keypress', loginEnter);
+/**
+ * 비밀번호 숨기기 & 보이기
+ */
+document.getElementById('pwd-eye-btn').addEventListener('click', () => pwdEye('pwd-input', 'pwd-eye-img'));
 
-// 비밀번호 숨기기 & 보이기
-function pwdShowHide1() {
-  pwdEye('pwd-input', 'pwd-eye-img');
-}
-document.getElementById('pwd-eye-btn').addEventListener('click', pwdShowHide1);
+
+/**
+ * 페이지 로드 시 자동 로그인 시도
+ */
+window.addEventListener('load', autoLogin)
