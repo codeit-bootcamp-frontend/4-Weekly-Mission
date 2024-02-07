@@ -1,11 +1,9 @@
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
+import Folder from "pages/Folder/Folder";
 
 function App() {
   return (
     <>
-      <Header />
-      <Footer />
+      <Folder />
     </>
   );
 }
