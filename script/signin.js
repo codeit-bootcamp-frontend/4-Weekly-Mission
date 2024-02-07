@@ -17,7 +17,7 @@ const eyeButton = getElementById('eye-button');
 
 checkAccessToken();
 
-const validateEmail = () => {
+const emailInputError = () => {
   const emailValue = emailInput.value.trim();
   if (isEmptyString(emailValue)) {
     showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isEmpty);
@@ -31,7 +31,7 @@ const validateEmail = () => {
   return true;
 };
 
-const validatePassword = () => {
+const passwordInputError = () => {
   const passwordValue = passwordInput.value.trim();
   if (isEmptyString(passwordValue)) {
     showError(passwordInput, passwordErrorMessage, PASSWORD_ERROR_MESSAGE.isEmpty);
@@ -41,16 +41,16 @@ const validatePassword = () => {
   return true;
 };
 
-const handleSignInButtonClick = async event => {
+const pressSignInButton = async event => {
   event.preventDefault();
 
-  const isEmailValid = validateEmail();
-  const isPasswordValid = validatePassword();
+  const isEmailValid = emailInputError();
+  const isPasswordValid = passwordInputError();
 
   if (isEmailValid && isPasswordValid) {
     const emailValue = emailInput.value.trim();
     const passwordValue = passwordInput.value.trim();
-    const signInfo = { email: emailValue, password: passwordValue };
+    const signInfo = { 'email': emailValue, 'password': passwordValue };
     try {
       await postSignData('/sign-in', signInfo);
     } catch (error) {
@@ -59,15 +59,15 @@ const handleSignInButtonClick = async event => {
   }
 };
 
-const handleEyeButtonClick = () => {
+const pressEyeButton = () => {
   if (passwordInput.type === 'text') {
     showPassword(passwordInput, eyeButton);
-  } else {
-    hidePassword(passwordInput, eyeButton);
+    return;
   }
+  hidePassword(passwordInput, eyeButton);
 };
 
-emailInput.addEventListener('focusout', validateEmail);
-passwordInput.addEventListener('focusout', validatePassword);
-loginButton.addEventListener('click', handleSignInButtonClick);
-eyeButton.addEventListener('click', handleEyeButtonClick);
+emailInput.addEventListener('focusout', emailInputError);
+passwordInput.addEventListener('focusout', passwordInputError);
+loginButton.addEventListener('click', pressSignInButton);
+eyeButton.addEventListener('click', pressEyeButton);

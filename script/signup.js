@@ -1,6 +1,6 @@
 import { EMAIL_ERROR_MESSAGE, PASSWORD_CONFIRM_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE } from './constant.js';
 import { getElementById } from './dom/domhelper.js';
-import { checkEmailData, checkAccessToken } from './functions/apiUtils.js';
+import { checkEmailData, checkAccessToken, postSignData } from './functions/apiUtils.js';
 import {
   isEmptyString,
   isValidEmail,
@@ -33,34 +33,32 @@ const eyeButtonForConfirm = getElementById('eye-button-password-confirm');
 
 checkAccessToken();
 
-const EmailInputError = () => {
+const emailInputError = () => {
   const emailValue = emailInput.value.trim();
   if (isEmptyString(emailValue)) {
     showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isEmpty);
-    return;
+    return false;
   }
   if (!isValidEmail(emailValue)) {
     showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isNotRightFormat);
-    return;
-  }
-  if (emailValue === 'test@codeit.com') {
-    showError(emailInput, emailErrorMessage, EMAIL_ERROR_MESSAGE.isUsing);
-    return;
+    return false;
   }
   hideError(emailInput, emailErrorMessage);
+  return true;
 };
 
 const passwordInputError = () => {
   const passwordValue = passwordInput.value.trim();
   if (isEmptyString(passwordValue)) {
     showError(passwordInput, passwordErrorMessage, PASSWORD_ERROR_MESSAGE.isEmpty);
-    return;
+    return false;
   }
   if (!isValidPassword(passwordValue)) {
     showError(passwordInput, passwordErrorMessage, PASSWORD_ERROR_MESSAGE.isNotRightFormat);
-    return;
+    return false;
   }
   hideError(passwordInput, passwordErrorMessage);
+  return true;
 };
 
 const passwordConfirmInputError = () => {
@@ -68,19 +66,34 @@ const passwordConfirmInputError = () => {
   const passwordConfirmValue = passwordConfirmInput.value.trim();
   if (passwordValue !== passwordConfirmValue) {
     showError(passwordConfirmInput, passwordConfirmErrorMessage, PASSWORD_CONFIRM_ERROR_MESSAGE.isNotMatch);
-    return;
+    return false;
   }
   hideError(passwordConfirmInput, passwordConfirmErrorMessage);
+  return true;
 };
 
-const pressSignUpButtonError = event => {
+
+const pressSignUpButtonError = async event => {
   event.preventDefault();
-  const emailValue = emailInput.value.trim();
-  const passwordValue = passwordInput.value.trim();
-  const passwordConfirmValue = passwordConfirmInput.value.trim();
-  const submitTemporary = { emailValue, passwordValue };
-  if (isValidEmailFormat(emailValue) && isValidPasswordFormat(passwordValue) && isValidPasswordConfirmFormat(passwordValue, passwordConfirmValue)) {
-    checkEmailData('/api/check-email', emailValue, submitTemporary);
+
+  const isEmailValid = emailInputError();
+  const isPasswordValid = passwordInputError();
+  const isPasswordConfirmValid = passwordConfirmInputError();
+
+  if (isEmailValid && isPasswordValid && isPasswordConfirmValid){
+    const emailValue = emailInput.value.trim();
+    const passwordValue = passwordInput.value.trim();
+    const emailInfo = { 'email' : emailValue}
+    const signInfo = { 'email': emailValue, 'password': passwordValue };
+    try {
+        const isEmailAvailable = await checkEmailData('/check-email', emailInfo);
+        console.log(isEmailAvailable);
+        if (!isEmailAvailable) {
+          await postSignData('/sign-up', signInfo);
+        }
+    } catch (error) {
+      console.error('Error occurred during sign-up :', error)
+    }
   }
 };
 
@@ -100,7 +113,7 @@ const pressEyeButtonForConfirm = () => {
   hidePassword(passwordConfirmInput, eyeButtonForConfirm);
 };
 
-emailInput.addEventListener('focusout', EmailInputError);
+emailInput.addEventListener('focusout', emailInputError);
 passwordInput.addEventListener('focusout', passwordInputError);
 passwordConfirmInput.addEventListener('focusout', passwordConfirmInputError);
 signInButton.addEventListener('click', pressSignUpButtonError);

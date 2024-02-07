@@ -25,7 +25,7 @@ export const postSignData = async (endpoint, signInfo) => {
   } catch (error) {
     console.error('Error : Network Connection Failure', error);
   }
-};
+};  
 
 /**
  *
@@ -36,7 +36,7 @@ export const postSignData = async (endpoint, signInfo) => {
 export const checkEmailData = async (endpoint, emailInfo) => {
   try {
     const response = await postRequest(endpoint, emailInfo);
-    if (!response.ok) {
+    if (response.ok) {
       throw new Error(response.status);
     }
     return await response.json();
