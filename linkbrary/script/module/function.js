@@ -1,7 +1,7 @@
 // 인풋창 포커스시 보더 파란색으로 변경
 function activeInput(e) {
-    e.target.classList.replace("input_error", "input_focus")
     e.target.classList.add("input_focus")
+    e.target.classList.replace("input_error", "input_focus")
 }
 
 // 포커스 아웃시 보더 파란색 없애기
@@ -10,64 +10,56 @@ function blurInput(e) {
 }
 
 // 인풋창 포커스시 에러 메세지 삭제
-function remove_error_msg(error_msg) {
-    error_msg.classList.remove("view_error")
+function removeErrorMessage(errorMessageElement) {
+    errorMessageElement .classList.remove("view_error")
 }
 
 // 인풋값 공백 확인 함수
-function checkInputNull(e, error_msg, whatInput) {
+function checkInputNull(e, errorMessageElement , whatInput) {
     if(e.target.value == "") {
-       error_msg.innerHTML = `${whatInput} 입력해 주세요`
+        errorMessageElement.innerHTML = `${whatInput} 입력해 주세요`
        e.target.classList.add("input_error")
-       error_msg.classList.add("view_error")
+       errorMessageElement.classList.add("view_error")
    } else {
        e.target.classList.remove("input_error")
-       error_msg.classList.remove("view_error")
+       errorMessageElement.classList.remove("view_error")
    }
 }
 
 // 이메일 유효성 확인(공백X)
-function validateEmailInput(e, error_msg ,regExp) {
+function validateEmailInput(e, errorMessageElement,regExp) {
     if(regExp.test(e.target.value) == true) {
-        error_msg.classList.remove("view_error")
+        errorMessageElement.classList.remove("view_error")
         e.target.classList.remove("input_error")
     } else if(regExp.test(e.target.value) == false && e.target.value != "") {
-       error_msg.innerHTML = "올바른 이메일 주소가 아닙니다"
-       error_msg.classList.add("view_error")
+        errorMessageElement.innerHTML = "올바른 이메일 주소가 아닙니다"
+        errorMessageElement.classList.add("view_error")
         e.target.classList.add("input_error")
     }
 }
 
 // 비밀번호 유효성 확인 
-function validatePasswordInput(e, regExp, error_msg) {
+function validatePasswordInput(e, regExp, errorMessageElement) {
     if(regExp.test(e.target.value) == false && e.target.value !== "") {
-        error_msg.innerHTML = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요"
-        error_msg.classList.add('view_error')
+        errorMessageElement.innerHTML = "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요"
+        errorMessageElement.classList.add('view_error')
         e.target.classList.add('input_error')
     }
 }
 
 // 비밀번호 확인 함수
-function passwordConfirm(password, repeatPassword, error_msg) {
+function passwordConfirm(password, repeatPassword, errorMessageElement) {
     if(password.value !== repeatPassword.value && repeatPassword.value !== "") {
-        error_msg.classList.add('view_error')
-        error_msg.innerHTML = "비밀번호가 다릅니다"
+        errorMessageElement.classList.add('view_error')
+        errorMessageElement.innerHTML = "비밀번호가 다릅니다"
         repeatPassword.classList.add('input_error')
-    }
-}
-
-// 이메일 중복확인
-function checkDuplicate(e, error_msg) {
-    if(e.target.value == "test@codeit.com") {
-        e.target.classList.add("input_error")
-        error_msg.classList.add('view_error')
-        error_msg.innerHTML = "이미 사용 중인 이메일입니다"
     }
 }
 
 // 로그인 시도시 이메일 & 패스워드 학인
 function checkEmailPwOnLogin(e, email_input, pw_input, email_error_msg, password_error_msg) {
     e.preventDefault();
+    
     if(email_input.value == "test@codeit.com" && pw_input.value == "codeit101") {
         document.location.href = "/pages/folder.html"
     } else {
@@ -83,6 +75,7 @@ function checkEmailPwOnLogin(e, email_input, pw_input, email_error_msg, password
 // 회원가입 시도시 모든 인풋값 검사 
 function checkEmailPwSignUp(e, email_input, pw_input, repeat_pw_input, email_error_msg, password_error_msg, repeat_password_error_msg) {
     e.preventDefault()
+   
    let arr = [email_input.value, pw_input.value, repeat_pw_input.value]
 
      if(email_input.classList.contains("input_error") == false &&
@@ -123,16 +116,104 @@ function showPasswordInput(e, open, input) {
 }
 
 // 눈 아이콘 클릭 함수 (open - > close)
+
 function coverPasswordInput(e, close, input) {
     e.target.classList.add('display_none')
     close.classList.remove("display_none")
     input.type = "password"
 }
 
+// api 로그인 함수 
+async function fetchLogin(e, email_input, password_input) {
+    e.preventDefault()
+    const loginValue = {
+        email : email_input.value,
+        password : password_input.value
+    }
+    try {
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+           method : 'POST',
+           headers : {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify(loginValue),
+         })
+         if(response.status == 200) {
+            document.location.href = "/pages/folder.html"
+         }
+        const result = await response.json()
+        await localStorage.setItem("accessToken", result.data.accessToken )
+         console.log(result)
+    } catch(error) {
+        console.log(error)
+    }
+}
+
+
+//  api 이메일 중복 함수 
+async function checkEmailDuplicate(e, email_input, errorMessageElement) {
+    e.preventDefault()
+    const emailValue = {
+        email : email_input.value,
+    }
+    try {
+        const response = await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+           method : 'POST',
+           headers : {
+                "Content-Type": "application/json",
+            },
+            body : JSON.stringify(emailValue),
+         })
+         
+        const result = await response.json() 
+     
+         if(response.status == 409 && email_input.value != "") {
+            e.target.classList.add("input_error")
+            errorMessageElement.classList.add('view_error')
+            errorMessageElement.innerHTML = "이미 사용 중인 이메일입니다"
+         }
+       
+    } catch(error) {
+        console.log(error.type)
+    }
+}
+
+// 액세스 토큰 검사 함수
+function checkAccessToken() {
+    if(localStorage.getItem('accessToken') != undefined) {
+        location.href = "/pages/folder.html"
+    }
+}
+
+async function fetchSignUp(e, email_input, pw_input, repeat_pw_input) {
+    e.preventDefault()
+    const signUpValue = {
+        email : email_input.value,
+        password : pw_input.value
+    }
+
+    try {
+        const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+            method : 'POST',
+            headers : {
+                "Content-Type" : "application/json",
+            },
+            body : JSON.stringify(signUpValue)
+        })
+
+       
+        if(pw_input.value === repeat_pw_input.value && response.status == 200) {
+            document.location.href = "/pages/folder.html"
+         }
+    } catch(error) {
+        console.log(error)
+    }
+}
+
 const function_module = {
     activeInput :  activeInput,
     blurInput : blurInput,
-    remove_error_msg : remove_error_msg,
+    removeErrorMessage : removeErrorMessage,
     checkInputNull : checkInputNull,
     validateEmailInput : validateEmailInput,
     checkEmailPwOnLogin : checkEmailPwOnLogin,
@@ -140,8 +221,12 @@ const function_module = {
     coverPasswordInput : coverPasswordInput,
     validatePasswordInput : validatePasswordInput,
     passwordConfirm : passwordConfirm,
-    checkDuplicate : checkDuplicate,
-    checkEmailPwSignUp : checkEmailPwSignUp
+    checkEmailDuplicate : checkEmailDuplicate,
+    checkEmailPwSignUp : checkEmailPwSignUp,
+    fetchLogin : fetchLogin,
+    checkAccessToken : checkAccessToken,
+    checkEmailDuplicate : checkEmailDuplicate,
+    fetchSignUp :  fetchSignUp
 }
 
 export default function_module

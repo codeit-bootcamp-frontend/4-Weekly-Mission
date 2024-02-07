@@ -21,11 +21,11 @@ const tags = {
     email_regExp : email_regExp,
     pw_input : pw_input,
     password_error_msg : password_error_msg,
-    pw_icon_close : pw_icon_close,
-    pw_icon_open : pw_icon_open,
     password_reg : password_reg,
     repeat_pw_input : repeat_pw_input,
     repeat_password_error_msg : repeat_password_error_msg,
+    pw_icon_close : pw_icon_close,
+    pw_icon_open : pw_icon_open,
     pw_repeat_icon_close :  pw_repeat_icon_close,
     pw_repeat_icon_open : pw_repeat_icon_open
 }
