@@ -1,4 +1,5 @@
-import { ERROR_MESSAGES, REGEX } from "./constants/VALIDATION.js";
+import { ERROR_MESSAGES, REGEX } from "../constants/VALIDATION.js";
+import { getTokens } from "./token.js";
 
 export const emailError = document.querySelector("#email-error");
 export const emailInput = document.querySelector("#email");
@@ -10,6 +11,11 @@ export const pwConfirmError = document.querySelector("#pwConfirm-error");
 export const pwConfirmInput = document.querySelector("#password-confirm");
 export const pwConfirmToggle = document.querySelector("#pwConfirm-eyeIcon");
 
+export const checkLoginStatus = () => {
+  const tokens = getTokens();
+  if (tokens.accessToken) window.location.href = "folder.html";
+};
+
 export const showError = (errorEl, input, errorType) => {
   errorEl.style.display = "block";
   input.style.borderColor = "red";
@@ -20,7 +26,7 @@ export const hideError = (errorEl, input) => {
   input.style.borderColor = "";
 };
 
-const isValidFormat = (action, input) => {
+export const isValidFormat = (action, input) => {
   if (action === "email") return REGEX.email.test(input);
   if (action === "pw") return REGEX.pw.test(input);
 };
@@ -31,13 +37,10 @@ export const validateEmail = () => {
 
   if (emailValue === "") {
     showError(emailError, emailInput, ERROR_MESSAGES.email_empty);
-    return false;
   } else if (!isValidFormat("email", emailValue)) {
     showError(emailError, emailInput, ERROR_MESSAGES.email_invalid);
-    return false;
   } else {
     hideError(emailError, emailInput);
-    return true;
   }
 };
 
@@ -47,13 +50,10 @@ export const validatePw = () => {
 
   if (passwordValue === "") {
     showError(pwError, pwInput, ERROR_MESSAGES.password_empty);
-    return false;
   } else if (!isValidFormat("pw", passwordValue)) {
     showError(pwError, pwInput, ERROR_MESSAGES.password_invalid);
-    return false;
   } else {
     hideError(pwError, pwInput);
-    return true;
   }
 };
 
@@ -64,13 +64,10 @@ export const validatePwConfirm = () => {
 
   if (pwConfirmValue === "") {
     showError(pwConfirmError, pwConfirmInput, ERROR_MESSAGES.pwConfirm_empty);
-    return false;
   } else if (passwordValue !== pwConfirmValue) {
     showError(pwConfirmError, pwConfirmInput, ERROR_MESSAGES.pwConfirm_check);
-    return false;
   } else {
     hideError(pwConfirmError, pwConfirmInput);
-    return true;
   }
 };
 
