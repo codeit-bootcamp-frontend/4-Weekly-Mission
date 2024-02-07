@@ -6,7 +6,9 @@ const pwdInput = document.querySelector('.password-input');
 const pwdInput2 = document.querySelector('.password-input-check');
 const pwdDiv2 = document.querySelector('#password-check');
 
-function inputAddNode(type, message, errorCase) {
+
+// 에러 메세지 출력을 위한 노드 추가
+function inputAddNode({ type, message, errorCase }) {
   let newNode = document.createElement('div');
 
   switch(type) {
@@ -34,6 +36,7 @@ function inputAddNode(type, message, errorCase) {
     }
 }
 
+// 에러 메세지 제거를 위한 노드 제거
 function inputDeleteNode(type) {
   let newNode = document.createElement('div');
   switch(type) {
