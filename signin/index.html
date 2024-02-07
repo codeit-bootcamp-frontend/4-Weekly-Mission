@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+    <title>Linkbrary</title>
+  </head>
+  <body class="flex justify-center">
+    <div class="container w-full">
+      <form class="login-form w-full">
+        <div class="login-form-header flex flex-column">
+          <a class="flex justify-center" href="/">
+            <img class="logo" src="images/logo.svg" />
+          </a>
+          <p class="header-message flex justify-center fs-16">
+            회원이 아니신가요?
+            <a id="signup-link" href="../signup/index.html"> 회원 가입하기 </a>
+          </p>
+        </div>
+        <div class="login-form-body flex flex-column w-full">
+          <div class="login-input-box flex flex-column">
+            <label class="fs-14">이메일</label>
+            <input id="email" class="login-input fs-16" />
+            <p id="email-error-message" class="error-message fs-14"></p>
+          </div>
+          <div class="login-input-box flex flex-column">
+            <label class="fs-14">비밀번호</label>
+            <input id="password" class="login-input fs-16" type="password" />
+            <p id="password-error-message" class="error-message fs-14"></p>
+            <button id="password-toggle" class="toggle-button" type="button">
+              <img src="images/eye-off.svg" />
+            </button>
+          </div>
+        </div>
+        <button class="btn w-full fs-18" type="submit">로그인</button>
+      </form>
+      <div class="social-login-box w-full">
+        <p class="social-login-text fs-14">소셜 로그인</p>
+        <div class="social-login-logo-box flex">
+          <a href="https://www.google.com/">
+            <img class="social-login-logo" src="images/google.svg" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/">
+            <img class="social-login-logo" src="images/kakao.svg" />
+          </a>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>

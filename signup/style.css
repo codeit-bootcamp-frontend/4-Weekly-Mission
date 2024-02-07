@@ -1,0 +1,131 @@
+@import url("../css/reset.css");
+@import url("../css/common.css");
+
+* {
+  font-family: "pretendard";
+}
+
+body {
+  padding-top: 23.8rem;
+  background-color: var(--Linkbrary-bg);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.login-form-body {
+  row-gap: 2.4rem;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40rem;
+  gap: 3.2rem;
+}
+.social-login-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2.4rem;
+}
+
+.logo {
+  height: 3.8rem;
+}
+
+.login-form-header {
+  row-gap: 1.6rem;
+}
+
+.header-message {
+  column-gap: 8px;
+  line-height: 150%;
+}
+
+#signup-link {
+  font-weight: 600;
+  text-decoration: underline;
+  color: var(--primary);
+}
+
+input {
+  margin-top: 1.2rem;
+}
+
+.social-login-text {
+  color: var(--gray100);
+}
+
+.social-login-box {
+  background-color: var(--gray10);
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--gray20);
+}
+
+.social-login-logo-box {
+  column-gap: 1.6rem;
+}
+
+.social-login-logo {
+  width: 4.2rem;
+  height: 4.2rem;
+}
+
+.login-input {
+  line-height: 150%;
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--gray20);
+}
+
+.btn {
+  background: var(--gra-purpleblue-to-skyblue);
+  height: 5.4rem;
+  border-radius: 0.8rem;
+  color: var(--Gray-Light);
+  font-weight: 600;
+  font-family: "pretendard";
+}
+
+.login-input-box {
+  position: relative;
+}
+.toggle-button {
+  position: absolute;
+  right: 1.6rem;
+  top: 5.2rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.error-message {
+  margin-top: 0.6rem;
+  color: var(--red);
+}
+
+/**************** Tablet 스타일 ****************/
+
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  /* Tablet 화면에 대한 스타일 정의 */
+
+  body {
+    padding-top: 20rem;
+  }
+}
+
+/************************ Mobile 스타일 ***************************/
+
+@media screen and (max-width: 767px) {
+  body {
+    padding-top: 12rem;
+  }
+
+  .container {
+    margin-left: 3.2rem;
+    margin-right: 3.2rem;
+  }
+}

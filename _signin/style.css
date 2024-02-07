@@ -39,7 +39,7 @@ body {
   font-family: Pretendard, sans-serif;
   word-break: keep-all;
   display: flex;
-  height: 100vh;
+  padding-top: 238px;
   justify-content: center;
   align-items: center;
   background: var(--Linkbrary-bg);
