@@ -41,7 +41,7 @@ function LinkCard({linkData}) {
         <a href={url} target='_blank'>
             <div className="LinkCard">
                 <div className="card-img">
-                    <img src={imageSource} alt="카드 이미지"/>          
+                    <img src={imageSource} alt="링크카드 이미지"/>          
                 </div>
                 <div  className="card-content">
                     <span className="elapsed-time content">{getTime(millisecondsGap)}</span>
