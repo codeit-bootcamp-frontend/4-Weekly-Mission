@@ -4,14 +4,14 @@ function formatDate(value) {
 }
 
 function FolderListItem({ item }) {
-  const { title, createdAt } = item;
+  const { title, createdAt, url, description, imageSource } = item;
 
   return (
     <div className="FolderListItem">
-      {/* <img src={imgUrl} alt={title} /> */}
       <div>{title}</div>
-      {/* <div>{calorie}</div>
-      <div>{content}</div> */}
+      <div>{url}</div>
+      <div>{description}</div>
+      <img src={imageSource} alt={title} />
       <div>{formatDate(createdAt)}</div>
     </div>
   );
