@@ -1,4 +1,6 @@
-import { emailRegex, errorMessage, validation, showError, hideError } from "./module.js";
+import { validation, showError, hideError, checkAccessToken } from "./module.js";
+import { EMAILREGEX, ERROREMEESAGE } from "./constants.js";
+
 
 const emailInput = document.getElementById("signin-email-input");
 const emailErrorMessage = document.querySelector(".signin-email-error");
@@ -8,40 +10,64 @@ const loginBtn = document.querySelector(".login-btn");
 const eyeOff = document.querySelector(".eye-off");
 const eyeOn = document.querySelector(".eye-on");
 
+//이메일 에러 확인
+
 function errorEmail() {
     const emailValue = emailInput.value;
-    if (validation.isEmpty(emailValue)) {
-        showError(emailErrorMessage, emailInput, errorMessage.emptyEmail);
-    } else if (!emailRegex.test(emailValue)) {
-        showError(emailErrorMessage, emailInput, errorMessage.unValidEmailFormat);
+    if (validation.isEmptyEmail(emailValue)) {
+        showError(emailErrorMessage, emailInput, ERROREMEESAGE.EMPTYEMAIL);
+    } else if (!EMAILREGEX.test(emailValue)) {
+        showError(emailErrorMessage, emailInput, ERROREMEESAGE.UNVAILDEMAILFORMAT);
     } else {
         hideError(emailErrorMessage, emailInput);
     }
 }
 
+//비밀번호 에러 확인
+
 function errorPassword() {
     const passwordValue = passwordInput.value;
-    if (validation.isEmpty(passwordValue)) {
-        showError(passwordErrorMessage, passwordInput, errorMessage.emptyPassword);
+    if (validation.isEmptyPassword(passwordValue)) {
+        showError(passwordErrorMessage, passwordInput, ERROREMEESAGE.EMPTYPASSWORD);
     } else {
         hideError(passwordErrorMessage, passwordInput);
     }
 }
 
-function checkValidation() {
+// 입력값 확인
+
+async function checkValidation() {
     const emailValue = emailInput.value;
     const passwordValue = passwordInput.value;
-    if (validation.isValidSignin(emailValue, passwordValue)) {
-        location.href = "/folder";
-    } else if (validation.isUnvalidEmail(emailValue, passwordValue)) {
-        showError(emailErrorMessage, emailInput, errorMessage.unValidEmail);
-    } else if (validation.isUnvalidPassowrd(emailValue, passwordValue)) {
-        showError(passwordErrorMessage, passwordInput, errorMessage.unValidPassword);
-    } else {
-        showError(emailErrorMessage, emailInput, errorMessage.unValidEmail);
-        showError(passwordErrorMessage, passwordInput, errorMessage.unValidPassword);
-    }
+
+    try {
+        const userData = {
+            email: emailValue,
+            password: passwordValue
+        };
+
+        const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userData)
+        })
+
+        if (response.ok) {
+            response.json().then(data => {
+                localStorage.setItem('accessToken', data.accessToken);
+                checkAccessToken();
+            });
+        } else {
+            showError(emailErrorMessage, emailInput, ERROREMEESAGE.UNVALIDEMAIL);
+            showError(passwordErrorMessage, passwordInput, ERROREMEESAGE.UNVALIDPASSWORD);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    };
 }
+
 
 function toggleShowPassword() {
     passwordInput.type = passwordInput.type === 'text' ? 'password' : 'text';
@@ -54,7 +80,13 @@ function enterBtn(e) {
         checkValidation();
         e.preventDefault();
     }
+
 }
+
+
+
+
+
 
 emailInput.addEventListener("blur", errorEmail);
 passwordInput.addEventListener("blur", errorPassword);
