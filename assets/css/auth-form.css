@@ -124,10 +124,15 @@ body {
 /*=============================================
 =            Form Validation Style            =
 =============================================*/
-.input-layout.invalid p {
+.invalid .input-error {
+  display: block;
   color: var(--red);
   margin-top: 6px;
   font-size: 14px;
+}
+
+.input-error {
+  display: none;
 }
 
 .input-layout.invalid .input-layout__input {

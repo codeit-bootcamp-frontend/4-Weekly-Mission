@@ -26,18 +26,19 @@
         <form class="form" method="POST" action="#">
           <fieldset>
             <legend class="ir_so">회원가입 하기</legend>
-            <div class="input-layout">
+            <div class="input-layout input-layout-email">
               <label for="email" class="input-layout__label">이메일</label>
               <input
                 type="text"
                 name="email"
                 id="email"
                 placeholder="이메일을 입력하세요."
-                class="input-layout__input"
+                class="input-layout__input input-email"
               />
+              <p class="input-error"></p>
             </div>
 
-            <div class="input-layout">
+            <div class="input-layout input-layout-password">
               <label for="password" class="input-layout__label">비밀번호</label>
               <div class="input-layout__password">
                 <input
@@ -45,29 +46,30 @@
                   name="password"
                   id="password"
                   placeholder="비밀번호를 입력하세요."
-                  class="input-layout__input"
+                  class="input-layout__input input-password"
                 />
                 <button type="button" class="password-show">
                   <img src="./assets/images/icon/password-eye-icon.svg" alt="비밀번호 보기" />
                 </button>
+                <p class="input-error"></p>
               </div>
             </div>
 
-            <div class="input-layout invalid">
+            <div class="input-layout input-layout-passwordConfirm">
               <label for="password-confirm" class="input-layout__label">비밀번호 확인</label>
               <div class="input-layout__password">
                 <input
                   type="password"
-                  name="password-confirm"
+                  name="passwordConfirm"
                   id="password-confirm"
                   placeholder="비밀번호를 다시 입력하세요."
-                  class="input-layout__input"
+                  class="input-layout__input input-passwordConfirm"
                 />
                 <button type="button" class="password-show">
                   <img src="./assets/images/icon/password-eye-icon.svg" alt="비밀번호 보기" />
                 </button>
+                <p class="input-error"></p>
               </div>
-              <p class="input-message">비밀번호가 다릅니다</p>
             </div>
 
             <button class="form-submit">회원가입</button>
@@ -91,5 +93,7 @@
         </div>
       </section>
     </main>
+
+    <script src="./assets/js/pages/register.js" type="module"></script>
   </body>
 </html>

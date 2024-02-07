@@ -1,24 +1,5 @@
-class FormState {
-  #state
-  constructor() {
-    this.#state = {
-      email: { result: false, value: "", message: null, type: null },
-      password: { result: false, value: "", message: null, type: null },
-    }
-  }
+import Form from "./core-form.js"
+import FormInput from "./core-input.js"
+import formState from "./core-state.js"
 
-  get getState() {
-    return { ...this.#state, email: { ...this.#state.email }, password: { ...this.#state.password } }
-  }
-
-  set setState({ result, value, message, type }) {
-    this.#state[type].type = type
-    this.#state[type].value = value
-    this.#state[type].result = result
-    this.#state[type].message = message
-  }
-}
-
-const formState = new FormState()
-
-export default formState
+export { Form, FormInput, formState }
