@@ -9,18 +9,14 @@ export default function Folder() {
       <Header />
       <main>
         <div className={styles["main-headings"]}>
-          <div className="profile">
-            <img className="profile-cover" src={AvatarImg} alt="profile" />
-            <div style={{ fontSize: "1.4rem", marginTop: "20px" }}>@코드잇</div>
-            <h2
-              style={{
-                fontSize: "2.8rem",
-                fontWeight: "bold",
-                marginTop: "20px",
-              }}
-            >
-              ⭐즐겨찾기
-            </h2>
+          <div className={styles["profile"]}>
+            <img
+              className={styles["profile-cover"]}
+              src={AvatarImg}
+              alt="profile"
+            />
+            <div className={styles["profile-author"]}>@코드잇</div>
+            <h2 className={styles["profile-title"]}>⭐즐겨찾기</h2>
           </div>
         </div>
       </main>
