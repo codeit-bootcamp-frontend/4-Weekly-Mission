@@ -11,27 +11,34 @@ const eyeOn = document.querySelector(".eye-on");
 const eyeOff_2 = document.querySelector(".eye-off-2");
 const eyeOn_2 = document.querySelector(".eye-on-2");
 const joinBtn = document.querySelector(".join-btn");
+const url = "https://bootcamp-api.codeit.kr";
 
 //에러태그를 생성하는 함수 입니다.
 function makeError(type, errorType) {
   const errorTag = document.createElement("p");
   errorTag.textContent = errorType;
-  if (type === "email") {
-    errorTag.classList.add("email-error");
-    inputEmail.after(errorTag);
-    inputEmail.classList.add("input-error");
-  } else if (type === "password") {
-    errorTag.classList.add("password-error");
-    inputPassword.after(errorTag);
-    inputPassword.classList.add("input-error");
-    eyeOff.classList.add("eye-error");
-    loginContainer.classList.add("error");
-  } else if (type === "passwordcheck") {
-    errorTag.classList.add("password-check-error");
-    inputPasswordCheck.after(errorTag);
-    inputPasswordCheck.classList.add("input-error");
-    eyeOff.classList.add("eye-error");
-    loginContainer.classList.add("error");
+  switch (type) {
+    case "email":
+      errorTag.classList.add("email-error");
+      inputEmail.after(errorTag);
+      inputEmail.classList.add("input-error");
+      break;
+    case "password":
+      errorTag.classList.add("password-error");
+      inputPassword.after(errorTag);
+      inputPassword.classList.add("input-error");
+      eyeOff.classList.add("eye-error");
+      loginContainer.classList.add("error");
+      break;
+    case "passwordcheck":
+      errorTag.classList.add("password-check-error");
+      inputPasswordCheck.after(errorTag);
+      inputPasswordCheck.classList.add("input-error");
+      eyeOff.classList.add("eye-error");
+      loginContainer.classList.add("error");
+      break;
+    default:
+      break;
   }
 }
 
@@ -112,14 +119,36 @@ function removeIfPasswordCheckError() {
   }
 }
 
-//회원가입 버튼의 이벤트를 구현한 함수입니다.
-function join() {
+//회원가입 버튼의 이벤트를 구현한 함수입니다. async await을 이용하여 구현하였습니다.
+async function join() {
   if (
-    emailValid(inputEmail.value) &&
     passwordValid(inputPassword.value) &&
     isPasswordSame(inputPassword.value, inputPasswordCheck.value)
   ) {
-    window.location.assign("./folder");
+    try {
+      const data = {
+        email: inputEmail.value,
+        password: inputPassword.value,
+      };
+
+      const response = await fetch(`${url}/api/sign-up`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      if (response.ok) {
+        const responseData = await response.json();
+        const accessToken = responseData.data.accessToken;
+        localStorage.setItem("accessToken", accessToken);
+        window.location.assign("./folder");
+      }
+    } catch (err) {
+      console.log(err);
+      removeIfEmailError();
+      addEmailError();
+    }
   } else {
     removeIfEmailError();
     removeIfPasswordError();
@@ -129,6 +158,7 @@ function join() {
     addPasswordCheckError();
   }
 }
+
 //keypress가 일어났을때 Enter키를 눌렀는지 확인하고 join()을 실행하는 함수입니다.
 function enterjoin(e) {
   if (e.key === "Enter") {
@@ -137,7 +167,7 @@ function enterjoin(e) {
   }
 }
 //눈이미지를 클릭했을때 눈의 이미지를 토글하는 함수입니다. 토글시 비밀번호의 노출여부도 바뀝니다.
-function eyeClick(e) {
+function eyeToggleForPassword(e) {
   if (e.target.parentElement === eyeOff) {
     eyeOff.classList.add("visible");
     eyeOn.classList.remove("invisible");
@@ -151,7 +181,7 @@ function eyeClick(e) {
   e.preventDefault();
 }
 //비밀번호 확인에 있는 이미지를 클릭했을때 눈의 이미지를 토글하는 함수입니다. 토글시 비밀번호의 노출여부도 바뀝니다.
-function eyeClick_2(e) {
+function eyeToggleForPasswordCheck(e) {
   if (e.target.parentElement === eyeOff_2) {
     eyeOff_2.classList.add("visible");
     eyeOn_2.classList.remove("invisible");
@@ -165,8 +195,16 @@ function eyeClick_2(e) {
   e.preventDefault();
 }
 
+//accessToken이 있는지 확인하는 함수입니다.
+function checkAccessTokenOnLoginPage() {
+  const accessToken = localStorage.getItem("accessToken");
+  if (accessToken) {
+    window.location.href = "/folder"; // accessToken이 있는 경우 "/folder" 페이지로 이동
+  }
+}
+
 //이벤트 핸들러 적용
-inputEmail.addEventListener("focusout", addEmailError);
+document.addEventListener("DOMContentLoaded", checkAccessTokenOnLoginPage);
 inputEmail.addEventListener("focusin", removeIfEmailError);
 inputPassword.addEventListener("focusout", addPasswordError);
 inputPassword.addEventListener("focusin", removeIfPasswordError);
@@ -174,7 +212,7 @@ inputPasswordCheck.addEventListener("focusout", addPasswordCheckError);
 inputPasswordCheck.addEventListener("focusin", removeIfPasswordCheckError);
 joinBtn.addEventListener("click", join);
 document.body.addEventListener("keypress", enterjoin);
-eyeOff.addEventListener("click", eyeClick);
-eyeOn.addEventListener("click", eyeClick);
-eyeOff_2.addEventListener("click", eyeClick_2);
-eyeOn_2.addEventListener("click", eyeClick_2);
+eyeOff.addEventListener("click", eyeToggleForPassword);
+eyeOn.addEventListener("click", eyeToggleForPassword);
+eyeOff_2.addEventListener("click", eyeToggleForPasswordCheck);
+eyeOn_2.addEventListener("click", eyeToggleForPasswordCheck);
