@@ -48,15 +48,23 @@ function login() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email: EMAIL.value, password: PASSWORD.value }),
-  }).then((response) => {
-    if (response.status === 200) {
+  })
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json();
+      } else {
+        addEmailErrorMsg("* 이메일을 확인해주세요.");
+        addPasswordErrorMsg("* 비밀번호를 확인해주세요.");
+      }
+    })
+    .then((result) => {
+      console.log(result);
+      const { accessToken, refreshToken } = result.data;
+      window.localStorage.setItem("accessToken", accessToken);
+      window.localStorage.setItem("refreshToken", refreshToken);
       let link = "../html/page.html";
       location.href = link;
-    } else {
-      addEmailErrorMsg("* 이메일을 확인해주세요.");
-      addPasswordErrorMsg("* 비밀번호를 확인해주세요.");
-    }
-  });
+    });
 }
 
 EMAIL.addEventListener("blur", emailText);
