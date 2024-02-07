@@ -9,8 +9,9 @@ import {
 
 const emailInput = document.querySelector("#email");
 const emailErrorMessage = document.querySelector("#email-error-message");
-emailInput.addEventListener("focusout", (event) => validateEmailInput(event.target.value));
-function validateEmailInput(email) {
+
+async function validateEmailInput(email) {
+
   if (email === "") {
     setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 입력해주세요.");
     return false;
@@ -22,20 +23,33 @@ function validateEmailInput(email) {
     );
     return false;
   }
-  if (email === TEST_USER.email) {
+
+  const response = await fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({email}),
+  });
+  
+  if(response.ok) {
+    removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
+    return true;
+  } else {
+
     setInputError(
       { input: emailInput, errorMessage: emailErrorMessage },
       "이미 사용 중인 이메일입니다."
     );
     return false;
   }
-  removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
-  return true;
 }
+
+emailInput.addEventListener("focusout", async (event) => await validateEmailInput(event.target.value));
 
 const passwordInput = document.querySelector("#password");
 const passwordErrorMessage = document.querySelector("#password-error-message");
-passwordInput.addEventListener("focusout", (event) => validatePasswordInput(event.target.value));
+
 
 function validatePasswordInput(password) {
   if (password === "" || !isPasswordValid(password)) {
@@ -49,11 +63,12 @@ function validatePasswordInput(password) {
   return true;
 }
 
+passwordInput.addEventListener("focusout", (event) => validatePasswordInput(event.target.value));
+
 const confirmPasswordInput = document.querySelector("#confirm-password");
 const confirmPasswordErrorMessage = document.querySelector("#confirm-password-error-message");
-confirmPasswordInput.addEventListener("focusout", (event) =>
-  validateConfirmPasswordInput(event.target.value)
-);
+
+
 function validateConfirmPasswordInput(confirmPassword) {
   if (confirmPassword === "" || !isPasswordValid(confirmPassword)) {
     setInputError(
@@ -73,6 +88,12 @@ function validateConfirmPasswordInput(confirmPassword) {
   return true;
 }
 
+confirmPasswordInput.addEventListener("focusout", (event) =>
+  validateConfirmPasswordInput(event.target.value)
+);
+
+
+
 const passwordToggleButton = document.querySelector("#password-toggle");
 passwordToggleButton.addEventListener("click", () =>
   togglePassword(passwordInput, passwordToggleButton)
@@ -84,15 +105,35 @@ confirmPasswordToggleButton.addEventListener("click", () =>
 );
 
 const signForm = document.querySelector("#form");
-signForm.addEventListener("submit", submitForm);
-function submitForm(event) {
+
+async function submitForm(event) {
   event.preventDefault();
 
-  const isEmailInputValid = validateEmailInput(emailInput.value);
+  const isEmailInputValid = await validateEmailInput(emailInput.value);
+
   const isPasswordInputValid = validatePasswordInput(passwordInput.value);
   const isConfirmPasswordInputValid = validateConfirmPasswordInput(confirmPasswordInput.value);
 
   if (isEmailInputValid && isPasswordInputValid && isConfirmPasswordInputValid) {
-    location.href = "./folder.html";
+    // Make a POST request to /api/sign-up
+    const signUpResponse = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: emailInput.value,
+        password: passwordInput.value,
+      }),
+    });
+
+    if (signUpResponse.ok) {
+      location.href = "./folder.html";
+    } else {
+      console.error("Failed to sign up:", signUpResponse.statusText);
+    }
   }
 }
+
+signForm.addEventListener("submit", submitForm);
+
