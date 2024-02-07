@@ -30,38 +30,21 @@ function toggleError(messageType, text) {
 }
 
 //눈모양 아이콘
-function showPassword(input, event, i) {
-  input.type = "text";
-  showPasswordButton[i].removeChild(
-    showPasswordButton[i].getElementsByTagName("img")[0]
-  );
-  const eyeonImg = document.createElement("img");
-  eyeonImg.setAttribute("src", "../public/images/signin-image/eye-on.png");
-  showPasswordButton[i].prepend(eyeonImg);
-}
 
-function hidePassword(input, event, i) {
-  input.type = "password";
-  showPasswordButton[i].removeChild(
-    showPasswordButton[i].getElementsByTagName("img")[0]
-  );
-  const eyeoffImg = document.createElement("img");
-  eyeoffImg.setAttribute("src", "../public/images/signin-image/eye-off.png");
-  showPasswordButton[i].prepend(eyeoffImg);
-}
-
-function toggleErrorVisibility(input, event, i) {
-  if (input.type == "password") {
-    showPassword(input, event, i);
-  } else {
-    hidePassword(input, event, i);
+function showHidePassword(input, eyeImgElement) {
+  const isPasswordVisible = inputElement.getAttribute("type") === "text";
+  const eyeOnImgSrc = "../public/images/signin-image/eye-on.png";
+  const eyeOffImgSrc = "../public/images/signin-image/eye-off.png";
+  //비밀번호가 보여지고 있다면
+  if (isPasswordVisible) {
+    input.type = "password";
+    eyeImgElement.setAttribute("src", eyeOffImgSrc);
+    return;
   }
+  //비밀번호가 마스킹 되어있다면
+  input.type = "text";
+  eyeImgElement.setAttribute("src", eyeOnImgSrc);
+  return;
 }
 
-export {
-  isEmailFormat,
-  isEmpty,
-  removeError,
-  toggleError,
-  toggleErrorVisibility,
-};
+export { isEmailFormat, isEmpty, removeError, toggleError, showHidePassword };

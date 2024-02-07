@@ -153,6 +153,21 @@ main {
   top: -20px;
 }
 
+.red-outline {
+  border: none;
+  outline: 1px solid var(--Linkbrary-red, #ff5b56);
+}
+
+#email-input.red-outline:focus {
+  border: none;
+  outline: 1px solid var(--Linkbrary-red, #ff5b56);
+}
+
+.pwform.red-outline:focus-within {
+  border: none;
+  outline: 1px solid var(--Linkbrary-red, #ff5b56);
+}
+
 @media (min-width: 768px) {
   main {
     margin: 238px auto 252px;
