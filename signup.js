@@ -12,17 +12,32 @@ const signupButton = document.getElementById("signup-btn");
 
 function checkEmail() {
   const email = emailInput.value;
-  //입력값 있을경우
+  // 입력값 있을경우
   if (email) {
     const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    // 이메일 형식에 적합할때
     if (emailPattern.test(email)) {
-      if (email === "test@codeit.com") {
-        emailError.textContent = "이미 사용 중인 이메일입니다.";
-        emailError.style.display = "block";
-      } else {
-        emailError.style.display = "none";
-      }
-    } else {
+      const emailData = {
+        email: emailInput.value,
+      };
+      // 서버로 중복이메일 체크
+      fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(emailData),
+      }).then((response) => {
+        if (response.status == 409) {
+          emailError.textContent = "이미 사용 중인 이메일입니다.";
+          emailError.style.display = "block";
+        } else if (response.status == 200) {
+          emailError.style.display = "none";
+        }
+      });
+    }
+    // 이메일 형식에 적합하지 않을때
+    else {
       emailError.textContent = "올바른 이메일 주소가 아닙니다.";
       emailError.style.display = "block";
     }
@@ -84,7 +99,22 @@ function checkSignup(event) {
       passwordError.style.display === "none" &&
       passwordCheckError.style.display === "none"
     ) {
-      window.location.href = "/folder.html";
+      const signupData = {
+        email: emailInput.value,
+        password: passwordInput.value,
+      };
+      // 서버로 유효한 회원가입 형식 체크
+      fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(signupData),
+      }).then((response) => {
+        if (response.status == 200) {
+          window.location.href = "/folder.html";
+        }
+      });
     }
   }
 }
