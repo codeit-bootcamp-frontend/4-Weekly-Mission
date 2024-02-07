@@ -32,7 +32,7 @@
       </div>
     </div>
 
-    <form class="sign">
+    <form class="sign" novalidate>
       <div class="w-full">
         <label class="sign-label" for="email"> 이메일</label>
         <input id="input-email" class="sign-input" name="email" type="email" />
@@ -42,13 +42,13 @@
         <label class="sign-label" for="password"> 비밀번호</label>
         <div class="p-relative">
           <input id="input-password" class="sign-input" name="password" type="password" />
-          <button id="password-eye" class="btn btn-eye" type="button">
+          <button id="password-eye" class="btn btn-eye" type="button" tabindex="-1">
             <img class="icon-eye" src="../public/icon/eye-off.svg" />
           </button>
         </div>
         <p id="error-password" class="error-message hidden">에러 메시지</p>
       </div>
-      <button class="btn btn-login btn-color-primary text-grey-light" type="button">로그인</button>
+      <button class="btn btn-login btn-color-primary text-gray-light" type="submit">로그인</button>
     </form>
 
     <div class="social-login">
@@ -58,6 +58,6 @@
         <a href="https://www.kakaocorp.com/page/"><img src="../public/icon/Kakao.svg" /></a>
       </div>
     </div>
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./app.js"></script>
   </body>
 </html>

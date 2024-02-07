@@ -4,7 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 3rem;
-  background: var(--Linkbrary-bg, #f0f6ff);
+  background: var(--bg, #f0f6ff);
   padding: 12rem 3.2rem;
 }
 

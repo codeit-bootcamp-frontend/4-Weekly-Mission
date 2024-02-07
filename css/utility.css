@@ -47,8 +47,8 @@
 
 /* btn, 폰트 색상 */
 
-.text-grey-light {
-  color: var(--Grey-Light, #f5f5f5);
+.text-gray-light {
+  color: var(--light, #f5f5f5);
 }
 
 .btn-color-primary {
