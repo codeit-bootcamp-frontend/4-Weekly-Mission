@@ -1,27 +1,75 @@
 const form = document.querySelector('.frame-input');
 const inputEmail = document.querySelector('.input-email input');
-const inputPassword = document.querySelector('.input-pw input');
-const inputPasswordCheck = document.querySelector('#check-pw input');
+const inputPassword = document.querySelector('#input-pw input');
+const inputPasswordCheck = document.querySelector('#input-pw-check input');
 const errorMsgEmail = document.querySelector('.error-email');
 const errorMsgPassword = document.querySelector('.error-pw');
 const errorMsgPasswordCheck = document.querySelector('.error-check-pw');
 const showPasswordBtn = document.querySelector('.show-pw-btn');
 const showPasswordCheckBtn = document.querySelector('.show-pw-check-btn');
 
-// 이메일 : test@codeit.com, 비밀번호 : codeit101 으로 로그인 시, '/folder' 페이지로 이동
-function checkIsUser(e) {
+async function checkEmailRequest() {
+  const url = 'https://bootcamp-api.codeit.kr/api/check-email';
+  const checkEmail = {
+    email: inputEmail.value,
+  };
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(checkEmail),
+    });
+    const responseStatus = response.status;
+    if (responseStatus == 200) {
+      alert(`사용 가능한 이메일입니다`);
+    }
+  } catch (err) {
+    alert(`이미 사용 중인 이메일입니다`);
+    console.log(err.message);
+  }
+}
+
+async function checkIsValidSignupFormRequest() {
+  const url = 'https://bootcamp-api.codeit.kr/api/sign-up';
+  const signupForm = {
+    email: inputEmail.value,
+    password: inputPassword.value,
+  };
+  try {
+    console.log(`유효성 검사중`);
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(signupForm),
+    });
+    const responseStatus = response.status;
+    if (responseStatus === 200) {
+      window.location.href = 'folder.html';
+    }
+  } catch (err) {
+    alert(`유효한 회원가입 형식이 아닙니다`);
+    console.log(err.message);
+  }
+}
+
+function checkIsValidSignupForm() {
   e.preventDefault();
 
-  if (inputEmail.value !== 'test@codeit.com') {
-    alert(`이메일을 확인해 주세요.`);
-    return;
-  }
-  if (inputPassword.value !== 'codeit101') {
-    alert(`비밀번호를 확인해 주세요.`);
-    return;
-  }
+  const exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+  const pwReg = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 
-  window.location.href = 'folder.html';
+  if (exptext.test(inputEmail.value)) {
+    if (
+      pwReg.test(inputPassword.value) &&
+      inputPassword.value === inputPasswordCheck.value
+    ) {
+      checkIsValidSignupFormRequest();
+    }
+  }
 }
 
 function showInputErrorMessage(e) {
@@ -45,6 +93,7 @@ function showInputErrorMessage(e) {
       } else if (e.target.value === 'test@codeit.com') {
         errorMsgEmail.innerText = `이미 사용 중인 이메일입니다.`;
         inputEmail.classList.add('border-red');
+        checkEmailRequest();
       } else {
         errorMsgEmail.innerText = ``;
         inputEmail.classList.remove('border-red');
@@ -63,25 +112,18 @@ function showInputErrorMessage(e) {
 }
 
 function togglePasswordVisible(e) {
-  if (e.target.classList.contains('invisible')) {
-    showPasswordBtn.src = '../images/eye-on.svg';
-    inputPassword.type = 'text';
-    e.target.classList.remove('invisible');
-  } else {
-    showPasswordBtn.src = '../images/eye-off.svg';
-    inputPassword.type = 'password';
-    e.target.classList.add('invisible');
-  }
-}
+  const eventTargetFormId = e.target.parentElement.id;
+  const eventTargetInput = document.querySelector(
+    `#${eventTargetFormId} input`
+  );
 
-function togglePasswordCheckVisible(e) {
   if (e.target.classList.contains('invisible')) {
-    showPasswordCheckBtn.src = '../images/eye-on.svg';
-    inputPasswordCheck.type = 'text';
+    e.target.src = '../images/eye-on.svg';
+    eventTargetInput.type = 'text';
     e.target.classList.remove('invisible');
   } else {
-    showPasswordCheckBtn.src = '../images/eye-off.svg';
-    inputPasswordCheck.type = 'password';
+    e.target.src = '../images/eye-off.svg';
+    eventTargetInput.type = 'password';
     e.target.classList.add('invisible');
   }
 }
@@ -98,7 +140,7 @@ function checkPassword(e) {
 
 inputEmail.addEventListener('focusout', showInputErrorMessage);
 inputPassword.addEventListener('focusout', showInputErrorMessage);
-form.addEventListener('submit', checkIsUser);
+form.addEventListener('submit', checkIsValidSignupForm);
 showPasswordBtn.addEventListener('click', togglePasswordVisible);
-showPasswordCheckBtn.addEventListener('click', togglePasswordCheckVisible);
+showPasswordCheckBtn.addEventListener('click', togglePasswordVisible);
 inputPasswordCheck.addEventListener('focusout', checkPassword);
