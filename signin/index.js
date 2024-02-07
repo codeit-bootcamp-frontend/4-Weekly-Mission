@@ -1,96 +1,68 @@
+import { errorElement } from "../src/element.js";
+import { staticName, errorMessage } from "../src/static.js";
 import {
-  Error,
-  resetErrorElement,
-  errorBorder,
-  removeBorder
-} from "../src/element.js";
+  handleFocusIn,
+  handleFocusOutForEmail,
+  notInput,
+  togglePassword,
+  hasTokenInStorage
+} from "../src/eventHandler.js"; // 공통 핸들러 호출
+import { requestLogin } from "../src/api/request.js";
+import { urls } from "../src/api/url.js";
 
-const error = new Error(true);
-
-let email = document.querySelector(".input-email");
-let password = document.querySelector(".input-password");
-let loginButton = document.querySelector(".button-login");
-let passwordIcon = document.querySelector(".password-icon");
-
-function noInputFocusOut(element, parentElementSlectorName, inputSlectorName, errorSentence) {
-  error.removeErrorElement(parentElementSlectorName);
-  removeBorder(inputSlectorName);
-
-  if (element.value.trim() === "") {
-    error.createErrorSpanElement(parentElementSlectorName);
-    errorBorder(inputSlectorName)
-    error.errorMessageInElement(parentElementSlectorName, errorSentence);
-  }
-}
-
-function notValidEmailInput() {
-  let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (email.value === "") {
-    return;
-  }
-
-  error.removeErrorElement(".input-form-email");
-  removeBorder(".input-email");
-  
-  if (emailRegex.test(email.value)) {
-    return
-  } else {
-    error.createErrorSpanElement(".input-form-email");
-    errorBorder(".input-email");
-    error.errorMessageInElement(".input-form-email", "올바른 이메일 주소가 아닙니다");
-  }
-}
-
-function focusIn(parentElementSlectorName, inputSlectorName) {
-  removeBorder(inputSlectorName);
-  resetErrorElement(parentElementSlectorName)
-}
-
-function pressEnterForFolderPage(e) {
+// 키보드 이벤트 : 엔터를 누르면, 로그인을 시도한다.
+function pressEnterForsignin(e, emailElement, passwordElement, signinUrl) {
   if (e.key === "Enter") {
-    folderPage();
+    signinCheck(emailElement, passwordElement, signinUrl);
   }
 }
 
-function folderPage() {
-  let folderEmail = "test@codeit.com";
-  let folderPassword = "codeit101";
-
-  if (email.value === folderEmail && password.value === folderPassword) {
+// 클릭 이벤트: 로그인을 시도한다.
+async function signinCheck(emailElement, passwordElement, signinUrl) {
+  try {
+    await requestLogin(emailElement, passwordElement, signinUrl);
     window.location.replace("../folder");
-  } else {
+  } catch {
     loginFail();
   }
 }
 
 function loginFail() {
-  error.removeErrorElement(".input-form-email");
-  error.createErrorSpanElement(".input-form-email");
-  errorBorder(".input-email");
-  error.errorMessageInElement(".input-form-email", "이메일을 확인해 주세요");
+  errorElement.removeErrorElement(staticName.parentElementSeletor.email);
+  errorElement.removeErrorBorder(staticName.elementSeletor.email);
+  errorElement.createErrorSpanElement(staticName.parentElementSeletor.email);
+  errorElement.errorBorder(staticName.elementSeletor.email);
+  errorElement.errorMessageInElement(staticName.parentElementSeletor.email, errorMessage.loginFail.email);
 
-  error.removeErrorElement(".input-form-password");
-  error.createErrorSpanElement(".input-form-password");
-  errorBorder(".input-password");
-  error.errorMessageInElement(".input-form-password", "비밀번호를 확인해 주세요");
+  errorElement.removeErrorElement(staticName.parentElementSeletor.password);
+  errorElement.removeErrorBorder(staticName.elementSeletor.password);
+  errorElement.createErrorSpanElement(staticName.parentElementSeletor.password);
+  errorElement.errorBorder(staticName.elementSeletor.password);
+  errorElement.errorMessageInElement(staticName.parentElementSeletor.password, errorMessage.loginFail.password);
 }
 
-function togglePassword() {
-  if (password.type === "password") {
-    password.type = "text";
-    passwordIcon.setAttribute("src", "../Publics/sign/eye-off.svg");
-  } else {
-    password.type = "password";
-    passwordIcon.setAttribute("src", "../Publics/sign/eye-on.svg");
-  }
-}
+// 선언을 아래에서 한다: 전역 객체를 함수에서 접근하지 않는다.
+const email = document.querySelector(staticName.elementSeletor.email);
+const password = document.querySelector(staticName.elementSeletor.password);
+const loginButton = document.querySelector(staticName.buttonSelector.signin);
+const passwordIcon = document.querySelector(staticName.iconSelector.password);
 
-email.addEventListener("focusout", () => noInputFocusOut(email, ".input-form-email", ".input-email", "이메일을 입력해 주세요"));
-password.addEventListener("focusout", () => noInputFocusOut(password, ".input-form-password", ".input-password", "비밀번호를 입력해 주세요"));
-email.addEventListener("input", notValidEmailInput);
-email.addEventListener("focusin", () => focusIn(".input-form-email", ".input-email"));
-password.addEventListener("focusin", () => focusIn(".input-form-password", ".input-password"));
-loginButton.addEventListener("click", folderPage);
-password.addEventListener("keydown", pressEnterForFolderPage);
-passwordIcon.addEventListener("click", togglePassword);
+email.addEventListener("focusout", () => handleFocusOutForEmail(
+  email,
+  staticName.elementSeletor.email,
+  staticName.parentElementSeletor.email,
+  errorMessage.isEmpty.email,
+  errorMessage.notCorrectFormat.email
+));
+password.addEventListener("focusout", () => notInput(
+  password, 
+  staticName.elementSeletor.password, 
+  staticName.parentElementSeletor.password, 
+  errorMessage.isEmpty.password
+));
+email.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.email));
+password.addEventListener("focusin", () => handleFocusIn(staticName.parentElementSeletor.password));
+loginButton.addEventListener("click", () => signinCheck(email, password, urls.signin));
+password.addEventListener("keydown", (e) => pressEnterForsignin(e, email, password, urls.signin));
+passwordIcon.addEventListener("click", () => togglePassword(password, passwordIcon));
+document.addEventListener('DOMContentLoaded', hasTokenInStorage);
