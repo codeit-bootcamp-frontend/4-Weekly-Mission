@@ -29,12 +29,32 @@ function setPwError() {
 function testUser(event) {
   event.preventDefault();
 
-  if(emailInput.value === "test@codeit.com" && pwInput.value === "codeit101"){
-    location.href = "index.html"
-  } else {
-    emailErrorMessage.textContent = '이메일을 확인해 주세요'
-    pwErrorMessage.textContent = '비밀번호를 확인해 주세요'
-  }
+  fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json"
+    },
+    body: JSON.stringify({
+      email: emailInput.value,
+      password: pwInput.value
+    }),
+  })
+
+  .then((response) => {
+    if(response.status === 200){
+      return response.json();
+    } else {
+      throw new Error("이메일 또는 비밀번호를 확인해 주세요")
+    }
+  })
+  .then((data) => {
+    const accessToken = data.accessToken;
+    localStorage.setItem("accessToken", accessToken);
+    window.location.href = "/index.html";
+  })
+  .catch((error) => {
+    emailErrorMessage.textContent = error.message;
+  });
 }
 
 
