@@ -3,7 +3,6 @@
 *********************/
 
 import {
-  user,
   isEmpty,
   isEmailValid,
   isPasswordValid,
@@ -11,8 +10,22 @@ import {
   hideErorrMessage,
   changePlaceholderFocusIn,
   changePlaceholderFocusOut,
-  togglePasswordVisibility,
+  toggleInputVisibility,
 } from "../scripts/utils.js";
+
+/*********************
+        IIFE
+*********************/
+
+// 로컬 스토리지에 'accessToken' 이 존재하면 folder 파일로 이동하는게 과제 조건이어서 구현했습니다.
+// 혹시 앞으로의 코드 리뷰에 도움이 되실까 해서 코드잇 API 문서 페이지 주소 남기겠습니다.
+// https://bootcamp-api.codeit.kr/docs
+(function () {
+  const myAccessToken = window.localStorage.getItem('accessToken');
+  if (myAccessToken) {
+    location.href = '../folder/index.html';
+  };
+})()
 
 /*********************
       UI Constant
@@ -26,27 +39,33 @@ const inputPassword = document.querySelector('#signin-password');
 const errorMessageEmail = document.querySelector('.errorMessage-email');
 const errorMessagePassword = document.querySelector('.errorMessage-password');
 
+const showButtonPassword = document.querySelector('.eye-img-password');
+
 /*********************
        Function
 *********************/
 
-function verifyAccount(email, password) { 
-  if ( email !== user.email ) {
-    return false
+// 입력한 이메일, 비밀번호에 대한 계정이 존재하면 accessToken 을 로컬 스토리지에 저장하고 true 를 반환.
+async function isUserExistence(email, password) { 
+  const url = 'https://bootcamp-api.codeit.kr/api/sign-in';
+  const data = {"email": email, "password": password};
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (response.ok) {
+    const json = await response.json();
+    window.localStorage.setItem("accessToken", json.data.accessToken);
   }
-
-  if ( password !== user.password) {
-    return false
-  }
-
-  return true;
+  return response.ok;
 };
 
 /*********************
-    Event Function
+     EventHandler
 *********************/
 
-function emailError() {
+function validateEmailInput() {
   if (isEmpty(inputEmail.value)) {
     showErrorMessage(errorMessageEmail, '이메일을 입력해 주세요.');
     inputEmail.classList.add('red-border');
@@ -60,14 +79,14 @@ function emailError() {
   }
 };
 
-function passwordError() {
+function validatePasswordInput() {
   if (isEmpty(inputPassword.value)) {
     showErrorMessage(errorMessagePassword, '비밀번호를 입력해 주세요.')
     inputPassword.classList.add('red-border')
   };
 };
 
-function deleteError(e) {
+function deleteErrorMessage(e) {
   if (e.target === inputEmail) {
     hideErorrMessage(errorMessageEmail);
     inputEmail.classList.remove('red-border');
@@ -79,7 +98,11 @@ function deleteError(e) {
   };
 };
 
-function login(e) {
+function togglePasswordVisibility() {
+  toggleInputVisibility(inputPassword, showButtonPassword);
+}
+
+async function login(e) {
   e.preventDefault();
 
   if (!isEmailValid(inputEmail.value)) {
@@ -98,27 +121,32 @@ function login(e) {
     return;
   }
 
-  if (!verifyAccount(inputEmail.value, inputPassword.value)) {
-    showErrorMessage(errorMessageEmail, '이메일을 확인해 주세요.');
-    inputEmail.classList.add('red-border');
-    showErrorMessage(errorMessagePassword, '비밀번호를 확인해 주세요.');
-    inputPassword.classList.add('red-border');
+  try {
+    if (await !isUserExistence(inputEmail.value, inputPassword.value)) {
+      showErrorMessage(errorMessageEmail, '이메일을 확인해 주세요.');
+      inputEmail.classList.add('red-border');
+      showErrorMessage(errorMessagePassword, '비밀번호를 확인해 주세요.');
+      inputPassword.classList.add('red-border');
+      return;
+    };
+  } catch {
+    alert('서버 접근 중 문제가 발생하였습니다.');
     return;
-  };
+  }
 
-  return location.href = '../folder/index.html';
+  // return location.href = '../folder/index.html';
 };
 
 /*********************
-      EventHandler
+ EventHandler Binding
 *********************/
 
 signInForm.addEventListener('focusin', changePlaceholderFocusIn);
 signInForm.addEventListener('focusout', changePlaceholderFocusOut);
 signInForm.addEventListener('submit', login);
-signInForm.addEventListener('focusin', deleteError);
-signInForm.addEventListener('click', togglePasswordVisibility)
+signInForm.addEventListener('focusin', deleteErrorMessage);
 
-inputEmail.addEventListener('focusout', emailError);
+inputEmail.addEventListener('focusout', validateEmailInput);
+inputPassword.addEventListener('focusout', validatePasswordInput);
 
-inputPassword.addEventListener('focusout', passwordError);
+showButtonPassword.addEventListener('click', togglePasswordVisibility);

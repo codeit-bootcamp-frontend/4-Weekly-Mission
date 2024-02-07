@@ -1,17 +1,4 @@
 /*********************
-        Account
-*********************/
-
-class User {
-  constructor(email, password) {
-    this.email = email;
-    this.password = password;
-  }
-}
-
-const user = new User('test@codeit.com', 'codeit101')
-
-/*********************
   Validation Function
 *********************/
 
@@ -28,7 +15,7 @@ function isPasswordValid(text) {
 };
 
 /*********************
-    Utility Function
+   Utility Function
 *********************/
 
 function showErrorMessage(targetElement, errorMessage) {
@@ -48,19 +35,18 @@ function changePlaceholderFocusOut(e) {
   e.target.setAttribute('placeholder', '내용 입력');
 };
 
-// 이벤트 위임을 사용하면 불가피하게 'firstElementChild'와 같은 상대적 노드 주소를 쓰게되는데, 아래의 사용과 같은 경우에도 너무 위험한 코드인 걸까요? 아예 상대주소는 피하는 방향으로 가는게 맞을지 궁금합니다.
-function togglePasswordVisibility( { target: eyeImg } ) {
-  if (eyeImg.classList.contains('eye-open')) {
-    eyeImg.classList.toggle('eye-open');
-    eyeImg.classList.toggle('eye-closed'); 
-    eyeImg.parentElement.firstElementChild.setAttribute('type', 'password');
+function toggleInputVisibility(inputElement, showButton) {
+  if (showButton.classList.contains('eye-open')) {
+    showButton.classList.toggle('eye-open');
+    showButton.classList.toggle('eye-closed'); 
+    inputElement.setAttribute('type', 'password');
     return;
   }
 
-  if (eyeImg.classList.contains('eye-closed')) {
-    eyeImg.classList.toggle('eye-open');
-    eyeImg.classList.toggle('eye-closed'); 
-    eyeImg.parentElement.firstElementChild.setAttribute('type', 'text');
+  if (showButton.classList.contains('eye-closed')) {
+    showButton.classList.toggle('eye-open');
+    showButton.classList.toggle('eye-closed'); 
+    inputElement.setAttribute('type', 'text');
     return;
   };
 };
@@ -70,8 +56,6 @@ function togglePasswordVisibility( { target: eyeImg } ) {
 *********************/
 
 export {
-  User,
-  user,
   isEmpty,
   isEmailValid,
   isPasswordValid,
@@ -79,5 +63,5 @@ export {
   hideErorrMessage,
   changePlaceholderFocusIn,
   changePlaceholderFocusOut,
-  togglePasswordVisibility,
+  toggleInputVisibility,
 };

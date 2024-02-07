@@ -65,7 +65,7 @@ body {
   outline: none;
 }
 
-.eye-img {  
+:is(.eye-img-password, .eye-img-password-check) {  
   position: absolute;
   top: 48px;
   right: 16px;
