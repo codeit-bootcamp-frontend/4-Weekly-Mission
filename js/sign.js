@@ -1,3 +1,5 @@
+import { ERROR_MESSAGE } from './constants/message.js';
+
 const signInput = document.querySelector('.sign-input');
 const inputError = document.querySelector('.input-error');
 const inputPassword = document.querySelector('#password-input');
@@ -17,7 +19,7 @@ const validateEmail = (e, inputValue, inputError) => {
   // 이메일 형식이 맞지 않는 경우
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!re.test(inputValue)) {
-    inputError.textContent = '올바른 이메일 주소가 아닙니다.';
+    inputError.textContent = ERROR_MESSAGE.invalidEmail;
     e.target.classList.add('error');
   }
 };
@@ -36,6 +38,7 @@ const inputErrorMessagePass = e => {
 };
 
 const inputText = e => {
+  console.log(ERROR_MESSAGE.emptyEmail);
   const inputValue = e.target.value;
   if (e.keyCode !== 13) {
     if (inputValue) {
@@ -46,8 +49,8 @@ const inputText = e => {
 };
 
 const userCheck = () => {
-  if (signInput.value !== 'test@codeit.com') {
-    inputError.textContent = '이메일을 확인해 주세요.';
+  if (signInput.value !== ) {
+    inputError.textContent = ERROR_MESSAGE.invalidEmail;
     signInput.classList.add('error');
   } else {
     inputError.textContent = '';

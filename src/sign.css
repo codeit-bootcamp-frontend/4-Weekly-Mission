@@ -101,25 +101,30 @@ header {
 .sign-input:focus {
   border-color: var(--primary);
 }
-.sign-input.error{
-  border-color: var(--red);
 
+.sign-input.sign-input-error {
+  border-color: var(--red);
 }
 
-.sign-input.error:focus{
+.sign-input.sign-input-error:focus {
   border-color: var(--red);
-  
 }
 
-.input-error {
+.error-message {
+  display: none;
+  margin-top: -0.4rem;
   font-size: 1.4rem;
-  color:var(--red);
+  font-weight: 400;
+  color: var(--red);
 }
 
+.error-message.error-message-on {
+  display: inline-block;
+}
 
 .eye-button {
   position: absolute;
-  top: 5rem;
+  top: 5.1rem;
   right: 1.5rem;
   width: 1.6rem;
   height: 1.6rem;
