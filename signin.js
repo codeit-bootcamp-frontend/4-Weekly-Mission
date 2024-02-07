@@ -1,5 +1,5 @@
-import * as signJs from "./sign.js";
-
+import { isValidEmail, alreadyLogin } from "./sign.js";
+import { ErrorMessage } from "./constant.js";
 
 const myInputEmail = document.querySelector('.input-email');
 const myInputPassword = document.querySelector('.input-password');
@@ -19,51 +19,94 @@ const removeClassError = (errorMessage, currentClass) => {
   currentClass.classList.remove('error');
 };
 
-myInputEmail.addEventListener('focusout', function() {
-  if (myInputEmail.value === '') {
-    addClassError(errorMessageId, myInputEmail, signJs.ErrorMessage.NoInputId);
-  } else if (!signJs.isValidEmail(myInputEmail.value)) {
-    addClassError(errorMessageId, myInputEmail, signJs.ErrorMessage.InvalidId);
-  } else {
-    removeClassError(errorMessageId, myInputEmail);
-  }
-});
+document.addEventListener('DOMContentLoaded', alreadyLogin);
 
-myInputPassword.addEventListener('focusout', function() {
-  if (myInputPassword.value === '') {
-    addClassError(errorMessagePw, myInputPassword, signJs.ErrorMessage.NoInputPassword);
-  } else {
-    removeClassError(errorMessagePw, myInputPassword);
-  }
-});
-
-login.addEventListener('click', function() { 
-  const answerEmail = 'test@codeit.com';
-  const answerPassword = 'codeit101';
-  if (myInputEmail.value === answerEmail && myInputPassword.value == answerPassword) {
-    window.location.href = '/folder';
-  } else {
-    addClassError(errorMessageId, myInputEmail, signJs.ErrorMessage.WrongId);
-    addClassError(errorMessagePw, myInputPassword, signJs.ErrorMessage.WrongPassword);
-  }
-});
-
-// 검색하여 form 제출 시 페이지 새로고침되지 않게 함.
-document.querySelector('.sign-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-});
-
-toggleButtonPw.addEventListener('click', function() {
-  if (myInputPassword.type === 'password') {
-    myInputPassword.type = 'text';
+function toggleEyeImage() {
+  if (myInputPassword.type === 'text') {
+    myInputPassword.type = 'password';
     eyeOn.style.display = 'none';
     eyeOff.style.display = 'block';
   } else {
-    myInputPassword.type = 'password';
+    myInputPassword.type = 'text';
     eyeOn.style.display = 'block';
     eyeOff.style.display = 'none';
   }
+}
+
+function passwordInputCheckSignIn() {
+  if (myInputPassword.value === '') {
+    addClassError(errorMessagePw, myInputPassword, ErrorMessage.NoInputPassword);
+  } else {
+    removeClassError(errorMessagePw, myInputPassword);
+  }
+}
+
+function emailInputCheck() {
+  if (myInputEmail.value === '') {
+    addClassError(errorMessageId, myInputEmail, ErrorMessage.NoInputId);
+  } else if (!isValidEmail(myInputEmail.value)) {
+    addClassError(errorMessageId, myInputEmail, ErrorMessage.InvalidId);
+  } else {
+    removeClassError(errorMessageId, myInputEmail);
+  }
+}
+
+function signIn() {
+  const answerEmail = 'test@codeit.com';
+  const answerPassword = 'sprint101';
+
+  const data = {
+    email: answerEmail,
+    password: answerPassword
+  };
+
+  const inputData = {
+    email: myInputEmail.value,
+    password: myInputPassword.value
+  };
+
+  fetch('https://bootcamp-api.codeit.kr/api/sign-in', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then((response) => {
+    if (response.status === 200) {
+      return response.json();
+    }
+  })
+  .then((responseData) => {
+    console.log('서버 응답 데이터:', responseData);
+
+    // 서버 응답 데이터와 입력된 데이터 비교
+    if (data.email === inputData.email && data.password === inputData.password) {
+      localStorage.setItem("access-token", responseData.data.accessToken);
+      window.location.href = '/folder';
+    } else {
+      addClassError(errorMessageId, myInputEmail, ErrorMessage.WrongId);
+      addClassError(errorMessagePw, myInputPassword, ErrorMessage.WrongPassword);
+      console.log('여기서도 실행중');
+    }
+  })
+  .catch(error => {
+    console.error('요청 실패:', error);
+  });
+}
+
+myInputEmail.addEventListener('focusout', emailInputCheck);
+myInputPassword.addEventListener('focusout', passwordInputCheckSignIn);
+
+// 검색하여 form 제출 시 페이지 새로고침되지 않게 함.
+/*
+document.querySelector('.sign-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  signIn()
 });
+*/
+
+toggleButtonPw.addEventListener('click', toggleEyeImage);
 
 export { 
   myInputEmail, 
@@ -76,4 +119,6 @@ export {
   eyeOn,
   addClassError,
   removeClassError,
+  emailInputCheck,
+  toggleEyeImage,
 };

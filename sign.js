@@ -1,13 +1,5 @@
-export const ErrorMessage = {
-  NoInputId: "이메일 주소를 입력해 주세요.",
-  NoInputPassword: "비밀번호를 입력해 주세요.",
-  InvalidId: "올바른 이메일 주소가 아닙니다.",
-  InvalidPassword: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.",
-  WrongId: "이메일을 확인해 주세요.",
-  WrongPassword: "비밀번호를 확인해 주세요.",
-  UnmatchedPassword: "비밀번호가 일치하지 않습니다.",
-  CantUseId: "이미 사용 중인 이메일입니다.",
-};
+//  함수를 따로 공통화하는 것이 편하다..
+
 
 export const isValidEmail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -15,6 +7,27 @@ export const isValidEmail = (email) => {
 };
 
 export const isValidPassword = (password) => {
-  const passwordRegex = /^[A-Za-z0-9][A-Za-z0-9]*$/;
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]*$/;
   return passwordRegex.test(password);
 };
+
+export function alreadyLogin() {
+  const accessToken = localStorage.getItem('access-token');
+  if (accessToken) {
+    window.location.href = '/folder';
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
