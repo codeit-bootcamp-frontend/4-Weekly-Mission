@@ -11,6 +11,13 @@ input{
 }
 
 
+button{
+    outline: none;
+    border: none;
+    padding : 5px;
+    background-color: transparent;
+}
+
 .fullLayout-screen{
     min-height: 100vh;
     width: 100%;
@@ -51,11 +58,7 @@ input{
 .user-input__box.password{
 
     margin-bottom: 1.5rem;
-
- 
 }
-
-
 
 .user-input__box > label{
     display: block;
@@ -87,24 +90,6 @@ input{
 }
 
 
-.error-message.active{
-    animation: transcolor .5s linear;
-}
-
-@keyframes transcolor{
-    0%{
-        color : transparent;
-    }
-    20%{
-        color:var(--clr-rd);
-    }
-    40%{
-        color: transparent;
-    }
-    60%{
-        color:var(--clr-rd);
-    }
-}
 
 
 .input-wrap input:focus{
@@ -120,7 +105,13 @@ input{
     display: inline-flex;
     justify-content: center;
     align-items: center;
-
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    right:5%;
+    cursor: pointer;
+   
+}
 
 
 #submit-btn{

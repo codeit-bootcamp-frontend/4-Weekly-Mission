@@ -14,8 +14,6 @@
                 <a href="./index.html" id="logo">
                     <img src="./img/logo.svg" alt="Linkbrary로고이미지">
 
-
-
                 </a>
                 <p class="message">이미 회원이신가요? <a href="./signin.html">로그인 하기</a></p>
             </div>
@@ -24,10 +22,10 @@
                     <div class="user-input__box email">
                         <label for="email">이메일</label>
                         <p class="input-wrap">
-                            <input type="email" placeholder="이메일을 입력해주세요" id="email" data-value="이메일">
+
+                            <input type="email" placeholder="이메일을 입력해주세요" id="email">
                             
                         </p>
-
                         <p class="error-message" data-about="email"></p>
 
                     </div>
@@ -35,11 +33,11 @@
                         <label for="password">비밀번호</label>
                         <p class="input-wrap">
 
-                            <input type="password" placeholder="비밀번호를 입력해주세요" id="password" data-value="비밀번호">
-                            <span class="show-password">
-                                <img class="hidden" src="./img/eye-off.svg" alt="비밀번호보기 아이콘">
+                            <input type="password" placeholder="비밀번호를 입력해주세요" id="password">
+                            <button class="show-password" type="button" data-inputNum = '1'>
+                                <img  src="./img/eye-off.svg" alt="비밀번호보기 아이콘">
+                            </button>
 
-                            </span>
                         </p>
                         <p class="error-message" data-about="password"></p>
                     </div>
@@ -47,11 +45,11 @@
                         <label for="password">비밀번호 확인</label>
                         <p class="input-wrap">
 
-                            <input type="password" placeholder="비밀번호를 입력해주세요" id="password-check"  data-value="비밀번호 확인">
-                            <span class="show-password">
-                                <img class="hidden" src="./img/eye-off.svg" alt="">
+                            <input type="password" placeholder="비밀번호를 입력해주세요" id="password-check" >
+                            <button class="show-password" type="button" data-inputNum = '3'>
+                                <img  src="./img/eye-off.svg" alt="">
+                            </button>
 
-                            </span>
                         </p>
                         <p class="error-message" data-about="password-check"></p>
                     </div>
@@ -66,15 +64,12 @@
 
                             <img src="./img/google-logo.png" alt="구글 로고">
 
-
-
                         </span>
                     </a>
                     <a href="https://www.kakaocorp.com/page/" target="_blank">
                         <span class="social-icon kakao">
 
                             <img src="./img/kakao.png" alt="카카오 로고">
-
 
                         </span>
                     </a>
