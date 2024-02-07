@@ -1,105 +1,97 @@
-const SIGN_INPUT_ERROR_CLASSNAME = "signInputError";
-const ERROR_MESSAGE_CLASSNAME = "errorMessageOn";
-const EMAIL_REGEX = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+const signupEmail = document.getElementById("email");
+const errEmail = document.getElementById("emailErrorMessage");
+const emailRegex = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/;
 
-export function setInputError(elements, message) {
-  elements.input.className += ` ${SIGN_INPUT_ERROR_CLASSNAME}`;
-  elements.errorMessage.className += ` ${ERROR_MESSAGE_CLASSNAME}`;
-  elements.errorMessage.textContent = message;
-}
-
-export function removeInputError(elements) {
-  elements.input.classList.remove(SIGN_INPUT_ERROR_CLASSNAME);
-  elements.errorMessage.classList.remove(ERROR_MESSAGE_CLASSNAME);
-  elements.errorMessage.textContent = "";
-}
-
-export function isEmailValid(email) {
-  return new RegExp(EMAIL_REGEX).test(email);
-}
-
-export function togglePassword(input, toggleButton) {
-  if (input.getAttribute("type") === "password") {
-    input.setAttribute("type", "text");
-    toggleButton.getElementsByTagName("img")[0].setAttribute("src", "./images/eye-on.svg");
-    return;
+signupEmail.addEventListener("focusout", function () {
+  if (!signupEmail.value) {
+    // 빈칸일 때
+    errEmail.style.display = "block";
+    errEmail.innerText = "이메일을 입력해주세요.";
+    signupEmail.style.borderColor = "var(--red)";
+  } else if (!emailRegex.test(signupEmail.value)) {
+    // 이메일 형식 오류일 때
+    errEmail.style.display = "block";
+    errEmail.innerText = "올바른 이메일 주소가 아닙니다.";
+    signupEmail.style.borderColor = "var(--red)";
+  } else if (signupEmail.value === "test@codeit.com") {
+    errEmail.style.display = "block";
+    errEmail.innerText = "이미 사용중인 이메일입니다.";
+    signupEmail.style.borderColor = "var(--red)";
+  } else {
+    errEmail.style.display = "none";
+    signupEmail.style.borderColor = "var(--gray-20)";
   }
-  input.setAttribute("type", "password");
-  toggleButton.getElementsByTagName("img")[0].setAttribute("src", "./images/eye-off.svg");
+});
+
+const signupPassword = document.getElementById("password");
+const errPassword = document.getElementById("passwordErrorMessage");
+const pwdRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
+
+signupPassword.addEventListener("focusout", function () {
+  if (!signupPassword.value) {
+    // 빈칸일 때
+    errPassword.style.display = "block";
+    errPassword.innerText = "비밀번호를 입력해주세요.";
+    signupPassword.style.borderColor = "var(--red)";
+  } else if (!pwdRegex.test(signupPassword.value)) {
+    //8글자 미만 or 문자열만 있거나 숫자만 있는 경우
+    errPassword.style.display = "block";
+    errPassword.innerText =
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
+    signupPassword.style.borderColor = "var(--red)";
+  } else {
+    errPassword.style.display = "none";
+    signupPassword.style.borderColor = "var(--gray-20)";
+  }
+});
+
+const signupRepassword = document.getElementById("passwordValidation");
+const errRepassword = document.getElementById("passwordValidationErrorMessage");
+
+signupRepassword.addEventListener("focusout", function () {
+  if (!signupRepassword.value) {
+    // 빈칸일 때
+    errRepassword.style.display = "block";
+    errRepassword.innerText = "비밀번호를 입력해주세요.";
+    signupRepassword.style.borderColor = "var(--red)";
+  } else if (!pwdRegex.test(signupRepassword.value)) {
+    //8글자 미만 or 문자열만 있거나 숫자만 있는 경우
+    errRepassword.style.display = "block";
+    errRepassword.innerText =
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
+    signupRepassword.style.borderColor = "var(--red)";
+  } else if (signupPassword.value !== signupRepassword.value) {
+    //비밀번호가 일치하지 않을 때
+    errRepassword.style.display = "block";
+    errRepassword.innerText = "비밀번호가 일치하지 않아요.";
+    signupRepassword.style.borderColor = "var(--red)";
+  } else {
+    errRepassword.style.display = "none";
+    signupRepassword.style.borderColor = "var(--gray-20)";
+  }
+});
+
+function submit() {
+  // e.preventDefault();
+  if (
+    errEmail.style.display == "none" &&
+    errPassword.style.display == "none" &&
+    errRepassword.style.display == "none"
+  ) {
+    alert("회원가입 성공");
+    const link = "folder.html";
+    window.location.href = link;
+  }
 }
 
-export const TEST_USER = {
-  email: "test@codeit.com",
-  password: "codeit101",
-};
+const button = document.getElementById("signupBtn");
+button.addEventListener("click", submit);
 
-const emailInput = document.querySelector("#email");
-const emailErrorMessage = document.querySelector("#emailErrorMessage");
-emailInput.addEventListener("focusout", (event) => validateEmailInput(event.target.value));
-function validateEmailInput(email) {
-  if (email === "") {
-    setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 입력해주세요.");
-    return;
-  }
-  if (!isEmailValid(email)) {
-    setInputError(
-      { input: emailInput, errorMessage: emailErrorMessage },
-      "올바른 이메일 주소가 아닙니다."
-    );
-    return;
-  }
-  removeInputError({ input: emailInput, errorMessage: emailErrorMessage });
-}
-
-const passwordInput = document.querySelector("#password");
-const passwordErrorMessage = document.querySelector("#passwordErrorMessage");
-passwordInput.addEventListener("focusout", (event) => validatePasswordInput(event.target.value));
-function validatePasswordInput(password) {
-  if (password === "") {
-    setInputError(
-      { input: passwordInput, errorMessage: passwordErrorMessage },
-      "비밀번호를 입력해주세요."
-    );
-    return;
-  }
-  removeInputError({ input: passwordInput, errorMessage: passwordErrorMessage });
-}
-
-const passwordValidationInput = document.querySelector("#passwordValidation");
-const passwordValidationErrorMessage = document.querySelector("#passwordValidationErrorMessage");
-passwordValidationInput.addEventListener("focusout", (event) => validatePasswordInput(event.target.value));
-function validatePasswordInput(password) {
-  if (password === passwordInput) {
-    setInputError(
-      { input: passwordValidationInput, errorMessage: passwordValidationErrorMessage },
-      "비밀번호가 일치하지 않아요."
-    );
-    return;
-  }
-  removeInputError({ input: passwordValidationInput, errorMessage: passwordValidationErrorMessage });
-}
-
-const passwordToggleButton = document.querySelector("#passwordToggle");
-passwordToggleButton.addEventListener("click", () =>
-  togglePassword(passwordInput, passwordToggleButton)
-);
-
-const signForm = document.querySelector("#form");
-signForm.addEventListener("submit", submitForm);
-function submitForm(event) {
-  event.preventDefault();
-
-  const isTestUser =
-    emailInput.value === TEST_USER.email && passwordInput.value === TEST_USER.password;
-
-  if (isTestUser) {
-    location.href = "/folder";
-    return;
-  }
-  setInputError({ input: emailInput, errorMessage: emailErrorMessage }, "이메일을 확인해주세요.");
-  setInputError(
-    { input: passwordInput, errorMessage: passwordErrorMessage },
-    "비밀번호를 확인해주세요."
-  );
-}
-
+// 키보드 엔터로 제출--안 먹어요..
+document
+  .getElementById("form")
+  .addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+      submit();
+    }
+  });

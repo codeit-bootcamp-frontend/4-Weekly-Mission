@@ -39,7 +39,7 @@
           </button>
         </div>
         <div class="signInputBox signPassword">
-          <label class="signInputLabel">비밀번호 확인</label>
+          <label class="signInputAgainLabel">비밀번호 확인</label>
           <input id="passwordValidation" class="signInput" type="password" />
           <p id="passwordValidationErrorMessage" class="errorMessage"></p>
           <button id="passwordToggle" class="eyeButton" type="button">
@@ -47,7 +47,7 @@
           </button>
         </div>
       </div>
-      <button class="cta" type="submit">회원가입</button>
+      <button id="signupBtn" class="cta" type="submit">회원가입</button>
     </form>
     <div class="snsBox">
       <span class="snsText">다른 방식으로 가입하기</span>
@@ -61,6 +61,7 @@
       </div>
     </div>
   </div>
-  <script type="module" src="./src/signin.js"></script>
+  <script type="module" src="./src/common.js"></script>
+  <script type="module" src="./src/signup.js"></script>
 </body>
 </html>
