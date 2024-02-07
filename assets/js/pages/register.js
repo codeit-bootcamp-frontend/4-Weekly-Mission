@@ -1,5 +1,10 @@
 import { RegisterForm } from "../components/forms.js"
 import { RegisterEmailInput, RegisterPasswordConfirmInput, RegisterPasswordInput } from "../components/inputs.js"
+import { getUserStorageWithExpireTime } from "../service/localStorage.js"
+
+if (getUserStorageWithExpireTime("token")) {
+  location.href = "/folder"
+}
 
 const form = document.querySelector(".form")
 const inputEmail = document.querySelector(".input-email")

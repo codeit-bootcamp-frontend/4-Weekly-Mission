@@ -1,181 +1,99 @@
 import { Form, formState } from "../core/index.js"
-import { TEST_USER } from "../auth/index.js"
-import { showError } from "../utils/ui.js"
-import { isEmpty, isEmailValid, isPasswordMatch, isPasswordValid, isExistingEmail } from "../utils/validation.js"
+import { isEmpty, isEmailValid, isPasswordMatch, isPasswordValid } from "../utils/validation.js"
+import authService from "../service/index.js"
+import { setUserStorageWithExpireTime } from "../service/localStorage.js"
 
 class LoginForm extends Form {
-  emailValidation(value, emailInput) {
-    const inputRootElement = document.querySelector(`.input-layout-${emailInput.name}`)
-    const errorElement = inputRootElement.querySelector(".input-error")
+  emailValidation(value) {
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+    if (!isEmailValid(value)) return { result: false, errorType: "notValid" }
 
-    if (isEmpty(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "이메일을 입력해주세요.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    if (!isEmailValid(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "이메일 형식이 유효하지 않습니다.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    return true
+    return { result: true, errorType: "" }
   }
 
-  passwordValidation(value, passwordInput) {
-    const inputRootElement = document.querySelector(`.input-layout-${passwordInput.name}`)
-    const errorElement = inputRootElement.querySelector(".input-error")
+  passwordValidation(value) {
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
 
-    if (isEmpty(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "비밀번호를 입력해주세요.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    return true
+    return { result: true, errorType: "" }
   }
 
   compare(existingUser, formData) {
     return existingUser.email === formData.email && existingUser.password === formData.password
   }
 
-  success() {
-    return (location.href = "/folder")
-  }
-
-  submitHandler(event) {
+  async submitHandler(event) {
     event.preventDefault()
     const { email, password } = this.formState.data
 
     this.setFormData()
 
-    const emailIsValid = this.emailValidation(email, this.inputEmailElement)
-    const passwordIsValid = this.passwordValidation(password, this.inputPasswordElement)
+    const emailValidationResult = this.emailValidation(email)
+    const passwordValidationResult = this.passwordValidation(password)
 
-    const formIsValid = emailIsValid && passwordIsValid
+    !emailValidationResult.result && this.setErrorMessage(this.inputEmailElement, emailValidationResult.errorType)
+    !passwordValidationResult.result &&
+      this.setErrorMessage(this.inputPasswordElement, passwordValidationResult.errorType)
 
-    if (formIsValid)
-      return this.compare(TEST_USER, { email, password })
-        ? this.success()
-        : alert("이메일이나 비밀번호가 맞지 않습니다.")
+    const isFormValid = emailValidationResult.result && passwordValidationResult.result
+
+    if (!isFormValid) return alert("이메일이나 비밀번호가 맞지 않습니다.")
+
+    const { data } = await authService.login(email, password)
+
+    setUserStorageWithExpireTime("token", data, 30)
+    location.href = "/folder"
   }
 }
 
 class RegisterForm extends Form {
-  emailValidation(value, emailInput) {
-    const inputRootElement = document.querySelector(`.input-layout-${emailInput.name}`)
-    const errorElement = inputRootElement.querySelector(".input-error")
+  async emailValidation(value) {
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+    if (!isEmailValid(value)) return { result: false, errorType: "notValid" }
+    if (await authService.isExistingEmail(value)) return { result: false, errorType: "existing" }
 
-    if (isEmpty(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "이메일을 입력해주세요.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    if (!isEmailValid(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "이메일 형식이 유효하지 않습니다.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    if (isExistingEmail(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "이미 사용 중인 이메일입니다.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    return true
+    return { result: true, errorType: null }
   }
 
-  passwordValidation(value, passwordInput) {
-    const inputRootElement = document.querySelector(`.input-layout-${passwordInput.name}`)
-    const errorElement = inputRootElement.querySelector(".input-error")
+  passwordValidation(value) {
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+    if (!isPasswordValid(value)) return { result: false, errorType: "notValid" }
 
-    if (isEmpty(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "비밀번호를 입력해주세요.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    if (!isPasswordValid(value)) {
-      showError({ ...this.update, errorMessage: "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요." })
-      return false
-    }
-
-    return true
+    return { result: true, errorType: null }
   }
 
-  passwordConfirmValidation(value, passwordConfirmInput) {
-    const inputRootElement = document.querySelector(`.input-layout-${passwordConfirmInput.name}`)
-    const errorElement = inputRootElement.querySelector(".input-error")
+  passwordConfirmValidation(value) {
+    if (isEmpty(value)) return { result: false, errorType: "empty" }
+    if (!isPasswordMatch(value, formState.data.password)) return { result: false, errorType: "notMatch" }
 
-    if (isEmpty(value)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "비밀번호를 입력해주세요.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    if (!isPasswordMatch(value, formState.data.password)) {
-      showError({
-        inputRootElement,
-        errorElement,
-        errorMessage: "비밀번호가 일치하지 않습니다.",
-        className: this.ERROR_CLASS_NAME,
-      })
-      return false
-    }
-
-    return true
+    return { result: true, errorType: null }
   }
 
-  success() {
-    location.href = "/folder"
-  }
-
-  submitHandler(event) {
+  async submitHandler(event) {
     event.preventDefault()
     const { email, password, passwordConfirm } = this.formState.data
 
-    const emailIsValid = this.emailValidation(email, this.inputEmailElement)
-    const passwordIsValid = this.passwordValidation(password, this.inputPasswordElement)
-    const passwordConfirmIsValid = this.passwordConfirmValidation(passwordConfirm, this.inputPasswordConfirmElement)
+    const { result: emailResult, errorType: emailError } = await this.emailValidation(email, this.inputEmailElement)
+    const { result: passwordResult, errorType: passwordError } = this.passwordValidation(
+      password,
+      this.inputPasswordElement
+    )
+    const { result: passwordConfirmResult, errorType: passwordConfirmError } = this.passwordConfirmValidation(
+      passwordConfirm,
+      this.inputPasswordConfirmElement
+    )
 
-    const formIsValid = emailIsValid && passwordIsValid && passwordConfirmIsValid
+    !emailResult && this.setErrorMessage(this.inputEmailElement, emailError)
+    !passwordResult && this.setErrorMessage(this.inputPasswordElement, passwordError)
+    !passwordConfirmResult && this.setErrorMessage(this.inputPasswordConfirmElement, passwordConfirmError)
 
-    if (formIsValid) this.success()
+    const isFormValid = emailResult && passwordResult && passwordConfirmResult
+
+    if (!isFormValid) return alert("이메일이나 비밀번호를 다시 확인해주세요.")
+
+    const { data } = await authService.register(email, password)
+
+    setUserStorageWithExpireTime("token", data, 30)
+    location.href = "/folder"
   }
 }
 
