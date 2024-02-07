@@ -31,7 +31,7 @@ const signInButton = getElementById('sign-up-button');
 const eyeButtonPassword = getElementById('eye-button-password');
 const eyeButtonForConfirm = getElementById('eye-button-password-confirm');
 
-checkAccessToken();
+checkAccessToken(goToFolderhtml);
 
 const emailInputError = () => {
   const emailValue = emailInput.value.trim();

@@ -2,6 +2,7 @@ import { EMAIL_ERROR_MESSAGE, PASSWORD_ERROR_MESSAGE } from './constant.js';
 import { getElementById } from './dom/domhelper.js';
 import { checkAccessToken, postSignData } from './functions/apiUtils.js';
 import { isEmptyString, isValidEmail, showError, hideError, showPassword, hidePassword } from './functions/sign.js';
+import { goToFolderhtml } from './temporary.js';
 
 // About Email Error
 const emailInput = getElementById('email');
@@ -15,7 +16,7 @@ const passwordErrorMessage = getElementById('passwordErrorMessage');
 const loginButton = getElementById('login-button');
 const eyeButton = getElementById('eye-button');
 
-checkAccessToken();
+checkAccessToken(goToFolderhtml);
 
 const emailInputError = () => {
   const emailValue = emailInput.value.trim();

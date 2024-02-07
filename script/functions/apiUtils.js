@@ -47,5 +47,6 @@ export const checkEmailData = async (endpoint, emailInfo) => {
 
 // 심화 요구사항에 맞춘 임시 코드
 export const checkAccessToken = path => {
-  if (getTokenInLocalStorage('accessToken')) window.location.href = path;
+  const token = getTokenInLocalStorage('accessToken');
+  if (token) window.location.href = path;
 };

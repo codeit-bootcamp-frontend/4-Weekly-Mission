@@ -12,5 +12,5 @@ export const saveTokenInLocalStorage = (keyToken, token) => {
  * @param {*} keyToken Token의 key값
  */
 export const getTokenInLocalStorage = keyToken => {
-  localStorage.getItem(keyToken);
+  return localStorage.getItem(keyToken);
 };
