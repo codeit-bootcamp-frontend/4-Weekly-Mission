@@ -3,7 +3,9 @@ import {
   errorBoxOnOff,
   showError,
   hideError,
-  checkisValidEmail
+  checkisValidEmail,
+  userData,
+  checkString
 } from "./src/sign.js";
 
 
@@ -26,27 +28,63 @@ function focusOutCheck(event){
   }
 }
 
+function passwordTypeToggle(event, id){
+  const $imageNode = document.querySelector(`#${event.target.id}`)
+  const $target = document.querySelector(`${id}`)
+  const targetType = $target.getAttribute('type'); // passwrod
+  $target.setAttribute('type', targetType === 'password' ? 'text' : 'password'); 
+  $imageNode.setAttribute('src',targetType === 'password' ? './images/eye-on.svg' : './images/eye-off.svg' )
+}
+
 
 function loginProcess() {
+ 
   const emailValue = document.querySelector('#email').value
   const passwordValue = document.querySelector('#password').value
-  if (emailValue !== 'test@codeit.com') {
-    showError('email', '이메일을 확인해 주세요.');
+
+  
+  if (!emailValue || !checkisValidEmail(emailValue)) {
+    return false;
   } else {
     hideError('email');
   }
 
-  if (passwordValue !== 'codeit101') {
+  if (!passwordValue || !checkString(passwordValue)) {
     showError('password', '비밀번호를 확인해 주세요.');
   } else {
     hideError('password');
   }
 
-  if (emailValue === 'test@codeit.com' && passwordValue === 'codeit101') {
-    location.href = '/folder.html';
-  }
+  getAccessToken(emailValue,passwordValue);
+
+
 }
 
+async function getAccessToken(email, password){
+  try{
+    const url = 'https://bootcamp-api.codeit.kr/api/sign-in';
+    const responseJson = await fetch(url,{
+      method:'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body : JSON.stringify({
+                email,
+                password
+              })
+    })
+    const response = await responseJson.json();
+    const {data : {accessToken}} = response
+    if(accessToken){
+      location.href = '/folder.html';
+    }
+  }
+  catch(e){
+    showError('email', '');
+    showError('password', '아이디 및 비밀번호를 확인해주세요');
+    console.log(e)
+  }
+}
 
 document.querySelector(`#email`).addEventListener('focusout',  focusOutCheck)
 document.querySelector(`#password`).addEventListener('focusout',  focusOutCheck)
@@ -54,4 +92,6 @@ document.querySelector(`#signForm`).addEventListener('submit', function(event) {
   event.preventDefault();
   loginProcess()
 });
+document.querySelector('#passwordViewIcon').addEventListener('click',(event)=>passwordTypeToggle(event,'#password'));
+
 

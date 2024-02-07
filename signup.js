@@ -5,13 +5,11 @@ import {
   checkisValidEmail
 } from "./src/sign.js";
 
-function emailValidateCheck(value, target) {
+export function emailValidateCheck(value, target) {
   if (value === "") {
     showError(target, '이메일을 입력해주세요.');
   } else if (!checkisValidEmail(value)) {
     showError(target, '올바른 이메일 주소가 아닙니다.');
-  } else if(value ==='test@codeit.com'){
-    showError(target, '이미 사용 중인 이메일입니다.');
   } else {
     hideError(target);
     return true
@@ -56,18 +54,25 @@ function checkString(str) {
   return true;
 }
 
-function loginProcess(){
+async function signUpProcess(){
+  
   const passwordValue = document.querySelector('#password').value;
   const confirmPasswordValue = document.querySelector('#passwordCheck').value;
   const emailValue = document.querySelector('#email').value;
+
   const emailCheck = emailValidateCheck(emailValue, 'email');
+  
   const passwordCheck = checkString(passwordValue) && (passwordValue === confirmPasswordValue)
+
   if(emailCheck && passwordCheck){
-    location.href = '/folder.html';
+    const check  = await checkSignup(emailValue)
+    console.log("checkSignup",check)
+    check && await signUp(emailValue,passwordValue)
   }
   
 }
 
+//비밀번호 문자로 확인
 function passwordTypeToggle(event, id){
   const $imageNode = document.querySelector(`#${event.target.id}`)
   const $target = document.querySelector(`${id}`)
@@ -76,12 +81,60 @@ function passwordTypeToggle(event, id){
   $imageNode.setAttribute('src',targetType === 'password' ? './images/eye-on.svg' : './images/eye-off.svg' )
 }
 
+
+async function signUp(email,password){
+  const url = 'https://bootcamp-api.codeit.kr/api/sign-up';
+  const response = await fetch(url,{
+  method:'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body : JSON.stringify({
+            email,
+            password
+          })
+    })
+  const {data} = await response.json();
+  if(data.accessToken){
+    location.href = '/folder.html';
+  }
+}
+//이메일 중복확인
+async function checkSignup(email){
+  try{
+    const url= 'https://bootcamp-api.codeit.kr/api/check-email';
+    const response= await fetch(url,{
+      method:'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body : JSON.stringify({
+            email,
+          })
+    })
+    const data = await response.json();
+    if(data?.data?.isUsableNickname){
+      return true
+    }
+    if(data?.error){
+      showError('email', data.error.message);
+      return false
+    }
+    return false;
+  }catch(e){
+    console.log("error", e)
+    return false
+  }
+  
+}
+
+
 document.querySelector(`#email`).addEventListener('focusout',  focusOutCheck);
 document.querySelector(`#password`).addEventListener('focusout',  focusOutCheck);
 document.querySelector(`#passwordCheck`).addEventListener('focusout',  focusOutCheck);
 document.querySelector(`#signForm`).addEventListener('submit', function(event) {
   event.preventDefault();
-  loginProcess();
+  signUpProcess();
 });
 document.querySelector('#passwordViewIcon').addEventListener('click',(event)=>passwordTypeToggle(event,'#password'));
 document.querySelector('#passwordCheckViewIcon').addEventListener('click',(event)=>passwordTypeToggle(event, '#passwordCheck'));
