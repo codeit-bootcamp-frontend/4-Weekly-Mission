@@ -5,6 +5,7 @@ import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
 import { getFolder } from './utils/api';
 import Hero from './components/Hero';
+import Searchbar from './components/Searchbar';
 
 function App() {
   const [folder, setFolder] = useState();
@@ -31,6 +32,7 @@ function App() {
       <Navbar />
       {user && <Hero name={user.name} imageURL={user.profileImageSource} />}
       {folder && folder.name}
+      <Searchbar />
       {links && <Cards links={links} />}
       <Footer />
     </div>

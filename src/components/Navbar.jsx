@@ -21,7 +21,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className='flex justify-between p-5'>
+    <header>
       <div>logo</div>
       <User email={email} imageURL={imageURL} />
     </header>
