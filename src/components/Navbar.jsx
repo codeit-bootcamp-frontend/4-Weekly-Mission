@@ -6,16 +6,17 @@ export default function Navbar() {
   const [email, setEmail] = useState('');
   const [imageURL, setImageURL] = useState('');
 
+  const fetchData = async () => {
+    try {
+      const { email, profileImageSource } = await getUser();
+      setEmail(email);
+      setImageURL(profileImageSource);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { email, profileImageSource } = await getUser();
-        setEmail(email);
-        setImageURL(profileImageSource);
-      } catch (error) {
-        console.error(error);
-      }
-    };
     fetchData();
   }, []);
 
