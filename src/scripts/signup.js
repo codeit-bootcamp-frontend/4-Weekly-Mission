@@ -26,12 +26,12 @@ const passwordCheckErrorMessage = document.getElementById('passwordCheckErrorMes
 //localStorage.removeItem(TOKEN.ACCESS_TOKEN);
 
 //Check token: 토큰 확인
-// checkAccessToken();
+checkAccessToken();
 
 //Check email: 입력 여부 확인, 메일 형식 확인
-const SignupEmailHandler = () => {
+const SignupEmailHandler = async () => {
   checkEmail(email, emailErrorMessage);
-  checkAvailableEmail(email, emailErrorMessage);
+  await checkAvailableEmail(email, emailErrorMessage);
 };
 
 //Check password: 입력 여부 확인
@@ -56,7 +56,7 @@ const EyeIconCheckHandler = () => {
 };
 
 //SignUp: submit form
-const SignupSubmitHandler = event => {
+const SignupSubmitHandler = async event => {
   const isEmailValid = email.value && emailErrorMessage.classList.contains('hidden');
   const isPasswordValid = password.value && passwordErrorMessage.classList.contains('hidden');
   const isPasswordCheckValid = passwordCheck.value && passwordCheckErrorMessage.classList.contains('hidden');
@@ -67,8 +67,11 @@ const SignupSubmitHandler = event => {
 
   event.preventDefault();
   if (isEmailValid && isPasswordValid && isPasswordCheckValid) {
-    sign(PATH.API_SIGNUP, signupInfo);
-    return;
+    try {
+      await sign(PATH.API_SIGNUP, signupInfo);
+    } catch (error) {
+      console.error(error);
+    }
   }
 };
 

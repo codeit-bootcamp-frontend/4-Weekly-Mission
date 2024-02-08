@@ -31,16 +31,18 @@ export const checkEmail = (emailElement, errorMessageElement) => {
   hideInputError(emailElement, errorMessageElement);
 };
 
-export const checkAvailableEmail = (emailElement, errorMessageElement) => {
+export const checkAvailableEmail = async (emailElement, errorMessageElement) => {
   const emailInfo = { email: emailElement.value };
   if (emailElement.value) {
-    checkEmailInfo(PATH.API_CHECK_EMAIL, emailInfo)
-      .then((result) => {
-        if (!result) {
-          showInputError(emailElement);
-          showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
-        }
-      });
+    try {
+      const result = await checkEmailInfo(PATH.API_CHECK_EMAIL, emailInfo);
+      if (!result.ok) {
+        showInputError(emailElement);
+        showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
 };
 

@@ -17,7 +17,7 @@ const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 //localStorage.removeItem(TOKEN.ACCESS_TOKEN);
 
 // Check token: 토큰 확인
-// checkAccessToken();
+checkAccessToken();
 
 //Check email: 입력 여부 확인, 메일 형식 확인
 const SigninEmailHandler = () => {
@@ -35,21 +35,23 @@ const EyeIconHandler = () => {
 };
 
 //Login: submit form
-const SigninSubmitHandler = event => {
+const SigninSubmitHandler = async event => {
+  event.preventDefault();
   const signinInfo = {
     "email": email.value, "password": password.value
   }
 
-  event.preventDefault();
-  sign(PATH.API_SIGNIN, signinInfo)
-    .then((result) => {
-      if (!result) {
-        showInputError(email);
-        showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL);
-        showInputError(password);
-        showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.INVALID_PASSWORD);
-      }
-    });
+  try {
+    const result = await sign(PATH.API_SIGNIN, signinInfo);
+    if (!result.ok) {
+      showInputError(email);
+      showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL);
+      showInputError(password);
+      showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.INVALID_PASSWORD);
+    }
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 //Event Listener

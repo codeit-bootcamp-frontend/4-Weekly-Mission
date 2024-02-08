@@ -24,18 +24,15 @@ export const sign = async (endPoint, signInfo) => {
     setLocalToken(TOKEN.ACCESS_TOKEN, result.data.accessToken);
     window.location.href = PATH.PAGE_FOLDER;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
 
 export const checkEmailInfo = async (endPoint, emailInfo) => {
   try {
     const response = await postRequest(endPoint, emailInfo);
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return await response.json();
+    return response;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 }
