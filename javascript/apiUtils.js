@@ -16,8 +16,7 @@ const confirmLogin = async (data) => {
         });
         if (response.ok) {
             const result = await response.json();
-            localStorage.setItem('accessToken', result.data.accessToken);
-            localStorage.setItem('refreshToken', result.data.refreshToken);
+            storeToken(result);
             return response;
         }
     } catch (error) {
@@ -36,7 +35,6 @@ const isEmailUsed = async (input) => {
             },
             body: JSON.stringify(emailData),
         });
-        console.log(result.status);
         return !result.ok;
     } catch (error) {
         console.error('Error:', error);
@@ -55,13 +53,17 @@ const confirmSignup = async (data) => {
         });
         if (response.ok) {
             const result = response.json();
-            localStorage.setItem('accessToken', result.data.accessToken);
-            localStorage.setItem('refreshToken', result.data.refreshToken);
+            storeToken(result);
             return response;
         }
     } catch (error) {
         console.error('Error during signup:', error);
     }
+};
+
+const storeToken = (result) => {
+    localStorage.setItem('accessToken', result.data.accessToken);
+    localStorage.setItem('refreshToken', result.data.refreshToken);
 };
 
 export { confirmLogin, isEmailUsed, confirmSignup };
