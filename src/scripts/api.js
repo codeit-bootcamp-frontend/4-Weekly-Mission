@@ -31,7 +31,9 @@ export const sign = async (endPoint, signInfo) => {
 export const checkEmailInfo = async (endPoint, emailInfo) => {
   try {
     const response = await postRequest(endPoint, emailInfo);
-    return response;
+    if (!response.ok) {
+      throw new Error(response.status);
+    }
   } catch (error) {
     throw error;
   }

@@ -42,15 +42,13 @@ const SigninSubmitHandler = async event => {
   }
 
   try {
-    const result = await sign(PATH.API_SIGNIN, signinInfo);
-    if (!result.ok) {
-      showInputError(email);
-      showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL);
-      showInputError(password);
-      showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.INVALID_PASSWORD);
-    }
+    await sign(PATH.API_SIGNIN, signinInfo);
   } catch (error) {
     console.error(error);
+    showInputError(email);
+    showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL);
+    showInputError(password);
+    showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.INVALID_PASSWORD);
   }
 };
 

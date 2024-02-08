@@ -35,13 +35,11 @@ export const checkAvailableEmail = async (emailElement, errorMessageElement) => 
   const emailInfo = { email: emailElement.value };
   if (emailElement.value) {
     try {
-      const result = await checkEmailInfo(PATH.API_CHECK_EMAIL, emailInfo);
-      if (!result.ok) {
-        showInputError(emailElement);
-        showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
-      }
+      await checkEmailInfo(PATH.API_CHECK_EMAIL, emailInfo);
     } catch (error) {
       console.error(error);
+      showInputError(emailElement);
+      showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
     }
   }
 };
