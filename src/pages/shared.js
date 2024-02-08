@@ -1,8 +1,8 @@
-/*eslint-disable */
 import React, { useEffect, useState } from 'react';
 import Header from '../components/sharedPageComponents/header';
 import Contents from '../components/sharedPageComponents/contents';
 import Footer from '../components/sharedPageComponents/footer';
+import { userDataAPI, folderDataAPI } from '../api/sharedPageAPI';
 import '../styles/shared.css';
 
 export default function Main() {
@@ -14,47 +14,18 @@ export default function Main() {
   });
   const [cardData, setCardData] = useState(null);
   useEffect(() => {
-    userData();
-    folderData();
+    getAPIData();
   }, []);
 
-  console.log('parent');
+  const getAPIData = async () => {
+    const userData = await userDataAPI();
+    const { userName, userImage, name, cardData } = await folderDataAPI();
 
-  const userData = async () => {
-    try {
-      const response = await fetch(
-        'https://bootcamp-api.codeit.kr/api/sample/user',
-      );
-      const result = await response.json();
-      if (response.ok) {
-        setUserProfile({
-          email: result.email,
-          image: result.profileImageSource,
-        });
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    setUserProfile(userData);
+    setFolder({ userName, userImage, name });
+    setCardData(cardData);
   };
 
-  const folderData = async () => {
-    try {
-      const response = await fetch(
-        'https://bootcamp-api.codeit.kr/api/sample/folder',
-      );
-      const { folder } = await response.json();
-      if (response.ok) {
-        setFolder({
-          userName: folder.owner.name,
-          userImage: folder.owner.profileImageSource,
-          name: folder.name,
-        });
-        setCardData(folder.links);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
   return (
     <>
       <Header userProfile={userProfile} folder={folder}></Header>

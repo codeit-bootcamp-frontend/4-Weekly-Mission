@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../../assets/Images/logo.svg';
 
 export default function Header({ userProfile, folder }) {
+  /*eslint-disable-next-line */
   console.log('child');
   return (
     <>

@@ -32,7 +32,6 @@ export default function Card({ link }) {
   };
 
   const cardMouseOut = () => {
-    console.log(cardDiv.current);
     cardDiv.current.style.border = '0';
     cardImage.current.style.transform = 'scale(1)';
   };
