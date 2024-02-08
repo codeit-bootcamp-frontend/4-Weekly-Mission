@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom';
+import App from './js/app';
 
 ReactDOM.render(
-  <h1>안녕 리액트!</h1>,
+  <App />,
   document.getElementById('root')
 );
