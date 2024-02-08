@@ -60,6 +60,8 @@ export default function Card({ link }) {
               className="card-data-image"
               alt="card-image"
               ref={cardImage}
+              width="340"
+              height="200"
             ></img>
           </div>
           <div className="card-content">

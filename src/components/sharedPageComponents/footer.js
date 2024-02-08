@@ -18,20 +18,25 @@ export default function Footer() {
           </div>
           <div className="footer-icon">
             <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
-              <img src={facebook} alt="facebook icon" />
+              <img src={facebook} alt="facebook icon" width="20" height="20" />
             </a>
             <a href="https://twitter.com" target="_blank" rel="noreferrer">
-              <img src={twitter} alt="twitter icon" />
+              <img src={twitter} alt="twitter icon" width="20" height="20" />
             </a>
             <a href="https://youtube.com" target="_blank" rel="noreferrer">
-              <img src={youtube} alt="youtube icon" />
+              <img src={youtube} alt="youtube icon" width="20" height="20" />
             </a>
             <a
               href="https://www.instagram.com"
               target="_blank"
               rel="noreferrer"
             >
-              <img src={instagram} alt="instagram icon" />
+              <img
+                src={instagram}
+                alt="instagram icon"
+                width="20"
+                height="20"
+              />
             </a>
           </div>
         </div>

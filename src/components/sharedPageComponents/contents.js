@@ -12,7 +12,13 @@ export default function Contents({ links }) {
           type="search"
         ></input>
         <button type="submit" className="card-search-button">
-          <img src={search} alt="search" className="card-search-icon"></img>
+          <img
+            src={search}
+            alt="search"
+            className="card-search-icon"
+            width="16"
+            height="16"
+          ></img>
         </button>
       </form>
       <div className="content-wrapper">
