@@ -233,6 +233,9 @@ footer {
     margin: 0 auto;
   }
   /*card*/
+  article {
+    padding: 32px 0;
+  }
   .card-search {
     width: 704px;
   }
@@ -268,7 +271,7 @@ footer {
 
   /*card*/
   article {
-    padding: 28px 0;
+    padding: 32px 0;
   }
 
   .card-search-button {
