@@ -18,3 +18,30 @@
   font-weight: bold;
   margin-top: 20px;
 }
+
+.wrapper {
+  /* max-width: 1540px; */
+  padding: 40px 200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1199px) {
+  .wrapper {
+    max-width: 832px;
+    padding: 40px 32px;
+    margin: 0 auto;
+  }
+}
+
+.searchBox {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.searchBox input {
+  margin-left: 10px;
+  background-color: #f5f5f5;
+  border: none;
+}
