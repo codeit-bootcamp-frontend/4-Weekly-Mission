@@ -1,4 +1,3 @@
-import { TEST_EMAIL, TEST_PASSWORD } from './variable.js';
 import {
   getEmailInput,
   getPasswordInput,
@@ -61,17 +60,8 @@ passwordInput.addEventListener('focusout', validatePassword);
 loginForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  const emailValue = emailInput.value.trim();
-  const passwordValue = passwordInput.value.trim();
-
-  if (emailValue !== TEST_EMAIL) {
-    showError(emailInput, '이메일을 확인해 주세요.');
-    return false;
-  }
-  if (passwordValue !== TEST_PASSWORD) {
-    showError(passwordInput, '비밀번호를 확인해 주세요.');
-    return false;
-  }
+  if (!validateEmail()) return false;
+  if (!validatePassword()) return false;
 
   sendDataToAPI();
   return true;
