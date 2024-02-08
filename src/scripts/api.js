@@ -1,4 +1,5 @@
 import { PATH, TOKEN } from './constant.js';
+import { setLocalToken } from './util.js';
 
 const baseUrl = 'https://bootcamp-api.codeit.kr/api';
 
@@ -19,8 +20,8 @@ export const sign = async (endPoint, signInfo) => {
       throw new Error(response.status);
     }
     const result = await response.json();
-    const token = result.data.accessToken;
-    localStorage.setItem(TOKEN.ACCESS_TOKEN, token);
+
+    setLocalToken(TOKEN.ACCESS_TOKEN, result.data.accessToken);
     window.location.href = PATH.PAGE_FOLDER;
   } catch (error) {
     console.log(error);

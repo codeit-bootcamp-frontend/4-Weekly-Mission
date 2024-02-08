@@ -29,3 +29,13 @@ export const changeImage = (imageElement, imageSrc) => {
 export const checkValueMatch = (firstElement, secondElement) => {
   return firstElement.value === secondElement.value;
 };
+
+//token
+export const getLocalToken = (tokenKey) => {
+  localStorage.getItem(tokenKey);
+};
+
+export const setLocalToken = (tokenKey, tokenValue) => {
+  localStorage.setItem(tokenKey, tokenValue);
+};
+

@@ -7,14 +7,14 @@ import {
   hideInputError,
   changeImage,
   checkValueMatch,
+  getLocalToken,
 } from './util.js';
 import { checkEmailInfo } from './api.js';
 import { PATH, TOKEN } from './constant.js';
 
 //Check token: 토큰 확인------------------------------------------------------
 export const checkAccessToken = () => {
-  const localToken = localStorage.getItem(TOKEN.ACCESS_TOKEN);
-  if (localToken) window.location.href = PATH.PAGE_FOLDER;
+  if (getLocalToken(TOKEN.ACCESS_TOKEN)) window.location.href = PATH.PAGE_FOLDER;
 };
 
 //Check email: 입력 여부 확인, 메일 형식 확인-------------------------------------
