@@ -1,4 +1,5 @@
 import "./FolderList.css";
+import noImage from "../assets/noImage.svg";
 
 function formatDate(value) {
   const date = new Date(value);
@@ -53,7 +54,11 @@ function FolderListItem({ item }) {
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
-      <img src={imageSource} className="card-box-img" />
+      {imageSource ? (
+        <img src={imageSource} className="card-box-img" alt="" />
+      ) : (
+        <img src={noImage} className="card-box-img" alt="" />
+      )}
       <div className="text-container">
         <p className="time-difference">{formatTimeDifference(createdAt)}</p>
         <p className="title">{title}</p>
