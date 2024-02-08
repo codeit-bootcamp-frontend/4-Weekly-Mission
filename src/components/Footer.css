@@ -1,0 +1,48 @@
+.footer_ly {
+  display: flex;
+  height: 160px;
+  padding: 32px 104px 64px 104px;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+
+  background: #111322;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch; 
+}
+
+.codeit_ly {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.policy_ly {
+  display: flex;
+  width: 181px;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.social-logo_ly {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.social-logo_text {
+  color: #676767;
+  text-align: center;
+  font-family: Arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

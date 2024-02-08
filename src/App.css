@@ -10,3 +10,12 @@
   flex-direction: column;
   align-items: flex-start;
 }
+
+.container-footer {
+  display: flex;
+  height: 280px;
+  padding-top: 60px;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+}
