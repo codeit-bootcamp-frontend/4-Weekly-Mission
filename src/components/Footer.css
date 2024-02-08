@@ -1,0 +1,29 @@
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 104px 64px 104px;
+  align-items: center;
+  color: var(--white-color);
+  font-family: sans-serif;
+  background: #111322;
+}
+
+footer a {
+  margin: 0;
+  text-decoration: none;
+  color: var(--white-color);
+}
+
+.footer-text {
+  display: flex;
+  gap: 30px;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.copyright {
+  color: #676767;
+}

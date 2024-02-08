@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import FolderList from "./FolderList";
 import { getFolders, getUser } from "../api";
 import Header from "./Header";
+import Footer from "./Footer";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -22,6 +23,7 @@ function App() {
     <div className="App">
       <Header user={user} />
       <FolderList items={items} />
+      <Footer />
     </div>
   );
 }
