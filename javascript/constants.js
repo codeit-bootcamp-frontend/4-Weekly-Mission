@@ -25,6 +25,7 @@ const URL = {
     main: `https://bootcamp-api.codeit.kr/api/`,
     signin: `sign-in`,
     checkEmail: `check-email`,
+    signup: `sign-up`,
 };
 
 export { EMAIL_REGEX, PASSWORD_REGEX, errorMsg, minPasswordLength, URL };
