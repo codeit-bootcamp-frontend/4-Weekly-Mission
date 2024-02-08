@@ -1,4 +1,4 @@
-import Shared from "./pages/Shared";
+import Shared from "./Shared";
 
 const Home = () => {
   return (
