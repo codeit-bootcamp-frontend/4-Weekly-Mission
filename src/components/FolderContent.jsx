@@ -9,7 +9,7 @@ const DEFAULT_CATEGORY = [{
         name: "전체",
      }];
 
-function FolderContent(){
+function FolderContent({handleKebab, kebabStatus}){
     const [categoryList, setCategoryList] = useState(DEFAULT_CATEGORY); // 유저가 가지고 있는 카테고리
     const [selectCategory, setSelectCategory] = useState({ // 현재 선택중인 카테고리
         id: 0,
@@ -80,8 +80,14 @@ function FolderContent(){
         }
     } 
     
+    const getClickArea = (e) => {
+        if(e.target.className !== "content__kebab"){
+            handleKebab(0);
+        }
+    }
+
     return (
-        <main className="folder">
+        <main className="folder" onClick={(e) => getClickArea(e)}>
         <section className="link">
             <div className="link__box">
                 <input className="link__inputtext" type="text" placeholder="        링크를 추가해 보세요"/>
@@ -121,7 +127,7 @@ function FolderContent(){
                     <UtilList value="delete" text="삭제"/>
                 </ul>
             </div>
-            <Cards linkList={linkList} option={true} />
+            <Cards handleKebab={handleKebab} kebabStatus={kebabStatus} linkList={linkList} option={true} />
         </section>
     </main>
     )

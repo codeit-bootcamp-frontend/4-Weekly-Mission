@@ -1,11 +1,11 @@
 import DefalutCardImg from "../assets/default-card-img.svg";
 import StarImg from "../assets/star.svg";
 import KebabImg from "../assets/kebab.svg";
-import { useState } from "react";
-function Card({url, imgSrc, timeDiff, content, date, option}){
-    const [kebabClick, setKebabClick] = useState(false);
+// import { useState } from "react";
+function Card({id, url, imgSrc, timeDiff, content, date, option, handleKebab, kebabStatus}){
+    
     return (
-        <a href={url} className="content__card" onClick={(e) => e.preventDefault()}>
+        <a href={url} className="content__card" >
             {option && <img className="content__star" src={StarImg} alt="별 아이콘"/>}
             <figure 
             style={{
@@ -23,11 +23,14 @@ function Card({url, imgSrc, timeDiff, content, date, option}){
                 <div className="content__box">
                      <div className="content__timediff">{timeDiff}</div>
                      <img
-                     onClick={() => setKebabClick(!kebabClick)}
+                     onClick={(e) => {
+                        e.preventDefault();
+                        handleKebab(id);
+                     } }
                       className="content__kebab" src={KebabImg} alt="케밥 아이콘"/>
                      <ul 
                      style={{
-                        display: kebabClick ? "flex":"none",
+                        display: kebabStatus === id ? "flex":"none",
                      }}
                      className="kebab__lists">
                         <li className="kebab__list">삭제하기</li>

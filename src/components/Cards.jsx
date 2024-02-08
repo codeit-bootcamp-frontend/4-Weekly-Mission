@@ -2,7 +2,7 @@ import Card from "./Card";
 import getTimeDiff from "../utils/getTimeDiff";
 import getCoustomDate from "../utils/getCoustomDate";
 
-function Cards({linkList, option}){
+function Cards({handleKebab, kebabStatus, linkList, option}){
     return (
         <div className="content__cards">
             <div
@@ -17,8 +17,8 @@ function Cards({linkList, option}){
                 const createDate = new Date(linkCreated);
                 const timeDiffText = getTimeDiff(linkCreated);
                 const coustomDate = getCoustomDate(createDate);
-                return <Card key={id} date={coustomDate} url={url} imgSrc={imgSrc} timeDiff={timeDiffText} 
-                content={description} option={option}></Card>
+                return <Card key={id} id={id} date={coustomDate} url={url} imgSrc={imgSrc} timeDiff={timeDiffText} 
+                content={description} option={option} handleKebab={handleKebab} kebabStatus={kebabStatus}></Card>
             })}
         </div>
     )
