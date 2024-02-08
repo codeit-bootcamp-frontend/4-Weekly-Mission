@@ -4,7 +4,22 @@ import yticon from "../assets/yticon.svg";
 import insticon from "../assets/insticon.svg";
 import "./Footer.css";
 
+const SocialMediaLink = ({ url, icon }) => {
+  return (
+    <a href={url} target="_blank" rel="noopener noreferrer">
+      <img src={icon} alt={icon} />
+    </a>
+  );
+};
+
 function Footer() {
+  const socialMedias = [
+    { url: "https://www.facebook.com/", icon: fbicon },
+    { url: "https://twitter.com/", icon: twicon },
+    { url: "https://www.youtube.com/", icon: yticon },
+    { url: "https://www.instagram.com/", icon: insticon },
+  ];
+
   return (
     <footer>
       <p className="copyright">&copy;codeit - 2023</p>
@@ -13,34 +28,9 @@ function Footer() {
         <p className="faq-text">FAQ</p>
       </div>
       <div className="footer-icons">
-        <a
-          href="https://www.facebook.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={fbicon} alt={fbicon} />
-        </a>
-        <a
-          href="https://twitter.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={twicon} alt={twicon} />
-        </a>
-        <a
-          href="https://www.youtube.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={yticon} alt={yticon} />
-        </a>
-        <a
-          href="https://www.instagram.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src={insticon} alt={insticon} />
-        </a>
+        {socialMedias.map(({ url, icon }) => (
+          <SocialMediaLink key={url} url={url} icon={icon} />
+        ))}
       </div>
     </footer>
   );
