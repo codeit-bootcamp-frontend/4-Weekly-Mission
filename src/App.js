@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className='container'>
       < Top className='container-top'/>
-      < Frame />
+      < Frame className='container-frame'/>
       < Footer className='container-footer'/>
     </div>
   )

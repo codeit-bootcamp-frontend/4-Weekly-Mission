@@ -13,6 +13,13 @@
   width: 100%;
 }
 
+.container-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
 .container-footer {
   display: flex;
   height: 280px;

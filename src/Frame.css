@@ -1,0 +1,9 @@
+.search-bar_ly {
+  display: flex;
+  padding: 13px 16px;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 10px;
+  width: 50vw;
+  background: #F5F5F5;
+}
