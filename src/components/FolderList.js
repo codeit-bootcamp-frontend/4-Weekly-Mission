@@ -1,8 +1,4 @@
-// import { CardGroup } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
-// import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
+import "./FolderList.css";
 
 function formatDate(value) {
   const date = new Date(value);
@@ -56,36 +52,29 @@ function FolderListItem({ item }) {
   const { title, createdAt, url, description, imageSource } = item;
 
   return (
-    <Col>
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{ textDecoration: "none" }}
-      >
-        <Card style={{ width: "18rem" }}>
-          <Card.Img variant="top" src={imageSource} className="img-fluid" />
-          <Card.Body>
-            <Card.Text>{formatTimeDifference(createdAt)}</Card.Text>
-            <Card.Title>{title}</Card.Title>
-            <Card.Text>{description}</Card.Text>
-            <Card.Text>{formatDate(createdAt)}</Card.Text>
-          </Card.Body>
-        </Card>
-      </a>
-    </Col>
+    <a href={url} target="_blank" rel="noopener noreferrer">
+      <img src={imageSource} className="card-box-img" />
+      <div className="text-container">
+        <p className="time-difference">{formatTimeDifference(createdAt)}</p>
+        <p className="title">{title}</p>
+        <p className="description">{description}</p>
+        <p className="date"> {formatDate(createdAt)}</p>
+      </div>
+    </a>
   );
 }
 
 function FolderList({ items }) {
   return (
-    <Row xs={12} md={6} lg={3} className="g-4">
-      {items.map((item) => (
-        <div key={item.id}>
-          <FolderListItem item={item} />
-        </div>
-      ))}
-    </Row>
+    <div className="card-container-center">
+      <div className="card-container">
+        {items.map((item) => (
+          <div key={item.id} className="card-box">
+            <FolderListItem item={item} />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 
