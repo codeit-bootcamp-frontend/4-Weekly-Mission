@@ -4,6 +4,7 @@ import { getFolders, getUser } from "../api";
 import Header from "./Header";
 import Footer from "./Footer";
 import Profile from "./Profile";
+import SearchBar from "./SearchBar";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -28,6 +29,7 @@ function App() {
     <div className="App">
       <Header user={user} />
       <Profile profile={profile} folderName={folderName} />
+      <SearchBar />
       <FolderList items={items} />
       <Footer />
     </div>
