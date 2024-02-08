@@ -1,10 +1,12 @@
 import Header from "./header";
+import TopSection from "./topSection";
 
 function App(){
   return (
-    <div>
+    <>
       <Header />
-    </div>
+      <TopSection />
+    </>
   );
 }
 
