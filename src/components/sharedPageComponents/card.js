@@ -10,39 +10,47 @@ export default function Card({ link }) {
   const upDateStauts = (createdDate) => {
     const currentTime = new Date().getTime();
     const time = new Date(createdDate).getTime();
-    const timeDiffMinute = (currentTime - time) / (1000 * 60);
-    const timeDiffHour = timeDiffMinute / 60;
-    const timeDiffDay = timeDiffHour / 24;
-    const timeDiffMonth = timeDiffDay / 30;
-    const timeDiffyear = timeDiffMonth / 12;
-    if (parseInt(timeDiffMinute) < 2) return '1 minute ago';
-    if (parseInt(timeDiffMinute) <= 59)
-      return `${parseInt(timeDiffMinute)} minutes ago`;
-    if (parseInt(timeDiffHour) <= 23)
-      return `${parseInt(timeDiffHour)} hours ago`;
-    if (parseInt(timeDiffDay) <= 30) return `${parseInt(timeDiffDay)} days ago`;
-    if (parseInt(timeDiffMonth) <= 11)
-      return `${parseInt(timeDiffMonth)} months ago`;
-    return `${parseInt(timeDiffyear)} years ago`;
+    const timeDiffMinute = parseInt((currentTime - time) / (1000 * 60));
+    const timeDiffHour = parseInt(timeDiffMinute / 60);
+    const timeDiffDay = parseInt(timeDiffHour / 24);
+    const timeDiffMonth = parseInt(timeDiffDay / 30);
+    const timeDiffyear = parseInt(timeDiffMonth / 12);
+
+    if (timeDiffMinute < 2) {
+      return '1 minute ago';
+    }
+    if (timeDiffMinute <= 59) {
+      return `${timeDiffMinute} minutes ago`;
+    }
+    if (timeDiffHour <= 23) {
+      return `${timeDiffHour} hour${timeDiffHour > 1 ? 's' : ''} ago`;
+    }
+    if (timeDiffDay <= 30) {
+      return `${timeDiffDay} day${timeDiffDay > 1 ? 's' : ''} ago`;
+    }
+    if (timeDiffMonth <= 11) {
+      return `${timeDiffMonth} month${timeDiffMonth > 1 ? 's' : ''} ago`;
+    }
+
+    return `${timeDiffyear} year${timeDiffyear > 1 ? 's' : ''} ago`;
   };
 
-  const cardMouseOver = () => {
+  const handleCardMouseOver = () => {
     cardDiv.current.style.border = '2px solid #6D6AFE';
     cardImage.current.style.transform = 'scale(1.3)';
   };
 
-  const cardMouseOut = () => {
+  const handleCardMouseOut = () => {
     cardDiv.current.style.border = '0';
     cardImage.current.style.transform = 'scale(1)';
   };
 
-  const status = link.createdAt ? upDateStauts(createdAt) : null;
   return (
     <div
       className="card"
       ref={cardDiv}
-      onMouseOver={cardMouseOver}
-      onMouseOut={cardMouseOut}
+      onMouseOver={handleCardMouseOver}
+      onMouseOut={handleCardMouseOut}
     >
       <a href={url} target="_blank" rel="noreferrer">
         <section>
@@ -55,7 +63,9 @@ export default function Card({ link }) {
             ></img>
           </div>
           <div className="card-content">
-            <p className="card-date-difference">{status}</p>
+            <p className="card-date-difference">
+              {link.createdAt ? upDateStauts(createdAt) : null}
+            </p>
             <p className="card-description">{description}</p>
             <p className="card-date">{date}</p>
           </div>
