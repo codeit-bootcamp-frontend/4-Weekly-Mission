@@ -30,7 +30,7 @@ function App() {
     <div className='App'>
       <Navbar />
       {user && <Hero name={user.name} imageURL={user.profileImageSource} />}
-      {folder.name}
+      {folder && folder.name}
       {links && <Cards links={links} />}
       <Footer />
     </div>
