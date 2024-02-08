@@ -29,7 +29,7 @@ const confirmLogin = async (data) => {
     }
 };
 
-const isEmailUsable = async (input) => {
+const emailUsable = async (input) => {
     const emailData = { email: input };
 
     try {
@@ -37,7 +37,7 @@ const isEmailUsable = async (input) => {
         if (!response.ok) {
             throw new Error(response.status);
         }
-        return response.json;
+        return response;
     } catch (error) {
         console.error('Error during email confirmation:', error);
     }
@@ -62,4 +62,4 @@ const storeToken = (result) => {
     localStorage.setItem('refreshToken', result.data.refreshToken);
 };
 
-export { confirmLogin, isEmailUsable, confirmSignup };
+export { confirmLogin, emailUsable, confirmSignup };
