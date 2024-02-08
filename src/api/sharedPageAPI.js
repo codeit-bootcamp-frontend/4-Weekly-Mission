@@ -9,6 +9,7 @@ export const userDataAPI = async () => {
     APIData.image = result.profileImageSource;
     return APIData;
   }
+  throw new Error('데이터 불러오기 실패');
 };
 
 export const folderDataAPI = async () => {
@@ -27,4 +28,5 @@ export const folderDataAPI = async () => {
     APIData.cardData = folder.links;
     return APIData;
   }
+  throw new Error('데이터 불러오기 실패');
 };
