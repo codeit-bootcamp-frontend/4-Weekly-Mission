@@ -23,25 +23,41 @@ const Footer = () => {
             </div>
 
             <div className="sns-icon">
-              <a href="https://www.facebook.com/?locale=ko_KR" target="_blank">
+              <a
+                href="https://www.facebook.com/?locale=ko_KR"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="./images/landing/akar-icons_facebook-fill.png"
                   alt="페이스북 아이콘"
                 />
               </a>
-              <a href="https://twitter.com/?lang=ko" target="_blank">
+              <a
+                href="https://twitter.com/?lang=ko"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="./images/landing/akar-icons_twitter-fill.png"
                   alt="트위터 아이콘"
                 />
               </a>
-              <a href="https://www.youtube.com/" target="_blank">
+              <a
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="./images/landing/akar-icons_youtube-fill.png"
                   alt="유튜브 아이콘"
                 />
               </a>
-              <a href="https://www.instagram.com/" target="_blank">
+              <a
+                href="https://www.instagram.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="./images/landing/ant-design_instagram-filled.png"
                   alt="인스타그램 아이콘"
