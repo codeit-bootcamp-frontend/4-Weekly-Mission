@@ -17,7 +17,7 @@ function App() {
     const user = await getUser();
     setItems(folder.links);
     setProfile(folder.owner);
-    setFolderName(folder);
+    setFolderName(folder.name);
     setUser(user);
   };
 
