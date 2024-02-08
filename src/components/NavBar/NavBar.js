@@ -2,8 +2,9 @@ import { Fragment } from "react";
 import Logo from "../../assets/images/logo.png";
 
 import "./NavBar.css";
+import { Profile } from "../Profile/Profile";
 
-const NavBar = () => {
+const NavBar = ({ userProfile }) => {
   return (
     <Fragment>
       <nav>
@@ -11,10 +12,13 @@ const NavBar = () => {
           <a href="/">
             <img src={Logo} alt="Linkbrary 로고" />
           </a>
-
-          <a className="login-btn" href="./html/signIn.html">
-            로그인
-          </a>
+          {userProfile ? (
+            <Profile userProfile={userProfile} />
+          ) : (
+            <a className="login-btn" href="./html/signIn.html">
+              로그인
+            </a>
+          )}
         </div>
       </nav>
     </Fragment>
