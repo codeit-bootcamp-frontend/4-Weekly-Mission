@@ -7,12 +7,12 @@ const Header = () => {
   return (
     <div className='HeaderContainer'>
       <div className='HeaderContent'>
-        <a href='/src/App.js'>
+        <a href='/'>
           <img className='Logo' src={logo} alt='logo img' />
         </a>
         <a href='/src/components/Signin.js'>
-          <div className='profileContent'>
-            <img className='profileImg' src={profileImg} alt='profile img' />
+          <div className='ProfileContent'>
+            <img className='ProfileImg' src={profileImg} alt='profile img' />
             <span>Codeit@codeit.com</span>
           </div>
         </a>
