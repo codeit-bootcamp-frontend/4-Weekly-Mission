@@ -6,6 +6,7 @@ import "../style/shared.css";
 
 import smileIcon from "../assets/icons/icon_smile.png";
 import searchIcon from "../assets/icons/icon_search.png";
+import { CalcTime } from "./../calculator";
 
 function SharedSection() {
   return (
@@ -23,6 +24,7 @@ function SharedSection() {
 
 function FolderItem({ item }) {
   const { imageSource, createdAt, description, url, id } = item;
+  const time = CalcTime(createdAt);
   return (
     <a href={url}>
       <div className="folder">
@@ -30,7 +32,7 @@ function FolderItem({ item }) {
           <img src={imageSource} alt={id}></img>
         </div>
         <div className="folder-textBox">
-          <p id="time">{createdAt}</p>
+          <p id="time">{time}</p>
           <p id="info">{description}</p>
           <p id="date">2023. 3. 15</p>
         </div>
