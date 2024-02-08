@@ -21,3 +21,9 @@ header {
     border: none;
     color: var(--color-white);
 }
+
+.container-profile{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
