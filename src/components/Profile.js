@@ -11,7 +11,7 @@ function Profile({ profile, folderName }) {
           <img src={profileImageSource} alt={profileImageSource} />
         </div>
         <div className="profile-info">
-          <h1>{name}</h1>
+          <h1>@{name}</h1>
           <h2>{folderNameValue}</h2>
         </div>
       </div>
