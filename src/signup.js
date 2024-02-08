@@ -9,7 +9,7 @@ const pwCheckinput = document.querySelector('#password-check')
 const pwCheckErrorMessage = document.querySelector('#pw-check-error-message')
 
 function emailDuplicateCheck(email) {
-  return fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+  fetch("https://bootcamp-api.codeit.kr/api/check-email", {
     method: "POST",
     headers: {
       "Content-type": "application/json"
@@ -17,9 +17,12 @@ function emailDuplicateCheck(email) {
     body: JSON.stringify({ email })
   })
   .then(response => {
-    if (response.status !== 200) {
+    if (!response.ok) {
       throw new Error("중복된 이메일입니다.");
     }
+  })
+  .catch((error) => {
+    emailErrorMessage.textContent = error.message;
   });
 }
 
@@ -28,9 +31,8 @@ function setEmailError() {
     emailErrorMessage.textContent = '이메일을 입력해주세요'
   } else if(!emailRegex.test(emailInput.value)) {
     emailErrorMessage.textContent = '올바른 이메일 주소가 아닙니다.'
-  } else if(emailInput.value === "test@codeit.com") {
-    emailErrorMessage.textContent = '이미 사용중인 이메일 입니다.'
   } else {
+    emailDuplicateCheck(emailInput.value)
     emailErrorMessage.textContent = ''
   }
 }
@@ -79,14 +81,13 @@ function testUser(event) {
     }),
   })
     .then((response) => {
-      if(response.status === 200){
+      if(response.ok){
         return response.json();
       } else{
         throw new Error('회원가입에 실패했습니다.');
       }
     })
-    .then((data) =>{
-      const accessToken = data.accessToken;
+    .then(({ accessToken }) =>{
       localStorage.setItem("accessToken", accessToken);
       window.location = "./index.html";
     })

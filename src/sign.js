@@ -37,18 +37,17 @@ function testUser(event) {
     body: JSON.stringify({
       email: emailInput.value,
       password: pwInput.value
-    }),
+    }), 
   })
 
   .then((response) => {
-    if(response.status === 200){
+    if(response.ok){
       return response.json();
     } else {
       throw new Error("이메일 또는 비밀번호를 확인해 주세요")
     }
   })
-  .then((data) => {
-    const accessToken = data.accessToken;
+  .then(({ accessToken }) => {
     localStorage.setItem("accessToken", accessToken);
     window.location.href = "/index.html";
   })
