@@ -9,6 +9,7 @@ import {
   checkValueMatch,
 } from './util.js';
 import { checkEmailInfo } from './api.js';
+import { PATH } from './constant.js';
 
 //Check token: 토큰 확인------------------------------------------------------
 export const checkAccessToken = () => {
@@ -34,7 +35,7 @@ export const checkEmail = (emailElement, errorMessageElement) => {
 export const checkAvailableEmail = (emailElement, errorMessageElement) => {
   const emailInfo = { email: emailElement.value };
   if (emailElement.value) {
-    checkEmailInfo('/check-email', emailInfo)
+    checkEmailInfo(PATH.API_CHECK_EMAIL, emailInfo)
       .then((result) => {
         if (!result) {
           showInputError(emailElement);

@@ -26,4 +26,8 @@ export const PATH = {
   ICON_EYE_OFF: '/assets/icon/eye-off.svg',
 
   PAGE_FOLDER: '/pages/folder.html',
+
+  API_SIGNIN: '/sign-in',
+  API_SIGNUP: '/sign-up',
+  API_CHECK_EMAIL: '/check-email',
 };

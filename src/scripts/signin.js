@@ -2,6 +2,7 @@ import { ERROR_MESSAGE } from './constant.js';
 import { showInputError, showErrorMessage } from './util.js';
 import { checkAccessToken, checkEmail, checkPassword, changeEyeIcon } from './sign.js';
 import { sign } from './api.js';
+import { PATH } from './constant.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -40,7 +41,7 @@ const SigninSubmitHandler = event => {
   }
 
   event.preventDefault();
-  sign('/sign-in', signinInfo)
+  sign(PATH.API_SIGNIN, signinInfo)
     .then((result) => {
       if (!result) {
         showInputError(email);

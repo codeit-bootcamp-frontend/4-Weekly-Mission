@@ -8,6 +8,7 @@ import {
   changeEyeIcon,
 } from './sign.js';
 import { sign } from './api.js';
+import { PATH } from './constant.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -66,7 +67,7 @@ const SignupSubmitHandler = event => {
 
   event.preventDefault();
   if (isEmailValid && isPasswordValid && isPasswordCheckValid) {
-    sign('/sign-up', signupInfo);
+    sign(PATH.API_SIGNUP, signupInfo);
     return;
   }
 };
