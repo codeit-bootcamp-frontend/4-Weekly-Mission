@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Cards from './components/Cards';
 import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
-import { getFolder, getUser } from './utils/api';
+import { getFolder } from './utils/api';
 import Hero from './components/Hero';
 
 function App() {
@@ -15,6 +15,8 @@ function App() {
     try {
       const { folder } = await getFolder();
       setFolder(folder);
+      setUser(folder?.owner);
+      setLinks(folder?.links);
     } catch (error) {
       console.error(error);
     }
@@ -22,15 +24,14 @@ function App() {
 
   useEffect(() => {
     fetchFolder();
-    setUser(folder?.owner);
-    setLinks(folder?.links);
-  }, [folder]);
+  }, []);
 
   return (
     <div className='App'>
       <Navbar />
       {user && <Hero name={user.name} imageURL={user.profileImageSource} />}
-      <Cards links={links} />
+      {folder.name}
+      {links && <Cards links={links} />}
       <Footer />
     </div>
   );
