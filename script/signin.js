@@ -9,7 +9,7 @@ import {
 } from './utils.js';
 
 import { signIn } from './apiUtils.js';
-
+localStorage.removeItem('accessToken');
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');

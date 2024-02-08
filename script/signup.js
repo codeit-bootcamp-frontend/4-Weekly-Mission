@@ -11,7 +11,8 @@ import {
 } from './utils.js';
 
 import { signUp } from './apiUtils.js';
-
+//토큰 지우기띠
+localStorage.removeItem('accessToken');
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
