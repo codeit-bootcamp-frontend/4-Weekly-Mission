@@ -9,11 +9,11 @@ import {
   checkValueMatch,
 } from './util.js';
 import { checkEmailInfo } from './api.js';
-import { PATH } from './constant.js';
+import { PATH, TOKEN } from './constant.js';
 
 //Check token: 토큰 확인------------------------------------------------------
 export const checkAccessToken = () => {
-  const localToken = localStorage.getItem('accessToken');
+  const localToken = localStorage.getItem(TOKEN.ACCESS_TOKEN);
   if (localToken) window.location.href = PATH.PAGE_FOLDER;
 };
 

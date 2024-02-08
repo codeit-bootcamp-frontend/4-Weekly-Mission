@@ -2,7 +2,7 @@ import { ERROR_MESSAGE } from './constant.js';
 import { showInputError, showErrorMessage } from './util.js';
 import { checkAccessToken, checkEmail, checkPassword, changeEyeIcon } from './sign.js';
 import { sign } from './api.js';
-import { PATH } from './constant.js';
+import { PATH, TOKEN } from './constant.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -14,7 +14,7 @@ const emailErrorMessage = document.getElementById('emailErrorMessage');
 const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 
 //토큰 삭제 (확인용)
-//localStorage.removeItem('accesstoken');
+//localStorage.removeItem(TOKEN.ACCESS_TOKEN);
 
 // Check token: 토큰 확인
 checkAccessToken();

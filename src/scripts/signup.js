@@ -8,7 +8,7 @@ import {
   changeEyeIcon,
 } from './sign.js';
 import { sign } from './api.js';
-import { PATH } from './constant.js';
+import { PATH, TOKEN } from './constant.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -23,7 +23,7 @@ const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 const passwordCheckErrorMessage = document.getElementById('passwordCheckErrorMessage');
 
 //토큰 삭제 (확인용)
-//localStorage.removeItem('accesstoken');
+//localStorage.removeItem(TOKEN.ACCESS_TOKEN);
 
 //Check token: 토큰 확인
 checkAccessToken();
