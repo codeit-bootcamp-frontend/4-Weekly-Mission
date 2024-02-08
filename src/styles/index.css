@@ -10,6 +10,12 @@
   --Gray5: #f0f6ff;
 }
 
+@font-face {
+  font-family: 'Pretendard-Regular';
+  font-weight: normal;
+  src: url('../assets/fonts/Pretendard-Regular.otf') format('truetype');
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -23,4 +29,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  p {
+    font-family: 'Pretendard-Regular';
+  }
 }
