@@ -10,42 +10,22 @@ function formatTimeDifference(value) {
   const now = new Date();
   const diffInMilliseconds = now - new Date(value);
 
-  // Milliseconds in different units
-  const minuteInMilliseconds = 60 * 1000;
-  const hourInMilliseconds = 60 * minuteInMilliseconds;
-  const dayInMilliseconds = 24 * hourInMilliseconds;
-  const monthInMilliseconds = 30 * dayInMilliseconds;
-  const yearInMilliseconds = 365 * dayInMilliseconds;
+  const units = [
+    { label: "year", duration: 365 * 24 * 60 * 60 * 1000 },
+    { label: "month", duration: 30 * 24 * 60 * 60 * 1000 },
+    { label: "day", duration: 24 * 60 * 60 * 1000 },
+    { label: "hour", duration: 60 * 60 * 1000 },
+    { label: "minute", duration: 60 * 1000 },
+  ];
 
-  // Calculate differences in different units
-  const diffInMinutes = Math.floor(diffInMilliseconds / minuteInMilliseconds);
-  const diffInHours = Math.floor(diffInMilliseconds / hourInMilliseconds);
-  const diffInDays = Math.floor(diffInMilliseconds / dayInMilliseconds);
-  const diffInMonths = Math.floor(diffInMilliseconds / monthInMilliseconds);
-  const diffInYears = Math.floor(diffInMilliseconds / yearInMilliseconds);
+  for (const unit of units) {
+    const diffInUnit = Math.floor(diffInMilliseconds / unit.duration);
 
-  // Format the time difference based on the rules
-  if (diffInMinutes < 2) {
-    return "1 minute ago";
-  } else if (diffInMinutes <= 59) {
-    return `${diffInMinutes} minutes ago`;
-  } else if (diffInHours < 1) {
-    return "1 hour ago";
-  } else if (diffInHours <= 23) {
-    return `${diffInHours} hours ago`;
-  } else if (diffInDays < 1) {
-    return "1 day ago";
-  } else if (diffInDays <= 30) {
-    return `${diffInDays} days ago`;
-  } else if (diffInMonths < 1) {
-    return "1 month ago";
-  } else if (diffInMonths <= 11) {
-    return `${diffInMonths} months ago`;
-  } else if (diffInYears < 1) {
-    return "1 year ago";
-  } else {
-    const yearsAgo = Math.floor(diffInMonths / 12);
-    return `${yearsAgo} years ago`;
+    if (diffInUnit === 1) {
+      return `1 ${unit.label} ago`;
+    } else if (diffInUnit > 1) {
+      return `${diffInUnit} ${unit.label}s ago`;
+    }
   }
 }
 
