@@ -15,16 +15,22 @@ export default function Header({ userProfile, folder }) {
               height="24"
             />
           </a>
-          <div className="user-profile">
-            <img
-              src={userProfile.image}
-              alt="userImage"
-              className="profile-image"
-              width="28"
-              height="28"
-            ></img>
-            <p className="profile-email">{userProfile.email}</p>
-          </div>
+          {userProfile ? (
+            <div className="user-profile">
+              <img
+                src={userProfile.image}
+                alt="userImage"
+                className="profile-image"
+                width="28"
+                height="28"
+              ></img>
+              <p className="profile-email">{userProfile.email}</p>
+            </div>
+          ) : (
+            <a className="login button" href="/pages/signin.html">
+              로그인
+            </a>
+          )}
         </div>
       </nav>
       <div className="folder">

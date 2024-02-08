@@ -28,6 +28,10 @@ nav {
   gap: 6px;
 }
 
+.login {
+  width: 128px;
+}
+
 .profile-image {
   width: 28px;
   height: 28px;

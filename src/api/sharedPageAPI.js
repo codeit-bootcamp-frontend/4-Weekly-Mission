@@ -3,13 +3,13 @@ const BASEURL = 'https://bootcamp-api.codeit.kr/api';
 export const userDataAPI = async () => {
   const APIData = { email: null, image: null };
   const response = await fetch(`${BASEURL}/sample/user`);
-  const result = await response.json();
   if (response.ok) {
+    const result = await response.json();
     APIData.email = result.email;
     APIData.image = result.profileImageSource;
     return APIData;
   }
-  throw new Error('데이터 불러오기 실패');
+  return null;
 };
 
 export const folderDataAPI = async () => {
@@ -20,8 +20,8 @@ export const folderDataAPI = async () => {
     cardData: null,
   };
   const response = await fetch(`${BASEURL}/sample/folder`);
-  const { folder } = await response.json();
   if (response.ok) {
+    const { folder } = await response.json();
     APIData.userName = folder.owner.name;
     APIData.userImage = folder.owner.profileImageSource;
     APIData.name = folder.name;
