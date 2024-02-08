@@ -13,7 +13,7 @@ const Header = ({ isSigned }) => {
             width="28px"
             height="28px"
           />
-          Codeit@codeit.com
+          <span className="txt-profile">Codeit@codeit.com</span>
         </div>
       )}
     </header>
