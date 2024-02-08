@@ -36,11 +36,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // 이메일 입력란 focusout 이벤트 핸들러
-  emailInput.addEventListener('focusout', function () {
+  emailInput.addEventListener('focusout', async function () {
     handleEmailInputFocusIn(emailInput, emailErrorMessage);
-    checkDuplicateEmail(emailInput, emailErrorMessage);
+    await checkDuplicateEmail(emailInput, emailErrorMessage);
   });
-  // 비밀번호 입력란 focusout 이벤트 핸들러
+  // 비밀번호 입력란 focusout 이벤트 핸들러s
   passwordInput.addEventListener('focusout', function () {
     handlePasswordInputFocusOut(passwordInput, passwordErrorMessage);
   });
@@ -92,11 +92,6 @@ document.addEventListener('DOMContentLoaded', function () {
     // 이메일 유효성 검증
     if (!isEmailValid(emailValue)) {
       displayError(emailInput, emailErrorMessage, '올바른 이메일 주소가 아닙니다.');
-      return;
-    }
-
-    // 이메일 중복 확인
-    if (checkDuplicateEmail(emailInput, emailErrorMessage)) {
       return;
     }
 
