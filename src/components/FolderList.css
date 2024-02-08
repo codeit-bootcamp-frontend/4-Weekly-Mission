@@ -9,7 +9,7 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: calc(var(--card-box-width) * 1 / 6);
 }
 
 .card-container-center {
@@ -24,6 +24,12 @@
   border-radius: 8px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+}
+
+.card-box:hover {
+  transform: scale(1.3);
 }
 
 .card-box a {
