@@ -1,5 +1,5 @@
 import profileImg from "../images/social_icon/kakatalk.png";
-import "../css/shared/shared.css";
+import "../css/shared/TopSection.css";
 
 function TopSection(){
   return (
