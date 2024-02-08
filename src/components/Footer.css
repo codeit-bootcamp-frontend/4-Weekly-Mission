@@ -27,3 +27,22 @@ footer a {
 .copyright {
   color: #676767;
 }
+
+@media (min-width: 768px) {
+  footer {
+    position: relative;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .copyright {
+    position: absolute;
+    bottom: 10px;
+  }
+
+  .faq-text {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+  }
+}
