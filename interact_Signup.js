@@ -1,3 +1,7 @@
+import { chkLocal } from "/interact.js";
+
+chkLocal();
+
 //이메일 input에서 focus out 할 때, 값이 없을 경우 아래에 “이메일을 입력해 주세요.”
 //이메일 input에서 focus out 할 때, 이메일 형식에 맞지 않는 값이 있는 경우 아래에 “올바른 이메일 주소가 아닙니다.”
 //이메일 input에서 focus out 할 때, input 값이 test@codeit.com 일 경우, “이미 사용 중인 이메일입니다.” 에러 메세지를 보입니다.
@@ -7,14 +11,44 @@ const inputel=document.querySelector('#emailinput'); //이메일 input 박스
 const emailframe=document.querySelector('#emailframe'); //이메일 input 박스 frame
 const errmsg=document.createElement('p'); //에러메시지
 const emailtest = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; //이메일 테스팅 코드
+let duplicate=0; //중복확인체크 변수
 
-function emaininput(e){
+//POST요청 함수 - 이메일 중복확인 (week6)
+async function duplicationChk(email){
+  try{
+    const response=await fetch('https://bootcamp-api.codeit.kr/api/check-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', // JSON 형태로 데이터를 전송한다는 헤더 추가
+      },
+      body: JSON.stringify({
+          "email": email
+      })
+    })
+
+    if(response.status==200){
+      duplicate=0;
+    }
+
+    else{
+      throw new Error('이메일 중복이 확인되었습니다.');
+    }
+
+
+  }
+
+  catch(error){
+    console.log(error);
+    duplicate=1;
+  }
+}
+
+async function emaininput(e){
   //console.log(e.target.value);
 
   if(e.target.value==''){
     errmsg.textContent='이메일을 입력해 주세요.';
     emailframe.append(errmsg);
-    console.log(e.target.type);
   }
 
   else{
@@ -26,12 +60,14 @@ function emaininput(e){
 
     else{
 
-      if(errmsg.textContent && e.target.value!='test@codeit.com'){ //만약에 올바른 이메일 주소를 작성하였으면 에러메시지 삭제
+      await duplicationChk(e.target.value); //이메일로 중복확인
+
+      if(duplicate==0){ //만약에 올바른 이메일 주소를 작성하였으면 에러메시지 삭제
         errmsg.textContent='';
         errmsg.remove();
       }
 
-      else if(errmsg.textContent && e.target.value=='test@codeit.com'){
+      if(duplicate==1){
         errmsg.textContent='이미 사용 중인 이메일입니다.';
         emailframe.append(errmsg);
       }
@@ -126,10 +162,48 @@ inputpassChk.addEventListener('focusout',compPassword);
 
 //회원가입을 실행할 경우, 문제가 있는 경우 문제가 있는 input에 에러 메세지로 알립니다.
 //이외의 유효한 회원가입 시도의 경우, “/folder”로 이동합니다.
-//회원가입 버튼 클릭 또는 Enter키 입력으로 회원가입 실행돼야 합니다.
+//회원가입 버튼 클릭 또는 Enter키 입력으로 회원가입 실행돼야 합니다. (week5)
+
+//유효한 회원가입일 경우 api체크 (week6)
 
 
 const signupBtn=document.querySelector('.login');
+
+//회원가입 POST요청 함수
+async function creatAcc(){
+  try{
+    const response=await fetch('https://bootcamp-api.codeit.kr/api/sign-up', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json', // JSON 형태로 데이터를 전송한다는 헤더 추가
+      },
+      body: JSON.stringify({
+        "email": inputel.value,
+        "password": inputpass.value
+      })
+    })
+
+    if(response.status==200){
+      const token= await response.json();
+      localStorage.setItem('accessToken',token['data']['accessToken']);
+      //console.log(token['data']['accessToken']);
+      location.href = "/folder.html"; //페이지 이동
+    }
+
+    else{
+      throw new Error('회원가입 오류입니다.');
+    }
+
+
+  }
+
+  catch(error){
+    console.log(error);
+  }
+}
+
+
+
 
 
 //클릭을 위한 함수
@@ -141,8 +215,9 @@ function signUp() {
 
   
   if (errmsg.textContent=='' && errmsg2.textContent=='' && errmsgChk.textContent=='') {
-    // 유효성 검사 통과
-    location.href = "/folder.html"; //페이지 이동
+    // 유효성 검사 통과 및 이메일 중복확인
+    // 통과되면 sign-up POST 요청
+    creatAcc();
   }
 
 }
@@ -160,8 +235,9 @@ function enterKey(e) {
     compPassword({ target: { value: inputpassChk.value } }); // 비밀번호 확인 함수 호출
  
     if (errmsg.textContent=='' && errmsg2.textContent=='' && errmsgChk.textContent=='') {
-      // 유효성 검사 통과
-      location.href = "/folder.html"; //페이지 이동
+      // 유효성 검사 통과 및 이메일 중복확인
+      // 통과되면 sign-up POST 요청
+      creatAcc();
     }
  
   }
