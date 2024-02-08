@@ -1,4 +1,6 @@
-import Cards from "./Cards";
+import Profile  from "./Profile";
+import Input from "./Input";
+import CardList from "./CardList";
 import {useEffect, useState} from 'react';
 import { API_PATH_SAMPLE_FOLDER } from "../services/api-path";
 
@@ -32,23 +34,18 @@ function ShaerContent(){
             }
         }   
         folderLoad();
-        // 언마운트 실행 strictMode라서 한번 언마운트 된다.
+        // 중복  처리
         return () => {
             controller.abort();
         }
     }, []);
 
     return  <main className="folder">
-        <section className="profile">
-        <div className="profile__user">
-        <img className="profile__img" alt="유저 프로필 이미지" src={profileImg}/>
-        <span className="profile__nickname" >{folderOwner}</span>
-        <span className="profile__bookmark">{folderName}</span>
-    </div>
-    </section>
+        <Profile profileImg={profileImg} folderOwner={folderOwner} folderName={folderName}/>
+
     <section className="content"> 
-        <input className="content__search" type="search" placeholder="🔍   링크를 검색해 보세요."/>
-        <Cards linkList={linkList} option={false}/>
+        <Input className="content__search" type="search" placeholder="🔍   링크를 검색해 보세요."/>
+        <CardList linkList={linkList} option={false}/>
     </section>
     </main>
 }

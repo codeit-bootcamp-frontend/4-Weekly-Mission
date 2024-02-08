@@ -11,7 +11,6 @@ function Folder(){
     const [kebabStatus, setKebabStatus] = useState(0);
 
     const handleKebab = (id) => {
-        console.log("케밥 함수 실행")
         if(prevId !== id){
             setKebabStatus(id);
             prevId = id;

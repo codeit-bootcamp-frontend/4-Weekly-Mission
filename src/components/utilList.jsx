@@ -1,18 +1,16 @@
-import ShareImg from "../assets/share.svg";
-import ModifyImg from "../assets/modify.svg";
-import DeleteImg from "../assets/delete.svg";
+import UtilListItem from "./UtilListItem";
 
-function UtilList({value, text}){
-    const imageObj = {
-        share: ShareImg,
-        modify: ModifyImg,
-        delete: DeleteImg
-    }
-    return ( 
-    <li className="content__util--list">
-    <img className="content__util--img" src={imageObj[value]} alt={`${value}이미지`}/>
-    <span className="content__util--text">{text}</span>
-    </li>
+function UtilList({selectCategory}){
+    return (
+        <ul 
+        style={{
+            display: selectCategory.name === "전체" ? "none" : "flex",
+        }}
+        className="content__util">
+            <UtilListItem value="share" text="공유"/>
+            <UtilListItem value="modify" text="수정"/>
+            <UtilListItem value="delete" text="삭제"/>
+        </ul>
     )
 }
 

@@ -1,9 +1,7 @@
 import DefalutCardImg from "../assets/default-card-img.svg";
 import StarImg from "../assets/star.svg";
 import KebabImg from "../assets/kebab.svg";
-// import { useState } from "react";
-function Card({id, url, imgSrc, timeDiff, content, date, option, handleKebab, kebabStatus}){
-    
+function CardListItem({id, url, imgSrc, timeDiff, content, date, option, handleKebab, kebabStatus}){
     return (
         <a href={url} className="content__card" >
             {option && <img className="content__star" src={StarImg} alt="별 아이콘"/>}
@@ -46,4 +44,4 @@ function Card({id, url, imgSrc, timeDiff, content, date, option, handleKebab, ke
     )
 }
 
-export default Card;
+export default CardListItem;
