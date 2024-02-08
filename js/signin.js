@@ -8,7 +8,7 @@ import { showError, hideError, pathTo } from './func.js';
 
 const emailInput = getEmailInput('signin');
 const passwordInput = getPasswordInput('signin');
-const loginForm = getLoginForm('signin');
+const signinForm = getLoginForm('signin');
 
 async function sendDataToAPI() {
   const emailValue = emailInput.value.trim();
@@ -57,7 +57,7 @@ function validatePassword() {
 
 emailInput.addEventListener('focusout', validateEmail);
 passwordInput.addEventListener('focusout', validatePassword);
-loginForm.addEventListener('submit', (event) => {
+signinForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
   if (!validateEmail()) return false;

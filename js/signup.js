@@ -10,7 +10,7 @@ import { showError, hideError, pathTo } from './func.js';
 const emailInput = getEmailInput('signup');
 const passwordInput = getPasswordInput('signup');
 const passwordCheck = getPasswordCheck();
-const loginForm = getLoginForm('signup');
+const signupForm = getLoginForm('signup');
 
 async function validateEmail() {
   const emailValue = emailInput.value.trim();
@@ -71,7 +71,7 @@ emailInput.addEventListener('focusout', validateEmail);
 passwordInput.addEventListener('focusout', validatePassword);
 passwordCheck.addEventListener('focusout', validatePasswordCheck);
 
-loginForm.addEventListener('submit', (event) => {
+signupForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
   if (!validateEmail()) return false;
