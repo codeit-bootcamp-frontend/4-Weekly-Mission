@@ -6,6 +6,7 @@ import {
 } from './helpers/utils/index.js';
 import { passwordPattern } from './constants/regex/index.js';
 import { showError, hideError, pathTo } from './func.js';
+import { SIGNUP_API_URL } from './variable.js';
 
 const emailInput = getEmailInput('signup');
 const passwordInput = getPasswordInput('signup');
@@ -14,16 +15,13 @@ const signupForm = getLoginForm('signup');
 
 async function validateEmail() {
   const emailValue = emailInput.value.trim();
-  const response = await fetch(
-    'https://bootcamp-api.codeit.kr/api/check-email',
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        email: emailValue,
-      }),
-    },
-  );
+  const response = await fetch(SIGNUP_API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: emailValue,
+    }),
+  });
 
   const responseData = await response.json();
 
