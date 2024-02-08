@@ -1,5 +1,5 @@
-import base from "./base.js";
-import errorMsg from "./errorMsg.js";
+import base from "../function/regex.js";
+import errorMsg from "../function/errorMsg.js";
 
 const emailInput = document.getElementById('email');
 const userId = 'test@codeit.com';
@@ -19,7 +19,8 @@ function validateEmail() {
       errorMsg.ErrorMessage(emailInput, '올바른 이메일 주소가 아닙니다.');
       errorMsg.boderLine('boder-error', true);
       return false;
-    } else if (emailValue !== userId) {
+    } 
+    if (emailValue !== userId) {
       errorMsg.ErrorMessage(emailInput, '이메일을 확인해 주세요.');
       errorMsg.boderLine('boder-error', true);
       return false;
@@ -29,7 +30,8 @@ function validateEmail() {
       errorMsg.ErrorMessage(emailInput, '올바른 이메일 주소가 아닙니다.');
       errorMsg.boderLine('boder-error', true);
       return false;
-    } else if (emailValue === userId) {
+    } 
+    if (emailValue === userId) {
       errorMsg.ErrorMessage(emailInput, '이미 사용 중인 이메일입니다.');
       errorMsg.boderLine('boder-error', true);
       return false;

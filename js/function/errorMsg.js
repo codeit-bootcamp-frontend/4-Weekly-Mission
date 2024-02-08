@@ -5,6 +5,7 @@ function ErrorMessage(element, message) {
   errorElement.textContent = message;
   element.parentElement.appendChild(errorElement);
 }
+
 //에러 이벤트 발생시 보더 색상을 주기위한 클래스 생성
 function boderLine(clas, bolean) {
   const item = document.querySelectorAll('.error-message');

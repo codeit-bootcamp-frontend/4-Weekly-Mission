@@ -113,7 +113,7 @@ body {
     overflow: hidden;
   }
   .img{
-    background-image: url(/image/mainimg.PNG);
+    background-image: url(/4-Weekly-Mission/image/mainimg.PNG);
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
@@ -168,7 +168,7 @@ body {
     -webkit-text-fill-color: transparent;
   }
   .content-box{
-    background-image: url('/image/mainimg1.png');
+    background-image: url('/4-Weekly-Mission/image/mainimg1.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 32.5rem;
@@ -178,7 +178,7 @@ body {
     grid-area: image;
    }
   .content-box2{
-    background-image: url('/image/mainimg2.png');
+    background-image: url('/4-Weekly-Mission/image/mainimg2.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 32.5rem;
@@ -200,7 +200,7 @@ body {
     -webkit-text-fill-color: transparent;
   }
   .content-box3{
-    background-image: url('/image/mainimg3.png');
+    background-image: url('/4-Weekly-Mission/image/mainimg3.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 32.5rem;
@@ -216,7 +216,7 @@ body {
   -webkit-text-fill-color: transparent;
   }
   .content-box4{
-    background-image: url('/image/mainimg4.png');
+    background-image: url('/4-Weekly-Mission/image/mainimg4.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 32.5rem;
@@ -355,7 +355,6 @@ body {
     overflow: hidden;
   }
   .img{
-    background-image: url(/image/mainimg.PNG);
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
@@ -417,7 +416,6 @@ body {
     color : linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%);
   }
   .content-box{
-    background-image: url('/image/mainimg1.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 38.5rem;
@@ -426,7 +424,6 @@ body {
     margin: 0;
    }
   .content-box2{
-    background-image: url('/image/mainimg2.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 38.5rem;
@@ -447,7 +444,6 @@ body {
     -webkit-text-fill-color: transparent;
   }
   .content-box3{
-    background-image: url('/image/mainimg3.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 38.5rem;
@@ -462,7 +458,6 @@ body {
   -webkit-text-fill-color: transparent;
   }
   .content-box4{
-    background-image: url('/image/mainimg4.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 38.5rem;
@@ -588,7 +583,6 @@ body {
     overflow: hidden;
   }
   .img{
-    background-image: url(/image/mainimg.PNG);
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
@@ -653,7 +647,6 @@ body {
     -webkit-text-fill-color: transparent;
   }
   .content-box{
-    background-image: url('/image/mainimg1.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 55rem;
@@ -661,7 +654,6 @@ body {
     grid-area: image;
    }
   .content-box2{
-    background-image: url('/image/mainimg2.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 55rem;
@@ -681,7 +673,6 @@ body {
     -webkit-text-fill-color: transparent;
   }
   .content-box3{
-    background-image: url('/image/mainimg3.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 55rem;
@@ -695,7 +686,6 @@ body {
   -webkit-text-fill-color: transparent;
   }
   .content-box4{
-    background-image: url('/image/mainimg4.png');
     background-size: contain;
     background-repeat: no-repeat;
     width: 55rem;
