@@ -1,5 +1,6 @@
 
-import FolderIfm from '../folderIfm/FolderIfm';
+
+import Footer from '../footer/Footer';
 import Header from '../header/Header';
 import Main from '../main/Main';
 import './App.css';
@@ -7,10 +8,11 @@ import './App.css';
 function App() {
 
   return (
-   <>
+    <>
       <Header />
       <Main />
-   </>
+      <Footer/>
+    </>
   );
 }
 

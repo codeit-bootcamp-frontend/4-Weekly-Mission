@@ -1,6 +1,8 @@
+import { SERVER_URL } from "./constant";
+
 export async function requestProfileData() {
     try {
-        const response = await fetch(' https://bootcamp-api.codeit.kr/api/sample/user');
+        const response = await fetch( `${SERVER_URL}/sample/user`);
         const profileData = await response.json();
         if (profileData !== undefined) {
             return profileData;
@@ -14,7 +16,7 @@ export async function requestProfileData() {
 
 export async function requestFolderInformation(){
     try{
-        const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/folder');
+        const response = await fetch(`${SERVER_URL}/sample/folder`);
         const folderData = await response.json();
      
         return folderData.folder;
