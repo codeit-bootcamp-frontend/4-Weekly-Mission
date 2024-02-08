@@ -17,7 +17,7 @@ const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 //localStorage.removeItem(TOKEN.ACCESS_TOKEN);
 
 // Check token: 토큰 확인
-checkAccessToken();
+// checkAccessToken();
 
 //Check email: 입력 여부 확인, 메일 형식 확인
 const SigninEmailHandler = () => {

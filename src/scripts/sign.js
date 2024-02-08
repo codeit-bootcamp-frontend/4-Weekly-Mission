@@ -1,4 +1,4 @@
-import { ERROR_MESSAGE, PATH } from './constant.js';
+import { ERROR_MESSAGE, PATH, TOKEN } from './constant.js';
 import {
   validateEmail,
   validatePassword,
@@ -10,7 +10,6 @@ import {
   getLocalToken,
 } from './util.js';
 import { checkEmailInfo } from './api.js';
-import { PATH, TOKEN } from './constant.js';
 
 //Check token: 토큰 확인------------------------------------------------------
 export const checkAccessToken = () => {
