@@ -1,10 +1,11 @@
 import React from 'react';
 import Gnb from './components/Gnb';
+import './Top.css';
 
 const Top = () => {
   return (
     <>
-      <Gnb />
+      <Gnb className="gnb_ly"/>
       <div className="top-frame_ly">
         <div className='user'>
           <div></div>
