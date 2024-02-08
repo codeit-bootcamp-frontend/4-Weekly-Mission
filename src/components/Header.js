@@ -1,25 +1,18 @@
 import logo from "../assets/logo.svg";
 import "./Header.css";
 
-function Header({ user }) {
-  if (!user) {
-    return (
-      <header>
-        <div className="nav-space">
-          <div className="nav">
-            <a href="/">
-              <img src={logo} alt={logo} />
-            </a>
-            <div>
-              <button>Login</button>
-            </div>
-          </div>
-        </div>
-      </header>
-    );
-  }
-
+function userInformation({ user }) {
+  if (!user) return false;
   const { email, profileImageSource } = user;
+  return (
+    <div>
+      <img className="logo" src={profileImageSource} alt={profileImageSource} />
+      <span>{email}</span>
+    </div>
+  );
+}
+
+function Header({ user }) {
   return (
     <header>
       <div className="nav-space">
@@ -27,14 +20,7 @@ function Header({ user }) {
           <a href="/">
             <img src={logo} alt={logo} />
           </a>
-          <div>
-            <img
-              className="logo"
-              src={profileImageSource}
-              alt={profileImageSource}
-            />
-            <span>{email}</span>
-          </div>
+          {user ? userInformation({ user }) : <button>Login</button>}
         </div>
       </div>
     </header>
