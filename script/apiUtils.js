@@ -2,26 +2,20 @@ import { redirectIfAccessTokenExists } from './utils.js';
 const apiURL = 'https://bootcamp-api.codeit.kr/api';
 
 // 공통 API 요청 함수
-async function requestAPI(endpoint, method, body) {
-  try {
-    const response = await fetch(`${apiURL}${endpoint}`, {
-      method: method,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
-    return response;
-  } catch (error) {
-    console.error('API 요청 오류:', error);
-    throw error;
-  }
+function requestAPI(endpoint, body) {
+  return fetch(`${apiURL}${endpoint}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
 }
 
 // 이메일 중복 확인 함수
 export async function checkEmailDuplicate(email) {
   try {
-    const response = await requestAPI('/check-email', 'POST', { email });
+    const response = requestAPI('/check-email', { email });
     const data = await response.json();
 
     if (response.ok) {
@@ -40,7 +34,7 @@ export async function checkEmailDuplicate(email) {
 
 export async function signUp(email, password) {
   try {
-    const response = await requestAPI('/sign-up', 'POST', { email, password });
+    const response = requestAPI('/sign-up', { email, password });
     if (response.ok) {
       localStorage.setItem('accessToken', response.accessToken); // 로컬 스토리지에 accessToken 저장
       window.location.href = '/folder'; // /folder 페이지로 이동
@@ -55,8 +49,8 @@ export async function signUp(email, password) {
 // 로그인 함수
 export async function signIn(email, password) {
   try {
-    const response = await requestAPI('/sign-in', 'POST', { email, password });
-
+    const response = await requestAPI('/sign-in', { email, password });
+    console.log(response);
     if (response.ok) {
       localStorage.setItem('accessToken', response.accessToken); // 로컬 스토리지에 accessToken 저장
       window.location.href = '/folder';

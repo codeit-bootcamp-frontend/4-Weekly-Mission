@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // 회원가입 요청
-    const signUpResult = signUp(emailValue, passwordValue);
+    const signUpResult = await signUp(emailValue, passwordValue);
     if (signUpResult.success) {
       window.location.href = '../folder.html';
     } else {

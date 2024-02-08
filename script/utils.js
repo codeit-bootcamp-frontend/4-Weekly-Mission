@@ -56,37 +56,10 @@ export function togglePasswordVisibility(passwordInput, eyeIcon, imgSrc, inputTy
   passwordInput.type = inputType;
 }
 
-// export function checkDuplicateEmail(emailInput, emailErrorMessage) {
-//   if (isEmailAlreadyUsed(emailInput)) {
-//     displayError(emailInput, emailErrorMessage, '이미 사용 중인 이메일입니다.');
-//   }
-// }
-
-// 이메일 중복 확인 함수
-export async function checkDuplicateEmail(emailInput, emailErrorMessage) {
-  const emailValue = emailInput.value.trim();
-  if (!emailValue) {
-    displayError(emailInput, emailErrorMessage, '이메일을 입력해 주세요.');
-    return false;
-  }
-  if (!isEmailValid(emailValue)) {
-    displayError(emailInput, emailErrorMessage, '올바른 이메일 형식이 아닙니다.');
-    return false;
-  }
-
-  // 이메일 중복 확인
-  const { success, duplicated } = await checkEmailDuplicate(emailValue);
-  if (!success) {
-    console.error('이메일 중복 확인에 실패했습니다.');
-    return false;
-  }
-  if (duplicated) {
+export function checkDuplicateEmail(emailInput, emailErrorMessage) {
+  if (isEmailAlreadyUsed(emailInput)) {
     displayError(emailInput, emailErrorMessage, '이미 사용 중인 이메일입니다.');
-    return false;
   }
-
-  clearError(emailInput, emailErrorMessage);
-  return true;
 }
 
 export function isEmailAlreadyUsed(emailInput) {
