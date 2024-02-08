@@ -14,3 +14,12 @@ export const getUser = async () => {
     console.error(error);
   }
 };
+
+export const getFolder = async () => {
+  try {
+    const { data: folder } = await axios.get('/sample/folder');
+    return folder;
+  } catch (error) {
+    console.error(error);
+  }
+};
