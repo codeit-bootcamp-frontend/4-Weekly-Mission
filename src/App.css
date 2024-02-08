@@ -3,12 +3,14 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
+  width: 100%;
 }
 
 .container-top {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
 }
 
 .container-footer {

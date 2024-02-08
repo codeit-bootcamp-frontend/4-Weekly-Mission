@@ -12,14 +12,12 @@ const Footer = ({className=''}) => {
   <div className={className}>
     <div className='footer_ly'>
       <div className='footer'>
-        <div className='codeit_ly'>
-          <span className='social-logo_text'>©codeit - 2023</span>
-        </div>
-        <div className='policy_ly'>
+        <span className='codeit social-logo_text'>©codeit - 2023</span>
+        <div className='policy policy_ly'>
           <span className='social-logo_text'>Privacy Policy</span>
           <span className='social-logo_text'>FAQ</span>
         </div>
-        <div className='social-logo_ly'>
+        <div className='social-logo social-logo_ly'>
           <a href="https://www.facebook.com/" className="social-logo_hypl">
             <img src={facebookImg} alt="facebook 홈페이지로 연결된 facebook 로고" />
           </a>
