@@ -1,4 +1,4 @@
-import AddImg from "../assets/add.svg";
+import AddImg from "../../assets/add.svg";
 function CategoryAddButton(){
     return(
         <div className="category__add">

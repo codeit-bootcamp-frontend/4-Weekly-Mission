@@ -1,7 +1,7 @@
-import FacebookImg from '../assets/facebook.svg';
-import TwitterImg from '../assets/twitter.svg';
-import YoutubeImg from '../assets/youtube.svg';
-import InstargramImg from '../assets/instargram.svg';
+import FacebookImg from '../../assets/facebook.svg';
+import TwitterImg from '../../assets/twitter.svg';
+import YoutubeImg from '../../assets/youtube.svg';
+import InstargramImg from '../../assets/instargram.svg';
 
 function Footer(){
     return  <footer className="footer">

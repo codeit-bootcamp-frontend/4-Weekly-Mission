@@ -1,6 +1,6 @@
-import ShareImg from "../assets/share.svg";
-import ModifyImg from "../assets/modify.svg";
-import DeleteImg from "../assets/delete.svg";
+import ShareImg from "../../assets/share.svg";
+import ModifyImg from "../../assets/modify.svg";
+import DeleteImg from "../../assets/delete.svg";
 
 function UtilListItem({value, text}){
     const imageObj = {

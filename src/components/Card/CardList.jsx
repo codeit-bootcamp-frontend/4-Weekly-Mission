@@ -1,15 +1,11 @@
 import CardListItem from "./CardListItem";
-import getTimeDiff from "../utils/getTimeDiff";
-import getCoustomDate from "../utils/getCoustomDate";
+import getTimeDiff from "../../utils/getTimeDiff";
+import getCoustomDate from "../../utils/getCoustomDate";
 
 function CardList({handleKebab, kebabStatus, linkList, option}){
     return (
         <div className="content__cards">
-            <div
-            style={{
-                display : linkList.length ? "none" : "block",
-            }}
-            className="content__blank">저장된 링크가 없습니다</div>
+            {!linkList.length &&  <div className="content__blank">저장된 링크가 없습니다</div>}
             {linkList.map(link => {
                 const {id, createdAt, created_at, imageSource, image_source, description, url} = link;
                 const imgSrc = imageSource !== undefined ? imageSource : image_source;

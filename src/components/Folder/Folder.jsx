@@ -1,9 +1,9 @@
-import Header from "./Header";
+import Header from "../Header/Header";
 import FolderContent from "./FolderContent";
-import Footer from "./Footer";
-import FloatingButton from "./FloatingButton";
-import '../styles/reset.css';
-import '../styles/folder.css';
+import Footer from "../Footer/Footer";
+import FloatingButton from "../FloatingButton";
+import '../../styles/reset.css';
+import '../../styles/folder.css';
 import { useState } from "react";
 
 let prevId = 999;  
@@ -15,10 +15,9 @@ function Folder(){
             setKebabStatus(id);
             prevId = id;
         }else{
-            setKebabStatus(0)
+            setKebabStatus(0);
             prevId = 999;
-        }
-        
+        }    
     }
     return <>
         <Header/>

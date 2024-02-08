@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
-import Input from "./Input";
-import CardList from "./CardList";
-import ContentHeader from "./ContentHeader";
-import Category from "./Category";
-import {API_PATH_USER_FOLDER, API_PATH_ALL_LINK, API_PATH_CATEGORY_LINK} from "../services/api-path";
+import Input from "../Input";
+import Content from "../Content/Content";
+import {API_PATH_USER_FOLDER, API_PATH_ALL_LINK, API_PATH_CATEGORY_LINK} from "../../services/api-path";
 
 const DEFAULT_CATEGORY = [{
         id: 0,
@@ -87,6 +85,17 @@ function FolderContent({handleKebab, kebabStatus}){
         }
     }
 
+    const contentProps = {
+        categoryList,
+        selectCategory,
+        allLinkLoad,
+        handleSelectCategory,
+        handleKebab,
+        kebabStatus,
+        linkList,
+        option: true
+    }
+
     return (
         <main className="folder" onClick={(e) => getClickArea(e)}>
         <section className="link">
@@ -96,12 +105,7 @@ function FolderContent({handleKebab, kebabStatus}){
             </div>
         </section>
 
-        <section className="content"> 
-            <Input className="content__search" type="search" placeholder="🔍   링크를 검색해 보세요."/>
-            <Category categoryList={categoryList} selectCategory={selectCategory} allLinkLoad={allLinkLoad} handleSelectCategory={handleSelectCategory}/>
-            <ContentHeader selectCategory={selectCategory}/>
-            <CardList handleKebab={handleKebab} kebabStatus={kebabStatus} linkList={linkList} option={true} />
-        </section>
+        <Content {...contentProps}/>
     </main>
     )
 }

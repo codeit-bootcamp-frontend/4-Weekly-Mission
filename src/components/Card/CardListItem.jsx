@@ -1,6 +1,6 @@
-import DefalutCardImg from "../assets/default-card-img.svg";
-import StarImg from "../assets/star.svg";
-import KebabImg from "../assets/kebab.svg";
+import DefalutCardImg from "../../assets/default-card-img.svg";
+import StarImg from "../../assets/star.svg";
+import KebabImg from "../../assets/kebab.svg";
 function CardListItem({id, url, imgSrc, timeDiff, content, date, option, handleKebab, kebabStatus}){
     return (
         <a href={url} className="content__card" >

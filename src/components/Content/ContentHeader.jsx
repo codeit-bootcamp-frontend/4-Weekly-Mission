@@ -1,4 +1,4 @@
-import UtilList from "./UtilList";
+import UtilList from "../Util/UtilList";
 function ContentHeader({selectCategory}){
     return (
         <div className="content__header">
