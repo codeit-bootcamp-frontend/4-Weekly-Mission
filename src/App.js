@@ -2,14 +2,15 @@ import React from 'react';
 import Top from './Top';
 import Frame from './Frame';
 import Footer from './components/Footer';
+import './App.css';
 
 const App = () => {
   return (
-    <>
-      < Top />
+    <div className='container'>
+      < Top className='container-top'/>
       < Frame />
-      < Footer />
-    </>
+      < Footer className='container-footer'/>
+    </div>
   )
 }
 

@@ -21,4 +21,4 @@ const Gnb = ({className=''}) => {
   )
 }
 
-export default Gnb
+export default Gnb;
