@@ -1,0 +1,42 @@
+nav {
+	background-color: var(--LBrary-Background);
+	position: sticky;
+	margin: 0;
+	top: 0;
+}
+
+.flexibleHeaderInTablet {
+	display: flex;
+	padding: 20px 200px;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.defaultBtn {
+	width: 128px;
+}
+
+@media (max-width: 1199px) {
+	nav {
+		margin: 0;
+	}
+
+	.flexibleHeaderInTablet {
+		width: 100%;
+		padding: 20px 32px;
+		margin: 0 auto;
+		max-width: 864px;
+	}
+}
+
+@media (max-width: 767px) {
+	nav > div img {
+		width: 88.6px;
+	}
+
+	.defaultBtn {
+		width: 80px;
+		font-size: 1.4rem;
+		padding: 10px 16px;
+	}
+}
