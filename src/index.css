@@ -43,6 +43,14 @@ a {
   font-weight: 600;
 }
 
+.font-13px {
+  font-size: 13px;
+}
+
+.font-14px {
+  font-size: 14px;
+}
+
 .font-16px {
   font-size: 16px;
 }

@@ -3,6 +3,7 @@ import Footer from "../Components/Footer";
 import Avatar from "../Components/Avatar";
 import "./css/Folder.css";
 import SearchBar from "../Components/SearchBar";
+import Card from "../Components/Card";
 
 const Folder = () => {
   return (
@@ -21,6 +22,9 @@ const Folder = () => {
       </div>
       <main>
         <SearchBar />
+        <div>
+          <Card cardImage="images/sample_image.png" />
+        </div>
       </main>
       <Footer />
     </>
