@@ -1,7 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Profile = () => {
-  return <div>Profile</div>;
+  const [profileData, setProfileData] = useState(null);
+
+  useEffect(() => {
+    fetch('https://bootcamp-api.codeit.kr/api/sample/user')
+      .then((response) => response.json())
+      .then((data) => {
+        setProfileData(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching profile data:', error);
+      });
+  }, []);
+
+  if (!profileData) {
+    return <button>로그인</button>;
+  }
+
+  return (
+    <div className="profile-items">
+      <img
+        className="profile-image"
+        src={profileData.profileImageSource}
+        alt="Profile"
+      />
+      <p className="profile-email">{profileData.email}</p>
+    </div>
+  );
 };
 
 export default Profile;
