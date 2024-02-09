@@ -15,7 +15,7 @@ const Nav = () => {
           'https://bootcamp-api.codeit.kr/api/sample/folder',
         );
         if (!response.ok) {
-          throw new Error('에러가 발생하였습니다.');
+          throw new Error('response 전달 실패');
         }
         const data = await response.json();
         setFolderInfo({
@@ -27,7 +27,6 @@ const Nav = () => {
         console.error('에러 발생:', error);
       }
     };
-    console.log(folderInfo);
     fetchFolderInfo();
   }, []);
   return (
