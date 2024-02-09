@@ -14,10 +14,11 @@ const Styled = {
   `,
 };
 
-function StarButton({ isActive }) {
+function StarButton({ isActive, ...htmlDivProps }) {
   const src = isActive ? filledStar : emptystar;
+
   return (
-    <Styled.Container>
+    <Styled.Container {...htmlDivProps}>
       <img src={src} alt="찜 버튼" />
     </Styled.Container>
   );
