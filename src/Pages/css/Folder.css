@@ -35,3 +35,18 @@ main {
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   gap: 20px;
 }
+
+/*태블릿 사이즈*/
+@media (min-width: 767px) and (max-width: 1124px) {
+  .card-list {
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+  }
+}
+
+/*모바일 사이즈*/
+@media (min-width: 375px) and (max-width: 767px) {
+  .card-list {
+    display: flex;
+    flex-direction: column;
+  }
+}
