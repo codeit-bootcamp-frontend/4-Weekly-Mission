@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
-import profileImg from '../../assets/profileImg.svg';
+import logo from '../../assets/header/logo.svg';
+import profileImg from '../../assets/header/profileImg.svg';
 import '../../style/Header.css';
 
 const Header = () => {
