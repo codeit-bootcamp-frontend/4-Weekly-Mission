@@ -1,12 +1,15 @@
 import "./App.css";
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
 import Folder from "./Pages/Folder";
+import { Route, Routes } from "react-router-dom";
+import LinkDetail from "./Pages/LinkDetail";
 
 function App() {
   return (
     <div className="App">
-      <Folder />
+      <Routes>
+        <Route path="/" element={<Folder />} />
+        <Route path="/link/:linkId" element={<LinkDetail />} />
+      </Routes>
     </div>
   );
 }

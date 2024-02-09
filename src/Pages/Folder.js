@@ -6,6 +6,7 @@ import SearchBar from "../Components/SearchBar";
 import Card from "../Components/Card";
 import { useEffect, useState } from "react";
 import { getFolder, getUser } from "../api";
+import { Link } from "react-router-dom";
 
 const Folder = () => {
   const [user, setUser] = useState({ email: null, profileImageSource: null });
@@ -60,11 +61,13 @@ const Folder = () => {
           {folderInfo.folderLinks.map((link) => {
             const { imageSource, createdAt, description } = link;
             return (
-              <Card
-                cardImage={imageSource}
-                cardCreated={createdAt}
-                cardDescription={description}
-              />
+              <Link to={`/link/${link.id}`} key={link.id}>
+                <Card
+                  cardImage={imageSource}
+                  cardCreated={createdAt}
+                  cardDescription={description}
+                />
+              </Link>
             );
           })}
         </div>
