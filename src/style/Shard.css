@@ -1,0 +1,169 @@
+.SharedContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10rem;
+  gap: 4rem;
+}
+
+.SharedTitle {
+  height: 24.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 62.4rem 6rem;
+  gap: 2rem;
+  background-color: var(--bg);
+}
+
+.SharedProfile {
+  width: 6rem;
+  height: 9.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.SharedProfile > img {
+  width: 6rem;
+  height: 6rem;
+}
+
+.SharedProfile > span {
+  color: #000000;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.SharedTitle > h1 {
+  width: 18.8rem;
+  height: 4.8rem;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.SharedMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.SharedSeachBarContent {
+  width: 106rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 1.6rem;
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+}
+
+.SeachContent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.SeachContent > img {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.SeachContent > input {
+  width: 100%;
+  display: block;
+  color: #666666;
+  border: none;
+  margin-right: 1rem;
+  background-color: #f5f5f5;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.SharedSeachBarContent > img {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.SharedCardContent {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 2rem 2.5rem;
+}
+
+.CardContent {
+  width: 34rem;
+  height: 33.4rem;
+  border-radius: 1.5rem;
+  box-shadow: 0rem 0.5rem 2.5rem 0rem rgba(0, 0, 0, 0.08);
+}
+
+.CardContent > img {
+  width: 34rem;
+  height: 20rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.CardInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem;
+  gap: 1rem;
+}
+
+.CardInfoHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CardInfoHeader > span {
+  color: #666666;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.CardInfo > p {
+  height: 4.9rem;
+  color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.CardInfo > span {
+  height: 1.9rem;
+  color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* tablet */
+@media (max-width: 1124px) {
+  .SharedMain {
+    padding: 0 3.2rem;
+  }
+
+  .SharedSeachBarContent {
+    width: 70.4rem;
+  }
+
+  .SharedCardContent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem 2.5rem;
+  }
+}
