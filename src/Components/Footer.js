@@ -2,11 +2,11 @@ import "./css/Footer.css";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const smallLogoStyle = {
+  const smallIconStyle = {
     width: "18px",
     height: "18px",
   };
-  const mediumLogoStyle = {
+  const regularIconStyle = {
     width: "20px",
     height: "20px",
   };
@@ -22,28 +22,28 @@ const Footer = () => {
           <img
             alt="facebook logo"
             src="icons/facebook_logo.png"
-            style={smallLogoStyle}
+            style={smallIconStyle}
           />
         </a>
         <a href="https://www.twittwe.com" target="_blank">
           <img
             alt="twitter logo"
             src="icons/twitter_logo.png"
-            style={mediumLogoStyle}
+            style={regularIconStyle}
           />
         </a>
         <a href="https://www.youtube.com" target="_blank">
           <img
             alt="youtube logo"
             src="icons/youtube_logo.png"
-            style={mediumLogoStyle}
+            style={regularIconStyle}
           />
         </a>
         <a href="https://www.instagram.com" target="_blank">
           <img
             alt="instagram logo"
             src="icons/instagram_logo.png"
-            style={mediumLogoStyle}
+            style={regularIconStyle}
           />
         </a>
       </div>

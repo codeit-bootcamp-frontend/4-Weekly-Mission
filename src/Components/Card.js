@@ -1,4 +1,5 @@
 import "./css/Card.css";
+import { SAMPLE_IMAGE_URL } from "../constant";
 
 const getTimeDifference = (createdDate, currentDate) => {
   const differenceInSeconds = Math.floor((currentDate - createdDate) / 1000);
@@ -37,17 +38,18 @@ const getTimeDifference = (createdDate, currentDate) => {
 
 const Card = ({ cardImage = null, cardCreated, cardDescription }) => {
   const createDate = new Date(cardCreated);
+  const currentDate = new Date();
+
   const createDateString = `${createDate.getFullYear()}. ${
     createDate.getMonth() + 1
   }. ${createDate.getDate()}`;
 
-  const currentDate = new Date();
   const timeDifference = getTimeDifference(createDate, currentDate);
 
   return (
     <div className="Card">
       <img
-        src={cardImage ? cardImage : "images/sample_image.png"}
+        src={cardImage ? cardImage : SAMPLE_IMAGE_URL}
         alt="cardImage"
         className="card-image"
       />
