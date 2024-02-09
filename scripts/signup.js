@@ -1,14 +1,16 @@
 //@ts-check
 import {
-  EMAIL_MESSAGE,
-  EMAIL_REGEX,
   INPUT_IDS,
+  LOCALSTORAGE_ACCESSTOKEN,
   PASSWORD_MESSAGE,
   PASSWORD_REGEX,
   SIGNUP_PATH
 } from './constant/signConfig.js';
 import { DOMHandler, InputHandler } from './utils/element.js';
 import { SignHandler } from './utils/sign.js';
+import { useAxios } from './utils/axios.js';
+
+// SignHandler.checkAccessToken(SIGNUP_PATH);
 
 const {
   emailElementId,
@@ -53,57 +55,42 @@ const passwordErrorElement = DOMHandler.getById(passwordErrorElementId);
 /** @type {HTMLElement} passwordCheckErrorElement*/
 const passwordCheckErrorElement = DOMHandler.getById(passwordCheckErrorElementId);
 
-const handleEmailElementFocusOut = () => {
-  if (SignHandler.isExistEmail(emailElement)) {
-    SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.exist);
-    emailElement.classList.add('red-box');
-    return;
-  }
-  if (InputHandler.isMatchRegEx(emailElement, EMAIL_REGEX)) {
-    emailErrorElement?.classList.add('hidden');
-    return;
-  }
-  emailElement.classList.add('red-box');
-  if (InputHandler.isEmptyValue(emailElement)) {
-    SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.empty);
-    return;
-  }
-  SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.invalid);
-};
-
-const handleEmailElementFocusIn = () => {
+const handleEmailElementFocusOut = async () => {
   emailElement.classList.remove('red-box');
-};
+  const axios = useAxios();
 
+  try {
+    await axios.post('/api/check-email', { email: emailElement.value });
+    emailErrorElement?.classList.add('hidden');
+  } catch (err) {
+    const error = err.response.data.error;
+    SignHandler.showErrorMessage(emailErrorElement, error.message);
+    emailElement.classList.add('red-box');
+  }
+};
 const handlePasswordElementFocusOut = () => {
-  passwordElement.classList.add('red-box');
+  passwordElement.classList.remove('red-box');
   if (InputHandler.isEmptyValue(passwordElement)) {
     SignHandler.showErrorMessage(passwordErrorElement, PASSWORD_MESSAGE.empty);
+    passwordElement.classList.add('red-box');
     return;
   }
   if (InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX)) {
     passwordErrorElement?.classList.add('hidden');
-    passwordElement.classList.remove('red-box');
     return;
   }
   SignHandler.showErrorMessage(passwordErrorElement, PASSWORD_MESSAGE.invalid);
-};
-
-const handlePasswordElementFocusIn = () => {
-  passwordElement.classList.remove('red-box');
+  passwordElement.classList.add('red-box');
 };
 
 const handlePasswordCheckElementFocusOut = () => {
+  passwordCheckElement.classList.remove('red-box');
   if (InputHandler.isMatchElement(passwordElement, passwordCheckElement)) {
     passwordCheckErrorElement.classList.add('hidden');
     return;
   }
   SignHandler.showErrorMessage(passwordCheckErrorElement, PASSWORD_MESSAGE.match);
   passwordCheckElement.classList.add('red-box');
-};
-
-const handlePasswordCheckElementFocusIn = () => {
-  passwordCheckElement.classList.remove('red-box');
 };
 
 const handlePasswordEyeImageClick = () => {
@@ -115,24 +102,37 @@ const handlePasswordCheckEyeImageClick = () => {
 };
 
 /** @param {Event} event */
-const handleSignUp = event => {
+const handleSignUp = async event => {
   event.preventDefault();
   emailElement.blur();
   passwordElement.blur();
   passwordCheckElement.blur();
-  const checkEmail = InputHandler.isMatchRegEx(emailElement, EMAIL_REGEX) && !SignHandler.isExistEmail(emailElement);
+
+  const axios = useAxios();
+  const checkEmail = await axios.post('/api/check-email', { email: emailElement.value });
+  console.log(checkEmail);
   const checkPassword =
     InputHandler.isMatchRegEx(passwordElement, PASSWORD_REGEX) &&
     InputHandler.isMatchElement(passwordElement, passwordCheckElement);
-  if (checkEmail && checkPassword) SignHandler.navigateTo(SIGNUP_PATH);
+  if (checkEmail && checkPassword) {
+    try {
+      const { data: response } = await axios.post('/api/sign-up', {
+        email: emailElement.value,
+        password: passwordElement.value
+      });
+      const accessToken = response.data.accessToken;
+      console.log(accessToken);
+      localStorage.setItem(LOCALSTORAGE_ACCESSTOKEN, accessToken);
+      SignHandler.navigateTo(SIGNUP_PATH);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 };
 
 emailElement?.addEventListener('focusout', handleEmailElementFocusOut);
-emailElement?.addEventListener('focusin', handleEmailElementFocusIn);
 passwordElement?.addEventListener('focusout', handlePasswordElementFocusOut);
-passwordElement?.addEventListener('focusin', handlePasswordElementFocusIn);
 passwordCheckElement?.addEventListener('focusout', handlePasswordCheckElementFocusOut);
-passwordCheckElement?.addEventListener('focusin', handlePasswordCheckElementFocusIn);
 passwordEyeImageElement?.addEventListener('click', handlePasswordEyeImageClick);
 passwordCheckEyeImageElement?.addEventListener('click', handlePasswordCheckEyeImageClick);
 loginForm?.addEventListener('submit', handleSignUp);

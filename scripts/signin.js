@@ -1,14 +1,17 @@
 //@ts-check
+import { useAxios } from './utils/axios.js';
 import { DOMHandler, InputHandler } from './utils/element.js';
 import {
   EMAIL_MESSAGE,
   PASSWORD_MESSAGE,
-  loginAction,
   INPUT_IDS,
   EMAIL_REGEX,
-  LGOIN_PATH
+  LOGIN_PATH,
+  LOCALSTORAGE_ACCESSTOKEN
 } from './constant/signConfig.js';
 import { SignHandler } from './utils/sign.js';
+
+// SignHandler.checkAccessToken(LOGIN_PATH);
 
 const {
   emailElementId,
@@ -41,6 +44,7 @@ const emailErrorElement = DOMHandler.getById(emailErrorElementId);
 const passwordErrorElement = DOMHandler.getById(passwordErrorElementId);
 
 const handleEmailElementFocusOut = () => {
+  emailElement.classList.remove('red-box');
   if (InputHandler.isMatchRegEx(emailElement, EMAIL_REGEX)) {
     emailErrorElement?.classList.add('hidden');
     return;
@@ -51,10 +55,6 @@ const handleEmailElementFocusOut = () => {
     : SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.invalid);
 };
 
-const handleEmailElementFocusIn = () => {
-  emailElement.classList.remove('red-box');
-};
-
 const handlePasswordElementFocusOut = () => {
   if (InputHandler.isEmptyValue(passwordElement)) {
     SignHandler.showErrorMessage(passwordErrorElement, PASSWORD_MESSAGE.empty);
@@ -62,37 +62,38 @@ const handlePasswordElementFocusOut = () => {
     return;
   }
   passwordErrorElement?.classList.add('hidden');
-};
-
-const handlePasswordElementFocusIn = () => {
   passwordElement.classList.remove('red-box');
 };
 
 const handlepasswordEyeImageClick = () => {
-  console.log(123);
-
   SignHandler.toggleImage(passwordElement, passwordEyeImageElement);
 };
 
 /** @param {Event} event*/
-const handleSubmit = event => {
+const handleSubmit = async event => {
   event.preventDefault();
-  passwordElement.blur();
   emailElement.blur();
-  const isValid = SignHandler.isValidUser(emailElement, passwordElement);
-  if (isValid) {
-    SignHandler.navigateTo(LGOIN_PATH);
-    return;
+  passwordElement.blur();
+
+  const axios = useAxios();
+  try {
+    const { data: response } = await axios.post('/api/sign-in', {
+      email: emailElement.value,
+      password: passwordElement.value
+    });
+    const accessToken = response.accessToken;
+    localStorage.setItem(LOCALSTORAGE_ACCESSTOKEN, accessToken);
+    SignHandler.navigateTo(LOGIN_PATH);
+  } catch (err) {
+    console.error(err.message);
+    SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.fail);
+    emailElement.classList.add('red-box');
+    SignHandler.showErrorMessage(passwordErrorElement, PASSWORD_MESSAGE.fail);
+    passwordElement.classList.add('red-box');
   }
-  SignHandler.showErrorMessage(emailErrorElement, EMAIL_MESSAGE.fail);
-  emailElement.classList.add('red-box');
-  SignHandler.showErrorMessage(passwordErrorElement, PASSWORD_MESSAGE.fail);
-  passwordElement.classList.add('red-box');
 };
 
 emailElement?.addEventListener('focusout', handleEmailElementFocusOut);
-emailElement?.addEventListener('focusin', handleEmailElementFocusIn);
 passwordElement?.addEventListener('focusout', handlePasswordElementFocusOut);
-passwordElement?.addEventListener('focusin', handlePasswordElementFocusIn);
 passwordEyeImageElement?.addEventListener('click', handlepasswordEyeImageClick);
 loginForm?.addEventListener('submit', handleSubmit);
