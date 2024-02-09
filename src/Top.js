@@ -1,5 +1,4 @@
 import React from 'react';
-import Gnb from './components/Gnb';
 import './Top.css';
 import unionImg from './assets/union.svg';
 
@@ -7,7 +6,6 @@ const Top = ({className=''}) => {
   className = className
   return (
     <div className={className}>
-      <Gnb className="gnb_ly"/>
       <div className="top-frame_ly">
         <div className='user_ly'>
           <div className='avatar_ly'>

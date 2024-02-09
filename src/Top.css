@@ -1,21 +1,10 @@
-/*gnb 레이아웃: 레이아웃은 Top(부모)의 Gnb 컴포넌트에서 정의*/ 
-.gnb_ly {
-  display: flex;
-  padding: 18px 32px 17px 32px;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  align-self: stretch;
-
-  @media (min-width: 768px) {}
-}
-
 .top-frame_ly {
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  padding: 10px 0px 40px
 }
 
 .user_ly {
