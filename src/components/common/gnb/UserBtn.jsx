@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import defaultProfileImg from 'assets/profileImg.png';
+import defaultProfileImg from 'assets/profileImg.svg';
 
 const Styled = {
   UserBtn: styled.button`

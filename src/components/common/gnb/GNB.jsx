@@ -1,13 +1,14 @@
 import { styled } from 'styled-components';
 
+import logo from 'assets/logo.svg';
 import Button from 'components/common/button/Button';
-import logo from 'assets/linkbrary-logo.png';
 import UserBtn from 'components/common/gnb/UserBtn';
 
 const Styled = {
   Container: styled.div`
     position: fixed;
     left: 0;
+    top: 0;
     z-index: 100;
 
     width: 100%;
@@ -26,7 +27,9 @@ function GNB() {
 
   return (
     <Styled.Container>
-      <img src={logo} alt="linkbrary-logo" />
+      <a href="/">
+        <img src={logo} alt="linkbrary-logo" />
+      </a>
       {isLoggedIn ? <UserBtn /> : <Button />}
     </Styled.Container>
   );
