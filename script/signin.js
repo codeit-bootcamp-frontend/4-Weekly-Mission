@@ -1,6 +1,5 @@
 import {
   createErrorMessage,
-  authenticateUser,
   isEmailValid,
   displayError,
   clearError,
@@ -9,10 +8,12 @@ import {
   togglePasswordVisibility,
 } from './utils.js';
 
+import { signIn } from './apiUtils.js';
+localStorage.removeItem('accessToken');
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
-  const signInButton = document.getElementById('cta');
+  const signInButton = document.getElementById('btn_login');
   const watchPassword = document.getElementById('eye-button');
 
   // 에러 메시지 요소들 생성 및 초기화
@@ -39,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // 로그인 버튼 클릭 이벤트 핸들러
-  signInButton.addEventListener('click', function (event) {
+  signInButton.addEventListener('click', async function (event) {
     event.preventDefault();
     emailInput.blur();
     passwordInput.blur();
@@ -52,12 +53,14 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
 
-    // 사용자 인증 성공 시, 페이지 이동
-    if (authenticateUser(emailValue, passwordValue)) {
-      window.location.href = '../folder.html';
-      return;
+    // 사용자 로그인 시도
+    const loginResult = await signIn(emailValue, passwordValue);
+    if (loginResult.success) {
+      window.location.href = '/folder';
+    } else {
+      // 로그인 실패 시 에러 메시지 표시
+      displayError(emailInput, emailErrorMessage, '이메일 또는 비밀번호를 확인해 주세요.');
     }
-
     // 사용자 인증 실패 시, 에러 메시지 표시
     displayError(emailInput, emailErrorMessage, '이메일을 확인 해주세요.');
     displayError(passwordInput, passwordErrorMessage, '비밀번호를 확인 해주세요.');

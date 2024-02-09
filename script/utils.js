@@ -65,3 +65,10 @@ export function checkDuplicateEmail(emailInput, emailErrorMessage) {
 export function isEmailAlreadyUsed(emailInput) {
   return emailInput.value.trim() === VALID_USER.email;
 }
+
+export function redirectIfAccessTokenExists() {
+  const accessToken = localStorage.getItem('accessToken');
+  if (accessToken) {
+    window.location.href = '/folder'; // accessToken이 있으면 /folder 페이지로 이동
+  }
+}

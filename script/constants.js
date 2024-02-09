@@ -4,5 +4,5 @@ export const PASSWORD_REGEX = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,25}$/;
 
 export const VALID_USER = {
   email: 'test@codeit.com',
-  password: 'codeit101',
+  password: 'sprint101',
 };

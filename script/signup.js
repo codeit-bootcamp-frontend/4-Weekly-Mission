@@ -10,11 +10,14 @@ import {
   checkDuplicateEmail,
 } from './utils.js';
 
+import { signUp } from './apiUtils.js';
+//토큰 지우기띠
+localStorage.removeItem('accessToken');
 document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.getElementById('email');
   const passwordInput = document.getElementById('password');
   const passwordcheckInput = document.getElementById('passwordcheck');
-  const signInButton = document.getElementById('cta');
+  const signInButton = document.getElementById('btn_login');
   const watchPassword = document.getElementById('eye-button');
 
   // 에러 메시지 요소들 생성 및 초기화
@@ -34,11 +37,11 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // 이메일 입력란 focusout 이벤트 핸들러
-  emailInput.addEventListener('focusout', function () {
+  emailInput.addEventListener('focusout', async function () {
     handleEmailInputFocusIn(emailInput, emailErrorMessage);
-    checkDuplicateEmail(emailInput, emailErrorMessage);
+    await checkDuplicateEmail(emailInput, emailErrorMessage);
   });
-  // 비밀번호 입력란 focusout 이벤트 핸들러
+  // 비밀번호 입력란 focusout 이벤트 핸들러s
   passwordInput.addEventListener('focusout', function () {
     handlePasswordInputFocusOut(passwordInput, passwordErrorMessage);
   });
@@ -79,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
     clearError(passwordcheckInput, passwordCheckErrorMessage);
   });
   // 로그인 버튼 클릭 이벤트 핸들러
-  signInButton.addEventListener('click', function (event) {
+  signInButton.addEventListener('click', async function (event) {
     event.preventDefault();
     emailInput.blur();
     passwordInput.blur();
@@ -91,6 +94,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!isEmailValid(emailValue)) {
       displayError(emailInput, emailErrorMessage, '올바른 이메일 주소가 아닙니다.');
       return;
+    }
+
+    // 회원가입 요청
+    const signUpResult = await signUp(emailValue, passwordValue);
+    if (signUpResult.success) {
+      window.location.href = '../folder.html';
+    } else {
+      displayError(emailInput, emailErrorMessage, '이메일 또는 비밀번호를 확인해 주세요.');
     }
 
     // 사용자 인증 성공 시, 페이지 이동
