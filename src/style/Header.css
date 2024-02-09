@@ -38,3 +38,25 @@
   font-weight: 400;
   line-height: normal;
 }
+
+/* tablet */
+@media (max-width: 1199px) {
+  .HeaderContent {
+    padding: 3.3rem 3.2rem 3.2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .HeaderContent {
+    padding: 1.8rem 3.2rem 1.7rem;
+  }
+
+  .Logo {
+    width: 8.8667rem;
+    height: 1.6rem;
+  }
+
+  .ProfileContent > span {
+    display: none;
+  }
+}
