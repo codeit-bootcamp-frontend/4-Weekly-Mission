@@ -1,4 +1,3 @@
-import { TEST_EMAIL, TEST_PASSWORD } from './variable.js';
 import {
   getEmailInput,
   getPasswordInput,
@@ -6,36 +5,44 @@ import {
 } from './helpers/utils/index.js';
 import { emailValidate } from './constants/regex/index.js';
 import { showError, hideError, pathTo } from './func.js';
+import { SIGNIN_API_URL } from './variable.js';
 
 const emailInput = getEmailInput('signin');
 const passwordInput = getPasswordInput('signin');
-const loginForm = getLoginForm('signin');
+const signinForm = getLoginForm('signin');
 
-loginForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-
+async function sendDataToAPI() {
   const emailValue = emailInput.value.trim();
   const passwordValue = passwordInput.value.trim();
 
-  if (emailValue !== TEST_EMAIL) {
-    showError(emailInput, '이메일을 확인해 주세요.');
-  } else if (passwordValue !== TEST_PASSWORD) {
-    showError(passwordInput, '비밀번호를 확인해 주세요.');
-  } else {
-    pathTo('folder');
-  }
-});
+  const response = await fetch(SIGNIN_API_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email: emailValue,
+      password: passwordValue,
+    }),
+  });
+  const result = await response.json();
+  window.localStorage.setItem('accessToken', result.data.accessToken);
+  return pathTo('folder');
+}
 
 function validateEmail() {
   const emailValue = emailInput.value.trim();
 
   if (emailValue === '') {
     showError(emailInput, '이메일을 입력해주세요.');
-  } else if (!emailValidate.test(emailValue)) {
-    showError(emailInput, '올바른 이메일 주소가 아닙니다.');
-  } else {
-    hideError(emailInput);
+    return false;
   }
+  if (!emailValidate.test(emailValue)) {
+    showError(emailInput, '올바른 이메일 주소가 아닙니다.');
+    return false;
+  }
+  hideError(emailInput);
+  return true;
 }
 
 function validatePassword() {
@@ -43,10 +50,20 @@ function validatePassword() {
 
   if (passwordValue === '') {
     showError(passwordInput, '비밀번호를 입력해주세요.');
-  } else {
-    hideError(passwordInput);
+    return false;
   }
+  hideError(passwordInput);
+  return true;
 }
 
 emailInput.addEventListener('focusout', validateEmail);
 passwordInput.addEventListener('focusout', validatePassword);
+signinForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  if (!validateEmail()) return false;
+  if (!validatePassword()) return false;
+
+  sendDataToAPI();
+  return true;
+});
