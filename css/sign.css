@@ -1,4 +1,4 @@
-@import "./global.css";
+@import './global.css';
 
 body {
   padding-top: 23.8rem;
@@ -82,8 +82,7 @@ header {
   border-color: var(--primary);
 }
 
-
-.eye-button{
+.eye-button {
   position: absolute;
   top: 5.2rem;
 
@@ -147,14 +146,12 @@ header {
 .text-medium {
   font-size: 1.4rem;
   font-weight: 400;
-
 }
 
 .error-message {
-  color : var(--red);
+  color: var(--red);
 }
 
 .error-box {
-  border-color : var(--red);
-
+  border-color: var(--red);
 }

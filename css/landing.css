@@ -1,4 +1,4 @@
-@import "./global.css";
+@import './global.css';
 
 body {
   display: flex;
@@ -101,19 +101,19 @@ section {
 
 section:nth-of-type(odd) {
   grid-template:
-    ". image"
-    "title image"
-    "description image"
-    ". image"
+    '. image'
+    'title image'
+    'description image'
+    '. image'
     /291px 55rem;
 }
 
 section:nth-of-type(even) {
   grid-template:
-    "image ."
-    "image title"
-    "image description"
-    "image ."
+    'image .'
+    'image title'
+    'image description'
+    'image .'
     /550px 29.1rem;
 }
 
@@ -156,7 +156,7 @@ footer {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding : 3.2rem 0 16rem 0;
+  padding: 3.2rem 0 16rem 0;
   background-color: var(--black);
 }
 
@@ -194,14 +194,14 @@ footer {
 }
 
 /* desktop 규격 */
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1200px) {
 }
 
 /* tablet 규격 */
-@media screen and (max-width: 1199px){
+@media screen and (max-width: 1199px) {
   .gnb {
     justify-content: center;
-    gap : 40rem;
+    gap: 40rem;
     padding: 0 0 0 32px;
   }
   .cta-short {
@@ -209,24 +209,23 @@ footer {
   }
 
   .slogan {
-    width : 49rem;
+    width: 49rem;
   }
 
   .hero-image {
-    width : 85%;
+    width: 85%;
     height: 85%;
   }
-
 }
 
 /* mobile 규격 */
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
   header {
     margin: 0 32px;
   }
 
   .news-page {
-    margin : 0 32px;
+    margin: 0 32px;
   }
 
   section {
@@ -234,25 +233,24 @@ footer {
   }
 
   section:nth-of-type(odd) {
-    grid-template: 
-    "title"
-    "image"
-    "description"
-    /550px;
+    grid-template:
+      'title'
+      'image'
+      'description'
+      /550px;
   }
 
   section:nth-of-type(even) {
-    grid-template: 
-    "title"
-    "image"
-    "description"
-    /550px;
+    grid-template:
+      'title'
+      'image'
+      'description'
+      /550px;
   }
-
 
   .footer-links {
     display: grid;
-    grid-area : links;
+    grid-area: links;
   }
 
   .sns {
@@ -264,15 +262,15 @@ footer {
   }
 
   div.footer-box {
-    display : grid;
+    display: grid;
 
     justify-content: center;
     column-gap: 10rem;
     row-gap: 4.5rem;
     width: 100%;
 
-    grid-template: 
-      "links sns"
-      "copyright .";
+    grid-template:
+      'links sns'
+      'copyright .';
   }
 }
