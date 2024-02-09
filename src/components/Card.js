@@ -1,7 +1,8 @@
 import React from 'react'
 import './Card.css'
 
-const Card = () => {
+const Card = ({imgSrc='', time='', title='', description=''}) => {
+
   return (
     <div>
       <div className='card-info'>
@@ -9,7 +10,7 @@ const Card = () => {
         <span></span>
         <span></span>
       </div>
-      <img />
+      <img src={imgSrc} alt='이미지' className='card-img'/>
     </div>
   )
 }
