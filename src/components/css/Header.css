@@ -63,6 +63,7 @@
 }
 
 .HeaderBottom-name {
+  width: 56px;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -72,6 +73,7 @@
 }
 
 .HeaderBottom-folder-name {
+  width: 250px;
   text-align: center;
   font-feature-settings: "clig" off, "liga" off;
   font-size: 40px;

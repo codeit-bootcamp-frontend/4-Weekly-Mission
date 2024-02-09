@@ -1,6 +1,6 @@
 import getData from "../api";
 import { useEffect, useState } from "react";
-import Card from "./Card";
+import Cards from "./Cards";
 import Header from "./Header";
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
   return (
     <>
       <Header profileData={profileData} folderData={folderData} />
-      <Card folderData={folderData} />
+      <Cards folderData={folderData} />
     </>
   );
 }
