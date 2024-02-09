@@ -2,11 +2,12 @@ import React from 'react';
 import { useFetchCardsData } from '../hooks/CardContainer';
 import '../style/cardlist.css';
 import searchIcon from '../images/Search.svg';
+import noCardImg from '../images/noCardImg.png';
 
 const Cardlist = () => {
   const data = useFetchCardsData();
   const handleImageError = (e) => {
-    e.target.src = '/images/noimageicon.png';
+    e.target.src = { noCardImg };
   };
 
   const handleSearch = (event) => {
