@@ -1,0 +1,87 @@
+.SharedCardContent {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 2rem 2.5rem;
+}
+
+.CardContent {
+  width: 34rem;
+  height: 33.4rem;
+  border-radius: 1.5rem;
+  box-shadow: 0rem 0.5rem 2.5rem 0rem rgba(0, 0, 0, 0.08);
+}
+
+.CardContent > img {
+  width: 34rem;
+  height: 20rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+}
+
+.CardInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem;
+  gap: 1rem;
+}
+
+.CardInfoHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CardInfoHeader > span {
+  color: #666666;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.CardInfo > p {
+  height: 4.9rem;
+  color: #000000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.CardInfo > span {
+  height: 1.9rem;
+  color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* tablet */
+@media (max-width: 1124px) {
+  .SharedCardContent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem 2.5rem;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .SharedCardContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  .CardContent {
+    width: 32.5rem;
+    height: 32.7rem;
+  }
+
+  .CardContent > img {
+    width: 32.5rem;
+    height: 19.2rem;
+  }
+}

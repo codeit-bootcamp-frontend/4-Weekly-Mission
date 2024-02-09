@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../../assets/header/logo.svg';
-import profileImg from '../../assets/header/profileImg.svg';
 import '../../style/Header.css';
 import { Link } from 'react-router-dom';
 import { getUserInfo } from '../api';
