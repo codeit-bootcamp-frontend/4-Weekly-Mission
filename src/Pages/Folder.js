@@ -61,7 +61,7 @@ const Folder = () => {
           {folderInfo.folderLinks.map((link) => {
             const { imageSource, createdAt, description } = link;
             return (
-              <Link to={`/link/${link.id}`} key={link.id}>
+              <Link to={`/link/${link.id}`} key={link.id} target="_blank">
                 <Card
                   cardImage={imageSource}
                   cardCreated={createdAt}
