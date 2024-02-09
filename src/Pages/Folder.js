@@ -2,6 +2,7 @@ import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import Avatar from "../Components/Avatar";
 import "./css/Folder.css";
+import SearchBar from "../Components/SearchBar";
 
 const Folder = () => {
   return (
@@ -10,7 +11,7 @@ const Folder = () => {
       <div className="folder-info">
         <div className="folder-owner">
           <Avatar
-            avatarImage="logos/default_user_logo.png"
+            avatarImage="icons/default_user_icon.svg"
             width="60px"
             height="60px"
           ></Avatar>
@@ -18,7 +19,9 @@ const Folder = () => {
         </div>
         <div className="font-regular font-40px">즐겨찾기</div>
       </div>
-      <main></main>
+      <main>
+        <SearchBar />
+      </main>
       <Footer />
     </>
   );

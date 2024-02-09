@@ -4,12 +4,12 @@ import Avatar from "./Avatar";
 const Header = ({ isSigned }) => {
   return (
     <header>
-      <img alt="Linkbrary logo" src="logos/Linkbrary_small_logo.png" />
+      <img alt="Linkbrary logo" src="icons/Linkbrary.svg" />
       {!isSigned && <button className="btn_gradient login">로그인</button>}
       {isSigned && (
         <div className="container-profile">
           <Avatar
-            avatarImage="logos/default_user_logo.png"
+            avatarImage="icons/default_user_icon.svg"
             width="28px"
             height="28px"
           />
