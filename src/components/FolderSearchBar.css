@@ -1,0 +1,27 @@
+.folderSearchBarOrigin {
+	display: flex;
+	position: relative;
+	align-items: center;
+	margin-bottom: 40px;
+}
+
+.folderSearchBarOrigin label {
+	position: absolute;
+	background-image: url("/src/assets/Icons/Search.svg");
+	width: 16px;
+	height: 16px;
+	margin-left: 16px;
+}
+
+.folderSearchBarOrigin input {
+	width: 100%;
+	background-color: var(--LBrary-GrayLight);
+	border-width: 0;
+	border-radius: 10px;
+	border-color: var(--LBrary-white);
+	padding: 15px 41px;
+}
+
+.folderSearchBarOrigin input:focus {
+	outline-color: var(--LBrary-Primary-color);
+}

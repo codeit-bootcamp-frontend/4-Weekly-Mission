@@ -1,7 +1,13 @@
 import "components/FolderData.css";
+import FolderSearchBar from "./FolderSearchBar";
 
 const FolderData = function () {
-	return <main>asdfasdfasdf asdfasdfasdfasdf asdfasdfsad fasd</main>;
+	return (
+		<main>
+			<FolderSearchBar />
+			asdfasdfasdf asdfasdfasdfasdf asdfasdfsad fasd
+		</main>
+	);
 };
 
 export default FolderData;

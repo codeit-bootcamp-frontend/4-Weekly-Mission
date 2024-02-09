@@ -1,5 +1,6 @@
 main {
 	background-color: var(--LBrary-White);
+	margin: 0 auto;
 	padding: 40px 32px;
 	max-width: 1124px;
 }
