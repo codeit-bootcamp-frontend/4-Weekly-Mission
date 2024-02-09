@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import StarButton from 'components/common/card/StarButton';
 import TimeFormat from 'components/common/card/TimeFormat';
@@ -50,6 +51,7 @@ const Styled = {
 // api 연결하고 mock data 삭제
 const mockData = {
   createdAt: '2023-03-05T08:11:20Z',
+  url: 'https://www.codeit.kr',
   imageSource: 'https://sprint.codeit.kr/static/images/sprint-admissions/og_img.png',
   description: 'Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat',
 };
@@ -57,22 +59,24 @@ const mockData = {
 function Card() {
   return (
     <Styled.Container>
-      <StarButton
-        style={{
-          position: 'absolute',
-          top: '1.5rem',
-          right: '1.5rem',
-          zIndex: 3,
-        }}
-      />
-      <Styled.ThumbnailContainer>
-        <Styled.ThumbnailImg src={mockData.imageSource} alt="카드 이미지" />
-      </Styled.ThumbnailContainer>
-      <Styled.TextCardInfo>
-        <TimeFormat createdAt={mockData.createdAt} />
-        <Styled.Text>{mockData.description}</Styled.Text>
-        <DateFormat createdAt={mockData.createdAt} />
-      </Styled.TextCardInfo>
+      <Link to={mockData.url} target="_blank" rel="noopener noreferrer">
+        <StarButton
+          style={{
+            position: 'absolute',
+            top: '1.5rem',
+            right: '1.5rem',
+            zIndex: 3,
+          }}
+        />
+        <Styled.ThumbnailContainer>
+          <Styled.ThumbnailImg src={mockData.imageSource} alt="카드 이미지" />
+        </Styled.ThumbnailContainer>
+        <Styled.TextCardInfo>
+          <TimeFormat createdAt={mockData.createdAt} />
+          <Styled.Text>{mockData.description}</Styled.Text>
+          <DateFormat createdAt={mockData.createdAt} />
+        </Styled.TextCardInfo>
+      </Link>
     </Styled.Container>
   );
 }

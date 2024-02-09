@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import faceboockIcon from 'assets/icon/facebook-icon.svg';
@@ -12,7 +13,7 @@ const Styled = {
     gap: 1.2rem;
   `,
 
-  Icon: styled.a`
+  Icon: styled(Link)`
     width: 2rem;
     height: 2rem;
   `,
@@ -29,7 +30,7 @@ function SocialMediaBtns() {
   return (
     <Styled.Container>
       {socialMediaData.map(({ name, url, icon }, idx) => (
-        <Styled.Icon key={idx} href={url} target="_blank">
+        <Styled.Icon key={idx} to={url} target="_blank" rel="noopener noreferrer">
           <img src={icon} alt={name} />
         </Styled.Icon>
       ))}
