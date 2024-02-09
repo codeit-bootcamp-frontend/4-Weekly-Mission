@@ -38,6 +38,10 @@ main {
 
 /*태블릿 사이즈*/
 @media (min-width: 767px) and (max-width: 1124px) {
+  main {
+    padding: 4% 32px;
+  }
+
   .card-list {
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
   }
@@ -45,6 +49,10 @@ main {
 
 /*모바일 사이즈*/
 @media (min-width: 375px) and (max-width: 767px) {
+  main {
+    padding: 4% 32px;
+  }
+
   .card-list {
     display: flex;
     flex-direction: column;
