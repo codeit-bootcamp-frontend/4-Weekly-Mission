@@ -6,11 +6,25 @@
   border-radius: 15px;
 }
 
-.card-image {
+.card-image-container {
   height: 200px;
   width: 100%;
   object-fit: cover;
+
   border-radius: 15px 15px 0 0;
+  overflow: hidden;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: all 0.1s linear;
+}
+
+.card-image:hover {
+  transform: scale(1.3);
 }
 
 .card-txt {

@@ -48,11 +48,13 @@ const Card = ({ cardImage = null, cardCreated, cardDescription }) => {
 
   return (
     <div className="Card">
-      <img
-        src={cardImage ? cardImage : SAMPLE_IMAGE_URL}
-        alt="cardImage"
-        className="card-image"
-      />
+      <div className="card-image-container">
+        <img
+          src={cardImage ? cardImage : SAMPLE_IMAGE_URL}
+          alt="cardImage"
+          className="card-image"
+        />
+      </div>
       <div className="card-txt">
         <div className="font-thin font-13px" style={{ color: "#666666" }}>
           {timeDifference}
