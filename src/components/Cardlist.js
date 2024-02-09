@@ -30,7 +30,7 @@ const Cardlist = () => {
             className="card"
           >
             <img
-              src={cardData.imageSource || '/images/defaultimage.png'}
+              src={cardData.imageSource || noCardImg}
               alt={cardData.title}
               className="card-image"
               onError={handleImageError}
