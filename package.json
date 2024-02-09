@@ -1,5 +1,5 @@
 {
-  "name": "1-weekly-mission",
+  "name": "4-weekly-mission",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,6 +11,8 @@
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.1.8",
+    "styled-reset": "^4.5.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -37,5 +39,22 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@stylelint/postcss-css-in-js": "^0.38.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-styled-components-a11y": "^2.1.32",
+    "postcss-syntax": "^0.36.2",
+    "prettier": "^3.2.5",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-styled-components-order": "^1.0.6"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/zoonyoung/4-Weekly-Mission",
+  "author": "<9851248@gmail.com>",
+  "license": "MIT"
 }
