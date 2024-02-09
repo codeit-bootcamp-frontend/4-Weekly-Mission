@@ -1,20 +1,19 @@
 import React from 'react';
 import './Top.css';
-import unionImg from './assets/union.svg';
 
-const Top = ({className=''}) => {
-  className = className
+const Top = ({className, items}) => {
+  const { name, owner } = items;
+  console.log(owner);
+
   return (
     <div className={className}>
       <div className="top-frame_ly">
         <div className='user_ly'>
           <div className='avatar_ly'>
-            <div className='avatar'>
-              <img src={unionImg} alt="아바타 이미지"/>
-            </div>
-            <span className='avatar-name'>@코드잇</span>
+            <img className="avatar-img" src={owner.profileImageSource} alt="아바타 이미지"/>
+            <span className='avatar-name'>{owner.name}</span>
           </div>
-          <span className='favorite'>⭐️ 즐겨찾기</span>
+          <span className='favorite'>{name}</span>
         </div>
       </div>
     </div>

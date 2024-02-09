@@ -6,6 +6,7 @@
   border-radius: 10px;
   width: 50vw;
   background: #F5F5F5;
+  box-sizing: border-box;
 }
 
 .card-frame_ly {
