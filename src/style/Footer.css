@@ -40,3 +40,26 @@
   width: 2rem;
   height: 2rem;
 }
+
+/* mobile */
+@media (max-width: 767px) {
+  .FooterContainer {
+    padding: 3.2rem 3.2rem 6.4rem;
+  }
+
+  .FooterContent {
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    row-gap: 6rem;
+    padding: 0;
+  }
+
+  .FooterContent > span {
+    grid-row: 2;
+  }
+
+  .FooterSns {
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+}
