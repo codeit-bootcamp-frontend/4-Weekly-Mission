@@ -13,9 +13,11 @@ const Styled = {
     font-family: Arial;
     line-height: 1.8rem;
   `,
+
   Company: styled.div`
     color: #676767;
   `,
+
   PolicyAndFAQ: styled.div`
     display: flex;
     color: #cfcfcf;

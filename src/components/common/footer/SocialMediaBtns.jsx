@@ -11,6 +11,7 @@ const Styled = {
     display: flex;
     gap: 1.2rem;
   `,
+
   Icon: styled.a`
     width: 2rem;
     height: 2rem;

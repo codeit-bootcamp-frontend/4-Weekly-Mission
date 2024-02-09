@@ -7,6 +7,7 @@ const Styled = {
     display: flex;
     align-items: center;
   `,
+
   ProfileImgContainer: styled.div`
     width: 2.8rem;
     height: 2.8rem;
@@ -20,6 +21,7 @@ const Styled = {
     height: 100%;
     object-fit: cover;
   `,
+
   ProfileUserName: styled.div`
     font-size: 1.4rem;
     margin-left: 0.5rem;
