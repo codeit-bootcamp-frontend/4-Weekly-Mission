@@ -1,100 +1,124 @@
-import {
-  ERROR_MESSAGE,
-  TEST_USER,
-  emailCheck,
-  passwordCheck,
-} from "./constant.js";
+import { ERROR_MESSAGE, TEST_USER } from "./constant.js";
+import { emailCheck, passwordCheck, redirectPage } from "./utils.js";
 
-const setErrorMessage = (currentElement, errorMsg) => {
+const setError = (currentElement, errorTextElement, errorMessage) => {
   currentElement.classList.add("errorInput");
-  currentElement.nextElementSibling.textContent = errorMsg;
+  errorTextElement.textContent = errorMessage;
 };
-const removeErrorMessage = (currentElement) => {
+const removeError = (currentElement, errorTextElement) => {
   currentElement.classList.remove("errorInput");
-  currentElement.nextElementSibling.textContent = "";
+  errorTextElement.textContent = "";
 };
 
-const noInputValue = (currentElement) => {
-  const noInputText =
-    currentElement.type === "email"
-      ? ERROR_MESSAGE.NO_INPUT_EMAIL
-      : ERROR_MESSAGE.NO_INPUT_PASSWORD;
-  if (!currentElement.value) {
-    setErrorMessage(currentElement, noInputText);
-  }
-};
-
-const isValidEmail = (currentElement) => {
-  if (!emailCheck(currentElement.value)) {
-    setErrorMessage(currentElement, ERROR_MESSAGE.INVALID_EMAIL);
-  } else {
-    removeErrorMessage(currentElement);
-  }
-};
-const isValidPassword = (currentElement) => {
-  if (!passwordCheck(currentElement.value)) {
-    setErrorMessage(currentElement, ERROR_MESSAGE.INVALID_PASSWORD);
-  } else {
-    removeErrorMessage(currentElement);
-  }
-};
-
-const confirmEmail = (currentElement) => {
-  if (currentElement.value === TEST_USER.ID) {
-    setErrorMessage(currentElement, ERROR_MESSAGE.REGISTERED_EMAIL);
-  }
-};
-const confirmPasswordMatch = (currentElement) => {
-  const passwordElement = document.getElementById("password");
-
-  if (currentElement.value !== passwordElement.value) {
-    setErrorMessage(currentElement, ERROR_MESSAGE.DO_NOT_MATCH_PASSWORD);
-  } else {
-    removeErrorMessage(currentElement);
-  }
-};
-const confirmUserLogin = (currentElement) => {
+const confirmUserLogin = (currentElement, emailErrorElement, passwordErrorElement) => {
   const email = currentElement[0];
   const password = currentElement[1];
+  const LOGIN_USER = { email: "test@codeit.com", password: "sprint101" };
 
   if (email.value === TEST_USER.ID && password.value === TEST_USER.PASSWORD) {
-    window.location.href = "/folder";
+    redirectPage("folder");
+  } else if (email.value === LOGIN_USER.email && password.value === LOGIN_USER.password) {
+    logInUser(email.value, password.value);
   } else {
-    setErrorMessage(email, ERROR_MESSAGE.CONFIRM_EMAIL);
-    setErrorMessage(password, ERROR_MESSAGE.CONFIRM_PASSWORD);
+    setError(email, emailErrorElement, ERROR_MESSAGE.CONFIRM_EMAIL);
+    setError(password, passwordErrorElement, ERROR_MESSAGE.CONFIRM_PASSWORD);
   }
 };
-const confirmForm = (currentForm) => {
-  const emailElement = currentForm[0];
-  const passwordElement = currentForm[1];
-  const passwordConfirmElement = currentForm[2];
 
+const logInUser = async (email, password) => {
+  const user = { email, password };
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-in", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+    const result = await response.json();
+    const data = result["data"];
+    const accessToken = data["accessToken"];
+    if (accessToken) {
+      localStorage.setItem("accessToken", accessToken);
+      redirectPage("folder");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const isDuplicateEmail = async (email) => {
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/check-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
+    });
+    if (response.status === 200) {
+      return true;
+    } else if (response.status === 409) {
+      return false;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const confirmEmail = (emailElement, emailErrorElement) => {
   if (!emailCheck(emailElement.value) || emailElement.value === TEST_USER.ID) {
-    setErrorMessage(emailElement, ERROR_MESSAGE.CONFIRM_EMAIL);
+    setError(emailElement, emailErrorElement, ERROR_MESSAGE.CONFIRM_EMAIL);
+    return false;
+  } else {
+    removeError(emailElement, emailErrorElement);
+    return true;
   }
+};
+const confirmPassword = (passwordElement, passwordErrorElement) => {
   if (!passwordCheck(passwordElement.value)) {
-    setErrorMessage(password, ERROR_MESSAGE.CONFIRM_PASSWORD);
+    setError(passwordElement, passwordErrorElement, ERROR_MESSAGE.CONFIRM_PASSWORD);
+    return false;
+  } else {
+    removeError(passwordElement, passwordErrorElement);
+    return true;
   }
-  if (passwordElement.value !== passwordConfirmElement.value) {
-    setErrorMessage(passwordConfirmElement, ERROR_MESSAGE.CONFIRM_PASSWORD);
+};
+const confirmPasswordCheck = (pwElement, pwCheckElement, pwCheckErrorElement) => {
+  if (pwElement.value !== pwCheckElement.value) {
+    setError(pwCheckElement, pwCheckErrorElement, ERROR_MESSAGE.CONFIRM_PASSWORD);
+    return false;
+  } else {
+    removeError(pwCheckElement, pwCheckErrorElement);
+    return true;
   }
 };
 
-const confirmUserRegister = (currentElement) => {
-  confirmForm(currentElement);
-  const elementsArr = [...currentElement];
-  const satisfy = elementsArr.some((element) =>
-    element.classList.contains("errorInput")
-  );
-  if (!satisfy) {
-    window.location.href = "/folder";
+const registerUser = async (email, password) => {
+  const user = { email, password };
+  try {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/sign-up", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    });
+    const result = await response.json();
+    const data = result["data"];
+    const accessToken = data["accessToken"];
+    if (accessToken) {
+      localStorage.setItem("accessToken", accessToken);
+      redirectPage("folder");
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
-const eyeClickHandler = (e) => {
-  const currentPassword = e.target.parentElement.children[1];
-  e.target.classList.toggle("on");
-  if (e.target.classList.contains("on")) {
+const toggleEye = (currentPassword, currentEye) => {
+  currentEye.classList.toggle("on");
+  if (currentEye.classList.contains("on")) {
     currentPassword.removeAttribute("type");
   } else {
     currentPassword.setAttribute("type", "password");
@@ -102,13 +126,13 @@ const eyeClickHandler = (e) => {
 };
 
 export {
-  noInputValue,
-  isValidEmail,
-  isValidPassword,
-  confirmEmail,
-  confirmPasswordMatch,
+  setError,
+  removeError,
   confirmUserLogin,
-  confirmUserRegister,
-  eyeClickHandler,
-  removeErrorMessage,
+  confirmEmail,
+  confirmPassword,
+  confirmPasswordCheck,
+  registerUser,
+  isDuplicateEmail,
+  toggleEye,
 };

@@ -18,18 +18,13 @@
           <div>
             <label for="email">이메일</label>
             <input id="email" class="signInput" type="email" name="email" />
-            <p class="errorMsg"></p>
+            <p id="emailErrorMessage" class="errorMsg"></p>
           </div>
           <div class="password-form">
             <label for="password">비밀번호</label>
-            <input
-              id="password"
-              class="signInput"
-              type="password"
-              name="password"
-            />
-            <p class="errorMsg"></p>
-            <img class="eye" />
+            <input id="password" class="signInput" type="password" name="password" />
+            <p id="passwordErrorMessage" class="errorMsg"></p>
+            <img id="eyePassword" class="eye" />
           </div>
           <button>로그인</button>
         </form>
@@ -37,12 +32,8 @@
       <div class="sign-another">
         <p>소셜 로그인</p>
         <div class="social-login">
-          <a href="https://www.google.com/"
-            ><img src="public/images/google.png"
-          /></a>
-          <a href="https://www.kakaocorp.com/page/">
-            <img src="public/images/kakao.png"
-          /></a>
+          <a href="https://www.google.com/"><img src="public/images/google.png" /></a>
+          <a href="https://www.kakaocorp.com/page/"> <img src="public/images/kakao.png" /></a>
         </div>
       </div>
     </main>
