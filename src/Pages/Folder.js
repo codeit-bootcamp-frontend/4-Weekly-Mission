@@ -36,7 +36,6 @@ const Folder = () => {
     handleLoadUser();
     handleLoadFolder();
   }, []);
-  console.log(folderInfo.folderLinks);
 
   return (
     <>

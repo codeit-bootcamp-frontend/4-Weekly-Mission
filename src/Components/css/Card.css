@@ -14,9 +14,11 @@
 }
 
 .card-txt {
+  height: 100px;
+
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  justify-content: space-between;
 
   text-align: left;
 
