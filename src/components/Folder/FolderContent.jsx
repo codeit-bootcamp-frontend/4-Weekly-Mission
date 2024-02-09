@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import Input from "../Input";
 import Content from "../Content/Content";
 import {API_PATH_USER_FOLDER, API_PATH_ALL_LINK, API_PATH_CATEGORY_LINK} from "../../services/api-path";
 
@@ -100,7 +99,7 @@ function FolderContent({handleKebab, kebabStatus}){
         <main className="folder" onClick={(e) => getClickArea(e)}>
         <section className="link">
             <div className="link__box">
-                <Input className="link__inputtext" type="text" placeholder="        링크를 추가해 보세요"/>
+                <input className="link__inputtext" type="text" placeholder="        링크를 추가해 보세요"/>
                 <button className="link__add">추가하기</button>
             </div>
         </section>

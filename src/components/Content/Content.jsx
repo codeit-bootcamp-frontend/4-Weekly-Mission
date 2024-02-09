@@ -1,4 +1,3 @@
-import Input from "../Input";
 import CardList from "../Card/CardList";
 import ContentHeader from "./ContentHeader";
 import Category from "../Category/Category";
@@ -6,7 +5,7 @@ import Category from "../Category/Category";
 function Content({categoryList, selectCategory, allLinkLoad, handleSelectCategory, handleKebab, kebabStatus, linkList, option}){
     return (
         <section className="content"> 
-        <Input className="content__search" type="search" placeholder="🔍   링크를 검색해 보세요."/>
+        <input className="content__search" type="search" placeholder="🔍   링크를 검색해 보세요."/>
         {option && <Category categoryList={categoryList} selectCategory={selectCategory} allLinkLoad={allLinkLoad} handleSelectCategory={handleSelectCategory}/>}
         {option && <ContentHeader selectCategory={selectCategory}/>}
         <CardList handleKebab={handleKebab} kebabStatus={kebabStatus} linkList={linkList} option={option} />

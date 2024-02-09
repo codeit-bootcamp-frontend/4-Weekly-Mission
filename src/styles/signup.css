@@ -98,6 +98,7 @@ body{
     outline: none;
     border: 1px solid var(--Linkbrary-gray20);
     width: calc(100% - 1.875rem);
+    /* width: 100%; */
 }
 
 .signup--input--email:focus, .signup--input--password:focus, .signup--input--password--confirm:focus{
@@ -107,10 +108,9 @@ body{
 .signup__email--error, .signup__password--error, .signup__password--confirm--error{
     font-size: 0.875rem;
     color: var(--Linkbrary-red);
-    margin-top: 0.38rem;
+    margin-top: 0.5rem;
     font-weight: 400;
     font-style: normal;
-    display: none;
 }
 
 .signup__button{
