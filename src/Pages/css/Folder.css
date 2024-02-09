@@ -1,0 +1,22 @@
+main {
+  background-color: var(--color-white);
+}
+
+.folder-info {
+  margin-top: 88px;
+  padding-top: 20px;
+  padding-bottom: 60px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  background-color: var(--color-background);
+}
+
+.folder-owner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
