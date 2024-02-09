@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+  font-family: Pretendard;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f6ff;
+  width: auto;
+  height: 93px;
+  padding: 33px 200px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+header .profile-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+header .profile-image {
+  width: 28px;
+  height: 28px;
+  border-radius: 15px;
+}
+header .profile-email {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  header {
+    width: 100%;
+    padding: 33px 32.5px;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  header {
+    width: 100%;
+    padding: 18px 32px;
+  }
+  header .profile-email {
+    font-size: 0;
+  }
+}
