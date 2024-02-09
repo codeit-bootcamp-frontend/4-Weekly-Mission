@@ -1,0 +1,79 @@
+.cardBox {
+	width: 100%;
+	height: 334px;
+	max-width: 340px;
+	border-radius: 15px;
+	box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+}
+
+.cardBox div {
+	border-radius: 15px 15px 0 0;
+	height: 200px;
+	background-size: cover;
+	background-position-x: center;
+	background-position-y: center;
+	background-image: url("/src/assets/Images/sampleBackgroundImg.png");
+}
+
+.cardBox .cardText {
+	border-radius: 0 0 15px 15px;
+	display: block;
+	text-align: left;
+	padding: 15px 20px;
+}
+
+.cardText .cardEditedTimes {
+	font-family: Pretendard;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.cardText .cardContents {
+	margin: 10px auto;
+	overflow: hidden;
+	color: #000;
+	text-overflow: ellipsis;
+	max-height: 49px;
+	/* Linkbrary/body1-regular */
+	font-family: Pretendard;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px; /* 150% */
+}
+
+.cardText .cardEditedDate {
+	overflow: hidden;
+	color: #333;
+
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	/* Linkbrary/body2-regular */
+	font-family: Pretendard;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+@media (max-width: 767px) {
+	.cardBox div {
+		border-radius: 15px 15px 0 0;
+		height: 192px;
+	}
+
+	.cardBox {
+		width: 100%;
+		height: 325px;
+		max-width: 327px;
+	}
+
+	.cardBox .cardText {
+		border-radius: 0 0 15px 15px;
+		display: block;
+		text-align: left;
+		padding: 15px 20px;
+	}
+}
