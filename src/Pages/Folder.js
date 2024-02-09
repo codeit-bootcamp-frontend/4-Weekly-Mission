@@ -22,7 +22,9 @@ const Folder = () => {
       </div>
       <main>
         <SearchBar />
-        <div>
+        <div className="card-list">
+          <Card cardImage="images/sample_image.png" />
+          <Card cardImage="images/sample_image.png" />
           <Card cardImage="images/sample_image.png" />
         </div>
       </main>

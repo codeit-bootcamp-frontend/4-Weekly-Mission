@@ -1,6 +1,9 @@
 main {
+  min-height: 1280px;
+
   padding: 4% 12%;
-  
+  margin-bottom: 144px;
+
   background-color: var(--color-white);
 }
 
@@ -21,4 +24,14 @@ main {
   flex-direction: column;
   align-items: center;
   gap: 10px;
+}
+
+.card-list {
+  width: 100%;
+
+  margin-top: 60px;
+
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 20px;
 }
