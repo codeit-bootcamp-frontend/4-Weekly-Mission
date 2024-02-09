@@ -4,6 +4,7 @@ import facebook from '../../assets/footer/facebook.svg';
 import twitter from '../../assets/footer/twitter.svg';
 import youtube from '../../assets/footer/youtube.svg';
 import instagram from '../../assets/footer/instagram.svg';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -11,43 +12,22 @@ const Footer = () => {
       <div className='FooterContent'>
         <span>©codeit - 2023</span>
         <div className='FooterLink'>
-          <a href='../Privacy.js'>Privacy Policy</a>
-          <a href='../Faq.js'>FAQ</a>
+          <Link to='/privacy'>Privacy Policy</Link>
+          <Link to='/faq'>FAQ</Link>
         </div>
         <div className='FooterSns'>
-          <a
-            href='https://www.facebook.com/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
-            <img
-              src={facebook}
-              alt='facebook logo'
-              target='_blank'
-              rel='noopener noreferrer'
-            />
-          </a>
-          <a
-            href='https://twitter.com/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
+          <Link to='https://www.facebook.com/' target='_blank'>
+            <img src={facebook} alt='facebook logo' />
+          </Link>
+          <Link to='https://twitter.com/' target='_blank'>
             <img src={twitter} alt='twitter logo' />
-          </a>
-          <a
-            href='https://www.youtube.com/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
+          </Link>
+          <Link to='https://www.youtube.com/' target='_blank'>
             <img src={youtube} alt='youtube logo' />
-          </a>
-          <a
-            href='https://www.instagram.com/'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
+          </Link>
+          <Link to='https://www.instagram.com/' target='_blank'>
             <img src={instagram} alt='instagram logo' />
-          </a>
+          </Link>
         </div>
       </div>
     </div>
