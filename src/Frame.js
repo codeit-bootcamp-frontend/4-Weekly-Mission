@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 
 const Frame = () => {
   const [totalInfo, setTotalInfo] = useState([]); // card 컴포넌트보다, frame 컴포넌트에서 전체 상태를 관리하는 것이 유리하다 판단.
+  //const [isLoading, setIsLoading] = useState(false); //
 
   const handleLoad = async () => {
     const { folder } = await getFolder(); // folder.folder와 무슨 차이지? 객체 프로퍼티가 하나라면, 구조 분해를 해야 하나?
@@ -18,12 +19,9 @@ const Frame = () => {
       description : link.description,
     }));
 
+    console.log(total)
     setTotalInfo(total); // totalInfo에는 이미지, 시각, 제목, 서술이 모두 들어 있음.
   };
-
-  useEffect(() => {
-    handleLoad();
-  }, [])
 
   const renderCard = (i) => {
     return <Card imgSrc={totalInfo[i].imageSource}
@@ -32,6 +30,10 @@ const Frame = () => {
       description={totalInfo[i].description}
     />;
   }
+
+  useEffect(() => {
+    handleLoad();
+  }, [])
 
   return (
     <div className='frame_ly'>

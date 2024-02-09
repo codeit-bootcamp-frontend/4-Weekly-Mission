@@ -1,16 +1,24 @@
 import React from 'react'
 import './Card.css'
+import defaultImg from '../assets/logo.svg';
 
 const Card = ({imgSrc='', time='', title='', description=''}) => {
+  const validateDefaultImg = (imgSrc) => {
+    let img = imgSrc;
+    if (!img) {
+      return defaultImg;
+    }
+    return img
+  }
 
   return (
-    <div>
+    <div className='card'>
+      <img src={validateDefaultImg(imgSrc)} alt='이미지' className='card-img'/>
       <div className='card-info'>
-        <div></div>
-        <span></span>
-        <span></span>
+        <span className='time'></span>
+        <span className='description'>{title}<br/>{description}</span>
+        <span className='date'>{time}</span>
       </div>
-      <img src={imgSrc} alt='이미지' className='card-img'/>
     </div>
   )
 }
