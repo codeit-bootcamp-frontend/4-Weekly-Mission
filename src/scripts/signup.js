@@ -1,5 +1,5 @@
-import { PATH } from './constant.js';
 import {
+  checkAccessToken,
   checkEmail,
   checkAvailableEmail,
   checkPassword,
@@ -7,6 +7,8 @@ import {
   checkPasswordMatch,
   changeEyeIcon,
 } from './sign.js';
+import { sign } from './api.js';
+import { PATH, TOKEN } from './constant.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -20,10 +22,16 @@ const emailErrorMessage = document.getElementById('emailErrorMessage');
 const passwordErrorMessage = document.getElementById('passwordErrorMessage');
 const passwordCheckErrorMessage = document.getElementById('passwordCheckErrorMessage');
 
+//토큰 삭제 (확인용)
+//localStorage.removeItem(TOKEN.ACCESS_TOKEN);
+
+//Check token: 토큰 확인
+checkAccessToken();
+
 //Check email: 입력 여부 확인, 메일 형식 확인
-const SignupEmailHandler = () => {
+const SignupEmailHandler = async () => {
   checkEmail(email, emailErrorMessage);
-  checkAvailableEmail(email, emailErrorMessage);
+  await checkAvailableEmail(email, emailErrorMessage);
 };
 
 //Check password: 입력 여부 확인
@@ -48,16 +56,22 @@ const EyeIconCheckHandler = () => {
 };
 
 //SignUp: submit form
-const isEmailValid = email.value && !emailErrorMessage.classList.contains('hidden');
-const isPasswordValid = password.value && !passwordErrorMessage.classList.contains('hidden');
-const isPasswordCheckValid = passwordCheck.value && !passwordCheckErrorMessage.classList.contains('hidden');
+const SignupSubmitHandler = async event => {
+  const isEmailValid = email.value && emailErrorMessage.classList.contains('hidden');
+  const isPasswordValid = password.value && passwordErrorMessage.classList.contains('hidden');
+  const isPasswordCheckValid = passwordCheck.value && passwordCheckErrorMessage.classList.contains('hidden');
 
-const SignupSubmitHandler = event => {
+  const signupInfo = {
+    "email": email.value, "password": password.value
+  }
+
   event.preventDefault();
   if (isEmailValid && isPasswordValid && isPasswordCheckValid) {
-    email.value = '';
-    window.location.href = PATH.PAGE_FOLDER;
-    return;
+    try {
+      await sign(PATH.API_SIGNUP, signupInfo);
+    } catch (error) {
+      console.error(error);
+    }
   }
 };
 

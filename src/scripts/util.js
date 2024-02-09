@@ -1,4 +1,4 @@
-import { REGEX, USER_INFO } from './constant.js';
+import { REGEX } from './constant.js';
 
 export const validateEmail = email => {
   return email.match(REGEX.EMAIL);
@@ -30,10 +30,12 @@ export const checkValueMatch = (firstElement, secondElement) => {
   return firstElement.value === secondElement.value;
 };
 
-export const checkUserInfo = (id, password) => {
-  return id === USER_INFO.ID && password === USER_INFO.PASSWORD;
+//token
+export const getLocalToken = (tokenKey) => {
+  localStorage.getItem(tokenKey);
 };
 
-export const checkUserId = id => {
-  return id === USER_INFO.ID;
+export const setLocalToken = (tokenKey, tokenValue) => {
+  localStorage.setItem(tokenKey, tokenValue);
 };
+

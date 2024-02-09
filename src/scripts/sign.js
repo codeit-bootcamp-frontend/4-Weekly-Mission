@@ -1,4 +1,4 @@
-import { ERROR_MESSAGE, PATH } from './constant.js';
+import { ERROR_MESSAGE, PATH, TOKEN } from './constant.js';
 import {
   validateEmail,
   validatePassword,
@@ -6,9 +6,15 @@ import {
   showErrorMessage,
   hideInputError,
   changeImage,
-  checkUserId,
   checkValueMatch,
+  getLocalToken,
 } from './util.js';
+import { checkEmailInfo } from './api.js';
+
+//Check token: 토큰 확인------------------------------------------------------
+export const checkAccessToken = () => {
+  if (getLocalToken(TOKEN.ACCESS_TOKEN)) window.location.href = PATH.PAGE_FOLDER;
+};
 
 //Check email: 입력 여부 확인, 메일 형식 확인-------------------------------------
 export const checkEmail = (emailElement, errorMessageElement) => {
@@ -25,10 +31,16 @@ export const checkEmail = (emailElement, errorMessageElement) => {
   hideInputError(emailElement, errorMessageElement);
 };
 
-export const checkAvailableEmail = (emailElement, errorMessageElement) => {
-  if (checkUserId(emailElement.value)) {
-    showInputError(emailElement);
-    showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
+export const checkAvailableEmail = async (emailElement, errorMessageElement) => {
+  const emailInfo = { email: emailElement.value };
+  if (emailElement.value) {
+    try {
+      await checkEmailInfo(PATH.API_CHECK_EMAIL, emailInfo);
+    } catch (error) {
+      console.error(error);
+      showInputError(emailElement);
+      showErrorMessage(errorMessageElement, ERROR_MESSAGE.UNAVAILABLE_EMAIL);
+    }
   }
 };
 

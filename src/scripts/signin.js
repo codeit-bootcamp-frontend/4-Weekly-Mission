@@ -1,6 +1,8 @@
-import { ERROR_MESSAGE, PATH } from './constant.js';
-import { showInputError, showErrorMessage, checkUserInfo } from './util.js';
-import { checkEmail, checkPassword, changeEyeIcon } from './sign.js';
+import { ERROR_MESSAGE } from './constant.js';
+import { showInputError, showErrorMessage } from './util.js';
+import { checkAccessToken, checkEmail, checkPassword, changeEyeIcon } from './sign.js';
+import { sign } from './api.js';
+import { PATH, TOKEN } from './constant.js';
 
 const email = document.getElementById('email');
 const password = document.getElementById('password');
@@ -10,6 +12,12 @@ const eyeIcon = document.getElementById('eyeIcon');
 
 const emailErrorMessage = document.getElementById('emailErrorMessage');
 const passwordErrorMessage = document.getElementById('passwordErrorMessage');
+
+//토큰 삭제 (확인용)
+//localStorage.removeItem(TOKEN.ACCESS_TOKEN);
+
+// Check token: 토큰 확인
+checkAccessToken();
 
 //Check email: 입력 여부 확인, 메일 형식 확인
 const SigninEmailHandler = () => {
@@ -27,17 +35,21 @@ const EyeIconHandler = () => {
 };
 
 //Login: submit form
-const SigninSubmitHandler = event => {
+const SigninSubmitHandler = async event => {
   event.preventDefault();
-  if (checkUserInfo(email.value, password.value)) {
-    email.value = '';
-    window.location.href = PATH.PAGE_FOLDER;
-    return;
+  const signinInfo = {
+    "email": email.value, "password": password.value
   }
-  showInputError(email);
-  showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL);
-  showInputError(password);
-  showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.INVALID_PASSWORD);
+
+  try {
+    await sign(PATH.API_SIGNIN, signinInfo);
+  } catch (error) {
+    console.error(error);
+    showInputError(email);
+    showErrorMessage(emailErrorMessage, ERROR_MESSAGE.INVALID_EMAIL);
+    showInputError(password);
+    showErrorMessage(passwordErrorMessage, ERROR_MESSAGE.INVALID_PASSWORD);
+  }
 };
 
 //Event Listener

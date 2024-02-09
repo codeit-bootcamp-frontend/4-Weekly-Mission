@@ -1,3 +1,18 @@
+export const TOKEN = {
+  ACCESS_TOKEN: 'accessToken',
+};
+
+export const PATH = {
+  ICON_EYE_ON: '/assets/icon/eye-on.svg',
+  ICON_EYE_OFF: '/assets/icon/eye-off.svg',
+
+  PAGE_FOLDER: '/pages/folder.html',
+
+  API_SIGNIN: '/sign-in',
+  API_SIGNUP: '/sign-up',
+  API_CHECK_EMAIL: '/check-email',
+};
+
 export const ERROR_MESSAGE = {
   EMPTY_EMAIL: '이메일을 입력해 주세요.',
   EMPTY_PASSWORD: '비밀번호를 입력해 주세요.',
@@ -14,16 +29,4 @@ export const ERROR_MESSAGE = {
 export const REGEX = {
   EMAIL: /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/,
   PASSWORD: /(?=.*\d)(?=.*[a-zA-Z]).{8,}/,
-};
-
-export const USER_INFO = {
-  ID: 'test@codeit.com',
-  PASSWORD: 'codeit101',
-};
-
-export const PATH = {
-  ICON_EYE_ON: '/assets/icon/eye-on.svg',
-  ICON_EYE_OFF: '/assets/icon/eye-off.svg',
-
-  PAGE_FOLDER: '/pages/folder.html',
 };
