@@ -7,7 +7,6 @@ function SharedMain(){
     <main>
       <div className="main">
         <SearchingBar />
-      
         <div className="card-section">
           <LinkCard />
           <LinkCard />
