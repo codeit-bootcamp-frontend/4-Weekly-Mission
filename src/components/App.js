@@ -5,40 +5,40 @@ import Header from "./Header";
 
 function App() {
   const [profileData, setProfileData] = useState({});
-  const [folderData, setFolderData] = useState({});
+  const [folderProfileData, setFolderProfileData] = useState({});
 
   const getProfile = async (options) => {
     try {
       const newProfile = await getData(options);
+      console.log(newProfile);
       setProfileData(newProfile);
     } catch (err) {
       console.error(err);
       setProfileData({});
-    } finally {
-      console.log(await getData(options));
     }
   };
 
-  const getFolderData = async (options) => {
+  const getFolderProfileData = async (options) => {
     try {
       const newFolder = await getData(options);
       const { folder } = newFolder;
-      console.log(folder);
-      setFolderData(folder);
+      const { owner } = folder;
+      console.log(owner);
+      setFolderProfileData(owner);
     } catch (err) {
       console.error(err);
-      setFolderData({});
+      setFolderProfileData({});
     }
   };
 
   useEffect(() => {
     getProfile({ path: "user" });
-    getFolderData({ path: "folder" });
+    getFolderProfileData({ path: "folder" });
   }, []);
 
   return (
     <>
-      <Header profileData={profileData} folderData={folderData} />
+      <Header profileData={profileData} folderProfileData={folderProfileData} />
       <Card />
     </>
   );

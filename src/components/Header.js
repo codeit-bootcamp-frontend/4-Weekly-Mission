@@ -1,20 +1,18 @@
 import logo from "../images/logo.svg";
 
-function Header({ profileData, folderData }) {
-  const owner = folderData.owner;
+function Header({ profileData, folderProfileData }) {
   return (
     <div>
       <div>
         <img src={logo}></img>
       </div>
       <div>
-        <img src={profileData.profileImageSource} alt="" />
+        <img src={profileData.profileImageSource} alt="이미지" />
         <div>{profileData.email}</div>
       </div>
       <div>
-        <img src={owner.profileImageSource} />
-        <div>{owner.name}</div>
-        <div>{folderData.name}</div>
+        <img src={folderProfileData.profileImageSource} alt="이미지" />
+        <div>{folderProfileData.name}</div>
       </div>
     </div>
   );
