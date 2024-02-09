@@ -1,7 +1,8 @@
 import { styled } from 'styled-components';
+
 import StarButton from 'components/common/card/StarButton';
 import TimeFormat from 'components/common/card/TimeFormat';
-import DateFormat from './DateFormat';
+import DateFormat from 'components/common/card/DateFormat';
 
 const Styled = {
   Container: styled.div`
@@ -11,13 +12,26 @@ const Styled = {
     background: ${({ theme }) => theme.color.white};
     border-radius: 1.5rem;
     box-shadow: 0 0.5rem 0.4rem 0 #00000029;
+    overflow: hidden;
+    cursor: pointer;
+  `,
+
+  ThumbnailContainer: styled.div`
+    width: 100%;
+    height: 20rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+    overflow: hidden;
   `,
 
   ThumbnailImg: styled.img`
     width: 100%;
-    height: 20rem;
+    height: 100%;
     object-fit: cover;
-    border-radius: 1.5rem 1.5rem 0 0;
+
+    &:hover {
+      transform: scale(1.3);
+      transition-duration: 0.5s;
+    }
   `,
 
   TextCardInfo: styled.div`
@@ -37,7 +51,7 @@ const Styled = {
 const mockData = {
   createdAt: '2023-03-05T08:11:20Z',
   imageSource: 'https://sprint.codeit.kr/static/images/sprint-admissions/og_img.png',
-  description: 'Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat. Tldkd',
+  description: 'Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat',
 };
 
 function Card() {
@@ -48,9 +62,12 @@ function Card() {
           position: 'absolute',
           top: '1.5rem',
           right: '1.5rem',
+          zIndex: 3,
         }}
       />
-      <Styled.ThumbnailImg src={mockData.imageSource} alt="카드 이미지" />
+      <Styled.ThumbnailContainer>
+        <Styled.ThumbnailImg src={mockData.imageSource} alt="카드 이미지" />
+      </Styled.ThumbnailContainer>
       <Styled.TextCardInfo>
         <TimeFormat createdAt={mockData.createdAt} />
         <Styled.Text>{mockData.description}</Styled.Text>
