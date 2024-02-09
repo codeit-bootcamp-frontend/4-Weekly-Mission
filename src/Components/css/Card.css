@@ -21,6 +21,8 @@
   text-align: left;
 
   padding: 15px 20px;
+
+  position: relative;
 }
 
 /*텍스트가 넘칠 시 ellipsis로 표시*/
@@ -32,3 +34,4 @@
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
+
