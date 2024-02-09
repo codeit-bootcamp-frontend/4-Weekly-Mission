@@ -5,7 +5,7 @@ import Header from "./Header";
 
 function App() {
   const [profileData, setProfileData] = useState({});
-  const [folderProfileData, setFolderProfileData] = useState({});
+  const [folderData, setFolderData] = useState({});
 
   const getProfile = async (options) => {
     try {
@@ -18,28 +18,27 @@ function App() {
     }
   };
 
-  const getFolderProfileData = async (options) => {
+  const getFolderData = async (options) => {
     try {
       const newFolder = await getData(options);
       const { folder } = newFolder;
-      const { owner } = folder;
-      console.log(owner);
-      setFolderProfileData(owner);
+      console.log(folder);
+      setFolderData(folder);
     } catch (err) {
       console.error(err);
-      setFolderProfileData({});
+      setFolderData({});
     }
   };
 
   useEffect(() => {
     getProfile({ path: "user" });
-    getFolderProfileData({ path: "folder" });
+    getFolderData({ path: "folder" });
   }, []);
 
   return (
     <>
-      <Header profileData={profileData} folderProfileData={folderProfileData} />
-      <Card />
+      <Header profileData={profileData} folderData={folderData} />
+      <Card folderData={folderData} />
     </>
   );
 }

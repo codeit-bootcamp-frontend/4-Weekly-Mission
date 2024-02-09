@@ -1,4 +1,4 @@
-function Card() {
+function Card({ folderData }) {
   return <>카드입니다</>;
 }
 
