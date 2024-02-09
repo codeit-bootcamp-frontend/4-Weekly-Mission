@@ -1,0 +1,8 @@
+.card-info {
+  display: flex;
+  width: 325px;
+  padding: 15px 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
