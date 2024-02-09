@@ -1,15 +1,10 @@
 footer {
   background-color: var(--color-black);
 
-  padding: 24px 104px 98px 104px;
+  padding: 24px 104px 60px 104px;
 
   display: flex;
   justify-content: space-between;
-
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 
 .txt-copyright {
@@ -39,7 +34,7 @@ footer {
   .txt-copyright {
     display: flex;
     justify-content: flex-start;
-    
+
     grid-row: 2;
     margin-top: 24px;
   }

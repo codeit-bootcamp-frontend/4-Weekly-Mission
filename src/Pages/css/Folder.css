@@ -1,12 +1,3 @@
-main {
-  min-height: 1280px;
-
-  padding: 4% 12%;
-  margin-bottom: 144px;
-
-  background-color: var(--color-white);
-}
-
 .folder-info {
   margin-top: 88px;
   padding-top: 20px;
@@ -17,6 +8,14 @@ main {
   gap: 20px;
 
   background-color: var(--color-background);
+}
+
+main {
+  min-height: 1280px;
+
+  padding: 4% 12%;
+
+  background-color: var(--color-white);
 }
 
 .folder-owner {
