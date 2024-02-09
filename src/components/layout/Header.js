@@ -1,10 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from '../../assets/header/logo.svg';
 import profileImg from '../../assets/header/profileImg.svg';
 import '../../style/Header.css';
 import { Link } from 'react-router-dom';
+import { getUserInfo } from '../api';
 
 const Header = () => {
+  const [user, setUser] = useState({ email: null, profileImageSource: null });
+
+  const handleLoadUser = async () => {
+    const { email, profileImageSource } = await getUserInfo();
+
+    if (!email) return;
+    setUser({ email, profileImageSource });
+  };
+
+  useEffect(() => {
+    handleLoadUser();
+  }, []);
+
   return (
     <div className='HeaderContainer'>
       <div className='HeaderContent'>
@@ -13,8 +27,12 @@ const Header = () => {
         </Link>
         <Link to='/signin'>
           <div className='ProfileContent'>
-            <img className='ProfileImg' src={profileImg} alt='profile img' />
-            <span>Codeit@codeit.com</span>
+            <img
+              className='ProfileImg'
+              src={user.profileImageSource}
+              alt='profile img'
+            />
+            <span>{user.email}</span>
           </div>
         </Link>
       </div>
