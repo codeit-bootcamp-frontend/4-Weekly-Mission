@@ -43,6 +43,10 @@ nav {
 		width: 88.6px;
 	}
 
+	.navProfile {
+		font-size: 0;
+	}
+
 	.navProfile > img {
 		width: auto;
 	}
