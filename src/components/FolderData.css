@@ -1,0 +1,11 @@
+main {
+	background-color: var(--LBrary-White);
+	padding: 40px 32px;
+	max-width: 1124px;
+}
+
+@media (max-width: 767px) {
+	main {
+		padding: 20px 32px;
+	}
+}

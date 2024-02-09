@@ -1,11 +1,12 @@
 /* 공통요소 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
 
 * {
 	box-sizing: border-box;
 }
 
 html {
-	font-family: acme, "Noto Sans KR", sans-serif;
+	font-family: "Pretendard", acme, "Noto Sans KR", sans-serif;
 	font-size: 62.5%;
 }
 
@@ -29,7 +30,7 @@ html {
 }
 
 body {
-	background-color: var(--LBrary-Background);
+	background-color: var(--LBrary-White);
 }
 
 .defaultBtn {

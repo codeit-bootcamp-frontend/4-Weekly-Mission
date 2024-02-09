@@ -1,6 +1,7 @@
 import "styles/reset.css";
 import "styles/defaultStyle.css";
 import "components/HeadNav.css";
+import ProfileData from "components/ProfileData.js";
 
 export default function HeadNav() {
 	return (
@@ -9,9 +10,7 @@ export default function HeadNav() {
 				<a href="index.html">
 					<img src="logo.svg" alt="Linkbrary Logo" />
 				</a>
-				<a href="pages/signin.html" className="defaultBtn">
-					로그인
-				</a>
+				<ProfileData />
 			</div>
 		</nav>
 	);

@@ -1,0 +1,8 @@
+section {
+	background-color: var(--LBrary-Background);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding-top: 20px;
+	padding-bottom: 60px;
+}
