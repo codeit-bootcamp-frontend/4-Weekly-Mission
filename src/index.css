@@ -4,8 +4,10 @@
 @import url("./assets/styles/utility.css");
 
 body {
-  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "맑은 고딕" "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "맑은 고딕", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
     "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-style: normal;
+  line-height: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

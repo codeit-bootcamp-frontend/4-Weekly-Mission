@@ -1,7 +1,16 @@
 import "./Shared.css";
+import Header from "../../components/Header";
+import Main from "../../components/Main";
+import Footer from "../../components/Footer";
 
 function Shared() {
-  return <div>안녕하세요 Shared.js입니다.</div>;
+  return (
+    <div>
+      <Header />
+      <Main />
+      <Footer />
+    </div>
+  );
 }
 
 export default Shared;

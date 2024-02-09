@@ -1,0 +1,97 @@
+/********
+* Debug
+********/
+
+.debug-border {
+  border: 1px solid magenta;
+}
+
+/********
+* Utils
+********/
+
+.hidden {
+  display: none;
+}
+
+.z-top {
+  z-index: 9999;
+}
+
+.multiline-ellipsis {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* 표시할 줄 수 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+/********
+* Colors
+********/
+
+.background-bg {
+  background: var(--bg, #f0f6ff);
+}
+
+.background-light {
+  background: var(--light, #f5f5f5);
+}
+
+.background-black {
+  background: var(--black, #111322);
+}
+
+.text-color-gray100 {
+  color: var(--gray100, #373740);
+}
+
+.text-color-text {
+  color: var(--text, #666666);
+}
+
+/********
+* Layout
+********/
+
+.width-full {
+  width: 100%;
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.flex-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.position-fixed {
+  position: fixed;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+}
