@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>signin</title>
+    <title>Signup</title>
     <link rel="stylesheet" href="/styles/login.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,37 +18,56 @@
         <a href="/index.html" class="login-name"
           ><img src="/images/logo.svg" alt="main logo"
         /></a>
-        <p>회원이 아니신가요? <a href="/pages/singup.html">회원 가입하기</a></p>
+        <p>이미 회원이신가요? <a href="/pages/signin.html">로그인 하기</a></p>
       </header>
       <form>
-        <section id="email">
+        <section>
           <label>
             <p class="signin-tag">이메일</p>
-            <input id="email-input" />
+            <input id="email-input" type="text" />
           </label>
           <p id="email-warning-text" class="warning-text">
             이메일을 입력해주세요.
           </p>
         </section>
-        <section id="password">
-          <label>
-            <p class="signin-tag">비밀번호</p>
-            <input id="password-input" type="password" visible="false" />
-            <img
-              id="password-eye-button"
-              class="eyes"
-              src="/images/eye-off.png"
-              alt="eye icon"
-            />
-          </label>
-          <p id="password-warning-text" class="warning-text">
-            비밀번호를 확인해 주세요.
-          </p>
-        </section>
-        <button id="login-button" type="button" class="button">로그인</button>
+        <div id="password">
+          <section>
+            <label>
+              <p class="signin-tag">비밀번호</p>
+              <input id="password-input" type="password" />
+              <img
+                id="password-eye-button"
+                class="eyes"
+                src="/images/eye-off.png"
+                alt="eye icon"
+              />
+            </label>
+            <p id="password-warning-text" class="warning-text">
+              비밀번호를 확인해 주세요.
+            </p>
+          </section>
+          <section>
+            <label>
+              <p class="signin-tag">비밀번호 확인</p>
+              <input id="password-check-input" type="password" />
+              <img
+                id="password-check-eye-button"
+                class="eyes"
+                src="/images/eye-off.png"
+                alt="eye icon"
+              />
+            </label>
+            <p id="password-check-warning-text" class="warning-text">
+              비밀번호를 확인해 주세요.
+            </p>
+          </section>
+        </div>
+        <button id="signup-button" type="button" class="button">
+          회원가입
+        </button>
       </form>
       <article>
-        <p>소셜 로그인</p>
+        <p>다른 방식으로 가입하기</p>
         <div class="social-icon">
           <a href="https://www.google.com">
             <div class="google-icon">
@@ -63,6 +82,6 @@
         </div>
       </article>
     </div>
-    <script type="module" src="/js/signin.js"></script>
+    <script type="module" src="/js/signup.js"></script>
   </body>
 </html>
