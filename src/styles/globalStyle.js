@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
-import theme from './theme';
+import theme from 'styles/theme';
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -33,6 +33,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     border: none;
     cursor: pointer;
+  background: transparent;
   }
   
    a {
