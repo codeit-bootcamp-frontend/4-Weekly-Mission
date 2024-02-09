@@ -4,15 +4,15 @@ import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
 import MainPage from './pages/MainPage';
 
-function Router() {
+function AppRouter() {
   return (
     <Routes>
       <Route path={routes.home} element={<MainPage />}></Route>
 
-      <Route path={routes.login} element={<SignInPage />}></Route>
+      <Route path={routes.signin} element={<SignInPage />}></Route>
       <Route path={routes.signup} element={<SignUpPage />}></Route>
     </Routes>
   );
 }
 
-export default Router;
+export default AppRouter;
