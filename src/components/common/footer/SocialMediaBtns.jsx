@@ -1,9 +1,9 @@
 import { styled } from 'styled-components';
 
-import faceboock from 'assets/icon/facebook-icon.png';
-import twitter from 'assets/icon/twitter-icon.png';
-import youtube from 'assets/icon/youtube-icon.png';
-import instagram from 'assets/icon/instagram-icon.png';
+import faceboockIcon from 'assets/icon/facebook-icon.png';
+import twitterIcon from 'assets/icon/twitter-icon.png';
+import youtubeIcon from 'assets/icon/youtube-icon.png';
+import instagramIcon from 'assets/icon/instagram-icon.png';
 
 const Styled = {
   Container: styled.div`
@@ -18,20 +18,20 @@ const Styled = {
 };
 
 function SocialMediaBtns() {
+  const socialMediaData = [
+    { name: 'Facebook', url: 'https://www.facebook.com/', icon: faceboockIcon },
+    { name: 'Twitter', url: 'https://twitter.com/', icon: twitterIcon },
+    { name: 'Youtube', url: 'https://www.youtube.com/', icon: youtubeIcon },
+    { name: 'Instagram', url: 'https://www.instagram.com/', icon: instagramIcon },
+  ];
+
   return (
     <Styled.Container>
-      <Styled.Icon href="https://www.facebook.com/" target="_blank">
-        <img src={faceboock} alt="페이스북" />
-      </Styled.Icon>
-      <Styled.Icon href="https://twitter.com/" target="_blank">
-        <img src={twitter} alt="트위터" />
-      </Styled.Icon>
-      <Styled.Icon href="https://www.youtube.com/" target="_blank">
-        <img src={youtube} alt="유투브" />
-      </Styled.Icon>
-      <Styled.Icon href="https://www.instagram.com/" target="_blank">
-        <img src={instagram} alt="인스타그램" />
-      </Styled.Icon>
+      {socialMediaData.map(({ name, url, icon }, idx) => (
+        <Styled.Icon key={idx} href={url} target="_blank">
+          <img src={icon} alt={name} />
+        </Styled.Icon>
+      ))}
     </Styled.Container>
   );
 }
