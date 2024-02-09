@@ -1,4 +1,4 @@
-import { AUTH } from './constants/API';
+import { AUTH } from './utils/constants/API';
 
 const BASE_URL = 'https://bootcamp-api.codeit.kr';
 
