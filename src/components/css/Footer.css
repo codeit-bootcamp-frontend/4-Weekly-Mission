@@ -1,0 +1,35 @@
+footer {
+  width: 100%;
+  height: 160px;
+  padding: 32px 104px 64px 104px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: var(--black-color);
+}
+
+.footer_text {
+  color: #676767;
+  text-align: center;
+  font-family: Acme;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.footer_link {
+  display: flex;
+  gap: 30px;
+}
+
+.footer_link a {
+  color: #cfcfcf;
+  font-family: Acme;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.social {
+  display: flex;
+  gap: 12px;
+}
