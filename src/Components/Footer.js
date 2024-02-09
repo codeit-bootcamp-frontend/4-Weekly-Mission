@@ -1,4 +1,5 @@
 import "./css/Footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const smallLogoStyle = {
@@ -13,8 +14,8 @@ const Footer = () => {
     <footer>
       <div className="txt-copyright">©codeit - 2023</div>
       <div className="txt-CS">
-        <a href="#">Privacy Policy</a>
-        <a href="#">FAQ</a>
+        <Link to="/privacy">Privacy Policy</Link>
+        <Link to="/faq">FAQ</Link>
       </div>
       <div className="icons-footer">
         <a href="https://www.facebook.com" target="_blank">

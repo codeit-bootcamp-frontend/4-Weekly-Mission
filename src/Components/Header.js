@@ -1,10 +1,13 @@
 import "./css/Header.css";
 import Avatar from "./Avatar";
+import { Link } from "react-router-dom";
 
 const Header = ({ userEmail, userProfileImage }) => {
   return (
     <header>
-      <img alt="Linkbrary logo" src="icons/Linkbrary.svg" />
+      <Link to="/">
+        <img alt="Linkbrary logo" src="icons/Linkbrary.svg" />
+      </Link>
       {!userEmail && <button className="btn_gradient login">로그인</button>}
       {userEmail && (
         <div className="container-profile">
