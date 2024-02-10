@@ -1,0 +1,23 @@
+.Cta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  border-radius: 8px;
+  background: linear-gradient(
+    91deg,
+    var(--color-primary) 0.12%,
+    #6ae3fe 101.84%
+  );
+  color: var(--text-gray-10);
+  padding: 10px 16px;
+  font-size: 16px;
+  line-height: 1.2;
+
+  @media (min-width: 768px) {
+    width: 128px;
+    padding: 16px 20px;
+    font-size: 18px;
+    line-height: 1.375;
+  }
+}

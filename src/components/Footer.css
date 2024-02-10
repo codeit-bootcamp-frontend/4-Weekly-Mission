@@ -52,7 +52,7 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 1.25;
-  color: var(--text-light-gray);
+  color: var(--text-gray-20);
   grid-area: links;
 }
 
