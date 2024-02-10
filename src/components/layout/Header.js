@@ -6,7 +6,7 @@ import { getUserInfo } from '../api';
 
 const Header = () => {
   const [user, setUser] = useState({ email: null, profileImageSource: null });
-
+  console.log(user);
   const handleLoadUser = async () => {
     const { email, profileImageSource } = await getUserInfo();
 
@@ -24,7 +24,7 @@ const Header = () => {
         <Link to='/'>
           <img className='Logo' src={logo} alt='logo img' />
         </Link>
-        <Link to='/signin'>
+        {user.email !== null ? (
           <div className='ProfileContent'>
             <img
               className='ProfileImg'
@@ -33,7 +33,11 @@ const Header = () => {
             />
             <span>{user.email}</span>
           </div>
-        </Link>
+        ) : (
+          <Link to='/signin' className='LoginBtn'>
+            로그인
+          </Link>
+        )}
       </div>
     </div>
   );

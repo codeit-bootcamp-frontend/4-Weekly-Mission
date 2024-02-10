@@ -39,6 +39,19 @@
   line-height: normal;
 }
 
+.LoginBtn {
+  width: 12.8rem;
+  height: 5.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
+  border-radius: 0.8rem;
+  color: #f5f5f5;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
 /* tablet */
 @media (max-width: 1199px) {
   .HeaderContent {
@@ -58,5 +71,11 @@
 
   .ProfileContent > span {
     display: none;
+  }
+
+  .LoginBtn {
+    width: 8rem;
+    height: 3.7rem;
+    font-size: 1.4rem;
   }
 }
