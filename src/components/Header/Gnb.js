@@ -1,17 +1,45 @@
+import { useState, useEffect } from "react";
 import "./Gnb.css";
+import { getUserInfo } from "../../services/api";
+import LoginButton from "../Common/LoginButton";
 import logo from "../../assets/images/logo.svg";
 import profileImg from "../../assets/images/profile-img.png";
 
 //글로벌 네비게이션 바
 function Gnb() {
+  // 유저 정보 가져오기
+  const [userInfo, setUserInfo] = useState(null);
+
+  const handleLoadUser = async () => {
+    try {
+      const result = await getUserInfo();
+      setUserInfo(result);
+    } catch (error) {
+      console.error(error);
+      setUserInfo(null);
+    }
+  };
+
+  const handleLoad = () => {
+    handleLoadUser();
+  };
+
+  useEffect(() => {
+    handleLoad();
+  }, []);
+
   return (
     <nav className="gnb position-fixed margin-auto z-top">
       <div className="gnb-container flex-row">
         <img className="gnb-logo" src={logo} alt="logo"></img>
-        <div className="gnb-profile flex-row">
-          <img className="profile-img" src={profileImg} alt="profile-img"></img>
-          <p className="profile-email text-color-gray100 hidden">Codeit@codeit.com</p>
-        </div>
+        {userInfo ? (
+          <div className="gnb-profile flex-row">
+            <img className="profile-img" src={userInfo.profileImageSource} alt="profile-img"></img>
+            <p className="profile-email text-color-gray100 hidden">{userInfo.email}</p>
+          </div>
+        ) : (
+          <LoginButton />
+        )}
       </div>
     </nav>
   );

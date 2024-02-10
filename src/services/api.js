@@ -7,13 +7,13 @@ const API_URL = "https://bootcamp-api.codeit.kr/api/";
 //   email: "codeit@codeit.com",
 //   profileImageSource: "https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png",
 // };
-async function getUserInfo() {
+export async function getUserInfo() {
   const url = new URL("sample/user", API_URL);
 
   try {
     const response = await fetch(url);
     const result = await response.json();
-    const errorMessage = result.error.message;
+    const errorMessage = result.error;
 
     if (!response.ok) {
       console.error("Response falied: ", errorMessage);
@@ -22,7 +22,7 @@ async function getUserInfo() {
 
     return result;
   } catch (error) {
-    console.error("Fetch error: ", error.message);
+    console.error("Fetch error: ", error);
   }
 }
 
@@ -58,7 +58,7 @@ async function getUserInfo() {
 //     count: N,
 //   },
 // };
-async function getFolderInfo() {
+export async function getFolderInfo() {
   const url = new URL("sample/folder", API_URL);
 
   try {
@@ -76,5 +76,3 @@ async function getFolderInfo() {
     console.error("Fetch error: ", error.message);
   }
 }
-
-export { getUserInfo, getFolderInfo };

@@ -19,6 +19,7 @@
 
 .profile-img {
   width: 2.8rem;
+  border-radius: 9999rem;
 }
 
 .profile-email {
