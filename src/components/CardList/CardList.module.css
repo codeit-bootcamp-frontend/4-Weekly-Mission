@@ -39,9 +39,7 @@
 }
 
 .link-title {
-  font-size: 1.4rem;
-  line-height: 1;
-  height: 1em;
+  font-size: 1.6rem;
   margin-bottom: 10px;
   white-space: nowrap;
   overflow: hidden;
@@ -55,10 +53,32 @@
   overflow: hidden;
 }
 
+.link-update {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.link-date {
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
 @media (max-width: 1199px) {
   .wrapper {
     max-width: 832px;
     padding: 0px 32px 40px;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 1124px) {
+  .l_col {
+    width: 50%;
+  }
+}
+
+@media (max-width: 580px) {
+  .l_col {
+    width: 100%;
   }
 }

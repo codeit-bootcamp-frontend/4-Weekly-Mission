@@ -35,7 +35,9 @@ export default function Header() {
                 src={user.profileImageSource}
                 alt="profileImg"
               />
-              <p>{user.email}</p>
+              <p className={styles.profileEmail} style={{ fontSize: "1.2rem" }}>
+                {user.email}
+              </p>
             </div>
           </>
         ) : (

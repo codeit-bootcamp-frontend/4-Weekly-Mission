@@ -47,3 +47,9 @@
     width: 98px;
   }
 }
+
+@media (max-width: 580px) {
+  .profileEmail {
+    display: none;
+  }
+}
