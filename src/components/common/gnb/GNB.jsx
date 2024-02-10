@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import logo from 'assets/logo.svg';
@@ -27,9 +28,9 @@ function GNB() {
 
   return (
     <Styled.Container>
-      <a href="/">
+      <Link to="/">
         <img src={logo} alt="linkbrary-logo" />
-      </a>
+      </Link>
       {isLoggedIn ? <UserBtn /> : <Button />}
     </Styled.Container>
   );
