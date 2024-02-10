@@ -1,25 +1,26 @@
-import { FolderBody, FolderHeader } from "./components/folder";
-import ProfileContextProvider from "./context/ProfileContext";
-import FolderContextProvider from "./context/FolderContext";
-import Footer from "./components/common/footer/Footer";
-import Header from "./components/common/header/Header";
-import { useState } from "react";
+import ProfileContextProvider from "./context/ProfileContext"
+import ShareContextProvider from "./context/ShareContext"
+import Footer from "./components/common/footer/Footer"
+import Header from "./components/common/header/Header"
+import ShareBody from "./components/share/ShareBody"
+import ShareHeader from "./components/share/ShareHeader"
+import { useState } from "react"
 
 function App() {
-	const [marginTop, setMarginTop] = useState(0);
+  const [marginTop, setMarginTop] = useState(0)
 
-	return (
-		<ProfileContextProvider>
-			<FolderContextProvider>
-				<Header setMarginTop={setMarginTop} />
-				<main style={{ marginTop: marginTop + "px" }}>
-					<FolderHeader />
-					<FolderBody />
-				</main>
-				<Footer />
-			</FolderContextProvider>
-		</ProfileContextProvider>
-	);
+  return (
+    <ProfileContextProvider>
+      <ShareContextProvider>
+        <Header setMarginTop={setMarginTop} />
+        <main style={{ marginTop: marginTop + "px" }}>
+          <ShareHeader />
+          <ShareBody />
+        </main>
+        <Footer />
+      </ShareContextProvider>
+    </ProfileContextProvider>
+  )
 }
 
-export default App;
+export default App

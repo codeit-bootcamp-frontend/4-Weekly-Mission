@@ -1,4 +1,4 @@
-.folderCardList {
+.shareCardList {
   display: grid;
   grid-template-columns: repeat(3, 340px);
   gap: 24px 20px;
@@ -6,14 +6,14 @@
 }
 
 @media (max-width: 1124px) {
-  .folderCardList {
+  .shareCardList {
     grid-template-columns: repeat(2, 44.213vw);
     gap: 3.121vw;
   }
 }
 
 @media (max-width: 769px) {
-  .folderCardList {
+  .shareCardList {
     grid-template-columns: repeat(1, 100%);
     gap: 5.128vw;
   }

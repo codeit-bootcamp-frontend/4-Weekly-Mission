@@ -1,18 +1,19 @@
 import React, { useContext } from "react"
 import Wrapper from "../layout/Wrapper"
-import { FolderSearchBar, FolderCardList } from "./"
+import ShareSearchBar from "./ShareSearchBar"
+import ShareCardList from "./ShareCardList"
 import Loading from "../UI/Loading"
-import { FolderContext } from "../../context/FolderContext"
 import ErrorCard from "../UI/ErrorCard"
+import { ShareContext } from "../../context/ShareContext"
 
-function FolderBody() {
-  const { isLoading, data, hasError } = useContext(FolderContext)
+function ShareBody() {
+  const { isLoading, data, hasError } = useContext(ShareContext)
 
   const renderLoading = isLoading && <Loading />
   const renderSuccess = !isLoading && data && !hasError && (
     <>
-      <FolderSearchBar type="text" placeholder="링크를 검색해 보세요." name="search" />
-      <FolderCardList data={data} />
+      <ShareSearchBar type="text" placeholder="링크를 검색해 보세요." name="search" />
+      <ShareCardList data={data} />
     </>
   )
   const renderFailed = hasError && <ErrorCard>{hasError.message}</ErrorCard>
@@ -28,4 +29,4 @@ function FolderBody() {
   )
 }
 
-export default FolderBody
+export default ShareBody

@@ -1,30 +1,30 @@
-.folderCardItem {
+.shareCardItem {
   width: 100%;
   height: 335px;
 }
 
-.folderCardItem-image {
+.shareCardItem-image {
   height: 200px;
   overflow: hidden;
 }
 
-.folderCardItem-image img {
+.shareCardItem-image img {
   transition: 0.3s;
 }
 
 /*=============================================
 =            Card Item Hover Animation        =
 =============================================*/
-.folderCardItem:hover .folderCardItem-image img {
+.shareCardItem:hover .shareCardItem-image img {
   transform: scale(1.3);
 }
 
-.folderCardItem-contents {
+.shareCardItem-contents {
   padding: 15px 20px;
   height: 135px;
 }
 
-.folderCardItem-description {
+.shareCardItem-description {
   margin: 10px 0;
   line-height: 24px;
   max-height: 49px;
@@ -34,12 +34,12 @@
   -webkit-line-clamp: 2;
 }
 
-.folderCardItem-elapsedTime {
+.shareCardItem-elapsedTime {
   color: #666666;
   font-size: 13px;
 }
 
-.folderCardItem-date {
+.shareCardItem-date {
   font-size: 14px;
   color: #333;
 }

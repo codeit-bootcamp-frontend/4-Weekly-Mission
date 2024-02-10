@@ -1,8 +1,8 @@
 import React from "react"
-import "./FolderSearchBar.css"
+import "./ShareSearchBar.css"
 import searchImage from "../../assets/images/icon/search.svg"
 
-function FolderSearchBar({ type, placeholder, name }) {
+function ShareSearchBar({ type, placeholder, name }) {
   return (
     <React.Fragment>
       <div className="search">
@@ -15,4 +15,4 @@ function FolderSearchBar({ type, placeholder, name }) {
   )
 }
 
-export default FolderSearchBar
+export default ShareSearchBar

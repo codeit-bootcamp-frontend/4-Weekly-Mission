@@ -1,9 +1,9 @@
-.folderHeader {
+.shareHeader {
   padding: 20px 0 60px;
   background-color: var(--gray5);
 }
 
-.folderHeader-container {
+.shareHeader-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,7 +11,7 @@
 }
 
 @media (max-width: 769px) {
-  .folderHeader {
+  .shareHeader {
     padding: 10px 0 40px;
     background-color: var(--gray5);
   }
