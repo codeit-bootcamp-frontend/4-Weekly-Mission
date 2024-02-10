@@ -1,13 +1,14 @@
 import React from "react";
 import Account from "./Account";
 import logo from "../../image/Linkbrary_logo.svg";
+import "./Nav.css";
 
 const Nav = () => {
   return (
     <header>
       <div className="header">
         <a href="/">
-          <img src={logo} alt="Linkbrary 로고" />
+          <img className="logo" src={logo} alt="Linkbrary 로고" />
         </a>
         <div>
           <Account />
