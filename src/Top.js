@@ -2,18 +2,15 @@ import React from 'react';
 import './Top.css';
 
 const Top = ({className, items}) => {
-  const { name, owner } = items;
-  console.log(owner);
-
   return (
     <div className={className}>
       <div className="top-frame_ly">
         <div className='user_ly'>
           <div className='avatar_ly'>
-            <img className="avatar-img" src={owner.profileImageSource} alt="아바타 이미지"/>
-            <span className='avatar-name'>{owner.name}</span>
+            <img className="avatar-img" src={items.owner.profileImageSource} alt="아바타 이미지"/>
+            <span className='avatar-name'>{items.owner.name}</span>
           </div>
-          <span className='favorite'>{name}</span>
+          <span className='favorite'>{items.name}</span>
         </div>
       </div>
     </div>
