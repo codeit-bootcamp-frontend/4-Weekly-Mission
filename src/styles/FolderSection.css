@@ -1,0 +1,28 @@
+.section-area {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 0;
+}
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 1060px;
+  gap: 2.5rem 2rem;
+}
+
+.card-item {
+  width: 34rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.card-item:hover .card-info-group{
+  background-color: #f0f6ff;
+}
+
+.card-item:hover .img-card {
+  transform: scale(1.3);
+}
