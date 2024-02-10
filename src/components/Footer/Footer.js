@@ -1,10 +1,25 @@
 import React from "react";
-import facebookIcon from "../../image/icons_facebook.svg";
-import instagramIcon from "../../image/icons_instagram.svg";
-import twitterIcon from "../../image/icons_twitter.svg";
-import youtubeIcon from "../../image/icons_youtube.svg";
+import FacebookIcon from "../../image/icons_facebook.svg";
+import InstagramIcon from "../../image/icons_instagram.svg";
+import TwitterIcon from "../../image/icons_twitter.svg";
+import YoutubeIcon from "../../image/icons_youtube.svg";
 
 const Footer = () => {
+  const SNS_ICONS = [
+    {
+      href: "https://ko-kr.facebook.com/",
+      icon: FacebookIcon,
+      alt: "facebook",
+    },
+    { href: "https://twitter.com", icon: TwitterIcon, alt: "twitter" },
+    { href: "https://www.youtube.com/", icon: YoutubeIcon, alt: "youtube" },
+    {
+      href: "https://www.instagram.com/",
+      icon: InstagramIcon,
+      alt: "instagram",
+    },
+  ];
+
   return (
     <footer>
       <div className="footer-box">
@@ -14,34 +29,16 @@ const Footer = () => {
           <a href="/faq.html">FAQ</a>
         </div>
         <div className="footer-sns">
-          <a
-            href="https://ko-kr.facebook.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={facebookIcon} alt="facebook" />
-          </a>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={twitterIcon} alt="twitter" />
-          </a>
-          <a
-            href="https://www.youtube.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={youtubeIcon} alt="youtube" />
-          </a>
-          <a
-            href="https://www.instagram.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={instagramIcon} alt="instagram" />
-          </a>
+          {SNS_ICONS.map((sns, index) => (
+            <a
+              key={index}
+              href={sns.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={sns.icon} alt={sns.alt} />
+            </a>
+          ))}
         </div>
       </div>
     </footer>
