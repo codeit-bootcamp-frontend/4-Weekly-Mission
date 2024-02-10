@@ -1,0 +1,14 @@
+.wrapper {
+  /* max-width: 1540px; */
+  padding: 0px 200px 40px;
+  margin: 0 auto;
+  background-color: antiquewhite;
+}
+
+@media (max-width: 1199px) {
+  .wrapper {
+    max-width: 832px;
+    padding: 0px 32px 40px;
+    margin: 0 auto;
+  }
+}

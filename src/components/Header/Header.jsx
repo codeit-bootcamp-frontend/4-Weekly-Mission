@@ -7,9 +7,8 @@ export default function Header() {
   const [user, setUser] = useState({});
 
   const loadUser = async () => {
-    const data = await getUser();
-    console.log(data);
     try {
+      const data = await getUser();
       setUser(data);
     } catch (error) {
       console.log(error);

@@ -19,6 +19,10 @@
   margin-top: 20px;
 }
 
+.profile-cover {
+  width: 60px;
+}
+
 .wrapper {
   /* max-width: 1540px; */
   padding: 40px 200px;

@@ -3,14 +3,31 @@ import Footer from "components/Footer/Footer";
 import styles from "./Folder.module.css";
 import AvatarImg from "assets/Avatar.png";
 import SearchIcon from "assets/Search.png";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import CardList from "components/CardList/CardList";
+import { getFolderInfo } from "api/api";
 
 export default function Folder() {
   const [search, setSearch] = useState("");
+  const [folderInfo, setFolderInfo] = useState({});
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
+
+  const loadFolderInfo = async () => {
+    try {
+      const { folder } = await getFolderInfo();
+      console.log(folder);
+      setFolderInfo(folder);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    loadFolderInfo();
+  }, []);
 
   return (
     <>
@@ -20,11 +37,13 @@ export default function Folder() {
           <div className={styles["profile"]}>
             <img
               className={styles["profile-cover"]}
-              src={AvatarImg}
+              src={folderInfo?.owner?.profileImageSource}
               alt="profile"
             />
-            <div className={styles["profile-author"]}>@코드잇</div>
-            <h2 className={styles["profile-title"]}>⭐즐겨찾기</h2>
+            <div className={styles["profile-author"]}>
+              @{folderInfo?.owner?.name}
+            </div>
+            <h2 className={styles["profile-title"]}>{folderInfo?.name}</h2>
           </div>
         </div>
 
@@ -40,6 +59,8 @@ export default function Folder() {
             />
           </div>
         </div>
+
+        <CardList />
       </main>
 
       <Footer />
