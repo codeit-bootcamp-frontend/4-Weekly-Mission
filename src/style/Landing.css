@@ -1,0 +1,252 @@
+.LandingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* main */
+
+main {
+  width: 100%;
+  background-color: var(--bg);
+}
+
+.MainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 7rem;
+  gap: 4rem;
+}
+
+.MainTitle {
+  width: 70.8rem;
+  word-break: keep-all;
+  text-align: center;
+  font-size: 6.4rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.MainTitle > span {
+  background-image: linear-gradient(91deg, var(--primary) 0%, #ff9f9f 100%);
+  background-clip: text;
+  color: transparent;
+}
+
+.MainLink {
+  width: 35rem;
+  height: 5.4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(91deg, var(--primary) 0%, #6ae3fe 100%);
+  border-radius: 0.8rem;
+  color: #f5f5f5;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.MainContent::after {
+  content: '';
+  max-width: 120rem;
+  width: 100%;
+  height: 59rem;
+  background-image: url(../assets/landing/landing.png);
+  background-size: contain;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+/* article */
+
+article {
+  padding: 7rem 0 12rem 0;
+}
+
+section {
+  padding: 5rem 0;
+}
+
+.SectionContent {
+  max-width: 99.8rem;
+  width: 100%;
+  display: grid;
+  gap: 1rem 15.7rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.SectionTitle {
+  grid-row: 2 / 3;
+  font-size: 4.8rem;
+  font-weight: 700;
+  letter-spacing: -0.03rem;
+}
+
+.SectionGradient1 {
+  background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Description {
+  grid-row: 3 / 4;
+  word-break: keep-all;
+  width: 28rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #6b6b6b;
+}
+
+.SectionContent::after {
+  content: '';
+  min-width: 55rem;
+  width: 100%;
+  height: 45rem;
+  grid-row: 1 / 5;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+section:nth-of-type(1) > .SectionContent::after {
+  background-image: url(../assets/landing/popUp1.png);
+}
+
+section:nth-of-type(2) > .SectionContent::after {
+  grid-column: 1;
+  background-image: url(../assets/landing/popUp2.png);
+}
+
+section:nth-of-type(3) > .SectionContent::after {
+  background-image: url(../assets/landing/popUp3.png);
+}
+
+section:nth-of-type(4) > .SectionContent::after {
+  grid-column: 1;
+  background-image: url(../assets/landing/popUp4.png);
+}
+
+.SectionGradient2 {
+  background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.SectionGradient3 {
+  background: linear-gradient(
+    99deg,
+    #6d7ccd 19.76%,
+    rgba(82, 136, 133, 0.22) 52.69%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.SectionGradient4 {
+  background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* tablet */
+@media (max-width: 1199px) {
+  /* main */
+  .MainContent {
+    padding-top: 4rem;
+  }
+
+  .MainTitle {
+    width: 47.2rem;
+  }
+
+  .MainContent::after {
+    max-width: 69.8rem;
+    height: 34.3rem;
+  }
+
+  /* article */
+  article {
+    padding: 3rem 0 12rem 0;
+  }
+
+  .SectionContent {
+    max-width: 69.8rem;
+    column-gap: 5.1rem;
+  }
+
+  .SectionContent::after {
+    min-width: 38.5rem;
+    height: 31.5rem;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  /* main */
+  .MainContent {
+    padding: 2.8rem 3.2rem 0;
+    gap: 2.4rem;
+  }
+
+  .MainTitle {
+    width: 23.6rem;
+    font-size: 3.2rem;
+    line-height: 1.3125;
+  }
+
+  .MainLink {
+    width: 20rem;
+    height: 3.7rem;
+    font-size: 1.4rem;
+  }
+
+  .MainContent::after {
+    height: 0;
+    padding-top: calc(590 / 1200 * 100%);
+  }
+
+  /* article */
+  article {
+    width: 100%;
+    padding: 0 0 4rem 0;
+  }
+
+  section {
+    width: 100%;
+    padding: 4rem 3.2rem;
+  }
+
+  .SectionContent {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  .SectionTitle {
+    grid-row: 1 / 2;
+    font-size: 2.4rem;
+  }
+
+  .Description {
+    width: 100%;
+    grid-row: 3 / 4;
+    font-size: 1.5rem;
+    font-weight: 500;
+    word-spacing: -0.1rem;
+  }
+
+  .LineBreakPcTablet {
+    display: none;
+  }
+
+  .SectionContent::after {
+    min-width: calc(100% - 6.4rem);
+    grid-row: 2 / 3;
+    height: 0;
+    padding-top: calc(450 / 550 * 100%);
+  }
+}
