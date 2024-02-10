@@ -8,10 +8,7 @@ function Card({ createdAt = "", url = "", title = "", description = "", imageSou
   const createdDate = formatDate(createdAt);
 
   const backgroundImage = {
-    background: `url(${imageSource ? imageSource : NoImage})`,
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
+    background: `#d9d9d9 url(${imageSource ? imageSource : NoImage}) no-repeat center / cover`,
   };
 
   const handleClick = () => {
