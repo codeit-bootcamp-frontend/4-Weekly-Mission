@@ -1,11 +1,11 @@
 import React from 'react'
 import './Card.css'
 import defaultImg from '../assets/logo.svg';
-import { compareDateDifferences, extractDate } from '../utils/DateCalculate';
+import { compareDateDifferences, extractDateRegex } from '../utils/DateCalculate';
 
 const Card = ({imgSrc, time, title, description, url}) => {
   const timeDifference = compareDateDifferences(time);
-  const processedTime = extractDate(time);
+  const processedTime = extractDateRegex(time);
 
   const processImg = (img) => img ? img : defaultImg;
 
