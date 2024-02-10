@@ -4,14 +4,10 @@ import { formatDate, setBeforeDate } from "../utils/util";
 
 const LinkCardComponent = ({ imgSrc, createdAt, desc }) => {
   const curDate = new Date(createdAt);
-
+  const noImage = "/images/card_no_img.png";
   return (
     <div className={styles.folder_card}>
-      {imgSrc ? (
-        <img src={imgSrc} className={styles.card_img} />
-      ) : (
-        <img src={"/images/card_no_img.png"} className={styles.card_img} />
-      )}
+      <img src={imgSrc ?? noImage} className={styles.card_img} />
       <div className={styles.card_info}>
         <p className={styles.card_date_before}>{setBeforeDate(curDate)}</p>
         <p className={styles.card_desc}>{desc}</p>
