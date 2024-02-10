@@ -1,0 +1,13 @@
+.header {
+  background: var(--color-gray-bg);
+  position: sticky;
+  top: 0;
+  padding: 33px 200px 32px 200px;
+}
+
+.header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
