@@ -4,6 +4,7 @@
 }
 
 .card-image {
+  height: 19.2rem;
   border-radius: 1.5rem 1.5rem 0 0;
 }
 
@@ -32,6 +33,9 @@
 
 /* Tablet && grid col = 2 */
 @media screen and (min-width: 768px) {
+  .card-image {
+    height: 20rem;
+  }
 }
 
 /* grid col = 3 */
