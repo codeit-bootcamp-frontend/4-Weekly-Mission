@@ -5,13 +5,22 @@ import Profile from './Profile';
 
 const GNB = () => {
   return (
-    <Gnb>
-      <Logo />
-      <Profile />
-    </Gnb>
+    <Nav>
+      <Gnb>
+        <Logo />
+        <Profile />
+      </Gnb>
+    </Nav>
   );
 };
-
+const Nav = styled.nav`
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #edf7ff;
+`;
 const Gnb = styled.div`
   display: flex;
   justify-content: space-between;
