@@ -5,6 +5,7 @@
   position: sticky;
   top: 0;
   background-color: var(--bg);
+  z-index: 99;
 }
 
 .HeaderContent {

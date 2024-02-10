@@ -6,7 +6,7 @@ import { getUserInfo } from '../api';
 
 const Header = () => {
   const [user, setUser] = useState({ email: null, profileImageSource: null });
-  console.log(user);
+
   const handleLoadUser = async () => {
     const { email, profileImageSource } = await getUserInfo();
 
