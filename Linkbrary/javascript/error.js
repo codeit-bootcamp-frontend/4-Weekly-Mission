@@ -5,14 +5,14 @@ const [originalPW, rewritePW] = PW_INPUT//구조분해할당식으로 배열요�
 function idError(event){ 
   event.preventDefault(); // 새로고침 막기
   if(!ID_INPUT.value?.trim()){
-    showidErrorMessage("이메일을 입력해 주세요.");
+    showErrorMessage("이메일을 입력해 주세요.", 'idErrorMessage', ID_INPUT, IDBOX);
     return;
   }
   if(!isValidEmail(ID_INPUT.value)){
-    showidErrorMessage("올바른 이메일 주소가 아닙니다.");
+    showErrorMessage("올바른 이메일 주소가 아닙니다.", 'idErrorMessage', ID_INPUT, IDBOX);
   }
   if(window.location.pathname!=='/Linkbrary/signin.html' && ID_INPUT.value === TEST_EMAIL){
-    showidErrorMessage("이미 사용 중인 이메일입니다.");
+    showErrorMessage("이미 사용 중인 이메일입니다.", 'idErrorMessage', ID_INPUT, IDBOX);
   }
 } 
 // 이메일 유효성 검사
@@ -23,8 +23,8 @@ function isValidEmail(email) {
 // pw 에러 상황
 function pwError(event){ 
   event.preventDefault(); // 새로고침 막기
-  if(originalPW.value?.trim()==false){
-    showpwErrorMessage("비밀번호를 입력해 주세요.");
+  if(!originalPW.value?.trim()){
+    showErrorMessage("비밀번호를 입력해 주세요.", 'pwErrorMessage', PW_TEXT, PWBOX);
   }
 }
 // 비밀번호 유효성 검사
@@ -36,6 +36,6 @@ function isValidPW(pw) {
 function pwcheckError(event){
   event.preventDefault(); // 새로고침 막기
   if(originalPW.value !== rewritePW.value){
-    showpwcheckErrorMessage("비밀번호가 일치하지 않아요.");
+    showErrorMessage("비밀번호가 일치하지 않아요.", 'pwcheckErrorMessage', PWCHECK_TEXT, PWCHECKBOX);
   }
 }

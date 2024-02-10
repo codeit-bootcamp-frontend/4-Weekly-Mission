@@ -1,7 +1,8 @@
 // 회원가입 시도
 function registerTry(event) {
   event.preventDefault();
-  if (idError===false && pwError===false && pwcheckError===false) { //성공
+  const isSuccess = !idError&& !pwError && !pwcheckError // 성공조건
+  if (isSuccess) { //성공
     window.location.href = "./folder.html";
   } 
   if(ID_INPUT.value === TEST_EMAIL){
