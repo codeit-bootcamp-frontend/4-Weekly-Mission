@@ -1,7 +1,18 @@
-import "./App.css";
+import "./components/reset.css";
+import NavigationBar from "./components/header/NavigationBar";
+import UserInformation from "./components/main/UserInformation";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <>
+      <header>
+        <NavigationBar />
+      </header>
+      <main>
+        <UserInformation />
+      </main>
+    </>
+  );
 }
 
 export default App;
