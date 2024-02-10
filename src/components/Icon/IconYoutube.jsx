@@ -1,5 +1,5 @@
 function IconYoutube() {
-  reutnr(
+  return (
     <svg
       width="20"
       height="20"
