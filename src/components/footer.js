@@ -17,16 +17,16 @@ function Footer() {
       </div>
       <div id="icon">
         <a href="http://www.facebook.com">
-          <img src={facebookIcon} alt="" />
+          <img src={facebookIcon} alt="facebook" />
         </a>
         <a href="http://www.twitter.com">
-          <img src={twitterIcon} alt="" />
+          <img src={twitterIcon} alt="twitter" />
         </a>
         <a href="http://www.youtube.com">
-          <img src={youtubeIcon} alt="" />
+          <img src={youtubeIcon} alt="youtube" />
         </a>
         <a href="http://www.instagram.com">
-          <img src={instagramIcon} alt="" />
+          <img src={instagramIcon} alt="instagram" />
         </a>
       </div>
     </footer>

@@ -31,11 +31,11 @@ function Main() {
               싶은 모든 것을 한 공간에 저장하세요.
             </div>
           </div>
-          <img className="imgs img_dog" />
+          <p className="imgs img_dog" alt="dog"></p>
         </section>
 
         <section className="next_page left">
-          <img className="imgs img_folder" />
+          <p className="imgs img_folder" alt="folder"></p>
           <div className="texts">
             <div className="text">
               링크를 폴더로
@@ -58,11 +58,11 @@ function Main() {
               쉽고 빠르게 링크를 공유해 보세요.
             </div>
           </div>
-          <img className="imgs img_share " />
+          <p className="imgs img_share" alt="share"></p>
         </section>
 
         <section className="next_page left">
-          <img className="imgs img_search" />
+          <p className="imgs img_search" alt="search"></p>
           <div className="texts">
             <div className="text">
               저장한 링크를
