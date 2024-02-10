@@ -3,18 +3,12 @@ import './Card.css'
 import defaultImg from '../assets/logo.svg';
 
 const Card = ({imgSrc, time, title, description, url}) => {
-  const validateDefaultImg = (imgSrc) => {
-    let img = imgSrc;
-    if (!img) {
-      return defaultImg;
-    }
-    return img
-  }
+  const processImg = (img) => img ? img : defaultImg;
 
   return (
     <div className='card'>
       <a href={url} target="_blank" rel="noreferrer">
-        <img src={validateDefaultImg(imgSrc)} alt='이미지' className='card-img'/>
+        <img src={processImg(imgSrc)} alt='이미지' className='card-img'/>
         <div className='card-info'>
           <span className='time'></span>
           <span className='description'>{title}<br/>{description}</span>
