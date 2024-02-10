@@ -42,10 +42,10 @@ function ShaerContent(){
     }, []);
 
     return (
-    <main className="folder">
-        <Profile {...userProfile}/>
-        <Content linkList={linkList} option={false}/>
-    </main>
+        <main className="folder">
+            <Profile {...userProfile}/>
+            <Content linkList={linkList} option={false}/>
+        </main>
     )
 }
 

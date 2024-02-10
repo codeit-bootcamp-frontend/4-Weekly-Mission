@@ -6,14 +6,14 @@ import "../../styles/footer.css";
 import { Link } from "react-router-dom";
 function Footer(){
     return  <footer className="footer">
-    <a className="footer__logo" href="/">©codeit - 2023</a>
+    <Link className="footer__logo" to="/">©codeit - 2023</Link>
     <div>
         <ul className="footer__nav">
             <li><Link className="footer__nav--text" to="/privacy">Privacy Policy</Link></li>
             <li><Link className="footer__nav--text" href="/faq">FAQ</Link></li>
         </ul>
     </div>
-<div clssName="footer_sns">
+<div className="footer_sns">
     <ul className="footer__link">
         <li><a target="_blank" rel="noreferrer" href="https://facebook.com/?locale=ko_KR"><img src={FacebookImg} alt="페이스북 아이콘"/></a></li>
         <li><a target="_blank" rel="noreferrer" href="https://twitter.com/?lang=ko"><img src={TwitterImg} alt="트위터 아이콘"/></a></li>

@@ -93,16 +93,8 @@ main{
     margin: 0 auto;
 }
 
-/* 본문(카드) */
-.c1 {
-    padding: 7.5rem 0 3.12rem;
-    margin:  0 auto;
-    width: 62.375rem;
-    height: 38.75rem;
-}
-
 .card{
-    padding: 7.5rem 0 3.12rem;
+    padding: 3.12rem 0;
     margin:  0 auto;
     width: 62.375rem;
     height: 38.75rem;
@@ -122,6 +114,14 @@ main{
         gap: 0;
         height: auto;
         width: 20.3125rem;
+    }
+}
+
+/* 본문(카드) */
+.c1 {
+    padding: 7.5rem 0 3.12rem;
+    @media (max-width: 1199px){
+        padding: 5rem 0 3.12rem;
     }
 }
 

@@ -105,7 +105,7 @@ function FolderContent({handleKebab, kebabStatus}){
         </section>
 
         <Content {...contentProps}/>
-    </main>
+        </main>
     )
 }
 

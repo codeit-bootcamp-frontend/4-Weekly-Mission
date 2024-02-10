@@ -7,7 +7,7 @@ function Login(){
         <div className="wrap">
         <main className="sign">
         <div className="sign__box">
-            <AuthTitle text="이미 회원이신가요?" action="/signin" actionText="로그인 하기"/>
+            <AuthTitle text="회원이 아니신가요?" action="/signup" actionText="회원 가입하기"/>
             <AuthForm option={false}/>
         </div>
         <SocialLogin/>

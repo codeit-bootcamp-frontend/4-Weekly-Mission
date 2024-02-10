@@ -24,10 +24,12 @@ html{
 
 
 /* 메인 */
+
 .folder{
     width: 100%;
     max-width: 1920px;
     min-width: 375px;
+    background-color: white;
 }
 
 .link{

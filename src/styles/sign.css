@@ -61,12 +61,13 @@ ul{
     line-height: 1.5rem;
 }
 
-.sign__text--login{
+.sign__text--action{
     color: var(--Linkbrary-primary-color);
     font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 0.1rem;
     line-height: normal;
+    display: inline;
 }
 /* 폼 태그 */
 .sign__form{
