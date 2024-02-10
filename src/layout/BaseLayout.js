@@ -2,20 +2,26 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import styles from "../styles/BaseLayout.module.css";
 import { getRequestApi } from "../utils/requestApi";
+import { useRequest } from "../hooks/useRequest";
 
 const Header = () => {
   const [isSignin, setIsSignin] = useState({});
 
+  const { data, request } = useRequest({
+    url: "api/sample/user",
+    method: "GET",
+  });
+
+  useEffect(() => {
+    if (data) {
+      setIsSignin(data);
+    }
+  }, [data]);
+
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
     if (token) {
-      getRequestApi("api/sample/user")
-        .then((result) => {
-          setIsSignin(result);
-        })
-        .catch((err) => {
-          setIsSignin(false);
-        });
+      request();
     } else {
       setIsSignin(false);
     }

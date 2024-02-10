@@ -2,20 +2,25 @@ import React, { useEffect, useState } from "react";
 import styles from "../styles/FolderPage.module.css";
 import { getRequestApi } from "../utils/requestApi";
 import LinkCardComponent from "../components/LinkCardComponent";
+import { useRequest } from "../hooks/useRequest";
 
 const FolderPage = () => {
   const [folderInfo, setFolderInfo] = useState({});
 
+  const { data, request } = useRequest({
+    url: "api/sample/folder",
+    method: "GET",
+  });
+
   useEffect(() => {
-    getRequestApi("api/sample/folder")
-      .then((result) => {
-        console.log(result);
-        setFolderInfo(result);
-      })
-      .catch((err) => {
-        setFolderInfo({});
-      });
+    request();
   }, []);
+
+  useEffect(() => {
+    if (data) {
+      setFolderInfo(data);
+    }
+  }, [data]);
 
   return (
     <>
