@@ -11,4 +11,4 @@ const EYE = document.getElementsByClassName("eye");
 
 // test
 const TEST_EMAIL = 'test@codeit.com'
-const TEST_PW = 'codeit101'
+const TEST_PW = 'sprint101'

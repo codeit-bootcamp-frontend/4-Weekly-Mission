@@ -7,7 +7,7 @@ function focus(errorId, inputDom){
   }
 }
 // 아래껄 위와 같이 공통화
-// // ID_INPUT의 포커스
+// ID_INPUT의 포커스
 // function focusID(){
 //   if(document.getElementById('idErrorMessage')){
 //     const errormessage = document.getElementById('idErrorMessage')
@@ -34,7 +34,7 @@ function focus(errorId, inputDom){
 
 // ID input 포커스
 ID_INPUT.addEventListener("focusout",event=> idError(event)); // 아웃
-ID_INPUT.addEventListener("focusin", focus('idErrorMessage', ID_INPUT)); // 인
+ID_INPUT.addEventListener("focusin", ()=> focus('idErrorMessage',ID_INPUT)); // 인
 // // PW input 포커스
 for(let i=0; i<PW_INPUT.length; i++){
   if(i===0){
