@@ -15,7 +15,6 @@ function Profile() {
           'https://bootcamp-api.codeit.kr/api/sample/folder'
         );
         const result = await response.json();
-        console.log(result);
         setOwner({
           ownerImg: result.folder.owner.profileImageSource,
           ownerName: result.folder.owner.name,
