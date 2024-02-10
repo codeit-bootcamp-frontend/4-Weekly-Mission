@@ -1,2 +1,7 @@
 @import "./color.css";
 @import "./reset.css";
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
