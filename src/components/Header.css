@@ -1,4 +1,10 @@
-.header {
+header {
+  align-items: center;
+  background-color: #f0f6ff;
+  width: auto;
+}
+
+.nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,14 +20,26 @@
   opacity: 1;
 }
 
-.header .logo {
-  width: auto;
-  height: 100%;
+.header-content {
+  display: flex;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
 }
 
-/* mobile */
 @media screen and (min-width: 375px) and (max-width: 767px) {
-  .header {
+  header {
+    row-gap: 2.4rem;
+    padding-top: 2.8rem;
+  }
+
+  .nav {
     padding: 0 3.2rem;
     height: 6.3rem;
     max-width: 76.7rem;

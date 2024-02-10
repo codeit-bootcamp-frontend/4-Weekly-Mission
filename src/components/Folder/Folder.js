@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getFolder } from "../../api";
+import "./Folder.css";
 
 const Profile = () => {
   const [folderData, setFolderData] = useState(null);
@@ -19,7 +20,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="profile">
+    <div className="folder">
       {owner && (
         <div className="user-profile">
           <img src={owner.profileImageSource} alt="프로필 이미지" />
