@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../Components/Header";
-import Footer from "../../Components/Footer";
-import { getUserData } from "../../Api/api";
+import Header from "../../Components/Header/Header";
+import Footer from "../../Components/Footer/Footer";
+import { getUserData, getFilderData } from "../../Api/api";
 
 function Index() {
   // 함수 이름을 대문자로 변경
@@ -17,8 +17,15 @@ function Index() {
     setUser(userData);
   }
 
+  async function folderDataHandler() {
+    const folderData = await getFilderData();
+    console.log(folderData);
+    setUser(folderData);
+  }
+
   useEffect(() => {
     userDataHandler();
+    folderDataHandler();
   }, []);
 
   return (

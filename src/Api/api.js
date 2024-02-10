@@ -8,3 +8,12 @@ export async function getUserData() {
     return console.log(error);
   }
 }
+
+export async function getFilderData() {
+  try {
+    const response = await fetch(`${BASE_URL}sample/folder`);
+    return response.json();
+  } catch (error) {
+    return console.log(error);
+  }
+}
