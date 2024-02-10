@@ -1,6 +1,7 @@
 import React from 'react';
 import '../style/Card.css';
 import { Link } from 'react-router-dom';
+import undefinedImg from '../assets/undefinedImg.svg';
 
 const Card = ({ folderLinkInfo }) => {
   const getCreateDate = (createdAt) => {
@@ -55,7 +56,10 @@ const Card = ({ folderLinkInfo }) => {
         return (
           <Link to={url} key={link.id}>
             <div className='CardContent'>
-              <img src={imageSource} alt='iamge1 img' />
+              <img
+                src={imageSource !== undefined ? imageSource : undefinedImg}
+                alt='imageSource img'
+              />
               <div className='CardInfo'>
                 <div className='CardInfoHeader'>
                   <span>{timeDifference}</span>
