@@ -24,6 +24,12 @@ const SearchBar = styled.form`
   border-radius: 10px;
   background-color: #f5f5f5;
   margin: 40px 0;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    width: calc(100% - 64px);
+  }
+  @media (min-width: 375px) and (max-width: 767px) {
+    width: calc(100% - 64px);
+  }
 `;
 const SearchInput = styled.input`
   border: none;
