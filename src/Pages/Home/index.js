@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import { getUserData, getFilderData } from "../../Api/api";
+import FolderTilte from "../../Components/FolderTitle/FolderTilte";
 
 function Index() {
   // 함수 이름을 대문자로 변경
@@ -11,6 +12,19 @@ function Index() {
     name: null,
     profileImageSource: null,
   });
+  console.log(user);
+  const [folder, setFolder] = useState({
+    count: null,
+    id: null,
+    link: [],
+    name: null,
+    owner: {
+      id: null,
+      name: null,
+      profileImageSource: null,
+    },
+  });
+  console.log(folder);
 
   async function userDataHandler() {
     const userData = await getUserData();
@@ -19,8 +33,7 @@ function Index() {
 
   async function folderDataHandler() {
     const folderData = await getFilderData();
-    console.log(folderData);
-    setUser(folderData);
+    setFolder(folderData.folder);
   }
 
   useEffect(() => {
@@ -34,6 +47,7 @@ function Index() {
         email={user.email}
         profileImageSource={user.profileImageSource}
       />
+      <FolderTilte folderName={folder.name} owner={folder.owner} />
       <Footer />
     </>
   );
