@@ -1,0 +1,188 @@
+.SigninContainer {
+  height: 98.2rem;
+  padding: 23.8rem 0 25.2rem 0;
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+/* logo-title */
+
+.LogoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.LogoLink {
+  display: flex;
+  justify-content: center;
+}
+
+.LogoLink > img {
+  height: 3.8rem;
+}
+
+.LogoMessage {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.LogoMessageLink {
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: normal;
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-position: under;
+}
+
+/* SignContent */
+
+.SignContent {
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.SignForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.SignInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.SignInputContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.SignInputContent > label {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.EmailInput,
+.PasswordInput {
+  width: 100%;
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--gray20);
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+.EmailInput:focus,
+.PasswordInput:focus {
+  border-color: var(--primary);
+}
+
+.SignPasswordContent {
+  position: relative;
+}
+
+.PasswordOnOffToggle {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url(../assets/sign/passwordOff.svg);
+  background-size: contain;
+  position: absolute;
+  top: 38%;
+  right: 1.5rem;
+}
+
+input[type='text'] + .PasswordOnOffToggle {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url(../assets/sign/passwordOn.svg);
+  background-size: contain;
+  position: absolute;
+  top: 36.5%;
+  right: 1.5rem;
+}
+
+.InputError {
+  border-color: var(--red);
+}
+
+.ErrorEmailMessage,
+.ErrorPasswordMessage {
+  color: var(--red);
+  margin-top: -0.6rem;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.SignBtn {
+  width: 100%;
+  height: 5.4rem;
+  border-radius: 0.8rem;
+  background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
+  color: #f5f5f5;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.SnsContent {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 2.4rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--gray20);
+  background-color: var(--gray10);
+}
+
+.SnsText {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--gray100);
+}
+
+.SnsLinks {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.SnsLink {
+  width: 4.2rem;
+  height: 4.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* tablet */
+@media (max-width: 1199px) {
+  .SigninContainer {
+    padding: 20rem 0 0;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .SigninContainer {
+    padding: 12rem 3.2rem;
+  }
+
+  .SignContent {
+    max-width: 32.5rem;
+  }
+}
