@@ -1,6 +1,6 @@
 import "./Cards.css";
 
-function Cards({ cardInfo }) {
+function Cards({ cardData }) {
   // 시간 차 구하기
   const ElapsedTime = (elem) => {
     const createdTime = new Date(elem.createdAt);
@@ -21,7 +21,7 @@ function Cards({ cardInfo }) {
   return (
     <div className="Cards">
       <div className="container">
-        {cardInfo.map((elem) => (
+        {cardData.map((elem) => (
           <a href={elem.url} target="_blank" className="card" key={elem.id}>
             <div className="card_image_container">
               <img className="card_image" src={elem.imageSource} />

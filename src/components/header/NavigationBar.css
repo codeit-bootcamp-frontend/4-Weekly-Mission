@@ -26,6 +26,24 @@ body {
   width: 100%;
 }
 
+.NavigationBar .user_information {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.NavigationBar .user_image {
+  width: 28px;
+  height: 28px;
+}
+
+.NavigationBar .user_email {
+  color: #373740;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .NavigationBar .login_button {
   width: 128px;
   padding: 16px 20px;

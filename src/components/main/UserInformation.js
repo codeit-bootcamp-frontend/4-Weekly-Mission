@@ -1,12 +1,15 @@
 import "./UserInformation.css";
-import avatarImg from "../../assets/Avatar.png";
 
-function UserInformation() {
+function UserInformation({ folderOwnerData, folderNameData }) {
   return (
     <section className="UserInformation">
-      <img src={avatarImg} alt="avatarImg" />
-      <p className="FolderOwner">@폴더 소유자</p>
-      <h1 className="FolderName">⭐️ 즐겨찾기</h1>
+      <img
+        src={folderOwnerData.profileImageSource}
+        alt="avatarImg"
+        className="user_image"
+      />
+      <p className="folder_owner">@{folderOwnerData.name}</p>
+      <h1 className="folder_name">{folderNameData}</h1>
     </section>
   );
 }

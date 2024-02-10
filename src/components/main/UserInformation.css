@@ -13,7 +13,12 @@
   background: var(--Gray5);
 }
 
-.UserInformation .FolderOwner {
+.UserInformation .user_image {
+  width: 60px;
+  height: 60px;
+}
+
+.UserInformation .folder_owner {
   margin-top: 12px;
   margin-bottom: 20px;
   font-family: Pretendard;
@@ -22,7 +27,7 @@
   line-height: 24px;
 }
 
-.UserInformation .FolderName {
+.UserInformation .folder_name {
   font-family: Pretendard;
   font-size: 40px;
   font-weight: 600;
