@@ -3,7 +3,7 @@ import logoImg from "../../assets/logo.png";
 
 function NavigationBar() {
   return (
-    <header className="NavigationBar">
+    <div className="NavigationBar">
       <div className="container">
         <a href="#">
           <img src={logoImg} alt="logo" />
@@ -12,7 +12,7 @@ function NavigationBar() {
           로그인
         </button>
       </div>
-    </header>
+    </div>
   );
 }
 
