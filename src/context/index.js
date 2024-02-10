@@ -1,4 +1,4 @@
-import AuthContextProvider from "./AuthContext"
+import ProfileContextProvider from "./ProfileContext"
 import FolderContextProvider from "./FolderContext"
 
-export { AuthContextProvider, FolderContextProvider }
+export { ProfileContextProvider, FolderContextProvider }
