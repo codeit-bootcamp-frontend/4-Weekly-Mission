@@ -6,6 +6,7 @@ import Signin from '../components/Signin';
 import Faq from '../components/Faq';
 import Privacy from '../components/Privacy';
 import Landing from '../components/Landing';
+import Signup from '../components/Signup';
 
 const Router = () => {
   return (
@@ -16,6 +17,7 @@ const Router = () => {
           <Route path='/shared' element={<Shared />} />
         </Route>
         <Route path='/signin' element={<Signin />} />
+        <Route path='/signup' element={<Signup />} />
         <Route path='/privacy' element={<Privacy />} />
         <Route path='/faq' element={<Faq />} />
       </Routes>

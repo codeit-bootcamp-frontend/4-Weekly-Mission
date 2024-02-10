@@ -1,21 +1,21 @@
 import React from 'react';
-import '../style/Signin.css';
+import '../style/Signup.css';
 import { Link } from 'react-router-dom';
 import logo from '../assets/sign/logo.svg';
 import google from '../assets/sign/google.svg';
 import kakao from '../assets/sign/kakao.svg';
 
-const Signin = () => {
+const Signup = () => {
   return (
-    <div className='SigninContainer'>
+    <div className='SignupContainer'>
       <div className='LogoContent'>
         <Link to='/' className='LogoLink'>
           <img src={logo} alt='logo img' />
         </Link>
         <p className='LogoMessage'>
-          회원이 아니신가요?
-          <Link to='/signup' className='LogoMessageLink'>
-            회원 가입하기
+          이미 회원이신가요?
+          <Link to='/signin' className='LogoMessageLink'>
+            로그인 하기
           </Link>
         </p>
       </div>
@@ -45,13 +45,29 @@ const Signin = () => {
               </div>
               <span className='ErrorPasswordMessage'></span>
             </div>
+            <div className='SignInputContent'>
+              <label htmlFor='password-check'>비밀번호 확인</label>
+              <div className='SignPasswordContent'>
+                <input
+                  id='password-check'
+                  className='PasswordCheckInput'
+                  type='password'
+                  placeholder='‧ ‧ ‧ ‧ ‧ ‧ ‧ ‧'
+                />
+                <button
+                  className='PasswordOnOffToggleCheck'
+                  type='button'
+                ></button>
+              </div>
+              <span className='ErrorPasswordCheckMessage'></span>
+            </div>
           </div>
           <button className='SignBtn' type='submit'>
-            로그인
+            회원가입
           </button>
         </form>
         <div className='SnsContent'>
-          <span className='SnsText'>소셜 로그인</span>
+          <span className='SnsText'>다른 방식으로 가입하기</span>
           <div className='SnsLinks'>
             <Link to='https://www.google.com/' className='SnsLink'>
               <img src={google} alt='google img' />
@@ -66,4 +82,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Signup;
