@@ -1,5 +1,8 @@
-import "./components/reset.css";
+import "./App.css";
+
+import Footer from "./components/footer/Footer";
 import NavigationBar from "./components/header/NavigationBar";
+import SearchBar from "./components/main/SearchBar";
 import UserInformation from "./components/main/UserInformation";
 
 function App() {
@@ -10,7 +13,11 @@ function App() {
       </header>
       <main>
         <UserInformation />
+        <SearchBar />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }
