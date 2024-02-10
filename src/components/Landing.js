@@ -1,5 +1,6 @@
 import React from 'react';
 import '../style/Landing.css';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   return (
@@ -11,9 +12,9 @@ const Landing = () => {
             <br />
             쉽게 저장하고 관리해 보세요
           </h1>
-          <a className='MainLink' href='./signup.html'>
+          <Link to='/signup' className='MainLink'>
             링크 추가하기
-          </a>
+          </Link>
         </div>
       </main>
       <article>
