@@ -1,20 +1,21 @@
 import React from "react"
-import linkbraryImage from "../../assets/images/linkbrary.jpg"
+import defaultImage from "../../assets/images/no-image.jpg"
 import { elapsedTimeCalc, momentFormat } from "../../utils/moment"
 
 import "./FolderCardItem.css"
 import Card from "../UI/Card"
 
 function FolderCardItem({ data }) {
-  const defaultImage = data.imageSource ? data.imageSource : linkbraryImage
+  const image = data.imageSource || defaultImage
   const elapsedTime = elapsedTimeCalc(data.createdAt)
   const date = momentFormat(data.createdAt)
+
   return (
     <li className="folderCardItem">
       <Card tagName="article">
         <a href={data.url} target="_blank" rel="noreferrer noopener">
           <div className="folderCardItem-image">
-            <img src={defaultImage} alt="" />
+            <img src={image} alt="" />
           </div>
           <div className="folderCardItem-contents">
             <span className="folderCardItem-elapsedTime">{elapsedTime}</span>
