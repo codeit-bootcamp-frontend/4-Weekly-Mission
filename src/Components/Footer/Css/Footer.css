@@ -6,6 +6,7 @@ footer {
   justify-content: space-between;
   align-items: flex-start;
   background-color: var(--black-color);
+  margin-top: 60px;
 }
 
 .footer_text {

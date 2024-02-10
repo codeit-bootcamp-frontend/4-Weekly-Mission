@@ -1,8 +1,8 @@
 .main_contents {
   max-width: 1060px;
   min-height: 1280px;
-  padding: 4% 12%;
   background-color: var(--color-white);
+  margin: 40px auto;
 }
 
 .card_list {

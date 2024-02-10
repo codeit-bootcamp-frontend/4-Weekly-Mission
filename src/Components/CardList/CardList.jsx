@@ -5,7 +5,7 @@ import "./css/CardList.css";
 
 function CardList({ links }) {
   return (
-    <main className="main_contents">
+    <section className="main_contents">
       <SearchBar />
       <div className="card_list">
         {links.map(link => (
@@ -19,7 +19,7 @@ function CardList({ links }) {
           />
         ))}
       </div>
-    </main>
+    </section>
   );
 }
 

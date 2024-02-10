@@ -43,7 +43,7 @@ function Index() {
   }, []);
 
   return (
-    <>
+    <main>
       <Header
         email={user.email}
         profileImageSource={user.profileImageSource}
@@ -51,7 +51,7 @@ function Index() {
       <FolderTilte folderName={folder.name} owner={folder.owner} />
       <CardList links={folder.links} />
       <Footer />
-    </>
+    </main>
   );
 }
 
