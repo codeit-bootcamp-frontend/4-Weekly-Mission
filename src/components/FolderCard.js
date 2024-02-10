@@ -3,7 +3,7 @@ import "components/FolderCard.css";
 const FolderCard = function () {
 	return (
 		<section className="cardBox">
-			<div></div>
+			<div className="noCardImg"></div>
 			<section className="cardText">
 				<p className="cardEditedTime">10 minutes ago</p>
 				<p className="cardContents">
