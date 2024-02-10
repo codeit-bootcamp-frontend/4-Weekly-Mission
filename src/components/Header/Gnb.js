@@ -27,14 +27,17 @@ function Gnb() {
     handleLoad();
   }, []);
 
+  const userProfileImg = userInfo?.profileImageSource || "";
+  const userEmail = userInfo?.email || "";
+
   return (
     <nav className="gnb position-fixed margin-auto z-top">
       <div className="gnb-container flex-row">
         <img className="gnb-logo" src={logo} alt="logo"></img>
         {userInfo ? (
           <div className="gnb-profile flex-row">
-            <img className="profile-img" src={userInfo.profileImageSource} alt="profile-img"></img>
-            <p className="profile-email text-color-gray100 hidden">{userInfo.email}</p>
+            <img className="profile-img" src={userProfileImg} alt="profile-img"></img>
+            <p className="profile-email text-color-gray100 hidden">{userEmail}</p>
           </div>
         ) : (
           <LoginButton />
