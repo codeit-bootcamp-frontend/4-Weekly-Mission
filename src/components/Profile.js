@@ -10,7 +10,7 @@ const Profile = () => {
         setProfileData(data);
       })
       .catch((error) => {
-        console.error('Error fetching profile data:', error);
+        console.log('response 에러:', error);
       });
   }, []);
 
