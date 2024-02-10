@@ -1,4 +1,5 @@
 .img-group {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,6 +30,12 @@
   opacity: 0.2;
 }
 
+.btn-star {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
 .card-info-group {
   display: flex;
   flex-direction: column;
@@ -36,11 +43,21 @@
   padding: 1.5rem 2rem;
 }
 
+.time-info-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .elapsed-time {
   line-height: 1.7rem;
   font-size: 1.3rem;
   font-weight: 400;
   color: #666;
+}
+
+.more {
+  display: flex;
 }
 
 .desc {
