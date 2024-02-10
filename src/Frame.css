@@ -10,12 +10,11 @@
 }
 
 .card-frame_ly {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   width: 100%;
   gap: 25px;
-}
+} /* 그리드에 대한 공부 필요, 지금 코드의 문제점: pc, 모바일에 대해 너비가 하드코딩 되어 있음. */
 
 .card-flex-frame_ly {
   display: flex;
