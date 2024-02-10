@@ -1,0 +1,50 @@
+header {
+  background-color: #f0f6ff;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* 모바일 너비 */
+  height: 63px;
+  padding: 18px 32px;
+  /* 테블릿 */
+  @media (min-width: 796px) {
+    height: 93px;
+    padding: 33px 32px;
+  }
+  /* 데스크탑 */
+  @media (min-width: 1440px) {
+    height: 93px;
+    padding: 33px 200px;
+  }
+}
+.profile-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+
+  height: 28px;
+}
+.img-box {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.mobile-none {
+  @media (max-width: 390px) {
+    display: none;
+  }
+}
+
+.logo {
+  width: 133px;
+  height: 24px;
+  font-weight: bold;
+  font-size: larger;
+  color: #6d6afe;
+}
