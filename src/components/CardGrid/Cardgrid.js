@@ -11,7 +11,7 @@ const CardGrid = () => {
       <div className="card-grid">
         {formattedCards.map((card) => (
           <div key={card.id} className="card">
-            <img src={card.imageUrl} alt={card.title} />
+            <img src={card.imageSource} alt={card.title} />
             <div>
               <span>{card.timeAgo}</span>
               <p>{card.link}</p>
