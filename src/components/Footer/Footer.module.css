@@ -8,7 +8,8 @@
 }
 
 .footer-container {
-  padding: 0 104px;
+  /* padding: 0 104px; */
+  padding: 0 200px;
   display: flex;
 }
 
@@ -56,6 +57,14 @@
 
 .instagram {
   background-image: url(../../assets/instagram.svg);
+}
+
+@media (max-width: 1199px) {
+  .footer-container {
+    max-width: 832px;
+    padding: 0 32px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 767px) {

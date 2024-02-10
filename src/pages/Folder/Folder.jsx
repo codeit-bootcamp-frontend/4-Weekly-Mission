@@ -35,7 +35,7 @@ export default function Folder() {
               type="text"
               name="search"
               value={search}
-              placeholder="링크를 검색해 보세요"
+              placeholder="링크를 검색해 보세요."
               onChange={handleSearchChange}
             />
           </div>
