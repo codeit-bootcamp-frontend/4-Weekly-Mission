@@ -2,7 +2,7 @@ import React from 'react'
 import './Card.css'
 import defaultImg from '../assets/logo.svg';
 
-const Card = ({imgSrc='', time='', title='', description=''}) => {
+const Card = ({imgSrc, time, title, description}) => {
   const validateDefaultImg = (imgSrc) => {
     let img = imgSrc;
     if (!img) {
