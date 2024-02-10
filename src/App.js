@@ -6,18 +6,11 @@ import { useEffect, useState } from "react";
 import getUser from "./util/getUser";
 
 function App() {
-  // profile이 제대로 적용되지 않는 문제
-  let profile;
-  async function getProfile() {
-    const user = await getUser();
-    const { email, profileImageSource } = user || {};
-    profile = user ? { email, profileImageSource } : null;
-    return profile;
-  }
+  const [profile, setProfile] = useState(null);
+
   useEffect(() => {
-    profile = getProfile();
-    console.log(profile);
-  }, [profile]);
+    getUser().then(setProfile);
+  }, []);
 
   return (
     <div className="App">
