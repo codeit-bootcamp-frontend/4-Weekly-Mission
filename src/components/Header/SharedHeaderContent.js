@@ -1,15 +1,46 @@
+import { useState, useEffect } from "react";
 import "./SharedHeaderContent.css";
-import userAvatar from "../../assets/images/user-avatar.png";
+import { getFolderInfo } from "../../services/api";
 
+// 폴더 정보 출력
 function SharedHeaderContent() {
+  // 폴더 정보 가져오기
+  const [folderInfo, setFolderInfo] = useState(null);
+
+  const handleLoadFolder = async () => {
+    try {
+      const result = await getFolderInfo();
+      setFolderInfo(result);
+    } catch (error) {
+      console.error(error);
+      setFolderInfo(null);
+    }
+  };
+
+  const handleLoad = () => {
+    handleLoadFolder();
+  };
+
+  useEffect(() => {
+    handleLoad();
+  }, []);
+
+  const ownerProfileImg = folderInfo?.folder.owner.profileImageSource || "";
+  const ownerName = folderInfo?.folder.owner.name ? "@" + folderInfo.folder.owner.name : "";
+  const folderName = folderInfo?.folder.name || "";
+
   return (
     <div className="header-content">
       <div className="header-content-container">
-        <div className="shared-user flex-col">
-          <img className="shared-user-avatar" src={userAvatar}></img>
-          <p className="shared-user-name">@코드잇</p>
-        </div>
-        <p className="shared-folder-name text-center">⭐️ 즐겨찾기</p>
+        {folderInfo && (
+          <div>
+            <div className="shared-user flex-col">
+              <img className="shared-user-avatar" src={ownerProfileImg}></img>
+              <p className="shared-user-name">{ownerName}</p>
+            </div>
+            <p className="shared-folder-name text-center">{folderName}</p>
+          </div>
+        )}
       </div>
     </div>
   );

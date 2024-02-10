@@ -3,7 +3,6 @@ import "./Gnb.css";
 import { getUserInfo } from "../../services/api";
 import LoginButton from "../Common/LoginButton";
 import logo from "../../assets/images/logo.svg";
-import profileImg from "../../assets/images/profile-img.png";
 
 //글로벌 네비게이션 바
 function Gnb() {

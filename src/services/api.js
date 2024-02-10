@@ -64,7 +64,7 @@ export async function getFolderInfo() {
   try {
     const response = await fetch(url);
     const result = await response.json();
-    const errorMessage = result.error.message;
+    const errorMessage = result.error;
 
     if (!response.ok) {
       console.error("Response falied: ", errorMessage);
@@ -73,6 +73,6 @@ export async function getFolderInfo() {
 
     return result;
   } catch (error) {
-    console.error("Fetch error: ", error.message);
+    console.error("Fetch error: ", error);
   }
 }
