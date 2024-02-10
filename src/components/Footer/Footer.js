@@ -3,6 +3,7 @@ import FacebookIcon from "../../image/icons_facebook.svg";
 import InstagramIcon from "../../image/icons_instagram.svg";
 import TwitterIcon from "../../image/icons_twitter.svg";
 import YoutubeIcon from "../../image/icons_youtube.svg";
+import "./Footer.css";
 
 const Footer = () => {
   const SNS_ICONS = [
