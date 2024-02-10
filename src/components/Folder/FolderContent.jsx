@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Content from "../Content/Content";
+import Content from "../content/Content";
 import {API_PATH_USER_FOLDER, API_PATH_ALL_LINK, API_PATH_CATEGORY_LINK} from "../../services/api-path";
 
 const DEFAULT_CATEGORY = [{

@@ -1,6 +1,6 @@
-import SocialLogin from "../components/Auth/SocialLogin";
-import AuthTitle from "../components/Auth/AuthTitle";
-import AuthForm from "../components/Auth/AuthForm";
+import SocialLogin from "../components/auth/SocialLogin";
+import AuthTitle from "../components/auth/AuthTitle";
+import AuthForm from "../components/auth/AuthForm";
 import "../styles/sign.css";
 function Login(){
     return (

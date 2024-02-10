@@ -1,5 +1,5 @@
 import Profile  from "./Profile";
-import Content from "../Content/Content";
+import Content from "../content/Content";
 import {useEffect, useState} from 'react';
 import { API_PATH_SAMPLE_FOLDER } from "../../services/api-path";
 

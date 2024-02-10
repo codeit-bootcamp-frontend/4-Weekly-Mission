@@ -1,6 +1,6 @@
-import CardList from "../Card/CardList";
+import CardList from "../card/CardList";
 import ContentHeader from "./ContentHeader";
-import Category from "../Category/Category";
+import Category from "../category/Category";
 
 function Content({categoryList, selectCategory, allLinkLoad, handleSelectCategory, handleKebab, kebabStatus, linkList, option}){
     return (

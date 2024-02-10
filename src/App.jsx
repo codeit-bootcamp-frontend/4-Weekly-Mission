@@ -1,3 +1,4 @@
+import MainPage from "./pages/MainPage";
 import SharePage from "./pages/SharePage";
 import FolderPage from "./pages/FolderPage";
 import LoginPage from "./pages/LoginPage";
@@ -9,7 +10,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Routes>
-          <Route path="/" element={<SharePage/>}/>
+          <Route path="/" element={<MainPage/>}/>
           <Route path="signin" element={<LoginPage/>}/>
           <Route path="signup" element={<RegisterPage/>}/>
           <Route path="share" element={<SharePage/>}/>

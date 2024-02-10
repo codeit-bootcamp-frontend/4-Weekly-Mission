@@ -1,6 +1,6 @@
-import Header from "../components/Header/Header";
-import ShaerContent from "../components/Share/ShareContent";
-import Footer from "../components/Footer/Footer";
+import Header from "../components/header/Header";
+import ShaerContent from "../components/share/ShareContent";
+import Footer from "../components/footer/Footer";
 import '../styles/share.css';
 
 function Share(){

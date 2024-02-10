@@ -1,7 +1,7 @@
-import Header from "../components/Header/Header";
-import FolderContent from "../components/Folder/FolderContent";
-import Footer from "../components/Footer/Footer";
-import FloatingButton from "../components/Folder/FloatingButton";
+import Header from "../components/header/Header";
+import FolderContent from "../components/folder/FolderContent";
+import Footer from "../components/footer/Footer";
+import FloatingButton from "../components/folder/FloatingButton";
 import '../styles/folder.css';
 import { useState } from "react";
 
