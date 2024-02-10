@@ -35,3 +35,16 @@
   display: flex;
   line-height: 1;
 }
+
+@media (max-width: 767px) {
+  .footer-group {
+    flex-wrap: wrap;
+    gap: 6rem 0;
+    padding: 3.2rem;
+  }
+
+  .copyright {
+    order: 1;
+    width: 100%;
+  }
+}

@@ -4,6 +4,7 @@
   left: 0;
   right: 0;
   background-color: var(--color-gray-200);
+  z-index: 10;
 }
 
 .header-group {
@@ -45,4 +46,33 @@
 .btn.signin {
   flex-shrink: 0;
   width: 12.8rem;
+}
+
+@media (max-width: 1199px) {
+  .header-group {
+    padding: 2rem 3.2rem;
+    max-width: 80rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-group {
+    padding: 1.3rem 3.2rem;
+  }
+
+  .user-email {
+    display: none;
+  }
+
+  .logo-img {
+    width: 8.867rem;
+    height: 1.6rem;
+  }
+
+  .header-group .btn {
+    width: 8rem;
+    height: 3.7rem;
+    line-height: 3.7rem;
+    font-size: 1.4rem;
+  }
 }
