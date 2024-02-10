@@ -19,11 +19,13 @@ const CardGrid = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img src={card.imageSource || defaultImage} alt={card.title} />
-              <div>
-                <span>{card.timeAgo}</span>
+              <div className="img">
+                <img src={card.imageSource || defaultImage} alt={card.title} />
+              </div>
+              <div className="text-area">
+                <span className="timeAgo">{card.timeAgo}</span>
                 <p>{card.description}</p>
-                <span>{card.formattedCreatedAt}</span>
+                <span className="createdAt">{card.formattedCreatedAt}</span>
               </div>
             </a>
           </div>

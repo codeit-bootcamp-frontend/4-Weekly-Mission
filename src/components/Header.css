@@ -1,6 +1,6 @@
 header {
   align-items: center;
-  background-color: #f0f6ff;
+  background-color: var(--gray5);
   width: auto;
 }
 
