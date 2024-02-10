@@ -4,7 +4,7 @@ import '../styles/style.css';
 import Header from './Header';
 import Main from './Main';
 import FolderSection from './FolderSection';
-import Footer from './Footer'
+import Footer from './Footer';
 
 function App() {
   const [folderName, setFolderName] = useState('');
@@ -12,7 +12,6 @@ function App() {
   const [profileImage, setProfileImage] = useState('');
   const [folderList, setFolderList] = useState([]);
   const [user, setUser] = useState(null);
-  
 
   const handleLoad = async () => {
     const {

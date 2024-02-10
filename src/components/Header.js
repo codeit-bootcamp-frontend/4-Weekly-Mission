@@ -2,14 +2,13 @@ import '../styles/Header.css';
 import linkbraryLogo from '../assets/linkbrary-logo.svg';
 
 function Header({ user }) {
-  // const { email, profileImageSource } = user;
   return (
     <header className="header-area">
       <div className="header-group">
         <a href="/" className="logo-area">
           <img src={linkbraryLogo} alt="로고" className="logo-img" />
         </a>
-        <button className='btn-group'>
+        <button className="btn-group">
           {user ? (
             <>
               <img src={user.profileImageSource} alt="프로필 사진" className="user-profile" />

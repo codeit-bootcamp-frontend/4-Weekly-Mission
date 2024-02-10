@@ -2,16 +2,6 @@ import '../styles/LinkCard.css';
 import star from '../assets/star.svg';
 import kebab from '../assets/kebab.svg';
 
-/**
- * 1000미리초 -> 1초
- * 60초 -> 1분
- * 1000 * 60 * 2 -> 2분
- * 1000 * 60 * 60 -> 1시간
- * 1000 * 60 * 60 * 24 -> 24시간 (1일);
- * 1000 * 60 * 60 * 24 * 31
- *
- */
-
 const getElapsedTimeMessage = createdAtTime => {
   const currentDays = new Date();
   let ElapsedTime = Math.floor((currentDays - createdAtTime) / 1000 / 60);
@@ -67,8 +57,6 @@ const getElapsedTimeMessage = createdAtTime => {
 
 function LinkCard({ url, createdAt, desc, imgUrl }) {
   const createdDays = new Date(createdAt);
-
-  // const elapsedTime = new Date() - Number(createdDays);
 
   return (
     <a href={url} className="link-card-area">

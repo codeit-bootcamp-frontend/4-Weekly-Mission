@@ -1,4 +1,4 @@
-import '../styles/Main.css'
+import '../styles/Main.css';
 
 function Main({ folderName, userName, imgSrc }) {
   return (
