@@ -9,7 +9,8 @@ export function useCardData() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const cardData = await getFolder();
+        const response = await getFolder();
+        const cardData = response.folder.links;
         setCards(cardData);
         const formattedData = cardData.map((card) => ({
           ...card,
