@@ -127,3 +127,28 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+/* add reset CSS */
+* {
+  box-sizing: border-box;
+  font-family: "Pretendard";
+  word-break: keep-all;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+input {
+  border: none;
+  padding: none;
+}
+input:focus {
+  outline: none;
+}
+button {
+  border: none;
+  padding: unset;
+  background-color: unset;
+  cursor: pointer;
+}
