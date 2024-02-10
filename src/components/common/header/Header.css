@@ -59,7 +59,7 @@ header .profile-email {
   color: #535353;
 }
 
-/* media query */
+/* MEDIA QUERY */
 /* tablet */
 @media (max-width: 1199px) {
   header {
@@ -70,17 +70,18 @@ header .profile-email {
 /* mobile */
 @media (max-width: 767px) {
   header {
-    padding: 4px 35px;
     height: 63px;
   }
+
   header .logo,
   header .logo img {
     width: 88px;
     height: 16px;
   }
+
   header .login-btn {
     width: 80px;
-    height: 10px;
+    height: 37px;
     font-size: 14px;
   }
 
