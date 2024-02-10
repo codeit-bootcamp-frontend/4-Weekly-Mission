@@ -46,6 +46,7 @@ const FolderPage = () => {
                 imgSrc={e.imageSource}
                 createdAt={e.createdAt}
                 desc={e.description}
+                url={e.url}
               />
             );
           })}
