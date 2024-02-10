@@ -15,7 +15,20 @@ export default function Footer() {
           </div>
           <div className="copyright">©codeit - 2023</div>
         </div>
-        <span className="social">f t y g</span>
+        <span className="social">
+          <a href="https://facebook.com">
+            <img src="images/facebook.svg" alt="facebook"></img>
+          </a>
+          <a href="https://twitter.com">
+            <img src="images/twitter.svg" alt="twitter"></img>
+          </a>
+          <a href="https://youtube.com">
+            <img src="images/youtube.svg" alt="youtube"></img>
+          </a>
+          <a href="https://instagram.com">
+            <img src="images/instagram.svg" alt="instagram"></img>
+          </a>
+        </span>
       </div>
 
       <div className="footer not-mobile">
@@ -29,16 +42,16 @@ export default function Footer() {
           </a>
         </span>
         <span className="social">
-          <a href="facebook.com">
+          <a href="https://facebook.com">
             <img src="images/facebook.svg" alt="facebook"></img>
           </a>
-          <a href="twitter.com">
+          <a href="https://twitter.com">
             <img src="images/twitter.svg" alt="twitter"></img>
           </a>
-          <a href="youtube.com">
+          <a href="https://youtube.com">
             <img src="images/youtube.svg" alt="youtube"></img>
           </a>
-          <a href="instagram.com">
+          <a href="https://instagram.com">
             <img src="images/instagram.svg" alt="instagram"></img>
           </a>
         </span>
