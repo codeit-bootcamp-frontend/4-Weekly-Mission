@@ -18,6 +18,7 @@ function Cards({ cardData }) {
     else return `${Math.floor(timeDiff / 30 / 24 / 60 / 12)} years ago`;
   };
 
+  // 출력
   return (
     <div className="Cards">
       <div className="container">

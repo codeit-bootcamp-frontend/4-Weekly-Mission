@@ -8,7 +8,7 @@ import UserInformation from "./components/main/UserInformation";
 import { getCards, getUsers } from "./services/api";
 
 function App() {
-  // card 정보 받아오기
+  // 카드 정보 받아오기
   const [folderOwnerData, setFolderOwnerData] = useState([]);
   const [folderNameData, setFolderNameData] = useState();
   const [cardData, setCardData] = useState([]);
@@ -41,7 +41,7 @@ function App() {
 
   // 출력
   return (
-    <div>
+    <div className="App">
       <header>
         <NavigationBar userInfo={userInfo} />
       </header>
@@ -50,8 +50,10 @@ function App() {
           folderOwnerData={folderOwnerData}
           folderNameData={folderNameData}
         />
-        <SearchBar />
-        <Cards cardData={cardData} />
+        <div className="content_container">
+          <SearchBar />
+          <Cards cardData={cardData} />
+        </div>
       </main>
       <footer>
         <Footer />

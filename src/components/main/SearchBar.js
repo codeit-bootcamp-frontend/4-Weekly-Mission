@@ -1,11 +1,11 @@
 import "./SearchBar.css";
-import searchbarImg from "../../assets/Search.png";
+import searchBarImg from "../../assets/Search.png";
 
 function SearchBar() {
   return (
     <div className="SearchBar">
       <div>
-        <img src={searchbarImg}></img>
+        <img src={searchBarImg}></img>
         <span className="SearchText">링크를 검색해 보세요.</span>
       </div>
     </div>

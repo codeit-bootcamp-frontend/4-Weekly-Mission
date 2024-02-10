@@ -11,9 +11,7 @@
 
 .Cards .container {
   display: grid;
-  grid-template:
-    repeat(3, 335px) /
-    repeat(3, 340px);
+  grid-template-columns: repeat(3, 340px);
   gap: 20px;
 }
 
@@ -77,4 +75,21 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* tablet */
+@media (max-width: 1199px) {
+  .Cards .container {
+    display: grid;
+    grid-template-columns: repeat(2, 340px);
+    gap: 20px;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .Cards .container {
+    display: grid;
+    grid-template-columns: repeat(1, 340px);
+  }
 }
