@@ -1,31 +1,26 @@
+import useFetchData from 'hook/useFetchData';
 import Button from '../../Button';
 import { sampleUserInquire } from 'api/sampleAPI';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import routes from 'routes';
 import styled from 'styled-components';
 
 const Profile = () => {
-  const [profileData, setProfileData] = useState(null);
   const navigate = useNavigate();
 
   const handleOnClick = () => {
     navigate(routes.signin);
   };
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await sampleUserInquire();
-        const data = await res.json();
-        setProfileData(data);
-      } catch (e) {
-        console.log(e);
-      }
-    }
-    fetchData();
-  }, []);
+  const [profileData, profileError] = useFetchData(
+    sampleUserInquire,
+    data => data,
+  );
 
+  if (profileError) {
+    console.log(profileError);
+  }
   return (
     <>
       {profileData ? (

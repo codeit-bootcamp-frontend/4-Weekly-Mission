@@ -1,34 +1,17 @@
 import { sampleFolderInquire } from 'api/sampleAPI';
-import React, { useEffect, useState } from 'react';
+import useFetchData from 'hook/useFetchData';
+import React from 'react';
 import styled from 'styled-components';
 
 const Header = () => {
-  const [folderInfo, setFolderInfo] = useState({
-    ownerName: '',
-    folderName: '',
-    profileImage: '',
-  });
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await sampleFolderInquire();
-        if (!res.ok) {
-          throw new Error('Response error');
-        }
-        const data = await res.json();
-        setFolderInfo({
-          ownerName: data.folder.owner.name,
-          folderName: data.folder.name,
-          profileImage: data.folder.owner.profileImageSource,
-        });
-      } catch (e) {
-        console.log(e);
-      }
-    }
-    fetchData();
-  }, []);
-
+  const [folderInfo, folderError] = useFetchData(sampleFolderInquire, data => ({
+    ownerName: data.folder.owner.name,
+    folderName: data.folder.name,
+    profileImage: data.folder.owner.profileImageSource,
+  }));
+  if (folderError) {
+    console.log(folderError);
+  }
   return (
     <StyledHeader>
       <HeroHeader>
