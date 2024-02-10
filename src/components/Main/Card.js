@@ -13,8 +13,12 @@ function Card({ createdAt = "", url = "", title = "", description = "", imageSou
     backgroundRepeat: "no-repeat",
   };
 
+  const handleClick = () => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   return (
-    <div className="card">
+    <div className="card" onClick={handleClick} role="button" tabIndex="0">
       <div className="card-image width-full" style={backgroundImage} />
       <div className="card-text-box">
         <p className="time-ago text-color-text">{createdTimeAgo}</p>
