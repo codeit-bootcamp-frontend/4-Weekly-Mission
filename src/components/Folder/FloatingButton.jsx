@@ -1,4 +1,4 @@
-import FloatingAddImg from "../assets/floating-add.svg";
+import FloatingAddImg from "../../assets/floating-add.svg";
 function FloatingButton(){
     return (
         <div className="floating__button">

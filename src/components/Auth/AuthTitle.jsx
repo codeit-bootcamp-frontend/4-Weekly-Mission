@@ -1,9 +1,10 @@
 import LogoImg from "../../assets/logo.svg";
-function AuthTitle({text, action}){
+import { Link } from "react-router-dom";
+function AuthTitle({text, action, actionText}){
     return (
-        <div className="signin__title">
-            <a href="index.html"><img className="signin__logo" src={LogoImg} alt="로고 이미지"/></a>
-            <p className="signin__text">{text} <a className="signin__text--register" href="signup.html">{action}</a></p>
+        <div className="sign__title">
+            <Link to="/"><img className="sign__logo" src={LogoImg} alt="로고 이미지"/></Link>
+            <p className="sign__text">{text} <Link className="sign__text--register" to={action}>{actionText}</Link></p>
         </div>
     )
 }

@@ -3,6 +3,8 @@ import HeaderUserInfo from './HeaderUserInfo';
 import HeaderLoginButton from './HeaderLoginButton'
 import {useEffect, useState} from 'react';
 import { API_PATH_SAMPLE_USER_INFO } from '../../services/api-path';
+import { Link } from "react-router-dom";
+import "../../styles/header.css";
 
 function Header(){
     const [userInfo, setUserInfo] = useState({
@@ -40,7 +42,7 @@ function Header(){
 
     return <header className="gnb">
     <nav className="gnb__nav">
-        <a href="/"><img className="gnb__logoImg" src={HeaderLogoImg} alt="로고 이미지"/></a>
+        <Link to="/"><img className="gnb__logoImg" src={HeaderLogoImg} alt="로고 이미지"/></Link>
         <HeaderUserInfo {...userInfo}/>
         <HeaderLoginButton {...userInfo}/>
     </nav>

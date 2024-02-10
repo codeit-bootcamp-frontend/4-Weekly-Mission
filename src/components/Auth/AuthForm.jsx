@@ -158,36 +158,36 @@ function AuthForm({option}){
     }
 
     return (
-        <form className="signup__form" onSubmit={handleSumbit}>
-            <div className="signup__input--area">
-                <div className="signup__email">
+        <form className="sign__form" onSubmit={handleSumbit}>
+            <div className="sign__input--area">
+                <div className="sign__email">
                     <AuthLable htmlFor="input--email" text="이메일"/>
-                    <input id="input--email" className="signup--input--email" type="email" name="email" required autoFocus
+                    <input id="input--email" className="sign--input--email" type="email" name="email" required autoFocus
                     value={userInput.email} onChange={handleChange}/>
-                    <AuthErrorMsg className="signup__email--error" errorMsg={errorMsg.email}/>
+                    <AuthErrorMsg className="sign__email--error" errorMsg={errorMsg.email}/>
                 </div>
                 
-                <div className="signup__password">
+                <div className="sign__password">
                     <AuthLable htmlFor="input--password" text="비밀번호"/>
                     <div className="signin__password--relative">
-                        <input id="input--password" className="signup--input--password" type={inputType.password} name="password" required 
+                        <input id="input--password" className="sign--input--password" type={inputType.password} name="password" required 
                         value={userInput.password} onChange={handleChange}/>
                         <FontAwesomeIcon className="eye" icon={inputType.password === "password" ? faEye : faEyeSlash} onClick={() => handlePasswordvisible("password")}/>
-                        <AuthErrorMsg className="signup__password--error" errorMsg={errorMsg.password}/>
+                        <AuthErrorMsg className="sign__password--error" errorMsg={errorMsg.password}/>
                     </div>
                 </div>
                 
-                {option && <div className="signup__password--confirm">
+                {option && <div className="sign__password--confirm">
                     <AuthLable htmlFor="input--password--confirm" text="비밀번호 확인"/>
                     <div className="signin__password--confirm--relative">
-                        <input id="input--password--confirm" className="signup--input--password--confirm" type={inputType.passwordConfirm} name="passwordConfirm" required
+                        <input id="input--password--confirm" className="sign--input--password--confirm" type={inputType.passwordConfirm} name="passwordConfirm" required
                         value={userInput.passwordConfirm} onChange={handleChange}/>
                         <FontAwesomeIcon className="eye--confirm" icon={inputType.passwordConfirm === "password" ? faEye : faEyeSlash} onClick={() => handlePasswordvisible("passwordConfirm")} />
-                        <AuthErrorMsg className="signup__password--confirm--error" errorMsg={errorMsg.passwordConfirm}/>
+                        <AuthErrorMsg className="sign__password--confirm--error" errorMsg={errorMsg.passwordConfirm}/>
                     </div>
                 </div>}
             </div>
-            <button className="signup__button" type="submit">회원가입</button>
+            <button className="sign__button" type="submit">회원가입</button>
         </form>
     )
 }

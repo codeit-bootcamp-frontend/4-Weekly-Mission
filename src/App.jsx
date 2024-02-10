@@ -1,16 +1,22 @@
-// import Share from "./components/Share/Share";
-// import Folder from "./components/Folder/Folder";
-// import Login from "./components/Login";
-import Register from "./components/Auth/Register";
-
+import SharePage from "./pages/SharePage";
+import FolderPage from "./pages/FolderPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./styles/reset.css";
 function App() {
   return (
-    <div className="App">
-    {/* <Share/> */}
-    {/* <Folder/> */}
-    {/* <Login/> */}
-    <Register/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<SharePage/>}/>
+          <Route path="signin" element={<LoginPage/>}/>
+          <Route path="signup" element={<RegisterPage/>}/>
+          <Route path="share" element={<SharePage/>}/>
+          <Route path="folder" element={<FolderPage/>}/>
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

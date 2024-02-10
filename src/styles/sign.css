@@ -25,11 +25,11 @@ ul{
     list-style: none;
 }
 
-body{
+.wrap{
     background-color: var(--Linkbrary-bg);
 }
 
-.signin{
+.sign{
     padding: 14.88rem 0 15.75rem;
     margin: 0 auto;
     width: 25rem;
@@ -38,81 +38,82 @@ body{
     gap: 2rem;
 }
 
-.signin__box{
+.sign__box{
     display: flex;
     flex-direction: column;
     gap: 1.88rem;
 }
-/* 메인 문구 영역(타이틀, 회원가입 링크) */
-.signin__title{
+/* 메인 문구 영역(타이틀, 로그인 링크) */
+.sign__title{
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
     text-align: center;
 }
 
-.signin__logo{
+.sign__logo{
     width: 13.16144rem;
-    height: 2.375rem;
+    height: 2.375rem; 
 }
 
-.signin__text{
+.sign__text{
     font-size: 1rem;
     line-height: 1.5rem;
 }
 
-.signin__text--register{
+.sign__text--login{
     color: var(--Linkbrary-primary-color);
     font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 0.1rem;
+    line-height: normal;
 }
 /* 폼 태그 */
-.sigin__form{
+.sign__form{
     display: flex;
     flex-direction: column;
-    gap: 1.88rem;
+    gap: 1.5rem
 }
 
-.signin__input--area{
+.sign__input--area{
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.2rem
 }
 
-.signin__email, .signin__password{
+.sign__email, .sign__password, .sign__password--confirm{
     display: flex;
     flex-direction: column;
 }
 
-.signin__label{
-    font-size: 0.875rem;
-    margin-bottom: 0.75rem;
+.sign__label{
+   font-size: 0.875rem;
+   margin-bottom: 0.75rem;
 }
 
-
-.signin--input--email, .signin--input--password{
+.sign--input--email, .sign--input--password, .sign--input--password--confirm{
     padding: 1.125rem 0.9375rem;
     border-radius: 0.5rem;
     background-color: var(--Linkbrary-white);
     outline: none;
     border: 1px solid var(--Linkbrary-gray20);
-    width: calc(100% - 1.875rem);
+    /* width: calc(100% - 1.875rem); */
+    width: 100%;
 }
 
-.signin--input--email:focus, .signin--input--password:focus{
-    border: 1px solid var(--Linkbrary-primary-color);
+.sign--input--email:focus, .sign--input--password:focus, .sign--input--password--confirm:focus{
+    border: 1px solid var(--Linkbrary-red);
 }
 
-.signin__email--error, .signin__password--error{
+.sign__email--error, .sign__password--error, .sign__password--confirm--error{
     font-size: 0.875rem;
     color: var(--Linkbrary-red);
-    margin-top: 0.38rem;
+    margin-top: 0.5rem;
     font-weight: 400;
     font-style: normal;
 }
 
-.signin__button{
+.sign__button{
     padding: 1rem 1.25rem;
     border-radius: 0.4rem;
     background: var(--gra-purpleblue-to-skyblue);
@@ -123,11 +124,11 @@ body{
     color: var(--Grey-Light);
 }
 
-.signin__password--relative{
+.signin__password--relative, .signin__password--confirm--relative{
     position: relative;
 }
 
-.fa-solid{
+.eye, .eye--confirm{
     position: absolute;
     right: 1rem;
     top: 1.25rem;
@@ -135,7 +136,7 @@ body{
     font-size: 0.9rem;
 }
 /* 소셜 로그인 */
-.signin__sns{
+.sign__sns{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -145,44 +146,44 @@ body{
     border-radius: 0.5rem;
 }
 
-.signin__sns--text{
+.sign__sns--text{
     font-size: 0.875rem;
     color: var(--Linkbrary-gray100);
 }
 
-.signin__sns__box{
+.sign__sns__box{
     display: flex;
     gap: 1rem;
     margin-top: 0.3rem;
 }
 
-.signin__sns--img{
+.sign__sns--img{
     position: relative;
 }
 
-.signin__sns--kakao, .signin__sns--google{
+.sign__sns--kakao, .sign__sns--google{
     position: absolute;
     z-index: 999;
 }
 
-.signin__sns--kakao{
+.sign__sns--kakao{
     top: 0.6rem;
     left: 0.5rem;
 }
 
-.signin__sns--google{
+.sign__sns--google{
     top: 0.6rem;
     left: 0.7rem;
 }
 
 @media (max-width: 1199px){
-    .signin{
+    .sign{
         padding: 14.88rem 0 15.75rem;
     }
 }
 
 @media (max-width: 767px){
-    .signin{
+    .sign{
         padding: 7.5rem 2rem 14.56rem;
         width: auto;
         max-width: 25rem;

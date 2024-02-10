@@ -1,9 +1,8 @@
-import Header from "../Header/Header";
-import FolderContent from "./FolderContent";
-import Footer from "../Footer/Footer";
-import FloatingButton from "./FloatingButton";
-import '../../styles/reset.css';
-import '../../styles/folder.css';
+import Header from "../components/Header/Header";
+import FolderContent from "../components/Folder/FolderContent";
+import Footer from "../components/Footer/Footer";
+import FloatingButton from "../components/Folder/FloatingButton";
+import '../styles/folder.css';
 import { useState } from "react";
 
 let prevId = 999;  
