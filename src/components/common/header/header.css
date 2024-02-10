@@ -11,8 +11,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 33px 0;
+  padding: 20px 0;
+  max-width: 1520px;
+  width: calc(100% - 400px);
   margin: 0 auto;
+  height: 94px;
 }
 
 .login-btn {
@@ -26,9 +29,10 @@
   display: block;
 }
 
-@media (max-width: 1124px) {
+@media (max-width: 1520px) {
   .header-container {
-    padding: 32px;
+    max-width: none;
+    width: 90%;
   }
 
   .login-btn {
@@ -39,8 +43,17 @@
 
 @media (max-width: 767px) {
   .header-container {
-    padding-top: 18px;
-    padding-bottom: 18px;
+    padding: 13px 32px;
+    width: 100%;
+    height: 63px;
+  }
+
+  .header-logo {
+    width: 88px;
+  }
+
+  .header-logo * {
+    width: 100%;
   }
 
   .login-btn {
