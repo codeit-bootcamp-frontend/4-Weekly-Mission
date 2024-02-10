@@ -67,3 +67,31 @@
   font-weight: 400;
   line-height: normal;
 }
+
+/* tablet */
+@media (max-width: 1124px) {
+  .SharedCardContent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem 2.5rem;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .SharedCardContent {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  .CardContent {
+    width: 32.5rem;
+    height: 32.7rem;
+  }
+
+  .CardContent > img {
+    width: 32.5rem;
+    height: 19.2rem;
+  }
+}
