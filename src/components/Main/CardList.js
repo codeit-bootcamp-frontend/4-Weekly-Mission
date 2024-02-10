@@ -24,6 +24,7 @@ function CardList() {
     <div className="card-list grid width-full">
       {links.map((link) => (
         <Card
+          key={link.id}
           createdAt={link.createdAt}
           url={link.url}
           title={link.title}
