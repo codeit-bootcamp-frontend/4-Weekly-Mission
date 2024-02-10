@@ -1,8 +1,12 @@
 import React from 'react'
 import './Card.css'
 import defaultImg from '../assets/logo.svg';
+import { compareDateDifferences, extractDate } from '../utils/DateCalculate';
 
 const Card = ({imgSrc, time, title, description, url}) => {
+  const timeDifference = compareDateDifferences(time);
+  const processedTime = extractDate(time);
+
   const processImg = (img) => img ? img : defaultImg;
 
   return (
@@ -10,9 +14,9 @@ const Card = ({imgSrc, time, title, description, url}) => {
       <a href={url} target="_blank" rel="noreferrer">
         <img src={processImg(imgSrc)} alt='이미지' className='card-img'/>
         <div className='card-info'>
-          <span className='time'></span>
+          <span className='time'>{timeDifference}</span>
           <span className='description'>{title}<br/>{description}</span>
-          <span className='date'>{time}</span>
+          <span className='date'>{processedTime}</span>
         </div>
       </a>
     </div>
