@@ -31,6 +31,17 @@ a {
   text-decoration: none;
 }
 
+main {
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: var(--White);
+}
+
+main > .main-content {
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
 /* header */
 #header {
   width: 100%;
@@ -60,8 +71,23 @@ a {
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, var(--Primary, #6d6afe) 0.12%, #6ae3fe 101.84%));
   color: var(--White);
 }
-
+#header .user-info-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#header .user-img {
+  width: 28px;
+}
+#header .user-img {
+  font-size: 14px;
+  font-weight: 400;
+}
 /* footer */
+#footer {
+  background-color: var(--Black);
+}
+
 #footer .footer-box {
   display: flex;
   height: 160px;
