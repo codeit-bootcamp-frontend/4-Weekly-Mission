@@ -11,7 +11,7 @@
   flex-direction: column;
   align-items: center;
   background-color: var(--palette-grey-5);
-  z-index: 1;
+  z-index: 10;
 }
 .profile_info {
   display: flex;

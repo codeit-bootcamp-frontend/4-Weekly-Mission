@@ -73,10 +73,15 @@
   background-color: white;
 }
 .folder_card:hover {
-  transform: scale(1.03);
-  transition: all 0.2s ease-in-out;
-  background-color: var(--palette-grey-5);
+  overflow: hidden;
+}
+.folder_card:hover .card_img {
+  transform: scale(1.3);
+  transition: all 0.3s ease-in-out;
   z-index: 0;
+}
+.folder_card:hover .card_info {
+  background-color: var(--palette-grey-5);
 }
 .card_img {
   width: 340px;
@@ -91,6 +96,8 @@
   flex-direction: column;
   padding: 15px 20px;
   justify-content: space-between;
+  z-index: 5;
+  background-color: white;
 }
 .card_date_before {
   color: #666666;
