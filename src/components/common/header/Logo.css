@@ -1,0 +1,13 @@
+.header-logo {
+  width: 133px;
+}
+
+@media (min-width: 370px) and (max-width: 768px) {
+  .header-logo {
+    width: 88px;
+  }
+
+  .header-logo * {
+    width: 100%;
+  }
+}

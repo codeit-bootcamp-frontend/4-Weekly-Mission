@@ -1,0 +1,15 @@
+main {
+  margin-top: 94px;
+}
+
+@media (max-width: 1440px) {
+  main {
+    margin-top: 92px;
+  }
+}
+
+@media (max-width: 769px) {
+  main {
+    margin-top: 64px;
+  }
+}

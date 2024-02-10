@@ -1,0 +1,33 @@
+.folderCardItem {
+  width: 100%;
+  height: 335px;
+}
+
+.folderCardItem-image {
+  height: 200px;
+}
+
+.folderCardItem-contents {
+  padding: 15px 20px;
+  height: 135px;
+}
+
+.folderCardItem-description {
+  margin: 10px 0;
+  line-height: 24px;
+  max-height: 49px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.folderCardItem-elapsedTime {
+  color: #666666;
+  font-size: 13px;
+}
+
+.folderCardItem-date {
+  font-size: 14px;
+  color: #333;
+}

@@ -1,0 +1,35 @@
+.folderHeader-avatar {
+  width: 60px;
+  height: 60px;
+}
+
+.folderHeader-name {
+  display: block;
+  line-height: 24px;
+  margin: 12px 0 20px 0;
+}
+
+.folderHeader-title {
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+}
+
+@media (max-width: 769px) {
+  .folderHeader-avatar {
+    width: 40px;
+    height: 40px;
+  }
+
+  .folderHeader-name {
+    font-size: 14px;
+    margin: 6px 0 10px 0;
+    line-height: 16px;
+  }
+
+  .folderHeader-title {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 38px;
+  }
+}

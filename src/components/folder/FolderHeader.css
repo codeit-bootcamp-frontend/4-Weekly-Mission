@@ -1,0 +1,18 @@
+.folderHeader {
+  padding: 20px 0 60px;
+  background-color: var(--gray5);
+}
+
+.folderHeader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+@media (max-width: 769px) {
+  .folderHeader {
+    padding: 10px 0 40px;
+    background-color: var(--gray5);
+  }
+}
