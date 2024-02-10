@@ -1,0 +1,14 @@
+.main_contents {
+  max-width: 1060px;
+  min-height: 1280px;
+  padding: 4% 12%;
+  background-color: var(--color-white);
+}
+
+.card_list {
+  width: 100%;
+  margin-top: 40px;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 20px;
+}

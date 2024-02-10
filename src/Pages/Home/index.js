@@ -3,8 +3,7 @@ import Header from "../../Components/Header/Header";
 import Footer from "../../Components/Footer/Footer";
 import { getUserData, getFilderData } from "../../Api/api";
 import FolderTilte from "../../Components/FolderTitle/FolderTilte";
-import SearchBar from "../../Components/SearchBar/SearchBar";
-import Card from "../../Components/Card/Card";
+import CardList from "../../Components/CardList/CardList";
 
 function Index() {
   // 함수 이름을 대문자로 변경
@@ -50,17 +49,7 @@ function Index() {
         profileImageSource={user.profileImageSource}
       />
       <FolderTilte folderName={folder.name} owner={folder.owner} />
-      <SearchBar />
-      {folder.links.map(data => (
-        <Card
-          id={data.id}
-          createdAt={data.createdAt}
-          description={data.description}
-          imageSource={data.imageSource}
-          title={data.title}
-          url={data.url}
-        />
-      ))}
+      <CardList links={folder.links} />
       <Footer />
     </>
   );
