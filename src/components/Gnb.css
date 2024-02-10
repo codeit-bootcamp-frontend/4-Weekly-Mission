@@ -42,3 +42,17 @@
   border-radius: 25px;
   fill: var(--Linkbrary-primary-color, #6D6AFE);
 }
+
+.login-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.7rem;
+  cursor: pointer;
+  background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
+  border-radius: 0.8rem;
+  color: #f5f5f5;
+  font-size: 1.4rem;
+  font-weight: 600;
+  width: 8rem; /*나중에 Cta, cta-short로 분리할 것*/
+}
