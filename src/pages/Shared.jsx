@@ -16,7 +16,7 @@ const Shared = () => {
   const [folderInfo, setFolderInfo] = useState("");
   const [folderName, setFolderName] = useState("");
   const [userInfo, setUserInfo] = useState([]);
-  const [order, setOrder] = useState("createdAt");
+  const [order] = useState("createdAt");
 
   const sortedItems = items.sort((a, b) => b[order].localeCompare(a[order]));
 
