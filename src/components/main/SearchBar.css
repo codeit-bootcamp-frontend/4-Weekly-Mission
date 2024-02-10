@@ -31,6 +31,8 @@
 /* mobile */
 @media (max-width: 767px) {
   .SearchBar {
-    width: 325px;
+    margin-top: 20px;
+    margin-bottom: 32px;
+    width: 340px;
   }
 }
