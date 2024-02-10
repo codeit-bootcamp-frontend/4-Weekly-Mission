@@ -26,6 +26,7 @@ export default function Folder() {
   };
 
   useEffect(() => {
+    console.log("hi");
     loadFolderInfo();
   }, []);
 
@@ -60,7 +61,7 @@ export default function Folder() {
           </div>
         </div>
 
-        <CardList />
+        <CardList links={folderInfo.links} />
       </main>
 
       <Footer />
