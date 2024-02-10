@@ -1,6 +1,6 @@
 import './Header.css';
-import logoImg from '../../assets/logo.svg';
 import { Button } from '../../Button';
+import IconLogo from '../../Icon/IconLogo';
 
 function Header() {
   return (
@@ -9,7 +9,7 @@ function Header() {
         <div className="header__logo">
           <div className="logo">
             <a href="#" className="logo__link">
-              <img src={logoImg} alt="Linkbrary" />
+              <IconLogo />
             </a>
           </div>
         </div>
