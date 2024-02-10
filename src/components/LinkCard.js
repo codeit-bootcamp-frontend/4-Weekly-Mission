@@ -11,43 +11,55 @@ import '../styles/LinkCard.css';
  */
 
 const getElapsedTimeMessage = createdAtTime => {
-  const createdYear = createdAtTime.getFullYear();
-  const createdMonth = createdAtTime.getMonth();
-  const createdDate = createdAtTime.getDate();
-
   const currentDays = new Date();
-  const currentYear = currentDays.getFullYear();
-  const currentMonth = currentDays.getMonth();
-  const currentDate = currentDays.getDate();
+  let ElapsedTime = Math.floor((currentDays - createdAtTime) / 1000 / 60);
 
-  const ElapsedTime = currentDays - createdAtTime;
-  const timeToMinutes = ElapsedTime / 1000 / 60;
-
-  if (timeToMinutes < 2) {
+  if (ElapsedTime < 2) {
     return '1 minute ago';
   }
 
-  if (ElapsedTime / 1000 / 60 < 60) {
-    return `${Math.floor(ElapsedTime / 1000 / 60)} minutes ago`;
+  if (ElapsedTime < 60) {
+    return `${ElapsedTime} minutes ago`;
   }
 
-  if (ElapsedTime / 1000 / 60 / 60 < 24) {
-    return `${Math.floor(ElapsedTime / 1000 / 60 / 60)} hours ago`;
-  }
-  
-  if (ElapsedTime / 1000 / 60 / 60 / 24 < 31) {
-    return `${Math.floor(ElapsedTime / 1000 / 60 / 60 / 24)} days ago`;
+  ElapsedTime = Math.floor(ElapsedTime / 60);
+
+  if (ElapsedTime < 24) {
+    return `${ElapsedTime} ${ElapsedTime === 1 ? 'hour' : 'hours'} ago`;
   }
 
-  if (ElapsedTime / 1000 / 60 / 60 / 24 / 365 < 1) {
-    if (currentYear === createdYear) return `${(currentMonth - createdMonth) + 1} months ago`;
-    if (currentYear > createdYear) return `${(12 - createdMonth) + currentMonth} months ago`
-    
+  ElapsedTime = Math.floor(ElapsedTime / 24);
+
+  if (ElapsedTime < 31) {
+    return `${ElapsedTime} ${ElapsedTime === 1 ? 'day' : 'days'} ago`;
   }
 
-  if (ElapsedTime / 1000 / 60 / 60 / 24 / 365 > 1) {
-    // console.log(Math.floor(ElapsedTime / 1000 / 60 / 60 / 24 / 365))
-    return `${currentYear - createdYear} years ago`;
+  ElapsedTime = Math.floor(ElapsedTime / 365);
+
+  if (ElapsedTime < 1) {
+    const currentYear = currentDays.getFullYear();
+    const currentMonth = currentDays.getMonth() + 1;
+    const currentDate = currentDays.getDate();
+    const createdYear = createdAtTime.getFullYear();
+    const createdMonth = createdAtTime.getMonth() + 1;
+    const createdDate = createdAtTime.getDate();
+
+    if (currentYear === createdYear) {
+      if (currentDate >= createdDate) {
+        return `${currentMonth - createdMonth} months ago`;
+      }
+      return `${currentMonth - createdMonth - 1} months ago`;
+    }
+    if (currentYear > createdYear) {
+      if (currentDate >= createdDate) {
+        return `${12 - createdMonth + currentMonth} months ago`;
+      }
+      return `${12 - createdMonth + currentMonth - 1} months ago`;
+    }
+  }
+
+  if (ElapsedTime >= 1) {
+    return `${ElapsedTime} ${ElapsedTime === 1 ? 'year' : 'years'} ago`;
   }
 };
 
@@ -58,8 +70,8 @@ function LinkCard({ url, createdAt, desc, imgUrl }) {
 
   return (
     <a href={url} className="link-card-area">
-      <div className="img-group" >
-        {imgUrl ? <img src={imgUrl} alt="미리보기" className="img-card" /> : <div className='img-card no-img'></div>}
+      <div className="img-group">
+        {imgUrl ? <img src={imgUrl} alt="미리보기" className="img-card" /> : <div className="img-card no-img"></div>}
       </div>
       <div className="card-info-group">
         <p className="elapsed-time">{getElapsedTimeMessage(createdDays)}</p>
