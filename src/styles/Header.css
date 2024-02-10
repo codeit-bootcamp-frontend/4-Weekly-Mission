@@ -24,7 +24,25 @@
   height: 2.4rem;
 }
 
-.header-group .btn {
+.btn-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.user-profile {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+}
+
+.user-email {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #373740;
+}
+
+.btn.signin {
   flex-shrink: 0;
   width: 12.8rem;
 }
