@@ -1,5 +1,6 @@
 import React from "react";
 import "./css/Card.css";
+import { formatDate, formatDateAgo } from "../../utils/DateUtils";
 
 function Card({
   id,
@@ -9,6 +10,8 @@ function Card({
   title,
   url,
 }) {
+  const cardDate = formatDate(createdAt);
+  const cardCreatedAt = formatDateAgo(createdAt);
   return (
     <div key={id} className="card_container">
       <div className="card_iamgeBox">
@@ -27,9 +30,9 @@ function Card({
         )}
       </div>
       <div className="card_content">
-        <p className="card_date">{createdAt}</p>
+        <p className="card_date">{cardDate}</p>
         <p className="card_description">{description}</p>
-        <p className="card_createdAt">{createdAt}</p>
+        <p className="card_createdAt">{cardCreatedAt}</p>
       </div>
     </div>
   );

@@ -34,3 +34,17 @@ footer {
   display: flex;
   gap: 12px;
 }
+
+@media (max-width: 1124px) {
+}
+
+@media (max-width: 767px) {
+  footer {
+    position: relative;
+    padding: 32px 32px 64px 32px;
+  }
+  footer p {
+    position: absolute;
+    bottom: 50px;
+  }
+}

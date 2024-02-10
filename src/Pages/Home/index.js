@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../Components/Header/Header";
-import Footer from "../../Components/Footer/Footer";
-import { getUserData, getFilderData } from "../../Api/api";
-import FolderTilte from "../../Components/FolderTitle/FolderTilte";
-import CardList from "../../Components/CardList/CardList";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import { getUserData, getFilderData } from "../../api/api";
+import FolderTilte from "../../components/FolderTitle/FolderTilte";
+import CardList from "../../components/CardList/CardList";
 
 function Index() {
   // 함수 이름을 대문자로 변경

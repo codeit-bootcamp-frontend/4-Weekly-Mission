@@ -12,3 +12,25 @@
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   gap: 20px;
 }
+
+@media (max-width: 1124px) {
+  .main_contents {
+    max-width: 704px;
+    min-height: 1280px;
+  }
+  .card_list {
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 767px) {
+  .main_contents {
+    max-width: 340px;
+    min-height: 1280px;
+  }
+  .card_list {
+    grid-template: repeat(1, 1fr) / repeat(1, 1fr);
+    gap: 20px;
+  }
+}
