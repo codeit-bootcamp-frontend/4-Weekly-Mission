@@ -1,7 +1,7 @@
 import "./Shared.css";
-import Header from "../../components/Header";
-import Main from "../../components/Main";
-import Footer from "../../components/Footer";
+import Header from "../../components/Header/Header";
+import Main from "../../components/Main/Main";
+import Footer from "../../components/Footer/Footer";
 
 function Shared() {
   return (

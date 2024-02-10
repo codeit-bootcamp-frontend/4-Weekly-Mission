@@ -1,5 +1,5 @@
 import "./SharedHeaderContent.css";
-import userAvatar from "../assets/images/user-avatar.png";
+import userAvatar from "../../assets/images/user-avatar.png";
 
 function SharedHeaderContent() {
   return (

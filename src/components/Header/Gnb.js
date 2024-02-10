@@ -1,6 +1,6 @@
 import "./Gnb.css";
-import logo from "../assets/images/logo.svg";
-import profileImg from "../assets/images/profile-img.png";
+import logo from "../../assets/images/logo.svg";
+import profileImg from "../../assets/images/profile-img.png";
 
 //글로벌 네비게이션 바
 function Gnb() {
