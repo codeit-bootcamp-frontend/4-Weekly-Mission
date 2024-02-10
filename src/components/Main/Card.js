@@ -1,13 +1,14 @@
 import "./Card.css";
 import timeAgo from "../../utils/timeAgo";
 import formatDate from "../../utils/formatDate";
+import NoImage from "../../assets/images/card-no-image.svg";
 
 function Card({ createdAt = "", url = "", title = "", description = "", imageSource = "" }) {
   const createdTimeAgo = timeAgo(createdAt);
   const createdDate = formatDate(createdAt);
 
   const backgroundImage = {
-    background: `url(${imageSource})`,
+    background: `url(${imageSource ? imageSource : NoImage})`,
     backgroundPosition: "center",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
