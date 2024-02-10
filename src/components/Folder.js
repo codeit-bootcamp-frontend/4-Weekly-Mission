@@ -1,5 +1,6 @@
 import FolderLinks from "./FolderLinks";
 import "./Folder.css";
+import SearchBar from "./SearchBar";
 
 const Folder = ({ folder }) => {
   const { name, owner, links } = folder;
@@ -16,7 +17,10 @@ const Folder = ({ folder }) => {
         </div>
         <h2 className="Folder__title">{name}</h2>
       </div>
-      <FolderLinks links="{links}" />
+      <div className="Folder__items">
+        <SearchBar />
+        <FolderLinks links="{links}" />
+      </div>
     </div>
   );
 };
