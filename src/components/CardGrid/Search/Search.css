@@ -3,7 +3,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 106rem;
+  width: 102.1rem;
 }
 
 .search-input {
@@ -21,4 +21,18 @@
   width: 1.2rem;
   height: auto;
   left: 1.6rem;
+}
+
+/* Tablet*/
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .search-bar {
+    width: 67rem;
+  }
+}
+
+/* Mobile*/
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .search-bar {
+    width: 32.5rem;
+  }
 }
