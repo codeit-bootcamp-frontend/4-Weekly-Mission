@@ -60,7 +60,7 @@ const Shared = () => {
         />
         <div className="Shared-content-wrapper">
           <SearchBar />
-          <CardList items={sortedItems} />
+          <CardList items={sortedItems} folderLoadingError={folderLoadingError} />
         </div>
       </div>
       <Footer />

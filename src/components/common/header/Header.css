@@ -71,6 +71,7 @@ header .profile-email {
 @media (max-width: 767px) {
   header {
     height: 63px;
+    padding: 17px 32px;
   }
 
   header .logo,
@@ -83,6 +84,10 @@ header .profile-email {
     width: 80px;
     height: 37px;
     font-size: 14px;
+  }
+
+  header .profile {
+    height: 28px;
   }
 
   header .hidden {

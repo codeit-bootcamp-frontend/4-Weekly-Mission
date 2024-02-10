@@ -1,6 +1,7 @@
 import React from "react";
 import defaultCardImg from "../../assets/image/default_card_img.jpg";
 import { formatDate, formatTimeAgo } from "../../utils/dateUtils";
+import duck from "../../assets/image/duck.gif";
 import "./CardList.css";
 
 const Card = ({ item }) => {
@@ -25,16 +26,22 @@ const Card = ({ item }) => {
   );
 };
 
-const CardList = ({ items }) => {
+const CardList = ({ items, folderLoadingError }) => {
   return (
     <ul className="CardList">
-      {items.map((item) => {
-        return (
-          <li key={item.id}>
-            <Card item={item} />
-          </li>
-        );
-      })}
+      {folderLoadingError ? (
+        <li className="duck">
+          <img src={duck} />
+        </li>
+      ) : (
+        items.map((item) => {
+          return (
+            <li key={item.id}>
+              <Card item={item} />
+            </li>
+          );
+        })
+      )}
     </ul>
   );
 };
