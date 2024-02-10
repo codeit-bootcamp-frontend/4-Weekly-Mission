@@ -8,7 +8,7 @@
 }
 
 .SharedInfo-owner-img {
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.2);
   border-radius: 100px;
   object-fit: cover;
   overflow: hidden;
