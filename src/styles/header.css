@@ -1,0 +1,71 @@
+:root {
+  --Linkbrary-primary-color: #6d6afe;
+  --Linkbrary-red: #ff5b56;
+  --The-jungle-black: #111322;
+  --Linkbrary-white: #ffffff;
+  --Linkbrary-gray100: #3e3e43;
+  --Linkbrary-gray60: #9fa6b2;
+  --Linkbrary-gray20: #ccd5e3;
+  --Linkbrary-gray10: #e7effb;
+  --Linkbrary-bg: #f0f6ff;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: Pretendard;
+}
+
+/* Header */
+
+header {
+  padding: 1.25rem 12.5rem;
+  background: var(--Linkbrary-bg, #f0f6ff);
+  position: sticky;
+
+  @media screen and (max-width: 1199px) {
+    padding: 1.25rem 0;
+  }
+
+  @media screen and (max-width: 47.9375rem) {
+    padding: 0.8125rem 0;
+  }
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  @media screen and (max-width: 1199px) {
+    margin: 0 auto;
+    width: 45rem;
+  }
+
+  @media screen and (max-width: 47.9375rem) {
+    margin: 0 2rem;
+    width: auto;
+  }
+}
+.nav__logo {
+  display: block;
+}
+.nav__info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+}
+.info--image {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.9375rem;
+}
+.info--email {
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 14px;
+  font-weight: 400;
+  @media screen and (max-width: 47.9375rem) {
+    display: none;
+  }
+}
