@@ -7,11 +7,20 @@ function FolderTilte({ folderName, owner }) {
     <section className="FolderTitle_container">
       <div className="FolderTitle_content">
         <div>
-          <img
-            src={profileImageSource}
-            alt={profileImageSource}
-            className="FolderTitle_img"
-          />
+          {profileImageSource ? (
+            <img
+              src={profileImageSource}
+              alt={profileImageSource}
+              className="FolderTitle_img"
+            />
+          ) : (
+            <img
+              src="Icons/default_user_icon.svg"
+              alt="기본 폴더 로고"
+              className="FolderTitle_img"
+            />
+          )}
+
           <p className="FolderTitle_userName">@{name}</p>
         </div>
         <h2 className="FolderTitle_folderName">{folderName}</h2>
