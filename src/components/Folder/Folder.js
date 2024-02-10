@@ -1,6 +1,6 @@
-import FolderLinks from "./FolderLinks";
+import FolderLinks from "../FolderLinks/FolderLinks";
 import "./Folder.css";
-import SearchBar from "./SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Folder = ({ folder }) => {
   const { name, owner, links } = folder;
@@ -19,7 +19,7 @@ const Folder = ({ folder }) => {
       </div>
       <div className="Folder__items">
         <SearchBar />
-        <FolderLinks links="{links}" />
+        <FolderLinks links={links} />
       </div>
     </div>
   );

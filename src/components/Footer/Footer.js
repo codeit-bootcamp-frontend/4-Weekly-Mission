@@ -1,4 +1,4 @@
-import "../iconFont.css";
+import "../../iconFont.css";
 import "./Footer.css";
 
 const Footer = () => {

@@ -1,10 +1,10 @@
 import "./App.css";
 import "./global.css";
-import Footer from "./components/Footer";
-import NavigationBar from "./components/NavigationBar";
+import Footer from "./components/Footer/Footer";
+import NavigationBar from "./components/NavigationBar/NavigationBar";
 import { useEffect, useState } from "react";
 import getSample from "./util/getSample";
-import Folder from "./components/Folder";
+import Folder from "./components/Folder/Folder";
 
 function App() {
   const [profile, setProfile] = useState(null);

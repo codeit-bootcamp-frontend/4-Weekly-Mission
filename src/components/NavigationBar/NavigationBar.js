@@ -1,7 +1,7 @@
-import LinkbraryLogo from "../images/logo.svg";
-import Cta from "./Cta";
+import LinkbraryLogo from "../../asset/images/logo.svg";
+import Cta from "../Cta/Cta";
 import "./NavigationBar.css";
-import Profile from "./Profile";
+import Profile from "../Profile/Profile";
 
 const NavigationBar = ({ profile }) => {
   return (
