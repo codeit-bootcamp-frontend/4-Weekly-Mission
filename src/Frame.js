@@ -13,6 +13,7 @@ const Frame = ({className, items}) => {
             title={item.title}
             description={item.description}
             time={item.createdAt}
+            url={item.url}
           />
         ))}
       </div>
