@@ -5,13 +5,15 @@ import Shared from '../components/Shared';
 import Signin from '../components/Signin';
 import Faq from '../components/Faq';
 import Privacy from '../components/Privacy';
+import Landing from '../components/Landing';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route path='/' element={<Shared />} />
+          <Route path='/' element={<Landing />} />
+          <Route path='/shared' element={<Shared />} />
         </Route>
         <Route path='/signin' element={<Signin />} />
         <Route path='/privacy' element={<Privacy />} />

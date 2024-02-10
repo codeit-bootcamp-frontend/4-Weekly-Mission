@@ -1,7 +1,7 @@
 import React from 'react';
 import '../style/Card.css';
 import { Link } from 'react-router-dom';
-import undefinedImg from '../assets/undefinedImg.svg';
+import undefinedImg from '../assets/share/undefinedImg.svg';
 
 const Card = ({ folderLinkInfo }) => {
   const getCreateDate = (createdAt) => {
