@@ -25,6 +25,7 @@
 
   @media (min-width: 1200px) {
     width: min(100% - 400px, 1920px);
+    height: 93px;
     max-width: 1920px;
     padding: 20px 32px;
   }

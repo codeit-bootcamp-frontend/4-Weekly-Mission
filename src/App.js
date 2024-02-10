@@ -3,18 +3,29 @@ import "./global.css";
 import Footer from "./components/Footer";
 import NavigationBar from "./components/NavigationBar";
 import { useEffect, useState } from "react";
-import getUser from "./util/getUser";
+import getSample from "./util/getSample";
+import Folder from "./components/Folder";
 
 function App() {
   const [profile, setProfile] = useState(null);
+  const [folder, setFolder] = useState(null);
 
   useEffect(() => {
-    getUser().then(setProfile);
+    getSample("user").then(setProfile);
+    getSample("folder")
+      .then((res) => {
+        const { folder } = res;
+        return folder;
+      })
+      .then(setFolder);
   }, []);
 
   return (
     <div className="App">
       <NavigationBar profile={profile} />
+      <main className="App__main">
+        {folder ? <Folder folder={folder} /> : null}
+      </main>
       <Footer />
     </div>
   );
