@@ -1,8 +1,18 @@
 import "../css/home.css";
 import logo from "../image/logo.svg";
-import User from "../api";
 
 function Header() {
+  fetch("https://bootcamp-api.codeit.kr/api/sample/user", {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.text();
+    })
+    .then((result) => {
+      const Email = JSON.parse(result);
+      const EmailValue = Email.email;
+      console.log(EmailValue);
+    });
   return (
     <>
       <header className="top">
