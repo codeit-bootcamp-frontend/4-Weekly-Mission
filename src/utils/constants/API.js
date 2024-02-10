@@ -3,4 +3,5 @@ export const AUTH = Object.freeze({
   signUp: 'api/sign-up',
   checkEmail: 'api/check-email',
   sampleUser: 'api/sample/user',
+  sampleFolder: 'api/sample/folder',
 });
