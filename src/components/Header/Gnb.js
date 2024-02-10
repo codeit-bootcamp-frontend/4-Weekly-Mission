@@ -19,12 +19,8 @@ function Gnb() {
     }
   };
 
-  const handleLoad = () => {
-    handleLoadUser();
-  };
-
   useEffect(() => {
-    handleLoad();
+    handleLoadUser();
   }, []);
 
   const userProfileImg = userInfo?.profileImageSource || "";

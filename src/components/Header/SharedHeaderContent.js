@@ -17,12 +17,8 @@ function SharedHeaderContent() {
     }
   };
 
-  const handleLoad = () => {
-    handleLoadFolder();
-  };
-
   useEffect(() => {
-    handleLoad();
+    handleLoadFolder();
   }, []);
 
   const ownerProfileImg = folderInfo?.folder.owner.profileImageSource || "";
@@ -35,7 +31,7 @@ function SharedHeaderContent() {
         {folderInfo && (
           <div>
             <div className="shared-user flex-col">
-              <img className="shared-user-avatar" src={ownerProfileImg}></img>
+              <img className="shared-user-avatar" src={ownerProfileImg} alt="ownerProfileImg"></img>
               <p className="shared-user-name">{ownerName}</p>
             </div>
             <p className="shared-folder-name text-center">{folderName}</p>
