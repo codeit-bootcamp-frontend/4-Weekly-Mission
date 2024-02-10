@@ -56,5 +56,9 @@ const ProfileImg = styled.img`
 const ProfileEmail = styled.p`
   font-size: 14px;
   font-weight: 400;
+
+  @media (min-width: 375px) and (max-width: 767px) {
+    font-size: 0;
+  }
 `;
 export default Profile;
