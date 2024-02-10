@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+  margin: 0; /*reset css*/
+  padding: 0;
+}
+
+.topnav__loginBt {
+  text-decoration: none;
+}
+
+/* 색상 팔레트 변수 지정 */
+:root {
+  --primary: #6d6afe;
+  --red: #ff5b56;
+  --black: #111322;
+  --white: #ffffff;
+  --gray_Very-Dim: #3e3e43;
+  --gray-Dim: #9fa6b2;
+  --gray-Moderate: #ccd5e3;
+  --gray-Bright: #e7effb;
+  --gray-Very-Bright: #f0f6ff;
+}
+
+/* 상단 바 */
+
+.topnav {
+  padding: 20px 200px;
+  background-color: var(--gray-Very-Bright);
+  position: sticky;
+  top: 0;
+  width: 100%;
+
+  @media screen and (max-width: 1199px) {
+    padding: 20px 100px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 13px 32px;
+  }
+}
+
+.topnav__size {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.topnav__logo--design {
+  width: 133px;
+  height: 24px;
+
+  @media screen and(max-width:767px) {
+    width: 88.667px;
+    height: 16px;
+  }
+}
+
+/* 로그인, 회원가입 버튼 */
+.topnav__loginBt,
+.base__linkBt {
+  background: linear-gradient(to right, #6d6afe, #6ae3fe);
+  font-size: 18px;
+  color: #f5f5f5;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 16px;
+  }
+}
+
+.base__linkBt {
+  width: 350px;
+
+  @media screen and (max-width: 767px) {
+    width: 200px;
+  }
+}
+
+.topnav__loginBt {
+  width: 128px;
+
+  @media screen and (max-width: 767px) {
+    width: 80px;
+  }
+}
