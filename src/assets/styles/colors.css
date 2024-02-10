@@ -35,3 +35,31 @@
 .gradient-style2-4 {
   background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
 }
+
+.background-bg {
+  background: var(--bg, #f0f6ff);
+}
+
+.background-light {
+  background: var(--light, #f5f5f5);
+}
+
+.background-black {
+  background: var(--black, #111322);
+}
+
+.button-background-primary {
+  background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
+}
+
+.button-text-light {
+  color: var(--light, #f5f5f5);
+}
+
+.text-color-gray100 {
+  color: var(--gray100, #373740);
+}
+
+.text-color-text {
+  color: var(--text, #666666);
+}
