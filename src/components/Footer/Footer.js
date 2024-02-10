@@ -13,10 +13,10 @@ function Footer() {
         <p>FAQ</p>
       </div>
       <div className="social-link flex-row">
-        <img className="social-link-icon" src={facebook}></img>
-        <img className="social-link-icon" src={twitter}></img>
-        <img className="social-link-icon" src={youtube}></img>
-        <img className="social-link-icon" src={instagram}></img>
+        <img className="social-link-icon" src={facebook} alt="facebook"></img>
+        <img className="social-link-icon" src={twitter} alt="twitter"></img>
+        <img className="social-link-icon" src={youtube} alt="youtube"></img>
+        <img className="social-link-icon" src={instagram} alt="instagram"></img>
       </div>
     </footer>
   );
