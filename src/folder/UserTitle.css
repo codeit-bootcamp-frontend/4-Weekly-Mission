@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     padding: 20px 0 60px 0;
+    margin-top: 93px;
     background-color: rgba(240, 246, 255, 1);
 }
 
@@ -32,6 +33,7 @@
 @media screen and (max-width: 768px) {
     .userTitle {
         padding: 10px 0 40px 0;
+        margin-top: 63px;
     }
     .titleTop {
         margin-bottom: 10px;
