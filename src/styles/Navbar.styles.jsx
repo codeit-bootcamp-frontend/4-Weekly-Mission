@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { getUser } from '../utils/api';
-import User from '../styles/User.styles';
+import UserProfile from '../styles/UserProfile.styles';
 import styled from 'styled-components';
 
 const Navbar = () => {
@@ -25,7 +25,7 @@ const Navbar = () => {
     <StyledHeader>
       <div className='headerBox'>
         <img src='/icons/linkbrary-logo.svg' alt='linkbrary' />
-        <User title={email} image={{ URL: imageURL, size: '2rem' }} />
+        <UserProfile title={email} image={{ URL: imageURL, size: '2rem' }} />
       </div>
     </StyledHeader>
   );

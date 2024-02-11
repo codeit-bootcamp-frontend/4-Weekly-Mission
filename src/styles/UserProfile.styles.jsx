@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-const User = ({ title, image, direction }) => {
+const UserProfile = ({ title, image, direction }) => {
   return (
     <StyledSection $direction={direction} $imageSize={image.size}>
-      <img src={image.URL} alt='user' />
+      <img src={image.URL || '/default-user.png'} alt='user' />
       <p>{title}</p>
     </StyledSection>
   );
@@ -22,4 +22,4 @@ const StyledSection = styled.section`
   }
 `;
 
-export default User;
+export default UserProfile;

@@ -7,7 +7,7 @@ const Card = ({ createdAt, url, title, imageURL }) => {
   return (
     <StyledArticle>
       <a href={url}>
-        <img src={imageURL || '/undefinedImage.jpeg'} alt={title} />
+        <img src={imageURL || '/undefined-image.jpeg'} alt={title} />
         <div className='textBox'>
           <ReactTimeago className='timeAgo' date={createdAt} locale='ko' />
           <p className='title'>{title}</p>

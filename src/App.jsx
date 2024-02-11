@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import { getFolder } from './utils/api';
-import User from './styles/User.styles';
+import UserProfile from './styles/UserProfile.styles';
 import Footer from './styles/Footer.styles';
 import Cards from './styles/Cards.styles';
 import SearchBar from './styles/Serchbar.styles';
@@ -33,7 +33,11 @@ function App() {
       <Navbar />
       <section className='homeSection'>
         {user && (
-          <User title={`@${user.name}`} image={{ URL: user.profileImageSource, size: '8rem' }} direction='column' />
+          <UserProfile
+            title={`@${user.name}`}
+            image={{ URL: user.profileImageSource, size: '8rem' }}
+            direction='column'
+          />
         )}
         {folder && <h2 className='folderName'>{folder.name}</h2>}
       </section>
