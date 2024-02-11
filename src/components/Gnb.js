@@ -12,7 +12,7 @@ const Gnb = ({items}) => {
         </a>
         {isProfileAvailable ? (
           <div className='account'>
-            <img className="account-img" src={items.profileImageSource} alt="프로필 이미지" />
+            <img className="account-img" src={items.profileImageSource} alt={`${items.email} 프로필`} />
             <span className='account-email'>{items.email}</span>
           </div>
         ) : (

@@ -6,7 +6,7 @@ const Header = ({owner, name}) => {
       <div className="header-frame_ly">
         <div className='user_ly'>
           <div className='avatar_ly'>
-            <img className="avatar-img" src={owner.profileImageSource} alt="아바타 이미지"/>
+            <img className="avatar-img" src={owner.profileImageSource} alt={`${owner.name} 아바타`}/>
             <span className='avatar-name'>{owner.name}</span>
           </div>
           <span className='favorite'>{name}</span>
