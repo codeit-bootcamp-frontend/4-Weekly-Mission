@@ -38,10 +38,10 @@ const App = () => {
 
   return (
     <div className='container'>
-      <Gnb items={user} className="gnb_ly"/>
-      <Header owner={folderOwner} name={folderName} className='container-top'/>
-      <Folder items={folderLinks} className='container-folder'/>
-      <Footer className='container-footer'/>
+      <Gnb items={user}/>
+      <Header owner={folderOwner} name={folderName}/>
+      <Folder items={folderLinks}/>
+      <Footer/>
     </div>
   )
 }

@@ -4,9 +4,9 @@ import twitterkImg from '../assets/twitter.svg';
 import youtubeImg from '../assets/youtube.svg';
 import instagramImg from '../assets/instagram.svg';
 
-const Footer = ({className}) => {
+const Footer = () => {
   return (
-  <div className={className}>
+  <div className='container-footer'>
     <div className='footer_ly'>
       <div className='footer'>
         <span className='codeit social-logo_text'>©codeit - 2023</span>

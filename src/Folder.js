@@ -2,9 +2,9 @@ import SearchBar from './components/SearchBar';
 import Card from './components/Card';
 import './Folder.css';
 
-const Folder = ({className, items}) => {
+const Folder = ({items}) => {
   return (
-    <div className={className}>
+    <div className='container-folder'>
       <SearchBar className='search-bar_ly'/>
       <div className='card-frame_ly'> 
         {items.map((item) => (

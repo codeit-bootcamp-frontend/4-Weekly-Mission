@@ -1,3 +1,22 @@
+.gnb_ly {
+  display: flex;
+  padding: 18px 32px 17px 32px;
+  position: sticky;
+  top: 0;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+  background: #F0F6FF;
+
+  @media (max-width: 1124px) and (min-width: 768px) {
+    padding: 33px;
+  }
+
+  @media (min-width: 1125px) {
+    padding: 33px 200px;
+  }
+}
+
 .gnb-inner_ly {
   display: flex;
   justify-content: space-between;
