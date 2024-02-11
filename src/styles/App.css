@@ -79,7 +79,7 @@ main > .main-content {
 #header .user-img {
   width: 28px;
 }
-#header .user-img {
+#header .user-email {
   font-size: 14px;
   font-weight: 400;
 }
@@ -152,5 +152,8 @@ main > .main-content {
 @media (max-width: 482px) {
   #footer .copyright {
     order: 1;
+  }
+  #header .user-email {
+    display: none;
   }
 }

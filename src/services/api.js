@@ -1,6 +1,8 @@
+const API_URL = 'https://bootcamp-api.codeit.kr/api';
+
 export async function getFolder() {
   try {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/folder');
+    const response = await fetch(`${API_URL}/sample/folder`);
     const result = await response.json();
     return result;
   } catch (error) {
@@ -10,7 +12,7 @@ export async function getFolder() {
 }
 export async function getUser() {
   try {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/user');
+    const response = await fetch(`${API_URL}/sample/user`);
     const result = await response.json();
     return result;
   } catch (error) {
