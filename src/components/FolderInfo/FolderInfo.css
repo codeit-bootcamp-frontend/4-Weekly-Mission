@@ -1,0 +1,32 @@
+.folderInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 624px 60px 624px;
+  align-items: center;
+  background: var(--linkbrary-bg);
+}
+
+.folderInfo-profile {
+  width: 60px;
+  height: 60px;
+}
+
+.folderInfo-owenrName {
+  margin-top: 12px;
+  color: var(--linkbrary-black);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.folderInfo-folderName {
+  margin-top: 20px;
+  color: var(--linkbrary-black);
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
