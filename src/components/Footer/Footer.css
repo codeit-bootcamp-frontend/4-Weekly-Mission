@@ -64,3 +64,31 @@
   align-items: flex-start;
   gap: 1.2rem;
 }
+
+/* mobile */
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .mobile- .mobile-footer-content {
+    display: flex;
+  }
+
+  .footer {
+    padding-top: 4rem;
+    height: 100%;
+  }
+
+  .footer-main {
+    padding: 3.2rem 3.2rem 6.4rem 3.2rem;
+  }
+
+  .mobile-footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6rem;
+  }
+
+  .pc-copyright,
+  .pc-footer-link {
+    display: none;
+  }
+}
