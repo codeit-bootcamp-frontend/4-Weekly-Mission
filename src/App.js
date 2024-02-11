@@ -1,7 +1,8 @@
-import "./App.css";
+import "./global.css";
+import { Layout } from "./layout/Pagelayout/Layout";
 
 function App() {
-  return <div className="App"></div>;
+  return <Layout></Layout>;
 }
 
 export default App;
