@@ -1,7 +1,7 @@
 import '../styles/card.css';
-function Card(time, imgUrl, title, description, date) {
+function Card({ id, time, imgUrl, title, description, date }) {
   return (
-    <div className="card">
+    <div className="card" key={id}>
       <img className="card__img" src={imgUrl} alt={title}></img>
       <div className="card__texts">
         <div className="card__texts--time">{time}</div>
