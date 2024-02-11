@@ -39,8 +39,8 @@ const App = () => {
     <div className='container'>
       <Gnb items={user} className="gnb_ly"/>
       <Top owner={folderOwner} name={folderName} className='container-top'/>
-      < Frame items={folderLinks} className='container-frame'/>
-      < Footer className='container-footer'/>
+      <Frame items={folderLinks} className='container-frame'/>
+      <Footer className='container-footer'/>
     </div>
   )
 }

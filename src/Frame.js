@@ -5,7 +5,7 @@ import './Frame.css';
 const Frame = ({className, items}) => {
   return (
     <div className={className}>
-      < SearchBar className='search-bar_ly'/>
+      <SearchBar className='search-bar_ly'/>
       <div className='card-frame_ly'> 
         {items.map((item) => (
           <Card key={item.createdAt} 
