@@ -14,10 +14,10 @@ function Footer() {
           <a href="/faq.html">FAQ</a>
         </div>
         <div class="sns-links">
-          <a href="https://www.facebook.com/"><img alt="facebook" src={facebook} /></a>
-          <a href="https://twitter.com/"><img alt="twitter" src={twitter} /></a>
-          <a href="https://www.youtube.com/"><img alt="youtube" src={youtube} /></a>
-          <a href="https://www.instagram.com/"><img alt="instagram" src={instagram} /></a>
+          <a href="https://www.facebook.com/" target='_blank' rel='noreferrer'><img alt="facebook" src={facebook} /></a>
+          <a href="https://twitter.com/" target='_blank' rel='noreferrer'><img alt="twitter" src={twitter} /></a>
+          <a href="https://www.youtube.com/" target='_blank' rel='noreferrer'><img alt="youtube" src={youtube} /></a>
+          <a href="https://www.instagram.com/" target='_blank' rel='noreferrer'><img alt="instagram" src={instagram} /></a>
         </div>
       </div>
     </footer>
