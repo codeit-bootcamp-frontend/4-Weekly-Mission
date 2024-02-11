@@ -35,13 +35,13 @@ const NoCardImg = () => {
 };
 
 const FolderCard = function ({ contents }) {
-	const { id, createdAt, description, imageSource } = contents;
+	const { id, createdAt, description, imageSource, url } = contents;
 	const cardImage = { backgroundImage: `url(${imageSource})` };
 
 	const passedTime = timePassedFromCreate(createdAt);
 
 	return (
-		<section className="cardBox" key={id}>
+		<a href={url} target="_blank" rel="noreferrer" className="cardBox" key={id}>
 			{imageSource && <div style={cardImage} />}
 			{!imageSource && <NoCardImg />}
 			<section className="cardText">
@@ -49,7 +49,7 @@ const FolderCard = function ({ contents }) {
 				<p className="cardContents">{description}</p>
 				<p className="cardEditedDate">{createdAt}</p>
 			</section>
-		</section>
+		</a>
 	);
 };
 
