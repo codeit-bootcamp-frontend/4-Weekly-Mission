@@ -64,6 +64,7 @@ function LinkList() {
   return (
     <div className="content">
       <form>
+        <div className='search-icon'></div>
         <input name="search" placeholder='링크를 검색해 보세요.' />
       </form>
       <div className="items">
