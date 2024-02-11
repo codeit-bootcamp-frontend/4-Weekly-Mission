@@ -61,7 +61,7 @@ const Card = ({ folderLinkInfo }) => {
         };
 
         return (
-          <Link to={url} key={link.id}>
+          <Link to={url} key={link.id} target='_black'>
             <div className='CardContent'>
               <div className='CardImage' style={cardImage} />
               <div className='CardInfo'>
