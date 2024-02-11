@@ -1,12 +1,11 @@
-import NavigationBar from "./navigationbar";
+import Header from "./Header";
+import NavigationBar from "./Navbar";
 
 function App() {
   return (
     <div>
       <NavigationBar />
-      <header>
-        <p>header</p>
-      </header>
+      <Header />
       <div>
         <p>content</p>
       </div>

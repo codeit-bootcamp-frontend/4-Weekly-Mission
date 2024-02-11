@@ -1,6 +1,6 @@
 import LinkbraryLogo from '../images/logo.svg';
 import profile from '../images/profile_img.png';
-import '../css/navigationbar.css';
+import '../css/Navbar.css';
 
 function NavigationBar() {
   return (
