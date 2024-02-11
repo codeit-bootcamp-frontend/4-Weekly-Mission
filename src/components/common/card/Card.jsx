@@ -43,23 +43,23 @@ const Styled = {
   `,
 
   Text: styled.div`
+    width: 100%;
+    height: 5rem;
     font-size: 1.6rem;
     line-height: 2.4rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   `,
 };
 
-// api 연결하고 mock data 삭제
-const mockData = {
-  createdAt: '2023-03-05T08:11:20Z',
-  url: 'https://www.codeit.kr',
-  imageSource: 'https://sprint.codeit.kr/static/images/sprint-admissions/og_img.png',
-  description: 'Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat',
-};
-
-function Card() {
+function Card({ createdAt, url, description, imageSource }) {
   return (
     <Styled.Container>
-      <Link to={mockData.url} target="_blank" rel="noopener noreferrer">
+      <Link to={url} target="_blank" rel="noopener noreferrer">
         <StarButton
           style={{
             position: 'absolute',
@@ -69,12 +69,12 @@ function Card() {
           }}
         />
         <Styled.ThumbnailContainer>
-          <Styled.ThumbnailImg src={mockData.imageSource} alt="카드 이미지" />
+          <Styled.ThumbnailImg src={imageSource} alt="카드 이미지" />
         </Styled.ThumbnailContainer>
         <Styled.TextCardInfo>
-          <TimeFormat createdAt={mockData.createdAt} />
-          <Styled.Text>{mockData.description}</Styled.Text>
-          <DateFormat createdAt={mockData.createdAt} />
+          <TimeFormat createdAt={createdAt} />
+          <Styled.Text>{description}</Styled.Text>
+          <DateFormat createdAt={createdAt} />
         </Styled.TextCardInfo>
       </Link>
     </Styled.Container>

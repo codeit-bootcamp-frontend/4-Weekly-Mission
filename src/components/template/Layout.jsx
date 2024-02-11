@@ -32,7 +32,7 @@ function Layout({ children }) {
   return (
     <Styled.Body className="layout-body">
       <GNB />
-      <Header />
+      {/* <Header /> */}
       <Styled.Container className="layout-container" style={{ paddingTop: calculatePadding() }}>
         <Outlet />
         {children}
