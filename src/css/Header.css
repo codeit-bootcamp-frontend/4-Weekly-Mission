@@ -5,6 +5,7 @@
   position: sticky;
   top: 0;
   width: 100%;
+  z-index: 9999;
 
   @media screen and (max-width: 1199px) {
     padding: 20px 100px;

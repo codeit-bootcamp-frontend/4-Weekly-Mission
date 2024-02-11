@@ -1,0 +1,11 @@
+.mainSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+
+  @media screen and (max-width: 767px) {
+    gap: 32px;
+  }
+}

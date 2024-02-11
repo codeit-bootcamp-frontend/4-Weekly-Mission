@@ -1,6 +1,7 @@
 .searchSection {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .searchBox {
@@ -10,13 +11,13 @@
   gap: 10px;
   border-radius: 10px;
   background: #f5f5f5;
-  margin: 40px 20px;
+  margin: 40px 20px 0 20px;
   width: 100%;
   max-width: 1060px;
 
   @media screen and (max-width: 767px) {
     gap: 6px;
-    margin: 20px;
+    margin: 20px 20px 0 20px;
   }
 }
 
@@ -30,6 +31,7 @@
   text-align: right;
   font-weight: 400;
   line-height: 24px;
+
   @media screen and (max-width: 767px) {
     font-size: 14px;
     line-height: normal;
