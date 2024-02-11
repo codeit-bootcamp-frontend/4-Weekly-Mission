@@ -1,33 +1,62 @@
-section{
+section {
     display: block;
 }
 
-.section-folderIfm{
+.section-folderIfm {
     display: flex;
-    padding: 11rem 0 6rem ;
+    padding: 11rem 0 6rem;
     justify-content: center;
     align-items: center;
-    background-color:#F0F6FF;
-    
- 
+    background-color: #F0F6FF;
+
+
 }
 
-.section-linklist{
+.section-linklist {
     padding: 4rem 0;
 }
 
 
-.container{
-    width: 57%;
+.container {
+    width: 100%;
     margin: auto;
     display: flex;
     flex-direction: column;
     gap: 4rem;
 }
 
-.link-card__list{
+.link-card__list {
+    width: 106rem;
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem 2.5rem;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 2rem 2rem;
+
+
+}
+
+
+
+@media screen and (max-width : 1124px) {
+    .container {
+        padding: 0 3.2rem;
+    }
+
+    .link-card__list {
+        width: 72.4rem;
+        gap: 2rem 2.4rem;
+    }
+}
+
+
+@media screen and (max-width : 790px) {
+
+    .container{
+        gap: 3.2rem;
+    } 
+    .link-card__list {
+        width: 34rem;
+    }
+
 }

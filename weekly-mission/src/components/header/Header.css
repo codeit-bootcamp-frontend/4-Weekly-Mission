@@ -11,7 +11,7 @@
 }
 
 .Header-inner{
-    width: 57%;
+    width: 106rem;
     margin: auto;
     display: flex;
     justify-content: space-between;
@@ -21,4 +21,16 @@
 
 .Header-logo{
     display: inline-block;
+}
+
+@media screen and (max-width : 1124px){
+    .Header-inner{
+        width: 70.6rem;
+    }
+}
+@media screen and (max-width : 790px){
+    .Header-inner{
+        width: 39rem;
+    }
+    
 }

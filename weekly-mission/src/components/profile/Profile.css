@@ -22,3 +22,9 @@
     color: #373740;
     line-height: 1;
 }
+
+@media screen and (max-width : 790px){
+    .Profile-email{
+        display: none;
+    }
+}

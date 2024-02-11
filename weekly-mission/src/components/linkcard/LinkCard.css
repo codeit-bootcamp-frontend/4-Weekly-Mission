@@ -5,7 +5,9 @@
     border-radius: 20px;
     overflow: hidden;
     transition: .5s;
+    
 }
+
 
 .LinkCard:hover{
     transform: translate(-3px,-3px);

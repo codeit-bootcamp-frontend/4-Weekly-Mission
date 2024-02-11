@@ -6,6 +6,8 @@
     gap: 1.6rem;
     align-items: center;
     user-select: none;
+    width: 106rem;
+    margin: auto;
 }
 
 
@@ -23,4 +25,19 @@
     height: 100%;
     padding: 5px 0;
     font-size: 1.6rem;
+}
+
+@media screen and (max-width : 1124px){
+    .search-box{
+        max-width: 70.6rem;;
+    }
+}
+
+@media screen and (max-width : 790px) {
+
+    .search-box{
+        width: 34rem;
+    }
+   
+
 }
