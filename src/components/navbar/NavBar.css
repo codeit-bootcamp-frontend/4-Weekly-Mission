@@ -23,18 +23,10 @@ nav {
   align-items: center;
   gap: 6px;
 }
-.user-img-bg {
-  background-color: var(--Linkbrary-primary-color, #6d6afe);
-  border-radius: 50%;
-  width: 2.8rem;
-  height: 2.8rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .user-img {
-  width: 1rem;
-  height: 1rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
 }
 .user-email {
   font-size: 14px;
