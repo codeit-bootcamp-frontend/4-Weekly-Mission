@@ -15,16 +15,13 @@ export default function MainPage() {
 
   const getData = async () => {
     try {
-      const sampleUser = await getSampleUser();
       setUser(await getSampleUser());
       setFolder((await getSampleFolder()).folder);
     } catch (error) {
       console.error(error);
     } finally {
       user ? setIsLogin(true) : setIsLogin(false);
-      console.log("isLogin" + isLogin);
     }
-    console.log(user.id);
   };
 
   useEffect(() => {
