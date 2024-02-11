@@ -47,6 +47,13 @@ const StyledArticle = styled.article`
     object-fit: cover;
   }
 
+  &:hover {
+    scale: 1.1;
+    img {
+      opacity: 0.8;
+    }
+  }
+
   @media screen and (width>1124px) {
     img {
       height: 15rem;

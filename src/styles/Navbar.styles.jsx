@@ -2,16 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { getUser } from '../utils/api';
 import UserProfile from '../styles/UserProfile.styles';
 import styled from 'styled-components';
+import Button from './Button.styles';
 
 const Navbar = () => {
-  const [email, setEmail] = useState('');
-  const [imageURL, setImageURL] = useState('');
-
+  const [user, setUser] = useState();
   const fetchData = async () => {
     try {
-      const { email, profileImageSource } = await getUser();
-      setEmail(email);
-      setImageURL(profileImageSource);
+      const user = await getUser();
+      setUser(user);
     } catch (error) {
       console.error(error);
     }
@@ -20,12 +18,14 @@ const Navbar = () => {
   useEffect(() => {
     fetchData();
   }, []);
+  console.log(user);
 
   return (
     <StyledHeader>
       <div className='headerBox'>
         <img src='/icons/linkbrary-logo.svg' alt='linkbrary' />
-        <UserProfile title={email} image={{ URL: imageURL, size: '2rem' }} />
+        {!user && <Button>로그인</Button>}
+        {user && <UserProfile title={user.email} image={{ URL: user.profileImageSource, size: '2rem' }} />}
       </div>
     </StyledHeader>
   );

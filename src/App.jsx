@@ -34,8 +34,8 @@ function App() {
       <section className='homeSection'>
         {user && (
           <UserProfile
-            title={`@${user.name}`}
-            image={{ URL: user.profileImageSource, size: '8rem' }}
+            title={`@${user?.name}`}
+            image={{ URL: user?.profileImageSource, size: '8rem' }}
             direction='column'
           />
         )}
