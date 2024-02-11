@@ -5,11 +5,14 @@ const LoginContext = createContext();
 export function LoginProvider({ children }) {
   const [isLogin, setIsLogin] = useState(false);
   const [user, setUser] = useState(null);
-  const [tile, setTime] = useState(3600);
+  const [time, setTime] = useState(3600);
 
   const handleLogin = (user) => {
     setUser(user);
     setIsLogin(true);
+    // netlify 배포용...
+    console.log(isLogin, time);
+    setTime(3600);
   };
 
   return (
