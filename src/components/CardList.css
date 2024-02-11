@@ -77,3 +77,12 @@
   font-weight: 400;
   line-height: normal;
 }
+
+@media (max-width: 1123px) {
+  #cardImg {
+    width: 520px;
+  }
+  #textArea {
+    width: 520px;
+  }
+}
