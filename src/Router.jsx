@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Shared from "./pages/Shared";
+import Shared from "./pages/shared/index";
 
 const AppRouter = () => {
   return (
