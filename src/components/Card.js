@@ -36,10 +36,12 @@ const CardItem = ({ link }) => {
   const { createdAt, description, imageSource, title, url } = link;
 
   return (
-    <div className="card-item">
+    <div className="card">
       <a href={url} target="_blank" rel="noreferrer">
-        <img className="card-item-image" src={imageSource ? imageSource : noImage} alt={title} />
-        <div className="card-item-contents">
+        <div className="card-image">
+          <img className="card-image-item" src={imageSource ? imageSource : noImage} alt={title} />
+        </div>
+        <div className="card-contents">
           <div className="card-difference-time">{differenceTime(createdAt)}</div>
           <div className="card-description">{description}</div>
           <div className="card-created-time">{formatDate(createdAt)}</div>

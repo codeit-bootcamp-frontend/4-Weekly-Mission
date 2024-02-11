@@ -7,17 +7,11 @@ const Header = ({ user, folder }) => {
     <header>
       <nav>
         <a href="/">
-          <img src={logo} alt="logo" width="133" height="24" />
+          <img className="logo" src={logo} alt="logo" />
         </a>
         {user ? (
           <div className="profile-container">
-            <img
-              src={user.profileImageSource}
-              alt="profileImage"
-              className="profile-image"
-              width="28"
-              height="28"
-            ></img>
+            <img src={user.profileImageSource} alt="profileImage" className="profile-image"></img>
             <p className="profile-email">{user.email}</p>
           </div>
         ) : (
@@ -27,13 +21,7 @@ const Header = ({ user, folder }) => {
         )}
       </nav>
       <div className="folder">
-        <img
-          src={folder.profileImageSource}
-          alt="userImage"
-          className="folder-user-image"
-          width="60"
-          height="60"
-        />
+        <img src={folder.profileImageSource} alt="userImage" className="folder-user-image" />
         <p className="folder-user-name">@{folder.ownerName}</p>
         <p className="folder-name">{folder.folderName}</p>
       </div>

@@ -4,6 +4,10 @@
   display: flex;
   justify-content: center;
   margin-top: 4rem;
+
+  @media (max-width: 767px) {
+    margin-top: 2rem;
+  }
 }
 
 .search-bar {
@@ -11,6 +15,15 @@
   position: relative;
   align-items: center;
   width: 106rem;
+
+  @media (max-width: 1123px) {
+    width: 70.4rem;
+    margin: 0 3.2rem;
+  }
+
+  @media (max-width: 767px) {
+    width: 32.5rem;
+  }
 }
 
 .search-bar-input {
@@ -24,6 +37,13 @@
   border: none;
   padding: 1.5rem 1.6rem;
   padding-left: 4.2rem;
+
+  @media (max-width: 767px) {
+    width: 32.5rem;
+    font-size: 1.4rem;
+    padding: 1.3rem 1.6rem;
+    padding-left: 3.8rem;
+  }
 }
 
 .search-bar-icon {
