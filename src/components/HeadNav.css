@@ -25,6 +25,12 @@ nav {
 	font-weight: 400;
 }
 
+.navProfile img {
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+}
+
 @media (max-width: 1199px) {
 	nav {
 		margin: 0;
