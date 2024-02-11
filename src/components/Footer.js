@@ -6,7 +6,7 @@ import instagramLogo from '../assets/instagram.svg';
 
 const Footer = () => {
   return (
-  <div className='container-footer'>
+  <footer className='container-footer'>
     <div className='footer_ly'>
       <div className='footer'>
         <span className='codeit social-logo_text'>©codeit - 2023</span>
@@ -30,7 +30,7 @@ const Footer = () => {
         </div>
       </div>
     </div>
-  </div>
+  </footer>
   )
 }
 

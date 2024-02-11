@@ -2,7 +2,7 @@ export function compareDateDifferences(rawDataTime) {
   const currentTime = new Date();
   const time = new Date(rawDataTime);
 
-  const timeDifference = currentTime - time; // 시간 차
+  const timeDifference = currentTime - time;
 
   const result = answerDateDifferences(destructureTime(timeDifference));
   return result;

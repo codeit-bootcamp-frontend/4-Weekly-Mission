@@ -5,7 +5,7 @@ const Gnb = ({items}) => {
   const isProfileAvailable = items && items.profileImageSource && items.email;
 
   return (
-    <div className='gnb_ly'>
+    <nav className='gnb_ly'>
       <div className='gnb-inner_ly'>
         <a href="/">
           <img className='logo' src={logoImg} alt="홈으로 연결된 Linkbrary 로고" />
@@ -19,7 +19,7 @@ const Gnb = ({items}) => {
           <button className='login-button'>로그인</button>
         )}
       </div>
-    </div> 
+    </nav> 
   )
 }
 
