@@ -15,3 +15,27 @@
   border: none;
   border-radius: 8px;
 }
+
+/* tablet-size */
+@media (max-width: 1199px) {
+  .content {
+    padding: 40px 32px;
+  }
+
+  .content input {
+    width: 704px;
+  }
+}
+
+/* mobile-size */
+@media (max-width: 767px) {
+  .content {
+    padding: 20px 32px;
+    gap: 32px;
+  }
+
+  .content input {
+    width: 325px;
+    padding: 12px 8px;
+  }
+}
