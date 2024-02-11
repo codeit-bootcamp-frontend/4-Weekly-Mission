@@ -54,6 +54,7 @@
 .info__description {
   overflow: hidden;
   text-overflow: ellipsis;
+  word-break: break-all;
   word-wrap: break-word;
   display: -webkit-box;
   -webkit-line-clamp: 2;
