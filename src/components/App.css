@@ -57,6 +57,20 @@ body {
 .social {
   gap: 5px;
 }
+.cta {
+  color: var(--Grey-Light, #f5f5f5);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+  width: 80px;
+  padding: 10px 16px;
+  gap: 10px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  text-decoration: none;
+}
 /* 리액트 */
 header {
   display: flex;
@@ -118,6 +132,11 @@ nav {
 
   .codeit {
     position: static;
+  }
+  .cta {
+    font-size: 18px;
+    width: 128px;
+    padding: 16px 20px;
   }
   /* 리액트 */
   header {

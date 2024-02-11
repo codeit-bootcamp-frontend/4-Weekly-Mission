@@ -4,6 +4,9 @@ export async function GetProfile() {
   );
   const result = await response.json();
   //"{\"id\":1,\"name\":\"코드잇\",\"email\":\"codeit@codeit.com\",\"profileImageSource\":\"https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png\"}"
+  if (!response.ok) {
+    throw new Error("사용자 정보를 불러오는데 실패했습니다");
+  }
   return result;
 }
 
@@ -12,6 +15,9 @@ export async function GetFolder() {
     "https://bootcamp-api.codeit.kr/api/sample/folder"
   );
   const result = await response.json();
+  if (!response.ok) {
+    throw new Error("폴더 정보를 불러오는데 실패했습니다");
+  }
   return result;
 }
 

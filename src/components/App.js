@@ -34,8 +34,12 @@ function App() {
       setOwner(owner);
       setLinks(links);
     };
-    GetMyProfile();
-    GetMyFolder();
+    try {
+      GetMyProfile();
+      GetMyFolder();
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   return (
@@ -44,7 +48,7 @@ function App() {
         <header>
           <nav>
             <img src={logo} />
-            <Profile info={myProfile} />
+            <Profile info={{}} />
           </nav>
         </header>
         <div className="favorites flex flex-col justify-between items-center">

@@ -52,7 +52,7 @@ function CardListItem({ item, card, href }) {
     card = card1;
   }
   return (
-    <a href={href} className="card flex flex-col">
+    <a href={href} className="card flex flex-col" target="_blank">
       <img key={card} className="card-image" src={card} />
       <div className="card-content">
         <p>{getDaysAgo(item.createdAt)}</p>
