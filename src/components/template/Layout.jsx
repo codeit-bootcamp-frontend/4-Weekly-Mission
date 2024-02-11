@@ -4,7 +4,6 @@ import { styled } from 'styled-components';
 
 import GNB from 'components/common/gnb/GNB';
 import Footer from 'components/common/footer/Footer';
-import Header from 'components/common/header/Header';
 
 const Styled = {
   Body: styled.div`
@@ -32,7 +31,6 @@ function Layout({ children }) {
   return (
     <Styled.Body className="layout-body">
       <GNB />
-      {/* <Header /> */}
       <Styled.Container className="layout-container" style={{ paddingTop: calculatePadding() }}>
         <Outlet />
         {children}
