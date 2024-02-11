@@ -3,7 +3,6 @@ import Card from "./Card";
 import SearchIcon from '../assets/search.svg';
 
 function FolderList({ folderList }) {
-  console.log('FolderList', folderList);
   return (
     <section>
       <div>
