@@ -1,5 +1,4 @@
 import { useQuery } from 'react-query';
-// import { useEffect, useState } from 'react';
 
 /**
  * fetch 커스텀 훅
@@ -18,7 +17,7 @@ function useFetchData(fetchFunction, queryKey, processData) {
       const data = await res.json();
       return processData(data);
     } catch (e) {
-      console.log(e);
+      return;
     }
   });
 }

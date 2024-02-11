@@ -5,13 +5,13 @@ import useFetchData from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';
 import Card from './Card';
+import ErrorCard from './ErrorCard';
 
 const CardGrid = () => {
   const {
     data: cardDatas,
     isLoading,
     isError,
-    error,
   } = useFetchData(sampleFolderInquire, 'cardDatas', data =>
     data?.folder.links.map(link => ({
       ...link,
@@ -21,7 +21,7 @@ const CardGrid = () => {
   );
 
   if (isError) {
-    console.log(error);
+    return <ErrorCard />;
   }
 
   return (
