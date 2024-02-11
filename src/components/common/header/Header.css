@@ -6,6 +6,7 @@ header {
   background-color: #f0f6ff;
   top: 0;
   height: 93px;
+  z-index: 100;
 }
 
 header .wrapper {
