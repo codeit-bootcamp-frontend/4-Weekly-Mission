@@ -29,7 +29,7 @@ function Header() {
       <div className="header__inner">
         <div className="header__logo">
           <div className="logo">
-            <a href="#" className="logo__link">
+            <a href="/" className="logo__link">
               <IconLogo />
             </a>
           </div>
