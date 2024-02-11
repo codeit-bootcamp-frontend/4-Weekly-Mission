@@ -3,9 +3,9 @@ import { faEye, faEyeSlash} from "@fortawesome/free-solid-svg-icons";
 import AuthErrorMsg from "./AuthErrorMsg";
 import AuthLable from "./AuthLable";
 import { useState } from "react";
-import {API_PATH_SIGNIN, API_PATH_CHECK_EMAIL, API_PATH_SIGNUP} from "../../services/api-path";
+import {API_PATH_SIGNIN, API_PATH_CHECK_EMAIL, API_PATH_SIGNUP} from "../../hooks/services/api-path";
 import {REGEXP_PASSWORD} from "../../utils/regExp";
-import FETCH_API from "../../services/fetch-data";
+import FETCH_API from "../../hooks/services/fetch-data";
 function AuthForm({option}){
     // 패스워드 인풋 타입 변경
     const [inputType, setInputType] = useState({

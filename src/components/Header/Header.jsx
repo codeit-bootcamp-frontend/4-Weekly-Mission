@@ -2,7 +2,7 @@ import HeaderLogoImg from '../../assets/mainlogo.svg';
 import HeaderUserInfo from './HeaderUserInfo';
 import HeaderLoginButton from './HeaderLoginButton'
 import {useEffect, useState} from 'react';
-import { API_PATH_SAMPLE_USER_INFO } from '../../services/api-path';
+import { API_PATH_SAMPLE_USER_INFO } from '../../hooks/services/api-path';
 import { Link } from "react-router-dom";
 import "../../styles/header.css";
 

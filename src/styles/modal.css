@@ -7,9 +7,13 @@
     --Linkbrary-red: #FF5B56;
     --Grey-Light: #F5F5F5;
     --Linkbrary-gray60: #9FA6B2;
+    --Linkbrary-bg: #F0F6FF;
+    --Linkbrary-primary-color: #6D6AFE;
+    ---Gray-White: #FFF;
+    --Stroke-light: #DEE2E6;
 }
 
-.modal__background{
+.modal__wrap{
     position: fixed;
     top: 50%;
     left: 50%;
@@ -17,6 +21,8 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+    display: none;
 }
 
 .modal{
@@ -25,8 +31,8 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 22.5rem;
-    border: 1px solid var(--Linkbrary-gray20);
-    background-color: var(--Linkbrary-white);
+    border: 1px solid var(--Stroke-light);
+    background-color: var(---Gray-White);
     border-radius: 0.9375rem;
     padding: 2rem 2.5rem;
     text-align: center;
@@ -57,18 +63,23 @@
     padding: 1.125rem 0.9375rem;
     border-radius: 0.5rem;
     background: var(--Linkbrary-white, #FFF);
-    border: 1px solid var(--Linkbrary-primary-color);
+    border: 1px solid var(--Linkbrary-gray20);
     margin: 1.5rem 0 0.94rem;
     outline: none;
 }
 
-.modal__buttonn{
+.modal__input:focus{
+    border: 1px solid var(--Linkbrary-primary-color);
+}
+
+.modal__button{
     width: 17.5rem;
     padding: 1rem 1.25rem;
     border-radius: 0.5rem;
     outline: none;
     border: none;
     color: var(--Grey-Light);
+    font-weight: 600;
 }
 
 .button-blue{
@@ -97,4 +108,30 @@
     font-size: 0.8125rem;
     line-height: 0.9375rem;
     margin-top: 0.62rem;
+}
+
+.modal__category{
+    width: 17.5rem;
+    margin: 1.5rem 0;
+}
+
+.modal__category--list{
+    text-align: left;
+    align-items: center;
+    line-height: 1.5rem;
+    color: var(--Linkbrary-gray100);
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.modal__category--count{
+    font-size: 0.875rem;
+    color: var(--Linkbrary-gray60);
+    margin-left: 0.5rem;
+}
+
+.modal__category--list:hover{
+    background-color: var(--Linkbrary-bg);
+    color: var(--Linkbrary-primary-color);   
 }

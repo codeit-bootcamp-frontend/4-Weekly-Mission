@@ -1,8 +1,8 @@
 import Profile  from "./Profile";
 import Content from "../content/Content";
 import {useEffect, useState} from 'react';
-import { API_PATH_SAMPLE_FOLDER } from "../../services/api-path";
-import FETCH_API from "../../services/fetch-data";
+import { API_PATH_SAMPLE_FOLDER } from "../../hooks/services/api-path";
+import FETCH_API from "../../hooks/services/fetch-data";
 function ShaerContent(){
     const [linkList, setLinkList] = useState([]);
     const [userProfile, setUserProfile] = useState({
