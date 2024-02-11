@@ -1,0 +1,29 @@
+.footerFrame {
+  margin-top: 60px;
+  display: flex;
+  height: 160px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: #111322;
+  padding: 32px 104px 64px 104px;
+  box-sizing: border-box;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+span {
+  color: #676767;
+  font-family: Arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

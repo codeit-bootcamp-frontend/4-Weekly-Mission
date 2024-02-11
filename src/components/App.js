@@ -4,6 +4,7 @@ import NavigationBar from "./NavigationBar";
 import { useEffect, useState } from "react";
 import FolderBar from "./FolderBar";
 import CardSection from "./CardSection";
+import Footer from "./Footer";
 
 function App() {
   const [profile, setProfile] = useState(null);
@@ -47,6 +48,7 @@ function App() {
         imgSrc={profileImage}
       />
       <CardSection cardList={cardList} />
+      <Footer />
     </div>
   );
 }
