@@ -15,17 +15,18 @@ function timeToString(time) {
   if (diffHour <= 23) {
     return `${diffHour} hours ago`;
   }
-
+  // 30일 이하
   let diffDay = parseInt(diffHour / 24);
   if (diffDay <= 30) {
     return `${diffDay} days ago`;
   }
 
   let diffMonth = parseInt(diffDay / 30);
+  // 11달 이하
   if (diffMonth <= 11) {
     return `${diffMonth} months ago`;
   }
-
+  // 11달 이상
   let diffYear = parseInt(diffMonth / 12);
   return `${diffYear} years ago`;
 }
