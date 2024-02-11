@@ -21,7 +21,7 @@ function ProfileComponent() {
   }, []);
 
   return (
-    <div>
+    <>
       {profileData ? (
         <div className="profile">
           <img
@@ -34,7 +34,7 @@ function ProfileComponent() {
       ) : (
         <p>프로필 정보를 가져오는 중입니다...</p>
       )}
-    </div>
+    </>
   );
 }
 

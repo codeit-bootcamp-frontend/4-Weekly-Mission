@@ -1,22 +1,4 @@
-.topnav__loginBt {
-  text-decoration: none;
-}
-
-/* 색상 팔레트 변수 지정 */
-:root {
-  --primary: #6d6afe;
-  --red: #ff5b56;
-  --black: #111322;
-  --white: #ffffff;
-  --gray_Very-Dim: #3e3e43;
-  --gray-Dim: #9fa6b2;
-  --gray-Moderate: #ccd5e3;
-  --gray-Bright: #e7effb;
-  --gray-Very-Bright: #f0f6ff;
-}
-
 /* 상단 바 */
-
 .topnav {
   padding: 20px 200px;
   background-color: var(--gray-Very-Bright);
@@ -29,7 +11,7 @@
   }
 
   @media screen and (max-width: 767px) {
-    padding: 13px 32px;
+    padding: 17px 32px;
   }
 }
 
@@ -64,6 +46,7 @@
   align-items: center;
   width: 128px;
   border: 0;
+  text-decoration: none;
 
   @media screen and (max-width: 767px) {
     font-size: 14px;
@@ -72,5 +55,3 @@
     width: 80px;
   }
 }
-
-/* 프로필 */

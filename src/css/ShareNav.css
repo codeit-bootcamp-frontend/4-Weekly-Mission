@@ -1,0 +1,57 @@
+.shareFolder {
+  background: var(--Linkbrary-bg, #f0f6ff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  @media screen and (max-width: 767px) {
+    gap: 10px;
+    padding-top: 10px;
+    padding-bottom: 40px;
+  }
+}
+
+.shareFolder--user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  @media screen and (max-width: 767px) {
+    gap: 6px;
+  }
+}
+
+.shareFolder--user__img {
+  display: flex;
+  height: 60px;
+  padding: 5px 5px 5px 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 47px;
+  background: var(--primary-purple-70, #8f00ff);
+  @media screen and (max-width: 767px) {
+    height: 40px;
+  }
+}
+
+.shareFolder--user__name {
+  line-height: 24px;
+  font-weight: 400;
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    line-height: nomal;
+  }
+}
+
+.shareFolder--foldername {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+
+  @media screen and (max-width: 767px) {
+    font-size: 32px;
+    letter-spacing: -0.2px;
+  }
+}
