@@ -19,3 +19,16 @@ ul, ol {
 textarea {
     resize: none;
 }
+main {
+    padding: 40px 32px;
+}
+main .container {
+    max-width: 1060px;
+    margin: 0 auto;
+}
+/* 모바일 반응형 */
+@media screen and (max-width: 768px) {
+    main {
+        padding: 20px 32px;
+    }
+}
