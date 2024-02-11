@@ -1,7 +1,14 @@
 import React from "react";
+import ShareNav from "./ShareNav.jsx";
+import CardList from "./CardList.jsx";
 
 function Main(props) {
-  return <div></div>;
+  return (
+    <>
+      <ShareNav />
+      <CardList />
+    </>
+  );
 }
 
 export default Main;

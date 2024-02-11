@@ -1,0 +1,23 @@
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile--img {
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  margin-right: 6px;
+}
+
+.profile--email {
+  color: var(--Linkbrary-gray100, #373740);
+
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

@@ -14,3 +14,16 @@ html {
 body {
   width: 100%;
 }
+
+/* 색상 팔레트 변수 지정 */
+:root {
+  --primary: #6d6afe;
+  --red: #ff5b56;
+  --black: #111322;
+  --white: #ffffff;
+  --gray_Very-Dim: #3e3e43;
+  --gray-Dim: #9fa6b2;
+  --gray-Moderate: #ccd5e3;
+  --gray-Bright: #e7effb;
+  --gray-Very-Bright: #f0f6ff;
+}
