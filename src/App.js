@@ -4,6 +4,7 @@ import "./global.css";
 import Layout from "./components/Layout/Layout";
 import FolderInfo from "./components/FolderInfo/FolderInfo";
 import SharePage from "./pages/SharePage/SharePage";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 function App() {
   const [userProfile, setUserProfile] = useState(null);
@@ -17,7 +18,6 @@ function App() {
     setProfile(folder.owner);
     setFolderName(folder.name);
   };
-
   useEffect(() => {
     handleLoad();
   }, []);
@@ -26,6 +26,7 @@ function App() {
       <Layout userProfile={userProfile}>
         <SharePage
           folderInfo={<FolderInfo profile={profile} folderName={folderName} />}
+          searchBar={<SearchBar />}
         />
       </Layout>
     </Fragment>
