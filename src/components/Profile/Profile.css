@@ -13,5 +13,9 @@
 .Profile-email {
   display: none;
   font-size: 1.4rem;
-  color: var(--gray100);
+  color: var(--linkbrary-gray100);
+
+  @media (min-width: 768px) {
+    display: inline;
+  }
 }
