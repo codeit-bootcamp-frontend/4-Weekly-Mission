@@ -2,17 +2,22 @@ import styles from "./Header.module.css";
 import logo from "../../assets/header-logo.svg";
 import { useEffect, useState } from "react";
 import { getUser } from "api/api";
+import { useAsync } from "hooks/useAsync";
 
 export default function Header() {
   const [user, setUser] = useState({});
+  const [loading, error, getUserAsync] = useAsync(getUser);
 
   const loadUser = async () => {
-    try {
-      const data = await getUser();
-      setUser(data);
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const data = await getUser();
+    //   setUser(data);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+    const data = await getUserAsync();
+    setUser(data);
   };
 
   useEffect(() => {
@@ -46,6 +51,7 @@ export default function Header() {
           </a>
         )}
       </div>
+      {error && <div>{error.message}</div>}
     </header>
   );
 }

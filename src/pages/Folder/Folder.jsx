@@ -6,27 +6,23 @@ import SearchIcon from "assets/Search.png";
 import { useEffect, useState } from "react";
 import CardList from "components/CardList/CardList";
 import { getFolderInfo } from "api/api";
+import { useAsync } from "hooks/useAsync";
 
 export default function Folder() {
   const [search, setSearch] = useState("");
   const [folderInfo, setFolderInfo] = useState({});
+  const [isLoading, loadingError, getFolderInfoAsync] = useAsync(getFolderInfo);
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
   };
 
   const loadFolderInfo = async () => {
-    try {
-      const { folder } = await getFolderInfo();
-      console.log(folder);
-      setFolderInfo(folder);
-    } catch (error) {
-      console.log(error);
-    }
+    const { folder } = await getFolderInfoAsync();
+    setFolderInfo(folder);
   };
 
   useEffect(() => {
-    console.log("hi");
     loadFolderInfo();
   }, []);
 
@@ -62,6 +58,7 @@ export default function Folder() {
         </div>
 
         <CardList links={folderInfo.links} />
+        {loadingError?.message && <div>{loadingError.message}</div>}
       </main>
 
       <Footer />
