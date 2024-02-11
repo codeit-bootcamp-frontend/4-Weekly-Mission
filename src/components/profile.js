@@ -1,5 +1,4 @@
 function Profile({ info }) {
-  console.log(typeof info);
   if (Object.keys(info).length === 0) {
     return <button className="btn cta">로그인</button>;
   }

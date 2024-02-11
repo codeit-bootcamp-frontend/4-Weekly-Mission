@@ -48,7 +48,7 @@ function App() {
         <header>
           <nav>
             <img src={logo} />
-            <Profile info={{}} />
+            <Profile info={myProfile} />
           </nav>
         </header>
         <div className="favorites flex flex-col justify-between items-center">
