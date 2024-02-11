@@ -4,6 +4,7 @@ import { styled } from 'styled-components';
 
 import GNB from 'components/common/gnb/GNB';
 import Footer from 'components/common/footer/Footer';
+import useNavBarInPage from 'hooks/useNavBarInPage';
 
 const Styled = {
   Body: styled.div`
@@ -23,6 +24,8 @@ const Styled = {
 };
 
 function Layout({ children }) {
+  const isNavBarInPage = useNavBarInPage();
+
   const calculatePadding = () => {
     if (!isMobile) return '4rem';
     else return '2rem';
@@ -30,7 +33,7 @@ function Layout({ children }) {
 
   return (
     <Styled.Body className="layout-body">
-      <GNB />
+      {isNavBarInPage && <GNB />}
       <Styled.Container className="layout-container" style={{ paddingTop: calculatePadding() }}>
         <Outlet />
         {children}
