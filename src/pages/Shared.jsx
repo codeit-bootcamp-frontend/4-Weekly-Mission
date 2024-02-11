@@ -13,17 +13,18 @@ import SharedInfo from "../components/shared/SharedInfo";
 import "../pages/Shared.css";
 
 const Shared = () => {
-  const [items, setItems] = useState([]);
+  const [cardItems, setCardItems] = useState([]);
   const [folderInfo, setFolderInfo] = useState("");
   const [folderName, setFolderName] = useState("");
   const [userInfo, setUserInfo] = useState([]);
   const [order] = useState("createdAt");
 
-  const [isFolderLoading, folderLoadingError, getReviewsAsync] =
-    useAsync(getFolder);
-  const [isUserLoading, userLoadingError, getUserAsync] = useAsync(getUser);
+  const [folderLoadingError, getReviewsAsync] = useAsync(getFolder);
+  const [userLoadingError, getUserAsync] = useAsync(getUser);
 
-  const sortedItems = items.sort((a, b) => b[order].localeCompare(a[order]));
+  const sortedItems = cardItems.sort((a, b) =>
+    b[order].localeCompare(a[order])
+  );
 
   // 카드 아이템 요청
   const handleLoadItems = async () => {
@@ -31,7 +32,7 @@ const Shared = () => {
     if (!result) return;
 
     const { links, owner, name } = result.folder;
-    setItems(links);
+    setCardItems(links);
     setFolderInfo(owner);
     setFolderName(name);
   };
@@ -51,7 +52,7 @@ const Shared = () => {
 
   return (
     <div className="Shared">
-      <Header userInfo={userInfo} />
+      <Header userInfo={userInfo} userLoadingError={userLoadingError} />
       <div className="Shared-main">
         <SharedInfo
           folderInfo={folderInfo}
@@ -60,7 +61,10 @@ const Shared = () => {
         />
         <div className="Shared-content-wrapper">
           <SearchBar />
-          <CardList items={sortedItems} folderLoadingError={folderLoadingError} />
+          <CardList
+            items={sortedItems}
+            folderLoadingError={folderLoadingError}
+          />
         </div>
       </div>
       <Footer />
