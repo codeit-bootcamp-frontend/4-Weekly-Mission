@@ -10,7 +10,7 @@ const Card = ({imgSrc, time, title, description, url}) => {
 
   return (
     <div className='card'>
-      <a href={url} target="_blank" rel="noreferrer">
+      <a href={url} target="_blank" rel="noreferrer noopener">
         <img src={processImg(imgSrc)} alt='이미지' className='card-img'/>
         <div className='card-info'>
           <span className='time'>{timeDifference}</span>
