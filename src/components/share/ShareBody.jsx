@@ -10,7 +10,7 @@ function ShareBody() {
   const { isLoading, data, hasError } = useContext(ShareContext)
 
   const renderLoading = isLoading && <Loading />
-  const renderSuccess = !isLoading && data && !hasError && (
+  const renderSuccess = data && (
     <>
       <ShareSearchBar type="text" placeholder="링크를 검색해 보세요." name="search" />
       <ShareCardList data={data} />

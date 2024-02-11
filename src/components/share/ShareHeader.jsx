@@ -10,8 +10,8 @@ import "./ShareHeader.css"
 function ShareHeader() {
   const { isLoading, data, hasError } = useContext(ShareContext)
 
-  const renderLoading = isLoading && !data && <Loading />
-  const renderSuccess = !isLoading && !hasError && data && <ShareHeaderInfo data={data} />
+  const renderLoading = isLoading && <Loading />
+  const renderSuccess = data && <ShareHeaderInfo data={data} />
   const renderFailed = hasError && <ErrorCard>{hasError.message}</ErrorCard>
 
   return (

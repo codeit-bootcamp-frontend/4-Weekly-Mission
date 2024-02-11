@@ -2,11 +2,11 @@
   position: relative;
 }
 
-.folderHeader .loading-container {
+.shareHeader .loading-container {
   height: 164px;
 }
 
-.folderBody .loading-container {
+.shareBody .loading-container {
   height: 30vh;
 }
 
@@ -63,12 +63,4 @@
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -124px;
   }
-}
-
-.showbox {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
