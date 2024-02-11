@@ -74,7 +74,7 @@ const AppLayout = styled.div`
   }
 
   .mainBox {
-    padding: 2rem;
+    padding: 2rem 5rem;
   }
 `;
 export default App;

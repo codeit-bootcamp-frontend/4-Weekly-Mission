@@ -48,7 +48,7 @@ const StyledArticle = styled.article`
   }
 
   &:hover {
-    scale: 1.1;
+    scale: 1.3;
     img {
       opacity: 0.8;
     }

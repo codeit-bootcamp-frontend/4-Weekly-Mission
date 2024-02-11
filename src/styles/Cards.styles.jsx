@@ -26,7 +26,7 @@ const StyledSection = styled.section`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: 3rem;
   margin: 2rem 0;
 
   @media screen and (width>1124px) {

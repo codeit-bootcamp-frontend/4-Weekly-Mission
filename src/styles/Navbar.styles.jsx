@@ -18,7 +18,6 @@ const Navbar = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(user);
 
   return (
     <StyledHeader>
