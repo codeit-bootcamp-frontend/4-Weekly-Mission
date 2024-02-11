@@ -1,11 +1,12 @@
 import './App.css';
-import Navbar from './components/Navbar';
-import Cards from './components/Cards';
-import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
 import { getFolder } from './utils/api';
-import Hero from './components/Hero';
-import Searchbar from './components/Searchbar';
+import User from './styles/User.styles';
+import Footer from './styles/Footer.styles';
+import Cards from './styles/Cards.styles';
+import SearchBar from './styles/Serchbar.styles';
+import Navbar from './styles/Navbar.styles';
+import styled from 'styled-components';
 
 function App() {
   const [folder, setFolder] = useState();
@@ -28,15 +29,48 @@ function App() {
   }, []);
 
   return (
-    <div className='App'>
+    <AppLayout>
       <Navbar />
-      {user && <Hero name={user.name} imageURL={user.profileImageSource} />}
-      {folder && folder.name}
-      <Searchbar />
-      {links && <Cards links={links} />}
+      <section className='homeSection'>
+        {user && (
+          <User title={`@${user.name}`} image={{ URL: user.profileImageSource, size: '8rem' }} direction='column' />
+        )}
+        {folder && <h2 className='folderName'>{folder.name}</h2>}
+      </section>
+      <main className='mainLayout'>
+        <section className='mainBox'>
+          <SearchBar />
+          {links && <Cards links={links} />}
+        </section>
+      </main>
       <Footer />
-    </div>
+    </AppLayout>
   );
 }
 
+const AppLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1920px;
+
+  .homeSection {
+    padding-top: 5rem;
+  }
+
+  .folderName {
+    padding: 1rem 0;
+  }
+
+  .mainLayout {
+    width: 100vw;
+    margin-top: 2rem;
+    background: #ffffff;
+  }
+
+  .mainBox {
+    padding: 2rem;
+  }
+`;
 export default App;
