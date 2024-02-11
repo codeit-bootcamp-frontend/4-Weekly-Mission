@@ -22,38 +22,3 @@
   height: 24px;
   cursor: pointer;
 }
-
-
-/* .navBar {
-    display: flex;
-    justify-content: center;
-    color: var(--primary-color);
-    position: sticky;
-    top: 0;
-    background-color: var(--bg-color);
-    z-index: 999;
-    padding: 20px 0;
-    width: 100%;
-  }
-  
-  .wrap {
-    margin: 0 200px;
-    max-width: 1920px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-  }
-  
-  .btn {
-    width: 128px;
-    flex-shrink: 0;
-  }
-  
- 
-  
-  .cta {
-    padding: 16px 20px;
-    border-radius: 8px;
-    font-size: 1.8rem;
-  } */

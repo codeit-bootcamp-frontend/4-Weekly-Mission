@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
-import { SharedPage, DetailPage } from "../pages";
+import { SharedPage } from "../pages";
 
 const Routers = () => {
   return (
@@ -7,7 +7,6 @@ const Routers = () => {
       <Router>
         <Routes>
           <Route path="/" element={<SharedPage />} />
-          <Route path="/detail/:id" element={<DetailPage />} />
           {/* <Route path="*" element={<ErrorPage />} /> */}
         </Routes>
       </Router>

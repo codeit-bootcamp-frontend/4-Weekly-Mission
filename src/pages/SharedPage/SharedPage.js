@@ -14,20 +14,20 @@ function SharedPage() {
 
   const handleLoad = async () => {
     let data;
-    try{
+    try {
       setIsLoading(true);
       data = await fetchFolderData();
-    }catch(error){
+    } catch (error) {
       return;
-    }finally{
+    } finally {
       setIsLoading(false);
     }
     const { count, links, name, owner } = data.folder;
-      setOwnerName(owner.name);
-      setFileImg(owner.profileImageSource);
-      setFolderName(name);
-      setItems(links);
-  }
+    setOwnerName(owner.name);
+    setFileImg(owner.profileImageSource);
+    setFolderName(name);
+    setItems(links);
+  };
 
   useEffect(() => {
     handleLoad();
@@ -38,7 +38,7 @@ function SharedPage() {
       <Navbar />
       <Header fileImg={fileImg} ownerName={ownerName} folderName={folderName} />
       <Input />
-      <List items={items}/>
+      <List items={items} />
     </div>
   );
 }
