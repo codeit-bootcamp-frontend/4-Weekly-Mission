@@ -1,5 +1,5 @@
 import { Fragment, useState, useEffect } from "react";
-import { getUser } from "../../api/getUser";
+import { getUser } from "../../api/api";
 import Footer from "../Footer/Footer";
 import NavBar from "../NavBar/NavBar";
 
