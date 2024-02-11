@@ -1,6 +1,17 @@
+@import 'palette.css';
+
 .content {
   display: grid;
   justify-content: center;
   gap: 40px;
-  margin: 40px 0;
+  padding: 40px 0;
+}
+
+.content input {
+  color: #666;
+  background-color: #F5F5F5;
+  width: 1060px;
+  padding: 15px 10px;
+  border: none;
+  border-radius: 8px;
 }

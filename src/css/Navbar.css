@@ -1,6 +1,8 @@
 @import 'palette.css';
 
 .nav {
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -14,4 +16,37 @@
   gap: 6px;
   font-size: 14px;
   color: var(--gray100);
+}
+
+.account img {
+  width: 32px;
+  border-radius: 50%;
+}
+
+.loginBtn {
+  color: #f5f5f5;
+  font-size: 18px;
+  font-weight: 600;
+  background: var(--gra-purpleblue-to-skyblue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 128px;
+  padding: 16px 0;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* tablet-size */
+@media (max-width: 1199px) {
+  .nav {
+    padding: 20px 32px;
+  }
+}
+
+/* mobile-size */
+@media (max-width: 767px) {
+  .nav {
+    padding: 13px 32px;
+  }
 }
