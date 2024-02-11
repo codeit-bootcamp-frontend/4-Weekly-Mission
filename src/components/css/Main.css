@@ -48,6 +48,7 @@ main {
   }
 
   .card-container {
+    overflow: hidden;
     width: 340px;
     height: 334px;
     border-radius: 20px;
@@ -73,6 +74,8 @@ main {
   }
 
   .card-container-texts {
+    background-color: white;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -95,6 +98,10 @@ main {
 
   .card-container-description {
     width: 300px;
+    display: -webkit-box; /* 웹킷 브라우저에서 다중 줄 형태를 지원하기 위해 필요한 속성 */
+    -webkit-box-orient: vertical; /* 세로 방향으로 텍스트를 표시 */
+    overflow: hidden; /*텍스트가 div의 영역을 넘어갈 때 숨김 */
+    -webkit-line-clamp: 2; /* 두 줄을 넘어가면 생략 부호로 처리 */
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -144,6 +151,7 @@ main {
   }
 
   .card-container {
+    overflow: hidden;
     width: 340px;
     height: 334px;
     border-radius: 20px;
@@ -169,6 +177,8 @@ main {
   }
 
   .card-container-texts {
+    background-color: white;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -191,6 +201,10 @@ main {
 
   .card-container-description {
     width: 300px;
+    display: -webkit-box; /* 웹킷 브라우저에서 다중 줄 형태를 지원하기 위해 필요한 속성 */
+    -webkit-box-orient: vertical; /* 세로 방향으로 텍스트를 표시 */
+    overflow: hidden; /*텍스트가 div의 영역을 넘어갈 때 숨김 */
+    -webkit-line-clamp: 2; /* 두 줄을 넘어가면 생략 부호로 처리 */
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -239,6 +253,7 @@ main {
   }
 
   .card-container {
+    overflow: hidden;
     width: 340px;
     height: 334px;
     border-radius: 20px;
@@ -264,6 +279,8 @@ main {
   }
 
   .card-container-texts {
+    background-color: white;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -286,6 +303,10 @@ main {
 
   .card-container-description {
     width: 300px;
+    display: -webkit-box; /* 웹킷 브라우저에서 다중 줄 형태를 지원하기 위해 필요한 속성 */
+    -webkit-box-orient: vertical; /* 세로 방향으로 텍스트를 표시 */
+    overflow: hidden; /*텍스트가 div의 영역을 넘어갈 때 숨김 */
+    -webkit-line-clamp: 2; /* 두 줄을 넘어가면 생략 부호로 처리 */
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
