@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { Link } from 'react-router-dom';
 
+import defaultCardImg from 'assets/defaultCardImg.svg';
 import StarButton from 'components/common/card/StarButton';
 import TimeFormat from 'components/common/card/TimeFormat';
 import DateFormat from 'components/common/card/DateFormat';
@@ -56,7 +57,7 @@ const Styled = {
   `,
 };
 
-function Card({ createdAt, url, description, imageSource }) {
+function Card({ createdAt, url, description, imageSource = defaultCardImg }) {
   return (
     <Styled.Container>
       <Link to={url} target="_blank" rel="noopener noreferrer">
