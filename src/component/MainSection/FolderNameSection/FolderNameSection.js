@@ -1,5 +1,5 @@
 import "./FolderNameSection.css";
-import avatar from "../../images/avatar.png";
+import avatar from "../../../images/avatar.png";
 
 const FolderNameSection = () => {
   return (
