@@ -86,3 +86,17 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 25px 20px;
 }
+
+/* Tablet */
+@media (max-width: 1124px) {
+  .card-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .card-list {
+    grid-template-columns: 1fr;
+  }
+}
