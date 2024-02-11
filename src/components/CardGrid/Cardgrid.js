@@ -12,13 +12,8 @@ const CardGrid = () => {
       <Search />
       <div className="card-grid">
         {formattedCards.map((card) => (
-          <div className="card">
-            <a
-              key={card.id}
-              href={card.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+          <div className="card" key={card.id}>
+            <a href={card.url} target="_blank" rel="noopener noreferrer">
               <div className="img">
                 <img src={card.imageSource || defaultImage} alt={card.title} />
               </div>
