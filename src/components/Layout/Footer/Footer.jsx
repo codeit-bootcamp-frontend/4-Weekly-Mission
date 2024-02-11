@@ -21,18 +21,18 @@ function Footer() {
         </div>
         <div className="footer__sns">
           <div className="sns">
-            <div className="sns__item">
+            <a href="#" className="sns__item">
               <IconFacebook />
-            </div>
-            <div className="sns__item">
+            </a>
+            <a href="#" className="sns__item">
               <IconTwitter />
-            </div>
-            <div className="sns__item">
+            </a>
+            <a href="#" className="sns__item">
               <IconYoutube />
-            </div>
-            <div className="sns__item">
+            </a>
+            <a href="#" className="sns__item">
               <IconInstagram />
-            </div>
+            </a>
           </div>
         </div>
       </div>
