@@ -5,11 +5,13 @@ import Layout from "./components/Layout/Layout";
 import FolderInfo from "./components/FolderInfo/FolderInfo";
 import SharePage from "./pages/SharePage/SharePage";
 import SearchBar from "./components/SearchBar/SearchBar";
+import CardList from "./components/CardList/CardList";
 
 function App() {
   const [userProfile, setUserProfile] = useState(null);
   const [profile, setProfile] = useState(null);
   const [folderName, setFolderName] = useState(null);
+  const [items, setitems] = useState([]);
 
   const handleLoad = async () => {
     const userData = await getUser();
@@ -17,6 +19,7 @@ function App() {
     setUserProfile(userData);
     setProfile(folder.owner);
     setFolderName(folder.name);
+    setitems(folder.links);
   };
   useEffect(() => {
     handleLoad();
@@ -27,6 +30,7 @@ function App() {
         <SharePage
           folderInfo={<FolderInfo profile={profile} folderName={folderName} />}
           searchBar={<SearchBar />}
+          cardList={<CardList items={items} />}
         />
       </Layout>
     </Fragment>
