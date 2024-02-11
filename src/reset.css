@@ -10,7 +10,15 @@
 }
 
 html,
-body,
+body {
+  font-size: 62.5%;
+}
+button {
+  border: none;
+  padding: unset;
+  background-color: unset;
+  cursor: pointer;
+}
 div,
 span,
 applet,
@@ -25,7 +33,11 @@ h6,
 p,
 blockquote,
 pre,
-a,
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
 abbr,
 acronym,
 address,
@@ -36,6 +48,19 @@ del,
 dfn,
 em,
 img,
+input {
+  border: none;
+  padding: none;
+}
+input:focus {
+  outline: none;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
 ins,
 kbd,
 q,
