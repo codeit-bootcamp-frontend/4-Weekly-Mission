@@ -7,14 +7,14 @@ const SharedInfo = ({ folderInfo, folderName, folderLoadingError }) => {
   const { profileImageSource = defaultProfileImg, name } = folderInfo;
 
   return (
-    <div className="SharedInfo">
+    <section className="SharedInfo">
       <img className="SharedInfo-owner-img" src={profileImageSource} />
-      <p className="SharedInfo-owner-name">{name}</p>
+      <span className="SharedInfo-owner-name">{name}</span>
       <h1 className="SharedInfo-folder-name">{folderName}</h1>
       {folderLoadingError?.message && (
         <span className="error">{folderLoadingError.message}</span>
       )}
-    </div>
+    </section>
   );
 };
 

@@ -12,7 +12,7 @@ const Card = ({ item }) => {
         <div className="Card-img-warpper">
           <img
             className="Card-img"
-            src={imageSource ? imageSource : defaultCardImg}
+            src={imageSource || defaultCardImg}
             alt="카드 이미지"
           />
         </div>

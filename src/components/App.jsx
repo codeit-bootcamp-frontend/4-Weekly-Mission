@@ -2,11 +2,7 @@ import Shared from "../pages/Shared";
 import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <Shared />
-    </div>
-  );
+  return <Shared />;
 }
 
 export default App;

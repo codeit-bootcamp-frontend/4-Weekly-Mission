@@ -9,7 +9,7 @@ const Header = ({ userInfo }) => {
     <header>
       <div className="wrapper">
         <a className="logo" href="/">
-          <img src={logo} alt="" />
+          <img src={logo} alt="로고" />
         </a>
         {userInfo.length === 0 ? (
           <a className="login-btn" href="/signin">
@@ -18,7 +18,7 @@ const Header = ({ userInfo }) => {
         ) : (
           <div className="profile">
             <img className="profile-img" src={profileImageSource} />
-            <p className="profile-email hidden">{email}</p>
+            <p className="profile-email">{email}</p>
           </div>
         )}
       </div>

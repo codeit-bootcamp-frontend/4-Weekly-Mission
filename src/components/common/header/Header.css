@@ -91,7 +91,7 @@ header .profile-email {
     height: 28px;
   }
 
-  header .hidden {
+  header .profile-email{
     display: none;
   }
 }

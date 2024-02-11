@@ -31,6 +31,7 @@ const Shared = () => {
     let result = await getReviewsAsync();
     if (!result) return;
 
+    // 데이터 하나만?
     const { links, owner, name } = result.folder;
     setCardItems(links);
     setFolderInfo(owner);
@@ -51,9 +52,9 @@ const Shared = () => {
   }, []);
 
   return (
-    <div className="Shared">
+    <React.Fragment>
       <Header userInfo={userInfo} userLoadingError={userLoadingError} />
-      <div className="Shared-main">
+      <main className="Shared-main">
         <SharedInfo
           folderInfo={folderInfo}
           folderName={folderName}
@@ -66,9 +67,9 @@ const Shared = () => {
             folderLoadingError={folderLoadingError}
           />
         </div>
-      </div>
+      </main>
       <Footer />
-    </div>
+    </React.Fragment>
   );
 };
 
