@@ -34,7 +34,7 @@
   background: #F0F6FF;
 }
 
-.container-frame {
+.container-folder {
   display: flex;
   flex-direction: column;
   align-items: center;

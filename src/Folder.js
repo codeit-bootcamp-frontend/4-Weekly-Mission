@@ -1,8 +1,8 @@
 import SearchBar from './components/SearchBar';
 import Card from './components/Card';
-import './Frame.css';
+import './Folder.css';
 
-const Frame = ({className, items}) => {
+const Folder = ({className, items}) => {
   return (
     <div className={className}>
       <SearchBar className='search-bar_ly'/>
@@ -21,4 +21,4 @@ const Frame = ({className, items}) => {
   )
 }
 
-export default Frame;
+export default Folder;

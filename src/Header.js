@@ -1,6 +1,6 @@
-import './Top.css';
+import './Header.css';
 
-const Top = ({className, owner, name}) => {
+const Header = ({className, owner, name}) => {
   return (
     <div className={className}>
       <div className="top-frame_ly">
@@ -16,4 +16,4 @@ const Top = ({className, owner, name}) => {
   )
 }
 
-export default Top;
+export default Header;

@@ -1,5 +1,5 @@
-import Top from './Top';
-import Frame from './Frame';
+import Header from './Header';
+import Folder from './Folder';
 import Footer from './components/Footer';
 import './App.css';
 import Gnb from './components/Gnb';
@@ -16,30 +16,31 @@ const App = () => {
   useEffect(() => {
     const fetchFolder = async () => {
       const { folder } = await getFolder();
-      const { links } =  folder;
-      const { name, owner } = folder;
+      const { links, name, owner } = folder;
       
       setFolderLinks(links); 
       setFolderOwner(owner);
       setFolderName(name);
     };
 
+    fetchFolder();
+  }, []);
+
+  useEffect(() => {
     const fetchUser = async () => {
       const userInfo = await getUser();
-      const { email, name, profileImageSource } = userInfo;
       
-      setUser({ email, name, profileImageSource });
+      setUser(userInfo);
     };
 
-    fetchFolder();
     fetchUser();
   }, []);
 
   return (
     <div className='container'>
       <Gnb items={user} className="gnb_ly"/>
-      <Top owner={folderOwner} name={folderName} className='container-top'/>
-      <Frame items={folderLinks} className='container-frame'/>
+      <Header owner={folderOwner} name={folderName} className='container-top'/>
+      <Folder items={folderLinks} className='container-folder'/>
       <Footer className='container-footer'/>
     </div>
   )

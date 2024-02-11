@@ -4,9 +4,7 @@ import twitterkImg from '../assets/twitter.svg';
 import youtubeImg from '../assets/youtube.svg';
 import instagramImg from '../assets/instagram.svg';
 
-const Footer = ({className=''}) => {
-  className = className;
-
+const Footer = ({className}) => {
   return (
   <div className={className}>
     <div className='footer_ly'>
