@@ -15,5 +15,5 @@
 .eslintcache
 
 #vscode settings
-.vscode/
+/.vscode
 npm-debug.log*
