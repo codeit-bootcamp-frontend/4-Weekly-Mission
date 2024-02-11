@@ -11,6 +11,17 @@ const getSampleUserInfo = async () => {
   });
 };
 
+/**
+ * [링크 공유 페이지] 샘플폴더 정보 조회 api
+ */
+const getSampleFolderInfo = async () => {
+  return await api({
+    url: API.SAMPLE.FOLDER,
+    method: 'GET',
+  });
+};
+
 export default {
   getSampleUserInfo,
+  getSampleFolderInfo,
 };
