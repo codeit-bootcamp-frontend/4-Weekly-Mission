@@ -10,7 +10,7 @@ const Navigation = () => {
     fetch("https://bootcamp-api.codeit.kr/api/sample/user")
       .then((response) => response.json())
       .then((data) => setUser(data))
-      .catch((error) => console.error("Error fetching user data:", error));
+      .catch((error) => console.error("Error:", error));
   }, []);
 
   return (
