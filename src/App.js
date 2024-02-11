@@ -6,6 +6,7 @@ import FolderInfo from "./components/FolderInfo/FolderInfo";
 import SharePage from "./pages/SharePage/SharePage";
 import SearchBar from "./components/SearchBar/SearchBar";
 import CardList from "./components/CardList/CardList";
+import OnlyCard from "./components/OnlyCard/OnlyCard";
 
 function App() {
   const [userProfile, setUserProfile] = useState(null);
@@ -30,7 +31,13 @@ function App() {
         <SharePage
           folderInfo={<FolderInfo profile={profile} folderName={folderName} />}
           searchBar={<SearchBar />}
-          cardList={<CardList items={items} />}
+          cardList={
+            <CardList>
+              {items?.map((items) => (
+                <OnlyCard key={items?.id} items={items} {...items} />
+              ))}
+            </CardList>
+          }
         />
       </Layout>
     </Fragment>
