@@ -1,0 +1,44 @@
+.folder-info-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--Linkbrary-bg, #f0f6ff);
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto 60px;
+  gap: 20px;
+}
+
+.owner-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.owner-profile-image {
+  width: 60px;
+  height: 60px;
+}
+
+.owner-profile-name {
+  color: var(--text-color-light-mode, #000);
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px; /* 150% */
+}
+
+.folder-name {
+  color: #000;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 40px;
+  font-weight: 600;
+}
