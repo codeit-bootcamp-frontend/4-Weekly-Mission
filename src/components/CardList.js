@@ -48,6 +48,7 @@ function CardList() {
             title={card.title}
             description={card.description}
             date={card.uploadDate}
+            url={card.url}
           ></Card>
         ))}
       </div>

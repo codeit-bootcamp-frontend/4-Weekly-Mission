@@ -1,14 +1,15 @@
 import '../styles/card.css';
-function Card({ id, time, imgUrl, title, description, date }) {
+import noneImg from '../assets/noneImg.png';
+function Card({ id, time, imgUrl = noneImg, title, description, date, url }) {
   return (
-    <div className="card" key={id}>
+    <a className="card" key={id} href={url} target="_blank">
       <img className="card__img" src={imgUrl} alt={title}></img>
       <div className="card__texts">
         <div className="card__texts--time">{time}</div>
         <p className="card__texts--description">{description}</p>
         <p className="card__texts--date">{date}</p>
       </div>
-    </div>
+    </a>
   );
 }
 export default Card;
