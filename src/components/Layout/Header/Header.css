@@ -3,6 +3,7 @@
   position: sticky;
   top: 0;
   padding: 33px 200px 32px 200px;
+  z-index: 1;
 }
 
 .header__inner {
