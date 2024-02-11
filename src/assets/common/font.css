@@ -1,0 +1,16 @@
+@font-face { 
+    font-family: 'Abel'; 
+    font-weight: 400; 
+    src: url('../../assets/font/Abel.ttf') format('truetype');
+}
+@font-face { 
+    font-family: 'Pretendard'; 
+    font-weight: 700; 
+
+    src: url('../../assets/font/pretendard/Pretendard-Bold.ttf') format('truetype');
+}
+@font-face { 
+    font-family: 'Pretendard'; 
+    font-weight: 400; 
+    src: url('../../assets/font/pretendard/Pretendard-Regular.ttf') format('truetype');
+}

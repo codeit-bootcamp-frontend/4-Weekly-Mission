@@ -1,0 +1,53 @@
+header {
+    /* position: fixed; */
+    width: 100%;
+    top: 0;
+    padding: 20px 0;
+    background-color: #F0F6FF;
+}
+header div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 200px;
+}
+header h1 a {
+    display: block;
+    width: 133px; height: 24px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 0;
+}
+header div > a {
+    display: inline-block;
+    padding: 1.6rem 4.05rem;
+    background: linear-gradient(91deg, #6d6afe 0.12%, #6AE3FE 101.84%);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 1.8rem;
+    font-family: 'Pretendard';
+    font-weight: 400;
+}
+
+/* 테블릿 반응형 */
+@media screen and (max-width:1199px) {
+    header div {
+        padding: 0 32px;
+    }
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width:768px) {
+    header {
+        padding: 13px 0;
+    }
+    header h1 a {
+        width: 88.87px; height: 16px;
+    }
+    header div > a {
+        padding: 1rem 2.15rem;
+        font-size: 1.4rem;
+    }
+}

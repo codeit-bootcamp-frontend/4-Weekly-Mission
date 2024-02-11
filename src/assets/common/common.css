@@ -1,0 +1,21 @@
+@import url('./font.css');
+
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+html {
+    font-size: 10px;
+}
+a {
+    text-decoration: none;
+}
+ul, ol {
+    list-style: none;
+}
+textarea {
+    resize: none;
+}
