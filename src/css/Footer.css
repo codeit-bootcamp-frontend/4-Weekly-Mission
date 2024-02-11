@@ -32,3 +32,36 @@
 .sns-links img {
   margin-left: 8px;
 }
+
+/* tablet-size */
+@media (max-width: 1199px) {
+}
+
+/* mobile-size */
+@media (max-width: 767px) {
+  .footer-inner {
+    display: grid;
+    grid-template-areas: 
+      "qna sns"
+      "company .";
+    padding: 32px 32px 64px;
+    justify-items: start;
+  }
+
+  .company-info {
+    grid-area: company;
+    text-align: end;
+  }
+
+  .QnA-links {
+    grid-area: qna;
+  }
+
+  .sns-links {
+    grid-area: sns;
+  }
+
+  .sns-links img {
+    margin-left: 12px;
+  }
+}
