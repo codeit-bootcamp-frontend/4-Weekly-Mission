@@ -18,7 +18,6 @@ function HeaderElement() {
     }
     if (!results) return;
     const { email, profileImageSource } = results;
-    console.log(email);
     setUser(email);
     setProfileUrl(profileImageSource);
   }, []);
