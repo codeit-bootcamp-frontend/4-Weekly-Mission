@@ -9,3 +9,12 @@ export async function getFolder({ limit = 9 }) {
   const body = await response.json();
   return body;
 }
+
+export async function getUser() {
+  const response = await fetch(`${BASE_URL}/sample/user`);
+  if (!response.ok) {
+    throw new Error('유저를 불러오는데 실패했습니다.');
+  }
+  const body = await response.json();
+  return body;
+}
