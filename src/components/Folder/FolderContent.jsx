@@ -93,14 +93,13 @@ function FolderContent({handleKebab, kebabStatus}){
 
     return (
         <main className="folder" onClick={(e) => getClickArea(e)}>
-        <section className="link">
-            <div className="link__box">
-                <input className="link__inputtext" type="text" placeholder="        링크를 추가해 보세요"/>
-                <button className="link__add">추가하기</button>
-            </div>
-        </section>
-
-        <Content {...contentProps}/>
+            <section className="link">
+                <div className="link__box">
+                    <input className="link__inputtext" type="text" placeholder="        링크를 추가해 보세요"/>
+                    <button className="link__add">추가하기</button>
+                </div>
+            </section>
+            <Content {...contentProps}/>
         </main>
     )
 }
