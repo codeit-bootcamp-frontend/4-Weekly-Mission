@@ -1,8 +1,20 @@
 import "./css/Cards.css";
+import Search from "../images/Search.svg";
 
-function InitialCard({ card }) {
+function SearchBar() {
   return (
-    <div className="card-container">
+    <div className="searchbar-container">
+      <div className="input-container">
+        <img src={Search} alt="" />
+        <input type="text" placeholder="링크를 검색해 보세요" />
+      </div>
+    </div>
+  );
+}
+
+function InitialCard({ card, id }) {
+  return (
+    <div className="card-container" id={id}>
       <img className="card-container-img" src={card.imageSource}></img>
       <div className="card-container-texts">
         <div className="card-container-status-bar">
@@ -23,14 +35,17 @@ function Cards({ folderData }) {
   const cards = folderData && folderData.links;
   console.log(cards);
   return (
-    <>
-      {cards &&
-        cards.map((card) => (
-          <div key={card.id}>
-            <InitialCard card={card} />
-          </div>
-        ))}
-    </>
+    <div className="cards-searchbar-container">
+      <div className="cards-inner-container">
+        <SearchBar />
+        <div className="initialcard-container">
+          {cards &&
+            cards.map((card) => (
+              <InitialCard key={card.id} card={card} id={card.id} />
+            ))}
+        </div>
+      </div>
+    </div>
   );
 }
 

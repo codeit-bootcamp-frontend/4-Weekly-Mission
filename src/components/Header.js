@@ -44,10 +44,10 @@ function HeaderBottom({ folderData }) {
 
 function Header({ profileData, folderData }) {
   return (
-    <>
+    <div className="Header-container">
       <HeaderTop profileData={profileData} />
       <HeaderBottom folderData={folderData} />
-    </>
+    </div>
   );
 }
 
