@@ -1,7 +1,7 @@
-import facebookLogo from "../../../src/assets/common/facebook.svg";
-import twitterLogo from "../../../src/assets/common/twitter.svg";
-import youtubeLogo from "../../../src/assets/common/youtube.svg";
-import instagramLogo from "../../../src/assets/common/instagram.svg";
+import facebookLogo from "../../assets/common/facebook.svg";
+import twitterLogo from "../../assets/common/twitter.svg";
+import youtubeLogo from "../../assets/common/youtube.svg";
+import instagramLogo from "../../assets/common/instagram.svg";
 import "./Footer.css";
 
 function Footer() {
