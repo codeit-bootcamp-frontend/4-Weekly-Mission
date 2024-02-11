@@ -37,7 +37,7 @@ const StyledCard = styled.a`
   overflow: hidden;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   border-radius: 15px;
-  :hover {
+  &:hover {
     background-color: ${props => props.theme.linkbrary_bg};
   }
 `;
@@ -46,7 +46,7 @@ const CardImg = styled.img`
   height: 178px;
   object-fit: cover;
   transition: transform 0.3s ease;
-  :hover {
+  &:hover {
     transform: scale(1.3);
   }
 `;
