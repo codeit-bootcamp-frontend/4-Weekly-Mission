@@ -38,11 +38,3 @@ function NavigationBar() {
 }
 
 export default NavigationBar;
-
-// 리스폰스 응답
-// {
-//   "id": 1,
-//   "name": "코드잇",
-//   "email": "codeit@codeit.com",
-//   "profileImageSource": "https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png"
-// }
