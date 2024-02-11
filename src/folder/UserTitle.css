@@ -28,6 +28,7 @@
     color: #000;
 }
 
+/* 모바일 반응형 */
 @media screen and (max-width: 768px) {
     .userTitle {
         padding: 10px 0 40px 0;

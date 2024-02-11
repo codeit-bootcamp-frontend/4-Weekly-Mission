@@ -30,7 +30,7 @@ input::-webkit-search-results-button,
 input::-webkit-search-results-decoration{
 	display:none;
 }
-
+/* 모바일 반응형 */
 @media screen and (max-width: 768px) {
     form {
         margin-bottom: 32px;
