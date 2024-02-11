@@ -25,6 +25,10 @@ const Styled = {
   ProfileUserName: styled.div`
     font-size: 1.4rem;
     margin-left: 0.5rem;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   `,
 };
 
