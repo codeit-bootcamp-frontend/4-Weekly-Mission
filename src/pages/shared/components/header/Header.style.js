@@ -7,7 +7,8 @@ export const Container = styled.div`
   align-items: center;
   background-color: #edf7ff;
   gap: 20px;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 50px;
 
   .user-box {
     display: flex;
@@ -28,5 +29,10 @@ export const Container = styled.div`
     font-size: 40px;
     font-weight: 600;
     margin: 0;
+  }
+
+  /* tablet & mobile */
+  @media screen and (min-width: 375px) and (max-width: 1199px) {
+    padding: 32px;
   }
 `;

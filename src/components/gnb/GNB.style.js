@@ -8,6 +8,11 @@ export const Container = styled.div`
   background-color: #edf7ff;
   padding: 20px 200px;
 
+  /* tablet & mobile */
+  @media screen and (min-width: 375px) and (max-width: 1199px) {
+    padding: 32px;
+  }
+
   .gnb {
     display: flex;
     justify-content: space-between;

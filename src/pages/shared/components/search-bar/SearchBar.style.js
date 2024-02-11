@@ -13,7 +13,6 @@ export const Container = styled.div`
 
   .search-bar {
     background-color: #f5f5f5;
-    /* width: 1060px; */
     width: 100%;
     height: 54px;
     border-radius: 10px;

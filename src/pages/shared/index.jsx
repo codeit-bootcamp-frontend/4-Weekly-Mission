@@ -3,6 +3,7 @@ import GNB from "../../components/gnb/GNB";
 import Header from "./components/header/Header";
 import Content from "./components/content/Content";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 const Shared = () => {
   const [user, setUser] = useState(null);
@@ -24,7 +25,7 @@ const Shared = () => {
   }, []);
 
   return (
-    <div>
+    <Container>
       {user && folder && (
         <>
           <GNB user={user} />
@@ -33,8 +34,13 @@ const Shared = () => {
         </>
       )}
       <Footer />
-    </div>
+    </Container>
   );
 };
 
 export default Shared;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
