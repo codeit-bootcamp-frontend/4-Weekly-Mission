@@ -54,16 +54,15 @@ function formatDate(createdAt) {
   return { relativeTime: relativeTime, time: time };
 }
 
-function LinkContainer({ link, onHover, onMouseOut, key, isHover }) {
+function LinkContainer({ link, onHover, onMouseOut, isHover }) {
   return (
     <a
+      className="link-grid-element"
+      target="_blank"
+      rel="noopener noreferrer"
       onMouseOver={onHover}
       onMouseOut={onMouseOut}
       href={link.url}
-      className="link-grid-element"
-      key={key}
-      target="_blank"
-      rel="noopener noreferrer"
     >
       <div className="link-image-container">
         <img

@@ -18,7 +18,7 @@ function Shared() {
     result = await getSharedUserSample();
     if (!result) return;
 
-    const { email, profileImageSource } = result;
+    const { email, profileImageSource } = await result;
     setUserProfile({ email, profileImageSource });
   };
 
@@ -26,7 +26,7 @@ function Shared() {
     const result = await getSharedFolderSample();
     if (!result) return;
 
-    const data = result.folder;
+    const data = await result.folder;
     setOwnerProfile(data);
   };
 

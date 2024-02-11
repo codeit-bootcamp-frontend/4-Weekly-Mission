@@ -31,8 +31,8 @@ function SharedMain({ ownerProfile }) {
             };
             return (
               <LinkContainer
-                key={link.key}
                 link={link}
+                key={link.id}
                 isHover={mouseHoverkey}
                 onHover={handleComponentHover}
                 onMouseOut={handleComponentMouseOut}
