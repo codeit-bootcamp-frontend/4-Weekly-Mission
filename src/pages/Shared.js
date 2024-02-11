@@ -26,7 +26,7 @@ function FolderItem({ item }) {
   const { imageSource, createdAt, description, url, id } = item;
   const time = CalcTime(createdAt);
   return (
-    <a href={url}>
+    <a href={url} target="_blank" rel="noreferrer">
       <div className="folder">
         <div className="imgBox">
           <img src={imageSource} alt={id}></img>
