@@ -3,8 +3,12 @@ import codeitAvatar from 'assets/icon/codeitIcon.svg';
 
 const Styled = {
   Container: styled.div`
-    width: 100%;
-    padding-top: 9.3rem;
+    width: 100vw;
+    padding-top: 5.3rem;
+    margin-bottom: 4rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 
     display: flex;
     justify-content: center;
@@ -24,6 +28,10 @@ const Styled = {
     align-items: center;
     gap: 1.2rem;
   `,
+  AvatarImg: styled.img`
+    width: 6rem;
+    height: 6rem;
+  `,
 
   AvatarText: styled.span`
     font-size: 1.6rem;
@@ -39,25 +47,18 @@ const Styled = {
   `,
 };
 
-const mockData = {
-  id: 1,
-  name: '⭐️ 즐겨찾기',
-  owner: {
-    id: 2,
-    name: '@ 코드잇',
-    profileImageSource: codeitAvatar,
-  },
-};
+function Header({ folderData }) {
+  const owner = folderData?.owner || {};
+  const folderName = folderData?.name || '@ 코드잇';
 
-function Header() {
   return (
     <Styled.Container>
       <Styled.InnerWrap>
         <Styled.Avatar>
-          <img src={mockData.owner.profileImageSource} alt="폴더 소유자 프로필" />
-          <Styled.AvatarText>{mockData.owner.name}</Styled.AvatarText>
+          <Styled.AvatarImg src={owner.profileImageSource} alt="폴더 소유자 프로필" />
+          <Styled.AvatarText>{owner.name}</Styled.AvatarText>
         </Styled.Avatar>
-        <Styled.FolderName>{mockData.name}</Styled.FolderName>
+        <Styled.FolderName>{folderName}</Styled.FolderName>
       </Styled.InnerWrap>
     </Styled.Container>
   );

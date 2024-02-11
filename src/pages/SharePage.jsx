@@ -15,6 +15,7 @@ function SharePage() {
     try {
       const res = await sampleAPI.getSampleFolderInfo();
       const folderData = res.data.folder;
+
       setFolderData(folderData);
     } catch (error) {
       console.log(error.message);
@@ -25,11 +26,9 @@ function SharePage() {
     fetchFolderData();
   }, []);
 
-  console.log(folderData);
-
   return (
     <>
-      <Header />
+      <Header folderData={folderData} />
       <SearchBar placeholder={PLACEHOLDER.SEARCH_LINK} style={{ marginBottom: '4rem' }} />
       <GridTemplate>
         {folderData?.links.map((link) => (
