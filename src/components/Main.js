@@ -1,5 +1,6 @@
 import "./css/Main.css";
 import Search from "../images/Search.svg";
+import emptyLogo from "../images/emptylogo.svg";
 
 function dateDiffCalc(dateString) {
   const currentDate = new Date();
@@ -57,19 +58,14 @@ function SearchBar() {
 }
 
 function Card({ card }) {
+  const cardImage = card.imageSource ? card.imageSource : emptyLogo;
   const dateOfCard = new Date(card.createdAt);
   const dateDiff = dateDiffCalc(dateOfCard);
   const formatDate = dateFormatter(dateOfCard);
-  console.log(dateDiffCalc(dateOfCard));
-  console.log(formatDate);
 
   return (
     <div className="card-container">
-      <img
-        className="card-container-img"
-        src={card.imageSource}
-        alt="이미지"
-      ></img>
+      <img className="card-container-img" src={cardImage} alt="이미지"></img>
       <div className="card-container-texts">
         <div className="card-container-dateDiff">
           <div>{dateDiff}</div>
