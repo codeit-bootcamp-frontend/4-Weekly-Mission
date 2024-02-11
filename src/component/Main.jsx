@@ -1,12 +1,16 @@
 import React from "react";
 import ShareNav from "./ShareNav.jsx";
 import CardList from "./CardList.jsx";
+import SearchCard from "./SearchCard.jsx";
 
 function Main(props) {
   return (
     <>
       <ShareNav />
-      <CardList />
+      <section>
+        <SearchCard />
+        <CardList />
+      </section>
     </>
   );
 }
