@@ -5,6 +5,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import routes from 'routes';
 import styled from 'styled-components';
+import Loader from '../../../common/Loader';
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -13,13 +14,22 @@ const Profile = () => {
     navigate(routes.signin);
   };
 
-  const [profileData, profileError] = useFetchData(
-    sampleUserInquire,
-    data => data,
-  );
+  const {
+    data: profileData,
+    isLoading,
+    isError,
+    error,
+  } = useFetchData(sampleUserInquire, 'profileData', data => data);
 
-  if (profileError) {
-    console.log(profileError);
+  if (isError) {
+    console.log(error);
+  }
+  if (isLoading) {
+    return (
+      <ProfileContainer>
+        <Loader />
+      </ProfileContainer>
+    );
   }
   return (
     <>

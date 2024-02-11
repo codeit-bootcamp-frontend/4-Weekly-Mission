@@ -1,29 +1,40 @@
+import Loader from '../../../common/Loader';
 import { sampleFolderInquire } from 'api/sampleAPI';
 import useFetchData from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';
 
 const Header = () => {
-  const [folderInfo, folderError] = useFetchData(sampleFolderInquire, data => ({
+  const {
+    data: folderInfo,
+    isLoading,
+    isError,
+    error,
+  } = useFetchData(sampleFolderInquire, 'folderInfo', data => ({
     ownerName: data.folder.owner.name,
     folderName: data.folder.name,
     profileImage: data.folder.owner.profileImageSource,
   }));
-  if (folderError) {
-    console.log(folderError);
+
+  if (isError) {
+    console.log(error);
   }
   return (
     <StyledHeader>
-      <HeroHeader>
-        <StyledProfile>
-          <ProfileImage
-            src={folderInfo.profileImage}
-            alt={folderInfo.ownerName}
-          />
-          <OwnerName>@{folderInfo.ownerName}</OwnerName>
-        </StyledProfile>
-        <FolderName>{folderInfo.folderName}</FolderName>
-      </HeroHeader>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <HeroHeader>
+          <StyledProfile>
+            <ProfileImage
+              src={folderInfo.profileImage}
+              alt={folderInfo.ownerName}
+            />
+            <OwnerName>@{folderInfo.ownerName}</OwnerName>
+          </StyledProfile>
+          <FolderName>{folderInfo.folderName}</FolderName>
+        </HeroHeader>
+      )}
     </StyledHeader>
   );
 };
