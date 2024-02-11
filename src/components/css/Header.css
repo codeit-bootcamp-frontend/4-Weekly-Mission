@@ -68,6 +68,7 @@ header {
   }
 
   .HeaderBottom-name {
+    text-align: center;
     width: 56px;
     font-size: 16px;
     font-style: normal;
@@ -147,6 +148,7 @@ header {
   }
 
   .HeaderBottom-name {
+    text-align: center;
     width: 56px;
     font-size: 16px;
     font-style: normal;
@@ -226,6 +228,7 @@ header {
   }
 
   .HeaderBottom-name {
+    text-align: center;
     width: 56px;
     font-size: 16px;
     font-style: normal;

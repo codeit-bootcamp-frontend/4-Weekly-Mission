@@ -1,6 +1,6 @@
 import getData from "../api";
 import { useEffect, useState } from "react";
-import Cards from "./Cards";
+import Main from "./Main";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -8,7 +8,7 @@ function App() {
   const [profileData, setProfileData] = useState({});
   const [folderData, setFolderData] = useState({});
 
-  const getProfile = async (options) => {
+  const getProfileData = async (options) => {
     try {
       const newProfile = await getData(options);
       console.log(newProfile);
@@ -32,14 +32,14 @@ function App() {
   };
 
   useEffect(() => {
-    getProfile({ path: "user" });
+    getProfileData({ path: "user" });
     getFolderData({ path: "folder" });
   }, []);
 
   return (
     <>
       <Header profileData={profileData} folderData={folderData} />
-      <Cards folderData={folderData} />
+      <Main folderData={folderData} />
       <Footer />
     </>
   );

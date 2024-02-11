@@ -1,4 +1,4 @@
-import "./css/Cards.css";
+import "./css/Main.css";
 import Search from "../images/Search.svg";
 
 function dateDiffCalc(dateString) {
@@ -56,7 +56,7 @@ function SearchBar() {
   );
 }
 
-function InitialCard({ card }) {
+function Card({ card }) {
   const dateOfCard = new Date(card.createdAt);
   const dateDiff = dateDiffCalc(dateOfCard);
   const formatDate = dateFormatter(dateOfCard);
@@ -84,20 +84,18 @@ function InitialCard({ card }) {
   );
 }
 
-function Cards({ folderData }) {
+function Main({ folderData }) {
   const cards = folderData && folderData.links;
-  console.log(cards);
   return (
     <main>
       <section>
         <SearchBar />
         <div className="cards-container">
-          {cards &&
-            cards.map((card) => <InitialCard key={card.id} card={card} />)}
+          {cards && cards.map((card) => <Card key={card.id} card={card} />)}
         </div>
       </section>
     </main>
   );
 }
 
-export default Cards;
+export default Main;
