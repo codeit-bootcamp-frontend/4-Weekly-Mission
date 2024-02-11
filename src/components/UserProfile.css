@@ -10,6 +10,12 @@
   display: none;
 }
 
+.user-profile-image {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 99rem;
+}
+
 @media (min-width: 768px) {
   .user-profile-email {
     display: block;

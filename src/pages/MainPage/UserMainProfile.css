@@ -17,7 +17,13 @@
   letter-spacing: -0.2px;
 }
 
-.profile-id {
+.profile-name {
   padding: 0.6rem 0 1rem;
   line-height: 2.4rem;
+}
+
+.folder-profile-image {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 99rem;
 }

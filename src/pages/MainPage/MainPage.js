@@ -31,7 +31,7 @@ export default function MainPage() {
   return (
     <div className="container">
       <MainPageHeader user={user} isLogin={isLogin} />
-      <UserMainProfile user={user} folder={folder} />
+      <UserMainProfile folder={folder} />
       <div className="main-container">
         <SearchBar />
         <Cards links={folder.links} />
