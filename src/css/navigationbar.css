@@ -1,0 +1,17 @@
+@import 'palette.css';
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background);
+  padding: 20px 200px; 
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--gray100);
+}

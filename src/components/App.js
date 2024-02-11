@@ -1,7 +1,9 @@
+import NavigationBar from "./navigationbar";
 
 function App() {
   return (
     <div>
+      <NavigationBar />
       <header>
         <p>header</p>
       </header>
