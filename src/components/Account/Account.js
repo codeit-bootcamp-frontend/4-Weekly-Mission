@@ -11,7 +11,7 @@ const Account = () => {
         const userData = await getUser();
         setUserData(userData);
       } catch (error) {
-        console.error("유저 데이터 불러오기 실패:", error);
+        console.error("유저 데이터 불러오기 실패: ", error);
       }
     }
 

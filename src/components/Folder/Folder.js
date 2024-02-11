@@ -13,7 +13,7 @@ const Profile = () => {
         setFolderData(folderData);
         setOwner(folderData.folder.owner);
       } catch (error) {
-        console.error("데이터 가져오기 실패:", error);
+        console.error("폴더 데이터 불러오기 실패: ", error);
       }
     };
     fetchData();
