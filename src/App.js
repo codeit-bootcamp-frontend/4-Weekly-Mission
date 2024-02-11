@@ -9,12 +9,12 @@ import { ReadOnlyCard } from "./layout/PageBody/Contain/ReadOnlyCard";
 
 function App() {
   const { data } = useGetPages();
-  const { profileImage, ownerName, pageName, links } = data || {};
+  const { profileImage, ownerName, pageName, links } = data;
 
   return (
     <Layout>
       <PageBody
-        folderInfo={
+        PageInfo={
           <PageInfo
             profileImage={profileImage}
             ownerName={ownerName}
