@@ -7,3 +7,19 @@
   margin: 4rem auto 4rem auto;
   gap: 4rem;
 }
+
+/* tablet */
+@media screen and (min-width: 768px) and (max-width: 1199px) {
+  .sharePage-content {
+    padding: 0 3.2rem;
+  }
+}
+
+/* mobile */
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .sharePage-content {
+    padding: 0 3.2rem;
+    gap: 3.2rem;
+    margin: 2rem auto 2rem auto;
+  }
+}
