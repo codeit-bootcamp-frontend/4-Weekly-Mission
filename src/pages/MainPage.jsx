@@ -4,6 +4,7 @@ import Header from '../components/common/layout/header/Header';
 import Search from '../components/main/Search';
 import { MainContainer } from '../styles/MainContainer';
 import Footer from '../components/common/layout/footer/Footer';
+import CardGrid from '../components/main/CardGrid';
 
 const MainPage = () => {
   return (
@@ -12,6 +13,7 @@ const MainPage = () => {
       <Header />
       <MainContainer>
         <Search />
+        <CardGrid />
       </MainContainer>
       <Footer />
     </>

@@ -1,6 +1,6 @@
 import { AUTH } from './utils/constants/API';
 
-const BASE_URL = 'https://bootcamp-api.codeit.kr';
+const BASE_URL = process.env.REACT_APP_BASE_URL;
 
 export const SIGNIN_API = `${BASE_URL}/${AUTH.signIn}`;
 export const SIGNUP_API = `${BASE_URL}/${AUTH.signUp}`;
