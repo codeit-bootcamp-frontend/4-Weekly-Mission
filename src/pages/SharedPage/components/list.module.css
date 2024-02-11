@@ -1,12 +1,12 @@
 .container {
   display: flex;
   justify-content: center;
-  padding: 40px 0;
+  padding: 4rem 0;
 }
 
 .list {
   display: grid;
   grid-template-columns: repeat(3, 340px);
-  row-gap: 25px;
-  column-gap: 20px;
+  row-gap: 2.5rem;
+  column-gap: 2rem;
 }

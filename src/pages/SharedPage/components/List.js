@@ -4,7 +4,7 @@ import styles from "./list.module.css";
 import { Link } from "react-router-dom";
 
 function List({ items }) {
-  const handleLinkClick = (url) => {
+  const handleClick = (url) => {
     window.open(url, "_blank");
   };
 
@@ -13,8 +13,7 @@ function List({ items }) {
       <ul className={styles.list}>
         {items?.map((item) => (
           <li key={item.id}>
-            {console.log(item.url)}
-            <Card item={item} onClick={() => handleLinkClick(`${item.url}`)} />
+            <Card item={item} onClick={() => handleClick(`${item.url}`)} />
           </li>
         ))}
       </ul>
