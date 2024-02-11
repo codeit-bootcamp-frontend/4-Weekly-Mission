@@ -3,8 +3,14 @@ function App() {
   return (
     <div>
       <header>
-        <p>프로젝트 준비</p>
+        <p>header</p>
       </header>
+      <div>
+        <p>content</p>
+      </div>
+      <footer>
+        <p>Q&A</p>
+      </footer>
     </div>
   );
 }
