@@ -4,12 +4,12 @@ import "./Navigation.css";
 const Navigation = () => {
   return (
     <nav className="Navigation">
-      <div className="Navigation-wrap">
+      <div className="Wrap">
         <a href="/">
           <img src={linkbrary} alt="링크브러리 로고" />
         </a>
-        <a>
-          <span className="Navigation-signin">로그인</span>
+        <a href="/">
+          <span className="Signin">로그인</span>
         </a>
       </div>
     </nav>

@@ -6,6 +6,8 @@
     "classname",
     "stylesheet",
     "Pretendard",
-    "signin"
+    "signin",
+    "noopener",
+    "noreferrer"
   ]
 }

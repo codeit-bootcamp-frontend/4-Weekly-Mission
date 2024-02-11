@@ -8,7 +8,7 @@
   background-color: var(--background);
 }
 
-.Navigation-wrap {
+.Navigation .Wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,7 +27,7 @@
   }
 }
 
-.Navigation-signin {
+.Navigation .Signin {
   display: inline-block;
   width: 8rem;
   padding: 1rem 0;
