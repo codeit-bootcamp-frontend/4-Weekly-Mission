@@ -1,13 +1,14 @@
 import "./global.css";
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import FolderInfoView from "./components/FolderInfoView";
 import FolderView from "./components/FolderView";
+import Footer from "./components/Footer";
 import { fetchSampleProfile, fetchSampleFolder } from "./api";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [profile, setProfile] = useState();
-  const [folder, setFolder] = useState();
+  const [profile, setProfile] = useState(null);
+  const [folder, setFolder] = useState(null);
 
   async function getProfile() {
     let newProfile = null;
@@ -40,6 +41,7 @@ function App() {
   return (
     <div className="App">
       <Navbar prfile={profile} />
+      <FolderInfoView folder={folder} />
       <FolderView folder={folder} />
       <Footer />
     </div>

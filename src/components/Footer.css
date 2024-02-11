@@ -13,14 +13,14 @@
   @media (max-width: 768px) {
     margin-top: 40px;
     padding: 32px;
-    align-items: center;
+    align-items: flex-start;
   }
 }
 
 .column {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   gap: 60px;
   align-items: flex-start;
 }
