@@ -2,7 +2,12 @@ import './Card.css';
 
 function Card({ item = {} }) {
   return (
-    <div className="card">
+    <a
+      className="card"
+      href={item.url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <div className="card__inner">
         <div className="card__image__container">
           <img
@@ -23,7 +28,7 @@ function Card({ item = {} }) {
           </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
