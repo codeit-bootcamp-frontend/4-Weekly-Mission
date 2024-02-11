@@ -59,7 +59,7 @@ function LinkCard({ url, createdAt, desc, imgUrl }) {
   const createdDays = new Date(createdAt);
 
   return (
-    <a href={url} className="link-card-area">
+    <a href={url} target="_blank" rel="noopener noreferrer" className="link-card-area">
       <div className="img-group">
         {imgUrl ? <img src={imgUrl} alt="미리보기" className="img-card" /> : <div className="img-card no-img"></div>}
         <button className="btn-star">
