@@ -2,11 +2,6 @@ import React from 'react';
 import Logo_Img from '../assets/logo.svg'
 
 function Header({ user }) {
-  // const userEmail = user.email;
-  // const userImg = user.profileImageSource;
-
-  console.log(user);
-
 
   return (
     <div>

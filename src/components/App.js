@@ -24,7 +24,7 @@ function App() {
     setUser(user);
     setFolderName(name);
     setUserName(owner.name);
-    setProfileImage(owner.profileImage);
+    setProfileImage(owner.profileImageSource);
     setFolderList(links);
   };
 
@@ -35,7 +35,7 @@ function App() {
   return (
     <div>
       <Header user={user} />
-      <Main />
+      <Main folderName={folderName} userName={userName} profileImage={profileImage} />
       <FolderList folderList={folderList} />
       <Footer />
     </div>

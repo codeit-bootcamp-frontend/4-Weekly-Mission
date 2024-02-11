@@ -1,8 +1,11 @@
-function Main() {
+function Main({ folderName, userName, profileImage }) {
+
   return (
-    <div>
-      <h1>Main</h1>
-    </div>
+    <main>
+      <img src={profileImage} alt="Profile" />
+      <p>{userName}</p>
+      <h1>{folderName}</h1>
+    </main>
   );
 }
 
