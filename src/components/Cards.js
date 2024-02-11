@@ -15,11 +15,14 @@ function SearchBar() {
 function InitialCard({ card, id }) {
   return (
     <div className="card-container" id={id}>
-      <img className="card-container-img" src={card.imageSource}></img>
+      <img
+        className="card-container-img"
+        src={card.imageSource}
+        alt="이미지"
+      ></img>
       <div className="card-container-texts">
         <div className="card-container-status-bar">
           <div>{card.createdAt}</div>
-          <div>```</div>
         </div>
         <div className="card-container-description">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis,

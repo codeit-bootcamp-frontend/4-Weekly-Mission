@@ -2,6 +2,7 @@ import getData from "../api";
 import { useEffect, useState } from "react";
 import Cards from "./Cards";
 import Header from "./Header";
+import Footer from "./Footer";
 
 function App() {
   const [profileData, setProfileData] = useState({});
@@ -39,6 +40,7 @@ function App() {
     <>
       <Header profileData={profileData} folderData={folderData} />
       <Cards folderData={folderData} />
+      <Footer />
     </>
   );
 }
