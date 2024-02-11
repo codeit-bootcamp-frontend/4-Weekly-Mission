@@ -14,6 +14,10 @@ const FolderNameSection = () => {
       .catch((error) => console.error("Error:", error));
   }, []);
 
+  if (!folderData) {
+    return <div>로딩 중입니다</div>;
+  }
+
   return (
     <div className="FolderNameSection">
       <img
