@@ -8,7 +8,6 @@ const FolderNameSection = () => {
     fetch("https://bootcamp-api.codeit.kr/api/sample/folder")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setFolderData(data);
       })
       .catch((error) => console.error("Error:", error));
