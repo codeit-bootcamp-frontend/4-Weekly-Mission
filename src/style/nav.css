@@ -1,0 +1,73 @@
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 244px;
+  background-color: #f0f6ff;
+  margin-top: 90px;
+  margin-bottom: 40px;
+  padding-bottom: 60px;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.nav .nav-icon img {
+  width: 60px;
+  height: 60px;
+}
+
+.nav .owner-name {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  width: 12rem;
+  text-align: center;
+}
+
+.nav .folder-name {
+  font-size: 30px;
+  font-weight: 600;
+  width: 12rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  nav {
+    padding: 20px 32px;
+    margin-top: 90px;
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+  .nav .owner-name {
+    font-size: 16px;
+  }
+  .nav .folder-name {
+    font-size: 40px;
+    width: 16rem;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  nav {
+    padding: 10px 16px;
+    margin-top: 90px;
+    margin-bottom: 10px;
+  }
+  .nav .nav-icon img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
+  .nav .owner-name {
+    font-size: 14px;
+  }
+  .nav .folder-name {
+    font-size: 32px;
+  }
+}
