@@ -11,7 +11,7 @@ function Folder() {
 	return (
 		<div className="folder">
 			<HeadNav />
-			{/* <FolderProFile email={accountData} profileImageSource={accountData} /> */}
+			<FolderProFile />
 			{/* <FolderData folderData={sampleFolderData.links} /> */}
 			<Footer />
 		</div>
