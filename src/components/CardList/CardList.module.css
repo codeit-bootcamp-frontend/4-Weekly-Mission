@@ -23,6 +23,10 @@
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
 }
 
+.link:hover .link-cover img {
+  transform: scale(1.3);
+}
+
 .link-contents {
   padding: 15px;
 }
@@ -30,13 +34,19 @@
 .link-cover {
   background-color: var(--Linkbrary-bg);
   aspect-ratio: 16/9;
+  overflow: hidden;
 }
 
 .link-cover img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  transition: 0.1s linear;
 }
+
+/* .link-cover img:hover {
+  transform: scale(1.3);
+} */
 
 .link-title {
   font-size: 1.6rem;

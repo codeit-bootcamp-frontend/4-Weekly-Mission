@@ -3,7 +3,7 @@ import { getTimeAgo, formatDate } from "util/time";
 
 function CardListItem({ link }) {
   return (
-    <div className={style["l_col"]}>
+    <a href={link.url} target="_blank" className={style["l_col"]}>
       <div className={style.link}>
         <div className={style["link-cover"]}>
           <img src={link.imageSource} alt="card-cover" />
@@ -15,7 +15,7 @@ function CardListItem({ link }) {
           <p className={style["link-date"]}>{formatDate(link.createdAt)}</p>
         </div>
       </div>
-    </div>
+    </a>
   );
 }
 
