@@ -1,0 +1,17 @@
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.4rem;
+  color: #373740;
+}
+
+.user-profile-email {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .user-profile-email {
+    display: block;
+  }
+}
