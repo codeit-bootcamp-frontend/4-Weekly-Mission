@@ -43,8 +43,13 @@ function Header(){
     return <header className="gnb">
     <nav className="gnb__nav">
         <Link to="/"><img className="gnb__logoImg" src={HeaderLogoImg} alt="로고 이미지"/></Link>
+        {userInfo.loginStatus ?
         <HeaderUserInfo {...userInfo}/>
-        <HeaderLoginButton {...userInfo}/>
+        :
+        <HeaderLoginButton />
+        }
+        
+        
     </nav>
 </header>
 }

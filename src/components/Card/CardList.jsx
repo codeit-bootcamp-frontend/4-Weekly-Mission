@@ -3,7 +3,6 @@ import getTimeDiff from "../../utils/getTimeDiff";
 import getCoustomDate from "../../utils/getCoustomDate";
 
 function CardList({handleKebab, kebabStatus, linkList, option}){
-    console.log(linkList);
     return (
         <div className="content__cards">
             {linkList && linkList.length ?

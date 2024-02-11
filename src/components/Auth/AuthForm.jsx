@@ -28,7 +28,7 @@ function AuthForm({option}){
     });
 
     // 인풋 값 변경
-    const handleChange = (e) => {
+    const handleInputChange = (e) => {
         const {name, value} = e.target;
         setUserInput({
             ...userInput,
@@ -37,7 +37,7 @@ function AuthForm({option}){
     }
 
     // 폼 제출
-    const handleSumbit = (e) => {
+    const handleFormSumbit = (e) => {
         e.preventDefault();
         option ? register() : login();   
     }
@@ -141,12 +141,12 @@ function AuthForm({option}){
     }
 
     return (
-        <form className="sign__form" onSubmit={handleSumbit}>
+        <form className="sign__form" onSubmit={handleFormSumbit}>
             <div className="sign__input--area">
                 <div className="sign__email">
                     <AuthLable htmlFor="input--email" text="이메일"/>
                     <input id="input--email" className="sign--input--email" type="email" name="email" required autoFocus
-                    value={userInput.email} onChange={handleChange}/>
+                    value={userInput.email} onChange={handleInputChange}/>
                     <AuthErrorMsg className="sign__email--error" errorMsg={errorMsg.email}/>
                 </div>
                 
@@ -154,7 +154,7 @@ function AuthForm({option}){
                     <AuthLable htmlFor="input--password" text="비밀번호"/>
                     <div className="signin__password--relative">
                         <input id="input--password" className="sign--input--password" type={inputType.password} name="password" required 
-                        value={userInput.password} onChange={handleChange}/>
+                        value={userInput.password} onChange={handleInputChange}/>
                         <FontAwesomeIcon className="eye" icon={inputType.password === "password" ? faEye : faEyeSlash} onClick={() => handlePasswordvisible("password")}/>
                         <AuthErrorMsg className="sign__password--error" errorMsg={errorMsg.password}/>
                     </div>
@@ -164,7 +164,7 @@ function AuthForm({option}){
                     <AuthLable htmlFor="input--password--confirm" text="비밀번호 확인"/>
                     <div className="signin__password--confirm--relative">
                         <input id="input--password--confirm" className="sign--input--password--confirm" type={inputType.passwordConfirm} name="passwordConfirm" required
-                        value={userInput.passwordConfirm} onChange={handleChange}/>
+                        value={userInput.passwordConfirm} onChange={handleInputChange}/>
                         <FontAwesomeIcon className="eye--confirm" icon={inputType.passwordConfirm === "password" ? faEye : faEyeSlash} onClick={() => handlePasswordvisible("passwordConfirm")} />
                         <AuthErrorMsg className="sign__password--confirm--error" errorMsg={errorMsg.passwordConfirm}/>
                     </div>

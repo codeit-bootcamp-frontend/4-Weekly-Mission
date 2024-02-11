@@ -3,13 +3,9 @@ import Content from "../content/Content";
 import {API_PATH_USER_FOLDER, API_PATH_ALL_LINK, API_PATH_CATEGORY_LINK} from "../../services/api-path";
 import FETCH_API from "../../services/fetch-data";
 
-const DEFAULT_CATEGORY = [{
-        id: 0,
-        name: "전체",
-     }];
 
-function FolderContent({handleKebab, kebabStatus}){
-    const [categoryList, setCategoryList] = useState(DEFAULT_CATEGORY); // 유저가 가지고 있는 카테고리
+
+function FolderContent({handleKebab, kebabStatus, categoryList, setCategoryList}){
     const [selectCategory, setSelectCategory] = useState({ // 현재 선택중인 카테고리
         id: 0,
         name: "전체"

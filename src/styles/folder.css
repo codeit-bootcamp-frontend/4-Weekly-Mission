@@ -259,7 +259,6 @@ html{
 
 .content__star{
     position: absolute;
-    z-index: 10;
     top: 0.94rem;
     right: 0.94rem;
 }
@@ -370,3 +369,5 @@ html{
 .floating__button--img{
     padding-bottom: 0.2rem;
 }
+
+

@@ -1,11 +1,7 @@
 import { Link } from "react-router-dom";
-function HeaderLoginButton({loginStatus}){
+function HeaderLoginButton(){
     return (
-        <Link 
-        style={{
-            display : loginStatus ? "none" : "block",
-        }}
-        className="gnb__login" to="/signin">로그인</Link>
+        <Link className="gnb__login" to="/signin">로그인</Link>
     )
 }
 

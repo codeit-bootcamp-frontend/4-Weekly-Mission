@@ -1,9 +1,36 @@
-import FacebookImg from '../../assets/facebook.svg';
-import TwitterImg from '../../assets/twitter.svg';
-import YoutubeImg from '../../assets/youtube.svg';
-import InstargramImg from '../../assets/instargram.svg';
+import FacebookIcon from '../../assets/facebook.svg';
+import TwitterIcon from '../../assets/twitter.svg';
+import YoutubeIcon from '../../assets/youtube.svg';
+import InstargramIcon from '../../assets/instargram.svg';
 import "../../styles/footer.css";
 import { Link } from "react-router-dom";
+
+const footerLinkList = [
+    {
+        id: 1,
+        url: "https://facebook.com/?locale=ko_KR",
+        icon: FacebookIcon,
+        text: "페이스북"
+    },
+    {
+        id: 2,
+        url: "https://twitter.com/?lang=ko",
+        icon: TwitterIcon,
+        text: "트위터"
+    },
+    {
+        id: 3,
+        url: "https://www.youtube.com",
+        icon: YoutubeIcon,
+        text: "유튜브"
+    },
+    {
+        id: 4,
+        url: "https://www.instagram.com",
+        icon: InstargramIcon,
+        text: "인스타그램"
+    }
+]
 function Footer(){
     return  <footer className="footer">
     <Link className="footer__logo" to="/">©codeit - 2023</Link>
@@ -15,10 +42,14 @@ function Footer(){
     </div>
 <div className="footer_sns">
     <ul className="footer__link">
-        <li><a target="_blank" rel="noreferrer" href="https://facebook.com/?locale=ko_KR"><img src={FacebookImg} alt="페이스북 아이콘"/></a></li>
-        <li><a target="_blank" rel="noreferrer" href="https://twitter.com/?lang=ko"><img src={TwitterImg} alt="트위터 아이콘"/></a></li>
-        <li><a target="_blank" rel="noreferrer" href="https://www.youtube.com/"><img src={YoutubeImg} alt="유튜브 아이콘"/></a></li>
-        <li><a target="_blank" rel="noreferrer" href="https://www.instagram.com/"><img src={InstargramImg} alt="인스타그램 아이콘"/></a></li>
+        {footerLinkList.map(list => {
+            const { id, url, icon, text } = list;
+            return <li key={id}>
+                <a href={url} target='_blank' rel='noreferrer'>
+                    <img src={icon} alt={`${text} 아이콘`} />
+                </a>
+            </li>
+        })}
     </ul>
 </div>
 </footer>
