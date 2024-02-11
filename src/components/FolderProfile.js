@@ -2,7 +2,7 @@ import "components/FolderProfile.css";
 import { acceptDataFromApi } from "Api";
 import { useState, useEffect } from "react";
 
-const FolderProFile = function (name, profileImageSource) {
+const FolderProFile = function () {
 	const [folderName, setFolderName] = useState("빈 폴더");
 	const [folderImg, setFolderImg] = useState("favicon.png");
 	const [folderAccountName, setFolderAccountName] = useState("USER_NAME");

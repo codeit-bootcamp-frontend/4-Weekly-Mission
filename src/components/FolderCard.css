@@ -27,7 +27,7 @@
 	background-color: #dddfff;
 	background-image: url("/public/noImgLogo.svg");
 	background-repeat: no-repeat;
-	background-size: 133px;
+	background-size: 133px 24px;
 }
 
 .cardBox:hover .noCardImg {
