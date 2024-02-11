@@ -1,0 +1,159 @@
+/* 모바일 우선 */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  font-family: Pretendard;
+  margin: 0;
+  font-style: normal;
+}
+
+.bg-black {
+  padding: 32px 32px 64px;
+  align-items: start;
+  background: var(--The-julge-black, #111322);
+  position: relative;
+}
+
+.codeit {
+  color: #676767;
+  text-align: center;
+  font-family: Acme;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+}
+
+.faq {
+  margin: 30px;
+}
+
+.privacy,
+.faq {
+  color: #cfcfcf;
+  font-family: Acme;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+.feature__description-box {
+  flex-grow: 1;
+}
+.privacy-faq {
+  margin-bottom: 60px;
+}
+
+.social {
+  gap: 5px;
+}
+/* 리액트 */
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+  padding: 13px 32px;
+  order: 0;
+}
+
+.favorites {
+  margin: 20px auto 60px auto;
+}
+
+nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: min(100%, 783.49px);
+  margin: 0 auto;
+  height: 93px;
+}
+
+.profile-img {
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+}
+
+.favorites {
+  order: 1;
+}
+
+.avatar-id {
+  margin: 12px 0 20px;
+}
+
+.linkSearch-CardList {
+  margin: 32px;
+}
+@media (min-width: 768px) {
+  nav {
+    width: min(100%, 783.49px);
+    margin: 0 auto;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .bg-black {
+    position: relative;
+    padding: 32px 104px 64px;
+  }
+
+  .codeit {
+    position: static;
+  }
+  /* 리액트 */
+  header {
+    padding: 20px 32px;
+  }
+}
+@media (min-width: 1200px) {
+  nav {
+    width: 100%;
+  }
+
+  p {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bg-black {
+    height: 160px;
+  }
+  .privacy-faq {
+    margin-bottom: 0;
+  }
+  /* 리액트 */
+  header {
+    flex-direction: row;
+    order: 1;
+    max-width: 1060px;
+    padding: 20px 0px;
+    margin: auto;
+    width: 100%;
+  }
+
+  .favorites {
+    order: 0;
+  }
+}
