@@ -41,3 +41,30 @@
   align-items: center;
   gap: 12px;
 }
+
+/* Mobile */
+@media (max-width: 767px) {
+  .footer {
+    padding: 32px;
+  }
+
+  .footer__inner {
+    display: grid;
+    grid-template:
+      'links sns'
+      'copyright .';
+    row-gap: 60px;
+  }
+
+  .footer__copyright {
+    grid-area: copyright;
+  }
+
+  .footer__links {
+    grid-area: links;
+  }
+
+  .footer__sns {
+    grid-area: sns;
+  }
+}
