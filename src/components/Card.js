@@ -16,7 +16,12 @@ export default function Card({ link }) {
       rel="noreferrer noopener"
     >
       <div className="card-image-wrapper">
-        <img className="card-image" src={link.imageSource} alt="link-preview" />
+        <img
+          className="card-image"
+          src={link.imageSource ?? "images/noimage.svg"}
+          alt="link-preview"
+        />
+        <img className="card-star" src="images/blank-star.svg" alt="bookmark" />
       </div>
       <div className="card-description">
         <span className="post-time">{timeDifferenceMessage}</span>

@@ -8,6 +8,7 @@
 }
 
 .card-image-wrapper {
+  position: relative;
   width: 32.5rem;
   height: 19.2rem;
   border-radius: 1.5rem 1.5rem 0 0;
@@ -27,6 +28,12 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.2s ease-in-out;
+}
+
+.card-star {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
 }
 
 .card-description {
