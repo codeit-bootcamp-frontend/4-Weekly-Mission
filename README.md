@@ -1,4 +1,4 @@
-# 6주차 Weekly-Mission
+# 7주차 Weekly-Mission
 
 ### 📌 요구사항
 
