@@ -1,12 +1,13 @@
 import style from "./CardList.module.css";
 import { getTimeAgo, formatDate } from "util/time";
+import noImg from "assets/noImg.png";
 
 function CardListItem({ link }) {
   return (
     <a href={link.url} target="_blank" className={style["l_col"]}>
       <div className={style.link}>
         <div className={style["link-cover"]}>
-          <img src={link.imageSource} alt="card-cover" />
+          <img src={link.imageSource || noImg} alt="card-cover" />:
         </div>
         <div className={style["link-contents"]}>
           <p className={style["link-update"]}>{getTimeAgo(link.createdAt)}</p>
