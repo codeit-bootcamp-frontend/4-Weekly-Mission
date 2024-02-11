@@ -2,7 +2,7 @@ import Profile  from "./Profile";
 import Content from "../content/Content";
 import {useEffect, useState} from 'react';
 import { API_PATH_SAMPLE_FOLDER } from "../../services/api-path";
-
+import FETCH_API from "../../services/fetch-data";
 function ShaerContent(){
     const [linkList, setLinkList] = useState([]);
     const [userProfile, setUserProfile] = useState({
@@ -12,34 +12,25 @@ function ShaerContent(){
     })
 
     useEffect(() => {
-        const controller = new AbortController();
-        const signal = controller.signal;
-        const folderLoad = async () => {
+        const folderLoad = async() => {
             try{
-                const response = await fetch(API_PATH_SAMPLE_FOLDER, {
-                    method: "GET",
-                    signal
-                   });
-                const result = await response.json();
+                const response = await FETCH_API.get(API_PATH_SAMPLE_FOLDER);
                 if(!response.ok){
-                    throw new Error("API 요청 에러 발생");          
+                    throw new Error("폴더 로드 에러 발생");
                 }
+                const result = await response.json();
                 setUserProfile({
                     profileImg: result.folder.owner.profileImageSource,
                     folderOwner: result.folder.owner.name,
                     folderName: result.folder.name
                 })
                 setLinkList(result.folder.links);
-            }catch(e){
-                console.error(e);
+            }catch(error){
+                console.error(error);
             }
-        }   
-        folderLoad();
-        // 중복  처리
-        return () => {
-            controller.abort();
         }
-    }, []);
+        folderLoad();
+    }, [])
 
     return (
         <main className="folder">

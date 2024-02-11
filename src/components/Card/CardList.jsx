@@ -5,8 +5,8 @@ import getCoustomDate from "../../utils/getCoustomDate";
 function CardList({handleKebab, kebabStatus, linkList, option}){
     return (
         <div className="content__cards">
-            {!linkList.length &&  <div className="content__blank">저장된 링크가 없습니다</div>}
-            {linkList.map(link => {
+            {!linkList &&  <div className="content__blank">저장된 링크가 없습니다</div>}
+            {linkList && linkList.map(link => {
                 const {id, createdAt, created_at, imageSource, image_source, description, url} = link;
                 const imgSrc = imageSource !== undefined ? imageSource : image_source;
                 const linkCreated = createdAt !== undefined ? createdAt : created_at;

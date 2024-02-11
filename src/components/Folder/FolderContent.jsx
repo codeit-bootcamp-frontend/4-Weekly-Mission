@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Content from "../content/Content";
 import {API_PATH_USER_FOLDER, API_PATH_ALL_LINK, API_PATH_CATEGORY_LINK} from "../../services/api-path";
+import FETCH_API from "../../services/fetch-data";
 
 const DEFAULT_CATEGORY = [{
         id: 0,
@@ -19,17 +20,16 @@ function FolderContent({handleKebab, kebabStatus}){
     useEffect(() => {
         const userCategoryLoad = async() => {
             try{
-                const response = await fetch(API_PATH_USER_FOLDER, {
-                    method: "GET",
-                });
-                const result = await response.json();
+                const response = await FETCH_API.get(API_PATH_USER_FOLDER);
                 if(!response.ok){
-                    throw new Error("API 요청 에러 발생");
+                    throw new Error("카테고리 로드 에러 발생");
                 }
+                const result = await response.json();
                 setCategoryList([...categoryList, ...result.data]);
-            }catch(err){
-                console.log(err);
+            }catch(error){
+                console.error(error);
             }
+            
         };
         userCategoryLoad();
     }, []);
@@ -37,20 +37,18 @@ function FolderContent({handleKebab, kebabStatus}){
     // 유저가 가지고 있는 전체 링크 로드(데이터 통신, 첫 렌더링 시에 실행, 전체 카테고리 클릭시 실행)
     const allLinkLoad = async() => {
         try{
-            const response = await fetch(API_PATH_ALL_LINK, {
-                method: "GET",
-            });
-            const result = await response.json();
+            const response = await fetch(API_PATH_ALL_LINK);
             if(!response.ok){
-                throw new Error("API 요청 에러 발생");
+                throw new Error("전체 링크 로드 에러 발생");
             }
+            const result = await response.json();
             setLinkList(result.data);
             setSelectCategory({
                 id: 0,
                 name: "전체"
-            })
-        }catch(err){
-            return console.log(err);
+            });
+        }catch(error){
+            console.error(error);
         }
     };
 
@@ -61,21 +59,19 @@ function FolderContent({handleKebab, kebabStatus}){
     // 카테고리 안에 있는 링크 로드( [전체] 카테고리 이외의 카테고리 클릭시 실행) 
     const handleSelectCategory = async(id, name) => {
         try{
-            const response = await fetch(API_PATH_CATEGORY_LINK+id,{
-                method: "GET",
-            });
-            const result = await response.json();
+            const response = await fetch(API_PATH_CATEGORY_LINK+id);
             if(!response.ok){
-                throw new Error("API 요청 에러 발생");
+                throw new Error("카테고리 링크 로드 에러 발생");
             }
+            const result = await response.json();
             setLinkList(result.data);
             setSelectCategory({
                 id,
                 name
-            })
-        }catch(err){
-            return console.log(err);
-        }
+            });
+        }catch(error){
+            console.error(error);
+        }  
     } 
     
     const getClickArea = (e) => {

@@ -5,6 +5,7 @@ import AuthLable from "./AuthLable";
 import { useState } from "react";
 import {API_PATH_SIGNIN, API_PATH_CHECK_EMAIL, API_PATH_SIGNUP} from "../../services/api-path";
 import {REGEXP_PASSWORD} from "../../utils/regExp";
+import FETCH_API from "../../services/fetch-data";
 function AuthForm({option}){
     // 패스워드 인풋 타입 변경
     const [inputType, setInputType] = useState({
@@ -50,36 +51,30 @@ function AuthForm({option}){
 
     // 로그인 로직
     const login = async () => {
-        const userInfo = {
-            email: userInput.email,
-            password: userInput.password,
-        }
         try{
-            const response = await fetch(API_PATH_SIGNIN, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(userInfo),
-            })
+            const userInfo = {
+                email: userInput.email,
+                password: userInput.password,
+            }
+            const response = await FETCH_API.post(API_PATH_SIGNIN, userInfo);
             if(!response.ok){
                 setErrorMsg({
                     ...errorMsg,
                     email: "이메일을 확인해 주세요!",
                     password: "비밀번호를 확인해 주세요!"
                 })
-                throw new Error("로그인 실패");
+                throw new Error("로그인 에러 발생");
             }
             const result = await response.json();
-            console.log(result);
             setErrorMsg({
                 email: "",
                 password: ""
             })
             localStorage.setItem("accessToken", result.data.accessToken);
-        }catch(err){
-            console.error(err);
+        }catch(error){
+            console.error(error);
         }
+        
     }
 
     // 패스워드 인풋 값 비교
@@ -111,13 +106,7 @@ function AuthForm({option}){
         try{
             passwordCompare(userInput.password, userInput.passwordConfirm);
             checkPasswordFormat(userInput.password);
-            const emailCheckResponse = await fetch(API_PATH_CHECK_EMAIL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({email: userInput.email})
-            });
+            const emailCheckResponse = await FETCH_API.post(API_PATH_CHECK_EMAIL, {email: userInput.email});
             if(!emailCheckResponse.ok){
                 setErrorMsg({
                     email: "중복된 이메일 입니다!",
@@ -130,13 +119,7 @@ function AuthForm({option}){
                 email: userInput.email,
                 password: userInput.password
             }
-            const registerResponse = await fetch(API_PATH_SIGNUP, {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json",
-                },
-                body: JSON.stringify(userInfo)
-            });
+            const registerResponse = await FETCH_API.post(API_PATH_SIGNUP, userInfo);
             if(!registerResponse.ok){
                 setErrorMsg({
                     ...errorMsg,
