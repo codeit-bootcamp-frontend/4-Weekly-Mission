@@ -1,7 +1,12 @@
 import './Card.css';
+import cardImg from '../../assets/card_default.png';
 import { formatDate, formatRelativeDate } from '../../utils/date';
 
 function Card({ item = {} }) {
+  const handleImgError = (e) => {
+    e.target.src = cardImg;
+  };
+
   return (
     <a
       className="card"
@@ -13,8 +18,9 @@ function Card({ item = {} }) {
         <div className="card__image__container">
           <img
             className="card__image"
-            src={item.imageSource}
+            src={item.imageSource || ''}
             alt={item.title}
+            onError={handleImgError}
           />
         </div>
         <div className="card__info">
