@@ -8,7 +8,7 @@ export const NavigationBar = ({ profile }) => {
     <nav className="Nav">
       <div className="Nav-item">
         <a href='/'>
-          <img className="Nav-logo" src="/images/linkbrary.svg" alt="Linkbrary-logo" />
+          <img className="Nav-logo" src="images/linkbrary.svg" alt="Linkbrary-logo" />
         </a>
         {profile ? (
           <Profile profile={profile} />

@@ -3,6 +3,7 @@ import { getData } from "../Data/getData";
 import { NavigationBar } from "../Component/NavigationBar/NavigationBar"
 import { Folder } from "../Component/Folder/Folder";
 import { Footer } from "../Component/Footer/Footer";
+import { SearchBar } from "../Component/SearchBar/SearchBar";
 
 export const Layout = () => {
   const [profile, setProfile] = useState(null);
@@ -22,7 +23,12 @@ export const Layout = () => {
   return (
     <div>
       <NavigationBar profile={profile} />
-      {folder? <Folder folder={folder} /> : null}
+      <div className="Page">
+        {folder? <Folder folder={folder} /> : null}
+        <div className="Page-item">
+          <SearchBar />
+        </div>
+      </div>
       <Footer />
     </div>
   );
