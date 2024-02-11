@@ -53,13 +53,17 @@ const Card = ({ folderLinkInfo }) => {
         const { createdAt, description, imageSource, url } = link;
         const createDate = getCreateDate(createdAt);
         const timeDifference = getTimeDifference(createdAt);
+        const cardImage = {
+          backgroundImage:
+            imageSource !== undefined
+              ? `url(${imageSource})`
+              : `url(${undefinedImg})`,
+        };
+
         return (
           <Link to={url} key={link.id}>
             <div className='CardContent'>
-              <img
-                src={imageSource !== undefined ? imageSource : undefinedImg}
-                alt='imageSource img'
-              />
+              <div className='CardImage' style={cardImage} />
               <div className='CardInfo'>
                 <div className='CardInfoHeader'>
                   <span>{timeDifference}</span>
