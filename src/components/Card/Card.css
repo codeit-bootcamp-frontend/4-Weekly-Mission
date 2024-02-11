@@ -12,6 +12,11 @@
   line-height: 24px;
 }
 
+.card__inner {
+  width: 100%;
+  height: 100%;
+}
+
 .card__image__container {
   width: 100%;
   height: 200px;
@@ -32,6 +37,10 @@
   width: 100%;
   height: 100%;
   padding: 15px 20px;
+}
+
+.card:hover .card__info {
+  background-color: var(--color-gray-bg);
 }
 
 .info {
