@@ -3,6 +3,7 @@ import "./App.css";
 import NavigationBar from "./NavigationBar";
 import { useEffect, useState } from "react";
 import FolderBar from "./FolderBar";
+import CardSection from "./CardSection";
 
 function App() {
   const [profile, setProfile] = useState(null);
@@ -24,8 +25,8 @@ function App() {
     async function getProFileFolder() {
       const fold = await getFolder();
       if (fold) {
-        const { folder } = fold;
-        setFolder({ folder });
+        const { owner, links, name } = fold.folder;
+        setFolder({ owner, links, name });
       }
     }
 
@@ -36,6 +37,7 @@ function App() {
     <div className="App">
       <NavigationBar profile={profile} />
       <FolderBar folder={folder} />
+      <CardSection />
     </div>
   );
 }
