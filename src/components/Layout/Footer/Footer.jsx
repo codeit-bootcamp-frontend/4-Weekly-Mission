@@ -1,7 +1,9 @@
-import IconFacebook from '../../Icon/IconFacebook';
-import IconInstagram from '../../Icon/IconInstagram';
-import IconTwitter from '../../Icon/IconTwitter';
-import IconYoutube from '../../Icon/IconYoutube';
+import {
+  IconFacebook,
+  IconInstagram,
+  IconTwitter,
+  IconYoutube,
+} from '../../Icon';
 import './Footer.css';
 
 function Footer() {

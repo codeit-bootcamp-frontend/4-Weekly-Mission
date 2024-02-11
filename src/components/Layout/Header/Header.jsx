@@ -1,6 +1,6 @@
 import './Header.css';
 import { Button } from '../../Button';
-import IconLogo from '../../Icon/IconLogo';
+import { IconLogo } from '../../Icon';
 
 function Header() {
   return (
