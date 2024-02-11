@@ -1,9 +1,9 @@
 import "./PageBody.css";
 
-export const PageBody = ({ folderInfo, searchBar, cardList }) => {
+export const PageBody = ({ PageInfo, searchBar, cardList }) => {
   return (
     <div className="PageBody">
-      {folderInfo}
+      {PageInfo}
       <div className="PageBody-items">
         {searchBar}
         {cardList}

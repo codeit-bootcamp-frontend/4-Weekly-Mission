@@ -1,0 +1,45 @@
+.PageInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 0 4rem;
+  box-sizing: border-box;
+  background-color: var(--light-blue);
+}
+
+.PageInfo-profile {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.PageInfo-owner {
+  margin-top: 0.6rem;
+  font-size: 1.4rem;
+}
+
+.PageInfo-folder {
+  margin-top: 1rem;
+  font-size: 3.2rem;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .PageInfo {
+    padding: 2rem 0 6rem;
+  }
+  .PageInfo-profile {
+    width: 6rem;
+    height: 6rem;
+  }
+  .PageInfo-owner {
+    margin-top: 1.2rem;
+    font-size: 1.6rem;
+    line-height: 150%;
+  }
+  .PageInfo-folder {
+    margin-top: 2rem;
+    font-size: 4rem;
+  }
+}
