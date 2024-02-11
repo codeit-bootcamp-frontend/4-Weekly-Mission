@@ -19,14 +19,14 @@ export default function MainPage() {
       setFolder((await getSampleFolder()).folder);
     } catch (error) {
       console.error(error);
-    } finally {
-      user ? setIsLogin(true) : setIsLogin(false);
     }
   };
 
   useEffect(() => {
     getData();
-  }, [user.id]);
+  }, []);
+
+  useEffect(() => (user ? setIsLogin(true) : setIsLogin(false)), [user]);
 
   return (
     <div className="container">
