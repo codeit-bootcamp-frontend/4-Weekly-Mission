@@ -38,10 +38,6 @@
   overflow: hidden;
   transition: all 0.2s linear;
   transform: scale(1);
-
-  background-image: url("/src/assets/bg_noImg.png");
-  background-position: center;
-  background-size: cover;
 }
 
 .Cards .card_image:hover {

@@ -4,7 +4,7 @@ import Footer from "./components/footer/Footer";
 import NavigationBar from "./components/header/NavigationBar";
 import Cards from "./components/main/Cards";
 import SearchBar from "./components/main/SearchBar";
-import UserInformation from "./components/main/UserInformation";
+import UserInformation from "./components/main/FolderInformation";
 import { getCards, getUsers } from "./services/api";
 
 function App() {
