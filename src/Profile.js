@@ -14,7 +14,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <div>
+    <div className="Profile">
       <img src={user.profileImageSource} alt="사용자 프로필 이미지" />
       <span>{user.email}</span>
     </div>
