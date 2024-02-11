@@ -1,7 +1,10 @@
 import "./UserMainProfile.css";
 
 export default function UserMainProfile({ folder = {} }) {
-  console.log(folder.owner.name);
+  if (!folder.owner) {
+    return null;
+  }
+
   return (
     <div className="main-profile-container">
       <img

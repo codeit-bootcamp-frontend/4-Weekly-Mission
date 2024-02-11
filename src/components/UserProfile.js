@@ -1,7 +1,10 @@
 import "./UserProfile.css";
 
-export default function UserProfile({ user }) {
-  console.log(user);
+export default function UserProfile({ user = {} }) {
+  if (!user) {
+    return null;
+  }
+
   return (
     <div className="user-profile">
       <a type="button" href="./profile.html">
