@@ -28,13 +28,15 @@ const Styled = {
   `,
 };
 
-function UserBtn({ profileImg = defaultProfileImg }) {
+function UserBtn({ userData }) {
+  const { profileImageSource: profileImg = defaultProfileImg, email = '' } = userData || {};
+
   return (
     <Styled.UserBtn>
       <Styled.ProfileImgContainer>
         <Styled.ProfileImg src={profileImg} alt="profileImg" />
       </Styled.ProfileImgContainer>
-      <Styled.ProfileUserName>Codeit@codeit.com</Styled.ProfileUserName>
+      <Styled.ProfileUserName>{email}</Styled.ProfileUserName>
     </Styled.UserBtn>
   );
 }

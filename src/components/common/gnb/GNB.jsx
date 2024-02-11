@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
+import { useEffect, useState } from 'react';
 
 import logo from 'assets/logo.svg';
 import Button from 'components/common/button/Button';
 import UserBtn from 'components/common/gnb/UserBtn';
+import sampleAPI from 'api/sampleAPI';
 
 const Styled = {
   Container: styled.div`
@@ -24,14 +26,30 @@ const Styled = {
 };
 
 function GNB() {
-  const isLoggedIn = true;
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userData, setUserData] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      const res = await sampleAPI.getSampleUserInfo();
+      const userData = res.data;
+      setIsLoggedIn(userData ? true : false);
+      setUserData(userData);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <Styled.Container>
       <Link to="/">
         <img src={logo} alt="linkbrary-logo" />
       </Link>
-      {isLoggedIn ? <UserBtn /> : <Button />}
+      {isLoggedIn ? <UserBtn userData={userData} /> : <Button />}
     </Styled.Container>
   );
 }
