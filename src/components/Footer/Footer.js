@@ -1,6 +1,10 @@
 import { Fragment } from "react";
 
 import "./Footer.css";
+import facebookIcon from "../../assets/images/facebook-icon.png";
+import instagramIcon from "../../assets/images/instagram-icon.png";
+import twitterIcon from "../../assets/images/twitter-icon.png";
+import youtubeIcon from "../../assets/images/youtube-icon.png";
 
 const Footer = () => {
   return (
@@ -28,40 +32,28 @@ const Footer = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  src="./images/landing/akar-icons_facebook-fill.png"
-                  alt="페이스북 아이콘"
-                />
+                <img src={facebookIcon} alt="페이스북 아이콘" />
               </a>
               <a
                 href="https://twitter.com/?lang=ko"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  src="./images/landing/akar-icons_twitter-fill.png"
-                  alt="트위터 아이콘"
-                />
+                <img src={twitterIcon} alt="트위터 아이콘" />
               </a>
               <a
                 href="https://www.youtube.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  src="./images/landing/akar-icons_youtube-fill.png"
-                  alt="유튜브 아이콘"
-                />
+                <img src={youtubeIcon} alt="유튜브 아이콘" />
               </a>
               <a
                 href="https://www.instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img
-                  src="./images/landing/ant-design_instagram-filled.png"
-                  alt="인스타그램 아이콘"
-                />
+                <img src={instagramIcon} alt="인스타그램 아이콘" />
               </a>
             </div>
           </div>
