@@ -19,7 +19,7 @@ const Styled = {
   `,
 };
 
-function SocialMediaBtns() {
+function SocialMediaBtns({ ...htmlDivProps }) {
   const socialMediaData = [
     { name: 'Facebook', url: 'https://www.facebook.com/', icon: faceboockIcon },
     { name: 'Twitter', url: 'https://twitter.com/', icon: twitterIcon },
@@ -28,7 +28,7 @@ function SocialMediaBtns() {
   ];
 
   return (
-    <Styled.Container>
+    <Styled.Container {...htmlDivProps}>
       {socialMediaData.map(({ name, url, icon }, idx) => (
         <Styled.Icon key={idx} to={url} target="_blank" rel="noopener noreferrer">
           <img src={icon} alt={name} />
