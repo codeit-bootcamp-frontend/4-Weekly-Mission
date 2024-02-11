@@ -1,0 +1,59 @@
+@import '../../common/styles/global.css';
+
+main {
+  width: 100%;
+  height: auto;
+  padding: 4rem 0;
+}
+
+.main-container {
+  display: flex;
+  column-gap: 2rem;
+  row-gap: 2.5rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 106rem;
+  margin: 0 auto;
+}
+
+.card-item {
+  width: 34rem;
+  height: 33.4rem;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+}
+
+.card-item-image {
+  width: 34rem;
+  height: 20rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+  object-fit: cover;
+}
+
+.card-item-contents {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  padding: 1.5rem 2rem;
+  border-radius: 0 0 1.5rem 1.5rem;
+  font-weight: 400;
+}
+
+.card-difference-time {
+  color: #666;
+  font-size: 1.3rem;
+}
+
+.card-description {
+  color: #000;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  height: 4.9rem;
+}
+
+.card-created-time {
+  color: #333;
+  font-size: 1.4rem;
+}

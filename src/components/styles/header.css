@@ -1,0 +1,61 @@
+@import '../../common/styles/global.css';
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--background);
+}
+
+nav {
+  display: flex;
+  height: 9.3rem;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 192rem;
+  padding: 3.2rem 20rem;
+  width: 100%;
+
+  /* Tablet 사이즈 */
+  @media (max-width: 1199px) {
+    max-width: 864px;
+    padding: 3.2rem 3.25rem;
+  }
+
+  /* Mobile 사이즈 */
+  @media (max-width: 767px) {
+    height: 6.3rem;
+  }
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.4rem;
+}
+
+.profile-image {
+  border-radius: 50%;
+}
+
+.folder {
+  margin: 2rem auto 6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.folder-user-image {
+  margin-bottom: 1.2rem;
+}
+
+.folder-user-name {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.folder-name {
+  font-size: 4rem;
+}
