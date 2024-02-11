@@ -1,6 +1,7 @@
 import './Shared.css';
 import { useEffect, useState } from 'react';
 import { CardList } from '../Card';
+import { IconSearch } from '../Icon';
 import { getFolder } from '../../api';
 
 const LIMIT = 9;
@@ -58,7 +59,14 @@ function SharedContent({ items = [] }) {
   return (
     <div className="shared-content">
       <header className="shared-content__header">
-        <input name="search" placeholder="링크를 검색해 보세요." />
+        <div className="search-box">
+          <IconSearch />
+          <input
+            className="search-box__input"
+            name="search"
+            placeholder="링크를 검색해 보세요."
+          />
+        </div>
       </header>
       <CardList items={items} />
     </div>
