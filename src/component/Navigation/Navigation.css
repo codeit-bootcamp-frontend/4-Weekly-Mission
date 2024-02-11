@@ -1,0 +1,49 @@
+.Navigation {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: var(--background);
+}
+
+.Navigation-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 6.3rem;
+  padding: 0 3.2rem;
+
+  @media (min-width: 768px) {
+    height: 9.4rem;
+    max-width: 86.3rem;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 192rem;
+    padding: 0 20rem;
+  }
+}
+
+.Navigation-signin {
+  display: inline-block;
+  width: 8rem;
+  padding: 1rem 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 0.8rem;
+  color: var(--white);
+  background: var(
+    --Linkbrary-gradation,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+
+  @media (min-width: 768px) {
+    width: 12.8rem;
+    padding: 1.6rem 0;
+    font-size: 1.8rem;
+  }
+}
