@@ -1,15 +1,17 @@
 function timeToString(time) {
   let diffSec = parseInt(time / 1000);
-  if (diffSec < 120) {
-    // 2분 미만
+  // 2분 미만
+  if (diffSec <= 120) {
     return "1 minute ago";
   }
   let diffMinute = parseInt(diffSec / 60);
+  // 59분 이하
   if (diffMinute <= 59) {
-    // 59분 이하
     return `${diffMinute} minutes ago`;
   }
+
   let diffHour = parseInt(diffMinute / 60);
+  // 23시간 이하
   if (diffHour <= 23) {
     return `${diffHour} hours ago`;
   }
@@ -20,7 +22,7 @@ function timeToString(time) {
   }
 
   let diffMonth = parseInt(diffDay / 30);
-  if (diffMonth < 11) {
+  if (diffMonth <= 11) {
     return `${diffMonth} months ago`;
   }
 
