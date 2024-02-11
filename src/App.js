@@ -1,15 +1,12 @@
-import Footer from "./footer.js";
-import NavBar from "./nav-bar.js";
+import Footer from "./Footer.js";
+import NavBar from "./NavBar.js";
 
 function App() {
   return (
-    <div>
-      <header>프로젝트 시작</header>
-      <body>
-        <NavBar />
-        <Footer />
-      </body>
-    </div>
+    <>
+      <NavBar />
+      <Footer />
+    </>
   );
 }
 
