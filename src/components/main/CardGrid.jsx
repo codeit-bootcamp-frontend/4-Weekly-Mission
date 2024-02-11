@@ -5,7 +5,7 @@ import useFetchData from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';
 import Card from './Card';
-import ErrorCard from './ErrorCard';
+import Error from '../common/Error';
 
 const CardGrid = () => {
   const {
@@ -21,7 +21,7 @@ const CardGrid = () => {
   );
 
   if (isError) {
-    return <ErrorCard />;
+    return <Error />;
   }
 
   return (

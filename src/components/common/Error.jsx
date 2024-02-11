@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ErrorCard = () => {
+const Error = () => {
   return (
     <StyledError>
       <div className="emoji">😰</div>
@@ -13,9 +13,10 @@ const ErrorCard = () => {
 const StyledError = styled.div`
   display: flex;
   align-items: center;
+  width: 50%;
+  margin: 30px auto;
   padding: 10px 20px;
   background-color: rgb(253, 235, 236);
-  margin: 30px 0;
   .emoji {
     font-size: 20px;
     padding: 10px;
@@ -26,4 +27,4 @@ const StyledError = styled.div`
     color: #ff2828;
   }
 `;
-export default ErrorCard;
+export default Error;

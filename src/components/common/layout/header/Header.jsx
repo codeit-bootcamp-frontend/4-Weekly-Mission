@@ -3,13 +3,13 @@ import { sampleFolderInquire } from 'api/sampleAPI';
 import useFetchData from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';
+import Error from '../../Error';
 
 const Header = () => {
   const {
     data: folderInfo,
     isLoading,
     isError,
-    error,
   } = useFetchData(sampleFolderInquire, 'folderInfo', data => ({
     ownerName: data.folder.owner.name,
     folderName: data.folder.name,
@@ -17,7 +17,7 @@ const Header = () => {
   }));
 
   if (isError) {
-    console.log(error);
+    return <Error />;
   }
   return (
     <StyledHeader>
