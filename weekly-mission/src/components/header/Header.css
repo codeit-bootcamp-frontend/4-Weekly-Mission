@@ -30,7 +30,13 @@
 }
 @media screen and (max-width : 790px){
     .Header-inner{
-        width: 39rem;
+        width: 34rem;
+      
     }
+    .else-thing{
+        color: #CFCFCF;
+    }
+
+    
     
 }

@@ -15,18 +15,20 @@ function Header() {
         const getUserProfile = async () => {
             const data = await requestProfileData();
             setUserData(data);
-    
+
         }
         getUserProfile();
     }, [])
 
-    
+
 
     return (
         <div id="Header">
             <div className="Header-inner">
                 <a href="/" className="Header-logo">
-                    <img src={logoImg} alt="Linkbrary 로고 이미지" />
+                    <h1>
+                        <img src={logoImg} alt="Linkbrary 로고 이미지" />
+                    </h1>
                 </a>
                 {userData !== undefined ? <Profile userData={userData} /> : <Login />}
             </div>

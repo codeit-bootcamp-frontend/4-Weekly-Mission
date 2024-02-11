@@ -33,12 +33,19 @@
     }
     .else-thing{
         order: 1;
+        float: right;
+        width: 50%;
     }
     .Footer-inner > nav{
         order: 2;
+        float: left;
+        width: 50%;
     }
     .Footer-inner > p{
         order: 3;
         margin-top: 6rem;
+    }
+    .social-link{
+        justify-content: flex-end;
     }
 }

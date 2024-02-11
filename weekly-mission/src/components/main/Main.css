@@ -47,6 +47,9 @@ section {
         width: 72.4rem;
         gap: 2rem 2.4rem;
     }
+    .link-card__list > li:nth-child(n + 7){
+        display: none;
+    }
 }
 
 
@@ -57,6 +60,9 @@ section {
     } 
     .link-card__list {
         width: 34rem;
+    }
+    .link-card__list > li:nth-child(n + 7){
+        display: list-item;
     }
 
 }
