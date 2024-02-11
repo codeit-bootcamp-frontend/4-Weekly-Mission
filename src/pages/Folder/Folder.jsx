@@ -18,8 +18,12 @@ export default function Folder() {
   };
 
   const loadFolderInfo = async () => {
-    const { folder } = await getFolderInfoAsync();
-    setFolderInfo(folder);
+    try {
+      const { folder } = await getFolderInfoAsync();
+      setFolderInfo(folder);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
@@ -41,6 +45,7 @@ export default function Folder() {
               @{folderInfo?.owner?.name}
             </div>
             <h2 className={styles["profile-title"]}>{folderInfo?.name}</h2>
+            {loadingError && <div>{loadingError.message}</div>}
           </div>
         </div>
 
@@ -55,10 +60,10 @@ export default function Folder() {
               onChange={handleSearchChange}
             />
           </div>
+          {loadingError && <div>{loadingError.message}</div>}
         </div>
 
         <CardList links={folderInfo.links} />
-        {loadingError?.message && <div>{loadingError.message}</div>}
       </main>
 
       <Footer />

@@ -9,13 +9,6 @@ export default function Header() {
   const [loading, error, getUserAsync] = useAsync(getUser);
 
   const loadUser = async () => {
-    // try {
-    //   const data = await getUser();
-    //   setUser(data);
-    // } catch (error) {
-    //   console.log(error);
-    // }
-
     const data = await getUserAsync();
     setUser(data);
   };
