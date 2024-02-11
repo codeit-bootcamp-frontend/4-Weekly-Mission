@@ -16,16 +16,32 @@ const Footer = () => {
         </Link>
       </FooterLink>
       <FooterIcon>
-        <a href="https://facebook.com/" target="_blank">
+        <a
+          href="https://facebook.com/"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
           <img src="/images/icons/facebook.png" alt="facebook icon" />
         </a>
-        <a href="https://twitter.com/" target="_blank">
+        <a
+          href="https://twitter.com/"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
           <img src="/images/icons/twitter.png" alt="twitter icon" />
         </a>
-        <a href="https://youtube.com/" target="_blank">
+        <a
+          href="https://youtube.com/"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
           <img src="/images/icons/youtube.png" alt="youtube icon" />
         </a>
-        <a href="https://instagram.com/" target="_blank">
+        <a
+          href="https://instagram.com/"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
           <img src="/images/icons/instagram.png" alt="instagram icon" />
         </a>
       </FooterIcon>
