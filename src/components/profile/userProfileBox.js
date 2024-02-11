@@ -1,3 +1,5 @@
+import { useFolder } from "../../hooks/useFolder";
+import { useProfile } from "../../hooks/useProfile";
 import "./profile.css";
 
 export const UserProfileBox = ({ email, imageSrc }) => {

@@ -1,0 +1,37 @@
+.infoContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: var(--light-blue);
+}
+
+.infoFlexBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+
+.infoImage {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 12px;
+ 
+  @media (width < 390px) {
+    margin-bottom: 6px;
+  }
+}
+
+.infoName {
+  font-size: 16px;
+  margin-bottom: 20px;
+  @media (width < 390px) {
+    margin-bottom: 10px;
+  }
+}
+
+.infoTitle {
+  font-size: 48px;
+}

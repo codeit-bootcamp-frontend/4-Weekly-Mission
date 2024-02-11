@@ -1,21 +1,23 @@
 .headerContainer {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
   background-color: var(--light-blue);
   z-index: 1;
+  height: 93px;
 }
 
 .headerWrapper {
   display: flex;
   justify-content: center;
   padding: 32px 200px;
+
   @media (390px< width < 769px) {
     padding: 32px 32px;
   }
   @media (width < 390px) {
-    padding: 18px 32pxs;
+    padding: 18px 32px;
   }
 }
 

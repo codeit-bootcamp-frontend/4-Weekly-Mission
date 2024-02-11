@@ -7,10 +7,18 @@ import YoutubeLogo from "../../assets/image/youtube.svg";
 
 export const Footer = () => {
   const logoList = [
-    { logo: FaceBookLogo, link: "", id: "FaceBookLogo" },
-    { logo: InstarGramLogo, link: "", id: "InstarGramLogo" },
-    { logo: TwitterLogo, link: "", id: "TwitterLogo" },
-    { logo: YoutubeLogo, link: "", id: "YoutubeLogo" },
+    {
+      logo: FaceBookLogo,
+      link: "https://www.facebook.com/",
+      id: "FaceBookLogo",
+    },
+    {
+      logo: InstarGramLogo,
+      link: "https://www.instagram.com/",
+      id: "InstarGramLogo",
+    },
+    { logo: TwitterLogo, link: "https://twitter.com/", id: "TwitterLogo" },
+    { logo: YoutubeLogo, link: "https://www.youtube.com/", id: "YoutubeLogo" },
   ];
   return (
     <div className="footerContainer">
@@ -22,7 +30,9 @@ export const Footer = () => {
       <div className="footerItem">
         {logoList.map((v) => (
           <div key={v.id}>
-            <img src={v.logo} alt={v.id} />
+            <a href={v.link} target="_blank">
+              <img src={v.logo} alt={v.id} />
+            </a>
           </div>
         ))}
       </div>
