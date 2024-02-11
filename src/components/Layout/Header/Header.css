@@ -38,3 +38,21 @@
   font-weight: 400;
   line-height: normal;
 }
+
+/* Tablet */
+@media (max-width: 1124px) {
+  .header {
+    padding: 32px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .header {
+    padding: 18px 32px;
+  }
+
+  .button-user__email {
+    display: none;
+  }
+}
