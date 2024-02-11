@@ -1,4 +1,3 @@
-import React from 'react';
 import './Top.css';
 
 const Top = ({className, owner, name}) => {

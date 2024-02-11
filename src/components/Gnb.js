@@ -1,4 +1,3 @@
-import React from 'react'
 import './Gnb.css';
 import logoImg from '../assets/logo.svg';
 

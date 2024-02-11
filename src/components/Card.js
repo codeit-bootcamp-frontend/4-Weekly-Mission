@@ -1,4 +1,3 @@
-import React from 'react'
 import './Card.css'
 import defaultImg from '../assets/logo.svg';
 import { compareDateDifferences, extractDateRegex } from '../utils/DateCalculate';

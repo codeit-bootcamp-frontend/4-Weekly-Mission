@@ -7,7 +7,7 @@
   flex-direction: column;
   align-items: center;
   align-self: stretch;
-  background: var(--Linkbrary-bg, #F0F6FF);
+  background: #F0F6FF;
 
   @media (max-width: 1124px) and (min-width: 768px) {
     padding: 33px;
@@ -31,7 +31,7 @@
   align-items: flex-start;
   width: 100%;
   margin-bottom: 20px;
-  background: var(--Linkbrary-bg, #F0F6FF);
+  background: #F0F6FF;
 }
 
 .container-frame {
@@ -42,7 +42,6 @@
   gap: 32px;
   padding: 0 32px;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .container-footer {
