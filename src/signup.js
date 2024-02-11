@@ -62,8 +62,8 @@ function testUser(event) {
   setPwError();
   setPwCheckError();
 
-  if(pwInput.value === pwCheckinput.value && emailRegex.test(emailInput.value)){
-    location.href = "index.html"
+  if(emailErrorMessage.textContent && pwErrorMessage.textContent && pwCheckErrorMessage.textContent === ''){
+     return location.href = "index.html"
   } else {
     emailErrorMessage.textContent = '이메일을 확인해 주세요'
     pwErrorMessage.textContent = '비밀번호를 확인해 주세요'
