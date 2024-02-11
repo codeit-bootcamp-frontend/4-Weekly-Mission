@@ -1,0 +1,45 @@
+.FolderBar {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: var(--Linkbrary-bg, #f0f6ff);
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 200px 20px 200px;
+}
+
+#folderImg {
+  width: 80px;
+  height: 80px;
+}
+
+#userName {
+  color: var(--text-color-light-mode, #000);
+
+  /* Linkbrary/body1-regular */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+#folderName {
+  color: #000;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+
+  /* Linkbrary/h1-semibold */
+  font-family: Pretendard;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
