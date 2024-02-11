@@ -1,4 +1,5 @@
 import Header from "./Header";
+import LinkList from "./LinkList";
 import NavigationBar from "./Navbar";
 
 function App() {
@@ -6,9 +7,7 @@ function App() {
     <div>
       <NavigationBar />
       <Header />
-      <div>
-        <p>content</p>
-      </div>
+      <LinkList />
       <footer>
         <p>Q&A</p>
       </footer>

@@ -1,0 +1,6 @@
+.content {
+  display: grid;
+  justify-content: center;
+  gap: 40px;
+  margin: 40px 0;
+}
