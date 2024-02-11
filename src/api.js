@@ -14,7 +14,6 @@ export async function getFolder() {
   try {
     const response = await fetch(`${BASE_URL}/api/sample/folder`);
     const folder = await response.json();
-    //console.log(folder);
     return folder;
   } catch (error) {
     console.log("폴더 정보 불러오기 실패");

@@ -45,3 +45,20 @@
   font-weight: 400;
   line-height: 24px; /* 150% */
 }
+
+.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  width: 1060px;
+  height: 1052px;
+  list-style-type: none; /* ul 태그의 점을 없앰 */
+}
+
+.card-item {
+  width: calc(33.33% - 20px);
+  height: 334px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+}

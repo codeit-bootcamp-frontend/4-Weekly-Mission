@@ -1,7 +1,9 @@
 import searchIcon from "../assets/Search.svg";
+import CardList from "./CardList";
 import "./CardSection.css";
 
-export default function CardSection() {
+export default function CardSection({ cardList }) {
+  console.log(cardList);
   return (
     <div className="CardSection">
       <div className="cardFrame">
@@ -11,6 +13,21 @@ export default function CardSection() {
             <input id="inputText" placeholder="링크를 검색해보세요."></input>
           </div>
         </div>
+        <ul className="card-list">
+          {cardList &&
+            cardList.map(({ id, createdAt, url, description, imageSource }) => {
+              return (
+                <li key={id} className="card-item">
+                  <CardList
+                    url={url}
+                    createdAt={createdAt}
+                    desc={description}
+                    imgUrl={imageSource}
+                  />
+                </li>
+              );
+            })}
+        </ul>
       </div>
     </div>
   );

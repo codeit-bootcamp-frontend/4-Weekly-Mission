@@ -7,7 +7,10 @@ import CardSection from "./CardSection";
 
 function App() {
   const [profile, setProfile] = useState(null);
-  const [folder, setFolder] = useState(null);
+  const [folderName, setFolderName] = useState("");
+  const [userName, setUserName] = useState("");
+  const [profileImage, setProfileImage] = useState("");
+  const [cardList, setCardList] = useState(null);
 
   useEffect(() => {
     async function getProFile() {
@@ -23,11 +26,13 @@ function App() {
 
   useEffect(() => {
     async function getProFileFolder() {
-      const fold = await getFolder();
-      if (fold) {
-        const { owner, links, name } = fold.folder;
-        setFolder({ owner, links, name });
-      }
+      const {
+        folder: { name, owner, links },
+      } = await getFolder();
+      setFolderName(name);
+      setUserName(owner.name);
+      setProfileImage(owner.profileImageSource);
+      setCardList(links);
     }
 
     getProFileFolder();
@@ -36,8 +41,12 @@ function App() {
   return (
     <div className="App">
       <NavigationBar profile={profile} />
-      <FolderBar folder={folder} />
-      <CardSection />
+      <FolderBar
+        folderName={folderName}
+        userName={userName}
+        imgSrc={profileImage}
+      />
+      <CardSection cardList={cardList} />
     </div>
   );
 }
