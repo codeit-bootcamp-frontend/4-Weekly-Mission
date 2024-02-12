@@ -1,7 +1,14 @@
-const getSampleUserEmail = async () => {
+const getSampleUserData = async () => {
   const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/user');
-  const { email } = await response.json();
-  return email;
+  const data = await response.json();
+
+  return data;
 };
 
-export { getSampleUserEmail };
+const getSampleFolderData = async () => {
+  const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/folder');
+  const data = await response.json();
+  return data;
+};
+
+export { getSampleUserData, getSampleFolderData };
