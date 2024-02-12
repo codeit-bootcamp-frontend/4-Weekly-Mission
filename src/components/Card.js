@@ -3,9 +3,9 @@ import defaultImg from '../assets/logo.svg';
 
 import './Card.css'
 
-const Card = ({imgSrc, time, title, description, url}) => {
-  const timeDifference = calculateDateDifference(time);
-  const createdTime = extractDateFormat(time);
+const Card = ({imgSrc, createdAt, title, description, url}) => {
+  const timeDifference = calculateDateDifference(createdAt);
+  const createdTime = extractDateFormat(createdAt);
 
   return (
     <li className='card'>

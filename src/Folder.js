@@ -3,7 +3,7 @@ import Card from './components/Card';
 import './Folder.css';
 
 const Folder = ({items}) => {
-  if(!items) {
+  if(!items || !items.links) {
     return (
       <div>파트 1에서 만들었던 랜딩 페이지 적용</div>
     )
@@ -18,7 +18,7 @@ const Folder = ({items}) => {
             imgSrc={imageSource}
             title={title}
             description={description}
-            time={createdAt}
+            createdAt={createdAt}
             url={url}
           />
         ))}
