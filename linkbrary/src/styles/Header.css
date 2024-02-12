@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   right: 0;
-  background-color: var(--color-gray-200);
+  background-color: var(--light-blue);
   z-index: 10;
 }
 

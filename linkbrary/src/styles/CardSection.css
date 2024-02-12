@@ -53,7 +53,7 @@
   line-height: 1.7rem;
   font-size: 1.3rem;
   font-weight: 400;
-  color: #666;
+  color: var(--text-content-gray);
 }
 
 .more {
@@ -76,5 +76,5 @@
   line-height: 1.9rem;
   font-size: 14px;
   font-weight: 400;
-  color: #333;
+  color: var(--text-content-black);
 }

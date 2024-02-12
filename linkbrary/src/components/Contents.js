@@ -9,16 +9,19 @@ function Contents({ contentList }) {
         <SerachBar />
       </div>
       <ul className="card-list">
-        {contentList.map(({ id, createdAt, url, description, imageSource }) => (
-          <li key={id} className="card-item">
-            <CardSection
-              url={url}
-              createdAt={createdAt}
-              desc={description}
-              imgUrl={imageSource}
-            />
-          </li>
-        ))}
+        {contentList &&
+          contentList.map(
+            ({ id, createdAt, url, description, imageSource }) => (
+              <li key={id} className="card-item">
+                <CardSection
+                  url={url}
+                  createdAt={createdAt}
+                  desc={description}
+                  imgUrl={imageSource}
+                />
+              </li>
+            )
+          )}
       </ul>
     </section>
   );

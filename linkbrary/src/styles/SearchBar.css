@@ -7,7 +7,7 @@
   width: 100%;
   max-width: 106rem;
   border-radius: 1rem;
-  background-color: var(--color-gray-100);
+  background-color: var(--gray100);
 }
 
 .icon-search {
