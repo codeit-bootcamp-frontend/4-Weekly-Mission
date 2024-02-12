@@ -1,10 +1,17 @@
 import './Footer.css'
 import facebookLogo from '../assets/facebook.svg';
-import twitterkLogo from '../assets/twitter.svg';
+import twitterLogo from '../assets/twitter.svg';
 import youtubeLogo from '../assets/youtube.svg';
 import instagramLogo from '../assets/instagram.svg';
 
 const Footer = () => {
+  const socialMediaLinks = [
+    { href: "https://www.facebook.com/", src: facebookLogo, alt: "Facebook logo connected to Facebook homepage" },
+    { href: "https://twitter.com/", src: twitterLogo, alt: "Twitter logo linked to Twitter homepage" },
+    { href: "https://www.youtube.com/", src: youtubeLogo, alt: "YouTube logo linked to YouTube homepage" },
+    { href: "https://www.instagram.com/", src: instagramLogo, alt: "Instagram logo linked to Instagram homepage" },
+  ];
+
   return (
   <footer className='container-footer'>
     <div className='footer_ly'>
@@ -15,18 +22,11 @@ const Footer = () => {
           <span className='social-logo_text'>FAQ</span>
         </div>
         <div className='social-logo social-logo_ly'>
-          <a href="https://www.facebook.com/" className="social-logo_hypl">
-            <img src={facebookLogo} alt="facebook 홈페이지로 연결된 facebook 로고" />
+        {socialMediaLinks.map(({ href, src, alt }) => (
+          <a key={href} href={href} className="social-logo_hypl">
+            <img src={src} alt={alt} />
           </a>
-          <a href="https://twitter.com/" className="social-logo_hypl">
-            <img src={twitterkLogo} alt="twitter 홈페이지로 연결된 twitter 로고" />
-          </a>
-          <a href="https://www.youtube.com/" className="social-logo_hypl">
-            <img src={youtubeLogo} alt="youtube 홈페이지로 연결된 youtube 로고" />
-          </a>
-          <a href="https://www.instagram.com/" className="social-logo_hypl">
-            <img src={instagramLogo} alt="instagram 홈페이지로 연결된 instagram 로고" />
-          </a>
+        ))}
         </div>
       </div>
     </div>

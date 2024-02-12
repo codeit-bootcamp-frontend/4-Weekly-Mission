@@ -1,6 +1,6 @@
-export function calculateDateDifferences(rawDataTime) {
+export function calculateDateDifferences(stringDate) {
   const currentTime = new Date();
-  const time = new Date(rawDataTime);
+  const time = new Date(stringDate);
 
   const timeDifference = currentTime - time;
 
