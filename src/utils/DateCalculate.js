@@ -8,7 +8,7 @@ export function calculateDateDifference(stringDate) {
 }
 
 function getDateDifferencesLabel(timeDifference) {
-  const { minutesDifference, hoursDifference, daysDifference, monthsDifference, yearsDifference } = calculateDate(timeDifference);
+  const { minutesDifference, hoursDifference, daysDifference, monthsDifference, yearsDifference } = calculateDateType(timeDifference);
 
   switch (true) {
     case minutesDifference < 2:
@@ -34,7 +34,7 @@ function getDateDifferencesLabel(timeDifference) {
   }
 }
 
-function calculateDate(timeDifference) {
+function calculateDateType(timeDifference) {
   const secondDifference = Math.trunc(timeDifference / 1000);
   const minutesDifference = Math.trunc(secondDifference / 60);
   const hoursDifference = Math.trunc(minutesDifference / 60);
