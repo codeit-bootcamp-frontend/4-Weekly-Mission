@@ -45,7 +45,7 @@ function calculateDate(timeDifference) {
   return { minutesDifference, hoursDifference, daysDifference, monthsDifference, yearsDifference };
 }
 
-export function extractDateFormat(stringDate) {
+export function formatDate(stringDate) {
   const date = new Date(stringDate);
   
   const year = date.getFullYear();

@@ -1,4 +1,4 @@
-import { calculateDateDifference, extractDateFormat } from '../utils/DateCalculate';
+import { calculateDateDifference, formatDate } from '../utils/DateCalculate';
 import defaultImg from '../assets/logo.svg';
 
 import './Card.css'
@@ -11,7 +11,7 @@ const Card = ({imgSrc, createdAt, title, description, url}) => {
         <div className='card-info'>
           <span className='time'>{calculateDateDifference(createdAt)}</span>
           <span className='description'>{title}<br/>{description}</span>
-          <span className='date'>{extractDateFormat(createdAt)}</span>
+          <span className='date'>{formatDate(createdAt)}</span>
         </div>
       </a>
     </li>
