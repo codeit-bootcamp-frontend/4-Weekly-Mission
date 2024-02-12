@@ -1,11 +1,14 @@
-import Footer from "./Footer.js";
-import NavBar from "./NavBar.js";
+import Footer from "./footer/Footer.js";
+import NavBar from "./nav-bar/NavBar.js";
 import "./global.css";
+
+const profile = "";
 
 function App() {
   return (
     <>
-      <NavBar />
+      <NavBar profile={profile} />
+      <main></main>
       <Footer />
     </>
   );

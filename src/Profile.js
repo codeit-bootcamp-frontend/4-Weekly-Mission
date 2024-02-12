@@ -1,6 +1,6 @@
 const Profile = function ({ profile }) {
   return;
-  <div>{profile}</div>;
+  <span>{profile}</span>;
 };
 
 export default Profile;
