@@ -5,6 +5,7 @@ import { Folder } from "../Component/Folder/Folder";
 import { SearchBar } from "../Component/SearchBar/SearchBar";
 import { CardList } from "../Component/CardList/CardList";
 import { Footer } from "../Component/Footer/Footer";
+import "./index.css";
 
 export const Layout = () => {
   const [profile, setProfile] = useState(null);
@@ -27,9 +28,11 @@ export const Layout = () => {
         {folder? <Folder folder={folder} /> : null}
         <div className="Page-item">
           <SearchBar />
+          <div className="CardList">
           {folder?.links.map((link) => (
               <CardList key={link?.id} {...link} />
             ))}
+          </div>
         </div>
       </div>
       <Footer />
