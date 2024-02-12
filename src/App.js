@@ -1,6 +1,10 @@
 import React from "react";
+import HeaderNavigation from './components/HeaderNavigation'
+
 function App() {
-  return <div></div>;
+  return(
+    <HeaderNavigation>여기</HeaderNavigation>
+  );
 }
 
 export default App;
