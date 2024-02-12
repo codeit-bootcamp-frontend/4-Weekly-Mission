@@ -18,7 +18,7 @@ function SearchBar() {
         onChange={handleChange}
         placeholder="링크를 검색해 보세요."
       />
-      <img className="search-bar-icon position-absolute" src={searchIcon} alt="searchIcon"></img>
+      <img className="search-bar-icon position-absolute" src={searchIcon} alt="searchIcon" />
     </div>
   );
 }

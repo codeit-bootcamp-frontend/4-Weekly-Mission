@@ -8,7 +8,7 @@ function Card({ createdAt = '', url = '', title = '', description = '', imageSou
   const createdDate = formatDate(createdAt);
 
   const backgroundImage = {
-    background: `#d9d9d9 url(${imageSource ? imageSource : NoImage}) no-repeat center / cover`,
+    background: `#d9d9d9 url(${imageSource || NoImage}) no-repeat center / cover`,
   };
 
   const handleClick = () => {

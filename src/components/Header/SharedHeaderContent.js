@@ -22,7 +22,7 @@ function SharedHeaderContent() {
   }, []);
 
   const ownerProfileImg = folderInfo?.folder.owner.profileImageSource || '';
-  const ownerName = folderInfo?.folder.owner.name ? '@' + folderInfo.folder.owner.name : '';
+  const ownerName = folderInfo?.folder.owner.name ? `@${folderInfo.folder.owner.name}` : '';
   const folderName = folderInfo?.folder.name || '';
 
   return (
@@ -31,7 +31,7 @@ function SharedHeaderContent() {
         {folderInfo && (
           <div>
             <div className="shared-user flex-col">
-              <img className="shared-user-avatar" src={ownerProfileImg} alt="ownerProfileImg"></img>
+              <img className="shared-user-avatar" src={ownerProfileImg} alt="ownerProfileImg" />
               <p className="shared-user-name">{ownerName}</p>
             </div>
             <p className="shared-folder-name text-center">{folderName}</p>

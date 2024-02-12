@@ -10,29 +10,32 @@ function timeAgo(createdAt) {
 
   if (minutes < 2) {
     return '1 minute ago';
-  } else if (minutes < 60) {
+  }
+  if (minutes < 60) {
     return `${minutes} minutes ago`;
   }
   if (hours < 2) {
     return '1 hour ago';
-  } else if (hours < 24) {
+  }
+  if (hours < 24) {
     return `${hours} hours ago`;
   }
   if (days < 2) {
     return '1 day ago';
-  } else if (days < 31) {
+  }
+  if (days < 31) {
     return `${days} days ago`;
   }
   if (months < 2) {
     return '1 month ago';
-  } else if (months < 12) {
+  }
+  if (months < 12) {
     return `${months} months ago`;
   }
   if (years < 2) {
     return '1 year ago';
-  } else {
-    return `${years} years ago`;
   }
+  return `${years} years ago`;
 }
 
 export default timeAgo;

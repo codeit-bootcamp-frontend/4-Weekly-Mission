@@ -1,4 +1,4 @@
-const API_URL = "https://bootcamp-api.codeit.kr/api/";
+const API_URL = 'https://bootcamp-api.codeit.kr/api/';
 
 // api/sample/user
 // const user = {
@@ -8,7 +8,7 @@ const API_URL = "https://bootcamp-api.codeit.kr/api/";
 //   profileImageSource: "https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png",
 // };
 export async function getUserInfo() {
-  const url = new URL("sample/user", API_URL);
+  const url = new URL('sample/user', API_URL);
 
   try {
     const response = await fetch(url);
@@ -16,13 +16,13 @@ export async function getUserInfo() {
     const errorMessage = result.error;
 
     if (!response.ok) {
-      console.error("Response falied: ", errorMessage);
+      console.error('Response falied: ', errorMessage);
       return null;
     }
 
     return result;
   } catch (error) {
-    console.error("Fetch error: ", error);
+    console.error('Fetch error: ', error);
   }
 }
 
@@ -117,7 +117,7 @@ export async function getUserInfo() {
 //   },
 // };
 export async function getFolderInfo() {
-  const url = new URL("sample/folder", API_URL);
+  const url = new URL('sample/folder', API_URL);
 
   try {
     const response = await fetch(url);
@@ -125,12 +125,12 @@ export async function getFolderInfo() {
     const errorMessage = result.error;
 
     if (!response.ok) {
-      console.error("Response falied: ", errorMessage);
+      console.error('Response falied: ', errorMessage);
       return null;
     }
 
     return result;
   } catch (error) {
-    console.error("Fetch error: ", error);
+    console.error('Fetch error: ', error);
   }
 }

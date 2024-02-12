@@ -1,11 +1,10 @@
-// import { useEffect, useState } from "react-dom";
 import './App.css';
-import Shared from './pages/Shared/Shared.js';
+import Shared from './pages/Shared/Shared';
 
 function App() {
   return (
     <div>
-      <Shared></Shared>
+      <Shared />
     </div>
   );
 }

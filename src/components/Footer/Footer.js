@@ -5,6 +5,13 @@ import youtube from '../../assets/images/akar-icons_youtube-fill.svg';
 import instagram from '../../assets/images/ant-design_instagram-filled.svg';
 
 function Footer() {
+  const socialLinks = [
+    { id: 1, src: facebook, alt: 'facebook' },
+    { id: 2, src: twitter, alt: 'twitter' },
+    { id: 3, src: youtube, alt: 'youtube' },
+    { id: 4, src: instagram, alt: 'instagram' },
+  ];
+
   return (
     <footer className="footer flex-row position-relative background-black width-full">
       <div className="copyright">©codeit - 2023</div>
@@ -13,10 +20,9 @@ function Footer() {
         <p>FAQ</p>
       </div>
       <div className="social-link flex-row">
-        <img className="social-link-icon" src={facebook} alt="facebook"></img>
-        <img className="social-link-icon" src={twitter} alt="twitter"></img>
-        <img className="social-link-icon" src={youtube} alt="youtube"></img>
-        <img className="social-link-icon" src={instagram} alt="instagram"></img>
+        {socialLinks.map((link) => (
+          <img key={link.id} className="social-link-icon" src={link.src} alt={link.alt} />
+        ))}
       </div>
     </footer>
   );
