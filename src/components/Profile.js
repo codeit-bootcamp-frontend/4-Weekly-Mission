@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 function Profile() {
-  const [profile, setProfile] = useState(null);
+  const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
     fetch("https://bootcamp-api.codeit.kr/api/sample/user")
@@ -12,21 +12,21 @@ function Profile() {
         return response.json();
       })
       .then((data) => {
-        setProfile(data);
+        setProfileData(data);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
 
-  if (!profile) {
+  if (!profileData) {
     return <button>로그인</button>;
   }
 
   return (
     <div className="profile-info">
-      <img className="profile-img" src={profile.profileImageSource} alt="profile_img" />
-      <p className="profile-email">{profile.email}</p>
+      <img className="profile-img" src={profileData.profileImageSource} alt="profile_img" />
+      <p className="profile-email">{profileData.email}</p>
     </div>
   );
 }
