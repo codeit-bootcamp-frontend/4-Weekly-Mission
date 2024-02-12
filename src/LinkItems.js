@@ -31,7 +31,7 @@ const LinkItem = ({ link }) => {
   return (
     <div className="LinkItem">
       <a href={link.url}>
-        <img src={link.imageSource} />
+        <img src={link.imageSource} alt="링크 이미지" />
       </a>
       <p>{calculateTimePassed(CREATED_AT)}</p>
       <p>{link.description}</p>
