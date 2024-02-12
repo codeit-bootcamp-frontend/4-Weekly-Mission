@@ -1,7 +1,18 @@
 import Profile from "./profile";
+import logo from "../assets/logo.png"
+import "../style/HeaderNavigation.css"
 function HeaderNavigation(){
     return(
-        <Profile></Profile>
+        <div className="Header-Container">
+            <div className="Header">
+                <a href="/">
+                    <img className="logo" src={logo} alt="logo"/>
+                </a>
+                <Profile />
+            </div>
+            
+        </div>
+        
     )
 }
 

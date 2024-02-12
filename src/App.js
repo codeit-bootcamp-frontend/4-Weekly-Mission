@@ -1,9 +1,12 @@
 import React from "react";
 import HeaderNavigation from './components/HeaderNavigation'
-
+import Card from './components/Card';
 function App() {
   return(
-    <HeaderNavigation>여기</HeaderNavigation>
+    <div>
+      <HeaderNavigation/>
+      <Card />
+    </div>
   );
 }
 
