@@ -1,4 +1,4 @@
-import { calculateDateDifference, formatDate } from '../utils/DateCalculate';
+import { calculateDateDifference, formatDate } from '../utils/dateCalculate';
 import defaultImg from '../assets/logo.svg';
 
 import './Card.css'
