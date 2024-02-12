@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.81rem 0;
+  margin: 0 auto;
+
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  max-width: 1920px;
+
+  background: var(--Linkbrary-bg, #f0f6ff);
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 1.25rem 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header {
+    width: 100%;
+  }
+}

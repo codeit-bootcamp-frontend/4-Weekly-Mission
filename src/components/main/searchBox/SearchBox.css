@@ -1,0 +1,37 @@
+.search-box {
+  margin: 1.25rem 2rem 2rem;
+  padding: 0.81rem 1rem;
+  border-radius: 0.625rem;
+  background: #f5f5f5;
+
+  gap: 0.38rem;
+  display: flex;
+  align-items: center;
+}
+
+.search-box-img {
+  width: 1rem;
+  height: 1rem;
+}
+
+.text {
+  color: var(--Text, #666666);
+  text-align: right;
+
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1200px) {
+  .search-box {
+    max-width: 66.25rem;
+    margin: 1.25rem auto;
+  }
+}

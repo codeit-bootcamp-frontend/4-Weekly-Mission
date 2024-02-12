@@ -1,0 +1,13 @@
+.text {
+  font-family: Pretendard;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 2.625rem;
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1200px) {
+}
