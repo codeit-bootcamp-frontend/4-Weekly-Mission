@@ -1,0 +1,48 @@
+@import 'palette.css';
+
+.header-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+  padding: 20px 0 60px;
+}
+
+.header-items img {
+  width: 64px;
+}
+
+.username {
+  font-size: 16px;
+  margin: 12px 0 20px;
+}
+
+.folder-name {
+  font-size: 32px;
+  font-weight: 600;
+}
+
+/* tablet-size */
+@media (max-width: 1199px) {
+  .header-items {
+    padding: 20px 0 60px;
+  }
+}
+
+/* mobile-size */
+@media (max-width: 767px) {
+  .header-items {
+    padding: 10px 0 40px;
+  }
+
+  .username {
+    font-size: 16px;
+    margin: 6px 0 10px;
+  }
+
+  .folder-name {
+    font-size: 24px;
+    font-weight: 600;
+  }
+}
