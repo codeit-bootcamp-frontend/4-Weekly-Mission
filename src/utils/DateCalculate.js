@@ -4,23 +4,22 @@ export function calculateDateDifferences(stringDate) {
 
   const timeDifference = currentTime - time;
 
-  const result = answerDateDifferences(destructureTime(timeDifference));
+  const result = getDateDifferencesLabel(destructureTime(timeDifference));
   return result;
 }
 
 function destructureTime(timeDifference) {
-  const { minutes: minutesDifference, hours: hoursDifference, days: daysDifference, months: monthsDifference, years: yearsDifference } = {
-    minutes: timeDifference / (1000 * 60),
-    hours: (timeDifference / (1000 * 60)) / 60,
-    days: ((timeDifference / (1000 * 60)) / 60) / 24,
-    months: (((timeDifference / (1000 * 60)) / 60) / 24) / 30,
-    years: ((((timeDifference / (1000 * 60)) / 60) / 24) / 30) / 12,
-  };
+  const secondDifference = Math.trunc(timeDifference / 1000);
+  const minutesDifference = Math.trunc(secondDifference / 60);
+  const hoursDifference = Math.trunc(minutesDifference / 60);
+  const daysDifference = Math.trunc(hoursDifference / 24);
+  const monthsDifference = Math.trunc(daysDifference / 30);
+  const yearsDifference = Math.trunc(monthsDifference / 12);
 
   return { minutesDifference, hoursDifference, daysDifference, monthsDifference, yearsDifference };
 }
 
-function answerDateDifferences(allTimeTypes) {
+function getDateDifferencesLabel(allTimeTypes) {
   const { minutesDifference, hoursDifference, daysDifference, monthsDifference, yearsDifference } = allTimeTypes;
 
   let result;
