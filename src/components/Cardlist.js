@@ -21,7 +21,7 @@ const Cardlist = () => {
         <input type="text" placeholder="링크를 검색해 보세요." />
       </form>
       <div className="cards-container">
-        {data.map((cardData) => (
+        {cardList.map((cardData) => (
           <a
             key={cardData.id}
             href={cardData.url}
