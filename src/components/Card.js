@@ -4,17 +4,14 @@ import defaultImg from '../assets/logo.svg';
 import './Card.css'
 
 const Card = ({imgSrc, createdAt, title, description, url}) => {
-  const timeDifference = calculateDateDifference(createdAt);
-  const createdTime = extractDateFormat(createdAt);
-
   return (
     <li className='card'>
       <a href={url} target="_blank" rel="noreferrer noopener">
         <img src={imgSrc ?? defaultImg} alt='이미지' className='card-img'/>
         <div className='card-info'>
-          <span className='time'>{timeDifference}</span>
+          <span className='time'>{calculateDateDifference(createdAt)}</span>
           <span className='description'>{title}<br/>{description}</span>
-          <span className='date'>{createdTime}</span>
+          <span className='date'>{extractDateFormat(createdAt)}</span>
         </div>
       </a>
     </li>
