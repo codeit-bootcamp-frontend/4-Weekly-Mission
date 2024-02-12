@@ -29,13 +29,15 @@ export function Card({ cardInfo, key }) {
     if(minutes<2) return `1 minutes ago`
   }
 
+  const src = imageSource ? imageSource : defaultImage
+  const alt = imageSource ? "카드이미지" : "기본이미지"
+
   return (
     <>
       <a href={url}>
         <div className="card">
           <div className="cardImgSource">
-            {imageSource ? <img src={imageSource} alt="카드이미지" className="cardImg"></img> : 
-            <img src={defaultImage} alt="기본이미지" className="cardImg"></img>}
+            <img src={src} alt={alt} className="cardImg"></img>
           </div>
           <div className="cardContent">
             <p className="createdFrom">{getFromTime(createdAt)}</p>

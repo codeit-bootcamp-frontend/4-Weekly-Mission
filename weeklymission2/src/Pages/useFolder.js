@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { getFolderData } from "../APIs/PageApi"
 
 export const useFolder = () => {
-  const [folder, setFolder] = useState({profileImage:null, profileName: null, folderName: null})
+  const [folder, setFolder] = useState({profileImage:"", profileName: null, folderName: null})
   const [cardLinks, setCardLinks] = useState([])
 
   const fetchFolder = async() => {
@@ -15,8 +15,8 @@ export const useFolder = () => {
     fetchFolder()
   }, [])
 
-  return (
+  return ({
     folder,
     cardLinks
-  )
+  })
 }

@@ -1,0 +1,48 @@
+footer{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background-color: var(--black);
+  color: white;
+  height: 16rem;
+}
+
+.footerBox{
+  display: flex;
+  justify-content: space-between;
+  grid-template-areas: "copyRight links sns";
+  padding: 4rem 10rem 0;
+  width: 100%;
+}
+
+.copyRight{
+  grid-area: copyRight;
+  color: #676767;
+  font-size: 1.6rem;
+}
+.links{
+  grid-area: links;
+  display: flex;
+  gap: 3rem;
+}
+.link{
+  color: #cfcfcf;
+  font-size: 1.6rem;
+}
+.sns{
+  grid-area: sns;
+  display: flex;
+  gap: 1rem;
+}
+
+@media (max-width: 767px) {
+  .footerBox{
+    display: grid;
+    grid-template-areas:
+    "links sns"
+    ". ."
+    "copyRight .";
+    padding: 3rem;
+    width: 100%;
+  }
+}

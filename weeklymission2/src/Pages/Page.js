@@ -15,12 +15,12 @@ export function Page() {
     getData()
   }, [])
 
-  const {cardLinks, folder} = useFolder()
-
   const getData = async() => {
     const userData = await getUserData()
     setProfile(userData)
   }
+
+  const { folder, cardLinks } = useFolder()
 
   return (
     <>
