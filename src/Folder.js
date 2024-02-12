@@ -11,7 +11,7 @@ const Folder = ({items}) => {
       {isFolderLinksAvailable ? (
         <div className='container-folder'>
           <SearchBar className='search-bar_ly'/>
-          <div className='card-frame_ly'> 
+          <ul className='card-frame_ly'> 
             {items.links.map(({ createdAt, imageSource, title, description, url }) => (
               <Card key={uuidv4()} 
                 imgSrc={imageSource}
@@ -21,7 +21,7 @@ const Folder = ({items}) => {
                 url={url}
               />
             ))}
-          </div>
+          </ul>
         </div>
       ) : (
         <div>파트 1에서 만들었던 랜딩 페이지 적용</div>
