@@ -1,35 +1,28 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "./App.css";
 import Header from "./components/Header.js";
-import { getFolder, getProfile } from "./api.js";
 import Input from "./components/Input.js";
 import Card from "./components/Card.js";
 import Footer from "./components/Footer.js";
-
+import useFetch from "../src/hooks/useFetch.js";
 function App() {
-  const [user, setUser] = useState(null);
-  const [folderName, setFolderName] = useState(null);
-  const [owner, setOwner] = useState(null);
-  const [links, setLinks] = useState(null);
+  const userUrl = "https://bootcamp-api.codeit.kr/api/sample/user";
+  const folderUrl = "https://bootcamp-api.codeit.kr/api/sample/folder";
 
-  const handleLoad = async () => {
-    const user = await getProfile();
-    const { folder } = await getFolder();
-    setUser(user);
-    setFolderName(folder.name);
-    setOwner(folder.owner);
-    setLinks(folder.links);
-  };
+  const { data: userData } = useFetch(userUrl);
+  const { data: folderData } = useFetch(folderUrl);
 
-  useEffect(() => {
-    handleLoad();
-  }, []);
+  useEffect(() => {}, [userData, folderData]);
 
   return (
     <div className="App">
-      <Header user={user} folderName={folderName} owner={owner} />
+      <Header
+        user={userData}
+        folderName={folderData?.folder?.name}
+        owner={folderData?.folder?.owner}
+      />
       <Input />
-      <Card links={links} />
+      <Card links={folderData?.folder?.links} />
       <Footer />
     </div>
   );
