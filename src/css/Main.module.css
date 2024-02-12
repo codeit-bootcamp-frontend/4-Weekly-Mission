@@ -1,0 +1,13 @@
+.main_wrapper {
+  padding: 4rem 19rem 10rem 19rem;
+  background-color: var(--bg-color);
+}
+
+@media (max-width: 1199.5px) {
+  .main_wrapper {
+    padding: 4rem 3.2rem 10rem 3.2rem;
+  }
+}
+
+@media (max-width: 767.5px) {
+}

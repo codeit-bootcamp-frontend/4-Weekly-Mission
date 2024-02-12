@@ -1,0 +1,36 @@
+:root {
+  --primary-color: #6d6afe;
+  --red-color: #ff5b56;
+  --black-color: #111322;
+  --white-color: #ffffff;
+  --gray1-color: #373740;
+  --gray2-color: #9fa6b2;
+  --gray3-color: #ccd5e3;
+  --gary4-color: #e7effb;
+  --bg-color: #f0f6ff;
+  --footer-bg-color: #111322;
+  --Pretendard-Thin: "Pretendard-Thin";
+  --Pretendard-Regular: "Pretendard-Regular";
+  --Pretendard-Bold: "Pretendard-Bold";
+}
+
+@font-face {
+  font-family: "Pretendard-Thin";
+  src: url("../fonts/Pretendard-Thin.woff") format("woff");
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("../fonts/Pretendard-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Pretendard-Bold";
+  src: url("../fonts/Pretendard-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
