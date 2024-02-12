@@ -4,13 +4,13 @@ import "../styles/footer.css";
 function Footer() {
   return (
     <footer>
-      <div class="footer-container">
-        <span class="copyright">©codeit - 2023</span>
-        <div class="footer-link">
+      <div className="footer-container">
+        <span className="copyright">©codeit - 2023</span>
+        <div className="footer-link">
           <a href="privacy.html">Privacy Policy</a>
           <a href="faq.html">FAQ</a>
         </div>
-        <div class="footer-sns">
+        <div className="footer-sns">
           <a href="https://www.facebook.com" target="_blank">
             <img src="img/facebook.svg" rel="noreferrer noopener" alt="facebook 연결 로고" />
           </a>
