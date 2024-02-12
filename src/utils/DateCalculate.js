@@ -4,8 +4,7 @@ export function calculateDateDifference(stringDate) {
 
   const timeDifference = currentTime - time;
 
-  const result = getDateDifferencesLabel(timeDifference);
-  return result;
+  return getDateDifferencesLabel(timeDifference);
 }
 
 function getDateDifferencesLabel(timeDifference) {
