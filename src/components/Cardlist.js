@@ -10,8 +10,8 @@ const Cardlist = () => {
     e.target.src = { noCardImg };
   };
 
-  const handleSearch = (event) => {
-    event.preventDefault();
+  const handleSearch = (e) => {
+    e.preventDefault();
   };
 
   return (
