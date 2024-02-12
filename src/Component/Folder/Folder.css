@@ -5,7 +5,7 @@
   width: 100%;
   padding: 1rem 0 4rem;
   box-sizing: border-box;
-  background-color: var(--light-blue);
+  background-color: var(--background);
 
   @media (min-width: 768px) {
     padding: 2rem 0 6rem;

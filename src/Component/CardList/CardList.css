@@ -64,5 +64,5 @@
 }
 
 .Card.hover .Card-content {
-  background-color: var(--light-blue);
+  background-color: var(--background);
 }
