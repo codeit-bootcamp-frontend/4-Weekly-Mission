@@ -27,7 +27,6 @@ function CardList() {
           key={link.id}
           createdAt={link.createdAt}
           url={link.url}
-          title={link.title}
           description={link.description}
           imageSource={link.imageSource}
         />
