@@ -1,0 +1,93 @@
+@import url('./Common.css');
+
+.top_body_area {
+  margin-top: 63px;
+  height: 161px;
+  background: var(--bright-sky-blue);
+}
+
+.codeit-icon_area {
+  padding-top: 10px;
+  height: 161px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.codeit-icon_background {
+  border-radius: 47px;
+  background: var(--primary-purple-70);
+
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 10.667px 11.333px 10.667px 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.codeit_icon {
+  width: 18.667px;
+  height: 18.667px;
+  flex-shrink: 0;
+}
+
+.codeit_text {
+  margin: 6px auto 10px;
+  color: var(--black);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.title_text {
+  height: 38px;
+  margin: 0;
+  color: var(--black);
+  font-family: Pretendard;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+/* 768px부터 적용될 스타일 */
+@media (min-width: 768px) {
+  .codeit-icon_background {
+    width: 60px;
+    height: 60px;
+    padding: 16px 17px 16px 15px;
+  }
+
+  .top_body_area {
+    margin-top: 93px;
+    height: 244px;
+  }
+
+  .codeit-icon_area {
+    padding-top: 20px;
+    height: 244px;
+  }
+
+  .codeit_icon {
+    width: 23.492px;
+    height: 26.902px;
+    flex-shrink: 0;
+  }
+
+  .codeit_text {
+    margin: 12px auto 20px;
+    font-size: 16px;
+  }
+
+  .title_text {
+    font-size: 40px;
+  }
+}
+
+/* 1124px부터 적용될 스타일 */
+@media (min-width: 1124px) {
+}
