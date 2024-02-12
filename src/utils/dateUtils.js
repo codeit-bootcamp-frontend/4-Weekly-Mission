@@ -17,7 +17,7 @@ export function calculateTimePassed(createdAt) {
   const differenceInMonths = Math.floor(differenceInDays / 30);
   const differenceInYears = Math.floor(differenceInMonths / 12);
 
-  if (differenceInSeconds < 120) {
+  if (differenceInSeconds < 60 * 2) {
     return '1 minute ago';
   }
   if (differenceInMinutes < 60) {
