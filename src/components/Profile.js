@@ -4,14 +4,21 @@ const Profile = () => {
   const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
-    fetch('https://bootcamp-api.codeit.kr/api/sample/user')
-      .then((response) => response.json())
-      .then((data) => {
+    const fetchProfileInfo = async () => {
+      try {
+        const response = await fetch(
+          'https://bootcamp-api.codeit.kr/api/sample/user',
+        );
+        if (!response.ok) {
+          throw new Error('response 전달 실패');
+        }
+        const data = await response.json();
         setProfileData(data);
-      })
-      .catch((error) => {
-        console.log('response 에러:', error);
-      });
+      } catch (error) {
+        console.error('에러 발생:', error);
+      }
+    };
+    fetchProfileInfo();
   }, []);
 
   if (!profileData) {
