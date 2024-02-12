@@ -20,7 +20,6 @@ export const Layout = () => {
       .then(setFolder);
   }, []);
   
-  //folder 부분 데이터 오류 날때가 있음 ...
   return (
     <div>
       <NavigationBar profile={profile} />

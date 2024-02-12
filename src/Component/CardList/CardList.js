@@ -1,21 +1,18 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { getElapsedTime } from "../../util/getElapsedTime";
 import "./CardList.css";
 
 export const CardList = ({ description, createdAt, imageSource }) => {
-  const [mouseOver, setMouseOver] = useState(false);
 
   const elapsedTime = getElapsedTime(createdAt);
 
   const cardRef = useRef();
 
   const handleMouseOver = () => {
-    setMouseOver(true);
     cardRef.current.classList.add("hover");
   };
 
   const handleMouseOut = () => {
-    setMouseOver(false);
     cardRef.current.classList.remove("hover");
   };
 
