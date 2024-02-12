@@ -1,5 +1,6 @@
+import Header from "./component/Header";
 function App() {
-  return <div>리액트입니다.</div>;
+  return <Header />;
 }
 
 export default App;
