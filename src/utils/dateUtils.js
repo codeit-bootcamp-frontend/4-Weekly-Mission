@@ -32,13 +32,13 @@ export function calculateTimePassed(createdAt) {
   if (differenceInDays < 2) {
     return '1 day ago';
   }
-  if (differenceInDays <= 30) {
+  if (differenceInDays < 31) {
     return `${differenceInDays} days ago`;
   }
   if (differenceInMonths < 2) {
     return '1 month ago';
   }
-  if (differenceInMonths <= 11) {
+  if (differenceInMonths < 12) {
     return `${differenceInMonths} months ago`;
   }
   if (differenceInYears < 2) {
