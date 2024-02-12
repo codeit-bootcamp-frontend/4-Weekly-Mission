@@ -3,7 +3,7 @@ import searchImg from "../../../assets/shared/Search.svg";
 
 function SearchBar() {
   return (
-    <div className="container">
+    <div className="search-container">
       <img className="icon" src={searchImg} alt="돋보기 아이콘" />
       <input
         className="search-bar"

@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0 180px;
+  margin-top: 40px;
+}
+.card-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px 20px;
+  flex-wrap: wrap;
+}

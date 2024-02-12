@@ -8,13 +8,13 @@ function Header({userFolder}) {
         <h1 className="owner">
           <img
             className="owner-img"
-            src={userFolder?.folder.owner.profileImageSource}
+            src={userFolder?.owner.profileImageSource}
             alt="소유자 프로필 이미지"
           />
-          {userFolder?.folder.owner.name}
+          {userFolder?.owner.name}
         </h1>
         <div className="folder-name">
-          {userFolder?.folder.name}
+          {userFolder?.name}
         </div>
       </div>
     </header>

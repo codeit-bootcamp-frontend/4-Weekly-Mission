@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import ContentCard from "./content/ContentCard.jsx";
+
 import Header from "./header/Header.jsx";
-import SearchBar from "./search-bar/SearchBar.jsx";
-import Footer from "./../../components/footer/Footer";
 import NavBar from "../../components/navbar/NavBar.jsx";
+import Content from "./content/Content.jsx";
 
 function Shared() {
   const [user, setUser] = useState(null);
@@ -19,7 +18,7 @@ function Shared() {
       )
       .then(([userData, userFolderData]) => {
         setUser(userData);
-        setUserFolder(userFolderData);
+        setUserFolder(userFolderData.folder);
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -29,10 +28,9 @@ function Shared() {
       <NavBar user={user} />
       <Header userFolder={userFolder} />
 
-      <SearchBar />
-      <ContentCard />
+      <Content folderLinks={userFolder?.links}/>
 
-      <Footer />
+
     </div>
   );
 }
