@@ -1,22 +1,10 @@
-import { useEffect, useState } from 'react';
-import { getSampleUserData } from '../api/api';
 import '../styles/Nav.css';
+import useSampleData from '../hooks/useSampleData';
 import logo from '../images/logo.svg';
 import Button from './Button';
 
 export default function Nav() {
-  const [loginUserData, setLoginUserData] = useState(null);
-  useEffect(() => {
-    const fetchUserId = async () => {
-      try {
-        const sampleData = await getSampleUserData();
-        setLoginUserData(sampleData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchUserId();
-  }, []);
+  const loginUserData = useSampleData('user');
 
   return (
     <div className="nav">
