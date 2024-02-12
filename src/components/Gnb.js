@@ -2,7 +2,7 @@ import './Gnb.css';
 import logoImg from '../assets/logo.svg';
 
 const Gnb = ({items}) => {
-  const isProfileAvailable = items && items.profileImageSource && items.email;
+  const isShowProfile = items && items.profileImageSource && items.email;
 
   return (
     <nav className='gnb_ly'>
@@ -10,7 +10,7 @@ const Gnb = ({items}) => {
         <a href="/">
           <img className='logo' src={logoImg} alt="홈으로 연결된 Linkbrary 로고" />
         </a>
-        {isProfileAvailable ? (
+        {isShowProfile ? (
           <div className='account'>
             <img className="account-img" src={items.profileImageSource} alt={`${items.email} 프로필`} />
             <span className='account-email'>{items.email}</span>

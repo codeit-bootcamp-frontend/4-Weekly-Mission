@@ -4,11 +4,11 @@ import './Folder.css';
 import { v4 as uuidv4 } from 'uuid';
 
 const Folder = ({items}) => {
-  const isFolderLinksAvailable = items && items.links;
+  const isShowFolderLinks = items && items.links;
 
   return (
     <>
-      {isFolderLinksAvailable ? (
+      {isShowFolderLinks ? (
         <div className='container-folder'>
           <SearchBar className='search-bar_ly'/>
           <ul className='card-frame_ly'> 
