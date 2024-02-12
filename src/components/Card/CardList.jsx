@@ -2,7 +2,7 @@ import CardListItem from "./CardListItem";
 import getTimeDiff from "../../utils/getTimeDiff";
 import getCoustomDate from "../../utils/getCoustomDate";
 
-function CardList({handleKebab, kebabStatus, linkList, option}){
+function CardList({handleKebab, kebabStatus, linkList, option, setModalAction}){
     return (
         <div className="content__cards">
             {linkList && linkList.length ?
@@ -22,7 +22,8 @@ function CardList({handleKebab, kebabStatus, linkList, option}){
                     description, // 링크 본문
                     option, // true일 경우 케밥 아이콘, 별 아이콘 보여짐, false일 경우 안보임
                     handleKebab, // 케밥 리스트 팝오버 함수(매개변수 - 링크ID)
-                    kebabStatus // 현재 어떤 id의 케밥 리스트가 팝오버가 될 지
+                    kebabStatus, // 현재 어떤 id의 케밥 리스트가 팝오버가 될 지
+                    setModalAction,
                 }
                 return <CardListItem key={id} {...cardListItemProps}></CardListItem>
             })

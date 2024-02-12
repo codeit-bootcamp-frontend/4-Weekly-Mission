@@ -1,5 +1,13 @@
 import KebabIcon from "../../assets/kebab.svg";
-function CardHeader({option, id, timeDiff, kebabStatus, handleKebab}){
+function CardHeader({url, option, id, timeDiff, kebabStatus, handleKebab, setModalAction}){
+   const handleModalAction = (action, e) => {
+      e.preventDefault();
+      setModalAction({
+         isView: true,
+         action,
+         subTitle: url,
+      })
+   }
     return (
         option ? 
             <div className="content__box">
@@ -15,8 +23,8 @@ function CardHeader({option, id, timeDiff, kebabStatus, handleKebab}){
                     display: kebabStatus === id ? "flex":"none",
                  }}
                  className="kebab__lists">
-                    <li className="kebab__list">삭제하기</li>
-                    <li className="kebab__list">폴더에 추가</li>
+                    <li onClick={(e) => handleModalAction("링크 삭제", e)} className="kebab__list">삭제하기</li>
+                    <li onClick={(e) => handleModalAction("폴더에 추가", e)} className="kebab__list">폴더에 추가</li>
                  </ul>
             </div>
             :  

@@ -14,7 +14,11 @@ const DEFAULT_CATEGORY = [{
 function Folder(){
     const [kebabStatus, setKebabStatus] = useState(0);
     const [categoryList, setCategoryList] = useState(DEFAULT_CATEGORY); // 유저가 가지고 있는 카테고리
-    const [modalAction, setModalAction] = useState("");
+    const [modalAction, setModalAction] = useState({
+        isView: false,
+        action: "",
+        subTitle: "",
+    });
 
     const handleKebab = (id) => {
         if(prevId !== id){
@@ -38,7 +42,7 @@ function Folder(){
         <FolderContent {...folderContentProps}/>
         <Footer/>
         <FloatingButton/>
-        <Modal modalAction={modalAction} categoryList={categoryList}/>
+        <Modal modalAction={modalAction} setModalAction={setModalAction} categoryList={categoryList}/>
     </>
 }
 

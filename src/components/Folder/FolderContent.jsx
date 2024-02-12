@@ -77,8 +77,11 @@ function FolderContent({handleKebab, kebabStatus, categoryList, setCategoryList,
 
     const handleSearchFromSumbit = (e) => {
         e.preventDefault();
-        setModalAction("폴더에 추가");
-        console.log(searchInputValue);
+        setModalAction({
+            isView: true,
+            action: "폴더에 추가",
+            subTitle: searchInputValue,
+        });
     }
 
     const handleSearchInputChange = (e) => {
@@ -93,7 +96,8 @@ function FolderContent({handleKebab, kebabStatus, categoryList, setCategoryList,
         handleKebab,
         kebabStatus,
         linkList,
-        option: true
+        option: true,
+        setModalAction,
     }
  
     return (

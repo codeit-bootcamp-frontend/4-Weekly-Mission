@@ -326,11 +326,11 @@ html{
 }
 
 .content__text{
-    display: -webkit-box;
     font-size: 1rem;
     line-height: 1.5rem;
     margin: 0.62rem 0;
     height: 3.0625rem;
+    display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-line-clamp: 2;
