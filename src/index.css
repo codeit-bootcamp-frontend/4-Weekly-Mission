@@ -1,6 +1,4 @@
-body {
-  margin: 0;
-}
+@import "reset.css";
 
 * {
   box-sizing: border-box;
