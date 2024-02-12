@@ -9,14 +9,14 @@ import Gnb from './components/Gnb';
 import './App.css';
 
 const App = () => {
-  const [userInfos, setUserInfos] = useState({});
-  const [folderInfos, setFolderInfos] = useState({});
+  const [users, setUsers] = useState({});
+  const [folders, setFolders] = useState({});
 
   useEffect(() => {
     const fetchFolder = async () => {
       const { folder } = await getFolder();
       
-      setFolderInfos(folder);
+      setFolders(folder);
     };
 
     fetchFolder();
@@ -26,7 +26,7 @@ const App = () => {
     const fetchUser = async () => {
       const userInfo = await getUser();
       
-      setUserInfos(userInfo);
+      setUsers(userInfo);
     };
 
     fetchUser();
@@ -34,9 +34,9 @@ const App = () => {
 
   return (
     <div className='container'>
-      <Gnb items={userInfos}/>
-      <Header items={folderInfos}/>
-      <Folder items={folderInfos}/>
+      <Gnb items={users}/>
+      <Header items={folders}/>
+      <Folder items={folders}/>
       <Footer/>
     </div>
   )
