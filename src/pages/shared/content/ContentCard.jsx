@@ -1,7 +1,7 @@
 import "../content/ContentCard.css";
 import noImage from "../../../assets/shared/no-image.png";
 import useTimeAgo from "../../../hooks/useTimeAgo";
-import useConvertDate from "./../../../hooks/useConvertDate";
+import useConvertDateFormat from "./../../../hooks/useConvertDateFormat";
 
 function ContentCard({ link }) {
   return (
@@ -16,7 +16,7 @@ function ContentCard({ link }) {
       <div className="text-box">
         <p className="time-ago">{useTimeAgo(link?.createdAt)}</p>
         <p className="desc">{link?.description}</p>
-        <p className="date">{useConvertDate(link?.createdAt)}</p>
+        <p className="date">{useConvertDateFormat(link?.createdAt)}</p>
       </div>
     </div>
   );
