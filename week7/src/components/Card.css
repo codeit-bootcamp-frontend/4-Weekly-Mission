@@ -36,6 +36,10 @@
   height: 200px;
   border-radius: 10px;
 }
+.no-image {
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
 .card-box {
   width: 340px;
   margin: 10px;

@@ -50,7 +50,15 @@ function Card({ links }) {
     const timeStamp = new Date(link.createdAt).getTime();
     return (
       <a className="card-url" href={url} target="_blank">
-        <img className="card-image" src={link.imageSource} alt="카드 이미지" />
+        {link.imageSource ? (
+          <img
+            className="card-image"
+            src={link.imageSource}
+            alt="카드 이미지"
+          />
+        ) : (
+          <div className="no-image">이미지 없음</div>
+        )}
         <p>{formatDate(timeStamp)}</p>
         <p className="title">{link.title}</p>
         <p className="description">{link.description}</p>
