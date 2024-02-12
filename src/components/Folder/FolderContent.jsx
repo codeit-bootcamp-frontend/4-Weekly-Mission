@@ -77,6 +77,10 @@ function FolderContent({handleKebab, kebabStatus, categoryList, setCategoryList,
 
     const handleSearchFromSumbit = (e) => {
         e.preventDefault();
+        if(!searchInputValue){
+            alert("링크를 입력해 주세요!");
+            return;
+        } 
         setModalAction({
             isView: true,
             action: "폴더에 추가",

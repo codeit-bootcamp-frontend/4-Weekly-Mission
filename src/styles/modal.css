@@ -8,7 +8,6 @@
     --Grey-Light: #F5F5F5;
     --Linkbrary-gray60: #9FA6B2;
     --Linkbrary-bg: #F0F6FF;
-    --Linkbrary-primary-color: #6D6AFE;
     ---Gray-White: #FFF;
     --Stroke-light: #DEE2E6;
 }
@@ -124,8 +123,8 @@
     text-align: left;
     align-items: center;
     line-height: 1.5rem;
+    height: 2.5rem;
     color: var(--Linkbrary-gray100);
-    margin-right: 0.5rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
 }
@@ -136,7 +135,7 @@
     margin-left: 0.5rem;
 }
 
-.modal__category--list:hover{
-    background-color: var(--Linkbrary-bg);
-    color: var(--Linkbrary-primary-color);   
+.modal__category--selected{
+    float: right;
+    padding-top: 0.2188rem;
 }

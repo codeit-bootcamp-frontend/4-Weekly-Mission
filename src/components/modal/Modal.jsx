@@ -6,7 +6,6 @@ import ModalSubTitle from "./ModalSubTitle";
 import ModalForm from "./ModalForm";
 import Button from "../Button";
 import "../../styles/modal.css";
-import { useState } from "react";
 function Modal({modalAction, setModalAction, categoryList}){
     const actionScript = {
         "폴더 이름 변경": {
