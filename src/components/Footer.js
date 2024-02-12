@@ -1,8 +1,9 @@
-import './Footer.css'
 import facebookLogo from '../assets/facebook.svg';
 import twitterLogo from '../assets/twitter.svg';
 import youtubeLogo from '../assets/youtube.svg';
 import instagramLogo from '../assets/instagram.svg';
+
+import './Footer.css'
 
 const Footer = () => {
   const socialMediaLinks = [

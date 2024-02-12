@@ -1,7 +1,8 @@
+import { v4 as uuidv4 } from 'uuid';
+
 import SearchBar from './components/SearchBar';
 import Card from './components/Card';
 import './Folder.css';
-import { v4 as uuidv4 } from 'uuid';
 
 const Folder = ({items}) => {
   const isShowFolderLinks = items && items.links;

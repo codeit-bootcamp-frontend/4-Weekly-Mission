@@ -1,5 +1,6 @@
-import './Gnb.css';
 import logoImg from '../assets/logo.svg';
+
+import './Gnb.css';
 
 const Gnb = ({items}) => {
   const isShowProfile = items && items.profileImageSource && items.email;

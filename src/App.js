@@ -1,10 +1,12 @@
+import { useState, useEffect } from 'react';
+
+import { getFolder, getUser } from './apis/api';
+
 import Header from './Header';
 import Folder from './Folder';
 import Footer from './components/Footer';
-import './App.css';
 import Gnb from './components/Gnb';
-import { getFolder, getUser } from './apis/api';
-import { useState, useEffect } from 'react';
+import './App.css';
 
 const App = () => {
   const [userInfos, setUserInfos] = useState({});

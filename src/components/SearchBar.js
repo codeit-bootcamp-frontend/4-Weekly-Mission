@@ -1,4 +1,5 @@
 import searchImg from '../assets/search.svg';
+
 import './SearchBar.css';
 
 const SearchBar = ({className}) => {
