@@ -1,21 +1,19 @@
 import './Card.css'
 import defaultImg from '../assets/logo.svg';
-import { compareDateDifferences, extractDateRegex } from '../utils/DateCalculate';
+import { calculateDateDifferences, extractDateFormat } from '../utils/DateCalculate';
 
 const Card = ({imgSrc, time, title, description, url}) => {
-  const timeDifference = compareDateDifferences(time);
-  const processedTime = extractDateRegex(time);
-
-  const processImg = (img) => img ? img : defaultImg;
+  const timeDifference = calculateDateDifferences(time);
+  const createdTime = extractDateFormat(time);
 
   return (
     <li className='card'>
       <a href={url} target="_blank" rel="noreferrer noopener">
-        <img src={processImg(imgSrc)} alt='이미지' className='card-img'/>
+        <img src={imgSrc ?? defaultImg} alt='이미지' className='card-img'/>
         <div className='card-info'>
           <span className='time'>{timeDifference}</span>
           <span className='description'>{title}<br/>{description}</span>
-          <span className='date'>{processedTime}</span>
+          <span className='date'>{createdTime}</span>
         </div>
       </a>
     </li>

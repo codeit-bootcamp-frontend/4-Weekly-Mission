@@ -1,4 +1,4 @@
-export function compareDateDifferences(rawDataTime) {
+export function calculateDateDifferences(rawDataTime) {
   const currentTime = new Date();
   const time = new Date(rawDataTime);
 
@@ -59,7 +59,7 @@ function answerDateDifferences(allTimeTypes) {
   return result;
 }
 
-export function extractDateRegex(rawDataTime) {
+export function extractDateFormat(rawDataTime) {
   const dateRegex = /^(\d{4}-\d{2}-\d{2})/;
   const match = rawDataTime.match(dateRegex);
 
