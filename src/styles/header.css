@@ -40,6 +40,7 @@ body {
   font-size: 1.4rem;
 }
 
+/* 모바일 화면 */
 @media (min-width: 375px) and (max-width: 767px) {
   .header {
     height: 6.3rem;
