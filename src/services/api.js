@@ -24,6 +24,7 @@ export async function getUserInfo() {
   } catch (error) {
     console.error('Fetch error: ', error);
   }
+  return null;
 }
 
 // api/sample/folder
@@ -133,4 +134,5 @@ export async function getFolderInfo() {
   } catch (error) {
     console.error('Fetch error: ', error);
   }
+  return null;
 }
