@@ -1,17 +1,21 @@
 .gnb_ly {
   display: flex;
-  padding: 18px 32px 17px 32px;
   position: sticky;
   top: 0;
   flex-direction: column;
   align-items: center;
   align-self: stretch;
   background: #F0F6FF;
+  
+  /* Mobile */
+  padding: 18px 32px 17px 32px;
 
-  @media (max-width: 1124px) and (min-width: 768px) {
+  /* Tablet */
+  @media (min-width: 768px) {
     padding: 33px;
   }
 
+  /* PC */
   @media (min-width: 1125px) {
     padding: 33px 200px;
   }
