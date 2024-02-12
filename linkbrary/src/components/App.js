@@ -1,9 +1,10 @@
+import "../styles/global.css";
 import { useEffect, useState } from "react";
-import { getAPI } from "..api";
+import { getAPI } from "../api";
 import Header from "./Header";
 import Footer from "./Footer";
 import Profile from "./Profile";
-import FolderSection from "./FolderSection";
+import Contents from "./Contents";
 
 function App() {
   const [contentName, setContentName] = useState("");
@@ -37,7 +38,7 @@ function App() {
         userName={userName}
         imgSrc={profileImage}
       />
-      <FolderSection folderList={contentList} />
+      <Contents folderList={contentList} />
       <Footer />
     </>
   );
