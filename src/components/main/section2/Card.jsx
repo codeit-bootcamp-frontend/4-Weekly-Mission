@@ -4,7 +4,11 @@ function Card({ cardData }) {
   const src = cardData.imageSource;
   return (
     <div className="cardimg-wrapper">
-      <img className="cardimg" src={src} alt={`card${cardData.id}`} />
+      {src ? (
+        <img className="cardimg" src={src} alt={`card${cardData.id}`} />
+      ) : (
+        <img className="cardimg sample" src="" alt={`card${cardData.id}`} />
+      )}
     </div>
   );
 }
