@@ -5,7 +5,7 @@ function Profile({ folder, user, proImg }) {
     <profile className="profile">
       <img src={proImg} alt="프로필 사진" className="img-profile" />
       <p className="user-name">{user}</p>
-      <h1 className="bookmark">{folder}</h1>
+      <h1 className="folder-name">{folder}</h1>
     </profile>
   );
 }
