@@ -5,6 +5,7 @@ nav {
   top: 0;
   width: 100%;
   background-color: #edf7ff;
+  z-index: 1;
 }
 
 .gnb {
@@ -52,3 +53,11 @@ nav {
 .cta-short {
   width: 12.8rem;
 }
+
+/* tablet & mobile */
+@media all and (min-width: 375px) and (max-width: 1199px) {
+  .gnb {
+    padding: 0 3.2rem;
+  }
+}
+

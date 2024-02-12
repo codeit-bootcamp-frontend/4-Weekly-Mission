@@ -11,3 +11,12 @@
   gap: 25px 20px;
   flex-wrap: wrap;
 }
+
+/* tablet */
+@media all and (max-width: 1124px) {
+  .container {
+    
+    padding: 0 32px;
+
+  }
+}

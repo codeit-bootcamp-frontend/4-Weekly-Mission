@@ -40,3 +40,34 @@ footer {
   column-gap: 1.2rem;
   height: 2rem;
 }
+
+/* mobile */
+@media all and (min-width: 375px) and (max-width: 767px) {
+  footer {
+    margin-top: 40px;
+  }
+
+  .footer-box {
+    display: grid;
+    grid-template:
+      "footer-links sns"
+      "copyright ."
+      /1fr 1fr;
+    row-gap: 60px;
+    align-items: center;
+    padding: 0 32px;
+  }
+
+  .copyright {
+    grid-area: copyright;
+  }
+
+  .footer-links {
+    grid-area: footer-links;
+  }
+
+  .sns {
+    grid-area: sns;
+    justify-content: flex-end;
+  }
+}
