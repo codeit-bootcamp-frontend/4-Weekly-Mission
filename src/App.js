@@ -1,5 +1,6 @@
 import Footer from "./Footer.js";
 import NavBar from "./NavBar.js";
+import "./global.css";
 
 function App() {
   return (
