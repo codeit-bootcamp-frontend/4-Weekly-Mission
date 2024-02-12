@@ -2,16 +2,15 @@ import { useState, useEffect } from "react";
 import Content from "../content/Content";
 import {API_PATH_USER_FOLDER, API_PATH_ALL_LINK, API_PATH_CATEGORY_LINK} from "../../hooks/services/api-path";
 import FETCH_API from "../../hooks/services/fetch-data";
+import Button from "../Button";
 
-
-
-function FolderContent({handleKebab, kebabStatus, categoryList, setCategoryList}){
+function FolderContent({handleKebab, kebabStatus, categoryList, setCategoryList, setModalAction}){
     const [selectCategory, setSelectCategory] = useState({ // 현재 선택중인 카테고리
         id: 0,
         name: "전체"
     }) 
     const [linkList, setLinkList] = useState([]); // 유저가 가지고 있는 링크
-
+    const [searchInputValue, setSearchInputValue] = useState("");
     // 유저가 가지고 있는 카테고리 로드(데이터 통신, 첫 렌더링 시에만 실행)
     useEffect(() => {
         const userCategoryLoad = async() => {
@@ -76,6 +75,16 @@ function FolderContent({handleKebab, kebabStatus, categoryList, setCategoryList}
         }
     }
 
+    const handleSearchFromSumbit = (e) => {
+        e.preventDefault();
+        setModalAction("폴더에 추가");
+        console.log(searchInputValue);
+    }
+
+    const handleSearchInputChange = (e) => {
+        setSearchInputValue(e.target.value);
+    }
+
     const contentProps = {
         categoryList,
         selectCategory,
@@ -86,13 +95,16 @@ function FolderContent({handleKebab, kebabStatus, categoryList, setCategoryList}
         linkList,
         option: true
     }
-
+ 
     return (
         <main className="folder" onClick={(e) => getClickArea(e)}>
             <section className="link">
                 <div className="link__box">
-                    <input className="link__inputtext" type="text" placeholder="        링크를 추가해 보세요"/>
-                    <button className="link__add">추가하기</button>
+                    <form className="link__form" onSubmit={handleSearchFromSumbit}>
+                        <input onChange={(e) => handleSearchInputChange(e)} value={searchInputValue}
+                        className="link__inputtext" type="text" placeholder="        링크를 추가해 보세요"/>
+                        <Button className="link__add" buttonText="추가하기"/>
+                    </form>
                 </div>
             </section>
             <Content {...contentProps}/>

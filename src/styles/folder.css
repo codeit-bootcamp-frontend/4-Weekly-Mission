@@ -261,6 +261,7 @@ html{
     position: absolute;
     top: 0.94rem;
     right: 0.94rem;
+    z-index: 1;
 }
 
 .content__imgBox{
@@ -271,8 +272,6 @@ html{
 
 .content__img{
     width: 100%;
-    height: 15.85913rem;
-    border-radius: 0.9375rem 0.9375rem 0rem 0rem ;
     background-color: #CCD5E3;
 }
 
@@ -327,11 +326,15 @@ html{
 }
 
 .content__text{
+    display: -webkit-box;
     font-size: 1rem;
     line-height: 1.5rem;
     margin: 0.62rem 0;
     height: 3.0625rem;
     overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 .content__date{
