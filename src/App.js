@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Navigation from "./component/Navigation";
+import FolderOwner from "./component/FolderOwner";
+import Footer from "./component/Footer";
+import { getFolderData } from "./api";
+import { useEffect, useState } from "react";
+import LinkItems from "./component/LinkItems";
 
 function App() {
+  const [folderData, setFolderData] = useState({});
+
+  const getData = async () => {
+    const data = await getFolderData();
+    setFolderData(data.folder);
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navigation />
+      <FolderOwner name={folderData.name} owner={folderData.owner} />
+      <LinkItems links={folderData.links} />
+      <Footer />
     </div>
   );
 }
