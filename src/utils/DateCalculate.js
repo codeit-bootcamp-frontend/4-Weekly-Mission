@@ -22,40 +22,28 @@ function destructureTime(timeDifference) {
 function getDateDifferencesLabel(allTimeTypes) {
   const { minutesDifference, hoursDifference, daysDifference, monthsDifference, yearsDifference } = allTimeTypes;
 
-  let result;
   switch (true) {
     case minutesDifference < 2:
-      result = "1 minute ago";
-      break;
+      return "1 minute ago";
     case minutesDifference <= 59:
-      result = `${Math.floor(minutesDifference)} minutes ago`;
-      break;
+      return `${Math.floor(minutesDifference)} minutes ago`;
     case hoursDifference < 2:
-      result = "1 hour ago";
-      break;
+      return "1 hour ago";
     case hoursDifference <= 23:
-      result = `${Math.floor(hoursDifference)} hours ago`;
-      break;
+      return `${Math.floor(hoursDifference)} hours ago`;
     case daysDifference < 2:
-      result = "1 day ago";
-      break;
+      return "1 day ago";
     case daysDifference <= 30:
-      result = `${Math.floor(daysDifference)} days ago`;
-      break;
+      return `${Math.floor(daysDifference)} days ago`;
     case monthsDifference < 2:
-      result = "1 month ago";
-      break;
+      return "1 month ago";
     case monthsDifference <= 11:
-      result = `${Math.floor(monthsDifference)} months ago`;
-      break;
+      return `${Math.floor(monthsDifference)} months ago`;
     case yearsDifference < 2:
-      result = "1 year ago";
-      break;
+      return "1 year ago";
     default:
-      result = `${Math.floor(yearsDifference)} years ago`;
+      return `${Math.floor(yearsDifference)} years ago`;
   }
-
-  return result;
 }
 
 export function extractDateFormat(rawDataTime) {
