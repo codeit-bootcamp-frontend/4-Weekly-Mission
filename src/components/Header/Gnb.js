@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import "./Gnb.css";
-import { getUserInfo } from "../../services/api";
-import LoginButton from "../Common/LoginButton";
-import logo from "../../assets/images/logo.svg";
+import { useState, useEffect } from 'react';
+import './Gnb.css';
+import { getUserInfo } from '../../services/api';
+import LoginButton from '../Common/LoginButton';
+import logo from '../../assets/images/logo.svg';
 
 //글로벌 네비게이션 바
 function Gnb() {
@@ -23,8 +23,8 @@ function Gnb() {
     handleLoadUser();
   }, []);
 
-  const userProfileImg = userInfo?.profileImageSource || "";
-  const userEmail = userInfo?.email || "";
+  const userProfileImg = userInfo?.profileImageSource || '';
+  const userEmail = userInfo?.email || '';
 
   return (
     <nav className="gnb position-fixed margin-auto z-top">

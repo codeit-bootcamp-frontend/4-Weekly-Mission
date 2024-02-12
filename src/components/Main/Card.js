@@ -1,9 +1,9 @@
-import "./Card.css";
-import timeAgo from "../../utils/timeAgo";
-import formatDate from "../../utils/formatDate";
-import NoImage from "../../assets/images/card-no-image.svg";
+import './Card.css';
+import timeAgo from '../../utils/timeAgo';
+import formatDate from '../../utils/formatDate';
+import NoImage from '../../assets/images/card-no-image.svg';
 
-function Card({ createdAt = "", url = "", title = "", description = "", imageSource = "" }) {
+function Card({ createdAt = '', url = '', title = '', description = '', imageSource = '' }) {
   const createdTimeAgo = timeAgo(createdAt);
   const createdDate = formatDate(createdAt);
 
@@ -12,7 +12,7 @@ function Card({ createdAt = "", url = "", title = "", description = "", imageSou
   };
 
   const handleClick = () => {
-    window.open(url, "_blank", "noopener,noreferrer");
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   return (

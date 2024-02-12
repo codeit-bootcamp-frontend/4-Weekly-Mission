@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import "./SearchBar.css";
-import searchIcon from "../../assets/images/search-icon.svg";
+import React, { useState } from 'react';
+import './SearchBar.css';
+import searchIcon from '../../assets/images/search-icon.svg';
 
 function SearchBar() {
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
 
   function handleChange(event) {
     setValue(event.target.value);

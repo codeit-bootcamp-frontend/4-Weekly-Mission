@@ -1,6 +1,6 @@
-import "./Header.css";
-import Gnb from "./Gnb";
-import SharedHeaderContent from "./SharedHeaderContent";
+import './Header.css';
+import Gnb from './Gnb';
+import SharedHeaderContent from './SharedHeaderContent';
 
 function Header() {
   return (

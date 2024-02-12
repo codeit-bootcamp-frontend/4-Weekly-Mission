@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import "./SharedHeaderContent.css";
-import { getFolderInfo } from "../../services/api";
+import { useState, useEffect } from 'react';
+import './SharedHeaderContent.css';
+import { getFolderInfo } from '../../services/api';
 
 // 폴더 정보 출력
 function SharedHeaderContent() {
@@ -21,9 +21,9 @@ function SharedHeaderContent() {
     handleLoadFolder();
   }, []);
 
-  const ownerProfileImg = folderInfo?.folder.owner.profileImageSource || "";
-  const ownerName = folderInfo?.folder.owner.name ? "@" + folderInfo.folder.owner.name : "";
-  const folderName = folderInfo?.folder.name || "";
+  const ownerProfileImg = folderInfo?.folder.owner.profileImageSource || '';
+  const ownerName = folderInfo?.folder.owner.name ? '@' + folderInfo.folder.owner.name : '';
+  const folderName = folderInfo?.folder.name || '';
 
   return (
     <div className="header-content">

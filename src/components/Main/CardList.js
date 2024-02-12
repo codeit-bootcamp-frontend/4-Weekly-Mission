@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
-import "./CardList.css";
-import Card from "./Card";
-import { getFolderInfo } from "../../services/api";
+import { useState, useEffect } from 'react';
+import './CardList.css';
+import Card from './Card';
+import { getFolderInfo } from '../../services/api';
 
 function CardList() {
   // links를 배열에 순차적으로 저장
@@ -12,7 +12,7 @@ function CardList() {
       const { folder } = await getFolderInfo();
       setLinks(folder.links);
     } catch (error) {
-      console.error("Fetch error:", error);
+      console.error('Fetch error:', error);
     }
   };
 

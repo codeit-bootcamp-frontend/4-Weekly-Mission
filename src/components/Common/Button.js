@@ -1,6 +1,6 @@
-import "./Button.css";
+import './Button.css';
 
-function Button({ className = "", text = "" }) {
+function Button({ className = '', text = '' }) {
   return <button className={className}>{text}</button>;
 }
 
