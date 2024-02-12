@@ -5,14 +5,14 @@ import instagramLogo from '../assets/instagram.svg';
 
 import './Footer.css'
 
-const Footer = () => {
-  const socialMediaLinks = [
-    { href: "https://www.facebook.com/", src: facebookLogo, alt: "Facebook logo connected to Facebook homepage" },
-    { href: "https://twitter.com/", src: twitterLogo, alt: "Twitter logo linked to Twitter homepage" },
-    { href: "https://www.youtube.com/", src: youtubeLogo, alt: "YouTube logo linked to YouTube homepage" },
-    { href: "https://www.instagram.com/", src: instagramLogo, alt: "Instagram logo linked to Instagram homepage" },
-  ];
+const SOCIAL_MEDIA_LINKS = [
+  { href: "https://www.facebook.com/", src: facebookLogo, alt: "Facebook logo connected to Facebook homepage" },
+  { href: "https://twitter.com/", src: twitterLogo, alt: "Twitter logo linked to Twitter homepage" },
+  { href: "https://www.youtube.com/", src: youtubeLogo, alt: "YouTube logo linked to YouTube homepage" },
+  { href: "https://www.instagram.com/", src: instagramLogo, alt: "Instagram logo linked to Instagram homepage" },
+];
 
+const Footer = () => {
   return (
   <footer className='container-footer'>
     <div className='footer_ly'>
@@ -23,7 +23,7 @@ const Footer = () => {
           <span className='social-logo_text'>FAQ</span>
         </div>
         <div className='social-logo social-logo_ly'>
-        {socialMediaLinks.map(({ href, src, alt }) => (
+        {SOCIAL_MEDIA_LINKS.map(({ href, src, alt }) => (
           <a key={href} href={href} className="social-logo_hypl">
             <img src={src} alt={alt} />
           </a>
