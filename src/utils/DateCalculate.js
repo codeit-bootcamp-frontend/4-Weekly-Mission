@@ -46,9 +46,12 @@ function calculateDate(timeDifference) {
   return { minutesDifference, hoursDifference, daysDifference, monthsDifference, yearsDifference };
 }
 
-export function extractDateFormat(rawDataTime) {
-  const dateRegex = /^(\d{4}-\d{2}-\d{2})/;
-  const match = rawDataTime.match(dateRegex);
+export function extractDateFormat(stringDate) {
+  const date = new Date(stringDate);
+  
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
 
-  return match ? match[1] : null;
+  return `${year}-${month}-${day}`;
 }
