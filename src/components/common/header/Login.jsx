@@ -1,7 +1,6 @@
 import './Login.css';
 
 function Login({ user }) {
-  // function Login() {
   return (
     // eslint-disable-next-line
     <>
