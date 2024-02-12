@@ -5,6 +5,8 @@
   align-items: center;
   gap: 2.5rem;
   margin: 2rem 0 2rem 0;
+
+  width: 100%;
 }
 
 .cardContainer {
