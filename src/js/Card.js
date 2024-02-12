@@ -14,11 +14,13 @@ export default function Card({ num = 1 }) {
   const src = CARD_IMAGES[num - 1];
   const alt = `card${num}`;
   return (
-    <div>
+    <div className="card">
       <img src={src} alt={alt} />
-      <p>10 minutes ago</p>
-      <p>Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat....</p>
-      <p>2023. 3. 15</p>
+      <div className="cardTextArea">
+        <p className="uploadTime">10 minutes ago</p>
+        <p className="cardText">Lorem ipsum dolor sit amet consectetur. Metus amet habitant nunc consequat....</p>
+        <p className="uploadDate">2023. 3. 15</p>
+      </div>
     </div>
   );
 }

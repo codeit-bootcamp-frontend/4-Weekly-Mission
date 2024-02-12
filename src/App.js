@@ -6,18 +6,8 @@ import youtube from './images/akar-icons_youtube-fill.svg';
 import instagram from './images/ant-design_instagram-filled.svg';
 import search from './images/shared/search.svg';
 import Card from './js/Card';
-import card1 from './images/shared/card/1.png';
-import card2 from './images/shared/card/2.png';
-import card3 from './images/shared/card/3.png';
-import card4 from './images/shared/card/4.png';
-import card5 from './images/shared/card/5.png';
-import card6 from './images/shared/card/6.png';
-import card7 from './images/shared/card/7.png';
-import card8 from './images/shared/card/8.png';
-import card9 from './images/shared/card/9.png';
 
 import './App.css';
-import { useState } from 'react';
 import './style/shared.css';
 import './style/card.css';
 
@@ -32,22 +22,6 @@ function App() {
         </div>
         <div className="headerBtn">
           <button>로그인</button>
-          {async function login(body) {
-            try {
-              const result = await fetch('https://bootcamp-api.codeit.kr/api/sample/user', {
-                method: 'POST',
-                headers: { 'content-Type': 'application/json' },
-                body: JSON.stringify({ body }),
-              });
-              if (!result.ok) {
-                <button>로그인</button>;
-              } else {
-                console.log(result.status);
-              }
-            } catch (error) {
-              console.error(error);
-            }
-          }}
         </div>
       </header>
       <section>
