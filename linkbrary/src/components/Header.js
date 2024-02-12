@@ -1,12 +1,12 @@
 import "../styles/Header.css";
-import linkbraryLogo from "../icons/linkbrary.svg";
+import LINKBRARY from "../icons/linkbrary.svg";
 
 function Header({ user }) {
   return (
     <header className="header-area">
       <div className="header-group">
         <a href="/" className="logo-area">
-          <img src={linkbraryLogo} alt="로고" className="logo-img" />
+          <img src={LINKBRARY} alt="로고" className="logo-img" />
         </a>
         <button className="btn-group">
           {user ? (
