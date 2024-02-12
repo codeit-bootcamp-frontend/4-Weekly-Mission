@@ -14,7 +14,7 @@ function destructureTime(timeDifference) {
   const hoursDifference = Math.trunc(minutesDifference / 60);
   const daysDifference = Math.trunc(hoursDifference / 24);
   const monthsDifference = Math.trunc(daysDifference / 30);
-  const yearsDifference = Math.trunc(monthsDifference / 12);
+  const yearsDifference = Math.floor(monthsDifference / 12);
 
   return { minutesDifference, hoursDifference, daysDifference, monthsDifference, yearsDifference };
 }
@@ -26,23 +26,23 @@ function getDateDifferencesLabel(allTimeTypes) {
     case minutesDifference < 2:
       return "1 minute ago";
     case minutesDifference <= 59:
-      return `${Math.floor(minutesDifference)} minutes ago`;
+      return `${minutesDifference} minutes ago`;
     case hoursDifference < 2:
       return "1 hour ago";
     case hoursDifference <= 23:
-      return `${Math.floor(hoursDifference)} hours ago`;
+      return `${hoursDifference} hours ago`;
     case daysDifference < 2:
       return "1 day ago";
     case daysDifference <= 30:
-      return `${Math.floor(daysDifference)} days ago`;
+      return `${daysDifference} days ago`;
     case monthsDifference < 2:
       return "1 month ago";
     case monthsDifference <= 11:
-      return `${Math.floor(monthsDifference)} months ago`;
+      return `${monthsDifference} months ago`;
     case yearsDifference < 2:
       return "1 year ago";
     default:
-      return `${Math.floor(yearsDifference)} years ago`;
+      return `${yearsDifference} years ago`;
   }
 }
 
