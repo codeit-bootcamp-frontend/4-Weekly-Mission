@@ -1,0 +1,70 @@
+@import url(../assets/color.css);
+
+footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 16rem;
+  margin-top: 12rem;
+  padding: 3.2rem 10.4rem 6.4rem;
+  background-color: var(--The-julge-black);
+}
+
+.footer-container {
+  display: flex;
+  width: 100%;
+  max-width: 192rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.copyright {
+  color: var(--footer-copyright);
+  text-align: center;
+  font-family: Arial;
+  font-size: 1.6rem;
+}
+
+.footer-link {
+  display: flex;
+  width: 18rem;
+  gap: 3rem;
+}
+
+.footer-link a {
+  color: var(--footer-link);
+  font-family: Acme;
+  font-size: 1.6rem;
+  font-family: Arial;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.footer-sns {
+  display: flex;
+  height: 2rem;
+  gap: 1.2rem;
+}
+
+/* 모바일 화면 */
+@media (min-width: 375px) and (max-width: 767px) {
+  footer {
+    margin-top: 4rem;
+    padding: 3.2rem;
+  }
+
+  .copyright {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .footer-container {
+    position: relative;
+    justify-content: space-between;
+  }
+
+  .footer-link {
+    margin-bottom: 6rem;
+  }
+}
