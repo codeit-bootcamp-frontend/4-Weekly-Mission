@@ -10,6 +10,10 @@
   object-fit: cover;
 }
 
+.cardimg:hover {
+  scale: 130%;
+}
+
 @media (min-width: 768px) {
 }
 
