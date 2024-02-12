@@ -1,6 +1,7 @@
 import SearchBar from './components/SearchBar';
 import Card from './components/Card';
 import './Folder.css';
+import { v4 as uuidv4 } from 'uuid';
 
 const Folder = ({items}) => {
   const isFolderLinksAvailable = items && items.links;
@@ -12,7 +13,7 @@ const Folder = ({items}) => {
           <SearchBar className='search-bar_ly'/>
           <div className='card-frame_ly'> 
             {items.links.map(({ createdAt, imageSource, title, description, url }) => (
-              <Card key={createdAt} 
+              <Card key={uuidv4()} 
                 imgSrc={imageSource}
                 title={title}
                 description={description}
