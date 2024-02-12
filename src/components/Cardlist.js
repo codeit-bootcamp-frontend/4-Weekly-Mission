@@ -5,7 +5,7 @@ import searchIcon from '../images/Search.svg';
 import noCardImg from '../images/noCardImg.png';
 
 const Cardlist = () => {
-  const data = useFetchCardsData();
+  const cardList = useFetchCardsData();
   const handleImageError = (e) => {
     e.target.src = { noCardImg };
   };
