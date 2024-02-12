@@ -7,39 +7,25 @@ function useTimeAgo(createdAt) {
     const calcTimeAgo = () => {
       const today = new Date();
       const day = new Date(createdAt);
+      const diff = Math.floor((today - day) / 1000); // 초 단위로 변환
 
-      const diff = (today - day) / 1000;
-
-      if (diff < 120) {
+      if (diff < 120){
         return "1 minute ago";
-      } else if (diff < 3600) {
+      } 
+      if (diff < 3600){
         return `${Math.floor(diff / 60)} minutes ago`;
-      } else if (diff < 86400) {
-        if (diff < 7200) {
-          return "1 hour ago";
-        } else {
-          return `${Math.floor(diff / 3600)} hours ago`;
-        }
-      } else if (diff < 2592000) {
-        if (diff < 172800) {
-          return "1 day ago";
-        } else {
-          return `${Math.floor(diff / 86400)} days ago`;
-        }
-      } else if (diff < 7948800) {
-        if (diff < 5184000) {
-          return "1 month ago";
-        } else {
-          return `${Math.floor(diff / 2592000)} months ago`;
-        }
-      } else if (diff < 31536000) {
-        if (diff < 6307200) {
-          return "1 year ago";
-        } else {
-          return `${Math.floor(diff / 2628000)} years ago`;
-        }
-      } else {
-        return `${Math.floor(diff / 31536000)} years ago`;
+      }
+      if (diff < 86400){
+        return `${Math.floor(diff / 3600)} hours ago`;
+      }
+      if (diff < 2678400){
+        return `${Math.floor(diff / 86400)} days ago`;
+      }
+      if (diff < 31557600){
+        return `${Math.floor(diff / 2678400)} months ago`;
+      }
+      if (31557600 <= diff){
+        return `${Math.floor(diff / 31557600)} years ago`
       }
     };
 
@@ -48,5 +34,6 @@ function useTimeAgo(createdAt) {
 
   return timeAgo;
 }
+
 
 export default useTimeAgo;
