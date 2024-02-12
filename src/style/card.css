@@ -17,6 +17,7 @@
 
 .card .cardText {
   height: 49px;
+  width: 340px;
   align-self: stretch;
   overflow: hidden;
   color: #000;

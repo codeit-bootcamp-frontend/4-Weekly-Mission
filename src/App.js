@@ -5,6 +5,7 @@ import twitter from './images/akar-icons_twitter-fill.svg';
 import youtube from './images/akar-icons_youtube-fill.svg';
 import instagram from './images/ant-design_instagram-filled.svg';
 import search from './images/shared/search.svg';
+import Card from './js/Card';
 import card1 from './images/shared/card/1.png';
 import card2 from './images/shared/card/2.png';
 import card3 from './images/shared/card/3.png';
@@ -18,6 +19,7 @@ import card9 from './images/shared/card/9.png';
 import './App.css';
 import { useState } from 'react';
 import './style/shared.css';
+import './style/card.css';
 
 function App() {
   return (
@@ -64,9 +66,15 @@ function App() {
         </div>
 
         <div className="mainContent">
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map(num => (
-            <img key={num} src={`card${num}`} alt={`${num}번 카드`} />
-          ))}
+          <Card num={1} />
+          <Card num={2} />
+          <Card num={3} />
+          <Card num={4} />
+          <Card num={5} />
+          <Card num={6} />
+          <Card num={7} />
+          <Card num={8} />
+          <Card num={9} />
         </div>
       </main>
       <footer>
