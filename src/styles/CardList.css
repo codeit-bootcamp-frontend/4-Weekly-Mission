@@ -1,0 +1,16 @@
+.cardList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  margin: 2rem 0 2rem 0;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+
+  flex-wrap: wrap;
+}

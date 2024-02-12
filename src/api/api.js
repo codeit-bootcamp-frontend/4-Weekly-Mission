@@ -7,8 +7,8 @@ const getSampleUserData = async () => {
 
 const getSampleFolderData = async () => {
   const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/folder');
-  const data = await response.json();
-  return data;
+  const { folder } = await response.json();
+  return folder;
 };
 
 export { getSampleUserData, getSampleFolderData };

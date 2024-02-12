@@ -1,0 +1,16 @@
+form {
+  display: flex;
+  gap: 1rem;
+
+  border-radius: 0.625rem;
+  background: #f5f5f5;
+
+  width: 118rem;
+  padding: 0.9375rem 1rem;
+}
+
+form input {
+  width: 100%;
+  border: none;
+  background-color: inherit;
+}
