@@ -33,11 +33,7 @@ function App() {
   return (
     <>
       <Header user={user} />
-      <Profile
-        folderName={contentName}
-        userName={userName}
-        imgSrc={profileImage}
-      />
+      <Profile folder={contentName} user={userName} proImg={profileImage} />
       <Contents folderList={contentList} />
       <Footer />
     </>

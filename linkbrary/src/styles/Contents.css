@@ -5,6 +5,32 @@
   padding: 4rem 0;
 }
 
+.search-bar-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 4rem;
+  padding: 1.5rem 1.6rem;
+  width: 100%;
+  max-width: 106rem;
+  border-radius: 1rem;
+  background-color: var(--gray10);
+}
+
+.icon-search {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.input-search {
+  width: 100%;
+  background-color: inherit;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  outline: none;
+}
+
 .card-list {
   display: flex;
   flex-wrap: wrap;

@@ -1,27 +1,29 @@
 import "../styles/Contents.css";
-import SerachBar from "./SearchBar";
+import SEARCH from "../icons/search.svg";
 import CardSection from "./CardSection";
 
-function Contents({ contentList }) {
+function Contents({ folderList }) {
   return (
     <section className="section-area">
-      <div>
-        <SerachBar />
+      <div className="search-bar-group">
+        <img src={SEARCH} alt="돋보기 아이콘" className="icon-search" />
+        <input
+          type="text"
+          className="input-search"
+          placeholder="링크를 검색해 보세요."
+        />
       </div>
       <ul className="card-list">
-        {contentList &&
-          contentList.map(
-            ({ id, createdAt, url, description, imageSource }) => (
-              <li key={id} className="card-item">
-                <CardSection
-                  url={url}
-                  createdAt={createdAt}
-                  desc={description}
-                  imgUrl={imageSource}
-                />
-              </li>
-            )
-          )}
+        {folderList.map(({ id, createdAt, url, description, imageSource }) => (
+          <li key={id} className="card-item">
+            <CardSection
+              url={url}
+              createdAt={createdAt}
+              desc={description}
+              imgUrl={imageSource}
+            />
+          </li>
+        ))}
       </ul>
     </section>
   );
