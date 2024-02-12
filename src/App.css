@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .Navigation {
   display: flex;
   justify-content: space-between;
@@ -17,29 +21,4 @@
 
 .FolderOwner img {
   width: 60px;
-}
-
-.LinkItems {
-  display: grid;
-  grid-template: "1 1 1";
-  gap: 20px 25px;
-  width: 75%;
-  margin: 0 auto;
-  padding-top: 60px;
-}
-
-.LinkItem {
-  width: 340px;
-  height: 334px;
-  border-radius: 8px;
-}
-
-.LinkItem a {
-  display: inline-block;
-  height: 200px;
-  width: 100%;
-  overflow: hidden;
-}
-.LinkItem img {
-  width: 100%;
 }

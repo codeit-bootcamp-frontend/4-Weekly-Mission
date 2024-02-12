@@ -1,3 +1,6 @@
+import "../css/LinkItem.css";
+import defaultImage from "../images/card-default.png";
+
 const calculateTimePassed = (createdAt) => {
   const NOW = new Date();
   const CREATED_AT = new Date(createdAt);
@@ -31,11 +34,11 @@ const LinkItem = ({ link }) => {
   return (
     <div className="LinkItem">
       <a href={link.url}>
-        <img src={link.imageSource} alt="링크 이미지" />
+        <img src={link.imageSource || defaultImage} alt="링크 이미지" />
+        <p className="createdAt">{calculateTimePassed(CREATED_AT)}</p>
+        <p className="description">{link.description}</p>
+        <p className="createdDate">{CREATED_DATE}</p>
       </a>
-      <p>{calculateTimePassed(CREATED_AT)}</p>
-      <p>{link.description}</p>
-      <p>{CREATED_DATE}</p>
     </div>
   );
 };
