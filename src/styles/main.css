@@ -1,3 +1,5 @@
+@import url(../assets/color.css);
+
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +19,7 @@ body {
   align-items: center;
   padding: 2rem 0 6rem;
   margin-bottom: 4rem;
-  background-color: #f0f6ff;
+  background-color: var(--Linkbrary-bg);
 }
 
 .folder-img {

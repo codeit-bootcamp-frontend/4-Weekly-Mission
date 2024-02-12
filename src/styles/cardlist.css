@@ -1,3 +1,5 @@
+@import url(../assets/color.css);
+
 * {
   margin: 0;
   padding: 0;
@@ -22,7 +24,7 @@ body {
   height: auto;
   padding: 1.5rem 1.6rem;
   border-radius: 1rem;
-  background-color: #f5f5f5;
+  background-color: var(--Grey-Light);
   margin-bottom: 4rem;
 }
 
@@ -34,7 +36,7 @@ body {
   width: 100%;
   margin-left: 0.6rem;
   border: 0;
-  background-color: #f5f5f5;
+  background-color: var(--Grey-Light);
 }
 
 .card-container {
@@ -80,18 +82,18 @@ body {
 
 .text-time {
   font-size: 1.3rem;
-  color: #666666;
+  color: var(--Text-time);
 }
 
 .text-description {
   font-size: 1.6rem;
   line-height: 2.4rem;
-  color: black;
+  color: var(--Black);
 }
 
 .text-date {
   font-size: 1.4rem;
-  color: #333333;
+  color: var(--Text-date);
 }
 
 /* 모바일 화면 */

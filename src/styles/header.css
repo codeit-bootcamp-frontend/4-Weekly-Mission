@@ -1,3 +1,5 @@
+@import url(../assets/color.css);
+
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +22,7 @@ body {
   padding: 3.3rem 20rem;
   position: sticky;
   top: 0;
-  background-color: #f0f6ff;
+  background-color: var(--Linkbrary-bg);
 }
 
 .profile-info {
