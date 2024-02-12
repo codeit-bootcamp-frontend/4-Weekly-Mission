@@ -1,26 +1,15 @@
-export function calculateDateDifferences(stringDate) {
+export function calculateDateDifference(stringDate) {
   const currentTime = new Date();
   const time = new Date(stringDate);
 
   const timeDifference = currentTime - time;
 
-  const result = getDateDifferencesLabel(destructureTime(timeDifference));
+  const result = getDateDifferencesLabel(timeDifference);
   return result;
 }
 
-function destructureTime(timeDifference) {
-  const secondDifference = Math.trunc(timeDifference / 1000);
-  const minutesDifference = Math.trunc(secondDifference / 60);
-  const hoursDifference = Math.trunc(minutesDifference / 60);
-  const daysDifference = Math.trunc(hoursDifference / 24);
-  const monthsDifference = Math.trunc(daysDifference / 30);
-  const yearsDifference = Math.floor(monthsDifference / 12);
-
-  return { minutesDifference, hoursDifference, daysDifference, monthsDifference, yearsDifference };
-}
-
-function getDateDifferencesLabel(allTimeTypes) {
-  const { minutesDifference, hoursDifference, daysDifference, monthsDifference, yearsDifference } = allTimeTypes;
+function getDateDifferencesLabel(timeDifference) {
+  const { minutesDifference, hoursDifference, daysDifference, monthsDifference, yearsDifference } = calculateDate(timeDifference);
 
   switch (true) {
     case minutesDifference < 2:
@@ -44,6 +33,17 @@ function getDateDifferencesLabel(allTimeTypes) {
     default:
       return `${yearsDifference} years ago`;
   }
+}
+
+function calculateDate(timeDifference) {
+  const secondDifference = Math.trunc(timeDifference / 1000);
+  const minutesDifference = Math.trunc(secondDifference / 60);
+  const hoursDifference = Math.trunc(minutesDifference / 60);
+  const daysDifference = Math.trunc(hoursDifference / 24);
+  const monthsDifference = Math.trunc(daysDifference / 30);
+  const yearsDifference = Math.floor(monthsDifference / 12);
+
+  return { minutesDifference, hoursDifference, daysDifference, monthsDifference, yearsDifference };
 }
 
 export function extractDateFormat(rawDataTime) {

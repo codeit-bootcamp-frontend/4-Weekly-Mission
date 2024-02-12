@@ -1,9 +1,9 @@
 import './Card.css'
 import defaultImg from '../assets/logo.svg';
-import { calculateDateDifferences, extractDateFormat } from '../utils/DateCalculate';
+import { calculateDateDifference, extractDateFormat } from '../utils/DateCalculate';
 
 const Card = ({imgSrc, time, title, description, url}) => {
-  const timeDifference = calculateDateDifferences(time);
+  const timeDifference = calculateDateDifference(time);
   const createdTime = extractDateFormat(time);
 
   return (
