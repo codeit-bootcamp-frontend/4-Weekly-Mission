@@ -32,7 +32,7 @@ export const CardList = ({ description, createdAt, imageSource }) => {
       <div className="Card-content">
         <span className="Card-content-elapsedTime">{elapsedTime}</span>
         <p className="Card-content-description">{description}</p>
-        <span className="Card-content-createdAt">{createdAt}</span>
+        <span className="Card-content-createdAt">{createdAt.split("T", 1)}</span>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Layout } from "./Layout/Layout";;
+import { Layout } from "./layout";
 import "./global.css";
 
 function App() {
