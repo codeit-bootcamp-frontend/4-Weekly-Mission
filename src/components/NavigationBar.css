@@ -41,3 +41,13 @@
   font-weight: 400;
   line-height: normal;
 }
+
+@media (max-width: 767px) {
+  #Email {
+    display: none; /* 모바일일 때 이메일 숨김 */
+  }
+
+  #Linkbrary {
+    margin-right: 30px; /* 프로필 사진과 간격 조정 */
+  }
+}

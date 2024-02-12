@@ -27,3 +27,10 @@ span {
   font-weight: 400;
   line-height: normal;
 }
+
+/* 화면 너비가 767px 미만인 경우 모바일*/
+@media (max-width: 767px) {
+  .footerContent {
+    gap: 30px; /* Mobile 사이즈에서 영역 간격을 늘림 */
+  }
+}

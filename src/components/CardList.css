@@ -78,11 +78,28 @@
   line-height: normal;
 }
 
+/* 화면 너비가 1124px 미만인 경우 테블릿*/
 @media (max-width: 1123px) {
+  .CardList {
+    width: 100%;
+  }
   #cardImg {
-    width: 520px;
+    width: 100%;
   }
   #textArea {
-    width: 520px;
+    width: 100%;
+  }
+}
+
+/* 화면 너비가 767px 미만인 경우 모바일*/
+@media (max-width: 767px) {
+  .CardList {
+    width: 100%;
+  }
+  #cardImg {
+    width: 100%;
+  }
+  #textArea {
+    width: 100%;
   }
 }
