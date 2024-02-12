@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../Assets/image/logo.png";
+import "../Styles/Header.css";
 
 export function Header({ profile, folder }) {
   return (
@@ -21,7 +22,7 @@ export function Header({ profile, folder }) {
               <span className="userEmail">{profile.email}</span>
             </div>
           ) : (
-            <a href="../Pages/signIn.html" className="btn btnS">
+            <a href="../Pages/signIn.html" className="loginBtn btnS">
               로그인
             </a>
           )}
@@ -29,14 +30,16 @@ export function Header({ profile, folder }) {
       </nav>
 
       <header>
-        <div className="folderProfile">
-          <div>
+        <div className="folder">
+          <div className="folderProfile">
             <img
               src={folder.userProfileImage}
               className="folderImg"
               alt="userProfileImg"
             ></img>
             <p className="folderProfileName">{folder.userName}</p>
+          </div>
+          <div>
             <h2 className="folderName">{folder.folderName}</h2>
           </div>
         </div>

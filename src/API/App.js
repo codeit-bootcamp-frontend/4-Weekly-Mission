@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { getFolder, getProfile } from "./Api";
 import { Header } from "../Components/Header";
+import { Main } from "../Components/Main";
 
 function App() {
   const [profile, setProfile] = useState(null);
   const [folder, setFolder] = useState({
     userProfileImage: null,
   });
-  const [cardLinks, setCardLinks] = useState(null);
+  const [cardLinks, setCardLinks] = useState([]);
 
   const getData = async () => {
     const userData = await getProfile();
@@ -22,7 +23,12 @@ function App() {
     getData();
   }, []);
 
-  return <Header profile={profile} folder={folder}></Header>;
+  return (
+    <>
+      <Header profile={profile} folder={folder}></Header>
+      <Main cards={cardLinks}></Main>
+    </>
+  );
 }
 
 export default App;
