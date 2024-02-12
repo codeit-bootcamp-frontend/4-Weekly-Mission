@@ -40,7 +40,7 @@
 }
 
 .card-item {
-  width: 34rem;
+  width: 32rem;
   border-radius: 1.5rem;
   box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -66,6 +66,7 @@
   .card-list {
     width: 70.4rem;
     gap: 2.5rem 2.4rem;
+    padding: 0;
   }
 }
 
@@ -85,6 +86,7 @@
   .card-list {
     width: 100%;
     gap: 2rem;
+    padding: 0;
   }
 
   .card-item {
