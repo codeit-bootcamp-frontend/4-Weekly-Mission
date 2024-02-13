@@ -1,0 +1,23 @@
+.search-container {
+  width: 80%;
+  margin: 1rem auto;
+}
+
+.search-form {
+  display: flex;
+  position: relative;
+}
+
+.search-input {
+  flex: 1;
+  padding: 1rem 2.5rem;
+  border: none;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.search-container img {
+  position: absolute;
+  top: 35%;
+  left: 15px;
+}
