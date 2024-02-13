@@ -19,6 +19,7 @@
   height: 32.7rem;
   box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.08);
   border-radius: 15px;
+  overflow: hidden;
 
   @media (min-width: 768px) {
     width: 34rem;
@@ -31,12 +32,18 @@
   min-height: 19.2rem;
   height: 19.2rem;
   border-radius: 15px 15px 0 0;
-  object-fit: cover;
+  background-position: center;
+  background-size: 100%;
+  transition: background-size 0.3s ease-in-out;
 
   @media (min-width: 768px) {
     min-height: 20rem;
     height: 20rem;
   }
+}
+
+.card-list .cardImg:hover {
+  background-size: 130%;
 }
 
 .card-list .content {

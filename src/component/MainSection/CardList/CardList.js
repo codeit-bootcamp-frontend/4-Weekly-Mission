@@ -23,7 +23,10 @@ const CardList = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img className="cardImg" src={link.imageSource} alt={link.title} />
+          <div
+            className="cardImg"
+            style={{ backgroundImage: `url(${link.imageSource})` }}
+          ></div>
           <div className="content">
             <span className="elapsed-time">{elapsedTime(link.createdAt)}</span>
             <p className="description">{link.description}</p>

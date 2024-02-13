@@ -6,7 +6,7 @@ const FolderSection = () => {
   const [folderData, setFolderData] = useState(null);
 
   useEffect(() => {
-    fetchData().then((data) => setFolderData(data.folderData));
+    fetchData().then((data) => setFolderData(data));
   }, []);
 
   if (!folderData) {
