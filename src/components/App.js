@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import CardList from "./CardList";
-import { getFolders, getUser } from "../api";
+import { getFolders } from "../api";
 import Header from "./Header";
 import Footer from "./Footer";
 import Profile from "./Profile";
@@ -8,17 +8,14 @@ import SearchBar from "./SearchBar";
 
 function App() {
   const [items, setItems] = useState([]);
-  const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
   const [folderName, setFolderName] = useState(null);
 
   const handleLoad = async () => {
     const { folder } = await getFolders();
-    const user = await getUser();
     setItems(folder.links);
     setProfile(folder.owner);
     setFolderName(folder.name);
-    setUser(user);
   };
 
   useEffect(() => {
@@ -27,7 +24,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header user={user} />
+      <Header />
       <Profile profile={profile} folderName={folderName} />
       <SearchBar />
       <CardList items={items} />

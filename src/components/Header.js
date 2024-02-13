@@ -1,8 +1,9 @@
 import logo from "../assets/logo.svg";
 import "./Header.css";
+import useUser from "../hooks/useUser.js";
 
 function userInformation({ user }) {
-  if (!user) return false;
+  if (!user) return null;
   const { email, profileImageSource } = user;
   return (
     <div>
@@ -12,7 +13,8 @@ function userInformation({ user }) {
   );
 }
 
-function Header({ user }) {
+function Header() {
+  const user = useUser();
   return (
     <header>
       <div className="nav-space">
