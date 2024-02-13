@@ -5,8 +5,10 @@ import { getUser } from '../../utils/api';
 import * as S from './Navbar.styles';
 
 const Navbar = ({ handleLoginButtonClick }) => {
-  const [user, setUser] = useState();
-  const fetchData = async () => {
+  const [user, setUser] = useState({});
+  const hasUser = Object.keys(user).length;
+
+  const fetchUserData = async () => {
     try {
       const user = await getUser();
       setUser(user);
@@ -17,19 +19,20 @@ const Navbar = ({ handleLoginButtonClick }) => {
 
   const handleClick = () => {
     handleLoginButtonClick();
-    fetchData();
+    fetchUserData();
   };
 
   return (
     <S.NavbarHeader>
       <S.NavbarHeaderBox>
         <img src='/icons/linkbrary-logo.svg' alt='linkbrary' />
-        {!user && (
+        {hasUser ? (
+          <UserProfile title={user.email} image={{ URL: user.profileImageSource, size: '2rem' }} />
+        ) : (
           <GradientButton $startColor='var(--color-primary)' $endColor='#6ae3fe' onClick={handleClick}>
             로그인
           </GradientButton>
         )}
-        {user && <UserProfile title={user.email} image={{ URL: user.profileImageSource, size: '2rem' }} />}
       </S.NavbarHeaderBox>
     </S.NavbarHeader>
   );
