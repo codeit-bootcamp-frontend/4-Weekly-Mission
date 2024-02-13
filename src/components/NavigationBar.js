@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./NavigationBar.css";
+import "../styles/NavigationBar.css";
 import { Profile } from "./Profile";
 
 function NavigationBar() {

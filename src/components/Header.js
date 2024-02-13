@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Header.css";
+import "../styles/Header.css";
 
 function Header() {
   const [folderData, setFolderData] = useState(null);
