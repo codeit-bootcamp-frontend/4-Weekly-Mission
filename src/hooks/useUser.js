@@ -2,7 +2,10 @@ import { getUser } from "../api";
 import { useState, useEffect } from "react";
 
 const useUser = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({
+    email: "",
+    profileImageSource: "",
+  });
 
   useEffect(() => {
     const fetchUser = async () => {

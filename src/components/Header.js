@@ -7,7 +7,7 @@ function userInformation({ user }) {
   const { email, profileImageSource } = user;
   return (
     <div>
-      <img className="logo" src={profileImageSource} alt={profileImageSource} />
+      <img className="logo" src={profileImageSource} alt="프로필 이미지" />
       <span>{email}</span>
     </div>
   );
