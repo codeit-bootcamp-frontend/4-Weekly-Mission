@@ -20,13 +20,9 @@ const App = () => {
     }
   };
 
-  const handleLoginButtonClick = () => {
-    fetchFolder();
-  };
-
   return (
     <S.AppLayout>
-      <Navbar handleLoginButtonClick={handleLoginButtonClick} />
+      <Navbar handleLoginButtonClick={fetchFolder} />
       <S.HomeSection>
         {owner && (
           <UserProfile
