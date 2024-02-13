@@ -50,4 +50,28 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 20px;
+  padding: 0 200px;
+}
+
+@media (max-width: 1199px) {
+  .searchContainer {
+    padding: 30px 50px;
+  }
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .searchContainer {
+    padding: 10px 50px;
+  }
+
+  .cardContainer {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 20px;
+  }
 }

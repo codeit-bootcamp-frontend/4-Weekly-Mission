@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { getFolder, getProfile } from "./Api";
 import { Header } from "../Components/Header";
 import { Main } from "../Components/Main";
+import { Footer } from "../Components/Footer";
 
 function App() {
   const [profile, setProfile] = useState(null);
@@ -27,6 +28,7 @@ function App() {
     <>
       <Header profile={profile} folder={folder}></Header>
       <Main cards={cardLinks}></Main>
+      <Footer></Footer>
     </>
   );
 }

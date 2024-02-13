@@ -46,18 +46,24 @@ export function Card({ cardInfo, key }) {
 
   return (
     <>
-      <a href={url}>
-        <div className="card">
-          <div className="cardImgContainer">
-            <img src={imageSource} className="cardImg" alt="카드 이미지"></img>
+      <main>
+        <a href={url}>
+          <div className="card">
+            <div className="cardImgContainer">
+              <img
+                src={imageSource}
+                className="cardImg"
+                alt="카드 이미지"
+              ></img>
+            </div>
+            <div className="cardContents">
+              <p className="createdFrom">{getCreatedFrom(createdAt)}</p>
+              <p className="description">{description}</p>
+              <p className="createdAt">{createdAtDate}</p>
+            </div>
           </div>
-          <div className="cardContents">
-            <p className="createdFrom">{getCreatedFrom(createdAt)}</p>
-            <p className="description">{description}</p>
-            <p className="createdAt">{createdAtDate}</p>
-          </div>
-        </div>
-      </a>
+        </a>
+      </main>
     </>
   );
 }

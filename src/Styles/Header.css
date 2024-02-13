@@ -8,6 +8,7 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 nav {
@@ -113,4 +114,35 @@ header {
   letter-spacing: 0px;
   text-align: center;
   margin: 0px;
+}
+
+/* tablet */
+@media (max-width: 1199px) {
+  nav {
+    height: 94px;
+    padding: 0 50px;
+  }
+
+  .nav {
+    padding: 32px 32.5px;
+  }
+
+  header {
+    height: 244px;
+    padding: 0 50px;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  nav {
+    width: 100%;
+  }
+  .logo {
+    height: 20px;
+  }
+  .btn {
+    height: 37px;
+    font-size: 14px;
+  }
 }

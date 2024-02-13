@@ -26,7 +26,7 @@ export const getFolder = async () => {
   folderData.userProfileImage = result.folder.owner.profileImageSource;
   folderData.userName = result.folder.owner.name;
   folderData.folderName = result.folder.name;
-  folderData.cardLinks = result.folder.owner.links;
+  folderData.cardLinks = result.folder.links;
 
   if (!response.ok) {
     throw new Error("불러오는 데 실패했습니다.");
