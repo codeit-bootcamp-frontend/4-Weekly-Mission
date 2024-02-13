@@ -17,32 +17,39 @@ export function calculateTimePassed(createdAt) {
   const differenceInMonths = Math.floor(differenceInDays / 30);
   const differenceInYears = Math.floor(differenceInMonths / 12);
 
+  const getTimeAgoString = (time, unit) => {
+    if (time === 1) {
+      return `1 ${unit} ago`;
+    }
+    return `${time} ${unit}s ago`;
+  };
+
   if (differenceInSeconds < 60 * 2) {
-    return '1 minute ago';
+    return getTimeAgoString(1, 'minute');
   }
   if (differenceInMinutes < 60) {
-    return `${differenceInMinutes} minutes ago`;
+    return getTimeAgoString(differenceInMinutes, 'minute');
   }
   if (differenceInHours < 2) {
-    return '1 hour ago';
+    return getTimeAgoString(1, 'hour');
   }
   if (differenceInHours < 24) {
-    return `${differenceInHours} hours ago`;
+    return getTimeAgoString(differenceInHours, 'hour');
   }
   if (differenceInDays < 2) {
-    return '1 day ago';
+    return getTimeAgoString(1, 'day');
   }
   if (differenceInDays < 31) {
-    return `${differenceInDays} days ago`;
+    return getTimeAgoString(differenceInDays, 'day');
   }
   if (differenceInMonths < 2) {
-    return '1 month ago';
+    return getTimeAgoString(1, 'month');
   }
   if (differenceInMonths < 12) {
-    return `${differenceInMonths} months ago`;
+    return getTimeAgoString(differenceInMonths, 'month');
   }
   if (differenceInYears < 2) {
-    return '1 year ago';
+    return getTimeAgoString(1, 'year');
   }
-  return `${Math.floor(differenceInMonths / 12)} years ago`;
+  return getTimeAgoString(Math.floor(differenceInMonths / 12), 'year');
 }
