@@ -1,12 +1,11 @@
 import { useState } from 'react';
-import styled from 'styled-components';
-import Navbar from './components/Layout/Navbar';
-import UserProfile from './components/UI/UserProfile';
-import SearchBar from './components/UI/Serchbar';
-import Cards from './components/UI/Cards';
-import Footer from './components/Layout/Footer';
 import { getFolder } from './utils/api';
-import './App.css';
+import * as S from './App.styles';
+import Navbar from './components/Navbar/Navbar';
+import UserProfile from './components/UserProfile/UserProfile';
+import SearchBar from './components/SearchBar/SearchBar';
+import Cards from './components/Cards/Cards';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   const [folder, setFolder] = useState({});
@@ -26,9 +25,9 @@ const App = () => {
   };
 
   return (
-    <AppLayout>
+    <S.AppLayout>
       <Navbar handleLoginButtonClick={handleLoginButtonClick} />
-      <section>
+      <S.HomeSection>
         {user && (
           <UserProfile
             title={`@${user.name}`}
@@ -36,42 +35,17 @@ const App = () => {
             direction='column'
           />
         )}
-        {name && <h2>{name}</h2>}
-      </section>
-      <main className='mainLayout'>
-        <section className='mainBox'>
+        {name && <S.HomeFolderName>{name}</S.HomeFolderName>}
+      </S.HomeSection>
+      <S.MainLayout>
+        <S.MainBox>
           <SearchBar />
           {links && <Cards links={links} />}
-        </section>
-      </main>
+        </S.MainBox>
+      </S.MainLayout>
       <Footer />
-    </AppLayout>
+    </S.AppLayout>
   );
 };
 
-const AppLayout = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 1920px;
-
-  .homeSection {
-    padding-top: 5rem;
-  }
-
-  .folderName {
-    padding: 1rem 0;
-  }
-
-  .mainLayout {
-    width: 100vw;
-    margin-top: 2rem;
-    background: #ffffff;
-  }
-
-  .mainBox {
-    padding: 2rem 5rem;
-  }
-`;
 export default App;

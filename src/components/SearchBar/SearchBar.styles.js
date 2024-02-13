@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
-export const SearchbarSection = styled.section`
+export const SearchBarSection = styled.section`
   display: flex;
 `;
 
-export const SearchbarInput = styled.input`
+export const SearchBarInput = styled.input`
   padding: 1rem;
   border: none;
   flex-grow: 1;

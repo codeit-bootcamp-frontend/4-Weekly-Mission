@@ -1,4 +1,4 @@
-import * as S from '../../styles/Footer.styles';
+import * as S from './Footer.styles';
 const Footer = () => {
   return (
     <S.StyledFooter>

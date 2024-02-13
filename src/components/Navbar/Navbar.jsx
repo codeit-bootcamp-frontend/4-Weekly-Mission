@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import UserProfile from '../UserProfile/UserProfile';
+import GradientButton from '../GradientButton/GradientButton';
 import { getUser } from '../../utils/api';
-import UserProfile from '../UI/UserProfile';
-import GradientButton from '../Common/GradientButton';
-import * as S from '../../styles/Navbar.styles';
+import * as S from './Navbar.styles';
 
 const Navbar = ({ handleLoginButtonClick }) => {
   const [user, setUser] = useState();

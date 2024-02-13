@@ -1,5 +1,5 @@
-import Card from './Card';
-import * as S from '../../styles/Cards.styles';
+import Card from '../Card/Card';
+import * as S from './Cards.styles';
 
 const Cards = ({ links }) => {
   return (

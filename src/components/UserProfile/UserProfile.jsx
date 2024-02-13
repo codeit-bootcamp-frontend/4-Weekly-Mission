@@ -1,4 +1,4 @@
-import * as S from '../../styles/UserProfile.styles';
+import * as S from './UserProfile.styles';
 
 const UserProfile = ({ title, image, direction }) => {
   return (
