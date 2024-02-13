@@ -15,13 +15,13 @@ function Footer() {
             <img src="img/facebook.svg" rel="noreferrer noopener" alt="facebook 연결 로고" />
           </a>
           <a href="https://www.twitter.com" target="_blank">
-            <img src="img/twitter.svg" rel="noreferrer noopener" alt="twitter 연결 로고" />{" "}
+            <img src="img/twitter.svg" rel="noreferrer noopener" alt="twitter 연결 로고" />
           </a>
           <a href="https://www.youtube.com" target="_blank">
-            <img src="img/youtube.svg" rel="noreferrer noopener" alt="youtube 연결 로고" />{" "}
+            <img src="img/youtube.svg" rel="noreferrer noopener" alt="youtube 연결 로고" />
           </a>
           <a href="https://www.instagram.com" target="_blank">
-            <img src="img/instagram.svg" rel="noreferrer noopener" alt="instagram 연결 로고" />{" "}
+            <img src="img/instagram.svg" rel="noreferrer noopener" alt="instagram 연결 로고" />
           </a>
         </div>
       </div>
