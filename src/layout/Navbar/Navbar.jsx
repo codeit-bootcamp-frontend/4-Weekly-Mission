@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./navbar.module.css";
-import logoImg from "./../../assets/images/logo.svg";
+import { logoImage } from "assets";
 import { fetchUserData } from "../../services/api";
 import Profile from "./Profile/Profile";
 
@@ -24,7 +24,7 @@ function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.wrap}>
         <NavLink to="/">
-          <img src={logoImg} className={styles.logo} />
+          <img src={logoImage} className={styles.logo} />
         </NavLink>
         <NavLink to="#">{user ? <Profile email={user.email} imgUrl={user.profileImageSource} /> : <button>login</button>}</NavLink>
       </div>

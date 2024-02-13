@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./card.module.css";
-import noImage from "../../assets/images/no_image.jpeg";
-import { formatDate, getTimeDifference } from "../../utils/helpers/dateUtils";
+import { noImage } from "assets";
+import { formatDate, getTimeDifference } from "utils/helpers/dateUtils";
 
 function Card({ item, onClick }) {
   const { createdAt, description, imageSource, title, url } = item;
