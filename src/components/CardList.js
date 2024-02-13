@@ -5,14 +5,11 @@ import formatTimeDifference from "../utils/formatTimeDifference.js";
 
 function CardListItem({ item }) {
   const { title, createdAt, url, description, imageSource } = item;
+  const src = imageSource ?? noImage;
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
-      {imageSource ? (
-        <img src={imageSource} className="card-box-img" alt="" />
-      ) : (
-        <img src={noImage} className="card-box-img" alt="" />
-      )}
+      <img src={src} className="card-box-img" alt="" />
       <div className="text-container">
         <p className="time-difference">{formatTimeDifference(createdAt)}</p>
         <p className="title">{title}</p>
