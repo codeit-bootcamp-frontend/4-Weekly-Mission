@@ -1,0 +1,23 @@
+.link-search-container {
+  text-align: center;
+}
+.link-search {
+  background-color: rgb(245, 245, 245);
+  border: none;
+  width: min(340px, 100%);
+  padding: 0 32px;
+  border-radius: 16px;
+  height: 54px;
+}
+
+@media (min-width: 768px) {
+  .link-search {
+    width: 700px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .link-search {
+    width: 1060px;
+  }
+}
