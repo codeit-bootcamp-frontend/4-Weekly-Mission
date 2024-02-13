@@ -8,7 +8,7 @@ import SearchBar from './components/UI/Serchbar';
 import Cards from './components/UI/Cards';
 import Footer from './components/Layout/Footer';
 
-function App() {
+const App = () => {
   const [folder, setFolder] = useState();
   const [user, setUser] = useState();
   const [links, setLinks] = useState();
@@ -50,7 +50,7 @@ function App() {
       <Footer />
     </AppLayout>
   );
-}
+};
 
 const AppLayout = styled.div`
   display: flex;
