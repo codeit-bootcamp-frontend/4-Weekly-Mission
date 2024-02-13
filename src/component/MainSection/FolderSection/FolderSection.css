@@ -4,7 +4,6 @@
   align-items: center;
   width: 100%;
   padding: 1rem 0 4rem;
-  box-sizing: border-box;
   background-color: var(--background);
 
   @media (min-width: 768px) {

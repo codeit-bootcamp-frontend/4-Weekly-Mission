@@ -3,7 +3,7 @@ import searchImg from "../../../images/search.svg";
 
 const SearchBar = () => {
   return (
-    <div className="searchBar">
+    <div className="search-bar">
       <input
         className="input"
         type="search"

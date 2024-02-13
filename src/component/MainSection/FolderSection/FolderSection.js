@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from "react";
 import "./FolderSection.css";
+import { fetchData } from "./fetchData";
 
 const FolderSection = () => {
   const [folderData, setFolderData] = useState(null);
 
   useEffect(() => {
-    fetch("https://bootcamp-api.codeit.kr/api/sample/folder")
-      .then((response) => response.json())
-      .then((data) => {
-        setFolderData(data);
-      })
-      .catch((error) => console.error("Error:", error));
+    fetchData().then((data) => setFolderData(data.folderData));
   }, []);
 
   if (!folderData) {
