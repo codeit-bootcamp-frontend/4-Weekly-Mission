@@ -1,3 +1,4 @@
+import { SNS_MAP_LIST } from '../../constatns/constant';
 import * as S from './Footer.styles';
 const Footer = () => {
   return (
@@ -9,18 +10,11 @@ const Footer = () => {
           <S.FooterSiteMapLink href='/'>FAQ</S.FooterSiteMapLink>
         </S.FooterSiteMapNav>
         <S.FooterSnsMapNav>
-          <a href='https://facebook.com' target='_blank' rel='noreferrer noopener'>
-            <S.FooterSnsMapImage src='/icons/facebook-logo.svg' alt='facebook' />
-          </a>
-          <a href='https://twitter.com' target='_blank' rel='noreferrer noopener'>
-            <S.FooterSnsMapImage src='/icons/twitter-logo.svg' alt='twitter' />
-          </a>
-          <a href='https://youtube.com' target='_blank' rel='noreferrer noopener'>
-            <S.FooterSnsMapImage src='/icons/youtube-logo.svg' alt='youtube' />
-          </a>
-          <a href='https://instagram.com' target='_blank' rel='noreferrer noopener'>
-            <S.FooterSnsMapImage src='/icons/instagram-logo.svg' alt='instagram' />
-          </a>
+          {SNS_MAP_LIST.map(sns => (
+            <a key={sns} href={`https://${sns}.com`} target='_blank' rel='noreferrer noopener'>
+              <S.FooterSnsMapImage src={`/icons/${sns}-logo.svg`} alt={sns} />
+            </a>
+          ))}
         </S.FooterSnsMapNav>
       </S.FooterLinkSection>
     </S.StyledFooter>

@@ -9,7 +9,7 @@ import Footer from './components/Footer/Footer';
 
 const App = () => {
   const [folder, setFolder] = useState({});
-  const { user, links, name } = folder;
+  const { owner, links, name } = folder;
 
   const fetchFolder = async () => {
     try {
@@ -28,10 +28,10 @@ const App = () => {
     <S.AppLayout>
       <Navbar handleLoginButtonClick={handleLoginButtonClick} />
       <S.HomeSection>
-        {user && (
+        {owner && (
           <UserProfile
-            title={`@${user.name}`}
-            image={{ URL: user.profileImageSource, size: '8rem' }}
+            title={`@${owner?.name}`}
+            image={{ URL: owner?.profileImageSource, size: '8rem' }}
             direction='column'
           />
         )}
