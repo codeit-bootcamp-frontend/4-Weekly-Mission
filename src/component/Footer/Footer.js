@@ -11,14 +11,14 @@ const INSTAGRAM = "https://www.instagram.com/";
 
 const Footer = () => {
   return (
-    <footer className="Footer">
-      <div className="Wrap">
-        <span className="Address">©codeit - 2023</span>
-        <div className="Policy-and-faq">
+    <footer className="footer">
+      <div className="wrap">
+        <span className="address">©codeit - 2023</span>
+        <div className="policy-and-faq">
           <a href="/">Privacy Policy</a>
           <a href="/">FAQ</a>
         </div>
-        <div className="Sns">
+        <div className="sns">
           <a href={FACEBOOK} target="_blank" rel="noopener noreferrer">
             <img
               src={facebookIcon}

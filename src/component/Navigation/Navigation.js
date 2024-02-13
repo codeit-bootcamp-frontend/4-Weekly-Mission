@@ -14,23 +14,23 @@ const Navigation = () => {
   }, []);
 
   return (
-    <nav className="Navigation">
-      <div className="Wrap">
+    <nav className="navigation">
+      <div className="wrap">
         <a href="/">
           <img src={linkbrary} alt="링크브러리 로고" />
         </a>
         {user ? (
-          <div className="My-profile">
+          <div className="my-profile">
             <img
-              className="Profile-img"
+              className="profile-img"
               src={profileImg}
               alt="나의 프로필 이미지"
             />
-            <span className="Profile-email">{user.email}</span>
+            <span className="profile-email">{user.email}</span>
           </div>
         ) : (
           <a href="/">
-            <span className="Signin">로그인</span>
+            <span className="signin">로그인</span>
           </a>
         )}
       </div>

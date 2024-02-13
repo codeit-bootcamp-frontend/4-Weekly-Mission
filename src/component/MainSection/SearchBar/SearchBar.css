@@ -1,9 +1,9 @@
-.SearchBar {
+.searchBar {
   position: relative;
   width: 100%;
 }
 
-.SearchBar .Input {
+.searchBar .input {
   width: 100%;
   max-width: 106rem;
   height: 4.3rem;
@@ -21,11 +21,11 @@
   }
 }
 
-.SearchBar .Input::placeholder {
+.searchBar .input::placeholder {
   color: var(--gray80);
 }
 
-.SearchBar .Icon {
+.searchBar .icon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "./FolderNameSection.css";
+import "./FolderSection.css";
 
-const FolderNameSection = () => {
+const FolderSection = () => {
   const [folderData, setFolderData] = useState(null);
 
   useEffect(() => {
@@ -18,16 +18,16 @@ const FolderNameSection = () => {
   }
 
   return (
-    <div className="FolderNameSection">
+    <div className="folder-section">
       <img
-        className="Avatar"
+        className="avatar"
         src={folderData.folder.owner.profileImageSource}
         alt="프로필"
       />
-      <span className="User">@{folderData.folder.owner.name}</span>
-      <h2 className="FolderName">{folderData.folder.name}</h2>
+      <span className="user">@{folderData.folder.owner.name}</span>
+      <h2 className="folder-name">{folderData.folder.name}</h2>
     </div>
   );
 };
 
-export default FolderNameSection;
+export default FolderSection;

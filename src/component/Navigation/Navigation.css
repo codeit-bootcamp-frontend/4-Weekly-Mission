@@ -1,4 +1,4 @@
-.Navigation {
+.navigation {
   display: flex;
   justify-content: center;
   position: sticky;
@@ -8,7 +8,7 @@
   background-color: var(--background);
 }
 
-.Navigation .Wrap {
+.navigation .wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,7 +27,29 @@
   }
 }
 
-.Navigation .Signin {
+.navigation .my-profile {
+  display: flex;
+  align-items: center;
+  column-gap: 0.6rem;
+}
+
+.navigation .profile-img {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+}
+
+.navigation .profile-email {
+  display: none;
+  font-size: 1.4rem;
+  color: var(--gray100);
+
+  @media (min-width: 768px) {
+    display: inline;
+  }
+}
+
+.navigation .signin {
   display: inline-block;
   width: 8rem;
   padding: 1rem 0;
@@ -45,27 +67,5 @@
     width: 12.8rem;
     padding: 1.6rem 0;
     font-size: 1.8rem;
-  }
-}
-
-.Navigation .My-profile {
-  display: flex;
-  align-items: center;
-  column-gap: 0.6rem;
-}
-
-.Navigation .Profile-img {
-  width: 2.8rem;
-  height: 2.8rem;
-  border-radius: 50%;
-}
-
-.Navigation .Profile-email {
-  display: none;
-  font-size: 1.4rem;
-  color: var(--gray100);
-
-  @media (min-width: 768px) {
-    display: inline;
   }
 }

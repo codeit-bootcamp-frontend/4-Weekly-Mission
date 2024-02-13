@@ -1,4 +1,4 @@
-.FolderNameSection {
+.folder-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,7 +12,7 @@
   }
 }
 
-.FolderNameSection .Avatar {
+.folder-section .avatar {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
@@ -23,7 +23,7 @@
   }
 }
 
-.FolderNameSection .User {
+.folder-section .user {
   margin-top: 0.6rem;
   font-size: 1.4rem;
 
@@ -34,7 +34,7 @@
   }
 }
 
-.FolderNameSection .FolderName {
+.folder-section .folder-name {
   margin-top: 1rem;
   font-size: 3.2rem;
   font-weight: 600;

@@ -2,7 +2,7 @@ import "./Card.css";
 import React, { useState, useEffect } from "react";
 import { elapsedTime } from "./elapsedTime";
 
-const FolderNameSection = () => {
+const Card = () => {
   const [linksData, setLinksData] = useState([]);
 
   useEffect(() => {
@@ -19,20 +19,20 @@ const FolderNameSection = () => {
   };
 
   return (
-    <div className="Cards">
+    <div className="cards">
       {linksData.map((link) => (
         <a
-          className="Card"
+          className="card"
           key={link.id}
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img className="CardImg" src={link.imageSource} alt={link.title} />
-          <div className="Content">
-            <span className="Elapsed-time">{elapsedTime(link.createdAt)}</span>
-            <p className="Description">{link.description}</p>
-            <p className="CreatedAt">{formatCreatedAt(link.createdAt)}</p>
+          <img className="cardImg" src={link.imageSource} alt={link.title} />
+          <div className="content">
+            <span className="elapsed-time">{elapsedTime(link.createdAt)}</span>
+            <p className="description">{link.description}</p>
+            <p className="createdAt">{formatCreatedAt(link.createdAt)}</p>
           </div>
         </a>
       ))}
@@ -40,4 +40,4 @@ const FolderNameSection = () => {
   );
 };
 
-export default FolderNameSection;
+export default Card;
