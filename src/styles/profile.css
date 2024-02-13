@@ -1,0 +1,42 @@
+* {
+  box-sizing: border-box;
+  font-family: Pretendard;
+}
+
+.profile {
+  padding: 1.25rem 0 3.75rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  background: var(--Linkbrary-bg, #f0f6ff);
+}
+.profile__folderOwner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+}
+.folderOwner--img {
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 0.9375rem;
+}
+.folderOwner--name {
+  color: var(--text-color-light-mode, #000);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+.profile__folderName {
+  color: #000;
+  text-align: center;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
