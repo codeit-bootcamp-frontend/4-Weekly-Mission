@@ -1,19 +1,15 @@
 import '../styles/cardList.css';
-import searchIcon from '../assets/searchIcon.svg';
 
 import Card from './Card';
 import useFolderData from '../hooks/useFolderData';
+import LinkSearchBar from './LinkSearchBar';
 
 function CardList() {
-  const placeholder = '링크를 검색해 보세요.';
   const cardsArray = useFolderData('cards');
 
   return (
     <div className="cards-container">
-      <form className="cards-container__search">
-        <img className="search--icon" src={searchIcon} alt="searchIcon"></img>
-        <input className="search--input" placeholder={placeholder}></input>
-      </form>
+      <LinkSearchBar></LinkSearchBar>
       <div className="cards-container__cards-list">
         {cardsArray.map((card) => (
           <Card
