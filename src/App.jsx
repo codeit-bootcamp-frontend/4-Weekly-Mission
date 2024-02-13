@@ -1,12 +1,12 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { getFolder } from './utils/api';
-import UserProfile from './styles/UserProfile.styles';
-import Footer from './styles/Footer.styles';
-import Cards from './styles/Cards.styles';
-import SearchBar from './styles/Serchbar.styles';
-import Navbar from './styles/Navbar.styles';
 import styled from 'styled-components';
+import Navbar from './components/Layout/Navbar';
+import UserProfile from './components/UI/UserProfile';
+import SearchBar from './components/UI/Serchbar';
+import Cards from './components/UI/Cards';
+import Footer from './components/Layout/Footer';
 
 function App() {
   const [folder, setFolder] = useState();
@@ -24,13 +24,13 @@ function App() {
     }
   };
 
-  useEffect(() => {
+  const handleLoginButtonClick = () => {
     fetchFolder();
-  }, []);
+  };
 
   return (
     <AppLayout>
-      <Navbar />
+      <Navbar handleLoginButtonClick={handleLoginButtonClick} />
       <section className='homeSection'>
         {user && (
           <UserProfile

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
+const StyledButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,8 +8,9 @@ const Button = styled.button`
   color: var(--color-white);
   font-size: 1rem;
   text-decoration: none;
-  background: linear-gradient(to right, var(--color-primary), #6ae3fe);
+  background: linear-gradient(to right, ${props => props.$startColor}, ${props => props.$endColor});
   border-radius: 8px;
+  cursor: pointer;
 `;
 
-export default Button;
+export default StyledButton;
