@@ -4,7 +4,7 @@ import GradientButton from '../GradientButton/GradientButton';
 import { getUser } from '../../utils/api';
 import * as S from './Navbar.styles';
 
-const Navbar = ({ handleLoginButtonClick }) => {
+const Navbar = ({ loginButtonClick }) => {
   const [user, setUser] = useState({});
   const hasUser = Object.keys(user).length;
 
@@ -18,7 +18,7 @@ const Navbar = ({ handleLoginButtonClick }) => {
   };
 
   const handleClick = () => {
-    handleLoginButtonClick();
+    loginButtonClick();
     fetchUserData();
   };
 

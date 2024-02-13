@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <S.AppLayout>
-      <Navbar handleLoginButtonClick={fetchFolder} />
+      <Navbar loginButtonClick={fetchFolder} />
       <S.HomeSection>
         {owner && (
           <UserProfile
