@@ -1,3 +1,7 @@
+export const formatCreatedAt = (createdAt) => {
+  return new Date(createdAt).toISOString().split("T")[0];
+};
+
 export const elapsedTime = (date) => {
   const Minute = 60;
   const Hour = 3600;

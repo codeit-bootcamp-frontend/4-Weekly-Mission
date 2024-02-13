@@ -1,7 +1,8 @@
 import "./CardList.css";
 import React, { useState, useEffect } from "react";
-import { elapsedTime } from "./elapsedTime";
+import { elapsedTime } from "../../../utils/utils";
 import { fetchData } from "./fetchData";
+import { formatCreatedAt } from "../../../utils/utils";
 
 const CardList = () => {
   const [links, setLinks] = useState([]);
@@ -11,10 +12,6 @@ const CardList = () => {
       setLinks(data);
     });
   }, []);
-
-  const formatCreatedAt = (createdAt) => {
-    return new Date(createdAt).toISOString().split("T")[0];
-  };
 
   return (
     <div className="card-list">

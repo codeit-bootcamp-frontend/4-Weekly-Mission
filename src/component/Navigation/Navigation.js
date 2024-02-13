@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
+import "./Navigation.css";
 import linkbrary from "../../images/linkbrary.svg";
 import profileImg from "../../images/myprofile.svg";
-import "./Navigation.css";
+import { fetchData } from "./fetchData";
 
 const Navigation = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch("https://bootcamp-api.codeit.kr/api/sample/user")
-      .then((response) => response.json())
-      .then((data) => setUser(data))
-      .catch((error) => console.error("Error:", error));
+    fetchData().then((data) => setUser(data));
   }, []);
 
   return (
