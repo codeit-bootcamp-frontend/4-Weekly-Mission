@@ -5,7 +5,12 @@
   padding: 0 32px;
 }
 
-.folder-view {
+.shared-page-frame {
+  width: 100%;
+  background: var(--Linkbrary-bg, #f0f6ff);
+}
+
+.shared-page-contents {
   max-width: 1060px;
   width: 100%;
   display: flex;

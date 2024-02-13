@@ -1,6 +1,6 @@
-import "./FolderInfoView.css";
+import "./SharedFrame.css";
 
-export default function FolderInfoView({ folder }) {
+export default function SharedFrame({ folder }) {
   return (
     <div className="folder-info-view">
       <div className="info-box">
