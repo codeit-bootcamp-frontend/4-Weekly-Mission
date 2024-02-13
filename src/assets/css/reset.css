@@ -68,3 +68,8 @@ a {
 input{
 	border: none;
 }
+
+button {
+	border: none;
+	cursor: pointer;
+  }

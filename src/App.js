@@ -1,9 +1,13 @@
-import Routers from "./Routers/Routers";
+import Navbar from "layout/Navbar/Navbar";
+import Footer from "layout/Footer/Footer";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <div className="App">
-      <Routers />
+      <Navbar />
+      <Outlet />
+      <Footer />
     </div>
   );
 }

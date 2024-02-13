@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { fetchFolderData } from "services/api"
-import Navbar from "layout/Navbar/Navbar";
-import Footer from "layout/Footer/Footer";
 import Header from "./components/Header";
 import List from "./components/List";
 import Input from "./components/Input";
@@ -36,11 +34,9 @@ function SharedPage() {
 
   return (
     <div>
-      <Navbar />
       <Header fileImg={fileImg} ownerName={ownerName} folderName={folderName} />
       <Input />
       <List items={items} />
-      <Footer />
     </div>
   );
 }
