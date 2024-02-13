@@ -2,7 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import defaultImage from '../../assets/images/noImage.png';
 
+/**
+ *
+ * @param {Object[]} cardDatas
+ * @param {number} cardDatas[].id
+ * @param {string} cardDatas[].url
+ * @param {string} cardDatas[].imageSource
+ * @param {string} cardDatas[].title
+ * @param {string} cardDatas[].timePassed
+ * @param {string} cardDatas[].description
+ * @param {string} cardDatas[].formattedDate
+ */
 const Card = ({ cardDatas }) => {
+  console.log(typeof cardDatas[0]?.id);
   return (
     <>
       {cardDatas?.map(cardData => (

@@ -1,3 +1,9 @@
+/**
+ * 날짜를 포멧팅하는 함수
+ *
+ * @param {string} dateString
+ * @returns {string} 형식화된 날짜
+ */
 export function formatDate(dateString) {
   const date = new Date(dateString);
   const year = date.getFullYear().toString().substr(2, 2);
@@ -7,6 +13,12 @@ export function formatDate(dateString) {
   return `${year}.${month}.${day}`;
 }
 
+/**
+ * 생성 날짜와 현재 날짜 사이 경과 시간을 계산 함수
+ *
+ * @param {string} createdAt 생성된 날짜
+ * @returns {string} 경과한 시간
+ */
 export function calculateTime(createdAt) {
   const createdDate = new Date(createdAt);
   const now = new Date();

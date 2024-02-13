@@ -6,7 +6,6 @@ import { useQuery } from 'react-query';
  * @param {Function} processData 데이터 처리하는 함수
  * @param {string} queryKey
  */
-
 function useFetchData(fetchFunction, queryKey, processData) {
   return useQuery(queryKey, async () => {
     try {
