@@ -4,7 +4,7 @@ import * as S from '../../styles/Crad.styles';
 const Card = ({ createdAt, url, title, imageURL }) => {
   return (
     <S.CardArticle>
-      <a href={url}>
+      <a href={url} target='_blank' rel='noreferrer noopener'>
         <S.CardImageBox>
           <S.CardImage src={imageURL || '/undefined-image.svg'} alt={title} />
         </S.CardImageBox>
