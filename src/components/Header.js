@@ -6,14 +6,17 @@ import { getUserInfo } from "../api";
 
 function Header() {
     const [items, setItems] = useState([]);
+    const [hasUserData, setHasUserData] = useState(false);
 
     const handleLoad = async () => {
         let result;
         try {
             result = await getUserInfo();
             setItems(result);
+            setHasUserData(true);
         } catch (error) {
             console.error(error);
+            setHasUserData(false);
             return;
         }
     };
@@ -24,14 +27,19 @@ function Header() {
 
     return (
         <div className="header">
-            <Gnb email={items.email} />
+            <Gnb email={items.email} hasUserData={hasUserData} />
             <div className="header_contents">
                 <div className="header_inner">
                     <div className="header_user">
                         <div className="header_user_avatar">
                             <img src={avatarImg} alt="" />
                         </div>
-                        <div className="header_user_name">@{items.name}</div>
+                        {!hasUserData && <div className="header_user_name">@{items.name}</div>}
+                        {hasUserData && (
+                            <a href="/signin.html" className="gnb_login">
+                                로그인
+                            </a>
+                        )}
                     </div>
                     <div className="header_title">⭐️ 즐겨찾기</div>
                 </div>

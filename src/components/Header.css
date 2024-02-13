@@ -33,10 +33,23 @@
     line-height: normal;
 }
 
+.gnb_login {
+    display: flex;
+    width: 128px;
+    padding: 14px 20px;
+    justify-content: center;
+    border-radius: 8px;
+    background: var(--gra-purpleblue-to-skyblue);
+    color: var(--Grey-light);
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
 .header_contents {
     display: flex;
     padding: 20px 0 60px 0;
-    margin-top: 93px;
+    margin-top: 94px;
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
