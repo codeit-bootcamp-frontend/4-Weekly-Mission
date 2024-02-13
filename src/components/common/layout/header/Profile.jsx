@@ -51,15 +51,15 @@ const ProfileContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 1rem;
 `;
 const ProfileImg = styled.img`
-  width: 28px;
-  height: 28px;
-  border-radius: 15px;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 1.5rem;
 `;
 const ProfileEmail = styled.p`
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 400;
 
   @media (min-width: 375px) and (max-width: 767px) {

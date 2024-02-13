@@ -59,19 +59,19 @@ const StyledProfile = styled.div`
   row-gap: 1rem;
 `;
 const ProfileImage = styled.img`
-  width: 60px;
-  height: 60px;
+  width: 6rem;
+  height: 6rem;
   object-fit: cover;
 `;
 
 const OwnerName = styled.div`
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2.4rem;
 `;
 
 const FolderName = styled.div`
-  font-size: 30px;
+  font-size: 3rem;
   font-weight: 600;
   line-height: normal;
 `;

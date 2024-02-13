@@ -33,7 +33,7 @@ const CardGrid = () => {
 const CardContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 2rem;
 
   @media (min-width: 768px) and (max-width: 1199px) {
     grid-template-columns: repeat(2, 1fr);

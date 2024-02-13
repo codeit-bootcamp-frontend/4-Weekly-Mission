@@ -14,15 +14,15 @@ const StyledError = styled.div`
   display: flex;
   align-items: center;
   width: 50%;
-  margin: 30px auto;
-  padding: 10px 20px;
+  margin: 3rem auto;
+  padding: 1rem 2rem;
   background-color: rgb(253, 235, 236);
   .emoji {
-    font-size: 20px;
-    padding: 10px;
+    font-size: 2rem;
+    padding: 1rem;
   }
   .description {
-    font-size: 16px;
+    font-size: 1.6rem;
     font-weight: 500;
     color: #ff2828;
   }
