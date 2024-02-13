@@ -2,10 +2,10 @@ import styled from 'styled-components';
 
 /**
  * @param {object} props
- * @param {node} children
- * @param { func } onClick 버튼 클릭 이벤트
- * @param { boolean } disabled 버튼 활성화 여부
- * @param { string } className
+ * @param {React.ReactNode} props.children
+ * @param { React.MouseEventHandler<HTMLButtonElement> } props.onClick 버튼 클릭 이벤트
+ * @param { boolean } props.disabled 버튼 활성화 여부
+ * @param { string } props.className
  */
 const Button = ({ children, onClick, disabled, className }) => {
   return (
