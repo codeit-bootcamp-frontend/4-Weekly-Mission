@@ -1,17 +1,15 @@
 import "./CardList.css";
 import React, { useState, useEffect } from "react";
 import { elapsedTime } from "./elapsedTime";
+import { fetchData } from "./fetchData";
 
 const CardList = () => {
   const [links, setLinks] = useState([]);
 
   useEffect(() => {
-    fetch("https://bootcamp-api.codeit.kr/api/sample/folder")
-      .then((response) => response.json())
-      .then((data) => {
-        setLinks(data.folder.links);
-      })
-      .catch((error) => console.error("Error:", error));
+    fetchData().then((data) => {
+      setLinks(data);
+    });
   }, []);
 
   const formatCreatedAt = (createdAt) => {
