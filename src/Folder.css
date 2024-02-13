@@ -1,0 +1,34 @@
+.container-folder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 32px;
+  padding: 0 32px;
+  width: 100%;
+}
+
+.search-bar_ly {
+  display: flex;
+  padding: 13px 16px;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 10px;
+  width: 100%;
+  background: #F5F5F5;
+  box-sizing: border-box;
+}
+
+.card-frame_ly {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  width: 100%;
+  gap: 25px;
+} /* 그리드에 대한 공부 필요, 지금 코드의 문제점: pc, 모바일에 대해 너비가 하드코딩 되어 있음. */
+
+.card-flex-frame_ly {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
