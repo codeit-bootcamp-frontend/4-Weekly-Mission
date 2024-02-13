@@ -4,6 +4,7 @@
 
 .body-box {
   background: var(--backgroundcolor);
+  height: 100%
 }
 
 .main-position {
