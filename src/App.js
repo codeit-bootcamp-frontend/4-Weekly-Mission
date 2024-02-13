@@ -1,11 +1,13 @@
 import React from "react";
-import HeaderNavigation from './components/HeaderNavigation'
-import Card from './components/Card';
+import HeaderNavigation from "./components/HeaderNavigation";
+import Card from "./components/Card";
+import Footer from "./components/Footer";
 function App() {
-  return(
+  return (
     <div>
-      <HeaderNavigation/>
+      <HeaderNavigation />
       <Card />
+      <Footer />
     </div>
   );
 }
