@@ -59,6 +59,7 @@
     height: 200px;
     flex-shrink: 0;
     transition: transform 0.3s ease;
+    object-fit: cover;
 }
 
 .card_list_item:hover .img_area img {
