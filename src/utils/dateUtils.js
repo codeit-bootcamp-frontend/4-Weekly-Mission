@@ -10,12 +10,15 @@ export function formatDate(dateString) {
 export function calculateTimePassed(createdAt) {
   const createdDate = new Date(createdAt);
   const now = new Date();
-  const differenceInSeconds = Math.floor((now - createdDate) / 1000);
-  const differenceInMinutes = Math.floor(differenceInSeconds / 60);
-  const differenceInHours = Math.floor(differenceInMinutes / 60);
-  const differenceInDays = Math.floor(differenceInHours / 24);
-  const differenceInMonths = Math.floor(differenceInDays / 30);
-  const differenceInYears = Math.floor(differenceInMonths / 12);
+
+  const differenceTime = {
+    seconds: Math.floor((now - createdDate) / 1000),
+    minute: Math.floor((now - createdDate) / (1000 * 60)),
+    hour: Math.floor((now - createdDate) / (1000 * 60 * 60)),
+    day: Math.floor((now - createdDate) / (1000 * 60 * 60 * 24)),
+    month: Math.floor((now - createdDate) / (1000 * 60 * 60 * 24 * 30)),
+    year: Math.floor((now - createdDate) / (1000 * 60 * 60 * 24 * 30 * 12)),
+  };
 
   const getTimeAgoString = (time, unit) => {
     if (time === 1) {
@@ -24,32 +27,32 @@ export function calculateTimePassed(createdAt) {
     return `${time} ${unit}s ago`;
   };
 
-  if (differenceInSeconds < 60 * 2) {
+  if (differenceTime.seconds < 60 * 2) {
     return getTimeAgoString(1, 'minute');
   }
-  if (differenceInMinutes < 60) {
-    return getTimeAgoString(differenceInMinutes, 'minute');
+  if (differenceTime.minute < 60) {
+    return getTimeAgoString(differenceTime.minute, 'minute');
   }
-  if (differenceInHours < 2) {
+  if (differenceTime.hour < 2) {
     return getTimeAgoString(1, 'hour');
   }
-  if (differenceInHours < 24) {
-    return getTimeAgoString(differenceInHours, 'hour');
+  if (differenceTime.hour < 24) {
+    return getTimeAgoString(differenceTime.hour, 'hour');
   }
-  if (differenceInDays < 2) {
+  if (differenceTime.day < 2) {
     return getTimeAgoString(1, 'day');
   }
-  if (differenceInDays < 31) {
-    return getTimeAgoString(differenceInDays, 'day');
+  if (differenceTime.day < 31) {
+    return getTimeAgoString(differenceTime.day, 'day');
   }
-  if (differenceInMonths < 2) {
+  if (differenceTime.month < 2) {
     return getTimeAgoString(1, 'month');
   }
-  if (differenceInMonths < 12) {
-    return getTimeAgoString(differenceInMonths, 'month');
+  if (differenceTime.month < 12) {
+    return getTimeAgoString(differenceTime.month, 'month');
   }
-  if (differenceInYears < 2) {
+  if (differenceTime.year < 2) {
     return getTimeAgoString(1, 'year');
   }
-  return getTimeAgoString(Math.floor(differenceInMonths / 12), 'year');
+  return getTimeAgoString(Math.floor(differenceTime.month / 12), 'year');
 }
