@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import { Fragment, useState, useEffect } from "react";
+import { getUser, getFolder } from "./api/api";
+import "./global.css";
+import Layout from "./components/Layout/Layout";
+import FolderInfo from "./components/FolderInfo/FolderInfo";
+import SharePage from "./pages/SharePage/SharePage";
+import SearchBar from "./components/SearchBar/SearchBar";
+import CardList from "./components/CardList/CardList";
+import OnlyCard from "./components/OnlyCard/OnlyCard";
 
 function App() {
+  const [userProfile, setUserProfile] = useState(null);
+  const [profile, setProfile] = useState(null);
+  const [folderName, setFolderName] = useState(null);
+  const [items, setitems] = useState([]);
+
+  const handleLoad = async () => {
+    const userData = await getUser();
+    const { folder } = await getFolder();
+    setUserProfile(userData);
+    setProfile(folder.owner);
+    setFolderName(folder.name);
+    setitems(folder.links);
+  };
+  useEffect(() => {
+    handleLoad();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Fragment>
+      <Layout userProfile={userProfile}>
+        <SharePage
+          folderInfo={<FolderInfo profile={profile} folderName={folderName} />}
+          searchBar={<SearchBar />}
+          cardList={
+            <CardList>
+              {items?.map((items) => (
+                <OnlyCard key={items?.id} items={items} {...items} />
+              ))}
+            </CardList>
+          }
+        />
+      </Layout>
+    </Fragment>
   );
 }
-
 export default App;

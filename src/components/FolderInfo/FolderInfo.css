@@ -1,0 +1,40 @@
+.folderInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 0 6rem 0;
+  align-items: center;
+  background: var(--linkbrary-bg);
+}
+
+.folderInfo-profile {
+  width: 6rem;
+  height: 6rem;
+}
+
+.folderInfo-owenrName {
+  margin-top: 1.2rem;
+  color: var(--linkbrary-black);
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.4rem;
+}
+
+.folderInfo-folderName {
+  margin-top: 2rem;
+  color: var(--linkbrary-black);
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* mobile */
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .folderInfo {
+    padding: 1rem 0 4rem 0;
+  }
+}
