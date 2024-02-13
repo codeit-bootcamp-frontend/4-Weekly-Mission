@@ -28,8 +28,12 @@ function CardListItem(item) {
         }
     }
 
+    function handleClick(url) {
+        window.open(url, "_blank");
+    }
+
     return (
-        <div className="CardListItem">
+        <div className="CardListItem" onClick={() => handleClick(item.item.url)}>
             <img className="CardListItem_img" src={item.item.imageSource} alt="" />
             <div className="text_area">
                 <p className="time">{timeAgo(createdAtDate)}</p>
