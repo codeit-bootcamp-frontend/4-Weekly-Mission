@@ -8,7 +8,7 @@ const Search = () => {
 
   return (
     <SearchBar onSubmit={handleSubmit}>
-      <img src="/images/icons/search.svg" />
+      <img src="/images/icons/search.svg" alt="Search Icon" />
       <SearchInput type="text" placeholder="링크를 검색해 보세요." />
     </SearchBar>
   );

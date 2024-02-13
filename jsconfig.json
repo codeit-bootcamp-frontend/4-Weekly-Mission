@@ -10,5 +10,6 @@
       "@utils/*": ["utils/*"],
       "@components/*": ["components/*"]
     }
-  }
+  },
+  "include": ["src", "**/*.js", "**/*.jsx"]
 }

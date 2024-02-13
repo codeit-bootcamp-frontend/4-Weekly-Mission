@@ -3,7 +3,7 @@ import Button from '../../Button';
 import { sampleUserInquire } from 'api/sampleAPI';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import routes from 'routes';
+import routes from 'utils/constants/routes';
 import styled from 'styled-components';
 import Loader from '../../../common/Loader';
 
