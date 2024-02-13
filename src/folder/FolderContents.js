@@ -9,7 +9,7 @@ function FolderContents({links = []}) {
                     links.map(({ id, title, imageSource, createdAt, url, description }) => {
                         return(
                             <li key={id}>
-                                <a href={url} target='_blank'>
+                                <a href={url} target='_blank' rel="noreferrer">
                                     <div className='imgBox'>
                                         <img src={imageSource ? imageSource : `${process.env.PUBLIC_URL}/images/noImage.jpg`} alt={title}/>
                                     </div>

@@ -1,5 +1,23 @@
 export async function getUser() {
-    const response = await fetch('https://bootcamp-api.codeit.kr/api/sample/folder');
-    const body = await response.json();
-    return body.folder;
+    try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/sample/folder`);
+        if(response.ok) {
+            const body = await response.json();
+            return body.folder;
+        }
+    } catch(error) {
+        console.error(error);
+    }
 }
+
+export async function fetchUserData (setState) {
+    try {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/sample/user`);
+        if (response.ok) {
+            const userProfileData = await response.json();
+            setState(userProfileData);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+};

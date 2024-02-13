@@ -6,7 +6,7 @@ function UserTitle({userData}) {
         <article className="userTitle">
             <div>
                 <div className="titleTop">
-                    <img src={userData?.owner?.profileImageSource}/>
+                    <img src={userData?.owner?.profileImageSource} alt='사용자 이미지'/>
                     <p>{userData?.owner?.name}</p>
                 </div>
                 <div className="titleBottom">
