@@ -15,7 +15,7 @@ function Gnb(props) {
                     </div>
                 )}
                 {!hasUserData && (
-                    <a href="" className="gnb_login">
+                    <a href="./" className="gnb_login">
                         로그인
                     </a>
                 )}
