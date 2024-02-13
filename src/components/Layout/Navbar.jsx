@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { getUser } from '../../utils/api';
 import UserProfile from '../UI/UserProfile';
 import GradientButton from '../Common/GradientButton';
-import * as S from '../../styles/Navbar.styels';
+import * as S from '../../styles/Navbar.styles';
 
 const Navbar = ({ handleLoginButtonClick }) => {
   const [user, setUser] = useState();

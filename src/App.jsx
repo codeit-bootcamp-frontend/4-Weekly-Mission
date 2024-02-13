@@ -1,24 +1,21 @@
-import './App.css';
 import { useState } from 'react';
-import { getFolder } from './utils/api';
 import styled from 'styled-components';
 import Navbar from './components/Layout/Navbar';
 import UserProfile from './components/UI/UserProfile';
 import SearchBar from './components/UI/Serchbar';
 import Cards from './components/UI/Cards';
 import Footer from './components/Layout/Footer';
+import { getFolder } from './utils/api';
+import './App.css';
 
 const App = () => {
-  const [folder, setFolder] = useState();
-  const [user, setUser] = useState();
-  const [links, setLinks] = useState();
+  const [folder, setFolder] = useState({});
+  const { user, links, name } = folder;
 
   const fetchFolder = async () => {
     try {
       const { folder } = await getFolder();
       setFolder(folder);
-      setUser(folder?.owner);
-      setLinks(folder?.links);
     } catch (error) {
       console.error(error);
     }
@@ -31,15 +28,15 @@ const App = () => {
   return (
     <AppLayout>
       <Navbar handleLoginButtonClick={handleLoginButtonClick} />
-      <section className='homeSection'>
+      <section>
         {user && (
           <UserProfile
-            title={`@${user?.name}`}
-            image={{ URL: user?.profileImageSource, size: '8rem' }}
+            title={`@${user.name}`}
+            image={{ URL: user.profileImageSource, size: '8rem' }}
             direction='column'
           />
         )}
-        {folder && <h2 className='folderName'>{folder.name}</h2>}
+        {name && <h2>{name}</h2>}
       </section>
       <main className='mainLayout'>
         <section className='mainBox'>
