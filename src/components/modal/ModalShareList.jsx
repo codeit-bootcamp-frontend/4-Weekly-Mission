@@ -22,13 +22,25 @@ const modalShareList = [
     }
 ];
 
-function ModalShareList(){
+function ModalShareList({folderName}){
+    const handleCopyClipBoard = async(folderName) => {
+        try {
+            await navigator.clipboard.writeText(folderName);
+          } catch (error) {
+            alert('복사 실패!');
+          }
+    }
+    const handleListClick = (text) => {
+        switch(text){
+            case "링크 복사": handleCopyClipBoard(folderName);
+        }
+    }
     return (
         <ul className="modal__share">
             {modalShareList.map(list => {
                 const {id, backgroundColor, icon, text} = list;
                 return (
-                <li key={id} className="modal__share--list">
+                <li key={id} className="modal__share--list" onClick={() => handleListClick(text)}>
                     <div className="modal__icon--background" style={{backgroundColor}}>
                         <img src={icon} alt={`폴더 공유 ${text} 아이콘`}/>
                     </div>

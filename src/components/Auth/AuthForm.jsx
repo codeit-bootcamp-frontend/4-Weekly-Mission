@@ -6,7 +6,9 @@ import { useState } from "react";
 import {API_PATH_SIGNIN, API_PATH_CHECK_EMAIL, API_PATH_SIGNUP} from "../../hooks/services/api-path";
 import {REGEXP_PASSWORD} from "../../utils/regExp";
 import FETCH_API from "../../hooks/services/fetch-data";
+import { useNavigate } from "react-router-dom";
 function AuthForm({option}){
+    const navigate = useNavigate();
     // 패스워드 인풋 타입 변경
     const [inputType, setInputType] = useState({
         password: "password",
@@ -71,6 +73,7 @@ function AuthForm({option}){
                 password: ""
             })
             localStorage.setItem("accessToken", result.data.accessToken);
+            navigate("/share");
         }catch(error){
             console.error(error);
         }
@@ -135,6 +138,7 @@ function AuthForm({option}){
                 password: "",
                 passwordConfirm: ""
             })
+            navigate("/share");
         }catch(err){
             console.error(err);
         }

@@ -19,7 +19,7 @@ function Modal({modalAction, setModalAction, categoryList}){
         "폴더 공유": {
             elementList: [<ModalTitle title={modalAction.action}/>,
              <ModalSubTitle subTitle={modalAction.subTitle}/>, 
-            <ModalShareList/>]
+            <ModalShareList folderName={modalAction.subTitle}/>]
         },
         "폴더에 추가": {
             elementList: [<ModalTitle title={modalAction.action}/>,
