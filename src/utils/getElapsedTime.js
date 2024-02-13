@@ -1,6 +1,6 @@
 import { TIME_IN_MILLISECONDS } from "./constant";
 
-function getElapsedTime({ createdAt }) {
+function getElapsedTime(createdAt) {
   const now = new Date();
   const createdAtDate = new Date(createdAt);
   const elapsedTime = now - createdAtDate;
