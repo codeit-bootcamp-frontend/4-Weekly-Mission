@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import * as S from './Crad.styles';
+import * as S from './Card.styles';
 
 const Card = ({ createdAt, url, title, imageURL }) => {
   return (
