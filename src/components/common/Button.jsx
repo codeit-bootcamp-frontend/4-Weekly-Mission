@@ -6,16 +6,15 @@ import styled from 'styled-components';
  * @param { React.MouseEventHandler<HTMLButtonElement> } props.onClick 버튼 클릭 이벤트
  * @param { boolean } props.disabled 버튼 활성화 여부
  * @param { string } props.className
+ * @param { string } props.type
  */
-const Button = ({ children, onClick, disabled, className }) => {
+const Button = ({ children, onClick, disabled, className, type }) => {
   return (
     <StyledButton
       className={className}
       disabled={disabled}
-      onClick={e => {
-        e.preventDefault();
-        onClick(e);
-      }}
+      onClick={onClick}
+      type={type}
     >
       {children}
     </StyledButton>
