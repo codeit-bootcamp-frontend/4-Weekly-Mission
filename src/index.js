@@ -1,9 +1,9 @@
 import React, { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import Shared from './pages/Shared';
+import SharedPage from './pages/SharedPage';
 const root = createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
-    <Shared></Shared>
+    <SharedPage></SharedPage>
   </StrictMode>
 );

@@ -1,6 +1,4 @@
 * {
-  box-sizing: border-box;
-  font-family: Pretendard;
   text-decoration: none;
 }
 .card {
@@ -47,7 +45,7 @@
   padding: 2.5rem 1.25rem 0;
 }
 .card__texts--time {
-  color: #666;
+  color: var(--gray40);
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -55,7 +53,7 @@
 }
 
 .card__texts--description {
-  color: #000;
+  color: var(--black);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -66,7 +64,7 @@
 
 .card__texts--date {
   overflow: hidden;
-  color: #333;
+  color: var(--gray70);
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 14px;

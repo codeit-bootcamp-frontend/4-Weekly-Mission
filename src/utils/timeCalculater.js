@@ -21,39 +21,39 @@ export function getLastTime(createdAt) {
   const nowDate = new Date();
   const createdDate = new Date(createdAt);
   const lastTime = nowDate - createdDate;
-  const secondsDif = Math.floor(lastTime / 1000);
-  const minutesDif = Math.floor(secondsDif / 60);
-  const hoursDif = Math.floor(minutesDif / 60);
-  const daysDif = Math.floor(hoursDif / 24);
-  const monthsDif = Math.floor(daysDif / 30);
-  const yearsDif = Math.floor(monthsDif / 12);
+  const secondsDiff = Math.floor(lastTime / 1000);
+  const minutesDiff = Math.floor(secondsDiff / 60);
+  const hoursDiff = Math.floor(minutesDiff / 60);
+  const daysDiff = Math.floor(hoursDiff / 24);
+  const monthsDiff = Math.floor(daysDiff / 30);
+  const yearsDiff = Math.floor(monthsDiff / 12);
 
-  if (secondsDif < 120) {
+  if (secondsDiff < 120) {
     return '1 minute ago';
   }
-  if (minutesDif < 60) {
-    return `${minutesDif} minutes ago`;
+  if (minutesDiff < 60) {
+    return `${minutesDiff} minutes ago`;
   }
-  if (hoursDif < 2) {
+  if (hoursDiff < 2) {
     return '1 hour ago';
   }
-  if (hoursDif < 24) {
-    return `${hoursDif} hours ago`;
+  if (hoursDiff < 24) {
+    return `${hoursDiff} hours ago`;
   }
-  if (daysDif < 2) {
+  if (daysDiff < 2) {
     return '1 day ago';
   }
-  if (daysDif <= 30) {
-    return `${daysDif} days ago`;
+  if (daysDiff <= 30) {
+    return `${daysDiff} days ago`;
   }
-  if (monthsDif < 2) {
+  if (monthsDiff < 2) {
     return '1 month ago';
   }
-  if (monthsDif <= 11) {
-    return `${monthsDif} months ago`;
+  if (monthsDiff <= 11) {
+    return `${monthsDiff} months ago`;
   }
-  if (yearsDif < 2) {
+  if (yearsDiff < 2) {
     return '1 year ago';
   }
-  return `${Math.floor(yearsDif / 12)} years ago`;
+  return `${Math.floor(yearsDiff / 12)} years ago`;
 }
