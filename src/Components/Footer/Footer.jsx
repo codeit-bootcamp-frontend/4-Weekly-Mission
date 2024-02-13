@@ -1,15 +1,15 @@
 import React from "react";
-import "./css/Footer.css";
+import styles from "./css/Footer.module.css";
 
 function Footer() {
   return (
     <footer>
-      <p className="footer_text">©codeit - 2023</p>
-      <div className="footer_link">
+      <p className={styles.footer_text}>©codeit - 2023</p>
+      <div className={styles.footer_link}>
         <a href="#">Privacy Policy</a>
         <a href="#">FAQ</a>
       </div>
-      <div className="social">
+      <div className={styles.social}>
         <a href="https://www.facebook.com/" target="_blank">
           <img src="Icons/facebook_logo.png" alt="facebook_link" />
         </a>

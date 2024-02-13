@@ -1,4 +1,4 @@
-header {
+.header {
   background: var(--gray-color-e);
   padding: 20px 200px;
   display: flex;
@@ -9,7 +9,7 @@ header {
   top: 0;
 }
 
-header .login_btn {
+.header .login_btn {
   width: 128px;
   padding: 16px 20px;
   background: var(
@@ -25,16 +25,16 @@ header .login_btn {
 }
 
 @media (max-width: 1124px) {
-  header {
+  .header {
     padding: 20px 32px;
   }
 }
 
 @media (max-width: 767px) {
-  header {
+  .header {
     padding: 20px 32px;
   }
-  header .login_btn {
+  .header .login_btn {
     width: 80px;
     padding: 10px 16px;
     font-size: 14px;

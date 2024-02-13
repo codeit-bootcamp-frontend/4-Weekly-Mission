@@ -1,29 +1,31 @@
 import React from "react";
-import "./css/FolderTitle.css";
+import styles from "./css/FolderTitle.module.css";
 
 function FolderTilte({ folderName, owner }) {
   const { name, profileImageSource } = owner;
   return (
-    <section className="FolderTitle_container">
-      <div className="FolderTitle_content">
+    <section className={styles.FolderTitle_container}>
+      <div className={styles.FolderTitle_content}>
         <div>
           {profileImageSource ? (
             <img
               src={profileImageSource}
               alt={profileImageSource}
-              className="FolderTitle_img"
+              className={styles.FolderTitle_img}
             />
           ) : (
             <img
               src="Icons/default_user_icon.svg"
               alt="기본 폴더 로고"
-              className="FolderTitle_img"
+              className={styles.FolderTitle_img}
             />
           )}
 
-          <p className="FolderTitle_userName">@{name}</p>
+          <p className={styles.FolderTitle_userName}>@{name}</p>
         </div>
-        <h2 className="FolderTitle_folderName">{folderName}</h2>
+        <h2 className={styles.FolderTitle_folderName}>
+          {folderName}
+        </h2>
       </div>
     </section>
   );

@@ -14,7 +14,7 @@
   overflow: hidden;
 }
 
-.card_iamgeBox-image {
+.card_iamgeBox_image {
   width: 100%;
   height: 200px;
   object-fit: cover;

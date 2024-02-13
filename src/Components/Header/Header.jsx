@@ -1,10 +1,10 @@
 import React from "react";
-import "./css/Header.css";
+import styles from "./css/Header.module.css";
 import Profile from "./Profile";
 
 function Header({ email, profileImageSource }) {
   return (
-    <header>
+    <header className={styles.header}>
       <a href="/">
         <img
           src="Icons/logo.svg"
@@ -18,7 +18,7 @@ function Header({ email, profileImageSource }) {
           profileImageSource={profileImageSource}
         />
       ) : (
-        <button className="login_btn">로그인</button>
+        <button className={styles.login_btn}>로그인</button>
       )}
     </header>
   );

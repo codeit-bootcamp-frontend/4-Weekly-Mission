@@ -1,13 +1,13 @@
 import React from "react";
 import SearchBar from "../SearchBar/SearchBar";
 import Card from "../Card/Card";
-import "./css/CardList.css";
+import styles from "./css/CardList.module.css";
 
 function CardList({ links }) {
   return (
-    <section className="main_contents">
+    <section className={styles.main_contents}>
       <SearchBar />
-      <div className="card_list">
+      <div className={styles.card_list}>
         {links.map(link => (
           <Card
             id={link.id}
