@@ -1,12 +1,12 @@
 import "./Profile.css";
 
 const Profile = ({ profile, folderName }) => {
-  const { name, profileImageSource } = profile || {};
+  const { name, profileImageSource } = profile;
   return (
     <div>
       <div className="profile">
         <div className="profile-image">
-          <img src={profileImageSource} alt={profileImageSource} />
+          <img src={profileImageSource} alt="프로필 이미지" />
         </div>
         <div className="profile-info">
           <h1>@{name || "No Name"}</h1>

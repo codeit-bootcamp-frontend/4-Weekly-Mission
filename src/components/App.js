@@ -8,7 +8,7 @@ import SearchBar from "./SearchBar";
 
 function App() {
   const [items, setItems] = useState([]);
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState([]);
   const [folderName, setFolderName] = useState(null);
 
   const handleLoad = async () => {
