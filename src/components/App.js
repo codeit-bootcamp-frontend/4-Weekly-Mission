@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import FolderList from "./FolderList";
+import CardList from "./CardList";
 import { getFolders, getUser } from "../api";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -30,7 +30,7 @@ function App() {
       <Header user={user} />
       <Profile profile={profile} folderName={folderName} />
       <SearchBar />
-      <FolderList items={items} />
+      <CardList items={items} />
       <Footer />
     </div>
   );

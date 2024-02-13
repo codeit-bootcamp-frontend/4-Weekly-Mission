@@ -1,4 +1,4 @@
-import "./FolderList.css";
+import "./CardList.css";
 import noImage from "../assets/noImage.svg";
 
 function formatDate(value) {
