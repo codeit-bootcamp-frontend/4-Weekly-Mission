@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import routes from 'utils/constants/routes';
 import styled from 'styled-components';
 
+const currentYear = new Date().getFullYear();
 const Footer = () => {
   return (
     <StyledFooter>
-      <Copy>@codeit - 2023</Copy>
+      <Copy>@codeit - {currentYear}</Copy>
       <FooterLink>
         <Link to={routes.privacy}>
           <FooterText>Privacy Policy</FooterText>
