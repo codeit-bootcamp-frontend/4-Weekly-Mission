@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/is-prop-valid": "^1.2.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -17,8 +16,6 @@
     "styled-components": "^6.1.8",
     "styled-reset": "^4.5.2",
     "timeago.js": "^4.0.2",
-    "typescript": "^5.3.3",
-    "typescript-styled-plugin": "^0.18.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
