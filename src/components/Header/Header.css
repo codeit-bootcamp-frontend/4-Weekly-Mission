@@ -1,0 +1,73 @@
+/*********************
+        Header
+*********************/
+
+.Header {
+  background-color: #f0f6ff;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 20px 0;
+  z-index: 1;
+}
+
+.Header-logo {
+  max-width: 133px;
+  min-width: 88.7px;
+  width: 23vw;
+}
+
+.Header-profile {
+  gap: 5px;
+}
+
+.Header-profile-img {
+  width: 28px;
+  height: 28px;
+}
+
+.Header-help-center {
+  flex-grow: 1;
+}
+
+.Header-help-left,
+.Header-help-right {
+  width: 32px;
+}
+
+/*********************
+        @media
+*********************/
+
+@media (min-width: 864px) {
+  .Header-help-center {
+    width: 620.27px;
+    flex-grow: 0;
+  }
+  .Header-help-left,
+  .Header-help-right {
+    flex-grow: 1;
+  }
+}
+
+@media (min-width: 1199px) {
+  .Header-help-center {
+    flex-grow: 1;
+  }
+  .Header-help-left,
+  .Header-help-right {
+    width: 200px;
+    flex-grow: 0;
+  }
+}
+
+@media (min-width: 1920px) {
+  .Header-help-center {
+    width: 1224.27px;
+    flex-grow: 0;
+  }
+  .Header-help-left,
+  .Header-help-right {
+    flex-grow: 1;
+  }
+}

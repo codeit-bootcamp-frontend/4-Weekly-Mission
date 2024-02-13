@@ -1,9 +1,9 @@
 /*********************
-        App
+        Cards
 *********************/
 
-.App .Footer {
-  margin-top: 40px;
+.Cards .Cards-SearchBar {
+  margin-bottom: 32px;
 }
 
 /*********************
@@ -11,7 +11,7 @@
 *********************/
 
 @media (min-width: 768px) {
-  .App .Footer {
-    margin-top: 60px;
+  .Cards .Cards-SearchBar {
+    margin-bottom: 40px;
   }
 }

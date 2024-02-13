@@ -1,0 +1,104 @@
+/*********************
+    BasicCssReset
+*********************/
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Pretendard", Abel, sans-serif;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+  text-decoration: none;
+  color: #333;
+}
+
+/*********************
+        Layout
+*********************/
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+/*********************
+   Common UI Styles
+*********************/
+
+.btn {
+  padding: 8px 16px;
+  border-radius: 0.8rem;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.95;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    /* 태블릿의 경우 최대 860픽셀까지만 확장 */
+    max-width: 860px;
+  }
+}
+
+@media screen and (min-width: 1120px) {
+  .container {
+    /* 데스크톱의 경우 최대 1200px까지 확장 */
+    max-width: 1200px;
+  }
+}
