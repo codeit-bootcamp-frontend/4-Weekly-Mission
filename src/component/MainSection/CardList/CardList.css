@@ -1,4 +1,4 @@
-.cards {
+.card-list {
   display: grid;
   grid-template-columns: repeat(32.5rem);
   justify-content: center;
@@ -12,7 +12,7 @@
   }
 }
 
-.cards .card {
+.card-list .card {
   display: flex;
   flex-direction: column;
   width: 32.5rem;
@@ -26,7 +26,7 @@
   }
 }
 
-.cards .cardImg {
+.card-list .cardImg {
   width: 100%;
   min-height: 19.2rem;
   height: 19.2rem;
@@ -39,7 +39,7 @@
   }
 }
 
-.cards .content {
+.card-list .content {
   height: 100%;
   padding: 1.5rem 2rem;
   display: flex;
@@ -48,12 +48,12 @@
   gap: 1rem;
 }
 
-.cards .elapsed-time {
+.card-list .elapsed-time {
   font-size: 1.3rem;
   color: var(--gray80);
 }
 
-.cards .description {
+.card-list .description {
   height: 4.9rem;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -65,7 +65,7 @@
   line-height: 150%;
 }
 
-.cards .createdAt {
+.card-list .createdAt {
   font-size: 1.4rem;
   color: var(--grey100);
 }

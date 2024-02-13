@@ -3,8 +3,8 @@ import "./global.css";
 import Navigation from "./component/Navigation/Navigation";
 import Footer from "./component/Footer/Footer";
 import SearchBar from "./component/MainSection/SearchBar/SearchBar";
-import Card from "./component/MainSection/Card/Card";
 import FolderSection from "./component/MainSection/FolderSection/FolderSection";
+import CardList from "./component/MainSection/CardList/CardList";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <FolderSection />
         <div className="wrap">
           <SearchBar />
-          <Card />
+          <CardList />
         </div>
       </section>
       <Footer />

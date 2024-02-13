@@ -1,15 +1,15 @@
-import "./Card.css";
+import "./CardList.css";
 import React, { useState, useEffect } from "react";
 import { elapsedTime } from "./elapsedTime";
 
-const Card = () => {
-  const [linksData, setLinksData] = useState([]);
+const CardList = () => {
+  const [links, setLinks] = useState([]);
 
   useEffect(() => {
     fetch("https://bootcamp-api.codeit.kr/api/sample/folder")
       .then((response) => response.json())
       .then((data) => {
-        setLinksData(data.folder.links);
+        setLinks(data.folder.links);
       })
       .catch((error) => console.error("Error:", error));
   }, []);
@@ -19,8 +19,8 @@ const Card = () => {
   };
 
   return (
-    <div className="cards">
-      {linksData.map((link) => (
+    <div className="card-list">
+      {links.map((link) => (
         <a
           className="card"
           key={link.id}
@@ -40,4 +40,4 @@ const Card = () => {
   );
 };
 
-export default Card;
+export default CardList;
