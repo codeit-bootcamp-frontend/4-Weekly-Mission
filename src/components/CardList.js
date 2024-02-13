@@ -1,3 +1,5 @@
+import baseImg from "../assets/base.png";
+
 function CardListItem(item) {
     const createdAtDate = new Date(item.item.createdAt).toISOString().split("T")[0];
 
@@ -35,7 +37,7 @@ function CardListItem(item) {
     return (
         <div className="card_list_item" onClick={() => handleClick(item.item.url)}>
             <div className="img_area">
-                <img src={item.item.imageSource} alt="" />
+                <img src={item.item.imageSource || baseImg} alt="" />
             </div>
             <div className="text_area">
                 <p className="time">{timeAgo(createdAtDate)}</p>
