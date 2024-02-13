@@ -1,6 +1,6 @@
 const BASE_URL = "https://bootcamp-api.codeit.kr/api/";
 
-export async function getUserData() {
+export async function getSampeUser() {
   try {
     const response = await fetch(`${BASE_URL}sample/user`);
     return response.json();
@@ -9,7 +9,7 @@ export async function getUserData() {
   }
 }
 
-export async function getFilderData() {
+export async function getSampleFolder() {
   try {
     const response = await fetch(`${BASE_URL}sample/folder`);
     return response.json();

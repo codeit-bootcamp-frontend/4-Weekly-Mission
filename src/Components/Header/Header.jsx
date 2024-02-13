@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./css/Header.module.css";
 import Profile from "./Profile";
 
-function Header({ email, profileImageSource }) {
+function Header({ user }) {
   return (
     <header className={styles.header}>
       <a href="/">
@@ -12,11 +12,8 @@ function Header({ email, profileImageSource }) {
           alt="Header_logo"
         />
       </a>
-      {email ? (
-        <Profile
-          email={email}
-          profileImageSource={profileImageSource}
-        />
+      {user ? (
+        <Profile user={user} />
       ) : (
         <button className={styles.login_btn}>로그인</button>
       )}

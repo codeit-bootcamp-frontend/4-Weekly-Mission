@@ -1,55 +1,27 @@
 import React, { useEffect, useState } from "react";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import { getUserData, getFilderData } from "../../api/api";
+import { getSampeUser, getSampleFolder } from "../../utils/Api";
 import FolderTilte from "../../components/FolderTitle/FolderTilte";
 import CardList from "../../components/CardList/CardList";
 
 function Index() {
   // 함수 이름을 대문자로 변경
-  const [user, setUser] = useState({
-    email: null,
-    id: null,
-    name: null,
-    profileImageSource: null,
-  });
+  const [user, setUser] = useState(null);
   console.log(user);
-  const [folder, setFolder] = useState({
-    count: null,
-    id: null,
-    links: [],
-    name: null,
-    owner: {
-      id: null,
-      name: null,
-      profileImageSource: null,
-    },
-  });
-  console.log(folder);
 
-  async function userDataHandler() {
-    const userData = await getUserData();
-    setUser(userData);
-  }
-
-  async function folderDataHandler() {
-    const folderData = await getFilderData();
-    setFolder(folderData.folder);
-  }
+  const [folder, setFolder] = useState(null);
 
   useEffect(() => {
-    userDataHandler();
-    folderDataHandler();
+    getSampeUser().then(setUser);
+    getSampleFolder().then(setFolder);
   }, []);
 
   return (
     <main>
-      <Header
-        email={user.email}
-        profileImageSource={user.profileImageSource}
-      />
-      <FolderTilte folderName={folder.name} owner={folder.owner} />
-      <CardList links={folder.links} />
+      <Header user={user} />
+      <FolderTilte folderObject={folder} />
+      <CardList folderObject={folder} />
       <Footer />
     </main>
   );
