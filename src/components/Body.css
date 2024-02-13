@@ -48,19 +48,14 @@
     box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
     cursor: pointer;
     overflow: hidden;
-    /* position: relative; */
 }
 
 .card_list_item_img {
-    transition: transform 0.3s ease; /* 원하는 지속 시간과 이징 함수로 조절 가능합니다. */
+    transition: transform 0.3s ease;
 }
 
 .card_list_item:hover .card_list_item_img {
     transform: scale(1.3);
-}
-
-.card_list_item:hover {
-    height: auto; /* 이미지 확대에 따라 부모 요소의 높이를 자동으로 조절 */
 }
 
 .card_list_item_img {
