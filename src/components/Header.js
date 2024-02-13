@@ -34,12 +34,7 @@ function Header() {
                         <div className="header_user_avatar">
                             <img src={avatarImg} alt="" />
                         </div>
-                        {!hasUserData && <div className="header_user_name">@{items.name}</div>}
-                        {hasUserData && (
-                            <a href="/signin.html" className="gnb_login">
-                                로그인
-                            </a>
-                        )}
+                        <div className="header_user_name">@{items.name}</div>
                     </div>
                     <div className="header_title">⭐️ 즐겨찾기</div>
                 </div>
