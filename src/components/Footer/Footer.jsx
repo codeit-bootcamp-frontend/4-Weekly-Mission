@@ -1,4 +1,4 @@
-import { SNS_MAP_LIST } from '../../constatns/constant';
+import { SNS_LIST } from '../../constatns/constant';
 import * as S from './Footer.styles';
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
           <S.FooterSiteMapLink href='/'>FAQ</S.FooterSiteMapLink>
         </S.FooterSiteMapNav>
         <S.FooterSnsMapNav>
-          {SNS_MAP_LIST.map(sns => (
+          {SNS_LIST.map(sns => (
             <a key={sns} href={`https://${sns}.com`} target='_blank' rel='noreferrer noopener'>
               <S.FooterSnsMapImage src={`/icons/${sns}-logo.svg`} alt={sns} />
             </a>
