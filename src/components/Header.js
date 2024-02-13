@@ -1,6 +1,6 @@
 import "../styles/Header.css";
 
-function Header({ profileImage, ownerName, folderName }) {
+function Header({ profileImage, ownerName, folderInfo }) {
   return (
     <div className="Header">
       <img
@@ -9,7 +9,7 @@ function Header({ profileImage, ownerName, folderName }) {
         alt="폴더 소유자 프로필 이미지"
       />
       <span className="Header-owner">{ownerName}</span>
-      <h2 className="Header-folder">{folderName}</h2>
+      <h2 className="Header-folder">{folderInfo}</h2>
     </div>
   );
 }
