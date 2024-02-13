@@ -4,7 +4,6 @@
   justify-content: center;
   width: 100%;
   max-width: 106rem;
-  row-gap: 2rem;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(auto-fill, 34rem);
@@ -18,8 +17,8 @@
   flex-direction: column;
   width: 32.5rem;
   height: 32.7rem;
-  box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
-  border-radius: 1.5rem;
+  box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
 
   @media (min-width: 768px) {
     width: 34rem;
@@ -31,9 +30,7 @@
   width: 100%;
   min-height: 19.2rem;
   height: 19.2rem;
-  border-radius: 1.5rem 1.5rem 0 0;
-  background-position: center;
-  background-size: 100%;
+  border-radius: 15px 15px 0 0;
   object-fit: cover;
 
   @media (min-width: 768px) {

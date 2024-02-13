@@ -1,4 +1,4 @@
-.section {
+.main-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,7 @@
   }
 }
 
-.section-frame {
+.wrap {
   display: flex;
   flex-direction: column;
   align-items: center;

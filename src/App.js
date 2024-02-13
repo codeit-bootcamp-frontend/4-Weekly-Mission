@@ -10,9 +10,9 @@ function App() {
   return (
     <div className="App">
       <Navigation />
-      <section className="section">
+      <section className="main-section">
         <FolderSection />
-        <div className="section-frame">
+        <div className="wrap">
           <SearchBar />
           <Card />
         </div>
