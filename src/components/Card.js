@@ -1,7 +1,5 @@
-import "./Cards.css";
-
+import "./Card.css";
 import { getDate, getElapsedTime } from "../utils";
-// import { useState } from "react";
 
 export default function Card({ data }) {
   return (

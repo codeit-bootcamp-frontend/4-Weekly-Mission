@@ -10,7 +10,7 @@ export default function NavBar({ profile }) {
 
         {profile ? (
           <a className="gnb-profile" href="/profile">
-            <img src={profile.profileImageSource}></img>
+            <img src={profile.profileImageSource} alt="user profile"></img>
             <span className="gnb-email">{profile.email}</span>
           </a>
         ) : (
