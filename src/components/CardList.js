@@ -34,7 +34,9 @@ function CardListItem(item) {
 
     return (
         <div className="card_list_item" onClick={() => handleClick(item.item.url)}>
-            <img className="card_list_item_img" src={item.item.imageSource} alt="" />
+            <div className="img_area">
+                <img src={item.item.imageSource} alt="" />
+            </div>
             <div className="text_area">
                 <p className="time">{timeAgo(createdAtDate)}</p>
                 <p className="description">{item.item.description}</p>
