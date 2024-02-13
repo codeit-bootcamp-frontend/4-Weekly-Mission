@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
+  margin: 20px 200px auto;
 }
 .logo{
   width: 133px;

@@ -1,8 +1,4 @@
 import { Link } from 'react-router-dom';
-
-// import Privacy from './Privacy';
-// import Faq from './Faq';
-
 import '../css/Footer.css';
 
 function Footer(){
