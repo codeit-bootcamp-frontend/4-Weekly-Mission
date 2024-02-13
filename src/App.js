@@ -1,15 +1,16 @@
-import Header from './components/Header';
-import Shared from './components/Shared';
-import Footer from './components/Footer';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Main from './components/Main';
 import './css/App.css';
 
 function App() {
   return (
-    <body>
-      <Header className='header'/>
-      <Shared className='shared'/>
-      <Footer className='footer'/>
-    </body>
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Main/>}></Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
