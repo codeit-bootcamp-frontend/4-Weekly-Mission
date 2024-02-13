@@ -26,11 +26,11 @@
   }
 }
 
-.hover-image {
+.card:hover .card-image {
   transform: scale(1.3);
 }
 
-.hover-info {
+.card:hover .card-information-area {
   background-color: var(--light-blue);
 }
 

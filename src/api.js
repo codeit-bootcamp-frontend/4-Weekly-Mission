@@ -1,5 +1,7 @@
+const BASE_URL = "https://bootcamp-api.codeit.kr/api/";
+
 export async function fetchSampleProfile() {
-  const res = await fetch(`https://bootcamp-api.codeit.kr/api/sample/user`);
+  const res = await fetch(`${BASE_URL}sample/user`);
   if (!res.ok) {
     throw new Error("cannot download profile info");
   }
@@ -8,7 +10,7 @@ export async function fetchSampleProfile() {
 }
 
 export async function fetchSampleFolder() {
-  const res = await fetch(`https://bootcamp-api.codeit.kr/api/sample/folder`);
+  const res = await fetch(`${BASE_URL}sample/folder`);
   if (!res.ok) {
     throw new Error("cannot download links");
   }

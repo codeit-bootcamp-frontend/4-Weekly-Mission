@@ -11,31 +11,28 @@ function App() {
   const [folder, setFolder] = useState(null);
 
   async function getProfile() {
-    let newProfile = null;
     try {
-      newProfile = await fetchSampleProfile();
+      const newProfile = await fetchSampleProfile();
+      setProfile(newProfile);
     } catch (e) {
       alert(e);
       return;
     }
-    setProfile(newProfile);
   }
 
   async function getFolder() {
-    let newFolder = null;
     try {
       const response = await fetchSampleFolder();
-      newFolder = response;
+      setFolder(response);
     } catch (e) {
       alert(e);
       return;
     }
-    setFolder(newFolder);
   }
 
   useEffect(() => {
-    getProfile();
     getFolder();
+    getProfile();
   }, []);
 
   return (

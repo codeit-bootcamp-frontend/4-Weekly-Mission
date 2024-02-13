@@ -15,7 +15,7 @@ export default function FolderView({ folder }) {
 
   return (
     <div className="container">
-      <div className="FolderView">
+      <div className="folder-view">
         <SearchBar search={search} setSearch={setSearch} />
         <Cards links={links} />
       </div>
