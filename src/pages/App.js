@@ -1,14 +1,14 @@
 import Header from "../components/header";
-import Main from "../components/main";
+// import Main from "../components/main";
 import Footer from "../components/footer";
 
-function Home() {
+function App({ children }) {
   return (
     <>
       <Header />
-      <Main />
+      <div>{children}</div>
       <Footer />
     </>
   );
 }
-export default Home;
+export default App;

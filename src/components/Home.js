@@ -1,4 +1,6 @@
-function Main() {
+import { Link } from "react-router-dom";
+
+function Home() {
   return (
     <>
       <article className="first_page_back">
@@ -12,9 +14,11 @@ function Main() {
               <div className="infor">관리해 보세요.</div>
             </div>
           </div>
-          <a className="link_btn btn" href="./">
-            링크 추가하기
-          </a>
+          <Link to="/courses">
+            <a className="link_btn btn" href="./">
+              링크 추가하기
+            </a>
+          </Link>
           <div className="first_page_img_back">
             <div className="first_page_img"></div>
           </div>
@@ -78,4 +82,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Home;
