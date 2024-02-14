@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import CardList from "./components/cardlist/CardList";
+import Foot from "./components/foot/Foot";
+import Nav from "./components/nav/Nav";
+import Profile from "./components/profile/Profile";
+import { getUserData } from "./api";
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
+  const [userData, setUserData] = useState(null);
+
+  const handleLoad = async () => {
+    try {
+      const response = await getUserData();
+      setUserData(response);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    handleLoad();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Nav />
+      <Profile userData={userData} />
+      <div className="container">
+        <CardList userData={userData} />
+      </div>
+      <Foot />
     </div>
   );
 }
