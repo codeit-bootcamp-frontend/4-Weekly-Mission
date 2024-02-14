@@ -3,7 +3,7 @@ import { getFolder } from '../apis/api';
 
 import Gnb from '../components/Gnb';
 import Header from '../Header';
-import Folder from '../Folder';
+import SharedFolder from '../Folder';
 import Footer from '../components/Footer';
 
 const SharedPage = () => {
@@ -21,9 +21,9 @@ const SharedPage = () => {
 
   return (
     <>
-      <Gnb className='gnb_ly gnb-container_stickyf'/>
+      <Gnb className='gnb_ly gnb-container_sticky'/>
       <Header items={folders} />
-      <Folder items={folders} />
+      <SharedFolder items={folders} />
       <Footer/>
     </>
   )
