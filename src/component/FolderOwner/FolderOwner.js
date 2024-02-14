@@ -1,3 +1,5 @@
+import "./FolderOwner.css";
+
 const FolderOwner = ({ name, owner = {} }) => {
   return (
     <div className="FolderOwner">

@@ -1,5 +1,6 @@
-import Profile from "./Profile";
-import logoImage from "../images/linkbrary.svg";
+import Profile from "../Profile/Profile";
+import logoImage from "../../images/linkbrary.svg";
+import "./Navigation.css";
 
 const Navigation = () => {
   return (

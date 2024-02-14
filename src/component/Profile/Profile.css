@@ -1,0 +1,9 @@
+.Profile {
+  display: flex;
+  gap: 6px;
+}
+
+.Profile img {
+  width: 28px;
+  border-radius: 9999px;
+}

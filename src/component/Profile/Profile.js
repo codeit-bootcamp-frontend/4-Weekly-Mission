@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { getProfileData } from "../api";
+import { getProfileData } from "../../apis/api";
+import "./Profile.css";
 
 const Profile = () => {
   const [user, setUser] = useState({});

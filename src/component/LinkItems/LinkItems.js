@@ -1,5 +1,5 @@
-import "../css/LinkItem.css";
-import defaultImage from "../images/card-default.png";
+import "./LinkItems.css";
+import defaultImage from "../../images/card-default.png";
 
 const calculateTimePassed = (createdAt) => {
   const NOW = new Date();

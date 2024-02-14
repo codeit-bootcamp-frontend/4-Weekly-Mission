@@ -1,10 +1,10 @@
 import "./App.css";
-import Navigation from "./component/Navigation";
-import FolderOwner from "./component/FolderOwner";
-import Footer from "./component/Footer";
-import { getFolderData } from "./api";
+import Navigation from "../Navigation/Navigation";
+import FolderOwner from "../FolderOwner/FolderOwner";
+import Footer from "../Footer/Footer";
+import LinkItems from "../LinkItems/LinkItems";
+import { getFolderData } from "../../apis/api";
 import { useEffect, useState } from "react";
-import LinkItems from "./component/LinkItems";
 
 function App() {
   const [folderData, setFolderData] = useState({});
