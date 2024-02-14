@@ -25,6 +25,7 @@ nav {
 .profile-img {
   width: 2.8rem;
   height: 2.8rem;
+  border-radius: 50%;
 }
 .profile-id {
   color: var(--gray100, #373740);
@@ -33,6 +34,19 @@ nav {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+.login-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 12.8rem;
+  height: 5.4rem;
+  background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
+  border-radius: 0.8rem;
+  color: #f5f5f5;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-decoration-line: none;
 }
 
 @media (max-width: 1199px) {
@@ -47,5 +61,10 @@ nav {
   }
   .profile-id {
     display: none;
+  }
+  .login-button {
+    font-size: 1.4rem;
+    width: 8rem;
+    height: 3.7rem;
   }
 }
