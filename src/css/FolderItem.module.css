@@ -1,0 +1,42 @@
+.folder_item_box {
+  width: 100%;
+  height: 334px;
+
+  border-radius: 1.5rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.folder_detail_box {
+  font-family: var(--Pretendard-Regular);
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.folder_image_box {
+  width: 100%;
+  height: 20rem;
+}
+
+.folder_image {
+  width: 100%;
+  height: 20rem;
+}
+
+.folder_createdAt {
+  color: #666;
+  font-size: 1.3rem;
+}
+
+.folder_title {
+  font-size: 1.6rem;
+  height: 5rem;
+  line-height: 2.4rem;
+}
+
+.folder_date {
+  color: #333;
+  font-size: 1.4rem;
+}

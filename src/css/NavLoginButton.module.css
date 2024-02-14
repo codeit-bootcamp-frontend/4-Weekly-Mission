@@ -1,0 +1,22 @@
+.nav_login_button {
+  font-family: var(--Pretendard-Regular);
+  border-radius: 8px;
+  padding: 1.6rem 2rem;
+  width: 12.8rem;
+  color: #f5f5f5;
+  border: none;
+  font-size: 1.8rem;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  cursor: pointer;
+}
+
+@media (max-width: 767.5px) {
+  .nav_login_button {
+    width: 8rem;
+    font-size: 1.4rem;
+    padding: 1rem 1.6rem;
+  }
+}
