@@ -1,5 +1,6 @@
 import useFetchCardsData from '../hooks/useFetchCardsData';
 import noCardImg from '../images/no-image.svg';
+import { Link } from 'react-router-dom';
 // import loadingImg from '../images/loading-spinner.svg';
 
 function CardListItem() {
@@ -11,13 +12,7 @@ function CardListItem() {
   return (
     <div className="cards-container">
       {data.map((cardData) => (
-        <a
-          key={cardData.id}
-          href={cardData.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="card"
-        >
+        <Link to={cardData.url}>
           <img
             src={cardData.imageSource || noCardImg}
             alt={cardData.title}
@@ -29,7 +24,7 @@ function CardListItem() {
             <p>{cardData.description}</p>
             <p className="date-number">{cardData.formattedDate}</p>
           </p>
-        </a>
+        </Link>
       ))}
     </div>
   );
