@@ -1,5 +1,10 @@
 const API_URL = 'https://bootcamp-api.codeit.kr/api/';
 
+function createApiUrl(path) {
+  const url = new URL(path, API_URL);
+  return url;
+}
+
 // api/sample/user
 // const user = {
 //   id: 1,
@@ -8,7 +13,7 @@ const API_URL = 'https://bootcamp-api.codeit.kr/api/';
 //   profileImageSource: "https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png",
 // };
 export async function getUserInfo() {
-  const url = new URL('sample/user', API_URL);
+  const url = createApiUrl('sample/user');
 
   try {
     const response = await fetch(url);
@@ -118,7 +123,7 @@ export async function getUserInfo() {
 //   },
 // };
 export async function getFolderInfo() {
-  const url = new URL('sample/folder', API_URL);
+  const url = createApiUrl('sample/folder');
 
   try {
     const response = await fetch(url);
