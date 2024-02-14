@@ -1,0 +1,72 @@
+@import './global.css';
+
+header {
+  display: flex;
+  position: sticky;
+  width: 100%;
+  justify-content: center;
+  top: 0;
+  z-index: 1;
+  background: var(--gray-05);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 12.5rem;
+  height: 6rem;
+}
+
+.Main-logo {
+  display: flex;
+  width: 8.5rem;
+}
+
+.Button-login {
+  display: flex;
+  width: 8rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+}
+
+.Profile {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1rem;
+}
+
+.Profile-image {
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+}
+
+@media (width >= 768px) and (width <= 1199px) {
+  header {
+    justify-content: center;
+  }
+
+  nav {
+    padding: 0 2rem;
+    max-width: 56rem;
+  }
+}
+
+@media (width <= 767px) {
+  nav {
+    padding: 0 2rem;
+  }
+
+  .Profile-email{
+    display: none;
+  }
+}
