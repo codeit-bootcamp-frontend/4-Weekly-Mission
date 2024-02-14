@@ -1,8 +1,14 @@
 import React from "react";
 import styles from "./css/Card.module.css";
 import { formatDate, formatDateAgo } from "../../utils/DateUtils";
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardFooter,
+} from "../ui/Card";
 
-function Card({ link }) {
+function LinkCard({ link }) {
   const {
     createdAt,
     description,
@@ -12,7 +18,7 @@ function Card({ link }) {
   const cardCreatedAt = formatDateAgo(createdAt);
 
   return (
-    <div className={styles.card_container}>
+    <Card className={styles.card_container}>
       <div className={styles.card_iamgeBox}>
         <img
           className={styles.card_iamgeBox_image}
@@ -21,12 +27,18 @@ function Card({ link }) {
         />
       </div>
       <div className={styles.card_content}>
-        <p className={styles.card_date}>{cardDate}</p>
-        <p className={styles.card_description}>{description}</p>
-        <p className={styles.card_createdAt}>{cardCreatedAt}</p>
+        <CardHeader>
+          <p className={styles.card_date}>{cardDate}</p>
+        </CardHeader>
+        <CardContent>
+          <p className={styles.card_description}>{description}</p>
+        </CardContent>
+        <CardFooter>
+          <p className={styles.card_createdAt}>{cardCreatedAt}</p>
+        </CardFooter>
       </div>
-    </div>
+    </Card>
   );
 }
 
-export default Card;
+export default LinkCard;

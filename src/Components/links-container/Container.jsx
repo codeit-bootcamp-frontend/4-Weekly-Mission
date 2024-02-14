@@ -1,7 +1,7 @@
 import React from "react";
-import SearchBar from "../SearchBar/SearchBar";
-import Card from "../Card/Card";
-import styles from "./css/CardList.module.css";
+import SearchBar from "./SearchBar";
+import Card from "./LinkCard";
+import styles from "./css/Container.module.css";
 
 function CardList({ folderObject }) {
   if (!folderObject) {
