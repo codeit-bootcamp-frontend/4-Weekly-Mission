@@ -14,10 +14,12 @@ export const getProfileData = async () => {
 
 export const getFolderData = async () => {
   const response = await fetch(
-    "https://bootcamp-api.codeit.kr/api/sample/folder"
+    "https://bootcamp-api.codeit.kr/api/sample/folderd"
   );
 
-  if (!response.ok) return;
+  if (!response.ok) {
+    throw new Error("폴더 정보를 불러오는데 실패했습니다.");
+  }
 
   const data = await response.json();
 
