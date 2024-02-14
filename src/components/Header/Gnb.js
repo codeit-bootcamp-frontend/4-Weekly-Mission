@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import './Gnb.css';
+import classNames from 'classnames';
+import styles from './Gnb.module.css';
 import { getUserInfo } from '../../services/api';
 import LoginButton from '../Common/LoginButton';
 import logo from '../../assets/images/logo.svg';
@@ -27,14 +28,21 @@ function Gnb() {
   const userProfileImg = userInfo?.profileImageSource || '';
   const userEmail = userInfo?.email || '';
 
+  const navClasses = classNames(styles.gnb, 'position-fixed', 'margin-auto', 'z-top');
+  const containerClasses = classNames(styles['gnb-container'], 'flex-row');
+  const logoClasses = classNames(styles['gnb-logo']);
+  const profileClasses = classNames(styles['gnb-profile'], 'flex-row');
+  const profileImgClasses = classNames(styles['profile-img']);
+  const profileEmailClasses = classNames(styles['profile-email'], styles.hidden, 'hidden', 'text-color-gray100');
+
   return (
-    <nav className="gnb position-fixed margin-auto z-top">
-      <div className="gnb-container flex-row">
-        <img className="gnb-logo" src={logo} alt="logo" />
+    <nav className={navClasses}>
+      <div className={containerClasses}>
+        <img className={logoClasses} src={logo} alt="logo" />
         {userInfo ? (
-          <div className="gnb-profile flex-row">
-            <img className="profile-img" src={userProfileImg} alt="profile-img" />
-            <p className="profile-email text-color-gray100 hidden">{userEmail}</p>
+          <div className={profileClasses}>
+            <img className={profileImgClasses} src={userProfileImg} alt="profile-img" />
+            <p className={profileEmailClasses}>{userEmail}</p>
           </div>
         ) : (
           <LoginButton />
