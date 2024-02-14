@@ -1,0 +1,5 @@
+@import url('./Color.css');
+
+* {
+  box-sizing: border-box;
+}
