@@ -5,9 +5,9 @@ import searchIcon from '../../assets/images/search-icon.svg';
 function SearchBar() {
   const [value, setValue] = useState('');
 
-  function handleChange(event) {
-    setValue(event.target.value);
-  }
+  const handleChange = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
     <div className="search-bar position-relative width-full">
