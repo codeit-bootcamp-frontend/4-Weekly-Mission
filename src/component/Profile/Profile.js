@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getProfileData } from "../../apis/api";
 import "./Profile.css";
 
@@ -6,8 +6,12 @@ const Profile = () => {
   const [user, setUser] = useState({});
 
   const getData = async () => {
-    const data = await getProfileData();
-    setUser(data);
+    try {
+      const data = await getProfileData();
+      setUser(data);
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   useEffect(() => {
