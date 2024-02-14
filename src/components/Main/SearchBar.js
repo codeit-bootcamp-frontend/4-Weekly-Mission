@@ -11,13 +11,7 @@ function SearchBar() {
   };
 
   const containerClasses = classNames('position-relative', 'width-full');
-  const inputClasses = classNames(
-    styles['search-bar-input'],
-    'search-bar-input',
-    'background-light',
-    'text-color-text',
-    'width-full'
-  );
+  const inputClasses = classNames(styles['search-bar-input'], 'background-light', 'text-color-text', 'width-full');
   const inputImgClasses = classNames(styles['search-bar-icon'], 'position-absolute');
 
   return (
