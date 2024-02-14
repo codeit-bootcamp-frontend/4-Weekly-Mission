@@ -12,18 +12,18 @@ function Card({ createdAt, url, description, imageSource }) {
     background: `#d9d9d9 url(${imageSource || NoImage}) no-repeat center / cover`,
   };
 
-  const handleClick = () => {
+  const handleCardClick = () => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  const handleKeyDown = (e) => {
+  const handleCardClickByEnter = (e) => {
     if (e.key === 'Enter') {
-      handleClick();
+      handleCardClick();
     }
   };
 
   return (
-    <div className="card" onClick={handleClick} onKeyDown={handleKeyDown} role="button" tabIndex="0">
+    <div className="card" onClick={handleCardClick} onKeyDown={handleCardClickByEnter} role="button" tabIndex="0">
       <div className="card-image width-full" style={backgroundImage} />
       <div className="card-text-box">
         <p className="time-ago text-color-text">{createdTimeAgo}</p>
