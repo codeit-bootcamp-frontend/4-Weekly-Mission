@@ -1,12 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import fetchProfileData from '../utils/fetchProfileData';
 
 function Profile() {
   const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
-    fetchProfileData(profileData, setProfileData);
-  }, [profileData]);
+    const fetchProfileInfo = async () => {
+      try {
+        const response = await fetch(
+          'https://bootcamp-api.codeit.kr/api/sample/user'
+        );
+        if (!response.ok) {
+          throw new Error('response 전달 실패');
+        }
+        const data = await response.json();
+        setProfileData(data);
+      } catch (error) {
+        console.error('에러 발생:', error);
+        alert(error);
+      }
+    };
+    fetchProfileInfo();
+  }, []);
 
   if (!profileData) {
     return <button>로그인</button>;

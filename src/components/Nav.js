@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import '../style/nav.css';
-import fetchFolderInfo from '../utils/fetchFolderInfo';
 
 function Nav() {
   const [folderInfo, setFolderInfo] = useState({
@@ -10,8 +9,27 @@ function Nav() {
   });
 
   useEffect(() => {
-    fetchFolderInfo(folderInfo, setFolderInfo);
-  }, [folderInfo]);
+    const fetchFolderInfo = async () => {
+      try {
+        const response = await fetch(
+          'https://bootcamp-api.codeit.kr/api/sample/folder'
+        );
+        if (!response.ok) {
+          throw new Error('response 전달 실패');
+        }
+        const data = await response.json();
+        setFolderInfo({
+          ownerName: data.folder.owner.name,
+          folderName: data.folder.name,
+          profileImage: data.folder.owner.profileImageSource,
+        });
+      } catch (error) {
+        console.error('에러 발생:', error);
+        alert(error);
+      }
+    };
+    fetchFolderInfo();
+  }, []);
 
   return (
     <nav className="nav">

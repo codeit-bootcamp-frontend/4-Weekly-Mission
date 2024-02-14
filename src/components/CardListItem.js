@@ -1,5 +1,6 @@
 import useFetchCardsData from '../hooks/useFetchCardsData';
 import noCardImg from '../images/no-image.svg';
+// import loadingImg from '../images/loading-spinner.svg';
 
 function CardListItem() {
   const data = useFetchCardsData();
