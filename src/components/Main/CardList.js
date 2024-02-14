@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import './CardList.css';
+import classNames from 'classnames';
+import styles from './CardList.module.css';
 import Card from './Card';
 import { getFolderInfo } from '../../services/api';
 import ErrorMessage from '../Common/ErrorMessage';
@@ -22,8 +23,10 @@ function CardList() {
     fetchFolderInfo();
   }, []);
 
+  const cardListClasses = classNames(styles['card-list'], styles.grid, 'grid', 'width-full');
+
   return (
-    <div className="card-list grid width-full">
+    <div className={cardListClasses}>
       {links.map((link) => (
         <Card
           key={link.id}
