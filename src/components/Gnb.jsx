@@ -1,9 +1,24 @@
+import { useState, useEffect } from 'react';
+
+import { getUser } from '../apis/api';
 import logoImg from '../assets/logo.svg';
 
 import './Gnb.css';
 
-const Gnb = ({items}) => {
-  const isShowProfile = items && items.profileImageSource && items.email;
+const Gnb = () => {
+  const [users, setUsers] = useState({});
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const userInfo = await getUser();
+      
+      setUsers(userInfo);
+    };
+
+    fetchUser();
+  }, []);
+
+  const isShowProfile = users && users.profileImageSource && users.email;
 
   return (
     <nav className='gnb_ly'>
@@ -13,8 +28,8 @@ const Gnb = ({items}) => {
         </a>
         {isShowProfile ? (
           <div className='account'>
-            <img className="account-img" src={items.profileImageSource} alt={`${items.email} 프로필`} />
-            <span className='account-email'>{items.email}</span>
+            <img className="account-img" src={users.profileImageSource} alt={`${users.email} 프로필`} />
+            <span className='account-email'>{users.email}</span>
           </div>
         ) : (
           <button className='login-button'>로그인</button>
