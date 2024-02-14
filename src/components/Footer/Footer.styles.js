@@ -8,6 +8,11 @@ export const StyledFooter = styled.footer`
   height: 10rem;
   padding: 2rem 6.5rem;
   background: #000000;
+
+  @media screen and (width <= 767px) {
+    flex-direction: column;
+    padding: 2rem;
+  }
 `;
 
 export const FooterCopyright = styled.p`
@@ -15,18 +20,33 @@ export const FooterCopyright = styled.p`
   color: #676767;
   font-weight: 400;
   font-size: 1rem;
+
+  @media screen and (width <= 767px) {
+    order: 2;
+    margin-right: auto;
+  }
 `;
 
 export const FooterLinkSection = styled.section`
   display: flex;
   flex: 0.6;
   justify-content: space-between;
+
+  @media screen and (width <= 767px) {
+    order: 1;
+    width: 100%;
+    margin: 0 6.5rem;
+  }
 `;
 
 export const FooterSiteMapNav = styled.nav`
   display: flex;
   gap: 2.25rem;
   align-items: flex-start;
+  @media screen and (width <= 767px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const FooterSiteMapLink = styled.a`
@@ -40,6 +60,11 @@ export const FooterSnsMapNav = styled.nav`
   display: flex;
   gap: 0.75rem;
   align-items: flex-start;
+
+  @media screen and (width <= 767px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 export const FooterSnsMapImage = styled.img`

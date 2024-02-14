@@ -1,10 +1,14 @@
-import styled from 'styled-components';
+import StyledText from './GradientText.styles';
 
-const GradientText = styled.h2`
-  color: transparent;
-  background: linear - gradient(to right, ${props => props.$startColor}, ${props => props.$endColor});
-  background-clip: text;
-`;
+const GradientText = ({ children, startColor = 'var(--color-primary)', endColor = '#ff9f9f' }) => {
+  return (
+    <StyledText $startColor={startColor} $endColor={endColor}>
+      {children}
+    </StyledText>
+  );
+};
+
+export default GradientText;
 
 //   color: transparent;
 //   background: linear - gradient(to right, var(--color - primary), #ff9f9f);

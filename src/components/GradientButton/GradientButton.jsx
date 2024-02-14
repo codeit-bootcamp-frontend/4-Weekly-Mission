@@ -1,16 +1,11 @@
-import styled from 'styled-components';
+import StyledButton from './GradientButton.styles';
 
-const GradientButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  color: var(--color-white);
-  font-size: 1rem;
-  text-decoration: none;
-  background: linear-gradient(to right, ${props => props.$startColor}, ${props => props.$endColor});
-  border-radius: 8px;
-  cursor: pointer;
-`;
+const GradientButton = ({ children, startColor = 'var(--color-primary)', endColor = '#6ae3fe' }) => {
+  return (
+    <StyledButton $startColor={startColor} $endColor={endColor}>
+      {children}
+    </StyledButton>
+  );
+};
 
 export default GradientButton;

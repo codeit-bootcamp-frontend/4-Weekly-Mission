@@ -40,11 +40,24 @@ height:100vh;
     color:inherit;
     text-decoration:none;
   }
+
+
+@media screen and (width >=375px) and (width <768px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (width >=768px) and (width <1200px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (width >=1200px) {
+  html {
+    font-size: 16px;
+  }
+}
 `;
-// @media screen and(width >= 375px) and(width <= 767px) {
-//   br {
-//     display: inline - block;
-//     padding: 0 1rem;
-//     content: ' ';
-//   }
 //

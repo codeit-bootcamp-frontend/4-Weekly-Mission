@@ -7,7 +7,6 @@ export const HomeSection = styled.section`
   align-items: center;
   justify-content: flex - end;
   width: 100%;
-  height: 100vh;
   max-width: 1920px;
   padding: 5rem 6rem 0;
   overflow: hidden;
@@ -15,13 +14,22 @@ export const HomeSection = styled.section`
 
 export const HomeTitle = styled.h1`
   font-weight: 700;
-  font-size: 3.5rem;
+  font-size: 3.2rem;
   line-height: 4rem;
   text-align: center;
 `;
 
 export const HomeImage = styled.img`
-  width: 50rem;
+  width: 75rem;
+
+  @media screen and (width <1200px) {
+    width: 50rem;
+  }
+
+  @media screen and (width < 768px) {
+    width: 100vw;
+    padding: 0 2rem;
+  }
 `;
 
 export const MainLayout = styled.main`
@@ -34,20 +42,20 @@ export const MainLayout = styled.main`
 `;
 
 export const MainTitle = styled.h2`
-    grid - area: title;
-color: #000;
-font - weight: 700;
-font - size: 2.5rem;
+  grid-area: title;
+  color: #000;
+  font-weight: 700;
+  font-size: 2.5rem;
 `;
 
-export const MainSection = styled.section`
+export const MainArticle = styled.article`
   display: grid;
   max-width: 1920px;
   padding: 4rem;
   text-align: center;
   column-gap: 10rem;
 
-  &: nth-child(even) {
+  &:nth-child(even) {
     grid-template:
       'img .'
       'img title'
@@ -55,7 +63,7 @@ export const MainSection = styled.section`
       'img .';
   }
 
-  &: nthchild(odd) {
+  &:nth-child(odd) {
     grid-template:
       '. img'
       'title img'
@@ -63,20 +71,22 @@ export const MainSection = styled.section`
       '. img';
   }
 
-  @media screen and(width >= 375px) and(width <= 767px) {
-    &: nth-child(odd) {
+  @media screen and (width<759px) {
+    gap: 1.4rem;
+    &:nth-child(odd) {
       grid-template:
         'title'
         'img'
         'description';
     }
 
-    &: nth-child(even) {
+    &:nth-child(even) {
       grid-template:
         'title'
         'img'
         'description';
-    }
+
+
   }
 `;
 
@@ -87,7 +97,24 @@ export const MainDescription = styled.p`
   font-size: 1.25rem;
 `;
 
+export const MainBr = styled.br`
+  @media screen and (width < 768px) {
+    display: inline-block;
+    padding: 0 1rem;
+    content: ' ';
+  }
+`;
+
 export const MainImage = styled.img`
   grid-area: img;
-  width: 40rem;
+  width: 35rem;
+
+  @media screen and (width <1200px) {
+    width: 26rem;
+  }
+
+  @media screen and (width < 768px) {
+    width: 100vw;
+    padding: 0 2rem;
+  }
 `;

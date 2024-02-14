@@ -29,7 +29,7 @@ const Navbar = ({ loginButtonClick }) => {
         {hasUser ? (
           <UserProfile title={user.email} image={{ URL: user.profileImageSource, size: '2rem' }} />
         ) : (
-          <GradientButton $startColor='var(--color-primary)' $endColor='#6ae3fe' onClick={handleClick}>
+          <GradientButton startColor='var(--color-primary)' endColor='#6ae3fe' onClick={handleClick}>
             로그인
           </GradientButton>
         )}
