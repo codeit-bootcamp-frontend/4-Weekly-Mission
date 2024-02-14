@@ -38,6 +38,8 @@ const loginForm = document.querySelector(".login-form");
 
 async function login(event){
   event.preventDefault();
+    
+  const isMaster = emailInput.value === "test@codeit.com" && passwordInput.value === "codeit101";
   
   if (isMaster === false) {
     emailErrorMessage.textContent = "이메일을 확인해 주세요.";
