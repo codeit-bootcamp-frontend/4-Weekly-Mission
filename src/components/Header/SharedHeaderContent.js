@@ -1,18 +1,20 @@
 import { useState, useEffect } from 'react';
 import './SharedHeaderContent.css';
 import { getFolderInfo } from '../../services/api';
+import ErrorMessage from '../Common/ErrorMessage';
 
 // 폴더 정보 출력
 function SharedHeaderContent() {
   // 폴더 정보 가져오기
   const [folderInfo, setFolderInfo] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLoadFolder = async () => {
     try {
       const result = await getFolderInfo();
       setFolderInfo(result);
     } catch (error) {
-      console.error(error);
+      setErrorMessage(error.message);
     }
   };
 
@@ -36,6 +38,7 @@ function SharedHeaderContent() {
             <p className="shared-folder-name text-center">{folderName}</p>
           </div>
         )}
+        {errorMessage && <ErrorMessage message={errorMessage} />}
       </div>
     </div>
   );

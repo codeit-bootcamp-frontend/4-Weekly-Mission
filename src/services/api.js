@@ -117,14 +117,14 @@ export async function getUserInfo() {
 //   },
 // };
 export async function getFolderInfo() {
-  const url = createApiUrl('sample/folder');
+  const url = createApiUrl('sample/folde');
 
   const response = await fetch(url);
   const result = await response.json();
-  const responseError = result.error;
+  // const responseError = result.error;
 
   if (!response.ok) {
-    throw new Error(`Response Failed: ${responseError}`);
+    throw new Error(`폴더 정보를 찾지 못했습니다.`);
   }
 
   return result;
