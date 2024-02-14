@@ -6,7 +6,7 @@ import Header from '../Header';
 import Folder from '../Folder';
 import Footer from '../components/Footer';
 
-const SharedPage = () => {
+const FolderPage = () => {
   const [folders, setFolders] = useState({});
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const SharedPage = () => {
 
   return (
     <>
-      <Gnb className='gnb_ly gnb-container_stickyf'/>
+      <Gnb className='gnb_ly'/>
       <Header items={folders} />
       <Folder items={folders} />
       <Footer/>
@@ -29,4 +29,4 @@ const SharedPage = () => {
   )
 }
 
-export default SharedPage;
+export default FolderPage;

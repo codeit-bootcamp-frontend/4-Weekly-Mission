@@ -5,7 +5,7 @@ import logoImg from '../assets/logo.svg';
 
 import './Gnb.css';
 
-const Gnb = () => {
+const Gnb = ({className}) => {
   const [users, setUsers] = useState({});
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Gnb = () => {
   const isShowProfile = users && users.profileImageSource && users.email;
 
   return (
-    <nav className='gnb_ly'>
+    <nav className={className}>
       <div className='gnb-inner_ly'>
         <a href="/">
           <img className='logo' src={logoImg} alt="홈으로 연결된 Linkbrary 로고" />

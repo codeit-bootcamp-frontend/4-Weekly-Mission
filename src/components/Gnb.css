@@ -1,7 +1,5 @@
 .gnb_ly {
   display: flex;
-  position: sticky;
-  top: 0;
   flex-direction: column;
   align-items: center;
   align-self: stretch;
@@ -19,6 +17,11 @@
   @media (min-width: 1125px) {
     padding: 33px 200px;
   }
+}
+
+.gnb-container_sticky {
+  position: sticky;
+  top: 0;
 }
 
 .gnb-inner_ly {
