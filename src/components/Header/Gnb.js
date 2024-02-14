@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from './Gnb.module.css';
 import { getUserInfo } from '../../services/api';
@@ -38,7 +39,9 @@ function Gnb() {
   return (
     <nav className={navClasses}>
       <div className={containerClasses}>
-        <img className={logoClasses} src={logo} alt="logo" />
+        <Link to="/">
+          <img className={logoClasses} src={logo} alt="logo" />
+        </Link>
         {userInfo ? (
           <div className={profileClasses}>
             <img className={profileImgClasses} src={userProfileImg} alt="profile-img" />
