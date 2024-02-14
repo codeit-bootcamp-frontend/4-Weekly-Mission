@@ -1,13 +1,11 @@
 import { useState } from 'react';
-import * as S from './App.styles';
 import { getFolder } from '../../utils/api';
-import Navbar from '../../components/Navbar/Navbar';
 import UserProfile from '../../components/UserProfile/UserProfile';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import Cards from '../../components/Cards/Cards';
-import Footer from '../../components/Footer/Footer';
+import * as S from './Home.styles';
 
-const Main = () => {
+const Home = () => {
   const [folder, setFolder] = useState({});
   const { owner, links, name } = folder;
 
@@ -22,7 +20,6 @@ const Main = () => {
 
   return (
     <S.AppLayout>
-      <Navbar loginButtonClick={fetchFolder} />
       <S.HomeSection>
         {owner && (
           <UserProfile
@@ -39,9 +36,8 @@ const Main = () => {
           {links && <Cards links={links} />}
         </S.MainBox>
       </S.MainLayout>
-      <Footer />
     </S.AppLayout>
   );
 };
 
-export default Main;
+export default Home;
