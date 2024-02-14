@@ -2,7 +2,7 @@ import style from "./CardListItem.module.css";
 import { getTimeAgo, formatDate } from "util/time";
 import noImg from "assets/noImg.png";
 
-function CardListItem({ link }) {
+export default function CardListItem({ link }) {
   return (
     <a href={link.url} target="_blank" className={style["l_col"]}>
       <div className={style.link}>
@@ -19,5 +19,3 @@ function CardListItem({ link }) {
     </a>
   );
 }
-
-export default CardListItem;

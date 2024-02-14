@@ -6,7 +6,7 @@ import { useAsync } from "hooks/useAsync";
 
 export default function Header() {
   const [user, setUser] = useState({});
-  const [loading, error, getUserAsync] = useAsync(getUser);
+  const [_, error, getUserAsync] = useAsync(getUser);
 
   const loadUser = async () => {
     const data = await getUserAsync();
@@ -44,7 +44,7 @@ export default function Header() {
           </a>
         )}
       </div>
-      {error && <div>{error.message}</div>}
+      {error?.message && <div>{error.message}</div>}
     </header>
   );
 }

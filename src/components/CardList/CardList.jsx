@@ -1,7 +1,7 @@
 import CardListItem from "components/CardListItem/CardListItem";
 import style from "./CardList.module.css";
 
-function CardList({ links }) {
+export default function CardList({ links }) {
   return (
     <div className={style.wrapper}>
       <ul className={style["l_row"]}>
@@ -13,5 +13,3 @@ function CardList({ links }) {
     </div>
   );
 }
-
-export default CardList;
