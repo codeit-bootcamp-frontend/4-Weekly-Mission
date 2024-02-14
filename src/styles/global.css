@@ -1,9 +1,9 @@
-@import './color.css';
+@import url('./color.css');
 
 * {
   box-sizing: border-box;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 body {
@@ -12,8 +12,8 @@ body {
 
 a {
   color: inherit;
-  text-decoration: none;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .hidden {
