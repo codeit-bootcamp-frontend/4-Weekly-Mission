@@ -1,10 +1,10 @@
-import './css/App.css';
+import '../src/App.css';
 import { useEffect, useState } from 'react';
-import { HeaderArea } from './HeaderArea';
-import { TopBodyArea } from './TopBodyArea';
-import { ContentsArea } from './ContentsArea';
-import { FooterArea } from './FooterArea';
-import { getLoginUserInfo, getFolder } from './apis';
+import { HeaderArea } from './components/HeaderArea';
+import { TopBodyArea } from './components/TopBodyArea';
+import { ContentsArea } from './components/ContentsArea';
+import { FooterArea } from './components/FooterArea';
+import { getLoginUserInfo, getFolder } from './utils/apis';
 
 function App() {
   const [userInfo, setUserInfo] = useState([]);

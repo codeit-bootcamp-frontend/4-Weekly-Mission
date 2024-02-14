@@ -1,5 +1,5 @@
-import './css/TopBodyArea.css';
-import codeitIcon from '../src/assets/icon-codeit.svg';
+import './TopBodyArea.css';
+import codeitIcon from '../assets/icon-codeit.svg';
 
 const ContentArea = ({ name, folderName }) => {
   return (
