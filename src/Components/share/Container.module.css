@@ -1,4 +1,8 @@
-.main_contents {
+.share_section {
+  width: 100%;
+}
+
+.share_container {
   max-width: 1060px;
   min-height: 1280px;
   background-color: var(--color-white);
@@ -14,7 +18,7 @@
 }
 
 @media (max-width: 1124px) {
-  .main_contents {
+  .share_container {
     max-width: 704px;
     min-height: 1280px;
   }
@@ -25,7 +29,7 @@
 }
 
 @media (max-width: 767px) {
-  .main_contents {
+  .share_container {
     max-width: 340px;
     min-height: 1280px;
   }

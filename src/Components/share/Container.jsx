@@ -2,6 +2,7 @@ import React from "react";
 import SearchBar from "../common/SearchBar/SearchBar";
 import Card from "./ShareCard";
 import styles from "./Container.module.css";
+import Wrapper from "../common/layout/Wrapper";
 
 function CardList({ folderObject }) {
   if (!folderObject) {
@@ -12,13 +13,15 @@ function CardList({ folderObject }) {
   const { links } = folder;
 
   return (
-    <section className={styles.main_contents}>
-      <SearchBar />
-      <div className={styles.card_list}>
-        {links.map(link => (
-          <Card key={link.id} link={link} />
-        ))}
-      </div>
+    <section className={styles.share_section}>
+      <Wrapper className={styles.share_container}>
+        <SearchBar />
+        <div className={styles.card_list}>
+          {links.map(link => (
+            <Card key={link.id} link={link} />
+          ))}
+        </div>
+      </Wrapper>
     </section>
   );
 }
