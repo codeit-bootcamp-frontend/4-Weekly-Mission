@@ -1,0 +1,29 @@
+.main-profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--Linkbrary-bg);
+  padding-top: 7.2rem;
+  padding-bottom: 4rem;
+  font-size: 1.4rem;
+  line-height: normal;
+}
+
+.main-profile-container > .folder-name {
+  font-size: 3.2rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.profile-name {
+  padding: 0.6rem 0 1rem;
+  line-height: 2.4rem;
+}
+
+.folder-profile-image {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 99rem;
+}
