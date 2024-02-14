@@ -1,0 +1,165 @@
+.SharedContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10rem;
+  gap: 4rem;
+}
+
+.SharedTitle {
+  width: 100%;
+  height: 24.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0 6rem;
+  gap: 2rem;
+  background-color: var(--bg);
+}
+
+.SharedProfile {
+  width: 6rem;
+  height: 9.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.SharedProfile > img {
+  width: 6rem;
+  height: 6rem;
+}
+
+.SharedProfile > span {
+  color: #000000;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.SharedTitle > h1 {
+  width: 18.8rem;
+  height: 4.8rem;
+  font-size: 4rem;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.SharedMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.SharedSeachBarContent {
+  width: 106rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 1.6rem;
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+}
+
+.SeachContent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.SeachContent > img {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.SeachContent > input {
+  width: 100%;
+  display: block;
+  color: #666666;
+  border: none;
+  margin-right: 1rem;
+  background-color: #f5f5f5;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.SharedSeachBarContent > img {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+/* tablet */
+@media (max-width: 1124px) {
+  .SharedMain {
+    padding: 0 3.2rem;
+  }
+
+  .SharedSeachBarContent {
+    width: 70.4rem;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .SharedContainer {
+    padding-bottom: 4rem;
+    gap: 2rem;
+  }
+
+  .SharedTitle {
+    height: 16.1rem;
+    padding: 1rem 0 4rem;
+    gap: 1rem;
+  }
+
+  .SharedProfile {
+    width: 4.9rem;
+    height: 6.3rem;
+    gap: 0.6rem;
+  }
+
+  .SharedProfile > img {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .SharedProfile > span {
+    color: #000000;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .SharedTitle > h1 {
+    width: 15rem;
+    height: 3.8rem;
+    font-size: 3.2rem;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: -0.02rem;
+  }
+
+  .SharedMain {
+    gap: 3.2rem;
+  }
+
+  .SharedSeachBarContent {
+    width: 32.5rem;
+    padding: 1.3rem 1.6rem;
+  }
+
+  .SeachContent > input {
+    width: 100%;
+    font-size: 1.4rem;
+    line-height: normal;
+  }
+
+  .SharedSeachBarContent > img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+}
