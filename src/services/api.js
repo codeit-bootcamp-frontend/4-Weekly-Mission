@@ -15,21 +15,15 @@ function createApiUrl(path) {
 export async function getUserInfo() {
   const url = createApiUrl('sample/user');
 
-  try {
-    const response = await fetch(url);
-    const result = await response.json();
-    const errorMessage = result.error;
+  const response = await fetch(url);
+  const result = await response.json();
+  const responseError = result.error;
 
-    if (!response.ok) {
-      console.error('Response falied: ', errorMessage);
-      return null;
-    }
-
-    return result;
-  } catch (error) {
-    console.error('Fetch error: ', error);
+  if (!response.ok) {
+    throw new Error(`Response Failed: ${responseError}`);
   }
-  return null;
+
+  return result;
 }
 
 // api/sample/folder
@@ -125,19 +119,13 @@ export async function getUserInfo() {
 export async function getFolderInfo() {
   const url = createApiUrl('sample/folder');
 
-  try {
-    const response = await fetch(url);
-    const result = await response.json();
-    const errorMessage = result.error;
+  const response = await fetch(url);
+  const result = await response.json();
+  const responseError = result.error;
 
-    if (!response.ok) {
-      console.error('Response falied: ', errorMessage);
-      return null;
-    }
-
-    return result;
-  } catch (error) {
-    console.error('Fetch error: ', error);
+  if (!response.ok) {
+    throw new Error(`Response Failed: ${responseError}`);
   }
-  return null;
+
+  return result;
 }
