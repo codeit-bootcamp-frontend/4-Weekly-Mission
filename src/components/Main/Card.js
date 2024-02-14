@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import './Card.css';
+import classNames from 'classnames';
+import styles from './Card.module.css';
 import timeAgo from '../../utils/timeAgo';
 import formatDate from '../../utils/formatDate';
 import NoImage from '../../assets/images/card-no-image.svg';
@@ -22,13 +23,26 @@ function Card({ createdAt, url, description, imageSource }) {
     }
   };
 
+  const cardClasses = classNames(styles.card);
+  const cardImgageClasses = classNames(styles['card-image'], 'width-full');
+  const cardTextBoxClasses = classNames(styles['card-text-box']);
+  const timeAgoClasses = classNames(styles['time-ago'], 'text-color-text');
+  const cardNameClasses = classNames(styles['card-name'], 'multiline-ellipsis');
+  const createDateClasses = classNames(styles['create-date']);
+
   return (
-    <div className="card" onClick={handleCardClick} onKeyDown={handleCardClickByEnter} role="button" tabIndex="0">
-      <div className="card-image width-full" style={backgroundImage} />
-      <div className="card-text-box">
-        <p className="time-ago text-color-text">{createdTimeAgo}</p>
-        <p className="card-name multiline-ellipsis">{description}</p>
-        <p className="create-date">{createdDate}</p>
+    <div
+      className={cardClasses}
+      onClick={handleCardClick}
+      onKeyDown={handleCardClickByEnter}
+      role="button"
+      tabIndex="0"
+    >
+      <div className={cardImgageClasses} style={backgroundImage} />
+      <div className={cardTextBoxClasses}>
+        <p className={timeAgoClasses}>{createdTimeAgo}</p>
+        <p className={cardNameClasses}>{description}</p>
+        <p className={createDateClasses}>{createdDate}</p>
       </div>
     </div>
   );
