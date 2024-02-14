@@ -13,7 +13,6 @@ function SharedHeaderContent() {
       setFolderInfo(result);
     } catch (error) {
       console.error(error);
-      setFolderInfo(null);
     }
   };
 

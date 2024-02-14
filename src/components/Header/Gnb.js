@@ -15,7 +15,6 @@ function Gnb() {
       setUserInfo(result);
     } catch (error) {
       console.error(error);
-      setUserInfo(null);
     }
   };
 
