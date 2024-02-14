@@ -1,6 +1,6 @@
 import {Fragment} from 'react';
 import Header from './Header';
-import Shared from './Shared';
+import Share from './main/Share';
 import Footer from './Footer';
 import '../css/Main.css';
 
@@ -9,7 +9,7 @@ function Main(){
   return(
     <>
       <header><Header/></header>
-      <main><Shared/></main>
+      <main><Share/></main>
       <footer><Footer/></footer>
     </>
   );
