@@ -26,74 +26,68 @@ emailInput.addEventListener("blur", function () {
   emailInput.classList.remove("error-border");
 });
 
-const passwordErrorMessage = document.querySelectorAll(
+const [passwordErrorMessages, passwordConfirmErrorMessage] = document.querySelectorAll(
   ".password-error-message"
 );
-const passwordInput = document.querySelectorAll(".password-input");
+const [passwordInputs, passwordConfirmInput] = document.querySelectorAll(".password-input");
 
-passwordInput[0].addEventListener("blur", function () {
+passwordInputs.addEventListener("blur", function () {
   const TEXT_REGEX = /[a-zA-Z]/;
   const NUMBER_REGEX = /[0-9]/;
 
   if (
-    passwordInput[0].value.length < 8 ||
-    !passwordInput[0].value.match(NUMBER_REGEX) ||
-    !passwordInput[0].value.match(TEXT_REGEX)
+    passwordInputs.value.length < 8 ||
+    !passwordInputs.value.match(NUMBER_REGEX) ||
+    !passwordInputs.value.match(TEXT_REGEX)
   ) {
-    passwordErrorMessage[0].textContent =
+    passwordErrorMessages.textContent =
       "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
-    passwordInput[0].classList.add("error-border");
+    passwordInputs.classList.add("error-border");
     return;
   }
-  passwordErrorMessage[0].textContent = "";
-  passwordInput[0].classList.remove("error-border");
-});
 
-const eyeIconChange = document.querySelectorAll(".eye-icon-change");
-
-eyeIconChange[0].addEventListener("click", function () {
-  if (passwordInput[0].type === "password") {
-    eyeIconChange[0].src = "./image/eye-on.png";
-    passwordInput[0].type = "text";
-    return;
-  }
-  eyeIconChange[0].src = "./image/eye-off.png";
-  passwordInput[0].type = "password";
-});
-
-eyeIconChange[1].addEventListener("click", function () {
-  if (passwordInput[1].type === "password") {
-    eyeIconChange[1].src = "./image/eye-on.png";
-    passwordInput[1].type = "text";
-    return;
-  }
-  eyeIconChange[1].src = "./image/eye-off.png";
-  passwordInput[1].type = "password";
+  passwordErrorMessages.textContent = "";
+  passwordInputs.classList.remove("error-border");
 });
 
 window.addEventListener("keyup", function () {
-  if (passwordInput[0].value === passwordInput[1].value){
-    passwordErrorMessage[1].textContent="";
-    passwordInput[1].classList.remove("error-border");
+  if (passwordInputs.value === passwordConfirmInput.value){
+    passwordConfirmErrorMessage.textContent="";
+    passwordConfirmInput.classList.remove("error-border");
     return;
   }
-  passwordErrorMessage[1].textContent="비밀번호가 일치하지 않아요.";
-  passwordInput[1].classList.add("error-border");
+  passwordConfirmErrorMessage.textContent="비밀번호가 일치하지 않아요.";
+  passwordConfirmInput.classList.add("error-border");
 });
 
 const signUpForm = document.querySelector(".signup-form");
-const signInBtn = document.querySelector(".signin-button")
 
-signUpForm.addEventListener("submit", function (event) {
+async function signup(event){
   event.preventDefault();
+
+  const joinData = {
+    email: emailInput.value,
+    password: passwordInputs.value,
+  };
+
   if (emailInput.classList.contains("error-border")
-      ||passwordInput[0].classList.contains("error-border")
-      ||passwordInput[1].classList.contains("error-border")){
+      ||passwordInputs.classList.contains("error-border")
+      ||passwordConfirmInput.classList.contains("error-border")){
     return;
   }
 
-  if (emailInput.value !== ""
-    &&passwordInput[1].value !== ""){
-  window.location.href = "./folder.html";
+const response = await fetch('https://bootcamp-api.codeit.kr/docs/api/sign-up', {
+    method : 'POST',
+    headers : {
+      'Content-Type' : 'application/json',
+    },
+    body : JSON.stringify(joinData),
+  });
+  
+  if (response.status === 200) {
+    const responseData = await response.json();
+    window.location.href = "./folder.html";
   }
-});
+}
+
+signUpForm.addEventListener("submit", signup);

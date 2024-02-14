@@ -1,54 +1,76 @@
 <!DOCTYPE html>
 <html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linkbrary</title>
+    <link rel="stylesheet" href="./css/sign.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linkbrary</title>
-  <link rel="stylesheet" href="./css/sign.css">
-</head>
-
-<body>
-  <div class="body-box">
-    <div class="main-position">
-      <nav class="img-box">
-        <a href="/"><img src="./image/login-logo.svg" alt="linkbrary logo"></a>
-      </nav>
-      <div class="join-us">
-        회원이 아니신가요? <a href="./signup.html">회원가입하기</a>
-      </div>
-      <form class="login-form">
-        <label for="email" class="sign-title">
-          이메일
-        </label>
-        <div class="h-12"></div>
-        <input id="email" class="input-case email-input" name="email" type="email">
-        <div class="h-24 email-error-message"></div>
-        <label for="password" class="sign-title">
-          비밀번호
-        </label>
-        <div class="h-12"></div>
-        <div class="relative">
-          <input id="password" class="input-case password-input" name="password" type="password" autoComplete="off">
-          <div class="eye-icon img-box">
-            <img class="eye-icon-change" src="./image/eye-off.png" width="100%" height="100%">
+  <body>
+    <div class="body-box">
+      <div class="main-position">
+        <nav class="img-box">
+          <a href="/"
+            ><img src="./image/login-logo.svg" alt="linkbrary logo"
+          /></a>
+        </nav>
+        <div class="join-us">
+          회원이 아니신가요? <a href="./signup.html">회원가입하기</a>
+        </div>
+        <form class="login-form">
+          <label for="email" class="sign-title"> 이메일 </label>
+          <div class="h-12"></div>
+          <input
+            id="email"
+            class="input-case email-input"
+            name="email"
+            type="email"
+          />
+          <div class="h-24 email-error-message"></div>
+          <label for="password" class="sign-title"> 비밀번호 </label>
+          <div class="h-12"></div>
+          <div class="relative">
+            <input
+              id="password"
+              class="input-case password-input"
+              name="password"
+              type="password"
+              autocomplete="off"
+            />
+            <div class="eye-icon img-box">
+              <img
+                class="eye-icon-change"
+                src="./image/eye-off.png"
+                width="100%"
+                height="100%"
+              />
+            </div>
           </div>
-        </div>
-        <div class="h-24 password-error-message"></div>
-        <button class="signin-button" type="submit">
-          로그인
-        </button>
-      </form>
-      <footer class="login-footer">
-        <div class="social-login">소셜로그인</div>
-        <div class="img-box">
-          <a href="https://www.google.com" target="_blank" rel="noreferrer noopener"><img src="./image/icon-google.svg"></a>
-          <a href="https://www.kakaocorp.com/page" target="_blank" rel="noreferrer noopener"><img src="./image/icon-kakaotalk.svg"></a>
-        </div>
-      </footer>
+          <div class="h-24 password-error-message"></div>
+          <button class="signin-button" type="submit">로그인</button>
+        </form>
+        <footer class="login-footer">
+          <div class="social-login">소셜로그인</div>
+          <div class="img-box">
+            <a
+              href="https://www.google.com"
+              target="_blank"
+              rel="noreferrer noopener"
+              ><img src="./image/icon-google.svg"
+            /></a>
+            <a
+              href="https://www.kakaocorp.com/page"
+              target="_blank"
+              rel="noreferrer noopener"
+              ><img src="./image/icon-kakaotalk.svg"
+            /></a>
+          </div>
+        </footer>
+      </div>
     </div>
-  </div>
-  <script type="module" src="./js/signin.js"></script>
-</body>
+    <script type="module" src="./js/signin.js"></script>
+    <script type="module" src="./js/eyeIcon.js"></script>
+  </body>
 </html>

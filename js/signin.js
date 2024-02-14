@@ -20,45 +20,52 @@ emailInput.addEventListener("blur", function () {
   emailInput.classList.remove("error-border");
 });
 
-const passwordErrorMessage = document.querySelector(".password-error-message");
+const passwordErrorMessages = document.querySelector(".password-error-message");
 const passwordInput = document.querySelector(".password-input");
 
 passwordInput.addEventListener("blur", function () {
   if (passwordInput.value === "") {
-    passwordErrorMessage.textContent = "비밀번호를 입력해 주세요.";
+    passwordErrorMessages.textContent = "비밀번호를 입력해 주세요.";
     passwordInput.classList.add("error-border");
     return;
   }
 
-  passwordErrorMessage.textContent = "";
+  passwordErrorMessages.textContent = "";
   passwordInput.classList.remove("error-border");
-});
-
-
-const eyeIconChange = document.querySelector(".eye-icon-change");
-
-eyeIconChange.addEventListener("click", function () {
-  if (passwordInput.type === "password"){
-    eyeIconChange.src = "./image/eye-on.png";
-    passwordInput.type = "text";
-    return;
-  }
-  eyeIconChange.src = "./image/eye-off.png";
-    passwordInput.type = "password";
 });
 
 const loginForm = document.querySelector(".login-form");
 
-loginForm.addEventListener("submit", function (event) {
+async function login(event){
   event.preventDefault();
-  if (emailInput.value !== "test@codeit.com" || passwordInput.value !== "codeit101") {
+    
+  const isMaster = emailInput.value === "test@codeit.com" && passwordInput.value === "codeit101";
+  
+  if (isMaster === false) {
     emailErrorMessage.textContent = "이메일을 확인해 주세요.";
-    passwordErrorMessage.textContent = "비밀번호를 확인해 주세요.";
+    passwordErrorMessages.textContent = "비밀번호를 확인해 주세요.";
     emailInput.classList.add("error-border");
     passwordInput.classList.add("error-border");
     return;
   }
-
-  window.location.href = "./folder.html";
   
-});
+  const testLogin = {
+    email : 'test@codeit.com',
+    password : 'sprint101',
+  }
+
+  const response = await fetch ('https://bootcamp-api.codeit.kr/docs/api/sign-in', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(testLogin),
+  });
+
+  if (response.status === 200) {
+    const responseData = await response.json();
+    window.location.href = "./folder.html";
+  }
+}
+
+loginForm.addEventListener("submit", login);
