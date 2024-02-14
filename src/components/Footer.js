@@ -6,7 +6,7 @@ import Youtube from "../assets/youtube_icon.svg";
 
 export default function Footer() {
   return (
-    <div className="footerFrame">
+    <footer className="footerFrame">
       <div className="footerContent">
         <span>©codeit - 2023</span>
         <div>
@@ -24,6 +24,6 @@ export default function Footer() {
           <img src={Insta} alt="인스타 아이콘"></img>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
