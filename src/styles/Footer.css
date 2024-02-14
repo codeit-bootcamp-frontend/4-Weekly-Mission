@@ -1,0 +1,69 @@
+@import url('./global.css');
+
+footer {
+  display: flex;
+  height: 10rem;
+  flex-direction: column;
+  flex-shrink: 0;
+  align-items: center;
+  align-self: stretch;
+  padding: 2rem 6.5rem 4rem;
+  margin-top: 7.5rem;
+  background-color: var(--black);
+}
+
+.footer-container {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  justify-content: space-between;
+  color: var(--gray-02);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.footer-privacy-faq {
+  display: flex;
+  align-items: flex-start;
+  color: var(--gray-04);
+  font-size: 1rem;
+  font-weight: 400;
+  gap: 2rem;
+}
+
+.footer-icons {
+  display: flex;
+  align-items: flex-start;
+  justify-content: right;
+  gap: 0.7rem;
+}
+
+.footer-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+@media (width <= 767px) {
+  footer {
+    padding: 2rem;
+  }
+
+  .footer-container {
+    flex-wrap: wrap;
+  }
+
+  .footer-company {
+    order: 3;
+    margin-top: 3rem;
+  }
+
+  .footer-privacy-faq {
+    width: 50%;
+    order: 1;
+  }
+
+  .footer-icons {
+    width: 50%;
+    order: 2;
+  }
+}
