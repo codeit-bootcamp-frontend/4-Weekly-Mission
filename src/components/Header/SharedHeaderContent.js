@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import './SharedHeaderContent.css';
+import classNames from 'classnames';
+import styles from './SharedHeaderContent.module.css';
 import { getFolderInfo } from '../../services/api';
 import ErrorMessage from '../Common/ErrorMessage';
 
@@ -26,16 +27,23 @@ function SharedHeaderContent() {
   const ownerName = folderInfo?.folder.owner.name ? `@${folderInfo.folder.owner.name}` : '';
   const folderName = folderInfo?.folder.name || '';
 
+  const contentClasses = classNames(styles['header-content']);
+  const contentContainerClasses = classNames(styles['header-content-container']);
+  const userClasses = classNames(styles['shared-user'], 'flex-col');
+  const userAvatarClasses = classNames(styles['shared-user-avatar']);
+  const userNameClasses = classNames(styles['shared-user-name']);
+  const folderNameClasses = classNames(styles['shared-folder-name'], 'text-center');
+
   return (
-    <div className="header-content">
-      <div className="header-content-container">
+    <div className={contentClasses}>
+      <div className={contentContainerClasses}>
         {folderInfo && (
           <div>
-            <div className="shared-user flex-col">
-              <img className="shared-user-avatar" src={ownerProfileImg} alt="ownerProfileImg" />
-              <p className="shared-user-name">{ownerName}</p>
+            <div className={userClasses}>
+              <img className={userAvatarClasses} src={ownerProfileImg} alt="ownerProfileImg" />
+              <p className={userNameClasses}>{ownerName}</p>
             </div>
-            <p className="shared-folder-name text-center">{folderName}</p>
+            <p className={folderNameClasses}>{folderName}</p>
           </div>
         )}
         {errorMessage && <ErrorMessage message={errorMessage} />}
