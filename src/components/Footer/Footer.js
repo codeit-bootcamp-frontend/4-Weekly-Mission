@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
 import facebook from '../../assets/images/akar-icons_facebook-fill.svg';
 import twitter from '../../assets/images/akar-icons_twitter-fill.svg';
@@ -7,10 +8,10 @@ import instagram from '../../assets/images/ant-design_instagram-filled.svg';
 
 function Footer() {
   const socialLinks = [
-    { id: 1, src: facebook, alt: 'facebook' },
-    { id: 2, src: twitter, alt: 'twitter' },
-    { id: 3, src: youtube, alt: 'youtube' },
-    { id: 4, src: instagram, alt: 'instagram' },
+    { id: 1, src: facebook, alt: 'facebook', href: 'https://www.facebook.com/' },
+    { id: 2, src: twitter, alt: 'twitter', href: 'https://twitter.com/' },
+    { id: 3, src: youtube, alt: 'youtube', href: 'https://www.youtube.com/' },
+    { id: 4, src: instagram, alt: 'instagram', href: 'https://www.instagram.com/' },
   ];
 
   const footerClasses = classNames(styles.footer, 'flex-row', 'position-relative', 'background-black', 'width-full');
@@ -28,7 +29,9 @@ function Footer() {
       </div>
       <div className={socialLinkClasses}>
         {socialLinks.map((link) => (
-          <img key={link.id} className={socialLinkImgClasses} src={link.src} alt={link.alt} />
+          <Link to={link.href} target="_blank">
+            <img key={link.id} className={socialLinkImgClasses} src={link.src} alt={link.alt} />
+          </Link>
         ))}
       </div>
     </footer>
