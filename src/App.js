@@ -1,10 +1,10 @@
 import "./App.css";
-import Shared from "./pages/Shared";
+import Router from "./components/common/Router";
 
 function App() {
   return (
     <>
-      <Shared />
+      <Router />
     </>
   );
 }
