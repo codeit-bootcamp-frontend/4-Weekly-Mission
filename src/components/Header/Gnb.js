@@ -22,6 +22,11 @@ function Gnb() {
     }
   };
 
+  // 로고 클릭 시 페이지 최상단으로 이동
+  const handleLogoClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   useEffect(() => {
     handleLoadUser();
   }, []);
@@ -39,7 +44,7 @@ function Gnb() {
   return (
     <nav className={navClasses}>
       <div className={containerClasses}>
-        <Link to="/">
+        <Link to="/" onClick={handleLogoClick}>
           <img className={logoClasses} src={logo} alt="logo" />
         </Link>
         {userInfo ? (
