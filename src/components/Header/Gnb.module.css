@@ -1,0 +1,52 @@
+.gnb {
+  padding: 1.8rem 3.2rem 1.7rem;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.gnb-container {
+  justify-content: space-between;
+}
+
+.gnb-logo {
+  height: 1.6rem;
+}
+
+.gnb-profile {
+  gap: 0.6rem;
+}
+
+.profile-img {
+  width: 2.8rem;
+  border-radius: 9999rem;
+}
+
+.profile-email {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .hidden {
+    display: block;
+  }
+
+  .gnb {
+    padding: 3.3rem 3.2rem 3.2rem;
+    max-width: 84.6rem;
+  }
+
+  .gnb-logo {
+    height: 2.4rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
+  .gnb {
+    padding: 3.3rem 20rem 3.2rem;
+    max-width: 192rem;
+  }
+}
