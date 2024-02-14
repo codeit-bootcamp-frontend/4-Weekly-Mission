@@ -13,14 +13,14 @@ function createApiUrl(path) {
 //   profileImageSource: "https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png",
 // };
 export async function getUserInfo() {
-  const url = createApiUrl('sample/user');
+  const url = createApiUrl('sample/use');
 
   const response = await fetch(url);
   const result = await response.json();
   const responseError = result.error;
 
   if (!response.ok) {
-    throw new Error(`Response Failed: ${responseError}`);
+    throw new Error(`User response error: ${responseError}`);
   }
 
   return result;
@@ -121,10 +121,10 @@ export async function getFolderInfo() {
 
   const response = await fetch(url);
   const result = await response.json();
-  // const responseError = result.error;
+  const responseError = result.error;
 
   if (!response.ok) {
-    throw new Error(`폴더 정보를 찾지 못했습니다.`);
+    throw new Error(`Folder response error: ${responseError}`);
   }
 
   return result;

@@ -3,18 +3,20 @@ import './Gnb.css';
 import { getUserInfo } from '../../services/api';
 import LoginButton from '../Common/LoginButton';
 import logo from '../../assets/images/logo.svg';
+import ErrorMessage from '../Common/ErrorMessage';
 
 // 글로벌 네비게이션 바
 function Gnb() {
   // 유저 정보 가져오기
   const [userInfo, setUserInfo] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleLoadUser = async () => {
     try {
       const result = await getUserInfo();
       setUserInfo(result);
     } catch (error) {
-      console.error(error);
+      setErrorMessage(error.message);
     }
   };
 
@@ -37,6 +39,7 @@ function Gnb() {
         ) : (
           <LoginButton />
         )}
+        {errorMessage && <ErrorMessage message={errorMessage} />}
       </div>
     </nav>
   );
