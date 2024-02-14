@@ -1,16 +1,20 @@
 import React from "react";
-import Card from "../../../components/Card/Card";
-import styles from "./list.module.css";
+import styles from "./cardlist.module.css";
+import Card from "components/Card/Card";
 
-function List({ items }) {
+function CardList({ items }) {
   const handleClick = (url) => {
     window.open(url, "_blank");
   };
 
+  if (items.length === 0) {
+    return <div>내용없쯤</div>;
+  }
+
   return (
     <div className={styles.container}>
       <ul className={styles.list}>
-        {items?.map((item) => (
+        {items.map((item) => (
           <li key={item.id}>
             <Card item={item} onClick={() => handleClick(`${item.url}`)} />
           </li>
@@ -20,4 +24,5 @@ function List({ items }) {
   );
 }
 
-export default List;
+
+export default CardList;
