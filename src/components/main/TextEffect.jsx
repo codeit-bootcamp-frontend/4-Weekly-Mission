@@ -1,7 +1,5 @@
-function TextEffect({className, effectText}){
-    return (
-        <span className={className}>{effectText}</span>
-    )
+function TextEffect({ className, effectText }) {
+  return <span className={className}>{effectText}</span>;
 }
 
-export default TextEffect
+export default TextEffect;

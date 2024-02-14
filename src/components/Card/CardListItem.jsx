@@ -1,25 +1,26 @@
-import CardImage from "./CardImage";
-import StarIcon from "./StarIcon";
-import CardContent from "./CardContent";
-function CardListItem({id, url, imgSrc, timeDiff, description, date, option, handleKebab, kebabStatus, setModalAction}){
-    const cardContentProps = {
-        url,
-        id,
-        timeDiff,
-        description,
-        date,
-        handleKebab,
-        kebabStatus,
-        option,
-        setModalAction
-    }
-    return (
-        <a href={url} className="content__card" >
-            <StarIcon option={option}/>
-            <CardImage imgSrc={imgSrc}/>
-           <CardContent {...cardContentProps}/>
-        </a>
-    )
+import DefalutCardImg from '../../assets/default-card-img.svg';
+import StarIcon from './StarIcon';
+import CardContent from './CardContent';
+
+function CardListItem({ url, imgSrc, option, ...cardProps}) {
+  const cardContentProps = {
+    ...cardProps,
+    option
+  }
+  return (
+    <a href={url} className='content__card'>
+      {option &&<StarIcon />}
+      <figure
+      style={{
+        background: imgSrc ? "#ffffff" : `#DDDFFF url(${DefalutCardImg}) no-repeat center`,
+      }}
+      className='content__imgBox'
+    >
+      {imgSrc && <img className='content__img' src={imgSrc} alt='카드 이미지'/>}
+    </figure>
+      <CardContent {...cardContentProps}  />
+    </a>
+  );
 }
 
 export default CardListItem;
