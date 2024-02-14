@@ -3,7 +3,7 @@ import { getProfileData } from "../../apis/api";
 import "./Profile.css";
 
 const Profile = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(undefined);
 
   const getData = async () => {
     try {
@@ -19,10 +19,20 @@ const Profile = () => {
   }, []);
 
   return (
-    <div className="Profile">
-      <img src={user.profileImageSource} alt="사용자 프로필 이미지" />
-      <span>{user.email}</span>
-    </div>
+    <>
+      {user ? (
+        <div className="Profile">
+          <img src={user.profileImageSource} alt="사용자 프로필 이미지" />
+          <span>{user.email}</span>
+        </div>
+      ) : (
+        <div>
+          <a className="loginBtn" href="#">
+            로그인
+          </a>
+        </div>
+      )}
+    </>
   );
 };
 
