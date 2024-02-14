@@ -4,7 +4,7 @@ import { facebookIcon, twitterIcon, youtubeIcon, instagramIcon } from "assets";
 
 function Footer() {
   return (
-    <footer>
+    <footer className={styles.footer}>
       <div className={styles.wrap}>
         <div className={styles.copyright}>©codeit - 2023</div>
         <div className={styles.links}>
