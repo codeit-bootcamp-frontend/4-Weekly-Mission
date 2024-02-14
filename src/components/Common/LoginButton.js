@@ -1,8 +1,11 @@
-import './LoginButton.css';
+import classNames from 'classnames';
+import styles from './LoginButton.module.css';
 import Button from './Button';
 
 function LoginButton() {
-  const button = <Button className="login-button button-background-primary button-text-light" text="로그인" />;
+  const buttonClasses = classNames(styles['login-button'], 'button-background-primary', 'button-text-light');
+
+  const button = <Button className={buttonClasses} text="로그인" />;
   return button;
 }
 
