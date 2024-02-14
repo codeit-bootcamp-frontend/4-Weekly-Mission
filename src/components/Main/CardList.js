@@ -2,17 +2,19 @@ import { useState, useEffect } from 'react';
 import './CardList.css';
 import Card from './Card';
 import { getFolderInfo } from '../../services/api';
+import ErrorMessage from '../Common/ErrorMessage';
 
 function CardList() {
   // links를 배열에 순차적으로 저장
   const [links, setLinks] = useState([]);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const fetchFolderInfo = async () => {
     try {
       const { folder } = await getFolderInfo();
       setLinks(folder.links);
     } catch (error) {
-      console.error('Fetch error:', error);
+      setErrorMessage(error.message);
     }
   };
 
@@ -31,6 +33,7 @@ function CardList() {
           imageSource={link.imageSource}
         />
       ))}
+      {errorMessage && <ErrorMessage message={errorMessage} />}
     </div>
   );
 }
