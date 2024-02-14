@@ -1,0 +1,18 @@
+header {
+  display: flex;
+  position: sticky;
+  width: 100%;
+  justify-content: center;
+  top: 0;
+  z-index: 1;
+  background: var(--gray-05);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 12.5rem;
+  height: 6rem;
+}
