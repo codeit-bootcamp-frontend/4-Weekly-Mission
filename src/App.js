@@ -1,23 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import Footer from "./components/Footer";
+import "./colors.css";
+import "./global.css";
+import NavigationBar from "./components/NavigationBar";
+import Header from "./components/Header";
+import SharedPage from "./components/SharedPage";
+import SearchBar from "./components/SearchBar";
+import CardList from "./components/CardList";
+import ReadCard from "./components/ReadCard";
+import useGetFolder from "./utils/useGetFolder";
 
 function App() {
+  const { data } = useGetFolder();
+  const { profileImage, ownerName, folderName, links } = data || {};
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavigationBar />
+      <SharedPage
+        folderInfo={
+          <Header
+            profileImage={profileImage}
+            ownerName={ownerName}
+            folderInfo={folderName}
+          />
+        }
+        searchBar={<SearchBar />}
+        cardList={
+          <CardList>
+            {links?.map((link) => (
+              <ReadCard key={link?.id} {...link} />
+            ))}
+          </CardList>
+        }
+      />
+      <Footer />
     </div>
   );
 }
