@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./css/Card.module.css";
+import styles from "./Card.module.css";
 import { formatDate, formatDateAgo } from "../../utils/DateUtils";
 import {
   Card,

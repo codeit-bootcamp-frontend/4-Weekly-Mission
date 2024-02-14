@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./css/FolderTitle.module.css";
+import styles from "./FolderTitle.module.css";
 
 function FolderTilte({ folderObject }) {
   if (!folderObject) {

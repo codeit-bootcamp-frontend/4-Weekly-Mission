@@ -1,4 +1,4 @@
-import styles from "./css/Profile.module.css";
+import styles from "./Profile.module.css";
 
 function Profile({ user }) {
   const { email, profileImageSource } = user;

@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Header from "../components/header/Header";
-import Footer from "../components/footer/Footer";
+import Header from "../components/common/header/Header";
+import Footer from "../components/common/footer/Footer";
 import { getSampeUser, getSampleFolder } from "../utils/Api";
 import FolderTilte from "../components/folderTitle/FolderTilte";
-import LinkContainer from "../components/links-container/Container";
+import LinkContainer from "../components/share/Container";
 
 function Shared() {
   // 함수 이름을 대문자로 변경
   const [user, setUser] = useState(null);
 
   const [folder, setFolder] = useState(null);
-  console.log(folder);
 
   useEffect(() => {
     getSampeUser().then(setUser);

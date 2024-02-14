@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./css/Header.module.css";
+import styles from "./Header.module.css";
 import Profile from "./Profile";
 import { Link } from "react-router-dom";
 
