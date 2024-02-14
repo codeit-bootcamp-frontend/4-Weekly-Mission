@@ -4,7 +4,7 @@ import timeAgo from '../../utils/timeAgo';
 import formatDate from '../../utils/formatDate';
 import NoImage from '../../assets/images/card-no-image.svg';
 
-function Card({ createdAt = '', url = '', description = '', imageSource = '' }) {
+function Card({ createdAt, url, description, imageSource }) {
   const createdTimeAgo = timeAgo(createdAt);
   const createdDate = formatDate(createdAt);
 
