@@ -13,7 +13,7 @@ function createApiUrl(path) {
 //   profileImageSource: "https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png",
 // };
 export async function getUserInfo() {
-  const url = createApiUrl('sample/use');
+  const url = createApiUrl('sample/user');
 
   const response = await fetch(url);
   const result = await response.json();
@@ -117,7 +117,7 @@ export async function getUserInfo() {
 //   },
 // };
 export async function getFolderInfo() {
-  const url = createApiUrl('sample/folde');
+  const url = createApiUrl('sample/folder');
 
   const response = await fetch(url);
   const result = await response.json();
