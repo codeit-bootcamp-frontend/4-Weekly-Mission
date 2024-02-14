@@ -8,7 +8,7 @@ body {
 header {
   width: 100%;
   margin: 0;
-  padding: 0;
+  padding: 15px;
   background-color: #f0f6ff;
   position: fixed;
 }
@@ -53,20 +53,17 @@ main {
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: white;
-  padding: 10px;
-  border: 1px solid #d1d0e9;
-  border-radius: 5px;
   cursor: pointer;
 }
 .profile_img {
   width: 24px;
   height: 24px;
-  border-radius: 5px;
+  border-radius: 50%;
 }
 .profile_email {
   margin: 0;
   color: #676767;
+  font-size: 15px;
 }
 main {
   width: 100%;
