@@ -1,0 +1,45 @@
+form {
+    position: relative;
+    margin-bottom: 40px;
+}
+label {
+    cursor: pointer;
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    left: 16px;
+}
+input {
+    width: 100%;
+    padding: 15px 16px 15px 42px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: #F5F5F5;
+    font-family: 'Pretendard';
+    font-size: 1.6rem;
+    color: rgba(102, 102, 102, 1);
+}
+input::placeholder {
+    font-family: 'Pretendard';
+    font-size: 1.6rem;
+    color: rgba(102, 102, 102, 1);
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration{
+	display:none;
+}
+/* 모바일 반응형 */
+@media screen and (max-width: 768px) {
+    form {
+        margin-bottom: 32px;
+    }
+    input {
+        font-size: 1.4rem;
+        padding: 13px 16px 13px 38px;
+    }
+    input::placeholder {
+        font-size: 1.4rem;
+    }
+}

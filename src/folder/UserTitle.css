@@ -1,0 +1,47 @@
+.userTitle {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0 60px 0;
+    margin-top: 93px;
+    background-color: rgba(240, 246, 255, 1);
+}
+
+.titleTop {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.titleTop img {
+    width: 60px; height: 60px;
+    margin-bottom: 5px;
+}
+.titleTop p {
+    font-family: 'Pretendard';
+    font-size: 1.6rem;
+    color: rgba(0, 0, 0, 1);
+}
+.titleTop p::before {
+    content: '@';
+}
+
+.titleBottom h2 {
+    font-family: 'Pretendard';
+    font-size: 4rem;
+    color: #000;
+}
+
+/* 모바일 반응형 */
+@media screen and (max-width: 768px) {
+    .userTitle {
+        padding: 10px 0 40px 0;
+        margin-top: 63px;
+    }
+    .titleTop {
+        margin-bottom: 10px;
+    }
+    .titleTop p {
+        font-size: 1.4rem;
+    }
+    .titleBottom h2 {
+        font-size: 3.2rem;
+    }
+}
