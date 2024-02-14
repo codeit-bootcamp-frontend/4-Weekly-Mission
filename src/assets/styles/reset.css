@@ -27,3 +27,8 @@ button {
   background-color: unset;
   cursor: pointer;
 }
+
+
+.fail_data {
+  margin: 0 auto;
+}
