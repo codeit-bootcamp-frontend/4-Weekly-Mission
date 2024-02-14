@@ -1,14 +1,22 @@
+import propTypes from 'prop-types';
 import './Header.css';
 import Gnb from './Gnb';
-import SharedHeaderContent from './SharedHeaderContent';
 
-function Header() {
+function Header({ children }) {
   return (
     <header className="header background-bg width-full">
       <Gnb />
-      <SharedHeaderContent />
+      {children}
     </header>
   );
 }
+
+Header.propTypes = {
+  children: propTypes.node,
+};
+
+Header.defaultProps = {
+  children: null,
+};
 
 export default Header;
