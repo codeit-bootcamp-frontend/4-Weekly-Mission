@@ -5,7 +5,7 @@ import searchIcon from '../../assets/images/search-icon.svg';
 function SearchBar() {
   const [value, setValue] = useState('');
 
-  const handleChange = (e) => {
+  const handleInputChange = (e) => {
     setValue(e.target.value);
   };
 
@@ -15,7 +15,7 @@ function SearchBar() {
         className="search-bar-input background-light text-color-text width-full"
         type="text"
         value={value}
-        onChange={handleChange}
+        onChange={handleInputChange}
         placeholder="링크를 검색해 보세요."
       />
       <img className="search-bar-icon position-absolute" src={searchIcon} alt="searchIcon" />
