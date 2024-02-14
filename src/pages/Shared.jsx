@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+import Header from "../components/header/Header";
+import Footer from "../components/footer/Footer";
 import { getSampeUser, getSampleFolder } from "../utils/Api";
-import FolderTilte from "../components/FolderTitle/FolderTilte";
+import FolderTilte from "../components/folderTitle/FolderTilte";
 import LinkContainer from "../components/links-container/Container";
 
 function Shared() {

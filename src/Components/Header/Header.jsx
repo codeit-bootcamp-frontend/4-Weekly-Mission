@@ -1,17 +1,18 @@
 import React from "react";
 import styles from "./css/Header.module.css";
 import Profile from "./Profile";
+import { Link } from "react-router-dom";
 
 function Header({ user }) {
   return (
     <header className={styles.header}>
-      <a href="/">
+      <Link to="/">
         <img
           src="Icons/logo.svg"
           type="image/svg+xml"
           alt="Header_logo"
         />
-      </a>
+      </Link>
       {user ? (
         <Profile user={user} />
       ) : (
