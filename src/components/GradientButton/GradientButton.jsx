@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledButton = styled.button`
+const GradientButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,4 +13,4 @@ const StyledButton = styled.button`
   cursor: pointer;
 `;
 
-export default StyledButton;
+export default GradientButton;

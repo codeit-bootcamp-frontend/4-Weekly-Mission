@@ -12,7 +12,7 @@ const Footer = () => {
         <S.FooterSnsMapNav>
           {SNS_LIST.map(sns => (
             <a key={sns} href={`https://${sns}.com`} target='_blank' rel='noreferrer noopener'>
-              <S.FooterSnsMapImage src={`/icons/${sns}-logo.svg`} alt={sns} />
+              <S.FooterSnsMapImage src={`assets/icons/${sns}-logo.svg`} alt={sns} />
             </a>
           ))}
         </S.FooterSnsMapNav>

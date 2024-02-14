@@ -13,9 +13,15 @@ export const GlobalStyle = createGlobalStyle`
     flex-direction: column;
     align-items: center;
     width: 100vw;
+    height:100vh;
     margin: 0;
     font-family: sans-serif;
     background: var(--color-gray-100);
+}
+
+#root{
+width:100vw;
+height:100vh;
 }
 
   :root{
@@ -35,3 +41,10 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration:none;
   }
 `;
+// @media screen and(width >= 375px) and(width <= 767px) {
+//   br {
+//     display: inline - block;
+//     padding: 0 1rem;
+//     content: ' ';
+//   }
+//

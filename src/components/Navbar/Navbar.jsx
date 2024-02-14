@@ -25,7 +25,7 @@ const Navbar = ({ loginButtonClick }) => {
   return (
     <S.NavbarHeader>
       <S.NavbarHeaderBox>
-        <img src='/icons/linkbrary-logo.svg' alt='linkbrary' />
+        <img src='assets/icons/linkbrary-logo.svg' alt='linkbrary' />
         {hasUser ? (
           <UserProfile title={user.email} image={{ URL: user.profileImageSource, size: '2rem' }} />
         ) : (
