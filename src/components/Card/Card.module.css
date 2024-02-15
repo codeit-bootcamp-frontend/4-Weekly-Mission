@@ -21,6 +21,7 @@
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .link:hover .link-cover img {
@@ -42,6 +43,12 @@
   width: 100%;
   object-fit: cover;
   transition: 0.1s linear;
+}
+
+.link-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .link-title {
@@ -67,6 +74,17 @@
 .link-date {
   margin-top: 10px;
   font-size: 1.2rem;
+}
+
+.likeBtn {
+  background-color: initial;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.kebabBtn {
+  background-color: initial;
 }
 
 @media (max-width: 1199px) {
