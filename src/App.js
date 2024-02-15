@@ -33,8 +33,8 @@ function App() {
           searchBar={<SearchBar />}
           cardList={
             <CardList>
-              {items?.map((items) => (
-                <OnlyCard key={items?.id} items={items} {...items} />
+              {items?.map((item) => (
+                <OnlyCard key={item.id} items={item} {...item} />
               ))}
             </CardList>
           }
