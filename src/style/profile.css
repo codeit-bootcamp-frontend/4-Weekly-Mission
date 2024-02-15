@@ -1,0 +1,11 @@
+.profile-container {
+  display: flex;
+}
+.userImg {
+  width: 28px;
+  height: 28px;
+  align-self: center;
+}
+.userEmail {
+  font-size: 14px;
+}
