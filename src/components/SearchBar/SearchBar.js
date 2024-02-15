@@ -1,14 +1,9 @@
-import SearchIcon from "../../assets/images/Search.svg";
 import "./SearchBar.css";
 
 const SearchBar = () => {
   return (
     <div className="searchBar">
-      <img
-        src={SearchIcon}
-        alt="검색창 돋보기 아이콘"
-        className="searchBar-icon"
-      />
+      <div className="searchBar-icon"></div>
       <input
         className="searchBar-input"
         type="search"
