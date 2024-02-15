@@ -1,8 +1,32 @@
 import "./css/Footer.css";
-import facebook from "../images/facebook.svg";
-import twitter from "../images/twitter.svg";
-import youtube from "../images/youtube.svg";
-import instagram from "../images/instagram.svg";
+import Icon from "./Icon";
+import facebooklogo from "../images/facebook.svg";
+import twitterlogo from "../images/twitter.svg";
+import youtubelogo from "../images/youtube.svg";
+import instagramlogo from "../images/instagram.svg";
+
+const MEDIA_LINK = [
+  {
+    type: "facebook",
+    link: "https://www.facebook.com/",
+    logo: facebooklogo,
+  },
+  {
+    type: "twitter",
+    link: "https://twitter.com/",
+    logo: twitterlogo,
+  },
+  {
+    type: "youtube",
+    link: "https://www.youtube.com/",
+    logo: youtubelogo,
+  },
+  {
+    type: "instgram",
+    link: "https://www.instagram.com/",
+    logo: instagramlogo,
+  },
+];
 
 function Footer() {
   return (
@@ -14,18 +38,9 @@ function Footer() {
           <span class="grid-center"> FAQ </span>
         </div>
         <div class="right">
-          <a href="https://www.facebook.com/">
-            <img src={facebook} alt="facebook" />
-          </a>
-          <a href="https://twitter.com/">
-            <img src={twitter} alt="twitter" />
-          </a>
-          <a href="https://www.youtube.com/">
-            <img src={youtube} alt="youtube" />
-          </a>
-          <a href="https://www.instagram.com/">
-            <img src={instagram} alt="instagram" />
-          </a>
+          {MEDIA_LINK.map((media) => (
+            <Icon mediaType={media} />
+          ))}
         </div>
       </div>
     </footer>
