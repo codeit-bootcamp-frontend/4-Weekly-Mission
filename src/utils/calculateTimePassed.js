@@ -10,13 +10,13 @@ export const calculateTimePassed = (createdAt) => {
   const YEARS_TO_MONTHS = Math.round(YEARS_PASSED * 12);
 
   if (MINUTES_PASSED < 2) return `1 minute ago`;
-  else if (MINUTES_PASSED <= 59) return `${MINUTES_PASSED} minutes ago`;
-  else if (HOURS_PASSED <= 1) return `1 hour ago`;
-  else if (HOURS_PASSED <= 23) return `${HOURS_PASSED} housrs ago`;
-  else if (DAYS_PASSED <= 1) return `1 day ago`;
-  else if (DAYS_PASSED <= 30) return `${DAYS_PASSED} days ago`;
-  else if (MONTHS_PASSED <= 1) return `1 month ago`;
-  else if (YEARS_TO_MONTHS <= 11) return `${YEARS_TO_MONTHS} months ago`;
-  else if (YEARS_PASSED < 2) return `1 year ago`;
-  else return `${Math.trunc(YEARS_PASSED)} years ago`;
+  if (MINUTES_PASSED <= 59) return `${MINUTES_PASSED} minutes ago`;
+  if (HOURS_PASSED <= 1) return `1 hour ago`;
+  if (HOURS_PASSED <= 23) return `${HOURS_PASSED} housrs ago`;
+  if (DAYS_PASSED <= 1) return `1 day ago`;
+  if (DAYS_PASSED <= 30) return `${DAYS_PASSED} days ago`;
+  if (MONTHS_PASSED <= 1) return `1 month ago`;
+  if (YEARS_TO_MONTHS <= 11) return `${YEARS_TO_MONTHS} months ago`;
+  if (YEARS_PASSED < 2) return `1 year ago`;
+  return `${Math.trunc(YEARS_PASSED)} years ago`;
 };
