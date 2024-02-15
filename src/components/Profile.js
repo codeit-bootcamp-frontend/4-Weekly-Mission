@@ -1,14 +1,14 @@
 import "../styles/Profile.css";
 
-export const Profile = ({ profile }) => {
+export const Profile = ({ profileImageSource, email }) => {
   return (
     <div className="Profile">
       <img
         className="Profile-image"
-        src={profile.profileImageSource}
+        src={profileImageSource}
         alt="프로필 이미지"
       />
-      <span className="Profile-email">{profile.email}</span>
+      <span className="Profile-email">{email}</span>
     </div>
   );
 };

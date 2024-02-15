@@ -35,7 +35,7 @@ function NavigationBar() {
           />
         </a>
         {userData ? (
-          <Profile profile={userData} />
+          <Profile {...userData} />
         ) : (
           <button className="NavigationBar-signin">로그인</button>
         )}
