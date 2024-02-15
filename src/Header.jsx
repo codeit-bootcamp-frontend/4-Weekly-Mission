@@ -1,7 +1,23 @@
+import { useState, useEffect } from 'react';
+
+import { getFolder } from './apis/api';
+
 import './Header.css';
 
-const Header = ({items}) => {
-  const isShowFolderInfos = items && items.owner && items.name;
+const Header = () => {
+  const [folders, setFolders] = useState({});
+
+  useEffect(() => {
+    const fetchFolder = async () => {
+      const { folder } = await getFolder();
+      
+      setFolders(folder);
+    };
+
+    fetchFolder();
+  }, []);
+
+  const isShowFolderInfos = folders && folders.owner && folders.name;
 
   return (
     <div className='container-header'>
@@ -9,13 +25,13 @@ const Header = ({items}) => {
         <div className='user_ly'>
           {isShowFolderInfos ? (
             <div className='avatar_ly'>
-                <img className="avatar-img" src={items.owner.profileImageSource} alt={`${items.owner.name} 아바타`}/>
-                <span className='avatar-name'>{items.owner.name}</span>
+                <img className="avatar-img" src={folders.owner.profileImageSource} alt={`${folders.owner.name} 아바타`}/>
+                <span className='avatar-name'>{folders.owner.name}</span>
             </div>
           ) : (
             <button className='login-button'>회원가입</button>
           )}
-          <span className='favorite'>{items.name}</span>
+          <span className='favorite'>{folders.name}</span>
         </div>
       </div>
     </div>

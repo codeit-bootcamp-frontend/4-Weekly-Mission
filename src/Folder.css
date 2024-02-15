@@ -32,3 +32,21 @@
   align-items: flex-start;
   gap: 20px;
 }
+
+.card-empty {
+  display: flex;
+  height: 100px;
+  padding: 0px 98px;
+  justify-content: center;
+  align-items: center;
+  
+  color: #000;
+  text-align: center;
+
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
