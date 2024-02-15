@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar/NavBar.js";
 import getUserData from "./getUserData.js";
 import { SearchBar } from "./components/SearchBar/SearchBar.js";
 import PageBody from "./components/PageBody/PageBody.js";
+import Folder from "./components/Folder/Folder.js";
 import { CardList } from "./components/CardList/CardList.js";
 import "./global.css";
 
@@ -27,9 +28,8 @@ const App = () => {
   return (
     <>
       <NavBar profile={profile} />
-      <main>
-        <PageBody searchBar={<SearchBar />} cardList={<CardList />} />
-      </main>
+      <Folder />
+      <PageBody searchBar={<SearchBar />} cardList={<CardList />} />
       <Footer />
     </>
   );
