@@ -13,6 +13,7 @@ function Profile() {
           <img
             className={styles.profile_avatar_image}
             src={folderData?.folder.owner.profileImageSource}
+            alt="profile_avatar_image"
           />
           <div className={styles.profile_name}>
             {folderData?.folder.owner.name}

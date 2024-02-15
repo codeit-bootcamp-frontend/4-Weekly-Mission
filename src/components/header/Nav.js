@@ -14,6 +14,7 @@ function Nav() {
           <img
             className={styles.header_logo}
             src={`${process.env.PUBLIC_URL}/assets/images/nav_logo.svg`}
+            alt="Linkbrary_logo"
           />
         </a>
         <div className={styles.profile_wrapper}>
@@ -23,6 +24,7 @@ function Nav() {
             <>
               <img
                 src={`${process.env.PUBLIC_URL}/assets/images/profile_image.svg`}
+                alt="user_profile_image"
               />
               <p className={styles.profile_email}>{userData.email}</p>
             </>

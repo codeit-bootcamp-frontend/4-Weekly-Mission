@@ -9,6 +9,7 @@ function LinkSearchInput() {
       <img
         src={`${process.env.PUBLIC_URL}/assets/images/search_icon.svg`}
         className={styles.search_icon}
+        alt="search_icon"
       />
     </>
   );
