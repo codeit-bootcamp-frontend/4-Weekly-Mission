@@ -1,0 +1,16 @@
+.footerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: var(--black);
+  height: 16rem;
+  width: 100%;
+}
+
+.footerItem {
+  color: var(--text-content-gray);
+  font-size: 1rem;
+  display: flex;
+  margin-top: 4rem;
+  gap: 1rem;
+}

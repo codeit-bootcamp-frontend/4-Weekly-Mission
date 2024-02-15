@@ -1,0 +1,21 @@
+.profile {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+}
+
+.profileImage {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.profileEmail {
+  display: none;
+  font-size: 14px;
+  color: var(--gray100);
+
+  @media (min-width: 768px) {
+    display: inline;
+  }
+}
