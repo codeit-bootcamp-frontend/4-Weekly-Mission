@@ -1,5 +1,5 @@
 import "./CardContent.css";
-import { getElapsedTime } from "../../utils/getElapsedTime";
+import { getElapsedTime } from "../../../utils/getElapsedTime";
 
 function formatDate(value) {
   const date = new Date(value);
