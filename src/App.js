@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import Footer from "./components/Footer/Footer.js";
 import NavBar from "./components/NavBar/NavBar.js";
 import getUserData from "./getUserData.js";
-import "./global.css";
 import { SearchBar } from "./components/SearchBar/SearchBar.js";
+import PageBody from "./components/PageBody/PageBody.js";
+import { CardList } from "./CardList/CardList.js";
+import "./global.css";
 
 const App = () => {
   const [profile, setProfile] = useState(null);
@@ -21,11 +23,12 @@ const App = () => {
     };
     fetchData();
   }, []);
+
   return (
     <>
       <NavBar profile={profile} />
       <main>
-        <SearchBar />
+        <PageBody searchBar={<SearchBar />} cardList={<CardList />} />
       </main>
       <Footer />
     </>

@@ -1,0 +1,26 @@
+.CardList {
+  display: grid;
+  grid-template-columns: repeat(32.5rem);
+  justify-content: center;
+  width: 100%;
+  max-width: 106rem;
+  row-gap: 2rem;
+}
+
+.Card {
+  display: flex;
+  flex-direction: column;
+  width: 32.5rem;
+  height: 32.7rem;
+  box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
+  border-radius: 1.5rem;
+}
+
+.CardImage {
+  width: 100%;
+  min-height: 19.2rem;
+  height: 19.2rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+  background-position: center;
+  background-size: 100%;
+}
