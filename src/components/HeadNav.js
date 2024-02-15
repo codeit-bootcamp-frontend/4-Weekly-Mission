@@ -7,7 +7,7 @@ import { acceptDataFromApi } from "Api";
 const ProfileData = function () {
 	const [loginStatus, setLoginStatus] = useState(false);
 	const [accountEmail, setAccountEmail] = useState("");
-	const [profileImg, setProfileIMg] = useState("navProfile.png");
+	const [profileImg, setProfileIMg] = useState("nav-profile.png");
 
 	const user = "user";
 	const accountVerification = async (user) => {
@@ -26,14 +26,14 @@ const ProfileData = function () {
 	return (
 		<>
 			{loginStatus && (
-				<div className="navProfile">
+				<div className="nav-profile">
 					<img src={profileImg} alt="loggedInProfileImg" />
 					{accountEmail}
 				</div>
 			)}
 
 			{!loginStatus && (
-				<a href="html/signin.html" className="defaultBtn">
+				<a href="html/signin.html" className="default-btn">
 					로그인
 				</a>
 			)}
@@ -44,7 +44,7 @@ const ProfileData = function () {
 export default function HeadNav() {
 	return (
 		<nav>
-			<div className="flexibleHeaderInTablet">
+			<div className="flexible-header-in-tablet">
 				<a href="index.html">
 					<img src="logo.svg" alt="Linkbrary Logo" />
 				</a>

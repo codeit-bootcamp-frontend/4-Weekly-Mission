@@ -31,7 +31,7 @@ const timePassedFromCreate = (time) => {
 };
 
 const NoCardImg = () => {
-	return <div className="noCardImg"></div>;
+	return <div className="no-card-img"></div>;
 };
 
 const FolderCard = function ({ contents }) {
@@ -41,13 +41,19 @@ const FolderCard = function ({ contents }) {
 	const passedTime = timePassedFromCreate(createdAt);
 
 	return (
-		<a href={url} target="_blank" rel="noreferrer" className="cardBox" key={id}>
+		<a
+			href={url}
+			target="_blank"
+			rel="noreferrer"
+			className="card-box"
+			key={id}
+		>
 			{imageSource && <div style={cardImage} />}
 			{!imageSource && <NoCardImg />}
-			<section className="cardText">
-				<p className="cardEditedTime">{passedTime}</p>
-				<p className="cardContents">{description}</p>
-				<p className="cardEditedDate">{createdAt}</p>
+			<section className="card-text">
+				<p className="card-passed-time">{passedTime}</p>
+				<p className="card-contents">{description}</p>
+				<p className="card-edited-date">{createdAt}</p>
 			</section>
 		</a>
 	);
@@ -70,7 +76,7 @@ const FolderData = function (folderData) {
 	return (
 		<main>
 			<FolderSearchBar />
-			<section className="folderCardGrid">
+			<section className="folder-card-grid">
 				{items.map((item) => (
 					<FolderCard key={item.id} contents={item} />
 				))}

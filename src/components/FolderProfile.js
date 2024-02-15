@@ -30,10 +30,10 @@ const FolderProFile = function () {
 	}, [folderName, folderImg, folderAccountName]);
 
 	return (
-		<section className="folderPageProfile">
+		<section className="folder-page-profile">
 			<img src={folderImg} alt="testingAccount" />
-			<p className="userName">{`${folderAccountName}`}</p>
-			<p className="folderName">{`${folderName}`}</p>
+			<p className="user-name">{`${folderAccountName}`}</p>
+			<p className="folder-name">{`${folderName}`}</p>
 		</section>
 	);
 };

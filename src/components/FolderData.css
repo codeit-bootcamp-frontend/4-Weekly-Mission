@@ -5,7 +5,7 @@ main {
 	max-width: 1124px;
 }
 
-.folderCardGrid {
+.folder-card-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	justify-items: center;
@@ -17,7 +17,7 @@ main {
 		max-width: 768px;
 	}
 
-	.folderCardGrid {
+	.folder-card-grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
@@ -28,7 +28,7 @@ main {
 		padding: 20px 32px;
 	}
 
-	.folderCardGrid {
+	.folder-card-grid {
 		grid-template-columns: 1fr;
 	}
 }

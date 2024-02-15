@@ -5,18 +5,18 @@ nav {
 	top: 0;
 }
 
-.flexibleHeaderInTablet {
+.flexible-header-in-tablet {
 	display: flex;
 	padding: 20px 200px;
 	align-items: center;
 	justify-content: space-between;
 }
 
-.defaultBtn {
+.default-btn {
 	width: 128px;
 }
 
-.navProfile {
+.nav-profile {
 	color: var(--LBrary-Gray100);
 	display: flex;
 	align-items: center;
@@ -25,7 +25,7 @@ nav {
 	font-weight: 400;
 }
 
-.navProfile img {
+.nav-profile img {
 	width: 28px;
 	height: 28px;
 	border-radius: 50%;
@@ -36,7 +36,7 @@ nav {
 		margin: 0;
 	}
 
-	.flexibleHeaderInTablet {
+	.flexible-header-in-tablet {
 		width: 100%;
 		padding: 20px 32px;
 		margin: 0 auto;
@@ -49,15 +49,15 @@ nav {
 		width: 88.6px;
 	}
 
-	.navProfile {
+	.nav-profile {
 		font-size: 0;
 	}
 
-	.navProfile > img {
+	.nav-profile > img {
 		width: auto;
 	}
 
-	.defaultBtn {
+	.default-btn {
 		width: 80px;
 		font-size: 1.4rem;
 		padding: 10px 16px;
