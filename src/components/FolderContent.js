@@ -2,13 +2,11 @@ import '../styles/FolderContent.css';
 import SearchBar from '../components/SearchBar';
 import CardList from '../components/CardList';
 
-function FolderContent() {
-
-
+const FolderContent = ({ folderInfo }) => {
   return (
     <div className="folder-content">
       <SearchBar />
-      <CardList />
+      <CardList folderInfo={folderInfo} />
     </div>
   );
 }

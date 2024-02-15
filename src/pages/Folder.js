@@ -29,7 +29,7 @@ const Folder = () => {
       <Header userInfo={user} />
 
       <FolderInfo folderInfo={folder} />
-      <FolderContent />
+      <FolderContent folderInfo={folder} />
 
       <Footer />
     </div>
