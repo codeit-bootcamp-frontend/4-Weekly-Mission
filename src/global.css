@@ -7,6 +7,18 @@
   word-break: keep-all;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  @media (max-width: 1143px) {
+    flex: 1;
+  }
+}
+
 :root {
   --primary: #6d6afe;
   --red: #ff5b56;

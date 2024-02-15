@@ -10,6 +10,7 @@ export default function Card({ data }) {
           src={data.imageSource || "images/card-default.png"}
           alt="card"
         />
+        <img className="card-star" src="images/star.svg" alt="star"></img>
       </div>
       <div className={"card-information-area"}>
         <div className="card-time">

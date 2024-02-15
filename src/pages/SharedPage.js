@@ -3,7 +3,7 @@ import Cards from "../components/Cards";
 import SearchBar from "../components/SearchBar";
 import { fetchSampleFolder } from "../api";
 import "./SharedPage.css";
-import SharedFrame from "../components/SharedFrame";
+import SharedPageHeader from "../components/SharedPageHeader";
 
 export default function FolderView() {
   const [folder, setFolder] = useState(null);
@@ -26,7 +26,7 @@ export default function FolderView() {
   return (
     <>
       <div className="shared-page-frame">
-        <SharedFrame folder={folder} />
+        <SharedPageHeader folder={folder} />
       </div>
       <div className="container">
         <div className="shared-page-contents">

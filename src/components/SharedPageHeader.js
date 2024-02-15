@@ -1,6 +1,6 @@
-import "./SharedFrame.css";
+import "./SharedPageHeader.css";
 
-export default function SharedFrame({ folder }) {
+export default function SharedPageHeader({ folder }) {
   return (
     <div className="folder-info-view">
       <div className="info-box">

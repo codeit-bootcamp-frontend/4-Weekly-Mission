@@ -25,7 +25,9 @@ function App() {
   return (
     <div className="App">
       <Navbar profile={profile} />
-      <Outlet />
+      <div className="content">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
