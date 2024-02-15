@@ -9,12 +9,12 @@ function App() {
   const { links, name, owner } = useSampleData('folder') || {};
 
   return (
-    <div>
+    <>
       <Nav />
       <Header folderName={name} owner={owner} />
       <CardList cardsData={links} />
       <Footer />
-    </div>
+    </>
   );
 }
 
