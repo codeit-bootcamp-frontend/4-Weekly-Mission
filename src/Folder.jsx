@@ -1,40 +1,42 @@
 import { useState, useEffect } from 'react';
+import { NavLink } from "react-router-dom";
 
-import { getLink } from './apis/api';
+import { getFolderList } from './apis/api';
 
 import SearchBar from './components/SearchBar';
-import Card from './components/Card';
 import './Folder.css';
 
 const Folder = () => {
-  const [folders, setFolders] = useState([]);
+  const [folderLists, setFolderLists] = useState([]);
 
   useEffect(() => {
-    const fetchFolder = async () => {
-      const { data } = await getLink();
-      
-      console.log(data)
-      setFolders(data);
+    const fetchFolderList = async () => {
+      const { data } = await getFolderList();
+
+      setFolderLists(data);
     };
 
-    fetchFolder();
+    fetchFolderList();
   }, []);
 
   return (
     <div className='container-folder'>
       <SearchBar className='search-bar_ly'/>
-      {folders ? (
-        <ul className='card-frame_ly'> 
-          {folders.map(({ created_at, image_source, title, description, url, id }) => (
-            <Card key={id} 
-              imgSrc={image_source}
-              title={title}
-              description={description}
-              createdAt={created_at}
-              url={url}
-            />
-          ))}
-        </ul>
+      {folderLists ? (
+        <div className='container-folder-list'>
+          <div className='folder-list'>
+            <NavLink >
+              <button className='folder-list_btn'>전체</button>
+            </NavLink>
+            {folderLists.map(({ id, name }) => (
+              <NavLink key={id}>
+                <button className='folder-list_btn'>
+                  {name}
+                </button>
+              </NavLink>
+            ))}
+          </div>
+        </div>
       ) : (
         <div className='card-empty'>저장된 링크가 없습니다</div>
       )}
