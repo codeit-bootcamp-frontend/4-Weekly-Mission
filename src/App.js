@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import folder from './pages/folder';
-import shared from './pages/shared';
+import Folder from './pages/Folder';
+import Shared from './pages/Shared';
 
 function App() {
   return (
     <div>
       <Router>
         <Routes>
-          <Route path="/shared" element={<shared />} />
-          <Route path="/folder" element={<folder />} />
+          <Route path="/shared" element={<Shared />} />
+          <Route path="/folder" element={<Folder />} />
         </Routes>
       </Router>
     </div>

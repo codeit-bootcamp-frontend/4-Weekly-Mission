@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from '../components/Header';
+import FolderHeader from '../components/FolderHeader';
 
-const folder = () => {
+const Folder = () => {
   return (
     <div>
-      <Header />
+      <FolderHeader />
       <p>나는 폴더얌</p>
     </div>
   );
 };
 
-export default folder;
+export default Folder;
