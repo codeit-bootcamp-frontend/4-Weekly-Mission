@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar/NavBar.js";
 import getUserData from "./getUserData.js";
 import { SearchBar } from "./components/SearchBar/SearchBar.js";
 import PageBody from "./components/PageBody/PageBody.js";
-import { CardList } from "./CardList/CardList.js";
+import { CardList } from "./components/CardList/CardList.js";
 import "./global.css";
 
 const App = () => {
