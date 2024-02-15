@@ -4,7 +4,7 @@ import Card from "./ShareCard";
 import styles from "./Container.module.css";
 import Wrapper from "../common/layout/Wrapper";
 
-function CardList({ folderObject }) {
+function LinkContainer({ folderObject }) {
   if (!folderObject) {
     return null;
   }
@@ -26,4 +26,4 @@ function CardList({ folderObject }) {
   );
 }
 
-export default CardList;
+export default LinkContainer;
