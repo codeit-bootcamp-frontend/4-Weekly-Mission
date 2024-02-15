@@ -5,6 +5,28 @@ import youtube from '../../assets/Images/youtube_icon.svg';
 import instagram from '../../assets/Images/instagram-icon.svg';
 
 export const MainFooter = () => {
+  const SNS_ICON = [
+    {
+      href: 'https://www.facebook.com',
+      src: facebook,
+      alt: 'facebook icon',
+    },
+    {
+      href: 'https://twitter.com',
+      src: twitter,
+      alt: 'twitter icon',
+    },
+    {
+      href: 'https://youtube.com',
+      src: youtube,
+      alt: 'youtube icon',
+    },
+    {
+      href: 'https://www.instagram.com',
+      src: instagram,
+      alt: 'instagram icon',
+    },
+  ];
   return (
     <>
       <footer>
@@ -17,27 +39,11 @@ export const MainFooter = () => {
             <a href="/faq">FAQ</a>
           </div>
           <div className="footer-icon">
-            <a href="https://www.facebook.com" target="_blank" rel="noreferrer">
-              <img src={facebook} alt="facebook icon" width="20" height="20" />
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noreferrer">
-              <img src={twitter} alt="twitter icon" width="20" height="20" />
-            </a>
-            <a href="https://youtube.com" target="_blank" rel="noreferrer">
-              <img src={youtube} alt="youtube icon" width="20" height="20" />
-            </a>
-            <a
-              href="https://www.instagram.com"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img
-                src={instagram}
-                alt="instagram icon"
-                width="20"
-                height="20"
-              />
-            </a>
+            {SNS_ICON.map(({ href, src, alt }) => (
+              <a key={alt} href={href} target="_blank" rel="noreferrer">
+                <img src={src} alt={alt} width="20" height="20"></img>
+              </a>
+            ))}
           </div>
         </div>
       </footer>
