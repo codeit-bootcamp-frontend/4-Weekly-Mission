@@ -2,7 +2,7 @@ import React from 'react';
 import defaultImage from '../../assets/Images/non_image.png';
 import { upDateStauts } from '../../assets/utils/cardUpdate';
 
-export default function SharedCard({ link }) {
+export default function Card({ link }) {
   const { imageSource, createdAt, description, url } = link;
   const date = new Date(createdAt).toLocaleDateString();
 

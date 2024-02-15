@@ -71,3 +71,58 @@ export const LinkAddButton = styled(Button)`
     top: 8px;
   }
 `;
+
+export const TitleWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 1060px;
+  margin: 40px auto 0;
+
+  @media (max-width: 1199px) {
+    width: 704px;
+  }
+
+  @media (max-width: 767px) {
+    width: 325px;
+  }
+`;
+
+export const CategoryWrapper = styled.div`
+  display: flex;
+  width: 100%;
+  flex-flow: wrap;
+  gap: 12px;
+`;
+
+export const CategoryButton = styled.button`
+  border-radius: 5px;
+  height: 39px;
+  border: 1px solid #6d6afe;
+  background-color: ${({ checked }) => (checked ? COLOR.Primary : COLOR.White)};
+  color: ${({ checked }) => (checked ? COLOR.White : COLOR.Black)};
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: 400;
+`;
+
+export const FolderAddButton = styled.button`
+  width: 79px;
+  height: 39px;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  color: ${COLOR.Primary};
+  background-color: ${COLOR.White};
+  border: 0;
+
+  @media (max-width: 767px) {
+    position: fixed;
+    width: 127px;
+    bottom: 101px;
+    left: calc(50vw - 63px);
+    color: ${COLOR.White};
+    background-color: ${COLOR.Primary};
+    border-radius: 20px;
+    padding: 8px 24px;
+  }
+`;

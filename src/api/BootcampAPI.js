@@ -42,3 +42,18 @@ export const folderDataAPI = async () => {
     return null;
   }
 };
+
+export const categoryDataAPI = async () => {
+  try {
+    const response = await fetch(`${BASEURL}/users/1/folders`);
+    if (response.ok) {
+      const { data } = await response.json();
+      return data;
+    }
+    throw new Error('데이터 불러오기 실패');
+  } catch (error) {
+    /*eslint-disable-next-line */
+    console.error(error);
+    return null;
+  }
+};
