@@ -1,12 +1,20 @@
 .header {
   background: var(--gray-color-e);
-  padding: 20px 200px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   width: 100%;
   position: fixed;
   top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.header_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1060px;
+  width: calc(100% - 400px);
+  padding: 20px 0;
+  margin: 0 auto;
 }
 
 .header .login_btn {
@@ -25,15 +33,20 @@
 }
 
 @media (max-width: 1124px) {
-  .header {
+  .header_container {
+    max-width: 750px;
+    width: 90%;
     padding: 20px 32px;
   }
 }
 
 @media (max-width: 767px) {
-  .header {
-    padding: 20px 32px;
+  .header_container {
+    max-width: 370px;
+    width: 100%;
+    padding: 20px 16px;
   }
+
   .header .login_btn {
     width: 80px;
     padding: 10px 16px;

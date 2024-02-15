@@ -1,12 +1,17 @@
-footer {
+.footer {
   width: 100%;
   height: 160px;
-  padding: 32px 104px 64px 104px;
+  background-color: var(--black-color);
+  margin-top: 60px;
+}
+
+.footer_container {
+  max-width: 1400px;
+  padding: 32px 16px 0 16px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: var(--black-color);
-  margin-top: 60px;
+  margin: 0 auto;
 }
 
 .footer_text {
@@ -39,12 +44,12 @@ footer {
 }
 
 @media (max-width: 767px) {
-  footer {
+  .footer_container {
     position: relative;
     padding: 32px 32px 64px 32px;
   }
-  footer p {
+  .footer p {
     position: absolute;
-    bottom: 50px;
+    bottom: 10px;
   }
 }
