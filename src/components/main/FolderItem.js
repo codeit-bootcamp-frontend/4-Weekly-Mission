@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../../css/FolderItem.module.css";
+import styles from "./FolderItem.module.css";
 function FolderItem({ folderTitle, folderDate, folderImageSource }) {
   const now = new Date().getTime();
   const creadtedDate = new Date(`${folderDate}`).getTime();

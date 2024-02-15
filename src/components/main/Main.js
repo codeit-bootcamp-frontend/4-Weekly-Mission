@@ -1,4 +1,4 @@
-import styles from "../../css/Main.module.css";
+import styles from "./Main.module.css";
 import LinkSearchInput from "./LinkSearchInput";
 import FolderList from "./FolderList";
 function Main() {

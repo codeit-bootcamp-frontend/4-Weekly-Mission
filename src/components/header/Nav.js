@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../../css/Nav.module.css";
-import header_logo from "../../image/header_logo.svg";
-import profile_image from "../../image/profile_image.svg";
+import styles from "./Nav.module.css";
 import NavLoginButton from "./NavLoginButoon";
 
 function Nav() {
@@ -22,14 +20,19 @@ function Nav() {
     <div className={styles.nav_wrapper}>
       <div className={styles.nav_inside_wrapper}>
         <a href="/">
-          <img className={styles.header_logo} src={header_logo} />
+          <img
+            className={styles.header_logo}
+            src={`${process.env.PUBLIC_URL}/assets/images/nav_logo.svg`}
+          />
         </a>
         <div className={styles.profile_wrapper}>
           {userEmail == undefined ? (
             <NavLoginButton />
           ) : (
             <>
-              <img src={profile_image} />
+              <img
+                src={`${process.env.PUBLIC_URL}/assets/images/profile_image.svg`}
+              />
               <p className={styles.profile_email}>{userEmail}</p>
             </>
           )}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import FolderItem from "./FolderItem";
-import styles from "../../css/FolderList.module.css";
+import styles from "./FolderList.module.css";
 function FolderList() {
   const [folderList, setFolderList] = useState({});
 

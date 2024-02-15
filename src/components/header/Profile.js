@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import styles from "../../css/Profile.module.css";
+import styles from "./Profile.module.css";
 function Profile() {
   const [userfolderName, setUserFolderName] = useState("");
   const [userProfileImageSource, setUserProfileImageSource] = useState("");

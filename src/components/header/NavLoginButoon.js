@@ -1,4 +1,4 @@
-import styles from "../../css/NavLoginButton.module.css";
+import styles from "./NavLoginButton.module.css";
 
 function NavLoginButton() {
   return <button className={styles.nav_login_button}>로그인</button>;
