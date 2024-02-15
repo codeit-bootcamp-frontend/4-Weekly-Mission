@@ -1,32 +1,15 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import defaultImage from '../../assets/Images/non_image.png';
 import { upDateStauts } from '../../assets/utils/cardUpdate';
 
 export default function SharedCard({ link }) {
   const { imageSource, createdAt, description, url } = link;
   const date = new Date(createdAt).toLocaleDateString();
-  const cardDiv = useRef(null);
-  const cardImage = useRef(null);
 
   const dataStatus = upDateStauts(createdAt);
 
-  const handleCardMouseOver = () => {
-    cardDiv.current.style.border = '2px solid #6D6AFE';
-    cardImage.current.style.transform = 'scale(1.3)';
-  };
-
-  const handleCardMouseOut = () => {
-    cardDiv.current.style.border = '0';
-    cardImage.current.style.transform = 'scale(1)';
-  };
-
   return (
-    <div
-      className="card"
-      ref={cardDiv}
-      onMouseOver={handleCardMouseOver}
-      onMouseOut={handleCardMouseOut}
-    >
+    <div className="card">
       <a href={url} target="_blank" rel="noreferrer">
         <section>
           <div className="card-image">
@@ -34,7 +17,6 @@ export default function SharedCard({ link }) {
               src={imageSource ? imageSource : defaultImage}
               className="card-data-image"
               alt="card-image"
-              ref={cardImage}
               width="340"
               height="200"
             ></img>
