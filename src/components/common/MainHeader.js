@@ -1,10 +1,13 @@
 import React from 'react';
 import logo from '../../assets/Images/logo.svg';
+import { Nav } from '../../styles/styledComponents/common';
+/*eslint-disable */
 
-export const MainHeader = ({ userProfile }) => {
+export const MainHeader = ({ userProfile, navFixed }) => {
+  console.log(navFixed);
   return (
     <>
-      <nav>
+      <Nav $navStatus={navFixed}>
         <div className="menu">
           <a href="">
             <img
@@ -32,7 +35,7 @@ export const MainHeader = ({ userProfile }) => {
             </a>
           )}
         </div>
-      </nav>
+      </Nav>
     </>
   );
 };

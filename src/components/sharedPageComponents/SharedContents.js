@@ -1,5 +1,5 @@
 import React from 'react';
-import SharedCard from './SharedCard';
+import SharedCard from '../common/SharedCard';
 import search from '../../assets/Images/Search.png';
 
 export default function SharedContents({ links }) {

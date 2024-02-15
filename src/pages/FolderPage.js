@@ -1,9 +1,14 @@
 import React from 'react';
+import { FolderHeader } from '../components/folderPageComponents/FolderHeader';
+import { MainHeader } from '../components/common/MainHeader';
+import { useOutletContext } from 'react-router-dom';
 
 export default function FolderPage() {
+  const { userProfile } = useOutletContext();
   return (
     <>
-      <div></div>
+      <MainHeader userProfile={userProfile}></MainHeader>
+      <FolderHeader></FolderHeader>
     </>
   );
 }
