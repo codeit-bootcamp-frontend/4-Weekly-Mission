@@ -2,11 +2,11 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 244px;
-  padding: 30px 624px 60px 624px;
+  height: 15.25rem;
+  padding: 1.875rem 39rem 3.75rem 39rem;
   background-color: #f0f6ff;
-  margin-top: 93px;
-  margin-bottom: 40px;
+  margin-top: 5.8125rem;
+  margin-bottom: 2.5rem;
 }
 
 .nav-item {
@@ -17,50 +17,50 @@ nav {
 }
 
 .nav .mark img {
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
 }
 
 .nav .owner-name {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 1.5rem;
 }
 
 .nav .folder-name {
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: 600;
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
   nav {
-    padding: 20px 32px;
-    margin-top: 93px;
-    margin-bottom: 20px;
+    padding: 1.25rem 2rem;
+    margin-top: 5.8125rem;
+    margin-bottom: 1.25rem;
   }
   .nav .owner-name {
-    font-size: 16px;
+    font-size: 1rem;
   }
   .nav .folder-name {
-    font-size: 40px;
+    font-size: 2.5rem;
   }
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
   nav {
-    padding: 10px 16px;
-    margin-top: 80px;
-    margin-bottom: 10px;
+    padding: 0.625rem 1rem;
+    margin-top: 5rem;
+    margin-bottom: 0.625rem;
   }
   .nav .mark img {
-    width: 40px;
-    height: 40px;
+    width: 2.5rem;
+    height: 2.5rem;
     object-fit: cover;
   }
   .nav .owner-name {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
   .nav .folder-name {
-    font-size: 32px;
+    font-size: 2rem;
   }
 }
