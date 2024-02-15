@@ -12,7 +12,7 @@ function App() {
     <>
       <Nav />
       <Header folderName={name} owner={owner} />
-      <CardList cardsData={links} />
+      <CardList cardDataList={links} />
       <Footer />
     </>
   );
