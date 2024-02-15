@@ -38,13 +38,13 @@ function getTimeAgo(createdAt) {
 }
 
 function CardItem() {
-  const [cardData, setCardData] = useState();
+  const [cardList, setCardList] = useState([]);
 
   useEffect(() => {
     const getFolderData = async () => {
       try {
-        const body = await getFolder();
-        setCardData(body.folder.links);
+        const card = await getFolder();
+        setCardList(card.folder.links);
       } catch (error) {
         console.log(error);
       }
@@ -53,30 +53,32 @@ function CardItem() {
     getFolderData();
   }, []);
 
-  return cardData ? (
-    cardData.map((data) => (
-      <a href={data.url} className="CardItem" key={data.id} target="_blank">
-        <img
-          className="cardImg"
-          src={data.imageSource || noImage}
-          alt="링크 대표 이미지"
-        />
-        <div className="descriptionBox">
-          <p className="cardTime">{getTimeAgo(data.createdAt)}</p>
-          <p className="description">
-            {data.title}
-            <br />
-            {data.description}
-          </p>
-          <p className="cardDate">
-            {new Date(data.createdAt).toLocaleDateString()}
-          </p>
-        </div>
-      </a>
-    ))
-  ) : (
-    <div>Loading...</div>
-  );
+  const isListEmpty = cardList.length === 0;
+
+  if (isListEmpty) {
+    return <div>목록이 비어 있습니다.</div>;
+  }
+
+  return cardList.map((data) => (
+    <a href={data.url} className="CardItem" key={data.id} target="_blank">
+      <img
+        className="cardImg"
+        src={data.imageSource || noImage}
+        alt="링크 대표 이미지"
+      />
+      <div className="descriptionBox">
+        <p className="cardTime">{getTimeAgo(data.createdAt)}</p>
+        <p className="description">
+          {data.title}
+          <br />
+          {data.description}
+        </p>
+        <p className="cardDate">
+          {new Date(data.createdAt).toLocaleDateString()}
+        </p>
+      </div>
+    </a>
+  ));
 }
 
 export default CardItem;

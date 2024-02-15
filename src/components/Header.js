@@ -12,11 +12,11 @@ function Header() {
   useEffect(() => {
     const getFolderData = async () => {
       try {
-        const body = await getFolder();
+        const profile = await getFolder();
         setFolderData({
-          folderName: body.folder.name,
-          profileName: body.folder.owner.name,
-          profileImg: body.folder.owner.profileImageSource,
+          folderName: profile.folder.name,
+          profileName: profile.folder.owner.name,
+          profileImg: profile.folder.owner.profileImageSource,
         });
       } catch (error) {
         console.log(error);

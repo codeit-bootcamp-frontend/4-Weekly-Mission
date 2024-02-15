@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import logo from "../assets/logo.svg";
 import { getUser } from "./Api";
+import logo from "../assets/logo.svg";
 import "./styles/Gnb.css";
 
 function Gnb() {
   const [userData, setUserData] = useState({ email: "", img: "" });
 
-  const [state, setState] = useState(false);
+  const [isUserDataLoaded, setIsUserDataLoaded] = useState(false);
 
   useEffect(() => {
     const getUserData = async () => {
       try {
-        const body = await getUser();
-        setUserData({ email: body.email, img: body.profileImageSource });
-        setState(true);
+        const user = await getUser();
+        setUserData({ email: user.email, img: user.profileImageSource });
+        setIsUserDataLoaded(true);
       } catch (error) {
         console.log(error);
       }
@@ -25,7 +25,7 @@ function Gnb() {
     <div className="Gnb">
       <img src={logo} alt="logo" />
       <div className="profileBox">
-        {state ? (
+        {isUserDataLoaded ? (
           <>
             <img
               className="profileImg"
