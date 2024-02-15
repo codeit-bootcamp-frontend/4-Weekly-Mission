@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import { CardContent } from "../CardContent/CardContent";
+import { CardContent } from "../../CardContent/CardContent";
 import CardImage from "../CardImage/CardImage";
 import Card from "../Card/Card";
 
