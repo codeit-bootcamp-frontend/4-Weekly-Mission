@@ -1,0 +1,49 @@
+@import url('../../common/button/Button.css');
+
+.login {
+  width: 3rem;
+  height: 1.06rem;
+  margin-right: 2rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+.user-data {
+  display: flex;
+}
+
+.user-data-img {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.user-data-email {
+  height: 1.75rem;
+  margin-left: 0.38rem;
+  margin-right: 2rem;
+  align-items: center;
+  color: var(--Linkbrary-gray100, #373740);
+
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media (min-width: 768px) {
+  .login {
+    width: 5.5rem;
+    height: 1.31rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .login {
+    height: 1.38rem;
+    margin-right: 12.5rem;
+  }
+}

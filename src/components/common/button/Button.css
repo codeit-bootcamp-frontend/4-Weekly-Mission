@@ -1,0 +1,22 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.625rem 1rem;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  color: white;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%)
+  );
+}
+
+@media (min-width: 768px) {
+  .button {
+    padding: 1rem 1.25rem;
+
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+}
