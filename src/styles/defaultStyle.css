@@ -57,3 +57,7 @@ button:hover {
 	position: relative;
 	align-items: center;
 }
+
+.background-decoration-color {
+	background-color: var(--LBrary-Background);
+}

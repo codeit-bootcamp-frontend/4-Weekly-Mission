@@ -12,7 +12,7 @@ nav {
 	justify-content: space-between;
 }
 
-.default-btn {
+.flexible-header-in-tablet .default-btn {
 	width: 128px;
 }
 
@@ -57,7 +57,7 @@ nav {
 		width: auto;
 	}
 
-	.default-btn {
+	.flexible-header-in-tablet .default-btn {
 		width: 80px;
 		font-size: 1.4rem;
 		padding: 10px 16px;
