@@ -2,8 +2,10 @@
 
 .cardlist {
   display: grid;
+  width: 100%;
   gap: 1.6rem 1.5rem;
   grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
 }
 
 @media (width >= 768px) and (width <= 1124px) {

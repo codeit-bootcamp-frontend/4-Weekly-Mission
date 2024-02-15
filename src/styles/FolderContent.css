@@ -3,18 +3,6 @@
 .folder-content {
   display: flex;
   flex-direction: column;
-  margin: 2.5rem 12.5rem;
+  justify-content: center;
   gap: 2.5rem;
-}
-
-@media (width >= 768px) and (width <= 1124px) {
-  .folder-content {
-    margin: 2.5rem 2rem;
-  }
-}
-
-@media (width <= 767px) {
-  .folder-content {
-    margin: 2.5rem 2rem;
-  }
 }

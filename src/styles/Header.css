@@ -51,10 +51,6 @@ nav {
 }
 
 @media (width >= 768px) and (width <= 1124px) {
-  header {
-    justify-content: center;
-  }
-
   nav {
     max-width: 56rem;
     padding: 0 2rem;

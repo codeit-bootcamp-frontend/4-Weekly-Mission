@@ -1,3 +1,4 @@
+import '../styles/Folder.css';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import FolderInfo from '../components/FolderInfo';
