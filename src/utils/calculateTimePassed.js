@@ -1,7 +1,7 @@
 export const calculateTimePassed = (createdAt) => {
   const NOW = new Date();
   const CREATED_AT = new Date(createdAt);
-  const TIME_PASSED = Date.parse(NOW) - Date.parse(CREATED_AT);
+  const TIME_PASSED = NOW - CREATED_AT;
   const MINUTES_PASSED = TIME_PASSED / 1000 / 60;
   const HOURS_PASSED = MINUTES_PASSED / 60;
   const DAYS_PASSED = HOURS_PASSED / 24;
