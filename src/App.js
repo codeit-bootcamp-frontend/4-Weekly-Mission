@@ -10,16 +10,14 @@ import OnlyCard from "./components/CardUi/OnlyCard/OnlyCard";
 
 function App() {
   const [userProfile, setUserProfile] = useState();
-  const [profile, setProfile] = useState();
-  const [folderName, setFolderName] = useState();
+  const [folderData, setFolderData] = useState();
   const [items, setitems] = useState([]);
 
   const handleLoad = async () => {
     const userData = await getUser();
     const { folder } = await getFolder();
     setUserProfile(userData);
-    setProfile(folder.owner);
-    setFolderName(folder.name);
+    setFolderData(folder);
     setitems(folder.links);
   };
   useEffect(() => {
@@ -29,7 +27,7 @@ function App() {
     <Fragment>
       <Layout userProfile={userProfile}>
         <SharePage
-          folderInfo={<FolderInfo profile={profile} folderName={folderName} />}
+          folderInfo={<FolderInfo profile={folderData} />}
           searchBar={<SearchBar />}
           cardList={
             <CardList>
