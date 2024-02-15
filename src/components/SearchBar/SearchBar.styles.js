@@ -5,7 +5,7 @@ export const SearchBarDiv = styled.div`
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  width: 48rem;
+  width: 100%;
   border-radius: 8px;
   background: #f5f5f5;
   padding: 1rem;

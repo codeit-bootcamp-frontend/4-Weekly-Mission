@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getFolder } from '../../utils/api';
 import UserProfile from '../../components/UserProfile/UserProfile';
 import SearchBar from '../../components/SearchBar/SearchBar';
@@ -17,6 +17,10 @@ const Shared = () => {
       console.error(error);
     }
   };
+
+  useEffect(() => {
+    fetchFolder();
+  }, []);
 
   return (
     <S.AppLayout>

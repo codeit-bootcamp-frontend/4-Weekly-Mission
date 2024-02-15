@@ -8,9 +8,7 @@ export const AppLayout = styled.div`
   max-width: 1920px;
 `;
 
-export const HomeSection = styled.section`
-  padding-top: 5rem;
-`;
+export const HomeSection = styled.section``;
 
 export const HomeFolderName = styled.h2`
   padding: 1rem 0;
@@ -18,8 +16,8 @@ export const HomeFolderName = styled.h2`
 
 export const MainLayout = styled.main`
   width: 100vw;
-  margin - top: 2rem;
-  background: #ffffff;
+  margin-top: 2rem;
+  background: var(--color-white);
 `;
 
 export const MainBox = styled.div`
