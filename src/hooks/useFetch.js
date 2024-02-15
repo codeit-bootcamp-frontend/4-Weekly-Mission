@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 
 export function useFetch(baseUrl) {
-  const [userData, setUserData] = useState(null);
+  const [data, setData] = useState(null);
 
   const fetchUrl = () => {
     fetch(baseUrl)
       .then((res) => res.json())
-      .then((res) => setUserData(res));
+      .then((res) => setData(res));
   };
 
   useEffect(() => {
@@ -14,6 +14,6 @@ export function useFetch(baseUrl) {
   }, []);
 
   return {
-    userData,
+    data,
   };
 }

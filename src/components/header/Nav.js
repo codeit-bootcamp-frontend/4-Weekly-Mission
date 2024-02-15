@@ -5,8 +5,8 @@ import { useFetch } from "../../hooks/useFetch";
 const userDataUrl = "https://bootcamp-api.codeit.kr/api/sample/user";
 
 function Nav() {
-  const { userData } = useFetch(userDataUrl);
-  console.log(userData);
+  const { data: userData } = useFetch(userDataUrl);
+
   return (
     <div className={styles.nav_wrapper}>
       <div className={styles.nav_inside_wrapper}>
