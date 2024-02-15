@@ -3,6 +3,7 @@ import Footer from "./components/Footer/Footer.js";
 import NavBar from "./components/NavBar/NavBar.js";
 import getUserData from "./getUserData.js";
 import "./global.css";
+import { SearchBar } from "./components/SearchBar/SearchBar.js";
 
 const App = () => {
   const [profile, setProfile] = useState(null);
@@ -23,7 +24,9 @@ const App = () => {
   return (
     <>
       <NavBar profile={profile} />
-      <main></main>
+      <main>
+        <SearchBar />
+      </main>
       <Footer />
     </>
   );
