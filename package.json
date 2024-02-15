@@ -56,7 +56,9 @@
     "prettier": "^3.2.5",
     "stylelint": "^16.2.1",
     "stylelint-config-standard": "^36.0.0",
-    "stylelint-styled-components-order": "^1.0.6"
+    "stylelint-styled-components-order": "^1.0.6",
+    "typescript": "^5.3.3",
+    "typescript-styled-plugin": "^0.18.3"
   },
   "main": "index.js",
   "repository": "https://github.com/zoonyoung/4-Weekly-Mission",
