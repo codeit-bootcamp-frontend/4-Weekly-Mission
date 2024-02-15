@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { responseUserData } from "../apis/dataFetch";
 
 const Profile = () => {
   const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
-    fetch("https://bootcamp-api.codeit.kr/api/sample/user")
-      .then((response) => response.json())
-      .then((data) => {
-        setProfileData(data);
-      })
-      .catch((error) => {
-        console.log("response 에러:", error);
-      });
+    responseUserData(setProfileData);
   }, []);
 
   if (!profileData) {
