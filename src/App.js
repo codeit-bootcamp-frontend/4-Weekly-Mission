@@ -9,9 +9,9 @@ import CardList from "./components/CardUi/CardList/CardList";
 import OnlyCard from "./components/CardUi/OnlyCard/OnlyCard";
 
 function App() {
-  const [userProfile, setUserProfile] = useState(null);
-  const [profile, setProfile] = useState(null);
-  const [folderName, setFolderName] = useState(null);
+  const [userProfile, setUserProfile] = useState();
+  const [profile, setProfile] = useState();
+  const [folderName, setFolderName] = useState();
   const [items, setitems] = useState([]);
 
   const handleLoad = async () => {
