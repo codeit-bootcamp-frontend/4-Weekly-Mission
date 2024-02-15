@@ -1,12 +1,12 @@
 import styles from "./FolderItem.module.css";
 import * as functions from "../../functions/formatTimeAgo.js";
-function FolderItem({ folderUrl, folderTitle, folderDate, folderImageSource }) {
+function FolderItem({ createdAt, url, title, imageSource }) {
   return (
-    <a href={folderUrl} className={styles.folder_link}>
+    <a href={url} className={styles.folder_link}>
       <div className={styles.folder_item_box}>
-        {folderImageSource ? (
+        {imageSource ? (
           <div className={styles.folder_image_box}>
-            <img src={folderImageSource} className={styles.folder_image} />
+            <img src={imageSource} className={styles.folder_image} />
           </div>
         ) : (
           <div className={styles.folder_image_box}>
@@ -19,10 +19,10 @@ function FolderItem({ folderUrl, folderTitle, folderDate, folderImageSource }) {
 
         <div className={styles.folder_detail_box}>
           <div className={styles.folder_createdAt}>
-            {functions.formatTimeAgo(folderDate)}
+            {functions.formatTimeAgo(createdAt)}
           </div>
-          <div className={styles.folder_title}>{folderTitle}</div>
-          <div className={styles.folder_date}>{folderDate.slice(0, 10)}</div>
+          <div className={styles.folder_title}>{title}</div>
+          <div className={styles.folder_date}>{createdAt.slice(0, 10)}</div>
         </div>
       </div>
     </a>

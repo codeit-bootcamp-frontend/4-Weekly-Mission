@@ -6,20 +6,22 @@ const folderUrl = "https://bootcamp-api.codeit.kr/api/sample/folder";
 
 function FolderList() {
   const { data: folderData } = useFetch(folderUrl);
-
+  console.log(folderData);
   return (
     <div className={styles.folder_list_wrapper}>
-      {folderData?.folder.links.map((i) => {
-        return (
-          <FolderItem
-            folderTitle={i.title}
-            folderImageSource={i.imageSource}
-            folderDate={i.createdAt}
-            folderUrl={i.url}
-            key={i.id}
-          />
-        );
-      })}
+      {folderData?.folder.links.map(
+        ({ id, createdAt, url, title, imageSource }) => {
+          return (
+            <FolderItem
+              title={title}
+              imageSource={imageSource}
+              createdAt={createdAt}
+              url={url}
+              key={id}
+            />
+          );
+        }
+      )}
     </div>
   );
 }
