@@ -1,5 +1,5 @@
-import '../styles/afterLoginPage.css';
 import Header from './header';
+import Footer from './footer';
 
 const Page = () => {
 
@@ -8,7 +8,7 @@ const Page = () => {
     <div>
       <Header />
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }
