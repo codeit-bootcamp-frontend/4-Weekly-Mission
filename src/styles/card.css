@@ -19,16 +19,29 @@
 }
 
 .card__img {
+  position: relative;
   width: 100%;
   height: 11.8125rem;
-  object-fit: cover;
   overflow: hidden;
+}
+.card__img--background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card__img--meatsball-icon {
+  width: 2.125rem;
+  height: 2.125rem;
+  position: absolute;
+  top: 0.9375rem;
+  right: 0.9375rem;
+  z-index: 2;
 }
 
 .card:hover {
   background: var(--Linkbrary-bg, #f0f6ff);
 }
-.card:hover .card__img {
+.card:hover .card__img--background {
   transform: scale(1.3);
   transition: transform 0.3s ease;
 }
@@ -41,10 +54,10 @@
   gap: 0.625rem;
   height: 135px;
 }
-.card:hover .card__texts {
-  padding: 2.5rem 1.25rem 0;
-}
+
 .card__texts--time {
+  display: flex;
+  justify-content: space-between;
   color: var(--gray40);
   font-size: 13px;
   font-style: normal;
