@@ -3,6 +3,7 @@ nav {
 	position: sticky;
 	margin: 0;
 	top: 0;
+	z-index: 1;
 }
 
 .flexible-header-in-tablet {
