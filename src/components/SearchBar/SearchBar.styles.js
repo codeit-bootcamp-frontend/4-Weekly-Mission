@@ -1,13 +1,25 @@
 import styled from 'styled-components';
+import { FaSearch } from 'react-icons/fa';
 
-export const SearchBarSection = styled.section`
+export const SearchBarDiv = styled.div`
   display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  width: 48rem;
+  border-radius: 8px;
+  background: #f5f5f5;
+  padding: 1rem;
+  margin: 3rem 0rem;
+`;
+
+export const SearchBarFaSearch = styled(FaSearch)`
+  font-size: 1.2rem;
+  color: #666666;
 `;
 
 export const SearchBarInput = styled.input`
-  padding: 1rem;
-  border: none;
-  flex-grow: 1;
-  border-radius: 8px;
-  background: var(--color-gray-300);
+  width: 100%;
+  outline: none;
+  background: #f5f5f5;
+  font-size: 1.2rem;
 `;

@@ -14,7 +14,7 @@ export const AddBarDiv = styled.div`
 `;
 
 export const AddBarLineLink = styled(HiOutlineLink)`
-  font-size: 2rem;
+  font-size: 1.4rem;
   color: var(--color-primary);
 `;
 
