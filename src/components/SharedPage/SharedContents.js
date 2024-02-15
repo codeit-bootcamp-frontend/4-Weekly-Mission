@@ -1,8 +1,8 @@
 import React from 'react';
-import Card from './card';
+import SharedCard from './SharedCard';
 import search from '../../assets/Images/Search.png';
 
-export default function Contents({ links }) {
+export default function SharedContents({ links }) {
   return (
     <article>
       <form>
@@ -22,7 +22,8 @@ export default function Contents({ links }) {
         </button>
       </form>
       <div className="content-wrapper">
-        {links && links.map((el) => <Card link={el} key={el.id}></Card>)}
+        {links &&
+          links.map((el) => <SharedCard link={el} key={el.id}></SharedCard>)}
       </div>
     </article>
   );

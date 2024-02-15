@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../assets/Images/logo.svg';
 
-export default function Header({ userProfile, folder }) {
+export const MainHeader = ({ userProfile }) => {
   return (
     <>
       <nav>
@@ -33,17 +33,6 @@ export default function Header({ userProfile, folder }) {
           )}
         </div>
       </nav>
-      <div className="folder">
-        <img
-          src={folder.userImage}
-          alt="UserImage"
-          className="folder-user-image"
-          width="60"
-          height="60"
-        ></img>
-        <p className="folder-user-name">{folder.userName}</p>
-        <p className="folder-folder-name">{folder.name}</p>
-      </div>
     </>
   );
-}
+};

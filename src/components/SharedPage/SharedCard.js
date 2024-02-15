@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import defaultImage from '../../assets/Images/non_image.png';
 
-export default function Card({ link }) {
+export default function SharedCard({ link }) {
   const { imageSource, createdAt, description, url } = link;
   const date = new Date(createdAt).toLocaleDateString();
   const cardDiv = useRef(null);

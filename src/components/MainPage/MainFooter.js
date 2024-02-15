@@ -4,7 +4,7 @@ import twitter from '../../assets/Images/twitter_icon.svg';
 import youtube from '../../assets/Images/youtube_icon.svg';
 import instagram from '../../assets/Images/instagram-icon.svg';
 
-export default function Footer() {
+export const MainFooter = () => {
   return (
     <>
       <footer>
@@ -43,4 +43,4 @@ export default function Footer() {
       </footer>
     </>
   );
-}
+};
