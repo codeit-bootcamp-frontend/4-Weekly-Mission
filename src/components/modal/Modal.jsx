@@ -6,6 +6,7 @@ import ModalSubTitle from './ModalSubTitle';
 import ModalForm from './ModalForm';
 import Button from '../Button';
 import '../../styles/modal.css';
+
 function Modal({ modalAction, setModalAction, categoryList }) {
   const categoryListLoop = categoryList.slice(1); // 전체 카테고리는 제외
   const actionScript = {

@@ -1,4 +1,4 @@
-import DefalutCardImg from '../../assets/default-card-img.svg';
+import DefalutCardImg from '../../assets/default-card.svg';
 import StarIcon from './StarIcon';
 import CardContent from './CardContent';
 

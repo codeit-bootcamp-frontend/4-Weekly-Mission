@@ -1,4 +1,4 @@
-import HeaderLogoImg from '../../assets/mainlogo.svg';
+import HeaderLogoImg from '../../assets/header-logo.svg';
 import HeaderUserInfo from './HeaderUserInfo';
 import HeaderLoginButton from './HeaderLoginButton';
 import { useEffect, useState } from 'react';

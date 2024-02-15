@@ -1,11 +1,11 @@
-import ShareImg from '../../assets/share.svg';
-import ModifyImg from '../../assets/modify.svg';
-import DeleteImg from '../../assets/delete.svg';
+import ShareIcon from '../../assets/category-share.svg';
+import ModifyIcon from '../../assets/category-modify.svg';
+import DeleteIcon from '../../assets/category-delete.svg';
 
 const imageObj = {
-  "폴더 공유": ShareImg,
-  "폴더 이름 변경": ModifyImg,
-  "폴더 삭제": DeleteImg,
+  "폴더 공유": ShareIcon,
+  "폴더 이름 변경": ModifyIcon,
+  "폴더 삭제": DeleteIcon,
 };
 
 function CategoryControlItem({ value, text, handleModalAction }) {

@@ -1,4 +1,4 @@
-import LogoImg from '../../assets/logo.svg';
+import LogoImg from '../../assets/big-logo.svg';
 import { Link } from 'react-router-dom';
 function AuthTitle({ text, action, actionText }) {
   return (

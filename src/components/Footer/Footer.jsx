@@ -1,31 +1,27 @@
-import FacebookIcon from '../../assets/facebook.svg';
-import TwitterIcon from '../../assets/twitter.svg';
-import YoutubeIcon from '../../assets/youtube.svg';
-import InstargramIcon from '../../assets/instargram.svg';
+import FacebookIcon from '../../assets/footer-facebook.svg';
+import TwitterIcon from '../../assets/footer-twitter.svg';
+import YoutubeIcon from '../../assets/footer-youtube.svg';
+import InstargramIcon from '../../assets/footer-instargram.svg';
 import '../../styles/footer.css';
 import { Link } from 'react-router-dom';
 
 const footerLinkList = [
   {
-    id: 1,
     url: 'https://facebook.com/?locale=ko_KR',
     icon: FacebookIcon,
     text: '페이스북',
   },
   {
-    id: 2,
     url: 'https://twitter.com/?lang=ko',
     icon: TwitterIcon,
     text: '트위터',
   },
   {
-    id: 3,
     url: 'https://www.youtube.com',
     icon: YoutubeIcon,
     text: '유튜브',
   },
   {
-    id: 4,
     url: 'https://www.instagram.com',
     icon: InstargramIcon,
     text: '인스타그램',
@@ -53,10 +49,10 @@ function Footer() {
       </div>
       <div className='footer_sns'>
         <ul className='footer__link'>
-          {footerLinkList.map((list) => {
-            const { id, url, icon, text } = list;
+          {footerLinkList.map((list, idx) => {
+            const { url, icon, text } = list;
             return (
-              <li key={id}>
+              <li key={idx}>
                 <a href={url} target='_blank' rel='noreferrer'>
                   <img src={icon} alt={`${text} 아이콘`} />
                 </a>

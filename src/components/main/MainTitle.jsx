@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import MainImg from '../../assets/main.png';
+import MainBackgroundImg from '../../assets/main-background.png';
 function MainTitle() {
   return (
       <main>
@@ -12,7 +12,7 @@ function MainTitle() {
           <Link className='loginBtn' to='/signin'>
             링크 추가하기
           </Link>
-          <img src={MainImg} alt='메인 이미지' />
+          <img src={MainBackgroundImg} alt='메인 배경 이미지' />
         </div>
       </main>
   );

@@ -1,4 +1,4 @@
-import AddImg from '../../assets/add.svg';
+import AddImg from '../../assets/category-add.svg';
 function CategoryAddButton({ setModalAction }) {
   const handleModalAction = () => {
     setModalAction({
