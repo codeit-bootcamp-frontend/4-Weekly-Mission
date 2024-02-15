@@ -7,7 +7,7 @@
   gap: 2.5rem;
 }
 
-@media (width >= 768px) and (width <= 1199px) {
+@media (width >= 768px) and (width <= 1124px) {
   .folder-content {
     margin: 2.5rem 2rem;
   }

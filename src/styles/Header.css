@@ -50,7 +50,7 @@ nav {
   border-radius: 50%;
 }
 
-@media (width >= 768px) and (width <= 1199px) {
+@media (width >= 768px) and (width <= 1124px) {
   header {
     justify-content: center;
   }
