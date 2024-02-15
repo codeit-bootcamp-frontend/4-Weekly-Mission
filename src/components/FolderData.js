@@ -19,7 +19,7 @@ const timePassedFromCreate = (time) => {
 
 	const timeDiffDay = Math.floor(timeDiffHr / 24); // 일
 	if (timeDiffDay === 1) return "1 day ago";
-	if (timeDiffDay < 31) return `${timeDiffDay} days ago}`;
+	if (timeDiffDay < 31) return `${timeDiffDay} days ago`;
 	if (timeDiffDay === 31) return "1 month ago";
 
 	const timeDiffMonth = Math.floor(timeDiffDay / 30); // 월

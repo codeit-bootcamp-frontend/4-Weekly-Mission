@@ -7,14 +7,14 @@ const FolderProFile = function () {
 	const [folderImg, setFolderImg] = useState("favicon.png");
 	const [folderAccountName, setFolderAccountName] = useState("USER_NAME");
 
-	const folder = "folder";
-	const user = "user";
+	const FOLDER = "folder";
+	const USER = "user";
 	const loadFolderAccountName = async (parameter) => {
-		const receivedData = await acceptDataFromApi(parameter);
-		if (!receivedData) return;
+		const { name, profileImageSource } = await acceptDataFromApi(parameter);
+		if (!name || !profileImageSource) return;
 
-		setFolderAccountName(receivedData.name);
-		setFolderImg(receivedData.profileImageSource);
+		setFolderAccountName(name);
+		setFolderImg(profileImageSource);
 	};
 
 	const loadFolderProfileData = async (parameter) => {
@@ -25,8 +25,8 @@ const FolderProFile = function () {
 	};
 
 	useEffect(() => {
-		loadFolderAccountName(user);
-		loadFolderProfileData(folder);
+		loadFolderAccountName(USER);
+		loadFolderProfileData(FOLDER);
 	}, [folderName, folderImg, folderAccountName]);
 
 	return (
