@@ -1,11 +1,7 @@
 import "./Card.css";
 
-function Card({ children, onMouseOver, onMouseLeave }) {
-  return (
-    <div className="Card" onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
-      {children}
-    </div>
-  );
+function Card({ children }) {
+  return <div className="Card">{children}</div>;
 }
 
 export default Card;

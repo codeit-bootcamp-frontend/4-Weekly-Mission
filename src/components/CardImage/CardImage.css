@@ -11,8 +11,8 @@
     min-height: 20rem;
     height: 20rem;
   }
-}
 
-.CardImage.CardImage-zoom-in {
-  background-size: 130%;
+  &:hover {
+    background-size: 130%;
+  }
 }

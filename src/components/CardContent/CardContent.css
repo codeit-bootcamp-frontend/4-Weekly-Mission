@@ -1,4 +1,18 @@
-.CardContent-elapsed-time {
+.CardContent {
+  height: 100%;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: var(--light-blue);
+  }
+}
+
+.cardContent-elapsed-time {
   font-size: 1.3rem;
   color: var(--text-content-gray);
 }
@@ -18,18 +32,4 @@
 .CardContent-created-at {
   font-size: 1.4rem;
   color: var(--text-content-black);
-}
-
-.CardContent {
-  height: 100%;
-  padding: 1.5rem 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 1rem;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.CardContent.CardContent-hovered {
-  background-color: var(--light-blue);
 }
