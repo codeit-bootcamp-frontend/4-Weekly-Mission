@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./global.css";
+import { PageBody } from "./layout/PageBody";
+import { Layout } from "./layout/Pagelayout/Layout";
+import { PageInfo } from "./layout/PageBody/Contain/PageInfo";
+import { SearchBar } from "./layout/PageBody/Contain/Serch";
+import { CardList } from "./layout/PageBody/Contain/Card/CardList";
+import { useGetPages } from "./data/useGetPages";
+import { ReadOnlyCard } from "./layout/PageBody/Contain/ReadOnlyCard";
 
 function App() {
+  const { data } = useGetPages();
+  const { profileImage, ownerName, pageName, links } = data;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <PageBody
+        PageInfo={
+          <PageInfo
+            profileImage={profileImage}
+            ownerName={ownerName}
+            pageName={pageName}
+          />
+        }
+        searchBar={<SearchBar />}
+        cardList={
+          <CardList>
+            {links?.map((link) => (
+              <ReadOnlyCard key={link?.id} {...link} />
+            ))}
+          </CardList>
+        }
+      />
+    </Layout>
   );
 }
 
