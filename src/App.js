@@ -1,14 +1,18 @@
 import Header from "./components/header/Header";
-import Main from "./components/main/Main";
+import LinkSearchInput from "./components/main/LinkSearchInput";
+import FolderList from "./components/main/FolderList";
 import Footer from "./components/footer/Footer";
-
+import "./App.css";
 function App() {
   return (
-    <div className="App">
+    <>
       <Header />
-      <Main />
+      <div className="main_wrapper">
+        <LinkSearchInput />
+        <FolderList />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 
