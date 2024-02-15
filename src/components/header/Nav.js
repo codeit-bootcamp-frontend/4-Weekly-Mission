@@ -17,7 +17,7 @@ function Nav() {
           />
         </a>
         <div className={styles.profile_wrapper}>
-          {userData?.email == undefined ? (
+          {!userData?.email ? (
             <NavLoginButton />
           ) : (
             <>
