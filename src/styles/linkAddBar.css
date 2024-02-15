@@ -1,0 +1,31 @@
+.link-add {
+  padding: 3.75rem 20rem 5.625rem 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Linkbrary-bg);
+}
+
+.link-add__bar {
+  width: 50rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
+}
+
+.link-add__bar div {
+  display: flex;
+  gap: 0.75rem;
+}
+.link-add__bar--input {
+  border: none;
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}

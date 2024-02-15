@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/profile.css';
-import useFolderData from '../hooks/useFolderData';
+import '../../../styles/profile.css';
+import useFolderData from '../../../hooks/useFolderData';
 
 function Profile() {
   const owner = useFolderData('profile');
