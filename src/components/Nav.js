@@ -16,7 +16,7 @@ export default function Nav() {
             <span>{loginUserData.email}</span>
           </div>
         ) : (
-          <Button content="로그인" />
+          <Button>로그인</Button>
         )}
       </div>
     </div>
