@@ -14,7 +14,7 @@ const Styled = {
 
 // 현재: 로그인 버튼 -> 추후 : 공통 로그인버튼으로 변경
 function Button() {
-  return <Styled.Button>로그인</Styled.Button>;
+  return <Styled.Button type="button">로그인</Styled.Button>;
 }
 
 export default Button;
