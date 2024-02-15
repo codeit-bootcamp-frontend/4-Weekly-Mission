@@ -2,8 +2,8 @@ import React, { useContext } from "react"
 import "./header.css"
 import Logo from "./Logo"
 import Profile from "./Profile"
-import Wrapper from "../../layout/Wrapper"
-import { ProfileContext } from "../../../context/ProfileContext"
+import Wrapper from "components/layout/Wrapper"
+import { ProfileContext } from "context/ProfileContext"
 
 function Header() {
   const { data } = useContext(ProfileContext)
