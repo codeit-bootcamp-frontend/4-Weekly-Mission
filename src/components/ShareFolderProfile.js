@@ -1,8 +1,8 @@
-import "components/FolderProfile.css";
+import "components/ShareFolderProfile.css";
 import { acceptDataFromApi } from "Api";
 import { useState, useEffect } from "react";
 
-const FolderProFile = function () {
+const ShareFolderProfile = function () {
 	const [folderName, setFolderName] = useState("빈 폴더");
 	const [folderImg, setFolderImg] = useState("favicon.png");
 	const [folderAccountName, setFolderAccountName] = useState("USER_NAME");
@@ -38,4 +38,4 @@ const FolderProFile = function () {
 	);
 };
 
-export default FolderProFile;
+export default ShareFolderProfile;

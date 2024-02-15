@@ -1,6 +1,5 @@
-import "components/FolderCard.css";
-import "components/FolderShareCollection.css";
-import FolderSearchBar from "./FolderSearchBar";
+import "components/LinkCard.css";
+import "components/LinkCardCollection.css";
 import { useState, useEffect } from "react";
 import { acceptDataFromApi } from "Api";
 
@@ -61,7 +60,7 @@ const FolderCard = function ({ contents }) {
 	);
 };
 
-const FolderCardCollection = function () {
+const LinkCardCollection = function () {
 	const [items, setItems] = useState([]);
 
 	const handleLoad = async () => {
@@ -77,7 +76,6 @@ const FolderCardCollection = function () {
 
 	return (
 		<main>
-			<FolderSearchBar />
 			<section className="folder-card-grid">
 				{items.map((item) => (
 					<FolderCard key={item.id} contents={item} />
@@ -87,4 +85,4 @@ const FolderCardCollection = function () {
 	);
 };
 
-export default FolderCardCollection;
+export default LinkCardCollection;

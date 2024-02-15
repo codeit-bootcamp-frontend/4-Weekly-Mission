@@ -1,6 +1,6 @@
-import "components/FolderSearchBar.css";
+import "components/LinkSearchBar.css";
 
-const FolderSearchBar = function () {
+const LinkSearchBar = function () {
 	return (
 		<div className={"folder-search-bar input-position-origin"}>
 			<label htmlFor="folderSearch"></label>
@@ -9,4 +9,4 @@ const FolderSearchBar = function () {
 	);
 };
 
-export default FolderSearchBar;
+export default LinkSearchBar;
