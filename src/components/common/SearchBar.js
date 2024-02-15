@@ -1,5 +1,5 @@
-import './SearchBar.css';
 import searchBar from '../../images/searchBar.svg';
+import './SearchBar.css';
 
 export default function SearchBar() {
   return (

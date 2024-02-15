@@ -1,5 +1,5 @@
-import './Card.css';
 import { getFormattedDate, getTimeAgo } from '../../utils/date.js';
+import './Card.css';
 
 export default function Card({ data }) {
   const defaultImageSource = 'https://placehold.co/600x400';

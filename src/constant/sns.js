@@ -1,7 +1,7 @@
-import instagramImg from '../images/instagram.svg';
 import facebookImg from '../images/facebook.svg';
 import twitter from '../images/twitter.svg';
 import youtube from '../images/youtube.svg';
+import instagramImg from '../images/instagram.svg';
 
 const SNS_DATA = {
   facebook: {
