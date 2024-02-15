@@ -3,9 +3,6 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2.5rem 2.6rem;
 }
-.folder_link {
-  text-decoration: none;
-}
 
 @media (max-width: 1124.5px) {
   .folder_list_wrapper {

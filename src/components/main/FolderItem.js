@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./FolderItem.module.css";
-function FolderItem({ folderTitle, folderDate, folderImageSource }) {
+function FolderItem({ folderUrl, folderTitle, folderDate, folderImageSource }) {
   const now = new Date().getTime();
   const creadtedDate = new Date(`${folderDate}`).getTime();
   const minutes = (now - creadtedDate) / (1000 * 60);
@@ -21,16 +21,18 @@ function FolderItem({ folderTitle, folderDate, folderImageSource }) {
     }
   }, []);
   return (
-    <div className={styles.folder_item_box}>
-      <div className={styles.folder_image_box}>
-        <img src={folderImageSource} className={styles.folder_image} />
+    <a href={folderUrl} className={styles.folder_link}>
+      <div className={styles.folder_item_box}>
+        <div className={styles.folder_image_box}>
+          <img src={folderImageSource} className={styles.folder_image} />
+        </div>
+        <div className={styles.folder_detail_box}>
+          <div className={styles.folder_createdAt}>{creadtedAt}</div>
+          <div className={styles.folder_title}>{folderTitle}</div>
+          <div className={styles.folder_date}>{folderDate.slice(0, 10)}</div>
+        </div>
       </div>
-      <div className={styles.folder_detail_box}>
-        <div className={styles.folder_createdAt}>{creadtedAt}</div>
-        <div className={styles.folder_title}>{folderTitle}</div>
-        <div className={styles.folder_date}>{folderDate.slice(0, 10)}</div>
-      </div>
-    </div>
+    </a>
   );
 }
 

@@ -9,15 +9,15 @@ function FolderList() {
 
   return (
     <div className={styles.folder_list_wrapper}>
-      {folderData.folder?.links.map((i) => {
+      {folderData?.folder.links.map((i) => {
         return (
-          <a href={i.url} className={styles.folder_link} key={i.id}>
-            <FolderItem
-              folderTitle={i.title}
-              folderImageSource={i.imageSource}
-              folderDate={i.createdAt}
-            />
-          </a>
+          <FolderItem
+            folderTitle={i.title}
+            folderImageSource={i.imageSource}
+            folderDate={i.createdAt}
+            folderUrl={i.url}
+            key={i.id}
+          />
         );
       })}
     </div>
