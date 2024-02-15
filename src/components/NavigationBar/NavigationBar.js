@@ -1,28 +1,11 @@
-import React, { useState, useEffect } from "react";
 import "./NavigationBar.css";
 import { Profile } from "../Profile/Profile";
+import useGetUser from "../../hooks/useGetUser";
 
 function NavigationBar() {
-  const [userData, setUserData] = useState(null);
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        "https://bootcamp-api.codeit.kr/api/sample/user"
-      );
-      if (!response.ok) {
-        throw new Error("Failed to fetch user data");
-      }
-      const data = await response.json();
-      setUserData(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  const { data } = useGetUser();
+  const { profileImageSource, email } = data || {};
+  const profile = data ? { profileImageSource, email } : null;
 
   return (
     <nav className="NavigationBar">
@@ -34,8 +17,8 @@ function NavigationBar() {
             alt="로고 이미지"
           />
         </a>
-        {userData ? (
-          <Profile {...userData} />
+        {profile ? (
+          <Profile {...profile} />
         ) : (
           <button className="NavigationBar-signin">로그인</button>
         )}
