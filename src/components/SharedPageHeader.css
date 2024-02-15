@@ -3,6 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  background: var(--Linkbrary-bg, #f0f6ff);
 }
 
 .info-box {

@@ -5,7 +5,7 @@ export default function Cards({ links = [] }) {
   // links = [];
   return (
     <>
-      {links.length > 0 ? (
+      {links && links.length > 0 ? (
         <div className="cards">
           {links.map((link) => (
             <Card key={link.id} data={link} />

@@ -1,6 +1,7 @@
 .search-bar {
   display: flex;
   width: 100%;
+  margin-bottom: 40px;
   padding: 15px 16px;
   justify-content: space-between;
   align-items: center;
@@ -9,6 +10,7 @@
   @media (max-width: 784px) {
     width: 325px;
     padding: 13px 16px;
+    margin-bottom: 32px;
   }
 }
 

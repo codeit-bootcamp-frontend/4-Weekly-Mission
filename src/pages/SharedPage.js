@@ -9,7 +9,7 @@ export default function FolderView() {
   const [folder, setFolder] = useState(null);
   const [search, setSearch] = useState("");
 
-  async function getFolder() {
+  async function fetchFolder() {
     try {
       const response = await fetchSampleFolder();
       setFolder(response);
@@ -20,19 +20,15 @@ export default function FolderView() {
   }
 
   useEffect(() => {
-    getFolder();
+    fetchFolder();
   });
 
   return (
     <>
-      <div className="shared-page-frame">
-        <SharedPageHeader folder={folder} />
-      </div>
-      <div className="container">
-        <div className="shared-page-contents">
-          <SearchBar search={search} setSearch={setSearch} />
-          <Cards links={folder?.links} />
-        </div>
+      <SharedPageHeader folder={folder} />
+      <div className="shared-page-contents">
+        <SearchBar search={search} setSearch={setSearch} />
+        <Cards links={folder?.links} />
       </div>
     </>
   );

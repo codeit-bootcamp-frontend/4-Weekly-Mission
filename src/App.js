@@ -2,7 +2,7 @@ import "./global.css";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import { fetchSampleProfile } from "./api";
+import { fetchProfile } from "./api";
 import { useEffect, useState } from "react";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
 
   async function getProfile() {
     try {
-      const newProfile = await fetchSampleProfile();
+      const newProfile = await fetchProfile();
       setProfile(newProfile);
     } catch (e) {
       alert(e);

@@ -1,23 +1,11 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 32px;
-}
-
-.shared-page-frame {
-  width: 100%;
-  background: var(--Linkbrary-bg, #f0f6ff);
-}
-
 .shared-page-contents {
-  max-width: 1060px;
+  max-width: 1124px;
+  padding: 0 32px;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 40px;
   margin: 40px 0;
   @media (max-width: 784px) {
     gap: 32px;
