@@ -1,6 +1,4 @@
 import HeaderLogoImg from '../../assets/header-logo.svg';
-import HeaderUserInfo from './HeaderUserInfo';
-import HeaderLoginButton from './HeaderLoginButton';
 import { useEffect, useState } from 'react';
 import { API_PATH } from '../../services/api-path';
 import { Link } from 'react-router-dom';
@@ -18,7 +16,7 @@ function Header() {
     const signal = controller.signal;
     const userData = async () => {
       try {
-        const response = await fetch(API_PATH.SAMPLE_USER_INFO, {
+        const response = await fetch(API_PATH.HEADER_USER_INFO, {
           method: 'GET',
           signal,
         });
@@ -28,8 +26,8 @@ function Header() {
         }
         setUserInfo({
           loginStatus: true,
-          email: result.email,
-          profileImg: result.profileImageSource,
+          email: result.data[0].email,
+          profileImg: result.data[0].image_source,
         });
       } catch (e) {
         console.error(e);
@@ -46,7 +44,13 @@ function Header() {
         <Link to='/'>
           <img className='gnb__logoImg' src={HeaderLogoImg} alt='로고 이미지' />
         </Link>
-        {userInfo.loginStatus ? <HeaderUserInfo {...userInfo} /> : <HeaderLoginButton />}
+        {userInfo.loginStatus ?
+         <div className='gnb__userInfo'>
+          <img className='gnb__userImg' src={userInfo.profileImg} alt='헤더 유저 이미지' />
+          <span className='gnb__email'>{userInfo.email}</span>
+        </div> 
+         :
+         <Link className='gnb__login' to='/signin'>로그인</Link>}
       </nav>
     </header>
   );

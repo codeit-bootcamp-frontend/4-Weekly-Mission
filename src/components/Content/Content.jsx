@@ -23,8 +23,10 @@ function Content({
   return (
     <section className='content'>
       <input className='content__search' type='search' placeholder='🔍   링크를 검색해 보세요.' />
-      {option && <Category {...categoryProps} />}
-      {option && <ContentHeader selectCategory={selectCategory} setModalAction={setModalAction} />}
+      {option && <>
+       <Category {...categoryProps} /> 
+      <ContentHeader selectCategory={selectCategory} setModalAction={setModalAction} />
+      </>}
       <CardList
         handleKebabClick={handleKebabClick}
         selectCardId={selectCardId}

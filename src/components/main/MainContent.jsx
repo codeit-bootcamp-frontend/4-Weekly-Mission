@@ -1,5 +1,6 @@
 import MainTitle from './MainTitle';
 import MainCard from './MainCard';
+
 function MainContent() {
   return (
     <>

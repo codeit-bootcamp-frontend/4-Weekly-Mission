@@ -27,6 +27,7 @@ const footerLinkList = [
     text: '인스타그램',
   },
 ];
+
 function Footer() {
   return (
     <footer className='footer'>

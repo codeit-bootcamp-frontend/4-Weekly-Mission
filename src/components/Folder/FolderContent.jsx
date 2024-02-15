@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Content from '../content/Content';
 import { API_PATH } from '../../services/api-path';
 import FETCH_API from '../../services/fetch-data';
-import Button from '../Button';
 
 function FolderContent({ handleKebabClick, selectCardId, categoryList, setCategoryList, setModalAction }) {
   const [selectCategory, setSelectCategory] = useState({
@@ -117,7 +116,7 @@ function FolderContent({ handleKebabClick, selectCardId, categoryList, setCatego
               type='text'
               placeholder='        링크를 추가해 보세요'
             />
-            <Button className='link__add' buttonText='추가하기' />
+            <button className='link__add'>추가히기</button>
           </form>
         </div>
       </section>

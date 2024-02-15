@@ -1,6 +1,6 @@
 import ModalCheckIcon from '../../assets/modal-check.svg';
-
 import { useState } from 'react';
+
 function ModalCategoryList({ categoryListLoop }) {
   const [selectCategory, setSelectCategory] = useState(null);
 

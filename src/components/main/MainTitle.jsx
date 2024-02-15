@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import MainBackgroundImg from '../../assets/main-background.png';
+
 function MainTitle() {
   return (
       <main>

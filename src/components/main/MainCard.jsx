@@ -1,4 +1,3 @@
-import TextEffect from './TextEffect';
 import MainCardLink from '../../assets/main-card-link.png';
 import MainCardControl from '../../assets/main-card-control.png';
 import MainCardShare from '../../assets/main-card-share.png';
@@ -37,7 +36,7 @@ function MainCard({ cardNumber }) {
       <div className='cardTitleBox'>
         <h2 className='cardTitle'>
           {cardNumberObj[cardNumber].title[0]}
-          <TextEffect className={`card${cardNumber}TextEffect`} effectText={cardNumberObj[cardNumber].effect} />
+          <span className={`card${cardNumber}TextEffect`}>{cardNumberObj[cardNumber].effect}</span>
           {cardNumberObj[cardNumber].title[1]}
         </h2>
         <p className='cardText'>{cardNumberObj[cardNumber].text}</p>

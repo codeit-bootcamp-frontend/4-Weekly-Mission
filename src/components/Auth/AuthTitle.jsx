@@ -1,5 +1,6 @@
 import LogoImg from '../../assets/big-logo.svg';
 import { Link } from 'react-router-dom';
+
 function AuthTitle({ text, action, actionText }) {
   return (
     <div className='sign__title'>

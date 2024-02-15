@@ -9,7 +9,7 @@ function CardList({ handleKebabClick, selectCardId, linkList, option, setModalAc
         linkList.map((link) => {
           const { id, createdAt, created_at, imageSource, image_source, description, url } = link;
           const imgSrc = imageSource ?? image_source;
-          const linkCreated = createdAt !== undefined ? createdAt : created_at;
+          const linkCreated = createdAt ?? created_at;
           const createDate = new Date(linkCreated);
           const timeDiffText = getTimeDiff(linkCreated);
           const coustomDate = getCoustomDate(createDate);

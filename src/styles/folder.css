@@ -272,6 +272,14 @@ html {
   height: 15.85913rem;
   border-radius: 0.9375rem 0.9375rem 0rem 0rem;
   overflow: hidden;
+  background-color: #ffffff;
+}
+
+.content__imgBox--default{
+  height: 15.85913rem;
+  border-radius: 0.9375rem 0.9375rem 0rem 0rem;
+  overflow: hidden;
+  background: #DDDFFF url(../assets/default-card.svg) no-repeat center;
 }
 
 .content__img {
@@ -308,7 +316,7 @@ html {
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
-  display: none;
+  /* display: none; */
   @media screen and (max-width: 767px) {
     right: 0rem;
   }
