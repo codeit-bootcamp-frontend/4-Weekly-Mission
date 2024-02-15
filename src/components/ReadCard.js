@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Card from "./Card";
-import CardImage from "./CardImage";
-import CardContent from "./CardContent";
+import Card from "./Card/Card";
+import CardImage from "./CardImage/CardImage";
+import CardContent from "./CardContent/CardContent";
 
 function ReadCard({
   url,

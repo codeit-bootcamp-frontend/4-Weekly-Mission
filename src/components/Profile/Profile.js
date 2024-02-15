@@ -1,4 +1,4 @@
-import "../styles/Profile.css";
+import "./Profile.css";
 
 export const Profile = ({ profileImageSource, email }) => {
   return (

@@ -1,4 +1,4 @@
-import "../styles/CardImage.css";
+import "./CardImage.css";
 
 const DEFAULT_IMAGE = "images/card-default.png";
 

@@ -1,4 +1,4 @@
-import "../styles/CardContent.css";
+import "./CardContent.css";
 
 function CardContent({ elapsedTime, description, createdAt, isHovered }) {
   const className = isHovered

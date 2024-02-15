@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "../styles/NavigationBar.css";
-import { Profile } from "./Profile";
+import "./NavigationBar.css";
+import { Profile } from "../Profile/Profile";
 
 function NavigationBar() {
   const [userData, setUserData] = useState(null);

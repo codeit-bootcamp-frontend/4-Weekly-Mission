@@ -1,4 +1,4 @@
-import "../styles/SharedPage.css";
+import "./SharedPage.css";
 
 function SharedPage({ folderInfo, searchBar, cardList }) {
   return (

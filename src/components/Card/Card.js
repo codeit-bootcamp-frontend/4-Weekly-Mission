@@ -1,4 +1,4 @@
-import "../styles/Card.css";
+import "./Card.css";
 
 function Card({ children, onMouseOver, onMouseLeave }) {
   return (

@@ -1,13 +1,13 @@
-import Footer from "./components/Footer";
 import "./colors.css";
 import "./global.css";
-import NavigationBar from "./components/NavigationBar";
-import Header from "./components/Header";
-import SharedPage from "./components/SharedPage";
-import SearchBar from "./components/SearchBar";
-import CardList from "./components/CardList";
+import NavigationBar from "./components/NavigationBar/NavigationBar";
+import Header from "./components/Header/Header";
+import SharedPage from "./components/SharedPage/SharedPage";
+import SearchBar from "./components/SearchBar/SearchBar";
+import CardList from "./components/CardList/CardList";
 import ReadCard from "./components/ReadCard";
-import useGetFolder from "./utils/useGetFolder";
+import useGetFolder from "./hooks/useGetFolder";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const { data } = useGetFolder();
