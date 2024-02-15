@@ -1,0 +1,117 @@
+﻿* {
+  box-sizing: border-box;
+  font-family: Pretendard;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f6ff;
+  width: auto;
+  height: 93px;
+  padding: 33px 200px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.user-image {
+  width: 28px;
+  height: 28px;
+  border-radius: 15px;
+}
+.user-email {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.folderInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 244px;
+  padding: 30px 624px 60px 624px;
+  background-color: #f0f6ff;
+  margin-top: 93px;
+  margin-bottom: 40px;
+}
+
+.folderImage {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+}
+
+.ownerName {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.folderName {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: normal;
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  header {
+    width: 100%;
+    padding: 33px 32.5px;
+  }
+
+  .folderInfo {
+    padding: 20px 32px;
+    margin-top: 93px;
+    margin-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ownerName {
+    font-size: 16px;
+  }
+  .folderName {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  header {
+    width: 100%;
+    padding: 18px 32px;
+  }
+  .user-email {
+    font-size: 0;
+  }
+
+  .folderInfo {
+    padding: 10px 16px;
+    margin-top: 80px;
+    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ownerName {
+    font-size: 14px;
+  }
+  .folderName {
+    font-size: 32px;
+  }
+  .folderImage {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
+}
