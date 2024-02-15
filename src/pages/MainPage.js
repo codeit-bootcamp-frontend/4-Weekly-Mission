@@ -1,7 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import { MainHeader } from '../components/MainPage/MainHeader';
-import { MainFooter } from '../components/MainPage/MainFooter';
+import { MainHeader } from '../components/mainPageComponents/MainHeader';
+import { MainFooter } from '../components/mainPageComponents/MainFooter';
 import { useUserData } from '../hooks/useUserData';
 import { userDataAPI } from '../api/BootcampAPI';
 

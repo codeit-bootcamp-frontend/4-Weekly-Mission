@@ -1,6 +1,6 @@
 import React from 'react';
-import SharedHeader from '../components/SharedPage/SharedHeader';
-import SharedContents from '../components/SharedPage/SharedContents';
+import SharedHeader from '../components/sharedPageComponents/SharedHeader';
+import SharedContents from '../components/sharedPageComponents/SharedContents';
 import { folderDataAPI } from '../api/BootcampAPI';
 import '../styles/shared.css';
 import { useFolderData } from '../hooks/useFolderData';
