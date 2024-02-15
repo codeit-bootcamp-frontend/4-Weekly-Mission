@@ -5,8 +5,8 @@ import Layout from "./components/Layout/Layout";
 import FolderInfo from "./components/FolderInfo/FolderInfo";
 import SharePage from "./pages/SharePage/SharePage";
 import SearchBar from "./components/SearchBar/SearchBar";
-import CardList from "./components/CardList/CardList";
-import OnlyCard from "./components/OnlyCard/OnlyCard";
+import CardList from "./components/CardUi/CardList/CardList";
+import OnlyCard from "./components/CardUi/OnlyCard/OnlyCard";
 
 function App() {
   const [userProfile, setUserProfile] = useState(null);
