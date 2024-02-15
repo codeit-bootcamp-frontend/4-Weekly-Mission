@@ -13,12 +13,13 @@ function Header() {
       <Wrapper className="header-container">
         <Logo />
         <div>
-          {!data && (
+          {data ? (
+            <Profile data={data} />
+          ) : (
             <a href="/signin.html" className="login-btn">
               로그인
             </a>
           )}
-          {data && <Profile data={data} />}
         </div>
       </Wrapper>
     </header>
