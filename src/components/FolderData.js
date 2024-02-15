@@ -6,7 +6,9 @@ import { acceptDataFromApi } from "Api";
 
 const timePassedFromCreate = (time) => {
 	let currentTime = new Date().getTime();
-	if (!time) return "UnknownTime";
+	if (!time) {
+		throw new Error("UnknownTime");
+	}
 
 	const createdTime = new Date(time).getTime();
 	const timeDiffMin = Math.floor((currentTime - createdTime) / 1000 / 60); // 분단위
@@ -59,7 +61,7 @@ const FolderCard = function ({ contents }) {
 	);
 };
 
-const FolderData = function (folderData) {
+const FolderData = function () {
 	const [items, setItems] = useState([]);
 
 	const handleLoad = async () => {
