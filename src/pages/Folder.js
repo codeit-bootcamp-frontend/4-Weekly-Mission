@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getUser } from '../api';
+import { getFolder, getUser } from '../api';
 import '../styles/Folder.css';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -8,7 +8,7 @@ import FolderContent from '../components/FolderContent';
 
 const Folder = () => {
   const [user, setUser] = useState(null);
-  // const [folder, setFolder] = useState(null);
+  const [folder, setFolder] = useState(null);
 
   const handleLoad = async (getState, setState) => {
     try {
@@ -21,13 +21,14 @@ const Folder = () => {
 
   useEffect(() => {
     handleLoad(getUser, setUser);
+    handleLoad(getFolder, setFolder);
   }, []);
 
   return (
     <div>
       <Header userInfo={user} />
 
-      <FolderInfo />
+      <FolderInfo folderInfo={folder} />
       <FolderContent />
 
       <Footer />
