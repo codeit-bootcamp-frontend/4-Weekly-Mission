@@ -3,7 +3,6 @@ import iconSearch from '../assets/icons/search.svg';
 
 function SearchBar() {
 
-
   return (
     <div className="searchbar">
       <div className="searchbar-content">
