@@ -19,14 +19,14 @@ const Styled = {
   `,
 };
 
-function SocialMediaBtns({ ...htmlDivProps }) {
-  const socialMediaData = [
-    { name: 'Facebook', url: 'https://www.facebook.com/', icon: faceboockIcon },
-    { name: 'Twitter', url: 'https://twitter.com/', icon: twitterIcon },
-    { name: 'Youtube', url: 'https://www.youtube.com/', icon: youtubeIcon },
-    { name: 'Instagram', url: 'https://www.instagram.com/', icon: instagramIcon },
-  ];
+const socialMediaData = [
+  { name: 'Facebook', url: 'https://www.facebook.com/', icon: faceboockIcon },
+  { name: 'Twitter', url: 'https://twitter.com/', icon: twitterIcon },
+  { name: 'Youtube', url: 'https://www.youtube.com/', icon: youtubeIcon },
+  { name: 'Instagram', url: 'https://www.instagram.com/', icon: instagramIcon },
+];
 
+function SocialMediaBtns({ ...htmlDivProps }) {
   return (
     <Styled.Container {...htmlDivProps}>
       {socialMediaData.map(({ name, url, icon }, idx) => (
