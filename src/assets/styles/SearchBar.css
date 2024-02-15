@@ -1,0 +1,57 @@
+.search_bar_container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 2.5rem;
+}
+.search_form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66.25rem;
+}
+.search_bar {
+  width: 66.25rem;
+  padding: 0.9375rem 1rem;
+  padding-left: 2.5rem;
+  border-radius: 0.625rem;
+  border: 0;
+  background: #f5f5f5;
+}
+
+#search_icon {
+  width: 1rem;
+  position: absolute;
+  left: 0.8rem;
+}
+/* Mobile 375~767*/
+@media (min-width: 375px) and (max-width: 767px) {
+  .search_form {
+    width: 100%;
+    max-width: 20.3125rem;
+  }
+  .search_bar_container {
+    padding-top: 1.25rem;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin: 0 32px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+/* Tablet 768~1124 card 2열*/
+@media (min-width: 768px) and (max-width: 1124px) {
+  .search_form {
+    width: 100%;
+    max-width: 44rem;
+  }
+  .search_bar_container {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 2.5rem;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}

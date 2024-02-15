@@ -1,0 +1,87 @@
+nav {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: var(--background);
+  z-index: 1;
+}
+.nav_container {
+  display: flex;
+  padding: 2.0625rem 12.5rem 2rem 12.5rem;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  width: 100%;
+}
+#logoImg {
+  width: 8.3125rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+
+nav button {
+  display: flex;
+  width: 8rem;
+  padding: 1rem 1.25rem;
+  font-size: 1.12rem;
+}
+.color-btn {
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: #f5f5f5;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border: none;
+  cursor: pointer;
+}
+.userInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+}
+#userImg {
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+}
+#userEmail {
+  color: var(gray100, #373740);
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* Mobile 375~767*/
+@media (min-width: 375px) and (max-width: 767px) {
+  .nav_container {
+    padding: 1.125rem 2rem 1.0625rem 2rem;
+  }
+  nav button {
+    width: 5rem;
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+  }
+  #logoImg {
+    width: 5.54169rem;
+    height: 1rem;
+  }
+  #userEmail {
+    display: none;
+  }
+}
+/* Tablet 768~1199*/
+@media (min-width: 768px) and (max-width: 1199px) {
+  .nav_container {
+    padding: 2.0625rem 2.03125rem 2rem 2.03125rem;
+
+    width: 768px;
+  }
+}
