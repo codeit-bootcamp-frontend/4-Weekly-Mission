@@ -1,12 +1,7 @@
-import { Fragment } from "react";
 import "./CardList.css";
 
 const CardList = ({ children }) => {
-  return (
-    <Fragment>
-      <div className="cardList">{children}</div>
-    </Fragment>
-  );
+  return <div className="cardList">{children}</div>;
 };
 
 export default CardList;
