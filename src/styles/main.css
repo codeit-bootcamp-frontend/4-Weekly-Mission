@@ -1,0 +1,65 @@
+@import url(../assets/color.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Pretendard;
+}
+
+html,
+body {
+  font-size: 62.5%;
+}
+
+.folder-info {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0 6rem;
+  margin-bottom: 4rem;
+  background-color: var(--Linkbrary-bg);
+}
+
+.folder-img {
+  width: 6rem;
+  margin-bottom: 1.2rem;
+}
+
+.username {
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.foldername {
+  font-size: 4rem;
+  font-weight: 600;
+}
+
+/* 모바일 화면 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .folder-info {
+    padding: 1rem 3.2rem 4rem 3.2rem;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .folder-img {
+    width: 4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .username {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/* 태블릿 화면  */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .folder-info {
+    padding: 2rem 3.2rem 6rem 3.2rem;
+    justify-content: space-between;
+  }
+}

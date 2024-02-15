@@ -1,0 +1,71 @@
+@import url(../assets/color.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Pretendard;
+}
+
+html,
+body {
+  font-size: 62.5%;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  max-width: 192rem;
+  height: 9.4rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.3rem 20rem;
+  position: sticky;
+  top: 0;
+  background-color: var(--Linkbrary-bg);
+}
+
+.profile-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-img {
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 1.5rem;
+}
+
+.profile-email {
+  font-size: 1.4rem;
+}
+
+/* 모바일 화면 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .header {
+    height: 6.3rem;
+    padding: 0 32px;
+    justify-content: space-between;
+  }
+
+  .header-logo {
+    width: 8.8rem;
+  }
+  .profile-email {
+    display: none;
+  }
+}
+
+/* 태블릿 화면  */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .header {
+    padding: 0 3.2rem;
+    justify-content: space-between;
+  }
+
+  .profile-email {
+    display: block;
+  }
+}
