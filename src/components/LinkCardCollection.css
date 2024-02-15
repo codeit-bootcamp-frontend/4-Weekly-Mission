@@ -1,9 +1,9 @@
-main {
+/* main {
 	background-color: var(--LBrary-White);
 	margin: 0 auto;
 	padding: 40px 32px;
 	max-width: 1124px;
-}
+} */
 
 .folder-card-grid {
 	display: grid;
@@ -13,21 +13,12 @@ main {
 }
 
 @media (max-width: 1124px) {
-	main {
-		max-width: 768px;
-	}
-
 	.folder-card-grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
 @media (max-width: 767px) {
-	main {
-		max-width: 389px;
-		padding: 20px 32px;
-	}
-
 	.folder-card-grid {
 		grid-template-columns: 1fr;
 	}

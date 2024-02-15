@@ -75,13 +75,11 @@ const LinkCardCollection = function () {
 	}, []);
 
 	return (
-		<main>
-			<section className="folder-card-grid">
-				{items.map((item) => (
-					<FolderCard key={item.id} contents={item} />
-				))}
-			</section>
-		</main>
+		<section className="folder-card-grid">
+			{items.map((item) => (
+				<FolderCard key={item.id} contents={item} />
+			))}
+		</section>
 	);
 };
 
