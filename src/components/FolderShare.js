@@ -1,7 +1,7 @@
 import FolderProFile from "components/FolderProfile";
-import FolderCardCollection from "components/FolderCardCollection";
+import FolderCardCollection from "components/FolderShareCollection";
 
-function Folder() {
+function FolderShare() {
 	return (
 		<>
 			<FolderProFile />
@@ -10,4 +10,4 @@ function Folder() {
 	);
 }
 
-export default Folder;
+export default FolderShare;

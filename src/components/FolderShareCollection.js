@@ -1,5 +1,5 @@
 import "components/FolderCard.css";
-import "components/FolderCardCollection.css";
+import "components/FolderShareCollection.css";
 import FolderSearchBar from "./FolderSearchBar";
 import { useState, useEffect } from "react";
 import { acceptDataFromApi } from "Api";
