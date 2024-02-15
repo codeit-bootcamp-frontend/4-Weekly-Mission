@@ -8,17 +8,11 @@ import { useQuery } from 'react-query';
  */
 function useFetchData(fetchFunction, queryKey, processData) {
   return useQuery(queryKey, async () => {
-    try {
-      const res = await fetchFunction();
-      if (!res.ok) {
-        throw new Error('Response error');
-      }
-      const data = await res.json();
-      return processData(data);
-    } catch (e) {
-      return;
-    }
+    const data = await fetchFunction();
+    return processData(data);
   });
 }
 
 export default useFetchData;
+
+// const fetchData = () => {};
