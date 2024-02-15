@@ -51,3 +51,9 @@ body {
 button:hover {
 	cursor: pointer;
 }
+
+.input-position-origin {
+	display: flex;
+	position: relative;
+	align-items: center;
+}
