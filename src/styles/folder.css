@@ -1,0 +1,8 @@
+@import './css/global.css';
+
+.folder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.5rem;
+}

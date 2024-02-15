@@ -1,6 +1,7 @@
 import Header from './header';
 import Footer from './footer';
 import Info from './info';
+import Folder from './folder';
 
 const Page = () => {
 
@@ -9,7 +10,7 @@ const Page = () => {
     <div>
       <Header />
       <Info/>
-      {/* <Folder/> */}
+      <Folder />
       <Footer />
     </div>
   );

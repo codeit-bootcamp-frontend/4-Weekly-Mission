@@ -1,7 +1,7 @@
 import iconFacebook from '../assets/logo/facebook.svg';
 import iconTwitter from '../assets/logo/twitter.svg';
 import iconInstargram from '../assets/logo/youtube.svg'
-import iconYoutube from '../assets/logo/youtube.svg';
+import iconYoutube from '../assets/logo/instagram.svg';
 import '../styles/footer.css';
 
 const Footer = () => {
