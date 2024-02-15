@@ -1,7 +1,7 @@
-import '../styles/Nav.css';
+import './Nav.css';
 import useSampleData from '../hooks/useSampleData';
 import logo from '../images/logo.svg';
-import Button from './Button';
+import Button from './common/Button';
 
 export default function Nav() {
   const loginUserData = useSampleData('user');

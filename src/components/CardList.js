@@ -1,6 +1,6 @@
-import '../styles/CardList.css';
-import SearchBar from './SearchBar';
-import Card from './Card';
+import './CardList.css';
+import SearchBar from './common/SearchBar';
+import Card from './common/Card';
 
 export default function CardList({ cardsData = [] }) {
   return (
