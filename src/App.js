@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import Footer from "./components/Footer/Footer.js";
 import NavBar from "./components/NavBar/NavBar.js";
-import getUserData from "./getUserData.js";
-import { SearchBar } from "./components/SearchBar/SearchBar.js";
-import PageBody from "./components/PageBody/PageBody.js";
-import Folder from "./components/Folder/Folder.js";
-import { CardList } from "./components/CardList/CardList.js";
+import getUserData from "./apis/getUserData.js";
+import SearchBar from "./components/PageContent/SearchBar/SearchBar.js";
+import PageBody from "./components/PageContent/PageBody/PageBody.js";
+import Folder from "./components/PageContent/Folder/Folder.js";
+import CardList from "./components/Card/CardList/CardList.js";
 import "./global.css";
 
 const App = () => {

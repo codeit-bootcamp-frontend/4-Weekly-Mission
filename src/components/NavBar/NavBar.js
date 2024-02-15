@@ -1,5 +1,5 @@
 import "./NavBar.css";
-import Profile from "../Profile/Profile.js";
+import Profile from "../PageContent/Profile/Profile.js";
 
 function NavBar({ profile }) {
   return (
