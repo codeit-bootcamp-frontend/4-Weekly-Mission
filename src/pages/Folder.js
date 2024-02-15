@@ -1,6 +1,7 @@
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import FolderInfo from '../components/FolderInfo';
+import FolderContent from '../components/FolderContent';
 
 function Folder() {
   return (
@@ -8,11 +9,7 @@ function Folder() {
       <Header />
 
       <FolderInfo />
-
-      {/* <FolderContent>
-        <SearchBar />
-        <CardList />
-      </FolderContent> */}
+      <FolderContent />
 
       <Footer />
     </div>

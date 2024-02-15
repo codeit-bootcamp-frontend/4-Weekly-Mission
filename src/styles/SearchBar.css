@@ -1,0 +1,35 @@
+@import url('./global.css');
+
+.searchbar {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: #f5f5f5;
+}
+
+.searchbar-content {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.searchbar-input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  color: var(--gray-02);
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--gray-02);
+}
+
+.searchbar-icon {
+  width: 1rem;
+  height: 1rem;
+}
