@@ -1,13 +1,13 @@
 import { API, API_FOLDER, API_USER } from "../utils/constants/api";
 
-export const fetchUserData = async () => {
+export const fetchUserData = async (userId) => {
   try {
-    const response = await fetch(API_USER);
+    const response = await fetch(`${API_USER}/${userId}`);
     if (!response.ok) {
       throw new Error(`Server responded with status: ${response.status}`);
     }
-    const data = await response.json();
-    return data;
+    const result = await response.json();
+    return result.data;
   } catch (error) {
     console.error(error);
   }

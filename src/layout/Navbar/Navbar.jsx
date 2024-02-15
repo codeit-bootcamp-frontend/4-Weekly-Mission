@@ -7,11 +7,13 @@ import Profile from "./Profile/Profile";
 import Button from "components/Button/Button";
 
 function Navbar() {
+  const USERID = 1;
   const [user, setUser] = useState(null);
   useEffect(() => {
-    fetchUserData()
+    fetchUserData(USERID)
       .then((data) => {
-        setUser(data);
+        setUser(...data);
+        console.log(...data)
       })
       .catch((err) => {
         console.error(err);
@@ -24,7 +26,7 @@ function Navbar() {
         <NavLink to="/">
           <img src={logoImage} className={styles.logo} />
         </NavLink>
-        <NavLink to="#">{user ? <Profile email={user.email} imgUrl={user.profileImageSource} /> : <Button color={"cta"}>로그인</Button>}</NavLink>
+        <NavLink to="#">{user ? <Profile email={user.email} imgUrl={user.image_source} /> : <Button color={"cta"}>로그인</Button>}</NavLink>
       </div>
     </nav>
   );
