@@ -14,12 +14,12 @@ export async function requestProfileData() {
 }
  
 
-export async function requestFolderInformation(){
+export async function requestOwnerInformation(){
     try{
         const response = await fetch(`${SERVER_URL}/sample/folder`);
-        const folderData = await response.json();
+        const ownerData = await response.json();
      
-        return folderData.folder;
+        return ownerData.folder;
     }catch(err){
         console.log('서버 요청 중 문제가 발생하였습니다')
     }

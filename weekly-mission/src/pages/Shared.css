@@ -1,67 +1,59 @@
-section {
+
+.section{
     display: block;
 }
 
-.section-folderIfm {
+.section.owner-information{
+    padding-top: 10rem;
+    padding-bottom: 6rem;
     display: flex;
-    padding: 11rem 0 6rem;
     justify-content: center;
     align-items: center;
     background-color: #F0F6FF;
-
-
 }
 
-.section-linklist {
+.section.linkcards{
     padding: 4rem 0;
 }
 
-
-.container {
-    width: 100%;
-    margin: auto;
+.section.linkcards > .container{
     display: flex;
     flex-direction: column;
     gap: 4rem;
 }
 
-.link-card__list {
+.linkcard-list{
     width: 106rem;
-    margin: auto;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem 2rem;
-
+    gap : 2.5rem 2rem;
 
 }
-
-
 
 @media screen and (max-width : 1124px) {
     .container {
         padding: 0 3.2rem;
     }
 
-    .link-card__list {
+    .linkcard-list {
         width: 72.4rem;
         gap: 2rem 2.4rem;
     }
-    .link-card__list > li:nth-child(n + 7){
+    .linkcard-list > li:nth-child(n + 7){
         display: none;
     }
 }
-
 
 @media screen and (max-width : 790px) {
 
     .container{
         gap: 3.2rem;
     } 
-    .link-card__list {
+    .linkcard-list {
         width: 34rem;
     }
-    .link-card__list > li:nth-child(n + 7){
+    .linkcard-list > li:nth-child(n + 7){
         display: list-item;
     }
 
