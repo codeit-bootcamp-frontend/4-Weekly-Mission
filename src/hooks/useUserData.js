@@ -9,8 +9,6 @@ export const useUserData = (userDataAPI) => {
     };
     getAPIData();
   }, []);
-  /*eslint-disable */
-  console.log('user');
 
   return { userProfile };
 };
