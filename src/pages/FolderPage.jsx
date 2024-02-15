@@ -1,5 +1,5 @@
 import Gnb from '../components/Gnb';
-import Header from '../Header';
+import AddLink from '../AddLink';
 import Folder from '../Folder';
 import Footer from '../components/Footer';
 
@@ -7,7 +7,7 @@ const FolderPage = () => {
   return (
     <>
       <Gnb className='gnb_ly'/>
-      <Header />
+      <AddLink />
       <Folder />
       <Footer/>
     </>
