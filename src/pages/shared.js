@@ -4,7 +4,7 @@ import Nav from '../components/Nav';
 import Cardlist from '../components/Cardlist';
 import Footer from '../components/Footer';
 
-const shared = () => {
+const Shared = () => {
   return (
     <>
       <Header />
@@ -15,4 +15,4 @@ const shared = () => {
   );
 };
 
-export default shared;
+export default Shared;
