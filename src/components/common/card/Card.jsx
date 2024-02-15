@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 
 import defaultCardImg from 'assets/defaultCardImg.svg';
 import StarButton from 'components/common/card/StarButton';
-import TimeFormat from 'components/common/card/TimeFormat';
-import DateFormat from 'components/common/card/DateFormat';
+import calculateTimeDifference from 'utils/calculateTimeDifference';
+import formatDateToYYYYMMDD from 'utils/formatDateToYYYYMMDD';
 
 const Styled = {
   Container: styled.div`
@@ -43,6 +43,11 @@ const Styled = {
     gap: 1rem;
   `,
 
+  TimeAgo: styled.span`
+    font-size: 1.3rem;
+    color: #666666;
+  `,
+
   Text: styled.div`
     width: 100%;
     height: 5rem;
@@ -54,6 +59,11 @@ const Styled = {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+  `,
+
+  Date: styled.span`
+    font-size: 1.4rem;
+    color: #333333;
   `,
 };
 
@@ -73,9 +83,9 @@ function Card({ createdAt, url, description, imageSource = defaultCardImg }) {
           <Styled.ThumbnailImg src={imageSource} alt="카드 이미지" />
         </Styled.ThumbnailContainer>
         <Styled.TextCardInfo>
-          <TimeFormat createdAt={createdAt} />
+          <Styled.TimeAgo>{calculateTimeDifference(createdAt)}</Styled.TimeAgo>
           <Styled.Text>{description}</Styled.Text>
-          <DateFormat createdAt={createdAt} />
+          <Styled.Date>{formatDateToYYYYMMDD(createdAt)}</Styled.Date>
         </Styled.TextCardInfo>
       </Link>
     </Styled.Container>
