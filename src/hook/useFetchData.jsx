@@ -1,18 +1,18 @@
+import { sampleFolderInquire, sampleUserInquire } from 'api/sampleAPI';
 import { useQuery } from 'react-query';
 
+export const useSampleUserQuery = () => {
+  return useQuery('sampleUser', sampleUserInquire);
+};
+
 /**
- * fetch 커스텀 훅
- * @param {Function} fetchFunction 데이터 가져오는 비동기 함수
- * @param {Function} processData 데이터 처리하는 함수
+ * 폴더 정보 불러오는 useQuery 함수
  * @param {string} queryKey
+ * @param {function} selectFunction 데이터 가공 함수
+ * @returns {Object}
  */
-function useFetchData(fetchFunction, queryKey, processData) {
-  return useQuery(queryKey, async () => {
-    const data = await fetchFunction();
-    return processData(data);
+export const useSampleFolderQuery = (queryKey, selectFunction) => {
+  return useQuery(['sampleFolder', queryKey], sampleFolderInquire, {
+    select: selectFunction,
   });
-}
-
-export default useFetchData;
-
-// const fetchData = () => {};
+};

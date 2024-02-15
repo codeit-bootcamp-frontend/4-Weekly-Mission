@@ -1,6 +1,6 @@
 import Loader from '../../../common/Loader';
 import { sampleFolderInquire } from 'api/sampleAPI';
-import useFetchData from 'hook/useFetchData';
+import { useSampleFolderQuery } from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';
 import Error from '../../Error';
@@ -10,7 +10,7 @@ const Header = () => {
     data: folderInfo,
     isLoading,
     isError,
-  } = useFetchData(sampleFolderInquire, 'folderInfo', data => ({
+  } = useSampleFolderQuery('folderInfo', data => ({
     ownerName: data.folder.owner.name,
     folderName: data.folder.name,
     profileImage: data.folder.owner.profileImageSource,

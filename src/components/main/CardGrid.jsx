@@ -1,7 +1,6 @@
 import Loader from '../common/Loader';
 import { calculateTime, formatDate } from '../../utils/date';
-import { sampleFolderInquire } from 'api/sampleAPI';
-import useFetchData from 'hook/useFetchData';
+import { useSampleFolderQuery } from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';
 import Card from './Card';
@@ -12,7 +11,7 @@ const CardGrid = () => {
     data: cardDatas,
     isLoading,
     isError,
-  } = useFetchData(sampleFolderInquire, 'cardDatas', data =>
+  } = useSampleFolderQuery('cardDatas', data =>
     data?.folder.links.map(link => ({
       ...link,
       timePassed: calculateTime(link.createdAt),

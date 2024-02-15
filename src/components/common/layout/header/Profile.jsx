@@ -1,6 +1,5 @@
-import useFetchData from 'hook/useFetchData';
+import { useSampleUserQuery } from 'hook/useFetchData';
 import Button from '../../Button';
-import { sampleUserInquire } from 'api/sampleAPI';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import routes from 'utils/constants/routes';
@@ -14,12 +13,7 @@ const Profile = () => {
     navigate(routes.signin);
   };
 
-  const {
-    data: profileData,
-    isLoading,
-    isError,
-    error,
-  } = useFetchData(sampleUserInquire, 'profileData', data => data);
+  const { data: profileData, isLoading, isError, error } = useSampleUserQuery();
 
   if (isError) {
     console.log(error);
