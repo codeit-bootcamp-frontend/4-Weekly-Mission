@@ -61,7 +61,7 @@ const FolderCard = function ({ contents }) {
 	);
 };
 
-const FolderData = function () {
+const FolderCardCollection = function () {
 	const [items, setItems] = useState([]);
 
 	const handleLoad = async () => {
@@ -87,4 +87,4 @@ const FolderData = function () {
 	);
 };
 
-export default FolderData;
+export default FolderCardCollection;
