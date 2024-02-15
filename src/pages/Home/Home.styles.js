@@ -8,7 +8,7 @@ export const HomeSection = styled.section`
   justify-content: flex - end;
   width: 100%;
   max-width: 1920px;
-  padding: 5rem 6rem 0;
+  padding: 0 6rem;
   overflow: hidden;
 `;
 
