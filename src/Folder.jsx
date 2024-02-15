@@ -1,37 +1,36 @@
 import { useState, useEffect } from 'react';
 
-import { getFolder } from './apis/api';
+import { getLink } from './apis/api';
 
 import SearchBar from './components/SearchBar';
 import Card from './components/Card';
 import './Folder.css';
 
 const Folder = () => {
-  const [folders, setFolders] = useState({});
+  const [folders, setFolders] = useState([]);
 
   useEffect(() => {
     const fetchFolder = async () => {
-      //const { folder } = await getFolder();
+      const { data } = await getLink();
       
-      //setFolders(folder);
+      console.log(data)
+      setFolders(data);
     };
 
     fetchFolder();
   }, []);
 
-  const isShowFolders = folders && folders.links;
-
   return (
     <div className='container-folder'>
       <SearchBar className='search-bar_ly'/>
-      {isShowFolders ? (
+      {folders ? (
         <ul className='card-frame_ly'> 
-          {folders.links.map(({ createdAt, imageSource, title, description, url, id }) => (
+          {folders.map(({ created_at, image_source, title, description, url, id }) => (
             <Card key={id} 
-              imgSrc={imageSource}
+              imgSrc={image_source}
               title={title}
               description={description}
-              createdAt={createdAt}
+              createdAt={created_at}
               url={url}
             />
           ))}

@@ -1,6 +1,6 @@
 import Gnb from '../components/Gnb';
 import Header from '../Header';
-import SharedFolder from '../Folder';
+import SharedFolder from '../SharedFolder';
 import Footer from '../components/Footer';
 
 const SharedPage = () => {

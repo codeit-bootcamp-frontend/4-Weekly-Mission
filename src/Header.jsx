@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { getFolder } from './apis/api';
+import { getShared } from './apis/api';
 
 import './Header.css';
 
@@ -9,7 +9,7 @@ const Header = () => {
 
   useEffect(() => {
     const fetchFolder = async () => {
-      const { folder } = await getFolder();
+      const { folder } = await getShared();
       
       setFolders(folder);
     };
