@@ -1,0 +1,30 @@
+.container {
+  background-color: var(--light-blue);
+  padding: 60px 32px 90px 32px;
+}
+
+.link-adder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 800px;
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid var(--primary);
+  background: var(--white);
+  padding: 16px 20px;
+}
+
+.link-adder img {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}
+
+.link-adder input {
+  color: var(--gray60);
+  width: 100%;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}

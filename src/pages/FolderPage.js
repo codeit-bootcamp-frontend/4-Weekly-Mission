@@ -1,3 +1,12 @@
-export default function HomePage() {
-  return <div>폴더 랜딩페이지 입니다</div>;
+import "./FolderPage.css";
+import FolderPageHeader from "../components/FolderPageHeader";
+import Cards from "../components/Cards";
+
+export default function FolderPage() {
+  return (
+    <div>
+      <FolderPageHeader />
+      <Cards links={[]} />
+    </div>
+  );
 }

@@ -39,25 +39,6 @@
   }
 }
 
-.gnb-login {
-  justify-content: center;
-  width: 128px;
-  padding: 16px 20px;
-  border-radius: 8px;
-  background: linear-gradient(91deg, var(--primary) 0.12%, #6ae3fe 101.84%);
-  color: var(--Grey-Light, var(--gray-light));
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-
-  @media (max-width: 768px) {
-    width: 80px;
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-}
-
 .gnb-profile {
   gap: 6px;
   color: var(--Linkbrary-gray100, #373740);

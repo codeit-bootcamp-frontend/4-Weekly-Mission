@@ -2,7 +2,7 @@ import "./SharedPageHeader.css";
 
 export default function SharedPageHeader({ folder }) {
   return (
-    <div className="folder-info-view">
+    <div className="shared-page-header">
       <div className="info-box">
         <div className="owner-profile">
           {folder?.owner && (
