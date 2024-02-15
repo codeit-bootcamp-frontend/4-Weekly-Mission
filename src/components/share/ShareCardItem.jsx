@@ -1,7 +1,7 @@
 import React from "react"
-import defaultImage from "../../assets/images/no-image.jpg"
-import { elapsedTimeCalc, momentFormat } from "../../utils/moment"
-import Card from "../UI/Card"
+import defaultImage from "assets/images/no-image.jpg"
+import { elapsedTimeCalc, momentFormat } from "utils/moment"
+import Card from "components/UI/Card"
 import "./ShareCardItem.css"
 
 function ShareCardItem({ data }) {

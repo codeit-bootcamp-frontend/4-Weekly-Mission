@@ -1,6 +1,6 @@
 import { useCallback, useReducer } from "react"
-import HttpError from "../utils/httpError"
-import * as Reducer from "../reducer/http-reducer"
+import HttpError from "utils/httpError"
+import * as Reducer from "reducer/http-reducer"
 
 function useHttp() {
   const [state, dispatch] = useReducer(Reducer.httpReducer, Reducer.httpReducerInitialValues)

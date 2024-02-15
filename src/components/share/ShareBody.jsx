@@ -1,10 +1,10 @@
 import React, { useContext } from "react"
-import Wrapper from "../layout/Wrapper"
 import ShareSearchBar from "./ShareSearchBar"
 import ShareCardList from "./ShareCardList"
-import Loading from "../UI/Loading"
-import ErrorCard from "../UI/ErrorCard"
-import { ShareContext } from "../../context/ShareContext"
+import { ShareContext } from "context/ShareContext"
+import Wrapper from "components/layout/Wrapper"
+import Loading from "components/UI/Loading"
+import ErrorCard from "components/UI/ErrorCard"
 
 function ShareBody() {
   const { isLoading, data, hasError } = useContext(ShareContext)

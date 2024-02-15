@@ -1,5 +1,5 @@
 import React from "react"
-import Wrapper from "../layout/Wrapper"
+import Wrapper from "components/layout/Wrapper"
 import Card from "./Card"
 
 import "./ErrorCard.css"

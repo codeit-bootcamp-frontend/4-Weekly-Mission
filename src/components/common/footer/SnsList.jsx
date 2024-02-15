@@ -1,9 +1,9 @@
 import React from "react"
 
-import FacebookImage from "../../../assets/images/icon/facebook-icon.svg"
-import twitterImage from "../../../assets/images/icon/twitter-icon.svg"
-import youtubeImage from "../../../assets/images/icon/youtube-icon.svg"
-import instagramImage from "../../../assets/images/icon/instagram-icon.svg"
+import FacebookImage from "assets/images/icon/facebook-icon.svg"
+import twitterImage from "assets/images/icon/twitter-icon.svg"
+import youtubeImage from "assets/images/icon/youtube-icon.svg"
+import instagramImage from "assets/images/icon/instagram-icon.svg"
 import FooterSnsItem from "./SnsItem"
 
 const snsLists = [

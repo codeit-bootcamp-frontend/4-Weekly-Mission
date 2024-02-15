@@ -1,9 +1,9 @@
 import React, { useContext } from "react"
-import Wrapper from "../layout/Wrapper"
+import Wrapper from "components/layout/Wrapper"
 import ShareHeaderInfo from "./ShareHeaderInfo"
-import Loading from "../UI/Loading"
-import ErrorCard from "../UI/ErrorCard"
-import { ShareContext } from "../../context/ShareContext"
+import Loading from "components/UI/Loading"
+import ErrorCard from "components/UI/ErrorCard"
+import { ShareContext } from "context/ShareContext"
 
 import "./ShareHeader.css"
 

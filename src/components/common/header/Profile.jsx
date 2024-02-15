@@ -1,6 +1,6 @@
 import React from "react"
 import "./Profile.css"
-import defaultImage from "../../../assets/images/icon/avatar.svg"
+import defaultImage from "assets/images/icon/avatar.svg"
 
 function Profile({ data }) {
   const image = data.profileImageSource || defaultImage

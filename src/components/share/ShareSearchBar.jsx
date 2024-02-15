@@ -1,6 +1,6 @@
 import React from "react"
 import "./ShareSearchBar.css"
-import searchImage from "../../assets/images/icon/search.svg"
+import searchImage from "assets/images/icon/search.svg"
 
 function ShareSearchBar({ type, placeholder, name }) {
   return (

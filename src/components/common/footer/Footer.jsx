@@ -1,5 +1,5 @@
 import React from "react"
-import Wrapper from "../../layout/Wrapper"
+import Wrapper from "components/layout/Wrapper"
 
 import "./footer.css"
 import Copyright from "./Copyright"

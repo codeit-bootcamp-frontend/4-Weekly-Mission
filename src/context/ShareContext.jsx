@@ -1,6 +1,6 @@
 import { createContext, useEffect } from "react"
-import useHttp from "../hooks/useHttp"
-import { GET_SHARE_API } from "../api"
+import useHttp from "hooks/useHttp"
+import { GET_SHARE_API } from "api"
 
 export const ShareContext = createContext(null)
 
