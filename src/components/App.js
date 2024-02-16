@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getAPI } from '../api';
+import { getFolder, getUser } from '../api';
 import '../styles/style.css';
 import Header from './Header';
 import Main from './Main';
@@ -13,21 +13,34 @@ function App() {
   const [folderList, setFolderList] = useState([]);
   const [user, setUser] = useState(null);
 
-  const handleLoad = async () => {
-    const {
-      folder: { name, owner, links },
-    } = await getAPI('/sample/folder');
-    const user = await getAPI('/sample/user');
+  const handleFolderLoad = async () => {
+    try {
+      const {
+        folder: { name, owner, links },
+      } = await getFolder();
 
-    setFolderName(name);
-    setUserName(owner.name);
-    setProfileImage(owner.profileImageSource);
-    setFolderList(links);
-    setUser(user);
+      setFolderName(name);
+      setUserName(owner.name);
+      setProfileImage(owner.profileImageSource);
+      setFolderList(links);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const handleUserLoad = async () => {
+    try {
+      const user = await getUser();
+
+      setUser(user);
+    } catch (err) {
+      console.error(err.message);
+    }
   };
 
   useEffect(() => {
-    handleLoad();
+    handleFolderLoad();
+    handleUserLoad();
   }, []);
 
   return (
