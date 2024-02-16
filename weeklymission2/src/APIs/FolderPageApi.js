@@ -28,7 +28,7 @@ export const getFolderName = async () => {
 export const getLinkData = async () => {
   try {
     const response = await fetch(`${BASE_API}/users/1/links`);
-    const result = await result.json();
+    const result = await response.json();
     return result;
   } catch (error) {
     console.log(error);

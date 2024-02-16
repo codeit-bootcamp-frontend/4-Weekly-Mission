@@ -8,11 +8,12 @@ export function FolderMenu({ folderNames, onMenuChange }) {
     const newMenu = e.target.textContent;
     onMenuChange(newMenu);
   };
-  console.log(folderNames);
+
   return (
     <>
       <div className="folderMenu">
         <div>
+          <Button folderName={"전체"} onClick={sendMenu}></Button>
           {folderNames &&
             folderNames.length &&
             folderNames.map((folderName) => (

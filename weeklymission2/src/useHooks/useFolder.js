@@ -1,27 +1,17 @@
 import { useEffect, useState } from "react";
-import { getSampleFolderData } from "../APIs/SharePageApi";
+import { getLinkData } from "../APIs/FolderPageApi";
 
 export const useFolder = () => {
-  const [folder, setFolder] = useState({
-    profileImage: "",
-    profileName: null,
-    folderName: null,
-  });
-  const [cardLinks, setCardLinks] = useState([]);
+  const [folder, setFolder] = useState([]);
 
   const fetchFolder = async () => {
-    const { profileImage, profileName, folderName, cardLinks } =
-      await getSampleFolderData();
-    setFolder({ profileImage, profileName, folderName });
-    setCardLinks(cardLinks);
+    const links = await getLinkData();
+    setFolder(links.data);
   };
 
   useEffect(() => {
     fetchFolder();
   }, []);
 
-  return {
-    folder,
-    cardLinks,
-  };
+  return folder;
 };

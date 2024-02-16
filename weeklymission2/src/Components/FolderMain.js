@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import searchIcon from "../images/search.svg";
-import { Card } from "./Card";
+import { FolderCard } from "./FolderCard";
 import { FolderMenu } from "./FolderMenu";
 import { HandleFolder } from "./HandleFolder";
 import { getFolderName } from "../APIs/FolderPageApi";
 import { useFiles } from "../useHooks/useFiles";
+import { useFolder } from "../useHooks/useFolder";
 
 export function FolderMain({ cards }) {
   const [menu, setMenu] = useState("전체");
@@ -14,6 +15,8 @@ export function FolderMain({ cards }) {
   };
 
   const folderNames = useFiles();
+  const folder = useFolder();
+  console.log(folder);
 
   return (
     <>
@@ -35,10 +38,12 @@ export function FolderMain({ cards }) {
           <HandleFolder />
         </div>
 
-        {/* <div className="cardGrid">
-          {cards &&
-            cards.map((card) => <Card key={card.id} cardInfo={card}></Card>)}
-        </div> */}
+        <div className="cardGrid">
+          {folder &&
+            folder.map((card) => (
+              <FolderCard key={card.id} cardInfo={card}></FolderCard>
+            ))}
+        </div>
       </div>
     </>
   );

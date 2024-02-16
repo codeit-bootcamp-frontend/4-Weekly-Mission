@@ -4,7 +4,7 @@ import { Footer } from "../Components/Footer";
 import { SharedMain } from "../Components/SharedMain";
 import { getSampleData } from "../APIs/SharePageApi";
 import "../styles/Page.css";
-import { useFolder } from "../useHooks/useFolder";
+import { useSampleFolder } from "../useHooks/useSampleFolder";
 
 export function SharedPage() {
   const [profile, setProfile] = useState({ email: null, image: null });
@@ -18,7 +18,7 @@ export function SharedPage() {
     setProfile(userData);
   };
 
-  const { folder, cardLinks } = useFolder();
+  const { folder, cardLinks } = useSampleFolder();
 
   return (
     <>
