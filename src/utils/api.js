@@ -33,3 +33,16 @@ export const getFolders = async () => {
     console.error(error);
   }
 };
+
+export const getLinks = async url => {
+  try {
+    const { data } = await axios.get(url);
+    const links = data.data;
+    return links.map(link => {
+      const { created_at, image_source, ...rest } = link;
+      return { createdAt: created_at, imageSource: image_source, ...rest };
+    });
+  } catch (error) {
+    console.error(error);
+  }
+};

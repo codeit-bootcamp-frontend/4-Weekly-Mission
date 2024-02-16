@@ -1,10 +1,16 @@
 import * as S from './Navbar.styles';
-const Navbar = ({ items }) => {
-  console.log(items);
+const Navbar = ({ items, selectedItem, setSelectedItem }) => {
   return (
     <S.NavbarLayout>
       {items.map(item => (
-        <S.NavbarItemBox key={item.id}>{item.name}</S.NavbarItemBox>
+        <li key={item.id}>
+          <S.NavbarItemBox
+            onClick={() => setSelectedItem({ id: item.id, name: item.name })}
+            id={item.id}
+            $isSelected={selectedItem.id === item.id}>
+            {item.name}
+          </S.NavbarItemBox>
+        </li>
       ))}
     </S.NavbarLayout>
   );
