@@ -3,9 +3,10 @@ import AddLink from "../components/header/AddLink";
 import Footer from "../components/footer/Footer";
 import styles from "./Folder.module.css";
 import LinkSearchInput from "../components/main/LinkSearchInput";
-import LinkFilterBox from "../components/main/LinkFilterBox";
+import LinkFilterBox from "../components/main/FolderFilterBox";
 import AddFolderButton from "../components/main/AddFolderButton";
 import LinkFuncButtonBox from "../components/main/LinkFuncButtonBox";
+import FolderPageLinkList from "../components/main/FolderPageLinkList";
 function Folder() {
   const userDataUrl = "https://bootcamp-api.codeit.kr/api/users/1";
   return (
@@ -23,6 +24,7 @@ function Folder() {
             <h1 className={styles.folder_title}>유용한 글</h1>
             <LinkFuncButtonBox />
           </div>
+          <FolderPageLinkList />
         </div>
       </div>
       <Footer />

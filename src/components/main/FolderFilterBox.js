@@ -1,6 +1,9 @@
-import styles from "./LinkFilterBox.module.css";
-import LinkFilterButton from "./LinkFilterButton";
-function LinkFilterBox() {
+import { useFetch } from "../../hooks/useFetch";
+import styles from "./FolderFilterBox.module.css";
+import FolderFilterButton from "./FolderFilterButton";
+function FolderFilterBox() {
+
+  const folderData = useFetch()
   const filterButtonDatas = {
     filters: [
       { filterName: "전체", id: 0 },
@@ -13,10 +16,10 @@ function LinkFilterBox() {
   return (
     <div className={styles.link_filter_box}>
       {filterButtonDatas.filters.map(({ filterName, id }) => {
-        return <LinkFilterButton filterName={filterName} key={id} />;
+        return <div>1</div>;
       })}
     </div>
   );
 }
 
-export default LinkFilterBox;
+export default FolderFilterBox;
