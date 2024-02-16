@@ -5,11 +5,13 @@ import Cards from '../../components/Cards/Cards';
 import { getFolder } from '../../utils/api';
 import * as S from './Shared.styles';
 import { AuthContext } from '../../context/AuthContext';
+import Empty from '../../components/Empty/Empty';
 
 const Shared = () => {
-  const [folder, setFolder] = useState({});
+  const [folder, setFolder] = useState({ links: [], name: null });
   const { links, name } = folder;
   const { user } = useContext(AuthContext);
+  const hasUser = Object.keys(user).length !== 0;
 
   useEffect(() => {
     const fetchFolder = async () => {
@@ -26,15 +28,15 @@ const Shared = () => {
   return (
     <S.AppLayout>
       <S.HomeSection>
-        {user && (
+        {hasUser && (
           <UserProfile title={`@${user?.name}`} image={{ URL: user?.imageSource, size: '9rem' }} direction='column' />
         )}
-        {name && <S.HomeFolderName>{name}</S.HomeFolderName>}
+        {hasUser && <S.HomeFolderName>{name}</S.HomeFolderName>}
       </S.HomeSection>
       <S.MainLayout>
         <S.MainBox>
           <SearchBar />
-          {links && <Cards links={links} />}
+          {hasUser ? <Cards links={links} /> : <Empty />}
         </S.MainBox>
       </S.MainLayout>
     </S.AppLayout>

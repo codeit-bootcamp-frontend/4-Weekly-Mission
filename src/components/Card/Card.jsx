@@ -12,7 +12,10 @@ const Card = ({ createdAt, url, title, imageURL }) => {
         </S.CardImageBox>
         <S.CardStarIcon />
         <S.CardTextBox>
-          <S.CardReactTimeAgo date={createdAt} locale='ko' />
+          <S.CardTimeBox>
+            <S.CardReactTimeAgo date={createdAt} locale='ko' />
+            <S.CardDotIcon />
+          </S.CardTimeBox>
           <S.CardTitle>{title}</S.CardTitle>
           <S.CardDate> {createdDay} </S.CardDate>
         </S.CardTextBox>

@@ -12,8 +12,8 @@ const Folder = () => {
   const [folders, setFolders] = useState([]);
   const [links, setLinks] = useState([]);
   const [selectedItem, setSelectedItem] = useState({ id: 'all', name: '전체' });
-  const hasFolders = folders.length;
-  const hasLinks = links.length;
+  const hasFolders = folders.length !== 0;
+  const hasLinks = links.length !== 0;
 
   useEffect(() => {
     const fetchLinks = async () => {

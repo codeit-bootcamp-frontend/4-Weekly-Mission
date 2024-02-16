@@ -1,6 +1,8 @@
 import ReactTimeago from 'react-timeago';
 import styled from 'styled-components';
 import { FaStar } from 'react-icons/fa';
+import { BsThreeDots } from 'react-icons/bs';
+
 export const CardArticle = styled.article`
   position: relative;
   border: none;
@@ -15,14 +17,14 @@ export const CardArticle = styled.article`
 `;
 
 export const CardTextBox = styled.div`
-  padding: 1rem;
+  padding: 1.4rem;
 `;
 
 export const CardStarIcon = styled(FaStar)`
   stroke: var(--color-white);
   stroke-width: 2rem;
   color: rgba(0, 0, 0, 0.2);
-  font-size: 3rem;
+  font-size: 2.4rem;
   position: absolute;
   top: 5%;
   right: 5%;
@@ -32,9 +34,18 @@ export const CardStarIcon = styled(FaStar)`
   }
 `;
 
+export const CardTimeBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const CardReactTimeAgo = styled(ReactTimeago)`
   color: var(--color-gray-400);
   font-size: 0.9rem;
+`;
+
+export const CardDotIcon = styled(BsThreeDots)`
+  font-size: 1.6rem;
 `;
 
 export const CardTitle = styled.p`
