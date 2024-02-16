@@ -7,7 +7,13 @@ function Cards({ cards }) {
     <div className="Cards">
       <div className="container">
         {cards.map((link) => (
-          <a href={link.url} target="_blank" className="card" key={link.id}>
+          <a
+            href={link.url}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="card"
+            key={link.id}
+          >
             <div className="card_image_container">
               <img
                 className="card_image"

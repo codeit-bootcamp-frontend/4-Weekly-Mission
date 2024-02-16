@@ -14,16 +14,32 @@ function Footer() {
         <a href="#">FAQ</a>
       </div>
       <div className="sns">
-        <a href="http://www.facebook.com" target="_blank">
+        <a
+          href="http://www.facebook.com"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <img src={facebookImg} alt="facebook" />
         </a>
-        <a href="http://www.twitter.com" target="_blank">
+        <a
+          href="http://www.twitter.com"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <img src={twitterImg} alt="twitter" />
         </a>
-        <a href="http://www.youtube.com" target="_blank">
+        <a
+          href="http://www.youtube.com"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <img src={youtubeImg} alt="youtube" />
         </a>
-        <a href="http://www.instagram.com" target="_blank">
+        <a
+          href="http://www.instagram.com"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
           <img src={instagramImg} alt="instagram" />
         </a>
       </div>
