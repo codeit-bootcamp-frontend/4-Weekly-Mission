@@ -20,9 +20,10 @@ const ContentsArea = ({ links }) => {
     <div className="contents_area">
       <SearchBar></SearchBar>
       <div className="cards_area">
-        {links.map((link) => {
-          return <Card link={link} key={link.id}></Card>;
-        })}
+        {links &&
+          links.map((link) => {
+            return <Card link={link} key={link.id}></Card>;
+          })}
       </div>
     </div>
   );
