@@ -6,6 +6,8 @@ import HomePage from "./pages/HomePage.js";
 import SharedPage from "./pages/SharedPage.js";
 import FolderPage from "./pages/FolderPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import LoginPage from "./pages/LoginPage";
+import ProfilePage from "./pages/ProfilePage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,6 +22,8 @@ root.render(
           </Route> */}
           <Route path="folder" element={<FolderPage />} />
           <Route path="shared" element={<SharedPage />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="profile" element={<ProfilePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
