@@ -1,0 +1,21 @@
+@import url('./global.css');
+
+.cardlist {
+  display: grid;
+  width: 100%;
+  gap: 1.6rem 1.5rem;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+}
+
+@media (width >= 768px) and (width <= 1124px) {
+  .cardlist {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (width <= 767px) {
+  .cardlist {
+    grid-template-columns: 1fr;
+  }
+}
