@@ -1,0 +1,24 @@
+.add_link_input {
+  width: 100%;
+  height: 6.9rem;
+  padding: 1.6rem 2rem 1.6rem 5.2rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--primary-color);
+  background: #fff;
+}
+
+.add_link_input::placeholder {
+  color: var(--gray2-color);
+  font-family: var(--Pretendard-Regular);
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.add_link_input_wrapper {
+  position: relative;
+}
+.add_link_input_icon {
+  position: absolute;
+  left: 2rem;
+  top: 2.2rem;
+}
