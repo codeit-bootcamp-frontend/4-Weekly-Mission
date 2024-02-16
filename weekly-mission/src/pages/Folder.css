@@ -1,0 +1,26 @@
+
+.section{
+    display: block;
+}
+
+.section.owner-information{
+    padding-top: 10rem;
+    padding-bottom: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F0F6FF;
+}
+
+.linkcard-list{
+    width: 106rem;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap : 2.5rem 2rem;
+    text-align: center;
+}
+
+.section.linkcards{
+    min-height: 50.8rem;
+}

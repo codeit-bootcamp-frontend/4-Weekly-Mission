@@ -1,6 +1,7 @@
 
 import { Route, Routes } from 'react-router-dom';
 import Shared from './pages/Shared';
+import Folder from './pages/Folder';
 
 function App() {
 
@@ -12,12 +13,12 @@ function App() {
           <Shared/>
         }
       />
-      {/* <Route 
+      <Route 
         path='/folder'
         element={
-        
+          <Folder/>
         }
-      /> */}
+      />
     </Routes>
   );
 }
