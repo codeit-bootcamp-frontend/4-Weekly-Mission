@@ -2,9 +2,7 @@ import styles from "./Nav.module.css";
 import NavLoginButton from "./NavLoginButoon";
 import { useFetch } from "../../hooks/useFetch";
 
-const userDataUrl = "https://bootcamp-api.codeit.kr/api/sample/user";
-
-function Nav() {
+function Nav({ userDataUrl }) {
   const { data: userData } = useFetch(userDataUrl);
 
   return (

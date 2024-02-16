@@ -5,9 +5,11 @@ import FolderList from "../components/main/FolderList";
 import Footer from "../components/footer/Footer";
 import styles from "./Shared.module.css";
 function Shared() {
+  const userDataUrl = "https://bootcamp-api.codeit.kr/api/sample/user";
+
   return (
     <>
-      <Nav />
+      <Nav userDataUrl={userDataUrl} />
       <Profile />
       <div className={styles.main_wrapper}>
         <LinkSearchInput />
