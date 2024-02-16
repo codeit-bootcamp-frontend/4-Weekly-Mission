@@ -14,7 +14,7 @@ function SharedPage() {
   return (
     <Layout>
       <PageBody
-        PageInfo={
+        pageInfo={
           <PageInfo
             profileImage={profileImage}
             ownerName={ownerName}

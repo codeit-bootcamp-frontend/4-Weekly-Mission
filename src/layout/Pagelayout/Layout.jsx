@@ -4,8 +4,11 @@ import { useGetUser } from "../../data/useGetUser";
 
 export const Layout = ({ children }) => {
   const { data } = useGetUser();
-  const { email, profileImageSource } = data || {};
-  const profile = data ? { email, profileImageSource } : null;
+  const { email, image_source } = data?.data[0] || {};
+  const profile = data?.data[0]
+    ? { email, profileImageSource: image_source }
+    : null;
+
   return (
     <div>
       <NavigationBar profile={profile} />
