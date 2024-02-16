@@ -2,7 +2,7 @@
   width: 100%;
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
-  gap: 2rem 2.5rem;
+  gap: 2.5rem 2rem;
 }
 
 .CardContent {
@@ -83,6 +83,7 @@
 @media (max-width: 767px) {
   .SharedCardContent {
     display: grid;
+    justify-items: center;
     grid-template-columns: 1fr;
     row-gap: 2rem;
   }
@@ -92,7 +93,7 @@
     height: 32.7rem;
   }
 
-  .CardContent > img {
+  .CardImage {
     width: 32.5rem;
     height: 19.2rem;
   }

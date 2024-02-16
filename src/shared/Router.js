@@ -7,14 +7,16 @@ import Faq from '../components/Faq';
 import Privacy from '../components/Privacy';
 import Landing from '../components/Landing';
 import Signup from '../components/Signup';
+import Folder from '../components/Folder';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route path='/landing' element={<Landing />} />
-          <Route path='/' element={<Shared />} />
+          <Route path='/' element={<Landing />} />
+          <Route path='/shared' element={<Shared />} />
+          <Route path='/folder' element={<Folder />} />
         </Route>
         <Route path='/signin' element={<Signin />} />
         <Route path='/signup' element={<Signup />} />
