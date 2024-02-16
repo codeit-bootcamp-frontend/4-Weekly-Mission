@@ -1,7 +1,6 @@
 .container {
   display: flex;
   justify-content: center;
-  padding: 4rem 0;
 }
 
 .list {
@@ -14,5 +13,11 @@
 @media screen and (max-width: 1124px) {
   .list {
     grid-template-columns: repeat(2, 340px);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .list {
+    grid-template-columns: repeat(1, 340px);
   }
 }

@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 6rem 0 9rem;
+  background-color: var(--bg-color);
+}
+
+.form {
+  position: relative;
+  display: flex;
+  width: 80rem;
+  margin: 0 3.2rem;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translateY(-50%);
+}
+
+.input {
+  width: 100%;
+  border-radius: 1.5rem;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  padding: 1.6rem 2rem 1.5rem 5.2rem;
+  line-height: 1;
+}
+
+.input::placeholder {
+  color: var(--gray60-color);
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  transform: translateY(-50%);
+}
+
+@media screen and (max-width: 1124px) {
+}
