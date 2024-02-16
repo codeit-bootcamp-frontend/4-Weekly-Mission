@@ -1,23 +1,42 @@
 .cardBox {
-  width: 21.25rem;
+  position: relative;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   flex: 0 0 calc(25%);
+
+  position: relative;
 }
 
-.cardBox img {
-  width: 21.25rem;
+.cardBox:hover {
+  background: #f0f6ff;
+}
+
+.cardThumbnailContainer {
+  width: 100%;
+  border-radius: 0.9375rem 0.9375rem 0rem 0rem;
+  overflow: hidden;
+}
+
+.cardThumbnail {
+  width: 100%;
   height: 15.85913rem;
   object-fit: cover;
-  border-radius: 0.9375rem 0.9375rem 0rem 0rem;
+
   transition: transform 0.3s ease;
+  position: relative;
 }
 
-.cardBox img:hover {
+.cardThumbnail:hover {
   transform: scale(1.3);
+}
+
+.cardStar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 }
 
 .cardDataArea {
@@ -36,6 +55,16 @@
 
 .cardTimeAgo {
   color: #666;
+
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.cardTimeAgo img {
+  width: 1.3125rem;
+  height: 1.0625rem;
+  flex-shrink: 0;
 }
 
 .cardDesc {

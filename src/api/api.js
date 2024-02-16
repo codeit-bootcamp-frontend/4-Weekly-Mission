@@ -12,10 +12,32 @@ const getSampleFolderData = async () => {
   return folder;
 };
 
-const getUserData = async id => {
-  const response = await fetch(`${BASE_URL}users/${id}`);
+const getTargetUserData = async userId => {
+  const response = await fetch(`${BASE_URL}users/${userId}`);
   const { data } = await response.json();
   return data[0];
 };
 
-export { getSampleUserData, getSampleFolderData, getUserData };
+const getTargetUserFolderListData = async userId => {
+  const response = await fetch(`${BASE_URL}users/${userId}/folders`);
+  const { data } = await response.json();
+  return data;
+};
+
+const getTargetUserFolderLinkListData = async (userId, folderId) => {
+  let response;
+  if (folderId !== 'all') {
+    response = await fetch(`${BASE_URL}users/${userId}/links?folderId=${folderId}`);
+  } else {
+    response = await fetch(`${BASE_URL}users/${userId}/links`);
+  }
+  const { data } = await response.json();
+  return data;
+};
+export {
+  getSampleUserData,
+  getSampleFolderData,
+  getTargetUserData,
+  getTargetUserFolderListData,
+  getTargetUserFolderLinkListData,
+};

@@ -1,21 +1,34 @@
 import { useState, useEffect } from 'react';
-import { getSampleUserData, getSampleFolderData, getUserData } from '../api/api';
+import {
+  getSampleUserData,
+  getSampleFolderData,
+  getTargetUserData,
+  getTargetUserFolderListData,
+  getTargetUserFolderLinkListData,
+} from '../api/api';
 
 const DATA_MAP = {
   sampleUser: getSampleUserData,
   sampleFolder: getSampleFolderData,
-  user: getUserData,
+  targetUser: getTargetUserData,
+  targetUserFolderList: getTargetUserFolderListData,
+  targetUserFolderLinkList: getTargetUserFolderLinkListData,
 };
 
-const useFetchData = (dataType, id = null) => {
+const useFetchData = (dataType, userId = null, folderId = null) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         let targetData;
-        if (id) {
-          targetData = await DATA_MAP[dataType]?.(id);
+
+        if (userId) {
+          if (userId && folderId) {
+            targetData = await DATA_MAP[dataType]?.(userId, folderId);
+          } else {
+            targetData = await DATA_MAP[dataType]?.(userId);
+          }
         } else {
           targetData = await DATA_MAP[dataType]?.();
         }
@@ -26,7 +39,7 @@ const useFetchData = (dataType, id = null) => {
     };
 
     fetchData();
-  }, [dataType, id]);
+  }, [dataType, userId, folderId]);
 
   return data;
 };

@@ -4,13 +4,12 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-
   background: #f0f6ff;
 }
 
 .addLink {
   display: flex;
-  width: 70rem;
+  width: 90%;
   padding: 1rem 1.25rem;
   align-items: center;
   justify-content: space-between;

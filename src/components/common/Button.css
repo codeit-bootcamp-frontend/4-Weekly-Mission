@@ -13,4 +13,6 @@
   border: none;
   width: 8rem;
   padding: unset;
+
+  white-space: nowrap;
 }
