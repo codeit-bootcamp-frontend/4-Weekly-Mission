@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getFolder, getUser } from '../api';
+import { getFolder, getUser } from '../util/api';
 import '../styles/style.css';
 import Header from './Header';
 import Main from './Main';
