@@ -39,7 +39,6 @@ function App() {
     getUserInfo();
   }, []);
 
-  // 출력
   return (
     <div className="App">
       <header>
