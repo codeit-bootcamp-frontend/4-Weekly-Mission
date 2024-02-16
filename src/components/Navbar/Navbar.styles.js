@@ -1,27 +1,12 @@
 import styled from 'styled-components';
+import ColorBox from '../ColorBox/ColorBox.styles';
 
-export const NavbarHeader = styled.header`
-  position: fixed;
-  top: 0;
-  z-index: 1;
+export const NavbarLayout = styled.ol`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  padding: 1.25rem;
-  background: var(--color-gray-100);
-
-  @media screen and (width < 1123px) {
-    .headerBox {
-      padding: 0 3rem;
-    }
-  }
+  justify-content: start;
+  gap: 1rem;
 `;
-export const NavbarHeaderBox = styled.div`
-  display: flex;
-  align-items: center;
-  align-self: stretch;
-  justify-content: space-between;
-  padding: 0 5rem;
-  width: 100%;
+export const NavbarItemBox = styled(ColorBox)`
+  white-space: nowrap;
+  height: 2rem;
 `;

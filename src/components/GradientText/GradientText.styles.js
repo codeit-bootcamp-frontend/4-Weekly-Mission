@@ -1,9 +1,13 @@
 import styled from 'styled-components';
 
-const StyledText = styled.span`
+const GradientText = styled.span`
   color: transparent;
-  background: linear-gradient(to right, ${props => props.$startColor}, ${props => props.$endColor});
+  background: linear-gradient(
+    to right,
+    ${props => props.$startColor || 'var(--color-primary)'},
+    ${props => props.$endColor || '#ff9f9f'}
+  );
   background-clip: text;
 `;
 
-export default StyledText;
+export default GradientText;

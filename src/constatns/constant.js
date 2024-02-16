@@ -1,6 +1,8 @@
-export const GET_USER_API_URL = 'sample/user';
+export const GET_USER_API_URL = 'users/1';
 
 export const GET_FOLDER_API_URL = 'sample/folder';
+
+export const GET_FOLDERS_API_URL = 'users/1/folders';
 
 export const SNS_LIST = ['facebook', 'twitter', 'youtube', 'instagram'];
 

@@ -6,6 +6,7 @@ export const AppLayout = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1920px;
+  padding-top: 7rem;
 `;
 
 export const HomeSection = styled.section``;

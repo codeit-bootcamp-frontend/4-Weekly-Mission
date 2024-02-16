@@ -1,15 +1,9 @@
 import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
+import ColorBox from '../ColorBox/ColorBox.styles';
 
-export const SearchBarDiv = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  width: 100%;
-  border-radius: 8px;
-  background: #f5f5f5;
-  padding: 1rem;
-  margin: 3rem 0rem;
+export const SearchBarDiv = styled(ColorBox)`
+  border: none;
 `;
 
 export const SearchBarFaSearch = styled(FaSearch)`

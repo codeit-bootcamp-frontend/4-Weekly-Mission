@@ -1,12 +1,12 @@
-import GradientButton from '../../components/GradientButton/GradientButton';
-import GradientText from '../../components/GradientText/GradientText';
+import GradientButton from '../../components/GradientButton/GradientButton.styles';
+import GradientText from '../../components/GradientText/GradientText.styles';
 import * as S from './Home.styles';
 const Home = () => {
   return (
     <>
       <S.HomeSection>
         <S.HomeTitle>
-          <GradientText startColor='var(--color-primary)' endColor='#ff9f9f'>
+          <GradientText $startColor='var(--color-primary)' $endColor='#ff9f9f'>
             세상의 모든 정보
           </GradientText>
           를
@@ -19,7 +19,7 @@ const Home = () => {
       <S.MainLayout>
         <S.MainArticle>
           <S.MainTitle>
-            <GradientText startColor='#fe8a8a' endColor='#a4ceff'>
+            <GradientText $startColor='#fe8a8a' $endColor='#a4ceff'>
               원하는 링크
             </GradientText>
             를
@@ -38,7 +38,7 @@ const Home = () => {
           <S.MainTitle>
             링크를 폴더로
             <S.MainBr />
-            <GradientText startColor='#6fbaff' endColor='#ffd88b'>
+            <GradientText $startColor='#6fbaff' $endColor='#ffd88b'>
               관리
             </GradientText>
             하세요
@@ -54,7 +54,7 @@ const Home = () => {
           <S.MainTitle>
             저장한 링크를
             <S.MainBr />
-            <GradientText startColor='#6d7ccd' endColor='#52886b'>
+            <GradientText $startColor='#6d7ccd' $endColor='#52886b'>
               공유
             </GradientText>
             해보세요.
@@ -72,7 +72,7 @@ const Home = () => {
           <S.MainTitle>
             저장한 링크를
             <S.MainBr />
-            <GradientText startColor='#fe578f' endColor='#68e8f9'>
+            <GradientText $startColor='#fe578f' $endColor='#68e8f9'>
               검색
             </GradientText>
             해 보세요
