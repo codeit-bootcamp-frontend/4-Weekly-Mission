@@ -12,12 +12,6 @@ export const HeaderLayout = styled.header`
   height: 6rem;
   padding: 1.25rem;
   background: var(--color-gray-100);
-
-  @media screen and (width < 1123px) {
-    .headerBox {
-      padding: 0 3rem;
-    }
-  }
 `;
 
 export const HeaderBox = styled.div`
@@ -27,8 +21,12 @@ export const HeaderBox = styled.div`
   justify-content: space-between;
   padding: 0 5rem;
   width: 100%;
+
+  @media screen and (width < 1123px) {
+    padding: 0 2rem;
+  }
 `;
 
 export const HeaderLogo = styled.img`
-  width: 2rem;
+  width: 1.8rem;
 `;
