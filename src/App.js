@@ -13,18 +13,18 @@ import './style/card.css';
 
 function App() {
   return (
-    <div>
-      <header>
+    <>
+      <header id="headerShared">
         <div className="headerLogo">
           <a href="/">
             <img className="logo" src={logo} alt="Linkbrary로고" />
           </a>
         </div>
-        <div className="headerBtn">
+        <div className="headerButton">
           <button>로그인</button>
         </div>
       </header>
-      <section className="sectionShared">
+      <section id="sectionShared">
         <div className="title">
           <div className="titleContent">
             <img className="titleLogo" src={titleLogo} alt="코드잇 로고" />
@@ -33,7 +33,7 @@ function App() {
           <p className="bookmark">⭐즐겨찾기</p>
         </div>
       </section>
-      <main>
+      <main id="mainShared">
         <div className="searchBar">
           <img src={search} alt="돋보기 아이콘" />
           <p>링크를 검색해 보세요</p>
@@ -51,7 +51,7 @@ function App() {
           <Card num={9} />
         </div>
       </main>
-      <footer>
+      <footer id="footerShared">
         <div className="footer1">
           <p>©codeit - 2023</p>
         </div>
@@ -70,7 +70,7 @@ function App() {
           <img src={instagram} alt="인스타그램 로고" />
         </div>
       </footer>
-    </div>
+    </>
   );
 }
 

@@ -1,4 +1,4 @@
-header {
+#headerShared {
   position: sticky;
   display: flex;
   justify-content: space-between;
@@ -8,7 +8,7 @@ header {
   background-color: var(--Linkbrary-bg, #f0f6ff);
 }
 
-.headerLogo .logo {
+#headerShared .headerLogo .logo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,7 +17,7 @@ header {
   cursor: pointer;
 }
 
-.headerBtn button {
+#headerShared .headerButton button {
   display: flex;
   width: 128px;
   padding: 16px 20px;
@@ -35,7 +35,7 @@ header {
   cursor: pointer;
 }
 
-.sectionShared {
+#sectionShared {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -45,7 +45,7 @@ header {
   background: var(--Linkbrary-bg, #f0f6ff);
 }
 
-.title {
+#sectionShared .title {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -55,13 +55,13 @@ header {
   height: 164px;
 }
 
-.titleContent {
+#sectionShared .titleContent {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.titleContent p {
+#sectionShared .titleContent p {
   color: var(--text-color-light-mode, #000);
 
   /* Linkbrary/body1-regular */
@@ -71,7 +71,7 @@ header {
   line-height: 24px; /* 150% */
 }
 
-.titleLogo {
+#sectionShared .titleLogo {
   display: flex;
   height: 60px;
   padding: 16px 17px 16px 15px;
@@ -81,7 +81,7 @@ header {
   background: var(--primary-purple-70, #8f00ff);
 }
 
-.bookmark {
+#sectionShared .bookmark {
   width: 188px;
   height: 48px;
   color: #000;
@@ -97,7 +97,7 @@ header {
   line-height: normal;
 }
 
-main {
+#mainShared {
   margin: 40px;
   display: flex;
   flex-direction: column;
@@ -108,10 +108,10 @@ main {
   border-radius: 10px;
 }
 
-.searchBar {
+#mainShared .searchBar {
   display: flex;
   width: 100%;
-  max-width: 1040px;
+  max-width: 1080px;
   gap: 10px;
   height: 54px;
   padding: 15px 16px;
@@ -122,13 +122,13 @@ main {
   background: #f5f5f5;
 }
 
-.searchBar img {
+#mainShared .searchBar img {
   width: 16px;
   height: 16px;
   fill: rgba(0, 0, 0, 0);
 }
 
-.searchBar p {
+#mainShared .searchBar p {
   color: var(--Text, #666);
   text-align: right;
 
@@ -139,14 +139,14 @@ main {
   line-height: 24px; /* 150% */
 }
 
-.mainContent {
+#mainShared .mainContent {
   display: grid;
   gap: 25px;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
 }
 
-footer {
+#footerShared {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -155,7 +155,7 @@ footer {
   background: var(--The-julge-black, #111322);
 }
 
-footer .footer1 {
+#footerShared .footer1 {
   color: #676767;
   text-align: center;
   font-family: Acme;
@@ -165,7 +165,7 @@ footer .footer1 {
   line-height: normal;
 }
 
-footer .footer2 {
+#footerShared .footer2 {
   display: flex;
   justify-content: space-between;
   gap: 30px;
@@ -177,35 +177,35 @@ footer .footer2 {
   line-height: normal;
 }
 
-footer .footer2 a {
+#footerShared .footer2 a {
   text-decoration: none;
   color: #cfcfcf;
 }
 
-footer .footer3 {
+#footerShared .footer3 {
   display: flex;
   gap: 12px;
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
-  .mainContent {
+  #mainShared .mainContent {
     display: grid;
     gap: 25px;
     grid-template-columns: 1fr 1fr;
   }
 
-  main {
+  #mainShared {
     padding-left: 32px;
     padding-right: 32px;
   }
 }
 @media (min-width: 357px) and (max-width: 767px) {
-  .mainContent {
+  #mainShared .mainContent {
     display: grid;
     gap: 25px;
     grid-template-columns: 1fr;
   }
-  main {
+  #mainShared {
     padding-left: 32px;
     padding-right: 32px;
   }
