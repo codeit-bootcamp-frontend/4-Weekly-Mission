@@ -5,6 +5,7 @@ const GradientButton = styled.button`
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  white-space: nowrap;
   color: var(--color-white);
   font-size: 1rem;
   text-decoration: none;

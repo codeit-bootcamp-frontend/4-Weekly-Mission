@@ -19,6 +19,4 @@ export const AddBarInput = styled.input`
   background: #f5f5f5;
 `;
 
-export const AddBarButton = styled(GradientButton)`
-  white-space: nowrap;
-`;
+export const AddBarButton = styled(GradientButton)``;

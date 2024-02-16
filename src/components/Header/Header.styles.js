@@ -19,6 +19,7 @@ export const HeaderLayout = styled.header`
     }
   }
 `;
+
 export const HeaderBox = styled.div`
   display: flex;
   align-items: center;
@@ -26,4 +27,8 @@ export const HeaderBox = styled.div`
   justify-content: space-between;
   padding: 0 5rem;
   width: 100%;
+`;
+
+export const HeaderLogo = styled.img`
+  width: 2rem;
 `;
