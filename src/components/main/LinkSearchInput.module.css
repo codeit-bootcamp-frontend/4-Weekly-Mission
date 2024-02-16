@@ -1,6 +1,8 @@
+.link_search_input_wrapper {
+  height: 5.7rem;
+}
 .link_search_input {
   font-family: var(--Pretendard-Regular);
-  /* position: absolute; */
   width: 100%;
   padding: 1.8rem 1.6rem 1.5rem 4rem;
   border-radius: 1rem;
