@@ -85,14 +85,17 @@ function Shared() {
 
   const HandleLoad = useCallback(async () => {
     let results;
+    let foldersArr;
     try {
       results = await getFolderInfo();
+      foldersArr = await results.folder.links;
+      await console.log(foldersArr);
     } catch (error) {
       console.log(error);
     }
 
-    if (!results) return;
-    setFolders(results);
+    if (!foldersArr) return;
+    setFolders(foldersArr);
   }, []);
 
   useEffect(() => {
