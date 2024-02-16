@@ -20,7 +20,7 @@ function SubFolders({ subFolderData }) {
 }
 
 function CurrentSubFolder(currentFolder) {
-	return <>{currentFolder[0]}</>;
+	return <>{currentFolder.currentFolder}</>;
 }
 
 function HandleCurrentSubFolder() {
@@ -50,7 +50,7 @@ export default function LinkSubFolder() {
 				<AddSubFolder />
 			</div>
 			<div>
-				<CurrentSubFolder currentFolder={["testing"]} />
+				<CurrentSubFolder currentFolder={"Testing"} />
 				<HandleCurrentSubFolder />
 			</div>
 		</div>
