@@ -4,6 +4,7 @@ import Footer from "../components/footer/Footer";
 import styles from "./Folder.module.css";
 import LinkSearchInput from "../components/main/LinkSearchInput";
 import LinkFilterBox from "../components/main/LinkFilterBox";
+import AddFolderButton from "../components/main/AddFolderButton";
 function Folder() {
   const userDataUrl = "https://bootcamp-api.codeit.kr/api/users/1";
   return (
@@ -15,6 +16,7 @@ function Folder() {
         <div className={styles.folder_page_content_wrapper}>
           <div className={styles.content_filter_wrapper}>
             <LinkFilterBox />
+            <AddFolderButton />
           </div>
         </div>
       </div>

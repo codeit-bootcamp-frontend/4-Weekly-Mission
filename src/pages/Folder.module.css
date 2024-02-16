@@ -11,6 +11,8 @@
 }
 .content_filter_wrapper {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 @media (max-width: 1199.5px) {
   .main_wrapper {

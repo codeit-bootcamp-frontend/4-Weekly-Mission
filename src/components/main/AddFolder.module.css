@@ -1,0 +1,13 @@
+.add_folder_button {
+  color: var(--primary-color);
+  text-align: center;
+  font-family: (--Pretendard-Regular);
+  font-size: 1.6rem;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
