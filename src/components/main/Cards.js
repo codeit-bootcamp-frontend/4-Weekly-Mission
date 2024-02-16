@@ -9,19 +9,11 @@ function Cards({ cards }) {
         {cards.map((link) => (
           <a href={link.url} target="_blank" className="card" key={link.id}>
             <div className="card_image_container">
-              {link.imageSource ? (
-                <img
-                  className="card_image"
-                  src={link.imageSource}
-                  alt="card image"
-                />
-              ) : (
-                <img
-                  className="card_image"
-                  src={noCardImg}
-                  alt="no card image"
-                />
-              )}
+              <img
+                className="card_image"
+                src={link.imageSource ?? noCardImg}
+                alt={link.imageSource ? "card image" : "no card image"}
+              />
             </div>
             <div className="card_information">
               <div className="createdAt">{elapsedTime(link)}</div>
