@@ -5,6 +5,7 @@ import defaultCardImg from 'assets/defaultCardImg.svg';
 import StarButton from 'components/common/card/StarButton';
 import calculateTimeDifference from 'utils/calculateTimeDifference';
 import formatDateToYYYYMMDD from 'utils/formatDateToYYYYMMDD';
+import MeatBallButton from './MeatBallButton';
 
 const Styled = {
   Container: styled.div`
@@ -83,7 +84,10 @@ function Card({ createdAt, url, description, imageSource = defaultCardImg }) {
           <Styled.ThumbnailImg src={imageSource} alt="카드 이미지" />
         </Styled.ThumbnailContainer>
         <Styled.TextCardInfo>
-          <Styled.TimeAgo>{calculateTimeDifference(createdAt)}</Styled.TimeAgo>
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Styled.TimeAgo>{calculateTimeDifference(createdAt)}</Styled.TimeAgo>
+            <MeatBallButton />
+          </div>
           <Styled.Text>{description}</Styled.Text>
           <Styled.Date>{formatDateToYYYYMMDD(createdAt)}</Styled.Date>
         </Styled.TextCardInfo>
