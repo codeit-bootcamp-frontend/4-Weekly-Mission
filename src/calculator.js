@@ -5,6 +5,7 @@ function timeToString(time) {
     return "1 minute ago";
   }
   let diffMinute = parseInt(diffSec / 60);
+
   // 59분 이하
   if (diffMinute <= 59) {
     return `${diffMinute} minutes ago`;
