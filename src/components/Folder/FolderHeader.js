@@ -1,7 +1,7 @@
-import '../style/folderNav.css';
-import AddLinkBar from './AddLinkBar';
+import './folder.css';
+import AddLinkBar from '../AddLinkBar';
 
-function SharedNav() {
+function FolderHeader() {
   return (
     <nav className="nav">
       <div className="nav-item">
@@ -11,4 +11,4 @@ function SharedNav() {
   );
 }
 
-export default SharedNav;
+export default FolderHeader;

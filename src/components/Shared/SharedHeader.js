@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import '../style/nav.css';
+import './shared.css';
 
-function SharedNav() {
+function SharedHeader() {
   const [folderInfo, setFolderInfo] = useState({
     ownerName: '',
     folderName: '',
@@ -44,4 +44,4 @@ function SharedNav() {
   );
 }
 
-export default SharedNav;
+export default SharedHeader;

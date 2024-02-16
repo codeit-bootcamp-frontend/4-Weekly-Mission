@@ -1,8 +1,8 @@
-import '../style/footer.css';
-import facebookIcon from '../images/facebook.svg';
-import twitterIcon from '../images/twitter.svg';
-import youtubeIcon from '../images/youtube.svg';
-import instagramIcon from '../images/instagram.svg';
+import './footer.css';
+import facebookIcon from '../../images/facebook.svg';
+import twitterIcon from '../../images/twitter.svg';
+import youtubeIcon from '../../images/youtube.svg';
+import instagramIcon from '../../images/instagram.svg';
 import { Link } from 'react-router-dom';
 
 function Footer() {

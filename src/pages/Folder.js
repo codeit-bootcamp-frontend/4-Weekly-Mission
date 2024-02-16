@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet';
-import FolderHeader from '../components/FolderHeader';
+import FolderHeader from '../components/Folder/FolderHeader';
 import CardList from '../components/CardList';
-import Footer from '../components/Footer';
+import Footer from '../components/Footer/Footer';
 
 function Shared() {
   return (

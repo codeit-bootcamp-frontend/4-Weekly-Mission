@@ -1,5 +1,5 @@
-@import './reset.css';
-@import './colors.css';
+@import '../../style/reset.css';
+@import '../../style/colors.css';
 
 * {
   box-sizing: border-box;
