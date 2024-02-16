@@ -92,3 +92,7 @@
   font-weight: 400;
   line-height: normal;
 }
+
+.card-empty {
+  width: 100%;
+}
