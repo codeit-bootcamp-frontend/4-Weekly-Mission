@@ -1,14 +1,14 @@
-import facebook from '../images/akar-icons_facebook-fill.svg';
-import twitter from '../images/akar-icons_twitter-fill.svg';
-import youtube from '../images/akar-icons_youtube-fill.svg';
-import instagram from '../images/ant-design_instagram-filled.svg';
+import facebook from './images/akar-icons_facebook-fill.svg';
+import twitter from './images/akar-icons_twitter-fill.svg';
+import youtube from './images/akar-icons_youtube-fill.svg';
+import instagram from './images/ant-design_instagram-filled.svg';
 
-import '../App.css';
-import '../style/shared.css';
+import '../../App.css';
+import './Footer.css';
 
 export default function Footer() {
   return (
-    <footer>
+    <footer id="footerShared">
       <div className="footer1">
         <p>©codeit - 2023</p>
       </div>

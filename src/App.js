@@ -1,29 +1,17 @@
-import logo from './images/logo.png';
-import titleLogo from './images/shared/white.svg';
-import facebook from './images/akar-icons_facebook-fill.svg';
-import twitter from './images/akar-icons_twitter-fill.svg';
-import youtube from './images/akar-icons_youtube-fill.svg';
-import instagram from './images/ant-design_instagram-filled.svg';
-import search from './images/shared/search.svg';
-import Card from './js/Card';
+import titleLogo from './images/white.svg';
+import search from './images/search.svg';
+import Card from './components/Card/Card';
 
 import './App.css';
-import './style/shared.css';
-import './style/card.css';
+import './shared.css';
+import './components/Card/Card.css';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
     <>
-      <header id="headerShared">
-        <div className="headerLogo">
-          <a href="/">
-            <img className="logo" src={logo} alt="Linkbrary로고" />
-          </a>
-        </div>
-        <div className="headerButton">
-          <button>로그인</button>
-        </div>
-      </header>
+      <Header />
       <section id="sectionShared">
         <div className="title">
           <div className="titleContent">
@@ -51,25 +39,7 @@ function App() {
           <Card num={9} />
         </div>
       </main>
-      <footer id="footerShared">
-        <div className="footer1">
-          <p>©codeit - 2023</p>
-        </div>
-        <div className="footer2">
-          <a href="/privacy">
-            <p>Privacy Policy</p>
-          </a>
-          <a href="/faq">
-            <p>FAQ</p>
-          </a>
-        </div>
-        <div className="footer3">
-          <img src={facebook} alt="페이스북 로고" />
-          <img src={twitter} alt="트위터 로고" />
-          <img src={youtube} alt="유튜브 로고" />
-          <img src={instagram} alt="인스타그램 로고" />
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
