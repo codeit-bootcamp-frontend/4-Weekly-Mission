@@ -1,6 +1,9 @@
 import style from '../styles/LinkCard.module.css';
 import { dateParse, diffDate } from '../utils/date';
 import noImg from '../assets/no-image-link.png';
+import starDefault from '../assets/star-Default.svg';
+import starSelected from '../assets/star-Selected.svg';
+import kebabImg from '../assets/kebab.svg';
 
 function LinkCard({ data }) {
   return (
@@ -10,11 +13,17 @@ function LinkCard({ data }) {
           <img src={data?.imageSource ? data?.imageSource : noImg} alt="no-img" />
         </div>
         <div className={style.itemInfo}>
-          <div className={style.dateDiff}>{diffDate(dateParse(data?.createdAt))}</div>
+          <div className={style.flexBox}>
+            <div className={style.dateDiff}>{diffDate(dateParse(data?.createdAt))}</div>
+            <div>
+              <img src={kebabImg} alt="kebab" />
+            </div>
+          </div>
           <div className={style.itemContext}>{data?.title}</div>
           <div className={style.itemDate}>{dateParse(data?.createdAt)}</div>
         </div>
       </a>
+      <img className={style.starBtn} src={starDefault} alt="star" />
     </div>
   );
 }
