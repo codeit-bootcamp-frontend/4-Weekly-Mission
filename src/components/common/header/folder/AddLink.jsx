@@ -30,44 +30,44 @@ const StyledForm = styled.form`
 `;
 const Icon = styled.img`
   position: relative;
-  left: 40px;
-  top: 5px;
-  width: 20px;
-  height: 20px;
+  left: 4rem;
+  top: 0.5rem;
+  width: 2rem;
+  height: 2rem;
   @media (min-width: 375px) and (max-width: 767px) {
-    top: 4px;
-    left: 30px;
-    width: 16px;
-    height: 16px;
+    top: 0.4rem;
+    left: 3rem;
+    width: 1.6rem;
+    height: 1.6rem;
   }
 `;
 const StyledInput = styled.input`
-  width: 800px;
-  height: 69px;
-  border-radius: 15px;
-  border: 1px solid ${props => props.theme.primary_color};
-  padding: 16px 20px 16px 52px;
-  font-size: 16px;
+  width: 80rem;
+  height: 6.9rem;
+  border-radius: 1.5rem;
+  border: 0.1rem solid ${props => props.theme.primary_color};
+  padding: 1.6rem 2rem 1.6rem 5.2rem;
+  font-size: 1.6rem;
   @media (max-width: 1199px) {
-    max-width: 704px;
+    max-width: 70.4rem;
   }
   @media (min-width: 375px) and (max-width: 767px) {
-    max-width: 325px;
-    height: 53px;
-    padding: 8px 36px;
-    font-size: 14px;
+    max-width: 32.5rem;
+    height: 5.3rem;
+    padding: 0.8rem 3.6rem;
+    font-size: 1.4rem;
   }
 `;
 const StyledButton = styled(Button)`
   position: relative;
-  left: 715px;
-  bottom: 52px;
+  left: 71.5rem;
+  bottom: 5.2rem;
   @media (max-width: 1199px) {
-    left: 624px;
+    left: 62.4rem;
   }
   @media (min-width: 375px) and (max-width: 767px) {
-    left: 250px;
-    bottom: 44px;
+    left: 25rem;
+    bottom: 4.4rem;
   }
 `;
 

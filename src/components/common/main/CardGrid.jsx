@@ -4,7 +4,7 @@ import { useSampleFolderQuery } from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';
 import Card from './Card';
-import Error from '../Error';
+import CardError from './CardError';
 
 const CardGrid = () => {
   const {
@@ -20,7 +20,7 @@ const CardGrid = () => {
   );
 
   if (isError) {
-    return <Error />;
+    return <CardError />;
   }
 
   return (

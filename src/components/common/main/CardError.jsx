@@ -1,11 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Error = () => {
+const CardError = () => {
   return (
     <StyledError>
-      <div className="emoji">😰</div>
-      <div className="description">데이터를 불러오는데 실패하였습니다.</div>
+      <div className="description">😰 저장된 링크가 없습니다.</div>
     </StyledError>
   );
 };
@@ -16,15 +15,11 @@ const StyledError = styled.div`
   width: 50%;
   margin: 3rem auto;
   padding: 1rem 2rem;
-  background-color: rgb(253, 235, 236);
-  .emoji {
-    font-size: 2rem;
-    padding: 1rem;
-  }
   .description {
+    margin: 0 auto;
     font-size: 1.6rem;
     font-weight: 500;
-    color: #ff2828;
+    color: ${props => props.theme.gray100};
   }
 `;
-export default Error;
+export default CardError;

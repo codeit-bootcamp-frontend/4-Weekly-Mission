@@ -2,7 +2,6 @@ import Loader from 'components/common/Loader';
 import { useSampleFolderQuery } from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';
-import Error from 'components/common/Error';
 import { HeaderContainer } from 'styles/HeaderContainer';
 
 const Header = () => {
@@ -10,6 +9,7 @@ const Header = () => {
     data: folderInfo,
     isLoading,
     isError,
+    error,
   } = useSampleFolderQuery('folderInfo', data => ({
     ownerName: data.folder.owner.name,
     folderName: data.folder.name,
@@ -17,7 +17,7 @@ const Header = () => {
   }));
 
   if (isError) {
-    return <Error />;
+    console.log(error);
   }
   return (
     <HeaderContainer>
