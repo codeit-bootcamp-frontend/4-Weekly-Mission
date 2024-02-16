@@ -1,0 +1,53 @@
+.nav {
+  background: var(--Linkbrary-bg, #f0f6ff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+  width: 100%;
+}
+
+.navFrame {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  padding: 33px 200px 32px 200px;
+}
+
+#Linkbrary {
+  width: 133px;
+  height: 24px;
+}
+
+.account {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#MyProfile {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+#Email {
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media (max-width: 767px) {
+  #Email {
+    display: none; /* 모바일일 때 이메일 숨김 */
+  }
+
+  #Linkbrary {
+    margin-right: 30px; /* 프로필 사진과 간격 조정 */
+  }
+}
