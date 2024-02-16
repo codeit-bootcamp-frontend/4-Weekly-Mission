@@ -1,12 +1,12 @@
-import "../styles/CardList.css";
-import Card from "./Card";
+import '../styles/CardList.css';
+import Card from './Card';
 
 const CardList = () => {
   // const cardList // 받아올 예정.
 
   return (
     <>
-      <div className="cardlist">
+      <div className='cardlist'>
         <Card />
         <Card />
         <Card />

@@ -5,6 +5,6 @@ import Page from './pages/mainLoginPage';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
-      <Page />
+    <Page />
   </StrictMode>
 );

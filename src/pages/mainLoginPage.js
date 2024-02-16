@@ -4,16 +4,14 @@ import Info from './info';
 import Folder from './folder';
 
 const Page = () => {
-
-
   return (
     <div>
       <Header />
-      <Info/>
+      <Info />
       <Folder />
       <Footer />
     </div>
   );
-}
+};
 
 export default Page;
