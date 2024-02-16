@@ -5,7 +5,7 @@ import { Layout } from "../components/Layout/Layout";
 function FolderPage() {
   return (
     <div className="App">
-      <Layout></Layout>
+      <Layout sticky={false}></Layout>
     </div>
   );
 }

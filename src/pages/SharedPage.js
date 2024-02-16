@@ -6,7 +6,7 @@ import { Layout } from "../components/Layout/Layout";
 function SharedPage() {
   return (
     <div className="App">
-      <Layout>
+      <Layout sticky={true}>
         <Shared />
       </Layout>
     </div>
