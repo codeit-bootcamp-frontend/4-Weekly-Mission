@@ -3,20 +3,20 @@ import CardList from "../CardList/CardList";
 import Header from "../Header/Header";
 import ReadCard from "../ReadCard";
 import SearchBar from "../SearchBar/SearchBar";
-import "./SharedPage.css";
+import "./Shared.css";
 
-function SharedPage() {
+function Shared() {
   const { data } = useGetFolder();
   const { profileImage, ownerName, folderName, links } = data || {};
 
   return (
-    <div className="SharedPage">
+    <div className="Shared">
       <Header
         profileImage={profileImage}
         ownerName={ownerName}
         folderInfo={folderName}
       />
-      <div className="SharedPage-items">
+      <div className="Shared-items">
         <SearchBar />
         <CardList>
           {links?.map((link) => (
@@ -28,4 +28,4 @@ function SharedPage() {
   );
 }
 
-export default SharedPage;
+export default Shared;
