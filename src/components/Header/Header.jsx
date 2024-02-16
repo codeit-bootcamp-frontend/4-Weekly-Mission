@@ -29,6 +29,9 @@ const Header = () => {
         <Link to='/'>
           <img src='assets/icons/linkbrary-logo.svg' alt='linkbrary' />
         </Link>
+        <Link to='/folder'>folder</Link>
+        <Link to='/shared'>shared</Link>
+
         {hasUser ? (
           <UserProfile title={user.email} image={{ URL: user.profileImageSource, size: '2rem' }} />
         ) : (
