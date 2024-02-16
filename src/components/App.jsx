@@ -1,4 +1,4 @@
-import getData from "../api";
+import getData from "../api/api";
 import { useEffect, useState } from "react";
 import Main from "./Main";
 import Header from "./Header";
