@@ -14,7 +14,7 @@ function Home() {
               <div className="infor">관리해 보세요.</div>
             </div>
           </div>
-          <Link to="/courses">
+          <Link to="/folder">
             <a className="link_btn btn" href="./">
               링크 추가하기
             </a>

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import "../css/home.css";
+// import { User } from "../api/api";
 
-function Email() {
-  const [profileData, setProfileData] = useState(null);
+const Email = () => {
+  const [profileData, setProfileData] = useState([]);
 
   useEffect(() => {
     fetch("https://bootcamp-api.codeit.kr/api/sample/user")
@@ -20,11 +21,19 @@ function Email() {
       });
   }, []);
 
-  console.log(profileData);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
+
+  // const fetchData = async () => {
+  //   const { user } = await User();
+  //   setProfileData(user);
+  // };
 
   if (!profileData) {
     return <button className="btn login_btn">로그인</button>;
   }
+
   return (
     <div className="profile_box">
       <img
@@ -35,6 +44,6 @@ function Email() {
       <p className="profile_email">{profileData.email}</p>
     </div>
   );
-}
+};
 
 export default Email;

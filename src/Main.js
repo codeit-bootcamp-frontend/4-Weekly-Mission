@@ -9,7 +9,7 @@ function Main() {
       <App>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="courses" element={<Folder />} />
+          <Route path="/folder" element={<Folder />} />
         </Routes>
       </App>
     </BrowserRouter>

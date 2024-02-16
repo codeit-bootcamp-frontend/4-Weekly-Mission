@@ -1,7 +1,31 @@
 import "../css/folder.css";
-import FolderItem from "./folderItem";
+// import FolderItemList from "./folderItem";
+import { FolderData } from "../api/api";
+import { useEffect, useState } from "react";
 
-function Folder() {
+// import { Folder } from "../api/api";
+
+function FolderPage() {
+  const [userData, setUserData] = useState([]);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userData = await FolderData();
+        setUserData(userData);
+      } catch (error) {
+        console.error("ERROR", error);
+      }
+    };
+    fetchUserData();
+  }, []);
+  console.log(userData);
+
+  const FolderItemList = () => {
+    console.log(userData);
+    return <li>{JSON.stringify(userData.folder)}</li>;
+  };
+
   return (
     <main>
       <div className="first_page_back">
@@ -41,10 +65,11 @@ function Folder() {
             <button className="nav_edit">🗑️ 삭제</button>
           </div>
         </nav>
-        <FolderItem />
+        <FolderItemList />
+        {/* <li>{userData.links}</li> */}
       </div>
     </main>
   );
 }
 
-export default Folder;
+export default FolderPage;
