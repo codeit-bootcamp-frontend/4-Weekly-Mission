@@ -24,7 +24,7 @@ function App() {
           <button>로그인</button>
         </div>
       </header>
-      <section>
+      <section className="sectionShared">
         <div className="title">
           <div className="titleContent">
             <img className="titleLogo" src={titleLogo} alt="코드잇 로고" />

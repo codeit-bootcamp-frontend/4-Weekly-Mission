@@ -35,7 +35,7 @@ header {
   cursor: pointer;
 }
 
-section {
+.sectionShared {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -111,6 +111,7 @@ main {
 .searchBar {
   display: flex;
   width: 100%;
+  max-width: 1040px;
   gap: 10px;
   height: 54px;
   padding: 15px 16px;
