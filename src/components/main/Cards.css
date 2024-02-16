@@ -1,9 +1,5 @@
 @import url("/src/common/color.css");
 
-* {
-  box-sizing: border-box;
-}
-
 .Cards {
   display: flex;
   justify-content: center;

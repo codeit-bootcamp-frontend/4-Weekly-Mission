@@ -1,9 +1,5 @@
 @import url("/src/common/color.css");
 
-* {
-  box-sizing: border-box;
-}
-
 .SearchBar {
   margin: 40px auto;
   border-radius: 10px;
