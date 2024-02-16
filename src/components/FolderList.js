@@ -1,21 +1,17 @@
 import useFolderList from "../hooks/useFolderList.js";
+import "./FolderList.css";
 
 const FolderList = () => {
   const folderList = useFolderList();
 
   return (
-    <div>
-      <h2>Folder List</h2>
-      <ul>
-        {folderList.map((folder) => (
-          <li key={folder.id}>
-            <strong>{folder.name}</strong>
-            {/* <p>Created at: {folder.created_at}</p>
-            <p>User ID: {folder.user_id}</p>
-            <p>Favorite: {folder.favorite ? "Yes" : "No"}</p> */}
-          </li>
-        ))}
-      </ul>
+    <div className="folderList">
+      <button className="folderButton">전체</button>
+      {folderList.map((folder) => (
+        <div key={folder.id}>
+          <button className="folderButton">{folder.name}</button>
+        </div>
+      ))}
     </div>
   );
 };

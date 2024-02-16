@@ -29,7 +29,7 @@ header {
   margin-right: 0.5rem;
 }
 
-button {
+.headerButton {
   display: flex;
   width: 8rem;
   height: 3rem;

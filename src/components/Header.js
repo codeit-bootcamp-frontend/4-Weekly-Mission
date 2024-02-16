@@ -22,7 +22,11 @@ function Header() {
           <a href="/">
             <img src={logo} alt={logo} />
           </a>
-          {user ? userInformation({ user }) : <button>Login</button>}
+          {user ? (
+            userInformation({ user })
+          ) : (
+            <button className="headerButton">Login</button>
+          )}
         </div>
       </div>
     </header>

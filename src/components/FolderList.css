@@ -1,0 +1,14 @@
+.folderList {
+  margin: 0 1rem;
+  display: flex;
+  gap: 8px;
+}
+
+.folderButton {
+  background-color: white;
+  border: 1px solid var(--primary-color);
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
