@@ -1,0 +1,10 @@
+main {
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: var(--White);
+}
+
+main > .mainContent {
+  max-width: 1060px;
+  margin: 0 auto;
+}

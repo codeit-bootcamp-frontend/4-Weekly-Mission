@@ -1,28 +1,19 @@
-#link-list {
-  margin-bottom: 40px;
-}
-#link-list .link-grid-box {
-  display: grid;
-  grid-template-columns: repeat(3, 340px);
-  gap: 20px;
-  justify-content: center;
-}
-#link-list .link-grid-item {
+.linkGridItem {
   width: 100%;
   border-radius: 15px;
   box-shadow: 0px 5px 25px 0px #00000014;
   overflow: hidden;
 }
-#link-list .link-grid-item:hover {
+.linkGridItem:hover {
   transform: scale(1.1);
   transition: 0.3s;
 }
-#link-list .item-img img {
+.itemImg img {
   width: 100%;
   height: 250px;
 }
 
-.link-grid-item .item-context {
+.linkGridItem .itemContext {
   width: 95%;
   display: -webkit-box;
   word-wrap: break-word;
@@ -34,35 +25,22 @@
   font-weight: 400;
   line-height: 24px;
 }
-.link-grid-item .item-date {
+.linkGridItem .itemDate {
   color: #333333;
   font-size: 14px;
   font-weight: 400;
   line-height: 16px;
 }
-.link-grid-item .date-diff {
+.linkGridItem .dateDiff {
   color: #666666;
   font-size: 13px;
   font-weight: 400;
   line-height: 15px;
 }
-.link-grid-item .item-info {
+.linkGridItem .itemInfo {
   display: flex;
   flex-direction: column;
   gap: 10px;
   padding: 20px;
   background-color: #ffffff;
-}
-
-@media (max-width: 1124px) {
-  #link-list .link-grid-box {
-    grid-template-columns: repeat(2, 340px);
-  }
-}
-
-@media (max-width: 769px) {
-  #link-list .link-grid-box {
-    grid-template-columns: repeat(1, 100%);
-    padding-inline: 32px;
-  }
 }

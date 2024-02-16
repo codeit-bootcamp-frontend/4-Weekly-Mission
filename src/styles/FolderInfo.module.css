@@ -1,8 +1,8 @@
-#folder-info {
+#folderInfo {
   background-color: #f0f6ff;
 }
 
-#folder-info .info-box {
+#folderInfo .infoBox {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,15 +11,15 @@
   text-align: center;
 }
 
-#folder-info .profile-img img {
+#folderInfo .profileImg img {
   width: 60px;
 }
 
-#folder-info .user-name {
+#folderInfo .userName {
   font-size: 16px;
 }
 
-#folder-info .folder-name {
+#folderInfo .folderName {
   margin-top: 20px;
   font-size: 48px;
 }

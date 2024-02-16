@@ -1,8 +1,8 @@
-#search-bar {
+#searchBar {
   margin-block: 40px;
   position: relative;
 }
-#search-bar #search-link {
+#searchBar #searchLink {
   width: 100%;
   background-color: #f5f5f5;
   padding: 15px 32px;
@@ -10,10 +10,10 @@
   border: 0;
   color: #666666;
 }
-#search-bar #search-link::placeholder {
+#searchBar #searchLink::placeholder {
   color: #666666;
 }
-#search-bar .search-icon {
+#searchBar .searchIcon {
   position: absolute;
   top: 30%;
   left: 1%;
