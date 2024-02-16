@@ -1,4 +1,4 @@
-@import url('./Common.css');
+@import url('../utils/Common.css');
 
 .contents_area {
   width: 325px;

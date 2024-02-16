@@ -1,9 +1,9 @@
-import '../src/App.css';
+import './App.css';
 import { useEffect, useState } from 'react';
-import { HeaderArea } from './components/HeaderArea';
-import { TopBodyArea } from './components/TopBodyArea';
-import { ContentsArea } from './components/ContentsArea';
-import { FooterArea } from './components/FooterArea';
+import { HeaderArea } from './pages/HeaderArea';
+import { TopBodyArea } from './pages/TopBodyArea';
+import { ContentsArea } from './pages/ContentsArea';
+import { FooterArea } from './pages/FooterArea';
 import { getLoginUserInfo, getFolder } from './utils/apis';
 
 function App() {
