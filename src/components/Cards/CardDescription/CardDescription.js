@@ -1,6 +1,6 @@
 import "./CardDescription.css";
 
-const CardDescription = ({ time, text, date }) => {
+const CardText = ({ time, text, date }) => {
   return (
     <div className="CardDescription">
       <span className="Card-time">{time}</span>
@@ -10,4 +10,4 @@ const CardDescription = ({ time, text, date }) => {
   );
 };
 
-export default CardDescription;
+export default CardText;

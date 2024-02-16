@@ -4,22 +4,27 @@ import useFolderData from "./apis/getFolderData.js";
 import SearchBar from "./components/PageContent/SearchBar/SearchBar.js";
 import PageBody from "./components/PageContent/PageBody/PageBody.js";
 import Folder from "./components/PageContent/Folder/Folder.js";
-import CardList from "./components/Card/CardList/CardList.js";
+import CardList from "./components/Cards/CardList/CardList.js";
+import Card from "./components/Cards/Card/Card.js";
 import "./global.css";
 
 const App = () => {
   const { data } = useFolderData();
-  const { name: folderName, owner } = data || {};
-  const { name: ownerName, profileImageSource } = owner || {};
+  const { profileImage, ownerName, folderName, links } = data || {};
   return (
     <>
       <NavBar />
-      <Folder
-        profile={profileImageSource}
-        name={ownerName}
-        title={folderName}
+      <Folder profile={profileImage} name={ownerName} title={folderName} />
+      <PageBody
+        searchBar={<SearchBar />}
+        cardList={
+          <CardList>
+            {links?.map((link) => (
+              <Card key={link?.id} {...link} />
+            ))}
+          </CardList>
+        }
       />
-      <PageBody searchBar={<SearchBar />} cardList={<CardList />} />
       <Footer />
     </>
   );

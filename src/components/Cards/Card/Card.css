@@ -1,12 +1,3 @@
-.CardList {
-  display: grid;
-  grid-template-columns: repeat(32.5rem);
-  justify-content: center;
-  width: 100%;
-  max-width: 106rem;
-  row-gap: 2rem;
-}
-
 .Card {
   display: flex;
   flex-direction: column;
