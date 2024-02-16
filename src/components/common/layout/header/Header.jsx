@@ -1,5 +1,4 @@
 import Loader from '../../../common/Loader';
-import { sampleFolderInquire } from 'api/sampleAPI';
 import { useSampleFolderQuery } from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';

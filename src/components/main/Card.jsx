@@ -23,10 +23,12 @@ const Card = ({ cardDatas }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <CardImg
-            src={cardData.imageSource || defaultImage}
-            alt={cardData.title}
-          />
+          <CardImgContainer>
+            <CardImg
+              src={cardData.imageSource || defaultImage}
+              alt={cardData.title}
+            />
+          </CardImgContainer>
           <TextContainer>
             <span>{cardData.timePassed}</span>
             <StyledP>{cardData.description}</StyledP>
@@ -52,12 +54,18 @@ const StyledCard = styled.a`
     background-color: ${props => props.theme.linkbrary_bg};
   }
 `;
+const CardImgContainer = styled.div`
+  width: 100%;
+  height: 20rem;
+  border-radius: 1.5rem 1.5rem 0 0;
+  overflow: hidden;
+`;
 const CardImg = styled.img`
   width: 100%;
-  height: 17.8rem;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
   &:hover {
+    transition: transform 0.3s ease;
     transform: scale(1.3);
   }
 `;
