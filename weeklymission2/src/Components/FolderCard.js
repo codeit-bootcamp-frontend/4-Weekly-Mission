@@ -1,5 +1,8 @@
 import React from "react";
 import { getFromTime } from "../utils/getFromTime";
+import favoriteIcon from "../images/favorite.svg";
+import kebabIcon from "../images/kebab.svg";
+import "../styles/folderCard.css";
 
 const defaultImage = `https://www.shutterstock.com/image-vector/default-image-icon-vector-missing-600nw-2079504220.jpg`;
 export function FolderCard({ cardInfo }) {
@@ -21,6 +24,14 @@ export function FolderCard({ cardInfo }) {
         <div className="card">
           <div className="cardImgSource">
             <img src={src} alt={alt} className="cardImg"></img>
+            <div>
+              <img
+                src={favoriteIcon}
+                alt="favorite icon"
+                className="favorite"
+              ></img>
+              <img src={kebabIcon} alt="kebab icon" className="kebab"></img>
+            </div>
           </div>
           <div className="cardContent">
             <p className="createdFrom">{getFromTime(created_at)}</p>
