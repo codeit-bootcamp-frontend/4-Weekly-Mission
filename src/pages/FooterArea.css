@@ -17,7 +17,7 @@
   gap: 12px;
 }
 
-.first_area {
+.corp_area {
   width: 60%;
   height: 96px;
   display: flex;
@@ -61,7 +61,7 @@
     height: 160px;
     padding: 32px 104px 64px;
   }
-  .first_area {
+  .corp_area {
     width: 60%;
 
     display: flex;
