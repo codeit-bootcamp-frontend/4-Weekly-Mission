@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../images/logo.svg";
+import linkIcon from "../images/link.svg";
 
 export function Header({ profile, folder }) {
   return (
@@ -25,14 +26,25 @@ export function Header({ profile, folder }) {
               </a>
             )}
           </div>
+          <form>
+            <label className="linkInputArea">
+              <input
+                placeholder="링크를 추가해 보세요"
+                className="addLinks"
+              ></input>
+              <img src={linkIcon} alt="link icon" className="linkIcon"></img>
+              <button className="addBtn">추가하기</button>
+            </label>
+          </form>
         </nav>
-        <header>
-          {/* <div className="folderProfile">
+        {/* <header>
+          <div className="folderProfile">
             <img src={folder.profileImage || ""} alt="폴더소유자프로필사진" className="folderImg"/>
             <p className="folderProfileName">{folder.profileName}</p>
             <h2 className="folderName">{folder.folderName}</h2>
-          </div> */}
-        </header>
+          </div>
+          
+        </header> */}
       </div>
     </>
   );
