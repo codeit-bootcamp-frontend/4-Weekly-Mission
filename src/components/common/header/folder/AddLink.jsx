@@ -22,27 +22,28 @@ const AddLink = () => {
 };
 const StyledForm = styled.form`
   position: relative;
-  padding: 6rem 0 7rem;
+  padding: 6rem 0 9rem;
 
   @media (min-width: 375px) and (max-width: 767px) {
-    padding: 2.4rem 0;
+    padding: 2.4rem 0 4rem;
   }
 `;
 const Icon = styled.img`
-  position: relative;
-  left: 4rem;
-  top: 0.5rem;
+  position: absolute;
+  left: 2rem;
+  top: 8.5rem;
   width: 2rem;
   height: 2rem;
   @media (min-width: 375px) and (max-width: 767px) {
-    top: 0.4rem;
-    left: 3rem;
+    top: 4.2rem;
+    left: 1.5rem;
     width: 1.6rem;
     height: 1.6rem;
   }
 `;
 const StyledInput = styled.input`
   width: 80rem;
+  margin: 0 auto;
   height: 6.9rem;
   border-radius: 1.5rem;
   border: 0.1rem solid ${props => props.theme.primary_color};
@@ -52,22 +53,22 @@ const StyledInput = styled.input`
     max-width: 70.4rem;
   }
   @media (min-width: 375px) and (max-width: 767px) {
-    max-width: 32.5rem;
+    max-width: 44.1rem;
     height: 5.3rem;
     padding: 0.8rem 3.6rem;
     font-size: 1.4rem;
   }
 `;
 const StyledButton = styled(Button)`
-  position: relative;
-  left: 71.5rem;
-  bottom: 5.2rem;
+  position: absolute;
+  left: 70.5rem;
+  bottom: 10.5rem;
   @media (max-width: 1199px) {
-    left: 62.4rem;
+    left: 61.2rem;
   }
   @media (min-width: 375px) and (max-width: 767px) {
-    left: 25rem;
-    bottom: 4.4rem;
+    left: 35rem;
+    bottom: 4.7rem;
   }
 `;
 
