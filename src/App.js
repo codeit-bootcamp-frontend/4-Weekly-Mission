@@ -9,18 +9,18 @@ import { getCards, getUsers } from "./services/api";
 
 function App() {
   // 카드 정보 받아오기
-  const [folderOwnerData, setFolderOwnerData] = useState([]);
-  const [folderNameData, setFolderNameData] = useState();
-  const [cardData, setCardData] = useState([]);
+  const [folderOwners, setFolderOwners] = useState([]);
+  const [folderName, setFolderName] = useState();
+  const [cards, setCards] = useState([]);
 
   const getCardsInfo = async () => {
     const cardsInfo = await getCards();
-    const folderOwnerData = cardsInfo.folder.owner;
-    const folderNameData = cardsInfo.folder.name;
-    const cardData = cardsInfo.folder.links;
-    setFolderOwnerData(folderOwnerData);
-    setFolderNameData(folderNameData);
-    setCardData(cardData);
+    const folderOwners = cardsInfo.folder.owner;
+    const folderName = cardsInfo.folder.name;
+    const cards = cardsInfo.folder.links;
+    setFolderOwners(folderOwners);
+    setFolderName(folderName);
+    setCards(cards);
   };
 
   useEffect(() => {
@@ -45,13 +45,10 @@ function App() {
         <NavigationBar userInfo={userInfo} />
       </header>
       <main>
-        <UserInformation
-          folderOwnerData={folderOwnerData}
-          folderNameData={folderNameData}
-        />
+        <UserInformation folderOwners={folderOwners} folderName={folderName} />
         <div className="content_container">
           <SearchBar />
-          <Cards cardData={cardData} />
+          <Cards cards={cards} />
         </div>
       </main>
       <footer>
