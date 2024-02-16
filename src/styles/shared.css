@@ -149,6 +149,7 @@ article {
 }
 
 .card-image {
+  position: relative;
   width: 340px;
   height: 200px;
   overflow: hidden;
@@ -160,11 +161,24 @@ article {
   object-fit: cover;
 }
 
+.card-star-button {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  top: 15px;
+  left: 291px;
+}
+
 .card-date-difference {
   font-weight: 400;
   font-size: 13px;
   line-height: 15.5px;
   color: #666666;
+}
+
+.card-top-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-description {
@@ -301,6 +315,12 @@ footer {
     gap: 20px;
     grid-template-columns: 1fr;
     margin-top: 32px;
+  }
+
+  .card-star-button {
+    width: 30px;
+    height: 30px;
+    left: 280px;
   }
   /*footer*/
   footer {

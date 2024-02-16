@@ -90,6 +90,7 @@ export const FolderContents = () => {
                   createdAt={folderData.created_at}
                   description={folderData.description}
                   url={folderData.url}
+                  folder
                 ></Card>
               ),
           )
