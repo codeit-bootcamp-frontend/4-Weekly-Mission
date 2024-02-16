@@ -7,11 +7,14 @@ import logoImage from "./images/logo.svg"
 
 import noImage from "./images/no_image.jpeg"
 
+import searchIcon from "./images/ic_search.svg"
+
 export {
   facebookIcon,
   twitterIcon,
   youtubeIcon,
   instagramIcon,
   logoImage,
-  noImage
+  noImage,
+  searchIcon
 };

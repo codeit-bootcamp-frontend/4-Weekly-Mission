@@ -10,3 +10,9 @@
   row-gap: 2.5rem;
   column-gap: 2rem;
 }
+
+@media screen and (max-width: 1124px) {
+  .list {
+    grid-template-columns: repeat(2, 340px);
+  }
+}

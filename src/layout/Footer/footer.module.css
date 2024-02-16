@@ -19,7 +19,7 @@
 }
 
 .icons {
-  grid-area: sns-icons;
+  grid-area: icons;
   display: flex;
   gap: 12px;
 }
@@ -29,7 +29,25 @@
 }
 
 .links {
-  grid-area: ft-link;
+  grid-area: links;
   display: flex;
   gap: 30px;
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  .footer {
+    padding: 32px;
+    height: auto;
+    margin-top: 40px;
+  }
+
+  .wrap {
+    margin: 0;
+    row-gap: 60px;
+    display: grid;
+    grid-template:
+      "links icons"
+      "copyright .";
+  }
 }

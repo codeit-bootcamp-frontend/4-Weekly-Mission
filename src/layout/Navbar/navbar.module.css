@@ -1,22 +1,30 @@
 .navbar {
   display: flex;
   justify-content: center;
-  padding: 20px 0;
   width: 100%;
+  padding: 2rem 0;
   background-color: var(--bg-color);
 }
 
 .wrap {
-  margin: 0 200px;
-  max-width: 1920px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  margin: 0 20rem;
+  max-width: 192rem;
 }
 
 .logo {
   width: 133px;
   height: 24px;
   cursor: pointer;
+}
+
+/* tablet */
+@media screen and (max-width: 1199px) {
+  .wrap {
+    width: 78.4rem;
+    margin: 0 3.2rem;
+  }
 }
