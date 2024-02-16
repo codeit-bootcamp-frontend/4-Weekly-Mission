@@ -2,7 +2,7 @@ import styles from "./Nav.module.css";
 import NavLoginButton from "./NavLoginButoon";
 import { useFetch } from "../../hooks/useFetch";
 
-function Nav({ userDataUrl }) {
+function SharedNav({ userDataUrl }) {
   const { data: userData } = useFetch(userDataUrl);
 
   return (
@@ -21,8 +21,9 @@ function Nav({ userDataUrl }) {
           ) : (
             <>
               <img
-                src={`${process.env.PUBLIC_URL}/assets/images/profile_image.svg`}
+                src={userData?.profileImageSource}
                 alt="user_profile_image"
+                className={styles.nav_profile_image}
               />
               <p className={styles.profile_email}>{userData.email}</p>
             </>
@@ -33,4 +34,4 @@ function Nav({ userDataUrl }) {
   );
 }
 
-export default Nav;
+export default SharedNav;
