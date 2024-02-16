@@ -1,0 +1,5 @@
+.link_filter_box {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+}

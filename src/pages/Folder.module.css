@@ -8,11 +8,9 @@
 
 .folder_page_content_wrapper {
   width: 100%;
-  background-color: yellow;
 }
 .content_filter_wrapper {
   width: 100%;
-  background-color: blue;
 }
 @media (max-width: 1199.5px) {
   .main_wrapper {
