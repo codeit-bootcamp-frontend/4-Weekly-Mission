@@ -2,8 +2,7 @@ import React from 'react';
 import defaultImage from '../../assets/Images/non_image.png';
 import { upDateStauts } from '../../assets/utils/cardUpdate';
 
-export default function Card({ link }) {
-  const { imageSource, createdAt, description, url } = link;
+export default function Card({ imageSource, createdAt, description, url }) {
   const date = new Date(createdAt).toLocaleDateString();
 
   const dataStatus = upDateStauts(createdAt);
@@ -23,7 +22,7 @@ export default function Card({ link }) {
           </div>
           <div className="card-content">
             <p className="card-date-difference">
-              {link.createdAt ? dataStatus : null}
+              {createdAt ? dataStatus : null}
             </p>
             <p className="card-description">{description}</p>
             <p className="card-date">{date}</p>

@@ -5,7 +5,7 @@ export const Nav = styled.div`
   background-color: ${COLOR.Gray5};
   position: ${({ $navStatus }) => ($navStatus ? 'sticky' : 'static')};
   top: 0;
-  z-index: 1;
+  z-index: 3;
   gap: 8px;
   padding: 20px 200px;
 

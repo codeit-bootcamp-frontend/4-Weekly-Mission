@@ -57,3 +57,33 @@ export const categoryDataAPI = async () => {
     return null;
   }
 };
+
+export const categoryFolderDataAPI = async (CategoryID) => {
+  if (CategoryID === '0') {
+    try {
+      const response = await fetch(`${BASEURL}/users/1/links`);
+      if (response.ok) {
+        const { data } = await response.json();
+        return data;
+      }
+      throw new Error('데이터 불러오기 실패');
+    } catch (error) {
+      /*eslint-disable-next-line */
+      console.error(error);
+      return null;
+    }
+  } else {
+    try {
+      const response = await fetch(`${BASEURL}/users/1/folders/${CategoryID}`);
+      if (response.ok) {
+        const { data } = await response.json();
+        return data;
+      }
+      throw new Error('데이터 불러오기 실패');
+    } catch (error) {
+      /*eslint-disable-next-line */
+      console.error(error);
+      return null;
+    }
+  }
+};

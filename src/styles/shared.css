@@ -5,7 +5,7 @@ nav {
   background-color: var(--Gray5);
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 100;
   gap: 8px;
   padding: 20px 200px;
 }
@@ -123,6 +123,7 @@ article {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0px 5px 25px 0 rgba(0, 0, 0, 0.08);
+  z-index: 1;
 }
 
 .card:hover {

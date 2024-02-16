@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Button } from './common';
 import { COLOR } from '../color';
+import Add from '../../assets/Images/add.png';
+import Add2 from '../../assets/Images/add2.png';
 
 export const FolderDataWrapper = styled.div`
   margin: ${(props) => (props.fold ? '20px 0px 60px' : '60px 0px 90px')};
@@ -91,7 +93,7 @@ export const CategoryWrapper = styled.div`
   display: flex;
   width: 100%;
   flex-flow: wrap;
-  gap: 12px;
+  gap: 8px;
 `;
 
 export const CategoryButton = styled.button`
@@ -105,24 +107,54 @@ export const CategoryButton = styled.button`
   font-weight: 400;
 `;
 
-export const FolderAddButton = styled.button`
-  width: 79px;
+export const AddButtonWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95px;
   height: 39px;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: -0.3px;
-  color: ${COLOR.Primary};
-  background-color: ${COLOR.White};
-  border: 0;
-
+  gap: 4px;
+  cursor: pointer;
+  z-index: 2;
   @media (max-width: 767px) {
     position: fixed;
-    width: 127px;
+    width: 130px;
     bottom: 101px;
     left: calc(50vw - 63px);
-    color: ${COLOR.White};
     background-color: ${COLOR.Primary};
     border-radius: 20px;
     padding: 8px 24px;
   }
+`;
+
+export const AddButtonText = styled.p`
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  color: ${COLOR.Primary};
+
+  @media (max-width: 767px) {
+    color: ${COLOR.White};
+  }
+`;
+
+export const AddButtonImage = styled.div`
+  width: 19px;
+  height: 19px;
+  background-image: url(${Add});
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @media (max-width: 767px) {
+    background: url(${Add2});
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+`;
+
+export const CategoryName = styled.p`
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28.8px;
+  letter-spacing: -0.3px;
 `;

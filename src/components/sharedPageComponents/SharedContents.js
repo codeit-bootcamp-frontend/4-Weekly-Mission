@@ -8,7 +8,16 @@ export default function SharedContents({ links }) {
     <article>
       <SearchLink></SearchLink>
       <div className="content-wrapper">
-        {links && links.map((el) => <Card link={el} key={el.id}></Card>)}
+        {links &&
+          links.map((link) => (
+            <Card
+              imageSource={link.imageSource}
+              createdAt={link.createdAt}
+              description={link.description}
+              url={link.url}
+              key={link.id}
+            ></Card>
+          ))}
       </div>
     </article>
   );
