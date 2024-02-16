@@ -9,7 +9,7 @@ function HeaderElement() {
   const [user, setUser] = useState([]);
   const [profileUrl, setProfileUrl] = useState("");
 
-  const HandleLoad = useCallback(async () => {
+  const handleLoad = useCallback(async () => {
     let results;
     try {
       results = await getUserInfo();
@@ -23,8 +23,8 @@ function HeaderElement() {
   }, []);
 
   useEffect(() => {
-    HandleLoad();
-  }, [HandleLoad]);
+    handleLoad();
+  }, [handleLoad]);
 
   return (
     <header>

@@ -89,7 +89,6 @@ function Shared() {
     try {
       results = await getFolderInfo();
       foldersArr = await results.folder.links;
-      await console.log(foldersArr);
     } catch (error) {
       console.log(error);
     }
