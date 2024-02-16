@@ -37,8 +37,8 @@ function Folder() {
       isView: true,
       action,
       subTitle,
-    })
-  }
+    });
+  };
 
   const folderContentProps = {
     handleKebabClick,

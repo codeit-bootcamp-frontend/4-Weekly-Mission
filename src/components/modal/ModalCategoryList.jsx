@@ -15,18 +15,14 @@ function ModalCategoryList({ categoryListLoop }) {
         const isSelect = +selectCategory === id;
         return (
           <li
-            style={{
-              color: isSelect ? '#6D6AFE' : '#373740',
-              backgroundColor: isSelect ? '#F0F6FF' : '#FFFFFF',
-            }}
             onClick={handleSelectCategory}
             key={id}
             id={id}
-            className='modal__category--list'
+            className={`modal__category--list ${isSelect ? "modal__category--select" : ""}`}
           >
             {name}
             <span id={id} className='modal__category--count'>{`${link.count}개 링크`}</span>
-            {isSelect && <img className='modal__category--selected' src={ModalCheckIcon} alt='체크 아이콘'/>}
+            {isSelect && <img className='modal__category--selected' src={ModalCheckIcon} alt='체크 아이콘' />}
           </li>
         );
       })}

@@ -155,11 +155,11 @@ html {
   overflow: hidden;
 }
 
-.content__imgBox--default{
+.content__imgBox--default {
   height: 15.85913rem;
   border-radius: 0.9375rem 0.9375rem 0rem 0rem;
   overflow: hidden;
-  background: #DDFFFF url(../assets/default-card.svg) no-repeat center;
+  background: #ddffff url(../assets/default-card.svg) no-repeat center;
 }
 
 .content__img {

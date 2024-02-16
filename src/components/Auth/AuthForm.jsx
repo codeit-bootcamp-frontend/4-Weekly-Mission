@@ -6,7 +6,7 @@ import { REGEXP_PASSWORD } from '../../utils/regExp';
 import FETCH_API from '../../services/fetch-data';
 import { useNavigate } from 'react-router-dom';
 
-const ACCESSTOKEN = "accessToken";
+const ACCESSTOKEN = 'accessToken';
 
 function AuthForm({ option }) {
   const navigate = useNavigate();
@@ -159,7 +159,9 @@ function AuthForm({ option }) {
     <form className='sign__form' onSubmit={handleFormSumbit}>
       <div className='sign__input--area'>
         <div className='sign__email'>
-          <label className='sign__label' htmlFor="input--email">이메일</label>
+          <label className='sign__label' htmlFor='input--email'>
+            이메일
+          </label>
           <input
             id='input--email'
             className='sign--input--email'
@@ -170,11 +172,13 @@ function AuthForm({ option }) {
             value={userInput.email}
             onChange={handleInputChange}
           />
-          {errorMsg && <p className="sign__email--error">{errorMsg.email}</p>}
+          {errorMsg && <p className='sign__email--error'>{errorMsg.email}</p>}
         </div>
 
         <div className='sign__password'>
-          <label className='sign__label' htmlFor="input--password">비밀번호</label>
+          <label className='sign__label' htmlFor='input--password'>
+            비밀번호
+          </label>
           <div className='signin__password--relative'>
             <input
               id='input--password'
@@ -190,13 +194,15 @@ function AuthForm({ option }) {
               icon={inputType.password === 'password' ? faEye : faEyeSlash}
               onClick={() => handlePasswordvisible('password')}
             />
-            {errorMsg && <p className="sign__password--error">{errorMsg.password}</p>}
+            {errorMsg && <p className='sign__password--error'>{errorMsg.password}</p>}
           </div>
         </div>
 
         {option && (
           <div className='sign__password--confirm'>
-            <label className='sign__label' htmlFor="input--password--confirm">비밀번호 확인</label>
+            <label className='sign__label' htmlFor='input--password--confirm'>
+              비밀번호 확인
+            </label>
             <div className='signin__password--confirm--relative'>
               <input
                 id='input--password--confirm'
@@ -212,7 +218,7 @@ function AuthForm({ option }) {
                 icon={inputType.passwordConfirm === 'password' ? faEye : faEyeSlash}
                 onClick={() => handlePasswordvisible('passwordConfirm')}
               />
-              {errorMsg && <p className="sign__password--confirm--error">{errorMsg.passwordConfirm}</p>}
+              {errorMsg && <p className='sign__password--confirm--error'>{errorMsg.passwordConfirm}</p>}
             </div>
           </div>
         )}

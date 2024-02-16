@@ -132,7 +132,7 @@ a {
   text-decoration: none;
 }
 
-.label--hidden{
+.label--hidden {
   position: absolute;
   width: 1px;
   height: 1px;

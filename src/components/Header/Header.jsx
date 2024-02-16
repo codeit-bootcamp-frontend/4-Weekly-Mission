@@ -44,13 +44,16 @@ function Header() {
         <Link to='/'>
           <img className='gnb__logoImg' src={HeaderLogoImg} alt='로고 이미지' />
         </Link>
-        {userInfo.loginStatus ?
-         <div className='gnb__userInfo'>
-          <img className='gnb__userImg' src={userInfo.profileImg} alt='헤더 유저 이미지' />
-          <span className='gnb__email'>{userInfo.email}</span>
-        </div> 
-         :
-         <Link className='gnb__login' to='/signin'>로그인</Link>}
+        {userInfo.loginStatus ? (
+          <div className='gnb__userInfo'>
+            <img className='gnb__userImg' src={userInfo.profileImg} alt='헤더 유저 이미지' />
+            <span className='gnb__email'>{userInfo.email}</span>
+          </div>
+        ) : (
+          <Link className='gnb__login' to='/signin'>
+            로그인
+          </Link>
+        )}
       </nav>
     </header>
   );

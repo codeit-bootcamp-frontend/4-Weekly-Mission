@@ -4,7 +4,7 @@ function getCoustomDate(createDate) {
     month: createDate.getMonth() + 1,
     date: createDate.getDate(),
   };
-  return `${coustomDate.year}. ${coustomDate.month}. ${coustomDate.date}` ;
+  return `${coustomDate.year}. ${coustomDate.month}. ${coustomDate.date}`;
 }
 
 export default getCoustomDate;

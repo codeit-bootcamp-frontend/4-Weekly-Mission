@@ -128,6 +128,11 @@
   border-radius: 0.5rem;
 }
 
+.modal__category--select{
+  color: #6d6afe;
+  background-color: #f0f6ff;
+}
+
 .modal__category--count {
   font-size: 0.875rem;
   color: var(--Linkbrary-gray60);

@@ -148,9 +148,9 @@ html {
   color: #ffffff;
 }
 
-.category__select{
-  background-color: #6D6AFE;
-  color: #FFFFFF;
+.category__select {
+  background-color: #6d6afe;
+  color: #ffffff;
 }
 
 .category__add {
@@ -275,11 +275,11 @@ html {
   background-color: #ffffff;
 }
 
-.content__imgBox--default{
+.content__imgBox--default {
   height: 15.85913rem;
   border-radius: 0.9375rem 0.9375rem 0rem 0rem;
   overflow: hidden;
-  background: #DDDFFF url(../assets/default-card.svg) no-repeat center;
+  background: #dddfff url(../assets/default-card.svg) no-repeat center;
 }
 
 .content__img {

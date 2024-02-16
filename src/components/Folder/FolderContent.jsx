@@ -11,21 +11,20 @@ function FolderContent({ handleKebabClick, selectCardId, categoryList, setCatego
   });
   const [linkList, setLinkList] = useState([]); // 유저가 가지고 있는 링크
   const [searchInputValue, setSearchInputValue] = useState('');
-  
+
   // 유저가 가지고 있는 카테고리 로드(데이터 통신, 첫 렌더링 시에만 실행)
   useEffect(() => {
-    const userCategoryLoad = async() => {
-      try{
-          const response = await FETCH_API.get(API_PATH.USER_FOLDER);
-          if(!response.ok){
-              throw new Error("카테고리 로드 에러 발생");
-          }
-          const result = await response.json();
-          setCategoryList([...categoryList, ...result.data]);
-      }catch(error){
-          console.error(error);
+    const userCategoryLoad = async () => {
+      try {
+        const response = await FETCH_API.get(API_PATH.USER_FOLDER);
+        if (!response.ok) {
+          throw new Error('카테고리 로드 에러 발생');
+        }
+        const result = await response.json();
+        setCategoryList([...categoryList, ...result.data]);
+      } catch (error) {
+        console.error(error);
       }
-
     };
     userCategoryLoad();
   }, []);
@@ -82,7 +81,7 @@ function FolderContent({ handleKebabClick, selectCardId, categoryList, setCatego
       alert('링크를 입력해 주세요!');
       return;
     }
-    handleModalAction("폴더에 추가", searchInputValue);
+    handleModalAction('폴더에 추가', searchInputValue);
   };
 
   const handleSearchInputChange = (e) => {
@@ -106,7 +105,9 @@ function FolderContent({ handleKebabClick, selectCardId, categoryList, setCatego
       <section className='link'>
         <div className='link__box'>
           <form className='link__form' onSubmit={handleSearchFromSumbit}>
-          <label htmlFor="link--add" className='label--hidden'>링크 추가</label>
+            <label htmlFor='link--add' className='label--hidden'>
+              링크 추가
+            </label>
             <input
               id='link--add'
               onChange={(e) => handleSearchInputChange(e)}

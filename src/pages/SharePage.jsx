@@ -2,7 +2,7 @@ import Header from '../components/header/Header';
 import Content from '../components/content/Content';
 import Footer from '../components/footer/Footer';
 import { useEffect, useState } from 'react';
-import { API_PATH }  from '../services/api-path';
+import { API_PATH } from '../services/api-path';
 import FETCH_API from '../services/fetch-data';
 import '../styles/share.css';
 
@@ -39,14 +39,14 @@ function Share() {
     <>
       <Header />
       <main className='folder'>
-      <section className='profile'>
-        <div className='profile__user'>
-          <img className='profile__img' alt='유저 프로필 이미지' src={userProfile.profileImg} />
-          <span className='profile__nickname'>{userProfile.folderOwner}</span>
-          <span className='profile__bookmark'>{userProfile.folderName}</span>
-        </div>
-      </section>
-      <Content linkList={linkList} option={false} />
+        <section className='profile'>
+          <div className='profile__user'>
+            <img className='profile__img' alt='유저 프로필 이미지' src={userProfile.profileImg} />
+            <span className='profile__nickname'>{userProfile.folderOwner}</span>
+            <span className='profile__bookmark'>{userProfile.folderName}</span>
+          </div>
+        </section>
+        <Content linkList={linkList} option={false} />
       </main>
       <Footer />
     </>
