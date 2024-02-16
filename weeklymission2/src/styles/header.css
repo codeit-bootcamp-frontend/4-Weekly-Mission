@@ -1,8 +1,5 @@
 .headerArea{
   background-color: #F0F6FF;
-  position: sticky;
-  top: 0;
-  left: 0;
   z-index: 1;
   padding: 0 20rem;
   max-width: 192rem;
