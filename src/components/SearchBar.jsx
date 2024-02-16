@@ -32,11 +32,11 @@ const Styled = {
   `,
 };
 
-function SearchBar({ placeholder, ...htmlDivProps }) {
+function SearchBar({ placeholder, value, onChange, style }) {
   return (
-    <Styled.Container {...htmlDivProps}>
+    <Styled.Container style={style}>
       <img src={searchIcon} alt="검색 아이콘" />
-      <Styled.Input type="text" placeholder={placeholder}></Styled.Input>
+      <Styled.Input type="text" value={value} placeholder={placeholder} onChange={onChange}></Styled.Input>
     </Styled.Container>
   );
 }
