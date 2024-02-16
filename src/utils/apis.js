@@ -1,12 +1,12 @@
-const LOGINUSERINFOAPI = 'https://bootcamp-api.codeit.kr/api/sample/user';
-const FOLDERAPI = 'https://bootcamp-api.codeit.kr/api/sample/folder';
+const LOGIN_USER_INFO_API = 'https://bootcamp-api.codeit.kr/api/sample/user';
+const FOLDER_API = 'https://bootcamp-api.codeit.kr/api/sample/folder';
 
 export const getLoginUserInfo = async () => {
-  return getApi(LOGINUSERINFOAPI);
+  return getApi(LOGIN_USER_INFO_API);
 };
 
 export const getFolder = async () => {
-  return getApi(FOLDERAPI);
+  return getApi(FOLDER_API);
 };
 
 const getApi = async (APIURL) => {

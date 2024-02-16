@@ -1,12 +1,12 @@
 import noneCardImg from '../assets/none-card-img.png';
 import './Card.css';
 
-const FormatDate = (value) => {
+const formatDate = (value) => {
   const date = new Date(value);
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 };
 
-const ElapsedTime = (createdAt) => {
+const elapsedTime = (createdAt) => {
   const milliSeconds = new Date() - new Date(createdAt);
   const seconds = milliSeconds / 1000;
 
@@ -48,9 +48,9 @@ const Card = ({ link }) => {
           )}
         </div>
         <div className="card_contents_area">
-          <p className="elapsed_time">{ElapsedTime(createdAt)}</p>
+          <p className="elapsed_time">{elapsedTime(createdAt)}</p>
           <p className="description_text">{description}</p>
-          <p className="created_at">{FormatDate(createdAt)}</p>
+          <p className="created_at">{formatDate(createdAt)}</p>
         </div>
       </a>
     </div>
