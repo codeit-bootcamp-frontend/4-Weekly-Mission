@@ -1,11 +1,11 @@
 import "./styles/FolderPage.css";
 import { useEffect, useState } from "react";
-import FolderPageHeader from "../components/FolderPageHeader.js";
-import Cards from "../components/Cards.js";
-import SearchBar from "../components/SearchBar.js";
-import { fetchFolders, fetchFolder } from "../api.js";
-import FoldersList from "../components/FoldersList.js";
-import FolderToolbar from "../components/FolderToolbar.js";
+import FolderPageHeader from "../components/FolderPageHeader";
+import Cards from "../components/Cards";
+import SearchBar from "../components/SearchBar";
+import { fetchFolders, fetchFolder } from "../api";
+import FoldersList from "../components/FoldersList";
+import FolderToolbar from "../components/FolderToolbar";
 
 export default function FolderPage() {
   const [folders, setFolders] = useState([]);
