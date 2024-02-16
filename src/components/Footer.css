@@ -1,5 +1,4 @@
 footer {
-  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 32px 104px 64px 104px;
@@ -8,7 +7,6 @@ footer {
   font-family: sans-serif;
   background: #111322;
   position: relative;
-  bottom: 0;
 }
 
 footer a {

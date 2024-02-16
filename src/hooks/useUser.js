@@ -4,13 +4,14 @@ import { useState, useEffect } from "react";
 const useUser = () => {
   const [user, setUser] = useState({
     email: "",
-    profileImageSource: "",
+    image_source: "",
   });
 
   useEffect(() => {
     const fetchUser = async () => {
       const user = await getUser();
-      setUser(user);
+      const userData = user.data[0];
+      setUser(userData);
     };
 
     fetchUser();

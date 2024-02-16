@@ -7,7 +7,7 @@ export async function getFolders() {
 }
 
 export async function getUser() {
-  const response = await fetch(`${BASE_URL}/sample/user`);
+  const response = await fetch(`${BASE_URL}/users/1`);
   const body = await response.json();
   return body;
 }
