@@ -2,13 +2,18 @@ import { useEffect, useState } from 'react';
 import AddBar from '../../components/AddBar/AddBar';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { getFolders, getLinks } from '../../utils/api';
-import * as S from './Folder.styles.js';
-import Navbar from '../../components/Navbar/Navbar';
 import Cards from '../../components/Cards/Cards';
+import Empty from '../../components/Empty/Empty';
+import * as S from './Folder.styles.js';
+import FoldersNavbar from '../../components/Navbar/Folders/FoldersNavbar';
+import FolderNavbar from '../../components/Navbar/Folder/FolderNavbar';
+import { FiPlus } from 'react-icons/fi';
+
 const Folder = () => {
   const [folders, setFolders] = useState([]);
   const [links, setLinks] = useState([]);
   const [selectedItem, setSelectedItem] = useState({ id: 'all', name: '전체' });
+  const hasLinks = links.length;
 
   const fetchFolders = async () => {
     const folders = await getFolders();
@@ -32,10 +37,17 @@ const Folder = () => {
       <S.FolderSection>
         <S.FolderBox>
           <SearchBar />
-          <Navbar items={folders} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
-          <h2>{selectedItem.name}</h2>
-          <Cards links={links} />
+          <FoldersNavbar items={folders} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
+          <S.FolderTitleBox>
+            <h2>{selectedItem.name}</h2>
+            {selectedItem.id === 'all' || <FolderNavbar />}
+          </S.FolderTitleBox>
+          {hasLinks ? <Cards links={links} /> : <Empty />}
         </S.FolderBox>
+        <S.FolderActionButton>
+          <span>폴더 추가</span>
+          <FiPlus />
+        </S.FolderActionButton>
       </S.FolderSection>
     </S.FolderLayout>
   );

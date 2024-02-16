@@ -1,5 +1,5 @@
-import GradientButton from '../../components/GradientButton/GradientButton.styles';
-import GradientText from '../../components/GradientText/GradientText.styles';
+import GradientButton from '../../components/common/GradientButton/GradientButton.styles';
+import GradientText from '../../components/common/GradientText/GradientText.styles';
 import * as S from './Home.styles';
 const Home = () => {
   return (

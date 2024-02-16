@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { HiOutlineLink } from 'react-icons/hi';
-import ColorBox from '../ColorBox/ColorBox.styles';
+import ColorBox from '../common/ColorBox/ColorBox.styles';
 
 export const AddBarColorBox = styled(ColorBox)`
   width: 70rem;

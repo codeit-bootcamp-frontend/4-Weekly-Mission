@@ -5,12 +5,11 @@ export const HomeSection = styled.section`
   flex-direction: column;
   gap: 3rem;
   align-items: center;
-  justify-content: flex - end;
+  justify-content: flex-end;
   width: 100%;
   max-width: 1920px;
-  padding: 0 6rem;
+  padding: 6rem 6rem 0 6rem;
   overflow: hidden;
-  padding-top: 7rem;
 `;
 
 export const HomeTitle = styled.h1`
@@ -37,7 +36,7 @@ export const MainLayout = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100 %;
+  width: 100%;
   padding: 5rem 0;
   background: var(--color-white);
 `;

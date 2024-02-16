@@ -8,7 +8,7 @@ const ColorBox = styled.div`
   border: 0.1rem solid ${props => props.$borderColor || 'var(--color-primary)'};
   border-radius: 8px;
   padding: 1rem;
-  margin: 3rem 0rem;
+  margin: 2rem 0rem;
 `;
 
 export default ColorBox;

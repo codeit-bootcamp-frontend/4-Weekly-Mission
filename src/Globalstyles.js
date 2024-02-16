@@ -7,22 +7,22 @@ export const GlobalStyle = createGlobalStyle`
     padding:0;
     border:none;
   }
-
-  body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100vw;
-    height:100vh;
-    margin: 0;
+body{
     font-family: sans-serif;
     background: var(--color-gray-100);
+    margin: 0;
+    width:100vw;
+    height:100vh;
 }
 
-#root{
-width:100vw;
-height:100vh;
-}
+  #root{
+    display:flex;
+    align-items: center;
+    flex-direction:column;
+    width:100vw;
+    height:100vh;
+
+  }
 
   :root{
     --color-primary: #6d6afe;
@@ -41,20 +41,23 @@ height:100vh;
     text-decoration:none;
   }
 
+  ul{
+    list-style-type:none;
+}
 
-@media screen and (width >=375px) and (width <768px) {
+@media screen and (width >375px) and (width <768px) {
   html {
     font-size: 12px;
   }
 }
 
-@media screen and (width >=768px) and (width <1200px) {
+@media screen and (width >768px) and (width <1200px) {
   html {
     font-size: 14px;
   }
 }
 
-@media screen and (width >=1200px) {
+@media screen and (width >1200px) {
   html {
     font-size: 16px;
   }
