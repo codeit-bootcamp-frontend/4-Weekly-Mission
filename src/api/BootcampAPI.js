@@ -1,13 +1,14 @@
 const BASEURL = 'https://bootcamp-api.codeit.kr/api';
-
+/*eslint-disable */
 export const userDataAPI = async () => {
   const APIData = { email: null, image: null };
   try {
-    const response = await fetch(`${BASEURL}/sample/user`);
+    const response = await fetch(`${BASEURL}/users/1`);
     if (response.ok) {
-      const result = await response.json();
-      APIData.email = result.email;
-      APIData.image = result.profileImageSource;
+      const { data } = await response.json();
+      APIData.email = data[0].email;
+      APIData.image = data[0].image_source;
+      console.log(data);
       return APIData;
     }
     throw new Error('데이터 불러오기 실패');
