@@ -12,21 +12,57 @@ import SharedInfo from "../components/shared/SharedInfo";
 import "../pages/Shared.css";
 
 const Shared = () => {
+  const [items, setItems] = useState([]);
+  const [folderInfo, setFolderInfo] = useState("");
+  const [folderName, setFolderName] = useState("");
+  const [userInfo, setUserInfo] = useState([]);
+
+  // 카드 아이템 요청
+  const handleLoadItems = async () => {
+    let result;
+
+    try {
+      result = await getFolder();
+    } catch (error) {
+      console.log(error);
+      return;
+    }
+    const { links, owner, name } = result.folder;
+    setItems(links);
+    setFolderInfo(owner);
+    setFolderName(name);
+  };
+
+  // 유저 정보 요청
+  const handleLoadUser = async () => {
+    let result;
+
+    try {
+      result = await getUser();
+    } catch (error) {
+      console.log(error);
+      return;
+    }
+    setUserInfo(result);
+  };
+
+  useEffect(() => {
+    handleLoadItems();
+    handleLoadUser();
+  }, []);
+
   return (
     <div className="Shared">
-      <Header />
+      <Header userInfo={userInfo} />
       <div className="Shared-main">
-        <SharedInfo />
+        <SharedInfo folderInfo={folderInfo} folderName={folderName} />
         <div className="Shared-content-wrapper">
           <SearchBar />
-          <button className="Shared-sort-newest-btn">최신순</button>
-          <button className="Shared-sort-id-btn">아이디순</button>
-          <CardList />
+          <CardList items={items} />
         </div>
       </div>
       <Footer />
     </div>
   );
 };
-
 export default Shared;
