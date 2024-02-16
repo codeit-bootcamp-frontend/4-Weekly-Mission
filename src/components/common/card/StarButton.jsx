@@ -18,7 +18,7 @@ function StarButton({ isActive, ...htmlDivProps }) {
   const src = isActive ? filledStar : emptystar;
 
   return (
-    <Styled.Container {...htmlDivProps}>
+    <Styled.Container {...htmlDivProps} onClick={(e) => e.preventDefault()}>
       <img src={src} alt="찜 버튼" />
     </Styled.Container>
   );

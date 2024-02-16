@@ -52,7 +52,8 @@ function MeatBallButton() {
     <Styled.Container
       ref={meatBallBtnRef}
       type="button"
-      onClick={() => {
+      onClick={(e) => {
+        e.preventDefault();
         return setIsMenuModalOpen(true);
       }}
     >
