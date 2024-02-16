@@ -1,17 +1,10 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from "react-router-dom";
 
-import { getFolderList, getLink } from './apis/api';
+import { getFolderList, getLink, getLinkDetail } from './apis/api';
 
 import SearchBar from './components/SearchBar';
 import Card from './components/Card';
 import './Folder.css';
-
-function getLinkStyle({ isActive }) {
-  return {
-    textDecoration: isActive ? 'underline' : '', // 미완 -> 나중에 바꿀 예정
-  };
-}
 
 const Folder = () => {
   const [folderLists, setFolderLists] = useState([]); // 이건 부모 컴포넌트에서 넘겨주는 게 좋을 듯
@@ -22,22 +15,28 @@ const Folder = () => {
     const fetchFolderList = async () => {
       const { data } = await getFolderList();
 
-      console.log(data)
       setFolderLists(data);
     };
 
     fetchFolderList();
   }, []);
 
-  const handleListClick = async (stringName) => {
+  const handleTotalListClick = async () => {
     const { data } = await getLink();
 
     setFolders(data);
-    setCurFolderList(stringName);
+    setCurFolderList('전체');
+  }
+
+  const handleListClick = async (folderName, folderId) => {
+    const { data } = await getLinkDetail(folderId);
+
+    setFolders(data);
+    setCurFolderList(folderName);
   }
 
   useEffect(() => {
-    handleListClick('전체');
+    handleTotalListClick();
   }, []);
 
   return (
@@ -47,15 +46,11 @@ const Folder = () => {
         <div className='container-folder-and-cards'>
           <div className='container-folder-list'>
             <div className='folder-list'>
-              <NavLink style={getLinkStyle}>
-                <button className='folder-list_btn' onClick={() => handleListClick('전체')}>전체</button>
-              </NavLink>
+              <button className='folder-list_btn' onClick={handleTotalListClick}>전체</button>
               {folderLists.map(({ id, name }) => (
-                <NavLink key={id} style={getLinkStyle}>
-                  <button className='folder-list_btn' onClick={() => handleListClick(name)}>
+                  <button key={id} className='folder-list_btn' onClick={() => handleListClick(name, id)}>
                     {name}
                   </button>
-                </NavLink>
               ))}
             </div>
           </div>
