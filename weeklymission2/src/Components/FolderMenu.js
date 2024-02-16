@@ -6,9 +6,7 @@ import { Button } from "./Button";
 export function FolderMenu({ folderNames, onMenuChange }) {
   const sendMenu = (e, id) => {
     const newMenu = e.target.textContent;
-    console.log("newMenu:", newMenu);
     onMenuChange(newMenu, id);
-    // const folder = useFolder(id);
   };
 
   return (

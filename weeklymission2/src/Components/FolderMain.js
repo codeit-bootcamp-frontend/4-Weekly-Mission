@@ -35,7 +35,7 @@ export function FolderMain({ cards }) {
 
         <div className="titleBar">
           <div className="title">{menu}</div>
-          <HandleFolder />
+          {menu !== "전체" && <HandleFolder />}
         </div>
 
         {folder && folder.length ? (
