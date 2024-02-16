@@ -1,14 +1,14 @@
-import '../styles/folder.css';
+import "../styles/folder.css";
+import SearchBar from "./SearchBar";
+import CardList from "./CardList";
 
 const Folder = () => {
   return (
-    <div className = "folder">
-      <div>Check</div>
-      <div>complete</div>
-      {/* <SearchBar />
-      <CardList /> */}
+    <div className="folder">
+      <SearchBar />
+      <CardList />
     </div>
   );
-}
+};
 
 export default Folder;

@@ -8,7 +8,7 @@ const Info = () => {
           <img className="folder-image" alt="폴더의 프로필 이미지." />
           <p className="folder-username">@홍길동</p>
         </div>
-        <h1 className="folder-name">무엇일까요?</h1>
+        <h1 className="folder-name">⭐️ 즐겨찾기</h1>
       </div>
     </div>
   );
