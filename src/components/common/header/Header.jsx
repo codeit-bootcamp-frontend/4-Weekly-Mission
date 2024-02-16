@@ -1,8 +1,8 @@
-import Loader from '../../../common/Loader';
+import Loader from '../Loader';
 import { useSampleFolderQuery } from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';
-import Error from '../../Error';
+import Error from '../Error';
 
 const Header = () => {
   const {

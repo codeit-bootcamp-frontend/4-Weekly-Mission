@@ -1,10 +1,10 @@
 import { useSampleUserQuery } from 'hook/useFetchData';
-import Button from '../../Button';
+import Button from '../Button';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import routes from 'utils/constants/routes';
 import styled from 'styled-components';
-import Loader from '../../../common/Loader';
+import Loader from '../Loader';
 
 const Profile = () => {
   const navigate = useNavigate();
