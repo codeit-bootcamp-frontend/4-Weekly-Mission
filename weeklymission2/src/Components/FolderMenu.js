@@ -4,9 +4,11 @@ import { getFolderName } from "../APIs/FolderPageApi";
 import { Button } from "./Button";
 
 export function FolderMenu({ folderNames, onMenuChange }) {
-  const sendMenu = (e) => {
+  const sendMenu = (e, id) => {
     const newMenu = e.target.textContent;
-    onMenuChange(newMenu);
+    console.log("newMenu:", newMenu);
+    onMenuChange(newMenu, id);
+    // const folder = useFolder(id);
   };
 
   return (
@@ -16,11 +18,11 @@ export function FolderMenu({ folderNames, onMenuChange }) {
           <Button folderName={"전체"} onClick={sendMenu}></Button>
           {folderNames &&
             folderNames.length &&
-            folderNames.map((folderName) => (
+            folderNames.map(({ name, id }) => (
               <Button
-                folderName={folderName.name}
-                key={folderName.id}
-                onClick={sendMenu}
+                folderName={name}
+                key={id}
+                onClick={(e) => sendMenu(e, id)}
               ></Button>
             ))}
         </div>

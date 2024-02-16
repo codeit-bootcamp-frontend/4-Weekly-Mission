@@ -10,13 +10,13 @@ import { useFolder } from "../useHooks/useFolder";
 export function FolderMain({ cards }) {
   const [menu, setMenu] = useState("전체");
 
-  const handleMenuChange = (newMenu) => {
+  const handleMenuChange = (newMenu, id) => {
     setMenu(newMenu);
+    fetchFolder(id);
   };
 
   const folderNames = useFiles();
-  const folder = useFolder();
-  console.log(folder);
+  const { folder, fetchFolder } = useFolder();
 
   return (
     <>
@@ -38,12 +38,15 @@ export function FolderMain({ cards }) {
           <HandleFolder />
         </div>
 
-        <div className="cardGrid">
-          {folder &&
-            folder.map((card) => (
+        {folder && folder.length ? (
+          <div className="cardGrid">
+            {folder.map((card) => (
               <FolderCard key={card.id} cardInfo={card}></FolderCard>
             ))}
-        </div>
+          </div>
+        ) : (
+          <div className="noLink">저장된 링크가 없습니다.</div>
+        )}
       </div>
     </>
   );

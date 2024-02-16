@@ -25,12 +25,27 @@ export const getFolderName = async () => {
   }
 };
 
-export const getLinkData = async () => {
+export const getLinkData = async (id) => {
   try {
-    const response = await fetch(`${BASE_API}/users/1/links`);
-    const result = await response.json();
-    return result;
+    if (!id) {
+      const response = await fetch(`${BASE_API}/users/1/links`);
+      const result = await response.json();
+      return result;
+    } else {
+      const response = await fetch(`${BASE_API}/users/1/links?folderId=${id}`);
+      const result = await response.json();
+      return result;
+    }
   } catch (error) {
     console.log(error);
   }
 };
+
+const getApi = async () => {
+  const response = await fetch(
+    "https://bootcamp-api.codeit.kr/api/users/1/links?folderId=1"
+  );
+  const result = await response.json();
+  console.log(result);
+};
+getApi();

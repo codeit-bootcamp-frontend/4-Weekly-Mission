@@ -6,3 +6,9 @@
   display: flex;
   justify-content: space-between;
 }
+
+.noLink{
+  text-align: center;
+  font-size: 2rem;
+  margin: 10rem 0;
+}
