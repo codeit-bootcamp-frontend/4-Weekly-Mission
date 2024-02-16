@@ -1,6 +1,6 @@
 import React from "react";
 import facebookIcon from "../../../assets/svg/facebook.svg";
-import twitterIcon from "../../../assets/svg/twitter.svg";
+import twitterIcon from "../../../assets/svg/twiter.svg";
 import youtubeIcon from "../../../assets/svg/youtube.svg";
 import instagramIcon from "../../../assets/svg/instagram.svg";
 import "./Footer.css";
