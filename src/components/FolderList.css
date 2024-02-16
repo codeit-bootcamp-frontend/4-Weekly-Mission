@@ -12,3 +12,9 @@
   font-size: 1rem;
   cursor: pointer;
 }
+
+.noLink {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 120px 0;
+}

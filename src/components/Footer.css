@@ -7,7 +7,7 @@ footer {
   color: var(--white-color);
   font-family: sans-serif;
   background: #111322;
-  position: absolute;
+  position: relative;
   bottom: 0;
 }
 

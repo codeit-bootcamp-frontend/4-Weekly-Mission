@@ -56,7 +56,7 @@ const FolderList = () => {
       {items.length > 0 ? (
         <CardList items={items} />
       ) : (
-        <p>저장된 링크가 없습니다.</p>
+        <p className="noLink">저장된 링크가 없습니다.</p>
       )}
     </div>
   );
