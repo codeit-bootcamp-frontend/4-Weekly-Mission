@@ -1,6 +1,6 @@
-import './HeaderArea.css';
 import profileImg from '../assets/myprofile.svg';
 import logoImg from '../assets/logo.svg';
+import './HeaderArea.css';
 
 const LogoArea = () => {
   return (

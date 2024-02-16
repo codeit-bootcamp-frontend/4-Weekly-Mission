@@ -1,8 +1,8 @@
-import './FooterArea.css';
 import facebookIcon from '../assets/icon-facebook.svg';
 import twitterIcon from '../assets/icon-twitter.svg';
 import youtubeIcon from '../assets/icon-youtube.svg';
 import instargramIcon from '../assets/icon-instargram.svg';
+import './FooterArea.css';
 
 const SnsIconArea = () => {
   return (

@@ -1,6 +1,6 @@
-import './ContentsArea.css';
-import searchIcon from '../assets/icon-search.svg';
 import Card from '../components/Card';
+import searchIcon from '../assets/icon-search.svg';
+import './ContentsArea.css';
 
 const SearchBar = () => {
   return (
