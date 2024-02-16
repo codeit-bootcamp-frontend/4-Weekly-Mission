@@ -14,11 +14,11 @@ const Card = ({ link }) => {
         rel="noreferrer noopener"
       >
         <div className="img_area">
-          {imageSource ? (
-            <img src={imageSource} className="card_img" alt="cardImage" />
-          ) : (
-            <img src={noneCardImg} className="none_card_img" alt="cardImage" />
-          )}
+          <img
+            src={imageSource || noneCardImg}
+            className={imageSource ? 'card_img' : 'none_card_img'}
+            alt="cardImage"
+          />
         </div>
         <div className="card_contents_area">
           <p className="elapsed_time">{ElapsedTime(createdAt)}</p>
