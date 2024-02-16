@@ -3,10 +3,10 @@ import { useFetch } from "../../hooks/useFetch";
 import styles from "./FolderFilterBox.module.css";
 import FolderFilterButton from "./FolderFilterButton";
 
-const folderUrl = "https://bootcamp-api.codeit.kr/api/users/3/folders";
 
-function FolderFilterBox() {
-  const { data: folderData } = useFetch(folderUrl);
+
+function FolderFilterBox({ folderData }) {
+  
 
   return (
     <div className={styles.link_filter_box}>
