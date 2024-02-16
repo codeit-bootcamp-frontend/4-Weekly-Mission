@@ -10,6 +10,10 @@ export const HomeSection = styled.section`
   max-width: 1920px;
   padding: 6rem 6rem 0 6rem;
   overflow: hidden;
+
+  @media screen and (width < 768ppx) {
+    padding: 6rem 2rem 0 2rem;
+  }
 `;
 
 export const HomeTitle = styled.h1`
