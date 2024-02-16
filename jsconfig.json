@@ -9,7 +9,8 @@
       "context/*": ["context/*"],
       "hooks/*": ["hooks/*"],
       "utils/*": ["utils/*"],
-      "reducer/*": ["reducer/*"]
+      "reducer/*": ["reducer/*"],
+      "styles/*": ["styles/*"]
     }
   },
   "exclude": ["node_modules"],
