@@ -3,6 +3,36 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 2.5rem;
+  padding: 2.5rem 0;
   gap: 2.5rem;
+}
+.folders {
+  width: 66.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.none-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.5625rem 0rem 2.1875rem 0rem;
+}
+.none-list__text {
+  color: var(--black);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.folder-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
 }

@@ -8,7 +8,7 @@ root.render(
   <StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<FolderPage></FolderPage>}></Route>
+        <Route path="folder" element={<FolderPage></FolderPage>}></Route>
         <Route path="shared" element={<SharedPage></SharedPage>}></Route>
       </Routes>
     </BrowserRouter>

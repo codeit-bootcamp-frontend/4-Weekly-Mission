@@ -1,0 +1,12 @@
+.folder__bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.folder__bar--sort-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}

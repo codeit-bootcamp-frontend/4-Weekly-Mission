@@ -24,6 +24,7 @@ const StyledButton = styled.button`
   font-weight: 600;
   line-height: normal;
   white-space: nowrap;
+  cursor: pointer;
 `;
 
 export default Button;
