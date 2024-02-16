@@ -1,4 +1,5 @@
 import "../styles/CardList.css";
+import Card from "./Card";
 
 const CardList = () => {
   // const cardList // 받아올 예정.
@@ -6,6 +7,15 @@ const CardList = () => {
   return (
     <>
       <div className="cardlist">
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
+        <Card />
         {/* {cardList ? (
         <>
           {cardList.map((cardlist) => (
@@ -14,7 +24,7 @@ const CardList = () => {
         </>
       ) : (
         <div>폴더가 비어있습니다.</div>
-      )} */}
+      )}*/}
       </div>
     </>
   );
