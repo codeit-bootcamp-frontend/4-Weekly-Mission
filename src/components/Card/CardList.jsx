@@ -1,8 +1,20 @@
-import CardListItem from './CardListItem';
+// import CardListItem from './CardListItem';
 import getTimeDiff from '../../utils/getTimeDiff';
 import getCoustomDate from '../../utils/getCoustomDate';
+import StarImg from '../../assets/star.svg';
+import KebabIcon from '../../assets/kebab.svg';
 
-function CardList({ handleKebabClick, selectCardId, linkList, option, setModalAction }) {
+function CardList({ handleKebabClick, selectCardId, linkList, option, handleModalAction }) {
+  const handleKebabModalAction = (action, subTitle, e) => {
+    e.preventDefault();
+    handleModalAction(action, subTitle)
+  }
+
+  const handleKebabIconClick = (e, id) => {
+    e.preventDefault();
+    handleKebabClick(id);
+  }
+
   return (
     <div className='content__cards'>
       {linkList?.length ? (
@@ -13,19 +25,37 @@ function CardList({ handleKebabClick, selectCardId, linkList, option, setModalAc
           const createDate = new Date(linkCreated);
           const timeDiffText = getTimeDiff(linkCreated);
           const coustomDate = getCoustomDate(createDate);
-          const cardListItemProps = {
-            id, // 링크 ID
-            date: coustomDate, // 작성일
-            url, // 링크 url(클릭 시 이동)
-            imgSrc, // 이미지 url
-            timeDiff: timeDiffText, // 작성일과 현재 시간의 차이
-            description, // 링크 본문
-            option, // true일 경우 케밥 아이콘, 별 아이콘 보여짐, false일 경우 안보임
-            handleKebabClick, // 케밥 리스트 팝오버 함수(매개변수 - 링크ID)
-            selectCardId, // 현재 어떤 id의 케밥 리스트가 팝오버가 될 지
-            setModalAction,
-          };
-          return <CardListItem key={id} {...cardListItemProps}></CardListItem>;
+          return(
+            <a key={id} href={url} className='content__card'>
+      {option && <img className='content__star' src={StarImg} alt='별 아이콘' />}
+      <figure className={ imgSrc ? "content__imgBox" : "content__imgBox--default"}>
+      {imgSrc && <img className='content__img' src={imgSrc} alt='카드 이미지'/>}
+    </figure>
+    <div className='content__info'>
+      {option ? 
+    (<div className='content__box'>
+      <div className='content__timediff'>{timeDiffText}</div>
+      <img
+        onClick={(e) => handleKebabIconClick(e, id)}
+        className='content__kebab'
+        src={KebabIcon}
+        alt='케밥 아이콘'/>
+      {selectCardId === id && <ul className='kebab__lists'>
+        <li onClick={(e) => handleKebabModalAction('링크 삭제', url, e)} className='kebab__list'>
+          삭제하기
+        </li>
+        <li onClick={(e) => handleKebabModalAction('폴더에 추가', url, e)} className='kebab__list'>
+          폴더에 추가
+        </li>
+      </ul>}
+    </div>)
+     : 
+    (<div className='content__timediff'>{timeDiffText}</div>)}
+      <div className='content__text'>{description}</div>
+      <div className='content__date'>{coustomDate}</div>
+    </div>
+    </a>
+          );
         })
       ) : (
         <div className='content__blank'>저장된 링크가 없습니다</div>

@@ -32,12 +32,20 @@ function Folder() {
     prevId = 999;
   };
 
+  const handleModalAction = (action, subTitle) => {
+    setModalAction({
+      isView: true,
+      action,
+      subTitle,
+    })
+  }
+
   const folderContentProps = {
     handleKebabClick,
     selectCardId,
     categoryList,
     setCategoryList,
-    setModalAction,
+    handleModalAction,
   };
   return (
     <>

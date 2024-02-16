@@ -20,16 +20,8 @@ const categoryControlList = [
   }
 ]
 
-function ContentHeader({ selectCategory, setModalAction }) {
+function ContentHeader({ selectCategory, handleModalAction }) {
   const isControlVisible = selectCategory.name !== "전체";
-
-  const handleModalAction = (action) => {
-    setModalAction({
-      isView: true,
-      action,
-      subTitle: selectCategory.name,
-    });
-  };
   
   return (
     <div className='content__header'>
@@ -38,7 +30,7 @@ function ContentHeader({ selectCategory, setModalAction }) {
       <ul className='content__util'>
       {categoryControlList.map((list, idx) => {
         return (
-        <li key={idx} className='content__util--list' onClick={() => handleModalAction(list.actionText)}>
+        <li key={idx} className='content__util--list' onClick={() => handleModalAction(list.actionText, selectCategory.name)}>
         <img className='content__util--img' src={list.img} alt={`${list.text} 이미지`} />
         <span className='content__util--text'>{list.text}</span>
       </li>)

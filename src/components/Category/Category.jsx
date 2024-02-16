@@ -1,14 +1,6 @@
 import AddImg from '../../assets/category-add.svg';
 
-function Category({ categoryList, selectCategory, allLinkLoad, handleSelectCategory, setModalAction }) {
-  const handleModalAction = () => {
-    setModalAction({
-      isView: true,
-      action: '폴더 추가',
-      subTitle: '',
-    });
-  };
-
+function Category({ categoryList, selectCategory, allLinkLoad, handleSelectCategory, handleModalAction }) {
   return (
     <div className='content__category'>
       <ul className='category__box'>
@@ -20,7 +12,7 @@ function Category({ categoryList, selectCategory, allLinkLoad, handleSelectCateg
       </li>
       })}
     </ul>
-      <div className='category__add' onClick={handleModalAction}>
+      <div className='category__add' onClick={() => handleModalAction("폴더 추가")}>
         <span className='category__addText'>폴더 추가</span>
         <img className='category__addImg' src={AddImg} alt='폴더 추가 아이콘' />
       </div>

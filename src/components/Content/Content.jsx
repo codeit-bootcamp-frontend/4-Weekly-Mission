@@ -11,28 +11,31 @@ function Content({
   selectCardId,
   linkList,
   option,
-  setModalAction,
+  handleModalAction,
 }) {
   const categoryProps = {
     categoryList,
     selectCategory,
     allLinkLoad,
     handleSelectCategory,
-    setModalAction,
+    handleModalAction,
   };
   return (
     <section className='content'>
-      <input className='content__search' type='search' placeholder='🔍   링크를 검색해 보세요.' />
+      <form>
+        <label htmlFor="content--search" className='label--hidden'>링크 검색</label>
+        <input id='content--search' className='content__search' type='search' placeholder='🔍   링크를 검색해 보세요.' />
+      </form>
       {option && <>
        <Category {...categoryProps} /> 
-      <ContentHeader selectCategory={selectCategory} setModalAction={setModalAction} />
+      <ContentHeader selectCategory={selectCategory} handleModalAction={handleModalAction} />
       </>}
       <CardList
         handleKebabClick={handleKebabClick}
         selectCardId={selectCardId}
         linkList={linkList}
         option={option}
-        setModalAction={setModalAction}
+        handleModalAction={handleModalAction}
       />
     </section>
   );
