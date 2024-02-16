@@ -22,7 +22,7 @@ const Card = ({ link }) => {
         </div>
         <div className="card_contents_area">
           <p className="elapsed_time">{ElapsedTime(createdAt)}</p>
-          <p className="description_text">{description}</p>
+          <p className="description_text">folderInfo{description}</p>
           <p className="created_at">{FormatDate(createdAt)}</p>
         </div>
       </a>

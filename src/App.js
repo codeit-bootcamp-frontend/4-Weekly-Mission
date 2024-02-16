@@ -26,10 +26,13 @@ function App() {
     <>
       <HeaderArea email={userInfo.email}></HeaderArea>
       <>
-        <TopBodyArea
-          name={userInfo.name}
-          folderName={folderInfo.name}
-        ></TopBodyArea>
+        {folderInfo.owner && (
+          <TopBodyArea
+            iconImage={folderInfo.owner.profileImageSource}
+            name={folderInfo.owner.name}
+            folderName={folderInfo.name}
+          ></TopBodyArea>
+        )}
         <ContentsArea links={folderInfo.links}></ContentsArea>
       </>
       <FooterArea></FooterArea>

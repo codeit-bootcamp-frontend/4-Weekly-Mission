@@ -14,22 +14,9 @@
   align-items: center;
 }
 
-.codeit-icon_background {
-  border-radius: 47px;
-  background: var(--primary-purple-70);
-
-  display: flex;
+.codeit_icon {
   width: 40px;
   height: 40px;
-  padding: 10.667px 11.333px 10.667px 10px;
-  justify-content: center;
-  align-items: center;
-}
-
-.codeit_icon {
-  width: 18.667px;
-  height: 18.667px;
-  flex-shrink: 0;
 }
 
 .codeit_text {
@@ -73,9 +60,8 @@
   }
 
   .codeit_icon {
-    width: 23.492px;
-    height: 26.902px;
-    flex-shrink: 0;
+    width: 60px;
+    height: 60px;
   }
 
   .codeit_text {
