@@ -11,16 +11,6 @@ const Folder = () => {
   const [folders, setFolders] = useState([]);
   const [curfolderList, setCurFolderList] = useState();
 
-  useEffect(() => {
-    const fetchFolderList = async () => {
-      const { data } = await getFolderList();
-
-      setFolderLists(data);
-    };
-
-    fetchFolderList();
-  }, []);
-
   const handleTotalListClick = async () => {
     const { data } = await getLink();
 
@@ -34,6 +24,16 @@ const Folder = () => {
     setFolders(data);
     setCurFolderList(folderName);
   }
+
+  useEffect(() => {
+    const fetchFolderList = async () => {
+      const { data } = await getFolderList();
+
+      setFolderLists(data);
+    };
+
+    fetchFolderList();
+  }, []);
 
   useEffect(() => {
     handleTotalListClick();
@@ -55,20 +55,24 @@ const Folder = () => {
             </div>
           </div>
           <div>{curfolderList}</div>
-          <ul className='card-frame_ly'> 
-            {folders.map(({ created_at, image_source, title, description, url, id }) => (
-              <Card key={id} 
-                imgSrc={image_source}
-                title={title}
-                description={description}
-                createdAt={created_at}
-                url={url}
-              />
-            ))}
-          </ul>
+          {folders.length ? (
+            <ul className='card-frame_ly'> 
+              {folders.map(({ created_at, image_source, title, description, url, id }) => (
+                <Card key={id} 
+                  imgSrc={image_source}
+                  title={title}
+                  description={description}
+                  createdAt={created_at}
+                  url={url}
+                />
+              ))}
+            </ul>
+          ) : (
+            <div className='card-empty'>저장된 링크가 없습니다</div>
+          )}
         </div>
       ) : (
-        <div className='card-empty'>저장된 링크가 없습니다</div>
+        <div className='card-and-list-empty'>저장된 링크가 없습니다</div>
       )}
     </div>
   )
