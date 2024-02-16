@@ -1,33 +1,27 @@
+import { useEffect, useState } from "react";
 import "../styles/folderMenu.css";
+import { getFolderName } from "../APIs/FolderPageApi";
+import { Button } from "./Button";
 
-export function FolderMenu({ onMenuChange }) {
+export function FolderMenu({ folderNames, onMenuChange }) {
   const sendMenu = (e) => {
     const newMenu = e.target.textContent;
     onMenuChange(newMenu);
   };
-
+  console.log(folderNames);
   return (
     <>
       <div className="folderMenu">
         <div>
-          <button className="titleButton" onClick={sendMenu}>
-            전체
-          </button>
-          <button className="titleButton" onClick={sendMenu}>
-            즐겨찾기
-          </button>
-          <button className="titleButton" onClick={sendMenu}>
-            코딩 팁
-          </button>
-          <button className="titleButton" onClick={sendMenu}>
-            채용 사이트
-          </button>
-          <button className="titleButton" onClick={sendMenu}>
-            유용한 글
-          </button>
-          <button className="titleButton" onClick={sendMenu}>
-            나만의 장소
-          </button>
+          {folderNames &&
+            folderNames.length &&
+            folderNames.map((folderName) => (
+              <Button
+                folderName={folderName.name}
+                key={folderName.id}
+                onClick={sendMenu}
+              ></Button>
+            ))}
         </div>
 
         <div className="add">폴더 추가 +</div>

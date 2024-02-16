@@ -14,21 +14,7 @@ export const getSampleData = async () => {
   }
 };
 
-export const getUserData = async () => {
-  const userData = { email: null, image: null };
-  try {
-    const response = await fetch(`${BASE_API}/users/1`);
-    const result = await response.json();
-    userData.email = result.data[0].email;
-    userData.image = result.data[0].image_source;
-    return userData;
-  } catch (error) {
-    console.log(error);
-    return (userData = null);
-  }
-};
-
-export const getFolderData = async () => {
+export const getSampleFolderData = async () => {
   const folderData = {
     profileImage: null,
     profileName: null,

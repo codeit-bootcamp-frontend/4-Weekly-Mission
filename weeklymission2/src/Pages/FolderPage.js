@@ -1,13 +1,15 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FolderHeader } from "../Components/FolderHeader";
 import { Footer } from "../Components/Footer";
 import { FolderMain } from "../Components/FolderMain";
-import { getUserData } from "../APIs/PageApi";
+import { getUserData } from "../APIs/FolderPageApi";
+import { useFiles } from "../useHooks/useFiles";
 import "../styles/Page.css";
-import { useFolder } from "../useHooks/useFolder";
 
 export function FolderPage() {
   const [profile, setProfile] = useState({ email: null, image: null });
+
+  const links = useFiles();
 
   useEffect(() => {
     getData();
@@ -18,12 +20,10 @@ export function FolderPage() {
     setProfile(userData);
   };
 
-  const { folder, cardLinks } = useFolder();
-
   return (
     <>
-      <FolderHeader profile={profile} folder={folder} />
-      <FolderMain cards={cardLinks} />
+      <FolderHeader profile={profile} />
+      <FolderMain cards={links} />
       <Footer />
     </>
   );

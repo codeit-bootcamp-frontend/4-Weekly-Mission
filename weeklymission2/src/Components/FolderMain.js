@@ -3,6 +3,8 @@ import searchIcon from "../images/search.svg";
 import { Card } from "./Card";
 import { FolderMenu } from "./FolderMenu";
 import { HandleFolder } from "./HandleFolder";
+import { getFolderName } from "../APIs/FolderPageApi";
+import { useFiles } from "../useHooks/useFiles";
 
 export function FolderMain({ cards }) {
   const [menu, setMenu] = useState("전체");
@@ -10,6 +12,8 @@ export function FolderMain({ cards }) {
   const handleMenuChange = (newMenu) => {
     setMenu(newMenu);
   };
+
+  const folderNames = useFiles();
 
   return (
     <>
@@ -24,17 +28,17 @@ export function FolderMain({ cards }) {
           </div>
         </div>
 
-        <FolderMenu onMenuChange={handleMenuChange} />
+        <FolderMenu folderNames={folderNames} onMenuChange={handleMenuChange} />
 
         <div className="titleBar">
           <div className="title">{menu}</div>
           <HandleFolder />
         </div>
 
-        <div className="cardGrid">
+        {/* <div className="cardGrid">
           {cards &&
             cards.map((card) => <Card key={card.id} cardInfo={card}></Card>)}
-        </div>
+        </div> */}
       </div>
     </>
   );

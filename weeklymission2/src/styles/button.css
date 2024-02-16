@@ -1,0 +1,10 @@
+.titleButton{
+  padding: 0.7rem;
+  border: 1px solid #6D6AFF;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+}
+.titleButton:hover {
+  background-color: #6D6AFF;
+  color: white;
+}

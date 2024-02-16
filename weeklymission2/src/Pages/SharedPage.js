@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { SharedHeader } from "../Components/SharedHeader";
 import { Footer } from "../Components/Footer";
 import { SharedMain } from "../Components/SharedMain";
-import { getSampleData } from "../APIs/PageApi";
+import { getSampleData } from "../APIs/SharePageApi";
 import "../styles/Page.css";
 import { useFolder } from "../useHooks/useFolder";
 
