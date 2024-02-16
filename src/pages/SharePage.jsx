@@ -7,6 +7,7 @@ import PLACEHOLDER from 'constants/FORM_MESSAGE';
 import SearchBar from 'components/SearchBar';
 import Card from 'components/common/card/Card';
 import Header from 'components/common/header/Header';
+import PageTitle from 'components/common/PageTitle';
 
 function SharePage() {
   const [folderData, setFolderData] = useState(null);
@@ -28,6 +29,7 @@ function SharePage() {
 
   return (
     <>
+      <PageTitle title="공유" />
       <Header folderData={folderData} />
       <SearchBar placeholder={PLACEHOLDER.SEARCH_LINK} style={{ marginBottom: '4rem' }} />
       <GridTemplate>
