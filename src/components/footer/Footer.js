@@ -1,6 +1,6 @@
 import "./Footer.css";
 
-import facebookImg from "../../assets/avatar-icon.png";
+import facebookImg from "../../assets/facebook-icon.png";
 import twitterImg from "../../assets/twitter-icon.png";
 import youtubeImg from "../../assets/youtube-icon.png";
 import instagramImg from "../../assets/instagram-icon.png";
