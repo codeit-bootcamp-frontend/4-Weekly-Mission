@@ -41,7 +41,7 @@ const FirstArea = () => {
   );
 };
 
-export const FooterArea = () => {
+const FooterArea = () => {
   return (
     <div className="footer_area">
       <FirstArea></FirstArea>
@@ -50,3 +50,5 @@ export const FooterArea = () => {
     </div>
   );
 };
+
+export default FooterArea;

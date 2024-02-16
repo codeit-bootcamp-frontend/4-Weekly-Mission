@@ -25,7 +25,7 @@ const LoginButton = () => {
   return <button className="login_btn">로그인</button>;
 };
 
-export const HeaderArea = ({ email }) => {
+const HeaderArea = ({ email }) => {
   return (
     <div className="header_area">
       <LogoArea></LogoArea>
@@ -33,3 +33,5 @@ export const HeaderArea = ({ email }) => {
     </div>
   );
 };
+
+export default HeaderArea;

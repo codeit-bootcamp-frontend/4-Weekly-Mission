@@ -1,6 +1,6 @@
 import './ContentsArea.css';
 import searchIcon from '../assets/icon-search.svg';
-import { Card } from '../components/Card';
+import Card from '../components/Card';
 
 const SearchBar = () => {
   return (
@@ -15,7 +15,7 @@ const SearchBar = () => {
   );
 };
 
-export const ContentsArea = ({ links }) => {
+const ContentsArea = ({ links }) => {
   return (
     <div className="contents_area">
       <SearchBar></SearchBar>
@@ -27,3 +27,5 @@ export const ContentsArea = ({ links }) => {
     </div>
   );
 };
+
+export default ContentsArea;

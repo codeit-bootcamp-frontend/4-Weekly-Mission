@@ -30,7 +30,7 @@ const ElapsedTime = (createdAt) => {
   return `${diffNum(years)} years ago`;
 };
 
-export const Card = ({ link }) => {
+const Card = ({ link }) => {
   const { createdAt, description, imageSource } = link;
   return (
     <div className="card_area">
@@ -56,3 +56,5 @@ export const Card = ({ link }) => {
     </div>
   );
 };
+
+export default Card;

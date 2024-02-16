@@ -13,10 +13,12 @@ const ContentArea = ({ name, folderName }) => {
   );
 };
 
-export const TopBodyArea = ({ name, folderName }) => {
+const TopBodyArea = ({ name, folderName }) => {
   return (
     <div className="top_body_area">
       <ContentArea name={name} folderName={folderName}></ContentArea>
     </div>
   );
 };
+
+export default TopBodyArea;
