@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { formatDate, getLastTime } from '../utils/timeCalculater';
 import { useEffect } from 'react';
-function useFolderData(section) {
+function useFolderData(section, url) {
   const [owner, setOwner] = useState({
     ownerImg: '',
     ownerName: '',
@@ -11,9 +11,7 @@ function useFolderData(section) {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch(
-          'https://bootcamp-api.codeit.kr/api/sample/folder'
-        );
+        const response = await fetch(url);
         const result = await response.json();
         setOwner({
           ownerImg: result.folder.owner.profileImageSource,

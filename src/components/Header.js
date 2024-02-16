@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/header.css';
 import Profile from './Information';
-function Header() {
+function Header({ url }) {
   return (
     <>
       <header>
@@ -52,7 +52,7 @@ function Header() {
               />
             </svg>
           </a>
-          <Profile></Profile>
+          <Profile url={url}></Profile>
         </nav>
       </header>
     </>
