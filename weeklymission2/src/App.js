@@ -6,7 +6,8 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/folder" element={<Page />}></Route>
+          <Route path="/" element={<Page />}></Route>
+          {/* path="/"를 정해줘야 하는 것 같은데 안내된 바가 없습니다ㅠ! 그래서 folder page를 /로 설정했습니다 */}
         </Routes>
       </BrowserRouter>
     </>
