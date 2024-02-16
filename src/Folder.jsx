@@ -1,10 +1,19 @@
 import { useState, useEffect } from 'react';
 
 import { getFolderList, getLink, getLinkDetail } from './apis/api';
+import shareImg from './assets/folder/share.svg';
+import renameImg from './assets/folder/pen.svg';
+import deleteImg from './assets/folder/delete.svg';
 
 import SearchBar from './components/SearchBar';
 import Card from './components/Card';
 import './Folder.css';
+
+const FOLDER_EDITS = Object.freeze([
+  { src: shareImg, name: "공유" },
+  { src: renameImg, name: "이름변경" },
+  { src: deleteImg, name: "삭제" },
+]);
 
 const Folder = () => {
   const [folderLists, setFolderLists] = useState([]); // 이건 부모 컴포넌트에서 넘겨주는 게 좋을 듯
@@ -54,7 +63,17 @@ const Folder = () => {
               ))}
             </div>
           </div>
-          <div>{curfolderList}</div>
+          <div className='container-folder-edit'>
+            <span>{curfolderList}</span>
+            <div className='folder-edits'>
+              {FOLDER_EDITS.map(({ src, name }) => (
+                <div className='folder-edit'>
+                  <img src={src} alt={name}></img>
+                  <span className='edit-text'>{name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
           {folders.length ? (
             <ul className='card-frame_ly'> 
               {folders.map(({ created_at, image_source, title, description, url, id }) => (
