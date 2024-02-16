@@ -17,7 +17,7 @@ const Card = ({ link }) => {
           <img
             src={imageSource || noneCardImg}
             className={imageSource ? 'card_img' : 'none_card_img'}
-            alt="cardImage"
+            alt="card"
           />
         </div>
         <div className="card_contents_area">
