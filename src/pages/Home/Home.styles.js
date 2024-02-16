@@ -11,7 +11,7 @@ export const HomeSection = styled.section`
   padding: 6rem 6rem 0 6rem;
   overflow: hidden;
 
-  @media screen and (width < 768ppx) {
+  @media screen and (width < 768px) {
     padding: 6rem 2rem 0 2rem;
   }
 `;

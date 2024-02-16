@@ -27,7 +27,7 @@ const Header = () => {
     <S.HeaderLayout $isStatic={isFolderPage}>
       <S.HeaderBox>
         <Link to='/'>
-          <img src='assets/icons/linkbrary-logo.svg' alt='linkbrary' />
+          <S.HeaderLogo src='assets/icons/linkbrary-logo.svg' alt='linkbrary' />
         </Link>
         <Link to='/folder'>folder</Link>
         <Link to='/shared'>shared</Link>
