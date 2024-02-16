@@ -16,7 +16,9 @@ const Shared = () => {
   const [folderInfo, setFolderInfo] = useState("");
   const [folderName, setFolderName] = useState("");
   const [userInfo, setUserInfo] = useState([]);
+  const [order, setOrder] = useState("createdAt");
 
+  const sortedItems = items.sort((a, b) => b[order].localeCompare(a[order]));
   // 카드 아이템 요청
   const handleLoadItems = async () => {
     let result;
@@ -58,7 +60,7 @@ const Shared = () => {
         <SharedInfo folderInfo={folderInfo} folderName={folderName} />
         <div className="Shared-content-wrapper">
           <SearchBar />
-          <CardList items={items} />
+          <CardList items={sortedItems} />
         </div>
       </div>
       <Footer />
