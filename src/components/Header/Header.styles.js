@@ -28,5 +28,5 @@ export const HeaderBox = styled.div`
 `;
 
 export const HeaderLogo = styled.img`
-  width: 1.8rem;
+  width: 10rem;
 `;
