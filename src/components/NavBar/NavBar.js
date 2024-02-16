@@ -1,7 +1,12 @@
-import "./NavBar.css";
 import Profile from "../PageContent/Profile/Profile.js";
+import useUserData from "../../apis/getUserData.js";
+import "./NavBar.css";
 
-function NavBar({ profile }) {
+const NavBar = () => {
+  const { data } = useUserData();
+  const { email, profileImageSource } = data || {};
+  const profile = data ? { email, profileImageSource } : null;
+
   return (
     <header>
       <nav>
@@ -24,6 +29,6 @@ function NavBar({ profile }) {
       </nav>
     </header>
   );
-}
+};
 
 export default NavBar;

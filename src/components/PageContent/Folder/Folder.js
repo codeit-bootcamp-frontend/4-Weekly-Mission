@@ -1,15 +1,11 @@
 import "./Folder.css";
 
-const Folder = () => {
+const Folder = ({ profile, name, title }) => {
   return (
     <div className="Folder">
-      <img
-        className="Folder-profile"
-        src="image/thumbnail/Avatar.svg"
-        alt="프로필"
-      />
-      <span className="Folder-name">@코드잇</span>
-      <h2 className="Folder-title">⭐️ 즐겨찾기 </h2>
+      <img className="Folder-profile" src={profile} alt="프로필" />
+      <span className="Folder-name">{name}</span>
+      <h2 className="Folder-title">{title}</h2>
     </div>
   );
 };

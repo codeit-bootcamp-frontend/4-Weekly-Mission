@@ -1,17 +1,10 @@
-import axios from "axios";
+import baseAxios from "./baseAxios.js";
+import useAsync from "./useAsync.js";
 
-const baseAxios = axios.create({
-  baseURL: "https://bootcamp-api.codeit.kr/api/",
-});
-
-const getUserData = async () => {
-  try {
-    const userData = await baseAxios.get("sample/user");
-    return userData;
-  } catch (error) {
-    console.error("Error fetching user data:", error);
-    throw error;
-  }
+const useUserData = () => {
+  const getUserData = () => baseAxios.get("sample/user");
+  const { loading, error, data } = useAsync(getUserData);
+  return { loading, error, data };
 };
 
-export default getUserData;
+export default useUserData;
