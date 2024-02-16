@@ -6,6 +6,7 @@ import logo from 'assets/logo.svg';
 import Button from 'components/common/button/Button';
 import UserBtn from 'components/common/gnb/UserBtn';
 import sampleAPI from 'api/sampleAPI';
+import BUTTON_TYPE from 'constants/BUTTON_TYPE';
 
 const Styled = {
   Container: styled.nav`
@@ -60,7 +61,11 @@ function GNB() {
         <Link to="/">
           <img src={logo} alt="linkbrary-logo" />
         </Link>
-        {isLoggedIn ? <UserBtn userData={userData} /> : <Button />}
+        {isLoggedIn ? (
+          <UserBtn userData={userData} />
+        ) : (
+          <Button style={{ fontSize: '1.8rem', width: '12.8rem' }}>로그인</Button>
+        )}
       </Styled.InnerWrap>
     </Styled.Container>
   );

@@ -13,6 +13,7 @@ const theme = Object.freeze({
     gray4: '#9FA6B2',
     gray5: '#3E3E43',
     background: '#f0f6ff',
+    mainGradient: 'linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%)',
   },
 });
 

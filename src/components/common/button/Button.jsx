@@ -1,20 +1,31 @@
 import { styled } from 'styled-components';
+import BUTTON_TYPE from 'constants/BUTTON_TYPE';
 
 const Styled = {
   Button: styled.button`
-    width: 12.8rem;
     padding: 1.6rem 2rem;
     border-radius: 0.8rem;
-    background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-    font-size: 1.8rem;
+    white-space: nowrap;
     font-weight: 600;
     color: ${({ theme }) => theme.color.white};
+
+    background: ${({ styleType, theme }) =>
+      styleType === BUTTON_TYPE.DELETE ? theme.color.red : theme.color.mainGradient};
   `,
 };
 
-// 현재: 로그인 버튼 -> 추후 : 공통 로그인버튼으로 변경
-function Button() {
-  return <Styled.Button type="button">로그인</Styled.Button>;
+/**
+ * Button - 공통 버튼 컴포넌트
+ * @param {React.ReactNode} children
+ * @param {string} styleType 버튼 스타일 타입 BUTTON_TYPE.[GRADATION || DELETE]
+ * @param {React.htmlAttributes} htmlButtonProps 기타 버튼 props
+ */
+function Button({ children, styleType, ...htmlButtonProps }) {
+  return (
+    <Styled.Button type="button" styleType={styleType} {...htmlButtonProps}>
+      {children}
+    </Styled.Button>
+  );
 }
 
 export default Button;
