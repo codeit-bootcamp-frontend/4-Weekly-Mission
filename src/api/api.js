@@ -13,9 +13,9 @@ const getSampleFolderData = async () => {
 };
 
 const getUserData = async id => {
-  const response = await fetch(`${BASE_URL}/users/${id}`);
-  const data = await response.json();
-  return data;
+  const response = await fetch(`${BASE_URL}users/${id}`);
+  const { data } = await response.json();
+  return data[0];
 };
 
 export { getSampleUserData, getSampleFolderData, getUserData };

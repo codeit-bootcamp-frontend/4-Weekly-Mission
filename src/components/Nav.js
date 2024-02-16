@@ -9,7 +9,7 @@ export default function Nav({ currentUserData }) {
         <img src={logo} alt="로고이미지" />
         {currentUserData ? (
           <div className="accountArea">
-            <img src={currentUserData.profileImageSource} alt="프로필이미지" />
+            <img src={currentUserData.profileImageSource || currentUserData.image_source} alt="프로필이미지" />
             <span>{currentUserData.email}</span>
           </div>
         ) : (

@@ -1,3 +1,17 @@
+import useFetchData from '../hooks/useFetchData';
+import Nav from '../components/Nav';
+import AddLink from '../components/AddLink';
+import FolderDetails from '../components/FolderDetails';
+import Footer from '../components/Footer';
 export default function Folder() {
-  return <div>폴더 페이지</div>;
+  const currentUserData = useFetchData('user', 1);
+  return (
+    <>
+      <Nav currentUserData={currentUserData} />
+      <AddLink />
+      <FolderDetails />
+
+      <Footer />
+    </>
+  );
 }
