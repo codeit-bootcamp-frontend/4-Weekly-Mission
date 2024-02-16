@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--Linkbrary-bg);
+  padding: 0;
+  margin: 0;
+  font-family: "Pretendard-Regular";
+}
+
+html {
+  font-size: 16px;
+}
+
+:root {
+  --Linkbrary-primary-color: #6d6afe;
+  --Linkbrary-red: #ff5b56;
+  --Linkbrary-black: #111322;
+  --Linkbrary-white: #ffffff;
+  --Linkbrary-gray100: #3e3e43;
+  --Linkbrary-gray60: #9fa6b2;
+  --Linkbrary-gray20: #ccd5e3;
+  --Linkbrary-gray10: #e7effb;
+  --Linkbrary-bg: #f0f6ff;
+  --Grey-Light: #f5f5f5;
+  --Linkbrary-gradation: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+}
+
+p {
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.CTA {
+  display: flex;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: var(--Linkbrary-gradation);
+  color: var(--Grey-Light);
+  font-family: Pretendard;
+  font-style: normal;
+  line-height: normal;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+.CTA.small {
+  width: 300px;
+  height: 36px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.CTA.large {
+  width: 350px;
+  padding: 16px 20px;
+  font-size: 18px;
+  font-weight: 600;
+}
