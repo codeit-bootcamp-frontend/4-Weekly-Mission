@@ -1,9 +1,11 @@
+import "./styles/FolderPage.css";
 import { useEffect, useState } from "react";
-import "./FolderPage.css";
 import FolderPageHeader from "../components/FolderPageHeader";
 import Cards from "../components/Cards";
 import SearchBar from "../components/SearchBar.js";
 import { fetchFolders, fetchFolder } from "../api.js";
+import FoldersList from "../components/FoldersList.js";
+import FolderToolbar from "../components/FolderToolbar.js";
 
 export default function FolderPage() {
   const [folders, setFolders] = useState([]);
@@ -41,51 +43,12 @@ export default function FolderPage() {
       <FolderPageHeader />
       <div className="folder-page-contents">
         <SearchBar search={search} setSearch={setSearch} />
-        <div className="folders-bar">
-          <div className="folders">
-            <div
-              className={`folder ${selectedFolder === null ? "selected" : ""}`}
-              onClick={() => {
-                setSelectedFolder(null);
-              }}
-            >
-              전체
-            </div>
-            {folders.map((folder) => (
-              <div
-                key={folder.id}
-                className={`folder ${
-                  selectedFolder === folder.id ? "selected" : ""
-                }`}
-                onClick={() => {
-                  setSelectedFolder(folder.id);
-                }}
-              >
-                {folder.name}
-              </div>
-            ))}
-          </div>
-          <div className="add-folder">
-            <span>폴더 추가</span> <img src="images/plus.svg" alt="plus" />
-          </div>
-        </div>
-        <div className="folder-title">
-          <span>유용한 글</span>
-          <div className="folder-options">
-            <span className="folder-option-item">
-              <img src="images/share.svg" alt="share" />
-              공유
-            </span>
-            <span className="folder-option-item">
-              <img src="images/edit.svg" alt="edit" />
-              이름변경
-            </span>
-            <span className="folder-option-item">
-              <img src="images/delete.svg" alt="delete" />
-              삭제
-            </span>
-          </div>
-        </div>
+        <FoldersList
+          folders={folders}
+          selectedFolder={selectedFolder}
+          setSelectedFolder={setSelectedFolder}
+        />
+        <FolderToolbar />
         <Cards links={currentFolder} />
       </div>
     </>

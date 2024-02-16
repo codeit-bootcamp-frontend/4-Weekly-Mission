@@ -1,4 +1,4 @@
-import "./FolderPageHeader.css";
+import "./styles/FolderPageHeader.css";
 import CTA from "./CTA";
 import styled from "styled-components";
 

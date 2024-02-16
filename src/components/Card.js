@@ -1,4 +1,4 @@
-import "./Card.css";
+import "./styles/Card.css";
 import { getDate, getElapsedTime } from "../utils";
 
 export default function Card({ data }) {

@@ -1,8 +1,8 @@
+import "./styles/SharedPage.css";
 import { useEffect, useState } from "react";
 import Cards from "../components/Cards";
 import SearchBar from "../components/SearchBar";
 import { fetchSampleFolder } from "../api";
-import "./SharedPage.css";
 import SharedPageHeader from "../components/SharedPageHeader";
 
 export default function FolderView() {

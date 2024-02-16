@@ -1,4 +1,4 @@
-import "./Navbar.css";
+import "./styles/Navbar.css";
 import CTA from "./CTA";
 import styled from "styled-components";
 

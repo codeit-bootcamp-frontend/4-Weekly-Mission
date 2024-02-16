@@ -1,18 +1,4 @@
-.folder-page-contents {
-  max-width: 1124px;
-  padding: 0 32px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 40px 0;
-  @media (max-width: 784px) {
-    margin: 20px 0;
-  }
-}
-
-.folders-bar {
+.folders-list {
   width: 100%;
   display: flex;
   align-items: center;
@@ -67,45 +53,6 @@
   }
 }
 .add-folder img {
-  width: 16px;
-  height: 16px;
-}
-
-.folder-title {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 24px 0;
-  color: #000;
-  font-size: 24px;
-  font-weight: 600;
-  letter-spacing: -0.2px;
-  gap: 12px;
-  @media (max-width: 784px) {
-    font-size: 20px;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 28px 0 20px;
-  }
-}
-
-.folder-options {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: var(--gray60);
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.folder-option-item {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.folder-option-item img {
   width: 16px;
   height: 16px;
 }
