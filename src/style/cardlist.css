@@ -6,7 +6,7 @@
   width: 1060px;
   height: auto;
   margin: auto;
-  font-family: "Pretendard", sans-serif;
+  font-family: 'Pretendard', sans-serif;
 }
 
 .search-bar {
@@ -49,7 +49,7 @@
 a {
   text-decoration: none;
   color: inherit;
-  font-family: "Pretendard", sans-serif;
+  font-family: 'Pretendard', sans-serif;
 }
 
 span {

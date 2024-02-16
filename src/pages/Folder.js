@@ -1,5 +1,5 @@
 import { Helmet } from 'react-helmet';
-import SharedHeader from '../components/SharedHeader';
+import FolderHeader from '../components/FolderHeader';
 import CardList from '../components/CardList';
 import Footer from '../components/Footer';
 
@@ -7,9 +7,9 @@ function Shared() {
   return (
     <>
       <Helmet>
-        <title>Linkbrary - Shared</title>
+        <title>Linkbrary - Folder</title>
       </Helmet>
-      <SharedHeader />
+      <FolderHeader />
       <CardList />
       <Footer />
     </>
