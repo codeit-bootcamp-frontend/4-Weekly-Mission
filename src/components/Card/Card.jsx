@@ -10,6 +10,7 @@ const Card = ({ createdAt, url, title, imageURL }) => {
         <S.CardImageBox>
           <S.CardImage src={imageURL || UNDEFINED_IMAGE} alt={title} />
         </S.CardImageBox>
+        <S.CardStarIcon />
         <S.CardTextBox>
           <S.CardReactTimeAgo date={createdAt} locale='ko' />
           <S.CardTitle>{title}</S.CardTitle>

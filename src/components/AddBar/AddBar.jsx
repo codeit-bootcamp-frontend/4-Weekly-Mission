@@ -5,6 +5,7 @@ const AddBar = () => {
     <S.AddBarColorBox>
       <S.AddBarLineLink />
       <S.AddBarInput placeholder='링크를 추가 해보세요' />
+      <S.AddBarButton>추가하기</S.AddBarButton>
     </S.AddBarColorBox>
   );
 };

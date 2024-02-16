@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { HiOutlineLink } from 'react-icons/hi';
 import ColorBox from '../common/ColorBox/ColorBox.styles';
+import GradientButton from '../common/GradientButton/GradientButton.styles';
 
 export const AddBarColorBox = styled(ColorBox)`
-  width: 70rem;
+  width: 100%;
 `;
 
 export const AddBarLineLink = styled(HiOutlineLink)`
@@ -16,4 +17,8 @@ export const AddBarInput = styled.input`
   outline: none;
   font-size: 1.2rem;
   background: #f5f5f5;
+`;
+
+export const AddBarButton = styled(GradientButton)`
+  white-space: nowrap;
 `;

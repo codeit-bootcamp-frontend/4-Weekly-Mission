@@ -3,10 +3,14 @@ import { ActionButton } from '../../components/common/ActionButton/ActionButton.
 
 export const FolderLayout = styled.div`
   display: flex;
-  flex-grow: 1;
   height: 100%;
   flex-direction: column;
   align-items: center;
+`;
+
+export const FolderAddBarBox = styled.div`
+  width: 100%;
+  padding: 3rem 6rem;
 `;
 
 export const FolderSection = styled.section`

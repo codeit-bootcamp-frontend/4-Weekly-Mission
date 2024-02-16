@@ -8,6 +8,7 @@ export const FolderNavbarLayout = styled.ul`
 
 export const FolderNavbarItem = styled.li`
   font-size: 1.2rem;
+  cursor: pointer;
   color: var(--color-gray-400);
   display: flex;
   align-items: center;

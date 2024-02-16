@@ -11,16 +11,15 @@ const Shared = () => {
   const { links, name } = folder;
   const { user } = useContext(AuthContext);
 
-  const fetchFolder = async () => {
-    try {
-      const { folder } = await getFolder();
-      setFolder(folder);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
+    const fetchFolder = async () => {
+      try {
+        const { folder } = await getFolder();
+        setFolder(folder);
+      } catch (error) {
+        console.error(error);
+      }
+    };
     fetchFolder();
   }, []);
 
