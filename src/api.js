@@ -11,3 +11,9 @@ export async function getUser() {
   const body = await response.json();
   return body;
 }
+
+export async function getFolderList() {
+  const response = await fetch(`${BASE_URL}/users/1/folders`);
+  const body = await response.json();
+  return body;
+}
