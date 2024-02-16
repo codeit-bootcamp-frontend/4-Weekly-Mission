@@ -1,11 +1,10 @@
 import getData from "../api/api";
 import { useEffect, useState } from "react";
-// import Main from "./Main";
-// import Header from "./Header";
-// import Footer from "./Footer";
-import Main from "../components/Main";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import CardBox from "../components/CardBox";
+import TopNavBar from "../components/TopNavBar";
+import UserProfile from "../components/UserProfile";
+import SearchBar from "../components/SearchBar";
+import BottomNavBar from "../components/BottomNavBar";
 
 function Shared() {
   const [profileData, setProfileData] = useState({});
@@ -41,9 +40,19 @@ function Shared() {
 
   return (
     <>
-      <Header profileData={profileData} folderData={folderData} />
-      <Main folderData={folderData} />
-      <Footer />
+      <header>
+        <TopNavBar profileData={profileData} />
+        <UserProfile folderData={folderData} />
+      </header>
+      <main>
+        <section>
+          <SearchBar />
+          <CardBox folderData={folderData} />
+        </section>
+      </main>
+      <footer>
+        <BottomNavBar />
+      </footer>
     </>
   );
 }

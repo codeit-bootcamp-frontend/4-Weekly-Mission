@@ -28,23 +28,21 @@ const MEDIA_LINK = [
   },
 ];
 
-function Footer() {
+function BottomNavBar() {
   return (
-    <footer>
-      <div class="footer-in-div">
-        <div class="left">©codeit - 2023</div>
-        <div class="center">
-          <span class="grid-left"> Privacy Policy </span>
-          <span class="grid-center"> FAQ </span>
-        </div>
-        <div class="right">
-          {MEDIA_LINK.map((media) => (
-            <Icon mediaType={media} />
-          ))}
-        </div>
+    <div class="footer-in-div">
+      <div class="left">©codeit - 2023</div>
+      <div class="center">
+        <span class="grid-left"> Privacy Policy </span>
+        <span class="grid-center"> FAQ </span>
       </div>
-    </footer>
+      <div class="right">
+        {MEDIA_LINK.map((media) => (
+          <Icon mediaType={media} />
+        ))}
+      </div>
+    </div>
   );
 }
 
-export default Footer;
+export default BottomNavBar;
