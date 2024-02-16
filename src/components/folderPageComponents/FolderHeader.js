@@ -8,7 +8,6 @@ import {
 } from '../../styles/styledComponents/folderStyled';
 import linkImage from '../../assets/Images/link.png';
 
-/*eslint-disable */
 export const FolderHeader = () => {
   return (
     <>
