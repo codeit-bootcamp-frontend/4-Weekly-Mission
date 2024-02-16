@@ -40,12 +40,3 @@ export const getLinkData = async (id) => {
     console.log(error);
   }
 };
-
-const getApi = async () => {
-  const response = await fetch(
-    "https://bootcamp-api.codeit.kr/api/users/1/links?folderId=1"
-  );
-  const result = await response.json();
-  console.log(result);
-};
-getApi();

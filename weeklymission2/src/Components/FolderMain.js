@@ -3,11 +3,10 @@ import searchIcon from "../images/search.svg";
 import { FolderCard } from "./FolderCard";
 import { FolderMenu } from "./FolderMenu";
 import { HandleFolder } from "./HandleFolder";
-import { getFolderName } from "../APIs/FolderPageApi";
 import { useFiles } from "../useHooks/useFiles";
 import { useFolder } from "../useHooks/useFolder";
 
-export function FolderMain({ cards }) {
+export function FolderMain() {
   const [menu, setMenu] = useState("전체");
 
   const handleMenuChange = (newMenu, id) => {

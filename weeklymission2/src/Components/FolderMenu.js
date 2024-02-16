@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import "../styles/folderMenu.css";
-import { getFolderName } from "../APIs/FolderPageApi";
 import { Button } from "./Button";
 
 export function FolderMenu({ folderNames, onMenuChange }) {
