@@ -1,5 +1,5 @@
 import "./Cards.css";
-import noCardImg from "../../assets/bg_noImg.png";
+import noCardImg from "../../assets/basic-card.png";
 
 function Cards({ cardData }) {
   // 시간 차 구하기

@@ -1,5 +1,5 @@
 import "./NavigationBar.css";
-import logoImg from "../../assets/logo.png";
+import logoImg from "../../assets/linkbrary-logo.png";
 
 function NavigationBar({ userInfo }) {
   return (

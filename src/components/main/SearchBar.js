@@ -1,5 +1,5 @@
 import "./SearchBar.css";
-import searchBarImg from "../../assets/Search.png";
+import searchBarImg from "../../assets/search-icon.png";
 
 function SearchBar() {
   return (
