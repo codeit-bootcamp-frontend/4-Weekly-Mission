@@ -1,4 +1,5 @@
-import { Page } from "./Pages/Page";
+import { FolderPage } from "./Pages/FolderPage";
+import { SharedPage } from "./Pages/SharedPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -6,8 +7,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Page />}></Route>
-          {/* path="/"를 정해줘야 하는 것 같은데 안내된 바가 없습니다ㅠ! 그래서 folder page를 /로 설정했습니다 */}
+          {/* <Route path="/" }></Route> */}
+          <Route path="/shared" element={<SharedPage />}></Route>
+          <Route path="/folder" element={<FolderPage />}></Route>
         </Routes>
       </BrowserRouter>
     </>

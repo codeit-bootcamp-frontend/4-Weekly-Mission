@@ -1,5 +1,19 @@
 const BASE_API = "https://bootcamp-api.codeit.kr/api";
 
+export const getSampleData = async () => {
+  const userData = { email: null, image: null };
+  try {
+    const response = await fetch(`${BASE_API}/sample/user`);
+    const result = await response.json();
+    userData.email = result.email;
+    userData.image = result.profileImageSource;
+    return userData;
+  } catch (error) {
+    console.log(error);
+    return (userData = null);
+  }
+};
+
 export const getUserData = async () => {
   const userData = { email: null, image: null };
   try {

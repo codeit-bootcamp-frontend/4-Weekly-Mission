@@ -1,3 +1,6 @@
+@import './sharedHeader.css';
+@import './folderHeader.css';
+
 .headerArea{
   background-color: #F0F6FF;
   z-index: 1;
@@ -46,73 +49,12 @@
   width: 10rem;
 }
 
-header{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.folderProfile{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.folderImg{
-  margin-top: 2rem;
-  height: 7rem;
-  width: 7rem;
-}
-.folderProfileName{
-  margin: 1rem;
-  font-size: 1.8rem;
-}
-.folderName{
-  font-size: 4rem;
-  font-weight: 600;
-  margin: 2rem 0 7rem;
-}
-
-.linkInputArea{
-  margin: 0 10rem;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.addLinks{
-  padding: 2rem 4.5rem;
-  border-color: #6D6AFF;
-  border-radius: 1rem;
-  margin: 4rem 0 6rem;
-  width: 100%;
-
-}
-.linkIcon{
-  position: absolute;
-  left: 2rem;
-  bottom: 7.9rem;
-}
-.addBtn{
-  background-image: linear-gradient(91deg, var(--primary), #6AE3FE 101.84%);
-  border-radius: 0.4rem;
-  color: #f5f5f5;
-  font-weight: 600;
-  position: absolute;
-  top: 5.4rem;
-  right: 2rem;
-  font-size: 1rem;
-  padding: 1rem;
-}
-
 @media (max-width: 1199px) {
   nav{
     padding: 0 5rem;
   }
   .headerArea{
     padding: 0
-  }
-  .linkInputArea{
-    margin: 0 5rem;
   }
 }
 
@@ -129,8 +71,5 @@ header{
   }
   .btnS{
     width: 8rem;
-  }
-  .linkInputArea{
-    margin: 0 3rem;
   }
 }
