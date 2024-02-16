@@ -5,7 +5,7 @@ function SearchBar() {
   return (
     <div className="SearchBar">
       <div>
-        <img src={searchBarImg} alt="search"></img>
+        <img src={searchBarImg} alt="search" />
         <span className="SearchText">링크를 검색해 보세요.</span>
       </div>
     </div>
