@@ -11,13 +11,13 @@ function FolderSortBar() {
     '나만의 장소',
   ];
   return (
-    <div className="folder__bar">
-      <div className="folder__bar--sort-buttons">
+    <div className="folder__sort-bar">
+      <div className="folder__sort-bar--sort-buttons">
         {SORT_BUTTONS.map((text) => (
           <SortButton text={text} />
         ))}
       </div>
-      <div className="folder__bar--add-button">
+      <div className="folder__sort-bar--add-button">
         <FolderAddButton></FolderAddButton>
       </div>
     </div>

@@ -1,10 +1,10 @@
-.folder__bar {
+.folder__sort-bar {
   width: 100%;
   display: flex;
   justify-content: space-between;
 }
 
-.folder__bar--sort-buttons {
+.folder__sort-bar--sort-buttons {
   display: flex;
   justify-content: center;
   align-items: center;

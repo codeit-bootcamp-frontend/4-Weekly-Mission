@@ -2,6 +2,7 @@ import LinkSearchBar from './LinkSearchBar';
 import '../styles/folderList.css';
 import { useState } from 'react';
 import FolderSortBar from '../pages/FolderPage/components/FolderSortBar';
+import FolderOptionBar from '../pages/FolderPage/components/FolderOptionBar';
 function FolderList() {
   const [folders, setFolders] = useState([]);
   return (
@@ -15,6 +16,7 @@ function FolderList() {
         ) : (
           <div className="folder-list">
             <FolderSortBar></FolderSortBar>
+            <FolderOptionBar></FolderOptionBar>
           </div>
         )}
       </div>
