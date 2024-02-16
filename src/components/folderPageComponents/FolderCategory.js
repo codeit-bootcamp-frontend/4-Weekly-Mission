@@ -18,28 +18,17 @@ export const FolderCategory = ({
       <TitleWrapper>
         <CategoryWrapper>
           {category &&
-            category.map((categoryData) =>
-              currentCategory === categoryData.name ? (
-                <CategoryButton
-                  id={categoryData.id}
-                  key={categoryData.id}
-                  name="folderId"
-                  checked
-                  onClick={handleCategoryButton}
-                >
-                  {categoryData.name}
-                </CategoryButton>
-              ) : (
-                <CategoryButton
-                  id={categoryData.id}
-                  key={categoryData.id}
-                  name="folderId"
-                  onClick={handleCategoryButton}
-                >
-                  {categoryData.name}
-                </CategoryButton>
-              ),
-            )}
+            category.map((categoryData) => (
+              <CategoryButton
+                id={categoryData.id}
+                key={categoryData.id}
+                name="folderId"
+                checked={currentCategory === categoryData.name ? true : null}
+                onClick={handleCategoryButton}
+              >
+                {categoryData.name}
+              </CategoryButton>
+            ))}
         </CategoryWrapper>
         <AddButtonWrapper>
           <AddButtonText>폴더 추가</AddButtonText>
