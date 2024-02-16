@@ -1,6 +1,6 @@
-import Header from "components/Header/Header";
-import Footer from "components/Footer/Footer";
-import CardList from "components/CardList/CardList";
+import Header from "components/Header";
+import Footer from "components/Footer";
+import CardList from "components/CardList";
 import styles from "./Folder.module.css";
 import SearchIcon from "assets/Search.png";
 import { useEffect, useState } from "react";

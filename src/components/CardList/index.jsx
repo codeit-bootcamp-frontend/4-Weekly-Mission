@@ -1,4 +1,4 @@
-import Card from "components/Card/Card";
+import Card from "components/Card";
 import style from "./CardList.module.css";
 
 export default function CardList({ links }) {
