@@ -1,35 +1,37 @@
-import Footer from "./components/Footer/Footer.js";
-import NavBar from "./components/NavBar/NavBar.js";
-import useFolderData from "./apis/getFolderData.js";
-import SearchBar from "./components/PageContent/SearchBar/SearchBar.js";
-import PageBody from "./components/PageContent/PageBody/PageBody.js";
-import Folder from "./components/PageContent/Folder/Folder.js";
-import CardList from "./components/Cards/CardList/CardList.js";
-import Card from "./components/Cards/Card/Card.js";
+import { Layout } from "./feature/Layout";
+import { SharedPage } from "./page-layout/SharedPage";
+import { FolderInfo } from "./ui/FolderInfo";
+import { SearchBar } from "./ui/SearchBar";
+import { CardList } from "./ui/CardList";
+import { useGetFolder } from "data-access/useGetFolder";
+import { ReadOnlyCard } from "ui/ReadOnlyCard";
 import "./global.css";
 
-const App = () => {
-  const { data } = useFolderData();
+function App() {
+  const { data } = useGetFolder();
   const { profileImage, ownerName, folderName, links } = data || {};
+
   return (
-    <>
-      <NavBar />
-      <PageBody
+    <Layout>
+      <SharedPage
         folderInfo={
-          <Folder profile={profileImage} name={ownerName} title={folderName} />
+          <FolderInfo
+            profileImage={profileImage}
+            ownerName={ownerName}
+            folderName={folderName}
+          />
         }
         searchBar={<SearchBar />}
         cardList={
           <CardList>
             {links?.map((link) => (
-              <Card key={link?.id} {...link} />
+              <ReadOnlyCard key={link?.id} {...link} />
             ))}
           </CardList>
         }
       />
-      <Footer />
-    </>
+    </Layout>
   );
-};
+}
 
 export default App;
