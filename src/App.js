@@ -1,36 +1,17 @@
-import "./global.css";
-import { PageBody } from "./layout/PageBody";
-import { Layout } from "./layout/Pagelayout/Layout";
-import { PageInfo } from "./layout/PageBody/Contain/PageInfo";
-import { SearchBar } from "./layout/PageBody/Contain/Serch";
-import { CardList } from "./layout/PageBody/Contain/Card/CardList";
-import { useGetPages } from "./data/useGetPages";
-import { ReadOnlyCard } from "./layout/PageBody/Contain/ReadOnlyCard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SharedPage from "./page/SharedPage";
+import FolderPage from "./page/FolderPage";
 
 function App() {
-  const { data } = useGetPages();
-  const { profileImage, ownerName, pageName, links } = data;
-
   return (
-    <Layout>
-      <PageBody
-        PageInfo={
-          <PageInfo
-            profileImage={profileImage}
-            ownerName={ownerName}
-            pageName={pageName}
-          />
-        }
-        searchBar={<SearchBar />}
-        cardList={
-          <CardList>
-            {links?.map((link) => (
-              <ReadOnlyCard key={link?.id} {...link} />
-            ))}
-          </CardList>
-        }
-      />
-    </Layout>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/shared" element={<SharedPage />} />
+          <Route path="/folder" element={<FolderPage />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
