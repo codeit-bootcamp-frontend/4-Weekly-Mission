@@ -1,7 +1,7 @@
-import facebookImg from "../img/facebook.svg";
-import twitterImg from "../img/twitter.svg";
-import youtubeImg from "../img/youtube.svg";
-import instagramImg from "../img/instagram.svg";
+import facebookImg from "../../img/facebook.svg";
+import twitterImg from "../../img/twitter.svg";
+import youtubeImg from "../../img/youtube.svg";
+import instagramImg from "../../img/instagram.svg";
 
 const Footer = () => {
   return (

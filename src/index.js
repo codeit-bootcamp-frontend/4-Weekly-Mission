@@ -1,10 +1,12 @@
 import ReactDOM from "react-dom/client";
 import App from "./components/App";
-import { Fragment } from "react";
 
 const Linkbrary = ReactDOM.createRoot(document.getElementById("Linkbrary"));
 Linkbrary.render(
-  <Fragment>
+  <>
     <App />
-  </Fragment>
+  </>
 );
+
+// 테일윈드 - 알아봐주심
+// 도서관련 2주 대여 가능하게끔 건의
