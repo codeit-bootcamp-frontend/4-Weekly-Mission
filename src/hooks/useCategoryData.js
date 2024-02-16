@@ -10,6 +10,8 @@ export const useCategoryData = () => {
   const getCategoryFolder = async (categoryID) => {
     const Data = await categoryFolderDataAPI(categoryID);
     setFolder(Data);
+    /*eslint-disable */
+    console.log(Data);
   };
 
   useEffect(() => {
@@ -19,7 +21,7 @@ export const useCategoryData = () => {
     };
     getCategory();
     setSearchParams({ folderID: '0' });
-    getCategoryFolder(searchParams.get('folderID'));
+    getCategoryFolder('0');
   }, []);
 
   const handleCategoryButton = (e) => {
