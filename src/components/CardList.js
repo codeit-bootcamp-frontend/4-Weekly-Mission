@@ -4,17 +4,27 @@ import formatDate from "../utils/formatDate.js";
 import formatTimeDifference from "../utils/formatTimeDifference.js";
 
 function CardListItem({ item }) {
-  const { title, createdAt, url, description, imageSource } = item;
-  const src = imageSource ?? noImage;
+  const {
+    title,
+    createdAt,
+    created_at,
+    url,
+    description,
+    imageSource,
+    image_source,
+  } = item;
+  const src = (imageSource || image_source) ?? noImage;
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
       <img src={src} className="card-box-img" alt="" />
       <div className="text-container">
-        <p className="time-difference">{formatTimeDifference(createdAt)}</p>
+        <p className="time-difference">
+          {formatTimeDifference(createdAt || created_at)}
+        </p>
         <p className="title">{title}</p>
         <p className="description">{description}</p>
-        <p className="date"> {formatDate(createdAt)}</p>
+        <p className="date"> {formatDate(createdAt || created_at)}</p>
       </div>
     </a>
   );

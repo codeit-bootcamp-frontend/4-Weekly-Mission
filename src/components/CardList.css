@@ -54,7 +54,8 @@
 }
 
 /*Display only two lines*/
-.description {
+.description,
+.title {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;

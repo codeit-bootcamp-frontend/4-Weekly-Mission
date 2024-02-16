@@ -17,3 +17,9 @@ export async function getFolderList() {
   const body = await response.json();
   return body;
 }
+
+export async function getFolderLinks() {
+  const response = await fetch(`${BASE_URL}/users/1/links`);
+  const body = await response.json();
+  return body;
+}
