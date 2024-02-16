@@ -1,7 +1,6 @@
 import React from 'react';
 import Card from '../common/Card';
 import { SearchLink } from '../common/SearchLink';
-//
 
 export default function SharedContents({ links }) {
   return (

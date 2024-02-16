@@ -1,10 +1,8 @@
 import React from 'react';
 import logo from '../../assets/Images/logo.svg';
 import { Nav } from '../../styles/styledComponents/common';
-/*eslint-disable */
 
 export const MainHeader = ({ userProfile, navFixed }) => {
-  console.log(navFixed);
   return (
     <>
       <Nav $navStatus={navFixed}>

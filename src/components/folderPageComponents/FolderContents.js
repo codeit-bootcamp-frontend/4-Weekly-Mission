@@ -1,26 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SearchLink } from '../common/SearchLink';
-import { useCategoryData } from '../../hooks/useCategoryData';
 import { FolderCategory } from './FolderCategory';
 import { FolderTitle } from './FolderTitle';
 import { FolderCard } from './FolderCard';
-
-/*eslint-disable */
-
+import { useAPIData } from '../../hooks/useAPIData';
+import { categoryDataAPI, categoryFolderDataAPI } from '../../api/BootcampAPI';
 export const FolderContents = () => {
-  const { category, currentCategory, handleCategoryButton, folder } =
-    useCategoryData();
+  const [currentCategory, setCurrentCategory] = useState('전체');
 
+  const { Data: category } = useAPIData(categoryDataAPI);
+  const { Data: folder, handleData: setFolder } = useAPIData(
+    categoryFolderDataAPI,
+    '0',
+  );
+
+  const handleCategoryButton = (e) => {
+    setCurrentCategory(e.target.innerText);
+    setFolder(e.target.id);
+  };
   return (
     <article>
       <SearchLink></SearchLink>
-      <FolderCategory
-        category={category}
-        handleCategoryButton={handleCategoryButton}
-        currentCategory={currentCategory}
-      ></FolderCategory>
+      {category && (
+        <FolderCategory
+          category={[{ name: '전체', id: '0' }, ...category]}
+          handleCategoryButton={handleCategoryButton}
+          currentCategory={currentCategory}
+        ></FolderCategory>
+      )}
+
       <FolderTitle currentCategory={currentCategory}></FolderTitle>
-      <FolderCard folder={folder}></FolderCard>
+      {folder && <FolderCard folder={folder}></FolderCard>}
     </article>
   );
 };
