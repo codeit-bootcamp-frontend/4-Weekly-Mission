@@ -1,9 +1,7 @@
+import App from "../components/App";
+
 const SharePage = () => {
-  return (
-    <div>
-      <h1>Shared page</h1>
-    </div>
-  );
+  return <App />;
 };
 
 export default SharePage;

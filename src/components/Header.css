@@ -29,6 +29,11 @@ header {
   margin-right: 0.5rem;
 }
 
+.profileContainer {
+  display: flex;
+  align-items: center;
+}
+
 .headerButton {
   display: flex;
   width: 8rem;

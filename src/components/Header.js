@@ -6,7 +6,7 @@ function userInformation({ user }) {
   if (!user) return null;
   const { email, profileImageSource } = user;
   return (
-    <div>
+    <div className="profileContainer">
       <img className="logo" src={profileImageSource} alt="프로필 이미지" />
       <span>{email}</span>
     </div>

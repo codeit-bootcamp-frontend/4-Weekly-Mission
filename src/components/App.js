@@ -5,7 +5,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import Profile from "./Profile";
 import SearchBar from "./SearchBar";
-import FolderList from "./FolderList";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -28,7 +27,6 @@ function App() {
       <Header />
       <Profile profile={profile} folderName={folderName} />
       <SearchBar />
-      <FolderList />
       <CardList items={items} />
       <Footer />
     </div>

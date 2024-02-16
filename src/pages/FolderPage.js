@@ -1,7 +1,13 @@
+import FolderList from "../components/FolderList";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 const FolderPage = () => {
   return (
     <div>
-      <h1>Folder Page</h1>
+      <Header />
+      <FolderList />
+      <Footer />
     </div>
   );
 };
