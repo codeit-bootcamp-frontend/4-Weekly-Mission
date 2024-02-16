@@ -1,18 +1,18 @@
 import { useState, useEffect } from 'react';
 import { getSampleUserData, getSampleFolderData } from '../api/api';
 
+const SAMPLE_DATA_MAP = {
+  user: getSampleUserData,
+  folder: getSampleFolderData,
+};
+
 const useSampleData = dataType => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let sampleData;
-        if (dataType === 'user') {
-          sampleData = await getSampleUserData();
-        } else if (dataType === 'folder') {
-          sampleData = await getSampleFolderData();
-        }
+        const sampleData = await SAMPLE_DATA_MAP[dataType]?.();
         setData(sampleData);
       } catch (error) {
         console.error(error);
