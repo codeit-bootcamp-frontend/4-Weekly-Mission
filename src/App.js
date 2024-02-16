@@ -8,11 +8,12 @@ import UserInformation from "./components/main/FolderInformation";
 import { getCards, getUsers } from "./services/api";
 
 function App() {
-  // 카드 정보 받아오기
   const [folderOwners, setFolderOwners] = useState([]);
   const [folderName, setFolderName] = useState();
   const [cards, setCards] = useState([]);
+  const [userInfo, setUserInfo] = useState([]);
 
+  // 카드 정보 받아오기
   const getCardsInfo = async () => {
     const cardsInfo = await getCards();
     const folderOwners = cardsInfo.folder.owner;
@@ -23,19 +24,14 @@ function App() {
     setCards(cards);
   };
 
-  useEffect(() => {
-    getCardsInfo();
-  }, []);
-
   // 유저 정보 받아오기
-  const [userInfo, setUserInfo] = useState([]);
-
   const getUserInfo = async () => {
     const userInfo = await getUsers();
     setUserInfo(userInfo);
   };
 
   useEffect(() => {
+    getCardsInfo();
     getUserInfo();
   }, []);
 
