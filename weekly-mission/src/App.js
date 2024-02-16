@@ -18,7 +18,14 @@ function App() {
         element={
           <Folder/>
         }
-      />
+      >
+        <Route 
+          path=':folderId'
+          element={
+            <Folder/>
+          }
+        />
+      </Route>
     </Routes>
   );
 }

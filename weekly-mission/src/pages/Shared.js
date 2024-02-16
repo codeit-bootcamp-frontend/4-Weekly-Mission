@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import SearchInput from "../components/SearchInput.js";
-import './Shared.css';
+import './Shared.css'; 
 import { requestOwnerInformation } from "../api";
 import Loading from '../components/Loading.js'
 import OwnerInformation from "../components/OwnerInformation.js";

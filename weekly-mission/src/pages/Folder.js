@@ -7,6 +7,9 @@ import Loading from "../components/Loading";
 import OwnerInformation from "../components/OwnerInformation";
 import SearchInput from "../components/SearchInput";
 import './Folder.css'
+import { useEffect, useState } from "react";
+import { requestFolderListData } from "../api";
+import CategoryBar from "../components/CategoryBar";
 
 
 
@@ -19,6 +22,18 @@ const NotLink = styled.div`
 
 
 function Folder() {
+    const [categoryData, setCategoryData] = useState(null);
+
+    useEffect(() => {
+        const getFolderListData = async () => {
+            const response = await requestFolderListData();
+            const data = response.data;
+            setCategoryData(data);
+        }
+        getFolderListData();
+
+    }, [])
+
     return (
         <>
             <HeaderBlock />
@@ -28,9 +43,13 @@ function Folder() {
                 </section>
                 <section className="section linkcards">
                     <div className="container">
-                        <ul className="linkcard-list">
-                            <NotLink>저장된 링크가 없습니다.</NotLink>
-                        </ul>
+                        <SearchInput />
+                        <div className="wrap">
+                            <CategoryBar categoryList={categoryData}/>
+                            <ul className="linkcard-list">
+                                <NotLink>저장된 링크가 없습니다.</NotLink>
+                            </ul>
+                        </div>
                     </div>
                 </section>
             </main>

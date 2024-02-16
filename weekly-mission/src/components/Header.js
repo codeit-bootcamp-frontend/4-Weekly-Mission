@@ -3,17 +3,18 @@ import { requestProfileData } from '../api.js'
 import { useEffect, useState } from 'react'
 import Profile from './Profile.js'
 import Login from './Login.js'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { useLocation } from 'react-router-dom'
 
 const Header = styled.header`
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+    width: 100vw;
     padding: 3.2rem 0;
     background-color: #F0F6FF;
     height: 9.3rem;
-    z-index: 1000;
+    position : fixed;
+    top:0;
+    left : 0;
+    z-index : 1000;
 
     .Header-inner{
         width: 106rem;
@@ -42,7 +43,8 @@ const Header = styled.header`
 
 function HeaderBlock() {
     const [userData, setUserData] = useState();
-
+    // const location = useLocation();
+    // const value = location.pathname !== 'folder' ? 'fixed' : null;
 
 
     useEffect(() => {
