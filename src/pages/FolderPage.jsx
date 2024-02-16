@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import Footer from "./components/footer/Footer";
-import NavigationBar from "./components/header/NavigationBar";
-import Cards from "./components/main/Cards";
-import SearchBar from "./components/main/SearchBar";
-import UserInformation from "./components/main/FolderInformation";
-import { getCards, getUsers } from "./services/api";
+import "../styles/FolderPage.css";
+import Footer from "../components/footer/Footer";
+import NavigationBar from "../components/header/NavigationBar";
+import Cards from "../components/main/Cards";
+import SearchBar from "../components/main/SearchBar";
+import UserInformation from "../components/main/FolderInformation";
+import { getCards, getUsers } from "../services/api";
 
-function App() {
+function FolderPage() {
   const [folderOwners, setFolderOwners] = useState([]);
   const [folderName, setFolderName] = useState();
   const [cards, setCards] = useState([]);
@@ -36,7 +36,7 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
+    <div className="FolderPage">
       <header>
         <NavigationBar userInfo={userInfo} />
       </header>
@@ -54,4 +54,4 @@ function App() {
   );
 }
 
-export default App;
+export default FolderPage;
