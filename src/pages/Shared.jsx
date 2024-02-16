@@ -1,10 +1,13 @@
 import getData from "../api/api";
 import { useEffect, useState } from "react";
-import Main from "./Main";
-import Header from "./Header";
-import Footer from "./Footer";
+// import Main from "./Main";
+// import Header from "./Header";
+// import Footer from "./Footer";
+import Main from "../components/Main";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
-function App() {
+function Shared() {
   const [profileData, setProfileData] = useState({});
   const [folderData, setFolderData] = useState({});
 
@@ -45,4 +48,4 @@ function App() {
   );
 }
 
-export default App;
+export default Shared;
