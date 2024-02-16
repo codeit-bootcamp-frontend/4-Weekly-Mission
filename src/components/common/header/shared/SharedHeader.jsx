@@ -1,8 +1,9 @@
-import Loader from '../Loader';
+import Loader from 'components/common/Loader';
 import { useSampleFolderQuery } from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';
-import Error from '../Error';
+import Error from 'components/common/Error';
+import { HeaderContainer } from 'styles/HeaderContainer';
 
 const Header = () => {
   const {
@@ -19,7 +20,7 @@ const Header = () => {
     return <Error />;
   }
   return (
-    <StyledHeader>
+    <HeaderContainer>
       {isLoading ? (
         <Loader />
       ) : (
@@ -34,16 +35,10 @@ const Header = () => {
           <FolderName>{folderInfo.folderName}</FolderName>
         </HeroHeader>
       )}
-    </StyledHeader>
+    </HeaderContainer>
   );
 };
-const StyledHeader = styled.header`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  background-color: #edf7ff;
-`;
+
 const HeroHeader = styled.div`
   display: flex;
   padding: 2.8rem 3.2rem;

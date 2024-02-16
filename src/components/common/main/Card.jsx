@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import defaultImage from '../../assets/images/noImage.png';
+import defaultImage from 'assets/images/noImage.png';
 
 /**
  *

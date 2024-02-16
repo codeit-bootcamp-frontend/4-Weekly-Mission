@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from '../components/common/header/Header';
-import Search from '../components/main/Search';
-import { MainContainer } from '../styles/MainContainer';
-import CardGrid from '../components/main/CardGrid';
+import SharedHeader from 'components/common/header/shared/SharedHeader';
+import Search from 'components/common/main/Search';
+import { MainContainer } from 'styles/MainContainer';
+import CardGrid from 'components/common/main/CardGrid';
 
 const MainPage = () => {
   return (
     <>
-      <Header />
+      <SharedHeader />
       <MainContainer>
         <Search />
         <CardGrid />

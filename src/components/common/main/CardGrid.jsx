@@ -1,10 +1,10 @@
-import Loader from '../common/Loader';
-import { calculateTime, formatDate } from '../../utils/date';
+import Loader from '../Loader';
+import { calculateTime, formatDate } from 'utils/date';
 import { useSampleFolderQuery } from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';
 import Card from './Card';
-import Error from '../common/Error';
+import Error from '../Error';
 
 const CardGrid = () => {
   const {
