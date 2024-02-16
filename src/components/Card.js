@@ -67,11 +67,12 @@ const Card = ({ folderLinkInfo }) => {
               <div className='CardInfo'>
                 <div className='CardInfoHeader'>
                   <span>{timeDifference}</span>
-                  <div></div>
+                  <button />
                 </div>
                 <p>{description}</p>
                 <span>{createDate}</span>
               </div>
+              <button />
             </div>
           </Link>
         );
