@@ -2,11 +2,11 @@ import "./Cards.css";
 import noCardImg from "../../assets/basic-card.png";
 import elapsedTime from "../../utils/elapsedTime";
 
-function Cards({ cardData }) {
+function Cards({ cards }) {
   return (
     <div className="Cards">
       <div className="container">
-        {cardData.map((link) => (
+        {cards.map((link) => (
           <a href={link.url} target="_blank" className="card" key={link.id}>
             <div className="card_image_container">
               {link.imageSource ? (
