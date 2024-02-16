@@ -1,7 +1,7 @@
 import styles from "./LinkFilterBox.module.css";
 import LinkFilterButton from "./LinkFilterButton";
 function LinkFilterBox() {
-  const filterButtons = {
+  const filterButtonDatas = {
     filters: [
       { filterName: "전체", id: 0 },
       { filterName: "⭐️ 즐겨찾기", id: 1 },
@@ -12,7 +12,7 @@ function LinkFilterBox() {
   };
   return (
     <div className={styles.link_filter_box}>
-      {filterButtons.filters.map(({ filterName, id }) => {
+      {filterButtonDatas.filters.map(({ filterName, id }) => {
         return <LinkFilterButton filterName={filterName} key={id} />;
       })}
     </div>
