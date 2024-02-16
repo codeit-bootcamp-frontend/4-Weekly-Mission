@@ -1,0 +1,389 @@
+.FolderContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10rem;
+  gap: 4rem;
+}
+
+.FolderTitle {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6rem 32rem 9rem;
+  background-color: var(--bg);
+}
+
+.FolderLinkAddContent {
+  width: 80rem;
+  max-width: 106rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.6rem 2rem;
+  border-radius: 1.5rem;
+  border: 0.1rem solid var(--primary);
+  background: var(--white);
+}
+
+.FolderLinkAddContent > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.FolderLinkAddContent > div::before {
+  content: '';
+  width: 2rem;
+  height: 2rem;
+  background-image: url(../assets/folder/link.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.FolderLinkAddContent input {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  margin-left: 1.2rem;
+  color: var(--gray60);
+  border: none;
+  background-color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.FolderLinkAddContent > button {
+  width: 9rem;
+  display: flex;
+  padding: 1rem 1.6rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.8rem;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: #f5f5f5;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.FolderMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+}
+
+.FolderLinkSerachContent {
+  width: 106rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 1.6rem;
+  border-radius: 1rem;
+  background-color: #f5f5f5;
+}
+
+.FolderLinkSerachContent > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.FolderLinkSerachContent > div::before {
+  content: '';
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url(../assets/folder/search.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.FolderLinkSerachContent input {
+  width: 100%;
+  display: flex;
+  flex: 1;
+  margin-left: 0.8rem;
+  color: #666666;
+  border: none;
+  background-color: #f5f5f5;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.FolderLinkSerachContent > img {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.FolderLinkNoneList {
+  width: 106rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4.1rem 0 3.5rem;
+}
+
+.FolderLinkNoneList > p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* */
+
+.FolderLinkSaveList {
+  width: 106rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.LinkSaveListCategory {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.CategoryContent {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.CategoryContent > button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--primary);
+  background-color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.LinkSaveListCategory > button {
+  width: 7.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--primary);
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.03rem;
+}
+
+.LinkSaveListCategory > button::after {
+  content: '';
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url(../assets/folder/addPrimary.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.LinkSaveListTitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.LinkSaveListTitle > h1 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.OptionContent {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.OptionContent > button {
+  display: flex;
+  align-items: center;
+  color: var(--gray60);
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: normal;
+  gap: 0.4rem;
+}
+
+.OptionContent > button:nth-of-type(1)::before {
+  content: '';
+  width: 1.8rem;
+  height: 1.8rem;
+  background-image: url(../assets/folder/share.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.OptionContent > button:nth-of-type(2)::before {
+  content: '';
+  width: 1.8rem;
+  height: 1.8rem;
+  background-image: url(../assets/folder/pen.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.OptionContent > button:nth-of-type(3)::before {
+  content: '';
+  width: 1.8rem;
+  height: 1.8rem;
+  background-image: url(../assets/folder/delete.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.LinkSaveListContent {
+  width: 100%;
+}
+
+/* tablet */
+@media (max-width: 1124px) {
+  .FolderTitle {
+    padding: 6rem 3.25rem 9rem;
+  }
+
+  .FolderLinkAddContent {
+    width: 70.4rem;
+  }
+
+  .FolderMain {
+    padding: 0 3.25rem;
+  }
+
+  .FolderLinkSerachContent {
+    width: 70.4rem;
+  }
+
+  .FolderLinkNoneList {
+    width: 100%;
+  }
+
+  .FolderLinkSaveList {
+    width: 70.4rem;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .FolderContainer {
+    padding-bottom: 6rem;
+    gap: 2rem;
+  }
+
+  .FolderTitle {
+    padding: 2.4rem 3.2rem 4rem;
+  }
+
+  .FolderLinkAddContent {
+    width: 32.5rem;
+    padding: 0.8rem 1rem;
+  }
+
+  .FolderLinkAddContent > div::before {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .FolderLinkAddContent input {
+    margin-left: 0.6rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .FolderLinkAddContent > button {
+    width: 10rem;
+  }
+
+  .FolderMain {
+    width: 100%;
+    padding: 0 3.2rem;
+    gap: 3.2rem;
+  }
+
+  .FolderLinkSerachContent {
+    width: 32.5rem;
+    padding: 1.3rem 1.6rem;
+  }
+
+  .FolderLinkSerachContent input {
+    margin-left: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .FolderLinkSerachContent > img {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .FolderLinkNoneList > p {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .FolderLinkSaveList {
+    width: 32.5rem;
+  }
+
+  .CategoryContent {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem 0.8rem;
+  }
+
+  .CategoryContent > button {
+    padding: 0.6rem 1rem;
+    font-size: 1.4rem;
+  }
+
+  .LinkSaveListCategory > button {
+    width: 12.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2.4rem;
+    border-radius: 2rem;
+    border: 0.1rem solid var(--white);
+    background: var(--primary);
+    color: var(--gray10);
+    position: absolute;
+    bottom: 10.1rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .LinkSaveListCategory > button::after {
+    background-image: url(../assets/folder/addGray.svg);
+  }
+
+  .LinkSaveListTitle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+}
