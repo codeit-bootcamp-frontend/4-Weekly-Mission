@@ -5,6 +5,7 @@ import { FolderTitle } from './FolderTitle';
 import { FolderCard } from './FolderCard';
 import { useAPIData } from '../../hooks/useAPIData';
 import { categoryDataAPI, categoryFolderDataAPI } from '../../api/BootcampAPI';
+import { NonLink } from '../../styles/styledComponents/folderStyled';
 export const FolderContents = () => {
   const [currentCategory, setCurrentCategory] = useState('전체');
 
@@ -21,16 +22,21 @@ export const FolderContents = () => {
   return (
     <article>
       <SearchLink></SearchLink>
-      {category && (
-        <FolderCategory
-          category={[{ name: '전체', id: '0' }, ...category]}
-          handleCategoryButton={handleCategoryButton}
-          currentCategory={currentCategory}
-        ></FolderCategory>
+      {category ? (
+        <>
+          <FolderCategory
+            category={[{ name: '전체', id: '0' }, ...category]}
+            handleCategoryButton={handleCategoryButton}
+            currentCategory={currentCategory}
+          ></FolderCategory>
+          <FolderTitle currentCategory={currentCategory}></FolderTitle>
+          {folder && <FolderCard folder={folder}></FolderCard>}
+        </>
+      ) : (
+        <div className="content-wrapper">
+          <NonLink>저장된 링크가 없습니다.</NonLink>
+        </div>
       )}
-
-      <FolderTitle currentCategory={currentCategory}></FolderTitle>
-      {folder && <FolderCard folder={folder}></FolderCard>}
     </article>
   );
 };
