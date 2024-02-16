@@ -22,5 +22,5 @@ export const MainLayout = styled.main`
 `;
 
 export const MainBox = styled.div`
-  padding: 2rem 5rem;
+  padding: 3rem;
 `;

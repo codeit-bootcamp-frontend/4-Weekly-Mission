@@ -37,6 +37,9 @@ const Folder = () => {
         <AddBar />
       </S.FolderAddBarBox>
       <S.FolderSection>
+        <S.FolderSearchBarBox>
+          <S.FolderSearchBar />
+        </S.FolderSearchBarBox>
         <S.FolderBox>
           {hasFolders ? (
             <FoldersNavbar items={folders} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
