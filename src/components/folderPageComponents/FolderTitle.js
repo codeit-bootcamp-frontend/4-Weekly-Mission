@@ -12,24 +12,24 @@ import Rename from '../../assets/Images/rename.png';
 import Delete from '../../assets/Images/delete.png';
 
 export const FolderTitle = ({ currentCategory }) => {
+  const BUTTON = [
+    { url: Share, name: '공유' },
+    { url: Rename, name: '이름 변경' },
+    { url: Delete, name: '삭제' },
+  ];
+
   return (
     <>
       <TitleWrapper>
         <CategoryName>{currentCategory}</CategoryName>
         {currentCategory !== '전체' && (
           <FolderOptionWrapper>
-            <OptionButtonWrapper>
-              <OptionIcon $url={Share}></OptionIcon>
-              <OptionText>공유</OptionText>
-            </OptionButtonWrapper>
-            <OptionButtonWrapper>
-              <OptionIcon $url={Rename}></OptionIcon>
-              <OptionText>이름 변경</OptionText>
-            </OptionButtonWrapper>
-            <OptionButtonWrapper>
-              <OptionIcon $url={Delete}></OptionIcon>
-              <OptionText>삭제</OptionText>
-            </OptionButtonWrapper>
+            {BUTTON.map((button) => (
+              <OptionButtonWrapper key={button.name}>
+                <OptionIcon $url={button.url}></OptionIcon>
+                <OptionText>{button.name}</OptionText>
+              </OptionButtonWrapper>
+            ))}
           </FolderOptionWrapper>
         )}
       </TitleWrapper>
