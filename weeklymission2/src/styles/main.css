@@ -1,4 +1,5 @@
-/* main */
+@import './folderMain.css';
+
 .mainArea{
   padding: 3rem 22rem;
 }

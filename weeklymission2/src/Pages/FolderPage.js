@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { FolderHeader } from "../Components/FolderHeader";
 import { Footer } from "../Components/Footer";
-import { Main } from "../Components/Main";
+import { FolderMain } from "../Components/FolderMain";
 import { getUserData } from "../APIs/PageApi";
 import "../styles/Page.css";
 import { useFolder } from "../useHooks/useFolder";
@@ -23,7 +23,7 @@ export function FolderPage() {
   return (
     <>
       <FolderHeader profile={profile} folder={folder} />
-      <Main cards={cardLinks} />
+      <FolderMain cards={cardLinks} />
       <Footer />
     </>
   );

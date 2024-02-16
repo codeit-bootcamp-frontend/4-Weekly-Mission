@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { SharedHeader } from "../Components/SharedHeader";
 import { Footer } from "../Components/Footer";
-import { Main } from "../Components/Main";
+import { SharedMain } from "../Components/SharedMain";
 import { getSampleData } from "../APIs/PageApi";
 import "../styles/Page.css";
 import { useFolder } from "../useHooks/useFolder";
@@ -23,7 +23,7 @@ export function SharedPage() {
   return (
     <>
       <SharedHeader profile={profile} folder={folder} />
-      <Main cards={cardLinks} />
+      <SharedMain cards={cardLinks} />
       <Footer />
     </>
   );

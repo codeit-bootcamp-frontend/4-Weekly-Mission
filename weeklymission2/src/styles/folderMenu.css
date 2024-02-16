@@ -1,0 +1,29 @@
+.folderMenu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem 0 2rem;
+}
+
+.titleButton{
+  padding: 0.7rem;
+  border: 1px solid #6D6AFF;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+}
+.titleButton:hover {
+  background-color: #6D6AFF;
+  color: white;
+}
+
+.add{
+  color:#6D6AFF;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .add{
+    display: none;
+  }
+}
