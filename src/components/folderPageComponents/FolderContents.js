@@ -25,7 +25,7 @@ import Delete from '../../assets/Images/delete.png';
 export const FolderContents = () => {
   const { category, currentCategory, handleCategoryButton, folder } =
     useCategoryData();
-  console.log(category);
+
   return (
     <article>
       <SearchLink></SearchLink>

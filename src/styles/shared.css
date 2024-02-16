@@ -45,6 +45,7 @@ nav {
 }
 
 .folder {
+  background-color: #f0f6ff;
   display: flex;
   flex-direction: column;
   padding: 20px 0px 60px;
@@ -191,6 +192,8 @@ footer {
   width: 100%;
   padding: 60px 0 0;
   background-color: var(--White);
+  position: sticky;
+  top: calc(100vh - 220px);
 }
 
 .footer-banner {
@@ -303,6 +306,8 @@ footer {
   footer {
     padding-top: 40px;
     height: 160px;
+    position: sticky;
+    top: calc(100vh - 160px);
   }
 
   .footer-banner {

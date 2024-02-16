@@ -5,14 +5,15 @@ import Add from '../../assets/Images/add.png';
 import Add2 from '../../assets/Images/add2.png';
 
 export const FolderDataWrapper = styled.div`
-  margin: ${(props) => (props.fold ? '20px 0px 60px' : '60px 0px 90px')};
+  padding: ${(props) => (props.fold ? '20px 0px 60px' : '60px 0px 90px')};
+  background-color: #f0f6ff;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 12px;
 
   @media (max-width: 767px) {
-    margin: ${(props) => (props.fold ? '10px 0px 40px' : '24px 32px 40px')};
+    padding: ${(props) => (props.fold ? '10px 0px 40px' : '24px 32px 40px')};
   }
 `;
 
@@ -170,6 +171,7 @@ export const FolderOptionWrapper = styled.div`
 export const OptionButtonWrapper = styled.div`
   display: flex;
   gap: 4px;
+  cursor: pointer;
 `;
 
 export const OptionIcon = styled.div`
@@ -188,6 +190,7 @@ export const OptionText = styled.p`
 
 export const NonLink = styled.div`
   width: 1060px;
+  margin-top: 40px;
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
