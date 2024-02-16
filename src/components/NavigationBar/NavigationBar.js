@@ -1,12 +1,7 @@
 import "./NavigationBar.css";
 import { Profile } from "../Profile/Profile";
-import useGetUser from "../../hooks/useGetUser";
 
-function NavigationBar() {
-  const { data } = useGetUser();
-  const { profileImageSource, email } = data || {};
-  const profile = data ? { profileImageSource, email } : null;
-
+function NavigationBar({ profile }) {
   return (
     <nav className="NavigationBar">
       <div className="NavigationBar-items">
@@ -18,7 +13,7 @@ function NavigationBar() {
           />
         </a>
         {profile ? (
-          <Profile {...profile} />
+          <Profile profile={profile} />
         ) : (
           <button className="NavigationBar-signin">로그인</button>
         )}
