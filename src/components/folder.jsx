@@ -1,31 +1,7 @@
 import "../css/folder.css";
-// import FolderItemList from "./folderItem";
-import { FolderData } from "../api/api";
-import { useEffect, useState } from "react";
-
-// import { Folder } from "../api/api";
+import FolderItemList from "./folderItem";
 
 function FolderPage() {
-  const [userData, setUserData] = useState([]);
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const userData = await FolderData();
-        setUserData(userData);
-      } catch (error) {
-        console.error("ERROR", error);
-      }
-    };
-    fetchUserData();
-  }, []);
-  console.log(userData);
-
-  const FolderItemList = () => {
-    console.log(userData);
-    return <li>{JSON.stringify(userData.folder)}</li>;
-  };
-
   return (
     <main>
       <div className="first_page_back">
@@ -66,7 +42,6 @@ function FolderPage() {
           </div>
         </nav>
         <FolderItemList />
-        {/* <li>{userData.links}</li> */}
       </div>
     </main>
   );

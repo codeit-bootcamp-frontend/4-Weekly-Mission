@@ -1,19 +1,32 @@
-// const FolderItem = ({ item }) => {
-//   return (
-//     <ul>
-//       <li>{item}</li>
-//       <li>{item}</li>
-//     </ul>
-//   );
-// };
+import { FolderData } from "../api/api";
+import { useEffect, useState } from "react";
 
-// const FolderItemList = (data) => {
-//   console.log(data);
-//   return (
-//     <>
-//       <li>{data}</li>
-//     </>
-//   );
-// };
+const FolderItemList = () => {
+  const [userData, setUserData] = useState([]);
 
-// export default FolderItemList;
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userData = await FolderData();
+        setUserData(userData);
+      } catch (error) {
+        console.error("ERROR", error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
+  const FolderItem = () => {
+    console.log(userData);
+    return <div>{JSON.stringify(userData.folder)}</div>;
+  };
+
+  return (
+    <ul>
+      <FolderItem />
+    </ul>
+  );
+};
+
+export default FolderItemList;
