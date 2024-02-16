@@ -2,9 +2,9 @@ import React, { useContext } from "react"
 import ShareSearchBar from "./ShareSearchBar"
 import ShareCardList from "./ShareCardList"
 import { ShareContext } from "context/ShareContext"
-import Wrapper from "components/layout/Wrapper"
 import Loading from "components/UI/Loading"
 import ErrorCard from "components/UI/ErrorCard"
+import { Wrapper } from "components/Layout/Layout.style"
 
 function ShareBody() {
   const { isLoading, data, hasError } = useContext(ShareContext)
@@ -19,7 +19,7 @@ function ShareBody() {
   const renderFailed = hasError && <ErrorCard>{hasError.message}</ErrorCard>
 
   return (
-    <section className="folderBody">
+    <section>
       <Wrapper>
         {renderLoading}
         {renderSuccess}

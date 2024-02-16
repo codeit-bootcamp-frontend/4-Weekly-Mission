@@ -1,12 +1,13 @@
 import React from "react"
-import "./ShareInfo.css"
+
+import * as S from "./ShareHeaderInfo.style"
 
 function ShareHeaderInfo({ data }) {
   return (
     <React.Fragment>
-      <img src={data.folder.owner.profileImageSource} alt="" className="shareHeader-avatar" />
-      <span className="shareHeader-name">{data.folder.owner.name}</span>
-      <h2 className="shareHeader-title">{data.folder.name}</h2>
+      <S.Avatar src={data.folder.owner.profileImageSource} alt="" />
+      <S.Name>{data.folder.owner.name}</S.Name>
+      <S.Title>{data.folder.name}</S.Title>
     </React.Fragment>
   )
 }

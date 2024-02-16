@@ -1,28 +1,26 @@
 import React, { useContext } from "react"
-import "./header.css"
 import Logo from "./Logo"
 import Profile from "./Profile"
-import Wrapper from "components/layout/Wrapper"
 import { ProfileContext } from "context/ProfileContext"
+
+import * as S from "./Header.style"
 
 function Header() {
   const { data } = useContext(ProfileContext)
 
   return (
-    <header className="header">
-      <Wrapper className="header-container">
+    <S.Header>
+      <S.Wrapper>
         <Logo />
-        <div>
-          {data ? (
-            <Profile data={data} />
-          ) : (
-            <a href="/signin.html" className="login-btn">
-              로그인
-            </a>
-          )}
-        </div>
-      </Wrapper>
-    </header>
+        {data ? (
+          <Profile data={data} />
+        ) : (
+          <S.LoginButton href="/signin.html" className="login-btn">
+            로그인
+          </S.LoginButton>
+        )}
+      </S.Wrapper>
+    </S.Header>
   )
 }
 

@@ -1,15 +1,15 @@
 import React from "react"
 import ShareCardItem from "./ShareCardItem"
-import "./ShareCardList.css"
+import * as S from "./ShareCardList.style"
 
 function ShareCardList({ data }) {
   const { links } = data.folder
   return (
-    <ul className="shareCardList">
+    <S.CardList>
       {links.map((link) => (
         <ShareCardItem key={link.id} data={link} />
       ))}
-    </ul>
+    </S.CardList>
   )
 }
 

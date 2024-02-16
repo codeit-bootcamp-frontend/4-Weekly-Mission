@@ -1,17 +1,16 @@
 import React from "react"
-import Wrapper from "components/layout/Wrapper"
 import Card from "./Card"
 
-import "./ErrorCard.css"
+import * as S from "./ErrorCard.style"
 
 function ErrorCard({ children }) {
   return (
-    <Wrapper>
+    <S.Wrapper>
       <Card className="errorCard">
-        <div className="errorCard-emoji">❗️</div>
-        <p className="errorCard-message">{children}</p>
+        <div className="emoji">❗️</div>
+        <span className="message">{children}</span>
       </Card>
-    </Wrapper>
+    </S.Wrapper>
   )
 }
 

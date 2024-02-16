@@ -5,6 +5,7 @@ import Header from "components/common/header/Header"
 import ShareBody from "components/share/ShareBody"
 import ShareHeader from "components/share/ShareHeader"
 import GlobalStyle from "styles/Global.style"
+import * as S from "./App.style"
 
 function App() {
   return (
@@ -13,10 +14,10 @@ function App() {
         <ShareContextProvider>
           <GlobalStyle />
           <Header />
-          <main>
+          <S.Main>
             <ShareHeader />
             <ShareBody />
-          </main>
+          </S.Main>
           <Footer />
         </ShareContextProvider>
       </ProfileContextProvider>

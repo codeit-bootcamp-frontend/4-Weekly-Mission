@@ -1,11 +1,10 @@
 import React, { useContext } from "react"
-import Wrapper from "components/layout/Wrapper"
 import ShareHeaderInfo from "./ShareHeaderInfo"
 import Loading from "components/UI/Loading"
 import ErrorCard from "components/UI/ErrorCard"
 import { ShareContext } from "context/ShareContext"
 
-import "./ShareHeader.css"
+import * as S from "./ShareHeader.style"
 
 function ShareHeader() {
   const { isLoading, data, hasError } = useContext(ShareContext)
@@ -15,13 +14,13 @@ function ShareHeader() {
   const renderFailed = hasError && <ErrorCard>{hasError.message}</ErrorCard>
 
   return (
-    <section className="shareHeader">
-      <Wrapper className="shareHeader-container">
+    <S.ShareHeader>
+      <S.Wrapper>
         {renderLoading}
         {renderSuccess}
         {renderFailed}
-      </Wrapper>
-    </section>
+      </S.Wrapper>
+    </S.ShareHeader>
   )
 }
 

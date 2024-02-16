@@ -1,11 +1,10 @@
 import React from "react"
-import Wrapper from "components/layout/Wrapper"
 
-import "./Loading.css"
+import * as S from "./Loading.style"
 
 function Loading() {
   return (
-    <Wrapper className="loading-container">
+    <S.Wrapper>
       <div className="loader">
         <svg className="circular" viewBox="25 25 50 50">
           <circle
@@ -20,7 +19,7 @@ function Loading() {
           />
         </svg>
       </div>
-    </Wrapper>
+    </S.Wrapper>
   )
 }
 
