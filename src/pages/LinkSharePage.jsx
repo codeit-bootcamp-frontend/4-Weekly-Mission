@@ -9,7 +9,7 @@ import Card from 'components/common/card/Card';
 import Header from 'components/common/header/Header';
 import PageTitle from 'components/common/PageTitle';
 
-function SharePage() {
+function LinkSharePage() {
   const [folderData, setFolderData] = useState(null);
 
   const fetchFolderData = async () => {
@@ -29,7 +29,7 @@ function SharePage() {
 
   return (
     <>
-      <PageTitle title="공유" />
+      <PageTitle title="링크 공유" />
       <Header folderData={folderData} />
       <SearchBar placeholder={PLACEHOLDER.SEARCH_LINK} style={{ marginBottom: '4rem' }} />
       <GridTemplate>
@@ -47,4 +47,4 @@ function SharePage() {
   );
 }
 
-export default SharePage;
+export default LinkSharePage;
