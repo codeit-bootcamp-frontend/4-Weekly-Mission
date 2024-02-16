@@ -5,15 +5,18 @@ import styles from "./FolderPageMain.module.css";
 import AddFolderButton from "./AddFolderButton";
 import LinkList from "./LinkList";
 import { useFetch } from "../../hooks/useFetch";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 const linkDataUrl = "https://bootcamp-api.codeit.kr/api/users/3/links";
-
 const folderUrl = "https://bootcamp-api.codeit.kr/api/users/3/folders";
+const folderFilterUrl =
+  "https://bootcamp-api.codeit.kr/api/users/3/links?folderId=";
 function FolderPageMain() {
   const { data: folderData } = useFetch(folderUrl);
   const { data: linkData } = useFetch(linkDataUrl);
-
+  const [folderId, setFolderId] = useState();
   const [folderName, setFolderName] = useState("전체");
+  
+
   return (
     <div className={styles.main_wrapper}>
       <LinkSearchInput />
@@ -22,6 +25,8 @@ function FolderPageMain() {
           <FolderFilterBox
             folderData={folderData}
             setFolderName={setFolderName}
+            folderId={folderId}
+            setFolderId={setFolderId}
           />
           <AddFolderButton />
         </div>
@@ -29,7 +34,11 @@ function FolderPageMain() {
           <h1 className={styles.folder_title}>{folderName}</h1>
           <LinkFuncButtonBox />
         </div>
-        <LinkList linkData={linkData} />
+        <LinkList
+          linkData={linkData}
+          folderId={folderId}
+          setFolderId={setFolderId}
+        />
       </div>
     </div>
   );
