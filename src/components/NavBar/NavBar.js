@@ -8,26 +8,24 @@ const NavBar = () => {
   const profile = data ? { email, profileImageSource } : null;
 
   return (
-    <header>
-      <nav>
-        <div className="gnb">
-          <a href="index.html">
-            <img
-              className="linkbrary"
-              src="image/logo/Linkbrary.svg"
-              alt="Linkbrary"
-            />
+    <nav>
+      <div className="gnb">
+        <a href="index.html">
+          <img
+            className="linkbrary"
+            src="image/logo/Linkbrary.svg"
+            alt="Linkbrary"
+          />
+        </a>
+        {profile ? (
+          <Profile profile={profile} />
+        ) : (
+          <a className="login" href="/signin">
+            로그인
           </a>
-          {profile ? (
-            <Profile profile={profile} />
-          ) : (
-            <a className="login" href="/signin">
-              로그인
-            </a>
-          )}
-        </div>
-      </nav>
-    </header>
+        )}
+      </div>
+    </nav>
   );
 };
 

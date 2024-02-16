@@ -14,8 +14,10 @@ const App = () => {
   return (
     <>
       <NavBar />
-      <Folder profile={profileImage} name={ownerName} title={folderName} />
       <PageBody
+        folderInfo={
+          <Folder profile={profileImage} name={ownerName} title={folderName} />
+        }
         searchBar={<SearchBar />}
         cardList={
           <CardList>

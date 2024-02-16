@@ -1,10 +1,13 @@
 import "./PageBody.css";
 
-const PageBody = ({ searchBar, cardList }) => {
+const PageBody = ({ folderInfo, searchBar, cardList }) => {
   return (
-    <div className="PageBody-items">
-      {searchBar}
-      {cardList}
+    <div className="PageBody">
+      {folderInfo}
+      <div className="PageBody-items">
+        {searchBar}
+        {cardList}
+      </div>
     </div>
   );
 };

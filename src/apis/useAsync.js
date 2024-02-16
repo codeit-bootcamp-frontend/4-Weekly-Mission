@@ -7,13 +7,14 @@ const useAsync = (asyncFunction) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setError(null);
+      setData(null);
       setLoading(true);
       try {
         const result = await asyncFunction();
-        setData(result.data);
+        setData(result?.data);
       } catch (error) {
         setError(error);
-        console.error("error during fetch data", error);
       }
       setLoading(false);
     };

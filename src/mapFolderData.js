@@ -14,7 +14,7 @@ const mapFolderData = (folder) => {
       url,
       imageSource,
       alt: `${title || "untitled"}`,
-      timeSince: timePassed,
+      // elapsedTime: timePassed,
       description,
       createdAt,
     };

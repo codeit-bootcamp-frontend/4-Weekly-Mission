@@ -11,7 +11,11 @@
 }
 
 .Profile-email {
-  display: inline;
+  display: none;
   font-size: 1.4rem;
   color: var(--gray100);
+
+  @media (min-width: 768px) {
+    display: inline;
+  }
 }
