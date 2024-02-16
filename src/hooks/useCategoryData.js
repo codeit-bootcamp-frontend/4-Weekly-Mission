@@ -10,8 +10,6 @@ export const useCategoryData = () => {
   const getCategoryFolder = async (categoryID) => {
     const Data = await categoryFolderDataAPI(categoryID);
     setFolder(Data);
-    /*eslint-disable */
-    console.log(Data);
   };
 
   useEffect(() => {

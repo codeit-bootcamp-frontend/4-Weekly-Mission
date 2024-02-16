@@ -74,7 +74,9 @@ export const categoryFolderDataAPI = async (CategoryID) => {
     }
   } else {
     try {
-      const response = await fetch(`${BASEURL}/users/1/folders/${CategoryID}`);
+      const response = await fetch(
+        `${BASEURL}/users/1/links?folderId=${CategoryID}`,
+      );
       if (response.ok) {
         const { data } = await response.json();
         return data;

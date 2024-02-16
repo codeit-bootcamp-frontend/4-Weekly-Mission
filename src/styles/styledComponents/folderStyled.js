@@ -86,6 +86,8 @@ export const TitleWrapper = styled.div`
 
   @media (max-width: 767px) {
     width: 325px;
+    flex-direction: column;
+    gap: 12px;
   }
 `;
 
@@ -157,4 +159,45 @@ export const CategoryName = styled.p`
   font-weight: 600;
   line-height: 28.8px;
   letter-spacing: -0.3px;
+  text-align: left;
+`;
+
+export const FolderOptionWrapper = styled.div`
+  display: flex;
+  gap: 12px;
+`;
+
+export const OptionButtonWrapper = styled.div`
+  display: flex;
+  gap: 4px;
+`;
+
+export const OptionIcon = styled.div`
+  width: 18px;
+  height: 18px;
+  background-image: url(${({ $url }) => $url});
+  background-size: cover;
+`;
+
+export const OptionText = styled.p`
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 16.71px;
+  color: ${COLOR.Gray2};
+`;
+
+export const NonLink = styled.div`
+  width: 1060px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+
+  @media (max-width: 1199px) {
+    width: 704px;
+  }
+
+  @media (max-width: 767px) {
+    width: 325px;
+  }
 `;
