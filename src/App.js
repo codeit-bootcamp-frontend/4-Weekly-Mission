@@ -23,21 +23,17 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <header>
-        <HeaderArea email={userInfo.email}></HeaderArea>
-      </header>
-      <body>
+    <>
+      <HeaderArea email={userInfo.email}></HeaderArea>
+      <>
         <TopBodyArea
           name={userInfo.name}
           folderName={folderInfo.name}
         ></TopBodyArea>
         <ContentsArea links={folderInfo.links}></ContentsArea>
-      </body>
-      <footer>
-        <FooterArea></FooterArea>
-      </footer>
-    </div>
+      </>
+      <FooterArea></FooterArea>
+    </>
   );
 }
 
