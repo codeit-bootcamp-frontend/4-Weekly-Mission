@@ -1,10 +1,15 @@
 import noneCardImg from '../assets/none-card-img.png';
+import kebab from '../assets/kebab.svg';
+import emptyStar from '../assets/icon-empty-star.svg';
+import fullStar from '../assets/icon-full-star.svg';
 import ElapsedTime from '../utils/ElapsedTime';
 import FormatDate from '../utils/FormatDate';
 import './Card.css';
 
 const Card = ({ link }) => {
   const { createdAt, description, imageSource } = link;
+  const fillStar = false;
+
   return (
     <div className="card_area">
       <a
@@ -13,15 +18,21 @@ const Card = ({ link }) => {
         target="_blank"
         rel="noreferrer noopener"
       >
-        <div className="img_area">
+        <div className={imageSource ? 'img_area' : 'img_area none_img_area'}>
           <img
             src={imageSource || noneCardImg}
             className={imageSource ? 'card_img' : 'none_card_img'}
             alt="card"
           />
+          <div className="star_icon_area">
+            <img src={fillStar ? fullStar : emptyStar} />
+          </div>
         </div>
         <div className="card_contents_area">
-          <p className="elapsed_time">{ElapsedTime(createdAt)}</p>
+          <div className="card_content_info">
+            <p className="elapsed_time">{ElapsedTime(createdAt)}</p>
+            <img src={kebab} />
+          </div>
           <p className="description_text">folderInfo{description}</p>
           <p className="created_at">{FormatDate(createdAt)}</p>
         </div>
