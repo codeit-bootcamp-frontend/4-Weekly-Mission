@@ -3,7 +3,6 @@ import FooterSocialLinkItem from "./FooterSocialLinkItem";
 import data from "./SocialNetworkServicesData.json";
 function FooterSocialLinkBox() {
   const SocialNetworkServiceName = data.socialNetworkServices;
-  console.log(SocialNetworkServiceName);
 
   return (
     <ul className={styles.social_icon_wrapper}>

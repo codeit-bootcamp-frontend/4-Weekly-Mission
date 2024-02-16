@@ -6,7 +6,7 @@ const folderUrl = "https://bootcamp-api.codeit.kr/api/sample/folder";
 
 function FolderList() {
   const { data: folderData } = useFetch(folderUrl);
-  console.log(folderData);
+
   return (
     <div className={styles.folder_list_wrapper}>
       {folderData?.folder.links.map(
