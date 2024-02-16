@@ -1,13 +1,12 @@
-.footer-inner {
+.footerInner {
   background: var(--black);
   display: flex;
   height: 160px;
   padding: 32px 104px 64px 104px;
   justify-content: space-between;
-  flex-shrink: 0;
 }
 
-.company-info {
+.companyInfo {
   color: #676767;
   text-align: center;
   font-family: Acme;
@@ -15,13 +14,13 @@
   font-weight: 400;
 }
 
-.QnA-links {
+.QnALinks {
   display: flex;
   justify-content: center;
   gap: 30px;
 }
 
-.QnA-links a{
+.QnALinks a{
   color: #CFCFCF;
   font-family: Acme;
   font-size: 16px;
@@ -29,7 +28,7 @@
   text-decoration: none;
 }
 
-.sns-links img {
+.snsLinks img {
   margin-left: 8px;
 }
 
@@ -39,7 +38,7 @@
 
 /* mobile-size */
 @media (max-width: 767px) {
-  .footer-inner {
+  .footerInner {
     display: grid;
     grid-template-areas: 
       "qna sns"
@@ -48,20 +47,20 @@
     justify-items: start;
   }
 
-  .company-info {
+  .companyInfo {
     grid-area: company;
     text-align: end;
   }
 
-  .QnA-links {
+  .QnALinks {
     grid-area: qna;
   }
 
-  .sns-links {
+  .snsLinks {
     grid-area: sns;
   }
 
-  .sns-links img {
+  .snsLinks img {
     margin-left: 12px;
   }
 }

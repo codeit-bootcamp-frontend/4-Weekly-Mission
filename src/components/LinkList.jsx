@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import '../css/LinkList.css';
 import { getUserInfo } from '../api';
+import styles from '../css/LinkList.module.css';
 
 // 날짜가 정수로 떨어지도록 만들어주는 함수.
 function formatDate(value) {
@@ -34,12 +34,12 @@ function diffTime(value) {
 function GetCard({item}) {
   return (
     <a href={item.url} target='_blank' rel='noreferrer'>
-    <div className="card" key={item.id}>
-      <div className="previewImg" style={{ backgroundImage: `url(${item.imageSource})`}} />
-      <div className="link-content">
-        <p className="update-time">{diffTime(item.createdAt)}</p>
-        <p className="link-description">{item.description}</p>
-        <p className="link-created-date">{formatDate(item.createdAt)}</p>
+    <div className={styles.card} key={item.id}>
+      <div className={styles.previewImg} style={{ backgroundImage: `url(${item.imageSource})`}} />
+      <div className={styles.linkContent}>
+        <p className={styles.updateTime}>{diffTime(item.createdAt)}</p>
+        <p className={styles.linkDescription}>{item.description}</p>
+        <p className={styles.linkCreatedDate}>{formatDate(item.createdAt)}</p>
       </div>
     </div>
     </a>
@@ -62,12 +62,12 @@ function LinkList() {
   }, [])
 
   return (
-    <div className="content">
+    <div className={styles.content}>
       <form>
-        <div className='search-icon'></div>
+        <div className={styles.searchIcon}></div>
         <input name="search" placeholder='링크를 검색해 보세요.' />
       </form>
-      <div className="items">
+      <div className={styles.items}>
         {folderData.map((item) => {
           return (
             <GetCard item={item}/>

@@ -1,7 +1,7 @@
-import LinkbraryLogo from '../images/logo.svg';
-import '../css/Navbar.css';
 import { useEffect, useState } from "react";
 import { getUserInfo } from "../api";
+import LinkbraryLogo from '../images/logo.svg';
+import styles from '../css/Navbar.module.css';
 
 function NavigationBar() {
   const [loginStatus, setLoginStatus] = useState(false);
@@ -21,16 +21,16 @@ function NavigationBar() {
   }, [])
 
   return (
-    <nav className='nav'>
+    <nav className={styles.nav}>
       <img src={LinkbraryLogo} alt='logo'/>
       {loginStatus ? (
-        <div className='account'>
+        <div className={styles.account}>
           <img src={profileData.profileImageSource} alt='profile' />
           <p>{profileData.email}</p>
         </div>
       )
       :(
-        <a href='../signin.html' className='loginBtn'>로그인</a>
+        <a href='../signin.html' className={styles.loginBtn}>로그인</a>
       )
       }
     </nav>

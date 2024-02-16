@@ -11,7 +11,7 @@ form {
   position: relative;
 }
 
-.search-icon {
+.searchIcon {
   position: absolute;
   background-image: url('../images/Search.svg');
   width: 16px;
@@ -67,7 +67,7 @@ form {
   text-decoration: none;
 }
 
-.link-content {
+.linkContent {
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -75,12 +75,12 @@ form {
   padding: 15px 20px;
 }
 
-.update-time {
+.updateTime {
   color: #666;
   font-size: 13px;
 }
 
-.link-description {
+.linkDescription {
   color: var(--black);
   font-size: 16px;
   overflow: hidden;
@@ -90,7 +90,7 @@ form {
   -webkit-box-orient: vertical;
 }
 
-.link-created-date {
+.linkCreatedDate {
   color: #333;
   font-size: 14px;
 }

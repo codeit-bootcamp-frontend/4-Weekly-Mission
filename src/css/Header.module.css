@@ -1,6 +1,6 @@
 @import 'palette.css';
 
-.header-items {
+.headerItems {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +9,7 @@
   padding: 20px 0 60px;
 }
 
-.header-items img {
+.headerItems img {
   width: 64px;
 }
 
@@ -18,21 +18,21 @@
   margin: 12px 0 20px;
 }
 
-.folder-name {
+.folderName {
   font-size: 32px;
   font-weight: 600;
 }
 
 /* tablet-size */
 @media (max-width: 1199px) {
-  .header-items {
+  .headerItems {
     padding: 20px 0 60px;
   }
 }
 
 /* mobile-size */
 @media (max-width: 767px) {
-  .header-items {
+  .headerItems {
     padding: 10px 0 40px;
   }
 
@@ -41,7 +41,7 @@
     margin: 6px 0 10px;
   }
 
-  .folder-name {
+  .folderName {
     font-size: 24px;
     font-weight: 600;
   }
