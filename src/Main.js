@@ -8,7 +8,9 @@ function Main() {
     <BrowserRouter>
       <Routes>
         <Route path="/" index element={<HomePage />} />
-        <Route path="folder" element={<FolderPage />} />
+        <Route path="folder">
+          <Route index element={<FolderPage />} />
+        </Route>
         <Route path="shared" element={<SharedPage />} />
       </Routes>
     </BrowserRouter>

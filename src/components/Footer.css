@@ -1,4 +1,5 @@
 footer {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 32px 104px 64px 104px;
@@ -6,6 +7,8 @@ footer {
   color: var(--white-color);
   font-family: sans-serif;
   background: #111322;
+  position: absolute;
+  bottom: 0;
 }
 
 footer a {
@@ -30,7 +33,6 @@ footer a {
 
 @media (min-width: 768px) {
   footer {
-    position: relative;
     padding-left: 25px;
     padding-right: 25px;
   }
