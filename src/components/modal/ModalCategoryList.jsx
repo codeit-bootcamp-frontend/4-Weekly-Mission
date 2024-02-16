@@ -18,7 +18,7 @@ function ModalCategoryList({ categoryListLoop }) {
             onClick={handleSelectCategory}
             key={id}
             id={id}
-            className={`modal__category--list ${isSelect ? "modal__category--select" : ""}`}
+            className={`modal__category--list ${isSelect ? 'modal__category--select' : ''}`}
           >
             {name}
             <span id={id} className='modal__category--count'>{`${link.count}개 링크`}</span>
