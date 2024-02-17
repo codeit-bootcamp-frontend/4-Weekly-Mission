@@ -37,6 +37,10 @@ const Folder = () => {
     });
   };
 
+  const handleAddFolder = () => {
+    alert("Add Folder");
+  };
+
   useEffect(() => {
     loadUser();
     loadFolder();
@@ -56,7 +60,7 @@ const Folder = () => {
               <TagBox isSelected={true}>전체</TagBox>
               <TagBox>코딩 팁</TagBox>
             </div>
-            <span className="font-color-primary font-16px font-regular">
+            <span className={styles.add_folder_btn} onClick={handleAddFolder}>
               폴더 추가 +
             </span>
           </div>

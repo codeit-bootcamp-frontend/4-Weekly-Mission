@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 20px;
 
-  padding: 60px 320px 90px 320px;
+  padding: 5%;
 
   background-color: var(--color-background);
 }
@@ -36,6 +36,12 @@ main {
 .tag_list {
   display: flex;
   gap: 10px;
+}
+
+.add_folder_btn {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-primary);
 }
 
 .action_icons_list {
@@ -73,10 +79,42 @@ main {
 @media (min-width: 375px) and (max-width: 767px) {
   main {
     padding: 4% 32px;
+    gap: 30px;
   }
 
   .card_list {
     display: flex;
     flex-direction: column;
+  }
+
+  .folder_header {
+    padding: 10%;
+  }
+
+  .add_folder_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 8px 24px 8px 24px;
+
+    position: fixed;
+    bottom: 5%;
+    left: 30%;
+    right: 30%;
+    z-index: 1;
+
+    border-radius: 20px;
+    background-color: var(--color-primary);
+    color: white;
+  }
+
+  .tag_title_container {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .action_icons_list {
+    justify-content: left;
   }
 }
