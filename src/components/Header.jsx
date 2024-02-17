@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getUserInfo } from '../api';
+import { getUserInfo } from '../api/api';
 import styles from '../css/Header.module.css';
 
 function Header() {

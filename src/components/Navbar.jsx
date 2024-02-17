@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getUserInfo } from "../api";
+import { getUserInfo } from "../api/api";
 import LinkbraryLogo from '../images/logo.svg';
 import styles from '../css/Navbar.module.css';
 
