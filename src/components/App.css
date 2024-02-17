@@ -71,18 +71,22 @@ body {
   );
   text-decoration: none;
 }
-/* 리액트 */
+
 header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   gap: 8px;
   z-index: 2;
   padding: 13px 32px;
   order: 0;
+  background-color: #f0f6ff;
+  width: 100%;
 }
 
 .favorites {
-  margin: 20px auto 60px auto;
+  padding: 20px 0 60px;
+  background-color: #f0f6ff;
 }
 
 nav {
@@ -91,10 +95,14 @@ nav {
   justify-content: space-between;
   align-items: center;
   width: min(100%, 783.49px);
-  margin: 0 auto;
   height: 93px;
+  background-color: #f0f6ff;
 }
 
+.profile {
+  display: flex;
+  align-items: center;
+}
 .profile-img {
   width: 28px;
   height: 28px;
@@ -109,7 +117,7 @@ nav {
   margin: 12px 0 20px;
 }
 
-.linkSearch-CardList {
+.link-search-card-list {
   margin: 32px;
 }
 @media (min-width: 768px) {
@@ -138,14 +146,14 @@ nav {
     width: 128px;
     padding: 16px 20px;
   }
-  /* 리액트 */
+
   header {
     padding: 20px 32px;
   }
 }
 @media (min-width: 1200px) {
   nav {
-    width: 100%;
+    max-width: 1060px;
   }
 
   p {
@@ -162,13 +170,11 @@ nav {
   .privacy-faq {
     margin-bottom: 0;
   }
-  /* 리액트 */
+
   header {
     flex-direction: row;
     order: 1;
-    max-width: 1060px;
     padding: 20px 0px;
-    margin: auto;
     width: 100%;
   }
 
