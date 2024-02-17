@@ -21,7 +21,7 @@ const Styled = {
     position: absolute;
     left: -7.5rem;
     top: 2rem;
-    box-shadow: rgba(51, 50, 54, 0.1);
+    box-shadow: 0px 2px 8px 0px #3332361a;
     z-index: 1;
 
     background-color: ${({ theme }) => theme.color.white};
@@ -33,6 +33,7 @@ const Styled = {
     font-size: 1.4rem;
 
     &:hover {
+      color: ${({ theme }) => theme.color.primary};
       background-color: ${({ theme }) => theme.color.gray2};
       transition: all ease-in-out 200ms;
     }

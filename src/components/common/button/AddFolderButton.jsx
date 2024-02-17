@@ -13,6 +13,7 @@ const Styled = {
     font-size: 1.6rem;
     font-weight: 500;
     color: ${({ theme }) => theme.color.primary};
+    white-space: nowrap;
   `,
 
   Icon: styled.img`

@@ -9,6 +9,7 @@ const Styled = {
     padding: 1.6rem 2rem;
     border: 1px solid ${({ theme }) => theme.color.primary};
     border-radius: 1.5rem;
+    background-color: ${({ theme }) => theme.color.white};
 
     display: flex;
     justify-content: flex-start;

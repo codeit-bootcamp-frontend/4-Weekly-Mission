@@ -2,7 +2,6 @@ import { styled } from 'styled-components';
 
 const Styled = {
   Container: styled.div`
-    width: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;

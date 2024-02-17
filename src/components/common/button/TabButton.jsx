@@ -3,9 +3,9 @@ import { styled } from 'styled-components';
 
 const Styled = {
   Container: styled.ul`
-    min-width: 100%;
     display: flex;
     flex-wrap: wrap; // 모바일에서 자동 줄바꿈 되도록
+    /* min-width: 70%; */
   `,
 
   Tab: styled.li`
