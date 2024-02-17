@@ -1,10 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
-import { getFolderInfo } from "./../api";
+import { getUserFolderInfo } from "./../api";
 
 import HeaderElement from "./../components/common/HeaderElement";
 import GlobalStyle from "./../components/common/GlobalStyle";
 import FolderInput from "./../components/Folder/FolderInput";
 import FolderList from "./../components/common/FolderList";
+import Input from "../components/common/Input";
+import Menus from "../components/Folder/Menus";
 
 const Folder = () => {
   const [folders, setFolders] = useState([]);
@@ -13,8 +15,9 @@ const Folder = () => {
     let results;
     let foldersArr;
     try {
-      results = await getFolderInfo();
-      foldersArr = await results.folder.links;
+      results = await getUserFolderInfo();
+      foldersArr = await results.data;
+      // await console.log(foldersArr);
     } catch (error) {
       console.log(error);
     }
@@ -32,6 +35,8 @@ const Folder = () => {
       <GlobalStyle />
       <HeaderElement />
       <FolderInput />
+      <Input />
+      <Menus />
       <FolderList items={folders}></FolderList>
     </>
   );

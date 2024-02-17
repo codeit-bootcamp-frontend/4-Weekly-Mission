@@ -67,6 +67,7 @@ article {
   background-color: #f5f5f5;
   border-radius: 10px;
   margin-bottom: 40px;
+  margin: 40px auto;
 }
 
 #search-bar img {
@@ -229,6 +230,7 @@ article {
 
   #search-bar {
     width: 325px;
+    margin: 20px auto 32px;
   }
 
   article {

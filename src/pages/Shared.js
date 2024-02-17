@@ -3,6 +3,7 @@ import { getFolderInfo } from "./../api";
 import HeaderElement from "./../components/common/HeaderElement";
 import FooterElement from "./../components/common/FooterElement";
 import SharedSection from "./../components/shared/SharedSection";
+import Input from "../components/common/Input";
 import FolderList from "../components/common/FolderList";
 import "../style/shared.css";
 
@@ -31,6 +32,7 @@ function Shared() {
     <>
       <HeaderElement></HeaderElement>
       <SharedSection></SharedSection>
+      <Input />
       <FolderList items={folders}></FolderList>
       <FooterElement></FooterElement>
     </>
