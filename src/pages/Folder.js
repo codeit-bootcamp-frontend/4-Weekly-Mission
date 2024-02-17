@@ -5,9 +5,9 @@ import styles from "./css/Folder.module.css";
 import SearchBar from "../components/SearchBar";
 import Card from "../components/Card";
 import { useEffect, useState } from "react";
-import { getFolder, getUser } from "../lib/api";
+import { getFolder, getUser } from "../utils/api";
 import { Link } from "react-router-dom";
-import { getTimeDifference } from "../lib/utils";
+import { formatDate, getTimeDifference } from "../utils/DateUtils";
 
 const Folder = () => {
   const [user, setUser] = useState({
@@ -61,14 +61,12 @@ const Folder = () => {
         <div className={styles.card_list}>
           {folderInfo.folderLinks.map((link) => {
             const { imageSource, createdAt, description } = link;
-            const createDate = new Date(createdAt);
+            const createdDate = new Date(createdAt);
             const currentDate = new Date();
 
-            const createdDate = `${createDate.getFullYear()}. ${
-              createDate.getMonth() + 1
-            }. ${createDate.getDate()}`;
+            const createdDateString = formatDate(createdDate);
 
-            const timeDifference = getTimeDifference(createDate, currentDate);
+            const timeDifference = getTimeDifference(createdDate, currentDate);
             return (
               <Link
                 to={`/link/${link.id}`}
@@ -78,7 +76,7 @@ const Folder = () => {
               >
                 <Card
                   cardImage={imageSource}
-                  cardTime={{ createdDate, timeDifference }}
+                  cardTime={{ createdDateString, timeDifference }}
                   cardDescription={description}
                 />
               </Link>

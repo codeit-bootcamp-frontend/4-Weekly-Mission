@@ -34,3 +34,9 @@ export const getTimeDifference = (createdDate, currentDate) => {
   }
   return `${years} years ago`;
 };
+
+export const formatDate = (createdDate) => {
+  return `${createdDate.getFullYear()}. ${
+    createdDate.getMonth() + 1
+  }. ${createdDate.getDate()}`;
+};
