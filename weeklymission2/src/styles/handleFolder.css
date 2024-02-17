@@ -1,0 +1,14 @@
+.handle{
+  display: flex;
+  gap: 1rem;
+  
+}
+
+.icon{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #A0A6B2;
+  font-size: 1.4rem;
+  cursor: pointer;
+}

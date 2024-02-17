@@ -1,8 +1,8 @@
+@import './sharedHeader.css';
+@import './folderHeader.css';
+
 .headerArea{
   background-color: #F0F6FF;
-  position: sticky;
-  top: 0;
-  left: 0;
   z-index: 1;
   padding: 0 20rem;
   max-width: 192rem;
@@ -49,35 +49,8 @@
   width: 10rem;
 }
 
-header{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.folderProfile{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.folderImg{
-  margin-top: 2rem;
-  height: 7rem;
-  width: 7rem;
-}
-.folderProfileName{
-  margin: 1rem;
-  font-size: 1.8rem;
-}
-.folderName{
-  font-size: 4rem;
-  font-weight: 600;
-  margin: 2rem 0 7rem;
-}
-
 @media (max-width: 1199px) {
   nav{
-    height: 9.4rem;
     padding: 0 5rem;
   }
   .headerArea{

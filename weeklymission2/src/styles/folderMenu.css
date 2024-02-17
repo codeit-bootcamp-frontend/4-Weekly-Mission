@@ -1,0 +1,26 @@
+@import './button.css';
+
+.folderMenu{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 3rem 0 2rem;
+}
+
+.add{
+  color:#6D6AFF;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .add{
+    background-color: #6D6AFF;
+    color: white;
+    border-radius: 99px;
+    text-align: center;
+    padding: 0.7rem;
+    width: 14rem;
+    display: none;
+  }
+}
