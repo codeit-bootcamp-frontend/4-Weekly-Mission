@@ -29,7 +29,7 @@ function App() {
           <LinkItems links={folderData?.links} />
         </>
       ) : (
-        <p className="loadFail">정보를 불러오지 못했습니다.</p>
+        <p className="loadFail">저장된 링크가 없습니다.</p>
       )}
       <Footer />
     </div>
