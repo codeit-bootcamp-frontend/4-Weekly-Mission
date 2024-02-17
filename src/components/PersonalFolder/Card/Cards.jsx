@@ -3,6 +3,20 @@ import { css } from "@emotion/react";
 import Card from "./Card";
 import "../../../styles/common.css";
 
+const Cards = ({ items }) => {
+  return (
+    <div css={divCss}>
+      {items?.map((item) => (
+        <div key={item.id} css={liCss}>
+          <Card item={item} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default Cards;
+
 const liCss = css`
   list-style: none;
 `;
@@ -21,16 +35,3 @@ const divCss = css`
     grid-template-columns: 1fr;
   }
 `;
-const Cards = ({ items }) => {
-  return (
-    <div css={divCss}>
-      {items?.map((item) => (
-        <div key={item.id} css={liCss}>
-          <Card item={item} />
-        </div>
-      ))}
-    </div>
-  );
-};
-
-export default Cards;

@@ -6,20 +6,6 @@ import SearchingBar from "./SearchingBar.jsx";
 import api from "../../../utils/api.js";
 import "../../../styles/common.css";
 
-const outerDivCss = css`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  background: var(--Linkbrary-white);
-  padding: 40px 0 0 0;
-`;
-const divCss = css`
-  display: flex;
-  justify-content: center;
-  background: var(--Linkbrary-white);
-`;
 const LenderingCards = () => {
   const [items, setItems] = useState(null);
 
@@ -47,3 +33,18 @@ const LenderingCards = () => {
 };
 
 export default LenderingCards;
+
+const outerDivCss = css`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--Linkbrary-white);
+  padding: 40px 0 0 0;
+`;
+const divCss = css`
+  display: flex;
+  justify-content: center;
+  background: var(--Linkbrary-white);
+`;

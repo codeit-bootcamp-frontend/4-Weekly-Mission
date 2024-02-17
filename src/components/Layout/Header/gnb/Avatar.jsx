@@ -6,39 +6,6 @@ import Button from "../../../../utils/Button";
 import api from "../../../../utils/api";
 import "../../../../styles/common.css";
 
-const divStyle = css`
-  display: flex;
-  gap: 8px;
-  justify-contents: center;
-`;
-
-const imgWrapperStyle = css`
-  width: 28px;
-  height: 28px;
-  cursor: pointer;
-`;
-
-const imageStyle = css`
-  width: 100%;
-  height: 100%;
-`;
-
-const pStyle = css`
-  display: block;
-  font-weight: 400;
-  font-size: 14px;
-  position: relative;
-  top: 4px;
-
-  @media screen and (375px <= width <= 767px) {
-    display: none;
-  }
-`;
-
-const btnCss = css`
-  display: block;
-`;
-
 const Avatar = () => {
   const [userData, setUserData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -74,3 +41,36 @@ const Avatar = () => {
 };
 
 export default Avatar;
+
+const divStyle = css`
+  display: flex;
+  gap: 8px;
+  justify-contents: center;
+`;
+
+const imgWrapperStyle = css`
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+`;
+
+const imageStyle = css`
+  width: 100%;
+  height: 100%;
+`;
+
+const pStyle = css`
+  display: block;
+  font-weight: 400;
+  font-size: 14px;
+  position: relative;
+  top: 4px;
+
+  @media screen and (375px <= width <= 767px) {
+    display: none;
+  }
+`;
+
+const btnCss = css`
+  display: block;
+`;

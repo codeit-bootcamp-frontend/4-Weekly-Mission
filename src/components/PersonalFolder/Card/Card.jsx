@@ -10,6 +10,44 @@ import filledStar from "../../../assets/filledStar.svg";
 import Logo from "../../../assets/Linkbrary.png";
 import "../../../styles/common.css";
 
+const Card = ({ item }) => {
+  const img = item.imageSource;
+  const comment = item.description;
+  const date = formatDate(item.createdAt);
+  const time = timeCalculator(item.createdAt);
+  const [isClicked, setIsClicked] = useState(false);
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
+
+  return (
+    <div css={divCss}>
+      <Link to="/newPage" css={linkCss}>
+        <div css={imgWrapperCss}>
+          <img css={logoCss} src={Logo} />
+          <img css={imgCss} src={img} />
+        </div>
+
+        <div css={pWrapperCss}>
+          <p css={timeCss}>{time}</p>
+          <div css={commentWrapperCss}>
+            <p css={commentCss}>{comment}</p>
+          </div>
+          <p css={dateCss}>{date}</p>
+        </div>
+      </Link>
+      <img
+        css={starCss}
+        src={isClicked ? filledStar : star}
+        onClick={handleClick}
+      />
+      <img css={kebabCss} src={kebab} />
+    </div>
+  );
+};
+
+export default Card;
+
 const linkCss = css`
   text-decoration: none;
 `;
@@ -100,41 +138,3 @@ const kebabCss = css`
   top: -136px;
   left: 272px;
 `;
-
-const Card = ({ item }) => {
-  const img = item.imageSource;
-  const comment = item.description;
-  const date = formatDate(item.createdAt);
-  const time = timeCalculator(item.createdAt);
-  const [isClicked, setIsClicked] = useState(false);
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-  };
-
-  return (
-    <div css={divCss}>
-      <Link to="/newPage" css={linkCss}>
-        <div css={imgWrapperCss}>
-          <img css={logoCss} src={Logo} />
-          <img css={imgCss} src={img} />
-        </div>
-
-        <div css={pWrapperCss}>
-          <p css={timeCss}>{time}</p>
-          <div css={commentWrapperCss}>
-            <p css={commentCss}>{comment}</p>
-          </div>
-          <p css={dateCss}>{date}</p>
-        </div>
-      </Link>
-      <img
-        css={starCss}
-        src={isClicked ? filledStar : star}
-        onClick={handleClick}
-      />
-      <img css={kebabCss} src={kebab} />
-    </div>
-  );
-};
-
-export default Card;

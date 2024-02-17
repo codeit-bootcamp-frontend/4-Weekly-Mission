@@ -4,14 +4,6 @@ import { css } from "@emotion/react";
 import Profile from "./Profile";
 import "../../../styles/common.css";
 
-const divStyle = css`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  background: var(--Linkbrary-bg);
-`;
-
 const FolderOwner = () => {
   return (
     <div css={divStyle}>
@@ -21,3 +13,11 @@ const FolderOwner = () => {
 };
 
 export default FolderOwner;
+
+const divStyle = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: var(--Linkbrary-bg);
+`;
