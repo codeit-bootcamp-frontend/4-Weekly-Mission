@@ -3,9 +3,8 @@ import "./FolderList.css";
 import CardList from "../components/CardList";
 import { getFolderLinks } from "../api";
 import { useState, useEffect } from "react";
-import penIcon from "../assets/pen.svg";
-import shareIcon from "../assets/share.svg";
-import deleteIcon from "../assets/delete.svg";
+import UtilIcons from "./UtilIcons.js";
+
 import add from "../assets/add.svg";
 
 const FolderList = () => {
@@ -68,22 +67,7 @@ const FolderList = () => {
       </div>
       <div className="selectedFolderName">
         {selectedFolderName}
-        {selectedFolderName !== null && (
-          <div className="utilContainer">
-            <div>
-              <img src={shareIcon} alt="공유 아이콘" />
-              공유
-            </div>
-            <div>
-              <img src={penIcon} alt="이름변경 아이콘" />
-              이름 변경
-            </div>
-            <div>
-              <img src={deleteIcon} alt="삭제 아이콘" />
-              삭제
-            </div>
-          </div>
-        )}
+        {selectedFolderName !== null && <UtilIcons />}
       </div>
       {items.length > 0 ? (
         <CardList items={items} />
