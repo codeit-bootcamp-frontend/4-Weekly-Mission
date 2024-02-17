@@ -39,11 +39,14 @@ function Favorites() {
 
     if (diff < 2 * minute) {
       return "1 minute ago";
-    } else if (diff < hour) {
+    }
+    if (diff < hour) {
       return `${Math.floor(diff / minute)} minutes ago`;
-    } else if (diff < day) {
+    }
+    if (diff < day) {
       return `${Math.floor(diff / hour)} hours ago`;
-    } else if (diff < month) {
+    }
+    if (diff < month) {
       return `${Math.floor(diff / day)} days ago`;
     } else if (diff < year) {
       return `${Math.floor(diff / month)} months ago`;
@@ -56,7 +59,7 @@ function Favorites() {
   function formatDate(dateString) {
     const date = new Date(dateString);
     const year = date.getFullYear();
-    // getMonth()는 0부터 시작하므로 1을 더해줍니다.
+    // getMonth()는 0부터 시작하므로 1을 더함
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const day = date.getDate().toString().padStart(2, "0");
 
