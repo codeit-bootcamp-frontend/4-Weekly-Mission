@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import folders from "folders_mockData.json";
 import "components/LinkSubFolder.css";
 import { useEffect, useState } from "react";
 import { acceptDataFromApi } from "Api";
@@ -34,10 +33,21 @@ const SubFolderTitle = styled.p`
 
 const Button = styled.button`
 	display: flex;
-	background-color: var(--LBrary-white);
 	align-items: center;
 	text-align: center;
 	gap: 4px;
+	background-color: var(--LBrary-white);
+`;
+
+const SubFolderBtn = styled.button`
+	display: flex;
+	align-items: center;
+	text-align: center;
+	gap: 4px;
+	background-color: ${({ state = false }) =>
+		state ? `var(--LBrary-Primary-color)` : `var(--LBrary-white);`};
+	color: ${({ state = false }) =>
+		state ? `var(--LBrary-White);` : `var(--LBrary-Black);`};
 `;
 
 function AddSubFolder() {
@@ -73,8 +83,14 @@ const EmptyLink = function () {
 	return <EmptySpace>저장된 링크가 없습니다.</EmptySpace>;
 };
 
-function SubFolders({ subFolderData }) {
+function SubFolders({ subFolderData, handleCurrentFolderChange }) {
 	const [subFolderList, setSubFolderList] = useState([]);
+	const [selectedBtn, setSelectedBtn] = useState(0);
+
+	const handleBtnStyleChange = (id, name) => {
+		handleCurrentFolderChange(id, name);
+		setSelectedBtn(id);
+	};
 
 	useEffect(() => {
 		setSubFolderList(subFolderData);
@@ -82,13 +98,23 @@ function SubFolders({ subFolderData }) {
 
 	return (
 		<SubFolderBtnList>
-			<Button key={0} className="link-sub-folder-list">
+			<SubFolderBtn
+				key={0}
+				state={selectedBtn === 0}
+				onClick={() => handleBtnStyleChange(0, "전체")}
+				className="link-sub-folder-list"
+			>
 				전체
-			</Button>
+			</SubFolderBtn>
 			{subFolderList.map((item) => (
-				<Button key={item.id} className="link-sub-folder-list">
+				<SubFolderBtn
+					key={item.id}
+					state={selectedBtn === item.id}
+					className="link-sub-folder-list"
+					onClick={() => handleBtnStyleChange(item.id, item.name)}
+				>
 					{item.name}
-				</Button>
+				</SubFolderBtn>
 			))}
 		</SubFolderBtnList>
 	);
@@ -118,39 +144,52 @@ function HandleCurrentSubFolder() {
 }
 
 export default function LinkSubFolder() {
-	const [isCurrentFolderAll, setIsCurrentFolderAll] = useState(false);
+	const [isCurrentFolderAll, setIsCurrentFolderAll] = useState(true);
 	const [currentFolderId, setCurrentFolderId] = useState(0);
+	const [currentUserId, setCurrentUserId] = useState(1);
 	const [currentFolderName, setCurrentFolderName] = useState("전체");
 	const [subFolderList, setSubFolderList] = useState([]);
 	const [isEmptyResponse, setIsCurrentEmptyResponse] = useState(false);
+	const [currentFolderQuery, setCurrentFolderQuery] = useState("users/1/links");
 	const [items, setItems] = useState([]);
 
-	const handleShareLoad = async () => {
-		const { data } = await acceptDataFromApi("users/1/links");
-		console.log(data);
+	const handleShareLoad = async (query) => {
+		const { data } = await acceptDataFromApi(query);
 		setItems(data);
 	};
 
-	useEffect(() => {
-		handleShareLoad();
-	}, []);
+	const handleCurrentFolderChange = (id, name) => {
+		setCurrentFolderId(id);
+		setCurrentFolderName(name);
+		if (id === 0) {
+			setIsCurrentFolderAll(true);
+		} else {
+			setIsCurrentFolderAll(false);
+		}
+	};
+	const handleCurrentFolderItems = async (id) => {
+		setCurrentFolderQuery(`users/1/links${id !== 0 ? `?folderid=${id}` : ""}`);
+		await handleShareLoad(currentFolderQuery);
+	};
 
 	const subFolderData = async (requestQuery) => {
 		const { data } = await acceptDataFromApi(requestQuery);
 		setSubFolderList(data);
 	};
 
-	const SUB_FOLDER = "users/1/folders";
-
 	useEffect(() => {
-		subFolderData(SUB_FOLDER);
-	}, [subFolderList.length]);
+		subFolderData(`users/${currentUserId}/folders`);
+		handleCurrentFolderItems(currentFolderId);
+	}, [subFolderList.length, currentFolderId]);
 
 	return (
 		<>
 			<div>
 				<SubFolderUtil>
-					<SubFolders subFolderData={subFolderList} />
+					<SubFolders
+						subFolderData={subFolderList}
+						handleCurrentFolderChange={handleCurrentFolderChange}
+					/>
 					<AddSubFolder />
 				</SubFolderUtil>
 				<SubFolderUtil>
