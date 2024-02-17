@@ -1,7 +1,7 @@
-import MainCardLink from '../../assets/main-card-link.png';
-import MainCardControl from '../../assets/main-card-control.png';
-import MainCardShare from '../../assets/main-card-share.png';
-import MainCardSearch from '../../assets/main-card-search.png';
+import MainCardLink from '../../assets/main-card-link.webp';
+import MainCardControl from '../../assets/main-card-control.webp';
+import MainCardShare from '../../assets/main-card-share.webp';
+import MainCardSearch from '../../assets/main-card-search.webp';
 
 function MainCard({ cardNumber }) {
   const cardNumberObj = {

@@ -1,4 +1,3 @@
-// import CardListItem from './CardListItem';
 import getTimeDiff from '../../utils/getTimeDiff';
 import getCoustomDate from '../../utils/getCoustomDate';
 import StarImg from '../../assets/star.svg';

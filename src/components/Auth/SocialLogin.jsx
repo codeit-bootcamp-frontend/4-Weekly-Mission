@@ -1,5 +1,5 @@
 import GoogleBackgroundImg from '../../assets/google-background.svg';
-import GoogleImg from '../../assets/google.png';
+import GoogleImg from '../../assets/google.webp';
 import KaKaoImg from '../../assets/kakao.svg';
 import KaKaoBackgroundImg from '../../assets/kakao-background.svg';
 

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import MainBackgroundImg from '../../assets/main-background.png';
+import MainBackgroundImg from '../../assets/main-background.webp';
 
 function MainTitle() {
   return (
