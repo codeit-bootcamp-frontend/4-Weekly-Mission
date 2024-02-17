@@ -3,6 +3,7 @@ import AddLink from "../components/header/AddLink";
 import Footer from "../components/footer/Footer";
 import FolderPageMain from "../components/main/FolderPageMain";
 function Folder() {
+  
   const userDataUrl = "https://bootcamp-api.codeit.kr/api/users/1";
   return (
     <>

@@ -1,8 +1,9 @@
 import styles from "./ShowAllLinksButton.module.css";
 
-function ShowAllLinksButton({ name, setFolderName }) {
+function ShowAllLinksButton({ name, setFolderName, setSearchParams }) {
   function handleFilterButtonClick() {
     setFolderName(name);
+    setSearchParams({ folderId: "" });
   }
 
   return (

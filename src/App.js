@@ -6,7 +6,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Homepage />} />
-      <Route path="folder/:id" element={<Folder />} />
+      <Route path="folder" element={<Folder />} />
       <Route path="shared" element={<Shared />} />
     </Routes>
   );

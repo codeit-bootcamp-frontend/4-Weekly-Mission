@@ -5,7 +5,7 @@ import { useFetch } from "../../hooks/useFetch";
 function FolderNav({ userDataUrl }) {
   const { data: userDataObject } = useFetch(userDataUrl);
   const userData = userDataObject?.data["0"];
-  console.log(userData);
+
   return (
     <div className={styles.nav_wrapper}>
       <div className={styles.nav_inside_wrapper}>
