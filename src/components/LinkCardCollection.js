@@ -66,7 +66,7 @@ const LinkCardCollection = function () {
 	const handleLoad = async () => {
 		const {
 			folder: { links },
-		} = await acceptDataFromApi("folder");
+		} = await acceptDataFromApi("sample/folder");
 		setItems(links);
 	};
 

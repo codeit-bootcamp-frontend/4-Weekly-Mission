@@ -7,8 +7,8 @@ const ShareFolderProfile = function () {
 	const [folderImg, setFolderImg] = useState("favicon.png");
 	const [folderAccountName, setFolderAccountName] = useState("USER_NAME");
 
-	const FOLDER = "folder";
-	const USER = "user";
+	const FOLDER = "sample/folder";
+	const USER = "sample/user";
 	const loadFolderAccountName = async (parameter) => {
 		const { name, profileImageSource } = await acceptDataFromApi(parameter);
 		if (!name || !profileImageSource) return;

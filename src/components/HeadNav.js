@@ -9,7 +9,7 @@ const ProfileData = function () {
 	const [accountEmail, setAccountEmail] = useState("");
 	const [profileImg, setProfileIMg] = useState("nav-profile.png");
 
-	const user = "user";
+	const user = "sample/user";
 	const accountVerification = async (user) => {
 		const receivedData = await acceptDataFromApi(user);
 		if (!receivedData) return;

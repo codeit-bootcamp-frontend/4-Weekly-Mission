@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import folders from "folders_mockData.json";
 import "components/LinkSubFolder.css";
+import { useState } from "react";
 
 const SubFolderBtnList = styled.div`
 	display: flex;
@@ -48,6 +49,7 @@ function SubFolders({ subFolderData }) {
 	const { data } = subFolderData;
 	return (
 		<SubFolderBtnList>
+			<Button className="link-sub-folder-list">전체 </Button>
 			{data.map((item) => (
 				<Button className="link-sub-folder-list">{item.name}</Button>
 			))}
@@ -79,6 +81,8 @@ function HandleCurrentSubFolder() {
 }
 
 export default function LinkSubFolder() {
+	const [isCurrentFolderAll, setIsCurrentFolderAll] = useState(false);
+
 	return (
 		<div>
 			<SubFolderUtil>
@@ -87,7 +91,7 @@ export default function LinkSubFolder() {
 			</SubFolderUtil>
 			<SubFolderUtil>
 				<CurrentSubFolder currentFolder={"Testing"} />
-				<HandleCurrentSubFolder />
+				{!isCurrentFolderAll && <HandleCurrentSubFolder />}
 			</SubFolderUtil>
 		</div>
 	);

@@ -4,17 +4,28 @@ import LinkCardCollection from "components/LinkCardCollection";
 import "pages/Folder.css";
 import LinkSubFolder from "components/LinkSubFolder";
 import styled from "styled-components";
+import { useState } from "react";
+import { acceptDataFromApi } from "Api";
 
 const EmptySpace = styled.div`
 	color: var(--LBrary-Black);
 	padding: 41px 0 35px;
-	margin: 0 auto 100px;
+	margin: 0 auto;
+	margin-bottom: 40vh;
 	text-align: center;
 	font-family: Pretendard;
 	font-size: 1.6rem;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 150%;
+
+	@media (max-width: 1124px) {
+		margin-bottom: 30vh;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 1.4rem;
+	}
 `;
 
 const EmptyLink = function () {
@@ -22,7 +33,8 @@ const EmptyLink = function () {
 };
 
 export default function Folder() {
-	const isEmptyResponse = false; // 추후 api 수정 필요
+	const [isEmptyResponse, setIsCurrentEmptyResponse] = useState(false);
+
 	return (
 		<div>
 			<FolderLinkAddBar />
