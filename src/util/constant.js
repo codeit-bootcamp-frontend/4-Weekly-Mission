@@ -20,3 +20,5 @@ export const TIME_IN_MILLISECONDS = {
   month,
   year,
 };
+
+export const DEFAULT_PROFILE = "/images/profile-default.svg";
