@@ -23,6 +23,7 @@ const AddLink = () => {
 const StyledForm = styled.form`
   position: relative;
   padding: 6rem 0 9rem;
+  margin-top: 9.4rem;
 
   @media (min-width: 375px) and (max-width: 767px) {
     padding: 2.4rem 0 4rem;

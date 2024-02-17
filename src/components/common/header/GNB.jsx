@@ -16,7 +16,7 @@ const GNB = () => {
 const Nav = styled.nav`
   display: flex;
   justify-content: center;
-  position: sticky;
+  position: absolute;
   top: 0;
   width: 100%;
   background-color: #edf7ff;

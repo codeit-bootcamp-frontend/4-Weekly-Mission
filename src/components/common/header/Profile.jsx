@@ -14,7 +14,7 @@ const Profile = () => {
   };
 
   const { data: profileData, isLoading, isError, error } = useSampleUserQuery();
-
+  const data = profileData.data[0];
   if (isError) {
     console.log(error);
   }
@@ -27,10 +27,10 @@ const Profile = () => {
   }
   return (
     <>
-      {profileData ? (
+      {data ? (
         <ProfileContainer>
-          <ProfileImg src={profileData.profileImageSource} alt="Profile" />
-          <ProfileEmail>{profileData.email}</ProfileEmail>
+          <ProfileImg src={data.image_source} alt="Profile" />
+          <ProfileEmail>{data.email}</ProfileEmail>
         </ProfileContainer>
       ) : (
         <Button onClick={handleOnClick} className="login">
