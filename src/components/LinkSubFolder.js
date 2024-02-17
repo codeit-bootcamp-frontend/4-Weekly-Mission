@@ -44,19 +44,11 @@ const SubFolderBtn = styled.button`
 	align-items: center;
 	text-align: center;
 	gap: 4px;
-	background-color: ${({ state = false }) =>
-		state ? `var(--LBrary-Primary-color)` : `var(--LBrary-white);`};
-	color: ${({ state = false }) =>
-		state ? `var(--LBrary-White);` : `var(--LBrary-Black);`};
+	background-color: ${({ state }) =>
+		state === "true" ? `var(--LBrary-Primary-color)` : `var(--LBrary-white);`};
+	color: ${({ state }) =>
+		state === "true" ? `var(--LBrary-White);` : `var(--LBrary-Black);`};
 `;
-
-function AddSubFolder() {
-	return (
-		<Button className="add-sub-folder">
-			폴더 추가 <img src={"add.svg"} alt="AddFolderButton" />
-		</Button>
-	);
-}
 
 const EmptySpace = styled.div`
 	color: var(--LBrary-Black);
@@ -79,6 +71,14 @@ const EmptySpace = styled.div`
 	}
 `;
 
+function AddSubFolder() {
+	return (
+		<Button className="add-sub-folder">
+			폴더 추가 <img src={"add.svg"} alt="AddFolderButton" />
+		</Button>
+	);
+}
+
 const EmptyLink = function () {
 	return <EmptySpace>저장된 링크가 없습니다.</EmptySpace>;
 };
@@ -87,20 +87,20 @@ function SubFolders({ subFolderData, handleCurrentFolderChange }) {
 	const [subFolderList, setSubFolderList] = useState([]);
 	const [selectedBtn, setSelectedBtn] = useState(0);
 
-	const handleBtnStyleChange = (id, name) => {
-		handleCurrentFolderChange(id, name);
+	const handleBtnStyleChange = async (id, name) => {
 		setSelectedBtn(id);
+		await handleCurrentFolderChange(id, name);
 	};
 
 	useEffect(() => {
 		setSubFolderList(subFolderData);
-	}, [subFolderData]);
+	}, [subFolderData.length]);
 
 	return (
 		<SubFolderBtnList>
 			<SubFolderBtn
 				key={0}
-				state={selectedBtn === 0}
+				state={(selectedBtn === 0).toString()}
 				onClick={() => handleBtnStyleChange(0, "전체")}
 				className="link-sub-folder-list"
 			>
@@ -109,7 +109,7 @@ function SubFolders({ subFolderData, handleCurrentFolderChange }) {
 			{subFolderList.map((item) => (
 				<SubFolderBtn
 					key={item.id}
-					state={selectedBtn === item.id}
+					state={(selectedBtn === item.id).toString()}
 					className="link-sub-folder-list"
 					onClick={() => handleBtnStyleChange(item.id, item.name)}
 				>
@@ -149,27 +149,40 @@ export default function LinkSubFolder() {
 	const [currentUserId, setCurrentUserId] = useState(1);
 	const [currentFolderName, setCurrentFolderName] = useState("전체");
 	const [subFolderList, setSubFolderList] = useState([]);
-	const [isEmptyResponse, setIsCurrentEmptyResponse] = useState(false);
-	const [currentFolderQuery, setCurrentFolderQuery] = useState("users/1/links");
+	const [isEmptyResponse, setIsEmptyResponse] = useState(true);
+	const [currentFolderQuery, setCurrentFolderQuery] = useState(
+		`users/${currentUserId}/links`
+	);
 	const [items, setItems] = useState([]);
 
 	const handleShareLoad = async (query) => {
+		setIsEmptyResponse(false);
 		const { data } = await acceptDataFromApi(query);
+		if (data.length === 0) {
+			setIsEmptyResponse(true);
+		}
 		setItems(data);
+	};
+
+	const handleCurrentFolderItems = (id) => {
+		setIsEmptyResponse(false);
+		setCurrentFolderQuery(
+			`users/${currentUserId}/links${id !== 0 ? `?folderId=${id}` : ""}`
+		);
+		handleShareLoad(currentFolderQuery);
 	};
 
 	const handleCurrentFolderChange = (id, name) => {
 		setCurrentFolderId(id);
 		setCurrentFolderName(name);
+		setCurrentFolderQuery(
+			`users/${currentUserId}/links${id !== 0 ? `?folderId=${id}` : ""}`
+		);
 		if (id === 0) {
 			setIsCurrentFolderAll(true);
 		} else {
 			setIsCurrentFolderAll(false);
 		}
-	};
-	const handleCurrentFolderItems = async (id) => {
-		setCurrentFolderQuery(`users/1/links${id !== 0 ? `?folderid=${id}` : ""}`);
-		await handleShareLoad(currentFolderQuery);
 	};
 
 	const subFolderData = async (requestQuery) => {
@@ -179,8 +192,8 @@ export default function LinkSubFolder() {
 
 	useEffect(() => {
 		subFolderData(`users/${currentUserId}/folders`);
-		handleCurrentFolderItems(currentFolderId);
-	}, [subFolderList.length, currentFolderId]);
+		handleShareLoad(currentFolderQuery);
+	}, [currentUserId, currentFolderQuery]);
 
 	return (
 		<>

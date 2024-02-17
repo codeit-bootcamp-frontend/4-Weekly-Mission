@@ -66,7 +66,6 @@ const FolderCard = function ({ contents }) {
 };
 
 const LinkCardCollection = function ({ items }) {
-	console.log(items);
 	return (
 		<section className="folder-card-grid">
 			{items.map((item) => (
