@@ -38,8 +38,9 @@ const Styled = {
  * @param {React.HTMLAttributes} htmlButtonProps 기타 탭 버튼 container props
  */
 
-function TabButton({ tabInfo, ...htmlButtonProps }) {
+function TabButton({ tabInfo, onChange = () => {}, ...htmlButtonProps }) {
   const [selectedTab, setSeletedTab] = useState(0);
+  console.log(tabInfo);
 
   return (
     <Styled.Container type="button" {...htmlButtonProps}>
@@ -50,11 +51,11 @@ function TabButton({ tabInfo, ...htmlButtonProps }) {
           onClick={(e) => {
             if (selectedTab === e.target.value) return;
             setSeletedTab(e.target.value);
-            tab.func();
+            onChange(tab.name);
           }}
           className={selectedTab === index && 'selected'}
         >
-          {tab.title}
+          {tab.name}
         </Styled.Tab>
       ))}
     </Styled.Container>
