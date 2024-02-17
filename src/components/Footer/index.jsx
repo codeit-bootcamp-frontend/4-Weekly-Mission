@@ -1,6 +1,7 @@
+import { memo } from "react";
 import styles from "./Footer.module.css";
 
-export default function Footer() {
+export default memo(function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles["footer-container"]}>
@@ -52,4 +53,4 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+});

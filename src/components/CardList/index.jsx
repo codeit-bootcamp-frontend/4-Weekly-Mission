@@ -1,7 +1,8 @@
 import Card from "components/Card";
 import style from "./CardList.module.css";
+import { memo } from "react";
 
-export default function CardList({ links }) {
+export default memo(function CardList({ links }) {
   return (
     <div className={style.wrapper}>
       <ul className={style["l_row"]}>
@@ -14,4 +15,4 @@ export default function CardList({ links }) {
       </ul>
     </div>
   );
-}
+});
