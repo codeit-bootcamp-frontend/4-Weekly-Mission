@@ -11,6 +11,12 @@
   z-index: 1;
 }
 
+.Header-exception {
+  background-color: #f0f6ff;
+  width: 100%;
+  padding: 20px 0;
+}
+
 .Header-logo {
   max-width: 133px;
   min-width: 88.7px;
