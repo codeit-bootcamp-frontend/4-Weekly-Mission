@@ -25,7 +25,7 @@ const Footer = () => {
         >
           <img
             alt="facebook logo"
-            src="icons/facebook_logo.png"
+            src="/icons/facebook_logo.png"
             style={smallIconStyle}
           />
         </a>
@@ -36,7 +36,7 @@ const Footer = () => {
         >
           <img
             alt="twitter logo"
-            src="icons/twitter_logo.png"
+            src="/icons/twitter_logo.png"
             style={regularIconStyle}
           />
         </a>
@@ -47,7 +47,7 @@ const Footer = () => {
         >
           <img
             alt="youtube logo"
-            src="icons/youtube_logo.png"
+            src="/icons/youtube_logo.png"
             style={regularIconStyle}
           />
         </a>
@@ -58,7 +58,7 @@ const Footer = () => {
         >
           <img
             alt="instagram logo"
-            src="icons/instagram_logo.png"
+            src="/icons/instagram_logo.png"
             style={regularIconStyle}
           />
         </a>

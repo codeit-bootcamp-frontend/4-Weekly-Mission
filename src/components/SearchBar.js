@@ -4,7 +4,7 @@ const SearchBar = () => {
   return (
     <div className={styles.search_bar}>
       <img
-        src="icons/search_icon.svg"
+        src="/icons/search_icon.svg"
         alt="search icon"
         className={styles.search_icon}
       />
