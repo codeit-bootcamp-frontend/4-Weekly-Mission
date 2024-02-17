@@ -11,19 +11,26 @@ function Folder() {
   const [user, setUser] = useState(null);
   const [folder, setFolder] = useState(null);
   const [link, setLink] = useState(null);
-  console.log(folder);
-  console.log(link);
+  const [folderState, setFolderState] = useState(null);
 
   useEffect(() => {
     getSampeUser().then(setUser);
     getUserFolder().then(setFolder);
-    getFolderLink().then(setLink);
   }, []);
+
+  useEffect(() => {
+    getFolderLink(folderState).then(setLink);
+  }, [folderState]);
 
   return (
     <main>
       <Header user={user} />
-      <FolderContainer folder={folder} cardLink={link} />
+      <FolderContainer
+        folder={folder}
+        cardLink={link}
+        folderState={folderState}
+        setFolderState={setFolderState}
+      />
     </main>
   );
 }

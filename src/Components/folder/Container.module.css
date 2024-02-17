@@ -9,6 +9,19 @@
   margin: 40px auto;
 }
 
+.folder_list {
+  display: flex;
+  gap: 8px;
+}
+
+.folder {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: #fff;
+  list-style-type: none;
+}
+
 .card_list {
   width: 100%;
   margin-top: 40px;
