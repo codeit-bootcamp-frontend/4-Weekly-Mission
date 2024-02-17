@@ -1,8 +1,10 @@
 import styles from "./css/Card.module.css";
 
-const SAMPLE_IMAGE_URL = "images/sample_image.svg";
+const SAMPLE_IMAGE_URL = "/images/sample_image.svg";
 
-const Card = ({ cardImage = SAMPLE_IMAGE_URL, cardTime, cardDescription }) => {
+const Card = ({ cardImage, cardTime, cardDescription }) => {
+  const imageSrc = cardImage || SAMPLE_IMAGE_URL;
+
   const handleClickStar = (e) => {
     e.preventDefault();
     alert("clicked star");
@@ -15,7 +17,7 @@ const Card = ({ cardImage = SAMPLE_IMAGE_URL, cardTime, cardDescription }) => {
   return (
     <div className={styles.Card}>
       <div className={styles.card_image_container}>
-        <img src={cardImage} alt="card profile" className={styles.card_image} />
+        <img src={imageSrc} alt="card profile" className={styles.card_image} />
         <img
           src="/icons/star_icon.svg"
           alt="add this link to favorite"

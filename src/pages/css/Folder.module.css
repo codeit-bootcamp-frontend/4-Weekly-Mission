@@ -34,6 +34,8 @@ main {
 }
 
 .tag_list {
+  width: 90%;
+
   display: flex;
   flex-flow: wrap;
   gap: 10px;
@@ -42,7 +44,7 @@ main {
 .add_folder_btn {
   display: flex;
   align-items: center;
-  
+
   font-size: 16px;
   font-weight: 500;
   color: var(--color-primary);
@@ -68,6 +70,14 @@ main {
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   gap: 20px;
+}
+
+.warning_no_link {
+  font-weight: 400;
+  font-size: 16px;
+  text-align: center;
+
+  padding: 5%;
 }
 
 /*태블릿 사이즈*/
