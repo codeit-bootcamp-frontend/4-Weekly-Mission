@@ -1,23 +1,23 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Cards, Hero } from "../components/SharedFolderPage";
 import "./SharedFolderPage.css";
-import { getFolderInformation } from "../api";
+import { getSharedFolder } from "../api";
 
 function SharedFolderPage() {
   const [folder, setFolder] = useState({});
 
-  const fetchFolderData = useCallback(async () => {
+  const fetchFolderData = async () => {
     try {
-      const result = await getFolderInformation();
+      const result = await getSharedFolder();
       setFolder(result);
     } catch (error) {
       alert(error);
     }
-  }, []);
+  };
 
   useEffect(() => {
     fetchFolderData();
-  }, [fetchFolderData]);
+  }, []);
 
   return (
     <main>
