@@ -8,13 +8,14 @@ export default function Header() {
   const [user, setUser] = useState({});
   const [_, error, getUserAsync] = useAsync(getUser);
 
-  const loadUser = async () => {
-    const data = await getUserAsync();
-    setUser(data);
+  const loadUser = async (option) => {
+    const data = await getUserAsync(option);
+    console.log(data);
+    setUser(data.data[0]);
   };
 
   useEffect(() => {
-    loadUser();
+    loadUser({ userId: 1 });
   }, []);
 
   return (
@@ -30,7 +31,7 @@ export default function Header() {
             <div className={styles["headerProfile"]}>
               <img
                 className={styles.profileImg}
-                src={user.profileImageSource}
+                src={user.image_source}
                 alt="profileImg"
               />
               <p className={styles.profileEmail} style={{ fontSize: "1.2rem" }}>

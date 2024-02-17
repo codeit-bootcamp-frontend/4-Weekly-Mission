@@ -1,7 +1,16 @@
 const BASE_URL = "https://bootcamp-api.codeit.kr/api";
 
-export async function getUser() {
+export async function getSampleUser() {
   const response = await fetch(`${BASE_URL}/sample/user`);
+  if (!response.ok) {
+    throw new Error("사용자 정보를 불러오는데 실패했습니다");
+  }
+  const body = await response.json();
+  return body;
+}
+
+export async function getUser({ userId }) {
+  const response = await fetch(`${BASE_URL}/users/${userId}`);
   if (!response.ok) {
     throw new Error("사용자 정보를 불러오는데 실패했습니다");
   }

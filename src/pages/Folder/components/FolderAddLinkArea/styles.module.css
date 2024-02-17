@@ -23,6 +23,10 @@
   align-items: center;
 }
 
+.addLinkInput {
+  width: 80%;
+}
+
 .btn {
   margin-left: auto;
   font-weight: bold;

@@ -1,13 +1,13 @@
 import Footer from "components/Footer";
 import CardList from "components/CardList";
 import FolderHeader from "./components/FolderHeader";
+import FolderAddLinkArea from "./components/FolderAddLinkArea";
+import FolderCategory from "./components/FolderCategory";
+import FolderControl from "./components/FolderControl";
 import styles from "./Folder.module.css";
 import SearchIcon from "assets/Search.png";
 import { useEffect, useState } from "react";
 import { getFolderList, getLinks } from "api/api";
-import FolderAddLinkArea from "./components/FolderAddLinkArea";
-import FolderCategory from "./components/FolderCategory";
-import FolderControl from "./components/FolderControl";
 
 export default function Folder() {
   const [search, setSearch] = useState("");
@@ -76,8 +76,11 @@ export default function Folder() {
           {links?.length === 0 ? (
             <div
               style={{
-                textAlign: "center",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
                 fontSize: "1.3rem",
+                height: "230px",
               }}
             >
               저장된 링크가 없습니다

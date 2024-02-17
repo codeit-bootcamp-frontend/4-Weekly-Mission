@@ -42,7 +42,7 @@ export default function FolderCategory({
           windowSize < 580 ? styles.floating : ""
         }`}
       >
-        폴더추가+
+        폴더 추가+
       </span>
     </div>
   );

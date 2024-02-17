@@ -8,7 +8,7 @@ export default function FolderAddLinkArea() {
         <div className={styles.addLinkArea}>
           <img src={linkImg} alt="linkIconImg" />
           <input
-            style={{ width: "80%", textAlign: "initial" }}
+            className={styles.addLinkInput}
             type="url"
             placeholder="링크를 추가해 보세요"
           />

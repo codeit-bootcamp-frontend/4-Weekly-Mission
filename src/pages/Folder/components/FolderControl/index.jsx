@@ -6,8 +6,7 @@ import shareImg from "assets/share.png";
 export default function FolderControl({ folderName }) {
   return (
     <div className={styles.container}>
-      <div style={{ fontWeight: "bold", fontSize: "18px" }}>{folderName}</div>
-
+      <div className={styles.folderName}>{folderName}</div>
       {folderName === "전체" ? (
         <></>
       ) : (
