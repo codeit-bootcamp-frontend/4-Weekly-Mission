@@ -4,7 +4,7 @@ import * as S from "./Profile.style"
 import defaultImage from "assets/images/icon/avatar.svg"
 
 function Profile({ data }) {
-  const image = data.profileImageSource || defaultImage
+  const image = data.image_source || defaultImage
 
   return (
     <S.Profile>

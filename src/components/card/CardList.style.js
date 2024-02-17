@@ -7,7 +7,7 @@ export const CardList = styled.ul`
   justify-items: center;
 
   @media (max-width: 1124px) {
-    grid-template-columns: repeat(2, 44.213vw);
+    grid-template-columns: repeat(2, calc(50% - (3.121vw / 2)));
     gap: 3.121vw;
   }
 
