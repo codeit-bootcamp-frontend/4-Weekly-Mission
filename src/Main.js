@@ -6,12 +6,10 @@ import Home from "./components/Home";
 function Main() {
   return (
     <BrowserRouter>
-      <App>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/folder" element={<Folder />} />
-        </Routes>
-      </App>
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/folder" element={<App />} />
+      </Routes>
     </BrowserRouter>
   );
 }

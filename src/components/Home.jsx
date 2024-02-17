@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from "./Button";
 
 function Home() {
   return (
@@ -9,6 +10,7 @@ function Home() {
             <div className="infor">
               <span>세상의 모든 정보</span>를
             </div>
+            <Button>Hello Styled!</Button>
             <div className="br">
               <div className="infor">쉽게 저장하고</div>
               <div className="infor">관리해 보세요.</div>

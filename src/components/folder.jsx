@@ -1,24 +1,44 @@
+import { useSearchParams } from "react-router-dom";
+import { FolderData } from "../api/api";
 import "../css/folder.css";
 import FolderItemList from "./folderItem";
+import { useState } from "react";
+// import { FolderData } from "../api/api";
 
 function FolderPage() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const initKeyword = searchParams.get("keyword");
+  const [keyword, setKetword] = useState(initKeyword || "");
+  const folders = FolderData(initKeyword);
+
+  const handlePlusChange = (e) => {
+    setKetword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSearchParams(keyword ? { keyword } : {});
+  };
+
   return (
     <main>
       <div className="first_page_back">
-        <div className="link_back">
+        <form className="link_back" onChange={handleSubmit}>
           <button className="plus_btn btn">추가하기</button>
           <input
             className="link plus_link"
             type="text"
             placeholder="링크를 추가해 보세요."
+            value={keyword}
+            onChange={handlePlusChange}
           />
-        </div>
+        </form>
       </div>
       <div className="image_board_back">
         <div className="link_back search">
           <input
             className="link search_link"
-            type="text"
+            type="t;3ext"
             placeholder="링크를 검색해 보세요."
           />
         </div>

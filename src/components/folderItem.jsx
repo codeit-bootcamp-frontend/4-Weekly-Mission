@@ -14,13 +14,16 @@ const FolderItemList = () => {
         console.error("ERROR", error);
       }
     };
-
     fetchUserData();
   }, []);
 
   const FolderItem = () => {
     console.log(userData);
-    return <div>{JSON.stringify(userData.folder)}</div>;
+    return (
+      <>
+        <div>{JSON.stringify(userData.folder)}</div>
+      </>
+    );
   };
 
   if (!userData) {
