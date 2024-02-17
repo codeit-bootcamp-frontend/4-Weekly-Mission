@@ -28,7 +28,14 @@
     display: flex;
     flex-wrap: wrap;
     gap : 2.5rem 2rem;
+}
 
+.container > .wrap{
+    width: 106rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap : 24px;
 }
 
 @media screen and (max-width : 1124px) {
@@ -60,5 +67,5 @@
 }
 
 .section.linkcards{
-    min-height: 50.8rem;
+    min-height: 64rem;
 }

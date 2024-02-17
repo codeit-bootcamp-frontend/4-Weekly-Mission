@@ -1,23 +1,13 @@
 import styled from "styled-components"
 import { NavLink } from "react-router-dom";
- 
- 
- 
+
+
+
 const CategoryBarBlock = styled.div`
       width : 106rem;
       margin : 0 auto;
       display : flex;
       justify-content : space-between;
-      /* background-color : red; */
-
-      .add-folder-btn{
-        outline : none;
-        border: none;
-        color: #6D6AFE;
-        font-size : 1.6rem;
-        background-color : transparent;
-        cursor: pointer;
-      }
 `;
 
 
@@ -43,37 +33,57 @@ const CategoryList = styled.ul`
     gap : 8px;
 `;
 
- function CategoryBar({categoryList}) {
-    
-    return(
-         <CategoryBarBlock>
+const AddFolderBtn = styled.button`
+        outline : none;
+        border: none;
+        color: #6D6AFE;
+        font-size : 1.6rem;
+        background-color : transparent;
+        cursor: pointer;
+`;
+
+function CategoryBar({ categoryList, onClick }) {
+
+
+    return (
+        <CategoryBarBlock>
             <CategoryList>
-                <li>
-                    <CategoryBtn 
-                        to='/folder'
-                        className={({isActive}) => isActive ? 'active' : undefined}
+                <li 
+                    onClick={() => {
+                        onClick('전체');
+                    }}
+                >
+                    <CategoryBtn
+                        to='all'
+                        className={({ isActive }) => isActive ? 'active' : undefined}
                     >
                         전체
                     </CategoryBtn>
                 </li>
-                {categoryList ? 
+                {categoryList ?
                     categoryList.map(category => (
-                        <li key={category.id}>
+                        <li 
+                            key={category.id}
+                            onClick={() => {
+                                onClick(category.name)
+                            }} 
+                        >
                             <CategoryBtn
                                 to={`${category.id}`}
-                                className={({isActive}) => isActive ? 'active' : undefined}
+                                className={({ isActive }) => isActive ? 'active' : undefined}
+                                                        
                             >
                                 {category.name}
                             </CategoryBtn>
                         </li>
-                        )) : null
+                    )) : null
                 }
             </CategoryList>
-            <button className="add-folder-btn">폴더 추가 +</button>
-         </CategoryBarBlock>
+            <AddFolderBtn>폴더 추가 +</AddFolderBtn>
+        </CategoryBarBlock>
     )
- } 
+}
 
 
 
- export default CategoryBar;
+export default CategoryBar;

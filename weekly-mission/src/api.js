@@ -33,6 +33,19 @@ export async function requestFolderListData() {
         const data = response.data;
         return data;
     }catch(e){
-        console.log(e);
+        console.log('서버 요청 중 문제가 발생했습니다.');
+    }
+}
+
+export async function requestFolderLinkData (id) {
+    const folderId = id === 'all' ? null : +id;
+    try{
+        const response = folderId !== null ? 
+            await axios.get(`${SERVER_URL}/users/1/links?folderid=${folderId}`) :
+            await axios.get(`${SERVER_URL}/users/1/links`);
+        const data = response.data;
+        return data;
+    }catch (e){
+        console.log('서버 요청 중 문제가 발생했습니다.');
     }
 }
