@@ -1,5 +1,6 @@
 import { FolderData } from "../api/api";
 import { useEffect, useState } from "react";
+import "../css/folder.css";
 
 const FolderItemList = () => {
   const [userData, setUserData] = useState([]);
@@ -22,10 +23,14 @@ const FolderItemList = () => {
     return <div>{JSON.stringify(userData.folder)}</div>;
   };
 
+  if (!userData) {
+    return <div className="nofile">저장된 링크가 없습니다.</div>;
+  }
+
   return (
-    <ul>
+    <div>
       <FolderItem />
-    </ul>
+    </div>
   );
 };
 

@@ -21,15 +21,6 @@ const Email = () => {
       });
   }, []);
 
-  // useEffect(() => {
-  //   fetchData();
-  // }, []);
-
-  // const fetchData = async () => {
-  //   const { user } = await User();
-  //   setProfileData(user);
-  // };
-
   if (!profileData) {
     return <button className="btn login_btn">로그인</button>;
   }
