@@ -13,7 +13,7 @@ function Favorites() {
         const data = await fetchFolderData();
         setFolder(data);
       } catch (error) {
-        console.error("Failed to fetch folder data:", error);
+        console.error("Error fetching folders:", error);
       }
     };
 

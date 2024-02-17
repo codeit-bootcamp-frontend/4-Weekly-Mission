@@ -63,3 +63,36 @@
   height: 100px;
   padding: 50px 0;
 }
+
+.FolderList {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  gap: 7px;
+}
+
+.FolderListButton {
+  padding: 8px 12px;
+  border: 1px solid #6d6afe;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.FolderAddSmallButton {
+  background-color: #fff;
+  border: none;
+}
+
+.FolderAddButton:hover {
+  cursor: pointer;
+}
+
+.FolderListButton:hover {
+  cursor: pointer;
+}
+
+.FolderListButton.selected {
+  background-color: #6d6afe;
+  color: #fff;
+}
