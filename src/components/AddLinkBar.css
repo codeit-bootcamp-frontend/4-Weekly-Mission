@@ -1,14 +1,12 @@
 .addLinkContainer {
   background-color: var(--gray5-color);
-  padding: 60px 320px 90px 320px;
-  height: 219px;
+  padding: 70px 0;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .addLinkInput {
-  width: 800px;
   height: 2rem;
   flex: 1;
   padding: 1rem 2.5rem;
@@ -26,6 +24,7 @@
 .addLinkForm {
   display: flex;
   position: relative;
+  width: 70%;
 }
 
 .addLinkForm button {
