@@ -9,6 +9,10 @@
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
   min-height: 1280px;
 
   padding: 4% 12%;
@@ -20,6 +24,16 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
+}
+
+.tag_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tag_list {
+  display: flex;
   gap: 10px;
 }
 

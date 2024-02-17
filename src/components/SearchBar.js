@@ -53,7 +53,7 @@ const SearchBar = ({ type }) => {
     }
 
     ${Input} {
-      padding: 20px 20px 20px 50px;
+      padding: 20px 104px 20px 50px;
 
       background-color: var(--color-white);
 

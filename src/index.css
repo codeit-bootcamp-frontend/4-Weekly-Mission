@@ -59,6 +59,10 @@ a {
   font-size: 40px;
 }
 
+.font-color-primary {
+  color: var(--color-primary);
+}
+
 .margin-auto {
   margin: auto;
 }

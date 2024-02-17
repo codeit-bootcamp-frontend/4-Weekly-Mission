@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { getFolder, getUser } from "../utils/api";
 import { Link } from "react-router-dom";
 import { formatDate, getTimeDifference } from "../utils/DateUtils";
+import TagBox from "../components/TagBox";
 
 const Folder = () => {
   const [user, setUser] = useState({
@@ -50,6 +51,18 @@ const Folder = () => {
         </div>
         <main>
           <SearchBar type="findLink" />
+          <div className={styles.tag_container}>
+            <div className={styles.tag_list}>
+              <TagBox isSelected={true}>전체</TagBox>
+              <TagBox>코딩 팁</TagBox>
+            </div>
+            <div>
+              <span className="font-color-primary font-16px font-regular">
+                폴더 추가 +
+              </span>
+            </div>
+          </div>
+
           <div className={styles.card_list}>
             {folderInfo.folderLinks.map((link) => {
               const { imageSource, createdAt, description } = link;
