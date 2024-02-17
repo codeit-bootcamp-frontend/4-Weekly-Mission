@@ -28,7 +28,7 @@ const FolderList = () => {
       setSelectedFolderName(
         folderList.find((folder) => folder.id === folderId)?.name
       );
-      // assume JSON provides necessary data in links
+      // assume JSON provides necessary data in folder.links
       setItems(folderList.find((folder) => folder.id === folderId)?.links);
     }
   };
