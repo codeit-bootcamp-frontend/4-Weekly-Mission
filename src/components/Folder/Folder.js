@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useGetFolderById } from "../../hooks/useGetFolder";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Folder.css";
+import SelectedOption from "../SelectedOption/SelectedOption";
 
 function Folder() {
   const { data } = useGetFolderById();
@@ -52,27 +53,12 @@ function Folder() {
             />
           </div>
         </div>
-        <div className="Selected-folder">
-          {selectedFolder && (
-            <span className="Selected-folder-name">{selectedFolder}</span>
-          )}
-          {activeButton !== "전체" && selectedFolder && (
-            <div className="Selected-option">
-              <div className="Selected-option-content">
-                <img src="images/share.svg" alt="공유 이미지" />
-                <p>공유</p>
-              </div>
-              <div className="Selected-option-content">
-                <img src="images/pen.svg" alt="이름 변경 이미지" />
-                <p>이름 변경</p>
-              </div>
-              <div className="Selected-option-content">
-                <img src="images/delete.svg" alt="삭제 이미지" />
-                <p>삭제</p>
-              </div>
-            </div>
-          )}
-        </div>
+        {selectedFolder && (
+          <SelectedOption
+            selectedFolder={selectedFolder}
+            activeButton={activeButton}
+          />
+        )}
       </div>
     </div>
   );
