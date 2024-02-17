@@ -6,6 +6,7 @@ import FolderCard from "./FolderCard";
 import Folder from "./Folder";
 import Banner from "./Banner";
 import BlankCard from "../ui/BlankCard";
+import { IoMdAdd } from "react-icons/io";
 
 function FolderContainer({
   folder,
@@ -21,7 +22,6 @@ function FolderContainer({
   }
   const { data: folderData } = folder;
   const { data: cardData } = cardLink;
-  console.log(cardData);
 
   return (
     <section className={styles.folder_section}>
@@ -31,12 +31,7 @@ function FolderContainer({
           <ul className={styles.folder_list}>
             <li
               className={styles.folder}
-              onClick={() =>
-                setFolderState({
-                  name: "전체",
-                  value: null,
-                })
-              }
+              onClick={() => setFolderState("전체", null)}
             >
               전체
             </li>
@@ -51,7 +46,7 @@ function FolderContainer({
           </ul>
           <div className={styles.folder_add}>
             <p>폴더추가</p>
-            <img src="/Icons/add.svg" alt="폴더추가" />
+            <IoMdAdd className={styles.folder_add_icon} />
           </div>
         </div>
         <div className={styles.folder_util}>
@@ -77,7 +72,6 @@ function FolderContainer({
             {cardData.map(data => (
               <FolderCard key={data.id} cardData={data} />
             ))}
-            ;
           </div>
         ) : (
           <div className={styles.card_blank}>

@@ -39,3 +39,15 @@
   font-weight: 600;
   cursor: pointer;
 }
+
+@media (max-width: 1124px) {
+  .banner_container {
+    width: 704px;
+  }
+}
+
+@media (max-width: 767px) {
+  .banner_container {
+    width: 325px;
+  }
+}

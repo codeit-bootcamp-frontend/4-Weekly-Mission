@@ -30,9 +30,18 @@
   list-style-type: none;
 }
 
+.check {
+  color: #fff;
+  background: var(--Linkbrary-primary-color, #6d6afe);
+}
+
 .folder_add {
   display: flex;
   gap: 4px;
+}
+
+.folder_add_icon {
+  color: var(--Linkbrary-primary-color, #6d6afe);
 }
 
 .folder_add p {
@@ -89,7 +98,7 @@
 }
 
 @media (max-width: 1124px) {
-  .share_container {
+  .folder_container {
     max-width: 704px;
     min-height: 1280px;
   }
@@ -97,15 +106,40 @@
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
     gap: 24px;
   }
+  .folder_list {
+    flex-wrap: wrap;
+  }
 }
 
 @media (max-width: 767px) {
-  .share_container {
+  .folder_container {
     max-width: 340px;
     min-height: 1280px;
   }
   .card_list {
     grid-template: repeat(1, 1fr) / repeat(1, 1fr);
     gap: 20px;
+  }
+  .folder_add {
+    width: 127px;
+    position: fixed;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 101px;
+    z-index: 10;
+    cursor: pointer;
+    padding: 8px 24px;
+    border-radius: 20px;
+    border: 1px solid var(--Linkbrary-white, #fff);
+    background: var(--Linkbrary-primary-color, #6d6afe);
+  }
+
+  .folder_add p {
+    color: white;
+    text-align: center;
+  }
+  .folder_add_icon {
+    color: #fff;
   }
 }

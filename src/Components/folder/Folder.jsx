@@ -1,17 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 function FolderList({ folderData, className, setFolderState }) {
   const { id, name } = folderData;
+  const [clicked, setClicked] = useState(false);
 
   return (
     <li
       className={className}
-      onClick={() =>
-        setFolderState({
-          name: name,
-          value: id,
-        })
-      }
+      onClick={() => setFolderState(name, id)}
     >
       {name}
     </li>

@@ -17,6 +17,23 @@ function Folder() {
     value: null,
   });
 
+  const filterHandler = (name, id) => {
+    // 새로운 값과 기존 값이 동일한지 확인
+    if (folderState.name === name && folderState.value === id) {
+      // 동일하다면 '전체'와 null로 업데이트
+      setFolderState({
+        name: "전체",
+        value: null,
+      });
+    } else {
+      // 다르다면 새로운 값으로 업데이트
+      setFolderState({
+        name: name,
+        value: id,
+      });
+    }
+  };
+
   useEffect(() => {
     getSampeUser().then(setUser);
     getUserFolder().then(setFolder);
@@ -34,7 +51,7 @@ function Folder() {
         folder={folder}
         cardLink={link}
         folderState={folderState}
-        setFolderState={setFolderState}
+        setFolderState={filterHandler}
       />
     </main>
   );
