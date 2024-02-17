@@ -1,6 +1,6 @@
 .addLinkContainer {
   display: flex;
-  padding: 3.75rem 20rem 5.625rem 20rem;
+  padding: 3.75rem 0 5.625rem 0;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
@@ -9,7 +9,7 @@
 
 .addLink {
   display: flex;
-  width: 90%;
+  width: 60%;
   padding: 1rem 1.25rem;
   align-items: center;
   justify-content: space-between;

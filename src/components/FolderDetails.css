@@ -98,3 +98,11 @@
   align-items: center;
   gap: 0.25rem;
 }
+
+@media (max-width: 767px) {
+  .actionButtonContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
