@@ -11,3 +11,15 @@ export async function getFolder() {
   const body = await response.json();
   return body;
 }
+
+export async function getUsersFolder() {
+  const response = await fetch(`${BASE_URL}/users/1/folders`);
+  const body = await response.json();
+  return body;
+}
+
+export async function getUsersLink(id) {
+  const response = await fetch(`${BASE_URL}/users/1/links?folderId=${id}`);
+  const body = await response.json();
+  return body;
+}

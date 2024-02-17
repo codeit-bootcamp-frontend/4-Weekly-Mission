@@ -1,19 +1,18 @@
-import Gnb from "./components/Gnb";
-import Header from "./components/Header";
-import LinkSearch from "./components/LinkSearch";
-import Card from "./components/Card";
-import Footer from "./components/Footer";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import SharedPage from "./pages/SharedPage";
+import FolderPage from "./pages/FolderPage";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <Gnb />
-      <Header />
-      <LinkSearch />
-      <Card />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="shared" element={<SharedPage />} />
+        <Route path="folder" element={<FolderPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
