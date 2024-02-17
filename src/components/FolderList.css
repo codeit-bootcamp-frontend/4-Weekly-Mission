@@ -38,3 +38,19 @@
   position: relative;
   top: 4px;
 }
+
+.folderListWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.folderListWrapper p {
+  color: var(--primary-color);
+}
+
+.folderListWrapper img {
+  position: relative;
+  top: 2px;
+  left: 2px;
+}

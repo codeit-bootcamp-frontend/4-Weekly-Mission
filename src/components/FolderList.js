@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import penIcon from "../assets/pen.svg";
 import shareIcon from "../assets/share.svg";
 import deleteIcon from "../assets/delete.svg";
+import add from "../assets/add.svg";
 
 const FolderList = () => {
   const folderList = useFolderList();
@@ -41,23 +42,29 @@ const FolderList = () => {
 
   return (
     <div className="wrapper">
-      <div className="folderList">
-        <button
-          className="folderButton"
-          onClick={() => handleFolderClick([null])}
-        >
-          전체
-        </button>
-        {folderList.map((folder) => (
-          <div key={folder.id}>
-            <button
-              className="folderButton"
-              onClick={() => handleFolderClick(folder.id)}
-            >
-              {folder.name}
-            </button>
-          </div>
-        ))}
+      <div className="folderListWrapper">
+        <div className="folderList">
+          <button
+            className="folderButton"
+            onClick={() => handleFolderClick([null])}
+          >
+            전체
+          </button>
+          {folderList.map((folder) => (
+            <div key={folder.id}>
+              <button
+                className="folderButton"
+                onClick={() => handleFolderClick(folder.id)}
+              >
+                {folder.name}
+              </button>
+            </div>
+          ))}
+        </div>
+        <p>
+          폴더 추가
+          <img src={add} alt="add icon" />
+        </p>
       </div>
       <div className="selectedFolderName">
         {selectedFolderName}
