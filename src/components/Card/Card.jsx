@@ -1,6 +1,7 @@
 import './Card.css';
 import cardImg from '../../assets/card_default.png';
 import { formatDate, formatRelativeDate } from '../../utils/date';
+import IconStar from '../Icon/IconStar';
 
 function Card({
   item = {
@@ -13,6 +14,11 @@ function Card({
 }) {
   const handleImgError = (e) => {
     e.target.src = cardImg;
+  };
+
+  const handleBookmarkClick = (e) => {
+    e.stopPropagation();
+    console.log('TODO: handleBookmarkClick');
   };
 
   return (
@@ -30,6 +36,9 @@ function Card({
             alt={item.title}
             onError={handleImgError}
           />
+          <button type="button" onClick={handleBookmarkClick}>
+            <IconStar className="card__bookmark" />
+          </button>
         </div>
         <div className="card__info">
           <div className="info">
