@@ -1,21 +1,18 @@
 import "./CardList.css";
 import defaultCardImg from "../../assets/images/defaultCardImg.svg";
 import { getTimeDiff, formatDate } from "../../utils/calculateDate";
-import { useCallback, useMemo } from "react";
 
 function Card({ link }) {
-  const cardImgStyle = useMemo(() => {
-    return {
-      borderRadius: "13px 13px 0 0",
-      backgroundImage: `url(${
-        link.imageSource ? link.imageSource : defaultCardImg
-      }`,
-    };
-  }, [link]);
+  const cardImgStyle = {
+    borderRadius: "13px 13px 0 0",
+    backgroundImage: `url(${
+      link.imageSource ? link.imageSource : defaultCardImg
+    }`,
+  };
 
-  const handleClickCard = useCallback(() => {
+  const handleClickCard = () => {
     window.open(link.url, "_blank");
-  }, [link]);
+  };
 
   return (
     <div className="Card" onClick={handleClickCard}>
