@@ -6,7 +6,8 @@ footer {
   color: var(--white-color);
   font-family: sans-serif;
   background: #111322;
-  position: relative;
+  position: sticky;
+  top: calc(100vh - 120px);
 }
 
 footer a {

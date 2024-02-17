@@ -1,6 +1,7 @@
 .folderList {
   display: flex;
   gap: 8px;
+  flex-flow: wrap;
 }
 
 .folderButton {
@@ -8,7 +9,6 @@
   border: 1px solid var(--primary-color);
   padding: 8px 12px;
   border-radius: 5px;
-  font-size: 1rem;
   cursor: pointer;
 }
 

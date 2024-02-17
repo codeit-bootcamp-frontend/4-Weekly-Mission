@@ -6,14 +6,13 @@ import SearchBar from "../components/SearchBar";
 
 const FolderPage = () => {
   return (
-    <div>
+    <>
       <Header />
       <AddLinkBar />
       <SearchBar />
       <FolderList />
       <Footer />
-    </div>
+    </>
   );
 };
-
 export default FolderPage;

@@ -12,9 +12,14 @@
 
 body {
   font-family: "Pretendard";
+  height: 100vh;
+  margin: 0;
+  /* width: 100%; */
+}
+
+#root {
   height: 100%;
   width: 100%;
-  margin: 0;
 }
 
 code {
