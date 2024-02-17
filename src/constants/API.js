@@ -15,4 +15,9 @@ const FOLDER = Object.freeze({
   },
 });
 
-export default { SAMPLE, USER, FOLDER };
+const LINK = Object.freeze({
+  USER_LINKS: (userId) => {
+    return `/users/${userId}/links`;
+  },
+});
+export default { SAMPLE, USER, FOLDER, LINK };
