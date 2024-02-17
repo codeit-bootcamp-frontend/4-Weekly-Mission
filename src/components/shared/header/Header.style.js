@@ -32,28 +32,3 @@ export const Wrapper = styled(W)`
     height: 63px;
   }
 `
-
-export const LoginButton = styled.a`
-  padding: 16px 40.5px;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 22px;
-  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-  border-radius: 8px;
-  color: var(--white);
-  display: block;
-
-  @media (max-width: 1520px) {
-    & {
-      padding: 10px 21.5px;
-      font-size: 14px;
-    }
-  }
-
-  @media (max-width: 767px) {
-    & {
-      padding: 10px 21.5px;
-      font-size: 14px;
-    }
-  }
-`

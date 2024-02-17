@@ -1,7 +1,10 @@
 import React, { useContext } from "react"
-import Logo from "./Logo"
-import Profile from "./Profile"
+import Logo from "components/shared/header/Logo"
+import Profile from "components/shared/header/Profile"
+import Button from "components/UI/Button"
 import { ProfileContext } from "context/ProfileContext"
+
+import { Link } from "react-router-dom"
 
 import * as S from "./Header.style"
 
@@ -15,9 +18,9 @@ function Header() {
         {data ? (
           <Profile data={data} />
         ) : (
-          <S.LoginButton href="/signin.html" className="login-btn">
+          <Button as={Link} to="/signup" $bgColor="gradient" $type="header">
             로그인
-          </S.LoginButton>
+          </Button>
         )}
       </S.Wrapper>
     </S.Header>
