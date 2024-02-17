@@ -4,7 +4,7 @@ import LinkbraryLogo from '../images/logo.svg';
 import styles from '../css/Navbar.module.css';
 
 function NavigationBar() {
-  const [loginStatus, setLoginStatus] = useState(false);
+  const [isLoginStatus, setIsLoginStatus] = useState(false);
   const [profileData, setProfileData] = useState({});
 
   const getProfileData = async (path) => {
@@ -13,7 +13,7 @@ function NavigationBar() {
     if (!result) return;
 
     setProfileData(result);
-    setLoginStatus(true);
+    setIsLoginStatus(true);
   }
 
   useEffect(() => {
@@ -23,7 +23,7 @@ function NavigationBar() {
   return (
     <nav className={styles.nav}>
       <img src={LinkbraryLogo} alt='logo'/>
-      {loginStatus ? (
+      {isLoginStatus ? (
         <div className={styles.account}>
           <img src={profileData.profileImageSource} alt='profile' />
           <p>{profileData.email}</p>
