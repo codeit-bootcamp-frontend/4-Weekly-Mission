@@ -5,7 +5,7 @@ import styles from "./css/Folder.module.css";
 import SearchBar from "../components/SearchBar";
 import Card from "../components/Card";
 import { useEffect, useState } from "react";
-import { getSharedLinks, getUser } from "../utils/api";
+import { getSampleFolder, getUser } from "../utils/api";
 import { Link } from "react-router-dom";
 import { formatDate, getTimeDifference } from "../utils/DateUtils";
 
@@ -27,8 +27,8 @@ const Shared = () => {
     setUser(userInfo["data"][0]);
   };
 
-  const loadFolder = async () => {
-    const folderInfo = await getSharedLinks();
+  const loadSampleFolder = async () => {
+    const folderInfo = await getSampleFolder();
     setFolderInfo({
       folderName: folderInfo["folder"]["name"],
       folderOwner: folderInfo["folder"]["owner"]["name"],
@@ -39,7 +39,7 @@ const Shared = () => {
 
   useEffect(() => {
     loadUser();
-    loadFolder();
+    loadSampleFolder();
   }, []);
 
   return (

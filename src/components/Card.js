@@ -5,15 +5,6 @@ const SAMPLE_IMAGE_URL = "/images/sample_image.svg";
 const Card = ({ cardImage, cardTime, cardDescription }) => {
   const imageSrc = cardImage || SAMPLE_IMAGE_URL;
 
-  const handleClickStar = (e) => {
-    e.preventDefault();
-    alert("clicked star");
-  };
-  const handleClickKebab = (e) => {
-    e.preventDefault();
-    alert("clicked Kebab");
-  };
-
   return (
     <div className={styles.Card}>
       <div className={styles.card_image_container}>
@@ -22,7 +13,6 @@ const Card = ({ cardImage, cardTime, cardDescription }) => {
           src="/icons/star_icon.svg"
           alt="add this link to favorite"
           className={styles.star_icon}
-          onClick={handleClickStar}
         />
       </div>
       <div className={styles.card_txt}>
@@ -30,11 +20,7 @@ const Card = ({ cardImage, cardTime, cardDescription }) => {
           <span className="font-thin font-13px" style={{ color: "#666666" }}>
             {cardTime["timeDifference"]}
           </span>
-          <img
-            src="/icons/kebab_icon.svg"
-            alt="view more options"
-            onClick={handleClickKebab}
-          />
+          <img src="/icons/kebab_icon.svg" alt="view more options" />
         </div>
 
         <div className={`${styles.card_contents} font-thin font-16px`}>

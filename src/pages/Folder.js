@@ -42,6 +42,7 @@ const Folder = () => {
   const handleClickTag = (e, folder) => {
     setCurrentFolder({ id: folder.id, name: folder.name });
   };
+
   useEffect(() => {
     loadUser();
     loadFolders();
@@ -57,7 +58,9 @@ const Folder = () => {
         </div>
         <main>
           <SearchBar type="findLink" />
+
           {folders.length === 0 ? (
+            // 폴더 리스트가 존재하지 않을 경우
             <div className={styles.warning_no_link}>저장된 링크가 없습니다</div>
           ) : (
             <>
@@ -91,6 +94,7 @@ const Folder = () => {
               </div>
 
               {currentLinks.length === 0 ? (
+                // 현재 폴더 내 링크가 없을 경우
                 <div className={styles.warning_no_link}>
                   저장된 링크가 없습니다
                 </div>
