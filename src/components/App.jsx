@@ -1,14 +1,12 @@
+import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
-import Header from "./Header";
-import LinkList from "./LinkList";
 import NavigationBar from "./Navbar";
 
 function App() {
   return (
     <div>
       <NavigationBar />
-      <Header />
-      <LinkList />
+      <div><Outlet /></div>
       <Footer />
     </div>
   );
