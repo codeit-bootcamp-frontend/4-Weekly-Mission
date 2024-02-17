@@ -3,4 +3,10 @@ const SAMPLE = Object.freeze({
   USER: '/sample/user',
 });
 
-export default { SAMPLE };
+const USER = Object.freeze({
+  DETAIL: (userId) => {
+    return `/users/${userId}`;
+  },
+});
+
+export default { SAMPLE, USER };
