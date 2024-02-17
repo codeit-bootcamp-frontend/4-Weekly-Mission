@@ -1,25 +1,21 @@
 import SortButton from './SortButton';
 import '../styles/folderSortBar.css';
 import FolderAddButton from './FolderAddButton';
+import { USERS_FOLDERS_URL } from '../../../constants/urls';
+import useFoldersData from '../../../hooks/useFoldersData';
+
 function FolderSortBar() {
-  const SORT_BUTTONS = [
-    '전체',
-    '⭐️ 즐겨찾기',
-    '코딩 팁',
-    '채용 사이트',
-    '유용한 글',
-    '나만의 장소',
-  ];
+  const folders = useFoldersData(USERS_FOLDERS_URL);
+
   return (
     <div className="folder__sort-bar">
       <div className="folder__sort-bar--sort-buttons">
-        {SORT_BUTTONS.map((text) => (
-          <SortButton text={text} />
+        {folders.map((folder) => (
+          <SortButton key={folder.id} text={folder.name} />
         ))}
       </div>
-      <div className="folder__sort-bar--add-button">
-        <FolderAddButton></FolderAddButton>
-      </div>
+
+      <FolderAddButton></FolderAddButton>
     </div>
   );
 }

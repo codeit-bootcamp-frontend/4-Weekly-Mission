@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-function OptionButton({ prop }) {
-  const { svg, text } = prop;
+function OptionButton({ id, svg, text }) {
   return (
     <Button>
       <img src={svg} alt={text} />

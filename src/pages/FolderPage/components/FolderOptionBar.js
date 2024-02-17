@@ -6,14 +6,17 @@ import OptionButton from './OptionButton';
 function FolderOptionBar({ text = '유용한 글' }) {
   const buttonProps = [
     {
+      id: 1,
       svg: shareIcon,
       text: '공유',
     },
     {
+      id: 2,
       svg: renameIcon,
       text: '이름 변경',
     },
     {
+      id: 3,
       svg: deleteIcon,
       text: '삭제',
     },
@@ -24,7 +27,11 @@ function FolderOptionBar({ text = '유용한 글' }) {
       <span className="folder__option-bar--text">{text}</span>
       <div className="folder__option-bar--buttons">
         {buttonProps.map((prop) => (
-          <OptionButton prop={prop}></OptionButton>
+          <OptionButton
+            key={prop.id}
+            svg={prop.svg}
+            text={prop.text}
+          ></OptionButton>
         ))}
       </div>
     </div>

@@ -1,11 +1,11 @@
 import '../styles/cardList.css';
 import Card from './Card';
-import useFolderData from '../hooks/useFolderData';
+import useCardsData from '../hooks/useCardsData';
 import LinkSearchBar from './LinkSearchBar';
 import SAMPLE_FOLDER_URL from '../constants/urls';
 
 function CardList() {
-  const cardsArray = useFolderData('cards', SAMPLE_FOLDER_URL);
+  const cardsArray = useCardsData('cards', SAMPLE_FOLDER_URL);
 
   return (
     <div className="cards-container">
