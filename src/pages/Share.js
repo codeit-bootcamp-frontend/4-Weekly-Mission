@@ -21,12 +21,15 @@ export default function Share() {
 	}, []);
 
 	return (
-		<div>
-			<ShareFolderProfile />
-			<main>
-				<LinkSearchBar />
-				<LinkCardCollection items={items} />
-			</main>
-		</div>
+		<>
+			<HeadNav />
+			<div>
+				<ShareFolderProfile />
+				<main>
+					<LinkSearchBar />
+					<LinkCardCollection items={items} />
+				</main>
+			</div>
+		</>
 	);
 }

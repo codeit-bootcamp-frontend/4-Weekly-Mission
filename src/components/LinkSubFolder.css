@@ -10,10 +10,6 @@
 	padding: 8px 12px;
 }
 
-.is-not-sticky {
-	position: relative;
-}
-
 .add-sub-folder {
 	color: var(--LBrary-Primary-color);
 	padding: 0;
