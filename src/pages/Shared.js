@@ -9,7 +9,7 @@ import "../style/shared.css";
 
 function Shared() {
   const foldersData = useGetJson(getFolderInfo);
-  const folders = foldersData?.folder.links || [];
+  const folders = foldersData?.folder?.links || [];
 
   return (
     <>

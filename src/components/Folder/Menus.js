@@ -1,37 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import { getFolderList } from "./../../api/api";
 import GlobalStyle from "./../common/GlobalStyle";
 import styled from "styled-components";
 import union from "../../assets/icons/Union.svg";
+import { getFolderList } from "../../api/api";
+import useGetJson from "./../../hook/uesGetJson";
 
-const Menus = () => {
-  const [buttonColors, setButtonColors] = useState({
-    전체: "#fff",
-    "⭐️ 즐겨찾기": "#fff",
-    "코딩 팁": "#fff",
-    "채용 사이트": "#fff",
-    "유용한 글": "#fff",
-    "나만의 장소": "#fff",
-  });
-
+const Menus = ({ list, initialButtonColors }) => {
+  const [buttonColors, setButtonColors] = useState(initialButtonColors);
   const handleClick = (buttonName) => {
-    setButtonColors((prevColors) => ({
-      ...prevColors,
-      [buttonName]: prevColors[buttonName] === "#fff" ? "#6D6AFE" : "#fff",
-    }));
+    setButtonColors((prevColors) => {
+      return {
+        ...initialButtonColors,
+        [buttonName]: prevColors[buttonName] === "#fff" ? "#6D6AFE" : "#fff",
+      };
+    });
   };
 
   return (
     <Container>
       <GlobalStyle></GlobalStyle>
       <ButtonDiv>
-        {Object.keys(buttonColors).map((key) => (
+        {list.map((val) => (
           <Button
-            key={key}
-            onClick={() => handleClick(key)}
-            color={buttonColors[key]}
+            key={val.id}
+            onClick={() => handleClick(val.name)}
+            color={buttonColors[val.name]}
+            id={val.name}
           >
-            {key}
+            {val.name}
           </Button>
         ))}
       </ButtonDiv>
@@ -66,23 +63,21 @@ const ButtonDiv = styled.div`
   display: flex;
   flex-direction: row;
   gap: 8px;
-
-  @media (max-width: 774px) {
-    flex-wrap: wrap;
-    gap: 12px 8px;
-  }
+  flex-wrap: wrap;
+  gap: 12px 8px;
 `;
 
 const Button = styled.button`
+  min-width: max-content;
   padding: 8px 12px;
   border-radius: 5px;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-  background-color: ${({ color }) => color};
-
-  color: ${({ color }) => (color === "#fff" ? "#000000" : "#FFFFFF")};
+  background-color: ${({ color = "#fff" }) => color || "#fff"};
+  color: ${({ color = "#fff" }) => (color === "#fff" ? "#000000" : "#FFFFFF")};
 `;
 
 const AddFolderDiv = styled.div`
+  margin: 8px;
   display: flex;
   flex-direction: row;
 

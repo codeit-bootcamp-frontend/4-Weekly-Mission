@@ -1,4 +1,4 @@
-import { getAllLinkData } from "./../api/api";
+import { getAllLinkData, getFolderList } from "./../api/api";
 
 import HeaderElement from "./../components/common/HeaderElement";
 import GlobalStyle from "./../components/common/GlobalStyle";
@@ -14,13 +14,20 @@ const Folder = () => {
   const foldersData = useGetJson(getAllLinkData);
   const folders = foldersData?.data || [];
 
+  const listsData = useGetJson(getFolderList);
+  const lists = listsData?.data || [];
+
+  const initialButtonColors = lists.reduce((colors, list) => {
+    colors[list.name] = "#fff";
+    return colors;
+  }, {});
   return (
     <>
       <GlobalStyle />
-      <HeaderElement $positionval={"static"} />
+      <HeaderElement $positionval="static" />
       <FolderInput />
       <Input />
-      <Menus />
+      <Menus list={lists} initialButtonColors={initialButtonColors} />
       <FolderTitle />
       <FolderList items={folders}></FolderList>
     </>

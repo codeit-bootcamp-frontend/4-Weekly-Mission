@@ -6,12 +6,12 @@ import "../../style/common.css";
 
 import useGetJson from "./../../hook/uesGetJson";
 
-function HeaderElement({ positionval }) {
+function HeaderElement({ $positionval }) {
   const user = useGetJson(getUserInfo);
   const { email, profileImageSource } = user;
 
   return (
-    <Header positionval={positionval}>
+    <Header $positionval={$positionval}>
       <img src={logo} alt="logo" />
       <div className="myProfile" status="user">
         {user ? (
@@ -40,7 +40,7 @@ function HeaderElement({ positionval }) {
 const Header = styled.div`
   background-color: var(--Grey_100);
   padding: 20px 200px;
-  position: ${({ positionval }) => (positionval ? positionval : "sticky")};
+  position: ${({ $positionval }) => ($positionval ? $positionval : "sticky")};
   top: 0;
   z-index: 2;
   display: flex;
