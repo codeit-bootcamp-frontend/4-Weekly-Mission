@@ -100,20 +100,22 @@ const Folder = () => {
                     <span className="font-24px font-regular">
                       {currentFolder.name}
                     </span>
-                    <div className={styles.action_icons_list}>
-                      <div className={styles.action_icon}>
-                        <img src="/icons/share_icon.svg" alt="share icon" />
-                        공유
+                    {currentFolder.id !== 1 && (
+                      <div className={styles.action_icons_list}>
+                        <div className={styles.action_icon}>
+                          <img src="/icons/share_icon.svg" alt="share icon" />
+                          공유
+                        </div>
+                        <div className={styles.action_icon}>
+                          <img src="/icons/pen_icon.svg" alt="pen icon" />
+                          이름 변경
+                        </div>
+                        <div className={styles.action_icon}>
+                          <img src="/icons/delete_icon.svg" alt="delete icon" />
+                          삭제
+                        </div>
                       </div>
-                      <div className={styles.action_icon}>
-                        <img src="/icons/pen_icon.svg" alt="pen icon" />
-                        이름 변경
-                      </div>
-                      <div className={styles.action_icon}>
-                        <img src="/icons/delete_icon.svg" alt="delete icon" />
-                        삭제
-                      </div>
-                    </div>
+                    )}
                   </div>
                   <div className={styles.card_list}>
                     {currentLinks.map((link) => {
