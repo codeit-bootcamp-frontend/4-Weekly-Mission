@@ -3,7 +3,7 @@
   flex-direction: column;
   gap: 20px;
 
-  padding: 5%;
+  padding: 10%;
 
   background-color: var(--color-background);
 }
@@ -85,10 +85,6 @@ main {
   .card_list {
     display: flex;
     flex-direction: column;
-  }
-
-  .folder_header {
-    padding: 10%;
   }
 
   .tag_list {

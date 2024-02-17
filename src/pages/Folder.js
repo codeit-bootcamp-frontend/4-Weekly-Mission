@@ -48,8 +48,8 @@ const Folder = () => {
 
   return (
     <>
-      <Header userInfo={user} />
-      <div className="component-default-margin">
+      <Header userInfo={user} fixed={false} />
+      <div>
         <div className={styles.folder_header}>
           <SearchBar type="addLink" />
         </div>
