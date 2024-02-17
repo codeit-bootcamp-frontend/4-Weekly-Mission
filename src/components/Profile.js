@@ -2,17 +2,15 @@ import React, { useEffect, useState } from "react";
 import { responseUserData } from "../apis/dataFetch";
 
 const Profile = () => {
-  const [profileData, setProfileData] = useState(null);
-
+  const [profileData, setProfileData] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    responseUserData(setProfileData);
+    responseUserData(setProfileData, setIsLoading);
   }, []);
 
-  if (!profileData) {
-    return <button>로그인</button>;
-  }
+  if (isLoading) return false;
 
-  return (
+  return profileData ? (
     <div className="profile-items">
       <img
         className="profile-image"
@@ -21,6 +19,8 @@ const Profile = () => {
       />
       <p className="profile-email">{profileData.email}</p>
     </div>
+  ) : (
+    <button>Login</button>
   );
 };
 

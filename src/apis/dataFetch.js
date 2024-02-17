@@ -9,13 +9,15 @@ export async function responseFolderData() {
   return data;
 }
 
-export async function responseUserData(setProfileData) {
+export async function responseUserData(setProfileData, setIsLoading) {
   fetch("https://bootcamp-api.codeit.kr/api/sample/user")
     .then((response) => response.json())
     .then((data) => {
       setProfileData(data);
+      setIsLoading(false);
     })
     .catch((error) => {
-      console.log("response 에러:", error);
+      console.log("response error:", error);
+      setIsLoading(false);
     });
 }
