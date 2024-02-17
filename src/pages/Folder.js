@@ -1,12 +1,12 @@
 import { useState, useEffect, useCallback } from "react";
 import { getFolderInfo } from "./../api";
-import HeaderElement from "./../components/common/HeaderElement";
-import FooterElement from "./../components/common/FooterElement";
-import SharedSection from "./../components/shared/SharedSection";
-import FolderList from "../components/common/FolderList";
-import "../style/shared.css";
 
-function Shared() {
+import HeaderElement from "./../components/common/HeaderElement";
+import GlobalStyle from "./../components/common/GlobalStyle";
+import FolderInput from "./../components/Folder/FolderInput";
+import FolderList from "./../components/common/FolderList";
+
+const Folder = () => {
   const [folders, setFolders] = useState([]);
 
   const HandleLoad = useCallback(async () => {
@@ -29,12 +29,12 @@ function Shared() {
 
   return (
     <>
-      <HeaderElement></HeaderElement>
-      <SharedSection></SharedSection>
+      <GlobalStyle />
+      <HeaderElement />
+      <FolderInput />
       <FolderList items={folders}></FolderList>
-      <FooterElement></FooterElement>
     </>
   );
-}
+};
 
-export default Shared;
+export default Folder;
