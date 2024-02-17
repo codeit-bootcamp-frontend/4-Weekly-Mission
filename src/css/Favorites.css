@@ -100,6 +100,7 @@ nav {
 .FavoritesContent {
   width: 1060px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
