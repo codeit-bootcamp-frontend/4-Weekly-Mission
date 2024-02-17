@@ -3,27 +3,47 @@
   justify-content: center;
   align-items: center;
   margin-top: 40px;
+  box-sizing: border-box;
+}
+
+.noLink {
+  display: flex;
+  width: 1060px;
+  height: 100px;
+  padding: 41px 0px 35px;
+  justify-content: center;
+  align-items: center;
+}
+
+.noLink > p {
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 .cardItemBox {
   display: grid;
 
   @media (min-width: 375px) {
-    grid-template: repeat(9, 1fr) / repeat(1, 1fr);
+    grid-template: repeat(1, 1fr);
     gap: 20px;
     padding-left: 32px;
     padding-right: 32px;
   }
 
   @media (min-width: 768px) {
-    grid-template: repeat(5, 1fr) / repeat(2, 1fr);
+    grid-template: auto / repeat(2, 1fr);
     gap: 25px 24px;
     padding-left: 32px;
     padding-right: 32px;
   }
 
   @media (min-width: 1124px) {
-    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    grid-template: auto / repeat(3, 1fr);
     gap: 25px 20px;
   }
 }

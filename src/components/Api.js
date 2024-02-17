@@ -19,7 +19,7 @@ export async function getUsersFolder() {
 }
 
 export async function getUsersLink(id) {
-  const response = await fetch(`${BASE_URL}/users/1/links?folderId=${id}`);
+  const response = await fetch(`${BASE_URL}/users/1/links${id}`);
   const body = await response.json();
   return body;
 }

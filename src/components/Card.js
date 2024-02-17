@@ -40,13 +40,23 @@ function Card({ cardList }) {
   const isListEmpty = cardList.length === 0;
 
   if (isListEmpty) {
-    return <div>목록이 비어 있습니다.</div>;
+    return (
+      <div className="noLink">
+        <p>저장된 링크가 없습니다</p>
+      </div>
+    );
   }
+
+  const cards = cardList.map((card) => ({
+    imageSource: card.imageSource || card.image_source,
+    createdAt: card.createdAt || card.created_at,
+    ...card,
+  }));
 
   return (
     <div className="Card">
       <div className="cardItemBox">
-        {cardList.map((data) => (
+        {cards.map((data) => (
           <a href={data.url} className="CardItem" key={data.id} target="_blank">
             <img
               className="cardImg"
