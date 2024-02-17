@@ -10,7 +10,9 @@ import { useLocation } from "react-router-dom";
 
 function NavigationBar() {
   const location = useLocation();
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [userProfile, setUserProfile] = useState(null);
+
   const handleSharedUserProfile = async () => {
     const result = await getSharedUserSample();
     if (!result) return;
@@ -19,15 +21,23 @@ function NavigationBar() {
     setUserProfile({ email, image_source });
   };
 
-  useEffect(() => {
-    handleSharedUserProfile();
-  }, []);
-
   const isSticky = () => {
     if (location.pathname === "/folder" || location.pathname === "/")
       return false;
     return true;
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", handleResize);
+
+    handleSharedUserProfile();
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <Header sticky={isSticky()}>
@@ -41,7 +51,7 @@ function NavigationBar() {
               src={userProfile.image_source}
               alt="userProfileImg"
             />
-            <span>{userProfile.email}</span>
+            <span>{windowWidth > 390 ? userProfile.email : ""}</span>
           </UserProfileContainer>
         ) : (
           <StyledLoginLink to="/signin">로그인</StyledLoginLink>
