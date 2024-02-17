@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import { UserProvider } from "../context/UserContext";
 
-function App({ children }) {
+function App() {
   return (
     <div className="App">
       <UserProvider>
