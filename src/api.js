@@ -6,8 +6,8 @@ export async function getFolder({ limit = 9 }) {
   if (!response.ok) {
     throw new Error('폴더를 불러오는데 실패했습니다.');
   }
-  const body = await response.json();
-  return body;
+  const data = await response.json();
+  return data;
 }
 
 export async function getUser() {
@@ -15,6 +15,6 @@ export async function getUser() {
   if (!response.ok) {
     throw new Error('유저를 불러오는데 실패했습니다.');
   }
-  const body = await response.json();
-  return body;
+  const data = await response.json();
+  return data;
 }
