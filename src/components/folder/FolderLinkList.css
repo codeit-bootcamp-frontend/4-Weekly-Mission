@@ -29,6 +29,12 @@
   padding: 8px;
   cursor: pointer;
 }
+.all-button.color,
+.folder-button.color {
+  background-color: var(--primary);
+  color: white;
+}
+
 .folder-buttons {
   display: flex;
   flex-wrap: wrap;
