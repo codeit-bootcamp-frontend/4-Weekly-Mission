@@ -1,5 +1,5 @@
-import '../style/floatingActionButton.css';
-import addIcon from '../images/folderAdd.svg';
+import '../../../style/floatingActionButton.css';
+import addIcon from '../../../images/folderAdd.svg';
 
 function FloatingActionButton() {
   return (

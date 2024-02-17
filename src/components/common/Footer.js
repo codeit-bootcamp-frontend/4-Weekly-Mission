@@ -1,9 +1,9 @@
 import React from 'react';
-import '../style/footer.css';
-import facebookIcon from '../images/facebook.svg';
-import twitterIcon from '../images/twitter.svg';
-import youtubeIcon from '../images/youtube.svg';
-import instagramIcon from '../images/instagram.svg';
+import '../../style/footer.css';
+import facebookIcon from '../../images/facebook.svg';
+import twitterIcon from '../../images/twitter.svg';
+import youtubeIcon from '../../images/youtube.svg';
+import instagramIcon from '../../images/instagram.svg';
 
 const Footer = () => {
   const SNS_LIST = [

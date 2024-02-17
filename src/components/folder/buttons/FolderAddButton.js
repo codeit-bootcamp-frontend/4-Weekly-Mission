@@ -1,5 +1,5 @@
 import React from 'react';
-import folderAddIcon from '../images/folderAdd.svg';
+import folderAddIcon from '../../../images/folderAdd.svg';
 
 const FolderAddButton = () => {
   return (
