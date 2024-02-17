@@ -3,13 +3,13 @@ import CardList from "../components/CardList";
 import { getFolders } from "../api";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Profile from "../components/Profile";
+import Profile from "../components/SharedPage/Profile";
 import SearchBar from "../components/SearchBar";
 
 function SharePage() {
   const [items, setItems] = useState([]);
   const [profile, setProfile] = useState([]);
-  const [folderName, setFolderName] = useState(null);
+  const [folderName, setFolderName] = useState([]);
 
   const handleLoad = async () => {
     const { folder } = await getFolders();

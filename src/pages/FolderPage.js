@@ -1,7 +1,7 @@
-import FolderList from "../components/FolderList";
+import FolderList from "../components/FolderPage/FolderList";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import AddLinkBar from "../components/AddLinkBar";
+import AddLinkBar from "../components/FolderPage/AddLinkBar";
 import SearchBar from "../components/SearchBar";
 
 const FolderPage = () => {

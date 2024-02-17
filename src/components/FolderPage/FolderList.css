@@ -4,21 +4,6 @@
   flex-flow: wrap;
 }
 
-.folderButton {
-  background-color: white;
-  border: 1px solid var(--primary-color);
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.folderButton:hover,
-.folderButton:active,
-.folderButton:focus {
-  background-color: var(--primary-color);
-  color: white;
-}
-
 .noLink {
   text-align: center;
   font-size: 1.2rem;
@@ -40,6 +25,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 3rem;
 }
 
 .folderListWrapper img {

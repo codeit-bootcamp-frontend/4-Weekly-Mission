@@ -1,5 +1,5 @@
 import "./AddLinkBar.css";
-import linkIcon from "../assets/linkIcon.svg";
+import linkIcon from "../../assets/linkIcon.svg";
 
 const AddLink = () => {
   return (

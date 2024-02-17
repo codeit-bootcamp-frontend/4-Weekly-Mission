@@ -1,6 +1,6 @@
-import penIcon from "../assets/pen.svg";
-import shareIcon from "../assets/share.svg";
-import deleteIcon from "../assets/delete.svg";
+import penIcon from "../../assets/pen.svg";
+import shareIcon from "../../assets/share.svg";
+import deleteIcon from "../../assets/delete.svg";
 import "./UtilIcons.css";
 
 const UtilIcons = () => {

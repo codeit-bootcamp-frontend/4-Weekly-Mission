@@ -1,10 +1,11 @@
-import useFolderList from "../hooks/useFolderList.js";
+import useFolderList from "../../hooks/useFolderList.js";
 import "./FolderList.css";
-import CardList from "../components/CardList";
-import { getFolderLinks } from "../api";
+import CardList from "../CardList.js";
+import { getFolderLinks } from "../../api.js";
 import { useState, useEffect } from "react";
 import UtilIcons from "./UtilIcons.js";
-import add from "../assets/add.svg";
+import add from "../../assets/add.svg";
+import FolderButtons from "./FolderButtons";
 
 const FolderList = () => {
   const folderList = useFolderList();
@@ -37,19 +38,7 @@ const FolderList = () => {
     <div className="wrapper">
       <div className="folderListWrapper">
         <div className="folderList">
-          <button className="folderButton" onClick={() => handleFolderClick()}>
-            전체
-          </button>
-          {folderList.map((folder) => (
-            <div key={folder.id}>
-              <button
-                className="folderButton"
-                onClick={() => handleFolderClick(folder.id)}
-              >
-                {folder.name}
-              </button>
-            </div>
-          ))}
+          {FolderButtons(folderList, handleFolderClick)}
         </div>
         <button className="addFolderButton">
           폴더 추가
