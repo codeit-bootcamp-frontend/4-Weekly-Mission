@@ -24,6 +24,7 @@ a {
   line-height: normal;
   cursor: pointer;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .red {

@@ -1,10 +1,10 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Landing from "./Landing";
 import Signup from "./Signup";
 import Signin from "./Signin";
 import Privacy from "./Privacy";
 import Faq from "./Faq";
-import Folder from "./Folder";
+import Folder from "./folder/Folder";
 import Shared from "./shared/Shared";
 import PageLayout from "./PageLayout";
 import GlobalStyle from "./GlobalStyle";
@@ -14,8 +14,7 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<PageLayout />}>
-          {/* <Route index element={<Folder />} /> */}
-          <Route index element={<Shared />} />
+          <Route index element={<Navigate to="/folder" />} />
           <Route path="shared" element={<Shared />} />
           <Route path="landing" element={<Landing />} />
           <Route path="signup" element={<Signup />} />

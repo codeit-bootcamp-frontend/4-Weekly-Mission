@@ -6,23 +6,31 @@ import UserProfileImg from "./UserProfileImg";
 import StyledLink from "./StyledLink";
 import UserProfileContainer from "./UserProfileContainer";
 import StyledLoginLink from "./StyledLoginLink";
+import { useLocation } from "react-router-dom";
 
 function NavigationBar() {
+  const location = useLocation();
   const [userProfile, setUserProfile] = useState(null);
   const handleSharedUserProfile = async () => {
     const result = await getSharedUserSample();
     if (!result) return;
 
-    const { email, profileImageSource } = result;
-    setUserProfile({ email, profileImageSource });
+    const { email, image_source } = result.data[0];
+    setUserProfile({ email, image_source });
   };
 
   useEffect(() => {
     handleSharedUserProfile();
   }, []);
 
+  const isSticky = () => {
+    if (location.pathname === "/folder" || location.pathname === "/")
+      return false;
+    return true;
+  };
+
   return (
-    <Header>
+    <Header sticky={isSticky()}>
       <div>
         <StyledLink to="/landing">
           <LinkLogo />
@@ -30,7 +38,7 @@ function NavigationBar() {
         {userProfile ? (
           <UserProfileContainer>
             <UserProfileImg
-              src={userProfile.profileImageSource}
+              src={userProfile.image_source}
               alt="userProfileImg"
             />
             <span>{userProfile.email}</span>

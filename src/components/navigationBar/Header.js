@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 const Header = styled.header`
   display: flex;
-  position: sticky;
-  top: 0;
+  position: ${({ sticky }) => (sticky ? `sticky` : `static`)};
+  ${({ sticky }) => (sticky ? `top: 0;` : ``)};
+
   padding: 20px 200px;
   flex-direction: column;
   align-items: center;
