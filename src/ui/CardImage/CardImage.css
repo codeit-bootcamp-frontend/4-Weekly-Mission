@@ -1,4 +1,5 @@
 .CardImage {
+  position: relative;
   width: 100%;
   min-height: 19.2rem;
   height: 19.2rem;
@@ -15,4 +16,12 @@
 
 .CardImage.CardImage-zoom-in {
   background-size: 130%;
+}
+
+.star-button {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  width: 3.4rem;
+  height: 3.4rem;
 }
