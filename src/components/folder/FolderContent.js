@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useFetchFolders } from '../hooks/FolderContainer';
-import { fetchFolders } from '../api/fetchFolders';
+import { useFetchFolders } from '../../hooks/FolderContainer';
+import { fetchFolders } from '../../api/fetchFolders';
 import FolderLinks from './FolderLinks';
 
 const FolderContent = () => {

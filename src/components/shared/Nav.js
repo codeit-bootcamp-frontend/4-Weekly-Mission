@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../style/nav.css';
+import '../../style/nav.css';
 
 const Nav = () => {
   const [folderInfo, setFolderInfo] = useState({

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { calculateTimePassed, formatDate } from '../utils/dateUtils';
-import ActionContainer from './ActionContainer';
-import '../style/folderContent.css';
-import addIcon from '../images/kebab.svg';
-import starIcon from '../images/star.svg';
-import noImgIcon from '../images/noCardImg.png';
-import FolderCategoryButtons from './FolderCategoryButtons';
+import { calculateTimePassed, formatDate } from '../../utils/dateUtils';
+import ActionContainer from './buttons/ActionContainer';
+import '../../style/folderContent.css';
+import addIcon from '../../images/kebab.svg';
+import starIcon from '../../images/star.svg';
+import noImgIcon from '../../images/noCardImg.png';
+import FolderCategoryButtons from './buttons/FolderCategoryButtons';
 
 const FolderLinks = ({ folders, links, onFolderClick }) => {
   const [selectedFolderName, setSelectedFolderName] = useState('전체');

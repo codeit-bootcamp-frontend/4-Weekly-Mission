@@ -1,5 +1,5 @@
 import React from 'react';
-import '../style/folderContent.css';
+import '../../../style/folderContent.css';
 import FolderAddButton from './FolderAddButton';
 import FloatingActionButton from './FloatingActionButton';
 

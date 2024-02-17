@@ -1,8 +1,8 @@
 import React from 'react';
-import '../style/actionContainer.css';
-import shareIcon from '../images/share.svg';
-import penIcon from '../images/pen.svg';
-import deleteIcon from '../images/delete.svg';
+import '../../../style/actionContainer.css';
+import shareIcon from '../../../images/share.svg';
+import penIcon from '../../../images/pen.svg';
+import deleteIcon from '../../../images/delete.svg';
 
 function ActionContainer({ folderName }) {
   return (

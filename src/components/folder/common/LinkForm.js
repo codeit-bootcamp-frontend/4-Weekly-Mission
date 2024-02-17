@@ -1,6 +1,6 @@
 import React from 'react';
-import '../style/linkform.css';
-import linkIcon from '../images/link.svg';
+import '../../../style/linkform.css';
+import linkIcon from '../../../images/link.svg';
 
 const LinkForm = () => {
   return (

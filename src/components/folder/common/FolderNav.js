@@ -1,7 +1,7 @@
 import React from 'react';
 import FolderProfile from './FolderProfile';
-import logo from '../images/logo.svg';
-import '../style/folderheader.css';
+import logo from '../../../images/logo.svg';
+import '../../../style/folderheader.css';
 
 const FolderNav = () => {
   return (

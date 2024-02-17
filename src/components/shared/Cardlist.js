@@ -1,8 +1,8 @@
 import React from 'react';
-import { useFetchCardsData } from '../hooks/CardContainer';
-import '../style/cardlist.css';
-import searchIcon from '../images/Search.svg';
-import noCardImg from '../images/noCardImg.png';
+import { useFetchCardsData } from '../../hooks/CardContainer';
+import '../../style/cardlist.css';
+import searchIcon from '../../images/Search.svg';
+import noCardImg from '../../images/noCardImg.png';
 
 const Cardlist = () => {
   const cardList = useFetchCardsData();
