@@ -1,5 +1,4 @@
 import { styled } from "styled-components";
-
 import Link from "../../assets/icons/link.svg";
 import InputButton from "./InputButton";
 

@@ -1,5 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
-import { getUserFolderInfo } from "./../api";
+import { getAllLinkData } from "./../api/api";
 
 import HeaderElement from "./../components/common/HeaderElement";
 import GlobalStyle from "./../components/common/GlobalStyle";
@@ -9,27 +8,11 @@ import Input from "../components/common/Input";
 import Menus from "../components/Folder/Menus";
 import FolderTitle from "../components/Folder/FolderTitle";
 
+import useGetJson from "./../hook/uesGetJson";
+
 const Folder = () => {
-  const [folders, setFolders] = useState([]);
-
-  const HandleLoad = useCallback(async () => {
-    let results;
-    let foldersArr;
-    try {
-      results = await getUserFolderInfo();
-      foldersArr = await results.data;
-      // await console.log(foldersArr);
-    } catch (error) {
-      console.log(error);
-    }
-
-    if (!foldersArr) return;
-    setFolders(foldersArr);
-  }, []);
-
-  useEffect(() => {
-    HandleLoad();
-  }, [HandleLoad]);
+  const foldersData = useGetJson(getAllLinkData);
+  const folders = foldersData?.data || [];
 
   return (
     <>

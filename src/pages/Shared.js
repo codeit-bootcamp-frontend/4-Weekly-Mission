@@ -1,32 +1,15 @@
-import { useState, useEffect, useCallback } from "react";
-import { getFolderInfo } from "./../api";
+import { getFolderInfo } from "./../api/api";
 import HeaderElement from "./../components/common/HeaderElement";
 import FooterElement from "./../components/common/FooterElement";
 import SharedSection from "./../components/shared/SharedSection";
 import Input from "../components/common/Input";
 import FolderList from "../components/common/FolderList";
+import useGetJson from "./../hook/uesGetJson";
 import "../style/shared.css";
 
 function Shared() {
-  const [folders, setFolders] = useState([]);
-
-  const HandleLoad = useCallback(async () => {
-    let results;
-    let foldersArr;
-    try {
-      results = await getFolderInfo();
-      foldersArr = await results.folder.links;
-    } catch (error) {
-      console.log(error);
-    }
-
-    if (!foldersArr) return;
-    setFolders(foldersArr);
-  }, []);
-
-  useEffect(() => {
-    HandleLoad();
-  }, [HandleLoad]);
+  const foldersData = useGetJson(getFolderInfo);
+  const folders = foldersData?.folder.links || [];
 
   return (
     <>

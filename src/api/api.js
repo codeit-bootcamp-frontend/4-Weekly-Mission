@@ -20,10 +20,21 @@ export const getUserInfo = async function () {
   }
 };
 
-export const getUserFolderInfo = async function () {
+export const getFolderList = async function () {
   try {
     const response = await fetch(`${BASE_URL}users/1/folders`);
     const result = await response.json(); // 재사용성을 위해 response.json()으로 끝맺는게 좋음
+    // console.log(result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const getAllLinkData = async function () {
+  try {
+    const response = await fetch(`${BASE_URL}users/1/links`);
+    const result = await response.json(); // 재사용성을 위해 response.json()으로 끝맺는게 좋음
+    // console.log(result);
     return result;
   } catch (error) {
     console.log(error);

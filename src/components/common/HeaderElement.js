@@ -1,31 +1,14 @@
 import styled from "styled-components";
-import { useState, useCallback, useEffect } from "react";
 import logo from "../../assets/Linkbrary.png";
 import profile from "../../assets/icons/icon_myprofile.png";
-import { getUserInfo } from "../../api";
-
+import { getUserInfo } from "../../api/api";
 import "../../style/common.css";
 
+import useGetJson from "./../../hook/uesGetJson";
+
 function HeaderElement({ positionval }) {
-  const [user, setUser] = useState([]);
-  const [profileUrl, setProfileUrl] = useState("");
-
-  const handleLoad = useCallback(async () => {
-    let results;
-    try {
-      results = await getUserInfo();
-    } catch (error) {
-      console.log(error);
-    }
-    if (!results) return;
-    const { email, profileImageSource } = results;
-    setUser(email);
-    setProfileUrl(profileImageSource);
-  }, []);
-
-  useEffect(() => {
-    handleLoad();
-  }, [handleLoad]);
+  const user = useGetJson(getUserInfo);
+  const { email, profileImageSource } = user;
 
   return (
     <Header positionval={positionval}>
@@ -35,12 +18,12 @@ function HeaderElement({ positionval }) {
           <div id="myProfileName">
             <div id="myProfile-back_img">
               <img
-                src={profileUrl ? profileUrl : profile}
+                src={profileImageSource ? profileImageSource : profile}
                 id="myProfile-img"
                 alt="myProfile-img"
               ></img>
             </div>
-            <span id="myEmail">{user}</span>
+            <span id="myEmail">{email}</span>
           </div>
         ) : (
           <a href="/signup.html">
