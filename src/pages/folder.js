@@ -1,12 +1,18 @@
 import React from 'react';
-import FolderHeader from '../components/FolderHeader';
+import FolderNav from '../components/FolderNav';
 import LinkForm from '../components/LinkForm';
+import SearchBar from '../components/SearchBar';
+import Footer from '../components/Footer';
+import FolderContent from '../components/FolderContent';
 
 const Folder = () => {
   return (
     <div>
-      <FolderHeader />
+      <FolderNav />
       <LinkForm />
+      <SearchBar />
+      <FolderContent />
+      <Footer />
     </div>
   );
 };
