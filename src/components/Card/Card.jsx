@@ -2,7 +2,15 @@ import './Card.css';
 import cardImg from '../../assets/card_default.png';
 import { formatDate, formatRelativeDate } from '../../utils/date';
 
-function Card({ item = {} }) {
+function Card({
+  item = {
+    title: '',
+    description: '',
+    url: '',
+    createdAt: '',
+    imageSource: '',
+  },
+}) {
   const handleImgError = (e) => {
     e.target.src = cardImg;
   };
