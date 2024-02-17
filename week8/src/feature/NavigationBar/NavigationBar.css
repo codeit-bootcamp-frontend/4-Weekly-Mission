@@ -1,9 +1,9 @@
 .NavigationBar {
   display: flex;
   justify-content: center;
-  position: sticky;
+  /* position: sticky;
   top: 0;
-  z-index: var(--z-index-nav);
+  z-index: var(--z-index-nav); */
   width: 100%;
   background-color: var(--light-blue);
 }
