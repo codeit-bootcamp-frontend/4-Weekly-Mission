@@ -1,13 +1,13 @@
-import SharedFooter from "../components/SharedFooter";
-import SharedHeader from "../components/SharedHeader";
+import SharedHeader from "../containers/SharedHeader";
 import SharedContent from "../containers/SharedContent";
+import CommonFooter from "../components/common/CommonFooter";
 
 function SharedPage() {
   return (
     <div>
       <SharedHeader />
       <SharedContent />
-      <SharedFooter />
+      <CommonFooter />
     </div>
   );
 }

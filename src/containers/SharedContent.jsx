@@ -1,13 +1,7 @@
-import SharedContentCard from "../components/SharedContentCard";
-import SharedContentSearch from "../components/SharedContentSearch";
+import CommonContent from "../components/common/CommonContent";
 
 function SharedContent() {
-  return (
-    <div>
-      <SharedContentSearch></SharedContentSearch>
-      <SharedContentCard></SharedContentCard>
-    </div>
-  );
+  return <CommonContent />;
 }
 
 export default SharedContent;

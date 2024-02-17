@@ -1,17 +1,15 @@
-import Card from "../containers/Card";
+import CardHeader from "./CardHeader";
 import CardContent from "./CardContent";
 import CardFooter from "./CardFooter";
-import CardHeader from "./CardHeader";
 
-function SharedContentCard() {
+function Card() {
   return (
-    <Card>
-      <div></div>
+    <div>
       <CardHeader></CardHeader>
       <CardContent></CardContent>
       <CardFooter></CardFooter>
-    </Card>
+    </div>
   );
 }
 
-export default SharedContentCard;
+export default Card;
