@@ -18,3 +18,11 @@
   border: none;
   width: 100%;
 }
+
+.emptyArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  height: 230px;
+}

@@ -74,17 +74,7 @@ export default function Folder() {
           <FolderControl folderName={selectedName} />
 
           {links?.length === 0 ? (
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "1.3rem",
-                height: "230px",
-              }}
-            >
-              저장된 링크가 없습니다
-            </div>
+            <div className={styles.emptyArea}>저장된 링크가 없습니다</div>
           ) : (
             <CardList links={links} />
           )}
