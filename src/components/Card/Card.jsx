@@ -3,6 +3,7 @@ import cardImg from '../../assets/card_default.png';
 import { formatDate, formatRelativeDate } from '../../utils/date';
 import IconStar from '../Icon/IconStar';
 import { Link } from 'react-router-dom';
+import IconKebabMenu from '../Icon/IconKebabMenu';
 
 function Card({
   item = {
@@ -21,6 +22,12 @@ function Card({
     e.preventDefault();
     e.stopPropagation();
     console.log('TODO: handleBookmarkClick');
+  };
+
+  const handleMenuClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('TODO: handleMenuClick');
   };
 
   return (
@@ -48,6 +55,13 @@ function Card({
               <div className="info__time">
                 {formatRelativeDate(item.createdAt)}
               </div>
+              <button
+                type="button"
+                className="info__menu"
+                onClick={handleMenuClick}
+              >
+                <IconKebabMenu />
+              </button>
             </header>
             <div className="info__content">
               <div className="info__description">{item.description}</div>

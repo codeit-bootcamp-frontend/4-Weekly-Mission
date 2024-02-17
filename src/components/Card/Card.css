@@ -60,12 +60,19 @@
 
 .info__header {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .info__time {
   color: #666;
   font-size: 13px;
   line-height: normal;
+}
+
+.info__menu {
+  border: none;
+  background-color: transparent;
 }
 
 .info__content {
