@@ -1,6 +1,6 @@
 import React from "react";
 import SearchBar from "../common/SearchBar/SearchBar";
-import Card from "./ShareCard";
+import ShareCard from "./ShareCard";
 import styles from "./Container.module.css";
 import Wrapper from "../common/layout/Wrapper";
 
@@ -11,6 +11,7 @@ function LinkContainer({ folderObject }) {
 
   const { folder } = folderObject;
   const { links } = folder;
+  console.log(links);
 
   return (
     <section className={styles.share_section}>
@@ -18,7 +19,7 @@ function LinkContainer({ folderObject }) {
         <SearchBar />
         <div className={styles.card_list}>
           {links.map(link => (
-            <Card key={link.id} link={link} />
+            <ShareCard key={link.id} link={link} />
           ))}
         </div>
       </Wrapper>
