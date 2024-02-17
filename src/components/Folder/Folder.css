@@ -50,9 +50,13 @@
   align-items: center;
   border-radius: 0.5rem;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-  background: #fff;
   white-space: nowrap;
   cursor: pointer;
+}
+
+.active {
+  color: #ffffff;
+  background: var(--primary);
 }
 
 .Folder-add {
