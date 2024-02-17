@@ -1,14 +1,14 @@
 import "./FolderPage.css";
 
 export const FolderPage = ({
-  folderInfo,
+  addLink,
   searchBar,
   cardList,
   classification,
 }) => {
   return (
     <div className="FolderPage">
-      {folderInfo}
+      {addLink}
       <div className="FolderPage-items">
         {searchBar}
         {classification}

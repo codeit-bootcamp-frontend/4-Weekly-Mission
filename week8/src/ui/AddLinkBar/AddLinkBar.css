@@ -1,3 +1,11 @@
+.add-link {
+  background-color: var(--light-blue);
+  width: 100%;
+  padding: 3.75rem 20rem 5.625rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .add-link-bar {
   background-color: var(--white);
   padding: 1rem 1.25rem;
@@ -8,7 +16,6 @@
   border: 0.0625rem solid var(--primary);
   border-radius: 0.9375rem;
   width: 50rem;
-  margin: 0 auto;
 
   @media (max-width: 768px) {
     width: 20.3125rem;
@@ -27,7 +34,7 @@
   }
 }
 
-.add-link-img {
+.add-link-icon {
   width: 1.25rem;
   height: 1.25rem;
 

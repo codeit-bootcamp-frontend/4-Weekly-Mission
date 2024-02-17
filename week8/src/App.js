@@ -9,6 +9,7 @@ import { ReadOnlyCard } from "ui/ReadOnlyCard";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { FolderPage } from "page-layout/FolderPage/FolderPage";
 import { Classification } from "ui/Classification/Classification";
+import { AddLinkBar } from "ui/AddLinkBar/AddLinkBar";
 
 function App() {
   const { data } = useGetFolder();
@@ -44,13 +45,7 @@ function App() {
             path="folder"
             element={
               <FolderPage
-                folderInfo={
-                  <FolderInfo
-                    profileImage={profileImage}
-                    ownerName={ownerName}
-                    folderName={folderName}
-                  />
-                }
+                addLink={<AddLinkBar />}
                 searchBar={<SearchBar />}
                 cardList={
                   <CardList>
