@@ -12,7 +12,7 @@ import { formatDate, getTimeDifference } from "../utils/DateUtils";
 const Shared = () => {
   const [user, setUser] = useState({
     email: null,
-    profileImageSource: null,
+    image_source: null,
   });
   const [folderInfo, setFolderInfo] = useState({
     folderName: null,
@@ -22,9 +22,9 @@ const Shared = () => {
   });
 
   const loadUser = async () => {
-    const { email, profileImageSource } = await getUser();
-    if (!email) return;
-    setUser({ email, profileImageSource });
+    const userInfo = await getUser();
+    if (!userInfo) return;
+    setUser(userInfo["data"][0]);
   };
 
   const loadFolder = async () => {

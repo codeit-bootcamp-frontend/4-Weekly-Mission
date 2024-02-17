@@ -2,7 +2,7 @@ import { API_BASE_URL } from "./constant";
 
 export const getUser = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/sample/user`);
+    const response = await fetch(`${API_BASE_URL}/users/1`);
     if (response.ok) {
       return response.json();
     }

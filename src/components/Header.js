@@ -8,6 +8,7 @@ const Header = ({ userInfo, fixed }) => {
     position: "static",
     paddingBottom: "0",
   };
+
   return (
     <header style={fixed === false ? notFixedStyle : null}>
       <Link to="/">
@@ -16,7 +17,7 @@ const Header = ({ userInfo, fixed }) => {
       {userInfo ? (
         <div className={styles.profile_container}>
           <Avatar
-            avatarImage={userInfo["profileImageSource"]}
+            avatarImage={userInfo["image_source"]}
             width="28px"
             height="28px"
           />

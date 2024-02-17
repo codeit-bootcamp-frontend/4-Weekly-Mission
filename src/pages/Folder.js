@@ -12,20 +12,21 @@ import Card from "../components/Card";
 const Folder = () => {
   const [user, setUser] = useState({
     email: null,
-    profileImageSource: null,
+    image_source: null,
   });
   const [folders, setFolders] = useState([]);
   const [currentFolder, setCurrentFolder] = useState({ id: 1, name: "전체" });
   const [currentLinks, setCurrentLinks] = useState([]);
 
   const loadUser = async () => {
-    const { email, profileImageSource } = await getUser();
-    if (!email) return;
-    setUser({ email, profileImageSource });
+    const userInfo = await getUser();
+    if (!userInfo) return;
+    setUser(userInfo["data"][0]);
   };
 
   const loadFolders = async () => {
     const folderInfo = await getFolders();
+    if (!folderInfo) return;
     setFolders(folderInfo["data"]);
   };
 
@@ -56,84 +57,94 @@ const Folder = () => {
         </div>
         <main>
           <SearchBar type="findLink" />
-          <div className={styles.tag_container}>
-            <div className={styles.tag_list}>
-              <TagBox
-                isSelected={currentFolder.id === 1}
-                onClick={() => setCurrentFolder({ id: 1, name: "전체" })}
-              >
-                전체
-              </TagBox>
-
-              {folders.map((folder) => {
-                return (
-                  <TagBox
-                    key={folder.id}
-                    id={folder.id}
-                    isSelected={currentFolder.id === folder.id}
-                    onClick={(e) => handleClickTag(e, folder)}
-                  >
-                    {folder["name"]}
-                  </TagBox>
-                );
-              })}
-            </div>
-            <span className={styles.add_folder_btn} onClick={handleAddFolder}>
-              폴더 추가 +
-            </span>
-          </div>
-
-          {currentLinks.length === 0 ? (
+          {folders.length === 0 ? (
             <div className={styles.warning_no_link}>저장된 링크가 없습니다</div>
           ) : (
             <>
-              <div className={styles.tag_title_container}>
-                <span className="font-24px font-regular">
-                  {currentFolder.name}
-                </span>
-                <div className={styles.action_icons_list}>
-                  <div className={styles.action_icon}>
-                    <img src="/icons/share_icon.svg" alt="share icon" />
-                    공유
-                  </div>
-                  <div className={styles.action_icon}>
-                    <img src="/icons/pen_icon.svg" alt="pen icon" />
-                    이름 변경
-                  </div>
-                  <div className={styles.action_icon}>
-                    <img src="/icons/delete_icon.svg" alt="delete icon" />
-                    삭제
-                  </div>
+              <div className={styles.tag_container}>
+                <div className={styles.tag_list}>
+                  <TagBox
+                    isSelected={currentFolder.id === 1}
+                    onClick={() => setCurrentFolder({ id: 1, name: "전체" })}
+                  >
+                    전체
+                  </TagBox>
+                  {folders.map((folder) => {
+                    return (
+                      <TagBox
+                        key={folder.id}
+                        id={folder.id}
+                        isSelected={currentFolder.id === folder.id}
+                        onClick={(e) => handleClickTag(e, folder)}
+                      >
+                        {folder["name"]}
+                      </TagBox>
+                    );
+                  })}
                 </div>
+                <span
+                  className={styles.add_folder_btn}
+                  onClick={handleAddFolder}
+                >
+                  폴더 추가 +
+                </span>
               </div>
-              <div className={styles.card_list}>
-                {currentLinks.map((link) => {
-                  const { created_at, description, image_source } = link;
-                  const createdDate = new Date(created_at);
-                  const currentDate = new Date();
 
-                  const createdDateString = formatDate(createdDate);
+              {currentLinks.length === 0 ? (
+                <div className={styles.warning_no_link}>
+                  저장된 링크가 없습니다
+                </div>
+              ) : (
+                <>
+                  <div className={styles.tag_title_container}>
+                    <span className="font-24px font-regular">
+                      {currentFolder.name}
+                    </span>
+                    <div className={styles.action_icons_list}>
+                      <div className={styles.action_icon}>
+                        <img src="/icons/share_icon.svg" alt="share icon" />
+                        공유
+                      </div>
+                      <div className={styles.action_icon}>
+                        <img src="/icons/pen_icon.svg" alt="pen icon" />
+                        이름 변경
+                      </div>
+                      <div className={styles.action_icon}>
+                        <img src="/icons/delete_icon.svg" alt="delete icon" />
+                        삭제
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.card_list}>
+                    {currentLinks.map((link) => {
+                      const { created_at, description, image_source } = link;
+                      const createdDate = new Date(created_at);
+                      const currentDate = new Date();
 
-                  const timeDifference = getTimeDifference(
-                    createdDate,
-                    currentDate,
-                  );
-                  return (
-                    <Link
-                      to={`/link/${link.id}`}
-                      key={link.id}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Card
-                        cardImage={image_source}
-                        cardTime={{ createdDateString, timeDifference }}
-                        cardDescription={description}
-                      />
-                    </Link>
-                  );
-                })}
-              </div>
+                      const createdDateString = formatDate(createdDate);
+
+                      const timeDifference = getTimeDifference(
+                        createdDate,
+                        currentDate,
+                      );
+                      return (
+                        <Link
+                          to={`/link/${link.id}`}
+                          key={link.id}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Card
+                            cardImage={image_source}
+                            cardTime={{ createdDateString, timeDifference }}
+                            cardDescription={description}
+                          />
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
             </>
           )}
         </main>
