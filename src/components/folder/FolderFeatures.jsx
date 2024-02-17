@@ -1,29 +1,25 @@
 import React from "react"
-import * as S from "./FolderFeatures.style"
-import FolderCategoryItem from "components/folder/FolderCategoryItem"
-import AddFolderIcon from "assets/images/icon/add-folder.svg"
+import * as S from "components/folder/FolderFeatures.style"
 
-const CATEGORIES = [
-  { id: 1, name: "전체", isSelected: true },
-  { id: 2, name: "즐겨찾기", isSelected: false },
-  { id: 3, name: "코딩 팁", isSelected: false },
-  { id: 4, name: "채용 사이트", isSelected: false },
-  { id: 5, name: "유용한 글", isSelected: false },
-  { id: 6, name: "나만의 장소", isSelected: false },
+import ShareIcon from "assets/images/icon/feature-share.svg"
+import DeleteIcon from "assets/images/icon/feature-delete.svg"
+import NameEditIcon from "assets/images/icon/feature-edit.svg"
+
+const FeatureListImage = [
+  { id: 1, imageSource: ShareIcon, title: "공유" },
+  { id: 3, imageSource: NameEditIcon, title: "이름변경" },
+  { id: 2, imageSource: DeleteIcon, title: "삭제" },
 ]
 
 function FolderFeatures() {
   return (
     <S.Features>
-      <S.Categories>
-        {CATEGORIES.map((category) => (
-          <FolderCategoryItem key={category.id} category={category} />
-        ))}
-      </S.Categories>
-      <S.AddFolder>
-        폴더 추가
-        <img src={AddFolderIcon} alt="" />
-      </S.AddFolder>
+      {FeatureListImage.map((item) => (
+        <S.FeatureItem key={item.id}>
+          <img src={item.imageSource} alt="" />
+          <span>{item.title}</span>
+        </S.FeatureItem>
+      ))}
     </S.Features>
   )
 }

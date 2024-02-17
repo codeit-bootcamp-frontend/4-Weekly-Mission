@@ -1,25 +1,24 @@
 import styled from "styled-components"
 
-export const Features = styled.div`
+export const Features = styled.ul`
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 24px;
+  gap: 0 12px;
 `
 
-export const Categories = styled.ul`
-  display: flex;
-  gap: 0 8px;
-`
-
-export const AddFolder = styled.button`
+export const FeatureItem = styled.li`
   display: flex;
   align-items: center;
-  font-weight: 500;
-  color: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray2);
 
   img {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
+  }
+
+  span {
+    display: block;
     margin-left: 4px;
   }
 `
