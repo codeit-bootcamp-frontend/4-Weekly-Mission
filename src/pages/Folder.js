@@ -34,6 +34,17 @@ const EmptyLink = function () {
 
 export default function Folder() {
 	const [isEmptyResponse, setIsCurrentEmptyResponse] = useState(false);
+	const [items, setItems] = useState([]);
+
+	const handleShareLoad = async () => {
+		const { data } = await acceptDataFromApi("users/1/links");
+		console.log(data);
+		setItems(data);
+	};
+
+	useEffect(() => {
+		handleShareLoad();
+	}, []);
 
 	return (
 		<div>
@@ -45,7 +56,7 @@ export default function Folder() {
 				) : (
 					<>
 						<LinkSubFolder />
-						<LinkCardCollection />
+						<LinkCardCollection items={items} />
 					</>
 				)}
 			</main>

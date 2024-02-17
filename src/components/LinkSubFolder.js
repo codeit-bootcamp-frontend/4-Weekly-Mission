@@ -105,7 +105,6 @@ export default function LinkSubFolder() {
 
 	useEffect(() => {
 		subFolderData(SUB_FOLDER);
-		console.log(subFolderList);
 	}, [subFolderList.length]);
 
 	return (

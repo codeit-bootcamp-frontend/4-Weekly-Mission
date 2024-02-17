@@ -6,7 +6,7 @@ import { acceptDataFromApi } from "Api";
 const timePassedFromCreate = (time) => {
 	let currentTime = new Date().getTime();
 	if (!time) {
-		throw new Error("UnknownTime");
+		throw new Error("시간 정보를 제대로 불러오지 못했습니다.");
 	}
 
 	const createdTime = new Date(time).getTime();
@@ -36,10 +36,15 @@ const NoCardImg = () => {
 };
 
 const FolderCard = function ({ contents }) {
-	const { id, createdAt, description, imageSource, url } = contents;
+	const { id, created_at, description, imageSource, url, createdAt } = contents;
 	const cardImage = { backgroundImage: `url(${imageSource})` };
 
-	const passedTime = timePassedFromCreate(createdAt);
+	const timeConversion = new Date(created_at || createdAt); // sampleApi와 userApi의 양식이 달라 호환시키기 위함
+
+	const passedTime = timePassedFromCreate(timeConversion);
+	const editedTime = `${timeConversion.getFullYear()}. ${
+		timeConversion.getMonth() + 1
+	}. ${timeConversion.getDate()}`;
 
 	return (
 		<a
@@ -54,26 +59,14 @@ const FolderCard = function ({ contents }) {
 			<section className="card-text">
 				<p className="card-passed-time">{passedTime}</p>
 				<p className="card-contents">{description}</p>
-				<p className="card-edited-date">{createdAt}</p>
+				<p className="card-edited-date">{editedTime}</p>
 			</section>
 		</a>
 	);
 };
 
-const LinkCardCollection = function () {
-	const [items, setItems] = useState([]);
-
-	const handleLoad = async () => {
-		const {
-			folder: { links },
-		} = await acceptDataFromApi("sample/folder");
-		setItems(links);
-	};
-
-	useEffect(() => {
-		handleLoad();
-	}, []);
-
+const LinkCardCollection = function ({ items }) {
+	console.log(items);
 	return (
 		<section className="folder-card-grid">
 			{items.map((item) => (
