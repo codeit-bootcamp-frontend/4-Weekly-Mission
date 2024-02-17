@@ -61,10 +61,10 @@ const FolderList = () => {
             </div>
           ))}
         </div>
-        <p>
+        <button className="addFolderButton">
           폴더 추가
           <img src={add} alt="add icon" />
-        </p>
+        </button>
       </div>
       <div className="selectedFolderName">
         {selectedFolderName}

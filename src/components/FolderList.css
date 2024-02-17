@@ -52,12 +52,33 @@
   align-items: center;
 }
 
-.folderListWrapper p {
-  color: var(--primary-color);
-}
-
 .folderListWrapper img {
   position: relative;
   top: 2px;
   left: 2px;
+}
+
+.addFolderButton {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-color);
+  height: 35px;
+  width: 127px;
+}
+
+@media (max-width: 768px) {
+  .addFolderButton {
+    background-color: var(--primary-color);
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    border-radius: 20px;
+    padding: 8px 24px;
+  }
+  .folderListWrapper img {
+    filter: brightness(0) saturate(100%) invert(100%);
+  }
 }
