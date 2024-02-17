@@ -8,6 +8,8 @@ const TagBox = ({ children, isSelected }) => {
     font-size: large;
     border: 1px solid var(--color-primary);
     border-radius: 5px;
+
+    white-space: nowrap;
   `;
 
   const SelectedTagBox = styled(DefaultTagBox)`

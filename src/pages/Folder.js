@@ -59,6 +59,8 @@ const Folder = () => {
             <div className={styles.tag_list}>
               <TagBox isSelected={true}>전체</TagBox>
               <TagBox>코딩 팁</TagBox>
+              <TagBox>코딩 팁</TagBox> <TagBox>코딩 팁</TagBox>{" "}
+              <TagBox>코딩 팁</TagBox> <TagBox>코딩 팁</TagBox>
             </div>
             <span className={styles.add_folder_btn} onClick={handleAddFolder}>
               폴더 추가 +

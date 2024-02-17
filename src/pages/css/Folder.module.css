@@ -91,6 +91,10 @@ main {
     padding: 10%;
   }
 
+  .tag_list {
+    flex-flow: wrap;
+  }
+
   .add_folder_btn {
     display: flex;
     justify-content: center;

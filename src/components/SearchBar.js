@@ -70,6 +70,7 @@ const SearchBar = ({ type }) => {
       padding: 10px 16px 10px 16px;
     }
 
+    //모바일, 태블릿 사이즈
     @media (min-width: 375px) and (max-width: 1124px) {
       width: 100%;
     }
