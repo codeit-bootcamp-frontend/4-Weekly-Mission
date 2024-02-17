@@ -1,5 +1,4 @@
 .folderList {
-  margin: 0 1rem;
   display: flex;
   gap: 8px;
 }
@@ -18,4 +17,24 @@
   font-size: 1.2rem;
   margin: 120px 0;
   flex: 1;
+}
+
+.selectedFolderName {
+  display: flex;
+  justify-content: space-between;
+}
+
+.utilContainer {
+  display: flex;
+  gap: 6px;
+  color: gray;
+}
+
+.wrapper {
+  margin: 1rem;
+}
+
+.utilContainer img {
+  position: relative;
+  top: 4px;
 }
