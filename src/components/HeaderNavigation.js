@@ -1,5 +1,4 @@
 import Profile from "./profile";
-import Folder from "./folder";
 import logo from "../assets/logo.png";
 import "../style/HeaderNavigation.css";
 function HeaderNavigation() {
@@ -10,9 +9,6 @@ function HeaderNavigation() {
           <img className="logo" src={logo} alt="logo" />
         </a>
         <Profile />
-      </div>
-      <div className="folder-container">
-        <Folder />
       </div>
     </div>
   );

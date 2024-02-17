@@ -1,6 +1,12 @@
+.main-container {
+  position: relative;
+  top: 28px;
+  margin: 0 150px;
+}
 .searchLink-container {
   display: flex;
   justify-content: center;
+  margin: 50px;
 }
 .search-link {
   width: 1060px;
@@ -13,16 +19,33 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+  margin: 40px;
 }
 .card-container {
   width: 340px;
   height: 334px;
-  border-radius: 15px;
   text-decoration: none;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
+}
+.cardInfo {
+  position: relative;
+  width: 340px;
+  height: 135px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px 20px;
+  gap: 10px;
 }
 .cardImg {
+  position: relative;
   width: 340px;
-  height: 253px;
+  height: 200px;
+  border-radius: 15px 15px 0 0;
+  overflow: hidden;
 }
 .timeDifference {
   font-size: 13px;
@@ -31,4 +54,8 @@
 .item-description {
   font-size: 16px;
   font-weight: 400;
+  max-height: 49px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

@@ -1,16 +1,20 @@
 .Header-Container {
   background-color: #f0f6ff;
+  z-index: 2;
 }
 .Header {
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  padding: 33px 200px 32px 200px;
+  width: 100%;
+  background-color: #f0f6ff;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
 }
 .logo {
   width: 133px;
   height: 24px;
   align-self: center;
-}
-.folder-container {
-  display: flex;
-  justify-content: center;
 }

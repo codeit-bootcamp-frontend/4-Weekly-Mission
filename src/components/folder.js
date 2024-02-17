@@ -10,7 +10,7 @@ function Folder() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/folder"
+          "https://bootcamp-api.codeit.kr/api/sample/folder",
         );
         const data = await response.json();
         if (response.ok) {
@@ -28,7 +28,7 @@ function Folder() {
   }, []);
 
   return (
-    <div>
+    <div className="folder-container">
       <img
         className="profileImg"
         src={folderData.profileImage}
