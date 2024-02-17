@@ -2,11 +2,8 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "./css/Folder.module.css";
 import SearchBar from "../components/SearchBar";
-import Card from "../components/Card";
 import { useEffect, useState } from "react";
-import { getFolder, getUser } from "../utils/api";
-import { Link } from "react-router-dom";
-import { formatDate, getTimeDifference } from "../utils/DateUtils";
+import { getFolders, getUser } from "../utils/api";
 import TagBox from "../components/TagBox";
 
 const Folder = () => {
@@ -14,12 +11,8 @@ const Folder = () => {
     email: null,
     profileImageSource: null,
   });
-  const [folderInfo, setFolderInfo] = useState({
-    folderName: null,
-    folderOwner: null,
-    folderOwnerImage: null,
-    folderLinks: [],
-  });
+  const [folders, setFolders] = useState([]);
+  const [currentFolder, setCurrentFolder] = useState({ id: null, name: null });
 
   const loadUser = async () => {
     const { email, profileImageSource } = await getUser();
@@ -27,23 +20,21 @@ const Folder = () => {
     setUser({ email, profileImageSource });
   };
 
-  const loadFolder = async () => {
-    const folderInfo = await getFolder();
-    setFolderInfo({
-      folderName: folderInfo["folder"]["name"],
-      folderOwner: folderInfo["folder"]["owner"]["name"],
-      folderOwnerImage: folderInfo["folder"]["owner"]["profileImageSource"],
-      folderLinks: folderInfo["folder"]["links"],
-    });
+  const loadFolders = async () => {
+    const folderInfo = await getFolders();
+    setFolders(folderInfo["data"]);
   };
 
   const handleAddFolder = () => {
     alert("Add Folder");
   };
 
+  const handleClickTag = (e, folder) => {
+    setCurrentFolder({ id: folder.id, name: folder.name });
+  };
   useEffect(() => {
     loadUser();
-    loadFolder();
+    loadFolders();
   }, []);
 
   return (
@@ -57,17 +48,25 @@ const Folder = () => {
           <SearchBar type="findLink" />
           <div className={styles.tag_container}>
             <div className={styles.tag_list}>
-              <TagBox isSelected={true}>전체</TagBox>
-              <TagBox>코딩 팁</TagBox>
-              <TagBox>코딩 팁</TagBox> <TagBox>코딩 팁</TagBox>{" "}
-              <TagBox>코딩 팁</TagBox> <TagBox>코딩 팁</TagBox>
+              {folders.map((folder) => {
+                return (
+                  <TagBox
+                    key={folder.id}
+                    id={folder.id}
+                    isSelected={currentFolder.id === folder.id}
+                    onClick={(e) => handleClickTag(e, folder)}
+                  >
+                    {folder["name"]}
+                  </TagBox>
+                );
+              })}
             </div>
             <span className={styles.add_folder_btn} onClick={handleAddFolder}>
               폴더 추가 +
             </span>
           </div>
           <div className={styles.tag_title_container}>
-            <span className="font-24px font-regular">유용한 글</span>
+            <span className="font-24px font-regular">{currentFolder.name}</span>
             <div className={styles.action_icons_list}>
               <div className={styles.action_icon}>
                 <img src="/icons/share_icon.svg" alt="share icon" />
@@ -85,32 +84,32 @@ const Folder = () => {
           </div>
 
           <div className={styles.card_list}>
-            {folderInfo.folderLinks.map((link) => {
-              const { imageSource, createdAt, description } = link;
-              const createdDate = new Date(createdAt);
-              const currentDate = new Date();
+            {/*{folderInfo.folderLinks.map((link) => {*/}
+            {/*  const { imageSource, createdAt, description } = link;*/}
+            {/*  const createdDate = new Date(createdAt);*/}
+            {/*  const currentDate = new Date();*/}
 
-              const createdDateString = formatDate(createdDate);
+            {/*  const createdDateString = formatDate(createdDate);*/}
 
-              const timeDifference = getTimeDifference(
-                createdDate,
-                currentDate,
-              );
-              return (
-                <Link
-                  to={`/link/${link.id}`}
-                  key={link.id}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Card
-                    cardImage={imageSource}
-                    cardTime={{ createdDateString, timeDifference }}
-                    cardDescription={description}
-                  />
-                </Link>
-              );
-            })}
+            {/*  const timeDifference = getTimeDifference(*/}
+            {/*    createdDate,*/}
+            {/*    currentDate,*/}
+            {/*  );*/}
+            {/*  return (*/}
+            {/*    <Link*/}
+            {/*      to={`/link/${link.id}`}*/}
+            {/*      key={link.id}*/}
+            {/*      target="_blank"*/}
+            {/*      rel="noopener noreferrer"*/}
+            {/*    >*/}
+            {/*      <Card*/}
+            {/*        cardImage={imageSource}*/}
+            {/*        cardTime={{ createdDateString, timeDifference }}*/}
+            {/*        cardDescription={description}*/}
+            {/*      />*/}
+            {/*    </Link>*/}
+            {/*  );*/}
+            {/*})}*/}
           </div>
         </main>
       </div>

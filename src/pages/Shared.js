@@ -5,7 +5,7 @@ import styles from "./css/Folder.module.css";
 import SearchBar from "../components/SearchBar";
 import Card from "../components/Card";
 import { useEffect, useState } from "react";
-import { getFolder, getUser } from "../utils/api";
+import { getLinks, getUser } from "../utils/api";
 import { Link } from "react-router-dom";
 import { formatDate, getTimeDifference } from "../utils/DateUtils";
 
@@ -28,7 +28,7 @@ const Shared = () => {
   };
 
   const loadFolder = async () => {
-    const folderInfo = await getFolder();
+    const folderInfo = await getLinks();
     setFolderInfo({
       folderName: folderInfo["folder"]["name"],
       folderOwner: folderInfo["folder"]["owner"]["name"],

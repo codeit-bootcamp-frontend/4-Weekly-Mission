@@ -35,13 +35,19 @@ main {
 
 .tag_list {
   display: flex;
+  flex-flow: wrap;
   gap: 10px;
 }
 
 .add_folder_btn {
+  display: flex;
+  align-items: center;
+  
   font-size: 16px;
   font-weight: 500;
   color: var(--color-primary);
+
+  white-space: nowrap;
 }
 
 .action_icons_list {
@@ -85,10 +91,6 @@ main {
   .card_list {
     display: flex;
     flex-direction: column;
-  }
-
-  .tag_list {
-    flex-flow: wrap;
   }
 
   .add_folder_btn {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const TagBox = ({ children, isSelected }) => {
+const TagBox = ({ children, id, isSelected, onClick }) => {
   const DefaultTagBox = styled.button`
     padding: 8px 12px 8px 12px;
     background-color: var(--color-white);
@@ -10,16 +10,26 @@ const TagBox = ({ children, isSelected }) => {
     border-radius: 5px;
 
     white-space: nowrap;
+
+    @media (min-width: 375px) and (max-width: 767px) {
+      padding: 6px 10px;
+      font-size: 14px;
+    }
   `;
 
   const SelectedTagBox = styled(DefaultTagBox)`
     background-color: var(--color-primary);
     color: white;
   `;
+
   return isSelected ? (
-    <SelectedTagBox>{children}</SelectedTagBox>
+    <SelectedTagBox id={id} onClick={onClick}>
+      {children}
+    </SelectedTagBox>
   ) : (
-    <DefaultTagBox>{children}</DefaultTagBox>
+    <DefaultTagBox id={id} onClick={onClick}>
+      {children}
+    </DefaultTagBox>
   );
 };
 
