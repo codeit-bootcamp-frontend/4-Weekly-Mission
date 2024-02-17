@@ -1,31 +1,6 @@
-import { useEffect, useState } from "react";
-import { getFolder } from "./Api";
 import "./styles/Header.css";
 
-function Header() {
-  const [folderData, setFolderData] = useState({
-    folderName: "",
-    profileName: "",
-    profileImg: "",
-  });
-
-  useEffect(() => {
-    const getFolderData = async () => {
-      try {
-        const profile = await getFolder();
-        setFolderData({
-          folderName: profile.folder.name,
-          profileName: profile.folder.owner.name,
-          profileImg: profile.folder.owner.profileImageSource,
-        });
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getFolderData();
-  }, []);
-
+function Header({ folderData }) {
   return (
     <div className="Header">
       <div className="headerProfileBox">
