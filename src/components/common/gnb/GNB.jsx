@@ -1,9 +1,8 @@
 import { Link } from 'react-router-dom';
 import { styled } from 'styled-components';
-import { useEffect, useState } from 'react';
 
+import useUserInfoQuery from 'hooks/api/user/useUserInfoQuery';
 import logo from 'assets/logo.svg';
-import folderAPI from 'api/folderAPI';
 import Button from 'components/common/button/Button';
 import UserBtn from 'components/common/gnb/UserBtn';
 
@@ -36,23 +35,9 @@ const Styled = {
 };
 
 function GNB() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userData, setUserData] = useState(null);
-
-  const fetchData = async () => {
-    try {
-      const res = await folderAPI.getUserInfo(1);
-      const userData = res.data?.data[0];
-      setIsLoggedIn(userData ? true : false);
-      setUserData(userData);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { data } = useUserInfoQuery({ userId: 1 });
+  const userData = data?.data?.data[0];
+  const isLoggedIn = userData !== null;
 
   return (
     <Styled.Container>
