@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../style/Card.css';
 import { Link } from 'react-router-dom';
 import undefinedImg from '../assets/share/undefinedImg.svg';
 
 const Card = ({ folderLinkInfo }) => {
+  const [isSelete, setIsSelete] = useState(null);
+
   const getCreateDate = (createdAt) => {
     const createDate = new Date(createdAt);
     const formattedDate = `${createDate.getFullYear()}. ${
@@ -47,6 +49,10 @@ const Card = ({ folderLinkInfo }) => {
     }
   };
 
+  const handleOnOffSelete = (id) => {
+    setIsSelete(isSelete === id ? null : id);
+  };
+
   return (
     <div className='SharedCardContent'>
       {folderLinkInfo.map((link) => {
@@ -61,20 +67,26 @@ const Card = ({ folderLinkInfo }) => {
         };
 
         return (
-          <Link to={url} key={link.id} target='_black'>
-            <div className='CardContent'>
+          <div key={link.id} className='CardContent'>
+            <Link to={url} target='_black'>
               <div className='CardImage' style={cardImage} />
-              <div className='CardInfo'>
-                <div className='CardInfoHeader'>
-                  <span>{timeDifference}</span>
-                  <button />
-                </div>
-                <p>{description}</p>
-                <span>{createDate}</span>
+            </Link>
+            <div className='CardInfo'>
+              <div className='CardInfoHeader'>
+                <span>{timeDifference}</span>
+                <button onClick={() => handleOnOffSelete(link.id)} />
+                {isSelete === link.id && (
+                  <div className='CardBtnContent'>
+                    <button>삭제하기</button>
+                    <button>폴더에 추가</button>
+                  </div>
+                )}
               </div>
-              <button />
+              <p>{description}</p>
+              <span>{createDate}</span>
             </div>
-          </Link>
+            <button />
+          </div>
         );
       })}
     </div>

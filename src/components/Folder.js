@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import '../style/Folder.css';
 import close from '../assets/folder/close.svg';
 import Card from './Card';
-import { getFolderInfo } from './api';
+import { getFolderInfo } from '../apis/api';
 
 const Folder = () => {
   const [folderInfo, setFolderInfo] = useState({

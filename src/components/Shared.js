@@ -4,7 +4,7 @@ import avatar from '../assets/share/avatar.svg';
 import search from '../assets/share/search.svg';
 import close from '../assets/share/close.svg';
 import Card from './Card';
-import { getFolderInfo } from './api';
+import { getFolderInfo } from '../apis/api';
 
 const Shared = () => {
   const [folderInfo, setFolderInfo] = useState({
@@ -17,6 +17,7 @@ const Shared = () => {
   const handleLoadFolderInfo = async () => {
     try {
       const folderInfo = await getFolderInfo();
+
       if (!folderInfo.folder) return;
 
       setFolderInfo({

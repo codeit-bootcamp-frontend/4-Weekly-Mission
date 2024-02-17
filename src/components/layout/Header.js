@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import logo from '../../assets/header/logo.svg';
 import '../../style/Header.css';
 import { Link } from 'react-router-dom';
-import { getUserInfo } from '../api';
+import { getUserInfo } from '../../apis/api';
 
 const Header = () => {
   const [user, setUser] = useState({ email: null, profileImageSource: null });
