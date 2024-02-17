@@ -5,6 +5,7 @@ import styles from "./Container.module.css";
 import FolderCard from "./FolderCard";
 import Folder from "./Folder";
 import Banner from "./Banner";
+import BlankCard from "../ui/BlankCard";
 
 function FolderContainer({
   folder,
@@ -20,6 +21,7 @@ function FolderContainer({
   }
   const { data: folderData } = folder;
   const { data: cardData } = cardLink;
+  console.log(cardData);
 
   return (
     <section className={styles.folder_section}>
@@ -69,11 +71,19 @@ function FolderContainer({
             </div>
           </div>
         </div>
-        <div className={styles.card_list}>
-          {cardData.map(data => (
-            <FolderCard key={data.id} cardData={data} />
-          ))}
-        </div>
+
+        {cardData.length !== 0 ? (
+          <div className={styles.card_list}>
+            {cardData.map(data => (
+              <FolderCard key={data.id} cardData={data} />
+            ))}
+            ;
+          </div>
+        ) : (
+          <div className={styles.card_blank}>
+            <BlankCard />
+          </div>
+        )}
       </Wrapper>
     </section>
   );
