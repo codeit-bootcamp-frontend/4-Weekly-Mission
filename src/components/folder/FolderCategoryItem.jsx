@@ -1,9 +1,10 @@
 import React from "react"
 import * as S from "./FolderCategoryItem.style"
 
-function FolderCategoryItem({ category }) {
+function FolderCategoryItem({ category, onSelectHandler }) {
+  console.log(category.name, category.isSelected)
   return (
-    <li>
+    <li onClick={onSelectHandler.bind(this, category)}>
       <S.Button $isSelected={category.isSelected}>{category.name}</S.Button>
     </li>
   )
