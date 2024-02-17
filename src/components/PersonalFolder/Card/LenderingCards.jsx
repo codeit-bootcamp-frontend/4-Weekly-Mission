@@ -7,12 +7,12 @@ import api from "../../../utils/api.js";
 import "../../../styles/common.css";
 
 const LenderingCards = () => {
-  const [items, setItems] = useState(null);
+  const [cardDetail, setCardDetail] = useState(null);
 
   const fetchData = async () => {
     try {
       const result = await api("sample/folder");
-      setItems(result.folder.links);
+      setCardDetail(result.folder.links);
     } catch (error) {
       alert(error);
     }
@@ -25,9 +25,7 @@ const LenderingCards = () => {
   return (
     <div css={outerDivCss}>
       <SearchingBar />
-      <div css={divCss}>
-        <Cards items={items} />
-      </div>
+      <Cards items={cardDetail} />
     </div>
   );
 };
@@ -42,9 +40,4 @@ const outerDivCss = css`
 
   background: var(--Linkbrary-white);
   padding: 40px 0 0 0;
-`;
-const divCss = css`
-  display: flex;
-  justify-content: center;
-  background: var(--Linkbrary-white);
 `;

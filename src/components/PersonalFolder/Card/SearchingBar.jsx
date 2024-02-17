@@ -17,26 +17,21 @@ const SearchingBar = ({ onSearch }) => {
   };
 
   return (
-    <div css={divCss}>
-      <form onSubmit={handleSubmit} css={formCss}>
-        <img src={searchImg} css={imageCss} />
-        <input
-          type="text"
-          value={keyword}
-          onChange={handleChange}
-          placeholder="링크를 검색해 보세요"
-          css={inputCss}
-        />
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} css={formCss}>
+      <img src={searchImg} css={imageCss} />
+      <input
+        type="text"
+        value={keyword}
+        onChange={handleChange}
+        placeholder="링크를 검색해 보세요"
+        css={inputCss}
+      />
+    </form>
   );
 };
 
 export default SearchingBar;
 
-const divCss = css`
-  width: 100%;
-`;
 const formCss = css`
   width: 100%;
   display: flex;

@@ -7,14 +7,13 @@ import { formatDate } from "../../../utils/formatDate";
 import kebab from "../../../assets/kebab.png";
 import star from "../../../assets/star.svg";
 import filledStar from "../../../assets/filledStar.svg";
-import Logo from "../../../assets/Linkbrary.png";
+import logo from "../../../assets/Linkbrary.png";
 import "../../../styles/common.css";
 
 const Card = ({ item }) => {
-  const img = item.imageSource;
-  const comment = item.description;
-  const date = formatDate(item.createdAt);
-  const time = timeCalculator(item.createdAt);
+  const { imageSource, description, createdAt } = item;
+  const createdDate = formatDate(createdAt);
+  const timeFromCreated = timeCalculator(createdAt);
   const [isClicked, setIsClicked] = useState(false);
   const handleClick = () => {
     setIsClicked(!isClicked);
@@ -23,17 +22,28 @@ const Card = ({ item }) => {
   return (
     <div css={divCss}>
       <Link to="/newPage" css={linkCss}>
-        <div css={imgWrapperCss}>
-          <img css={logoCss} src={Logo} />
-          <img css={imgCss} src={img} />
+        <div
+          css={css`
+            background-color: ${Boolean(imageSource) ? "#ffffff" : "#dddfff"};
+            ${imgWrapperCss};
+          `}
+        >
+          <img
+            src={logo}
+            css={css`
+              display: ${Boolean(imageSource) ? "none" : "inline"};
+              ${logoCss};
+            `}
+          />
+          <img css={imgCss} src={imageSource} />
         </div>
 
         <div css={pWrapperCss}>
-          <p css={timeCss}>{time}</p>
+          <p css={timeCss}>{timeFromCreated}</p>
           <div css={commentWrapperCss}>
-            <p css={commentCss}>{comment}</p>
+            <p css={commentCss}>{description}</p>
           </div>
-          <p css={dateCss}>{date}</p>
+          <p css={dateCss}>{createdDate}</p>
         </div>
       </Link>
       <img
@@ -41,7 +51,7 @@ const Card = ({ item }) => {
         src={isClicked ? filledStar : star}
         onClick={handleClick}
       />
-      <img css={kebabCss} src={kebab} />
+      <img css={kebabCss} src={kebab} alt="kebab" />
     </div>
   );
 };
@@ -61,7 +71,6 @@ const imgWrapperCss = css`
   width: 100%;
   height: 200px;
   border-radius: 16px 16px 0 0;
-  background: #dddfff;
   overflow: hidden;
   display: flex;
   justify-content: center;
