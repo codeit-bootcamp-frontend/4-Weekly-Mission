@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getFolderData } from "../../apis/api";
 import FolderOwner from "../../component/FolderOwner/FolderOwner";
 import LinkItems from "../../component/LinkItems/LinkItems";
+import LinkSearchInput from "../../component/LinkSearchInput/LinkSearchInput";
 
 const SharedPage = () => {
   const [folderData, setFolderData] = useState(null);
@@ -22,7 +23,9 @@ const SharedPage = () => {
       {folderData ? (
         <>
           <FolderOwner name={folderData?.name} owner={folderData?.owner} />
-          <LinkItems links={folderData?.links} />
+          <LinkItems links={folderData?.links}>
+            <LinkSearchInput />
+          </LinkItems>
         </>
       ) : (
         <p className="loadFail">저장된 링크가 없습니다.</p>

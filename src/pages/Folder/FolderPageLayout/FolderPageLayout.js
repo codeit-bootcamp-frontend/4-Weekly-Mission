@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getFolderList, getLinkData } from "../../../apis/api";
 import FolderName from "./FolderName";
 import LinkItems from "../../../component/LinkItems/LinkItems";
+import GridWrapper from "./GridWrapper";
 
 const FolderPageLayout = () => {
   const [folders, setFolders] = useState([]);

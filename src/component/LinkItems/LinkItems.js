@@ -26,12 +26,10 @@ const LinkItem = ({ link }) => {
   );
 };
 
-const LinkItems = ({ links = [] }) => {
+const LinkItems = ({ links = [], children }) => {
   return (
     <div className="LinkItems">
-      <InputContainer>
-        <LinkSearchInput />
-      </InputContainer>
+      <InputContainer>{children}</InputContainer>
       {links.map((link) => (
         <LinkItem key={link.id} link={link} />
       ))}

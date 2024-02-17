@@ -6,7 +6,7 @@ const LiWrapper = styled.div`
     padding: 8px 12px;
     border: 1px solid #6d6afe;
     border-radius: 5px;
-    margin-right: 8px;
+    margin: 0 8px 12px 0;
     font-size: 1rem;
     line-height: 1rem;
 
