@@ -1,0 +1,16 @@
+.Header-Container {
+  background-color: #f0f6ff;
+}
+.Header {
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  width: 133px;
+  height: 24px;
+  align-self: center;
+}
+.folder-container {
+  display: flex;
+  justify-content: center;
+}

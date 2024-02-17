@@ -1,0 +1,21 @@
+.footer-container {
+  display: flex;
+  background-color: #111322;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-codeit {
+  color: #676767;
+}
+.footer-link {
+  display: flex;
+  color: #676767;
+  justify-content: space-between;
+}
+.footer-sns {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  justify-content: flex-end;
+  gap: 10px;
+}
