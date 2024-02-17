@@ -9,6 +9,8 @@ import logoImage from "./images/logo.svg"
 
 // Card
 import noImage from "./images/no_image.jpeg"
+import meatballsIcon from "./images/ic_meatballs.svg"
+import starIcon from "./images/ic_star.svg"
 
 // Input
 import searchIcon from "./images/ic_search.svg"
@@ -30,5 +32,7 @@ export {
   linkIcon,
   shareIcon,
   penIcon,
-  trashIcon
+  trashIcon,
+  meatballsIcon,
+  starIcon
 };
