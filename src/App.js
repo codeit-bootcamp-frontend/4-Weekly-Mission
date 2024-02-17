@@ -3,18 +3,16 @@ import SharedPage from "./pages/SharedPage";
 import FolderPage from "./pages/FolderPage";
 import HomePage from "./pages/HomePage";
 
-function Main() {
+function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" index element={<HomePage />} />
-        <Route path="folder">
-          <Route index element={<FolderPage />} />
-        </Route>
+        <Route path="folder" element={<FolderPage />} />
         <Route path="shared" element={<SharedPage />} />
       </Routes>
     </BrowserRouter>
   );
 }
 
-export default Main;
+export default App;

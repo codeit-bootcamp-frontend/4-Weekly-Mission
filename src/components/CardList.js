@@ -17,7 +17,6 @@ function CardListItem({ item }) {
             <p className="time-difference">{timeDifference}</p>
             <img src={kebab} alt="kebab" className="kebabIcon" />
           </div>
-
           <p className="title">{title}</p>
           <p className="description">{description}</p>
           <p className="date"> {formattedDate}</p>
