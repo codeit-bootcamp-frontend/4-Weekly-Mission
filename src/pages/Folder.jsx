@@ -11,7 +11,10 @@ function Folder() {
   const [user, setUser] = useState(null);
   const [folder, setFolder] = useState(null);
   const [link, setLink] = useState(null);
-  const [folderState, setFolderState] = useState(null);
+  const [folderState, setFolderState] = useState({
+    name: "전체",
+    value: null,
+  });
 
   useEffect(() => {
     getSampeUser().then(setUser);
@@ -19,7 +22,7 @@ function Folder() {
   }, []);
 
   useEffect(() => {
-    getFolderLink(folderState).then(setLink);
+    getFolderLink(folderState.value).then(setLink);
   }, [folderState]);
 
   return (

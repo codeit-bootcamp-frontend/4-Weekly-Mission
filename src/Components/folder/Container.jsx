@@ -24,11 +24,16 @@ function FolderContainer({
     <section className={styles.folder_section}>
       <Wrapper className={styles.folder_container}>
         <SearchBar />
-        <div>
+        <div className={styles.folder_filter}>
           <ul className={styles.folder_list}>
             <li
               className={styles.folder}
-              onClick={() => setFolderState()}
+              onClick={() =>
+                setFolderState({
+                  name: "전체",
+                  value: null,
+                })
+              }
             >
               전체
             </li>
@@ -41,7 +46,27 @@ function FolderContainer({
               />
             ))}
           </ul>
-          <div></div>
+          <div className={styles.folder_add}>
+            <p>폴더추가</p>
+            <img src="/Icons/add.svg" alt="폴더추가" />
+          </div>
+        </div>
+        <div className={styles.folder_util}>
+          <h2 className={styles.folder_title}>{folderState.name}</h2>
+          <div className={styles.folder_btnList}>
+            <div className={styles.folder_btnList_btn}>
+              <img src="/Icons/share.svg" alt="공유" />
+              <p>공유</p>
+            </div>
+            <div className={styles.folder_btnList_btn}>
+              <img src="/Icons/pen.svg" alt="이름 변경" />
+              <p>이름 변경</p>
+            </div>
+            <div className={styles.folder_btnList_btn}>
+              <img src="/Icons/delete.svg" alt="삭제" />
+              <p>삭제</p>
+            </div>
+          </div>
         </div>
         <div className={styles.card_list}>
           {cardData.map(data => (

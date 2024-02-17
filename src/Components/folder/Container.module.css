@@ -1,5 +1,6 @@
 .folder_section {
   width: 100%;
+  font-family: Pretendard;
 }
 
 .folder_container {
@@ -7,6 +8,12 @@
   min-height: 1280px;
   background-color: var(--color-white);
   margin: 40px auto;
+}
+
+.folder_filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .folder_list {
@@ -20,6 +27,45 @@
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: #fff;
   list-style-type: none;
+}
+
+.folder_add {
+  display: flex;
+  gap: 4px;
+}
+
+.folder_add p {
+  color: #6d6afe;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+}
+
+.folder_util {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.folder_title {
+  color: #000;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.folder_btnList {
+  display: flex;
+  gap: 12px;
+}
+
+.folder_btnList_btn {
+  display: flex;
+  gap: 4px;
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .card_list {
