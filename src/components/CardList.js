@@ -41,18 +41,18 @@ const CardItem = ({ link }) => {
   return (
     <div className="card" onClick={handleClickUrl}>
       {imageSource ? (
-        <div className="card_img">
-          <img id="img_logo" src={imageSource} alt={title} />
+        <div className="card-img">
+          <img id="img-logo" src={imageSource} alt={title} />
         </div>
       ) : (
-        <div className="card_img no_img">
-          <img id="no_img_logo" src={logoImg} alt="noImg" />
+        <div className="card-img no-img">
+          <img id="no-img-logo" src={logoImg} alt="noImg" />
         </div>
       )}
-      <div className="card_contents">
-        <a id="card_created_time">{caculateTime(createdAt)}</a>
-        <a id="card_description">{description}</a>
-        <p id="card_date">{formatDate(createdAt)}</p>
+      <div className="card-contents">
+        <a id="card-created-time">{caculateTime(createdAt)}</a>
+        <a id="card-description">{description}</a>
+        <p id="card-date">{formatDate(createdAt)}</p>
       </div>
     </div>
   );
@@ -63,14 +63,14 @@ const CardList = ({ links }) => {
     <main>
       {links.length ? (
         <div className="cardList">
-          <div className="cardList_container">
+          <div className="cardList-container">
             {links.map((item) => (
               <CardItem key={item.id} link={item} />
             ))}
           </div>
         </div>
       ) : (
-        <h1 className="fail_data">폴더 데이터를 가져오지 못했습니다.</h1>
+        <h1 className="fail-data">폴더 데이터를 가져오지 못했습니다.</h1>
       )}
     </main>
   );

@@ -13,7 +13,7 @@ const UserInfo = ({ email, imgSrc }) => {
 const Nav = ({ email, imgSrc }) => {
   return (
     <nav>
-      <div className="nav_container">
+      <div className="nav-container">
         <a href="/">
           <img src={logoImg} alt="logo" id="logoImg" />
         </a>

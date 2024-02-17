@@ -3,13 +3,13 @@ import searchIcon from "../assets/images/search.svg";
 
 const SearchBar = () => {
   return (
-    <div className="search_bar_container">
-      <form className="search_form">
-        <img id="search_icon" src={searchIcon} />
+    <div className="search-bar-container">
+      <form className="search-form">
+        <img id="search-icon" src={searchIcon} />
         <input
-          className="search_bar"
+          className="search-bar"
           type="text"
-          name="search_bar"
+          name="search-bar"
           placeholder="링크를 검색해 보세요."
         />
       </form>

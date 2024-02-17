@@ -13,27 +13,27 @@ main {
   overflow: hidden;
   cursor: pointer;
 }
-.card:hover .card_contents {
+.card:hover .card-contents {
   background: var(--Linkbrary-bg, #f0f6ff);
 }
-.card:hover #img_logo {
+.card:hover #img-logo {
   transform: scale(1.3);
   transition: transform 0.3s ease;
 }
-.card_img {
+.card-img {
   display: flex;
   justify-content: center;
   overflow: hidden;
   width: 21.25rem;
   height: 12.5rem;
 }
-#img_logo {
+#img-logo {
   width: 21.25rem;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
 
-.card_contents {
+.card-contents {
   display: flex;
   width: 21.25rem;
   padding: 0.9375rem 1.25rem;
@@ -42,7 +42,7 @@ main {
   gap: 0.625rem;
   background: #ffffff;
 }
-#card_created_time {
+#card-created-time {
   color: #666;
 
   font-size: 0.8125rem;
@@ -50,7 +50,7 @@ main {
   font-weight: 400;
   line-height: normal;
 }
-#card_description {
+#card-description {
   height: 3.0625rem;
   align-self: stretch;
 
@@ -68,7 +68,7 @@ main {
   font-weight: 400;
   line-height: 1.5rem; /* 150% */
 }
-#card_date {
+#card-date {
   overflow: hidden;
   color: #333;
 
@@ -80,7 +80,7 @@ main {
   font-weight: 400;
   line-height: normal;
 }
-.cardList_container {
+.cardList-container {
   width: 66.3rem;
   display: flex;
   flex-wrap: wrap;
@@ -95,11 +95,11 @@ main {
   padding: 2.5rem 0;
   width: 100%;
 }
-.no_img {
+.no-img {
   background: #dddfff;
   padding: 5.5rem 6.5rem;
 }
-#no_img_logo {
+#no-img-logo {
   width: 8.3125rem;
   height: 1.5rem;
   opacity: 0.2;
@@ -107,7 +107,7 @@ main {
 
 /* Mobile 375~767 1열*/
 @media (min-width: 375px) and (max-width: 767px) {
-  .cardList_container {
+  .cardList-container {
     max-width: 20.3rem;
     width: 100%;
   }
@@ -115,10 +115,10 @@ main {
     max-width: 20.3125rem;
     width: 100%;
   }
-  .card_img {
+  .card-img {
     width: 100%;
   }
-  .card_contents {
+  .card-contents {
     width: 100%;
   }
   .cardList {
@@ -129,7 +129,7 @@ main {
 }
 /* Tablet 768~1124 card 2열*/
 @media (min-width: 768px) and (max-width: 1124px) {
-  .cardList_container {
+  .cardList-container {
     max-width: 44rem;
     width: 100%;
     column-gap: 1.5rem;
@@ -139,10 +139,10 @@ main {
     max-width: 21.25rem;
     width: calc(50% - 0.75rem);
   }
-  .card_img {
+  .card-img {
     width: 100%;
   }
-  .card_contents {
+  .card-contents {
     width: 100%;
   }
   .cardList {
