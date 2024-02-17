@@ -8,9 +8,11 @@ function Folder() {
   const dataArray = data?.data;
 
   const [activeButton, setActiveButton] = useState("전체");
+  const [selectedFolder, setSelectedFolder] = useState("");
 
   const handleButtonClick = (name) => {
     setActiveButton(name);
+    setSelectedFolder(name);
   };
 
   let renderedButtons;
@@ -48,6 +50,25 @@ function Folder() {
               src="images/add.svg"
               alt="폴더 추가 이미지"
             />
+          </div>
+        </div>
+        <div className="Selected-folder">
+          {selectedFolder && (
+            <span className="Selected-folder-name">{selectedFolder}</span>
+          )}
+          <div className="Selected-option">
+            <div className="Selected-option-content">
+              <img src="images/share.svg" alt="공유 이미지" />
+              <p>공유</p>
+            </div>
+            <div className="Selected-option-content">
+              <img src="images/pen.svg" alt="이름 변경 이미지" />
+              <p>이름 변경</p>
+            </div>
+            <div className="Selected-option-content">
+              <img src="images/delete.svg" alt="삭제 이미지" />
+              <p>삭제</p>
+            </div>
           </div>
         </div>
       </div>
