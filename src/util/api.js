@@ -16,10 +16,10 @@ async function getAPI(query) {
   }
 }
 
-export function getFolder() {
+export function getSampleFolder() {
   return getAPI('sample/folder');
 }
 
-export function getUser() {
+export function getSampleUser() {
   return getAPI('sample/user');
 }

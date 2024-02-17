@@ -1,6 +1,6 @@
 import '../styles/FolderSection.css';
 import { useEffect, useState } from 'react';
-import { getFolder } from '../util/api';
+import { getSampleFolder } from '../util/api';
 import search from '../assets/search.svg';
 import LinkCard from './LinkCard';
 import UserFolderNameArea from './UserFolderNameArea';
@@ -15,7 +15,7 @@ function SharedPage() {
     try {
       const {
         folder: { name, owner, links },
-      } = await getFolder();
+      } = await getSampleFolder();
 
       setFolderName(name);
       setUserName(owner.name);
