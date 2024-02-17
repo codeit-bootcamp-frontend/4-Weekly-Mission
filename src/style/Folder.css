@@ -281,6 +281,17 @@
   .FolderLinkSaveList {
     width: 70.4rem;
   }
+
+  .CategoryContent {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem 0.8rem;
+  }
+
+  .LinkSaveListCategory > button {
+    width: 10rem;
+  }
 }
 
 /* mobile */
@@ -370,10 +381,11 @@
     border: 0.1rem solid var(--white);
     background: var(--primary);
     color: var(--gray10);
-    position: absolute;
+    position: fixed;
     bottom: 10.1rem;
     left: 50%;
     transform: translate(-50%, -50%);
+    z-index: 1;
   }
 
   .LinkSaveListCategory > button::after {

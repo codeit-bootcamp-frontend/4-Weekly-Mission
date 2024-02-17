@@ -2,27 +2,32 @@ import React, { useEffect, useState } from 'react';
 import '../style/Folder.css';
 import close from '../assets/folder/close.svg';
 import Card from './Card';
-import { getFolderInfo } from '../apis/api';
+import { getFolderInfo, getLinksInfo } from '../apis/api';
 
 const Folder = () => {
-  const [folderInfo, setFolderInfo] = useState({
-    folderName: null,
-    folderOwner: null,
-    folderOwnerImg: null,
-    folderLinks: [],
-  });
+  const [folderInfo, setFolderInfo] = useState([]);
+  const [linksInfo, setLinksInfo] = useState([]);
 
   const handleLoadFolderInfo = async () => {
     try {
-      const folderInfo = await getFolderInfo();
-      if (!folderInfo.folder) return;
+      const data = await getFolderInfo();
+      const folderInfo = data.data;
+      const allFolderInfo = [{ id: 1, name: '전체' }, ...folderInfo];
 
-      setFolderInfo({
-        folderName: folderInfo.folder.name,
-        folderOwner: folderInfo.folder.owner.name,
-        folderOwnerImg: folderInfo.folder.owner.profileImageSource,
-        folderLinks: folderInfo.folder.links,
-      });
+      if (!folderInfo) return;
+      setFolderInfo(allFolderInfo);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleLoadLinksInfo = async () => {
+    try {
+      const data = await getLinksInfo();
+      const linksInfo = data.data;
+
+      if (!linksInfo) return;
+      setLinksInfo(linksInfo);
     } catch (error) {
       console.error(error);
     }
@@ -30,6 +35,7 @@ const Folder = () => {
 
   useEffect(() => {
     handleLoadFolderInfo();
+    handleLoadLinksInfo();
   }, []);
 
   return (
@@ -55,12 +61,9 @@ const Folder = () => {
         <div className='FolderLinkSaveList'>
           <div className='LinkSaveListCategory'>
             <div className='CategoryContent'>
-              <button>전체</button>
-              <button>⭐️ 즐겨찾기</button>
-              <button>코딩 팁</button>
-              <button>채용 사이트</button>
-              <button>유용한 글</button>
-              <button>나만의 장소</button>
+              {folderInfo.map((item) => (
+                <button key={item.id}>{item.name}</button>
+              ))}
             </div>
             <button>폴더 추가</button>
           </div>
@@ -73,7 +76,7 @@ const Folder = () => {
             </div>
           </div>
           <div className='LinkSaveListContent'>
-            <Card folderLinkInfo={folderInfo.folderLinks} />
+            <Card folderLinkInfo={linksInfo} />
           </div>
         </div>
       </div>

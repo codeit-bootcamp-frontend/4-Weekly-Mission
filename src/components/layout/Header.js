@@ -5,13 +5,14 @@ import { Link } from 'react-router-dom';
 import { getUserInfo } from '../../apis/api';
 
 const Header = () => {
-  const [user, setUser] = useState({ email: null, profileImageSource: null });
+  const [user, setUser] = useState({ email: null, image_source: null });
 
   const handleLoadUser = async () => {
-    const { email, profileImageSource } = await getUserInfo();
+    const data = await getUserInfo();
+    const { email, image_source } = data.data[0];
 
     if (!email) return;
-    setUser({ email, profileImageSource });
+    setUser({ email, image_source });
   };
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const Header = () => {
           <div className='ProfileContent'>
             <img
               className='ProfileImg'
-              src={user.profileImageSource}
+              src={user.image_source}
               alt='profile img'
             />
             <span>{user.email}</span>
