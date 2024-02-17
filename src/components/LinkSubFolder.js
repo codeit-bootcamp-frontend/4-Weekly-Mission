@@ -3,6 +3,8 @@ import folders from "folders_mockData.json";
 import "components/LinkSubFolder.css";
 import { useEffect, useState } from "react";
 import { acceptDataFromApi } from "Api";
+import LinkSearchBar from "./LinkSearchBar";
+import LinkCardCollection from "./LinkCardCollection";
 
 const SubFolderBtnList = styled.div`
 	display: flex;
@@ -45,6 +47,31 @@ function AddSubFolder() {
 		</Button>
 	);
 }
+
+const EmptySpace = styled.div`
+	color: var(--LBrary-Black);
+	padding: 41px 0 35px;
+	margin: 0 auto;
+	margin-bottom: 40vh;
+	text-align: center;
+	font-family: Pretendard;
+	font-size: 1.6rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 150%;
+
+	@media (max-width: 1124px) {
+		margin-bottom: 30vh;
+	}
+
+	@media (max-width: 767px) {
+		font-size: 1.4rem;
+	}
+`;
+
+const EmptyLink = function () {
+	return <EmptySpace>저장된 링크가 없습니다.</EmptySpace>;
+};
 
 function SubFolders({ subFolderData }) {
 	const [subFolderList, setSubFolderList] = useState([]);
@@ -95,6 +122,18 @@ export default function LinkSubFolder() {
 	const [currentFolderId, setCurrentFolderId] = useState(0);
 	const [currentFolderName, setCurrentFolderName] = useState("전체");
 	const [subFolderList, setSubFolderList] = useState([]);
+	const [isEmptyResponse, setIsCurrentEmptyResponse] = useState(false);
+	const [items, setItems] = useState([]);
+
+	const handleShareLoad = async () => {
+		const { data } = await acceptDataFromApi("users/1/links");
+		console.log(data);
+		setItems(data);
+	};
+
+	useEffect(() => {
+		handleShareLoad();
+	}, []);
 
 	const subFolderData = async (requestQuery) => {
 		const { data } = await acceptDataFromApi(requestQuery);
@@ -108,15 +147,25 @@ export default function LinkSubFolder() {
 	}, [subFolderList.length]);
 
 	return (
-		<div>
-			<SubFolderUtil>
-				<SubFolders subFolderData={subFolderList} />
-				<AddSubFolder />
-			</SubFolderUtil>
-			<SubFolderUtil>
-				<CurrentSubFolder currentFolder={currentFolderName} />
-				{!isCurrentFolderAll && <HandleCurrentSubFolder />}
-			</SubFolderUtil>
-		</div>
+		<>
+			<div>
+				<SubFolderUtil>
+					<SubFolders subFolderData={subFolderList} />
+					<AddSubFolder />
+				</SubFolderUtil>
+				<SubFolderUtil>
+					<CurrentSubFolder currentFolder={currentFolderName} />
+					{!isCurrentFolderAll && <HandleCurrentSubFolder />}
+				</SubFolderUtil>
+			</div>
+			<LinkSearchBar />
+			{isEmptyResponse ? (
+				<EmptyLink />
+			) : (
+				<>
+					<LinkCardCollection items={items} />
+				</>
+			)}
+		</>
 	);
 }
