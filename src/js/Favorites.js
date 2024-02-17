@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { fetchFolderData } from "./Service/ApiService";
 import "../css/Favorites.css";
 import Nav from "./Nav";
 import Footer from "./Footer";
@@ -7,24 +8,16 @@ function Favorites() {
   const [folder, setFolder] = useState();
 
   useEffect(() => {
-    const fetchFolderData = async () => {
+    const loadData = async () => {
       try {
-        const response = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/folder"
-        );
-        const data = await response.json();
-        if (data) {
-          setFolder(data.folder);
-        } else {
-          setFolder();
-        }
+        const data = await fetchFolderData();
+        setFolder(data);
       } catch (error) {
-        console.error("Folder Error:", error);
-        setFolder();
+        console.error("Failed to fetch folder data:", error);
       }
     };
 
-    fetchFolderData();
+    loadData();
   }, []);
 
   function timeAgo(createdAt) {
