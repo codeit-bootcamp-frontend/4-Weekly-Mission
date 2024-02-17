@@ -1,8 +1,8 @@
 import LinkArea from '../components/LinkArea';
 import SnsIconArea from '../components/SnsIconArea';
-import './FooterArea.css';
+import './Footer.css';
 
-const FooterArea = () => {
+const Footer = () => {
   return (
     <div className="footer_area">
       <div className="corp_area">
@@ -14,4 +14,4 @@ const FooterArea = () => {
   );
 };
 
-export default FooterArea;
+export default Footer;

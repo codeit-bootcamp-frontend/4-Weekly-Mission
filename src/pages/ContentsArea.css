@@ -26,6 +26,34 @@
   gap: 30px;
 }
 
+.add_folder_button_area {
+  position: fixed;
+  bottom: 101px;
+  width: 127px;
+  height: 35px;
+  display: flex;
+  padding: 8px 24px;
+  align-items: flex-start;
+  gap: 4px;
+
+  border-radius: 20px;
+  border: 1px solid var(--white);
+  background: var(--Linkbrary-primary-color);
+}
+
+.add_folder_button {
+  margin: 0;
+  width: 59px;
+  color: var(--gray10);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+
 .input_box {
   border: 0;
   width: 100%;
@@ -55,6 +83,10 @@
 
   .cards_area {
     width: 704px;
+  }
+
+  .add_folder_button_area {
+    display: none;
   }
 }
 

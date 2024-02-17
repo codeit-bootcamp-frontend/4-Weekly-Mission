@@ -1,15 +1,18 @@
 :root {
   --bright-sky-blue: #f0f6ff;
-  --gray100: #373740;
   --footer-bg-black: #111322;
   --bright-gray: #cfcfcf;
+  --black: #000;
+  --white: #fff;
   --gray: #676767;
   --gray02: #f5f5f5;
   --gray03: #666;
   --gray20: #ccd5e3;
+  --gray10: #e7effb;
+  --gray100: #373740;
   --Grey-Light: #f5f5f5;
   --primary-purple-70: #8f00ff;
-  --black: #000;
+  --Linkbrary-primary-color: #6d6afe;
   --gra-purpleblue-to-skyblue: linear-gradient(
     91deg,
     #6d6afe 0.12%,

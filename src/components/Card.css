@@ -46,8 +46,9 @@
 }
 
 .none_card_img {
-  width: 65px;
-  height: 65px;
+  width: 133px;
+  height: 24px;
+  opacity: 0.2;
 }
 
 .card_contents_area {
