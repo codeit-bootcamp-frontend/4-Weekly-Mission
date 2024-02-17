@@ -24,6 +24,10 @@ const InputWrapper = styled.form`
     border-radius: 8px;
     color: #f5f5f5;
   }
+
+  & button:hover {
+    cursor: pointer;
+  }
 `;
 
 const LinkAddInput = () => {
