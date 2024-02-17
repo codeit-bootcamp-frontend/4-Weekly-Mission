@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import SearchBar from "components/Input/SearchBar/SearchBar";
 import style from "./folder.module.css";
 import { shareIcon, penIcon, trashIcon } from "assets";
+import { SearchResults } from "pages";
 
 function FolderPage() {
   const ALL = "전체";
@@ -18,7 +19,7 @@ function FolderPage() {
    * @param {number} userId
    */
   const fetchFolderData = async (userId) => {
-    const data = await fetchUserFolderData(userId);
+    const data = await fetchUserFolderData(1);
     setButtonNames(data);
   };
 
@@ -101,7 +102,7 @@ function FolderPage() {
               <CardList items={folderData} />
             </div>
           ) : (
-            <div>없음</div>
+            <SearchResults />
           )}
         </div>
       </div>

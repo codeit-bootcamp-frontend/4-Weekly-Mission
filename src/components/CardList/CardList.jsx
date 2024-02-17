@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./cardlist.module.css";
 import Card from "components/Card/Card";
+import { SearchResults } from "pages";
 
 function CardList({ items }) {
   const handleClick = (url) => {
@@ -8,7 +9,7 @@ function CardList({ items }) {
   };
 
   if (items.length === 0) {
-    return <div>내용없쯤</div>;
+    return <SearchResults />;
   }
 
   return (
@@ -23,6 +24,5 @@ function CardList({ items }) {
     </div>
   );
 }
-
 
 export default CardList;

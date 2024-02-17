@@ -10,6 +10,7 @@
 .content {
   display: flex;
   flex-direction: column;
+  width: 106rem;
   padding: 4rem 0;
 }
 
