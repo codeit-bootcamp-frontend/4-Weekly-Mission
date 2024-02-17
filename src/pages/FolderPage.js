@@ -3,6 +3,7 @@ import "../global.css";
 import { Layout } from "../components/Layout/Layout";
 import { useGetUserById } from "../hooks/useGetUser";
 import LinkBar from "../components/LinkBar/LinkBar";
+import Folder from "../components/Folder/Folder";
 
 function FolderPage() {
   const { data } = useGetUserById();
@@ -13,6 +14,7 @@ function FolderPage() {
     <div className="App">
       <Layout sticky={false} profile={profile}>
         <LinkBar />
+        <Folder />
       </Layout>
     </div>
   );

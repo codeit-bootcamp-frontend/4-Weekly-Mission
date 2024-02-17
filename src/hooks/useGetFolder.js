@@ -2,7 +2,7 @@ import { mapFolderData } from "../utils/mapFolderData";
 import { useAsync } from "./useAsync";
 import { axiosInstance } from "../utils/axiosInstance";
 
-function useGetFolder() {
+export function useGetFolder() {
   const getUser = () => axiosInstance.get("sample/folder");
   const { loading, error, data } = useAsync(getUser);
 
@@ -11,4 +11,9 @@ function useGetFolder() {
   return { loading, error, data: folderData };
 }
 
-export default useGetFolder;
+export function useGetFolderById() {
+  const getUserById = () => axiosInstance.get("users/1/folders");
+  const { loading, error, data } = useAsync(getUserById);
+
+  return { loading, error, data };
+}

@@ -1,4 +1,4 @@
-import useGetFolder from "../../hooks/useGetFolder";
+import { useGetFolder } from "../../hooks/useGetFolder";
 import CardList from "../CardList/CardList";
 import Header from "../Header/Header";
 import ReadCard from "../ReadCard";
