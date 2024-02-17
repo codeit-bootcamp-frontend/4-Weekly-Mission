@@ -56,10 +56,25 @@ const Folder = () => {
               <TagBox isSelected={true}>전체</TagBox>
               <TagBox>코딩 팁</TagBox>
             </div>
-            <div>
-              <span className="font-color-primary font-16px font-regular">
-                폴더 추가 +
-              </span>
+            <span className="font-color-primary font-16px font-regular">
+              폴더 추가 +
+            </span>
+          </div>
+          <div className={styles.tag_title_container}>
+            <span className="font-24px font-regular">유용한 글</span>
+            <div className={styles.action_icons_list}>
+              <div className={styles.action_icon}>
+                <img src="/icons/share_icon.svg" alt="share icon" />
+                공유
+              </div>
+              <div className={styles.action_icon}>
+                <img src="/icons/pen_icon.svg" alt="pen icon" />
+                이름 변경
+              </div>
+              <div className={styles.action_icon}>
+                <img src="/icons/delete_icon.svg" alt="delete icon" />
+                삭제
+              </div>
             </div>
           </div>
 

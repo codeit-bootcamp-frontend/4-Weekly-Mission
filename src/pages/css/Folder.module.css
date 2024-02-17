@@ -27,7 +27,8 @@ main {
   gap: 10px;
 }
 
-.tag_container {
+.tag_container,
+.tag_title_container, .action_icons_list {
   display: flex;
   justify-content: space-between;
 }
@@ -37,10 +38,20 @@ main {
   gap: 10px;
 }
 
+.action_icons_list {
+  gap: 12px;
+}
+
+.action_icon {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  color: var(--color-gray4);
+}
+
 .card_list {
   width: 100%;
-
-  margin-top: 52px;
 
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
