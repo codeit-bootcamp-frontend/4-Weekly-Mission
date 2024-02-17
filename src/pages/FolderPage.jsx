@@ -1,10 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
-import Cards from "./Cards";
-import Hero from "./Hero";
-import "./Main.css";
-import { getFolderInformation } from "../../api";
+import { Cards, Hero } from "../components/FolderPage";
+import "./FolderPage.css";
+import { getFolderInformation } from "../api";
 
-function Main() {
+function FolderPage() {
   const [folder, setFolder] = useState({});
 
   const fetchFolderData = useCallback(async () => {
@@ -23,11 +22,11 @@ function Main() {
   return (
     <main>
       <Hero folder={folder} />
-      <div className="container Main-container">
+      <div className="container FolderPage-container">
         <Cards folder={folder} />
       </div>
     </main>
   );
 }
 
-export default Main;
+export default FolderPage;

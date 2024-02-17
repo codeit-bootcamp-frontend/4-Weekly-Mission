@@ -2,7 +2,7 @@
         Main
 *********************/
 
-.Main-container {
+.FolderPage-container {
   width: 325px;
   padding: 20px 0;
 }
@@ -12,14 +12,14 @@
 *********************/
 
 @media (min-width: 768px) {
-  .Main-container {
+  .FolderPage-container {
     width: 704px;
     padding: 40px 0;
   }
 }
 
 @media (min-width: 1124px) {
-  .Main-container {
+  .FolderPage-container {
     width: 1060px;
   }
 }

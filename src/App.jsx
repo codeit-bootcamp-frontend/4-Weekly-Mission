@@ -1,7 +1,7 @@
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Main from "./components/Main";
+import FolderPage from "./pages/FolderPage";
 import { UserProvider } from "./context/UserContext";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <UserProvider>
         <Header />
-        <Main />
+        <FolderPage />
         <Footer className="App-Footer" />
       </UserProvider>
     </div>
