@@ -37,6 +37,7 @@ export default function Folder() {
   const loadLinks = async (option) => {
     try {
       const links = await getLinks(option);
+      console.log(links);
       setLinks(links.data);
     } catch (error) {
       console.error(error);

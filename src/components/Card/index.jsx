@@ -5,14 +5,14 @@ import starImg from "assets/star.png";
 import kebabImg from "assets/kebab.png";
 
 export default function Card({ link }) {
-  const creationTime = "createdAt" in link ? "createdAt" : "created_at";
-  console.log(link.title);
+  const createdAt = "createdAt" in link ? "createdAt" : "created_at";
+  const imageSource = "imageSource" in link ? "imageSource" : "image_source";
 
   return (
     <a href={link.url} target="_blank">
       <div className={styles.link}>
         <div className={styles["link-cover"]}>
-          <img src={link.imageSource || noImg} alt="cardCover" />:
+          <img src={link[imageSource] || noImg} alt="cardCover" />:
         </div>
         <button className={styles.likeBtn}>
           <img src={starImg} alt="likeBtn" />
@@ -20,7 +20,7 @@ export default function Card({ link }) {
         <div className={styles["link-contents"]}>
           <div className={styles["link-header"]}>
             <p className={styles["link-update"]}>
-              {getTimeAgo(link[creationTime])}
+              {getTimeAgo(link[createdAt])}
             </p>
             <button className={styles.kebabBtn}>
               <img src={kebabImg} alt="kebabImg" />
@@ -30,9 +30,7 @@ export default function Card({ link }) {
             {link.title === null ? "제목없음" : link.title}
           </h2>
           <p className={styles["link-description"]}>{link.description}</p>
-          <p className={styles["link-date"]}>
-            {formatDate(link[creationTime])}
-          </p>
+          <p className={styles["link-date"]}>{formatDate(link[createdAt])}</p>
         </div>
       </div>
     </a>
