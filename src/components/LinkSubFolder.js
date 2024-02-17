@@ -222,7 +222,7 @@ export default function LinkSubFolder() {
 				<EmptyLink isLoading={isLoading} />
 			) : (
 				<>
-					<LinkCardCollection items={items} />
+					<LinkCardCollection items={items} favorite={true} />
 				</>
 			)}
 		</>

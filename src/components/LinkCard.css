@@ -2,7 +2,16 @@ a {
 	text-decoration-line: none;
 }
 
+.favor-star {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	width: 34px;
+	height: 34px;
+}
+
 .card-box {
+	position: relative;
 	width: 100%;
 	height: 334px;
 	max-width: 340px;
