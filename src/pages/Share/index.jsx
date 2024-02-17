@@ -60,9 +60,9 @@ export default function Share() {
             />
           </div>
           {error?.message && <div>{error.message}</div>}
-        </div>
 
-        <CardList links={folderInfo.links} />
+          <CardList links={folderInfo.links} />
+        </div>
       </main>
 
       <Footer />

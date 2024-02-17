@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import logo from "../../assets/header-logo.svg";
+import logo from "assets/header-logo.svg";
 import { useEffect, useState } from "react";
 import { getUser } from "api/api";
 import { useAsync } from "hooks/useAsync";

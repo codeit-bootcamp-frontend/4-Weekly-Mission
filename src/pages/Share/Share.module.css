@@ -1,5 +1,5 @@
 .main-headings {
-  /* margin-top: 9em; */
+  margin-top: 9em;
   background-color: var(--Linkbrary-bg);
 }
 
@@ -44,6 +44,7 @@
   border-radius: 10px;
   display: flex;
   gap: 10px;
+  margin-bottom: 20px;
 }
 
 .searchBox input {
