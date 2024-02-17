@@ -39,7 +39,11 @@ const FavorStar = function () {
 	return <img className="favor-star" src="star.svg" alt="FavoriteButton" />;
 };
 
-const FolderCard = function ({ contents, favorite = false }) {
+const Kebab = function () {
+	return <img className="kebab" src="kebab.svg" alt="kebabButton" />;
+};
+
+const FolderCard = function ({ contents, favorite = false, kebab = false }) {
 	const { id, created_at, description, imageSource, url, createdAt } = contents;
 	const cardImage = { backgroundImage: `url(${imageSource})` };
 
@@ -61,6 +65,7 @@ const FolderCard = function ({ contents, favorite = false }) {
 			{imageSource && <div style={cardImage} />}
 			{!imageSource && <NoCardImg />}
 			{favorite && <FavorStar />}
+			{kebab && <Kebab />}
 			<section className="card-text">
 				<p className="card-passed-time">{passedTime}</p>
 				<p className="card-contents">{description}</p>
@@ -70,11 +75,20 @@ const FolderCard = function ({ contents, favorite = false }) {
 	);
 };
 
-const LinkCardCollection = function ({ items, favorite = false }) {
+const LinkCardCollection = function ({
+	items,
+	favorite = false,
+	kebab = false,
+}) {
 	return (
 		<section className="folder-card-grid">
 			{items.map((item) => (
-				<FolderCard key={item.id} contents={item} favorite={favorite} />
+				<FolderCard
+					key={item.id}
+					contents={item}
+					favorite={favorite}
+					kebab={kebab}
+				/>
 			))}
 		</section>
 	);

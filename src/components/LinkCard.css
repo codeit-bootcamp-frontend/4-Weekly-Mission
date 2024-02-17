@@ -10,6 +10,14 @@ a {
 	height: 34px;
 }
 
+.kebab {
+	position: absolute;
+	top: 215px;
+	right: 20px;
+	width: 21px;
+	height: 17px;
+}
+
 .card-box {
 	position: relative;
 	width: 100%;

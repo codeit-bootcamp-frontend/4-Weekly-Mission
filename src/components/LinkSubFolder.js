@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { acceptDataFromApi } from "Api";
 import LinkSearchBar from "./LinkSearchBar";
 import LinkCardCollection from "./LinkCardCollection";
+import { useParams } from "react-router-dom";
 
 const SubFolderBtnList = styled.div`
 	max-width: 85%;
@@ -283,7 +284,7 @@ export default function LinkSubFolder() {
 				<EmptyLink isLoading={isLoading} />
 			) : (
 				<>
-					<LinkCardCollection items={items} favorite={true} />
+					<LinkCardCollection items={items} favorite={true} kebab={true} />
 				</>
 			)}
 		</>
