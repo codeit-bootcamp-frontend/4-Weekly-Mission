@@ -1,6 +1,6 @@
-import SearchBar from "./SearchBar.js";
+import SearchBar from "./SearchBar.jsx";
 import "./Cards.css";
-import CardList from "./CardList.js";
+import CardList from "./CardList.jsx";
 
 function Cards({ folder }) {
   return (
