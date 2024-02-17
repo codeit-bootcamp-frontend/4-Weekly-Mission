@@ -7,7 +7,7 @@ function LinkCard({ url, createdAt, desc, imgUrl }) {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer" className="link-card-area">
       <div className="img-group">
-        {imgUrl ? <img src={imgUrl} alt="미리보기" className="img-card" /> : <div className="img-card no-img"></div>}
+        {imgUrl ? <img src={imgUrl} alt="미리보기" className="img-card" /> : <div className="img-card no-img" />}
         <button className="btn-star">
           <img src={star} alt="별모양" />
         </button>
