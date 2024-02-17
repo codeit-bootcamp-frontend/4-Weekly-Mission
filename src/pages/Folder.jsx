@@ -6,6 +6,7 @@ import {
   getFolderLink,
 } from "../utils/Api";
 import FolderContainer from "../components/folder/Container";
+import Banner from "../components/folder/Banner";
 
 function Folder() {
   const [user, setUser] = useState(null);
@@ -28,6 +29,7 @@ function Folder() {
   return (
     <main>
       <Header user={user} />
+      <Banner />
       <FolderContainer
         folder={folder}
         cardLink={link}

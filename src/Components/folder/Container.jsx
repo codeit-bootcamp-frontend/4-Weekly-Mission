@@ -4,6 +4,7 @@ import SearchBar from "../common/SearchBar/SearchBar";
 import styles from "./Container.module.css";
 import FolderCard from "./FolderCard";
 import Folder from "./Folder";
+import Banner from "./Banner";
 
 function FolderContainer({
   folder,
