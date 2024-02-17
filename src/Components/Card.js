@@ -22,32 +22,39 @@ export function Card({ cardInfo, key }) {
 
     if (minutes < 2) {
       return "1 minute ago";
-    } else if (minutes <= 59) {
-      return `${minutes} minutes ago`;
-    } else if (hours < 1) {
-      return "1 hour ago";
-    } else if (hours <= 23) {
-      return `${hours} hours ago`;
-    } else if (days < 1) {
-      return "1 day ago";
-    } else if (days <= 30) {
-      return `${days} days ago`;
-    } else if (months < 1) {
-      return "1 month ago";
-    } else if (months <= 11) {
-      return `${months} months ago`;
-    } else if (years < 1) {
-      return "1 year ago";
-    } else {
-      const remainingMonths = months % 12;
-      return `${Math.floor(years)} years ago`;
     }
+    if (minutes <= 59) {
+      return `${minutes} minutes ago`;
+    }
+    if (hours < 1) {
+      return "1 hour ago";
+    }
+    if (hours <= 23) {
+      return `${hours} hours ago`;
+    }
+    if (days < 1) {
+      return "1 day ago";
+    }
+    if (days <= 30) {
+      return `${days} days ago`;
+    }
+    if (months < 1) {
+      return "1 month ago";
+    }
+    if (months <= 11) {
+      return `${months} months ago`;
+    }
+    if (years < 1) {
+      return "1 year ago";
+    }
+    const remainingMonths = months % 12;
+    return `${Math.floor(years)} years ago`;
   };
 
   return (
     <>
       <main>
-        <a href={url}>
+        <a href={url} target="_blank">
           <div className="card">
             <div className="cardImgContainer">
               <img
