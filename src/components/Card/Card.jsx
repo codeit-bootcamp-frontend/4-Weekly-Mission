@@ -2,6 +2,7 @@ import './Card.css';
 import cardImg from '../../assets/card_default.png';
 import { formatDate, formatRelativeDate } from '../../utils/date';
 import IconStar from '../Icon/IconStar';
+import { Link } from 'react-router-dom';
 
 function Card({
   item = {
@@ -23,9 +24,9 @@ function Card({
   };
 
   return (
-    <a
+    <Link
+      to={item.url}
       className="card"
-      href={item.url}
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -57,7 +58,7 @@ function Card({
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   );
 }
 

@@ -3,6 +3,7 @@ import { Button } from '../../Button';
 import { IconLogo } from '../../Icon';
 import { useSetUser, useUser } from '../../../contexts/LoginContext';
 import { getUser } from '../../../api';
+import { Link } from 'react-router-dom';
 
 function Header() {
   const loginUser = useUser();
@@ -23,9 +24,9 @@ function Header() {
       <div className="header__inner">
         <div className="header__logo">
           <div className="logo">
-            <a href="/" className="logo__link">
+            <Link to="/" className="logo__link">
               <IconLogo />
-            </a>
+            </Link>
           </div>
         </div>
         <div className="header__auth">
