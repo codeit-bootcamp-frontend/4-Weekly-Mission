@@ -10,12 +10,16 @@ import { ReadOnlyCard } from "ui/ReadOnlyCard";
 function App() {
   const { data } = useGetFolder();
   const { profileImage, ownerName, folderName, links } = data || {};
-
+  const access = false;
   return (
     <Layout>
       <SharedPage
         folderInfo={
-          <FolderInfo profileImage={profileImage} ownerName={ownerName} folderName={folderName} />
+          <FolderInfo
+            profileImage={profileImage}
+            ownerName={ownerName}
+            folderName={folderName}
+          />
         }
         searchBar={<SearchBar />}
         cardList={

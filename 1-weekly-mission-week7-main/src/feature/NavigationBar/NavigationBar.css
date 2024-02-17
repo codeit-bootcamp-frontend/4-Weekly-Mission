@@ -1,7 +1,8 @@
 .NavigationBar {
   display: flex;
   justify-content: center;
-  position: sticky;
+  /* 8주차 기본 요구사항- 폴더 페이지에서 상단 네비게이션 바는 스크롤 시 상단에 고정하지 않고, 가려지도록 해주세요. */
+  position: static;
   top: 0;
   z-index: var(--z-index-nav);
   width: 100%;
