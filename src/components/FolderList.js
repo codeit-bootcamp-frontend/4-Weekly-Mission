@@ -4,49 +4,40 @@ import CardList from "../components/CardList";
 import { getFolderLinks } from "../api";
 import { useState, useEffect } from "react";
 import UtilIcons from "./UtilIcons.js";
-
 import add from "../assets/add.svg";
 
 const FolderList = () => {
   const folderList = useFolderList();
   const [items, setItems] = useState([]);
-  const [selectedFolder, setSelectedFolder] = useState(null);
-  const [selectedFolderName, setSelectedFolderName] = useState(null);
+  const [selectedFolderName, setSelectedFolderName] = useState([]);
 
-  const handleLoad = async (folderId) => {
-    if (folderId !== null) {
-      const folder = folderList.find((folder) => folder.id === folderId);
-      if (folder && folder.link && folder.link.count > 0) {
-        const { data } = await getFolderLinks(folderId);
-        setItems(data);
-      } else {
-        setItems([]);
-      }
-    } else {
-      const { data } = await getFolderLinks();
-      setItems(data);
-    }
-  };
-
-  const handleFolderClick = (folderId) => {
-    setSelectedFolder(folderId);
-    setSelectedFolderName(
-      folderList.find((folder) => folder.id === folderId)?.name
-    );
+  const handleLoadMockData = async () => {
+    const { data } = await getFolderLinks();
+    setItems(data);
   };
 
   useEffect(() => {
-    handleLoad(selectedFolder);
-  }, [selectedFolder, folderList]);
+    handleLoadMockData();
+  }, []);
+
+  const handleFolderClick = (folderId) => {
+    if (!folderId) {
+      handleLoadMockData();
+      setSelectedFolderName([]);
+    } else {
+      setSelectedFolderName(
+        folderList.find((folder) => folder.id === folderId)?.name
+      );
+      // assume JSON provides necessary data in links
+      setItems(folderList.find((folder) => folder.id === folderId)?.links);
+    }
+  };
 
   return (
     <div className="wrapper">
       <div className="folderListWrapper">
         <div className="folderList">
-          <button
-            className="folderButton"
-            onClick={() => handleFolderClick([null])}
-          >
+          <button className="folderButton" onClick={() => handleFolderClick()}>
             전체
           </button>
           {folderList.map((folder) => (
@@ -67,9 +58,9 @@ const FolderList = () => {
       </div>
       <div className="selectedFolderName">
         {selectedFolderName}
-        {selectedFolderName !== null && <UtilIcons />}
+        {selectedFolderName.length > 0 && <UtilIcons />}
       </div>
-      {items.length > 0 ? (
+      {items ? (
         <CardList items={items} />
       ) : (
         <p className="noLink">저장된 링크가 없습니다.</p>
