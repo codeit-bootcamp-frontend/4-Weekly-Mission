@@ -29,7 +29,11 @@ const FolderPage = () => {
         <Search />
         {/* <Category category={category} currentCategory={currentCategory} handleCategoryButton={handleCategoryButton} /> */}
         {folderDatas?.data.length ? (
-          <CardGrid isLoading={isLoading} datas={folderDatas?.data} />
+          <CardGrid
+            isLoading={isLoading}
+            datas={folderDatas?.data}
+            isFolder="true"
+          />
         ) : (
           <CardError />
         )}

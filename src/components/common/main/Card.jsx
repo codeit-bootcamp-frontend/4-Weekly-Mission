@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import defaultImage from 'assets/images/noImage.png';
-import { calculateTime, formatDate } from 'utils/date';
+import EmptyStar from 'assets/images/emptyStar.svg';
 
 /**
  *
@@ -22,12 +22,21 @@ const Card = ({
   timePassed,
   description,
   formattedDate,
+  isFolder,
 }) => {
+  const handleOnClick = () => {
+    alert('즐겨찾기에 추가되었습니다.');
+  };
   return (
     <>
       <StyledCard key={id} href={url} target="_blank" rel="noopener noreferrer">
         <CardImgContainer>
           <CardImg src={imageURL || defaultImage} alt={title} />
+          {isFolder && (
+            <StyledButton onClick={handleOnClick}>
+              <img src={EmptyStar} alt="favorite icon" />
+            </StyledButton>
+          )}
         </CardImgContainer>
         <TextContainer>
           <span>{timePassed}</span>
@@ -40,6 +49,7 @@ const Card = ({
 };
 
 const StyledCard = styled.a`
+  position: relative;
   width: 34rem;
   height: 30.5rem;
   display: flex;
@@ -68,7 +78,12 @@ const CardImg = styled.img`
     transform: scale(1.3);
   }
 `;
-
+const StyledButton = styled.button`
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 3;
+`;
 const TextContainer = styled.div`
   padding: 1rem 2rem;
   text-align: start;

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import Card from './Card';
 import { calculateTime, formatDate } from 'utils/date';
 
-const CardGrid = ({ datas, isLoading }) => {
+const CardGrid = ({ datas, isLoading, isFolder }) => {
   return (
     <CardContainer>
       {isLoading ? (
@@ -32,6 +32,7 @@ const CardGrid = ({ datas, isLoading }) => {
                 imageURL={imageSource || image_source}
                 timePassed={timePassed}
                 formattedDate={formattedDate}
+                isFolder={isFolder}
               />
             );
           })}
