@@ -1,6 +1,8 @@
 import "./LinkItems.css";
 import defaultImage from "../../images/card-default.png";
 import { calculateTimePassed } from "../../utils/calculateTimePassed";
+import LinkSearchInput from "../LinkSearchInput/LinkSearchInput";
+import InputContainer from "./InputContiner";
 
 const LinkItem = ({ link }) => {
   const CREATED_AT = new Date(link.createdAt);
@@ -24,6 +26,9 @@ const LinkItem = ({ link }) => {
 const LinkItems = ({ links = [] }) => {
   return (
     <div className="LinkItems">
+      <InputContainer>
+        <LinkSearchInput />
+      </InputContainer>
       {links.map((link) => (
         <LinkItem key={link.id} link={link} />
       ))}

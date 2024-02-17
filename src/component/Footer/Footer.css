@@ -6,6 +6,7 @@
   justify-content: space-around;
 }
 
+.Footer a,
 .Footer a:visited {
   color: #cfcfcf;
 }

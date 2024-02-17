@@ -5,7 +5,7 @@ const LinkSearchInputWrapper = styled.div`
   align-items: center;
   gap: 0.5rem;
   background-color: #f5f5f5;
-  width: 1028px;
+  width: 100%;
   margin: 40px auto;
   padding: 16px 20px;
   border-radius: 14px;
@@ -14,6 +14,7 @@ const LinkSearchInputWrapper = styled.div`
     width: 1rem;
     height: 1rem;
   }
+
   & input {
     background: none;
     width: 100%;
