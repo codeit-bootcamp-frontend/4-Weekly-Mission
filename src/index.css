@@ -58,3 +58,7 @@ a {
 .font-40px {
   font-size: 40px;
 }
+
+.margin-auto {
+  margin: auto;
+}

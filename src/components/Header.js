@@ -6,9 +6,9 @@ const Header = ({ userInfo }) => {
   return (
     <header>
       <Link to="/">
-        <img alt="Linkbrary logo" src="icons/Linkbrary.svg" />
+        <img alt="Linkbrary logo" src="/icons/Linkbrary.svg" />
       </Link>
-      {userInfo["email"] ? (
+      {userInfo ? (
         <div className={styles.profile_container}>
           <Avatar
             avatarImage={userInfo["profileImageSource"]}
