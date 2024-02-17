@@ -1,0 +1,50 @@
+.AddLink {
+  background-color: var(--light-blue);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 3.2rem 4rem;
+  box-sizing: border-box;
+  background-color: var(--light-blue);
+
+  @media (min-width: 768px) {
+    padding: 2rem 3.2rem 6rem;
+  }
+}
+
+.AddLink-items {
+  width: 100%;
+  max-width: 80rem;
+  position: relative;
+  margin: auto;
+}
+
+.AddLink-input {
+  margin: auto;
+  width: 100%;
+  padding: 1rem 12rem 1rem 4rem;
+  border: 1px solid var(--primary);
+  border-radius: 15px;
+  height: 6rem;
+}
+
+.AddLink-icon {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1.6rem;
+}
+
+.AddLink-button {
+  position: absolute;
+  padding: 1rem 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.6rem;
+  border-radius: 8px;
+  color: var(--white);
+  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+}
