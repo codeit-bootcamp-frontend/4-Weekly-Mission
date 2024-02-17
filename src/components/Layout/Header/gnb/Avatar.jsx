@@ -1,19 +1,20 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect, useState } from "react";
 import { css } from "@emotion/react";
-import avatarImage from "../../../../assets/Avatar.png";
 import Button from "../../../../utils/Button";
 import api from "../../../../utils/api";
 import "../../../../styles/common.css";
 
 const Avatar = () => {
-  const [userData, setUserData] = useState(null);
+  const [userEmail, setUserEmail] = useState(null);
+  const [userAvatar, setUserAvatar] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async () => {
     try {
       const result = await api("sample/user");
-      setUserData(result.email);
+      setUserEmail(result.email);
+      setUserAvatar(result.profileImageSource);
     } catch (error) {
       setIsLoading(false);
     }
@@ -26,14 +27,14 @@ const Avatar = () => {
   return (
     <div css={divStyle}>
       <div css={imgWrapperStyle}>
-        <img src={avatarImage} css={imageStyle} alt="계정이미지" />
+        <img src={userAvatar} css={imageStyle} alt="계정이미지" />
       </div>
-      <p css={pStyle}>{userData}</p>
+      <p css={pStyle}>{userEmail}</p>
       <Button
         name="로그인"
         size="small"
         isLoading={isLoading}
-        key={userData}
+        key={userEmail}
         css={btnCss}
       />
     </div>
@@ -51,12 +52,14 @@ const divStyle = css`
 const imgWrapperStyle = css`
   width: 28px;
   height: 28px;
+  border-radius: 50%;
   cursor: pointer;
 `;
 
 const imageStyle = css`
   width: 100%;
   height: 100%;
+  border-radius: 50%;
 `;
 
 const pStyle = css`
