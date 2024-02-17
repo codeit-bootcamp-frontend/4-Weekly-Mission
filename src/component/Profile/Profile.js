@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getProfileData } from "../../apis/api";
 import "./Profile.css";
 
