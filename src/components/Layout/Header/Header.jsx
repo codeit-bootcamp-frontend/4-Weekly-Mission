@@ -18,12 +18,6 @@ function Header() {
     }
   };
 
-  const authButton = loginUser ? (
-    <ButtonUser user={loginUser} />
-  ) : (
-    <ButtonLogin onClick={handleLoginClick} />
-  );
-
   return (
     <header className="header">
       <div className="header__inner">
@@ -34,7 +28,13 @@ function Header() {
             </a>
           </div>
         </div>
-        <div className="header__auth">{authButton}</div>
+        <div className="header__auth">
+          {loginUser ? (
+            <ButtonUser user={loginUser} />
+          ) : (
+            <ButtonLogin onClick={handleLoginClick} />
+          )}
+        </div>
       </div>
     </header>
   );
@@ -47,7 +47,7 @@ function ButtonLogin({ onClick }) {
 // 컴포넌트 분리 예정
 function ButtonUser({ user }) {
   return (
-    <div className="button-user">
+    <button type="button" className="button-user">
       <div className="button-user__img__container">
         <img
           className="button-user__img"
@@ -56,7 +56,7 @@ function ButtonUser({ user }) {
         />
       </div>
       <div className="button-user__email">{user.email}</div>
-    </div>
+    </button>
   );
 }
 
