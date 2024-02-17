@@ -48,13 +48,13 @@
 @media (min-width: 768px) and (max-width: 1199px) {
   .link-form-box {
     width: 100%;
-    padding: 60px 32.5px 90px 32.5px;
+    padding: 153px 32.5px 90px 32.5px;
   }
 }
 
 @media (min-width: 375px) and (max-width: 767px) {
   .link-form-box {
     width: 100%;
-    padding: 24px 32px 40px 32px;
+    padding: 117px 32px 40px 32px;
   }
 }
