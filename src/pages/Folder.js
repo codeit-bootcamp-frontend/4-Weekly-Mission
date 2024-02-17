@@ -4,7 +4,7 @@ import LinkCardCollection from "components/LinkCardCollection";
 import "pages/Folder.css";
 import LinkSubFolder from "components/LinkSubFolder";
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { acceptDataFromApi } from "Api";
 
 const EmptySpace = styled.div`

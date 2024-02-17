@@ -9,24 +9,27 @@ const ShareFolderProfile = function () {
 
 	const FOLDER = "sample/folder";
 	const USER = "sample/user";
-	const loadFolderAccountName = async (parameter) => {
-		const { name, profileImageSource } = await acceptDataFromApi(parameter);
+	const loadFolderAccountName = async (requestQuery) => {
+		const { name, profileImageSource } = await acceptDataFromApi(requestQuery);
 		if (!name || !profileImageSource) return;
 
 		setFolderAccountName(name);
 		setFolderImg(profileImageSource);
 	};
 
-	const loadFolderProfileData = async (parameter) => {
-		const receivedData = await acceptDataFromApi(parameter);
-		if (!receivedData) return;
+	const loadFolderProfileData = async (requestQuery) => {
+		const {
+			folder: { name },
+		} = await acceptDataFromApi(requestQuery);
+		if (!name) return;
 
-		setFolderName(receivedData.folder.name);
+		setFolderName(name);
 	};
 
 	useEffect(() => {
 		loadFolderAccountName(USER);
 		loadFolderProfileData(FOLDER);
+		console.log(folderName);
 	}, [folderName, folderImg, folderAccountName]);
 
 	return (

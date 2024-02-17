@@ -7,20 +7,25 @@ import { acceptDataFromApi } from "Api";
 const ProfileData = function () {
 	const [loginStatus, setLoginStatus] = useState(false);
 	const [accountEmail, setAccountEmail] = useState("");
-	const [profileImg, setProfileIMg] = useState("nav-profile.png");
+	const [profileImg, setProfileIMg] = useState("navProfileImg.png");
 
-	const user = "sample/user";
+	const USER = "users/1";
 	const accountVerification = async (user) => {
 		const receivedData = await acceptDataFromApi(user);
 		if (!receivedData) return;
+		const {
+			data: [{ email, image_source }],
+		} = receivedData;
 
-		setAccountEmail(receivedData.email);
-		setProfileIMg(receivedData.profileImageSource);
+		setAccountEmail(email);
+		if (image_source) {
+			setProfileIMg(image_source);
+		}
 		setLoginStatus(true);
 	};
 
 	useEffect(() => {
-		accountVerification(user);
+		accountVerification(USER);
 	}, [loginStatus]);
 
 	return (

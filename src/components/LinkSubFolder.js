@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import folders from "folders_mockData.json";
 import "components/LinkSubFolder.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { acceptDataFromApi } from "Api";
 
 const SubFolderBtnList = styled.div`
 	display: flex;
@@ -46,19 +47,28 @@ function AddSubFolder() {
 }
 
 function SubFolders({ subFolderData }) {
-	const { data } = subFolderData;
+	const [subFolderList, setSubFolderList] = useState([]);
+
+	useEffect(() => {
+		setSubFolderList(subFolderData);
+	}, [subFolderData]);
+
 	return (
 		<SubFolderBtnList>
-			<Button className="link-sub-folder-list">전체 </Button>
-			{data.map((item) => (
-				<Button className="link-sub-folder-list">{item.name}</Button>
+			<Button key={0} className="link-sub-folder-list">
+				전체
+			</Button>
+			{subFolderList.map((item) => (
+				<Button key={item.id} className="link-sub-folder-list">
+					{item.name}
+				</Button>
 			))}
 		</SubFolderBtnList>
 	);
 }
 
-function CurrentSubFolder(currentFolder) {
-	return <SubFolderTitle>{currentFolder.currentFolder}</SubFolderTitle>;
+function CurrentSubFolder({ currentFolder }) {
+	return <SubFolderTitle>{currentFolder}</SubFolderTitle>;
 }
 
 function HandleCurrentSubFolder() {
@@ -82,15 +92,30 @@ function HandleCurrentSubFolder() {
 
 export default function LinkSubFolder() {
 	const [isCurrentFolderAll, setIsCurrentFolderAll] = useState(false);
+	const [currentFolderId, setCurrentFolderId] = useState(0);
+	const [currentFolderName, setCurrentFolderName] = useState("전체");
+	const [subFolderList, setSubFolderList] = useState([]);
+
+	const subFolderData = async (requestQuery) => {
+		const { data } = await acceptDataFromApi(requestQuery);
+		setSubFolderList(data);
+	};
+
+	const SUB_FOLDER = "users/1/folders";
+
+	useEffect(() => {
+		subFolderData(SUB_FOLDER);
+		console.log(subFolderList);
+	}, [subFolderList.length]);
 
 	return (
 		<div>
 			<SubFolderUtil>
-				<SubFolders subFolderData={folders} />
+				<SubFolders subFolderData={subFolderList} />
 				<AddSubFolder />
 			</SubFolderUtil>
 			<SubFolderUtil>
-				<CurrentSubFolder currentFolder={"Testing"} />
+				<CurrentSubFolder currentFolder={currentFolderName} />
 				{!isCurrentFolderAll && <HandleCurrentSubFolder />}
 			</SubFolderUtil>
 		</div>
