@@ -1,16 +1,17 @@
-import Header from "./components/Header";
-import Nav from "./components/Nav";
-import Cardlist from "./components/Cardlist";
-import Footer from "./components/Footer";
+import { Routes, Route } from "react-router-dom";
+import Shared from "./pages/Shared.js";
+import Landing from "./pages/Landing.js";
+import Folder from "./pages/Folder.js";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Nav />
-      <Cardlist />
-      <Footer />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/shared" element={<Shared />} />
+        <Route path="/folder" element={<Folder />} />
+      </Routes>
+    </>
   );
 }
 
