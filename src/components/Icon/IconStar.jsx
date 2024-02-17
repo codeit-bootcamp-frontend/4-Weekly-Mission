@@ -1,7 +1,6 @@
-function IconStar({ className }) {
+function IconStar() {
   return (
     <svg
-      className={className}
       width="34"
       height="34"
       viewBox="0 0 34 34"

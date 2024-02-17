@@ -35,6 +35,8 @@
 }
 
 .card__bookmark {
+  border: none;
+  background-color: transparent;
   position: absolute;
   top: 15px;
   right: 15px;

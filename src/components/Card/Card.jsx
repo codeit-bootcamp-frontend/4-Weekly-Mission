@@ -45,8 +45,12 @@ function Card({
             alt={item.title}
             onError={handleImgError}
           />
-          <button type="button" onClick={handleBookmarkClick}>
-            <IconStar className="card__bookmark" />
+          <button
+            type="button"
+            className="card__bookmark"
+            onClick={handleBookmarkClick}
+          >
+            <IconStar />
           </button>
         </div>
         <div className="card__info">
