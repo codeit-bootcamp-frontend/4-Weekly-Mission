@@ -40,15 +40,15 @@ const btnCss = css`
 `;
 
 const Avatar = () => {
-  const [data, setData] = useState(null);
-  const [isOk, setIsOk] = useState(true);
+  const [userData, setUserData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async () => {
     try {
       const result = await api("sample/user");
-      setData(result.email);
+      setUserData(result.email);
     } catch (error) {
-      setIsOk(false);
+      setIsLoading(false);
     }
   };
 
@@ -61,8 +61,14 @@ const Avatar = () => {
       <div css={imgWrapperStyle}>
         <img src={avatarImage} css={imageStyle} alt="계정이미지" />
       </div>
-      <p css={pStyle}>{data}</p>
-      <Button name="로그인" size="small" isok={isOk} key={data} css={btnCss} />
+      <p css={pStyle}>{userData}</p>
+      <Button
+        name="로그인"
+        size="small"
+        isLoading={isLoading}
+        key={userData}
+        css={btnCss}
+      />
     </div>
   );
 };
