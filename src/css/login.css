@@ -1,0 +1,136 @@
+* {
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
+}
+body {
+  margin: 15%;
+  background-color: #f0f6ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#logo_img{
+  width: 133px;
+  height: 24px;
+}
+#join {
+  margin-top: 16px;
+  color: var(--black, #000);
+  font-weight: 400;
+}
+#join_a {
+  color: var(--Linkbrary-primary-color, #6d6afe);
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 30px;
+}
+.input_name {
+  margin: 0 0 12px 0;
+  color: var(--black, #000);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.input_box {
+  display: flex;
+  width: 400px;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
+}
+.error_box {
+  border-radius: 8px;
+  border: 1.5px solid var(--Linkbrary-red, #ff5b56);
+  background: var(--Linkbrary-white, #fff);
+}
+.error {
+  color: var(--Linkbrary-red, #ff5b56);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 3em;
+  font-size: 12px;
+}
+.login_btn {
+  width: 400px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  color: white;
+  cursor: pointer;
+}
+footer {
+  margin-top: 32px;
+  display: flex;
+  width: 410px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-gray10, #e7effb);
+}
+footer p {
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+footer div {
+  display: flex;
+  gap: 10px;
+}
+.social_img {
+  width: 26px;
+  height: 24px;
+}
+.social_btn {
+  width: 42px;
+  height: 42px;
+}
+.google {
+  background-image: url(../icon/google.svg);
+  background-size: contain;
+  padding: 10px;
+}
+.kakao {
+  background-image: url(../icon/kakao-back.svg);
+  background-size: contain;
+  padding: 10px 8px;
+}
+@media (max-width: 767px) {
+  body {
+    padding: 120px 32px 0 32px;
+    margin: 0;
+  }
+  main {
+    width: 100%;
+  }
+  .input {
+    width: 100%;
+  }
+  .input_box,
+  .login_btn,
+  footer {
+    width: 100%;
+  }
+}
