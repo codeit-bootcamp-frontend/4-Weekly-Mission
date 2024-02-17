@@ -3,10 +3,9 @@ import { styled } from 'styled-components';
 import { useEffect, useState } from 'react';
 
 import logo from 'assets/logo.svg';
+import folderAPI from 'api/folderAPI';
 import Button from 'components/common/button/Button';
 import UserBtn from 'components/common/gnb/UserBtn';
-import sampleAPI from 'api/sampleAPI';
-import BUTTON_TYPE from 'constants/BUTTON_TYPE';
 
 const Styled = {
   Container: styled.nav`
@@ -42,8 +41,8 @@ function GNB() {
 
   const fetchData = async () => {
     try {
-      const res = await sampleAPI.getSampleUserInfo();
-      const userData = res.data;
+      const res = await folderAPI.getUserInfo(1);
+      const userData = res.data?.data[0];
       setIsLoggedIn(userData ? true : false);
       setUserData(userData);
     } catch (error) {
