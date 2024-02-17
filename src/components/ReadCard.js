@@ -1,4 +1,6 @@
 import Card from "./Card/Card";
+import CardImage from "./CardImage/CardImage";
+import CardContent from "./CardContent/CardContent";
 
 function ReadCard({
   url,
@@ -10,15 +12,15 @@ function ReadCard({
 }) {
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
-      <Card
-        imageSource={imageSource}
-        alt={alt}
-        elapsedTime={elapsedTime}
-        description={description}
-        createdAt={createdAt}
-      />
+      <Card>
+        <CardImage imageSource={imageSource} alt={alt} />
+        <CardContent
+          elapsedTime={elapsedTime}
+          description={description}
+          createdAt={createdAt}
+        />
+      </Card>
     </a>
   );
 }
-
 export default ReadCard;
