@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const Twitter = () => {
   return (
-    <a href="https://twitter.com">
+    <Link to="https://twitter.com">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -13,7 +15,7 @@ const Twitter = () => {
           fill="white"
         />
       </svg>
-    </a>
+    </Link>
   );
 };
 

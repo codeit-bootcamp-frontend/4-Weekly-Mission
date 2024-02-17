@@ -27,9 +27,8 @@ const LenderingCards = () => {
     try {
       const result = await api("sample/folder");
       setItems(result.folder.links);
-      await console.log(items);
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
 

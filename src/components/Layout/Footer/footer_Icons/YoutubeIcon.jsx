@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const YoutubeIcon = () => {
   return (
-    <a href="https://www.youtube.com">
+    <Link to="https://www.youtube.com">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -20,7 +22,7 @@ const YoutubeIcon = () => {
           </clipPath>
         </defs>
       </svg>
-    </a>
+    </Link>
   );
 };
 export default YoutubeIcon;

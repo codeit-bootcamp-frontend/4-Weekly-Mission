@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const FacebookIcon = () => {
   return (
-    <a href="https://www.facebook.com">
+    <Link to="https://www.facebook.com">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -15,7 +17,7 @@ const FacebookIcon = () => {
           fill="white"
         />
       </svg>
-    </a>
+    </Link>
   );
 };
 
