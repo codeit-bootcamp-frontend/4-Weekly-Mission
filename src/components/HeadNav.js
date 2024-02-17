@@ -48,7 +48,7 @@ const ProfileData = function () {
 
 export default function HeadNav() {
 	return (
-		<nav>
+		<nav className="is-not-sticky">
 			<div className="flexible-header-in-tablet">
 				<a href="index.html">
 					<img src="logo.svg" alt="Linkbrary Logo" />

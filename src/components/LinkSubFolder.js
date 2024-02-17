@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { acceptDataFromApi } from "Api";
 import LinkSearchBar from "./LinkSearchBar";
 import LinkCardCollection from "./LinkCardCollection";
-import { useParams } from "react-router-dom";
 
 const SubFolderBtnList = styled.div`
 	max-width: 85%;
@@ -116,7 +115,7 @@ const EmptySpace = styled.div`
 	color: var(--LBrary-Black);
 	padding: 41px 0 35px;
 	margin: 0 auto;
-	margin-bottom: 40vh;
+	height: calc(100vh - 738px);
 	text-align: center;
 	font-family: Pretendard;
 	font-size: 1.6rem;
@@ -125,7 +124,7 @@ const EmptySpace = styled.div`
 	line-height: 150%;
 
 	@media (max-width: 1124px) {
-		margin-bottom: 30vh;
+		height: calc(100vh - 782px);
 	}
 
 	@media (max-width: 767px) {
