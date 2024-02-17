@@ -1,10 +1,10 @@
 import React from "react";
 import "../Styles/Card.css";
 
-export function Card({ cardInfo, key }) {
+export function FolderCard({ cardInfo, key }) {
   const { imageSource, createdAt, description, url } = cardInfo;
-  const inputDate = new Date(createdAt);
 
+  const inputDate = new Date(createdAt);
   const year = inputDate.getFullYear();
   const month = (inputDate.getMonth() + 1).toString().padStart(2, "0");
   const day = inputDate.getDate().toString().padStart(2, "0");

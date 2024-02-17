@@ -1,8 +1,7 @@
 import React from "react";
 import logo from "../Assets/image/logo.png";
-import "../Styles/Header.css";
 
-export function Header({ profile, folder }) {
+export function Nav({ profile }) {
   return (
     <>
       <nav>
@@ -28,22 +27,6 @@ export function Header({ profile, folder }) {
           )}
         </div>
       </nav>
-
-      <header>
-        <div className="folder">
-          <div className="folderProfile">
-            <img
-              src={folder.userProfileImage}
-              className="folderImg"
-              alt="userProfileImg"
-            ></img>
-            <p className="folderProfileName">{folder.userName}</p>
-          </div>
-          <div>
-            <h2 className="folderName">{folder.folderName}</h2>
-          </div>
-        </div>
-      </header>
     </>
   );
 }

@@ -1,9 +1,9 @@
 import React from "react";
 import searchIcon from "../Assets/image/Search.png";
-import { Card } from "./Card";
+import { FolderCard } from "./FolderCard";
 import "../Styles/Main.css";
 
-export function Main({ cards }) {
+export function FolderMain({ cards }) {
   return (
     <>
       <div className="searchContainer">
@@ -20,7 +20,9 @@ export function Main({ cards }) {
 
       <div className="cardContainer">
         {cards &&
-          cards.map((card) => <Card cardInfo={card} key={card.id}></Card>)}
+          cards.map((card) => (
+            <FolderCard cardInfo={card} key={card.id}></FolderCard>
+          ))}
       </div>
     </>
   );
