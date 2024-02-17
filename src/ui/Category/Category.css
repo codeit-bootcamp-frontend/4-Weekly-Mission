@@ -1,0 +1,11 @@
+.Category-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Categories {
+  display: flex;
+  gap: 1.2rem;
+}
