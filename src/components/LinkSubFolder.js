@@ -6,8 +6,14 @@ import LinkSearchBar from "./LinkSearchBar";
 import LinkCardCollection from "./LinkCardCollection";
 
 const SubFolderBtnList = styled.div`
+	max-width: 85%;
+	flex-wrap: wrap;
 	display: flex;
 	gap: 8px;
+
+	@media (max-width: 767px) {
+		max-width: 100%;
+	}
 `;
 
 const SubFolderUtilList = styled.div`
@@ -20,15 +26,25 @@ const SubFolderUtil = styled.div`
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 24px;
+
+	@media (max-width: 767px) {
+		row-gap: 12px;
+		flex-direction: column;
+		align-items: flex-start;
+	}
 `;
 
 const SubFolderTitle = styled.p`
 	font-family: Pretendard;
-	font-size: 24px;
+	font-size: 2.4rem;
 	font-style: normal;
 	font-weight: 600;
 	line-height: normal;
 	letter-spacing: -0.2px;
+
+	@media (max-width: 767px) {
+		font-size: 2 rem;
+	}
 `;
 
 const Button = styled.button`
@@ -37,6 +53,46 @@ const Button = styled.button`
 	text-align: center;
 	gap: 4px;
 	background-color: var(--LBrary-white);
+
+	@media (max-width: 767px) {
+		padding: 0;
+	}
+`;
+
+const AddFolderButton = styled.button`
+	display: flex;
+	align-items: center;
+	text-align: center;
+	gap: 4px;
+	background-color: var(--LBrary-white);
+
+	@media (max-width: 767px) {
+		position: fixed;
+		border: 1px solid var(--LBrary-White);
+      left: calc(50% - 77.7px);
+		border-radius: 20px;
+		bottom: 101px;
+		color: var(--LBrary-Gray10);
+		text-align: center;
+		font-family: Pretendard;
+		font-size: 1.6rem;
+		font-weight: 500;
+		letter-spacing: -0.3px;
+		padding: 8px 24px;
+		background-color: var(--LBrary-Primary-color);
+		z-index: 1;
+	}
+	}
+`;
+
+const AddImage = styled.div`
+	background-image: url("add.svg");
+	width: 16px;
+	height: 16px;
+
+	@media (max-width: 767px) {
+		background-image: url("addwhite.svg");
+	}
 `;
 
 const SubFolderBtn = styled.button`
@@ -48,6 +104,11 @@ const SubFolderBtn = styled.button`
 		state === "true" ? `var(--LBrary-Primary-color)` : `var(--LBrary-white);`};
 	color: ${({ state }) =>
 		state === "true" ? `var(--LBrary-White);` : `var(--LBrary-Black);`};
+
+	@media (max-width: 1124px) {
+		font-size: 1.6rem;
+		font-weight: 400;
+	}
 `;
 
 const EmptySpace = styled.div`
@@ -73,9 +134,9 @@ const EmptySpace = styled.div`
 
 function AddSubFolder() {
 	return (
-		<Button className="add-sub-folder">
-			폴더 추가 <img src={"add.svg"} alt="AddFolderButton" />
-		</Button>
+		<AddFolderButton className="add-sub-folder">
+			폴더 추가 <AddImage />
+		</AddFolderButton>
 	);
 }
 
