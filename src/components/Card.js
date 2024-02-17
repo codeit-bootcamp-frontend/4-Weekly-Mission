@@ -1,5 +1,5 @@
 import '../styles/card.css';
-import noneImg from '../assets/noneImg.png';
+import noneImg from '../assets/noneImg.svg';
 import starIcon from '../assets/starIcon.svg';
 import meatballsIcon from '../assets/meatballsIcon.svg';
 

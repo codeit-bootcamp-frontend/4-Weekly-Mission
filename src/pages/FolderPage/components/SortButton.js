@@ -1,12 +1,15 @@
-import { useState } from 'react';
 import styled from 'styled-components';
-function SortButton({ id, text }) {
-  const [isclicked, setIsclicked] = useState(false);
-  const handleClick = () => {
-    setIsclicked(!isclicked);
+function SortButton({ id, text, handleClick, isclickedProp = false }) {
+  const handleSendSelectedFolder = (e) => {
+    const newFolder = {
+      id: id,
+      name: text,
+    };
+    handleClick(newFolder);
   };
+
   return (
-    <StyledButton onClick={handleClick} isclicked={isclicked}>
+    <StyledButton onClick={handleSendSelectedFolder} isclicked={isclickedProp}>
       {text}
     </StyledButton>
   );

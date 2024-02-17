@@ -1,13 +1,25 @@
 import LinkSearchBar from './LinkSearchBar';
 import '../styles/folderList.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import FolderSortBar from '../pages/FolderPage/components/FolderSortBar';
 import FolderOptionBar from '../pages/FolderPage/components/FolderOptionBar';
-import { USERS_LINKS_URL } from '../constants/urls';
+import { USERS_LINKS_URL, USERS_FOLDERS_URL } from '../constants/urls';
 import Card from './Card';
 import useLinksData from '../hooks/useLinksData';
+import useFoldersData from '../hooks/useFoldersData';
 function FolderList() {
-  const links = useLinksData(USERS_LINKS_URL);
+  const [selectedFolder, setSelectedFolder] = useState({ id: 1, name: '전체' });
+  const [linksFetchUrl, setLinksFetchUrl] = useState(USERS_LINKS_URL);
+  const [foldersFetchUrl, setFoldersFetchUrl] = useState(USERS_FOLDERS_URL);
+  const links = useLinksData(linksFetchUrl);
+  const folders = useFoldersData(foldersFetchUrl);
+
+  const handleSortButtonClick = (newSelectedFolder) => {
+    setSelectedFolder(newSelectedFolder);
+    const query = `?folder=${newSelectedFolder.id}`;
+    setLinksFetchUrl(USERS_LINKS_URL + query);
+    console.log(linksFetchUrl);
+  };
 
   return (
     <div className="folders-container">
@@ -19,9 +31,13 @@ function FolderList() {
           </div>
         ) : (
           <div className="folder-list">
-            <FolderSortBar></FolderSortBar>
-            <FolderOptionBar></FolderOptionBar>
-            <div>
+            <FolderSortBar
+              folders={folders}
+              handleClick={handleSortButtonClick}
+              selectedId={selectedFolder.id}
+            ></FolderSortBar>
+            <FolderOptionBar text={selectedFolder.name}></FolderOptionBar>
+            <div className="folder-list__links">
               {links.map((card) => (
                 <Card
                   key={card.id}

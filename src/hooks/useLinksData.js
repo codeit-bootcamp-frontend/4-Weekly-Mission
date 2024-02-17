@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getLastTime, formatDate } from '../utils/timeCalculater';
-import noneImg from '../assets/noneImg.png';
+import noneImg from '../assets/noneImg.svg';
 function useLinksData(url) {
   const [linksArray, setLinksArray] = useState([]);
 

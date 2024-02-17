@@ -1,17 +1,19 @@
 import SortButton from './SortButton';
 import '../styles/folderSortBar.css';
 import FolderAddButton from './FolderAddButton';
-import { USERS_FOLDERS_URL } from '../../../constants/urls';
-import useFoldersData from '../../../hooks/useFoldersData';
 
-function FolderSortBar() {
-  const folders = useFoldersData(USERS_FOLDERS_URL);
-
+function FolderSortBar({ folders, handleClick, selectedId }) {
   return (
     <div className="folder__sort-bar">
       <div className="folder__sort-bar--sort-buttons">
         {folders.map((folder) => (
-          <SortButton key={folder.id} text={folder.name} />
+          <SortButton
+            key={folder.id}
+            id={folder.id}
+            text={folder.name}
+            handleClick={handleClick}
+            isclickedProp={selectedId == folder.id ? true : false}
+          />
         ))}
       </div>
 

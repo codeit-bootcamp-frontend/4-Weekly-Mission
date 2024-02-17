@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { USER_URL } from '../constants/urls';
+
 export function useInformationData({ url }) {
   const [myInfo, setMyInfo] = useState(0);
 

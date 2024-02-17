@@ -8,7 +8,7 @@ function useFoldersData(url) {
       try {
         const response = await fetch(url);
         const result = await response.json();
-        setFolders([{ id: 1, name: '전체' }, ...result.data]);
+        setFolders([{ id: 1, name: '전체', isclicked: null }, ...result.data]);
       } catch (error) {
         console.log('folder data fetch error', error);
       }
