@@ -79,8 +79,12 @@ function AddSubFolder() {
 	);
 }
 
-const EmptyLink = function () {
-	return <EmptySpace>저장된 링크가 없습니다.</EmptySpace>;
+const EmptyLink = function ({ isLoading }) {
+	const spaceText = isLoading
+		? "불러오는 중입니다..."
+		: "저장된 링크가 없습니다.";
+
+	return <EmptySpace>{spaceText}</EmptySpace>;
 };
 
 function SubFolders({ subFolderData, handleCurrentFolderChange }) {
@@ -150,17 +154,20 @@ export default function LinkSubFolder() {
 	const [currentFolderName, setCurrentFolderName] = useState("전체");
 	const [subFolderList, setSubFolderList] = useState([]);
 	const [isEmptyResponse, setIsEmptyResponse] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 	const [currentFolderQuery, setCurrentFolderQuery] = useState(
 		`users/${currentUserId}/links`
 	);
 	const [items, setItems] = useState([]);
 
 	const handleShareLoad = async (query) => {
+		setIsLoading(true);
 		setIsEmptyResponse(false);
 		const { data } = await acceptDataFromApi(query);
 		if (data.length === 0) {
 			setIsEmptyResponse(true);
 		}
+		setIsLoading(false);
 		setItems(data);
 	};
 
@@ -211,8 +218,8 @@ export default function LinkSubFolder() {
 				</SubFolderUtil>
 			</div>
 			<LinkSearchBar />
-			{isEmptyResponse ? (
-				<EmptyLink />
+			{isEmptyResponse || isLoading ? (
+				<EmptyLink isLoading={isLoading} />
 			) : (
 				<>
 					<LinkCardCollection items={items} />
