@@ -1,4 +1,4 @@
-.folder-info {
+.folder_info {
   margin-top: 88px;
   padding-top: 20px;
   padding-bottom: 60px;
@@ -18,14 +18,14 @@ main {
   background-color: var(--color-white);
 }
 
-.folder-owner {
+.folder_owner {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
 
-.card-list {
+.card_list {
   width: 100%;
 
   margin-top: 52px;
@@ -41,7 +41,7 @@ main {
     padding: 4% 32px;
   }
 
-  .card-list {
+  .card_list {
     grid-template: repeat(2, 1fr) / repeat(2, 1fr);
   }
 }
@@ -52,7 +52,7 @@ main {
     padding: 4% 32px;
   }
 
-  .card-list {
+  .card_list {
     display: flex;
     flex-direction: column;
   }

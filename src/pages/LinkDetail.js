@@ -1,9 +1,14 @@
 import { useParams } from "react-router-dom";
-import Header from "../Components/Header";
+import Header from "../components/Header";
 
 const LinkDetail = () => {
   const { linkId } = useParams();
-  return <h1>Here is {linkId}!</h1>;
+  return (
+    <>
+      <Header />
+      <h1>Here is {linkId}!</h1>
+    </>
+  );
 };
 
 export default LinkDetail;

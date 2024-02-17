@@ -1,15 +1,19 @@
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
-import Avatar from "../Components/Avatar";
-import "./css/Folder.css";
-import SearchBar from "../Components/SearchBar";
-import Card from "../Components/Card";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Avatar from "../components/Avatar";
+import styles from "./css/Folder.module.css";
+import SearchBar from "../components/SearchBar";
+import Card from "../components/Card";
 import { useEffect, useState } from "react";
-import { getFolder, getUser } from "../api";
+import { getFolder, getUser } from "../lib/api";
 import { Link } from "react-router-dom";
+import { getTimeDifference } from "../lib/utils";
 
 const Folder = () => {
-  const [user, setUser] = useState({ email: null, profileImageSource: null });
+  const [user, setUser] = useState({
+    email: null,
+    profileImageSource: null,
+  });
   const [folderInfo, setFolderInfo] = useState({
     folderName: null,
     folderOwner: null,
@@ -17,13 +21,13 @@ const Folder = () => {
     folderLinks: [],
   });
 
-  const handleLoadUser = async () => {
+  const loadUser = async () => {
     const { email, profileImageSource } = await getUser();
     if (!email) return;
-    setUser({ email: email, profileImageSource: profileImageSource });
+    setUser({ email, profileImageSource });
   };
 
-  const handleLoadFolder = async () => {
+  const loadFolder = async () => {
     const folderInfo = await getFolder();
     setFolderInfo({
       folderName: folderInfo["folder"]["name"],
@@ -34,18 +38,15 @@ const Folder = () => {
   };
 
   useEffect(() => {
-    handleLoadUser();
-    handleLoadFolder();
+    loadUser();
+    loadFolder();
   }, []);
 
   return (
     <>
-      <Header
-        userEmail={user.email}
-        userProfileImage={user.profileImageSource}
-      />
-      <div className="folder-info">
-        <div className="folder-owner">
+      <Header userInfo={user} />
+      <div className={styles.folder_info}>
+        <div className={styles.folder_owner}>
           <Avatar
             avatarImage={folderInfo.folderOwnerImage}
             width="60px"
@@ -57,14 +58,27 @@ const Folder = () => {
       </div>
       <main>
         <SearchBar />
-        <div className="card-list">
+        <div className={styles.card_list}>
           {folderInfo.folderLinks.map((link) => {
             const { imageSource, createdAt, description } = link;
+            const createDate = new Date(createdAt);
+            const currentDate = new Date();
+
+            const createdDate = `${createDate.getFullYear()}. ${
+              createDate.getMonth() + 1
+            }. ${createDate.getDate()}`;
+
+            const timeDifference = getTimeDifference(createDate, currentDate);
             return (
-              <Link to={`/link/${link.id}`} key={link.id} target="_blank">
+              <Link
+                to={`/link/${link.id}`}
+                key={link.id}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Card
                   cardImage={imageSource}
-                  cardCreated={createdAt}
+                  cardTime={{ createdDate, timeDifference }}
                   cardDescription={description}
                 />
               </Link>

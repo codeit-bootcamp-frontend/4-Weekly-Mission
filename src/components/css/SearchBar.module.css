@@ -1,14 +1,14 @@
-.search-bar {
+.search_bar {
   position: relative;
 }
 
-.search-icon {
+.search_icon {
   position: absolute;
   top: 34%;
   left: 20px;
 }
 
-.search-bar-input {
+.search_bar_input {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
