@@ -32,6 +32,13 @@ const InputBox = styled.div`
   margin: 60px auto 90px;
   display: flex;
   flex-direction: row;
+
+  @media (max-width: 1124px) {
+    width: 704px;
+  }
+  @media (max-width: 774px) {
+    width: 325px;
+  }
 `;
 
 const Input = styled.input`
@@ -50,5 +57,11 @@ const Input = styled.input`
     font-style: normal;
     font-weight: 400;
     line-height: 24px;
+  }
+
+  @media (max-width: 774px) {
+    &::placeholder {
+      font-size: 14px;
+    }
   }
 `;

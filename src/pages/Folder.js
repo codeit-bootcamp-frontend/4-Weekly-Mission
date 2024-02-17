@@ -7,6 +7,7 @@ import FolderInput from "./../components/Folder/FolderInput";
 import FolderList from "./../components/common/FolderList";
 import Input from "../components/common/Input";
 import Menus from "../components/Folder/Menus";
+import FolderTitle from "../components/Folder/FolderTitle";
 
 const Folder = () => {
   const [folders, setFolders] = useState([]);
@@ -37,6 +38,7 @@ const Folder = () => {
       <FolderInput />
       <Input />
       <Menus />
+      <FolderTitle />
       <FolderList items={folders}></FolderList>
     </>
   );

@@ -48,6 +48,7 @@ const Container = styled.div`
   display: flex;
   padding: 8px 12px;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 
@@ -56,7 +57,6 @@ const Container = styled.div`
   }
   @media (max-width: 774px) {
     width: 325px;
-    flex-wrap: wrap;
     padding: 0px;
   }
 `;

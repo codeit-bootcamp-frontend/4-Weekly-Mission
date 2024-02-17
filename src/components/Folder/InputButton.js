@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 const InputButton = styled.button`
-  width: 99px;
+  min-width: 88px;
   padding: 10px 16px;
   background: var(
     --gra-purpleblue-to-skyblue,
