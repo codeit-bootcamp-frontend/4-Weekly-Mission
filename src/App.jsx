@@ -3,6 +3,7 @@ import './App.css';
 import { Layout } from './components/Layout';
 import { LoginProvider } from './contexts/LoginContext';
 import LandingPage from './pages/Landing/LandingPage';
+import SharedPage from './pages/Shared/SharedPage';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<LandingPage />} />
+            <Route path="shared" element={<SharedPage />} />
           </Route>
         </Routes>
       </LoginProvider>
