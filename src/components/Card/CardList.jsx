@@ -1,7 +1,9 @@
 import getTimeDiff from '../../utils/getTimeDiff';
 import getCoustomDate from '../../utils/getCoustomDate';
-import StarImg from '../../assets/star.svg';
+import StarIcon from '../../assets/star.svg';
 import KebabIcon from '../../assets/kebab.svg';
+import CardDefaultIcon from '../../assets/default-card.svg';
+import * as Styled from './CardList.styled';
 
 function CardList({ handleKebabClick, selectCardId, linkList, option, handleModalAction }) {
   const handleKebabModalAction = (action, subTitle, e) => {
@@ -15,7 +17,7 @@ function CardList({ handleKebabClick, selectCardId, linkList, option, handleModa
   };
 
   return (
-    <div className='content__cards'>
+    <Styled.CardBox>
       {linkList?.length ? (
         linkList.map((link) => {
           const { id, createdAt, created_at, imageSource, image_source, description, url } = link;
@@ -25,15 +27,15 @@ function CardList({ handleKebabClick, selectCardId, linkList, option, handleModa
           const timeDiffText = getTimeDiff(linkCreated);
           const coustomDate = getCoustomDate(createDate);
           return (
-            <a key={id} href={url} className='content__card'>
-              {option && <img className='content__star' src={StarImg} alt='별 아이콘' />}
-              <figure className={imgSrc ? 'content__imgBox' : 'content__imgBox--default'}>
-                {imgSrc && <img className='content__img' src={imgSrc} alt='카드 이미지' />}
-              </figure>
-              <div className='content__info'>
+            <Styled.Card key={id} href={url}>
+              {option && <Styled.StarIcon src={StarIcon} alt='별 아이콘' />}
+              <Styled.CardImgBox $imgSrc={imgSrc} icon={CardDefaultIcon}>
+                <Styled.CardImg src={imgSrc} alt='카드 이미지' />
+              </Styled.CardImgBox>
+              <Styled.CardInfo>
                 {option ? (
-                  <div className='content__box'>
-                    <div className='content__timediff'>{timeDiffText}</div>
+                  <Styled.CardInfoHeader>
+                    <Styled.CardTimeDiff>{timeDiffText}</Styled.CardTimeDiff>
                     <img
                       onClick={(e) => handleKebabIconClick(e, id)}
                       className='content__kebab'
@@ -41,29 +43,29 @@ function CardList({ handleKebabClick, selectCardId, linkList, option, handleModa
                       alt='케밥 아이콘'
                     />
                     {selectCardId === id && (
-                      <ul className='kebab__lists'>
-                        <li onClick={(e) => handleKebabModalAction('링크 삭제', url, e)} className='kebab__list'>
+                      <Styled.KebabListBox>
+                        <Styled.KebabList onClick={(e) => handleKebabModalAction('링크 삭제', url, e)}>
                           삭제하기
-                        </li>
-                        <li onClick={(e) => handleKebabModalAction('폴더에 추가', url, e)} className='kebab__list'>
+                        </Styled.KebabList>
+                        <Styled.KebabList onClick={(e) => handleKebabModalAction('폴더에 추가', url, e)}>
                           폴더에 추가
-                        </li>
-                      </ul>
+                        </Styled.KebabList>
+                      </Styled.KebabListBox>
                     )}
-                  </div>
+                  </Styled.CardInfoHeader>
                 ) : (
-                  <div className='content__timediff'>{timeDiffText}</div>
+                  <Styled.CardTimeDiff>{timeDiffText}</Styled.CardTimeDiff>
                 )}
-                <div className='content__text'>{description}</div>
-                <div className='content__date'>{coustomDate}</div>
-              </div>
-            </a>
+                <Styled.CardText>{description}</Styled.CardText>
+                <Styled.CardDate>{coustomDate}</Styled.CardDate>
+              </Styled.CardInfo>
+            </Styled.Card>
           );
         })
       ) : (
-        <div className='content__blank'>저장된 링크가 없습니다</div>
+        <Styled.CardListEmpty>저장된 링크가 없습니다</Styled.CardListEmpty>
       )}
-    </div>
+    </Styled.CardBox>
   );
 }
 

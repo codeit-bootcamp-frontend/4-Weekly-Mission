@@ -36,6 +36,15 @@ function ModalShareList({ folderName }) {
     switch (text) {
       case '링크 복사':
         handleCopyClipBoard(folderName);
+        break;
+
+      case '카카오톡':
+        console.log('카카오톡 클릭');
+        break;
+
+      case '페이스북':
+        console.log('페이스북 클릭');
+        break;
     }
   };
   return (

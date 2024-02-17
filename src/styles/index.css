@@ -118,12 +118,6 @@ main {
 }
 
 /* 본문(카드) */
-.c1 {
-  padding: 7.5rem 0 3.12rem;
-  @media (max-width: 1199px) {
-    padding: 5rem 0 3.12rem;
-  }
-}
 
 .cardTitleBox {
   display: flex;
@@ -158,13 +152,48 @@ main {
   }
 }
 
-.c2 > .cardTitleBox,
+/* .c1 {
+  padding: 7.5rem 0 3.12rem;
+  @media (max-width: 1199px) {
+    padding: 5rem 0 3.12rem;
+  }
+} */
+
+/* .c2 > .cardTitleBox,
 .c4 > .cardTitleBox {
   order: 3;
   @media (max-width: 767px) {
     order: 0;
   }
+} */
+
+/* .c1 .cardTitle {
+  background: var(--text1) text;
+  @media (max-width: 767px) {
+    background: var(--mobileText1) text;
+  }
 }
+
+.c2 .cardTitle {
+  background: var(--text2) text;
+  @media (max-width: 767px) {
+    background: var(--mobileText2) text;
+  }
+}
+
+.c3 .cardTitle {
+  background: var(--text3) text;
+  @media (max-width: 767px) {
+    background: var(--mobileText3) text;
+  }
+}
+
+.c4 .cardTitle {
+  background: var(--text4) text;
+  @media (max-width: 767px) {
+    background: var(--mobileText4) text;
+  }
+} */
 
 figure > img {
   width: 34.375rem;
@@ -193,34 +222,6 @@ figure > img {
   }
 }
 
-.c1 .cardTitle {
-  background: var(--text1) text;
-  @media (max-width: 767px) {
-    background: var(--mobileText1) text;
-  }
-}
-
-.c2 .cardTitle {
-  background: var(--text2) text;
-  @media (max-width: 767px) {
-    background: var(--mobileText2) text;
-  }
-}
-
-.c3 .cardTitle {
-  background: var(--text3) text;
-  @media (max-width: 767px) {
-    background: var(--mobileText3) text;
-  }
-}
-
-.c4 .cardTitle {
-  background: var(--text4) text;
-  @media (max-width: 767px) {
-    background: var(--mobileText4) text;
-  }
-}
-
 .cardTitle > span {
   color: transparent;
 }
@@ -231,10 +232,6 @@ figure > img {
   }
   .mainWrap {
     margin: 2.5rem auto 0;
-  }
-
-  .mainTitleLine {
-    display: block;
   }
 
   .mainWrap > img {

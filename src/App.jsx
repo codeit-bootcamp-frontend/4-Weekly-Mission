@@ -4,7 +4,7 @@ import FolderPage from './pages/FolderPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import './styles/reset.css';
+
 function App() {
   return (
     <BrowserRouter>

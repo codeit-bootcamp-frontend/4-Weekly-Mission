@@ -1,6 +1,6 @@
 import CardList from '../card/CardList';
-import ContentHeader from './ContentHeader';
 import Category from '../category/Category';
+import * as Styled from './Content.styled';
 
 function Content({
   categoryList,
@@ -21,24 +21,12 @@ function Content({
     handleModalAction,
   };
   return (
-    <section className='content'>
+    <Styled.Content>
       <form>
-        <label htmlFor='content--search' className='label--hidden'>
-          링크 검색
-        </label>
-        <input
-          id='content--search'
-          className='content__search'
-          type='search'
-          placeholder='🔍   링크를 검색해 보세요.'
-        />
+        <Styled.Label htmlFor='content--search'>링크 검색</Styled.Label>
+        <Styled.SearchInput id='content--search' type='search' placeholder='🔍   링크를 검색해 보세요.' />
       </form>
-      {option && (
-        <>
-          <Category {...categoryProps} />
-          <ContentHeader selectCategory={selectCategory} handleModalAction={handleModalAction} />
-        </>
-      )}
+      {option && <Category {...categoryProps} />}
       <CardList
         handleKebabClick={handleKebabClick}
         selectCardId={selectCardId}
@@ -46,7 +34,7 @@ function Content({
         option={option}
         handleModalAction={handleModalAction}
       />
-    </section>
+    </Styled.Content>
   );
 }
 

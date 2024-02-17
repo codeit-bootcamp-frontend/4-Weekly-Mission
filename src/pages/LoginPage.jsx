@@ -1,7 +1,7 @@
 import SocialLogin from '../components/auth/SocialLogin';
 import AuthTitle from '../components/auth/AuthTitle';
 import AuthForm from '../components/auth/AuthForm';
-import '../styles/sign.css';
+// import '../styles/sign.css';
 function Login() {
   return (
     <div className='wrap'>

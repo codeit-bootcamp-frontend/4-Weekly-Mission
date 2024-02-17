@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Content from '../content/Content';
 import { API_PATH } from '../../services/api-path';
 import FETCH_API from '../../services/fetch-data';
+import * as Styled from './Folder.styled';
 
 function FolderContent({ handleKebabClick, selectCardId, categoryList, setCategoryList, handleModalAction }) {
   const [selectCategory, setSelectCategory] = useState({
@@ -101,27 +102,24 @@ function FolderContent({ handleKebabClick, selectCardId, categoryList, setCatego
   };
 
   return (
-    <main className='folder' onClick={(e) => getClickArea(e)}>
-      <section className='link'>
-        <div className='link__box'>
-          <form className='link__form' onSubmit={handleSearchFromSumbit}>
-            <label htmlFor='link--add' className='label--hidden'>
-              링크 추가
-            </label>
-            <input
+    <Styled.Folder onClick={(e) => getClickArea(e)}>
+      <Styled.Link>
+        <Styled.LinkBox>
+          <form onSubmit={handleSearchFromSumbit}>
+            <Styled.Label htmlFor='link--add'>링크 추가</Styled.Label>
+            <Styled.LinkInput
               id='link--add'
               onChange={(e) => handleSearchInputChange(e)}
               value={searchInputValue}
-              className='link__inputtext'
               type='text'
               placeholder='        링크를 추가해 보세요'
             />
-            <button className='link__add'>추가히기</button>
+            <Styled.LinkAddButton>추가하기</Styled.LinkAddButton>
           </form>
-        </div>
-      </section>
+        </Styled.LinkBox>
+      </Styled.Link>
       <Content {...contentProps} />
-    </main>
+    </Styled.Folder>
   );
 }
 

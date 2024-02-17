@@ -4,7 +4,8 @@ import Footer from '../components/footer/Footer';
 import { useEffect, useState } from 'react';
 import { API_PATH } from '../services/api-path';
 import FETCH_API from '../services/fetch-data';
-import '../styles/share.css';
+import GlobalStyles from '../styles/Global.styled';
+import * as Styled from '../components/Share.styled';
 
 function Share() {
   const [linkList, setLinkList] = useState([]);
@@ -37,17 +38,18 @@ function Share() {
 
   return (
     <>
+      <GlobalStyles />
       <Header />
-      <main className='folder'>
-        <section className='profile'>
-          <div className='profile__user'>
-            <img className='profile__img' alt='유저 프로필 이미지' src={userProfile.profileImg} />
-            <span className='profile__nickname'>{userProfile.folderOwner}</span>
-            <span className='profile__bookmark'>{userProfile.folderName}</span>
-          </div>
-        </section>
+      <Styled.Share>
+        <Styled.Profile>
+          <Styled.ProfileBox>
+            <Styled.ProfileImg src={userProfile.profileImg} alt='유저 프로필 이미지' />
+            <Styled.ProfileNickname>{userProfile.folderOwner}</Styled.ProfileNickname>
+            <Styled.ProfileBookmark>{userProfile.folderName}</Styled.ProfileBookmark>
+          </Styled.ProfileBox>
+        </Styled.Profile>
         <Content linkList={linkList} option={false} />
-      </main>
+      </Styled.Share>
       <Footer />
     </>
   );
