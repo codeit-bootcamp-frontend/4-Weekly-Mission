@@ -17,6 +17,7 @@ function Card({
   };
 
   const handleBookmarkClick = (e) => {
+    e.preventDefault();
     e.stopPropagation();
     console.log('TODO: handleBookmarkClick');
   };
