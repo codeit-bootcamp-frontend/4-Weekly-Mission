@@ -92,9 +92,6 @@ nav {
   justify-content: center;
   align-items: center;
   box-shadow: 0 5 25 0 #000000;
-  gap: 20px;
-  /* gridtemplaterows: "1fr ";
-  gridtemplatecolumns: "1fr 1fr 1fr 1fr"; */
 }
 
 .FavoritesContent {
@@ -103,6 +100,7 @@ nav {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 .FavoritesInputBox {

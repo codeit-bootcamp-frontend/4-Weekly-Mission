@@ -1,0 +1,55 @@
+.FolderInputBox {
+  width: auto;
+  height: 219px;
+  background-color: #f0f6ff;
+  padding: 60px 0 90px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.FolderAddInput {
+  width: 800px;
+  height: 69px;
+  border-radius: 15px;
+  border: 1px solid #6d6afe;
+  padding: 0 20px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.FolderAddInput:focus,
+.FolderSearchInput:focus {
+  outline: none;
+}
+
+.FolderAddButton {
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  width: 80px;
+  height: 37px;
+  padding: 10px;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 600;
+  position: absolute;
+  left: 1270px;
+}
+
+.FolderContentBox {
+  display: flex;
+  justify-content: center;
+  padding: 15px 16px;
+}
+
+.FolderSearchInput {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  width: 1060px;
+  height: 54px;
+  border: none;
+  padding: 0 16px;
+}
