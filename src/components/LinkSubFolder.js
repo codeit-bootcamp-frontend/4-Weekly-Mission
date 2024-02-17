@@ -233,14 +233,6 @@ export default function LinkSubFolder() {
 		setItems(data);
 	};
 
-	const handleCurrentFolderItems = (id) => {
-		setIsEmptyResponse(false);
-		setCurrentFolderQuery(
-			`users/${currentUserId}/links${id !== 0 ? `?folderId=${id}` : ""}`
-		);
-		handleShareLoad(currentFolderQuery);
-	};
-
 	const handleCurrentFolderChange = (id, name) => {
 		setCurrentFolderId(id);
 		setCurrentFolderName(name);
