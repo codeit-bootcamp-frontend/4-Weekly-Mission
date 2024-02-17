@@ -5,7 +5,7 @@ import LinkSearchInput from "../LinkSearchInput/LinkSearchInput";
 import InputContainer from "./InputContiner";
 
 const LinkItem = ({ link }) => {
-  const CREATED_AT = new Date(link.createdAt);
+  const CREATED_AT = new Date(link.createdAt || link.created_at);
   const YEAR = CREATED_AT.getFullYear();
   const MONTH = CREATED_AT.getMonth() + 1;
   const DATE = CREATED_AT.getDate();
@@ -14,7 +14,10 @@ const LinkItem = ({ link }) => {
   return (
     <div className="LinkItem">
       <a href={link.url}>
-        <img src={link.imageSource || defaultImage} alt="링크 이미지" />
+        <img
+          src={link.imageSource || link.image_source || defaultImage}
+          alt="링크 이미지"
+        />
         <p className="createdAt">{calculateTimePassed(CREATED_AT)}</p>
         <p className="description">{link.description}</p>
         <p className="createdDate">{CREATED_DATE}</p>
