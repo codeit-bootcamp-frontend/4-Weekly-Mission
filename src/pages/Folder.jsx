@@ -1,35 +1,37 @@
-import FolderInfo from '../components/FolderInfo';
+import LinkAddInput from '../components/LinkAddInput';
 import SearchBar from '../components/SearchBar';
-import LinkList from '../components/LinkList';
+import FolderList from '../components/FolderList';
 import { useCallback, useEffect, useState } from 'react';
 import { getFolder } from '../services/api';
 import style from '../styles/Folder.module.css';
 import useAsync from '../hooks/useAsync';
+import LinkList from '../components/LinkList';
+import { getFolderList } from '../services/api';
 
 function Folder() {
   const [linkList, setLinkList] = useState([]);
-  const [folderInfo, setFolderInfo] = useState({});
-  const [isPending, isError, asyncGetFolder] = useAsync(getFolder);
+  const [folderId, setFolderId] = useState('');
+  const [folderList, setFolderList] = useState([]);
+  const [isPending, isError, asyncGetFolderList] = useAsync(getFolderList);
 
-  const apiGetFolder = useCallback(async () => {
-    const result = await asyncGetFolder();
+  const apiGetFolderList = useCallback(async () => {
+    const result = await asyncGetFolderList();
     if (!result) return;
 
-    const { folder } = result;
-    const { links, name, owner } = folder;
-    setFolderInfo({ name, owner });
-    setLinkList([...links]);
-  }, [asyncGetFolder]);
+    const { data } = result;
+    setFolderList([...data]);
+  }, [asyncGetFolderList]);
 
   useEffect(() => {
-    apiGetFolder();
-  }, [apiGetFolder]);
+    apiGetFolderList();
+  }, [apiGetFolderList]);
 
   return (
     <main>
-      <FolderInfo folderInfo={folderInfo} />
+      <LinkAddInput />
       <div className={style.mainContent}>
         <SearchBar />
+        <FolderList folderList={folderList} onClick={setFolderId} />
         <LinkList linkList={linkList} />
       </div>
     </main>

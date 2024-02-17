@@ -18,5 +18,8 @@ export async function getFolder() {
   return fetchData('/sample/folder');
 }
 export async function getUser() {
-  return fetchData('/sample/user');
+  return fetchData('/users/1');
+}
+export async function getFolderList() {
+  return fetchData('/users/1/folders');
 }
