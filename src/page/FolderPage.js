@@ -1,26 +1,20 @@
 import "../global.css";
 import { PageBody } from "../layout/PageBody";
 import { Layout } from "../layout/Pagelayout/Layout";
-import { PageInfo } from "../layout/PageBody/Contain/PageInfo";
 import { SearchBar } from "../layout/PageBody/Contain/Serch";
 import { CardList } from "../layout/PageBody/Contain/Card/CardList";
 import { useGetPages } from "../data/useGetPages";
 import { ReadOnlyCard } from "../layout/PageBody/Contain/ReadOnlyCard";
+import { SerchInfo } from "../layout/PageBody/Contain/SerchInfo";
 
 function FolderPage() {
   const { data } = useGetPages();
-  const { profileImage, ownerName, pageName, links } = data;
+  const { links } = data;
 
   return (
     <Layout>
       <PageBody
-        pageInfo={
-          <PageInfo
-            profileImage={profileImage}
-            ownerName={ownerName}
-            pageName={pageName}
-          />
-        }
+        serchInfo={<SerchInfo />}
         searchBar={<SearchBar />}
         cardList={
           <CardList>

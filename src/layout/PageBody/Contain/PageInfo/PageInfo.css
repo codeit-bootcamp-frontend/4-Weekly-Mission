@@ -26,50 +26,6 @@
   font-weight: 600;
 }
 
-.PageInfo-SearchBar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 3.75rem 20rem 5.625rem 20rem;
-  box-sizing: border-box;
-  background-color: var(--light-blue);
-  gap: 8px;
-}
-
-.PageInfo-SearchBar-input {
-  width: 100%;
-  height: 6rem;
-  padding-left: 3.8rem;
-  padding-right: 1.6rem;
-  border-radius: 1rem;
-  background-color: var(--white);
-  border: 1px solid var(--primary);
-  font-size: 1.4rem;
-  gap: 8px;
-}
-.PageInfo-SearchBar-icon {
-  position: absolute;
-  transform: translateX(90%);
-}
-.PageInfo-SearchBar-container {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  width: 100%;
-  padding: 3.75rem 20rem 5.625rem 20rem;
-}
-.PageInfo-SearchBar-button {
-  position: absolute;
-  display: inline-block;
-  width: 8rem;
-  padding: 1rem 0;
-  font-size: 1.4rem;
-  font-weight: 600;
-  text-align: center;
-  z-index: 3;
-}
-
 @media (min-width: 768px) {
   .PageInfo {
     padding: 2rem 0 6rem;
@@ -86,14 +42,5 @@
   .PageInfo-folder {
     margin-top: 2rem;
     font-size: 4rem;
-  }
-  .PageInfo-SearchBar {
-    padding: 2rem 0 6rem;
-  }
-  .PageInfo-SearchBar-input {
-    height: 6rem;
-    padding-left: 4.2rem;
-    font-size: 1.6rem;
-    line-height: 150%;
   }
 }
