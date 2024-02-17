@@ -1,13 +1,13 @@
 import React from "react";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import ForderOwner from "../PersonalFolder/Banner/FolderOwner";
+import Profile from "../PersonalFolder/Banner/Profile";
 
 const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <ForderOwner />
+      <Profile />
       {children.map((child, index) => (
         <React.Fragment key={index}> {child}</React.Fragment>
       ))}
