@@ -34,7 +34,7 @@ const Folder = () => {
   return (
     <>
       <GlobalStyle />
-      <HeaderElement />
+      <HeaderElement $positionval={"static"} />
       <FolderInput />
       <Input />
       <Menus />

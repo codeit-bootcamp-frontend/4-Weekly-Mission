@@ -16,19 +16,16 @@
 }
 
 /* header */
-header {
+/* header {
   background-color: var(--Grey_100);
   padding: 20px 200px;
   position: sticky;
   top: 0;
   z-index: 2;
-}
-
-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 #myProfileName {
   display: flex;

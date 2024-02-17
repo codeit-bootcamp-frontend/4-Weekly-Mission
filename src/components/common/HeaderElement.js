@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { useState, useCallback, useEffect } from "react";
 import logo from "../../assets/Linkbrary.png";
 import profile from "../../assets/icons/icon_myprofile.png";
@@ -5,7 +6,7 @@ import { getUserInfo } from "../../api";
 
 import "../../style/common.css";
 
-function HeaderElement() {
+function HeaderElement({ positionval }) {
   const [user, setUser] = useState([]);
   const [profileUrl, setProfileUrl] = useState("");
 
@@ -27,7 +28,7 @@ function HeaderElement() {
   }, [handleLoad]);
 
   return (
-    <header>
+    <Header positionval={positionval}>
       <img src={logo} alt="logo" />
       <div className="myProfile" status="user">
         {user ? (
@@ -49,8 +50,19 @@ function HeaderElement() {
           </a>
         )}
       </div>
-    </header>
+    </Header>
   );
 }
+
+const Header = styled.div`
+  background-color: var(--Grey_100);
+  padding: 20px 200px;
+  position: ${({ positionval }) => (positionval ? positionval : "sticky")};
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 export default HeaderElement;
