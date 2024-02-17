@@ -1,31 +1,12 @@
 import Loader from '../Loader';
-import { calculateTime, formatDate } from 'utils/date';
-import { useSampleFolderQuery } from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';
 import Card from './Card';
-import CardError from './CardError';
 
-const CardGrid = () => {
-  const {
-    data: cardDatas,
-    isLoading,
-    isError,
-  } = useSampleFolderQuery('cardDatas', data =>
-    data?.folder.links.map(link => ({
-      ...link,
-      timePassed: calculateTime(link.createdAt),
-      formattedDate: formatDate(link.createdAt),
-    })),
-  );
-
-  if (isError) {
-    return <CardError />;
-  }
-
+const CardGrid = ({ datas, isLoading }) => {
   return (
     <CardContainer>
-      {isLoading ? <Loader /> : <Card cardDatas={cardDatas} />}
+      {isLoading ? <Loader /> : <Card cardDatas={datas} />}
     </CardContainer>
   );
 };

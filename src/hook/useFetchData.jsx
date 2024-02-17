@@ -1,8 +1,8 @@
-import { sampleFolderInquire, sampleUserInquire } from 'api/sampleAPI';
+import { sampleFolderInquire, getUser } from 'api/sampleAPI';
 import { useQuery } from 'react-query';
 
-export const useSampleUserQuery = () => {
-  return useQuery('sampleUser', sampleUserInquire);
+export const useUserQuery = () => {
+  return useQuery('user', getUser);
 };
 
 /**

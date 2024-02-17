@@ -40,6 +40,7 @@ const Header = () => {
 };
 
 const HeroHeader = styled.div`
+  margin-top: 9.4rem;
   display: flex;
   padding: 2.8rem 3.2rem;
   flex-direction: column;

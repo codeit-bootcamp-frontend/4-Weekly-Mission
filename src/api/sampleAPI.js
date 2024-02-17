@@ -1,7 +1,7 @@
 import { fetchRequest } from './index';
-import { SAMPLE_USER, SAMPLE_FOLDER } from 'config.js';
+import { SAMPLE_FOLDER, SAMPLE_USER } from 'config.js';
 
-export const sampleUserInquire = async () => {
+export const getUser = async () => {
   const data = await fetchRequest(SAMPLE_USER, 'GET');
   return data;
 };
