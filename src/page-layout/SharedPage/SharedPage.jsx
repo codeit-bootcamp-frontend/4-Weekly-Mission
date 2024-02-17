@@ -1,12 +1,28 @@
+import { FolderInfo } from "ui/FolderInfo";
+import { SearchBar } from "ui/SearchBar";
+import { CardList } from "ui/CardList";
+import { ReadOnlyCard } from "ui/ReadOnlyCard";
+import { useGetFolder } from "data-access/useGetFolder";
 import "./SharedPage.css";
 
-export const SharedPage = ({ folderInfo, searchBar, cardList }) => {
+export const SharedPage = () => {
+  const { data } = useGetFolder();
+  const { profileImage, ownerName, folderName, links } = data || {};
+
   return (
     <div className="SharedPage">
-      {folderInfo}
+      <FolderInfo
+        profileImage={profileImage}
+        ownerName={ownerName}
+        folderName={folderName}
+      />
       <div className="SharedPage-items">
-        {searchBar}
-        {cardList}
+        <SearchBar />
+        <CardList>
+          {links?.map((link) => (
+            <ReadOnlyCard key={link?.id} {...link} />
+          ))}
+        </CardList>
       </div>
     </div>
   );
