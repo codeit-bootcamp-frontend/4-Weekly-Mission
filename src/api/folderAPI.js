@@ -2,13 +2,13 @@ import instance from 'api/instance.js';
 import API from 'constants/API';
 
 /**
- * 유저 정보 조회 api
+ * 유저의 모든 폴더 정보 조회 api
  */
-const getUserInfo = (userId) => {
+const getUserFolders = (userId) => {
   return instance({
-    url: API.USER.DETAIL(userId),
+    url: API.FOLDER.USER_FOLDERS(userId),
     method: 'GET',
   });
 };
 
-export default { getUserInfo };
+export default { getUserFolders };

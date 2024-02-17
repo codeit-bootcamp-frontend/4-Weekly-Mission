@@ -9,4 +9,10 @@ const USER = Object.freeze({
   },
 });
 
-export default { SAMPLE, USER };
+const FOLDER = Object.freeze({
+  USER_FOLDERS: (userId) => {
+    return `/users/${userId}/folders`;
+  },
+});
+
+export default { SAMPLE, USER, FOLDER };
