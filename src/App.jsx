@@ -1,15 +1,20 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import { Layout } from './components/Layout';
-import Shared from './components/Shared/Shared';
 import { LoginProvider } from './contexts/LoginContext';
+import LandingPage from './pages/Landing/LandingPage';
 
 function App() {
   return (
-    <LoginProvider>
-      <Layout>
-        <Shared />
-      </Layout>
-    </LoginProvider>
+    <BrowserRouter>
+      <LoginProvider>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<LandingPage />} />
+          </Route>
+        </Routes>
+      </LoginProvider>
+    </BrowserRouter>
   );
 }
 
