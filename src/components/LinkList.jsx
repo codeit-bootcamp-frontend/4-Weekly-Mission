@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getUserInfo } from '../api/api';
 import LinkCard from './LinkCard';
+import SearchBar from './SearchBar';
 import styles from '../css/LinkList.module.css';
 
 function LinkList() {
@@ -20,14 +21,11 @@ function LinkList() {
 
   return (
     <div className={styles.content}>
-      <form>
-        <div className={styles.searchIcon}></div>
-        <input name="search" placeholder='링크를 검색해 보세요.' />
-      </form>
+      <SearchBar />
       <div className={styles.items}>
         {folderData.map((item) => {
           return (
-            <LinkCard item={item}/>
+            <LinkCard item={item} key={item.id}/>
           )
         })}
       </div>

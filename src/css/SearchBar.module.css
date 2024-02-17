@@ -1,0 +1,12 @@
+form {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  background-image: url('../images/Search.svg');
+  width: 16px;
+  height: 16px;
+  top: 15px;
+  left: 15px;
+}

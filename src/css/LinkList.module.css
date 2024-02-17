@@ -7,19 +7,6 @@
   padding: 40px 190px;
 }
 
-form {
-  position: relative;
-}
-
-.searchIcon {
-  position: absolute;
-  background-image: url('../images/Search.svg');
-  width: 16px;
-  height: 16px;
-  top: 15px;
-  left: 15px;
-}
-
 .content input {
   color: #666;
   background-color: #F5F5F5;
