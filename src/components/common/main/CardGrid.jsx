@@ -2,11 +2,41 @@ import Loader from '../Loader';
 import React from 'react';
 import styled from 'styled-components';
 import Card from './Card';
+import { calculateTime, formatDate } from 'utils/date';
 
 const CardGrid = ({ datas, isLoading }) => {
   return (
     <CardContainer>
-      {isLoading ? <Loader /> : <Card cardDatas={datas} />}
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          {datas?.map(data => {
+            const {
+              id,
+              createdAt,
+              url,
+              title,
+              description,
+              imageSource,
+              image_source,
+            } = data;
+            const timePassed = calculateTime(createdAt);
+            const formattedDate = formatDate(createdAt);
+            return (
+              <Card
+                key={id}
+                url={url}
+                title={title}
+                description={description}
+                imageURL={imageSource || image_source}
+                timePassed={timePassed}
+                formattedDate={formattedDate}
+              />
+            );
+          })}
+        </>
+      )}
     </CardContainer>
   );
 };

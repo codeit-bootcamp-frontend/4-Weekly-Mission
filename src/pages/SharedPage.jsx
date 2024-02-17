@@ -4,22 +4,11 @@ import Search from 'components/common/main/Search';
 import { MainContainer } from 'styles/MainContainer';
 import CardGrid from 'components/common/main/CardGrid';
 import { useSampleFolderQuery } from 'hook/useFetchData';
-import { calculateTime, formatDate } from 'utils/date';
 import CardError from 'components/common/main/CardError';
 
 const SharedPage = () => {
-  const {
-    data: sharedDatas,
-    isLoading,
-    isError,
-  } = useSampleFolderQuery('cardDatas', data =>
-    data?.folder.links.map(link => ({
-      ...link,
-      timePassed: calculateTime(link.createdAt),
-      formattedDate: formatDate(link.createdAt),
-    })),
-  );
-
+  const { data, isLoading, isError } = useSampleFolderQuery('sharedDatas');
+  const sharedDatas = data?.folder.links;
   if (isError) {
     return <CardError />;
   }

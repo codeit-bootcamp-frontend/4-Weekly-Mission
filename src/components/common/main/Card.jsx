@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import defaultImage from 'assets/images/noImage.png';
+import { calculateTime, formatDate } from 'utils/date';
 
 /**
  *
@@ -13,29 +14,27 @@ import defaultImage from 'assets/images/noImage.png';
  * @param {string} cardDatas[].description
  * @param {string} cardDatas[].formattedDate
  */
-const Card = ({ cardDatas }) => {
+const Card = ({
+  id,
+  url,
+  imageURL,
+  title,
+  timePassed,
+  description,
+  formattedDate,
+}) => {
   return (
     <>
-      {cardDatas?.map(cardData => (
-        <StyledCard
-          key={cardData.id}
-          href={cardData.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <CardImgContainer>
-            <CardImg
-              src={cardData.imageSource || defaultImage}
-              alt={cardData.title}
-            />
-          </CardImgContainer>
-          <TextContainer>
-            <span>{cardData.timePassed}</span>
-            <StyledP>{cardData.description}</StyledP>
-            <StyledP className="date">{cardData.formattedDate}</StyledP>
-          </TextContainer>
-        </StyledCard>
-      ))}
+      <StyledCard key={id} href={url} target="_blank" rel="noopener noreferrer">
+        <CardImgContainer>
+          <CardImg src={imageURL || defaultImage} alt={title} />
+        </CardImgContainer>
+        <TextContainer>
+          <span>{timePassed}</span>
+          <StyledP>{description}</StyledP>
+          <StyledP className="date">{formattedDate}</StyledP>
+        </TextContainer>
+      </StyledCard>
     </>
   );
 };

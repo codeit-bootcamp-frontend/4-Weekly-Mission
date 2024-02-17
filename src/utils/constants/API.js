@@ -4,5 +4,5 @@ export const AUTH = Object.freeze({
   checkEmail: 'api/check-email',
   sampleUser: 'api/users/1',
   sampleFolder: 'api/sample/folder',
-  folder: 'api/users/',
+  folderLink: 'api/users/1/links',
 });
