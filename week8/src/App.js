@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { FolderPage } from "page-layout/FolderPage/FolderPage";
 import { Classification } from "ui/Classification/Classification";
 import { AddLinkBar } from "ui/AddLinkBar/AddLinkBar";
+import { SharedPossibleCard } from "ui/SharedPossibleCard";
 
 function App() {
   const { data } = useGetFolder();
@@ -50,7 +51,7 @@ function App() {
                 cardList={
                   <CardList>
                     {links?.map((link) => (
-                      <ReadOnlyCard key={link?.id} {...link} />
+                      <SharedPossibleCard key={link?.id} {...link} />
                     ))}
                   </CardList>
                 }
