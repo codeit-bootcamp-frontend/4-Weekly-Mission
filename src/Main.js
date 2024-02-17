@@ -15,7 +15,7 @@ const Main = () => {
             <Route index element={<SharedPage />} />
           </Route>
           <Route path="folder">
-            <Route index element={<LinkItems />} />
+            <Route index element={<FolderPageLayout />} />
           </Route>
         </Route>
       </Routes>

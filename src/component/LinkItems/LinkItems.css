@@ -1,5 +1,5 @@
 .LinkItems {
-  margin-top: 40px;
+  margin: 40px 0 40px;
   display: grid;
   grid-template: "1fr 1fr 1fr";
   gap: 25px 20px;
@@ -37,11 +37,7 @@
 
 .createdAt {
   color: #666;
-  font-family: Pretendard;
   font-size: 13px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .createdDate {
@@ -50,11 +46,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  font-family: Pretendard;
   font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .LinkItem .description {
@@ -64,11 +56,6 @@
   overflow: hidden;
   color: #333;
   text-overflow: ellipsis;
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
