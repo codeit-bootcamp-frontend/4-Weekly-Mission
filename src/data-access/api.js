@@ -1,7 +1,7 @@
 const BASEURL = "https://bootcamp-api.codeit.kr/api/";
 
 export async function GetProfile() {
-  const response = await fetch(`${BASEURL}/users/1`);
+  const response = await fetch(`${BASEURL}users/1`);
   const result = await response.json();
   //"{\"id\":1,\"name\":\"코드잇\",\"email\":\"codeit@codeit.com\",\"profileImageSource\":\"https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png\"}"
   //{"data":[{"id":1,"created_at":"2023-06-04T13:03:01+00:00","name":"코드잇","image_source":"https://codeit-images.codeit.com/badges/COMPLETE_100_LESSONS.png","email":"codeit@codeit.com","auth_id":"b9d4649a-8d92-4776-8f69-80abe2786721"}]}
