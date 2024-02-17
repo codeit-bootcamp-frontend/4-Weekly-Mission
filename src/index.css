@@ -62,3 +62,7 @@ a {
 .margin-auto {
   margin: auto;
 }
+
+.component-default-margin {
+  margin-top: 108px;
+}

@@ -7,6 +7,7 @@ import App from "./App";
 import LinkDetail from "./pages/LinkDetail";
 import Privacy from "./pages/Privacy";
 import FAQ from "./pages/FAQ";
+import Folder from "./pages/Folder";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "shared",
     element: <Shared />,
+  },
+  {
+    path: "folder",
+    element: <Folder />,
   },
   {
     path: "link/:linkId",

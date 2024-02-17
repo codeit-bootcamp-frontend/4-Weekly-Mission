@@ -1,13 +1,12 @@
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
-import styles from "./css/LinkDetail.module.css";
 
 const LinkDetail = () => {
   const { linkId } = useParams();
   return (
     <>
       <Header />
-      <div className={styles.LinkDetail}>
+      <div className="component-default-margin">
         <h1>Here is {linkId}!</h1>
       </div>
     </>

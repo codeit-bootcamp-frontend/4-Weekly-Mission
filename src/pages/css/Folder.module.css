@@ -1,11 +1,9 @@
-.Shared {
-  margin-top: 88px;
-  padding-top: 20px;
-  padding-bottom: 60px;
-
+.folder_header {
   display: flex;
   flex-direction: column;
   gap: 20px;
+
+  padding: 60px 320px 90px 320px;
 
   background-color: var(--color-background);
 }

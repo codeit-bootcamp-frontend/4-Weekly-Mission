@@ -1,6 +1,5 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Avatar from "../components/Avatar";
 import styles from "./css/Folder.module.css";
 import SearchBar from "../components/SearchBar";
 import Card from "../components/Card";
@@ -9,7 +8,7 @@ import { getFolder, getUser } from "../utils/api";
 import { Link } from "react-router-dom";
 import { formatDate, getTimeDifference } from "../utils/DateUtils";
 
-const Shared = () => {
+const Folder = () => {
   const [user, setUser] = useState({
     email: null,
     profileImageSource: null,
@@ -47,17 +46,7 @@ const Shared = () => {
       <Header userInfo={user} />
       <div className="component-default-margin">
         <div className={styles.folder_header}>
-          <div className={styles.folder_owner}>
-            <Avatar
-              avatarImage={folderInfo.folderOwnerImage}
-              width="60px"
-              height="60px"
-            ></Avatar>
-            <div className="font-thin font-16px">@{folderInfo.folderOwner}</div>
-          </div>
-          <div className="font-regular font-40px margin-auto">
-            {folderInfo.folderName}
-          </div>
+          <SearchBar type="addLink" />
         </div>
         <main>
           <SearchBar type="findLink" />
@@ -96,4 +85,4 @@ const Shared = () => {
   );
 };
 
-export default Shared;
+export default Folder;
