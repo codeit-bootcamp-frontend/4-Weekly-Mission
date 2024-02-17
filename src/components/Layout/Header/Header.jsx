@@ -5,21 +5,21 @@ import { useSetUser, useUser } from '../../../contexts/LoginContext';
 import { getUser } from '../../../api';
 
 function Header() {
-  const user = useUser();
-  const setUser = useSetUser();
+  const loginUser = useUser();
+  const setLoginUser = useSetUser();
 
   const handleLoginClick = async () => {
     try {
       const user = await getUser();
       if (!user) return;
-      setUser(user);
+      setLoginUser(user);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const authButton = user ? (
-    <ButtonUser user={user} />
+  const authButton = loginUser ? (
+    <ButtonUser user={loginUser} />
   ) : (
     <ButtonLogin onClick={handleLoginClick} />
   );
