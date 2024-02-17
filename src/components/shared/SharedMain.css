@@ -1,7 +1,7 @@
 .shared-section-first-container {
   padding-top: 60px;
   padding-bottom: 60px;
-  background: var(--Linkbrary-bg, #f0f6ff);
+  background: #f0f6ff;
 }
 
 .shared-section-first-container .image-container {

@@ -6,6 +6,13 @@ function SharedMain({ ownerProfile }) {
   const { links, name, owner } = ownerProfile;
   const [mouseHoverkey, setMouseHoverKey] = useState(null);
 
+  const handleComponentHover = (id) => {
+    setMouseHoverKey(id);
+  };
+  const handleComponentMouseOut = () => {
+    setMouseHoverKey(null);
+  };
+
   return (
     <main>
       <section className="column-center-gap-30 shared-section-first-container">
@@ -23,19 +30,13 @@ function SharedMain({ ownerProfile }) {
         <input className="shared-input" placeholder="링크를 검색해 보세요" />
         <div className="link-grid">
           {links.map((link) => {
-            const handleComponentHover = () => {
-              setMouseHoverKey(link.id);
-            };
-            const handleComponentMouseOut = () => {
-              setMouseHoverKey(null);
-            };
             return (
               <LinkContainer
                 link={link}
                 key={link.id}
-                isHover={mouseHoverkey}
-                onHover={handleComponentHover}
-                onMouseOut={handleComponentMouseOut}
+                hoverdId={mouseHoverkey}
+                onHover={() => handleComponentHover(link.id)}
+                onMouseOut={() => handleComponentMouseOut()}
               />
             );
           })}

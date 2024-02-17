@@ -1,0 +1,90 @@
+footer {
+  display: flex;
+  padding-top: 120px;
+  flex-direction: column;
+  align-items: center;
+  align-self: stretch;
+}
+
+.footerBox {
+  display: flex;
+  height: 160px;
+  padding: 32px 104px 64px 104px;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.footerMain {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.footerLogoWh {
+  width: 20px;
+  height: 20px;
+}
+.footerLogoBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footerLogoPadding:not(:last-of-type) {
+  padding-right: 12px;
+}
+
+.privacyFont {
+  color: #cfcfcf;
+  font-family: Arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.paddingSide {
+  padding: 0 30px;
+}
+
+.codeitFont {
+  color: #676767;
+  text-align: center;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+@media (max-width: 767px) {
+  .privacyFont {
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .codeitFont {
+    position: absolute;
+    top: 81px;
+  }
+
+  footer {
+    padding-top: 102.5px;
+  }
+
+  .footerBox {
+    padding: 32px 32px 64px 32px;
+  }
+
+  .footerMain {
+    position: relative;
+  }
+}
