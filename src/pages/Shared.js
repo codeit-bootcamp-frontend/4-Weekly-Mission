@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getFolder, getUser } from '../api';
+import { getSharedFolder, getSharedUser } from '../api';
 
 import Header from '../components/Header';
 import FolderInfo from '../components/FolderInfo';
@@ -22,8 +22,8 @@ const Folder = () => {
   };
 
   useEffect(() => {
-    handleLoad(getUser, setUser);
-    handleLoad(getFolder, setFolder);
+    handleLoad(getSharedUser, setUser);
+    handleLoad(getSharedFolder, setFolder);
   }, []);
 
   return (
