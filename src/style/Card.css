@@ -13,7 +13,7 @@
   box-shadow: 0rem 0.5rem 2.5rem 0rem rgba(0, 0, 0, 0.08);
 }
 
-.CardContent:hover > .CardImage {
+.CardContent:hover .CardImage {
   background-size: 130%;
 }
 
@@ -125,12 +125,32 @@
   line-height: normal;
 }
 
+.FolderLinkNoneList {
+  width: 106rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: 2;
+  padding: 4.1rem 0 3.5rem;
+}
+
+.FolderLinkNoneList > p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+}
+
 /* tablet */
 @media (max-width: 1124px) {
   .SharedCardContent {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2.4rem 2.5rem;
+  }
+
+  .FolderLinkNoneList {
+    width: 100%;
   }
 }
 
@@ -163,5 +183,11 @@
   .CardImage {
     width: 32.5rem;
     height: 19.2rem;
+  }
+
+  .FolderLinkNoneList > p {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: normal;
   }
 }

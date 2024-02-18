@@ -2,7 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  position: sticky;
+  position: var(position);
   top: 0;
   background-color: var(--bg);
   z-index: 99;
