@@ -1,14 +1,16 @@
 /* nav */
-nav {
-  display: flex;
-  justify-content: center;
+.nav {
   position: sticky;
   top: 0;
-  width: 100%;
   background: var(--linkbrary-bg);
 }
 
-.nav {
+.folderPageNav {
+  position: relative;
+  background: var(--linkbrary-bg);
+}
+
+.nav-content {
   max-width: 192rem;
   display: flex;
   padding: 0 20rem;
