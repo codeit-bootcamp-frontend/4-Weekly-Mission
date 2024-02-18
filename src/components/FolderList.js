@@ -15,7 +15,7 @@ function FolderListItem({ folder, onClick }) {
   );
 }
 
-function FolderList() {
+function FolderList({ handleFolderListItemClick }) {
   const [folders, setFolders] = useState([]);
 
   useEffect(() => {
@@ -30,10 +30,6 @@ function FolderList() {
 
     getFolderList();
   }, []);
-
-  const handleFolderListItemClick = (folderId) => {
-    console.log(folderId);
-  };
 
   return (
     <div className="folderList">
