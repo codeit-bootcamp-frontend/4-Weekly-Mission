@@ -11,4 +11,11 @@ export const StyledTab = styled.button`
     background-color: var(--color-primary);
     color: var(--color-white);
   }
+
+  ${({ $active }) =>
+    $active &&
+    `
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  `}
 `;
