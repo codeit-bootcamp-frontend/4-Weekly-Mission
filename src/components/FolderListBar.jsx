@@ -3,9 +3,8 @@ import FolderButton from "./FolderButton";
 import addImg from "../images/add.svg";
 import { useState } from "react";
 import FolderOptions from "./FolderOptions";
-import { getWholeFolderListData } from "../api/api";
 
-function FolderListBar({ folderList }) {
+function FolderListBar({ folderList, onClick }) {
   const wholeBtn = {
     id: 1,
     created_at: "2023-06-04T20:59:39.293024+00:00",
@@ -18,13 +17,20 @@ function FolderListBar({ folderList }) {
   };
   const newFolderList = [wholeBtn, ...folderList];
   const [nowFolderName, setNowFolderName] = useState("");
+  const [nowFolderId, setNowFolderId] = useState(1);
   const [isClicked, setIsClicked] = useState(0);
-  console.log("folderList: ", folderList);
+
+  const getLinksbyId = (id) => {
+    onClick(id);
+  };
 
   const changeFolder = (folder) => {
     const folderName = folder && folder.name;
+    const folderId = folder && folder.id;
     setNowFolderName(folderName);
-    console.log("폴더가 변경되었습니다.", folder);
+    setNowFolderId(folderId);
+    getLinksbyId({ folderId: `${folderId}` });
+    // console.log("폴더가 변경되었습니다.", folder);
   };
 
   return (
@@ -47,7 +53,7 @@ function FolderListBar({ folderList }) {
         </div>
       </div>
       <div className={style.folderOptionsContainer}>
-        <FolderOptions folderName={nowFolderName} />
+        <FolderOptions folderName={nowFolderName} folderId={nowFolderId} />
       </div>
     </>
   );

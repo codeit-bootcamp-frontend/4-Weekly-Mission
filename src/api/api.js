@@ -15,8 +15,11 @@ export const getFolderListData = async () => {
   return body;
 };
 
-export const getWholeFolderListData = async () => {
-  const detailPath = `${url}/api/users/1/links`;
+export const getWholeFolderListData = async ({ folderId = "" }) => {
+  console.log("getwholefolderLIstdata 가 실행되었습니다.");
+  const path = `${url}/api/users/1/links`;
+  const detailPath = folderId === "1" ? path : `${path}?folderId=${folderId}`;
+  console.log(detailPath);
   const response = await fetch(detailPath);
   const body = await response.json();
   return body;

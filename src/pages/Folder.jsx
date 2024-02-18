@@ -1,4 +1,4 @@
-import { getData, getFolderListData } from "../api/api";
+import { getData, getFolderListData, getWholeFolderListData } from "../api/api";
 import { useEffect, useState } from "react";
 import CardBox from "../components/CardBox";
 import TopNavBar from "../components/TopNavBar";
@@ -9,8 +9,8 @@ import FolderListBar from "../components/FolderListBar";
 
 function Folder() {
   const [profileData, setProfileData] = useState({});
-  const [folderData, setFolderData] = useState({});
   const [folderList, setFolderList] = useState([]);
+  const [linksData, setLinksData] = useState([]);
 
   const getProfileData = async (options) => {
     try {
@@ -19,17 +19,6 @@ function Folder() {
     } catch (err) {
       console.error(err);
       setProfileData({});
-    }
-  };
-
-  const getFolderData = async (options) => {
-    try {
-      const newFolder = await getData(options);
-      const { folder } = newFolder;
-      setFolderData(folder);
-    } catch (err) {
-      console.error(err);
-      setFolderData({});
     }
   };
 
@@ -44,10 +33,22 @@ function Folder() {
     }
   };
 
+  const getLinks = async (folderId) => {
+    try {
+      console.log("folderId: ", folderId);
+      const linksData = await getWholeFolderListData(folderId);
+      const { data } = linksData;
+      setLinksData(data);
+    } catch (err) {
+      console.error(err);
+      setLinksData([]);
+    }
+  };
+
   useEffect(() => {
     getProfileData({ path: "user" });
-    getFolderData({ path: "folder" });
     getFolderList();
+    getLinks({ folderId: "1" });
   }, []);
 
   return (
@@ -59,7 +60,8 @@ function Folder() {
       <main>
         <section>
           <SearchBar />
-          <FolderListBar folderList={folderList} />
+          <FolderListBar folderList={folderList} onClick={getLinks} />
+          <CardBox linksData={linksData} />
         </section>
       </main>
       <footer>
