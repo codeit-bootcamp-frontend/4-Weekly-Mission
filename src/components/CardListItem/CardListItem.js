@@ -1,6 +1,8 @@
 import style from "./CardListItem.module.css";
 import { getTimeAgo, formatDate } from "util/time";
 import noImg from "assets/noImg.png";
+import starImg from "assets/Star 1.svg";
+import kebabImg from "assets/kebab.svg";
 
 function CardListItem({ link }) {
   return (
@@ -9,8 +11,16 @@ function CardListItem({ link }) {
         <div className={style["link-cover"]}>
           <img src={link.imageSource || noImg} alt="card-cover" />:
         </div>
+        <button className={style["star-btn"]}>
+          <img src={starImg} />
+        </button>
         <div className={style["link-contents"]}>
-          <p className={style["link-update"]}>{getTimeAgo(link.createdAt)}</p>
+          <div className={style["content-Header"]}>
+            <p className={style["link-update"]}>{getTimeAgo(link.createdAt)}</p>
+            <button className={style["kebab-btn"]}>
+              <img src={kebabImg} />
+            </button>
+          </div>
           <h2 className={style["link-title"]}>{link.title}</h2>
           <p className={style["link-description"]}>{link.description}</p>
           <p className={style["link-date"]}>{formatDate(link.createdAt)}</p>
