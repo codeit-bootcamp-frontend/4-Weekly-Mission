@@ -11,3 +11,40 @@
   background: none;
   cursor: pointer;
 }
+
+.add_folder_floating_buttton {
+  display: none;
+}
+
+@media (max-width: 767.5px) {
+  .add_folder_button {
+    display: none;
+  }
+
+  .add_folder_floating_buttton {
+    border-radius: 2rem;
+    font-family: (--Pretendard-Regular);
+    background-color: var(--primary-color);
+
+    background: var(--Linkbrary-primary-color, #6d6afe);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.6rem;
+    letter-spacing: -0.3px;
+    padding: 0.8rem 2.4rem;
+    border-radius: none;
+    display: flex;
+    z-index: 1;
+    position: fixed;
+    bottom: 101px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+
+  .add_folder_floating_buttton:hover {
+    background: rgb(73, 70, 245);
+  }
+}

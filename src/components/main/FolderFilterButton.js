@@ -7,6 +7,7 @@ function FolderFilterButton({
   buttonIndex,
   isFilterActive,
   setIsFilterActive,
+  setIsShowFuncButtonBox,
 }) {
   let copy = [...isFilterActive];
   function handleClick() {
@@ -14,8 +15,9 @@ function FolderFilterButton({
     copy = new Array(isFilterActive.length).fill(false);
     copy[buttonIndex] = true;
     setIsFilterActive([...copy]);
+    setIsShowFuncButtonBox(true);
   }
-  console.log(buttonIndex);
+
   return (
     <button
       className={styles[`${isFilterActive[buttonIndex]}`]}
