@@ -4,6 +4,7 @@ import ContentsArea from '../pages/ContentsArea';
 import PopAddFolderButton from '../components/PopAddFolderButton';
 import ListTitleArea from '../components/ListTitleArea';
 import FolderNames from '../components/FolderNames';
+import addIcon from '../assets/purple_add.svg';
 import { getFolders } from '../utils/apis';
 import { getLinks } from '../utils/apis';
 
@@ -11,10 +12,12 @@ const FolderPage = () => {
   const [foldersList, setFoldersList] = useState([]);
   const [linkList, setLinkList] = useState({});
   const [displayPopButton, setDisplayPopButton] = useState(false);
+  const [selectFolderName, setSelectFolderName] = useState('');
+  const userId = '4';
 
   const handleLoad = async () => {
-    const { data } = await getLinks('1'); // userId=1
-    const folders = await getFolders('1'); // userId=1
+    const { data } = await getLinks(userId, '');
+    const folders = await getFolders(userId);
 
     setFoldersList([...folders.data]);
     setLinkList({ links: [...data] });
@@ -25,15 +28,53 @@ const FolderPage = () => {
     handleLoad();
   }, []);
 
+  const handleOnClick = async (folderName, list = []) => {
+    if (folderName === 'all') {
+      const { data } = await getLinks(userId, '');
+      setSelectFolderName('전체');
+      setLinkList({ links: [...data] });
+    } else {
+      setSelectFolderName(folderName);
+      setLinkList({ links: [...list] });
+    }
+  };
+
   return (
     <>
       <SearchTopBodyArea></SearchTopBodyArea>
       {linkList.links && (
         <ContentsArea links={linkList.links}>
           {foldersList.length > 0 && (
-            <FolderNames folders={foldersList}></FolderNames>
+            <>
+              <div className="folder_button_area">
+                <div className="folder_buttons_area">
+                  <button
+                    onClick={() => handleOnClick('all')}
+                    className="folder_button "
+                  >
+                    전체
+                  </button>
+                  {foldersList &&
+                    foldersList.map((folder) => {
+                      return (
+                        <FolderNames
+                          name={folder.name}
+                          key={folder.id}
+                          id={folder.id}
+                          userId={userId}
+                          onClick={handleOnClick}
+                        ></FolderNames>
+                      );
+                    })}
+                </div>
+                <div className="add_folder_text_area">
+                  <p className="add_folder_text">폴더추가</p>
+                  <img src={addIcon} />
+                </div>
+              </div>
+            </>
           )}
-          <ListTitleArea></ListTitleArea>
+          <ListTitleArea title={selectFolderName}></ListTitleArea>
         </ContentsArea>
       )}
       {displayPopButton && <PopAddFolderButton></PopAddFolderButton>}

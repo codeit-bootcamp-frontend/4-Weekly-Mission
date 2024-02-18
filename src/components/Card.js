@@ -7,24 +7,24 @@ import FormatDate from '../utils/FormatDate';
 import './Card.css';
 
 const Card = ({ link }) => {
-  const { createdAt, description, imageSource } = link;
+  const { created_at, description, image_source, url } = link;
   const fillStar = false;
 
   return (
     <div className="card_area">
       <a
-        href={link.url}
+        href={url}
         className="card_link"
         target="_blank"
         rel="noreferrer noopener"
       >
         <div
-          className={imageSource ? 'img_area' : 'img_area none_img_area'}
+          className={image_source ? 'img_area' : 'img_area none_img_area'}
           alt="star"
         >
           <img
-            src={imageSource || noneCardImg}
-            className={imageSource ? 'card_img' : 'none_card_img'}
+            src={image_source || noneCardImg}
+            className={image_source ? 'card_img' : 'none_card_img'}
             alt="card"
           />
           <div className="star_icon_area">
@@ -33,11 +33,11 @@ const Card = ({ link }) => {
         </div>
         <div className="card_contents_area">
           <div className="card_content_info">
-            <p className="elapsed_time">{ElapsedTime(createdAt)}</p>
+            <p className="elapsed_time">{ElapsedTime(created_at)}</p>
             <img src={kebab} alt="more" />
           </div>
           <p className="description_text">folderInfo{description}</p>
-          <p className="created_at">{FormatDate(createdAt)}</p>
+          <p className="created_at">{FormatDate(created_at)}</p>
         </div>
       </a>
     </div>

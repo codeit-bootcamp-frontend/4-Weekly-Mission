@@ -8,7 +8,7 @@ const ContentsArea = ({ links, children }) => {
       <SearchBar></SearchBar>
       {children}
       <div className="cards_area">
-        {links ? (
+        {links.length !== 0 ? (
           links.map((link) => {
             return <Card link={link} key={link.id}></Card>;
           })

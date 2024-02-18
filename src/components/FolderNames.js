@@ -1,27 +1,27 @@
+import { useState, useRef } from 'react';
+import { getLinks } from '../utils/apis';
 import './FolderNames.css';
-import addIcon from '../assets/purple_add.svg';
 
-const FolderNames = ({ folders }) => {
+const FolderNames = ({ name, id, select, userId, onClick }) => {
+  const nameRef = useRef();
+
+  const handleOnClick = async (userId, id, folderName, e) => {
+    console.log(e.target.className);
+
+    const { data } = await getLinks(userId, id);
+
+    onClick(folderName, data);
+  };
+
   return (
-    <div className="folder_button_area">
-      <div className="folder_buttons_area">
-        {folders &&
-          folders.map((folder) => {
-            return (
-              <div
-                className={'folder_button ' + (folder.id === 14 && 'purple')}
-                key={folder.id}
-              >
-                {folder.name}
-              </div>
-            );
-          })}
-      </div>
-      <div className="add_folder_text_area">
-        <p className="add_folder_text">폴더추가</p>
-        <img src={addIcon} />
-      </div>
-    </div>
+    <button
+      ref={nameRef}
+      onClick={(e) => handleOnClick(userId, id, name, e)}
+      className={'folder_button '}
+      id={id}
+    >
+      {name}
+    </button>
   );
 };
 

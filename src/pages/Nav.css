@@ -12,6 +12,10 @@
   z-index: 1;
 }
 
+.header_area.relative {
+  position: relative;
+}
+
 .logo_area {
   display: flex;
   flex-direction: column;
