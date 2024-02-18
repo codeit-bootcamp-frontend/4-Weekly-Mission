@@ -2,12 +2,15 @@ import logo from "../../assets/images/logo.svg";
 import profileImg from "../../assets/images/profileImg.svg";
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const NavigationBar = (props) => {
   const { userEmail } = props;
   return (
     <S.NavigationBarContainer>
-      <S.Logo src={logo} alt="logo" />
+      <Link to={"/login"}>
+        <S.Logo src={logo} alt="logo" />
+      </Link>
       <S.ProfileContainer>
         <S.ProfileImg src={profileImg} alt="profileImg" />
         <S.EmailText>{userEmail}</S.EmailText>

@@ -4,11 +4,13 @@ import { getFolders } from "../../api/folder";
 import { useState } from "react";
 import style from "styled-components";
 import NavigationBar from "../../components/NavigationBar/NavigationBar";
-import Header from "../../components/Header/Header";
-import { getSampleUser } from "../../api/sampleUser";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Footer from "../../components/Footer/Footer";
-import { getSampleFolder } from "../../api/sampleFolder";
+import FolderButton from "../../components/FolderButton/FolderButton";
+import { getLinks } from "../../api/links";
+import { getSampleUser } from "../../api/sampleUser";
+import { useParams } from "react-router-dom";
+import AddLink from "../../components/AddLink/AddLink";
 
 const MOCK_CARD_DATA = {
   thumbnailSrc: "https://picsum.photos/300",
@@ -25,38 +27,58 @@ function formatDate(dateString) {
   return `${year}. ${month}. ${day}`;
 }
 
-// 데이터가 로딩되고나서 reload를 하면 데이터가 없어지는 문제가 있습니다.(?)
-
 function Home() {
+  const { folderId } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [folders, setFolder] = useState([]);
-  const [user, setUser] = useState({});
-  const [userEmail, setUserEmail] = useState("");
-  const links = folders?.links ?? [];
+  const [user, setUser] = useState([]);
+  const [links, setLinks] = useState();
+  const linksData = links?.data ?? [];
   useEffect(() => {
     const fetchFolders = async () => {
       setIsLoading(true);
-      const { folder } = await getSampleFolder();
+      const folders = await getFolders();
       const user = await getSampleUser();
-      console.log(user);
-      setFolder(folder);
-      setUserEmail(user.email);
-      setUser(folder.owner);
+      const links = await getLinks();
+      console.log(folders);
+      setFolder(folders.data);
+      setUser(user);
+      setLinks(links);
       setIsLoading(false);
     };
     fetchFolders();
   }, []);
 
   if (isLoading) return <div>로딩중...</div>;
+
+  const handleFolderClick = async (folderId) => {
+    setIsLoading(true);
+    const links = await getLinks(folderId);
+    setLinks(links);
+    setIsLoading(false);
+  };
   return (
     <div>
-      <NavigationBar userEmail={userEmail} />
-      <Header profileImageSrc={user.profileImageSource} name={user.name} />
-
+      <NavigationBar userEmail={user.email} />
+      <AddLink />
       <S.MainContentContainer>
         <SearchBar />
+        <S.FoldersContainer>
+          <FolderButton
+            onClick={() => handleFolderClick(null)}
+            folderName="전체"
+          />
+          {folders.map((folder) => (
+            <FolderButton
+              onClick={handleFolderClick}
+              key={folder.id}
+              folderName={folder.name}
+              folderId={folder.id}
+            />
+          ))}
+        </S.FoldersContainer>
         <S.CardList>
-          {links.map((link) => (
+          {linksData.map((link) => (
             <Card
               key={link.id}
               thumbnailSrc={link.imageSource}

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import React from "react";
-import avatarImg from "../../assets/images/avatar.svg";
 
 const Header = (props) => {
   const { profileImageSrc, name } = props;
