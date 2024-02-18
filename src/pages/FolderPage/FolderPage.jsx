@@ -82,6 +82,7 @@ function FolderPage() {
                   </FolderButton>
                   {buttonNames.map(({ id, name }) => (
                     <FolderButton
+                    key={id}
                       ischecked={selectedCategory.name === name ? true : false}
                       onClick={() => handleButtonClick(id, name)}
                     >

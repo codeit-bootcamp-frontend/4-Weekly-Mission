@@ -14,7 +14,6 @@ function Navbar() {
     fetchUserData(id)
       .then((data) => {
         setUser(...data);
-        console.log(...data);
       })
       .catch((err) => {
         console.error(err);

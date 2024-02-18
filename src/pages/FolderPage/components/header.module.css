@@ -50,3 +50,21 @@
   );
   transform: translateY(-50%);
 }
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  .form {
+    height: 5.3rem;
+  }
+  .input {
+    padding: 0.8rem 1rem 0.8rem 3.4rem;
+  }
+  .icon{
+    width: 1.6rem;
+    left: 1rem;
+  }
+  .button {
+    padding: 0.8rem 1rem;
+    right: 1rem;
+  }
+}
