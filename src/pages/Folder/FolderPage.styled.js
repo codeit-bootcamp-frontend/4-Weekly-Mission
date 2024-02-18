@@ -58,6 +58,7 @@ export const ContentTabAdd = styled.button`
   border: none;
   color: var(--color-primary);
   font-size: 16px;
+  white-space: nowrap;
   gap: 4px;
 `;
 
