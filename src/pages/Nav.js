@@ -9,8 +9,8 @@ const Nav = () => {
   const [userInfo, setUserInfo] = useState({});
 
   const handleLoad = async () => {
-    const getUser = await getLoginUserInfo();
-    setUserInfo(getUser);
+    const { data } = await getLoginUserInfo('1'); // userId=1
+    setUserInfo(data[0]);
   };
 
   useEffect(() => {

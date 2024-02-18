@@ -13,8 +13,8 @@ const FolderPage = () => {
   const [displayPopButton, setDisplayPopButton] = useState(false);
 
   const handleLoad = async () => {
-    const { data } = await getLinks('1'); //userId
-    const folders = await getFolders('1'); //userId
+    const { data } = await getLinks('1'); // userId=1
+    const folders = await getFolders('1'); // userId=1
 
     setFoldersList([...folders.data]);
     setLinkList({ links: [...data] });
