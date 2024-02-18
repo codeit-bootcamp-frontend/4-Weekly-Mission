@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../../style/folderContent.css';
 import FolderAddButton from './FolderAddButton';
-import FloatingActionButton from './FloatingActionButton';
 
 function FolderCategoryButton({ folder, onClick }) {
   return (
@@ -30,11 +29,7 @@ function FolderCategoryButtons({ folders, handleFolderClick }) {
             />
           ))}
         </div>
-        {window.innerWidth <= 768 ? (
-          <FloatingActionButton />
-        ) : (
-          <FolderAddButton />
-        )}
+        <FolderAddButton />
       </div>
     </div>
   );

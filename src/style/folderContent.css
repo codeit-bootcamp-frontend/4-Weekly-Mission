@@ -59,6 +59,10 @@
   border: none;
 }
 
+.folder-add-button img {
+  content: url(../images/folderAdd.svg);
+}
+
 .folder-add-text {
   color: #6d6afe;
   text-align: center;
@@ -227,7 +231,30 @@
   }
 
   .folder-add-button {
-    display: none;
+    display: flex;
+    padding: 0 24px;
+    align-items: flex-start;
+    gap: 20px;
+    border-radius: 40px;
+    background: var(--Linkbrary-primary-color, #6d6afe);
+    z-index: 100;
+    position: fixed;
+    left: 46%;
+    margin: -50px 0 0 -50px;
+    bottom: 101px;
+  }
+  .folder-add-button img {
+    content: url(../images/addButton.svg);
+  }
+  .folder-add-text {
+    color: var(--Linkbrary-gray10, #e7effb);
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.3px;
   }
   .links-container {
     display: flex;

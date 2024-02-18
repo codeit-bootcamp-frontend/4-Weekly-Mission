@@ -3,7 +3,7 @@ import folderAddIcon from '../../../images/folderAdd.svg';
 
 const FolderAddButton = () => {
   return (
-    <div>
+    <div className="folder-add-button-section">
       <button className="folder-add-button">
         <p className="folder-add-text">폴더 추가</p>
         <img className="folder-add" src={folderAddIcon} />
