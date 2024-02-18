@@ -1,0 +1,183 @@
+* {
+  box-sizing: border-box;
+  margin: 0; /*reset css*/
+  padding: 0;
+}
+
+
+.login_logoSection--logo,
+.login__info--loginBt,
+.login-another__google,
+.login-another__kakao {
+  text-decoration: none;
+}
+
+html {
+  font-family: Pretendard;
+  font-size: 100%;
+  font-style: normal;
+  line-height: normal;
+  background: var(--Linkbrary-bg, #F0F6FF);
+}
+
+.login {
+  display: flex;
+  padding: 238px 0 253px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 32px;
+
+  @media screen and (max-width:1199px) {
+    padding: 200px 0 291px 0;    
+  }
+
+  @media screen and (max-width:767px) {
+    padding: 120px 32px 233px 32px;    
+    width: 100%;
+  }
+}
+
+.login__info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  width: 400px;
+
+  @media screen and (max-width:767px) {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+.login__logo--svg {
+  width: 210.583px;
+  height: 38px;
+}
+
+.login__logoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.login__logSection--text {
+  color: var(--black, #000);
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.logo__logosection--link {
+  font-weight: 600;
+}
+
+/* 폼 작성 부분 */
+.login__form {
+  width: 100%;
+}
+
+.login__inputsection{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+}
+
+.login__form--infobox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* gap: 12px; */
+  width: 100%;
+}
+
+#login__email-form,
+#login__password-form {
+  margin-top: 12px;
+}
+
+.login__form--infobox input {
+  display: flex;
+  width: 100%;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+  background: var(--Linkbrary-white, #FFF);
+}
+
+.login__form--label-text{
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.login__form--infobox input:focus {
+  border: 1px solid var(--Linkbrary-primary-color, #6D6AFE);
+  outline: none;
+}
+
+.login__form--loginBt {
+  background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  width: 100%;
+  padding: 16px 20px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  color: var(--Grey-Light, #F5F5F5);
+  font-size: 18px;
+  font-weight: 600;
+  border: 0px;
+}
+
+.login__form--loginBt:hover {
+  cursor: pointer;
+}
+
+.login__password-container {
+  position: relative;
+  width: 100%;
+}
+
+.password__toggle-icon {
+  position: absolute;
+  right: 15px;
+  top: 30px;
+}
+
+.login__email-form--error,
+.login__password-form--error {
+  display: none;
+  color: #FF5B56;
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 6px;
+}
+
+/* 하단 부분 */
+.login-another {
+  display: flex;
+  width: 400px;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-gray20, #CCD5E3);
+  background: var(--Linkbrary-gray10, #E7EFFB);
+
+  @media screen and (max-width:767px) {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+.login-another__google,
+.login-another__kakao{
+  display: inline-block;
+}
