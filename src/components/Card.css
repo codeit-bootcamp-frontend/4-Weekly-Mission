@@ -28,8 +28,8 @@
 .card-img_star-icon {
   cursor: pointer;
   position: relative;
-  bottom: 20rem;
-  left: 24rem;
+  bottom: 96%;
+  left: 90%;
 }
 
 .card-img:hover {
