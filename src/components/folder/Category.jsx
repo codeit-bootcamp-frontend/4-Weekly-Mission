@@ -13,7 +13,7 @@ const Category = ({ categoryDatas, currentCategory, handleCategoryButton }) => {
                 id={categoryData.id}
                 key={categoryData.id}
                 name={categoryData.name}
-                checked={currentCategory === categoryData.name}
+                checked={currentCategory === categoryData.name ? true : null}
                 onClick={handleCategoryButton}
               >
                 {categoryData.name}
@@ -54,14 +54,9 @@ const CategoryButton = styled.button`
   border-radius: 5px;
   height: 39px;
   border: 1px solid #6d6afe;
-  background-color: ${({ checked }) =>
-    checked
-      ? `${props => props.theme.primary_color}`
-      : `${props => props.theme.white}`};
-  color: ${({ checked }) =>
-    checked
-      ? `${props => props.theme.white}`
-      : `${props => props.theme.black}`};
+  background-color: ${({ checked, theme }) =>
+    checked ? theme.primary_color : theme.white};
+  color: ${({ checked, theme }) => (checked ? theme.white : theme.black)};
   padding: 8px 12px;
   font-size: 16px;
   font-weight: 400;

@@ -45,7 +45,7 @@ const FolderPage = () => {
         <Search />
         <Category
           categoryDatas={categoryDatas}
-          currentCategory={currentCategory}
+          currentCategory={currentCategory.name}
           handleCategoryButton={handleCategoryButton}
         />
         <SubTitle currentCategory={currentCategory.name} />
