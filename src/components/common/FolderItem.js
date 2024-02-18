@@ -61,7 +61,7 @@ function FolderItem({ item }) {
                 console.log(optionMenu);
               }}
             ></Kebab>
-            <MenuOptions optionMenu={optionMenu}>
+            <MenuOptions $optionMenu={optionMenu}>
               <Option>삭제하기</Option>
               <Option>폴더에 추가</Option>
             </MenuOptions>
@@ -81,7 +81,7 @@ const MenuOptions = styled.div`
   top: 0;
   margin-top: 20px;
   border: 1px;
-  display: ${({ optionMenu }) => (optionMenu ? "block" : "none")};
+  display: ${({ $optionMenu }) => ($optionMenu ? "block" : "none")};
 `;
 
 const Option = styled.p`
