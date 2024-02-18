@@ -16,12 +16,10 @@ const LiWrapper = styled.div`
       cursor: pointer;
     }
 
-    ${({ selected }) =>
-      selected
-        ? `background-color: #6d6afe;
-  color: white;
-  `
-        : `background-color: white;`}
+    &.selected {
+      background-color: #6d6afe;
+      color: white;
+    }
   }
 `;
 
