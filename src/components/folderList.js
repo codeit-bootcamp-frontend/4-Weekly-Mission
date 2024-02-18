@@ -62,23 +62,29 @@ function FolderList() {
           <img src={addImg} alt="addFolder" />
         </button>
       </div>
-      <div className="folderOption-container">
-        <p className="folderName">{selectedFolder}</p>
-        <div className="folderOption">
-          <div>
-            <img src={shareImg} alt="shareImg" />
-            <p>공유</p>
-          </div>
-          <div>
-            <img src={penImg} alt="penImg" />
-            <p>이름 변경</p>
-          </div>
-          <div>
-            <img src={deleteImg} alt="deleteImg" />
-            <p>삭제</p>
+      {selectedFolder !== "전체" ? (
+        <div className="folderOption-container">
+          <p className="folderName">{selectedFolder}</p>
+          <div className="folderOption">
+            <div>
+              <img src={shareImg} alt="shareImg" />
+              <p>공유</p>
+            </div>
+            <div>
+              <img src={penImg} alt="penImg" />
+              <p>이름 변경</p>
+            </div>
+            <div>
+              <img src={deleteImg} alt="deleteImg" />
+              <p>삭제</p>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="folderOption-container">
+          <p className="folderName">{selectedFolder}</p>
+        </div>
+      )}
       <FolderCard linkToFetch={linkToFetch} />
     </div>
   );
