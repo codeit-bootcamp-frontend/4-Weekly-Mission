@@ -1,6 +1,6 @@
 import GetUserInfo from "api/GetUserInfo";
 import useAsync from "hook/useAsync";
-import logo from "../../assets/header-logo.svg";
+import logo from "assets/header-logo.svg";
 import styles from "./Nav.module.css";
 
 const { useEffect, useState } = require("react");

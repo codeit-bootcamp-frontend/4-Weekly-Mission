@@ -1,9 +1,9 @@
 import GetFolderInfo from "api/GetFolderInfo";
-import Footer from "components/Footer/Footer";
-import Header from "components/Header/Header";
-import Main from "components/Main/Main";
-import Nav from "components/Nav/Nav";
-import useAsync from "hook/useAsync";
+import Footer from "components/FolderPage/Footer/Footer";
+import Header from "components/FolderPage/Header/Header";
+import Main from "components/FolderPage/Main/Main";
+import Nav from "components/FolderPage/Nav/Nav";
+import useAsync from "hook/FolderPage/useAsync";
 
 const { useState, useEffect } = require("react");
 

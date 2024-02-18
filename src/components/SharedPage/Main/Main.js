@@ -1,5 +1,5 @@
-import CardList from "components/CardList/CardList";
-import SearchInput from "components/SearchInput/SearchInput";
+import CardList from "components/SharedPage/CardList/CardList";
+import SearchInput from "components/SharedPage/SearchInput/SearchInput";
 
 function Main({ loadingError, search, folderInfo, handleSearchChange }) {
   return (

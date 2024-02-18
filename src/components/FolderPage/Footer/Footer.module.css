@@ -44,19 +44,19 @@
 }
 
 .facebook {
-  background-image: url(../../assets/facebook.svg);
+  background-image: url(../../../assets/facebook.svg);
 }
 
 .twitter {
-  background-image: url(../../assets/twitter.svg);
+  background-image: url(../../../assets/twitter.svg);
 }
 
 .youtube {
-  background-image: url(../../assets/youtube.svg);
+  background-image: url(../../../assets/youtube.svg);
 }
 
 .instagram {
-  background-image: url(../../assets/instagram.svg);
+  background-image: url(../../../assets/instagram.svg);
 }
 
 @media (max-width: 1199px) {

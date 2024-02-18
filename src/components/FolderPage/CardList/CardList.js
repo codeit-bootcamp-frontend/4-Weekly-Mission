@@ -1,4 +1,4 @@
-import CardListItem from "components/CardListItem/CardListItem";
+import CardListItem from "components/FolderPage/CardListItem/CardListItem";
 import styles from "./CardList.module.css";
 
 function CardList({ links }) {
