@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Card from '../components/Card';
+import CardList from '../components/CardList';
 import SearchBar from '../components/SearchBar';
 import { getUser, getFolder } from '../api';
 import { useState } from 'react';
@@ -19,13 +19,26 @@ const Shared = () => {
     const userProfile = await getUser();
     const userFolder = await getFolder();
 
-    setUser({ email: userProfile.email, profileImageSource: userProfile.profileImageSource });
-    setFolder({
-      profileImageSource: userFolder.folder.owner.profileImageSource,
-      ownerName: userFolder.folder.owner.name,
-      folderName: userFolder.folder.name,
-      links: userFolder.folder.links,
-    });
+    try {
+      setUser({
+        email: userProfile.data.email,
+        profileImageSource: userProfile.data.profileImageSource,
+      });
+    } catch (e) {
+      alert(userProfile.error);
+    }
+
+    try {
+      console.log(userFolder.data.folder);
+      setFolder({
+        profileImageSource: userFolder.data.folder.owner.profileImageSource,
+        ownerName: userFolder.data.folder.owner.name,
+        folderName: userFolder.data.folder.name,
+        links: userFolder.data.folder.links,
+      });
+    } catch (e) {
+      alert(userFolder.error);
+    }
   };
 
   useEffect(() => {
@@ -36,7 +49,7 @@ const Shared = () => {
     <>
       <Header user={user} folder={folder} />
       <SearchBar />
-      <Card links={folder.links} />
+      <CardList links={folder.links} />
       <Footer />
     </>
   );
