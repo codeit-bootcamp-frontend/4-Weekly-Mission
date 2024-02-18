@@ -1,48 +1,48 @@
 import React from "react";
-import defaultCardImg from "../../assets/image/default_card_img.jpg";
-import { formatDate, formatTimeAgo } from "../../utils/dateUtils";
-import duck from "../../assets/image/duck.gif";
-import "./CardList.css";
+import Card from "./Card";
+import styled from "styled-components";
 
-const Card = ({ item }) => {
-  const { url, imageSource, description, createdAt } = item;
-  return (
-    <div className="Card">
-      <a href={url} target="_blank" rel="noreferrer">
-        <div className="Card-img-warpper">
-          <img
-            className="Card-img"
-            src={imageSource || defaultCardImg}
-            alt="카드 이미지"
-          />
-        </div>
-        <div className="Card-content-wrapper">
-          <p>{formatTimeAgo(createdAt)}</p>
-          <p className="description">{description}</p>
-          <p>{formatDate(createdAt)}</p>
-        </div>
-      </a>
-    </div>
-  );
-};
+const Container = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 24px;
+  margin-bottom: 150px;
 
-const CardList = ({ items, folderLoadingError }) => {
+  @media (max-width: 1199px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 767px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+`;
+
+const NoLink = styled.div`
+  height: 300px;
+  grid-column: 1/4;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.6);
+`;
+
+const CardList = ({ links, folderLoadingError }) => {
   return (
-    <ul className="CardList">
-      {folderLoadingError ? (
-        <li className="duck">
-          <img src={duck} />
-        </li>
-      ) : (
-        items.map((item) => {
+    <Container>
+      {links.length !== 0 ? (
+        links.map((link) => {
           return (
-            <li key={item.id}>
-              <Card item={item} />
+            <li key={link.id}>
+              <Card link={link} />
             </li>
           );
         })
+      ) : (
+        <NoLink>저장된 링크가 없습니다</NoLink>
       )}
-    </ul>
+    </Container>
   );
 };
 
