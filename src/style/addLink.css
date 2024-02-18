@@ -1,0 +1,44 @@
+.addLink-container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 61px;
+  padding: 60px 320px 90px 320px;
+  background-color: #f0f6ff;
+  align-items: flex-start;
+}
+.addLink {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  padding: 16px 20px;
+  align-items: flex-start;
+  gap: 8px;
+  border-radius: 15px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
+  width: 800px;
+  height: auto;
+}
+.addLinkForm {
+  display: flex;
+}
+.addLinkBtn {
+  display: flex;
+  width: 80px;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 8px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  color: #ffffff;
+  width: 80px;
+  height: 37px;
+  position: relative;
+  left: -100px;
+  top: 8px;
+}

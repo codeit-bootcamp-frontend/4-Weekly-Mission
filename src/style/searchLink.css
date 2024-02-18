@@ -1,0 +1,14 @@
+.searchLink-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  position: relative;
+  top: 30px;
+}
+.search-link {
+  width: 1060px;
+  height: 54px;
+  border-radius: 10px;
+  border: none;
+  background-color: #f5f5f5;
+}
