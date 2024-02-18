@@ -55,21 +55,3 @@
 .shared-content__header {
   padding-bottom: 40px;
 }
-
-.search-box {
-  background: #f5f5f5;
-  border-radius: 10px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 15px 16px;
-  gap: 10px;
-}
-
-.search-box__input {
-  width: 100%;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  padding: 0;
-}

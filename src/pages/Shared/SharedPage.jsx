@@ -1,6 +1,7 @@
 import { getFolder } from '../../api';
 import { CardList } from '../../components/Card';
 import { IconSearch } from '../../components/Icon';
+import SearchBox from '../../components/SearchBox/SearchBox';
 import './SharedPage.css';
 import { useEffect, useState } from 'react';
 
@@ -57,14 +58,7 @@ function SharedContent({ items = [] }) {
   return (
     <div className="shared-content">
       <header className="shared-content__header">
-        <div className="search-box">
-          <IconSearch />
-          <input
-            className="search-box__input"
-            name="search"
-            placeholder="링크를 검색해 보세요."
-          />
-        </div>
+        <SearchBox type="text" placeholder="링크를 검색해 보세요." />
       </header>
       <CardList items={items} />
     </div>
