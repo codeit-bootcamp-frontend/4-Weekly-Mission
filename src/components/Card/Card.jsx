@@ -1,6 +1,6 @@
 import './card.css';
-import NoneImage from '../../../assets/images/folderImgNone.png';
-import { getRelativeTime, formatDateString } from '../../../utils/timeUtils';
+import nonepage from '../../assets/images/folderImgNone.png';
+import { getRelativeTime, formatDateString } from '../../utils/timeUtils';
 
 const CardGrid = ({ links }) => {
   const handleClickOpenLink = url => {
@@ -16,7 +16,7 @@ const CardGrid = ({ links }) => {
           onClick={() => handleClickOpenLink(link.url)}
         >
           <img
-            src={link.imageSource || NoneImage}
+            src={link.imageSource || nonepage}
             alt={link.title}
             className="card-link-image"
           />
