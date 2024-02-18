@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { IconAdd } from '../../components/Icon';
 
 export const FolderPageLayout = styled.div`
   display: flex;
@@ -62,6 +63,21 @@ export const ContentTabAdd = styled.button`
   white-space: nowrap;
   margin-top: 4px;
   gap: 4px;
+
+  /* Mobile */
+  @media (max-width: 767px) {
+    background-color: var(--color-primary);
+    border-radius: 20px;
+    color: var(--color-gray-10);
+    position: fixed;
+    bottom: 101px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 8px 24px;
+    width: 135px;
+    z-index: 1;
+  }
 `;
 
 export const ContentTitleBox = styled.div`
