@@ -2,6 +2,11 @@ import React from 'react';
 import OptionButton from './OptionButton';
 import styled from 'styled-components';
 
+/**
+ *
+ * @param {string} currentCategory 현재 선택된 카테고리의 이름
+ * @returns
+ */
 const SubTitle = ({ currentCategory }) => {
   return (
     <TitleContainer>

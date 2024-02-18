@@ -1,5 +1,4 @@
 import { styled } from 'styled-components';
-
 import filledStar from 'assets/images/fillStar.svg';
 import emptystar from 'assets/images/emptyStar.svg';
 

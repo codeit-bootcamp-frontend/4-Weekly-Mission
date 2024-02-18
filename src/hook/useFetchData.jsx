@@ -15,11 +15,25 @@ export const useSampleFolderQuery = queryKey => {
   return useQuery(['sampleFolder', queryKey], sampleFolderInquire);
 };
 
+/**
+ * folder 데이터 불러오는 훅
+ * @param {Object} props
+ * @param {string} props.queryKey
+ * @param {number} props.folderId
+ * @returns {QueryResult}
+ */
 export const useFolderQuery = ({ queryKey, folderId }) => {
   return useQuery(['folder', queryKey], () => {
     return getFolderLink(folderId);
   });
 };
+
+/**
+ * 카테고리 목록 데이터 쿼리 훅
+ * @param {string} queryKey
+ * @param {number} userId
+ * @returns {QueryResult}
+ */
 export const useCategoryQuery = (queryKey, userId) => {
   return useQuery(['folder', queryKey], () => {
     return getCategory(userId);

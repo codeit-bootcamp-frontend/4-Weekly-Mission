@@ -4,6 +4,14 @@ import styled from 'styled-components';
 import Card from './Card';
 import { calculateTime, formatDate } from 'utils/date';
 
+/**
+ * CardGrid 컴포넌트
+ * @param {Object} props
+ * @param {Array} props.datas
+ * @param {boolean} props.isLoading
+ * @param {boolean} props.isFolder
+ * @returns {JSX.Element}
+ */
 const CardGrid = ({ datas, isLoading, isFolder }) => {
   return (
     <CardContainer>

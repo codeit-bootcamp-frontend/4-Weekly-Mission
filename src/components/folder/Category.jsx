@@ -2,6 +2,14 @@ import styled from 'styled-components';
 import Add from 'assets/images/add.png';
 import Add2 from 'assets/images/add2.png';
 
+/**
+ * Category 컴포넌트
+ * @param {Object} props
+ * @param {Array} props.categoryDatas 카테고리 데이터 배열
+ * @param {string} props.currentCategory 현재 선택된 카테고리
+ * @param {function} props.handleCategoryButton 카테고리 버튼 핸들러 함수
+ * @returns {JSX.Element}
+ */
 const Category = ({ categoryDatas, currentCategory, handleCategoryButton }) => {
   return (
     <>
