@@ -1,0 +1,62 @@
+.bottom-nav__icon--facebook,
+.bottom-nav__icon--twitter,
+.bottom-nav__icon-insta,
+.bottom-nav__icon--youtube,
+.bottom-nav__setting--color {
+  text-decoration: none;
+}
+
+/* 하단 바 */
+.footer-var {
+  padding-top: 60px;
+}
+
+.bottom-nav {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+  height: 160px;
+  padding: 32px 104px 64px 104px;
+  background: var(--The-julge-black, #111322);
+
+  @media screen and (max-width: 767px) {
+    padding: 32px;
+    position: relative;
+  }
+}
+
+.bottom-nav__codeit {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Acme;
+  text-align: center;
+  color: #676767;
+
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    bottom: 32px;
+  }
+}
+
+.bottom-nav__setting {
+  display: flex;
+  gap: 30px;
+  color: #cfcfcf;
+}
+
+.bottom-nav__setting--color {
+  color: #cfcfcf;
+}
+
+.bottom-nav__icon {
+  list-style: none;
+  display: flex;
+  gap: 12px;
+}
+
+/*a태그가 svg를 감싸도록 하기 위함*/
+.bottom-nav__icon--block {
+  display: inline-block;
+}

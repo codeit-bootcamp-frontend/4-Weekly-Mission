@@ -1,0 +1,58 @@
+/* 상단 바 */
+.topnav {
+  padding: 20px 200px;
+  background-color: var(--gray-Very-Bright);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+
+  @media screen and (max-width: 1199px) {
+    padding: 20px 100px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 17px 32px;
+  }
+}
+
+.topnav__size {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.topnav__logo--design {
+  width: 133px;
+  height: 24px;
+
+  @media screen and(max-width:767px) {
+    width: 88.667px;
+    height: 16px;
+  }
+}
+
+/* 로그인 버튼 */
+.topnav__loginBt {
+  background: linear-gradient(to right, #6d6afe, #6ae3fe);
+  font-size: 18px;
+  color: #f5f5f5;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 128px;
+  border: 0;
+  text-decoration: none;
+
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 16px;
+    width: 80px;
+  }
+}
