@@ -1,17 +1,17 @@
 import "./NavigationBar.css";
-import logoImg from "../../assets/logo.png";
+import logoImg from "../../assets/linkbrary-logo.png";
 
 function NavigationBar({ userInfo }) {
   return (
     <div className="NavigationBar">
       <div className="container">
-        <a href="#">
+        <a href="/">
           <img src={logoImg} alt="logo" />
         </a>
         {userInfo ? (
           <div className="user_information">
             <img
-              src={userInfo.profileImageSource}
+              src={userInfo.profileImageSource || userInfo["image_source"]}
               alt="user image"
               className="user_image"
             />

@@ -1,9 +1,4 @@
-@import url("/src/common/reset.css");
 @import url("/src/common/color.css");
-
-* {
-  box-sizing: border-box;
-}
 
 .Footer {
   position: relative;

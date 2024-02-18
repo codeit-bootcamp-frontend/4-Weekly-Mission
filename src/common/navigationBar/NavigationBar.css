@@ -1,13 +1,5 @@
 @import url("/src/common/color.css");
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
 .NavigationBar {
   background-color: var(--Gray5);
   padding: 32px 200px;
