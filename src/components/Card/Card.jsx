@@ -1,9 +1,8 @@
 import './Card.css';
 import cardImg from '../../assets/card_default.png';
 import { formatDate, formatRelativeDate } from '../../utils/date';
-import IconStar from '../Icon/IconStar';
 import { Link } from 'react-router-dom';
-import IconKebabMenu from '../Icon/IconKebabMenu';
+import { IconKebabMenu, IconStar } from '../Icon';
 
 function Card({
   item = {
