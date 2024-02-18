@@ -1,10 +1,16 @@
 import { useEffect, useState } from "react";
 import { getFetchData } from "../utils/getFetchData";
 
-function FolderListItem({ folder }) {
+function FolderListItem({ folder, onClick }) {
+  const handleClick = () => {
+    onClick(folder.id);
+  };
+
   return (
     <div>
-      <button className="folderList__Btn">{folder.name}</button>
+      <button className="folderList__Btn" onClick={handleClick}>
+        {folder.name}
+      </button>
     </div>
   );
 }
@@ -15,7 +21,7 @@ function FolderList() {
   useEffect(() => {
     const getFolderList = async () => {
       try {
-        const result = await getFetchData(`/api/users/1/folders`);
+        const result = await getFetchData(`/api/users/4/folders`);
         setFolders(result.data);
       } catch (error) {
         console.error(error);
@@ -25,10 +31,20 @@ function FolderList() {
     getFolderList();
   }, []);
 
+  const handleFolderListItemClick = (folderId) => {
+    console.log(folderId);
+  };
+
   return (
     <div className="folderList">
       {folders.map((folder) => {
-        return <FolderListItem key={folders.id} folder={folder} />;
+        return (
+          <FolderListItem
+            key={folders.id}
+            folder={folder}
+            onClick={handleFolderListItemClick}
+          />
+        );
       })}
     </div>
   );

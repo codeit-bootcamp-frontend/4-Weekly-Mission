@@ -23,7 +23,12 @@ function Card({ folder }) {
       />
       <div className="container__card--text">
         <p className="container__card--uploadTime">{uploadTime}</p>
-        <p className="container__card--description">{folder.description}</p>
+        {folder.description ? (
+          <p className="container__card--description">{folder.description}</p>
+        ) : (
+          <p className="container__card--description">내용이 없습니다.</p>
+        )}
+
         <p className="container__card--createAt">
           {formatDate(folder.created_at)}
         </p>

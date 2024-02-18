@@ -6,14 +6,14 @@ import InputSearchLink from "./InputSearchLink";
 import FolderList from "./FolderList";
 
 const MainContainer = () => {
-  const [folders, setFolders] = useState([]);
-  const sortedFolders = [...folders].sort((a, b) => a.id - b.id);
+  const [links, setLinks] = useState([]);
+  const sortedLinks = [...links].sort((a, b) => a.id - b.id);
 
   useEffect(() => {
     const getUserFolderData = async () => {
       try {
-        const result = await getFetchData(`/api/users/1/links`);
-        setFolders(result.data);
+        const result = await getFetchData(`/api/users/4/links`);
+        setLinks(result.data);
 
         // fetch("https://bootcamp-api.codeit.kr/api/users/1/links?folderId")
       } catch (error) {
@@ -46,8 +46,8 @@ const MainContainer = () => {
         <InputSearchLink />
         <FolderList />
         <div className="container__cardWrap">
-          {sortedFolders.map((folder) => {
-            return <Card key={folder.id} folder={folder} />;
+          {sortedLinks.map((link) => {
+            return <Card key={link.id} folder={link} />;
           })}
         </div>
       </div>
