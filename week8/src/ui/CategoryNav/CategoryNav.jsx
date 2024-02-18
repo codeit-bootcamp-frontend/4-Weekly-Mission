@@ -1,10 +1,10 @@
 import { DELETE_ICON, RENAME_ICON, SHARED_ICON } from "./constans";
 import "./CategoryNav.css";
 
-export function CategoryNav() {
+export function CategoryNav({ activeCategoryName }) {
   return (
     <div className="category-nav-bar">
-      <p className="active-category">전체</p>
+      <p className="active-category">{activeCategoryName}</p>
       <nav className="category-nav-buttons">
         <button className="category-nav-button">
           <img src={SHARED_ICON} alt="공유하기를 나타내는 아이콘" />

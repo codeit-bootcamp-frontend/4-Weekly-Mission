@@ -6,6 +6,7 @@ import { CategoryNav } from "ui/CategoryNav/CategoryNav";
 
 export function Classification() {
   const [data, setData] = useState();
+  const [activeCategoryName, setActiveCategoryName] = useState("전체");
 
   const handleLoadCategory = async () => {
     const { data } = await getCategory();
@@ -18,13 +19,14 @@ export function Classification() {
 
   const handleCategoryActive = (e) => {
     console.log(e.target.value);
+    setActiveCategoryName(e.target.value);
   };
 
   return (
     <>
       <div className="classification">
         <div className="classification-buttons">
-          <Button key="all" value="all">
+          <Button onClick={handleCategoryActive} key="all" value="전체">
             전체
           </Button>
           {data?.map((category) => (
@@ -39,7 +41,7 @@ export function Classification() {
         </div>
         <button className="add-folder-button">폴더 추가 +</button>
       </div>
-      <CategoryNav />
+      <CategoryNav activeCategoryName={activeCategoryName} />
     </>
   );
 }
