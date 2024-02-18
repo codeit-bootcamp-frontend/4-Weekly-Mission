@@ -28,15 +28,7 @@ function App() {
         </div>
 
         <div className="mainContent">
-          <Card num={1} />
-          <Card num={2} />
-          <Card num={3} />
-          <Card num={4} />
-          <Card num={5} />
-          <Card num={6} />
-          <Card num={7} />
-          <Card num={8} />
-          <Card num={9} />
+          <Card />
         </div>
       </main>
       <Footer />
