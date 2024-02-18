@@ -1,14 +1,14 @@
 import {
-  FolderSummary,
+  ProfileSummary,
   Figure,
   ProfileImage,
   Figcaption,
   Header,
-} from './folderStyle';
+} from './profileStyle';
 
-const Folder = ({ name, owner }) => {
+const Profile = ({ name, owner }) => {
   return (
-    <FolderSummary>
+    <ProfileSummary>
       <Figure>
         <ProfileImage
           src={owner.profileImageSource}
@@ -19,8 +19,8 @@ const Folder = ({ name, owner }) => {
       <Header>
         <h2>{name}</h2>
       </Header>
-    </FolderSummary>
+    </ProfileSummary>
   );
 };
 
-export default Folder;
+export default Profile;

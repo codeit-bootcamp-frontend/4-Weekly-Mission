@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FolderSummary = styled.article`
+export const ProfileSummary = styled.article`
   display: flex;
   flex-direction: column;
   align-items: center;
