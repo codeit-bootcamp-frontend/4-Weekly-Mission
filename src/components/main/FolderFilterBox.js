@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import styles from "./FolderFilterBox.module.css";
 import FolderFilterButton from "./FolderFilterButton";
 import ShowAllLinksButton from "./ShowAllLinkButton";
@@ -8,6 +9,21 @@ function FolderFilterBox({
   folderId,
   setSearchParams,
 }) {
+  const [isFilterActive, setIsFilterActive] = useState([]);
+  async function handleFilterClick() {
+    await fetch(`https://bootcamp-api.codeit.kr/api/users/1/folders`)
+      .then((res) => res.json())
+      .then((result) =>
+        setIsFilterActive(new Array(result.data.length + 1).fill(false))
+      );
+  }
+
+  useEffect(() => {
+    handleFilterClick();
+  }, []);
+
+  console.log(isFilterActive);
+
   return (
     <div className={styles.link_filter_box}>
       <ShowAllLinksButton
@@ -15,8 +31,11 @@ function FolderFilterBox({
         setFolderName={setFolderName}
         setFolderId={setFolderId}
         setSearchParams={setSearchParams}
+        buttonIndex={0}
+        setIsFilterActive={setIsFilterActive}
+        isFilterActive={isFilterActive}
       />
-      {folderData?.data.map(({ name, id }) => {
+      {folderData?.data.map(({ name, id }, i) => {
         return (
           <FolderFilterButton
             name={name}
@@ -26,6 +45,9 @@ function FolderFilterBox({
             folderId={folderId}
             setFolderId={setFolderId}
             setSearchParams={setSearchParams}
+            buttonIndex={i + 1}
+            setIsFilterActive={setIsFilterActive}
+            isFilterActive={isFilterActive}
           />
         );
       })}

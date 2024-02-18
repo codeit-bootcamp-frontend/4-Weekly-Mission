@@ -1,3 +1,35 @@
-.link_list_wrapper {
-  background-color: yellow;
+.item_card_grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2.5rem 2rem;
+  position: relative;
+}
+.no_link_wrapper {
+  text-align: center;
+  color: #000;
+  font-family: var(--Pretendard-Regular);
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  padding: 4.1rem 0px 5.5rem 0px;
+}
+@media (max-width: 1124.5px) {
+  .item_card_grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .no_link_wrapper {
+    margin-bottom: 30rem;
+  }
+}
+
+@media (max-width: 767.5px) {
+  .item_card_grid {
+    grid-template-columns: 1fr;
+  }
+
+  .no_link_wrapper {
+    padding: 0px 9.75rem 0px 9.85rem;
+    font-size: 1.4rem;
+    margin-top: 8rem;
+  }
 }

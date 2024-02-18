@@ -12,7 +12,7 @@ function FolderItem({ createdAt, url, title, imageSource }) {
           <div className={styles.folder_image_box}>
             <img
               src={`${process.env.PUBLIC_URL}/assets/images/folder_no_image.svg`}
-              className={styles.folder_no_image}
+              className={styles.folder_image}
             />
           </div>
         )}
