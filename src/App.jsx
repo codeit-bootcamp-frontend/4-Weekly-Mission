@@ -1,13 +1,12 @@
-import "./App.css";
-import Shared from "./pages/shared/shared.jsx";
-import Footer from './components/footer/Footer';
+import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Shared from './pages/shared/shared.jsx';
 
 function App() {
   return (
-    <>
-      <Shared />
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/shared" element={<Shared />}></Route>
+    </Routes>
   );
 }
 

@@ -1,11 +1,15 @@
-import "../content/ContentCard.css";
-import noImage from "../../../assets/shared/no-image.png";
-import useTimeAgo from "../../../hooks/useTimeAgo";
-import useConvertDateFormat from "./../../../hooks/useConvertDateFormat";
+import noImage from '../../../assets/shared/no-image.png';
+import useTimeAgo from '../../../hooks/useTimeAgo';
+import useConvertDateFormat from './../../../hooks/useConvertDateFormat';
+import * as S from './ContentCard.style';
 
 function ContentCard({ link }) {
   return (
-    <div className="card" onClick={() => window.open(link.url)}>
+    <S.CardContainer
+      onClick={() => {
+        window.open(link.url);
+      }}
+    >
       <div className="image-wrapper">
         {link?.imageSource ? (
           <img className="img" src={link?.imageSource} alt={link.title} />
@@ -18,7 +22,7 @@ function ContentCard({ link }) {
         <p className="desc">{link?.description}</p>
         <p className="date">{useConvertDateFormat(link?.createdAt)}</p>
       </div>
-    </div>
+    </S.CardContainer>
   );
 }
 
