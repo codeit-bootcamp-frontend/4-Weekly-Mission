@@ -3,7 +3,6 @@ import Card from '../components/Card';
 
 const CardList = ({ folderInfo }) => {
   const cardList = folderInfo?.folder.links;
-  console.log(cardList);
 
   return (
     <div className="cardlist">
