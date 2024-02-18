@@ -28,6 +28,12 @@ main .container {
     max-width: 1060px;
     margin: 0 auto;
 }
+.linkText {
+    font-size: 10rem;
+}
+.linkText a {
+    display: block;
+}
 #root {
     height: 100%;
 }
