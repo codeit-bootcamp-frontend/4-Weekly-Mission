@@ -13,7 +13,7 @@ function FolderPageMain() {
   const { data: folderData } = useFetch(folderUrl);
   const [folderName, setFolderName] = useState("");
   const [isShowFuncButotonBox, setIsShowFuncButtonBox] = useState(true);
-  const [folderId, setFolderId] = useState();
+  const [folderId, setFolderId] = useState("");
 
   return (
     <div className={styles.main_wrapper}>
