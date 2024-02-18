@@ -1,3 +1,5 @@
+// import { useState } from "react";
+// import kebabIcon from "../assets/kebab.svg";
 import noImage from "../assets/noimage.jpeg";
 import "./styles/Card.css";
 
@@ -39,6 +41,8 @@ function getTimeAgo(createdAt) {
 function Card({ cardList }) {
   const isListEmpty = cardList.length === 0;
 
+  // const [kebabClick, setKebabClick] = useState(false);
+
   if (isListEmpty) {
     return (
       <div className="noLink">
@@ -53,6 +57,10 @@ function Card({ cardList }) {
     ...card,
   }));
 
+  // const handleButtonClick = () => {
+  //   setKebabClick(!kebabClick);
+  // };
+
   return (
     <div className="Card">
       <div className="cardItemBox">
@@ -64,6 +72,15 @@ function Card({ cardList }) {
               alt="링크 대표 이미지"
             />
             <div className="descriptionBox">
+              {/* <button className="kebabBtn" onClick={handleButtonClick}>
+                <img src={kebabIcon} alt="케밥..?" />
+              </button>
+              {kebabClick && (
+                <div>
+                  <button>삭제하기</button>
+                  <button>폴더에 추가</button>
+                </div>
+              )} */}
               <p className="cardTime">{getTimeAgo(data.createdAt)}</p>
               <p className="description">
                 {data.title}

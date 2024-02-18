@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import AddLinkInput from "../components/AddLinkInput";
-import Gnb from "../components/Gnb";
-import LinkSearch from "../components/LinkSearch";
-import Footer from "../components/Footer";
 import { getUsersFolder, getUser } from "../components/Api";
+import Gnb from "../components/Gnb";
+import AddLinkInput from "../components/AddLinkInput";
+import LinkSearch from "../components/LinkSearch";
 import FolderItem from "../components/FolderItem";
+import Footer from "../components/Footer";
 
 function FolderPage() {
   // Gnb
@@ -25,13 +25,13 @@ function FolderPage() {
   }, []);
 
   // FloderItem
-  const [state, setState] = useState([]);
+  const [usersFolderData, setUsersFolderData] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const body = await getUsersFolder();
-        setState(body.data);
+        const usersFolder = await getUsersFolder();
+        setUsersFolderData(usersFolder.data);
       } catch (error) {
         console.log(error);
       }
@@ -45,7 +45,7 @@ function FolderPage() {
       <Gnb userData={userData} isUserDataLoaded={isUserDataLoaded} />
       <AddLinkInput />
       <LinkSearch />
-      <FolderItem usersFolderData={state} />
+      <FolderItem usersFolderData={usersFolderData} />
       <Footer />
     </>
   );

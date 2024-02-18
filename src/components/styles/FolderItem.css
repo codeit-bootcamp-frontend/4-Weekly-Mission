@@ -1,20 +1,19 @@
 .FolderItem {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 40px;
-  width: 1060px;
   margin: 40px auto;
 }
 
 .folderItemContainer {
-  width: 100%;
+  width: 1060px;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
 .folderListBar {
-  width: 100%;
   display: flex;
   justify-content: space-between;
 }

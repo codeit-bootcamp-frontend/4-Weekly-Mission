@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
-import addIcon from "../assets/add.svg";
+import { getUsersLink } from "./Api";
+import Card from "./Card";
 import shareIcon from "../assets/share.svg";
 import penIcon from "../assets/pen.svg";
 import deleteIcon from "../assets/delete.svg";
+import addIcon from "../assets/add.svg";
 import "./styles/FolderItem.css";
-import Card from "./Card";
-import { getUsersLink } from "./Api";
 
-function FolderItem(props) {
-  const { usersFolderData } = props;
+function FolderItem({ usersFolderData }) {
+  const folderList = [{ id: 1, name: "전체" }, ...usersFolderData];
 
   const OPTION_LIST = [
     {
@@ -27,6 +27,7 @@ function FolderItem(props) {
       src: deleteIcon,
     },
   ];
+
   const [selectedFolder, setSelectedFolder] = useState({ id: 1, name: "전체" });
 
   const handleFolderClick = (data) => {
@@ -55,17 +56,7 @@ function FolderItem(props) {
       <div className="folderItemContainer">
         <div className="folderListBar">
           <div className="folderList">
-            <button
-              onClick={() => handleFolderClick({ id: 1, name: "전체" })}
-              className={
-                selectedFolder.name === "전체"
-                  ? "selectedFolder"
-                  : "folderButton"
-              }
-            >
-              전체
-            </button>
-            {usersFolderData.map((data) => (
+            {folderList.map((data) => (
               <button
                 key={data.id}
                 onClick={() => handleFolderClick(data)}

@@ -2,7 +2,8 @@
   display: flex;
   padding: 60px 320px 90px;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
   background: #f0f6ff;
   margin-bottom: 40px;
