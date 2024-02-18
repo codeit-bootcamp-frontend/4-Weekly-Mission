@@ -42,7 +42,11 @@ function Header() {
 }
 
 function ButtonLogin({ onClick }) {
-  return <Button title="로그인" onClick={onClick} />;
+  return (
+    <Button onClick={onClick} fontSize="18">
+      로그인
+    </Button>
+  );
 }
 
 // 컴포넌트 분리 예정
