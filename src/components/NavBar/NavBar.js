@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Profile } from "../Profile/Profile";
 import { getUser } from "../../api/api";
-import { useNavStyleChange } from "../../hooks/hooks";
 import Logo from "../../assets/images/logo.png";
 import "./NavBar.css";
 import { useLocation } from "react-router-dom";
@@ -14,7 +13,7 @@ const NavBar = () => {
   const className = isFolderPage ? "folderPageNav" : "nav";
 
   const handleLoadUser = async () => {
-    const data = await getUser();
+    const data = await getUser({ userId: 1 });
     setUserData(data);
   };
 
