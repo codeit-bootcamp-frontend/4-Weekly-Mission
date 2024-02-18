@@ -1,0 +1,6 @@
+.CardButtons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 106rem;
+}

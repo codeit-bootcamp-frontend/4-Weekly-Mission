@@ -1,0 +1,7 @@
+.CardButtonContent {
+  border-radius: 0.4rem;
+  border: 1px solid var(--primary);
+  border-color: var(--primary);
+  padding: 0.6rem;
+  margin: auto 0.2rem;
+}
