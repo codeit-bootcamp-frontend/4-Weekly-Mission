@@ -34,3 +34,23 @@
   line-height: normal;
   cursor: pointer;
 }
+
+#profileArea {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+#profileImage {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+#profileEmail {
+  color: var(--Linkbrary-gray100, #373740);
+  /* Linkbrary/body2-regular */
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

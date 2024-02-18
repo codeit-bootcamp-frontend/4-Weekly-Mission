@@ -8,6 +8,7 @@
 .cardImage {
   width: 340px;
   height: 253.746px;
+  object-fit: cover;
   flex-shrink: 0;
 }
 
