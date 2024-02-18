@@ -8,6 +8,25 @@ import Footer from "../../components/footer/Footer";
 const Folder = () => {
   const [user, setUser] = useState(null);
   const [folder, setFolder] = useState(null);
+  const [folderList, setFolderList] = useState(null);
+
+  const makeFolderList = (folderData) => {
+    const folderList = [
+      {
+        id: 0,
+        name: "전체",
+      },
+    ];
+
+    folderData.forEach((folder, idx) => {
+      folderList.push({
+        id: idx + 1,
+        name: folder.name,
+      });
+    });
+
+    return folderList;
+  };
 
   useEffect(() => {
     Promise.all([
@@ -19,7 +38,7 @@ const Folder = () => {
       )
       .then(([folderData, userData]) => {
         setFolder(folderData.data);
-        console.log(folderData.data);
+        setFolderList(makeFolderList(folderData.data));
         setUser(userData.data[0]);
       })
       .catch((error) => console.error("Error fetching data:", error));
@@ -29,7 +48,8 @@ const Folder = () => {
     <Container>
       <GNB user={user} />
       <SearchLinkBar />
-      <Content folder={folder} />
+      <Content folder={folder} folderList={folderList} />
+
       <Footer />
     </Container>
   );
