@@ -1,6 +1,7 @@
 import getElapsedTime from "../utils/getElapsedTime";
 import CardErrorImage from "../img/CardErrorImage.png";
 import StarToggleIcon from "../img/StarToggleIcon.svg";
+import Kebab from "../img/kebab.svg";
 
 function formatDate(value) {
   const date = new Date(value);
@@ -44,6 +45,7 @@ function Card({ folder }) {
         <p className="container__card--createAt">
           {formatDate(folder.created_at)}
         </p>
+        <img className="container__card--kebab" src={Kebab} alt="KebabIcon" />
       </div>
     </div>
   );

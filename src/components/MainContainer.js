@@ -56,10 +56,11 @@ const MainContainer = () => {
         <div className="container__myFolders">
           <div className="container__myFolders--folderList">
             <FolderList handleFolderListItemClick={handleFolderListItemClick} />
-            <div>폴더 추가(다음주차 구현)</div>
+            <div className="container__myFolders--addFolder">폴더 추가</div>
           </div>
           <div className="container__myFolders--folderName">
             <h2>{folderName}</h2>
+            <div>공유, 이름변경 삭제(추후 구현)</div>
           </div>
           {sortedLinks.length === 0 ? (
             <div className="container__noLink">저장된 링크가 없습니다</div>
