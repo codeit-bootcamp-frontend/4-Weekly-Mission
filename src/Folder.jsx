@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { getFolderList, getLink, getLinkDetail } from './apis/api';
+import { getLink, getLinkDetail } from './apis/api';
 import shareImg from './assets/folder/share.svg';
 import renameImg from './assets/folder/pen.svg';
 import deleteImg from './assets/folder/delete.svg';
@@ -16,34 +16,23 @@ const FOLDER_EDITS = Object.freeze([
   { src: deleteImg, name: "삭제" },
 ]);
 
-const Folder = () => {
-  const [folderLists, setFolderLists] = useState([]); // 이건 부모 컴포넌트에서 넘겨주는 게 좋을 듯
+const Folder = ({folderLists}) => {
   const [folders, setFolders] = useState([]);
-  const [curfolderList, setCurFolderList] = useState();
+  const [currentfolderList, setCurrrentFolderList] = useState();
 
   const handleTotalListClick = async () => {
     const { data } = await getLink();
 
     setFolders(data);
-    setCurFolderList('전체');
+    setCurrrentFolderList('전체');
   }
 
   const handleListClick = async (folderName, folderId) => {
     const { data } = await getLinkDetail(folderId);
 
     setFolders(data);
-    setCurFolderList(folderName);
+    setCurrrentFolderList(folderName);
   }
-
-  useEffect(() => {
-    const fetchFolderList = async () => {
-      const { data } = await getFolderList();
-
-      setFolderLists(data);
-    };
-
-    fetchFolderList();
-  }, []);
 
   useEffect(() => {
     handleTotalListClick();
@@ -65,13 +54,13 @@ const Folder = () => {
             </div>
           </div>
           <div className='container-folder-edit'>
-            <span>{curfolderList}</span>
-            {curfolderList === '전체' ? (
+            <span>{currentfolderList}</span>
+            {currentfolderList === '전체' ? (
             <></>
             ) : (
               <div className='folder-edits'>
                 {FOLDER_EDITS.map(({ src, name }) => (
-                  <div className='folder-edit'>
+                  <div className='folder-edit' key={name}>
                     <img src={src} alt={name}></img>
                     <span className='edit-text'>{name}</span>
                   </div>
