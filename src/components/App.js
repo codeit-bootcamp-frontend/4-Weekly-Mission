@@ -1,13 +1,14 @@
-import Header from "./header/Header";
-import Footer from "./footer/footer";
-import Main from "./main/Main";
-import "../landing.css";
+import Nav from "./Nav";
+import Footer from "./Footer";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   return (
     <>
-      <Header />
-      <Main />
+      <Nav />
+      <div>
+        <Outlet />
+      </div>
       <Footer />
     </>
   );
