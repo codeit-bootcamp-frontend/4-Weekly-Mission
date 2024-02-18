@@ -1,0 +1,22 @@
+.no_link_wrapper {
+  text-align: center;
+  font-size: 1.6rem;
+  font-family: var(--Pretendard-Regular);
+  width: 100%;
+  padding: 4.1rem 0px 3.5rem 0px;
+}
+
+@media (max-width: 1199.5px) {
+  .no_link_wrapper {
+    margin-bottom: 300px;
+  }
+}
+
+@media (max-width: 767.5px) {
+  .no_link_wrapper {
+    padding: 0px 9.75rem 0px 9.85rem;
+
+    font-size: 1.4rem;
+    margin-bottom: 300px;
+  }
+}

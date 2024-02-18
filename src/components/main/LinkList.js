@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import NoLink from "./NoLink";
 function LinkList({ searchParams }) {
   const [filterData, setFilterData] = useState(null);
   async function handleFilterClick() {
@@ -19,7 +19,7 @@ function LinkList({ searchParams }) {
   return (
     <div>
       {filterData?.data?.length == 0 ? (
-        <div>링 크 가 없 습 니 다</div>
+        <NoLink />
       ) : (
         filterData?.data?.map(({ title }, i) => {
           return <div key={i}>{title}</div>;
