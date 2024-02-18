@@ -1,0 +1,11 @@
+.folderList-button {
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.folderList-button:not(:last-child) {
+  margin-right: 0.8rem;
+}
