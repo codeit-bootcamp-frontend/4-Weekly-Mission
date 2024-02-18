@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getUser } from '../api/BaseUrl';
+import { getUser, getFolder } from '../api/BaseUrl';
 
 import Header from './header';
 import Footer from './footer';
@@ -8,6 +8,7 @@ import Folder from './folder';
 
 const Page = () => {
   const [user, setUser] = useState(null);
+  const [folder, setFolder] = useState(null);
 
   const handleLoad = async (getState, setState) => {
     try {
@@ -20,12 +21,13 @@ const Page = () => {
 
   useEffect(() => {
     handleLoad(getUser, setUser);
+    handleLoad(getFolder, setFolder);
   }, []);
 
   return (
     <div>
       <Header userInfo={user} />
-      <Info />
+      <Info folderInfo={folder} />
       <Folder />
       <Footer />
     </div>

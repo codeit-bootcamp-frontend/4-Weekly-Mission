@@ -1,14 +1,18 @@
 import '../styles/info.css';
 
-const Info = () => {
+const Info = ({ folderInfo }) => {
+  const folderImage = folderInfo?.folder.owner.profileImageSource;
+  const folderUsername = folderInfo?.folder.owner.name;
+  const folderName = folderInfo?.folder.name;
+
   return (
     <div className='folder-info'>
       <div className='folder-profile'>
         <div className='folder-user'>
-          <img className='folder-image' alt='폴더의 프로필 이미지.' />
-          <p className='folder-username'>@홍길동</p>
+          <img className='folder-image' src={folderImage} alt='폴더의 프로필 이미지.' />
+          <p className='folder-username'>@{folderUsername}</p>
         </div>
-        <h1 className='folder-name'>⭐️ 즐겨찾기</h1>
+        <h1 className='folder-name'>{folderName}</h1>
       </div>
     </div>
   );
