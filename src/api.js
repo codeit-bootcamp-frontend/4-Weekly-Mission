@@ -18,8 +18,8 @@ export async function getSharedFolder() {
   return body;
 }
 
-export async function getMyFolders(userId) {
-  const response = await fetch(`${SERVER}/api/${userId}/folders`);
+export async function getMyFolderList(userId) {
+  const response = await fetch(`${SERVER}/api/users/${userId}/folders`);
   if (!response.ok) {
     throw new Error("폴더 목록을 불러오는데 실패했습니다.");
   }
@@ -27,9 +27,9 @@ export async function getMyFolders(userId) {
   return body;
 }
 
-export async function getMyLinks(userId, folderId) {
-  const query = folderId && `?folderId=${folderId}`;
-  const response = await fetch(`${SERVER}/api/${userId}/links${query}`);
+export async function getMyFolder(userId, folderId) {
+  const query = folderId ? `?folderId=${folderId}` : "";
+  const response = await fetch(`${SERVER}/api/users/${userId}/links${query}`);
   if (!response.ok) {
     throw new Error("폴더 내용을 불러오는데 실패했습니다.");
   }
