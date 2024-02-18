@@ -21,3 +21,14 @@ export const getFolder = async () => {
     throw error;
   }
 };
+
+export const getFolderList = async ({ userId }) => {
+  try {
+    const response = await fetch(`${URL}/users/${userId}/folders`);
+    const body = await response.json();
+    return body;
+  } catch (error) {
+    console.error("Error fetching folderList data", error);
+    throw error;
+  }
+};
