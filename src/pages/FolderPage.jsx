@@ -9,6 +9,7 @@ import TabButton from 'components/common/button/TabButton';
 import FolderHeader from 'components/common/header/FolderHeader';
 import OptionBtns from 'components/folder/OptionBtns';
 import FolderGridCard from 'components/folder/FolderGridCard';
+import FloatButton from 'components/common/button/FloatButton';
 
 const Styled = {
   NoLink: styled.div`
@@ -34,6 +35,12 @@ const Styled = {
     align-items: center;
 
     margin-bottom: 2.4rem;
+
+    @media (max-width: 767px) {
+      flex-direction: column;
+      align-items: start;
+      gap: 1.2rem;
+    }
   `,
 };
 
@@ -70,6 +77,7 @@ function FolderPage() {
             <h2 style={{ fontSize: '2.4rem', fontWeight: 600 }}>{selectedTabName}</h2>
             {selectedTabName !== '전체' && <OptionBtns />}
           </Styled.TitleAndOptions>
+          <FloatButton>폴더추가</FloatButton>
           <FolderGridCard selectedFolder={selectedFolder} />
         </>
       )}
