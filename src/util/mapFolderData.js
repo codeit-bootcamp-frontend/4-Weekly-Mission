@@ -3,7 +3,7 @@ import { getElapsedTime } from "./getElapsedTime";
 
 export const mapFolderData = (folder) => {
   if (!folder) return [];
-  const { name, owner, links } = folder;
+  const { name, o wner, links } = folder;
 
   const mapLinks = (link) => {
     const { id, createdAt, url, imageSource, title, description } = link;

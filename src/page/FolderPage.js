@@ -14,7 +14,7 @@ function FolderPage() {
   return (
     <Layout>
       <PageBody
-        serchInfo={<SerchInfo />}
+        addLink={<SerchInfo />}
         searchBar={<SearchBar />}
         cardList={
           <CardList>

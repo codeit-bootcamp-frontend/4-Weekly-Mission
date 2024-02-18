@@ -1,7 +1,7 @@
 import "./PageBody.css";
 import { useLocation } from "react-router-dom";
 
-export const PageBody = ({ pageInfo, serchInfo, searchBar, cardList }) => {
+export const PageBody = ({ pageInfo, addLink, searchBar, cardList }) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -18,7 +18,7 @@ export const PageBody = ({ pageInfo, serchInfo, searchBar, cardList }) => {
   } else if (currentPath === "/folder") {
     return (
       <div className="PageBody">
-        {serchInfo}
+        {addLink}
         <div className="PageBody-items">
           {searchBar}
           {cardList}

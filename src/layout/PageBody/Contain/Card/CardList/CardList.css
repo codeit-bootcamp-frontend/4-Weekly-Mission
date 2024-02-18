@@ -6,11 +6,47 @@
   max-width: 106rem;
   row-gap: 2rem;
 }
-
-@media (min-width: 768px) {
+.CardList_header_contain {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.CardList_header_word {
+  color: #000000;
+  font-family: "Pretendard-SemiBold", Helvetica;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: normal;
+  text-align: left;
+}
+.CardList_header_button {
+  color: #000000;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  line-height: normal;
+  text-align: left;
+}
+.CardList_header_div {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 32px;
+  position: relative;
+}
+@media (min-width: 767px) {
   .CardList {
     grid-template-columns: repeat(auto-fill, 34rem);
     row-gap: 2.5rem;
     column-gap: 2rem;
+  }
+}
+@media (max-width: 767px) {
+  .CardList_header_contain {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 }
