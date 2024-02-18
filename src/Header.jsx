@@ -1,10 +1,6 @@
-import { useFetchShared } from './hooks/useFetchShared';
-
 import './Header.css';
 
-const Header = () => {
-  const folders = useFetchShared();
-
+const Header = ({folders}) => {
   const isShowFolderInfos = folders && folders.owner && folders.name;
 
   return (

@@ -1,12 +1,8 @@
-import { useFetchShared } from './hooks/useFetchShared';
-
 import SearchBar from './components/SearchBar';
 import Card from './components/Card';
 import './Folder.css';
 
-const SharedFolder = () => {
-  const folders = useFetchShared();
-
+const SharedFolder = ({folders}) => {
   if(!folders || !folders.links) {
     return (
       <div>파트 1에서 만들었던 랜딩 페이지 적용</div>
