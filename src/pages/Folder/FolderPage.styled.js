@@ -60,6 +60,7 @@ export const ContentTabAdd = styled.button`
   color: var(--color-primary);
   font-size: 16px;
   white-space: nowrap;
+  margin-top: 4px;
   gap: 4px;
 `;
 
