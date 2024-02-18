@@ -7,6 +7,7 @@ import { USERS_LINKS_URL, USERS_FOLDERS_URL } from '../constants/urls';
 import Card from './Card';
 import useLinksData from '../hooks/useLinksData';
 import useFoldersData from '../hooks/useFoldersData';
+import { FolderAddButtonMobile } from '../pages/FolderPage/components/FolderAddButton';
 function FolderList() {
   const [selectedFolder, setSelectedFolder] = useState({ id: 1, name: '전체' });
   const [linksFetchUrl, setLinksFetchUrl] = useState(USERS_LINKS_URL);
@@ -54,6 +55,8 @@ function FolderList() {
               ))}
             </div>
           )}
+
+          <FolderAddButtonMobile></FolderAddButtonMobile>
         </div>
       </div>
     </div>
