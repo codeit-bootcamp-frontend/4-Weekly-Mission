@@ -1,31 +1,20 @@
 import '../assets/common/common.css';
-import Header from './Header';
-import Footer from './Footer';
-import UserTitle from '../folder/UserTitle';
-import Folder from '../folder/Folder';
-import { getUser } from '../api';
-import { useState, useEffect } from 'react';
+import Footer from './common/Footer';
+import Shared from '../pages/shared/Shared';
+import Folder from '../pages/folder/Folder';
+import { Route, Routes } from 'react-router-dom';
+
 
 function App() {
-  const [userData, setUserData] = useState([]);
-
-  const handleLoad = async () => {
-    const response = await getUser();
-    setUserData(response);
-  };
-
-  useEffect(() => {
-    handleLoad();
-  }, [])
   return (
     <>
-      <Header/>
-      <UserTitle userData={userData}/>
-      <main>
-        <div className='container'>
-          <Folder userData={userData}/>
-        </div>
-      </main>
+      <div id='wrap'>
+        <Routes>
+          <Route path="/" element={<div>main</div>}/>
+          <Route path="/folder" element={<Folder/>}/>
+          <Route path="/shared" element={<Shared/>} />
+        </Routes>
+      </div>
       <Footer/>
     </>
   );

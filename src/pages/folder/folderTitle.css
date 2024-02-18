@@ -1,0 +1,41 @@
+.folderTitleContainer {
+    margin: 24px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.folderTitleContainer h2 {
+    font-size: 24px;
+    font-family: 'Pretendard';
+    color: #000;
+    line-height: 29px;
+}
+.folderTitleContainer ul {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.folderTitleContainer button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: none;
+    color: rgba(159, 166, 178, 1);
+    font-size: 1.4rem;
+    font-family: 'Pretendard';
+    font-weight: 600;
+}
+.folderTitleContainer button img {
+    margin-right: 4px;
+}
+
+@media screen and (max-width: 768px) {
+    .folderTitleContainer {
+        display: block;
+        margin: 28px 0 20px;
+    }
+    .folderTitleContainer ul {
+        margin-top: 12px;
+    }
+}

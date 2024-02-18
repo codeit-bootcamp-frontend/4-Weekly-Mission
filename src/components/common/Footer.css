@@ -3,7 +3,8 @@ footer {
     height: 160px;
     background-color: #111322;
     padding: 32px 104px 0;
-    margin-top: 60px;
+    position: relative;
+    transform: translateY(-100%);
 }
 footer div {
     display: flex;
@@ -37,18 +38,6 @@ footer ul:nth-of-type(2) a {
     width: 100%; height: 100%;
     font-size: 0;
 }
-/* footer ul:nth-of-type(2) li:nth-of-type(1) a {
-    background: url('../image/facebook.png') center center no-repeat;
-}
-footer ul:nth-of-type(2) li:nth-of-type(2) a {
-    background: url('../image/twitter.png') center center no-repeat;
-}
-footer ul:nth-of-type(2) li:nth-of-type(3) a {
-    background: url('../image/youtube.png') center center no-repeat;
-}
-footer ul:nth-of-type(2) li:nth-of-type(4) a {
-    background: url('../image/instagram.png') center center no-repeat;
-} */
 
 /* 테블릿 반응형 */
 @media screen and (max-width:1199px) {

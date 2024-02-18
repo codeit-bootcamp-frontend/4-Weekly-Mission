@@ -10,12 +10,12 @@ export async function getUser() {
     }
 }
 
-export async function fetchUserData (setState) {
+export async function fetchUserData () {
     try {
         const response = await fetch(`${process.env.REACT_APP_API_URL}/api/sample/user`);
         if (response.ok) {
             const userProfileData = await response.json();
-            setState(userProfileData);
+            return userProfileData;
         }
     } catch (error) {
         console.error(error);
