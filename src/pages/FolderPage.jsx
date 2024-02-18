@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { styled } from 'styled-components';
 
-import { GridTemplate } from 'styles/commonStyle';
 import useUserFoldersQuery from 'hooks/api/folder/useUserFoldersQuery';
 import SearchBar from 'components/SearchBar';
 import PageTitle from 'components/common/PageTitle';
@@ -9,7 +8,7 @@ import AddFolderButton from 'components/common/button/AddFolderButton';
 import TabButton from 'components/common/button/TabButton';
 import FolderHeader from 'components/common/header/FolderHeader';
 import OptionBtns from 'components/folder/OptionBtns';
-import Card from 'components/common/card/Card';
+import FolderGridCard from 'components/folder/FolderGridCard';
 
 const Styled = {
   ButtonBox: styled.div`
@@ -33,6 +32,7 @@ function FolderPage() {
   const { data } = useUserFoldersQuery({ userId: 1 });
   const folderList = data?.data?.data || [];
   const [selectedTabName, setSelectedTabName] = useState('전체');
+  const [selectedFolder, setSelectedFolder] = useState(1);
 
   return (
     <>
@@ -40,20 +40,20 @@ function FolderPage() {
       <FolderHeader />
       <SearchBar />
       <Styled.ButtonBox>
-        <TabButton tabInfo={folderList} onChange={setSelectedTabName} />
+        <TabButton
+          tabInfo={folderList}
+          onChange={(name, id) => {
+            setSelectedTabName(name);
+            setSelectedFolder(id);
+          }}
+        />
         <AddFolderButton />
       </Styled.ButtonBox>
       <Styled.TitleAndOptions>
         <h2 style={{ fontSize: '2.4rem', fontWeight: 600 }}>{selectedTabName}</h2>
         <OptionBtns />
       </Styled.TitleAndOptions>
-      <GridTemplate>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </GridTemplate>
+      <FolderGridCard selectedFolder={selectedFolder} />
     </>
   );
 }

@@ -40,7 +40,6 @@ const Styled = {
 
 function TabButton({ tabInfo, onChange = () => {}, ...htmlButtonProps }) {
   const [selectedTab, setSeletedTab] = useState(0);
-  console.log(tabInfo);
 
   return (
     <Styled.Container type="button" {...htmlButtonProps}>
@@ -51,7 +50,7 @@ function TabButton({ tabInfo, onChange = () => {}, ...htmlButtonProps }) {
           onClick={(e) => {
             if (selectedTab === e.target.value) return;
             setSeletedTab(e.target.value);
-            onChange(tab.name);
+            onChange(tab.name, tab.id);
           }}
           className={selectedTab === index && 'selected'}
         >

@@ -68,7 +68,9 @@ const Styled = {
   `,
 };
 
-function Card({ createdAt, url, description, imageSource = defaultCardImg }) {
+function Card({ createdAt, url, description, imageSource }) {
+  const source = imageSource || defaultCardImg;
+
   return (
     <Styled.Container>
       <Link to={url} target="_blank" rel="noopener noreferrer">
@@ -81,7 +83,7 @@ function Card({ createdAt, url, description, imageSource = defaultCardImg }) {
           }}
         />
         <Styled.ThumbnailContainer>
-          <Styled.ThumbnailImg src={imageSource} alt="카드 이미지" />
+          <Styled.ThumbnailImg src={source} alt="카드 이미지" />
         </Styled.ThumbnailContainer>
         <Styled.TextCardInfo>
           <div style={{ display: 'flex', justifyContent: 'space-between' }}>
