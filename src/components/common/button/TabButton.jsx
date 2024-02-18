@@ -41,7 +41,6 @@ const Styled = {
 
 function TabButton({ tabInfo, onChange = () => {}, ...htmlButtonProps }) {
   const [selectedTab, setSeletedTab] = useState(0);
-  console.log(tabInfo);
 
   return (
     <Styled.Container type="button" {...htmlButtonProps}>

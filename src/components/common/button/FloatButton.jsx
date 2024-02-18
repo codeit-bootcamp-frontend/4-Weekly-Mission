@@ -12,6 +12,7 @@ const Styled = {
     justify-content: center;
     align-items: center;
     gap: 0.4rem;
+    z-index: 5;
 
     padding: 0.8rem 2.4rem;
     border: 1px solid ${({ theme }) => theme.color.white};

@@ -5,7 +5,7 @@ import Button from './common/button/Button';
 
 const Styled = {
   Container: styled.div`
-    max-width: 80rem;
+    width: 100%;
     padding: 1.6rem 2rem;
     border: 1px solid ${({ theme }) => theme.color.primary};
     border-radius: 1.5rem;

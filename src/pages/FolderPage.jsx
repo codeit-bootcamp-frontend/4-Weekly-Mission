@@ -10,6 +10,7 @@ import FolderHeader from 'components/common/header/FolderHeader';
 import OptionBtns from 'components/folder/OptionBtns';
 import FolderGridCard from 'components/folder/FolderGridCard';
 import FloatButton from 'components/common/button/FloatButton';
+import PLACEHOLDER from 'constants/FORM_MESSAGE';
 
 const Styled = {
   NoLink: styled.div`
@@ -56,7 +57,7 @@ function FolderPage() {
     <>
       <PageTitle title="폴더" />
       <FolderHeader />
-      <SearchBar />
+      <SearchBar placeholder={PLACEHOLDER.SEARCH_LINK} />
       {!hasFolders ? (
         <Styled.NoLink>저장된 링크가 없습니다 🥲</Styled.NoLink>
       ) : (
