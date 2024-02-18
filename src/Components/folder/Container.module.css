@@ -52,7 +52,7 @@
   letter-spacing: -0.3px;
 }
 
-.folder_util {
+.folder_control_box {
   display: flex;
   justify-content: space-between;
   align-items: center;
