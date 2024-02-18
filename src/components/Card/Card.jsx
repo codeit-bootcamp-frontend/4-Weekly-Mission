@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "./card.module.css";
 import { formatDate, getTimeDifference } from "utils/helpers/dateUtils";
 
-import noImage from "assets/images/no_image.jpeg";
+import noImage from "assets/images/bg_noImage.png";
 import meatballsIcon from "assets/images/ic_meatballs.svg";
 import starIcon from "assets/images/ic_star.svg";
 
@@ -22,7 +22,7 @@ function Card({ item, onClick }) {
     <div className={styles.container} onClick={onClick}>
       <div className={styles.imgWrapper}>
         <img
-          src={cardimageSource}
+          src={cardimageSource ? cardimageSource : noImage}
           onError={(e) => {
             e.target.src = noImage;
           }}
