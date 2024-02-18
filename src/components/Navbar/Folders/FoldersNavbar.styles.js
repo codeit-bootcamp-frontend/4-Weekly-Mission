@@ -14,9 +14,10 @@ export const FoldersNavbarItemsBox = styled.div`
 
 export const FoldersNavbarItemBox = styled(ColorBox)`
   ${props => props.$isSelected && 'background: var(--color-primary); opacity:0.8;'}
-  cursor:pointer;
-  white-space: nowrap;
   height: 2rem;
+  white-space: nowrap;
+  cursor: pointer;
+
   &:hover {
     opacity: 0.6;
   }
@@ -25,10 +26,10 @@ export const FoldersNavbarItemBox = styled(ColorBox)`
 export const FoldersNavbarAddButton = styled.button`
   display: flex;
   align-items: center;
+  font-size: 1.2rem;
+  color: var(--color-primary);
   white-space: nowrap;
   background: none;
-  color: var(--color-primary);
-  font-size: 1.2rem;
 
   @media screen and (width <768px) {
     display: none;

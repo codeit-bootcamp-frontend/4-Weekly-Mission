@@ -27,12 +27,12 @@ const Shared = () => {
 
   return (
     <S.AppLayout>
-      <S.HomeSection>
+      <section>
         {hasUser && (
           <UserProfile title={`@${user?.name}`} image={{ URL: user?.imageSource, size: '9rem' }} direction='column' />
         )}
         {hasUser && <S.HomeFolderName>{name}</S.HomeFolderName>}
-      </S.HomeSection>
+      </section>
       <S.MainLayout>
         <S.MainBox>
           <SearchBar />

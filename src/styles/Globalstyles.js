@@ -3,22 +3,23 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
   *{
     box-sizing: border-box;
-    margin:0;
     padding:0;
+    margin:0;
     border:none;
   }
-body{
-    font-family: sans-serif;
-    background: var(--color-gray-100);
-    margin: 0;
+
+  body{
     width:100vw;
     height:100vh;
-}
+    margin: 0;
+    font-family: sans-serif;
+    background: var(--color-gray-100);
+  }
 
   #root{
     display:flex;
-    align-items: center;
     flex-direction:column;
+    align-items: center;
     width:100vw;
     height:100vh;
 
@@ -43,24 +44,24 @@ body{
 
   ul{
     list-style-type:none;
-}
-
-@media screen and (width >375px) and (width <768px) {
-  html {
-    font-size: 12px;
   }
-}
 
-@media screen and (width >768px) and (width <1200px) {
-  html {
-    font-size: 14px;
+  @media screen and (width >375px) and (width <768px) {
+    html {
+      font-size: 12px;
+    }
   }
-}
 
-@media screen and (width >1200px) {
-  html {
-    font-size: 16px;
+  @media screen and (width >768px) and (width <1200px) {
+    html {
+      font-size: 14px;
+    }
   }
-}
+
+  @media screen and (width >1200px) {
+    html {
+      font-size: 16px;
+    }
+  }
 `;
 //

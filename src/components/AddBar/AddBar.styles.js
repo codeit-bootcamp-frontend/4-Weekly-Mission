@@ -14,9 +14,11 @@ export const AddBarLineLink = styled(HiOutlineLink)`
 
 export const AddBarInput = styled.input`
   width: 100%;
-  outline: none;
   font-size: 1.2rem;
   background: #f5f5f5;
+  outline: none;
 `;
 
-export const AddBarButton = styled(GradientButton)``;
+export const AddBarButton = styled(GradientButton)`
+  height: 2.4rem;
+`;

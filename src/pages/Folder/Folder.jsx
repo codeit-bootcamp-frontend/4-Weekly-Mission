@@ -7,6 +7,7 @@ import * as S from './Folder.styles.js';
 import FoldersNavbar from '../../components/Navbar/Folders/FoldersNavbar';
 import FolderNavbar from '../../components/Navbar/Folder/FolderNavbar';
 import { FiPlus } from 'react-icons/fi';
+import SearchBar from '../../components/SearchBar/SearchBar';
 
 const Folder = () => {
   const [folders, setFolders] = useState([]);
@@ -38,15 +39,15 @@ const Folder = () => {
       </S.FolderAddBarBox>
       <S.FolderSection>
         <S.FolderSearchBarBox>
-          <S.FolderSearchBar />
+          <SearchBar />
         </S.FolderSearchBarBox>
         <S.FolderBox>
-          {hasFolders ? (
+          {hasFolders && (
             <FoldersNavbar items={folders} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
-          ) : null}
+          )}
           <S.FolderTitleBox>
             <h2>{selectedItem.name}</h2>
-            {selectedItem.id === 'all' || <FolderNavbar />}
+            {selectedItem.id !== 'all' && <FolderNavbar />}
           </S.FolderTitleBox>
           {hasLinks ? <Cards links={links} /> : <Empty />}
         </S.FolderBox>

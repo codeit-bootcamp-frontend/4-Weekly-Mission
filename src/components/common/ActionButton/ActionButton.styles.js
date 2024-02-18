@@ -4,11 +4,11 @@ export const ActionButton = styled.button`
   position: sticky;
   bottom: 7.4rem;
   left: 50%;
-  transform: translateX(-50%);
-  padding: 1rem;
-  border-radius: 12px;
-  background: var(--color-primary);
-  color: var(--color-white);
   display: flex;
   align-items: center;
+  padding: 1rem;
+  color: var(--color-white);
+  background: var(--color-primary);
+  border-radius: 12px;
+  transform: translateX(-50%);
 `;

@@ -1,4 +1,7 @@
 {
-  "extends": ["stylelint-config-standard", "stylelint-styled-components-order"],
-  "rules": {}
+  "extends": [
+    "stylelint-config-standard",
+    "stylelint-config-recess-order"
+  ],
+  "customSyntax": "postcss-styled-syntax"
 }

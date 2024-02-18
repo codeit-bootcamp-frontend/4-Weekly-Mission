@@ -9,8 +9,6 @@ export const AppLayout = styled.div`
   padding-top: 7rem;
 `;
 
-export const HomeSection = styled.section``;
-
 export const HomeFolderName = styled.h2`
   padding: 1rem 0;
 `;

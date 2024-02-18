@@ -6,8 +6,8 @@ export const HeaderLayout = styled.header`
   z-index: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   width: 100vw;
   height: 6rem;
   padding: 1.25rem;
@@ -19,8 +19,8 @@ export const HeaderBox = styled.div`
   align-items: center;
   align-self: stretch;
   justify-content: space-between;
-  padding: 0 5rem;
   width: 100%;
+  padding: 0 5rem;
 
   @media screen and (width < 1123px) {
     padding: 0 2rem;

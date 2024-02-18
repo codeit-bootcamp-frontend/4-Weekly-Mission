@@ -7,7 +7,7 @@ export const StyledFooter = styled.footer`
   width: 100%;
   height: 10rem;
   padding: 2rem 6.5rem;
-  background: #000000;
+  background: #000;
 
   @media screen and (width <= 767px) {
     flex-direction: column;
@@ -17,9 +17,9 @@ export const StyledFooter = styled.footer`
 
 export const FooterCopyright = styled.p`
   flex: 0.4;
-  color: #676767;
-  font-weight: 400;
   font-size: 1rem;
+  font-weight: 400;
+  color: #676767;
 
   @media screen and (width <= 767px) {
     order: 2;
@@ -43,6 +43,7 @@ export const FooterSiteMapNav = styled.nav`
   display: flex;
   gap: 2.25rem;
   align-items: flex-start;
+
   @media screen and (width <= 767px) {
     display: flex;
     justify-content: space-between;
@@ -50,9 +51,9 @@ export const FooterSiteMapNav = styled.nav`
 `;
 
 export const FooterSiteMapLink = styled.a`
-  color: #cfcfcf;
-  font-weight: 400;
   font-size: 1rem;
+  font-weight: 400;
+  color: #cfcfcf;
   text-decoration-line: none;
 `;
 

@@ -5,16 +5,16 @@ const GradientButton = styled.button`
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  white-space: nowrap;
-  color: var(--color-white);
   font-size: 1rem;
+  color: var(--color-white);
   text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
   background: linear-gradient(
     to right,
     ${props => props.$startColor || 'var(--color-primary)'},
     ${props => props.$endColor || '#6ae3fe'}
   );
   border-radius: 8px;
-  cursor: pointer;
 `;
 export default GradientButton;

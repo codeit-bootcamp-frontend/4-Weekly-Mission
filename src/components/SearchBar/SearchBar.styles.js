@@ -8,12 +8,12 @@ export const SearchBarDiv = styled(ColorBox)`
 
 export const SearchBarFaSearch = styled(FaSearch)`
   font-size: 1.2rem;
-  color: #666666;
+  color: #666;
 `;
 
 export const SearchBarInput = styled.input`
   width: 100%;
-  outline: none;
-  background: #f5f5f5;
   font-size: 1.2rem;
+  background: #f5f5f5;
+  outline: none;
 `;

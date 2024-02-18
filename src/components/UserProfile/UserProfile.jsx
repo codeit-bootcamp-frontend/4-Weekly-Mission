@@ -1,4 +1,4 @@
-import { DEFAULT_USER_IMAGE } from '../../constatns/constant';
+import { DEFAULT_USER_IMAGE } from '../../constant/constant';
 import * as S from './UserProfile.styles';
 
 const UserProfile = ({ title, image, direction }) => {

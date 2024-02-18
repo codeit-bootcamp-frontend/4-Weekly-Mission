@@ -3,9 +3,9 @@ import styled from 'styled-components';
 export const UserProfileSection = styled.section`
   display: flex;
   flex-direction: ${props => props.$direction};
-  justify-content: center;
-  align-items: center;
   gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const UserProfileImage = styled.img`

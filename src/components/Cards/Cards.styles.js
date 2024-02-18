@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export const CardsSection = styled.section`
-  width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
+  width: 100%;
   margin: 2rem 0;
 
   @media screen and (width>767px) {

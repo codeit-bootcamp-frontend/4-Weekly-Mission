@@ -8,17 +8,17 @@ export const HomeSection = styled.section`
   justify-content: flex-end;
   width: 100%;
   max-width: 1920px;
-  padding: 6rem 6rem 0 6rem;
+  padding: 6rem 6rem 0;
   overflow: hidden;
 
   @media screen and (width < 768px) {
-    padding: 6rem 2rem 0 2rem;
+    padding: 6rem 2rem 0;
   }
 `;
 
 export const HomeTitle = styled.h1`
-  font-weight: 700;
   font-size: 3.2rem;
+  font-weight: 700;
   line-height: 4rem;
   text-align: center;
 `;
@@ -47,17 +47,17 @@ export const MainLayout = styled.main`
 
 export const MainTitle = styled.h2`
   grid-area: title;
-  color: #000;
-  font-weight: 700;
   font-size: 2.5rem;
+  font-weight: 700;
+  color: #000;
 `;
 
 export const MainArticle = styled.article`
   display: grid;
+  column-gap: 10rem;
   max-width: 1920px;
   padding: 4rem;
   text-align: center;
-  column-gap: 10rem;
 
   &:nth-child(even) {
     grid-template:
@@ -77,6 +77,7 @@ export const MainArticle = styled.article`
 
   @media screen and (width<759px) {
     gap: 1.4rem;
+
     &:nth-child(odd) {
       grid-template:
         'title'
@@ -89,16 +90,15 @@ export const MainArticle = styled.article`
         'title'
         'img'
         'description';
-
-
+    }
   }
 `;
 
 export const MainDescription = styled.p`
   grid-area: description;
-  color: #6b6b6b;
-  font-weight: 400;
   font-size: 1.25rem;
+  font-weight: 400;
+  color: #6b6b6b;
 `;
 
 export const MainBr = styled.br`
