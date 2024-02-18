@@ -8,7 +8,7 @@ function App() {
       element: <Page.Root />,
       children: [
         { index: true, element: <Page.Home /> },
-        { path: "shared", element: <Page.Share /> },
+        { path: "shared", element: <Page.Shared /> },
         { path: "folder", element: <Page.Folder /> },
       ],
     },

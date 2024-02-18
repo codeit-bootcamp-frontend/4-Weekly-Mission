@@ -7,11 +7,15 @@ import * as S from "./CardItem.style"
 import StarIcon from "assets/images/icon/star.svg"
 import KebabIcon from "assets/images/icon/kebab.svg"
 import defaultImage from "assets/images/no-image.jpg"
+import useToggle from "hooks/useToggle"
+import Select from "components/select/Select"
 
 function CardItem({ data }) {
   const image = data.image_source || defaultImage
   const elapsedTime = elapsedTimeCalc(data.created_at)
   const date = momentFormat(data.created_at)
+
+  const { toggle, toggleHandler } = useToggle()
 
   return (
     <S.CardList>
@@ -24,7 +28,8 @@ function CardItem({ data }) {
             </S.Star>
           </S.Image>
           <S.Contents>
-            <S.Kebab>
+            {toggle && <Select />}
+            <S.Kebab onClick={toggleHandler}>
               <img src={KebabIcon} alt="모달창 열기" />
             </S.Kebab>
             <span className="elapsedTime">{elapsedTime}</span>

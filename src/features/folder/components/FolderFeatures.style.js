@@ -3,6 +3,7 @@ import styled from "styled-components"
 export const Features = styled.ul`
   display: flex;
   gap: 0 12px;
+  margin-top: 12px;
 `
 
 export const FeatureItem = styled.li`

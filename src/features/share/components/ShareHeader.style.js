@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Wrapper as W } from "components/Layout/Layout.style"
+import { Wrapper as W } from "components/Layout/Wrapper.style"
 
 export const ShareHeader = styled.section`
   padding: 20px 0 60px;

@@ -1,8 +1,8 @@
 import React, { useContext } from "react"
 import ShareHeaderInfo from "./ShareHeaderInfo"
 import Loading from "components/UI/Loading"
-import ErrorCard from "components/UI/ErrorCard"
-import { ShareContext } from "context/ShareContext"
+import ErrorCard from "components/UI/AlertBanner"
+import { ShareContext } from "features/share/context/ShareContext"
 
 import * as S from "./ShareHeader.style"
 

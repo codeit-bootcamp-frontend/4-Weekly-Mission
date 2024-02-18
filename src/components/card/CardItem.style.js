@@ -3,6 +3,8 @@ import styled from "styled-components"
 export const Image = styled.div`
   height: 200px;
   overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   position: relative;
 `
 

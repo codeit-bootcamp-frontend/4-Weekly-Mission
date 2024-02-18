@@ -1,6 +1,6 @@
 import React, { useContext } from "react"
-import Logo from "components/shared/header/Logo"
-import Profile from "components/shared/header/Profile"
+import Logo from "components/header/Logo"
+import Profile from "components/header/Profile"
 import Button from "components/UI/Button"
 import { ProfileContext } from "context/ProfileContext"
 

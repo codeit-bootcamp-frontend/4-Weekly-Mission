@@ -1,5 +1,5 @@
 import React from "react"
-import * as S from "components/folder/FolderFeatures.style"
+import * as S from "features/folder/components/FolderFeatures.style"
 
 import ShareIcon from "assets/images/icon/feature-share.svg"
 import DeleteIcon from "assets/images/icon/feature-delete.svg"

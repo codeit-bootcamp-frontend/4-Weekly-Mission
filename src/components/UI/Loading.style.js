@@ -24,7 +24,7 @@ export const Loader = styled.div`
   width: ${({ $size }) => ($size ? `${$size}px` : `60px`)};
   height: ${({ $size }) => ($size ? `${$size}px` : `60px`)};
   position: absolute;
-  top: 50%;
+  top: ${({ $top }) => ($top ? `${$top}vh` : `50%`)};
   left: ${({ $isCenter }) => ($isCenter ? `50%` : 0)};
   transform: translate(${({ $isCenter }) => ($isCenter ? `-50%` : 0)}, -50%);
 

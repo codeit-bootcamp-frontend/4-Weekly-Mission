@@ -65,7 +65,7 @@ export const MyReset = css`
 
   @media (max-width: 769px) {
     body {
-      padding-bottom: 180px;
+      padding-bottom: 0;
     }
   }
 `

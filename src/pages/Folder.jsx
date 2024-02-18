@@ -1,13 +1,13 @@
+import { FolderBody, FolderHeader } from "features/folder/components"
+import FolderContextProvider from "features/folder/context/FolderContext"
 import React from "react"
-import FolderHeader from "components/folder/FolderHeader"
-import FolderBody from "components/folder/FolderBody"
 
 function Folder() {
   return (
-    <React.Fragment>
+    <FolderContextProvider>
       <FolderHeader />
       <FolderBody />
-    </React.Fragment>
+    </FolderContextProvider>
   )
 }
 
