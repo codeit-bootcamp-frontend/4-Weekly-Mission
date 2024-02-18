@@ -45,7 +45,8 @@
         "ignoreStrings": true,
         "ignoreTemplateLiterals": true
       }
-    ]
+    ],
+    "camelcase": ["error", { "allow": ["created_at", "image_source"] }]
   },
   "settings": {
     "import/resolver": {
