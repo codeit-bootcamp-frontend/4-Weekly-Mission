@@ -13,7 +13,7 @@ const TOTAL_LIST_NAME = '전체';
 
 const Folder = ({folderList}) => {
   const [folders, setFolders] = useState([]);
-  const [currentfolderName, setCurrrentFolderName] = useState();
+  const [currentfolderName, setCurrrentFolderName] = useState(TOTAL_LIST_NAME);
 
   const handleTotalListClick = async () => {
     const { data } = await getLink();
