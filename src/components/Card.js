@@ -36,7 +36,7 @@ const Card = ({ link }) => {
             <p className="elapsed_time">{ElapsedTime(created_at)}</p>
             <img src={kebab} alt="more" />
           </div>
-          <p className="description_text">folderInfo{description}</p>
+          <p className="description_text">{description}</p>
           <p className="created_at">{FormatDate(created_at)}</p>
         </div>
       </a>
