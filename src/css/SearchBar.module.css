@@ -5,6 +5,7 @@ form {
 
 .container {
   position: relative;
+  margin-top: 40px;
 }
 
 .container input {

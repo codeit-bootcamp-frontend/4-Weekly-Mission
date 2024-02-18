@@ -12,12 +12,6 @@
   width: 1060px;
 }
 
-.addFolder {
-  position: relative;
-  display: flex;
-  justify-content: center;
-}
-
 .addFolderBtn {
   color: var(--primary);
   font-size: 16px;
@@ -26,12 +20,6 @@
   cursor: pointer;
 }
 
-.plusIcon {
-  position: absolute;
-  top: 12px;
-  right: -14px;
-  background-image: url('../images/Icon_plus.svg');
-  background-repeat: no-repeat;
-  width: 16px;
-  height: 16px;
+.addFolderBtn img {
+  margin-left: 4px;
 }

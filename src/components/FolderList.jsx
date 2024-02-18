@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import { getFolderInfo } from "../api/api";
 import Button from "./Button";
+import plusIcon from "../images/Icon_plus.svg";
 import styles from "../css/FolderList.module.css";
 
 function FolderList() {
-  const [folderData, setFolderData] = useState([]);
+  const [folderListData, setFolderListData] = useState([]);
 
   const getFolderData = async (path) => {
     const { data } = await getFolderInfo(path);
     
     if (!data) return;
 
-    setFolderData(data);
+    setFolderListData(data);
   }
 
   useEffect(() => {
@@ -22,16 +23,17 @@ function FolderList() {
     <div className={styles.content}>
       <div className={styles.container}>
         <div>
-          {folderData.map((item) => {
+          <Button type="button" key={0}>전체</Button>
+          {folderListData.map((item) => {
             return (
-              <Button type="button" key={item.id}>{item.name}</Button>
+                <Button type="button" key={item.id}>{item.name}</Button>
             )
           })}
         </div>
-        <div className={styles.addFolder}>
-          <button className={styles.addFolderBtn} type="button">폴더 추가</button>
-          <div className={styles.plusIcon}></div>
-        </div>
+          <button className={styles.addFolderBtn} type="button">
+            폴더 추가
+            <img src={plusIcon} alt="plus-Icon" />
+          </button>
       </div>
     </div>
   );

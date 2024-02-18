@@ -1,9 +1,5 @@
 @import "../css/palette.css";
 
-.content {
-  margin: 40px;
-}
-
 .noLinks {
   color: var(--black);
   text-align: center;

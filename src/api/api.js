@@ -11,7 +11,7 @@ export async function getUserInfo(path) {
   return body;
 }
 
-export async function getFolderInfo(path, id) {
+export async function getFolderInfo(path) {
   const response = await fetch(`${BASE_URL}/users/1/${path}`);
 
   if (!response?.ok) {
@@ -27,7 +27,7 @@ export async function getLinkInfo(path, id) {
   const response = await fetch(`${BASE_URL}/users/1/${path}?${query}`);
 
   if (!response?.ok) {
-    throw new Error("폴더 정보를 불러오는데 실패했습니다.")
+    throw new Error("링크 정보를 불러오는데 실패했습니다.")
   }
 
   const body = await response.json();

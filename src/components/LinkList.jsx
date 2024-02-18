@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getUserInfo } from '../api/api';
 import LinkCard from './LinkCard';
-import SearchBar from './SearchBar';
 import styles from '../css/LinkList.module.css';
 
 function LinkList() {
@@ -21,7 +20,6 @@ function LinkList() {
 
   return (
     <div className={styles.content}>
-      <SearchBar />
       <div className={styles.items}>
         {folderData.map((item) => {
           return (
