@@ -1,8 +1,8 @@
 const URL = "https://bootcamp-api.codeit.kr/api";
 
-export const getUser = async () => {
+export const getUser = async ({ userId }) => {
   try {
-    const response = await fetch(`${URL}/sample/user`);
+    const response = await fetch(`${URL}/users/${userId}`);
     const body = await response.json();
     return body;
   } catch (error) {
