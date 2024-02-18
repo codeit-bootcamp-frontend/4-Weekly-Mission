@@ -9,12 +9,24 @@ function formatDate(value) {
 
 function Card({ folder }) {
   const uploadTime = getElapsedTime(folder.created_at);
-  const CardImage = folder.image_source || CardErrorImage;
 
   return (
     <div id={folder.id} className="container__card">
       <div className="container__card--imgWrap">
-        <img className="container__card--img" src={CardImage} alt="CardImg" />
+        {folder.image_source && (
+          <img
+            className="container__card--img"
+            src={folder.image_source}
+            alt="CardImg"
+          />
+        )}
+        {!folder.image_source && (
+          <img
+            className="container__card--img"
+            src={CardErrorImage}
+            alt="CardImg"
+          />
+        )}
       </div>
       <img
         className="container__card--starToggleIcon"

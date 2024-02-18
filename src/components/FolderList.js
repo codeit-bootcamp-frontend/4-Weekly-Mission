@@ -3,7 +3,7 @@ import { getFetchData } from "../utils/getFetchData";
 
 function FolderListItem({ folder, onClick }) {
   const handleClick = () => {
-    onClick(folder.id);
+    onClick({ folder });
   };
 
   return (
@@ -21,7 +21,7 @@ function FolderList({ handleFolderListItemClick }) {
   useEffect(() => {
     const getFolderList = async () => {
       try {
-        const result = await getFetchData(`/api/users/4/folders`);
+        const result = await getFetchData(`/api/users/11/folders`);
         setFolders(result.data);
       } catch (error) {
         console.error(error);

@@ -8,18 +8,18 @@ import FolderList from "./FolderList";
 const MainContainer = () => {
   const [links, setLinks] = useState([]);
   const [folderId, setFolderId] = useState(null);
+  const [folderName, setFolderName] = useState("전체");
+
   const sortedLinks = [...links].sort((a, b) => a.id - b.id);
+  const userFolderLinks = folderId ? `?folderId=${folderId}` : "";
 
   useEffect(() => {
     const getUserFolderData = async () => {
-      const userFolderLinks = folderId ? `?folderId=${folderId}` : "";
       try {
         const result = await getFetchData(
-          `/api/users/4/links${userFolderLinks}`
+          `/api/users/11/links${userFolderLinks}`
         );
         setLinks(result.data);
-
-        // fetch("https://bootcamp-api.codeit.kr/api/users/1/links?folderId")
       } catch (error) {
         console.error(error);
       }
@@ -28,9 +28,9 @@ const MainContainer = () => {
     getUserFolderData();
   }, [folderId]);
 
-  const handleFolderListItemClick = (id) => {
-    console.log(id);
-    setFolderId(id);
+  const handleFolderListItemClick = (selectFolder) => {
+    setFolderId(selectFolder.folder.id);
+    setFolderName(selectFolder.folder.name);
   };
 
   return (
@@ -53,11 +53,23 @@ const MainContainer = () => {
       </div>
       <div className="container">
         <InputSearchLink />
-        <FolderList handleFolderListItemClick={handleFolderListItemClick} />
-        <div className="container__cardWrap">
-          {sortedLinks.map((link) => {
-            return <Card key={link.id} folder={link} />;
-          })}
+        <div className="container__myFolders">
+          <div className="container__myFolders--folderList">
+            <FolderList handleFolderListItemClick={handleFolderListItemClick} />
+            <div>폴더 추가(다음주차 구현)</div>
+          </div>
+          <div className="container__myFolders--folderName">
+            <h2>{folderName}</h2>
+          </div>
+          {sortedLinks.length === 0 ? (
+            <div className="container__noLink">저장된 링크가 없습니다</div>
+          ) : (
+            <div className="container__cardWrap">
+              {sortedLinks.map((link) => {
+                return <Card key={link.id} folder={link} />;
+              })}
+            </div>
+          )}
         </div>
       </div>
     </>

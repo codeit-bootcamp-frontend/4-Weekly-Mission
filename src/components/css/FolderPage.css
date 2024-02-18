@@ -178,30 +178,52 @@
     outline: none;
   }
 
-  .folderList {
+  .container__myFolders {
     width: 100%;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 8px;
+    flex-direction: column;
+    gap: 24px;
 
-    .folderList__Btn {
-      padding: 8px 12px;
-      border-radius: 5px;
-      border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-      flex-shrink: 0;
+    .container__myFolders--folderName {
       color: #000;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      height: 36px;
+      font-size: 24px;
+      font-weight: 600;
+    }
 
-      /* 즐겨찾기 버튼 생긴게 이상함 */
-      &:focus {
-        background: var(--Linkbrary-primary-color, #6d6afe);
-        color: #fff;
+    .container__myFolders--folderList {
+      display: flex;
+      justify-content: space-between;
+
+      .folderList {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .folderList__Btn {
+          padding: 8px 12px;
+          border-radius: 5px;
+          border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+          flex-shrink: 0;
+          color: #000;
+          font-size: 16px;
+          display: flex;
+          align-items: center;
+          height: 36px;
+
+          &:focus {
+            background: var(--Linkbrary-primary-color, #6d6afe);
+            color: #fff;
+          }
+        }
       }
     }
+  }
+
+  .container__noLink {
+    padding: 40px 36px;
+    display: flex;
+    justify-content: center;
   }
 
   .container__cardWrap {
