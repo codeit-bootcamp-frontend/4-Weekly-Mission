@@ -1,7 +1,7 @@
 import '../styles/CardList.css';
 import Card from '../components/Card';
 
-const CardList = ({ folderInfo }) => {
+const CardList = ({ folderInfo, isIconVisible = true }) => {
   const cardList = folderInfo?.folder.links;
 
   return (
@@ -9,7 +9,7 @@ const CardList = ({ folderInfo }) => {
       {cardList ? (
         <>
           {cardList.map((card) => (
-            <Card card={card} key={card.id} />
+            <Card card={card} key={card.id} isIconVisible={isIconVisible} />
           ))}
         </>
       ) : (
