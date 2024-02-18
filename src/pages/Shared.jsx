@@ -9,6 +9,7 @@ import BottomNavBar from "../components/BottomNavBar";
 function Shared() {
   const [profileData, setProfileData] = useState({});
   const [folderData, setFolderData] = useState({});
+  const [folderLinksData, setFolderLinksData] = useState([]);
 
   const getProfileData = async (options) => {
     try {
@@ -24,10 +25,13 @@ function Shared() {
     try {
       const newFolder = await getData(options);
       const { folder } = newFolder;
+      const { links } = folder;
       setFolderData(folder);
+      setFolderLinksData(links);
     } catch (err) {
       console.error(err);
       setFolderData({});
+      setFolderLinksData([]);
     }
   };
 
@@ -45,7 +49,7 @@ function Shared() {
       <main>
         <section>
           <SearchBar />
-          <CardBox folderData={folderData} />
+          <CardBox linksData={folderLinksData} />
         </section>
       </main>
       <footer>
