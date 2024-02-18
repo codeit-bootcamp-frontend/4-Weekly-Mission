@@ -1,32 +1,32 @@
 import { useEffect, useState } from "react";
 import GNB from "../../components/gnb/GNB";
-import SearchLinkBar from "./components/search-link-bar/SearchLinkBar";
 import styled from "styled-components";
 import Content from "./components/content/Content";
 import Footer from "../../components/footer/Footer";
+import AddLinkBar from "./components/add-link-bar/AddLinkBar";
+
+const makeFolderList = (folderData) => {
+  const folderList = [
+    {
+      id: 0,
+      name: "전체",
+    },
+  ];
+
+  folderData.forEach((folder) => {
+    folderList.push({
+      id: folder.id,
+      name: folder.name,
+    });
+  });
+
+  return folderList;
+};
 
 const Folder = () => {
   const [user, setUser] = useState(null);
   const [folder, setFolder] = useState(null);
   const [folderList, setFolderList] = useState(null);
-
-  const makeFolderList = (folderData) => {
-    const folderList = [
-      {
-        id: 0,
-        name: "전체",
-      },
-    ];
-
-    folderData.forEach((folder) => {
-      folderList.push({
-        id: folder.id,
-        name: folder.name,
-      });
-    });
-
-    return folderList;
-  };
 
   useEffect(() => {
     Promise.all([
@@ -47,9 +47,8 @@ const Folder = () => {
   return (
     <Container>
       <GNB user={user} />
-      <SearchLinkBar />
+      <AddLinkBar />
       <Content folder={folder} folderList={folderList} />
-
       <Footer />
     </Container>
   );

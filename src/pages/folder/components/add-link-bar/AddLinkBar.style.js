@@ -7,6 +7,11 @@ export const Container = styled.div`
   padding: 3.75rem 0 5.62rem 0;
   background: var(--Linkbrary-bg, #f0f6ff);
 
+  /* tablet & mobile */
+  @media screen and (min-width: 375px) and (max-width: 1199px) {
+    padding: 32px;
+  }
+
   .icon {
     position: relative;
     left: 35px;
@@ -16,12 +21,11 @@ export const Container = styled.div`
 
   .search-bar {
     display: flex;
-    width: 50rem;
-    padding: 1rem 1.25rem;
+    width: 800px;
+    padding: 16px 20px;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
-    /* height: 4.3125rem; */
 
     border-radius: 0.9375rem;
     border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
@@ -29,7 +33,7 @@ export const Container = styled.div`
 
     color: var(--Linkbrary-gray60, #9fa6b2);
     font-family: Pretendard;
-    font-size: 1rem;
+    font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 1.5rem; /* 150% */
@@ -37,11 +41,9 @@ export const Container = styled.div`
 
   .button {
     position: relative;
-    right: 6rem;
-
+    right: 100px;
     display: flex;
-    width: 5rem;
-    padding: 0.625rem 1rem;
+    padding: 10px 16px;
     justify-content: center;
     align-items: center;
     gap: 0.625rem;
@@ -56,7 +58,7 @@ export const Container = styled.div`
     .text {
       color: var(--Grey-Light, #f5f5f5);
       font-family: Pretendard;
-      font-size: 0.875rem;
+      font-size: 14px;
       font-style: normal;
       font-weight: 600;
       line-height: normal;

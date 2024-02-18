@@ -1,6 +1,6 @@
-import * as S from "./ContentCard.style";
-import useConvertDateFormat from "../../../../customHooks/useConvertDateFormat";
-import calcTimeAgo from "../../../../utils/calcTimeAgo";
+import * as S from "./Card.style";
+import useConvertDateFormat from "../../customHooks/useConvertDateFormat";
+import calcTimeAgo from "../../utils/calcTimeAgo";
 
 const ContentCard = ({ link }) => {
   const createdAt = link.createdAt ? link.createdAt : link.created_at;

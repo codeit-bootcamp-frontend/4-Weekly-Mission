@@ -1,28 +1,19 @@
 import { useEffect, useState } from "react";
 import * as S from "./Content.style";
 
-import SearchBar from "../../../shared/components/search-bar/SearchBar";
-import ContentCard from "../../../shared/components/content/ContentCard";
-import styled from "styled-components";
+import ContentCard from "../../../../components/card/Card";
 import PlusSVG from "../plusSVG/plusSVG.style";
+import SearchBar from "../../../../components/search-bar/SearchBar";
 
 const Content = ({ folder, folderList }) => {
   const [currFolder, setCurrFolder] = useState("전체");
   const [currData, setCurrData] = useState(folder);
 
-  const getFolderAll = async () => {
-    await fetch("https://bootcamp-api.codeit.kr/api/users/1/links")
-      .then((res) => res.json())
-      .then((data) => {
-        setCurrData(data.data);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
-  };
-
   const getFolder = async (folderId) => {
-    await fetch(
-      `https://bootcamp-api.codeit.kr//api/users/1/links?folderId=${folderId}`
-    )
+    const url = folderId
+      ? `https://bootcamp-api.codeit.kr//api/users/1/links?folderId=${folderId}`
+      : "https://bootcamp-api.codeit.kr/api/users/1/links";
+    await fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setCurrData(data.data);
@@ -32,7 +23,7 @@ const Content = ({ folder, folderList }) => {
 
   useEffect(() => {
     if (currFolder === "전체") {
-      getFolderAll();
+      getFolder();
     } else {
       getFolder(currFolder);
       for (const folder of folderList) {
@@ -41,7 +32,7 @@ const Content = ({ folder, folderList }) => {
         }
       }
     }
-  }, [currFolder]);
+  }, [currFolder, folderList]);
 
   return (
     <S.Container>

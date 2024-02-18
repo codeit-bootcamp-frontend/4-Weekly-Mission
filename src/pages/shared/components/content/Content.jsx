@@ -1,6 +1,6 @@
-import SearchBar from "../search-bar/SearchBar";
+import SearchBar from "../../../../components/search-bar/SearchBar";
 import * as S from "./Content.style";
-import ContentCard from "./ContentCard";
+import ContentCard from "../../../../components/card/Card";
 
 const Content = ({ folderLinks }) => {
   return (
