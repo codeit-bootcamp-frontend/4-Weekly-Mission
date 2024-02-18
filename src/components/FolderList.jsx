@@ -18,10 +18,13 @@ function FolderList({ folderList, onClick }) {
   return (
     <div className={style.folderList}>
       <div className={style.flexBox}>
-        <div className={style.flexBox}>
+        <div className={`${style.flexBox} ${style.buttonWrap}`}>
           <button
-            className={`${style.folderBtn} ${activeFolderInfo.id === 0 ? style.active : ''}`}
-            onClick={() => setActiveFolderInfo(INIT_ACTIVEFOLDER)}
+            className={`${style.folderBtn} ${activeFolderInfo.id === '' ? style.active : ''}`}
+            onClick={() => {
+              setActiveFolderInfo(INIT_ACTIVEFOLDER);
+              onClick('');
+            }}
           >
             전체
           </button>
@@ -29,11 +32,11 @@ function FolderList({ folderList, onClick }) {
             folderList.map((item, idx) => {
               return (
                 <button
-                  key={item.id}
-                  className={`${style.folderBtn} ${activeFolderInfo.id === item.id ? style.active : ''}`}
+                  key={item?.id}
+                  className={`${style.folderBtn} ${activeFolderInfo.id === item?.id ? style.active : ''}`}
                   onClick={() => handleClick(item)}
                 >
-                  {item.name}
+                  {item?.name}
                 </button>
               );
             })}
@@ -47,9 +50,13 @@ function FolderList({ folderList, onClick }) {
           <span className={style.folderName}>{activeFolderInfo.name}</span>
         </div>
         <div className={style.flexBox}>
-          <img src={sharedImg} alt="shared" />
-          <img src={changeNameImg} alt="change" />
-          <img src={deleteImg} alt="delete" />
+          {activeFolderInfo.id !== '' && (
+            <>
+              <img src={sharedImg} alt="shared" />
+              <img src={changeNameImg} alt="change" />
+              <img src={deleteImg} alt="delete" />
+            </>
+          )}
         </div>
       </div>
     </div>

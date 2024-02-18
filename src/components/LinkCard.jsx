@@ -10,17 +10,17 @@ function LinkCard({ data }) {
     <div className={style.linkGridItem}>
       <a href={data?.url} target="_blank" rel="noreferrer">
         <div className={style.itemImg}>
-          <img src={data?.imageSource ? data?.imageSource : noImg} alt="no-img" />
+          <img src={data?.imageSource || data?.image_source ? data?.imageSource || data?.image_source : noImg} alt="no-img" />
         </div>
         <div className={style.itemInfo}>
           <div className={style.flexBox}>
-            <div className={style.dateDiff}>{diffDate(dateParse(data?.createdAt))}</div>
+            <div className={style.dateDiff}>{diffDate(dateParse(data?.createdAt || data?.created_at))}</div>
             <div>
               <img src={kebabImg} alt="kebab" />
             </div>
           </div>
           <div className={style.itemContext}>{data?.title}</div>
-          <div className={style.itemDate}>{dateParse(data?.createdAt)}</div>
+          <div className={style.itemDate}>{dateParse(data?.createdAt || data?.created_at)}</div>
         </div>
       </a>
       <img className={style.starBtn} src={starDefault} alt="star" />

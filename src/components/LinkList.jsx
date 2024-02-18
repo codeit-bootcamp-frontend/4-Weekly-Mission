@@ -5,11 +5,13 @@ function LinkList({ linkList }) {
   return (
     <div id={style.linkList}>
       <div className={style.linkGridBox}>
-        {linkList &&
-          linkList.map((item, index) => {
-            return <LinkCard data={item} key={item?.id} />;
-          })}
+        {linkList.length
+          ? linkList.map((item, index) => {
+              return <LinkCard data={item} key={item?.id} />;
+            })
+          : null}
       </div>
+      {!linkList.length && <div className={style.noLink}>저장된 링크가 없습니다</div>}
     </div>
   );
 }

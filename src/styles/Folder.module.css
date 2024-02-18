@@ -8,3 +8,9 @@ main > .mainContent {
   max-width: 1060px;
   margin: 0 auto;
 }
+.noLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
+}

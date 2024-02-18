@@ -37,3 +37,23 @@
   background: #6d6afe;
   border: 1px solid #6d6afe;
 }
+/* 모바일 */
+@media (max-width: 767px) {
+  .addFolderBtn {
+    width: 127px;
+    position: fixed;
+    bottom: 101px;
+    left: 40%;
+    z-index: 2;
+    border: 1px solid #ffffff;
+    padding: 8px 24px;
+    border-radius: 20px;
+    background-color: #6d6afe;
+    color: #ffffff;
+    border: 0;
+  }
+  .buttonWrap {
+    justify-content: initial;
+    flex-wrap: wrap;
+  }
+}

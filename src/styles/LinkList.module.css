@@ -7,6 +7,12 @@
   gap: 20px;
   justify-content: center;
 }
+.noLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 36px;
+}
 
 @media (max-width: 1124px) {
   #linkList .linkGridBox {

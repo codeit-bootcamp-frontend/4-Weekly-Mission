@@ -23,3 +23,6 @@ export async function getUser() {
 export async function getFolderList() {
   return fetchData('/users/1/folders');
 }
+export async function getLinkList(folderId = '') {
+  return fetchData(`/users/1/links?folderId=${folderId}`);
+}
