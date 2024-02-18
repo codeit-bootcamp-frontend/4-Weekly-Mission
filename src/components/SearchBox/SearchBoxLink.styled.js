@@ -21,6 +21,7 @@ export const SearchInputBox = styled.div`
 `;
 
 export const SearchInput = styled.input`
+  outline: none;
   border: none;
   width: 100%;
 
