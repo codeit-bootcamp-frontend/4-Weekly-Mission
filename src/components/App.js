@@ -1,8 +1,8 @@
-import Folder from '../pages/Folder';
+import Shared from '../pages/Shared';
 
 function App() {
   return (
-    <Folder />
+    <Shared />
   );
 }
 
