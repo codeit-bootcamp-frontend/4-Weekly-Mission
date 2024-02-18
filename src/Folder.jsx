@@ -65,14 +65,18 @@ const Folder = () => {
           </div>
           <div className='container-folder-edit'>
             <span>{curfolderList}</span>
-            <div className='folder-edits'>
-              {FOLDER_EDITS.map(({ src, name }) => (
-                <div className='folder-edit'>
-                  <img src={src} alt={name}></img>
-                  <span className='edit-text'>{name}</span>
-                </div>
-              ))}
-            </div>
+            {curfolderList === '전체' ? (
+            <></>
+            ) : (
+              <div className='folder-edits'>
+                {FOLDER_EDITS.map(({ src, name }) => (
+                  <div className='folder-edit'>
+                    <img src={src} alt={name}></img>
+                    <span className='edit-text'>{name}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           {folders.length ? (
             <ul className='card-frame_ly'> 
