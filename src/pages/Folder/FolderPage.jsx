@@ -48,6 +48,7 @@ function FolderPage() {
   useEffect(() => {
     handleLoadFolders();
     handleLoadLinks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loginUser, activeFolder]);
 
   return (
