@@ -44,6 +44,7 @@ export const FolderPage = () => {
               <EditableCard key={link?.id} {...link} />
             ))}
           </CardList>
+          <button className="mobile-add-button">폴더 추가하기 +</button>
         </div>
       </div>
     </Layout>
