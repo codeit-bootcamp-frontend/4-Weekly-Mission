@@ -32,34 +32,25 @@ function Folder() {
     useAsync(getFolderLinks);
   const [allLinksLoadingError, getAllLinksAsync] = useAsync(getAllLinks);
 
-  //폴더 데이터 요청
-  const handleLoadFolders = async () => {
-    let result = await getFoldersAsync();
-    if (!result) return;
-    setFolders(result.data);
-  };
+  const fetchData = async (folderId) => {
+    try {
+      const [foldersResponse, allLinksResponse, folderLinksResponse] =
+        await Promise.all([
+          getFoldersAsync(),
+          getAllLinksAsync(),
+          getFolderLinksAsync(folderId),
+        ]);
 
-  // '전체' 폴더 링크 데이터 요청
-  const handleLoadAllLinks = async () => {
-    let result = await getAllLinksAsync();
-    if (!result) return;
-    setAllLinks(result.data);
-  };
-
-  // 특정 폴더 링크 데이터 요청
-  const handleLoadFolderLinks = async (folderId) => {
-    let result = await getFolderLinksAsync(folderId);
-    if (!result) return;
-    setLinks(result.data);
+      if (foldersResponse) setFolders(foldersResponse.data);
+      if (allLinksResponse) setAllLinks(allLinksResponse.data);
+      if (folderLinksResponse) setLinks(folderLinksResponse.data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   useEffect(() => {
-    async function fetchData() {
-      await handleLoadFolders();
-      await handleLoadAllLinks();
-      await handleLoadFolderLinks(folderId);
-    }
-    fetchData();
+    fetchData(folderId);
   }, [folderId]);
 
   return (
