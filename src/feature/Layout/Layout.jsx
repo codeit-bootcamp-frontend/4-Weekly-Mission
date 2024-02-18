@@ -4,10 +4,12 @@ import { NavigationBar } from '../NavigationBar';
 import { useLocation, Outlet } from 'react-router-dom';
 
 export const Layout = () => {
-  const { data } = useGetUser();
+  const { userData } = useGetUser();
   const location = useLocation();
-  const { email, profileImageSource } = data || {};
-  const profile = data ? { email, profileImageSource } : null;
+  const { data } = userData || {};
+  const [{ email, image_source: imageSource }] = data || [{}];
+  const profile = data ? { email, imageSource } : null;
+  console.log(profile);
 
   return (
     <div>
