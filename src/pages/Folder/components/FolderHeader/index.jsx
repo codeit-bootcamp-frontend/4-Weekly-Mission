@@ -9,9 +9,12 @@ export default function Header() {
   const [_, error, getUserAsync] = useAsync(getUser);
 
   const loadUser = async (option) => {
-    const data = await getUserAsync(option);
-    console.log(data);
-    setUser(data.data[0]);
+    try {
+      const { data } = await getUserAsync(option);
+      setUser(data[0]);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
