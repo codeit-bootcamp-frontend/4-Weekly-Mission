@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
 import { getUser, getFolder } from '../api/BaseUrl';
+import { Route } from 'react-router-dom';
+import FolderPage from './FolderPage';
 
 import Header from '../components/header';
 import Footer from '../components/footer';
 import AddLink from '../components/AddLink';
 import Folder from '../components/folder';
 
-const FolderPage = () => {
+const Page = () => {
   const [user, setUser] = useState(null);
   const [folder, setFolder] = useState(null);
 
@@ -30,8 +32,9 @@ const FolderPage = () => {
       <AddLink />
       <Folder folderInfo={folder} />
       <Footer />
+      <Route path='/folder' componet={FolderPage} />
     </div>
   );
 };
 
-export default FolderPage;
+export default Page;

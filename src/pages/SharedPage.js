@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import { getUser, getFolder } from '../api/BaseUrl';
+import { Route } from 'react-router-dom';
+import SharedPage from './SharedPage';
 
-import Header from './header';
-import Footer from './footer';
-import Info from './info';
+import Header from '../components/header';
+import Footer from '../components/footer';
+import Info from '../components/info';
 import Folder from '../components/folder';
 
 const Page = () => {
@@ -30,6 +32,7 @@ const Page = () => {
       <Info folderInfo={folder} />
       <Folder folderInfo={folder} />
       <Footer />
+      <Route path='/shared' component={SharedPage} />
     </div>
   );
 };
