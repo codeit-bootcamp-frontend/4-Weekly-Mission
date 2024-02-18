@@ -4,9 +4,10 @@ import { Profile } from "../../ui/Profile";
 import { LOGO_IMAGE, TEXT } from "./constant";
 import "./NavigationBar.css";
 
-export const NavigationBar = ({ profile }) => {
+export const NavigationBar = ({ profile, isNavFixed }) => {
+  const NavBar = isNavFixed ? "NavigationBar Nav-fixed" : "NavigationBar";
   return (
-    <nav className="NavigationBar">
+    <nav className={NavBar}>
       <div className="NavigationBar-items">
         <a href={ROUTE.랜딩}>
           <img

@@ -8,6 +8,10 @@
   background-color: var(--light-blue);
 }
 
+.NavigationBar.Nav-fixed {
+  position: absolute;
+}
+
 .NavigationBar-items {
   display: flex;
   justify-content: space-between;
