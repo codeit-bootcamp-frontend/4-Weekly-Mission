@@ -3,6 +3,7 @@ import { useGetFolderById } from "../../hooks/useGetFolder";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Folder.css";
 import SelectedOption from "../SelectedOption/SelectedOption";
+import FolderList from "../FolderList/FolderList";
 
 function Folder() {
   const { data } = useGetFolderById();
@@ -59,6 +60,7 @@ function Folder() {
             activeButton={activeButton}
           />
         )}
+        <FolderList />
       </div>
     </div>
   );
