@@ -1,13 +1,13 @@
-import "./SharedPage.css";
+import { SharedPageContainer, SharedPageItems } from "./SharedPageCss";
 
 export const SharedPage = ({ folderInfo, searchBar, cardList }) => {
   return (
-    <div className="SharedPage">
+    <SharedPageContainer>
       {folderInfo}
-      <div className="SharedPage-items">
+      <SharedPageItems>
         {searchBar}
         {cardList}
-      </div>
-    </div>
+      </SharedPageItems>
+    </SharedPageContainer>
   );
 };

@@ -1,4 +1,6 @@
-.SharedPage {
+import styled from 'styled-components';
+
+export const SharedPageContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,9 +13,9 @@
     row-gap: 4rem;
     padding-bottom: 6rem;
   }
-}
+`;
 
-.SharedPage-items {
+export const SharedPageItems = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,4 +27,4 @@
   @media (min-width: 768px) {
     row-gap: 4rem;
   }
-}
+`;
