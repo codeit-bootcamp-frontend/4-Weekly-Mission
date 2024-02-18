@@ -3,10 +3,10 @@ import share from "../../assets/icons/share.svg";
 import pen from "../../assets/icons/pen.svg";
 import trash from "../../assets/icons/trash.svg";
 
-const FolderTitle = () => {
+const FolderTitle = ({ titleName }) => {
   return (
     <Container>
-      <Title>유용한 글</Title>
+      <Title>{titleName}</Title>
       <OptionBox>
         <Option>
           <OptionIcon src={share}></OptionIcon>
@@ -38,6 +38,10 @@ const Container = styled.div`
   }
   @media (max-width: 774px) {
     width: 325px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin: 28px auto 20px;
   }
 `;
 
