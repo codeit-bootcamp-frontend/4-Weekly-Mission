@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { IconAdd } from '../../components/Icon';
 
 export const FolderPageLayout = styled.div`
   display: flex;
@@ -76,6 +77,10 @@ export const ContentTabAdd = styled.button`
     padding: 8px 24px;
     width: 135px;
     z-index: 1;
+
+    svg g path {
+      fill: var(--color-gray-10);
+    }
   }
 `;
 
