@@ -1,13 +1,12 @@
-import "./CardContent.css";
+import { CreatedAt, Description, ElapsedTime, StyledCardContent } from "./CardContentCss";
 
 export const CardContent = ({ elapsedTime, description, createdAt, isHovered }) => {
-  const className = isHovered ? "CardContent CardContent-hovered" : "CardContent";
 
   return (
-    <div className={className}>
-      <span className="CardContent-elapsed-time">{elapsedTime}</span>
-      <p className="CardContent-description">{description}</p>
-      <span className="CardContent-created-at">{createdAt}</span>
-    </div>
+    <StyledCardContent isHovered={isHovered}>
+      <ElapsedTime>{elapsedTime}</ElapsedTime>
+      <Description>{description}</Description>
+      <CreatedAt>{createdAt}</CreatedAt>
+    </StyledCardContent>
   );
 };

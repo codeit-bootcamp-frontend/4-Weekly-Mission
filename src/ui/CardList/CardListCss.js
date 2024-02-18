@@ -1,6 +1,8 @@
-.CardList {
+import styled from 'styled-components';
+
+export const StyledCardList = styled.div`
   display: grid;
-  grid-template-columns: repeat(32.5rem);
+  grid-template-columns: repeat(1, 32.5rem);
   justify-content: center;
   width: 100%;
   max-width: 106rem;
@@ -11,4 +13,4 @@
     row-gap: 2.5rem;
     column-gap: 2rem;
   }
-}
+`;

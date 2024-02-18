@@ -1,4 +1,6 @@
-.CardContent {
+import styled from 'styled-components';
+
+export const StyledCardContent = styled.div`
   height: 100%;
   padding: 1.5rem 2rem;
   display: flex;
@@ -6,14 +8,20 @@
   justify-content: space-between;
   gap: 1rem;
   transition: background-color 0.3s ease-in-out;
-}
 
-.CardContent-elapsed-time {
+  ${({ isHovered }) =>
+    isHovered &&
+    `
+      background-color: #ADD8E6;
+    `}
+`;
+
+export const ElapsedTime = styled.span`
   font-size: 1.3rem;
   color: var(--text-content-gray);
-}
+`;
 
-.CardContent-description {
+export const Description = styled.p`
   height: 4.9rem;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -23,13 +31,13 @@
   -webkit-box-orient: vertical;
   font-size: 1.6rem;
   line-height: 150%;
-}
+`;
 
-.CardContent-created-at {
+export const CreatedAt = styled.span`
   font-size: 1.4rem;
   color: var(--text-content-black);
-}
+`;
 
-.CardContent.CardContent-hovered {
-  background-color: var(--light-blue);
-}
+export const HoveredCardContent = styled.div`
+  background-color: #ADD8E6; 
+`;

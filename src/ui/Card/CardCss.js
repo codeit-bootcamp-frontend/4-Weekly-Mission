@@ -1,4 +1,6 @@
-.Card {
+import styled from 'styled-components';
+
+export const StyledCard = styled.div`
   display: flex;
   flex-direction: column;
   width: 32.5rem;
@@ -10,4 +12,4 @@
     width: 34rem;
     height: 33.4rem;
   }
-}
+`;

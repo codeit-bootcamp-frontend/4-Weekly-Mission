@@ -1,5 +1,6 @@
-import "./CardList.css";
+import { StyledCardList } from "./CardListCss";
+
 
 export const CardList = ({ children }) => {
-  return <div className="CardList">{children}</div>;
+  return <StyledCardList>{children}</StyledCardList>;
 };

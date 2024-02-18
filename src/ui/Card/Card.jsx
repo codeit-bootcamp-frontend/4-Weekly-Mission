@@ -1,9 +1,9 @@
-import "./Card.css";
+import { StyledCard } from "./CardCss";
 
 export const Card = ({ children, onMouseOver, onMouseLeave }) => {
   return (
-    <div className="Card" onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
+    <StyledCard onMouseOver={onMouseOver} onMouseLeave={onMouseLeave}>
       {children}
-    </div>
+    </StyledCard>
   );
 };

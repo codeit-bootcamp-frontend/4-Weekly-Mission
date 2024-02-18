@@ -1,5 +1,5 @@
-import "./Cta.css";
+import { StyledCta } from "./CtaCss";
 
 export const Cta = ({ children }) => {
-  return <div className="Cta">{children}</div>;
+  return <StyledCta>{children}</StyledCta>;
 };
