@@ -4,10 +4,10 @@ import useUser from "../hooks/useUser.js";
 
 function userInformation({ user }) {
   if (!user) return null;
-  const { email, profileImageSource } = user;
+  const { email, image_source } = user;
   return (
-    <div>
-      <img className="logo" src={profileImageSource} alt="프로필 이미지" />
+    <div className="profileContainer">
+      <img className="logo" src={image_source} alt="프로필 이미지" />
       <span>{email}</span>
     </div>
   );
@@ -22,7 +22,11 @@ function Header() {
           <a href="/">
             <img src={logo} alt={logo} />
           </a>
-          {user ? userInformation({ user }) : <button>Login</button>}
+          {user ? (
+            userInformation({ user })
+          ) : (
+            <button className="headerButton">Login</button>
+          )}
         </div>
       </div>
     </header>

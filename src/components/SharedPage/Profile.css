@@ -3,7 +3,6 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin: 4.5rem auto;
   background-color: var(--gray5-color);
 }
 

@@ -1,0 +1,10 @@
+.utilContainer {
+  display: flex;
+  gap: 6px;
+  color: gray;
+}
+
+.utilContainer img {
+  position: relative;
+  top: 4px;
+}

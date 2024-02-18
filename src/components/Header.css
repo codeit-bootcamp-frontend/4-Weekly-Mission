@@ -1,5 +1,5 @@
 header {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -29,7 +29,12 @@ header {
   margin-right: 0.5rem;
 }
 
-button {
+.profileContainer {
+  display: flex;
+  align-items: center;
+}
+
+.headerButton {
   display: flex;
   width: 8rem;
   height: 3rem;

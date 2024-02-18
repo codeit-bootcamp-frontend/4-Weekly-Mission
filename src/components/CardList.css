@@ -25,6 +25,7 @@
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s;
+  position: relative;
 }
 
 .card-box:hover {
@@ -37,6 +38,18 @@
   display: block;
 }
 
+.starIcon {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+}
+
+.kebabWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .card-box-img {
   width: 100%;
   height: calc(var(--card-box-width) * 0.55);
@@ -45,16 +58,17 @@
 }
 
 .text-container {
-  margin: 10px;
+  margin: 0 12px;
   line-height: 1.3rem;
 }
 
 .text-container p {
-  margin: 0.5rem auto;
+  margin: 0.5rem 0;
 }
 
 /*Display only two lines*/
-.description {
+.description,
+.title {
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -65,6 +79,7 @@
 .time-difference {
   font-size: 0.8rem;
   color: gray;
+  margin-right: auto;
 }
 
 .title {

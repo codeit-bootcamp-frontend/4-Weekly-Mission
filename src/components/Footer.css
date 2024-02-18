@@ -6,6 +6,8 @@ footer {
   color: var(--white-color);
   font-family: sans-serif;
   background: #111322;
+  position: sticky;
+  top: calc(100vh - 120px);
 }
 
 footer a {
@@ -30,7 +32,6 @@ footer a {
 
 @media (min-width: 768px) {
   footer {
-    position: relative;
     padding-left: 25px;
     padding-right: 25px;
   }

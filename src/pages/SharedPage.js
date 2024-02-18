@@ -1,15 +1,15 @@
 import { useState, useEffect } from "react";
-import CardList from "./CardList";
+import CardList from "../components/CardList";
 import { getFolders } from "../api";
-import Header from "./Header";
-import Footer from "./Footer";
-import Profile from "./Profile";
-import SearchBar from "./SearchBar";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Profile from "../components/SharedPage/Profile";
+import SearchBar from "../components/SearchBar";
 
-function App() {
+function SharePage() {
   const [items, setItems] = useState([]);
   const [profile, setProfile] = useState([]);
-  const [folderName, setFolderName] = useState(null);
+  const [folderName, setFolderName] = useState([]);
 
   const handleLoad = async () => {
     const { folder } = await getFolders();
@@ -33,4 +33,4 @@ function App() {
   );
 }
 
-export default App;
+export default SharePage;

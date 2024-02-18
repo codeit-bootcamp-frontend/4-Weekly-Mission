@@ -1,22 +1,28 @@
 import "./CardList.css";
-import noImage from "../assets/noImage.svg";
-import formatDate from "../utils/formatDate.js";
-import formatTimeDifference from "../utils/formatTimeDifference.js";
+import star from "../assets/star.svg";
+import kebab from "../assets/kebab.svg";
+import useTransformData from "../hooks/useTransformData.js";
 
 function CardListItem({ item }) {
-  const { title, createdAt, url, description, imageSource } = item;
-  const src = imageSource ?? noImage;
+  const { title, url, description, src, timeDifference, formattedDate } =
+    useTransformData(item);
 
   return (
-    <a href={url} target="_blank" rel="noopener noreferrer">
-      <img src={src} className="card-box-img" alt="" />
-      <div className="text-container">
-        <p className="time-difference">{formatTimeDifference(createdAt)}</p>
-        <p className="title">{title}</p>
-        <p className="description">{description}</p>
-        <p className="date"> {formatDate(createdAt)}</p>
-      </div>
-    </a>
+    <div>
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        <img src={src} alt="" className="card-box-img" />
+        <img src={star} alt="star" className="starIcon" />
+        <div className="text-container">
+          <div className="kebabWrapper">
+            <p className="time-difference">{timeDifference}</p>
+            <img src={kebab} alt="kebab" className="kebabIcon" />
+          </div>
+          <p className="title">{title}</p>
+          <p className="description">{description}</p>
+          <p className="date"> {formattedDate}</p>
+        </div>
+      </a>
+    </div>
   );
 }
 
