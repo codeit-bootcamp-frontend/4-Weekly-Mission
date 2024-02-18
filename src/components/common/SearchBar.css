@@ -1,0 +1,19 @@
+form {
+  display: flex;
+  gap: 1rem;
+
+  border-radius: 0.625rem;
+  background: #f5f5f5;
+
+  width: 60%;
+  padding: 0.9375rem 1rem;
+  justify-content: center;
+
+  margin: 2rem auto 0 auto;
+}
+
+form input {
+  width: 100%;
+  border: none;
+  background-color: inherit;
+}

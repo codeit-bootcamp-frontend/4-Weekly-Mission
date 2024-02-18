@@ -1,41 +1,25 @@
-import React, { useState, useEffect } from "react";
-import "../style/nav.css";
-import { responseFolderData } from "../apis/dataFetch";
+import { useNavigate } from 'react-router-dom';
+import Button from './common/Button';
+import logo from '../images/logo.svg';
+import './Nav.css';
 
-const Nav = () => {
-  const [folderInfo, setFolderInfo] = useState({
-    ownerName: "",
-    folderName: "",
-    profileImage: "",
-  });
-
-  useEffect(() => {
-    const fetchFolderInfo = async () => {
-      try {
-        const data = await responseFolderData();
-        setFolderInfo({
-          ownerName: data.folder.owner.name,
-          folderName: data.folder.name,
-          profileImage: data.folder.owner.profileImageSource,
-        });
-      } catch (error) {
-        console.error("에러 발생:", error);
-      }
-    };
-    fetchFolderInfo();
-  }, []);
-
+export default function Nav({ currentUserData }) {
+  const navigate = useNavigate();
   return (
-    <nav className="nav">
-      <div className="nav-item">
-        <div className="mark">
-          <img src={folderInfo.profileImage} alt={folderInfo.ownerName} />
+    <div className="nav">
+      <div className="navFrame">
+        <div onClick={() => navigate('/')}>
+          <img src={logo} alt="로고이미지" />
         </div>
-        <p className="owner-name">@{folderInfo.ownerName}</p>
-        <p className="folder-name">{folderInfo.folderName}</p>
+        {currentUserData ? (
+          <div className="accountArea">
+            <img src={currentUserData.profileImageSource || currentUserData.image_source} alt="프로필이미지" />
+            <span>{currentUserData.email}</span>
+          </div>
+        ) : (
+          <Button>로그인</Button>
+        )}
       </div>
-    </nav>
+    </div>
   );
-};
-
-export default Nav;
+}

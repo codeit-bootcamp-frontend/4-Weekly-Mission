@@ -5,8 +5,12 @@ export default function Landing() {
   return (
     <>
       <h1>랜딩 페이지</h1>
-      <button onClick={() => navigate("/folder")}>폴더 페이지</button>
-      <button onClick={() => navigate("/shared")}>공유 페이지</button>
+      <button className="gradientButton" onClick={() => navigate("/folder")}>
+        폴더 페이지 이동
+      </button>
+      <button className="gradientButton" onClick={() => navigate("/shared")}>
+        공유 페이지 이동
+      </button>
     </>
   );
 }

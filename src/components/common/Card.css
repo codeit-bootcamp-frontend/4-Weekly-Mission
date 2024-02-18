@@ -1,0 +1,90 @@
+.cardBox {
+  position: relative;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 calc(25%);
+
+  position: relative;
+}
+
+.cardBox:hover {
+  background: #f0f6ff;
+}
+
+.cardThumbnailContainer {
+  width: 100%;
+  border-radius: 0.9375rem 0.9375rem 0rem 0rem;
+  overflow: hidden;
+}
+
+.cardThumbnail {
+  width: 100%;
+  height: 15.85913rem;
+  object-fit: cover;
+
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.cardThumbnail:hover {
+  transform: scale(1.3);
+}
+
+.cardStar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.cardDataArea {
+  display: flex;
+  width: 21.25rem;
+  padding: 0.9375rem 1.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  font-size: 1rem;
+}
+
+.cardTimeAgo {
+  color: #666;
+
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.cardTimeAgo img {
+  width: 1.3125rem;
+  height: 1.0625rem;
+  flex-shrink: 0;
+}
+
+.cardDesc {
+  align-self: stretch;
+
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+}
+
+.cardCreatedAt {
+  color: #333;
+}
+
+@media (max-width: 1124px) {
+  .cardBox {
+    flex: 0 0 calc(40%);
+  }
+}

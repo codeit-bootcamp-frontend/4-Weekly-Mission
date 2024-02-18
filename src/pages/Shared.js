@@ -1,17 +1,22 @@
-import Header from "../components/Header";
-import Nav from "../components/Nav";
-import Cardlist from "../components/Cardlist";
-import Footer from "../components/Footer";
+import useFetchData from '../hooks/useFetchData';
+import Nav from '../components/Nav.js';
+import Header from '../components/Header.js';
+import SearchBar from '../components/common/SearchBar';
+import CardList from '../components/CardList.js';
+import Footer from '../components/Footer.js';
+import './Shared.css';
 
-function Shared() {
+export default function Shared() {
+  const { links, name, owner } = useFetchData('sampleFolder') || {};
+  const currentUserData = useFetchData('sampleUser');
+
   return (
-    <div>
-      <Header />
-      <Nav />
-      <Cardlist />
+    <div className="SharedContainer">
+      <Nav currentUserData={currentUserData} />
+      <Header folderName={name} owner={owner} />
+      <SearchBar />
+      <CardList cardDataList={links} />
       <Footer />
     </div>
   );
 }
-
-export default Shared;

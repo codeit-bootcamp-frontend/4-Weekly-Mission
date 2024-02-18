@@ -1,20 +1,15 @@
-import logo from "../images/logo.svg";
-import "../style/header.css";
-import Profile from "./Profile";
+import './Header.css';
 
-const Header = () => {
+export default function Header({ folderName = '', owner = {} }) {
   return (
-    <header className="header">
-      <div className="header-logo">
-        <a href="/">
-          <img src={logo} alt="로고" />
-        </a>
+    <div className="header">
+      <div className="headerBox">
+        <div className="avatarBox">
+          <img className="avatar" src={owner.profileImageSource} alt="스마일 이미지" />
+          <span>@{owner.name}</span>
+        </div>
+        <div className="favorite">{folderName}</div>
       </div>
-      <div className="header-content">
-        <Profile />
-      </div>
-    </header>
+    </div>
   );
-};
-
-export default Header;
+}
