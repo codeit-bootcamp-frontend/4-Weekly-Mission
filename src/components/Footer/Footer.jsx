@@ -2,7 +2,6 @@ import facebook from './images/akar-icons_facebook-fill.svg';
 import twitter from './images/akar-icons_twitter-fill.svg';
 import youtube from './images/akar-icons_youtube-fill.svg';
 import instagram from './images/ant-design_instagram-filled.svg';
-
 import './Footer.css';
 
 export default function Footer() {
