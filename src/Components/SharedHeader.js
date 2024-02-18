@@ -1,5 +1,5 @@
 import React from "react";
-import "../Styles/FolderHeader.css";
+import "../Styles/SharedHeader.css";
 
 export function SharedHeader({ folder }) {
   return (

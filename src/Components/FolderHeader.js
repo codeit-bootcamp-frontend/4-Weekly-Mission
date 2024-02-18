@@ -1,4 +1,5 @@
 import linkIcon from "../Assets/image/link.png";
+import "../Styles/FolderHeader.css";
 
 export function FolderHeader() {
   return (

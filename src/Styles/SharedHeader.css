@@ -1,0 +1,148 @@
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+nav {
+  width: 100%;
+  background: #f0f6ff;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+header {
+  width: 100%;
+  background: #f0f6ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 624px 60px 624px;
+}
+
+.nav {
+  padding: 20px 200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 133px;
+  height: 24px;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.profileImg {
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+}
+
+.userEmail {
+  font-family: "Pretendard-Regular";
+  font-size: 14px;
+  line-height: 16.71px;
+  color: #373740;
+}
+
+.loginBtn {
+  width: 128px;
+  height: 54px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  padding: 16px 20px;
+  border-radius: 8px;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 21.6px;
+  color: #f5f5f5;
+  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  cursor: pointer;
+}
+
+.folder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.folderProfile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.folderImg {
+  width: 60px;
+  height: 60px;
+  border-radius: 47px;
+}
+
+.folderProfileName {
+  font-family: "Pretendard-Regular";
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0px;
+}
+
+.folderName {
+  font-family: "Pretendard-Regular";
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 48px;
+  letter-spacing: 0px;
+  text-align: center;
+  margin: 0px;
+}
+
+/* tablet */
+@media (max-width: 1199px) {
+  nav {
+    height: 94px;
+    padding: 0 50px;
+  }
+
+  .nav {
+    padding: 32px 32.5px;
+  }
+
+  header {
+    height: 244px;
+    padding: 0 50px;
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  nav {
+    width: 100%;
+  }
+  .logo {
+    height: 20px;
+  }
+  .btn {
+    height: 37px;
+    font-size: 14px;
+  }
+}

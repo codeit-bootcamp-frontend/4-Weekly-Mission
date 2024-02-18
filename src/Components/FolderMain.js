@@ -5,6 +5,7 @@ import { FolderMenu } from "./FolderMenu";
 import { useFolderName } from "../Hooks/useFolderName";
 import { useFolder } from "../Hooks/useFolder";
 import FolderTools from "./FolderTools";
+import "../Styles/FolderMain.css";
 
 export function FolderMain() {
   const [menu, setMenu] = useState("전체");
@@ -33,13 +34,13 @@ export function FolderMain() {
 
       <FolderMenu folderNames={folderNames} onMenuChange={handleMenuChange} />
 
-      <div className="titleBar">
+      <div className="titleContainer">
         <div className="title">{menu}</div>
         {menu !== "전체" && <FolderTools />}
       </div>
 
       {folder && folder.length ? (
-        <div className="cardGrid">
+        <div className="cardContainer">
           {folder.map((card) => (
             <FolderCard key={card.id} cardInfo={card}></FolderCard>
           ))}

@@ -1,6 +1,7 @@
 import React from "react";
 import favoriteIcon from "../Assets/image/star.png";
 import kebabIcon from "../Assets/image/kebab.png";
+import "../Styles/FolderCard.css";
 
 export function FolderCard({ cardInfo, key }) {
   const { imageSource, createdAt, description, url } = cardInfo;
@@ -57,7 +58,7 @@ export function FolderCard({ cardInfo, key }) {
     <>
       <main>
         <a href={url} target="_blank">
-          <div className="card">
+          <div className="folderCard">
             <div className="cardImgContainer">
               <img
                 src={imageSource}
@@ -67,10 +68,10 @@ export function FolderCard({ cardInfo, key }) {
               <div>
                 <img
                   src={favoriteIcon}
-                  className="favoirte"
+                  className="favoriteImg"
                   alt="즐겨찾기"
                 ></img>
-                <img src={kebabIcon} className="kebab" alt="더보기"></img>
+                <img src={kebabIcon} className="kebabImg" alt="더보기"></img>
               </div>
             </div>
             <div className="cardContents">

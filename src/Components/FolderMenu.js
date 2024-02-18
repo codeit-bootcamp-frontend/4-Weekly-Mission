@@ -1,4 +1,5 @@
 import { Button } from "./Button";
+import "../Styles/FolderMenu.css";
 
 export function FolderMenu({ folderNames, onMenuChange }) {
   const sendMenu = (e, id) => {
@@ -22,7 +23,7 @@ export function FolderMenu({ folderNames, onMenuChange }) {
             ))}
         </div>
 
-        <div className="add">폴더 추가 +</div>
+        <div className="addFolder">폴더 추가 +</div>
       </div>
     </>
   );
