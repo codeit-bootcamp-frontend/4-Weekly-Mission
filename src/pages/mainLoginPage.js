@@ -4,7 +4,7 @@ import { getUser, getFolder } from '../api/BaseUrl';
 import Header from './header';
 import Footer from './footer';
 import Info from './info';
-import Folder from './folder';
+import Folder from '../components/folder';
 
 const Page = () => {
   const [user, setUser] = useState(null);

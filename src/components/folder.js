@@ -1,5 +1,5 @@
 import '../styles/folder.css';
-import SearchBar from './SearchBar';
+import SearchBar from '../pages/SearchBar';
 import CardList from './CardList';
 
 const Folder = ({ folderInfo }) => {
