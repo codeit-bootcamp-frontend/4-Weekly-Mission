@@ -1,13 +1,8 @@
-
-import {
-    ONEYEAR_MILLISECONDS,
-    ONEMONTH_MILLISECONDS,
-    ONEDAY_MILLISECONDS,
-    ONEHOUR_MILLISECONDS,
-    ONEMINUTE_MILLISECONDS
-} from '../constant.js'
+import starIcon from '../img/star.png'
 import styled from 'styled-components';
-
+import { getTime } from '../utils';
+import kebab from '../img/kebab.png'
+import { useState } from 'react';
 const LinkCardBlock = styled.div`
     width: 340px;
     height: 334px;
@@ -15,6 +10,8 @@ const LinkCardBlock = styled.div`
     border-radius: 20px;
     overflow: hidden;
     transition: .5s;
+    position : relative;
+
 
     &:hover{
         transform: translate(-3px,-3px);
@@ -46,9 +43,11 @@ const LinkCardBlock = styled.div`
         margin-bottom: 1rem;
     }
 
-    .elapsed-time{
+    .wrap{
         font-size: 1.3rem;
         color: #666;
+        display : flex;
+        justify-content : space-between;
    
     }
 
@@ -69,55 +68,85 @@ const LinkCardBlock = styled.div`
         color: #333;
         font-size: 1.4rem;
     }
+    .options{
+        position : relative;
+        z-index : 500;
+        padding : 5px;
+        border-radius : 50%;
+    }
+    .options:hover{
+        background-color : rgba(0,0,0,.1);
+    }
 `;
 
+const Star = styled.button`
+    position : absolute;
+    top : 15px;
+    right : 15px;
+`;
 
-function LinkCard({ linkData }) {
-    const { createdAt, url, description, imageSource } = linkData;
-    const createDate = new Date(createdAt);
-    const millisecondsGap = new Date() - createDate;
-
-
-    const getTime = (value) => {
-        let milliseconds = value;
-        if (milliseconds / ONEYEAR_MILLISECONDS >= 2) {
-            return `${Math.floor(milliseconds / ONEYEAR_MILLISECONDS)} years ago`
-        } else if (milliseconds / ONEYEAR_MILLISECONDS >= 1) {
-            return `1 year ago`
-        } else if (milliseconds / ONEMONTH_MILLISECONDS >= 2) {
-            return `${Math.floor(milliseconds / ONEMONTH_MILLISECONDS)} months ago`
-        } else if (milliseconds / ONEMONTH_MILLISECONDS >= 1) {
-            return `1 month ago`
-        } else if (milliseconds / ONEDAY_MILLISECONDS >= 2) {
-            return `${Math.floor(milliseconds / ONEDAY_MILLISECONDS)} days ago`
-        } else if (milliseconds / ONEDAY_MILLISECONDS >= 1) {
-            return `1 day ago`
-        } else if (milliseconds / ONEHOUR_MILLISECONDS >= 2) {
-            return `${Math.floor(milliseconds / ONEHOUR_MILLISECONDS)} hours ago`
-        } else if (milliseconds / ONEHOUR_MILLISECONDS >= 1) {
-            return `1 hour ago`
-        } else if (milliseconds / (1000 * 60) >= 2) {
-            return `${Math.floor(milliseconds / ONEMINUTE_MILLISECONDS)} minutes ago`
-        } else {
-            return `1 minute ago`
-        }
+const Option = styled.div`
+    width : 10rem;
+    position : absolute;
+    bottom: -60px;
+    right : 0px;
+    background-color : #fff;
+    visibility : ${({ visibility }) => visibility ? 'visible' : 'hidden'};
+    box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.10);
+    button{
+        padding : 0.7rem 1.2rem;
+        width : 100%;
+        color:#333236;
+        font-size : 1.4rem;
+        
+    }
+    button:hover{
+        background-color : #E7EFFB;
+        color:#6D6AFE;
     }
 
+`;
+
+function LinkCard({ linkData }) {
+    const { createdAt, url, description, imageSource, created_at, image_source } = linkData;
+    const createDate = createdAt ? new Date(createdAt) : new Date(created_at);
+    const millisecondsGap = new Date() - createDate;
+    const [show, setShow] = useState(false);
+
+    const optionShow = () => {
+        setShow((prev) => prev ? false : true)
+    }
+    console.log(show)
+
     return (
-        <a href={url} target='_blank'>
-            <LinkCardBlock>
+
+        <LinkCardBlock>
+            <Star>
+                <img src={starIcon} alt='즐겨찾기 추가 버튼' />
+            </Star>
+            <a href={url} target='_blank'>
                 <div className="card-img">
-                    <img src={imageSource} alt="링크카드 이미지" />
+                    <img src={imageSource ? imageSource : image_source} alt="링크카드 이미지" />
                 </div>
-                <div className="card-content">
-                    <span className="elapsed-time content">{getTime(millisecondsGap)}</span>
-                    <p className="card-description content">{description}</p>
-                    <span className="create-date content">
-                        {`${createDate.getFullYear()}. ${createDate.getMonth() + 1}. ${createDate.getDate()}`}
-                    </span>
+            </a>
+            <div className="card-content">
+                <div className="wrap content">
+                    {getTime(millisecondsGap)}
+                    <button className='options' type='button' onClick={optionShow}>
+                        <img src={kebab} alt='추가 기능' />
+                        <Option visibility={show}>
+                            <button>삭제하기</button>
+                            <button>폴더에 추가</button>
+                        </Option>
+                    </button>
                 </div>
-            </LinkCardBlock>
-        </a>
+                <p className="card-description content">{description}</p>
+                <span className="create-date content">
+                    {`${createDate.getFullYear()}. ${createDate.getMonth() + 1}. ${createDate.getDate()}`}
+                </span>
+            </div>
+        </LinkCardBlock>
+
 
     );
 };
