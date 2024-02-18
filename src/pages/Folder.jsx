@@ -6,6 +6,7 @@ import SearchBar from "../components/SearchBar";
 import BottomNavBar from "../components/BottomNavBar";
 import AddLinkBar from "../components/AddLinkBar";
 import FolderListBar from "../components/FolderListBar";
+import EmptyFolder from "./EmptyFolder";
 
 function Folder() {
   const [profileData, setProfileData] = useState({});
@@ -61,7 +62,11 @@ function Folder() {
         <section>
           <SearchBar />
           <FolderListBar folderList={folderList} onClick={getLinks} />
-          <CardBox linksData={linksData} />
+          {linksData.length === 0 ? (
+            <EmptyFolder />
+          ) : (
+            <CardBox linksData={linksData} />
+          )}
         </section>
       </main>
       <footer>
