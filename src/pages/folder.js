@@ -1,7 +1,6 @@
-import Card from "../components/Card";
 import AddLink from "../components/addLink";
 import SearchLink from "../components/searchLink";
-import Sorting from "../components/sorting";
+import FolderList from "../components/folderList";
 
 function Folder() {
   return (
@@ -9,8 +8,7 @@ function Folder() {
       <AddLink />
       <SearchLink />
       <div>
-        <Sorting />
-        <Card />
+        <FolderList />
       </div>
     </div>
   );

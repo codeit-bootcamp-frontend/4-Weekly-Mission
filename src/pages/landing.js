@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
+import "../style/landing.css";
 
 function Landing() {
   return (
-    <div>
+    <div className="landing-container">
       <Link to="/shared">
         <p>shared</p>
       </Link>

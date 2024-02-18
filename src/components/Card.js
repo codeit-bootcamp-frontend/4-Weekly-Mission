@@ -16,24 +16,20 @@ function Card() {
   }, []);
 
   return (
-    <div className="main-container">
-      <div className="cardImg-grid">
-        {items &&
-          items.map((item, index) => (
-            <div className="card-container" key={index}>
-              <a href={item.url}>
-                <img className="cardImg" src={item.imageSource} alt="img"></img>
-                <div className="cardInfo">
-                  <p className="timeDifference">
-                    {getTimeDifference(item.createdAt)}
-                  </p>
-                  <p className="item-description">{item.description}</p>
-                  <p>{formatDate(item.createdAt)}</p>
-                </div>
-              </a>
-            </div>
-          ))}
-      </div>
+    <div className="cardImg-grid">
+      {items &&
+        items.map((item, id) => (
+          <div className="card-container" key={id}>
+            <a href={item.url}>
+              <img className="cardImg" src={item.imageSource} alt="img"></img>
+              <p className="timeDifference">
+                {getTimeDifference(item.createdAt)}
+              </p>
+              <p className="item-description">{item.description}</p>
+              <p>{formatDate(item.createdAt)}</p>
+            </a>
+          </div>
+        ))}
     </div>
   );
 }

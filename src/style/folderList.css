@@ -1,8 +1,7 @@
 .sorting-container {
   display: flex;
-  padding: 8px 420px;
+  padding: 8px 480px;
   align-items: center;
-
   justify-content: space-between;
 }
 .sortingBtn-container {
@@ -16,6 +15,10 @@
   font-size: 16px;
   padding: 8px 12px;
 }
+.sortingBtn.selected {
+  background-color: #6d6afe;
+  color: #ffffff;
+}
 .addFolder {
   display: flex;
 }
@@ -28,4 +31,25 @@
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.3px;
+}
+
+.folderOption-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 480px;
+}
+.folderName {
+  color: black;
+  font-size: 24px;
+  font-family: Pretendard;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+.folderOption {
+  display: flex;
+  gap: 12px;
+}
+.folderOption div {
+  display: flex;
+  align-items: center;
 }
