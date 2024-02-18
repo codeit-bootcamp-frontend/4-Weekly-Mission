@@ -60,7 +60,7 @@ function FolderPage() {
       <S.FolderPageContent>
         <S.ContentHeader>
           <SearchBox placeholder="링크를 검색해 보세요." />
-          {folders.length ? (
+          {loginUser ? (
             <>
               <S.ContentTabBox>
                 <TabList
@@ -96,7 +96,12 @@ function FolderPage() {
             <S.ContentEmptyBox>저장된 링크가 없습니다.</S.ContentEmptyBox>
           )}
         </S.ContentHeader>
-        <CardList items={links} />
+        {loginUser &&
+          (links.length ? (
+            <CardList items={links} />
+          ) : (
+            <S.ContentEmptyBox>저장된 링크가 없습니다.</S.ContentEmptyBox>
+          ))}
       </S.FolderPageContent>
     </S.FolderPageLayout>
   );
