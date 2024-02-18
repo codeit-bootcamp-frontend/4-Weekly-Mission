@@ -26,9 +26,13 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  width: 80%;
 }
 
 .text-add-link {
+  outline: none;
+  border: none;
+  width: 100%;
   color: #9FA6B2;
 
   /* Linkbrary/body2-regular */
