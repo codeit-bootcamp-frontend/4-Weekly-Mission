@@ -5,7 +5,7 @@ import LinkAdd from "../components/LinkAdd";
 // 단, 공통 컴포넌트내에서 달라지는 부분인 LinkAdd 컴포넌트 전달
 function FolderHeader() {
   return (
-    <CommonHeader>
+    <CommonHeader headerType="folder">
       <LinkAdd />
     </CommonHeader>
   );

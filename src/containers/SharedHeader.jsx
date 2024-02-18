@@ -5,7 +5,7 @@ import Profile from "../components/Profile";
 // 단, 공통 컴포넌트내에서 달라지는 부분인 Profile 컴포넌트 전달
 function SharedHeader() {
   return (
-    <CommonHeader>
+    <CommonHeader headerType="shared">
       <Profile />
     </CommonHeader>
   );
