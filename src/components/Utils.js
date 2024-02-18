@@ -1,3 +1,5 @@
+// CardHeader에서 ~ago 표시되는 부분(card.createdAt 활용) + Utils.js의 timeSince 활용
+// 시간단위 숫자들 상수 지정
 const MILLI_SECONDS = 1000;
 const MINUTE = 60;
 const HOUR = MINUTE * 60;
