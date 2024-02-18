@@ -38,3 +38,29 @@ footer {
   column-gap: 1.2rem;
   height: 2rem;
 }
+
+@media (width <= 767px) {
+  footer {
+    padding: 2rem;
+  }
+
+  .footer-box {
+    flex-wrap: wrap;
+  }
+
+  .copyright {
+    order: 3;
+    margin-top: 3rem;
+  }
+
+  .footer-links {
+    width: 50%;
+    order: 1;
+  }
+
+  .sns {
+    width: 50%;
+    order: 2;
+    float: right;
+  }
+}

@@ -9,7 +9,7 @@ const Header = ({ userInfo }) => {
     <header>
       <nav>
         <img className='main-logo' src={logo} alt='Linkbrary logo.' />
-        <div className>
+        <div className='user-box'>
           <img className='profile-image' src={profileImage} alt='Profile.' />
           <p className='profile-email'>{profileEmail}</p>
         </div>

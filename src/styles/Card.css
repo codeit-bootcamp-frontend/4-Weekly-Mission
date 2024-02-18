@@ -1,3 +1,11 @@
+.card {
+  overflow: hidden;
+  width: 22rem;
+  height: 20rem;
+  border-radius: 10px;
+  box-shadow: 0 0.3rem 1.5rem 0 rgb(0 0 0 / 8%);
+}
+
 .card:hover {
   border: 2px solid var(--primary);
 }
@@ -28,7 +36,7 @@
 }
 
 .card-interval-date {
-  color: var(--gray20);
+  color: var(--gray-02);
   font-size: 0.8rem;
 }
 
@@ -43,6 +51,6 @@
 }
 
 .card-create-date {
-  color: var(--gray60);
+  color: var(--gray-01);
   font-size: 0.9rem;
 }

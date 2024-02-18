@@ -19,6 +19,12 @@ nav {
   padding: 0 12.5rem;
 }
 
+.user-box {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+}
+
 .main-logo {
   display: flex;
   width: 8.5rem;
