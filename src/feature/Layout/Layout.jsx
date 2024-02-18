@@ -1,8 +1,9 @@
-import { useGetUser } from "data-access/useGetUser";
-import { Footer } from "../Footer";
-import { NavigationBar } from "../NavigationBar";
+import { useGetUser } from 'data-access/useGetUser';
+import { Footer } from '../Footer';
+import { NavigationBar } from '../NavigationBar';
+import { Outlet } from 'react-router-dom';
 
-export const Layout = ({ children }) => {
+export const Layout = () => {
   const { data } = useGetUser();
   const { email, profileImageSource } = data || {};
   const profile = data ? { email, profileImageSource } : null;
@@ -10,7 +11,9 @@ export const Layout = ({ children }) => {
   return (
     <div>
       <NavigationBar profile={profile} />
-      <main>{children}</main>
+      <main>
+        <Outlet />
+      </main>
       <Footer />
     </div>
   );
