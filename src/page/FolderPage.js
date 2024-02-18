@@ -6,6 +6,7 @@ import { CardList } from "../layout/PageBody/Contain/Card/CardList";
 import { useGetPages } from "../data/useGetPages";
 import { ReadOnlyCard } from "../layout/PageBody/Contain/ReadOnlyCard";
 import { SerchInfo } from "../layout/PageBody/Contain/SerchInfo";
+import { NullCardList } from "../layout/PageBody/Contain/Card/NullCardList/NullCardList";
 
 function FolderPage() {
   const { data } = useGetPages();
@@ -17,11 +18,15 @@ function FolderPage() {
         addLink={<SerchInfo />}
         searchBar={<SearchBar />}
         cardList={
-          <CardList>
-            {links?.map((link) => (
-              <ReadOnlyCard key={link?.id} {...link} />
-            ))}
-          </CardList>
+          links ? (
+            <CardList>
+              {links?.map((link) => (
+                <ReadOnlyCard key={link?.id} {...link} />
+              ))}
+            </CardList>
+          ) : (
+            <NullCardList />
+          )
         }
       />
     </Layout>

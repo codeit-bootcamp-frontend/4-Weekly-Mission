@@ -3,18 +3,18 @@ import { getElapsedTime } from "./getElapsedTime";
 
 export const mapFolderData = (folder) => {
   if (!folder) return [];
-  const { name, o wner, links } = folder;
+  const { name, owner, data } = folder;
 
-  const mapLinks = (link) => {
-    const { id, createdAt, url, imageSource, title, description } = link;
+  const mapLinks = (data) => {
+    const { id, created_at, url, image_source, title, description } = data;
     return {
       id,
       url,
-      imageSource,
+      imageSource: image_source,
       alt: `${title ?? url}의 대표 이미지`,
-      elapsedTime: getElapsedTime(createdAt),
+      elapsedTime: getElapsedTime(created_at),
       description,
-      createdAt: format(new Date(createdAt), "yyyy. MM. dd"),
+      createdAt: format(new Date(created_at), "yyyy. MM. dd"),
     };
   };
 
@@ -22,6 +22,6 @@ export const mapFolderData = (folder) => {
     profileImage: owner?.profileImageSource,
     ownerName: owner?.name,
     pageName: name,
-    links: links?.map(mapLinks) ?? [],
+    links: data?.map(mapLinks) ?? [],
   };
 };

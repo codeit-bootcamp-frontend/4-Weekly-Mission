@@ -6,10 +6,13 @@ import { SearchBar } from "../layout/PageBody/Contain/Serch";
 import { CardList } from "../layout/PageBody/Contain/Card/CardList";
 import { useGetPages } from "../data/useGetPages";
 import { ReadOnlyCard } from "../layout/PageBody/Contain/ReadOnlyCard";
+import { useGetShareInfo } from "../data/useGetShareInfo";
 
 function SharedPage() {
   const { data } = useGetPages();
-  const { profileImage, ownerName, pageName, links } = data;
+  const { info } = useGetShareInfo();
+  const { links } = data;
+  const { profileImage, ownerName, pageName } = info;
 
   return (
     <Layout>
