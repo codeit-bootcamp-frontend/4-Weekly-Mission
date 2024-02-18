@@ -6,8 +6,6 @@ function FolderFilterBox({
   folderData,
   setFolderName,
   setFolderId,
-  folderId,
-  setSearchParams,
   setIsShowFuncButtonBox,
 }) {
   const [isFilterActive, setIsFilterActive] = useState([]);
@@ -15,7 +13,7 @@ function FolderFilterBox({
     await fetch(`https://bootcamp-api.codeit.kr/api/users/1/folders`)
       .then((res) => res.json())
       .then((result) =>
-        setIsFilterActive(new Array(result.data.length + 1).fill(false))
+        setIsFilterActive(new Array(result.data.length + 1).fill(""))
       );
   }
 
@@ -23,33 +21,28 @@ function FolderFilterBox({
     handleFilterClick();
   }, []);
 
-  console.log(isFilterActive);
-
   return (
     <div className={styles.link_filter_box}>
       <ShowAllLinksButton
         name="전체"
         setFolderName={setFolderName}
-        setFolderId={setFolderId}
-        setSearchParams={setSearchParams}
         buttonIndex={0}
         setIsFilterActive={setIsFilterActive}
         isFilterActive={isFilterActive}
         setIsShowFuncButtonBox={setIsShowFuncButtonBox}
+        setFolderId={setFolderId}
       />
       {folderData?.data.map(({ name, id }, i) => {
         return (
           <FolderFilterButton
             name={name}
-            key={id}
             id={id}
-            setFolderName={setFolderName}
-            folderId={folderId}
-            setFolderId={setFolderId}
-            setSearchParams={setSearchParams}
+            key={id}
             buttonIndex={i + 1}
-            setIsFilterActive={setIsFilterActive}
             isFilterActive={isFilterActive}
+            setIsFilterActive={setIsFilterActive}
+            setFolderName={setFolderName}
+            setFolderId={setFolderId}
             setIsShowFuncButtonBox={setIsShowFuncButtonBox}
           />
         );

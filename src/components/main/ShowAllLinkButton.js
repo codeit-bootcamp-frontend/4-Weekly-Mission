@@ -3,26 +3,26 @@ import styles from "./ShowAllLinksButton.module.css";
 function ShowAllLinksButton({
   name,
   setFolderName,
-  setSearchParams,
   buttonIndex,
   setIsFilterActive,
   isFilterActive,
   setIsShowFuncButtonBox,
+  setFolderId,
 }) {
   let copy = [...isFilterActive];
 
   function handleFilterButtonClick() {
     setFolderName(name);
-    setSearchParams({ folderId: "" });
-    copy = new Array(isFilterActive.length).fill(false);
-    copy[buttonIndex] = true;
+    copy = new Array(isFilterActive.length).fill("");
+    copy[buttonIndex] = "_isActive";
     setIsFilterActive([...copy]);
     setIsShowFuncButtonBox(false);
+    setFolderId("");
   }
 
   return (
     <button
-      className={styles[`${isFilterActive[buttonIndex]}`]}
+      className={styles[`filter_button${copy[buttonIndex]}`]}
       onClick={handleFilterButtonClick}
     >
       {name}

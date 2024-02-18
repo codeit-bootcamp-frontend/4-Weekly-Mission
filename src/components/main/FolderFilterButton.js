@@ -3,28 +3,32 @@ import styles from "./FolderFilterButton.module.css";
 function FolderFilterButton({
   name,
   id,
-  setSearchParams,
   buttonIndex,
   isFilterActive,
   setIsFilterActive,
   setIsShowFuncButtonBox,
+  setFolderName,
+  setFolderId,
 }) {
   let copy = [...isFilterActive];
   function handleClick() {
-    setSearchParams({ folderId: id });
-    copy = new Array(isFilterActive.length).fill(false);
-    copy[buttonIndex] = true;
+    copy = new Array(isFilterActive.length).fill("");
+    copy[buttonIndex] = "_isActive";
     setIsFilterActive([...copy]);
     setIsShowFuncButtonBox(true);
+    setFolderName(name);
+    setFolderId("?folderId=" + id);
   }
 
   return (
-    <button
-      className={styles[`${isFilterActive[buttonIndex]}`]}
-      onClick={handleClick}
-    >
-      {name}
-    </button>
+    <>
+      <button
+        className={styles[`filter_button${copy[buttonIndex]}`]}
+        onClick={handleClick}
+      >
+        {name}
+      </button>
+    </>
   );
 }
 

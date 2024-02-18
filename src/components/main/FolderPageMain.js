@@ -6,16 +6,15 @@ import AddFolderButton from "./AddFolderButton";
 import LinkList from "./LinkList";
 import { useFetch } from "../../hooks/useFetch";
 import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
 
 const folderUrl = "https://bootcamp-api.codeit.kr/api/users/1/folders";
 
 function FolderPageMain() {
   const { data: folderData } = useFetch(folderUrl);
-  const [folderName, setFolderName] = useState("전체");
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [folderName, setFolderName] = useState("");
   const [isShowFuncButotonBox, setIsShowFuncButtonBox] = useState(true);
-  console.log(isShowFuncButotonBox);
+  const [folderId, setFolderId] = useState();
+
   return (
     <div className={styles.main_wrapper}>
       <LinkSearchInput />
@@ -24,9 +23,10 @@ function FolderPageMain() {
           <FolderFilterBox
             folderData={folderData}
             setFolderName={setFolderName}
-            setSearchParams={setSearchParams}
             setIsShowFuncButtonBox={setIsShowFuncButtonBox}
             isShowFuncButotonBox={isShowFuncButotonBox}
+            folderId={folderData}
+            setFolderId={setFolderId}
           />
           <AddFolderButton />
         </div>
@@ -34,7 +34,7 @@ function FolderPageMain() {
           <h1 className={styles.folder_title}>{folderName}</h1>
           {isShowFuncButotonBox && <LinkFuncButtonBox />}
         </div>
-        <LinkList searchParams={searchParams} />
+        <LinkList folderId={folderId} />
       </div>
     </div>
   );

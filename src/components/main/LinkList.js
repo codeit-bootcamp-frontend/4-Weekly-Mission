@@ -1,23 +1,18 @@
 import { useEffect, useState } from "react";
 import FolderPageLinkItem from "./FolderPageLinkItem";
 import styles from "./LinkList.module.css";
-function LinkList({ searchParams }) {
+function LinkList({ folderId }) {
   const [filterData, setFilterData] = useState(null);
   async function handleFilterClick() {
-    await fetch(
-      `https://bootcamp-api.codeit.kr/api/users/1/links?folderId=${searchParams.get(
-        "folderId"
-      )}`
-    )
+    await fetch(`https://bootcamp-api.codeit.kr/api/users/1/links${folderId}`)
       .then((res) => res.json())
       .then((result) => setFilterData(result));
   }
 
   useEffect(() => {
     handleFilterClick();
-  }, [searchParams]);
+  }, [folderId]);
 
-  console.log(filterData);
   return (
     <div>
       {filterData?.data?.length === 0 ? (
@@ -25,13 +20,14 @@ function LinkList({ searchParams }) {
       ) : (
         <div className={styles.item_card_grid}>
           {filterData?.data?.map(
-            ({ image_source, description, created_at, url }) => {
+            ({ image_source, description, created_at, url }, i) => {
               return (
                 <FolderPageLinkItem
                   description={description}
                   image_source={image_source}
                   created_at={created_at}
                   url={url}
+                  key={i}
                 />
               );
             }
