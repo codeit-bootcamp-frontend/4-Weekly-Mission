@@ -1,6 +1,10 @@
 import * as S from "./GNB.style";
 
 const GNB = ({ user }) => {
+  const imageSource = user?.profileImageSource
+    ? user?.profileImageSource
+    : user?.image_source;
+
   return (
     <nav>
       <S.Container>
@@ -13,11 +17,7 @@ const GNB = ({ user }) => {
           </a>
           {user?.email ? (
             <div className="user-box">
-              <img
-                className="user-img"
-                src={user?.profileImageSource}
-                alt="프로필 이미지"
-              />
+              <img className="user-img" src={imageSource} alt="프로필 이미지" />
               <span className="user-email">{user?.email}</span>
             </div>
           ) : (
