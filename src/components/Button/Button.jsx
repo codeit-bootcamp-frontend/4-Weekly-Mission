@@ -14,6 +14,7 @@ const Button = styled.button`
   padding-right: ${({ fontSize }) => fontSize || 16}px;
   padding-bottom: ${({ fontSize }) => fontSize * 0.75 || 12}px;
   padding-left: ${({ fontSize }) => fontSize || 16}px;
+  white-space: nowrap;
 `;
 
 export default Button;
