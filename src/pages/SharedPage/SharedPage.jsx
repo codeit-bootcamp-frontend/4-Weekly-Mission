@@ -22,7 +22,7 @@ const SharedPage = () => {
 
   return (
     <>
-      {folders && <Folder folder={folders} />}
+      {folders && <Folder {...folders} />}
       <FolderContainer>
         <CardSearchbar />
         {cards && <CardGrid links={cards} />}
