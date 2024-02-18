@@ -4,6 +4,8 @@ import FolderCategoryItem from "components/folder/FolderCategoryItem"
 import * as S from "components/folder/FolderCategories.style"
 
 function FolderCategories({ categories, onSelectHandler }) {
+  if (!categories) return
+
   return (
     <S.Categories>
       {categories.map((category) => (

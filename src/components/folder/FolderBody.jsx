@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
 import * as S from "./FolderBody.style"
 import SearchBar from "components/shared/searchBar/SerachBar"
 import EmptyData from "./EmptyData"
@@ -9,29 +9,43 @@ import { FolderContext } from "context/FolderContext"
 import CardList from "components/card/CardList"
 import Loading from "components/UI/Loading"
 import ErrorCard from "components/UI/ErrorCard"
-
-const CATEGORIES = [
-  { id: 1, name: "전체", isSelected: true },
-  { id: 2, name: "즐겨찾기", isSelected: false },
-  { id: 3, name: "코딩 팁", isSelected: false },
-  { id: 4, name: "채용 사이트", isSelected: false },
-  { id: 5, name: "유용한 글", isSelected: false },
-  { id: 6, name: "나만의 장소", isSelected: false },
-]
+import { GET_FOLDER_BY_ID } from "api"
+import useHttp from "hooks/useHttp"
 
 function FolderBody() {
-  const { data, isLoading, hasError } = useContext(FolderContext)
-  const [title, setTitle] = useState("전체")
-  const [categories, setCategories] = useState(CATEGORIES)
+  const { link, folder } = useContext(FolderContext)
+  const { data, isLoading, hasError } = link
 
-  const selectedHandler = (select) => {
-    const selectedCategory = categories.map((category) =>
-      category.id === select.id ? { ...category, isSelected: !category.isSelected } : { ...category, isSelected: false }
-    )
+  const { data: folderData, isLoading: isFolderLoading, hasError: hasFolderError } = folder
+
+  const [title, setTitle] = useState(null)
+  const [categories, setCategories] = useState(null)
+
+  const selectedHandler = async (select) => {
+    if (select.isSelected) return
+
+    const selectedCategory = categories.map((category) => {
+      return category.id === select.id
+        ? { ...category, isSelected: !category.isSelected }
+        : { ...category, isSelected: false }
+    })
+
+    const response = await fetch(GET_FOLDER_BY_ID(select.id))
+    const responseData = await response.json()
+
+    console.log(responseData)
 
     setTitle(select.name)
     setCategories(selectedCategory)
   }
+
+  // ! 클릭할 때 마다 데이터 요청.
+
+  useEffect(() => {
+    setCategories(folderData)
+  }, [folderData])
+
+  // console.log(categories)
 
   const renderLoading = isLoading && <Loading />
   const renderError = hasError && <ErrorCard>{hasError.messgae}</ErrorCard>
