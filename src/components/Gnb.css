@@ -30,9 +30,6 @@
   align-items: center;
   align-self: stretch;
   width: 100%;
-  @media (max-width: 1199px) and (min-width: 865px) {
-
-  }
 }
 
 .logo {
