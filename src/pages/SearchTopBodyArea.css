@@ -1,0 +1,93 @@
+.search_top_area {
+  margin-top: 63px;
+  height: 117px;
+  padding: 24px 32px 40px;
+  background: var(--bright-sky-blue);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add_search_link_area {
+  width: 325px;
+  height: 53px;
+  padding: 8px 10px;
+  border-radius: 15px;
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid var(--Linkbrary-primary-color);
+  background: var(--white);
+}
+
+.add_link_input {
+  width: 80%;
+  border: 0;
+  width: 100%;
+  background: var(--white);
+  color: var(--gray60);
+  text-align: left;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.add_button {
+  display: flex;
+  width: 80px;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.link_icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* 768px부터 적용될 스타일 */
+@media (min-width: 768px) {
+  .search_top_area {
+    margin-top: 93px;
+    height: 219px;
+    padding: 24px 32px 60px;
+  }
+
+  .add_search_link_area {
+    width: 704px;
+    height: 69px;
+  }
+
+  .add_link_input {
+    font-size: 16px;
+  }
+
+  .link_icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .add_button {
+    width: 80px;
+    height: 37px;
+  }
+}
+
+/* 1124px부터 적용될 스타일 */
+@media (min-width: 1124px) {
+  .search_top_area {
+    margin-top: 93px;
+    padding: 60px auto 90px;
+  }
+
+  .add_search_link_area {
+    width: 800px;
+    height: 69px;
+  }
+}

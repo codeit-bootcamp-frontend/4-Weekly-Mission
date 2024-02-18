@@ -1,21 +1,20 @@
 import Card from '../components/Card';
 import SearchBar from '../components/SearchBar';
-import addButtonIcon from '../assets/add.svg';
 import './ContentsArea.css';
 
-const ContentsArea = ({ links }) => {
+const ContentsArea = ({ links, children }) => {
   return (
     <div className="contents_area">
       <SearchBar></SearchBar>
+      {children}
       <div className="cards_area">
-        {links &&
+        {links ? (
           links.map((link) => {
             return <Card link={link} key={link.id}></Card>;
-          })}
-      </div>
-      <div className="add_folder_button_area">
-        <p className="add_folder_button">폴더 추가</p>
-        <img src={addButtonIcon} />
+          })
+        ) : (
+          <p className="empty_links_text">저장된 링크가 없습니다</p>
+        )}
       </div>
     </div>
   );

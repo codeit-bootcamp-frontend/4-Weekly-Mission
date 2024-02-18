@@ -1,0 +1,68 @@
+.list_title_area {
+  display: flex;
+  width: 325px;
+  margin-bottom: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.list_title_text {
+  margin: 0;
+  color: var(--black);
+
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.list_title_button_area {
+  margin: 0;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.icon_text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  color: var(--Linkbrary-gray60, #9fa6b2);
+
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+/* 768px부터 적용될 스타일 */
+@media (min-width: 768px) {
+  .list_title_area {
+    width: 97.5%;
+  }
+  .list_title_button_area {
+    display: none;
+  }
+  .list_title_text {
+    font-size: 24px;
+  }
+}
+
+/* 1124px부터 적용될 스타일 */
+@media (min-width: 1124px) {
+  .list_title_area {
+    width: 98%;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .list_title_button_area {
+    display: flex;
+  }
+}

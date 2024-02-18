@@ -3,7 +3,7 @@
   margin: 20px auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .search_link {
@@ -21,37 +21,13 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   width: 400px;
   gap: 30px;
 }
 
-.add_folder_button_area {
-  position: fixed;
-  bottom: 101px;
-  width: 127px;
-  height: 35px;
-  display: flex;
-  padding: 8px 24px;
-  align-items: flex-start;
-  gap: 4px;
-
-  border-radius: 20px;
-  border: 1px solid var(--white);
-  background: var(--Linkbrary-primary-color);
-}
-
-.add_folder_button {
-  margin: 0;
-  width: 59px;
-  color: var(--gray10);
-  text-align: center;
-  font-family: Pretendard;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.3px;
+.empty_links_text {
+  font-size: 14px;
 }
 
 .input_box {
@@ -85,8 +61,8 @@
     width: 704px;
   }
 
-  .add_folder_button_area {
-    display: none;
+  .empty_links_text {
+    font-size: 16px;
   }
 }
 

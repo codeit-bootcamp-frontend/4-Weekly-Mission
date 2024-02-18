@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getLoginUserInfo } from '../utils/apis';
 import Profile from '../components/Profile';
 import Logo from '../components/Logo';
-import LoginButton from '../components/LoginButton';
+import Button from '../components/Button';
 import './Nav.css';
 
 const Nav = () => {
@@ -23,7 +23,7 @@ const Nav = () => {
       {userInfo ? (
         <Profile email={userInfo.email}></Profile>
       ) : (
-        <LoginButton></LoginButton>
+        <Button text="로그인"></Button>
       )}
     </div>
   );
