@@ -48,6 +48,7 @@ export const ContentEmptyBox = styled.div`
 export const ContentTabBox = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
   margin-top: 40px;
 `;
 
