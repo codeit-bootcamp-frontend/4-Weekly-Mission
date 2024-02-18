@@ -1,4 +1,6 @@
-.NavigationBar {
+import styled from 'styled-components';
+
+export const NavigationBarContainer = styled.nav`
   display: flex;
   justify-content: center;
   position: sticky;
@@ -6,9 +8,9 @@
   z-index: var(--z-index-nav);
   width: 100%;
   background-color: var(--light-blue);
-}
+`;
 
-.NavigationBar-items {
+export const NavigationBarItems = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,17 +27,17 @@
     max-width: 192rem;
     padding: 0 20rem;
   }
-}
+`;
 
-.NavigationBar-logo {
+export const NavigationBarLogo = styled.img`
   height: 1.6rem;
 
   @media (min-width: 768px) {
     height: 2.4rem;
   }
-}
+`;
 
-.NavigationBar-signin {
+export const NavigationBarSignIn = styled.span`
   display: inline-block;
   width: 8rem;
   padding: 1rem 0;
@@ -48,4 +50,4 @@
     padding: 1.6rem 0;
     font-size: 1.8rem;
   }
-}
+`;
