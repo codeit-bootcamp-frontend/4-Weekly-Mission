@@ -19,7 +19,7 @@ const FolderEdit = ({folderList}) => {
     <div className='folder-edits'>
       {FOLDER_EDITS.map(({ src, name }) => (
         <div className='folder-edit' key={name}>
-          <img src={src} alt={name}></img>
+          <img src={src} alt={name} />
           <span className='edit-text'>{name}</span>
         </div>
       ))}
