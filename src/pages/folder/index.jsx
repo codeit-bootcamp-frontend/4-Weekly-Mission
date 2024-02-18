@@ -19,6 +19,7 @@ const Folder = () => {
       )
       .then(([folderData, userData]) => {
         setFolder(folderData.data);
+        console.log(folderData.data);
         setUser(userData.data[0]);
       })
       .catch((error) => console.error("Error fetching data:", error));
@@ -28,7 +29,7 @@ const Folder = () => {
     <Container>
       <GNB user={user} />
       <SearchLinkBar />
-      <Content />
+      <Content folder={folder} />
       <Footer />
     </Container>
   );

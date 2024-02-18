@@ -3,14 +3,16 @@ import useConvertDateFormat from "../../../../customHooks/useConvertDateFormat";
 import calcTimeAgo from "../../../../utils/calcTimeAgo";
 
 const ContentCard = ({ link }) => {
+  const createdAt = link.createdAt ? link.createdAt : link.created_at;
+  const imageSource = link.imageSource ? link.imageSource : link.image_source;
   return (
     <S.Container
       onClick={() => {
         window.open(link.url);
       }}
     >
-      {link.imageSource ? (
-        <img className="img" src={link.imageSource} alt={link.title} />
+      {imageSource ? (
+        <img className="img" src={imageSource} alt={link.title} />
       ) : (
         <img
           className="img"
@@ -20,9 +22,9 @@ const ContentCard = ({ link }) => {
       )}
 
       <div className="text-box">
-        <p>{calcTimeAgo(link.createdAt)}</p>
+        <p>{calcTimeAgo(createdAt)}</p>
         <p className="desc">{link.description}</p>
-        <p className="date">{useConvertDateFormat(link.createdAt)}</p>
+        <p className="date">{useConvertDateFormat(createdAt)}</p>
       </div>
     </S.Container>
   );
