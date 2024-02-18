@@ -29,7 +29,7 @@ const Folder = () => {
 
   return (
     <div>
-      <Header userInfo={user} />
+      <Header userInfo={user} isSticky={false} />
 
       <AddLink />
       <FolderContent>

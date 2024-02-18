@@ -1,12 +1,13 @@
 import '../styles/Header.css';
 import logo from '../assets/images/logo.svg';
 
-const Header = ({ userInfo }) => {
+const Header = ({ userInfo, isSticky = true }) => {
   const profileImage = userInfo?.profileImageSource;
   const profileEmail = userInfo?.email;
+  const sticky = isSticky ? "sticky" : "";
 
   return (
-    <header>
+    <header className={sticky}>
       <nav>
         <img className="main-logo" src={logo} alt="링크라이브러리 로고." />
         {userInfo ? (

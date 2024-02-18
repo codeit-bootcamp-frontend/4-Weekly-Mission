@@ -1,13 +1,16 @@
 @import url('./global.css');
 
 header {
-  position: sticky;
   z-index: 1;
   top: 0;
   display: flex;
   width: 100%;
   justify-content: center;
   background: var(--gray-05);
+}
+
+.sticky {
+  position: sticky;
 }
 
 nav {
