@@ -2,22 +2,15 @@ import "../styles/Contents.css";
 
 import CardSection from "./CardSection";
 
-function Contents({ folderList }) {
+function Contents({ items }) {
   return (
-    <section className="section-area">
-      <ul className="card-list">
-        {folderList.map(({ id, createdAt, url, description, imageSource }) => (
-          <li key={id} className="card-item">
-            <CardSection
-              url={url}
-              createdAt={createdAt}
-              desc={description}
-              imgUrl={imageSource}
-            />
-          </li>
-        ))}
-      </ul>
-    </section>
+    <article>
+      <div className="folders-gridBox">
+        {items.map((item) => {
+          return <CardSection item={item} key={item.id}></CardSection>;
+        })}
+      </div>
+    </article>
   );
 }
 

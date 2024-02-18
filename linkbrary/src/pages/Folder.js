@@ -15,9 +15,11 @@ function Folder() {
   const [listId, setListId] = useState("");
   const [data, setData] = useState([]);
 
-  const handleLoad = async () => {
+  const handleLoad = async (id = listId) => {
     try {
-      const response = await getAPI("/user/1");
+      const response = await getAPI(
+        `/users/1${id === 0 ? `/links` : `/folders/${id}`}`
+      );
       const result = response.data;
       setData(result);
     } catch (error) {
@@ -31,7 +33,7 @@ function Folder() {
 
   return (
     <>
-      <Header user={data} />
+      <Header />
       <AddLink />
       <Search />
       <Category changeTitle={setTitle} changeID={setListId} />
@@ -40,8 +42,8 @@ function Folder() {
         <Contents items={data} />
       ) : (
         <NoLink>저장된 링크가 없습니다.</NoLink>
-        <AddFolderBtn>폴더 추가 +</AddFolderBtn>
       )}
+      <AddFolderBtn>폴더 추가 +</AddFolderBtn>
       <Footer />
     </>
   );

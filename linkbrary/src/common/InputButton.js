@@ -13,10 +13,10 @@ const InputButton = styled.button`
   align-items: center;
 
   @media (max-width: 1124px) {
-    width: 704px;
+    width: 80px;
   }
   @media (max-width: 774px) {
-    width: 325px;
+    width: 80px;
   }
 `;
 

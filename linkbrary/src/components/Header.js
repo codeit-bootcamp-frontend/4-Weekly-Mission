@@ -1,7 +1,11 @@
 import "../styles/Header.css";
 import logoImgSrc from "../assets/linkbrary.svg";
+import { getAPI } from "../APIUtil";
 
-function Header({ user }) {
+function Header() {
+  const user = getAPI(`/sample/user`);
+  const { email, profileImageSource } = user;
+
   return (
     <header className="header-area">
       <div className="header-group">

@@ -8,7 +8,7 @@ function Category({ changeTitle, changeID }) {
   const getFolderList = async () => {
     try {
       const response = await getAPI("/user/1/folders");
-      const result = response.json();
+      const result = await response.json();
       return result;
     } catch (error) {
       console.error(error);
