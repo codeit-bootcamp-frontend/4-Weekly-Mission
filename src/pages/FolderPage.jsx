@@ -1,21 +1,37 @@
 import AddLink from 'components/common/header/folder/AddLink';
 import { HeaderContainer } from 'styles/HeaderContainer';
-import React from 'react';
+import React, { useState } from 'react';
 import { MainContainer } from 'styles/MainContainer';
 import Search from 'components/common/main/Search';
 import CardGrid from 'components/common/main/CardGrid';
 import CardError from 'components/common/main/CardError';
-import { useFolderQuery } from 'hook/useFetchData';
-import { getFolderLink } from 'api/folderAPI';
+import { useCategoryQuery, useFolderQuery } from 'hook/useFetchData';
 import Category from 'components/folder/Category';
+import SubTitle from 'components/folder/SubTitle';
 
 const FolderPage = () => {
-  // const [currentCategory, setCurrentCategory] = useState('전체');
+  const [currentCategory, setCurrentCategory] = useState({
+    id: 'all',
+    name: '전체',
+  });
+
+  const folderId = currentCategory.id === 'all' ? '' : currentCategory.id;
+
   const {
     data: folderDatas,
     isLoading,
     isError,
-  } = useFolderQuery('folderDatas', getFolderLink);
+  } = useFolderQuery({ queryKey: folderId, folderId: folderId });
+
+  const { data: datas } = useCategoryQuery('category', 1);
+  const categoryDatas = datas?.data && [
+    { id: 'all', name: '전체' },
+    ...datas?.data,
+  ];
+
+  const handleCategoryButton = e => {
+    setCurrentCategory({ id: e.target.id, name: e.target.innerText });
+  };
 
   if (isError) {
     return <CardError />;
@@ -27,7 +43,12 @@ const FolderPage = () => {
       </HeaderContainer>
       <MainContainer>
         <Search />
-        {/* <Category category={category} currentCategory={currentCategory} handleCategoryButton={handleCategoryButton} /> */}
+        <Category
+          categoryDatas={categoryDatas}
+          currentCategory={currentCategory}
+          handleCategoryButton={handleCategoryButton}
+        />
+        <SubTitle currentCategory={currentCategory.name} />
         {folderDatas?.data.length ? (
           <CardGrid
             isLoading={isLoading}

@@ -1,25 +1,24 @@
-import React from 'react';
 import styled from 'styled-components';
 import Add from 'assets/images/add.png';
 import Add2 from 'assets/images/add2.png';
 
-const Category = ({ category, currentCategory, handleCategoryButton }) => {
+const Category = ({ categoryDatas, currentCategory, handleCategoryButton }) => {
   return (
     <>
       <Wrapper>
         <CategoryContainer>
-          {/* {category &&
-            category.map(categoryData => (
+          {categoryDatas &&
+            categoryDatas.map(categoryData => (
               <CategoryButton
                 id={categoryData.id}
                 key={categoryData.id}
-                name="folderId"
-                checked={currentCategory === categoryData.name ? true : null}
+                name={categoryData.name}
+                checked={currentCategory === categoryData.name}
                 onClick={handleCategoryButton}
               >
                 {categoryData.name}
               </CategoryButton>
-            ))} */}
+            ))}
         </CategoryContainer>
         <AddButtonContainer>
           <Text>폴더 추가</Text>
@@ -34,7 +33,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   width: 1060px;
-  margin: 40px auto 0;
+  margin: 0 auto 3rem;
   @media (max-width: 1199px) {
     width: 704px;
   }
@@ -51,6 +50,7 @@ const CategoryContainer = styled.div`
   gap: 8px;
 `;
 const CategoryButton = styled.button`
+  background: transparent;
   border-radius: 5px;
   height: 39px;
   border: 1px solid #6d6afe;

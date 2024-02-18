@@ -1,8 +1,7 @@
 import { fetchRequest } from './index';
-import { FOLDER_LINK } from 'config.js';
+import { CATEGORY, FOLDER_LINK } from 'config.js';
 
-export const getFolderLink = async data => {
-  const { folderId = 'all' } = data;
+export const getFolderLink = async folderId => {
   let resData;
 
   if (folderId !== 'all') {
@@ -14,7 +13,7 @@ export const getFolderLink = async data => {
   return resData;
 };
 
-// export const getCategory = async userId => {
-//   const data = await fetchRequest(FOLDER + `/${userId}/folders`, 'GET');
-//   return data;
-// };
+export const getCategory = async userId => {
+  const data = await fetchRequest(CATEGORY + `/${userId}/folders`, 'GET');
+  return data;
+};

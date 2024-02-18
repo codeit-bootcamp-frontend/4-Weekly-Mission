@@ -18,13 +18,13 @@ export const useSampleFolderQuery = (queryKey, selectFunction) => {
   });
 };
 
-export const useFolderQuery = (queryKey, folderId) => {
+export const useFolderQuery = ({ queryKey, folderId }) => {
   return useQuery(['folder', queryKey], () => {
     return getFolderLink(folderId);
   });
 };
-// export const useCategoryQuery = (queryKey, selectFunction, userId) => {
-//   return useQuery(['folder', queryKey], getCategory(userId), {
-//     select: selectFunction,
-//   });
-// };
+export const useCategoryQuery = (queryKey, userId) => {
+  return useQuery(['folder', queryKey], () => {
+    return getCategory(userId);
+  });
+};

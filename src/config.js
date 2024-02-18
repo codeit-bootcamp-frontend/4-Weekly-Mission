@@ -8,3 +8,4 @@ export const CHECK_EMAIL_API = `${BASE_URL}/${AUTH.checkEmail}`;
 export const SAMPLE_USER = `${BASE_URL}/${AUTH.sampleUser}`;
 export const SAMPLE_FOLDER = `${BASE_URL}/${AUTH.sampleFolder}`;
 export const FOLDER_LINK = `${BASE_URL}/${AUTH.folderLink}`;
+export const CATEGORY = `${BASE_URL}/${AUTH.category}`;
