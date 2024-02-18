@@ -1,6 +1,6 @@
 import * as S from "./ContentCard.style";
-import useTimeAgo from "../../../../customHooks/useTimeAgo";
 import useConvertDateFormat from "../../../../customHooks/useConvertDateFormat";
+import calcTimeAgo from "../../../../utils/calcTimeAgo";
 
 const ContentCard = ({ link }) => {
   return (
@@ -20,7 +20,7 @@ const ContentCard = ({ link }) => {
       )}
 
       <div className="text-box">
-        <p>{useTimeAgo(link.createdAt)}</p>
+        <p>{calcTimeAgo(link.createdAt)}</p>
         <p className="desc">{link.description}</p>
         <p className="date">{useConvertDateFormat(link.createdAt)}</p>
       </div>
