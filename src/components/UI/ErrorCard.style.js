@@ -1,9 +1,10 @@
 import styled from "styled-components"
 import { Wrapper as W } from "components/Layout/Layout.style"
+import { Card } from "components/UI/Card.style"
 
-export const Wrapper = styled(W)
+export const Wrapper = styled(W)``
 
-export const ErrorCard = styled.div`
+export const ErrorCard = styled(Card)`
   display: flex;
   align-items: center;
   padding: 10px 20px;

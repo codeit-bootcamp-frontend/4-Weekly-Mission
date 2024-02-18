@@ -5,7 +5,7 @@ import * as S from "./CardList.style"
 function CardList({ data }) {
   return (
     <S.CardList>
-      {data.map((link) => (
+      {data?.data.map((link) => (
         <CardItem key={link.id} data={link} />
       ))}
     </S.CardList>

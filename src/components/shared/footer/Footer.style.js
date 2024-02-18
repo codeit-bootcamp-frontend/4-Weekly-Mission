@@ -5,6 +5,9 @@ export const Footer = styled.footer`
   margin-top: 60px;
   background: rgba(17, 19, 34, 1);
   height: 160px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 
   @media (max-width: 767px) {
     margin-top: 40px;

@@ -19,5 +19,5 @@ export const Title = styled.h2`
 `
 
 export const GridLayout = styled.article`
-  display: grid;
+  position: relative;
 `

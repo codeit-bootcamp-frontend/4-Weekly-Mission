@@ -1,5 +1,4 @@
 import styled, { keyframes } from "styled-components"
-import { Wrapper as W } from "components/Layout/Layout.style"
 
 const rotate = keyframes`
 100% {
@@ -21,37 +20,32 @@ const dash = keyframes`
   }
 `
 
-export const Wrapper = styled(W)`
-  position: relative;
-  height: 164px;
+export const Loader = styled.div`
+  width: ${({ $size }) => ($size ? `${$size}px` : `60px`)};
+  height: ${({ $size }) => ($size ? `${$size}px` : `60px`)};
+  position: absolute;
+  top: 50%;
+  left: ${({ $isCenter }) => ($isCenter ? `50%` : 0)};
+  transform: translate(${({ $isCenter }) => ($isCenter ? `-50%` : 0)}, -50%);
 
-  .loader {
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .loader:before {
+  &:before {
     content: "";
     display: block;
     padding-top: 100%;
   }
+`
 
-  .circular {
-    animation: ${rotate} 2s linear infinite;
-    height: 100%;
-    transform-origin: center center;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
+export const Circular = styled.svg`
+  animation: ${rotate} 2s linear infinite;
+  height: 100%;
+  transform-origin: center center;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 
   .path {
     stroke-dasharray: 1, 200;

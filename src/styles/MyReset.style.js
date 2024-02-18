@@ -16,6 +16,9 @@ export const MyReset = css`
   body {
     color: var(--black);
     font-weight: 400;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 220px;
   }
 
   ol,
@@ -58,5 +61,11 @@ export const MyReset = css`
     height: 0;
     line-height: 0;
     text-indent: -9999px;
+  }
+
+  @media (max-width: 769px) {
+    body {
+      padding-bottom: 180px;
+    }
   }
 `

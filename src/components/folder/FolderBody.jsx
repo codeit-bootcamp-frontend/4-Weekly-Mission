@@ -5,20 +5,20 @@ import EmptyData from "./EmptyData"
 import FolderAddButton from "./FolderAddButton"
 import FolderCategories from "./FolderCategories"
 import FolderFeatures from "./FolderFeatures"
-import { FolderContext } from "context/FolderContext"
 import CardList from "components/card/CardList"
 import Loading from "components/UI/Loading"
 import ErrorCard from "components/UI/ErrorCard"
-import { GET_FOLDER_BY_ID } from "api"
+import { GET_FOLDER_API, GET_LINK_API, GET_FOLDER_BY_ID } from "api"
 import useHttp from "hooks/useHttp"
 
 function FolderBody() {
-  const { link, folder } = useContext(FolderContext)
-  const { data, isLoading, hasError } = link
+  const { state: linkState, fetchRequest: linkFetchRequest } = useHttp()
+  const { state: folderState, fetchRequest: folderFetchRequest } = useHttp()
 
-  const { data: folderData, isLoading: isFolderLoading, hasError: hasFolderError } = folder
+  const { data: linkData, isLoading: isLinkLoading, hasError: hasLinkError } = linkState
+  const { data: folderData, isLoading: isFolderLoading, hasError: hasFolderError } = folderState
 
-  const [title, setTitle] = useState(null)
+  const [title, setTitle] = useState("전체")
   const [categories, setCategories] = useState(null)
 
   const selectedHandler = async (select) => {
@@ -30,34 +30,26 @@ function FolderBody() {
         : { ...category, isSelected: false }
     })
 
-    const response = await fetch(GET_FOLDER_BY_ID(select.id))
-    const responseData = await response.json()
-
-    console.log(responseData)
-
+    linkFetchRequest(GET_FOLDER_BY_ID(select.id))
     setTitle(select.name)
     setCategories(selectedCategory)
   }
 
-  // ! 클릭할 때 마다 데이터 요청.
+  useEffect(() => {
+    linkFetchRequest(GET_LINK_API)
+    folderFetchRequest(GET_FOLDER_API)
+  }, [linkFetchRequest, folderFetchRequest])
 
   useEffect(() => {
-    setCategories(folderData)
+    folderData?.data && setCategories(folderData.data)
   }, [folderData])
-
-  // console.log(categories)
-
-  const renderLoading = isLoading && <Loading />
-  const renderError = hasError && <ErrorCard>{hasError.messgae}</ErrorCard>
-  const renderSuccess = !isLoading && !hasError && data && <CardList data={data} />
-  const renderSuccessWithEmpty = renderSuccess && data.length === 0 && <EmptyData />
 
   return (
     <S.Section>
       <S.Wrapper>
         <SearchBar type="text" placeholder="링크를 검색해 보세요." name="search" />
         <S.Layout>
-          <FolderCategories categories={categories} onSelectHandler={selectedHandler} />
+          <FolderCategories title={title} folder={folderState} onSelectHandler={selectedHandler} />
           <FolderAddButton />
         </S.Layout>
         <S.Layout>
@@ -65,10 +57,9 @@ function FolderBody() {
           <FolderFeatures />
         </S.Layout>
         <S.GridLayout>
-          {renderLoading}
-          {renderError}
-          {renderSuccess}
-          {renderSuccessWithEmpty}
+          {isFolderLoading && isLinkLoading && <Loading />}
+          {hasLinkError && <ErrorCard>{hasLinkError.message}</ErrorCard>}
+          {!isLinkLoading && !isFolderLoading && linkData && <CardList data={linkData} />}
         </S.GridLayout>
       </S.Wrapper>
     </S.Section>
