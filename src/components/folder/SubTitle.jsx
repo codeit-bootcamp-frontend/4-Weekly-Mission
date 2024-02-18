@@ -13,13 +13,13 @@ const SubTitle = ({ currentCategory }) => {
 const TitleContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 1060px;
+  width: 100%;
   margin-bottom: 2rem;
   @media (max-width: 1199px) {
-    width: 704px;
+    width: calc(100% - 6.4rem);
   }
   @media (max-width: 767px) {
-    width: 325px;
+    width: calc(100% - 6.4rem);
     flex-direction: column;
     gap: 12px;
   }

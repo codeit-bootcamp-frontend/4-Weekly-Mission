@@ -32,13 +32,13 @@ const Category = ({ categoryDatas, currentCategory, handleCategoryButton }) => {
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 1060px;
-  margin: 0 auto 3rem;
+  width: 100%;
+  margin-bottom: 3rem;
   @media (max-width: 1199px) {
-    width: 704px;
+    width: calc(100% - 6.4rem);
   }
   @media (max-width: 767px) {
-    width: 325px;
+    width: calc(100% - 6.4rem);
     flex-direction: column;
     gap: 12px;
   }
@@ -84,6 +84,7 @@ const Text = styled.div`
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.3px;
+  white-space: nowrap;
   color: ${props => props.theme.primary_color};
   @media (max-width: 767px) {
     color: ${props => props.theme.white};

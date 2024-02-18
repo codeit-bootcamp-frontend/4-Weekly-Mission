@@ -18,7 +18,7 @@ const SearchBar = styled.form`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 106rem;
+  width: 100%;
   height: 5.4rem;
   padding: 1.5rem 1.6rem;
   border-radius: 1rem;
