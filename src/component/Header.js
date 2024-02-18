@@ -16,7 +16,6 @@ function Header() {
           <UserInfo />
         </div>
       </header>
-      <FolderInfo />
     </>
   );
 }
