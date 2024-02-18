@@ -11,6 +11,15 @@ import OptionBtns from 'components/folder/OptionBtns';
 import FolderGridCard from 'components/folder/FolderGridCard';
 
 const Styled = {
+  NoLink: styled.div`
+    height: 10rem;
+    margin-top: 4rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
+
   ButtonBox: styled.div`
     margin: 4rem 0 2.4rem;
 
@@ -34,26 +43,37 @@ function FolderPage() {
   const [selectedTabName, setSelectedTabName] = useState('전체');
   const [selectedFolder, setSelectedFolder] = useState(1);
 
+  const hasFolders = folderList.length !== 0;
+  console.log(hasFolders);
+
   return (
     <>
       <PageTitle title="폴더" />
       <FolderHeader />
       <SearchBar />
-      <Styled.ButtonBox>
-        <TabButton
-          tabInfo={folderList}
-          onChange={(name, id) => {
-            setSelectedTabName(name);
-            setSelectedFolder(id);
-          }}
-        />
-        <AddFolderButton />
-      </Styled.ButtonBox>
-      <Styled.TitleAndOptions>
-        <h2 style={{ fontSize: '2.4rem', fontWeight: 600 }}>{selectedTabName}</h2>
-        <OptionBtns />
-      </Styled.TitleAndOptions>
-      <FolderGridCard selectedFolder={selectedFolder} />
+      {!hasFolders ? (
+        <Styled.NoLink>저장된 링크가 없습니다 🥲</Styled.NoLink>
+      ) : (
+        <>
+          <Styled.ButtonBox>
+            {/* 버튼박스(탭, 폴더추가 버튼 합치기) */}
+            <TabButton
+              tabInfo={folderList}
+              onChange={(name, id) => {
+                setSelectedTabName(name);
+                setSelectedFolder(id);
+              }}
+            />
+            <AddFolderButton />
+          </Styled.ButtonBox>
+
+          <Styled.TitleAndOptions>
+            <h2 style={{ fontSize: '2.4rem', fontWeight: 600 }}>{selectedTabName}</h2>
+            {selectedTabName !== '전체' && <OptionBtns />}
+          </Styled.TitleAndOptions>
+          <FolderGridCard selectedFolder={selectedFolder} />
+        </>
+      )}
     </>
   );
 }
