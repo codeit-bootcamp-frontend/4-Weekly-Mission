@@ -24,7 +24,7 @@ function App() {
     <div className="App">
       <NavigationBar profile={profile} />
       <main className="App__main">
-        {folder ? <Folder folder={folder} /> : null}
+        {folder && <Folder folder={folder} />}
       </main>
       <Footer />
     </div>
