@@ -1,6 +1,8 @@
 import dayjs from 'dayjs';
-import * as S from './Card.styles';
+
 import { UNDEFINED_IMAGE } from '../../constant/constant';
+
+import * as S from './Card.styles';
 
 const Card = ({ createdAt, url, title, imageURL }) => {
   const createdDay = dayjs(createdAt).format('YYYY-MM-DD');

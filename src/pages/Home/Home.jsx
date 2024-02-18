@@ -1,6 +1,8 @@
 import GradientButton from '../../components/common/GradientButton/GradientButton.styles';
 import GradientText from '../../components/common/GradientText/GradientText.styles';
+
 import * as S from './Home.styles';
+
 const Home = () => {
   return (
     <>

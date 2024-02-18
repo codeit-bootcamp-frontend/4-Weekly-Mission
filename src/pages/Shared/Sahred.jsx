@@ -1,11 +1,13 @@
 import { useContext, useEffect, useState } from 'react';
-import UserProfile from '../../components/UserProfile/UserProfile';
-import SearchBar from '../../components/SearchBar/SearchBar';
+
 import Cards from '../../components/Cards/Cards';
-import { getFolder } from '../../utils/api';
-import * as S from './Shared.styles';
-import { AuthContext } from '../../context/AuthContext';
 import Empty from '../../components/Empty/Empty';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import UserProfile from '../../components/UserProfile/UserProfile';
+import { AuthContext } from '../../context/AuthContext';
+import { getFolder } from '../../utils/api';
+
+import * as S from './Shared.styles';
 
 const Shared = () => {
   const [folder, setFolder] = useState({ links: [], name: null });

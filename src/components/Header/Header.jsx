@@ -1,10 +1,12 @@
 import { useContext } from 'react';
-import UserProfile from '../UserProfile/UserProfile';
-import { getUser } from '../../utils/api';
 import { Link, useLocation } from 'react-router-dom';
+
 import { AuthContext } from '../../context/AuthContext';
-import * as S from './Header.styles';
+import { getUser } from '../../utils/api';
+import UserProfile from '../UserProfile/UserProfile';
 import GradientButton from '../common/GradientButton/GradientButton.styles';
+
+import * as S from './Header.styles';
 
 const Header = () => {
   const { user, setUser } = useContext(AuthContext);

@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
+
+import { FiPlus } from 'react-icons/fi';
+
 import AddBar from '../../components/AddBar/AddBar';
-import { getFolders, getLinks } from '../../utils/api';
 import Cards from '../../components/Cards/Cards';
 import Empty from '../../components/Empty/Empty';
-import * as S from './Folder.styles.js';
-import FoldersNavbar from '../../components/Navbar/Folders/FoldersNavbar';
 import FolderNavbar from '../../components/Navbar/Folder/FolderNavbar';
-import { FiPlus } from 'react-icons/fi';
+import FoldersNavbar from '../../components/Navbar/Folders/FoldersNavbar';
 import SearchBar from '../../components/SearchBar/SearchBar';
+import { getFolders, getLinks } from '../../utils/api';
+
+import * as S from './Folder.styles.js';
 
 const Folder = () => {
   const [folders, setFolders] = useState([]);

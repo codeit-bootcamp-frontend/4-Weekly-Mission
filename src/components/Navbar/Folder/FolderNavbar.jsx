@@ -1,6 +1,7 @@
 import { CiShare1 } from 'react-icons/ci';
-import { TiPencil } from 'react-icons/ti';
 import { RiDeleteBinLine } from 'react-icons/ri';
+import { TiPencil } from 'react-icons/ti';
+
 import * as S from './FolderNavbar.styles';
 
 const FolderNavbar = () => {

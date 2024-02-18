@@ -1,5 +1,7 @@
 import { SNS_LIST } from '../../constant/constant';
+
 import * as S from './Footer.styles';
+
 const Footer = () => {
   return (
     <S.StyledFooter>

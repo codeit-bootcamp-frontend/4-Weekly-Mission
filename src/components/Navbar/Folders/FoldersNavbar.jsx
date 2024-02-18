@@ -1,5 +1,7 @@
-import * as S from './FoldersNavbar.styles';
 import { FiPlus } from 'react-icons/fi';
+
+import * as S from './FoldersNavbar.styles';
+
 const FoldersNavbar = ({ items, selectedItem, setSelectedItem }) => {
   return (
     <S.FoldersNavbarLayout>

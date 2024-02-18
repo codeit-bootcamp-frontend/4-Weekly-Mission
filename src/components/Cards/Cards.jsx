@@ -1,4 +1,5 @@
 import Card from '../Card/Card';
+
 import * as S from './Cards.styles';
 
 const Cards = ({ links }) => {

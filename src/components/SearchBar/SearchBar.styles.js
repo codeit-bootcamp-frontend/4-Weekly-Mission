@@ -1,5 +1,6 @@
-import styled from 'styled-components';
 import { FaSearch } from 'react-icons/fa';
+import styled from 'styled-components';
+
 import ColorBox from '../common/ColorBox/ColorBox.styles';
 
 export const SearchBarDiv = styled(ColorBox)`

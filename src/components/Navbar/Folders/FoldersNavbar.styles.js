@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 import ColorBox from '../../common/ColorBox/ColorBox.styles';
 
 export const FoldersNavbarLayout = styled.ul`

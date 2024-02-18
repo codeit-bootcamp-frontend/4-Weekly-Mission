@@ -1,5 +1,6 @@
-import styled from 'styled-components';
 import { HiOutlineLink } from 'react-icons/hi';
+import styled from 'styled-components';
+
 import ColorBox from '../common/ColorBox/ColorBox.styles';
 import GradientButton from '../common/GradientButton/GradientButton.styles';
 

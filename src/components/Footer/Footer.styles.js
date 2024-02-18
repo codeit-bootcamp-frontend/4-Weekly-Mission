@@ -9,7 +9,7 @@ export const StyledFooter = styled.footer`
   padding: 2rem 6.5rem;
   background: #000;
 
-  @media screen and (width <= 767px) {
+  @media screen and (width < 768px) {
     flex-direction: column;
     padding: 2rem;
   }
@@ -21,7 +21,7 @@ export const FooterCopyright = styled.p`
   font-weight: 400;
   color: #676767;
 
-  @media screen and (width <= 767px) {
+  @media screen and (width < 768px) {
     order: 2;
     margin-right: auto;
   }
@@ -32,7 +32,7 @@ export const FooterLinkSection = styled.section`
   flex: 0.6;
   justify-content: space-between;
 
-  @media screen and (width <= 767px) {
+  @media screen and (width < 768px) {
     order: 1;
     width: 100%;
     margin: 0 6.5rem;
@@ -44,7 +44,7 @@ export const FooterSiteMapNav = styled.nav`
   gap: 2.25rem;
   align-items: flex-start;
 
-  @media screen and (width <= 767px) {
+  @media screen and (width < 768px) {
     display: flex;
     justify-content: space-between;
   }
@@ -62,7 +62,7 @@ export const FooterSnsMapNav = styled.nav`
   gap: 0.75rem;
   align-items: flex-start;
 
-  @media screen and (width <= 767px) {
+  @media screen and (width < 768px) {
     display: flex;
     justify-content: space-between;
   }

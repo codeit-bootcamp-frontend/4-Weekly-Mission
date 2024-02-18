@@ -1,7 +1,9 @@
 import ReactTimeago from 'react-timeago';
-import styled from 'styled-components';
-import { FaStar } from 'react-icons/fa';
+
 import { BsThreeDots } from 'react-icons/bs';
+import { FaStar } from 'react-icons/fa';
+import styled from 'styled-components';
+
 import ToggleButton from '../common/ToggleButton/ToggleButton';
 
 export const CardArticle = styled.article`
