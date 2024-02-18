@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const FooterItems = styled.div`
+export const FooterItemsCss = styled.div`
   display: grid;
   justify-content: space-between;
   grid-template:
@@ -20,5 +20,3 @@ const FooterItems = styled.div`
     padding: 3.2rem 10.4rem 0;
   }
 `;
-
-export default FooterItems;

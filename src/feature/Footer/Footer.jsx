@@ -1,12 +1,10 @@
-import FooterContainer from "./Footer.css";
-import { FooterItemsContainer } from "./FooterItems/FooterItemsContainer";
-
+import FooterContainer from "./FooterCss";
+import { FooterItems } from "./FooterItems/FooterItems";
 
 export const Footer = () => {
   return (
     <FooterContainer>
-      <FooterItemsContainer>
-      </FooterItemsContainer>
+      <FooterItems />
     </FooterContainer>
   );
 };
