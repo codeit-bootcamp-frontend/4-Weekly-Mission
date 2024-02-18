@@ -3,6 +3,8 @@ import * as S from "./Content.style";
 
 import SearchBar from "../../../shared/components/search-bar/SearchBar";
 import ContentCard from "../../../shared/components/content/ContentCard";
+import styled from "styled-components";
+import PlusSVG from "../plusSVG/plusSVG.style";
 
 const Content = ({ folder, folderList }) => {
   const [currFolder, setCurrFolder] = useState("전체");
@@ -72,13 +74,11 @@ const Content = ({ folder, folderList }) => {
                 }
               })}
             </div>
-            <div className="add-btn">
-              <p className="text">폴더 추가</p>
-              <img
-                className="icon"
-                src="/assets/folder/plus.svg"
-                alt="폴더 추가"
-              />
+            <div className="floating">
+              <div className="add-btn">
+                <p className="text">폴더 추가</p>
+                <PlusSVG />
+              </div>
             </div>
           </S.FolderBtn>
           <S.CurrFolder>

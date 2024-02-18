@@ -107,6 +107,41 @@ export const FolderBtn = styled.div`
       height: 16px;
     }
   }
+
+  /* mobile 화면  */
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+    .floating {
+      position: absolute;
+      display: flex;
+      width: 100vw;
+      justify-content: center;
+    }
+    .add-btn {
+      position: fixed;
+      bottom: 110px;
+      border-radius: 40px;
+      padding: 8px 24px;
+      border: 1px solid var(--Linkbrary-white, #fff);
+      background: var(--Linkbrary-primary-color, #6d6afe);
+      color: orange;
+
+      height: 35px;
+      .text {
+        color: var(--Linkbrary-gray10, #e7effb);
+        text-align: center;
+        font-family: Pretendard;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: -0.3px;
+      }
+      .icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
 `;
 
 export const CurrFolder = styled.div`
