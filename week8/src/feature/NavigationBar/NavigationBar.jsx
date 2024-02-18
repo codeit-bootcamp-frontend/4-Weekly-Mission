@@ -5,7 +5,7 @@ import { LOGO_IMAGE, TEXT } from "./constant";
 import "./NavigationBar.css";
 import { NavigationBarStyle } from "./NavigationBarStyled";
 
-export const NavigationBar = ({ profile }) => {
+export const NavigationBar = ({ userEmail, userImgSource }) => {
   return (
     <NavigationBarStyle className="NavigationBar">
       <div className="NavigationBar-items">
@@ -16,8 +16,8 @@ export const NavigationBar = ({ profile }) => {
             alt="Linkbrary 서비스 로고"
           />
         </a>
-        {profile ? (
-          <Profile profile={profile} />
+        {userEmail && userImgSource ? (
+          <Profile userEmail={userEmail} userImgSource={userImgSource} />
         ) : (
           <a href={ROUTE.로그인}>
             <Cta isSmall>

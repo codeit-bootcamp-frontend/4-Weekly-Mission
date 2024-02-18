@@ -17,8 +17,8 @@ function App() {
   const { data } = useGetFolder();
   const { profileImage, ownerName, folderName, links } = data || {};
 
-  const { CategoryData } = useGetCategory();
-  console.log(CategoryData);
+  // const { CategoryData } = useGetCategory();
+  // console.log(CategoryData);
 
   return (
     <BrowserRouter>
