@@ -7,20 +7,22 @@ const FolderTitle = ({ titleName }) => {
   return (
     <Container>
       <Title>{titleName}</Title>
-      <OptionBox>
-        <Option>
-          <OptionIcon src={share}></OptionIcon>
-          <OptionText>공유</OptionText>
-        </Option>
-        <Option>
-          <OptionIcon src={pen}></OptionIcon>
-          <OptionText>이름 변경</OptionText>
-        </Option>
-        <Option>
-          <OptionIcon src={trash}></OptionIcon>
-          <OptionText>삭제</OptionText>
-        </Option>
-      </OptionBox>
+      {titleName !== "전체" ? (
+        <OptionBox>
+          <Option>
+            <OptionIcon src={share}></OptionIcon>
+            <OptionText>공유</OptionText>
+          </Option>
+          <Option>
+            <OptionIcon src={pen}></OptionIcon>
+            <OptionText>이름 변경</OptionText>
+          </Option>
+          <Option>
+            <OptionIcon src={trash}></OptionIcon>
+            <OptionText>삭제</OptionText>
+          </Option>
+        </OptionBox>
+      ) : null}
     </Container>
   );
 };
