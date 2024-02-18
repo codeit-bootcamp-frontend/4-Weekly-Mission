@@ -32,3 +32,18 @@ export const getFolderList = async ({ userId }) => {
     throw error;
   }
 };
+
+export const getLink = async ({ userId, folderId }) => {
+  try {
+    const query = `?folderId=${folderId}`;
+
+    const response = await fetch(
+      `${URL}/users/${userId}/links${folderId ? `${query}` : ""}`
+    );
+    const body = await response.json();
+    return body;
+  } catch (error) {
+    console.error("Error fetching link data", error);
+    throw error;
+  }
+};
