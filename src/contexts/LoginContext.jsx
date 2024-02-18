@@ -10,7 +10,7 @@ const LoginContext = createContext();
 // 모든 컴포넌트에서 로그인 상태를 유지하고 싶은 목적으로 생성.
 export function LoginProvider({ children }) {
   const [isLogin, setIsLogin] = useState(false);
-  const [user, setUser] = useState(null);
+  const [loginUser, setLoginUser] = useState(null);
   const [time, setTime] = useState(3600);
 
   const handleAutoLogin = async () => {
@@ -30,7 +30,7 @@ export function LoginProvider({ children }) {
           localStorage.removeItem('refreshToken');
           throw Error('잘못된 경로로 접근하셨습니다.');
         }
-        setIsLogin(true);
+        setLoginUser(true);
       } catch (error) {
         console.error(error);
       }
@@ -38,7 +38,7 @@ export function LoginProvider({ children }) {
   };
 
   const handleLogin = (user) => {
-    setUser(user);
+    setLoginUser(user);
     setIsLogin(true);
     // netlify 배포용...
     console.log(isLogin, time);
@@ -50,24 +50,24 @@ export function LoginProvider({ children }) {
   }, [isLogin]);
 
   return (
-    <LoginContext.Provider value={{ user, setUser: handleLogin }}>
+    <LoginContext.Provider value={{ loginUser, setLoginUser: handleLogin }}>
       {children}
     </LoginContext.Provider>
   );
 }
 
-export function useUser() {
+export function useLoginUser() {
   const context = useContext(LoginContext);
   if (!context) {
     throw new Error('반드시 LoginProvider 안에서 사용해야 합니다.');
   }
-  return context.user;
+  return context.loginUser;
 }
 
-export function useSetUser() {
+export function useSetLoginUser() {
   const context = useContext(LoginContext);
   if (!context) {
     throw new Error('반드시 LoginProvider 안에서 사용해야 합니다.');
   }
-  return context.setUser;
+  return context.useSetLoginUser;
 }

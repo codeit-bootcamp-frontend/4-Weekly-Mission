@@ -1,13 +1,13 @@
 import './Header.css';
 import { Button } from '../../Button';
 import { IconLogo } from '../../Icon';
-import { useSetUser, useUser } from '../../../contexts/LoginContext';
-import { getUser } from '../../../api';
+import { useLoginUser, useSetLoginUser } from '../../../contexts/LoginContext';
 import { Link } from 'react-router-dom';
+import { getUser } from '../../../api';
 
 function Header() {
-  const loginUser = useUser();
-  const setLoginUser = useSetUser();
+  const loginUser = useLoginUser();
+  const setLoginUser = useSetLoginUser();
 
   const handleLoginClick = async () => {
     try {
