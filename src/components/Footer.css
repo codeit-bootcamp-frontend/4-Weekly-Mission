@@ -26,7 +26,7 @@
   width: 100%;
   height: 100%;
 
-  @media (min-width: 768px) {
+  @media (min-width: 788px) {
     display: flex;
     justify-content: space-between;
     grid-template: "copyright footer-links sns";

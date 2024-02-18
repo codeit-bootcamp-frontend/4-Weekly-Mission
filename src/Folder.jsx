@@ -5,6 +5,7 @@ import shareImg from './assets/folder/share.svg';
 import renameImg from './assets/folder/pen.svg';
 import deleteImg from './assets/folder/delete.svg';
 
+import FolderAddBtn from './components/FolderAddBtn';
 import SearchBar from './components/SearchBar';
 import Card from './components/Card';
 import './Folder.css';
@@ -97,6 +98,7 @@ const Folder = () => {
       ) : (
         <div className='card-and-list-empty'>저장된 링크가 없습니다</div>
       )}
+      <FolderAddBtn />
     </div>
   )
 }
