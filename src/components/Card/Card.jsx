@@ -9,8 +9,8 @@ import starIcon from "assets/images/ic_star.svg";
 function Card({ item, onClick }) {
   const { createdAt, created_at, description, imageSource, image_source } =
     item;
-  const cardCreatedAt = createdAt || created_at;
-  const cardimageSource = imageSource || image_source;
+  const date = createdAt || created_at;
+  const imgUrl = imageSource || image_source;
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const handleMenuClick = (e) => {
@@ -22,7 +22,7 @@ function Card({ item, onClick }) {
     <div className={styles.container} onClick={onClick}>
       <div className={styles.imgWrapper}>
         <img
-          src={cardimageSource ? cardimageSource : noImage}
+          src={imgUrl ?? noImage}
           onError={(e) => {
             e.target.src = noImage;
           }}
@@ -43,7 +43,7 @@ function Card({ item, onClick }) {
       <div className={styles.info}>
         <div className={styles.infoTop}>
           <div className={styles.difference}>
-            {getTimeDifference(cardCreatedAt)}
+            {getTimeDifference(date)}
           </div>
           <div className={styles.menu}>
             <button onClick={handleMenuClick} className={styles.menuBtn}>
@@ -58,7 +58,7 @@ function Card({ item, onClick }) {
           </div>
         </div>
         <div className={styles.description}>{description}</div>
-        <div className={styles.date}>{formatDate(cardCreatedAt)}</div>
+        <div className={styles.date}>{formatDate(date)}</div>
       </div>
     </div>
   );
