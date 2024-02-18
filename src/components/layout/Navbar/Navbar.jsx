@@ -1,8 +1,10 @@
 import './navbar.css';
+import { useAuth } from '../../../contexts/AuthContext';
 import MainLogo from '../../../assets/icons/logo.svg';
-import Button from '../Button/Button';
+import Button from '../../common/Button/Button';
 
-const Navbar = ({ user }) => {
+const Navbar = () => {
+  const { user } = useAuth();
   const handleLoginButton = () => {
     /** 후에 dom 연결 */
   };
@@ -16,11 +18,7 @@ const Navbar = ({ user }) => {
           </a>
         </li>
         <li className="navbar-item">
-          {!user ? (
-            <Button className="navbar-login-button" onClick={handleLoginButton}>
-              로그인
-            </Button>
-          ) : (
+          {user ? (
             <div className="navbar-profile">
               <img
                 className="navbar-userprofile-img"
@@ -29,6 +27,10 @@ const Navbar = ({ user }) => {
               />
               <span className="navbar-userprofile-email">{user.email}</span>
             </div>
+          ) : (
+            <Button className="navbar-login-button" onClick={handleLoginButton}>
+              로그인
+            </Button>
           )}
         </li>
       </ul>
