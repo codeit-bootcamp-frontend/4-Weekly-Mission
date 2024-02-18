@@ -7,6 +7,8 @@ function ShowAllLinksButton({
   buttonIndex,
   setIsFilterActive,
   isFilterActive,
+  isShowFuncButotonBox,
+  setIsShowFuncButtonBox,
 }) {
   let copy = [...isFilterActive];
 
@@ -16,6 +18,7 @@ function ShowAllLinksButton({
     copy = new Array(isFilterActive.length).fill(false);
     copy[buttonIndex] = true;
     setIsFilterActive([...copy]);
+    setIsShowFuncButtonBox(!isShowFuncButotonBox);
   }
   console.log(buttonIndex);
   return (

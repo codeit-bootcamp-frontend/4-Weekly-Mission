@@ -14,7 +14,8 @@ function FolderPageMain() {
   const { data: folderData } = useFetch(folderUrl);
   const [folderName, setFolderName] = useState("전체");
   const [searchParams, setSearchParams] = useSearchParams();
-
+  const [isShowFuncButotonBox, setIsShowFuncButtonBox] = useState(true);
+  console.log(isShowFuncButotonBox);
   return (
     <div className={styles.main_wrapper}>
       <LinkSearchInput />
@@ -24,12 +25,14 @@ function FolderPageMain() {
             folderData={folderData}
             setFolderName={setFolderName}
             setSearchParams={setSearchParams}
+            setIsShowFuncButtonBox={setIsShowFuncButtonBox}
+            isShowFuncButotonBox={isShowFuncButotonBox}
           />
           <AddFolderButton />
         </div>
         <div className={styles.folder_title_box}>
           <h1 className={styles.folder_title}>{folderName}</h1>
-          <LinkFuncButtonBox />
+          {isShowFuncButotonBox && <LinkFuncButtonBox />}
         </div>
         <LinkList searchParams={searchParams} />
       </div>

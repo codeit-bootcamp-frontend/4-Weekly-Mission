@@ -8,6 +8,8 @@ function FolderFilterBox({
   setFolderId,
   folderId,
   setSearchParams,
+  setIsShowFuncButtonBox,
+  isShowFuncButotonBox,
 }) {
   const [isFilterActive, setIsFilterActive] = useState([]);
   async function handleFilterClick() {
@@ -34,6 +36,8 @@ function FolderFilterBox({
         buttonIndex={0}
         setIsFilterActive={setIsFilterActive}
         isFilterActive={isFilterActive}
+        isShowFuncButotonBox={isShowFuncButotonBox}
+        setIsShowFuncButtonBox={setIsShowFuncButtonBox}
       />
       {folderData?.data.map(({ name, id }, i) => {
         return (
