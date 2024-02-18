@@ -3,10 +3,11 @@ import { Cta } from "../../ui/Cta";
 import { Profile } from "../../ui/Profile";
 import { LOGO_IMAGE, TEXT } from "./constant";
 import "./NavigationBar.css";
+import { NavigationBarStyle } from "./NavigationBarStyled";
 
 export const NavigationBar = ({ profile }) => {
   return (
-    <nav className="NavigationBar">
+    <NavigationBarStyle className="NavigationBar">
       <div className="NavigationBar-items">
         <a href={ROUTE.랜딩}>
           <img
@@ -25,6 +26,6 @@ export const NavigationBar = ({ profile }) => {
           </a>
         )}
       </div>
-    </nav>
+    </NavigationBarStyle>
   );
 };
