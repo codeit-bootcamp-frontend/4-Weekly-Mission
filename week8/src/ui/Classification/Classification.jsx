@@ -1,5 +1,5 @@
 import "./Classification.css";
-import { Button } from "ui/StyledComponents/Buttons";
+import { Button } from "StyledComponents/Buttons";
 
 export function Classification() {
   return (
