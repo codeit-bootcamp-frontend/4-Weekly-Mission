@@ -28,3 +28,17 @@ export async function getUser() {
     return null;
   }
 }
+
+export async function getFolders(userId) {
+  try {
+    const response = await fetch(`${BASE_URL}/users/${userId}/folders`);
+    if (!response.ok) {
+      throw new Error('폴더 목록을 불러오는데 실패했습니다.');
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
