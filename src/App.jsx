@@ -7,12 +7,10 @@ import './App.css';
 const App = () => {
 
   return (
-    <div className='container'>
-      <Routes>
-        <Route path="shared" element={<SharedPage />} />
-        <Route path="folder" element={<FolderPage />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/shared" element={<SharedPage />} />
+      <Route path="/folder" element={<FolderPage />} />
+    </Routes>
   )
 }
 
