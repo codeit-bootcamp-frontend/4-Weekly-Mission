@@ -1,6 +1,6 @@
 import "../styles/CardSection.css";
-import star from "../icons/star.svg";
-import kebab from "../icons/kebab.svg";
+import starImgSrc from "../icons/star.svg";
+import kebabImgSrc from "../icons/kebab.svg";
 
 const getElapsedTimeMessage = (createdAtTime) => {
   const currentDays = new Date();
@@ -72,14 +72,14 @@ function CardSection({ url, createdAt, desc, imgUrl }) {
           <div className="img-card no-img"></div>
         )}
         <button className="btn-star">
-          <img src={star} alt="별모양" />
+          <img src={starImgSrc} alt="별모양" />
         </button>
       </div>
       <div className="card-info-group">
         <div className="time-info-group">
           <p className="elapsed-time">{getElapsedTimeMessage(createdDays)}</p>
           <button className="more">
-            <img src={kebab} alt="더보기" />
+            <img src={kebabImgSrc} alt="더보기" />
           </button>
         </div>
         <p className="desc">{desc}</p>

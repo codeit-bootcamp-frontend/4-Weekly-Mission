@@ -1,12 +1,12 @@
 import "../styles/Contents.css";
-import SEARCH from "../icons/search.svg";
+import searchImgSrc from "../icons/search.svg";
 import CardSection from "./CardSection";
 
 function Contents({ folderList }) {
   return (
     <section className="section-area">
       <div className="search-bar-group">
-        <img src={SEARCH} alt="돋보기 아이콘" className="icon-search" />
+        <img src={searchImgSrc} alt="돋보기 아이콘" className="icon-search" />
         <input
           type="text"
           className="input-search"

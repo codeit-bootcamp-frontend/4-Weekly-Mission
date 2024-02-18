@@ -1,6 +1,6 @@
 import "../styles/global.css";
 import { useEffect, useState } from "react";
-import { getAPI } from "../api";
+import { getAPI } from "../APIUtil";
 import Header from "./Header";
 import Footer from "./Footer";
 import Profile from "./Profile";
