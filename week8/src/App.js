@@ -61,14 +61,7 @@ function App() {
               <FolderPage
                 addLink={<AddLinkBar />}
                 searchBar={<SearchBar />}
-                cardList={
-                  <CardList>
-                    {links?.map((link) => (
-                      <SharedPossibleCard key={link?.id} {...link} />
-                    ))}
-                  </CardList>
-                }
-                classification={<FolderContent />}
+                content={<FolderContent />}
               />
             }
           />

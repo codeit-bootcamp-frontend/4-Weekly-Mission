@@ -5,29 +5,47 @@ import { useEffect, useState } from "react";
 import { CategoryNav } from "ui/CategoryNav/CategoryNav";
 import { CardList } from "ui/CardList";
 import { ReadOnlyCard } from "ui/ReadOnlyCard";
+import { EmptyLink } from "ui/EmptyLink/EmptyLink";
+import { getFolders, getFolder } from "../../data-access/getFolders";
 
 export function FolderContent() {
+  const [folders, setFolders] = useState();
   const [folder, setFolder] = useState();
   const [data, setData] = useState();
   const [folderLinkCount, setFolderLinkCount] = useState();
   const [folderId, setFolderId] = useState(0);
   const [activeCategoryName, setActiveCategoryName] = useState("전체");
 
+  const handleLoadAllFolders = async () => {
+    const { data } = await getFolders();
+    setFolders(data);
+  };
+
   const handleLoadCategory = async () => {
     const { data } = await getCategory();
-    console.log(data);
     setData(data);
+  };
+
+  const handleLoadFolder = async ({ folderId }) => {
+    if (folderId === "") {
+      const { data } = getFolders();
+      setFolder(data);
+    } else {
+      const { data } = await getFolder({ folderId });
+      setFolder(data);
+    }
   };
 
   const handleCategoryActive = (e) => {
     setActiveCategoryName(e.target.value);
-    setFolderLinkCount(e.target.count);
-    console.log(e.target.count);
+    setFolderLinkCount(folderId !== "" ? e.target.count : folders.length);
     setFolderId(e.target.id);
   };
 
   useEffect(() => {
+    handleLoadAllFolders();
     handleLoadCategory();
+    handleLoadFolder({ folderId });
   }, []);
 
   return (
@@ -58,7 +76,9 @@ export function FolderContent() {
         <button className="add-folder-button">폴더 추가 +</button>
       </div>
       <CategoryNav activeCategoryName={activeCategoryName} />
-      {folderLinkCount && (
+      {!folderLinkCount ? (
+        <EmptyLink />
+      ) : (
         <CardList>
           {folder?.map((link) => (
             <ReadOnlyCard key={link?.id} {...link} />
