@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { getFolderList, getLink, getLinkDetail } from '../apis/api';
+import { getFolderList } from '../apis/api';
 
 import Gnb from '../components/Gnb';
 import AddLink from '../AddLink';
