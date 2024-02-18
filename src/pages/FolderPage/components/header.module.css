@@ -24,8 +24,8 @@
 
 .input {
   width: 100%;
+  border: 1px solid var(--primary-color);
   border-radius: 1.5rem;
-  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   padding: 1.6rem 2rem 1.5rem 5.2rem;
   line-height: 1;
 }

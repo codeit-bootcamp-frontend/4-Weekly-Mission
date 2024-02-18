@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./card.module.css";
-import { noImage, meatballsIcon, starIcon } from "assets";
 import { formatDate, getTimeDifference } from "utils/helpers/dateUtils";
+
+import noImage from "assets/images/no_image.jpeg";
+import meatballsIcon from "assets/images/ic_meatballs.svg";
+import starIcon from "assets/images/ic_star.svg";
 
 function Card({ item, onClick }) {
   const { createdAt, created_at, description, imageSource, image_source } =
@@ -35,6 +38,7 @@ function Card({ item, onClick }) {
           alt="별모양 아이콘"
         />
       </div>
+
       <div className={styles.info}>
         <div className={styles.infoTop}>
           <div className={styles.difference}>
@@ -51,7 +55,6 @@ function Card({ item, onClick }) {
               </div>
             )}
           </div>
-          
         </div>
         <div className={styles.description}>{description}</div>
         <div className={styles.date}>{formatDate(cardCreatedAt)}</div>

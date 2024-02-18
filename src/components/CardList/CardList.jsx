@@ -1,7 +1,6 @@
-import React from "react";
 import styles from "./cardlist.module.css";
 import Card from "components/Card/Card";
-import { SearchResults } from "pages";
+import { NoResults } from "pages";
 
 function CardList({ items }) {
   const handleClick = (url) => {
@@ -9,7 +8,7 @@ function CardList({ items }) {
   };
 
   if (items.length === 0) {
-    return <SearchResults />;
+    return <NoResults />;
   }
 
   return (

@@ -1,10 +1,11 @@
 import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./navbar.module.css";
-import { logoImage } from "assets";
 import { fetchUserData } from "services/api";
-import Profile from "./Profile/Profile";
 import { UserContext } from "context/UserProvider";
+import styles from "./navbar.module.css";
+import Profile from "./Profile/Profile";
+
+import logoImage from "assets/images/logo.svg";
 
 function Navbar() {
   const { id } = useContext(UserContext);

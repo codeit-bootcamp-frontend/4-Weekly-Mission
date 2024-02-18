@@ -1,17 +1,16 @@
-import React from "react";
-import style from "./searchbar.module.css";
-import { searchIcon } from "assets";
+import styles from "./searchbar.module.css";
+import searchIcon from "assets/images/ic_search.svg";
 
-function SearchBar({ type, value, onChange }) {
+function SearchBar({ value, onChange }) {
   return (
-    <div className={style.container}>
-      <img src={searchIcon} className={style.icon}/>
+    <div className={styles.container}>
+      <img src={searchIcon} className={styles.icon} />
       <input
-        type={type}
+        type="text"
         value={value}
         onChange={onChange}
         placeholder="링크를 검색해 보세요."
-        className={style.input} 
+        className={styles.input}
       />
     </div>
   );

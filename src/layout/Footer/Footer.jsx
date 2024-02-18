@@ -1,6 +1,9 @@
-import React from "react";
 import styles from "./footer.module.css";
-import { facebookIcon, twitterIcon, youtubeIcon, instagramIcon } from "assets";
+
+import facebookIcon from "assets/images/akar-icons_facebook-fill.svg";
+import twitterIcon from "assets/images/akar-icons_twitter-fill.svg";
+import youtubeIcon from "assets/images/akar-icons_youtube-fill.svg";
+import instagramIcon from "assets/images/ant-design_instagram-filled.svg";
 
 function Footer() {
   return (

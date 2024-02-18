@@ -1,6 +1,6 @@
-import React from "react";
 import style from "./header.module.css";
-import { linkIcon } from "assets";
+import linkIcon from "assets/images/ic_link.svg";
+
 function Header() {
   return (
     <div className={style.container}>
