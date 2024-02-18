@@ -7,7 +7,7 @@ import { getUser, getFolder } from '../api';
 import { useState } from 'react';
 
 const Shared = () => {
-  const [user, setUser] = useState({ email: null, profileImageSource: null });
+  const [user, setUser] = useState(null);
   const [folder, setFolder] = useState({
     profileImageSource: null,
     ownerName: null,
@@ -15,21 +15,20 @@ const Shared = () => {
     links: null,
   });
 
-  const handleLoad = async () => {
+  const handleLoadProfile = async () => {
     const userProfile = await getUser();
-    const userFolder = await getFolder();
-
+    console.log(user);
     try {
-      setUser({
-        email: userProfile.data.email,
-        profileImageSource: userProfile.data.profileImageSource,
-      });
+      setUser(userProfile.data);
     } catch (e) {
       alert(userProfile.error);
     }
+  };
 
+  const handleLoadFolder = async () => {
+    const userFolder = await getFolder();
+    console.log(folder);
     try {
-      console.log(userFolder.data.folder);
       setFolder({
         profileImageSource: userFolder.data.folder.owner.profileImageSource,
         ownerName: userFolder.data.folder.owner.name,
@@ -42,7 +41,8 @@ const Shared = () => {
   };
 
   useEffect(() => {
-    handleLoad();
+    handleLoadProfile();
+    handleLoadFolder();
   }, []);
 
   return (
