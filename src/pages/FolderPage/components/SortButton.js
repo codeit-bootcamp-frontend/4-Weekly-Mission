@@ -1,4 +1,8 @@
 import styled from 'styled-components';
+/*
+  즐겨찾기 버튼의 styled component 입니다.
+*/
+
 function SortButton({ id, text, handleClick, isclickedProp = false }) {
   const handleSendSelectedFolder = (e) => {
     const newFolder = {

@@ -1,6 +1,17 @@
 import { useEffect, useState } from 'react';
 import { getLastTime, formatDate } from '../utils/timeCalculater';
 import noneImg from '../assets/noneImg.svg';
+
+/*
+  폴더 페이지(FolderList 컴포넌트)에서 
+  링크 데이터를 가져오는 커스텀 훅
+
+  url을 받아서 fetch 실행, 결과 추출해서 반환
+
+  url을 useEffect의 dependency array에 설정해서
+  상위컴포넌트에서 url이 바뀌면 리랜더링
+ */
+
 function useLinksData(url) {
   const [linksArray, setLinksArray] = useState([]);
 
