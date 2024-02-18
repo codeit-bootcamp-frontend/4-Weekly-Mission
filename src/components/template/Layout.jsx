@@ -1,5 +1,5 @@
 import { isMobile } from 'react-device-detect';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 import GNB from 'components/common/gnb/GNB';
@@ -17,19 +17,22 @@ const Styled = {
     width: 100%;
     padding: 0 calc((100vw - 110rem) / 2 + 2rem);
     @media (max-width: 1199px) {
-      padding: 0 3.2rem;
+      padding: 6rem 3.2rem 9rem 3.2rem;
     }
   `,
 };
 
 function Layout({ children }) {
+  const location = useLocation();
+  const isFixed = location.pathname !== '/folder';
+
   const calculatePadding = () => {
-    return !isMobile ? '4rem' : '2rem';
+    return !isFixed ? 0 : '4rem';
   };
 
   return (
     <Styled.Body className="layout-body">
-      <GNB />
+      <GNB isFixed={isFixed} />
       <Styled.Container className="layout-container" style={{ paddingTop: calculatePadding() }}>
         <Outlet />
         {children}
