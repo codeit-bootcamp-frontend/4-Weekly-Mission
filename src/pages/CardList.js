@@ -1,30 +1,22 @@
 import '../styles/CardList.css';
 import Card from './Card';
 
-const CardList = () => {
-  // const cardList // 받아올 예정.
+const CardList = ({ folderInfo }) => {
+  const card = folderInfo?.folder.links;
+  console.log(card);
 
   return (
     <>
       <div className='cardlist'>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        {/* {cardList ? (
-        <>
-          {cardList.map((cardlist) => (
-            <Card cardlist={cardlist} key={cardlist.id} />
-          ))}
-        </>
-      ) : (
-        <div>폴더가 비어있습니다.</div>
-      )}*/}
+        {card ? (
+          <>
+            {card.map(card => (
+              <Card card={card} key={card.id} />
+            ))}
+          </>
+        ) : (
+          <div>폴더가 비어있습니다.</div>
+        )}
       </div>
     </>
   );

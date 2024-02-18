@@ -1,18 +1,58 @@
 import '../styles/Card.css';
+import noneProfile from '../assets/logo/noneProfile.svg';
 
-const Card = () => {
+const createDate = value => {
+  const date = new Date(value);
+  return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
+};
+
+const intervalDate = value => {
+  const createdDate = new Date(value);
+  const currentDate = new Date();
+
+  const diffMinute = Math.floor((currentDate - createdDate) / 1000 / 60);
+  const diffHour = Math.floor(diffMinute / 60);
+  const diffDay = Math.floor(diffHour / 24);
+  const diffMonth = Math.floor(diffDay / 30);
+  const diffYear = Math.floor(diffMonth / 12);
+
+  if (diffMinute < 2) {
+    return '1 minute ago';
+  }
+  if (diffMinute <= 59) {
+    return `${diffMinute} minutes ago`;
+  }
+  if (diffHour <= 23) {
+    return `${diffHour} hour${diffHour < 2 ? '' : 's'} ago`;
+  }
+  if (diffDay <= 30) {
+    return `${diffDay} day${diffDay < 2 ? '' : 's'} ago`;
+  }
+  if (diffMonth <= 11) {
+    return `${diffMonth} month${diffMonth < 2 ? '' : 's'} ago`;
+  } else {
+    return `${diffYear} year${diffYear < 2 ? '' : 's'} ago`;
+  }
+};
+
+const Card = ({ card }) => {
+  const { url, title, imageSource, description, createdAt } = card;
+  const cardImage = imageSource ? imageSource : noneProfile;
+  const altCardImage = title + '로 이동';
+  console.log(altCardImage);
+
   return (
     <div className='card'>
-      {/* <a href={url} target="_blank" rel="noreferrer"> */}
-      <div className='card-image-content'>
-        <img className='card-image' src='../assets/logo/google.png' alt='대체 카드 이미지!' />
-      </div>
-      <div className='card-content'>
-        <div className='card-interval-date'>얼마나 지났을까?</div>
-        <div className='card-description'>카드 내용임</div>
-        <div className='card-create-date'>날짜임</div>
-      </div>
-      {/* </a> */}
+      <a href={url} target='_blank' rel='noreferrer'>
+        <div className='card-image-content'>
+          <img className='card-image' src={cardImage} alt={altCardImage} />
+        </div>
+        <div className='card-content'>
+          <div className='card-interval-date'>{intervalDate(createdAt)}</div>
+          <div className='card-description'>{description}</div>
+          <div className='card-create-date'>{createDate(createdAt)}</div>
+        </div>
+      </a>
     </div>
   );
 };

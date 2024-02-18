@@ -28,7 +28,7 @@ const Page = () => {
     <div>
       <Header userInfo={user} />
       <Info folderInfo={folder} />
-      <Folder />
+      <Folder folderInfo={folder} />
       <Footer />
     </div>
   );
