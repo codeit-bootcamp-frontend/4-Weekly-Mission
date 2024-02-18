@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getFolderData } from '../../apis/folder';
 import Folder from '../../components/Folder/Folder';
-import CardGrid from '../../components/Card/Card';
+import Card from '../../components/Card/Card';
 import CardSearchbar from '../../components/common/SearchBar/CardSearchbar';
 import FolderContainer from './sharedPageStyle';
 
@@ -25,7 +25,7 @@ const SharedPage = () => {
       {folders && <Folder {...folders} />}
       <FolderContainer>
         <CardSearchbar />
-        {cards && <CardGrid links={cards} />}
+        {cards && <Card links={cards} />}
       </FolderContainer>
     </>
   );

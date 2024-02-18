@@ -1,38 +1,44 @@
-import './card.css';
-import nonepage from '../../assets/images/folderImgNone.png';
+import nonePage from '../../assets/images/folderImgNone.png';
 import { getRelativeTime, formatDateString } from '../../utils/timeUtils';
+import {
+  CardGrid,
+  CardLinkList,
+  CardLinkImage,
+  CardLinkContent,
+  CardLinkTimeago,
+  CardLinkDescription,
+  CardLinkDatestring,
+} from './cardStyle';
 
-const CardGrid = ({ links }) => {
-  const handleClickOpenLink = url => {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
+const Card = ({ links }) => {
   return (
-    <div className="card-grid">
+    <CardGrid>
       {links.map(link => (
-        <article
+        <a
           key={link.id}
-          className="card-link-list"
-          onClick={() => handleClickOpenLink(link.url)}
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          <img
-            src={link.imageSource || nonepage}
-            alt={link.title}
-            className="card-link-image"
-          />
-          <section className="card-link-content">
-            <time className="card-link-timeago" dateTime={link.createdAt}>
-              {getRelativeTime(link.createdAt)}
-            </time>
-            <p className="card-link-description">{link.description}</p>
-            <time className="card-link-datestring" dateTime={link.createdAt}>
-              {formatDateString(link.createdAt)}
-            </time>
-          </section>
-        </article>
+          <CardLinkList>
+            <CardLinkImage
+              src={link.imageSource || nonePage}
+              alt={link.title}
+            />
+            <CardLinkContent>
+              <CardLinkTimeago dateTime={link.createdAt}>
+                {getRelativeTime(link.createdAt)}
+              </CardLinkTimeago>
+              <CardLinkDescription>{link.description}</CardLinkDescription>
+              <CardLinkDatestring dateTime={link.createdAt}>
+                {formatDateString(link.createdAt)}
+              </CardLinkDatestring>
+            </CardLinkContent>
+          </CardLinkList>
+        </a>
       ))}
-    </div>
+    </CardGrid>
   );
 };
 
-export default CardGrid;
+export default Card;
