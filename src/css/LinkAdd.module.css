@@ -22,7 +22,7 @@
   left: 15px;
 }
 
-input {
+.linkAdd input {
   width: 100%;
   padding: 22px 20px;
   border-radius: 15px;
@@ -36,7 +36,7 @@ input::placeholder {
   padding: 22px;
 }
 
-button {
+.linkAdd button {
   position: absolute;
   right: 20px;
   color: var(--white);
