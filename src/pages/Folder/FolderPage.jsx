@@ -45,9 +45,9 @@ function FolderPage() {
     }
   };
 
-  useEffect(async () => {
-    await handleLoadFolders();
-    await handleLoadLinks();
+  useEffect(() => {
+    handleLoadFolders();
+    handleLoadLinks();
   }, [loginUser, activeFolder]);
 
   return (
