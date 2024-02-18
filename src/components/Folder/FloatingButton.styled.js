@@ -17,14 +17,14 @@ export const FloatingButton = styled.div`
     align-items: center;
     gap: 0.25rem;
   }
-`
+`;
 
 export const FloatingButtonText = styled.p`
   color: var(--Linkbrary-gray10);
   font-weight: 500;
   letter-spacing: -0.01875rem;
-`
+`;
 
 export const FloatingButtonImg = styled.img`
   padding-bottom: 0.2rem;
-`
+`;

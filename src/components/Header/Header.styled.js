@@ -6,7 +6,7 @@ export const Header = styled.div`
   max-width: 1920px;
   min-width: 375px;
   background-color: var(--Linkbrary-bg);
-  position: ${({ $sticky }) => $sticky ? "sticky" : "static" };
+  position: ${({ $isSticky }) => ($isSticky ? 'sticky' : 'static')};
   top: 0;
   left: 0;
   z-index: 999;

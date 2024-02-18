@@ -4,7 +4,7 @@ import { API_PATH } from '../../services/api-path';
 import { Link } from 'react-router-dom';
 import * as Styled from './Header.styled';
 
-function Header({ sticky = true }) {
+function Header({ isSticky = true }) {
   const [userInfo, setUserInfo] = useState({
     loginStatus: false,
     email: '',
@@ -39,7 +39,7 @@ function Header({ sticky = true }) {
   }, []);
 
   return (
-    <Styled.Header $sticky={sticky}>
+    <Styled.Header $isSticky={isSticky}>
       <Styled.Nav>
         <Link to='/'>
           <img src={HeaderLogoImg} alt='헤더 로고 이미지' />

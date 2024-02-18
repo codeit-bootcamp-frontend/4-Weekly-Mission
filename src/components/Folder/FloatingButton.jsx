@@ -5,7 +5,7 @@ function FloatingButton() {
   return (
     <Styled.FloatingButton>
       <Styled.FloatingButtonText>폴더 추가</Styled.FloatingButtonText>
-      <Styled.FloatingButtonImg src={FloatingAddIcon} alt="플로팅 버튼 아이콘"/>
+      <Styled.FloatingButtonImg src={FloatingAddIcon} alt='플로팅 버튼 아이콘' />
     </Styled.FloatingButton>
   );
 }

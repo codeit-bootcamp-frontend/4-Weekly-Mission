@@ -1,7 +1,7 @@
 import ModalKaKaoIcon from '../../assets/modal-kakao.svg';
 import ModalFacebookIcon from '../../assets/modal-facebook.svg';
 import ModalLinkIcon from '../../assets/modal-link.svg';
-import * as Styled from "./Modal.styled";
+import * as Styled from './Modal.styled';
 
 const modalShareList = [
   {

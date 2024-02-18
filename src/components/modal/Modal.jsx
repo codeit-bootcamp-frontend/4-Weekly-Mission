@@ -3,7 +3,7 @@ import ModalShareList from './ModalShareList';
 import ModalFolderAdd from './ModalFolderAdd';
 import ModalTitle from './ModalTitle';
 import ModalForm from './ModalForm';
-import * as Styled from "./Modal.styled";
+import * as Styled from './Modal.styled';
 
 function Modal({ modalAction, setModalAction, categoryList }) {
   const categoryListLoop = categoryList.slice(1); // 전체 카테고리는 제외
@@ -27,16 +27,16 @@ function Modal({ modalAction, setModalAction, categoryList }) {
 
   return (
     <>
-    {modalAction.isView && (
-      <Styled.ModalBox>
-        <Styled.Modal>
-          <ModalCloseButton onClick={handleModalClose} />
-          <ModalTitle title={modalAction.action} />
-          {isSubTitleView && <Styled.ModalSubTitle>{modalAction.subTitle}</Styled.ModalSubTitle>}
-          {actionScript[modalAction.action]}
-        </Styled.Modal>
-      </Styled.ModalBox>
-    )}
+      {modalAction.isView && (
+        <Styled.ModalBox>
+          <Styled.Modal>
+            <ModalCloseButton onClick={handleModalClose} />
+            <ModalTitle title={modalAction.action} />
+            {isSubTitleView && <Styled.ModalSubTitle>{modalAction.subTitle}</Styled.ModalSubTitle>}
+            {actionScript[modalAction.action]}
+          </Styled.Modal>
+        </Styled.ModalBox>
+      )}
     </>
   );
 }

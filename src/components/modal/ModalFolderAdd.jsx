@@ -1,5 +1,5 @@
 import ModalCategoryList from './ModalCategoryList';
-import * as Styled from "./Modal.styled";
+import * as Styled from './Modal.styled';
 
 function ModalFolderAdd({ categoryListLoop }) {
   return (
