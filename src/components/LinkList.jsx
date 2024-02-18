@@ -3,7 +3,7 @@ import { getUserInfo } from '../api/api';
 import LinkCard from './LinkCard';
 import styles from '../css/LinkList.module.css';
 
-function LinkList() {
+function LinkList({ query }) {
   const [folderData, setFolderData] = useState([]);
 
   const getFolderData = async (path) => {
@@ -15,8 +15,8 @@ function LinkList() {
   }
 
   useEffect(() => {
-    getFolderData('folder');
-  }, [])
+    getFolderData(query);
+  }, [query])
 
   return (
     <div className={styles.content}>

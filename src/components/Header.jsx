@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { getUserInfo } from '../api/api';
 import styles from '../css/Header.module.css';
 
-function Header() {
+function Header({ query }) {
   const [folderData, setFolderData] = useState({});
   const [folderOwnerData, setFolderOwnerData] = useState({});
 
@@ -16,8 +16,8 @@ function Header() {
   }
 
   useEffect(() => {
-    getFolderData('folder');
-  }, [])
+    getFolderData(query);
+  }, [query])
 
   return (
     <header className={styles.headerItems}>
