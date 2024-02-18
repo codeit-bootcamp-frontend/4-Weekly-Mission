@@ -4,7 +4,6 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 7.5rem;
-  padding: 0 104px;
   height: 160px;
   padding: 32px 104px 64px 104px;
   background: var(--black-color);
@@ -39,13 +38,18 @@
 }
 
 @media (max-width: 767px) {
-  footer {
+  .footer {
     position: relative;
-    padding: 1rem 2rem 4rem 2rem;
   }
 
   .footer-left {
     position: absolute;
     bottom: 2rem;
+  }
+}
+
+@media (max-width: 564px) {
+  .footer {
+    padding: 32px 20px 64px;
   }
 }
