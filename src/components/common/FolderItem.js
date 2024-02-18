@@ -7,8 +7,18 @@ import "../../style/shared.css";
 function FolderItem({ item }) {
   const [isHovering, setIsHovering] = useState(false);
   const { imageSource, createdAt, description, url, id } = item;
+  const { created_at, favorite, image_source } = item;
 
-  const time = CalcTime(createdAt);
+  let time = 0;
+  let img_src = "";
+
+  if (created_at) {
+    time = CalcTime(created_at);
+    img_src = image_source;
+  } else {
+    time = CalcTime(createdAt);
+    img_src = imageSource;
+  }
 
   const handleMouseOver = () => {
     setIsHovering(true);
@@ -26,14 +36,14 @@ function FolderItem({ item }) {
         onMouseOut={handleMouseOut}
       >
         <div className="imgBox">
-          {imageSource ? (
+          {img_src ? (
             <div className="folderImageBox">
               <img
-                src={imageSource}
+                src={img_src}
                 alt={id}
                 className={`folderImage ${isHovering ? "grow" : "folder-img"}`}
               ></img>
-              <Star className="star" fill="purple" />
+              <Star className="star" fill={favorite ? "purple" : "black"} />
             </div>
           ) : (
             <p>no image</p>
