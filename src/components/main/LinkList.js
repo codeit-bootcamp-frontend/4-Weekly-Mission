@@ -20,7 +20,7 @@ function LinkList({ searchParams }) {
   console.log(filterData);
   return (
     <div>
-      {filterData?.data?.length == 0 ? (
+      {filterData?.data?.length === 0 ? (
         <div className={styles.no_link_wrapper}>저장된 링크가 없습니다</div>
       ) : (
         <div className={styles.item_card_grid}>

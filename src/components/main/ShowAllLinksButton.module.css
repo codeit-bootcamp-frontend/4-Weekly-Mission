@@ -9,6 +9,11 @@ button {
   gap: 0.4rem;
 }
 
+@media (max-width: 777.5px) {
+  button {
+    font-size: 1.4rem;
+  }
+}
 .false {
   background-color: #fff;
   color: #000;

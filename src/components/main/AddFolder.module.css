@@ -16,7 +16,7 @@
   display: none;
 }
 
-@media (max-width: 767.5px) {
+@media (max-width: 777.5px) {
   .add_folder_button {
     display: none;
   }
@@ -25,7 +25,6 @@
     border-radius: 2rem;
     font-family: (--Pretendard-Regular);
     background-color: var(--primary-color);
-
     background: var(--Linkbrary-primary-color, #6d6afe);
     display: flex;
     align-items: center;

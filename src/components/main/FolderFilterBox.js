@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./FolderFilterBox.module.css";
 import FolderFilterButton from "./FolderFilterButton";
 import ShowAllLinksButton from "./ShowAllLinkButton";

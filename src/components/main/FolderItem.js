@@ -6,13 +6,18 @@ function FolderItem({ createdAt, url, title, imageSource }) {
       <div className={styles.folder_item_box}>
         {imageSource ? (
           <div className={styles.folder_image_box}>
-            <img src={imageSource} className={styles.folder_image} />
+            <img
+              src={imageSource}
+              className={styles.folder_image}
+              alt="folder_image"
+            />
           </div>
         ) : (
           <div className={styles.folder_image_box}>
             <img
               src={`${process.env.PUBLIC_URL}/assets/images/folder_no_image.svg`}
               className={styles.folder_image}
+              alt="folder_no_image"
             />
           </div>
         )}
