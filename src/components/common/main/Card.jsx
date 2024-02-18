@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import defaultImage from 'assets/images/noImage.png';
 import StarButton from 'components/folder/StarButton';
+import KebabButton from 'components/folder/KebabButton';
 
 /**
  *
@@ -32,7 +33,10 @@ const Card = ({
           {isFolder && <StarButton />}
         </CardImgContainer>
         <TextContainer>
-          <span>{timePassed}</span>
+          <SubContainer>
+            <span>{timePassed}</span>
+            {isFolder && <KebabButton />}
+          </SubContainer>
           <StyledP>{description}</StyledP>
           <StyledP className="date">{formattedDate}</StyledP>
         </TextContainer>
@@ -73,12 +77,14 @@ const CardImg = styled.img`
 `;
 
 const TextContainer = styled.div`
-  padding: 1rem 2rem;
+  padding: 1.4rem 2rem;
   text-align: start;
+  width: 100%;
   height: 13.5rem;
-
+  position: relative;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 1rem;
 
   span {
@@ -89,6 +95,10 @@ const TextContainer = styled.div`
     color: #333333;
     font-size: 1.4rem;
   }
+`;
+const SubContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 const StyledP = styled.p`
   display: -webkit-box;

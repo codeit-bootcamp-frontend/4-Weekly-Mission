@@ -1,17 +1,15 @@
 import { styled } from 'styled-components';
+import kebeb from 'assets/images/kebab.svg';
 
-import filledStar from 'assets/images/fillStar.svg';
-import emptystar from 'assets/images/emptyStar.svg';
-
-function StarButton({ isActive }) {
-  const src = isActive ? filledStar : emptystar;
-
+const KebabButton = () => {
   return (
     <StyledButton>
-      <img src={src} alt="찜 버튼" />
+      <img src={kebeb} alt="더보기 버튼" />
     </StyledButton>
   );
-}
+};
+
+export default KebabButton;
 
 const StyledButton = styled.button`
   background: transparent;
@@ -23,4 +21,3 @@ const StyledButton = styled.button`
   right: 1.5rem;
   z-index: 3;
 `;
-export default StarButton;

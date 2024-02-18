@@ -20,9 +20,12 @@ const CardGrid = ({ datas, isLoading, isFolder }) => {
               description,
               imageSource,
               image_source,
+              created_at,
             } = data;
-            const timePassed = calculateTime(createdAt);
-            const formattedDate = formatDate(createdAt);
+            console.log(created_at);
+
+            const timePassed = calculateTime(createdAt || created_at);
+            const formattedDate = formatDate(createdAt || created_at);
             return (
               <Card
                 key={id}
