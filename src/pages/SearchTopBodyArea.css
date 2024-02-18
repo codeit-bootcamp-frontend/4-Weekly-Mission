@@ -1,5 +1,5 @@
 .search_top_area {
-  margin-top: 63px;
+  /* margin-top: 63px; */
   height: 117px;
   padding: 24px 32px 40px;
   background: var(--bright-sky-blue);
@@ -54,7 +54,7 @@
 /* 768px부터 적용될 스타일 */
 @media (min-width: 768px) {
   .search_top_area {
-    margin-top: 93px;
+    /* margin-top: 93px; */
     height: 219px;
     padding: 24px 32px 60px;
   }
@@ -82,7 +82,6 @@
 /* 1124px부터 적용될 스타일 */
 @media (min-width: 1124px) {
   .search_top_area {
-    margin-top: 93px;
     padding: 60px auto 90px;
   }
 

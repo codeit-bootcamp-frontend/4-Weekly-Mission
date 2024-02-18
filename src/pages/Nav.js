@@ -18,7 +18,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <div className="header_area">
+    <div className="header_area relative">
       <Logo></Logo>
       {userInfo ? (
         <Profile email={userInfo.email}></Profile>
