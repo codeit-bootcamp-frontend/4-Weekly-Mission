@@ -46,7 +46,6 @@ function FolderPage() {
   };
 
   useEffect(() => {
-    console.log('git 고장...');
     handleLoadFolders();
     handleLoadLinks();
   }, [loginUser, activeFolder]);
