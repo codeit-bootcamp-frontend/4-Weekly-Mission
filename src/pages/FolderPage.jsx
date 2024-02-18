@@ -1,38 +1,65 @@
-import { useEffect, useState } from "react";
 import "../styles/FolderPage.css";
-import Footer from "../components/footer/Footer";
-import NavigationBar from "../components/header/NavigationBar";
-import Cards from "../components/main/Cards";
-import SearchBar from "../components/main/SearchBar";
-import UserInformation from "../components/main/FolderInformation";
-import { getCards, getUsers } from "../services/api";
+import floatingButton from "../assets/folder-add-icon-white.png";
+import Footer from "../common/footer/Footer";
+import NavigationBar from "../common/navigationBar/NavigationBar";
+import LinkAddBar from "../components/linkAddBar/LinkAddBar";
+import SearchBar from "../common/searchBar/SearchBar";
+import FolderMenu from "../components/folderMenu/FolderMenu";
+import FolderCurrentInformation from "../components/folderCurrentInformation/FolderCurrentInformation";
+import Cards from "../components/cards/Cards";
+import {
+  getCards,
+  getFolders,
+  getSelectedCards,
+  getUser,
+} from "../services/api";
+import { useEffect, useState } from "react";
 
 function FolderPage() {
-  const [folderOwners, setFolderOwners] = useState([]);
+  const [userCards, setUserCards] = useState([]);
+  const [userFolders, setUserFolders] = useState([]);
+  const [folderId, setFolderId] = useState();
   const [folderName, setFolderName] = useState();
-  const [cards, setCards] = useState([]);
   const [userInfo, setUserInfo] = useState([]);
+  const [isWholeFolderSelect, setIsWholeFolderSelect] = useState(false);
 
-  // 카드 정보 받아오기
   const getCardsInfo = async () => {
-    const cardsInfo = await getCards();
-    const folderOwners = cardsInfo.folder.owner;
-    const folderName = cardsInfo.folder.name;
-    const cards = cardsInfo.folder.links;
-    setFolderOwners(folderOwners);
-    setFolderName(folderName);
-    setCards(cards);
+    console.log(`getCardsInfo 실행`);
+    const response = await getCards();
+    const userCards = response.data;
+    setUserCards(userCards);
   };
 
-  // 유저 정보 받아오기
+  const getFoldersInfo = async () => {
+    console.log(`getFoldersInfo 실행`);
+    const response = await getFolders();
+    const userFolders = response.data;
+    setUserFolders(userFolders);
+  };
+
+  const getSelectedCardsInfo = async () => {
+    console.log(`getSelectedCardsInfo 실행`);
+    const response = await getSelectedCards(folderId);
+    const selectedCards = response.data;
+    setUserCards(selectedCards);
+  };
+
   const getUserInfo = async () => {
-    const userInfo = await getUsers();
+    console.log(`getUserInfo 실행`);
+    const response = await getUser();
+    const userInfo = response.data[0];
     setUserInfo(userInfo);
+    console.log(userInfo);
   };
 
   useEffect(() => {
-    getCardsInfo();
+    getFoldersInfo();
+    getSelectedCardsInfo();
+  }, [folderId]);
+
+  useEffect(() => {
     getUserInfo();
+    getCardsInfo();
   }, []);
 
   return (
@@ -41,11 +68,28 @@ function FolderPage() {
         <NavigationBar userInfo={userInfo} />
       </header>
       <main>
-        <UserInformation folderOwners={folderOwners} folderName={folderName} />
-        <div className="content_container">
-          <SearchBar />
-          <Cards cards={cards} />
-        </div>
+        <LinkAddBar />
+        <SearchBar />
+        <FolderMenu
+          folders={userFolders}
+          getCardsInfo={getCardsInfo}
+          setFolderId={setFolderId}
+          setFolderName={setFolderName}
+          setIsWholeFolderSelect={setIsWholeFolderSelect}
+        />
+        <FolderCurrentInformation
+          folderName={folderName}
+          isWholeFolderSelect={isWholeFolderSelect}
+        />
+        <Cards cards={userCards} />
+        <button className="mobile_floating_button">
+          <span>폴더 추가</span>
+          <img
+            className="floating_add_image"
+            src={floatingButton}
+            alt="add button"
+          />
+        </button>
       </main>
       <footer>
         <Footer />

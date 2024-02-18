@@ -1,5 +1,5 @@
-const elapsedTime = (link) => {
-  const createdTime = new Date(link.createdAt);
+const elapsedTime = (card) => {
+  const createdTime = new Date(card.createdAt || card.created_at);
   const currentTime = new Date();
   const timeDiff = Math.floor((currentTime - createdTime) / 1000 / 60);
 
