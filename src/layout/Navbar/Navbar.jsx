@@ -25,7 +25,7 @@ function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.wrap}>
         <NavLink to="/">
-          <img src={logoImage} className={styles.logo} />
+          <img src={logoImage} className={styles.logo} alt="로고"/>
         </NavLink>
         {user ? (
           <NavLink to="/mypage">

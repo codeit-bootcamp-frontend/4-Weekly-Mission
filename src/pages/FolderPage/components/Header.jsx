@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className={style.container}>
       <form className={style.form}>
-        <img src={linkIcon} className={style.icon} />
+        <img src={linkIcon} className={style.icon} alt="링크 아이콘" />
         <input
           className={style.input}
           type="text"

@@ -4,7 +4,7 @@ import searchIcon from "assets/images/ic_search.svg";
 function SearchBar({ value, onChange }) {
   return (
     <div className={styles.container}>
-      <img src={searchIcon} className={styles.icon} />
+      <img src={searchIcon} className={styles.icon} alt="돋보기 아이콘"/>
       <input
         type="text"
         value={value}

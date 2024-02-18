@@ -27,6 +27,7 @@ function Card({ item, onClick }) {
             e.target.src = noImage;
           }}
           className={styles.image}
+          alt="대표 이미지"
         />
         <img
           src={starIcon}
