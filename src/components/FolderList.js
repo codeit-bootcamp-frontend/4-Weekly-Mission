@@ -16,27 +16,27 @@ function FolderList() {
 
   const handleSortButtonClick = (newSelectedFolder) => {
     setSelectedFolder(newSelectedFolder);
-    const query = `?folder=${newSelectedFolder.id}`;
+    const query =
+      newSelectedFolder.id == 1 ? '' : `?folderId=${newSelectedFolder.id}`;
     setLinksFetchUrl(USERS_LINKS_URL + query);
-    console.log(linksFetchUrl);
   };
 
   return (
     <div className="folders-container">
       <div className="folders">
         <LinkSearchBar></LinkSearchBar>
-        {links.length == 0 ? (
-          <div className="none-list">
-            <p className="none-list__text">저장된 링크가 없습니다</p>
-          </div>
-        ) : (
-          <div className="folder-list">
-            <FolderSortBar
-              folders={folders}
-              handleClick={handleSortButtonClick}
-              selectedId={selectedFolder.id}
-            ></FolderSortBar>
-            <FolderOptionBar text={selectedFolder.name}></FolderOptionBar>
+        <div className="folder-list">
+          <FolderSortBar
+            folders={folders}
+            handleClick={handleSortButtonClick}
+            selectedId={selectedFolder.id}
+          ></FolderSortBar>
+          <FolderOptionBar text={selectedFolder.name}></FolderOptionBar>
+          {links.length == 0 ? (
+            <div className="none-list">
+              <p className="none-list__text">저장된 링크가 없습니다</p>
+            </div>
+          ) : (
             <div className="folder-list__links">
               {links.map((card) => (
                 <Card
@@ -50,8 +50,8 @@ function FolderList() {
                 />
               ))}
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );

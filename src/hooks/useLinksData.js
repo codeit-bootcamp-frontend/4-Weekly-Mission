@@ -25,7 +25,7 @@ function useLinksData(url) {
       }
     };
     getData();
-  }, []);
+  }, [url]);
 
   return linksArray;
 }
