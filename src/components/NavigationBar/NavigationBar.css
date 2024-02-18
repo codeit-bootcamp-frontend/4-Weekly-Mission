@@ -3,7 +3,7 @@
   justify-content: center;
   position: sticky;
   top: 0;
-  z-index: var(--z-index-nav);
+  z-index: var(--gnb-high);
   width: 100%;
   background-color: var(--background);
 }

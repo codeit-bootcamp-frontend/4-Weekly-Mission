@@ -66,3 +66,9 @@
 .Card.hover .Card-content {
   background-color: var(--background);
 }
+
+.Card-content-menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

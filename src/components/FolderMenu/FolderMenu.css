@@ -1,0 +1,87 @@
+.FolderMenu {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 106rem;
+  gap: 2rem;
+  margin: 3rem auto;
+
+  @media (max-width: 768px) {
+    display: inline-block;
+  }
+}
+
+.FolderMenu button {
+  margin: 0.3rem;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.4rem;
+  outline: solid 0.15rem var(--primary);
+  text-align: center;
+}
+
+.FolderMenu button:focus {
+  background-color: var(--primary);
+}
+
+.FolderFunction {
+  display: flex;
+  justify-content: space-between;
+  align-items: self-start;
+}
+
+.FolderButton {
+  display: flex;
+  gap: 2rem;
+}
+
+.FolderLink {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(32.5rem);
+  justify-content: center;
+  width: 100%;
+  max-width: 106rem;
+  row-gap: 2rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fill, 34rem);
+    row-gap: 2.5rem;
+    column-gap: 2rem;
+  }
+}
+
+.FolderName {
+  margin-bottom: 2rem;
+  font-size: large;
+}
+
+.noLink {
+  position: absolute;
+  top: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: large;
+}
+
+.FolderMenu .addFolder {
+  position: absolute;
+  right: 0;
+  outline: solid 0px;
+  color: var(--primary);
+
+  @media (max-width: 768px) {
+    position: fixed;
+    bottom: 101px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: var(--gnb-low);
+    background-color: var(--primary);
+    color: #ffffff;
+    width: 10rem;
+    border-radius: 4rem;
+  }
+}
+
+.FolderMenu .addFolder:focus {
+  background-color: transparent;
+}

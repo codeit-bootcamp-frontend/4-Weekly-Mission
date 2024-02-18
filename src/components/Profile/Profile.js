@@ -5,7 +5,7 @@ export const Profile = ({ profile }) => {
 
   return (
     <div className="Profile">
-      <img className="Profile-image" src={profileImageSource} alt="Profile-image" />
+      <img className="Profile-image" src={profileImageSource} alt="Profile" />
       <span className="Profile-email">{email}</span>
     </div>
   );
