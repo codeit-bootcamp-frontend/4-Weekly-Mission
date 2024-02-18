@@ -1,0 +1,31 @@
+.cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  row-gap: 25px;
+  column-gap: 20px;
+  @media (max-width: 1143px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 784px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.no-links {
+  padding: 41px 0px 35px 0px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: #000;
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  @media (max-width: 784px) {
+    font-size: 14px;
+    line-height: normal;
+  }
+}

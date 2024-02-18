@@ -1,0 +1,6 @@
+{
+  "javascript.preferences.importModuleSpecifier": "relative",
+  "javascript.suggest.autoImports": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.suggest.includeCompletionsForImportStatements": true
+}
