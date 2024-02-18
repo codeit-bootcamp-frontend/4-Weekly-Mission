@@ -1,13 +1,24 @@
-import { CategoryButton } from "ui/CategoryButton";
 import "./Category.css";
 
-export const Category = ({ buttonClicked }) => {
+export const Category = ({ buttonClicked, linkData, currentCategory }) => {
   return (
     <div className="Category-wrapper">
       <div className="Categories">
-        <CategoryButton buttonClicked={buttonClicked}>전체</CategoryButton>
-        <CategoryButton buttonClicked={buttonClicked}>즐겨찾기</CategoryButton>
+        {linkData?.map((folder) => (
+          <button
+            className={
+              folder.name === currentCategory
+                ? "CategoryButton button-clicked"
+                : "CategoryButton"
+            }
+            key={folder?.id}
+            onClick={buttonClicked}
+          >
+            {folder?.name}
+          </button>
+        ))}
       </div>
+      <button className="add-folder">폴더 추가하기 +</button>
     </div>
   );
 };

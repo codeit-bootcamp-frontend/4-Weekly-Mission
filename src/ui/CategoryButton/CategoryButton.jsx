@@ -1,9 +1,5 @@
 import "./CategoryButton.css";
 
-export const CategoryButton = ({ children, buttonClicked }) => {
-  return (
-    <button className="CategoryButton" onClick={buttonClicked}>
-      {children}
-    </button>
-  );
+export const CategoryButton = ({ children }) => {
+  return <button className="CategoryButton">{children}</button>;
 };
