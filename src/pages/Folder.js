@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import AddLink from '../components/AddLink';
 import FolderContent from '../components/FolderContent';
 import SearchBar from '../components/SearchBar';
+import FolderList from '../components/FolderList';
 import CardList from '../components/CardList';
 import Footer from '../components/Footer';
 
@@ -33,6 +34,7 @@ const Folder = () => {
       <AddLink />
       <FolderContent>
         <SearchBar />
+        <FolderList />
         <CardList folderInfo={folder} />
       </FolderContent>
 
