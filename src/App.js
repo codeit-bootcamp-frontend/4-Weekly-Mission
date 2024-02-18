@@ -3,6 +3,7 @@ import { SharedPage } from './page-layout/SharedPage';
 import { FolderPage } from './page-layout/FolderPage';
 import './global.css';
 import { FolderInfo } from './ui/FolderInfo';
+import { AddLinkSearchBar } from './ui/AddLinkSearchBar';
 import { SearchBar } from './ui/SearchBar';
 import { CardList } from './ui/CardList';
 import { useGetFolder } from 'data-access/useGetFolder';
@@ -43,6 +44,7 @@ function App() {
             path="folder"
             element={
               <FolderPage
+                addLinkSearchBar={<AddLinkSearchBar />}
                 searchBar={<SearchBar />}
                 cardList={
                   <CardList>
