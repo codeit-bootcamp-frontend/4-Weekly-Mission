@@ -4,7 +4,7 @@ import Tab from './Tab';
 function TabList({ items }) {
   return (
     <S.List>
-      {items.map((item) => (
+      {items?.map((item) => (
         <Tab>{item}</Tab>
       ))}
     </S.List>
