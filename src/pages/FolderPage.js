@@ -33,9 +33,11 @@ const FolderPage = () => {
       const { data } = await getLinks(userId, '');
       setSelectFolderName('전체');
       setLinkList({ links: [...data] });
+      setDisplayPopButton(data.length >= 1 && true);
     } else {
       setSelectFolderName(folderName);
       setLinkList({ links: [...list] });
+      setDisplayPopButton(list.length >= 1 && true);
     }
   };
 
