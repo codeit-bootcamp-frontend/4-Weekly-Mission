@@ -1,6 +1,8 @@
 .SearchBar {
   position: relative;
   width: 100%;
+  display: flex;
+  padding: 60px 320px 90px;
 }
 
 .SearchBar-input {
@@ -29,4 +31,6 @@
   top: 50%;
   transform: translateY(-50%);
   left: 1.6rem;
+  padding-left: 320px;
+  padding-bottom: 30px;
 }
