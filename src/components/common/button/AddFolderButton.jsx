@@ -7,6 +7,10 @@ const Styled = {
     justify-content: center;
     align-items: center;
     gap: 0.4rem;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
   `,
 
   Label: styled.div`
