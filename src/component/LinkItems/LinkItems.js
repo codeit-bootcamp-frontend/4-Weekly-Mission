@@ -13,7 +13,7 @@ const LinkItem = ({ link }) => {
 
   return (
     <div className="LinkItem">
-      <a href={link.url}>
+      <a href={link.url} target="_blank">
         <img
           src={link.imageSource || link.image_source || defaultImage}
           alt="링크 이미지"
