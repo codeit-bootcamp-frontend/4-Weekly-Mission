@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Header from '../components/Header';
+import Header from '../components/header/Header';
 import Footer from '../components/Footer';
 import CardList from '../components/CardList';
 import SearchBar from '../components/SearchBar';

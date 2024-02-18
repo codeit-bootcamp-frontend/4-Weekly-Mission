@@ -1,6 +1,7 @@
 import React from 'react';
-import logo from '../images/logo.svg';
-import './styles/header.css';
+import logo from '../../images/logo.svg';
+import '../styles/header.css';
+import FolderTitle from './FolderTitle';
 
 const Header = ({ user, folder }) => {
   return (
@@ -20,11 +21,12 @@ const Header = ({ user, folder }) => {
           </a>
         )}
       </nav>
-      <div className="folder">
+      {/* <div className="folder">
         <img src={folder.profileImageSource} alt="userImage" className="folder-user-image" />
         <p className="folder-user-name">@{folder.ownerName}</p>
         <p className="folder-name">{folder.folderName}</p>
-      </div>
+      </div> */}
+      <FolderTitle folder={folder} />
     </header>
   );
 };
