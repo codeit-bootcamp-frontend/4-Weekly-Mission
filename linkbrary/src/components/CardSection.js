@@ -1,63 +1,12 @@
 import "../styles/CardSection.css";
 import starImgSrc from "../assets/star.svg";
 import kebabImgSrc from "../assets/kebab.svg";
+import CalculateTime from "./CalculateTime";
 
-const getElapsedTimeMessage = (createdAtTime) => {
-  const currentDays = new Date();
-  let ElapsedTime = Math.floor((currentDays - createdAtTime) / 1000 / 60);
-
-  if (ElapsedTime < 2) {
-    return "1 minute ago";
-  }
-
-  if (ElapsedTime < 60) {
-    return `${ElapsedTime} minutes ago`;
-  }
-
-  ElapsedTime = Math.floor(ElapsedTime / 60);
-
-  if (ElapsedTime < 24) {
-    return `${ElapsedTime} ${ElapsedTime === 1 ? "hour" : "hours"} ago`;
-  }
-
-  ElapsedTime = Math.floor(ElapsedTime / 24);
-
-  if (ElapsedTime < 31) {
-    return `${ElapsedTime} ${ElapsedTime === 1 ? "day" : "days"} ago`;
-  }
-
-  ElapsedTime = Math.floor(ElapsedTime / 365);
-
-  if (ElapsedTime < 1) {
-    const currentYear = currentDays.getFullYear();
-    const currentMonth = currentDays.getMonth() + 1;
-    const currentDate = currentDays.getDate();
-    const createdYear = createdAtTime.getFullYear();
-    const createdMonth = createdAtTime.getMonth() + 1;
-    const createdDate = createdAtTime.getDate();
-
-    if (currentYear === createdYear) {
-      if (currentDate >= createdDate) {
-        return `${currentMonth - createdMonth} months ago`;
-      }
-      return `${currentMonth - createdMonth - 1} months ago`;
-    }
-    if (currentYear > createdYear) {
-      if (currentDate >= createdDate) {
-        return `${12 - createdMonth + currentMonth} months ago`;
-      }
-      return `${12 - createdMonth + currentMonth - 1} months ago`;
-    }
-  }
-
-  if (ElapsedTime >= 1) {
-    return `${ElapsedTime} ${ElapsedTime === 1 ? "year" : "years"} ago`;
-  }
-};
-
-function CardSection({ url, createdAt, desc, imgUrl }) {
+function CardSection({ item }) {
   const createdDays = new Date(createdAt);
-
+  const { imageSource, createdAt, description, url, id } = item;
+  const { created_at, favorite, image_source } = item;
   return (
     <a
       href={url}
@@ -66,8 +15,8 @@ function CardSection({ url, createdAt, desc, imgUrl }) {
       className="link-card-area"
     >
       <div className="img-group">
-        {imgUrl ? (
-          <img src={imgUrl} alt="미리보기" className="img-card" />
+        {imageSource ? (
+          <img src={imageSource} alt="미리보기" className="img-card" />
         ) : (
           <div className="img-card no-img"></div>
         )}
@@ -77,12 +26,12 @@ function CardSection({ url, createdAt, desc, imgUrl }) {
       </div>
       <div className="card-info-group">
         <div className="time-info-group">
-          <p className="elapsed-time">{getElapsedTimeMessage(createdDays)}</p>
+          <p className="elapsed-time">{CalculateTime(createdDays)}</p>
           <button className="more">
             <img src={kebabImgSrc} alt="더보기" />
           </button>
         </div>
-        <p className="desc">{desc}</p>
+        <p className="desc">{description}</p>
         <p className="date">{`${createdDays.getFullYear()}. ${
           createdDays.getMonth() + 1
         }. ${createdDays.getDate()}`}</p>
