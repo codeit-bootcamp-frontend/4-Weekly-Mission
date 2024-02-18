@@ -18,6 +18,7 @@ export function Classification() {
   return (
     <div className="classification">
       <div className="classification-buttons">
+        <Button key="all">전체</Button>
         {data?.map((category) => (
           <Button key={category?.id}>{category.name}</Button>
         ))}

@@ -11,10 +11,23 @@ import { FolderPage } from "page-layout/FolderPage/FolderPage";
 import { Classification } from "ui/Classification/Classification";
 import { AddLinkBar } from "ui/AddLinkBar/AddLinkBar";
 import { SharedPossibleCard } from "ui/SharedPossibleCard";
+import { getFolders } from "data-access/getFolders";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [folders, setFolders] = useState();
+
   const { data } = useGetFolder();
   const { profileImage, ownerName, folderName, links } = data || {};
+
+  const handleLoadFolders = async () => {
+    const { data } = await getFolders();
+    setFolders(data);
+  };
+
+  useEffect(() => {
+    handleLoadFolders();
+  }, []);
 
   return (
     <BrowserRouter>
@@ -34,7 +47,7 @@ function App() {
                 searchBar={<SearchBar />}
                 cardList={
                   <CardList>
-                    {links?.map((link) => (
+                    {folders?.map((link) => (
                       <ReadOnlyCard key={link?.id} {...link} />
                     ))}
                   </CardList>
