@@ -1,19 +1,15 @@
-# 7주차 Weekly-Mission
+# 8주차 Weekly-Mission
 
 ### 📌 요구사항
 
 ### 🔎 기본 요구사항
 
-- [x] 상단 네비게이션 바, 푸터가 랜딩 페이지와 동일한 스타일과 규칙으로 구현 (week 1 ~ 3 요구사항 참고) <br />
-- [x] 상단 네비게이션 바에 프로필 영역의 데이터는 https://bootcamp-api.codeit.kr/docs 에 명세된 “/api/sample/user”를 활용 <br />
-- [x] 상단 네비게이션 바에 프로필 영역의 데이터가 없는 경우 “로그인” 버튼이 보이도록 설정 <br />
-- [x] 폴더 소유자, 폴더 이름 영역, 링크들에 대한 데이터는 “/api/sample/folder”를 활용 <br />
-- [x] Static, no image, Hover 상태 디자인을 보여주는 카드 컴포넌트 구현 <br />
-- [x] Hover 상태에서 이미지가 기본 크기의 130%로 커지도록 설정 <br />
-- [x] 카드 컴포넌트를 클릭하면 해당 링크로 새로운 창을 띄워서 이동하도록 설정 <br />
-- [x] Tablet에서 카드 리스트가 화면의 너비 1124px를 기준으로 이상일 때는 3열로 작을 때는 2열로 배치되도록 구현 <br />
-- [x] Tablet, Mobile에서 좌우 최소 여백은 32px 설정 <br />
+- [x] 링크 공유 페이지 url path는 ‘/shared’, 폴더 페이지 url path는 ‘/folder’가 되도록 설정 <br />
+- [x] 폴더 페이지에서 상단 네비게이션 바는 스크롤 시 상단에 고정하지 않고 가려지도록 설정 <br />
+- [x] 상단 네비게이션 바에 프로필 영역의 데이터는 https://bootcamp-api.codeit.kr/docs 에 명세된 “/api/users/1”을 활용 <br />
+- [x] “전체” 폴더를 선택한 경우 “공유”, “이름 변경”, “삭제” 버튼들이 보이지 않지만, 다른 폴더를 선택한 경우에는 버튼들이 보이도록 설정 <br />
+- [x] 폴더 목록에 필요한 데이터는 “/api/users/1/folders”를 활용 <br />
+- [x] “전체” 폴더에 필요한 링크들 데이터는 “/api/users/1/links”를 활용하고, 이외의 폴더에 필요한 링크들 데이터는 “/api/users/1/links?folderId={해당 폴더 ID}”를 활용 <br />
+- [x] Mobile에서 “폴더 추가” 버튼은 최하단에서 101px 떨어져있는 Floating Action Button으로 만들기 <br />
 
 ### 🔎 심화 요구사항
-
-- [ ] 커스텀 hook을 만들어 활용 <br />
