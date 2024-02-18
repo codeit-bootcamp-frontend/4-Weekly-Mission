@@ -1,10 +1,13 @@
-import HomePage from './components/pages/HomePage/HomePage';
+import React from 'react';
+import GlobalStyle from './GlobalStyle';
+import Router from './Router';
 import { AuthProvider } from './contexts/AuthContext';
 
 const App = () => {
   return (
     <AuthProvider>
-      <HomePage />
+      <GlobalStyle />
+      <Router />
     </AuthProvider>
   );
 };
