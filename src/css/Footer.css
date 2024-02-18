@@ -42,3 +42,15 @@
   width: 20px;
   height: 20px;
 }
+/* 모바일 */
+@media screen and (min-width:375px) and (max-width:767px){
+  .footerBox{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    height: 65px;
+  }
+  .text{
+    display: flex;
+  }
+}

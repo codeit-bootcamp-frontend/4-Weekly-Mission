@@ -1,0 +1,123 @@
+.info{
+  display: flex;
+  width: 100%;
+  margin: auto;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background-color: #f0f6ff;
+}
+.owner_img{
+  display: flex;
+  height: 60px;
+  padding: 16px 17px 16px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 47px;
+}
+.cardList{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin: 40px 0;
+}
+.searchbar{
+  display: flex;
+  width: 1060px;
+  padding: 15px 16px;
+  align-items: flex-start;
+  border-radius: 10px;
+  background: #F5F5F5;
+  gap: 10px;
+}
+.searchbar input{
+  border: none;
+  background: #F5F5F5;
+}
+.cardbar{
+  width: 1060px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+}
+.card{
+  width: 340px;
+  height: 100%;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
+  overflow: hidden;
+}
+.card img{
+  width: 340px;
+  height: 253.746px;
+}
+.card .description{
+  font-family: Pretendard;
+  font-style: normal;
+  padding: 15px 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.card .description p:nth-child(1){
+  color: #666;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: normal;
+}
+.card .description p:nth-child(2){
+  color: #000;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+.card .description p:nth-child(3){
+  color: #000;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+.card .description p:nth-child(4){
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* 테블릿 */
+@media screen and (min-width:768px) and (max-width:1199px){
+  .cardbar{
+    width: calc(100% - 300px);
+  }
+  .searchbar{
+    width: calc(100% - 300px);
+    background-color: red;
+  }
+  
+}
+/* 모바일 */
+@media screen and (min-width:375px) and (max-width:767px){
+  .cardbar{
+    grid-template-columns: none;
+    width: calc(100% - 220px);
+  }
+  .searchbar{
+    width: calc(100% - 220px);
+    background-color: blue;
+  }
+}

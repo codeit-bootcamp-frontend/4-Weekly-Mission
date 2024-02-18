@@ -7,6 +7,9 @@ a:visited {
 }
 /* 헤더 */
 header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   width: 100%;
   z-index: 1000;
@@ -21,9 +24,16 @@ footer{
 }
 
 /* 모바일 */
-@media (min-width:375px) and (max-width:767px){
+/* @media (min-width:375px) and (max-width:767px){
   .header{
     display: flex;
     padding: 13px 32px;
   }
+} */
+/* 테블릿 */
+@media (min-width:768px) and (max-width:1199px){
+}
+
+/* 모바일 */
+@media (min-width:375px) and (max-width:767px){
 }

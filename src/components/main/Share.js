@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ShareAPI from './share/ShareAPI';
+import CountDate from './share/CountDate';
+import '../../css/Share.css'
 
 function Share() {
   const [folderData, setFolderData] = useState(null);
@@ -12,20 +14,22 @@ function Share() {
     
     fetchData();
   }, []); // 빈 배열을 넘겨주어 컴포넌트가 마운트될 때 한 번만 실행
-  console.log(folderData);
+  console.log(folderData)
 
-  const CardContents = () =>{
+  const CardContents = () =>{ // 카드 목록에 값이 1개씩 들어가게하기 위해 만든 함수
     const result = [];
     if(folderData){ // null이 아닐때 for가 돌게
       for(let i=0; i < folderData.folder.links.length; i++){
-        let time = folderData.folder.links[i].createdAt.slice(0,10).replace('-','.').replace('-','.')
-        let now = new Date();
+        let time = new Date(folderData.folder.links[i].createdAt) // 게시물 만든 시간
         result.push(
         <div className='card' key={i}>
-        <img src={folderData.folder.links[i].url}></img>;
-        <p>{(now.getFullYear() - time.split('.')[0])*12*30+ (now.getMonth() - time.split('.')[1])*30 + (now.getDate() - time.split('.')[2])}</p>
-        <p>{folderData.folder.links[i].description}</p>;
-        <p>{time}</p>;
+          <img src={folderData.folder.links[i].imageSource} alt='카드 이미지'></img>
+          <div className='description'>
+            <p>{CountDate(time)}</p>
+            <p>{folderData.folder.links[i].title}</p>
+            <p>{folderData.folder.links[i].description}</p>
+            <p>{`${time.getFullYear()}.${time.getMonth()+1}.${time.getDate()}` }</p>
+          </div>
         </div>)
       }
     }
@@ -36,14 +40,20 @@ function Share() {
     <div className='share'>
       {folderData && ( // 초기값이 있나 확인
         <div className='info'>
-          <img className='owner_img' src={folderData.folder.owner.profileImageSource}></img>
+          <img className='owner_img' src={folderData.folder.owner.profileImageSource} alt='프로필 이미지'></img>
           <p className='owner_name'>{folderData.folder.owner.name}</p>
           <p className='bookmark'>{folderData.folder.name}</p>
         </div>
       )}
       {folderData && ( // 초기값이 있나 확인
         <div className='cardList'>
-          {CardContents()};
+          <div className='searchbar'>
+            <img src='/img/Search.svg' alt='검색이미지'></img>
+            <input type='text' placeholder='링크를 검색해 보세요.'></input>
+          </div>
+            <div className='cardbar'>
+              {CardContents()};
+            </div>
         </div>
       )}
     </div>
