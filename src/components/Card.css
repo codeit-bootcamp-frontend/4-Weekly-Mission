@@ -5,6 +5,7 @@
   border-radius: 15px;
   cursor: pointer;
   overflow: hidden;
+  position: relative;
 }
 
 .card-info {
@@ -27,8 +28,8 @@
 
 .card-img_star-icon {
   cursor: pointer;
-  position: relative;
-  bottom: 96%;
+  position: absolute;
+  bottom: 85%;
   left: 90%;
 }
 
