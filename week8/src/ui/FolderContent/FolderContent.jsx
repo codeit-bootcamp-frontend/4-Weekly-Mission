@@ -9,17 +9,10 @@ import { EmptyLink } from "ui/EmptyLink/EmptyLink";
 import { getFolders, getFolder } from "../../data-access/getFolders";
 
 export function FolderContent() {
-  const [folders, setFolders] = useState();
-  const [folder, setFolder] = useState();
+  const [folder, setFolder] = useState([]);
   const [data, setData] = useState();
-  const [folderLinkCount, setFolderLinkCount] = useState();
-  const [folderId, setFolderId] = useState(0);
+  const [folderId, setFolderId] = useState("");
   const [activeCategoryName, setActiveCategoryName] = useState("전체");
-
-  const handleLoadAllFolders = async () => {
-    const { data } = await getFolders();
-    setFolders(data);
-  };
 
   const handleLoadCategory = async () => {
     const { data } = await getCategory();
@@ -28,7 +21,7 @@ export function FolderContent() {
 
   const handleLoadFolder = async ({ folderId }) => {
     if (folderId === "") {
-      const { data } = getFolders();
+      const { data } = await getFolders();
       setFolder(data);
     } else {
       const { data } = await getFolder({ folderId });
@@ -38,15 +31,14 @@ export function FolderContent() {
 
   const handleCategoryActive = (e) => {
     setActiveCategoryName(e.target.value);
-    setFolderLinkCount(folderId !== "" ? e.target.count : folders.length);
     setFolderId(e.target.id);
+    console.log(folderId);
   };
 
   useEffect(() => {
-    handleLoadAllFolders();
     handleLoadCategory();
     handleLoadFolder({ folderId });
-  }, []);
+  }, [folderId]);
 
   return (
     <>
@@ -76,7 +68,7 @@ export function FolderContent() {
         <button className="add-folder-button">폴더 추가 +</button>
       </div>
       <CategoryNav activeCategoryName={activeCategoryName} />
-      {!folderLinkCount ? (
+      {folder?.length === 0 ? (
         <EmptyLink />
       ) : (
         <CardList>

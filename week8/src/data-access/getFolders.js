@@ -6,8 +6,8 @@ export const getFolders = async () => {
   return result;
 };
 
-export const getFolder = async ({ folderID }) => {
-  const query = `?folderId=${folderID}`;
+export const getFolder = async ({ folderId }) => {
+  const query = `?folderId=${folderId}`;
   const response = await fetch(`${BASE_URL}users/1/links${query}`);
   const result = await response.json();
   return result;
