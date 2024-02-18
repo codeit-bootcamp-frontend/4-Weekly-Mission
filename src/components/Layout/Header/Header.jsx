@@ -11,8 +11,9 @@ function Header() {
 
   const handleLoginClick = async () => {
     try {
-      const user = await getUser();
-      if (!user) return;
+      const { data } = await getUser(4);
+      if (!data) return;
+      const user = data[0];
       setLoginUser(user);
     } catch (error) {
       console.error(error);
@@ -56,7 +57,7 @@ function ButtonUser({ user }) {
       <div className="button-user__img__container">
         <img
           className="button-user__img"
-          src={user.profileImageSource}
+          src={user.image_source}
           alt={user.name}
         />
       </div>

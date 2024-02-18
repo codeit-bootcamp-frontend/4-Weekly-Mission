@@ -15,9 +15,9 @@ export async function getFolder({ limit = 9 }) {
   }
 }
 
-export async function getUser() {
+export async function getUser(userId) {
   try {
-    const response = await fetch(`${BASE_URL}/sample/user`);
+    const response = await fetch(`${BASE_URL}/users/${userId}`);
     if (!response.ok) {
       throw new Error('유저를 불러오는데 실패했습니다.');
     }
