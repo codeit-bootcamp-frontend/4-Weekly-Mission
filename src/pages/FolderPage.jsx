@@ -8,13 +8,13 @@ import Folder from '../Folder';
 import Footer from '../components/Footer';
 
 const FolderPage = () => {
-  const [folderLists, setFolderLists] = useState([]);
+  const [folderList, setFolderList] = useState([]);
 
   useEffect(() => {
     const fetchFolderList = async () => {
       const { data } = await getFolderList();
 
-      setFolderLists(data);
+      setFolderList(data);
     };
 
     fetchFolderList();
@@ -24,7 +24,7 @@ const FolderPage = () => {
     <>
       <Gnb className='gnb_ly'/>
       <AddLink />
-      <Folder folderLists={folderLists}/>
+      <Folder folderList={folderList}/>
       <Footer/>
     </>
   )

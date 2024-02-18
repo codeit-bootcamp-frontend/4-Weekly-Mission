@@ -9,24 +9,24 @@ import FolderList from './components/FolderList';
 import FolderAddBtn from './components/FolderAddBtn';
 import './Folder.css';
 
-const TOTAL_LIST = '전체';
+const TOTAL_LIST_NAME = '전체';
 
-const Folder = ({folderLists}) => {
+const Folder = ({folderList}) => {
   const [folders, setFolders] = useState([]);
-  const [currentfolderList, setCurrrentFolderList] = useState();
+  const [currentfolderName, setCurrrentFolderName] = useState();
 
   const handleTotalListClick = async () => {
     const { data } = await getLink();
 
     setFolders(data);
-    setCurrrentFolderList(TOTAL_LIST);
+    setCurrrentFolderName(TOTAL_LIST_NAME);
   }
 
   const handleListClick = async (folderName, folderId) => {
     const { data } = await getLinkDetail(folderId);
 
     setFolders(data);
-    setCurrrentFolderList(folderName);
+    setCurrrentFolderName(folderName);
   }
 
   useEffect(() => {
@@ -38,13 +38,13 @@ const Folder = ({folderLists}) => {
       <SearchBar className='search-bar_ly'/>
       <div className='container-folder-and-cards'>
         <FolderList 
-          folderLists={folderLists}
+          folderList={folderList}
           totalHandler={handleTotalListClick}
           listHandler={handleListClick}
         />
         <div className='container-folder-edit'>
-          <span>{currentfolderList}</span>
-          <FolderEdit folderList={currentfolderList} />
+          <span>{currentfolderName}</span>
+          <FolderEdit folderName={currentfolderName} />
         </div>
         {folders.length ? (
           <ul className='card-frame_ly'> 

@@ -8,10 +8,10 @@ const FOLDER_EDITS = Object.freeze([
   { src: deleteImg, name: "삭제" },
 ]);
 
-const TOTAL_LIST = '전체';
+const TOTAL_LIST_NAME = '전체';
 
-const FolderEdit = ({folderList}) => {
-  if (folderList === TOTAL_LIST) {
+const FolderEdit = ({folderName}) => {
+  if (folderName === TOTAL_LIST_NAME) {
     return <></>
   }
 
