@@ -23,8 +23,14 @@ export const FolderPageContent = styled.div`
   flex-direction: column;
   align-items: center;
   width: 1060px;
-  padding-top: 40px;
-  padding-bottom: 100px;
+  padding: 40px 32px 100px 32px;
+
+  /* Tablet */
+  @media (max-width: 1124px) {
+    & {
+      width: 100%;
+    }
+  }
 `;
 
 export const ContentHeader = styled.header`
