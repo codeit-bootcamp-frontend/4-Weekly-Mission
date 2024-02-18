@@ -1,0 +1,13 @@
+.favoriteWrapper {
+  display: flex;
+  gap: 8px;
+}
+.favoriteBox {
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid var(--primary);
+}

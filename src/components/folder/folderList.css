@@ -22,6 +22,7 @@
   overflow: hidden;
   width: 340px;
   align-items: center;
+  transition: all 300ms ease-in;
   &:hover {
     background-color: var(--light-blue);
   }
@@ -30,7 +31,6 @@
 .card-hover {
   img {
     width: 130%;
-    transition: all 300ms ease-in;
   }
 }
 

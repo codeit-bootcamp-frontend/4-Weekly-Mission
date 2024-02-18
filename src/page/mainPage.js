@@ -11,8 +11,6 @@ export const MainPage = () => {
         <FolderSearchBar />
         <FolderList />
       </div>
-      {/* <SearchBar/>
-      <FolderList/> */}
     </div>
   );
 };
