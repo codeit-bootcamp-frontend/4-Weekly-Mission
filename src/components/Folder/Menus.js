@@ -1,18 +1,31 @@
-import { useState, useEffect } from "react";
-// import { getFolderList } from "./../../api/api";
+import { useState } from "react";
+import { getFolderList } from "./../../api/api";
 import GlobalStyle from "./../common/GlobalStyle";
 import styled from "styled-components";
 import union from "../../assets/icons/Union.svg";
-import { getFolderList } from "../../api/api";
 import useGetJson from "./../../hook/uesGetJson";
 
-const Menus = ({ list, initialButtonColors }) => {
+const Menus = ({ changeTitle, changeID }) => {
+  const listsData = useGetJson(getFolderList);
+  const lists = listsData?.data || [];
+  if (lists[0]) {
+    lists[0].name === "전체" || lists.unshift({ id: 0, name: "전체" });
+  }
+
+  const initialButtonColors = lists.reduce((colors, list) => {
+    colors[list.name] = "#fff";
+    return colors;
+  }, {});
+
   const [buttonColors, setButtonColors] = useState(initialButtonColors);
-  const handleClick = (buttonName) => {
+
+  const handleClick = async (name, id) => {
+    changeTitle(name);
+    changeID(id);
     setButtonColors((prevColors) => {
       return {
         ...initialButtonColors,
-        [buttonName]: prevColors[buttonName] === "#fff" ? "#6D6AFE" : "#fff",
+        [name]: prevColors[name] === "#fff" ? "#6D6AFE" : "#fff",
       };
     });
   };
@@ -21,10 +34,10 @@ const Menus = ({ list, initialButtonColors }) => {
     <Container>
       <GlobalStyle></GlobalStyle>
       <ButtonDiv>
-        {list.map((val) => (
+        {lists.map((val, idx) => (
           <Button
             key={val.id}
-            onClick={() => handleClick(val.name)}
+            onClick={() => handleClick(val.name, val.id)}
             color={buttonColors[val.name]}
             id={val.name}
           >

@@ -30,13 +30,12 @@ export const getFolderList = async function () {
     console.log(error);
   }
 };
-export const getAllLinkData = async function (id) {
+export const getAllLinkData = async function (id = 0) {
   try {
     const response = await fetch(
-      `${BASE_URL}users/1/links${id ? `folderId=${id}` : ""}`
+      `${BASE_URL}users/1${id === 0 ? `/links` : `/folders/${id}`}`
     );
     const result = await response.json(); // 재사용성을 위해 response.json()으로 끝맺는게 좋음
-    // console.log(result);
     return result;
   } catch (error) {
     console.log(error);

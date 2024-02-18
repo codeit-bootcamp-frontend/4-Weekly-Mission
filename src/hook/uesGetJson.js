@@ -1,20 +1,19 @@
 import { useState, useEffect, useCallback } from "react";
 
-const useGetJson = (func) => {
+const useGetJson = (func, param = null) => {
   const [values, setValues] = useState([]);
-
   const HandleLoad = useCallback(async () => {
     let results;
     try {
-      results = await func();
+      results = await func(param);
       // await console.log(results);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
 
     if (!results) return;
     setValues(results);
-  }, [func]);
+  }, [func, param]);
 
   useEffect(() => {
     HandleLoad();
