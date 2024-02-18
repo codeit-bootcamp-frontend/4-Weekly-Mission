@@ -4,20 +4,20 @@
   display: flex;
   justify-content: center;
   padding: 3.8rem 2rem 5.5rem;
-  background: var(--gray-05);
+  background: var(--headerpage);
 }
 
 .add-link-content {
   display: flex;
-  width: 50rem;
+  width: 75rem;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.25rem;
+  padding: 1.4rem 1.6rem;
   border: 1px solid var(--primary);
   border-radius: 15px;
   background: var(--white);
-  gap: 0.7rem;
+  gap: 1rem;
 }
 
 .add-link-container {
@@ -26,8 +26,8 @@
 }
 
 .add-link-icon {
-  width: 1.25rem;
-  height: 1.25rem;
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .add-link-input {
@@ -42,7 +42,7 @@ input::placeholder {
 }
 
 .add-link-button {
-  width: 5rem;
-  padding: 0.5rem 1rem;
-  font-size: 0.8rem;
+  width: 7.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
 }

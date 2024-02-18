@@ -1,7 +1,7 @@
 import '../styles/AddLink.css';
 import link from '../assets/logo/link.svg';
 
-export const AddLink = () => {
+const AddLink = () => {
   return (
     <div className='add-link'>
       <div className='add-link-content'>
@@ -14,3 +14,5 @@ export const AddLink = () => {
     </div>
   );
 };
+
+export default AddLink;
