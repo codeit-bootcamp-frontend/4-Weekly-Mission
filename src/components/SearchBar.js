@@ -1,7 +1,7 @@
 import '../styles/SearchBar.css';
 import iconSearch from '../assets/icons/search.svg';
 
-function SearchBar() {
+const SearchBar = () => {
 
   return (
     <div className="searchbar">

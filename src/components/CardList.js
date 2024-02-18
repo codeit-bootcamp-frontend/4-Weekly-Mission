@@ -9,8 +9,8 @@ const CardList = ({ folderInfo }) => {
     <div className="cardlist">
       {cardList ? (
         <>
-          {cardList.map((cardlist) => (
-            <Card cardlist={cardlist} key={cardlist.id} />
+          {cardList.map((card) => (
+            <Card card={card} key={card.id} />
           ))}
         </>
       ) : (

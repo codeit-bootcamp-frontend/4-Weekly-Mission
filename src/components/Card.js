@@ -36,8 +36,8 @@ const intervalDate = (value) => {
   }
 };
 
-const Card = ({ cardlist }) => {
-  const { url, title, imageSource, description, createdAt } = cardlist;
+const Card = ({ card }) => {
+  const { url, title, imageSource, description, createdAt } = card;
   const cardImage = imageSource ? imageSource : noneData;
 
   return (

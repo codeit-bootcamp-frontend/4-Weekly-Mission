@@ -4,6 +4,8 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import FolderInfo from '../components/FolderInfo';
 import FolderContent from '../components/FolderContent';
+import SearchBar from '../components/SearchBar';
+import CardList from '../components/CardList';
 
 const Folder = () => {
   const [user, setUser] = useState(null);
@@ -28,8 +30,10 @@ const Folder = () => {
       <Header userInfo={user} />
 
       <FolderInfo folderInfo={folder} />
-      <FolderContent folderInfo={folder} />
-
+      <FolderContent>
+        <SearchBar />
+        <CardList folderInfo={folder} />
+      </FolderContent>
       <Footer />
     </div>
   );

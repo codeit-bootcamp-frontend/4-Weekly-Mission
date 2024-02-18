@@ -4,7 +4,7 @@ import iconYoutube from '../assets/icons/youtube.svg';
 import iconInstagram from '../assets/icons/instagram.svg';
 import '../styles/Footer.css';
 
-function Footer() {
+const Footer = () => {
   const facebook = 'https://www.facebook.com/?locale=ko_KR';
   const twitter = 'https://twitter.com/?lang=ko';
   const youtube = 'https://www.youtube.com/';
