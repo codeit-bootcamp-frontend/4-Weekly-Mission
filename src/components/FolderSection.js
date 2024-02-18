@@ -47,7 +47,7 @@ const FolderSection = () => {
         <div className='option'>{showOptions && <Option />}</div>
       </div>
       {links.length === 0 && (
-        <div className='no-data font-body2-regular'>저장된 링크가 없습니다</div>
+        <div className='no-data'>저장된 링크가 없습니다</div>
       )}
       {links.length > 0 && <CardGrid links={links} />}
     </section>

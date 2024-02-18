@@ -51,7 +51,7 @@ const Card = () => {
             </div>
             <div className='card-info'>
               <div className='kebab-tag'>
-                <div className='card-time font-caption'>{cardTime}</div>
+                <div className='card-time'>{cardTime}</div>
                 <img className='kebab' src={keebab} alt='kebab' />
               </div>
               <p className='card-text'>{description}</p>
