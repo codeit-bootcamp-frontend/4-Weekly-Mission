@@ -29,6 +29,8 @@ const GlobalStyles = createGlobalStyle`
     --Linkbrary-primary-color: #6d6afe;
     --Linkbrary-gray60: #9fa6b2;
     --Linkbrary-gray10: #e7effb;
+    --Linkbrary-red: #ff5b56;
+    --Stroke-light: #dee2e6;
     font-family: 'Pretendard';
     color: #000000;
   }

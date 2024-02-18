@@ -1,9 +1,11 @@
 import ModalCategoryList from './ModalCategoryList';
+import * as Styled from "./Modal.styled";
+
 function ModalFolderAdd({ categoryListLoop }) {
   return (
     <>
       <ModalCategoryList categoryListLoop={categoryListLoop} />
-      <button className='modal__button button-blue'>추가히기</button>
+      <Styled.ModalButtonBlue>추가하기</Styled.ModalButtonBlue>
     </>
   );
 }

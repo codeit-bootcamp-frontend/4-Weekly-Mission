@@ -1,6 +1,7 @@
 import ModalKaKaoIcon from '../../assets/modal-kakao.svg';
 import ModalFacebookIcon from '../../assets/modal-facebook.svg';
 import ModalLinkIcon from '../../assets/modal-link.svg';
+import * as Styled from "./Modal.styled";
 
 const modalShareList = [
   {
@@ -48,19 +49,19 @@ function ModalShareList({ folderName }) {
     }
   };
   return (
-    <ul className='modal__share'>
+    <Styled.ModalShareBox>
       {modalShareList.map((list) => {
         const { id, backgroundColor, icon, text } = list;
         return (
           <li key={id} className='modal__share--list' onClick={() => handleListClick(text)}>
-            <div className='modal__icon--background' style={{ backgroundColor }}>
+            <Styled.ModalShareIconBox style={{ backgroundColor }}>
               <img src={icon} alt={`폴더 공유 ${text} 아이콘`} />
-            </div>
-            <p className='modal__icon--text'>{text}</p>
+            </Styled.ModalShareIconBox>
+            <Styled.ModalShareText>{text}</Styled.ModalShareText>
           </li>
         );
       })}
-    </ul>
+    </Styled.ModalShareBox>
   );
 }
 

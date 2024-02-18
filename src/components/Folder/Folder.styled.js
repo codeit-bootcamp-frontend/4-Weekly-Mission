@@ -52,11 +52,10 @@ export const LinkInput = styled.input`
   }
 
   &::placeholder {
-    background-image: url('../../assets/link.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    font-size: 1rem;
-  }
+  font-size: 1rem;
+  background: url(${({ $icon }) => $icon}) no-repeat;
+  background-size: contain;
+}
 `;
 
 export const LinkAddButton = styled.button`

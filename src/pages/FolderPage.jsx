@@ -50,7 +50,7 @@ function Folder() {
   return (
     <>
       <GlobalStyles />
-      <Header />
+      <Header sticky={false}/>
       <FolderContent {...folderContentProps} />
       <Footer />
       <FloatingButton />

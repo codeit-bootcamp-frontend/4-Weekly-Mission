@@ -1,5 +1,6 @@
 import ModalCheckIcon from '../../assets/modal-check.svg';
 import { useState } from 'react';
+import * as Styled from "./Modal.styled";
 
 function ModalCategoryList({ categoryListLoop }) {
   const [selectCategory, setSelectCategory] = useState(null);
@@ -9,24 +10,23 @@ function ModalCategoryList({ categoryListLoop }) {
   };
 
   return (
-    <ul className='modal__category'>
+    <Styled.ModalCategory>
       {categoryListLoop.map((category) => {
         const { id, name, link } = category;
         const isSelect = +selectCategory === id;
         return (
-          <li
+          <Styled.ModalCategoryList
             onClick={handleSelectCategory}
             key={id}
             id={id}
-            className={`modal__category--list ${isSelect ? 'modal__category--select' : ''}`}
-          >
+            $isSelect={isSelect}>
             {name}
-            <span id={id} className='modal__category--count'>{`${link.count}개 링크`}</span>
-            {isSelect && <img className='modal__category--selected' src={ModalCheckIcon} alt='체크 아이콘' />}
-          </li>
+            <Styled.ModalCategoryCount id={id}>{`${link.count}개 링크`}</Styled.ModalCategoryCount>
+            {isSelect && <Styled.ModalCategorySelectImg src={ModalCheckIcon} alt="체크 아이콘"/>}
+          </Styled.ModalCategoryList>
         );
       })}
-    </ul>
+    </Styled.ModalCategory>
   );
 }
 

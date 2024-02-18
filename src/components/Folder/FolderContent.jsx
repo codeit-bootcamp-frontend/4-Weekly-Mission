@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Content from '../content/Content';
 import { API_PATH } from '../../services/api-path';
 import FETCH_API from '../../services/fetch-data';
+import linkIcon from '../../assets/link.svg';
 import * as Styled from './Folder.styled';
 
 function FolderContent({ handleKebabClick, selectCardId, categoryList, setCategoryList, handleModalAction }) {
@@ -70,7 +71,7 @@ function FolderContent({ handleKebabClick, selectCardId, categoryList, setCatego
     }
   };
 
-  const getClickArea = (e) => {
+  const getClickArea = (e) => { 
     if (e.target.className !== 'content__kebab') {
       handleKebabClick(0);
     }
@@ -112,7 +113,8 @@ function FolderContent({ handleKebabClick, selectCardId, categoryList, setCatego
               onChange={(e) => handleSearchInputChange(e)}
               value={searchInputValue}
               type='text'
-              placeholder='        링크를 추가해 보세요'
+              placeholder='      링크를 추가해 보세요'
+              $icon={linkIcon}
             />
             <Styled.LinkAddButton>추가하기</Styled.LinkAddButton>
           </form>
