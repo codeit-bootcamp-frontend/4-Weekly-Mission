@@ -6,7 +6,7 @@ import SearchBar from "../components/SearchBar";
 import BottomNavBar from "../components/BottomNavBar";
 import AddLinkBar from "../components/AddLinkBar";
 import FolderListBar from "../components/FolderListBar";
-import EmptyFolder from "./EmptyFolder";
+import EmptyFolder from "../components/EmptyFolder";
 
 function Folder() {
   const [profileData, setProfileData] = useState({});
