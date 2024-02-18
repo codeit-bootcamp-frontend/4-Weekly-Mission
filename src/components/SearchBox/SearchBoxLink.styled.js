@@ -7,19 +7,22 @@ export const SearchLayout = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 800px;
+  width: 100%;
   padding: 16px 20px;
+  gap: 16px;
 `;
 
 export const SearchInputBox = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   gap: 8px;
 `;
 
 export const SearchInput = styled.input`
   border: none;
+  width: 100%;
 
   &::placeholder {
     color: var(--color-gray-60);
