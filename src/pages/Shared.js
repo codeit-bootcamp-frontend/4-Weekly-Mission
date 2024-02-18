@@ -3,7 +3,6 @@ import { getFolderInfo } from "./../api";
 import HeaderElement from "./../components/common/HeaderElement";
 import FooterElement from "./../components/common/FooterElement";
 import SharedSection from "./../components/shared/SharedSection";
-import FolderItem from "../components/shared/FolderItem";
 import FolderList from "../components/shared/FolderList"
 import "../style/shared.css";
 
