@@ -9,6 +9,9 @@ function LandingPage() {
         <div>
           <Link to="shared">shared 페이지</Link>
         </div>
+        <div>
+          <Link to="folder">folder 페이지</Link>
+        </div>
       </div>
     </div>
   );
