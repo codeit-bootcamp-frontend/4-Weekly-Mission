@@ -6,6 +6,9 @@
   font-style: normal;
 }
 
+/* 이 부분을 Nav.css와 SharedHeader.css 코드로 분리하는 걸 다음에 할건데
+요구사항에서 SharedPage의 Nav는 Sticky로 해야하고 FolderPage의 Nav는 고정시켜야하는데
+이걸 Nav.css 파일 하나에만 작성하고 SharedPage와 FolderPage에 각각 적용할 수 있는 방법이 있나요? */
 * {
   box-sizing: border-box;
   margin: 0;
