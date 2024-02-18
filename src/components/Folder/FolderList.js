@@ -1,5 +1,5 @@
-import "../assets/styles/FolderList.css";
-import addIcon from "../assets/images/add.svg";
+import "../../assets/styles/FolderList.css";
+import addIcon from "../../assets/images/add.svg";
 import { useState } from "react";
 import FolderCardList from "./FolderCardList";
 

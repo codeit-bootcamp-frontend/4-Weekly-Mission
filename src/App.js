@@ -1,38 +1,19 @@
-import { useState, useCallback, useEffect } from "react";
-import Nav from "./components/Navbar";
+import Nav from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
+
 import { getUserInfo } from "./api";
-import Footer from "./components/Footer";
 import useAsync from "./components/hooks/useAsync";
 import { Outlet } from "react-router";
 
 function App() {
-  const [email, setEmail] = useState("");
-  const [imgSrc, setImgSrc] = useState("");
-
-  const handleLoadUserInfo = async () => {
-    let result;
-    try {
-      result = await getUserInfo();
-    } catch (error) {
-      console.error();
-      return;
-    }
-    const { data } = result;
-
-    setEmail(data[0].email);
-    setImgSrc(data[0].image_source);
-  };
-
-  useEffect(() => {
-    handleLoadUserInfo();
-  }, []);
+  const { result } = useAsync(getUserInfo);
+  const { data } = result || {};
+  const userData = data ? data[0] : "";
 
   return (
     <>
-      <Nav email={email} imgSrc={imgSrc} />
-
+      <Nav email={userData.email} imgSrc={userData.image_source} />
       <Outlet />
-
       <Footer />
     </>
   );

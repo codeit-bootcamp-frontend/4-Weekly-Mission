@@ -1,5 +1,5 @@
-import "../assets/styles/AddLinkBar.css";
-import link from "../assets/images/link.svg";
+import "../../assets/styles/AddLinkBar.css";
+import link from "../../assets/images/link.svg";
 
 const AddLinkBar = () => {
   return (

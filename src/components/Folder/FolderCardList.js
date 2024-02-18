@@ -1,16 +1,15 @@
 import { useEffect } from "react";
-import { getLinks } from "../api";
-import "../assets/styles/FolderCardList.css";
+import { getLinks } from "../../api";
+import "../../assets/styles/FolderCardList.css";
 import FolderCardItem from "./FolderCardItem";
-import useAsync from "./hooks/useAsync";
-import shareIcon from "../assets/images/share.svg";
-import penIcon from "../assets/images/pen.svg";
-import deleteIcon from "../assets/images/delete.svg";
+import useAsync from "../hooks/useAsync";
+import shareIcon from "../../assets/images/share.svg";
+import penIcon from "../../assets/images/pen.svg";
+import deleteIcon from "../../assets/images/delete.svg";
 
 const FolderCardList = ({ id, name }) => {
   const { result, execute } = useAsync(() => getLinks(id));
   const { data: links } = result || {};
-  console.log(result, links);
 
   useEffect(() => {
     execute();

@@ -1,4 +1,4 @@
-import "../assets/styles/CardList.css";
+import "../../assets/styles/CardList.css";
 
 import CardItem from "./CardItem";
 

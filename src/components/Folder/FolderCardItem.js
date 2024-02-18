@@ -1,9 +1,9 @@
-import logoImg from "../assets/images/logo.png";
-import caculateTime from "../utils/caculateTime";
-import formatDate from "../utils/formatDate";
-import starIcon from "../assets/icons/star.svg";
-import kebabIcon from "../assets/icons/kebab.svg";
-import "../assets/styles/FolderCardItem.css";
+import logoImg from "../../assets/images/logo.png";
+import caculateTime from "../../utils/caculateTime";
+import formatDate from "../../utils/formatDate";
+import starIcon from "../../assets/icons/star.svg";
+import kebabIcon from "../../assets/icons/kebab.svg";
+import "../../assets/styles/FolderCardItem.css";
 
 const FolderCardItem = ({ link }) => {
   const { created_at, description, image_source, title, url } = link;

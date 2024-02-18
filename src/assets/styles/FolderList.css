@@ -7,6 +7,7 @@
   border-radius: 0.3125rem;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: #fff;
+  font-size: 1rem;
   cursor: pointer;
 }
 .folder-button.selected {

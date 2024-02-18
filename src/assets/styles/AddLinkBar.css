@@ -63,3 +63,37 @@
   font-weight: 600;
   line-height: normal;
 }
+
+/* Mobile 375~767*/
+@media (min-width: 375px) and (max-width: 767px) {
+  .add-form {
+    width: 20.3125rem;
+    padding: 0.5rem 0.625rem;
+  }
+  .add-bar {
+    font-size: 0.875rem;
+    padding-left: 2rem;
+  }
+  #add-icon {
+    width: 1rem;
+  }
+  .add-button {
+    width: 5rem;
+    padding: 0.625rem 0.8rem;
+    font-size: 0.875rem;
+  }
+}
+/* Tablet 768~1124 card 2열*/
+@media (min-width: 768px) and (max-width: 1124px) {
+  .add-form {
+    width: 100%;
+    max-width: 44rem;
+  }
+  .add-bar-container {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 2.5rem;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}

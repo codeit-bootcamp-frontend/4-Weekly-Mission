@@ -1,6 +1,6 @@
-import logoImg from "../assets/images/logo.png";
-import caculateTime from "../utils/caculateTime";
-import formatDate from "../utils/formatDate";
+import logoImg from "../../assets/images/logo.png";
+import caculateTime from "../../utils/caculateTime";
+import formatDate from "../../utils/formatDate";
 
 const CardItem = ({ link }) => {
   const { createdAt, description, imageSource, title, url } = link;
