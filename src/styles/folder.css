@@ -1,4 +1,4 @@
-@import './css/global.css';
+@import '../styles/css/global.css';
 
 .folder {
   display: flex;
@@ -6,18 +6,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2.5rem;
+  padding: 4rem 19rem;
   gap: 2.5rem;
-}
-
-@media (width >= 768px) and (width <= 1124px) {
-  .folder {
-    padding: 2.5rem 2rem;
-  }
-}
-
-@media (width <= 767px) {
-  .folder {
-    padding: 2.5rem 2rem;
-  }
 }

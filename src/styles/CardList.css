@@ -3,7 +3,7 @@
 .cardlist {
   display: flex;
   width: 100%;
-  max-width: 70rem;
+  max-width: 1120rem;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1.6rem 1.5rem;
