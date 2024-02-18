@@ -1,49 +1,60 @@
-.footer{
-    display: flex;
-    height: 160px;
+.footer {
+  display: flex;
+  height: 160px;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: var(--The-julge-black, #111322);
+  @media (min-width: 375px) and (max-width: 767px) {
+    padding: 32px 32px 64px 32px;
+  }
+  @media (min-width: 768px) and (max-width: 1123px) {
+    padding-top: 32px;
+    padding-bottom: 64px;
+    padding-left: max(32px, calc((100vw - 724px) / 2));
+    padding-right: max(32px, calc((100vw - 724px) / 2));
+  }
+  @media (min-width: 1124px) {
     padding: 32px 104px 64px 104px;
-    flex-direction: column;
-    align-items: center;
-    flex-shrink: 0;
-    align-self: stretch;
-    background: var(--The-julge-black, #111322);
+  }
 }
-.footerBox{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-self: stretch;
+.footerBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
 }
-#codeit{
-    color: #676767;
-    text-align: center;
-    font-family: Acme;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+#codeit {
+  color: #676767;
+  text-align: center;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
-.centerfooter{
-    display: flex;
-    width: 181.111px;
-    align-items: flex-start;
-    gap: 30px;
+.centerfooter {
+  display: flex;
+  width: 181.111px;
+  align-items: flex-start;
+  gap: 30px;
 }
-.centerfooter a{
-    color: #CFCFCF;
-    font-family: Acme;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    text-decoration: none;
+.centerfooter a {
+  color: #cfcfcf;
+  font-family: Acme;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-decoration: none;
 }
-.endfooter{
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+.endfooter {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
 }
-.endfooter img{
-    width: 20px;
-    height: 20px;
+.endfooter img {
+  width: 20px;
+  height: 20px;
 }

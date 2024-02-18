@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../css/Header.css';
 import logo from '../image/logo.svg';
-import { getUser, getFolder } from '../api';
+import { getUser } from '../api';
 function Header() {
   const [userInfo, setInfo] = useState({ name: '', email: '', profileImageSource: '' });
-  const [folderInfo, setFolder] = useState({ name: '', profile: '' });
   const [isUserInfo, setIsUserInfo] = useState(true);
 
   useEffect(() => {
@@ -17,16 +16,8 @@ function Header() {
         setIsUserInfo(false);
       }
     }
-    async function getFolderData() {
-      const folderData = await getFolder();
-      const folderName = folderData.folder.name;
-      const folderImg = folderData.folder.owner.profileImageSource;
-      setFolder({ name: folderName, profile: folderImg });
-    }
     getData();
-    getFolderData();
   }, []);
-  const username = userInfo.name;
   const useremail = userInfo.email;
   const profileImg = userInfo.profileImageSource;
 
@@ -48,18 +39,6 @@ function Header() {
             ) : (
               <button id="login">로그인</button>
             )}
-          </div>
-        </div>
-      </div>
-      <div className="headermain">
-        <div className="maininfo">
-          <div className="frameinfo">
-            <img src={folderInfo.profile} id="folderImg" alt="folderprofile"></img>
-
-            <span>{username}</span>
-          </div>
-          <div className="bookmarkinfo">
-            <span>{folderInfo.name}</span>
           </div>
         </div>
       </div>
