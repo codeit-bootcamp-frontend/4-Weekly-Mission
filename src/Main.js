@@ -7,9 +7,9 @@ function Main() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/asdf" element={<App />} />
+        <Route path="/" element={<App />} />
         {/* <Route path="/" element={<SharedPage />} /> */}
-        <Route path="/" element={<FolderPage />} />
+        <Route path="/folder" element={<FolderPage />} />
       </Routes>
     </BrowserRouter>
   );
