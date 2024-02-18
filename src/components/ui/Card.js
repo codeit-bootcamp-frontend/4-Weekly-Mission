@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { uploadedDuration, uploadedDate } from '../../utils/CreatedAtData.js';
+import { uploadedDuration, uploadedDate } from '../../utils/createdAtData.js';
 import { HREF } from '../../utils/constants.js';
 import noImg from '../../assets/no-img.png';
 import starImg from '../../assets/star.png';
