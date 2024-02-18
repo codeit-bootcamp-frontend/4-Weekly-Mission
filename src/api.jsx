@@ -19,3 +19,18 @@ export function getFolder() {
 export function getUser() {
   return fetchData(`/users/${USER_ID}`);
 }
+
+//폴더 목록
+export function getFolders() {
+  return fetchData(`/users/${USER_ID}/folders`);
+}
+
+//"전체" 링크
+export function getAllLinks() {
+  return fetchData(`/users/${USER_ID}/links`);
+}
+
+//특정 폴더 링크
+export function getFolderLinks(folderId) {
+  return fetchData(`/users/${USER_ID}/links?folderId=${folderId}`);
+}
