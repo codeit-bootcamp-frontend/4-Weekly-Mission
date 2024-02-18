@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
 import { getFolderInfo } from "../api/api";
 import Button from "./Button";
-import plusIcon from "../images/Icon_plus.svg";
 import styles from "../css/FolderList.module.css";
+import plusIcon from "../images/Icon_plus.svg";
+import shareIcon from "../images/Icon_share.svg";
+import editIcon from "../images/Icon_edit.svg";
+import deleteIcon from "../images/Icon_delete.svg";
 
 function FolderList() {
   const [folderListData, setFolderListData] = useState([]);
@@ -20,6 +23,7 @@ function FolderList() {
   }, [])
 
   return (
+    <>
     <div className={styles.content}>
       <div className={styles.container}>
         <div>
@@ -36,6 +40,26 @@ function FolderList() {
           </button>
       </div>
     </div>
+    <div className={styles.content}>
+      <div className={styles.linkControlBtn}>
+        <p>유용한 팁</p>
+        <div className={styles.controlBtns}>
+          <button type="button">
+            <img src={shareIcon} alt="share-Icon" />
+            공유
+          </button>
+          <button type="button">
+            <img src={editIcon} alt="edit-Icon" />
+            이름 변경
+          </button>
+          <button type="button">
+            <img src={deleteIcon} alt="delete-Icon" />
+            삭제
+          </button>
+        </div>
+      </div>
+    </div>
+  </>
   );
 }
 
