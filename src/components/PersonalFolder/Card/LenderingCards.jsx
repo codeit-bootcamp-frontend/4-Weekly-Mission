@@ -11,10 +11,11 @@ const LenderingCards = () => {
 
   const fetchData = async () => {
     try {
+      throw Error("메롱");
       const result = await api("sample/folder");
       setCardDetail(result.folder.links);
     } catch (error) {
-      alert(error);
+      setCardDetail(null);
     }
   };
 
