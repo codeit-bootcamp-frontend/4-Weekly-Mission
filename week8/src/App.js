@@ -11,14 +11,10 @@ import { FolderPage } from "page-layout/FolderPage/FolderPage";
 import { Classification } from "ui/Classification/Classification";
 import { AddLinkBar } from "ui/AddLinkBar/AddLinkBar";
 import { SharedPossibleCard } from "ui/SharedPossibleCard";
-import { useGetCategory } from "data-access/useCategory";
 
 function App() {
   const { data } = useGetFolder();
   const { profileImage, ownerName, folderName, links } = data || {};
-
-  // const { CategoryData } = useGetCategory();
-  // console.log(CategoryData);
 
   return (
     <BrowserRouter>
@@ -67,9 +63,6 @@ function App() {
       </Layout>
     </BrowserRouter>
   );
-}
-
-{
 }
 
 export default App;

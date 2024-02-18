@@ -1,16 +1,26 @@
+import { getCategory } from "data-access/getCategory";
 import "./Classification.css";
 import { Button } from "StyledComponents/Buttons";
+import { useEffect, useState } from "react";
 
 export function Classification() {
+  const [data, setData] = useState();
+
+  const handleLoadCategory = async () => {
+    const { data } = await getCategory();
+    setData(data);
+  };
+
+  useEffect(() => {
+    handleLoadCategory();
+  }, []);
+
   return (
     <div className="classification">
       <div className="classification-buttons">
-        <Button>전체</Button>
-        <Button>⭐즐겨찾기</Button>
-        <Button>코딩 팁</Button>
-        <Button>채용 사이트</Button>
-        <Button>유용한 글</Button>
-        <Button>나만의 장소</Button>
+        {data?.map((category) => (
+          <Button key={category?.id}>{category.name}</Button>
+        ))}
       </div>
       <button className="add-folder-button">폴더 추가 +</button>
     </div>
