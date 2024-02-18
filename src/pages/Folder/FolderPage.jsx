@@ -5,6 +5,12 @@ import * as S from './FolderPage.styled';
 import { useLoginUser } from '../../contexts/LoginContext';
 import { getFolders, getLinks } from '../../api';
 import { CardList } from '../../components/Card';
+import {
+  IconAdd,
+  IconDustbin,
+  IconPen,
+  IconShare,
+} from '../../components/Icon';
 
 function FolderPage() {
   const loginUser = useLoginUser();
@@ -55,11 +61,37 @@ function FolderPage() {
         <S.ContentHeader>
           <SearchBox placeholder="링크를 검색해 보세요." />
           {folders.length ? (
-            <TabList
-              items={folders}
-              activeId={activeFolder.id}
-              onSelect={handleSelectFolder}
-            />
+            <>
+              <S.ContentTabBox>
+                <TabList
+                  items={folders}
+                  activeId={activeFolder.id}
+                  onSelect={handleSelectFolder}
+                />
+                <S.ContentTabAdd>
+                  폴더 추가 <IconAdd />
+                </S.ContentTabAdd>
+              </S.ContentTabBox>
+              <S.ContentTitleBox>
+                <S.ContentTitle>{activeFolder.name || '전체'}</S.ContentTitle>
+                {activeFolder.name && (
+                  <S.ContentOptionBox>
+                    <S.ContentOptionItem>
+                      <IconShare />
+                      공유
+                    </S.ContentOptionItem>
+                    <S.ContentOptionItem>
+                      <IconPen />
+                      이름 변경
+                    </S.ContentOptionItem>
+                    <S.ContentOptionItem>
+                      <IconDustbin />
+                      삭제
+                    </S.ContentOptionItem>
+                  </S.ContentOptionBox>
+                )}
+              </S.ContentTitleBox>
+            </>
           ) : (
             <S.ContentEmptyBox>저장된 링크가 없습니다.</S.ContentEmptyBox>
           )}
