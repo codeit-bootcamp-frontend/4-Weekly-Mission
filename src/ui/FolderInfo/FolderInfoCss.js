@@ -14,35 +14,70 @@ export const StyledFolderInfo = styled.div`
   }
 `;
 
-export const FolderInfoProfile = styled.img`
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
+export const StyledAddLinkBar = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3.75rem 0 5.62rem 0;
+  background: var(--Linkbrary-bg, #f0f6ff);
 
-  @media (min-width: 768px) {
-    width: 6rem;
-    height: 6rem;
+  /* tablet & mobile */
+  @media screen and (min-width: 375px) and (max-width: 1199px) {
+    padding: 32px;
   }
-`;
 
-export const FolderInfoOwner = styled.span`
-  margin-top: 0.6rem;
-  font-size: 1.4rem;
-
-  @media (min-width: 768px) {
-    margin-top: 1.2rem;
-    font-size: 1.6rem;
-    line-height: 150%;
+  .icon {
+    position: relative;
+    left: 35px;
+    width: 1.25rem;
+    height: 1.25rem;
   }
-`;
 
-export const FolderInfoFolder = styled.h2`
-  margin-top: 1rem;
-  font-size: 3.2rem;
-  font-weight: 600;
+  .search-bar {
+    display: flex;
+    width: 800px;
+    padding: 16px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
 
-  @media (min-width: 768px) {
-    margin-top: 2rem;
-    font-size: 4rem;
+    border-radius: 0.9375rem;
+    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+    background: var(--Linkbrary-white, #fff);
+
+    color: var(--Linkbrary-gray60, #9fa6b2);
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+  }
+
+  .button {
+    position: relative;
+    right: 100px;
+    display: flex;
+    padding: 10px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+
+    border-radius: 0.5rem;
+    border: none;
+    background: var(
+      --gra-purpleblue-to-skyblue,
+      linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+    );
+
+    .text {
+      color: var(--Grey-Light, #f5f5f5);
+      font-family: Pretendard;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      white-space: nowrap;
+      margin: 0;
+    }
   }
 `;

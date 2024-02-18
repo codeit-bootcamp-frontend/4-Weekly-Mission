@@ -1,12 +1,9 @@
-import { FolderInfoFolder, FolderInfoOwner, FolderInfoProfile, StyledFolderInfo } from "./FolderInfoCss";
+import { StyledFolderInfo, AddLinkBar } from "./FolderInfoCss";
 
-
-export const FolderInfo = ({ profileImage, ownerName, folderName }) => {
+export const FolderInfo = () => {
   return (
     <StyledFolderInfo>
-      <FolderInfoProfile src={profileImage} alt="폴더 소유자 프로필 이미지" />
-      <FolderInfoOwner>{ownerName}</FolderInfoOwner>
-      <FolderInfoFolder>{folderName}</FolderInfoFolder>
+      <AddLinkBar />
     </StyledFolderInfo>
   );
 };

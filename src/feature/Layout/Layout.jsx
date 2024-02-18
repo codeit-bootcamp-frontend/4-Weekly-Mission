@@ -3,9 +3,9 @@ import { Footer } from "../Footer";
 import { NavigationBar } from "../NavigationBar";
 
 export const Layout = ({ children }) => {
-  const { data } = useGetUser();
-  const { email, profileImageSource } = data || {};
-  const profile = data ? { email, profileImageSource } : null;
+  const { newData } = useGetUser();
+  const { email, image_source } = newData || {};
+  const profile = newData ? { email, image_source } : null;
 
   return (
     <div>

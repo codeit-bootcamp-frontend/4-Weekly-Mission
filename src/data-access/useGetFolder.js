@@ -3,10 +3,10 @@ import { useAsync } from "../util/useAsync";
 import { axiosInstance } from "util/axiosInstance";
 
 export const useGetFolder = () => {
-  const getUser = () => axiosInstance.get("sample/folder");
+  const getUser = () => axiosInstance.get("users/1/links");
   const { loading, error, data } = useAsync(getUser);
-
-  const folderData = mapFolderData(data?.folder);
-
+  const newData = data?.data;
+  console.log(newData)
+  const folderData = mapFolderData(newData);
   return { loading, error, data: folderData };
 };

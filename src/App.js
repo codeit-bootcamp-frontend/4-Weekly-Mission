@@ -10,6 +10,7 @@ import { ReadOnlyCard } from "ui/ReadOnlyCard";
 import { NoLinks } from 'ui/CardList/NoLinks';
 
 function App() {
+
   const { data } = useGetFolder();
   const { profileImage, ownerName, folderName, links } = data || {};
   return (
