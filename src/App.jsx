@@ -1,19 +1,22 @@
-import Header from './components/Header/Header';
-import Section from './components/Section/Section';
-import Main from './components/Main/Main';
-import Footer from './components/Footer/Footer';
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Shared from './components/pages/shared';
+import Folder from './components/pages/folder';
 import './App.css';
 
 function App() {
   return (
-    <>
-      <Header />
-      <Section />
-      <Main />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/shared" element={<Shared />} />
+        <Route path="/folder" element={<Folder />} />
+      </Routes>
+    </BrowserRouter>
   );
+}
+
+function Home() {
+  return <div>홈페이지</div>;
 }
 
 export default App;
