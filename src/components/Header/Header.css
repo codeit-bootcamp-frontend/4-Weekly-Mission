@@ -8,7 +8,17 @@
   background-color: var(--Linkbrary-bg, #f0f6ff);
 }
 
-#headerShared .headerLogo .logo {
+#headerFolder {
+  position: static;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 200px;
+  top: 0;
+  background-color: var(--Linkbrary-bg, #f0f6ff);
+}
+
+#headerShared #headerFolder .headerLogo .logo {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -17,7 +27,7 @@
   cursor: pointer;
 }
 
-#headerShared .headerButton button {
+.headerButton button {
   display: flex;
   width: 128px;
   padding: 16px 20px;

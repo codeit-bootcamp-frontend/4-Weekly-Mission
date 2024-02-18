@@ -1,4 +1,4 @@
-import Header from '../Header/Header';
+import HeaderFolder from '../Header/HeaderFolder';
 import Section from '../Section/Section';
 import MainDefault from '../Main/MainDefault';
 import Footer from '../Footer/Footer';
@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer';
 export default function Folder() {
   return (
     <>
-      <Header />
+      <HeaderFolder />
       <Section />
       <MainDefault />
       <Footer />
