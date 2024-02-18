@@ -6,6 +6,7 @@ import { FolderInfo } from './ui/FolderInfo';
 import { AddLinkSearchBar } from './ui/AddLinkSearchBar';
 import { SearchBar } from './ui/SearchBar';
 import { CardList } from './ui/CardList';
+import { NotFoundLink } from './ui/NotFoundLink';
 import { useGetFolder } from 'data-access/useGetFolder';
 import { ReadOnlyCard } from 'ui/ReadOnlyCard';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -53,6 +54,16 @@ function App() {
                     ))}
                   </CardList>
                 }
+              />
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <FolderPage
+                addLinkSearchBar={<AddLinkSearchBar />}
+                searchBar={<SearchBar />}
+                cardList={<NotFoundLink />}
               />
             }
           />
