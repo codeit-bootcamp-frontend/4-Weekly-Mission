@@ -8,11 +8,11 @@ import { useGetFolder } from "data-access/useGetFolder";
 import { ReadOnlyCard } from "ui/ReadOnlyCard";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { FolderPage } from "page-layout/FolderPage/FolderPage";
-import { Classification } from "ui/Classification/Classification";
 import { AddLinkBar } from "ui/AddLinkBar/AddLinkBar";
 import { SharedPossibleCard } from "ui/SharedPossibleCard";
 import { getFolders } from "data-access/getFolders";
 import { useEffect, useState } from "react";
+import { FolderContent } from "ui/FolderContent/FolderContent";
 
 function App() {
   const [folders, setFolders] = useState();
@@ -68,7 +68,7 @@ function App() {
                     ))}
                   </CardList>
                 }
-                classification={<Classification />}
+                classification={<FolderContent />}
               />
             }
           />

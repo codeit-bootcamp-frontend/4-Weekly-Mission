@@ -3,12 +3,12 @@ import { Card } from "ui/Card";
 import { CardContent } from "ui/CardContent";
 import { CardImage } from "ui/CardImage";
 import { formatData } from "util/formatDate";
+import { getElapsedTime } from "util/getElapsedTime";
 
 export const ReadOnlyCard = ({
   url,
   image_source,
   alt,
-  elapsedTime,
   description,
   created_at,
 }) => {
@@ -25,7 +25,7 @@ export const ReadOnlyCard = ({
           isZoomedIn={isHovered}
         />
         <CardContent
-          elapsedTime={elapsedTime}
+          elapsedTime={getElapsedTime(created_at)}
           description={description}
           createdAt={formatData(created_at)}
           isHovered={isHovered}
