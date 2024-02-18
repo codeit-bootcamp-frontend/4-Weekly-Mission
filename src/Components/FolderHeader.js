@@ -1,24 +1,22 @@
-import React from "react";
-import "../Styles/FolderHeader.css";
+import linkIcon from "../Assets/image/link.png";
 
-export function FolderHeader({ folder }) {
+export function FolderHeader() {
   return (
     <>
-      <header>
-        <div className="folder">
-          <div className="folderProfile">
-            <img
-              src={folder.userProfileImage}
-              className="folderImg"
-              alt="userProfileImg"
-            ></img>
-            <p className="folderProfileName">{folder.userName}</p>
-          </div>
-          <div>
-            <h2 className="folderName">{folder.folderName}</h2>
+      <form>
+        <div className="linkInputContainer">
+          <div className="link">
+            <input
+              className="linkInput"
+              placeholder="링크를 추가해 보세요"
+            ></input>
+            <div className="linkIcon">
+              <img src={linkIcon} className="linkImg" alt="링크 아이콘"></img>
+            </div>
+            <button className="linkAddBtn">추가하기</button>
           </div>
         </div>
-      </header>
+      </form>
     </>
   );
 }

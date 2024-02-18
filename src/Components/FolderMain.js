@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import searchIcon from "../Assets/image/Search.png";
 import { FolderCard } from "./FolderCard";
-import "../Styles/Main.css";
+import { FolderMenu } from "./FolderMenu";
+import { useFolderName } from "../Hooks/useFolderName";
+import { useFolder } from "../Hooks/useFolder";
+import FolderTools from "./FolderTools";
 
-export function FolderMain({ cards }) {
+export function FolderMain() {
+  const [menu, setMenu] = useState("전체");
+
+  const handleMenuChange = (newMenu, id) => {
+    setMenu(newMenu);
+    fetchFolder(id);
+  };
+
+  const folderNames = useFolderName();
+  const { folder, fetchFolder } = useFolder();
+
   return (
     <>
       <div className="searchContainer">
@@ -18,12 +31,22 @@ export function FolderMain({ cards }) {
         </div>
       </div>
 
-      <div className="cardContainer">
-        {cards &&
-          cards.map((card) => (
-            <FolderCard cardInfo={card} key={card.id}></FolderCard>
-          ))}
+      <FolderMenu folderNames={folderNames} onMenuChange={handleMenuChange} />
+
+      <div className="titleBar">
+        <div className="title">{menu}</div>
+        {menu !== "전체" && <FolderTools />}
       </div>
+
+      {folder && folder.length ? (
+        <div className="cardGrid">
+          {folder.map((card) => (
+            <FolderCard key={card.id} cardInfo={card}></FolderCard>
+          ))}
+        </div>
+      ) : (
+        <div className="noLink">저장된 링크가 없습니다.</div>
+      )}
     </>
   );
 }

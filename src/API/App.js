@@ -1,9 +1,9 @@
-import SharedPage from "../Pages/SharedPage";
+import Main from "./Main";
 
 function App() {
   return (
     <>
-      <SharedPage></SharedPage>
+      <Main></Main>
     </>
   );
 }

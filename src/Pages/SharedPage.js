@@ -1,7 +1,7 @@
-import { FolderHeader } from "../Components/FolderHeader";
+import { SharedHeader } from "../Components/SharedHeader";
 import { Nav } from "../Components/Nav";
 import { Footer } from "../Components/Footer";
-import { FolderMain } from "../Components/FolderMain";
+import { SharedMain } from "../Components/SharedMain";
 import { useState, useEffect } from "react";
 import { getFolder, getProfile } from "../API/SharedPageApi";
 
@@ -28,8 +28,8 @@ function SharedPage() {
   return (
     <>
       <Nav profile={profile}></Nav>
-      <FolderHeader folder={folder}></FolderHeader>
-      <FolderMain cards={cardLinks}></FolderMain>
+      <SharedHeader folder={folder}></SharedHeader>
+      <SharedMain cards={cardLinks}></SharedMain>
       <Footer></Footer>
     </>
   );
