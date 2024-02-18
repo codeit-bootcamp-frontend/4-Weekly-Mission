@@ -24,23 +24,23 @@ const OptionButton = () => {
 
 const OptionContainer = styled.div`
   display: flex;
-  gap: 12px;
+  gap: 1.2rem;
 `;
 const ButtonContainer = styled.div`
   display: flex;
-  gap: 4px;
+  gap: 0.4rem;
   cursor: pointer;
 `;
 const OptionIcon = styled.div`
-  width: 18px;
-  height: 18px;
+  width: 1.8rem;
+  height: 1.8rem;
   background-image: url(${({ $url }) => $url});
   background-size: cover;
 `;
 const OptionText = styled.div`
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 600;
-  line-height: 16.71px;
+  line-height: 2rem;
   color: ${props => props.theme.gray20};
 `;
 export default OptionButton;

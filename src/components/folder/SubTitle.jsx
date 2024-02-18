@@ -26,14 +26,14 @@ const TitleContainer = styled.div`
   @media (max-width: 767px) {
     width: calc(100% - 6.4rem);
     flex-direction: column;
-    gap: 12px;
+    gap: 1.2rem;
   }
 `;
 const CategoryName = styled.div`
-  font-size: 24px;
+  font-size: 2.4rem;
   font-weight: 600;
-  line-height: 28.8px;
-  letter-spacing: -0.3px;
+  line-height: 2.88rem;
+  letter-spacing: -0.03rem;
   text-align: left;
 `;
 export default SubTitle;
