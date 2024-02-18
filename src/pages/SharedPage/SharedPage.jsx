@@ -6,13 +6,13 @@ import CardSearchbar from '../../components/common/SearchBar/CardSearchbar';
 import FolderContainer from './sharedPageStyle';
 
 const SharedPage = () => {
-  const [folders, setFolders] = useState(null);
+  const [profiles, setProfiles] = useState(null);
   const [cards, setCards] = useState(null);
 
   useEffect(() => {
     getFolderData()
       .then(data => {
-        setFolders(data.folder);
+        setProfiles(data.folder);
         setCards(data.folder.links);
       })
       .catch(error => {
@@ -22,7 +22,7 @@ const SharedPage = () => {
 
   return (
     <>
-      {folders && <Profile {...folders} />}
+      {profiles && <Profile {...profiles} />}
       <FolderContainer>
         <CardSearchbar />
         {cards && <Card links={cards} />}
