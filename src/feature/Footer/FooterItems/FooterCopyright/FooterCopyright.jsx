@@ -1,6 +1,6 @@
-const FooterCopyright = styled.div`
-  grid-area: copyright;
-  color: #676767;
-  font-family: Arial;
-  font-size: 1.6rem;
-`;
+import { TEXT } from "../../constant";
+import { FooterCopyrightCss } from './FooterCopyrightCss'
+
+export const FooterCopyright = () => {
+  <FooterCopyrightCss>{TEXT.codeit}</FooterCopyrightCss>;
+};

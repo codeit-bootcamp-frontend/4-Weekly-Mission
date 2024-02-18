@@ -1,12 +1,12 @@
 import FooterItems from "./FooterItems"
-import { FooterCopyrightContainer } from "./FooterCopyright/FooterCopyrightContainer";
-import { FooterLinksContainer } from "./FooterLinks/FooterLinksContainer";
-import { FooterSNSContainer } from "./FooterSNS/FooterSNSContainer";
+import { FooterCopyright } from "./FooterCopyright/FooterCopyright";
+import { FooterLinks } from "./FooterLinks/FooterLinks";
+import { FooterSNS } from "./FooterSNS/FooterSNS";
 
 export const FooterItemsContainer = () => {
   <FooterItems>
-    <FooterCopyrightContainer />
-    <FooterLinksContainer />
-    <FooterSNSContainer />
+    <FooterCopyright />
+    <FooterLinks />
+    <FooterSNS />
   </FooterItems>;
 };
