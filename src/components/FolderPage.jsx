@@ -3,9 +3,13 @@ import styled from 'styled-components';
 import { getUserFolders, getUserLinks } from '../util/api';
 import FolderNameButton from './FolderNameButton';
 import LinkCard from './LinkCard';
+import SearchBar from './SearchBar';
+import AddLinkArea from './AddLinkArea';
 
 const FolderNameList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   gap: 0.8rem;
 `;
 
@@ -43,6 +47,8 @@ const FolderPage = () => {
 
   return (
     <>
+      <AddLinkArea />
+      <SearchBar />
       <FolderNameList>
         <li>
           <FolderNameButton
