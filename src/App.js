@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { getFolder } from "./api/api";
+
 import "./global.css";
 import FolderInfo from "./components/FolderInfo/FolderInfo";
 import SharePage from "./pages/SharePage/SharePage";
@@ -20,49 +21,53 @@ function App() {
     setitems(folder.links);
   };
 
+  // const useCheckPath = () => {
+  //   const isFolderPage = location.pathname === "/folder"
+
+  //   return isFolderPage;
+  // }
+
   useEffect(() => {
     handleLoad();
   }, []);
 
   return (
     <Fragment>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" />
-          <Route
-            path="/shared"
-            element={
-              <SharePage
-                folderInfo={<FolderInfo profile={folderData} />}
-                searchBar={<SearchBar />}
-                cardList={
-                  <CardList>
-                    {items?.map((item) => (
-                      <OnlyCard key={item.id} items={item} {...item} />
-                    ))}
-                  </CardList>
-                }
-              />
-            }
-          />
-          <Route
-            path="/folder"
-            element={
-              <FolderPage
-                folderHeader={<FolderHeader />}
-                searchBar={<SearchBar />}
-                cardList={
-                  <CardList>
-                    {items?.map((item) => (
-                      <OnlyCard key={item.id} items={item} {...item} />
-                    ))}
-                  </CardList>
-                }
-              />
-            }
-          />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" />
+        <Route
+          path="/shared"
+          element={
+            <SharePage
+              folderInfo={<FolderInfo profile={folderData} />}
+              searchBar={<SearchBar />}
+              cardList={
+                <CardList>
+                  {items?.map((item) => (
+                    <OnlyCard key={item.id} items={item} {...item} />
+                  ))}
+                </CardList>
+              }
+            />
+          }
+        />
+        <Route
+          path="/folder"
+          element={
+            <FolderPage
+              folderHeader={<FolderHeader />}
+              searchBar={<SearchBar />}
+              cardList={
+                <CardList>
+                  {items?.map((item) => (
+                    <OnlyCard key={item.id} items={item} {...item} />
+                  ))}
+                </CardList>
+              }
+            />
+          }
+        />
+      </Routes>
     </Fragment>
   );
 }
