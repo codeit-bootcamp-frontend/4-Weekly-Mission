@@ -1,19 +1,20 @@
-import getData from "../api/api";
+import { getData, getFolderListData } from "../api/api";
 import { useEffect, useState } from "react";
 import CardBox from "../components/CardBox";
 import TopNavBar from "../components/TopNavBar";
 import SearchBar from "../components/SearchBar";
 import BottomNavBar from "../components/BottomNavBar";
 import AddLinkBar from "../components/AddLinkBar";
+import FolderListBar from "../components/FolderListBar";
 
 function Folder() {
   const [profileData, setProfileData] = useState({});
   const [folderData, setFolderData] = useState({});
+  const [folderList, setFolderList] = useState([]);
 
   const getProfileData = async (options) => {
     try {
       const newProfile = await getData(options);
-      console.log(newProfile);
       setProfileData(newProfile);
     } catch (err) {
       console.error(err);
@@ -25,7 +26,6 @@ function Folder() {
     try {
       const newFolder = await getData(options);
       const { folder } = newFolder;
-      console.log(folder);
       setFolderData(folder);
     } catch (err) {
       console.error(err);
@@ -33,9 +33,21 @@ function Folder() {
     }
   };
 
+  const getFolderList = async () => {
+    try {
+      const folderListData = await getFolderListData();
+      const { data } = folderListData;
+      setFolderList(data);
+    } catch (err) {
+      console.error(err);
+      setFolderList([]);
+    }
+  };
+
   useEffect(() => {
     getProfileData({ path: "user" });
     getFolderData({ path: "folder" });
+    getFolderList();
   }, []);
 
   return (
@@ -47,7 +59,7 @@ function Folder() {
       <main>
         <section>
           <SearchBar />
-          <CardBox folderData={folderData} />
+          <FolderListBar folderList={folderList} />
         </section>
       </main>
       <footer>

@@ -1,4 +1,4 @@
-import getData from "../api/api";
+import { getData } from "../api/api";
 import { useEffect, useState } from "react";
 import CardBox from "../components/CardBox";
 import TopNavBar from "../components/TopNavBar";
@@ -13,7 +13,6 @@ function Shared() {
   const getProfileData = async (options) => {
     try {
       const newProfile = await getData(options);
-      console.log(newProfile);
       setProfileData(newProfile);
     } catch (err) {
       console.error(err);
@@ -25,7 +24,6 @@ function Shared() {
     try {
       const newFolder = await getData(options);
       const { folder } = newFolder;
-      console.log(folder);
       setFolderData(folder);
     } catch (err) {
       console.error(err);
