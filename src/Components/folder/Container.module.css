@@ -38,6 +38,8 @@
 .folder_add {
   display: flex;
   gap: 4px;
+  width: 20%;
+  justify-content: flex-end;
 }
 
 .folder_add_icon {
@@ -52,7 +54,7 @@
   letter-spacing: -0.3px;
 }
 
-.folder_util {
+.folder_control_box {
   display: flex;
   justify-content: space-between;
   align-items: center;
