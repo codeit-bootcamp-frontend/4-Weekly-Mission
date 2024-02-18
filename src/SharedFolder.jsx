@@ -1,23 +1,11 @@
-import { useState, useEffect } from 'react';
-
-import { getShared } from './apis/api';
+import { useFetchShared } from './hooks/useFetchShared';
 
 import SearchBar from './components/SearchBar';
 import Card from './components/Card';
 import './Folder.css';
 
 const SharedFolder = () => {
-  const [folders, setFolders] = useState({});
-
-  useEffect(() => {
-    const fetchFolder = async () => {
-      const { folder } = await getShared();
-      
-      setFolders(folder);
-    };
-
-    fetchFolder();
-  }, []);
+  const folders = useFetchShared();
 
   if(!folders || !folders.links) {
     return (

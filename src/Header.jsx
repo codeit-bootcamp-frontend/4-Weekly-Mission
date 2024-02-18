@@ -1,21 +1,9 @@
-import { useState, useEffect } from 'react';
-
-import { getShared } from './apis/api';
+import { useFetchShared } from './hooks/useFetchShared';
 
 import './Header.css';
 
 const Header = () => {
-  const [folders, setFolders] = useState({});
-
-  useEffect(() => {
-    const fetchFolder = async () => {
-      const { folder } = await getShared();
-      
-      setFolders(folder);
-    };
-
-    fetchFolder();
-  }, []);
+  const folders = useFetchShared();
 
   const isShowFolderInfos = folders && folders.owner && folders.name;
 
