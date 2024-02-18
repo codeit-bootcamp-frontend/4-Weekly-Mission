@@ -1,0 +1,48 @@
+@import url('./global.css');
+
+.add-link {
+  display: flex;
+  justify-content: center;
+  padding: 3.8rem 2rem 5.5rem;
+  background: var(--gray-05);
+}
+
+.add-link-content {
+  display: flex;
+  width: 50rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--primary);
+  border-radius: 15px;
+  background: var(--white);
+  gap: 0.7rem;
+}
+
+.add-link-container {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.add-link-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.add-link-input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--gray-02);
+}
+
+.add-link-button {
+  width: 5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+}

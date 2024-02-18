@@ -15,7 +15,7 @@ const Header = ({ userInfo }) => {
             <p className="profile-email">{profileEmail}</p>
           </div>
         ) : (
-          <a className="button-login" href="/pages/signin.html">로그인</a>
+          <a className="button-login button-gradient" href="/pages/signin.html">로그인</a>
         )}
       </nav>
     </header>

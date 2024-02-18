@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getFolder, getUser } from '../api';
 
 import Header from '../components/Header';
-import FolderInfo from '../components/FolderInfo';
+import AddLink from '../components/AddLink';
 import FolderContent from '../components/FolderContent';
 import SearchBar from '../components/SearchBar';
 import CardList from '../components/CardList';
@@ -30,7 +30,7 @@ const Folder = () => {
     <div>
       <Header userInfo={user} />
 
-      <FolderInfo folderInfo={folder} />
+      <AddLink />
       <FolderContent>
         <SearchBar />
         <CardList folderInfo={folder} />

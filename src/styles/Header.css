@@ -25,16 +25,8 @@ nav {
 }
 
 .button-login {
-  display: flex;
   width: 8rem;
-  align-items: center;
-  justify-content: center;
   padding: 1rem;
-  border-radius: 8px;
-  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-  color: var(--white);
-  font-size: 1rem;
-  text-decoration: none;
 }
 
 .profile {

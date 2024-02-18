@@ -1,8 +1,12 @@
-import Shared from '../pages/Shared';
+import Folder from '../pages/Folder';
+// import Shared from '../pages/Shared';
 
 function App() {
   return (
-    <Shared />
+    <>
+      {/* <Shared /> */}
+      <Folder />
+    </>
   );
 }
 
