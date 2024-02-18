@@ -1,27 +1,28 @@
-import { useState } from 'react';
 import * as S from './styles/TabList.styled';
 import Tab from './Tab';
 
-function TabList({ items }) {
-  const [activeId, setActiveId] = useState('');
-
-  const handleClick = (tabId) => setActiveId(tabId);
+function TabList({ items, activeId, onSelect }) {
+  const handleSelect = (item) => {
+    onSelect(item);
+  };
 
   return (
     <S.List>
-      <Tab tabId="" active={!activeId} onClick={handleClick}>
+      <Tab item={{}} active={!activeId} onSelect={handleSelect}>
         전체
       </Tab>
-      {items?.map((item) => (
-        <Tab
-          key={item.id}
-          tabId={item.id}
-          active={item.id === activeId}
-          onClick={handleClick}
-        >
-          {item.name}
-        </Tab>
-      ))}
+      {items?.map((item) => {
+        return (
+          <Tab
+            key={item.id}
+            item={item}
+            active={item.id === activeId}
+            onSelect={handleSelect}
+          >
+            {item.name}
+          </Tab>
+        );
+      })}
     </S.List>
   );
 }
