@@ -60,8 +60,9 @@ nav {
 .FavoritesProfile {
   height: 244px;
   background-color: #f0f6ff;
-  padding: 20px 624px 60px 624px;
+  padding: 20px 0 60px 0;
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
 }
@@ -91,16 +92,15 @@ nav {
   justify-content: center;
   align-items: center;
   box-shadow: 0 5 25 0 #000000;
-  gap: 20px;
-  /* gridtemplaterows: "1fr ";
-  gridtemplatecolumns: "1fr 1fr 1fr 1fr"; */
 }
 
 .FavoritesContent {
   width: 1060px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 .FavoritesInputBox {

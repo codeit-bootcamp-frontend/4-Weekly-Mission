@@ -1,47 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { fetchFolderData } from "./Service/ApiService";
 import "../css/Favorites.css";
+import Nav from "./Nav";
+import Footer from "./Footer";
 
 function Favorites() {
-  const [profile, setProfile] = useState();
-  const [folder, setFolder] = useState(null);
+  const [folder, setFolder] = useState();
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const loadData = async () => {
       try {
-        const response = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/user"
-        );
-        const data = await response.json();
-        if (data) {
-          setProfile(data);
-        } else {
-          setProfile();
-        }
+        const data = await fetchFolderData();
+        setFolder(data);
       } catch (error) {
-        console.error("User Error:", error);
-        setProfile();
+        console.error("Error fetching folders:", error);
       }
     };
 
-    const fetchFolderData = async () => {
-      try {
-        const response = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/folder"
-        );
-        const data = await response.json();
-        if (data) {
-          setFolder(data.folder);
-        } else {
-          setFolder();
-        }
-      } catch (error) {
-        console.error("Folder Error:", error);
-        setFolder();
-      }
-    };
-
-    fetchUserData();
-    fetchFolderData();
+    loadData();
   }, []);
 
   function timeAgo(createdAt) {
@@ -56,11 +32,14 @@ function Favorites() {
 
     if (diff < 2 * minute) {
       return "1 minute ago";
-    } else if (diff < hour) {
+    }
+    if (diff < hour) {
       return `${Math.floor(diff / minute)} minutes ago`;
-    } else if (diff < day) {
+    }
+    if (diff < day) {
       return `${Math.floor(diff / hour)} hours ago`;
-    } else if (diff < month) {
+    }
+    if (diff < month) {
       return `${Math.floor(diff / day)} days ago`;
     } else if (diff < year) {
       return `${Math.floor(diff / month)} months ago`;
@@ -73,7 +52,7 @@ function Favorites() {
   function formatDate(dateString) {
     const date = new Date(dateString);
     const year = date.getFullYear();
-    // getMonth()는 0부터 시작하므로 1을 더해줍니다.
+    // getMonth()는 0부터 시작하므로 1을 더함
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const day = date.getDate().toString().padStart(2, "0");
 
@@ -82,29 +61,7 @@ function Favorites() {
 
   return (
     <>
-      <nav>
-        <div className="gnb">
-          <a href="index.html">
-            <img src="./images/logo.svg" alt="홈으로 연결된 Linkbrary 로고" />
-          </a>
-          {profile ? (
-            <div className="FavoritesProfileContent">
-              <img
-                src={profile.profileImageSource}
-                alt="프로필 이미지"
-                className="FavoritesProfileImgSrc"
-              />
-              <a className="FavoritesProfileEmail" href="profile.html">
-                <span>{profile.email}</span>
-              </a>
-            </div>
-          ) : (
-            <a className="cta cta-short" href="signin.html">
-              <span>로그인</span>
-            </a>
-          )}
-        </div>
-      </nav>
+      <Nav />
       {folder && (
         <div className="FavoritesProfile">
           <img
@@ -146,61 +103,7 @@ function Favorites() {
           ))}
         </div>
       </div>
-      <footer>
-        <div class="footer-box">
-          <span class="copyright">©codeit - 2023</span>
-          <div class="footer-links">
-            <a class="footer-link" href="privacy.html">
-              Privacy Policy
-            </a>
-            <a class="footer-link" href="faq.html">
-              FAQ
-            </a>
-          </div>
-          <div class="sns">
-            <a
-              href="https://www.facebook.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="./images/facebook.svg"
-                alt="facebook 홈페이지로 연결된 facebook 로고"
-              />
-            </a>
-            <a
-              href="https://twitter.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="./images/twitter.svg"
-                alt="twitter 홈페이지로 연결된 twitter 로고"
-              />
-            </a>
-            <a
-              href="https://www.youtube.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="./images/youtube.svg"
-                alt="youtube 홈페이지로 연결된 youtube 로고"
-              />
-            </a>
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="./images/instagram.svg"
-                alt="instagram 홈페이지로 연결된 instagram 로고"
-              />
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
