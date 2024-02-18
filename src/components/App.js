@@ -2,9 +2,7 @@ import Folder from '../pages/Folder';
 
 function App() {
   return (
-    <div>
-      <Folder />
-    </div>
+    <Folder />
   );
 }
 

@@ -39,15 +39,12 @@ const intervalDate = (value) => {
 const Card = ({ cardlist }) => {
   const { url, title, imageSource, description, createdAt } = cardlist;
   const cardImage = imageSource ? imageSource : noneData;
-  const altCardImage = title + "로 이동"
-  console.log(altCardImage);
-
 
   return (
     <div className="card">
       <a href={url} target="_blank" rel="noreferrer">
         <div className="card-image-content">
-          <img className="card-image" src={cardImage} alt={altCardImage} />
+          <img className="card-image" src={cardImage} alt={title + "로 이동하기."} />
         </div>
         <div className="card-content">
           <div className="card-interval-date">{intervalDate(createdAt)}</div>

@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { getFolder, getUser } from '../api';
-import '../styles/Folder.css';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import FolderInfo from '../components/FolderInfo';

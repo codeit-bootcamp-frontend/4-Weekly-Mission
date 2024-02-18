@@ -3,17 +3,12 @@
 .searchbar {
   display: flex;
   width: 100%;
+  max-width: 70rem;
   align-items: flex-start;
   justify-content: space-between;
   padding: 1rem;
   border-radius: 0.5rem;
-  background: #f5f5f5;
-}
-
-.searchbar-content {
-  display: flex;
-  width: 100%;
-  align-items: center;
+  background: var(--background-gray);
   gap: 0.5rem;
 }
 
@@ -21,12 +16,12 @@
   width: 100%;
   border: none;
   background-color: transparent;
-  color: var(--gray-02);
+  color: var(--text-gray);
   outline: none;
 }
 
 input::placeholder {
-  color: var(--gray-02);
+  color: var(--text-gray);
 }
 
 .searchbar-icon {

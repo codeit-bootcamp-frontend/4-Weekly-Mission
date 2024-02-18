@@ -4,10 +4,10 @@ import CardList from '../components/CardList';
 
 const FolderContent = ({ folderInfo }) => {
   return (
-    <div className="folder-content">
+    <main className="folder-content">
       <SearchBar />
       <CardList folderInfo={folderInfo} />
-    </div>
+    </main>
   );
 }
 
