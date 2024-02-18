@@ -8,7 +8,7 @@ import Footer from '../components/footer';
 import AddLink from '../components/AddLink';
 import Folder from '../components/folder';
 
-const Page = () => {
+const FoldPage = () => {
   const [user, setUser] = useState(null);
   const [folder, setFolder] = useState(null);
 
@@ -32,9 +32,9 @@ const Page = () => {
       <AddLink />
       <Folder folderInfo={folder} />
       <Footer />
-      <Route path='/folder' componet={FolderPage} />
+      <Route path='/folder' component={FolderPage} />
     </div>
   );
 };
 
-export default Page;
+export default FoldPage;
