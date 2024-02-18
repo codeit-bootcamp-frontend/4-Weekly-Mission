@@ -5,7 +5,7 @@ function TabList({ items }) {
   return (
     <S.List>
       {items?.map((item) => (
-        <Tab>{item}</Tab>
+        <Tab key={item.id}>{item}</Tab>
       ))}
     </S.List>
   );
