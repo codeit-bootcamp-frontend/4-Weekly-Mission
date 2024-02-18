@@ -8,7 +8,7 @@ const DefaultFolder = styled.button`
   border-radius: 5px;
   white-space: nowrap;
 
-  @media (min-width: 375px) and (max-width: 767px) {
+  @media (max-width: 767px) {
     padding: 6px 10px;
     font-size: 14px;
   }

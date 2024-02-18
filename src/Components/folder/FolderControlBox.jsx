@@ -6,11 +6,20 @@ const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
+
+  @media (max-width: 767px) {
+    display: block;
+    gap: 12px;
+  }
 `;
 
 const ControlerBox = styled.div`
   display: flex;
   gap: 12px;
+
+  @media (max-width: 767px) {
+    margin-top: 12px;
+  }
 `;
 
 const Controler = styled.div`

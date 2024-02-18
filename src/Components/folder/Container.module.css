@@ -38,6 +38,8 @@
 .folder_add {
   display: flex;
   gap: 4px;
+  width: 20%;
+  justify-content: flex-end;
 }
 
 .folder_add_icon {
