@@ -1,19 +1,21 @@
 const BASE_URL = "https://bootcamp-api.codeit.kr/api";
+const USER_ID = 4;
 
-export async function getFolder() {
-  const response = await fetch(`${BASE_URL}/sample/folder`);
+async function fetchData(endpoint) {
+  const url = `${BASE_URL}${endpoint}`;
+  const response = await fetch(url);
   if (!response.ok) {
-    throw new Error("폴더 정보를 불러오는데 실패했습니다.");
+    throw new Error(`${endpoint} 요청 중 오류가 발생했습니다.`);
   }
-  const body = await response.json();
-  return body;
+  return await response.json();
 }
 
-export async function getUser() {
-  const response = await fetch(`${BASE_URL}/sample/user`);
-  if (!response.ok) {
-    throw new Error("사용자 정보를 불러오는데 실패했습니다.");
-  }
-  const body = await response.json();
-  return body;
+//샘플 폴더
+export function getFolder() {
+  return fetchData("/sample/folder");
+}
+
+//유저 정보
+export function getUser() {
+  return fetchData(`/users/${USER_ID}`);
 }
