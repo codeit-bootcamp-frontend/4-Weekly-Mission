@@ -50,6 +50,7 @@ export const FolderBtn = styled.div`
     display: flex;
     flex-direction: row;
     gap: 8px;
+    flex-wrap: wrap;
 
     .button {
       display: flex;

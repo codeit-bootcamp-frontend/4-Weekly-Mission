@@ -1,11 +1,45 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as S from "./Content.style";
 
 import SearchBar from "../../../shared/components/search-bar/SearchBar";
 import ContentCard from "../../../shared/components/content/ContentCard";
 
 const Content = ({ folder, folderList }) => {
-  const [currFolder, setCurrFolder] = useState(0);
+  const [currFolder, setCurrFolder] = useState("전체");
+  const [currData, setCurrData] = useState(folder);
+
+  const getFolderAll = async () => {
+    await fetch("https://bootcamp-api.codeit.kr/api/users/1/links")
+      .then((res) => res.json())
+      .then((data) => {
+        setCurrData(data.data);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  };
+
+  const getFolder = async (folderId) => {
+    await fetch(
+      `https://bootcamp-api.codeit.kr//api/users/1/links?folderId=${folderId}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setCurrData(data.data);
+      })
+      .catch((error) => console.error("Error fetching data:", error));
+  };
+
+  useEffect(() => {
+    if (currFolder === "전체") {
+      getFolderAll();
+    } else {
+      getFolder(currFolder);
+      for (const folder of folderList) {
+        if (folder.id === currFolder) {
+          setCurrFolder(folder.name);
+        }
+      }
+    }
+  }, [currFolder]);
 
   return (
     <S.Container>
@@ -15,12 +49,12 @@ const Content = ({ folder, folderList }) => {
           <S.FolderBtn>
             <div className="folders">
               {folderList.map((folder) => {
-                if (folder.id === currFolder) {
+                if (folder.name === currFolder) {
                   return (
                     <div
                       key={folder.id}
                       className="button active"
-                      onClick={() => setCurrFolder(folder.id)}
+                      onClick={() => setCurrFolder(folder.name)}
                     >
                       <p className="text">{folder.name}</p>
                     </div>
@@ -30,7 +64,7 @@ const Content = ({ folder, folderList }) => {
                     <div
                       key={folder.id}
                       className="button"
-                      onClick={() => setCurrFolder(folder.id)}
+                      onClick={() => setCurrFolder(folder.name)}
                     >
                       <p className="text">{folder.name}</p>
                     </div>
@@ -48,8 +82,8 @@ const Content = ({ folder, folderList }) => {
             </div>
           </S.FolderBtn>
           <S.CurrFolder>
-            <p className="title">{folderList[currFolder].name}</p>
-            {folderList[currFolder].id !== 0 && (
+            <p className="title">{currFolder}</p>
+            {currFolder !== "전체" && (
               <div className="buttons">
                 <div className="button">
                   <img src="/assets/folder/share.svg" alt="공유" />
@@ -68,9 +102,9 @@ const Content = ({ folder, folderList }) => {
           </S.CurrFolder>
         </>
       )}
-      {folder ? (
+      {currData?.length > 0 ? (
         <div className="card-box">
-          {folder.map((link) => (
+          {currData?.map((link) => (
             <ContentCard key={link.id} link={link} />
           ))}
         </div>

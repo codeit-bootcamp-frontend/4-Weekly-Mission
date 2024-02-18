@@ -18,9 +18,9 @@ const Folder = () => {
       },
     ];
 
-    folderData.forEach((folder, idx) => {
+    folderData.forEach((folder) => {
       folderList.push({
-        id: idx + 1,
+        id: folder.id,
         name: folder.name,
       });
     });
