@@ -29,7 +29,7 @@ function CardList({ handleKebabClick, selectCardId, linkList, option, handleModa
           return (
             <Styled.Card key={id} href={url}>
               {option && <Styled.StarIcon src={StarIcon} alt='별 아이콘' />}
-              <Styled.CardImgBox $imgSrc={imgSrc} icon={CardDefaultIcon}>
+              <Styled.CardImgBox $imgSrc={imgSrc} $icon={CardDefaultIcon}>
                 <Styled.CardImg src={imgSrc} alt='카드 이미지' />
               </Styled.CardImgBox>
               <Styled.CardInfo>

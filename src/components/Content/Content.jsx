@@ -24,7 +24,7 @@ function Content({
     <Styled.Content>
       <form>
         <Styled.Label htmlFor='content--search'>링크 검색</Styled.Label>
-        <Styled.SearchInput id='content--search' type='search' placeholder='🔍   링크를 검색해 보세요.' />
+        <Styled.SearchInput id='content--search' type='search' placeholder='🔍  링크를 검색해 보세요.' />
       </form>
       {option && <Category {...categoryProps} />}
       <CardList

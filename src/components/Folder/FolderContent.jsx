@@ -71,7 +71,7 @@ function FolderContent({ handleKebabClick, selectCardId, categoryList, setCatego
     }
   };
 
-  const getClickArea = (e) => { 
+  const getClickArea = (e) => {
     if (e.target.className !== 'content__kebab') {
       handleKebabClick(0);
     }

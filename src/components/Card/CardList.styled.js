@@ -57,7 +57,7 @@ export const CardImgBox = styled.figure`
   height: 15.85913rem;
   border-radius: 0.9375rem 0.9375rem 0rem 0rem;
   overflow: hidden;
-  background: ${({ $imgSrc, icon }) => ($imgSrc ? `#ffffff` : `#dddfff url(${icon}) no-repeat center`)};
+  background: ${({ $imgSrc, $icon }) => ($imgSrc ? `#ffffff` : `#dddfff url(${$icon}) no-repeat center`)};
 `;
 
 export const CardImg = styled.img`

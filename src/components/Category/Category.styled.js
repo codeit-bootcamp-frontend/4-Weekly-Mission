@@ -22,8 +22,8 @@ export const CategoryList = styled.li`
     color: #ffffff;
   }
 
-  background-color: ${({ $isSelect }) => ($isSelect ? '#6d6afe' : '#ffffff')};
-  color: ${({ $isSelect }) => ($isSelect ? '#ffffff' : '#000000')};
+  background-color: ${({ $isSelect }) => $isSelect ? '#6d6afe' : '#ffffff'};
+  color: ${({ $isSelect }) => $isSelect ? '#ffffff' : '#000000'};
 `;
 
 export const CategoryAddButton = styled.div`
