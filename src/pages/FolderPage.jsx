@@ -24,28 +24,24 @@ function FolderPage() {
   const [isWholeFolderSelect, setIsWholeFolderSelect] = useState(false);
 
   const getCardsInfo = async () => {
-    console.log(`getCardsInfo 실행`);
     const response = await getCards();
     const userCards = response.data;
     setUserCards(userCards);
   };
 
   const getFoldersInfo = async () => {
-    console.log(`getFoldersInfo 실행`);
     const response = await getFolders();
     const userFolders = response.data;
     setUserFolders(userFolders);
   };
 
   const getSelectedCardsInfo = async () => {
-    console.log(`getSelectedCardsInfo 실행`);
     const response = await getSelectedCards(folderId);
     const selectedCards = response.data;
     setUserCards(selectedCards);
   };
 
   const getUserInfo = async () => {
-    console.log(`getUserInfo 실행`);
     const response = await getUser();
     const userInfo = response.data[0];
     setUserInfo(userInfo);

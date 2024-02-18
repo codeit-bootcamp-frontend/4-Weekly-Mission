@@ -9,14 +9,12 @@ function FolderMenu({
   setIsWholeFolderSelect,
 }) {
   const handleWholeFolderClick = () => {
-    console.log(`handleWholdFolderClick 실행`);
     getCardsInfo();
     setFolderName("");
     setIsWholeFolderSelect(true);
   };
 
   const handleFolderClick = (folderId, folderName) => {
-    console.log(`handleFolderClick 실행`);
     setFolderId(folderId);
     setFolderName(folderName);
     setIsWholeFolderSelect(false);

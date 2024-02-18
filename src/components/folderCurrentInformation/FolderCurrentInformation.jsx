@@ -8,7 +8,6 @@ function FolderCurrentInformation({ folderName, isWholeFolderSelect }) {
     <div className="FolderCurrentInformation">
       <div className="container">
         <div>{folderName}</div>
-        <br className="only_mobile" />
         {!isWholeFolderSelect && (
           <div className="icon_container">
             <div className="icon_each_container">
