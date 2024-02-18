@@ -1,6 +1,5 @@
 import { getFolder } from '../../api';
 import { CardList } from '../../components/Card';
-import { IconSearch } from '../../components/Icon';
 import SearchBox from '../../components/SearchBox/SearchBox';
 import './SharedPage.css';
 import { useEffect, useState } from 'react';
