@@ -1,0 +1,27 @@
+import styled from 'styled-components';
+
+export const SearchLayout = styled.div`
+  background: var(--color-white);
+  border: 1px solid var(--color-primary);
+  border-radius: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 800px;
+  padding: 16px 20px;
+`;
+
+export const SearchInputBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const SearchInput = styled.input`
+  border: none;
+
+  &::placeholder {
+    color: var(--color-gray-60);
+  }
+`;
