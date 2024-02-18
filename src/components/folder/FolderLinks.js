@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { calculateTimePassed, formatDate } from '../../utils/dateUtils';
 import ActionContainer from './buttons/ActionContainer';
 import '../../style/folderContent.css';
-import addIcon from '../../images/kebab.svg';
-import starIcon from '../../images/star.svg';
-import noImgIcon from '../../images/noCardImg.png';
 import FolderCategoryButtons from './buttons/FolderCategoryButtons';
+import LinkCards from './LinkCards';
 
 const FolderLinks = ({ folders, links, onFolderClick }) => {
   const [selectedFolderName, setSelectedFolderName] = useState('전체');
@@ -32,38 +30,6 @@ const FolderLinks = ({ folders, links, onFolderClick }) => {
     onFolderClick(folderId);
   };
 
-  const renderLinkCards = () =>
-    allLinks.map((link) => (
-      <a
-        key={link.id}
-        href={link.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="link-card"
-      >
-        <div className="card-image-container">
-          <img
-            src={link.image_source || noImgIcon}
-            alt={link.title}
-            className="card-image"
-          />
-          <button className="favorite-icon">
-            <img src={starIcon} alt="즐겨찾기" />
-          </button>
-        </div>
-        <div className="card-text-container">
-          <div className="card-content">
-            <span className="time-passed">{link.timePassed}</span>
-            <p className="link-description">{link.description}</p>
-            <span className="date-number">{link.formattedDate}</span>
-          </div>
-          <button className="kebab-menu-icon">
-            <img src={addIcon} alt="메뉴" />
-          </button>
-        </div>
-      </a>
-    ));
-
   return (
     <div>
       <FolderCategoryButtons
@@ -77,7 +43,7 @@ const FolderLinks = ({ folders, links, onFolderClick }) => {
         ) : (
           <div className="links-container">
             <ActionContainer folderName={selectedFolderName} />
-            {renderLinkCards()}
+            <LinkCards allLinks={allLinks} />
           </div>
         )}
       </div>
