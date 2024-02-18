@@ -19,23 +19,37 @@ const NotLink = styled.div`
     text-align :center;
     font-weight : 400;
     flex: 1;
+   
+    
 `;
 
 const CurrentCategory = styled.div`
+    max-width : 106rem;
+    width : 100%;
     display : flex;
     justify-content : space-between;
     align-items : center;
+    margin : auto;
     h2{
         font-size : 2.4rem;
         font-weight : 600;
         color : #000;
     }
+    @media (max-width : 790px){
+        &{
+            flex-direction : column;
+            align-items:flex-start;
+            gap:1.2rem;
+        }
+       
+    }
+    
 `;
 
 const FunctionsBox = styled.div`
-   
     display : flex;
     gap: 12px;
+    visibility : ${({visibility}) => visibility === '전체' ? 'hidden' : 'visible'};
 `;
 
 const FunctionBtn = styled.button`
@@ -104,7 +118,7 @@ function Folder() {
                             <CategoryBar categoryList={categoryData} onClick={onClickCategory} />
                             <CurrentCategory>
                                 <h2>{currentCategory}</h2>
-                                <FunctionsBox>
+                                <FunctionsBox visibility={currentCategory}>
                                     <FunctionBtn>
                                         <img src={shareIcon} alt="공유 아이콘" />
                                         공유

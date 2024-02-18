@@ -11,7 +11,8 @@ const SearchBox = styled.div`
     gap: 1.6rem;
     align-items: center;
     user-select: none;
-    width: 106rem;
+    max-width: 106rem;
+    width : 100%;
     margin: auto;
 
     .search-form{
@@ -29,17 +30,7 @@ const SearchBox = styled.div`
         font-size: 1.6rem;
     }
 
-    @media (max-width : 1124px){
-        &{
-            max-width: 70.6rem;;
-        }
-    }
-
-    @media  (max-width : 790px) {
-        &{
-            width: 34rem;
-        }
-    }
+  
 `;
 
 function SearchInput() {

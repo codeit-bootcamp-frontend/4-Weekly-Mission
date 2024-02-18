@@ -4,10 +4,12 @@ import { NavLink } from "react-router-dom";
 
 
 const CategoryBarBlock = styled.div`
-      width : 106rem;
-      margin : 0 auto;
-      display : flex;
-      justify-content : space-between;
+    width : 100%;
+    margin : 0 auto;
+    display : flex;
+    justify-content : space-between;
+   
+      
 `;
 
 
@@ -26,11 +28,13 @@ const CategoryBtn = styled(NavLink)`
         color : #fff;
         background-color :  #6D6AFE;
     }
+   
 `;
 
 const CategoryList = styled.ul`
     display : flex;
     gap : 8px;
+    flex-wrap : wrap;
 `;
 
 const AddFolderBtn = styled.button`
@@ -40,6 +44,9 @@ const AddFolderBtn = styled.button`
         font-size : 1.6rem;
         background-color : transparent;
         cursor: pointer;
+        @media (max-width : 1040px){
+            display : none;
+        }
 `;
 
 function CategoryBar({ categoryList, onClick }) {

@@ -4,8 +4,7 @@
 }
 
 .section.owner-information{
-    padding-top: 10rem;
-    padding-bottom: 6rem;
+    padding : 10rem 3.2rem 6rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +22,8 @@
 }
 
 .linkcard-list{
-    width: 106rem;
+    max-width: 106rem;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -31,7 +31,8 @@
 }
 
 .container > .wrap{
-    width: 106rem;
+    max-width: 106rem;
+    width : 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -44,12 +45,12 @@
     }
 
     .linkcard-list {
-        width: 72.4rem;
+      
         gap: 2rem 2.4rem;
+        justify-content: space-between;
     }
-    .linkcard-list > li:nth-child(n + 7){
-        display: none;
-    }
+
+    
 }
 
 @media screen and (max-width : 790px) {
@@ -57,9 +58,6 @@
     .container{
         gap: 3.2rem;
     } 
-    .linkcard-list {
-        width: 34rem;
-    }
     .linkcard-list > li:nth-child(n + 7){
         display: list-item;
     }

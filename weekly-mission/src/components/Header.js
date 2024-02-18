@@ -8,7 +8,7 @@ import { useLocation } from 'react-router-dom'
 
 const Header = styled.header`
     width: 100vw;
-    padding: 3.2rem 0;
+    padding: 3.2rem;
     background-color: #F0F6FF;
     height: 9.3rem;
     position : fixed;
@@ -17,7 +17,8 @@ const Header = styled.header`
     z-index : 1000;
 
     .Header-inner{
-        width: 106rem;
+        max-width: 106rem;
+        width:100%;
         margin: auto;
         display: flex;
         justify-content: space-between;
@@ -27,16 +28,7 @@ const Header = styled.header`
     .Header-logo{
         display:inline-block;
     }
-    @media (max-width : 1124px){
-        .Header-inner{
-            width : 70.6rem;
-        }
-    }
-    @media (max-width : 790px){
-        .Header-inner{
-            width : 34rem;
-        }     
-    }
+   
 
 `;
 
