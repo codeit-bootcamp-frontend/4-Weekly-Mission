@@ -35,7 +35,7 @@ const Folder = () => {
       <FolderContent>
         <SearchBar />
         <FolderList />
-        <CardList folderInfo={folder} isIconVisible={true} />
+        <CardList folderInfo={folder} isFolderTitle={true} isIconVisible={true} />
       </FolderContent>
 
       <Footer />
