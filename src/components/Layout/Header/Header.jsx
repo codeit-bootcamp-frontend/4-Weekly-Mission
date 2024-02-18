@@ -43,7 +43,7 @@ function Header() {
 
 function ButtonLogin({ onClick }) {
   return (
-    <Button onClick={onClick} fontSize="18">
+    <Button type="button" onClick={onClick} fontSize="18">
       로그인
     </Button>
   );
