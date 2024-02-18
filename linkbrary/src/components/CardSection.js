@@ -1,6 +1,6 @@
 import "../styles/CardSection.css";
-import starImgSrc from "../icons/star.svg";
-import kebabImgSrc from "../icons/kebab.svg";
+import starImgSrc from "../assets/star.svg";
+import kebabImgSrc from "../assets/kebab.svg";
 
 const getElapsedTimeMessage = (createdAtTime) => {
   const currentDays = new Date();

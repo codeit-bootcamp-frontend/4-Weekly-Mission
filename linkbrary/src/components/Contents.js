@@ -1,5 +1,5 @@
 import "../styles/Contents.css";
-import searchImgSrc from "../icons/search.svg";
+import searchImgSrc from "../assets/search.svg";
 import CardSection from "./CardSection";
 
 function Contents({ folderList }) {
@@ -13,6 +13,7 @@ function Contents({ folderList }) {
           placeholder="링크를 검색해 보세요."
         />
       </div>
+      <div></div>
       <ul className="card-list">
         {folderList.map(({ id, createdAt, url, description, imageSource }) => (
           <li key={id} className="card-item">

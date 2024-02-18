@@ -1,5 +1,5 @@
 import "../styles/Header.css";
-import linkbraryLogoImg from "../icons/linkbrary.svg";
+import linkbraryLogoImg from "../assets/linkbrary.svg";
 
 function Header({ user }) {
   return (
