@@ -46,6 +46,13 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1124px) {
+    padding: 32px;
+  }
+  @media (max-width: 774px) {
+    padding: 18px 32px;
+  }
 `;
 
 export default HeaderElement;
