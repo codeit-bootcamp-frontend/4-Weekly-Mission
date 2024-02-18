@@ -5,17 +5,14 @@ import styled from 'styled-components';
 import { HeaderContainer } from 'styles/HeaderContainer';
 
 const Header = () => {
-  const {
-    data: folderInfo,
-    isLoading,
-    isError,
-    error,
-  } = useSampleFolderQuery('folderInfo', data => ({
-    ownerName: data.folder.owner.name,
-    folderName: data.folder.name,
-    profileImage: data.folder.owner.profileImageSource,
-  }));
+  const { data, isLoading, isError, error } =
+    useSampleFolderQuery('folderInfo');
 
+  const folderInfo = {
+    ownerName: data?.folder.owner.name,
+    folderName: data?.folder.name,
+    profileImage: data?.folder.owner.profileImageSource,
+  };
   if (isError) {
     console.log(error);
   }
