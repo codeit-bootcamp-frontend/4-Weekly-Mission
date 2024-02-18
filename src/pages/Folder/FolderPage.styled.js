@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { IconAdd } from '../../components/Icon';
 
 export const FolderPageLayout = styled.div`
   display: flex;
