@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import "../style/folder.css";
-function Folder() {
+import "../style/folderComponent.css";
+function FolderComponent() {
   const [folderData, setFolderData] = useState({
     ownerName: null,
     folderName: null,
@@ -39,4 +39,4 @@ function Folder() {
     </div>
   );
 }
-export default Folder;
+export default FolderComponent;

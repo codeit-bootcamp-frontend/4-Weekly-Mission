@@ -22,13 +22,7 @@ function Card() {
   }, []);
 
   return (
-    <div className="main-container">
-      <form className="searchLink-container">
-        <input
-          className="search-link"
-          placeholder="링크를 검색해 보세요."
-        ></input>
-      </form>
+    <div className="main-container">      
       <div className="cardImg-grid">
         {items &&
           items.map((item, index) => (
