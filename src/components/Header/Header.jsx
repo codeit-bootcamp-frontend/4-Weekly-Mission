@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import logo from './images/logo.png';
 
-import '../../App.css';
 import './Header.css';
 
 export default function Header() {
@@ -41,7 +40,7 @@ function Profile({ owner }) {
       ) : (
         <div id="profileArea">
           <img id="profileImage" src={owner.profileImageSource} alt="프로필 이미지" />
-          <p id="profileName">{owner.email}</p>
+          <p id="profileEmail">{owner.email}</p>
         </div>
       )}
     </>
