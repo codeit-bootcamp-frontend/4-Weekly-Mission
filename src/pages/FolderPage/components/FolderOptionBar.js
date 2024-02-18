@@ -3,7 +3,7 @@ import shareIcon from '../../../assets/shareIcon.svg';
 import renameIcon from '../../../assets/renameIcon.svg';
 import deleteIcon from '../../../assets/deleteIcon.svg';
 import OptionButton from './OptionButton';
-function FolderOptionBar({ text = '유용한 글' }) {
+function FolderOptionBar({ text = '유용한 글', selectedFolderId }) {
   const buttonProps = [
     {
       id: 1,
@@ -26,13 +26,15 @@ function FolderOptionBar({ text = '유용한 글' }) {
     <div className="folder__option-bar">
       <span className="folder__option-bar--text">{text}</span>
       <div className="folder__option-bar--buttons">
-        {buttonProps.map((prop) => (
-          <OptionButton
-            key={prop.id}
-            svg={prop.svg}
-            text={prop.text}
-          ></OptionButton>
-        ))}
+        {selectedFolderId !== 1
+          ? buttonProps.map((prop) => (
+              <OptionButton
+                key={prop.id}
+                svg={prop.svg}
+                text={prop.text}
+              ></OptionButton>
+            ))
+          : ''}
       </div>
     </div>
   );

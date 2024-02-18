@@ -31,7 +31,10 @@ function FolderList() {
             handleClick={handleSortButtonClick}
             selectedId={selectedFolder.id}
           ></FolderSortBar>
-          <FolderOptionBar text={selectedFolder.name}></FolderOptionBar>
+          <FolderOptionBar
+            text={selectedFolder.name}
+            selectedFolderId={selectedFolder.id}
+          ></FolderOptionBar>
           {links.length == 0 ? (
             <div className="none-list">
               <p className="none-list__text">저장된 링크가 없습니다</p>
