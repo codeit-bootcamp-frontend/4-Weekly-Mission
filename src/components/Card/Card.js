@@ -10,7 +10,7 @@ const Card = ({ createdAt, description, imageSource }) => {
 
   const cardRef = useRef();
 
-  const handleMouseOver = ({ target }) => {
+  const handleMouseOver = () => {
     setIsMouseOver(true);
     cardRef.current.classList.add("hover");
   };
