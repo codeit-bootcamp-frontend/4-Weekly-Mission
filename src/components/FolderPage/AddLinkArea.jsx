@@ -1,40 +1,26 @@
 import styled from 'styled-components';
-import iconLink from '../assets/link.svg';
-// import Button from './Button';
+import iconLink from '../../assets/link.svg';
+import SubHeader from '../SubHeader';
+import TextInput from './TextInput';
 
-const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: var(--color-gray-200);
-`;
-
-const InputArea = styled.div`
+const InputGroup = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
   margin: 6rem 0 9rem;
-  padding: 1.5rem 2rem;
-  max-width: 80rem;
+  padding: 1.6rem 2rem;
   width: 100%;
-  border-radius: 1rem;
+  max-width: 80rem;
+  border-radius: 1.5rem;
   background-color: var(--color-white);
   &::before {
     content: '';
     display: block;
-    width: 2rem;
-    height: 2rem;
+    margin-right: 1.2rem;
+    min-width: 2rem;
+    min-height: 2rem;
     background: url(${iconLink}) no-repeat center/contain;
   }
-`;
-
-const Input = styled.input`
-  max-width: 100%;
-  background-color: inherit;
-  line-height: 2.4rem;
-  font-size: 1.6rem;
-  outline: none;
 `;
 
 const Button = styled.button`
@@ -49,12 +35,12 @@ const Button = styled.button`
 `;
 
 const AddLinkArea = () => (
-  <Main>
-    <InputArea>
-      <Input />
+  <SubHeader>
+    <InputGroup>
+      <TextInput type="text" placeholder="링크를 추가해 보세요" image={iconLink} />
       <Button>추가하기</Button>
-    </InputArea>
-  </Main>
+    </InputGroup>
+  </SubHeader>
 );
 
 export default AddLinkArea;

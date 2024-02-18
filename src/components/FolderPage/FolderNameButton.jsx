@@ -7,13 +7,14 @@ const Button = styled.button`
   font-size: 1.6rem;
   background-color: ${({ $active }) => ($active ? `var(--color-primary)` : 'inherit')};
   color: ${({ $active }) => ($active ? `var(--color-white)` : '#000')};
+  white-space: nowrap;
 `;
 
 const FolderNameButton = ({ name, id, selectedFolder, setFolderId, changeSelectedFolder }) => {
-  const handleClick = () =>{
-     changeSelectedFolder(name)
-     setFolderId(id)
-    };
+  const handleClick = () => {
+    changeSelectedFolder(name);
+    setFolderId(id);
+  };
 
   return name === selectedFolder ? (
     <Button $active onClick={handleClick}>

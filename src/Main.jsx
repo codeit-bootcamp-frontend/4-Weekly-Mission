@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import SharedPage from './components/SharedPage';
 import App from './components/App';
-import FolderPage from './components/FolderPage';
+import FolderPage from './components/FolderPage/FolderPage';
 
 const Main = () => (
   <BrowserRouter>
