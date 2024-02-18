@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 const LoginContext = createContext();
 
@@ -13,6 +13,30 @@ export function LoginProvider({ children }) {
   const [user, setUser] = useState(null);
   const [time, setTime] = useState(3600);
 
+  const handleAutoLogin = async () => {
+    const accessToken = localStorage.getItem('accessToken');
+    const refreshToken = localStorage.getItem('refreshToken');
+
+    if (!accessToken || !refreshToken) {
+      return;
+    }
+
+    /*
+      api 검증...
+      try {
+        const userInfo = await getUser({ accessToken, refreshToken });
+        if (!userInfo) {
+          localStorage.removeItem('accessToken');
+          localStorage.removeItem('refreshToken');
+          throw Error('잘못된 경로로 접근하셨습니다.');
+        }
+        setIsLogin(true);
+      } catch (error) {
+        console.error(error);
+      }
+    */
+  };
+
   const handleLogin = (user) => {
     setUser(user);
     setIsLogin(true);
@@ -20,6 +44,10 @@ export function LoginProvider({ children }) {
     console.log(isLogin, time);
     setTime(3600);
   };
+
+  useEffect(() => {
+    handleAutoLogin();
+  }, [isLogin]);
 
   return (
     <LoginContext.Provider value={{ user, setUser: handleLogin }}>
