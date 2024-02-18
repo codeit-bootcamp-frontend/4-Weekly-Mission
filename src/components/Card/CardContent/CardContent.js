@@ -7,14 +7,15 @@ function formatDate(value) {
 }
 
 export const CardContent = ({ items, isZoomedIn }) => {
-  const { createdAt, description } = items;
+  const { createdAt: created_at, created_at: createdAt, description } = items;
+  const createdAtValue = createdAt || created_at;
   const className = isZoomedIn ? "card-text card-text-hovered" : "card-text";
 
   return (
     <div className={className}>
-      <p className="card-text-time-ago">{getElapsedTime(createdAt)}</p>
+      <p className="card-text-time-ago">{getElapsedTime(createdAtValue)}</p>
       <p className="card-text-description">{description}</p>
-      <p className="card-text-date">{formatDate(createdAt)}</p>
+      <p className="card-text-date">{formatDate(createdAtValue)}</p>
     </div>
   );
 };
