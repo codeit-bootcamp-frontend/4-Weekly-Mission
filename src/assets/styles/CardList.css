@@ -1,10 +1,5 @@
 @import url(colors.css);
 
-main {
-  display: flex;
-  width: 100%;
-}
-
 .card {
   width: 21.25rem;
   flex-shrink: 0;
@@ -12,6 +7,7 @@ main {
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   cursor: pointer;
+  position: relative;
 }
 .card:hover .card-contents {
   background: var(--Linkbrary-bg, #f0f6ff);
@@ -80,7 +76,7 @@ main {
   font-weight: 400;
   line-height: normal;
 }
-.cardList-container {
+.card-list-container {
   width: 66.3rem;
   display: flex;
   flex-wrap: wrap;
@@ -89,7 +85,7 @@ main {
   column-gap: 1.25rem;
   row-gap: 1.56rem;
 }
-.cardList {
+.card-list {
   display: flex;
   justify-content: center;
   padding: 2.5rem 0;
@@ -107,7 +103,7 @@ main {
 
 /* Mobile 375~767 1열*/
 @media (min-width: 375px) and (max-width: 767px) {
-  .cardList-container {
+  .card-list-container {
     max-width: 20.3rem;
     width: 100%;
   }
@@ -121,7 +117,7 @@ main {
   .card-contents {
     width: 100%;
   }
-  .cardList {
+  .card-list {
     margin: 0 auto;
     padding: 2rem 32px;
     padding-bottom: 1.25rem;
@@ -129,7 +125,7 @@ main {
 }
 /* Tablet 768~1124 card 2열*/
 @media (min-width: 768px) and (max-width: 1124px) {
-  .cardList-container {
+  .card-list-container {
     max-width: 44rem;
     width: 100%;
     column-gap: 1.5rem;
@@ -145,7 +141,7 @@ main {
   .card-contents {
     width: 100%;
   }
-  .cardList {
+  .card-list {
     margin: 0 auto;
     padding: 2.5rem 32px;
   }

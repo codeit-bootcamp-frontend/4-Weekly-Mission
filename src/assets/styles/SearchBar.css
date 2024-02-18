@@ -2,7 +2,6 @@
   display: flex;
   position: relative;
   justify-content: center;
-  align-items: flex-start;
   margin-top: 2.5rem;
 }
 .search-form {

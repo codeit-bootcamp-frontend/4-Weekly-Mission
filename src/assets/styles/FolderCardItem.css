@@ -1,0 +1,14 @@
+.star-icon {
+  position: absolute;
+  width: 2.125rem;
+  height: 2.125rem;
+  top: 0.94rem;
+  right: 0.94rem;
+}
+
+.kebab-icon {
+  width: 1.3125rem;
+  height: 1.0625rem;
+  position: absolute;
+  right: 1.25rem;
+}
