@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CalcTime } from "./../../calculator";
+import { CalcTime } from "../../calculator";
 import SharedSection from "./../components/shared/SharedSection";
 import FolderItem from "../components/shared/FolderItem";
 import FolderList from "../components/shared/FolderList"
