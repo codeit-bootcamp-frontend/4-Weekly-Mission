@@ -8,16 +8,16 @@ function NavigationBar() {
   const [profileData, setProfileData] = useState({});
 
   const getProfileData = async (path) => {
-    const result = await getUserInfo(path);
+    const { data } = await getUserInfo(path);
     
-    if (!result) return;
+    if (!data) return;
 
-    setProfileData(result);
+    setProfileData(data[0]);
     setIsLoginStatus(true);
   }
 
   useEffect(() => {
-    getProfileData('user');
+    getProfileData('/users/1');
   }, [])
 
   return (
@@ -25,7 +25,7 @@ function NavigationBar() {
       <img src={LinkbraryLogo} alt='logo'/>
       {isLoginStatus ? (
         <div className={styles.account}>
-          <img src={profileData.profileImageSource} alt='profile' />
+          <img src={profileData.image_source} alt='profile' />
           <p>{profileData.email}</p>
         </div>
       )
