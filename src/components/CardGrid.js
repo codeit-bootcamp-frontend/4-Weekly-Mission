@@ -1,15 +1,12 @@
-import Card from './Card';
-import searchIcon from '../assets/search-icon.png';
-import '../style/CardGrid.css';
+import Card from './ui/Card';
+import './CardGrid.css';
 
-function CardGrid() {
+const CardGrid = () => {
   return (
-    <>
-      <div className='card-grid'>
-        <Card />
-      </div>
-    </>
+    <div className='card-grid'>
+      <Card />
+    </div>
   );
-}
+};
 
 export default CardGrid;

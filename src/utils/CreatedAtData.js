@@ -1,5 +1,3 @@
-import { CREATED_TIME } from '../components/constants';
-
 export const uploadedDuration = (createdAt) => {
   const now = new Date();
   const createdDate = new Date(createdAt);
@@ -10,29 +8,14 @@ export const uploadedDuration = (createdAt) => {
   const month = Math.floor(minute / (60 * 24 * 30));
   const years = Math.floor(minute / (60 * 24 * 30 * 12));
 
-  const {
-    MSG_ONE_MINUTE,
-    MSG_MINUTES,
-    MSG_ONE_HOUR,
-    MSG_HOURS,
-    MSG_ONE_DAY,
-    MSG_DAYS,
-    MSG_ONE_MONTH,
-    MSG_MONTHS,
-    MSG_ONE_YEAR,
-    MSG_YEARS,
-  } = CREATED_TIME;
-
-  if (minute < 2) return MSG_ONE_MINUTE;
-  if (minute <= 59) return `${minute} ${MSG_MINUTES}`;
-  if (minute < 60 * 24)
-    return hour === 1 ? MSG_ONE_HOUR : `${hour} ${MSG_HOURS}`;
-  if (minute < 60 * 24 * 30)
-    return day === 1 ? MSG_ONE_DAY : `${day} ${MSG_DAYS}`;
+  if (minute < 2) return '1 minute ago';
+  if (minute <= 59) return `${minute} minutes ago`;
+  if (minute < 60 * 24) return hour === 1 ? '1 hour ago' : `${hour} hours ago`;
+  if (minute < 60 * 24 * 30) return day === 1 ? '1 day ago' : `${day} days ago`;
   if (minute < 60 * 24 * 30 * 12)
-    return month === 1 ? MSG_ONE_MONTH : `${month} ${MSG_MONTHS}`;
-  if (years === 1) return MSG_ONE_YEAR;
-  return `${years} ${MSG_YEARS}`;
+    return month === 1 ? '1 month ago' : `${month} months ago`;
+  if (years === 1) return '1 year ago';
+  return `${years} 'years ago'`;
 };
 
 export const uploadedDate = (createdAt) => {

@@ -1,55 +1,56 @@
+import { Link } from 'react-router-dom';
+import { HREF } from '../utils/constants';
+import Icon from './ui/Icon';
 import facebookIcon from '../assets/facebook.png';
-import instargramIcon from '../assets/instagram.png';
+import instagramIcon from '../assets/instagram.png';
 import youtubeIcon from '../assets/youtube.png';
 import twitterIcon from '../assets/twitter.png';
-import '../style/Footer.css';
+import './Footer.css';
 
-function Footer() {
+const Icons = [
+  {
+    src: facebookIcon,
+    alt: 'facebook',
+    link: HREF.FACEBOOK,
+  },
+  {
+    src: twitterIcon,
+    alt: 'twitter',
+    link: HREF.TWITTER,
+  },
+  {
+    src: youtubeIcon,
+    alt: 'youtube',
+    link: HREF.YOUTUBE,
+  },
+  {
+    src: instagramIcon,
+    alt: 'instagram',
+    link: HREF.INSTAGRAM,
+  },
+];
+
+const Footer = () => {
   return (
-    <footer>
-      <div className='footer-container'>
-        <div className='footer-content'>
-          <div className='company'>©codeit - 2023</div>
-          <div className='footer-menu'>
-            <a id='policy' href='/Privacy'>
-              Privacy Policy
-            </a>
-            <a href='/faq'>FAQ</a>
-          </div>
-          <div className='footer-icon'>
-            <a
-              href='https://www.facebook.com/'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <img src={facebookIcon} alt='facebook' />
-            </a>
-            <a
-              href='https://twitter.com/?lang=ko'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <img src={twitterIcon} alt='twitter' />
-            </a>
-            <a
-              href='https://www.youtube.com/?hl=ko'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <img src={youtubeIcon} alt='youtube' />
-            </a>
-            <a
-              href='https://www.instagram.com/'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <img src={instargramIcon} alt='instagram' />
-            </a>
-          </div>
-        </div>
+    <footer className='footer'>
+      <div className='company'>©codeit - 2023</div>
+      <div className='footer-menu'>
+        <Link to='/privacy'>Privacy Policy</Link>
+        <Link to='/faq'>FAQ</Link>
+      </div>
+      <div className='footer-icon'>
+        {Icons.map((icon, index) => (
+          <Icon
+            key={index}
+            src={icon.src}
+            alt={icon.alt}
+            link={icon.link}
+            className={icon.alt}
+          />
+        ))}
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;
