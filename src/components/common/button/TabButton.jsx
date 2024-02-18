@@ -10,7 +10,7 @@ const Styled = {
 
   Tab: styled.li`
     padding: 0.8rem 1.2rem;
-    margin: 0 0.4rem;
+    margin: 0 0.4rem 1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,12 +34,14 @@ const Styled = {
 
 /**
  * TabButton - 공통 탭 컴포넌트
- * @param {Array<{title: string, func: function }>} tabInfo title, func 정보가 객체로 담긴 배열
+ * @param {Object[]} tabInfo 탭 정보 객체들로 이루어진 배열
+ * @param {Function} onChange - 탭 변경 시 호출되는 콜백 함수
  * @param {React.HTMLAttributes} htmlButtonProps 기타 탭 버튼 container props
  */
 
 function TabButton({ tabInfo, onChange = () => {}, ...htmlButtonProps }) {
   const [selectedTab, setSeletedTab] = useState(0);
+  console.log(tabInfo);
 
   return (
     <Styled.Container type="button" {...htmlButtonProps}>

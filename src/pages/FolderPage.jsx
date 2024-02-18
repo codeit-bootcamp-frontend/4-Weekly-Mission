@@ -39,12 +39,11 @@ const Styled = {
 
 function FolderPage() {
   const { data } = useUserFoldersQuery({ userId: 1 });
-  const folderList = data?.data?.data || [];
+  let folderList = [{ id: 1, name: '전체' }, ...(data?.data?.data || [])];
   const [selectedTabName, setSelectedTabName] = useState('전체');
   const [selectedFolder, setSelectedFolder] = useState(1);
 
   const hasFolders = folderList.length !== 0;
-  console.log(hasFolders);
 
   return (
     <>
