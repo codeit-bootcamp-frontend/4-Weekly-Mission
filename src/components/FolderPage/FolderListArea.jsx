@@ -1,17 +1,40 @@
 import styled from 'styled-components';
 import FolderNameButton from './FolderNameButton';
+import IconAdd from '../../assets/add.svg';
 
 const FolderGroup = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 2.4rem;
 `;
 
 const FolderList = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  align-items: center;
+  /* width: 100%; */
   gap: 0.8rem;
+`;
+
+const Button = styled.button`
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  line-height: 1.9rem;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  letter-spacing: -0.03rem;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 1.6rem;
+    height: 1.6rem;
+    background: url(${IconAdd}) no-repeat center bottom/contain;
+  }
 `;
 
 const FolderListArea = ({ folders, selectedFolder, setSelectedFolder, setFolderId }) => (
@@ -38,7 +61,7 @@ const FolderListArea = ({ folders, selectedFolder, setSelectedFolder, setFolderI
         </li>
       ))}
     </FolderList>
-    <button>폴더 추가</button>
+    <Button>폴더 추가</Button>
   </FolderGroup>
 );
 

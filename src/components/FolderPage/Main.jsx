@@ -7,7 +7,7 @@ import LinkList from './LinkList';
 
 const MainArea = styled.main`
   margin: 0 auto;
-  padding: 4rem 0;
+  padding: 4rem 3.2rem;
   max-width: 106rem;
 `;
 

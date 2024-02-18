@@ -1,27 +1,35 @@
 import styled from 'styled-components';
 import LinkCard from '../LinkCard';
-import IconShare from '../../assets/share.svg';
-import IconPen from '../../assets/delete.svg';
-import IconDelete from '../../assets/pen.svg';
+import iconShare from '../../assets/share.svg';
+import iconPen from '../../assets/pen.svg';
+import iconDelete from '../../assets/delete.svg';
 
 const ButtonList = [
   {
     name: '공유',
-    image: IconShare,
+    english: 'Share',
   },
   {
     name: '이름변경',
-    image: IconPen,
+    english: 'Pen',
   },
   {
     name: '삭제',
-    image: IconDelete,
+    english: 'Delete',
   },
 ];
 
+const ICON = {
+  iconShare,
+  iconPen,
+  iconDelete,
+};
+
 const Header = styled.header`
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  margin-bottom: 2.4rem;
   width: 100%;
 `;
 
@@ -37,29 +45,41 @@ const LinkListArea = styled.ul`
   width: 100%;
 `;
 
-const Button = styled.button`
+const UpdateButtonList = styled.ul`
+  display: flex;
+  gap: 1.2rem;
+`;
+
+const UpdateButton = styled.button`
+  display: flex;
+  gap: 0.4rem;
   line-height: 1.7rem;
   font-size: 1.4rem;
   font-weight: 600;
-  &::before {
-    content: '';
-    display: block;
-    margin-right: 0.4rem;
-    width: 1.8rem;
-    height: 1.8rem;
-    background: url(${backgroundImg => backgroundImg}) no-repeat center/contain;
-  }
+  color: var(--color-gray-600);
+`;
+
+const ButtonImg = styled.img`
+  width: 1.8rem;
+  height: 1.8rem;
 `;
 
 const LinkList = ({ links, selectedFolder }) => (
   <>
     <Header>
       <Title>{selectedFolder}</Title>
-      <ul>
-        {ButtonList.map(button => (
-          <Button backgroundImg={button.image}>{button.name}</Button>
-        ))}
-      </ul>
+      {selectedFolder !== '전체' && (
+        <UpdateButtonList>
+          {ButtonList.map(({ name, english }) => (
+            <li>
+              <UpdateButton>
+                <ButtonImg src={ICON[`icon${english}`]} alt={name} />
+                {name}
+              </UpdateButton>
+            </li>
+          ))}
+        </UpdateButtonList>
+      )}
     </Header>
     {links.length ? (
       <LinkListArea>
