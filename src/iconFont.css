@@ -1,0 +1,78 @@
+@font-face {
+  font-family: "icomoon";
+  src: url("./asset/fonts/icomoon.eot?phk8mu");
+  src: url("./asset/fonts/icomoon.eot?phk8mu#iefix") format("embedded-opentype"),
+    url("./asset/fonts/icomoon.ttf?phk8mu") format("truetype"),
+    url("./asset/fonts/icomoon.woff?phk8mu") format("woff"),
+    url("./asset/fonts/icomoon.svg?phk8mu#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Search:before {
+  content: "\e901";
+  color: #666;
+}
+
+.icon-eye-on:before {
+  content: "\e90b";
+  color: #373740;
+}
+.icon-eye-off:before {
+  content: "\e900";
+  color: #373740;
+}
+.icon-google-login .path1:before {
+  content: "\e902";
+  color: rgb(66, 133, 244);
+}
+.icon-google-login .path2:before {
+  content: "\e903";
+  margin-left: -0.9775390625em;
+  color: rgb(52, 168, 83);
+}
+.icon-google-login .path3:before {
+  content: "\e904";
+  margin-left: -0.9775390625em;
+  color: rgb(251, 188, 5);
+}
+.icon-google-login .path4:before {
+  content: "\e905";
+  margin-left: -0.9775390625em;
+  color: rgb(235, 67, 53);
+}
+.icon-kakao-login:before {
+  content: "\e906";
+}
+.icon-sns-facebook:before {
+  content: "\e907";
+  color: #fff;
+}
+.icon-sns-instagram:before {
+  content: "\e908";
+  color: #fff;
+}
+.icon-sns-twitter:before {
+  content: "\e909";
+  color: #fff;
+}
+.icon-sns-youtube:before {
+  content: "\e90a";
+  color: #fff;
+}

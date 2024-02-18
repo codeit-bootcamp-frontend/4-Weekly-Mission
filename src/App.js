@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "./global.css";
+import Footer from "./components/Footer/Footer";
+import NavigationBar from "./components/NavigationBar/NavigationBar";
+import { useEffect, useState } from "react";
+import getSample from "./util/getSample";
+import Folder from "./components/Folder/Folder";
 
 function App() {
+  const [profile, setProfile] = useState(null);
+  const [folder, setFolder] = useState(null);
+
+  useEffect(() => {
+    getSample("user").then(setProfile);
+    getSample("folder")
+      .then((res) => {
+        const { folder } = res;
+        return folder;
+      })
+      .then(setFolder);
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavigationBar profile={profile} />
+      <main className="App__main">
+        {folder && <Folder folder={folder} />}
+      </main>
+      <Footer />
     </div>
   );
 }
