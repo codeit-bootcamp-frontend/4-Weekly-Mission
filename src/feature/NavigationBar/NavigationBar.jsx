@@ -1,15 +1,23 @@
-import { ROUTE } from "util/constant";
-import { Cta } from "../../ui/Cta";
-import { Profile } from "../../ui/Profile";
-import { LOGO_IMAGE, TEXT } from "./constant";
-import "./NavigationBar.css";
+import { ROUTE } from 'util/constant';
+import { Cta } from '../../ui/Cta';
+import { Profile } from '../../ui/Profile';
+import { LOGO_IMAGE, TEXT } from './constant';
+import './NavigationBar.css';
 
-export const NavigationBar = ({ profile }) => {
+export const NavigationBar = ({ profile, currentPath }) => {
+  const navBarClass = currentPath.includes('folder')
+    ? 'NavigationBar-folder'
+    : undefined;
+
   return (
-    <nav className="NavigationBar">
+    <nav className={`NavigationBar ${navBarClass || ''}`}>
       <div className="NavigationBar-items">
         <a href={ROUTE.랜딩}>
-          <img className="NavigationBar-logo" src={LOGO_IMAGE} alt="Linkbrary 서비스 로고" />
+          <img
+            className="NavigationBar-logo"
+            src={LOGO_IMAGE}
+            alt="Linkbrary 서비스 로고"
+          />
         </a>
         {profile ? (
           <Profile profile={profile} />
