@@ -10,13 +10,16 @@ import { EditLink } from "ui/EditLink";
 
 import "./FolderPage.css";
 import { useState } from "react";
+import { NoLink } from "ui/NoLink/NoLink";
 
 export const FolderPage = () => {
+  const [currentCategory, setCurrentCategory] = useState("전체");
+  const [folderId, setFolderId] = useState("0");
+
   const { data: linkData } = useGetLink();
-  const { folderData } = useGetFolderByLink();
+  const { folderData } = useGetFolderByLink(folderId);
   const links = folderData?.data;
 
-  const [currentCategory, setCurrentCategory] = useState("전체");
   const linkDataWithAll = Array.isArray(linkData)
     ? [{ name: "전체", id: "0" }, ...linkData]
     : [];
@@ -24,7 +27,10 @@ export const FolderPage = () => {
 
   const handleButtonClick = (e) => {
     const category = e.target.innerText;
+    const Id = e.target.id;
+
     setCurrentCategory(category);
+    setFolderId(Id);
   };
 
   return (
@@ -39,11 +45,15 @@ export const FolderPage = () => {
             currentCategory={currentCategory}
           />
           <EditLink currentCategory={currentCategory} />
-          <CardList>
-            {links?.map((link) => (
-              <EditableCard key={link?.id} {...link} />
-            ))}
-          </CardList>
+          {links ? (
+            <CardList>
+              {links?.map((link) => (
+                <EditableCard key={link?.id} {...link} />
+              ))}
+            </CardList>
+          ) : (
+            <NoLink>저장된 링크가 없습니다.</NoLink>
+          )}
           <button className="mobile-add-button">폴더 추가하기 +</button>
         </div>
       </div>
