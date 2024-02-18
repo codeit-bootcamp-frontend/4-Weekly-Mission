@@ -1,7 +1,7 @@
 import Main from './Main';
 import Folder from './pages/Folder/Folder';
 import Home from './pages/Home/Home';
-import Shared from './pages/Shared/Sahred';
+import Shared from './pages/Shared/Shared';
 
 const { Route, Routes, BrowserRouter } = require('react-router-dom');
 
