@@ -47,6 +47,18 @@ export const CardLinkImage = styled.img`
   object-fit: cover;
 `;
 
+export const CardLinkImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 15rem;
+`;
+
+export const StarIconContainer = styled.div`
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+`;
+
 export const CardLinkContent = styled.section`
   flex: 1;
   display: flex;
@@ -55,7 +67,6 @@ export const CardLinkContent = styled.section`
 `;
 
 export const CardLinkTimeago = styled.time`
-  ${commonTextStyle}
   color: #666;
   font-size: 0.8rem;
 `;
@@ -76,4 +87,11 @@ export const CardLinkDatestring = styled.time`
   font-size: 0.8rem;
   align-self: flex-start;
   margin-top: auto;
+`;
+
+export const CardLinkInfoContainer = styled.div`
+  ${commonTextStyle}
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
