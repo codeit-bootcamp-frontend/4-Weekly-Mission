@@ -9,7 +9,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import CardList from "./components/Card/CardList/CardList";
 import OnlyCard from "./components/Card/OnlyCard/OnlyCard";
 import FolderPage from "./pages/FolderPage/FolderPage";
-import FolderHeader from "./components/FolderHeader/FolderHeader";
+import FolderHeader from "./components/Folder/FolderHeader/FolderHeader";
 
 function App() {
   const [folderData, setFolderData] = useState();
