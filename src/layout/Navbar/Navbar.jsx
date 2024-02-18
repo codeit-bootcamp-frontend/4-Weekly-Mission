@@ -4,7 +4,6 @@ import styles from "./navbar.module.css";
 import { logoImage } from "assets";
 import { fetchUserData } from "services/api";
 import Profile from "./Profile/Profile";
-import Button from "components/Button/Button";
 import { UserContext } from "context/UserProvider";
 
 function Navbar() {
@@ -27,13 +26,15 @@ function Navbar() {
         <NavLink to="/">
           <img src={logoImage} className={styles.logo} />
         </NavLink>
-        <NavLink to="#">
-          {user ? (
+        {user ? (
+          <NavLink to="/mypage">
             <Profile email={user.email} imgUrl={user.image_source} />
-          ) : (
-            <Button color={"cta"}>로그인</Button>
-          )}
-        </NavLink>
+          </NavLink>
+        ) : (
+          <NavLink to="/login">
+            <button>로그인</button>
+          </NavLink>
+        )}
       </div>
     </nav>
   );

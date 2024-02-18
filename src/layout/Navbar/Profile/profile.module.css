@@ -7,3 +7,10 @@
   width: 2.8rem;
   border-radius: 50%;
 }
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  .email{
+    display: none;
+  }
+}

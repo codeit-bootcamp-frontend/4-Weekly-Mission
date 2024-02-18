@@ -27,10 +27,36 @@
   flex-wrap: wrap;
 }
 
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-left: 5rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.addButton span {
+  white-space: nowrap;
+}
+
+.addIcon {
+  fill: var(--primary-color);
+}
+
 .bar {
   display: flex;
   justify-content: space-between;
   margin: 2.4rem 0;
+}
+
+.barButton {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--gray60-color);
+  background-color: transparent;
 }
 
 .categoryName {
@@ -47,9 +73,14 @@
   display: none;
 }
 
+/* tablet */
+@media screen and (max-width: 1199px) {
+  .content {
+    width: 70rem;
+  }
+}
+
 /* mobile */
-/* mobile 크기가 되면 폴더 추가 버튼이 있던 게 없어지고
-=> absoult로 바꿔서 그 자리에 있던 걸 없애고 새로운 자리로 */
 @media screen and (max-width: 767px) {
   .content {
     width: 34rem;
@@ -61,10 +92,19 @@
     gap: 2rem;
   }
 
-  .addButton{
-  position: fixed;
-  right: 50%;
-  bottom: 10.1rem;
-  transform: translateX(50%);
+  .addButton {
+    position: fixed;
+    right: 50%;
+    bottom: 10.1rem;
+    padding: 0.8rem 2.4rem;
+    color: #fff;
+    border-radius: 2rem;
+    background-color: var(--primary-color);
+    transform: translateX(50%);
+    z-index: 99;
+  }
+
+  .addIcon {
+    fill: var(--gray10-color);
   }
 }

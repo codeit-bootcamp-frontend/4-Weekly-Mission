@@ -1,8 +1,6 @@
 import React from "react";
 import style from "./header.module.css";
 import { linkIcon } from "assets";
-import Button from "components/Button/Button";
-
 function Header() {
   return (
     <div className={style.container}>

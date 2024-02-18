@@ -1,0 +1,17 @@
+.btn {
+  padding: 0.8rem 1.2rem;
+  background: #fff;
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--primary-color);
+}
+
+.checked {
+  color: #fff;
+  background: var(--primary-color);
+}
+
+@media screen and (max-width: 767px) {
+  .btn {
+    padding: 0.6rem 1rem;
+  }
+}

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Button from "components/Button/Button";
 import { fetchUserFolderData, fetchUserLinkData } from "../../services/api";
 import CardList from "components/CardList/CardList";
 import Header from "./components/Header";
@@ -7,11 +6,14 @@ import SearchBar from "components/Input/SearchBar/SearchBar";
 import style from "./folder.module.css";
 import { shareIcon, penIcon, trashIcon } from "assets";
 import { SearchResults } from "pages";
+import FolderButton from "components/Button/FolderButton/FolderButton";
+
+import { ReactComponent as AddIcon } from "assets/images/ic_add.svg";
 
 function FolderPage() {
   const ALL = "전체";
   const [buttonNames, setButtonNames] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState([null, "전체"]);
+  const [selectedCategory, setSelectedCategory] = useState([null, ALL]);
   const [folderData, setFolderData] = useState([]);
 
   /**
@@ -56,27 +58,31 @@ function FolderPage() {
       <div className={style.container}>
         <div className={style.content}>
           <SearchBar />
+
           {buttonNames.length ? (
             <div>
               <div className={style.category}>
                 <div className={style.categoryButtons}>
-                  <Button
-                    color={selectedCategory[1] === ALL ? "blue" : "folder"}
+                  <FolderButton
+                    ischecked={selectedCategory[1] === ALL ? true : false}
                     onClick={() => handleButtonClick(null, ALL)}
                   >
                     전체
-                  </Button>
+                  </FolderButton>
                   {buttonNames.map(({ id, name }) => (
-                    <Button
-                      key={id}
-                      color={selectedCategory[1] === name ? "blue" : "folder"}
+                    <FolderButton
+                      ischecked={selectedCategory[1] === name ? true : false}
                       onClick={() => handleButtonClick(id, name)}
                     >
                       {name}
-                    </Button>
+                    </FolderButton>
                   ))}
                 </div>
-                <button className={style.addButton}>폴더 추가</button>
+
+                <button className={style.addButton}>
+                  <span>폴더 추가</span>
+                  <AddIcon className={style.addIcon} />
+                </button>
               </div>
               <div className={style.bar}>
                 <div className={style.categoryName}>{selectedCategory[1]}</div>
@@ -85,20 +91,21 @@ function FolderPage() {
                     selectedCategory[1] === ALL ? style.hidden : ""
                   }`}
                 >
-                  <button>
+                  <button className={style.barButton}>
                     <img src={shareIcon} alt="공유 아이콘" />
-                    공유
+                    <span>공유</span>
                   </button>
-                  <button>
+                  <button className={style.barButton}>
                     <img src={penIcon} alt="펜 아이콘" />
-                    이름변경
+                    <span>이름변경</span>
                   </button>
-                  <button>
+                  <button className={style.barButton}>
                     <img src={trashIcon} alt="쓰레기통 아이콘" />
-                    삭제
+                    <span>삭제</span>
                   </button>
                 </div>
               </div>
+
               <CardList items={folderData} />
             </div>
           ) : (
