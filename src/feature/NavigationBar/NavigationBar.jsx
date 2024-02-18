@@ -9,7 +9,11 @@ export const NavigationBar = ({ profile }) => {
     <nav className="NavigationBar">
       <div className="NavigationBar-items">
         <a href={ROUTE.랜딩}>
-          <img className="NavigationBar-logo" src={LOGO_IMAGE} alt="Linkbrary 서비스 로고" />
+          <img
+            className="NavigationBar-logo"
+            src={LOGO_IMAGE}
+            alt="Linkbrary 서비스 로고"
+          />
         </a>
         {profile ? (
           <Profile profile={profile} />

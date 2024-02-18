@@ -6,6 +6,7 @@ export const Layout = ({ children }) => {
   const { data } = useGetUser();
   const { email, profileImageSource } = data || {};
   const profile = data ? { email, profileImageSource } : null;
+  console.log(data);
 
   return (
     <div>
