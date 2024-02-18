@@ -1,7 +1,8 @@
+import "./global.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import App from "./components/App";
-import App from "./components/Folder";
-import App from "./components/Shared";
+import App from "./App";
+import Folder from "./pages/Folder";
+import Shared from "./pages/Shared";
 
 function Main() {
   return (
