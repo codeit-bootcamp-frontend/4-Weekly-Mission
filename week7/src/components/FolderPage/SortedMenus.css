@@ -1,0 +1,27 @@
+.sortedMenu-nav {
+  padding-right: 450px;
+  margin-top: 50px;
+}
+
+.sortedMenu-nav button {
+  margin-right: 5px;
+  background-color: white;
+  border: 1px solid rgba(109, 106, 254, 1);
+  border-radius: 5px;
+  cursor: pointer;
+  height: 35px;
+}
+.sortedMenu-nav-tablet {
+  margin-top: 50px;
+  text-align: left;
+  padding-left: 30px;
+}
+
+.sortedMenu-nav-tablet button {
+  margin-right: 5px;
+  background-color: white;
+  border: 1px solid rgba(109, 106, 254, 1);
+  border-radius: 5px;
+  cursor: pointer;
+  height: 35px;
+}

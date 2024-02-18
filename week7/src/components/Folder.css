@@ -1,0 +1,45 @@
+.owner-img {
+  width: 60px;
+  height: 60px;
+}
+.folder {
+  background-color: #edf7ff;
+  padding-bottom: 20px;
+}
+.link-add-container {
+  background-color: #edf7ff;
+  padding-bottom: 40px;
+}
+label {
+  position: relative;
+}
+.link-add-input {
+  width: 800px;
+  height: 50px;
+  border: 1px solid rgba(109, 106, 254, 1);
+  padding: 16px 20px 16px 50px;
+  border-radius: 15px;
+}
+.link-add-form {
+}
+.link-icon {
+  position: absolute;
+  padding-left: 20px;
+  padding-top: 30px;
+}
+.add-btn {
+  position: absolute;
+  width: 90px;
+  height: 50px;
+  right: 20px;
+  margin-top: 17px;
+  border-radius: 8px;
+  background: linear-gradient(
+    to right,
+    rgba(109, 106, 254, 1),
+    rgba(106, 227, 254, 1)
+  );
+  border: none;
+  color: white;
+  cursor: pointer;
+}
