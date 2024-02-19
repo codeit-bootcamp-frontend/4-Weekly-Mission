@@ -1,22 +1,28 @@
 const API_URL = 'https://bootcamp-api.codeit.kr/api';
 
-export async function getFolder() {
+export async function fetchData(endPoint) {
   try {
-    const response = await fetch(`${API_URL}/sample/folder`);
+    const response = await fetch(`${API_URL}${endPoint}`);
+    if (!response.ok) {
+      throw new Error(`${response.status}: ${response.statusText}`);
+    }
     const result = await response.json();
     return result;
   } catch (error) {
     console.log(error);
-    throw new Error('통신 오류');
+    throw new Error('Network error');
   }
 }
+
+export async function getFolder() {
+  return fetchData('/sample/folder');
+}
 export async function getUser() {
-  try {
-    const response = await fetch(`${API_URL}/sample/user`);
-    const result = await response.json();
-    return result;
-  } catch (error) {
-    console.log(error);
-    throw new Error('통신 오류');
-  }
+  return fetchData('/users/1');
+}
+export async function getFolderList() {
+  return fetchData('/users/1/folders');
+}
+export async function getLinkList(folderId = '') {
+  return fetchData(`/users/1/links?folderId=${folderId}`);
 }

@@ -1,45 +1,17 @@
-import noImg from '../assets/no-image-link.png';
-import '../styles/LinkList.css';
-import { useEffect, useState } from 'react';
-import { getFolder } from '../services/api';
-import { dateParse, diffDate } from '../utils/date';
+import style from '../styles/LinkList.module.css';
+import LinkCard from '../components/LinkCard';
 
-function LinkList() {
-  const [linkList, setLinkList] = useState([]);
-
-  const apiGetFolder = async () => {
-    try {
-      const { folder } = await getFolder();
-      const { links } = folder;
-      setLinkList([...links]);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    apiGetFolder();
-  }, []);
+function LinkList({ linkList }) {
   return (
-    <div id="link-list">
-      <div className="link-grid-box">
-        {linkList.map((item, index) => {
-          return (
-            <div className="link-grid-item" key={item.id}>
-              <a href={item.url} target="_blank" rel="noreferrer">
-                <div className="item-img">
-                  <img src={item.imageSource ? item.imageSource : noImg} alt="no-img" />
-                </div>
-                <div className="item-info">
-                  <div className="date-diff">{diffDate(dateParse(item.createdAt))}</div>
-                  <div className="item-context">{item.title}</div>
-                  <div className="item-date">{dateParse(item.createdAt)}</div>
-                </div>
-              </a>
-            </div>
-          );
-        })}
+    <div id={style.linkList}>
+      <div className={style.linkGridBox}>
+        {linkList.length
+          ? linkList.map((item, index) => {
+              return <LinkCard data={item} key={item?.id} />;
+            })
+          : null}
       </div>
+      {!linkList.length && <div className={style.noLink}>저장된 링크가 없습니다</div>}
     </div>
   );
 }
