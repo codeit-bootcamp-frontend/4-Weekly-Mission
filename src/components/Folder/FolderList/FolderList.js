@@ -1,28 +1,40 @@
+import { useEffect } from "react";
+import FolderAdd from "../FolderAdd/FolderAdd";
 import "./FolderList.css";
 
-const FolderList = ({ folderList, onSelectFolderList }) => {
+const FolderList = ({ folderList, onSelectFolderList, selectId }) => {
   const handleClickFolderList = (e) => {
-    onSelectFolderList({ id: e.target.id });
+    const folderId = e.target.id === "null" ? null : parseInt(e.target.id);
+    onSelectFolderList({ name: e.target.textContent, id: folderId });
   };
+
   return (
     <div className="folderList">
-      <span
-        className="folderList-button"
-        onClick={handleClickFolderList}
-        id={null}
-      >
-        전체
-      </span>
-      {folderList?.map((item) => (
+      <div>
         <span
-          className="folderList-button"
-          key={item.id}
-          id={item.id}
+          className={`folderList-button ${
+            selectId === null || isNaN(selectId) ? "selected" : ""
+          }`}
           onClick={handleClickFolderList}
+          id={null}
         >
-          {item.name}
+          전체
         </span>
-      ))}
+        {folderList?.map((item) => (
+          <span
+            className={`folderList-button ${
+              selectId === item.id ? "selected" : ""
+            }`}
+            key={item.id}
+            id={item.id}
+            onClick={handleClickFolderList}
+          >
+            {item.name}
+          </span>
+        ))}
+      </div>
+
+      <FolderAdd />
     </div>
   );
 };
