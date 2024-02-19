@@ -10,15 +10,15 @@ const LiWrapper = styled.div`
     font-size: 1rem;
     line-height: 1rem;
 
+    &.selected {
+      background-color: #6d6afe;
+      color: white;
+    }
+
     &:hover {
       background-color: #6d6afe;
       color: white;
       cursor: pointer;
-    }
-
-    &.selected {
-      background-color: #6d6afe;
-      color: white;
     }
   }
 `;

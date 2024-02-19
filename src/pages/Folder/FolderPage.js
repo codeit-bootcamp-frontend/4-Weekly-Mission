@@ -6,48 +6,70 @@ import { getFolderList, getLinkData } from "../../apis/api";
 import FolderName from "./FolderName";
 import LinkItems from "../../component/LinkItems";
 
+const ALL = {
+  id: "ALL",
+  name: "전체",
+  favorite: false,
+};
+
 const FolderPage = () => {
   const [folders, setFolders] = useState([]);
-  const [selectedFolder, setSelectedFolder] = useState("전체");
-  const [folderId, setFolderId] = useState(null);
+  const [selectedFolder, setSelectedFolder] = useState(ALL);
+  const [selectedFolderId, setSelectedFolderId] = useState("");
   const [links, setLinks] = useState([]);
 
   const handleClick = (e) => {
-    setSelectedFolder(e.target.innerText);
+    setSelectedFolderId(e.target.id);
   };
 
   useEffect(() => {
-    const folderInfo = folders.filter(
-      (item) => item.name === selectedFolder
-    )[0];
-    setFolderId(folderInfo?.id);
-
     const getData = async () => {
       try {
         const { data } = await getFolderList();
-        setFolders(data);
-        const { data: linkData } = await getLinkData(folderId);
-        setLinks(linkData);
+        setFolders([ALL, ...data]);
       } catch (error) {
         console.log(error);
       }
     };
 
     getData();
-  }, [selectedFolder, folderId]);
+  }, []);
+
+  useEffect(() => {
+    if (selectedFolderId === "") return;
+    const findFolder = folders.find(
+      (item) => String(item.id) === selectedFolderId
+    );
+
+    setSelectedFolder(findFolder);
+  }, [selectedFolderId]);
+
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const { data } = await getLinkData(selectedFolderId);
+        setLinks(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getData();
+  }, [selectedFolderId]);
+
+  console.log(links);
 
   return (
     <>
       <LinkAddInput />
       <LinkSearchInput />
       <FolderList
-        list={folders}
-        selectedFolderId={folderId}
-        selectedFolder={selectedFolder}
+        folders={folders}
+        selectedFolderId={selectedFolder.id}
         onClick={handleClick}
       />
-      {selectedFolder && <FolderName>{selectedFolder}</FolderName>}
-      {links.length > 0 ? (
+      <FolderName>{selectedFolder?.name}</FolderName>
+      {links?.length > 0 ? (
         <LinkItems links={links} />
       ) : (
         <p>저장된 링크가 없습니다.</p>

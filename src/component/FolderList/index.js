@@ -1,23 +1,20 @@
 import LiWrapper from "./LiWrapper";
 
-const FolderList = ({ list, onClick, selectedFolderId, selectedFolder }) => {
+const FolderList = ({ folders, onClick, selectedFolderId = "ALL" }) => {
   const handleClick = (e) => onClick(e);
 
   return (
     <ul>
-      {list.length > 0 ? (
+      {folders.length > 0 ? (
         <LiWrapper>
-          <li
-            onClick={handleClick}
-            className={selectedFolder === "전체" ? "selected" : ""}
-          >
-            전체
-          </li>
-          {list.map((item) => (
+          {folders.map((item) => (
             <li
               key={item.id}
+              id={item.id}
               onClick={handleClick}
-              className={`${selectedFolderId === item.id ? "selected" : ""}`}
+              className={`${
+                selectedFolderId === String(item.id) ? "selected" : ""
+              }`}
             >
               {item.name}
             </li>

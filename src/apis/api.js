@@ -38,8 +38,12 @@ export const getFolderList = async () => {
   return data;
 };
 
-export const getLinkData = async (folderId) => {
-  const query = folderId ? `?folderId=${folderId}` : ``;
+export const getLinkData = async (selectedFolderId) => {
+  const query =
+    selectedFolderId && selectedFolderId !== "ALL"
+      ? `?folderId=${selectedFolderId}`
+      : ``;
+
   const response = await fetch(
     `https://bootcamp-api.codeit.kr/api/users/1/links${query}`
   );
