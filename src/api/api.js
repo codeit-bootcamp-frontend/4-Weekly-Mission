@@ -25,13 +25,11 @@ const getTargetUserFolderListData = async userId => {
 };
 
 const getTargetUserFolderLinkListData = async (userId, folderId) => {
-  let response;
-  if (folderId !== 'all') {
-    response = await fetch(`${BASE_URL}users/${userId}/links?folderId=${folderId}`);
-  } else {
-    response = await fetch(`${BASE_URL}users/${userId}/links`);
-  }
+  const api = `${BASE_URL}users/${userId}/links${folderId === 'all' ? '' : `?folderId=${folderId}`}`;
+
+  const response = await fetch(api);
   const { data } = await response.json();
+
   return data;
 };
 export {
