@@ -1,14 +1,16 @@
+import { useState } from 'react';
 import ModalBackgroundDim from './ModalBackgroundDim';
 import './EditAndAddModal.css';
 
 export default function EditAndAddModal({ modalTitle, buttonText, selectedFolderName, onClose }) {
+  const [inputValue, setInputValue] = useState(selectedFolderName);
   return (
     <>
       <ModalBackgroundDim />
       <div className="modalContainer">
         <p className="modalTitle">{modalTitle}</p>
         <div className="modalInputAndButton">
-          <input value={selectedFolderName} placeholder="내용 입력" />
+          <input value={inputValue} placeholder="내용 입력" onChange={e => setInputValue(e.target.value)} />
           <button>{buttonText}</button>
         </div>
         <button className="modalCloseButton" onClick={onClose}>

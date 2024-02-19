@@ -13,10 +13,20 @@ import '../components/FolderDetails.css';
 export default function FolderDetails({ folderListData }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [selectedFolder, setSelectedFolder] = useState('all');
-  const [showModal, setShowModal] = useState(false);
-  const selectedFolderData = useFetchData('targetUserFolderLinkList', 1, selectedFolder) || [];
+  const [modals, setModals] = useState({
+    addModal: false,
+    editModal: false,
+  });
 
-  const toggleShowModal = () => setShowModal(!showModal);
+  const selectedFolderLinkListData = useFetchData('targetUserFolderLinkList', 1, selectedFolder) || [];
+  const selectedFolderName = folderListData?.find(({ id }) => id === selectedFolder)?.name || 'all';
+
+  const toggleModal = modalName => {
+    setModals(prevModals => ({
+      ...prevModals,
+      [modalName]: !prevModals[modalName],
+    }));
+  };
 
   const handleFolderClick = folderId => {
     setSelectedFolder(folderId);
@@ -54,35 +64,45 @@ export default function FolderDetails({ folderListData }) {
           ))}
         </div>
         {windowWidth >= 767 ? (
-          <button className="addButton" onClick={toggleShowModal}>
+          <button className="addButton" onClick={() => toggleModal('addModal')}>
             <p>폴더 추가</p>
             <img src={add} alt="더하기" />
           </button>
         ) : (
-          <FloatingActionButton />
+          <FloatingActionButton onClick={() => toggleModal('addModal')} />
         )}
       </div>
       <div className="actionButtonContainer">
         <p>{selectedFolder === 'all' ? '전체' : '유용한 글'}</p>
         {!(selectedFolder === 'all') && (
           <div className="actionButton">
-            <div className="share">
+            <button className="share">
               <img src={share} alt="공유" />
               <span>공유</span>
-            </div>
-            <div className="pen">
+            </button>
+            <button className="pen" onClick={() => toggleModal('editModal')}>
               <img src={pen} alt="이름변경" />
               <span>이름변경</span>
-            </div>
-            <div className="remove">
+            </button>
+            <button className="remove">
               <img src={remove} alt="삭제" />
               <span>삭제</span>
-            </div>
+            </button>
           </div>
         )}
       </div>
-      <CardList cardDataList={selectedFolderData} />
-      {showModal && <EditAndAddModal modalTitle="폴더 추가" buttonText="추가하기" onClose={toggleShowModal} />}
+      <CardList cardDataList={selectedFolderLinkListData} />
+      {modals.addModal && (
+        <EditAndAddModal modalTitle="폴더 추가" buttonText="추가하기" onClose={() => toggleModal('addModal')} />
+      )}
+      {modals.editModal && (
+        <EditAndAddModal
+          modalTitle="폴더 이름 변경"
+          buttonText="변경하기"
+          onClose={() => toggleModal('editModal')}
+          selectedFolderName={selectedFolderName}
+        />
+      )}
     </div>
   );
 }
