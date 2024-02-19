@@ -7,7 +7,9 @@ import unionImgSrc from "../assets/Union.svg";
 function Category({ changeTitle, changeID }) {
   const getFolderList = async () => {
     try {
-      const response = await getAPI("/user/1/folders");
+      const response = await fetch(
+        "https://bootcamp-api.codeit.kr/api/users/1/folders"
+      );
       const result = await response.json();
       return result;
     } catch (error) {
