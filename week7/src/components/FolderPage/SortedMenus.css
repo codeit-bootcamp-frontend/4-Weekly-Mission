@@ -1,6 +1,10 @@
 .sortedMenu-nav {
-  padding-right: 450px;
+  display: flex;
+  justify-content: center;
   margin-top: 50px;
+  /* text-align: left; */
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .sortedMenu-nav button {
@@ -15,8 +19,12 @@
   margin-top: 50px;
   text-align: left;
   padding-left: 30px;
+  padding-right: 30px;
 }
-
+.sortedMenu-bar-tablet {
+  display: flex;
+  justify-content: space-between;
+}
 .sortedMenu-nav-tablet button {
   margin-right: 5px;
   background-color: white;
@@ -24,4 +32,31 @@
   border-radius: 5px;
   cursor: pointer;
   height: 35px;
+}
+.sortedMenus {
+  padding-right: 200px;
+}
+.sortedMenu-bar {
+  display: flex;
+  justify-content: space-between;
+}
+.add-folder-btn {
+  padding-left: 100px;
+  padding-right: 20px;
+  min-width: 100px;
+}
+.add-folder-btn a {
+  text-decoration: none;
+  color: rgba(109, 106, 254, 1);
+}
+
+.add-folder-mobile-btn {
+  position: fixed;
+  bottom: 101px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.add-folder-mobile-btn span {
+  text-align: center;
 }

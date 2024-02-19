@@ -8,7 +8,6 @@
   justify-content: space-around;
 }
 .footer {
-  position: absolute;
   height: 160px;
   background-color: rgba(17, 19, 34, 1);
   color: rgba(103, 103, 103, 1);
@@ -16,7 +15,6 @@
   bottom: 0;
 }
 .footer-tablet {
-  position: absolute;
   height: 160px;
   background-color: rgba(17, 19, 34, 1);
   color: rgba(103, 103, 103, 1);
@@ -24,19 +22,10 @@
   bottom: 0;
   margin-top: 300px;
 }
-/* @media (max-width: 1199px) {
-  .footer {
-    position: absolute;
-    height: 160px;
-    background-color: rgba(17, 19, 34, 1);
-    color: rgba(103, 103, 103, 1);
-    width: 100%;
-    bottom: 0;
-  }
-} */
+
 .footer-container {
-  position: absolute;
-  top: 30px;
+  /* position: absolute; */
+  padding-top: 30px;
   right: 20px;
   left: 20px;
   display: flex;

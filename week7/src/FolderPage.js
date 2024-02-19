@@ -11,6 +11,7 @@ export const ALL_MENU_URL = "https://bootcamp-api.codeit.kr/api/users/1/links";
 
 function FolderPage() {
   const isTablet = useMediaQuery({ maxWidth: 1124 });
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const [folderName, setFolderName] = useState("");
   const [allMenuId, setAllMenuId] = useState([]);
   const [subUrl, setSubUrl] = useState(``);
@@ -54,7 +55,15 @@ function FolderPage() {
         onChangeUrl={handleChangeUrl}
         onChangeTitle={handlePrintFolderName}
       />
-      <h2 className={isTablet ? "title-tablet" : "title"}>{folderName}</h2>
+      <div className={isTablet ? "titleAndToolBar-tablet" : "titleAndToolBar"}>
+        <h2 className={isTablet ? "title-tablet" : "title"}>{folderName}</h2>
+        <div className={isTablet ? "tool-tablet" : "tool"}>
+          <a href="/">공유</a>
+          <a href="/">이름 변경</a>
+          <a href="/">삭제</a>
+        </div>
+      </div>
+      {/* {isMobile && <button className="folder-add-btn"></button>} */}
       <FolderCard data={folderData?.data} allMenuId={allMenuId} />
       <Footer />
     </div>

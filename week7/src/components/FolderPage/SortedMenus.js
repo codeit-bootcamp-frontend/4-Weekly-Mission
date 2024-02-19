@@ -35,31 +35,39 @@ function SortedMenus({
   onChangeUrl,
   onChangeTitle,
 }) {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ maxWidth: 1124 });
   const menusDataArray = menusData || [];
 
   return (
     <nav className={isTablet ? "sortedMenu-nav-tablet" : "sortedMenu-nav"}>
-      <div>
-        <Button
-          data={allMenuData}
-          onClickSubMenu={onClickSubMenu}
-          onChangeUrl={onChangeUrl}
-          onChangeTitle={onChangeTitle}
-        />
+      <div className={isTablet ? "sortedMenu-bar-tablet" : "sortedMenu-bar"}>
+        <div className="sortedMenus">
+          <Button
+            data={allMenuData}
+            onClickSubMenu={onClickSubMenu}
+            onChangeUrl={onChangeUrl}
+            onChangeTitle={onChangeTitle}
+          />
 
-        {menusDataArray.map((menu) => {
-          return (
-            <Button
-              key={menu.id}
-              menuId={menu.id}
-              menu={menu}
-              onClickSubMenu={onClickSubMenu}
-              onChangeUrl={onChangeUrl}
-              onChangeTitle={onChangeTitle}
-            />
-          );
-        })}
+          {menusDataArray.map((menu) => {
+            return (
+              <Button
+                key={menu.id}
+                menuId={menu.id}
+                menu={menu}
+                onClickSubMenu={onClickSubMenu}
+                onChangeUrl={onChangeUrl}
+                onChangeTitle={onChangeTitle}
+              />
+            );
+          })}
+        </div>
+        <div className={isMobile ? "add-folder-mobile-btn" : "add-folder-btn"}>
+          <span>
+            <a href="/">폴더 추가 +</a>
+          </span>
+        </div>
       </div>
     </nav>
   );

@@ -48,7 +48,7 @@ function FolderCard({ data }) {
   };
   const CardItem = ({ link, url }) => {
     const timeStamp = new Date(link.created_at).getTime();
-    console.log(link.created_at);
+
     return (
       <a className="folder-card-url" href={url} target="_blank">
         {link.imageSource ? (
@@ -78,13 +78,17 @@ function FolderCard({ data }) {
           isTablet ? "folder-card-container-tablet" : "folder-card-container"
         }
       >
-        {dataArray.map((data) => {
-          return (
-            <div className="folder-card-box" key={data.id}>
-              <CardItem link={data} url={data.url} />
-            </div>
-          );
-        })}
+        {dataArray.length ? (
+          dataArray.map((data) => {
+            return (
+              <div className="folder-card-box" key={data.id}>
+                <CardItem link={data} url={data.url} />
+              </div>
+            );
+          })
+        ) : (
+          <h1>저장된 링크가 없습니다.</h1>
+        )}
       </div>
     </article>
   );
