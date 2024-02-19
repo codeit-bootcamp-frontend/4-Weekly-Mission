@@ -6,11 +6,43 @@
 
 .classification-buttons {
   display: flex;
+  flex-direction: row;
   gap: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+    width: 32.5rem;
+    flex-wrap: wrap;
+  }
 }
 
 .add-folder-button {
-  line-height: 1.193125rem;
+  line-height: 1.909rem;
   text-align: center;
   color: #6d6afe;
+
+  @media (max-width: 768px) {
+    width: 32.5rem;
+    flex-direction: wrap;
+    display: none;
+  }
+}
+
+.add-folder-button-mobile {
+  display: none;
+  background-color: var(--primary);
+  padding: 0.8rem 2.4rem;
+  gap: 2rem;
+  color: #fff;
+  border-radius: 1.5rem;
+
+  @media (max-width: 768px) {
+    display: inline;
+    width: fit-content;
+    position: fixed;
+    bottom: 10.1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
 }
