@@ -1,8 +1,5 @@
 import "../../styles/Header.css";
 import logoImgSrc from "../../assets/linkbrary.svg";
-import { getAPI } from "../../APIUtil";
-import { useState } from "react";
-import useGetJson from "../useGetJson";
 
 function Header({ user }) {
   return (
