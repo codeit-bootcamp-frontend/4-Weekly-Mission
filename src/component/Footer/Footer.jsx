@@ -36,7 +36,7 @@ const Footer = () => {
           <a href="/">Privacy Policy</a>
           <a href="/">FAQ</a>
         </div>
-        <div className="Sns">
+        <div className="sns">
           {SNS_LIST.map((data) => (
             <a
               key={data.name}

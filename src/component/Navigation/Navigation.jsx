@@ -4,7 +4,7 @@ import linkbrary from "../../images/linkbrary.svg";
 import profileImg from "../../images/myprofile.svg";
 import { fetchData } from "./fetchData";
 
-const Navigation = () => {
+const Navigation = ({ position = "sticky" }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const Navigation = () => {
   }, []);
 
   return (
-    <nav className="navigation">
+    <nav className="navigation" style={{ position: position }}>
       <div className="wrap">
         <a href="/">
           <img src={linkbrary} alt="링크브러리 로고" />

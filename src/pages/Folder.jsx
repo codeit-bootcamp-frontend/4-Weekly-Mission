@@ -1,5 +1,13 @@
+import Footer from "../component/Footer/Footer";
+import Navigation from "../component/Navigation/Navigation";
+
 const Folder = () => {
-  return <div>dd</div>;
+  return (
+    <>
+      <Navigation position="static" />
+      <Footer />
+    </>
+  );
 };
 
 export default Folder;
