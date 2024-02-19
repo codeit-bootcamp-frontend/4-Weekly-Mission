@@ -9,9 +9,11 @@ const commonTextStyle = css`
 export const CardGrid = styled.div`
   width: 80%;
   display: grid;
+  justify-content: center;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1.25rem;
-  margin: auto;
+  margin: 0 auto;
+  position: relative;
 
   a {
     text-decoration: none;
@@ -45,6 +47,7 @@ export const CardLinkImage = styled.img`
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
   object-fit: cover;
+  overflow: hidden;
 `;
 
 export const CardLinkImageContainer = styled.div`
@@ -64,8 +67,8 @@ export const CardLinkContent = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 150px;
 `;
-
 export const CardLinkTimeago = styled.time`
   color: #666;
   font-size: 0.8rem;
@@ -75,11 +78,10 @@ export const CardLinkDescription = styled.p`
   ${commonTextStyle}
   font-size: 1rem;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
-  flex-grow: 1;
 `;
 
 export const CardLinkDatestring = styled.time`
@@ -94,4 +96,11 @@ export const CardLinkInfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-self: stretch;
+`;
+
+export const CardEmptyText = styled.p`
+  margin-top: 5rem;
+  margin-bottom: 21rem;
+  text-align: center;
 `;

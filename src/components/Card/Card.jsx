@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import nonePage from '../../assets/images/folderImgNone.png';
 import { getRelativeTime, formatDateString } from '../../utils/timeUtils';
 import StarIcon from '../icons/StarIcon';
@@ -13,31 +13,39 @@ import {
   CardLinkImageContainer,
   CardLinkInfoContainer,
   StarIconContainer,
+  CardEmptyText,
 } from './cardStyle';
 import KebabDropdownMenu from '../KebabDropDownMenu';
 
+const standardizeLinkData = link => ({
+  id: link.id,
+  createdAt: link.createdAt || link.created_at,
+  description: link.description,
+  imageSource: link.imageSource || link.image_source || nonePage,
+  title: link.title,
+  url: link.url,
+  updatedAt: link.updatedAt || link.updated_at,
+});
+
 const Card = ({ links }) => {
   const [activeDropdownId, setActiveDropdownId] = useState(null);
+  const [standardizedLinks, setStandardizedLinks] = useState([]);
+
+  useEffect(() => {
+    setStandardizedLinks(links.map(standardizeLinkData));
+  }, [links]);
 
   const handleKebabClick = linkId => {
     setActiveDropdownId(prevId => (prevId === linkId ? null : linkId));
   };
 
-  return (
+  return standardizedLinks && standardizedLinks.length > 0 ? (
     <CardGrid>
-      {links.map(link => (
-        <a
-          key={link.id}
-          href={link.url}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <CardLinkList>
+      {standardizedLinks.map(link => (
+        <CardLinkList key={link.id}>
+          <a href={link.url} target="_blank" rel="noopener noreferrer">
             <CardLinkImageContainer>
-              <CardLinkImage
-                src={link.imageSource || nonePage}
-                alt={link.title}
-              />
+              <CardLinkImage src={link.imageSource} alt={link.title} />
               <StarIconContainer>
                 <StarIcon $isFavorited={false} />
               </StarIconContainer>
@@ -51,8 +59,6 @@ const Card = ({ links }) => {
                   isActive={activeDropdownId === link.id}
                   onClick={handleKebabClick}
                   linkId={link.id}
-                  // onDelete={}
-                  // onAddToFolder={}
                 />
               </CardLinkInfoContainer>
               <CardLinkDescription>{link.description}</CardLinkDescription>
@@ -60,10 +66,12 @@ const Card = ({ links }) => {
                 {formatDateString(link.createdAt)}
               </CardLinkDatestring>
             </CardLinkContent>
-          </CardLinkList>
-        </a>
+          </a>
+        </CardLinkList>
       ))}
     </CardGrid>
+  ) : (
+    <CardEmptyText>저장된 링크가 없습니다</CardEmptyText>
   );
 };
 
