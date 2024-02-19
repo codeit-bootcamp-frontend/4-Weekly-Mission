@@ -1,0 +1,40 @@
+.link-add {
+  padding: 3.75rem 0 5.625rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Linkbrary-bg);
+  @media screen and (max-width: 1200px) {
+    padding: 3.75rem 2rem 5.625rem 2rem;
+  }
+}
+
+.link-add__bar {
+  width: 50rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
+  @media screen and (max-width: 1200px) {
+    max-width: 50rem;
+  }
+  @media screen and (max-width: 768px) {
+    max-width: 50rem;
+  }
+}
+
+.link-add__bar div {
+  display: flex;
+  gap: 0.75rem;
+}
+.link-add__bar--input {
+  border: none;
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
