@@ -26,6 +26,7 @@ const KebabDropdownMenu = ({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isActive, onClick, linkId]);
+
   return (
     <div ref={dropdownRef}>
       <KebabIcon
