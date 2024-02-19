@@ -11,7 +11,7 @@ function FolderListItem({ folders, selectedId, onSelectedFolder }) {
         <div className={styles.tags}>
           <span
             className={`${styles.tag} ${
-              selectedId === null ? styles.selected : ""
+              selectedId === "" ? styles.selected : ""
             }`}
             id={null}
             onClick={handleClick}
@@ -21,7 +21,7 @@ function FolderListItem({ folders, selectedId, onSelectedFolder }) {
           {folders.map((folder) => (
             <span
               className={`${styles.tag} ${
-                folder.id === selectedId ? styles.selected : ""
+                folder.id === parseInt(selectedId) ? styles.selected : ""
               }`}
               key={folder.id}
               id={folder.id}
