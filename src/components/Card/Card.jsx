@@ -39,6 +39,14 @@ const Card = ({ links }) => {
     setActiveDropdownId(prevId => (prevId === linkId ? null : linkId));
   };
 
+  const handleCardDelete = linkId => {
+    alert(`${linkId}의 카드 삭제는 준비중 입니다.`);
+  };
+
+  const handleAddCardClick = linkId => {
+    alert(`${linkId}의 카드 추가는 준비중 입니다.`);
+  };
+
   return standardizedLinks && standardizedLinks.length > 0 ? (
     <CardGrid>
       {standardizedLinks.map(link => (
@@ -59,6 +67,8 @@ const Card = ({ links }) => {
                   isActive={activeDropdownId === link.id}
                   onClick={handleKebabClick}
                   linkId={link.id}
+                  onDelete={handleCardDelete}
+                  onAddToFolder={handleAddCardClick}
                 />
               </CardLinkInfoContainer>
               <CardLinkDescription>{link.description}</CardLinkDescription>
