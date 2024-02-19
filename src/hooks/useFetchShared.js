@@ -3,17 +3,17 @@ import { useState, useEffect } from 'react';
 import { getShared } from '../apis/api';
 
 export const useFetchShared = () => {
-  const [sharedFolders, setSharedFolders] = useState({});
+  const [sharedFolder, setSharedFolder] = useState({});
 
   useEffect(() => {
     const fetchFolder = async () => {
       const { folder } = await getShared();
       
-      setSharedFolders(folder);
+      setSharedFolder(folder);
     };
 
     fetchFolder();
   }, []);
 
-  return sharedFolders;
+  return sharedFolder;
 }

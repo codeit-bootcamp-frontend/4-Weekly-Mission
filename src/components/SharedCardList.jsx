@@ -1,9 +1,9 @@
 import Card from "./Card";
 
-const SharedCardList = ({folders}) => {
+const SharedCardList = ({sharedFolder}) => {
   return (
     <ul className='card-frame_ly'> 
-      {folders.links.map(({ createdAt, imageSource, title, description, url, id }) => (
+      {sharedFolder.links.map(({ createdAt, imageSource, title, description, url, id }) => (
         <Card key={id} 
           imgSrc={imageSource}
           title={title}

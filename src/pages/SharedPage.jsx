@@ -1,18 +1,18 @@
 import { useFetchShared } from '../hooks/useFetchShared';
 
 import Gnb from '../components/Gnb';
-import Header from '../Header';
+import Avatar from '../Avatar';
 import SharedFolder from '../SharedFolder';
 import Footer from '../components/Footer';
 
 const SharedPage = () => {
-  const folders = useFetchShared();
+  const sharedFolder = useFetchShared();
   
   return (
     <>
       <Gnb className='gnb_ly gnb-container_sticky'/>
-      <Header folders={folders}/>
-      <SharedFolder folders={folders}/>
+      <Avatar sharedFolder={sharedFolder}/>
+      <SharedFolder sharedFolder={sharedFolder}/>
       <Footer/>
     </>
   )
