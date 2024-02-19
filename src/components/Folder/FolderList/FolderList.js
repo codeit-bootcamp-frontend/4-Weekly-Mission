@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import FolderAdd from "../FolderAdd/FolderAdd";
 import "./FolderList.css";
 
