@@ -9,7 +9,7 @@ import ErrorMessageModal from '../../components/common/Modal/ErrorMessageModal';
 import useErrorMessageModal from '../../hooks/useErrorMessageModal';
 
 const SharedPage = () => {
-  const { data, error, resetError } = useGetApi(getSampleFolderData, {
+  const { data, error } = useGetApi(getSampleFolderData, {
     folder: null,
   });
 
@@ -25,15 +25,10 @@ const SharedPage = () => {
     }
   }, [error, showErrorModal]);
 
-  const handleCloseModal = () => {
-    hideErrorModal();
-    resetError();
-  };
-
   return (
     <>
       {isModalOpen && (
-        <ErrorMessageModal message={errorMessage} onClose={handleCloseModal} />
+        <ErrorMessageModal message={errorMessage} onClose={hideErrorModal} />
       )}
       {profiles && <Profile {...profiles} />}
       <FolderContainer>
