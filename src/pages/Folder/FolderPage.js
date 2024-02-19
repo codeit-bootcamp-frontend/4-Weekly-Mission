@@ -1,12 +1,12 @@
-import FolderList from "../../../component/FolderList/FolderList";
-import LinkAddInput from "../../../component/LinkAddInput/LinkAddInput";
-import LinkSearchInput from "../../../component/LinkSearchInput/LinkSearchInput";
+import FolderList from "../../component/FolderList/FolderList";
+import LinkAddInput from "../../component/LinkAddInput/LinkAddInput";
+import LinkSearchInput from "../../component/LinkSearchInput/LinkSearchInput";
 import { useEffect, useState } from "react";
-import { getFolderList, getLinkData } from "../../../apis/api";
+import { getFolderList, getLinkData } from "../../apis/api";
 import FolderName from "./FolderName";
-import LinkItems from "../../../component/LinkItems/LinkItems";
+import LinkItems from "../../component/LinkItems/LinkItems";
 
-const FolderPageLayout = () => {
+const FolderPage = () => {
   const [folders, setFolders] = useState([]);
   const [selectedFolder, setSelectedFolder] = useState("전체");
   const [folderId, setFolderId] = useState(null);
@@ -56,4 +56,4 @@ const FolderPageLayout = () => {
   );
 };
 
-export default FolderPageLayout;
+export default FolderPage;

@@ -1,9 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./component/App/App";
-import FolderPageLayout from "./pages/Folder/FolderPageLayout/FolderPageLayout";
-import LinkItems from "./component/LinkItems/LinkItems";
 import SharedPage from "./pages/Shared/SharedPage";
 import HomePage from "./pages/HomePage/HomePage";
+import FolderPage from "./pages/Folder/FolderPage";
 
 const Main = () => {
   return (
@@ -15,7 +14,7 @@ const Main = () => {
             <Route index element={<SharedPage />} />
           </Route>
           <Route path="folder">
-            <Route index element={<FolderPageLayout />} />
+            <Route index element={<FolderPage />} />
           </Route>
         </Route>
       </Routes>
