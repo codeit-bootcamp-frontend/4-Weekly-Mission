@@ -30,7 +30,7 @@ const Footer = () => {
       <FooterRight>
         {socialLinks.map(link => (
           <FooterSocialLink
-            key={link}
+            key={link.name}
             href={link.url}
             target="_blank"
             rel="noreferrer"
