@@ -38,8 +38,8 @@ const ModalContent = styled.div`
   align-items: center;
   gap: 1.5rem;
   border-radius: 0.9375rem;
-  border: 1px solid var(--Stroke-light, #dee2e6);
-  background: var(---Gray-White, #fff);
+  border: 1px solid #dee2e6;
+  background: #fff;
   z-index: 1000;
 
   @media (max-width: 600px) {
