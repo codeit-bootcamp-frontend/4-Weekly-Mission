@@ -4,10 +4,10 @@ import HeaderBlock from "../components/Header";
 import LinkAddInput from "../components/LinkAddInput";
 import SearchInput from "../components/SearchInput";
 import './Folder.css'
-import { useCallback, useEffect, useState } from "react";
-import { requestFolderLinkData, requestFolderListData } from "../api";
+import {  useEffect, useState } from "react";
+import { folderLinkDataApi, folderListDataApi  } from "../api";
 import CategoryBar from "../components/CategoryBar";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import shareIcon from '../img/share.png';
 import penIcon from '../img/pen.png';
 import deletIcon from '../img/delet.png';
@@ -73,25 +73,23 @@ function Folder() {
 
 
     const getFolderListData = async () => {
-        const response = await requestFolderListData();
-        const data = response.data;
-        setCategoryData(data);
+        const response = await folderListDataApi();
+        setCategoryData(response.data);
     }
     
     const getFolderLinkData = async (folderId) => {
-        const response = await requestFolderLinkData(folderId);
+        const response = await folderLinkDataApi(folderId);
         const data = response.data;
         const filterData = data.filter(link => {
             return link.folder_id === folderId
         });
         setFolderLinkList(filterData);
     }
+
     useEffect(() => { 
+        
         getFolderListData();
-   
     }, []);
-
-
 
 
     useEffect(() => {

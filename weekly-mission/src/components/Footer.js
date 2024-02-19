@@ -105,7 +105,7 @@ function FooterBlock() {
                 <nav>
                     <SocialTab>
                         {aboutSocialInformation.map(social => (
-                            <li>
+                            <li key={social.id}>
                                 <a href={social.url} target='_blank'>
                                     <img src={social.iconImg} alt={social.title} />
                                 </a>

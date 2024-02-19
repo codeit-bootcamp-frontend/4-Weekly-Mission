@@ -42,8 +42,7 @@ const OwnerCard = styled.div`
 
 
 function OwnerInformation({ information }) {
-    const { name, owner } = information;
-
+    const {name, owner} = information;
 
     return (
         <OwnerCard>
