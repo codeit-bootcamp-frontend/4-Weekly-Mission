@@ -1,13 +1,5 @@
 /** @jsxImportSource @emotion/react */
-
 import { css } from "@emotion/react";
-const hideBtnCss = css`
-  display: none;
-`;
-
-const showBtnCss = css`
-  display: block;
-`;
 
 const Button = ({ name, size, isLoading }) => {
   return (
@@ -22,3 +14,11 @@ const Button = ({ name, size, isLoading }) => {
 };
 
 export default Button;
+
+const hideBtnCss = css`
+  display: none;
+`;
+
+const showBtnCss = css`
+  display: block;
+`;

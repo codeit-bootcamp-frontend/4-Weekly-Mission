@@ -5,6 +5,7 @@ import "../../../styles/reset.css";
 import "../../../styles/common.css";
 
 const Cards = ({ items }) => {
+  
   return (
     <>
       <div css={divCss}>

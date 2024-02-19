@@ -15,7 +15,7 @@ const Profile = () => {
     try {
       const result = await api("sample/folder");
       setOwnerData({
-        ownerImage: result.folder.owner.prifileImageSource,
+        ownerImage: result.folder.owner.profileImageSource,
         ownerName: result.folder.owner.name,
         ownerFolder: result.folder.name,
       });

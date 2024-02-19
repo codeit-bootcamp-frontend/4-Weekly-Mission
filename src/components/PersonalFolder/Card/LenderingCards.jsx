@@ -6,22 +6,34 @@ import SearchingBar from "./SearchingBar.jsx";
 import api from "../../../utils/api.js";
 import "../../../styles/common.css";
 
-const LenderingCards = () => {
+const LenderingCards = (props) => {
+  const { linkExist, linkNotExist, query, objKey } = props;
   const [cardDetail, setCardDetail] = useState(null);
 
   const fetchData = async () => {
     try {
-      throw Error("메롱");
-      const result = await api("sample/folder");
-      setCardDetail(result.folder.links);
+      const result = await api(query);
+      let currentObj = result;
+      for (const key of objKey) {
+        if (currentObj[key] !== undefined) {
+          currentObj = currentObj[key];
+        } else {
+          currentObj = null;
+          break;
+        }
+      }
+
+      setCardDetail(currentObj);
+      linkExist();
     } catch (error) {
       setCardDetail(null);
+      linkNotExist();
     }
   };
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [query]);
 
   return (
     <div css={outerDivCss}>

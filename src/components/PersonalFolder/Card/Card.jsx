@@ -11,9 +11,9 @@ import logo from "../../../assets/Linkbrary.png";
 import "../../../styles/common.css";
 
 const Card = ({ item }) => {
-  const { imageSource, description, createdAt } = item;
-  const createdDate = formatDate(createdAt);
-  const timeFromCreated = timeCalculator(createdAt);
+  const createdDate = formatDate(item.createdAt || item.created_at);
+  const timeFromCreated = timeCalculator(item.createdAt || item.created_at);
+  const imgurl = item.imageSource || item.image_source;
   const [isClicked, setIsClicked] = useState(false);
   const handleClick = () => {
     setIsClicked(!isClicked);
@@ -24,24 +24,24 @@ const Card = ({ item }) => {
       <Link to="/newPage" css={linkCss}>
         <div
           css={css`
-            background-color: ${Boolean(imageSource) ? "#ffffff" : "#dddfff"};
+            background-color: ${Boolean(imgurl) ? "#ffffff" : "#dddfff"};
             ${imgWrapperCss};
           `}
         >
           <img
             src={logo}
             css={css`
-              display: ${Boolean(imageSource) ? "none" : "inline"};
+              display: ${Boolean(imgurl) ? "none" : "inline"};
               ${logoCss};
             `}
           />
-          <img css={imgCss} src={imageSource} />
+          <img css={imgCss} src={imgurl} />
         </div>
 
         <div css={pWrapperCss}>
           <p css={timeCss}>{timeFromCreated}</p>
           <div css={commentWrapperCss}>
-            <p css={commentCss}>{description}</p>
+            <p css={commentCss}>{item.description}</p>
           </div>
           <p css={dateCss}>{createdDate}</p>
         </div>

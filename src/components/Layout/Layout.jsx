@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <Profile />
+
       {children.map((child, index) => (
         <React.Fragment key={index}> {child}</React.Fragment>
       ))}
