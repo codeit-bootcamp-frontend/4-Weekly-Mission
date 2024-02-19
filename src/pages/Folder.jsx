@@ -1,6 +1,8 @@
 import Footer from "../component/Footer/Footer";
 import Navigation from "../component/Navigation/Navigation";
 import InputSection from "../component/InputSection/InputSection";
+import SearchBar from "../component/MainSection/SearchBar/SearchBar";
+import FolderToolBar from "../component/FolderToolBar/FolderToolBar";
 import "./page.css";
 
 const Folder = () => {
@@ -11,7 +13,10 @@ const Folder = () => {
       <Navigation position="static" url={apiURL} />
       <section className="main-section">
         <InputSection />
-        <div className="wrap"></div>
+        <div className="wrap">
+          <SearchBar />
+          <FolderToolBar />
+        </div>
       </section>
       <Footer />
     </>

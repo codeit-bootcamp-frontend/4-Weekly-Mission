@@ -1,0 +1,30 @@
+.container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+
+  @media (min-width: 768px) {
+    grid-row-gap: 2.4rem;
+    grid-column-gap: 1.2rem;
+    align-items: center;
+    -webkit-column-gap: 1.2rem;
+    column-gap: 1.2rem;
+    display: grid;
+    grid-template-areas:
+      "folders folders add-button"
+      "folder-name buttons buttons";
+    justify-content: space-between;
+    row-gap: 2.4rem;
+  }
+}
+
+.button-container {
+  -webkit-column-gap: 0.8rem;
+  column-gap: 0.8rem;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  grid-area: folders;
+  row-gap: 1.2rem;
+}
