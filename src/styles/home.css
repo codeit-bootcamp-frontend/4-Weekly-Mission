@@ -2,10 +2,10 @@
 
 .home-container {
   display: flex;
-  justify-content: center; /* 수평 정렬 */
-  align-items: center; /* 수직 정렬 */
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  height: 100vh; /* 컨테이너를 뷰포트의 전체 높이로 설정 */
+  height: 100vh;
   gap: 20px;
 }
 
