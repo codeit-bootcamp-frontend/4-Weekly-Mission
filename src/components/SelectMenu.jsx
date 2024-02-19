@@ -1,10 +1,10 @@
-import style from "./SelectMenu.module.css";
+import styles from "./SelectMenu.module.css";
 
 function SelectMenu() {
   return (
-    <div className={style.container}>
-      <div className={style.nonClicked}>삭제하기</div>
-      <div className={style.clicked}>폴더에 추가</div>
+    <div className={styles.container}>
+      <div className={styles.nonClicked}>삭제하기</div>
+      <div className={styles.clicked}>폴더에 추가</div>
     </div>
   );
 }

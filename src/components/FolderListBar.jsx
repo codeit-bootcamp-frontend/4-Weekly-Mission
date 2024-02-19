@@ -1,4 +1,4 @@
-import style from "./FolderListBar.module.css";
+import styles from "./FolderListBar.module.css";
 import FolderButton from "./FolderButton";
 import addImg from "../images/add.svg";
 import { useState } from "react";
@@ -35,8 +35,8 @@ function FolderListBar({ folderList, onClick }) {
 
   return (
     <>
-      <div className={style.upperContainer}>
-        <div className={style.btnContainer}>
+      <div className={styles.upperContainer}>
+        <div className={styles.btnContainer}>
           {newFolderList.map((folder, idx) => (
             <FolderButton
               key={folder.id}
@@ -47,12 +47,12 @@ function FolderListBar({ folderList, onClick }) {
             />
           ))}
         </div>
-        <div className={style.addFolderContainer}>
-          <div className={style.addFolderText}>폴더 추가</div>
+        <div className={styles.addFolderContainer}>
+          <div className={styles.addFolderText}>폴더 추가</div>
           <img src={addImg} alt="addImg" />
         </div>
       </div>
-      <div className={style.folderOptionsContainer}>
+      <div className={styles.folderOptionsContainer}>
         <FolderOptions folderName={nowFolderName} folderId={nowFolderId} />
       </div>
     </>

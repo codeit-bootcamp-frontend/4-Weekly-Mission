@@ -1,5 +1,5 @@
 // import "./css/Footer.css";
-import style from "./BottomNavBar.module.css";
+import styles from "./BottomNavBar.module.css";
 import Icon from "./Icon";
 import facebooklogo from "../images/facebook.svg";
 import twitterlogo from "../images/twitter.svg";
@@ -31,13 +31,13 @@ const MEDIA_LINK = [
 
 function BottomNavBar() {
   return (
-    <div class={style.container}>
-      <div class={style.left}>©codeit - 2023</div>
-      <div class={style.center}>
-        <span class={style.centerText}> Privacy Policy </span>
-        <span class={style.centerText}> FAQ </span>
+    <div class={styles.container}>
+      <div class={styles.left}>©codeit - 2023</div>
+      <div class={styles.center}>
+        <span class={styles.centerText}> Privacy Policy </span>
+        <span class={styles.centerText}> FAQ </span>
       </div>
-      <div class={style.right}>
+      <div class={styles.right}>
         {MEDIA_LINK.map((media) => (
           <Icon mediaType={media} />
         ))}
