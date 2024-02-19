@@ -12,7 +12,7 @@ function AlertBanner({ children, type }) {
     },
     info: {
       icon: InfoIcon,
-      background: "#dbe8f8",
+      background: "#f0f6ff",
       color: "#088cff",
     },
   }

@@ -1,5 +1,3 @@
-import React from "react"
-
 import * as S from "./Profile.style"
 import defaultImage from "assets/images/icon/avatar.svg"
 

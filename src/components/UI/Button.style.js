@@ -42,4 +42,5 @@ export const Button = styled.button`
   color: #fff;
   border-radius: 8px;
   background: ${({ $bgColor }) => backgroundMapping[$bgColor] || "white"};
+  position: relative;
 `

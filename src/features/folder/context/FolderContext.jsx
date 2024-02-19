@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react"
 import useHttp from "hooks/useHttp"
-import * as API from "api"
+import * as API from "features/folder/api"
 
 const getCategoryId = (selectedCategory) => (selectedCategory.id === "all" ? "" : selectedCategory.id)
 
