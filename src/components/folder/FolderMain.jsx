@@ -6,6 +6,7 @@ import { CardControl } from "./CardControl";
 import AppNav from "../common/AppNav";
 import AppFooter from "../common/AppFooter";
 import FolderSorting from "./FolderSorting";
+import { AddLinkBar } from "./AddLinkBar";
 
 export function FolderMain() {
   const [userInfo, setUserInfo] = useState([]);
@@ -25,6 +26,7 @@ export function FolderMain() {
   return (
     <>
       <AppNav userInfo={userInfo}></AppNav>
+      <AddLinkBar></AddLinkBar>
       <SearchBar></SearchBar>
       <FolderSorting></FolderSorting>
       <CardControl></CardControl>
