@@ -2,6 +2,9 @@
 .nav {
   position: sticky;
   top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
   background: var(--linkbrary-bg);
 }
 
@@ -11,7 +14,7 @@
 }
 
 .nav-content {
-  max-width: 192rem;
+  /* max-width: 192rem; */
   display: flex;
   padding: 0 20rem;
   height: 9.4rem;
@@ -33,21 +36,18 @@
   color: var(--linkbrary-grey-Light);
   font-size: 18px;
   font-weight: 600;
-  line-height: normal;
 }
 
 /* tablet */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-  .nav {
-    max-width: 86.3rem;
-    padding: 0 3.2rem;
+  .nav-content {
+    padding: 0 3.25rem;
   }
 }
 
 /* mobile */
 @media screen and (min-width: 375px) and (max-width: 767px) {
-  .nav {
-    max-width: 86.3rem;
+  .nav-content {
     padding: 0 3.2rem;
   }
 }
