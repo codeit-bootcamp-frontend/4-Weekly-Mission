@@ -9,7 +9,7 @@ const FolderList = ({ folderList, onSelectFolderList, selectId }) => {
 
   return (
     <div className="folderList">
-      <div>
+      <div className="folderList-content">
         <span
           className={`folderList-button ${
             selectId === null || isNaN(selectId) ? "selected" : ""
