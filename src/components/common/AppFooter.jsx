@@ -35,17 +35,17 @@ const socialMediaIcons = socialMediaLinks.map((link, index) => (
 function AppFooter() {
   return (
     <footer>
-      <div class="footer-box">
-        <span class="copyright">©codeit - 2023</span>
-        <div class="footer-links">
-          <a class="footer-link" href="privacy.html">
+      <div className="footer-box">
+        <span className="copyright">©codeit - 2023</span>
+        <div className="footer-links">
+          <a className="footer-link" href="privacy.html">
             Privacy Policy
           </a>
-          <a class="footer-link" href="faq.html">
+          <a className="footer-link" href="faq.html">
             FAQ
           </a>
         </div>
-        <div class="sns">{socialMediaIcons}</div>
+        <div className="sns">{socialMediaIcons}</div>
       </div>
     </footer>
   );

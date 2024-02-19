@@ -1,3 +1,4 @@
+@import url(/src/global.css);
 footer {
   display: flex;
   justify-content: center;

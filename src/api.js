@@ -12,7 +12,7 @@ export async function getFolder() {
 }
 
 export async function getUserFolder() {
-  const response = await fetch(BASE_URL + "/api/users/3/folders");
+  const response = await fetch(BASE_URL + "/api/users/4/folders");
   const body = await response.json();
   return body;
 }

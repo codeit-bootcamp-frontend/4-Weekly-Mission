@@ -1,0 +1,28 @@
+.CardControl {
+  margin: 24px auto;
+  display: flex;
+  width: 1060px;
+  justify-content: space-between;
+  align-items: center;
+}
+.CardControl .container {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.CardControl .wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.CardControl a {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+
+  /* Linkbrary/body2-semibold */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
