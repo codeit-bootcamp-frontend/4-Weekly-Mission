@@ -1,26 +1,23 @@
-import Loader from '../../../common/Loader';
-import { sampleFolderInquire } from 'api/sampleAPI';
-import useFetchData from 'hook/useFetchData';
+import Loader from 'components/common/Loader';
+import { useSampleFolderQuery } from 'hook/useFetchData';
 import React from 'react';
 import styled from 'styled-components';
-import Error from '../../Error';
+import { HeaderContainer } from 'styles/HeaderContainer';
 
 const Header = () => {
-  const {
-    data: folderInfo,
-    isLoading,
-    isError,
-  } = useFetchData(sampleFolderInquire, 'folderInfo', data => ({
-    ownerName: data.folder.owner.name,
-    folderName: data.folder.name,
-    profileImage: data.folder.owner.profileImageSource,
-  }));
+  const { data, isLoading, isError, error } =
+    useSampleFolderQuery('folderInfo');
 
+  const folderInfo = {
+    ownerName: data?.folder.owner.name,
+    folderName: data?.folder.name,
+    profileImage: data?.folder.owner.profileImageSource,
+  };
   if (isError) {
-    return <Error />;
+    console.log(error);
   }
   return (
-    <StyledHeader>
+    <HeaderContainer>
       {isLoading ? (
         <Loader />
       ) : (
@@ -35,17 +32,12 @@ const Header = () => {
           <FolderName>{folderInfo.folderName}</FolderName>
         </HeroHeader>
       )}
-    </StyledHeader>
+    </HeaderContainer>
   );
 };
-const StyledHeader = styled.header`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  background-color: #edf7ff;
-`;
+
 const HeroHeader = styled.div`
+  margin-top: 9.4rem;
   display: flex;
   padding: 2.8rem 3.2rem;
   flex-direction: column;
@@ -59,19 +51,19 @@ const StyledProfile = styled.div`
   row-gap: 1rem;
 `;
 const ProfileImage = styled.img`
-  width: 60px;
-  height: 60px;
+  width: 6rem;
+  height: 6rem;
   object-fit: cover;
 `;
 
 const OwnerName = styled.div`
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
-  line-height: 24px;
+  line-height: 2.4rem;
 `;
 
 const FolderName = styled.div`
-  font-size: 30px;
+  font-size: 3rem;
   font-weight: 600;
   line-height: normal;
 `;

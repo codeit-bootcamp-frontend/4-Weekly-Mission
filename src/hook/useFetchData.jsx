@@ -1,25 +1,41 @@
+import { getCategory, getFolderLink } from 'api/folderAPI';
+import { sampleFolderInquire, getUser } from 'api/sampleAPI';
 import { useQuery } from 'react-query';
 
+export const useUserQuery = () => {
+  return useQuery('user', getUser);
+};
+
 /**
- * fetch 커스텀 훅
- * @param {function} fetchFunction 데이터 가져오는 비동기 함수
- * @param {function} processData 데이터 처리하는 함수
+ * shared 폴더 정보 불러오는 useQuery 함수
  * @param {string} queryKey
+ * @returns {Object}
  */
+export const useSampleFolderQuery = queryKey => {
+  return useQuery(['sampleFolder', queryKey], sampleFolderInquire);
+};
 
-function useFetchData(fetchFunction, queryKey, processData) {
-  return useQuery(queryKey, async () => {
-    try {
-      const res = await fetchFunction();
-      if (!res.ok) {
-        throw new Error('Response error');
-      }
-      const data = await res.json();
-      return processData(data);
-    } catch (e) {
-      return;
-    }
+/**
+ * folder 데이터 불러오는 훅
+ * @param {Object} props
+ * @param {string} props.queryKey
+ * @param {number} props.folderId
+ * @returns {QueryResult}
+ */
+export const useFolderQuery = ({ queryKey, folderId }) => {
+  return useQuery(['folder', queryKey], () => {
+    return getFolderLink(folderId);
   });
-}
+};
 
-export default useFetchData;
+/**
+ * 카테고리 목록 데이터 쿼리 훅
+ * @param {string} queryKey
+ * @param {number} userId
+ * @returns {QueryResult}
+ */
+export const useCategoryQuery = (queryKey, userId) => {
+  return useQuery(['folder', queryKey], () => {
+    return getCategory(userId);
+  });
+};

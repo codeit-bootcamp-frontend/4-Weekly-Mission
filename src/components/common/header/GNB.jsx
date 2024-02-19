@@ -1,5 +1,5 @@
 import React from 'react';
-import Logo from '../../Logo';
+import Logo from '../Logo';
 import styled from 'styled-components';
 import Profile from './Profile';
 
@@ -16,7 +16,7 @@ const GNB = () => {
 const Nav = styled.nav`
   display: flex;
   justify-content: center;
-  position: sticky;
+  position: absolute;
   top: 0;
   width: 100%;
   background-color: #edf7ff;
