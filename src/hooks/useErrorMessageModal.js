@@ -1,17 +1,17 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 const useErrorMessageModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const showErrorModal = message => {
+  const showErrorModal = useCallback(message => {
     setErrorMessage(message);
     setIsModalOpen(true);
-  };
+  }, []);
 
-  const hideErrorModal = () => {
+  const hideErrorModal = useCallback(() => {
     setIsModalOpen(false);
-  };
+  }, []);
 
   return {
     isModalOpen,
