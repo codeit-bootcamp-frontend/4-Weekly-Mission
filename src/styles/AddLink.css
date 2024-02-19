@@ -46,3 +46,9 @@ input::placeholder {
   padding: 0.6rem 1rem;
   font-size: 0.8rem;
 }
+
+@media (width <= 767px) {
+  .add-link-content {
+    padding: 0.5rem 0.6rem;
+  }
+}

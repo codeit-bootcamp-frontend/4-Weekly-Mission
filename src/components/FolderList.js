@@ -7,7 +7,7 @@ import iconShare from '../assets/icons/share.svg';
 import iconPen from '../assets/icons/pen.svg';
 import iconDelete from '../assets/icons/delete.svg';
 import iconPlus from '../assets/icons/plus.svg';
-
+import '../styles/FolderList.css';
 
 const FolderList = ({ folderList }) => {
   const [selected, setSelected] = useState({ id: "", name: "전체" });
