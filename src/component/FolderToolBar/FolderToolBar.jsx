@@ -12,6 +12,7 @@ const FolderToolBar = () => {
       .then((response) => response.json())
       .then((data) => {
         setButtons(data.data);
+        onFolderSelect(null);
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
@@ -29,9 +30,16 @@ const FolderToolBar = () => {
   };
 
   return (
-    <div className="container">
-      <div className="button-container">
-        <FolderButton buttons={buttons} onFolderSelect={onFolderSelect} />
+    <div className="wrap">
+      <div className="container">
+        <div className="button-container">
+          <FolderButton buttons={buttons} onFolderSelect={onFolderSelect} />
+          <div className="add-button-container">
+            <button className="add-button">
+              <span>폴더 추가 +</span>
+            </button>
+          </div>
+        </div>
       </div>
       <FolderCardList links={links} />
     </div>
