@@ -9,7 +9,14 @@
   border: 1px solid var(--primary);
   background: var(--white);
 }
-.tagButton:active,
-.tagButton:focus {
-  background: var(--primary-light);
+.tagButtonClicked {
+  display: flex;
+  padding: 8px 12px;
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid var(--primary);
+  background: var(--primary);
 }
