@@ -16,6 +16,6 @@ const MenuItem = styled.div`
   font-weight: 400;
   &:hover {
     background-color: var(--gray10-color);
-    color: var(--Linkbrary-primary-color, #6d6afe);
+    color: var(--primary-color);
   }
 `;
