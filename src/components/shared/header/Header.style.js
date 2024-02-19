@@ -2,7 +2,7 @@ import styled from "styled-components"
 import { Wrapper as W } from "components/Layout/Wrapper.style"
 
 export const Header = styled.header`
-  position: fixed;
+  position: ${({ $isNotFixed }) => ($isNotFixed ? "static" : "fixed")};
   width: 100%;
   left: 0;
   top: 0;
