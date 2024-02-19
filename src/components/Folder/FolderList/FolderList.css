@@ -3,20 +3,29 @@
   justify-content: space-between;
 }
 
+.folderList-content {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .folderList-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 0.7rem 1.2rem;
   border-radius: 5px;
-  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
+  border: 1px solid var(--linkbrary-primary-color);
   font-size: 1.4rem;
   cursor: pointer;
 }
 
-.folderList-button:not(:last-child) {
-  margin-right: 0.8rem;
+.selected {
+  border: 1px solid var(--linkbrary-primary-color);
+  background: var(--linkbrary-primary-color);
+  color: #fff;
 }
 
-.selected {
-  border: 1px solid var(--linkbrary-primary-color, #6d6afe);
-  background: var(--linkbrary-primary-color, #6d6afe);
-  color: #fff;
+/* mobile */
+@media screen and (min-width: 375px) and (max-width: 767px) {
 }
