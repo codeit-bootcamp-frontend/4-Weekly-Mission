@@ -42,9 +42,6 @@ export const FolderAddButton = styled.div`
   @media (max-width: 1199px) {
     margin-top: 1.5rem;
   }
-  @media (max-width: 767px) {
-    display: none;
-  }
 `;
 
 export const SelectedFolderName = styled.p`

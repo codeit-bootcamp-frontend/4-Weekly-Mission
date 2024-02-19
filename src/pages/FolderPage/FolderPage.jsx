@@ -4,7 +4,7 @@ import CardSearchbar from '../../components/common/SearchBar/CardSearchbar';
 import { getLinkData, getLinkByIdData } from '../../apis/link';
 import Card from '../../components/Card/Card';
 import { getFolderData } from '../../apis/folder';
-import FolderControls from '../../components/FolderPage/SortButtonGroup/FolderControls';
+import FolderControls from '../../components/FolderPage/FolderControls/FolderControls';
 import useErrorMessageModal from '../../hooks/useErrorMessageModal';
 import ErrorMessageModal from '../../components/common/Modal/ErrorMessageModal';
 
