@@ -5,91 +5,115 @@ import youtubeIcon from '../img/youtube.png';
 import instaIcon from '../img/insta.png';
 import styled from 'styled-components';
 
+const aboutSocialInformation = [
+    {
+        id: 1,
+        title: 'facebook icon',
+        iconImg: facebookIcon,
+        url: 'https://www.facebook.com/'
+    },
+    {
+        id: 2,
+        title: 'twitter icon',
+        iconImg: twitterIcon,
+        url: 'https://twitter.com/'
+    },
+    {
+        id: 3,
+        title: 'youtube icon',
+        iconImg: youtubeIcon,
+        url: 'https://www.youtube.com/'
+    },
+    {
+        id: 4,
+        title: 'instagram icon',
+        iconImg: instaIcon,
+        url: 'https://www.instagram.com/'
+    },
+]
+
+
 const Footer = styled.footer`
     padding-top : 6rem;
-    
-    .Footer-inner{
-        height: 16rem;
-        background-color: #111322;
-        padding: 3.2rem 10% 6.4rem;
-        display: flex;
-        justify-content: space-between;
-        color: #676767;
-        font-size: 1.6rem;
-        font-weight: 400;
-    }
+`;
 
-    .else-thing > a{
-        color: inherit;
-    }
+const FooterInner = styled.div`
+    height: 16rem;
+    background-color: #111322;
+    padding: 3.2rem 10% 6.4rem;
+    display: flex;
+    justify-content: space-between;
+    color: #676767;
+    font-size: 1.6rem;
+    font-weight: 400;
 
-    .else-thing > a:first-child{
-        margin-right: 3rem;
-    }
-    .social-link{
-        display: flex;
-        gap: 1.2rem;
-    }
-    
-    @media (max-width : 790px){
-        .Footer-inner{
+
+    @media (max-width :790px ){
+        &{
             flex-wrap: wrap;
         }
-        .else-thing{
-            order: 1;
-            float: right;
-            width: 50%;
+        & > p{
+            order: 3;
+            margin-top: 6rem;
         }
-        .Footer-inner > nav{
+
+        & > nav{
             order: 2;
             float: left;
             width: 50%;
         }
-        .Footer-inner > p{
-            order: 3;
-            margin-top: 6rem;
+    }
+  
+`;
+
+const QuestionTab = styled.div`
+
+    a{
+        color: inherit;
+    }
+    a:first-child{
+        margin-right: 3rem;
+    }
+    @media (max-width :790px ){
+        &{
+            order: 1;
+            float: right;
+            width: 50%;
         }
-        .social-link{
+    }
+`;
+
+const SocialTab = styled.ul`
+    display: flex;
+    gap: 1.2rem;
+    @media (max-width :790px ){
+        &{
             justify-content: flex-end;
         }
     }
 `;
 
-
 function FooterBlock() {
     return (
         <Footer>
-            <div className="Footer-inner">
+            <FooterInner>
                 <p>©codeit - 2023</p>
-                <div className='else-thing'>
+                <QuestionTab>
                     <a href='/'>Privacy Policy</a>
                     <a href='/'>FAQ</a>
-                </div>
+                </QuestionTab>
                 <nav>
-                    <ul className='social-link'>
-                        <li>
-                            <a href='https://www.facebook.com/'>
-                                <img src={facebookIcon} alt='페이스북 아이콘' />
-                            </a>
-                        </li>
-                        <li>
-                            <a href='https://twitter.com/'>
-                                <img src={twitterIcon} alt='트위터 아이콘' />
-                            </a>
-                        </li>
-                        <li>
-                            <a href='https://www.youtube.com/'>
-                                <img src={youtubeIcon} alt='유튜브 아이콘' />
-                            </a>
-                        </li>
-                        <li>
-                            <a href='https://www.instagram.com/'>
-                                <img src={instaIcon} alt='인스타그램 아이콘' />
-                            </a>
-                        </li>
-                    </ul>
+                    <SocialTab>
+                        {aboutSocialInformation.map(social => (
+                            <li>
+                                <a href={social.url} target='_blank'>
+                                    <img src={social.iconImg} alt={social.title} />
+                                </a>
+                            </li>
+                        ))}
+                    </SocialTab>
                 </nav>
-            </div>
+            </FooterInner>
         </Footer>
     )
 }
