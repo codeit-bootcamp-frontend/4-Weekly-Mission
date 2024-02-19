@@ -1,0 +1,89 @@
+.modalContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 22rem;
+  height: 15rem;
+
+  display: inline-flex;
+  padding: 2rem 2.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+
+  border-radius: 1rem;
+  border: 1px solid #ccd5e3;
+  background: #fff;
+  z-index: 2;
+}
+
+.modalTitle {
+  color: #373740;
+
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.modalInputAndButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.9375rem;
+}
+
+.modalInputAndButton input {
+  display: flex;
+  width: 17.5rem;
+  padding: 1.125rem 0.9375rem;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0.5rem;
+  border: 1px solid #ccd5e3;
+  background: #fff;
+
+  color: #373740;
+
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+
+.modalInputAndButton input:focus {
+  border: 1px solid #6d6afe;
+}
+
+.modalInputAndButton button {
+  display: flex;
+  width: 17.5rem;
+  padding: 1rem 1.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+
+  border-radius: 0.5rem;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+
+  color: #f5f5f5;
+
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.modalCloseButton {
+  width: 1.5rem;
+  height: 1.5rem;
+
+  position: absolute;
+
+  top: 1rem;
+  right: 1rem;
+}
