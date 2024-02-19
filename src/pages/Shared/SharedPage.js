@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { getFolderData } from "../../apis/api";
-import FolderOwner from "../../component/FolderOwner/FolderOwner";
-import LinkItems from "../../component/LinkItems/LinkItems";
-import LinkSearchInput from "../../component/LinkSearchInput/LinkSearchInput";
+import FolderOwner from "../../component/FolderOwner";
+import LinkItems from "../../component/LinkItems";
+import LinkSearchInput from "../../component/LinkSearchInput";
 
 const SharedPage = () => {
   const [folderData, setFolderData] = useState(null);

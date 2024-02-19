@@ -1,10 +1,10 @@
-import FolderList from "../../component/FolderList/FolderList";
-import LinkAddInput from "../../component/LinkAddInput/LinkAddInput";
-import LinkSearchInput from "../../component/LinkSearchInput/LinkSearchInput";
+import FolderList from "../../component/FolderList";
+import LinkAddInput from "../../component/LinkAddInput";
+import LinkSearchInput from "../../component/LinkSearchInput";
 import { useEffect, useState } from "react";
 import { getFolderList, getLinkData } from "../../apis/api";
 import FolderName from "./FolderName";
-import LinkItems from "../../component/LinkItems/LinkItems";
+import LinkItems from "../../component/LinkItems";
 
 const FolderPage = () => {
   const [folders, setFolders] = useState([]);

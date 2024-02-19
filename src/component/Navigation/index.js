@@ -1,4 +1,4 @@
-import Profile from "../Profile/Profile";
+import Profile from "../Profile";
 import logoImage from "../../images/linkbrary.svg";
 import "./Navigation.css";
 import { Link } from "react-router-dom";
