@@ -1,10 +1,19 @@
-const API_BASE_URL = 'https://bootcamp-api.codeit.kr';
+import { apiInstance } from './axios';
 
-export const getUserProfile = async () => {
-  const response = await fetch(`${API_BASE_URL}/api/sample/user`);
-  if (!response.ok) {
-    throw new Error('데이터를 불러오는데 실패했습니다');
+export const getSampleUser = async () => {
+  try {
+    const response = await apiInstance.get('/api/sample/user');
+    return response.data;
+  } catch (error) {
+    throw new Error('샘플 유저 데이터를 불러오는데 실패했습니다');
   }
-  const body = await response.json();
-  return body;
+};
+
+export const getUserById = async (userId = 4) => {
+  try {
+    const response = await apiInstance.get(`/api/users/${userId}`);
+    return response.data;
+  } catch (error) {
+    throw new Error('유저 데이터를 불러오는데 실패했습니다.');
+  }
 };
