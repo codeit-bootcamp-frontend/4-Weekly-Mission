@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import noImg from "../images/no-img.png";
+import noImg from "../../images/no-img.png";
 import "./Card.css";
+import { getFolder } from "../../api";
 
 function Card() {
   const [cardData, setCardData] = useState([]);
@@ -8,10 +9,7 @@ function Card() {
   useEffect(() => {
     const fetchCardData = async () => {
       try {
-        const response = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/folder"
-        );
-        const jsonData = await response.json();
+        const jsonData = await getFolder();
         const links = jsonData.folder.links.map((link) => ({
           ...link,
           cardTime: uploadedDuration(link.createdAt),
