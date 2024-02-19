@@ -1,3 +1,4 @@
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import EmptyPage from "./EmptyPage.js";
 import SharedPage from "./SharedPage.js";
