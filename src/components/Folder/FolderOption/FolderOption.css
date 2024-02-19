@@ -16,7 +16,7 @@
 
 .folderOption-option {
   display: flex;
-  gap: 4px;
+  gap: 0.4rem;
 }
 
 .folderOption-option span {

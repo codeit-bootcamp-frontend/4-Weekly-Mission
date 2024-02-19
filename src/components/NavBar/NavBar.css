@@ -27,14 +27,14 @@
 .login-btn {
   display: flex;
   width: 12.8rem;
-  padding: 16px 20px;
+  padding: 1.6rem 2rem;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   border-radius: 0.8rem;
   background: var(--gra-purpleblue-to-skyblue);
   color: var(--linkbrary-grey-Light);
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
 }
 

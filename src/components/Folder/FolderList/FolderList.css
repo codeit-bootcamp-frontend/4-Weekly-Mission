@@ -5,7 +5,7 @@
 
 .folderList-content {
   display: flex;
-  gap: 8px;
+  gap: 0.8rem;
   flex-wrap: wrap;
 }
 
@@ -14,14 +14,14 @@
   justify-content: center;
   align-items: center;
   padding: 0.7rem 1.2rem;
-  border-radius: 5px;
-  border: 1px solid var(--linkbrary-primary-color);
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--linkbrary-primary-color);
   font-size: 1.4rem;
   cursor: pointer;
 }
 
 .selected {
-  border: 1px solid var(--linkbrary-primary-color);
+  border: 0.1rem solid var(--linkbrary-primary-color);
   background: var(--linkbrary-primary-color);
   color: #fff;
 }
