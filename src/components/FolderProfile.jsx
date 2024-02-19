@@ -1,4 +1,4 @@
-export default function FolderProfile({ ownerProfile, loadingError }) {
+export default function FolderProfile({ ownerProfile }) {
   return (
     <div>
       <div>
@@ -9,7 +9,6 @@ export default function FolderProfile({ ownerProfile, loadingError }) {
         <p>{ownerProfile?.folder?.owner?.name}</p>
       </div>
       <p>{ownerProfile?.folder?.name}</p>
-      {loadingError && <p>{loadingError.message}</p>}
     </div>
   );
 }
