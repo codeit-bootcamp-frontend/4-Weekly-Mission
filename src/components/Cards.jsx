@@ -1,17 +1,40 @@
-import imgNone from "../imgs/이미지 없을 때 배경.svg";
+import imgNone from "../assets/이미지 없을 때 배경.svg";
 
 function dateDiff(createdAt) {
   const present = Date.now();
   const createdLinkDate = new Date(createdAt);
   const diff = present - createdLinkDate;
-  if (diff < 3600000) {
+
+  const TIME_TO_MS = {
+    twoMinutes: 120000,
+    oneHour: 3600000,
+    twoHours: 7200000,
+    oneDay: 86400000,
+    twoDays: 172800000,
+    oneMonth: 2628000000,
+    twoMonths: 5256000000,
+    oneYear: 31540000000,
+    twoYears: 63070000000,
+  };
+
+  if (diff < TIME_TO_MS.twoMinutes) {
+    return "1 minute ago";
+  } else if (diff < TIME_TO_MS.oneHour) {
     return `${Math.floor(diff / 1000 / 60)} minutes ago`;
-  } else if (diff < 86400000) {
+  } else if (diff < TIME_TO_MS.twoHours) {
+    return "1 hour ago";
+  } else if (diff < TIME_TO_MS.oneDay) {
     return `${Math.floor(diff / 1000 / 60 / 60)} hours ago`;
-  } else if (diff < 2628000000) {
+  } else if (diff < TIME_TO_MS.twoDays) {
+    return "1 day ago";
+  } else if (diff < TIME_TO_MS.oneMonth) {
     return `${Math.floor(diff / 1000 / 60 / 60 / 24)} days ago`;
-  } else if (diff < 31540000000) {
+  } else if (diff < TIME_TO_MS.twoMonths) {
+    return "1 month ago";
+  } else if (diff < TIME_TO_MS.oneYear) {
     return `${Math.floor(diff / 1000 / 60 / 60 / 24 / 30)} months ago`;
+  } else if (diff < TIME_TO_MS.twoYears) {
+    return "1 year ago";
   } else {
     return `${Math.floor(diff / 1000 / 60 / 60 / 24 / 30 / 12)} years ago`;
   }
