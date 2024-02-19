@@ -7,7 +7,7 @@ const useFetch = (url) => {
     try {
       const response = await fetch(url);
       if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        throw new Error(`error Status: ${response.status}`);
       }
       const body = await response.json();
       setData(body);

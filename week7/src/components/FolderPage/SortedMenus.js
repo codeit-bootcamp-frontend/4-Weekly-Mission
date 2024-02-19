@@ -22,9 +22,13 @@ const Button = ({
     handleChangeTitle("전체");
   };
   return menu ? (
-    <button onClick={() => clickNotAllMenus(menuId)}>{menu.name}</button>
+    <button className="menuBtn" onClick={() => clickNotAllMenus(menuId)}>
+      {menu.name}
+    </button>
   ) : (
-    <button onClick={() => clickAllMenu()}>전체</button>
+    <button className="menuBtn" onClick={() => clickAllMenu()}>
+      전체
+    </button>
   );
 };
 
@@ -63,11 +67,17 @@ function SortedMenus({
             );
           })}
         </div>
-        <div className={isMobile ? "add-folder-mobile-btn" : "add-folder-btn"}>
-          <span>
-            <a href="/">폴더 추가 +</a>
-          </span>
-        </div>
+        {!isMobile ? (
+          <div className="add-folder-btn-box">
+            <span>
+              <a className="add-folder-btn" href="/">
+                폴더 추가 +
+              </a>
+            </span>
+          </div>
+        ) : (
+          <button className="add-folder-mobile-btn">폴더 추가 +</button>
+        )}
       </div>
     </nav>
   );

@@ -2,7 +2,6 @@
   display: flex;
   justify-content: center;
   margin-top: 50px;
-  /* text-align: left; */
   padding-left: 30px;
   padding-right: 30px;
 }
@@ -25,7 +24,7 @@
   display: flex;
   justify-content: space-between;
 }
-.sortedMenu-nav-tablet button {
+.sortedMenu-nav-tablet .menuBtn {
   margin-right: 5px;
   background-color: white;
   border: 1px solid rgba(109, 106, 254, 1);
@@ -40,14 +39,14 @@
   display: flex;
   justify-content: space-between;
 }
+
 .add-folder-btn {
   padding-left: 100px;
   padding-right: 20px;
   min-width: 100px;
-}
-.add-folder-btn a {
   text-decoration: none;
   color: rgba(109, 106, 254, 1);
+  font-family: "Pretendard";
 }
 
 .add-folder-mobile-btn {
@@ -55,7 +54,14 @@
   bottom: 101px;
   display: flex;
   justify-content: center;
-  width: 100%;
+  left: 50%;
+  border-radius: 20px;
+  border: 1px solid rgba(109, 106, 254, 1);
+  background-color: rgba(109, 106, 254, 1);
+  color: white;
+  padding: 8px 24px 8px 24px;
+  width: 127px;
+  height: 35px;
 }
 .add-folder-mobile-btn span {
   text-align: center;

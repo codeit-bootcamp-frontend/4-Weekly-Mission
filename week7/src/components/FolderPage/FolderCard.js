@@ -1,7 +1,9 @@
 import "./FolderCard.css";
 import { useMediaQuery } from "react-responsive";
-
+import noImg from "../../assets/noImage.png";
+import kebab from "../../assets/kebab.png";
 function FolderCard({ data }) {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ maxWidth: 1124 });
 
   const formatDate = (value) => {
@@ -51,16 +53,19 @@ function FolderCard({ data }) {
 
     return (
       <a className="folder-card-url" href={url} target="_blank">
-        {link.imageSource ? (
+        {link.image_source ? (
           <img
             className="folder-card-image"
-            src={link.imageSource}
+            src={link.image_source}
             alt="카드 이미지"
           />
         ) : (
-          <div className="folder-no-image">이미지 없음</div>
+          <img src={noImg} />
         )}
-        <p>{formatDate(timeStamp)}</p>
+        <div className="date-and-kebab">
+          <p>{formatDate(timeStamp)}</p>
+          <img className="kebab" src={kebab} />
+        </div>
         <p className="folder-title">{link.title}</p>
         <p className="folder-description">{link.description}</p>
         <p>{getFormatDate(link.created_at)}</p>
@@ -75,7 +80,11 @@ function FolderCard({ data }) {
     >
       <div
         className={
-          isTablet ? "folder-card-container-tablet" : "folder-card-container"
+          isMobile
+            ? "folder-card-container-mobile"
+            : isTablet
+            ? "folder-card-container-tablet"
+            : "folder-card-container"
         }
       >
         {dataArray.length ? (

@@ -7,6 +7,9 @@ import Footer from "./components/Footer.js";
 import useFetch from "../src/hooks/useFetch.js";
 import SortedMenus from "./components/FolderPage/SortedMenus.js";
 import { useMediaQuery } from "react-responsive";
+import shareImg from "./assets/share.png";
+import deleteImg from "./assets/delete.png";
+import penImg from "./assets/pen.png";
 export const ALL_MENU_URL = "https://bootcamp-api.codeit.kr/api/users/1/links";
 
 function FolderPage() {
@@ -58,12 +61,21 @@ function FolderPage() {
       <div className={isTablet ? "titleAndToolBar-tablet" : "titleAndToolBar"}>
         <h2 className={isTablet ? "title-tablet" : "title"}>{folderName}</h2>
         <div className={isTablet ? "tool-tablet" : "tool"}>
-          <a href="/">공유</a>
-          <a href="/">이름 변경</a>
-          <a href="/">삭제</a>
+          <a href="/">
+            <img src={shareImg} />
+            공유
+          </a>
+          <a href="/">
+            <img src={penImg} />
+            이름 변경
+          </a>
+          <a href="/">
+            <img src={deleteImg} />
+            삭제
+          </a>
         </div>
       </div>
-      {/* {isMobile && <button className="folder-add-btn"></button>} */}
+
       <FolderCard data={folderData?.data} allMenuId={allMenuId} />
       <Footer />
     </div>

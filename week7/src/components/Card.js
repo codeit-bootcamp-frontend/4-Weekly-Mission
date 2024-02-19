@@ -1,6 +1,7 @@
 import "./Card.css";
 import { useMediaQuery } from "react-responsive";
-
+import noImg from "../assets/noImage.png";
+import kebab from "../assets/kebab.png";
 function Card({ links }) {
   const isTablet = useMediaQuery({ maxWidth: 1124 });
 
@@ -57,9 +58,12 @@ function Card({ links }) {
             alt="카드 이미지"
           />
         ) : (
-          <div className="no-image">이미지 없음</div>
+          <img src={noImg} />
         )}
-        <p>{formatDate(timeStamp)}</p>
+        <div className="date-and-kebab">
+          <p>{formatDate(timeStamp)}</p>
+          <img className="kebab" src={kebab} />
+        </div>
         <p className="title">{link.title}</p>
         <p className="description">{link.description}</p>
         <p>{getFormatDate(link.createdAt)}</p>
