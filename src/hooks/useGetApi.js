@@ -8,10 +8,8 @@ const useGetApi = (apiFunc, defaultData) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setIsLoading(true);
         const response = await apiFunc();
         setData(response);
-        setError(null);
       } catch (err) {
         setError(err);
       } finally {
@@ -22,9 +20,7 @@ const useGetApi = (apiFunc, defaultData) => {
     fetchData();
   }, [apiFunc]);
 
-  const resetError = () => setError(null);
-
-  return { data, error, isLoading, resetError };
+  return { data, error, isLoading };
 };
 
 export default useGetApi;
