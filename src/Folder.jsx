@@ -4,7 +4,7 @@ import { getLink, getLinkDetail } from './apis/api';
 import { useFetchFolder } from './hooks/useFetchFolder';
 
 import SearchBar from './components/SearchBar';
-import Card from './components/Card';
+import CardList from './components/CardList';
 import FolderEdit from './components/FolderEdit';
 import FolderList from './components/FolderList';
 import FolderAddBtn from './components/FolderAddBtn';
@@ -43,21 +43,7 @@ const Folder = () => {
           <span>{currentfolderName}</span>
           <FolderEdit folderName={currentfolderName} />
         </div>
-        {links.length ? (
-          <ul className='card-frame_ly'> 
-            {links.map(({ created_at, image_source, title, description, url, id }) => (
-              <Card key={id} 
-                imgSrc={image_source}
-                title={title}
-                description={description}
-                createdAt={created_at}
-                url={url}
-              />
-            ))}
-          </ul>
-        ) : (
-          <div className='card-empty'>저장된 링크가 없습니다</div>
-        )}
+        <CardList links={links}/>
       </div>
       <FolderAddBtn />
     </div>
