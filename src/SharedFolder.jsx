@@ -1,5 +1,5 @@
 import SearchBar from './components/SearchBar';
-import Card from './components/Card';
+import SharedCardList from './components/SharedCardList';
 import './Folder.css';
 
 const SharedFolder = ({folders}) => {
@@ -12,17 +12,7 @@ const SharedFolder = ({folders}) => {
   return (
     <div className='container-folder'>
       <SearchBar className='search-bar_ly'/>
-      <ul className='card-frame_ly'> 
-        {folders.links.map(({ createdAt, imageSource, title, description, url, id }) => (
-          <Card key={id} 
-            imgSrc={imageSource}
-            title={title}
-            description={description}
-            createdAt={createdAt}
-            url={url}
-          />
-        ))}
-      </ul>
+      <SharedCardList folders={folders} />
     </div>
   )
 }
