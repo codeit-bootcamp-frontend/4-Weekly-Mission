@@ -3,16 +3,6 @@ import styled from 'styled-components';
 import KebabIcon from './icons/KebabIcon';
 import DropdownMenuItem from './DropdownMenuItem';
 
-const DropdownMenu = styled.div`
-  position: absolute;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 5px 0;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-`;
-
 const KebabDropdownMenu = ({
   isActive,
   onClick,
@@ -72,3 +62,18 @@ const KebabDropdownMenu = ({
 };
 
 export default KebabDropdownMenu;
+
+const DropdownMenu = styled.div`
+  width: 7rem;
+  position: absolute;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 5px 0;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+
+  @media (max-width: 767px) {
+    right: 0px;
+  }
+`;
