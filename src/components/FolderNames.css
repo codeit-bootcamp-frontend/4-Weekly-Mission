@@ -27,7 +27,7 @@
   background: var(--white);
 }
 
-.folder_button:focus {
+.selected_purple {
   background: var(--Linkbrary-primary-color);
   color: var(--white);
 }

@@ -13,13 +13,14 @@ const FolderPage = () => {
   const [linkList, setLinkList] = useState({});
   const [displayPopButton, setDisplayPopButton] = useState(false);
   const [selectFolderName, setSelectFolderName] = useState('');
+  const [selectFolder, setSelectFolder] = useState(false);
   const userId = '4';
 
   const handleLoad = async () => {
     const { data } = await getLinks(userId, '');
     const folders = await getFolders(userId);
 
-    setFoldersList([...folders.data]);
+    setFoldersList([{ name: '전체', id: 'all' }, ...folders.data]);
     setLinkList({ links: [...data] });
     setDisplayPopButton(linkList.links?.length >= 1 && true);
   };
@@ -29,16 +30,9 @@ const FolderPage = () => {
   }, []);
 
   const handleOnClick = async (folderName, list = []) => {
-    if (folderName === 'all') {
-      const { data } = await getLinks(userId, '');
-      setSelectFolderName('전체');
-      setLinkList({ links: [...data] });
-      setDisplayPopButton(data.length >= 1 && true);
-    } else {
-      setSelectFolderName(folderName);
-      setLinkList({ links: [...list] });
-      setDisplayPopButton(list.length >= 1 && true);
-    }
+    setSelectFolderName(folderName);
+    setLinkList({ links: [...list] });
+    setDisplayPopButton(list.length >= 1 && true);
   };
 
   return (
@@ -50,16 +44,12 @@ const FolderPage = () => {
             <>
               <div className="folder_button_area">
                 <div className="folder_buttons_area">
-                  <button
-                    onClick={() => handleOnClick('all')}
-                    className="folder_button "
-                  >
-                    전체
-                  </button>
                   {foldersList &&
                     foldersList.map((folder) => {
                       return (
                         <FolderNames
+                          selectFolder={selectFolder}
+                          setSelectFolder={setSelectFolder}
                           name={folder.name}
                           key={folder.id}
                           id={folder.id}

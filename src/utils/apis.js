@@ -17,6 +17,7 @@ export const getFolder = async () => {
 };
 
 export const getLinks = async (userId, folderId) => {
+  folderId = folderId === 'all' ? '' : folderId;
   return getApi(LINK_API(userId, folderId));
 };
 
