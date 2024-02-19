@@ -12,6 +12,12 @@ const KebabDropdownMenu = ({
 }) => {
   const dropdownRef = useRef(null);
 
+  const handleEvent = callback => event => {
+    event.preventDefault();
+    event.stopPropagation();
+    callback();
+  };
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -29,31 +35,13 @@ const KebabDropdownMenu = ({
 
   return (
     <div ref={dropdownRef}>
-      <KebabIcon
-        onClick={event => {
-          event.preventDefault();
-          event.stopPropagation();
-          onClick(linkId);
-        }}
-      />
+      <KebabIcon onClick={handleEvent(() => onClick(linkId))} />
       {isActive && (
         <DropdownMenu>
-          <DropdownMenuItem
-            onClick={event => {
-              event.preventDefault();
-              event.stopPropagation();
-              // onDelete(linkId) 삭제 기능 추가 예정
-            }}
-          >
+          <DropdownMenuItem onClick={handleEvent(() => onDelete(linkId))}>
             삭제하기
           </DropdownMenuItem>
-          <DropdownMenuItem
-            onClick={event => {
-              event.preventDefault();
-              event.stopPropagation();
-              // onAddToFolder(linkId) 폴더 추가 기능 추가 예정
-            }}
-          >
+          <DropdownMenuItem onClick={handleEvent(() => onAddToFolder(linkId))}>
             폴더에 추가
           </DropdownMenuItem>
         </DropdownMenu>
