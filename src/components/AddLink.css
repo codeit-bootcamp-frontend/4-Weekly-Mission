@@ -24,12 +24,13 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  width: 100%;
 }
 
 .linkInput input {
   border: none;
   color: #9fa6b2;
-
+  width: 100%;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
