@@ -5,6 +5,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
   row-gap: 25px;
+  margin-bottom: 100px;
 }
 
 /* Tablet */
@@ -16,6 +17,7 @@
     grid-template-columns: 1fr 1fr;
     gap: 24px;
     row-gap: 25px;
+    margin-bottom: 75px;
   }
 }
 
@@ -27,6 +29,7 @@
     display: grid;
     grid-template-columns: 1fr;
     row-gap: 20px;
+    margin-bottom: 50px;
   }
 }
 

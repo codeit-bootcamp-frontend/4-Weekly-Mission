@@ -1,3 +1,8 @@
+.container {
+  background: var(--Linkbrary-bg, #f0f6ff);
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
 .appHeader {
   display: flex;
   flex-direction: column;
@@ -28,4 +33,9 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+
+.appHeader {
+  width: fit-content;
+  margin: 0 auto;
 }

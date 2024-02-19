@@ -9,10 +9,12 @@ function AppHeader({ folderInfo }) {
   //   const { name: ownerName, profileImageSource } = owner;
 
   return (
-    <div className="appHeader">
-      <img src={userProfile}></img>
-      <p>@{userOwner}</p>
-      <h2>{userName}</h2>
+    <div className="container">
+      <div className="appHeader">
+        <img src={userProfile}></img>
+        <p>@{userOwner}</p>
+        <h2>{userName}</h2>
+      </div>
     </div>
   );
   // return (
