@@ -1,10 +1,10 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import { getFolder, getUser } from "../api.js";
-import AppNav from "../common/AppNav.js";
-import AppFooter from "../common/AppFooter.js";
+import AppNav from "./common/AppNav.js";
+import AppFooter from "./common/AppFooter.js";
 import AppHeader from "./AppHeader.js";
-import { SearchBar } from "../common/SearchBar.js";
+import { SearchBar } from "./common/SearchBar.js";
 import Card from "./Cards.js";
 
 function App() {

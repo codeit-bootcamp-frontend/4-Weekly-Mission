@@ -1,7 +1,7 @@
-import twitter from "../images/twitter.svg";
-import youtube from "../images/youtube.svg";
-import instagram from "../images/instagram.svg";
-import facebook from "../images/facebook.svg";
+import twitter from "../../images/twitter.svg";
+import youtube from "../../images/youtube.svg";
+import instagram from "../../images/instagram.svg";
+import facebook from "../../images/facebook.svg";
 
 function AppFooter() {
   return (

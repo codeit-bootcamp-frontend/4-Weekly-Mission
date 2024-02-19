@@ -1,5 +1,5 @@
 import "./AppNav.css";
-import imgLogo from "../images/logo.png";
+import imgLogo from "../../images/logo.png";
 
 function AppNav({ userInfo }) {
   return (
