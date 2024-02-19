@@ -70,7 +70,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  @media (max-width: 1196px) {
+  @media (max-width: 1199px) {
     width: 704px;
   }
   @media (max-width: 767px) {
@@ -101,7 +101,7 @@ const AddFolderDiv = styled.div`
   display: flex;
   flex-direction: row;
 
-  @media (max-width: 774px) {
+  @media (max-width: 767px) {
     display: none;
   }
 `;
