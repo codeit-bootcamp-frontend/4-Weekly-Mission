@@ -52,13 +52,6 @@ function App() {
               <FolderPage
                 folderHeader={<FolderHeader />}
                 searchBar={<SearchBar />}
-                cardList={
-                  <CardList>
-                    {items?.map((item) => (
-                      <OnlyCard key={item.id} items={item} {...item} />
-                    ))}
-                  </CardList>
-                }
               />
             }
           />
