@@ -1,9 +1,6 @@
 {
-<<<<<<< HEAD
+
   "name": "week7",
-=======
-  "name": "1-weekly-mission",
->>>>>>> 19de4925ef7d1393a9b1fc3c9e387d31cb45cbbd
   "version": "0.1.0",
   "private": true,
   "dependencies": {
