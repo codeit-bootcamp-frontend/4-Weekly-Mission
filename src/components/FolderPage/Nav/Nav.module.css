@@ -1,0 +1,55 @@
+.nav {
+  padding: 20px 200px;
+  height: 9em;
+  background-color: var(--Linkbrary-bg);
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navLogo {
+  flex-shrink: 0;
+}
+
+.userProfile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.userImg {
+  width: 30px;
+  border-radius: 30px;
+}
+
+.userEmail {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 1199px) {
+  .nav {
+    padding: 20px 0;
+  }
+
+  .navContainer {
+    max-width: 832px;
+    padding: 0 32px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-logo {
+    width: 98px;
+  }
+}
+
+@media (max-width: 580px) {
+  .profileEmail {
+    display: none;
+  }
+}
