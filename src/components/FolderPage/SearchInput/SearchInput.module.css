@@ -1,0 +1,27 @@
+.wrapper {
+  /* max-width: 1540px; */
+  padding: 40px 200px;
+  margin: 0 auto;
+}
+@media (max-width: 1199px) {
+  .wrapper {
+    max-width: 832px;
+    padding: 40px 32px;
+    margin: 0 auto;
+  }
+}
+
+.search-inputbox {
+  width: 100%;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.search-inputbox input {
+  background-color: #f5f5f5;
+  border: none;
+  width: 100%;
+}
