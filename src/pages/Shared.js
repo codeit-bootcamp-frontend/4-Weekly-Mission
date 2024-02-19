@@ -8,7 +8,7 @@ function Shared() {
     <>
       <Header />
       <FolderInfo />
-      <Main />
+      <Main page={"shared"} />
       <Footer />
     </>
   );

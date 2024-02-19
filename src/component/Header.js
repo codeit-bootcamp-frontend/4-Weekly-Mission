@@ -1,7 +1,6 @@
 ﻿import "../style/header.css";
 import logo from "../image/logo.svg";
 import UserInfo from "./UserInfo";
-import FolderInfo from "./FolderInfo";
 
 function Header() {
   return (

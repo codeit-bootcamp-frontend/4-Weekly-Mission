@@ -1,8 +1,9 @@
 ﻿import "../style/main.css";
-import searchIcon from "../image/Search.svg";
 import { useEffect, useState } from "react";
 import ErrorImage from "../image/image1.png";
-function Main() {
+import Search from "./Search";
+
+function Main({ page }) {
   const [links, setLinks] = useState([]);
 
   function time(date) {
@@ -55,37 +56,34 @@ function Main() {
     getFolderData();
   }, []);
 
-  const handleSearch = (e) => {
-    console.log(e.value);
-  };
   console.log(links);
-  return (
-    <div className="main">
-      <form className="searchBar" onSubmit={handleSearch}>
-        <img src={searchIcon} alt="SearchIcon" />
-        <input type="text" placeholder="링크를 검색해 보세요." />
-      </form>
-      <div class="cardList">
-        {links &&
-          links.map((card) => (
-            <a href={card.url} className="card" key={card.id}>
-              <div>
-                <img
-                  className="CardImg"
-                  src={card.imageSource || ErrorImage}
-                  alt={card.title}
-                />
-              </div>
-              <div className="CardInfo">
-                <p className="time">{time(card.createdAt)}</p>
-                <p className="title">{card.title}</p>
-                {/* <p className="date">{card.description}</p> */}
-              </div>
-            </a>
-          ))}
+
+  if (page == "shared") {
+    return (
+      <div className="main">
+        <Search />
+        <div class="cardList">
+          {links &&
+            links.map((card) => (
+              <a href={card.url} className="card" key={card.id}>
+                <div>
+                  <img
+                    className="CardImg"
+                    src={card.imageSource || ErrorImage}
+                    alt={card.title}
+                  />
+                </div>
+                <div className="CardInfo">
+                  <p className="time">{time(card.createdAt)}</p>
+                  <p className="title">{card.title}</p>
+                  {/* <p className="date">{card.description}</p> */}
+                </div>
+              </a>
+            ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default Main;

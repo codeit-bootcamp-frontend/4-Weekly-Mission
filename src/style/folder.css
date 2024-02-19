@@ -1,0 +1,169 @@
+﻿.addLinks {
+  margin-top: 93px;
+  margin-bottom: 40px;
+  display: flex;
+  padding: 60px 320px 90px 320px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--Linkbrary-bg, #f0f6ff);
+}
+
+.addLinksBox {
+  display: flex;
+  width: 100%;
+  padding: 16px 20px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  gap: 8px;
+  border-radius: 15px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
+}
+
+.addLinksInputBox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.addLinksInputBox > img {
+}
+
+.addLinksInputBox > input {
+  border: none;
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  /* Linkbrary/body1-regular */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+.folderHandle {
+  flex-direction: column;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: center;
+}
+.folderSetting {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.nonfolder {
+  display: flex;
+  width: 1060px;
+  height: 100px;
+  padding: 41px 0px 35px 0px;
+  justify-content: center;
+  align-items: center;
+}
+.nonfolder > span {
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+.folderList {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.folderButton {
+  display: flex;
+  padding: 8px 12px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: #fff;
+}
+.selectButton {
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.folderAdd {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background-color: transparent;
+  color: #6d6afe;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+.List {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+.listTitle {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.cardList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.card {
+  padding: 0 4%;
+  width: 100%;
+  height: 334px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  overflow: hidden;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  text-decoration: none;
+  color: #666666;
+  font-size: 13px;
+}
+
+.CardImg {
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.CardInfo {
+  width: 90%;
+  text-decoration: none;
+  color: inherit;
+  font-family: "Pretendard", sans-serif;
+}
+
+.title {
+  font-size: 16px;
+}
+
+.time {
+  text-align: left;
+  color: #333333;
+  font-size: 14px;
+}
