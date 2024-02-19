@@ -9,7 +9,6 @@ export const Layout = () => {
   const { data } = userData || {};
   const [{ email, image_source: imageSource }] = data || [{}];
   const profile = data ? { email, imageSource } : null;
-  console.log(profile);
 
   return (
     <div>

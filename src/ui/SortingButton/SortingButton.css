@@ -1,0 +1,70 @@
+.SortingButton {
+  position: relative;
+  width: 100%;
+}
+.SortingButton-form {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+.sort-button {
+  padding: 0.8rem 1.2rem;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--primary, #6d6afe);
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+
+  color: #000;
+  font-family: Pretendard;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.sort-button.active {
+  border-radius: 5px;
+  border: 1px solid var(--primary, #6d6afe);
+  background: var(--primary, #6d6afe);
+
+  color: #fff;
+}
+
+.add-button {
+  margin-left: auto;
+
+  color: #6d6afe;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.editor-form {
+  display: flex;
+  justify-content: flex-start;
+}
+.selectedButton-name {
+  display: inline-flex;
+  color: #000;
+  font-family: Pretendard;
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  padding: 2.8rem 0rem;
+}
+.editor {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+
+  gap: 1.2rem;
+}
+
+.editor-button {
+  width: auto;
+}

@@ -1,5 +1,15 @@
-import "./CardList.css";
+import { useLocation } from 'react-router-dom';
+import './CardList.css';
+import SortingButton from 'ui/SortingButton/SortingButton';
 
 export const CardList = ({ children }) => {
-  return <div className="CardList">{children}</div>;
+  const location = useLocation();
+  const isFolderPage = location.pathname.includes('folder') ? true : false;
+
+  return (
+    <>
+      {isFolderPage && <SortingButton />}
+      <div className="CardList">{children}</div>
+    </>
+  );
 };
