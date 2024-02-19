@@ -1,0 +1,138 @@
+@media (min-width: 375px) and (max-width: 767px) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px 33px 17px;
+  }
+
+  .logoContainer {
+    width: 133px;
+    height: 24px;
+  }
+
+  .profileContainer {
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+  }
+
+  .img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+  }
+
+  .email {
+    display: none;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .loginBtn {
+    padding: 16px 20px;
+    border-radius: 8px;
+    background: var(
+      --gra-purpleblue-to-skyblue,
+      linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+    );
+    color: var(--Grey-Light, #f5f5f5);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1124px) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 33px 33px 32px;
+  }
+
+  .logoContainer {
+    width: 133px;
+    height: 24px;
+  }
+
+  .profileContainer {
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+  }
+
+  .img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+  }
+
+  .email {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .loginBtn {
+    padding: 16px 20px;
+    border-radius: 8px;
+    background: var(
+      --gra-purpleblue-to-skyblue,
+      linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+    );
+    color: var(--Grey-Light, #f5f5f5);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
+
+@media (min-width: 1125px) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 33px 200px 32px;
+  }
+
+  .logoContainer {
+    width: 133px;
+    height: 24px;
+  }
+
+  .profileContainer {
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+  }
+
+  .img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+  }
+
+  .email {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .loginBtn {
+    padding: 16px 20px;
+    border-radius: 8px;
+    background: var(
+      --gra-purpleblue-to-skyblue,
+      linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+    );
+    color: var(--Grey-Light, #f5f5f5);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}

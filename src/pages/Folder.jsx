@@ -51,7 +51,7 @@ function Folder() {
     getFolderList();
     getLinks({ folderId: "1" });
   }, []);
-
+  //TODO: useLocation써서 header folder일때 sticky 구분하기
   return (
     <>
       <header>

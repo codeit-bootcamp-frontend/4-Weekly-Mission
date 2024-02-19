@@ -1,26 +1,27 @@
 import logo from "../images/logo.svg";
-import "./css/Header.css";
+// import "./css/Header.css";
+import style from "./TopNavBar.module.css";
 
 function TopNavBar({ profileData }) {
   return (
-    <div className="HeaderTop-container">
-      <div className="logo-container">
+    <div className={style.container}>
+      <div className={style.logoContainer}>
         <a href="">
           <img src={logo} />
         </a>
       </div>
-      <div className="profileData-container">
+      <div className={style.profileContainer}>
         {profileData.email ? (
           <>
             <img
-              className="profile-img"
+              className={style.img}
               src={profileData.profileImageSource}
               alt="이미지"
             />
-            <div className="profile-email">{profileData.email}</div>
+            <div className={style.email}>{profileData.email}</div>
           </>
         ) : (
-          <div className="profile-login-btn">로그인</div>
+          <div className={style.loginBtn}>로그인</div>
         )}
       </div>
     </div>

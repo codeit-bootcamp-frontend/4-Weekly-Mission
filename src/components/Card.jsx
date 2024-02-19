@@ -3,15 +3,8 @@ import emptyLogo from "../images/emptylogo.svg";
 import kebab from "../images/kebab.svg";
 import useToggle from "../hooks/useToggle";
 import star from "../images/star.svg";
-
-function SelectMenu() {
-  return (
-    <div className="selectMenu-container">
-      <div className="selectMenu">삭제하기</div>
-      <div className="selectMenu clicked">폴더에 추가</div>
-    </div>
-  );
-}
+import style from "./Card.module.css";
+import SelectMenu from "./SelectMenu";
 
 function Card({ link }) {
   const [kebabValue, KebabTogglefunc] = useToggle(false);
@@ -29,11 +22,13 @@ function Card({ link }) {
 
   return (
     <>
-      <div className="card-container" onClick={moveToUrl}>
-        <img className="card-container-img" src={cardImage} alt="이미지"></img>
-        <img className="star" src={star} alt="star" />
-        <div className="card-container-texts">
-          <div className="card-container-dateDiff">
+      <div className={style.container} onClick={moveToUrl}>
+        <div className={style.imgContainer}>
+          <img className={style.img} src={cardImage} alt="이미지"></img>
+        </div>
+        <img className={style.star} src={star} alt="star" />
+        <div className={style.textContainer}>
+          <div className={style.dateDiffContainer}>
             <div>{dateDiff}</div>
             <div
               onClick={(e) => {
@@ -42,12 +37,12 @@ function Card({ link }) {
               }}
             >
               <img src={kebab} alt="kebab" />
-              {kebabValue ? <SelectMenu /> : null}
             </div>
           </div>
-          <div className="card-container-description">{link.description}</div>
-          <div className="card-conatiner-formatDate">{formatDate}</div>
+          <div className={style.description}>{link.description}</div>
+          <div>{formatDate}</div>
         </div>
+        {kebabValue ? <SelectMenu /> : null}
       </div>
     </>
   );
