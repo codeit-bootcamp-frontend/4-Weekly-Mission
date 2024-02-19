@@ -9,8 +9,8 @@ const Avatar = ({sharedFolder}) => {
         <div className='user_ly'>
           {isShowFolderInfos ? (
             <div className='avatar_ly'>
-                <img className="avatar-img" src={sharedFolder.owner.profileImageSource} alt={`${sharedFolder.owner.name} 아바타`}/>
-                <span className='avatar-name'>{sharedFolder.owner.name}</span>
+              <img className="avatar-img" src={sharedFolder.owner.profileImageSource} alt={`${sharedFolder.owner.name} 아바타`}/>
+              <span className='avatar-name'>{sharedFolder.owner.name}</span>
             </div>
           ) : (
             <button className='login-button'>회원가입</button>

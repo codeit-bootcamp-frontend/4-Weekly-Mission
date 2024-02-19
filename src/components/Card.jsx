@@ -1,7 +1,7 @@
 import { calculateDateDifference, formatDate } from '../utils/dateCalculate';
 import defaultImg from '../assets/logo.svg';
-import starIcon from '../assets/card/star.svg';
-import kebabIcon from '../assets/card/kebab.svg';
+import starIcon from '../assets/icon/star.svg';
+import kebabIcon from '../assets/icon/kebab.svg';
 
 import './Card.css'
 
