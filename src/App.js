@@ -1,31 +1,19 @@
-import { useEffect, useState } from "react";
-import Footer from "./footer/Footer.js";
-import NavBar from "./nav-bar/NavBar.js";
-import getUserData from "./userData.js";
+import { SharedPage } from "./page-layout/SharedPage";
+import { FolderPage } from "./page-layout/FolderPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./global.css";
 
-const App = () => {
-  const [profile, setProfile] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await getUserData();
-        const { email, profileImageSource } = data;
-        setProfile({ email, profileImageSource });
-      } catch (error) {
-        console.error("Error fetching user data:", error);
-      }
-    };
-    fetchData();
-  }, []);
+function App() {
   return (
-    <>
-      <NavBar profile={profile} />
-      <main></main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/">
+          <Route path="shared" element={<SharedPage />} />
+          <Route path="folder" element={<FolderPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;

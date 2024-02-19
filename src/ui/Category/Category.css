@@ -1,0 +1,52 @@
+.Category-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.Categories {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.add-folder {
+  color: var(--primary);
+  font-size: 1.6rem;
+  display: none;
+  @media (min-width: 767px) {
+    display: inline;
+  }
+}
+
+.CategoryButton {
+  border-radius: 5px;
+  height: 4rem;
+  border: 0.1rem solid #6d6afe;
+  background-color: var(--white);
+  color: var(--black);
+  padding: 0.8rem 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.CategoryButton.button-clicked {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+.mobile-add-button {
+  display: inline-block;
+  padding: 0.8rem 2.4rem;
+  position: fixed;
+  font-size: 1.6rem;
+  color: var(--white);
+  background-color: var(--primary);
+  border-radius: 2rem;
+  bottom: 10.1rem;
+
+  @media (min-width: 767px) {
+    display: none;
+  }
+}

@@ -1,0 +1,15 @@
+.CategoryButton {
+  border-radius: 5px;
+  height: 4rem;
+  border: 0.1rem solid #6d6afe;
+  background-color: var(--white);
+  color: var(--black);
+  padding: 0.8rem 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.CategoryButton.button-clicked {
+  background-color: var(--primary);
+  color: var(--white);
+}
