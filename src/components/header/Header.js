@@ -2,8 +2,9 @@ import React from 'react';
 import logo from '../../images/logo.svg';
 import '../styles/header.css';
 import FolderTitle from './FolderTitle';
+import { Link } from 'react-router-dom';
 
-const Header = ({ user, folder }) => {
+const Header = ({ user }) => {
   return (
     <header>
       <nav>
@@ -21,12 +22,6 @@ const Header = ({ user, folder }) => {
           </a>
         )}
       </nav>
-      {/* <div className="folder">
-        <img src={folder.profileImageSource} alt="userImage" className="folder-user-image" />
-        <p className="folder-user-name">@{folder.ownerName}</p>
-        <p className="folder-name">{folder.folderName}</p>
-      </div> */}
-      <FolderTitle folder={folder} />
     </header>
   );
 };

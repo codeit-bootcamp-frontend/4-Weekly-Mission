@@ -5,8 +5,9 @@ import CardList from '../components/CardList';
 import SearchBar from '../components/SearchBar';
 import { getUser, getFolder } from '../api';
 import { useState } from 'react';
+import FolderTitle from '../components/header/FolderTitle';
 
-const Shared = () => {
+const SharedPage = () => {
   const [user, setUser] = useState(null);
   const [folder, setFolder] = useState({
     profileImageSource: null,
@@ -48,6 +49,7 @@ const Shared = () => {
   return (
     <>
       <Header user={user} folder={folder} />
+      <FolderTitle folder={folder} />
       <SearchBar />
       <CardList links={folder.links} />
       <Footer />
@@ -55,4 +57,4 @@ const Shared = () => {
   );
 };
 
-export default Shared;
+export default SharedPage;
