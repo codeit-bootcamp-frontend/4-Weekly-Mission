@@ -1,21 +1,7 @@
 import "./LinkItems.css";
 import defaultImage from "../../images/card-default.png";
 import { calculateTimePassed } from "../../utils/calculateTimePassed";
-import styled from "styled-components";
-
-const LinkImage = styled.div`
-  background-image: url("${({ src }) => src}");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  height: 200px;
-  border-radius: 1rem 1rem 0 0;
-  transition: background-size 0.3s ease-in-out;
-
-  &:hover {
-    background-size: 130%;
-  }
-`;
+import { LinkImage } from "./style";
 
 const LinkItem = ({ link }) => {
   const CREATED_AT = new Date(link.createdAt || link.created_at);
