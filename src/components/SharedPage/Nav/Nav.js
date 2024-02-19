@@ -1,4 +1,4 @@
-import GetUserInfo from "api/GetUserInfo";
+import { GetUserInfo } from "api/GetUserInfo";
 import useAsync from "hook/useAsync";
 import logo from "assets/header-logo.svg";
 import styles from "./Nav.module.css";

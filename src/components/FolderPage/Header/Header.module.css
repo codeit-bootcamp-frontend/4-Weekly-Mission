@@ -1,40 +1,18 @@
-.profile-container {
-  margin-top: 9em;
+.header-Container {
   background-color: var(--Linkbrary-bg);
   text-align: center;
   padding: 40px 0;
-}
-
-.profile {
-  text-align: center;
-  padding: 40px 0;
-}
-
-.profile-author {
-  font-size: 1.4rem;
-  margin-top: 20px;
-}
-
-.profile-title {
-  font-size: 2.8rem;
-  font-weight: bold;
-  margin-top: 20px;
-}
-
-.profile-img {
-  width: 60px;
-}
-
-.wrapper {
-  /* max-width: 1540px; */
-  padding: 40px 200px;
-  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 30rem;
 }
 
 @media (max-width: 1199px) {
-  .wrapper {
-    max-width: 832px;
+  .header-Container {
     padding: 40px 32px;
+    margin-top: 1rem;
     margin: 0 auto;
+    height: 25rem;
   }
 }
