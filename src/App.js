@@ -1,23 +1,48 @@
-import "./stylesheets/main.css";
-import "./App.css";
-import Contents from "./Components/Contents.js";
-import Footer from "./Components/Footer.js";
-import Hero from "./Components/Hero.js";
-import Navigation from "./Components/Navigation.js";
+import { Layout } from "./feature/Layout";
+import { SharedPage } from "./page-layout/SharedPage";
+import "./global.css";
+import { FolderInfo } from "./ui/FolderInfo";
+import { SearchBar } from "./ui/SearchBar";
+import { CardList } from "./ui/CardList";
+import { useGetFolder } from "data-access/useGetFolder";
+import { ReadOnlyCard } from "ui/ReadOnlyCard";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FolderPage from "FolderPage";
+function App() {
+  const { data } = useGetFolder();
+  const { profileImage, ownerName, folderName, links } = data || {};
 
-const App = () => {
   return (
-    <>
-      <header className="header">
-        <Navigation />
-      </header>
-      <main>
-        <Hero />
-        <Contents />
-      </main>
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <SharedPage
+                folderInfo={
+                  <FolderInfo
+                    profileImage={profileImage}
+                    ownerName={ownerName}
+                    folderName={folderName}
+                  />
+                }
+                searchBar={<SearchBar />}
+                cardList={
+                  <CardList>
+                    {links?.map((link) => (
+                      <ReadOnlyCard key={link?.id} {...link} />
+                    ))}
+                  </CardList>
+                }
+              />
+            }
+          />
+          <Route path="/folder" element={<FolderPage />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
