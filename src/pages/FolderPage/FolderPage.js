@@ -5,6 +5,7 @@ import Layout from "../../components/Layout/Layout";
 import OnlyCard from "../../components/Card/OnlyCard/OnlyCard";
 import CardList from "../../components/Card/CardList/CardList";
 import "./FolderPage.css";
+import FolderOption from "../../components/Folder/FolderOption/FolderOption";
 
 const FolderPage = ({ folderHeader, searchBar }) => {
   const [folderList, setFolderList] = useState([]);
@@ -44,6 +45,8 @@ const FolderPage = ({ folderHeader, searchBar }) => {
             selectId={selectId}
             onSelectFolderList={handleSelectFolderList}
           />
+
+          <FolderOption folderName={selectName} />
 
           {links.length === 0 ? (
             <div className="folderPage-noLink">저장된 링크가 없습니다</div>
