@@ -9,25 +9,27 @@ import "./FolderPage.css";
 const FolderPage = ({ folderHeader, searchBar }) => {
   const [folderList, setFolderList] = useState([]);
   const [links, setLinks] = useState([]);
+  const [selectName, setSelectName] = useState("전체");
   const [selectId, setSelectId] = useState(null);
 
-  const handleLoadFolderList = async () => {
-    const folderListdata = await getFolderList({ userId: 1 });
+  const handleLoadFolderList = async (option) => {
+    const folderListdata = await getFolderList(option);
     setFolderList(folderListdata.data);
   };
 
-  const handleLoadLink = async () => {
-    const linksData = await getLink({ userId: 1, folderId: selectId });
+  const handleLoadLink = async (option) => {
+    const linksData = await getLink(option);
     setLinks(linksData.data);
   };
 
-  const handleSelectFolderList = ({ id }) => {
+  const handleSelectFolderList = ({ name, id }) => {
+    setSelectName(name);
     setSelectId(id);
   };
 
   useEffect(() => {
-    handleLoadFolderList();
-    handleLoadLink();
+    handleLoadFolderList({ userId: 1 });
+    handleLoadLink({ userId: 1, folderId: selectId });
   }, [selectId]);
 
   return (
