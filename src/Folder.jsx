@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { getLink, getLinkDetail } from './apis/api';
+import { useFetchFolder } from './hooks/useFetchFolder';
 
 import SearchBar from './components/SearchBar';
 import Card from './components/Card';
@@ -11,27 +12,23 @@ import './Folder.css';
 
 const TOTAL_LIST_NAME = '전체';
 
-const Folder = ({folderList}) => {
-  const [folders, setFolders] = useState([]);
+const Folder = () => {
+  const [folderList, links, setLinks] = useFetchFolder();
   const [currentfolderName, setCurrrentFolderName] = useState(TOTAL_LIST_NAME);
 
   const handleTotalListClick = async () => {
     const { data } = await getLink();
 
-    setFolders(data);
+    setLinks(data);
     setCurrrentFolderName(TOTAL_LIST_NAME);
   }
 
   const handleListClick = async (folderName, folderId) => {
     const { data } = await getLinkDetail(folderId);
 
-    setFolders(data);
+    setLinks(data);
     setCurrrentFolderName(folderName);
   }
-
-  useEffect(() => {
-    handleTotalListClick();
-  }, []);
 
   return (
     <div className='container-folder'>
@@ -46,9 +43,9 @@ const Folder = ({folderList}) => {
           <span>{currentfolderName}</span>
           <FolderEdit folderName={currentfolderName} />
         </div>
-        {folders.length ? (
+        {links.length ? (
           <ul className='card-frame_ly'> 
-            {folders.map(({ created_at, image_source, title, description, url, id }) => (
+            {links.map(({ created_at, image_source, title, description, url, id }) => (
               <Card key={id} 
                 imgSrc={image_source}
                 title={title}
