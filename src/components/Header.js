@@ -16,7 +16,7 @@ const Header = ({ userInfo, isSticky = true }) => {
             <p className="profile-email">{profileEmail}</p>
           </div>
         ) : (
-          <a className="button-login button-gradient" href="/pages/signin.html">로그인</a>
+          <a className="button-login button-gradient" href="/">로그인</a>
         )}
       </nav>
     </header>
