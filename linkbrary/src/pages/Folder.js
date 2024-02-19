@@ -1,6 +1,7 @@
 import "../global.css";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
+import { getAPI } from "../APIUtil";
 import Header from "../components/NavBottom/Header";
 import Footer from "../components/NavBottom/Footer";
 import Search from "../components/Search";
@@ -13,29 +14,37 @@ function Folder() {
   const [title, setTitle] = useState("전체");
   const [listId, setListId] = useState("");
   const [data, setData] = useState([]);
+  const [user, setUser] = useState(null);
 
   const handleLoad = async (id = 0) => {
     try {
-      const response = await fetch(
-        `https://bootcamp-api.codeit.kr/api/users/1${
-          id === 0 ? `/links` : `/folders/${id}`
-        }`
+      const response = await getAPI(
+        `/users/1${id === 0 ? `/links` : `/folders/${id}`}`
       );
-      const result = await response.json();
-      const resultData = result.data;
-      setData(resultData);
+      const result = response.data;
+      setData(result);
     } catch (error) {
       console.error(error);
     }
   };
 
+  const handleUser = async () => {
+    const user = await getAPI("/sample/user");
+    setUser(user);
+  };
+
   useEffect(() => {
     handleLoad(listId);
+    handleUser();
   }, [listId]);
+
+  useEffect(() => {
+    handleUser();
+  }, []);
 
   return (
     <>
-      <Header />
+      <Header user={user} />
       <AddLink />
       <Search />
       <Category changeTitle={setTitle} changeID={setListId} />

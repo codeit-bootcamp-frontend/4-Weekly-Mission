@@ -1,12 +1,10 @@
 import "../../styles/Header.css";
 import logoImgSrc from "../../assets/linkbrary.svg";
 import { getAPI } from "../../APIUtil";
+import { useState } from "react";
 import useGetJson from "../useGetJson";
 
-function Header() {
-  const user = useGetJson(getAPI(`/users/1`));
-  const { email, profileImageSource } = user;
-
+function Header({ user }) {
   return (
     <header className="header-area">
       <div className="header-group">
@@ -17,11 +15,11 @@ function Header() {
           {user ? (
             <>
               <img
-                src={profileImageSource}
+                src={user.profileImageSource}
                 alt="프로필 사진"
                 className="user-profile"
               />
-              <span className="user-email">{email}</span>
+              <span className="user-email">{user.email}</span>
             </>
           ) : (
             <a className="btn signin" href="/signin.html">
