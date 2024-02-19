@@ -1,7 +1,13 @@
 import "./PageBody.css";
 import { useLocation } from "react-router-dom";
 
-export const PageBody = ({ pageInfo, addLink, searchBar, cardList }) => {
+export const PageBody = ({
+  pageInfo,
+  addLink,
+  tagList,
+  searchBar,
+  cardList,
+}) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
@@ -21,6 +27,7 @@ export const PageBody = ({ pageInfo, addLink, searchBar, cardList }) => {
         {addLink}
         <div className="PageBody-items">
           {searchBar}
+          {tagList}
           {cardList}
         </div>
       </div>

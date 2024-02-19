@@ -1,0 +1,27 @@
+.CardTagList {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  max-width: 106rem;
+  flex-wrap: wrap;
+}
+.CardTagListPlus {
+  color: var(--primary);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.Contain {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

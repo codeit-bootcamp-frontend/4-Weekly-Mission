@@ -1,0 +1,5 @@
+.frameTag {
+  display: flex;
+  flex-direction: low;
+  gap: 8px;
+}
