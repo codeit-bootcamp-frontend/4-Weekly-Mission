@@ -16,7 +16,7 @@ function FolderInfo() {
   const [folderData, setFolderData] = useState();
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://bootcamp-api.codeit.kr/api/sample/folder/');
+      const response = await axios.get('https://bootcamp-api.codeit.kr/api/sample/folder');
       setFolderData(response.data.folder);
     } catch (error) {
       console.error('Error fetching data:', error);
