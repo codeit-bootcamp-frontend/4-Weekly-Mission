@@ -3,11 +3,28 @@ import { Cta } from "../../ui/Cta";
 import { Profile } from "../../ui/Profile";
 import { LOGO_IMAGE, TEXT } from "./constant";
 import "./NavigationBar.css";
-import { NavigationBarStyle } from "./NavigationBarStyled";
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export const NavigationBar = ({ userEmail, userImgSource }) => {
+  const [className, setClassName] = useState("NavigationBar");
+  const Location = useLocation();
+  const LocationPath = Location.pathname;
+  console.log(LocationPath);
+
+  const handleClassName = () => {
+    LocationPath === "/shared" || LocationPath === "/folder"
+      ? setClassName("NavigationBar-static")
+      : setClassName("NavigationBar");
+    console.log(className);
+  };
+
+  useEffect(() => {
+    handleClassName();
+  }, []);
+
   return (
-    <NavigationBarStyle className="NavigationBar">
+    <header className={className}>
       <div className="NavigationBar-items">
         <a href={ROUTE.랜딩}>
           <img
@@ -26,6 +43,6 @@ export const NavigationBar = ({ userEmail, userImgSource }) => {
           </a>
         )}
       </div>
-    </NavigationBarStyle>
+    </header>
   );
 };

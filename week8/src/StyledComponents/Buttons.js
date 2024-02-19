@@ -6,6 +6,7 @@ export const Button = styled.button`
   line-height: 1.193125rem;
   border: 0.0625rem solid var(--primary);
   border-radius: 0.3125rem;
+
   &:hover,
   &:active {
     background-color: var(--primary);
