@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import "./Navigation.css";
 import linkbrary from "../../images/linkbrary.svg";
 import profileImg from "../../images/myprofile.svg";
-import { fetchData } from "./fetchData";
+import { apiURL, fetchData } from "./fetchData";
 
-const Navigation = ({ position = "sticky" }) => {
+const Navigation = ({ position = "sticky", url = apiURL }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetchData().then((data) => setUser(data));
-  }, []);
+    fetchData(url).then((data) => setUser(data));
+  }, [url]);
 
   return (
     <nav className="navigation" style={{ position: position }}>

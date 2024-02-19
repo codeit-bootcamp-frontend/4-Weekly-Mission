@@ -4,7 +4,7 @@ import Footer from "../component/Footer/Footer";
 import FolderSection from "../component/MainSection/FolderSection/FolderSection";
 import SearchBar from "../component/MainSection/SearchBar/SearchBar";
 import CardList from "../component/MainSection/CardList/CardList";
-import "./Shared.css";
+import "./page.css";
 
 const Shared = () => {
   return (
