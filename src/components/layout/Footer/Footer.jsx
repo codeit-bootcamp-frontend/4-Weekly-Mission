@@ -1,7 +1,7 @@
 import YoutubeIcon from '../../../assets/icons/akar-icons-youtube-fill.svg';
 import TwitterIcon from '../../../assets/icons/akar-icons-twitter-fill.svg';
 import FacebookIcon from '../../../assets/icons/akar-icons-facebook-fill.svg';
-import InstagramIcon from '../../../assets/icons/ant-design-instagram-filled.svg';
+import InstagramIcon from '../../../assets/icons/ant-design-instagram-fill.svg';
 import {
   FooterCenter,
   FooterContainer,
