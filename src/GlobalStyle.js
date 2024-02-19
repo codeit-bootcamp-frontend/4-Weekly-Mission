@@ -14,9 +14,9 @@ const GlobalStyle = createGlobalStyle`
     --white-color: #ffffff;
     --gray100-color: #3e3e43;
     --gray60-color: #9fa6b2;
-    --Linkbrary-gray20: #ccd5e3;
+    --gray20-color: #ccd5e3;
     --gray10-color: #e7effb;
-    --Linkbrary-bg: #f0f6ff;
+    --background-color: #f0f6ff;
     --gra-purpleblue-to-skyblue: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
     --Fandom-K-gra-blue-to-pink: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
   }

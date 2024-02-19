@@ -3,7 +3,7 @@ import Button from '../../common/Button/Button';
 
 export const NavbarContainer = styled.nav`
   width: 100%;
-  background-color: var(--Linkbrary-bg);
+  background-color: var(--background-color);
   position: ${({ $isFolderPage }) => ($isFolderPage ? 'sticky' : 'static')};
   top: 0;
   left: 0;

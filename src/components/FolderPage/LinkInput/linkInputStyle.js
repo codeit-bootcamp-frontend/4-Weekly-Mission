@@ -5,7 +5,7 @@ export const LinkContainer = styled.article`
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: var(--Linkbrary-bg);
+  background-color: var(--background-color);
   padding: 3.75rem 0 5.62rem 0;
 `;
 

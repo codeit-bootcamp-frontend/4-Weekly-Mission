@@ -5,7 +5,7 @@ export const ProfileSummary = styled.article`
   flex-direction: column;
   align-items: center;
   padding: 1.25rem 0 3.75rem;
-  background-color: var(--Linkbrary-bg);
+  background-color: var(--background-color);
 `;
 
 export const Figure = styled.figure`
