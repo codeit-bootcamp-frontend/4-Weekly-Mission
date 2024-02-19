@@ -1,19 +1,17 @@
 import { Helmet } from 'react-helmet';
 import FolderHeader from '../components/Folder/FolderHeader';
-import CardList from '../components/CardList';
-import Footer from '../components/Footer/Footer';
+import FolderContent from '../components/Folder/FolderContent';
 
-function Shared() {
+function Folder() {
   return (
     <>
       <Helmet>
         <title>Linkbrary - Folder</title>
       </Helmet>
       <FolderHeader />
-      <CardList />
-      <Footer />
+      <FolderContent />
     </>
   );
 }
 
-export default Shared;
+export default Folder;
