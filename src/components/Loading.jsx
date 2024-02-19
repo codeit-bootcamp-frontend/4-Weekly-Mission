@@ -9,7 +9,7 @@ const spin = keyframes`
 const SIZES = {
   large: 60,
   medium: 40,
-  small: 14,
+  small: 17,
 };
 
 const LoadingSpinner = styled.div`
