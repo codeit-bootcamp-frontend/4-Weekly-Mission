@@ -18,8 +18,6 @@ function Root() {
   const location = useLocation()
   const isPathIncludesFolder = location.pathname.includes("folder") || false
 
-  console.log(isPathIncludesFolder)
-
   return (
     <React.Fragment>
       <ProfileContextProvider>
