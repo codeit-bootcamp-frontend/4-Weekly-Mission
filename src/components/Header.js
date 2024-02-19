@@ -1,4 +1,4 @@
-import '../styles/Header.css';
+import './Header.css';
 
 export default function Header({ folderName = '', owner = {} }) {
   return (

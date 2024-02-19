@@ -1,0 +1,37 @@
+.addLinkContainer {
+  display: flex;
+  padding: 3.75rem 0 5.625rem 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f0f6ff;
+}
+
+.addLink {
+  display: flex;
+  width: 60%;
+  padding: 1rem 1.25rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  border-radius: 0.9375rem;
+  border: 1px solid #6d6afe;
+  background: #fff;
+}
+
+.linkInput {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.linkInput input {
+  border: none;
+  color: #9fa6b2;
+
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+}

@@ -1,13 +1,11 @@
-import '../styles/CardList.css';
-import SearchBar from './SearchBar';
-import Card from './Card';
+import Card from './common/Card';
+import './CardList.css';
 
-export default function CardList({ cardsData = [] }) {
+export default function CardList({ cardDataList = [] }) {
   return (
     <div className="cardList">
-      <SearchBar />
       <div className="cardContainer">
-        {cardsData.map(cardData => (
+        {cardDataList.map(cardData => (
           <Card key={cardData.id} data={cardData} />
         ))}
       </div>

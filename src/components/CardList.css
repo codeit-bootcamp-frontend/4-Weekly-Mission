@@ -4,9 +4,9 @@
   justify-content: center;
   align-items: center;
   gap: 2.5rem;
-  margin: 2rem 0 2rem 0;
+  margin: 2rem 0 8rem 0;
 
-  width: 100%;
+  width: 70%;
 }
 
 .cardContainer {

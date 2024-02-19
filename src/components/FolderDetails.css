@@ -1,0 +1,110 @@
+.folderDetailsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+
+  margin-bottom: 5rem;
+}
+
+.folderListContainer {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.folderList {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.folderName {
+  display: flex;
+  padding: 0.5rem 0.75rem;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 0.3125rem;
+  border: 1px solid #6d6afe;
+  background: #fff;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.folderName.selected {
+  color: #fff;
+  background: #6d6afe;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  white-space: nowrap;
+
+  color: #6d6afe;
+  text-align: center;
+
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.01875rem;
+}
+
+.actionButtonContainer {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actionButtonContainer p {
+  color: #000;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.0125rem;
+}
+
+.actionButton {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+
+  color: #9fa6b2;
+
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.share {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.pen {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.remove {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+@media (max-width: 767px) {
+  .actionButtonContainer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}

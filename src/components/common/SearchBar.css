@@ -5,9 +5,11 @@ form {
   border-radius: 0.625rem;
   background: #f5f5f5;
 
-  width: 78%;
+  width: 60%;
   padding: 0.9375rem 1rem;
   justify-content: center;
+
+  margin: 2rem auto 0 auto;
 }
 
 form input {

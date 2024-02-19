@@ -1,20 +1,18 @@
-import './styles/reset.css';
-import Nav from './components/Nav';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import CardList from './components/CardList';
-import useSampleData from './hooks/useSampleData';
+import { Routes, Route } from 'react-router-dom';
+import Shared from './pages/Shared.js';
+import Landing from './pages/Landing.js';
+import Folder from './pages/Folder.js';
+import './App.css';
 
 function App() {
-  const { links, name, owner } = useSampleData('folder') || {};
-
   return (
-    <div>
-      <Nav />
-      <Header folderName={name} owner={owner} />
-      <CardList cardsData={links} />
-      <Footer />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/shared" element={<Shared />} />
+        <Route path="/folder" element={<Folder />} />
+      </Routes>
+    </>
   );
 }
 

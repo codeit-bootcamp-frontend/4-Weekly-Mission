@@ -1,4 +1,4 @@
-button {
+.gradientButton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,4 +13,6 @@ button {
   border: none;
   width: 8rem;
   padding: unset;
+
+  white-space: nowrap;
 }

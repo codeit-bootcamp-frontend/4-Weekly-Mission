@@ -1,6 +1,6 @@
 .nav {
   display: flex;
-  padding: 2.0625rem 12.5rem 2rem 12.5rem;
+  padding: 2rem 12.5rem 2rem 12.5rem;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -35,4 +35,10 @@
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 2.9375rem;
+}
+
+@media (max-width: 1000px) {
+  .nav {
+    padding: 2rem 5rem 2rem 5rem;
+  }
 }
