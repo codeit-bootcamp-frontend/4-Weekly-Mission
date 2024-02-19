@@ -11,12 +11,9 @@ const FolderNames = ({
   selectFolder,
 }) => {
   const nameRef = useRef();
-  const [select, setSelect] = useState(true);
 
   const handleOnClick = async (userId, id, folderName, e) => {
     setSelectFolder(e.target.id);
-    setSelect(false);
-    console.log('id:::', id, '::select :: ', select);
     const { data } = await getLinks(userId, id);
 
     onClick(folderName, data);
@@ -26,9 +23,7 @@ const FolderNames = ({
     <button
       ref={nameRef}
       onClick={(e) => handleOnClick(userId, id, name, e)}
-      className={`folder_button${
-        selectFolder == id || (id == 'all' && select) ? ' selected_purple' : ''
-      }`}
+      className={`folder_button${selectFolder == id ? ' selected_purple' : ''}`}
       id={id}
     >
       {name}

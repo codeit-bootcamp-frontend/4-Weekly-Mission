@@ -17,6 +17,7 @@
 .folder_button {
   height: 29px;
   padding: 6px 10px;
+
   display: flex;
   flex-direction: column;
   align-items: center;
