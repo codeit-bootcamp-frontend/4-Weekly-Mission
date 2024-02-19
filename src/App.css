@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  /* height: 100vh; */
 }
 
 .App-logo {
@@ -37,41 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-
-.title {
-  padding-right: 800px;
-}
-.title-tablet {
-  padding-left: 20px;
-  text-align: left;
-}
-/* 
-@media (min-width: 1199px) {
-  h2 {
-    padding-right: 800px;
-  }
-} */
-
-.tool {
-  display: flex;
-}
-.tool-tablet {
-  display: none;
-}
-.tool a {
-  padding: 0 10px;
-  text-decoration: none;
-  color: rgba(109, 106, 254, 1);
-}
-.titleAndToolBar {
-  display: flex;
-  justify-content: center;
-  padding-left: 30px;
-  margin-top: 20px;
-}
-.titleAndToolBar-tablet {
-  text-align: left;
-  margin-top: 20px;
-}
-
