@@ -6,7 +6,7 @@ import Footer from "../components/NavBottom/Footer";
 import Search from "../components/Search";
 import AddLink from "../components/AddLink";
 import Category from "../components/Category";
-import SelectTheme from "../components/SelectTheme";
+import SelectTheme from "../components/FolderFunction";
 import Contents from "../components/Contents";
 
 function Folder() {
@@ -14,7 +14,7 @@ function Folder() {
   const [listId, setListId] = useState("");
   const [data, setData] = useState([]);
 
-  const handleLoad = async (id = listId) => {
+  const handleLoad = async (id = 0) => {
     try {
       const response = await fetch(
         `https://bootcamp-api.codeit.kr/api/users/1${
@@ -30,7 +30,7 @@ function Folder() {
   };
 
   useEffect(() => {
-    handleLoad();
+    handleLoad(listId);
   }, [listId]);
 
   return (
@@ -82,7 +82,7 @@ const AddFolderBtn = styled.button`
   line-height: normal;
   letter-spacing: -0.3px;
 
-  @media (max-width: 774px) {
+  @media (max-width: 767px) {
     display: block;
   }
 `;

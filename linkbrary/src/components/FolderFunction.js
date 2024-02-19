@@ -35,10 +35,10 @@ const Container = styled.div`
   align-items: center;
   margin: 24px auto;
 
-  @media (max-width: 1124px) {
+  @media (max-width: 1199px) {
     width: 704px;
   }
-  @media (max-width: 774px) {
+  @media (max-width: 767px) {
     width: 325px;
     flex-direction: column;
     align-items: flex-start;
