@@ -1,0 +1,50 @@
+.folderNav {
+  background: var(--Linkbrary-bg, #f0f6ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0 90px 0;
+}
+
+.linkForm {
+  border-radius: 15px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-white, #fff);
+  display: flex;
+  width: 800px;
+  height: 69px;
+  padding: 16px 20px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.linkForm--label {
+  margin-right: 12px;
+}
+
+.linkForm--input {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-weight: 400;
+  line-height: 24px;
+  outline: none;
+  border: 0;
+  width: 100%;
+}
+
+.linkForm--Bt {
+  border-radius: 8px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  width: 100px;
+  height: 37px;
+  color: var(--Grey-Light, #f5f5f5);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 0;
+  text-decoration: none;
+  padding: 10px 16px;
+}
