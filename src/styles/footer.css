@@ -1,3 +1,5 @@
+@import '../styles/css/global.css';
+
 footer {
   display: flex;
   justify-content: center;
@@ -37,4 +39,29 @@ footer {
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
+}
+
+@media (width <= 767px) {
+  footer {
+    padding: 2rem;
+  }
+
+  .footer-box {
+    flex-wrap: wrap;
+  }
+
+  .copyright {
+    order: 3;
+    margin-top: 3rem;
+  }
+
+  .footer-links {
+    width: 70%;
+    order: 1;
+  }
+
+  .sns {
+    width: 30%;
+    order: 2;
+  }
 }

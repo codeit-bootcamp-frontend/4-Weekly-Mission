@@ -1,0 +1,48 @@
+@import './css/global.css';
+
+.add-link {
+  display: flex;
+  justify-content: center;
+  padding: 3.8rem 2rem 5.5rem;
+  background: var(--headerpage);
+}
+
+.add-link-content {
+  display: flex;
+  width: 75rem;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid var(--primary);
+  border-radius: 15px;
+  background: var(--white);
+  gap: 1rem;
+}
+
+.add-link-container {
+  display: flex;
+  gap: 0.7rem;
+}
+
+.add-link-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.add-link-input {
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+
+input::placeholder {
+  color: var(--gray-02);
+}
+
+.add-link-button {
+  width: 7.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}

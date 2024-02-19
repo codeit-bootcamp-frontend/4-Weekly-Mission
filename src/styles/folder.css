@@ -1,9 +1,11 @@
-@import './css/global.css';
+@import '../styles/css/global.css';
 
 .folder {
   display: flex;
+  width: 100%;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
+  padding: 4rem 19rem;
   gap: 2.5rem;
-  padding: 2.5rem 10rem;
 }
