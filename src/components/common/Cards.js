@@ -12,7 +12,7 @@ function Card() {
         const jsonData = await getFolder();
         const links = jsonData.folder.links.map((link) => ({
           ...link,
-          cardTime: uploadedDuration(link.createdAt),
+          cardTime: formatTimeAgo(link.createdAt),
           cardDay: uploadedDate(link.createdAt),
         }));
 
@@ -22,7 +22,7 @@ function Card() {
       }
     };
 
-    const uploadedDuration = (createdAt) => {
+    const formatTimeAgo = (createdAt) => {
       const now = new Date();
       const createdDate = new Date(createdAt);
       const diffTime = now - createdDate;

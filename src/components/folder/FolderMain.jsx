@@ -1,5 +1,5 @@
-import Card from "../components/common/Cards";
-import { SearchBar } from "../components/common/SearchBar";
+import Card from "../common/Cards";
+import { SearchBar } from "../common/SearchBar";
 
 function Sorting() {}
 function UsefulArticles() {}

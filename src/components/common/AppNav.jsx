@@ -12,12 +12,12 @@ function AppNav({ userInfo }) {
             alt="홈으로 연결된 Linkbrary 로고"
           />
         </a>
-        {userInfo.id === undefined ? (
+        {!userInfo.id ? (
           <a className="cta cta-short" href="#">
             <span>로그인</span>
           </a>
         ) : (
-          <div className="userInfo">
+          <div className="user-info">
             <img src={userInfo.profileImageSource}></img>
             <p>{userInfo.email}</p>
           </div>

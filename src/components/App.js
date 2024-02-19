@@ -12,8 +12,7 @@ function App() {
   const [userInfo, setUserInfo] = useState([]);
 
   async function handleFolderInfo() {
-    let result;
-    result = await getFolder();
+    const result = await getFolder();
     if (!result) {
       return;
     }
@@ -21,8 +20,7 @@ function App() {
   }
 
   async function handleUserInfo() {
-    let result;
-    result = await getUser();
+    const result = await getUser();
     if (!result) {
       return;
     }
