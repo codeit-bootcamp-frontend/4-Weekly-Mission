@@ -6,7 +6,7 @@ export default function CardList({ cardDataList = [] }) {
     <div className="cardList">
       <div className="cardContainer">
         {cardDataList.map(cardData => (
-          <Card key={cardData.id} data={cardData} />
+          <Card key={cardData.id} cardData={cardData} />
         ))}
       </div>
     </div>
