@@ -25,3 +25,18 @@
   justify-content: space-between;
   width: 100%;
 }
+
+.CardTagListPlus.floating {
+  position: fixed;
+  bottom: 101px;
+  background-color: var(--primary);
+  padding: 8px 24px;
+  color: var(--white);
+  border-radius: 20px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
