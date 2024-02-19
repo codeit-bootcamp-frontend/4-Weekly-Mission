@@ -10,9 +10,21 @@ function Card({
     description: '',
     url: '',
     createdAt: '',
+    created_at: '',
     imageSource: '',
+    image_source: '',
   },
 }) {
+  const {
+    title,
+    description,
+    url,
+    created_at,
+    createdAt = created_at,
+    image_source,
+    imageSource = image_source,
+  } = item;
+
   const handleImgError = (e) => {
     e.target.src = cardImg;
   };
@@ -30,18 +42,13 @@ function Card({
   };
 
   return (
-    <Link
-      to={item.url}
-      className="card"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Link to={url} className="card" target="_blank" rel="noopener noreferrer">
       <div className="card__inner">
         <div className="card__image__container">
           <img
             className="card__image"
-            src={item.imageSource || ''}
-            alt={item.title}
+            src={imageSource || ''}
+            alt={title}
             onError={handleImgError}
           />
           <button
@@ -55,9 +62,7 @@ function Card({
         <div className="card__info">
           <div className="info">
             <header className="info__header">
-              <div className="info__time">
-                {formatRelativeDate(item.createdAt)}
-              </div>
+              <div className="info__time">{formatRelativeDate(createdAt)}</div>
               <button
                 type="button"
                 className="info__menu"
@@ -67,11 +72,9 @@ function Card({
               </button>
             </header>
             <div className="info__content">
-              <div className="info__description">{item.description}</div>
+              <div className="info__description">{description}</div>
             </div>
-            <footer className="info__footer">
-              {formatDate(item.createdAt)}
-            </footer>
+            <footer className="info__footer">{formatDate(createdAt)}</footer>
           </div>
         </div>
       </div>
