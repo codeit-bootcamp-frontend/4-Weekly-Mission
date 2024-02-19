@@ -1,3 +1,7 @@
+.cardImage {
+  position: relative;
+}
+
 .card-image {
   width: 100%;
   height: 20rem;
@@ -11,4 +15,10 @@
 
 .card-image-zoom-in {
   background-size: 130%;
+}
+
+.starImg {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
 }
