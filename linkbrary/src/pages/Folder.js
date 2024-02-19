@@ -7,7 +7,7 @@ import Footer from "../components/NavBottom/Footer";
 import Search from "../components/Search";
 import AddLink from "../components/AddLink";
 import Category from "../components/Category";
-import SelectTheme from "../components/FolderFunction";
+import FolderFunction from "../components/FolderFunction";
 import Contents from "../components/Contents";
 
 function Folder() {
@@ -48,7 +48,7 @@ function Folder() {
       <AddLink />
       <Search />
       <Category changeTitle={setTitle} changeID={setListId} />
-      <SelectTheme titleName={title} />
+      <FolderFunction titleName={title} />
       {data[0] ? (
         <Contents items={data} />
       ) : (

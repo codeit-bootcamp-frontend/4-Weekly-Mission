@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import linkImgSrc from "../assets/link.svg";
-import InputButton from "../common/InputButton";
+import InputButton from "../functions/InputButton";
 
 function AddLink() {
   return (

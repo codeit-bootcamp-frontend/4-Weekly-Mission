@@ -3,7 +3,7 @@ import shareImgSrc from "../assets/share.svg";
 import penImgSrc from "../assets/pen.svg";
 import trashImgSrc from "../assets/trash.svg";
 
-function SelectTheme({ titleName }) {
+function FolderFunction({ titleName }) {
   return (
     <Container>
       <Title>{titleName}</Title>
@@ -85,4 +85,4 @@ const OptionText = styled.span`
   line-height: normal;
 `;
 
-export default SelectTheme;
+export default FolderFunction;

@@ -1,7 +1,7 @@
 import "../styles/CardSection.css";
 import starImgSrc from "../assets/star.svg";
 import kebabImgSrc from "../assets/kebab.svg";
-import CalculateTime from "../common/CalculateTime";
+import CalculateTime from "../functions/CalculateTime";
 
 function CardSection({ item }) {
   const { imageSource, created_at, description, url } = item;
