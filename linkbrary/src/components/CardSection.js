@@ -1,11 +1,11 @@
 import "../styles/CardSection.css";
 import starImgSrc from "../assets/star.svg";
 import kebabImgSrc from "../assets/kebab.svg";
-import CalculateTime from "./CalculateTime";
+import CalculateTime from "../common/CalculateTime";
 
 function CardSection({ item }) {
-  const { imageSource, createdAt, description, url } = item;
-  const createdDays = new Date(createdAt);
+  const { imageSource, created_at, description, url } = item;
+  const createdDays = new Date(created_at);
   return (
     <a
       href={url}
