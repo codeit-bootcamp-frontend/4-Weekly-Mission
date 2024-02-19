@@ -1,15 +1,13 @@
 import { styled } from "styled-components";
 import { useState } from "react";
-import useGetJson from "./useGetJson";
+import useGetJson from "../functions/useGetJson";
 import unionImgSrc from "../assets/Union.svg";
+import { getAPI } from "../APIUtil";
 
 function Category({ changeTitle, changeID }) {
   const getFolderList = async () => {
     try {
-      const response = await fetch(
-        "https://bootcamp-api.codeit.kr/api/users/1/folders"
-      );
-      const result = await response.json();
+      const result = getAPI(`/users/1/folders`);
       return result;
     } catch (error) {
       console.error(error);
