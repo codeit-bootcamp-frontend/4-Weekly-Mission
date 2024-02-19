@@ -1,19 +1,28 @@
-import '../styles/FolderList.css';
-import iconPlus from '../assets/icons/plus.svg';
+import { useState } from "react";
+
 import iconShare from '../assets/icons/share.svg';
 import iconPen from '../assets/icons/pen.svg';
 import iconDelete from '../assets/icons/delete.svg';
+import iconPlus from '../assets/icons/plus.svg';
+import Folder from '../components/Folder';
 
 const FolderList = ({ folderList }) => {
+  const [selected, setSelected] = useState({ id: "", name: "전체" });
+
   return (
     <>
       <div className='folder-list'>
         <div className='folder-list-container'>
-          <a className='folder'>전체</a>
+          <a className={`folder ${selected.name === "전체" ? "folder-selected" : ""}`}
+            onClick={() => setSelected({ id: "", name: "전체" })}>전체</a>
           {folderList ? (
             <>
               {folderList.map((folder) => (
-                <a className='folder' key={folder.id}>{folder.name}</a>
+                <Folder
+                  key={folder.id}
+                  folder={folder}
+                  onClickFolder={setSelected}
+                  isSelected={selected && selected.id === folder.id} />
               ))}
             </>
           ) : (
@@ -24,7 +33,7 @@ const FolderList = ({ folderList }) => {
           <a className='add-folder'>폴더 추가</a>
           <img className="add-folder-icon" src={iconPlus} alt="폴더 추가하기." />
         </div>
-      </div>
+      </div >
 
       <div className="folder-title">
         <h2 className="folder-name">폴더 이름</h2>
