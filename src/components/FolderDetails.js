@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import useFetchData from '../hooks/useFetchData';
+import EditAndAddModal from './common/modal/EditAndAddModal';
 import FloatingActionButton from './common/FloatingActionButton';
 import CardList from './CardList';
 import SearchBar from './common/SearchBar';
@@ -12,7 +13,10 @@ import '../components/FolderDetails.css';
 export default function FolderDetails({ folderListData }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [selectedFolder, setSelectedFolder] = useState('all');
+  const [showModal, setShowModal] = useState(false);
   const selectedFolderData = useFetchData('targetUserFolderLinkList', 1, selectedFolder) || [];
+
+  const toggleShowModal = () => setShowModal(!showModal);
 
   const handleFolderClick = folderId => {
     setSelectedFolder(folderId);
@@ -50,10 +54,10 @@ export default function FolderDetails({ folderListData }) {
           ))}
         </div>
         {windowWidth >= 767 ? (
-          <div className="addButton">
+          <button className="addButton" onClick={toggleShowModal}>
             <p>폴더 추가</p>
             <img src={add} alt="더하기" />
-          </div>
+          </button>
         ) : (
           <FloatingActionButton />
         )}
@@ -78,6 +82,7 @@ export default function FolderDetails({ folderListData }) {
         )}
       </div>
       <CardList cardDataList={selectedFolderData} />
+      {showModal && <EditAndAddModal modalTitle="폴더 추가" buttonText="추가하기" onClose={toggleShowModal} />}
     </div>
   );
 }
