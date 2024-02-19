@@ -1,0 +1,65 @@
+.card {
+  width: 340px;
+  height: 334px;
+  margin-bottom: 25px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+}
+
+.cardImage {
+  width: 340px;
+  height: 253.746px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.cardTextArea {
+  display: flex;
+  width: 340px;
+  padding: 15px 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 0px 0px 15px 15px;
+  background: #fff;
+}
+
+.card .cardText {
+  height: 49px;
+  align-self: stretch;
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+
+  /* Linkbrary/body1-regular */
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.card .uploadTime {
+  color: #666;
+
+  /* Linkbrary/caption */
+  font-family: Pretendard;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.card .uploadDate {
+  height: 19px;
+  align-self: stretch;
+  overflow: hidden;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  /* Linkbrary/body2-regular */
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
