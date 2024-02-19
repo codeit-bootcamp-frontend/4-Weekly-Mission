@@ -1,9 +1,8 @@
 import "../global.css";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
-import { getAPI } from "../APIUtil";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../components/NavBottom/Header";
+import Footer from "../components/NavBottom/Footer";
 import Search from "../components/Search";
 import AddLink from "../components/AddLink";
 import Category from "../components/Category";
@@ -17,11 +16,14 @@ function Folder() {
 
   const handleLoad = async (id = listId) => {
     try {
-      const response = await getAPI(
-        `/users/1${id === 0 ? `/links` : `/folders/${id}`}`
+      const response = await fetch(
+        `https://bootcamp-api.codeit.kr/api/users/1${
+          id === 0 ? `/links` : `/folders/${id}`
+        }`
       );
-      const result = response.data;
-      setData(result);
+      const result = await response.json();
+      const resultData = result.data;
+      setData(resultData);
     } catch (error) {
       console.error(error);
     }

@@ -1,9 +1,10 @@
-import "../styles/Header.css";
-import logoImgSrc from "../assets/linkbrary.svg";
-import { getAPI } from "../APIUtil";
+import "../../styles/Header.css";
+import logoImgSrc from "../../assets/linkbrary.svg";
+import { getAPI } from "../../APIUtil";
+import useGetJson from "../useGetJson";
 
 function Header() {
-  const user = getAPI(`/sample/user`);
+  const user = useGetJson(getAPI(`/users/1`));
   const { email, profileImageSource } = user;
 
   return (
@@ -16,11 +17,11 @@ function Header() {
           {user ? (
             <>
               <img
-                src={user.profileImageSource}
+                src={profileImageSource}
                 alt="프로필 사진"
                 className="user-profile"
               />
-              <span className="user-email">{user.email}</span>
+              <span className="user-email">{email}</span>
             </>
           ) : (
             <a className="btn signin" href="/signin.html">

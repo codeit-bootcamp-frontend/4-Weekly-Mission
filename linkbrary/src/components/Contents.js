@@ -4,13 +4,15 @@ import CardSection from "./CardSection";
 
 function Contents({ items }) {
   return (
-    <article>
-      <div className="folders-gridBox">
-        {items.map((item) => {
-          return <CardSection item={item} key={item.id}></CardSection>;
-        })}
-      </div>
-    </article>
+    <section className="section-area">
+      <ul className="card-list">
+        {items.map((item) => (
+          <li key={item.id} className="card-item">
+            <CardSection item={item} key={item.id}></CardSection>
+          </li>
+        ))}
+      </ul>
+    </section>
   );
 }
 

@@ -5,6 +5,7 @@ const InputButton = styled.button`
   padding: 16px 20px;
   border-radius: 15px;
   border: 1px solid var(--primary, #6d6afe);
+  linear-gradient(to right, gra-purpleblue, skyblue);
   background-color: var(--white, #fff);
   margin: 60px auto 90px;
   display: flex;

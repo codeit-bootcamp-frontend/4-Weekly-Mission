@@ -4,9 +4,8 @@ import kebabImgSrc from "../assets/kebab.svg";
 import CalculateTime from "./CalculateTime";
 
 function CardSection({ item }) {
+  const { imageSource, createdAt, description, url } = item;
   const createdDays = new Date(createdAt);
-  const { imageSource, createdAt, description, url, id } = item;
-  const { created_at, favorite, image_source } = item;
   return (
     <a
       href={url}

@@ -1,6 +1,5 @@
 import { styled } from "styled-components";
 import { useState } from "react";
-import { getAPI } from "../APIUtil";
 import useGetJson from "./useGetJson";
 import unionImgSrc from "../assets/Union.svg";
 
