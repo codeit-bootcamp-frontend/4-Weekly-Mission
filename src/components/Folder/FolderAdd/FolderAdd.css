@@ -1,0 +1,16 @@
+.folderAdd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  color: var(--linkbrary-primary-color);
+  font-size: 1.6rem;
+  font-weight: 500;
+  gap: 0.4rem;
+}
+
+.folderAdd-add-icon {
+  width: 1.6rem;
+  height: 2rem;
+  background-image: url("../../../assets/images/folder/add.png");
+}
