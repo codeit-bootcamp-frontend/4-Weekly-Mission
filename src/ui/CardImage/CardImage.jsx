@@ -1,13 +1,14 @@
 import React from 'react';
 import { DEFAULT_IMAGE } from './constant';
-import { StyledCardImage } from './CardImageCss';
+import { StyledCardImage, StarButton, KebabButton, ButtonsContainer } from './CardImageCss';  // 추가
 
-export const CardImage = ({ imageSource, alt, isZoomedIn }) => {
+export const CardImage = ({ image_source, alt, isZoomedIn }) => {
   return (
-    <StyledCardImage 
-    isZoomedIn={isZoomedIn} 
-    style={{ backgroundImage: `url(${imageSource ?? DEFAULT_IMAGE})` }} 
-    alt={alt} />
+    <StyledCardImage style={{ backgroundImage: `url(${image_source ?? DEFAULT_IMAGE})` }} alt={alt}>
+      <ButtonsContainer>
+        <StarButton>&#9734;</StarButton>
+        <KebabButton>&#8942;</KebabButton>
+      </ButtonsContainer>
+    </StyledCardImage>
   );
 };
-

@@ -1,16 +1,16 @@
-import { StyledAddLinkBar } from "./FolderInfoCss";
+import { Text, Button, SearchBar, SearchIcon, StyledAddLinkBar } from "./FolderInfoCss";
+import { SEARCH_IMAGE } from "./constant";
 
 export const AddLinkBar = () => {
   return (
     <StyledAddLinkBar>
-      <img className="icon" src="/assets/folder/url.svg" alt="url 아이콘" />
-      <input
-        className="search-bar"
+      <SearchIcon src={SEARCH_IMAGE} alt="url 아이콘" />
+      <SearchBar
         type="text"
         placeholder="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;링크를 추가해 보세요" />
-      <button className="button">
-        <p className="text">추가하기</p>
-      </button>
+      <Button>
+        <Text>추가하기</Text>
+      </Button>
     </StyledAddLinkBar>
   );
 };

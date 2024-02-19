@@ -1,4 +1,5 @@
-import { StyledFolderInfo, AddLinkBar } from "./FolderInfoCss";
+import { AddLinkBar } from "./AddLinkBar";
+import { StyledFolderInfo } from "./FolderInfoCss";
 
 export const FolderInfo = () => {
   return (

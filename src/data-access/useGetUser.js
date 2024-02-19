@@ -5,5 +5,5 @@ export const useGetUser = () => {
   const getUser = () => axiosInstance.get("users/1");
   const { loading, error, data } = useAsync(getUser);
   const newData = data?.data?.[0];
-  return { loading, error, newData };
+  return { loading, error, data :newData };
 };

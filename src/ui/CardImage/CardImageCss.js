@@ -20,3 +20,28 @@ export const StyledCardImage = styled.div`
       background-size: 130%;
     `}
 `;
+
+export const StarButton = styled.button`
+  font-size: 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+`;
+
+export const KebabButton = styled.button`
+  font-size: 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+  background: none;
+  border: none;
+  color: #000;
+  cursor: pointer;
+`;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+  justify-content: end;
+`;
