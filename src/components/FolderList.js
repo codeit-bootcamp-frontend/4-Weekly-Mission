@@ -4,13 +4,21 @@ import iconShare from '../assets/icons/share.svg';
 import iconPen from '../assets/icons/pen.svg';
 import iconDelete from '../assets/icons/delete.svg';
 
-const FolderList = () => {
+const FolderList = ({ folderList }) => {
   return (
     <>
       <div className='folder-list'>
         <div className='folder-list-container'>
           <a className='folder'>전체</a>
-          <a className='folder'>폴더1</a>
+          {folderList ? (
+            <>
+              {folderList.map((folder) => (
+                <a className='folder' key={folder.id}>{folder.name}</a>
+              ))}
+            </>
+          ) : (
+            null
+          )}
         </div>
         <div className='add-folder-container'>
           <a className='add-folder'>폴더 추가</a>
