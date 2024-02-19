@@ -53,7 +53,6 @@ const FolderPage = () => {
       {isModalOpen && (
         <ErrorMessageModal message={errorMessage} onClose={hideErrorModal} />
       )}
-
       <LinkInput />
       <CardSearchbar />
       {folders && (
