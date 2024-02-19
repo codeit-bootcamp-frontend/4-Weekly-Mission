@@ -16,8 +16,7 @@ footer {
     "footer-links sns"
     ". ." 1fr
     "copyright .";
-  width: 100%;
-  padding: 3.2rem;
+  padding: 3.2rem 0;
 
   @media (min-width: 768px) {
     display: flex;
@@ -25,7 +24,7 @@ footer {
     grid-template: "copyright footer-links sns";
     height: fit-content;
     max-width: 192rem;
-    padding: 3.2rem 10.4rem 0;
+    padding: 3.2rem 0;
   }
 }
 
@@ -54,4 +53,21 @@ footer {
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
+}
+@media (min-width: 375px) {
+  .footer-box {
+    width: 34rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer-box {
+    width: 70rem;
+  }
+}
+
+@media (min-width: 1128px) {
+  .footer-box {
+    width: 106rem;
+  }
 }

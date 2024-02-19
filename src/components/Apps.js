@@ -1,18 +1,12 @@
-import Headers from "./Header";
-import Navs from "./Nav";
-import Article from "./Article";
-import SearchForm from "./SearchForm";
+import { Outlet } from "react-router-dom";
+import Nav from "./Nav";
 import Footer from "./Footer";
 
 function Apps() {
   return (
     <>
-      <Navs />
-      <Headers />
-      <div>
-        <SearchForm />
-        <Article />
-      </div>
+      <Nav />
+      <Outlet />
       <Footer />
     </>
   );
