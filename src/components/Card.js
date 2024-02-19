@@ -39,7 +39,9 @@ const intervalDate = (value) => {
 };
 
 const Card = ({ card, isIconVisible = true }) => {
-  const { url, title, imageSource, description, createdAt } = card;
+  const { url, title, description } = card;
+  const createdAt = card?.createdAt ? card?.createdAt : card?.created_at;
+  const imageSource = card?.imageSource ? card?.imageSource : card?.image_source;
   const cardImage = imageSource ? imageSource : noneData;
 
   return (
