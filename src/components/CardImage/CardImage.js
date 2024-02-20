@@ -8,7 +8,13 @@ function CardImage({ imageSource, alt }) {
       style={{ backgroundImage: `url(${imageSource ?? DEFAULT_IMAGE})` }}
       className="CardImage"
       alt={alt}
-    />
+    >
+      <img
+        className="star"
+        src="images/star.svg"
+        alt="즐겨찾기를 나타내는 별"
+      />
+    </div>
   );
 }
 

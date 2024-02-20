@@ -1,4 +1,5 @@
 .CardContent {
+  position: relative;
   height: 100%;
   padding: 1.5rem 2rem;
   display: flex;
@@ -32,4 +33,10 @@
 .CardContent-created-at {
   font-size: 1.4rem;
   color: var(--text-content-black);
+}
+
+.kebab {
+  position: absolute;
+  top: 1.5rem;
+  right: 2rem;
 }
