@@ -5,8 +5,9 @@ export async function getUserInfo() {
   return useFetch(url);
 }
 
+// SharedPage에서 사용
 export async function getFoldersInfo() {
-  const url = 'users/1/folders';
+  const url = 'sample/folder';
   return useFetch(url);
 }
 
