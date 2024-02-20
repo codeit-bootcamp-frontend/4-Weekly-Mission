@@ -15,13 +15,13 @@ export default function Footer() {
           <span>FAQ</span>
         </div>
         <div>
-          <img src={Facebook} alt="페이스북 아이콘"></img>
+          <img src={Facebook} alt="페이스북 아이콘" />
           &nbsp;&nbsp;
-          <img src={Twitter} alt="트위터 아이콘"></img>
+          <img src={Twitter} alt="트위터 아이콘" />
           &nbsp;&nbsp;
-          <img src={Youtube} alt="유튜브 아이콘"></img>
+          <img src={Youtube} alt="유튜브 아이콘" />
           &nbsp;&nbsp;
-          <img src={Insta} alt="인스타 아이콘"></img>
+          <img src={Insta} alt="인스타 아이콘" />
         </div>
       </div>
     </footer>

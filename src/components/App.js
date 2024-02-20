@@ -11,14 +11,17 @@ function App() {
   const [folderName, setFolderName] = useState("");
   const [userName, setUserName] = useState("");
   const [profileImage, setProfileImage] = useState("");
-  const [cardList, setCardList] = useState(null);
+  const [cardList, setCardList] = useState([]);
 
   useEffect(() => {
     async function getProFile() {
-      const user = await getUser();
-      if (user) {
-        const { email, profileImageSource } = user;
-        setProfile({ email, profileImageSource });
+      try {
+        const user = await getUser();
+        if (user) {
+          setProfile(user);
+        }
+      } catch (error) {
+        console.error(error);
       }
     }
 
@@ -27,13 +30,17 @@ function App() {
 
   useEffect(() => {
     async function getProFileFolder() {
-      const {
-        folder: { name, owner, links },
-      } = await getFolder();
-      setFolderName(name);
-      setUserName(owner.name);
-      setProfileImage(owner.profileImageSource);
-      setCardList(links);
+      try {
+        const {
+          folder: { name, owner, links },
+        } = await getFolder();
+        setFolderName(name);
+        setUserName(owner.name);
+        setProfileImage(owner.profileImageSource);
+        setCardList(links);
+      } catch (error) {
+        console.error(error);
+      }
     }
 
     getProFileFolder();

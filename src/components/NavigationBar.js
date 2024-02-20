@@ -8,20 +8,16 @@ export default function NavigationBar({ profile }) {
         <img id="Linkbrary" src={Linkbrary} alt="Linkbrary" />
 
         {profile ? (
-          <>
-            <div className="account">
-              <img
-                id="MyProfile"
-                src={profile.profileImageSource}
-                alt="MyProfile"
-              ></img>
-              <span id="Email">{profile.email}</span>
-            </div>
-          </>
+          <div className="account">
+            <img
+              id="MyProfile"
+              src={profile.profileImageSource}
+              alt="MyProfile"
+            />
+            <span id="Email">{profile.email}</span>
+          </div>
         ) : (
-          <>
-            <button>로그인</button>
-          </>
+          <button>로그인</button>
         )}
       </div>
     </div>

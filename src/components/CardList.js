@@ -40,8 +40,8 @@ export default function CardList({ url, createdAt, desc, imgUrl }) {
 
   return (
     <div className="CardList" onClick={linkUrl}>
-      <img id="cardImg" src={imgUrl} alt="카드 리스트별 이미지"></img>
-      <div id="textArea">
+      <img id="cardImg" src={imgUrl} alt="카드 리스트별 이미지" />
+      <div id="textarea">
         <p id="timeOut">{timeAgo(createdAt)}</p>
         <p id="description">{desc}</p>
         <p id="createdAt">{formattedDate}</p>
