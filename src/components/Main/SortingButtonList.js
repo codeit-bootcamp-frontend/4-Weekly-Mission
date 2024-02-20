@@ -2,8 +2,15 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import SortingButton from '../Common/SortingButton';
 import styles from './SortingButtonList.module.css';
+import Option from '../Common/Option';
+import ShareIcon from '../../assets/images/share.svg';
+import PenIcon from '../../assets/images/pen.svg';
+import DeleteIcon from '../../assets/images/delete.svg';
+import AddFolderButton from '../Common/AddFolderButton';
 
 function SortingButtonList() {
+  const ALL = '전체';
+
   const buttonList = [
     { name: '전체', key: '1' },
     { name: '⭐️ 즐겨찾기', key: '2' },
@@ -13,6 +20,12 @@ function SortingButtonList() {
     { name: '나만의 장소', key: '6' },
   ];
 
+  const optionList = [
+    { name: '공유', image: ShareIcon, key: 1 },
+    { name: '이름 변경', image: PenIcon, key: 2 },
+    { name: '삭제', image: DeleteIcon, key: 3 },
+  ];
+
   const [selectedButton, setSelectedButton] = useState(buttonList[0]);
 
   const handleButtonClick = (key) => {
@@ -20,19 +33,39 @@ function SortingButtonList() {
     setSelectedButton(targetButton);
   };
 
+  const sortingSectionClasses = classNames(styles['sorting-section'], 'flex-row');
   const sortingButtonListClasses = classNames(styles['sorting-button-list'], 'display-inline-flex', 'flex-wrap');
   const selectedButtonStyle = classNames(styles['selected-button']);
+  const addFolderButtonClasses = classNames(styles['add-folder-button']);
+  const folderInfoSectionClasses = classNames(styles['folder-info-section']);
+  const titleClasses = classNames(styles.title);
+  const optionListClasses = classNames(styles['option-list'], 'flex-row');
 
   return (
-    <div className={sortingButtonListClasses}>
-      {buttonList.map((button) => (
-        <SortingButton
-          key={button.key}
-          text={button.name}
-          className={selectedButton.key === button.key ? selectedButtonStyle : ''}
-          onClick={() => handleButtonClick(button.key)}
-        />
-      ))}
+    <div>
+      <div className={sortingSectionClasses}>
+        <div className={sortingButtonListClasses}>
+          {buttonList.map((button) => (
+            <SortingButton
+              key={button.key}
+              text={button.name}
+              className={selectedButton.key === button.key ? selectedButtonStyle : ''}
+              onClick={() => handleButtonClick(button.key)}
+            />
+          ))}
+        </div>
+        <AddFolderButton className={addFolderButtonClasses} />
+      </div>
+      <div className={folderInfoSectionClasses}>
+        <p className={titleClasses}>{selectedButton.name}</p>
+        {selectedButton.name !== ALL && (
+          <div className={optionListClasses}>
+            {optionList.map((option) => (
+              <Option key={option.key} text={option.name} imageUrl={option.image} className={optionListClasses} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -3,8 +3,16 @@
   margin-bottom: 2.8rem;
 }
 
-.add-folder-button {
-  display: none;
+.floating-add-folder-button {
+  bottom: 10.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.add-folder-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: 0.4rem;
 }
 
 /* Tablet */
@@ -13,8 +21,8 @@
     margin-bottom: 2.4rem;
   }
 
-  .add-folder-button {
-    display: flex;
+  .floating-add-folder-button {
+    display: none;
   }
 }
 

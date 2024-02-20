@@ -52,6 +52,10 @@
   background: var(--white, #ffffff);
 }
 
+.background-primary {
+  background: var(--primary, #6d6afe);
+}
+
 .button-background-primary {
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
 }
