@@ -12,13 +12,11 @@ import FolderPage from "./pages/FolderPage/FolderPage";
 import FolderHeader from "./components/Folder/FolderHeader/FolderHeader";
 
 function App() {
-  const [folderData, setFolderData] = useState();
-  const [items, setItems] = useState([]);
+  const [folderData, setFolderData] = useState([]);
 
   const handleLoad = async () => {
     const { folder } = await getFolder();
     setFolderData(folder);
-    setItems(folder.links);
   };
 
   useEffect(() => {
@@ -38,7 +36,7 @@ function App() {
                 searchBar={<SearchBar />}
                 cardList={
                   <CardList>
-                    {items?.map((item) => (
+                    {folderData.links?.map((item) => (
                       <OnlyCard key={item.id} items={item} {...item} />
                     ))}
                   </CardList>
