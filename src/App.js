@@ -13,12 +13,12 @@ import FolderHeader from "./components/Folder/FolderHeader/FolderHeader";
 
 function App() {
   const [folderData, setFolderData] = useState();
-  const [items, setitems] = useState([]);
+  const [items, setItems] = useState([]);
 
   const handleLoad = async () => {
     const { folder } = await getFolder();
     setFolderData(folder);
-    setitems(folder.links);
+    setItems(folder.links);
   };
 
   useEffect(() => {
