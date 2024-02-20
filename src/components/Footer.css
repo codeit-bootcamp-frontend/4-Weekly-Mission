@@ -55,19 +55,19 @@ footer {
 }
 
 .facebook {
-  background-image: url("../assets/icon_facebook.svg");
+  background-image: url("../assets/svg/icon_facebook.svg");
 }
 
 .twitter {
-  background-image: url("../assets/icon_twitter.svg");
+  background-image: url("../assets/svg/icon_twitter.svg");
 }
 
 .youtube {
-  background-image: url("../assets/icon_youtube.svg");
+  background-image: url("../assets/svg/icon_youtube.svg");
 }
 
 .instagram {
-  background-image: url("../assets/icon_instagram.svg");
+  background-image: url("../assets/svg/icon_instagram.svg");
 }
 
 @media (max-width: 767px) {

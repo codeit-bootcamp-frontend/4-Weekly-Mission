@@ -1,6 +1,6 @@
 import Gnb from "./Gnb";
 import "./Header.css";
-import avatarImg from "../assets/Avatar.png";
+import avatarImg from "../assets/png/avatar.png";
 import { useEffect, useState } from "react";
 import { getUserInfo } from "../api/api";
 
