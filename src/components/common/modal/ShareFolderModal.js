@@ -19,6 +19,11 @@ export default function ShareFolderModal({ selectedFolderName, selectedFolderId,
       });
   };
 
+  const handleShareFolderByFacebook = () => {
+    const facebookShareUrl = `https://www.facebook.com/sharer.php?u=${shareUrl}`;
+    window.open(facebookShareUrl);
+  };
+
   return (
     <>
       <ModalBackgroundDim />
@@ -36,7 +41,7 @@ export default function ShareFolderModal({ selectedFolderName, selectedFolderId,
               <p>카카오톡</p>
             </div>
             <div className="shareType">
-              <div className="shareFacebook">
+              <div className="shareFacebook" onClick={handleShareFolderByFacebook}>
                 <img src={facebook} alt="페이스북" />
               </div>
               <p>페이스북</p>
