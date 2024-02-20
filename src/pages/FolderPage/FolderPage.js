@@ -48,11 +48,11 @@ const FolderPage = ({ folderHeader, searchBar }) => {
 
           <FolderOption folderName={selectName} />
 
-          {links.length === 0 ? (
+          {!links.length ? (
             <div className="folderPage-noLink">저장된 링크가 없습니다</div>
           ) : (
             <CardList>
-              {links?.map((item) => (
+              {links.map((item) => (
                 <OnlyCard key={item.id} items={item} />
               ))}
             </CardList>
