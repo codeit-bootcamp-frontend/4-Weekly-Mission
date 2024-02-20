@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import fetchData from "../api/FetchData";
 import { formatDate, getTimeDifference } from "../util";
 import "../style/card.css";
+import starImg from "../assets/star.png";
 function FolderCard({ linkToFetch }) {
   const [items, setItems] = useState(null);
 
@@ -21,13 +22,22 @@ function FolderCard({ linkToFetch }) {
       {items && items.length > 0 ? (
         items.map((item, id) => (
           <div className="card-container" key={id}>
+            <div className="cardImg-container">
+              <img
+                className="cardFavoriteImg"
+                src={starImg}
+                alt="cardFavoriteImg"
+              />
+              <img className="cardImg" src={item.image_source} alt="img" />
+            </div>
             <a href={item.url}>
-              <img className="cardImg" src={item.image_source} alt="img"></img>
-              <p className="timeDifference">
-                {getTimeDifference(item.created_at)}
-              </p>
-              <p className="item-description">{item.description}</p>
-              <p>{formatDate(item.created_at)}</p>
+              <div className="cardScript">
+                <p className="timeDifference">
+                  {getTimeDifference(item.created_at)}
+                </p>
+                <p className="item-description">{item.description}</p>
+                <p>{formatDate(item.created_at)}</p>
+              </div>
             </a>
           </div>
         ))

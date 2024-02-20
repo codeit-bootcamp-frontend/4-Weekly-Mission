@@ -85,7 +85,9 @@ function FolderList() {
           <p className="folderName">{selectedFolder}</p>
         </div>
       )}
-      <FolderCard linkToFetch={linkToFetch} />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <FolderCard linkToFetch={linkToFetch} />
+      </div>
     </div>
   );
 }

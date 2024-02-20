@@ -7,7 +7,7 @@ function Folder() {
     <div>
       <AddLink />
       <SearchLink />
-      <div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
         <FolderList />
       </div>
     </div>

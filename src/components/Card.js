@@ -20,13 +20,15 @@ function Card() {
       {items &&
         items.map((item, id) => (
           <div className="card-container" key={id}>
+            <img className="cardImg" src={item.imageSource} alt="img" />
             <a href={item.url}>
-              <img className="cardImg" src={item.imageSource} alt="img"></img>
-              <p className="timeDifference">
-                {getTimeDifference(item.createdAt)}
-              </p>
-              <p className="item-description">{item.description}</p>
-              <p>{formatDate(item.createdAt)}</p>
+              <div className="cardScript">
+                <p className="timeDifference">
+                  {getTimeDifference(item.createdAt)}
+                </p>
+                <p className="item-description">{item.description}</p>
+                <p>{formatDate(item.createdAt)}</p>
+              </div>
             </a>
           </div>
         ))}

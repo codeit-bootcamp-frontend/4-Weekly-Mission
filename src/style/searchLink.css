@@ -12,3 +12,13 @@
   border: none;
   background-color: #f5f5f5;
 }
+@media (min-width: 768px) and (max-width: 1199px) {
+  .search-link {
+    width: 704px;
+  }
+}
+@media (min-width: 375px) and (max-width: 767px) {
+  .search-link {
+    width: 325px;
+  }
+}
