@@ -24,7 +24,7 @@ const FolderList = () => {
   const handleFolderClick = (folderId) => {
     if (!folderId) {
       handleLoadMockData();
-      setSelectedFolderName([]);
+      setSelectedFolderName("");
     } else {
       setSelectedFolderName(
         folderList.find((folder) => folder.id === folderId)?.name
@@ -50,7 +50,7 @@ const FolderList = () => {
       </div>
       <div className="selectedFolderName">
         {selectedFolderName}
-        {selectedFolderName.length > 0 && <UtilIcons />}
+        {selectedFolderName && selectedFolderName.length > 0 && <UtilIcons />}
       </div>
       {items ? (
         <CardList items={items} />
