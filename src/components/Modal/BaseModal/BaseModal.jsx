@@ -1,13 +1,21 @@
 import styles from "./base.module.css";
 import closeIcon from "assets/images/ic_close.png";
 
-function BaseModeal({ title, children }) {
+function BaseModeal({ title, children, variant, setModals }) {
+  const closeModal = (modal) => {
+    
+    setModals((prevModals) => ({
+      ...prevModals,
+      [modal]: false,
+    }));
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         <div className={styles.title}>{title}</div>
         {children}
-        <button>
+        <button onClick={(e) => {e.stopPropagation(); closeModal(`${variant}`)}}>
           <img src={closeIcon} className={styles.close} />
         </button>
       </div>

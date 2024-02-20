@@ -1,7 +1,7 @@
 import BaseModeal from "../BaseModal/BaseModal";
 import styles from "./folder.module.css";
 
-function FolderModal({ variant }) {
+function FolderModal({ variant, setModals }) {
   // edit -> input
   // add-folder -> inpit
   // add-link -> list
@@ -19,9 +19,9 @@ function FolderModal({ variant }) {
   }
 
   return (
-    <BaseModeal title={title}>
+    <BaseModeal title={title} variant={variant} setModals={setModals}>
       <input type="text" className={styles.input} placeholder="내용 입력" />
-      <button className={`${styles.btn} ${styles[variant]}`}>{action}</button>
+      <button className={`${styles.btn}`}>{action}</button>
     </BaseModeal>
   );
 }

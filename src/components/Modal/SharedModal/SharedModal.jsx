@@ -5,9 +5,9 @@ import kakaoIcon from "assets/images/ic_kakao.svg";
 import facebookIcon from "assets/images/ic_facebook.svg";
 import linkIcon from "assets/images/ic_link.svg";
 
-function SharedModal({ folder }) {
+function SharedModal({ folder, variant, setModals }) {
   return (
-    <BaseModeal title={`폴더 공유`}>
+    <BaseModeal title={`폴더 공유`} variant={variant} setModals={setModals}>
       <p className={styles.folder}>{folder}</p>
 
       <div className={styles.items}>

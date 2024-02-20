@@ -13,7 +13,6 @@ import penIcon from "assets/images/ic_pen.svg";
 import trashIcon from "assets/images/ic_trash.svg";
 import { ReactComponent as AddIcon } from "assets/images/ic_add.svg";
 
-import BaseModeal from "components/Modal/BaseModal/BaseModal";
 import DeleteModal from "components/Modal/DeleteModal/DeleteModal";
 import SharedModal from "components/Modal/SharedModal/SharedModal";
 import FolderModal from "components/Modal/FolderModal/FolderModal";
@@ -30,6 +29,15 @@ function FolderPage() {
     name: ALL,
   });
   const [folderData, setFolderData] = useState([]);
+
+  const [modals, setModals] = useState({});
+
+  const openModal = (modal) => {
+    setModals((prevModals) => ({
+      ...prevModals,
+      [modal]: true,
+    }));
+  };
 
   /**
    * 해당 유저의 folder 목록 데이터들을 가져와 buttonNames의 데이터를 변경합니다.
@@ -70,7 +78,7 @@ function FolderPage() {
   return (
     <div>
       <Header />
-      <FolderModal variant={`add-link`}></FolderModal>
+
       {/* <DeleteModal variant={`link`} deleted={`폴더명`}></DeleteModal> */}
       {/* <SharedModal folder={`폴더명`}></SharedModal> */}
       <div className={styles.container}>
@@ -98,10 +106,16 @@ function FolderPage() {
                   ))}
                 </div>
 
-                <button className={styles.addButton}>
+                <button
+                  className={styles.addButton}
+                  onClick={() => openModal("add-folder")}
+                >
                   <span>폴더 추가</span>
                   <AddIcon className={styles.addIcon} />
                 </button>
+                {modals["add-folder"] && (
+                  <FolderModal variant={`add-folder`} setModals={setModals} />
+                )}
               </div>
 
               <div className={styles.bar}>
@@ -113,18 +127,44 @@ function FolderPage() {
                     selectedCategory.name === ALL ? styles.hidden : ""
                   }`}
                 >
-                  <button className={styles.barButton}>
+                  <button
+                    className={styles.barButton}
+                    onClick={() => openModal("shared")}
+                  >
                     <img src={shareIcon} alt="공유 아이콘" />
                     <span>공유</span>
                   </button>
-                  <button className={styles.barButton}>
+                  {modals["shared"] && (
+                    <SharedModal
+                      variant={`shared`}
+                      setModals={setModals}
+                      folder={selectedCategory.name}
+                    />
+                  )}
+                  <button
+                    className={styles.barButton}
+                    onClick={() => openModal("edit")}
+                  >
                     <img src={penIcon} alt="펜 아이콘" />
                     <span>이름변경</span>
                   </button>
-                  <button className={styles.barButton}>
+                  {modals["edit"] && (
+                    <FolderModal variant={`edit`} setModals={setModals} />
+                  )}
+                  <button
+                    className={styles.barButton}
+                    onClick={() => openModal("delete-folder")}
+                  >
                     <img src={trashIcon} alt="쓰레기통 아이콘" />
                     <span>삭제</span>
                   </button>
+                  {modals["delete-folder"] && (
+                    <DeleteModal
+                      variant={`delete-folder`}
+                      deleted={selectedCategory.name}
+                      setModals={setModals}
+                    />
+                  )}
                 </div>
               </div>
 
