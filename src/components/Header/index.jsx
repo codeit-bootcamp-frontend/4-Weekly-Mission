@@ -1,12 +1,12 @@
-import styles from "./Header.module.css";
+import styles from "./styles.module.css";
 import logo from "../../assets/header-logo.svg";
 import { useEffect, useState } from "react";
-import { getUser } from "api/api";
+import { getSampleUser } from "api/api";
 import { useAsync } from "hooks/useAsync";
 
 export default function Header() {
   const [user, setUser] = useState({});
-  const [loading, error, getUserAsync] = useAsync(getUser);
+  const [_, error, getUserAsync] = useAsync(getSampleUser);
 
   const loadUser = async () => {
     const data = await getUserAsync();
@@ -44,7 +44,7 @@ export default function Header() {
           </a>
         )}
       </div>
-      {error && <div>{error.message}</div>}
+      {error?.message && <div>{error.message}</div>}
     </header>
   );
 }

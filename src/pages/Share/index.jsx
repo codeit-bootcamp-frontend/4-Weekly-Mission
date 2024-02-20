@@ -1,17 +1,16 @@
-import Header from "components/Header/Header";
-import Footer from "components/Footer/Footer";
-import styles from "./Folder.module.css";
-import AvatarImg from "assets/Avatar.png";
+import Header from "components/Header";
+import Footer from "components/Footer";
+import CardList from "components/CardList";
+import styles from "./styles.module.css";
 import SearchIcon from "assets/Search.png";
 import { useEffect, useState } from "react";
-import CardList from "components/CardList/CardList";
 import { getFolderInfo } from "api/api";
 import { useAsync } from "hooks/useAsync";
 
-export default function Folder() {
+export default function Share() {
   const [search, setSearch] = useState("");
   const [folderInfo, setFolderInfo] = useState({});
-  const [isLoading, loadingError, getFolderInfoAsync] = useAsync(getFolderInfo);
+  const [_, error, getFolderInfoAsync] = useAsync(getFolderInfo);
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
@@ -45,7 +44,7 @@ export default function Folder() {
               @{folderInfo?.owner?.name}
             </div>
             <h2 className={styles["profile-title"]}>{folderInfo?.name}</h2>
-            {loadingError && <div>{loadingError.message}</div>}
+            {error?.message && <div>{error.message}</div>}
           </div>
         </div>
 
@@ -60,10 +59,10 @@ export default function Folder() {
               onChange={handleSearchChange}
             />
           </div>
-          {loadingError && <div>{loadingError.message}</div>}
-        </div>
+          {error?.message && <div>{error.message}</div>}
 
-        <CardList links={folderInfo.links} />
+          <CardList links={folderInfo.links} />
+        </div>
       </main>
 
       <Footer />

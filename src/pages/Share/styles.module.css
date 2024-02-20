@@ -44,6 +44,7 @@
   border-radius: 10px;
   display: flex;
   gap: 10px;
+  margin-bottom: 20px;
 }
 
 .searchBox input {
