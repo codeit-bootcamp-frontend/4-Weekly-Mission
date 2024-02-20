@@ -1,12 +1,8 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getElapsedTime } from "../../../utils/getElapsedTime";
+import { formatDate } from "../../../utils/formatDate";
 import "./CardContent.css";
-
-function formatDate(value) {
-  const date = new Date(value);
-  return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
-}
 
 export const CardContent = ({ items, isZoomedIn, handleLinkClick }) => {
   const [showOptions, setShowOptions] = useState(false);
