@@ -4,13 +4,14 @@ import { getAPI } from "../APIUtil";
 import Header from "../components/NavBottom/Header";
 import Footer from "../components/NavBottom/Footer";
 import Profile from "../components/Profile";
-import SharedContents from "../components/SharedContents";
+import Contents from "../components/Contents";
+import Search from "../components/Search";
 
 function Shared() {
   const [contentName, setContentName] = useState("");
   const [userName, setUserName] = useState("");
   const [profileImage, setProfileImage] = useState("");
-  const [contentList, setContentList] = useState([]);
+  const [data, setData] = useState([]);
   const [user, setUser] = useState(null);
 
   const handleLoad = async () => {
@@ -22,7 +23,7 @@ function Shared() {
     setContentName(name);
     setUserName(owner.name);
     setProfileImage(owner.profileImageSource);
-    setContentList(links);
+    setData(links);
     setUser(user);
   };
 
@@ -34,7 +35,8 @@ function Shared() {
     <>
       <Header user={user} />
       <Profile folder={contentName} user={userName} proImg={profileImage} />
-      <SharedContents folderList={contentList} />
+      <Search />
+      <Contents items={data} />
       <Footer />
     </>
   );

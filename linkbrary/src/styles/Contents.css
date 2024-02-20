@@ -23,10 +23,11 @@
   margin: 0 auto;
   max-width: 106rem;
   gap: 2.5rem 2rem;
+  padding-left: 0;
 }
 
 .card-item {
-  width: 32rem;
+  width: 34rem;
   border-radius: 1.5rem;
   box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
   overflow: hidden;
