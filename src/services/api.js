@@ -1,9 +1,4 @@
-const API_URL = 'https://bootcamp-api.codeit.kr/api/';
-
-function createApiUrl(path) {
-  const url = new URL(path, API_URL);
-  return url;
-}
+import useFetch from '../hooks/useFetch';
 
 // api/sample/user
 // const user = {
@@ -13,17 +8,7 @@ function createApiUrl(path) {
 //   profileImageSource: "https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png",
 // };
 export async function getUserInfo() {
-  const url = createApiUrl('sample/user');
-
-  const response = await fetch(url);
-  const result = await response.json();
-  const responseError = result.error;
-
-  if (!response.ok) {
-    throw new Error(`User response error: ${responseError}`);
-  }
-
-  return result;
+  return useFetch('sample/user');
 }
 
 // api/sample/folder
@@ -117,15 +102,5 @@ export async function getUserInfo() {
 //   },
 // };
 export async function getFolderInfo() {
-  const url = createApiUrl('sample/folder');
-
-  const response = await fetch(url);
-  const result = await response.json();
-  const responseError = result.error;
-
-  if (!response.ok) {
-    throw new Error(`Folder response error: ${responseError}`);
-  }
-
-  return result;
+  return useFetch('sample/folder');
 }
