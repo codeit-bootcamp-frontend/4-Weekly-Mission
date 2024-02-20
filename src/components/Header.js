@@ -16,19 +16,17 @@ function userInformation({ user }) {
 function Header() {
   const user = useUser();
   return (
-    <header>
-      <div className="nav-space">
-        <div className="nav">
-          <a href="/">
-            <img src={logo} alt={logo} />
-          </a>
-          {user ? (
-            userInformation({ user })
-          ) : (
-            <button className="headerButton">Login</button>
-          )}
-        </div>
-      </div>
+    <header className="nav-space">
+      <nav className="nav">
+        <a href="/">
+          <img src={logo} alt={logo} />
+        </a>
+        {user ? (
+          userInformation({ user })
+        ) : (
+          <button className="headerButton">Login</button>
+        )}
+      </nav>
     </header>
   );
 }
