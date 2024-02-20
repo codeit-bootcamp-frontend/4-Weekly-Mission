@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { FolderCategories, FolderAddButton, FolderFeatures } from "."
 import * as UI from "components/UI"
-import CardList from "components/card/CardList"
+import CardList from "components/article/ArticleList"
 import SearchBar from "components/searchBar/SerachBar"
 import * as S from "./FolderBody.style"
 import { FolderContext } from "../context/FolderContext"

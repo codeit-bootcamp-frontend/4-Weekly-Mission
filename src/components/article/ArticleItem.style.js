@@ -13,7 +13,7 @@ export const BackgroundImage = styled.img`
   transition-timing-function: cubic-bezier(0.09, 0.54, 0.32, 0.96);
 `
 
-export const CardList = styled.li`
+export const ArticleList = styled.li`
   width: 100%;
   height: 335px;
 

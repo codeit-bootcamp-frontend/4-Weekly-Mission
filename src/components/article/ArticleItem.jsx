@@ -2,7 +2,7 @@ import React from "react"
 import Card from "components/UI/Card"
 import { elapsedTimeCalc, momentFormat } from "utils/moment"
 
-import * as S from "./CardItem.style"
+import * as S from "./ArticleItem.style"
 
 import StarIcon from "assets/images/icon/star.svg"
 import KebabIcon from "assets/images/icon/kebab.svg"
@@ -10,7 +10,7 @@ import defaultImage from "assets/images/no-image.jpg"
 import useToggle from "hooks/useToggle"
 import Select from "components/select/Select"
 
-function CardItem({ data }) {
+function ArticleItem({ data }) {
   const image = data.image_source || defaultImage
   const elapsedTime = elapsedTimeCalc(data.created_at)
   const date = momentFormat(data.created_at)
@@ -18,7 +18,7 @@ function CardItem({ data }) {
   const { toggle, toggleHandler } = useToggle()
 
   return (
-    <S.CardList>
+    <S.ArticleList>
       <Card tagName="article">
         <a href={data.url} target="_blank" rel="noreferrer noopener">
           <S.Image>
@@ -38,8 +38,8 @@ function CardItem({ data }) {
           </S.Contents>
         </a>
       </Card>
-    </S.CardList>
+    </S.ArticleList>
   )
 }
 
-export default CardItem
+export default ArticleItem
