@@ -16,10 +16,7 @@ export default function FolderCategory({
     <div className={styles.container}>
       <div className={styles.tags}>
         <span
-          className={`${styles.tag} ${
-            selectedId === null ? styles.selected : ""
-          }`}
-          id={null}
+          className={`${styles.tag} ${!selectedId ? styles.selected : ""}`}
           onClick={handleClick}
         >
           전체
@@ -27,7 +24,7 @@ export default function FolderCategory({
         {folders.map((folder) => (
           <span
             className={`${styles.tag} ${
-              folder.id === selectedId ? styles.selected : ""
+              folder.id == selectedId ? styles.selected : ""
             }`}
             key={folder.id}
             id={folder.id}
