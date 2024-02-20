@@ -15,12 +15,15 @@ function SortingButtonList() {
     { name: '나만의 장소', key: '6' },
   ];
 
-  const handleButtonClick = (button) => {
-    setSelectedButton(button);
+  const handleButtonClick = (key) => {
+    const targetButton = buttonList.find((button) => button.key === key);
+    setSelectedButton(targetButton);
+    console.log(targetButton);
+    console.log(selectedButton);
   };
 
   const sortingButtonListClasses = classNames(styles['sorting-button-list'], 'display-inline-flex', 'flex-wrap');
-  const selectedButtonStyle = classNames('background-primary', 'text-color-white');
+  const selectedButtonStyle = classNames(styles['selected-button']);
 
   return (
     <div className={sortingButtonListClasses}>
@@ -28,8 +31,8 @@ function SortingButtonList() {
         <SortingButton
           key={button.key}
           text={button.name}
-          className={selectedButton === button ? selectedButtonStyle : ''}
-          onClick={handleButtonClick}
+          className={selectedButton.key === button.key ? selectedButtonStyle : ''}
+          onClick={() => handleButtonClick(button.key)}
         />
       ))}
     </div>
