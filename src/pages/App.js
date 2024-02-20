@@ -7,9 +7,6 @@ import CardSection from "../components/CardSection";
 import Footer from "../components/Footer";
 
 function App() {
-  const [folderName, setFolderName] = useState("");
-  const [userName, setUserName] = useState("");
-  const [profileImage, setProfileImage] = useState("");
   const [cardList, setCardList] = useState([]);
 
   useEffect(() => {
@@ -18,9 +15,6 @@ function App() {
         const {
           folder: { name, owner, links },
         } = await getFolder();
-        setFolderName(name);
-        setUserName(owner.name);
-        setProfileImage(owner.profileImageSource);
         setCardList(links);
       } catch (error) {
         console.error(error);
@@ -33,11 +27,7 @@ function App() {
   return (
     <div className="App">
       <NavigationBar />
-      <FolderBar
-        folderName={folderName}
-        userName={userName}
-        imgSrc={profileImage}
-      />
+      <FolderBar />
       <CardSection cardList={cardList} />
       <Footer />
     </div>
