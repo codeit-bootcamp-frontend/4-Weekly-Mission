@@ -1,7 +1,7 @@
 import { createContext, useEffect } from "react"
 import useHttp from "hooks/useHttp"
-import * as API from "features/folder/api"
 import useChangeTitle from "../hooks/useChangeTitle"
+import { FolderAPI, LinkAPI } from "../api"
 
 const getCategoryId = (selectedCategory) => (selectedCategory.id === "all" ? "" : selectedCategory.id)
 
@@ -28,13 +28,13 @@ export default function FolderContextProvider({ children }) {
   const selectedHandler = (selectedCategory) => {
     const categoryId = getCategoryId(selectedCategory)
 
-    linkFetchRequest(API.GET_FOLDER_BY_ID(categoryId))
+    linkFetchRequest(LinkAPI.GET_LINK_BY_FOLDER_ID(categoryId))
     onChangeTitle(selectedCategory.name)
   }
 
   useEffect(() => {
-    categoryFetchRequest(API.GET_FOLDER_API)
-    linkFetchRequest(API.GET_LINK_API)
+    categoryFetchRequest(FolderAPI.GET_FOLDER, FolderAPI.FOLDER_ERROR_MAP)
+    linkFetchRequest(LinkAPI.GET_LINK, LinkAPI.LINK_ERROR_MAP)
   }, [categoryFetchRequest, linkFetchRequest])
 
   const value = {

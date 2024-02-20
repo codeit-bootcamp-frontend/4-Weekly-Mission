@@ -5,16 +5,20 @@ import * as Reducer from "reducer/http-reducer"
 function useHttp() {
   const [state, dispatch] = useReducer(Reducer.httpReducer, Reducer.httpReducerInitialValues)
 
-  const fetchRequest = useCallback(async (api) => {
+  const fetchRequest = useCallback(async (api, errorMapping) => {
     dispatch({ type: Reducer.httpActionType.PENDING })
     try {
       const response = await fetch(api)
 
-      if (!response.ok) throw new HttpError(`알 수 없는 이유로 요청에 실패했습니다.`, 500)
+      if (!response.ok) {
+        const errorMessage = errorMapping[response.status] || errorMapping["500"]
+        throw new HttpError(errorMessage)
+      }
 
       const responseData = await response.json()
       dispatch({ type: Reducer.httpActionType.SUCCESS, data: responseData })
     } catch (error) {
+      console.log(error)
       dispatch({ type: Reducer.httpActionType.ERROR, message: error })
     }
   }, [])
