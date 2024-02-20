@@ -39,6 +39,14 @@
   margin: auto;
 }
 
+.display-inline-flex {
+  display: inline-flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .flex-row {
   display: flex;
   justify-content: center;

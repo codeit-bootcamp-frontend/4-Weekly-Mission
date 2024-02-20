@@ -56,8 +56,20 @@
   background: var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));
 }
 
+.button-background-white {
+  background: var(--white, #ffffff);
+}
+
 .button-text-light {
   color: var(--light, #f5f5f5);
+}
+
+.text-color-white {
+  color: var(--whtie, #ffffff);
+}
+
+.text-color-gray10 {
+  color: var(--gray10, #e7effb);
 }
 
 .text-color-gray60 {
