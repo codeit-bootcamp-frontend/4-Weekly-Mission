@@ -1,0 +1,31 @@
+.upperContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btnContainer {
+  display: flex;
+  gap: 8px;
+}
+
+.addFolderContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+
+.addFolderText {
+  /* width: 100px; */
+  color: #6d6afe;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.folderOptionsContainer {
+  display: flex;
+  justify-content: space-between;
+}

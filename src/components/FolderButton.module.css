@@ -1,0 +1,25 @@
+.container {
+  padding: 8px 12px;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #6d6afe;
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.clicked {
+  padding: 8px 12px;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #6d6afe;
+  background: #6d6afe;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
