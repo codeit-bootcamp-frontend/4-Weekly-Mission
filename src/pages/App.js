@@ -1,4 +1,4 @@
-import { getUser, getFolder } from "../api";
+import { getFolder } from "../api";
 import "./App.css";
 import NavigationBar from "../components/NavigationBar";
 import { useEffect, useState } from "react";
@@ -7,26 +7,10 @@ import CardSection from "../components/CardSection";
 import Footer from "../components/Footer";
 
 function App() {
-  const [profile, setProfile] = useState(null);
   const [folderName, setFolderName] = useState("");
   const [userName, setUserName] = useState("");
   const [profileImage, setProfileImage] = useState("");
   const [cardList, setCardList] = useState([]);
-
-  useEffect(() => {
-    async function getProFile() {
-      try {
-        const user = await getUser();
-        if (user) {
-          setProfile(user);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    }
-
-    getProFile();
-  }, []);
 
   useEffect(() => {
     async function getProFileFolder() {
@@ -48,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavigationBar profile={profile} />
+      <NavigationBar />
       <FolderBar
         folderName={folderName}
         userName={userName}
