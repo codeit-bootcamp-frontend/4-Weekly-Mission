@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import useFetchData from '../hooks/useFetchData';
 import EditAndAddModal from './common/modal/EditAndAddModal';
 import RemoveModal from './common/modal/RemoveModal';
+import ShareFolderModal from './common/modal/ShareFolderModal';
 import FloatingActionButton from './common/FloatingActionButton';
 import CardList from './CardList';
 import SearchBar from './common/SearchBar';
@@ -18,11 +19,14 @@ export default function FolderDetails({ folderListData }) {
     addModal: false,
     editModal: false,
     removeModal: false,
+    shareFolderModal: false,
   });
 
   const selectedFolderLinkListData = useFetchData('targetUserFolderLinkList', 1, selectedFolder) || [];
   const folderNameAndLinkList = folderListData?.map(({ name, link, id }) => [name, link.count, id]);
-  const selectedFolderName = folderListData?.find(({ id }) => id === selectedFolder)?.name || 'all';
+  const { name: selectedFolderName, id: selectedFolderId } = folderListData?.find(
+    ({ id }) => id === selectedFolder
+  ) || { name: '', id: '' };
 
   const toggleModal = modalName => {
     setModals(prevModals => ({
@@ -79,7 +83,7 @@ export default function FolderDetails({ folderListData }) {
         <p>{selectedFolder === 'all' ? '전체' : '유용한 글'}</p>
         {!(selectedFolder === 'all') && (
           <div className="actionButton">
-            <button className="share">
+            <button className="share" onClick={() => toggleModal('shareFolderModal')}>
               <img src={share} alt="공유" />
               <span>공유</span>
             </button>
@@ -111,6 +115,13 @@ export default function FolderDetails({ folderListData }) {
           modalTitle="폴더 삭제"
           onClose={() => toggleModal('removeModal')}
           titleContent={selectedFolderName}
+        />
+      )}
+      {modals.shareFolderModal && (
+        <ShareFolderModal
+          selectedFolderName={selectedFolderName}
+          selectedFolderId={selectedFolderId}
+          onClose={() => toggleModal('shareFolderModal')}
         />
       )}
     </div>
