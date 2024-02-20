@@ -1,0 +1,16 @@
+.sorting-section {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.8rem;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .sorting-section {
+    margin-bottom: 2.4rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
+}

@@ -1,13 +1,9 @@
 .sorting-button-list {
   gap: 1rem;
-  margin-bottom: 2.8rem;
 }
 
 /* Tablet */
 @media screen and (min-width: 768px) {
-  .sorting-button-list {
-    margin-bottom: 2.4rem;
-  }
 }
 
 /* Desktop */

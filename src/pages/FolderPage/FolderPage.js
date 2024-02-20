@@ -1,4 +1,5 @@
-import './FolderPage.css';
+import classNames from 'classnames';
+import styles from './FolderPage.module.css';
 import Header from '../../components/Header/Header';
 import Main from '../../components/Main/Main';
 import Footer from '../../components/Footer/Footer';
@@ -9,6 +10,8 @@ import SortingButtonList from '../../components/Main/SortingButtonList';
 import AddFolderButton from '../../components/Common/AddFolderButton';
 
 function Folder() {
+  const sortingSectionClasses = classNames(styles['sorting-section'], 'flex-row');
+
   return (
     <div>
       <Header>
@@ -16,8 +19,10 @@ function Folder() {
       </Header>
       <Main>
         <SearchBar />
-        <SortingButtonList />
-        <AddFolderButton />
+        <div className={sortingSectionClasses}>
+          <SortingButtonList />
+          <AddFolderButton />
+        </div>
         <CardList />
       </Main>
       <Footer />

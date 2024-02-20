@@ -1,3 +1,5 @@
+import './HomePage.module.css';
+
 function HomePage() {
   return <div />;
 }
