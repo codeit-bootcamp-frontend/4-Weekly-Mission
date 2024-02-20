@@ -1,7 +1,18 @@
 .main {
-  padding: 0 3.2rem;
+  padding: 2rem 3.2rem;
 }
 
 .main-container {
   max-width: 106rem;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .main {
+    padding: 4rem 3.2rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
 }

@@ -1,13 +1,11 @@
 .header {
   padding-top: 6.3rem;
-  margin-bottom: 2rem;
 }
 
 /* Tablet */
 @media screen and (min-width: 768px) {
   .header {
     padding-top: 9.3rem;
-    margin-bottom: 4rem;
   }
 }
 
