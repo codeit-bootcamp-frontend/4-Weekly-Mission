@@ -3,7 +3,7 @@ import star from "../assets/star.svg";
 import kebab from "../assets/kebab.svg";
 import useTransformData from "../hooks/useTransformData.js";
 
-function CardListItem({ item }) {
+function Card({ item }) {
   const { title, url, description, src, timeDifference, formattedDate } =
     useTransformData(item);
 
@@ -32,7 +32,7 @@ function CardList({ items }) {
       <div className="card-container">
         {items.map((item) => (
           <div key={item.id} className="card-box">
-            <CardListItem item={item} />
+            <Card item={item} />
           </div>
         ))}
       </div>
