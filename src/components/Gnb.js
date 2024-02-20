@@ -1,18 +1,25 @@
-import logoImg from '../assets/logo.png';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import LogInButton from './LogInButton';
-import '../style/Gnb.css';
+import logoImg from '../assets/logo.png';
+import './Gnb.css';
 
-function Gnb() {
+const Gnb = () => {
+  const [GnbHide, setGnbHide] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    setGnbHide(location.pathname === '/folder');
+  }, [location]);
+
   return (
-    <nav>
-      <div className='gnb-container'>
-        <a href='index.html'>
-          <img src={logoImg} alt='logo' className='logo' />
-        </a>
-        <LogInButton />
-      </div>
+    <nav className={`gnb ${GnbHide ? 'gnb-static' : 'gnb-sticky'}`}>
+      <Link to='/'>
+        <img src={logoImg} alt='logo' className='logo' />
+      </Link>
+      <LogInButton className='table-btn' />
     </nav>
   );
-}
+};
 
 export default Gnb;
