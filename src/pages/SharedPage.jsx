@@ -1,5 +1,5 @@
 import { useGetFolder } from 'folder/data-access-folder';
-import { Layout } from 'sharing/feature-layout';
+import { Layout } from '/feature/Layout';
 import { SharedLayout } from 'page-layout/SharedLayout';
 import { CardList } from 'link/ui-card-list';
 import { FolderInfo } from 'folder/ui-folder-info';
