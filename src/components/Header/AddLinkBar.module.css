@@ -1,9 +1,9 @@
-.container {
+.add-link-bar {
   max-width: 80rem;
 }
 
 .add-link-bar-input {
-  padding: 0.8rem 1rem 0.8rem 3.4rem;
+  padding: 1.8rem 1rem 1.8rem 3.4rem;
   border-radius: 1.5rem;
   border: 1px solid var(--primary, #6d6afe);
   font-size: 1.4rem;
@@ -14,36 +14,38 @@
   outline: none;
 }
 
+.add-link-bar-container {
+  justify-content: space-between;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 1rem;
+}
+
 .add-link-bar-icon {
   width: 1.6rem;
   height: 1.6rem;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 1rem;
 }
 
 .add-link-bar-button {
   top: 50%;
   transform: translateY(-50%);
-  right: 1rem;
 }
 
 /* Tablet */
 @media screen and (min-width: 768px) {
   .add-link-bar-input {
-    padding: 1.6rem 2rem 1.6rem 5.2rem;
+    padding: 2.25rem 2rem 2.25rem 5.2rem;
     font-size: 1.6rem;
     line-height: 2.4rem;
+  }
+
+  .add-link-bar-container {
+    padding: 0 2rem;
   }
 
   .add-link-bar-icon {
     width: 2rem;
     height: 2rem;
-    left: 2rem;
-  }
-
-  .add-link-bar-button {
-    right: 2rem;
   }
 }
 
