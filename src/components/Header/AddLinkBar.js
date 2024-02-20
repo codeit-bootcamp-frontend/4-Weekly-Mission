@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from './AddLinkBar.module.css';
 import addLinkIcon from '../../assets/images/link.svg';
-import AddLinkButton from '../Common/AddLInkButton';
+// import AddLinkButton from '../Common/AddLInkButton';
 
 function AddLinkBar() {
   const [value, setValue] = useState('');
@@ -11,10 +11,10 @@ function AddLinkBar() {
     setValue(e.target.value);
   };
 
-  const containerClasses = classNames('position-relative', 'width-full');
+  const containerClasses = classNames(styles.container, 'position-relative', 'width-full', 'margin-auto');
   const inputClasses = classNames(styles['add-link-bar-input'], 'background-white', 'text-color-gray60', 'width-full');
   const inputImgClasses = classNames(styles['add-link-bar-icon'], 'position-absolute');
-  const addLinkButtonClasses = classNames(styles['add-link-button'], 'position-absolute');
+  // const addLinkButtonClasses = classNames('position-absolute', styles['add-link-button']);
 
   return (
     <div className={containerClasses}>
@@ -26,7 +26,7 @@ function AddLinkBar() {
         placeholder="링크를 추가해 보세요"
       />
       <img className={inputImgClasses} src={addLinkIcon} alt="addLinkIcon" />
-      <AddLinkButton className={addLinkButtonClasses} />
+      {/* <AddLinkButton className={addLinkButtonClasses} /> */}
     </div>
   );
 }

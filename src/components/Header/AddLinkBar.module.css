@@ -1,3 +1,7 @@
+.container {
+  max-width: 80rem;
+}
+
 .add-link-bar-input {
   padding: 0.8rem 1rem 0.8rem 3.4rem;
   border-radius: 1.5rem;
