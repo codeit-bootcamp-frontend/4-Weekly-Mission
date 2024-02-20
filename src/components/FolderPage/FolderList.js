@@ -10,7 +10,7 @@ import FolderButtons from "./FolderButtons";
 const FolderList = () => {
   const folderList = useFolderList();
   const [items, setItems] = useState([]);
-  const [selectedFolderName, setSelectedFolderName] = useState([]);
+  const [selectedFolderName, setSelectedFolderName] = useState("");
 
   const handleLoadMockData = async () => {
     const { data } = await getFolderLinks();
