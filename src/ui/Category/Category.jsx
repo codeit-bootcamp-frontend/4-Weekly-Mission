@@ -13,6 +13,7 @@ export const Category = ({ buttonClicked, linkData, currentCategory }) => {
             }
             key={folder?.id}
             onClick={buttonClicked}
+            data-id={folder?.id}
           >
             {folder?.name}
           </button>

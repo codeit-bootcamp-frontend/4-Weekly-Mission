@@ -1,8 +1,7 @@
-import { useState } from "react";
-import { useEffectOnce } from "./useEffectOnce";
+import { useState, useEffect } from "react";
 
-export const useAsync = (asyncFunction) => {
-  const [loading, setLoading] = useState(false);
+export const useAsync = (asyncFunction, deps = []) => {
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
 
@@ -21,7 +20,9 @@ export const useAsync = (asyncFunction) => {
     }
   };
 
-  useEffectOnce(execute);
+  useEffect(() => {
+    execute();
+  }, deps);
 
   return { execute, loading, error, data };
 };

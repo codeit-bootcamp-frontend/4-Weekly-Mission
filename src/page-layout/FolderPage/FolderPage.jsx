@@ -27,7 +27,7 @@ export const FolderPage = () => {
 
   const handleButtonClick = (e) => {
     const category = e.target.innerText;
-    const Id = e.target.id;
+    const Id = e.target.getAttribute("data-id");
 
     setCurrentCategory(category);
     setFolderId(Id);
