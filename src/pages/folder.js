@@ -1,7 +1,8 @@
 import React from "react";
 import FolderHeader from "../components/FolderHeader";
 import FolderMain from "../components/FolderMain";
-import CardList from "../components/CardList";
+import FolderCardList from "../components/FolderCardList";
+import FolderList from "../components/FolderList";
 import Footer from "../components/Footer";
 
 function Folder() {
@@ -9,6 +10,7 @@ function Folder() {
     <div>
       <FolderHeader />
       <FolderMain />
+      <FolderList />
       <Footer />
     </div>
   );

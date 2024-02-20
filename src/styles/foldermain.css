@@ -18,17 +18,18 @@ body {
   align-items: center;
   background-color: var(--Linkbrary-bg);
   padding: 6rem 0 9rem;
+  margin-bottom: 4rem;
 }
 
 .link {
   display: flex;
   align-items: center;
   width: 80rem;
-  height: auto;
+  height: 6.9rem;
   padding: 1.5rem 2rem;
   background-color: var(--Linkbrary-white);
   border: 0.1rem solid var(--Linkbrary-primary-color);
-  border-radius: 1rem;
+  border-radius: 1.5rem;
 }
 
 .link-input {
@@ -59,8 +60,9 @@ body {
 /* 모바일 화면 */
 @media (min-width: 375px) and (max-width: 767px) {
   .link-container {
-    padding: 2.4rem 3.2rem 4rem 3.2rem;
     justify-content: space-between;
+    padding: 2.4rem 3.2rem 4rem 3.2rem;
+    margin-bottom: 2rem;
   }
 
   .button-linkadd {
@@ -82,6 +84,5 @@ body {
   }
 
   .button-linkadd {
-    width: 12rem;
   }
 }

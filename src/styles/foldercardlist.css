@@ -1,0 +1,143 @@
+@import url(../assets/color.css);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Pretendard;
+}
+
+html,
+body {
+  font-size: 62.5%;
+}
+
+.cardlist {
+  width: 106rem;
+  margin: 0 auto;
+  margin-bottom: 4rem;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  height: auto;
+  padding: 1.5rem 1.6rem;
+  border-radius: 1rem;
+  background-color: var(--Grey-Light);
+  margin-bottom: 4rem;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-input {
+  width: 100%;
+  margin-left: 0.6rem;
+  border: 0;
+  background-color: var(--Grey-Light);
+}
+
+.folder-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.4rem;
+}
+
+.folderlist {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  list-style: none;
+}
+
+.button-folder {
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--Linkbrary-primary-color);
+  background: var(--Linkbrary-white);
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.button-folder:active {
+  background: var(--Linkbrary-primary-color);
+}
+
+.button-folderadd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: var(--Linkbrary-white);
+  color: var(--Linkbrary-primary-color);
+  font-size: 1.6rem;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+.button-folderadd-mobile {
+  display: none;
+}
+
+/* 모바일 화면 */
+@media (min-width: 375px) and (max-width: 767px) {
+  .search {
+    padding: 1.3rem 1.6rem;
+    margin-bottom: 3.2rem;
+  }
+
+  .cardlist {
+    width: calc(100% - 64px);
+  }
+
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  .card {
+    margin: 0 auto;
+  }
+
+  .button-folderadd-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 2.4rem;
+    font-size: 1.6rem;
+    border: none;
+    position: fixed;
+    gap: 0.4rem;
+    cursor: pointer;
+    bottom: 10.1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2.4rem;
+    z-index: 1000;
+    background: var(--Linkbrary-primary-color);
+    color: var(--Linkbrary-gray10);
+  }
+
+  .button-folderadd {
+    display: none;
+  }
+}
+
+/* 태블릿 화면  */
+@media (min-width: 768px) and (max-width: 1124px) {
+  .cardlist {
+    width: 70.5rem;
+  }
+
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem;
+  }
+}
