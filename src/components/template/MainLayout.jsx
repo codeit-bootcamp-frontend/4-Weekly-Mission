@@ -2,7 +2,6 @@ import { styled } from 'styled-components';
 
 import SearchBar from 'components/SearchBar';
 import PLACEHOLDER from 'constants/FORM_MESSAGE';
-import FolderHeader from 'components/folder/FolderHeader';
 
 const Styled = {
   Container: styled.div`
@@ -16,18 +15,28 @@ const Styled = {
       padding: 2rem 3.2rem;
     }
   `,
+
+  InnerWrap: styled.div`
+    margin-top: 4rem;
+
+    @media (max-width: 767px) {
+      margin-top: 3.2rem;
+    }
+  `,
 };
 
-function FolderLayout({ children }) {
+/**
+ * MainLayout - 검색바와 메인콘텐츠를 포함한 반응형 레이아웃
+ */
+function MainLayout({ children }) {
   return (
     <>
-      <FolderHeader />
       <Styled.Container>
         <SearchBar placeholder={PLACEHOLDER.SEARCH_LINK} />
-        {children}
+        <Styled.InnerWrap>{children}</Styled.InnerWrap>
       </Styled.Container>
     </>
   );
 }
 
-export default FolderLayout;
+export default MainLayout;

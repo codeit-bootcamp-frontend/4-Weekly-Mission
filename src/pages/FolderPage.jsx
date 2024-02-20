@@ -4,17 +4,17 @@ import { styled } from 'styled-components';
 import useUserFoldersQuery from 'hooks/api/folder/useUserFoldersQuery';
 
 import PageTitle from 'components/common/PageTitle';
+import FolderHeader from 'components/folder/FolderHeader';
+import MainLayout from 'components/template/MainLayout';
 import AddFolderButton from 'components/common/button/AddFolderButton';
 import TabButton from 'components/common/button/TabButton';
 import OptionBtns from 'components/folder/OptionBtns';
 import FolderGridCard from 'components/folder/FolderGridCard';
 import FloatButton from 'components/common/button/FloatButton';
-import FolderLayout from 'components/template/FolderLayout';
 
 const Styled = {
   NoLink: styled.div`
     height: 10rem;
-    margin-top: 4rem;
 
     display: flex;
     justify-content: center;
@@ -22,7 +22,7 @@ const Styled = {
   `,
 
   ButtonBox: styled.div`
-    margin: 4rem 0 2.4rem;
+    margin-bottom: 2.4rem;
 
     display: flex;
     justify-content: space-between;
@@ -55,7 +55,8 @@ function FolderPage() {
   return (
     <>
       <PageTitle title="폴더" />
-      <FolderLayout>
+      <FolderHeader />
+      <MainLayout>
         {!hasFolders ? (
           <Styled.NoLink>저장된 링크가 없습니다 🥲</Styled.NoLink>
         ) : (
@@ -80,7 +81,7 @@ function FolderPage() {
             <FolderGridCard selectedFolder={selectedFolder} />
           </>
         )}
-      </FolderLayout>
+      </MainLayout>
     </>
   );
 }

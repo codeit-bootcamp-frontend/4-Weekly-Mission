@@ -1,14 +1,9 @@
 import { styled } from 'styled-components';
-import codeitAvatar from 'assets/icon/codeitIcon.svg';
 
 const Styled = {
   Container: styled.div`
     width: 100vw;
-    padding-top: 5.3rem;
-    margin-bottom: 4rem;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
 
     display: flex;
     justify-content: center;
@@ -28,6 +23,7 @@ const Styled = {
     align-items: center;
     gap: 1.2rem;
   `,
+
   AvatarImg: styled.img`
     width: 6rem;
     height: 6rem;
@@ -47,7 +43,7 @@ const Styled = {
   `,
 };
 
-function Header({ folderData }) {
+function ShareHeader({ folderData }) {
   const owner = folderData?.owner || {};
   const folderName = folderData?.name || '@ 코드잇';
 
@@ -64,4 +60,4 @@ function Header({ folderData }) {
   );
 }
 
-export default Header;
+export default ShareHeader;

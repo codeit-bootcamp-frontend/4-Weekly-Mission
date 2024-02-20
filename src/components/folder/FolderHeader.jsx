@@ -1,6 +1,7 @@
-import AddLinkBar from 'components/AddLinkBar';
-import PLACEHOLDER from 'constants/FORM_MESSAGE';
 import { styled } from 'styled-components';
+
+import PLACEHOLDER from 'constants/FORM_MESSAGE';
+import AddLinkBar from 'components/AddLinkBar';
 
 const Styled = {
   Container: styled.div`

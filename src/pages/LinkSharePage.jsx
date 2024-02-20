@@ -2,12 +2,11 @@ import { GridTemplate } from 'styles/commonStyle';
 import { useEffect, useState } from 'react';
 
 import sampleAPI from 'api/sampleAPI';
-import PLACEHOLDER from 'constants/FORM_MESSAGE';
 
-import SearchBar from 'components/SearchBar';
-import Card from 'components/common/card/Card';
-import Header from 'components/common/header/Header';
 import PageTitle from 'components/common/PageTitle';
+import ShareHeader from 'components/share/ShareHeader';
+import MainLayout from 'components/template/MainLayout';
+import Card from 'components/common/card/Card';
 
 function LinkSharePage() {
   const [folderData, setFolderData] = useState(null);
@@ -30,19 +29,20 @@ function LinkSharePage() {
   return (
     <>
       <PageTitle title="링크 공유" />
-      <Header folderData={folderData} />
-      <SearchBar placeholder={PLACEHOLDER.SEARCH_LINK} style={{ marginBottom: '4rem' }} />
-      <GridTemplate>
-        {folderData?.links.map((link) => (
-          <Card
-            key={link.id}
-            createdAt={link.createdAt}
-            url={link.url}
-            description={link.description}
-            imageSource={link.imageSource}
-          />
-        ))}
-      </GridTemplate>
+      <ShareHeader folderData={folderData} />
+      <MainLayout>
+        <GridTemplate>
+          {folderData?.links.map((link) => (
+            <Card
+              key={link.id}
+              createdAt={link.createdAt}
+              url={link.url}
+              description={link.description}
+              imageSource={link.imageSource}
+            />
+          ))}
+        </GridTemplate>
+      </MainLayout>
     </>
   );
 }

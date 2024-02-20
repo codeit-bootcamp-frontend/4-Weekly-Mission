@@ -13,12 +13,8 @@ const Styled = {
   `,
 
   Container: styled.div`
-    padding-top: ${({ isFixed }) => calculatePadding(isFixed)};
+    padding-top: ${({ isFixed }) => (!isFixed ? 0 : '9.25rem')};
   `,
-};
-
-const calculatePadding = (isFixed) => {
-  return !isFixed ? 0 : '9.2rem';
 };
 
 function Layout({ children }) {
@@ -28,7 +24,7 @@ function Layout({ children }) {
   return (
     <>
       <GNB isFixed={isFixed} />
-      <Styled.Container className="layout-container">
+      <Styled.Container className="layout-container" isFixed={isFixed}>
         <Outlet />
         {children}
       </Styled.Container>
