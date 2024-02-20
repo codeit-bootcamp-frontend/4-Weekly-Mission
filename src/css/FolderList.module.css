@@ -1,0 +1,61 @@
+@import "palette.css";
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  width: 1060px;
+}
+
+.addFolderBtn {
+  color: var(--primary);
+  font-size: 16px;
+  border: none;
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+.addFolderBtn img {
+  margin-left: 4px;
+}
+
+.linkControlBtn {
+  display: flex;
+  justify-content: space-between;
+  width: 1060px;
+  margin: 24px;
+}
+
+.linkControlBtn p {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.linkControlBtn button {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray60);
+  background-color: var(--white);
+  border: none;
+  padding: 0;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.linkControlBtn img {
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+}
+
+.controlBtns {
+  display: flex;
+}

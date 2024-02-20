@@ -1,0 +1,62 @@
+@import 'palette.css';
+
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: var(--background);
+  padding: 60px 0 90px;
+}
+
+.linkAdd {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 800px;
+}
+
+.linkIcon {
+  position: absolute;
+  background-image: url('../images/Icon_link.svg');
+  width: 20px;
+  height: 20px;
+  left: 15px;
+}
+
+.linkAdd input {
+  width: 100%;
+  padding: 22px 20px;
+  border-radius: 15px;
+  border: 1px solid var(--primary);
+}
+
+input::placeholder {
+  color: var(--gray60);
+  font-size: 16px;
+  font-weight: 400;
+  padding: 22px;
+}
+
+.linkAdd button {
+  position: absolute;
+  right: 20px;
+  color: var(--white);
+  background: var(--gra-purpleblue-to-skyblue);
+  border: none;
+  border-radius: 8px;
+  width: 80px;
+  padding: 10px 16px;
+}
+
+/* tablet-size */
+@media (max-width: 1199px) {
+  .header {
+    padding: 60px 32px 90px;
+  }
+}
+
+/* mobile-size */
+@media (max-width: 767px) {
+  .header {
+    padding: 24px 32px 40px;
+  }
+}

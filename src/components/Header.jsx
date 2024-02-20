@@ -1,8 +1,8 @@
-import '../css/Header.css';
 import { useEffect, useState } from 'react';
-import { getUserInfo } from '../api';
+import { getUserInfo } from '../api/api';
+import styles from '../css/Header.module.css';
 
-function Header() {
+function Header({ query }) {
   const [folderData, setFolderData] = useState({});
   const [folderOwnerData, setFolderOwnerData] = useState({});
 
@@ -16,14 +16,14 @@ function Header() {
   }
 
   useEffect(() => {
-    getFolderData('folder');
-  }, [])
+    getFolderData(query);
+  }, [query])
 
   return (
-    <header className='header-items'>
+    <header className={styles.headerItems}>
       <img src={folderOwnerData.profileImageSource} alt="userProfile" />
-      <div className='username'>{folderOwnerData.name}</div>
-      <div className='folder-name'>{folderData.name}</div>
+      <div className={styles.username}>{folderOwnerData.name}</div>
+      <div className={styles.folderName}>{folderData.name}</div>
     </header>
   )
 }

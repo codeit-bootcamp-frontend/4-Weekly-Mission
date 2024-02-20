@@ -1,0 +1,31 @@
+form {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  margin-top: 40px;
+}
+
+.container input {
+  color: #666;
+  background-color: #F5F5F5;
+  width: 1060px;
+  padding: 15px 10px;
+  border: none;
+  border-radius: 8px;
+}
+
+.container input::placeholder {
+  padding-left: 30px;
+}
+
+.searchIcon {
+  position: absolute;
+  background-image: url('../images/Icon_search.svg');
+  width: 16px;
+  height: 16px;
+  top: 15px;
+  left: 15px;
+}
