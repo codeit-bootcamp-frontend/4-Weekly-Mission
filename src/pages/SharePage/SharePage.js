@@ -1,9 +1,9 @@
-import { Fragment } from "react";
+import Layout from "../../components/Layout/Layout";
 import "./SharePage.css";
 
 const SharePage = ({ folderInfo, searchBar, cardList }) => {
   return (
-    <Fragment>
+    <Layout>
       <div className="sharePage">
         {folderInfo}
         <div className="sharePage-content">
@@ -11,7 +11,7 @@ const SharePage = ({ folderInfo, searchBar, cardList }) => {
           {cardList}
         </div>
       </div>
-    </Fragment>
+    </Layout>
   );
 };
 

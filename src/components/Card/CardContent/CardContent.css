@@ -1,4 +1,5 @@
 .card-text {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: 1.5rem 2rem;
@@ -11,12 +12,54 @@
   background-color: var(--linkbrary-bg);
 }
 
+.card-text-top {
+  display: flex;
+  justify-content: space-between;
+}
+
 .card-text-time-ago {
   color: var(--linkbrary-text);
   font-size: 1.3rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+}
+
+.card-text-kebabIcon {
+  z-index: 1;
+  width: 2.1rem;
+  height: 1.7rem;
+  background-image: url("../../../assets/images/folder/kebab.png");
+}
+
+.none-card-text-kebabIcon {
+  display: none;
+}
+
+.card-options {
+  position: absolute;
+  bottom: 3.5rem;
+  right: 1.95rem;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--linkbrary-white);
+  box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
+}
+
+.card-options-deleteButton,
+.card-options-AddButton {
+  padding: 0.7rem 1.2rem;
+  font-size: 1.4rem;
+  color: var(--linkbrary-gray100);
+  font-weight: 400;
+}
+
+.card-options-deleteButton:hover,
+.card-options-AddButton:hover {
+  background: var(--linkbrary-gray10);
+  color: var(--linkbrary-primary-color);
 }
 
 .card-text-description {

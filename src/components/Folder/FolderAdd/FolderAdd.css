@@ -1,0 +1,39 @@
+.folderAdd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  color: var(--linkbrary-primary-color);
+  font-size: 1.6rem;
+  font-weight: 500;
+  gap: 0.4rem;
+}
+
+.folderAdd-add-icon {
+  width: 1.6rem;
+  height: 2rem;
+  background-image: url("../../../assets/images/folder/add.png");
+}
+
+/* mobile */
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .folderAdd {
+    position: fixed;
+    bottom: 10.1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    padding: 0.9rem 2.4rem;
+    border-radius: 2rem;
+    background: var(--linkbrary-primary-color);
+    color: var(--linkbrary-white);
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .folderAdd-add-icon {
+    width: 1.6rem;
+    height: 1.9rem;
+    background-image: url("../../../assets/images/folder/whiteAdd.png");
+  }
+}

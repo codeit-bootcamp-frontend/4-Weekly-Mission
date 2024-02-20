@@ -1,15 +1,20 @@
 /* nav */
-nav {
-  display: flex;
-  justify-content: center;
+.nav {
   position: sticky;
   top: 0;
-  width: 100%;
+  right: 0;
+  left: 0;
+  z-index: 1;
   background: var(--linkbrary-bg);
 }
 
-.nav {
-  max-width: 192rem;
+.folderPageNav {
+  position: relative;
+  background: var(--linkbrary-bg);
+}
+
+.nav-content {
+  /* max-width: 192rem; */
   display: flex;
   padding: 0 20rem;
   height: 9.4rem;
@@ -22,30 +27,27 @@ nav {
 .login-btn {
   display: flex;
   width: 12.8rem;
-  padding: 16px 20px;
+  padding: 1.6rem 2rem;
   justify-content: center;
   align-items: center;
   gap: 1rem;
   border-radius: 0.8rem;
   background: var(--gra-purpleblue-to-skyblue);
   color: var(--linkbrary-grey-Light);
-  font-size: 18px;
+  font-size: 1.8rem;
   font-weight: 600;
-  line-height: normal;
 }
 
 /* tablet */
 @media screen and (min-width: 768px) and (max-width: 1199px) {
-  .nav {
-    max-width: 86.3rem;
-    padding: 0 3.2rem;
+  .nav-content {
+    padding: 0 3.25rem;
   }
 }
 
 /* mobile */
 @media screen and (min-width: 375px) and (max-width: 767px) {
-  .nav {
-    max-width: 86.3rem;
+  .nav-content {
     padding: 0 3.2rem;
   }
 }

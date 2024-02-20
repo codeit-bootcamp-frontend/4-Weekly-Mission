@@ -10,6 +10,12 @@
   background: var(--linkbrary-grey-Light);
 }
 
+.searchBar-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-image: url("../../assets/images/Search.svg");
+}
+
 .searchBar-input {
   width: 100%;
   height: 100%;

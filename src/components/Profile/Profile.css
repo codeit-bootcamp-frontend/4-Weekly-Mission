@@ -14,8 +14,10 @@
   display: none;
   font-size: 1.4rem;
   color: var(--linkbrary-gray100);
+}
 
-  @media (min-width: 768px) {
+@media screen and (min-width: 768px) {
+  .Profile-email {
     display: inline;
   }
 }
