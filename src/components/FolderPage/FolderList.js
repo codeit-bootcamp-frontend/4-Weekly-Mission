@@ -38,7 +38,10 @@ const FolderList = () => {
     <div className="wrapper">
       <div className="folderListWrapper">
         <div className="folderList">
-          {FolderButtons(folderList, handleFolderClick)}
+          <FolderButtons
+            folderList={folderList}
+            handleFolderClick={handleFolderClick}
+          />
         </div>
         <button className="addFolderButton">
           폴더 추가

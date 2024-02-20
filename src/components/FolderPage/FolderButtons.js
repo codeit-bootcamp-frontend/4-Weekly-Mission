@@ -1,6 +1,6 @@
 import "./FolderButtons.css";
 
-const FolderButtons = (folderList, handleFolderClick) => (
+const FolderButtons = ({ folderList, handleFolderClick }) => (
   <>
     <button className="folderButton" onClick={() => handleFolderClick()}>
       전체
