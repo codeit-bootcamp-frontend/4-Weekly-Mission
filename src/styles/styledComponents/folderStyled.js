@@ -108,6 +108,11 @@ export const CategoryButton = styled.button`
   padding: 8px 12px;
   font-size: 16px;
   font-weight: 400;
+  transition-duration: 0.3s;
+
+  &:hover {
+    background-color: ${({ checked }) => (checked ? COLOR.Primary : '#e7effb')};
+  }
 `;
 
 export const AddButtonWrapper = styled.div`
@@ -186,6 +191,10 @@ export const OptionText = styled.p`
   font-weight: 600;
   line-height: 16.71px;
   color: ${COLOR.Gray2};
+
+  @media (max-width: 1199px) {
+    display: none;
+  }
 `;
 
 export const NonLink = styled.div`
