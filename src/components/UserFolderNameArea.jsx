@@ -1,6 +1,6 @@
 import '../styles/Main.css';
 
-function Main({ folderName, userName, imgSrc }) {
+function UserFolderNameArea({ folderName, userName, imgSrc }) {
   return (
     <main className="main">
       <img src={imgSrc} alt="프로필 사진" className="img-profile" />
@@ -10,4 +10,4 @@ function Main({ folderName, userName, imgSrc }) {
   );
 }
 
-export default Main;
+export default UserFolderNameArea;
