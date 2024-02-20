@@ -1,0 +1,86 @@
+.background-decoration-color .input-position-origin.link-add {
+	width: 800px;
+	margin: auto;
+	padding: 60px 0 90px;
+	background-color: var(--LBrary-Background);
+}
+
+.input-position-origin.link-add label {
+	position: absolute;
+	background-image: url("/public/link.svg");
+	height: 20px;
+	width: 20px;
+	margin-left: 20px;
+	background-size: cover;
+}
+
+.input-position-origin.link-add input {
+	color: var(--LBrary-Gray60);
+	border: 1px solid var(--LBrary-Primary-color);
+	width: 100%;
+	border-radius: 15px;
+	padding: 16px 20px;
+	padding-left: 52px;
+	padding-right: 108px;
+	font-size: 1.6rem;
+	font-weight: 400;
+	line-height: 150%;
+}
+
+.input-position-origin.link-add input:focus {
+	outline-color: var(--LBrary-Primary-color);
+}
+
+.default-btn.link-add-btn {
+	font-family: pretendard;
+	position: absolute;
+	margin-left: calc(100% - 101px);
+	margin-right: 20px;
+	width: 81px;
+	color: var(--LBrary-GrayLight);
+	font-size: 1.4rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: normal;
+	padding: 10px 16px;
+}
+
+@media (max-width: 1124px) {
+	.background-decoration-color .input-position-origin.link-add {
+		max-width: 704px;
+	}
+}
+
+@media (max-width: 767px) {
+	.background-decoration-color .input-position-origin.link-add {
+		max-width: 325px;
+	}
+
+	.input-position-origin.link-add label {
+		height: 16px;
+		width: 16px;
+		margin-left: 10px;
+	}
+
+	.input-position-origin.link-add input {
+		height: 53px;
+		padding: 8px 10px;
+		padding-left: 34px;
+		padding-right: 108px;
+		font-size: 1.4rem;
+		font-weight: 400;
+		line-height: normal;
+	}
+
+	.default-btn.link-add-btn {
+		margin-left: calc(100% - 91px);
+		margin-right: 20px;
+		width: 81px;
+		color: var(--LBrary-GrayLight);
+		font-size: 1.4rem;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+		padding: 10px 16px;
+	}
+}

@@ -2,7 +2,24 @@ a {
 	text-decoration-line: none;
 }
 
-.cardBox {
+.favor-star {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	width: 34px;
+	height: 34px;
+}
+
+.kebab {
+	position: absolute;
+	top: 215px;
+	right: 20px;
+	width: 21px;
+	height: 17px;
+}
+
+.card-box {
+	position: relative;
 	width: 100%;
 	height: 334px;
 	max-width: 340px;
@@ -10,15 +27,15 @@ a {
 	box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
-.cardBox:hover div {
+.card-box:hover div {
 	background-size: 130%;
 }
 
-.cardBox:hover .cardText {
+.card-box:hover .card-text {
 	background-color: var(--LBrary-Background);
 }
 
-.cardBox div {
+.card-box div {
 	border-radius: 15px 15px 0 0;
 	height: 200px;
 	background-size: cover;
@@ -27,18 +44,18 @@ a {
 	background-image: url("/src/assets/Images/sampleBackgroundImg.png");
 }
 
-.cardBox .noCardImg {
+.card-box .no-card-img {
 	background-color: #dddfff;
 	background-image: url("/public/noImgLogo.svg");
 	background-repeat: no-repeat;
 	background-size: 133px 24px;
 }
 
-.cardBox:hover .noCardImg {
+.card-box:hover .no-card-img {
 	background-size: calc(133px * 1.3);
 }
 
-.cardBox .cardText {
+.card-box .card-text {
 	border-radius: 0 0 15px 15px;
 	display: block;
 	text-align: left;
@@ -46,7 +63,7 @@ a {
 	height: 135px;
 }
 
-.cardText .cardEditedTimes {
+.card-text .card-passed-times {
 	font-family: Pretendard;
 	font-size: 13px;
 	font-style: normal;
@@ -54,7 +71,7 @@ a {
 	line-height: normal;
 }
 
-.cardText .cardContents {
+.card-text .card-contents {
 	margin: 10px auto;
 	overflow: hidden;
 	color: #000;
@@ -68,7 +85,7 @@ a {
 	line-height: 24px; /* 150% */
 }
 
-.cardText .cardEditedDate {
+.card-text .card-edited-date {
 	overflow: hidden;
 	color: #333;
 
@@ -83,18 +100,18 @@ a {
 }
 
 @media (max-width: 767px) {
-	.cardBox div {
+	.card-box div {
 		border-radius: 15px 15px 0 0;
 		height: 192px;
 	}
 
-	.cardBox {
+	.card-box {
 		width: 100%;
 		height: 325px;
 		max-width: 327px;
 	}
 
-	.cardBox .cardText {
+	.card-box .card-text {
 		border-radius: 0 0 15px 15px;
 		display: block;
 		text-align: left;

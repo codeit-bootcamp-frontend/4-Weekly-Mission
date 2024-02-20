@@ -1,11 +1,8 @@
-.folderSearchBarOrigin {
-	display: flex;
-	position: relative;
-	align-items: center;
+.folder-search-bar {
 	margin-bottom: 40px;
 }
 
-.folderSearchBarOrigin label {
+.folder-search-bar label {
 	position: absolute;
 	background-image: url("/src/assets/Icons/Search.svg");
 	width: 16px;
@@ -13,7 +10,7 @@
 	margin-left: 16px;
 }
 
-.folderSearchBarOrigin input {
+.folder-search-bar input {
 	width: 100%;
 	background-color: var(--LBrary-GrayLight);
 	border-width: 0;
@@ -22,6 +19,6 @@
 	padding: 15px 41px;
 }
 
-.folderSearchBarOrigin input:focus {
+.folder-search-bar input:focus {
 	outline-color: var(--LBrary-Primary-color);
 }

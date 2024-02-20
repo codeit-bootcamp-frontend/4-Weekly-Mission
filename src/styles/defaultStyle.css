@@ -33,7 +33,7 @@ body {
 	background-color: var(--LBrary-White);
 }
 
-.defaultBtn {
+.default-btn {
 	display: flex;
 	color: var(--LBrary-GrayLight);
 	font-size: 1.8rem;
@@ -50,4 +50,14 @@ body {
 
 button:hover {
 	cursor: pointer;
+}
+
+.input-position-origin {
+	display: flex;
+	position: relative;
+	align-items: center;
+}
+
+.background-decoration-color {
+	background-color: var(--LBrary-Background);
 }

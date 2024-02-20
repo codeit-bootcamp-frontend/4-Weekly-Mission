@@ -7,33 +7,38 @@ import { acceptDataFromApi } from "Api";
 const ProfileData = function () {
 	const [loginStatus, setLoginStatus] = useState(false);
 	const [accountEmail, setAccountEmail] = useState("");
-	const [profileImg, setProfileIMg] = useState("navProfile.png");
+	const [profileImg, setProfileIMg] = useState("navProfileImg.png");
 
-	const user = "user";
+	const USER = "users/1";
 	const accountVerification = async (user) => {
 		const receivedData = await acceptDataFromApi(user);
 		if (!receivedData) return;
+		const {
+			data: [{ email, image_source }],
+		} = receivedData;
 
-		setAccountEmail(receivedData.email);
-		setProfileIMg(receivedData.profileImageSource);
+		setAccountEmail(email);
+		if (image_source) {
+			setProfileIMg(image_source);
+		}
 		setLoginStatus(true);
 	};
 
 	useEffect(() => {
-		accountVerification(user);
+		accountVerification(USER);
 	}, [loginStatus]);
 
 	return (
 		<>
 			{loginStatus && (
-				<div className="navProfile">
+				<div className="nav-profile">
 					<img src={profileImg} alt="loggedInProfileImg" />
 					{accountEmail}
 				</div>
 			)}
 
 			{!loginStatus && (
-				<a href="html/signin.html" className="defaultBtn">
+				<a href="html/signin.html" className="default-btn">
 					로그인
 				</a>
 			)}
@@ -41,10 +46,10 @@ const ProfileData = function () {
 	);
 };
 
-export default function HeadNav() {
+export default function HeadNav({ className }) {
 	return (
-		<nav>
-			<div className="flexibleHeaderInTablet">
+		<nav className={className}>
+			<div className="flexible-header-in-tablet">
 				<a href="index.html">
 					<img src="logo.svg" alt="Linkbrary Logo" />
 				</a>

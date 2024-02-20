@@ -1,11 +1,11 @@
-main {
+/* main {
 	background-color: var(--LBrary-White);
 	margin: 0 auto;
 	padding: 40px 32px;
 	max-width: 1124px;
-}
+} */
 
-.folderCardGrid {
+.folder-card-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	justify-items: center;
@@ -13,22 +13,13 @@ main {
 }
 
 @media (max-width: 1124px) {
-	main {
-		max-width: 768px;
-	}
-
-	.folderCardGrid {
+	.folder-card-grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
 @media (max-width: 767px) {
-	main {
-		max-width: 389px;
-		padding: 20px 32px;
-	}
-
-	.folderCardGrid {
+	.folder-card-grid {
 		grid-template-columns: 1fr;
 	}
 }

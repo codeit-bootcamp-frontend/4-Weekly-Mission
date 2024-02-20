@@ -5,12 +5,12 @@ import "components/Footer.css";
 export default function Footer() {
 	return (
 		<footer>
-			<div className="corporateInformation">©codeit - 2023</div>
-			<div className="footerPrivacy">
+			<div className="corporate-information">©codeit - 2023</div>
+			<div className="footer-privacy">
 				<a href="pages/privacy.html">Privacy Policy</a>
 				<a href="pages/faq.html">FAQ</a>
 			</div>
-			<div className="footerSocial">
+			<div className="footer-social">
 				<a href="https://www.facebook.com/" rel="noReferrer" target="_blank">
 					<img src="footer_facebook.png" alt="to_Facebook" />
 				</a>

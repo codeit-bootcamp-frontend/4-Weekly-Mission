@@ -10,7 +10,7 @@ footer {
 	height: 160px;
 }
 
-.corporateInformation {
+.corporate-information {
 	color: #676767;
 	text-align: left;
 	font-family: acme;
@@ -18,7 +18,7 @@ footer {
 	font-weight: 400;
 }
 
-.footerPrivacy {
+.footer-privacy {
 	display: flex;
 	gap: 30px;
 	font-family: acme;
@@ -26,12 +26,12 @@ footer {
 	font-weight: 400;
 }
 
-.footerPrivacy a {
+.footer-privacy a {
 	text-decoration: none;
 	color: #cfcfcf;
 }
 
-.footerSocial {
+.footer-social {
 	display: flex;
 	gap: 12px;
 	align-items: center;
@@ -49,7 +49,7 @@ footer {
 		row-gap: 60px;
 	}
 
-	footer .corporateInformation {
+	footer .corporate-information {
 		grid-row: 2;
 	}
 }
