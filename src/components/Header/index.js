@@ -1,18 +1,19 @@
 import React from 'react';
-import Logo_Img from '../assets/logo.svg'
+import Logo_Img from '../../assets/logo.svg'
+import '../Header/Header.css'
 
 function Header({ user }) {
 
   return (
-    <div>
+    <div className='headerWrapper'>
       <a href='/'>
         <img src={Logo_Img} alt="Logo" />
       </a>
-      <div>
+      <div className='Profile'>
         {user ? (
           <>
-            <img src={user.profileImageSource} alt="프로필 사진" className="user-profile" />
-            <span className="user-email">{user.email}</span>
+            <img className="Profile-image" src={user.profileImageSource} alt="프로필 사진" />
+            <span className="Profile-email">{user.email}</span>
           </>
         ) : (
           <a href="/">
