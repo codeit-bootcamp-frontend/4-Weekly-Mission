@@ -6,14 +6,13 @@ const FolderButtons = ({ folderList, handleFolderClick }) => (
       전체
     </button>
     {folderList.map((folder) => (
-      <div key={folder.id}>
-        <button
-          className="folderButton"
-          onClick={() => handleFolderClick(folder.id)}
-        >
-          {folder.name}
-        </button>
-      </div>
+      <button
+        key={folder.id}
+        className="folderButton"
+        onClick={() => handleFolderClick(folder.id)}
+      >
+        {folder.name}
+      </button>
     ))}
   </>
 );
