@@ -1,5 +1,4 @@
 import styles from "./styles.module.css";
-import useWindowSize from "hooks/useWindowSize";
 
 export default function FolderCategory({
   folders,

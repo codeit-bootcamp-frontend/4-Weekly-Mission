@@ -3,7 +3,8 @@ import { useEffect } from "react";
 export default function useHandleModalClick(modalRef, handleModalClose) {
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
+      if (modalRef.current && modalRef.current !== event.target) {
+        console.log("hello");
         handleModalClose();
       }
     };
