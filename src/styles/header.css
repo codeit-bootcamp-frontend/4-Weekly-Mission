@@ -20,7 +20,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 3.3rem 20rem;
-  position: sticky;
   top: 0;
   background-color: var(--Linkbrary-bg);
 }
