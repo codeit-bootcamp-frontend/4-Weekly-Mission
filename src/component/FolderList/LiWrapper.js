@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 const LiWrapper = styled.div`
+  & .selected {
+    background-color: #6d6afe;
+    color: white;
+  }
+
   & li {
     display: inline-block;
     padding: 8px 12px;
@@ -9,11 +14,6 @@ const LiWrapper = styled.div`
     margin: 0 8px 12px 0;
     font-size: 1rem;
     line-height: 1rem;
-
-    &.selected {
-      background-color: #6d6afe;
-      color: white;
-    }
 
     &:hover {
       background-color: #6d6afe;

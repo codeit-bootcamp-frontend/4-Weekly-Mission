@@ -1,6 +1,6 @@
 import LiWrapper from "./LiWrapper";
 
-const FolderList = ({ folders, onClick, selectedFolderId = "ALL" }) => {
+const FolderList = ({ folders, onClick, selectedFolder }) => {
   const handleClick = (e) => onClick(e);
 
   return (
@@ -12,9 +12,7 @@ const FolderList = ({ folders, onClick, selectedFolderId = "ALL" }) => {
               key={item.id}
               id={item.id}
               onClick={handleClick}
-              className={`${
-                selectedFolderId === String(item.id) ? "selected" : ""
-              }`}
+              className={`${selectedFolder.id === item.id ? "selected" : ""}`}
             >
               {item.name}
             </li>

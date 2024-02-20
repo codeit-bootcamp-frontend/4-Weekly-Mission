@@ -15,12 +15,7 @@ const ALL = {
 const FolderPage = () => {
   const [folders, setFolders] = useState([]);
   const [selectedFolder, setSelectedFolder] = useState(ALL);
-  const [selectedFolderId, setSelectedFolderId] = useState("");
   const [links, setLinks] = useState([]);
-
-  const handleClick = (e) => {
-    setSelectedFolderId(e.target.id);
-  };
 
   useEffect(() => {
     const getData = async () => {
@@ -35,19 +30,16 @@ const FolderPage = () => {
     getData();
   }, []);
 
-  useEffect(() => {
-    if (selectedFolderId === "") return;
-    const findFolder = folders.find(
-      (item) => String(item.id) === selectedFolderId
-    );
+  const handleClick = (e) => {
+    const findFolder = folders.find((item) => String(item.id) === e.target.id);
 
     setSelectedFolder(findFolder);
-  }, [selectedFolderId]);
+  };
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const { data } = await getLinkData(selectedFolderId);
+        const { data } = await getLinkData(selectedFolder.id);
         setLinks(data);
       } catch (error) {
         console.log(error);
@@ -55,7 +47,7 @@ const FolderPage = () => {
     };
 
     getData();
-  }, [selectedFolderId]);
+  }, [selectedFolder]);
 
   console.log(links);
 
@@ -65,11 +57,11 @@ const FolderPage = () => {
       <LinkSearchInput />
       <FolderList
         folders={folders}
-        selectedFolderId={selectedFolder.id}
+        selectedFolder={selectedFolder}
         onClick={handleClick}
       />
-      <FolderName>{selectedFolder?.name}</FolderName>
-      {links?.length > 0 ? (
+      <FolderName>{selectedFolder.name}</FolderName>
+      {links.length > 0 ? (
         <LinkItems links={links} />
       ) : (
         <p>저장된 링크가 없습니다.</p>
