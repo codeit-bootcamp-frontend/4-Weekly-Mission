@@ -8,6 +8,7 @@ const BackgroundDiv = styled.div`
   display: flex;
   height: 160px;
   padding: 32px 32px 64px 32px;
+  margin-top: 40px;
   flex-direction: column;
   align-items: center;
   align-self: stretch;
@@ -19,6 +20,7 @@ const BackgroundDiv = styled.div`
   @media ${(props) => props.theme.tabletS} {
     padding: 32px 104px 64px 104px;
     flex-shrink: 0;
+    margin-top: 60px;
   }
 `;
 

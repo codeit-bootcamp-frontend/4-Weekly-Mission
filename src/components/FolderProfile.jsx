@@ -2,15 +2,17 @@ import styled from "styled-components";
 
 const FolderProfileDiv = styled.div`
   display: flex;
-  width: 100%;
-  padding: 10px auto 40px;
   flex-direction: column;
   align-items: center;
   gap: 8px;
+  width: 100%;
   background: var(--Linkbrary-bg, #f0f6ff);
+  padding-top: 10px;
+  padding-bottom: 40px;
 
   @media ${(props) => props.theme.tabletS} {
-    padding: 20px auto 60px;
+    padding-top: 20px;
+    padding-bottom: 60px;
   }
 `;
 

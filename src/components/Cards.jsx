@@ -176,16 +176,38 @@ function Card({ link }) {
   );
 }
 
+const CardsUl = styled.ul`
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 25px;
+
+  @media ${(props) => props.theme.tabletS} {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 24px;
+  }
+  @media ${(props) => props.theme.tabletL} {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px 20px;
+  }
+`;
+
 function Cards({ links }) {
   return (
-    <ul>
-      {links &&
-        links.map((link) => (
-          <li key={link.id}>
-            <Card link={link} />
-          </li>
-        ))}
-    </ul>
+    <div>
+      <CardsUl>
+        {links &&
+          links.map((link) => (
+            <li key={link.id}>
+              <Card link={link} />
+            </li>
+          ))}
+      </CardsUl>
+    </div>
   );
 }
 
