@@ -7,7 +7,7 @@ import SearchBar from '../../components/Main/SearchBar';
 import CardList from '../../components/Main/CardList';
 import FolderHeaderContent from '../../components/Header/FolderHeaderContent';
 import FloatingAddFolderButton from '../../components/Common/FlaotingAddFolderButton';
-import SortingButtonList from '../../components/Main/SortingButtonList';
+import SortingSection from '../../components/Main/SortingSection';
 
 function Folder() {
   const floatingAddFolderButtonClasses = classNames(styles['floating-add-folder-button'], 'position-fixed', 'z-top');
@@ -19,7 +19,7 @@ function Folder() {
       </Header>
       <Main>
         <SearchBar />
-        <SortingButtonList />
+        <SortingSection />
         <CardList />
         <FloatingAddFolderButton className={floatingAddFolderButtonClasses} />
       </Main>

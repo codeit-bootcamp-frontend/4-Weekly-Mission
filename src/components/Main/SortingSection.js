@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import classNames from 'classnames';
 import SortingButton from '../Common/SortingButton';
-import styles from './SortingButtonList.module.css';
+import styles from './SortingSection.module.css';
 import Option from '../Common/Option';
 import ShareIcon from '../../assets/images/share.svg';
 import PenIcon from '../../assets/images/pen.svg';
