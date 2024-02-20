@@ -1,10 +1,10 @@
-import "./Card.css";
+import "./CardsArea.css";
 import searchImg from "../assets/svg/search.svg";
 import CardList from "./CardList.js";
 import { getFolders } from "../api/api.js";
 import { useEffect, useState } from "react";
 
-function Card() {
+function CardsArea() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
@@ -36,4 +36,4 @@ function Card() {
   );
 }
 
-export default Card;
+export default CardsArea;
