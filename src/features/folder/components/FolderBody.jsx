@@ -29,7 +29,11 @@ function FolderBody() {
         <S.Link>
           {isLinkLoading && <UI.Loading top={15} />}
           {hasLinkError && <UI.AlertBanner type="danger">{hasLinkError.message}</UI.AlertBanner>}
-          {!isLinkLoading && linkData && <CardList data={linkData} alertMessage={`${title} 폴더의 링크가 없습니다.`} />}
+          {!isLinkLoading && linkData && linkData?.data.length === 0 ? (
+            <UI.AlertBanner type="info">{`${title} 폴더의 링크가 없습니다.`}</UI.AlertBanner>
+          ) : (
+            <CardList data={linkData} />
+          )}
         </S.Link>
       </S.Wrapper>
     </S.Section>
