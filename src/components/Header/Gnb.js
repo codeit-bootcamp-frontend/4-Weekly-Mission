@@ -6,6 +6,7 @@ import { getUserInfo } from '../../services/api';
 import LoginButton from '../Common/LoginButton';
 import logo from '../../assets/images/logo.svg';
 import ErrorMessage from '../Common/ErrorMessage';
+import DefaultProfileImg from '../../assets/images/profile-img.png';
 
 // 글로벌 네비게이션 바
 function Gnb() {
@@ -19,7 +20,7 @@ function Gnb() {
   const handleLoadUser = async () => {
     try {
       const result = await getUserInfo();
-      setUserInfo(result);
+      setUserInfo(result.data[0]);
     } catch (error) {
       setErrorMessage(error.message);
     }
@@ -34,7 +35,7 @@ function Gnb() {
     handleLoadUser();
   }, []);
 
-  const userProfileImg = userInfo?.profileImageSource || '';
+  const userProfileImg = userInfo?.profileImageSource || DefaultProfileImg;
   const userEmail = userInfo?.email || '';
 
   const navClasses = classNames(styles.gnb, { 'position-fixed': location !== FOLDERLOCATION }, 'margin-auto', 'z-top');

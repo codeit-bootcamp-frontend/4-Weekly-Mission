@@ -8,7 +8,7 @@ import useFetch from '../hooks/useFetch';
 //   profileImageSource: "https://codeit-front.s3.ap-northeast-2.amazonaws.com/images/default_profile.png",
 // };
 export async function getUserInfo() {
-  return useFetch('sample/user');
+  return useFetch('users/1');
 }
 
 // api/sample/folder
