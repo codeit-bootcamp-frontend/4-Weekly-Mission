@@ -14,8 +14,8 @@ const FolderPage = ({ folderHeader, searchBar }) => {
   const [selectId, setSelectId] = useState(null);
 
   const handleLoadFolderList = async (option) => {
-    const folderListdata = await getFolderList(option);
-    setFolderList(folderListdata.data);
+    const folderListData = await getFolderList(option);
+    setFolderList(folderListData.data);
   };
 
   const handleLoadLink = async (option) => {
