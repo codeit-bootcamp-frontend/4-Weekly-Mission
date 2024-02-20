@@ -1,3 +1,10 @@
+.container {
+  position: relative;
+  /* 이 셀렉터의 z-index값을 지정해주지 않아야함. */
+  /* z-index: -1; */
+  display: block;
+}
+
 .link {
   border-radius: 10px;
   overflow: hidden;
