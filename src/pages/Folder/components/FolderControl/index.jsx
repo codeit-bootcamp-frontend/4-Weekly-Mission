@@ -18,6 +18,8 @@ export default function FolderControl({ folderName }) {
         ref={modalRef}
         openModal={openModal}
         handleModalClose={handleModalClose}
+        title="폴더 삭제"
+        description={folderName}
       />
       <div className={styles.container}>
         <div className={styles.folderName}>{folderName}</div>

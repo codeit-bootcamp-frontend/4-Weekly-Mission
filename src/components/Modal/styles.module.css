@@ -5,7 +5,10 @@
   z-index: 9999px;
   transform: translate(-50%, -50%);
   background-color: white;
-  border: 1px solid #000;
+  width: 360px;
+  border-radius: 10px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 #backdrop {
