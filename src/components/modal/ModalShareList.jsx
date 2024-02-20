@@ -2,6 +2,8 @@ import ModalKaKaoIcon from '../../assets/modal-kakao.svg';
 import ModalFacebookIcon from '../../assets/modal-facebook.svg';
 import ModalLinkIcon from '../../assets/modal-link.svg';
 import * as Styled from './Modal.styled';
+import shareKakaoLink from '../../utils/shareKakaoLink';
+import shareFacebookLink from '../../utils/shareFacebookLink';
 
 const modalShareList = [
   {
@@ -24,10 +26,10 @@ const modalShareList = [
   },
 ];
 
-function ModalShareList({ folderName }) {
-  const handleCopyClipBoard = async (folderName) => {
+function ModalShareList({ modalAction }) {
+  const handleCopyClipBoard = async (url) => {
     try {
-      await navigator.clipboard.writeText(folderName);
+      await navigator.clipboard.writeText(url);
       alert('링크가 클립보드에 복사되었습니다!');
     } catch (error) {
       alert('복사 실패!');
@@ -36,15 +38,15 @@ function ModalShareList({ folderName }) {
   const handleListClick = (text) => {
     switch (text) {
       case '링크 복사':
-        handleCopyClipBoard(folderName);
+        handleCopyClipBoard(modalAction.url);
         break;
 
       case '카카오톡':
-        console.log('카카오톡 클릭');
+        shareKakaoLink(modalAction);
         break;
 
       case '페이스북':
-        console.log('페이스북 클릭');
+        shareFacebookLink(modalAction.url);
         break;
     }
   };
@@ -53,7 +55,7 @@ function ModalShareList({ folderName }) {
       {modalShareList.map((list) => {
         const { id, backgroundColor, icon, text } = list;
         return (
-          <li key={id} className='modal__share--list' onClick={() => handleListClick(text)}>
+          <li key={id} onClick={() => handleListClick(text)}>
             <Styled.ModalShareIconBox style={{ backgroundColor }}>
               <img src={icon} alt={`폴더 공유 ${text} 아이콘`} />
             </Styled.ModalShareIconBox>

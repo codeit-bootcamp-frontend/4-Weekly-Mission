@@ -3,6 +3,7 @@ import ModalShareList from './ModalShareList';
 import ModalFolderAdd from './ModalFolderAdd';
 import ModalTitle from './ModalTitle';
 import ModalForm from './ModalForm';
+import { useEffect } from 'react';
 import * as Styled from './Modal.styled';
 
 function Modal({ modalAction, setModalAction, categoryList }) {
@@ -11,7 +12,7 @@ function Modal({ modalAction, setModalAction, categoryList }) {
   const actionScript = {
     '폴더 이름 변경': <ModalForm buttonText='변경하기' />,
     '폴더 추가': <ModalForm buttonText='추가하기' />,
-    '폴더 공유': <ModalShareList folderName={modalAction.subTitle} />,
+    '폴더 공유': <ModalShareList modalAction={modalAction} />,
     '폴더에 추가': <ModalFolderAdd categoryListLoop={categoryListLoop} />,
     '링크 삭제': <Styled.ModalButtonRed>삭제하기</Styled.ModalButtonRed>,
     '폴더 삭제': <Styled.ModalButtonRed>삭제하기</Styled.ModalButtonRed>,
@@ -24,6 +25,17 @@ function Modal({ modalAction, setModalAction, categoryList }) {
       subTitle: '',
     });
   };
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
+    script.async = true;
+    document.body.appendChild(script);
+    
+    return () => {
+      document.body.removeChild(script)
+    }
+  })
 
   return (
     <>

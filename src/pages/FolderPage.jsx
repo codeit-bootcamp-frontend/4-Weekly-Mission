@@ -20,6 +20,7 @@ function Folder() {
     isView: false,
     action: '',
     subTitle: '',
+    url: ''
   });
 
   const handleKebabClick = (id) => {
@@ -32,13 +33,16 @@ function Folder() {
     prevId = 999;
   };
 
-  const handleModalAction = (action, subTitle) => {
+  const handleModalAction = (action, subTitle, url) => {
     setModalAction({
       isView: true,
       action,
       subTitle,
+      url
     });
   };
+
+
 
   const folderContentProps = {
     handleKebabClick,
