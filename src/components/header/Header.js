@@ -1,12 +1,11 @@
 import React from 'react';
 import logo from '../../images/logo.svg';
 import '../styles/header.css';
-import FolderTitle from './FolderTitle';
-import { Link } from 'react-router-dom';
 
-const Header = ({ user }) => {
+const Header = ({ user, isSticky = true }) => {
+  const sticky = isSticky ? 'sticky' : '';
   return (
-    <header>
+    <header className={sticky}>
       <nav>
         <a href="/">
           <img className="logo" src={logo} alt="logo" />

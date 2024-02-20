@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Header from '../components/header/Header';
 import Footer from '../components/Footer';
-import CardList from '../components/CardList';
+import CardList from '../components/shared/SharedCardList';
 import SearchBar from '../components/SearchBar';
 import { getUser, getFolder } from '../api';
 import { useState } from 'react';
@@ -18,7 +18,6 @@ const SharedPage = () => {
 
   const handleLoadProfile = async () => {
     const userProfile = await getUser();
-    console.log(user);
     try {
       setUser(userProfile.data);
     } catch (e) {
@@ -28,7 +27,6 @@ const SharedPage = () => {
 
   const handleLoadFolder = async () => {
     const userFolder = await getFolder();
-    console.log(folder);
     try {
       setFolder({
         profileImageSource: userFolder.data.folder.owner.profileImageSource,
@@ -48,9 +46,12 @@ const SharedPage = () => {
 
   return (
     <>
-      <Header user={user} folder={folder} />
+      <Header user={user} isSticky={true} />
       <FolderTitle folder={folder} />
-      <SearchBar />
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <SearchBar format="searchLink" />
+      </div>
+
       <CardList links={folder.links} />
       <Footer />
     </>

@@ -1,10 +1,15 @@
 import React from 'react';
-import './styles/card.css';
-import noImage from '../images/no-image.png';
-import { formatDate, getTimeAgo } from '../utils/utils';
+import '../styles/card.css';
+import noImage from '../../images/no-image.png';
+import { formatDate, getTimeAgo } from '../../utils/utils';
 
 const Card = ({ link }) => {
-  const { createdAt, description, imageSource, title, url } = link;
+  const createdAt = link?.createdAt ? link?.createdAt : link?.created_at;
+  const description = link?.description;
+  const imageSource = link?.imageSource ? link?.imageSource : link?.image_source;
+  const title = link?.title;
+  const url = link?.url;
+  const folderId = link?.folder_id;
 
   return (
     <div className="card">
