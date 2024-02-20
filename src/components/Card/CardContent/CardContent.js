@@ -14,7 +14,7 @@ export const CardContent = ({ items, isZoomedIn, handleLinkClick }) => {
     ? "card-text-kebabIcon"
     : "none-card-text-kebabIcon";
 
-  const { createdAt: created_at, created_at: createdAt, description } = items;
+  const { createdAt, created_at, description } = items;
   const createdAtValue = createdAt || created_at;
   const className = isZoomedIn ? "card-text card-text-hovered" : "card-text";
 
