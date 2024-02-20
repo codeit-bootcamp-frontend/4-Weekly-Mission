@@ -9,7 +9,7 @@
 
 .LinkAddBar-Frame {
   display: flex;
-  width: 100%;
+  width: 95%;
   padding: 16px 20px;
   flex-direction: column;
   align-items: flex-start;
@@ -66,4 +66,16 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+
+@media (max-width: 1123px) {
+  .LinkAdd {
+    padding: 60px 32.5px 90px 32.5px;
+  }
+}
+
+@media (max-width: 767px) {
+  .LinkAdd {
+    padding: 24px 32px 40px 32px;
+  }
 }
