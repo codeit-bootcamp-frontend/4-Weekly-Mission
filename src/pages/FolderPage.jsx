@@ -20,7 +20,7 @@ function Folder() {
     isView: false,
     action: '',
     subTitle: '',
-    url: ''
+    url: '',
   });
 
   const handleKebabClick = (id) => {
@@ -38,11 +38,9 @@ function Folder() {
       isView: true,
       action,
       subTitle,
-      url
+      url,
     });
   };
-
-
 
   const folderContentProps = {
     handleKebabClick,

@@ -35,6 +35,7 @@ function ModalShareList({ modalAction }) {
       alert('복사 실패!');
     }
   };
+
   const handleListClick = (text) => {
     switch (text) {
       case '링크 복사':

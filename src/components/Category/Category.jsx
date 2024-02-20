@@ -53,10 +53,13 @@ function Category({ categoryList, selectCategory, allLinkLoad, handleSelectCateg
           <Styled.CategoryControlList>
             {categoryControlList.map((list, idx) => {
               return (
-                <li key={idx} onClick={() => {
-                  const url = `${window.location.origin}/shared/${selectCategory.id}`;
-                  handleModalAction(list.actionText, selectCategory.name, url);
-                }}>
+                <li
+                  key={idx}
+                  onClick={() => {
+                    const url = `${window.location.origin}/shared/${selectCategory.id}`;
+                    handleModalAction(list.actionText, selectCategory.name, url);
+                  }}
+                >
                   <Styled.CategoryControlImg src={list.img} alt={`${list.text} 이미지`} />
                   <Styled.CategoryControlText>{list.text}</Styled.CategoryControlText>
                 </li>
