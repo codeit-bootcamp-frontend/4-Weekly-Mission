@@ -9,40 +9,6 @@
   font-weight: 600;
 }
 
-.folderOption-options {
-  display: flex;
-  gap: 1.2rem;
-}
-
-.folderOption-option {
-  display: flex;
-  gap: 0.4rem;
-}
-
-.folderOption-option span {
-  color: var(--linkbrary-gray60);
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.shareIcon {
-  width: 1.8rem;
-  height: 1.8rem;
-  background-image: url("../../../assets/images/folder/share.png");
-}
-
-.nameChangeIcon {
-  width: 1.8rem;
-  height: 1.8rem;
-  background-image: url("../../../assets/images/folder/pen.png");
-}
-
-.deleteIcon {
-  width: 1.5rem;
-  height: 1.58rem;
-  background-image: url("../../../assets/images/folder/delete.png");
-}
-
 /* mobile */
 @media screen and (min-width: 375px) and (max-width: 767px) {
   .folderOption {
