@@ -8,7 +8,7 @@ import { FolderContext } from "../context/FolderContext"
 
 function FolderBody() {
   const {
-    link: { linkState },
+    link: { state: linkState },
     util: { title },
   } = useContext(FolderContext)
 

@@ -10,7 +10,7 @@ function useHttp() {
     try {
       const response = await fetch(api)
 
-      if (!response.ok) throw new HttpError("알 수 없는 이유로 요청에 실패했습니다.", 500)
+      if (!response.ok) throw new HttpError(`알 수 없는 이유로 요청에 실패했습니다.`, 500)
 
       const responseData = await response.json()
       dispatch({ type: Reducer.httpActionType.SUCCESS, data: responseData })

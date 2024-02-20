@@ -1,23 +1,35 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useEffect } from "react"
 import useHttp from "hooks/useHttp"
 import * as API from "features/folder/api"
+import useChangeTitle from "../hooks/useChangeTitle"
 
 const getCategoryId = (selectedCategory) => (selectedCategory.id === "all" ? "" : selectedCategory.id)
 
-export const FolderContext = createContext(null)
+export const FolderContext = createContext({
+  category: {
+    state: null,
+    fetchRequest: () => {},
+  },
+  link: {
+    state: null,
+    fetchRequest: () => {},
+  },
+  util: {
+    title: null,
+    selectedHandler: () => {},
+  },
+})
 
 export default function FolderContextProvider({ children }) {
   const { state: categoryState, fetchRequest: categoryFetchRequest } = useHttp()
   const { state: linkState, fetchRequest: linkFetchRequest } = useHttp()
-  const [title, setTitle] = useState("전체")
+  const { title, onChangeTitle } = useChangeTitle()
 
-  const fetchSelectCategory = (categoryId) => linkFetchRequest(API.GET_FOLDER_BY_ID(categoryId))
+  const selectedHandler = (selectedCategory) => {
+    const categoryId = getCategoryId(selectedCategory)
 
-  const changeTitle = (selectedName) => setTitle(selectedName)
-
-  const selectedHandler = async (selectedCategory) => {
-    fetchSelectCategory(getCategoryId(selectedCategory))
-    changeTitle(selectedCategory.name)
+    linkFetchRequest(API.GET_FOLDER_BY_ID(categoryId))
+    onChangeTitle(selectedCategory.name)
   }
 
   useEffect(() => {
@@ -27,12 +39,12 @@ export default function FolderContextProvider({ children }) {
 
   const value = {
     category: {
-      categoryState,
-      categoryFetchRequest,
+      state: categoryState,
+      fetchRequest: categoryFetchRequest,
     },
     link: {
-      linkState,
-      linkFetchRequest,
+      state: linkState,
+      fetchRequest: linkFetchRequest,
     },
     util: {
       title,

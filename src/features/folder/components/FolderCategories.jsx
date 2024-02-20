@@ -8,7 +8,7 @@ import { FolderContext } from "../context/FolderContext"
 
 function FolderCategories() {
   const {
-    category: { categoryState },
+    category: { state: categoryState },
     util: { title, selectedHandler },
   } = useContext(FolderContext)
   const { data: categoryData, isLoading, hasError } = categoryState
@@ -18,7 +18,7 @@ function FolderCategories() {
 
   return (
     <S.Categories>
-      {isLoading && <Loading $isCenter={false} size={30} />}
+      {isLoading && <Loading isCenter={false} size={30} />}
       {hasError && <AlertBanner type="danger">{hasError.message}</AlertBanner>}
       {categoryData?.data &&
         combineCategories.map((category) => (

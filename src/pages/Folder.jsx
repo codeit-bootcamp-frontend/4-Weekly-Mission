@@ -4,12 +4,10 @@ import React from "react"
 
 function Folder() {
   return (
-    <React.Fragment>
+    <FolderContextProvider>
       <FolderHeader />
-      <FolderContextProvider>
-        <FolderBody />
-      </FolderContextProvider>
-    </React.Fragment>
+      <FolderBody />
+    </FolderContextProvider>
   )
 }
 
