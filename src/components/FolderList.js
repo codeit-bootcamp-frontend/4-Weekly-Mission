@@ -103,7 +103,7 @@ const FolderTypeText = styled.span`
   letter-spacing: -0.2px;
 `;
 const OptionContainer = styled.div`
-  display: flex;
+  display: ${(props) => (props.isHidden ? 'none' : 'flex')};
   align-items: flex-start;
   gap: 6px;
 `;
@@ -158,7 +158,7 @@ function FolderList({ folderListData, onFolderSelect, selectedFolder }) {
       </Container>
       <Container>
         <FolderTypeText>{selectedFolder.name}</FolderTypeText>
-        <OptionContainer>
+        <OptionContainer isHidden={selectedFolder.id === null}>
           <OptionImg src={shareIcon} alt="sharedIcon" />
           <OptionText>공유</OptionText>
           <OptionImg src={penIcon} alt="penIcon" />
