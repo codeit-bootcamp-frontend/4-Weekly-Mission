@@ -4,8 +4,6 @@ import SortingButton from '../Common/SortingButton';
 import styles from './SortingButtonList.module.css';
 
 function SortingButtonList() {
-  const [selectedButton, setSelectedButton] = useState(null);
-
   const buttonList = [
     { name: '전체', key: '1' },
     { name: '⭐️ 즐겨찾기', key: '2' },
@@ -15,11 +13,11 @@ function SortingButtonList() {
     { name: '나만의 장소', key: '6' },
   ];
 
+  const [selectedButton, setSelectedButton] = useState(buttonList[0]);
+
   const handleButtonClick = (key) => {
     const targetButton = buttonList.find((button) => button.key === key);
     setSelectedButton(targetButton);
-    console.log(targetButton);
-    console.log(selectedButton);
   };
 
   const sortingButtonListClasses = classNames(styles['sorting-button-list'], 'display-inline-flex', 'flex-wrap');
