@@ -30,7 +30,7 @@ export default function Card({ cardData, selectedCardId, setSelectedCardId, fold
     setSelectedCardId(cardData.id);
   };
   return (
-    <a href={cardData.url} target="_blank" rel="noopener noreferrer" className="cardBox">
+    <a className="cardBox" href={cardData.url} target="_blank" rel="noopener noreferrer">
       <div className="cardThumbnailContainer">
         <img
           className="cardThumbnail"

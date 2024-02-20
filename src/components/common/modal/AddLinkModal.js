@@ -5,7 +5,10 @@ import './AddLinkModal.css';
 
 export default function AddLinkModal({ onClose, linkUrl, folderNameAndLinkList }) {
   const [selectedFolderId, setSelectedFolderId] = useState(null);
-  const handleSelectedFolderId = folderId => setSelectedFolderId(folderId);
+  const handleSelectedFolderId = (e, folderId) => {
+    e.preventDefault();
+    setSelectedFolderId(folderId);
+  };
   return (
     <>
       <ModalBackgroundDim />
@@ -20,7 +23,7 @@ export default function AddLinkModal({ onClose, linkUrl, folderNameAndLinkList }
               <div
                 className={`folderContainer ${selectedFolderId === id ? `selected` : ''}`}
                 key={id}
-                onClick={() => handleSelectedFolderId(id)}>
+                onClick={e => handleSelectedFolderId(e, id)}>
                 <div className="folderContent">
                   <p>{name}</p>
                   <p>{count}개 링크</p>
