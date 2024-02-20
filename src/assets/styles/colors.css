@@ -64,6 +64,10 @@
   color: var(--light, #f5f5f5);
 }
 
+.text-color-primary {
+  color: var(--primary, #6d6afe);
+}
+
 .text-color-white {
   color: var(--whtie, #ffffff);
 }
