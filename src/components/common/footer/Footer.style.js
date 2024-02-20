@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-export const FooterContainer = styled.div`
-  display: flex;
-  justify-content: center;
+export const Container = styled.div`
   width: 100%;
   height: 16rem;
   padding-top: 3.2rem;
@@ -20,23 +18,23 @@ export const FooterContainer = styled.div`
     color: #676767;
     font-family: Arial;
     font-size: 1.6rem;
-    .footer-links {
-      display: flex;
-      column-gap: 3rem;
-      padding-right: 1.8rem;
-    }
+  }
+  .footer-links {
+    display: flex;
+    column-gap: 3rem;
+    padding-right: 1.8rem;
+  }
 
-    .footer-link {
-      color: #cfcfcf;
-      font-family: Arial;
-      font-size: 1.6rem;
-    }
+  .footer-link {
+    color: #cfcfcf;
+    font-family: Arial;
+    font-size: 1.6rem;
+  }
 
-    .sns {
-      display: flex;
-      column-gap: 1.2rem;
-      height: 2rem;
-    }
+  .sns {
+    display: flex;
+    column-gap: 1.2rem;
+    height: 2rem;
   }
   /* mobile */
   @media all and (min-width: 375px) and (max-width: 767px) {

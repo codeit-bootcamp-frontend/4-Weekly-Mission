@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const SharedHeaderContainer = styled.div`
+export const Container = styled.div`
   width: 100%;
   background-color: #edf7ff;
   padding: 2rem 0 6rem;

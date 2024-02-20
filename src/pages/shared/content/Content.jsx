@@ -1,17 +1,17 @@
-import SearchBar from '../search-bar/SearchBar.jsx';
-import ContentCard from './ContentCard.jsx';
+import SearchBar from '../../../components/ui/search-bar/SearchBar.jsx';
+import Card from '../../../components/ui/card/Card.jsx';
 import * as S from './Content.style.js';
 
-const Content = ({ folderLinks }) => {
+const Content = ({ sampleFolderLink }) => {
   return (
-    <S.ContentContainer>
+    <S.Container>
       <SearchBar />
-      <div className="card-box">
-        {folderLinks?.map((link) => (
-          <ContentCard key={link.id} link={link} />
+      <S.CardContainer>
+        {sampleFolderLink?.map((link) => (
+          <Card key={link.id} link={link} />
         ))}
-      </div>
-    </S.ContentContainer>
+      </S.CardContainer>
+    </S.Container>
   );
 };
 

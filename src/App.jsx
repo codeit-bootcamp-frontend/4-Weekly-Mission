@@ -1,12 +1,19 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Layout from './components/common/layout/Layout';
+import Shared from './pages/shared';
+import Folder from './pages/folder';
 import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import Shared from './pages/shared/shared.jsx';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/shared" element={<Shared />}></Route>
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/shared" element={<Shared />}></Route>
+          <Route path="/folder" element={<Folder />}></Route>
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

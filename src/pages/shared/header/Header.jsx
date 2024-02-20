@@ -1,17 +1,21 @@
 import * as S from './Header.style';
 
-function Header({ userFolder }) {
+const Header = ({ sampleUserFolder }) => {
   return (
     <header>
-      <S.SharedHeaderContainer>
+      <S.Container>
         <h1 className="owner">
-          <img className="owner-img" src={userFolder?.owner.profileImageSource} alt="소유자 프로필 이미지" />
-          {userFolder?.owner.name}
+          {sampleUserFolder.owner && (
+            <>
+              <img className="owner-img" src={sampleUserFolder.owner.profileImageSource} alt="소유자 프로필 이미지" />
+              {sampleUserFolder.owner.name}
+            </>
+          )}
         </h1>
-        <div className="folder-name">{userFolder?.name}</div>
-      </S.SharedHeaderContainer>
+        <div className="folder-name">{sampleUserFolder.name}</div>
+      </S.Container>
     </header>
   );
-}
+};
 
 export default Header;

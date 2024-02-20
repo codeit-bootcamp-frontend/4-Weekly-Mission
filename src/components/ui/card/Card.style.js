@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-export const CardContainer = styled.div`
-  width: calc(33.33% - 20px);
+export const Container = styled.div`
+  width: calc(33.33% - 13.3px);
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   /* tablet */
@@ -15,7 +15,8 @@ export const CardContainer = styled.div`
   }
   .image-wrapper {
     overflow: hidden;
-    & img {
+    position: relative;
+    .folder-img {
       height: 200px;
       width: 100%;
       object-fit: cover;
@@ -25,12 +26,23 @@ export const CardContainer = styled.div`
         transform: scale(1.3);
       }
     }
+    .star-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
+    }
   }
   .text-box {
     display: flex;
     flex-direction: column;
     gap: 10px;
     padding: 15px 20px;
+  }
+  .time-ago-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .time-ago {
     color: #666;

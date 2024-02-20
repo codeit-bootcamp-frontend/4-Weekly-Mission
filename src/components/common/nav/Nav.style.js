@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const NavBarContainer = styled.div`
+export const Container = styled.nav`
   display: flex;
   justify-content: center;
-  position: sticky;
+  position: ${({ $position }) => $position};
   top: 0;
   width: 100%;
   background-color: #edf7ff;
@@ -35,23 +35,6 @@ export const NavBarContainer = styled.div`
     font-weight: 400;
     line-height: normal;
     color: var(--Linkbrary-gray100, #373740);
-  }
-
-  .cta {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5.4rem;
-    cursor: pointer;
-    background-image: linear-gradient(135deg, var(--primary) 0%, #6ae3fe 100%);
-    border-radius: 0.8rem;
-    color: #f5f5f5;
-    font-size: 1.8rem;
-    font-weight: 600;
-  }
-
-  .cta-short {
-    width: 12.8rem;
   }
 
   /* tablet & mobile */
