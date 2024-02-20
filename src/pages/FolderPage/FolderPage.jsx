@@ -13,6 +13,11 @@ import penIcon from "assets/images/ic_pen.svg";
 import trashIcon from "assets/images/ic_trash.svg";
 import { ReactComponent as AddIcon } from "assets/images/ic_add.svg";
 
+import BaseModeal from "components/Modal/BaseModal/BaseModal";
+import DeleteModal from "components/Modal/DeleteModal/DeleteModal";
+import SharedModal from "components/Modal/SharedModal/SharedModal";
+import FolderModal from "components/Modal/FolderModal/FolderModal";
+
 function FolderPage() {
   /**
    * @type {string}
@@ -65,7 +70,9 @@ function FolderPage() {
   return (
     <div>
       <Header />
-
+      <FolderModal variant={`add-link`}></FolderModal>
+      {/* <DeleteModal variant={`link`} deleted={`폴더명`}></DeleteModal> */}
+      {/* <SharedModal folder={`폴더명`}></SharedModal> */}
       <div className={styles.container}>
         <div className={styles.content}>
           <SearchBar />
@@ -82,7 +89,7 @@ function FolderPage() {
                   </FolderButton>
                   {buttonNames.map(({ id, name }) => (
                     <FolderButton
-                    key={id}
+                      key={id}
                       ischecked={selectedCategory.name === name ? true : false}
                       onClick={() => handleButtonClick(id, name)}
                     >
