@@ -1,4 +1,5 @@
 import imgNone from "../assets/이미지 없을 때 배경.svg";
+import styled from "styled-components";
 
 function dateDiff(createdAt) {
   const present = Date.now();
@@ -40,6 +41,109 @@ function dateDiff(createdAt) {
   }
 }
 
+const ContainDiv = styled.div`
+  width: 325px;
+  height: 327px;
+  flex-shrink: 0;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
+
+  &: hover img {
+    transform: scale(1.3);
+    transition-duration: 0.5s;
+  }
+
+  @media ${(props) => props.theme.tabletS} {
+    width: 340px;
+    height: 334px;
+  }
+`;
+
+const WrappedImg = styled.div`
+  width: 325px;
+  height: 192px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 15px 15px 0px 0px;
+  background: #d9d9d9;
+
+  @media ${(props) => props.theme.tabletS} {
+    width: 340px;
+    height: 200px;
+  }
+`;
+
+const StyledImg = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 15px 15px 0px 0px;
+  background: #d9d9d9;
+  transition-duration: 0.3s;
+  object-fit: cover;
+`;
+
+const DescriptionDiv = styled.div`
+  display: flex;
+  width: 325px;
+  padding: 15px 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 0px 0px 15px 15px;
+  background: #fff;
+
+  p {
+    margin: 0px;
+    font-family: Pretendard;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  @media ${(props) => props.theme.tabletS} {
+    width: 340px;
+  }
+`;
+
+const TextDiv1 = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+
+  p {
+    color: #666;
+    font-size: 13px;
+    line-height: normal;
+  }
+`;
+
+const TextDiv2 = styled.div`
+  height: 49px;
+  align-self: stretch;
+
+  p {
+    overflow: hidden;
+    color: #000;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 16px;
+    line-height: 24px; /* 150% */
+  }
+`;
+
+const TextDiv3 = styled.div`
+  height: 19px;
+  align-self: stretch;
+
+  p {
+    color: #333;
+    font-size: 14px;
+    line-height: normal;
+  }
+`;
+
 const INITIAL_LINK_IMG = imgNone;
 
 function Card({ link }) {
@@ -50,12 +154,25 @@ function Card({ link }) {
   };
 
   return (
-    <div onClick={handleCardClick}>
-      <img src={link?.imageSource ?? INITIAL_LINK_IMG} alt="미리보기 이미지" />
-      <p>{dateDiff(link?.createdAt)}</p>
-      <p>{link?.description}</p>
-      <p> {link?.createdAt.slice(0, 10)}</p>
-    </div>
+    <ContainDiv onClick={handleCardClick}>
+      <WrappedImg>
+        <StyledImg
+          src={link?.imageSource ?? INITIAL_LINK_IMG}
+          alt="미리보기 이미지"
+        />
+      </WrappedImg>
+      <DescriptionDiv>
+        <TextDiv1>
+          <p>{dateDiff(link?.createdAt)}</p>
+        </TextDiv1>
+        <TextDiv2>
+          <p>{link?.description}</p>
+        </TextDiv2>
+        <TextDiv3>
+          <p> {link?.createdAt.slice(0, 10)}</p>
+        </TextDiv3>
+      </DescriptionDiv>
+    </ContainDiv>
   );
 }
 
