@@ -1,9 +1,13 @@
 import NavigationBar from "../components/NavigationBar";
+import Footer from "../components/Footer";
+import LinkAdd from "../components/LinkAdd";
 
 function FolderPage() {
   return (
     <div className="FolderPage">
-      <NavigationBar></NavigationBar>
+      <NavigationBar />
+      <LinkAdd />
+      <Footer />
     </div>
   );
 }
