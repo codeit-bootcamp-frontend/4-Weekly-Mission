@@ -1,7 +1,7 @@
-import Linkbrary from "../assets/logo.svg";
-import "./NavigationBar.css";
-import { getUser } from "../api";
 import { useEffect, useState } from "react";
+import { getUser } from "../api";
+import "./NavigationBar.css";
+import Linkbrary from "../assets/logo.svg";
 
 export default function NavigationBar() {
   const [profile, setProfile] = useState(null);

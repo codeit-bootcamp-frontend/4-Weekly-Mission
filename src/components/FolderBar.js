@@ -1,6 +1,6 @@
-import "./FolderBar.css";
 import { useEffect, useState } from "react";
 import { getFolder } from "../api";
+import "./FolderBar.css";
 
 export default function FolderBar() {
   const [folderName, setFolderName] = useState("");
