@@ -2,7 +2,7 @@ import logo from "../assets/logo.svg";
 import "./Header.css";
 import useUser from "../hooks/useUser.js";
 
-function userInformation({ user }) {
+function UserInformation({ user }) {
   if (!user) return null;
   const { email, image_source } = user;
   return (
@@ -22,7 +22,7 @@ function Header() {
           <img src={logo} alt={logo} />
         </a>
         {user ? (
-          userInformation({ user })
+          UserInformation({ user })
         ) : (
           <button className="headerButton">Login</button>
         )}
