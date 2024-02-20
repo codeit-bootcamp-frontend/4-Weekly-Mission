@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import styles from './SharedHeaderContent.module.css';
-import { getFolderInfo } from '../../services/api';
+import { getFoldersInfo } from '../../services/api';
 import ErrorMessage from '../Common/ErrorMessage';
 
 // 폴더 정보 출력
@@ -12,7 +12,7 @@ function SharedHeaderContent() {
 
   const handleLoadFolder = async () => {
     try {
-      const result = await getFolderInfo();
+      const result = await getFoldersInfo();
       setFolderInfo(result);
     } catch (error) {
       setErrorMessage(error.message);

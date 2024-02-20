@@ -11,6 +11,8 @@ async function useFetch(apiUrl) {
     throw new Error(`User response error: ${responseError}`);
   }
 
+  console.log(result);
+
   return result;
 }
 
