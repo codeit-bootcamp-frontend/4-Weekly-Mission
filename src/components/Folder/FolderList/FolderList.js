@@ -5,12 +5,6 @@ const FolderList = ({ folderList, onSelectFolderList, selectId }) => {
   const handleClickFolderList = (e) => {
     const folderId = e.target.id === "null" ? null : parseInt(e.target.id);
     onSelectFolderList({ name: e.target.textContent, id: folderId });
-
-    if (isNaN(folderId)) {
-      console.error("Parsing failed. folderId is NaN.");
-    } else {
-      onSelectFolderList({ name: e.target.textContent, id: folderId });
-    }
   };
 
   return (
@@ -18,7 +12,7 @@ const FolderList = ({ folderList, onSelectFolderList, selectId }) => {
       <div className="folderList-content">
         <span
           className={`folderList-button ${
-            selectId === !selectId ? "selected" : ""
+            selectId === null || isNaN(selectId) ? "selected" : ""
           }`}
           onClick={handleClickFolderList}
           id={null}
