@@ -1,4 +1,3 @@
-import { isMobile } from 'react-device-detect';
 import { Outlet, useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
 
@@ -14,31 +13,27 @@ const Styled = {
   `,
 
   Container: styled.div`
-    width: 100%;
-    padding: 0 calc((100vw - 110rem) / 2 + 2rem);
-    @media (max-width: 1199px) {
-      padding: 6rem 3.2rem 9rem 3.2rem;
-    }
+    padding-top: ${({ isFixed }) => calculatePadding(isFixed)};
   `,
+};
+
+const calculatePadding = (isFixed) => {
+  return !isFixed ? 0 : '9.2rem';
 };
 
 function Layout({ children }) {
   const location = useLocation();
   const isFixed = location.pathname !== '/folder';
 
-  const calculatePadding = () => {
-    return !isFixed ? 0 : '4rem';
-  };
-
   return (
-    <Styled.Body className="layout-body">
+    <>
       <GNB isFixed={isFixed} />
-      <Styled.Container className="layout-container" style={{ paddingTop: calculatePadding() }}>
+      <Styled.Container className="layout-container">
         <Outlet />
         {children}
       </Styled.Container>
       <Footer />
-    </Styled.Body>
+    </>
   );
 }
 

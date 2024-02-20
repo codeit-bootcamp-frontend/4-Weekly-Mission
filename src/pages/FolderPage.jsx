@@ -2,15 +2,14 @@ import { useState } from 'react';
 import { styled } from 'styled-components';
 
 import useUserFoldersQuery from 'hooks/api/folder/useUserFoldersQuery';
-import SearchBar from 'components/SearchBar';
+
 import PageTitle from 'components/common/PageTitle';
 import AddFolderButton from 'components/common/button/AddFolderButton';
 import TabButton from 'components/common/button/TabButton';
-import FolderHeader from 'components/common/header/FolderHeader';
 import OptionBtns from 'components/folder/OptionBtns';
 import FolderGridCard from 'components/folder/FolderGridCard';
 import FloatButton from 'components/common/button/FloatButton';
-import PLACEHOLDER from 'constants/FORM_MESSAGE';
+import FolderLayout from 'components/template/FolderLayout';
 
 const Styled = {
   NoLink: styled.div`
@@ -56,32 +55,32 @@ function FolderPage() {
   return (
     <>
       <PageTitle title="폴더" />
-      <FolderHeader />
-      <SearchBar placeholder={PLACEHOLDER.SEARCH_LINK} />
-      {!hasFolders ? (
-        <Styled.NoLink>저장된 링크가 없습니다 🥲</Styled.NoLink>
-      ) : (
-        <>
-          <Styled.ButtonBox>
-            {/* 버튼박스(탭, 폴더추가 버튼 합치기) */}
-            <TabButton
-              tabInfo={folderList}
-              onChange={(name, id) => {
-                setSelectedTabName(name);
-                setSelectedFolder(id);
-              }}
-            />
-            <AddFolderButton />
-          </Styled.ButtonBox>
+      <FolderLayout>
+        {!hasFolders ? (
+          <Styled.NoLink>저장된 링크가 없습니다 🥲</Styled.NoLink>
+        ) : (
+          <>
+            <Styled.ButtonBox>
+              {/* 버튼박스(탭, 폴더추가 버튼 합치기) */}
+              <TabButton
+                tabInfo={folderList}
+                onChange={(name, id) => {
+                  setSelectedTabName(name);
+                  setSelectedFolder(id);
+                }}
+              />
+              <AddFolderButton />
+            </Styled.ButtonBox>
 
-          <Styled.TitleAndOptions>
-            <h2 style={{ fontSize: '2.4rem', fontWeight: 600 }}>{selectedTabName}</h2>
-            {selectedTabName !== '전체' && <OptionBtns />}
-          </Styled.TitleAndOptions>
-          <FloatButton>폴더추가</FloatButton>
-          <FolderGridCard selectedFolder={selectedFolder} />
-        </>
-      )}
+            <Styled.TitleAndOptions>
+              <h2 style={{ fontSize: '2.4rem', fontWeight: 600 }}>{selectedTabName}</h2>
+              {selectedTabName !== '전체' && <OptionBtns />}
+            </Styled.TitleAndOptions>
+            <FloatButton>폴더추가</FloatButton>
+            <FolderGridCard selectedFolder={selectedFolder} />
+          </>
+        )}
+      </FolderLayout>
     </>
   );
 }
