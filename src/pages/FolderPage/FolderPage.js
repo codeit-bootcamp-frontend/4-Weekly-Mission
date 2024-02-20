@@ -6,7 +6,7 @@ import SearchBar from '../../components/Main/SearchBar';
 import CardList from '../../components/Main/CardList';
 import FolderHeaderContent from '../../components/Header/FolderHeaderContent';
 
-function Shared() {
+function Folder() {
   return (
     <div>
       <Header>
@@ -21,4 +21,4 @@ function Shared() {
   );
 }
 
-export default Shared;
+export default Folder;
