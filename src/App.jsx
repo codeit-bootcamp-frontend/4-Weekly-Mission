@@ -1,4 +1,4 @@
-import Card from "./components/Card";
+import CardsArea from "./components/CardsArea";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Header />
       {/* <Banner /> */}
-      <Card />
+      <CardsArea />
       <Footer />
     </div>
   );
