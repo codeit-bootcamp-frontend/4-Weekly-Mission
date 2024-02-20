@@ -1,43 +1,26 @@
-const BASE_URL = 'https://bootcamp-api.codeit.kr/api/';
+const BASE_URL = "https://bootcamp-api.codeit.kr/api/";
 
-const getSampleUserData = async () => {
-  const response = await fetch(`${BASE_URL}sample/user`);
-  const data = await response.json();
-  return data;
-};
-
-const getSampleFolderData = async () => {
-  const response = await fetch(`${BASE_URL}sample/folder`);
-  const { folder } = await response.json();
-  return folder;
-};
-
-const getTargetUserData = async userId => {
-  const response = await fetch(`${BASE_URL}users/${userId}`);
+export const profileDataFetch = async () => {
+  const response = await fetch(`${BASE_URL}users/1`);
   const { data } = await response.json();
   return data[0];
 };
 
-const getTargetUserFolderListData = async userId => {
-  const response = await fetch(`${BASE_URL}users/${userId}/folders`);
+export const folderListDataFetch = async () => {
+  const response = await fetch(`${BASE_URL}users/1/folders`);
   const { data } = await response.json();
   return data;
 };
 
-const getTargetUserFolderLinkListData = async (userId, folderId) => {
+export const selectedFolderDataFetch = async (folderData) => {
   let response;
-  if (folderId !== 'all') {
-    response = await fetch(`${BASE_URL}users/${userId}/links?folderId=${folderId}`);
+  if (folderData.id) {
+    response = await fetch(
+      `${BASE_URL}users/1/links?folderId=${folderData.id}`
+    );
   } else {
-    response = await fetch(`${BASE_URL}users/${userId}/links`);
+    response = await fetch(`${BASE_URL}users/1/links`);
   }
   const { data } = await response.json();
   return data;
-};
-export {
-  getSampleUserData,
-  getSampleFolderData,
-  getTargetUserData,
-  getTargetUserFolderListData,
-  getTargetUserFolderLinkListData,
 };

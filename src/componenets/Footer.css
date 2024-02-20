@@ -1,0 +1,23 @@
+footer {
+  height: 10rem;
+  padding: 2rem 6.5rem 5rem 6.5rem;
+  background: #111322;
+  margin-top: 6rem;
+}
+
+.footerItems {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #676767;
+}
+
+.footerLink {
+  display: flex;
+  gap: 1rem;
+}
+
+.sns {
+  display: flex;
+  gap: 0.7rem;
+}

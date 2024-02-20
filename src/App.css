@@ -3,20 +3,3 @@
   margin: 0;
   font-family: "Pretendard";
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-input:focus {
-  outline: none;
-}
-
-button {
-  border: none;
-  padding: unset;
-  background-color: unset;
-  cursor: pointer;
-}

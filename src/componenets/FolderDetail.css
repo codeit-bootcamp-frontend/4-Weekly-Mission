@@ -1,23 +1,23 @@
-.folderDetailsContainer {
+.Folder-All {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
-
-  margin-bottom: 5rem;
+  justify-content: center;
 }
 
-.folderListContainer {
-  width: 60%;
+.Folder-List-Container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  margin-top: 2rem;
 }
 
-.folderList {
+.Folder-List {
   display: flex;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 0.5rem;
-  flex-wrap: wrap;
 }
 
 .folderName {
@@ -25,11 +25,9 @@
   padding: 0.5rem 0.75rem;
   flex-direction: column;
   align-items: center;
-
   border-radius: 0.3125rem;
   border: 1px solid #6d6afe;
   background: #fff;
-  white-space: nowrap;
   cursor: pointer;
 }
 
@@ -42,69 +40,36 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  white-space: nowrap;
-
   color: #6d6afe;
-  text-align: center;
-
   font-size: 1rem;
-  font-style: normal;
   font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.01875rem;
 }
 
-.actionButtonContainer {
+.buttonClick-Container {
+  margin-top: 2rem;
   display: flex;
-  width: 60%;
+  width: 70%;
   justify-content: space-between;
   align-items: center;
 }
 
-.actionButtonContainer p {
+.buttonClick-Container p {
   color: #000;
   font-size: 1.5rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  letter-spacing: -0.0125rem;
 }
 
-.actionButton {
+.buttonClick {
   display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-
-  color: #9fa6b2;
-
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-}
-
-.share {
-  display: flex;
+  gap: 12px;
   align-items: center;
-  gap: 0.25rem;
 }
 
-.pen {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
+.share,
+.pen,
 .remove {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
-}
-
-@media (max-width: 767px) {
-  .actionButtonContainer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
 }

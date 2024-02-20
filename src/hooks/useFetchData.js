@@ -1,21 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import {
-  getSampleUserData,
-  getSampleFolderData,
-  getTargetUserData,
-  getTargetUserFolderListData,
-  getTargetUserFolderLinkListData,
-} from '../api/api';
+  profileDataFetch,
+  folderListDataFetch,
+  selectedFolderDataFetch,
+} from "../api/api";
 
 const DATA_MAP = {
-  sampleUser: getSampleUserData,
-  sampleFolder: getSampleFolderData,
-  targetUser: getTargetUserData,
-  targetUserFolderList: getTargetUserFolderListData,
-  targetUserFolderLinkList: getTargetUserFolderLinkListData,
+  profileDataFetch,
+  folderListDataFetch,
+  selectedFolderDataFetch,
 };
 
-const useFetchData = (dataType, userId = null, folderId = null) => {
+const useFetchData = (dataType, folderData = 0) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -23,15 +19,12 @@ const useFetchData = (dataType, userId = null, folderId = null) => {
       try {
         let targetData;
 
-        if (userId) {
-          if (userId && folderId) {
-            targetData = await DATA_MAP[dataType]?.(userId, folderId);
-          } else {
-            targetData = await DATA_MAP[dataType]?.(userId);
-          }
-        } else {
+        if (folderData === 0) {
           targetData = await DATA_MAP[dataType]?.();
+        } else {
+          targetData = await DATA_MAP[dataType]?.(folderData);
         }
+
         setData(targetData);
       } catch (error) {
         console.error(error);
@@ -39,7 +32,7 @@ const useFetchData = (dataType, userId = null, folderId = null) => {
     };
 
     fetchData();
-  }, [dataType, userId, folderId]);
+  }, [dataType, folderData]);
 
   return data;
 };

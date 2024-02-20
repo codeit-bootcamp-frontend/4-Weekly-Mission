@@ -1,19 +1,21 @@
+import FolderDetail from "../componenets/FolderDetail";
+import Footer from "../componenets/Footer";
+import LinkAdd from "../componenets/LinkAdd";
+import Nav from "../componenets/Nav";
 import useFetchData from "../hooks/useFetchData";
-import Nav from "../components/Nav";
-import AddLink from "../components/AddLink";
-import FolderDetails from "../components/FolderDetails";
-import Footer from "../components/Footer";
 
-export default function Folder() {
-  const currentUserData = useFetchData("targetUser", 1);
-  const folderListData = useFetchData("targetUserFolderList", 1);
+function Folder() {
+  const profileData = useFetchData("profileDataFetch");
+  const folderListData = useFetchData("folderListDataFetch");
 
   return (
     <>
-      <Nav currentUserData={currentUserData} />
-      <AddLink />
-      <FolderDetails folderListData={folderListData} />
+      <Nav profileData={profileData} />
+      <LinkAdd />
+      <FolderDetail folderListData={folderListData} />
       <Footer />
     </>
   );
 }
+
+export default Folder;

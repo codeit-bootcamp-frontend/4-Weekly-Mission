@@ -1,4 +1,4 @@
-const getFormattedDate = date => {
+const getFormattedDate = (date) => {
   const dateObject = new Date(date);
 
   const year = dateObject.getFullYear();
@@ -8,7 +8,7 @@ const getFormattedDate = date => {
   return `${year}. ${month}. ${day}`;
 };
 
-const getTimeAgo = date => {
+const getTimeAgo = (date) => {
   const now = new Date();
   const createdDate = new Date(date);
 
@@ -22,23 +22,23 @@ const getTimeAgo = date => {
 
   switch (true) {
     case secondsDifference < 120:
-      return '1 minute ago';
+      return "1 minute ago";
     case minutesDifference <= 59:
       return `${minutesDifference} minutes ago`;
     case hoursDifference < 2:
-      return '1 hour ago';
+      return "1 hour ago";
     case hoursDifference <= 23:
       return `${hoursDifference} hours ago`;
     case daysDifference < 2:
-      return '1 day ago';
+      return "1 day ago";
     case daysDifference <= 30:
       return `${daysDifference} days ago`;
     case monthsDifference < 2:
-      return '1 month ago';
+      return "1 month ago";
     case monthsDifference <= 11:
       return `${monthsDifference} months ago`;
     case yearsDifference < 2:
-      return '1 year ago';
+      return "1 year ago";
     default:
       return `${Math.floor(yearsDifference)} years ago`;
   }
