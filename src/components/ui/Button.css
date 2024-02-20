@@ -1,0 +1,32 @@
+.btn-gnb {
+  width: 128px;
+  padding: 16px 20px;
+  font-size: 18px;
+}
+
+.btn-add {
+  width: 80px;
+  padding: 10px 6px;
+  font-size: 14px;
+}
+
+.btn-header {
+  width: 350px;
+  padding: 16px 20px;
+  font-size: 18px;
+}
+
+/* Moblie */
+@media (max-width: 767px) {
+  .btn-gnb {
+    width: 80px;
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  .btn-header {
+    width: 200px;
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+}

@@ -1,9 +1,12 @@
-.profile {
+.header-shared {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  width: 100%;
+  padding: 20px 0 60px;
   gap: 20px;
-  width: 205px;
+  background: var(--Linkbrary-bg);
 }
 
 .profile-data {
@@ -20,12 +23,11 @@
 
 .profile-name {
   color: var(--text-color-light-mode);
-  /* Linkbrary/body1-regular */
   font-family: Pretendard;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; /* 150% */
+  line-height: 24px;
 }
 
 .folder-name {
@@ -42,13 +44,16 @@
 /* Moblie */
 
 @media (max-width: 767px) {
+  .header-shared {
+    padding: 20px 0 40px;
+  }
+
   .profile-img {
     width: 40px;
     height: 40px;
   }
 
   .profile-name {
-    /* Linkbrary/body2-regular */
     font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
@@ -56,7 +61,6 @@
     line-height: normal;
   }
   .folder-name {
-    /* Linkbrary/h2-semibold */
     font-family: Pretendard;
     font-size: 32px;
     font-style: normal;
