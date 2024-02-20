@@ -1,6 +1,10 @@
 import "./FolderButtons.css";
 
-const FolderButtons = ({ folderList, handleFolderClick }) => (
+const FolderButtons = ({
+  folderList,
+  handleFolderClick,
+  currentFolderName,
+}) => (
   <>
     <button className="folderButton" onClick={() => handleFolderClick()}>
       전체
@@ -8,7 +12,11 @@ const FolderButtons = ({ folderList, handleFolderClick }) => (
     {folderList.map((folder) => (
       <button
         key={folder.id}
-        className="folderButton"
+        className={
+          currentFolderName === folder.name
+            ? "folderButton selected"
+            : "folderButton"
+        }
         onClick={() => handleFolderClick(folder.id)}
       >
         {folder.name}

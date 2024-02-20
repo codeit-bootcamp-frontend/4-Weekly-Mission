@@ -45,6 +45,7 @@ const FolderList = () => {
           <FolderButtons
             folderList={folderList}
             handleFolderClick={handleFolderClick}
+            currentFolderName={selectedFolderName}
           />
         </div>
         <button className="addFolderButton">
