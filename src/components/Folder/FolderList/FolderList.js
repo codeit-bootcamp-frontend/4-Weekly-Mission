@@ -3,7 +3,13 @@ import "./FolderList.css";
 
 const FolderList = ({ folderList, onSelectFolderList, selectId }) => {
   const handleClickFolderList = (e) => {
-    const folderId = e.target.id === "null" ? null : parseInt(e.target.id);
+    let folderId;
+
+    if (e.target.id === "null") {
+      folderId = null;
+    } else {
+      folderId = parseInt(e.target.id);
+    }
     onSelectFolderList({ name: e.target.textContent, id: folderId });
   };
 
@@ -11,9 +17,7 @@ const FolderList = ({ folderList, onSelectFolderList, selectId }) => {
     <div className="folderList">
       <div className="folderList-content">
         <span
-          className={`folderList-button ${
-            selectId === null || isNaN(selectId) ? "selected" : ""
-          }`}
+          className={`folderList-button ${!selectId ? "selected" : ""}`}
           onClick={handleClickFolderList}
           id={null}
         >
