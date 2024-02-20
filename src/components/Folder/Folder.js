@@ -60,7 +60,7 @@ function Folder() {
             />
           </div>
         </div>
-        {selectedFolder && selectedFolder === "전체" && (
+        {selectedFolder && (
           <SelectedOption
             selectedFolder={selectedFolder}
             activeButton={activeButton}
