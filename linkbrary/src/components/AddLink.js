@@ -1,6 +1,5 @@
 import { styled } from "styled-components";
 import linkImgSrc from "../assets/link.svg";
-import InputButton from "../functions/InputButton";
 
 function AddLink() {
   return (
@@ -24,13 +23,20 @@ const BackGround = styled.div`
 
 const InputBox = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 800px;
+  height: 67px;
   padding: 16px 20px;
   border-radius: 15px;
   border: 1px solid var(--primary);
   background: var(--white);
   margin: 60px auto 90px;
-  flex-direction: row;
+
+  img {
+    width: 2rem;
+    height: 2rem;
+  }
 
   @media (max-width: 1199px) {
     width: 704px;
@@ -63,4 +69,19 @@ const Input = styled.input`
       font-size: 14px;
     }
   }
+`;
+
+const InputButton = styled.button`
+  width: 80px;
+  padding: 10px 26px;
+  border-radius: 8px;
+  color: #fff;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
