@@ -1,4 +1,4 @@
-import { useGetUser } from "data-access/useGetUser";
+import { useGetUser } from "hooks/useGetUser";
 import { Footer } from "../Footer";
 import { NavigationBar } from "../NavigationBar";
 

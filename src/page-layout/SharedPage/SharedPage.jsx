@@ -3,7 +3,7 @@ import { SearchBar } from "ui/SearchBar";
 import { CardList } from "ui/CardList";
 import { Layout } from "feature/Layout";
 import { ReadOnlyCard } from "ui/ReadOnlyCard";
-import { useGetFolder } from "data-access/useGetFolder";
+import { useGetFolder } from "hooks/useGetFolder";
 import "./SharedPage.css";
 
 export const SharedPage = () => {

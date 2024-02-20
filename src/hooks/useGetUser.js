@@ -1,4 +1,4 @@
-import { useAsync } from "../util/useAsync";
+import { useAsync } from "./useAsync";
 import { axiosInstance } from "util/axiosInstance";
 import { DEFAULT_PROFILE } from "util/constant";
 

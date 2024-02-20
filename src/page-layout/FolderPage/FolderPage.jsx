@@ -3,8 +3,8 @@ import { Layout } from "feature/Layout";
 import { SearchBar } from "ui/SearchBar";
 import { CardList } from "ui/CardList";
 import { EditableCard } from "ui/EditableCard";
-import { useGetLink } from "data-access/useGetLink";
-import { useGetFolderByLink } from "data-access/useGetFolderByLink";
+import { useGetLink } from "hooks/useGetLink";
+import { useGetFolderByLink } from "hooks/useGetFolderByLink";
 import { Category } from "ui/Category";
 import { EditLink } from "ui/EditLink";
 

@@ -1,7 +1,6 @@
 import { ROUTE } from "util/constant";
 import { Cta } from "../../ui/Cta";
 import { Profile } from "../../ui/Profile";
-import { LOGO_IMAGE, TEXT } from "./constant";
 import "./NavigationBar.css";
 
 export const NavigationBar = ({ profile, isNavFixed }) => {
@@ -12,7 +11,7 @@ export const NavigationBar = ({ profile, isNavFixed }) => {
         <a href={ROUTE.랜딩}>
           <img
             className="NavigationBar-logo"
-            src={LOGO_IMAGE}
+            src="images/linkbrary.svg"
             alt="Linkbrary 서비스 로고"
           />
         </a>
@@ -21,7 +20,7 @@ export const NavigationBar = ({ profile, isNavFixed }) => {
         ) : (
           <a href={ROUTE.로그인}>
             <Cta isSmall>
-              <span className="NavigationBar-signin">{TEXT.login}</span>
+              <span className="NavigationBar-signin">로그인</span>
             </Cta>
           </a>
         )}

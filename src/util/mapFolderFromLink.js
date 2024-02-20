@@ -21,7 +21,7 @@ export const mapFolderFromLink = (data) => {
       alt: `${title ?? url}의 대표 이미지`,
       elapsedTime: getElapsedTime(createdAt),
       description,
-      createdAt: format(new Date(createdAt), "yyyy. MM. dd"),
+      createdAt: format(createdAt, "yyyy. MM. dd"),
     };
   };
 
