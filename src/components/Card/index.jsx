@@ -9,7 +9,7 @@ export default function Card({ link }) {
   const imageSource = "imageSource" in link ? "imageSource" : "image_source";
 
   return (
-    <a href={link.url} target="_blank">
+    <a href={link.url} target="_blank" rel="noreferrer">
       <div className={styles.link}>
         <div className={styles["link-cover"]}>
           <img src={link[imageSource] || noImg} alt="cardCover" />:
@@ -22,12 +22,12 @@ export default function Card({ link }) {
             <p className={styles["link-update"]}>
               {getTimeAgo(link[createdAt])}
             </p>
-            <button className={styles.kebabBtn}>
+            <button className={styles.moreBtn}>
               <img src={kebabImg} alt="kebabImg" />
             </button>
           </div>
           <h2 className={styles["link-title"]}>
-            {link.title === null ? "제목없음" : link.title}
+            {!link.title ? "제목없음" : link.title}
           </h2>
           <p className={styles["link-description"]}>{link.description}</p>
           <p className={styles["link-date"]}>{formatDate(link[createdAt])}</p>
