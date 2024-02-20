@@ -21,6 +21,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
-//야
