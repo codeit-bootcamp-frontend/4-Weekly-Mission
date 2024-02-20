@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useGetFolderById } from "../../hooks/useGetFolder";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Folder.css";
@@ -11,6 +11,12 @@ function Folder() {
 
   const [activeButton, setActiveButton] = useState("전체");
   const [selectedFolder, setSelectedFolder] = useState("");
+
+  useEffect(() => {
+    if (selectedFolder === "" && dataArray && dataArray.length > 0) {
+      setSelectedFolder("전체");
+    }
+  }, [selectedFolder, dataArray]);
 
   const handleButtonClick = (name) => {
     setActiveButton(name);
@@ -54,13 +60,13 @@ function Folder() {
             />
           </div>
         </div>
-        {selectedFolder && (
+        {selectedFolder && selectedFolder === "전체" && (
           <SelectedOption
             selectedFolder={selectedFolder}
             activeButton={activeButton}
           />
         )}
-        <FolderList />
+        {selectedFolder === "전체" && <FolderList />}
       </div>
     </div>
   );
