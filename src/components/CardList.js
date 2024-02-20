@@ -1,4 +1,4 @@
-import baseImg from "../assets/base.png";
+import baseImg from "../assets/png/base.png";
 
 function CardListItem(item) {
   const createdAtDate = new Date(item.item.createdAt).toISOString().split("T")[0];

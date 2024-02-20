@@ -1,5 +1,5 @@
-import logoImg from "../assets/logo.svg";
-import profileImg from "../assets/profile.png";
+import logoImg from "../assets/svg/logo.svg";
+import profileImg from "../assets/png/profile.png";
 
 function Gnb(props) {
   let hasUserData = props.hasUserData;
