@@ -5,7 +5,6 @@ const FolderInfo = ({ profile }) => {
   const { name: folderName } = profile || {};
   return (
     <div className="folderInfo">
-      {console.log(ownerName)};
       <img
         className="folderInfo-profile"
         src={profileImageSource}
