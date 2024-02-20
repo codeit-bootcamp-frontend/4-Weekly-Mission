@@ -11,6 +11,7 @@ import AddFolderButton from '../../components/Common/AddFolderButton';
 
 function Folder() {
   const sortingSectionClasses = classNames(styles['sorting-section'], 'flex-row');
+  const addFolderButtonClasses = classNames(styles['add-folder-button']);
 
   return (
     <div>
@@ -21,7 +22,7 @@ function Folder() {
         <SearchBar />
         <div className={sortingSectionClasses}>
           <SortingButtonList />
-          <AddFolderButton />
+          <AddFolderButton className={addFolderButtonClasses} />
         </div>
         <CardList />
       </Main>
