@@ -1,0 +1,161 @@
+.link-list {
+  display: grid;
+  grid-template-columns: 22rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 106rem;
+  row-gap: 2rem;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(auto-fill, 21rem);
+    row-gap: 2.5rem;
+    column-gap: 2rem;
+  }
+  @media (min-width: 1124px) {
+    grid-template-columns: repeat(3, 21rem);
+    row-gap: 2.5rem;
+    column-gap: 2rem;
+  }
+}
+
+.all-button,
+.folder-button {
+  background-color: white;
+  border: 1px solid var(--primary);
+  color: black;
+  border-radius: 4px;
+  margin: 0 8px 8px 0;
+  padding: 8px;
+  cursor: pointer;
+}
+.all-button.color,
+.folder-button.color {
+  background-color: var(--primary);
+  color: white;
+}
+
+.folder-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  width: min(340px, 100%);
+  margin: 32px auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.add-folder {
+  display: none;
+}
+
+.no-links-data {
+  height: 350px;
+}
+
+.current-folder-name {
+  width: min(340px, 100%);
+  margin: 32px auto 8px;
+  font-weight: 900;
+  font-size: 20px;
+}
+.share-rename-delete {
+  width: min(340px, 100%);
+  margin: 8px auto;
+
+  flex-grow: 1;
+}
+.share-rename-delete-button {
+  color: var(--gray60);
+  background-color: white;
+  border: none;
+  margin: 4px;
+  cursor: pointer;
+}
+.floating-add-folder {
+  position: fixed;
+  bottom: 101px;
+  left: 50%;
+  width: 130px;
+  height: 39px;
+  border-radius: 9999px;
+  border: none;
+  background-color: var(--primary);
+  color: #fff; /* 버튼의 텍스트 색상 */
+  text-align: center;
+  line-height: 39px;
+  font-size: 20px;
+  cursor: pointer;
+  transform: translateX(
+    -50%
+  ); /* 가로 방향으로의 이동을 조정하여 정확한 중앙 위치로 조정 */
+  z-index: 999;
+}
+.star {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
+}
+.kebab {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+.kebab-menus {
+  position: absolute;
+  top: 30px;
+  right: -60px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+  width: 100px;
+  z-index: 1;
+}
+.kebab-menu {
+  background-color: white;
+  border: none;
+  height: 30px;
+  cursor: pointer;
+}
+.kebab-menu:hover {
+  background-color: var(--gray10);
+  color: var(--primary);
+}
+@media (min-width: 768px) {
+  .folder-buttons,
+  .current-folder-name-share-rename-delete {
+    width: 700px;
+    margin: 32px auto;
+  }
+  .add-folder {
+    display: block;
+    margin: 8px 0;
+    color: var(--primary);
+    background-color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .share-rename-delete {
+    text-align: right;
+  }
+  .share-rename-delete,
+  .current-folder-name {
+    margin: 0;
+  }
+  .current-folder-name-share-rename-delete {
+    display: flex;
+  }
+  .floating-add-folder {
+    display: none;
+  }
+}
+@media (min-width: 1124px) {
+  .folder-buttons,
+  .current-folder-name-share-rename-delete {
+    width: 1060px;
+  }
+}

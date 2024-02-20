@@ -21,26 +21,31 @@ h2 {
 .card {
   border-radius: 16px;
   width: min(340px, 100%);
-  height: 400px;
+  height: 350px;
   box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.1);
 }
 
 .card-image {
   width: 100%;
-  height: 250px;
+  height: 200px;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+  background-position: center;
+  background-size: 100%;
+  transition: background-size 0.3s ease-in-out;
+  position: relative;
 }
 .card-content {
   padding: 15px 20px;
   height: 150px;
   background-color: white;
+  position: relative;
 }
-.card:hover {
-  transform: scale(1.2);
-  transition: transform 0.3s ease;
+.card:hover .card-image {
+  background-size: 130%;
   z-index: 1;
 }
+
 a {
   text-decoration: none;
   color: black;
@@ -49,7 +54,7 @@ a {
   ul {
     display: grid;
     grid-template:
-      400px 400px/
+      350px 350px/
       340px 340px;
   }
 }
@@ -58,7 +63,7 @@ a {
   ul {
     display: grid;
     grid-template:
-      400px 400px 400px/
+      350px 350px 350px/
       340px 340px 340px;
   }
 }
