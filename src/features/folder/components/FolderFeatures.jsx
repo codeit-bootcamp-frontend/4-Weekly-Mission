@@ -5,7 +5,7 @@ import ShareIcon from "assets/images/icon/feature-share.svg"
 import DeleteIcon from "assets/images/icon/feature-delete.svg"
 import NameEditIcon from "assets/images/icon/feature-edit.svg"
 
-const FeatureListImage = [
+const FeatureList = [
   { id: 1, imageSource: ShareIcon, title: "공유" },
   { id: 3, imageSource: NameEditIcon, title: "이름변경" },
   { id: 2, imageSource: DeleteIcon, title: "삭제" },
@@ -14,7 +14,7 @@ const FeatureListImage = [
 function FolderFeatures() {
   return (
     <S.Features>
-      {FeatureListImage.map((item) => (
+      {FeatureList.map((item) => (
         <S.FeatureItem key={item.id}>
           <img src={item.imageSource} alt="" />
           <span>{item.title}</span>
