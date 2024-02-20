@@ -1,7 +1,7 @@
 import useFolderList from "../../hooks/useFolderList.js";
 import "./FolderList.css";
 import CardList from "../CardList.js";
-import { getFolderLinks } from "../../api.js";
+import { getFolderLinks, fetchFolderLinks } from "../../api.js";
 import { useState, useEffect } from "react";
 import UtilIcons from "./UtilIcons.js";
 import add from "../../assets/add.svg";
@@ -12,25 +12,29 @@ const FolderList = () => {
   const [items, setItems] = useState([]);
   const [selectedFolderName, setSelectedFolderName] = useState("");
 
-  const handleLoadMockData = async () => {
+  const handleLoadAllLinksData = async () => {
     const { data } = await getFolderLinks();
     setItems(data);
   };
 
   useEffect(() => {
-    handleLoadMockData();
+    handleLoadAllLinksData();
   }, []);
 
-  const handleFolderClick = (folderId) => {
+  const handleFolderClick = async (folderId) => {
     if (!folderId) {
-      handleLoadMockData();
+      handleLoadAllLinksData();
       setSelectedFolderName("");
     } else {
       setSelectedFolderName(
         folderList.find((folder) => folder.id === folderId)?.name
       );
-      // assume JSON provides necessary data in folder.links
-      setItems(folderList.find((folder) => folder.id === folderId)?.links);
+      try {
+        const { links } = await fetchFolderLinks(folderId);
+        setItems(links);
+      } catch (error) {
+        setItems([]);
+      }
     }
   };
 

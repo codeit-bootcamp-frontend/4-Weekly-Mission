@@ -21,3 +21,7 @@ export async function getFolderList() {
 export async function getFolderLinks() {
   return fetchData("users/1/links");
 }
+
+export async function fetchFolderLinks(folderId) {
+  return fetchData(`users/1/links?${folderId}`);
+}
