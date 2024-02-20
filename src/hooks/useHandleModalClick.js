@@ -4,7 +4,6 @@ export default function useHandleModalClick(modalRef, handleModalClose) {
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
-        console.log("hello");
         handleModalClose();
       }
     };
