@@ -26,9 +26,9 @@ function FolderContent() {
             category={[{ name: '전체', id: '0' }, ...folderCategory]}
             currentCategory={currentCategory}
             handleCategoryButton={handleCategoryButton}
-          ></FolderCategory>
-          <FolderTitle currentCategory={currentCategory}></FolderTitle>
-          {folderCards && <FolderCards folder={folderCards}></FolderCards>}
+          />
+          <FolderTitle currentCategory={currentCategory} />
+          {folderCards && <FolderCards folder={folderCards} />}
         </>
       ) : (
         <div className="content-wrapper">저장된 링크가 없습니다.</div>

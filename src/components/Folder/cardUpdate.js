@@ -1,4 +1,4 @@
-export const upDateStauts = (createdDate) => {
+export const updateStatus = (createdDate) => {
   const currentTime = new Date().getTime();
   const createdTime = new Date(createdDate).getTime();
   const timeDiffMinute = (currentTime - createdTime) / (1000 * 60);

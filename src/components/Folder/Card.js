@@ -2,7 +2,8 @@ import React from 'react';
 import defaultImg from '../../images/non_image.svg';
 import starImg from '../../images/star.svg';
 import kebabImg from '../../images/kebab.svg';
-import { upDateStauts } from './cardUpdate';
+import { updateStatus } from './cardUpdate';
+import { Link } from 'react-router-dom';
 
 export default function Card({
   imageSource,
@@ -13,11 +14,11 @@ export default function Card({
 }) {
   const date = new Date(createdAt).toLocaleDateString();
 
-  const dataStatus = upDateStauts(createdAt);
+  const dataStatus = updateStatus(createdAt);
 
   return (
     <div className="card">
-      <a href={url} target="_blank" rel="noreferrer">
+      <Link to={url}>
         <section>
           <div className="card-image">
             <img
@@ -26,7 +27,7 @@ export default function Card({
               alt="card"
               width="340"
               height="200"
-            ></img>
+            />
             {folder && (
               <img
                 className="card-star-button"
@@ -34,7 +35,7 @@ export default function Card({
                 alt="star"
                 width={34}
                 height={34}
-              ></img>
+              />
             )}
           </div>
           <div className="card-content">
@@ -43,14 +44,14 @@ export default function Card({
                 {createdAt ? dataStatus : null}
               </p>
               {folder && (
-                <img src={kebabImg} alt="star" width={21} height={17}></img>
+                <img src={kebabImg} alt="star" width={21} height={17} />
               )}
             </div>
             <p className="card-description">{description}</p>
             <p className="card-date">{date}</p>
           </div>
         </section>
-      </a>
+      </Link>
     </div>
   );
 }

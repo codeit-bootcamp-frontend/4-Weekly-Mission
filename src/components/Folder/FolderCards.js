@@ -17,7 +17,7 @@ export const FolderCards = ({ folder }) => {
                   description={folderData.description}
                   url={folderData.url}
                   folder
-                ></Card>
+                />
               )
           )
         ) : (

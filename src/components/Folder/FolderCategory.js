@@ -29,7 +29,7 @@ function FolderCategory({ category, currentCategory, handleCategoryButton }) {
 
         <AddButtonWrapper>
           <AddButtonText>폴더 추가</AddButtonText>
-          <AddButtonImage></AddButtonImage>
+          <AddButtonImage />
         </AddButtonWrapper>
       </TitleWrapper>
     </>

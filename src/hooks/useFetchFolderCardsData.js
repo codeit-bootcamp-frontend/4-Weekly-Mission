@@ -7,8 +7,7 @@ const fetchFolderCardsData = async (folderId) => {
       if (!response.ok) {
         throw new Error('response 전달 실패');
       }
-      const data = await response.data.json();
-      return data;
+      return response.data.json();
     } catch (error) {
       console.error('에러 발생:', error);
       return null;
@@ -21,8 +20,7 @@ const fetchFolderCardsData = async (folderId) => {
       if (!response.ok) {
         throw new Error('response 전달 실패');
       }
-      const data = await response.data.json();
-      return data;
+      return response.data.json();
     } catch (error) {
       console.error('에러 발생:', error);
       return null;
