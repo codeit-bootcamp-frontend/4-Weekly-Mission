@@ -55,6 +55,22 @@ a {
   font-size: 16px;
 }
 
+.font-24px {
+  font-size: 24px;
+}
+
 .font-40px {
   font-size: 40px;
+}
+
+.font-color-primary {
+  color: var(--color-primary);
+}
+
+.margin-auto {
+  margin: auto;
+}
+
+.component-default-margin {
+  margin-top: 108px;
 }

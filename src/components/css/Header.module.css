@@ -14,7 +14,7 @@ header {
   background-color: var(--color-background);
 }
 
-.btn-gradient {
+.btn_gradient {
   padding: 13px 32px;
 
   background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
@@ -23,7 +23,7 @@ header {
   color: var(--color-white);
 }
 
-.profile-container {
+.profile_container {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -42,7 +42,7 @@ header {
     padding: 30px 32px;
   }
 
-  .profile-txt {
+  .profile_txt {
     display: none;
   }
 }
