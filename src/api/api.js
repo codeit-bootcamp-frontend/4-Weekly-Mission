@@ -10,7 +10,7 @@ export async function getUserInfo() {
   return body;
 }
 
-export async function getCards() {
+export async function getFolders() {
   const response = await fetch(`${process.env.REACT_APP_BASE_URL}/folder`);
 
   if (!response.ok) {
