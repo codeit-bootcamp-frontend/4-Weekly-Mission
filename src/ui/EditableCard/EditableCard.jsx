@@ -37,3 +37,6 @@ export const EditableCard = ({
     </a>
   );
 };
+
+///TODO///
+/// readonly와 editable 컴포넌트 합치기
