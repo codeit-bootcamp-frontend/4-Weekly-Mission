@@ -40,7 +40,7 @@ function Folder() {
       <LinkAddInput />
       <div className={style.mainContent}>
         <SearchBar />
-        {folderList ? (
+        {folderList.length ? (
           <>
             <FolderList folderList={folderList} onClick={setFolderId} />
             <LinkList linkList={linkList} />

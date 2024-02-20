@@ -2,7 +2,7 @@ import style from '../styles/LinkCard.module.css';
 import { dateParse, diffDate } from '../utils/date';
 import noImg from '../assets/no-image-link.png';
 import starDefault from '../assets/star-Default.svg';
-import starSelected from '../assets/star-Selected.svg';
+import starSelected from '../assets/star-Selected.svg'; // svg조작으로 색상변경시 필요x
 import kebabImg from '../assets/kebab.svg';
 
 function LinkCard({ data }) {

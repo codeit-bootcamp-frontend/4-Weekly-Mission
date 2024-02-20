@@ -1,42 +1,42 @@
-import style from '../styles/FolderList.module.css';
+import { useState } from 'react';
 import changeNameImg from '../assets/folderChangeName.svg';
 import deleteImg from '../assets/folderDelete.svg';
 import sharedImg from '../assets/folderShared.svg';
-import { useState } from 'react';
+import {classNames, cond} from '../utils/style'
+import style from '../styles/FolderList.module.css';
 
-const INIT_ACTIVEFOLDER = {
+const INIT_ACTIVE_FOLDER = {
   name: '전체',
   id: '',
 };
 
 function FolderList({ folderList, onClick }) {
-  const [activeFolderInfo, setActiveFolderInfo] = useState(INIT_ACTIVEFOLDER);
-  const handleClick = (item) => {
-    onClick(item.id);
-    setActiveFolderInfo({ ...item });
+  const [activeFolderInfo, setActiveFolderInfo] = useState(INIT_ACTIVE_FOLDER);
+  const handleFolderClick = (folder) => { // 커링적용 예정
+    onClick(folder.id);
+    setActiveFolderInfo({ ...folder });
   };
   return (
     <div className={style.folderList}>
       <div className={style.flexBox}>
-        <div className={`${style.flexBox} ${style.buttonWrap}`}>
+        <div className={classNames(style.flexBox, style.buttonWrap)}>
           <button
-            className={`${style.folderBtn} ${activeFolderInfo.id === '' ? style.active : ''}`}
+            className={classNames(style.folderBtn, cond(activeFolderInfo.id === '', style.active))}
             onClick={() => {
-              setActiveFolderInfo(INIT_ACTIVEFOLDER);
+              setActiveFolderInfo(INIT_ACTIVE_FOLDER);
               onClick('');
             }}
           >
             전체
           </button>
-          {folderList &&
-            folderList.map((item, idx) => {
+          {folderList.map((item, idx) => {
               return (
                 <button
-                  key={item?.id}
-                  className={`${style.folderBtn} ${activeFolderInfo.id === item?.id ? style.active : ''}`}
-                  onClick={() => handleClick(item)}
+                  key={item.id}
+                  className={classNames(style.folderBtn, cond(activeFolderInfo.id === item.id, style.active))}
+                  onClick={() => handleFolderClick(item)}
                 >
-                  {item?.name}
+                  {item.name}
                 </button>
               );
             })}
