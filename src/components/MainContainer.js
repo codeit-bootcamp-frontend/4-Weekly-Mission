@@ -11,6 +11,7 @@ const MainContainer = () => {
   const [folderName, setFolderName] = useState("전체");
 
   const sortedLinks = [...links].sort((a, b) => a.id - b.id);
+
   const userFolderLinks = folderId ? `?folderId=${folderId}` : "";
 
   useEffect(() => {
