@@ -37,14 +37,16 @@
   cursor: pointer;
 }
 
-.folderAddBtn.floating {
-  color: white;
-  background-color: #6d6afe;
-  position: fixed;
-  z-index: 1;
-  bottom: 101px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px 20px;
-  border-radius: 20px;
+@media (max-width: 580px) {
+  .folderAddBtn {
+    color: white;
+    background-color: #6d6afe;
+    position: fixed;
+    z-index: 1;
+    bottom: 101px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 20px;
+  }
 }

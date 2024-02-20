@@ -6,8 +6,6 @@ export default function FolderCategory({
   selectedId,
   onSelectedFolder,
 }) {
-  const [windowSize] = useWindowSize();
-
   const handleClick = (e) => {
     onSelectedFolder({ name: e.target.textContent, id: e.target.id });
   };
@@ -34,13 +32,7 @@ export default function FolderCategory({
           </span>
         ))}
       </div>
-      <span
-        className={`${styles.folderAddBtn} ${
-          windowSize < 580 ? styles.floating : ""
-        }`}
-      >
-        폴더 추가+
-      </span>
+      <span className={styles.folderAddBtn}>폴더 추가+</span>
     </div>
   );
 }
