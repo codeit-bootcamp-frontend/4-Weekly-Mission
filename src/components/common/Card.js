@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { getFormattedDate, getTimeAgo } from '../../utils/date.js';
 import RemoveModal from './modal/RemoveModal.js';
+import AddLinkModal from './modal/AddLinkModal.js';
 import noImage from '../../images/noImage.svg';
 import kebab from '../../images/kebab.svg';
 import emptyStar from '../../images/emptyStar.svg';
 import './Card.css';
 
-export default function Card({ cardData, selectedCardId, setSelectedCardId }) {
+export default function Card({ cardData, selectedCardId, setSelectedCardId, folderNameAndLinkList }) {
   const [modals, setModals] = useState({
     removeModal: false,
+    addLinkModal: false,
   });
 
   const toggleModal = modalName => {
@@ -46,7 +48,7 @@ export default function Card({ cardData, selectedCardId, setSelectedCardId }) {
           {selectedCardId === cardData.id && (
             <div className="popOver">
               <div onClick={e => handleModalClose(e, 'removeModal')}>삭제하기</div>
-              <div>폴더에 추가</div>
+              <div onClick={e => handleModalClose(e, 'addLinkModal')}>폴더에 추가</div>
             </div>
           )}
         </div>
@@ -58,6 +60,13 @@ export default function Card({ cardData, selectedCardId, setSelectedCardId }) {
           modalTitle="링크 삭제"
           titleContent={cardData.url}
           onClose={e => handleModalClose(e, 'removeModal')}
+        />
+      )}
+      {modals.addLinkModal && (
+        <AddLinkModal
+          folderNameAndLinkList={folderNameAndLinkList}
+          linkUrl={cardData.url}
+          onClose={e => handleModalClose(e, 'addLinkModal')}
         />
       )}
     </a>

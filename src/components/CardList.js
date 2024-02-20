@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import Card from './common/Card';
 import './CardList.css';
 
-export default function CardList({ cardDataList = [] }) {
+export default function CardList({ cardDataList = [], folderNameAndLinkList = [] }) {
   const [selectedCardId, setSelectedCardId] = useState(null);
 
   useEffect(() => {
@@ -28,6 +28,7 @@ export default function CardList({ cardDataList = [] }) {
             cardData={cardData}
             selectedCardId={selectedCardId}
             setSelectedCardId={setSelectedCardId}
+            folderNameAndLinkList={folderNameAndLinkList}
           />
         ))}
       </div>

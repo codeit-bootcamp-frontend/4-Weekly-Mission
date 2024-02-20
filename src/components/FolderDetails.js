@@ -21,6 +21,7 @@ export default function FolderDetails({ folderListData }) {
   });
 
   const selectedFolderLinkListData = useFetchData('targetUserFolderLinkList', 1, selectedFolder) || [];
+  const folderNameAndLinkList = folderListData?.map(({ name, link, id }) => [name, link.count, id]);
   const selectedFolderName = folderListData?.find(({ id }) => id === selectedFolder)?.name || 'all';
 
   const toggleModal = modalName => {
@@ -93,7 +94,7 @@ export default function FolderDetails({ folderListData }) {
           </div>
         )}
       </div>
-      <CardList cardDataList={selectedFolderLinkListData} />
+      <CardList cardDataList={selectedFolderLinkListData} folderNameAndLinkList={folderNameAndLinkList} />
       {modals.addModal && (
         <EditAndAddModal modalTitle="폴더 추가" buttonText="추가하기" onClose={() => toggleModal('addModal')} />
       )}
