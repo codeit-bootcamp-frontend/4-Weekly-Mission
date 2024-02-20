@@ -1,0 +1,49 @@
+.wrapper {
+  /* max-width: 1540px; */
+  padding: 0px 200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1199px) {
+  .wrapper {
+    max-width: 832px;
+    padding: 0px 32px;
+    margin: 0 auto;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.folderName {
+  font-weight: bold;
+  font-size: 1.9rem;
+}
+
+.controlMenu {
+  display: flex;
+  gap: 10px;
+}
+
+.controlMenuItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 1.2rem;
+  color: #9fa6b2;
+  cursor: pointer;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 580px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}

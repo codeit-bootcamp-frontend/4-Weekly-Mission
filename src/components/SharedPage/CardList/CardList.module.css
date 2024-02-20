@@ -1,0 +1,28 @@
+.card-container {
+  /* max-width: 1540px; */
+  padding: 0px 200px 40px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px;
+  row-gap: 20px;
+}
+
+.noSavedLink {
+  width: 100%;
+  padding: 10rem;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.4rem;
+}
+
+@media (max-width: 1199px) {
+  .card-container {
+    max-width: 832px;
+    padding: 0px 32px 40px;
+    margin: 0 auto;
+  }
+}
