@@ -6,6 +6,7 @@ import SearchBar from '../../components/Main/SearchBar';
 import CardList from '../../components/Main/CardList';
 import FolderHeaderContent from '../../components/Header/FolderHeaderContent';
 import SortingButtonList from '../../components/Main/SortingButtonList';
+import AddFolderButton from '../../components/Common/AddFolderButton';
 
 function Folder() {
   return (
@@ -16,6 +17,7 @@ function Folder() {
       <Main>
         <SearchBar />
         <SortingButtonList />
+        <AddFolderButton />
         <CardList />
       </Main>
       <Footer />

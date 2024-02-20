@@ -4,11 +4,16 @@ import Button from './Button';
 import AddIcon from '../../assets/images/add.svg';
 
 function AddFolderButton({ className, onClick }) {
-  const buttonClasses = classNames(styles['add-folder-button'], 'text-color-primary', className);
+  const buttonClasses = classNames(
+    styles['add-folder-button'],
+    'text-color-primary',
+    'background-white',
+    'flex-row',
+    className
+  );
   const iconClasses = classNames(styles['add-folder-icon']);
   const button = (
-    <Button className={buttonClasses} onClick={onClick}>
-      폴더 추가
+    <Button className={buttonClasses} text="폴더 추가" onClick={onClick}>
       <img className={iconClasses} src={AddIcon} alt="AddIcon" />
     </Button>
   );
