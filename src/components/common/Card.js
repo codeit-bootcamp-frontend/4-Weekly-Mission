@@ -4,7 +4,11 @@ import kebab from '../../images/kebab.svg';
 import emptyStar from '../../images/emptyStar.svg';
 import './Card.css';
 
-export default function Card({ cardData }) {
+export default function Card({ cardData, selectedCardId, setSelectedCardId }) {
+  const handlePopOver = e => {
+    e.preventDefault();
+    setSelectedCardId(cardData.id);
+  };
   return (
     <a href={cardData.url} target="_blank" rel="noopener noreferrer" className="cardBox">
       <div className="cardThumbnailContainer">
@@ -18,7 +22,15 @@ export default function Card({ cardData }) {
       <div className="cardDataArea">
         <div className="cardTimeAgo">
           <p>{getTimeAgo(cardData.createdAt || cardData.created_at)}</p>
-          <img src={kebab} alt="케밥" />
+          <button onClick={handlePopOver}>
+            <img src={kebab} alt="케밥" />
+          </button>
+          {selectedCardId === cardData.id && (
+            <div className="popOver">
+              <div>삭제하기</div>
+              <div>폴더에 추가</div>
+            </div>
+          )}
         </div>
         <div className="cardDesc">{cardData.description || 'No Description'}</div>
         <div className="cardCreatedAt">{getFormattedDate(cardData.createdAt || cardData.created_at)}</div>
