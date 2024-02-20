@@ -17,5 +17,14 @@ export const Container = styled.div`
     height: 54px;
     border-radius: 10px;
     border: none;
+
+    color: var(--Text, #666);
+
+    /* Linkbrary/body1-regular */
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
   }
 `;
