@@ -1,10 +1,10 @@
 import { getUser, getFolder } from "../api";
 import "./App.css";
-import NavigationBar from "./NavigationBar";
+import NavigationBar from "../components/NavigationBar";
 import { useEffect, useState } from "react";
-import FolderBar from "./FolderBar";
-import CardSection from "./CardSection";
-import Footer from "./Footer";
+import FolderBar from "../components/FolderBar";
+import CardSection from "../components/CardSection";
+import Footer from "../components/Footer";
 
 function App() {
   const [profile, setProfile] = useState(null);
