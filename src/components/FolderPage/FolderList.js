@@ -9,12 +9,12 @@ import FolderButtons from "./FolderButtons";
 
 const FolderList = () => {
   const folderList = useFolderList();
-  const [items, setItems] = useState([]);
+  const [links, setLinks] = useState([]);
   const [selectedFolderName, setSelectedFolderName] = useState("");
 
   const handleLoadAllLinksData = async () => {
     const { data } = await getFolderLinks();
-    setItems(data);
+    setLinks(data);
   };
 
   useEffect(() => {
@@ -31,9 +31,9 @@ const FolderList = () => {
       );
       try {
         const { links } = await fetchFolderLinks(folderId);
-        setItems(links);
+        setLinks(links);
       } catch (error) {
-        setItems([]);
+        setLinks([]);
       }
     }
   };
@@ -56,8 +56,8 @@ const FolderList = () => {
         {selectedFolderName}
         {selectedFolderName && selectedFolderName.length > 0 && <UtilIcons />}
       </div>
-      {items ? (
-        <CardList items={items} />
+      {links ? (
+        <CardList items={links} />
       ) : (
         <p className="noLink">저장된 링크가 없습니다.</p>
       )}
