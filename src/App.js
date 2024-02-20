@@ -7,7 +7,6 @@ import { CardList } from './ui/CardList';
 import { useGetFolder } from 'data-access/useGetFolder';
 import { ReadOnlyCard } from 'ui/ReadOnlyCard';
 
-
 function App() {
   const { data } = useGetFolder();
   const { profileImage, ownerName, folderName, links } = data || {};
@@ -32,3 +31,4 @@ function App() {
 }
 
 export default App;
+//야
