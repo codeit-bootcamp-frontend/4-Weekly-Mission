@@ -1,24 +1,26 @@
+import { 
+  differenceInDays,
+  differenceInHours,
+  differenceInMinutes,
+  differenceInMonths,
+  differenceInYears
+} from "date-fns";
+
 function diffTime(value) {
   const now = new Date();
   const date = new Date(value);
-  const diff = now - date;
-  const min = Math.floor(diff/1000/60);
-  const hour = Math.floor(diff/1000/60/60);
-  const day = Math.floor(diff/1000/60/60/24);
-  const month = Math.floor(diff/1000/60/60/24/30);
+  const min = differenceInMinutes(now, date);
+  const hour = differenceInHours(now, date);
+  const day = differenceInDays(now, date);
+  const month = differenceInMonths(now, date);
+  const year = differenceInYears(now, date);
 
-  const result = min < 2 ? '1 minute ago'
-  : min < 60 ? `${min} minutes ago`
-  : min === 60 ? '1 hour ago'
-  : hour <= 23 ? `${hour} hours ago`
-  : hour === 24 ? '1 day ago'
-  : day <= 30 ? `${day} days ago`
-  : day === 31 ? '1 month ago'
-  : month <= 11 ? `${month} months ago`
-  : month === 12 ? '1 year ago'
-  : `${Math.floor(month/12)} years ago`;
-
-  return result
+  if (min < 2) return `1 minutes ago`;
+  if (min < 60) return `${min} minutes ago`;
+  if (hour < 24) return `${hour} hours ago`;
+  if (day < 31) return `${day} days ago`;
+  if (month < 12) return `${month} months ago`;
+  if (month >= 12) return `${year} years ago`;
 }
 
 export default diffTime;
