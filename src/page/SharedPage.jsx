@@ -1,26 +1,21 @@
-import { useEffect, useState } from "react";
-import Footer from "../components/Footer/Footer";
-import NavigationBar from "../components/NavigationBar/NavigationBar";
 import { useGetFolder } from "../hooks/useGetFolder";
-import getSample from "../util/getSample";
+
+import styles from "./SharedPage.module.css";
+
+import NavigationBar from "../components/NavigationBar/NavigationBar";
 import Folder from "../components/Folder/Folder";
+import Footer from "../components/Footer/Footer";
 
 const SharedPage = () => {
-  const [folder, setFolder] = useState(null);
   const { data } = useGetFolder();
-  console.log(data ?? "a");
-  useEffect(() => {
-    getSample("folder")
-      .then((res) => {
-        const { folder } = res;
-        return folder;
-      })
-      .then(setFolder);
-  }, []);
+  const { folder } = data ?? {};
+
   return (
     <>
       <NavigationBar />
-      <main className="App__main">{folder && <Folder folder={folder} />}</main>
+      <main className={styles.main}>
+        {folder && <Folder folder={folder} />}
+      </main>
       <Footer />
     </>
   );

@@ -1,5 +1,5 @@
 .NavigationBar {
-  position: fixed;
+  position: sticky;
   display: flex;
   justify-content: center;
   top: 0;
@@ -9,7 +9,7 @@
   background-color: var(--color-bg);
 }
 
-.NavigationBar__items {
+.items {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,7 +31,7 @@
   }
 }
 
-.NavigationBar__logo {
+.logo {
   height: 16px;
 
   @media (min-width: 768px) {
