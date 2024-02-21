@@ -1,12 +1,12 @@
-import "./Profile.css";
+import styles from "./Profile.module.css";
 
 const Profile = ({ profile }) => {
   const { email, image_source } = profile;
 
   return (
-    <div className="Profile">
-      <img className="Profile__image" src={image_source} alt="프로필 사진" />
-      <span className="Profile__email">{email}</span>
+    <div className={styles.Profile}>
+      <img className={styles.image} src={image_source} alt="프로필 사진" />
+      <span className={styles.email}>{email}</span>
     </div>
   );
 };

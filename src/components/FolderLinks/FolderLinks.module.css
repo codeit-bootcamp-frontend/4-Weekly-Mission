@@ -1,4 +1,4 @@
-.FolderLinks__list {
+.list {
   display: grid;
   grid-template-columns: repeat(1fr);
   justify-content: center;
@@ -6,7 +6,7 @@
   width: 100%;
 
   @media (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, 320px);
     column-gap: 20px;
   }
 

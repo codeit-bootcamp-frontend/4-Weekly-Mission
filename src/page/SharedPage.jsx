@@ -3,7 +3,7 @@ import { useGetFolder } from "../hooks/useGetFolder";
 import styles from "./SharedPage.module.css";
 
 import NavigationBar from "../components/NavigationBar/NavigationBar";
-import Folder from "../components/Folder/Folder";
+import SharedFolder from "../components/SharedFolder/SharedFolder";
 import Footer from "../components/Footer/Footer";
 
 const SharedPage = () => {
@@ -14,7 +14,7 @@ const SharedPage = () => {
     <>
       <NavigationBar />
       <main className={styles.main}>
-        {folder && <Folder folder={folder} />}
+        {folder && <SharedFolder folder={folder} />}
       </main>
       <Footer />
     </>

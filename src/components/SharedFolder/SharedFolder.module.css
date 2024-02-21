@@ -1,13 +1,13 @@
 .Folder,
-.Folder__desc,
-.Folder__user {
+.desc,
+.user {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.Folder__desc {
+.desc {
   gap: 10px;
   padding: 10px 0 40px;
   background-color: var(--color-bg);
@@ -18,7 +18,7 @@
   }
 }
 
-.Folder__user {
+.user {
   gap: 6px;
 
   @media (min-width: 768px) {
@@ -26,7 +26,7 @@
   }
 }
 
-.Folder__user-img {
+.user_img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -37,7 +37,7 @@
   }
 }
 
-.Folder__user-name {
+.user_name {
   font-size: 14px;
   line-height: 1.214;
 
@@ -47,7 +47,7 @@
   }
 }
 
-.Folder__title {
+.title {
   font-size: 32px;
   font-weight: 600;
   line-height: 1.1875;
@@ -58,7 +58,7 @@
   }
 }
 
-.Folder__items {
+.items {
   display: flex;
   flex-direction: column;
   gap: 32px;

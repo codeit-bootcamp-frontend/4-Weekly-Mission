@@ -1,15 +1,15 @@
-import "./FolderLinks.css";
+import styles from "./FolderLinks.module.css";
 
 import Card from "../Card/Card";
 
 const FolderLinks = ({ links }) => {
   return (
-    <div className="FolderLinks">
-      <ul className="FolderLinks__list">
+    <div className={styles.FolderLinks}>
+      <ul className={styles.list}>
         {links.map((item) => {
-          const { id, createdAt, url, title, description, imageSource } = item;
+          const { id, url } = item;
           return (
-            <li key={id} className="FolderLinks__item">
+            <li key={id} className={styles.item}>
               <a href={url} target="_blank" rel="noreferrer">
                 <Card {...item} />
               </a>
