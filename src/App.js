@@ -1,15 +1,11 @@
-
 import "./App.css";
-import HomePage from "./pages/Home/index";
-
+import Router from "./components/common/Router";
 
 function App() {
   return (
-    <div className="App">
-
-      <HomePage />
-
-    </div>
+    <>
+      <Router />
+    </>
   );
 }
 

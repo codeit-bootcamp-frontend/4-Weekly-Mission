@@ -1,30 +1,35 @@
 import React from "react";
-import "./css/FolderTitle.css";
+import styles from "./FolderTitle.module.css";
+import Wrapper from "../common/layout/Wrapper";
 
-function FolderTilte({ folderName, owner }) {
-  const { name, profileImageSource } = owner;
+function FolderTilte({ folderObject }) {
+  if (!folderObject) {
+    return null;
+  }
+
+  const { folder } = folderObject;
+  const { name: folderName, owner } = folder;
+  const { profileImageSource, name } = owner;
+
   return (
-    <section className="FolderTitle_container">
-      <div className="FolderTitle_content">
-        <div>
-          {profileImageSource ? (
+    <section className={styles.folderTitle_section}>
+      <Wrapper className={styles.folderTitle_container}>
+        <div className={styles.folderTitle_content}>
+          <div>
             <img
-              src={profileImageSource}
+              src={
+                profileImageSource ?? "Icons/default_user_icon.svg"
+              }
               alt={profileImageSource}
-              className="FolderTitle_img"
+              className={styles.folderTitle_img}
             />
-          ) : (
-            <img
-              src="Icons/default_user_icon.svg"
-              alt="기본 폴더 로고"
-              className="FolderTitle_img"
-            />
-          )}
-
-          <p className="FolderTitle_userName">@{name}</p>
+            <p className={styles.folderTitle_userName}>@{name}</p>
+          </div>
+          <h2 className={styles.folderTitle_folderName}>
+            {folderName}
+          </h2>
         </div>
-        <h2 className="FolderTitle_folderName">{folderName}</h2>
-      </div>
+      </Wrapper>
     </section>
   );
 }

@@ -1,0 +1,147 @@
+.folder_section {
+  width: 100%;
+  font-family: Pretendard;
+}
+
+.folder_container {
+  max-width: 1060px;
+  min-height: 1280px;
+  background-color: var(--color-white);
+  margin: 40px auto;
+}
+
+.folder_filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.folder_list {
+  display: flex;
+  gap: 8px;
+}
+
+.folder {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: #fff;
+  list-style-type: none;
+}
+
+.check {
+  color: #fff;
+  background: var(--Linkbrary-primary-color, #6d6afe);
+}
+
+.folder_add {
+  display: flex;
+  gap: 4px;
+  width: 20%;
+  justify-content: flex-end;
+}
+
+.folder_add_icon {
+  color: var(--Linkbrary-primary-color, #6d6afe);
+}
+
+.folder_add p {
+  color: #6d6afe;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+}
+
+.folder_control_box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.folder_title {
+  color: #000;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.folder_btnList {
+  display: flex;
+  gap: 12px;
+}
+
+.folder_btnList_btn {
+  display: flex;
+  gap: 4px;
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.card_list {
+  width: 100%;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card_blank {
+  width: 100%;
+  text-align: center;
+  padding: 41px 0 35px 0;
+  margin: 0 auto;
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@media (max-width: 1124px) {
+  .folder_container {
+    max-width: 704px;
+    min-height: 1280px;
+  }
+  .card_list {
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    gap: 24px;
+  }
+  .folder_list {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 767px) {
+  .folder_container {
+    max-width: 340px;
+    min-height: 1280px;
+  }
+  .card_list {
+    grid-template: repeat(1, 1fr) / repeat(1, 1fr);
+    gap: 20px;
+  }
+  .folder_add {
+    width: 127px;
+    position: fixed;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 101px;
+    z-index: 10;
+    cursor: pointer;
+    padding: 8px 24px;
+    border-radius: 20px;
+    border: 1px solid var(--Linkbrary-white, #fff);
+    background: var(--Linkbrary-primary-color, #6d6afe);
+  }
+
+  .folder_add p {
+    color: white;
+    text-align: center;
+  }
+  .folder_add_icon {
+    color: #fff;
+  }
+}
