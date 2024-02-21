@@ -1,15 +1,20 @@
 import styled from "styled-components";
 
-const LinkAddInputWrapper = styled.form`
+const LinkAddForm = styled.form`
+  background-color: white;
   display: flex;
   gap: 12px;
   justify-content: center;
   align-items: center;
-  width: 760px;
+  width: 800px;
   margin: 0 auto;
   padding: 16px 20px;
   border: 1px solid #6d6afe;
   border-radius: 14px;
+
+  &:focus-within {
+    outline: 1px solid purple;
+  }
 
   & img {
     width: 20px;
@@ -20,6 +25,10 @@ const LinkAddInputWrapper = styled.form`
     border: none;
     width: 100%;
     font-size: 1rem;
+
+    &:focus-visible {
+      outline: none;
+    }
   }
 
   & button {
@@ -36,4 +45,4 @@ const LinkAddInputWrapper = styled.form`
   }
 `;
 
-export default LinkAddInputWrapper;
+export default LinkAddForm;

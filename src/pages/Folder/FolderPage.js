@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getFolderList, getLinkData } from "../../apis/api";
 import FolderName from "./FolderName";
 import LinkItems from "../../component/LinkItems";
+import { Container } from "./style";
 
 const ALL = {
   id: "ALL",
@@ -49,23 +50,23 @@ const FolderPage = () => {
     getData();
   }, [selectedFolder]);
 
-  console.log(links);
-
   return (
     <>
       <LinkAddInput />
-      <LinkSearchInput />
-      <FolderList
-        folders={folders}
-        selectedFolder={selectedFolder}
-        onClick={handleClick}
-      />
-      <FolderName>{selectedFolder.name}</FolderName>
-      {links.length > 0 ? (
-        <LinkItems links={links} />
-      ) : (
-        <p>저장된 링크가 없습니다.</p>
-      )}
+      <Container>
+        <LinkSearchInput />
+        <FolderList
+          folders={folders}
+          selectedFolder={selectedFolder}
+          onClick={handleClick}
+        />
+        <FolderName>{selectedFolder.name}</FolderName>
+        {links.length > 0 ? (
+          <LinkItems links={links} />
+        ) : (
+          <p className="noLinks">저장된 링크가 없습니다.</p>
+        )}
+      </Container>
     </>
   );
 };

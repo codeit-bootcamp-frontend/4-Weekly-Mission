@@ -11,7 +11,7 @@ const LinkItem = ({ link }) => {
   const CREATED_DATE = `${YEAR}. ${MONTH}. ${DATE}`;
 
   return (
-    <a className="LinkItem" href={link.url} target="_blank">
+    <a className="LinkItem" href={link.url} target="_blank" rel="noreferrer">
       <LinkImage src={link.imageSource || link.image_source || defaultImage} />
       <p className="createdAt">{calculateTimePassed(CREATED_AT)}</p>
       <p className="description">{link.description}</p>

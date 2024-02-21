@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-const LiWrapper = styled.div`
+export const Ul = styled.ul`
+  padding: 0;
+
   & .selected {
     background-color: #6d6afe;
     color: white;
@@ -22,5 +24,3 @@ const LiWrapper = styled.div`
     }
   }
 `;
-
-export default LiWrapper;
