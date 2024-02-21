@@ -12,7 +12,7 @@ const Shared = () => {
 
   return (
     <>
-      <Nav />
+      <Nav sticky={true} />
       <header>
         <div className="header-content">
           <HeaderFolder />
