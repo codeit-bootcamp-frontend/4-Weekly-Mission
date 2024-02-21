@@ -8,7 +8,13 @@ import styled from 'styled-components';
  * @param { string } props.className
  * @param { string } props.type
  */
-const Button = ({ children, onClick, disabled, className, type }) => {
+const Button = ({
+  children,
+  onClick,
+  disabled,
+  className,
+  type = 'button',
+}) => {
   return (
     <StyledButton
       className={className}

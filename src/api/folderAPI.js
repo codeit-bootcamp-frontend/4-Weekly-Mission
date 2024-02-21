@@ -7,15 +7,16 @@ import { CATEGORY, FOLDER_LINK } from 'config.js';
  * @returns {Promise<any>}
  */
 export const getFolderLink = async folderId => {
-  let resData;
-
   if (folderId !== 'all') {
-    resData = await fetchRequest(FOLDER_LINK + `?folderId=${folderId}`, 'GET');
+    const resData = await fetchRequest(
+      FOLDER_LINK + `?folderId=${folderId}`,
+      'GET',
+    );
+    return resData;
   } else {
-    resData = await fetchRequest(FOLDER_LINK, 'GET');
+    const resData = await fetchRequest(FOLDER_LINK, 'GET');
+    return resData;
   }
-
-  return resData;
 };
 
 /**
