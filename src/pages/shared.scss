@@ -13,15 +13,16 @@ header {
   align-items: center;
 }
 
-main {
-  margin: 40px 0;
-  gap: 40px;
+main.shared {
+  margin: 4rem 0;
+  gap: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-/* Mobile*/
+
+/* Mobile */
 @media screen and (min-width: 375px) and (max-width: 767px) {
   header {
     row-gap: 2.4rem;
@@ -31,7 +32,7 @@ main {
     padding-top: 6.3rem;
   }
 
-  main {
+  main.shared {
     gap: 32px;
     margin: 20px 0;
   }

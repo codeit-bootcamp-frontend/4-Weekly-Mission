@@ -18,7 +18,7 @@ const Shared = () => {
           <HeaderFolder />
         </div>
       </header>
-      <main>
+      <main className="shared">
         <Search />
         <CardGrid formattedCards={formattedCards} />
       </main>

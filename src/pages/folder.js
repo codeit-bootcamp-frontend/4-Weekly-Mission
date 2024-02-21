@@ -74,17 +74,17 @@ const Folder = () => {
       <header>
         <LinkForm />
       </header>
-      <main>
+      <main className="folder">
         <Search />
         <LinkCategory
           categoryList={folders}
           currentCategory={currentCategory}
           onClick={onClickCategory}
         />
-        <div>
+        <div className="main-button">
           <h2>{currentCategory}</h2>
           {showButtons && (
-            <div>
+            <div className="btn">
               <button>
                 <img src={shareIcon} alt="공유 아이콘" />
                 공유
