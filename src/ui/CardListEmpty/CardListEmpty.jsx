@@ -1,5 +1,5 @@
-import { EMPY_MESSAGE } from "./constans";
+import { EMPTY_MESSAGE } from "./constans";
 
 export function CardListEmpty() {
-  return <p>{EMPY_MESSAGE}</p>;
+  return <p>{EMPTY_MESSAGE}</p>;
 }
