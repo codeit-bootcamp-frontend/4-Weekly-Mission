@@ -1,67 +1,56 @@
-import ModalCloseButton from "./ModalCloseIcon";
-import ModalShareList from "./ModalShareList";
-import ModalCategoryList from "./ModalCategoryList";
-import ModalTitle from "./ModalTitle";
-import ModalSubTitle from "./ModalSubTitle";
-import ModalForm from "./ModalForm";
-import Button from "../Button";
-import "../../styles/modal.css";
-import { useState } from "react";
-function Modal({modalAction, setModalAction, categoryList}){
-    const actionScript = {
-        "폴더 이름 변경": {
-            elementList: [<ModalTitle title={modalAction.action}/>,
-             <ModalForm buttonText="변경하기"/>]
-        },
-        "폴더 추가": {
-            elementList: [<ModalTitle title={modalAction.action}/>,
-             <ModalForm buttonText="추가하기"/>]
-        },
-        "폴더 공유": {
-            elementList: [<ModalTitle title={modalAction.action}/>,
-             <ModalSubTitle subTitle={modalAction.subTitle}/>, 
-            <ModalShareList/>]
-        },
-        "폴더에 추가": {
-            elementList: [<ModalTitle title={modalAction.action}/>,
-             <ModalSubTitle subTitle={modalAction.subTitle}/>, 
-            <ModalCategoryList categoryList={categoryList}/>,
-            <Button className="modal__button button-blue" buttonText="추가하기"/>]
-        },
-        "링크 삭제": {
-            elementList: [<ModalTitle title={modalAction.action}/>,
-             <ModalSubTitle subTitle={modalAction.subTitle}/>, 
-            <Button className="modal__button button-red" buttonText="삭제하기"/>]
-        },
-        "폴더 삭제": {
-            elementList: [<ModalTitle title={modalAction.action}/>,
-             <ModalSubTitle subTitle={modalAction.subTitle}/>, 
-            <Button className="modal__button button-red" buttonText="삭제하기"/>]
-        }
-    }
+import ModalCloseButton from './ModalCloseIcon';
+import ModalShareList from './ModalShareList';
+import ModalFolderAdd from './ModalFolderAdd';
+import ModalTitle from './ModalTitle';
+import ModalForm from './ModalForm';
+import { useEffect } from 'react';
+import * as Styled from './Modal.styled';
 
-    const handleModalClose = () => {
-        setModalAction({
-            isView: false,
-            action: "",
-            subTitle: ""
-        });
-    }
+function Modal({ modalAction, setModalAction, categoryList }) {
+  const categoryListLoop = categoryList.slice(1); // 전체 카테고리는 제외
+  const isSubTitleView = modalAction.subTitle !== '' && modalAction.action !== '폴더 이름 변경';
+  const actionScript = {
+    '폴더 이름 변경': <ModalForm buttonText='변경하기' />,
+    '폴더 추가': <ModalForm buttonText='추가하기' />,
+    '폴더 공유': <ModalShareList modalAction={modalAction} />,
+    '폴더에 추가': <ModalFolderAdd categoryListLoop={categoryListLoop} />,
+    '링크 삭제': <Styled.ModalButtonRed>삭제하기</Styled.ModalButtonRed>,
+    '폴더 삭제': <Styled.ModalButtonRed>삭제하기</Styled.ModalButtonRed>,
+  };
 
-    return (
-        actionScript[modalAction.action] && <div 
-        style={{
-            display: modalAction.isView ? "block" : "none",
-        }}
-        className="modal__wrap">
-            <div className="modal">
-                <ModalCloseButton onClick={handleModalClose}/>
-                { actionScript[modalAction.action].elementList.map((list, idx) => {
-                    return <div key={idx}>{list}</div>;
-                })}
-            </div>
-        </div>
-    )
+  const handleModalClose = () => {
+    setModalAction({
+      isView: false,
+      action: '',
+      subTitle: '',
+    });
+  };
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://developers.kakao.com/sdk/js/kakao.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  });
+
+  return (
+    <>
+      {modalAction.isView && (
+        <Styled.ModalBox>
+          <Styled.Modal>
+            <ModalCloseButton onClick={handleModalClose} />
+            <ModalTitle title={modalAction.action} />
+            {isSubTitleView && <Styled.ModalSubTitle>{modalAction.subTitle}</Styled.ModalSubTitle>}
+            {actionScript[modalAction.action]}
+          </Styled.Modal>
+        </Styled.ModalBox>
+      )}
+    </>
+  );
 }
 
 export default Modal;

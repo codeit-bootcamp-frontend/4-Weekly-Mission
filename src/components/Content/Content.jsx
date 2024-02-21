@@ -1,23 +1,41 @@
-import CardList from "../card/CardList";
-import ContentHeader from "./ContentHeader";
-import Category from "../category/Category";
+import CardList from '../card/CardList';
+import Category from '../category/Category';
+import * as Styled from './Content.styled';
 
-function Content({categoryList, selectCategory, allLinkLoad, handleSelectCategory, handleKebab, kebabStatus, linkList, option, setModalAction}){
-    const categoryProps = {
-        categoryList,
-        selectCategory,
-        allLinkLoad,
-        handleSelectCategory,
-        setModalAction
-    }
-    return (
-        <section className="content"> 
-            <input className="content__search" type="search" placeholder="🔍   링크를 검색해 보세요."/>
-            {option && <Category {...categoryProps}/>}
-            {option && <ContentHeader selectCategory={selectCategory} setModalAction={setModalAction}/>}
-            <CardList handleKebab={handleKebab} kebabStatus={kebabStatus} linkList={linkList} option={option} setModalAction={setModalAction}/>
-        </section>
-    )
+function Content({
+  categoryList,
+  selectCategory,
+  allLinkLoad,
+  handleSelectCategory,
+  handleKebabClick,
+  selectCardId,
+  linkList,
+  option,
+  handleModalAction,
+}) {
+  const categoryProps = {
+    categoryList,
+    selectCategory,
+    allLinkLoad,
+    handleSelectCategory,
+    handleModalAction,
+  };
+  return (
+    <Styled.Content>
+      <form>
+        <Styled.Label htmlFor='content--search'>링크 검색</Styled.Label>
+        <Styled.SearchInput id='content--search' type='search' placeholder='🔍  링크를 검색해 보세요.' />
+      </form>
+      {option && <Category {...categoryProps} />}
+      <CardList
+        handleKebabClick={handleKebabClick}
+        selectCardId={selectCardId}
+        linkList={linkList}
+        option={option}
+        handleModalAction={handleModalAction}
+      />
+    </Styled.Content>
+  );
 }
 
 export default Content;

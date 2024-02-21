@@ -1,5 +1,7 @@
-function ModalTitle({title}){
-    return <p className="modal__title">{title}</p>
+import * as Styled from './Modal.styled';
+
+function ModalTitle({ title }) {
+  return <Styled.ModalTitle>{title}</Styled.ModalTitle>;
 }
 
 export default ModalTitle;

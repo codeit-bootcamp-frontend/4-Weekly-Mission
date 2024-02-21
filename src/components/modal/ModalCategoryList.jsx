@@ -1,18 +1,29 @@
-import ModalCheckIcon from "../../assets/Modal-check.svg";
-import { useState } from "react";
-function ModalCategoryList({categoryList}){
-    const categoryListLoop = categoryList.slice(1); // 전체 카테고리는 제외
-    const [selectCategory, setSelectCategory] = useState(null);
-    return (
-        <ul className="modal__category">
-            {categoryListLoop.map(category => {
-                const {id, name, link} = category;
-                return  <li key={id} className="modal__category--list">{name}
-                    <span className="modal__category--count">{`${link.count}개 링크`}</span>
-                </li>
-            })}
-        </ul>
-    )
+import ModalCheckIcon from '../../assets/modal-check.svg';
+import { useState } from 'react';
+import * as Styled from './Modal.styled';
+
+function ModalCategoryList({ categoryListLoop }) {
+  const [selectCategory, setSelectCategory] = useState(null);
+
+  const handleSelectCategory = (e) => {
+    setSelectCategory(e.target.id);
+  };
+
+  return (
+    <Styled.ModalCategory>
+      {categoryListLoop.map((category) => {
+        const { id, name, link } = category;
+        const isSelect = +selectCategory === id;
+        return (
+          <Styled.ModalCategoryList onClick={handleSelectCategory} key={id} id={id} $isSelect={isSelect}>
+            {name}
+            <Styled.ModalCategoryCount id={id}>{`${link.count}개 링크`}</Styled.ModalCategoryCount>
+            {isSelect && <Styled.ModalCategorySelectImg src={ModalCheckIcon} alt='체크 아이콘' />}
+          </Styled.ModalCategoryList>
+        );
+      })}
+    </Styled.ModalCategory>
+  );
 }
 
 export default ModalCategoryList;
