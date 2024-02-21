@@ -7,7 +7,7 @@ import getElapsedTime from "../../utils/getElapsedTime";
 import { format } from "date-fns";
 import CardList from "../CardList/CardList";
 
-function FolderList() {
+function AllFolderCard() {
   const getAllFolder = () => axiosInstance.get("users/4/links");
   const { loading, data } = useAsync(getAllFolder);
 
@@ -49,4 +49,4 @@ function FolderList() {
   );
 }
 
-export default FolderList;
+export default AllFolderCard;
