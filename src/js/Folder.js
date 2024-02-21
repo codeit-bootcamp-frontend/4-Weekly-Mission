@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShare, faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { fetchFolderCardData, fetchLinks } from "./Service/ApiService";
 import { getTimeAgo } from "./utils/getTimeAgo";
 import { formatDate } from "./utils/formatDate";
@@ -17,8 +19,6 @@ function Folder() {
     const loadFolders = async () => {
       try {
         const folderData = await fetchFolderCardData();
-        console.log("----");
-        console.log(folderData);
         setFolders(folderData.data); // folderData가 { data: [폴더 목록] } 구조를 가짐
       } catch (error) {
         console.error("Error fetching folders:", error);
@@ -29,11 +29,8 @@ function Folder() {
     const loadLinksForFolder = async (folderId) => {
       try {
         const linksData = await fetchLinks(folderId);
-        console.log("button click");
-        console.log(linksData);
         setSelectedLinks(linksData.data); // linksData가 { data: [링크 목록] } 구조를 가짐
         setSelectedFolderId(folderId);
-        console.log(selectedLinks);
       } catch (error) {
         console.error("Error fetching links:", error);
         setSelectedLinks([]); // 에러 발생 시 링크 목록 비우기
@@ -87,10 +84,20 @@ function Folder() {
           ))}
           <button className="FolderAddSmallButton">폴더 추가 +</button>
         </div>
-        <div className="FolderUsefulTitle">
-          {selectedFolderId === null
-            ? "전체"
-            : folders.find((folder) => folder.id === selectedFolderId)?.name}
+        <div className="FolderSubLine">
+          <div className="FolderUsefulTitle">
+            {selectedFolderId === null
+              ? "전체"
+              : folders.find((folder) => folder.id === selectedFolderId)?.name}
+          </div>
+          <div className="FolderIcons">
+            <FontAwesomeIcon icon={faShare} className="FolderIcon" />
+            <div className="FolderIconName">공유</div>
+            <FontAwesomeIcon icon={faPen} className="FolderIcon" />
+            <div className="FolderIconName">이름 변경</div>
+            <FontAwesomeIcon icon={faTrash} className="FolderIcon" />
+            <div className="FolderIconName">삭제</div>
+          </div>
         </div>
         <div className="FolderContents">
           <div className="FolderContent">
@@ -98,24 +105,24 @@ function Folder() {
               <div className="FolderNoCards">저장된 링크가 없습니다.</div>
             ) : (
               selectedLinks.map((link) => (
-                <div key={link.id} className="FavoritesLinkItem">
+                <div key={link.id} className="FolderLinkItem">
                   <a
                     href={link.url}
                     target="_blank"
-                    className="FavoritesGo"
+                    className="FolderGo"
                     rel="noreferrer"
                   >
                     <img
                       src={link.image_source}
-                      className="FavoritesLinkImg"
+                      className="FolderLinkImg"
                       alt="이미지 카드 사진"
                     ></img>
-                    <div className="FavoritesLinkDesc">
-                      <div className="FavoritesTimeDiff">
+                    <div className="FolderLinkDesc">
+                      <div className="FolderTimeDiff">
                         {getTimeAgo(link.created_at)}
                       </div>
-                      <div className="FavoritesDesc">{link.description}</div>
-                      <div className="FavoritesLinkDate">
+                      <div className="FolderDesc">{link.description}</div>
+                      <div className="FolderLinkDate">
                         {formatDate(link.created_at)}
                       </div>
                     </div>
