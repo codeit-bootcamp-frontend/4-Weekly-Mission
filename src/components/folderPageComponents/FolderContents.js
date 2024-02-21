@@ -9,8 +9,8 @@ import { NonLink } from '../../styles/styledComponents/folderStyled';
 export const FolderContents = () => {
   const [currentCategory, setCurrentCategory] = useState('전체');
 
-  const { Data: category } = useAPIData(categoryDataAPI);
-  const { Data: folder, handleData: setFolder } = useAPIData(
+  const { data: category } = useAPIData(categoryDataAPI);
+  const { data: folder, handleData: setFolder } = useAPIData(
     categoryFolderDataAPI,
     '0',
   );

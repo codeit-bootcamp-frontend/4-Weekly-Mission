@@ -7,7 +7,7 @@ import { useAPIData } from '../hooks/useAPIData';
 import { MainHeader } from '../components/common/MainHeader';
 import { useOutletContext } from 'react-router-dom';
 export default function SharedPage() {
-  const { Data: folder } = useAPIData(folderDataAPI);
+  const { data: folder } = useAPIData(folderDataAPI);
   const { userProfile } = useOutletContext();
   return (
     <>

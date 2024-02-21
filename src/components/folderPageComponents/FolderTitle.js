@@ -11,13 +11,13 @@ import Share from '../../assets/Images/share.png';
 import Rename from '../../assets/Images/rename.png';
 import Delete from '../../assets/Images/delete.png';
 
-export const FolderTitle = ({ currentCategory }) => {
-  const BUTTON = [
-    { url: Share, name: '공유' },
-    { url: Rename, name: '이름 변경' },
-    { url: Delete, name: '삭제' },
-  ];
+const BUTTON = [
+  { url: Share, name: '공유' },
+  { url: Rename, name: '이름 변경' },
+  { url: Delete, name: '삭제' },
+];
 
+export const FolderTitle = ({ currentCategory }) => {
   return (
     <>
       <TitleWrapper>

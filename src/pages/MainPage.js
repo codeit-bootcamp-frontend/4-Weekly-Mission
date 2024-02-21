@@ -5,7 +5,7 @@ import { useAPIData } from '../hooks/useAPIData';
 import { userDataAPI } from '../api/BootcampAPI';
 
 export default function MainPage() {
-  const { Data: userProfile } = useAPIData(userDataAPI);
+  const { data: userProfile } = useAPIData(userDataAPI);
   return (
     <>
       <Outlet context={{ userProfile: userProfile }}></Outlet>
