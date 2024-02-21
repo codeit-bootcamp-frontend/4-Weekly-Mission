@@ -9,16 +9,13 @@ import Loader from '../Loader';
 const Profile = () => {
   const navigate = useNavigate();
 
-  const handleOnClick = () => {
+  const handleClick = () => {
     navigate(routes.signin);
   };
 
-  const { data: profileData, isLoading, isError, error } = useUserQuery();
+  const { data: profileData, isLoading } = useUserQuery();
   const data = profileData?.data[0];
 
-  if (isError) {
-    console.log(error);
-  }
   if (isLoading) {
     return (
       <ProfileContainer>
@@ -34,7 +31,7 @@ const Profile = () => {
           <ProfileEmail>{data.email}</ProfileEmail>
         </ProfileContainer>
       ) : (
-        <Button onClick={handleOnClick} className="login">
+        <Button onClick={handleClick} className="login">
           로그인
         </Button>
       )}

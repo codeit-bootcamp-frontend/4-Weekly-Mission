@@ -3,7 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const AddLink = () => {
-  const handleOnClick = e => {
+  const handleClick = e => {
     e.preventDefault();
   };
   return (
@@ -14,7 +14,7 @@ const AddLink = () => {
         className="link-add-box"
         placeholder="링크를 추가해 보세요"
       />
-      <StyledButton className="folderLink" onClick={handleOnClick}>
+      <StyledButton className="folderLink" onClick={handleClick}>
         추가하기
       </StyledButton>
     </StyledForm>
