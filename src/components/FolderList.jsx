@@ -9,6 +9,15 @@ import deleteIcon from "../images/Icon_delete.svg";
 
 function FolderList() {
   const [folderListData, setFolderListData] = useState([]);
+  const [currentId, setCurrentId] = useState(0);
+  const [folderName, setFolderName] = useState("전체");
+
+  //button의 id와 이름 가져오는 함수.
+  //다음 구현할 것 = 버튼 누를 때마다 fetch 날려서 데이터 가져오기. 데이터로 링크 카드 생성.
+  const changeFolderClick = (id, name) => {
+    setCurrentId(id);
+    setFolderName(name);
+  }
 
   const getFolderData = async (path) => {
     const { data } = await getFolderInfo(path);
@@ -27,10 +36,10 @@ function FolderList() {
     <div className={styles.content}>
       <div className={styles.container}>
         <div>
-          <Button type="button" key={0}>전체</Button>
+          <Button onClick={() => changeFolderClick(0, '전체')} type="button" key={0}>전체</Button>
           {folderListData.map((item) => {
             return (
-                <Button type="button" key={item.id}>{item.name}</Button>
+                <Button onClick={() => changeFolderClick(item.id, item.name)} type="button" key={item.id}>{item.name}</Button>
             )
           })}
         </div>
@@ -42,7 +51,7 @@ function FolderList() {
     </div>
     <div className={styles.content}>
       <div className={styles.linkControlBtn}>
-        <p>유용한 팁</p>
+        <p>{folderName}</p>
         <div className={styles.controlBtns}>
           <button type="button">
             <img src={shareIcon} alt="share-Icon" />

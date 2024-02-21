@@ -8,11 +8,11 @@ function NavigationBar() {
   const [profileData, setProfileData] = useState({});
 
   const getProfileData = async (path) => {
-    const { data } = await getUserInfo(path);
+    const { data }  = await getUserInfo(path);
     
     if (!data) return;
 
-    setProfileData(data[0]);
+    setProfileData(...data);
     setIsLoginStatus(true);
   }
 
