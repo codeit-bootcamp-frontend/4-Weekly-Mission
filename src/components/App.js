@@ -4,9 +4,7 @@ import Footer from "./Footer";
 export default function App() {
 	return (
 		<>
-			<>
-				<Outlet />
-			</>
+			<Outlet />
 			<Footer />
 		</>
 	);
