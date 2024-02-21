@@ -1,0 +1,1 @@
+export const TOTAL_LIST_NAME = '전체';

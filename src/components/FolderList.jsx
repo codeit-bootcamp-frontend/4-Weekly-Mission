@@ -1,6 +1,6 @@
-const TOTAL_LIST_NAME = '전체';
+import { TOTAL_LIST_NAME } from '../constants/folder';
 
-const FolderList = ({folderList, totalHandler, listHandler}) => {
+const FolderList = ({ folderList, totalHandler, listHandler }) => {
   if (!folderList.length) {
     return <></>
   }

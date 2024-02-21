@@ -5,7 +5,7 @@ import logoImg from '../assets/logo.svg';
 
 import './Gnb.css';
 
-const Gnb = ({className, isFixed}) => {
+const Gnb = ({ className, isFixed }) => {
   const [user, setUser] = useState({});
 
   const gnbStyle = {

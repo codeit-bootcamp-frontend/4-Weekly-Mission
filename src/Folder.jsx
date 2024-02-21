@@ -8,9 +8,10 @@ import CardList from './components/CardList';
 import FolderEdit from './components/FolderEdit';
 import FolderList from './components/FolderList';
 import FolderAddBtn from './components/FolderAddBtn';
+
 import './Folder.css';
 
-const TOTAL_LIST_NAME = '전체';
+import { TOTAL_LIST_NAME } from './constants/folder';
 
 const Folder = () => {
   const [folderList, links, setLinks] = useFetchFolder();

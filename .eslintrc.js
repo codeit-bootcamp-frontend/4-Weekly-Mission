@@ -33,6 +33,7 @@ module.exports = {
       'component': true,
       'html': true
     }],
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+    'no-extra-semi': "off",
   }
 }
