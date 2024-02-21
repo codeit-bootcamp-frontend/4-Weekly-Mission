@@ -1,5 +1,5 @@
 .NavigationBar {
-  position: sticky;
+  position: relative;
   display: flex;
   justify-content: center;
   top: 0;
@@ -7,6 +7,10 @@
   width: 100%;
   z-index: 1;
   background-color: var(--color-bg);
+}
+
+.NavigationBar.sticky {
+  position: sticky;
 }
 
 .items {

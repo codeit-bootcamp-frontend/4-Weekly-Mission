@@ -8,12 +8,15 @@ import LinkbraryLogo from "../../asset/images/logo.svg";
 import Button from "../Button/Button";
 import Profile from "../Profile/Profile";
 
-const NavigationBar = () => {
+const NavigationBar = ({ isSticky }) => {
   const { data } = useGetUser();
   const { email, image_source } = data?.data[0] ?? {};
   const profile = data ? { email, image_source } : null;
+
+  const sticky = styles.sticky;
+
   return (
-    <nav className={styles.NavigationBar}>
+    <nav className={`${styles.NavigationBar} ${isSticky ? sticky : ""}`}>
       <div className={styles.items}>
         <h1>
           <Link to="/">

@@ -12,7 +12,7 @@ const SharedPage = () => {
 
   return (
     <>
-      <NavigationBar />
+      <NavigationBar isSticky />
       <main className={styles.main}>
         {folder && <SharedFolder folder={folder} />}
       </main>
