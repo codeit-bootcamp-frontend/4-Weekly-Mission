@@ -1,4 +1,4 @@
-import styles from "../../css/Footer.module.css";
+import styles from "./Footer.module.css";
 import FooterSocialLinkBox from "./FooterSocialLinkBox";
 function Footer() {
   return (

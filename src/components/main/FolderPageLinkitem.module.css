@@ -1,0 +1,72 @@
+.item_card_wrapper {
+  width: 100%;
+  height: 33.5rem;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  position: relative;
+}
+.item_card_link {
+  font-size: 0;
+  text-decoration: none;
+}
+.item_card_image_box {
+  width: 100%;
+  height: 20rem;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.item_card_image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.item_card_image:hover {
+  transform: scale(1.3);
+}
+
+.item_card_text_box {
+  position: relative;
+  padding: 1.5rem 2rem;
+  display: grid;
+  gap: 1rem;
+}
+.item_card_createdAt {
+  color: #666;
+
+  font-family: var(--Pretendard-Regular);
+  font-size: 1.3rem;
+}
+.item_card_description {
+  overflow: hidden;
+  color: #000;
+  height: 4.9rem;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--Pretendard-Regular);
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+.item_card_created_date {
+  overflow: hidden;
+  color: #333;
+  font-family: var(--Pretendard-Regular);
+  font-size: 1.4rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item_card_star_icon {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+}
+
+.item_card_kebab_icon {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+}

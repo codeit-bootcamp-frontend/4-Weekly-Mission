@@ -1,14 +1,17 @@
-import styles from "../../css/LinkSearchInput.module.css";
-import search_icon from "../../image/search_icon.svg";
+import styles from "./LinkSearchInput.module.css";
 function LinkSearchInput() {
   return (
-    <>
+    <div className={styles.link_search_input_wrapper}>
       <input
         className={styles.link_search_input}
         placeholder="링크를 검색해 보세요."
       ></input>
-      <img src={search_icon} className={styles.search_icon} />
-    </>
+      <img
+        src={`${process.env.PUBLIC_URL}/assets/images/search_icon.svg`}
+        className={styles.search_icon}
+        alt="search_icon"
+      />
+    </div>
   );
 }
 

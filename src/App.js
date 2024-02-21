@@ -1,14 +1,14 @@
-import Header from "./components/header/Header";
-import Main from "./components/main/Main";
-import Footer from "./components/footer/Footer";
-
+import { Routes, Route } from "react-router-dom";
+import Homepage from "./pages/Homepage";
+import Folder from "./pages/Folder";
+import Shared from "./pages/Shared";
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Main />
-      <Footer />
-    </div>
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="folder" element={<Folder />} />
+      <Route path="shared" element={<Shared />} />
+    </Routes>
   );
 }
 

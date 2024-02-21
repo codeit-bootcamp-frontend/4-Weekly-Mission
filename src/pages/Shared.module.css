@@ -1,0 +1,19 @@
+.main_wrapper {
+  padding: 4rem 24rem 10rem 24rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+@media (max-width: 1199.5px) {
+  .main_wrapper {
+    padding: 4rem 3.2rem 10rem 3.2rem;
+  }
+}
+
+@media (max-width: 767.5px) {
+  .main_wrapper {
+    padding: 2rem 3.2rem 6rem 3.2rem;
+  }
+}

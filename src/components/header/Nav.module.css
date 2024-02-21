@@ -20,6 +20,10 @@
   font-size: 1.4rem;
 }
 
+.nav_profile_image {
+  width: 2.8rem;
+  height: 2.8rem;
+}
 @media (max-width: 1199.5px) {
   .nav_wrapper {
     padding: 3.3rem 3.25rem 3.2rem 3.25rem;

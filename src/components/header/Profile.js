@@ -1,21 +1,10 @@
-import { useEffect, useState } from "react";
-import styles from "../../css/Profile.module.css";
+import styles from "./Profile.module.css";
+import { useFetch } from "../../hooks/useFetch";
+
+const folderUrl = "https://bootcamp-api.codeit.kr/api/sample/folder";
+
 function Profile() {
-  const [userfolderName, setUserFolderName] = useState("");
-  const [userProfileImageSource, setUserProfileImageSource] = useState("");
-  const [folderOwnerName, setFolderOwnerName] = useState("");
-  useEffect(() => {
-    async function fetchUserFolderData() {
-      const response = await fetch(
-        "https://bootcamp-api.codeit.kr/api/sample/folder"
-      );
-      const userFolderData = await response.json();
-      setUserFolderName(userFolderData.folder.name);
-      setUserProfileImageSource(userFolderData.folder.owner.profileImageSource);
-      setFolderOwnerName(userFolderData.folder.owner.name);
-    }
-    fetchUserFolderData();
-  }, []);
+  const { data: folderData } = useFetch(folderUrl);
 
   return (
     <div className={styles.profile_wrapper}>
@@ -23,11 +12,14 @@ function Profile() {
         <div className={styles.profile_name_wrapper}>
           <img
             className={styles.profile_avatar_image}
-            src={userProfileImageSource}
+            src={folderData?.folder.owner.profileImageSource}
+            alt="profile_avatar_image"
           />
-          <div className={styles.profile_name}>{folderOwnerName}</div>
+          <div className={styles.profile_name}>
+            {folderData?.folder.owner.name}
+          </div>
         </div>
-        <p className={styles.folder_name}>{userfolderName}</p>
+        <p className={styles.folder_name}>{folderData?.folder.name}</p>
       </div>
     </div>
   );
