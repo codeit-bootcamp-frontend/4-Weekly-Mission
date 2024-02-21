@@ -60,3 +60,39 @@ button {
   line-height: normal;
   letter-spacing: -0.3px;
 }
+
+.FolderNameBar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.FolderNameBar span {
+  color: #000;
+
+  /* Linkbrary/h3-semibold */
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.OptionIcon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.OptionIcon span {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+
+  /* Linkbrary/body2-semibold */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
