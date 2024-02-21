@@ -1,0 +1,33 @@
+{
+  "printWidth": 80, 
+  "tabWidth": 2, 
+  "useTabs": false,
+  "endOfLine": "auto",
+
+  "semi": true, 
+  "singleQuote": false,
+  "quoteProps": "as-needed",
+  "bracketSpacing": true,
+  "arrowParens": "always", 
+  "trailingComma": "es5", 
+
+  "jsxSingleQuote": false,
+  "jsxBracketSameLine": false,
+
+  "parser": "babylon",
+  "filepath": "",
+
+  "rangeStart": 0,
+  "rangeEnd": "Infinity",
+
+  "requirePragma": false, 
+  "insertPragma": false,
+
+  "proseWrap": "preserve", 
+
+  "htmlWhitespaceSensitivity": "css", 
+
+  "vueIndentScriptAndStyle": false,
+
+  "embeddedLanguageFormatting": "auto"
+}
