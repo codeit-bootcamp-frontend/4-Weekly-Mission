@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/is-prop-valid": "^1.2.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -12,13 +11,12 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
+    "react-router-dom": "^6.22.0",
     "react-scripts": "5.0.1",
     "react-timeago": "^7.2.0",
     "styled-components": "^6.1.8",
     "styled-reset": "^4.5.2",
     "timeago.js": "^4.0.2",
-    "typescript": "^5.3.3",
-    "typescript-styled-plugin": "^0.18.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -46,6 +44,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/parser": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-react": "^7.23.3",
     "@stylelint/postcss-css-in-js": "^0.38.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
@@ -54,11 +55,15 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-styled-components-a11y": "^2.1.32",
+    "postcss-styled-syntax": "^0.6.4",
     "postcss-syntax": "^0.36.2",
     "prettier": "^3.2.5",
     "stylelint": "^16.2.1",
+    "stylelint-config-recess-order": "^4.6.0",
     "stylelint-config-standard": "^36.0.0",
-    "stylelint-styled-components-order": "^1.0.6"
+    "stylelint-styled-components-order": "^1.0.6",
+    "typescript": "^5.3.3",
+    "typescript-styled-plugin": "^0.18.3"
   },
   "main": "index.js",
   "repository": "https://github.com/zoonyoung/4-Weekly-Mission",
