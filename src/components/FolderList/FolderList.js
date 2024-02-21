@@ -8,7 +8,7 @@ import { format } from "date-fns";
 import CardList from "../CardList/CardList";
 
 function FolderList() {
-  const getAllFolder = () => axiosInstance.get("users/1/links");
+  const getAllFolder = () => axiosInstance.get("users/4/links");
   const { loading, data } = useAsync(getAllFolder);
 
   if (!data) {

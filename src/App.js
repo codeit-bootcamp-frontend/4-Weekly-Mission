@@ -3,7 +3,7 @@ import SharedPage from "./pages/SharedPage";
 import FolderPage from "./pages/FolderPage";
 import Homepage from "./pages/Homepage";
 
-function Main() {
+function App() {
   return (
     <BrowserRouter>
       <Routes>
@@ -15,4 +15,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default App;

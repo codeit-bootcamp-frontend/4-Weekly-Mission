@@ -12,7 +12,7 @@ export function useGetFolder() {
 }
 
 export function useGetFolderById() {
-  const getUserById = () => axiosInstance.get("users/1/folders");
+  const getUserById = () => axiosInstance.get("users/4/folders");
   const { loading, error, data } = useAsync(getUserById);
 
   return { loading, error, data };

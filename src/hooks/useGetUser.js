@@ -9,7 +9,7 @@ export function useGetUser() {
 }
 
 export function useGetUserById() {
-  const getUserById = () => axiosInstance.get("users/1");
+  const getUserById = () => axiosInstance.get("users/4");
   const { loading, error, data } = useAsync(getUserById);
 
   return { loading, error, data };
