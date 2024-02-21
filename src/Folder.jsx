@@ -37,8 +37,8 @@ const Folder = () => {
       <div className='container-folder-and-cards'>
         <FolderList
           folderList={folderList}
-          totalHandler={handleTotalListClick}
-          listHandler={handleListClick}
+          onTotalListClick={handleTotalListClick}
+          onListClick={handleListClick}
         />
         <div className='container-folder-edit'>
           <span>{currentfolderName}</span>

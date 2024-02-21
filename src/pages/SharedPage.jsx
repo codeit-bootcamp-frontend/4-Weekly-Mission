@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 
 const SharedPage = () => {
   const sharedFolder = useFetchShared();
-  
+
   return (
     <>
       <Gnb className='gnb_ly' isFixed={true}/>
