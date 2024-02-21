@@ -1,0 +1,15 @@
+import React from 'react';
+import styled from 'styled-components';
+import kebabIcon from '../../assets/icons/kebab.svg';
+
+const KebabIcon = ({ onClick }) => (
+  <StyledKebab src={kebabIcon} alt="더보기 메뉴" onClick={onClick} />
+);
+
+export default KebabIcon;
+
+const StyledKebab = styled.img`
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+`;
