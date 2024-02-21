@@ -1,5 +1,4 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import { SearchBar, FolderHeader } from "./components";
 import SharePage from "./pages/SharePage/SharePage";
 import FolderPage from "./pages/FolderPage/FolderPage";
 
