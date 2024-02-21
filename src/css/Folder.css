@@ -105,7 +105,6 @@
   display: grid;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 5 25 0 #000000;
 }
 
 .FolderContent {
@@ -131,6 +130,8 @@
 .FolderLinkItem {
   width: 340px;
   weight: 334px;
+  box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
 }
 
 .FolderLinkImg {
@@ -138,6 +139,7 @@
   height: 200px;
   overflow: hidden;
   border-radius: 15px 15px 0 0;
+  /* transition: background-size 0.3s ease-in-out; */
 }
 
 .FolderLinkDesc {
@@ -145,10 +147,10 @@
   flex-direction: column;
   gap: 10px;
   padding: 15px 20px 15px 20px;
-  border-radius: 0 0 15px 15px;
 }
 
 .FolderDesc {
+  height: 38px;
   font-size: 16px;
   font-weight: 400;
   display: -webkit-box;
@@ -177,4 +179,15 @@
   color: #9fa6b2;
   font-size: 14px;
   margin: 0 3px;
+}
+
+.FolderTimeDiff {
+  font-size: 13px;
+  font-weight: 400;
+  color: #666666;
+}
+
+.FolderLinkDate {
+  color: #333333;
+  font-size: 14px;
 }

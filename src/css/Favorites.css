@@ -129,6 +129,8 @@ nav {
 .FavoritesLinkItem {
   width: 340px;
   weight: 334px;
+  box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
 }
 
 .FavoritesLinkImg {
@@ -143,10 +145,10 @@ nav {
   flex-direction: column;
   gap: 10px;
   padding: 15px 20px 15px 20px;
-  border-radius: 0 0 15px 15px;
 }
 
 .FavoritesDesc {
+  height: 38px;
   font-size: 16px;
   font-weight: 400;
   display: -webkit-box;
@@ -196,4 +198,15 @@ footer {
   display: flex;
   column-gap: 1.2rem;
   height: 2rem;
+}
+
+.FavoritesTimeDiff {
+  font-size: 13px;
+  font-weight: 400;
+  color: #666666;
+}
+
+.FavoritesLinkDate {
+  color: #333333;
+  font-size: 14px;
 }
