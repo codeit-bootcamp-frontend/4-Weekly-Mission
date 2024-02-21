@@ -3,7 +3,6 @@ import FolderContent from '../components/folder/FolderContent';
 import Footer from '../components/footer/Footer';
 import FloatingButton from '../components/folder/FloatingButton';
 import Modal from '../components/modal/Modal';
-import GlobalStyles from '../styles/Global.styled';
 import { useState } from 'react';
 
 let prevId = 999;
@@ -51,12 +50,13 @@ function Folder() {
   };
   return (
     <>
-      <GlobalStyles />
       <Header isSticky={false} />
       <FolderContent {...folderContentProps} />
       <Footer />
       <FloatingButton />
-      <Modal modalAction={modalAction} setModalAction={setModalAction} categoryList={categoryList} />
+      {modalAction.isView && (
+        <Modal modalAction={modalAction} setModalAction={setModalAction} categoryList={categoryList} />
+      )}
     </>
   );
 }

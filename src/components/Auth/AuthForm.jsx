@@ -51,7 +51,7 @@ function AuthForm({ option }) {
   };
 
   // 패스워드 인풋 타입, 아이콘 변경
-  const handlePasswordvisible = (name) => {
+  const handlePasswordVisible = (name) => {
     if (inputType[name] === 'password') {
       setInputType({ ...inputType, [name]: 'text' });
       return;
@@ -192,7 +192,7 @@ function AuthForm({ option }) {
             <FontAwesomeIcon
               className='eye'
               icon={inputType.password === 'password' ? faEye : faEyeSlash}
-              onClick={() => handlePasswordvisible('password')}
+              onClick={() => handlePasswordVisible('password')}
             />
             {errorMsg && <p className='sign__password--error'>{errorMsg.password}</p>}
           </div>
@@ -216,7 +216,7 @@ function AuthForm({ option }) {
               <FontAwesomeIcon
                 className='eye--confirm'
                 icon={inputType.passwordConfirm === 'password' ? faEye : faEyeSlash}
-                onClick={() => handlePasswordvisible('passwordConfirm')}
+                onClick={() => handlePasswordVisible('passwordConfirm')}
               />
               {errorMsg && <p className='sign__password--confirm--error'>{errorMsg.passwordConfirm}</p>}
             </div>

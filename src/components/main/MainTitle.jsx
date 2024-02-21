@@ -6,7 +6,7 @@ function MainTitle() {
     <Styled.Main>
       <Styled.MainBox>
         <Styled.MainTitle>
-          <Styled.MainTitleEffect>세상의 모든 정보</Styled.MainTitleEffect>를<Styled.LineBreak />
+          <Styled.MainTitleEffect>세상의 모든 정보</Styled.MainTitleEffect>를<br />
           쉽게 저장하고 <Styled.MobileLineBreak /> 관리해 보세요
         </Styled.MainTitle>
         <Styled.MainLoginButton to='/signin'>링크 추가하기</Styled.MainLoginButton>

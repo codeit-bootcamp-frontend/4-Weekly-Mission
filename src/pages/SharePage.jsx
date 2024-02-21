@@ -4,7 +4,6 @@ import Footer from '../components/footer/Footer';
 import { useEffect, useState } from 'react';
 import { API_PATH } from '../services/api-path';
 import FETCH_API from '../services/fetch-data';
-import GlobalStyles from '../styles/Global.styled';
 import * as Styled from '../components/Share.styled';
 
 function Share() {
@@ -38,7 +37,6 @@ function Share() {
 
   return (
     <>
-      <GlobalStyles />
       <Header />
       <Styled.Share>
         <Styled.Profile>

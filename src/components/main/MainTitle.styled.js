@@ -67,10 +67,6 @@ export const MainBackImage = styled.img`
   }
 `;
 
-export const LineBreak = styled.br`
-  display: block;
-`;
-
 export const MobileLineBreak = styled.br`
   display: none;
   @media (max-width: 1199px) {

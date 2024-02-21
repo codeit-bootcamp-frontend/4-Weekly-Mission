@@ -101,8 +101,7 @@ ul {
   background-color: var(--Linkbrary-white);
   outline: none;
   border: 1px solid var(--Linkbrary-gray20);
-  /* width: calc(100% - 1.875rem); */
-  width: 100%;
+  width: calc(100% - 2.1rem);
 }
 
 .sign--input--email:focus,
