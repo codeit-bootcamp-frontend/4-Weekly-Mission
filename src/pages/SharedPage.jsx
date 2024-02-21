@@ -10,7 +10,7 @@ const SharedPage = () => {
   
   return (
     <>
-      <Gnb className='gnb_ly gnb-container_sticky'/>
+      <Gnb className='gnb_ly' isFixed={true}/>
       <Avatar sharedFolder={sharedFolder}/>
       <SharedFolder sharedFolder={sharedFolder}/>
       <Footer/>

@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 const FolderPage = () => {
   return (
     <>
-      <Gnb className='gnb_ly'/>
+      <Gnb className='gnb_ly' isFixed={false}/>
       <AddLink />
       <Folder />
       <Footer/>

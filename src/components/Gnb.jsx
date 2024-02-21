@@ -5,8 +5,13 @@ import logoImg from '../assets/logo.svg';
 
 import './Gnb.css';
 
-const Gnb = ({className}) => {
+const Gnb = ({className, isFixed}) => {
   const [user, setUser] = useState({});
+
+  const gnbStyle = {
+    position : isFixed ? 'sticky' : 'static',
+    top : 0,
+  }
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -24,7 +29,7 @@ const Gnb = ({className}) => {
   const isShowProfile = user && user.image_source && user.email;
 
   return (
-    <nav className={className}>
+    <nav className={className} style={gnbStyle}>
       <div className='gnb-inner_ly'>
         <a href="/">
           <img className='logo' src={logoImg} alt="홈으로 연결된 Linkbrary 로고" />

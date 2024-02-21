@@ -5,8 +5,7 @@ module.exports = {
   },
   extends: [
     'standard',
-    'plugin:react/recommended',
-    'prettier'
+    'plugin:react/recommended'
   ],
   overrides: [
     {
@@ -30,9 +29,9 @@ module.exports = {
     'react'
   ],
   rules: {
-    "react/self-closing-comp": ["error", {
-      "component": true,
-      "html": true
+    'react/self-closing-comp': ['error', {
+      'component': true,
+      'html': true
     }]
   }
 }
