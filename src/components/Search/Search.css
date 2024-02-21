@@ -26,13 +26,13 @@
 /* Tablet*/
 @media screen and (min-width: 768px) and (max-width: 1199px) {
   .search-bar {
-    width: 67rem;
+    width: 80%;
   }
 }
 
 /* Mobile*/
 @media screen and (min-width: 375px) and (max-width: 767px) {
   .search-bar {
-    width: 32.5rem;
+    width: 80%;
   }
 }

@@ -1,7 +1,6 @@
 .LinkFormBox {
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 6rem 32rem 9rem;
   background-color: var(--gray5);
   margin-bottom: 4rem;
@@ -28,15 +27,20 @@
   background: var(--white);
 
   @media (min-width: 768px) and (max-width: 1199px) {
-    width: 67rem;
+    max-width: 80%;
   }
 
   @media (min-width: 375px) and (max-width: 767px) {
-    width: 32.5rem;
+    max-width: 80%;
   }
 }
 
 .LinkInput {
+  width: 100%;
+  max-width: 106rem;
+  height: 4.3rem;
+  padding-left: 3.8rem;
+  padding-right: 1.6rem;
   border: none;
   outline: none;
   padding: 1.6rem;

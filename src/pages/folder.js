@@ -74,9 +74,13 @@ const Folder = () => {
       <header>
         <LinkForm />
       </header>
-      <main className="main">
+      <main>
         <Search />
-        <LinkCategory categoryList={folders} onClick={onClickCategory} />
+        <LinkCategory
+          categoryList={folders}
+          currentCategory={currentCategory}
+          onClick={onClickCategory}
+        />
         <div>
           <h2>{currentCategory}</h2>
           {showButtons && (

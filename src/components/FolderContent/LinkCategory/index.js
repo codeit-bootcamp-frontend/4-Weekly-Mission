@@ -1,9 +1,16 @@
-const LinkCategory = ({ categoryList, onClick }) => {
+import "./index.scss";
+
+const LinkCategory = ({ categoryList, currentCategory, onClick }) => {
   return (
     <div className="category-bar">
       <ul className="category-list">
         <li>
-          <button className="category-btn" onClick={() => onClick("전체")}>
+          <button
+            className={`category-btn ${
+              currentCategory === "전체" ? "active" : ""
+            }`}
+            onClick={() => onClick("전체")}
+          >
             전체
           </button>
         </li>
@@ -12,7 +19,9 @@ const LinkCategory = ({ categoryList, onClick }) => {
             <li key={category.id}>
               <button
                 type="button"
-                className="category-btn"
+                className={`category-btn ${
+                  currentCategory === category.name ? "active" : ""
+                }`}
                 onClick={() => onClick(category.name)}
               >
                 {category.name}
