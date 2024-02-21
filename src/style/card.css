@@ -53,6 +53,10 @@
   top: 225px;
   margin: 20px 10px;
 }
+.cardScript div {
+  display: flex;
+  justify-content: space-between;
+}
 .timeDifference {
   font-size: 13px;
   color: #666666;

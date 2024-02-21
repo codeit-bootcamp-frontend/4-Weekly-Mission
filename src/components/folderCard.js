@@ -3,6 +3,7 @@ import fetchData from "../api/FetchData";
 import { formatDate, getTimeDifference } from "../util";
 import "../style/card.css";
 import starImg from "../assets/star.png";
+import kebabImg from "../assets/kebab.png";
 function FolderCard({ linkToFetch }) {
   const [items, setItems] = useState(null);
 
@@ -32,9 +33,12 @@ function FolderCard({ linkToFetch }) {
             </div>
             <a href={item.url}>
               <div className="cardScript">
-                <p className="timeDifference">
-                  {getTimeDifference(item.created_at)}
-                </p>
+                <div>
+                  <p className="timeDifference">
+                    {getTimeDifference(item.created_at)}
+                  </p>
+                  <img src={kebabImg} alt="kebabImg" />
+                </div>
                 <p className="item-description">{item.description}</p>
                 <p>{formatDate(item.created_at)}</p>
               </div>
