@@ -1,14 +1,18 @@
 import styled from 'styled-components';
 
 const Button = ({ props }) => {
-  const { width, text } = props;
-  return <StyledButton width={width}>{text}</StyledButton>;
+  const { width, text, fontSize, padding } = props;
+  return (
+    <StyledButton width={width} fontSize={fontSize} padding={padding}>
+      {text}
+    </StyledButton>
+  );
 };
 
 const StyledButton = styled.button`
   width: ${(props) => props.width || '100px'};
   display: flex;
-  padding: 10px 16px;
+  padding: ${(props) => props.padding || '10px 16px'};
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -19,7 +23,7 @@ const StyledButton = styled.button`
   border: none;
   color: var(--Grey-Light, #f5f5f5);
   font-family: Pretendard;
-  font-size: 14px;
+  font-size: ${(props) => props.fontSize || '14px'};
   font-style: normal;
   font-weight: 600;
   line-height: normal;

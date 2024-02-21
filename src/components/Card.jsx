@@ -8,11 +8,7 @@ function Card({ id, time, imgUrl = noneImg, title, description, date, url }) {
     <a className="card" key={id} href={url} target="_blank" rel="noreferrer">
       <div className="card__img">
         <img className="card__img--background" src={imgUrl} alt={title}></img>
-        <img
-          className="card__img--meatsball-icon"
-          src={starIcon}
-          alt="Favorites"
-        />
+        <img className="card__img--star-icon" src={starIcon} alt="Favorites" />
       </div>
 
       <div className="card__texts">
