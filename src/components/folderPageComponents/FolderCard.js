@@ -2,7 +2,7 @@ import React from 'react';
 import Card from '../common/Card';
 import { NonLink } from '../../styles/styledComponents/folderStyled';
 
-export const FolderCard = ({ folder }) => {
+export const FolderCard = ({ folder, clickPoint }) => {
   const hasFolder = folder && folder.length >= 1;
   return (
     <>
@@ -16,6 +16,7 @@ export const FolderCard = ({ folder }) => {
               description={folderData.description}
               url={folderData.url}
               folder
+              clickPoint={clickPoint}
             ></Card>
           ))
         ) : (

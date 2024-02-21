@@ -6,7 +6,7 @@ import { FolderCard } from './FolderCard';
 import { useAPIData } from '../../hooks/useAPIData';
 import { categoryDataAPI, categoryFolderDataAPI } from '../../api/BootcampAPI';
 import { NonLink } from '../../styles/styledComponents/folderStyled';
-export const FolderContents = () => {
+export const FolderContents = ({ clickPoint }) => {
   const [currentCategory, setCurrentCategory] = useState('전체');
 
   const { data: category } = useAPIData(categoryDataAPI);
@@ -30,7 +30,9 @@ export const FolderContents = () => {
             currentCategory={currentCategory}
           ></FolderCategory>
           <FolderTitle currentCategory={currentCategory}></FolderTitle>
-          {folder && <FolderCard folder={folder}></FolderCard>}
+          {folder && (
+            <FolderCard folder={folder} clickPoint={clickPoint}></FolderCard>
+          )}
         </>
       ) : (
         <div className="content-wrapper">
