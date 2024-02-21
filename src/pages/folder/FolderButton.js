@@ -28,7 +28,7 @@ const AddButton = styled.button`
     }
 `
 
-function FolderButton() {
+function FolderButton({setName, setOpenModal, setButtonColor, setButtonName, modalName}) {
     const {contents} = useRecoilValueLoadable(folderContents);
     const [clickedLink, setClickedLink] = useRecoilState(clickFolder);
     const setLinkContents = useSetRecoilState(folderLinkContents);
@@ -38,6 +38,12 @@ function FolderButton() {
         folderLinksData(id)
             .then((data) => setLinkContents(data))
             .catch((error) => {console.error(error)});
+    };
+    function handleModalClick() {
+        setOpenModal(true);
+        setName(modalName.add.name);
+        setButtonColor(modalName.add.buttonColor);
+        setButtonName(modalName.add.buttonName);
     };
     return(
         <div className="buttonContainer">
@@ -63,7 +69,7 @@ function FolderButton() {
                     )
                 })}
             </ul>
-            <AddButton>
+            <AddButton onClick={handleModalClick}>
                 폴더 추가
             </AddButton>
         </div>

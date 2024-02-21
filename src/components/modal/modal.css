@@ -1,0 +1,41 @@
+.modalCon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modalCon .modalBox {
+    position: relative;
+    width: 360px;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 32px 40px;
+}
+.modalCon .modalBox h4 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+.modalCon .modalBox .deleteModal {
+    cursor: pointer;
+    position: absolute;
+    top: 16px; right: 16px;
+    border: none;
+    background-color: transparent;
+}
+.modalCon .modalBox input {
+    width: 100%;
+    padding: 18px 15px;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    font-family: 'Pretendard';
+    border: 1px solid #CCD5E3;
+}
+.modalCon .modalBox input::placeholder {
+    color: rgba(159, 166, 178, 1);
+}
