@@ -1,0 +1,14 @@
+.Shared-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Shared-content-wrapper {
+  min-height: calc(100vh - 30px);
+}
+
+.Shared-content-wrapper button:hover {
+  background-color: #f0f6ff;
+}

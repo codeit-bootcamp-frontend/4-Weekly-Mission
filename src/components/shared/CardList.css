@@ -1,0 +1,71 @@
+.CardList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 24px;
+}
+
+.Card {
+  width: 340px;
+  height: 334px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.Card a {
+  text-decoration: none;
+}
+
+.Card-img-warpper {
+  width: 340px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.Card-img {
+  width: 340px;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.Card-img:hover {
+  transform: scale(1.3);
+}
+
+.Card-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  padding: 15px 20px;
+  font-size: 14px;
+  color: var(--gray1);
+}
+
+.Card-content-wrapper .description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit to 2 lines of text */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Display ellipsis (...) for overflow text */
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--black);
+}
+
+/* tablet */
+@media (max-width: 1199px) {
+  .CardList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* mobile */
+@media (max-width: 767px) {
+  .CardList {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
