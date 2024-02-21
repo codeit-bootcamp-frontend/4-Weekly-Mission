@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { getFolderList, getLink } from "../../api/api";
-import FolderList from "../../components/Folder/FolderList/FolderList";
-import Layout from "../../components/Layout/Layout";
-import OnlyCard from "../../components/Card/OnlyCard/OnlyCard";
-import CardList from "../../components/Card/CardList/CardList";
+import {
+  CardList,
+  OnlyCard,
+  Layout,
+  FolderList,
+  FolderOption,
+} from "../../components";
+
 import "./FolderPage.css";
-import FolderOption from "../../components/Folder/FolderOption/FolderOption";
 
 const FolderPage = ({ folderHeader, searchBar }) => {
   const [folderList, setFolderList] = useState([]);

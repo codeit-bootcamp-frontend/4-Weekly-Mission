@@ -1,4 +1,4 @@
-import Layout from "../../components/Layout/Layout";
+import { Layout } from "../../components";
 import "./SharePage.css";
 
 const SharePage = ({ folderInfo, searchBar, cardList }) => {

@@ -2,14 +2,17 @@ import { Fragment, useState, useEffect } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { getFolder } from "./api/api";
 
-import "./global.css";
-import FolderInfo from "./components/FolderInfo/FolderInfo";
+import {
+  CardList,
+  OnlyCard,
+  FolderInfo,
+  SearchBar,
+  FolderHeader,
+} from "./components";
 import SharePage from "./pages/SharePage/SharePage";
-import SearchBar from "./components/SearchBar/SearchBar";
-import CardList from "./components/Card/CardList/CardList";
-import OnlyCard from "./components/Card/OnlyCard/OnlyCard";
 import FolderPage from "./pages/FolderPage/FolderPage";
-import FolderHeader from "./components/Folder/FolderHeader/FolderHeader";
+
+import "./global.css";
 
 function App() {
   const [folderData, setFolderData] = useState([]);
