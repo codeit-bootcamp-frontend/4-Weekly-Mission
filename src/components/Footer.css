@@ -1,8 +1,3 @@
-footer {
-  height: 280px;
-  padding-top: 120px;
-}
-
 .footer {
   display: flex;
   height: 160px;
@@ -52,22 +47,6 @@ footer {
 .icon {
   width: 20px;
   height: 20px;
-}
-
-.facebook {
-  background-image: url("../assets/svg/icon_facebook.svg");
-}
-
-.twitter {
-  background-image: url("../assets/svg/icon_twitter.svg");
-}
-
-.youtube {
-  background-image: url("../assets/svg/icon_youtube.svg");
-}
-
-.instagram {
-  background-image: url("../assets/svg/icon_instagram.svg");
 }
 
 @media (max-width: 767px) {

@@ -1,8 +1,19 @@
 import "./Footer.css";
+import facebook from "../assets/svg/icon_facebook.svg";
+import twitter from "../assets/svg/icon_twitter.svg";
+import youtube from "../assets/svg/icon_youtube.svg";
+import instagram from "../assets/svg/icon_instagram.svg";
 
 function Footer() {
+  const icons = [
+    { id: 1, name: "facebook", url: "https://www.facebook.com/", img: { facebook } },
+    { id: 2, name: "twitter", url: "https://twitter.com/", img: { twitter } },
+    { id: 3, name: "youtube", url: "https://www.youtube.com/", img: { youtube } },
+    { id: 4, name: "instagram", url: "https://www.instagram.com/", img: { instagram } },
+  ];
+
   return (
-    <div className="footer">
+    <footer className="footer">
       <div className="footer_container">
         <div className="codeIt">
           <p>©codeit - 2023</p>
@@ -12,13 +23,20 @@ function Footer() {
           <a href="/faq.html">FAQ</a>
         </div>
         <div className="external_link">
-          <a href="https://www.facebook.com/" target="_blacnk" className="icon facebook"></a>
-          <a href="https://twitter.com/" target="_blacnk" className="icon twitter"></a>
-          <a href="https://www.youtube.com/" target="_blacnk" className="icon youtube"></a>
-          <a href="https://www.instagram.com/" target="_blacnk" className="icon instagram"></a>
+          {icons.map((icon) => (
+            <a
+              className="icon"
+              key={icon.id}
+              href={icon.url}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              <img src={icon.img[icon.name]} alt={icon.name + " 아이콘"} />
+            </a>
+          ))}
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 
