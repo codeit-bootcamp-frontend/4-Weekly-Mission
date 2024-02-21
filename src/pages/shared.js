@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Nav from "../components/Common/Nav";
-import Folder from "../components/Folder/Folder";
+import HeaderFolder from "../components/HeaderFolder";
 import Footer from "../components/Common/Footer";
 import CardGrid from "../components/CardGrid/Cardgrid";
 
@@ -39,7 +39,7 @@ const Shared = () => {
       <HeaderWrapper>
         <header>
           <div className="header-content">
-            <Folder />
+            <HeaderFolder />
           </div>
         </header>
       </HeaderWrapper>

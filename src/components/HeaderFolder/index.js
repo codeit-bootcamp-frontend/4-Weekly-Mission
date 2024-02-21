@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getFolder } from "../../api";
-import "./Folder.css";
+import "./index.css";
 
 const Profile = () => {
   const [folderData, setFolderData] = useState(null);
