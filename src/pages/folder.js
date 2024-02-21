@@ -100,15 +100,11 @@ const Folder = () => {
             </div>
           )}
         </div>
-        <div>
-          {folderLinkList && folderLinkList.length > 0 ? (
-            folderLinkList.map((link) => (
-              <CardGrid formattedCards={[link]} key={link.id} />
-            ))
-          ) : (
-            <NoLink />
-          )}
-        </div>
+        {folderLinkList && folderLinkList.length > 0 ? (
+          <CardGrid formattedCards={folderLinkList} />
+        ) : (
+          <NoLink />
+        )}
       </main>
       <Footer />
     </>
