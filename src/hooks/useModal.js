@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function useModal() {
+function useModal() {
   const [modalState, setModalState] = useState({
     visibility: false,
     target: '',
@@ -10,3 +10,5 @@ export default function useModal() {
 
   return [modalState, setModalState, onHandleCancel];
 }
+
+export default useModal;
