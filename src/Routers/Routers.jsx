@@ -11,7 +11,7 @@ const Routers = () => {
             <Route index element={<HomePage />} />
             <Route path="shared" element={<SharedPage />} />
             <Route path="folder" element={<FolderPage />} />
-            <Route path="folder/:folderId" element={<FolderPage />} />
+            <Route path="shared/:folderId" element={<FolderPage />} />
            
             
           </Route>

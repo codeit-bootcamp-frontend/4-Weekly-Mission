@@ -85,7 +85,7 @@ function FolderPage() {
       <div className={styles.container}>
         <div className={styles.content}>
           <SearchBar />
-
+          
           {buttonNames.length ? (
             <div>
               <div className={styles.category}>
@@ -99,7 +99,7 @@ function FolderPage() {
                     </FolderButton>
                   </Link>
                   {buttonNames.map(({ id, name }) => (
-                    <Link to={`/folder/${id}`} key={id}>
+                    <Link to={`/shared/${id}`} key={id}>
                       <FolderButton
                         ischecked={
                           selectedCategory.name === name ? true : false
