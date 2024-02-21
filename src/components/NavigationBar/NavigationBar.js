@@ -1,9 +1,11 @@
+import { Link } from "react-router-dom";
+
 import { useGetUser } from "../../hooks/useGetUser";
 
 import styles from "./NavigationBar.module.css";
 import LinkbraryLogo from "../../asset/images/logo.svg";
 
-import Cta from "../Cta/Cta";
+import Button from "../Button/Button";
 import Profile from "../Profile/Profile";
 
 const NavigationBar = () => {
@@ -14,16 +16,16 @@ const NavigationBar = () => {
     <nav className={styles.NavigationBar}>
       <div className={styles.items}>
         <h1>
-          <a href="/">
+          <Link to="/">
             <img className={styles.logo} src={LinkbraryLogo} alt="Linkbrary" />
-          </a>
+          </Link>
         </h1>
         {profile ? (
           <Profile profile={profile} />
         ) : (
-          <a href="/">
-            <Cta>로그인</Cta>
-          </a>
+          <Link to="/">
+            <Button>로그인</Button>
+          </Link>
         )}
       </div>
     </nav>
