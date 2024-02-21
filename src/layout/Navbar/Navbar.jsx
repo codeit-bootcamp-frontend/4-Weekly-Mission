@@ -1,17 +1,19 @@
-import React, { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./navbar.module.css";
-import { logoImage } from "assets";
 import { fetchUserData } from "services/api";
+import { UserContext } from "context/UserProvider";
+import styles from "./navbar.module.css";
 import Profile from "./Profile/Profile";
-import Button from "components/Button/Button";
+
+import logoImage from "assets/images/logo.svg";
 
 function Navbar() {
+  const { id } = useContext(UserContext);
   const [user, setUser] = useState(null);
   useEffect(() => {
-    fetchUserData()
+    fetchUserData(id)
       .then((data) => {
-        setUser(data);
+        setUser(...data);
       })
       .catch((err) => {
         console.error(err);
@@ -22,9 +24,17 @@ function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.wrap}>
         <NavLink to="/">
-          <img src={logoImage} className={styles.logo} />
+          <img src={logoImage} className={styles.logo} alt="로고"/>
         </NavLink>
-        <NavLink to="#">{user ? <Profile email={user.email} imgUrl={user.profileImageSource} /> : <Button color={"cta"}>로그인</Button>}</NavLink>
+        {user ? (
+          <NavLink to="/mypage">
+            <Profile email={user.email} imgUrl={user.image_source} />
+          </NavLink>
+        ) : (
+          <NavLink to="/login">
+            <button>로그인</button>
+          </NavLink>
+        )}
       </div>
     </nav>
   );

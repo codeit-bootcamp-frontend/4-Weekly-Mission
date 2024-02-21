@@ -1,18 +1,23 @@
 .container {
+  display: flex;
+  flex-direction: column;
   width: 340px;
+  height: 334px;
   border-radius: 15px;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
 }
 
 .imgWrapper {
-  height: 200px;
+  position: relative;
+  height: 20rem;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   overflow: hidden;
 }
 
 .image {
-  width: 340px;
+  width: 34rem;
   height: 100%;
   object-fit: cover;
 }
@@ -22,16 +27,62 @@
   transition-duration: 0.5s;
 }
 
+.star {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
 .info {
-  padding: 1.5rem 2rem;
   display: flex;
   flex-direction: column;
+  padding: 1.5rem 2rem;
   gap: 1rem;
+  flex: 1;
+  justify-content: center;
+}
+
+.infoTop {
+  display: flex;
+  justify-content: space-between;
 }
 
 .difference {
   font-size: 1.3rem;
   color: #666;
+}
+
+.menu {
+  position: relative;
+}
+
+.menuBtn{
+  background-color: transparent;
+}
+
+.options {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  width: 10rem;
+  text-align: center;
+  background-color: white;
+  box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
+  z-index: 99;
+}
+
+.option {
+  display: block;
+  width: 100%;
+  padding: 0.7rem;
+  color: var(--gray-light-gray-100, #333236);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.option:hover {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
 }
 
 .description {
@@ -40,6 +91,8 @@
   text-overflow: ellipsis;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
+  line-height: 2.4rem;
+  height: 4.8rem;
 }
 
 .date {

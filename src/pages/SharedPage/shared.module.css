@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 3.2rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 4rem 0;
+}

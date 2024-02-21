@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { fetchFolderData } from "services/api"
+import { useEffect, useState } from "react";
+import { fetchFolderData } from "services/api";
+import style from "./shared.module.css";
 import Header from "./components/Header";
-import List from "./components/List";
-import Input from "./components/Input";
+import CardList from "components/CardList/CardList";
+import SearchBar from "components/Input/SearchBar/SearchBar";
 
 function SharedPage() {
   const [fileImg, setFileImg] = useState(null);
@@ -12,20 +13,19 @@ function SharedPage() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLoad = async () => {
-    let data;
     try {
       setIsLoading(true);
-      data = await fetchFolderData();
+      const data = await fetchFolderData();
+      const { links, name, owner } = data.folder;
+      setOwnerName(owner.name);
+      setFileImg(owner.profileImageSource);
+      setFolderName(name);
+      setItems(links);
     } catch (error) {
       return;
     } finally {
       setIsLoading(false);
     }
-    const { count, links, name, owner } = data.folder;
-    setOwnerName(owner.name);
-    setFileImg(owner.profileImageSource);
-    setFolderName(name);
-    setItems(links);
   };
 
   useEffect(() => {
@@ -35,8 +35,12 @@ function SharedPage() {
   return (
     <div>
       <Header fileImg={fileImg} ownerName={ownerName} folderName={folderName} />
-      <Input />
-      <List items={items} />
+      <div className={style.container}>
+        <div className={style.content}>
+          <SearchBar />
+          <CardList items={items} />
+        </div>
+      </div>
     </div>
   );
 }
