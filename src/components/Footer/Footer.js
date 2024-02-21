@@ -4,7 +4,7 @@ import instagramIcon from "../../assets/images/instagram-icon.png";
 import twitterIcon from "../../assets/images/twitter-icon.png";
 import youtubeIcon from "../../assets/images/youtube-icon.png";
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-main">
@@ -58,5 +58,3 @@ const Footer = () => {
     </footer>
   );
 };
-
-export default Footer;

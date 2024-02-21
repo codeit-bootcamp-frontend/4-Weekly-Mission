@@ -1,7 +1,7 @@
-import FolderAdd from "../FolderAdd/FolderAdd";
+import { FolderAdd } from "../FolderAdd";
 import "./FolderList.css";
 
-const FolderList = ({ folderList, onSelectFolderList, selectId }) => {
+export const FolderList = ({ folderList, onSelectFolderList, selectId }) => {
   const handleClickFolderList = (e) => {
     let folderId;
 
@@ -41,5 +41,3 @@ const FolderList = ({ folderList, onSelectFolderList, selectId }) => {
     </div>
   );
 };
-
-export default FolderList;

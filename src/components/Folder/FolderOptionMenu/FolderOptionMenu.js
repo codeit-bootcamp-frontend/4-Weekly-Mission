@@ -1,6 +1,6 @@
 import "./FolderOptionMenu.css";
 
-const FolderOptionMenu = () => {
+export const FolderOptionMenu = () => {
   return (
     <div className="folderOption-options">
       <div className="folderOption-option">
@@ -18,5 +18,3 @@ const FolderOptionMenu = () => {
     </div>
   );
 };
-
-export default FolderOptionMenu;

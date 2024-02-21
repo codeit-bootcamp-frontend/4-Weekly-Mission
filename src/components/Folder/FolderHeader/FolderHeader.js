@@ -1,6 +1,6 @@
 import "./FolderHeader.css";
 
-const FolderHeader = () => {
+export const FolderHeader = () => {
   return (
     <div className="folderHeader">
       <div className="folderHeader-link">
@@ -15,5 +15,3 @@ const FolderHeader = () => {
     </div>
   );
 };
-
-export default FolderHeader;

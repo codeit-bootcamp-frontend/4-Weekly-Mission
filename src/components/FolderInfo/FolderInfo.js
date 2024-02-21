@@ -1,6 +1,6 @@
 import "./FolderInfo.css";
 
-const FolderInfo = ({ profile }) => {
+export const FolderInfo = ({ profile }) => {
   const { name: ownerName, profileImageSource } = profile?.owner || {};
   const { name: folderName } = profile || {};
   return (
@@ -15,5 +15,3 @@ const FolderInfo = ({ profile }) => {
     </div>
   );
 };
-
-export default FolderInfo;

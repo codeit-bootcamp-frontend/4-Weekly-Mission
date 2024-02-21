@@ -5,7 +5,7 @@ import Logo from "../../assets/images/logo.png";
 import "./NavBar.css";
 import { useLocation } from "react-router-dom";
 
-const NavBar = () => {
+export const NavBar = () => {
   const [userData, setUserData] = useState();
   const location = useLocation();
 
@@ -37,5 +37,3 @@ const NavBar = () => {
     </nav>
   );
 };
-
-export default NavBar;

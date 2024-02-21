@@ -1,8 +1,8 @@
 import { Fragment } from "react";
-import Footer from "../Footer/Footer";
-import NavBar from "../NavBar/NavBar";
+import { Footer } from "../Footer";
+import { NavBar } from "../NavBar";
 
-const Layout = ({ children }) => {
+export const Layout = ({ children }) => {
   return (
     <Fragment>
       <NavBar />
@@ -11,5 +11,3 @@ const Layout = ({ children }) => {
     </Fragment>
   );
 };
-
-export default Layout;

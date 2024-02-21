@@ -1,6 +1,6 @@
 import "./FolderAdd.css";
 
-const FolderAdd = () => {
+export const FolderAdd = () => {
   return (
     <div className="folderAdd">
       <div>폴더 추가</div>
@@ -8,5 +8,3 @@ const FolderAdd = () => {
     </div>
   );
 };
-
-export default FolderAdd;

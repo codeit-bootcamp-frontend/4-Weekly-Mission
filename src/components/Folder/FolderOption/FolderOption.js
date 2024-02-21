@@ -1,7 +1,7 @@
-import FolderOptionMenu from "../FolderOptionMenu/FolderOptionMenu";
+import { FolderOptionMenu } from "../FolderOptionMenu";
 import "./FolderOption.css";
 
-const FolderOption = ({ folderName }) => {
+export const FolderOption = ({ folderName }) => {
   return (
     <div className="folderOption">
       <div className="folderOption-folderName">{folderName}</div>
@@ -9,5 +9,3 @@ const FolderOption = ({ folderName }) => {
     </div>
   );
 };
-
-export default FolderOption;
