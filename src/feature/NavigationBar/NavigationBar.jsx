@@ -6,10 +6,11 @@ import "./NavigationBar.css";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export const NavigationBar = ({ userEmail, userImgSource }) => {
+export const NavigationBar = ({ userInfo }) => {
   const [className, setClassName] = useState("NavigationBar");
   const Location = useLocation();
   const LocationPath = Location.pathname;
+  const { email, imageSource } = userInfo || {};
 
   const handleClassName = () => {
     LocationPath === "/shared" || LocationPath === "/folder"
@@ -31,8 +32,8 @@ export const NavigationBar = ({ userEmail, userImgSource }) => {
             alt="Linkbrary 서비스 로고"
           />
         </a>
-        {userEmail && userImgSource ? (
-          <Profile userEmail={userEmail} userImgSource={userImgSource} />
+        {email && imageSource ? (
+          <Profile userEmail={email} userImgSource={imageSource} />
         ) : (
           <a href={ROUTE.로그인}>
             <Cta isSmall>
