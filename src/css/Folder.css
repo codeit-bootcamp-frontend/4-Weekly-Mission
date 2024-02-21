@@ -113,3 +113,41 @@
   align-items: center;
   gap: 20px;
 }
+
+.FolderUsefulTitle {
+  text-align: left;
+}
+
+.FolderGo {
+  text-decoration: none;
+  color: black;
+}
+
+.FolderLinkItem {
+  width: 340px;
+  weight: 334px;
+}
+
+.FolderLinkImg {
+  width: 340px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+}
+
+.FolderLinkDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px 20px 15px 20px;
+  border-radius: 0 0 15px 15px;
+}
+
+.FolderDesc {
+  font-size: 16px;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 표시할 줄의 최대 수 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

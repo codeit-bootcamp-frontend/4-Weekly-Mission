@@ -10,6 +10,7 @@ function Folder() {
   const [selectedLinks, setSelectedLinks] = useState([]);
   const [folders, setFolders] = useState([]);
   const [selectedFolderId, setSelectedFolderId] = useState(null);
+  console.log(folders);
 
   // 폴더 목록 불러오기 (전체, 즐겨찾기, 코딩 팁 ...etc)
   useEffect(() => {
@@ -86,7 +87,11 @@ function Folder() {
           ))}
           <button className="FolderAddSmallButton">폴더 추가 +</button>
         </div>
-        <div className="FolderUsefulTitle">유용한 글</div>
+        <div className="FolderUsefulTitle">
+          {selectedFolderId === null
+            ? "전체"
+            : folders.find((folder) => folder.id === selectedFolderId)?.name}
+        </div>
         <div className="FolderContents">
           <div className="FolderContent">
             {selectedLinks && selectedLinks.length === 0 ? (
