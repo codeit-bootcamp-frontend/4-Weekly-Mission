@@ -12,10 +12,12 @@ export default function FolderSection() {
   const [folderList, setFolderList] = useState([]);
   const [cardList, setCardList] = useState([]);
 
+  //전체 폴더 클릭
   async function getAllList() {
     try {
       const { data } = await getAllLinks();
       setCardList(data);
+      console.log(data);
     } catch (error) {
       console.error(error);
     }
@@ -25,16 +27,28 @@ export default function FolderSection() {
     setFolderName(e.target.textContent);
     await getAllList();
   }
+  //전체 폴더 클릭
 
-  // const folderAllNameClick = (e) => {
-  //   setFolderName(e.target.textContent);
-  //   getAllList();
-  // };
+  //개별 폴더 클릭
 
-  const folderNameClick = (e) => {
+  async function getList(id) {
+    try {
+      const { data } = await getFolderLink(id);
+      setCardList(data);
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function folderNameClick(e) {
     setFolderName(e.target.textContent);
-  };
+    await getList(e.target.id);
+  }
 
+  //개별 폴더 클릭
+
+  //폴더 버튼
   useEffect(() => {
     async function getList() {
       try {
@@ -57,7 +71,7 @@ export default function FolderSection() {
             <button onClick={folderAllNameClick}>전체</button>
             {folderList.map(({ name, id }) => {
               return (
-                <button key={id} onClick={folderNameClick}>
+                <button key={id} id={id} onClick={folderNameClick}>
                   {name}
                 </button>
               );
