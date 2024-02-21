@@ -11,7 +11,7 @@ const Gnb = ({className, isFixed}) => {
   const gnbStyle = {
     position: isFixed ? 'sticky' : 'static',
     top: 0,
-    'z-index': 1020
+    zIndex: 1020
   }
 
   useEffect(() => {
