@@ -12,7 +12,7 @@ const FOLDER_EDIT_ICONS = Object.freeze([
 
 const FolderEdit = ({ folderName }) => {
   if (folderName === TOTAL_LIST_NAME) {
-    return <></>
+    return null;
   }
 
   return (

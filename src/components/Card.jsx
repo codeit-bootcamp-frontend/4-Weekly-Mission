@@ -21,7 +21,7 @@ const Card = ({imgSrc, createdAt, title, description, url}) => {
         </div>
       <img src={starIcon} alt='중요 표시' className='card-img_star-icon' />
     </li>
-  ) 
+  )
 }
 
 export default Card;

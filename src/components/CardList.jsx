@@ -1,6 +1,6 @@
 import Card from "./Card";
 
-const CardList = ({links}) => {
+const CardList = ({ links }) => {
   if (!links.length) {
     return (
       <div className='card-empty'>저장된 링크가 없습니다</div>

@@ -2,7 +2,7 @@ import { TOTAL_LIST_NAME } from '../constants/folder';
 
 const FolderList = ({ folderList, totalHandler, listHandler }) => {
   if (!folderList.length) {
-    return <></>
+    return null;
   }
 
   return (
