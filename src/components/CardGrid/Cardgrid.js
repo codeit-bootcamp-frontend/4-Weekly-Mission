@@ -1,5 +1,5 @@
 import React from "react";
-import { useCardData } from "./Card/useCardData";
+import { useCardData } from "./Utils/useCardData";
 import Search from "./Search/Search";
 import "./Cardgrid.css";
 import defaultImage from "../../image/no_image.svg";

@@ -4,12 +4,14 @@ header {
 }
 
 .nav {
+  background-color: var(--gray5);
+  width: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
   padding: 0 20rem;
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
@@ -21,7 +23,6 @@ header {
 }
 
 .header-content {
-  padding-top: 9.4rem;
   display: flex;
   width: 100%;
   flex-direction: column;
