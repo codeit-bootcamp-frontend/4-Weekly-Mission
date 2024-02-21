@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getSampleUser } from "api/api";
 import { useAsync } from "hooks/useAsync";
 
-export default function Header() {
+export function Header() {
   const [user, setUser] = useState({});
   const [_, error, getUserAsync] = useAsync(getSampleUser);
 

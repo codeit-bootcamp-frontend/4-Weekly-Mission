@@ -1,9 +1,16 @@
-import Footer from "components/Footer";
-import CardList from "components/CardList";
-import FolderHeader from "./components/FolderHeader";
-import FolderAddLinkArea from "./components/FolderAddLinkArea";
-import FolderCategory from "./components/FolderCategory";
-import FolderControl from "./components/FolderControl";
+// import Footer from "components/Footer";
+// import CardList from "components/CardList";
+import { Footer, CardList } from "components";
+// import FolderHeader from "./components/FolderHeader";
+// import FolderAddLinkArea from "./components/FolderAddLinkArea";
+// import FolderCategory from "./components/FolderCategory";
+// import FolderControl from "./components/FolderControl";
+import {
+  FolderAddLinkArea,
+  FolderCategory,
+  FolderHeader,
+  FolderControl,
+} from "./components";
 import styles from "./styles.module.css";
 import SearchIcon from "assets/Search.png";
 import { useEffect, useState } from "react";

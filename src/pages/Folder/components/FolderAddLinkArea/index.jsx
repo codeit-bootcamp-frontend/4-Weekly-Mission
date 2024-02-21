@@ -1,7 +1,7 @@
 import linkImg from "assets/link.png";
 import styles from "./styles.module.css";
 
-export default function FolderAddLinkArea() {
+export function FolderAddLinkArea() {
   return (
     <div className={styles.container}>
       <div className={styles.addLinkAreaWrapper}>

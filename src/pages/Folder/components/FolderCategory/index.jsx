@@ -1,10 +1,6 @@
 import styles from "./styles.module.css";
 
-export default function FolderCategory({
-  folders,
-  selectedId,
-  onSelectedFolder,
-}) {
+export function FolderCategory({ folders, selectedId, onSelectedFolder }) {
   const handleClick = (e) => {
     onSelectedFolder({ name: e.target.textContent, id: e.target.id });
   };

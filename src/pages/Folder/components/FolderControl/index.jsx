@@ -5,7 +5,7 @@ import shareImg from "assets/share.png";
 import { useModal } from "hooks/useModal";
 import DeleteModal from "components/DeleteModal";
 
-export default function FolderControl({ folderName }) {
+export function FolderControl({ folderName }) {
   const { openModal, modalRef, handleModalClose, handleModalOpen } = useModal();
 
   const handleDeleteClick = () => {
