@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Favorites from "./js/Favorites";
 import Folder from "./js/Folder";
+// import "./css/Reset.css";
 
 function App() {
   return (

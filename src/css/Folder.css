@@ -96,3 +96,20 @@
   background-color: #6d6afe;
   color: #fff;
 }
+
+.FolderContents {
+  padding: 15px 16px 15px 16px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 5 25 0 #000000;
+}
+
+.FolderContent {
+  width: 1060px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fetchFolderCardData, fetchLinks } from "./Service/ApiService";
+import { getTimeAgo } from "./utils/getTimeAgo";
+import { formatDate } from "./utils/formatDate";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import "../css/Folder.css";
@@ -20,61 +22,24 @@ function Folder() {
       }
     };
 
+    // 선택된 폴더의 링크 데이터 불러오기
+    const loadLinksForFolder = async (folderId) => {
+      try {
+        const linksData = await fetchLinks(folderId);
+        console.log("button click");
+        console.log(linksData);
+        setSelectedLinks(linksData.data); // linksData가 { data: [링크 목록] } 구조를 가짐
+        setSelectedFolderId(folderId);
+        console.log(selectedLinks);
+      } catch (error) {
+        console.error("Error fetching links:", error);
+        setSelectedLinks([]); // 에러 발생 시 링크 목록 비우기
+      }
+    };
+
     loadFolders();
-  }, []);
-
-  // 선택된 폴더의 링크 데이터 불러오기
-  const loadLinksForFolder = async (folderId) => {
-    try {
-      const linksData = await fetchLinks(folderId);
-      setSelectedLinks(linksData.data); // linksData가 { data: [링크 목록] } 구조를 가짐
-      setSelectedFolderId(folderId);
-      console.log("button click");
-      console.log(linksData);
-    } catch (error) {
-      console.error("Error fetching links:", error);
-      setSelectedLinks([]); // 에러 발생 시 링크 목록 비우기
-    }
-  };
-
-  function timeAgo(createdAt) {
-    const createdAtDate = new Date(createdAt);
-    const now = new Date();
-    const diff = Math.floor((now - createdAtDate) / 1000);
-    const minute = 60;
-    const hour = minute * 60;
-    const day = hour * 24;
-    const month = day * 30;
-    const year = day * 365;
-
-    if (diff < 2 * minute) {
-      return "1 minute ago";
-    }
-    if (diff < hour) {
-      return `${Math.floor(diff / minute)} minutes ago`;
-    }
-    if (diff < day) {
-      return `${Math.floor(diff / hour)} hours ago`;
-    }
-    if (diff < month) {
-      return `${Math.floor(diff / day)} days ago`;
-    } else if (diff < year) {
-      return `${Math.floor(diff / month)} months ago`;
-    } else {
-      const years = Math.floor(diff / year);
-      return `${years} ${years === 1 ? "year" : "years"} ago`;
-    }
-  }
-
-  function formatDate(dateString) {
-    const date = new Date(dateString);
-    const year = date.getFullYear();
-    // getMonth()는 0부터 시작하므로 1을 더함
-    const month = (date.getMonth() + 1).toString().padStart(2, "0");
-    const day = date.getDate().toString().padStart(2, "0");
-
-    return `${year}.${month}.${day}`;
-  }
+    loadLinksForFolder();
+  }, [selectedLinks]);
 
   return (
     <>
@@ -95,7 +60,6 @@ function Folder() {
           {folders.map((folder) => (
             <button
               key={folder.id}
-              onClick={() => loadLinksForFolder(folder.id)}
               // 선택된 폴더 버튼 배경색만 바꾸기 위해
               className={`FolderListButton ${
                 selectedFolderId === folder.id ? "selected" : ""
@@ -104,39 +68,42 @@ function Folder() {
               {folder.name}
             </button>
           ))}
+          {/* <div>{folders.folder.name}</div> */}
           <button className="FolderAddSmallButton">폴더 추가 +</button>
         </div>
         <div className="FolderUsefulTitle">유용한 글</div>
         <div className="FolderContents">
-          {selectedLinks.length === 0 ? (
-            <div className="FolderNoCards">저장된 링크가 없습니다.</div>
-          ) : (
-            selectedLinks.map((link) => (
-              // <div key={link.id} className="FolderCards">
-              //   <a href={link.url} target="_blank" rel="noopener noreferrer">
-              //     {link.title || link.url}
-              //   </a>
-              // </div>
-              <div key={link.id} className="FolderLinkItem">
-                <a href={link.url} target="_blank" className="FavoritesGo">
-                  <img
-                    src={link.imageSource}
-                    className="FavoritesLinkImg"
-                    alt="이미지 카드 사진"
-                  ></img>
-                  <div className="FavoritesLinkDesc">
-                    <div className="FavoritesTimeDiff">
-                      {timeAgo(link.createdAt)}
+          <div className="FolderContent">
+            {selectedLinks && selectedLinks.length === 0 ? (
+              <div className="FolderNoCards">저장된 링크가 없습니다.</div>
+            ) : (
+              selectedLinks.map((link) => (
+                <div key={link.id} className="FavoritesLinkItem">
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    className="FavoritesGo"
+                    rel="noreferrer"
+                  >
+                    <img
+                      src={link.imageSource}
+                      className="FavoritesLinkImg"
+                      alt="이미지 카드 사진"
+                    ></img>
+                    <div className="FavoritesLinkDesc">
+                      <div className="FavoritesTimeDiff">
+                        {getTimeAgo(link.created_at)}
+                      </div>
+                      <div className="FavoritesDesc">{link.description}</div>
+                      <div className="FavoritesLinkDate">
+                        {formatDate(link.created_at)}
+                      </div>
                     </div>
-                    <div className="FavoritesDesc">{link.description}</div>
-                    <div className="FavoritesLinkDate">
-                      {formatDate(link.createdAt)}
-                    </div>
-                  </div>
-                </a>
-              </div>
-            ))
-          )}
+                  </a>
+                </div>
+              ))
+            )}
+          </div>
         </div>
       </div>
       <Footer />
