@@ -39,8 +39,8 @@
   opacity: 0.2;
 }
 
-.Card.hover .Card__thumb,
-.Card.hover .Card__noImage {
+.Card:hover .Card__thumb,
+.Card:hover .Card__noImage {
   transform: scale(130%);
 }
 

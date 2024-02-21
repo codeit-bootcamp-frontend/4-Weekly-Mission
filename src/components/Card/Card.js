@@ -1,32 +1,12 @@
 import "./Card.css";
 import getElapsedTime from "../../util/getElapsedTime";
-import { useRef, useState } from "react";
 import LinkbraryLogo from "../../asset/images/logo.svg";
 
 const Card = ({ createdAt, description, imageSource }) => {
-  const [isMouseOver, setIsMouseOver] = useState(false);
-
   const elapsedTime = getElapsedTime(createdAt);
 
-  const cardRef = useRef();
-
-  const handleMouseOver = () => {
-    setIsMouseOver(true);
-    cardRef.current.classList.add("hover");
-  };
-
-  const handleMouseOut = () => {
-    setIsMouseOver(false);
-    cardRef.current.classList.remove("hover");
-  };
-
   return (
-    <div
-      className="Card"
-      ref={cardRef}
-      onMouseOver={handleMouseOver}
-      onMouseOut={handleMouseOut}
-    >
+    <div className="Card">
       <div className="Card__thumb-box">
         {imageSource ? (
           <img
