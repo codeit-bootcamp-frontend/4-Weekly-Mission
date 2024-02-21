@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import { getFolderList, getAllLinks, getFolderLink } from "../api";
 import SearchBar from "./SearchBar";
 import addImg from "../assets/add.svg";
 import shareIcon from "../assets/share.svg";
@@ -8,21 +9,59 @@ import "./FolderSection.css";
 
 export default function FolderSection() {
   const [folderName, setFolderName] = useState("");
+  const [folderList, setFolderList] = useState([]);
+  const [cardList, setCardList] = useState([]);
+
+  async function getAllList() {
+    try {
+      const { data } = await getAllLinks();
+      setCardList(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function folderAllNameClick(e) {
+    setFolderName(e.target.textContent);
+    await getAllList();
+  }
+
+  // const folderAllNameClick = (e) => {
+  //   setFolderName(e.target.textContent);
+  //   getAllList();
+  // };
+
   const folderNameClick = (e) => {
     setFolderName(e.target.textContent);
   };
+
+  useEffect(() => {
+    async function getList() {
+      try {
+        const { data } = await getFolderList();
+        setFolderList(data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    getList();
+  }, []);
+
   return (
     <div className="FolderSection">
       <div className="FolderSection-Frame">
         <SearchBar />
         <div className="FolderBtnList">
           <div className="FolderBtn">
-            <button onClick={folderNameClick}>전체</button>
-            <button onClick={folderNameClick}>⭐️ 즐겨찾기</button>
-            <button onClick={folderNameClick}>코딩 팁</button>
-            <button onClick={folderNameClick}>채용 사이트</button>
-            <button onClick={folderNameClick}>유용한 글</button>
-            <button onClick={folderNameClick}>나만의 장소</button>
+            <button onClick={folderAllNameClick}>전체</button>
+            {folderList.map(({ name, id }) => {
+              return (
+                <button key={id} onClick={folderNameClick}>
+                  {name}
+                </button>
+              );
+            })}
           </div>
           <div className="AddFolder">
             <span>폴더 추가</span>

@@ -28,7 +28,7 @@ export async function getFolderList() {
 }
 
 export async function getAllLinks() {
-  const response = await fetch(`${BASE_URL}users/1/links`);
+  const response = await fetch(`${BASE_URL}/api/users/1/links`);
   if (!response.ok) {
     throw new Error("전체 폴더 링크를 불러오는데 실패했습니다");
   }
@@ -37,7 +37,7 @@ export async function getAllLinks() {
 }
 
 export async function getFolderLink(id) {
-  const response = await fetch(`${BASE_URL}users/1/links?folderId=${id}`);
+  const response = await fetch(`${BASE_URL}/api/users/1/links?folderId=${id}`);
   if (!response.ok) {
     throw new Error("해당 폴더 링크를 불러오는데 실패했습니다");
   }
