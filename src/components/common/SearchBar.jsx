@@ -1,4 +1,4 @@
-import search from "../images/Search.png";
+import search from "../../images/Search.png";
 import "./SearchBar.css";
 
 export function SearchBar() {
