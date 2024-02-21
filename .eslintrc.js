@@ -30,5 +30,9 @@ module.exports = {
     'react'
   ],
   rules: {
+    "react/self-closing-comp": ["error", {
+      "component": true,
+      "html": true
+    }]
   }
 }
