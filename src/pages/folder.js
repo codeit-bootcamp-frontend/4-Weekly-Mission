@@ -17,6 +17,7 @@ const Folder = () => {
   const [folders, setFolders] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("");
   const [folderLinkList, setFolderLinkList] = useState([]);
+  const [showButtons, setShowButtons] = useState(true);
   const params = useParams();
 
   useEffect(() => {
@@ -61,6 +62,7 @@ const Folder = () => {
       const response = await getFolderLinks(folderId.toString());
       setCurrentCategory(categoryName);
       setFolderLinkList(response.data);
+      setShowButtons(categoryName !== "전체");
     } catch (error) {
       console.error("링크 데이터 불러오기 실패: ", error);
     }
@@ -77,18 +79,22 @@ const Folder = () => {
         <LinkCategory categoryList={folders} onClick={onClickCategory} />
         <div>
           <h2>{currentCategory}</h2>
-          <button>
-            <img src={shareIcon} alt="공유 아이콘" />
-            공유
-          </button>
-          <button>
-            <img src={penIcon} alt="이름 변경 아이콘" />
-            이름변경
-          </button>
-          <button>
-            <img src={deleteIcon} alt="삭제 아이콘" />
-            삭제
-          </button>
+          {showButtons && (
+            <div>
+              <button>
+                <img src={shareIcon} alt="공유 아이콘" />
+                공유
+              </button>
+              <button>
+                <img src={penIcon} alt="이름 변경 아이콘" />
+                이름변경
+              </button>
+              <button>
+                <img src={deleteIcon} alt="삭제 아이콘" />
+                삭제
+              </button>
+            </div>
+          )}
         </div>
         <div>
           {folderLinkList && folderLinkList.length > 0 ? (
