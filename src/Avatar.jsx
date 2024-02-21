@@ -13,7 +13,7 @@ const Avatar = ({ sharedFolder }) => {
               <span className='avatar-name'>{sharedFolder.owner.name}</span>
             </div>
           ) : (
-            <button className='login-button'>회원가입</button>
+            <button className='login-button' type='button'>회원가입</button>
           )}
           <span className='favorite'>{sharedFolder.name}</span>
         </div>

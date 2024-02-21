@@ -41,7 +41,7 @@ const Gnb = ({className, isFixed}) => {
             <span className='account-email'>{user.email}</span>
           </div>
         ) : (
-          <button className='login-button'>로그인</button>
+          <button className='login-button' type='button'>로그인</button>
         )}
       </div>
     </nav> 
