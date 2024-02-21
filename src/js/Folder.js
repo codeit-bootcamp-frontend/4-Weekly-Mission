@@ -16,6 +16,8 @@ function Folder() {
     const loadFolders = async () => {
       try {
         const folderData = await fetchFolderCardData();
+        console.log("----");
+        console.log(folderData);
         setFolders(folderData.data); // folderData가 { data: [폴더 목록] } 구조를 가짐
       } catch (error) {
         console.error("Error fetching folders:", error);
@@ -57,6 +59,17 @@ function Folder() {
           placeholder="🔎 링크를 검색해 보세요."
         />
         <div className="FolderList">
+          <button
+            key="all"
+            className={`FolderListButton ${
+              selectedFolderId === null ? "selected" : ""
+            }`}
+            onClick={() => {
+              setSelectedFolderId(null);
+            }}
+          >
+            전체
+          </button>
           {folders.map((folder) => (
             <button
               key={folder.id}
@@ -64,11 +77,13 @@ function Folder() {
               className={`FolderListButton ${
                 selectedFolderId === folder.id ? "selected" : ""
               }`}
+              onClick={() => {
+                setSelectedFolderId(folder.id);
+              }}
             >
               {folder.name}
             </button>
           ))}
-          {/* <div>{folders.folder.name}</div> */}
           <button className="FolderAddSmallButton">폴더 추가 +</button>
         </div>
         <div className="FolderUsefulTitle">유용한 글</div>
