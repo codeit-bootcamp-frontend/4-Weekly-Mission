@@ -1,22 +1,23 @@
 import '../styles/Header.css';
 import logo from '../assets/images/logo.svg';
 
-const Header = ({ userInfo }) => {
-  const profileImage = userInfo?.profileImageSource;
+const Header = ({ userInfo, isSticky = true }) => {
+  const profileImage = userInfo?.profileImageSource ? userInfo?.profileImageSource : userInfo?.image_source;
   const profileEmail = userInfo?.email;
+  const sticky = isSticky ? "sticky" : "";
 
   return (
-    <header>
+    <header className={sticky}>
       <nav>
         <img className="main-logo" src={logo} alt="링크라이브러리 로고." />
-        {/* 로그인 된 경우 */}
-        <div className="profile">
-          <img className="profile-image" src={profileImage} alt="사용자의 프로필 이미지." />
-          <p className="profile-email">{profileEmail}</p>
-        </div>
-
-        {/* 로그인 안 된 경우 */}
-        {/* <a className="button-login" href="/pages/signin.html">로그인</a> */}
+        {userInfo ? (
+          <div className="profile">
+            <img className="profile-image" src={profileImage} alt="사용자의 프로필 이미지." />
+            <p className="profile-email">{profileEmail}</p>
+          </div>
+        ) : (
+          <a className="button-login button-gradient" href="/">로그인</a>
+        )}
       </nav>
     </header>
   );

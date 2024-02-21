@@ -1,5 +1,7 @@
 import '../styles/Card.css';
 import noneData from '../assets/images/none-data.png';
+import iconStar from '../assets/icons/star-off.svg';
+import iconKebab from '../assets/icons/kebab.svg';
 
 const createDate = (value) => {
   const date = new Date(value);
@@ -36,18 +38,25 @@ const intervalDate = (value) => {
   }
 };
 
-const Card = ({ cardlist }) => {
-  const { url, title, imageSource, description, createdAt } = cardlist;
+const Card = ({ card, isIconVisible = true }) => {
+  const { url, title, description } = card;
+  const createdAt = card?.createdAt ? card?.createdAt : card?.created_at;
+  const imageSource = card?.imageSource ? card?.imageSource : card?.image_source;
   const cardImage = imageSource ? imageSource : noneData;
-  const altCardImage = title + "로 이동"
-  console.log(altCardImage);
-
 
   return (
     <div className="card">
+      {isIconVisible ? (
+        <>
+          <img className="star-icon" src={iconStar} />
+          <img className="kebab-icon" src={iconKebab} />
+        </>
+      ) : (
+        null
+      )}
       <a href={url} target="_blank" rel="noreferrer">
         <div className="card-image-content">
-          <img className="card-image" src={cardImage} alt={altCardImage} />
+          <img className="card-image" src={cardImage} alt={title + "로 이동하기."} />
         </div>
         <div className="card-content">
           <div className="card-interval-date">{intervalDate(createdAt)}</div>

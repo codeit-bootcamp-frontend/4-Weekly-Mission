@@ -1,22 +1,15 @@
 @import url('./global.css');
+@import url('./FolderList.css');
 
-.folder-content {
+.folder {
   display: flex;
-  width: 100%;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 2.5rem 12.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  background: var(--white);
 }
 
-@media (width >= 768px) and (width <= 1124px) {
-  .folder-content {
-    padding: 2.5rem 2rem;
-  }
-}
-
-@media (width <= 767px) {
-  .folder-content {
-    padding: 2.5rem 2rem;
-  }
+.folder-selected {
+  background: var(--primary);
+  color: var(--white);
 }

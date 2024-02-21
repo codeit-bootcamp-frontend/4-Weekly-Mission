@@ -1,20 +1,19 @@
 import '../styles/CardList.css';
 import Card from '../components/Card';
 
-const CardList = ({ folderInfo }) => {
-  const cardList = folderInfo?.folder.links;
-  console.log(cardList);
+const CardList = ({ folderInfo, isIconVisible = false }) => {
+  const cardList = isIconVisible ? folderInfo : folderInfo?.folder.links;
 
   return (
     <div className="cardlist">
-      {cardList ? (
+      {cardList && cardList.length !== 0 ? (
         <>
-          {cardList.map((cardlist) => (
-            <Card cardlist={cardlist} key={cardlist.id} />
+          {cardList.map((card) => (
+            <Card card={card} key={card.id} isIconVisible={isIconVisible} />
           ))}
         </>
       ) : (
-        <div>폴더가 비어있습니다.</div>
+        <div className='none-link'>저장된 링크가 없습니다.</div>
       )}
     </div>
   );

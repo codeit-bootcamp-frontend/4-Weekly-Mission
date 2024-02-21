@@ -1,13 +1,10 @@
 import '../styles/FolderContent.css';
-import SearchBar from '../components/SearchBar';
-import CardList from '../components/CardList';
 
-const FolderContent = ({ folderInfo }) => {
+const FolderContent = ({ children }) => {
   return (
-    <div className="folder-content">
-      <SearchBar />
-      <CardList folderInfo={folderInfo} />
-    </div>
+    <main className="folder-content">
+      {children}
+    </main>
   );
 }
 
