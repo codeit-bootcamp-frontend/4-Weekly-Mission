@@ -7,6 +7,7 @@ import FolderList from "./FolderList";
 import AllFolderCard from "../FolderCard/AllFolderCard";
 import FolderCard from "../FolderCard/FolderCard";
 import useFolderLinks from "../../hooks/useFolderLinks";
+import renderButton from "../../utils/renderButtons";
 
 function Folder() {
   const { data } = useGetFolderById();
@@ -16,7 +17,7 @@ function Folder() {
   const [selectedFolder, setSelectedFolder] = useState("");
 
   useEffect(() => {
-    if (selectedFolder === "" && dataArray && dataArray.length > 0) {
+    if (selectedFolder === "" && dataArray?.length > 0) {
       setSelectedFolder("전체");
     }
   }, [selectedFolder, dataArray]);
@@ -28,19 +29,11 @@ function Folder() {
     setSelectedFolder(name);
   };
 
-  let renderedButtons;
-
-  if (dataArray && Array.isArray(dataArray)) {
-    renderedButtons = dataArray.map((item) => (
-      <button
-        key={item.id}
-        className={activeButton === item.name ? "active" : ""}
-        onClick={() => handleButtonClick(item.name)}
-      >
-        {item.name}
-      </button>
-    ));
-  }
+  const renderedButtons = renderButton({
+    dataArray,
+    activeButton,
+    handleButtonClick,
+  });
 
   return (
     <div className="Folder">
