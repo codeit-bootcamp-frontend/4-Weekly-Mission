@@ -1,0 +1,12 @@
+.WishListButton {
+  width: 2.125rem;
+  height: 2.125rem;
+}
+
+.WishListButton-button {
+  width: 2.125rem;
+  height: 2.125rem;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+}
