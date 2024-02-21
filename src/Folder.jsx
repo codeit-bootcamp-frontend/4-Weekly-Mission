@@ -34,7 +34,7 @@ const Folder = () => {
     <div className='container-folder'>
       <SearchBar className='search-bar_ly'/>
       <div className='container-folder-and-cards'>
-        <FolderList 
+        <FolderList
           folderList={folderList}
           totalHandler={handleTotalListClick}
           listHandler={handleListClick}

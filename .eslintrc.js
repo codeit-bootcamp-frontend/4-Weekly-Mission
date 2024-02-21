@@ -32,6 +32,7 @@ module.exports = {
     'react/self-closing-comp': ['error', {
       'component': true,
       'html': true
-    }]
+    }],
+    'react/react-in-jsx-scope': 'off'
   }
 }

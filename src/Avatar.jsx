@@ -1,6 +1,6 @@
 import './Avatar.css';
 
-const Avatar = ({sharedFolder}) => {
+const Avatar = ({ sharedFolder }) => {
   const isShowFolderInfos = sharedFolder && sharedFolder.owner && sharedFolder.name;
 
   return (

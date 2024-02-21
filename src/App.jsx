@@ -1,10 +1,9 @@
-import { Route, Routes } from'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import SharedPage from './pages/SharedPage';
 import FolderPage from './pages/FolderPage';
 
 const App = () => {
-
   return (
     <Routes>
       <Route path="/shared" element={<SharedPage />} />

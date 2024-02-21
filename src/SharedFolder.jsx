@@ -2,8 +2,8 @@ import SearchBar from './components/SearchBar';
 import SharedCardList from './components/SharedCardList';
 import './Folder.css';
 
-const SharedFolder = ({sharedFolder}) => {
-  if(!sharedFolder || !sharedFolder.links) {
+const SharedFolder = ({ sharedFolder }) => {
+  if (!sharedFolder || !sharedFolder.links) {
     return (
       <div>파트 1에서 만들었던 랜딩 페이지 적용</div>
     )

@@ -9,8 +9,9 @@ const Gnb = ({className, isFixed}) => {
   const [user, setUser] = useState({});
 
   const gnbStyle = {
-    position : isFixed ? 'sticky' : 'static',
-    top : 0,
+    position: isFixed ? 'sticky' : 'static',
+    top: 0,
+    'z-index': 1020
   }
 
   useEffect(() => {
