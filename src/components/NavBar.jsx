@@ -3,6 +3,7 @@ import useFetch from "./hooks/useFetch";
 import Loading from "./Loading";
 import logo from "../assets/Linkbrary.svg";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const NavDiv = styled.div`
   display: flex;
@@ -75,7 +76,9 @@ export default function NavBar() {
   return (
     <NavDiv>
       <ContainDiv>
-        <img src={logo} alt="로고" />
+        <Link to="/">
+          <img src={logo} alt="로고" />
+        </Link>
         {profileApi.status === "idle" && <button>로그인</button>}
         {profileApi.status === "fetching" && <Loading size="small" />}
         {profileApi.status === "success" && (

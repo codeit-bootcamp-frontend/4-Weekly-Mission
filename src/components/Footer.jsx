@@ -3,6 +3,7 @@ import facebook from "../assets/shared/akar-icons_facebook-fill.svg";
 import twitter from "../assets/shared/akar-icons_twitter-fill.svg";
 import youtube from "../assets/shared/akar-icons_youtube-fill.svg";
 import instagram from "../assets/shared/ant-design_instagram-filled.svg";
+import { Link } from "react-router-dom";
 
 const BackgroundDiv = styled.div`
   display: flex;
@@ -76,19 +77,26 @@ const TextDiv2 = styled.div`
   line-height: normal;
 `;
 
+const NoLineLink = styled(Link)`
+  text-decoration: none;
+  color: #cfcfcf;
+`;
+
 function Footer() {
   return (
     <BackgroundDiv>
       <ContainerDiv>
-        {/* <LeftContentsDiv> */}
         <TextDiv1>
           <p>©codeit - 2023</p>
         </TextDiv1>
         <TextDiv2>
-          <p>Privacy Policy</p>
-          <p>FAQ</p>
+          <NoLineLink to="/privacypolicy">
+            <p>Privacy Policy</p>
+          </NoLineLink>
+          <NoLineLink to="/faq">
+            <p>FAQ</p>
+          </NoLineLink>
         </TextDiv2>
-        {/* </LeftContentsDiv> */}
         <RightContentsDiv>
           <img
             src={facebook}

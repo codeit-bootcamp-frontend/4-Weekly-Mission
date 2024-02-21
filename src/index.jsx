@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./components/App";
 import { ThemeProvider } from "styled-components";
 import theme from "./style/theme";
 import { createGlobalStyle } from "styled-components";
+import { BrowserRouter } from "react-router-dom";
+import Main from "./Main";
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -19,8 +20,10 @@ body {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <ThemeProvider theme={theme}>
-    <GlobalStyle />
-    <App />
-  </ThemeProvider>
+  <BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <Main />
+    </ThemeProvider>
+  </BrowserRouter>
 );

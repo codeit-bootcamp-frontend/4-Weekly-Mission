@@ -1,10 +1,9 @@
-import FolderProfile from "./FolderProfile";
-import useAsync from "./hooks/useAsync";
-import SearchBar from "./SearchBar";
-import Cards from "./Cards";
+import FolderProfile from "../components/FolderProfile";
+import SearchBar from "../components/SearchBar";
+import Cards from "../components/Cards";
 import { getFolder } from "../api";
-import useFetch from "./hooks/useFetch";
-import Loading from "./Loading";
+import useFetch from "../components/hooks/useFetch";
+import Loading from "../components/Loading";
 import styled from "styled-components";
 
 const ContainDiv = styled.div`
@@ -34,7 +33,7 @@ const MainSectionDiv = styled.div`
   }
 `;
 
-export default function MainContents() {
+function SharedPage() {
   const folderApi = useFetch(() => getFolder());
   const links = folderApi.data?.folder?.links;
 
@@ -54,3 +53,5 @@ export default function MainContents() {
     </ContainDiv>
   );
 }
+
+export default SharedPage;
