@@ -1,8 +1,9 @@
-import "./Card.css";
+import "./FolderCard.css";
 import { useMediaQuery } from "react-responsive";
-import noImg from "../assets/noImage.png";
-import kebab from "../assets/kebab.png";
-function Card({ links }) {
+import noImg from "../../assets/noImage.png";
+import kebab from "../../assets/kebab.png";
+function FolderCard({ data }) {
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ maxWidth: 1124 });
 
   const formatDate = (value) => {
@@ -48,13 +49,14 @@ function Card({ links }) {
     return `${year}-${month}-${day}`;
   };
   const CardItem = ({ link, url }) => {
-    const timeStamp = new Date(link.createdAt).getTime();
+    const timeStamp = new Date(link.created_at).getTime();
+
     return (
-      <a className="card-url" href={url} target="_blank">
-        {link.imageSource ? (
+      <a className="folder-card-url" href={url} target="_blank">
+        {link.image_source ? (
           <img
-            className="card-image"
-            src={link.imageSource}
+            className="folder-card-image"
+            src={link.image_source}
             alt="카드 이미지"
           />
         ) : (
@@ -64,26 +66,41 @@ function Card({ links }) {
           <p>{formatDate(timeStamp)}</p>
           <img className="kebab" src={kebab} />
         </div>
-        <p className="title">{link.title}</p>
-        <p className="description">{link.description}</p>
-        <p>{getFormatDate(link.createdAt)}</p>
+        <p className="folder-title">{link.title}</p>
+        <p className="folder-description">{link.description}</p>
+        <p>{getFormatDate(link.created_at)}</p>
       </a>
     );
   };
-  const linksArray = links || [];
+  const dataArray = data || [];
+
   return (
-    <article className={isTablet ? "article-box-tablet" : "article-box"}>
-      <div className={isTablet ? "card-container-tablet" : "card-container"}>
-        {linksArray.map((link) => {
-          return (
-            <div className="card-box" key={link.id}>
-              <CardItem link={link} url={link.url} />
-            </div>
-          );
-        })}
+    <article
+      className={isTablet ? "folder-article-box-tablet" : "folder-article-box"}
+    >
+      <div
+        className={
+          isMobile
+            ? "folder-card-container-mobile"
+            : isTablet
+            ? "folder-card-container-tablet"
+            : "folder-card-container"
+        }
+      >
+        {dataArray.length ? (
+          dataArray.map((data) => {
+            return (
+              <div className="folder-card-box" key={data.id}>
+                <CardItem link={data} url={data.url} />
+              </div>
+            );
+          })
+        ) : (
+          <h1>저장된 링크가 없습니다.</h1>
+        )}
       </div>
     </article>
   );
 }
 
-export default Card;
+export default FolderCard;

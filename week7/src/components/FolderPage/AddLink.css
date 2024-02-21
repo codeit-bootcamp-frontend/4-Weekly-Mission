@@ -6,7 +6,6 @@
   background-color: #edf7ff;
   padding-bottom: 20px;
 }
-
 .link-add-container {
   background-color: #edf7ff;
   padding-bottom: 40px;
@@ -14,14 +13,24 @@
 label {
   position: relative;
 }
-.link-add-input {
-  width: 800px;
-  height: 50px;
-  border: 1px solid rgba(109, 106, 254, 1);
-  padding: 16px 20px 16px 50px;
-  border-radius: 15px;
+@media (min-width: 1199px) {
+  .link-add-input {
+    width: 1100px;
+    height: 50px;
+    border: 1px solid rgba(109, 106, 254, 1);
+    padding: 16px 20px 16px 50px;
+    border-radius: 15px;
+  }
 }
-
+@media (max-width: 1199px) {
+  .link-add-input {
+    width: 85%;
+    height: 50px;
+    border: 1px solid rgba(109, 106, 254, 1);
+    padding: 16px 20px 16px 50px;
+    border-radius: 15px;
+  }
+}
 .link-icon {
   position: absolute;
   padding-left: 20px;

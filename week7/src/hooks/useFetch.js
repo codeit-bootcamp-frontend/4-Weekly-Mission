@@ -2,14 +2,17 @@ import { useEffect, useState } from "react";
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
-
+  const [error, setError] = useState(null);
   const fetchData = async () => {
     try {
       const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`error Status: ${response.status}`);
+      }
       const body = await response.json();
       setData(body);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      setError(error);
     }
   };
 
@@ -17,7 +20,7 @@ const useFetch = (url) => {
     fetchData();
   }, [url]);
 
-  return { data };
+  return { data, error };
 };
 
 export default useFetch;

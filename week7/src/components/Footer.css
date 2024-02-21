@@ -8,20 +8,28 @@
   justify-content: space-around;
 }
 .footer {
-  position: relative;
+
   height: 160px;
   background-color: rgba(17, 19, 34, 1);
   color: rgba(103, 103, 103, 1);
   width: 100%;
+  bottom: 0;
 }
+.footer-tablet {
+  height: 160px;
+  background-color: rgba(17, 19, 34, 1);
+  color: rgba(103, 103, 103, 1);
+  width: 100%;
+  bottom: 0;
+  margin-top: 300px;
+}
+
 .footer-container {
-  position: absolute;
-  top: 30px;
+  padding: 30px 20px 0 20px;
   right: 20px;
   left: 20px;
   display: flex;
   justify-content: space-between;
-
   font-size: 16px;
 }
 .policy-faq span {

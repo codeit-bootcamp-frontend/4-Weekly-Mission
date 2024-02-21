@@ -2,10 +2,12 @@ import insta from "../assets/ant-design_instagram-filled.png";
 import youtube from "../assets/akar-icons_youtube-fill.png";
 import twitter from "../assets/akar-icons_twitter-fill.png";
 import facebook from "../assets/akar-icons_facebook-fill.png";
+import { useMediaQuery } from "react-responsive";
 import "./Footer.css";
 function Footer() {
+  const isTablet = useMediaQuery({ maxWidth: 1124 });
   return (
-    <footer className="footer">
+    <footer className={isTablet ? "footer-tablet" : "footer"}>
       <div className="footer-container">
         <div>©codeit - 2023</div>
         <div className="policy-faq">
