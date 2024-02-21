@@ -6,6 +6,7 @@ import SelectedOption from "../SelectedOption/SelectedOption";
 import FolderList from "./FolderList";
 import AllFolderCard from "../FolderCard/AllFolderCard";
 import FolderCard from "../FolderCard/FolderCard";
+import useFolderLinks from "../../hooks/useFolderLinks";
 
 function Folder() {
   const { data } = useGetFolderById();
@@ -13,7 +14,6 @@ function Folder() {
 
   const [activeButton, setActiveButton] = useState("전체");
   const [selectedFolder, setSelectedFolder] = useState("");
-  const [folderLinks, setFolderLinks] = useState([]);
 
   useEffect(() => {
     if (selectedFolder === "" && dataArray && dataArray.length > 0) {
@@ -21,25 +21,7 @@ function Folder() {
     }
   }, [selectedFolder, dataArray]);
 
-  useEffect(() => {
-    if (selectedFolder && dataArray) {
-      const folderId = dataArray.find(
-        (item) => item.name === selectedFolder
-      )?.id;
-      if (folderId) {
-        fetch(
-          `https://bootcamp-api.codeit.kr/api/users/4/links?folderId=${folderId}`
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            setFolderLinks(data.data);
-          })
-          .catch((error) => {
-            console.error("Error fetching folder links:", error);
-          });
-      }
-    }
-  }, [selectedFolder, dataArray]);
+  const folderLinks = useFolderLinks(selectedFolder, dataArray);
 
   const handleButtonClick = (name) => {
     setActiveButton(name);
