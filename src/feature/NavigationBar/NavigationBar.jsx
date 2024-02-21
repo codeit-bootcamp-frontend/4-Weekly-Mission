@@ -4,23 +4,14 @@ import { Profile } from "../../ui/Profile";
 import { LOGO_IMAGE, TEXT } from "./constant";
 import "./NavigationBar.css";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 export const NavigationBar = ({ userInfo }) => {
-  const [className, setClassName] = useState("NavigationBar");
   const Location = useLocation();
   const LocationPath = Location.pathname;
   const { email, imageSource } = userInfo || {};
 
-  const handleClassName = () => {
-    LocationPath !== "/folder"
-      ? setClassName("NavigationBar")
-      : setClassName("NavigationBar-static");
-  };
-
-  useEffect(() => {
-    handleClassName();
-  }, []);
+  const className =
+    LocationPath === "/folder" ? "NavigationBar-static" : "NavigationBar";
 
   return (
     <header className={className}>
