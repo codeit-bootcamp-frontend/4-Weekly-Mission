@@ -1,7 +1,12 @@
 import "./LinkItems.css";
 import defaultImage from "../../images/card-default.png";
 import { calculateTimePassed } from "../../utils/calculateTimePassed";
-import { LinkImage } from "./style";
+import {
+  LinkImage,
+  LinkImageLoading,
+  LinkLoading,
+  LoadingAnimation,
+} from "./style";
 
 const LinkItem = ({ link }) => {
   const CREATED_AT = new Date(link.createdAt || link.created_at);
@@ -20,12 +25,21 @@ const LinkItem = ({ link }) => {
   );
 };
 
-const LinkItems = ({ links = [] }) => {
+const LinkItems = ({ links = [], isLoading }) => {
   return (
     <div className="LinkItems">
-      {links.map((link) => (
-        <LinkItem key={link.id} link={link} />
-      ))}
+      {isLoading ? (
+        <LoadingAnimation>
+          <div className="LinkItem">
+            <LinkImageLoading />
+            <LinkLoading />
+            <LinkLoading />
+          </div>
+        </LoadingAnimation>
+      ) : (
+        links.map((link) => <LinkItem key={link.id} link={link} />)
+      )}
+      {isLoading || links.length || <div>저장된 링크가 없습니다.</div>}
     </div>
   );
 };

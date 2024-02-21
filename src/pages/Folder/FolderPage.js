@@ -17,14 +17,18 @@ const FolderPage = () => {
   const [folders, setFolders] = useState([]);
   const [selectedFolder, setSelectedFolder] = useState(ALL);
   const [links, setLinks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
       try {
+        setIsLoading(true);
         const { data } = await getFolderList();
         setFolders([ALL, ...data]);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -40,10 +44,13 @@ const FolderPage = () => {
   useEffect(() => {
     const getData = async () => {
       try {
+        setIsLoading(true);
         const { data } = await getLinkData(selectedFolder.id);
         setLinks(data);
       } catch (error) {
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -59,13 +66,10 @@ const FolderPage = () => {
           folders={folders}
           selectedFolder={selectedFolder}
           onClick={handleClick}
+          isLoading={isLoading}
         />
         <FolderName>{selectedFolder.name}</FolderName>
-        {links.length > 0 ? (
-          <LinkItems links={links} />
-        ) : (
-          <p className="noLinks">저장된 링크가 없습니다.</p>
-        )}
+        <LinkItems links={links} isLoading={isLoading} />
       </Container>
     </>
   );
