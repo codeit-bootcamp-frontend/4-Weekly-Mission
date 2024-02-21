@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import logo from '../../assets/header/logo.svg';
 import '../../style/Header.css';
-import { Link } from 'react-router-dom';
-import { getUserInfo } from '../api';
+import { Link, useLocation } from 'react-router-dom';
+import { getUserInfo } from '../../apis/api';
 
 const Header = () => {
-  const [user, setUser] = useState({ email: null, profileImageSource: null });
+  const [user, setUser] = useState({ email: null, image_source: null });
+  const location = useLocation();
+  const headerStyle = {
+    position: location.pathname !== '/folder' ? `sticky` : 'relative',
+  };
 
   const handleLoadUser = async () => {
-    const { email, profileImageSource } = await getUserInfo();
+    const data = await getUserInfo();
+    const { email, image_source } = data.data[0];
 
     if (!email) return;
-    setUser({ email, profileImageSource });
+    setUser({ email, image_source });
   };
 
   useEffect(() => {
@@ -19,7 +24,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div className='HeaderContainer'>
+    <div className='HeaderContainer' style={headerStyle}>
       <div className='HeaderContent'>
         <Link to='/'>
           <img className='Logo' src={logo} alt='logo img' />
@@ -28,7 +33,7 @@ const Header = () => {
           <div className='ProfileContent'>
             <img
               className='ProfileImg'
-              src={user.profileImageSource}
+              src={user.image_source}
               alt='profile img'
             />
             <span>{user.email}</span>
