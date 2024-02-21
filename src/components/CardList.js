@@ -1,11 +1,11 @@
 import "./CardList.css";
 import star from "../assets/star.svg";
 import kebab from "../assets/kebab.svg";
-import useTransformData from "../hooks/useTransformData.js";
+import transformData from "../utils/transformData.js";
 
 function Card({ item }) {
   const { title, url, description, src, timeDifference, formattedDate } =
-    useTransformData(item);
+    transformData(item);
 
   return (
     <div>

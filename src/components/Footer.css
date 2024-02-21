@@ -30,7 +30,7 @@ footer a {
   color: #676767;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 1119px) {
   footer {
     padding-left: 25px;
     padding-right: 25px;

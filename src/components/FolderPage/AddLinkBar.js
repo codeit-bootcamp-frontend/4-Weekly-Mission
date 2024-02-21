@@ -6,7 +6,7 @@ const AddLink = () => {
     <div className="addLinkContainer">
       <form className="addLinkForm">
         <label htmlFor="linkInput" className="hiddenLabel">
-          링크를 추가해보세요
+          링크를 추가해보세요.
         </label>
         <img src={linkIcon} alt="link icon" />
         <input

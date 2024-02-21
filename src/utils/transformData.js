@@ -1,8 +1,8 @@
-import formatTimeDifference from "../utils/formatTimeDifference";
-import formatDate from "../utils/formatDate";
+import formatTimeDifference from "./formatTimeDifference";
+import formatDate from "./formatDate";
 import noImage from "../assets/noImage.svg";
 
-const useTransformData = (item) => {
+const transformData = (item) => {
   const {
     title,
     createdAt,
@@ -27,4 +27,4 @@ const useTransformData = (item) => {
   return transformedData;
 };
 
-export default useTransformData;
+export default transformData;
