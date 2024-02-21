@@ -13,9 +13,9 @@ export const NavigationBar = ({ userInfo }) => {
   const { email, imageSource } = userInfo || {};
 
   const handleClassName = () => {
-    LocationPath === "/shared" || LocationPath === "/folder"
-      ? setClassName("NavigationBar-static")
-      : setClassName("NavigationBar");
+    LocationPath !== "/folder"
+      ? setClassName("NavigationBar")
+      : setClassName("NavigationBar-static");
   };
 
   useEffect(() => {
