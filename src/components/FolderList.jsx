@@ -12,8 +12,8 @@ const INIT_ACTIVE_FOLDER = {
 
 function FolderList({ folderList, onClick }) {
   const [activeFolderInfo, setActiveFolderInfo] = useState(INIT_ACTIVE_FOLDER);
-  const handleFolderClick = (folder) => { // 커링적용 예정
-    onClick(folder.id);
+  const handleFolderClick = (folder)=> (e) => { // 커링
+    onClick(e.target.name);
     setActiveFolderInfo({ ...folder });
   };
   return (
@@ -33,8 +33,9 @@ function FolderList({ folderList, onClick }) {
               return (
                 <button
                   key={item.id}
+                  name={item.id}
                   className={classNames(style.folderBtn, cond(activeFolderInfo.id === item.id, style.active))}
-                  onClick={() => handleFolderClick(item)}
+                  onClick={handleFolderClick(item)} // (e)=>handleFolderClick(item)(e) 를 축약한것
                 >
                   {item.name}
                 </button>
