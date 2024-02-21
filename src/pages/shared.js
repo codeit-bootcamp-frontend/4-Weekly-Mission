@@ -1,51 +1,29 @@
 import React from "react";
-import styled from "styled-components";
 import Nav from "../components/Common/Nav";
 import HeaderFolder from "../components/HeaderFolder";
 import Footer from "../components/Common/Footer";
+import Search from "../components/Search/Search";
 import CardGrid from "../components/CardGrid/Cardgrid";
+import useCardData from "../components/CardGrid/Utils/useCardData";
+import "./shared.scss";
 
 const Shared = () => {
-  const HeaderWrapper = styled.div`
-    header {
-      background-color: var(--gray5);
-      width: auto;
-    }
-
-    .header-content {
-      display: flex;
-      width: 100%;
-      flex-direction: column;
-      position: relative;
-      margin: 0 auto;
-      justify-content: center;
-      align-items: center;
-    }
-
-    @media screen and (min-width: 375px) and (max-width: 767px) {
-      header {
-        row-gap: 2.4rem;
-      }
-
-      .header-content {
-        padding-top: 6.3rem;
-      }
-    }
-  `;
+  const { formattedCards } = useCardData();
 
   return (
-    <div>
+    <>
       <Nav />
-      <HeaderWrapper>
-        <header>
-          <div className="header-content">
-            <HeaderFolder />
-          </div>
-        </header>
-      </HeaderWrapper>
-      <CardGrid />
+      <header>
+        <div className="header-content">
+          <HeaderFolder />
+        </div>
+      </header>
+      <main>
+        <Search />
+        <CardGrid formattedCards={formattedCards} />
+      </main>
       <Footer />
-    </div>
+    </>
   );
 };
 

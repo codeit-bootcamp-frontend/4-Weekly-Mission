@@ -27,3 +27,5 @@ export function useCardData() {
 
   return { formattedCards };
 }
+
+export default useCardData;
