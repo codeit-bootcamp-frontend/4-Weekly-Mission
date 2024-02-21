@@ -13,37 +13,3 @@
   align-items: flex-start;
   gap: 40px;
 }
-
-.searchBar {
-  margin-top: 40px;
-  display: flex;
-  width: 100%;
-  padding: 15px 16px;
-  justify-content: space-between;
-  align-items: flex-start;
-  border-radius: 10px;
-  background: #f5f5f5;
-}
-
-.searchBarElement {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-#searchIcon {
-  width: 16px;
-  height: 16px;
-}
-
-#inputText {
-  color: var(--Text, #666);
-  background-color: transparent; /* 입력란 배경색을 투명하게 설정 */
-  border: none; /* 테두리 제거 */
-  /* Linkbrary/body1-regular */
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 150% */
-}
