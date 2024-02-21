@@ -1,10 +1,11 @@
 import React from 'react';
-import logo from '../images/logo.svg';
-import './styles/header.css';
+import logo from '../../images/logo.svg';
+import '../styles/header.css';
 
-const Header = ({ user, folder }) => {
+const Header = ({ user, isSticky = true }) => {
+  const sticky = isSticky ? 'sticky' : '';
   return (
-    <header>
+    <header className={sticky}>
       <nav>
         <a href="/">
           <img className="logo" src={logo} alt="logo" />
@@ -20,11 +21,6 @@ const Header = ({ user, folder }) => {
           </a>
         )}
       </nav>
-      <div className="folder">
-        <img src={folder.profileImageSource} alt="userImage" className="folder-user-image" />
-        <p className="folder-user-name">@{folder.ownerName}</p>
-        <p className="folder-name">{folder.folderName}</p>
-      </div>
     </header>
   );
 };
