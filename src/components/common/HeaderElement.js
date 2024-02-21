@@ -1,45 +1,29 @@
-import { useState, useCallback, useEffect } from "react";
+import styled from "styled-components";
 import logo from "../../assets/Linkbrary.png";
 import profile from "../../assets/icons/icon_myprofile.png";
-import { getUserInfo } from "../../api";
-
+import { getUserInfo } from "../../api/api";
 import "../../style/common.css";
 
-function HeaderElement() {
-  const [user, setUser] = useState([]);
-  const [profileUrl, setProfileUrl] = useState("");
+import useGetJson from "./../../hook/uesGetJson";
 
-  const HandleLoad = useCallback(async () => {
-    let results;
-    try {
-      results = await getUserInfo();
-    } catch (error) {
-      console.log(error);
-    }
-    if (!results) return;
-    const { email, profileImageSource } = results;
-    setUser(email);
-    setProfileUrl(profileImageSource);
-  }, []);
-
-  useEffect(() => {
-    HandleLoad();
-  }, [HandleLoad]);
+function HeaderElement({ $positionval }) {
+  const user = useGetJson(getUserInfo);
+  const { email, profileImageSource } = user;
 
   return (
-    <header>
+    <Header $positionval={$positionval}>
       <img src={logo} alt="logo" />
       <div className="myProfile" status="user">
         {user ? (
           <div id="myProfileName">
             <div id="myProfile-back_img">
               <img
-                src={profileUrl ? profileUrl : profile}
+                src={profileImageSource ? profileImageSource : profile}
                 id="myProfile-img"
                 alt="myProfile-img"
               ></img>
             </div>
-            <span id="myEmail">{user}</span>
+            <span id="myEmail">{email}</span>
           </div>
         ) : (
           <a href="/signup.html">
@@ -49,8 +33,26 @@ function HeaderElement() {
           </a>
         )}
       </div>
-    </header>
+    </Header>
   );
 }
+
+const Header = styled.div`
+  background-color: var(--Grey_100);
+  padding: 20px 200px;
+  position: ${({ $positionval }) => ($positionval ? $positionval : "sticky")};
+  top: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 1124px) {
+    padding: 32px;
+  }
+  @media (max-width: 774px) {
+    padding: 18px 32px;
+  }
+`;
 
 export default HeaderElement;
