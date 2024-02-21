@@ -16,17 +16,17 @@ import { Button } from "./StyledComponents/Buttons";
 
 function App() {
   const [folders, setFolders] = useState();
-
+  const folderId = "";
   const { data } = useGetFolder();
   const { profileImage, ownerName, folderName } = data || {};
 
-  const handleLoadFolders = async () => {
-    const { data } = await getFolders();
+  const handleLoadFolders = async ({ folderId }) => {
+    const { data } = await getFolders({ folderId });
     setFolders(data);
   };
 
   useEffect(() => {
-    handleLoadFolders();
+    handleLoadFolders({ folderId });
   }, []);
 
   return (

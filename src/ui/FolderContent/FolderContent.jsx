@@ -6,7 +6,7 @@ import { CategoryNav } from "ui/CategoryNav/CategoryNav";
 import { CardList } from "ui/CardList";
 import { ReadOnlyCard } from "ui/ReadOnlyCard";
 import { EmptyLink } from "ui/EmptyLink/EmptyLink";
-import { getFolders, getFolder } from "../../data-access/getFolders";
+import { getFolders } from "data-access/getFolders";
 
 export function FolderContent() {
   const [folder, setFolder] = useState([]);
@@ -20,13 +20,8 @@ export function FolderContent() {
   };
 
   const handleLoadFolder = async ({ folderId }) => {
-    if (folderId === "") {
-      const { data } = await getFolders();
-      setFolder(data);
-    } else {
-      const { data } = await getFolder({ folderId });
-      setFolder(data);
-    }
+    const { data } = await getFolders({ folderId });
+    setFolder(data);
   };
 
   const handleCategoryActive = (e) => {
@@ -43,22 +38,14 @@ export function FolderContent() {
     <>
       <div className="classification">
         <div className="classification-buttons">
-          <Button
-            onClick={handleCategoryActive}
-            key="0"
-            id=""
-            value="전체"
-            count=""
-          >
+          <Button onClick={handleCategoryActive} id="" value="전체">
             전체
           </Button>
           {data?.map((category) => (
             <Button
               onClick={handleCategoryActive}
-              key={category?.id}
               value={category.name}
               id={category?.id}
-              count={category?.link.count}
             >
               {category.name}
             </Button>
