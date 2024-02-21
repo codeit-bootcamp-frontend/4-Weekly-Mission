@@ -12,5 +12,3 @@ export const USERS_LINKS_URL =
 //기본 폴더 목록 데이터 url
 export const USERS_FOLDERS_URL =
   'https://bootcamp-api.codeit.kr/api/users/1/folders';
-
-export default SAMPLE_FOLDER_URL;

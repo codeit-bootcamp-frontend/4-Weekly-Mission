@@ -25,7 +25,7 @@ function LinkAddBar() {
             placeholder={placeholder}
           ></input>
         </div>
-        <Button props={buttonProps}></Button>
+        <Button props={buttonProps} />
       </form>
     </div>
   );

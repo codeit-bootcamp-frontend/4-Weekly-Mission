@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { formatDate, getLastTime } from '../utils/timeCalculater';
 import { useEffect } from 'react';
+import { CARDS, PROFILE } from '../constants/fetchConstants';
 function useCardsData(section, url) {
   const [owner, setOwner] = useState({
     ownerImg: '',
@@ -13,13 +14,14 @@ function useCardsData(section, url) {
       try {
         const response = await fetch(url);
         const result = await response.json();
+        const folder = result.folder;
         setOwner({
-          ownerImg: result.folder.owner.profileImageSource,
-          ownerName: result.folder.owner.name,
-          folderName: result.folder.name,
+          ownerImg: folder.owner.profileImageSource,
+          ownerName: folder.owner.name,
+          folderName: folder.name,
         });
         setLinksArray(
-          result.folder.links.map((link) => ({
+          folder.links.map((link) => ({
             id: link.id,
             url: link.url,
             imgUrl: link.imageSource,
@@ -36,9 +38,9 @@ function useCardsData(section, url) {
     getData();
   }, []);
 
-  if (section === 'profile') {
+  if (section === PROFILE) {
     return owner;
-  } else if (section === 'cards') {
+  } else if (section === CARDS) {
     return linksArray;
   }
 }

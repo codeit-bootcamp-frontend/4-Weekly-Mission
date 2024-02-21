@@ -11,7 +11,7 @@ function Card({ id, time, imgUrl = noneImg, title, description, date, url }) {
         <img
           className="card__img--meatsball-icon"
           src={starIcon}
-          alt={'Favorites'}
+          alt="Favorites"
         />
       </div>
 

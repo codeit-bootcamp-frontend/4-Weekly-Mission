@@ -35,15 +35,14 @@ function FolderOptionBar({ text, selectedFolderId }) {
       <div className="folder__option-bar--buttons">
         {
           //id 가 1인 '전체'폴더가 선택되면 옵션 버튼이 안보이도록 설정.
-          selectedFolderId !== 1
-            ? buttonProps.map((prop) => (
-                <OptionButton
-                  key={prop.id}
-                  svg={prop.svg}
-                  text={prop.text}
-                ></OptionButton>
-              ))
-            : ''
+          selectedFolderId !== 1 &&
+            buttonProps.map((prop) => (
+              <OptionButton
+                key={prop.id}
+                svg={prop.svg}
+                text={prop.text}
+              ></OptionButton>
+            ))
         }
       </div>
     </div>

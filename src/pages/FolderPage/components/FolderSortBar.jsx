@@ -12,12 +12,12 @@ function FolderSortBar({ folders, handleClick, selectedId }) {
             id={folder.id}
             text={folder.name}
             handleClick={handleClick}
-            isclickedProp={selectedId == folder.id ? true : false}
+            isClicked={selectedId === folder.id}
           />
         ))}
       </div>
 
-      <FolderAddButton></FolderAddButton>
+      <FolderAddButton />
     </div>
   );
 }

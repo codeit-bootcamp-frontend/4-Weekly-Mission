@@ -6,10 +6,10 @@ import { USER_URL } from '../../constants/urls';
 function FolderPage() {
   return (
     <>
-      <Header url={USER_URL}></Header>
-      <LinkAddBar></LinkAddBar>
-      <FolderList></FolderList>
-      <Footer></Footer>
+      <Header url={USER_URL} />
+      <LinkAddBar />
+      <FolderList />
+      <Footer />
     </>
   );
 }
