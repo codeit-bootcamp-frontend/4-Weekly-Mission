@@ -1,8 +1,8 @@
-import "./Footer.css";
 import facebookIcon from "../../assets/images/facebook-icon.png";
 import instagramIcon from "../../assets/images/instagram-icon.png";
 import twitterIcon from "../../assets/images/twitter-icon.png";
 import youtubeIcon from "../../assets/images/youtube-icon.png";
+import "./Footer.css";
 
 export const Footer = () => {
   return (

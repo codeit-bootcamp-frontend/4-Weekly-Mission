@@ -1,6 +1,6 @@
-import "./CardImage.css";
 import defaultImage from "../../../assets/images/card-default.png";
 import star from "../../../assets/images/folder/star.svg";
+import "./CardImage.css";
 
 export const CardImage = ({ items, isZoomedIn }) => {
   const { imageSource, image_source: image_source } = items;

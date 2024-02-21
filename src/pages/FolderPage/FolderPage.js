@@ -9,7 +9,6 @@ import {
   Layout,
   SearchBar,
 } from "../../components";
-
 import "./FolderPage.css";
 
 const FolderPage = ({ folderHeader, searchBar }) => {

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Profile } from "../Profile/Profile";
+import { useLocation } from "react-router-dom";
 import { getUser } from "../../api/api";
+import { Profile } from "../Profile/Profile";
 import Logo from "../../assets/images/logo.png";
 import "./NavBar.css";
-import { useLocation } from "react-router-dom";
 
 export const NavBar = () => {
   const [userData, setUserData] = useState();
