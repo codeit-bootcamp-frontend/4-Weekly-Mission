@@ -3,9 +3,11 @@ import { getFolderList, getLink } from "../../api/api";
 import {
   CardList,
   OnlyCard,
-  Layout,
+  FolderHeader,
   FolderList,
   FolderOption,
+  Layout,
+  SearchBar,
 } from "../../components";
 
 import "./FolderPage.css";
@@ -39,9 +41,9 @@ const FolderPage = ({ folderHeader, searchBar }) => {
   return (
     <Layout>
       <div className="folderPage">
-        {folderHeader}
+        <FolderHeader />
         <div className="folderPage-content">
-          {searchBar}
+          <SearchBar />
 
           <FolderList
             folderList={folderList}
