@@ -1,24 +1,26 @@
 import { useState, useEffect, useCallback } from "react";
 import { getFolderInfo } from "./../api";
-import HeaderElement from "./../components/common/HeaderElement";
-import FooterElement from "./../components/common/FooterElement";
-import SharedSection from "./../components/shared/SharedSection";
-import FolderList from "../components/common/FolderList"
-import "../style/shared.css";
 
-function Shared() {
+import HeaderElement from "./../components/common/HeaderElement";
+import GlobalStyle from "../components/common/Globalstyle";
+import FolderInput from "./../components/Folder/FolderInput";
+import FolderList from "./../components/common/FolderList";
+
+const Folder = () => {
   const [folders, setFolders] = useState([]);
 
   const HandleLoad = useCallback(async () => {
     let results;
+    let foldersArr;
     try {
       results = await getFolderInfo();
+      foldersArr = await results.folder.links;
     } catch (error) {
       console.log(error);
     }
 
-    if (!results) return;
-    setFolders(results);
+    if (!foldersArr) return;
+    setFolders(foldersArr);
   }, []);
 
   useEffect(() => {
@@ -27,12 +29,12 @@ function Shared() {
 
   return (
     <>
-      <HeaderElement></HeaderElement>
-      <SharedSection></SharedSection>
+      <GlobalStyle />
+      <HeaderElement />
+      <FolderInput />
       <FolderList items={folders}></FolderList>
-      <FooterElement></FooterElement>
     </>
   );
-}
+};
 
-export default Shared;
+export default Folder;
