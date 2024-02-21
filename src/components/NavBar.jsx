@@ -73,11 +73,11 @@ const ProfileDiv = styled.div`
   }
 `;
 
-export default function NavBar() {
+export default function NavBar({ className }) {
   const profileApi = useFetch(() => getProfile());
 
   return (
-    <NavDiv>
+    <NavDiv className={className}>
       <ContainDiv>
         <Link to="/">
           <img src={logo} alt="로고" />

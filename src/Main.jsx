@@ -14,11 +14,11 @@ function Main() {
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<HomePage />} />
-        <Route path="folder" element={<FolderPage />} />
         <Route path="shared" element={<SharedPage />} />
         <Route path="faq" element={<FaqPage />} />
         <Route path="privacypolicy" element={<PrivacyPolicyPage />} />
       </Route>
+      <Route path="folder" element={<FolderPage />} />
       <Route path="signin" element={<SigninPage />} />
       <Route path="signup" element={<SignupPage />} />
       <Route path="*" element={<ErrorPage />} />
