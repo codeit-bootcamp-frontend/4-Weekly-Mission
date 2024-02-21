@@ -1,9 +1,14 @@
+import { useGetUser } from "../../hooks/useGetUser";
 import LinkbraryLogo from "../../asset/images/logo.svg";
-import Cta from "../Cta/Cta";
 import "./NavigationBar.css";
+import Cta from "../Cta/Cta";
 import Profile from "../Profile/Profile";
 
-const NavigationBar = ({ profile }) => {
+const NavigationBar = () => {
+  const { data } = useGetUser();
+  const { email, image_source } = data?.data[0] ?? {};
+  const profile = data ? { email, image_source } : null;
+  console.log(profile);
   return (
     <nav className="NavigationBar">
       <div className="NavigationBar__items">

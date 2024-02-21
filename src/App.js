@@ -7,11 +7,9 @@ import getSample from "./util/getSample";
 import Folder from "./components/Folder/Folder";
 
 function App() {
-  const [profile, setProfile] = useState(null);
   const [folder, setFolder] = useState(null);
 
   useEffect(() => {
-    getSample("user").then(setProfile);
     getSample("folder")
       .then((res) => {
         const { folder } = res;
@@ -22,10 +20,8 @@ function App() {
 
   return (
     <div className="App">
-      <NavigationBar profile={profile} />
-      <main className="App__main">
-        {folder && <Folder folder={folder} />}
-      </main>
+      <NavigationBar />
+      <main className="App__main">{folder && <Folder folder={folder} />}</main>
       <Footer />
     </div>
   );
