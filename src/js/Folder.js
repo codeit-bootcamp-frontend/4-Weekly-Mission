@@ -39,7 +39,7 @@ function Folder() {
 
     loadFolders();
     loadLinksForFolder();
-  }, [selectedLinks]);
+  }, []);
 
   return (
     <>
@@ -86,7 +86,7 @@ function Folder() {
                     rel="noreferrer"
                   >
                     <img
-                      src={link.imageSource}
+                      src={link.image_source}
                       className="FavoritesLinkImg"
                       alt="이미지 카드 사진"
                     ></img>
