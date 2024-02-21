@@ -1,7 +1,7 @@
 import { useGetUser as getUser } from "data-access/useGetUser";
 import { Footer } from "../Footer";
-import { NavigationBar } from "../NavigationBar";
 import { useEffect, useState } from "react";
+import { NavigationBar } from "feature/NavigationBar/NavigationBar";
 
 export const Layout = ({ children }) => {
   const [userEmail, setUserEmail] = useState();

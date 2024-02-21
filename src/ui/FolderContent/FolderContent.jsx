@@ -32,7 +32,6 @@ export function FolderContent() {
   const handleCategoryActive = (e) => {
     setActiveCategoryName(e.target.value);
     setFolderId(e.target.id);
-    console.log(folderId);
   };
 
   useEffect(() => {

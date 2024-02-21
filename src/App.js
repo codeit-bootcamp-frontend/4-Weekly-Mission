@@ -18,7 +18,7 @@ function App() {
   const [folders, setFolders] = useState();
 
   const { data } = useGetFolder();
-  const { profileImage, ownerName, folderName, links } = data || {};
+  const { profileImage, ownerName, folderName } = data || {};
 
   const handleLoadFolders = async () => {
     const { data } = await getFolders();

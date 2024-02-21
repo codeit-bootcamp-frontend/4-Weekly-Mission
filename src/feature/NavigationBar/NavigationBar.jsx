@@ -10,13 +10,11 @@ export const NavigationBar = ({ userEmail, userImgSource }) => {
   const [className, setClassName] = useState("NavigationBar");
   const Location = useLocation();
   const LocationPath = Location.pathname;
-  console.log(LocationPath);
 
   const handleClassName = () => {
     LocationPath === "/shared" || LocationPath === "/folder"
       ? setClassName("NavigationBar-static")
       : setClassName("NavigationBar");
-    console.log(className);
   };
 
   useEffect(() => {
