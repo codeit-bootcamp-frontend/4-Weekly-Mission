@@ -148,6 +148,10 @@ nav {
 .FavoritesDesc {
   font-size: 16px;
   font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 표시할 줄의 최대 수 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 footer {
