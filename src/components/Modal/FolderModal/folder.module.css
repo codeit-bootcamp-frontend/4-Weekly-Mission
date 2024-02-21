@@ -17,6 +17,35 @@
   color: var(--gray60-color);
 }
 
+.warpper {
+  width: 100%;
+}
+
+.link {
+  color: var(--gray60-color);
+  margin-top: 0.8rem;
+  font-size: 1.4rem;
+  text-align: center;
+  line-height: 2.2rem;
+}
+
+.items {
+  height: 16rem;
+  margin: 2.4rem 0;
+  overflow-y: auto;
+}
+
+.item {
+  padding: 0.8rem;
+  line-height: 24px;
+}
+
+.count {
+  margin-left: 0.8rem;
+  color: var(--gray60-color);
+  font-size: 1.4rem;
+}
+
 .btn {
   width: 100%;
   margin-top: 1.5rem;

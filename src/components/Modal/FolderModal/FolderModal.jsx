@@ -1,7 +1,7 @@
 import BaseModeal from "../BaseModal/BaseModal";
 import styles from "./folder.module.css";
 
-function FolderModal({ variant, setModals }) {
+function FolderModal({ variant, setModals, link, list }) {
   // edit -> input
   // add-folder -> inpit
   // add-link -> list
@@ -18,9 +18,26 @@ function FolderModal({ variant, setModals }) {
     action = "추가하기";
   }
 
+  // list가 있으면 목록
+  // 없으면 input
+
   return (
     <BaseModeal title={title} variant={variant} setModals={setModals}>
-      <input type="text" className={styles.input} placeholder="내용 입력" />
+      {list ? (
+        <div className={styles.warpper}>
+          <p className={styles.link}>{link}</p>
+          <ul className={styles.items}>
+            {list.map(({ id, name, link }) => (
+              <li key={id} className={styles.item}>
+                <span className={styles.folder}>{name}</span> <span className={styles.count}>{`${link.count}개 링크`}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <input type="text" className={styles.input} placeholder="내용 입력" />
+      )}
+
       <button className={`${styles.btn}`}>{action}</button>
     </BaseModeal>
   );

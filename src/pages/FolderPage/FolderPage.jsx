@@ -1,4 +1,5 @@
 import { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { UserContext } from "context/UserProvider";
 import { fetchUserFolderData, fetchUserLinkData } from "services/api";
 import { NoResults } from "pages";
@@ -77,7 +78,7 @@ function FolderPage() {
 
   return (
     <div>
-      <Header />
+      <Header list={buttonNames} />
 
       {/* <DeleteModal variant={`link`} deleted={`폴더명`}></DeleteModal> */}
       {/* <SharedModal folder={`폴더명`}></SharedModal> */}
@@ -89,20 +90,25 @@ function FolderPage() {
             <div>
               <div className={styles.category}>
                 <div className={styles.categoryButtons}>
-                  <FolderButton
-                    ischecked={selectedCategory.name === ALL ? true : false}
-                    onClick={() => handleButtonClick(null, ALL)}
-                  >
-                    전체
-                  </FolderButton>
-                  {buttonNames.map(({ id, name }) => (
+                  <Link to={`/folder`}>
                     <FolderButton
-                      key={id}
-                      ischecked={selectedCategory.name === name ? true : false}
-                      onClick={() => handleButtonClick(id, name)}
+                      ischecked={selectedCategory.name === ALL ? true : false}
+                      onClick={() => handleButtonClick(null, ALL)}
                     >
-                      {name}
+                      전체
                     </FolderButton>
+                  </Link>
+                  {buttonNames.map(({ id, name }) => (
+                    <Link to={`/folder/${id}`} key={id}>
+                      <FolderButton
+                        ischecked={
+                          selectedCategory.name === name ? true : false
+                        }
+                        onClick={() => handleButtonClick(id, name)}
+                      >
+                        {name}
+                      </FolderButton>
+                    </Link>
                   ))}
                 </div>
 
