@@ -2,7 +2,7 @@ import { AddLink } from "ui/AddLink";
 import { Layout } from "feature/Layout";
 import { SearchBar } from "ui/SearchBar";
 import { CardList } from "ui/CardList";
-import { EditableCard } from "ui/EditableCard";
+import { Card } from "ui/Card";
 import { useGetLink } from "hooks/useGetLink";
 import { useGetFolderByLink } from "hooks/useGetFolderByLink";
 import { Category } from "ui/Category";
@@ -48,7 +48,7 @@ export const FolderPage = () => {
           {links ? (
             <CardList>
               {links?.map((link) => (
-                <EditableCard key={link?.id} {...link} />
+                <Card key={link?.id} {...link} />
               ))}
             </CardList>
           ) : (

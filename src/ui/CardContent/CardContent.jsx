@@ -7,12 +7,12 @@ export const CardContent = ({
   isHovered,
   isFolder,
 }) => {
-  const className = isHovered
+  const classNameContent = isHovered
     ? "CardContent CardContent-hovered"
     : "CardContent";
 
   return (
-    <div className={className}>
+    <div className={classNameContent}>
       <div className="CardContent-top">
         <span className="CardContent-elapsed-time">{elapsedTime}</span>
         {isFolder && (
