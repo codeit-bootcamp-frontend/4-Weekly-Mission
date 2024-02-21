@@ -1,5 +1,7 @@
 import imgNone from "../assets/이미지 없을 때 배경.svg";
 import styled from "styled-components";
+import star from "../assets/star.svg";
+import kebab from "../assets/kebab.svg";
 
 function dateDiff(createdAt) {
   const present = Date.now();
@@ -47,6 +49,7 @@ const ContainDiv = styled.div`
   flex-shrink: 0;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   border-radius: 15px;
+  position: relative;
 
   &: hover img {
     transform: scale(1.3);
@@ -70,6 +73,23 @@ const WrappedImg = styled.div`
   @media ${(props) => props.theme.tabletS} {
     width: 340px;
     height: 200px;
+  }
+`;
+
+const StarButton = styled.button`
+  background: no-repeat center url(${star});
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1;
+
+  @media ${(props) => props.theme.tabletS} {
+    width: 34px;
+    height: 34px;
   }
 `;
 
@@ -117,6 +137,14 @@ const TextDiv1 = styled.div`
   }
 `;
 
+const KebabButton = styled.button`
+  background: no-repeat center url(${kebab});
+  width: 21px;
+  height: 17px;
+  flex-shrink: 0;
+  border: none;
+`;
+
 const TextDiv2 = styled.div`
   height: 49px;
   align-self: stretch;
@@ -153,9 +181,12 @@ function Card({ link }) {
     window.open(linkUrl, "_blank");
   };
 
+  const handleNoneBubblingClick = (event) => event.stopPropagation();
+
   return (
     <ContainDiv onClick={handleCardClick}>
       <WrappedImg>
+        <StarButton onClick={handleNoneBubblingClick} />
         <StyledImg
           src={link?.imageSource ?? INITIAL_LINK_IMG}
           alt="미리보기 이미지"
@@ -164,6 +195,7 @@ function Card({ link }) {
       <DescriptionDiv>
         <TextDiv1>
           <p>{dateDiff(link?.createdAt)}</p>
+          <KebabButton onClick={handleNoneBubblingClick} />
         </TextDiv1>
         <TextDiv2>
           <p>{link?.description}</p>

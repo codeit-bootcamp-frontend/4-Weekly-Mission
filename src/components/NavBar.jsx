@@ -13,6 +13,9 @@ const NavDiv = styled.div`
   gap: 8px;
   align-self: stretch;
   background: var(--Linkbrary-bg, #f0f6ff);
+  position: sticky;
+  top: 0;
+  z-index: 99;
 
   @media ${(props) => props.theme.tabletS} {
     padding: 33px 32.5px 32px 32.5px;
