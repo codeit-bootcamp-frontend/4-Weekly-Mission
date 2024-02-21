@@ -1,0 +1,104 @@
+.FolderItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin: 40px auto;
+}
+
+.folderItemContainer {
+  width: 1060px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.folderListBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.folderList {
+  display: flex;
+  gap: 8px;
+}
+
+.folderList > button {
+  padding: 8px 12px;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.folderButton {
+  background: #fff;
+  color: #000;
+}
+
+.selectedFolder {
+  background: var(--Linkbrary-primary-color, #6d6afe);
+  color: #fff;
+}
+
+.addFolder {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.addFolder > p {
+  color: #6d6afe;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+
+.optionBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.optionTitle {
+  color: #000;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+  gap: 24px;
+}
+
+.optionList {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.option > p {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+
+  /* Linkbrary/body2-semibold */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

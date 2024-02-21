@@ -1,31 +1,15 @@
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
-import { getUser } from "./Api";
 import "./styles/Gnb.css";
 
-function Gnb() {
-  const [userData, setUserData] = useState({ email: "", img: "" });
-
-  const [state, setState] = useState(false);
-
-  useEffect(() => {
-    const getUserData = async () => {
-      try {
-        const body = await getUser();
-        setUserData({ email: body.email, img: body.profileImageSource });
-        setState(true);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getUserData();
-  }, []);
-
+function Gnb({ userData, isUserDataLoaded }) {
   return (
     <div className="Gnb">
-      <img src={logo} alt="logo" />
+      <Link to="/">
+        <img src={logo} alt="logo" />
+      </Link>
       <div className="profileBox">
-        {state ? (
+        {isUserDataLoaded ? (
           <>
             <img
               className="profileImg"
