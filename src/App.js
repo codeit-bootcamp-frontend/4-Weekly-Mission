@@ -1,13 +1,18 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer/Footer";
-import CardGrid from "./components/CardGrid/Cardgrid";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Folder from "./pages/folder";
+import Shared from "./pages/shared";
 
 function App() {
   return (
     <div>
-      <Header />
-      <CardGrid />
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/share" element={<Shared />} />
+          <Route path="/folder" element={<Folder />}>
+            <Route path=":folderId" element={<Folder />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

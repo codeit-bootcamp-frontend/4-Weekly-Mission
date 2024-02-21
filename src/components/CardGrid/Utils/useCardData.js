@@ -25,5 +25,7 @@ export function useCardData() {
     fetchData();
   }, []);
 
-  return { cards, formattedCards };
+  return { formattedCards };
 }
+
+export default useCardData;

@@ -1,0 +1,39 @@
+header {
+  background-color: var(--gray5);
+  width: auto;
+}
+
+.header-content {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  position: relative;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}
+
+main.shared {
+  margin: 4rem 0;
+  gap: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Mobile */
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  header {
+    row-gap: 2.4rem;
+  }
+
+  .header-content {
+    padding-top: 6.3rem;
+  }
+
+  main.shared {
+    gap: 32px;
+    margin: 20px 0;
+  }
+}
