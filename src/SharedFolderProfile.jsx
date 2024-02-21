@@ -1,6 +1,6 @@
-import './Avatar.css';
+import './SharedFolderProfile.css';
 
-const Avatar = ({ sharedFolder }) => {
+const sharedFolderProfile = ({ sharedFolder }) => {
   const isShowFolderInfos = sharedFolder && sharedFolder.owner && sharedFolder.name;
 
   return (
@@ -22,4 +22,4 @@ const Avatar = ({ sharedFolder }) => {
   )
 }
 
-export default Avatar;
+export default sharedFolderProfile;

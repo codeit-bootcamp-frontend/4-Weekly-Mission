@@ -1,7 +1,7 @@
 import { useFetchShared } from '../hooks/useFetchShared';
 
 import Gnb from '../components/Gnb';
-import Avatar from '../Avatar';
+import SharedFolderProfile from '../SharedFolderProfile';
 import SharedFolder from '../SharedFolder';
 import Footer from '../components/Footer';
 
@@ -11,7 +11,7 @@ const SharedPage = () => {
   return (
     <>
       <Gnb className='gnb_ly' isFixed={true}/>
-      <Avatar sharedFolder={sharedFolder}/>
+      <SharedFolderProfile sharedFolder={sharedFolder}/>
       <SharedFolder sharedFolder={sharedFolder}/>
       <Footer/>
     </>
