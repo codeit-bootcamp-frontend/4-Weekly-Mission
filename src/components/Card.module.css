@@ -1,12 +1,4 @@
 @media (min-width: 375px) and (max-width: 767px) {
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    width: 350px;
-    height: 3300px;
-  }
-
   .container {
     position: relative;
     width: 340px;
@@ -76,6 +68,7 @@
 
   .description {
     width: 300px;
+    height: 48px;
     display: -webkit-box; /* 웹킷 브라우저에서 다중 줄 형태를 지원하기 위해 필요한 속성 */
     -webkit-box-orient: vertical; /* 세로 방향으로 텍스트를 표시 */
     overflow: hidden; /*텍스트가 div의 영역을 넘어갈 때 숨김 */
@@ -94,15 +87,6 @@
 }
 
 @media (min-width: 768px) and (max-width: 1124px) {
-  section {
-    display: flex;
-    overflow: hidden;
-    flex-direction: column;
-    gap: 40px;
-    width: 704px;
-    height: 1146px;
-  }
-
   .container {
     position: relative;
     width: 340px;
@@ -160,6 +144,7 @@
 
   .description {
     width: 300px;
+    height: 48px;
     display: -webkit-box; /* 웹킷 브라우저에서 다중 줄 형태를 지원하기 위해 필요한 속성 */
     -webkit-box-orient: vertical; /* 세로 방향으로 텍스트를 표시 */
     overflow: hidden; /*텍스트가 div의 영역을 넘어갈 때 숨김 */
@@ -178,14 +163,6 @@
 }
 
 @media (min-width: 1125px) {
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    width: 1060px;
-    height: 1146px;
-  }
-
   .container {
     position: relative;
     width: 340px;

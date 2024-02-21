@@ -25,10 +25,6 @@ body {
   font-size: 62.5%;
 }
 
-header {
-  background: var(--Linkbrary-bg, #f0f6ff);
-}
-
 a:hover,
 button:hover {
   cursor: pointer;
@@ -38,12 +34,23 @@ input:focus {
   outline: none;
 }
 
+header {
+  background: var(--Linkbrary-bg, #f0f6ff);
+}
+
 main {
   margin: 40px 0;
   background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
 footer {
@@ -52,9 +59,6 @@ footer {
 
 @media (min-width: 375px) and (max-width: 767px) {
   section {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
     width: 350px;
     height: 3300px;
   }
@@ -62,10 +66,6 @@ footer {
 
 @media (min-width: 768px) and (max-width: 1124px) {
   section {
-    display: flex;
-    overflow: hidden;
-    flex-direction: column;
-    gap: 40px;
     width: 704px;
     height: 1146px;
   }
@@ -73,9 +73,6 @@ footer {
 
 @media (min-width: 1125px) {
   section {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
     width: 1060px;
     height: 1146px;
   }
