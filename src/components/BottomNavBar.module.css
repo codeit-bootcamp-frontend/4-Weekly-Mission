@@ -3,7 +3,7 @@
     position: relative;
     display: flex;
     width: 100%;
-    height: 8rem;
+    height: 16rem;
     justify-content: space-evenly;
     padding: 3.2rem 0 6.4rem;
     background: var(--The-julge-black, #111322);
@@ -44,7 +44,7 @@
 @media (min-width: 768px) and (max-width: 1124px) {
   .container {
     display: flex;
-    height: 8rem;
+    height: 16rem;
     justify-content: space-between;
     padding: 3.2rem 10.4rem 6.4rem;
     background: var(--The-julge-black, #111322);
@@ -82,7 +82,7 @@
 @media (min-width: 1125px) {
   .container {
     display: flex;
-    height: 8rem;
+    height: 16rem;
     justify-content: space-between;
     padding: 3.2rem 10.4rem 6.4rem;
     background: var(--The-julge-black, #111322);

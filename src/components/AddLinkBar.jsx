@@ -7,9 +7,13 @@ function AddLinkBar() {
       <div className={styles.container}>
         <div className={styles.inputContainer}>
           <img src={link} alt="링크" />
-          <input type="text" placeholder="링크를 추가해 보세요" />
+          <input
+            className={styles.input}
+            type="text"
+            placeholder="링크를 추가해 보세요"
+          />
         </div>
-        <button>추가하기</button>
+        <button className={styles.button}>추가하기</button>
       </div>
     </div>
   );

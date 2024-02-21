@@ -49,3 +49,34 @@ main {
 footer {
   padding-top: 60px;
 }
+
+@media (min-width: 375px) and (max-width: 767px) {
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 350px;
+    height: 3300px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1124px) {
+  section {
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    gap: 40px;
+    width: 704px;
+    height: 1146px;
+  }
+}
+
+@media (min-width: 1125px) {
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 1060px;
+    height: 1146px;
+  }
+}

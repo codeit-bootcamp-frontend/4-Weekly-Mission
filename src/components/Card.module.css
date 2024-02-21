@@ -96,6 +96,7 @@
 @media (min-width: 768px) and (max-width: 1124px) {
   section {
     display: flex;
+    overflow: hidden;
     flex-direction: column;
     gap: 40px;
     width: 704px;

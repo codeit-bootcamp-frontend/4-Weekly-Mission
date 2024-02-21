@@ -35,7 +35,7 @@ function FolderListBar({ folderList, onClick }) {
 
   return (
     <>
-      <div className={styles.upperContainer}>
+      <div className={styles.container}>
         <div className={styles.btnContainer}>
           {newFolderList.map((folder, idx) => (
             <FolderButton
@@ -47,9 +47,13 @@ function FolderListBar({ folderList, onClick }) {
             />
           ))}
         </div>
-        <div className={styles.addFolderContainer}>
+        <div
+          className={
+            nowFolderId === 1 ? styles.invisible : styles.addFolderContainer
+          }
+        >
           <div className={styles.addFolderText}>폴더 추가</div>
-          <img src={addImg} alt="addImg" />
+          <img className={styles.addImg} src={addImg} alt="addImg" />
         </div>
       </div>
       <div className={styles.folderOptionsContainer}>

@@ -1,10 +1,13 @@
 import logo from "../images/logo.svg";
-// import "./css/Header.css";
 import styles from "./TopNavBar.module.css";
 
-function TopNavBar({ profileData }) {
+function TopNavBar({ profileData, isSticky }) {
+  const containerClassName = isSticky
+    ? `${styles.container} ${styles.sticky}`
+    : styles.container;
+
   return (
-    <div className={styles.container}>
+    <div className={containerClassName}>
       <div className={styles.logoContainer}>
         <a href="">
           <img src={logo} />

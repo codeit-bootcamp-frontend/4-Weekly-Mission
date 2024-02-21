@@ -1,4 +1,3 @@
-// import "./css/Header.css";
 import styles from "./UserProfile.module.css";
 
 function UserProfile({ folderData }) {

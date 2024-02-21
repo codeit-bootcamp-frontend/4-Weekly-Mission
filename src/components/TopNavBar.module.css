@@ -1,8 +1,15 @@
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
 @media (min-width: 375px) and (max-width: 767px) {
   .container {
     display: flex;
     justify-content: space-between;
     padding: 18px 33px 17px;
+    background: #f0f6ff;
+    z-index: 10;
   }
 
   .logoContainer {
@@ -50,6 +57,8 @@
     display: flex;
     justify-content: space-between;
     padding: 33px 33px 32px;
+    background: #f0f6ff;
+    z-index: 10;
   }
 
   .logoContainer {
@@ -96,6 +105,8 @@
     display: flex;
     justify-content: space-between;
     padding: 33px 200px 32px;
+    background: #f0f6ff;
+    z-index: 10;
   }
 
   .logoContainer {

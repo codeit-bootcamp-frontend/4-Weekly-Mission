@@ -1,5 +1,4 @@
 import Search from "../images/Search.svg";
-// import "./css/Main.css";
 import styles from "./SearchBar.module.css";
 
 function SearchBar() {
