@@ -23,12 +23,10 @@ function Shared() {
   }, []);
 
   return (
-    <>
-      <section>
-        <SearchBar />
-        <CardBox linksData={linksData} />
-      </section>
-    </>
+    <section>
+      <SearchBar />
+      <CardBox linksData={linksData} />
+    </section>
   );
 }
 

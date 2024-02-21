@@ -38,17 +38,15 @@ function Folder() {
   }, []);
 
   return (
-    <>
-      <section>
-        <SearchBar />
-        <FolderListBar folderList={folderList} onClick={getLinks} />
-        {linksData.length === 0 ? (
-          <EmptyFolder />
-        ) : (
-          <CardBox linksData={linksData} />
-        )}
-      </section>
-    </>
+    <section>
+      <SearchBar />
+      <FolderListBar folderList={folderList} onClick={getLinks} />
+      {linksData.length === 0 ? (
+        <EmptyFolder />
+      ) : (
+        <CardBox linksData={linksData} />
+      )}
+    </section>
   );
 }
 
