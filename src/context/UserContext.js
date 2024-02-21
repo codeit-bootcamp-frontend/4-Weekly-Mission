@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { getUserInformation } from "../api";
+import { getUser } from "../api";
 
 const UserContext = createContext();
 
@@ -9,7 +9,7 @@ export function UserProvider({ children }) {
   useEffect(() => {
     async function fetchUserData() {
       try {
-        const result = await getUserInformation();
+        const result = await getUser();
         setUser(result);
       } catch (error) {
         alert(error);

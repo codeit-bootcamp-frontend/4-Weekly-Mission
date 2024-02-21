@@ -1,0 +1,31 @@
+/*********************
+      CardList
+*********************/
+
+.CardList {
+  flex-wrap: wrap;
+  gap: 20px 0;
+}
+
+.CardList-noLink {
+  height: 100px;
+  line-height: 24px;
+  text-align: center;
+  justify-content: center;
+}
+
+/*********************
+        @media
+*********************/
+
+@media (min-width: 768px) {
+  .CardList {
+    gap: 25px 24px;
+  }
+}
+
+@media (min-width: 1124px) {
+  .CardList {
+    gap: 25px 20px;
+  }
+}

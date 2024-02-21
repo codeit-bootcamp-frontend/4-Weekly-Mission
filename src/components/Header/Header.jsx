@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useUser } from "../../context/UserContext";
 import logo from "../../assets/images/logo.png";
 import "./Header.css";
@@ -6,6 +7,8 @@ import "./Header.css";
 function Header() {
   const [visible, setVisible] = useState(true);
   const { email, profileImageSource } = useUser();
+  const { pathname } = useLocation();
+  const pageName = pathname.split("/")[1];
 
   useEffect(() => {
     const handleVisible = () => {
@@ -27,7 +30,11 @@ function Header() {
   }, []);
 
   return (
-    <header className="Header flex items-center">
+    <header
+      className={`${
+        pageName === "folder" ? "Header-exception" : "Header"
+      } flex items-center`}
+    >
       <div className="Header-help-left"></div>
       <img className="Header-logo" src={logo} alt="Linkbrary" />
       <div className="Header-help-center"></div>

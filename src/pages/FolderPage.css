@@ -1,0 +1,141 @@
+/**========================================================================
+ *                           FolderPage
+ *========================================================================**/
+
+.FolderPage-addLinkContainer {
+  padding: 24px 32px 40px;
+}
+
+.FolderPage .FolderPage-AddLink {
+  max-width: 800px;
+}
+
+.FolderPage-cardsContainer {
+  width: 325px;
+  padding: 20px 0;
+}
+
+.FolderPage-SearchBar {
+  margin-bottom: 32px;
+}
+
+.FolderPage-edit {
+  gap: 12px;
+
+  & div {
+    color: #9fa6b2;
+    font-size: 14px;
+    gap: 4px;
+    line-height: 17px;
+    cursor: pointer;
+  }
+
+  & img {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.FolderPage-folderList {
+  margin-bottom: 28px;
+}
+
+.FolderPage-folders {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.FolderPage-folder {
+  height: 29px;
+  padding: 6px 10px;
+  border-radius: 5px;
+  border: 1px solid #6d6afe;
+  line-height: 17px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.selectedFolder {
+  background-color: #6d6afe;
+  color: white;
+}
+
+.FolderPage-folderAdd {
+  gap: 4px;
+  flex: 0 0 80px;
+  letter-spacing: -0.3px;
+  height: 30px;
+  color: #6d6afe;
+  font-weight: 500;
+  margin-left: 15px;
+  cursor: pointer;
+
+  & img {
+    width: 16px;
+    position: relative;
+    bottom: 2px;
+  }
+}
+
+.FolderPage-folderName {
+  gap: 12px;
+  margin-bottom: 20px;
+
+  & h2 {
+    font-size: 20px;
+  }
+}
+
+/**========================================================================
+*                           @media
+ *========================================================================**/
+
+@media (min-width: 768px) {
+  .FolderPage-addLinkContainer {
+    padding: 60px 32.5px 90px;
+  }
+
+  .FolderPage-cardsContainer {
+    width: 704px;
+    padding: 40px 0;
+  }
+
+  .FolderPage-SearchBar {
+    margin-bottom: 32px;
+  }
+
+  .FolderPage-folderList {
+    margin-bottom: 24px;
+  }
+
+  .FolderPage-folder {
+    height: 35px;
+    padding: 8px 12px;
+    line-height: 19px;
+  }
+
+  .FolderPage-folderName {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+    & h2 {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (min-width: 865px) {
+  .FolderPage-addLinkContainer {
+    width: 865px;
+    padding: 60px 0 90px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1124px) {
+  .FolderPage-cardsContainer {
+    width: 1060px;
+  }
+}

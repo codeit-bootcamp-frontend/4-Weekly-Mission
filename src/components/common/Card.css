@@ -1,17 +1,9 @@
 /*********************
-      CardList
-*********************/
-
-.CardList {
-  flex-wrap: wrap;
-  gap: 20px 0;
-}
-
-/*********************
         Card
 *********************/
 
 .Card {
+  position: relative;
   width: 325px;
   height: 327px;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
@@ -27,7 +19,12 @@
   background-size: 130%;
 }
 
+.Card:hover .Card-Button {
+  display: block;
+}
+
 .Card-img {
+  position: relative;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -35,7 +32,20 @@
   height: 58.7%;
 }
 
+.Card-star {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.Card-kebab {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
 .Card-information {
+  position: relative;
   padding: 15px 20px;
   gap: 10px;
 }
@@ -62,23 +72,35 @@
   color: #333;
 }
 
+.Card .Card-Button {
+  position: absolute;
+  left: 98.5px;
+  top: 261px;
+  color: #e7effb;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  background: #6d6afe;
+  padding: 8px 24px;
+  display: none;
+}
+
+.Card-Button img {
+  position: relative;
+  width: 16px;
+  left: 4px;
+  top: 2px;
+}
+
 /*********************
         @media
 *********************/
 
 @media (min-width: 768px) {
-  .CardList {
-    gap: 25px 24px;
-  }
-
   .Card {
     width: 340px;
     height: 334px;
-  }
-}
-
-@media (min-width: 1124px) {
-  .CardList {
-    gap: 25px 20px;
   }
 }

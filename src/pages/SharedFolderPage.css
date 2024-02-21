@@ -1,0 +1,62 @@
+/*********************
+   SharedFolderPage
+*********************/
+
+.SharedFolderPage-folderProfile {
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+
+.SharedFolderPage-userProfile {
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.SharedFolderPage-userProfile img {
+  width: 60px;
+  height: 60px;
+}
+
+.SharedFolderPage-cardsContainer {
+  width: 325px;
+  padding: 20px 0;
+}
+
+.SharedFolderPage-SearchBar {
+  margin-bottom: 32px;
+}
+
+/*********************
+        @media
+*********************/
+
+@media (min-width: 768px) {
+  .SharedFolderPage-folderProfile {
+    padding-top: 20px;
+    padding-bottom: 60px;
+  }
+
+  .SharedFolderPage-userProfile {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .SharedFolderPage-folderName {
+    font-size: 40px;
+  }
+
+  .SharedFolderPage-cardsContainer {
+    width: 704px;
+    padding: 40px 0;
+  }
+
+  .SharedFolderPage-SearchBar {
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 1124px) {
+  .SharedFolderPage-cardsContainer {
+    width: 1060px;
+  }
+}

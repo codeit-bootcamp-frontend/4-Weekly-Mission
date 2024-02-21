@@ -1,4 +1,3 @@
-import { useCallback } from "react";
 import facebook from "../../assets/images/akar-icons_facebook-fill.png";
 import twitter from "../../assets/images/akar-icons_twitter-fill.png";
 import youtube from "../../assets/images/akar-icons_youtube-fill.png";
@@ -10,11 +9,11 @@ const twitterLink = "https://twitter.com/";
 const youtubeLink = "https://www.youtube.com/";
 const instagramLink = "https://www.instagram.com/";
 
-function Footer({ className }) {
-  const handleClickImg = useCallback((link) => {
-    window.open(link, "_blank");
-  }, []);
+const handleClickImg = (link) => {
+  window.open(link, "_blank");
+};
 
+function Footer({ className }) {
   return (
     <footer className={`Footer ${className}`}>
       <div className="container">

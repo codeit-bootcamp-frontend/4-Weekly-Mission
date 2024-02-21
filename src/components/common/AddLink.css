@@ -1,0 +1,61 @@
+/**========================================================================
+ *                           AddLink
+ *========================================================================**/
+
+.AddLink {
+  position: relative;
+}
+
+.AddLink-input {
+  width: 100%;
+  font-size: 14px;
+  border-radius: 15px;
+  border: 1px solid #6d6afe;
+  background: white;
+  padding: 8px 100px 8px 34px;
+  line-height: 37px;
+
+  &:placeholder {
+    color: #9fa6b2;
+  }
+}
+
+.AddLink-img {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 19px;
+  left: 10px;
+}
+
+.AddLink .AddLink-Button {
+  position: absolute;
+  width: 80px;
+  height: 37px;
+  top: 9px;
+  right: 10px;
+}
+
+/**========================================================================
+ *                           @media
+ *========================================================================**/
+
+@media (min-width: 768px) {
+  .AddLink-input {
+    padding: 16px 115px 16px 48px;
+    line-height: 24px;
+    font-size: 16px;
+  }
+
+  .AddLink-img {
+    width: 20px;
+    height: 20px;
+    top: 18px;
+    left: 20px;
+  }
+
+  .AddLink .AddLink-Button {
+    top: 11px;
+    right: 20px;
+  }
+}
