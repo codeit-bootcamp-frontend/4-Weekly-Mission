@@ -31,9 +31,7 @@ function FolderCardArea({ links }) {
           ))}
         </CardList>
       ) : (
-        <CardBlank>
-          <BlankCard />
-        </CardBlank>
+        <BlankCard>저장된 링크가 없습니다</BlankCard>
       )}
     </>
   );

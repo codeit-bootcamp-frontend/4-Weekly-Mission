@@ -6,6 +6,14 @@ import FolderCategoriseArea from "../components/folder/FolderCategoryArea";
 import FolderTitleArea from "../components/folder/FolderTitleArea";
 import FolderCardArea from "../components/folder/FolderCardArea";
 import Footer from "../components/common/Footer";
+import styled from "styled-components";
+
+const Section = styled.section`
+  max-width: 1060px;
+  min-height: 1280px;
+  background-color: var(--color-white);
+  margin: 40px auto;
+`;
 
 function Folder() {
   const [folders, setFolders] = useState(null);
@@ -45,12 +53,12 @@ function Folder() {
   return (
     <>
       <Banner />
-      <section>
+      <Section>
         <SearchBar />
         <FolderCategoriseArea folders={folders} />
         <FolderTitleArea title={folderState.name} />
         <FolderCardArea links={links} />
-      </section>
+      </Section>
       <Footer />
     </>
   );
