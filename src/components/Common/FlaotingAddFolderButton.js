@@ -10,7 +10,6 @@ function FloatingAddFolderButton({ className, onClick }) {
     styles['floating-add-folder-button'],
     'text-color-gray10',
     'background-primary',
-    'flex-row',
     className
   );
   const iconClasses = classNames(styles['floating-add-folder-icon']);

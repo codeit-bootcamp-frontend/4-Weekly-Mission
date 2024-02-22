@@ -29,10 +29,6 @@
 
 /* Tablet */
 @media screen and (min-width: 768px) {
-  .hidden {
-    display: block;
-  }
-
   .gnb {
     padding: 3.3rem 3.2rem 3.2rem;
     max-width: 84.6rem;

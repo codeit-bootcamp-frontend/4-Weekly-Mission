@@ -10,8 +10,17 @@
 * Utils
 ********/
 
-.hidden {
+.hidden-block-mobile-only,
+.hidden-flex-mobile-only {
   display: none;
+}
+
+.visible-block-mobile-only {
+  display: block;
+}
+
+.visible-flex-mobile-only {
+  display: flex;
 }
 
 .z-top {
@@ -25,6 +34,26 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .hidden-block-mobile-only {
+    display: block;
+  }
+
+  .hidden-flex-mobile-only {
+    display: flex;
+  }
+
+  .visible-block-mobile-only,
+  .visible-flex-mobile-only {
+    display: none;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
 }
 
 /********
@@ -64,12 +93,20 @@
   align-content: center;
 }
 
-.justify-space-between {
-  justify-content: space-between;
+.align-flex-start {
+  align-content: flex-start;
+}
+
+.align-flex-end {
+  align-content: flex-end;
 }
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
 }
 
 .position-fixed {

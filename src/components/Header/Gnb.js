@@ -51,7 +51,7 @@ function Gnb() {
   const logoClasses = classNames(styles['gnb-logo']);
   const profileClasses = classNames(styles['gnb-profile'], 'flex-row');
   const profileImgClasses = classNames(styles['profile-img']);
-  const profileEmailClasses = classNames(styles['profile-email'], styles.hidden, 'hidden', 'text-color-gray100');
+  const profileEmailClasses = classNames(styles['profile-email'], 'hidden-block-mobile-only', 'text-color-gray100');
   // gnb의 position-fixed에 대한 더미
   const navDummyClasses = classNames({ [styles['nav-dummy']]: pathname !== FOLDER_LOCATION });
 

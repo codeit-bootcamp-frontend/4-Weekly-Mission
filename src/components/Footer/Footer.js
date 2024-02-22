@@ -16,7 +16,16 @@ function Footer() {
     { id: 4, src: instagram, alt: 'instagram', href: 'https://www.instagram.com/' },
   ];
 
-  const footerClasses = classNames(styles.footer, 'flex-row', 'position-relative', 'background-black', 'width-full');
+  const footerClasses = classNames(
+    styles.footer,
+    'flex-row',
+    'flex-wrap',
+    'justify-space-between',
+    'align-flex-start',
+    'position-relative',
+    'background-black',
+    'width-full'
+  );
   const copyrightClasses = classNames(styles.copyright);
   const officialLinkClasses = classNames(styles['official-link'], 'flex-row');
   const socialLinkClasses = classNames(styles['social-link'], 'flex-row');

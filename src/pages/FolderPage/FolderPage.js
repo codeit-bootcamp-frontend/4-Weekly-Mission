@@ -12,7 +12,12 @@ import SortingSection from 'components/Main/SortingSection';
 import styles from 'pages/FolderPage/FolderPage.module.css';
 
 function Folder() {
-  const floatingAddFolderButtonClasses = classNames(styles['floating-add-folder-button'], 'position-fixed', 'z-top');
+  const floatingAddFolderButtonClasses = classNames(
+    styles['floating-add-folder-button'],
+    'position-fixed',
+    'visible-flex-mobile-only',
+    'z-top'
+  );
 
   return (
     <div>
