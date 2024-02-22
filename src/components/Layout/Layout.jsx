@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./Header/Header";
 import Footer from "./Footer/Footer";
-import Profile from "../PersonalFolder/Banner/Profile";
 
 const Layout = ({ children }) => {
   return (

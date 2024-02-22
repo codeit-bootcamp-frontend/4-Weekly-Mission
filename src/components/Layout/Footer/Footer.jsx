@@ -6,7 +6,7 @@ import {
   TwitterIcon,
   YoutubeIcon,
   InstagramIcon,
-} from "./footer_Icons/Icons.js";
+} from "./footerIcons/Icons";
 import "../../../styles/common.css";
 
 const Footer = () => {
@@ -23,14 +23,14 @@ const Footer = () => {
         <p>@codeit - 2023</p>
       </section>
 
-      <section css={aWrapperStyle}>
+      <nav css={aWrapperStyle}>
         <NavLink to="/policy" css={aStyle}>
           Privacy Policy
         </NavLink>
         <NavLink to="/faq" css={aStyle}>
           FAQ
         </NavLink>
-      </section>
+      </nav>
 
       <section css={iconsStyle}>
         {icons.map((icon) => (

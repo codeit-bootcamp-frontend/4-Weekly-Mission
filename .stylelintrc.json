@@ -2,7 +2,7 @@
   "overrides": [
     {
       "customSyntax": "@stylelint/postcss-css-in-js",
-      "files": ["**/*.styles.ts"]
+      "files": ["**/*.jsx"]
     }
   ],
   "extends": ["stylelint-config-standard"],
