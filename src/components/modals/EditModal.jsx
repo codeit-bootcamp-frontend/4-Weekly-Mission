@@ -1,70 +1,35 @@
 import styled from 'styled-components';
 import { FOLDER_ADD, FOLDER_RENAME } from '../../constants/modalPurpose';
-import Button from '../Button';
 import modalCloseIcon from '../../assets/modalColseIcon.svg';
 import { ModalContext } from '../../pages/FolderPage/FolderPage';
 import { useContext } from 'react';
+import {
+  ModalContainer,
+  ModalForm,
+  CloseButton,
+  SubmitButton,
+} from './ModalElements';
+
 function EditModal() {
   const { editModalIsOpen, handleModalClose } = useContext(ModalContext);
 
-  const name = FOLDER_RENAME;
+  const title = FOLDER_RENAME;
   const buttonText = '변경하기';
-  // let { name, buttonText } = {};
-  // if (purpose === FOLDER_RENAME) {
-  //   name = FOLDER_RENAME;
-  //   buttonText = '변경하기';
-  // } else if (purpose === FOLDER_ADD) {
-  //   name = FOLDER_ADD;
-  //   buttonText = '추가하기';
-  // }
-
-  const buttonProps = {
-    width: '280px',
-    text: buttonText,
-    fontSize: '16px',
-    padding: '16px 20px',
-  };
 
   return (
     <ModalContainer $isOpen={editModalIsOpen}>
       <ModalForm>
-        <Name>{name}</Name>
+        <Name>{title}</Name>
         <CloseButton onClick={handleModalClose}>
           <img src={modalCloseIcon} alt="closeButton" />
         </CloseButton>
-        <Input type="text" name={name} placeholder="내용 입력" />
-        <Button type="submit" props={buttonProps} />
+        <Input type="text" name={title} placeholder="내용 입력" />
+
+        <SubmitButton>{buttonText}</SubmitButton>
       </ModalForm>
     </ModalContainer>
   );
 }
-
-const ModalContainer = styled.div`
-  display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
-`;
-
-const ModalForm = styled.form`
-  position: relative;
-  display: inline-flex;
-  padding: 32px 40px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  border-radius: 15px;
-  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
-  background: var(--Linkbrary-white, #fff);
-`;
 
 const Name = styled.p`
   color: var(--Linkbrary-gray100, #373740);
@@ -89,15 +54,6 @@ const Input = styled.input`
     border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
     background: var(--Linkbrary-white, #fff);
   }
-`;
-
-const CloseButton = styled.button`
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  border: none;
-  cursor: pointer;
-  background-color: white;
 `;
 
 export default EditModal;

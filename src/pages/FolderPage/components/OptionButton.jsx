@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-function OptionButton({ id, svg, text }) {
+
+function OptionButton({ id, svg, text, handleModalOpen }) {
   return (
-    <Button>
+    <Button onClick={handleModalOpen}>
       <img src={svg} alt={text} />
       <Span>{text}</Span>
     </Button>

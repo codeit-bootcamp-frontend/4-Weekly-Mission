@@ -7,9 +7,9 @@ import { useContext } from 'react';
 //styled-components로 구현한 폴더추가 버튼입니다.
 // 기본 버튼과 모바일 버튼을 따로 구현해서 사용합니다.
 function FolderAddButton() {
-  const { handleModalOpen } = useContext(ModalContext);
+  const { handleEditModalOpen } = useContext(ModalContext);
   return (
-    <StyledButton onClick={handleModalOpen}>
+    <StyledButton onClick={handleEditModalOpen}>
       <span>폴더추가</span>
       <img src={addIcon} alt="addIcon"></img>
     </StyledButton>
