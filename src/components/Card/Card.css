@@ -17,6 +17,10 @@
   -webkit-transform: scale(1.2);
 }
 
+a {
+  text-decoration-line: none;
+}
+
 .cardTextArea {
   display: flex;
   width: 340px;
@@ -42,8 +46,6 @@
   font-style: normal;
   font-weight: 400;
   line-height: 24px; /* 150% */
-
-  text-decoration-line: none;
 }
 
 .card .uploadTime {
