@@ -3,31 +3,36 @@ import kebeb from 'assets/images/kebab.svg';
 import { useState } from 'react';
 import useCloseModal from 'hook/useCloseModal';
 import BUTTON from 'utils/constants/BUTTON';
+import Modal from 'components/common/modal/Modal';
 
 const KebabButton = () => {
+  const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  useCloseModal(showModal, setShowModal);
+  useCloseModal(showMenu, setShowMenu);
 
-  const handleModal = e => {
+  const handleMenu = e => {
     e.preventDefault();
-    return setShowModal(!showModal);
+    return setShowMenu(!showMenu);
+  };
+  const handleClick = () => {
+    setShowMenu(false);
+    setShowModal(true);
   };
   return (
-    <StyledButton onClick={handleModal}>
+    <StyledButton onClick={handleMenu}>
       <img src={kebeb} alt="더보기 버튼" />
-      {showModal && (
+      {showMenu && (
         <StyledModal>
           {BUTTON.KEBAB_OPTION.map(option => (
-            <StyledMenu
-              key={option}
-              onClick={() => {
-                // 해당 모달 불러오기
-                setShowModal(false);
-              }}
-            >
+            <StyledMenu key={option} onClick={handleClick}>
               {option}
             </StyledMenu>
           ))}
+          {showModal && (
+            <Modal setShowModal={setShowMenu} showModal={showModal}>
+              안녕
+            </Modal>
+          )}
         </StyledModal>
       )}
     </StyledButton>
