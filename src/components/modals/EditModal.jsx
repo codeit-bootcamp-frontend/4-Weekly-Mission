@@ -2,22 +2,21 @@ import styled from 'styled-components';
 import { FOLDER_ADD, FOLDER_RENAME } from '../../constants/modalPurpose';
 import Button from '../Button';
 import modalCloseIcon from '../../assets/modalColseIcon.svg';
-import { useState } from 'react';
+import { ModalContext } from '../../pages/FolderPage/FolderPage';
+import { useContext } from 'react';
+function EditModal() {
+  const { editModalIsOpen, handleModalClose } = useContext(ModalContext);
 
-function EditModal({ isOpen, purpose }) {
-  const [modalIsOpen, setModalIsOpen] = useState(isOpen);
-  const handleModalClose = () => {
-    setModalIsOpen(false);
-  };
-
-  let { name, buttonText } = {};
-  if (purpose === FOLDER_RENAME) {
-    name = FOLDER_RENAME;
-    buttonText = '변경하기';
-  } else if (purpose === FOLDER_ADD) {
-    name = FOLDER_ADD;
-    buttonText = '추가하기';
-  }
+  const name = FOLDER_RENAME;
+  const buttonText = '변경하기';
+  // let { name, buttonText } = {};
+  // if (purpose === FOLDER_RENAME) {
+  //   name = FOLDER_RENAME;
+  //   buttonText = '변경하기';
+  // } else if (purpose === FOLDER_ADD) {
+  //   name = FOLDER_ADD;
+  //   buttonText = '추가하기';
+  // }
 
   const buttonProps = {
     width: '280px',
@@ -27,7 +26,7 @@ function EditModal({ isOpen, purpose }) {
   };
 
   return (
-    <ModalContainer $isOpen={modalIsOpen}>
+    <ModalContainer $isOpen={editModalIsOpen}>
       <ModalForm>
         <Name>{name}</Name>
         <CloseButton onClick={handleModalClose}>
@@ -41,13 +40,17 @@ function EditModal({ isOpen, purpose }) {
 }
 
 const ModalContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
   display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.4);
   box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
 `;
 
 const ModalForm = styled.form`
