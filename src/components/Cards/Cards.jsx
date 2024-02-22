@@ -1,5 +1,5 @@
-import Card from "./Card";
-import "./styles/Cards.css";
+import Card from "../Card/Card";
+import "./Cards.css";
 
 export default function Cards({ links = [] }) {
   // links = [];

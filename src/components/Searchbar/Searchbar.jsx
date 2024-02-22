@@ -1,6 +1,6 @@
-import "./styles/SearchBar.css";
+import "./Searchbar.css";
 
-export default function SearchBar({ search, setSearch }) {
+export default function Searchbar({ search, setSearch }) {
   return (
     <div className="search-bar">
       <img className="search-button" src="images/search.svg" alt="search"></img>

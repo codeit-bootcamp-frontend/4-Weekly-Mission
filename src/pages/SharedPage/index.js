@@ -1,9 +1,7 @@
-import "./styles/SharedPage.css";
+import "./style.css";
 import { useEffect, useState } from "react";
-import Cards from "../components/Cards";
-import SearchBar from "../components/SearchBar";
-import { fetchSampleFolder } from "../api";
-import SharedPageHeader from "../components/SharedPageHeader";
+import { Cards, Searchbar, SharedPageHeader } from "../../components";
+import { fetchSampleFolder } from "../../api";
 
 export default function FolderView() {
   const [folder, setFolder] = useState(null);
@@ -27,7 +25,7 @@ export default function FolderView() {
     <>
       <SharedPageHeader folder={folder} />
       <div className="shared-page-contents">
-        <SearchBar search={search} setSearch={setSearch} />
+        <Searchbar search={search} setSearch={setSearch} />
         <Cards links={folder?.links} />
       </div>
     </>

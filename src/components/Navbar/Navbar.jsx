@@ -1,19 +1,7 @@
-import "./styles/Navbar.css";
-import CTA from "./CTA";
-import styled from "styled-components";
+import "./Navbar.css";
+import LoginCTA from "../styled/LoginCTA";
 
-const LoginCTA = styled(CTA)`
-  width: 128px;
-  padding: 16px 20px;
-  font-size: 18px;
-  @media (max-width: 768px) {
-    width: 80px;
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-`;
-
-export default function NavBar({ profile }) {
+export default function Navbar({ profile }) {
   return (
     <nav className="gnb">
       <div className="gnb-items">

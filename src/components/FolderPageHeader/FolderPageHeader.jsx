@@ -1,12 +1,5 @@
-import "./styles/FolderPageHeader.css";
-import CTA from "./CTA";
-import styled from "styled-components";
-
-const LinkAddCTA = styled(CTA)`
-  width: 80px;
-  padding: 10px 16px;
-  font-size: 14px;
-`;
+import "./FolderPageHeader.css";
+import LinkAddCTA from "../styled/LinkAddCTA";
 
 export default function FolderPageHeader() {
   return (

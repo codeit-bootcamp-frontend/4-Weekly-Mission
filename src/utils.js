@@ -15,6 +15,7 @@ export function getElapsedTime(createdAt) {
   const now = new Date();
   const then = new Date(createdAt);
   const elapsedTime = now - then;
+  console.log(createdAt);
 
   if (year * 2 <= elapsedTime) {
     return `${Math.floor(elapsedTime / year)} years ago`;

@@ -1,4 +1,4 @@
-import "./styles/SharedPageHeader.css";
+import "./SharedPageHeader.css";
 
 export default function SharedPageHeader({ folder }) {
   return (

@@ -1,11 +1,13 @@
-import "./styles/FolderPage.css";
+import "./style.css";
 import { useEffect, useState } from "react";
-import FolderPageHeader from "../components/FolderPageHeader";
-import Cards from "../components/Cards";
-import SearchBar from "../components/SearchBar";
-import { fetchFolders, fetchFolder } from "../api";
-import FoldersList from "../components/FoldersList";
-import FolderToolbar from "../components/FolderToolbar";
+import {
+  FolderPageHeader,
+  Cards,
+  Searchbar,
+  FoldersList,
+  FolderToolbar,
+} from "../../components";
+import { fetchFolders, fetchFolder } from "../../api";
 
 export default function FolderPage() {
   const [folders, setFolders] = useState([]);
@@ -42,11 +44,11 @@ export default function FolderPage() {
     <>
       <FolderPageHeader />
       <div className="folder-page-contents">
-        <SearchBar search={search} setSearch={setSearch} />
+        <Searchbar search={search} setSearch={(str) => setSearch(str)} />
         <FoldersList
           folders={folders}
           selectedFolder={selectedFolder}
-          setSelectedFolder={setSelectedFolder}
+          setSelectedFolder={(id) => setSelectedFolder(id)}
         />
         <FolderToolbar />
         <Cards links={currentFolder} />

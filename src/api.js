@@ -20,7 +20,7 @@ export async function fetchSampleFolder() {
 }
 
 export async function fetchFolders() {
-  const res = await fetch(`${BASE_URL}users/1/folders`);
+  const res = await fetch(`${BASE_URL}users/4/folders`);
   if (!res.ok) {
     throw new Error("cannot download the list of folders");
   }
@@ -34,7 +34,7 @@ export async function fetchFolder(id = null) {
     query += `?folderId=${id}`;
   }
   console.log(`fetch folder name ${id}`);
-  const res = await fetch(`${BASE_URL}users/1/links${query}`);
+  const res = await fetch(`${BASE_URL}users/4/links${query}`);
   if (!res.ok) {
     throw new Error("cannot download the selected folder");
   }

@@ -1,4 +1,4 @@
-import "./styles/FoldersList.css";
+import "./FoldersList.css";
 
 export default function FoldersList({
   folders,
