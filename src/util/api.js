@@ -24,6 +24,10 @@ export function getSampleUser() {
   return getAPI('sample/user');
 }
 
+export function getUser() {
+  return getAPI('users/1');
+}
+
 export function getUserFolders() {
   return getAPI(`users/1/folders`);
 }
