@@ -1,19 +1,17 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HomePage from './pages/HomePage/HomePage';
 import SharedPage from './pages/SharedPage/SharedPage';
 import FolderPage from './pages/FolderPage/FolderPage';
 
+const router = createBrowserRouter([
+  { path: '/', element: <HomePage /> },
+  { path: 'shared', element: <SharedPage /> },
+  { path: 'folder', element: <FolderPage /> },
+]);
+
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="shared" element={<SharedPage />} />
-        <Route path="folder" element={<FolderPage />} />
-      </Routes>
-    </Router>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
