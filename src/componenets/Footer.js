@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import SNS from "./sns";
+import SNS from "../constants/sns";
 import "./Footer.css";
 
 function Footer() {
