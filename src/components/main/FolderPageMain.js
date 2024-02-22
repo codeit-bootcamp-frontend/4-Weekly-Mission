@@ -1,19 +1,19 @@
-import LinkSearchInput from "./LinkSearchInput";
-import FolderFilterBox from "./FolderFilterBox";
-import LinkFuncButtonBox from "./LinkFuncButtonBox";
-import styles from "./FolderPageMain.module.css";
-import AddFolderButtons from "./AddFolderButtons";
-import LinkList from "./LinkList";
-import { useFetch } from "../../hooks/useFetch";
-import { useState } from "react";
+import LinkSearchInput from './LinkSearchInput';
+import FolderFilterBox from './FolderFilterBox';
+import LinkFuncButtonBox from './LinkFuncButtonBox';
+import styles from './FolderPageMain.module.css';
+import AddFolderButtons from './AddFolderButtons';
+import LinkList from './LinkList';
+import { useFetch } from '../../hooks/useFetch';
+import { useState } from 'react';
 
-const folderUrl = "https://bootcamp-api.codeit.kr/api/users/1/folders";
+const folderUrl = 'https://bootcamp-api.codeit.kr/api/users/1/folders';
 
 function FolderPageMain() {
   const { data: folderData } = useFetch(folderUrl);
-  const [folderName, setFolderName] = useState("");
+  const [folderName, setFolderName] = useState('');
   const [isShowFuncButotonBox, setIsShowFuncButtonBox] = useState(true);
-  const [folderId, setFolderId] = useState("");
+  const [folderId, setFolderId] = useState('');
 
   return (
     <div className={styles.main_wrapper}>

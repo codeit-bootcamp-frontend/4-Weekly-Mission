@@ -1,5 +1,6 @@
-import styles from "./SharePageFolderItem.module.css";
-import * as functions from "../../functions/formatTimeAgo.js";
+import styles from './SharePageFolderItem.module.css';
+import * as functions from '../../functions/formatTimeAgo.js';
+
 function SharePageFolderItem({ createdAt, url, title, imageSource }) {
   return (
     <a href={url} className={styles.folder_link}>
@@ -9,7 +10,7 @@ function SharePageFolderItem({ createdAt, url, title, imageSource }) {
             <img
               src={imageSource}
               className={styles.folder_image}
-              alt="folder_image"
+              alt='folder_image'
             />
           </div>
         ) : (
@@ -17,7 +18,7 @@ function SharePageFolderItem({ createdAt, url, title, imageSource }) {
             <img
               src={`${process.env.PUBLIC_URL}/assets/images/folder_no_image.svg`}
               className={styles.folder_image}
-              alt="folder_no_image"
+              alt='folder_no_image'
             />
           </div>
         )}

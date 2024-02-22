@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
-import FolderPageLinkItem from "./FolderPageLinkItem";
-import styles from "./LinkList.module.css";
+import { useEffect, useState } from 'react';
+import FolderPageLinkItem from './FolderPageLinkItem';
+import styles from './LinkList.module.css';
 function LinkList({ folderId }) {
-  
   const [filterData, setFilterData] = useState(null);
   async function handleFilterClick() {
     await fetch(`https://bootcamp-api.codeit.kr/api/users/1/links${folderId}`)

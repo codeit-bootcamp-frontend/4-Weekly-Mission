@@ -1,11 +1,11 @@
-import LinkFuncButton from "./LinkFuncButton";
-import styles from "./LinkFuncButtonBox.module.css";
+import LinkFuncButton from './LinkFuncButton';
+import styles from './LinkFuncButtonBox.module.css';
 function LinkFuncButtonBox() {
   const linkFuncButtonDatas = {
     funcButtons: [
-      { buttonName: "공유", buttonImageSourceName: "share", id: 0 },
-      { buttonName: "이름 변경", buttonImageSourceName: "rename", id: 1 },
-      { buttonName: "삭제", buttonImageSourceName: "delete", id: 2 },
+      { buttonName: '공유', buttonImageSourceName: 'share', id: 0 },
+      { buttonName: '이름 변경', buttonImageSourceName: 'rename', id: 1 },
+      { buttonName: '삭제', buttonImageSourceName: 'delete', id: 2 },
     ],
   };
   return (

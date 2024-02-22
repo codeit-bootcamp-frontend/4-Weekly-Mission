@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import styles from "./FolderFilterBox.module.css";
-import FolderFilterButton from "./FolderFilterButton";
-import ShowAllLinksButton from "./ShowAllLinkButton";
+import { useState } from 'react';
+import styles from './FolderFilterBox.module.css';
+import FolderFilterButton from './FolderFilterButton';
+import ShowAllLinksButton from './ShowAllLinkButton';
 function FolderFilterBox({
   folderData,
   setFolderName,
@@ -12,7 +12,7 @@ function FolderFilterBox({
   return (
     <div className={styles.link_filter_box}>
       <ShowAllLinksButton
-        name="전체"
+        name='전체'
         setFolderName={setFolderName}
         setIsShowFuncButtonBox={setIsShowFuncButtonBox}
         setFolderId={setFolderId}
