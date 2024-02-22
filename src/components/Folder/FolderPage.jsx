@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Layout from "../Layout";
 import AddLink from "./Banner/AddLink/index";
 import LenderingCards from "./LenderingCards";
-import NavButton from "../../utils/NavButton";
+import NavButton from "../NavButton";
 import api from "../../utils/api";
 
 const FolderPage = () => {

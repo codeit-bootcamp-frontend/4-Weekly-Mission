@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import Button from "../../../../utils/Button";
+import Button from "../../../Button";
 import useGetUser from "../../../../hooks/useGetUser";
 import "../../../../styles/common.css";
 
