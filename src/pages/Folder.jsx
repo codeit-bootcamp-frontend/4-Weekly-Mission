@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { getUserFolder, getFolderLink } from "../utils/Api";
-import FolderContainer from "../components/folder/Container";
 import Banner from "../components/folder/Banner";
 import SearchBar from "../components/common/SearchBar/SearchBar";
-import FolderItem from "../components/folder/FolderCategoryItem";
-
-import FolderCard from "../components/folder/FolderCard";
-import BlankCard from "../components/ui/BlankCard";
 import FolderCategoriseArea from "../components/folder/FolderCategoryArea";
 import FolderTitleArea from "../components/folder/FolderTitleArea";
+import FolderCardArea from "../components/folder/FolderCardArea";
 
 function Folder() {
   const [folders, setFolders] = useState(null);
@@ -52,18 +48,7 @@ function Folder() {
         <SearchBar />
         <FolderCategoriseArea folders={folders} />
         <FolderTitleArea title={folderState.name} />
-
-        {links.length !== 0 ? (
-          <div>
-            {links.data.map(link => (
-              <FolderCard key={link.id} cardData={link} />
-            ))}
-          </div>
-        ) : (
-          <div>
-            <BlankCard />
-          </div>
-        )}
+        <FolderCardArea links={links} />
       </section>
     </>
   );

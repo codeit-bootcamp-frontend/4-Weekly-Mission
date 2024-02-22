@@ -17,11 +17,11 @@ function LinkContainer({ folderObject }) {
     <section className={styles.share_section}>
       <Wrapper className={styles.share_container}>
         <SearchBar />
-        <div className={styles.card_list}>
+        {/* <div className={styles.card_list}>
           {links.map(link => (
             <ShareCard key={link.id} link={link} />
           ))}
-        </div>
+        </div> */}
       </Wrapper>
     </section>
   );
