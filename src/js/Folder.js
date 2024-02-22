@@ -9,6 +9,8 @@ import Footer from "./Footer";
 import AddFolder from "./modal/AddFolder";
 import "../css/Folder.css";
 import Delete from "./modal/Delete";
+import Modify from "./modal/Modify";
+import Share from "./modal/Share";
 
 function Folder() {
   const [selectedLinks, setSelectedLinks] = useState([]);
@@ -16,6 +18,8 @@ function Folder() {
   const [selectedFolderId, setSelectedFolderId] = useState(null);
   const [addFolderModalOpen, setAddFolderModalOpen] = useState(false);
   const [deleteFolderModalOpen, setDeleteFolderModalOpen] = useState(false);
+  const [editFolderModalOpen, setEditFolderModalOpen] = useState(false);
+  const [shareModalOpen, setShareModalOpen] = useState(false);
 
   const showAddFolderModal = () => {
     setAddFolderModalOpen(true);
@@ -23,6 +27,14 @@ function Folder() {
 
   const showDeleteModal = () => {
     setDeleteFolderModalOpen(true);
+  };
+
+  const showEditModal = () => {
+    setEditFolderModalOpen(true);
+  };
+
+  const showShareModal = () => {
+    setShareModalOpen(true);
   };
 
   // 폴더 목록 불러오기 (전체, 즐겨찾기, 코딩 팁 ...etc)
@@ -108,9 +120,24 @@ function Folder() {
           </div>
           <div className="FolderIcons">
             <FontAwesomeIcon icon={faShare} className="FolderIcon" />
-            <div className="FolderIconName">공유</div>
+            <div className="FolderIconName" onClick={showShareModal}>
+              공유
+            </div>
+            {shareModalOpen && (
+              <Share
+                setShareModalOpen={setShareModalOpen}
+                folders={folders}
+                selectedFolderId={selectedFolderId}
+                setFolders={setFolders}
+              />
+            )}
             <FontAwesomeIcon icon={faPen} className="FolderIcon" />
-            <div className="FolderIconName">이름 변경</div>
+            <div className="FolderIconName" onClick={showEditModal}>
+              이름 변경
+            </div>
+            {editFolderModalOpen && (
+              <Modify setEditFolderModalOpen={setEditFolderModalOpen} />
+            )}
             <FontAwesomeIcon icon={faTrash} className="FolderIcon" />
             <div className="FolderIconName" onClick={showDeleteModal}>
               삭제

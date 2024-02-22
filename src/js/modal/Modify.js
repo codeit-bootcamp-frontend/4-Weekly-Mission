@@ -3,10 +3,11 @@ import "../../css/AddFolder.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-function AddFolder({ setAddFolderModalOpen }) {
+function Modify({ setEditFolderModalOpen }) {
   const closeModal = () => {
-    setAddFolderModalOpen(false);
+    setEditFolderModalOpen(false);
   };
+
   return (
     <>
       <div className="AddFolderBackground">
@@ -17,9 +18,9 @@ function AddFolder({ setAddFolderModalOpen }) {
               className="AddFolderX"
               onClick={closeModal}
             />
-            <div className="AddFolderTitle">폴더 추가</div>
+            <div className="AddFolderTitle">폴더 이름 변경</div>
             <input className="AddFolderInput" placeholder="내용 입력" />
-            <button className="AddFolderButton">추가하기</button>
+            <button className="AddFolderButton">변경하기</button>
           </div>
         </div>
       </div>
@@ -27,4 +28,4 @@ function AddFolder({ setAddFolderModalOpen }) {
   );
 }
 
-export default AddFolder;
+export default Modify;
