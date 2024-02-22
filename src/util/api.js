@@ -4,7 +4,7 @@ async function getAPI(query) {
   try {
     const response = await fetch(`${BASE_URL}/${query}`);
 
-    if (!response.ok) {
+    if (!response?.ok) {
       throw new Error('데이터를 불러오는데 실패했습니다.');
     }
 
