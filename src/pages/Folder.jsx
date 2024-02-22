@@ -7,8 +7,8 @@ import FolderItem from "../components/folder/FolderCategoryItem";
 
 import FolderCard from "../components/folder/FolderCard";
 import BlankCard from "../components/ui/BlankCard";
-import FolderAddButton from "../components/folder/FolderAddButton";
-import FolderCategoriseArea from "../components/folder/\bFolderCategoriseArea";
+import FolderCategoriseArea from "../components/folder/FolderCategoryArea";
+import FolderTitleArea from "../components/folder/FolderTitleArea";
 
 function Folder() {
   const [folders, setFolders] = useState(null);
@@ -49,39 +49,21 @@ function Folder() {
     <>
       <Banner />
       <section>
-        <div>
-          <SearchBar />
-          <FolderCategoriseArea folders={folders} />
-          <div className="3">
-            <h2>{folderState.name}</h2>
-            <div>
-              <div>
-                <img src="/Icons/share.svg" alt="공유" />
-                <p>공유</p>
-              </div>
-              <div>
-                <img src="/Icons/pen.svg" alt="이름 변경" />
-                <p>이름 변경</p>
-              </div>
-              <div>
-                <img src="/Icons/delete.svg" alt="삭제" />
-                <p>삭제</p>
-              </div>
-            </div>
-          </div>
+        <SearchBar />
+        <FolderCategoriseArea folders={folders} />
+        <FolderTitleArea title={folderState.name} />
 
-          {links.length !== 0 ? (
-            <div>
-              {links.data.map(link => (
-                <FolderCard key={link.id} cardData={link} />
-              ))}
-            </div>
-          ) : (
-            <div>
-              <BlankCard />
-            </div>
-          )}
-        </div>
+        {links.length !== 0 ? (
+          <div>
+            {links.data.map(link => (
+              <FolderCard key={link.id} cardData={link} />
+            ))}
+          </div>
+        ) : (
+          <div>
+            <BlankCard />
+          </div>
+        )}
       </section>
     </>
   );
