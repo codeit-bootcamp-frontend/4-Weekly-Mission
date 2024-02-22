@@ -1,28 +1,11 @@
 /** @jsxImportSource @emotion/react */
-import { useEffect, useState } from "react";
 import { css } from "@emotion/react";
 import Button from "../../../../utils/Button";
-import api from "../../../../utils/api";
+import useGetUser from "../../../../hooks/useGetUser";
 import "../../../../styles/common.css";
 
 const Avatar = () => {
-  const [userEmail, setUserEmail] = useState(null);
-  const [userAvatar, setUserAvatar] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const fetchData = async () => {
-    try {
-      const result = await api("sample/user");
-      setUserEmail(result.email);
-      setUserAvatar(result.profileImageSource);
-    } catch (error) {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { userEmail, userAvatar, isLoading } = useGetUser();
 
   return (
     <div css={divStyle}>
