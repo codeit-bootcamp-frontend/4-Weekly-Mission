@@ -1,8 +1,8 @@
-import Modal from "components/Modal";
+import { Modal } from "components/Modal";
 import { forwardRef } from "react";
 import styles from "./styles.module.css";
 
-const DeleteModal = forwardRef(
+export const DeleteModal = forwardRef(
   ({ openModal, handleModalClose, title, description }, ref) => {
     return (
       <Modal
@@ -19,5 +19,3 @@ const DeleteModal = forwardRef(
     );
   }
 );
-
-export default DeleteModal;

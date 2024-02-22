@@ -1,6 +1,3 @@
-// import Header from "components/Header";
-// import Footer from "components/Footer";
-// import CardList from "components/CardList";
 import { Header, Footer, CardList } from "components";
 import styles from "./styles.module.css";
 import SearchIcon from "assets/Search.png";

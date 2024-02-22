@@ -2,7 +2,7 @@ import useHandleModalClick from "hooks/useHandleModalClick";
 import styles from "./style.module.css";
 import { useRef } from "react";
 
-export default function PopOver({
+export function PopOver({
   openPopOver,
   handlePopOverClose,
   linkUrl,

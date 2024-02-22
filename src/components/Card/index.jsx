@@ -4,11 +4,10 @@ import noImg from "assets/noImg.png";
 import starImg from "assets/star.png";
 import kebabImg from "assets/kebab.png";
 import { useState } from "react";
-import PopOver from "components/PopOver";
-import DeleteModal from "components/DeleteModal";
+import { ModalPortal, PopOver, DeleteModal } from "components";
 import { useModal } from "hooks/useModal";
 
-export default function Card({ link }) {
+export function Card({ link }) {
   const createdAt = "createdAt" in link ? "createdAt" : "created_at";
   const imageSource = "imageSource" in link ? "imageSource" : "image_source";
 
@@ -21,6 +20,7 @@ export default function Card({ link }) {
   };
 
   const handleMoreBtn = (e) => {
+    //a태그 페이지 이동 막기
     e.preventDefault();
     if (openPopOver) {
       return;
@@ -30,13 +30,15 @@ export default function Card({ link }) {
 
   return (
     <>
-      <DeleteModal
-        openModal={openModal}
-        ref={modalRef}
-        handleModalClose={handleModalClose}
-        title="링크 삭제"
-        description={link.url}
-      />
+      <ModalPortal>
+        <DeleteModal
+          openModal={openModal}
+          ref={modalRef}
+          handleModalClose={handleModalClose}
+          title="링크 삭제"
+          description={link.url}
+        />
+      </ModalPortal>
       <a
         className={styles.container}
         href={link.url}

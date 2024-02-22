@@ -1,0 +1,33 @@
+.container {
+  text-align: center;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #9fa6b2;
+}
+
+.input {
+  border: 1px solid;
+  padding: 16px 10px;
+  margin: 20px 0 15px;
+  width: 100%;
+  border-radius: 10px;
+  border-color: var(--Linkbrary-primary-color);
+}
+
+.btn {
+  width: 100%;
+  padding: 15px 0;
+  color: white;
+  background: var(--Gra-Purpleblue-To-Skyblue);
+  font-size: 1.5rem;
+  border-radius: 10px;
+}

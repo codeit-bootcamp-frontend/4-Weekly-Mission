@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import { ImCross } from "react-icons/im";
 
-const Modal = ({ modalRef, openModal, handleModalClose, children }) => {
+export const Modal = ({ modalRef, openModal, handleModalClose, children }) => {
   if (!openModal) {
     return <></>;
   }
@@ -20,5 +20,3 @@ const Modal = ({ modalRef, openModal, handleModalClose, children }) => {
     </>
   );
 };
-
-export default Modal;
