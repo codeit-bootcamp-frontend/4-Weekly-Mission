@@ -6,7 +6,6 @@ import "./Card.css";
 import { Link } from "react-router-dom";
 
 export default function Card({ data }) {
-  const defaultImage = noImage;
   return (
     <Link
       to={data.url}
@@ -17,7 +16,7 @@ export default function Card({ data }) {
       <div className="cardImgBox">
         <img
           className="cardImg"
-          src={data.image_source || defaultImage}
+          src={data.image_source || noImage}
           alt="카드썸네일"
         />
       </div>
