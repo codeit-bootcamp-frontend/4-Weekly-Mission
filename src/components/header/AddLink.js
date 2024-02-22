@@ -3,7 +3,7 @@ import AddLinkInput from "./AddLinkInput";
 
 function AddLink() {
   return (
-    <div className={styles.add_link_wrapper}>
+    <div className={styles["add-link-wrapper"]}>
       <AddLinkInput />
     </div>
   );

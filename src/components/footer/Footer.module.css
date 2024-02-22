@@ -1,4 +1,4 @@
-.footer_wrapper {
+.footer-wrapper {
   background-color: var(--footer-bg-color);
   padding: 3.2rem 10.4rem 6.4rem 10.4rem;
   font-size: 1.6rem;
@@ -6,46 +6,46 @@
   font-weight: 400;
 }
 
-.footer_inside_wrapper {
+.footer-inside-wrapper {
   display: flex;
   justify-content: space-between;
 }
 
-.footer_copyright {
+.footer-copyright {
   color: #676767;
 }
 
-.footer_detail_wrapper {
+.footer-detail-wrapper {
   display: flex;
   gap: 3rem;
   color: #fff;
 }
 
-.footer_policy {
+.footer-policy {
   text-transform: capitalize;
 }
 
-.footer_faq {
+.footer-faq {
   text-transform: uppercase;
 }
 
 @media (max-width: 767.5px) {
-  .footer_wrapper {
+  .footer-wrapper {
     padding: 3.2rem 3.2rem 3.2rem 3.2rem;
   }
 
-  .footer_inside_wrapper {
+  .footer-inside-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     row-gap: 6rem;
   }
 
-  .footer_detail_wrapper {
+  .footer-detail-wrapper {
     grid-row: 1 / 2;
   }
 
-  .footer_copyright {
+  .footer-copyright {
     grid-row: 2 /3;
   }
 }

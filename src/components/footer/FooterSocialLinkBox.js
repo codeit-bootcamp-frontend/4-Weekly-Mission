@@ -27,7 +27,7 @@ function FooterSocialLinkBox() {
   };
 
   return (
-    <ul className={styles.social_icon_wrapper}>
+    <ul className={styles["social-icon-wrapper"]}>
       {socialNetworkServiceName.socialNetworkServices.map(
         ({ socialServiceName, socialUrl, id }) => {
           return (

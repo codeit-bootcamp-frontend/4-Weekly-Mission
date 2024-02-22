@@ -1,17 +1,17 @@
-.add_link_wrapper {
+.add-link-wrapper {
   height: 21.9rem;
   background-color: var(--bg-color);
   padding: 6rem 32rem 9rem 32rem;
 }
 
 @media (max-width: 1199.5px) {
-  .add_link_wrapper {
+  .add-link-wrapper {
     padding: 6rem 19.9rem 9rem 20rem;
   }
 }
 
 @media (max-width: 767.5px) {
-  .add_link_wrapper {
+  .add-link-wrapper {
     height: 11.7rem;
     padding: 2.4rem 3.2rem 4rem 3.2rem;
   }

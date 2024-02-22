@@ -6,16 +6,16 @@ function SharedNav({ userDataUrl }) {
   const { data: userData } = useFetch(userDataUrl);
 
   return (
-    <div className={styles.nav_wrapper}>
-      <div className={styles.nav_inside_wrapper}>
+    <div className={styles["nav-wrapper"]}>
+      <div className={styles["nav-inside-wrapper"]}>
         <a href="/">
           <img
-            className={styles.header_logo}
+            className={styles["header-logo"]}
             src={`${process.env.PUBLIC_URL}/assets/images/nav_logo.svg`}
             alt="Linkbrary_logo"
           />
         </a>
-        <div className={styles.profile_wrapper}>
+        <div className={styles["profile-wrapper"]}>
           {!userData?.email ? (
             <NavLoginButton />
           ) : (
@@ -23,9 +23,9 @@ function SharedNav({ userDataUrl }) {
               <img
                 src={userData?.profileImageSource}
                 alt="user_profile_image"
-                className={styles.nav_profile_image}
+                className={styles["nav-profile-image"]}
               />
-              <p className={styles.profile_email}>{userData.email}</p>
+              <p className={styles["profile-email"]}>{userData.email}</p>
             </>
           )}
         </div>

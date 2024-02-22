@@ -1,11 +1,11 @@
-.social_icon_wrapper {
+.social-icon-wrapper {
   display: flex;
   gap: 1.2rem;
   list-style: none;
 }
 
 @media (max-width: 767.5px) {
-  .social_icon_wrapper {
+  .social-icon-wrapper {
     grid-row: 1 / 2;
     justify-self: end;
   }
