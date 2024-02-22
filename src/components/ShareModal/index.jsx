@@ -1,9 +1,11 @@
 import { Modal } from "components/Modal";
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 import styles from "./styles.module.css";
 import kakaoIcon from "assets/kakaoIcon.svg";
 import facebookIcon from "assets/facebookIcon.svg";
 import linkIcon from "assets/linkIcon.svg";
+
+const { Kakao } = window;
 
 export const ShareModal = forwardRef(
   ({ openModal, handleModalClose, folderName }, ref) => {
@@ -14,6 +16,36 @@ export const ShareModal = forwardRef(
       } catch (error) {
         alert("클립보드 복사에 실패하였습니다.");
       }
+    };
+
+    useEffect(() => {
+      Kakao.cleanup();
+      console.log("key:", process.env.REACT_APP_KAKAO_KEY);
+      Kakao.init(process.env.REACT_APP_KAKAO_KEY);
+      console.log("check!!:", Kakao.isInitialized());
+    }, []);
+
+    const kakaoShare = () => {
+      console.log(`http://${window.location.host}/Linkbrary.png`);
+      Kakao.Share.sendDefault({
+        objectType: "feed",
+        content: {
+          title: "Linkbrary",
+          description: "세상의 모든 정보를 쉽게 관리해보세요",
+          imageUrl: "https://cute-muffin-b517ab.netlify.app/Linkbrary.png",
+          link: {
+            mobileWebUrl: window.location.href,
+          },
+        },
+        buttons: [
+          {
+            title: "보러가기",
+            link: {
+              mobileWebUrl: window.location.href,
+            },
+          },
+        ],
+      });
     };
 
     return (
@@ -27,7 +59,7 @@ export const ShareModal = forwardRef(
           <p className={styles.description}>{folderName}</p>
           <ul className={styles.icons}>
             <li className={styles.icon}>
-              <button>
+              <button onClick={kakaoShare}>
                 <img src={kakaoIcon} alt="kakaoIcon" />
                 <p className={styles.iconText}>카카오톡</p>
               </button>
