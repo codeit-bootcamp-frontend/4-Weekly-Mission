@@ -16,7 +16,6 @@ const ModalButton = styled.button`
 `
 
 function Modal({name, setOpenModal, buttonColor, buttonName}) {
-    // 버튼 클릭됐을 때 state false 
     const handleCloseClick = () => {
         setOpenModal(false);
     }

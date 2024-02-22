@@ -18,6 +18,9 @@
     object-fit: cover;
     transition: transform 0.5s;
 }
+.contentsBox > li a:hover .textBox {
+    background-color: rgba(240, 246, 255, 1);
+}
 .contentsBox > li a:hover .imgBox .contentsImg {
     transform: scale(1.3);
 }
