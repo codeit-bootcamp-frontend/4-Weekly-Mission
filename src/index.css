@@ -10,6 +10,10 @@
   --gray5-color: #f0f6ff;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Pretendard";
   height: 100vh;

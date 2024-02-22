@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 .modalBox {
   display: flex;
   flex-direction: column;
