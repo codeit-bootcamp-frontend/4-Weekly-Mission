@@ -12,6 +12,7 @@ import EditModal from '../components/modal/EditModal';
 import AddFolderModal from '../components/modal/AddFolderModal';
 import ShareModal from '../components/modal/ShareModal';
 import DeleteFolderModal from '../components/modal/DeleteFolderModal';
+import DeleteLinkModal from '../components/modal/DeleteLinkModal';
 
 const Router = () => {
   return (
@@ -26,7 +27,7 @@ const Router = () => {
         <Route path='/signup' element={<Signup />} />
         <Route path='/privacy' element={<Privacy />} />
         <Route path='/faq' element={<Faq />} />
-        <Route path='/modal' element={<DeleteFolderModal />} />
+        <Route path='/modal' element={<DeleteLinkModal />} />
       </Routes>
     </BrowserRouter>
   );
