@@ -57,12 +57,12 @@ function SortingButtonList() {
     <div>
       <div className={sortingSectionClasses}>
         <div className={sortingButtonListClasses}>
-          {folderList.map((button) => (
+          {folderList.map((folder) => (
             <SortingButton
-              key={button.id}
-              text={button.name}
-              className={selectedFolder.id === button.id ? selectedButtonStyle : ''}
-              onClick={() => handleButtonClick(button.id)}
+              key={folder.id}
+              text={folder.name}
+              className={selectedFolder.id === folder.id ? selectedButtonStyle : ''}
+              onClick={() => handleButtonClick(folder.id)}
             />
           ))}
           {loading && <ErrorMessage message={LOADING_MESSAGE} />}
