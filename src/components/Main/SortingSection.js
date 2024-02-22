@@ -17,13 +17,13 @@ import { getFoldersApiUrl, getAllLinksApiUrl } from 'services/api';
 
 function SortingSection({ selectedFolder, setSelectedFolder }) {
   const LOADING_MESSAGE = 'Loading...';
-  const ALL_ID = 0;
+  const ALL = { id: 0, name: '전체' };
 
   const url = getFoldersApiUrl();
   const { data, loading, error } = useFetch(url);
 
   // {id, created_at, name, user_id, favorite, link: {count}}
-  const folderList = [{ id: 0, name: '전체' }, ...(data?.data ?? [])];
+  const folderList = [ALL, ...(data?.data ?? [])];
 
   // 총 링크 수 계산
   const allLinkUrl = getAllLinksApiUrl();
@@ -76,7 +76,7 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
           </div>
           <div className={folderInfoSectionClasses}>
             <p className={titleClasses}>{selectedFolder.name}</p>
-            {selectedFolder.id !== ALL_ID && (
+            {selectedFolder.id !== ALL.id && (
               <div className={optionListClasses}>
                 {optionList.map((option) => (
                   <Option key={option.key} text={option.name} imageUrl={option.image} className={optionListClasses} />
@@ -94,15 +94,12 @@ SortingSection.propTypes = {
   selectedFolder: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    link: PropTypes.shape({
-      count: PropTypes.number,
-    }),
   }),
   setSelectedFolder: PropTypes.func,
 };
 
 SortingSection.defaultProps = {
-  selectedFolder: { id: 0, name: '' },
+  selectedFolder: { id: 0, name: '전체' },
   setSelectedFolder: null,
 };
 

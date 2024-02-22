@@ -12,9 +12,9 @@ import { getAllLinksApiUrl, getOtherLinksApiUrl } from 'services/api';
 // folder id를 props로 받아서 api 적용할 것
 function CardList({ folderId }) {
   const LOADING_MESSAGE = 'Loading...';
-  const ALL_ID = 0;
+  const ALL = { id: 0, name: '전체' };
 
-  const url = folderId === ALL_ID ? getAllLinksApiUrl() : getOtherLinksApiUrl(folderId);
+  const url = folderId === ALL.id ? getAllLinksApiUrl() : getOtherLinksApiUrl(folderId);
   const { data, loading, error } = useFetch(url);
 
   // {created_at, description, folder_id, id, image_source, title, updated_at, url}
@@ -53,11 +53,11 @@ function CardList({ folderId }) {
 }
 
 CardList.propTypes = {
-  folderId: PropTypes.string,
+  folderId: PropTypes.number,
 };
 
 CardList.defaultProps = {
-  folderId: '',
+  folderId: 0,
 };
 
 export default CardList;
