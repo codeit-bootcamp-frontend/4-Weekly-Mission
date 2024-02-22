@@ -1,46 +1,40 @@
 import classNames from 'classnames';
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import logo from 'assets/images/logo.svg';
 import DefaultProfileImg from 'assets/images/profile-img.png';
 
+import useFetch from 'hooks/useFetch';
+
 import ErrorMessage from 'components/Common/ErrorMessage';
 import LoginButton from 'components/Common/LoginButton';
 import styles from 'components/Header/Gnb.module.css';
 
-import { getUserInfo } from 'services/api';
+import { getUserApiUrl } from 'services/api';
 
 // 글로벌 네비게이션 바
 function Gnb() {
   const FOLDER_LOCATION = '/folder';
+  const LOADING_MESSAGE = 'Loading...';
 
-  // 유저 정보 가져오기
-  const [userInfo, setUserInfo] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
-  const { pathname, state, search } = useLocation();
+  const url = getUserApiUrl();
+  const { data, loading, error } = useFetch(url);
 
-  console.log(pathname); // 현재 URL의 경로명을 출력
-  console.log(state); // location에 전달된 상태를 출력
-  console.log(search); // URL의 쿼리 문자열을 출력
+  // data를 가공하여 userInfo에 저장
+  const userInfo = data?.data[0] ?? null;
 
-  const handleLoadUser = async () => {
-    try {
-      const result = await getUserInfo();
-      setUserInfo(result.data[0]);
-    } catch (error) {
-      setErrorMessage(error.message);
-    }
-  };
+  // 페이지 경로 저장
+  const { pathname } = useLocation();
 
   // 로고 클릭 시 페이지 최상단으로 이동
   const handleLogoClick = () => {
     window.scrollTo(0, 0);
   };
 
-  useEffect(() => {
-    handleLoadUser();
-  }, []);
+  // useEffect(() => {
+  //   handleLoadUser();
+  // }, []);
 
   const userProfileImg = userInfo?.profileImageSource || DefaultProfileImg;
   const userEmail = userInfo?.email ?? '';
@@ -70,7 +64,8 @@ function Gnb() {
           ) : (
             <LoginButton />
           )}
-          {errorMessage && <ErrorMessage message={errorMessage} />}
+          {loading && <ErrorMessage message={LOADING_MESSAGE} />}
+          {error && <ErrorMessage message={error} />}
         </div>
       </nav>
       {/* 더미 요소로 공간 차지 */}

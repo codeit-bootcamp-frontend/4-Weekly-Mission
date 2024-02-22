@@ -5,22 +5,27 @@ import DeleteIcon from 'assets/images/delete.svg';
 import PenIcon from 'assets/images/pen.svg';
 import ShareIcon from 'assets/images/share.svg';
 
+import useFetch from 'hooks/useFetch';
+
 import AddFolderButton from 'components/Common/AddFolderButton';
+import ErrorMessage from 'components/Common/ErrorMessage';
 import Option from 'components/Common/Option';
 import SortingButton from 'components/Common/SortingButton';
 import styles from 'components/Main/SortingSection.module.css';
 
-function SortingButtonList() {
-  const ALL = '전체';
+import { getFoldersApiUrl } from 'services/api';
 
-  const buttonList = [
-    { name: '전체', key: '1' },
-    { name: '⭐️ 즐겨찾기', key: '2' },
-    { name: '코딩 팁', key: '3' },
-    { name: '채용 사이트', key: '4' },
-    { name: '유용한 글', key: '5' },
-    { name: '나만의 장소', key: '6' },
-  ];
+function SortingButtonList() {
+  const ALL_ID = 'all';
+  const LOADING_MESSAGE = 'Loading...';
+
+  const url = getFoldersApiUrl();
+  const { data, loading, error } = useFetch(url);
+
+  // {id, created_at, name, user_id, favorite, link: {count}}
+  const folderList = [{ id: 'all', name: '전체' }, ...(data?.data ?? [])];
+
+  console.log(folderList);
 
   const optionList = [
     { name: '공유', image: ShareIcon, key: 1 },
@@ -28,11 +33,11 @@ function SortingButtonList() {
     { name: '삭제', image: DeleteIcon, key: 3 },
   ];
 
-  const [selectedButton, setSelectedButton] = useState(buttonList[0]);
+  const [selectedFolder, setSelectedFolder] = useState(folderList[0]);
 
   const handleButtonClick = (key) => {
-    const targetButton = buttonList.find((button) => button.key === key);
-    setSelectedButton(targetButton);
+    const targetButton = folderList.find((folder) => folder.id === key);
+    setSelectedFolder(targetButton);
   };
 
   const sortingSectionClasses = classNames(
@@ -52,20 +57,22 @@ function SortingButtonList() {
     <div>
       <div className={sortingSectionClasses}>
         <div className={sortingButtonListClasses}>
-          {buttonList.map((button) => (
+          {folderList.map((button) => (
             <SortingButton
-              key={button.key}
+              key={button.id}
               text={button.name}
-              className={selectedButton.key === button.key ? selectedButtonStyle : ''}
-              onClick={() => handleButtonClick(button.key)}
+              className={selectedFolder.id === button.id ? selectedButtonStyle : ''}
+              onClick={() => handleButtonClick(button.id)}
             />
           ))}
+          {loading && <ErrorMessage message={LOADING_MESSAGE} />}
+          {error && <ErrorMessage message={error} />}
         </div>
         <AddFolderButton className={addFolderButtonClasses} />
       </div>
       <div className={folderInfoSectionClasses}>
-        <p className={titleClasses}>{selectedButton.name}</p>
-        {selectedButton.name !== ALL && (
+        <p className={titleClasses}>{selectedFolder.name}</p>
+        {selectedFolder.id !== ALL_ID && (
           <div className={optionListClasses}>
             {optionList.map((option) => (
               <Option key={option.key} text={option.name} imageUrl={option.image} className={optionListClasses} />

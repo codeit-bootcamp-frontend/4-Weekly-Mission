@@ -1,38 +1,30 @@
 import classNames from 'classnames';
-import { useState, useEffect } from 'react';
+
+import useFetch from 'hooks/useFetch';
 
 import ErrorMessage from 'components/Common/ErrorMessage';
 import Card from 'components/Main/Card';
 import styles from 'components/Main/CardList.module.css';
 
-import { getLinksInfo } from 'services/api';
+import { getSampleFolderApiUrl } from 'services/api';
 
 // folder id를 props로 받아서 api 적용할 것
 function CardList() {
-  // links를 배열에 순차적으로 저장
-  const [links, setLinks] = useState([]);
-  const [errorMessage, setErrorMessage] = useState('');
+  const LOADING_MESSAGE = 'Loading...';
 
-  const fetchLinksInfo = async () => {
-    try {
-      const folder = await getLinksInfo();
-      setLinks(folder.data);
-      console.log('링크스1');
-      console.log(links[0]);
-    } catch (error) {
-      setErrorMessage(error.message);
-    }
-  };
+  const url = getSampleFolderApiUrl();
+  const { data, loading, error } = useFetch(url);
 
-  useEffect(() => {
-    fetchLinksInfo();
-  }, []);
+  // console.log('cardlist');
+  // console.log(data.folder.links);
+
+  const linkList = data?.folder.links ?? [];
 
   const cardListClasses = classNames(styles['card-list'], styles.grid, 'grid', 'width-full');
 
   return (
     <div className={cardListClasses}>
-      {links.map((link) => (
+      {linkList.map((link) => (
         <Card
           key={link.id}
           createdAt={link.created_at}
@@ -41,7 +33,8 @@ function CardList() {
           imageSource={link.image_source}
         />
       ))}
-      {errorMessage && <ErrorMessage message={errorMessage} />}
+      {loading && <ErrorMessage message={LOADING_MESSAGE} />}
+      {error && <ErrorMessage message={error} />}
     </div>
   );
 }

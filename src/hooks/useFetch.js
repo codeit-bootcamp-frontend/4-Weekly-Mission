@@ -10,7 +10,6 @@ function useFetch(apiUrl) {
 
   // apiUrl 또는 API_URL이 변경될 경우 실행
   useEffect(() => {
-    // apiUrl, API_URL이 변경될 경우 이를 정확히 업데이트하기 위해 fetchData 함수를 useEffect 내부에서 선언
     const fetchData = async () => {
       try {
         const url = new URL(apiUrl, API_URL);
