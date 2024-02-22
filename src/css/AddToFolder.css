@@ -1,0 +1,48 @@
+.AddToFoldersFolderData {
+  width: 280px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #373740;
+  align-items: center;
+  padding: 8px;
+}
+
+.AddToFoldersFolderData:hover {
+  background-color: #f1f6fe;
+  border-radius: 12px;
+}
+
+.AddToFolderLink {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  color: #9fa6b2;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.AddToFolderSmallContainer {
+  max-height: 200px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.AddToFolderAddButton {
+  margin-top: 24px;
+  width: 280px;
+  height: 51px;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.AddToFolderLinkCount {
+  margin-left: 8px;
+  color: #9fa6b2;
+  font-size: 14px;
+  font-weight: 400;
+}

@@ -11,6 +11,7 @@ import "../css/Folder.css";
 import Delete from "./modal/Delete";
 import Modify from "./modal/Modify";
 import Share from "./modal/Share";
+import AddToFolder from "./modal/AddToFolder";
 
 function Folder() {
   const [selectedLinks, setSelectedLinks] = useState([]);
@@ -20,6 +21,8 @@ function Folder() {
   const [deleteFolderModalOpen, setDeleteFolderModalOpen] = useState(false);
   const [editFolderModalOpen, setEditFolderModalOpen] = useState(false);
   const [shareModalOpen, setShareModalOpen] = useState(false);
+  const [addToFolderModalOpen, setAddToFolderModalOpen] = useState(false);
+  const [linkInput, setLinkInput] = useState("");
 
   const showAddFolderModal = () => {
     setAddFolderModalOpen(true);
@@ -31,6 +34,10 @@ function Folder() {
 
   const showEditModal = () => {
     setEditFolderModalOpen(true);
+  };
+
+  const showAddToFolderModal = () => {
+    setAddToFolderModalOpen(true);
   };
 
   const showShareModal = () => {
@@ -72,7 +79,16 @@ function Folder() {
           className="FolderAddInput"
           placeholder="🔗 링크를 추가해 보세요"
         />
-        <button className="FolderAddButton">추가하기</button>
+        <button className="FolderAddButton" onClick={showAddToFolderModal}>
+          추가하기
+        </button>
+        {addToFolderModalOpen && (
+          <AddToFolder
+            setAddToFolderModalOpen={setAddToFolderModalOpen}
+            folders={folders}
+            setFolders={setFolders}
+          />
+        )}
       </div>
       <div className="FolderContentBox">
         <input

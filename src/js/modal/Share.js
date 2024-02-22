@@ -9,6 +9,12 @@ function Share({ setShareModalOpen, folders, setFolders, selectedFolderId }) {
     setShareModalOpen(false);
   };
 
+  // 클립보드로 링크 복사
+  const copyToClipboard = () => {
+    const shareUrl = "https://localhost:3000/folder" + selectedFolderId;
+    navigator.clipboard.writeText(shareUrl);
+  };
+
   useEffect(() => {
     const loadFolders = async () => {
       try {
@@ -59,6 +65,7 @@ function Share({ setShareModalOpen, folders, setFolders, selectedFolderId }) {
                   className="ShareButton"
                   src="images/linkcopyFrame.png"
                   alt="link-copy"
+                  onClick={copyToClipboard}
                 />
                 <div className="ShareButtonName">링크 복사</div>
               </div>
