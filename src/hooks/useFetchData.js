@@ -22,7 +22,7 @@ const useFetchData = (dataType, userId = 0, folderData = 0) => {
         if (folderData === 0) {
           targetData = await DATA_MAP[dataType]?.(userId);
         } else {
-          targetData = await DATA_MAP[dataType]?.(folderData);
+          targetData = await DATA_MAP[dataType]?.(userId, folderData);
         }
 
         setData(targetData);

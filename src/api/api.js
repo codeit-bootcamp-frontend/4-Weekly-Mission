@@ -23,15 +23,17 @@ export const folderListDataFetch = async (userId) => {
   }
 };
 
-export const selectedFolderDataFetch = async (folderData) => {
+export const selectedFolderDataFetch = async (userId, folderData) => {
   try {
     let response;
     if (folderData.id) {
       response = await fetch(
-        `${process.env.REACT_APP_BASE_URL}users/1/links?folderId=${folderData.id}`
+        `${process.env.REACT_APP_BASE_URL}users/${userId}/links?folderId=${folderData.id}`
       );
     } else {
-      response = await fetch(`${process.env.REACT_APP_BASE_URL}users/1/links`);
+      response = await fetch(
+        `${process.env.REACT_APP_BASE_URL}users/${userId}/links`
+      );
     }
     const { data } = await response.json();
     return data;
