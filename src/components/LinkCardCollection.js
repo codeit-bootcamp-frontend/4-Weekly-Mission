@@ -1,7 +1,5 @@
 import "components/LinkCard.css";
 import "components/LinkCardCollection.css";
-import { useState, useEffect } from "react";
-import { acceptDataFromApi } from "Api";
 
 const timePassedFromCreate = (time) => {
 	let currentTime = new Date().getTime();
@@ -35,14 +33,6 @@ const NoCardImg = () => {
 	return <div className="no-card-img"></div>;
 };
 
-const FavorStar = function () {
-	return <img className="favor-star" src="star.svg" alt="FavoriteButton" />;
-};
-
-const Kebab = function () {
-	return <img className="kebab" src="kebab.svg" alt="kebabButton" />;
-};
-
 const FolderCard = function ({ contents, favorite = false, kebab = false }) {
 	const { id, created_at, description, imageSource, url, createdAt } = contents;
 	const cardImage = { backgroundImage: `url(${imageSource})` };
@@ -62,10 +52,11 @@ const FolderCard = function ({ contents, favorite = false, kebab = false }) {
 			className="card-box"
 			key={id}
 		>
-			{imageSource && <div style={cardImage} />}
-			{!imageSource && <NoCardImg />}
-			{favorite && <FavorStar />}
-			{kebab && <Kebab />}
+			{imageSource ? <div style={cardImage} /> : <NoCardImg />}
+			{favorite && (
+				<img className="favor-star" src="star.svg" alt="FavoriteButton" />
+			)}
+			{kebab && <img className="kebab" src="kebab.svg" alt="kebabButton" />}
 			<section className="card-text">
 				<p className="card-passed-time">{passedTime}</p>
 				<p className="card-contents">{description}</p>

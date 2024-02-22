@@ -208,16 +208,15 @@ function HandleCurrentSubFolder() {
 	);
 }
 
-export default function LinkSubFolder() {
+export default function LinkSubFolder({ userId = 1 }) {
 	const [isCurrentFolderAll, setIsCurrentFolderAll] = useState(true);
 	const [currentFolderId, setCurrentFolderId] = useState(0);
-	const [currentUserId, setCurrentUserId] = useState(1);
 	const [currentFolderName, setCurrentFolderName] = useState("전체");
 	const [subFolderList, setSubFolderList] = useState([]);
 	const [isEmptyResponse, setIsEmptyResponse] = useState(true);
 	const [isLoading, setIsLoading] = useState(false);
 	const [currentFolderQuery, setCurrentFolderQuery] = useState(
-		`users/${currentUserId}/links`
+		`users/${userId}/links`
 	);
 	const [items, setItems] = useState([]);
 
@@ -236,7 +235,7 @@ export default function LinkSubFolder() {
 		setCurrentFolderId(id);
 		setCurrentFolderName(name);
 		setCurrentFolderQuery(
-			`users/${currentUserId}/links${id !== 0 ? `?folderId=${id}` : ""}`
+			`users/${userId}/links${id !== 0 ? `?folderId=${id}` : ""}`
 		);
 		if (id === 0) {
 			setIsCurrentFolderAll(true);
@@ -251,9 +250,9 @@ export default function LinkSubFolder() {
 	};
 
 	useEffect(() => {
-		subFolderData(`users/${currentUserId}/folders`);
+		subFolderData(`users/${userId}/folders`);
 		handleShareLoad(currentFolderQuery);
-	}, [currentUserId, currentFolderQuery]);
+	}, [userId, currentFolderQuery]);
 
 	return (
 		<>
