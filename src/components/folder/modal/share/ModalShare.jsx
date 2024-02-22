@@ -5,13 +5,13 @@ import CloseButton from "../CloseButton";
 import Title from "../Title";
 import ShareContainer from "./ShareContainer";
 import ShareImgButton from "./ShareImgButton";
-import ShareImg from "./ShareImg";
+
 import facebookShareImg from "../../../../assets/img/png/facebook-share.png";
 import linkShareImg from "../../../../assets/img/png/share-link.png";
 import kakaoShareImg from "../../../../assets/img/png/kakao-share.png";
 import TitleContainer from "./TitleContainer";
 import FolderText from "./FolderText";
-import ShareText from "./ShareText";
+
 import KaKaoShareButton from "./kakao/KakaoShareButton";
 import FacebookShareBtn from "./facebook/FacebookShareButton";
 
@@ -41,10 +41,11 @@ function ModalShare({ isShare, setIsShare, folderId, folderName }) {
                   text="페이스북"
                   folderId={folderId}
                 />
-                <ShareImgButton>
-                  <ShareImg src={linkShareImg} alt="link-share" />
-                  <ShareText>링크 복사</ShareText>
-                </ShareImgButton>
+                <ShareImgButton
+                  src={linkShareImg}
+                  alt="link-share"
+                  text="링크 복사"
+                />
               </ShareContainer>
             </StyledDiv>
           </StyledContainer>
