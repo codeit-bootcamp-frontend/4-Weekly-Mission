@@ -12,6 +12,10 @@
   width: 300px;
 }
 
+.modalBox p {
+  color: gray;
+}
+
 .closeIcon {
   position: absolute;
   right: 5px;

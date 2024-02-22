@@ -59,7 +59,9 @@ const FolderList = () => {
       </div>
       <div className="selectedFolderName">
         {selectedFolderName}
-        {selectedFolderName && selectedFolderName.length > 0 && <UtilIcons />}
+        {selectedFolderName && selectedFolderName.length > 0 && (
+          <UtilIcons selectedFolderName={selectedFolderName} />
+        )}
       </div>
       {links ? (
         <CardList items={links} />

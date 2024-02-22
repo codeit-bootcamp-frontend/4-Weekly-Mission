@@ -12,9 +12,7 @@ function Card({ item }) {
 
   const handleKebabClick = (e) => {
     e.preventDefault();
-
-    const newPopoverVisible = !popoverVisible;
-    setPopoverVisible(newPopoverVisible);
+    setPopoverVisible(!popoverVisible);
   };
 
   return (
@@ -31,7 +29,7 @@ function Card({ item }) {
               className="kebabIcon"
               onClick={handleKebabClick}
             />
-            {popoverVisible && <KebabPopover />}
+            {popoverVisible && <KebabPopover url={url} />}
           </div>
           <p className="title">{title}</p>
           <p className="description">{description}</p>

@@ -23,19 +23,25 @@ const UtilIcon = ({ icon, label, modalComponent }) => {
   );
 };
 
-const UtilIcons = () => {
+const UtilIcons = ({ selectedFolderName }) => {
   return (
     <div className="utilContainer">
-      <UtilIcon icon={shareIcon} label="공유" modalComponent={<ModalShare />} />
+      <UtilIcon
+        icon={shareIcon}
+        label="공유"
+        modalComponent={<ModalShare selectedFolderName={selectedFolderName} />}
+      />
       <UtilIcon
         icon={penIcon}
         label="이름 변경"
-        modalComponent={<ModalEdit />}
+        modalComponent={<ModalEdit selectedFolderName={selectedFolderName} />}
       />
       <UtilIcon
         icon={deleteIcon}
         label="삭제"
-        modalComponent={<ModalDeleteFolder />}
+        modalComponent={
+          <ModalDeleteFolder selectedFolderName={selectedFolderName} />
+        }
       />
     </div>
   );

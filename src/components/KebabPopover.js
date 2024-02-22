@@ -40,15 +40,15 @@ const PopoverListWithModal = ({ modalComponent, label }) => {
   );
 };
 
-const KebabPopover = () => {
+const KebabPopover = ({ url }) => {
   return (
     <PopoverContainer>
       <PopoverListWithModal
-        modalComponent={<ModalDeleteLink />}
+        modalComponent={<ModalDeleteLink url={url} />}
         label="삭제하기"
       />
       <PopoverListWithModal
-        modalComponent={<ModalAddToFolder />}
+        modalComponent={<ModalAddToFolder url={url} />}
         label="폴더에 추가"
       />
     </PopoverContainer>

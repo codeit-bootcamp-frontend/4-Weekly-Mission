@@ -3,11 +3,11 @@ import facebook from "../../assets/facebook.svg";
 import link from "../../assets/linkIconModal.svg";
 import ModalContainer from "./ModalContainer";
 
-const ModalShare = ({ isOpen, onClose }) => {
+const ModalShare = ({ isOpen, onClose, selectedFolderName }) => {
   const shareContent = (
     <>
       <h2>폴더 공유</h2>
-      <h3>폴더명</h3>
+      <p>{selectedFolderName}</p>
       <div className="socialButtonContainer">
         <div>
           <img src={kakao} alt="kakao" />
