@@ -13,7 +13,7 @@ function FolderDetail({ folderListData }) {
   const windowWidth = window.innerWidth;
   const [selectedFolder, setSelectedFolder] = useState({});
   const selectedFolderData =
-    useFetchData("selectedFolderDataFetch", 1, selectedFolder) || [];
+    useFetchData("selectedFolderDataFetch", 4, selectedFolder) || [];
 
   const handleFolderListClick = (data) => {
     setSelectedFolder(data);
