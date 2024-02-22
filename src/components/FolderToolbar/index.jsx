@@ -1,4 +1,4 @@
-import "./FolderToolbar.css";
+import "./style.css";
 
 export default function FolderToolbar() {
   return (

@@ -1,4 +1,4 @@
-import "./FolderPageHeader.css";
+import "./style.css";
 import LinkAddCTA from "../styled/LinkAddCTA";
 
 export default function FolderPageHeader() {

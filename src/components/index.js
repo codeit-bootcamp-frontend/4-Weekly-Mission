@@ -1,12 +1,12 @@
-import Card from "./Card/Card";
-import Cards from "./Cards/Cards";
-import FolderPageHeader from "./FolderPageHeader/FolderPageHeader";
-import FoldersList from "./FoldersList/FoldersList";
-import FolderToolbar from "./FolderToolbar/FolderToolbar";
-import Footer from "./Footer/Footer";
-import Navbar from "./Navbar/Navbar";
-import Searchbar from "./Searchbar/Searchbar";
-import SharedPageHeader from "./SharedPageHeader/SharedPageHeader";
+import Card from "./Card";
+import Cards from "./Cards";
+import FolderPageHeader from "./FolderPageHeader";
+import FoldersList from "./FoldersList";
+import FolderToolbar from "./FolderToolbar";
+import Footer from "./Footer";
+import Navbar from "./Navbar";
+import Searchbar from "./Searchbar";
+import SharedPageHeader from "./SharedPageHeader";
 
 export {
   Card,

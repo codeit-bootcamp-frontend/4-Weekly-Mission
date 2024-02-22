@@ -1,4 +1,4 @@
-import "./Navbar.css";
+import "./style.css";
 import LoginCTA from "../styled/LoginCTA";
 
 export default function Navbar({ profile }) {
