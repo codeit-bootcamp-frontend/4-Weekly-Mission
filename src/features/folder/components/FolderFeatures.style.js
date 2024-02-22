@@ -22,4 +22,10 @@ export const FeatureItem = styled.li`
     display: block;
     margin-left: 4px;
   }
+
+  button {
+    display: flex;
+    align-items: center;
+    color: inherit;
+  }
 `
