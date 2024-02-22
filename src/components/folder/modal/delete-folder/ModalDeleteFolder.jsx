@@ -5,7 +5,7 @@ import CloseButton from "../CloseButton";
 import Title from "../Title";
 import Button from "../Button";
 
-function ModalDeleteFolder({ isDeleteFolder, setIsDeleteFolder }) {
+function ModalDeleteFolder({ isDeleteFolder, setIsDeleteFolder, btnColor }) {
   const handleClose = () => setIsDeleteFolder(!isDeleteFolder);
   return (
     <>
@@ -15,7 +15,7 @@ function ModalDeleteFolder({ isDeleteFolder, setIsDeleteFolder }) {
             <StyledDiv>
               <CloseButton onClick={() => handleClose()} />
               <Title>폴더 삭제</Title>
-              <Button>삭제하기</Button>
+              <Button btnColor="red">삭제하기</Button>
             </StyledDiv>
           </StyledContainer>
         </StyledBackground>

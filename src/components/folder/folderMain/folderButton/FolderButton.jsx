@@ -9,6 +9,7 @@ function FolderButton({
   clickedButtonId,
   memoizedAddImgSrc,
   memoizedAddImgAlt,
+  handleAddFolderModal,
 }) {
   return (
     <ButtonContainer>
@@ -23,14 +24,14 @@ function FolderButton({
         {folderList?.map((item) => (
           <ButtonListItem
             onClick={() => handleButtonListItemClick(item.id, item.name)}
-            isClick={item.id === clickedButtonId ? true : false}
+            isClick={item.id === clickedButtonId}
             key={item.id}
           >
             {item.name}
           </ButtonListItem>
         ))}
       </ButtonListContainer>
-      <AddFolderContainer>
+      <AddFolderContainer onClick={() => handleAddFolderModal()}>
         <span>폴더 추가</span>
         <img src={memoizedAddImgSrc} alt={memoizedAddImgAlt} />
       </AddFolderContainer>

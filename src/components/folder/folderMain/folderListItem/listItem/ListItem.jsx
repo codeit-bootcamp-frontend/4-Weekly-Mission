@@ -14,7 +14,14 @@ import KebabButton from "./kebab/KebbabButton";
 import StyledFolderListItem from "./StyledFolderListItem";
 import DateDiv from "./DateDiv";
 
-function ListItem({ item, onHover, hoverdId, onMouseOut }) {
+function ListItem({
+  item,
+  onHover,
+  hoverdId,
+  onMouseOut,
+  handleDeleteLinkModal,
+  handleAddModal,
+}) {
   const [starred, setStarred] = useState(false);
   const handleStarClick = (e) => {
     e.preventDefault();
@@ -54,7 +61,12 @@ function ListItem({ item, onHover, hoverdId, onMouseOut }) {
       <FolderListItemDescription>
         <RelativeTimeAndKebab>
           {formatDateRelative(item.created_at)}
-          <KebabButton isHover={item.id === hoverdId} />
+          <KebabButton
+            handleDeleteLinkModal={handleDeleteLinkModal}
+            handleAddModal={handleAddModal}
+            linkUrl={item.url}
+            isHover={item.id === hoverdId}
+          />
         </RelativeTimeAndKebab>
         <FolderListItemTitle>{item.title}</FolderListItemTitle>
         <DateDiv>{formatDate(item.created_at)}</DateDiv>

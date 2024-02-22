@@ -5,13 +5,16 @@ import FolderTitle from "./folderTitle/FolderTitle";
 import addImgPurple from "../../../assets/img/png/add-purple.png";
 import addImgWhite from "../../../assets/img/png/add-white.png";
 
+import { useUserProfile } from "../../ContextProvider";
 import { useMemo } from "react";
 import FolderButton from "./folderButton/FolderButton";
 import FolderListItem from "./folderListItem/FolderListItem";
 import ModalEdit from "../modal/edit/ModalEdit";
 import ModalShare from "../modal/share/ModalShare";
 import ModalDeleteFolder from "../modal/delete-folder/ModalDeleteFolder";
-import { useUserProfile } from "../../ContextProvider";
+import ModalAddFolder from "../modal/add-folder/ModalAddFolder";
+import ModalDeleteLink from "../modal/delete-link/ModalDeleteLink";
+import ModalAdd from "../modal/add/ModalAdd";
 
 function FolderMain() {
   const { userProfile } = useUserProfile();
@@ -22,10 +25,14 @@ function FolderMain() {
   const [clickedButtonId, setClickedButtonId] = useState(null);
   const [mouseHoverkey, setMouseHoverKey] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+  const [linkUrl, setLinkUrl] = useState(null);
+  //공유,이름변경,삭제,폴더추가,링크삭제,폴더에추가
   const [isShare, setIsShare] = useState(false);
   const [isEditFolder, setIsEditFolder] = useState(false);
   const [isDeleteFolder, setIsDeleteFolder] = useState(false);
+  const [isAddFolder, setIsAddFolder] = useState(false);
+  const [isDeleteLink, setIsDeleteLink] = useState(false);
+  const [isAdd, setIsAdd] = useState(false);
 
   const memoizedAddImgSrc = useMemo(
     () => (windowWidth > 768 ? addImgPurple : addImgWhite),
@@ -58,6 +65,12 @@ function FolderMain() {
   const handleShareModal = () => setIsShare(!isShare);
   const handleEditFolderModal = () => setIsEditFolder(!isEditFolder);
   const handleDeleteFolderModal = () => setIsDeleteFolder(!isDeleteFolder);
+  const handleAddFolderModal = () => setIsAddFolder(!isAddFolder);
+  const handleAddModal = () => setIsAdd(!isAdd);
+  const handleDeleteLinkModal = (link) => {
+    setIsDeleteLink(!isDeleteLink);
+    setLinkUrl(link);
+  };
 
   useEffect(() => {
     const handleFolderList = async () => {
@@ -88,6 +101,7 @@ function FolderMain() {
             clickedButtonId={clickedButtonId}
             memoizedAddImgSrc={memoizedAddImgSrc}
             memoizedAddImgAlt={memoizedAddImgAlt}
+            handleAddFolderModal={handleAddFolderModal}
           />
           <FolderTitle
             folderTitleName={folderTitleName}
@@ -101,6 +115,8 @@ function FolderMain() {
             handleListItemHover={handleListItemHover}
             mouseHoverkey={mouseHoverkey}
             handleListItemMouseOut={handleListItemMouseOut}
+            handleDeleteLinkModal={handleDeleteLinkModal}
+            handleAddModal={handleAddModal}
           />
 
           <ModalShare
@@ -113,11 +129,23 @@ function FolderMain() {
           <ModalEdit
             isEditFolder={isEditFolder}
             setIsEditFolder={setIsEditFolder}
+            folderName={folderTitleName}
           />
           <ModalDeleteFolder
             isDeleteFolder={isDeleteFolder}
             setIsDeleteFolder={setIsDeleteFolder}
+            folderName={folderTitleName}
           />
+          <ModalDeleteLink
+            isDeleteLink={isDeleteLink}
+            setIsDeleteLink={setIsDeleteLink}
+            linkUrl={linkUrl}
+          />
+          <ModalAddFolder
+            isAddFolder={isAddFolder}
+            setIsAddFolder={setIsAddFolder}
+          />
+          <ModalAdd isAdd={isAdd} setIsAdd={setIsAdd} />
         </>
       ) : (
         <div>저장된 폴더가 없습니다</div>

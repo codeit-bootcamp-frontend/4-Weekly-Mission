@@ -6,6 +6,8 @@ function FolderListItem({
   handleListItemHover,
   mouseHoverkey,
   handleListItemMouseOut,
+  handleDeleteLinkModal,
+  handleAddModal,
 }) {
   return (
     <>
@@ -19,6 +21,8 @@ function FolderListItem({
                 onHover={() => handleListItemHover(item.id)}
                 hoverdId={mouseHoverkey}
                 onMouseOut={() => handleListItemMouseOut()}
+                handleDeleteLinkModal={handleDeleteLinkModal}
+                handleAddModal={handleAddModal}
               />
             ))}
           </ListContainer>

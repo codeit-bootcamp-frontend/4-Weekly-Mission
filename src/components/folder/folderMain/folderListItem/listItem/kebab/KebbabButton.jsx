@@ -3,7 +3,12 @@ import StyledDiv from "./StyledDiv";
 import StyledDropdown from "./StyledDropdown";
 import StyledOption from "./StyledOption";
 
-function KebabButton({ isHover }) {
+function KebabButton({
+  isHover,
+  handleDeleteLinkModal,
+  linkUrl,
+  handleAddModal,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [mouseDeleteState, setMouseDeleteState] = useState("");
   const [mouseAddState, setMouseAddState] = useState("");
@@ -34,6 +39,7 @@ function KebabButton({ isHover }) {
     <StyledDiv isHover={isHover} onClick={(e) => toggleDropdown(e)}>
       <StyledDropdown isOpen={isOpen}>
         <StyledOption
+          onClick={() => handleDeleteLinkModal(linkUrl)}
           mouse={mouseDeleteState}
           onMouseOut={(e) => handleMouseOut(e)}
           onMouseOver={(e) => handleMouseOver(e)}
@@ -41,6 +47,7 @@ function KebabButton({ isHover }) {
           삭제하기
         </StyledOption>
         <StyledOption
+          onClick={() => handleAddModal()}
           mouse={mouseAddState}
           onMouseOut={(e) => handleMouseOut(e)}
           onMouseOver={(e) => handleMouseOver(e)}

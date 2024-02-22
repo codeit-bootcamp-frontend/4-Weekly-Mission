@@ -3,21 +3,21 @@ import StyledContainer from "../StyledContainer";
 import StyledDiv from "../StyledDiv";
 import CloseButton from "../CloseButton";
 import Title from "../Title";
-import Input from "../Input";
 import Button from "../Button";
+import FolderText from "../share/FolderText";
 
-function ModalEdit({ isEditFolder, setIsEditFolder, folderName }) {
-  const handleClose = () => setIsEditFolder(!isEditFolder);
+function ModalDeleteLink({ isDeleteLink, setIsDeleteLink, linkUrl }) {
+  const handleClose = () => setIsDeleteLink(!isDeleteLink);
   return (
     <>
-      {isEditFolder && (
+      {isDeleteLink && (
         <StyledBackground onClick={() => handleClose()}>
           <StyledContainer onClick={(e) => e.stopPropagation()}>
             <StyledDiv>
               <CloseButton onClick={() => handleClose()} />
-              <Title>폴더 이름 변경</Title>
-              <Input placeholder={folderName} />
-              <Button>변경하기</Button>
+              <Title>링크 삭제</Title>
+              <FolderText>{linkUrl}</FolderText>
+              <Button btnColor="red">삭제하기</Button>
             </StyledDiv>
           </StyledContainer>
         </StyledBackground>
@@ -26,4 +26,4 @@ function ModalEdit({ isEditFolder, setIsEditFolder, folderName }) {
   );
 }
 
-export default ModalEdit;
+export default ModalDeleteLink;
