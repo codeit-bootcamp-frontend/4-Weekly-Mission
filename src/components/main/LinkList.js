@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import FolderPageLinkItem from './FolderPageLinkItem';
 import styles from './LinkList.module.css';
-import KebabModal from '../modal/KebabModal';
 function LinkList({ folderId }) {
   const [filterData, setFilterData] = useState(null);
   async function handleFilterClick() {
@@ -23,7 +22,7 @@ function LinkList({ folderId }) {
       ) : (
         <div className={styles.item_card_grid}>
           {filterData?.data?.map(
-            ({ image_source, description, created_at, url }, i) => {
+            ({ image_source, description, created_at, url, id }, i) => {
               return (
                 <div>
                   <FolderPageLinkItem
@@ -31,7 +30,7 @@ function LinkList({ folderId }) {
                     image_source={image_source}
                     created_at={created_at}
                     url={url}
-                    key={i}
+                    key={id}
                   />
                 </div>
               );

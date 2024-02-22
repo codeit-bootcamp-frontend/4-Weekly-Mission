@@ -2,9 +2,15 @@
 import styles from './FolderPageLinkitem.module.css';
 import * as functions from '../../functions/formatTimeAgo.js';
 import KebabModal from '../modal/KebabModal.js';
-
+import useModal from '../../hooks/useModal.js';
 function FolderPageLinkItem({ description, image_source, created_at, url }) {
   const created_date = created_at.slice(0, 10);
+
+  const {
+    isShowModal: isShowKebabModal,
+    handleModalClick: handleClickKebabModal,
+  } = useModal(false);
+
   return (
     <>
       <div className={styles.item_card_wrapper}>
@@ -40,9 +46,10 @@ function FolderPageLinkItem({ description, image_source, created_at, url }) {
             src={`${process.env.PUBLIC_URL}/assets/images/item_card_kebab_icon.svg`}
             className={styles.item_card_kebab_icon}
             alt='card_kebab_image'
+            onClick={handleClickKebabModal}
           />
         </div>
-        <KebabModal />
+        {isShowKebabModal && <KebabModal />}
       </div>
     </>
   );
