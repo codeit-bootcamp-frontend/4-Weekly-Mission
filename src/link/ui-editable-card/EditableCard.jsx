@@ -21,14 +21,6 @@ export const EditableCard = ({
   const handleMouseLeave = () => setIsHovered(false);
   const [showModal, setShowModal] = useState(false);
 
-  const handleOpenModal = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
-
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
       <Card onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
@@ -52,9 +44,9 @@ export const EditableCard = ({
           <img
             src="images/kebab.svg"
             alt="더보기를 나타내는 점 3개"
-            onClick={handleOpenModal}
+            onClick={() => setShowModal(true)}
           />
-          {showModal && <Modal onClose={handleCloseModal} />}
+          {showModal && <Modal onClose={() => setShowModal(false)} />}
         </button>
       </Card>
     </a>
