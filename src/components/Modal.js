@@ -9,7 +9,6 @@ const Modal = ({ isOpen, closeModal }) => {
   const checktoggle = () => {
     if (isChecked === true) setIsChecked(false);
     else setIsChecked(true);
-    console.log(isChecked);
   };
 
   return (
@@ -44,7 +43,6 @@ const Modal = ({ isOpen, closeModal }) => {
               position: 'absolute',
               top: '1.6rem',
               right: '1.6rem',
-
               width: '2.4rem',
               height: '2.4rem',
             }}
@@ -264,3 +262,5 @@ const Modal = ({ isOpen, closeModal }) => {
 };
 
 export default Modal;
+
+//modal 만들기!
