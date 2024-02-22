@@ -1,8 +1,4 @@
-import { useGetFolderList } from "../../hooks/useGetFolderList";
-
-const FolderList = ({ onFolderClick }) => {
-  const { data: folders } = useGetFolderList();
-
+const FolderList = ({ onFolderClick, folders }) => {
   return (
     <div>
       <ul>

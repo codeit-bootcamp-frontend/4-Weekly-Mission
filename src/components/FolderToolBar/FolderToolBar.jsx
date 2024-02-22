@@ -1,9 +1,18 @@
+import { useGetFolderList } from "../../hooks/useGetFolderList";
+import FolderEditBar from "./FolderEditBar";
 import FolderList from "./FolderList";
 
-const FolderToolBar = ({ onFolderClick }) => {
+const FolderToolBar = ({ onFolderClick, selectedFolder }) => {
+  const { data: folders } = useGetFolderList();
+  const folderName =
+    "ALL" === selectedFolder
+      ? "전체"
+      : folders?.find(({ id }) => id === selectedFolder)?.name;
+
   return (
     <div>
-      <FolderList onFolderClick={onFolderClick} />
+      <FolderList onFolderClick={onFolderClick} folders={folders} />
+      <FolderEditBar folderName={folderName} />
     </div>
   );
 };

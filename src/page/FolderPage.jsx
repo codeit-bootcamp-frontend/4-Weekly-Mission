@@ -22,10 +22,15 @@ const FolderPage = () => {
   return (
     <>
       <NavigationBar isSticky={false} />
-      <AddLinkInput />
-      <SearchBar />
-      <FolderToolBar onFolderClick={setSeletedFolder} />
-      {cardList}
+      <main>
+        <AddLinkInput />
+        <SearchBar />
+        <FolderToolBar
+          onFolderClick={setSeletedFolder}
+          selectedFolder={selectedFolder}
+        />
+        {cardList}
+      </main>
       <Footer />
     </>
   );
