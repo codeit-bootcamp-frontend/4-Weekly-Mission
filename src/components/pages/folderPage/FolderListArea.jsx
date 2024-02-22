@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import FolderNameButton from './FolderNameButton';
 import IconAdd from '../../../assets/add.svg';
+import IconAddWhite from '../../../assets/add-white.png';
 
 const FolderGroup = styled.div`
   display: flex;
@@ -34,6 +35,23 @@ const Button = styled.button`
     width: 1.6rem;
     height: 1.6rem;
     background: url(${IconAdd}) no-repeat center bottom/contain;
+  }
+
+  @media (max-width: 767px) {
+    position: fixed;
+    left: 50%;
+    bottom: 10.1rem;
+    transform: translateX(-50%);
+    padding: 0.8rem 2.4rem;
+    border: 1px solid var(--color-white);
+    border-radius: 2rem;
+    background-color: var(--color-primary);
+    color: var(--color-gray-300);
+    z-index: 10;
+
+    &::after {
+      background: url(${IconAddWhite}) no-repeat center bottom/contain;
+    }
   }
 `;
 
