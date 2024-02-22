@@ -6,13 +6,14 @@ import { getTimeAgo } from "./utils/getTimeAgo";
 import { formatDate } from "./utils/formatDate";
 import Nav from "./Nav";
 import Footer from "./Footer";
+import AddFolder from "./modal/AddFolder";
 import "../css/Folder.css";
 
 function Folder() {
   const [selectedLinks, setSelectedLinks] = useState([]);
   const [folders, setFolders] = useState([]);
   const [selectedFolderId, setSelectedFolderId] = useState(null);
-  console.log(folders);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // 폴더 목록 불러오기 (전체, 즐겨찾기, 코딩 팁 ...etc)
   useEffect(() => {
@@ -82,7 +83,13 @@ function Folder() {
               {folder.name}
             </button>
           ))}
-          <button className="FolderAddSmallButton">폴더 추가 +</button>
+          <button
+            className="FolderAddSmallButton"
+            onClick={() => setIsModalOpen(true)}
+          >
+            폴더 추가 +
+          </button>
+          {isModalOpen && <AddFolder />}
         </div>
         <div className="FolderSubLine">
           <div className="FolderUsefulTitle">
