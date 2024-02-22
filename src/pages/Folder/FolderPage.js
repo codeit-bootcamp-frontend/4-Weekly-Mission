@@ -71,7 +71,7 @@ const FolderPage = () => {
         />
         <FolderName>
           {selectedFolder.name}
-          <FolderOption />
+          <FolderOption selectedFolder={selectedFolder} />
         </FolderName>
 
         <LinkItems links={links} isLoading={isLoading} />
