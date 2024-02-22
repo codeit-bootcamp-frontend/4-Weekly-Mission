@@ -62,9 +62,15 @@ const FolderCard = function ({ contents, favorite = false, kebab = false }) {
 		>
 			{imageSource || image_source ? <div style={cardImage} /> : <NoCardImg />}
 			{favorite && (
-				<img className="favor-star" src="star.svg" alt="FavoriteButton" />
+				<button className="favor-star">
+					<img src="star.svg" alt="FavoriteButton" />
+				</button>
 			)}
-			{kebab && <img className="kebab" src="kebab.svg" alt="kebabButton" />}
+			{kebab && (
+				<button type="button" className="kebab">
+					<img src="kebab.svg" alt="kebabButton" />
+				</button>
+			)}
 			<section className="card-text">
 				<p className="card-passed-time">{passedTime}</p>
 				<p className="card-contents">{description}</p>

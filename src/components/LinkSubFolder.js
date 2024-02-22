@@ -75,15 +75,15 @@ function CurrentSubFolder({ currentFolder }) {
 function HandleCurrentSubFolder() {
 	return (
 		<SubFolderUtilList>
-			<Button className="sub-folder-utility">
+			<Button type="button" className="sub-folder-utility">
 				<img src={"share.svg"} alt="ShareButtonImg" />
 				공유
 			</Button>
-			<Button className="sub-folder-utility">
+			<Button type="button" className="sub-folder-utility">
 				<img src={"pen.svg"} alt="RenameButtonImg" />
 				이름 변경
 			</Button>
-			<Button className="sub-folder-utility">
+			<Button type="button" className="sub-folder-utility">
 				<img src={"Group 36.svg"} alt="DeleteButtonImg" />
 				삭제
 			</Button>

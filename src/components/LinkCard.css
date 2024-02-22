@@ -3,7 +3,11 @@ a {
 }
 
 .favor-star {
+	display: flex;
 	position: absolute;
+	padding: 0;
+	background-color: transparent;
+	border: none;
 	top: 15px;
 	right: 15px;
 	width: 34px;
@@ -11,7 +15,11 @@ a {
 }
 
 .kebab {
+	display: flex;
 	position: absolute;
+	padding: 0;
+	background-color: transparent;
+	border: none;
 	top: 215px;
 	right: 20px;
 	width: 21px;
