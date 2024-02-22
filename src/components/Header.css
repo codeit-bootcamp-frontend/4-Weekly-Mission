@@ -4,7 +4,6 @@ header {
   left: 0;
   right: 0;
   background-color: var(--gray5-color);
-  z-index: 1;
 }
 
 .nav-space {

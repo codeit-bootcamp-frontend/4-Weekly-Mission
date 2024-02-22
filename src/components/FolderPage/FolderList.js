@@ -6,11 +6,14 @@ import { useState, useEffect } from "react";
 import UtilIcons from "./UtilIcons.js";
 import add from "../../assets/add.svg";
 import FolderButtons from "./FolderButtons";
+import useModal from "../../hooks/useModal";
+import ModalAdd from "../Modal/ModalAdd";
 
 const FolderList = () => {
   const folderList = useFolderList();
   const [links, setLinks] = useState([]);
   const [selectedFolderName, setSelectedFolderName] = useState("");
+  const { showModal, handleOpenModal, handleCloseModal } = useModal();
 
   const handleLoadAllLinksData = async () => {
     const { data } = await getFolderLinks();
@@ -48,10 +51,11 @@ const FolderList = () => {
             currentFolderName={selectedFolderName}
           />
         </div>
-        <button className="addFolderButton">
+        <button className="addFolderButton" onClick={handleOpenModal}>
           폴더 추가
           <img src={add} alt="add icon" />
         </button>
+        <ModalAdd isOpen={showModal} onClose={handleCloseModal} />
       </div>
       <div className="selectedFolderName">
         {selectedFolderName}

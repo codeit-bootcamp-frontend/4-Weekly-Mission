@@ -1,7 +1,11 @@
 import "./AddLinkBar.css";
 import linkIcon from "../../assets/linkIcon.svg";
+import ModalAddFolder from "../Modal/ModalAddFolder";
+import useModal from "../../hooks/useModal";
 
 const AddLink = () => {
+  const { showModal, handleOpenModal, handleCloseModal } = useModal();
+
   return (
     <div className="addLinkContainer">
       <form className="addLinkForm">
@@ -15,7 +19,8 @@ const AddLink = () => {
           placeholder="링크를 추가해 보세요."
           className="addLinkInput"
         />
-        <button>추가하기</button>
+        <button onClick={handleOpenModal}>추가하기</button>
+        <ModalAddFolder isOpen={showModal} onClose={handleCloseModal} />
       </form>
     </div>
   );
