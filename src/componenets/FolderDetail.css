@@ -45,6 +45,12 @@
   font-weight: 500;
 }
 
+@media (max-width: 767px) {
+  .addButton {
+    display: none;
+  }
+}
+
 .buttonClick-Container {
   margin-top: 2rem;
   display: flex;

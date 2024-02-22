@@ -11,11 +11,9 @@ import CardList from "./CardList";
 import NoLink from "./NoLink";
 
 function FolderDetail({ folderListData }) {
-  const windowWidth = window.innerWidth;
   const [selectedFolder, setSelectedFolder] = useState({});
   const selectedFolderData =
     useFetchData("selectedFolderDataFetch", 4, selectedFolder) || [];
-
   const handleFolderListClick = (data) => {
     setSelectedFolder(data);
   };
@@ -48,14 +46,11 @@ function FolderDetail({ folderListData }) {
           ))}
         </div>
 
-        {windowWidth >= 767 ? (
-          <div className="addButton">
-            <p>폴더 추가</p>
-            <img src={add} alt="더하기" />
-          </div>
-        ) : (
-          <FloatingActionButton />
-        )}
+        <div className="addButton">
+          <p>폴더 추가</p>
+          <img src={add} alt="더하기" />
+        </div>
+        <FloatingActionButton />
       </div>
       <div className="buttonClick-Container">
         <p>{selectedFolder.name || "전체"}</p>
