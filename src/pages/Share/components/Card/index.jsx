@@ -2,7 +2,7 @@ import styles from "./styles.module.css";
 import { getTimeAgo, formatDate } from "util/time";
 import noImg from "assets/noImg.png";
 
-export function Card({ link, folders }) {
+export function Card({ link }) {
   const createdAt = "createdAt" in link ? "createdAt" : "created_at";
   const imageSource = "imageSource" in link ? "imageSource" : "image_source";
 
