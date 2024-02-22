@@ -11,8 +11,10 @@ import FolderListItem from "./folderListItem/FolderListItem";
 import ModalEdit from "../modal/edit/ModalEdit";
 import ModalShare from "../modal/share/ModalShare";
 import ModalDeleteFolder from "../modal/delete-folder/ModalDeleteFolder";
+import { useUserProfile } from "../../ContextProvider";
 
 function FolderMain() {
+  const { userProfile } = useUserProfile();
   const [folderList, setFolderList] = useState(null);
   const [folderListItem, setFolderListItem] = useState(null);
   const [folderTitleName, setFolderTitleName] = useState("");
@@ -106,6 +108,7 @@ function FolderMain() {
             setIsShare={setIsShare}
             folderId={clickedButtonId}
             folderName={folderTitleName}
+            userId={userProfile?.id}
           />
           <ModalEdit
             isEditFolder={isEditFolder}

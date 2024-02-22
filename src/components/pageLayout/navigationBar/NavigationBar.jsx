@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { getSharedUserSample } from "../../util/api";
 import Header from "./Header";
 import LinkLogo from "./LinkLogo";
 import UserProfileImg from "./UserProfileImg";
@@ -8,22 +7,16 @@ import UserProfileContainer from "./UserProfileContainer";
 import StyledLoginLink from "./StyledLoginLink";
 import { useLocation } from "react-router-dom";
 import { useMemo } from "react";
+import { useUserProfile } from "../../ContextProvider";
 
 function NavigationBar() {
   const location = useLocation();
+  const { userProfile } = useUserProfile();
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [userProfile, setUserProfile] = useState(null);
   const memoizedEmailText = useMemo(
     () => (windowWidth > 768 ? userProfile?.email : ""),
     [userProfile, windowWidth]
   );
-  const handleSharedUserProfile = async () => {
-    const result = await getSharedUserSample();
-    if (!result) return;
-
-    const { email, image_source } = result.data[0];
-    setUserProfile({ email, image_source });
-  };
 
   const isHeaderSticky = () =>
     location.pathname !== "/folder" && location.pathname !== "/";
@@ -33,8 +26,6 @@ function NavigationBar() {
       setWindowWidth(window.innerWidth);
     };
     window.addEventListener("resize", handleResize);
-
-    handleSharedUserProfile();
     return () => {
       window.removeEventListener("resize", handleResize);
     };

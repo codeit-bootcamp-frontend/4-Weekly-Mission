@@ -4,7 +4,6 @@ import StyledDiv from "../StyledDiv";
 import CloseButton from "../CloseButton";
 import Title from "../Title";
 import ShareContainer from "./ShareContainer";
-import ShareImgButton from "./ShareImgButton";
 
 import facebookShareImg from "../../../../assets/img/png/facebook-share.png";
 import linkShareImg from "../../../../assets/img/png/share-link.png";
@@ -14,9 +13,15 @@ import FolderText from "./FolderText";
 
 import KaKaoShareButton from "./kakao/KakaoShareButton";
 import FacebookShareBtn from "./facebook/FacebookShareButton";
+import CopyLinkButton from "./copyLink/CopyLinkButton";
 
-function ModalShare({ isShare, setIsShare, folderId, folderName }) {
+function ModalShare({ isShare, setIsShare, userId, folderId, folderName }) {
   const handleClose = () => setIsShare(!isShare);
+  const currentUrl = window.location.href;
+  const shareUrl =
+    currentUrl.replace("/folder", "") +
+    `/shared?user=${userId}&folder=${folderId}`;
+
   return (
     <>
       {isShare && (
@@ -33,18 +38,19 @@ function ModalShare({ isShare, setIsShare, folderId, folderName }) {
                   src={kakaoShareImg}
                   alt="kakao-share"
                   text="카카오톡"
-                  folderId={folderId}
+                  shareUrl={shareUrl}
                 />
                 <FacebookShareBtn
                   src={facebookShareImg}
                   alt="facebook-share"
                   text="페이스북"
-                  folderId={folderId}
+                  shareUrl={shareUrl}
                 />
-                <ShareImgButton
+                <CopyLinkButton
                   src={linkShareImg}
                   alt="link-share"
                   text="링크 복사"
+                  shareUrl={shareUrl}
                 />
               </ShareContainer>
             </StyledDiv>
