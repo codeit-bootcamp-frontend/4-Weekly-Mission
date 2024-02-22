@@ -55,7 +55,16 @@
   outline: none;
 }
 
-.AddFolderButton {
+.DeleteFolderName {
+  margin-top: 8px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #9fa6b2;
+  text-align: center;
+}
+
+.DeleteFolderButton {
   border: none;
   color: #fff;
   font-size: 16px;
@@ -65,7 +74,7 @@
   margin-top: 10px;
   width: 281px;
   height: 51px;
-  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  background: #ff5b56;
   font-family: Pretendard;
 }
 

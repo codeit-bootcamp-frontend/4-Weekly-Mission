@@ -8,12 +8,22 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 import AddFolder from "./modal/AddFolder";
 import "../css/Folder.css";
+import Delete from "./modal/Delete";
 
 function Folder() {
   const [selectedLinks, setSelectedLinks] = useState([]);
   const [folders, setFolders] = useState([]);
   const [selectedFolderId, setSelectedFolderId] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [addFolderModalOpen, setAddFolderModalOpen] = useState(false);
+  const [deleteFolderModalOpen, setDeleteFolderModalOpen] = useState(false);
+
+  const showAddFolderModal = () => {
+    setAddFolderModalOpen(true);
+  };
+
+  const showDeleteModal = () => {
+    setDeleteFolderModalOpen(true);
+  };
 
   // 폴더 목록 불러오기 (전체, 즐겨찾기, 코딩 팁 ...etc)
   useEffect(() => {
@@ -83,13 +93,12 @@ function Folder() {
               {folder.name}
             </button>
           ))}
-          <button
-            className="FolderAddSmallButton"
-            onClick={() => setIsModalOpen(true)}
-          >
+          <button className="FolderAddSmallButton" onClick={showAddFolderModal}>
             폴더 추가 +
           </button>
-          {isModalOpen && <AddFolder />}
+          {addFolderModalOpen && (
+            <AddFolder setAddFolderModalOpen={setAddFolderModalOpen} />
+          )}
         </div>
         <div className="FolderSubLine">
           <div className="FolderUsefulTitle">
@@ -103,7 +112,17 @@ function Folder() {
             <FontAwesomeIcon icon={faPen} className="FolderIcon" />
             <div className="FolderIconName">이름 변경</div>
             <FontAwesomeIcon icon={faTrash} className="FolderIcon" />
-            <div className="FolderIconName">삭제</div>
+            <div className="FolderIconName" onClick={showDeleteModal}>
+              삭제
+            </div>
+            {deleteFolderModalOpen && (
+              <Delete
+                setDeleteFolderModalOpen={setDeleteFolderModalOpen}
+                selectedFolderId={selectedFolderId}
+                folders={folders}
+                setFolders={setFolders}
+              />
+            )}
           </div>
         </div>
         <div className="FolderContents">
