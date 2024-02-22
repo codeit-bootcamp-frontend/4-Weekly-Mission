@@ -1,32 +1,10 @@
 /** @jsxImportSource @emotion/react */
-import { useState, useEffect } from "react";
 import { css } from "@emotion/react";
-import api from "../../../../utils/api";
+import userGetFolder from "../../../../hooks/useGetFolder";
 import "../../../../styles/common.css";
 
 const Profile = () => {
-  const [ownerData, setOwnerData] = useState({
-    ownerImage: null,
-    ownerName: null,
-    ownerFolder: null,
-  });
-
-  const fetchData = async () => {
-    try {
-      const result = await api("sample/folder");
-      setOwnerData({
-        ownerImage: result.folder.owner.profileImageSource,
-        ownerName: result.folder.owner.name,
-        ownerFolder: result.folder.name,
-      });
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { ownerData } = userGetFolder();
 
   return (
     <div css={divStyle}>
@@ -35,7 +13,7 @@ const Profile = () => {
       </div>
 
       <p css={pStyle}>{ownerData.ownerName}</p>
-      <h1 css={h1Style}>{ownerData.ownerFolder}</h1>
+      <h1 css={h1Style}>{ownerData.folder}</h1>
     </div>
   );
 };

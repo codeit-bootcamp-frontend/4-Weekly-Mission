@@ -6,7 +6,6 @@ import "../../../../styles/common.css";
 
 const Avatar = () => {
   const { userInfo, isLoading } = useGetUser();
-  console.log(userInfo);
 
   return (
     <div css={divStyle}>

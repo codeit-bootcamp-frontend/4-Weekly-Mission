@@ -1,4 +1,4 @@
-import React from "react";
+import {React, Fragment} from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
       <Header />
 
       {children.map((child, index) => (
-        <React.Fragment key={index}> {child}</React.Fragment>
+        <Fragment key={index}> {child}</Fragment>
       ))}
       <Footer />
     </>
