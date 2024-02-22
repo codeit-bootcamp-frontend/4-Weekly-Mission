@@ -1,10 +1,10 @@
-import FolderItem from "./FolderItem";
-import styles from "./FolderList.module.css";
+import SharePageFolderItem from "./SharePageFolderItem";
+import styles from "./SharePageFolderList.module.css";
 import { useFetch } from "../../hooks/useFetch";
 
 const folderUrl = "https://bootcamp-api.codeit.kr/api/sample/folder";
 
-function FolderList() {
+function SharePageFolderList() {
   const { data: folderData } = useFetch(folderUrl);
 
   return (
@@ -12,7 +12,7 @@ function FolderList() {
       {folderData?.folder.links.map(
         ({ id, createdAt, url, title, imageSource }) => {
           return (
-            <FolderItem
+            <SharePageFolderItem
               title={title}
               imageSource={imageSource}
               createdAt={createdAt}
@@ -26,4 +26,4 @@ function FolderList() {
   );
 }
 
-export default FolderList;
+export default SharePageFolderList;

@@ -1,6 +1,6 @@
-import styles from "./FolderItem.module.css";
+import styles from "./SharePageFolderItem.module.css";
 import * as functions from "../../functions/formatTimeAgo.js";
-function FolderItem({ createdAt, url, title, imageSource }) {
+function SharePageFolderItem({ createdAt, url, title, imageSource }) {
   return (
     <a href={url} className={styles.folder_link}>
       <div className={styles.folder_item_box}>
@@ -34,4 +34,4 @@ function FolderItem({ createdAt, url, title, imageSource }) {
   );
 }
 
-export default FolderItem;
+export default SharePageFolderItem;
