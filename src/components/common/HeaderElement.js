@@ -13,7 +13,7 @@ function HeaderElement({ $positionval }) {
   return (
     <Header $positionval={$positionval}>
       <img src={logo} alt="logo" />
-      <div className="myProfile" status="user">
+      <div className="myProfile">
         {user ? (
           <div id="myProfileName">
             <div id="myProfile-back_img">

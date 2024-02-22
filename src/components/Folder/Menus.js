@@ -34,7 +34,7 @@ const Menus = ({ changeTitle, changeID }) => {
     <Container>
       <GlobalStyle></GlobalStyle>
       <ButtonDiv>
-        {lists.map((val, idx) => (
+        {lists.map((val) => (
           <Button
             key={val.id}
             onClick={() => handleClick(val.name, val.id)}
@@ -87,12 +87,20 @@ const Button = styled.button`
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background-color: ${({ color = "#fff" }) => color || "#fff"};
   color: ${({ color = "#fff" }) => (color === "#fff" ? "#000000" : "#FFFFFF")};
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const AddFolderDiv = styled.div`
   margin: 8px;
   display: flex;
   flex-direction: row;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   @media (max-width: 774px) {
     display: none;
