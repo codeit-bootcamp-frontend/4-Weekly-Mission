@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import { getUser, getFolder } from '../api/BaseUrl';
-// import { Route } from 'react-router-dom';
-// import FolderPage from './FolderPage';
 
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -32,7 +30,6 @@ const FoldPage = () => {
       <AddLink />
       <Folder folderInfo={folder} />
       <Footer />
-      {/* <Route path='/folder' component={FolderPage} /> */}
     </div>
   );
 };
