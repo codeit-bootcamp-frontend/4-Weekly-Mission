@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getUserFolder, getFolderLink } from "../utils/Api";
 import Banner from "../components/folder/Banner";
-import SearchBar from "../components/common/SearchBar/SearchBar";
+import SearchBar from "../components/common/SearchBar";
 import FolderCategoriseArea from "../components/folder/FolderCategoryArea";
 import FolderTitleArea from "../components/folder/FolderTitleArea";
 import FolderCardArea from "../components/folder/FolderCardArea";

@@ -1,5 +1,5 @@
 import React from "react";
-import SearchBar from "../common/SearchBar/SearchBar";
+import SearchBar from "../common/SearchBar";
 import ShareCard from "./ShareCard";
 import styles from "./Container.module.css";
 
