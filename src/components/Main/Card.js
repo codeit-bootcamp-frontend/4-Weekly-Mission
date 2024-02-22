@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import NoImage from 'assets/images/card-no-image.svg';
 
 import KebabButton from 'components/Common/KebabButton';
+import StarButton from 'components/Common/StarButton';
 import styles from 'components/Main/Card.module.css';
 
 import formatDate from 'utils/formatDate';
@@ -27,7 +28,8 @@ function Card({ createdAt, url, description, imageSource }) {
     }
   };
 
-  const cardClasses = classNames(styles.card);
+  const cardClasses = classNames(styles.card, 'position-relative');
+  const starButtonClasses = classNames(styles['star-button'], 'position-absolute');
   const cardImgageClasses = classNames(styles['card-image'], 'width-full');
   const cardTextBoxClasses = classNames(styles['card-text-box'], 'flex-col');
   const topElementContainerClasses = classNames(
@@ -50,6 +52,7 @@ function Card({ createdAt, url, description, imageSource }) {
       tabIndex="0"
     >
       <div className={cardImgageClasses} style={backgroundImage} />
+      <StarButton className={starButtonClasses} />
       <div className={cardTextBoxClasses}>
         <div className={topElementContainerClasses}>
           <p className={timeAgoClasses}>{createdTimeAgo}</p>

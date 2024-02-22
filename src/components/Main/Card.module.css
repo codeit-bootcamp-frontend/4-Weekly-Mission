@@ -10,6 +10,11 @@
   transform: scale(1.3); /* hover 상태일 때 크기를 130%로 변경 */
 }
 
+.star-button {
+  top: 1.5rem;
+  right: 1.5rem;
+}
+
 .card-image {
   height: 19.2rem;
   border-radius: 1.5rem 1.5rem 0 0;
