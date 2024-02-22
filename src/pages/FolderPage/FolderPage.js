@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import { useState } from 'react';
 
 import FloatingAddFolderButton from 'components/Common/FlaotingAddFolderButton';
 import Footer from 'components/Footer/Footer';
@@ -12,13 +13,14 @@ import SortingSection from 'components/Main/SortingSection';
 import styles from 'pages/FolderPage/FolderPage.module.css';
 
 function Folder() {
+  const [selectedFolder, setSelectedFolder] = useState({ id: 'all', name: '전체' });
+
   const floatingAddFolderButtonClasses = classNames(
     styles['floating-add-folder-button'],
     'position-fixed',
     'visible-flex-mobile-only',
     'z-top'
   );
-
   const containerClasses = classNames('min-height-100vh');
 
   return (
@@ -29,8 +31,8 @@ function Folder() {
         </Header>
         <Main>
           <SearchBar />
-          <SortingSection />
-          <CardList />
+          <SortingSection selectedFolder={selectedFolder} onFolderSelect={setSelectedFolder} />
+          <CardList folderId={selectedFolder.id} />
           <FloatingAddFolderButton className={floatingAddFolderButtonClasses} />
         </Main>
       </div>

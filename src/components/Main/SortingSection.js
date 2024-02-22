@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 import DeleteIcon from 'assets/images/delete.svg';
 import PenIcon from 'assets/images/pen.svg';
@@ -15,7 +15,7 @@ import styles from 'components/Main/SortingSection.module.css';
 
 import { getFoldersApiUrl } from 'services/api';
 
-function SortingButtonList() {
+function SortingSection({ selectedFolder, onFolderSelect }) {
   const ALL_ID = 'all';
   const LOADING_MESSAGE = 'Loading...';
 
@@ -25,19 +25,15 @@ function SortingButtonList() {
   // {id, created_at, name, user_id, favorite, link: {count}}
   const folderList = [{ id: 'all', name: '전체' }, ...(data?.data ?? [])];
 
-  console.log(folderList);
-
   const optionList = [
     { name: '공유', image: ShareIcon, key: 1 },
     { name: '이름 변경', image: PenIcon, key: 2 },
     { name: '삭제', image: DeleteIcon, key: 3 },
   ];
 
-  const [selectedFolder, setSelectedFolder] = useState(folderList[0]);
-
   const handleButtonClick = (key) => {
     const targetButton = folderList.find((folder) => folder.id === key);
-    setSelectedFolder(targetButton);
+    onFolderSelect(targetButton);
   };
 
   const sortingSectionClasses = classNames(
@@ -84,4 +80,17 @@ function SortingButtonList() {
   );
 }
 
-export default SortingButtonList;
+SortingSection.propTypes = {
+  selectedFolder: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+  }),
+  onFolderSelect: PropTypes.func,
+};
+
+SortingSection.defaultProps = {
+  selectedFolder: { id: '', name: '' },
+  onFolderSelect: null,
+};
+
+export default SortingSection;
