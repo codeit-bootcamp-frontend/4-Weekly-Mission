@@ -5,14 +5,13 @@ import { useEffect } from 'react';
  * @param {boolean} showModal 모달 열림 여부
  * @param {function} setShowModal
  */
-const useCloseModal = (showModal, setShowModal) => {
+const useCloseModal = (showModal, setShowModal, modalRef) => {
   useEffect(() => {
     const handleOutsideClick = e => {
-      if (e.target.classList.contains('modal')) {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
         setShowModal(false);
       }
     };
-
     const handleEscapeKey = e => {
       if (e.keyCode === 27) {
         setShowModal(false);
@@ -28,7 +27,7 @@ const useCloseModal = (showModal, setShowModal) => {
       document.removeEventListener('mousedown', handleOutsideClick);
       document.removeEventListener('keydown', handleEscapeKey);
     };
-  }, [showModal, setShowModal]);
+  }, [showModal, setShowModal, modalRef]);
 };
 
 export default useCloseModal;

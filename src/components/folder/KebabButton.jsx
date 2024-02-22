@@ -1,14 +1,12 @@
 import { styled } from 'styled-components';
 import kebeb from 'assets/images/kebab.svg';
 import { useState } from 'react';
-import useCloseModal from 'hook/useCloseModal';
 import BUTTON from 'utils/constants/BUTTON';
 import Modal from 'components/common/modal/Modal';
 
 const KebabButton = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  useCloseModal(showMenu, setShowMenu);
 
   const handleMenu = e => {
     e.preventDefault();
@@ -18,24 +16,27 @@ const KebabButton = () => {
     setShowMenu(false);
     setShowModal(true);
   };
+
   return (
-    <StyledButton onClick={handleMenu}>
-      <img src={kebeb} alt="더보기 버튼" />
-      {showMenu && (
-        <StyledModal>
-          {BUTTON.KEBAB_OPTION.map(option => (
-            <StyledMenu key={option} onClick={handleClick}>
-              {option}
-            </StyledMenu>
-          ))}
-          {showModal && (
-            <Modal setShowModal={setShowMenu} showModal={showModal}>
-              안녕
-            </Modal>
-          )}
-        </StyledModal>
+    <>
+      <StyledButton onClick={handleMenu}>
+        <img src={kebeb} alt="더보기 버튼" />
+        {showMenu && (
+          <StyledModal>
+            {BUTTON.KEBAB_OPTION.map(option => (
+              <StyledMenu key={option} onClick={handleClick}>
+                {option}
+              </StyledMenu>
+            ))}
+          </StyledModal>
+        )}
+      </StyledButton>
+      {showModal && (
+        <Modal setShowModal={setShowModal} showModal={showModal}>
+          안녕
+        </Modal>
       )}
-    </StyledButton>
+    </>
   );
 };
 export default KebabButton;

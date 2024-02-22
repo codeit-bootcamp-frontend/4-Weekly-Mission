@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Portal from './Portal';
 import styled from 'styled-components';
 import modalCloseButton from 'assets/images/modalCloseButton.png';
+import useCloseModal from 'hook/useCloseModal';
 
-const Modal = ({ setShowModal, showModal, children }) => {
+const Modal = ({ setShowModal, children, showModal }) => {
+  const modalRef = useRef();
+  useCloseModal(showModal, setShowModal, modalRef);
   return (
     <Portal>
-      <ModalWrapper showModal={showModal}>
-        <ModalContent>
-          <button onClick={() => setShowModal(false)}>
+      <ModalWrapper>
+        <ModalContent ref={modalRef}>
+          <StyledButton onClick={() => setShowModal(false)}>
             <img src={modalCloseButton} alt="modal close icon" />
-          </button>
+          </StyledButton>
           {children}
         </ModalContent>
       </ModalWrapper>
@@ -19,7 +22,7 @@ const Modal = ({ setShowModal, showModal, children }) => {
 };
 
 const ModalWrapper = styled.div`
-  display: ${props => (props.showModal ? 'flex' : 'none')};
+  display: flex;
   position: fixed;
   top: 0;
   right: 0;
@@ -35,5 +38,17 @@ const ModalWrapper = styled.div`
 const ModalContent = styled.div`
   width: 36rem;
   height: 19.3rem;
+  background-color: ${({ theme }) => theme.white};
+  border-radius: 1.5rem;
+  position: relative;
+  padding: 1.5rem;
+`;
+const StyledButton = styled.button`
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 1.5rem;
 `;
 export default Modal;
