@@ -23,16 +23,18 @@ export default function Card() {
     <>
       {cardData.map(link => (
         <div key={link.id} className="card">
-          <img
-            className="cardImage"
-            src={link.imageSource ? link.imageSource : '/images/noImage.png'}
-            alt={link.title}
-          />
-          <div className="cardTextArea">
-            <div className="uploadTime">{getElapsedTime(link.createdAt)}</div>
-            <div className="cardText">{link.description}</div>
-            <div className="uploadDate">{Moment(link.createdAt.slice(0, 10)).format('YYYY.MM.DD')}</div>
-          </div>
+          <a href={link.url}>
+            <img
+              className="cardImage"
+              src={link.imageSource ? link.imageSource : '/images/noImage.png'}
+              alt={link.title}
+            />
+            <div className="cardTextArea">
+              <div className="uploadTime">{getElapsedTime(link.createdAt)}</div>
+              <div className="cardText">{link.description}</div>
+              <div className="uploadDate">{Moment(link.createdAt.slice(0, 10)).format('YYYY.MM.DD')}</div>
+            </div>
+          </a>
         </div>
       ))}
     </>
