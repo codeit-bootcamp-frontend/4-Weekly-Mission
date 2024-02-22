@@ -15,7 +15,6 @@
 }
 
 .add-link-bar-container {
-  justify-content: space-between;
   top: 50%;
   transform: translateY(-50%);
   padding: 0 1rem;

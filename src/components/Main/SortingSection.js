@@ -35,10 +35,10 @@ function SortingButtonList() {
     setSelectedButton(targetButton);
   };
 
-  const sortingSectionClasses = classNames(styles['sorting-section'], 'flex-row');
+  const sortingSectionClasses = classNames(styles['sorting-section'], 'flex-row', 'justify-space-between');
   const sortingButtonListClasses = classNames(styles['sorting-button-list'], 'display-inline-flex', 'flex-wrap');
   const selectedButtonStyle = classNames(styles['selected-button']);
-  const addFolderButtonClasses = classNames(styles['add-folder-button']);
+  const addFolderButtonClasses = classNames(styles['add-folder-button'], 'hidden-flex-mobile-only');
   const folderInfoSectionClasses = classNames(styles['folder-info-section']);
   const titleClasses = classNames(styles.title);
   const optionListClasses = classNames(styles['option-list'], 'flex-row');

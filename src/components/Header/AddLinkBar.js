@@ -16,8 +16,14 @@ function AddLinkBar() {
   const addLinkClasses = classNames(styles['add-link-bar'], 'position-relative', 'width-full', 'margin-auto');
   const inputClasses = classNames(styles['add-link-bar-input'], 'background-white', 'text-color-gray60', 'width-full');
   const inputImgClasses = classNames(styles['add-link-bar-icon']);
-  const addLinkButtonClasses = classNames('position-absolute', styles['add-link-bar-button']);
-  const containerClasses = classNames(styles['add-link-bar-container'], 'flex-row', 'position-absolute', 'width-full');
+  const addLinkButtonClasses = classNames(styles['add-link-bar-button'], 'position-absolute');
+  const containerClasses = classNames(
+    styles['add-link-bar-container'],
+    'flex-row',
+    'justify-space-between',
+    'position-absolute',
+    'width-full'
+  );
 
   return (
     <div className={addLinkClasses}>
