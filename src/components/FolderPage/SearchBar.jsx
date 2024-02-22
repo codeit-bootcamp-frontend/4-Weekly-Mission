@@ -21,7 +21,7 @@ const InputGroup = styled.div`
 `;
 
 const SearchBar = () => (
-  <InputGroup className="search-bar-group">
+  <InputGroup>
     <TextInput type="text" placeholder="링크를 검색해 보세요" />
   </InputGroup>
 );
