@@ -3,7 +3,7 @@ import ShareImgButton from "../ShareImgButton";
 const { Kakao } = window;
 
 function KaKaoShareButton({ src, text, alt, folderId }) {
-  const resultUrl = `http://localhost:3000/shared/user=${folderId}`;
+  const resultUrl = `${window.location.href}/shared/user=${folderId}`;
 
   useEffect(() => {
     Kakao.cleanup();

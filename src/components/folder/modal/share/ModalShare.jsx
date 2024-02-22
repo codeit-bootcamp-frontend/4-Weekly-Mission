@@ -39,6 +39,7 @@ function ModalShare({ isShare, setIsShare, folderId }) {
                   src={facebookShareImg}
                   alt="facebook-share"
                   text="페이스북"
+                  folderId={folderId}
                 />
                 <ShareImgButton>
                   <ShareImg src={linkShareImg} alt="link-share" />
