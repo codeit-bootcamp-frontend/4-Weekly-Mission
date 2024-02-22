@@ -19,7 +19,11 @@ function Gnb() {
   // 유저 정보 가져오기
   const [userInfo, setUserInfo] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
-  const location = useLocation().pathname;
+  const { pathname, state, search } = useLocation();
+
+  console.log(pathname); // 현재 URL의 경로명을 출력
+  console.log(state); // location에 전달된 상태를 출력
+  console.log(search); // URL의 쿼리 문자열을 출력
 
   const handleLoadUser = async () => {
     try {
@@ -42,14 +46,15 @@ function Gnb() {
   const userProfileImg = userInfo?.profileImageSource || DefaultProfileImg;
   const userEmail = userInfo?.email ?? '';
 
-  const navClasses = classNames(styles.gnb, { 'position-fixed': location !== FOLDER_LOCATION }, 'margin-auto', 'z-top');
+  // /folder에서는 position-fixed 제거
+  const navClasses = classNames(styles.gnb, { 'position-fixed': pathname !== FOLDER_LOCATION }, 'margin-auto', 'z-top');
   const containerClasses = classNames(styles['gnb-container'], 'flex-row');
   const logoClasses = classNames(styles['gnb-logo']);
   const profileClasses = classNames(styles['gnb-profile'], 'flex-row');
   const profileImgClasses = classNames(styles['profile-img']);
   const profileEmailClasses = classNames(styles['profile-email'], styles.hidden, 'hidden', 'text-color-gray100');
   // gnb의 position-fixed에 대한 더미
-  const navDummyClasses = classNames({ [styles['nav-dummy']]: location !== FOLDER_LOCATION });
+  const navDummyClasses = classNames({ [styles['nav-dummy']]: pathname !== FOLDER_LOCATION });
 
   return (
     <div>
