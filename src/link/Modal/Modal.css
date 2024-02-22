@@ -1,0 +1,14 @@
+.modal {
+  background-color: rgba(255, 255, 255);
+  top: 20px;
+  right: 0;
+  color: black;
+  position: absolute;
+  padding: 10px 15px;
+  border: 1px solid gray;
+}
+.modal-text {
+  border-bottom: 1px solid gray;
+  padding-bottom: 5px;
+  margin: 5px 0px;
+}

@@ -1,40 +1,16 @@
-import { Layout } from "./feature/Layout";
-import { SharedPage } from "./page-layout/SharedPage";
-import "./global.css";
-import { FolderInfo } from "./ui/FolderInfo";
-import { SearchBar } from "./ui/SearchBar";
-import { CardList } from "./ui/CardList";
-import { useGetFolder } from "data-access/useGetFolder";
-import { ReadOnlyCard } from "ui/ReadOnlyCard";
-import { GuideButton } from "ui/GuideButton";
-import { AddFolder } from "ui/AddFolder";
+import "sharing/styles/reset.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { SharedPage } from "pages/SharedPage";
+import { FolderPage } from "pages/FolderPage";
 
 function App() {
-  const { data } = useGetFolder();
-  const { profileImage, ownerName, folderName, links } = data || {};
-
   return (
-    <Layout>
-      <SharedPage
-        folderInfo={
-          <FolderInfo
-            profileImage={profileImage}
-            ownerName={ownerName}
-            folderName={folderName}
-          />
-        }
-        searchBar={<SearchBar />}
-        guideButton={<GuideButton />}
-        cardList={
-          <CardList>
-            {links?.map((link) => (
-              <ReadOnlyCard key={link?.id} {...link} />
-            ))}
-          </CardList>
-        }
-      />
-      <AddFolder />
-    </Layout>
+    <BrowserRouter>
+      <Routes path="/">
+        <Route path="shared" element={<SharedPage />} />
+        <Route path="folder" element={<FolderPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
