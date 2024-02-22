@@ -32,7 +32,7 @@ export default function Card() {
             <div className="cardTextArea">
               <div className="uploadTime">{getElapsedTime(link.createdAt)}</div>
               <div className="cardText">{link.description}</div>
-              <div className="uploadDate">{Moment(link.createdAt.slice(0, 10)).format('YYYY.MM.DD')}</div>
+              <div className="uploadDate">{Moment(link.createdAt).format('YYYY.MM.DD')}</div>
             </div>
           </a>
         </div>
