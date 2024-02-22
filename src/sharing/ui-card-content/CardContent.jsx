@@ -3,7 +3,12 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-export const CardContent = ({ elapsedTime, description, createdAt, isHovered }) => {
+export const CardContent = ({
+  elapsedTime,
+  description,
+  createdAt,
+  isHovered,
+}) => {
   return (
     <div className={cx("container", { hovered: isHovered })}>
       <span className={cx("elapsed-time")}>{elapsedTime}</span>

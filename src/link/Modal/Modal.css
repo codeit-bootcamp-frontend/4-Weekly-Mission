@@ -4,11 +4,21 @@
   right: 0;
   color: black;
   position: absolute;
-  padding: 10px 15px;
-  border: 1px solid gray;
+  box-shadow: 0px 2px 8px 0px #3332361a;
+  border-radius: 5px;
 }
 .modal-text {
-  border-bottom: 1px solid gray;
-  padding-bottom: 5px;
-  margin: 5px 0px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.modal-text:hover {
+  background-color: #e7effb;
+  color: #6d6afe;
+}
+.modal-content {
+  width: 100px;
+  height: 60px;
 }

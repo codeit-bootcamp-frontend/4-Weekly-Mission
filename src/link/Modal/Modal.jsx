@@ -6,7 +6,7 @@ const Modal = ({ children, onClose }) => {
     <div className="modal">
       <div className="modal-content">
         <div className="modal-text">{children}</div>
-        <button className="closeButton" onClick={onClose}>
+        <button className="modal-text closeButton" onClick={onClose}>
           ❌
         </button>
       </div>
@@ -15,7 +15,3 @@ const Modal = ({ children, onClose }) => {
 };
 
 export default Modal;
-
-// id = "modal-root";
-// showModal = { showModal };
-// onClose = { handleCloseModal };
