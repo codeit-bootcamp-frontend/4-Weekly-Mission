@@ -63,7 +63,7 @@ const CategoryButton = styled.button`
   height: 3.9rem;
   border: 0.1rem solid #6d6afe;
   background-color: ${({ checked, theme }) =>
-    checked ? theme.primary_color : theme.white};
+    checked ? theme.primary : theme.white};
   color: ${({ checked, theme }) => (checked ? theme.white : theme.black)};
   padding: 0.8rem 1.2rem;
   font-size: 1.6rem;
@@ -83,7 +83,7 @@ const AddButtonContainer = styled.div`
     width: 13rem;
     bottom: 10.1rem;
     left: calc(50vw - 6.3rem);
-    background-color: ${props => props.theme.primary_color};
+    background-color: ${props => props.theme.primary};
     border-radius: 2rem;
     padding: 0.8rem 2.4rem;
   }
@@ -93,7 +93,7 @@ const Text = styled.div`
   font-weight: 500;
   letter-spacing: -0.03rem;
   white-space: nowrap;
-  color: ${props => props.theme.primary_color};
+  color: ${props => props.theme.primary};
   @media (max-width: 767px) {
     color: ${props => props.theme.white};
   }
