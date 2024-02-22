@@ -19,17 +19,21 @@ function Folder() {
     'z-top'
   );
 
+  const containerClasses = classNames('min-height-100vh');
+
   return (
     <div>
-      <Header>
-        <FolderHeaderContent />
-      </Header>
-      <Main>
-        <SearchBar />
-        <SortingSection />
-        <CardList />
-        <FloatingAddFolderButton className={floatingAddFolderButtonClasses} />
-      </Main>
+      <div className={containerClasses}>
+        <Header>
+          <FolderHeaderContent />
+        </Header>
+        <Main>
+          <SearchBar />
+          <SortingSection />
+          <CardList />
+          <FloatingAddFolderButton className={floatingAddFolderButtonClasses} />
+        </Main>
+      </div>
       <Footer />
     </div>
   );
