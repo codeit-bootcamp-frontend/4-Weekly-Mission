@@ -9,7 +9,6 @@ import FolderContainer from "../components/folder/Container";
 import Banner from "../components/folder/Banner";
 
 function Folder() {
-  const [user, setUser] = useState(null);
   const [folder, setFolder] = useState(null);
   const [link, setLink] = useState(null);
   const [folderState, setFolderState] = useState({
@@ -37,7 +36,6 @@ function Folder() {
   };
 
   useEffect(() => {
-    getSampeUser().then(setUser);
     getUserFolder().then(setFolder);
   }, []);
 
@@ -46,16 +44,15 @@ function Folder() {
   }, [folderState]);
 
   return (
-    <main>
-      <Header user={user} />
+    <>
       <Banner />
       <FolderContainer
         folder={folder}
         cardLink={link}
         folderState={folderState}
         setFolderState={filterHandler}
-      />
-    </main>
+      ></FolderContainer>
+    </>
   );
 }
 

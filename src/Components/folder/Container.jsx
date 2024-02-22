@@ -15,16 +15,11 @@ function FolderContainer({
   folderState,
   setFolderState,
 }) {
-  if (!folder) {
-    return null;
-  }
-  if (!cardLink) {
-    return null;
-  }
-  const { data: folderData } = folder;
-  const { data: cardData } = cardLink;
+  // folder가 null인지 체크하고, null이면 빈 배열로 설정
+  const folderData = folder ? folder.data || [] : [];
+  // cardLink가 null인지 체크하고, null이면 빈 배열로 설정
+  const cardData = cardLink ? cardLink.data || [] : [];
 
-  console.log(folderData);
   return (
     <section className={styles.folder_section}>
       <Wrapper className={styles.folder_container}>
