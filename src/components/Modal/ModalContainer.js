@@ -3,7 +3,7 @@ import closeIcon from "../../assets/close.svg";
 import "./Modal.css";
 
 const ModalContainer = ({ isOpen, onClose, children }) => {
-  const customStyles = {
+  const defaultStyles = {
     content: {
       top: "50%",
       left: "50%",
@@ -15,7 +15,7 @@ const ModalContainer = ({ isOpen, onClose, children }) => {
   };
 
   return (
-    <Modal isOpen={isOpen} onRequestClose={onClose} style={customStyles}>
+    <Modal isOpen={isOpen} onRequestClose={onClose} style={defaultStyles}>
       <div className="modalBox">
         <img
           src={closeIcon}

@@ -9,7 +9,6 @@ const PopoverContainer = styled.div`
   position: absolute;
   right: -55px;
   top: 30px;
-  z-index: 1;
   box-shadow: 0 0.2rem 0.8rem 0 rgba(51, 50, 54, 0.1);
   background: white;
 `;
@@ -31,15 +30,13 @@ const PopoverList = styled.li`
 const PopoverListWithModal = ({ modalComponent, label }) => {
   const { showModal, handleOpenModal, handleCloseModal } = useModal();
   return (
-    <PopoverList onClick={handleOpenModal}>
-      {label}
-      {showModal &&
-        React.cloneElement(modalComponent, {
-          isOpen: showModal,
-          onClose: handleCloseModal,
-        })}
-      {console.log(handleCloseModal)}
-    </PopoverList>
+    <>
+      <PopoverList onClick={handleOpenModal}>{label}</PopoverList>
+      {React.cloneElement(modalComponent, {
+        isOpen: showModal,
+        onClose: handleCloseModal,
+      })}
+    </>
   );
 };
 
