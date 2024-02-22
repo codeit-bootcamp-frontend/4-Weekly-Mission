@@ -47,7 +47,7 @@ const StyledInput = styled.input`
   margin: 0 auto;
   height: 6.9rem;
   border-radius: 1.5rem;
-  border: 0.1rem solid ${props => props.theme.primary_color};
+  border: 0.1rem solid ${props => props.theme.primary};
   padding: 1.6rem 2rem 1.6rem 5.2rem;
   font-size: 1.6rem;
   @media (max-width: 1199px) {

@@ -34,7 +34,7 @@ const StyledButton = styled.button`
   height: 3.7rem;
   background-image: linear-gradient(
     135deg,
-    ${props => props.theme.primary_color} 0%,
+    ${props => props.theme.primary} 0%,
     #6ae3fe 100%
   );
   border-radius: 0.8rem;

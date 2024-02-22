@@ -48,15 +48,22 @@ const Card = ({
 
 const StyledCard = styled.a`
   position: relative;
-  width: 34rem;
+  width: 100%;
   height: 30.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   overflow: hidden;
+  margin: 0 auto;
   box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
   border-radius: 1.5rem;
+  @media (min-width: 768px) and (max-width: 1199px) {
+    max-width: 34rem;
+  }
+  @media (min-width: 375px) and (max-width: 767px) {
+    max-width: 34rem;
+  }
 `;
 const CardImgContainer = styled.div`
   width: 100%;
