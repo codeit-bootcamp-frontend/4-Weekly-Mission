@@ -5,7 +5,7 @@ async function useFetch(apiUrl) {
 
   const response = await fetch(url);
   const result = await response.json();
-  const responseError = result.error;
+  const responseError = result?.error ?? 'Fetch response failed';
 
   if (!response.ok) {
     throw new Error(`User response error: ${responseError}`);
