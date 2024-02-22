@@ -3,7 +3,7 @@ import Wrapper from "../common/layout/Wrapper";
 import SearchBar from "../common/SearchBar/SearchBar";
 import styles from "./Container.module.css";
 import FolderCard from "./FolderCard";
-import Folder from "./FolderItem";
+import Folder from "./FolderCategoryItem";
 import Banner from "./Banner";
 import BlankCard from "../ui/BlankCard";
 import { IoMdAdd } from "react-icons/io";

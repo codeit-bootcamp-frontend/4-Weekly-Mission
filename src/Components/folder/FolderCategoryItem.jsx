@@ -19,8 +19,7 @@ const SelectedFolder = styled(DefaultFolder)`
   color: white;
 `;
 
-const FolderItem = ({ children, isSelected, onClick }) => {
-  console.log(isSelected);
+const FolderCategoryItem = ({ children, isSelected, onClick }) => {
   return isSelected ? (
     <SelectedFolder onClick={onClick}>{children}</SelectedFolder>
   ) : (
@@ -28,4 +27,4 @@ const FolderItem = ({ children, isSelected, onClick }) => {
   );
 };
 
-export default FolderItem;
+export default FolderCategoryItem;

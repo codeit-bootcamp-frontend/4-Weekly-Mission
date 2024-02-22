@@ -1,18 +1,14 @@
 import React, { useEffect, useState } from "react";
-import Header from "../components/common/header/Header";
-import {
-  getSampeUser,
-  getUserFolder,
-  getFolderLink,
-} from "../utils/Api";
+import { getUserFolder, getFolderLink } from "../utils/Api";
 import FolderContainer from "../components/folder/Container";
 import Banner from "../components/folder/Banner";
 import SearchBar from "../components/common/SearchBar/SearchBar";
-import FolderItem from "../components/folder/FolderItem";
+import FolderItem from "../components/folder/FolderCategoryItem";
 
 import FolderCard from "../components/folder/FolderCard";
 import BlankCard from "../components/ui/BlankCard";
 import FolderAddButton from "../components/folder/FolderAddButton";
+import FolderCategoriseArea from "../components/folder/\bFolderCategoriseArea";
 
 function Folder() {
   const [folders, setFolders] = useState(null);
@@ -55,48 +51,36 @@ function Folder() {
       <section>
         <div>
           <SearchBar />
-          <div className="2">
-            <div className="list">
-              <FolderItem>전체</FolderItem>
-              {folders
-                ? folders.data.map(folder => (
-                    <FolderItem key={folder.id}>
-                      {folder.name}
-                    </FolderItem>
-                  ))
-                : ""}
-            </div>
-            <FolderAddButton />
-            <div className="3">
-              <h2>{folderState.name}</h2>
+          <FolderCategoriseArea folders={folders} />
+          <div className="3">
+            <h2>{folderState.name}</h2>
+            <div>
               <div>
-                <div>
-                  <img src="/Icons/share.svg" alt="공유" />
-                  <p>공유</p>
-                </div>
-                <div>
-                  <img src="/Icons/pen.svg" alt="이름 변경" />
-                  <p>이름 변경</p>
-                </div>
-                <div>
-                  <img src="/Icons/delete.svg" alt="삭제" />
-                  <p>삭제</p>
-                </div>
+                <img src="/Icons/share.svg" alt="공유" />
+                <p>공유</p>
+              </div>
+              <div>
+                <img src="/Icons/pen.svg" alt="이름 변경" />
+                <p>이름 변경</p>
+              </div>
+              <div>
+                <img src="/Icons/delete.svg" alt="삭제" />
+                <p>삭제</p>
               </div>
             </div>
-
-            {links.length !== 0 ? (
-              <div>
-                {links.data.map(link => (
-                  <FolderCard key={link.id} cardData={link} />
-                ))}
-              </div>
-            ) : (
-              <div>
-                <BlankCard />
-              </div>
-            )}
           </div>
+
+          {links.length !== 0 ? (
+            <div>
+              {links.data.map(link => (
+                <FolderCard key={link.id} cardData={link} />
+              ))}
+            </div>
+          ) : (
+            <div>
+              <BlankCard />
+            </div>
+          )}
         </div>
       </section>
     </>
