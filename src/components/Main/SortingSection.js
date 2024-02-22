@@ -1,12 +1,15 @@
-import { useState } from 'react';
 import classNames from 'classnames';
-import SortingButton from '../Common/SortingButton';
+import { useState } from 'react';
+
+import DeleteIcon from 'assets/images/delete.svg';
+import PenIcon from 'assets/images/pen.svg';
+import ShareIcon from 'assets/images/share.svg';
+
+import AddFolderButton from 'components/Common/AddFolderButton';
+import Option from 'components/Common/Option';
+import SortingButton from 'components/Common/SortingButton';
+
 import styles from './SortingSection.module.css';
-import Option from '../Common/Option';
-import ShareIcon from '../../assets/images/share.svg';
-import PenIcon from '../../assets/images/pen.svg';
-import DeleteIcon from '../../assets/images/delete.svg';
-import AddFolderButton from '../Common/AddFolderButton';
 
 function SortingButtonList() {
   const ALL = '전체';

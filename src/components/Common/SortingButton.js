@@ -1,6 +1,8 @@
 import classNames from 'classnames';
+
+import Button from 'components/Common/Button';
+
 import styles from './SortingButton.module.css';
-import Button from './Button';
 
 function SortingButton({ className, text, onClick }) {
   const buttonClasses = classNames(styles['sorting-button'], 'background-white', className);

@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
 import classNames from 'classnames';
+import React, { useState } from 'react';
+
+import addLinkIcon from 'assets/images/link.svg';
+
+import AddLinkButton from 'components/Common/AddLInkButton';
+
 import styles from './AddLinkBar.module.css';
-import addLinkIcon from '../../assets/images/link.svg';
-import AddLinkButton from '../Common/AddLInkButton';
 
 function AddLinkBar() {
   const [addLinkValue, setAddLinkValue] = useState('');

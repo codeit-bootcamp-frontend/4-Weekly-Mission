@@ -1,9 +1,12 @@
-import { useState, useEffect } from 'react';
 import classNames from 'classnames';
+import { useState, useEffect } from 'react';
+
+import ErrorMessage from 'components/Common/ErrorMessage';
+import Card from 'components/Main/Card';
+
+import { getLinksInfo } from 'services/api';
+
 import styles from './CardList.module.css';
-import Card from './Card';
-import { getLinksInfo } from '../../services/api';
-import ErrorMessage from '../Common/ErrorMessage';
 
 // folder id를 props로 받아서 api 적용할 것
 function CardList() {

@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
 import classNames from 'classnames';
+import React, { useState } from 'react';
+
+import searchIcon from 'assets/images/search-icon.svg';
+
 import styles from './SearchBar.module.css';
-import searchIcon from '../../assets/images/search-icon.svg';
 
 function SearchBar() {
   const [value, setValue] = useState('');

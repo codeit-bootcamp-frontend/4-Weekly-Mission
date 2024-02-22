@@ -1,12 +1,16 @@
+import classNames from 'classnames';
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import classNames from 'classnames';
+
+import logo from 'assets/images/logo.svg';
+import DefaultProfileImg from 'assets/images/profile-img.png';
+
+import ErrorMessage from 'components/Common/ErrorMessage';
+import LoginButton from 'components/Common/LoginButton';
+
+import { getUserInfo } from 'services/api';
+
 import styles from './Gnb.module.css';
-import { getUserInfo } from '../../services/api';
-import LoginButton from '../Common/LoginButton';
-import logo from '../../assets/images/logo.svg';
-import ErrorMessage from '../Common/ErrorMessage';
-import DefaultProfileImg from '../../assets/images/profile-img.png';
 
 // 글로벌 네비게이션 바
 function Gnb() {

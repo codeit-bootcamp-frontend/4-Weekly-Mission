@@ -1,13 +1,15 @@
 import classNames from 'classnames';
+
+import FloatingAddFolderButton from 'components/Common/FlaotingAddFolderButton';
+import Footer from 'components/Footer/Footer';
+import FolderHeaderContent from 'components/Header/FolderHeaderContent';
+import Header from 'components/Header/Header';
+import CardList from 'components/Main/CardList';
+import Main from 'components/Main/Main';
+import SearchBar from 'components/Main/SearchBar';
+import SortingSection from 'components/Main/SortingSection';
+
 import styles from './FolderPage.module.css';
-import Header from '../../components/Header/Header';
-import Main from '../../components/Main/Main';
-import Footer from '../../components/Footer/Footer';
-import SearchBar from '../../components/Main/SearchBar';
-import CardList from '../../components/Main/CardList';
-import FolderHeaderContent from '../../components/Header/FolderHeaderContent';
-import FloatingAddFolderButton from '../../components/Common/FlaotingAddFolderButton';
-import SortingSection from '../../components/Main/SortingSection';
 
 function Folder() {
   const floatingAddFolderButtonClasses = classNames(styles['floating-add-folder-button'], 'position-fixed', 'z-top');

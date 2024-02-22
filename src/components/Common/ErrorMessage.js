@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+
 import styles from './ErrorMessage.module.css';
 
 function ErrorMessage({ message }) {

@@ -1,9 +1,12 @@
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+
+import NoImage from 'assets/images/card-no-image.svg';
+
+import formatDate from 'utils/formatDate';
+import timeAgo from 'utils/timeAgo';
+
 import styles from './Card.module.css';
-import timeAgo from '../../utils/timeAgo';
-import formatDate from '../../utils/formatDate';
-import NoImage from '../../assets/images/card-no-image.svg';
 
 function Card({ createdAt, url, description, imageSource }) {
   const createdTimeAgo = timeAgo(createdAt);

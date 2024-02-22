@@ -1,10 +1,12 @@
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
+
+import facebook from 'assets/images/akar-icons_facebook-fill.svg';
+import twitter from 'assets/images/akar-icons_twitter-fill.svg';
+import youtube from 'assets/images/akar-icons_youtube-fill.svg';
+import instagram from 'assets/images/ant-design_instagram-filled.svg';
+
 import styles from './Footer.module.css';
-import facebook from '../../assets/images/akar-icons_facebook-fill.svg';
-import twitter from '../../assets/images/akar-icons_twitter-fill.svg';
-import youtube from '../../assets/images/akar-icons_youtube-fill.svg';
-import instagram from '../../assets/images/ant-design_instagram-filled.svg';
 
 function Footer() {
   const socialLinks = [

@@ -1,5 +1,6 @@
-import propTypes from 'prop-types';
 import classNames from 'classnames';
+import propTypes from 'prop-types';
+
 import styles from './Main.module.css';
 
 function Main({ children }) {
