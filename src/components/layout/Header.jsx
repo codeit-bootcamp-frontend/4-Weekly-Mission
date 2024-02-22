@@ -1,9 +1,14 @@
 import '../../styles/Header.css';
+import { useLocation } from 'react-router-dom';
 import linkbraryLogo from '../../assets/linkbrary-logo.svg';
 
 function Header({ user }) {
+  const { pathname } = useLocation();
+  // eslint-disable-next-line dot-notation
+  const profileImageUrl = user ? user.profileImageSource || user['image_source'] : '';
+
   return (
-    <header className="header-area">
+    <header className={`header-area ${pathname === '/folder' ? 'static' : ''}`}>
       <div className="header-group">
         <a href="/" className="logo-area">
           <img src={linkbraryLogo} alt="로고" className="logo-img" />
@@ -11,7 +16,7 @@ function Header({ user }) {
         <button className="btn-group">
           {user ? (
             <>
-              <img src={user.profileImageSource} alt="프로필 사진" className="user-profile" />
+              <img src={profileImageUrl} alt="프로필 사진" className="user-profile" />
               <span className="user-email">{user.email}</span>
             </>
           ) : (

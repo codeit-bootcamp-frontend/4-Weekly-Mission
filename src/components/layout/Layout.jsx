@@ -1,7 +1,7 @@
 import '../../styles/style.css';
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { getSampleUser } from '../../util/api';
+import { getUser } from '../../util/api';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -10,9 +10,9 @@ function Layout() {
 
   const handleUserLoad = async () => {
     try {
-      const user = await getSampleUser();
+      const { data } = await getUser();
 
-      setUser(user);
+      setUser(data[0]);
     } catch (err) {
       console.error(err.message);
     }
