@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { getFolderInfo } from "../api/api";
+import { getLinkInfo } from "../api/api";
 import Button from "./Button";
 import styles from "../css/FolderList.module.css";
 import plusIcon from "../images/Icon_plus.svg";
 import shareIcon from "../images/Icon_share.svg";
 import editIcon from "../images/Icon_edit.svg";
 import deleteIcon from "../images/Icon_delete.svg";
+import LinkList from "./LinkList";
 
 function FolderList() {
   const [folderListData, setFolderListData] = useState([]);
@@ -20,7 +21,7 @@ function FolderList() {
   }
 
   const getFolderData = async (path) => {
-    const { data } = await getFolderInfo(path);
+    const { data } = await getLinkInfo(path);
     
     if (!data) return;
 
@@ -28,7 +29,7 @@ function FolderList() {
   }
 
   useEffect(() => {
-    getFolderData('folders');
+    getFolderData('users/1/folders');
   }, [])
 
   return (
@@ -68,6 +69,7 @@ function FolderList() {
         </div>
       </div>
     </div>
+    <LinkList query={'users/1/links'} id={currentId === 0 ? '': currentId} />
   </>
   );
 }

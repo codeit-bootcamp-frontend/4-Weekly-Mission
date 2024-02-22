@@ -1,8 +1,2 @@
 @import "../css/palette.css";
 
-.noLinks {
-  color: var(--black);
-  text-align: center;
-  padding: 42px 0 35px;
-  margin-top: 40px;
-}
