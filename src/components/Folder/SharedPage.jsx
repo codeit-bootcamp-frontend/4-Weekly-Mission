@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Layout from "../Layout/Layout";
-import LenderingCards from "./Card/LenderingCards";
-import Profile from "./Banner/Profile";
+import Layout from "../Layout/index.jsx";
+import LenderingCards from "./LenderingCards.jsx";
+import Profile from "./Banner/Profile/index.jsx";
 
 const SharedPage = () => {
   const [isLinkExist, setIsLinkExist] = useState(false);

@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import LogoSvg from "./gnb/LogoSvg";
-import Avatar from "./gnb/Avatar";
+import LogoSvg from "./Logo/index.jsx";
+import Avatar from "./Avatar/index.jsx";
 import "../../../styles/common.css";
 
 const Header = () => {

@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { useState, useEffect } from "react";
 import { css } from "@emotion/react";
-import api from "../../../utils/api";
-import "../../../styles/common.css";
+import api from "../../../../utils/api";
+import "../../../../styles/common.css";
 
 const Profile = () => {
   const [ownerData, setOwnerData] = useState({

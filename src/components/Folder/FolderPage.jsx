@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import Layout from "../Layout/Layout";
-import AddLink from "./Banner/AddLink";
-import LenderingCards from "./Card/LenderingCards";
+import Layout from "../Layout";
+import AddLink from "./Banner/AddLink/index";
+import LenderingCards from "./LenderingCards";
 import NavButton from "../../utils/NavButton";
 import api from "../../utils/api";
 

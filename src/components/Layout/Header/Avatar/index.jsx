@@ -5,19 +5,20 @@ import useGetUser from "../../../../hooks/useGetUser";
 import "../../../../styles/common.css";
 
 const Avatar = () => {
-  const { userEmail, userAvatar, isLoading } = useGetUser();
+  const { userInfo, isLoading } = useGetUser();
+  console.log(userInfo);
 
   return (
     <div css={divStyle}>
       <div css={imgWrapperStyle}>
-        <img src={userAvatar} css={imageStyle} alt="계정이미지" />
+        <img src={userInfo.avatar} css={imageStyle} alt="계정이미지" />
       </div>
-      <p css={pStyle}>{userEmail}</p>
+      <p css={pStyle}>{userInfo.email}</p>
       <Button
         name="로그인"
         size="small"
         isLoading={isLoading}
-        key={userEmail}
+        key={userInfo.email}
         css={btnCss}
       />
     </div>

@@ -1,8 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { useState } from "react";
 import { css } from "@emotion/react";
-import searchImg from "../../../assets/Search.png";
-import "../../../styles/common.css";
+import searchImg from "../../assets/Search.png";
+import "../../styles/common.css";
 
 const SearchingBar = ({ onSearch }) => {
   const [keyword, setKeyword] = useState("");

@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { useState, useEffect } from "react";
 import { css } from "@emotion/react";
-import Cards from "./Cards";
+import Cards from "./Cards/index.jsx";
 import SearchingBar from "./SearchingBar.jsx";
-import api from "../../../utils/api.js";
-import "../../../styles/common.css";
+import api from "../../utils/api.js";
+import "../../styles/common.css";
 
 const LenderingCards = (props) => {
   const { linkExist, linkNotExist, query, objKey } = props;

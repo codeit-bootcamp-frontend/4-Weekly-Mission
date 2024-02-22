@@ -1,11 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import Card from "./Card";
+import Card from "./Card/index";
 import "../../../styles/reset.css";
 import "../../../styles/common.css";
 
 const Cards = ({ items }) => {
-  
   return (
     <>
       <div css={divCss}>

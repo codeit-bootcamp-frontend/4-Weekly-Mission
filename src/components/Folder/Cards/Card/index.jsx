@@ -2,13 +2,13 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { css } from "@emotion/react";
-import { timeCalculator } from "../../../utils/timeCalculator";
-import { formatDate } from "../../../utils/formatDate";
-import kebab from "../../../assets/kebab.png";
-import star from "../../../assets/star.svg";
-import filledStar from "../../../assets/filledStar.svg";
-import logo from "../../../assets/Linkbrary.png";
-import "../../../styles/common.css";
+import { timeCalculator } from "../../../../utils/timeCalculator";
+import { formatDate } from "../../../../utils/formatDate";
+import kebab from "../../../../assets/kebab.png";
+import star from "../../../../assets/star.svg";
+import filledStar from "../../../../assets/filledStar.svg";
+import logo from "../../../../assets/Linkbrary.png";
+import "../../../../styles/common.css";
 
 const Card = ({ item }) => {
   const createdDate = formatDate(item.createdAt || item.created_at);
