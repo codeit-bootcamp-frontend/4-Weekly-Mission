@@ -14,7 +14,7 @@ import styles from './Gnb.module.css';
 
 // 글로벌 네비게이션 바
 function Gnb() {
-  const FOLDERLOCATION = '/folder';
+  const FOLDER_LOCATION = '/folder';
 
   // 유저 정보 가져오기
   const [userInfo, setUserInfo] = useState(null);
@@ -42,14 +42,14 @@ function Gnb() {
   const userProfileImg = userInfo?.profileImageSource || DefaultProfileImg;
   const userEmail = userInfo?.email || '';
 
-  const navClasses = classNames(styles.gnb, { 'position-fixed': location !== FOLDERLOCATION }, 'margin-auto', 'z-top');
+  const navClasses = classNames(styles.gnb, { 'position-fixed': location !== FOLDER_LOCATION }, 'margin-auto', 'z-top');
   const containerClasses = classNames(styles['gnb-container'], 'flex-row');
   const logoClasses = classNames(styles['gnb-logo']);
   const profileClasses = classNames(styles['gnb-profile'], 'flex-row');
   const profileImgClasses = classNames(styles['profile-img']);
   const profileEmailClasses = classNames(styles['profile-email'], styles.hidden, 'hidden', 'text-color-gray100');
   // gnb의 position-fixed에 대한 더미
-  const navDummyClasses = classNames({ [styles['nav-dummy']]: location !== FOLDERLOCATION });
+  const navDummyClasses = classNames({ [styles['nav-dummy']]: location !== FOLDER_LOCATION });
 
   return (
     <div>
