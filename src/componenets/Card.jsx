@@ -6,6 +6,10 @@ import "./Card.css";
 import { Link } from "react-router-dom";
 
 export default function Card({ data }) {
+  function handleImgError(e) {
+    e.target.src = noImage;
+  }
+
   return (
     <Link
       to={data.url}
@@ -18,6 +22,7 @@ export default function Card({ data }) {
           className="cardImg"
           src={data.image_source || noImage}
           alt="카드썸네일"
+          onError={handleImgError}
         />
       </div>
       <img className="cardStar" src={emptyStar} alt="빈 별" />
