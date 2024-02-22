@@ -21,4 +21,5 @@
 
   /* z-index */
   --gnb-high: 10;
+  --gnb-low: 5;
 }
