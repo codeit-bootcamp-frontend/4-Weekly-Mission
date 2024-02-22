@@ -6,7 +6,7 @@ import Privacy from "./Privacy";
 import Faq from "./Faq";
 import Folder from "./folder/Folder";
 import Shared from "./shared/Shared";
-import PageLayout from "./PageLayout";
+import PageLayout from "./pageLayout/PageLayout";
 import GlobalStyle from "./GlobalStyle";
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<PageLayout />}>
           <Route index element={<Navigate to="/folder" />} />
-          <Route path="shared" element={<Shared />} />
+          <Route path="shared/:folderId" element={<Shared />} />
           <Route path="landing" element={<Landing />} />
           <Route path="signup" element={<Signup />} />
           <Route path="signin" element={<Signin />} />

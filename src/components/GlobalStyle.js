@@ -1,6 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -20,7 +23,6 @@ a {
   font-family: Pretendard;
   font-size: 18px;
   font-style: normal;
-  font-weight: 600;
   line-height: normal;
   cursor: pointer;
   text-decoration: none;

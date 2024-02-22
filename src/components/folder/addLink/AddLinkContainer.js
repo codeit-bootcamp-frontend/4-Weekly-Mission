@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
-const MainContainer = styled.div`
+const AddLinkContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 40px;
-  padding: 40px 0;
-  max-width: 1060px;
+  background: #f0f6ff;
+  padding: 60px 0 90px 0;
   width: 100%;
+
   @media (max-width: 1124px) {
     padding: 40px 32px;
   }
 `;
-export default MainContainer;
+
+export default AddLinkContainer;
