@@ -34,8 +34,16 @@ const NoCardImg = () => {
 };
 
 const FolderCard = function ({ contents, favorite = false, kebab = false }) {
-	const { id, created_at, description, imageSource, url, createdAt } = contents;
-	const cardImage = { backgroundImage: `url(${imageSource})` };
+	const {
+		id,
+		created_at,
+		createdAt,
+		description,
+		imageSource,
+		image_source,
+		url,
+	} = contents;
+	const cardImage = { backgroundImage: `url(${imageSource || image_source})` };
 
 	const timeConversion = new Date(created_at || createdAt); // sampleApi와 userApi의 양식이 달라 호환시키기 위함
 
@@ -52,7 +60,7 @@ const FolderCard = function ({ contents, favorite = false, kebab = false }) {
 			className="card-box"
 			key={id}
 		>
-			{imageSource ? <div style={cardImage} /> : <NoCardImg />}
+			{imageSource || image_source ? <div style={cardImage} /> : <NoCardImg />}
 			{favorite && (
 				<img className="favor-star" src="star.svg" alt="FavoriteButton" />
 			)}
