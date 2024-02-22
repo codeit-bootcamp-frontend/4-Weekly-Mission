@@ -15,7 +15,7 @@ import ShareText from "./ShareText";
 import KaKaoShareButton from "./kakao/KakaoShareButton";
 import FacebookShareBtn from "./facebook/FacebookShareButton";
 
-function ModalShare({ isShare, setIsShare, folderId }) {
+function ModalShare({ isShare, setIsShare, folderId, folderName }) {
   const handleClose = () => setIsShare(!isShare);
   return (
     <>
@@ -26,7 +26,7 @@ function ModalShare({ isShare, setIsShare, folderId }) {
               <CloseButton onClick={() => handleClose()} />
               <TitleContainer>
                 <Title>폴더 공유</Title>
-                <FolderText>폴더명</FolderText>
+                <FolderText>{folderName}</FolderText>
               </TitleContainer>
               <ShareContainer>
                 <KaKaoShareButton

@@ -11,7 +11,7 @@ const folderListDataApiURL =
 
 async function getApiResponse(url, errorMessage) {
   const response = await fetch(url);
-  if (!response.ok) {
+  if (!response?.ok) {
     return new Error(errorMessage);
   }
   const body = await response.json();

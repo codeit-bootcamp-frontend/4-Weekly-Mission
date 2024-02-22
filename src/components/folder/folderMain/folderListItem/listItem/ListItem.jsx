@@ -15,19 +15,9 @@ import StyledFolderListItem from "./StyledFolderListItem";
 import DateDiv from "./DateDiv";
 
 function ListItem({ item, onHover, hoverdId, onMouseOut }) {
-  const [clickedStarId, setClickedStarId] = useState(null);
-  const [toggleStarImg, setToggleStarImg] = useState(starOffImg);
   const [starred, setStarred] = useState(false);
-  const handleStarClick = (e, id) => {
+  const handleStarClick = (e) => {
     e.preventDefault();
-    setClickedStarId(id);
-    if (starred) {
-      setToggleStarImg(starOffImg);
-      e.target.alt = "starOffImg";
-    } else {
-      setToggleStarImg(starOnImg);
-      e.target.alt = "starOnImg";
-    }
     setStarred(!starred);
   };
   return (
@@ -46,11 +36,20 @@ function ListItem({ item, onHover, hoverdId, onMouseOut }) {
           src={item.image_source || noImage}
           alt={item.image_source || noImage}
         />
-        <StarImg
-          onClick={(e) => handleStarClick(e, item.id)}
-          src={item.id === clickedStarId ? toggleStarImg : toggleStarImg}
-          alt="starOffImg"
-        />
+        {starred && (
+          <StarImg
+            onClick={(e) => handleStarClick(e)}
+            src={starOnImg}
+            alt="starOnImg"
+          />
+        )}
+        {!starred && (
+          <StarImg
+            onClick={(e) => handleStarClick(e)}
+            src={starOffImg}
+            alt="starOffImg"
+          />
+        )}
       </FolderListItemDiv>
       <FolderListItemDescription>
         <RelativeTimeAndKebab>

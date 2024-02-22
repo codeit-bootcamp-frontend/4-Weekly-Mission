@@ -20,9 +20,10 @@ function FolderMain() {
   const [clickedButtonId, setClickedButtonId] = useState(null);
   const [mouseHoverkey, setMouseHoverKey] = useState(null);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const [isShare, setIsShare] = useState(false);
   const [isEditFolder, setIsEditFolder] = useState(false);
   const [isDeleteFolder, setIsDeleteFolder] = useState(false);
-  const [isShare, setIsShare] = useState(false);
 
   const memoizedAddImgSrc = useMemo(
     () => (windowWidth > 768 ? addImgPurple : addImgWhite),
@@ -52,9 +53,9 @@ function FolderMain() {
     setFolderListItem(data);
   };
 
-  const handleShare = () => setIsShare(!isShare);
-  const handleEditFolder = () => setIsEditFolder(!isEditFolder);
-  const handleDeleteFolder = () => setIsDeleteFolder(!isDeleteFolder);
+  const handleShareModal = () => setIsShare(!isShare);
+  const handleEditFolderModal = () => setIsEditFolder(!isEditFolder);
+  const handleDeleteFolderModal = () => setIsDeleteFolder(!isDeleteFolder);
 
   useEffect(() => {
     const handleFolderList = async () => {
@@ -80,7 +81,6 @@ function FolderMain() {
       {folderList?.length > 0 ? (
         <>
           <FolderButton
-            folderTitleName={setFolderTitleName}
             handleButtonListItemClick={handleButtonListItemClick}
             folderList={folderList}
             clickedButtonId={clickedButtonId}
@@ -90,9 +90,9 @@ function FolderMain() {
           <FolderTitle
             folderTitleName={folderTitleName}
             isSelectedAll={isSelectedAll}
-            handleShare={handleShare}
-            handleEditFolder={handleEditFolder}
-            handleDeleteFolder={handleDeleteFolder}
+            handleShareModal={handleShareModal}
+            handleEditFolderModal={handleEditFolderModal}
+            handleDeleteFolderModal={handleDeleteFolderModal}
           />
           <FolderListItem
             folderListItem={folderListItem}
@@ -105,6 +105,7 @@ function FolderMain() {
             isShare={isShare}
             setIsShare={setIsShare}
             folderId={clickedButtonId}
+            folderName={folderTitleName}
           />
           <ModalEdit
             isEditFolder={isEditFolder}

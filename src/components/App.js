@@ -15,7 +15,10 @@ function App() {
       <Routes>
         <Route path="/" element={<PageLayout />}>
           <Route index element={<Navigate to="/folder" />} />
-          <Route path="shared/:folderId" element={<Shared />} />
+          <Route path="shared" element={<Shared />}>
+            <Route index element={<Shared />} />
+            <Route path=":folderId" element={<Shared />} />
+          </Route>
           <Route path="landing" element={<Landing />} />
           <Route path="signup" element={<Signup />} />
           <Route path="signin" element={<Signin />} />
