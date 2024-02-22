@@ -57,9 +57,6 @@ const StyledCard = styled.a`
   overflow: hidden;
   box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
   border-radius: 1.5rem;
-  &:hover {
-    background-color: ${props => props.theme.linkbrary_bg};
-  }
 `;
 const CardImgContainer = styled.div`
   width: 100%;
