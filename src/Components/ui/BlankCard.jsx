@@ -1,5 +1,4 @@
 import React from "react";
-import Wrapper from "../common/layout/Wrapper";
 
 function BlankCard() {
   return (
