@@ -1,15 +1,25 @@
 import FolderAddButton from "./FolderAddButton";
+import FolderButton from "./FolderButton";
 import styles from "./FolderList.module.css";
 
-const FolderList = ({ onFolderClick, folders }) => {
+const FolderList = ({ onFolderClick, folders, selectedFolder }) => {
   return (
     <div className={styles.FolderList}>
       <ul className={styles.folder_buttons}>
-        <button onClick={() => onFolderClick("ALL")}>전체</button>
+        <FolderButton
+          onClick={() => onFolderClick("ALL")}
+          isSelected={"ALL" === selectedFolder}
+        >
+          전체
+        </FolderButton>
         {folders?.map(({ id, name }) => (
-          <button key={id} onClick={() => onFolderClick(id)}>
+          <FolderButton
+            key={id}
+            onClick={() => onFolderClick(id)}
+            isSelected={id === selectedFolder}
+          >
             {name}
-          </button>
+          </FolderButton>
         ))}
       </ul>
       <FolderAddButton className={styles.button_add} />

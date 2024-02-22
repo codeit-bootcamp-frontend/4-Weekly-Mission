@@ -11,7 +11,11 @@ const FolderToolBar = ({ onFolderClick, selectedFolder }) => {
 
   return (
     <div>
-      <FolderList onFolderClick={onFolderClick} folders={folders} />
+      <FolderList
+        onFolderClick={onFolderClick}
+        folders={folders}
+        selectedFolder={selectedFolder}
+      />
       <FolderEditBar folderName={folderName} />
     </div>
   );

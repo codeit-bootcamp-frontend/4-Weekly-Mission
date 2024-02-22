@@ -1,10 +1,7 @@
 import { useGetFolder } from "../hooks/useGetFolder";
 
-import styles from "./SharedPage.module.css";
-
-import NavigationBar from "../components/NavigationBar/NavigationBar";
 import SharedFolder from "../components/SharedFolder/SharedFolder";
-import Footer from "../components/Footer/Footer";
+import Layout from "../components/Layout/Layout";
 
 const SharedPage = () => {
   const { data } = useGetFolder();
@@ -12,11 +9,7 @@ const SharedPage = () => {
 
   return (
     <>
-      <NavigationBar isSticky />
-      <main className={styles.main}>
-        {folder && <SharedFolder folder={folder} />}
-      </main>
-      <Footer />
+      <Layout isSticky>{folder && <SharedFolder folder={folder} />}</Layout>
     </>
   );
 };

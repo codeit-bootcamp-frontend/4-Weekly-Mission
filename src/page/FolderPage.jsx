@@ -1,12 +1,14 @@
 import { useMemo, useState } from "react";
+import { useGetLinks } from "../hooks/useGetLinks";
+
+import styles from "./FolderPage.module.css";
+
+import Layout from "../components/Layout/Layout";
 import AddLinkInput from "../components/AddLinkInput/AddLinkInput";
 import FolderToolBar from "../components/FolderToolBar/FolderToolBar";
-import Footer from "../components/Footer/Footer";
-import NavigationBar from "../components/NavigationBar/NavigationBar";
 import NoLink from "../components/NoLink/NoLink";
 import SearchBar from "../components/SearchBar/SearchBar";
 import FolderLinks from "../components/FolderLinks/FolderLinks";
-import { useGetLinks } from "../hooks/useGetLinks";
 
 const FolderPage = () => {
   const [selectedFolder, setSeletedFolder] = useState("ALL");
@@ -21,17 +23,19 @@ const FolderPage = () => {
 
   return (
     <>
-      <NavigationBar isSticky={false} />
-      <main>
-        <AddLinkInput />
-        <SearchBar />
-        <FolderToolBar
-          onFolderClick={setSeletedFolder}
-          selectedFolder={selectedFolder}
-        />
-        {cardList}
-      </main>
-      <Footer />
+      <Layout isSticky={false}>
+        <div className={styles.input_container}>
+          <AddLinkInput />
+        </div>
+        <div className={styles.wrapper}>
+          <SearchBar />
+          <FolderToolBar
+            onFolderClick={setSeletedFolder}
+            selectedFolder={selectedFolder}
+          />
+          {cardList}
+        </div>
+      </Layout>
     </>
   );
 };

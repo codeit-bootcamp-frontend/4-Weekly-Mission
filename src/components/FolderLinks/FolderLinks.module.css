@@ -9,8 +9,4 @@
     grid-template-columns: repeat(auto-fit, 320px);
     column-gap: 20px;
   }
-
-  @media (min-width: 1124px) {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
