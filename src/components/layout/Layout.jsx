@@ -1,11 +1,11 @@
-import '../styles/style.css';
+import '../../styles/style.css';
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import { getSampleUser } from '../util/api';
+import { getSampleUser } from '../../util/api';
 import Header from './Header';
 import Footer from './Footer';
 
-function App() {
+function Layout() {
   const [user, setUser] = useState(null);
 
   const handleUserLoad = async () => {
@@ -31,4 +31,4 @@ function App() {
   );
 }
 
-export default App;
+export default Layout;

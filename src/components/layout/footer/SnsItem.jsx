@@ -1,7 +1,7 @@
-import facebookIcon from '../assets/facebook.svg';
-import instagramIcon from '../assets/instagram.svg';
-import twitterIcon from '../assets/twitter.svg';
-import youtubeIcon from '../assets/youtube.svg';
+import facebookIcon from '../../../assets/facebook.svg';
+import instagramIcon from '../../../assets/instagram.svg';
+import twitterIcon from '../../../assets/twitter.svg';
+import youtubeIcon from '../../../assets/youtube.svg';
 
 const ICON = {
   facebookIcon,

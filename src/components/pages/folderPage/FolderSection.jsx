@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import SearchBar from './SearchBar';
+import SearchBar from '../../common/SearchBar';
 import FolderArea from './FolderArea';
 
 const MainArea = styled.main`

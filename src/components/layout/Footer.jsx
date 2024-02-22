@@ -1,5 +1,5 @@
-import '../styles/Footer.css';
-import SnsItem from './SnsItem';
+import '../../styles/Footer.css';
+import SnsItem from './footer/SnsItem';
 
 const SNS_ITEMS = [
   {

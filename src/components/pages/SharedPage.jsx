@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getSampleFolder } from '../../util/api';
-import UserFolderNameArea from './UserFolderNameArea';
-import SharedSection from './SharedSection';
+import UserFolderNameArea from './sharedPage/UserFolderNameArea';
+import SharedSection from './sharedPage/SharedSection';
 
 function SharedPage() {
   const [folderName, setFolderName] = useState('');

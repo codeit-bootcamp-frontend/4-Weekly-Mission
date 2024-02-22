@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getUserFolders } from '../../util/api';
+import { getUserFolders } from '../../../util/api';
 import FolderListArea from './FolderListArea';
 import LinkList from './LinkList';
 

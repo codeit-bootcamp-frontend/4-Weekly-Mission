@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import iconShare from '../../assets/share.svg';
-import iconPen from '../../assets/pen.svg';
-import iconDelete from '../../assets/delete.svg';
+import iconShare from '../../../assets/share.svg';
+import iconPen from '../../../assets/pen.svg';
+import iconDelete from '../../../assets/delete.svg';
 
 const ButtonList = [
   {

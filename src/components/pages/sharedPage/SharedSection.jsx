@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { getSampleFolder } from '../../util/api';
-import SearchBar from '../FolderPage/SearchBar';
+import { getSampleFolder } from '../../../util/api';
+import SearchBar from '../../common/SearchBar';
 import FolderList from './FolderList';
 
 const SharedArea = styled.section`

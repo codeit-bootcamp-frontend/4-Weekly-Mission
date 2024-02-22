@@ -1,12 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import SharedPage from './components/SharedPage/SharedPage';
-import App from './components/App';
-import FolderPage from './components/FolderPage/FolderPage';
+import SharedPage from './components/pages/SharedPage';
+import Layout from './components/layout/Layout';
+import FolderPage from './components/pages/FolderPage';
 
 const Main = () => (
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}>
+      <Route path="/" element={<Layout />}>
         <Route path="shared" element={<SharedPage />} />
         <Route path="folder" element={<FolderPage />} />
       </Route>

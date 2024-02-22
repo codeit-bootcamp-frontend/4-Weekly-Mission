@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import SubHeader from '../SubHeader';
+import SubHeader from '../../common/SubHeader';
 
 const ImageProfile = styled.img`
   margin: 2rem 0 1.2rem;

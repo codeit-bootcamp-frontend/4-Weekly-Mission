@@ -1,5 +1,5 @@
-import AddLinkArea from './AddLinkArea';
-import FolderSection from './FolderSection';
+import FolderSection from './folderPage/FolderSection';
+import AddLinkArea from './folderPage/AddLinkArea';
 
 const FolderPage = () => (
   <>

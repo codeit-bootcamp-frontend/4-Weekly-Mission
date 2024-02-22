@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import iconLink from '../../assets/link.svg';
-import SubHeader from '../SubHeader';
+import iconLink from '../../../assets/link.svg';
+import SubHeader from '../../common/SubHeader';
 import TextInput from './TextInput';
 
 const InputGroup = styled.div`

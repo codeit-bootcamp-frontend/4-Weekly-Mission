@@ -1,5 +1,5 @@
-import '../styles/Header.css';
-import linkbraryLogo from '../assets/linkbrary-logo.svg';
+import '../../styles/Header.css';
+import linkbraryLogo from '../../assets/linkbrary-logo.svg';
 
 function Header({ user }) {
   return (

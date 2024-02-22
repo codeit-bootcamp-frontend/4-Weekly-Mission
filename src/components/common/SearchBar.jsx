@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import iconSearch from '../../assets/search.svg';
-import TextInput from './TextInput';
+import TextInput from '../pages/folderPage/TextInput';
 
 const InputGroup = styled.div`
   display: flex;

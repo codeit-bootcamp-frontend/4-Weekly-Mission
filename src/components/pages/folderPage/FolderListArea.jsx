@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import FolderNameButton from './FolderNameButton';
-import IconAdd from '../../assets/add.svg';
+import IconAdd from '../../../assets/add.svg';
 
 const FolderGroup = styled.div`
   display: flex;

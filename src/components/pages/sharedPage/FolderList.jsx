@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import LinkCard from './LinkCard';
+import LinkCard from '../../common/LinkCard';
 
 const List = styled.ul`
   display: flex;

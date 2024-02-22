@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import { getUserLinks } from '../../util/api';
-import FolderList from '../SharedPage/FolderList';
+import { getUserLinks } from '../../../util/api';
+import FolderList from '../sharedPage/FolderList';
 import UpdateBtnList from './UpdateBtnList';
 
 const Header = styled.header`
