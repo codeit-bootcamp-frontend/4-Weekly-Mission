@@ -8,7 +8,6 @@ import Button from 'components/Common/Button';
 function AddFolderButton({ className, onClick }) {
   const buttonClasses = classNames(
     styles['add-folder-button'],
-    'flex-row',
     'align-center',
     'white-space-nowrap',
     'text-color-primary',
