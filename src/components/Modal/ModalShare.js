@@ -2,7 +2,9 @@ import kakao from "../../assets/kakao.svg";
 import facebook from "../../assets/facebook.svg";
 import link from "../../assets/linkIconModal.svg";
 import ModalContainer from "./ModalContainer";
-import { useState } from "react";
+import useClipboard from "../../hooks/useClipboard";
+import useKakaoShare from "../../hooks/useKakaoShare";
+import useFacebookShare from "../../hooks/useFacebookShare";
 
 const ModalShare = ({
   isOpen,
@@ -10,15 +12,16 @@ const ModalShare = ({
   selectedFolderName,
   selectedFolderId,
 }) => {
-  const [copiedToClipboard, setCopiedToClipboard] = useState(false);
+  const { copied, copyToClipboard } = useClipboard();
+  const { handleKakaoShare } = useKakaoShare(
+    selectedFolderName,
+    selectedFolderId
+  );
+  const { handleFacebookShare } = useFacebookShare(selectedFolderId);
+
   const folderShareLink = `${window.location.origin}/shared/${selectedFolderId}`;
-  const handleCopyToClipboard = async () => {
-    try {
-      await navigator.clipboard.writeText(folderShareLink);
-      setCopiedToClipboard(true);
-    } catch (error) {
-      console.error("Failed to copy to clipboard:", error);
-    }
+  const handleCopyToClipboard = () => {
+    copyToClipboard(folderShareLink);
   };
 
   const shareContent = (
@@ -27,16 +30,16 @@ const ModalShare = ({
       <p>{selectedFolderName}</p>
       <div className="socialButtonContainer">
         <div>
-          <img src={kakao} alt="kakao" />
+          <img src={kakao} alt="kakao" onClick={handleKakaoShare} />
           카카오톡
         </div>
         <div>
-          <img src={facebook} alt="facebook" />
+          <img src={facebook} alt="facebook" onClick={handleFacebookShare} />
           페이스북
         </div>
         <div>
           <img src={link} alt="link" onClick={handleCopyToClipboard} />
-          {copiedToClipboard ? "복사완료" : "링크 복사"}
+          {copied ? "복사 완료" : "링크 복사"}
         </div>
       </div>
     </>
