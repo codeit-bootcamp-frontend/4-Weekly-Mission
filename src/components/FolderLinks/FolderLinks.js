@@ -1,8 +1,9 @@
 import styles from "./FolderLinks.module.css";
 
 import Card from "../Card/Card";
+import EditableCard from "../Card/EditableCard";
 
-const FolderLinks = ({ links }) => {
+const FolderLinks = ({ links, editable }) => {
   return (
     <div className={styles.FolderLinks}>
       <ul className={styles.list}>
@@ -11,7 +12,7 @@ const FolderLinks = ({ links }) => {
           return (
             <li key={id} className={styles.item}>
               <a href={url} target="_blank" rel="noreferrer">
-                <Card {...item} />
+                {editable ? <EditableCard {...item} /> : <Card {...item} />}
               </a>
             </li>
           );

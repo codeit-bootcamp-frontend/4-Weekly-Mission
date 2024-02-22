@@ -16,7 +16,7 @@ const FolderPage = () => {
   const cardList = useMemo(() => {
     if (isLoading) return null;
     if (links.length === 0) return <NoLink />;
-    return <FolderLinks links={links} />;
+    return <FolderLinks links={links} editable />;
   }, [isLoading, links]);
 
   return (
