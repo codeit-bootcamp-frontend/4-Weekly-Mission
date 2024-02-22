@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
-    // "." || "src"
     "baseUrl": "src",
     "paths": {
-      // "name": [value]
       "assets/*": ["assets/*"],
       "components/*": ["components/*"],
       "context/*": ["context/*"],

@@ -1,4 +1,4 @@
-const API_URL = 'https://bootcamp-api.codeit.kr/api/';
+const API_URL = process.env.REACT_APP_API_URL;
 
 async function useFetch(apiUrl) {
   const url = new URL(apiUrl, API_URL);
