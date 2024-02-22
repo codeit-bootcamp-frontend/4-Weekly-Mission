@@ -12,6 +12,11 @@
   flex-shrink: 0;
 }
 
+.cardImage:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+}
+
 .cardTextArea {
   display: flex;
   width: 340px;
