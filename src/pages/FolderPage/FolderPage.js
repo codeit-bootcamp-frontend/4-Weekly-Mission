@@ -13,7 +13,7 @@ import SortingSection from 'components/Main/SortingSection';
 import styles from 'pages/FolderPage/FolderPage.module.css';
 
 function Folder() {
-  const [selectedFolder, setSelectedFolder] = useState({ id: 'all', name: '전체' });
+  const [selectedFolder, setSelectedFolder] = useState({ id: 0, name: '전체' });
 
   const floatingAddFolderButtonClasses = classNames(
     styles['floating-add-folder-button'],
@@ -31,7 +31,7 @@ function Folder() {
         </Header>
         <Main>
           <SearchBar />
-          <SortingSection selectedFolder={selectedFolder} onFolderSelect={setSelectedFolder} />
+          <SortingSection selectedFolder={selectedFolder} setSelectedFolder={setSelectedFolder} />
           <CardList folderId={selectedFolder.id} />
           <FloatingAddFolderButton className={floatingAddFolderButtonClasses} />
         </Main>

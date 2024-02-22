@@ -13,18 +13,24 @@ import Option from 'components/Common/Option';
 import SortingButton from 'components/Common/SortingButton';
 import styles from 'components/Main/SortingSection.module.css';
 
-import { getFoldersApiUrl } from 'services/api';
+import { getFoldersApiUrl, getAllLinksApiUrl } from 'services/api';
 
-function SortingSection({ selectedFolder, onFolderSelect }) {
-  const ALL_ID = 'all';
+function SortingSection({ selectedFolder, setSelectedFolder }) {
   const LOADING_MESSAGE = 'Loading...';
+  const ALL_ID = 0;
 
   const url = getFoldersApiUrl();
   const { data, loading, error } = useFetch(url);
 
   // {id, created_at, name, user_id, favorite, link: {count}}
-  const folderList = [{ id: 'all', name: '전체' }, ...(data?.data ?? [])];
+  const folderList = [{ id: 0, name: '전체' }, ...(data?.data ?? [])];
 
+  // 총 링크 수 계산
+  const allLinkUrl = getAllLinksApiUrl();
+  const { data: allLink } = useFetch(allLinkUrl);
+  const linkCount = allLink?.data?.length ?? 0;
+
+  // 옵션 리스트
   const optionList = [
     { name: '공유', image: ShareIcon, key: 1 },
     { name: '이름 변경', image: PenIcon, key: 2 },
@@ -33,7 +39,7 @@ function SortingSection({ selectedFolder, onFolderSelect }) {
 
   const handleButtonClick = (key) => {
     const targetButton = folderList.find((folder) => folder.id === key);
-    onFolderSelect(targetButton);
+    setSelectedFolder(targetButton);
   };
 
   const sortingSectionClasses = classNames(
@@ -51,46 +57,53 @@ function SortingSection({ selectedFolder, onFolderSelect }) {
 
   return (
     <div>
-      <div className={sortingSectionClasses}>
-        <div className={sortingButtonListClasses}>
-          {folderList.map((folder) => (
-            <SortingButton
-              key={folder.id}
-              text={folder.name}
-              className={selectedFolder.id === folder.id ? selectedButtonStyle : ''}
-              onClick={() => handleButtonClick(folder.id)}
-            />
-          ))}
-          {loading && <ErrorMessage message={LOADING_MESSAGE} />}
-          {error && <ErrorMessage message={error} />}
-        </div>
-        <AddFolderButton className={addFolderButtonClasses} />
-      </div>
-      <div className={folderInfoSectionClasses}>
-        <p className={titleClasses}>{selectedFolder.name}</p>
-        {selectedFolder.id !== ALL_ID && (
-          <div className={optionListClasses}>
-            {optionList.map((option) => (
-              <Option key={option.key} text={option.name} imageUrl={option.image} className={optionListClasses} />
-            ))}
+      {linkCount > 0 && (
+        <div>
+          <div className={sortingSectionClasses}>
+            <div className={sortingButtonListClasses}>
+              {folderList.map((folder) => (
+                <SortingButton
+                  key={folder.id}
+                  text={folder.name}
+                  className={selectedFolder.id === folder.id ? selectedButtonStyle : ''}
+                  onClick={() => handleButtonClick(folder.id)}
+                />
+              ))}
+              {loading && <ErrorMessage message={LOADING_MESSAGE} />}
+              {error && <ErrorMessage message={error} />}
+            </div>
+            <AddFolderButton className={addFolderButtonClasses} />
           </div>
-        )}
-      </div>
+          <div className={folderInfoSectionClasses}>
+            <p className={titleClasses}>{selectedFolder.name}</p>
+            {selectedFolder.id !== ALL_ID && (
+              <div className={optionListClasses}>
+                {optionList.map((option) => (
+                  <Option key={option.key} text={option.name} imageUrl={option.image} className={optionListClasses} />
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 SortingSection.propTypes = {
   selectedFolder: PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
+    link: PropTypes.shape({
+      count: PropTypes.number,
+    }),
   }),
-  onFolderSelect: PropTypes.func,
+  setSelectedFolder: PropTypes.func,
 };
 
 SortingSection.defaultProps = {
-  selectedFolder: { id: '', name: '' },
-  onFolderSelect: null,
+  selectedFolder: { id: 0, name: '' },
+  setSelectedFolder: null,
 };
 
 export default SortingSection;

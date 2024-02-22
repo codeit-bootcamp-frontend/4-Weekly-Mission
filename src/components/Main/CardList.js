@@ -12,13 +12,14 @@ import { getAllLinksApiUrl, getOtherLinksApiUrl } from 'services/api';
 // folder id를 props로 받아서 api 적용할 것
 function CardList({ folderId }) {
   const LOADING_MESSAGE = 'Loading...';
-  const ALL_ID = 'all';
+  const ALL_ID = 0;
 
   const url = folderId === ALL_ID ? getAllLinksApiUrl() : getOtherLinksApiUrl(folderId);
   const { data, loading, error } = useFetch(url);
 
   // {created_at, description, folder_id, id, image_source, title, updated_at, url}
   const linkList = data?.data ?? [];
+  const linkCount = linkList?.length ?? 0;
 
   const cardListClasses = classNames(styles['card-list'], styles.grid, 'grid', 'width-full');
   const noCardListTextBoxClasses = classNames(
@@ -30,7 +31,7 @@ function CardList({ folderId }) {
 
   return (
     <div>
-      {linkList.length > 0 ? (
+      {linkCount > 0 ? (
         <div className={cardListClasses}>
           {linkList.map((link) => (
             <Card
