@@ -1,5 +1,6 @@
 import Card from "./Card";
 import "./CardList.css";
+
 function CardList({ selectedFolderData }) {
   return (
     <div className="cardList">
