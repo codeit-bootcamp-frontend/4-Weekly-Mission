@@ -7,6 +7,15 @@ import linkIcon from "assets/linkIcon.svg";
 
 export const ShareModal = forwardRef(
   ({ openModal, handleModalClose, folderName }, ref) => {
+    const handleCopyClipBoard = (text) => {
+      try {
+        navigator.clipboard.writeText(text);
+        alert("클립보드에 복사되었습니다.");
+      } catch (error) {
+        alert("클립보드 복사에 실패하였습니다.");
+      }
+    };
+
     return (
       <Modal
         modalRef={ref}
@@ -24,15 +33,27 @@ export const ShareModal = forwardRef(
               </button>
             </li>
             <li className={styles.icon}>
-              <button>
+              <a
+                target="_blank"
+                href={`https://www.facebook.com/sharer.php?u=http://${
+                  window.location.host
+                }/shared?user=${1}&folderId=${441}`}
+                rel="noreferrer"
+              >
                 <img src={facebookIcon} alt="facebookIcon" />
                 <p className={styles.iconText}>페이스북</p>
-              </button>
+              </a>
             </li>
             <li className={styles.icon}>
-              <button>
+              <button
+                onClick={() =>
+                  handleCopyClipBoard(
+                    `${window.location.host}/shared?user=${1}&folderId=${441}`
+                  )
+                }
+              >
                 <img src={linkIcon} alt="linkIcon" />
-                <p className={styles.iconText}>링크공유</p>
+                <p className={styles.iconText}>링크 복사</p>
               </button>
             </li>
           </ul>
