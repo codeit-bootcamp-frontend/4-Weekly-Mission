@@ -23,13 +23,18 @@ const UtilIcon = ({ icon, label, modalComponent }) => {
   );
 };
 
-const UtilIcons = ({ selectedFolderName }) => {
+const UtilIcons = ({ selectedFolderName, selectedFolderId }) => {
   return (
     <div className="utilContainer">
       <UtilIcon
         icon={shareIcon}
         label="공유"
-        modalComponent={<ModalShare selectedFolderName={selectedFolderName} />}
+        modalComponent={
+          <ModalShare
+            selectedFolderName={selectedFolderName}
+            selectedFolderId={selectedFolderId}
+          />
+        }
       />
       <UtilIcon
         icon={penIcon}

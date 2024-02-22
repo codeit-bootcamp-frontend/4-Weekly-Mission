@@ -14,6 +14,7 @@ const FolderList = () => {
   const [links, setLinks] = useState([]);
   const [selectedFolderName, setSelectedFolderName] = useState("");
   const { showModal, handleOpenModal, handleCloseModal } = useModal();
+  const [selectedFolderId, setSelectedFolderId] = useState("");
 
   const handleLoadAllLinksData = async () => {
     const { data } = await getFolderLinks();
@@ -32,6 +33,7 @@ const FolderList = () => {
       setSelectedFolderName(
         folderList.find((folder) => folder.id === folderId)?.name
       );
+      setSelectedFolderId(folderId);
       try {
         const { links } = await fetchFolderLinks(folderId);
         setLinks(links);
@@ -60,7 +62,10 @@ const FolderList = () => {
       <div className="selectedFolderName">
         {selectedFolderName}
         {selectedFolderName && selectedFolderName.length > 0 && (
-          <UtilIcons selectedFolderName={selectedFolderName} />
+          <UtilIcons
+            selectedFolderName={selectedFolderName}
+            selectedFolderId={selectedFolderId}
+          />
         )}
       </div>
       {links ? (

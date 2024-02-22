@@ -28,11 +28,11 @@
 
 .addLinkForm button {
   position: absolute;
-  top: 5px;
+  top: 6px;
   right: 10px;
   display: flex;
   width: 7rem;
-  height: 2.5rem;
+  height: 2.3rem;
   padding: 10px 16px;
   justify-content: center;
   align-items: center;

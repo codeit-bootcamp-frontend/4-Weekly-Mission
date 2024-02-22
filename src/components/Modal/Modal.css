@@ -70,4 +70,5 @@
 
 .socialButtonContainer img {
   width: 42px;
+  cursor: pointer;
 }
