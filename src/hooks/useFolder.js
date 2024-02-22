@@ -20,7 +20,7 @@ export const useFolder = () => {
         setFolder({ id, name, owner, links });
       }
     } catch (e) {
-      console.log("e");
+      console.error("e");
     }
   };
 

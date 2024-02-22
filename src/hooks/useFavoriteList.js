@@ -19,7 +19,7 @@ export const useFavoriteList = () => {
         setFavoriteList([...favoriteList]);
       }
     } catch (e) {
-      console.log("e");
+      console.error();
     }
   };
 

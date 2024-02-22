@@ -1,16 +1,23 @@
 .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 25px 10px;
-  margin-bottom: 40px;
+  max-width: 106rem;
+  row-gap: 2rem;
+  column-gap: 25px;
+  justify-content: center;
+
   a {
     text-decoration: none;
   }
   @media (769px< width < 1124px) {
     grid-template-columns: repeat(2, 1fr);
+    row-gap: 2.5rem;
+    column-gap: 2rem;
   }
   @media (width < 768px) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(auto-fill, 34rem);
+    row-gap: 2.5rem;
+    column-gap: 2rem;
   }
 }
 
@@ -29,7 +36,7 @@
 }
 
 .card-hover {
-  img {
+  .cardImage {
     width: 130%;
   }
 }
@@ -38,6 +45,7 @@
   width: 100%;
   height: 200px;
   object-fit: cover;
+  transition: all 300ms ease-in;
 }
 
 .timeText {

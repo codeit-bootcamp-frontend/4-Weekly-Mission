@@ -3,9 +3,37 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 100%;
+  row-gap: 2rem;
+  padding-bottom: 2rem;
+
+  @media (769px< width < 1124px) {
+    row-gap: 4rem;
+    padding-bottom: 4rem;
+  }
 }
 
 .mainPageWrapper {
-  width: 100%;
+  /* width: 100%;
   max-width: 1060px;
+  margin: 40px; */
+  display: flex;
+  flex-direction: column;
+  row-gap: 3.2rem;
+  max-width: 1124px;
+  padding: 0 32px;
+  @media (769px< width < 1124px) {
+    row-gap: 4rem;
+  }
+}
+
+.folderBox {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+  align-items: center;
+
+  @media (769px< width < 1124px) {
+    row-gap: 2.4rem;
+  }
 }

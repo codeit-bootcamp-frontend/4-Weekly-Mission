@@ -3,22 +3,49 @@ import { AddLink } from "../components/folder/addLink";
 import { FolderSearchBar } from "../components/folder/folderSearchBar";
 import { useState } from "react";
 import { EmptyList } from "../components/notFound/emptyList";
-import { useFavoriteList } from "../hooks/useFavoriteList";
 import { FavoriteList } from "../components/folder/favoriteList";
+import { useFolderList } from "../hooks/useFolderList";
+import {
+  FolderCard,
+  CardContianer,
+  FavoriteCard,
+} from "../components/card/folderCard";
 
+/**
+ * 1. FavoriteList에서 폴더버튼을 누르면 ID값을 받아서 FolderPage의 id값을 변경한다.
+ * 2. 값이 변경되면 "api/users/1/links?folderId=id값"으로 API요청을 보낸다.
+ * 3. 요청이 정상적으로 전송되고 응답을 받으면 cardList에 리스트를 담아 랜더링한다.
+ * @returns
+ */
 export const FolderPage = () => {
   const [link, setLink] = useState([]);
-  const { favoriteList } = useFavoriteList();
-  console.log("folder", favoriteList);
+
+  const [cardList, setCardList] = useState([]);
+  const [id, setId] = useState(null);
+  const { list } = useFolderList(id);
+  const handleChangeFolderId = (targetId) => {
+    setId(targetId);
+  };
+  console.log("list > ", list);
+
   return (
     <div className="mainPageContainer">
       <AddLink />
       <div className="mainPageWrapper">
         <FolderSearchBar />
-        {!favoriteList && favoriteList?.length === 0 ? (
+        {!cardList && cardList?.length === 0 ? (
           <EmptyList text={"저장된 링크가 없습니다."} />
         ) : (
-          <FavoriteList data={favoriteList} />
+          <FavoriteList handleChange={handleChangeFolderId} />
+        )}
+        {list?.length === 0 ? (
+          <EmptyList text={"저장된 링크가 없습니다."} />
+        ) : (
+          <CardContianer>
+            {list.map((data) => (
+              <FavoriteCard data={data} />
+            ))}
+          </CardContianer>
         )}
       </div>
     </div>
