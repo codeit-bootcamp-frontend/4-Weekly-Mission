@@ -1,6 +1,9 @@
+/* eslint-disable */
+
 import { useEffect, useState } from 'react';
 import FolderPageLinkItem from './FolderPageLinkItem';
 import styles from './LinkList.module.css';
+import KebabModal from '../modal/KebabModal';
 function LinkList({ folderId }) {
   const [filterData, setFilterData] = useState(null);
   async function handleFilterClick() {
@@ -22,13 +25,15 @@ function LinkList({ folderId }) {
           {filterData?.data?.map(
             ({ image_source, description, created_at, url }, i) => {
               return (
-                <FolderPageLinkItem
-                  description={description}
-                  image_source={image_source}
-                  created_at={created_at}
-                  url={url}
-                  key={i}
-                />
+                <div>
+                  <FolderPageLinkItem
+                    description={description}
+                    image_source={image_source}
+                    created_at={created_at}
+                    url={url}
+                    key={i}
+                  />
+                </div>
               );
             }
           )}
