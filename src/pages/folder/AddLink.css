@@ -1,0 +1,44 @@
+article:has(.addLinkForm) {
+    padding: 60px 32px 90px;
+    background-color: #F0F6FF;
+}
+.addLinkForm {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.addLinkForm label {
+    cursor: pointer;
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    left: 20px;
+}
+.addLinkForm button {
+    cursor: pointer;
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    right: 20px;
+    width: 80px; height: 37px;
+    border: none;
+    background: linear-gradient(91deg, #6D6AFE, #6AE3FE);
+    color: #F5F5F5;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: 'Pretendard';
+}
+
+@media screen and (max-width: 768px) {
+    article:has(.addLinkForm) {
+        padding: 24px 32px 40px;
+    }
+    .addLinkForm button {
+        right: 10px;
+    }
+    .addLinkForm label {
+        left: 10px;
+    }
+    .addLinkForm label img {
+        width: 16px; height: 16px;
+    }
+}

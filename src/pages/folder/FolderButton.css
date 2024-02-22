@@ -1,0 +1,42 @@
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.buttonBox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 8px;
+}
+.buttonBox button {
+    display: block;
+    line-height: 35px;
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #6D6AFE;
+    padding: 0px 12px;
+    border-radius: 5px;
+    color: #000;
+    font-family: Pretendard;
+    font-size: 1.6rem;
+}
+
+.buttonBox button.on {
+    background-color: rgba(109, 106, 254, 1);
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .buttonContainer {
+        position: relative;
+        z-index: 1;
+    }
+    .buttonBox button {
+        padding: 0 10px;
+        line-height: 29px;
+        font-size: 1.4rem;
+    }
+}

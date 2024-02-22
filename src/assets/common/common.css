@@ -21,10 +21,26 @@ textarea {
 }
 main {
     padding: 40px 32px;
+    margin-bottom: 60px;
 }
 main .container {
+    position: relative;
     max-width: 1060px;
     margin: 0 auto;
+}
+.linkText {
+    font-size: 10rem;
+}
+.linkText a {
+    display: block;
+}
+#root {
+    height: 100%;
+}
+#wrap {
+    height: auto;
+    min-height: 100%;
+    padding-bottom: 160px;
 }
 /* 모바일 반응형 */
 @media screen and (max-width: 768px) {

@@ -1,0 +1,15 @@
+.searchForm {
+    position: relative;
+    margin-bottom: 40px;
+}
+.searchForm label {
+    cursor: pointer;
+    position: absolute;
+    top: 50%; transform: translateY(-50%);
+    left: 16px;
+}
+@media screen and (max-width: 768px) {
+    .searchForm {
+        margin-bottom: 32px;
+    }
+}
