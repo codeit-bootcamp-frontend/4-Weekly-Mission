@@ -9,7 +9,6 @@ import remove from "../images/remove.svg";
 import useFetchData from "../hooks/useFetchData";
 import CardList from "./CardList";
 import NoLink from "./NoLink";
-export const UserContext = React.createContext();
 
 function FolderDetail({ isModalOpen, folderListData, toggleModal }) {
   const [selectedFolder, setSelectedFolder] = useState({});
@@ -76,9 +75,7 @@ function FolderDetail({ isModalOpen, folderListData, toggleModal }) {
             )}
           </div>
           {String(selectedFolder.id) === "undefined" ? (
-            <UserContext.Provider value={toggleModal}>
-              <CardList selectedFolderData={selectedFolderData} />
-            </UserContext.Provider>
+            <CardList selectedFolderData={selectedFolderData} />
           ) : (
             <NoLink />
           )}

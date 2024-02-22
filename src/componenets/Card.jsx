@@ -4,11 +4,9 @@ import kebab from "../images/kebab.svg";
 import emptyStar from "../images/emptyStar.svg";
 import "./Card.css";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
-import { UserContext } from "./FolderDetail.jsx";
+import { useState } from "react";
 
 export default function Card({ data }) {
-  const toggleModal = React.useContext(UserContext);
   const [showPopover, setShowPopover] = useState(false);
 
   const togglePopover = () => {
@@ -43,9 +41,7 @@ export default function Card({ data }) {
             {showPopover && (
               <div className="popover">
                 <div className="popover-delete">삭제하기</div>
-                <div className="popover-folder-add" onClick={toggleModal}>
-                  폴더에 추가
-                </div>
+                <div className="popover-folder-add">폴더에 추가</div>
               </div>
             )}
           </div>
