@@ -24,7 +24,8 @@ header {
 }
 
 .Link-Add-Form-Div button {
-  width: 15%;
+  width: 20%;
+  cursor: pointer;
   color: #f5f5f5;
   font-size: 0.875rem;
   font-weight: 600;

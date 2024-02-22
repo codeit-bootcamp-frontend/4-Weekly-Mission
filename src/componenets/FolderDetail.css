@@ -43,6 +43,7 @@
   color: #6d6afe;
   font-size: 1rem;
   font-weight: 500;
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {

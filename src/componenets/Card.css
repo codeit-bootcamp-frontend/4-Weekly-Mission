@@ -73,6 +73,7 @@
 
 .kebab-popover {
   position: relative;
+  cursor: pointer;
 }
 
 .popover {
