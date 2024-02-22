@@ -11,7 +11,7 @@ const DATA_MAP = {
   selectedFolderDataFetch,
 };
 
-const useFetchData = (dataType, folderData = 0) => {
+const useFetchData = (dataType, userId = 0, folderData = 0) => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const useFetchData = (dataType, folderData = 0) => {
         let targetData;
 
         if (folderData === 0) {
-          targetData = await DATA_MAP[dataType]?.();
+          targetData = await DATA_MAP[dataType]?.(userId);
         } else {
           targetData = await DATA_MAP[dataType]?.(folderData);
         }
@@ -32,7 +32,7 @@ const useFetchData = (dataType, folderData = 0) => {
     };
 
     fetchData();
-  }, [dataType, folderData]);
+  }, [dataType, userId, folderData]);
 
   return data;
 };

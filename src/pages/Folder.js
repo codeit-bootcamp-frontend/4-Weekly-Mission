@@ -5,8 +5,8 @@ import Nav from "../componenets/Nav";
 import useFetchData from "../hooks/useFetchData";
 
 function Folder() {
-  const profileData = useFetchData("profileDataFetch");
-  const folderListData = useFetchData("folderListDataFetch");
+  const profileData = useFetchData("profileDataFetch", 1);
+  const folderListData = useFetchData("folderListDataFetch", 1);
 
   return (
     <>
