@@ -8,8 +8,8 @@ const Footer = () => {
   return (
     <div className="Footer">
       <div>©codeit - 2023</div>
-      <a>Privacy Policy</a>
-      <a>FAQ</a>
+      <span>Privacy Policy</span>
+      <span>FAQ</span>
       <a href="https://facebook.com" target="_blank" rel="noreferrer">
         <img src={facebookIcon} alt="페이스북 아이콘" />
       </a>

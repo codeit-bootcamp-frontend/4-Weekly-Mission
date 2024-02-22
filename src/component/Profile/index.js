@@ -34,7 +34,7 @@ const Profile = () => {
         </div>
       ) : (
         <div>
-          <a className="loginBtn">로그인</a>
+          <span className="loginBtn">로그인</span>
         </div>
       )}
     </>
