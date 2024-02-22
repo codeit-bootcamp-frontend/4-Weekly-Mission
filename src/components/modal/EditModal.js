@@ -1,7 +1,7 @@
 import React from 'react';
-import '../../style/Modal.css';
+import '../../style/EditModal.css';
 
-const Modal = () => {
+const EditModal = () => {
   return (
     <div className='ModalContainer'>
       <div className='ContentContainer'>
@@ -18,4 +18,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default EditModal;
