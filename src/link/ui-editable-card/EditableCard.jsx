@@ -54,7 +54,7 @@ export const EditableCard = ({
             alt="더보기를 나타내는 점 3개"
             onClick={handleOpenModal}
           />
-          {showModal && <Modal onClose={handleCloseModal}>안뇽</Modal>}
+          {showModal && <Modal onClose={handleCloseModal} />}
         </button>
       </Card>
     </a>

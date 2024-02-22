@@ -1,4 +1,4 @@
-.modal_back {
+.modal_delete_back {
   background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
   top: 0;
@@ -8,24 +8,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 100;
 }
-.modal-box {
+.modal_delete_box {
   position: fixed;
   width: 360px;
-  height: 210px;
+  height: 190px;
   background-color: white;
   border-radius: 20px;
   border: none;
   display: flex;
   justify-content: center;
 }
-.modal-child {
+.modal_delete_child {
   padding-bottom: 5px;
   margin: 30px 0px;
   font-size: 20px;
   font-weight: 600;
 }
-.modal-closeButton {
+.modal_delete_closeButton {
   position: absolute;
   top: 15px;
   right: 15px;
