@@ -7,7 +7,7 @@
 
 .cardImage {
   width: 340px;
-  height: 253.746px;
+  height: 230px;
   object-fit: cover;
   flex-shrink: 0;
 }
@@ -15,6 +15,7 @@
 .cardTextArea {
   display: flex;
   width: 340px;
+  height: 135px;
   padding: 15px 20px;
   flex-direction: column;
   align-items: flex-start;
