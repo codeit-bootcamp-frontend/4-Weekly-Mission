@@ -1,0 +1,62 @@
+.add-to-folder-list {
+  display: flex;
+  width: 280px;
+  max-height: 172px;
+  overflow-y: scroll;
+  flex-direction: column;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.add-to-folder {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  justify-content: left;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.folder-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.folder-name {
+  color: var(--gray100);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.num-links {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.checkmark {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  display: none;
+}
+
+.selected-to-add-to {
+  border-radius: 8px;
+  background: var(--Linkbrary-bg, #f0f6ff);
+}
+
+.selected-to-add-to .folder-name {
+  color: var(--primary);
+}
+
+.selected-to-add-to .checkmark {
+  display: block;
+}

@@ -21,15 +21,15 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--gray60);
-  font-size: 14px;
-  font-weight: 600;
 }
 
 .folder-option-item {
   display: flex;
   align-items: center;
   gap: 4px;
+  color: var(--gray60);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .folder-option-item img {

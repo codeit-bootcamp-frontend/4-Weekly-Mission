@@ -38,7 +38,7 @@
 }
 
 .link-adder input {
-  color: var(--gray60);
+  color: black;
   width: 100%;
   font-size: 16px;
   font-weight: 400;
@@ -46,4 +46,8 @@
   @media (max-width: 784px) {
     font-size: 14px;
   }
+}
+
+.link-adder input::placeholder {
+  color: var(--gray60);
 }

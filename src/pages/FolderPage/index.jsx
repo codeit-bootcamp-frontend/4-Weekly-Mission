@@ -10,9 +10,9 @@ import {
 import { fetchFolders, fetchFolder } from "../../api";
 
 export default function FolderPage() {
-  const [folders, setFolders] = useState([]);
-  const [selectedFolder, setSelectedFolder] = useState(null);
-  const [currentFolder, setCurrentFolder] = useState([]);
+  const [folders, setFolders] = useState([]); // list of folders
+  const [selectedFolder, setSelectedFolder] = useState({ id: null, name: "" });
+  const [currentFolder, setCurrentFolder] = useState([]); // links of the selected folder
   const [search, setSearch] = useState("");
 
   async function getFolders() {
@@ -37,7 +37,7 @@ export default function FolderPage() {
 
   useEffect(() => {
     getFolders();
-    getFolder(selectedFolder);
+    getFolder(selectedFolder?.id);
   }, [selectedFolder]);
 
   return (
@@ -48,9 +48,9 @@ export default function FolderPage() {
         <FoldersList
           folders={folders}
           selectedFolder={selectedFolder}
-          setSelectedFolder={(id) => setSelectedFolder(id)}
+          setSelectedFolder={(folder) => setSelectedFolder(folder)}
         />
-        <FolderToolbar />
+        <FolderToolbar folder={selectedFolder} />
         <Cards links={currentFolder} />
       </div>
     </>
