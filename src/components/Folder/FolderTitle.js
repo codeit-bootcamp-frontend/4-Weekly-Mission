@@ -7,7 +7,7 @@ const FolderTitle = ({ titleName }) => {
   return (
     <Container>
       <Title>{titleName}</Title>
-      {titleName !== "전체" ? (
+      {titleName !== "전체" && (
         <OptionBox>
           <Option>
             <OptionIcon src={share}></OptionIcon>
@@ -22,7 +22,7 @@ const FolderTitle = ({ titleName }) => {
             <OptionText>삭제</OptionText>
           </Option>
         </OptionBox>
-      ) : null}
+      )}
     </Container>
   );
 };

@@ -7,7 +7,7 @@ import useGetJson from "./../../hook/uesGetJson";
 
 const Menus = ({ changeTitle, changeID }) => {
   const listsData = useGetJson(getFolderList);
-  const lists = listsData?.data || [];
+  const lists = listsData?.data ?? [];
   if (lists[0]) {
     lists[0].name === "전체" || lists.unshift({ id: 0, name: "전체" });
   }
