@@ -40,7 +40,7 @@ function Gnb() {
   }, []);
 
   const userProfileImg = userInfo?.profileImageSource || DefaultProfileImg;
-  const userEmail = userInfo?.email || '';
+  const userEmail = userInfo?.email ?? '';
 
   const navClasses = classNames(styles.gnb, { 'position-fixed': location !== FOLDER_LOCATION }, 'margin-auto', 'z-top');
   const containerClasses = classNames(styles['gnb-container'], 'flex-row');
