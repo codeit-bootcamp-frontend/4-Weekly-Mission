@@ -8,6 +8,7 @@ import pen from "../images/pen.svg";
 import remove from "../images/remove.svg";
 import useFetchData from "../hooks/useFetchData";
 import CardList from "./CardList";
+import NoLink from "./NoLink";
 
 function FolderDetail({ folderListData }) {
   const windowWidth = window.innerWidth;
@@ -77,7 +78,11 @@ function FolderDetail({ folderListData }) {
           ""
         )}
       </div>
-      <CardList selectedFolderData={selectedFolderData} />
+      {String(selectedFolder.id) === "undefined" ? (
+        <CardList selectedFolderData={selectedFolderData} />
+      ) : (
+        <NoLink />
+      )}
     </div>
   );
 }
