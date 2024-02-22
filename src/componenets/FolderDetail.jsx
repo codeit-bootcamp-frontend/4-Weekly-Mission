@@ -45,7 +45,7 @@ function FolderDetail({ folderListData, toggleModal }) {
           ))}
         </div>
 
-        <div onClick={toggleModal} className="addButton">
+        <div onClick={() => toggleModal(1)} className="addButton">
           <p>폴더 추가</p>
           <img src={add} alt="더하기" />
         </div>
@@ -63,7 +63,7 @@ function FolderDetail({ folderListData, toggleModal }) {
               <img src={pen} alt="이름변경" />
               <span>이름변경</span>
             </div>
-            <div className="remove">
+            <div className="remove" onClick={() => toggleModal(2)}>
               <img src={remove} alt="삭제" />
               <span>삭제</span>
             </div>

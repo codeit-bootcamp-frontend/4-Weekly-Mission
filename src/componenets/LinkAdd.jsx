@@ -12,7 +12,7 @@ function LinkAdd({ toggleModal }) {
   function handleAddButtonClick(event) {
     event.preventDefault();
     if (inputValue !== "") {
-      toggleModal();
+      toggleModal(1);
     }
   }
 

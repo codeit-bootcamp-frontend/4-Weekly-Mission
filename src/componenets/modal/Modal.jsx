@@ -1,28 +1,12 @@
 import "./modal.css";
-import close from "../../images/_close.png";
+import AddFolder from "./AddFolder";
+import EditFolderName from "./EditFolderName";
 
-function Modal({ isModalOpen, toggleModal }) {
+function Modal({ isModalOpen, toggleModal, Id }) {
   return (
     <>
-      {!isModalOpen && (
-        <div className="modal">
-          <form className="modal-form">
-            <div className="modal-form-content">
-              <img
-                onClick={toggleModal}
-                className="modal-form-img"
-                src={close}
-                alt="닫기"
-              />
-              <div className="modal-form-title">폴더 추가</div>
-              <div className="modal-change-format">
-                <input placeholder="내용 입력" className="modal-change-input" />
-                <button className="modal-change-button">추가하기</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      )}
+      {!isModalOpen && Id === 1 && <AddFolder toggleModal={toggleModal} />}
+      {!isModalOpen && Id === 2 && <EditFolderName toggleModal={toggleModal} />}
     </>
   );
 }

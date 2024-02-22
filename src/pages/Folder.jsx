@@ -8,10 +8,12 @@ import Modal from "../componenets/modal/Modal";
 
 function Folder() {
   const [isModalOpen, setIsModalOpen] = useState(true);
+  const [key, setKey] = useState(0);
   const profileData = useFetchData("profileDataFetch", 1);
   const folderListData = useFetchData("folderListDataFetch", 1);
 
-  function toggleModal() {
+  function toggleModal(Id) {
+    setKey(Id);
     setIsModalOpen(!isModalOpen);
   }
 
@@ -21,7 +23,7 @@ function Folder() {
       <LinkAdd toggleModal={toggleModal} />
       <FolderDetail folderListData={folderListData} toggleModal={toggleModal} />
       <Footer />
-      <Modal isModalOpen={isModalOpen} toggleModal={toggleModal} />
+      <Modal isModalOpen={isModalOpen} toggleModal={toggleModal} Id={key} />
     </>
   );
 }
