@@ -78,6 +78,8 @@ function Folder() {
         <input
           className="FolderAddInput"
           placeholder="🔗 링크를 추가해 보세요"
+          onChange={(e) => setLinkInput(e.target.value)}
+          value={linkInput}
         />
         <button className="FolderAddButton" onClick={showAddToFolderModal}>
           추가하기
@@ -87,6 +89,7 @@ function Folder() {
             setAddToFolderModalOpen={setAddToFolderModalOpen}
             folders={folders}
             setFolders={setFolders}
+            linkInput={linkInput}
           />
         )}
       </div>

@@ -4,7 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { fetchFolderCardData } from "../Service/ApiService";
 
-function AddToFolder({ setAddToFolderModalOpen, folders, setFolders }) {
+function AddToFolder({
+  setAddToFolderModalOpen,
+  folders,
+  setFolders,
+  linkInput,
+}) {
   const closeModal = () => {
     setAddToFolderModalOpen(false);
   };
@@ -34,7 +39,7 @@ function AddToFolder({ setAddToFolderModalOpen, folders, setFolders }) {
               onClick={closeModal}
             />
             <div className="AddFolderTitle">폴더에 추가</div>
-            <div className="AddToFolderLink">링크주소전달받기</div>
+            <div className="AddToFolderLink">{linkInput}</div>
             <div className="AddToFolderSmallContainer">
               {folders &&
                 folders.map((folder) => (
