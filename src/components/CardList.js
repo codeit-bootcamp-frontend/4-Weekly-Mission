@@ -15,7 +15,6 @@ function Card({ item }) {
 
     const newPopoverVisible = !popoverVisible;
     setPopoverVisible(newPopoverVisible);
-    console.log("popoverVisible:", newPopoverVisible); // Add this log
   };
 
   return (

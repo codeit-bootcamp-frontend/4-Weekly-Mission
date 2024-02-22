@@ -5,7 +5,7 @@ const ModalEdit = ({ isOpen, onClose }) => {
     <>
       <h2>폴더 이름 변경</h2>
       <input placeholder="유용한 팁" className="modalInput" />
-      <button>변경하기</button>
+      <button className="blueButton">변경하기</button>
     </>
   );
 

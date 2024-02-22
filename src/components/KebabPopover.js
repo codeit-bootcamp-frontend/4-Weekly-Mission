@@ -2,7 +2,7 @@ import styled from "styled-components";
 import useModal from "../hooks/useModal";
 import React from "react";
 import ModalDeleteLink from "./Modal/ModalDeleteLink";
-import ModalAddFolder from "./Modal/ModalAddFolder";
+import ModalAddToFolder from "./Modal/ModalAddToFolder";
 
 const PopoverContainer = styled.div`
   margin: 0;
@@ -28,17 +28,32 @@ const PopoverList = styled.li`
     color: var(--primary-color);
 `;
 
-const KebabPopover = () => {
+const PopoverListWithModal = ({ modalComponent, label }) => {
   const { showModal, handleOpenModal, handleCloseModal } = useModal();
+  return (
+    <PopoverList onClick={handleOpenModal}>
+      {label}
+      {showModal &&
+        React.cloneElement(modalComponent, {
+          isOpen: showModal,
+          onClose: handleCloseModal,
+        })}
+      {console.log(handleCloseModal)}
+    </PopoverList>
+  );
+};
 
+const KebabPopover = () => {
   return (
     <PopoverContainer>
-      <PopoverList onClick={handleOpenModal}>
-        삭제하기
-        <ModalDeleteLink isOpen={showModal} onClose={handleCloseModal} />
-      </PopoverList>
-      <PopoverList onClick={handleOpenModal}>폴더에 추가</PopoverList>
-      <ModalAddFolder isOpen={showModal} onClose={handleCloseModal} />
+      <PopoverListWithModal
+        modalComponent={<ModalDeleteLink />}
+        label="삭제하기"
+      />
+      <PopoverListWithModal
+        modalComponent={<ModalAddToFolder />}
+        label="폴더에 추가"
+      />
     </PopoverContainer>
   );
 };

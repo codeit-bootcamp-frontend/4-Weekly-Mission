@@ -3,10 +3,10 @@ import shareIcon from "../../assets/share.svg";
 import deleteIcon from "../../assets/delete.svg";
 import "./UtilIcons.css";
 import ModalShare from "../Modal/ModalShare";
-import ModalDeleteLink from "../Modal/ModalDeleteLink";
 import ModalEdit from "../Modal/ModalEdit";
 import useModal from "../../hooks/useModal";
 import React from "react";
+import ModalDeleteFolder from "../Modal/ModalDeleteFolder";
 
 const UtilIcon = ({ icon, label, modalComponent }) => {
   const { showModal, handleOpenModal, handleCloseModal } = useModal();
@@ -35,7 +35,7 @@ const UtilIcons = () => {
       <UtilIcon
         icon={deleteIcon}
         label="삭제"
-        modalComponent={<ModalDeleteLink />}
+        modalComponent={<ModalDeleteFolder />}
       />
     </div>
   );

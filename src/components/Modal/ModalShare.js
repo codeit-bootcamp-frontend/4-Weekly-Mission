@@ -8,7 +8,7 @@ const ModalShare = ({ isOpen, onClose }) => {
     <>
       <h2>폴더 공유</h2>
       <h3>폴더명</h3>
-      <div>
+      <div className="socialButtonContainer">
         <div>
           <img src={kakao} alt="kakao" />
           카카오톡

@@ -5,7 +5,7 @@ const ModalDeleteLink = ({ isOpen, onClose }) => {
     <>
       <h2>링크 삭제</h2>
       <p></p>
-      <button>삭제하기</button>
+      <button className="redButton">삭제하기</button>
     </>
   );
 

@@ -5,7 +5,7 @@ const ModalDeleteFolder = ({ isOpen, onClose }) => {
     <>
       <h2>폴더 삭제</h2>
       <p></p>
-      <button>삭제하기</button>
+      <button className="redButton">삭제하기</button>
     </>
   );
 

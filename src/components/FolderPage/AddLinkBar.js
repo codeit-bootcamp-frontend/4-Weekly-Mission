@@ -1,6 +1,6 @@
 import "./AddLinkBar.css";
 import linkIcon from "../../assets/linkIcon.svg";
-import ModalAddFolder from "../Modal/ModalAddFolder";
+import ModalAddFolder from "../Modal/ModalAddToFolder";
 import useModal from "../../hooks/useModal";
 
 const AddLink = () => {

@@ -37,9 +37,33 @@
   align-items: center;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   color: #f5f5f5;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+}
+
+.blueButton {
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+}
+
+.redButton {
+  background-color: #ff5b56;
+}
+
+.socialButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.socialButtonContainer div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.socialButtonContainer img {
+  width: 42px;
 }
