@@ -1,12 +1,17 @@
 import styled from "styled-components";
 
-const LinkAddForm = styled.form`
+export const Div = styled.div`
+  background-color: #f0f6ff;
+  padding: 100px 2rem;
+`;
+
+export const LinkAddForm = styled.form`
   background-color: white;
   display: flex;
   gap: 12px;
   justify-content: center;
   align-items: center;
-  width: 800px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 16px 20px;
   border: 1px solid #6d6afe;
@@ -44,5 +49,3 @@ const LinkAddForm = styled.form`
     cursor: pointer;
   }
 `;
-
-export default LinkAddForm;

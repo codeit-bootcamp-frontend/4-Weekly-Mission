@@ -1,11 +1,6 @@
-import styled from "styled-components";
 import linkImg from "../../images/link.svg";
-import LinkAddForm from "./LinkAddForm";
+import { LinkAddForm, Div } from "./LinkAddForm";
 
-const Div = styled.div`
-  background-color: #f0f6ff;
-  padding: 100px 3rem;
-`;
 const LinkAddInput = () => {
   return (
     <Div>

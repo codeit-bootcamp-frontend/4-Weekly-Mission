@@ -5,7 +5,7 @@
   gap: 25px 20px;
   justify-content: center;
 
-  @media (max-width: 1124px) {
+  @media (max-width: 1199px) {
     grid-template: "1fr 1fr";
   }
 
