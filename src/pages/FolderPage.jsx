@@ -53,7 +53,7 @@ const FolderPage = () => {
           <CardGrid
             isLoading={isLoading}
             datas={folderDatas?.data}
-            isFolder="true"
+            isFolder={true}
           />
         ) : (
           <CardError />

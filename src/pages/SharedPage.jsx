@@ -17,7 +17,7 @@ const SharedPage = () => {
       <SharedHeader />
       <MainContainer>
         <Search />
-        <CardGrid datas={sharedDatas} loading={isLoading} isFolder="false" />
+        <CardGrid datas={sharedDatas} loading={isLoading} isFolder={false} />
       </MainContainer>
     </>
   );
