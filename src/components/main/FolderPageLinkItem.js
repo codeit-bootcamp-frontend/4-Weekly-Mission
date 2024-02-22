@@ -6,7 +6,7 @@ function FolderPageLinkItem({ description, image_source, created_at, url }) {
     <a href={url} className={styles.item_card_link}>
       <div className={styles.item_card_wrapper}>
         <div className={styles.item_card_image_box}>
-          {image_source == null ? (
+          {!image_source ? (
             <img
               src={`${process.env.PUBLIC_URL}/assets/images/folder_no_image.svg`}
               className={styles.item_card_image}
