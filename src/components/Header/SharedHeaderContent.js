@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import ErrorMessage from 'components/Common/ErrorMessage';
 import styles from 'components/Header/SharedHeaderContent.module.css';
 
-import { getFoldersInfo } from 'services/api';
+import { getSampleFolderInfo } from 'services/api';
 
 // 폴더 정보 출력
 function SharedHeaderContent() {
@@ -14,7 +14,7 @@ function SharedHeaderContent() {
 
   const handleLoadFolder = async () => {
     try {
-      const result = await getFoldersInfo();
+      const result = await getSampleFolderInfo();
       setFolderInfo(result);
     } catch (error) {
       setErrorMessage(error.message);

@@ -8,6 +8,13 @@ export async function getUserInfo() {
 }
 
 // SharedPage에서 사용
+export async function getSampleFolderInfo() {
+  const url = 'sample/folder';
+
+  const { data, loading, error } = useFetch(url);
+  return { data, loading, error };
+}
+
 export async function getFoldersInfo() {
   const url = 'sample/folder';
 
