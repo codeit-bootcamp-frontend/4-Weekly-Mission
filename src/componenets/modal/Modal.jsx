@@ -1,7 +1,7 @@
 import "./modal.css";
 import close from "../../images/_close.png";
 
-function AddFolder({ isModalOpen, toggleModal }) {
+function Modal({ isModalOpen, toggleModal }) {
   return (
     <>
       {!isModalOpen && (
@@ -27,4 +27,4 @@ function AddFolder({ isModalOpen, toggleModal }) {
   );
 }
 
-export default AddFolder;
+export default Modal;

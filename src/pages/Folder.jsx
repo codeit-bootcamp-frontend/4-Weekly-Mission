@@ -4,7 +4,7 @@ import Footer from "../componenets/Footer";
 import LinkAdd from "../componenets/LinkAdd";
 import Nav from "../componenets/Nav";
 import useFetchData from "../hooks/useFetchData";
-import AddFolder from "../componenets/modal/AddFolder";
+import Modal from "../componenets/modal/Modal";
 
 function Folder() {
   const [isModalOpen, setIsModalOpen] = useState(true);
@@ -17,15 +17,11 @@ function Folder() {
 
   return (
     <>
-      <Nav isModalOpen={isModalOpen} profileData={profileData} />
-      <LinkAdd isModalOpen={isModalOpen} toggleModal={toggleModal} />
-      <FolderDetail
-        isModalOpen={isModalOpen}
-        folderListData={folderListData}
-        toggleModal={toggleModal}
-      />
-      <Footer isModalOpen={isModalOpen} />
-      <AddFolder isModalOpen={isModalOpen} toggleModal={toggleModal} />
+      <Nav profileData={profileData} />
+      <LinkAdd toggleModal={toggleModal} />
+      <FolderDetail folderListData={folderListData} toggleModal={toggleModal} />
+      <Footer />
+      <Modal isModalOpen={isModalOpen} toggleModal={toggleModal} />
     </>
   );
 }
