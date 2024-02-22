@@ -37,7 +37,7 @@ function SortingButtonList() {
 
   const sortingSectionClasses = classNames(styles['sorting-section'], 'flex-row', 'justify-space-between');
   const sortingButtonListClasses = classNames(styles['sorting-button-list'], 'display-inline-flex', 'flex-wrap');
-  const selectedButtonStyle = classNames(styles['selected-button']);
+  const selectedButtonStyle = classNames('background-primary', 'text-color-white');
   const addFolderButtonClasses = classNames(styles['add-folder-button'], 'hidden-flex-mobile-only');
   const folderInfoSectionClasses = classNames(styles['folder-info-section']);
   const titleClasses = classNames(styles.title);

@@ -6,11 +6,6 @@
   gap: 1rem;
 }
 
-.selected-button {
-  background: var(--primary, #6d6afe);
-  color: var(--white, #ffffff);
-}
-
 .add-folder-button {
   align-items: center;
 }
@@ -28,6 +23,7 @@
 
 .option-list {
   justify-content: left;
+  margin-right: 1.2rem;
 }
 
 /* Tablet */
@@ -46,6 +42,11 @@
   .title {
     font-size: 2.4rem;
     margin-bottom: 0;
+  }
+
+  .option-list {
+    margin-right: 0;
+    margin-left: 1.2rem;
   }
 }
 
