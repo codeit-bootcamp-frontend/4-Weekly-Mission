@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 
-import styles from './AddLInkButton.module.css';
-import Button from './Button';
+import styles from 'components/Common/AddLInkButton.module.css';
+import Button from 'components/Common/Button';
 
 function AddLinkButton() {
   const buttonClasses = classNames(styles['add-link-button'], 'button-background-primary', 'button-text-light');

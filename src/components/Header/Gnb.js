@@ -7,10 +7,9 @@ import DefaultProfileImg from 'assets/images/profile-img.png';
 
 import ErrorMessage from 'components/Common/ErrorMessage';
 import LoginButton from 'components/Common/LoginButton';
+import styles from 'components/Header/Gnb.module.css';
 
 import { getUserInfo } from 'services/api';
-
-import styles from './Gnb.module.css';
 
 // 글로벌 네비게이션 바
 function Gnb() {
@@ -48,7 +47,7 @@ function Gnb() {
 
   // /folder에서는 position-fixed 제거
   const navClasses = classNames(styles.gnb, { 'position-fixed': pathname !== FOLDER_LOCATION }, 'margin-auto', 'z-top');
-  const containerClasses = classNames(styles['gnb-container'], 'flex-row');
+  const containerClasses = classNames('flex-row', 'justify-space-between');
   const logoClasses = classNames(styles['gnb-logo']);
   const profileClasses = classNames(styles['gnb-profile'], 'flex-row');
   const profileImgClasses = classNames(styles['profile-img']);

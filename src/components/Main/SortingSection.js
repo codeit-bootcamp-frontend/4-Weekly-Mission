@@ -8,8 +8,7 @@ import ShareIcon from 'assets/images/share.svg';
 import AddFolderButton from 'components/Common/AddFolderButton';
 import Option from 'components/Common/Option';
 import SortingButton from 'components/Common/SortingButton';
-
-import styles from './SortingSection.module.css';
+import styles from 'components/Main/SortingSection.module.css';
 
 function SortingButtonList() {
   const ALL = '전체';

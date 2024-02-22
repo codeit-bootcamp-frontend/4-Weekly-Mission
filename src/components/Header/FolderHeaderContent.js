@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 
 import AddLinkBar from 'components/Header/AddLinkBar';
-
-import styles from './FolderHeaderContent.module.css';
+import styles from 'components/Header/FolderHeaderContent.module.css';
 
 function FolderHeaderContent() {
   const contentClasses = classNames(styles['header-content'], 'margin-auto');

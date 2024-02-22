@@ -3,10 +3,9 @@ import { useState, useEffect } from 'react';
 
 import ErrorMessage from 'components/Common/ErrorMessage';
 import Card from 'components/Main/Card';
+import styles from 'components/Main/CardList.module.css';
 
 import { getLinksInfo } from 'services/api';
-
-import styles from './CardList.module.css';
 
 // folder id를 props로 받아서 api 적용할 것
 function CardList() {

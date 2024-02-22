@@ -60,6 +60,18 @@
   justify-content: center;
 }
 
+.align-center {
+  align-content: center;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
 .position-fixed {
   position: fixed;
 }

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import propTypes from 'prop-types';
 
-import styles from './Main.module.css';
+import styles from 'components/Main/Main.module.css';
 
 function Main({ children }) {
   const mainClasses = classNames(styles.main, 'flex-col');

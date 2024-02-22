@@ -3,8 +3,7 @@ import classNames from 'classnames';
 import AddIcon from 'assets/images/add-gray10.svg';
 
 import Button from 'components/Common/Button';
-
-import styles from './FloatingAddFolderButton.module.css';
+import styles from 'components/Common/FloatingAddFolderButton.module.css';
 
 function FloatingAddFolderButton({ className, onClick }) {
   const buttonClasses = classNames(

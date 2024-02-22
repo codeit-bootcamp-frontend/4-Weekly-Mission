@@ -2,8 +2,7 @@ import classNames from 'classnames';
 import propTypes from 'prop-types';
 
 import Gnb from 'components/Header/Gnb';
-
-// import styles from './Header.module.css';
+// import styles from 'components/Header/Header.module.css';
 
 function Header({ children }) {
   const headerClasses = classNames('background-bg', 'width-full');

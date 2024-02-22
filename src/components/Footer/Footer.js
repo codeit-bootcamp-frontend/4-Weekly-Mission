@@ -6,7 +6,7 @@ import twitter from 'assets/images/akar-icons_twitter-fill.svg';
 import youtube from 'assets/images/akar-icons_youtube-fill.svg';
 import instagram from 'assets/images/ant-design_instagram-filled.svg';
 
-import styles from './Footer.module.css';
+import styles from 'components/Footer/Footer.module.css';
 
 function Footer() {
   const socialLinks = [

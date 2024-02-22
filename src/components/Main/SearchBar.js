@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import searchIcon from 'assets/images/search-icon.svg';
 
-import styles from './SearchBar.module.css';
+import styles from 'components/Main/SearchBar.module.css';
 
 function SearchBar() {
   const [value, setValue] = useState('');

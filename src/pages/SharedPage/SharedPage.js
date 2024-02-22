@@ -5,7 +5,7 @@ import CardList from 'components/Main/CardList';
 import Main from 'components/Main/Main';
 import SearchBar from 'components/Main/SearchBar';
 
-// import styles from './SharedPage.module.css';
+// import styles from 'pages/SharedPage/SharedPage.module.css';
 
 function Shared() {
   return (

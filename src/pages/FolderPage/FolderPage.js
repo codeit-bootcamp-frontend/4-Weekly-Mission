@@ -9,7 +9,7 @@ import Main from 'components/Main/Main';
 import SearchBar from 'components/Main/SearchBar';
 import SortingSection from 'components/Main/SortingSection';
 
-import styles from './FolderPage.module.css';
+import styles from 'pages/FolderPage/FolderPage.module.css';
 
 function Folder() {
   const floatingAddFolderButtonClasses = classNames(styles['floating-add-folder-button'], 'position-fixed', 'z-top');

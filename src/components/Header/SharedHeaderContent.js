@@ -2,10 +2,9 @@ import classNames from 'classnames';
 import { useState, useEffect } from 'react';
 
 import ErrorMessage from 'components/Common/ErrorMessage';
+import styles from 'components/Header/SharedHeaderContent.module.css';
 
 import { getFoldersInfo } from 'services/api';
-
-import styles from './SharedHeaderContent.module.css';
 
 // 폴더 정보 출력
 function SharedHeaderContent() {
