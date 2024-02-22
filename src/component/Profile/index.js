@@ -34,9 +34,7 @@ const Profile = () => {
         </div>
       ) : (
         <div>
-          <a className="loginBtn" href="#">
-            로그인
-          </a>
+          <a className="loginBtn">로그인</a>
         </div>
       )}
     </>

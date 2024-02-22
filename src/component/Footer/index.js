@@ -8,19 +8,19 @@ const Footer = () => {
   return (
     <div className="Footer">
       <div>©codeit - 2023</div>
-      <a href="#">Privacy Policy</a>
-      <a href="#">FAQ</a>
-      <a href="https://facebook.com" target="_blank">
-        <img src={facebookIcon} />
+      <a>Privacy Policy</a>
+      <a>FAQ</a>
+      <a href="https://facebook.com" target="_blank" rel="noreferrer">
+        <img src={facebookIcon} alt="페이스북 아이콘" />
       </a>
-      <a href="https://twitter.com" target="_blank">
-        <img src={twitterIcon} />
+      <a href="https://twitter.com" target="_blank" rel="noreferrer">
+        <img src={twitterIcon} alt="트위터 아이콘" />
       </a>
-      <a href="https://youtube.com" target="_blank">
-        <img src={youtubeIcon} />
+      <a href="https://youtube.com" target="_blank" rel="noreferrer">
+        <img src={youtubeIcon} alt="유튜브 아이콘" />
       </a>
-      <a href="https://instagram.com" target="_blank">
-        <img src={instagramIcon} />
+      <a href="https://instagram.com" target="_blank" rel="noreferrer">
+        <img src={instagramIcon} alt="인스타그램 아이콘" />
       </a>
     </div>
   );
