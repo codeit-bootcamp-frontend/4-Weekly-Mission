@@ -1,11 +1,23 @@
-@import url("./assets/styles/reset.css");
-@import url("./assets/styles/colors.css");
-@import url("./assets/styles/common.css");
-@import url("./assets/styles/utility.css");
+@import url('assets/styles/reset.css');
+@import url('assets/styles/colors.css');
+@import url('assets/styles/common.css');
+@import url('assets/styles/utility.css');
 
 body {
-  font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "맑은 고딕", "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
-    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family:
+    'Pretendard',
+    -apple-system,
+    BlinkMacSystemFont,
+    '맑은 고딕',
+    'Segoe UI',
+    'Roboto',
+    'Oxygen',
+    'Ubuntu',
+    'Cantarell',
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
   font-style: normal;
   line-height: normal;
   -webkit-font-smoothing: antialiased;
@@ -13,5 +25,5 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
