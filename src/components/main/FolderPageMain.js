@@ -2,7 +2,7 @@ import LinkSearchInput from "./LinkSearchInput";
 import FolderFilterBox from "./FolderFilterBox";
 import LinkFuncButtonBox from "./LinkFuncButtonBox";
 import styles from "./FolderPageMain.module.css";
-import AddFolderButton from "./AddFolderButton";
+import AddFolderButtons from "./AddFolderButtons";
 import LinkList from "./LinkList";
 import { useFetch } from "../../hooks/useFetch";
 import { useState } from "react";
@@ -28,7 +28,7 @@ function FolderPageMain() {
             folderId={folderData}
             setFolderId={setFolderId}
           />
-          <AddFolderButton />
+          <AddFolderButtons />
         </div>
         <div className={styles.folder_title_box}>
           <h1 className={styles.folder_title}>{folderName}</h1>
