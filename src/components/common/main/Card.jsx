@@ -6,15 +6,15 @@ import KebabButton from 'components/folder/KebabButton';
 
 /**
  *
- * @param {Object[]} cardDatas
- * @param {number} cardDatas[].id
- * @param {string} cardDatas[].url
- * @param {string} cardDatas[].imageURL
- * @param {string} cardDatas[].title
- * @param {string} cardDatas[].timePassed
- * @param {string} cardDatas[].description
- * @param {string} cardDatas[].formattedDate
- * @param {boolean} cardDatas[].isFolder
+ * @param {Object} cardDatas
+ * @param {number} cardDatas.id
+ * @param {string} cardDatas.url
+ * @param {string} cardDatas.imageURL
+ * @param {string} cardDatas.title
+ * @param {string} cardDatas.timePassed
+ * @param {string} cardDatas.description
+ * @param {string} cardDatas.formattedDate
+ * @param {boolean} cardDatas.isFolder
  */
 const Card = ({
   id,
