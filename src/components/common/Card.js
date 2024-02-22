@@ -2,7 +2,7 @@ import React from 'react';
 import defaultImage from '../../assets/Images/non_image.png';
 import star from '../../assets/Images/star.svg';
 import { upDateStauts } from '../../assets/utils/cardUpdate';
-import { Kebab } from './Kebab';
+import { Kebab } from '../folderPageComponents/Kebab';
 
 export default function Card({
   imageSource,
@@ -10,7 +10,6 @@ export default function Card({
   description,
   url,
   folder,
-  clickPoint,
 }) {
   const date = new Date(createdAt).toLocaleDateString();
 
@@ -43,7 +42,7 @@ export default function Card({
               <p className="card-date-difference">
                 {createdAt ? dataStatus : null}
               </p>
-              {folder && <Kebab clickPoint={clickPoint}></Kebab>}
+              {folder && <Kebab></Kebab>}
             </div>
             <p className="card-description">{description}</p>
             <p className="card-date">{date}</p>

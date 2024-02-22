@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/Images/logo.svg';
 import { Nav } from '../../styles/styledComponents/common';
+import { FolderPageContext } from '../../context/FolderPageContext';
 
-export const MainHeader = ({ userProfile, navFixed }) => {
+export const MainHeader = ({ navFixed }) => {
+  const userProfile = useContext(FolderPageContext);
   return (
     <>
       <Nav $navStatus={navFixed}>

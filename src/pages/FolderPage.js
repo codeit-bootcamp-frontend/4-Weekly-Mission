@@ -3,6 +3,7 @@ import { FolderHeader } from '../components/folderPageComponents/FolderHeader';
 import { MainHeader } from '../components/common/MainHeader';
 import { useOutletContext } from 'react-router-dom';
 import { FolderContents } from '../components/folderPageComponents/FolderContents';
+import { FolderPageContext } from '../context/FolderPageContext';
 
 export default function FolderPage() {
   const { userProfile } = useOutletContext();
@@ -18,10 +19,10 @@ export default function FolderPage() {
     };
   }, []);
   return (
-    <>
-      <MainHeader userProfile={userProfile}></MainHeader>
+    <FolderPageContext.Provider value={{ userProfile, clickPoint }}>
+      <MainHeader></MainHeader>
       <FolderHeader></FolderHeader>
-      <FolderContents clickPoint={clickPoint}></FolderContents>
-    </>
+      <FolderContents></FolderContents>
+    </FolderPageContext.Provider>
   );
 }
