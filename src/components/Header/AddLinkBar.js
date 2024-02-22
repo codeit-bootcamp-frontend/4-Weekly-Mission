@@ -5,10 +5,10 @@ import addLinkIcon from '../../assets/images/link.svg';
 import AddLinkButton from '../Common/AddLInkButton';
 
 function AddLinkBar() {
-  const [value, setValue] = useState('');
+  const [addLinkValue, setAddLinkValue] = useState('');
 
   const handleInputChange = (e) => {
-    setValue(e.target.value);
+    setAddLinkValue(e.target.value);
   };
 
   const addLinkClasses = classNames(styles['add-link-bar'], 'position-relative', 'width-full', 'margin-auto');
@@ -22,7 +22,7 @@ function AddLinkBar() {
       <input
         className={inputClasses}
         type="text"
-        value={value}
+        value={addLinkValue}
         onChange={handleInputChange}
         placeholder="링크를 추가해 보세요"
       />
