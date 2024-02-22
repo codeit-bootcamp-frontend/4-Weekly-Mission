@@ -1,10 +1,10 @@
 import AddLinkArea from './AddLinkArea';
-import Main from './Main';
+import FolderSection from './FolderSection';
 
 const FolderPage = () => (
   <>
     <AddLinkArea />
-    <Main />
+    <FolderSection />
   </>
 );
 export default FolderPage;

@@ -13,9 +13,15 @@ const List = styled.ul`
 
 const FolderList = ({ folderList }) => (
   <List>
-    {folderList.map(({ id, createdAt, url, description, imageSource }) => (
-      <LinkCard key={id} url={url} createdAt={createdAt} desc={description} imgUrl={imageSource} />
-    ))}
+    {folderList.map(folder => {
+      const { id, url, description } = folder;
+      // eslint-disable-next-line dot-notation
+      const createdAt = folder.createdAt || folder['created_at'];
+      // eslint-disable-next-line dot-notation
+      const imageSource = folder.imageSource || folder['image_source'];
+
+      return <LinkCard key={id} url={url} createdAt={createdAt} desc={description} imgUrl={imageSource} />;
+    })}
   </List>
 );
 

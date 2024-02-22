@@ -1,29 +1,8 @@
 import styled from 'styled-components';
-import LinkCard from '../LinkCard';
-import iconShare from '../../assets/share.svg';
-import iconPen from '../../assets/pen.svg';
-import iconDelete from '../../assets/delete.svg';
-
-const ButtonList = [
-  {
-    name: '공유',
-    english: 'Share',
-  },
-  {
-    name: '이름변경',
-    english: 'Pen',
-  },
-  {
-    name: '삭제',
-    english: 'Delete',
-  },
-];
-
-const ICON = {
-  iconShare,
-  iconPen,
-  iconDelete,
-};
+import { useEffect, useState } from 'react';
+import { getUserLinks } from '../../util/api';
+import FolderList from '../SharedPage/FolderList';
+import UpdateBtnList from './UpdateBtnList';
 
 const Header = styled.header`
   display: flex;
@@ -39,59 +18,38 @@ const Title = styled.h1`
   letter-spacing: -0.02rem;
 `;
 
-const LinkListArea = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
+const NoLinks = styled.p`
+  padding: 4.1rem 0 3.5rem;
   width: 100%;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+  text-align: center;
 `;
 
-const UpdateButtonList = styled.ul`
-  display: flex;
-  gap: 1.2rem;
-`;
+const LinkList = ({ folderId, selectedFolder }) => {
+  const [links, setLinks] = useState([]);
 
-const UpdateButton = styled.button`
-  display: flex;
-  gap: 0.4rem;
-  line-height: 1.7rem;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--color-gray-600);
-`;
+  const fetchLinks = async id => {
+    try {
+      const { data } = await getUserLinks(id);
+      setLinks(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
-const ButtonImg = styled.img`
-  width: 1.8rem;
-  height: 1.8rem;
-`;
+  useEffect(() => {
+    fetchLinks(folderId);
+  }, [folderId]);
 
-const LinkList = ({ links, selectedFolder }) => (
-  <>
-    <Header>
-      <Title>{selectedFolder}</Title>
-      {selectedFolder !== '전체' && (
-        <UpdateButtonList>
-          {ButtonList.map(({ name, english }) => (
-            <li>
-              <UpdateButton>
-                <ButtonImg src={ICON[`icon${english}`]} alt={name} />
-                {name}
-              </UpdateButton>
-            </li>
-          ))}
-        </UpdateButtonList>
-      )}
-    </Header>
-    {links.length ? (
-      <LinkListArea>
-        {links.map(({ id, url, created_at, description, image_source }) => (
-          <li key={id}>
-            <LinkCard url={url} createdAt={created_at} desc={description} imgUrl={image_source} />
-          </li>
-        ))}
-      </LinkListArea>
-    ) : (
-      <span>저장된 링크가 없습니다</span>
-    )}
-  </>
-);
+  return (
+    <>
+      <Header>
+        <Title>{selectedFolder}</Title>
+        {selectedFolder !== '전체' && <UpdateBtnList />}
+      </Header>
+      {links.length ? <FolderList folderList={links} /> : <NoLinks>저장된 링크가 없습니다</NoLinks>}
+    </>
+  );
+};
 export default LinkList;
