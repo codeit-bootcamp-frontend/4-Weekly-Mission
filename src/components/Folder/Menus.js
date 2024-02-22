@@ -6,6 +6,9 @@ import union from "../../assets/icons/Union.svg";
 import useGetJson from "./../../hook/uesGetJson";
 
 const Menus = ({ changeTitle, changeID }) => {
+  const WHITE = "fff";
+  const CUSTOM_COLOR = "#6D6AFE";
+
   const listsData = useGetJson(getFolderList);
   const lists = listsData?.data ?? [];
   if (lists[0]) {
@@ -87,6 +90,7 @@ const Button = styled.button`
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background-color: ${({ color = "#fff" }) => color || "#fff"};
   color: ${({ color = "#fff" }) => (color === "#fff" ? "#000000" : "#FFFFFF")};
+  transition: all 0.3s ease-in-out;
 
   &:hover {
     cursor: pointer;
