@@ -9,6 +9,7 @@ export const LinkImage = styled.div`
   border-radius: 1rem 1rem 0 0;
   transition: background-size 0.3s ease-in-out;
   margin-bottom: 1rem;
+  position: relative;
 
   &:hover {
     background-size: 130%;
@@ -37,4 +38,10 @@ export const LinkLoading = styled.div`
   border-radius: 4px;
   background-color: #dbdbdb;
   margin: 1rem;
+`;
+
+export const StarButton = styled.img`
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
 `;

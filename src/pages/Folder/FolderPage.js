@@ -6,6 +6,7 @@ import { getFolderList, getLinkData } from "../../apis/api";
 import FolderName from "./FolderName";
 import LinkItems from "../../component/LinkItems";
 import { Container } from "./style";
+import FolderOption from "../../component/FolderOption";
 
 const ALL = {
   id: "ALL",
@@ -68,7 +69,11 @@ const FolderPage = () => {
           onClick={handleClick}
           isLoading={isLoading}
         />
-        <FolderName>{selectedFolder.name}</FolderName>
+        <FolderName>
+          {selectedFolder.name}
+          <FolderOption />
+        </FolderName>
+
         <LinkItems links={links} isLoading={isLoading} />
       </Container>
     </>
