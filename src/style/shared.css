@@ -27,17 +27,6 @@ section {
   padding-bottom: 60px;
 }
 
-.codeit-mark {
-  display: flex;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  align-items: center;
-  border-radius: 47px;
-  background-color: #8f00ff;
-  margin-bottom: 12px;
-}
-
 .codeit-mark-section span {
   font-size: 16px;
   font-weight: 400;
