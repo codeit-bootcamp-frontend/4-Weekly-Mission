@@ -1,7 +1,10 @@
+import FolderAddButton from "./FolderAddButton";
+import styles from "./FolderList.module.css";
+
 const FolderList = ({ onFolderClick, folders }) => {
   return (
-    <div>
-      <ul>
+    <div className={styles.FolderList}>
+      <ul className={styles.folder_buttons}>
         <button onClick={() => onFolderClick("ALL")}>전체</button>
         {folders?.map(({ id, name }) => (
           <button key={id} onClick={() => onFolderClick(id)}>
@@ -9,7 +12,7 @@ const FolderList = ({ onFolderClick, folders }) => {
           </button>
         ))}
       </ul>
-      <button>폴더 추가</button>
+      <FolderAddButton className={styles.button_add} />
     </div>
   );
 };

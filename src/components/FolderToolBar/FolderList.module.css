@@ -1,0 +1,27 @@
+.FolderList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .folder_buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .button_add {
+    z-index: 100;
+    position: fixed;
+    left: 50%;
+    bottom: 120px;
+    transform: translateX(-50%);
+
+    @media (min-width: 768px) {
+      position: static;
+      z-index: 0;
+      left: 0;
+      bottom: 0;
+      transform: translateX(0);
+    }
+  }
+}
