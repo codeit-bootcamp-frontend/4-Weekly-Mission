@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-function CreateCard({ items }) {
-  return <ul></ul>;
-}
-
-export default CreateCard;
-=======
 import getElapsedTime from "../utils/getElapsedTime";
 import CardErrorImage from "../img/CardErrorImage.png";
 import StarToggleIcon from "../img/StarToggleIcon.svg";
@@ -16,19 +9,21 @@ function formatDate(value) {
 }
 
 function Card({ folder }) {
-  const uploadTime = getElapsedTime(folder.created_at);
+  // folder 구조분해 할당 적용
+  const { created_at, description, id, image_source, url } = folder;
+  const uploadTime = getElapsedTime(created_at);
 
   return (
-    <div id={folder.id} className="container__card">
+    <div id={id} className="container__card">
       <div className="container__card--imgWrap">
-        {folder.image_source && (
+        {image_source && (
           <img
             className="container__card--img"
-            src={folder.image_source}
+            src={image_source}
             alt="CardImg"
           />
         )}
-        {!folder.image_source && (
+        {!image_source && (
           <img
             className="container__card--img"
             src={CardErrorImage}
@@ -43,15 +38,13 @@ function Card({ folder }) {
       />
       <div className="container__card--text">
         <p className="container__card--uploadTime">{uploadTime}</p>
-        {folder.description ? (
-          <p className="container__card--description">{folder.description}</p>
+        {description ? (
+          <p className="container__card--description">{description}</p>
         ) : (
           <p className="container__card--description">내용이 없습니다.</p>
         )}
 
-        <p className="container__card--createAt">
-          {formatDate(folder.created_at)}
-        </p>
+        <p className="container__card--createAt">{formatDate(created_at)}</p>
         <img className="container__card--kebab" src={Kebab} alt="KebabIcon" />
       </div>
     </div>
@@ -59,4 +52,3 @@ function Card({ folder }) {
 }
 
 export default Card;
->>>>>>> part2-김보경-week8
