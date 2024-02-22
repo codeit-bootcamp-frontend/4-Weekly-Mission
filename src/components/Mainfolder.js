@@ -31,7 +31,6 @@ function Mainfolder() {
   const handleDataNullUpdate = (isDataNull) => {
     setDataNull(isDataNull);
   };
-  console.log(dataNull);
   return (
     <div className="mainContainer">
       <div className="mainframe">
