@@ -1,5 +1,5 @@
 import linkImg from "../../images/link.svg";
-import { LinkAddForm, Div } from "./LinkAddForm";
+import { LinkAddForm, Div } from "./style";
 
 const LinkAddInput = () => {
   return (

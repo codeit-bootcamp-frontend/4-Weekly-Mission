@@ -7,6 +7,7 @@ import FolderName from "./FolderName";
 import LinkItems from "../../component/LinkItems";
 import { Container } from "./style";
 import FolderOption from "../../component/FolderOption";
+import MobileAddFolderButton from "../../component/MobileAddFolderButton";
 
 const ALL = {
   id: "ALL",
@@ -75,6 +76,7 @@ const FolderPage = () => {
         </FolderName>
 
         <LinkItems links={links} isLoading={isLoading} />
+        <MobileAddFolderButton />
       </Container>
     </>
   );
