@@ -8,12 +8,12 @@ const SharedSection = () => {
   const [owner, setOwner] = useState([]);
   const { profileImageSource, name } = owner;
 
-  async function handleLoad() {
+  const handleLoad = async () => {
     const folderInfo = await getFolderInfo();
     const { name, owner } = folderInfo.folder;
     setFolderName(name);
     setOwner(owner);
-  }
+  };
 
   useEffect(() => {
     handleLoad();
