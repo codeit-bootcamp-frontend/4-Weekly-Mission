@@ -1,4 +1,4 @@
-import { getFolderListData, getWholeFolderListData } from "../api/api";
+import { getFolderListData, getFolderLinksData } from "../api/api";
 import { useEffect, useState } from "react";
 import CardBox from "../components/CardBox";
 import SearchBar from "../components/SearchBar";
@@ -22,8 +22,7 @@ function Folder() {
 
   const getLinks = async (folderId) => {
     try {
-      console.log("folderId: ", folderId);
-      const linksData = await getWholeFolderListData(folderId);
+      const linksData = await getFolderLinksData(folderId);
       const { data } = linksData;
       setLinksData(data);
     } catch (err) {
@@ -41,11 +40,7 @@ function Folder() {
     <section>
       <SearchBar />
       <FolderListBar folderList={folderList} onClick={getLinks} />
-      {linksData.length === 0 ? (
-        <EmptyFolder />
-      ) : (
-        <CardBox linksData={linksData} />
-      )}
+      {linksData?.length ? <CardBox linksData={linksData} /> : <EmptyFolder />}
     </section>
   );
 }

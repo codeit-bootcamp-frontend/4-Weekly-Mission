@@ -1,9 +1,9 @@
 import styles from "./FolderButton.module.css";
 
-function FolderButton({ folder, onClick, isClicked, setIsClicked }) {
+function FolderButton({ folder, onClick, isClicked, setClickedIdx }) {
   const handleClick = () => {
     onClick(folder);
-    setIsClicked();
+    setClickedIdx();
   };
   const folderName = folder.name;
   return (

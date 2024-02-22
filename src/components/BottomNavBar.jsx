@@ -7,21 +7,25 @@ import instagramlogo from "../images/instagram.svg";
 
 const MEDIA_LINK = [
   {
+    id: 1,
     type: "facebook",
     link: "https://www.facebook.com/",
     logo: facebooklogo,
   },
   {
+    id: 2,
     type: "twitter",
     link: "https://twitter.com/",
     logo: twitterlogo,
   },
   {
+    id: 3,
     type: "youtube",
     link: "https://www.youtube.com/",
     logo: youtubelogo,
   },
   {
+    id: 4,
     type: "instgram",
     link: "https://www.instagram.com/",
     logo: instagramlogo,
@@ -39,7 +43,7 @@ function BottomNavBar() {
         </div>
         <div class={styles.right}>
           {MEDIA_LINK.map((media) => (
-            <Icon mediaType={media} />
+            <Icon key={media.id} mediaType={media} />
           ))}
         </div>
       </div>
