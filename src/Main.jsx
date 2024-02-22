@@ -7,6 +7,7 @@ const Main = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<Layout />}>
+        <Route index element={<FolderPage />} />
         <Route path="shared" element={<SharedPage />} />
         <Route path="folder" element={<FolderPage />} />
       </Route>
