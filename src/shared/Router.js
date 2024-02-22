@@ -10,6 +10,7 @@ import Signup from '../components/Signup';
 import Folder from '../components/Folder';
 import EditModal from '../components/modal/EditModal';
 import AddFolderModal from '../components/modal/AddFolderModal';
+import ShareModal from '../components/modal/ShareModal';
 
 const Router = () => {
   return (
@@ -24,7 +25,7 @@ const Router = () => {
         <Route path='/signup' element={<Signup />} />
         <Route path='/privacy' element={<Privacy />} />
         <Route path='/faq' element={<Faq />} />
-        <Route path='/modal' element={<AddFolderModal />} />
+        <Route path='/modal' element={<ShareModal />} />
       </Routes>
     </BrowserRouter>
   );
