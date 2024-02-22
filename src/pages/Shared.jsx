@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/common/header/Header";
-import Footer from "../components/common/footer/Footer";
+import Footer from "../components/common/Footer";
 import { getSampeUser, getSampleFolder } from "../utils/Api";
 import FolderTilte from "../components/folderTitle/FolderTilte";
 import LinkContainer from "../components/share/Container";

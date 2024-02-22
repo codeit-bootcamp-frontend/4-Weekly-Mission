@@ -5,7 +5,7 @@ import SearchBar from "../components/common/SearchBar/SearchBar";
 import FolderCategoriseArea from "../components/folder/FolderCategoryArea";
 import FolderTitleArea from "../components/folder/FolderTitleArea";
 import FolderCardArea from "../components/folder/FolderCardArea";
-import Footer from "../components/common/footer/Footer";
+import Footer from "../components/common/Footer";
 
 function Folder() {
   const [folders, setFolders] = useState(null);
