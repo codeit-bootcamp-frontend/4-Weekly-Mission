@@ -17,9 +17,6 @@ function CardList({ folderId }) {
   const url = folderId === ALL_ID ? getAllLinksApiUrl() : getOtherLinksApiUrl(folderId);
   const { data, loading, error } = useFetch(url);
 
-  console.log('cardlist');
-  console.log(data.data);
-
   // {created_at, description, folder_id, id, image_source, title, updated_at, url}
   const linkList = data?.data ?? [];
 
