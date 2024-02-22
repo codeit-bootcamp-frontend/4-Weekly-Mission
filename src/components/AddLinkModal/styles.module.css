@@ -1,0 +1,85 @@
+.container {
+  text-align: center;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #9fa6b2;
+}
+
+.btn {
+  width: 100%;
+  padding: 15px 0;
+  color: white;
+  background: var(--Gra-Purpleblue-To-Skyblue);
+  font-size: 1.5rem;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.select {
+  height: 200px;
+  overflow: scroll;
+}
+
+.select::-webkit-scrollbar {
+  display: none;
+}
+
+.option {
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.option:hover {
+  background-color: #f0f6ff;
+}
+
+.optionContainer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.optionTitle {
+  font-size: 1.5rem;
+  color: #373740;
+}
+
+.option:hover .optionTitle {
+  color: #6d6afe;
+}
+
+.optionSubTitle {
+  font-size: 1.2rem;
+  color: #9fa6b2;
+}
+
+.option.active {
+  background-color: #f0f6ff;
+}
+
+.option.active .optionTitle {
+  color: #6d6afe;
+}
+
+.option.active::after {
+  content: "";
+  width: 17px;
+  height: 15px;
+  display: block;
+  background-image: url("../../../src/assets/check.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}

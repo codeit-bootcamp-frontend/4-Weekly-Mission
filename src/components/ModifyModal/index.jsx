@@ -15,7 +15,7 @@ export const ModifyModal = forwardRef(
           <input
             className={styles.input}
             type="text"
-            placeholder={folderName}
+            defaultValue={folderName}
           />
           <button className={styles.btn}>변경하기</button>
         </div>

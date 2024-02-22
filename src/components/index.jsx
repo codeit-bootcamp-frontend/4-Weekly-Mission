@@ -7,6 +7,8 @@ import { PopOver } from "./PopOver";
 import { ModalPortal } from "./ModalPotal";
 import { ModifyModal } from "./ModifyModal";
 import { AddModal } from "./AddModal";
+import { ShareModal } from "./ShareModal";
+import { AddLinkModal } from "./AddLinkModal";
 
 export {
   Header,
@@ -18,4 +20,6 @@ export {
   ModalPortal,
   ModifyModal,
   AddModal,
+  ShareModal,
+  AddLinkModal,
 };

@@ -4,16 +4,22 @@ import noImg from "assets/noImg.png";
 import starImg from "assets/star.png";
 import kebabImg from "assets/kebab.png";
 import { useState } from "react";
-import { ModalPortal, PopOver, DeleteModal } from "components";
+import { ModalPortal, PopOver, DeleteModal, AddLinkModal } from "components";
 import { useModal } from "hooks/useModal";
 
-export function Card({ link }) {
+export function Card({ link, folders }) {
   const createdAt = "createdAt" in link ? "createdAt" : "created_at";
   const imageSource = "imageSource" in link ? "imageSource" : "image_source";
 
   const [openPopOver, setOpenPopOver] = useState(false);
 
   const { openModal, modalRef, handleModalClose, handleModalOpen } = useModal();
+  const {
+    openModal: addOpenModal,
+    modalRef: addModalRef,
+    handleModalClose: addHandleModalClose,
+    handleModalOpen: addHandleModalOpen,
+  } = useModal();
 
   const handlePopOverClose = () => {
     setOpenPopOver(false);
@@ -39,6 +45,15 @@ export function Card({ link }) {
           description={link.url}
         />
       </ModalPortal>
+      <ModalPortal>
+        <AddLinkModal
+          openModal={addOpenModal}
+          ref={addModalRef}
+          handleModalClose={addHandleModalClose}
+          folders={folders}
+          linkUrl={link.url}
+        />
+      </ModalPortal>
       <a
         className={styles.container}
         href={link.url}
@@ -50,6 +65,7 @@ export function Card({ link }) {
           openPopOver={openPopOver}
           handlePopOverClose={handlePopOverClose}
           onDeleteModalOpen={handleModalOpen}
+          onAddLinkModalOpen={addHandleModalOpen}
         />
         <div className={styles.link}>
           <div className={styles["link-cover"]}>

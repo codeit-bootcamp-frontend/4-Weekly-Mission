@@ -5,8 +5,8 @@ import { useRef } from "react";
 export function PopOver({
   openPopOver,
   handlePopOverClose,
-  linkUrl,
   onDeleteModalOpen,
+  onAddLinkModalOpen,
 }) {
   const ref = useRef();
 
@@ -18,6 +18,12 @@ export function PopOver({
     onDeleteModalOpen();
   };
 
+  const handleLinkAddClick = (e) => {
+    e.preventDefault();
+    handlePopOverClose();
+    onAddLinkModalOpen();
+  };
+
   return (
     <>
       {openPopOver && (
@@ -25,7 +31,7 @@ export function PopOver({
           <button className={styles.btn} onClick={handleLinkDeleteClick}>
             삭제하기
           </button>
-          <button className={styles.btn} onClick={(e) => e.preventDefault()}>
+          <button className={styles.btn} onClick={handleLinkAddClick}>
             폴더에 추가
           </button>
         </div>

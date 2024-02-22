@@ -3,7 +3,7 @@ import deleteImg from "assets/delete.png";
 import penImg from "assets/pen.png";
 import shareImg from "assets/share.png";
 import { useModal } from "hooks/useModal";
-import { DeleteModal, ModalPortal, ModifyModal } from "components";
+import { DeleteModal, ModalPortal, ModifyModal, ShareModal } from "components";
 
 export function FolderControl({ folderName }) {
   const { openModal, modalRef, handleModalClose, handleModalOpen } = useModal();
@@ -13,6 +13,12 @@ export function FolderControl({ folderName }) {
     handleModalClose: modifyHandleModalClose,
     handleModalOpen: modifyHandleModalOpen,
   } = useModal();
+  const {
+    openModal: shareOpenModal,
+    modalRef: shareModalRef,
+    handleModalClose: shareHandleModalClose,
+    handleModalOpen: shareHandleModalOpen,
+  } = useModal();
 
   const handleDeleteClick = () => {
     handleModalOpen();
@@ -20,6 +26,10 @@ export function FolderControl({ folderName }) {
 
   const handleModifyClick = () => {
     modifyHandleModalOpen();
+  };
+
+  const handleShareClick = () => {
+    shareHandleModalOpen();
   };
 
   return (
@@ -41,13 +51,24 @@ export function FolderControl({ folderName }) {
           folderName={folderName}
         />
       </ModalPortal>
+      <ModalPortal>
+        <ShareModal
+          ref={shareModalRef}
+          openModal={shareOpenModal}
+          handleModalClose={shareHandleModalClose}
+          folderName={folderName}
+        />
+      </ModalPortal>
       <div className={styles.container}>
         <div className={styles.folderName}>{folderName}</div>
         {folderName === "전체" ? (
           <></>
         ) : (
           <div className={styles.controlMenu}>
-            <button className={styles.controlMenuItem}>
+            <button
+              className={styles.controlMenuItem}
+              onClick={handleShareClick}
+            >
               <img src={shareImg} alt="shareIconImage" />
               <span>공유</span>
             </button>

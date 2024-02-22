@@ -54,7 +54,7 @@ export default function Folder() {
     <>
       <FolderHeader />
       <main>
-        <FolderAddLinkArea />
+        <FolderAddLinkArea folders={folders} />
         <div className={styles.mainContainer}>
           <div className={styles["searchBox"]}>
             <img src={SearchIcon} alt="searchIcon" />
@@ -78,7 +78,7 @@ export default function Folder() {
           {links?.length === 0 ? (
             <div className={styles.emptyArea}>저장된 링크가 없습니다</div>
           ) : (
-            <CardList links={links} />
+            <CardList links={links} folders={folders} />
           )}
         </div>
       </main>
