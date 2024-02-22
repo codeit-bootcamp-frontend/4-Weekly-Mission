@@ -36,6 +36,10 @@
   background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
 }
 
+.background-none {
+  background: none;
+}
+
 .background-bg {
   background: var(--bg, #f0f6ff);
 }
@@ -54,6 +58,10 @@
 
 .background-primary {
   background: var(--primary, #6d6afe);
+}
+
+.border-none {
+  border: none;
 }
 
 .button-background-primary {

@@ -17,19 +17,19 @@
 
 .card-text-box {
   padding: 1.5rem 2rem;
+  gap: 1rem;
+  align-items: start;
 }
 
 .time-ago {
   font-size: 1.3rem;
   font-weight: 400;
-  margin-bottom: 1rem;
 }
 
 .card-name {
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 2.4rem;
-  margin-bottom: 1rem;
 }
 
 .create-date {

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import NoImage from 'assets/images/card-no-image.svg';
 
+import KebabButton from 'components/Common/KebabButton';
 import styles from 'components/Main/Card.module.css';
 
 import formatDate from 'utils/formatDate';
@@ -28,7 +29,14 @@ function Card({ createdAt, url, description, imageSource }) {
 
   const cardClasses = classNames(styles.card);
   const cardImgageClasses = classNames(styles['card-image'], 'width-full');
-  const cardTextBoxClasses = classNames(styles['card-text-box']);
+  const cardTextBoxClasses = classNames(styles['card-text-box'], 'flex-col');
+  const topElementContainerClasses = classNames(
+    styles['top-element-container'],
+    'flex-row',
+    'align-center',
+    'justify-space-between',
+    'width-full'
+  );
   const timeAgoClasses = classNames(styles['time-ago'], 'text-color-text');
   const cardNameClasses = classNames(styles['card-name'], 'multiline-ellipsis');
   const createDateClasses = classNames(styles['create-date']);
@@ -43,7 +51,10 @@ function Card({ createdAt, url, description, imageSource }) {
     >
       <div className={cardImgageClasses} style={backgroundImage} />
       <div className={cardTextBoxClasses}>
-        <p className={timeAgoClasses}>{createdTimeAgo}</p>
+        <div className={topElementContainerClasses}>
+          <p className={timeAgoClasses}>{createdTimeAgo}</p>
+          <KebabButton className="" />
+        </div>
         <p className={cardNameClasses}>{description}</p>
         <p className={createDateClasses}>{createdDate}</p>
       </div>

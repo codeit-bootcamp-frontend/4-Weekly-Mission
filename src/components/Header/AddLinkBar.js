@@ -20,6 +20,7 @@ function AddLinkBar() {
   const containerClasses = classNames(
     styles['add-link-bar-container'],
     'flex-row',
+    'align-center',
     'justify-space-between',
     'position-absolute',
     'width-full'

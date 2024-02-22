@@ -19,9 +19,7 @@ function Footer() {
   const footerClasses = classNames(
     styles.footer,
     'flex-row',
-    'flex-wrap',
     'justify-space-between',
-    'align-flex-start',
     'position-relative',
     'background-black',
     'width-full'

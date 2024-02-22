@@ -8,7 +8,7 @@ import styles from 'components/Common/KebabButton.module.css';
 import Button from './Button';
 
 function KebabButton({ className, onClick }) {
-  const buttonClasses = classNames(styles['kebab-button'], className);
+  const buttonClasses = classNames(styles['kebab-button'], 'background-none', 'border-none', className);
   const buttonImageClasses = classNames('width-full');
 
   return (

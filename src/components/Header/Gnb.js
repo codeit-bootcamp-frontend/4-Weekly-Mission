@@ -47,9 +47,9 @@ function Gnb() {
 
   // /folder에서는 position-fixed 제거
   const navClasses = classNames(styles.gnb, { 'position-fixed': pathname !== FOLDER_LOCATION }, 'margin-auto', 'z-top');
-  const containerClasses = classNames('flex-row', 'justify-space-between');
+  const containerClasses = classNames('flex-row', 'align-center', 'justify-space-between');
   const logoClasses = classNames(styles['gnb-logo']);
-  const profileClasses = classNames(styles['gnb-profile'], 'flex-row');
+  const profileClasses = classNames(styles['gnb-profile'], 'flex-row', 'align-center');
   const profileImgClasses = classNames(styles['profile-img']);
   const profileEmailClasses = classNames(styles['profile-email'], 'hidden-block-mobile-only', 'text-color-gray100');
   // gnb의 position-fixed에 대한 더미

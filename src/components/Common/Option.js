@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from 'components/Common/Option.module.css';
 
 function Option({ imageUrl, text, className }) {
-  const optionClasses = classNames(styles.option, 'flex-row', 'text-color-gray60', className);
+  const optionClasses = classNames(styles.option, 'flex-row', 'align-center', 'text-color-gray60', className);
   const optionImageClasses = classNames(styles['option-image']);
 
   return (
