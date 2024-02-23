@@ -1,4 +1,4 @@
-.Card {
+.Cards {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,13 +49,13 @@
 }
 
 /* CardItem */
-.CardItem:hover > .cardImg {
+.cardItem:hover > .cardImg {
   transform: scale(1.3);
   position: relative;
   /* transform-origin: center center; */
 }
 
-.CardItem {
+.cardItem {
   background: #fff;
   position: relative;
   width: 340px;

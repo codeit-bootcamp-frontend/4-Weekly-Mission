@@ -1,14 +1,10 @@
 .Gnb {
   display: flex;
-  box-sizing: border-box;
   text-align: center;
   justify-content: space-between;
   padding: 32px 200px;
-  position: sticky;
-  top: 0;
   width: 100%;
   background: #f0f6ff;
-  z-index: 2;
 }
 
 .profileBox {

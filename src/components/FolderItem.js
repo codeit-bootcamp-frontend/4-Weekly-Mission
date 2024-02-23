@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getUsersLink } from "./Api";
-import Card from "./Card";
+import Card from "./Cards";
 import shareIcon from "../assets/share.svg";
 import penIcon from "../assets/pen.svg";
 import deleteIcon from "../assets/delete.svg";
