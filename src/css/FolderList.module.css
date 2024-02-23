@@ -36,26 +36,3 @@
   font-weight: 600;
   letter-spacing: -0.2px;
 }
-
-.shareBtn, .editBtn, .deleteBtn {
-  display: flex;
-  justify-content: center;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--gray60);
-  background-color: var(--white);
-  border: none;
-  padding: 0;
-  margin-left: 12px;
-  cursor: pointer;
-}
-
-.linkControlBtn img {
-  width: 18px;
-  height: 18px;
-  margin-right: 4px;
-}
-
-.controlBtns {
-  display: flex;
-}

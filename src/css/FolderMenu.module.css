@@ -1,0 +1,24 @@
+@import "palette.css";
+
+.controlBtns {
+  display: flex;
+}
+
+.shareBtn, .editBtn, .deleteBtn {
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray60);
+  background-color: var(--white);
+  border: none;
+  padding: 0;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.controlBtn img {
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+}
