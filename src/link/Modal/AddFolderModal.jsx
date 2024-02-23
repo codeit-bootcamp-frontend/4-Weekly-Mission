@@ -1,20 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 
-const DeleteModal = ({ onClose }) => {
+const AddFolderModal = ({ onClose }) => {
   return (
     <ModalBack>
-      <ModalBox className="modal_delete_box">
-        <Button className="modal_delete_closeButton" onClick={onClose}>
-          ❌
-        </Button>
-        <ModdalChild className="modal_delete_child">링크 삭제</ModdalChild>
-        <DeleteButton placeholder="sdkfnsdkfn">삭제하기</DeleteButton>
+      <ModalBox>
+        <Button onClick={onClose}>❌</Button>
+        <div>
+          <ModalName>폴더 추가</ModalName>
+          <ModalInput placeholder="내용 입력" />
+          <BlueButton>추가하기</BlueButton>
+        </div>
       </ModalBox>
     </ModalBack>
   );
 };
-
 const ModalBack = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
@@ -27,7 +27,6 @@ const ModalBack = styled.div`
   align-items: center;
   z-index: 100;
 `;
-
 const ModalBox = styled.div`
   position: fixed;
   width: 360px;
@@ -38,30 +37,36 @@ const ModalBox = styled.div`
   display: flex;
   justify-content: center;
 `;
-
-const ModdalChild = styled.div`
-  padding-bottom: 5px;
-  margin: 30px 0px;
-  font-size: 20px;
-  font-weight: 600;
-`;
-
 const Button = styled.button`
   position: absolute;
   top: 15px;
   right: 15px;
 `;
-
-const DeleteButton = styled.button`
+const ModalName = styled.div`
+  margin: 35px 0 25px 0;
+  color: black;
+  font-size: 20px;
+  font-weight: 700;
+`;
+const ModalInput = styled.input`
+  width: 280px;
+  height: 60px;
+  margin-bottom: 15px;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccd5e3;
+  font-size: 16px;
+  font-weight: 400;
+`;
+const BlueButton = styled.button`
   width: 280px;
   height: 50px;
   padding: 16px 20px;
   border-radius: 8px;
-  background: #ff5b56;
   color: white;
   font-size: 16px;
   font-weight: 600;
-  margin-top: 30px;
+  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
 `;
 
-export default DeleteModal;
+export default AddFolderModal;

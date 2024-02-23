@@ -8,7 +8,7 @@ export const ModalContentInput = ({ id }) => {
     if (id === 2) {
       return (
         <>
-          <Input />
+          <Input placeholder="내용 입력" />
           <BlueButton>변경하기</BlueButton>
         </>
       );
@@ -24,7 +24,7 @@ export const ModalContentInput = ({ id }) => {
 const Input = styled.input`
   width: 280px;
   height: 50px;
-  padding: 18px, 15px, 18px, 15px;
+  padding: 18px 15px;
   border: 1px solid rgb(202, 202, 202);
   border-radius: 10px;
   margin-bottom: 7px;
@@ -32,19 +32,20 @@ const Input = styled.input`
 
 const DeleteButton = styled.button`
   width: 280px;
-  height: 51px;
-  padding: 16px, 20px, 16px, 20px;
+  height: 50px;
+  padding: 16px 20px;
   border-radius: 8px;
   background: #ff5b56;
   color: white;
   font-size: 16px;
   font-weight: 600;
-  margin-top: 30px;
+  margin: 30px 0;
 `;
 const BlueButton = styled.button`
   width: 280px;
-  height: 51px;
-  padding: 16px, 20px, 16px, 20px;
+  height: 50px;
+  margin: 0 0 30px;
+  padding: 16px 20px;
   border-radius: 8px;
   color: white;
   font-size: 16px;
