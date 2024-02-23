@@ -1,0 +1,17 @@
+@import '../css/palette.css';
+
+.folderName {
+  color: var(--gray60);
+  font-size: 14px;
+  margin: 8px auto 24px;
+}
+
+.deleteButton {
+  background: var(--red);
+  color: var(--white);
+  width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 20px;
+}
