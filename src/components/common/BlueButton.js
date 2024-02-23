@@ -1,9 +1,9 @@
 import React from "react";
 import { styled } from "styled-components";
 
-export const BlueButton = ({ size, margin, text }) => {
+export const BlueButton = ({ width, margin, padding, text }) => {
   return (
-    <Button size={size} marginVal={margin}>
+    <Button width={width} margin={margin} padding={padding}>
       {text}
     </Button>
   );
@@ -11,10 +11,10 @@ export const BlueButton = ({ size, margin, text }) => {
 
 const Button = styled.button`
   display: block;
-  width: ${({ size }) => (size ? size : "auto")}px;
+  width: ${({ width }) => (width ? width : "auto")}px;
   height: auto;
-  margin: ${({ marginVal }) => (marginVal ? marginVal : "auto")};
-  padding: 16px 20px;
+  margin: ${({ margin }) => (margin ? margin : "auto")};
+  padding: ${({ padding }) => (padding ? padding : "auto")};
   border: 0px;
   border-radius: 8px;
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
