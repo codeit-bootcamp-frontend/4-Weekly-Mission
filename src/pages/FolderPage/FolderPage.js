@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getFolderList, getLink } from "../../api/api";
+import { useModal } from "../../hooks/useModal";
 import {
   CardList,
   OnlyCard,
@@ -11,11 +12,13 @@ import {
 } from "../../components";
 import "./FolderPage.css";
 
-const FolderPage = ({ folderHeader, searchBar }) => {
+const FolderPage = () => {
   const [folderList, setFolderList] = useState([]);
   const [links, setLinks] = useState([]);
   const [selectName, setSelectName] = useState("전체");
   const [selectId, setSelectId] = useState(null);
+
+  const { openModal, modalRef, handleModalClose, handleModalOpen } = useModal();
 
   const handleLoadFolderList = async (option) => {
     const folderListData = await getFolderList(option);
@@ -50,7 +53,13 @@ const FolderPage = ({ folderHeader, searchBar }) => {
             onSelectFolderList={handleSelectFolderList}
           />
 
-          <FolderOption folderName={selectName} />
+          <FolderOption
+            folderName={selectName}
+            openModal={openModal}
+            modalRef={modalRef}
+            handleModalClose={handleModalClose}
+            handleModalOpen={handleModalOpen}
+          />
 
           {!links.length ? (
             <div className="folderPage-noLink">저장된 링크가 없습니다</div>
