@@ -1,5 +1,4 @@
 import classNames from 'classnames';
-// import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 import logo from 'assets/images/logo.svg';
@@ -31,10 +30,6 @@ function Gnb() {
   const handleLogoClick = () => {
     window.scrollTo(0, 0);
   };
-
-  // useEffect(() => {
-  //   handleLoadUser();
-  // }, []);
 
   const userProfileImg = userInfo?.profileImageSource || DefaultProfileImg;
   const userEmail = userInfo?.email ?? '';
