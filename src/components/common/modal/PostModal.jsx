@@ -19,6 +19,8 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 1rem;
+  gap: 0.8rem;
 `;
 const StyledTitle = styled.div`
   font-size: 2rem;

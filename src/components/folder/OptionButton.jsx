@@ -24,7 +24,7 @@ const OptionButton = ({ placeholder, folderName }) => {
   const renderModalContent = () => {
     switch (modalName) {
       case '공유':
-        return <ShareModal title="공유하기" />;
+        return <ShareModal title="공유하기" subTitle={folderName} />;
       case '이름 변경':
         return (
           <PostModal
