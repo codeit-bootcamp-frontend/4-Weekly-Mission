@@ -3,7 +3,7 @@ export const BUTTONS = [
     iconSource: "images/share.svg",
     text: "공유",
     modalText: "폴더 공유",
-    modalContent: "hi",
+    modalContent: "sdkfd",
   },
   {
     iconSource: "images/pen.svg",

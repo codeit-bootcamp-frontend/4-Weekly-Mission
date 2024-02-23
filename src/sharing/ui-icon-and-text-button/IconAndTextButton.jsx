@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styles from "./IconAndTextButton.module.scss";
 import classNames from "classnames/bind";
-import ToolBarModal from "./ToolBarModal";
-import { ModalContent } from "./ModalContent";
+import ToolBarModal from "../../link/Modal/ToolBarModal";
+import { ModalContent } from "../../link/Modal/ModalContent";
 
 const cx = classNames.bind(styles);
 // Modal 컴포넌트 true =>실행
