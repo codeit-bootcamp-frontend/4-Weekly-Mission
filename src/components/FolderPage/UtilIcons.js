@@ -8,11 +8,29 @@ import useModal from "../../hooks/useModal";
 import React from "react";
 import ModalDeleteFolder from "../Modal/ModalDeleteFolder";
 
+const utilIconsData = [
+  {
+    icon: shareIcon,
+    label: "공유",
+    modalComponent: <ModalShare />,
+  },
+  {
+    icon: penIcon,
+    label: "이름 변경",
+    modalComponent: <ModalEdit />,
+  },
+  {
+    icon: deleteIcon,
+    label: "삭제",
+    modalComponent: <ModalDeleteFolder />,
+  },
+];
+
 const UtilIcon = ({ icon, label, modalComponent }) => {
   const { showModal, handleOpenModal, handleCloseModal } = useModal();
   return (
     <div>
-      <img src={icon} alt={`${label} 아이콘`} onClick={handleOpenModal} />
+      <img src={icon} alt={`${label} icon`} onClick={handleOpenModal} />
       {label}
       {showModal &&
         React.cloneElement(modalComponent, {
@@ -26,28 +44,17 @@ const UtilIcon = ({ icon, label, modalComponent }) => {
 const UtilIcons = ({ selectedFolderName, selectedFolderId }) => {
   return (
     <div className="utilContainer">
-      <UtilIcon
-        icon={shareIcon}
-        label="공유"
-        modalComponent={
-          <ModalShare
-            selectedFolderName={selectedFolderName}
-            selectedFolderId={selectedFolderId}
-          />
-        }
-      />
-      <UtilIcon
-        icon={penIcon}
-        label="이름 변경"
-        modalComponent={<ModalEdit selectedFolderName={selectedFolderName} />}
-      />
-      <UtilIcon
-        icon={deleteIcon}
-        label="삭제"
-        modalComponent={
-          <ModalDeleteFolder selectedFolderName={selectedFolderName} />
-        }
-      />
+      {utilIconsData.map((iconData, index) => (
+        <UtilIcon
+          key={index}
+          icon={iconData.icon}
+          label={iconData.label}
+          modalComponent={React.cloneElement(iconData.modalComponent, {
+            selectedFolderName,
+            selectedFolderId,
+          })}
+        />
+      ))}
     </div>
   );
 };
