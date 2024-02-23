@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getFolderList, getAllLinks, getFolderLink } from "../api";
+import CardList from "./CardList";
 import SearchBar from "./SearchBar";
 import addImg from "../assets/add.svg";
 import shareIcon from "../assets/share.svg";
@@ -83,17 +84,35 @@ export default function FolderSection() {
           </div>
         </div>
         {cardList[0] ? (
-          <div className="FolderNameBar">
-            <span>{folderName}</span>
-            <div className="OptionIcon">
-              <img src={shareIcon} alt="공유 아이콘" />
-              <span>공유</span>
-              <img src={penIcon} alt="이름 변경 아이콘" />
-              <span>이름 변경</span>
-              <img src={deleteIcon} alt="삭제 아이콘" />
-              <span>삭제</span>
+          <>
+            <div className="FolderNameBar">
+              <span>{folderName}</span>
+              <div className="OptionIcon">
+                <img src={shareIcon} alt="공유 아이콘" />
+                <span>공유</span>
+                <img src={penIcon} alt="이름 변경 아이콘" />
+                <span>이름 변경</span>
+                <img src={deleteIcon} alt="삭제 아이콘" />
+                <span>삭제</span>
+              </div>
             </div>
-          </div>
+            <ul className="card-list">
+              {cardList.map(
+                ({ id, created_at, url, description, image_source }) => {
+                  return (
+                    <li key={id} className="card-item">
+                      <CardList
+                        url={url}
+                        createdAt={created_at}
+                        desc={description}
+                        imgUrl={image_source}
+                      />
+                    </li>
+                  );
+                }
+              )}
+            </ul>
+          </>
         ) : (
           <div>저장된 링크가 없습니다.</div>
         )}
