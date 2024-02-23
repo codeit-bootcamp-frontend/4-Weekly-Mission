@@ -183,7 +183,6 @@ function FolderList({ folderListData, onFolderSelect, selectedFolder }) {
   const handleCloseDelete = () => {
     setDeleteModalSelected(false);
   };
-  console.log(selectedFolder.id);
   return (
     <Wrapper>
       <Container>

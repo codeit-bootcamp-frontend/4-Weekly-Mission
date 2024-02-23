@@ -110,8 +110,6 @@ const LinkContainer = styled.div`
 const { Kakao } = window;
 function Share({ title, main, onClose, currentFolderId }) {
   const shareUrl = `${window.location.origin}/shared/${currentFolderId}`;
-  // const shareUrl = 'https://weekly-mission-week9.vercel.app/shared?user=1&folder=480';
-  console.log(currentFolderId);
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(shareUrl).catch((err) => {

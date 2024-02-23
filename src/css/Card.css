@@ -99,7 +99,7 @@
   align-items: flex-start;
   position: absolute;
   top: 35px;
-  right: -50px;
+  right: -10px;
   z-index: 2;
 }
 .folder {

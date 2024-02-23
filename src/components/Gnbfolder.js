@@ -1,5 +1,10 @@
+import { useEffect, useState } from 'react';
+import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import link from '../image/link.svg';
+import { getFolderType } from '../api';
+import Add from '../modals/Add';
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -84,14 +89,43 @@ const Button = styled.button`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  cursor: pointer;
 `;
 function Gnbfolder() {
+  const [data, setData] = useState([]);
+  const [isButtonSelected, setButtonSelected] = useState(false);
+  useEffect(() => {
+    async function getFolderData() {
+      const result = await getFolderType();
+      const updateData = [...result.data];
+      setData(updateData);
+    }
+    getFolderData();
+  }, []);
+
+  const folderList = data.map((item) => ({
+    id: item.id,
+    name: item.name,
+    count: item.link.count,
+  }));
+  const handleButtonClick = () => {
+    setButtonSelected(true);
+  };
+  const handleCloseClick = () => {
+    setButtonSelected(false);
+  };
+
   return (
     <Container>
       <InputContainer>
         <Input placeholder="링크를 추가해 보세요" />
         <Img src={link} alt="link" />
-        <Button>추가하기</Button>
+        <Button onClick={handleButtonClick}>추가하기</Button>
+        {isButtonSelected &&
+          ReactDOM.createPortal(
+            <Add data={folderList} onClose={handleCloseClick} />,
+            document.getElementById('modal-root')
+          )}
       </InputContainer>
     </Container>
   );

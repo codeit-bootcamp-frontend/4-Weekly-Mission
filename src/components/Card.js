@@ -6,11 +6,11 @@ import Kebab from '../image/kebab.svg';
 import setTime from '../utils/setTime';
 
 function Card({ items }) {
-  const [menuVisible, setMenuVisible] = useState({});
+  const [handleVisibleMenu, setVisibleMenu] = useState({});
 
   const clickKebab = (event, id) => {
     event.preventDefault();
-    setMenuVisible((prev) => ({
+    setVisibleMenu((prev) => ({
       ...prev,
       [id]: !prev[id],
     }));
@@ -24,7 +24,7 @@ function Card({ items }) {
       </div>
       <div className="infoSection">
         <img src={Kebab} alt="kebab" id="kebab" onClick={(event) => clickKebab(event, item.id)}></img>
-        {menuVisible[item.id] && (
+        {handleVisibleMenu[item.id] && (
           <div className="menuOptions">
             <p className="folder deleteFolder">삭제하기</p>
             <p className="folder addFolder">폴더에 추가</p>
