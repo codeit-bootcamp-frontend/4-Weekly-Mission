@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getSampleFolder } from '../../apis/api';
+import { get } from '../../apis/api';
 import Header from './header/Header';
 import Content from './Content/Content';
 
@@ -8,9 +8,9 @@ const Shared = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const folderData = await getSampleFolder();
+        const folderData = await get('/sample/folder');
 
-        setSampleFolder(folderData);
+        setSampleFolder(folderData.folder);
       } catch (error) {
         console.error(error);
       }

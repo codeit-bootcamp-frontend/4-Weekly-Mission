@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../../ui/button/Button';
-import { getSampleUser, getUser } from '../../../apis/api';
+import { get } from '../../../apis/api';
 import * as S from './Nav.style';
 import mainLogo from '../../../assets/common/logo.svg';
 
@@ -14,11 +14,11 @@ const Nav = ({ position }) => {
     const fetchData = async () => {
       try {
         if (location.pathname === '/shared') {
-          const sampleUser = await getSampleUser();
+          const sampleUser = await get('/sample/user');
           return setUser(sampleUser);
         } else {
-          const currentUser = await getUser();
-          return setUser(currentUser[0]);
+          const currentUser = await get('/users/1');
+          return setUser(currentUser.data[0]);
         }
       } catch (error) {
         console.error(error);

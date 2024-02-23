@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.footer`
   width: 100%;
   height: 16rem;
   padding-top: 3.2rem;

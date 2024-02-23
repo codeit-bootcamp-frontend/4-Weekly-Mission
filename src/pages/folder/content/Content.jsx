@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getFolderId, getUserFolder, getUserLink } from '../../../apis/api';
+import { get } from '../../../apis/api';
 import Card from '../../../components/ui/card/Card';
 import SearchBar from '../../../components/ui/search-bar/SearchBar';
 import * as S from './Content.style';
@@ -18,11 +18,11 @@ const Content = () => {
     const fetchData = async () => {
       try {
         if (title === '전체') {
-          const folderIdData = await getUserLink();
-          setFolderData(folderIdData);
-          setUserFolder(folderIdData);
+          const { data } = await get('/users/1/links');
+          setFolderData(data);
+          setUserFolder(data);
         } else {
-          const folderIdData = await getFolderId(folderId);
+          const folderIdData = await get(`/users/1/links?folderId=${folderId}`);
           setFolderData(folderIdData);
           setUserFolder(folderIdData);
         }
@@ -37,8 +37,8 @@ const Content = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const folderListData = await getUserFolder();
-        setFolderList(folderListData);
+        const { data } = await get('/users/1/folders');
+        setFolderList(data);
       } catch (error) {
         console.log(error);
       }
