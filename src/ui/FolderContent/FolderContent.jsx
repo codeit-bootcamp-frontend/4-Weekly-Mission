@@ -11,7 +11,7 @@ import { getFolders } from "data-access/getFolders";
 export function FolderContent() {
   const [folder, setFolder] = useState([]);
   const [data, setData] = useState();
-  const [folderId, setFolderId] = useState("");
+  const [folderId, setFolderId] = useState();
   const [activeCategoryName, setActiveCategoryName] = useState("전체");
 
   const handleLoadCategory = async () => {
