@@ -59,11 +59,11 @@ function FolderDetail({ folderListData, toggleModal }) {
               <img src={share} alt="공유" />
               <span>공유</span>
             </div>
-            <div className="pen">
+            <div className="pen" onClick={() => toggleModal(2)}>
               <img src={pen} alt="이름변경" />
               <span>이름변경</span>
             </div>
-            <div className="remove" onClick={() => toggleModal(2)}>
+            <div className="remove" onClick={() => toggleModal(3)}>
               <img src={remove} alt="삭제" />
               <span>삭제</span>
             </div>
