@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ModalContainer = styled.div`
-  display: ${({ $isOpen }) => ($isOpen ? 'flex' : 'none')};
+  display: flex;
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.4);
@@ -63,4 +63,32 @@ export const SubmitButton = styled(ModalButton)`
 
 export const DeleteButton = styled(ModalButton)`
   background: var(--Linkbrary-red, #ff5b56);
+`;
+
+export const ModalInfo = styled.div`
+  display: flex;
+  width: 280px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+`;
+
+export const Title = styled.p`
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+
+export const Name = styled.p`
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 157.143% */
 `;

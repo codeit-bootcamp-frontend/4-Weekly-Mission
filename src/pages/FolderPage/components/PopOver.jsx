@@ -1,9 +1,17 @@
 import styled from 'styled-components';
-function PopOver({ isOpen }) {
+function PopOver() {
+  const handleDeleteModalOpen = (e) => {
+    e.preventDefault();
+    console.log('삭제');
+  };
+  const handleAddModalOpen = (e) => {
+    e.preventDefault();
+    console.log('폴더에추가');
+  };
   return (
-    <PopOverContainer $isOpen={isOpen}>
-      <Button>삭제하기</Button>
-      <Button>폴더에 추가</Button>
+    <PopOverContainer>
+      <Button onClick={handleDeleteModalOpen}>삭제하기</Button>
+      <Button onClick={handleAddModalOpen}>폴더에 추가</Button>
     </PopOverContainer>
   );
 }
@@ -11,7 +19,7 @@ function PopOver({ isOpen }) {
 const PopOverContainer = styled.div`
   width: 100px;
   height: 64px;
-  display: ${({ $isOpen }) => ($isOpen ? 'inline-flex' : 'none')};
+  display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;

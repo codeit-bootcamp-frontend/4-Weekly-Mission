@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FOLDER_ADD, FOLDER_RENAME } from '../../constants/modalPurpose';
+import { FOLDER_ADD, FOLDER_RENAME } from '../../constants/modalConstants';
 import modalCloseIcon from '../../assets/modalColseIcon.svg';
 import { ModalContext } from '../../pages/FolderPage/FolderPage';
 import { useContext } from 'react';
@@ -11,14 +11,13 @@ import {
 } from './ModalElements';
 
 function EditModal() {
-  const { editModalIsOpen, editModalPurpose, handleEditModalClose } =
-    useContext(ModalContext);
+  const { editModalPurpose, handleEditModalClose } = useContext(ModalContext);
 
   const title = editModalPurpose;
   const buttonText = editModalPurpose === FOLDER_ADD ? '추가하기' : '변경하기';
 
   return (
-    <ModalContainer $isOpen={editModalIsOpen}>
+    <ModalContainer>
       <ModalForm>
         <Name>{title}</Name>
         <CloseButton onClick={handleEditModalClose}>

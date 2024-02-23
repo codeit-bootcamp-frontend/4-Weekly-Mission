@@ -3,7 +3,7 @@ import addIcon from '../../../assets/addIcon.svg';
 import addWhiteIcon from '../../../assets/addWhiteIcon.svg';
 import { ModalContext } from '../FolderPage';
 import { useContext } from 'react';
-import { FOLDER_ADD } from '../../../constants/modalPurpose';
+import { FOLDER_ADD } from '../../../constants/modalConstants';
 
 //styled-components로 구현한 폴더추가 버튼입니다.
 // 기본 버튼과 모바일 버튼을 따로 구현해서 사용합니다.

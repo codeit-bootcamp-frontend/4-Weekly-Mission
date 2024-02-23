@@ -5,7 +5,10 @@ import deleteIcon from '../../../assets/deleteIcon.svg';
 import OptionButton from './OptionButton';
 import { useContext } from 'react';
 import { ModalContext } from '../FolderPage';
-import { FOLDER_DELETE, FOLDER_RENAME } from '../../../constants/modalPurpose';
+import {
+  FOLDER_DELETE,
+  FOLDER_RENAME,
+} from '../../../constants/modalConstants';
 /*
   폴더의 이름과 공유, 이름변경, 삭제 버튼이 표시되는
   FolderOptionBar 컴포넌트.
