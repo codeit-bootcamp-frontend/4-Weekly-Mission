@@ -4,6 +4,52 @@ import { css } from "@emotion/react";
 import api from "../../../utils/api";
 import "../../../styles/common.css";
 
+const Profile = () => {
+  const [ownerData, setOwnerData] = useState({
+    ownerImage: null,
+    ownerName: null,
+    ownerFolder: null,
+  });
+
+  const fetchData = async () => {
+    try {
+      const result = await api("sample/folder");
+      setOwnerData({
+        ownerImage: result.folder.owner.profileImageSource,
+        ownerName: result.folder.owner.name,
+        ownerFolder: result.folder.name,
+      });
+    } catch (error) {
+      alert(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return (
+    <div css={divStyle}>
+      <div css={imgWrapperStyle}>
+        <img src={ownerData.ownerImage} css={imgStyle} alt="아바타" />
+      </div>
+
+      <p css={pStyle}>{ownerData.ownerName}</p>
+      <h1 css={h1Style}>{ownerData.ownerFolder}</h1>
+    </div>
+  );
+};
+
+export default Profile;
+
+const divStyle = css`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background: var(--Linkbrary-bg);
+`;
+
 const imgWrapperStyle = css`
   display: flex;
   flex-direction: column;
@@ -28,36 +74,3 @@ const h1Style = css`
   margin-top: 20px;
   margin-bottom: 60px;
 `;
-
-const Profile = () => {
-  const [ownerImage, setOwnerImage] = useState(null);
-  const [ownerName, setOwnerName] = useState(null);
-  const [folderName, setFolderName] = useState(null);
-
-  const fetchData = async () => {
-    try {
-      const result = await api("sample/folder");
-      setOwnerImage(result.folder.owner.profileImageSource);
-      setOwnerName(result.folder.owner.name);
-      setFolderName(result.folder.name);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-  return (
-    <>
-      <div css={imgWrapperStyle}>
-        <img src={ownerImage} css={imgStyle} alt="아바타" />
-      </div>
-
-      <p css={pStyle}>{ownerName}</p>
-      <h1 css={h1Style}>{folderName}</h1>
-    </>
-  );
-};
-
-export default Profile;

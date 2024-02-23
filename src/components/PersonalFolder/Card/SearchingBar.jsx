@@ -4,9 +4,34 @@ import { css } from "@emotion/react";
 import searchImg from "../../../assets/Search.png";
 import "../../../styles/common.css";
 
-const divCss = css`
-  width: 100%;
-`;
+const SearchingBar = ({ onSearch }) => {
+  const [keyword, setKeyword] = useState("");
+
+  const handleChange = (e) => {
+    setKeyword(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // onSearch(keyword);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} css={formCss}>
+      <img src={searchImg} css={imageCss} />
+      <input
+        type="text"
+        value={keyword}
+        onChange={handleChange}
+        placeholder="링크를 검색해 보세요"
+        css={inputCss}
+      />
+    </form>
+  );
+};
+
+export default SearchingBar;
+
 const formCss = css`
   width: 100%;
   display: flex;
@@ -34,32 +59,3 @@ const inputCss = css`
     line-height: 24px;
   }
 `;
-const SearchingBar = ({ onSearch }) => {
-  const [keyword, setKeyword] = useState("");
-
-  const handleChange = (e) => {
-    setKeyword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // onSearch(keyword);
-  };
-
-  return (
-    <div css={divCss}>
-      <form onSubmit={handleSubmit} css={formCss}>
-        <img src={searchImg} css={imageCss} />
-        <input
-          type="text"
-          value={keyword}
-          onChange={handleChange}
-          placeholder="링크를 검색해 보세요"
-          css={inputCss}
-        />
-      </form>
-    </div>
-  );
-};
-
-export default SearchingBar;

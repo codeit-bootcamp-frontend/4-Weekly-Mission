@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { NavLink } from "react-router-dom";
 import {
   FacebookIcon,
   TwitterIcon,
@@ -7,6 +8,39 @@ import {
   InstagramIcon,
 } from "./footer_Icons/Icons.js";
 import "../../../styles/common.css";
+
+const Footer = () => {
+  const icons = [
+    { component: FacebookIcon, id: 0 },
+    { component: TwitterIcon, id: 1 },
+    { component: YoutubeIcon, id: 2 },
+    { component: InstagramIcon, id: 3 },
+  ];
+
+  return (
+    <div css={divStyle}>
+      <section css={pStyle}>
+        <p>@codeit - 2023</p>
+      </section>
+
+      <section css={aWrapperStyle}>
+        <NavLink to="/policy" css={aStyle}>
+          Privacy Policy
+        </NavLink>
+        <NavLink to="/faq" css={aStyle}>
+          FAQ
+        </NavLink>
+      </section>
+
+      <section css={iconsStyle}>
+        {icons.map((icon) => (
+          <icon.component key={icon.id} />
+        ))}
+      </section>
+    </div>
+  );
+};
+export default Footer;
 
 const divStyle = css`
   display: flex;
@@ -62,30 +96,3 @@ const iconsStyle = css`
     order: 2;
   }
 `;
-
-const Footer = () => {
-  return (
-    <div css={divStyle}>
-      <section css={pStyle}>
-        <p>@codeit - 2023</p>
-      </section>
-
-      <section css={aWrapperStyle}>
-        <a href="/policy" css={aStyle}>
-          Privacy Policy
-        </a>
-        <a href="/faq" css={aStyle}>
-          FAQ
-        </a>
-      </section>
-
-      <section css={iconsStyle}>
-        <FacebookIcon />
-        <TwitterIcon />
-        <YoutubeIcon />
-        <InstagramIcon />
-      </section>
-    </div>
-  );
-};
-export default Footer;

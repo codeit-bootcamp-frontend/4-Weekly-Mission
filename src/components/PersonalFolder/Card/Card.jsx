@@ -7,8 +7,56 @@ import { formatDate } from "../../../utils/formatDate";
 import kebab from "../../../assets/kebab.png";
 import star from "../../../assets/star.svg";
 import filledStar from "../../../assets/filledStar.svg";
-import Logo from "../../../assets/Linkbrary.png";
+import logo from "../../../assets/Linkbrary.png";
 import "../../../styles/common.css";
+
+const Card = ({ item }) => {
+  const createdDate = formatDate(item.createdAt || item.created_at);
+  const timeFromCreated = timeCalculator(item.createdAt || item.created_at);
+  const imgurl = item.imageSource || item.image_source;
+  const [isClicked, setIsClicked] = useState(false);
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
+
+  return (
+    <div css={divCss}>
+      <Link to="/newPage" css={linkCss}>
+        <div
+          css={css`
+            background-color: ${Boolean(imgurl) ? "#ffffff" : "#dddfff"};
+            ${imgWrapperCss};
+          `}
+        >
+          <img
+            src={logo}
+            css={css`
+              display: ${Boolean(imgurl) ? "none" : "inline"};
+              ${logoCss};
+            `}
+          />
+          <img css={imgCss} src={imgurl} />
+        </div>
+
+        <div css={pWrapperCss}>
+          <p css={timeCss}>{timeFromCreated}</p>
+          <div css={commentWrapperCss}>
+            <p css={commentCss}>{item.description}</p>
+          </div>
+          <p css={dateCss}>{createdDate}</p>
+        </div>
+      </Link>
+      <img
+        css={starCss}
+        src={isClicked ? filledStar : star}
+        onClick={handleClick}
+      />
+      <img css={kebabCss} src={kebab} alt="kebab" />
+    </div>
+  );
+};
+
+export default Card;
 
 const linkCss = css`
   text-decoration: none;
@@ -23,7 +71,6 @@ const imgWrapperCss = css`
   width: 100%;
   height: 200px;
   border-radius: 16px 16px 0 0;
-  background: #dddfff;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -100,41 +147,3 @@ const kebabCss = css`
   top: -136px;
   left: 272px;
 `;
-
-const Card = ({ item }) => {
-  const img = item.imageSource;
-  const comment = item.description;
-  const date = formatDate(item.createdAt);
-  const time = timeCalculator(item.createdAt);
-  const [isClicked, setIsClicked] = useState(false);
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-  };
-
-  return (
-    <div css={divCss}>
-      <Link to="/newPage" css={linkCss}>
-        <div css={imgWrapperCss}>
-          <img css={logoCss} src={Logo} />
-          <img css={imgCss} src={img} />
-        </div>
-
-        <div css={pWrapperCss}>
-          <p css={timeCss}>{time}</p>
-          <div css={commentWrapperCss}>
-            <p css={commentCss}>{comment}</p>
-          </div>
-          <p css={dateCss}>{date}</p>
-        </div>
-      </Link>
-      <img
-        css={starCss}
-        src={isClicked ? filledStar : star}
-        onClick={handleClick}
-      />
-      <img css={kebabCss} src={kebab} />
-    </div>
-  );
-};
-
-export default Card;

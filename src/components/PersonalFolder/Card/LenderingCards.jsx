@@ -6,6 +6,45 @@ import SearchingBar from "./SearchingBar.jsx";
 import api from "../../../utils/api.js";
 import "../../../styles/common.css";
 
+const LenderingCards = (props) => {
+  const { linkExist, linkNotExist, query, objKey } = props;
+  const [cardDetail, setCardDetail] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      const result = await api(query);
+      let currentObj = result;
+      for (const key of objKey) {
+        if (currentObj[key] !== undefined) {
+          currentObj = currentObj[key];
+        } else {
+          currentObj = null;
+          break;
+        }
+      }
+
+      setCardDetail(currentObj);
+      linkExist();
+    } catch (error) {
+      setCardDetail(null);
+      linkNotExist();
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [query]);
+
+  return (
+    <div css={outerDivCss}>
+      <SearchingBar />
+      <Cards items={cardDetail} />
+    </div>
+  );
+};
+
+export default LenderingCards;
+
 const outerDivCss = css`
   display: flex;
   flex-direction: column;
@@ -15,36 +54,3 @@ const outerDivCss = css`
   background: var(--Linkbrary-white);
   padding: 40px 0 0 0;
 `;
-const divCss = css`
-  display: flex;
-  justify-content: center;
-  background: var(--Linkbrary-white);
-`;
-const LenderingCards = () => {
-  const [items, setItems] = useState(null);
-
-  const fetchData = async () => {
-    try {
-      const result = await api("sample/folder");
-      setItems(result.folder.links);
-      await console.log(items);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  return (
-    <div css={outerDivCss}>
-      <SearchingBar />
-      <div css={divCss}>
-        <Cards items={items} />
-      </div>
-    </div>
-  );
-};
-
-export default LenderingCards;

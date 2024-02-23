@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
+
 const InstagramIcon = () => {
   return (
-    <a href="https://www.instagram.com/">
+    <Link to="https://www.instagram.com/">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -13,7 +15,7 @@ const InstagramIcon = () => {
           fill="white"
         />
       </svg>
-    </a>
+    </Link>
   );
 };
 
