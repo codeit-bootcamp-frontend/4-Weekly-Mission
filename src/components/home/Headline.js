@@ -4,7 +4,7 @@ import { BlueButton } from "./../common/BlueButton";
 
 export const Headline = () => {
   return (
-    <HeadlineContainer>
+    <div>
       <TextBox>
         <HeadlineText>
           <Strong>세상의 모든 정보</Strong>를<br />
@@ -22,17 +22,9 @@ export const Headline = () => {
           radius={8}
         />
       </a>
-    </HeadlineContainer>
+    </div>
   );
 };
-
-const HeadlineContainer = styled.div`
-  padding-top: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f0f6ff;
-`;
 
 const TextBox = styled.p`
   width: 100%;
