@@ -2,10 +2,10 @@ import React from 'react';
 import Button from '../buttons/Button';
 import styled from 'styled-components';
 
-const PostModal = ({ children, placeholder = '내용 입력', isAdd }) => {
+const PostModal = ({ title, placeholder = '내용 입력', isAdd }) => {
   return (
     <Container>
-      <StyledTitle>{children}</StyledTitle>
+      <StyledTitle>{title}</StyledTitle>
       <StyledForm>
         <StyledInput placeholder={placeholder} />
         <Button className="modal">{isAdd ? '추가하기' : '변경하기'}</Button>

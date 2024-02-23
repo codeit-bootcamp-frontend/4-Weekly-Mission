@@ -41,7 +41,7 @@ const Category = ({ categoryDatas, currentCategory, handleCategoryButton }) => {
         </AddButton>
         {showModal && (
           <Modal setShowModal={setShowModal} showModal={showModal}>
-            <PostModal isAdd={true}>폴더 추가</PostModal>
+            <PostModal isAdd={true} title="폴더 추가" />
           </Modal>
         )}
       </Wrapper>

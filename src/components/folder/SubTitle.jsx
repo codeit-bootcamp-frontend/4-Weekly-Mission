@@ -11,7 +11,9 @@ const SubTitle = ({ currentCategory }) => {
   return (
     <TitleContainer>
       <CategoryName>{Object.values(currentCategory)}</CategoryName>
-      {currentCategory !== '전체' && <OptionButton />}
+      {currentCategory !== '전체' && (
+        <OptionButton placeholder={currentCategory} />
+      )}
     </TitleContainer>
   );
 };
