@@ -5,6 +5,7 @@ import ModalContainer from "./ModalContainer";
 import useClipboard from "../../hooks/useClipboard";
 import useKakaoShare from "../../hooks/useKakaoShare";
 import useFacebookShare from "../../hooks/useFacebookShare";
+import "./ModalShare.css";
 
 const ModalShare = ({
   isOpen,

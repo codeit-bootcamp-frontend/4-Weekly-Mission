@@ -1,6 +1,6 @@
 import Modal from "react-modal";
 import closeIcon from "../../assets/close.svg";
-import "./Modal.css";
+import "./ModalContainer.css";
 
 const ModalContainer = ({ isOpen, onClose, children }) => {
   const defaultStyles = {

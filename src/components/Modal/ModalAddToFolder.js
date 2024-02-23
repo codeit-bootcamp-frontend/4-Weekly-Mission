@@ -2,6 +2,7 @@ import ModalContainer from "./ModalContainer";
 import useFolderList from "../../hooks/useFolderList";
 import { useState } from "react";
 import checkIcon from "../../assets/check.svg";
+import "./ModalAddToFolder.css";
 
 const ModalAddToFolder = ({ isOpen, onClose, url }) => {
   const folderList = useFolderList();
