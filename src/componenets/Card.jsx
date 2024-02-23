@@ -6,6 +6,7 @@ import "./Card.css";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { UserContext } from "./FolderDetail.jsx";
+import { UserData } from "../pages/Folder.jsx";
 
 export default function Card({ data }) {
   const [showPopover, setShowPopover] = useState(false);
@@ -19,6 +20,7 @@ export default function Card({ data }) {
   }
 
   const value = React.useContext(UserContext);
+  const cardData = React.useContext(UserData);
 
   return (
     <div className="cardBox">
@@ -43,7 +45,13 @@ export default function Card({ data }) {
             <img onClick={togglePopover} src={kebab} alt="케밥" />
             {showPopover && (
               <div className="popover">
-                <div className="popover-delete" onClick={() => value(4)}>
+                <div
+                  className="popover-delete"
+                  onClick={() => {
+                    value(4);
+                    cardData(data);
+                  }}
+                >
                   삭제하기
                 </div>
                 <div className="popover-folder-add">폴더에 추가</div>
