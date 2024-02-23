@@ -4,6 +4,9 @@ import { COLOR } from '../color';
 import Add from '../../assets/Images/add.png';
 import Add2 from '../../assets/Images/add2.png';
 
+export const Wrapper = styled.div`
+  position: relative;
+`;
 export const FolderDataWrapper = styled.div`
   padding: ${(props) => (props.fold ? '20px 0px 60px' : '60px 0px 90px')};
   background-color: #f0f6ff;
@@ -212,4 +215,37 @@ export const NonLink = styled.div`
   @media (max-width: 767px) {
     width: 325px;
   }
+`;
+
+export const ModalBackground = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  top: 0;
+  left: 0;
+`;
+
+export const ModalContent = styled.div`
+  background-color: #ffffff;
+  display: flex;
+  width: 360px;
+  height: ${({ contentHeight }) => contentHeight}px;
+  padding: 32px 40px;
+  gap: 24px;
+  flex-direction: column;
+  position: fixed;
+  top: calc((100vh - ${({ contentHeight }) => contentHeight}px) / 2);
+  left: calc((100vw - 360px) / 2);
+  border: 1px solid #ccd5e3;
+  border-radius: 15px;
+`;
+
+export const CloseButton = styled.img`
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
 `;

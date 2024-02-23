@@ -6,7 +6,8 @@ import { FolderContents } from '../components/folderPageComponents/FolderContent
 import { FolderPageContext } from '../context/FolderPageContext';
 
 export default function FolderPage() {
-  const { userProfile } = useOutletContext();
+  const { userProfile, handleModalStatus, handleModalContent } =
+    useOutletContext();
   const [clickPoint, setClickPoint] = useState(null);
 
   useEffect(() => {
@@ -19,7 +20,9 @@ export default function FolderPage() {
     };
   }, []);
   return (
-    <FolderPageContext.Provider value={{ userProfile, clickPoint }}>
+    <FolderPageContext.Provider
+      value={{ userProfile, clickPoint, handleModalStatus, handleModalContent }}
+    >
       <MainHeader></MainHeader>
       <FolderHeader></FolderHeader>
       <FolderContents></FolderContents>
