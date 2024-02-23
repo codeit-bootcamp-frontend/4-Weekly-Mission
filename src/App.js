@@ -1,59 +1,21 @@
-import { useEffect, useState } from "react";
-import Nav from "./components/Navbar";
-import { getFolderData, getUserInfo } from "./api";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import CardList from "./components/CardList";
-import SearchBar from "./components/SearchBar";
+import Nav from "./components/common/Navbar";
+import Footer from "./components/common/Footer";
+
+import { getUserInfo } from "./api";
+import useAsync from "./components/hooks/useAsync";
+import { Outlet } from "react-router";
 
 function App() {
-  const [email, setEmail] = useState("");
-  const [imgSrc, setImgSrc] = useState("");
-  const [name, setName] = useState("");
-  const [links, setLinks] = useState([]);
-  const [owner, setOwner] = useState({});
-
-  const handleLoadUserInfo = async () => {
-    let result;
-    try {
-      result = await getUserInfo();
-    } catch (error) {
-      console.error();
-      return;
-    }
-
-    setEmail(result.email);
-    setImgSrc(result.profileImageSource);
-  };
-
-  const handleLoadFolderData = async () => {
-    let folderResult;
-    try {
-      folderResult = await getFolderData();
-    } catch (error) {
-      console.error();
-      return;
-    }
-
-    const { folder } = folderResult;
-    setName(folder.name);
-    setLinks(folder.links);
-    setOwner(folder.owner);
-  };
-
-  useEffect(() => {
-    handleLoadUserInfo();
-    handleLoadFolderData();
-  }, []);
+  const { result } = useAsync(getUserInfo);
+  const { data } = result || {};
+  const userData = data ? data[0] : "";
 
   return (
-    <div className="body">
-      <Nav email={email} imgSrc={imgSrc} />
-      <Header name={name} owner={owner} />
-      <SearchBar />
-      <CardList links={links} />
+    <>
+      <Nav email={userData.email} imgSrc={userData.image_source} />
+      <Outlet />
       <Footer />
-    </div>
+    </>
   );
 }
 

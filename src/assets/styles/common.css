@@ -6,6 +6,18 @@
 a {
   text-decoration: none;
 }
-.fail_data {
+.fail-data {
   margin: 0 auto;
+}
+html,
+body {
+  height: 100%;
+}
+#body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
 }

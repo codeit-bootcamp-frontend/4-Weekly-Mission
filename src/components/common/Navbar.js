@@ -1,5 +1,6 @@
-import "../assets/styles/Navbar.css";
-import logoImg from "../assets/images/logo.png";
+import "../../assets/styles/Navbar.css";
+import logoImg from "../../assets/images/logo.png";
+import { Link } from "react-router-dom";
 
 const UserInfo = ({ email, imgSrc }) => {
   return (
@@ -13,10 +14,10 @@ const UserInfo = ({ email, imgSrc }) => {
 const Nav = ({ email, imgSrc }) => {
   return (
     <nav>
-      <div className="nav_container">
-        <a href="/">
+      <div className="nav-container">
+        <Link to="/">
           <img src={logoImg} alt="logo" id="logoImg" />
-        </a>
+        </Link>
         {email ? (
           <UserInfo email={email} imgSrc={imgSrc} />
         ) : (

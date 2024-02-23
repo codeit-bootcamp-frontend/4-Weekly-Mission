@@ -7,7 +7,7 @@ nav {
   background: var(--background);
   z-index: 1;
 }
-.nav_container {
+.nav-container {
   display: flex;
   padding: 2.0625rem 12.5rem 2rem 12.5rem;
   justify-content: space-between;
@@ -65,7 +65,7 @@ nav button {
 
 /* Mobile 375~767*/
 @media (min-width: 375px) and (max-width: 767px) {
-  .nav_container {
+  .nav-container {
     padding: 1.125rem 2rem 1.0625rem 2rem;
   }
   nav button {
@@ -83,7 +83,7 @@ nav button {
 }
 /* Tablet 768~1199*/
 @media (min-width: 768px) and (max-width: 1199px) {
-  .nav_container {
+  .nav-container {
     padding: 2.0625rem 2.03125rem 2rem 2.03125rem;
 
     width: 768px;

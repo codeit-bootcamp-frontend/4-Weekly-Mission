@@ -1,0 +1,52 @@
+.folder-button {
+  display: flex;
+  padding: 0.5rem 0.75rem;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 0.3125rem;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.folder-button.selected {
+  background: var(--Linkbrary-primary-color, #6d6afe);
+  color: #fff;
+}
+.folder-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.folder-list-container {
+  display: flex;
+  width: 66.25rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.folder-list {
+  display: flex;
+  justify-content: center;
+  padding-top: 2.5rem;
+}
+
+.add-folder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+
+  color: #6d6afe;
+  text-align: center;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.01875rem;
+}
+.add-icon {
+  width: 1rem;
+  height: 1rem;
+}
