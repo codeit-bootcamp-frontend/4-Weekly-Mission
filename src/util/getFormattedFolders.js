@@ -1,7 +1,7 @@
 import format from "date-fns/format";
 import { getElapsedTime } from "./getElapsedTime";
 
-export const mapFolderData = (folder) => {
+export const getFormattedFolders = (folder) => {
   if (!folder) return [];
   const { name, owner, links } = folder;
 
