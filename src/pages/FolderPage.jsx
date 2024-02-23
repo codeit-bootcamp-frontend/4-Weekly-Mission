@@ -41,6 +41,7 @@ const ContainLinkBarDiv = styled.div`
 `;
 
 const MainSection = styled.div`
+  width: 325px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -48,7 +49,12 @@ const MainSection = styled.div`
   min-height: 100vh;
 
   @media ${(props) => props.theme.tabletS} {
+    width: 704px;
     gap: 40px;
+  }
+
+  @media ${(props) => props.theme.tabletL} {
+    width: 1060px;
   }
 
   @media ${(props) => props.theme.desktop} {
