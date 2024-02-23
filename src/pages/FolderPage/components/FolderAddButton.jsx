@@ -20,8 +20,12 @@ function FolderAddButton() {
   );
 }
 export function FolderAddButtonMobile() {
+  const { handleEditModalOpen } = useContext(ModalContext);
+  const handleClick = () => {
+    handleEditModalOpen(FOLDER_ADD);
+  };
   return (
-    <MobileButton>
+    <MobileButton onClick={handleClick}>
       <span>폴더추가</span>
       <img src={addWhiteIcon} alt="addIcon"></img>
     </MobileButton>
