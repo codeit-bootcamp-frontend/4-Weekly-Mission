@@ -12,6 +12,8 @@ import { getSampleUser } from "../../api/sampleUser";
 import { useParams } from "react-router-dom";
 import AddLink from "../../components/AddLink/AddLink";
 
+//TODO: Add link Button on mobile view
+//TODO: Add Buttons on all folder button
 const MOCK_CARD_DATA = {
   thumbnailSrc: "https://picsum.photos/300",
   contents: "lorem ipsum",
@@ -41,6 +43,7 @@ function Home() {
       const user = await getSampleUser();
       const links = await getLinks();
       console.log(folders);
+      console.log(links);
       setFolder(folders.data);
       setUser(user);
       setLinks(links);
