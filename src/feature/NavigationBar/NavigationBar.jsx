@@ -28,7 +28,7 @@ export const NavigationBar = ({ userInfo }) => {
         ) : (
           <a href={ROUTE.로그인}>
             <Cta isSmall>
-              <span className="NavigationBar-signin">{TEXT.login}</span>
+              <span className="NavigationBar-signin">{TEXT.LOGIN}</span>
             </Cta>
           </a>
         )}
