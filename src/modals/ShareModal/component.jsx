@@ -1,21 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ModalWrapper from "../ModalWrapper";
 import { FacebookShareButton } from "react-share";
-import { HOST } from "../../api";
+import { HOST, KAKAOJSKEY } from "../../api";
 import "./style.css";
 
 export default function ShareModal({ onClose, folder }) {
-  // const shareToFacebook = () => {
-  //   const sharedLink = encodeURIComponent(url);
-  //   openWidnow(`http://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
-  // };
+  const [linkCopyText, setLinkCopyTest] = useState("링크 복사");
   const shareToKakaoTalk = (title, url) => {
     if (window.Kakao === undefined) {
       return;
     }
     const kakao = window.Kakao;
     if (!kakao.isInitialized()) {
-      kakao.init("9111cbf90da33c574e890bd39e510bf6");
+      kakao.init(KAKAOJSKEY);
     }
     kakao.Share.sendDefault({
       objectType: "text",
@@ -57,12 +54,16 @@ export default function ShareModal({ onClose, folder }) {
           </FacebookShareButton>
           <button
             className="share-option"
-            onClick={() => {
-              navigator.clipboard.writeText(`${HOST}/shared/${folder.id}`);
+            onClick={async () => {
+              await navigator.clipboard.writeText(
+                `${HOST}/shared/${folder.id}`
+              );
+              setLinkCopyTest("복사 완료");
+              setTimeout(() => setLinkCopyTest("링크 복사"), 1000);
             }}
           >
             <img src="images/link-share.svg" alt="link" />
-            <span>링크 복사</span>
+            <span>{linkCopyText}</span>
           </button>
         </div>
       </ModalWrapper>

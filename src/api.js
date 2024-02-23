@@ -1,5 +1,6 @@
 const HOST = "https://clever-bubblegum-9e7ab2.netlify.app";
 const BASE_URL = "https://bootcamp-api.codeit.kr/api/";
+const KAKAOJSKEY = "9111cbf90da33c574e890bd39e510bf6";
 
 export async function fetchProfile() {
   const userID = 1;
@@ -43,4 +44,4 @@ export async function fetchFolder(id = null) {
   return result.data;
 }
 
-export { HOST };
+export { HOST, KAKAOJSKEY };
