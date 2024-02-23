@@ -12,7 +12,10 @@ const SubTitle = ({ currentCategory }) => {
     <TitleContainer>
       <CategoryName>{Object.values(currentCategory)}</CategoryName>
       {currentCategory !== '전체' && (
-        <OptionButton placeholder={currentCategory} />
+        <OptionButton
+          placeholder={currentCategory}
+          folderName={currentCategory}
+        />
       )}
     </TitleContainer>
   );

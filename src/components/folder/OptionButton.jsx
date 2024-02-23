@@ -8,7 +8,7 @@ import PostModal from 'components/common/modal/PostModal';
 import DeleteModal from 'components/common/modal/DeleteModal';
 import ShareModal from 'components/common/modal/ShareModal';
 
-const OptionButton = ({ placeholder }) => {
+const OptionButton = ({ placeholder, folderName }) => {
   const BUTTON = [
     { url: Share, name: '공유' },
     { url: Rename, name: '이름 변경' },
@@ -34,7 +34,7 @@ const OptionButton = ({ placeholder }) => {
           />
         );
       case '삭제':
-        return <DeleteModal title="폴더 삭제" />;
+        return <DeleteModal title="폴더 삭제" subTitle={folderName} />;
       default:
         return null;
     }
