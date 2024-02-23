@@ -6,7 +6,12 @@ import { ModalContent } from "./ModalContent";
 
 const cx = classNames.bind(styles);
 // Modal 컴포넌트 true =>실행
-export const IconAndTextButton = ({ iconSource, text, children }) => {
+export const IconAndTextButton = ({
+  iconSource,
+  text,
+  modalText,
+  children,
+}) => {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -17,13 +22,9 @@ export const IconAndTextButton = ({ iconSource, text, children }) => {
       </button>
       {showModal && (
         <ToolBarModal onClose={() => setShowModal(false)}>
-          <ModalContent>{children}</ModalContent>
+          <ModalContent modalText={modalText}>{children}</ModalContent>
         </ToolBarModal>
       )}
     </>
   );
 };
-// // 삭제하기 버튼이 있는 곳
-// {
-//   /* <Modal showModal="true">삭제하기</Modal>  */
-// }

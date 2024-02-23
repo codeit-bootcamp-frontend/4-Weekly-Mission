@@ -1,3 +1,8 @@
-export const ModalContent = ({ children }) => {
-  return <div>{children}</div>;
+export const ModalContent = ({ modalText, children }) => {
+  return (
+    <div>
+      {children}
+      <div>{modalText}</div>
+    </div>
+  );
 };
