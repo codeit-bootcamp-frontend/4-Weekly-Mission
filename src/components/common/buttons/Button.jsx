@@ -58,5 +58,13 @@ const StyledButton = styled.button`
     height: 5.1rem;
     padding: 1.6rem 2rem;
   }
+
+  &.deleteModal {
+    background-color: ${({ theme }) => theme.red};
+    background-image: none;
+    padding: 1.6rem 2rem;
+    width: 28rem;
+    height: 5.1rem;
+  }
 `;
 export default Button;

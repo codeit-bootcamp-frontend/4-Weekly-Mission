@@ -3,19 +3,36 @@ import kebab from 'assets/images/kebab.svg';
 import { useState } from 'react';
 import BUTTON from 'utils/constants/BUTTON';
 import Modal from 'components/common/modal/Modal';
+import DeleteModal from 'components/common/modal/DeleteModal';
 
-const KebabButton = () => {
+const KebabButton = ({ url }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
-
+  const [optionName, setOptionName] = useState('');
   const handleMenu = e => {
     e.preventDefault();
     return setShowMenu(!showMenu);
   };
-  const handleClick = e => {
+  const handleClick = option => {
     setShowMenu(false);
     setShowModal(true);
-    console.log(e.target);
+    setOptionName(option);
+  };
+  const renderModalContent = () => {
+    switch (optionName) {
+      case '삭제하기':
+        return <DeleteModal title="링크 삭제하기" subTitle={url} />;
+      // case '폴더에 추가':
+      //   return (
+      //     <PostModal
+      //       title="폴더 이름 변경"
+      //       placeholder={placeholder}
+      //       isAdd={false}
+      //     />
+      //   );
+      default:
+        return null;
+    }
   };
 
   return (
@@ -25,7 +42,12 @@ const KebabButton = () => {
         {showMenu && (
           <StyledModal>
             {BUTTON.KEBAB_OPTION.map(option => (
-              <StyledMenu key={option} onClick={handleClick}>
+              <StyledMenu
+                key={option}
+                onClick={() => {
+                  handleClick(option);
+                }}
+              >
                 {option}
               </StyledMenu>
             ))}
@@ -34,7 +56,7 @@ const KebabButton = () => {
       </StyledButton>
       {showModal && (
         <Modal setShowModal={setShowModal} showModal={showModal}>
-          안녕
+          {renderModalContent()}
         </Modal>
       )}
     </>

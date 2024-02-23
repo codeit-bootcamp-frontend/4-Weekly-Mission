@@ -36,7 +36,7 @@ const Card = ({
         <TextContainer>
           <SubContainer>
             <span>{timePassed}</span>
-            {isFolder && <KebabButton />}
+            {isFolder && <KebabButton url={url} />}
           </SubContainer>
           <StyledP>{description}</StyledP>
           <StyledP className="date">{formattedDate}</StyledP>
