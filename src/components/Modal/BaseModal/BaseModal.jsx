@@ -2,15 +2,8 @@ import { useEffect, useRef } from "react";
 import styles from "./base.module.css";
 import closeIcon from "assets/images/ic_close.png";
 
-function BaseModeal({ title, children, variant, setModals }) {
+function BaseModeal({ title, children, variant, closeModal }) {
   const modalRef = useRef(null);
-
-  const closeModal = (modal) => {
-    setModals((prevModals) => ({
-      ...prevModals,
-      [modal]: false,
-    }));
-  };
 
   const handleOutSideClick = (e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {

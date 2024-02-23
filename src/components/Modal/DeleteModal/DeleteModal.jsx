@@ -1,7 +1,7 @@
 import BaseModeal from "../BaseModal/BaseModal";
 import styles from "./delete.module.css";
 
-function DeleteModal({ variant, deleted, setModals }) {
+function DeleteModal({ variant, deleted, closeModal }) {
   let title;
   if(variant === "delete-folder"){
     title = "폴더"
@@ -10,7 +10,7 @@ function DeleteModal({ variant, deleted, setModals }) {
   }
 
   return (
-    <BaseModeal title={`${title} 삭제`} variant={variant} setModals={setModals}>
+    <BaseModeal title={`${title} 삭제`} variant={variant} closeModal={closeModal}>
       <p className={styles.deleted}>{deleted}</p>
       <button className={styles.deletedBtn}>삭제하기</button>
     </BaseModeal>

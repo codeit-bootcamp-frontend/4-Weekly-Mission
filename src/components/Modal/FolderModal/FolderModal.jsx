@@ -1,7 +1,7 @@
 import BaseModeal from "../BaseModal/BaseModal";
 import styles from "./folder.module.css";
 
-function FolderModal({ variant, setModals, link, list }) {
+function FolderModal({ variant, closeModal, link, list }) {
   let title, action;
   
   if (variant === "edit") {
@@ -16,7 +16,7 @@ function FolderModal({ variant, setModals, link, list }) {
   }
 
   return (
-    <BaseModeal title={title} variant={variant} setModals={setModals}>
+    <BaseModeal title={title} variant={variant} closeModal={closeModal}>
       {list ? (
         <div className={styles.warpper}>
           <p className={styles.link}>{link}</p>

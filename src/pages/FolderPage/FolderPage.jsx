@@ -16,6 +16,8 @@ import FolderModal from "components/Modal/FolderModal/FolderModal";
 import ButtonGroup from "./components/ButtonGroup/ButtonGroup";
 import ActionButton from "./components/ActionButton/ActionButton";
 
+import useModal from "utils/hooks/useModal";
+
 function FolderPage() {
   /**
    * @type {string}
@@ -29,14 +31,7 @@ function FolderPage() {
   });
   const [folderData, setFolderData] = useState([]);
 
-  const [modals, setModals] = useState({});
-
-  const openModal = (modal) => {
-    setModals((prevModals) => ({
-      ...prevModals,
-      [modal]: true,
-    }));
-  };
+  const {modals, openModal, closeModal} = useModal();
 
   /**
    * 해당 유저의 folder 목록 데이터들을 가져와 buttonNames의 데이터를 변경합니다.
@@ -89,7 +84,7 @@ function FolderPage() {
                   <AddIcon className={styles.addIcon} />
                 </button>
                 {modals["add-folder"] && (
-                  <FolderModal variant={`add-folder`} setModals={setModals} />
+                  <FolderModal variant={`add-folder`} closeModal={closeModal} />
                 )}
               </div>
 
@@ -107,14 +102,14 @@ function FolderPage() {
                   {modals["shared"] && (
                     <SharedModal
                       variant={`shared`}
-                      setModals={setModals}
+                      closeModal={closeModal}
                       folder={selectedCategory.name}
                     />
                   )}
 
                   <ActionButton openModal={openModal} variant={`edit`} />
                   {modals["edit"] && (
-                    <FolderModal variant={`edit`} setModals={setModals} />
+                    <FolderModal variant={`edit`} closeModal={closeModal} />
                   )}
 
                   <ActionButton
@@ -125,7 +120,7 @@ function FolderPage() {
                     <DeleteModal
                       variant={`delete-folder`}
                       deleted={selectedCategory.name}
-                      setModals={setModals}
+                      closeModal={closeModal}
                     />
                   )}
                 </div>

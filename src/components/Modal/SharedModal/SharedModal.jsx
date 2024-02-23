@@ -8,7 +8,7 @@ import linkIcon from "assets/images/ic_link.svg";
 
 const { Kakao } = window;
 
-function SharedModal({ folder, variant, setModals }) {
+function SharedModal({ folder, variant, closeModal }) {
   const currentUrl = window.location.href;
 
   const copyToClipboard = () => {
@@ -50,7 +50,7 @@ function SharedModal({ folder, variant, setModals }) {
   }, []);
 
   return (
-    <BaseModeal title={`폴더 공유`} variant={variant} setModals={setModals}>
+    <BaseModeal title={`폴더 공유`} variant={variant} closeModal={closeModal}>
       <p className={styles.folder}>{folder}</p>
       <div className={styles.items}>
         <div className={styles.item}>

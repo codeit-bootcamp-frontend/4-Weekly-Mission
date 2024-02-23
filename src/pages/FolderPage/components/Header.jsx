@@ -2,21 +2,13 @@ import { useState } from "react";
 import style from "./header.module.css";
 import FolderModal from "components/Modal/FolderModal/FolderModal";
 import linkIcon from "assets/images/ic_link.svg";
-
+import useModal from "utils/hooks/useModal";
 function Header({ list }) {
   const [value, setValue] = useState("");
-  const [modals, setModals] = useState({});
+  const {modals, openModal, closeModal} = useModal();
 
   const handleChange = (e) => {
     setValue(e.target.value);
-  };
-
-  const openModal = (e, modal) => {
-    e.preventDefault();
-    setModals((prevModals) => ({
-      ...prevModals,
-      [modal]: true,
-    }));
   };
 
   return (
@@ -33,7 +25,8 @@ function Header({ list }) {
         <button
           className={style.button}
           onClick={(e) => {
-            openModal(e, "add-link");
+            e.preventDefault();
+            openModal("add-link");
           }}
         >
           추가하기
@@ -41,7 +34,7 @@ function Header({ list }) {
         {modals["add-link"] && (
           <FolderModal
             variant={`add-link`}
-            setModals={setModals}
+            closeModal={closeModal}
             link={value}
             list={list}
           />
