@@ -6,7 +6,7 @@
 
 .shareBtn, .editBtn, .deleteBtn {
   display: flex;
-  justify-content: center;
+  align-items: center;
   font-size: 14px;
   font-weight: 600;
   color: var(--gray60);
@@ -17,7 +17,19 @@
   cursor: pointer;
 }
 
-.controlBtn img {
+.shareBtn img {
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+}
+
+.editBtn img {
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+}
+
+.deleteBtn img {
   width: 18px;
   height: 18px;
   margin-right: 4px;
