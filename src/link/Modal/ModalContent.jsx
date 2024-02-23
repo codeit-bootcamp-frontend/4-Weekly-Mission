@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import { ModalContentInput } from "./ModalContentInput";
 
-export const ModalContent = ({ modalContent, modalText, folderName }) => {
+export const ModalContent = ({ modalText, folderName, id }) => {
   return (
     <ModalName>
       <ModalText>{modalText}</ModalText>
       <FolderName>{folderName}</FolderName>
-      <div>{modalContent}</div>
+      <ModalContentInput id={id} />
     </ModalName>
   );
 };
