@@ -24,7 +24,11 @@ const FolderOptions = styled.div`
   }
 `;
 
-const FolderOption = ({ selectedFolder }) => {
+const FolderOption = ({ selectedFolder, setEditModalOpen }) => {
+  const showEditModal = () => {
+    setEditModalOpen(true);
+  };
+
   return (
     <>
       {selectedFolder.id !== "ALL" && (
@@ -33,7 +37,7 @@ const FolderOption = ({ selectedFolder }) => {
             <img src={shareIcon} alt="공유 버튼 이미지" />
             공유
           </button>
-          <button>
+          <button onClick={showEditModal}>
             <img src={penIcon} alt="이름 변경 버튼 이미지" />
             이름 변경
           </button>

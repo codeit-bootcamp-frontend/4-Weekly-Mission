@@ -8,6 +8,7 @@ import LinkItems from "../../component/LinkItems";
 import { Container } from "./style";
 import FolderOption from "../../component/FolderOption";
 import MobileAddFolderButton from "../../component/MobileAddFolderButton";
+import EditModal from "../Modal/EditModal";
 
 const ALL = {
   id: "ALL",
@@ -20,6 +21,7 @@ const FolderPage = () => {
   const [selectedFolder, setSelectedFolder] = useState(ALL);
   const [links, setLinks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [editModalOpen, setEditModalOpen] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -60,7 +62,7 @@ const FolderPage = () => {
   }, [selectedFolder]);
 
   return (
-    <>
+    <div>
       <LinkAddInput />
       <Container>
         <LinkSearchInput />
@@ -72,13 +74,17 @@ const FolderPage = () => {
         />
         <FolderName>
           {selectedFolder.name}
-          <FolderOption selectedFolder={selectedFolder} />
+          <FolderOption
+            selectedFolder={selectedFolder}
+            setEditModalOpen={setEditModalOpen}
+          />
+          {editModalOpen && <EditModal setEditModalOpen={setEditModalOpen} />}
         </FolderName>
 
         <LinkItems links={links} isLoading={isLoading} />
         <MobileAddFolderButton />
       </Container>
-    </>
+    </div>
   );
 };
 
