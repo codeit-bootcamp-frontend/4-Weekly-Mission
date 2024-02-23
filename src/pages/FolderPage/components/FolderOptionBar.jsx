@@ -5,6 +5,7 @@ import deleteIcon from '../../../assets/deleteIcon.svg';
 import OptionButton from './OptionButton';
 import { useContext } from 'react';
 import { ModalContext } from '../FolderPage';
+import { FOLDER_DELETE, FOLDER_RENAME } from '../../../constants/modalPurpose';
 /*
   폴더의 이름과 공유, 이름변경, 삭제 버튼이 표시되는
   FolderOptionBar 컴포넌트.
@@ -13,7 +14,22 @@ import { ModalContext } from '../FolderPage';
   selectedFolderId는 선택된 폴더의 id값입니다.
 */
 function FolderOptionBar({ text, selectedFolderId }) {
-  const { handleDeleteModalOpen } = useContext(ModalContext);
+  const { handleDeleteModalOpen, handleEditModalOpen } =
+    useContext(ModalContext);
+
+  const handleRenameModalOpen = () => {
+    handleEditModalOpen(FOLDER_RENAME);
+  };
+
+  const handleFolderDeleteModalOpen = () => {
+    const purpose = {
+      purpose: FOLDER_DELETE,
+      id: selectedFolderId,
+      folderName: text,
+    };
+    handleDeleteModalOpen(purpose);
+  };
+
   const buttonProps = [
     {
       id: 1,
@@ -24,12 +40,13 @@ function FolderOptionBar({ text, selectedFolderId }) {
       id: 2,
       svg: renameIcon,
       text: '이름 변경',
+      handleModalOpen: handleRenameModalOpen,
     },
     {
       id: 3,
       svg: deleteIcon,
       text: '삭제',
-      handleModalOpen: handleDeleteModalOpen,
+      handleModalOpen: handleFolderDeleteModalOpen,
     },
   ];
 

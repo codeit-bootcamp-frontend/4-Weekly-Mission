@@ -11,11 +11,11 @@ import { useContext } from 'react';
 import { ModalContext } from '../../pages/FolderPage/FolderPage';
 
 function DeleteModal() {
-  const { deleteModalIsOpen, handleDeleteModalClose } =
+  const { deleteModalPurpose, deleteModalIsOpen, handleDeleteModalClose } =
     useContext(ModalContext);
 
-  const title = FOLDER_DELETE;
-  const name = '폴더명';
+  const title = deleteModalPurpose.purpose;
+  const name = deleteModalPurpose.folderName;
 
   return (
     <ModalContainer $isOpen={deleteModalIsOpen}>

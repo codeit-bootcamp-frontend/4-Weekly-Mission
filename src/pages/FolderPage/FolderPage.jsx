@@ -12,15 +12,20 @@ export const ModalContext = createContext(null);
 function FolderPage() {
   //modal state
   const [editModalIsOpen, setEditModalIsOpen] = useState(false);
-  const handleEditModalOpen = () => {
+  const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
+
+  const [editModalPurpose, setEditModalPurpose] = useState('');
+  const [deleteModalPurpose, setDeleteModalPurpose] = useState({});
+  const handleEditModalOpen = (purpose) => {
+    setEditModalPurpose(purpose);
     setEditModalIsOpen(true);
   };
   const handleEditModalClose = () => {
     setEditModalIsOpen(false);
   };
 
-  const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
-  const handleDeleteModalOpen = () => {
+  const handleDeleteModalOpen = (purpose) => {
+    setDeleteModalPurpose(purpose);
     setDeleteModalIsOpen(true);
   };
   const handleDeleteModalClose = () => {
@@ -31,14 +36,16 @@ function FolderPage() {
       value={{
         editModalIsOpen,
         deleteModalIsOpen,
+        editModalPurpose,
+        deleteModalPurpose,
         handleEditModalOpen,
         handleDeleteModalOpen,
         handleEditModalClose,
         handleDeleteModalClose,
       }}
     >
-      <EditModal />
-      <DeleteModal />
+      {editModalIsOpen && <EditModal />}
+      {deleteModalIsOpen && <DeleteModal />}
       <Header url={USER_URL} />
       <LinkAddBar />
       <FolderList />
