@@ -21,6 +21,8 @@
   position: relative;
   height: 200px;
   overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   @media (max-width: 784px) {
     height: 192px;
   }
