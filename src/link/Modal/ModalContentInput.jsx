@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import ShareModal from "./ShareModal";
 
 export const ModalContentInput = ({ id }) => {
   const Content = () => {
     if (id === 1) {
-      return <div>10238129381028301928301</div>;
+      return <ShareModal />;
     }
     if (id === 2) {
       return (
