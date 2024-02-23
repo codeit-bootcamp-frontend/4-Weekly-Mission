@@ -2,6 +2,7 @@ import "components/LinkCard.css";
 import "components/LinkCardCollection.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import KebabMenu from "./Utils/KebabMenu";
 
 const timePassedFromCreate = (time) => {
 	let currentTime = new Date().getTime();
@@ -32,7 +33,7 @@ const timePassedFromCreate = (time) => {
 };
 
 const NoCardImg = () => {
-	return <div className="no-card-img"></div>;
+	return <div className="card-image no-card-img"></div>;
 };
 
 const FolderCard = function ({ contents, favorite, kebab }) {
@@ -47,6 +48,12 @@ const FolderCard = function ({ contents, favorite, kebab }) {
 	} = contents;
 	const [kebabMenuPop, setKebabMenuPop] = useState(false);
 
+	const sampleKebabMenus = [
+		{ name: "추가하기", handle: "" },
+		{ name: "더 추가하기", handle: "" },
+		{ name: "더욱추가하기", handle: "" },
+	];
+
 	const cardImage = { backgroundImage: `url(${imageSource || image_source})` };
 	const timeConversion = new Date(created_at || createdAt); // sampleApi와 userApi의 양식이 달라 호환시키기 위함
 	const passedTime = timePassedFromCreate(timeConversion);
@@ -59,32 +66,36 @@ const FolderCard = function ({ contents, favorite, kebab }) {
 	};
 
 	return (
-		<button type="button" className="card-box" key={id}>
-			<Link to={url} target="_blank">
-				{imageSource || image_source ? (
-					<div style={cardImage} />
-				) : (
-					<NoCardImg />
-				)}
+		<div className="card-box-origin" key={id}>
+			<div className="card-content">
+				<Link to={url} target="_blank">
+					{imageSource || image_source ? (
+						<div className={"card-image"} style={cardImage} />
+					) : (
+						<NoCardImg />
+					)}
 
-				<section className="card-text">
-					<p className="card-passed-time">{passedTime}</p>
-					<p className="card-contents">{description}</p>
-					<p className="card-edited-date">{editedTime}</p>
-				</section>
-			</Link>
+					<section className="card-text">
+						<p className="card-passed-time">{passedTime}</p>
+						<p className="card-contents">{description}</p>
+						<p className="card-edited-date">{editedTime}</p>
+					</section>
+				</Link>
+			</div>
 			{kebab && (
-				<button type="button" onClick={handleKebabBtn} className="kebab">
-					<img src="kebab.svg" alt="kebabButton" />
-				</button>
+				<div className="kebab-menu-position-origin">
+					<button type="button" onClick={handleKebabBtn} className="kebab">
+						<img src="kebab.svg" alt="kebabButton" />
+					</button>
+					{kebabMenuPop && <KebabMenu items={sampleKebabMenus} />}
+				</div>
 			)}
 			{favorite && (
 				<button type="button" className="favor-star">
 					<img src="star.svg" alt="FavoriteButton" />
 				</button>
-				// {kebabPop && }
 			)}
-		</button>
+		</div>
 	);
 };
 
