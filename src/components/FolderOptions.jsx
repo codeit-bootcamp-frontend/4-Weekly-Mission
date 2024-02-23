@@ -2,8 +2,13 @@ import deleteImg from "../images/delete.svg";
 import penImg from "../images/pen.svg";
 import shareImg from "../images/share.svg";
 import styles from "./FolderOptions.module.css";
+import { MODALS } from "../modal/modals";
 
-function FolderOptions({ folderName, folderId }) {
+function FolderOptions({ folderName, folderId, handleModalClick }) {
+  const { edit, deleteFolder, share } = MODALS;
+  const onClickCloseButton = (type) => {
+    handleModalClick(type);
+  };
   return (
     folderName && (
       <>
@@ -14,7 +19,10 @@ function FolderOptions({ folderName, folderId }) {
               <img src={shareImg} alt="share" />
               <p className={styles.optionText}>공유</p>
             </div>
-            <div className={styles.option}>
+            <div
+              className={styles.option}
+              onClick={() => onClickCloseButton(edit.type)}
+            >
               <img src={penImg} alt="pen" />
               <p>이름 변경</p>
             </div>

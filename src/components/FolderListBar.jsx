@@ -4,6 +4,8 @@ import addImg from "../images/add.svg";
 import { useState, useMemo } from "react";
 import FolderOptions from "./FolderOptions";
 import AddModal from "../modal/AddModal";
+import EditModal from "../modal/EditModal";
+import { MODALS } from "../modal/modals";
 
 const WHOLE_BUTTON = {
   id: 1,
@@ -20,7 +22,10 @@ function FolderListBar({ folderList, onClick }) {
   const [currentFolderName, setCurrentFolderName] = useState("");
   const [currentFolderId, setCurrentFolderId] = useState(1);
   const [clickedIdx, setClickedIdx] = useState(0);
-  const [isModalClicked, setIsModalClicked] = useState(false);
+  const [isModalClicked, setIsModalClicked] = useState({
+    add: false,
+    edit: false,
+  });
 
   const getLinksbyId = (id) => {
     onClick(id);
@@ -38,9 +43,11 @@ function FolderListBar({ folderList, onClick }) {
     setClickedIdx(idx);
   };
 
-  const handleModalClick = () => {
-    setIsModalClicked((prev) => !prev);
+  const handleModalClick = (type) => {
+    const value = isModalClicked[type];
+    setIsModalClicked({ ...isModalClicked, [type]: !value });
     console.log("handleModalClick실행!");
+    console.log(isModalClicked);
   };
 
   const newFolderList = useMemo(() => {
@@ -66,7 +73,7 @@ function FolderListBar({ folderList, onClick }) {
           className={
             currentFolderId === 1 ? styles.invisible : styles.addFolderContainer
           }
-          onClick={handleModalClick}
+          onClick={() => handleModalClick(MODALS.add.type)}
         >
           <div className={styles.addFolderText}>폴더 추가</div>
           <img className={styles.addImg} src={addImg} alt="addImg" />
@@ -76,9 +83,15 @@ function FolderListBar({ folderList, onClick }) {
         <FolderOptions
           folderName={currentFolderName}
           folderId={currentFolderId}
+          isModalClicked={isModalClicked}
+          handleModalClick={handleModalClick}
         />
       </div>
       <AddModal
+        isModalClicked={isModalClicked}
+        handleModalClick={handleModalClick}
+      />
+      <EditModal
         isModalClicked={isModalClicked}
         handleModalClick={handleModalClick}
       />

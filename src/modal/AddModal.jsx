@@ -1,26 +1,20 @@
 import ModalLayout from "./ModalLayout";
-import { MODAL_TYPE } from "./modalType";
-import { useEffect, useState } from "react";
+import { MODALS } from "./modals";
 import styles from "./AddModal.module.css";
 
 function AddModal({ isModalClicked, handleModalClick }) {
-  const [isOpenModal, setIsOpenModal] = useState(isModalClicked);
-  console.log("isOpenModal: ", isOpenModal);
-  console.log("isModalClicked: ", isModalClicked);
+  const { add } = MODALS;
 
-  const { add } = MODAL_TYPE;
-
-  const closeModal = () => {
-    setIsOpenModal(false);
-    handleModalClick();
+  const onClickCloseButton = () => {
+    handleModalClick(add.type);
   };
 
-  useEffect(() => {
-    setIsOpenModal(isModalClicked);
-  }, [isModalClicked]);
-
   return (
-    <ModalLayout title={add.title} isOpen={isOpenModal} closeModal={closeModal}>
+    <ModalLayout
+      title={add.title}
+      isModalClicked={isModalClicked.add}
+      onClickCloseButton={onClickCloseButton}
+    >
       <input
         className={styles.input}
         type="text"

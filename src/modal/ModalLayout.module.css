@@ -1,3 +1,7 @@
+.invisible {
+  display: none;
+}
+
 .background {
   position: fixed;
   background-color: rgba(0, 0, 0, 0.4);
@@ -25,7 +29,7 @@
 }
 
 .modalTitle {
-  color: var(--Linkbrary-gray100, #373740);
+  color: var(--Linkbrary-gray100);
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
