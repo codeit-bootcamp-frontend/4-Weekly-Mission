@@ -1,0 +1,77 @@
+.Folder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  row-gap: 2rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+
+  @media (min-width: 768px) {
+    margin-top: 4rem;
+    row-gap: 4rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.Folder-items {
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 112.4rem;
+  row-gap: 3.2rem;
+  padding: 0 3.2rem;
+
+  @media (min-width: 768px) {
+    row-gap: 4rem;
+  }
+}
+
+.Folder-lists-container {
+  display: flex;
+  width: 106rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+  margin-bottom: 2.4rem;
+}
+
+.Folder-lists {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.Folder-items button {
+  display: flex;
+  padding: 0.8rem 1.2rem;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.active {
+  color: #ffffff;
+  background: var(--primary);
+}
+
+.Folder-add {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.Folder-add-text {
+  color: #6d6afe;
+  text-align: center;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.03rem;
+}

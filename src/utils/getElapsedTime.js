@@ -33,7 +33,7 @@ function getElapsedTime(createdAt) {
   if (minute * 2 <= elapsedTime) {
     return `${Math.floor(elapsedTime / minute)} minutes ago`;
   }
-  return `1 minute ago`;
+  return "1 minute ago";
 }
 
 export default getElapsedTime;

@@ -1,4 +1,4 @@
-.SharedPage {
+.Shared {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,7 +13,7 @@
   }
 }
 
-.SharedPage-items {
+.Shared-items {
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,4 +1,4 @@
-import "../styles/Header.css";
+import "./Header.css";
 
 function Header({ profileImage, ownerName, folderInfo }) {
   return (
