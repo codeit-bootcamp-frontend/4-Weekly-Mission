@@ -13,7 +13,7 @@ const ContainDiv = styled.div`
   background: var(--Linkbrary-white, #fff);
 
   @media ${(props) => props.theme.tabletS} {
-    width: 100%;
+    width: 704px;
     padding: 16px 20px;
   }
 
@@ -103,7 +103,7 @@ function AddLinkBar() {
           <AddLinkBarInput
             id="link"
             type="text"
-            placeholder="링크를 추가해 보세요."
+            placeholder="링크를 추가해 보세요"
           />
         </AddLinkBarWrappedDiv>
         <DesignedBtn>추가하기</DesignedBtn>

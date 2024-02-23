@@ -14,6 +14,7 @@ const BackgroundDiv = styled.div`
   align-items: center;
   align-self: stretch;
   background: #111322;
+
   p {
     margin: 0;
   }

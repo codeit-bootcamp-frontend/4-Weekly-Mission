@@ -12,6 +12,7 @@ const SearchBarDiv = styled.div`
   border: none;
 
   @media ${(props) => props.theme.tabletS} {
+    width: 100%;
     padding: 15px 16px;
   }
 
@@ -64,7 +65,7 @@ export default function SearchBar() {
         <SearchBarInput
           id="search"
           type="text"
-          placeholder="링크를 검색해 보세요."
+          placeholder="링크를 검색해 보세요"
         />
       </SearchBarWrappedDiv>
     </SearchBarDiv>

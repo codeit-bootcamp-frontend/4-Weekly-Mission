@@ -2,17 +2,17 @@ import { Route, Routes } from "react-router-dom";
 import ErrorPage from "./pages/ErrorPage";
 import SigninPage from "./pages/SigninPage";
 import SignupPage from "./pages/SignupPage";
-import App from "./components/App";
 import HomePage from "./pages/HomePage";
 import FolderPage from "./pages/FolderPage";
 import SharedPage from "./pages/SharedPage";
 import FaqPage from "./pages/FaqPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import Layout from "./components/Layout";
 
 function Main() {
   return (
     <Routes>
-      <Route path="/" element={<App />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route path="shared" element={<SharedPage />} />
         <Route path="faq" element={<FaqPage />} />

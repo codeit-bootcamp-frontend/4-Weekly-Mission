@@ -188,20 +188,20 @@ function Card({ link }) {
       <WrappedImg>
         <StarButton onClick={handleNoneBubblingClick} />
         <StyledImg
-          src={link?.imageSource ?? INITIAL_LINK_IMG}
+          src={link?.imageSource ?? link?.image_source ?? INITIAL_LINK_IMG}
           alt="미리보기 이미지"
         />
       </WrappedImg>
       <DescriptionDiv>
         <TextDiv1>
-          <p>{dateDiff(link?.createdAt)}</p>
+          <p>{dateDiff(link?.createdAt ?? link?.created_at)}</p>
           <KebabButton onClick={handleNoneBubblingClick} />
         </TextDiv1>
         <TextDiv2>
           <p>{link?.description}</p>
         </TextDiv2>
         <TextDiv3>
-          <p> {link?.createdAt.slice(0, 10)}</p>
+          <p> {(link?.createdAt ?? link?.created_at).slice(0, 10)}</p>
         </TextDiv3>
       </DescriptionDiv>
     </ContainDiv>

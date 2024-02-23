@@ -4,6 +4,7 @@ import Loading from "./Loading";
 import logo from "../assets/Linkbrary.svg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import LoginBtn from "../components/LoginBtn";
 
 const NavDiv = styled.div`
   display: flex;
@@ -82,15 +83,15 @@ export default function NavBar({ className }) {
         <Link to="/">
           <img src={logo} alt="로고" />
         </Link>
-        {profileApi.status === "idle" && <button>로그인</button>}
+        {profileApi.status === "idle" && <LoginBtn />}
         {profileApi.status === "fetching" && <Loading size="small" />}
         {profileApi.status === "success" && (
           <ProfileDiv>
             <img
-              src={profileApi.data?.profileImageSource}
+              src={profileApi.data?.data[0].image_source}
               alt="사용자의 프로필 사진"
             />
-            <p>{profileApi.data?.email}</p>
+            <p>{profileApi.data?.data[0].email}</p>
           </ProfileDiv>
         )}
         {profileApi.status === "error" && <p>{profileApi.error.message}</p>}

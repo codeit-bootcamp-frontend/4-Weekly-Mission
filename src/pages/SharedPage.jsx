@@ -1,7 +1,7 @@
 import FolderProfile from "../components/FolderProfile";
 import SearchBar from "../components/SearchBar";
 import Cards from "../components/Cards";
-import { getFolder } from "../api";
+import { getShared } from "../api";
 import useFetch from "../components/hooks/useFetch";
 import Loading from "../components/Loading";
 import styled from "styled-components";
@@ -34,21 +34,21 @@ const MainSectionDiv = styled.div`
 `;
 
 function SharedPage() {
-  const folderApi = useFetch(() => getFolder());
-  const links = folderApi.data?.folder?.links;
+  const sharedApi = useFetch(() => getShared());
+  const links = sharedApi.data?.folder?.links;
 
   return (
     <ContainDiv>
-      {folderApi.status === "fetching" && <Loading size="medium" />}
-      {folderApi.status === "success" && (
-        <FolderProfile ownerProfile={folderApi.data} />
+      {sharedApi.status === "fetching" && <Loading size="medium" />}
+      {sharedApi.status === "success" && (
+        <FolderProfile ownerProfile={sharedApi.data} />
       )}
-      {folderApi.status === "error" && <p>{folderApi.error.message}</p>}
+      {sharedApi.status === "error" && <p>{sharedApi.error.message}</p>}
       <MainSectionDiv>
         <SearchBar />
-        {folderApi.status === "fetching" && <Loading size="large" />}
-        {folderApi.status === "success" && <Cards links={links} />}
-        {folderApi.status === "error" && <p>{folderApi.error.message}</p>}
+        {sharedApi.status === "fetching" && <Loading size="large" />}
+        {sharedApi.status === "success" && <Cards links={links} />}
+        {sharedApi.status === "error" && <p>{sharedApi.error.message}</p>}
       </MainSectionDiv>
     </ContainDiv>
   );
