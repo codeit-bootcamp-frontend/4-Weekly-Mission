@@ -1,10 +1,9 @@
 import React from 'react';
-import Card from './card';
 import search from '../../assets/Images/Search.png';
 
-export default function Contents({ links }) {
+export const SearchLink = () => {
   return (
-    <article>
+    <>
       <form>
         <input
           className="card-search"
@@ -21,9 +20,6 @@ export default function Contents({ links }) {
           ></img>
         </button>
       </form>
-      <div className="content-wrapper">
-        {links && links.map((el) => <Card link={el} key={el.id}></Card>)}
-      </div>
-    </article>
+    </>
   );
-}
+};

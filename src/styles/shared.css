@@ -5,7 +5,7 @@ nav {
   background-color: var(--Gray5);
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 100;
   gap: 8px;
   padding: 20px 200px;
 }
@@ -45,6 +45,7 @@ nav {
 }
 
 .folder {
+  background-color: #f0f6ff;
   display: flex;
   flex-direction: column;
   padding: 20px 0px 60px;
@@ -123,6 +124,15 @@ article {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0px 5px 25px 0 rgba(0, 0, 0, 0.08);
+  z-index: 1;
+}
+
+.card:hover {
+  border: 2px solid #6d6afe;
+}
+
+.card:hover .card-data-image {
+  transform: scale(1.3);
 }
 
 .card a {
@@ -139,6 +149,7 @@ article {
 }
 
 .card-image {
+  position: relative;
   width: 340px;
   height: 200px;
   overflow: hidden;
@@ -150,11 +161,24 @@ article {
   object-fit: cover;
 }
 
+.card-star-button {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  top: 15px;
+  left: 291px;
+}
+
 .card-date-difference {
   font-weight: 400;
   font-size: 13px;
   line-height: 15.5px;
   color: #666666;
+}
+
+.card-top-wrapper {
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-description {
@@ -182,6 +206,8 @@ footer {
   width: 100%;
   padding: 60px 0 0;
   background-color: var(--White);
+  position: sticky;
+  top: calc(100vh - 220px);
 }
 
 .footer-banner {
@@ -290,10 +316,18 @@ footer {
     grid-template-columns: 1fr;
     margin-top: 32px;
   }
+
+  .card-star-button {
+    width: 30px;
+    height: 30px;
+    left: 280px;
+  }
   /*footer*/
   footer {
     padding-top: 40px;
     height: 160px;
+    position: sticky;
+    top: calc(100vh - 160px);
   }
 
   .footer-banner {
