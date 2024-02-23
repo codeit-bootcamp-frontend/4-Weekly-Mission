@@ -45,12 +45,6 @@
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
-.none_card_img {
-  width: 133px;
-  height: 24px;
-  opacity: 0.2;
-}
-
 .card_contents_area {
   display: flex;
   width: 100%;

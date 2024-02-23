@@ -27,6 +27,7 @@ const FolderPage = () => {
 
   useEffect(() => {
     handleLoad();
+    setSelectFolderName('all');
   }, []);
 
   const handleOnClick = async (folderName, list = []) => {

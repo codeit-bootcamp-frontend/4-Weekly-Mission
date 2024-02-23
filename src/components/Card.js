@@ -1,4 +1,4 @@
-import noneCardImg from '../assets/Linkbrary.svg';
+import noneCardImg from '../assets/none-card-img.svg';
 import kebab from '../assets/kebab.svg';
 import emptyStar from '../assets/icon-empty-star.svg';
 import fullStar from '../assets/icon-full-star.svg';
@@ -24,8 +24,11 @@ const Card = ({ link }) => {
         >
           <img
             src={image_source || noneCardImg}
-            className={image_source ? 'card_img' : 'none_card_img'}
+            className="card_img"
             alt="card"
+            onError={(e) => {
+              e.target.src = noneCardImg;
+            }}
           />
           <div className="star_icon_area">
             <img src={fillStar ? fullStar : emptyStar} />
