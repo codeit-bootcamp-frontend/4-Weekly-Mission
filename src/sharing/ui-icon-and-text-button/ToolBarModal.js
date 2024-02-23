@@ -8,7 +8,7 @@ const ToolBarModal = ({ children, onClose }) => {
         <button className="modal-closeButton" onClick={onClose}>
           ❌
         </button>
-        <div className="modal-child">{children}</div>
+        <div>{children}</div>
       </div>
     </div>
   );

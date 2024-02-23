@@ -19,12 +19,6 @@
   display: flex;
   justify-content: center;
 }
-.modal-child {
-  padding-bottom: 5px;
-  margin: 30px 0px;
-  font-size: 20px;
-  font-weight: 600;
-}
 .modal-closeButton {
   position: absolute;
   top: 15px;
