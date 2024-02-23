@@ -4,15 +4,15 @@ import addLink from "../../image/link.svg";
 
 const LinkForm = () => {
   return (
-    <div className="LinkFormBox">
-      <form className="LinkFormWrapper">
+    <div className="link-form-box">
+      <form className="link-form-wrapper">
         <img src={addLink} alt="add link" />
         <input
-          className="LinkInput"
+          className="link-input"
           type="text"
           placeholder="링크를 추가해 보세요"
         />
-        <button className="AddLinkButton">추가하기</button>{" "}
+        <button className="add-link-button">추가하기</button>
       </form>
     </div>
   );
