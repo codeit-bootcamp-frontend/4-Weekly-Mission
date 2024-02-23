@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-function PopOver() {
+function PopOver({ isOpen }) {
   return (
-    <PopOverContainer>
+    <PopOverContainer $isOpen={isOpen}>
       <Button>삭제하기</Button>
       <Button>폴더에 추가</Button>
     </PopOverContainer>
@@ -9,10 +9,17 @@ function PopOver() {
 }
 
 const PopOverContainer = styled.div`
-  display: inline-flex;
+  width: 100px;
+  height: 64px;
+  display: ${({ $isOpen }) => ($isOpen ? 'inline-flex' : 'none')};
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
+  background-color: white;
+  z-index: 10;
+  position: absolute;
+  top: 20px;
+  left: 271px;
 `;
 const Button = styled.button`
   display: flex;
@@ -28,7 +35,7 @@ const Button = styled.button`
   font-weight: 400;
   line-height: normal;
   border: none;
-  background-color: white;
+  background-color: transparent;
   &:hover {
     color: var(--Linkbrary-primary-color, #6d6afe);
     background: var(--Linkbrary-gray10, #e7effb);
