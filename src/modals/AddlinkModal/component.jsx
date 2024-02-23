@@ -4,7 +4,7 @@ import { fetchFolders } from "../../api";
 import { useState, useEffect } from "react";
 import "./style.css";
 
-export default function AddlinkModal({ onClose, link }) {
+export default function AddlinkModal({ onClose, data }) {
   const [folders, setFolders] = useState([]);
   const [selectedFolder, setSelectedFolder] = useState(null);
   async function getFolders() {
@@ -21,7 +21,7 @@ export default function AddlinkModal({ onClose, link }) {
   }, []);
   return (
     <>
-      <ModalWrapper onClose={onClose} title="폴더에 추가" info={link}>
+      <ModalWrapper onClose={onClose} title="폴더에 추가" info={data.link}>
         <div className="add-to-folder-list">
           {folders.map((folder) => (
             <div
@@ -33,9 +33,9 @@ export default function AddlinkModal({ onClose, link }) {
                 setSelectedFolder(folder.id);
               }}
             >
-              <div className="folder-info">
-                <span className="folder-name">{folder.name}</span>
-                <span className="num-links">{`${folder.link.count}개 링크`}</span>
+              <div className="add-to-folder-info">
+                <span className="add-to-folder-name">{folder.name}</span>
+                <span className="add-to-folder-num-links">{`${folder.link.count}개 링크`}</span>
               </div>
               <img
                 src="images/checkmark.svg"

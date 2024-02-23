@@ -26,7 +26,7 @@ export default function FolderPageHeader() {
         {isAddlinkModalOpen && (
           <AddlinkModal
             onClose={() => setIsAddlinkModalOpen(false)}
-            link={newLink}
+            data={{ title: "", link: newLink }}
           />
         )}
       </div>

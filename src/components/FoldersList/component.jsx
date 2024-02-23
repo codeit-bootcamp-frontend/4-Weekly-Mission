@@ -39,6 +39,12 @@ export default function FoldersList({
       >
         <span>폴더 추가</span> <img src="images/plus.svg" alt="plus" />
       </button>
+      <button
+        className="add-folder-mobile"
+        onClick={() => setIsAddfolderModalOpen(true)}
+      >
+        <span>폴더 추가</span> <img src="images/plus-gray.svg" alt="plus" />
+      </button>
       {isAddfolderModalOpen && (
         <AddfolderModal onClose={() => setIsAddfolderModalOpen(false)} />
       )}

@@ -7,8 +7,18 @@ export default function ModalWrapper({
   onClose,
 }) {
   return (
-    <div className="modal-container">
-      <div className="modal-contents">
+    <div
+      className="modal-container"
+      onClick={() => {
+        onClose();
+      }}
+    >
+      <div
+        className="modal-contents"
+        onClick={(e) => {
+          e.stopPropagation(); // 상위 엘리먼트로 버블링 차단
+        }}
+      >
         <button onClick={onClose}>
           <img src="images/close.svg" className="modal-closer" alt="close" />
         </button>

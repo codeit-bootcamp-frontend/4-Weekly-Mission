@@ -19,13 +19,13 @@
   justify-content: space-between;
 }
 
-.folder-info {
+.add-to-folder-info {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.folder-name {
+.add-to-folder-name {
   color: var(--gray100);
   font-size: 16px;
   font-style: normal;
@@ -33,7 +33,7 @@
   line-height: 24px; /* 150% */
 }
 
-.num-links {
+.add-to-folder-num-links {
   color: var(--Linkbrary-gray60, #9fa6b2);
   font-size: 14px;
   font-style: normal;
@@ -53,7 +53,7 @@
   background: var(--Linkbrary-bg, #f0f6ff);
 }
 
-.selected-to-add-to .folder-name {
+.selected-to-add-to .add-to-folder-name {
   color: var(--primary);
 }
 
