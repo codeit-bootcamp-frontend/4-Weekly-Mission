@@ -53,5 +53,10 @@ const StyledButton = styled.button`
   &.folderLink {
     padding: 1rem 1.6rem;
   }
+
+  &.modal {
+    height: 5.1rem;
+    padding: 1.6rem 2rem;
+  }
 `;
 export default Button;

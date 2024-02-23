@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import Add from 'assets/images/add.png';
 import Add2 from 'assets/images/add2.png';
+import { useState } from 'react';
+import Modal from 'components/common/modal/Modal';
+import PostModal from 'components/common/modal/PostModal';
 
 /**
  * Category 컴포넌트
@@ -11,6 +14,10 @@ import Add2 from 'assets/images/add2.png';
  * @returns {JSX.Element}
  */
 const Category = ({ categoryDatas, currentCategory, handleCategoryButton }) => {
+  const [showModal, setShowModal] = useState(false);
+  const handleClick = () => {
+    setShowModal(true);
+  };
   return (
     <>
       <Wrapper>
@@ -28,10 +35,15 @@ const Category = ({ categoryDatas, currentCategory, handleCategoryButton }) => {
               </CategoryButton>
             ))}
         </CategoryContainer>
-        <AddButtonContainer>
+        <AddButton onClick={handleClick}>
           <Text>폴더 추가</Text>
           <Image></Image>
-        </AddButtonContainer>
+        </AddButton>
+        {showModal && (
+          <Modal setShowModal={setShowModal} showModal={showModal}>
+            <PostModal isAdd={true}>폴더 추가</PostModal>
+          </Modal>
+        )}
       </Wrapper>
     </>
   );
@@ -69,7 +81,8 @@ const CategoryButton = styled.button`
   font-size: 1.6rem;
   font-weight: 400;
 `;
-const AddButtonContainer = styled.div`
+const AddButton = styled.button`
+  background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import kebeb from 'assets/images/kebab.svg';
+import kebab from 'assets/images/kebab.svg';
 import { useState } from 'react';
 import BUTTON from 'utils/constants/BUTTON';
 import Modal from 'components/common/modal/Modal';
@@ -12,15 +12,16 @@ const KebabButton = () => {
     e.preventDefault();
     return setShowMenu(!showMenu);
   };
-  const handleClick = () => {
+  const handleClick = e => {
     setShowMenu(false);
     setShowModal(true);
+    console.log(e.target);
   };
 
   return (
     <>
       <StyledButton onClick={handleMenu}>
-        <img src={kebeb} alt="더보기 버튼" />
+        <img src={kebab} alt="더보기 버튼" />
         {showMenu && (
           <StyledModal>
             {BUTTON.KEBAB_OPTION.map(option => (

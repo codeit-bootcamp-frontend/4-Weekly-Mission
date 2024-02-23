@@ -10,12 +10,12 @@ const Modal = ({ setShowModal, children, showModal }) => {
   return (
     <Portal>
       <ModalWrapper>
-        <ModalContent ref={modalRef}>
+        <ModalInner ref={modalRef}>
           <StyledButton onClick={() => setShowModal(false)}>
             <img src={modalCloseButton} alt="modal close icon" />
           </StyledButton>
           {children}
-        </ModalContent>
+        </ModalInner>
       </ModalWrapper>
     </Portal>
   );
@@ -35,9 +35,8 @@ const ModalWrapper = styled.div`
   align-items: center;
   justify-content: center;
 `;
-const ModalContent = styled.div`
+const ModalInner = styled.div`
   width: 36rem;
-  height: 19.3rem;
   background-color: ${({ theme }) => theme.white};
   border-radius: 1.5rem;
   position: relative;
