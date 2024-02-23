@@ -1,5 +1,7 @@
 import "components/LinkCard.css";
 import "components/LinkCardCollection.css";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const timePassedFromCreate = (time) => {
 	let currentTime = new Date().getTime();
@@ -33,7 +35,7 @@ const NoCardImg = () => {
 	return <div className="no-card-img"></div>;
 };
 
-const FolderCard = function ({ contents, favorite = false, kebab = false }) {
+const FolderCard = function ({ contents, favorite, kebab }) {
 	const {
 		id,
 		created_at,
@@ -43,40 +45,46 @@ const FolderCard = function ({ contents, favorite = false, kebab = false }) {
 		image_source,
 		url,
 	} = contents;
+	const [kebabMenuPop, setKebabMenuPop] = useState(false);
+
 	const cardImage = { backgroundImage: `url(${imageSource || image_source})` };
-
 	const timeConversion = new Date(created_at || createdAt); // sampleApi와 userApi의 양식이 달라 호환시키기 위함
-
 	const passedTime = timePassedFromCreate(timeConversion);
 	const editedTime = `${timeConversion.getFullYear()}. ${
 		timeConversion.getMonth() + 1
 	}. ${timeConversion.getDate()}`;
 
+	const handleKebabBtn = () => {
+		setKebabMenuPop(!kebabMenuPop);
+	};
+
 	return (
-		<a
-			href={url}
-			target="_blank"
-			rel="noreferrer"
-			className="card-box"
-			key={id}
-		>
-			{imageSource || image_source ? <div style={cardImage} /> : <NoCardImg />}
-			{favorite && (
-				<button className="favor-star">
-					<img src="star.svg" alt="FavoriteButton" />
-				</button>
-			)}
+		<button type="button" className="card-box" key={id}>
+			<Link to={url} target="_blank">
+				{imageSource || image_source ? (
+					<div style={cardImage} />
+				) : (
+					<NoCardImg />
+				)}
+
+				<section className="card-text">
+					<p className="card-passed-time">{passedTime}</p>
+					<p className="card-contents">{description}</p>
+					<p className="card-edited-date">{editedTime}</p>
+				</section>
+			</Link>
 			{kebab && (
-				<button type="button" className="kebab">
+				<button type="button" onClick={handleKebabBtn} className="kebab">
 					<img src="kebab.svg" alt="kebabButton" />
 				</button>
 			)}
-			<section className="card-text">
-				<p className="card-passed-time">{passedTime}</p>
-				<p className="card-contents">{description}</p>
-				<p className="card-edited-date">{editedTime}</p>
-			</section>
-		</a>
+			{favorite && (
+				<button type="button" className="favor-star">
+					<img src="star.svg" alt="FavoriteButton" />
+				</button>
+				// {kebabPop && }
+			)}
+		</button>
 	);
 };
 
