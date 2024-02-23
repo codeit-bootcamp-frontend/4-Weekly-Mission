@@ -12,6 +12,8 @@ import styles from 'components/Header/Gnb.module.css';
 
 import { getUserApiUrl } from 'services/api';
 
+import scrollToTop from 'utils/scrollToTop';
+
 // 글로벌 네비게이션 바
 function Gnb() {
   const FOLDER_LOCATION = '/folder';
@@ -25,11 +27,6 @@ function Gnb() {
 
   // 페이지 경로 저장
   const { pathname } = useLocation();
-
-  // 로고 클릭 시 페이지 최상단으로 이동
-  const handleLogoClick = () => {
-    window.scrollTo(0, 0);
-  };
 
   const userProfileImg = userInfo?.profileImageSource || DefaultProfileImg;
   const userEmail = userInfo?.email ?? '';
@@ -48,7 +45,7 @@ function Gnb() {
     <div>
       <nav className={navClasses}>
         <div className={containerClasses}>
-          <Link to="/" onClick={handleLogoClick}>
+          <Link to="/" onClick={scrollToTop}>
             <img className={logoClasses} src={logo} alt="logo" />
           </Link>
           {userInfo ? (
