@@ -145,7 +145,9 @@ const Folder = () => {
                       ''
                     ) : (
                       <div className='OptionContent'>
-                        <button>공유</button>
+                        <button onClick={() => handleOpenModal('ShareModal')}>
+                          공유
+                        </button>
                         <button onClick={() => handleOpenModal('EditModal')}>
                           이름 변경
                         </button>
