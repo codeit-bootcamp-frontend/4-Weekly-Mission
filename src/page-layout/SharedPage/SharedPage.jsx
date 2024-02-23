@@ -13,8 +13,8 @@ export const SharedPage = () => {
   const { data } = useGetFolder();
   const { profileImage, ownerName, folderName } = data || {};
 
-  const handleLoadFolders = async () => {
-    const { data } = await getFolders();
+  const handleLoadFolders = async (folderId = "") => {
+    const { data } = await getFolders((folderId = ""));
     setFolders(data);
   };
 
