@@ -1,0 +1,19 @@
+@import "sharing/styles/global.scss";
+
+.star {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 3.4rem;
+  height: 3.4rem;
+}
+
+.kebab {
+  position: absolute;
+  top: 20.7rem;
+  right: 2rem;
+
+  @include tablet {
+    top: 21.5rem;
+  }
+}
