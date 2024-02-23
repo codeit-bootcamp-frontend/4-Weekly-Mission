@@ -1,6 +1,5 @@
 import "components/LinkCard.css";
 import "components/LinkCardCollection.css";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import KebabMenu from "./Utils/KebabMenu";
 
@@ -30,10 +29,6 @@ const timePassedFromCreate = (time) => {
 	const timeDiffYr = Math.floor(timeDiffMonth / 12);
 	if (timeDiffYr === 1) return `1 year ago`;
 	return `${timeDiffYr} years ago`;
-};
-
-const NoCardImg = () => {
-	return <div className="card-image no-card-img"></div>;
 };
 
 const FolderCard = function ({ contents, favorite, kebab }) {
@@ -67,7 +62,7 @@ const FolderCard = function ({ contents, favorite, kebab }) {
 					{imageSource || image_source ? (
 						<div className={"card-image"} style={cardImage} />
 					) : (
-						<NoCardImg />
+						<div className="card-image no-card-img"></div>
 					)}
 
 					<section className="card-text">
