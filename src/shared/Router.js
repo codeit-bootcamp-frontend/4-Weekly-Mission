@@ -8,11 +8,6 @@ import Privacy from '../components/Privacy';
 import Landing from '../components/Landing';
 import Signup from '../components/Signup';
 import Folder from '../components/Folder';
-import EditModal from '../components/modal/EditModal';
-import AddFolderModal from '../components/modal/AddFolderModal';
-import ShareModal from '../components/modal/ShareModal';
-import DeleteFolderModal from '../components/modal/DeleteFolderModal';
-import DeleteLinkModal from '../components/modal/DeleteLinkModal';
 import AddLinkModal from '../components/modal/AddLinkModal';
 
 const Router = () => {
@@ -22,13 +17,13 @@ const Router = () => {
         <Route element={<Layout />}>
           <Route path='/' element={<Landing />} />
           <Route path='/shared' element={<Shared />} />
-          <Route path='/folder' element={<Folder />} />
         </Route>
+        <Route path='/folder' element={<Folder />} />
         <Route path='/signin' element={<Signin />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/privacy' element={<Privacy />} />
         <Route path='/faq' element={<Faq />} />
-        <Route path='/modal' element={<AddLinkModal />} />
+        {/* <Route path='/modal' element={<AddLinkModal />} /> */}
       </Routes>
     </BrowserRouter>
   );
