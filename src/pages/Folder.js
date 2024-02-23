@@ -11,6 +11,7 @@ import CardList from "../components/folder/ui-card/CardList";
 import FolderHeaderLayout from "../components/folder/ui-layout/FolderHeaderLayout";
 import MainLayout from "../components/folder/ui-layout/MainLayout";
 import AddFolderButton from "../components/folder/ui-button/AddFolderButton";
+import Modal from "../components/sharing/ui-modal/Modal";
 
 const Folder = () => {
   const [user, setUser] = useState({
@@ -57,7 +58,7 @@ const Folder = () => {
         </FolderHeaderLayout>
         <MainLayout>
           <SearchInputForm />
-
+          <Modal />
           {folders.length === 0 ? (
             // 폴더 리스트가 존재하지 않을 경우
             <NoLink />
