@@ -1,13 +1,12 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Avatar from "../components/Avatar";
-import styles from "./css/Folder.module.css";
-import SearchBar from "../components/SearchBar";
-import Card from "../components/Card";
+import Header from "../components/sharing/Header";
+import Footer from "../components/sharing/Footer";
 import { useEffect, useState } from "react";
 import { getSampleFolder, getUser } from "../utils/api";
-import { Link } from "react-router-dom";
-import { formatDate, getTimeDifference } from "../utils/DateUtils";
+import SearchInputForm from "../components/folder/ui-input/SearchInputForm";
+import CardList from "../components/folder/ui-card/CardList";
+import UserProfile from "../components/folder/ui-user/UserProfile";
+import FolderHeaderLayout from "../components/folder/ui-layout/FolderHeaderLayout";
+import MainLayout from "../components/folder/ui-layout/MainLayout";
 
 const Shared = () => {
   const [user, setUser] = useState({
@@ -44,52 +43,18 @@ const Shared = () => {
 
   return (
     <>
-      <Header userInfo={user} />
+      <Header userInfo={user} fixed={true} />
       <div className="component-default-margin">
-        <div className={styles.folder_header}>
-          <div className={styles.folder_owner}>
-            <Avatar
-              avatarImage={folderInfo.folderOwnerImage}
-              width="60px"
-              height="60px"
-            ></Avatar>
-            <div className="font-thin font-16px">@{folderInfo.folderOwner}</div>
-          </div>
+        <FolderHeaderLayout>
+          <UserProfile folderInfo={folderInfo} />
           <div className="font-regular font-40px margin-auto">
             {folderInfo.folderName}
           </div>
-        </div>
-        <main>
-          <SearchBar type="findLink" />
-          <div className={styles.card_list}>
-            {folderInfo.folderLinks.map((link) => {
-              const { imageSource, createdAt, description } = link;
-              const createdDate = new Date(createdAt);
-              const currentDate = new Date();
-
-              const createdDateString = formatDate(createdDate);
-
-              const timeDifference = getTimeDifference(
-                createdDate,
-                currentDate,
-              );
-              return (
-                <Link
-                  to={`/link/${link.id}`}
-                  key={link.id}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Card
-                    cardImage={imageSource}
-                    cardTime={{ createdDateString, timeDifference }}
-                    cardDescription={description}
-                  />
-                </Link>
-              );
-            })}
-          </div>
-        </main>
+        </FolderHeaderLayout>
+        <MainLayout>
+          <SearchInputForm />
+          <CardList currentLinks={folderInfo.folderLinks} />
+        </MainLayout>
       </div>
       <Footer />
     </>

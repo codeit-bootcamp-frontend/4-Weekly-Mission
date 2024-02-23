@@ -1,13 +1,16 @@
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import styles from "./css/Folder.module.css";
-import SearchBar from "../components/SearchBar";
+import Header from "../components/sharing/Header";
+import Footer from "../components/sharing/Footer";
 import { useEffect, useState } from "react";
 import { getFolders, getLinks, getUser } from "../utils/api";
-import TagBox from "../components/TagBox";
-import { formatDate, getTimeDifference } from "../utils/DateUtils";
-import { Link } from "react-router-dom";
-import Card from "../components/Card";
+import AddLinkForm from "../components/folder/ui-input/AddLinkForm";
+import SearchInputForm from "../components/folder/ui-input/SearchInputForm";
+import NoLink from "./NoLink";
+import TagList from "../components/folder/ui-tag/TagList";
+import ActionIconList from "../components/folder/ui-actionIcon/ActionIconList";
+import CardList from "../components/folder/ui-card/CardList";
+import FolderHeaderLayout from "../components/folder/ui-layout/FolderHeaderLayout";
+import MainLayout from "../components/folder/ui-layout/MainLayout";
+import AddFolderButton from "../components/folder/ui-button/AddFolderButton";
 
 const Folder = () => {
   const [user, setUser] = useState({
@@ -35,12 +38,8 @@ const Folder = () => {
     setCurrentLinks(links["data"]);
   };
 
-  const handleAddFolder = () => {
-    alert("Add Folder");
-  };
-
-  const handleClickTag = (e, folder) => {
-    setCurrentFolder({ id: folder.id, name: folder.name });
+  const handleClickTag = (id, name) => {
+    setCurrentFolder({ id, name });
   };
 
   useEffect(() => {
@@ -53,109 +52,44 @@ const Folder = () => {
     <>
       <Header userInfo={user} fixed={false} />
       <div>
-        <div className={styles.folder_header}>
-          <SearchBar type="addLink" />
-        </div>
-        <main>
-          <SearchBar type="findLink" />
+        <FolderHeaderLayout>
+          <AddLinkForm />
+        </FolderHeaderLayout>
+        <MainLayout>
+          <SearchInputForm />
 
           {folders.length === 0 ? (
             // 폴더 리스트가 존재하지 않을 경우
-            <div className={styles.warning_no_link}>저장된 링크가 없습니다</div>
+            <NoLink />
           ) : (
             <>
-              <div className={styles.tag_container}>
-                <div className={styles.tag_list}>
-                  <TagBox
-                    isSelected={currentFolder.id === 1}
-                    onClick={() => setCurrentFolder({ id: 1, name: "전체" })}
-                  >
-                    전체
-                  </TagBox>
-                  {folders.map((folder) => {
-                    return (
-                      <TagBox
-                        key={folder.id}
-                        id={folder.id}
-                        isSelected={currentFolder.id === folder.id}
-                        onClick={(e) => handleClickTag(e, folder)}
-                      >
-                        {folder["name"]}
-                      </TagBox>
-                    );
-                  })}
-                </div>
-                <span
-                  className={styles.add_folder_btn}
-                  onClick={handleAddFolder}
-                >
-                  폴더 추가 +
-                </span>
+              <div className="space-between">
+                <TagList
+                  folders={folders}
+                  onClick={handleClickTag}
+                  currentFolder={currentFolder}
+                />
+                <AddFolderButton>폴더 추가 +</AddFolderButton>
               </div>
 
               {currentLinks.length === 0 ? (
                 // 현재 폴더 내 링크가 없을 경우
-                <div className={styles.warning_no_link}>
-                  저장된 링크가 없습니다
-                </div>
+                <NoLink />
               ) : (
                 <>
-                  <div className={styles.tag_title_container}>
+                  <div className="space-between">
                     <span className="font-24px font-regular">
                       {currentFolder.name}
                     </span>
-                    {currentFolder.id !== 1 && (
-                      <div className={styles.action_icons_list}>
-                        <div className={styles.action_icon}>
-                          <img src="/icons/share_icon.svg" alt="share icon" />
-                          공유
-                        </div>
-                        <div className={styles.action_icon}>
-                          <img src="/icons/pen_icon.svg" alt="pen icon" />
-                          이름 변경
-                        </div>
-                        <div className={styles.action_icon}>
-                          <img src="/icons/delete_icon.svg" alt="delete icon" />
-                          삭제
-                        </div>
-                      </div>
-                    )}
+                    {currentFolder.id !== 1 && <ActionIconList />}
                   </div>
-                  <div className={styles.card_list}>
-                    {currentLinks.map((link) => {
-                      const { created_at, description, image_source } = link;
-                      const createdDate = new Date(created_at);
-                      const currentDate = new Date();
-
-                      const createdDateString = formatDate(createdDate);
-
-                      const timeDifference = getTimeDifference(
-                        createdDate,
-                        currentDate,
-                      );
-                      return (
-                        <Link
-                          to={`/link/${link.id}`}
-                          key={link.id}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Card
-                            cardImage={image_source}
-                            cardTime={{ createdDateString, timeDifference }}
-                            cardDescription={description}
-                          />
-                        </Link>
-                      );
-                    })}
-                  </div>
+                  <CardList currentLinks={currentLinks} />
                 </>
               )}
             </>
           )}
-        </main>
+        </MainLayout>
       </div>
-
       <Footer />
     </>
   );
