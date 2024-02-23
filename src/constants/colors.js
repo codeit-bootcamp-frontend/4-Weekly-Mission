@@ -1,4 +1,4 @@
-export const root = {
+export const COLORS = {
   Primary: "#6d6afe",
   Red: "#ff5b56",
   Black: "#111322",
