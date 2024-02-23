@@ -11,16 +11,16 @@ export default function FoldersList({
   return (
     <div className="folders-list">
       <div className="folders">
-        <div
+        <button
           className={`folder ${selectedFolder.id === null ? "selected" : ""}`}
           onClick={() => {
             setSelectedFolder({ id: null, name: "" });
           }}
         >
           전체
-        </div>
+        </button>
         {folders.map((folder) => (
-          <div
+          <button
             key={folder.id}
             className={`folder ${
               selectedFolder?.id === folder.id ? "selected" : ""
@@ -30,12 +30,15 @@ export default function FoldersList({
             }}
           >
             {folder.name}
-          </div>
+          </button>
         ))}
       </div>
-      <div className="add-folder" onClick={() => setIsAddfolderModalOpen(true)}>
+      <button
+        className="add-folder"
+        onClick={() => setIsAddfolderModalOpen(true)}
+      >
         <span>폴더 추가</span> <img src="images/plus.svg" alt="plus" />
-      </div>
+      </button>
       {isAddfolderModalOpen && (
         <AddfolderModal onClose={() => setIsAddfolderModalOpen(false)} />
       )}

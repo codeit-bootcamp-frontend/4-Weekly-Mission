@@ -9,8 +9,8 @@ export default function FolderToolbar({ folder }) {
 
   return (
     <div className="folder-toolbar">
-      <span>{folder?.name || "전체"}</span>
-      {folder && (
+      <span>{folder.name || "전체"}</span>
+      {folder.name && (
         <div className="folder-options">
           <button
             className="folder-option-item"
