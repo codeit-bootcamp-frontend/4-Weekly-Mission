@@ -87,7 +87,12 @@ const FolderCard = function ({ contents, favorite, kebab }) {
 					<button type="button" onClick={handleKebabBtn} className="kebab">
 						<img src="kebab.svg" alt="kebabButton" />
 					</button>
-					{kebabMenuPop && <KebabMenu items={sampleKebabMenus} />}
+					{kebabMenuPop && (
+						<KebabMenu
+							items={sampleKebabMenus}
+							resetKebabStatus={handleKebabBtn}
+						/>
+					)}
 				</div>
 			)}
 			{favorite && (

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function KebabMenu({ items }) {
+export default function KebabMenu({ items, resetKebabStatus }) {
 	const KebabDiv = styled.div`
 		position: absolute;
 		flex-direction: column;
@@ -32,6 +32,20 @@ export default function KebabMenu({ items }) {
 		}
 	`;
 
+	const KebabCancel = styled.button`
+		position: fixed;
+		top: 0;
+		left: 0;
+		border: none;
+		width: 100vw;
+		height: 100vh;
+		background-color: transparent;
+
+		&:hover {
+			cursor: default;
+		}
+	`;
+
 	return (
 		<>
 			<KebabDiv>
@@ -39,7 +53,7 @@ export default function KebabMenu({ items }) {
 					<KebabButton>{item.name}</KebabButton>
 				))}
 			</KebabDiv>
-			{/* <KebabCansle setKebabStatus={setKebabStatus} /> */}
+			<KebabCancel onClick={resetKebabStatus} />
 		</>
 	);
 }
