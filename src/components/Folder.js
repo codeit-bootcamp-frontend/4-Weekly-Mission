@@ -151,7 +151,11 @@ const Folder = () => {
                         <button onClick={() => handleOpenModal('EditModal')}>
                           이름 변경
                         </button>
-                        <button>삭제</button>
+                        <button
+                          onClick={() => handleOpenModal('DeleteFolderModal')}
+                        >
+                          삭제
+                        </button>
                       </div>
                     )}
                   </div>
