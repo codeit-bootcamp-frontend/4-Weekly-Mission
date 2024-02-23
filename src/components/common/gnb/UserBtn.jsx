@@ -33,7 +33,7 @@ const Styled = {
 };
 
 function UserBtn({ userData }) {
-  const { profileImageSource: profileImg = defaultProfileImg, email = '' } = userData || {};
+  const { image_source: profileImg = defaultProfileImg, email = '' } = userData || {};
 
   return (
     <Styled.UserBtn>

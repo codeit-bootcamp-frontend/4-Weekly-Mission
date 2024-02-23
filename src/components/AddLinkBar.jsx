@@ -1,21 +1,20 @@
 import { styled } from 'styled-components';
 
-import searchIcon from 'assets/icon/search.svg';
+import linkBarIcon from 'assets/icon/linkBar.svg';
+import Button from './common/button/Button';
 
 const Styled = {
   Container: styled.div`
     width: 100%;
-    height: 5.4rem;
-    padding: 1.5rem 1.6rem;
+    padding: 1.6rem 2rem;
+    border: 1px solid ${({ theme }) => theme.color.primary};
+    border-radius: 1.5rem;
+    background-color: ${({ theme }) => theme.color.white};
 
-    position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    gap: 1rem;
-
-    border-radius: 1rem;
-    background-color: #f5f5f5;
+    gap: 1.2rem;
   `,
 
   Input: styled.input`
@@ -24,21 +23,23 @@ const Styled = {
     border: none;
     background: transparent;
 
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+
     ::placeholder {
-      font-size: 1.6rem;
-      line-height: 2.4rem;
       color: ${({ theme }) => theme.color.addition};
     }
   `,
 };
 
-function SearchBar({ placeholder, value, onChange, style }) {
+function AddLinkBar({ style, value, placeholder, onChange }) {
   return (
     <Styled.Container style={style}>
-      <img src={searchIcon} alt="검색 아이콘" />
+      <img src={linkBarIcon} alt="링크 추가 바 아이콘" />
       <Styled.Input type="text" value={value} placeholder={placeholder} onChange={onChange}></Styled.Input>
+      <Button style={{ padding: '1rem 1.6rem' }}>추가하기</Button>
     </Styled.Container>
   );
 }
 
-export default SearchBar;
+export default AddLinkBar;

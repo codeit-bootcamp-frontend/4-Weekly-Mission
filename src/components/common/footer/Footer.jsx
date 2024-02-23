@@ -6,7 +6,7 @@ const Styled = {
     width: 100%;
     height: 16rem;
     padding: 3.2rem 0 6.4rem;
-    margin-top: 12rem;
+    margin-top: 6rem;
     background-color: #111322;
 
     display: flex;

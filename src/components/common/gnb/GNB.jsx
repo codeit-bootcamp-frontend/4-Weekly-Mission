@@ -1,15 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { styled } from 'styled-components';
-import { useEffect, useState } from 'react';
 
+import useUserInfoQuery from 'hooks/api/user/useUserInfoQuery';
 import logo from 'assets/logo.svg';
 import Button from 'components/common/button/Button';
 import UserBtn from 'components/common/gnb/UserBtn';
-import sampleAPI from 'api/sampleAPI';
 
 const Styled = {
   Container: styled.nav`
-    position: fixed;
+    position: ${({ isFixed }) => (isFixed ? 'fixed' : 'static')};
     left: 0;
     top: 0;
     z-index: 100;
@@ -35,32 +34,22 @@ const Styled = {
   `,
 };
 
-function GNB() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userData, setUserData] = useState(null);
-
-  const fetchData = async () => {
-    try {
-      const res = await sampleAPI.getSampleUserInfo();
-      const userData = res.data;
-      setIsLoggedIn(userData ? true : false);
-      setUserData(userData);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+function GNB({ isFixed }) {
+  const { data } = useUserInfoQuery({ userId: 1 });
+  const userData = data?.data?.data[0];
+  const isLoggedIn = userData !== null;
 
   return (
-    <Styled.Container>
+    <Styled.Container isFixed={isFixed}>
       <Styled.InnerWrap>
         <Link to="/">
           <img src={logo} alt="linkbrary-logo" />
         </Link>
-        {isLoggedIn ? <UserBtn userData={userData} /> : <Button />}
+        {isLoggedIn ? (
+          <UserBtn userData={userData} />
+        ) : (
+          <Button style={{ fontSize: '1.8rem', width: '12.8rem' }}>로그인</Button>
+        )}
       </Styled.InnerWrap>
     </Styled.Container>
   );
