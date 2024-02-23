@@ -45,7 +45,7 @@ export function FolderContent() {
             <Button
               onClick={handleCategoryActive}
               value={category.name}
-              id={category?.id}
+              id={category.id}
             >
               {category.name}
             </Button>
