@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Button } from '../../ui/button/Button';
 import { get } from '../../../apis/api';
 import * as S from './Nav.style';
-import mainLogo from '../../../assets/common/logo.svg';
+import MainLogo from '../../../assets/common/logo.svg';
 
 const Nav = ({ position }) => {
   const location = useLocation();
@@ -39,7 +39,7 @@ const Nav = ({ position }) => {
     <S.Container $position={position}>
       <div className="gnb">
         <Link to="/">
-          <img src={mainLogo} alt="홈으로 연결된 Linkbrary 로고" />
+          <img src={MainLogo} alt="홈으로 연결된 Linkbrary 로고" />
         </Link>
         {user.email ? (
           <div className="user-box">

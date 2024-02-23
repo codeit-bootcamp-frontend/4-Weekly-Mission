@@ -3,9 +3,9 @@ import { get } from '../../../apis/api';
 import Card from '../../../components/ui/card/Card';
 import SearchBar from '../../../components/ui/search-bar/SearchBar';
 import * as S from './Content.style';
-import shareIcon from '../../../assets/folder/share.svg';
-import penIcon from '../../../assets/folder/pen.svg';
-import deleteIcon from '../../../assets/folder/delete.svg';
+import ShareIcon from '../../../assets/folder/share.svg';
+import PenIcon from '../../../assets/folder/pen.svg';
+import DeleteIcon from '../../../assets/folder/delete.svg';
 
 const Content = () => {
   const [folderList, setFolderList] = useState([]);
@@ -81,15 +81,15 @@ const Content = () => {
           {title !== '전체' && (
             <div className="folder-controls">
               <button className="control-btn">
-                <img src={shareIcon} alt="공유 아이콘" />
+                <img src={ShareIcon} alt="공유 아이콘" />
                 <p>공유</p>
               </button>
               <button className="control-btn">
-                <img src={penIcon} alt="펜 아이콘" />
+                <img src={PenIcon} alt="펜 아이콘" />
                 <p>이름 변경</p>
               </button>
               <button className="control-btn">
-                <img src={deleteIcon} alt="휴지통(삭제) 아이콘" />
+                <img src={DeleteIcon} alt="휴지통(삭제) 아이콘" />
                 <p>삭제</p>
               </button>
             </div>
