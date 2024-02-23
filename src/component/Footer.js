@@ -5,6 +5,17 @@ import youtubeIcon from "../image/youtube.svg";
 import instagramIcon from "../image/instagram.svg";
 
 function Footer() {
+  const SNS_LIST = [
+    { name: "facebook", href: "https://www.facebook.com", src: facebookIcon },
+    { name: "twitter", href: "https://twitter.com", src: twitterIcon },
+    { name: "youtube", href: "https://youtube.com", src: youtubeIcon },
+    {
+      name: "instagram",
+      href: "https://www.instagram.com",
+      src: instagramIcon,
+    },
+  ];
+
   return (
     <footer>
       <div class="footer_frame">
@@ -14,18 +25,19 @@ function Footer() {
           <a href="./faq.html">FAQ</a>
         </div>
         <div class="icons">
-          <a href="https://www.facebook.com/">
-            <img class="icon" src={facebookIcon} alt="facebook" />
-          </a>
-          <a href="https://twitter.com/home?lang=ko">
-            <img class="icon" src={twitterIcon} alt="twitter" />
-          </a>
-          <a href="https://www.youtube.com/">
-            <img class="icon" src={youtubeIcon} alt="youtube" />
-          </a>
-          <a href="https://www.instagram.com/">
-            <img class="icon" src={instagramIcon} alt="instagram" />
-          </a>
+          {SNS_LIST.map(({ name, href, src }) => {
+            return (
+              <a key={name} href={href}>
+                <img
+                  className="icon"
+                  src={src}
+                  alt={`${name} icon`}
+                  width="20"
+                  height="20"
+                />
+              </a>
+            );
+          })}
         </div>
       </div>
     </footer>

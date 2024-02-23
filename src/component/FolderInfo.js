@@ -30,6 +30,13 @@ function FolderInfo() {
     getFolderInfo();
   }, []);
 
+  if (
+    !folderInfo.profileImage ||
+    !folderInfo.ownerName ||
+    !folderInfo.folderName
+  ) {
+    return <></>;
+  }
   return (
     <div className="folderInfo">
       <div className="ownerInfo">
@@ -40,7 +47,6 @@ function FolderInfo() {
         />
         <p className="ownerName">@{folderInfo.ownerName}</p>
       </div>
-
       <p className="folderName">{folderInfo.folderName}</p>
     </div>
   );
