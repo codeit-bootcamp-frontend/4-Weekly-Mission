@@ -11,6 +11,7 @@ export const IconAndTextButton = ({
   text,
   modalText,
   children,
+  folderName,
 }) => {
   const [showModal, setShowModal] = useState(false);
 
@@ -22,7 +23,9 @@ export const IconAndTextButton = ({
       </button>
       {showModal && (
         <ToolBarModal onClose={() => setShowModal(false)}>
-          <ModalContent modalText={modalText}>{children}</ModalContent>
+          <ModalContent modalText={modalText} folderName={folderName}>
+            {children}
+          </ModalContent>
         </ToolBarModal>
       )}
     </>

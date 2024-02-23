@@ -13,7 +13,6 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
     ALL_LINKS_ID === selectedFolderId
       ? ALL_LINKS_TEXT
       : folders?.find(({ id }) => id === selectedFolderId)?.name;
-
   return (
     <div className={cx("container")}>
       <div className={cx("folders")}>
@@ -39,7 +38,11 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
       {selectedFolderId !== ALL_LINKS_ID && (
         <div className={cx("buttons")}>
           {BUTTONS.map((buttonData) => (
-            <IconAndTextButton key={buttonData.text} {...buttonData} />
+            <IconAndTextButton
+              key={buttonData.text}
+              {...buttonData}
+              folderName={folderName}
+            />
           ))}
         </div>
       )}
