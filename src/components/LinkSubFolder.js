@@ -31,7 +31,7 @@ const EmptyLink = function ({ isLoading }) {
 	return <EmptySpace>{spaceText}</EmptySpace>;
 };
 
-function SubFolders({ subFolderData, handleCurrentFolderChange }) {
+function SubFoldersList({ subFolderData, handleCurrentFolderChange }) {
 	const [subFolderList, setSubFolderList] = useState([]);
 	const [selectedBtn, setSelectedBtn] = useState(0);
 
@@ -42,7 +42,7 @@ function SubFolders({ subFolderData, handleCurrentFolderChange }) {
 
 	useEffect(() => {
 		setSubFolderList(subFolderData);
-	}, [subFolderData.length]);
+	}, [subFolderData]);
 
 	return (
 		<SubFolderBtnList>
@@ -141,7 +141,7 @@ export default function LinkSubFolder({ userId = 1 }) {
 		<>
 			<div>
 				<SubFolderUtil>
-					<SubFolders
+					<SubFoldersList
 						subFolderData={subFolderList}
 						handleCurrentFolderChange={handleCurrentFolderChange}
 					/>
