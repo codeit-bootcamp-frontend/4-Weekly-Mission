@@ -90,7 +90,10 @@ const Button = styled.button`
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background-color: ${({ color = "#fff" }) => color || "#fff"};
   color: ${({ color = "#fff" }) => (color === "#fff" ? "#000000" : "#FFFFFF")};
+<<<<<<< Updated upstream
   transition: all 0.3s ease-in-out;
+=======
+>>>>>>> Stashed changes
 
   &:hover {
     cursor: pointer;

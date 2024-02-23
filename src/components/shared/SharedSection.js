@@ -8,17 +8,17 @@ const SharedSection = () => {
   const [owner, setOwner] = useState([]);
   const { profileImageSource, name } = owner;
 
-  const handleLoad = async () => {
+  async function handleLoad() {
     const folderInfo = await getFolderInfo();
     const { name, owner } = folderInfo.folder;
     setFolderName(name);
     setOwner(owner);
-  };
+  }
 
   useEffect(() => {
     handleLoad();
     console.log(owner);
-  }, [owner]);
+  }, []);
 
   return (
     <section className="codeit-mark-section">
