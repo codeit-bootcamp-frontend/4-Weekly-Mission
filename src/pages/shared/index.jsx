@@ -6,17 +6,7 @@ import Content from './Content/Content';
 const Shared = () => {
   const [sampleFolder, setSampleFolder] = useState({});
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const folderData = await get('/sample/folder');
-
-        setSampleFolder(folderData.folder);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
+    get('/sample/folder').then((data) => setSampleFolder(data.folder));
   }, []);
 
   return (

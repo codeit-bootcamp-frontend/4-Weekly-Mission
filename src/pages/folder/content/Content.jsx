@@ -15,36 +15,19 @@ const Content = () => {
   const [userFolder, setUserFolder] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (title === '전체') {
-          const { data } = await get('/users/1/links');
+    title === '전체'
+      ? get('/users/1/links').then(({ data }) => {
           setFolderData(data);
           setUserFolder(data);
-        } else {
-          const folderIdData = await get(`/users/1/links?folderId=${folderId}`);
-          setFolderData(folderIdData);
-          setUserFolder(folderIdData);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, [folderId, title]);
+        })
+      : get(`/users/1/links?folderId=${folderId}`).then(({ data }) => {
+          setFolderData(data);
+          setUserFolder(data);
+        });
+  }, [folderId]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const { data } = await get('/users/1/folders');
-        setFolderList(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
+    get('/users/1/folders').then(({ data }) => setFolderList(data));
   }, []);
 
   return (
@@ -56,8 +39,8 @@ const Content = () => {
             <button className={`folder-btn ${title === '전체' ? 'active' : ''}`} onClick={() => setTitle('전체')}>
               전체
             </button>
-            {folderList &&
-              folderList?.map((list) => (
+            {folderList?.length > 0 &&
+              folderList.map((list) => (
                 <button
                   className={`folder-btn ${title === list.name ? 'active' : ''}`}
                   key={list.id}
