@@ -6,6 +6,7 @@
   padding: 1rem 0 4rem;
   box-sizing: border-box;
   background-color: var(--light-blue);
+  position: relative;
 }
 
 .PageInfo-profile {
