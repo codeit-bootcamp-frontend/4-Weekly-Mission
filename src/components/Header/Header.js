@@ -1,14 +1,15 @@
-import logo from '../images/logo.svg';
-import '../style/header.css';
-import Profile from './Profile';
+import logo from '../../images/logo.svg';
+import './header.css';
+import Profile from '../Profile';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
     <header className="header">
       <div className="header-logo">
-        <a href="/">
+        <Link to="/">
           <img src={logo} alt="로고" />
-        </a>
+        </Link>
       </div>
       <div className="header-content">
         <Profile />
