@@ -46,7 +46,6 @@ const FolderCard = function ({ contents, favorite, kebab }) {
 		image_source,
 		url,
 	} = contents;
-	const [kebabMenuPop, setKebabMenuPop] = useState(false);
 
 	const sampleKebabMenus = [
 		{ name: "추가하기", handle: "" },
@@ -60,10 +59,6 @@ const FolderCard = function ({ contents, favorite, kebab }) {
 	const editedTime = `${timeConversion.getFullYear()}. ${
 		timeConversion.getMonth() + 1
 	}. ${timeConversion.getDate()}`;
-
-	const handleKebabBtn = () => {
-		setKebabMenuPop(!kebabMenuPop);
-	};
 
 	return (
 		<div className="card-box-origin" key={id}>
@@ -82,19 +77,7 @@ const FolderCard = function ({ contents, favorite, kebab }) {
 					</section>
 				</Link>
 			</div>
-			{kebab && (
-				<div className="kebab-menu-position-origin">
-					<button type="button" onClick={handleKebabBtn} className="kebab">
-						<img src="kebab.svg" alt="kebabButton" />
-					</button>
-					{kebabMenuPop && (
-						<KebabMenu
-							items={sampleKebabMenus}
-							resetKebabStatus={handleKebabBtn}
-						/>
-					)}
-				</div>
-			)}
+			{kebab && <KebabMenu items={sampleKebabMenus} />}
 			{favorite && (
 				<button type="button" className="favor-star">
 					<img src="star.svg" alt="FavoriteButton" />

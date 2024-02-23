@@ -1,6 +1,7 @@
+import { useState } from "react";
 import styled from "styled-components";
 
-export default function KebabMenu({ items, resetKebabStatus }) {
+export default function KebabMenu({ items }) {
 	const KebabDiv = styled.div`
 		position: absolute;
 		flex-direction: column;
@@ -45,15 +46,27 @@ export default function KebabMenu({ items, resetKebabStatus }) {
 			cursor: default;
 		}
 	`;
+	const [kebabMenuPop, setKebabMenuPop] = useState(false);
+
+	const handleKebabBtn = () => {
+		setKebabMenuPop(!kebabMenuPop);
+	};
 
 	return (
-		<>
-			<KebabDiv>
-				{items.map((item) => (
-					<KebabButton>{item.name}</KebabButton>
-				))}
-			</KebabDiv>
-			<KebabCancel onClick={resetKebabStatus} />
-		</>
+		<div className="kebab-menu-position-origin">
+			<button type="button" onClick={handleKebabBtn} className="kebab">
+				<img src="kebab.svg" alt="kebabButton" />
+			</button>
+			{kebabMenuPop && (
+				<>
+					<KebabDiv>
+						{items.map((item) => (
+							<KebabButton>{item.name}</KebabButton>
+						))}
+					</KebabDiv>
+					<KebabCancel onClick={handleKebabBtn} />
+				</>
+			)}
+		</div>
 	);
 }
