@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { useGetFolderById } from "../../hooks/useGetFolder";
-import SearchBar from "../SearchBar/SearchBar";
+import SearchBar from "../common/SearchBar/SearchBar";
 import "./Folder.css";
-import SelectedOption from "../SelectedOption/SelectedOption";
+
 import FolderList from "./FolderList";
-import AllFolderCard from "../FolderCard/AllFolderCard";
-import FolderCard from "../FolderCard/FolderCard";
+import AllFolderCard from "./FolderCard/AllFolderCard";
+import FolderCard from "./FolderCard/FolderCard";
 import useFolderLinks from "../../hooks/useFolderLinks";
 import renderButton from "../../utils/renderButtons";
+import SelectedOption from "./SelectedOption/SelectedOption";
 
 function Folder() {
   const { data } = useGetFolderById();

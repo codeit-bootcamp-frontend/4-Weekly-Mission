@@ -1,8 +1,8 @@
 import "../colors.css";
 import "../global.css";
-import { Layout } from "../components/Layout/Layout";
+import { Layout } from "../components/common/Layout/Layout";
 import { useGetUserById } from "../hooks/useGetUser";
-import LinkBar from "../components/LinkBar/LinkBar";
+import LinkBar from "../components/Folder/LinkBar/LinkBar";
 import Folder from "../components/Folder/Folder";
 
 function FolderPage() {

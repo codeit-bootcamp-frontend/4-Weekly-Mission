@@ -1,7 +1,7 @@
 import { format } from "date-fns";
 import getElapsedTime from "../../utils/getElapsedTime";
-import CardList from "../CardList/CardList";
-import ReadCard from "../ReadCard";
+import CardList from "../common/CardList/CardList";
+import ReadCard from "../Shared/ReadCard";
 
 function ReadFolderCard({ links }) {
   return (

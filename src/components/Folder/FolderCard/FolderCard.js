@@ -1,4 +1,4 @@
-import ReadFolderCard from "./ReadFolderCard";
+import ReadFolderCard from "../ReadFolderCard";
 
 function FolderCard({ folderLinks }) {
   const links = folderLinks || [];
