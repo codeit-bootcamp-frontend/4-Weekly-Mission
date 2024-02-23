@@ -1,5 +1,4 @@
-import { Header, Footer } from "components";
-import { CardList } from "./components";
+import { Header, Footer, CardList } from "components";
 import styles from "./styles.module.css";
 import SearchIcon from "assets/Search.png";
 import { useEffect, useState } from "react";
