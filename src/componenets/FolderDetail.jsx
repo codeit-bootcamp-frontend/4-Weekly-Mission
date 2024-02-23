@@ -56,7 +56,7 @@ function FolderDetail({ folderListData, toggleModal }) {
         <p>{selectedFolder.name || "전체"}</p>
         {String(selectedFolder.id) !== "undefined" ? (
           <div className="buttonClick">
-            <div className="share">
+            <div className="share" onClick={() => toggleModal(5)}>
               <img src={share} alt="공유" />
               <span>공유</span>
             </div>

@@ -113,3 +113,80 @@ html {
   font-weight: 400;
   line-height: 1.375rem;
 }
+
+.modal-form-title-box {
+  display: flex;
+  width: 17.5rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.modal-form-sharedFolder {
+  color: #373740;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.modal-form-folderName {
+  color: #9fa6b2;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.375rem;
+}
+
+.modal-icon-box {
+  display: flex;
+  gap: 2rem;
+}
+
+.modal-icon-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.modal-kakaoIcon-img {
+  display: flex;
+  padding: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 2.3125rem;
+  background: #fee500;
+}
+
+.modal-kakaoIcon-img > img,
+.modal-facebookIcon-img > img,
+.modal-linkIcon-img > img {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.modal-icon-title {
+  color: #373740;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 0.9375rem;
+}
+
+.modal-facebookIcon-img {
+  display: flex;
+  padding: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 2.3125rem;
+  background: #1877f2;
+}
+
+.modal-linkIcon-img {
+  display: flex;
+  padding: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 2.3125rem;
+  background: rgba(157, 157, 157, 0.04);
+}
