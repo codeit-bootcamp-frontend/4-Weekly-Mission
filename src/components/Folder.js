@@ -160,7 +160,10 @@ const Folder = () => {
                     )}
                   </div>
                   <div className='LinkSaveListContent'>
-                    <Card folderLinkInfo={filteredLinks} />
+                    <Card
+                      folderLinkInfo={filteredLinks}
+                      handleOpenModal={handleOpenModal}
+                    />
                   </div>
                 </div>
               )}

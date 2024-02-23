@@ -3,7 +3,7 @@ import '../style/Card.css';
 import { Link } from 'react-router-dom';
 import undefinedImg from '../assets/share/undefinedImg.svg';
 
-const Card = ({ folderLinkInfo }) => {
+const Card = ({ folderLinkInfo, handleOpenModal }) => {
   const [isSelete, setIsSelete] = useState(null);
 
   const getCreateDate = (created_at) => {
@@ -85,8 +85,14 @@ const Card = ({ folderLinkInfo }) => {
                   <button onClick={() => handleOnOffSelete(link.id)} />
                   {isSelete === link.id && (
                     <div className='CardBtnContent'>
-                      <button>삭제하기</button>
-                      <button>폴더에 추가</button>
+                      <button
+                        onClick={() => handleOpenModal('DeleteLinkModal')}
+                      >
+                        삭제하기
+                      </button>
+                      <button onClick={() => handleOpenModal('AddLinkModal')}>
+                        폴더에 추가
+                      </button>
                     </div>
                   )}
                 </div>

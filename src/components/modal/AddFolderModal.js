@@ -16,7 +16,7 @@ const AddFolderModal = ({ onClose }) => {
       <ContentContainer onClick={handleStopEvent}>
         <ModalContent>
           <h2>폴더 추가</h2>
-          <InputContent className='InputContent'>
+          <InputContent>
             <input placeholder='내용 입력' />
             <button>추가하기</button>
           </InputContent>
