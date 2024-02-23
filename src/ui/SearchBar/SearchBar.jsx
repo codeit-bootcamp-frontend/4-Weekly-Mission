@@ -1,13 +1,11 @@
 import "./SearchBar.css";
-import { SEARCH_IMAGE } from "./constant";
 
 export const SearchBar = () => {
   return (
     <div className="SearchBar">
-      <img
-        src={SEARCH_IMAGE}
-        alt="검색창인 것을 알려주는 돋보기 아이콘"
+      <div
         className="SearchBar-icon"
+        alt="검색창인 것을 알려주는 돋보기 아이콘"
       />
       <input
         className="SearchBar-input"
