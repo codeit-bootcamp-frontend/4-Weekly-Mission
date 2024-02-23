@@ -1,7 +1,7 @@
 import close from "../../images/_close.png";
 import "./modal.css";
 
-function DeleteFolder({ toggleModal }) {
+function DeleteFolder({ folderName, toggleModal }) {
   return (
     <div className="modal">
       <form className="modal-form">
@@ -14,7 +14,7 @@ function DeleteFolder({ toggleModal }) {
           />
           <div className="modal-form-title">폴더 삭제</div>
           <div className="modal-change-format">
-            <p className="modal-deleteFolderName">폴더명</p>
+            <p className="modal-deleteFolderName">{folderName}</p>
             <button className="modal-deleteFolder-button">삭제하기</button>
           </div>
         </div>

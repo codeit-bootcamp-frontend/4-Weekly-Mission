@@ -11,13 +11,15 @@ import CardList from "./CardList";
 import NoLink from "./NoLink";
 export const UserContext = React.createContext();
 
-function FolderDetail({ folderListData, toggleModal }) {
+function FolderDetail({ folderListData, toggleModal, handleFolderName }) {
   const [selectedFolder, setSelectedFolder] = useState({});
   const selectedFolderData =
     useFetchData("selectedFolderDataFetch", 4, selectedFolder) || [];
+
   const handleFolderListClick = (data) => {
     setSelectedFolder(data);
   };
+
   return (
     <div className="Folder-All">
       <SearchBar />
@@ -64,7 +66,13 @@ function FolderDetail({ folderListData, toggleModal }) {
               <img src={pen} alt="이름변경" />
               <span>이름변경</span>
             </div>
-            <div className="remove" onClick={() => toggleModal(3)}>
+            <div
+              className="remove"
+              onClick={() => {
+                toggleModal(3);
+                handleFolderName(selectedFolder.name);
+              }}
+            >
               <img src={remove} alt="삭제" />
               <span>삭제</span>
             </div>
