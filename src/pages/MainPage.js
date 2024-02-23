@@ -11,16 +11,32 @@ import {
   Wrapper,
 } from '../styles/styledComponents/folderStyled';
 import ModalCloseButton from '../assets/Images/ModalCloseButton.png';
+import { Modal } from '../components/folderPageComponents/modal/Modal';
 
 export default function MainPage() {
   const { data: userProfile } = useAPIData(userDataAPI);
-  const { modalStatus, setModalStatus } = useState(true);
-  const { modalContent, setModalContent } = useState(null);
+  const [modalStatus, setModalStatus] = useState(true);
+  const [modalData, setModalData] = useState({
+    ModalContent: 'AddFolderModal',
+    folderName: [
+      '전체',
+      '즐겨찾기',
+      '신규폴더',
+      '새로운폴더스',
+      'test',
+      'test2',
+      'test3',
+    ],
+    linkCounts: [3, 0, 0, 0, 0, 0, 0],
+    currentLinkCount: 3,
+    currentFolderName: '전체',
+    currentCardLink: 'https://www.google.com',
+  });
   const handleModalStatus = () => {
     setModalStatus((prev) => !prev);
   };
-  const handleModalContent = (value) => {
-    setModalContent(value);
+  const handleModalContent = (key, value) => {
+    setModalData({ ...modalData, [key]: value });
   };
   return (
     <Wrapper>
@@ -32,12 +48,12 @@ export default function MainPage() {
         }}
       ></Outlet>
       <MainFooter></MainFooter>
-      {/* <ModalBackground modalStatus={modalStatus}>
-        <ModalContent contentHeight={360}>
+      <ModalBackground>
+        <ModalContent>
           <CloseButton src={ModalCloseButton}></CloseButton>
-          <div></div>
+          <Modal modalData={modalData}></Modal>
         </ModalContent>
-      </ModalBackground> */}
+      </ModalBackground>
     </Wrapper>
   );
 }
