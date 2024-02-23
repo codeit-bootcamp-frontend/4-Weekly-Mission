@@ -6,8 +6,7 @@ import AddLinkBar from "./AddLinkBar";
 import UserProfile from "./UserProfile";
 
 function HeaderFrame() {
-  const location = useLocation();
-  const pathName = location.pathname;
+  const { pathname } = useLocation();
   const [profileData, setProfileData] = useState({});
   const [folderData, setFolderData] = useState({});
 
@@ -41,10 +40,10 @@ function HeaderFrame() {
     <>
       <TopNavBar
         profileData={profileData}
-        isSticky={pathName === "/" ? true : false}
+        isSticky={pathname === "/shared" ? true : false}
       />
-      {pathName === "/folder" && <AddLinkBar />}
-      {pathName === "/" && <UserProfile folderData={folderData} />}
+      {pathname === "/folder" && <AddLinkBar />}
+      {pathname === "/shared" && <UserProfile folderData={folderData} />}
     </>
   );
 }

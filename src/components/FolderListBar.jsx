@@ -32,6 +32,10 @@ function FolderListBar({ folderList, onClick }) {
     getLinksbyId({ folderId: `${folderId}` });
   };
 
+  const changeClickedIdx = (idx) => {
+    setClickedIdx(idx);
+  };
+
   const newFolderList = useMemo(() => {
     return [WHOLE_BUTTON, ...folderList];
   }, [folderList]);
@@ -43,10 +47,11 @@ function FolderListBar({ folderList, onClick }) {
           {newFolderList.map((folder, idx) => (
             <FolderButton
               key={folder.id}
+              idx={idx}
               folder={folder}
               onClick={changeFolder}
               isClicked={idx === clickedIdx}
-              setClickedIdx={() => setClickedIdx(idx)}
+              changeClickedIdx={changeClickedIdx}
             />
           ))}
         </div>
