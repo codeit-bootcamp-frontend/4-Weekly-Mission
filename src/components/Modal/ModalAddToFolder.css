@@ -7,6 +7,10 @@
   border-radius: 8px;
 }
 
+.folderOption:hover {
+  background-color: var(--gray5-color);
+}
+
 .folderOption h4,
 p {
   margin: 4px;
