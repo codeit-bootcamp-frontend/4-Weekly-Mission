@@ -4,7 +4,7 @@ import { BlueButton } from "./../common/BlueButton";
 
 export const Headline = () => {
   return (
-    <div>
+    <Container>
       <TextBox>
         <HeadlineText>
           <Strong>세상의 모든 정보</Strong>를<br />
@@ -12,19 +12,26 @@ export const Headline = () => {
           관리해 보세요.
         </HeadlineText>
       </TextBox>
-      <a href="/signin.html">
-        <BlueButton
-          width={350}
-          text="링크 추가하기"
-          margin="40px auto"
-          padding="16px 20px"
-          fontSize={18}
-          radius={8}
-        />
-      </a>
-    </div>
+      <BlueButton
+        text="링크 추가하기"
+        width={350}
+        marginY={40}
+        paddingY={16}
+        paddingX={20}
+        fontSize={18}
+        radius={8}
+      />
+    </Container>
   );
 };
+
+const Container = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const TextBox = styled.p`
   width: 100%;
