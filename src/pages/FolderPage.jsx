@@ -3,8 +3,16 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import AddLinkBar from "../components/AddLinkBar";
 import SearchBar from "../components/SearchBar";
-import NoLinkSection from "../components/NoLinkSection";
 import FoldersMain from "../components/FoldersMain";
+import FloatingBtn from "../components/FloatingBtn";
+
+const ContainDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+`;
 
 const StaticNavBar = styled(NavBar)`
   position: static;
@@ -30,14 +38,6 @@ const ContainLinkBarDiv = styled.div`
   @media ${(props) => props.theme.desktop} {
     padding: 60px 320px 90px 320px;
   }
-`;
-
-const ContainDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
 `;
 
 const MainSection = styled.div`
@@ -67,6 +67,7 @@ function FolderPage() {
         <SearchBar />
         <FoldersMain />
       </MainSection>
+      <FloatingBtn />
       <Footer />
     </ContainDiv>
   );
