@@ -1,5 +1,5 @@
 import { getFormattedFolders } from "util/getFormattedFolders";
-import { useAsync } from "../util/useAsync";
+import { useAsync } from "../hooks/useAsync";
 import { axiosInstance } from "util/axiosInstance";
 
 export const useGetFolder = () => {
