@@ -5,11 +5,11 @@ import { getAllLinkData } from "./../api/api";
 import HeaderElement from "./../components/common/HeaderElement";
 import FooterElement from "./../components/common/FooterElement";
 import GlobalStyle from "./../components/common/GlobalStyle";
-import FolderInput from "./../components/Folder/FolderInput";
+import FolderInput from "./../components/folder/FolderInput";
 import FolderList from "./../components/common/FolderList";
 import Input from "../components/common/Input";
-import Menus from "../components/Folder/Menus";
-import FolderTitle from "../components/Folder/FolderTitle";
+import Menus from "../components/folder/Menus";
+import FolderTitle from "../components/folder/FolderTitle";
 
 const Folder = () => {
   const [titleName, setTitleName] = useState("전체");

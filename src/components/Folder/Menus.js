@@ -3,7 +3,7 @@ import { getFolderList } from "./../../api/api";
 import GlobalStyle from "./../common/GlobalStyle";
 import styled from "styled-components";
 import union from "../../assets/icons/Union.svg";
-import useGetJson from "./../../hook/uesGetJson";
+import useGetJson from "./../../hooks/uesGetJson";
 
 const Menus = ({ changeTitle, changeID }) => {
   const WHITE = "fff";

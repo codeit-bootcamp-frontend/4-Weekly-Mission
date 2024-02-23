@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { CalcTime } from "./../../calculator";
+import { CalcTime } from "./../../utils/calculator";
 import logo from "../../assets/icons/logo.png";
 import { ReactComponent as Star } from "../../assets/icons/card_star.svg";
 import { ReactComponent as Kebab } from "../../assets/icons/kebab.svg";
-import "../../style/shared.css";
+import "../../styles/shared.css";
 
 function FolderItem({ item }) {
   const [isHovering, setIsHovering] = useState(false);

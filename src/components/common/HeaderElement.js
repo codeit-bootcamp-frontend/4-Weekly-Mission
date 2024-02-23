@@ -2,9 +2,8 @@ import styled from "styled-components";
 import logo from "../../assets/Linkbrary.png";
 import profile from "../../assets/icons/icon_myprofile.png";
 import { getUserInfo } from "../../api/api";
-import "../../style/common.css";
-
-import useGetJson from "./../../hook/uesGetJson";
+import "../../styles/common.css";
+import useGetJson from "./../../hooks/uesGetJson";
 
 function HeaderElement({ $positionval }) {
   const user = useGetJson(getUserInfo);
