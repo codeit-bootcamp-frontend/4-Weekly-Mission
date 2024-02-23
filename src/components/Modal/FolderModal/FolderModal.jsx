@@ -2,11 +2,8 @@ import BaseModeal from "../BaseModal/BaseModal";
 import styles from "./folder.module.css";
 
 function FolderModal({ variant, setModals, link, list }) {
-  // edit -> input
-  // add-folder -> inpit
-  // add-link -> list
-
   let title, action;
+  
   if (variant === "edit") {
     title = "폴더 이름 변경";
     action = "변경하기";
@@ -17,9 +14,6 @@ function FolderModal({ variant, setModals, link, list }) {
     title = "폴더에 추가";
     action = "추가하기";
   }
-
-  // list가 있으면 목록
-  // 없으면 input
 
   return (
     <BaseModeal title={title} variant={variant} setModals={setModals}>

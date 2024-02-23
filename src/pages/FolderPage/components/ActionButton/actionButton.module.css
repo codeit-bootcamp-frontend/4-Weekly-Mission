@@ -1,0 +1,7 @@
+.barButton {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--gray60-color);
+    background-color: transparent;
+  }

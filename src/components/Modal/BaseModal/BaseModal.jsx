@@ -3,6 +3,8 @@ import styles from "./base.module.css";
 import closeIcon from "assets/images/ic_close.png";
 
 function BaseModeal({ title, children, variant, setModals }) {
+  const modalRef = useRef(null);
+
   const closeModal = (modal) => {
     setModals((prevModals) => ({
       ...prevModals,
@@ -10,19 +12,16 @@ function BaseModeal({ title, children, variant, setModals }) {
     }));
   };
 
-  const modalRef = useRef(null);
+  const handleOutSideClick = (e) => {
+    if (modalRef.current && !modalRef.current.contains(e.target)) {
+      closeModal(`${variant}`);
+    }
+  };
 
   useEffect(() => {
-    const handler = (e) => {
-      if (modalRef.current && !modalRef.current.contains(e.target)) {
-        closeModal(`${variant}`);
-      }
-    };
-
-    document.addEventListener("mousedown", handler);
-
+    document.addEventListener("mousedown", handleOutSideClick);
     return () => {
-      document.removeEventListener("mousedown", handler);
+      document.removeEventListener("mousedown", handleOutSideClick);
     };
   });
 
