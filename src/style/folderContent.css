@@ -1,0 +1,268 @@
+.folder-button {
+  padding: 8px 12px;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: #fff;
+}
+
+.folder-button:hover {
+  color: #fff;
+  background-color: #6d6afe;
+}
+
+.folder-button-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.folder-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1060px;
+  height: 35px;
+  margin: auto;
+  margin-bottom: 24px;
+}
+
+.folder-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1060px;
+  height: auto;
+  margin: auto;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.links-container-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.links-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 1060px;
+  margin-bottom: 20px;
+}
+
+.folder-add-button {
+  display: flex;
+  background-color: transparent;
+  border: none;
+}
+
+.folder-add-button img {
+  content: url(../images/folderAdd.svg);
+}
+
+.folder-add-text {
+  color: #6d6afe;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  margin-right: 4px;
+}
+
+.folder-add {
+  margin-top: 16px;
+  display: block;
+}
+
+.links-container-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1060px;
+  height: 24px;
+  margin-top: 20px;
+  padding-top: 41px;
+  padding-bottom: 151px;
+}
+
+.link-card {
+  width: 340px;
+  height: 334px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  gap: 30px;
+}
+
+.link-card img {
+  width: 100%;
+  height: 178px;
+  border-radius: 15px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.link-card:hover img {
+  transform: scale(1.3);
+}
+
+.link-card .text-container {
+  padding: 10px 20px;
+  text-align: start;
+  height: 135px;
+}
+
+.card-content {
+  padding: 10px;
+  text-align: left;
+}
+
+.time-passed {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.link-description {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.date-number {
+  font-size: 14px;
+  color: #666;
+}
+
+.card-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.card-text-container {
+  position: relative;
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.favorite-icon,
+.kebab-menu-icon {
+  position: absolute;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.favorite-icon {
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 34px;
+}
+
+.favorite-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kebab-menu-icon {
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 17px;
+}
+
+.kebab-menu-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .folder-box {
+    width: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .folder-button-box {
+    flex-wrap: wrap;
+  }
+
+  .links-container-box {
+    width: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+  .links-container {
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 375px) and (max-width: 767px) {
+  .folder-box {
+    width: 100%;
+    padding-left: 32px;
+    padding-right: 32px;
+    margin-top: 32px;
+  }
+
+  .folder-button-box {
+    flex-wrap: wrap;
+  }
+
+  .folder-add-button {
+    display: flex;
+    padding: 0 24px;
+    align-items: flex-start;
+    gap: 20px;
+    border-radius: 40px;
+    background: var(--Linkbrary-primary-color, #6d6afe);
+    z-index: 100;
+    position: fixed;
+    left: 46%;
+    margin: -50px 0 0 -50px;
+    bottom: 101px;
+  }
+  .folder-add-button img {
+    content: url(../images/addButton.svg);
+  }
+  .folder-add-text {
+    color: var(--Linkbrary-gray10, #e7effb);
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.3px;
+  }
+  .links-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+}

@@ -1,15 +1,16 @@
-import Cardlist from './components/Cardlist';
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Nav from './components/Nav';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Folder from './pages/Folder';
+import Shared from './pages/Shared';
 
 function App() {
   return (
     <div>
-      <Header />
-      <Nav />
-      <Cardlist />
-      <Footer />
+      <Router>
+        <Routes>
+          <Route path="/shared" element={<Shared />} />
+          <Route path="/folder" element={<Folder />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
