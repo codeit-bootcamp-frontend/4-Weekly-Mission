@@ -3,6 +3,7 @@ import FolderButton from "./FolderButton";
 import addImg from "../images/add.svg";
 import { useState, useMemo } from "react";
 import FolderOptions from "./FolderOptions";
+import AddModal from "../modal/AddModal";
 
 const WHOLE_BUTTON = {
   id: 1,
@@ -19,6 +20,7 @@ function FolderListBar({ folderList, onClick }) {
   const [currentFolderName, setCurrentFolderName] = useState("");
   const [currentFolderId, setCurrentFolderId] = useState(1);
   const [clickedIdx, setClickedIdx] = useState(0);
+  const [isModalClicked, setIsModalClicked] = useState(false);
 
   const getLinksbyId = (id) => {
     onClick(id);
@@ -34,6 +36,11 @@ function FolderListBar({ folderList, onClick }) {
 
   const changeClickedIdx = (idx) => {
     setClickedIdx(idx);
+  };
+
+  const handleModalClick = () => {
+    setIsModalClicked((prev) => !prev);
+    console.log("handleModalClick실행!");
   };
 
   const newFolderList = useMemo(() => {
@@ -59,6 +66,7 @@ function FolderListBar({ folderList, onClick }) {
           className={
             currentFolderId === 1 ? styles.invisible : styles.addFolderContainer
           }
+          onClick={handleModalClick}
         >
           <div className={styles.addFolderText}>폴더 추가</div>
           <img className={styles.addImg} src={addImg} alt="addImg" />
@@ -70,6 +78,10 @@ function FolderListBar({ folderList, onClick }) {
           folderId={currentFolderId}
         />
       </div>
+      <AddModal
+        isModalClicked={isModalClicked}
+        handleModalClick={handleModalClick}
+      />
     </>
   );
 }
