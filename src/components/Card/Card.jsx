@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Moment from 'moment';
-import { getElapsedTime } from '../../utils/getElapsedTime';
 import axios from 'axios';
+import { getElapsedTime } from '../../utils/getElapsedTime';
 import './Card.css';
 
 export default function Card() {
