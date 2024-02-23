@@ -1,0 +1,19 @@
+.kebabBox{
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  background-color: white;
+  position: absolute;
+  bottom: -10rem;
+  right: 0;
+}
+
+.kebabBtn {
+  padding: 1rem;
+  color: black;
+}
+
+.kebabBtn:hover{
+  background-color: #E7EFFB;
+  color: #6D6AFE;
+}
