@@ -30,7 +30,7 @@ export const FolderPage = () => {
   return (
     <Layout isSticky={false}>
       <FolderLayout
-        linkForm={<LinkForm />}
+        linkForm={<LinkForm folders={folders} />}
         searchBar={<SearchBar />}
         folderToolBar={
           <FolderToolBar

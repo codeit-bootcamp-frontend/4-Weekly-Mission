@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "./FolderToolBar.module.scss";
 import classNames from "classnames/bind";
 import { AddFolderButton } from "folder/ui-add-folder-button";
@@ -9,10 +10,17 @@ import { ALL_LINKS_ID } from "link/data-access-link/constant";
 const cx = classNames.bind(styles);
 
 export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
-  const folderName =
+  const myFolder =
     ALL_LINKS_ID === selectedFolderId
       ? ALL_LINKS_TEXT
-      : folders?.find(({ id }) => id === selectedFolderId)?.name;
+      : folders?.find(({ id }) => id === selectedFolderId);
+
+  const [isEnabled, setEnabled] = useState(false);
+
+  const handleMouseClick = (event) => {
+    event.preventDefault();
+    setEnabled(!isEnabled);
+  };
 
   return (
     <div className={cx("container")}>
@@ -33,13 +41,17 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
         ))}
       </div>
       <div className={cx("add-button")}>
-        <AddFolderButton />
+        <AddFolderButton handleMouseClick={handleMouseClick} />
       </div>
-      <h2 className={cx("folder-name")}>{folderName}</h2>
+      <h2 className={cx("folder-name")}>{myFolder?.name}</h2>
       {selectedFolderId !== ALL_LINKS_ID && (
         <div className={cx("buttons")}>
           {BUTTONS.map((buttonData) => (
-            <IconAndTextButton key={buttonData.text} {...buttonData} />
+            <IconAndTextButton
+              myFolder={myFolder}
+              key={buttonData.text}
+              {...buttonData}
+            />
           ))}
         </div>
       )}

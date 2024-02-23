@@ -1,0 +1,51 @@
+@import "sharing/styles/global.scss";
+
+.containerBackground {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+
+.menuContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 10rem;
+  height: 6.4rem;
+  top: 24rem;
+  right: -6rem;
+
+  z-index: 1;
+}
+
+.element-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 10rem;
+  height: 3.2rem;
+  background-color: #ffffff;
+  z-index: 2;
+  &:hover {
+    background-color: #e7effb;
+    color: $color-primary;
+  }
+}
+
+.element-add {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 10rem;
+  height: 3.2rem;
+  background-color: #ffffff;
+  z-index: 2;
+  &:hover {
+    background-color: #e7effb;
+    color: $color-primary;
+  }
+}

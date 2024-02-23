@@ -1,0 +1,59 @@
+@import "sharing/styles/global.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  border-radius: 0.8rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  width: 36rem;
+  height: 19.3rem;
+  padding: 3.2rem 4.2rem;
+  border-radius: 0.8rem;
+  background-color: #ffffff;
+
+  img {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+  }
+}
+
+.label {
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+.props {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 150%;
+  color: $color-gray60;
+  margin: 0.5rem 0 3rem 0;
+}
+
+.deleteButton {
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 150%;
+  padding: 1.6rem 2rem;
+  border-radius: 0.4rem;
+  width: 28rem;
+  height: 5rem;
+  background: #ff5b56;
+  color: $color-gray-light;
+}
