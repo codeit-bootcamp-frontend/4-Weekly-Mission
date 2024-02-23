@@ -55,7 +55,7 @@ export function FolderContent() {
         <button className="add-folder-button-mobile">폴더 추가 +</button>
       </div>
       <CategoryNav activeCategoryName={activeCategoryName} />
-      {folder?.length === 0 ? (
+      {!folder.length ? (
         <EmptyLink />
       ) : (
         <CardList>
