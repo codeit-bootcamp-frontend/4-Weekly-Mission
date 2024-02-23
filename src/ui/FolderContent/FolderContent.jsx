@@ -4,9 +4,9 @@ import { Button } from "StyledComponents/Buttons";
 import { useEffect, useState } from "react";
 import { CategoryNav } from "ui/CategoryNav/CategoryNav";
 import { CardList } from "ui/CardList";
-import { ReadOnlyCard } from "ui/ReadOnlyCard";
 import { EmptyLink } from "ui/EmptyLink/EmptyLink";
 import { getFolders } from "data-access/getFolders";
+import { SharedPossibleCard } from "ui/SharedPossibleCard";
 
 export function FolderContent() {
   const [folder, setFolder] = useState([]);
@@ -61,7 +61,7 @@ export function FolderContent() {
       ) : (
         <CardList>
           {folder?.map((link) => (
-            <ReadOnlyCard key={link?.id} {...link} />
+            <SharedPossibleCard key={link?.id} {...link} />
           ))}
         </CardList>
       )}
