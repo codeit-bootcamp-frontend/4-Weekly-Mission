@@ -1,27 +1,15 @@
-export function getUserApiUrl() {
-  const url = 'users/1';
-  return url;
-}
+export const USER_API_URL = 'users/1';
 
 // SharedPage에서 사용
-export function getSampleFolderApiUrl() {
-  const url = 'sample/folder';
-  return url;
-}
+export const SAMPLE_FOLDER_API_URL = 'sample/folder';
 
-export function getFoldersApiUrl() {
-  const url = 'users/1/folders';
-  return url;
-}
+export const FOLDERS_API_URL = 'users/1/folders';
 
 // '전체' 폴더
-export function getAllLinksApiUrl() {
-  const url = `users/1/links`;
-  return url;
-}
+export const LINKS_API_URL = 'users/1/links';
 
 // '전체'를 제외한 나머지 폴더
-export function getOtherLinksApiUrl(folderId) {
+export function LINKS_FOLDER_ID_API_URL(folderId) {
   const url = `users/1/links?folderId=${folderId}`;
   return url;
 }

@@ -10,7 +10,7 @@ import ErrorMessage from 'components/Common/ErrorMessage';
 import LoginButton from 'components/Common/LoginButton';
 import styles from 'components/Header/Gnb.module.css';
 
-import { getUserApiUrl } from 'services/api';
+import { USER_API_URL } from 'services/api';
 
 import scrollToTop from 'utils/scrollToTop';
 
@@ -19,7 +19,7 @@ function Gnb() {
   const FOLDER_LOCATION = '/folder';
   const LOADING_MESSAGE = 'Loading...';
 
-  const url = getUserApiUrl();
+  const url = USER_API_URL;
   const { data, loading, error } = useFetch(url);
 
   // data를 가공하여 userInfo에 저장

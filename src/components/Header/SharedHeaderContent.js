@@ -5,14 +5,14 @@ import useFetch from 'hooks/useFetch';
 import ErrorMessage from 'components/Common/ErrorMessage';
 import styles from 'components/Header/SharedHeaderContent.module.css';
 
-import { getSampleFolderApiUrl } from 'services/api';
+import { SAMPLE_FOLDER_API_URL } from 'services/api';
 
 // 폴더 정보 출력
 function SharedHeaderContent() {
   const LOADING_MESSAGE = 'Loading...';
 
   // 폴더 정보 가져오기
-  const url = getSampleFolderApiUrl();
+  const url = SAMPLE_FOLDER_API_URL;
   const { data, loading, error } = useFetch(url);
 
   const ownerProfileImg = data?.folder.owner.profileImageSource || '';

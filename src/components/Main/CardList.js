@@ -7,14 +7,14 @@ import ErrorMessage from 'components/Common/ErrorMessage';
 import Card from 'components/Main/Card';
 import styles from 'components/Main/CardList.module.css';
 
-import { getAllLinksApiUrl, getOtherLinksApiUrl } from 'services/api';
+import { LINKS_API_URL, LINKS_FOLDER_ID_API_URL } from 'services/api';
 
 // folder id를 props로 받아서 api 적용할 것
 function CardList({ folderId }) {
   const LOADING_MESSAGE = 'Loading...';
   const ALL = { id: 0, name: '전체' };
 
-  const url = folderId === ALL.id ? getAllLinksApiUrl() : getOtherLinksApiUrl(folderId);
+  const url = folderId === ALL.id ? LINKS_API_URL : LINKS_FOLDER_ID_API_URL(folderId);
   const { data, loading, error } = useFetch(url);
 
   // {created_at, description, folder_id, id, image_source, title, updated_at, url}

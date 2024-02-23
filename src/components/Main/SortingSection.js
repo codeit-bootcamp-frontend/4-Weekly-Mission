@@ -13,20 +13,20 @@ import Option from 'components/Common/Option';
 import SortingButton from 'components/Common/SortingButton';
 import styles from 'components/Main/SortingSection.module.css';
 
-import { getFoldersApiUrl, getAllLinksApiUrl } from 'services/api';
+import { FOLDERS_API_URL, LINKS_API_URL } from 'services/api';
 
 function SortingSection({ selectedFolder, setSelectedFolder }) {
   const LOADING_MESSAGE = 'Loading...';
   const ALL = { id: 0, name: '전체' };
 
-  const url = getFoldersApiUrl();
+  const url = FOLDERS_API_URL;
   const { data, loading, error } = useFetch(url);
 
   // {id, created_at, name, user_id, favorite, link: {count}}
   const folderList = [ALL, ...(data?.data ?? [])];
 
   // 총 링크 수 계산
-  const allLinkUrl = getAllLinksApiUrl();
+  const allLinkUrl = LINKS_API_URL;
   const { data: allLink } = useFetch(allLinkUrl);
   const linkCount = allLink?.data?.length ?? 0;
 
