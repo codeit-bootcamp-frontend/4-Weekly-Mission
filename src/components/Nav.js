@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
-import { getLinksUser } from "../apiEmail";
+import { getLinksUser } from "../api";
 import logo from "../image/logo.png";
 import "../css/Nav.css";
 
-function Navs() {
+export function navigation() {
+  if (window.location.pathname === "/shared") {
+    return "";
+  } else {
+    return "sticky-nav";
+  }
+}
+
+function Nav() {
   const [login, setLogin] = useState(null);
 
   useEffect(() => {
@@ -22,9 +30,9 @@ function Navs() {
   }
 
   return (
-    <nav>
+    <nav className={navigation()}>
       <div className="gnb">
-        <a href="/html/index.html" target="_self">
+        <a href="/" target="_self">
           <img className="logo" src={logo} alt="Linkbrary 로고"></img>
         </a>
         <div className="login">
@@ -40,4 +48,4 @@ function Navs() {
   );
 }
 
-export default Navs;
+export default Nav;

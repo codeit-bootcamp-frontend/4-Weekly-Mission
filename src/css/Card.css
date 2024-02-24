@@ -1,0 +1,80 @@
+@import "./global.css";
+
+.cardItem {
+  width: 34rem;
+  height: 33.4rem;
+}
+
+.info-img {
+  overflow: hidden;
+  border-bottom-left-radius: 0rem;
+  border-bottom-right-radius: 0rem;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  position: relative;
+}
+
+.cardItem-img {
+  width: 34rem;
+  height: 20rem;
+  transform: scale(1);
+  transition: transform 0.5s;
+}
+
+.cardItem-img:hover {
+  transform: scale(1.3);
+}
+
+.info {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem 2rem;
+  gap: 1rem;
+}
+
+.formatTime {
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #666666;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  color: black;
+}
+
+.description {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  height: 4.9rem;
+  color: black;
+  overflow: hidden;
+}
+
+.formatDate {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #333;
+}
+
+.star-img {
+  position: absolute;
+  width: 3.4rem;
+  height: 3.4rem;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1;
+}
+.kebob-img {
+  position: absolute;
+  width: 2.1rem;
+  height: 1.7rem;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 1;
+}

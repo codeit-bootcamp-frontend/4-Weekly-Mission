@@ -7,15 +7,16 @@ nav {
   top: 0;
   width: 100%;
   background-color: #edf7ff;
+  z-index: 1;
 }
-
+.sticky-nav {
+  top: -10rem;
+}
 .gnb {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   height: 6.3rem;
-  padding: 0 10.4rem;
 }
 .logo {
   width: 13.3rem;
@@ -49,4 +50,21 @@ nav {
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--background);
+}
+@media (min-width: 375px) {
+  .gnb {
+    width: 34rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .gnb {
+    width: 70rem;
+  }
+}
+
+@media (min-width: 1128px) {
+  .gnb {
+    width: 106rem;
+  }
 }

@@ -1,0 +1,131 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.foldercategory {
+  display: flex;
+  align-items: center;
+  margin-top: 4rem;
+}
+.folderlist {
+  display: flex;
+  gap: 0.8rem;
+  padding: 0;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.folderadd > p {
+  font-size: 1.6rem;
+  color: var(--primary);
+  font-weight: 500;
+}
+.folderadd > img {
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.floatingactionbtn > p {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #e7effb;
+}
+.floatingactionbtn-img {
+  width: 1.6rem;
+  height: 1.6rem;
+  background-color: var(--primary);
+}
+
+.folderbasicitem,
+.folderitem {
+  padding: 0.8rem 1.2rem;
+  border: 0.1rem solid var(--primary);
+  border-radius: 0.5rem;
+  list-style: none;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+.title-tools {
+  margin-top: 2.4rem;
+  display: flex;
+  align-items: center;
+}
+
+.usertitle {
+  font-size: 2.4rem;
+  font-weight: 600;
+}
+
+.tools {
+  display: flex;
+  margin-left: auto;
+  gap: 1.2rem;
+}
+.tool {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.folderlist li.selected {
+  background-color: var(--primary);
+}
+.no-links {
+  margin-top: 8.1rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: black;
+  font-weight: 400;
+  line-height: 2.4rem;
+}
+@media (min-width: 375px) {
+  .foldercategory,
+  .title-tools {
+    width: 34rem;
+  }
+  .folderadd {
+    display: none;
+  }
+  .floatingactionbtn {
+    display: flex;
+    align-items: center;
+    border: 0.1rem solid var(--primary);
+    background-color: var(--primary);
+    border-radius: 2rem;
+    padding: 0.8rem 2.4rem;
+    position: fixed;
+    bottom: 10.1rem;
+    z-index: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .foldercategory,
+  .title-tools {
+    width: 70rem;
+  }
+  .folderadd {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  .floatingactionbtn {
+    display: none;
+  }
+}
+
+@media (min-width: 1128px) {
+  .foldercategory,
+  .title-tools {
+    width: 106rem;
+  }
+  .folderadd {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  .floatingactionbtn {
+    display: none;
+  }
+}

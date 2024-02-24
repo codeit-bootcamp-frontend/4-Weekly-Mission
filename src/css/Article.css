@@ -1,81 +1,44 @@
-@import "./global.css";
-
 article {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-ul {
+.article-list {
   margin-top: 4rem;
   display: grid;
   justify-content: center;
   padding: 0;
   gap: 2rem;
 }
-li {
+.article-item {
   border-radius: 1.5rem;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   list-style: none;
-}
-.articleItem {
-  width: 34rem;
-  height: 33.4rem;
-}
-
-.articleItem-img {
-  border-bottom-left-radius: 0rem;
-  border-bottom-right-radius: 0rem;
-  border-top-left-radius: 1.5rem;
-  border-top-right-radius: 1.5rem;
-  width: 34rem;
-  height: 20rem;
-}
-.info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 1.5rem 2rem;
-  gap: 1rem;
-}
-.formatTime {
-  font-size: 1.3rem;
-  font-weight: 400;
-  color: #666666;
-}
-.title {
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 2.4rem;
-  color: black;
-}
-.description {
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 2.4rem;
-  height: 4.9rem;
-  color: black;
   overflow: hidden;
 }
-
-.formatDate {
-  font-size: 1.4rem;
+.no-links {
+  margin-top: 8.1rem;
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: black;
   font-weight: 400;
-  color: #333;
+  line-height: 2.4rem;
 }
 @media (min-width: 375px) {
-  ul {
+  .article-list {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
 @media (min-width: 768px) {
-  ul {
+  .article-list {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1128px) {
-  ul {
+  .article-list {
     grid-template-columns: repeat(3, 1fr);
   }
 }
