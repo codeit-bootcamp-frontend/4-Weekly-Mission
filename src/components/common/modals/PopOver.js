@@ -1,5 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
+import { COLORS } from "constants/colors";
 
 export const PopOver = ({ $isVisible, $options, $top, $right }) => {
   return (
@@ -32,4 +33,9 @@ const Option = styled.p`
   font-weight: 400;
   line-height: normal;
   text-align: center;
+
+  &: hover {
+    color: ${COLORS.Primary};
+    background-color: ${COLORS.Grey_100};
+  }
 `;
