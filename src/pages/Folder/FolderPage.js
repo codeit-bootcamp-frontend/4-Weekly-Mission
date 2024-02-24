@@ -60,7 +60,7 @@ const FolderPage = () => {
 
 	return (
 		<>
-			<LinkAddInput />
+			<LinkAddInput folders={folders} />
 			<Container>
 				<LinkSearchInput />
 				<FolderList
