@@ -78,12 +78,12 @@ function ModalRemoveSubFolder({ modalData }) {
 	);
 }
 
-function ModalRemoveLink() {
+function ModalRemoveLink({ modalData }) {
 	return (
 		<>
 			<h1 className={style.modalTitle}>
 				링크 삭제 <br />
-				<span className={style.modalCaption}>asdf</span>
+				<span className={style.modalCaption}>{modalData}</span>
 			</h1>
 			<button className={style.modalButton_errored}>삭제하기</button>
 		</>
@@ -125,7 +125,7 @@ const Modal = ({
 				return <ModalRemoveSubFolder modalData={modalData} />;
 
 			case "removeLink":
-				return <ModalRemoveLink />;
+				return <ModalRemoveLink modalData={modalData} />;
 
 			case "addLinkToFolder":
 				return <ModalAddLinkToFolder modalData={modalData} />;

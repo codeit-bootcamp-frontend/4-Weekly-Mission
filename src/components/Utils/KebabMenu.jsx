@@ -46,7 +46,7 @@ const KebabCancel = styled.button`
 	}
 `;
 
-export default function KebabMenu({ items }) {
+export default function KebabMenu({ items, data = false }) {
 	const [kebabMenuPop, setKebabMenuPop] = useState(false);
 
 	const handleKebabToggle = () => {
@@ -64,7 +64,7 @@ export default function KebabMenu({ items }) {
 						{items.map((item) => (
 							<KebabButton
 								key={item.btnName}
-								onClick={() => item.kebabHandle(item.type, (item.data = false))}
+								onClick={() => item.kebabHandle(item.type, data)}
 							>
 								{item.btnName}
 							</KebabButton>

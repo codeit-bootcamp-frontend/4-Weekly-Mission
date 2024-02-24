@@ -43,6 +43,7 @@ export default function Folder({ userId = 1 }) {
 
 	const handleModalOpen = (modalType, modalData) => {
 		setCurrentModalType(modalType);
+		console.log(modalData);
 		if (modalData) {
 			setModalData(modalData);
 		}
@@ -95,7 +96,6 @@ export default function Folder({ userId = 1 }) {
 		{
 			btnName: "삭제하기",
 			type: "removeLink",
-			data: subFolderList,
 			kebabHandle: handleModalOpen,
 			modalBtnAction: handleKebabAction,
 		},

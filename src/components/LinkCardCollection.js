@@ -66,7 +66,7 @@ const FolderCard = function ({ contents, favorite, kebab }) {
 					</section>
 				</Link>
 			</div>
-			{kebab && <KebabMenu items={kebab} />}
+			{kebab && <KebabMenu items={kebab} data={url} />}
 			{favorite && (
 				<button type="button" className="favor-star">
 					<img src="star.svg" alt="FavoriteButton" />
