@@ -1,23 +1,43 @@
+import AddFolderModal from 'components/common/modal/AddFolderModal';
 import Button from 'components/common/buttons/Button';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Modal from 'components/common/modal/Modal';
 
 const AddLink = () => {
+  const [inputValue, setInputValue] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const handleChange = e => {
+    setInputValue(e.target.value);
+  };
   const handleClick = e => {
-    e.preventDefault();
+    setShowModal(true);
+  };
+  const handleClose = () => {
+    setShowModal(false);
+    setInputValue('');
   };
   return (
-    <StyledForm>
-      <Icon src="/images/icons/linkIcon.png" alt="link icon" />
-      <StyledInput
-        type="text"
-        className="link-add-box"
-        placeholder="링크를 추가해 보세요"
-      />
-      <StyledButton className="folderLink" onClick={handleClick}>
-        추가하기
-      </StyledButton>
-    </StyledForm>
+    <>
+      <StyledForm>
+        <Icon src="/images/icons/linkIcon.png" alt="link icon" />
+        <StyledInput
+          type="text"
+          className="link-add-box"
+          placeholder="링크를 추가해 보세요"
+          value={inputValue}
+          onChange={handleChange}
+        />
+        <StyledButton className="folderLink" onClick={handleClick}>
+          추가하기
+        </StyledButton>
+      </StyledForm>
+      {showModal && (
+        <Modal showModal={showModal} handleClose={handleClose}>
+          <AddFolderModal subTitle={inputValue} />
+        </Modal>
+      )}
+    </>
   );
 };
 const StyledForm = styled.form`

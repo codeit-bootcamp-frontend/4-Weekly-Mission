@@ -4,14 +4,14 @@ import styled from 'styled-components';
 import modalCloseButton from 'assets/images/modalCloseButton.png';
 import useCloseModal from 'hook/useCloseModal';
 
-const Modal = ({ setShowModal, children, showModal }) => {
+const Modal = ({ children, showModal, handleClose }) => {
   const modalRef = useRef();
-  useCloseModal(showModal, setShowModal, modalRef);
+  useCloseModal(showModal, handleClose, modalRef);
   return (
     <Portal>
       <ModalWrapper>
         <ModalInner ref={modalRef}>
-          <StyledButton onClick={() => setShowModal(false)}>
+          <StyledButton onClick={handleClose}>
             <img src={modalCloseButton} alt="modal close icon" />
           </StyledButton>
           {children}

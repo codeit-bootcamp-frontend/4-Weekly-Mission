@@ -50,7 +50,7 @@ const KebabButton = ({ url }) => {
         )}
       </StyledButton>
       {showModal && (
-        <Modal setShowModal={setShowModal} showModal={showModal}>
+        <Modal showModal={showModal} handleClose={() => setShowModal(false)}>
           {renderModalContent()}
         </Modal>
       )}

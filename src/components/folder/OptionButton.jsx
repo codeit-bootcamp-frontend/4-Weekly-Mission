@@ -49,7 +49,7 @@ const OptionButton = ({ placeholder, folderName }) => {
         </Option>
       ))}
       {showModal && (
-        <Modal setShowModal={setShowModal} showModal={showModal}>
+        <Modal showModal={showModal} handleClose={() => setShowModal(false)}>
           {renderModalContent()}
         </Modal>
       )}

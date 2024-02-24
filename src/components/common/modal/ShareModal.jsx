@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import kakao from 'assets/images/modal/Kakao.png';
 import facebook from 'assets/images/modal/Facebook.png';
 import copyLink from 'assets/images/modal/copyLink.png';
+
 const ShareModal = ({ title, subTitle }) => {
   return (
     <Container>
