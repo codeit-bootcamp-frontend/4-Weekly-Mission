@@ -106,7 +106,6 @@
   }
   .searchbar{
     width: calc(100% - 300px);
-    background-color: red;
   }
   
 }
@@ -118,6 +117,5 @@
   }
   .searchbar{
     width: calc(100% - 220px);
-    background-color: blue;
   }
 }

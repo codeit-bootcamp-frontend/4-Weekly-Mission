@@ -25,6 +25,25 @@
   font-weight: 600;
   line-height: normal;
 }
+.profil{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3.5px;
+}
+.profil img{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+.profil p{
+  color: #373740;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 /* 모바일 */
 @media screen and (min-width:375px) and (max-width:767px){
   .logo{
