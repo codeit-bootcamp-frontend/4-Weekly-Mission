@@ -40,6 +40,7 @@ function FolderOptionBar({ text, selectedFolderId }) {
     };
     handleShareModalOpen(purpose);
   };
+
   const buttonProps = [
     {
       id: 1,

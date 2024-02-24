@@ -3,7 +3,8 @@ import { LINK_DELETE } from '../../../constants/modalConstants';
 import { useContext } from 'react';
 import { ModalContext } from '../FolderPage';
 function PopOver({ id, url }) {
-  const { handleDeleteModalOpen } = useContext(ModalContext);
+  const { handleDeleteModalOpen, handleAddModalOpen } =
+    useContext(ModalContext);
   const handleLinkDeleteModalOpen = (e) => {
     e.preventDefault();
     const purpose = {
@@ -13,14 +14,16 @@ function PopOver({ id, url }) {
     };
     handleDeleteModalOpen(purpose);
   };
-  const handleAddModalOpen = (e) => {
+
+  const handleLinkAddModalOpen = (e) => {
     e.preventDefault();
-    console.log('폴더에추가');
+    handleAddModalOpen();
   };
+
   return (
     <PopOverContainer>
       <Button onClick={handleLinkDeleteModalOpen}>삭제하기</Button>
-      <Button onClick={handleAddModalOpen}>폴더에 추가</Button>
+      <Button onClick={handleLinkAddModalOpen}>폴더에 추가</Button>
     </PopOverContainer>
   );
 }

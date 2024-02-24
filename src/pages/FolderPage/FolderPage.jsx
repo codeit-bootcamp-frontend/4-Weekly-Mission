@@ -7,6 +7,7 @@ import { useState, createContext } from 'react';
 import EditModal from '../../components/modals/EditModal';
 import DeleteModal from '../../components/modals/DeleteModal';
 import ShareModal from '../../components/modals/ShareModal';
+import AddModal from '../../components/modals/AddModal';
 
 export const ModalContext = createContext(null);
 
@@ -15,12 +16,15 @@ function FolderPage() {
   const [editModalIsOpen, setEditModalIsOpen] = useState(false);
   const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);
   const [shareModalIsOpen, setShareModalIsOpen] = useState(false);
+  const [addModalIsOpen, setAddModalIsOpen] = useState(false);
   //modal purpose state
   const [editModalPurpose, setEditModalPurpose] = useState('');
   const [deleteModalPurpose, setDeleteModalPurpose] = useState({});
   const [shareModalPurpose, setShareModalPurpose] = useState({});
 
   //modal state handle functions
+
+  //modal open
   const handleEditModalOpen = (purpose) => {
     setEditModalPurpose(purpose);
     setEditModalIsOpen(true);
@@ -33,6 +37,12 @@ function FolderPage() {
     setDeleteModalPurpose(purpose);
     setDeleteModalIsOpen(true);
   };
+
+  const handleAddModalOpen = () => {
+    setAddModalIsOpen(true);
+  };
+
+  //modal close
   const handleDeleteModalClose = () => {
     setDeleteModalIsOpen(false);
   };
@@ -42,6 +52,9 @@ function FolderPage() {
   };
   const handleShareModalClose = () => {
     setShareModalIsOpen(false);
+  };
+  const handleAddModalClose = () => {
+    setAddModalIsOpen(false);
   };
 
   //Folder Page
@@ -54,17 +67,21 @@ function FolderPage() {
         deleteModalPurpose,
         shareModalIsOpen,
         shareModalPurpose,
+        addModalIsOpen,
         handleEditModalOpen,
         handleDeleteModalOpen,
         handleEditModalClose,
         handleDeleteModalClose,
         handleShareModalClose,
         handleShareModalOpen,
+        handleAddModalOpen,
+        handleAddModalClose,
       }}
     >
       {editModalIsOpen && <EditModal />}
       {deleteModalIsOpen && <DeleteModal />}
       {shareModalIsOpen && <ShareModal />}
+      {addModalIsOpen && <AddModal />}
       <Header url={USER_URL} />
       <LinkAddBar />
       <FolderList />
