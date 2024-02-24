@@ -1,6 +1,6 @@
 import CardHeader from "./CardHeader";
 import CardContent from "./CardContent";
-// import CardFooter from "./CardFooter";
+import CardFooter from "./CardFooter";
 
 // // 카드 컴포넌트를 클릭하면 해당하는 링크로 새로운 창을 띄워서 이동하게 해주세요.
 // // 이미지 -> (card.imageSource 활용)
@@ -30,6 +30,7 @@ function Card() {
       <h2>Card입니다.</h2>
       <CardHeader />
       <CardContent />
+      <CardFooter />
     </div>
   );
 }

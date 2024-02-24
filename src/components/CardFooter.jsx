@@ -14,3 +14,13 @@
 // }
 
 // export default CardFooter;
+
+function CardFooter() {
+  return (
+    <div>
+      <h2>CardFooter입니다.</h2>
+    </div>
+  );
+}
+
+export default CardFooter;
