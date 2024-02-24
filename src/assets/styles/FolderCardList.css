@@ -11,6 +11,14 @@
   gap: 0.75rem;
   align-items: center;
   justify-content: center;
+}
+.folder-icons img {
+  width: 1.25rem;
+}
+.folder-icons button {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
 
   color: var(--Linkbrary-gray60, #9fa6b2);
   font-family: Pretendard;
@@ -18,14 +26,6 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-}
-.folder-icons img {
-  width: 1.25rem;
-}
-.folder-icons div {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
 }
 .no-link-data {
   display: flex;

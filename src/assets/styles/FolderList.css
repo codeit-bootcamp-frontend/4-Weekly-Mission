@@ -10,6 +10,9 @@
   font-size: 1rem;
   cursor: pointer;
 }
+.folder-button:hover {
+  background-color: var(--gray10);
+}
 .folder-button.selected {
   background: var(--Linkbrary-primary-color, #6d6afe);
   color: #fff;
@@ -80,7 +83,7 @@
     left: 50%;
     position: fixed;
     transform: translateX(-50%);
-    z-index: 100;
+    z-index: 2;
   }
   .add-icon {
     filter: invert(100%) sepia(19%) saturate(3556%) hue-rotate(176deg) brightness(100%)

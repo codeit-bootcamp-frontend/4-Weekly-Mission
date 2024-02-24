@@ -2,6 +2,8 @@ import '../../assets/styles/FolderList.css';
 import addIcon from '../../assets/images/add.svg';
 import { useState } from 'react';
 import FolderCardList from './FolderCardList';
+import Modal from '../common/Modal';
+import Portal from '../common/Portal';
 
 const FolderItem = ({ data, onFolderClick, isSelected }) => {
   const { name, id } = data;
@@ -20,6 +22,7 @@ const FolderItem = ({ data, onFolderClick, isSelected }) => {
 
 const FolderList = ({ folderData }) => {
   const [selectedFolder, setSelectedFolder] = useState({ id: '', name: '전체' });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const selectFolder = ({ id, name }) => {
     setSelectedFolder({ id, name });
@@ -46,7 +49,7 @@ const FolderList = ({ folderData }) => {
             ))}
           </div>
 
-          <button className="add-folder">
+          <button className="add-folder" onClick={() => setIsModalOpen(true)}>
             폴더 추가
             <img className="add-icon" src={addIcon} alt="add-icon" />
           </button>
@@ -56,6 +59,11 @@ const FolderList = ({ folderData }) => {
         <FolderCardList id={selectedFolder.id} name={selectedFolder.name} />
       ) : (
         <div>저장된 링크가 없습니다.</div>
+      )}
+      {isModalOpen && (
+        <Portal>
+          <Modal action="add" closeModal={() => setIsModalOpen(false)} />
+        </Portal>
       )}
     </>
   );

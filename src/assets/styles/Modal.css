@@ -1,0 +1,90 @@
+.modal {
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+}
+
+.modal-box {
+  width: 22.5rem;
+  height: 14.9375rem;
+
+  border-radius: 0.9375rem;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-white, #fff);
+
+  display: inline-flex;
+  position: relative;
+  padding: 2rem 2.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.modal-title {
+  color: var(--Linkbrary-gray100, #373740);
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.modal-input {
+  display: flex;
+  width: 17.5rem;
+  padding: 1.125rem 0.9375rem;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 0.5rem;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-white, #fff);
+
+  color: var(--Linkbrary-gray60, #9fa6b2);
+
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem; /* 150% */
+}
+.modal-button {
+  display: flex;
+  width: 17.5rem;
+  padding: 1rem 1.25rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+
+  color: var(--Grey-Light, #f5f5f5);
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  cursor: pointer;
+}
+.modal-close {
+  border: none;
+  position: absolute;
+  right: 1.6rem;
+  top: 1.6rem;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+.modal-close img {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+}

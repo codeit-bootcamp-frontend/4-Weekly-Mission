@@ -22,18 +22,18 @@ const FolderCardList = ({ id, name }) => {
           <div className="folder-name">{name}</div>
           {name !== '전체' && (
             <div className="folder-icons">
-              <div>
+              <button>
                 <img src={shareIcon} />
                 공유
-              </div>
-              <div>
+              </button>
+              <button>
                 <img src={penIcon} />
                 이름 변경
-              </div>
-              <div>
+              </button>
+              <button>
                 <img src={deleteIcon} />
                 삭제
-              </div>
+              </button>
             </div>
           )}
         </div>
