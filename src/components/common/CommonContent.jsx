@@ -1,4 +1,4 @@
-// import CommonContentSearch from "./CommonContentSearch";
+import CommonContentSearch from "./CommonContentSearch";
 // import CardList from "./CardList";
 
 // SharedContent에는 additionalContent 없음X, FolderHeader에서는 additionalContent 있음O
@@ -8,9 +8,9 @@ function CommonContent(additionalContent) {
   return (
     <div>
       <h2>CommonContent입니다.</h2>
-      {/* <CommonContentSearch />
-      {additionalContent && <div>{additionalContent}</div>}
-      <CardList /> */}
+      <CommonContentSearch />
+      {/* {additionalContent && <div>{additionalContent}</div>} */}
+      {/* <CardList /> */}
     </div>
   );
 }
