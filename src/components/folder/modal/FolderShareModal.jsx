@@ -7,6 +7,7 @@ import copyToClipboard from 'utils/copyToClipboard';
 import kakaoIcon from 'assets/icon/kakao-icon.svg';
 import facebookIcon from 'assets/icon/facebook-icon.svg';
 import linkShareIcon from 'assets/icon/linkShare-icon.svg';
+import useKakaoShare from 'hooks/useKakaoShare';
 
 const Styled = {
   Title: styled.span`
@@ -37,38 +38,16 @@ const Styled = {
     gap: 1rem;
   `,
 
+  Icon: styled(IconButton)`
+    width: 4.2rem;
+    height: 4.2rem;
+  `,
+
   ButtonLabel: styled.span`
     font-size: 1.3rem;
     line-height: 1.5rem;
   `,
 };
-
-const shareButtons = [
-  {
-    icon: kakaoIcon,
-    backgroundColor: '#FEE500',
-    label: '카카오톡',
-    func: () => {
-      console.log('함수실행');
-    },
-  },
-  {
-    icon: facebookIcon,
-    backgroundColor: '#1877F2',
-    label: '페이스북',
-    func: () => {
-      console.log('함수실행');
-    },
-  },
-  {
-    icon: linkShareIcon,
-    backgroundColor: '#9D9D9D0A',
-    label: '링크 복사',
-    func: (link) => {
-      copyToClipboard(link);
-    },
-  },
-];
 
 /**
  * FolderShareModal - sns, 링크를 통해 폴더를 공유할 수 있는 버튼이 포함된 '폴더공유' 모달 컴포넌트
@@ -77,20 +56,30 @@ const shareButtons = [
  */
 
 function FolderShareModal({ setOpen, item }) {
+  const { shareKakao } = useKakaoShare(3);
+
+  const handleClickLinkShare = () => {
+    const shareLink = `${window.location.origin}/shared/3`;
+    copyToClipboard(shareLink);
+  };
+
   return (
     <BackdropModal setOpen={setOpen}>
       <Styled.Title>폴더 공유</Styled.Title>
       <Styled.Item>{item}</Styled.Item>
       <Styled.ShareBtns>
-        {shareButtons.map((button, idx) => (
-          <Styled.ShareButton key={idx} onClick={() => button.func(item)}>
-            <IconButton
-              icon={button.icon}
-              style={{ width: '4.2rem', height: '4.2rem', backgroundColor: button.backgroundColor }}
-            />
-            <Styled.ButtonLabel>{button.label}</Styled.ButtonLabel>
-          </Styled.ShareButton>
-        ))}
+        <Styled.ShareButton>
+          <Styled.Icon icon={kakaoIcon} onClick={shareKakao} style={{ backgroundColor: '#fee500' }} />
+          <Styled.ButtonLabel>카카오톡</Styled.ButtonLabel>
+        </Styled.ShareButton>
+        <Styled.ShareButton>
+          <Styled.Icon icon={facebookIcon} style={{ backgroundColor: '#1877f2' }} />
+          <Styled.ButtonLabel>페이스북</Styled.ButtonLabel>
+        </Styled.ShareButton>
+        <Styled.ShareButton>
+          <Styled.Icon icon={linkShareIcon} onClick={handleClickLinkShare} style={{ backgroundColor: '#9D9D9D0A' }} />
+          <Styled.ButtonLabel>링크 복사</Styled.ButtonLabel>
+        </Styled.ShareButton>
       </Styled.ShareBtns>
     </BackdropModal>
   );
