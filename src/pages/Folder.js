@@ -19,6 +19,7 @@ import {
 } from "components/LinkSubFolder.Styles.jsx";
 import LinkCardCollection from "components/LinkCardCollection.js";
 import LinkSearchBar from "components/LinkSearchBar.js";
+import Modal from "components/Utils/Modal";
 
 const StyledHeadNav = styled(HeadNav)`
 	position: relative;
@@ -35,8 +36,19 @@ export default function Folder({ userId = 1 }) {
 		`users/${userId}/links`
 	);
 	const [searchParams, setSearchParams] = useSearchParams();
-
 	const [items, setItems] = useState([]);
+	const [isModalOpened, setIsModalOpened] = useState(false);
+	const [currentModalType, setCurrentModalType] = useState("removeLink");
+	const [modalData, setModalData] = useState("");
+
+	const handleModalOpen = (modalType, modalData) => {
+		console.log(modalType);
+		setCurrentModalType(modalType);
+		setIsModalOpened(!isModalOpened);
+		if (modalData) {
+			setModalData(modalData);
+		}
+	};
 
 	const handleShareLoad = async (query) => {
 		setIsEmptyResponse(false);
@@ -78,18 +90,60 @@ export default function Folder({ userId = 1 }) {
 		handleShareLoad(currentFolderQuery);
 	}, [currentFolderQuery]);
 
-	const handleKebabAction = (asdf) => {
-		console.log(`${asdf}에서 호출됨. 디버깅용.`);
-	};
+	const handleKebabAction = () => {};
 
 	const kebabActions = [
-		{ btnName: "추가하기", btnAction: handleKebabAction },
-		{ btnName: "더 추가하기", btnAction: handleKebabAction },
-		{ btnName: "더욱추가하기", btnAction: handleKebabAction },
+		{
+			btnName: "삭제하기",
+			type: "removeLink",
+			kebabHandle: handleModalOpen,
+			modalBtnAction: handleKebabAction,
+		},
+		{
+			btnName: "폴더에 추가",
+			type: "addLinkToFolder",
+			kebabHandle: handleModalOpen,
+			modalBtnAction: handleKebabAction,
+		},
+	];
+
+	const subFolderAction = [
+		{
+			btnName: "공유",
+			imgUrl: "share.svg",
+			imgAlt: "shareButton",
+			type: "shareFolder",
+			kebabHandle: handleModalOpen,
+			modalBtnAction: handleKebabAction,
+		},
+		{
+			btnName: "이름 변경",
+			imgUrl: "pen.svg",
+			imgAlt: "RenameButton",
+			type: "nameChange",
+			kebabHandle: handleModalOpen,
+			modalBtnAction: handleKebabAction,
+		},
+		{
+			btnName: "삭제",
+			imgUrl: "Group 36.svg",
+			imgAlt: "DeleteButton",
+			type: "removeFolder",
+			kebabHandle: handleModalOpen,
+			modalBtnAction: handleKebabAction,
+		},
 	];
 
 	return (
 		<>
+			<Modal
+				isOpened={isModalOpened}
+				modalType={currentModalType}
+				modalData={modalData}
+				isOpenedToggle={() => {
+					setIsModalOpened(!isModalOpened);
+				}}
+			/>
 			<StyledHeadNav />
 			<FolderLinkAddBar />
 			<main>
@@ -98,13 +152,18 @@ export default function Folder({ userId = 1 }) {
 						subFolderData={subFolderList}
 						handleCurrentFolderChange={handleCurrentFolderChange}
 					/>
-					<AddFolderButton className="add-sub-folder">
+					<AddFolderButton
+						className="add-sub-folder"
+						onClick={() => handleModalOpen("addSubFolder")}
+					>
 						폴더 추가 <AddImage />
 					</AddFolderButton>
 				</SubFolderUtil>
 				<SubFolderUtil>
 					<CurrentSubFolder>{currentFolderName}</CurrentSubFolder>
-					{!isCurrentFolderAll && <HandleCurrentSubFolder />}
+					{!isCurrentFolderAll && (
+						<HandleCurrentSubFolder handleFunction={subFolderAction} />
+					)}
 				</SubFolderUtil>
 				<LinkSearchBar />
 				{isEmptyResponse || isLoading ? (

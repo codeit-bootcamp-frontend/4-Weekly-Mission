@@ -44,21 +44,19 @@ function SubFoldersList({ subFolderData, handleCurrentFolderChange }) {
 	);
 }
 
-function HandleCurrentSubFolder() {
+function HandleCurrentSubFolder({ handleFunction }) {
 	return (
 		<SubFolderUtilList>
-			<Button type="button" className="sub-folder-utility">
-				<img src={"share.svg"} alt="ShareButtonImg" />
-				공유
-			</Button>
-			<Button type="button" className="sub-folder-utility">
-				<img src={"pen.svg"} alt="RenameButtonImg" />
-				이름 변경
-			</Button>
-			<Button type="button" className="sub-folder-utility">
-				<img src={"Group 36.svg"} alt="DeleteButtonImg" />
-				삭제
-			</Button>
+			{handleFunction.map((item) => (
+				<Button
+					type="button"
+					className="sub-folder-utility"
+					onClick={() => item.kebabHandle(item.type)}
+				>
+					{item.btnName}
+					<img src={item.imgUrl} alt={item.imgAlt} />
+				</Button>
+			))}
 		</SubFolderUtilList>
 	);
 }
