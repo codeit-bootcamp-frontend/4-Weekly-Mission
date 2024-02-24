@@ -1,15 +1,15 @@
-import { useEffect } from "react";
-import { getLinks } from "../../api";
-import "../../assets/styles/FolderCardList.css";
-import FolderCardItem from "./FolderCardItem";
-import useAsync from "../hooks/useAsync";
-import shareIcon from "../../assets/images/share.svg";
-import penIcon from "../../assets/images/pen.svg";
-import deleteIcon from "../../assets/images/delete.svg";
+import { useEffect } from 'react';
+import { getLinks } from '../../api';
+import '../../assets/styles/FolderCardList.css';
+import FolderCardItem from './FolderCardItem';
+import useAsync from '../hooks/useAsync';
+import shareIcon from '../../assets/images/share.svg';
+import penIcon from '../../assets/images/pen.svg';
+import deleteIcon from '../../assets/images/delete.svg';
 
 const FolderCardList = ({ id, name }) => {
-  const { result, execute } = useAsync(() => getLinks(id));
-  const { data: links } = result || {};
+  const { result, execute, loading } = useAsync(() => getLinks(id));
+  const { data: links } = result || [];
 
   useEffect(() => {
     execute();
@@ -20,7 +20,7 @@ const FolderCardList = ({ id, name }) => {
       <div className="folder-list">
         <div className="folder-list-container">
           <div className="folder-name">{name}</div>
-          {name !== "전체" && (
+          {name !== '전체' && (
             <div className="folder-icons">
               <div>
                 <img src={shareIcon} />
@@ -38,16 +38,22 @@ const FolderCardList = ({ id, name }) => {
           )}
         </div>
       </div>
-      {links ? (
-        <div className="card-list">
-          <div className="card-list-container">
-            {links.map((item) => (
-              <FolderCardItem key={item.id} link={item} />
-            ))}
-          </div>
-        </div>
+      {loading ? (
+        <div className="no-link-data">데이터를 불러오는 중...</div>
       ) : (
-        <div className="no-link-data">저장된 링크가 없습니다.</div>
+        <>
+          {links && links.length > 0 ? (
+            <div className="card-list">
+              <div className="card-list-container">
+                {links.map((item) => (
+                  <FolderCardItem key={item.id} link={item} />
+                ))}
+              </div>
+            </div>
+          ) : (
+            <div className="no-link-data">저장된 링크가 없습니다.</div>
+          )}
+        </>
       )}
     </>
   );

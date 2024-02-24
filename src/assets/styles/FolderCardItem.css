@@ -4,6 +4,7 @@
   height: 2.125rem;
   top: 0.94rem;
   right: 0.94rem;
+  z-index: 1;
 }
 
 .kebab-icon {

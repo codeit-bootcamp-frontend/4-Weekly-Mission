@@ -29,12 +29,10 @@
 }
 .no-link-data {
   display: flex;
-  width: 66.25rem;
   height: 6.25rem;
-  padding: 2.5625rem 0rem 2.1875rem 0rem;
+  margin-top: 2rem;
   justify-content: center;
   align-items: center;
-  color: #000;
   text-align: center;
   font-size: 1rem;
   font-style: normal;

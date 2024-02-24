@@ -1,9 +1,8 @@
-import "../../assets/styles/CardList.css";
+import '../../assets/styles/CardList.css';
 
-import CardItem from "./CardItem";
+import CardItem from './CardItem';
 
 const CardList = ({ links }) => {
-  console.log(links);
   return (
     <>
       {links.length ? (
