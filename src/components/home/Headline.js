@@ -35,13 +35,16 @@ const Container = styled.div`
 
 const TextBox = styled.p`
   width: 100%;
-  height: 180px;
   text-align: center;
 `;
 
 const HeadlineText = styled.span`
   font-size: 64px;
   font-weight: 700;
+
+  @media (max-width: 774px) {
+    font-size: 32px;
+  }
 `;
 
 const Strong = styled(HeadlineText)`
@@ -52,4 +55,8 @@ const Strong = styled(HeadlineText)`
 
 const LineBreak = styled.br`
   display: none;
+
+  @media (max-width: 1124px) {
+    display: block;
+  }
 `;
