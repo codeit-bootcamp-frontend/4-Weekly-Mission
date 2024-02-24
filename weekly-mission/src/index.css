@@ -26,3 +26,17 @@ a{
 li{
   list-style: none;
 }
+
+
+input{
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+button{
+  outline: none;
+  border: none;
+  background-color:transparent;
+  cursor: pointer;
+}
