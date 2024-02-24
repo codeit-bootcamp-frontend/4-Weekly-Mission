@@ -7,6 +7,7 @@ function FolderCurrentInformation({
   folderName,
   isWholeFolderSelect,
   changeFolderDeleteSelect,
+  changeFolderEditSelect,
 }) {
   return (
     <div className="FolderCurrentInformation">
@@ -18,7 +19,10 @@ function FolderCurrentInformation({
               <img className="icon" src={shareIcon} alt="share" />
               공유
             </div>
-            <div className="icon_each_container">
+            <div
+              className="icon_each_container"
+              onClick={changeFolderEditSelect}
+            >
               <img className="icon" src={editIcon} alt="name edit" />
               이름 변경
             </div>

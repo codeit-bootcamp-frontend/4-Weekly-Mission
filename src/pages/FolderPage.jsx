@@ -15,6 +15,7 @@ import {
 } from "../services/api";
 import { useEffect, useState } from "react";
 import DeleteModal from "../components/Modals/DeleteModal";
+import EditModal from "../components/Modals/EditModal";
 
 function FolderPage() {
   const [userCards, setUserCards] = useState([]);
@@ -25,6 +26,8 @@ function FolderPage() {
   const [isWholeFolderSelect, setIsWholeFolderSelect] = useState(false);
   const [isLinkDeleteSelect, setIsLinkDeleteSelect] = useState(false);
   const [isFolderDeleteSelect, setIsFolderDeleteSelect] = useState(false);
+  const [isFolderAddSelect, setIsFolderAddSelect] = useState(false);
+  const [isFolderEditSelect, setIsFolderEditSelect] = useState(false);
 
   const getCardsInfo = async () => {
     const response = await getCards();
@@ -59,6 +62,14 @@ function FolderPage() {
     setIsFolderDeleteSelect(!isFolderDeleteSelect);
   };
 
+  const changeFolderAddSelect = () => {
+    setIsFolderAddSelect(!isFolderAddSelect);
+  };
+
+  const changeFolderEditSelect = () => {
+    setIsFolderEditSelect(!isFolderEditSelect);
+  };
+
   useEffect(() => {
     getFoldersInfo();
     getSelectedCardsInfo();
@@ -87,6 +98,22 @@ function FolderPage() {
           isFolderDeleteSelect={isFolderDeleteSelect}
         />
       )}
+      {isFolderAddSelect && (
+        <EditModal
+          title="폴더 추가"
+          description="추가하기"
+          changeFolderAddSelect={changeFolderAddSelect}
+          isFolderAddSelect={isFolderAddSelect}
+        />
+      )}
+      {isFolderEditSelect && (
+        <EditModal
+          title="폴더 이름 변경"
+          description="변경하기"
+          changeFolderEditSelect={changeFolderEditSelect}
+          isFolderEditSelect={isFolderEditSelect}
+        />
+      )}
       <header>
         <NavigationBar userInfo={userInfo} />
       </header>
@@ -104,10 +131,12 @@ function FolderPage() {
           folderName={folderName}
           isWholeFolderSelect={isWholeFolderSelect}
           changeFolderDeleteSelect={changeFolderDeleteSelect}
+          changeFolderEditSelect={changeFolderEditSelect}
         />
         <Cards
           cards={userCards}
           changeLinkDeleteSelect={changeLinkDeleteSelect}
+          changeFolderAddSelect={changeFolderAddSelect}
         />
         <button className="mobile_floating_button">
           <span>폴더 추가</span>

@@ -1,4 +1,4 @@
-.DeleteModal .container {
+.EditModal .container {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   z-index: 999;
 }
 
-.DeleteModal .contents {
+.EditModal .contents {
   position: relative;
   width: 360px;
   display: flex;
@@ -24,22 +24,35 @@
   background-color: var(--White);
 }
 
-.DeleteModal .close-icon {
+.EditModal .close-icon {
   position: absolute;
   top: 16px;
   right: 16px;
   cursor: pointer;
 }
 
-.DeleteModal .title {
+.EditModal .title {
   color: #373740;
   font-family: Pretendard;
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 8px;
 }
 
-.DeleteModal .subtitle {
+.EditModal .folder_edit_input {
+  width: 280px;
+  margin-top: 24px;
+  margin-bottom: 15px;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--Gray3);
+  background: var(--White);
+}
+
+.EditModal .folder_edit_input:focus {
+  border: 1px solid var(--Primary);
+}
+
+.EditModal .subtitle {
   color: var(--Gray2);
   font-family: Pretendard;
   font-size: 14px;
@@ -47,12 +60,12 @@
   margin-bottom: 24px;
 }
 
-.DeleteModal .button {
+.EditModal .button {
   border: none;
   border-radius: 8px;
   padding: 16px 20px;
   width: 280px;
-  background: #ff5b56;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   color: #f5f5f5;
   font-family: Pretendard;
   font-size: 16px;

@@ -1,9 +1,14 @@
 import "./CardPopover.css";
 
-function CardPopover({ changeLinkDeleteSelect }) {
+function CardPopover({ changeLinkDeleteSelect, changeFolderAddSelect }) {
   const handleDeleteClick = (e) => {
     e.preventDefault();
     changeLinkDeleteSelect();
+  };
+
+  const handleAddClick = (e) => {
+    e.preventDefault();
+    changeFolderAddSelect();
   };
 
   return (
@@ -11,7 +16,9 @@ function CardPopover({ changeLinkDeleteSelect }) {
       <div className="each_popover" onClick={handleDeleteClick}>
         삭제하기
       </div>
-      <div className="each_popover">폴더에 추가</div>
+      <div className="each_popover" onClick={handleAddClick}>
+        폴더에 추가
+      </div>
     </div>
   );
 }
