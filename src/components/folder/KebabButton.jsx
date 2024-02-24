@@ -4,6 +4,7 @@ import { useState } from 'react';
 import BUTTON from 'utils/constants/BUTTON';
 import Modal from 'components/common/modal/Modal';
 import DeleteModal from 'components/common/modal/DeleteModal';
+import AddFolderModal from 'components/common/modal/AddFolderModal';
 
 const KebabButton = ({ url }) => {
   const [showMenu, setShowMenu] = useState(false);
@@ -22,14 +23,8 @@ const KebabButton = ({ url }) => {
     switch (optionName) {
       case '삭제하기':
         return <DeleteModal title="링크 삭제하기" subTitle={url} />;
-      // case '폴더에 추가':
-      //   return (
-      //     <PostModal
-      //       title="폴더 이름 변경"
-      //       placeholder={placeholder}
-      //       isAdd={false}
-      //     />
-      //   );
+      case '폴더에 추가':
+        return <AddFolderModal subTitle={url} />;
       default:
         return null;
     }

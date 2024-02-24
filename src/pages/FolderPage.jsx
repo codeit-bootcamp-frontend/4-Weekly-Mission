@@ -8,6 +8,7 @@ import CardError from 'components/common/main/CardError';
 import { useCategoryQuery, useFolderQuery } from 'hook/useFetchData';
 import Category from 'components/folder/Category';
 import SubTitle from 'components/folder/SubTitle';
+import CategoryContext from 'contexts/CategoryContext';
 
 const FolderPage = () => {
   const [currentCategory, setCurrentCategory] = useState({
@@ -28,7 +29,7 @@ const FolderPage = () => {
     { id: 'all', name: '전체' },
     ...datas?.data,
   ];
-
+  // console.log(datas);
   const handleCategoryButton = e => {
     setCurrentCategory({ id: e.target.id, name: e.target.innerText });
   };
@@ -37,7 +38,7 @@ const FolderPage = () => {
     return <CardError />;
   }
   return (
-    <>
+    <CategoryContext.Provider value={datas}>
       <HeaderContainer>
         <AddLink />
       </HeaderContainer>
@@ -59,7 +60,7 @@ const FolderPage = () => {
           <CardError />
         )}
       </MainContainer>
-    </>
+    </CategoryContext.Provider>
   );
 };
 

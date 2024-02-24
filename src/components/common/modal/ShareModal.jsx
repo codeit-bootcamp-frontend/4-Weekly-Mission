@@ -55,7 +55,7 @@ const StyledTitle = styled.div`
 const StyledSubTitle = styled.div`
   font-size: 1.4rem;
   font-weight: 400;
-  line-height: 22px;
+  line-height: 2.2rem;
   text-align: center;
   color: ${({ theme }) => theme.gray60};
 `;
@@ -92,6 +92,5 @@ const StyledButtonName = styled.div`
   font-size: 1.3rem;
   font-weight: 400;
   line-height: 1.5;
-  // text-align: center;
 `;
 export default ShareModal;
