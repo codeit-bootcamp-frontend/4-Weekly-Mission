@@ -1,4 +1,4 @@
-import { useState } from "react";
+import "./Modal.css";
 import style from "./modal.module.css";
 
 function ModalSubFolderNameChange() {
@@ -33,26 +33,47 @@ function ModalAddSubFolder() {
 	);
 }
 
-function ModalShareSubFolder() {
+function ModalShareSubFolder({ modalData }) {
+	console.log(modalData);
 	return (
 		<>
 			<h1 className={style.modalTitle}>
 				폴더 공유
 				<br />
-				<span className={style.modalCaption}>asdf</span>
+				<span className={style.modalCaption}>{modalData}</span>
 			</h1>
+			<div className="modal-box">
+				<div className="modal-share-layout">
+					<button className="modal-img modal-kakao">
+						<img src="Kakao.svg" />
+					</button>
+					카카오톡
+				</div>
+				<div className="modal-share-layout">
+					<button className="modal-img modal-facebook">
+						<img src="Facebook.svg" />
+					</button>
+					페이스북
+				</div>
+				<div className="modal-share-layout">
+					<button className="modal-img modal-link">
+						<img src="link.svg" />
+					</button>
+					링크 복사
+				</div>
+			</div>
 		</>
 	);
 }
 
-function ModalRemoveSubFolder() {
+function ModalRemoveSubFolder({ modalData }) {
 	return (
 		<>
 			<h1 className={style.modalTitle}>
 				폴더 삭제 <br />
-				<span className={style.modalCaption}>asdf</span>
+				<span className={style.modalCaption}>{modalData}</span>
 			</h1>
-			<button className={style.modalButton}>변경하기</button>
+			<button className={style.modalButton_errored}>삭제하기</button>
 		</>
 	);
 }
@@ -64,7 +85,7 @@ function ModalRemoveLink() {
 				링크 삭제 <br />
 				<span className={style.modalCaption}>asdf</span>
 			</h1>
-			<button className={style.modalButton}>변경하기</button>
+			<button className={style.modalButton_errored}>삭제하기</button>
 		</>
 	);
 }
@@ -76,7 +97,7 @@ function ModalAddLinkToFolder() {
 				폴더에 추가 <br />
 				<span className={style.modalCaption}>asdf</span>
 			</h1>
-			<button className={style.modalButton}>변경하기</button>
+			<button className={style.modalButton}>추가하기</button>
 		</>
 	);
 }
@@ -100,7 +121,7 @@ const Modal = ({
 				return <ModalShareSubFolder />;
 
 			case "removeFolder":
-				return <ModalRemoveSubFolder />;
+				return <ModalRemoveSubFolder modalData={modalData} />;
 
 			case "removeLink":
 				return <ModalRemoveLink />;

@@ -1,0 +1,40 @@
+.modal-img {
+	border: none;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	height: 42px;
+	width: 42px;
+	margin-bottom: 10px;
+}
+
+.modal-box {
+	display: flex;
+	gap: 32px;
+
+	color: var(--Linkbrary-gray100, #373740);
+	text-align: center;
+	font-family: Inter;
+	font-size: 13px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 15px; /* 115.385% */
+}
+
+.modal-share-layout {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.modal-kakao {
+	background-color: #fee500;
+}
+
+.modal-facebook {
+	background-color: #1877f2;
+}
+.modal-link {
+	background-color: rgba(157, 157, 157, 0.04);
+}
