@@ -11,8 +11,7 @@ export const MainPage = () => {
     <div className="mainPageContainer">
       <FolderInfo />
       <div className="mainPageWrapper">
-        <FolderSearchBar />
-        {/* <FavoriteList data={favoriteList} /> */}
+        <FolderSearchBar /> 
         <div className="folderBox">
           <FolderList />
         </div>
