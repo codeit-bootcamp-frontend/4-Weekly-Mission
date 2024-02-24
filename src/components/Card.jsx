@@ -1,4 +1,4 @@
-// import CardHeader from "./CardHeader";
+import CardHeader from "./CardHeader";
 // import CardContent from "./CardContent";
 // import CardFooter from "./CardFooter";
 
@@ -28,6 +28,7 @@ function Card() {
   return (
     <div>
       <h2>Card입니다.</h2>
+      <CardHeader />
     </div>
   );
 }
