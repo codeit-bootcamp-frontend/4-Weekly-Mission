@@ -1,19 +1,16 @@
 import ModalLayout from "./ModalLayout";
-import { MODAL_TYPE } from "./modalType";
 import IconKakao from "../images/Icon_Kakao.svg";
 import IconFacebook from "../images/Icon_Facebook.svg";
 import IconLink from "../images/Icon_link.svg";
 import styles from "./ShareModal.module.css";
+import { MODAL_TYPE } from "./modalType";
 import { FacebookShareButton } from "react-share";
-import { useLocation } from "react-router-dom";
 import { useScript } from "../hooks";
 import { useEffect } from "react";
 
-const BASE_URL = 'http://localhost:3000/';
 const currentUrl = window.location.href;
 
 function ShareModal({ isOpenModal, closeModal }) {
-  const { pathname } = useLocation();
   const { share } = MODAL_TYPE;
 
 	const status = useScript("https://developers.kakao.com/sdk/js/kakao.js");
@@ -28,7 +25,7 @@ function ShareModal({ isOpenModal, closeModal }) {
 
   const handleKakaoButton = () => {
     window.Kakao.Link.sendScrap({
-        requestUrl: BASE_URL,
+        requestUrl: currentUrl,
     });
 };
 
@@ -70,7 +67,7 @@ function ShareModal({ isOpenModal, closeModal }) {
           <button
             className={styles.copyLink}
             type="button"
-            onClick={() => handleCopyClipBoard(`${BASE_URL}${pathname}`)}>
+            onClick={() => handleCopyClipBoard(currentUrl)}>
             <img src={IconLink} alt={IconLink} />
           </button>
           <p className={styles.linkButtonName}>링크 복사</p>
