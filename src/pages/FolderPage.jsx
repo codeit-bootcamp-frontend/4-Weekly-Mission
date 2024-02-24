@@ -51,7 +51,6 @@ function FolderPage() {
     const response = await getUser();
     const userInfo = response.data[0];
     setUserInfo(userInfo);
-    console.log(userInfo);
   };
 
   const changeLinkDeleteSelect = () => {
