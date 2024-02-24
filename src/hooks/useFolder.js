@@ -17,7 +17,6 @@ export const useFolder = () => {
         const {
           folder: { id, name, owner, links },
         } = data;
-        console.log("Data", id, name, owner, links);
         setFolder({ id, name, owner, links });
       }
     } catch (e) {
