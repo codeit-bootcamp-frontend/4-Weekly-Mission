@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 import DeleteIcon from 'assets/images/delete.svg';
 import PenIcon from 'assets/images/pen.svg';
@@ -18,6 +19,8 @@ import { FOLDERS_API_URL, LINKS_API_URL } from 'services/api';
 function SortingSection({ selectedFolder, setSelectedFolder }) {
   const LOADING_MESSAGE = 'Loading...';
   const ALL = { id: 0, name: '전체' };
+
+  const [hoveredFolder, setHoveredFolder] = useState(null);
 
   const url = FOLDERS_API_URL;
   const { data, loading, error } = useFetch(url);
@@ -42,6 +45,15 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
     setSelectedFolder(targetButton);
   };
 
+  const handleButtonMouseEnter = (key) => {
+    const targetButton = folderList.find((folder) => folder.id === key);
+    setHoveredFolder(targetButton);
+  };
+
+  const handleButtonMouseLeave = () => {
+    setHoveredFolder(null);
+  };
+
   const sortingSectionClasses = classNames(
     styles['sorting-section'],
     'flex-row',
@@ -49,11 +61,13 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
     'justify-space-between'
   );
   const sortingButtonListClasses = classNames(styles['sorting-button-list'], 'display-inline-flex', 'flex-wrap');
-  const selectedButtonStyle = classNames('background-primary', 'text-color-white');
   const addFolderButtonClasses = classNames(styles['add-folder-button'], 'hidden-flex-mobile-only');
   const folderInfoSectionClasses = classNames(styles['folder-info-section']);
   const titleClasses = classNames(styles.title);
   const optionListClasses = classNames(styles['option-list'], 'flex-row', 'align-center');
+
+  const selectedButtonClasses = classNames('background-primary', 'text-color-white');
+  const hoveredButtonClasses = classNames('background-gray10');
 
   return (
     <div>
@@ -65,8 +79,16 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
                 <SortingButton
                   key={folder.id}
                   text={folder.name}
-                  className={selectedFolder.id === folder.id ? selectedButtonStyle : ''}
+                  className={
+                    selectedFolder.id === folder.id
+                      ? selectedButtonClasses
+                      : hoveredFolder?.id === folder.id
+                        ? hoveredButtonClasses
+                        : ''
+                  }
                   onClick={() => handleButtonClick(folder.id)}
+                  onMouseEnter={() => handleButtonMouseEnter(folder.id)}
+                  onMouseLeave={handleButtonMouseLeave}
                 />
               ))}
               {loading && <ErrorMessage message={LOADING_MESSAGE} />}

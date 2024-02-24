@@ -60,6 +60,10 @@
   background: var(--primary, #6d6afe);
 }
 
+.background-gray10 {
+  background: var(--gray10, #e7effb);
+}
+
 .border-none {
   border: none;
 }
