@@ -86,10 +86,10 @@ export async function getCards() {
     if (response.ok) return result;
     else
       throw new Error(
-        result.message || `Failed to fetch user's card information`
+        result.message || "Failed to fetch user's card information"
       );
   } catch (error) {
-    console.error(`Error fetcing user's card information`, error);
+    console.error("Error fetcing user's card information", error);
     throw error;
   }
 }
@@ -103,10 +103,10 @@ export async function getSelectedCards(folderId) {
     if (response.ok) return result;
     else
       throw new Error(
-        result.message || `Failed to fetch selected folder's card information`
+        result.message || "Failed to fetch selected folder's card information"
       );
   } catch (error) {
-    console.error(`Error fetching selected folder's card information', error`);
+    console.error("Error fetching selected folder's card information", error);
     throw error;
   }
 }
