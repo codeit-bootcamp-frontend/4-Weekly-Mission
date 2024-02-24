@@ -5,7 +5,7 @@ import deleteIcon from "../../assets/delete-icon.png";
 
 function FolderCurrentInformation({
   folderName,
-  isWholeFolderSelect,
+  isAllFolderSelected,
   changeFolderDeleteSelect,
   changeFolderEditSelect,
 }) {
@@ -13,7 +13,7 @@ function FolderCurrentInformation({
     <div className="FolderCurrentInformation">
       <div className="container">
         <div>{folderName}</div>
-        {!isWholeFolderSelect && (
+        {!isAllFolderSelected && (
           <div className="icon_container">
             <div className="icon_each_container">
               <img className="icon" src={shareIcon} alt="share" />

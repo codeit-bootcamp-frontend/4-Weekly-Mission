@@ -23,7 +23,7 @@ function FolderPage() {
   const [folderId, setFolderId] = useState();
   const [folderName, setFolderName] = useState();
   const [userInfo, setUserInfo] = useState([]);
-  const [isWholeFolderSelect, setIsWholeFolderSelect] = useState(false);
+  const [isAllFolderSelected, setIsAllFolderSelected] = useState(false);
   const [isLinkDeleteSelect, setIsLinkDeleteSelect] = useState(false);
   const [isFolderDeleteSelect, setIsFolderDeleteSelect] = useState(false);
   const [isFolderAddSelect, setIsFolderAddSelect] = useState(false);
@@ -125,11 +125,11 @@ function FolderPage() {
           getCardsInfo={getCardsInfo}
           setFolderId={setFolderId}
           setFolderName={setFolderName}
-          setIsWholeFolderSelect={setIsWholeFolderSelect}
+          setIsAllFolderSelected={setIsAllFolderSelected}
         />
         <FolderCurrentInformation
           folderName={folderName}
-          isWholeFolderSelect={isWholeFolderSelect}
+          isAllFolderSelected={isAllFolderSelected}
           changeFolderDeleteSelect={changeFolderDeleteSelect}
           changeFolderEditSelect={changeFolderEditSelect}
         />
