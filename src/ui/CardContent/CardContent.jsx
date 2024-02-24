@@ -1,4 +1,6 @@
+import { KebabMenu } from "ui/KebabMenu/KebabMenu";
 import "./CardContent.css";
+import { useState } from "react";
 
 export const CardContent = ({
   elapsedTime,
@@ -6,25 +8,23 @@ export const CardContent = ({
   createdAt,
   isHovered,
 }) => {
+  const [isClick, setIsClick] = useState(false);
   const className = isHovered
     ? "CardContent CardContent-hovered"
     : "CardContent";
+
+  const handleClickMenu = () => {
+    setIsClick(true);
+  };
 
   return (
     <div className={className}>
       <div className="CardContent-time-kebab">
         <span className="CardContent-elapsed-time">{elapsedTime}</span>
         <button type="button">
-          <div className="CardContent-kebab-button" />
+          <div className="CardContent-kebab-button" onClick={handleClickMenu} />
         </button>
-        <div className="CardContent-kebab-menu">
-          <button type="button" className="CardContent-kebab-menu-delete">
-            삭제하기
-          </button>
-          <button type="button" className="CardContent-kebab-menu-addFolder">
-            폴더에 추가
-          </button>
-        </div>
+        {isClick && <KebabMenu />}
       </div>
 
       <p className="CardContent-description">{description}</p>
