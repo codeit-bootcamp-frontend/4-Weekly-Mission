@@ -94,7 +94,6 @@ function HandleCurrentSubFolder() {
 
 export default function LinkSubFolder({ userId = 1 }) {
 	const [isCurrentFolderAll, setIsCurrentFolderAll] = useState(true);
-	const [currentFolderId, setCurrentFolderId] = useState(0);
 	const [currentFolderName, setCurrentFolderName] = useState("전체");
 	const [subFolderList, setSubFolderList] = useState([]);
 	const [isEmptyResponse, setIsEmptyResponse] = useState(true);
@@ -117,7 +116,6 @@ export default function LinkSubFolder({ userId = 1 }) {
 	};
 
 	const handleCurrentFolderChange = (id, name) => {
-		setCurrentFolderId(id);
 		setCurrentFolderName(name);
 		setCurrentFolderQuery(
 			`users/${userId}/links${id !== 0 ? `?folderId=${id}` : ""}`
