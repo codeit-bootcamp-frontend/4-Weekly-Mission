@@ -14,3 +14,13 @@
 // }
 
 // export default SharedPage;
+
+function SharedPage() {
+  return (
+    <div>
+      <h2>SharedPage 컴포넌트입니다.</h2>
+    </div>
+  );
+}
+
+export default SharedPage;
