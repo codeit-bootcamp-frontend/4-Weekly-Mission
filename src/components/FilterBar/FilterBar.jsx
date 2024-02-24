@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import Card from '../Card/Card';
 import styled from 'styled-components';
 
 export default function Page() {
@@ -27,7 +26,6 @@ export default function Page() {
   return (
     <div>
       <FilterBar filter={filter} onchangeFilter={setFilter} folderData={folderData}></FilterBar>
-      {/* {isloading ? <p>Loading...</p> : <Card />} */}
     </div>
   );
 }
@@ -35,14 +33,44 @@ export default function Page() {
 const Button = styled.button`
   display: flex;
   width: auto;
-  heigh: 35px;
-  padding: 8px 12px;
+  height: 44px;
   flex-direction: column;
+  padding: 8px 12px;
   align-items: center;
+  justify-content: center;
   border-radius: 5px;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: #fff;
   font-size: 16px;
+  white-space: nowrap;
+
+  @media (min-width: 768px) and (max-width: 1199px) {
+    display: flex;
+    padding: 8px 12px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+    background: #fff;
+  }
+  @media (min-width: 357px) and (max-width: 767px) {
+    display: flex;
+    padding: 6px 10px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+    background: #fff;
+
+    color: #000;
+
+    /* Linkbrary/body2-regular */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
 `;
 
 const FilterBarLeft = styled.div`
