@@ -24,6 +24,10 @@ export function LinkToButtons() {
         {" "}
         <Button>폴더 공유 모달</Button>
       </Link>
+      <Link to="/deleteFolder">
+        {" "}
+        <Button>폴더 삭제 모달</Button>
+      </Link>
     </div>
   );
 }

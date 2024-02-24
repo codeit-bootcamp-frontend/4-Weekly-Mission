@@ -7,6 +7,7 @@ import { LinkToButtons } from "page-layout/LinkToButtons";
 import { RenameModal } from "feature/RenameModal/RenameModal";
 import { AddFolderModal } from "feature/AddFolderModal/AddFolderModal";
 import { FolderSharedModal } from "feature/FolderSharedModal/FolderSharedModal";
+import { DeleteFolderModal } from "feature/DeleteFolderModal/DeleteFolderModal";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/renameModal" element={<RenameModal />} />
           <Route path="/addFolderModal" element={<AddFolderModal />} />
           <Route path="/folderShared" element={<FolderSharedModal />} />
+          <Route path="/deleteFolder" element={<DeleteFolderModal />} />
         </Routes>
       </Layout>
     </BrowserRouter>
