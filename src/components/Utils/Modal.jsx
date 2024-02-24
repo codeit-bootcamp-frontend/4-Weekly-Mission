@@ -98,6 +98,7 @@ function ModalRemoveLink({ modalData }) {
 }
 
 function ModalAddLinkToFolder({ modalData }) {
+	console.log(modalData);
 	const [targetLink, [dummy, favor, ...folderList]] = [...modalData];
 	const [SelectedFolder, setSelectedFolder] = useState("");
 
@@ -184,37 +185,6 @@ const Modal = ({
 				;
 			</div>
 		);
-
-	//   if (isOpen) {
-	//     return (
-	//       <>
-	//         <Container>
-	//           <h1>{modalType}</h1>
-	//           {modalCaption && <p>{modalCaption}</p>}
-	//           <button type="button">x</button>
-	//           {/* {subFolderList.map((item) => (
-	//               <button>코딩팁 7개 링크</button>
-	//             ))} */}
-	//           (
-	//           <form>
-	//             {/* {isInputNeed && (
-	//                 <input placeholder="내용 입력" onInput={input}></input>
-	//               )} */}
-	//             {isShareModal ? (
-	//               <>
-	//                 <button>kakaoTalk</button>
-	//                 <button>facebook</button>
-	//                 <button>linkshare</button>
-	//               </>
-	//             ) : (
-	//               <button onSubmit={setInput}>{modalBtn}</button>
-	//             )}
-	//           </form>
-	//           )
-	//         </Container>
-	//       </>
-	//     );
-	//   }
 };
 
 export default Modal;
