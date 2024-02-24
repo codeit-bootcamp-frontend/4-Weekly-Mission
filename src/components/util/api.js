@@ -1,4 +1,4 @@
-const errMessage = "데이터 불러오기 실패";
+const ERROR_MSG = "데이터 불러오기 실패";
 
 const sharedUserSampleApiURL = "https://bootcamp-api.codeit.kr/api/users/1";
 const sharedFolderSampleApiURL =
@@ -11,7 +11,7 @@ const folderListDataApiURL =
 
 async function getApiResponse(url, errorMessage) {
   const response = await fetch(url);
-  if (!response.ok) {
+  if (!response?.ok) {
     return new Error(errorMessage);
   }
   const body = await response.json();
@@ -20,21 +20,18 @@ async function getApiResponse(url, errorMessage) {
 }
 
 export function getSharedUserSample() {
-  return getApiResponse(sharedUserSampleApiURL, errMessage);
+  return getApiResponse(sharedUserSampleApiURL, ERROR_MSG);
 }
 
 export function getSharedFolderSample() {
-  return getApiResponse(sharedFolderSampleApiURL, errMessage);
+  return getApiResponse(sharedFolderSampleApiURL, ERROR_MSG);
 }
 
 export function getFolderList() {
-  return getApiResponse(folderListApiURL, errMessage);
+  return getApiResponse(folderListApiURL, ERROR_MSG);
 }
 
 export function getFolderListData(id) {
-  if (id) {
-    return getApiResponse(folderListDataApiURL + id, errMessage);
-  } else {
-    return getApiResponse(folderListAllDataApiURL, errMessage);
-  }
+  const requestUrl = id ? folderListDataApiURL + id : folderListAllDataApiURL;
+  return getApiResponse(requestUrl, ERROR_MSG);
 }
