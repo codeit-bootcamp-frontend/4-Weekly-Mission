@@ -122,9 +122,9 @@ export default function LinkSubFolder({ userId = 1 }) {
 		);
 		if (id === 0) {
 			setIsCurrentFolderAll(true);
-		} else {
-			setIsCurrentFolderAll(false);
+			return;
 		}
+		setIsCurrentFolderAll(false);
 	};
 
 	const subFolderData = async (requestQuery) => {
