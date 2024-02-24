@@ -42,7 +42,6 @@ export default function Folder({ userId = 1 }) {
 	const [modalData, setModalData] = useState("");
 
 	const handleModalOpen = (modalType, modalData) => {
-		console.log(modalType);
 		setCurrentModalType(modalType);
 		setIsModalOpened(!isModalOpened);
 		if (modalData) {
@@ -96,6 +95,7 @@ export default function Folder({ userId = 1 }) {
 		{
 			btnName: "삭제하기",
 			type: "removeLink",
+			data: currentFolderName,
 			kebabHandle: handleModalOpen,
 			modalBtnAction: handleKebabAction,
 		},
@@ -113,6 +113,7 @@ export default function Folder({ userId = 1 }) {
 			imgUrl: "share.svg",
 			imgAlt: "shareButton",
 			type: "shareFolder",
+			data: currentFolderName,
 			kebabHandle: handleModalOpen,
 			modalBtnAction: handleKebabAction,
 		},
@@ -129,6 +130,7 @@ export default function Folder({ userId = 1 }) {
 			imgUrl: "Group 36.svg",
 			imgAlt: "DeleteButton",
 			type: "removeFolder",
+			data: currentFolderName,
 			kebabHandle: handleModalOpen,
 			modalBtnAction: handleKebabAction,
 		},
@@ -145,7 +147,7 @@ export default function Folder({ userId = 1 }) {
 				}}
 			/>
 			<StyledHeadNav />
-			<FolderLinkAddBar />
+			<FolderLinkAddBar handleSubmit={handleModalOpen} />
 			<main>
 				<SubFolderUtil>
 					<SubFoldersList
