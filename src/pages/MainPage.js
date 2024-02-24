@@ -8,7 +8,7 @@ import {
   Wrapper,
 } from '../styles/styledComponents/folderStyled';
 import ModalCloseButton from '../assets/Images/ModalCloseButton.png';
-import { Modal } from '../components/folderPageComponents/modal/Modal';
+import { Modal } from '../components/modal/Modal';
 
 export default function MainPage() {
   const [modalStatus, setModalStatus] = useState(false);

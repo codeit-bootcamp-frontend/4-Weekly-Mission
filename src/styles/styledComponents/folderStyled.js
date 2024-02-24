@@ -339,7 +339,7 @@ export const ModalSideHeader = styled.div`
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 22px; /* 157.143% */
+  line-height: 22px;
   width: 100%;
 `;
 
@@ -372,7 +372,7 @@ export const ModalSharingName = styled.div`
   font-family: Inter;
   font-size: 13px;
   font-weight: 400;
-  line-height: 15px; /* 115.385% */
+  line-height: 15px;
 `;
 
 export const ModalTitie = styled.p`
