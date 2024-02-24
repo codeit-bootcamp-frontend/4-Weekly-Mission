@@ -9,11 +9,21 @@ import {
   CloseButton,
 } from './ModalElements';
 import modalCloseIcon from '../../assets/modalColseIcon.svg';
-import { useContext } from 'react';
+import checkedIcon from '../../assets/checkIcon.svg';
+import { useContext, useEffect, useState } from 'react';
 import { ModalContext } from '../../pages/FolderPage/FolderPage';
+import useFoldersData from '../../hooks/useFoldersData';
+import { USERS_FOLDERS_URL } from '../../constants/urls';
 
 function AddModal() {
+  const [clickedFolderId, setClickedFolderId] = useState(null);
   const { handleAddModalClose } = useContext(ModalContext);
+  const folders = useFoldersData(USERS_FOLDERS_URL);
+
+  const handleFolderButtonClick = (e, folderId) => {
+    e.preventDefault();
+    setClickedFolderId(folderId);
+  };
   return (
     <ModalContainer>
       <ModalForm>
@@ -24,8 +34,28 @@ function AddModal() {
           <Title>폴더에 추가</Title>
           <Name>링크 주소</Name>
         </ModalInfo>
-        <FolderList></FolderList>
-        <SubmitButton>추가하기</SubmitButton>
+        <FolderList>
+          {folders.map((folder) => {
+            const isClicked = folder.id === clickedFolderId;
+            return (
+              folder.id !== 1 && (
+                <Folder
+                  key={folder.id}
+                  onClick={(e) => handleFolderButtonClick(e, folder.id)}
+                >
+                  <FolderInfo>
+                    <FolderName $isClicked={isClicked}>
+                      {folder.name}
+                    </FolderName>
+                    <LinkNumber>{folder.link.count}개 링크</LinkNumber>
+                  </FolderInfo>
+                  {isClicked && <img src={checkedIcon} alt="checkedIcon" />}
+                </Folder>
+              )
+            );
+          })}
+        </FolderList>
+        <SubmitButton disabled={true}>추가하기</SubmitButton>
       </ModalForm>
     </ModalContainer>
   );
@@ -38,6 +68,7 @@ const FolderList = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
+  overflow-y: scroll;
 `;
 const Folder = styled.button`
   width: 100%;
@@ -60,7 +91,10 @@ const FolderInfo = styled.div`
 `;
 
 const FolderName = styled.span`
-  color: var(--Linkbrary-gray100, #373740);
+  color: ${({ $isClicked }) =>
+    $isClicked
+      ? 'var(--Linkbrary-primary-color, #6D6AFE)'
+      : 'var(--Linkbrary-gray100, #373740)'};
 
   /* Linkbrary/body1-regular */
   font-family: Pretendard;
