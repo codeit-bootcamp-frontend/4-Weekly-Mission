@@ -3,13 +3,13 @@
   justify-content: center;
   position: sticky;
   top: 0;
-  z-index: var(--z-index-nav);
+  z-index: 7;
   width: 100%;
   background-color: var(--light-blue);
 }
 
 .NavigationBar.Nav-fixed {
-  position: absolute;
+  position: relative;
 }
 
 .NavigationBar-items {

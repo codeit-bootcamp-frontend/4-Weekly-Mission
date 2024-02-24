@@ -1,6 +1,11 @@
 import "./Category.css";
 
-export const Category = ({ buttonClicked, linkData, currentCategory }) => {
+export const Category = ({
+  buttonClicked,
+  linkData,
+  currentCategory,
+  handleEditClick,
+}) => {
   return (
     <div className="Category-wrapper">
       <div className="Categories">
@@ -19,7 +24,9 @@ export const Category = ({ buttonClicked, linkData, currentCategory }) => {
           </button>
         ))}
       </div>
-      <button className="add-folder">폴더 추가하기 +</button>
+      <button className="add-folder" onClick={handleEditClick} id="addFolder">
+        폴더 추가하기 +
+      </button>
     </div>
   );
 };
