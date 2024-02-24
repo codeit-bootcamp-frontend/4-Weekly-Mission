@@ -39,7 +39,7 @@ function FolderList() {
     <>
     <div className={styles.content}>
       <div className={styles.container}>
-        <div>
+        <div className={styles.folderList}>
           <Button onClick={() => changeFolderClick(0, '전체')} type="button" key={0}>전체</Button>
           {folderListData.map((item) => {
             return (

@@ -43,8 +43,8 @@ function LinkList({ query, id }) {
     <div className={styles.content}>
       <div className={styles.items}>
         {folderData.length !== 0 ? (folderData.map((item) => 
-        <LinkCard item={item} key={item.id}/>
-        )) : <p className={styles.noLinks}>저장된 링크가 없습니다.</p>}
+        <LinkCard item={item} key={item.id}/>))
+        : <p className={styles.noLinks}>저장된 링크가 없습니다.</p>}
       </div>
     </div>
   )

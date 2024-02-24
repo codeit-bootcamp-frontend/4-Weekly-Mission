@@ -37,3 +37,56 @@
   font-weight: 600;
   letter-spacing: -0.2px;
 }
+
+/* tablet-size */
+@media (max-width: 1199px) {
+  .container {
+    padding: 0;
+    width: 704px;
+  }
+
+  .addFolderBtn {
+    width: 80px;
+  }
+
+  .folderList {
+    display: flex;
+    gap: 12px 0;
+    flex-wrap: wrap;
+  }
+
+  .linkControlBtn {
+    width: 704px;
+  }
+
+}
+
+/* mobile-size */
+@media (max-width: 767px) {
+  .content {
+    display: block;
+  }
+
+  .container {
+    padding: 0 32px;
+    margin-top: 32px;
+    width: 100%;
+  }
+
+  .folderList {
+    display: flex;
+    gap: 12px 0;
+    flex-wrap: wrap;
+  }
+
+  .addFolderBtn {
+    display: none;
+  }
+
+  .linkControlBtn {
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+}

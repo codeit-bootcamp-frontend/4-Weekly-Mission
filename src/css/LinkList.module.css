@@ -9,7 +9,7 @@
 
 .items {
   display: grid;
-  grid-template-columns: repeat(3, minmax(262px, 340px));
+  grid-template-columns: repeat(3, 340px);
   gap: 25px;
 }
 
@@ -20,6 +20,7 @@
 .noLinks {
   color: var(--black);
   text-align: center;
+  width: 1060px;
   padding: 42px 0 35px;
   margin-top: 40px;
 }
@@ -35,7 +36,11 @@
   }
 
   .items {
-    grid-template-columns: repeat(2, minmax(262px, 340px));
+    grid-template-columns: repeat(2, 340px);
+  }
+
+  .noLinks {
+    width: 704px;
   }
 }
 
@@ -52,6 +57,10 @@
   }
 
   .items {
-    grid-template-columns: minmax(262px, 325px);
+    grid-template-columns: 325px;
+  }
+
+  .noLinks {
+    width: 325px;
   }
 }

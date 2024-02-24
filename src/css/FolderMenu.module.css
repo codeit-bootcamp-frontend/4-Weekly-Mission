@@ -34,3 +34,12 @@
   height: 18px;
   margin-right: 4px;
 }
+
+
+/* mobile-size */
+@media (max-width: 767px) {
+  .shareBtn, .editBtn, .deleteBtn {
+    margin-right: 12px;
+    margin-left: 0;
+  }
+}
