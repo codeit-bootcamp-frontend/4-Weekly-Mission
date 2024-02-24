@@ -1,14 +1,10 @@
 // import styles from 'pages/HomePage/HomePage.module.css';
-
-import EditFolderNameModal from 'components/Modal/EditFolderNameModal';
-
-// import AddFolderModal from 'components/Modal/AddFolderModal';
+import ShareModal from 'components/Modal/ShareModal';
 
 function HomePage() {
   return (
     <div>
-      {/* <AddFolderModal /> */}
-      <EditFolderNameModal />
+      <ShareModal />
     </div>
   );
 }
