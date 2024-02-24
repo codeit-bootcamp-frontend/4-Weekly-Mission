@@ -62,7 +62,6 @@ function FolderPage() {
         ) : (
           <>
             <Styled.ButtonBox>
-              {/* 버튼박스(탭, 폴더추가 버튼 합치기) */}
               <TabButton
                 tabInfo={folderList}
                 onChange={(name, id) => {

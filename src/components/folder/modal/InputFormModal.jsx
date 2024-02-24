@@ -57,7 +57,6 @@ function InputFormModal({ setOpen, onSubmit, modalTitle, buttonLabel }) {
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    console.log(inputValue);
   };
 
   return (
