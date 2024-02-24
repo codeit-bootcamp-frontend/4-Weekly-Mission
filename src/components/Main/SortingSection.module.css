@@ -1,0 +1,54 @@
+.sorting-section {
+  margin-bottom: 2.8rem;
+}
+
+.sorting-button-list {
+  gap: 1rem;
+}
+
+.add-folder-button {
+  align-items: center;
+}
+
+.folder-info-section {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.02rem;
+  margin-bottom: 1.2rem;
+}
+
+.option-list {
+  margin-right: 1.2rem;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .sorting-section {
+    margin-bottom: 2.4rem;
+  }
+
+  .folder-info-section {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    margin-bottom: 2.4rem;
+  }
+
+  .title {
+    font-size: 2.4rem;
+    margin-bottom: 0;
+  }
+
+  .option-list {
+    margin-right: 0;
+    margin-left: 1.2rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
+}

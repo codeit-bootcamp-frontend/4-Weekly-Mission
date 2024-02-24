@@ -1,0 +1,28 @@
+.sorting-section {
+  justify-content: space-between;
+  margin-bottom: 2.8rem;
+}
+
+.floating-add-folder-button {
+  bottom: 10.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+}
+
+.add-folder-icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: 0.4rem;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .sorting-section {
+    margin-bottom: 2.4rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
+}

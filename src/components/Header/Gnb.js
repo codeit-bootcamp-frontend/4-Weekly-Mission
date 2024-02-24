@@ -1,63 +1,68 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import styles from './Gnb.module.css';
-import { getUserInfo } from '../../services/api';
-import LoginButton from '../Common/LoginButton';
-import logo from '../../assets/images/logo.svg';
-import ErrorMessage from '../Common/ErrorMessage';
+import { Link, useLocation } from 'react-router-dom';
+
+import logo from 'assets/images/logo.svg';
+import DefaultProfileImg from 'assets/images/profile-img.png';
+
+import useFetch from 'hooks/useFetch';
+
+import ErrorMessage from 'components/Common/ErrorMessage';
+import LoginButton from 'components/Common/LoginButton';
+import styles from 'components/Header/Gnb.module.css';
+
+import { USER_API_URL } from 'services/api';
+
+import scrollToTop from 'utils/scrollToTop';
 
 // 글로벌 네비게이션 바
 function Gnb() {
-  // 유저 정보 가져오기
-  const [userInfo, setUserInfo] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
+  const FOLDER_LOCATION = '/folder';
+  const LOADING_MESSAGE = 'Loading...';
 
-  const handleLoadUser = async () => {
-    try {
-      const result = await getUserInfo();
-      setUserInfo(result);
-    } catch (error) {
-      setErrorMessage(error.message);
-    }
-  };
+  const url = USER_API_URL;
+  const { data, loading, error } = useFetch(url);
 
-  // 로고 클릭 시 페이지 최상단으로 이동
-  const handleLogoClick = () => {
-    window.scrollTo(0, 0);
-  };
+  // data를 가공하여 userInfo에 저장
+  const userInfo = data?.data[0] ?? null;
 
-  useEffect(() => {
-    handleLoadUser();
-  }, []);
+  // 페이지 경로 저장
+  const { pathname } = useLocation();
 
-  const userProfileImg = userInfo?.profileImageSource || '';
-  const userEmail = userInfo?.email || '';
+  const userProfileImg = userInfo?.profileImageSource || DefaultProfileImg;
+  const userEmail = userInfo?.email ?? '';
 
-  const navClasses = classNames(styles.gnb, 'position-fixed', 'margin-auto', 'z-top');
-  const containerClasses = classNames(styles['gnb-container'], 'flex-row');
+  // /folder에서는 position-fixed 제거
+  const navClasses = classNames(styles.gnb, { 'position-fixed': pathname !== FOLDER_LOCATION }, 'margin-auto', 'z-top');
+  const containerClasses = classNames('flex-row', 'align-center', 'justify-space-between');
   const logoClasses = classNames(styles['gnb-logo']);
-  const profileClasses = classNames(styles['gnb-profile'], 'flex-row');
+  const profileClasses = classNames(styles['gnb-profile'], 'flex-row', 'align-center');
   const profileImgClasses = classNames(styles['profile-img']);
-  const profileEmailClasses = classNames(styles['profile-email'], styles.hidden, 'hidden', 'text-color-gray100');
+  const profileEmailClasses = classNames(styles['profile-email'], 'hidden-block-mobile-only', 'text-color-gray100');
+  // gnb의 position-fixed에 대한 더미
+  const navDummyClasses = classNames({ [styles['nav-dummy']]: pathname !== FOLDER_LOCATION });
 
   return (
-    <nav className={navClasses}>
-      <div className={containerClasses}>
-        <Link to="/" onClick={handleLogoClick}>
-          <img className={logoClasses} src={logo} alt="logo" />
-        </Link>
-        {userInfo ? (
-          <div className={profileClasses}>
-            <img className={profileImgClasses} src={userProfileImg} alt="profile-img" />
-            <p className={profileEmailClasses}>{userEmail}</p>
-          </div>
-        ) : (
-          <LoginButton />
-        )}
-        {errorMessage && <ErrorMessage message={errorMessage} />}
-      </div>
-    </nav>
+    <div>
+      <nav className={navClasses}>
+        <div className={containerClasses}>
+          <Link to="/" onClick={scrollToTop}>
+            <img className={logoClasses} src={logo} alt="logo" />
+          </Link>
+          {userInfo ? (
+            <div className={profileClasses}>
+              <img className={profileImgClasses} src={userProfileImg} alt="profile-img" />
+              <p className={profileEmailClasses}>{userEmail}</p>
+            </div>
+          ) : (
+            <LoginButton />
+          )}
+          {loading && <ErrorMessage message={LOADING_MESSAGE} />}
+          {error && <ErrorMessage message={error} />}
+        </div>
+      </nav>
+      {/* 더미 요소로 공간 차지 */}
+      <div className={navDummyClasses} />
+    </div>
   );
 }
 

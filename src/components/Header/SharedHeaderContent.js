@@ -1,44 +1,36 @@
-import { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import styles from './SharedHeaderContent.module.css';
-import { getFolderInfo } from '../../services/api';
-import ErrorMessage from '../Common/ErrorMessage';
+
+import useFetch from 'hooks/useFetch';
+
+import ErrorMessage from 'components/Common/ErrorMessage';
+import styles from 'components/Header/SharedHeaderContent.module.css';
+
+import { SAMPLE_FOLDER_API_URL } from 'services/api';
 
 // 폴더 정보 출력
 function SharedHeaderContent() {
+  const LOADING_MESSAGE = 'Loading...';
+
   // 폴더 정보 가져오기
-  const [folderInfo, setFolderInfo] = useState(null);
-  const [errorMessage, setErrorMessage] = useState('');
+  const url = SAMPLE_FOLDER_API_URL;
+  const { data, loading, error } = useFetch(url);
 
-  const handleLoadFolder = async () => {
-    try {
-      const result = await getFolderInfo();
-      setFolderInfo(result);
-    } catch (error) {
-      setErrorMessage(error.message);
-    }
-  };
-
-  useEffect(() => {
-    handleLoadFolder();
-  }, []);
-
-  const ownerProfileImg = folderInfo?.folder.owner.profileImageSource || '';
-  const ownerName = folderInfo?.folder.owner.name ? `@${folderInfo.folder.owner.name}` : '';
-  const folderName = folderInfo?.folder.name || '';
+  const ownerProfileImg = data?.folder.owner.profileImageSource || '';
+  const ownerName = data?.folder.owner.name ? `@${data.folder.owner.name}` : '';
+  const folderName = data?.folder.name || '';
 
   const contentClasses = classNames(styles['header-content']);
-  const contentContainerClasses = classNames(styles['header-content-container']);
-  const userClasses = classNames(styles['shared-user'], 'flex-col');
+  const contentContainerClasses = classNames('flex-col', 'align-center');
+  const userClasses = classNames(styles['shared-user']);
   const userAvatarClasses = classNames(styles['shared-user-avatar']);
   const userNameClasses = classNames(styles['shared-user-name']);
   const folderNameClasses = classNames(styles['shared-folder-name'], 'text-center');
 
   return (
     <div className={contentClasses}>
-      <div className={contentContainerClasses}>
-        {folderInfo && (
-          <div>
+      <div>
+        {data && (
+          <div className={contentContainerClasses}>
             <div className={userClasses}>
               <img className={userAvatarClasses} src={ownerProfileImg} alt="ownerProfileImg" />
               <p className={userNameClasses}>{ownerName}</p>
@@ -46,7 +38,8 @@ function SharedHeaderContent() {
             <p className={folderNameClasses}>{folderName}</p>
           </div>
         )}
-        {errorMessage && <ErrorMessage message={errorMessage} />}
+        {loading && <ErrorMessage message={LOADING_MESSAGE} />}
+        {error && <ErrorMessage message={error} />}
       </div>
     </div>
   );

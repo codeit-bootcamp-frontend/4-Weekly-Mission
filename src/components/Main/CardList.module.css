@@ -1,20 +1,26 @@
-.card-list {
-  margin: 3.2rem 0 2rem;
-}
-
 .grid {
   gap: 2rem;
 }
 
+.no-card-list-text-box {
+  height: 10rem;
+  padding: 0 9.75rem 0 9.85rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
 /* Tablet && grid col = 2 */
 @media screen and (min-width: 768px) {
-  .card-list {
-    margin: 4rem 0;
-  }
-
   .grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem 2.4rem;
+  }
+
+  .no-card-list-text-box {
+    height: 10rem;
+    padding: 4.1rem 0 3.5rem 0;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
   }
 }
 

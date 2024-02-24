@@ -1,44 +1,63 @@
-import { useState, useEffect } from 'react';
 import classNames from 'classnames';
-import styles from './CardList.module.css';
-import Card from './Card';
-import { getFolderInfo } from '../../services/api';
-import ErrorMessage from '../Common/ErrorMessage';
+import PropTypes from 'prop-types';
 
-function CardList() {
-  // links를 배열에 순차적으로 저장
-  const [links, setLinks] = useState([]);
-  const [errorMessage, setErrorMessage] = useState('');
+import useFetch from 'hooks/useFetch';
 
-  const fetchFolderInfo = async () => {
-    try {
-      const { folder } = await getFolderInfo();
-      setLinks(folder.links);
-    } catch (error) {
-      setErrorMessage(error.message);
-    }
-  };
+import ErrorMessage from 'components/Common/ErrorMessage';
+import Card from 'components/Main/Card';
+import styles from 'components/Main/CardList.module.css';
 
-  useEffect(() => {
-    fetchFolderInfo();
-  }, []);
+import { LINKS_API_URL, LINKS_FOLDER_ID_API_URL } from 'services/api';
+
+// folder id를 props로 받아서 api 적용할 것
+function CardList({ folderId }) {
+  const LOADING_MESSAGE = 'Loading...';
+  const ALL = { id: 0, name: '전체' };
+
+  const url = folderId === ALL.id ? LINKS_API_URL : LINKS_FOLDER_ID_API_URL(folderId);
+  const { data, loading, error } = useFetch(url);
+
+  // {created_at, description, folder_id, id, image_source, title, updated_at, url}
+  const linkList = data?.data ?? [];
+  const linkCount = linkList?.length ?? 0;
 
   const cardListClasses = classNames(styles['card-list'], styles.grid, 'grid', 'width-full');
+  const noCardListTextBoxClasses = classNames(
+    styles['no-card-list-text-box'],
+    'flex-row',
+    'align-center',
+    'justify-center'
+  );
 
   return (
-    <div className={cardListClasses}>
-      {links.map((link) => (
-        <Card
-          key={link.id}
-          createdAt={link.createdAt}
-          url={link.url}
-          description={link.description}
-          imageSource={link.imageSource}
-        />
-      ))}
-      {errorMessage && <ErrorMessage message={errorMessage} />}
+    <div>
+      {linkCount > 0 ? (
+        <div className={cardListClasses}>
+          {linkList.map((link) => (
+            <Card
+              key={link.id}
+              createdAt={link.created_at}
+              url={link.url}
+              description={link.description}
+              imageSource={link.image_source}
+            />
+          ))}
+          {loading && <ErrorMessage message={LOADING_MESSAGE} />}
+          {error && <ErrorMessage message={error} />}
+        </div>
+      ) : (
+        <p className={noCardListTextBoxClasses}>저장된 링크가 없습니다</p>
+      )}
     </div>
   );
 }
+
+CardList.propTypes = {
+  folderId: PropTypes.number,
+};
+
+CardList.defaultProps = {
+  folderId: 0,
+};
 
 export default CardList;

@@ -1,0 +1,19 @@
+.header-content {
+  padding: 2.4rem 3.2rem 4rem;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .header-content {
+    padding: 6rem 3.25rem 9rem;
+    max-width: 84.6rem;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
+  .header-content {
+    padding: 6rem 20rem 9rem;
+    max-width: 144rem;
+  }
+}

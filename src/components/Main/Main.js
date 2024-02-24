@@ -1,10 +1,11 @@
-import propTypes from 'prop-types';
 import classNames from 'classnames';
-import styles from './Main.module.css';
+import propTypes from 'prop-types';
+
+import styles from 'components/Main/Main.module.css';
 
 function Main({ children }) {
-  const mainClasses = classNames(styles.main, 'flex-col');
-  const mainContainerClasses = classNames(styles['main-container'], 'width-full');
+  const mainClasses = classNames(styles.main, 'width-full');
+  const mainContainerClasses = classNames(styles['main-container'], 'margin-auto');
 
   return (
     <main className={mainClasses}>

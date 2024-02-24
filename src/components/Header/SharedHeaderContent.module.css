@@ -3,13 +3,13 @@
 }
 
 .shared-user {
-  gap: 0.6rem;
   margin-bottom: 1rem;
 }
 
 .shared-user-avatar {
   width: 4rem;
   height: 4rem;
+  margin-bottom: 0.6rem;
 }
 
 .shared-user-name {
@@ -30,13 +30,13 @@
   }
 
   .shared-user {
-    gap: 1.2rem;
     margin-bottom: 2rem;
   }
 
   .shared-user-avatar {
     width: 6rem;
     height: 6rem;
+    margin-bottom: 1.2rem;
   }
 
   .shared-user-name {
@@ -45,7 +45,9 @@
   }
 
   .shared-folder-name {
-    font-feature-settings: "clig" off, "liga" off;
+    font-feature-settings:
+      'clig' off,
+      'liga' off;
     font-size: 4rem;
     font-weight: 600;
   }

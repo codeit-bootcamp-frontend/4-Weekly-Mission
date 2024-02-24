@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
 import classNames from 'classnames';
-import styles from './SearchBar.module.css';
-import searchIcon from '../../assets/images/search-icon.svg';
+import React, { useState } from 'react';
+
+import searchIcon from 'assets/images/search-icon.svg';
+
+import styles from 'components/Main/SearchBar.module.css';
 
 function SearchBar() {
   const [value, setValue] = useState('');
@@ -10,7 +12,7 @@ function SearchBar() {
     setValue(e.target.value);
   };
 
-  const containerClasses = classNames('position-relative', 'width-full');
+  const containerClasses = classNames(styles['search-bar'], 'position-relative', 'width-full');
   const inputClasses = classNames(styles['search-bar-input'], 'background-light', 'text-color-text', 'width-full');
   const inputImgClasses = classNames(styles['search-bar-icon'], 'position-absolute');
 
