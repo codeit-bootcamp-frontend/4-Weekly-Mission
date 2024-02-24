@@ -9,6 +9,7 @@ import { useState } from 'react';
 import useModal from '../../hooks/useModal';
 import RenameFolderNameModal from '../modal/RenameFolderNameModal';
 import DeleteFolderModal from '../modal/DeleteFolderModal';
+import AddFolderModal from '../modal/AddFolderModal';
 
 const folderUrl = 'https://bootcamp-api.codeit.kr/api/users/1/folders';
 
@@ -28,8 +29,13 @@ function FolderPageMain() {
     handleModalClick: handleDeleteFolderModalClick,
   } = useModal(false);
 
+  const {
+    isShowModal: isShowAddFolderModal,
+    handleModalClick: handleAddFolderModalClick,
+  } = useModal(false);
+
   const [FolderModalValue, setFolderModalValue] = useState('');
-  console.log(FolderModalValue);
+
   return (
     <div className={styles.main_wrapper}>
       <LinkSearchInput />
@@ -44,7 +50,9 @@ function FolderPageMain() {
             setFolderId={setFolderId}
             setFolderModalValue={setFolderModalValue}
           />
-          <AddFolderButtons />
+          <AddFolderButtons
+            handleAddFolderModalClick={handleAddFolderModalClick}
+          />
         </div>
         <div className={styles.folder_title_box}>
           <h1 className={styles.folder_title}>{folderName}</h1>
@@ -69,6 +77,9 @@ function FolderPageMain() {
           FolderModalValue={FolderModalValue}
           handleDeleteFolderModalClick={handleDeleteFolderModalClick}
         />
+      )}
+      {isShowAddFolderModal && (
+        <AddFolderModal handleAddFolderModalClick={handleAddFolderModalClick} />
       )}
     </div>
   );

@@ -3,6 +3,7 @@ import styles from './FolderPageLinkitem.module.css';
 import * as functions from '../../functions/formatTimeAgo.js';
 import KebabModal from '../modal/KebabModal.js';
 import useModal from '../../hooks/useModal.js';
+import DeleteLinkModal from '../modal/DeleteLinkModal.js';
 function FolderPageLinkItem({ description, image_source, created_at, url }) {
   const created_date = created_at.slice(0, 10);
 
@@ -11,6 +12,12 @@ function FolderPageLinkItem({ description, image_source, created_at, url }) {
     handleModalClick: handleClickKebabModal,
   } = useModal(false);
 
+  const {
+    isShowModal: isShowDeleteLinkModal,
+    handleModalClick: handleDeleteLinkModalClick,
+  } = useModal(false);
+
+  console.log(isShowDeleteLinkModal);
   return (
     <>
       <div className={styles.item_card_wrapper}>
@@ -49,8 +56,19 @@ function FolderPageLinkItem({ description, image_source, created_at, url }) {
             onClick={handleClickKebabModal}
           />
         </div>
-        {isShowKebabModal && <KebabModal />}
+        {isShowKebabModal && (
+          <KebabModal
+            handleClickKebabModal={handleClickKebabModal}
+            handleDeleteLinkModalClick={handleDeleteLinkModalClick}
+          />
+        )}
       </div>
+      {isShowDeleteLinkModal && (
+        <DeleteLinkModal
+          url={url}
+          handleDeleteLinkModalClick={handleDeleteLinkModalClick}
+        />
+      )}
     </>
   );
 }
