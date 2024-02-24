@@ -1,5 +1,6 @@
 import logo from "../image/icons/LinkbraryLogo.svg";
-// import style from "../styles/NavigationBar.module.css";
+import { useGetData } from "./Hooks/useAsync";
+import style from "../styles/NavigationBar.module.css";
 
 // // CommonHeader의 NavigationBar 부분
 // function NavigationBar({ profile }) {
@@ -27,15 +28,30 @@ import logo from "../image/icons/LinkbraryLogo.svg";
 // export default NavigationBar;
 
 function NavigationBar() {
+  const { data, error, loading } = useGetData();
+  console.log(data);
+
+  if (loading) return <div>로딩중...</div>;
+  if (error) return <div>에러가 발생했습니다.</div>;
+
   return (
     <div>
       <h2>NavigationBar 컴포넌트입니다.</h2>
       <div>
         <img src={logo} alt="LinkbraryLogo" />
-        <div>
-          <img src="" alt="" />
-          <span></span>
-        </div>
+        {data ? (
+          <div className={style.Account}>
+            <img
+              className={style.ProfileImg}
+              // src="{profile.profileImageSource || profile.image_source}"
+              src={data.profileImageSource}
+              alt="Profile"
+            />
+            <span className={style.ProfileEmail}>{data.email}</span>
+          </div>
+        ) : (
+          <span className={style.SignInButton}>로그인</span>
+        )}
       </div>
     </div>
   );
