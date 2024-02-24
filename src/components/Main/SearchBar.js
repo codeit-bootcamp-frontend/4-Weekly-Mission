@@ -6,10 +6,10 @@ import searchIcon from 'assets/images/search-icon.svg';
 import styles from 'components/Main/SearchBar.module.css';
 
 function SearchBar() {
-  const [value, setValue] = useState('');
+  const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e) => {
-    setValue(e.target.value);
+    setInputValue(e.target.value);
   };
 
   const containerClasses = classNames(styles['search-bar'], 'position-relative', 'width-full');
@@ -21,7 +21,7 @@ function SearchBar() {
       <input
         className={inputClasses}
         type="text"
-        value={value}
+        value={inputValue}
         onChange={handleInputChange}
         placeholder="링크를 검색해 보세요."
       />
