@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react";
-import "../style/folder.css";
-function Folder() {
+import "../style/folderComponent.css";
+import fetchData from "../api/FetchData";
+function FolderComponent() {
   const [folderData, setFolderData] = useState({
     ownerName: null,
     folderName: null,
     profileImage: null,
   });
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchFolderData = async () => {
       try {
-        const response = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/folder"
-        );
-        const data = await response.json();
-        if (response.ok) {
+        const data = await fetchData("sample/folder");
+        if (data) {
           setFolderData({
             ownerName: data.folder.owner.name,
             folderName: data.folder.name,
@@ -22,13 +20,14 @@ function Folder() {
         }
       } catch (e) {
         console.error(e);
+        alert("error", e);
       }
     };
-    fetchData();
+    fetchFolderData();
   }, []);
 
   return (
-    <div>
+    <div className="folder-container">
       <img
         className="profileImg"
         src={folderData.profileImage}
@@ -39,4 +38,4 @@ function Folder() {
     </div>
   );
 }
-export default Folder;
+export default FolderComponent;

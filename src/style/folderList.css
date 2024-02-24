@@ -1,0 +1,55 @@
+.sorting-container {
+  display: flex;
+  padding: 8px 480px;
+  align-items: center;
+  justify-content: space-between;
+}
+.sortingBtn-container {
+  display: flex;
+  gap: 8px;
+}
+.sortingBtn {
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: #fff;
+  font-size: 16px;
+  padding: 8px 12px;
+}
+.sortingBtn.selected {
+  background-color: #6d6afe;
+  color: #ffffff;
+}
+.addFolder {
+  display: flex;
+}
+.addFolder .addFolderText {
+  color: #6d6afe;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+
+.folderOption-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 480px;
+}
+.folderName {
+  color: black;
+  font-size: 24px;
+  font-family: Pretendard;
+  font-weight: 600;
+  word-wrap: break-word;
+}
+.folderOption {
+  display: flex;
+  gap: 12px;
+}
+.folderOption div {
+  display: flex;
+  align-items: center;
+}

@@ -1,24 +1,28 @@
 import { useEffect, useState } from "react";
 import "../style/profile.css";
+import fetchData from "../api/FetchData";
 function Profile() {
-  const [user, setUser] = useState(null);
-  const [userImg, setUserImg] = useState(null);
+  const [user, setUser] = useState({
+    userEmail: null,
+    userImg: null,
+  });
+
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchUserData = async () => {
       try {
-        const response = await fetch(
-          "https://bootcamp-api.codeit.kr/api/sample/user"
-        );
-        const data = await response.json();
-        if (response.ok) {
-          setUser(data.email);
-          setUserImg(data.profileImageSource);
+        const data = await fetchData("sample/user");
+        if (data) {
+          setUser({
+            userEmail: data.email,
+            userImg: data.profileImageSource,
+          });
         }
       } catch (e) {
         console.error(e);
+        alert("error", e);
       }
     };
-    fetchData();
+    fetchUserData();
   }, []);
 
   return (
@@ -27,8 +31,8 @@ function Profile() {
         <button>로그인</button>
       ) : (
         <div className="profile-container">
-          <img className="userImg" src={userImg} alt="userImg" />
-          <p className="userEmail">{user}</p>
+          <img className="userImg" src={user.userImg} alt="userImg" />
+          <p className="userEmail">{user.userEmail}</p>
         </div>
       )}
     </div>

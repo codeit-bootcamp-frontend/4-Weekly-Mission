@@ -1,0 +1,10 @@
+.landing-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 60px;
+}
+.landing-container p {
+  font-size: 50px;
+}
