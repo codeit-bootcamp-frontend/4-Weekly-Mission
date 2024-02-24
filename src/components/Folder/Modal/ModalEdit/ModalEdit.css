@@ -28,7 +28,7 @@
   border: 1px solid #6d6afe;
 }
 
-.modal-content .modal-change-btn {
+.modal-content .modal-edit-btn {
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   border-radius: 0.8rem;
   border: none;

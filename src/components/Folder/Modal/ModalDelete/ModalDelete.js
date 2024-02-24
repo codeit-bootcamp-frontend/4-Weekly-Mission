@@ -1,8 +1,8 @@
-import "./ModalEdit.css";
+import "./ModalDelete.css";
 
-const ModalEdit = ({ setIsEditModalOpen, text, buttonText }) => {
+const ModalDelete = ({ setIsDeleteModalOpen, text, buttonText }) => {
   const handleCloseModal = () => {
-    setIsEditModalOpen(false);
+    setIsDeleteModalOpen(false);
   };
   return (
     <>
@@ -12,14 +12,12 @@ const ModalEdit = ({ setIsEditModalOpen, text, buttonText }) => {
           <img src="images/close.svg" alt="" />
         </button>
         <div className="modal-items">
-          <h2>{text}</h2>
+          <div className="modal-title">
+            <h2>{text}</h2>
+            <p>폴더명</p>
+          </div>
           <div className="modal-content">
-            <input
-              className="modal-input"
-              type="text"
-              placeholder="내용 작성 중.."
-            />
-            <button className="modal-edit-btn">{buttonText}</button>
+            <button className="modal-delete-btn">{buttonText}</button>
           </div>
         </div>
       </div>
@@ -27,4 +25,4 @@ const ModalEdit = ({ setIsEditModalOpen, text, buttonText }) => {
   );
 };
 
-export default ModalEdit;
+export default ModalDelete;
