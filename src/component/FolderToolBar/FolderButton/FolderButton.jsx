@@ -1,16 +1,12 @@
-import { useState } from "react";
 import "./FolderButton.css";
 
-const FolderButton = ({ buttons, onFolderSelect }) => {
-  const [selectedButtonName, setSelectedButtonName] = useState("전체");
-
+const FolderButton = ({ buttons, onFolderSelect, selectedButtonName }) => {
   return (
     <>
       <button
-        className={selectedButtonName === null ? "selected" : ""}
+        className={selectedButtonName === "전체" ? "selected" : ""}
         onClick={() => {
-          onFolderSelect(null);
-          setSelectedButtonName("전체");
+          onFolderSelect(null, "전체");
         }}
       >
         <span>전체</span>
@@ -18,18 +14,15 @@ const FolderButton = ({ buttons, onFolderSelect }) => {
       {buttons.map((button) => (
         <button
           key={button.id}
-          className={selectedButtonName === button.id ? "selected" : ""}
+          className={selectedButtonName === button.name ? "selected" : ""}
           onClick={() => {
-            onFolderSelect(button.id);
-            setSelectedButtonName(button.name);
+            onFolderSelect(button.id, button.name);
           }}
         >
           <span>{button.name}</span>
         </button>
       ))}
-      <h2>{selectedButtonName}</h2>
     </>
   );
 };
-
 export default FolderButton;
