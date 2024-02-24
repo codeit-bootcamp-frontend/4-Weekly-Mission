@@ -104,3 +104,8 @@
 	border-radius: 8px;
 	background: var(--Linkbrary-red, #ff5b56);
 }
+
+.shareButtonLayout {
+	display: flex;
+	flex-direction: column;
+}

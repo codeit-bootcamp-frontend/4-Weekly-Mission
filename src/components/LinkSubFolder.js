@@ -49,6 +49,7 @@ function HandleCurrentSubFolder({ handleFunction }) {
 		<SubFolderUtilList>
 			{handleFunction.map((item) => (
 				<Button
+					key={item.btnName}
 					type="button"
 					className="sub-folder-utility"
 					onClick={() => item.kebabHandle(item.type, item.data)}

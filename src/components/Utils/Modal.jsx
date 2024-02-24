@@ -91,12 +91,22 @@ function ModalRemoveLink({ modalData }) {
 }
 
 function ModalAddLinkToFolder({ modalData }) {
+	const [targetLink, [dummy, favor, ...folderList]] = [...modalData];
+
 	return (
 		<>
 			<h1 className={style.modalTitle}>
 				폴더에 추가 <br />
-				<span className={style.modalCaption}>{modalData}</span>
+				<span className={style.modalCaption}>{targetLink}</span>
 			</h1>
+			<div className={style.shareButtonLayout}>
+				{folderList.map((item) => (
+					<button className="modal-sub-folder-btn-list" key={item.name}>
+						<h2>{item.name}</h2>
+						{`${item.length || 0}개 링크`}
+					</button>
+				))}
+			</div>
 			<button className={style.modalButton}>추가하기</button>
 		</>
 	);
@@ -109,7 +119,6 @@ const Modal = ({
 	isOpened,
 	isOpenedToggle,
 }) => {
-	console.log(modalData);
 	const renderModal = () => {
 		switch (modalType) {
 			case "nameChange":

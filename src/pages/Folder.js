@@ -102,7 +102,7 @@ export default function Folder({ userId = 1 }) {
 		{
 			btnName: "폴더에 추가",
 			type: "addLinkToFolder",
-			data: modalData,
+			data: [modalData, ...subFolderList],
 			kebabHandle: handleModalOpen,
 			modalBtnAction: handleKebabAction,
 		},

@@ -38,3 +38,35 @@
 .modal-link {
 	background-color: rgba(157, 157, 157, 0.04);
 }
+
+.modal-sub-folder-btn-list {
+	display: flex;
+	gap: 4px;
+	padding: 8px;
+	border: none;
+	background-color: transparent;
+	align-items: center;
+	border-radius: 8px;
+
+	color: var(--Linkbrary-gray60, #9fa6b2);
+	/* Linkbrary/body2-regular */
+	font-family: Pretendard;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.modal-sub-folder-btn-list:hover {
+	background-color: var(--LBrary-Background);
+}
+
+.modal-sub-folder-btn-list h2 {
+	color: var(--Linkbrary-gray100, #373740);
+	/* Linkbrary/body1-regular */
+	font-family: Pretendard;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px; /* 150% */
+}
