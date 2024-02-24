@@ -44,7 +44,6 @@ export default function Folder({ userId = 1 }) {
 	const handleModalOpen = (modalType, modalData) => {
 		setModalData("");
 		setCurrentModalType(modalType);
-		console.log(modalData);
 		if (modalData) {
 			setModalData(modalData);
 		}

@@ -41,7 +41,6 @@ function ModalAddSubFolder() {
 }
 
 function ModalShareSubFolder({ modalData }) {
-	console.log(modalData);
 	return (
 		<>
 			<h1 className={style.modalTitle}>
@@ -98,7 +97,6 @@ function ModalRemoveLink({ modalData }) {
 }
 
 function ModalAddLinkToFolder({ modalData }) {
-	console.log(modalData);
 	const [targetLink, [favor, ...folderList]] = [...modalData];
 	const [SelectedFolder, setSelectedFolder] = useState("");
 
