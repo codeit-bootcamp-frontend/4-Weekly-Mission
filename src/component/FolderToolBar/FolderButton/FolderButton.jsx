@@ -1,12 +1,13 @@
+import { ALL } from "../../../utils/utils";
 import "./FolderButton.css";
 
 const FolderButton = ({ buttons, onFolderSelect, selectedButtonName }) => {
   return (
     <>
       <button
-        className={selectedButtonName === "전체" ? "selected" : ""}
+        className={selectedButtonName === ALL ? "selected" : ""}
         onClick={() => {
-          onFolderSelect(null, "전체");
+          onFolderSelect(null, ALL);
         }}
       >
         <span>전체</span>

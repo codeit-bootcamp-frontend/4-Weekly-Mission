@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+import { fetchFolders, fetchLinks } from "./fetchData";
 import FolderButton from "./FolderButton/FolderButton";
 import FolderCardList from "../FolderToolBar/FolderCardList/FolderCardList";
+import { ALL } from "../../utils/utils";
 import "./FolderToolBar.css";
 import share from "../../images/share.svg";
 import pen from "../../images/pen.svg";
@@ -9,27 +11,22 @@ import deleteIcon from "../../images/delete.svg";
 const FolderToolBar = () => {
   const [buttons, setButtons] = useState([]);
   const [links, setLinks] = useState([]);
-  const [selectedButtonName, setSelectedButtonName] = useState("전체");
+  const [selectedButtonName, setSelectedButtonName] = useState(ALL);
 
   useEffect(() => {
-    fetch("https://bootcamp-api.codeit.kr/api/users/1/folders")
-      .then((response) => response.json())
+    fetchFolders()
       .then((data) => {
-        setButtons(data.data);
-        onFolderSelect(null, "전체");
+        setButtons(data);
+        onFolderSelect(null, ALL);
       })
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  const onFolderSelect = (folderId, folderName = "전체") => {
-    const baseUrl = "https://bootcamp-api.codeit.kr/api/users/1/links";
-    const url = folderId ? `${baseUrl}?folderId=${folderId}` : baseUrl;
+  const onFolderSelect = (folderId, folderName = ALL) => {
     setSelectedButtonName(folderName);
-
-    fetch(url)
-      .then((response) => response.json())
+    fetchLinks(folderId)
       .then((data) => {
-        setLinks(data.data);
+        setLinks(data);
       })
       .catch((error) => console.error("Error fetching links:", error));
   };
@@ -50,7 +47,7 @@ const FolderToolBar = () => {
           </button>
         </div>
         <h2>{selectedButtonName}</h2>
-        {selectedButtonName !== "전체" && (
+        {selectedButtonName !== ALL && (
           <div className="icon-button-container">
             <button>
               <img src={share} alt="" />
