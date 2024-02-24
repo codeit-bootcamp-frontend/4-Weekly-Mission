@@ -1,5 +1,5 @@
+import logo from "../image/icons/LinkbraryLogo.svg";
 // import style from "../styles/NavigationBar.module.css";
-// import logo from "../image/icons/LinkbraryLogo.svg";
 
 // // CommonHeader의 NavigationBar 부분
 // function NavigationBar({ profile }) {
@@ -31,7 +31,7 @@ function NavigationBar() {
     <div>
       <h2>NavigationBar 컴포넌트입니다.</h2>
       <div>
-        <img src="" alt="" />
+        <img src={logo} alt="LinkbraryLogo" />
         <div>
           <img src="" alt="" />
           <span></span>
