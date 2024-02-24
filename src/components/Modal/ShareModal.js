@@ -10,8 +10,10 @@ import ModalContainer from 'components/Modal/ModalContainer';
 import styles from 'components/Modal/ShareModal.module.css';
 
 function ShareModal({ folder }) {
+  const { id, title } = folder;
+
   const host = window.location.origin;
-  const shareUrl = `${host}/shared/${folder?.id ?? ''}`;
+  const shareUrl = `${host}/shared/${id ?? ''}`;
 
   // 공유 옵션
   const shareList = [
@@ -66,7 +68,7 @@ function ShareModal({ folder }) {
   return (
     <ModalContainer>
       <p className={titleClasses}>폴더 공유</p>
-      <p className={folderTitleClasses}>{folder?.title ?? '폴더명'}</p>
+      <p className={folderTitleClasses}>{title ?? '폴더명'}</p>
       <div className={shareButtonContainerClasses}>
         {shareList.map((share) => (
           <Button key={share.key} className={shareButtonClasses} onClick={() => handleShareButtonClick(share.type)}>

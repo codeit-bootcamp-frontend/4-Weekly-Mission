@@ -4,8 +4,7 @@ import { useState } from 'react';
 import ModalButton from 'components/Common/ModalButton';
 import TextInput from 'components/Common/TextInput';
 import styles from 'components/Modal/AddFolderModal.module.css';
-
-import ModalContainer from './ModalContainer';
+import ModalContainer from 'components/Modal/ModalContainer';
 
 function AddFolderModal() {
   const [inputValue, setInputValue] = useState('');

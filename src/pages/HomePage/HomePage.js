@@ -1,10 +1,11 @@
 // import styles from 'pages/HomePage/HomePage.module.css';
-import ShareModal from 'components/Modal/ShareModal';
+
+import DeleteFolderModal from 'components/Modal/DeleteFolderModal';
 
 function HomePage() {
   return (
     <div>
-      <ShareModal />
+      <DeleteFolderModal />
     </div>
   );
 }
