@@ -99,12 +99,11 @@ function ModalRemoveLink({ modalData }) {
 
 function ModalAddLinkToFolder({ modalData }) {
 	console.log(modalData);
-	const [targetLink, [dummy, favor, ...folderList]] = [...modalData];
+	const [targetLink, [favor, ...folderList]] = [...modalData];
 	const [SelectedFolder, setSelectedFolder] = useState("");
 
 	const handleSelectFolder = (key) => {
 		setSelectedFolder(key);
-		console.log(SelectedFolder);
 	};
 
 	return (

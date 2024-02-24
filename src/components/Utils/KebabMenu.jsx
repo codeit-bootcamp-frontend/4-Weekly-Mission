@@ -64,7 +64,9 @@ export default function KebabMenu({ items, data = false }) {
 						{items.map((item) => (
 							<KebabButton
 								key={item.btnName}
-								onClick={() => item.kebabHandle(item.type, [data, item.data])}
+								onClick={() =>
+									item.kebabHandle(item.type, [data, ...item.data])
+								}
 							>
 								{item.btnName}
 							</KebabButton>

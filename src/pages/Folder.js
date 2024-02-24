@@ -42,6 +42,7 @@ export default function Folder({ userId = 1 }) {
 	const [modalData, setModalData] = useState("");
 
 	const handleModalOpen = (modalType, modalData) => {
+		setModalData("");
 		setCurrentModalType(modalType);
 		console.log(modalData);
 		if (modalData) {
@@ -102,7 +103,7 @@ export default function Folder({ userId = 1 }) {
 		{
 			btnName: "폴더에 추가",
 			type: "addLinkToFolder",
-			data: [modalData, ...subFolderList],
+			data: [subFolderList],
 			kebabHandle: handleModalOpen,
 			modalBtnAction: handleKebabAction,
 		},

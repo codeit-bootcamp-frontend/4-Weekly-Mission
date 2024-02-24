@@ -6,7 +6,7 @@ export default function FolderLinkAddBar({ handleSubmit, subFolderList }) {
 
 	const handleLinkAdd = (e) => {
 		e.preventDefault();
-		handleSubmit("addLinkToFolder", [inputValue || "", ...subFolderList]);
+		handleSubmit("addLinkToFolder", [inputValue || "", subFolderList]);
 	};
 
 	return (
