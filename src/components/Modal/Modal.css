@@ -1,0 +1,102 @@
+.modalCon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.modalCon .modalBox {
+    position: relative;
+    width: 360px;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 32px 40px;
+}
+.modalCon .modalBox h4 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.modalCon .modalBox .deleteModal {
+    cursor: pointer;
+    position: absolute;
+    top: 16px; right: 16px;
+    border: none;
+    background-color: transparent;
+}
+.modalCon .modalBox .modalText {
+    text-align: center;
+    margin-top: 8px;
+    font-size: 1.4rem;
+    color: rgba(159, 166, 178, 1);
+    margin-bottom: 24px;
+}
+.modalCon .modalBox input {
+    width: 100%;
+    padding: 18px 15px;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    border: 1px solid #CCD5E3;
+    margin-top: 24px;
+    margin-bottom: 15px;
+}
+.modalCon .modalBox input::placeholder {
+    color: rgba(159, 166, 178, 1);
+}
+
+/* 폴더에 추가 */
+.modalCon .modalBox .folderAddModal {
+    margin-bottom: 24px;
+}
+.modalCon .modalBox .folderAddModal li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 8px;
+}
+.modalCon .modalBox .folderAddModal li img {
+    display: none;
+}
+.modalCon .modalBox .folderAddModal li.on img {
+    display: block;
+}
+.modalCon .modalBox .folderAddModal li.on {
+    background-color: rgba(240, 246, 255, 1);
+}
+.modalCon .modalBox .folderAddModal li.on p {
+    color: rgba(109, 106, 254, 1);
+}
+.modalCon .modalBox .folderAddModal p {
+    line-height: 24px;
+    font-size: 1.6rem;
+    color: rgba(55, 55, 64, 1);
+}
+.modalCon .modalBox .folderAddModal span {
+    margin-left: 8px;
+    color: rgba(159, 166, 178, 1);
+    font-size: 1.4rem;
+}
+
+/* 폴더 공유 */
+.modalCon .modalBox .shareContainer {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    align-items: center;
+}
+.modalCon .modalBox .shareContainer button {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: none;
+}
+.modalCon .modalBox .shareContainer button span {
+    margin-top: 10px;
+    font-size: 1.3rem;
+}

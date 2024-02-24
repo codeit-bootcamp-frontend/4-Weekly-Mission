@@ -6,7 +6,7 @@ const URL_TYPE = {
   links: "/users/1/links",
 };
 
-export async function getData(type, id = "") {
+export async function getData(type, id) {
   try {
     const response = await fetch(
       `${BASE_URL}${URL_TYPE[type]}${id ? "?folderId=" + id : ""}`

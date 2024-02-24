@@ -3,7 +3,17 @@ import { getElapsedTime } from "../../utils/getElapsedTime";
 import { AddRemoveButton } from "../AddRemoveButton/AddRemoveButton";
 import "./CardList.css";
 
-export const CardListFolder = ({ description, created_at, image_source }) => {
+export const CardListFolder = ({
+  description,
+  created_at,
+  image_source,
+  url,
+  setName,
+  setOpenModal,
+  setButtonColor,
+  setButtonName,
+  setFolderUrl,
+}) => {
   const elapsedTime = getElapsedTime(created_at);
 
   const cardRef = useRef();
@@ -33,7 +43,14 @@ export const CardListFolder = ({ description, created_at, image_source }) => {
       <div className="Card-content">
         <div className="Card-content-menu">
           <span className="Card-content-elapsedTime">{elapsedTime}</span>
-          <AddRemoveButton />
+          <AddRemoveButton
+            setName={setName}
+            setOpenModal={setOpenModal}
+            setButtonColor={setButtonColor}
+            setButtonName={setButtonName}
+            setFolderUrl={setFolderUrl}
+            url={url}
+          />
         </div>
         <p className="Card-content-description">{description}</p>
         <span className="Card-content-createdAt">
