@@ -3,7 +3,11 @@ import shareIcon from "../../assets/share-icon.png";
 import editIcon from "../../assets/pencil-icon.png";
 import deleteIcon from "../../assets/delete-icon.png";
 
-function FolderCurrentInformation({ folderName, isWholeFolderSelect }) {
+function FolderCurrentInformation({
+  folderName,
+  isWholeFolderSelect,
+  changeFolderDeleteSelect,
+}) {
   return (
     <div className="FolderCurrentInformation">
       <div className="container">
@@ -18,7 +22,10 @@ function FolderCurrentInformation({ folderName, isWholeFolderSelect }) {
               <img className="icon" src={editIcon} alt="name edit" />
               이름 변경
             </div>
-            <div className="icon_each_container">
+            <div
+              className="icon_each_container"
+              onClick={changeFolderDeleteSelect}
+            >
               <img className="icon" src={deleteIcon} alt="delete" />
               삭제
             </div>

@@ -24,6 +24,7 @@ function FolderPage() {
   const [userInfo, setUserInfo] = useState([]);
   const [isWholeFolderSelect, setIsWholeFolderSelect] = useState(false);
   const [isLinkDeleteSelect, setIsLinkDeleteSelect] = useState(false);
+  const [isFolderDeleteSelect, setIsFolderDeleteSelect] = useState(false);
 
   const getCardsInfo = async () => {
     const response = await getCards();
@@ -54,6 +55,10 @@ function FolderPage() {
     setIsLinkDeleteSelect(!isLinkDeleteSelect);
   };
 
+  const changeFolderDeleteSelect = () => {
+    setIsFolderDeleteSelect(!isFolderDeleteSelect);
+  };
+
   useEffect(() => {
     getFoldersInfo();
     getSelectedCardsInfo();
@@ -71,6 +76,15 @@ function FolderPage() {
           title="링크 삭제"
           description="링크 이름"
           changeLinkDeleteSelect={changeLinkDeleteSelect}
+          isLinkDeleteSelect={isLinkDeleteSelect}
+        />
+      )}
+      {isFolderDeleteSelect && (
+        <DeleteModal
+          title="폴더 삭제"
+          description="폴더명"
+          changeFolderDeleteSelect={changeFolderDeleteSelect}
+          isFolderDeleteSelect={isFolderDeleteSelect}
         />
       )}
       <header>
@@ -89,6 +103,7 @@ function FolderPage() {
         <FolderCurrentInformation
           folderName={folderName}
           isWholeFolderSelect={isWholeFolderSelect}
+          changeFolderDeleteSelect={changeFolderDeleteSelect}
         />
         <Cards
           cards={userCards}
