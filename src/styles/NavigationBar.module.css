@@ -1,4 +1,4 @@
-/* .NavigationBar {
+.NavigationBar {
   max-width: 90rem;
   height: 5.8125rem;
   padding: 2.0625rem 12.5rem 2rem 12.5rem;
@@ -50,4 +50,4 @@
     --Linkbrary-gradation,
     linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
   );
-} */
+}

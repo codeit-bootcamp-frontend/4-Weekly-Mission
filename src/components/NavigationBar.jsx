@@ -35,10 +35,9 @@ function NavigationBar() {
   if (error) return <div>에러가 발생했습니다.</div>;
 
   return (
-    <div>
-      <h2>NavigationBar 컴포넌트입니다.</h2>
-      <div>
-        <img src={logo} alt="LinkbraryLogo" />
+    <div className={style.NavigationBar}>
+      <div className={style.LogoAccountWrapper}>
+        <img className={style.Logo} src={logo} alt="LinkbraryLogo" />
         {data ? (
           <div className={style.Account}>
             <img
