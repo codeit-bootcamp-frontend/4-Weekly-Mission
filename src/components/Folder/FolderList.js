@@ -3,7 +3,7 @@ import addIcon from '../../assets/images/add.svg';
 import { useState } from 'react';
 import FolderCardList from './FolderCardList';
 import Modal from '../common/Modal';
-import Portal from '../common/Portal';
+import ModalPortal from '../common/ModalPortal';
 
 const FolderItem = ({ data, onFolderClick, isSelected }) => {
   const { name, id } = data;
@@ -61,9 +61,9 @@ const FolderList = ({ folderData }) => {
         <div>저장된 링크가 없습니다.</div>
       )}
       {isModalOpen && (
-        <Portal>
-          <Modal action="add" closeModal={() => setIsModalOpen(false)} />
-        </Portal>
+        <ModalPortal>
+          <Modal action="add-folder" closeModal={() => setIsModalOpen(false)} />
+        </ModalPortal>
       )}
     </>
   );

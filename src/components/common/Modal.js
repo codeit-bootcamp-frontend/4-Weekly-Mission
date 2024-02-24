@@ -1,44 +1,127 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../../assets/styles/Modal.css';
 import closeIcon from '../../assets/icons/close.svg';
 
-const Modal = ({ action, closeModal }) => {
+const Modal = ({ action, closeModal, data = '' }) => {
   const [inputValue, setInputValue] = useState('');
+  const [content, setContent] = useState({
+    title: '',
+    buttonText: '',
+    inputClass: 'modal-input',
+    buttonClass: 'modal-button',
+    subTextClass: 'modal-sub-text',
+    snsClass: 'hidden',
+  });
 
   const handleAction = () => {
-    // 각 동작에 따른 로직을 처리
     switch (action) {
       case 'add':
-        // 추가 동작 처리 로직
         console.log('폴더 추가:', inputValue);
         break;
       case 'rename':
-        // 이름 변경 동작 처리 로직
         console.log('이름 변경:', inputValue);
         break;
-      // 다른 동작들에 대한 처리 추가
+      case 'delete':
+        break;
       default:
         break;
     }
 
-    // 모달 닫기
     closeModal();
   };
+
+  const setModal = () => {
+    switch (action) {
+      case 'add':
+        return setContent((prev) => ({
+          ...prev,
+          title: '폴더 추가',
+          buttonText: '추가하기',
+          subTextClass: 'hidden',
+        }));
+
+      case 'add-folder':
+        return setContent((prev) => ({
+          ...prev,
+          title: '폴더 추가',
+          buttonText: '추가하기',
+          subTextClass: 'hidden',
+        }));
+
+      case 'rename':
+        return setContent((prev) => ({
+          ...prev,
+          title: '폴더 이름 변경',
+          buttonText: '변경하기',
+          subTextClass: 'hidden',
+        }));
+
+      case 'delete-folder':
+        return setContent((prev) => ({
+          ...prev,
+          title: '폴더 삭제',
+          buttonText: '삭제하기',
+          inputClass: 'hidden',
+          buttonClass: 'modal-button red',
+        }));
+
+      case 'delete-link':
+        return setContent((prev) => ({
+          ...prev,
+          title: '링크 삭제',
+          buttonText: '삭제하기',
+          inputClass: 'hidden',
+          buttonClass: 'modal-button red',
+        }));
+
+      case 'share':
+        return setContent((prev) => ({
+          ...prev,
+          title: '폴더 공유',
+          inputClass: 'hidden',
+          buttonClass: 'hidden',
+          snsClass: 'sns-box',
+        }));
+
+      default:
+        return;
+    }
+  };
+  useEffect(() => {
+    setModal();
+  }, []);
 
   return (
     <div className="modal">
       <div className="modal-box">
-        <h2 className="modal-title">{action === 'add' ? '폴더 추가' : '이름 변경'}</h2>
+        <div className="modal-box-text">
+          <h2 className="modal-title">{content.title}</h2>
+          <h3 className={content.subTextClass}>{data}</h3>
+        </div>
         <input
-          className="modal-input"
+          className={content.inputClass}
           type="text"
           value={inputValue}
           placeholder="내용 입력"
           onChange={(e) => setInputValue(e.target.value)}
         />
-        <button className="modal-button" onClick={handleAction}>
-          {action === 'add' ? '추가하기' : '변경하기'}
+        <button className={content.buttonClass} onClick={handleAction}>
+          {content.buttonText}
         </button>
+        <div className={content.snsClass}>
+          <div>
+            <img />
+            카카오톡
+          </div>
+          <div>
+            <img />
+            페이스북
+          </div>
+          <div>
+            <img />
+            링크복사
+          </div>
+        </div>
         <button className="modal-close" onClick={closeModal}>
           <img src={closeIcon} />
         </button>
