@@ -1,16 +1,17 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { CalcTime } from "./../../utils/calculator";
-import logo from "../../assets/icons/logo.png";
 import { ReactComponent as Star } from "../../assets/icons/card_star.svg";
 import { ReactComponent as Kebab } from "../../assets/icons/kebab.svg";
+import logo from "../../assets/icons/logo.png";
+import { PopOver } from "components/common/modals/PopOver.js";
 import "../../styles/shared.css";
 
 function FolderItem({ item }) {
   const [isHovering, setIsHovering] = useState(false);
   const { imageSource, createdAt, description, url, id } = item;
   const { created_at, favorite, image_source } = item;
-  const [optionMenu, setOptionMenu] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   let time = 0;
   let img_src = "";
@@ -54,14 +55,15 @@ function FolderItem({ item }) {
             <Kebab
               onClick={(e) => {
                 e.preventDefault();
-                setOptionMenu(!optionMenu);
-                console.log(optionMenu);
+                setIsVisible(!isVisible);
               }}
             ></Kebab>
-            <MenuOptions $optionMenu={optionMenu}>
-              <Option>삭제하기</Option>
-              <Option>폴더에 추가</Option>
-            </MenuOptions>
+            <PopOver
+              $isVisible={isVisible}
+              $options={["삭제하기", "폴더에 추가"]}
+              $top="20px"
+              $right="-70px"
+            ></PopOver>
           </TimeContainer>
           <Description>{description}</Description>
           <DateText>2023. 3. 15</DateText>
@@ -134,14 +136,14 @@ const TimeContainer = styled.div`
   position: relative;
 `;
 
-const TimeText = styled.text`
+const TimeText = styled.span`
   font-size: 13px;
   font-weight: 400;
   color: #666;
   margin: 0px;
 `;
 
-const DateText = styled.text`
+const DateText = styled.span`
   overflow: hidden;
   color: #333;
   text-overflow: ellipsis;
@@ -152,28 +154,6 @@ const DateText = styled.text`
   font-weight: 400;
   line-height: normal;
   margin: 0px;
-`;
-
-const MenuOptions = styled.div`
-  width: 100px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  margin-top: 20px;
-  border: 1px;
-  display: ${({ $optionMenu }) => ($optionMenu ? "block" : "none")};
-`;
-
-const Option = styled.p`
-  padding: 7px 12px;
-  background-color: #fff;
-  color: #333236;
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  text-align: center;
 `;
 
 export default FolderItem;
