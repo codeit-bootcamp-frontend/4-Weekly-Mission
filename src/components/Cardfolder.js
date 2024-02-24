@@ -4,7 +4,7 @@ import '../css/Card.css';
 import ErrorImage from '../image/noimg.png';
 import StarIcon from '../image/star.svg';
 import Kebab from '../image/kebab.svg';
-import setTime from '../utils/setTime';
+import { setTime } from '../utils/setTime';
 import { getFolderList, getFolderType } from '../api';
 import Delete from '../modals/Delete';
 import Add from '../modals/Add';

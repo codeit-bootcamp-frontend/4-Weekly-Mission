@@ -118,7 +118,7 @@ function Share({ title, main, onClose, currentFolderId }) {
   };
   useEffect(() => {
     Kakao.cleanup();
-    Kakao.init('08985770502e02f6ac12635e2f81df30');
+    Kakao.init(process.env.REACT_APP_KAKAO_KEY);
     console.log(Kakao.isInitialized());
   }, []);
 
