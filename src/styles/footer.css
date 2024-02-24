@@ -1,5 +1,17 @@
 @import url(../assets/color.css);
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Pretendard;
+}
+
+html,
+body {
+  font-size: 62.5%;
+}
+
 footer {
   display: flex;
   justify-content: center;

@@ -1,0 +1,20 @@
+@import url(../assets/color.css);
+
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  gap: 20px;
+}
+
+.link_page_button {
+  margin-top: 10px;
+  padding: 20px;
+  background-color: var(--Linkbrary-primary-color);
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: white;
+}
