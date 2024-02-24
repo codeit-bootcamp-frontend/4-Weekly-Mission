@@ -2,6 +2,7 @@ import "./CardControl.css";
 import share from "../../images/share.svg";
 import pen from "../../images/pen.svg";
 import Group from "../../images/Group 36.svg";
+
 export function CardControl() {
   return (
     <div className="CardControl">

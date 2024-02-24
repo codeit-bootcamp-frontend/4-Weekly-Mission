@@ -16,3 +16,9 @@ export async function getUserFolder() {
   const body = await response.json();
   return body;
 }
+
+export async function getUserLinks() {
+  const response = await fetch(BASE_URL + "/api/users/4/links");
+  const body = await response.json();
+  return body;
+}

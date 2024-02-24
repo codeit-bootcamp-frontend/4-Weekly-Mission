@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import link from "../../images/link.svg";
-const Div = styled.div`
+const AddLinkContainer = styled.div`
   margin: 0 auto;
   display: flex;
   width: 800px;
@@ -14,7 +14,7 @@ const Div = styled.div`
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: var(--Linkbrary-white, #fff);
 `;
-const Wrapper = styled.div`
+const LinkInputWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
@@ -63,13 +63,13 @@ const Input = styled.input`
 export function AddLinkBar() {
   return (
     <Container>
-      <Div>
-        <Wrapper>
+      <AddLinkContainer>
+        <LinkInputWrapper>
           <img alt="링크이미지" src={link}></img>
           <Input id="add-link" placeholder="링크를 추가해 보세요"></Input>
-        </Wrapper>
+        </LinkInputWrapper>
         <Button>추가하기</Button>
-      </Div>
+      </AddLinkContainer>
     </Container>
   );
 }

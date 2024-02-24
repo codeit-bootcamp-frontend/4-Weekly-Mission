@@ -1,34 +1,27 @@
 import { useEffect, useState } from "react";
 import { getUserFolder } from "../../api";
 import "./FolderSorting.css";
-import { json } from "react-router-dom";
 
 function FolderSorting() {
   const [sortData, setSortData] = useState([]);
 
-  const Datas = async () => {
+  const fetchUserFolder = async () => {
     try {
       const jsonData = await getUserFolder();
       const userFolders = jsonData.data;
-
-      // const userName = userFolders.map((user) => {
-      //   return user.name;
-      // });
-
       setSortData(userFolders);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
   useEffect(() => {
-    Datas();
+    fetchUserFolder();
   }, []);
 
   return (
     <div className="folder-sorting">
       <div className="container">
-        {console.log(sortData)}
         <button className="sorting-button">전체</button>
         {sortData.map((data) => {
           return <button className="sorting-button">{data.name}</button>;
