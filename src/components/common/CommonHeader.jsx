@@ -3,6 +3,8 @@
 // import NavigationBar from "../NavigationBar";
 // // import { getData } from "../api";
 
+import NavigationBar from "../NavigationBar";
+
 // // SharedHeader에서는 Profile을 받아오고, FolderHeader에서는 LinkAdd를 받아옴
 // function CommonHeader({ headerType, children }) {
 //   const [profile, setProfile] = useState(null);
@@ -36,6 +38,7 @@ function CommonHeader(props) {
   return (
     <div>
       <h2>CommonHeader 컴포넌트입니다.</h2>
+      <NavigationBar />
       {props.children}
     </div>
   );

@@ -25,3 +25,20 @@
 // }
 
 // export default NavigationBar;
+
+function NavigationBar() {
+  return (
+    <div>
+      <h2>NavigationBar 컴포넌트입니다.</h2>
+      <div>
+        <img src="" alt="" />
+        <div>
+          <img src="" alt="" />
+          <span></span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default NavigationBar;
