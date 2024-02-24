@@ -36,7 +36,7 @@ export default function Footer() {
 			</div>
 			<div className="footer-social">
 				{FOOTER_DATA.map((item) => (
-					<Link to={item.href} target="_blank">
+					<Link key={item.alt} to={item.href} target="_blank">
 						<img src={item.imgUrl} alt={item.alt} />
 					</Link>
 				))}
