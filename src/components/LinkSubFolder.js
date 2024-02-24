@@ -18,14 +18,6 @@ function AddSubFolder() {
 	);
 }
 
-const EmptyLink = function ({ isLoading }) {
-	const spaceText = isLoading
-		? "불러오는 중입니다..."
-		: "저장된 링크가 없습니다.";
-
-	return <EmptySpace>{spaceText}</EmptySpace>;
-};
-
 function SubFoldersList({ subFolderData, handleCurrentFolderChange }) {
 	const [subFolderList, setSubFolderList] = useState([]);
 	const [selectedBtn, setSelectedBtn] = useState(0);
@@ -82,4 +74,4 @@ function HandleCurrentSubFolder() {
 	);
 }
 
-export { HandleCurrentSubFolder, SubFoldersList, AddSubFolder, EmptyLink };
+export { HandleCurrentSubFolder, SubFoldersList, AddSubFolder };

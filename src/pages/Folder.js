@@ -14,6 +14,7 @@ import { acceptDataFromApi } from "Api";
 import { useSearchParams } from "react-router-dom";
 import {
 	CurrentSubFolder,
+	EmptySpace,
 	SubFolderUtil,
 } from "components/LinkSubFolder.Styles.jsx";
 import LinkCardCollection from "components/LinkCardCollection.js";
@@ -95,7 +96,9 @@ export default function Folder({ userId = 1 }) {
 				</SubFolderUtil>
 				<LinkSearchBar />
 				{isEmptyResponse || isLoading ? (
-					<EmptyLink isLoading={isLoading} />
+					<EmptySpace>
+						{isLoading ? "불러오는 중입니다..." : "저장된 링크가 없습니다."}
+					</EmptySpace>
 				) : (
 					<>
 						<LinkCardCollection items={items} favorite={true} kebab={true} />
