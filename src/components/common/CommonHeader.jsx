@@ -32,10 +32,11 @@
 
 // export default CommonHeader;
 
-function CommonHeader() {
+function CommonHeader(props) {
   return (
     <div>
       <h2>CommonHeader 컴포넌트입니다.</h2>
+      {props.children}
     </div>
   );
 }
