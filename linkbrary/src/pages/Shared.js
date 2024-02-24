@@ -1,16 +1,17 @@
-import "../styles/global.css";
+import "../global.css";
 import { useEffect, useState } from "react";
-import { getAPI } from "../api";
-import Header from "./Header";
-import Footer from "./Footer";
-import Profile from "./Profile";
-import Contents from "./Contents";
+import { getAPI } from "../APIUtil";
+import Header from "../components/NavBottom/Header";
+import Footer from "../components/NavBottom/Footer";
+import Profile from "../components/Profile";
+import Contents from "../components/Contents";
+import Search from "../components/Search";
 
-function App() {
+function Shared() {
   const [contentName, setContentName] = useState("");
   const [userName, setUserName] = useState("");
   const [profileImage, setProfileImage] = useState("");
-  const [contentList, setContentList] = useState([]);
+  const [data, setData] = useState([]);
   const [user, setUser] = useState(null);
 
   const handleLoad = async () => {
@@ -22,7 +23,7 @@ function App() {
     setContentName(name);
     setUserName(owner.name);
     setProfileImage(owner.profileImageSource);
-    setContentList(links);
+    setData(links);
     setUser(user);
   };
 
@@ -34,10 +35,11 @@ function App() {
     <>
       <Header user={user} />
       <Profile folder={contentName} user={userName} proImg={profileImage} />
-      <Contents folderList={contentList} />
+      <Search />
+      <Contents items={data} />
       <Footer />
     </>
   );
 }
 
-export default App;
+export default Shared;

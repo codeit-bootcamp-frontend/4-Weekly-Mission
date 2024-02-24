@@ -17,30 +17,17 @@
   background-color: var(--gray10);
 }
 
-.icon-search {
-  width: 1.6rem;
-  height: 1.6rem;
-}
-
-.input-search {
-  width: 100%;
-  background-color: inherit;
-  line-height: 2.4rem;
-  font-size: 1.6rem;
-  font-weight: 400;
-  outline: none;
-}
-
 .card-list {
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
   max-width: 106rem;
   gap: 2.5rem 2rem;
+  padding-left: 0;
 }
 
 .card-item {
-  width: 32rem;
+  width: 34rem;
   border-radius: 1.5rem;
   box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
   overflow: hidden;
