@@ -1,16 +1,25 @@
 import "components/FolderLinkAddBar.css";
+import { useState } from "react";
 
 export default function FolderLinkAddBar({ handleSubmit }) {
+	const [inputValue, setInputValue] = useState("");
+
 	const handleLinkAdd = (e) => {
 		e.preventDefault();
-		handleSubmit("addLinkToFolder");
+		handleSubmit("addLinkToFolder", inputValue || "");
 	};
 
 	return (
 		<div className="background-decoration-color">
 			<form onSubmit={handleLinkAdd} className="input-position-origin link-add">
 				<label htmlFor="add-link" />
-				<input id="add-link" placeholder="링크를 추가해 보세요." />
+				<input
+					onInput={(e) => {
+						setInputValue(e.target.value);
+					}}
+					id="add-link"
+					placeholder="링크를 추가해 보세요."
+				/>
 				<button className="link-add-btn default-btn">추가하기</button>
 			</form>
 		</div>

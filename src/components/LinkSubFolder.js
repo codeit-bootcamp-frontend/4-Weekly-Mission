@@ -51,7 +51,7 @@ function HandleCurrentSubFolder({ handleFunction }) {
 				<Button
 					type="button"
 					className="sub-folder-utility"
-					onClick={() => item.kebabHandle(item.type)}
+					onClick={() => item.kebabHandle(item.type, item.data)}
 				>
 					{item.btnName}
 					<img src={item.imgUrl} alt={item.imgAlt} />

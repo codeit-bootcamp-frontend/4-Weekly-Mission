@@ -43,10 +43,10 @@ export default function Folder({ userId = 1 }) {
 
 	const handleModalOpen = (modalType, modalData) => {
 		setCurrentModalType(modalType);
-		setIsModalOpened(!isModalOpened);
 		if (modalData) {
 			setModalData(modalData);
 		}
+		setIsModalOpened(!isModalOpened);
 	};
 
 	const handleShareLoad = async (query) => {
@@ -95,13 +95,14 @@ export default function Folder({ userId = 1 }) {
 		{
 			btnName: "삭제하기",
 			type: "removeLink",
-			data: currentFolderName,
+			data: subFolderList,
 			kebabHandle: handleModalOpen,
 			modalBtnAction: handleKebabAction,
 		},
 		{
 			btnName: "폴더에 추가",
 			type: "addLinkToFolder",
+			data: modalData,
 			kebabHandle: handleModalOpen,
 			modalBtnAction: handleKebabAction,
 		},

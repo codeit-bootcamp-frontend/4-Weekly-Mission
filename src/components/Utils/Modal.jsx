@@ -90,12 +90,12 @@ function ModalRemoveLink() {
 	);
 }
 
-function ModalAddLinkToFolder() {
+function ModalAddLinkToFolder({ modalData }) {
 	return (
 		<>
 			<h1 className={style.modalTitle}>
 				폴더에 추가 <br />
-				<span className={style.modalCaption}>asdf</span>
+				<span className={style.modalCaption}>{modalData}</span>
 			</h1>
 			<button className={style.modalButton}>추가하기</button>
 		</>
@@ -109,6 +109,7 @@ const Modal = ({
 	isOpened,
 	isOpenedToggle,
 }) => {
+	console.log(modalData);
 	const renderModal = () => {
 		switch (modalType) {
 			case "nameChange":
@@ -118,7 +119,7 @@ const Modal = ({
 				return <ModalAddSubFolder />;
 
 			case "shareFolder":
-				return <ModalShareSubFolder />;
+				return <ModalShareSubFolder modalData={modalData} />;
 
 			case "removeFolder":
 				return <ModalRemoveSubFolder modalData={modalData} />;
@@ -127,7 +128,7 @@ const Modal = ({
 				return <ModalRemoveLink />;
 
 			case "addLinkToFolder":
-				return <ModalAddLinkToFolder />;
+				return <ModalAddLinkToFolder modalData={modalData} />;
 
 			default:
 				throw new Error("검증되지 않은 Modal");
