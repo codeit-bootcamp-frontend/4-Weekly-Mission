@@ -21,7 +21,7 @@ function FolderPage() {
   const [editModalPurpose, setEditModalPurpose] = useState('');
   const [deleteModalPurpose, setDeleteModalPurpose] = useState({});
   const [shareModalPurpose, setShareModalPurpose] = useState({});
-
+  const [addModalPurpose, setAddModalPurpose] = useState('');
   //modal state handle functions
 
   //modal open
@@ -29,27 +29,29 @@ function FolderPage() {
     setEditModalPurpose(purpose);
     setEditModalIsOpen(true);
   };
-  const handleEditModalClose = () => {
-    setEditModalIsOpen(false);
-  };
 
   const handleDeleteModalOpen = (purpose) => {
     setDeleteModalPurpose(purpose);
     setDeleteModalIsOpen(true);
   };
 
-  const handleAddModalOpen = () => {
+  const handleAddModalOpen = (purpose) => {
+    setAddModalPurpose(purpose);
     setAddModalIsOpen(true);
+  };
+  const handleShareModalOpen = (purpose) => {
+    setShareModalPurpose(purpose);
+    setShareModalIsOpen(true);
   };
 
   //modal close
   const handleDeleteModalClose = () => {
     setDeleteModalIsOpen(false);
   };
-  const handleShareModalOpen = (purpose) => {
-    setShareModalPurpose(purpose);
-    setShareModalIsOpen(true);
+  const handleEditModalClose = () => {
+    setEditModalIsOpen(false);
   };
+
   const handleShareModalClose = () => {
     setShareModalIsOpen(false);
   };
@@ -62,19 +64,20 @@ function FolderPage() {
     <ModalContext.Provider
       value={{
         editModalIsOpen,
+        addModalIsOpen,
         deleteModalIsOpen,
+        shareModalIsOpen,
         editModalPurpose,
         deleteModalPurpose,
-        shareModalIsOpen,
+        addModalPurpose,
         shareModalPurpose,
-        addModalIsOpen,
         handleEditModalOpen,
         handleDeleteModalOpen,
+        handleShareModalOpen,
+        handleAddModalOpen,
         handleEditModalClose,
         handleDeleteModalClose,
         handleShareModalClose,
-        handleShareModalOpen,
-        handleAddModalOpen,
         handleAddModalClose,
       }}
     >

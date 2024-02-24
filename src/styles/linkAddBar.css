@@ -31,6 +31,7 @@
   gap: 0.75rem;
 }
 .link-add__bar--input {
+  outline: none;
   border: none;
   color: var(--Linkbrary-gray60, #9fa6b2);
   font-size: 16px;

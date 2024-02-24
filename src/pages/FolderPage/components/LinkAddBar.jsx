@@ -11,18 +11,15 @@ import { ModalContext } from '../FolderPage';
 function LinkAddBar() {
   const { handleAddModalOpen } = useContext(ModalContext);
   const placeholder = '링크를 추가해 보세요';
-  const buttonProps = {
-    width: '80px',
-    text: '추가하기',
-  };
 
   const handleLinkAddModalOpen = (e) => {
     e.preventDefault();
-    handleAddModalOpen();
+    const link = document.getElementById('link-add__bar--input').value;
+    handleAddModalOpen(link);
   };
   return (
     <div className="link-add">
-      <form className="link-add__bar">
+      <form className="link-add__bar" id="link-add">
         <div>
           <img
             className="link-add__bar--img"
@@ -32,9 +29,12 @@ function LinkAddBar() {
           <input
             className="link-add__bar--input"
             placeholder={placeholder}
+            id="link-add__bar--input"
           ></input>
         </div>
-        <Button handleClick={handleLinkAddModalOpen} props={buttonProps} />
+        <Button type="submit" onClick={handleLinkAddModalOpen}>
+          추가하기
+        </Button>
       </form>
     </div>
   );

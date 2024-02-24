@@ -1,23 +1,9 @@
 import styled from 'styled-components';
 
-const Button = ({ props, handleClick }) => {
-  const { width, text, fontSize, padding } = props;
-  return (
-    <StyledButton
-      width={width}
-      fontSize={fontSize}
-      padding={padding}
-      onClick={handleClick}
-    >
-      {text}
-    </StyledButton>
-  );
-};
-
-const StyledButton = styled.button`
-  width: ${(props) => props.width || '100px'};
+const Button = styled.button`
+  width: 80px;
   display: flex;
-  padding: ${(props) => props.padding || '10px 16px'};
+  padding: 10px 16px;
   justify-content: center;
   align-items: center;
   border-radius: 8px;

@@ -17,7 +17,7 @@ function PopOver({ id, url }) {
 
   const handleLinkAddModalOpen = (e) => {
     e.preventDefault();
-    handleAddModalOpen();
+    handleAddModalOpen(url);
   };
 
   return (

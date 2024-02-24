@@ -10,14 +10,15 @@ import {
 } from './ModalElements';
 import modalCloseIcon from '../../assets/modalColseIcon.svg';
 import checkedIcon from '../../assets/checkIcon.svg';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { ModalContext } from '../../pages/FolderPage/FolderPage';
 import useFoldersData from '../../hooks/useFoldersData';
 import { USERS_FOLDERS_URL } from '../../constants/urls';
 
 function AddModal() {
   const [clickedFolderId, setClickedFolderId] = useState(null);
-  const { handleAddModalClose } = useContext(ModalContext);
+  const { addModalPurpose, handleAddModalClose } = useContext(ModalContext);
+
   const folders = useFoldersData(USERS_FOLDERS_URL);
 
   const handleFolderButtonClick = (e, folderId) => {
@@ -32,7 +33,7 @@ function AddModal() {
         </CloseButton>
         <ModalInfo>
           <Title>폴더에 추가</Title>
-          <Name>링크 주소</Name>
+          <Name>{addModalPurpose}</Name>
         </ModalInfo>
         <FolderList>
           {folders.map((folder) => {
