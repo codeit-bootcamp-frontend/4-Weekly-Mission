@@ -1,7 +1,7 @@
-import FacebookImg from "../img/facebook.svg";
-import TwitterImg from "../img/twitter.svg";
-import YoutubeImg from "../img/youtube.svg";
-import InstagramImg from "../img/instagram.svg";
+import facebookImg from "../img/facebook.svg";
+import twitterImg from "../img/twitter.svg";
+import youtubeImg from "../img/youtube.svg";
+import instagramImg from "../img/instagram.svg";
 
 const Footer = () => {
   return (
@@ -23,7 +23,7 @@ const Footer = () => {
             className="footerContainer__sns--facebook"
             href="https://www.facebook.com/"
           >
-            <img src={FacebookImg} alt="snsLinkImg" />
+            <img src={facebookImg} alt="snsLinkImg" />
           </a>
         </li>
         <li className="footerContainer__sns--hideMaker">
@@ -31,7 +31,7 @@ const Footer = () => {
             className="footerContainer__sns--twitter"
             href="https://twitter.com/"
           >
-            <img src={TwitterImg} alt="snsLinkImg" />
+            <img src={twitterImg} alt="snsLinkImg" />
           </a>
         </li>
         <li className="footerContainer__sns--hideMaker">
@@ -39,7 +39,7 @@ const Footer = () => {
             className="footerContainer__sns--youtube"
             href="https://www.youtube.com/"
           >
-            <img src={YoutubeImg} alt="snsLinkImg" />
+            <img src={youtubeImg} alt="snsLinkImg" />
           </a>
         </li>
         <li className="footerContainer__sns--hideMaker">
@@ -47,7 +47,7 @@ const Footer = () => {
             className="footerContainer__sns--instagram"
             href="https://www.instagram.com/"
           >
-            <img src={InstagramImg} alt="snsLinkImg" />
+            <img src={instagramImg} alt="snsLinkImg" />
           </a>
         </li>
       </ul>

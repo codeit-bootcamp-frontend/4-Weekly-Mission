@@ -1,7 +1,7 @@
 import getElapsedTime from "../utils/getElapsedTime";
-import CardErrorImage from "../img/CardErrorImage.png";
-import StarToggleIcon from "../img/StarToggleIcon.svg";
-import Kebab from "../img/kebab.svg";
+import noImage from "../img/noImage.png";
+import starToggleIcon from "../img/starToggleIcon.svg";
+import kebab from "../img/kebab.svg";
 
 function formatDate(value) {
   const date = new Date(value);
@@ -10,7 +10,7 @@ function formatDate(value) {
 
 function Card({ folder }) {
   // folder 구조분해 할당 적용
-  const { created_at, description, id, image_source, url } = folder;
+  const { created_at, description, id, image_source } = folder;
   const uploadTime = getElapsedTime(created_at);
 
   return (
@@ -24,16 +24,12 @@ function Card({ folder }) {
           />
         )}
         {!image_source && (
-          <img
-            className="container__card--img"
-            src={CardErrorImage}
-            alt="CardImg"
-          />
+          <img className="container__card--img" src={noImage} alt="CardImg" />
         )}
       </div>
       <img
         className="container__card--starToggleIcon"
-        src={StarToggleIcon}
+        src={starToggleIcon}
         alt="starToggleIcon"
       />
       <div className="container__card--text">
@@ -45,7 +41,7 @@ function Card({ folder }) {
         )}
 
         <p className="container__card--createAt">{formatDate(created_at)}</p>
-        <img className="container__card--kebab" src={Kebab} alt="KebabIcon" />
+        <img className="container__card--kebab" src={kebab} alt="KebabIcon" />
       </div>
     </div>
   );

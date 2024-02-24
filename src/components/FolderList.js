@@ -2,13 +2,9 @@ import { useEffect, useState } from "react";
 import { getFetchData } from "../utils/getFetchData";
 
 function FolderListItem({ folder, onClick }) {
-  const handleClick = () => {
-    onClick({ folder });
-  };
-
   return (
     <div>
-      <button className="folderList__Btn" onClick={handleClick}>
+      <button className="folderList__Btn" onClick={() => onClick(folder)}>
         {folder.name}
       </button>
     </div>
@@ -33,10 +29,14 @@ function FolderList({ handleFolderListItemClick }) {
 
   return (
     <div className="folderList">
+      <FolderListItem
+        folder={{ name: "전체", id: null }}
+        onClick={handleFolderListItemClick}
+      />
       {folders.map((folder) => {
         return (
           <FolderListItem
-            key={folders.id}
+            key={folder.id}
             folder={folder}
             onClick={handleFolderListItemClick}
           />

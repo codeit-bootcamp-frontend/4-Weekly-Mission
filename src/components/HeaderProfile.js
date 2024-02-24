@@ -1,4 +1,4 @@
-function NavProfile({ userData }) {
+function HeaderProfile({ userData }) {
   return (
     <div className="headerWrap__profile">
       <img
@@ -11,4 +11,4 @@ function NavProfile({ userData }) {
   );
 }
 
-export default NavProfile;
+export default HeaderProfile;

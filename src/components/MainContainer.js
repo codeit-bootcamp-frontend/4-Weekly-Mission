@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getFetchData } from "../utils/getFetchData";
 import Card from "./Card";
-import LinkIcon from "../img/LinkIcon.svg";
+import linkIcon from "../img/linkIcon.svg";
 import InputSearchLink from "./InputSearchLink";
 import FolderList from "./FolderList";
 
@@ -27,11 +27,16 @@ const MainContainer = () => {
     };
 
     getUserFolderData();
-  }, [folderId]);
+  }, [folderId, userFolderLinks]);
 
   const handleFolderListItemClick = (selectFolder) => {
-    setFolderId(selectFolder.folder.id);
-    setFolderName(selectFolder.folder.name);
+    setFolderId(selectFolder.id);
+    setFolderName(selectFolder.name);
+  };
+
+  const handleSearchInputChange = (value) => {
+    // searchInput의 값을 가져와서 value값과 link의 title & description 값이 includes = true 값이 나오면 해당하는 link를 가져오는 항목 추가 예정
+    console.log(value);
   };
 
   return (
@@ -40,7 +45,7 @@ const MainContainer = () => {
         <form className="topContainer__addLinkForm">
           <img
             className="topContainer__addLinkForm--icon"
-            src={LinkIcon}
+            src={linkIcon}
             alt="LinkIcon"
           />
           <input
@@ -53,7 +58,7 @@ const MainContainer = () => {
         </form>
       </div>
       <div className="container">
-        <InputSearchLink />
+        <InputSearchLink onChange={handleSearchInputChange} />
         <div className="container__myFolders">
           <div className="container__myFolders--folderList">
             <FolderList handleFolderListItemClick={handleFolderListItemClick} />
@@ -67,9 +72,9 @@ const MainContainer = () => {
             <div className="container__noLink">저장된 링크가 없습니다</div>
           ) : (
             <div className="container__cardWrap">
-              {sortedLinks.map((link) => {
-                return <Card key={link.id} folder={link} />;
-              })}
+              {sortedLinks.map((link) => (
+                <Card key={link.id} folder={link} />
+              ))}
             </div>
           )}
         </div>

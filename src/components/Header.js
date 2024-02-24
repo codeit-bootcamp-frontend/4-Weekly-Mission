@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import LogoImg from "../img/logo.svg";
-import NavProfile from "./NavProfile";
+import HeaderProfile from "./HeaderProfile";
 import { getFetchData } from "../utils/getFetchData";
 import { Link } from "react-router-dom";
 
-const Nav = () => {
+const Header = () => {
   const [userData, setUserData] = useState({
     email: null,
     image_source: null,
@@ -34,7 +34,7 @@ const Nav = () => {
           />
         </Link>
         {userData.email ? (
-          <NavProfile userData={userData} />
+          <HeaderProfile userData={userData} />
         ) : (
           <Link to="/signin" className="headerWrap__Btn" href="./signin.html">
             로그인
@@ -45,4 +45,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default Header;
