@@ -9,10 +9,8 @@ import Button from 'components/Common/Button';
 import ModalContainer from 'components/Modal/ModalContainer';
 import styles from 'components/Modal/ShareModal.module.css';
 
-import getHostAddress from 'utils/getHostAddress';
-
 function ShareModal({ folder }) {
-  const host = getHostAddress();
+  const host = window.location.origin;
   const shareUrl = `${host}/shared/${folder?.id ?? ''}`;
 
   // 공유 옵션
