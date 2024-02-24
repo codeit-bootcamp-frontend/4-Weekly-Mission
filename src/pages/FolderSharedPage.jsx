@@ -10,18 +10,16 @@ import { getSampleCards, getSampleUser } from "../services/api";
 function FolderSharedPage() {
   const [folderOwners, setFolderOwners] = useState([]);
   const [folderName, setFolderName] = useState();
-  const [SampleCards, setSampleCards] = useState([]);
+  const [sampleCards, setSampleCards] = useState([]);
   const [sampleUserInfo, setSampleUserInfo] = useState([]);
 
   // 카드 정보 받아오기
   const getSampleCardsInfo = async () => {
     const sampleCardsInfo = await getSampleCards();
-    const folderOwners = sampleCardsInfo.folder.owner;
-    const folderName = sampleCardsInfo.folder.name;
-    const sampleCards = sampleCardsInfo.folder.links;
-    setFolderOwners(folderOwners);
-    setFolderName(folderName);
-    setSampleCards(sampleCards);
+    const { owner, name, link } = sampleCardsInfo.folder;
+    setFolderOwners(owner);
+    setFolderName(name);
+    setSampleCards(link);
   };
 
   // 유저 정보 받아오기
@@ -44,7 +42,7 @@ function FolderSharedPage() {
         <UserInformation folderOwners={folderOwners} folderName={folderName} />
         <div className="content_container">
           <SearchBar />
-          <Cards cards={SampleCards} />
+          <Cards cards={sampleCards} />
         </div>
       </main>
       <footer>
