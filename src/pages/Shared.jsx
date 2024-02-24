@@ -3,72 +3,61 @@ import { getFolder, getUser } from "../api";
 import useAsync from "../components/hooks/useAsync";
 
 // components
-import Footer from "../components/common/footer/Footer";
-import Header from "../components/common/header/Header";
 import CardList from "../components/shared/CardList";
-import SearchBar from "../components/common/searchBar/SearchBar";
+import SearchBar from "../components/common/SearchBar";
 import SharedInfo from "../components/shared/SharedInfo";
 
-// style
-import "../pages/Shared.css";
+import styled from "styled-components";
+
+const Container = styled.main`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 
 const Shared = () => {
-  const [cardItems, setCardItems] = useState([]);
-  const [folderInfo, setFolderInfo] = useState("");
-  const [folderName, setFolderName] = useState("");
-  const [userInfo, setUserInfo] = useState([]);
+  const [folderData, setFolderData] = useState({
+    cardItems: [],
+    folderInfo: "",
+    folderName: "",
+  });
   const [order] = useState("createdAt");
 
-  const [folderLoadingError, getReviewsAsync] = useAsync(getFolder);
-  const [userLoadingError, getUserAsync] = useAsync(getUser);
-
-  const sortedItems = cardItems.sort((a, b) =>
-    b[order].localeCompare(a[order])
-  );
+  const [folderLoadingError, getFolderAsync] = useAsync(getFolder);
 
   // 카드 아이템 요청
   const handleLoadItems = async () => {
-    let result = await getReviewsAsync();
+    let result = await getFolderAsync();
     if (!result) return;
 
     const { links, owner, name } = result.folder;
-    setCardItems(links);
-    setFolderInfo(owner);
-    setFolderName(name);
-  };
-
-  // 유저 정보 요청
-  const handleLoadUser = async () => {
-    let result = await getUserAsync();
-    if (!result) return;
-
-    setUserInfo(result);
+    setFolderData({
+      cardItems: links,
+      folderInfo: owner,
+      folderName: name,
+    });
   };
 
   useEffect(() => {
     handleLoadItems();
-    handleLoadUser();
   }, []);
 
   return (
-    <div className="Shared">
-      <Header userInfo={userInfo} userLoadingError={userLoadingError} />
-      <div className="Shared-main">
-        <SharedInfo
-          folderInfo={folderInfo}
-          folderName={folderName}
+    <Container>
+      <SharedInfo
+        folderData={folderData}
+        folderLoadingError={folderLoadingError}
+      />
+      <div className="Shared-content-wrapper">
+        <SearchBar />
+        <CardList
+          items={folderData.cardItems}
+          folderId={null}
           folderLoadingError={folderLoadingError}
         />
-        <div className="Shared-content-wrapper">
-          <SearchBar />
-          <CardList
-            items={sortedItems}
-            folderLoadingError={folderLoadingError}
-          />
-        </div>
       </div>
-      <Footer />
-    </div>
+    </Container>
   );
 };
 
