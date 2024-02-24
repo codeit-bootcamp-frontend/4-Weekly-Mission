@@ -29,8 +29,7 @@ const ShareFolderProfile = function () {
 	useEffect(() => {
 		loadFolderAccountName(USER);
 		loadFolderProfileData(FOLDER);
-		console.log(folderName);
-	}, [folderName, folderImg, folderAccountName]);
+	}, []);
 
 	return (
 		<section className="folder-page-profile">

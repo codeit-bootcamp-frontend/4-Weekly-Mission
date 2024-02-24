@@ -52,7 +52,6 @@ export default function KebabMenu({ items }) {
 	const handleKebabToggle = () => {
 		setKebabMenuPop(!kebabMenuPop);
 	};
-	console.log(items);
 
 	return (
 		<div className="kebab-menu-position-origin">
