@@ -2,22 +2,22 @@ import { MODAL_TYPE } from "./modalType";
 import ModalLayout from "./ModalLayout";
 import styles from "./DeleteModal.module.css";
 
-function DeleteModal({ isOpenModal, closeModal }) {
+function DeleteLinkModal({ isOpenModal, closeModal, url }) {
 
-  const { deleteFolder } = MODAL_TYPE;
+  const { deleteLink } = MODAL_TYPE;
 
   return (
     <ModalLayout
-      title={deleteFolder.title}
+      title={deleteLink.title}
       isOpen={isOpenModal}
       closeModal={closeModal}
     >
-      <div className={styles.folderName}>폴더명</div>
+      <div className={styles.folderName}>{url}</div>
       <button className={styles.deleteButton}>
-        {deleteFolder.buttonName}
+        {deleteLink.buttonName}
       </button>
     </ModalLayout>
   );
 }
 
-export default DeleteModal;
+export default DeleteLinkModal;

@@ -11,7 +11,7 @@ function AddLinkModal({ isOpenModal, closeModal }) {
   const { addLink } = MODAL_TYPE;
 
   const handleClick = (name) => {
-    setClickItem(name);
+    setClickItem(name === clickItem ? '' : name);
   }
 
   return (
