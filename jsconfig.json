@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "module": "CommonJS",
+    "paths": {
+      "assets/*": ["assets/*"],
+      "components/*": ["components/*"],
+      "pages/*": ["pages/*"],
+      "context/*": ["context/*"],
+      "hooks/*": ["hooks/*"],
+      "utils/*": ["utils/*"],
+      "reducer/*": ["reducer/*"]
+    }
+  },
+  "exclude": ["node_modules"],
+  "include": ["src"]
+}
