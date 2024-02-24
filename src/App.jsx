@@ -3,6 +3,7 @@
 // import FolderPage from "./pages/FolderPage";
 // import { Navigate } from "../node_modules/react-router-dom/dist/index";
 
+import ModalContainer from "./modal/ModalContainer";
 import SharedPage from "./pages/SharedPage";
 
 // // 링크 공유 페이지(SharedPage) url path는 ‘/shared’
