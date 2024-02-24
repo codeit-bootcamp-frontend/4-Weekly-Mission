@@ -1,19 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { SearchLink } from '../common/SearchLink';
 import { FolderCategory } from './FolderCategory';
 import { FolderTitle } from './FolderTitle';
 import { FolderCard } from './FolderCard';
-import { useAPIData } from '../../hooks/useAPIData';
-import { categoryDataAPI, categoryFolderDataAPI } from '../../api/BootcampAPI';
 import { NonLink } from '../../styles/styledComponents/folderStyled';
+import { FolderPageContext } from '../../context/FolderPageContext';
+
 export const FolderContents = () => {
   const [currentCategory, setCurrentCategory] = useState('전체');
-
-  const { data: category } = useAPIData(categoryDataAPI);
-  const { data: folder, handleData: setFolder } = useAPIData(
-    categoryFolderDataAPI,
-    '0',
-  );
+  const { category, folder, setFolder } = useContext(FolderPageContext);
 
   const handleCategoryButton = (e) => {
     setCurrentCategory(e.target.innerText);

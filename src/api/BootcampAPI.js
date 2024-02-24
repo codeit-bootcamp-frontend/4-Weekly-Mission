@@ -1,5 +1,5 @@
 const BASEURL = 'https://bootcamp-api.codeit.kr/api';
-export const userDataAPI = async () => {
+export const userSampleDataAPI = async () => {
   const APIData = { email: null, image: null };
   try {
     const response = await fetch(`${BASEURL}/users/1`);

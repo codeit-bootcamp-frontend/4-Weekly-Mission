@@ -218,6 +218,7 @@ export const NonLink = styled.div`
 `;
 
 export const ModalBackground = styled.div`
+  display: ${({ $modalStatus }) => ($modalStatus ? 'block' : 'none')};
   position: absolute;
   width: 100%;
   height: 100%;
@@ -255,7 +256,7 @@ export const CloseButton = styled.img`
 
 export const AddModalWrapper = styled.div`
   display: flex;
-  height: ${({ overscroll }) => (overscroll === 'true' ? `172px` : 'auto')};
+  height: ${({ $overscroll }) => ($overscroll === 'true' ? `172px` : 'auto')};
   width: 280px;
   flex-direction: column;
   gap: 4px;

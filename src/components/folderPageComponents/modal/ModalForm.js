@@ -116,7 +116,7 @@ export const ModalForm = ({ modalData }) => {
 
     return (
       <>
-        <AddModalWrapper overscroll={'true'}>
+        <AddModalWrapper $overscroll={'true'}>
           {modalData.folderName.map((folder, idx) =>
             addModalCheck === idx ? (
               <FolderButton

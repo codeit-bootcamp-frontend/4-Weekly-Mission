@@ -1,10 +1,10 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import logo from '../../assets/Images/logo.svg';
 import { Nav } from '../../styles/styledComponents/common';
-import { FolderPageContext } from '../../context/FolderPageContext';
+import { useAPIData } from '../../hooks/useAPIData';
 
-export const MainHeader = ({ navFixed }) => {
-  const userProfile = useContext(FolderPageContext);
+export const MainHeader = ({ userDataAPIFunc, navFixed }) => {
+  const { data: userProfile } = useAPIData(userDataAPIFunc);
   return (
     <>
       <Nav $navStatus={navFixed}>

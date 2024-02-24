@@ -14,8 +14,7 @@ import ModalCloseButton from '../assets/Images/ModalCloseButton.png';
 import { Modal } from '../components/folderPageComponents/modal/Modal';
 
 export default function MainPage() {
-  const { data: userProfile } = useAPIData(userDataAPI);
-  const [modalStatus, setModalStatus] = useState(true);
+  const [modalStatus, setModalStatus] = useState(false);
   const [modalData, setModalData] = useState({
     ModalContent: 'AddFolderModal',
     folderName: [
@@ -35,20 +34,19 @@ export default function MainPage() {
   const handleModalStatus = () => {
     setModalStatus((prev) => !prev);
   };
-  const handleModalContent = (key, value) => {
-    setModalData({ ...modalData, [key]: value });
+  const handleModalContent = (value) => {
+    setModalData({ ...modalData, ...value });
   };
   return (
     <Wrapper>
       <Outlet
         context={{
-          userProfile: userProfile,
           handleModalStatus: handleModalStatus,
           handleModalContent: handleModalContent,
         }}
       ></Outlet>
       <MainFooter></MainFooter>
-      <ModalBackground>
+      <ModalBackground $modalStatus={modalStatus}>
         <ModalContent>
           <CloseButton src={ModalCloseButton}></CloseButton>
           <Modal modalData={modalData}></Modal>
