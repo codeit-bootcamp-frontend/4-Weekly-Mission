@@ -23,7 +23,7 @@ export const CardContianer = styled.div`
   row-gap: 2rem;
   column-gap: 25px;
   justify-content: center;
-
+  justify-items: center;
   a {
     text-decoration: none;
   }
@@ -33,7 +33,7 @@ export const CardContianer = styled.div`
     column-gap: 2rem;
   }
   @media (width < 768px) {
-    grid-template-columns: repeat(auto-fill, 34rem);
+    grid-template-columns: repeat(1, 1fr);
     row-gap: 2.5rem;
     column-gap: 2rem;
   }
