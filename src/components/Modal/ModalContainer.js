@@ -11,7 +11,7 @@ function ModalContainer({ children }) {
     'position-fixed',
     'width-full',
     'height-full',
-    'z-top'
+    'z-top-force'
   );
   const modalContentClasses = classNames(
     styles['modal-content'],

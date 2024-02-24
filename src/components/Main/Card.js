@@ -10,7 +10,9 @@ import styles from 'components/Main/Card.module.css';
 import formatDate from 'utils/formatDate';
 import timeAgo from 'utils/timeAgo';
 
-function Card({ createdAt, url, description, imageSource }) {
+function Card({ linkData }) {
+  const { created_at: createdAt, url, description, image_source: imageSource } = linkData;
+
   const createdTimeAgo = timeAgo(createdAt);
   const createdDate = formatDate(createdAt);
 
@@ -66,17 +68,21 @@ function Card({ createdAt, url, description, imageSource }) {
 }
 
 Card.propTypes = {
-  createdAt: PropTypes.string,
-  url: PropTypes.string,
-  description: PropTypes.string,
-  imageSource: PropTypes.string,
+  linkData: PropTypes.shape({
+    created_at: PropTypes.string,
+    url: PropTypes.string,
+    description: PropTypes.string,
+    image_source: PropTypes.string,
+  }),
 };
 
 Card.defaultProps = {
-  createdAt: '',
-  url: '',
-  description: '',
-  imageSource: '',
+  linkData: {
+    created_at: '',
+    url: '',
+    description: '',
+    image_source: '',
+  },
 };
 
 export default Card;

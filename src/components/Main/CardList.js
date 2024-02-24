@@ -34,13 +34,7 @@ function CardList({ folderId }) {
       {linkCount > 0 ? (
         <div className={cardListClasses}>
           {linkList.map((link) => (
-            <Card
-              key={link.id}
-              createdAt={link.created_at}
-              url={link.url}
-              description={link.description}
-              imageSource={link.image_source}
-            />
+            <Card key={link.id} linkData={link} />
           ))}
           {loading && <ErrorMessage message={LOADING_MESSAGE} />}
           {error && <ErrorMessage message={error} />}
