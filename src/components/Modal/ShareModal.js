@@ -40,7 +40,6 @@ function ShareModal({ folder }) {
 
   // 공유 실행
   const handleShareButtonClick = (type) => {
-    console.log(type);
     switch (type) {
       case 'kakao':
         // 카카오톡 공유는 과정 상 어려움이 있어서 클립보드 복사로 대체
