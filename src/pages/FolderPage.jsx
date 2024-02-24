@@ -2,11 +2,11 @@ import "../styles/FolderPage.css";
 import floatingButton from "../assets/folder-add-icon-white.png";
 import Footer from "../common/footer/Footer";
 import NavigationBar from "../common/navigationBar/NavigationBar";
-import LinkAddBar from "../components/linkAddBar/LinkAddBar";
+import LinkAddBar from "../components/LinkAddBar/LinkAddBar";
 import SearchBar from "../common/searchBar/SearchBar";
-import FolderMenu from "../components/folderMenu/FolderMenu";
-import FolderCurrentInformation from "../components/folderCurrentInformation/FolderCurrentInformation";
-import Cards from "../components/cards/Cards";
+import FolderMenu from "../components/FolderMenu/FolderMenu";
+import FolderCurrentInformation from "../components/FolderCurrentInformation/FolderCurrentInformation";
+import Cards from "../components/Cards/Cards";
 import {
   getCards,
   getFolders,

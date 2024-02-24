@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import "../styles/FolderSharedPage.css";
 import Footer from "../common/footer/Footer";
 import NavigationBar from "../common/navigationBar/NavigationBar";
-import Cards from "../components/cards/Cards";
+import Cards from "../components/Cards/Cards";
 import SearchBar from "../common/searchBar/SearchBar";
-import UserInformation from "../components/folderInformation/FolderInformation";
+import FolderInformation from "../components/FolderInformation/FolderInformation";
 import { getSampleCards, getSampleUser } from "../services/api";
 
 function FolderSharedPage() {
@@ -39,7 +39,10 @@ function FolderSharedPage() {
         <NavigationBar userInfo={sampleUserInfo} />
       </header>
       <main>
-        <UserInformation folderOwners={folderOwners} folderName={folderName} />
+        <FolderInformation
+          folderOwners={folderOwners}
+          folderName={folderName}
+        />
         <div className="content_container">
           <SearchBar />
           <Cards cards={sampleCards} />
