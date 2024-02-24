@@ -1,8 +1,5 @@
 import "components/LinkSubFolder.css";
 import { useEffect, useState } from "react";
-import { acceptDataFromApi } from "Api";
-import LinkSearchBar from "./LinkSearchBar";
-import LinkCardCollection from "./LinkCardCollection";
 import {
 	AddFolderButton,
 	EmptySpace,
@@ -10,12 +7,8 @@ import {
 	Button,
 	SubFolderBtn,
 	SubFolderBtnList,
-	SubFolderTitle,
 	SubFolderUtilList,
-	SubFolderUtil,
 } from "./LinkSubFolder.Styles.jsx";
-import useAsync from "./Hooks/useAsync";
-import { useSearchParams } from "react-router-dom";
 
 function AddSubFolder() {
 	return (
@@ -70,10 +63,6 @@ function SubFoldersList({ subFolderData, handleCurrentFolderChange }) {
 	);
 }
 
-function CurrentSubFolder({ currentFolder }) {
-	return <SubFolderTitle>{currentFolder}</SubFolderTitle>;
-}
-
 function HandleCurrentSubFolder() {
 	return (
 		<SubFolderUtilList>
@@ -93,83 +82,4 @@ function HandleCurrentSubFolder() {
 	);
 }
 
-export default function LinkSubFolder({ userId = 1 }) {
-	const [isCurrentFolderAll, setIsCurrentFolderAll] = useState(true);
-	const [currentFolderName, setCurrentFolderName] = useState("전체");
-	const [subFolderList, setSubFolderList] = useState([]);
-	const [isEmptyResponse, setIsEmptyResponse] = useState(true);
-	const [isLoading, error, acceptDataFromApiAsync] =
-		useAsync(acceptDataFromApi);
-	const [currentFolderQuery, setCurrentFolderQuery] = useState(
-		`users/${userId}/links`
-	);
-	const [searchParams, setSearchParams] = useSearchParams();
-
-	const [items, setItems] = useState([]);
-
-	const handleShareLoad = async (query) => {
-		setIsEmptyResponse(false);
-		const { data } = await acceptDataFromApiAsync(query);
-		if (error) throw new Error(error.message);
-
-		if (data.length === 0) {
-			setIsEmptyResponse(true);
-		}
-		setItems(data);
-	};
-
-	const handleCurrentFolderChange = (id, name) => {
-		setCurrentFolderName(name);
-		setCurrentFolderQuery(
-			`users/${userId}/links${id !== 0 ? `?folderId=${id}` : ""}`
-		);
-
-		if (id === 0) {
-			setSearchParams("");
-			setIsCurrentFolderAll(true);
-			return;
-		}
-		setSearchParams({ folderId: id });
-		setIsCurrentFolderAll(false);
-	};
-
-	const acceptSubFolderList = async (requestQuery) => {
-		const { data } = await acceptDataFromApi(requestQuery);
-		setSubFolderList(data);
-	};
-
-	useEffect(() => {
-		acceptSubFolderList(`users/${userId}/folders`);
-		handleShareLoad(`users/${userId}/links`);
-	}, [userId]);
-
-	useEffect(() => {
-		handleShareLoad(currentFolderQuery);
-	}, [currentFolderQuery]);
-
-	return (
-		<>
-			<div>
-				<SubFolderUtil>
-					<SubFoldersList
-						subFolderData={subFolderList}
-						handleCurrentFolderChange={handleCurrentFolderChange}
-					/>
-					<AddSubFolder />
-				</SubFolderUtil>
-				<SubFolderUtil>
-					<CurrentSubFolder currentFolder={currentFolderName} />
-					{!isCurrentFolderAll && <HandleCurrentSubFolder />}
-				</SubFolderUtil>
-			</div>
-			<LinkSearchBar />
-			{isEmptyResponse || isLoading ? (
-				<EmptyLink isLoading={isLoading} />
-			) : (
-				<>
-					<LinkCardCollection items={items} favorite={true} kebab={true} />
-				</>
-			)}
-		</>
-	);
-}
+export { HandleCurrentSubFolder, SubFoldersList, AddSubFolder, EmptyLink };

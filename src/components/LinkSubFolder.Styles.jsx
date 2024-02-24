@@ -29,7 +29,7 @@ const SubFolderUtil = styled.div`
 	}
 `;
 
-const SubFolderTitle = styled.p`
+const CurrentSubFolder = styled.p`
 	font-family: Pretendard;
 	font-size: 2.4rem;
 	font-style: normal;
@@ -135,6 +135,6 @@ export {
 	AddImage,
 	SubFolderUtilList,
 	SubFolderUtil,
-	SubFolderTitle,
+	CurrentSubFolder,
 	Button,
 };
