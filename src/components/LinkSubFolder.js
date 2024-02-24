@@ -14,6 +14,7 @@ import {
 	SubFolderUtilList,
 	SubFolderUtil,
 } from "./LinkSubFolder.Styles.jsx";
+import useAsync from "./Hooks/useAsync";
 
 function AddSubFolder() {
 	return (
@@ -97,20 +98,21 @@ export default function LinkSubFolder({ userId = 1 }) {
 	const [currentFolderName, setCurrentFolderName] = useState("전체");
 	const [subFolderList, setSubFolderList] = useState([]);
 	const [isEmptyResponse, setIsEmptyResponse] = useState(true);
-	const [isLoading, setIsLoading] = useState(false);
+	const [isLoading, error, acceptDataFromApiAsync] =
+		useAsync(acceptDataFromApi);
 	const [currentFolderQuery, setCurrentFolderQuery] = useState(
 		`users/${userId}/links`
 	);
 	const [items, setItems] = useState([]);
 
 	const handleShareLoad = async (query) => {
-		setIsLoading(true);
 		setIsEmptyResponse(false);
-		const { data } = await acceptDataFromApi(query);
+		const { data } = await acceptDataFromApiAsync(query);
+		if (error) throw new Error(error.message);
+
 		if (data.length === 0) {
 			setIsEmptyResponse(true);
 		}
-		setIsLoading(false);
 		setItems(data);
 	};
 
@@ -127,15 +129,15 @@ export default function LinkSubFolder({ userId = 1 }) {
 		setIsCurrentFolderAll(false);
 	};
 
-	const subFolderData = async (requestQuery) => {
+	const acceptSubFolderList = async (requestQuery) => {
 		const { data } = await acceptDataFromApi(requestQuery);
 		setSubFolderList(data);
 	};
 
 	useEffect(() => {
-		subFolderData(`users/${userId}/folders`);
-		handleShareLoad(currentFolderQuery);
-	}, [userId, currentFolderQuery]);
+		acceptSubFolderList(`users/${userId}/folders`);
+		handleShareLoad(`users/${userId}/links`);
+	}, [userId]);
 
 	return (
 		<>
