@@ -1,22 +1,11 @@
 import "components/LinkSubFolder.css";
 import { useEffect, useState } from "react";
 import {
-	AddFolderButton,
-	EmptySpace,
-	AddImage,
 	Button,
 	SubFolderBtn,
 	SubFolderBtnList,
 	SubFolderUtilList,
 } from "./LinkSubFolder.Styles.jsx";
-
-function AddSubFolder() {
-	return (
-		<AddFolderButton className="add-sub-folder">
-			폴더 추가 <AddImage />
-		</AddFolderButton>
-	);
-}
 
 function SubFoldersList({ subFolderData, handleCurrentFolderChange }) {
 	const [subFolderList, setSubFolderList] = useState([]);
@@ -74,4 +63,4 @@ function HandleCurrentSubFolder() {
 	);
 }
 
-export { HandleCurrentSubFolder, SubFoldersList, AddSubFolder };
+export { HandleCurrentSubFolder, SubFoldersList };

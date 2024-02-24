@@ -1,7 +1,6 @@
 import FolderLinkAddBar from "components/FolderLinkAddBar";
 import "pages/Folder.css";
 import {
-	AddSubFolder,
 	HandleCurrentSubFolder,
 	SubFoldersList,
 } from "components/LinkSubFolder";
@@ -12,6 +11,8 @@ import useAsync from "components/Hooks/useAsync";
 import { acceptDataFromApi } from "Api";
 import { useSearchParams } from "react-router-dom";
 import {
+	AddFolderButton,
+	AddImage,
 	CurrentSubFolder,
 	EmptySpace,
 	SubFolderUtil,
@@ -97,7 +98,9 @@ export default function Folder({ userId = 1 }) {
 						subFolderData={subFolderList}
 						handleCurrentFolderChange={handleCurrentFolderChange}
 					/>
-					<AddSubFolder />
+					<AddFolderButton className="add-sub-folder">
+						폴더 추가 <AddImage />
+					</AddFolderButton>
 				</SubFolderUtil>
 				<SubFolderUtil>
 					<CurrentSubFolder>{currentFolderName}</CurrentSubFolder>
