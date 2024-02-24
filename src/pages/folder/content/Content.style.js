@@ -22,7 +22,7 @@ export const CardContainer = styled.div`
   gap: 25px 20px;
   flex-wrap: wrap;
 `;
-export const folderButtonList = styled.div`
+export const FolderButtonList = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -24,7 +24,7 @@ const Content = () => {
           setFolderData(data);
           setUserFolder(data);
         });
-  }, [folderId]);
+  }, [title, folderId]);
 
   useEffect(() => {
     get('/users/1/folders').then(({ data }) => setFolderList(data));
@@ -34,7 +34,7 @@ const Content = () => {
     <S.Container>
       <SearchBar />
       <div className="folder-list-box">
-        <S.folderButtonList>
+        <S.FolderButtonList>
           <div className="folder-btn-box">
             <button className={`folder-btn ${title === '전체' ? 'active' : ''}`} onClick={() => setTitle('전체')}>
               전체
@@ -57,7 +57,7 @@ const Content = () => {
             <button>폴더 추가</button>
             <S.addPlusSvg />
           </div>
-        </S.folderButtonList>
+        </S.FolderButtonList>
 
         <S.currentName>
           <p className="title">{title}</p>
