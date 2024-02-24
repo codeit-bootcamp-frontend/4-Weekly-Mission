@@ -14,6 +14,7 @@ import {
   getUser,
 } from "../services/api";
 import { useEffect, useState } from "react";
+import DeleteModal from "../components/Modals/DeleteModal";
 
 function FolderPage() {
   const [userCards, setUserCards] = useState([]);
@@ -22,6 +23,7 @@ function FolderPage() {
   const [folderName, setFolderName] = useState();
   const [userInfo, setUserInfo] = useState([]);
   const [isWholeFolderSelect, setIsWholeFolderSelect] = useState(false);
+  const [isLinkDeleteSelect, setIsLinkDeleteSelect] = useState(false);
 
   const getCardsInfo = async () => {
     const response = await getCards();
@@ -48,6 +50,10 @@ function FolderPage() {
     console.log(userInfo);
   };
 
+  const changeLinkDeleteSelect = () => {
+    setIsLinkDeleteSelect(!isLinkDeleteSelect);
+  };
+
   useEffect(() => {
     getFoldersInfo();
     getSelectedCardsInfo();
@@ -60,6 +66,13 @@ function FolderPage() {
 
   return (
     <div className="FolderPage">
+      {isLinkDeleteSelect && (
+        <DeleteModal
+          title="링크 삭제"
+          description="링크 이름"
+          changeLinkDeleteSelect={changeLinkDeleteSelect}
+        />
+      )}
       <header>
         <NavigationBar userInfo={userInfo} />
       </header>
@@ -77,7 +90,10 @@ function FolderPage() {
           folderName={folderName}
           isWholeFolderSelect={isWholeFolderSelect}
         />
-        <Cards cards={userCards} />
+        <Cards
+          cards={userCards}
+          changeLinkDeleteSelect={changeLinkDeleteSelect}
+        />
         <button className="mobile_floating_button">
           <span>폴더 추가</span>
           <img

@@ -5,7 +5,7 @@ import elapsedTime from "../../utils/elapsedTime";
 import { useState } from "react";
 import CardPopover from "../CardPopover/CardPopover";
 
-function Cards({ cards }) {
+function Cards({ cards, changeLinkDeleteSelect }) {
   const [showPopover, setShowPopover] = useState(false);
 
   const handleKebabClick = (e) => {
@@ -43,7 +43,9 @@ function Cards({ cards }) {
                     <img src={kebabIcon} onClick={handleKebabClick} />
                     {showPopover && (
                       <div className="popover_container">
-                        <CardPopover />
+                        <CardPopover
+                          changeLinkDeleteSelect={changeLinkDeleteSelect}
+                        />
                       </div>
                     )}
                   </div>
