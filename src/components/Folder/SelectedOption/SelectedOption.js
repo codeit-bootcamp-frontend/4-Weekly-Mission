@@ -2,11 +2,16 @@ import { useState } from "react";
 import "./SelectedOption.css";
 import ModalEdit from "../Modal/ModalEdit/ModalEdit";
 import ModalDelete from "../Modal/ModalDelete/ModalDelete";
+import ModalShare from "../Modal/ModalShare/ModalShare";
 
 function SelectedOption({ selectedFolder, activeButton }) {
+  const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
+  const handleOpenShareModal = () => {
+    setIsShareModalOpen(true);
+  };
   const handleOpenEditModal = () => {
     setIsEditModalOpen(true);
   };
@@ -19,10 +24,16 @@ function SelectedOption({ selectedFolder, activeButton }) {
       <span className="Selected-folder-name">{selectedFolder}</span>
       {activeButton !== "전체" && (
         <div className="Selected-option">
-          <button className="Selected-option-content">
+          <button
+            className="Selected-option-content"
+            onClick={handleOpenShareModal}
+          >
             <img src="images/share.svg" alt="공유 이미지" />
             <p>공유</p>
           </button>
+          {isShareModalOpen && (
+            <ModalShare setIsShareModalOpen={setIsShareModalOpen} />
+          )}
           <button
             className="Selected-option-content"
             onClick={handleOpenEditModal}
