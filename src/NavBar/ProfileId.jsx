@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react';
-import { getProfileData } from '../api';
-
 const ProfileId = ({ state }) => {
   console.log(state);
   return (
