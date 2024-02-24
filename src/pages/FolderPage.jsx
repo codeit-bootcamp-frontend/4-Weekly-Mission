@@ -29,7 +29,7 @@ const FolderPage = () => {
     { id: 'all', name: '전체' },
     ...datas?.data,
   ];
-  // console.log(datas);
+
   const handleCategoryButton = e => {
     setCurrentCategory({ id: e.target.id, name: e.target.innerText });
   };
@@ -49,7 +49,10 @@ const FolderPage = () => {
           currentCategory={currentCategory.name}
           handleCategoryButton={handleCategoryButton}
         />
-        <SubTitle currentCategory={currentCategory.name} />
+        <SubTitle
+          currentCategory={currentCategory.name}
+          categoryId={folderId}
+        />
         {folderDatas?.data.length ? (
           <CardGrid
             isLoading={isLoading}

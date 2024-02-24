@@ -8,7 +8,7 @@ import PostModal from 'components/common/modal/PostModal';
 import DeleteModal from 'components/common/modal/DeleteModal';
 import ShareModal from 'components/common/modal/ShareModal';
 
-const OptionButton = ({ placeholder, folderName }) => {
+const OptionButton = ({ placeholder, folderName, categoryId }) => {
   const BUTTON = [
     { url: Share, name: '공유' },
     { url: Rename, name: '이름 변경' },
@@ -24,7 +24,13 @@ const OptionButton = ({ placeholder, folderName }) => {
   const renderModalContent = () => {
     switch (modalName) {
       case '공유':
-        return <ShareModal title="공유하기" subTitle={folderName} />;
+        return (
+          <ShareModal
+            title="공유하기"
+            subTitle={folderName}
+            categoryId={categoryId}
+          />
+        );
       case '이름 변경':
         return (
           <PostModal

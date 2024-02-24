@@ -1,10 +1,50 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import kakao from 'assets/images/modal/Kakao.png';
-import facebook from 'assets/images/modal/Facebook.png';
+import kakao from 'assets/images/modal/kakao.png';
+import facebook from 'assets/images/modal/facebook.png';
 import copyLink from 'assets/images/modal/copyLink.png';
+import imageUrl from 'assets/images/meta.png';
 
-const ShareModal = ({ title, subTitle }) => {
+const ShareModal = ({ title, subTitle, categoryId }) => {
+  const shareLink = `${window.location.origin}/shared/${categoryId}`;
+  const { Kakao } = window;
+
+  useEffect(() => {
+    Kakao.cleanup();
+    Kakao.init(process.env.REACT_APP_KAKAO_KEY);
+  }, []);
+
+  const handleKakao = () => {
+    Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: 'Linkbrary',
+        description: '세상의 모든 정보를 쉽게 관리해보세요',
+        imageUrl: imageUrl,
+        link: {
+          mobileWebUrl: shareLink,
+          webUrl: shareLink,
+        },
+      },
+    });
+  };
+  const handleFacebook = () => {
+    window.open(
+      'https://www.facebook.com/sharer/sharer.php?u=' + shareLink,
+      '_blank',
+      'width=600,height=400',
+    );
+  };
+  const handleCopyLink = () => {
+    navigator.clipboard
+      .writeText(shareLink)
+      .then(() => {
+        alert('링크가 복사되었습니다.');
+      })
+      .catch(error => {
+        console.error('Could not copy text: ', error);
+      });
+  };
   return (
     <Container>
       <StyledTitle>
@@ -13,19 +53,19 @@ const ShareModal = ({ title, subTitle }) => {
       </StyledTitle>
       <GridContainer>
         <FlexContainer>
-          <StyledButton className="kakao">
+          <StyledButton className="kakao" onClick={handleKakao}>
             <img src={kakao} alt="share by kakao" />
           </StyledButton>
           <StyledButtonName>카카오톡</StyledButtonName>
         </FlexContainer>
         <FlexContainer>
-          <StyledButton className="facebook">
+          <StyledButton className="facebook" onClick={handleFacebook}>
             <img src={facebook} alt="share by facebook" />
           </StyledButton>
           <StyledButtonName>페이스북</StyledButtonName>
         </FlexContainer>
         <FlexContainer>
-          <StyledButton className="copyLInk">
+          <StyledButton className="copyLInk" onClick={handleCopyLink}>
             <img src={copyLink} alt="share by copy lInk" />
           </StyledButton>
           <StyledButtonName>링크 복사</StyledButtonName>
