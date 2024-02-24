@@ -1,5 +1,7 @@
 // import Card from "../Card";
 
+import Card from "../Card";
+
 // // CardList -> 카드 목록 부분
 // // SharedContent에서는 “/api/sample/folder”를 활용
 // // FolderContent -> 폴더에 링크 데이터가 없을 때는 저장된 링크가 없다는 UI를 보여주세요.
@@ -24,6 +26,7 @@ function CardList() {
   return (
     <div>
       <h2>CardList입니다.</h2>
+      <Card />
     </div>
   );
 }

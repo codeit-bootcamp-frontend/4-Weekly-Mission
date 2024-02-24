@@ -23,3 +23,12 @@
 // }
 
 // export default Card;
+
+function Card() {
+  return (
+    <div>
+      <h2>Card입니다.</h2>
+    </div>
+  );
+}
+export default Card;
