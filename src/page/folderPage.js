@@ -33,15 +33,10 @@ export const FolderPage = () => {
       <AddLink />
       <div className="mainPageWrapper">
         <FolderSearchBar />
-        {!cardList && cardList?.length === 0 ? (
-          <EmptyList text={"저장된 링크가 없습니다."} />
-        ) : (
-          <FavoriteList handleChange={handleChangeFolderId} id={id} />
-        )}
+        <FavoriteList handleChange={handleChangeFolderId} id={id} />
         {list?.length === 0 ? (
           <EmptyList text={"저장된 링크가 없습니다."} />
         ) : null}
-
         <CardContianer>
           {list?.map((data) => (
             <FavoriteCard data={data} selectId={id} />

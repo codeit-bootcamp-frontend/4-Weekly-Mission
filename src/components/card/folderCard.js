@@ -18,7 +18,7 @@ const CardAtag = styled.a`
 export const CardContianer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  max-width: 1024px;
+  max-width: 1124px;
   width: 100%;
   row-gap: 2rem;
   column-gap: 25px;
