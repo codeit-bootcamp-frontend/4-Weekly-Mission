@@ -5,6 +5,7 @@ function LinkFuncButton({
   buttonImageSourceName,
   handleRenameFolderModalClick,
   handleDeleteFolderModalClick,
+  handleShareFolderModalClick,
 }) {
   return (
     <button
@@ -14,6 +15,8 @@ function LinkFuncButton({
           handleRenameFolderModalClick();
         } else if (buttonName === '삭제') {
           handleDeleteFolderModalClick();
+        } else if (buttonName === '공유') {
+          handleShareFolderModalClick();
         }
       }}
     >

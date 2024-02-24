@@ -9,6 +9,7 @@ function FolderFilterBox({
   setFolderId,
   setIsShowFuncButtonBox,
   setFolderModalValue,
+  setShareUrlFolderId,
 }) {
   const [activeFilterId, setActiveFilterId] = useState(-1);
   return (
@@ -35,6 +36,7 @@ function FolderFilterBox({
             setActiveFilterId={setActiveFilterId}
             isActive={activeFilterId === id}
             setFolderModalValue={setFolderModalValue}
+            setShareUrlFolderId={setShareUrlFolderId}
           />
         );
       })}

@@ -7,6 +7,7 @@ import LinkList from './LinkList';
 import { useFetch } from '../../hooks/useFetch';
 import { useState } from 'react';
 import useModal from '../../hooks/useModal';
+import ShareFolderModal from '../modal/ShareFolderModal';
 import RenameFolderNameModal from '../modal/RenameFolderNameModal';
 import DeleteFolderModal from '../modal/DeleteFolderModal';
 import AddFolderModal from '../modal/AddFolderModal';
@@ -18,6 +19,11 @@ function FolderPageMain() {
   const [folderName, setFolderName] = useState('');
   const [isShowFuncButotonBox, setIsShowFuncButtonBox] = useState(true);
   const [folderId, setFolderId] = useState('');
+  console.log(folderId);
+  const {
+    isShowModal: isShowShareFolderModal,
+    handleModalClick: handleShareFolderModalClick,
+  } = useModal(false);
 
   const {
     isShowModal: isShowRenameFolderModal,
@@ -35,6 +41,7 @@ function FolderPageMain() {
   } = useModal(false);
 
   const [FolderModalValue, setFolderModalValue] = useState('');
+  const [ShareUrlFolderId, setShareUrlFolderId] = useState('');
 
   return (
     <div className={styles.main_wrapper}>
@@ -49,6 +56,7 @@ function FolderPageMain() {
             folderId={folderData}
             setFolderId={setFolderId}
             setFolderModalValue={setFolderModalValue}
+            setShareUrlFolderId={setShareUrlFolderId}
           />
           <AddFolderButtons
             handleAddFolderModalClick={handleAddFolderModalClick}
@@ -60,12 +68,20 @@ function FolderPageMain() {
             <LinkFuncButtonBox
               handleRenameFolderModalClick={handleRenameFolderModalClick}
               handleDeleteFolderModalClick={handleDeleteFolderModalClick}
+              handleShareFolderModalClick={handleShareFolderModalClick}
             />
           )}
         </div>
         <LinkList folderId={folderId} />
       </div>
 
+      {isShowShareFolderModal && (
+        <ShareFolderModal
+          handleShareFolderModalClick={handleShareFolderModalClick}
+          FolderModalValue={FolderModalValue}
+          ShareUrlFolderId={ShareUrlFolderId}
+        />
+      )}
       {isShowRenameFolderModal && (
         <RenameFolderNameModal
           handleRenameFolderModalClick={handleRenameFolderModalClick}

@@ -3,6 +3,7 @@ import styles from './LinkFuncButtonBox.module.css';
 function LinkFuncButtonBox({
   handleRenameFolderModalClick,
   handleDeleteFolderModalClick,
+  handleShareFolderModalClick,
 }) {
   const linkFuncButtonDatas = {
     funcButtons: [
@@ -22,6 +23,7 @@ function LinkFuncButtonBox({
               buttonImageSourceName={buttonImageSourceName}
               handleRenameFolderModalClick={handleRenameFolderModalClick}
               handleDeleteFolderModalClick={handleDeleteFolderModalClick}
+              handleShareFolderModalClick={handleShareFolderModalClick}
             />
           );
         }

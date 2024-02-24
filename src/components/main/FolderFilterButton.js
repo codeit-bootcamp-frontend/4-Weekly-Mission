@@ -9,6 +9,7 @@ function FolderFilterButton({
   setActiveFilterId,
   isActive,
   setFolderModalValue,
+  setShareUrlFolderId,
 }) {
   function handleClick() {
     setIsShowFuncButtonBox(true);
@@ -16,6 +17,7 @@ function FolderFilterButton({
     setFolderId('?folderId=' + id);
     setActiveFilterId(id);
     setFolderModalValue(name);
+    setShareUrlFolderId(id);
   }
 
   return (
