@@ -16,7 +16,7 @@ function DeleteModal() {
     useContext(ModalContext);
 
   const title = deleteModalPurpose.purpose;
-  const name = deleteModalPurpose.folderName;
+  const name = deleteModalPurpose.name;
 
   return (
     <ModalContainer>

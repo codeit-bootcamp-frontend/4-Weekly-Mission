@@ -46,7 +46,7 @@ function Card({ id, time, imgUrl = noneImg, title, description, date, url }) {
           <button onClick={handleClick}>
             <img src={meatballsIcon} alt="Menu" />
           </button>
-          {isPopOverOpen && <PopOver />}
+          {isPopOverOpen && <PopOver id={id} url={url} />}
         </div>
         <p className="card__texts--description">{description}</p>
         <p className="card__texts--date">{date}</p>
