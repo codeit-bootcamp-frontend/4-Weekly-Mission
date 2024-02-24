@@ -4,6 +4,7 @@ import penIcon from "../../images/penIcon.svg";
 import deleteIcon from "../../images/deleteIcon.svg";
 import { useState } from "react";
 import EditFolderNameModal from "../EditFolderNameModal";
+import ShareFolderModal from "../ShareFolderModal";
 
 const FolderOptions = styled.div`
 	display: flex;
@@ -28,24 +29,29 @@ const FolderOptions = styled.div`
 
 const FolderOption = ({ selectedFolder }) => {
 	const [editModalOpen, setEditModalOpen] = useState(false);
+	const [shareFolderModalOpen, setShareFolderModalOpen] = useState(false);
+	const [deleteFolderModalOpen, setDeleteFolderModalOpen] = useState(false);
 
-	const handleClick = () => {
-		setEditModalOpen(true);
+	const handleClick = (e) => {
+		const ID = e.target.id;
+		if (ID === "share") setShareFolderModalOpen(true);
+		if (ID === "editName") setEditModalOpen(true);
+		// if (ID === 'delete') setEditModalOpen(true);
 	};
 
 	return (
 		<>
 			{selectedFolder.id !== "ALL" && (
 				<FolderOptions>
-					<button>
+					<button onClick={handleClick} id="share">
 						<img src={shareIcon} alt="공유 버튼 이미지" />
 						공유
 					</button>
-					<button onClick={handleClick}>
+					<button onClick={handleClick} id="editName">
 						<img src={penIcon} alt="이름 변경 버튼 이미지" />
 						이름 변경
 					</button>
-					<button>
+					<button onClick={handleClick} id="delete">
 						<img src={deleteIcon} alt="삭제 버튼 이미지" />
 						삭제
 					</button>
@@ -54,6 +60,12 @@ const FolderOption = ({ selectedFolder }) => {
 			{editModalOpen && (
 				<EditFolderNameModal
 					setEditModalOpen={setEditModalOpen}
+					selectedFolder={selectedFolder}
+				/>
+			)}
+			{shareFolderModalOpen && (
+				<ShareFolderModal
+					setShareFolderModalOpen={setShareFolderModalOpen}
 					selectedFolder={selectedFolder}
 				/>
 			)}
