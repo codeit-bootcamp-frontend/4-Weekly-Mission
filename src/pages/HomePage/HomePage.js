@@ -1,11 +1,11 @@
 // import styles from 'pages/HomePage/HomePage.module.css';
 
-import DeleteLinkModal from 'components/Modal/DeleteLinkModal';
+import AddToFolderModal from 'components/Modal/AddToFolderModal';
 
 function HomePage() {
   return (
     <div>
-      <DeleteLinkModal />
+      <AddToFolderModal />
     </div>
   );
 }

@@ -10,6 +10,10 @@
 * Utils
 ********/
 
+.display-none {
+  display: none;
+}
+
 .hidden-block-mobile-only,
 .hidden-flex-mobile-only {
   display: none;

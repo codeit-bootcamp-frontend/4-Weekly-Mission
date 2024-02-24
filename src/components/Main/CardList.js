@@ -9,7 +9,6 @@ import styles from 'components/Main/CardList.module.css';
 
 import { LINKS_API_URL, LINKS_FOLDER_ID_API_URL } from 'services/api';
 
-// folder id를 props로 받아서 api 적용할 것
 function CardList({ folderId }) {
   const LOADING_MESSAGE = 'Loading...';
   const ALL = { id: 0, name: '전체' };

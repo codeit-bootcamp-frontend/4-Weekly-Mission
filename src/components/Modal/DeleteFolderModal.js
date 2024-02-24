@@ -6,7 +6,8 @@ import styles from 'components/Modal/DeleteFolderModal.module.css';
 import ModalContainer from 'components/Modal/ModalContainer';
 
 function DeleteFolderModal({ folder }) {
-  const { title } = folder;
+  // {id, created_at, name, user_id, favorite, link: {count}}
+  const { name } = folder;
 
   const handleButtonClick = () => {
     console.log('폴더 삭제');
@@ -19,18 +20,18 @@ function DeleteFolderModal({ folder }) {
   return (
     <ModalContainer>
       <p className={titleClasses}>폴더 삭제</p>
-      <p className={folderTitleClasses}>{title ?? '폴더명'}</p>
+      <p className={folderTitleClasses}>{name ?? '폴더명'}</p>
       <ModalButton className={buttonClasses} text="삭제하기" onClick={handleButtonClick} />
     </ModalContainer>
   );
 }
 
 DeleteFolderModal.propTypes = {
-  folder: PropTypes.shape({ id: PropTypes.number, title: PropTypes.string }),
+  folder: PropTypes.shape({ id: PropTypes.number, name: PropTypes.string }),
 };
 
 DeleteFolderModal.defaultProps = {
-  folder: { id: null, title: null },
+  folder: { id: null, name: null },
 };
 
 export default DeleteFolderModal;
