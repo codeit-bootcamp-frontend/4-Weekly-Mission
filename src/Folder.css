@@ -8,6 +8,14 @@
   width: 100%;
 }
 
+.container-folder-and-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+}
+
 .search-bar_ly {
   display: flex;
   padding: 13px 16px;
@@ -17,6 +25,50 @@
   width: 100%;
   background: #F5F5F5;
   box-sizing: border-box;
+}
+
+.folder {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.container-folder-list, .container-folder-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.container-folder-edit {
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+.folder-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: flex-start;
+  gap: 8px;
+  flex-wrap:wrap;
+}
+
+.folder-list_btn {
+  display: flex;
+  padding: 8px 12px;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 5px;
+  border: 1px solid #6D6AFE;
+  background: #FFF;
+  cursor: pointer;
 }
 
 .card-frame_ly {
@@ -31,4 +83,50 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
+}
+
+.folder-edits {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.folder-edit {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.edit-text {
+  color: #9FA6B2;
+
+  /* Linkbrary/body2-semibold */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.card-and-list-empty, .card-empty {
+  display: flex;
+  height: 90vh;
+  padding: 50px 100px;
+  justify-content: center;
+  
+  color: #000;
+  text-align: center;
+
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.card-empty {
+  width: 100%;
 }

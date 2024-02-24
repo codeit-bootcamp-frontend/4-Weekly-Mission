@@ -1,0 +1,28 @@
+.add-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 8px 24px;
+  gap: 4px;
+  border-radius: 20px;
+  border: 1px solid #FFF;
+  background: #6D6AFE;
+
+  position: fixed;
+  bottom: 101px;
+
+  @media (min-width: 788px) {
+    display: none;
+  }
+}
+
+.add-btn_text {
+  color: #E7EFFB;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}

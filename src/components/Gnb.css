@@ -1,7 +1,5 @@
 .gnb_ly {
   display: flex;
-  position: sticky;
-  top: 0;
   flex-direction: column;
   align-items: center;
   align-self: stretch;
@@ -21,15 +19,17 @@
   }
 }
 
+.gnb-container_sticky {
+  position: sticky;
+  top: 0;
+}
+
 .gnb-inner_ly {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
   width: 100%;
-  @media (max-width: 1199px) and (min-width: 865px) {
-
-  }
 }
 
 .logo {

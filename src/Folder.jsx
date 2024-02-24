@@ -1,28 +1,52 @@
+import { useState } from 'react';
+
+import { getLink, getLinkDetail } from './apis/api';
+import { useFetchFolder } from './hooks/useFetchFolder';
+
 import SearchBar from './components/SearchBar';
-import Card from './components/Card';
+import CardList from './components/CardList';
+import FolderEdit from './components/FolderEdit';
+import FolderList from './components/FolderList';
+import FolderAddBtn from './components/FolderAddBtn';
+
 import './Folder.css';
 
-const Folder = ({items}) => {
-  if(!items || !items.links) {
-    return (
-      <div>파트 1에서 만들었던 랜딩 페이지 적용</div>
-    )
+import { TOTAL_LIST_NAME } from './constants/folder';
+
+const Folder = () => {
+  const [folderList, links, setLinks] = useFetchFolder();
+  const [currentfolderName, setCurrrentFolderName] = useState(TOTAL_LIST_NAME);
+
+  const handleTotalListClick = async () => {
+    const { data } = await getLink();
+
+    setLinks(data);
+    setCurrrentFolderName(TOTAL_LIST_NAME);
+  }
+
+  const handleListClick = async (folderName, folderId) => {
+    const { data } = await getLinkDetail(folderId);
+
+    setLinks(data);
+    setCurrrentFolderName(folderName);
   }
 
   return (
     <div className='container-folder'>
       <SearchBar className='search-bar_ly'/>
-      <ul className='card-frame_ly'> 
-        {items.links.map(({ createdAt, imageSource, title, description, url, id }) => (
-          <Card key={id} 
-            imgSrc={imageSource}
-            title={title}
-            description={description}
-            createdAt={createdAt}
-            url={url}
-          />
-        ))}
-      </ul>
+      <div className='container-folder-and-cards'>
+        <FolderList
+          folderList={folderList}
+          totalHandler={handleTotalListClick}
+          listHandler={handleListClick}
+        />
+        <div className='container-folder-edit'>
+          <span>{currentfolderName}</span>
+          <FolderEdit folderName={currentfolderName} />
+        </div>
+        <CardList links={links}/>
+      </div>
+      <FolderAddBtn />
     </div>
   )
 }
