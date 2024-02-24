@@ -6,11 +6,18 @@ import {
   PopOverButton,
 } from '../../styles/styledComponents/common';
 import { FolderPageContext } from '../../context/FolderPageContext';
+import { cardLinkCount } from '../../assets/utils/cardLinkCount';
 
-export const Kebab = () => {
+export const Kebab = ({ currentCardLink }) => {
   const [openPopOver, setOpenPopOver] = useState(false);
   const kebabRef = useRef(null);
-  const { clickPoint } = useContext(FolderPageContext);
+  const {
+    handleModalStatus,
+    handleModalContent,
+    category,
+    folder,
+    clickPoint,
+  } = useContext(FolderPageContext);
   useEffect(() => {
     if (clickPoint === kebabRef.current) {
       setOpenPopOver(true);
@@ -21,6 +28,19 @@ export const Kebab = () => {
 
   const handlePopover = (e) => {
     e.preventDefault();
+  };
+  const folderName = category ? category.map((element) => element.name) : null;
+  const linkCounts = folder && category ? cardLinkCount(category, folder) : [];
+
+  const handleAddButton = (e) => {
+    e.preventDefault();
+    handleModalStatus();
+    handleModalContent({
+      ModalContent: 'AddLink',
+      folderName: ['전체', ...folderName],
+      linkCounts: linkCounts,
+      currentCardLink: currentCardLink,
+    });
   };
 
   return (
@@ -39,8 +59,8 @@ export const Kebab = () => {
             <PopOverButton>
               <p>삭제하기</p>
             </PopOverButton>
-            <PopOverButton>
-              <p>추가하기</p>
+            <PopOverButton onClick={handleAddButton}>
+              <p>폴더에 추가</p>
             </PopOverButton>
           </PopOver>
         )}

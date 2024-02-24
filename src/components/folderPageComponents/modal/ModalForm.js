@@ -24,11 +24,6 @@ import FaceIcon from '../../../assets/Images/ModalFacebookButton.png';
 import LinkCopyIcon from '../../../assets/Images/ModallinkCopyButton.png';
 
 export const ModalForm = ({ modalData }) => {
-  const [addModalCheck, setAddModalCheck] = useState(-1);
-  const handleAddModalCheck = (e, value) => {
-    e.preventDefault();
-    setAddModalCheck(value);
-  };
   const ModalName = {
     AddLink: '폴더에 추가',
     AddFolderModal: '폴더 추가',
@@ -39,7 +34,7 @@ export const ModalForm = ({ modalData }) => {
   };
 
   /* 
-    ModalData = {
+    modalData = {
       ModalContent: ['AddLink', 'AddFolderModal', 'EditFolderModal']
       folderName: ['즐겨찾기', '신규폴더', '새로운폴더스'....],
       linkCounts: [3, 0, 0, 0, .....],
@@ -86,6 +81,12 @@ export const ModalForm = ({ modalData }) => {
   }
 
   const AddModal = () => {
+    const [addModalCheck, setAddModalCheck] = useState(-1);
+    const overScroll = modalData.folderName.length > 4 ? 'true' : 'false';
+    const handleAddModalCheck = (e, value) => {
+      e.preventDefault();
+      setAddModalCheck(value);
+    };
     // 링크 입력창 버튼
     const FolderButton = ({ check, folder, idx }) => {
       return (
@@ -95,7 +96,7 @@ export const ModalForm = ({ modalData }) => {
             onClick={(e) => handleAddModalCheck(e, idx)}
             checked={check}
           >
-            <AddModalButtonWrapper checked>
+            <AddModalButtonWrapper>
               <AddModalFolderName>{folder}</AddModalFolderName>
               <AddModalLinkNumber>
                 {modalData.linkCounts[idx]}개 링크
@@ -116,7 +117,7 @@ export const ModalForm = ({ modalData }) => {
 
     return (
       <>
-        <AddModalWrapper $overscroll={'true'}>
+        <AddModalWrapper $overscroll={overScroll}>
           {modalData.folderName.map((folder, idx) =>
             addModalCheck === idx ? (
               <FolderButton

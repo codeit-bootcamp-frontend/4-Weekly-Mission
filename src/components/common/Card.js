@@ -42,7 +42,7 @@ export default function Card({
               <p className="card-date-difference">
                 {createdAt ? dataStatus : null}
               </p>
-              {folder && <Kebab></Kebab>}
+              {folder && <Kebab currentCardLink={url}></Kebab>}
             </div>
             <p className="card-description">{description}</p>
             <p className="card-date">{date}</p>
