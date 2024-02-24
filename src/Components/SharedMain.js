@@ -1,9 +1,9 @@
 import React from "react";
 import searchIcon from "../Assets/image/Search.png";
-import { Card } from "./Card";
+import { SharedCard } from "./SharedCard";
 import "../Styles/Main.css";
 
-export function Main({ cards }) {
+export function SharedMain({ cards }) {
   return (
     <>
       <div className="searchContainer">
@@ -20,7 +20,9 @@ export function Main({ cards }) {
 
       <div className="cardContainer">
         {cards &&
-          cards.map((card) => <Card cardInfo={card} key={card.id}></Card>)}
+          cards.map((card) => (
+            <SharedCard cardInfo={card} key={card.id}></SharedCard>
+          ))}
       </div>
     </>
   );

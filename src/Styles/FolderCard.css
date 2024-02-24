@@ -1,0 +1,20 @@
+.folderCard {
+  border-radius: 15px;
+  box-shadow: 0px 5px 25px 0px #00000014;
+}
+
+.cardImgContainer {
+  position: relative;
+}
+
+.favoriteImg {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.kebabImg {
+  position: absolute;
+  bottom: -30px;
+  right: 10px;
+}
