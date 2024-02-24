@@ -27,6 +27,7 @@ function App() {
     <div>
       <h2>App 컴포넌트입니다.</h2>
       <SharedPage />
+      <ModalContainer />
     </div>
   );
 }
