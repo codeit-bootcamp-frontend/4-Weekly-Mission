@@ -1,0 +1,30 @@
+.content_search::before {
+  content: "";
+  background-image: url("../image/icons/Search.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
+  width: 1rem;
+  height: 1rem;
+
+  margin-right: 0.625rem;
+}
+
+.content_search {
+  width: 66.25rem;
+  padding: 0.9375rem 1rem;
+
+  border-radius: 0.625rem;
+  background: #f5f5f5;
+
+  display: flex;
+  align-items: center;
+}
+
+.content_search input {
+  width: 100%;
+
+  background: transparent;
+  outline: none;
+  border: none;
+}
