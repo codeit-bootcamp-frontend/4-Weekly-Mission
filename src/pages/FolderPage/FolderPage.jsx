@@ -1,23 +1,18 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { UserContext } from "context/UserProvider";
 import { NoResults } from "pages";
 import styles from "./folder.module.css";
 import Header from "./components/Header";
 import CardList from "components/CardList/CardList";
 import SearchBar from "components/Input/SearchBar/SearchBar";
-
 import { ReactComponent as AddIcon } from "assets/images/ic_add.svg";
-
 import DeleteModal from "components/Modal/DeleteModal/DeleteModal";
 import SharedModal from "components/Modal/SharedModal/SharedModal";
 import FolderModal from "components/Modal/FolderModal/FolderModal";
-
-import ButtonGroup from "./components/ButtonGroup/ButtonGroup";
+import Category from "./components/Category/Category";
 import ActionButton from "./components/ActionButton/ActionButton";
-
 import useModal from "utils/hooks/useModal";
 import useFetch from "utils/hooks/useFetch";
-
 import { API } from "utils/constants/api";
 
 function FolderPage() {
@@ -57,7 +52,7 @@ function FolderPage() {
           {buttonNames ? (
             <div>
               <div className={styles.category}>
-                <ButtonGroup
+                <Category
                   buttonNames={buttonNames}
                   selectedCategory={selectedCategory}
                   onClick={handleButtonClick}
@@ -105,13 +100,12 @@ function FolderPage() {
                   {modals["delete-folder"] && (
                     <DeleteModal
                       variant={`delete-folder`}
-                      deleted={selectedCategory.name}
                       closeModal={closeModal}
+                      deleted={selectedCategory.name}
                     />
                   )}
                 </div>
               </div>
-
               <CardList items={folderData} />
             </div>
           ) : (

@@ -46,7 +46,7 @@ function SharedModal({ folder, variant, closeModal }) {
   useEffect(() => {
     Kakao.cleanup();
     Kakao.init(process.env.REACT_APP_API_KEY);
-    // console.log(Kakao.isInitialized());
+    console.log(Kakao.isInitialized());
   }, []);
 
   return (

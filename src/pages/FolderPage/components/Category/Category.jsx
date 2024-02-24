@@ -1,8 +1,8 @@
 import FolderButton from "components/Button/FolderButton/FolderButton";
 import { Link } from "react-router-dom";
-import styles from "./buttonGroup.module.css";
+import styles from "./category.module.css";
 
-function ButtonGroup({ buttonNames, selectedCategory, onClick }) {
+function Category({ buttonNames, selectedCategory, onClick }) {
 
   return (
     <div className={styles.buttons}>
@@ -28,4 +28,4 @@ function ButtonGroup({ buttonNames, selectedCategory, onClick }) {
   );
 }
 
-export default ButtonGroup;
+export default Category;

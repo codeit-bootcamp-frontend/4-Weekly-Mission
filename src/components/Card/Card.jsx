@@ -43,7 +43,6 @@ function Card({ item, onClick }) {
           className={styles.star}
           onClick={(e) => {
             e.stopPropagation();
-            console.log("click");
           }}
           alt="별모양 아이콘"
         />
@@ -53,7 +52,7 @@ function Card({ item, onClick }) {
         <div className={styles.infoTop}>
           <div className={styles.difference}>{getTimeDifference(date)}</div>
           <div className={styles.menu}>
-            <button onClick={handleMenuClick} className={styles.menuBtn}>
+            <button type="button" onClick={handleMenuClick} className={styles.menuBtn} >
               <img src={meatballsIcon} alt="메뉴 아이콘" />
             </button>
             {isMenuOpen && (

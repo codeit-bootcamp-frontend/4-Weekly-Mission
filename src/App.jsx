@@ -1,12 +1,13 @@
 import Navbar from "layout/Navbar/Navbar";
 import Footer from "layout/Footer/Footer";
 import { Outlet } from "react-router-dom";
+import styles from "assets/css/app.module.css";
 
 function App() {
   return (
-    <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+    <div className={styles.app}>
       <Navbar />
-      <div style={{ flex: 1 }}>
+      <div className={styles.outlet} style={{ flex: 1 }}>
         <Outlet />
       </div>
       <Footer />
