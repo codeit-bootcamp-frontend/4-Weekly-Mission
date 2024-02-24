@@ -321,7 +321,7 @@ export const ModalInput = styled.input`
   }
 `;
 
-export const BlueButton = styled.button`
+export const BlueButton = styled(Button)`
   width: 280px;
   padding: 16px 20px;
   border-radius: 8px;
@@ -343,7 +343,7 @@ export const ModalSideHeader = styled.div`
   width: 100%;
 `;
 
-export const RedButton = styled.a`
+export const RedButton = styled(Button)`
   width: 280px;
   padding: 16px 20px;
   border-radius: 8px;

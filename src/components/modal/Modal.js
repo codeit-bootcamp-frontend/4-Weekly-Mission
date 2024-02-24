@@ -24,22 +24,23 @@ export const Modal = ({ modalData }) => {
   const sideHeader = modalSubTitle(modalData);
 
   const ModalType = () => {
-    if (modalData.ModalContent === 'AddLink') {
+    const content = modalData.ModalContent;
+    if (content === 'AddLink') {
       return <AddModal modalData={modalData}></AddModal>;
     }
-    if (modalData.ModalContent === 'AddFolderModal') {
+    if (content === 'AddFolderModal') {
       return <AddFolderModal></AddFolderModal>;
     }
-    if (modalData.ModalContent === 'EditFolderModal') {
+    if (content === 'EditFolderModal') {
       return <EditFolderModal></EditFolderModal>;
     }
-    if (modalData.ModalContent === 'SharingModal') {
+    if (content === 'SharingModal') {
       return <SharingModal></SharingModal>;
     }
-    if (modalData.ModalContent === 'DeleteLinkModal') {
+    if (content === 'DeleteLinkModal') {
       return <DeleteLinkModal></DeleteLinkModal>;
     }
-    if (modalData.ModalContent === 'DeleteFolderModal') {
+    if (content === 'DeleteFolderModal') {
       return <DeleteFolderModal></DeleteFolderModal>;
     }
   };
