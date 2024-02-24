@@ -8,6 +8,7 @@ import kakaoIcon from 'assets/icon/kakao-icon.svg';
 import facebookIcon from 'assets/icon/facebook-icon.svg';
 import linkShareIcon from 'assets/icon/linkShare-icon.svg';
 import useKakaoShare from 'hooks/useKakaoShare';
+import { FacebookShareButton } from 'react-share';
 
 const Styled = {
   Title: styled.span`
@@ -56,10 +57,11 @@ const Styled = {
  */
 
 function FolderShareModal({ setOpen, item }) {
+  const shareLink = `${window.location.origin}/shared/3`;
+
   const { shareKakao } = useKakaoShare(3);
 
   const handleClickLinkShare = () => {
-    const shareLink = `${window.location.origin}/shared/3`;
     copyToClipboard(shareLink);
   };
 
@@ -67,15 +69,20 @@ function FolderShareModal({ setOpen, item }) {
     <BackdropModal setOpen={setOpen}>
       <Styled.Title>폴더 공유</Styled.Title>
       <Styled.Item>{item}</Styled.Item>
+
       <Styled.ShareBtns>
         <Styled.ShareButton>
           <Styled.Icon icon={kakaoIcon} onClick={shareKakao} style={{ backgroundColor: '#fee500' }} />
           <Styled.ButtonLabel>카카오톡</Styled.ButtonLabel>
         </Styled.ShareButton>
+
         <Styled.ShareButton>
-          <Styled.Icon icon={facebookIcon} style={{ backgroundColor: '#1877f2' }} />
+          <FacebookShareButton url={shareLink}>
+            <Styled.Icon icon={facebookIcon} style={{ backgroundColor: '#1877f2' }} />
+          </FacebookShareButton>
           <Styled.ButtonLabel>페이스북</Styled.ButtonLabel>
         </Styled.ShareButton>
+
         <Styled.ShareButton>
           <Styled.Icon icon={linkShareIcon} onClick={handleClickLinkShare} style={{ backgroundColor: '#9D9D9D0A' }} />
           <Styled.ButtonLabel>링크 복사</Styled.ButtonLabel>
