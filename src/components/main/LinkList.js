@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import FolderPageLinkItem from './FolderPageLinkItem';
 import styles from './LinkList.module.css';
-function LinkList({ folderId }) {
+function LinkList({ folderId, handleAddLinkInFolderModalClick, setSharedUrl }) {
   const [filterData, setFilterData] = useState(null);
   async function handleFilterClick() {
     await fetch(`https://bootcamp-api.codeit.kr/api/users/1/links${folderId}`)
@@ -31,6 +31,10 @@ function LinkList({ folderId }) {
                     created_at={created_at}
                     url={url}
                     key={i}
+                    handleAddLinkInFolderModalClick={
+                      handleAddLinkInFolderModalClick
+                    }
+                    setSharedUrl={setSharedUrl}
                   />
                 </div>
               );

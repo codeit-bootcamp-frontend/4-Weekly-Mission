@@ -11,10 +11,16 @@ import ShareFolderModal from '../modal/ShareFolderModal';
 import RenameFolderNameModal from '../modal/RenameFolderNameModal';
 import DeleteFolderModal from '../modal/DeleteFolderModal';
 import AddFolderModal from '../modal/AddFolderModal';
+import AddLinkInFolder from '../modal/AddLinkInFolder';
 
 const folderUrl = 'https://bootcamp-api.codeit.kr/api/users/1/folders';
 
-function FolderPageMain() {
+function FolderPageMain({
+  isShowAddLinkInFolderModal,
+  handleAddLinkInFolderModalClick,
+  sharedUrl,
+  setSharedUrl,
+}) {
   const { data: folderData } = useFetch(folderUrl);
   const [folderName, setFolderName] = useState('');
   const [isShowFuncButotonBox, setIsShowFuncButtonBox] = useState(true);
@@ -57,6 +63,8 @@ function FolderPageMain() {
             setFolderId={setFolderId}
             setFolderModalValue={setFolderModalValue}
             setShareUrlFolderId={setShareUrlFolderId}
+            isShowAddLinkInFolderModal={isShowAddLinkInFolderModal}
+            handleAddLinkInFolderModalClick={handleAddLinkInFolderModalClick}
           />
           <AddFolderButtons
             handleAddFolderModalClick={handleAddFolderModalClick}
@@ -72,7 +80,11 @@ function FolderPageMain() {
             />
           )}
         </div>
-        <LinkList folderId={folderId} />
+        <LinkList
+          folderId={folderId}
+          handleAddLinkInFolderModalClick={handleAddLinkInFolderModalClick}
+          setSharedUrl={setSharedUrl}
+        />
       </div>
 
       {isShowShareFolderModal && (
@@ -96,6 +108,13 @@ function FolderPageMain() {
       )}
       {isShowAddFolderModal && (
         <AddFolderModal handleAddFolderModalClick={handleAddFolderModalClick} />
+      )}
+      {isShowAddLinkInFolderModal && (
+        <AddLinkInFolder
+          handleAddLinkInFolderModalClick={handleAddLinkInFolderModalClick}
+          folderData={folderData}
+          sharedUrl={sharedUrl}
+        />
       )}
     </div>
   );

@@ -1,0 +1,96 @@
+.modal-wrapper {
+  width: 36rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background-color: #fff;
+  padding: 3.2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-main-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.modal-title {
+  color: #373740;
+  font-family: var(--Pretendard-Bold);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.link-url {
+  color: #9fa6b2;
+  text-align: center;
+  font-family: var(--Pretendard-Regular);
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+}
+.modal-close-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  cursor: pointer;
+}
+
+.folder-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  height: 17.2rem;
+  width: 28rem;
+
+  overflow-x: hidden;
+}
+
+.folder-list li {
+  list-style: none;
+  padding: 0.8rem;
+  cursor: pointer;
+}
+
+.folder-list li:hover {
+  background: var(--Linkbrary-bg, #f0f6ff);
+  border-radius: 0.8rem;
+}
+
+.folder-name {
+  color: #373740;
+  font-family: var(--Pretendard-Regular);
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+.folder-list::-webkit-scrollbar {
+  width: 10px;
+}
+.folder-list::-webkit-scrollbar-thumb {
+  background-color: #6d6afe;
+  border-radius: 10px;
+}
+.folder-list::-webkit-scrollbar-track {
+  background-color: #9b9afc;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
+}
+
+.list-item-wrapper {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.link-count {
+  color: #9fa6b2;
+  font-family: var(--Pretendard-Regular);
+  font-size: 1.4rem;
+}

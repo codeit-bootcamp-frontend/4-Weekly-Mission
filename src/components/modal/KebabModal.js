@@ -3,10 +3,19 @@ import styles from './KebabModal.module.css';
 export default function KebabModal({
   handleClickKebabModal,
   handleDeleteLinkModalClick,
+  handleAddLinkInFolderModalClick,
+  url,
+  setSharedUrl,
 }) {
   function handleKebabDeleteClick() {
     handleClickKebabModal();
     handleDeleteLinkModalClick();
+  }
+
+  function handleKebabAddLinkInFolderClick() {
+    handleClickKebabModal();
+    handleAddLinkInFolderModalClick();
+    setSharedUrl(url);
   }
   return (
     <div className={styles['kebab-modal-wrapper']}>
@@ -18,7 +27,7 @@ export default function KebabModal({
       </button>
       <button
         className={styles['kekbab-modal-add-folder-button']}
-        onClick={handleClickKebabModal}
+        onClick={handleKebabAddLinkInFolderClick}
       >
         폴더에 추가
       </button>
