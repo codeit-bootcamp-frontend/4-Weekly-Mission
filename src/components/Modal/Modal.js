@@ -48,8 +48,8 @@ function FolderName({ folders }) {
 
 function ShareModal(folderId) {
   //배포한 사이트 필요 시 변경
-  // const resultUrl = `https://weekly.skoo.netlify.app/shared/${folderId.id}`;
-  const resultUrl = `https://weekly.skoo.netlify.app`;
+  // const resultUrl = `https://weekly9skoo.netlify.app/shared/${folderId.id}`;
+  const resultUrl = `https://weekly9skoo.netlify.app`;
   const handleCopyClipBoard = async () => {
     try {
       await navigator.clipboard.writeText(resultUrl);
