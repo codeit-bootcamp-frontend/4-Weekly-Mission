@@ -1,5 +1,5 @@
 import CommonContentSearch from "./CommonContentSearch";
-// import CardList from "./CardList";
+import CardList from "./CardList";
 import style from "../../styles/CommonContent.module.css";
 
 // SharedContent에는 additionalContent 없음X, FolderHeader에서는 additionalContent 있음O
@@ -10,7 +10,7 @@ function CommonContent(additionalContent) {
     <div className={style.content_container}>
       <CommonContentSearch />
       {/* {additionalContent && <div>{additionalContent}</div>} */}
-      {/* <CardList /> */}
+      <CardList />
     </div>
   );
 }

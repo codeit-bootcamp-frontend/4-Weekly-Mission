@@ -19,3 +19,13 @@
 // }
 
 // export default CardList;
+
+function CardList() {
+  return (
+    <div>
+      <h2>CardList입니다.</h2>
+    </div>
+  );
+}
+
+export default CardList;
