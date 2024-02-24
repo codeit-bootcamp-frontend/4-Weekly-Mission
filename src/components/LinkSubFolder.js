@@ -15,6 +15,7 @@ import {
 	SubFolderUtil,
 } from "./LinkSubFolder.Styles.jsx";
 import useAsync from "./Hooks/useAsync";
+import { useSearchParams } from "react-router-dom";
 
 function AddSubFolder() {
 	return (
@@ -102,6 +103,8 @@ export default function LinkSubFolder({ userId = 1 }) {
 	const [currentFolderQuery, setCurrentFolderQuery] = useState(
 		`users/${userId}/links`
 	);
+	const [searchParams, setSearchParams] = useSearchParams();
+
 	const [items, setItems] = useState([]);
 
 	const handleShareLoad = async (query) => {
@@ -120,10 +123,13 @@ export default function LinkSubFolder({ userId = 1 }) {
 		setCurrentFolderQuery(
 			`users/${userId}/links${id !== 0 ? `?folderId=${id}` : ""}`
 		);
+
 		if (id === 0) {
+			setSearchParams("");
 			setIsCurrentFolderAll(true);
 			return;
 		}
+		setSearchParams({ folderId: id });
 		setIsCurrentFolderAll(false);
 	};
 
