@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "context/UserProvider";
-import { fetchUserFolderData, fetchUserLinkData } from "services/api";
 import { NoResults } from "pages";
 import styles from "./folder.module.css";
 import Header from "./components/Header";
@@ -17,6 +16,9 @@ import ButtonGroup from "./components/ButtonGroup/ButtonGroup";
 import ActionButton from "./components/ActionButton/ActionButton";
 
 import useModal from "utils/hooks/useModal";
+import useFetch from "utils/hooks/useFetch";
+
+import { API } from "utils/constants/api";
 
 function FolderPage() {
   /**
@@ -24,41 +26,26 @@ function FolderPage() {
    */
   const ALL = "전체";
   const { id: userId } = useContext(UserContext);
-  const [buttonNames, setButtonNames] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState({
     id: null,
     name: ALL,
   });
-  const [folderData, setFolderData] = useState([]);
-
-  const {modals, openModal, closeModal} = useModal();
-
-  /**
-   * 해당 유저의 folder 목록 데이터들을 가져와 buttonNames의 데이터를 변경합니다.
-   * @param {number} userId
-   */
-  const fetchFolderData = async (userId) => {
-    const data = await fetchUserFolderData(userId);
-    setButtonNames(data);
-  };
+  const { modals, openModal, closeModal } = useModal();
+  const { data: buttonNames } = useFetch(`${API}/users/${userId}/folders`);
+  const { data: folderData } = useFetch(
+    selectedCategory.id
+      ? `${API}/users/${userId}/links?folderId=${selectedCategory.id}`
+      : `${API}/users/${userId}/links`
+  );
 
   /**
-   * 해당 유저의 선택된 폴더에 있는 링크 데이터들을 가져와 보여줄 데이터를 변경합니다.
-   * @param {number} userId
-   * @param {number} folderId
+   * 카테코리 버튼을 클릭 시 클릭된 카테고리를 저장합니다.
+   * @param {number} categoryId
+   * @param {string} categoryName
    */
-  const fetchData = async (userId, folderId) => {
-    const data = await fetchUserLinkData(userId, folderId);
-    setFolderData(data);
+  const handleButtonClick = (categoryId, categoryName) => {
+    setSelectedCategory({ id: categoryId, name: categoryName });
   };
-
-  useEffect(() => {
-    fetchFolderData(userId);
-  }, []);
-
-  useEffect(() => {
-    fetchData(userId, selectedCategory.id);
-  }, [selectedCategory]);
 
   return (
     <div>
@@ -67,15 +54,15 @@ function FolderPage() {
       <div className={styles.container}>
         <div className={styles.content}>
           <SearchBar />
-          {buttonNames.length ? (
+          {buttonNames ? (
             <div>
               <div className={styles.category}>
                 <ButtonGroup
                   buttonNames={buttonNames}
                   selectedCategory={selectedCategory}
-                  setSelectedCategory={setSelectedCategory}
+                  onClick={handleButtonClick}
                 />
-                
+
                 <button
                   className={styles.addButton}
                   onClick={() => openModal("add-folder")}
@@ -97,7 +84,6 @@ function FolderPage() {
                     selectedCategory.name === ALL ? styles.hidden : ""
                   }`}
                 >
-
                   <ActionButton openModal={openModal} variant={`shared`} />
                   {modals["shared"] && (
                     <SharedModal

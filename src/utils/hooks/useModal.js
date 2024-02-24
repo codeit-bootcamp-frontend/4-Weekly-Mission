@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-function useModal() {
+const useModal = () => {
   const [modals, setModals] = useState({});
-  
+
   const openModal = (modalName) => {
     setModals((prevModals) => ({
       ...prevModals,
@@ -18,5 +18,6 @@ function useModal() {
   };
 
   return { modals, openModal, closeModal };
-}
+};
+
 export default useModal;

@@ -7,7 +7,7 @@ function CardList({ items }) {
     window.open(url, "_blank");
   };
 
-  if (items.length === 0) {
+  if (!items || items.length === 0) {
     return <NoResults />;
   }
 
