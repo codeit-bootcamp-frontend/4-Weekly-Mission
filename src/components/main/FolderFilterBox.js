@@ -2,11 +2,13 @@ import { useState } from 'react';
 import styles from './FolderFilterBox.module.css';
 import FolderFilterButton from './FolderFilterButton';
 import ShowAllLinksButton from './ShowAllLinkButton';
+import RenameFolderNameModal from '../modal/RenameFolderNameModal';
 function FolderFilterBox({
   folderData,
   setFolderName,
   setFolderId,
   setIsShowFuncButtonBox,
+  setRenameFolderModalValue,
 }) {
   const [activeFilterId, setActiveFilterId] = useState(-1);
   return (
@@ -19,6 +21,7 @@ function FolderFilterBox({
         setActiveFilterId={setActiveFilterId}
         activeFilterId={activeFilterId}
       />
+
       {folderData?.data.map(({ name, id }) => {
         return (
           <FolderFilterButton
@@ -31,6 +34,7 @@ function FolderFilterBox({
             activeFilterId={activeFilterId}
             setActiveFilterId={setActiveFilterId}
             isActive={activeFilterId === id}
+            setRenameFolderModalValue={setRenameFolderModalValue}
           />
         );
       })}

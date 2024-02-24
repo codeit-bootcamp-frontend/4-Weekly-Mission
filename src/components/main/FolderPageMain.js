@@ -6,6 +6,8 @@ import AddFolderButtons from './AddFolderButtons';
 import LinkList from './LinkList';
 import { useFetch } from '../../hooks/useFetch';
 import { useState } from 'react';
+import useModal from '../../hooks/useModal';
+import RenameFolderNameModal from '../modal/RenameFolderNameModal';
 
 const folderUrl = 'https://bootcamp-api.codeit.kr/api/users/1/folders';
 
@@ -15,6 +17,12 @@ function FolderPageMain() {
   const [isShowFuncButotonBox, setIsShowFuncButtonBox] = useState(true);
   const [folderId, setFolderId] = useState('');
 
+  const {
+    isShowModal: isShowRenameFolderModal,
+    handleModalClick: handleRenameFolderModalClick,
+  } = useModal(false);
+  const [renameFolderModalValue, setRenameFolderModalValue] = useState('');
+  console.log(renameFolderModalValue);
   return (
     <div className={styles.main_wrapper}>
       <LinkSearchInput />
@@ -27,15 +35,27 @@ function FolderPageMain() {
             isShowFuncButotonBox={isShowFuncButotonBox}
             folderId={folderData}
             setFolderId={setFolderId}
+            setRenameFolderModalValue={setRenameFolderModalValue}
           />
           <AddFolderButtons />
         </div>
         <div className={styles.folder_title_box}>
           <h1 className={styles.folder_title}>{folderName}</h1>
-          {isShowFuncButotonBox && <LinkFuncButtonBox />}
+          {isShowFuncButotonBox && (
+            <LinkFuncButtonBox
+              isShowRenameFolderModal={isShowRenameFolderModal}
+              handleRenameFolderModalClick={handleRenameFolderModalClick}
+            />
+          )}
         </div>
         <LinkList folderId={folderId} />
       </div>
+      {isShowRenameFolderModal && (
+        <RenameFolderNameModal
+          handleRenameFolderModalClick={handleRenameFolderModalClick}
+          renameFolderModalValue={renameFolderModalValue}
+        />
+      )}
     </div>
   );
 }

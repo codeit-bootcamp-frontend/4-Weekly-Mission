@@ -22,7 +22,7 @@ function LinkList({ folderId }) {
       ) : (
         <div className={styles.item_card_grid}>
           {filterData?.data?.map(
-            ({ image_source, description, created_at, url, id }, i) => {
+            ({ image_source, description, created_at, url }, i) => {
               return (
                 <div>
                   <FolderPageLinkItem
@@ -30,7 +30,7 @@ function LinkList({ folderId }) {
                     image_source={image_source}
                     created_at={created_at}
                     url={url}
-                    key={id}
+                    key={i}
                   />
                 </div>
               );

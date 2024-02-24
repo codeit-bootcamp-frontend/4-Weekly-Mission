@@ -1,6 +1,9 @@
 import LinkFuncButton from './LinkFuncButton';
 import styles from './LinkFuncButtonBox.module.css';
-function LinkFuncButtonBox() {
+function LinkFuncButtonBox({
+  isShowRenameFolderModal,
+  handleRenameFolderModalClick,
+}) {
   const linkFuncButtonDatas = {
     funcButtons: [
       { buttonName: '공유', buttonImageSourceName: 'share', id: 0 },
@@ -17,6 +20,8 @@ function LinkFuncButtonBox() {
               key={id}
               buttonName={buttonName}
               buttonImageSourceName={buttonImageSourceName}
+              isShowRenameFolderModal={isShowRenameFolderModal}
+              handleRenameFolderModalClick={handleRenameFolderModalClick}
             />
           );
         }
