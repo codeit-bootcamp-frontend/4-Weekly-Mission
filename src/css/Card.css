@@ -1,0 +1,135 @@
+.card {
+  width: 340px;
+  height: auto;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  position: relative;
+  border-radius: 15px;
+  text-decoration: none;
+}
+.infoSection {
+  display: flex;
+  position: relative;
+  width: 340px;
+  padding: 15px 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 0px 0px 15px 15px;
+  background: #fff;
+}
+.imgSection {
+  position: relative;
+  width: 340px;
+  height: 200px;
+  flex-shrink: 0;
+  border-radius: 15px;
+}
+.imgSection img {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+.imgSection img:hover {
+  transform: scale(1.3);
+}
+.time {
+  color: #666;
+  font-family: Pretendard;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.info {
+  height: 24px;
+  align-self: stretch;
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+.date {
+  height: 34px;
+  align-self: stretch;
+  word-break: break-word;
+  overflow: hidden;
+  color: #333;
+  text-overflow: ellipsis;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.timeStamp {
+  overflow: hidden;
+  color: #333;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+#starIcon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+}
+#kebab {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.menuOptions {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 35px;
+  right: -50px;
+  z-index: 2;
+}
+.folder {
+  display: flex;
+  padding: 7px 12px;
+  justify-content: center;
+  align-self: stretch;
+  color: var(--gray-light-gray-100, #333236);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.addFolder {
+  background: var(--Linkbrary-gray10, #e7effb);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.deleteFolder {
+  background-color: #ffffff;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.errorInfo {
+  margin: 0 auto;
+  color: #000;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
