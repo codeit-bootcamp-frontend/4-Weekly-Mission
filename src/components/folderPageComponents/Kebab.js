@@ -32,6 +32,15 @@ export const Kebab = ({ currentCardLink }) => {
   const folderName = category ? category.map((element) => element.name) : null;
   const linkCounts = folder && category ? cardLinkCount(category, folder) : [];
 
+  const handleDeleteButton = (e) => {
+    e.preventDefault();
+    handleModalStatus();
+    handleModalContent({
+      ModalContent: 'DeleteLinkModal',
+      currentCardLink: currentCardLink,
+    });
+  };
+
   const handleAddButton = (e) => {
     e.preventDefault();
     handleModalStatus();
@@ -56,7 +65,7 @@ export const Kebab = ({ currentCardLink }) => {
         ></img>
         {openPopOver && (
           <PopOver>
-            <PopOverButton>
+            <PopOverButton onClick={handleDeleteButton}>
               <p>삭제하기</p>
             </PopOverButton>
             <PopOverButton onClick={handleAddButton}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   TitleWrapper,
   CategoryName,
@@ -10,14 +10,42 @@ import {
 import Share from '../../assets/Images/share.png';
 import Rename from '../../assets/Images/rename.png';
 import Delete from '../../assets/Images/delete.png';
+import { FolderPageContext } from '../../context/FolderPageContext';
+/* eslint-disable */
 
-const BUTTON = [
-  { url: Share, name: '공유' },
-  { url: Rename, name: '이름 변경' },
-  { url: Delete, name: '삭제' },
-];
+export const FolderTitle = ({ currentCategory, folderID }) => {
+  const { handleModalStatus, handleModalContent } =
+    useContext(FolderPageContext);
 
-export const FolderTitle = ({ currentCategory }) => {
+  const handleEditFolder = () => {
+    handleModalStatus();
+    handleModalContent({
+      ModalContent: 'EditFolderModal',
+    });
+  };
+
+  const handleShareFolder = () => {
+    handleModalStatus();
+    handleModalContent({
+      ModalContent: 'SharingModal',
+      currentFolderName: currentCategory,
+    });
+  };
+
+  const handleDeleteFolder = () => {
+    handleModalStatus();
+    handleModalContent({
+      ModalContent: 'DeleteFolderModal',
+      currentFolderName: currentCategory,
+    });
+  };
+
+  const BUTTON = [
+    { url: Share, name: '공유', onclick: handleShareFolder },
+    { url: Rename, name: '이름 변경', onclick: handleEditFolder },
+    { url: Delete, name: '삭제', onclick: handleDeleteFolder },
+  ];
+
   return (
     <>
       <TitleWrapper>
@@ -25,7 +53,7 @@ export const FolderTitle = ({ currentCategory }) => {
         {currentCategory !== '전체' && (
           <FolderOptionWrapper>
             {BUTTON.map((button) => (
-              <OptionButtonWrapper key={button.name}>
+              <OptionButtonWrapper key={button.name} onClick={button.onclick}>
                 <OptionIcon $url={button.url}></OptionIcon>
                 <OptionText>{button.name}</OptionText>
               </OptionButtonWrapper>

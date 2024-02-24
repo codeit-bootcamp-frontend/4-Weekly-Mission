@@ -26,6 +26,7 @@ export default function FolderPage() {
       document.removeEventListener('click', handleClickPoint);
     };
   }, []);
+
   return (
     <FolderPageContext.Provider
       value={{

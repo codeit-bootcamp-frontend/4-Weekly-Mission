@@ -57,6 +57,38 @@ export const categoryDataAPI = async () => {
   }
 };
 
+export const deleteFolder = async (folderId) => {
+  try {
+    const response = await fetch(`${BASEURL}/folders/${folderId}`, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      return true;
+    }
+    throw new Error('데이터 불러오기 실패');
+  } catch (error) {
+    /*eslint-disable-next-line */
+    console.error(error);
+    return false;
+  }
+};
+
+export const deleteLink = async (linkID) => {
+  try {
+    const response = await fetch(`${BASEURL}/links/${linkID}`, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      return true;
+    }
+    throw new Error('데이터 불러오기 실패');
+  } catch (error) {
+    /*eslint-disable-next-line */
+    console.error(error);
+    return false;
+  }
+};
+
 export const categoryFolderDataAPI = async (CategoryID) => {
   if (CategoryID === '0') {
     try {

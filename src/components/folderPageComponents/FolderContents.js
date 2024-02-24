@@ -5,14 +5,16 @@ import { FolderTitle } from './FolderTitle';
 import { FolderCard } from './FolderCard';
 import { NonLink } from '../../styles/styledComponents/folderStyled';
 import { FolderPageContext } from '../../context/FolderPageContext';
-
+/* eslint-disable */
 export const FolderContents = () => {
   const [currentCategory, setCurrentCategory] = useState('전체');
+  const [currentFolderID, setCurrentFolderID] = useState('0');
   const { category, folder, setFolder } = useContext(FolderPageContext);
 
   const handleCategoryButton = (e) => {
     setCurrentCategory(e.target.innerText);
     setFolder(e.target.id);
+    setCurrentFolderID(e.target.id);
   };
   return (
     <article>
@@ -24,7 +26,10 @@ export const FolderContents = () => {
             handleCategoryButton={handleCategoryButton}
             currentCategory={currentCategory}
           ></FolderCategory>
-          <FolderTitle currentCategory={currentCategory}></FolderTitle>
+          <FolderTitle
+            currentCategory={currentCategory}
+            folderID={currentFolderID}
+          ></FolderTitle>
           {folder && <FolderCard folder={folder}></FolderCard>}
         </>
       ) : (

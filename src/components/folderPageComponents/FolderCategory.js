@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   TitleWrapper,
   CategoryWrapper,
@@ -7,12 +7,25 @@ import {
   AddButtonText,
   AddButtonImage,
 } from '../../styles/styledComponents/folderStyled';
+import { FolderPageContext } from '../../context/FolderPageContext';
+
+/* eslint-disable */
 
 export const FolderCategory = ({
   category,
   currentCategory,
   handleCategoryButton,
 }) => {
+  const { handleModalStatus, handleModalContent } =
+    useContext(FolderPageContext);
+
+  const handleAddFolder = () => {
+    handleModalStatus();
+    handleModalContent({
+      ModalContent: 'AddFolderModal',
+    });
+  };
+
   return (
     <>
       <TitleWrapper>
@@ -29,7 +42,7 @@ export const FolderCategory = ({
             </CategoryButton>
           ))}
         </CategoryWrapper>
-        <AddButtonWrapper>
+        <AddButtonWrapper onClick={handleAddFolder}>
           <AddButtonText>폴더 추가</AddButtonText>
           <AddButtonImage></AddButtonImage>
         </AddButtonWrapper>

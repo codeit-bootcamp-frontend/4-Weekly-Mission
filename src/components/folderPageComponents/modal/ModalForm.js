@@ -1,6 +1,5 @@
 /*eslint-disable */
 import React, { useState } from 'react';
-import { Button } from '../../../styles/styledComponents/common';
 import {
   AddModalWrapper,
   AddModalFolderButton,

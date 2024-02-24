@@ -244,6 +244,7 @@ export const ModalContent = styled.div`
   border-radius: 15px;
   justify-content: center;
   align-items: center;
+  z-index: 1500;
 `;
 
 export const CloseButton = styled.img`
@@ -252,6 +253,7 @@ export const CloseButton = styled.img`
   position: absolute;
   top: 16px;
   right: 16px;
+  cursor: pointer;
 `;
 
 export const AddModalWrapper = styled.div`
