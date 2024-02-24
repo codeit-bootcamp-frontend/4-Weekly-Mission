@@ -3,7 +3,7 @@ import ModalWrapper from './ModalWrapper';
 import ModalButton from './ModalButton';
 export default function RenameFolderName({
   handleRenameFolderModalClick,
-  renameFolderModalValue,
+  FolderModalValue,
 }) {
   return (
     <ModalWrapper>
@@ -13,12 +13,13 @@ export default function RenameFolderName({
           <input
             className={styles['modal-input']}
             placeholder='내용 입력'
-            value={renameFolderModalValue}
+            value={FolderModalValue}
           />
           <img
             src={`${process.env.PUBLIC_URL}/assets/images/modal_close_icon.svg`}
             className={styles['modal-close-icon']}
             onClick={handleRenameFolderModalClick}
+            alt='modal-close-icon'
           />
         </div>
         <ModalButton>확인하기</ModalButton>

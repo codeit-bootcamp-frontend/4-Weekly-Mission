@@ -3,8 +3,8 @@ import styles from './LinkFuncButton.module.css';
 function LinkFuncButton({
   buttonName,
   buttonImageSourceName,
-  isShowRenameFolderModal,
   handleRenameFolderModalClick,
+  handleDeleteFolderModalClick,
 }) {
   return (
     <button
@@ -12,6 +12,8 @@ function LinkFuncButton({
       onClick={() => {
         if (buttonName === '이름 변경') {
           handleRenameFolderModalClick();
+        } else if (buttonName === '삭제') {
+          handleDeleteFolderModalClick();
         }
       }}
     >

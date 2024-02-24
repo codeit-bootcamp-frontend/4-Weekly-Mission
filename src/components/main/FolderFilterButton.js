@@ -8,14 +8,14 @@ function FolderFilterButton({
   setFolderId,
   setActiveFilterId,
   isActive,
-  setRenameFolderModalValue,
+  setFolderModalValue,
 }) {
   function handleClick() {
     setIsShowFuncButtonBox(true);
     setFolderName(name);
     setFolderId('?folderId=' + id);
     setActiveFilterId(id);
-    setRenameFolderModalValue(name);
+    setFolderModalValue(name);
   }
 
   return (

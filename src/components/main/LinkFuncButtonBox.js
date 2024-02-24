@@ -1,8 +1,8 @@
 import LinkFuncButton from './LinkFuncButton';
 import styles from './LinkFuncButtonBox.module.css';
 function LinkFuncButtonBox({
-  isShowRenameFolderModal,
   handleRenameFolderModalClick,
+  handleDeleteFolderModalClick,
 }) {
   const linkFuncButtonDatas = {
     funcButtons: [
@@ -20,8 +20,8 @@ function LinkFuncButtonBox({
               key={id}
               buttonName={buttonName}
               buttonImageSourceName={buttonImageSourceName}
-              isShowRenameFolderModal={isShowRenameFolderModal}
               handleRenameFolderModalClick={handleRenameFolderModalClick}
+              handleDeleteFolderModalClick={handleDeleteFolderModalClick}
             />
           );
         }

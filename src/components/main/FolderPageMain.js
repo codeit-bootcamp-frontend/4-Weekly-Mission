@@ -8,6 +8,7 @@ import { useFetch } from '../../hooks/useFetch';
 import { useState } from 'react';
 import useModal from '../../hooks/useModal';
 import RenameFolderNameModal from '../modal/RenameFolderNameModal';
+import DeleteFolderModal from '../modal/DeleteFolderModal';
 
 const folderUrl = 'https://bootcamp-api.codeit.kr/api/users/1/folders';
 
@@ -21,8 +22,14 @@ function FolderPageMain() {
     isShowModal: isShowRenameFolderModal,
     handleModalClick: handleRenameFolderModalClick,
   } = useModal(false);
-  const [renameFolderModalValue, setRenameFolderModalValue] = useState('');
-  console.log(renameFolderModalValue);
+
+  const {
+    isShowModal: isShowDeleteFolderModal,
+    handleModalClick: handleDeleteFolderModalClick,
+  } = useModal(false);
+
+  const [FolderModalValue, setFolderModalValue] = useState('');
+  console.log(FolderModalValue);
   return (
     <div className={styles.main_wrapper}>
       <LinkSearchInput />
@@ -35,7 +42,7 @@ function FolderPageMain() {
             isShowFuncButotonBox={isShowFuncButotonBox}
             folderId={folderData}
             setFolderId={setFolderId}
-            setRenameFolderModalValue={setRenameFolderModalValue}
+            setFolderModalValue={setFolderModalValue}
           />
           <AddFolderButtons />
         </div>
@@ -43,17 +50,24 @@ function FolderPageMain() {
           <h1 className={styles.folder_title}>{folderName}</h1>
           {isShowFuncButotonBox && (
             <LinkFuncButtonBox
-              isShowRenameFolderModal={isShowRenameFolderModal}
               handleRenameFolderModalClick={handleRenameFolderModalClick}
+              handleDeleteFolderModalClick={handleDeleteFolderModalClick}
             />
           )}
         </div>
         <LinkList folderId={folderId} />
       </div>
+
       {isShowRenameFolderModal && (
         <RenameFolderNameModal
           handleRenameFolderModalClick={handleRenameFolderModalClick}
-          renameFolderModalValue={renameFolderModalValue}
+          FolderModalValue={FolderModalValue}
+        />
+      )}
+      {isShowDeleteFolderModal && (
+        <DeleteFolderModal
+          FolderModalValue={FolderModalValue}
+          handleDeleteFolderModalClick={handleDeleteFolderModalClick}
         />
       )}
     </div>
