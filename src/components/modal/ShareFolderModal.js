@@ -18,18 +18,21 @@ export default function ShareFolderModal({
           <div className={styles['share-url-item']}>
             <img
               src={`${process.env.PUBLIC_URL}/assets/images/share_url_kakao_talk_icon.svg`}
+              alt='kakao-talk-shared-icon'
             />
             <p>카카오톡</p>
           </div>
           <div className={styles['share-url-item']}>
             <img
               src={`${process.env.PUBLIC_URL}/assets/images/share_url_facebook_icon.svg`}
+              alt='face-book-shared-icon'
             />
             <p>페이스북</p>
           </div>
 
           <div className={styles['share-url-item']}>
             <img
+              alt='share-url-icon'
               src={`${process.env.PUBLIC_URL}/assets/images/share_url_copy_url_icon.svg`}
               onClick={() => {
                 window.navigator.clipboard

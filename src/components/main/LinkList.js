@@ -6,7 +6,7 @@ import styles from './LinkList.module.css';
 function LinkList({ folderId, handleAddLinkInFolderModalClick, setSharedUrl }) {
   const [filterData, setFilterData] = useState(null);
   async function handleFilterClick() {
-    await fetch(`https://bootcamp-api.codeit.kr/api/users/1/links${folderId}`)
+    await fetch(`https://bootcamp-api.codeit.kr/api/users/3/links${folderId}`)
       .then((res) => res.json())
       .then((result) => setFilterData(result));
   }

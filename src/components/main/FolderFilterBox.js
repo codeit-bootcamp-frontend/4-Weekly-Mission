@@ -2,7 +2,6 @@ import { useState } from 'react';
 import styles from './FolderFilterBox.module.css';
 import FolderFilterButton from './FolderFilterButton';
 import ShowAllLinksButton from './ShowAllLinkButton';
-import AddLinkInFolder from '../modal/AddLinkInFolder';
 
 function FolderFilterBox({
   folderData,
@@ -11,11 +10,9 @@ function FolderFilterBox({
   setIsShowFuncButtonBox,
   setFolderModalValue,
   setShareUrlFolderId,
-  isShowAddLinkInFolderModal,
-  handleAddLinkInFolderModalClick,
 }) {
   const [activeFilterId, setActiveFilterId] = useState(-1);
-  console.log(folderData);
+
   return (
     <div className={styles.link_filter_box}>
       <ShowAllLinksButton
@@ -44,7 +41,6 @@ function FolderFilterBox({
           />
         );
       })}
-     
     </div>
   );
 }

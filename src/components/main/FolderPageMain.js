@@ -13,7 +13,7 @@ import DeleteFolderModal from '../modal/DeleteFolderModal';
 import AddFolderModal from '../modal/AddFolderModal';
 import AddLinkInFolder from '../modal/AddLinkInFolder';
 
-const folderUrl = 'https://bootcamp-api.codeit.kr/api/users/1/folders';
+const folderUrl = 'https://bootcamp-api.codeit.kr/api/users/3/folders';
 
 function FolderPageMain({
   isShowAddLinkInFolderModal,
@@ -25,7 +25,7 @@ function FolderPageMain({
   const [folderName, setFolderName] = useState('');
   const [isShowFuncButotonBox, setIsShowFuncButtonBox] = useState(true);
   const [folderId, setFolderId] = useState('');
-  console.log(folderId);
+
   const {
     isShowModal: isShowShareFolderModal,
     handleModalClick: handleShareFolderModalClick,
