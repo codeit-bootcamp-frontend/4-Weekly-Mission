@@ -1,8 +1,18 @@
 import "./Cards.css";
 import noCardImg from "../../assets/basic-card.png";
+import kebabIcon from "../../assets/kebab-icon.svg";
 import elapsedTime from "../../utils/elapsedTime";
+import { useState } from "react";
+import CardPopover from "../CardPopover/CardPopover";
 
 function Cards({ cards }) {
+  const [showPopover, setShowPopover] = useState(false);
+
+  const handleKebabClick = (e) => {
+    e.preventDefault();
+    setShowPopover(!showPopover);
+  };
+
   return (
     <div className="Cards">
       <div className="container">
@@ -27,7 +37,17 @@ function Cards({ cards }) {
                 />
               </div>
               <div className="card_information">
-                <div className="createdAt">{elapsedTime(card)}</div>
+                <div className="card_menu_container">
+                  <div className="createdAt">{elapsedTime(card)}</div>
+                  <div className="kebab_container">
+                    <img src={kebabIcon} onClick={handleKebabClick} />
+                    {showPopover && (
+                      <div className="popover_container">
+                        <CardPopover />
+                      </div>
+                    )}
+                  </div>
+                </div>
                 <div className="description">{card.description}</div>
                 <div className="createdAt">
                   {new Date(

@@ -31,7 +31,6 @@
   height: 100%;
   width: 100%;
   object-fit: cover;
-  overflow: hidden;
   transition: all 0.2s linear;
   transform: scale(1);
 }
@@ -49,6 +48,11 @@
   padding: 20px;
 }
 
+.Cards .card_menu_container {
+  display: flex;
+  justify-content: space-between;
+}
+
 .Cards .createdAt {
   color: #666666;
   font-family: Pretendard;
@@ -56,8 +60,15 @@
   font-weight: 400;
 }
 
+.Cards .kebab_container {
+  position: relative;
+}
+
+.Cards .popover_container {
+  position: absolute;
+}
+
 .Cards .description {
-  z-index: 1;
   font-family: Pretendard;
   font-size: 16px;
   font-weight: 400;
