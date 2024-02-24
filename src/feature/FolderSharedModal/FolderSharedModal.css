@@ -1,0 +1,53 @@
+.FolderSharedModal-titleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.FolderSharedModal-subTitle {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--gray60);
+  line-height: 2.2rem;
+}
+
+.FolderSharedModal-sharedButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3.2rem;
+}
+
+.FolderSharedModal-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.FolderSharedModal-iconText {
+  font-size: 1.3rem;
+  line-height: 1.5rem;
+  text-align: center;
+  color: var(--gray100);
+}
+
+.FolderSharedModal-kakaoTalkIcon {
+  width: 4.2rem;
+  height: 4.2rem;
+  background-image: url("../../../public/images/kakaoTalk.svg");
+}
+
+.FolderSharedModal-faceBookIcon {
+  width: 4.2rem;
+  height: 4.2rem;
+  background-image: url("../../../public/images/facebookShared.svg");
+}
+
+.FolderSharedModal-copyLinkIcon {
+  width: 4.2rem;
+  height: 4.2rem;
+  background-image: url("../../../public/images/modalShared.svg");
+}

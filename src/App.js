@@ -6,6 +6,7 @@ import { FolderPage } from "page-layout/FolderPage/FolderPage";
 import { LinkToButtons } from "page-layout/LinkToButtons";
 import { RenameModal } from "feature/RenameModal/RenameModal";
 import { AddFolderModal } from "feature/AddFolderModal/AddFolderModal";
+import { FolderSharedModal } from "feature/FolderSharedModal/FolderSharedModal";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/folder" element={<FolderPage />} />
           <Route path="/renameModal" element={<RenameModal />} />
           <Route path="/addFolderModal" element={<AddFolderModal />} />
+          <Route path="/folderShared" element={<FolderSharedModal />} />
         </Routes>
       </Layout>
     </BrowserRouter>

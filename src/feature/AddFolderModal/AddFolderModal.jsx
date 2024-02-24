@@ -10,13 +10,11 @@ export function AddFolderModal() {
   return (
     <ModalPortal>
       <ModalDim />
-      <ModalContainer className="AddFolderModal-container">
+      <ModalContainer>
         <ModalCloseButton />
-        <ModalTitle className="AddFolderModal-title">폴더 추가</ModalTitle>
-        <ModalInput type="text" className="AddFolderModal-input"></ModalInput>
-        <ModalButtonBlue type="button" className="rename-button">
-          추가하기
-        </ModalButtonBlue>
+        <ModalTitle>폴더 추가</ModalTitle>
+        <ModalInput type="text"></ModalInput>
+        <ModalButtonBlue type="button">추가하기</ModalButtonBlue>
       </ModalContainer>
     </ModalPortal>
   );

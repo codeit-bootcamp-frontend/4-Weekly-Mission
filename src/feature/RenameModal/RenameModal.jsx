@@ -10,13 +10,11 @@ export function RenameModal() {
   return (
     <ModalPortal>
       <ModalDim />
-      <ModalContainer className="modal-container">
-        <ModalCloseButton className="modal-exit-button" />
-        <ModalTitle className="modal-title">폴더 이름 변경</ModalTitle>
-        <ModalInput type="text" className="modal-input"></ModalInput>
-        <ModalButtonBlue type="button" className="rename-button">
-          변경하기
-        </ModalButtonBlue>
+      <ModalContainer>
+        <ModalCloseButton />
+        <ModalTitle>폴더 이름 변경</ModalTitle>
+        <ModalInput type="text"></ModalInput>
+        <ModalButtonBlue type="button">변경하기</ModalButtonBlue>
       </ModalContainer>
     </ModalPortal>
   );
