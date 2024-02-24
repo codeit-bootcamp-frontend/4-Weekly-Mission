@@ -89,6 +89,7 @@ const Folder = () => {
         <ModalData
           handleCloseModal={handleCloseModal}
           selectModal={selectModal}
+          selectFolder={selectFolder}
         />
       ) : null}
       {isOpenModal === true ? null : (

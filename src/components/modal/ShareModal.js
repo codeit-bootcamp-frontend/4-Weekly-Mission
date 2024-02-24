@@ -5,7 +5,48 @@ import facebook from '../../assets/modal/facebook.svg';
 import link from '../../assets/modal/link.svg';
 import close from '../../assets/modal/close.svg';
 
-const ShareModal = ({ onClose }) => {
+const ShareModal = ({ onClose, selectFolder }) => {
+  const currentFolderId = selectFolder;
+  const sharedLink = `${window.location.origin}/shared/${currentFolderId}`;
+
+  const shareToCopyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(sharedLink);
+      alert('클립보드에 링크가 복사되었습니다.');
+    } catch (error) {
+      console.error('클립보드 복사 실패:', error);
+      alert('클립보드에 링크를 복사하는 중에 오류가 발생했습니다.');
+    }
+  };
+
+  const shareToFacebook = () => {
+    // const sharedLink = encodeURIComponent(url);
+    window.open(`http://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
+  };
+
+  const shareToKakao = () => {
+    if (window.Kakao) {
+      const kakao = window.Kakao;
+
+      if (!kakao.isInitialized()) {
+        kakao.init(process.env.REACT_APP_KAKAO_KEY);
+      }
+
+      // kakao.Share.sendCustom({
+      //   templateId: 104703,
+      //   templateArgs: {
+      //     title: '제목 영역입니다.',
+      //     description: '설명 영역입니다.',
+      //   },
+      // });
+      kakao.Share.sendScrap({
+        requestUrl: sharedLink,
+        templateId: 104703,
+      });
+      kakao.cleanup();
+    }
+  };
+
   const handleClose = () => {
     onClose(false);
   };
@@ -23,15 +64,15 @@ const ShareModal = ({ onClose }) => {
             <span>폴더명</span>
           </TitleContent>
           <LinksContent>
-            <LinkContent>
+            <LinkContent onClick={shareToKakao}>
               <img src={kakao} alt='kakao img' />
               <span>카카오톡</span>
             </LinkContent>
-            <LinkContent>
+            <LinkContent onClick={shareToFacebook}>
               <img src={facebook} alt='facebook img' />
               <span>페이스북</span>
             </LinkContent>
-            <LinkContent>
+            <LinkContent onClick={shareToCopyLink}>
               <img src={link} alt='link img' />
               <span>링크복사</span>
             </LinkContent>

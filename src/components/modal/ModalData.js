@@ -5,7 +5,7 @@ import DeleteLinkModal from './DeleteLinkModal';
 import EditModal from './EditModal';
 import ShareModal from './ShareModal';
 
-export const ModalData = ({ selectModal, handleCloseModal }) => {
+export const ModalData = ({ selectModal, handleCloseModal, selectFolder }) => {
   switch (selectModal) {
     case 'AddLinkModal':
       return <AddLinkModal onClose={handleCloseModal} />;
@@ -18,7 +18,9 @@ export const ModalData = ({ selectModal, handleCloseModal }) => {
     case 'EditModal':
       return <EditModal onClose={handleCloseModal} />;
     case 'ShareModal':
-      return <ShareModal onClose={handleCloseModal} />;
+      return (
+        <ShareModal onClose={handleCloseModal} selectFolder={selectFolder} />
+      );
     default:
       return null;
   }
