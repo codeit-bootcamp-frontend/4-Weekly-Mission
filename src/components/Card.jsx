@@ -14,7 +14,6 @@ function Card({ id, time, imgUrl = noneImg, title, description, date, url }) {
   };
 
   useEffect(() => {
-    console.log(isPopOverOpen);
     const handleClosePopOver = (e) => {
       if (
         isPopOverOpen &&

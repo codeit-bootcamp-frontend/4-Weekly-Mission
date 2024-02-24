@@ -13,15 +13,19 @@ import styled from 'styled-components';
 import { SHARE_BUTTONS } from '../../constants/modalConstants';
 
 function ShareModal() {
+  const { shareModalPurpose, handleShareModalClose } = useContext(ModalContext);
+
+  const name = shareModalPurpose.folderName;
+
   return (
     <ModalContainer>
       <ModalForm>
-        <CloseButton>
+        <CloseButton onClick={handleShareModalClose}>
           <img src={modalCloseIcon} alt="closeButton" />
         </CloseButton>
         <ModalInfo>
           <Title>폴더 공유</Title>
-          <Name>폴더명</Name>
+          <Name>{name}</Name>
         </ModalInfo>
         <ShareSection>
           {SHARE_BUTTONS.map((button) => (

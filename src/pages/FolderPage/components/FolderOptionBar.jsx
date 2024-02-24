@@ -17,7 +17,7 @@ import {
   selectedFolderId는 선택된 폴더의 id값입니다.
 */
 function FolderOptionBar({ text, selectedFolderId }) {
-  const { handleDeleteModalOpen, handleEditModalOpen } =
+  const { handleDeleteModalOpen, handleEditModalOpen, handleShareModalOpen } =
     useContext(ModalContext);
 
   const handleRenameModalOpen = () => {
@@ -33,11 +33,19 @@ function FolderOptionBar({ text, selectedFolderId }) {
     handleDeleteModalOpen(purpose);
   };
 
+  const handleFolderShareModalOpen = () => {
+    const purpose = {
+      id: selectedFolderId,
+      folderName: text,
+    };
+    handleShareModalOpen(purpose);
+  };
   const buttonProps = [
     {
       id: 1,
       svg: shareIcon,
       text: '공유',
+      handleModalOpen: handleFolderShareModalOpen,
     },
     {
       id: 2,
