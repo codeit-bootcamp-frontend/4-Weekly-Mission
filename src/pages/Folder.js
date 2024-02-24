@@ -2,7 +2,6 @@ import FolderLinkAddBar from "components/FolderLinkAddBar";
 import "pages/Folder.css";
 import {
 	AddSubFolder,
-	EmptyLink,
 	HandleCurrentSubFolder,
 	SubFoldersList,
 } from "components/LinkSubFolder";
@@ -78,6 +77,16 @@ export default function Folder({ userId = 1 }) {
 		handleShareLoad(currentFolderQuery);
 	}, [currentFolderQuery]);
 
+	const handleKebabAction = (asdf) => {
+		console.log(`${asdf}에서 호출됨. 디버깅용.`);
+	};
+
+	const kebabActions = [
+		{ btnName: "추가하기", btnAction: handleKebabAction },
+		{ btnName: "더 추가하기", btnAction: handleKebabAction },
+		{ btnName: "더욱추가하기", btnAction: handleKebabAction },
+	];
+
 	return (
 		<>
 			<StyledHeadNav />
@@ -101,7 +110,11 @@ export default function Folder({ userId = 1 }) {
 					</EmptySpace>
 				) : (
 					<>
-						<LinkCardCollection items={items} favorite={true} kebab={true} />
+						<LinkCardCollection
+							items={items}
+							favorite={true}
+							kebab={kebabActions}
+						/>
 					</>
 				)}
 			</main>

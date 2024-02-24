@@ -42,12 +42,6 @@ const FolderCard = function ({ contents, favorite, kebab }) {
 		url,
 	} = contents;
 
-	const sampleKebabMenus = [
-		{ name: "추가하기", handle: "" },
-		{ name: "더 추가하기", handle: "" },
-		{ name: "더욱추가하기", handle: "" },
-	];
-
 	const cardImage = { backgroundImage: `url(${imageSource || image_source})` };
 	const timeConversion = new Date(created_at || createdAt); // sampleApi와 userApi의 양식이 달라 호환시키기 위함
 	const passedTime = timePassedFromCreate(timeConversion);
@@ -72,7 +66,7 @@ const FolderCard = function ({ contents, favorite, kebab }) {
 					</section>
 				</Link>
 			</div>
-			{kebab && <KebabMenu items={sampleKebabMenus} />}
+			{kebab && <KebabMenu items={kebab} />}
 			{favorite && (
 				<button type="button" className="favor-star">
 					<img src="star.svg" alt="FavoriteButton" />

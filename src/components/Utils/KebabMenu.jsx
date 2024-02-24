@@ -49,23 +49,29 @@ const KebabCancel = styled.button`
 export default function KebabMenu({ items }) {
 	const [kebabMenuPop, setKebabMenuPop] = useState(false);
 
-	const handleKebabBtn = () => {
+	const handleKebabToggle = () => {
 		setKebabMenuPop(!kebabMenuPop);
 	};
+	console.log(items);
 
 	return (
 		<div className="kebab-menu-position-origin">
-			<button type="button" onClick={handleKebabBtn} className="kebab">
+			<button type="button" onClick={handleKebabToggle} className="kebab">
 				<img src="kebab.svg" alt="kebabButton" />
 			</button>
 			{kebabMenuPop && (
 				<>
 					<KebabDiv>
 						{items.map((item) => (
-							<KebabButton>{item.name}</KebabButton>
+							<KebabButton
+								key={item.btnName}
+								onClick={() => item.btnAction(item.btnName)}
+							>
+								{item.btnName}
+							</KebabButton>
 						))}
 					</KebabDiv>
-					<KebabCancel onClick={handleKebabBtn} />
+					<KebabCancel onClick={handleKebabToggle} />
 				</>
 			)}
 		</div>
