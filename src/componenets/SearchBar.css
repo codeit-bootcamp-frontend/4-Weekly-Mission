@@ -1,0 +1,24 @@
+.SearchBar-Form {
+  width: 70%;
+  border-radius: 0.625rem;
+  background: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  height: 3rem;
+  margin-top: 2rem;
+}
+
+.SearchBar-Form img {
+  margin-left: 1rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+.SearchBar-Form input {
+  width: 100%;
+  background: #f5f5f5;
+  border: none;
+  outline: none;
+}

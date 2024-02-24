@@ -1,0 +1,109 @@
+.cardBox {
+  position: relative;
+  box-shadow: 0rem 0.3125rem 1.5625rem 0rem rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 334px;
+}
+
+.cardImgBox {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.9375rem 0.9375rem 0rem 0rem;
+  overflow: hidden;
+}
+
+.cardImg {
+  width: 100%;
+  height: 15.85913rem;
+  transition: transform 0.3s ease;
+  object-fit: cover;
+}
+
+.cardImg:hover {
+  transform: scale(1.3);
+}
+
+.cardStar {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.cardData {
+  height: 60%;
+  display: flex;
+  width: 21.25rem;
+  padding: 0.9375rem 1.25rem;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 1rem;
+  justify-content: space-between;
+}
+
+.cardTimeAgo {
+  color: #666;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.cardTimeAgo img {
+  width: 1.3125rem;
+  height: 1.0625rem;
+  flex-shrink: 0;
+}
+
+.cardInfo {
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  word-break: break-all;
+  overflow: hidden;
+  color: #000;
+  text-overflow: ellipsis;
+  font-size: 1.1rem;
+}
+
+.cardCreatedAt {
+  color: #333;
+}
+
+.kebab-popover {
+  position: relative;
+  cursor: pointer;
+}
+
+.popover {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  z-index: 1;
+  box-shadow: 0px 0.125rem 0.5rem 0rem rgba(51, 50, 54, 0.1);
+}
+
+.popover-delete {
+  padding: 0.4375rem 0.75rem;
+  color: #333236;
+  font-size: 0.875rem;
+  font-weight: 400;
+  white-space: nowrap;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popover-folder-add {
+  padding: 0.4375rem 0.75rem;
+  background-color: #e7effb;
+  white-space: nowrap;
+  color: #6d6afe;
+  font-size: 0.875rem;
+  font-weight: 400;
+  justify-content: center;
+  align-items: center;
+}
