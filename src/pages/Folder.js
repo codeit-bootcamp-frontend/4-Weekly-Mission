@@ -11,6 +11,7 @@ function Folder() {
   const [selectedName, setSelectedName] = useState("전체");
   const [selectedId, setSelectedId] = useState(null);
   const [links, setLinks] = useState([]);
+  const [selectedModal, setSelectedModal] = useState("");
 
   const handleSearchChange = (e) => {
     setSerch(e.target.value);
@@ -39,10 +40,14 @@ function Folder() {
     }
   };
 
+  const setModal = (value) => {
+    setSelectedModal(value);
+  };
+
   useEffect(() => {
     loadFolderListInfo({ userId: 1 });
     loadLinks({ userId: 1, folderId: selectedId });
-  }, [selectedId]);
+  }, [selectedId, selectedModal]);
 
   return (
     <>
@@ -54,8 +59,10 @@ function Folder() {
         selectedId={selectedId}
         selectedName={selectedName}
         links={links}
+        selectedModal={selectedModal}
         onSelectedFolder={handleSelectedFolder}
         onChange={handleSearchChange}
+        setModal={setModal}
       />
       <Footer />
     </>

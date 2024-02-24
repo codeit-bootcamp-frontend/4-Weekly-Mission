@@ -40,6 +40,10 @@
   flex-wrap: wrap;
 }
 
+.controlMenuItem > button {
+  background-color: white;
+}
+
 @media (max-width: 580px) {
   .container {
     flex-direction: column;

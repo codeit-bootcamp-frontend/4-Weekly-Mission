@@ -3,8 +3,14 @@ import { getTimeAgo, formatDate } from "util/time";
 import noImg from "assets/noImg.png";
 import starImg from "assets/Star 1.svg";
 import kebabImg from "assets/kebab.svg";
+import { useState } from "react";
 
 function CardListItem({ link }) {
+  const [btnClicked, setBtnClicked] = useState(false);
+  const handleKebabBtnClick = (e) => {
+    setBtnClicked(true);
+  };
+
   return (
     <a href={link.url} target="_blank" className={style["l_col"]}>
       <div className={style.link}>
@@ -17,9 +23,16 @@ function CardListItem({ link }) {
         <div className={style["link-contents"]}>
           <div className={style["content-Header"]}>
             <p className={style["link-update"]}>{getTimeAgo(link.createdAt)}</p>
-            <button className={style["kebab-btn"]}>
+            <button
+              className={style["kebab-btn"]}
+              onClick={handleKebabBtnClick}
+            >
               <img src={kebabImg} />
             </button>
+            <ul>
+              <li>삭제하기</li>
+              <li>폴더에추가</li>
+            </ul>
           </div>
           <h2 className={style["link-title"]}>{link.title}</h2>
           <p className={style["link-description"]}>{link.description}</p>

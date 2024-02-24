@@ -15,6 +15,7 @@
   box-sizing: border-box;
   padding: 0 10px;
   width: 33.33333%;
+  position: relative;
 }
 
 .link {
@@ -95,6 +96,32 @@
 
 .star-btn img {
   width: 80%;
+}
+
+.kebab-list {
+  display: none;
+  position: absolute;
+  right: -3rem;
+  bottom: 5rem;
+  background-color: white;
+}
+
+.selected {
+  display: block;
+}
+
+.btns {
+  display: flex;
+  flex-direction: column;
+}
+
+.listBtn {
+  padding: 5px 15px;
+}
+
+.listBtn:hover {
+  background-color: #e7effb;
+  color: #6d6afe;
 }
 
 @media (max-width: 1199px) {

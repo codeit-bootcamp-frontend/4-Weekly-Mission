@@ -3,7 +3,12 @@ import deleteImg from "assets/delete.svg";
 import penImg from "assets/pen.svg";
 import shareImg from "assets/share.svg";
 
-const FolderListCtrl = ({ folderName }) => {
+const FolderListCtrl = ({ folderName, setModal }) => {
+  const handleModalClick = (e) => {
+    const value = e.target.value;
+    setModal(value);
+  };
+
   return (
     <div className={styles["wrapper"]}>
       <div className={styles.container}>
@@ -14,15 +19,21 @@ const FolderListCtrl = ({ folderName }) => {
           <div className={styles.controlMenu}>
             <div className={styles.controlMenuItem}>
               <img src={shareImg} alt="shareIconImage" />
-              <span>공유</span>
+              <button value="shareFolder" onClick={handleModalClick}>
+                공유
+              </button>
             </div>
             <div className={styles.controlMenuItem}>
               <img src={penImg} alt="penIconImage" />
-              <span>이름 변경</span>
+              <button value="changeFolderName" onClick={handleModalClick}>
+                이름 변경
+              </button>
             </div>
             <div className={styles.controlMenuItem}>
               <img src={deleteImg} alt="deleteIconImage" />
-              <span>삭제</span>
+              <button value="deleteFolder" onClick={handleModalClick}>
+                삭제
+              </button>
             </div>
           </div>
         )}

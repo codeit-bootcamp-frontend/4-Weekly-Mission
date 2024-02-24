@@ -49,6 +49,7 @@
   font-size: 1.3rem;
   flex-shrink: 0;
   cursor: pointer;
+  background-color: transparent;
 }
 
 @media (max-width: 580px) {
