@@ -28,6 +28,14 @@ export function LinkToButtons() {
         {" "}
         <Button>폴더 삭제 모달</Button>
       </Link>
+      <Link to="/deleteLink">
+        {" "}
+        <Button>링크 삭제 모달</Button>
+      </Link>
+      <Link to="/addToFolder">
+        {" "}
+        <Button>폴더에 추가 모달</Button>
+      </Link>
     </div>
   );
 }

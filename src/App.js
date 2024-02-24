@@ -8,6 +8,8 @@ import { RenameModal } from "feature/RenameModal/RenameModal";
 import { AddFolderModal } from "feature/AddFolderModal/AddFolderModal";
 import { FolderSharedModal } from "feature/FolderSharedModal/FolderSharedModal";
 import { DeleteFolderModal } from "feature/DeleteFolderModal/DeleteFolderModal";
+import { DeleteLinkModal } from "feature/DeleteLinkModal/DeleteLinkModal";
+import { AddToFolderModal } from "feature/AddToFolderModal/AddToFolderModal";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
           <Route path="/addFolderModal" element={<AddFolderModal />} />
           <Route path="/folderShared" element={<FolderSharedModal />} />
           <Route path="/deleteFolder" element={<DeleteFolderModal />} />
+          <Route path="/deleteLink" element={<DeleteLinkModal />} />
+          <Route path="/addToFolder" element={<AddToFolderModal />} />
         </Routes>
       </Layout>
     </BrowserRouter>
