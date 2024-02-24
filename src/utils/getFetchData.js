@@ -1,9 +1,9 @@
 export async function getFetchData(url) {
   try {
     const response = await fetch(`https://bootcamp-api.codeit.kr${url}`);
-    const result = await response.json();
-    return result;
+    return response.json();
   } catch (error) {
     console.error(error);
+    console.log(`getFetchData를 확인해 주세요`);
   }
 }

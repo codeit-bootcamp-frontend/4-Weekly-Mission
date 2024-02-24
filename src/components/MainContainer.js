@@ -4,6 +4,7 @@ import Card from "./Card";
 import linkIcon from "../img/linkIcon.svg";
 import InputSearchLink from "./InputSearchLink";
 import FolderList from "./FolderList";
+import Modal from "./modal/Modal";
 
 const MainContainer = () => {
   const [links, setLinks] = useState([]);
@@ -23,6 +24,7 @@ const MainContainer = () => {
         setLinks(result.data);
       } catch (error) {
         console.error(error);
+        console.log(`MainContainer의 getFetchData를 확인해 주세요`);
       }
     };
 
@@ -66,7 +68,10 @@ const MainContainer = () => {
           </div>
           <div className="container__myFolders--folderName">
             <h2>{folderName}</h2>
-            <div>공유, 이름변경 삭제(추후 구현)</div>
+            <div>
+              {/* 여기 모달버튼 추가 */}
+              <Modal />
+            </div>
           </div>
           {sortedLinks.length === 0 ? (
             <div className="container__noLink">저장된 링크가 없습니다</div>
