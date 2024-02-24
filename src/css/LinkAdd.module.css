@@ -36,7 +36,7 @@ input::placeholder {
   padding: 22px;
 }
 
-.linkAdd button {
+.addButton {
   position: absolute;
   right: 20px;
   color: var(--white);

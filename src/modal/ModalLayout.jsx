@@ -1,7 +1,7 @@
 import styles from "./ModalLayout.module.css";
 import close from "../images/Icon_close.svg";
 
-function ModalLayout({ title, isOpen, children, closeModal, buttonName }) {
+function ModalLayout({ title, isOpen, children, closeModal }) {
   return (
     <div
       className={styles.background}

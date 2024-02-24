@@ -33,16 +33,6 @@
   line-height: normal;
 }
 
-.submitButton {
-  background: var(--gra-purpleblue-to-skyblue);
-  color: var(--white);
-  width: 100%;
-  outline: none;
-  border: none;
-  border-radius: 8px;
-  padding: 16px 20px;
-}
-
 .closeButton {
   position: absolute;
   right: 16px;
