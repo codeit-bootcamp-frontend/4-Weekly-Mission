@@ -6,21 +6,17 @@ export const BlueButton = ({
   text,
   width = "auto",
   height = "auto",
-  marginX = "auto",
-  marginY = "auto",
-  paddingX = "auto",
-  paddingY = "auto",
+  margin,
+  padding,
   fontSize = "14px",
-  radius = "0px",
+  radius,
 }) => {
   return (
     <Button
       width={width}
       height={height}
-      marginX={marginX}
-      marginY={marginY}
-      paddingX={paddingX}
-      paddingY={paddingY}
+      margin={margin}
+      padding={padding}
       color={COLORS.White}
       fontSize={fontSize}
       radius={radius}
@@ -32,24 +28,17 @@ export const BlueButton = ({
 
 const Button = styled.button`
   display: block;
-  width: ${({ width }) => width}px;
-  height: ${({ height }) => height}px;
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
   border: 0px;
-  border-radius: ${({ radius }) => (radius ? `${radius}px` : "0px")};
+  border-radius: ${({ radius }) => radius || "0px"};
+  margin: ${({ margin }) => margin || "auto"};
+  padding: ${({ padding }) => padding || "auto"};
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   cursor: pointer;
-  font-size: ${({ fontSize }) => (fontSize ? fontSize : 14)}px;
+
+  color: ${({ color }) => color};
+  font-size: ${({ fontSize }) => fontSize};
   font-weight: 600;
   line-height: 21.6px;
-  color: ${({ color }) => color};
-
-  margin-left: ${({ marginX }) => marginX}px;
-  margin-right: ${({ marginX }) => marginX}px;
-  margin-top: ${({ marginY }) => marginY}px;
-  margin-bottom: ${({ marginY }) => marginY}px;
-
-  padding-left: ${({ paddingX }) => paddingX}px;
-  padding-right: ${({ paddingX }) => paddingX}px;
-  padding-top: ${({ paddingY }) => paddingY}px;
-  padding-bottom: ${({ paddingY }) => paddingY}px;
 `;

@@ -1,6 +1,5 @@
 import React from "react";
 import { styled } from "styled-components";
-import "styles/home.css";
 import card1 from "assets/cards/card1.png";
 import card2 from "assets/cards/card2.png";
 import card3 from "assets/cards/card3.png";

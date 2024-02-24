@@ -14,12 +14,11 @@ export const Headline = () => {
       </TextBox>
       <BlueButton
         text="링크 추가하기"
-        width={350}
-        marginY={40}
-        paddingY={16}
-        paddingX={20}
-        fontSize={18}
-        radius={8}
+        width="350px"
+        margin="40px auto"
+        padding="10px 20px"
+        fontSize="18px"
+        radius="8px"
       />
     </Container>
   );

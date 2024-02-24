@@ -5,7 +5,6 @@ import FooterElement from "./../components/common/FooterElement";
 import { Headline } from "components/home/Headline";
 import { CardFrame } from "./../components/home/CardFrame";
 import cards_img from "assets/cards/cards_img.png";
-import "../styles/home.css";
 import { COLORS } from "constants/colors";
 
 export const Home = () => {
