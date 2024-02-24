@@ -1,9 +1,6 @@
-/*eslint-disable */
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { MainFooter } from '../components/mainPageComponents/MainFooter';
-import { useAPIData } from '../hooks/useAPIData';
-import { userDataAPI } from '../api/BootcampAPI';
 import {
   CloseButton,
   ModalBackground,
@@ -12,7 +9,6 @@ import {
 } from '../styles/styledComponents/folderStyled';
 import ModalCloseButton from '../assets/Images/ModalCloseButton.png';
 import { Modal } from '../components/folderPageComponents/modal/Modal';
-import { deleteFolder } from '../api/BootcampAPI';
 
 export default function MainPage() {
   const [modalStatus, setModalStatus] = useState(false);
@@ -32,7 +28,6 @@ export default function MainPage() {
     currentFolderName: '전체',
     currentCardLink: 'https://www.google.com',
   });
-  const modalRef = useRef(null);
 
   const handleModalStatus = () => {
     setModalStatus((prev) => !prev);
@@ -52,7 +47,6 @@ export default function MainPage() {
         context={{
           handleModalStatus: handleModalStatus,
           handleModalContent: handleModalContent,
-          modalRef: modalRef,
         }}
       ></Outlet>
       <MainFooter></MainFooter>

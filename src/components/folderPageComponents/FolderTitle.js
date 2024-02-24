@@ -11,9 +11,8 @@ import Share from '../../assets/Images/share.png';
 import Rename from '../../assets/Images/rename.png';
 import Delete from '../../assets/Images/delete.png';
 import { FolderPageContext } from '../../context/FolderPageContext';
-/* eslint-disable */
 
-export const FolderTitle = ({ currentCategory, folderID }) => {
+export const FolderTitle = ({ currentCategory }) => {
   const { handleModalStatus, handleModalContent } =
     useContext(FolderPageContext);
 
