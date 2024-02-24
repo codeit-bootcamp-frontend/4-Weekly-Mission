@@ -1,5 +1,12 @@
+import { useState } from "react";
 import "./Modal.css";
 import style from "./modal.module.css";
+import styled from "styled-components";
+
+const Button = styled.button`
+	background-color: ${({ state }) =>
+		state === "true" ? `var(--LBrary-Background)` : `var(--LBrary-white)`};
+`;
 
 function ModalSubFolderNameChange() {
 	return (
@@ -92,6 +99,12 @@ function ModalRemoveLink({ modalData }) {
 
 function ModalAddLinkToFolder({ modalData }) {
 	const [targetLink, [dummy, favor, ...folderList]] = [...modalData];
+	const [SelectedFolder, setSelectedFolder] = useState("");
+
+	const handleSelectFolder = (key) => {
+		setSelectedFolder(key);
+		console.log(SelectedFolder);
+	};
 
 	return (
 		<>
@@ -101,10 +114,20 @@ function ModalAddLinkToFolder({ modalData }) {
 			</h1>
 			<div className={style.shareButtonLayout}>
 				{folderList.map((item) => (
-					<button className="modal-sub-folder-btn-list" key={item.name}>
-						<h2>{item.name}</h2>
-						{`${item.length || 0}개 링크`}
-					</button>
+					<Button
+						onClick={() => handleSelectFolder(item.name)}
+						state={String(item.name === SelectedFolder)}
+						className="modal-sub-folder-btn-list"
+						key={item.name}
+					>
+						<h2>
+							{item.name}
+							<span>{`${item.length || 0}개 링크`}</span>
+						</h2>
+						{item.name === SelectedFolder && (
+							<img src="check.svg" alt="CheckedFolder" />
+						)}
+					</Button>
 				))}
 			</div>
 			<button className={style.modalButton}>추가하기</button>

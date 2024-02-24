@@ -148,7 +148,10 @@ export default function Folder({ userId = 1 }) {
 				}}
 			/>
 			<StyledHeadNav />
-			<FolderLinkAddBar handleSubmit={handleModalOpen} />
+			<FolderLinkAddBar
+				handleSubmit={handleModalOpen}
+				subFolderList={subFolderList}
+			/>
 			<main>
 				<SubFolderUtil>
 					<SubFoldersList

@@ -1,12 +1,12 @@
 import "components/FolderLinkAddBar.css";
 import { useState } from "react";
 
-export default function FolderLinkAddBar({ handleSubmit }) {
+export default function FolderLinkAddBar({ handleSubmit, subFolderList }) {
 	const [inputValue, setInputValue] = useState("");
 
 	const handleLinkAdd = (e) => {
 		e.preventDefault();
-		handleSubmit("addLinkToFolder", inputValue || "");
+		handleSubmit("addLinkToFolder", [inputValue || "", ...subFolderList]);
 	};
 
 	return (
