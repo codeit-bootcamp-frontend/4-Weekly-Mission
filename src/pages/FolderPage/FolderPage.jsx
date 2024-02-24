@@ -106,7 +106,7 @@ function FolderPage() {
                   )}
                 </div>
               </div>
-              <CardList items={folderData} />
+              <CardList items={folderData} modals={modals} openModal={openModal} closeModal={closeModal}/>
             </div>
           ) : (
             <NoResults />

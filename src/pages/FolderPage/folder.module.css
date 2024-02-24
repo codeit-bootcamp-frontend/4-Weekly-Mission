@@ -87,7 +87,7 @@
     border-radius: 2rem;
     background-color: var(--primary-color);
     transform: translateX(50%);
-    z-index: 99;
+    z-index: 70;
   }
 
   .addIcon {

@@ -6,7 +6,7 @@
   width: 100%;
   padding: 2rem 0;
   background-color: var(--bg-color);
-  z-index: 100;
+  z-index: 80;
 }
 
 .wrap {
