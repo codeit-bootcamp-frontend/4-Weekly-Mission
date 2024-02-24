@@ -34,7 +34,7 @@ function Profile() {
   }, []);
   return (
     <>
-      {user == null ? (
+      {user === null ? (
         <div className="headerButton">
           <button>로그인</button>
         </div>
