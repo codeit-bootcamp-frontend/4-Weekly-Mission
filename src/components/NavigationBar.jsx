@@ -28,7 +28,7 @@ import style from "../styles/NavigationBar.module.css";
 // export default NavigationBar;
 
 function NavigationBar() {
-  const { data, error, loading } = useGetData();
+  const { data, error, loading } = useGetData("/sample/user");
   console.log(data);
 
   if (loading) return <div>로딩중...</div>;

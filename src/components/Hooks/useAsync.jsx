@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getData } from "../api";
 
-export function useGetData() {
+export function useGetData(endpoint) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(null);
@@ -10,7 +10,7 @@ export function useGetData() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const result = await getData();
+        const result = await getData(endpoint);
         setData(result);
       } catch (error) {
         setError(error);
@@ -19,7 +19,7 @@ export function useGetData() {
       }
     };
     fetchData();
-  }, []);
+  }, [endpoint]);
 
   return { data, error, loading };
 }

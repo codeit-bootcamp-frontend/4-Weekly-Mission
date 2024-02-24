@@ -23,9 +23,9 @@ const API_BASE_URL = "https://bootcamp-api.codeit.kr/api";
 
 // export default getData;
 
-export async function getData() {
-  const endpoint = `${API_BASE_URL}/sample/user`;
-  const response = await fetch(endpoint);
+export async function getData(endpoint) {
+  const url = `${API_BASE_URL}${endpoint}`;
+  const response = await fetch(url);
 
   if (!response.ok) {
     throw new Error("데이터를 불러오는데 실패했습니다.");
