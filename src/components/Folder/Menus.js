@@ -4,11 +4,9 @@ import GlobalStyle from "./../common/GlobalStyle";
 import styled from "styled-components";
 import union from "../../assets/icons/Union.svg";
 import useGetJson from "./../../hooks/uesGetJson";
+import { COLORS } from "constants/colors";
 
 const Menus = ({ changeTitle, changeID }) => {
-  const WHITE = "fff";
-  const CUSTOM_COLOR = "#6D6AFE";
-
   const listsData = useGetJson(getFolderList);
   const lists = listsData?.data ?? [];
   if (lists[0]) {
@@ -16,7 +14,7 @@ const Menus = ({ changeTitle, changeID }) => {
   }
 
   const initialButtonColors = lists.reduce((colors, list) => {
-    colors[list.name] = "#fff";
+    colors[list.name] = COLORS.White;
     return colors;
   }, {});
 
@@ -28,7 +26,8 @@ const Menus = ({ changeTitle, changeID }) => {
     setButtonColors((prevColors) => {
       return {
         ...initialButtonColors,
-        [name]: prevColors[name] === "#fff" ? "#6D6AFE" : "#fff",
+        [name]:
+          prevColors[name] === COLORS.White ? COLORS.Primary : COLORS.White,
       };
     });
   };
