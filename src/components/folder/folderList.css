@@ -77,4 +77,6 @@
   flex-direction: column;
   padding: 20px 15px;
   gap: 10px;
+  /* TODO: 임시방편 */
+  width: 90%;
 }

@@ -36,17 +36,17 @@ export const FolderPage = () => {
         {!cardList && cardList?.length === 0 ? (
           <EmptyList text={"저장된 링크가 없습니다."} />
         ) : (
-          <FavoriteList handleChange={handleChangeFolderId} />
+          <FavoriteList handleChange={handleChangeFolderId} id={id} />
         )}
         {list?.length === 0 ? (
           <EmptyList text={"저장된 링크가 없습니다."} />
-        ) : (
-          <CardContianer>
-            {list.map((data) => (
-              <FavoriteCard data={data} />
-            ))}
-          </CardContianer>
-        )}
+        ) : null}
+
+        <CardContianer>
+          {list?.map((data) => (
+            <FavoriteCard data={data} selectId={id} />
+          ))}
+        </CardContianer>
       </div>
     </div>
   );

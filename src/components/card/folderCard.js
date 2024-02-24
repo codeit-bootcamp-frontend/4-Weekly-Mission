@@ -9,11 +9,17 @@ const TimeBox = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+const CardAtag = styled.a`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const CardContianer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  max-width: 106rem;
+  max-width: 1024px;
+  width: 100%;
   row-gap: 2rem;
   column-gap: 25px;
   justify-content: center;
@@ -41,7 +47,7 @@ export const FolderCard = ({ data }) => {
       onMouseOver={() => setIsHover(true)}
       onMouseOut={() => setIsHover(false)}
     >
-      <a href={data?.url} target="blank">
+      <CardAtag href={data?.url} target="blank">
         <CardImage src={data?.imageSource} alt={data?.imageSource} />
         <div className="descriptionBox">
           <TimeBox>
@@ -51,7 +57,7 @@ export const FolderCard = ({ data }) => {
           <div className="cardDescription">{data?.description}</div>
           <div className="dateText">{formatDate(data?.createdAt)}</div>
         </div>
-      </a>
+      </CardAtag>
     </div>
   );
 };
@@ -64,7 +70,7 @@ export const FavoriteCard = ({ data }) => {
       onMouseOver={() => setIsHover(true)}
       onMouseOut={() => setIsHover(false)}
     >
-      <a href={data?.url} target="blank">
+      <CardAtag href={data?.url} target="blank">
         <CardImage src={data?.image_source} alt={data?.image_source} />
         <div className="descriptionBox">
           <TimeBox>
@@ -74,7 +80,7 @@ export const FavoriteCard = ({ data }) => {
           <div className="cardDescription">{data?.description}</div>
           <div className="dateText">{formatDate(data?.created_at)}</div>
         </div>
-      </a>
+      </CardAtag>
     </div>
   );
 };
