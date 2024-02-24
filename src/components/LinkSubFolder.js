@@ -137,6 +137,10 @@ export default function LinkSubFolder({ userId = 1 }) {
 		handleShareLoad(`users/${userId}/links`);
 	}, [userId]);
 
+	useEffect(() => {
+		handleShareLoad(currentFolderQuery);
+	}, [currentFolderQuery]);
+
 	return (
 		<>
 			<div>
