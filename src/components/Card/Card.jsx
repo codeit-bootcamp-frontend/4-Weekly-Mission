@@ -7,20 +7,20 @@ import noImage from "assets/images/bg_noImage.png";
 import meatballsIcon from "assets/images/ic_meatballs.svg";
 import starIcon from "assets/images/ic_star.svg";
 
-function Card({ item, onClick }) {
+function Card({ item, onClick, modals, openModal, closeModal }) {
   const { createdAt, created_at, description, imageSource, image_source, url } =
     item;
   const date = createdAt || created_at;
   const imgUrl = imageSource || image_source;
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const [modals, setModals] = useState({});
+  // const [modals, setModals] = useState({});
 
-  const openModal = (modal) => {
-    setModals((prevModals) => ({
-      ...prevModals,
-      [modal]: true,
-    }));
-  };
+  // const openModal = (modal) => {
+  //   setModals((prevModals) => ({
+  //     ...prevModals,
+  //     [modal]: true,
+  //   }));
+  // };
 
   const handleMenuClick = (e) => {
     e.stopPropagation();
@@ -70,7 +70,7 @@ function Card({ item, onClick }) {
                   <DeleteModal
                     variant={`delete-link`}
                     deleted={url}
-                    setModals={setModals}
+                    closeModal={closeModal}
                   />
                 )}
                 <button
@@ -86,7 +86,7 @@ function Card({ item, onClick }) {
                   <FolderModal
                     variant={`add-link`}
                     deleted={url}
-                    setModals={setModals}
+                    closeModal={closeModal}
                   />
                 )}
               </div>
