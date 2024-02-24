@@ -53,8 +53,10 @@ function Folder() {
         )}
         {selectedFolder === "전체" ? (
           <AllFolderCard />
-        ) : (
+        ) : folderLinks.length > 0 ? (
           <FolderCard folderLinks={folderLinks} />
+        ) : (
+          <h2 className="FolderCard-none">저장된 링크가 없습니다.</h2>
         )}
       </div>
     </div>

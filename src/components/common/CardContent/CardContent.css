@@ -40,3 +40,36 @@
   top: 1.5rem;
   right: 2rem;
 }
+
+.popover {
+  position: absolute;
+  top: 3rem;
+  left: 29.9rem;
+  display: flex;
+  width: 100px;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
+  z-index: 10;
+}
+
+.popover button {
+  display: flex;
+  padding: 7px 12px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  color: #333236;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  background-color: #ffffff;
+}
+
+.popover button:hover {
+  background-color: var(--gray10);
+  color: var(--primary);
+}
