@@ -45,7 +45,8 @@ function ShareModal({ folder }) {
     console.log(type);
     switch (type) {
       case 'kakao':
-        window.open(`https://www.kakaotalk.com/share?url=${encodeURIComponent(shareUrl)}`);
+        // 카카오톡 공유는 과정 상 어려움이 있어서 클립보드 복사로 대체
+        navigator.clipboard.writeText(shareUrl);
         break;
       case 'facebook':
         window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`);
