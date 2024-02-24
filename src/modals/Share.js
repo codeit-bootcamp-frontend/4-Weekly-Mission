@@ -119,7 +119,6 @@ function Share({ title, main, onClose, currentFolderId }) {
   useEffect(() => {
     Kakao.cleanup();
     Kakao.init(process.env.REACT_APP_KAKAO_KEY);
-    console.log(process.env.REACT_APP_KAKAO_KEY);
     console.log(Kakao.isInitialized());
   }, []);
 
