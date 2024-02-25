@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { styled } from 'styled-components';
 
 import linkBarIcon from 'assets/icon/linkBar.svg';
-import Button from './common/button/Button';
+import Button from 'components/common/button/Button';
+import AddToFolderModal from 'components/folder/modal/AddToFolderModal';
 
 const Styled = {
   Container: styled.div`
@@ -32,13 +34,37 @@ const Styled = {
   `,
 };
 
-function AddLinkBar({ style, value, placeholder, onChange }) {
+function AddLinkBar({ style, placeholder }) {
+  const [inputValue, setInputValue] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleButtonClick = () => {
+    if (!inputValue) {
+      window.alert('링크를 입력해주세요‼️');
+      return;
+    }
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setInputValue('');
+  };
+
   return (
-    <Styled.Container style={style}>
-      <img src={linkBarIcon} alt="링크 추가 바 아이콘" />
-      <Styled.Input type="text" value={value} placeholder={placeholder} onChange={onChange}></Styled.Input>
-      <Button style={{ padding: '1rem 1.6rem' }}>추가하기</Button>
-    </Styled.Container>
+    <>
+      <Styled.Container style={style}>
+        <img src={linkBarIcon} alt="링크 추가 바 아이콘" />
+        <Styled.Input type="text" value={inputValue} placeholder={placeholder} onChange={handleChange} />
+        <Button onClick={handleButtonClick} style={{ padding: '1rem 1.6rem' }}>
+          추가하기
+        </Button>
+      </Styled.Container>
+      {isModalOpen && <AddToFolderModal setOpen={setIsModalOpen} onModalClose={handleModalClose} item={inputValue} />}
+    </>
   );
 }
 

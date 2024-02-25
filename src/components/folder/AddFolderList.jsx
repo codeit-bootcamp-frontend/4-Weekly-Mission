@@ -65,12 +65,13 @@ const folderInfo = [
   { name: '나만의 장소', linkCount: 3 },
 ];
 
-function AddFolderList() {
+function AddFolderList({ onSelectFolder }) {
   const [selectedFolder, setSelectedFolder] = useState(null);
 
   const handleClickFolder = (idx) => {
     setSelectedFolder(idx);
-    console.log(`${folderInfo[idx].name}에 추가할게요😊`);
+    console.log(`${folderInfo[idx].name} 선택`);
+    onSelectFolder(folderInfo[idx]);
   };
 
   return (
