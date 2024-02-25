@@ -1,3 +1,5 @@
+import './TopContentArea.css';
+
 const TopContentArea = ({ folderInfo }) => {
   const { name, folderName, iconImage } = folderInfo;
   return (

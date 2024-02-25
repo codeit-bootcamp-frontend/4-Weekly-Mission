@@ -6,17 +6,6 @@
   align-items: flex-start;
 }
 
-.search_link {
-  width: 100%;
-  margin-bottom: 32px;
-  padding: 13px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  border-radius: 10px;
-  background: var(--gray02);
-}
-
 .cards_area {
   display: flex;
   flex-direction: row;
@@ -52,11 +41,6 @@
     margin: 40px auto;
   }
 
-  .search_link {
-    width: 97.5%;
-    margin-bottom: 40px;
-  }
-
   .cards_area {
     width: 704px;
   }
@@ -70,10 +54,6 @@
 @media (min-width: 1124px) {
   .contents_area {
     width: 1060px;
-  }
-
-  .search_link {
-    width: 97%;
   }
 
   .cards_area {

@@ -9,12 +9,6 @@
   justify-content: space-between;
 }
 
-.sns_icon_area {
-  width: 116px;
-  display: flex;
-  gap: 12px;
-}
-
 .corp_area {
   width: 60%;
   height: 96px;
@@ -23,21 +17,6 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 60px;
-}
-
-.link_area {
-  display: flex;
-  gap: 30px;
-}
-
-.link_text {
-  color: var(--bright-gray);
-  text-decoration: none;
-  font-family: Arial;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
 }
 
 .copyright {

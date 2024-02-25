@@ -1,0 +1,14 @@
+.link_area {
+  display: flex;
+  gap: 30px;
+}
+
+.link_text {
+  color: var(--bright-gray);
+  text-decoration: none;
+  font-family: Arial;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

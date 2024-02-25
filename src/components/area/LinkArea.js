@@ -1,3 +1,5 @@
+import './LinkArea.css';
+
 const LinkArea = () => {
   return (
     <div className="link_area">
