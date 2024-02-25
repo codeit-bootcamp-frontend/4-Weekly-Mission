@@ -3,7 +3,6 @@ import Card from './Card';
 
 const CardList = ({ folderInfo, isIconVisible = true }) => {
   const card = folderInfo?.folder.links;
-  console.log(card);
 
   return (
     <>
@@ -15,7 +14,7 @@ const CardList = ({ folderInfo, isIconVisible = true }) => {
             ))}
           </>
         ) : (
-          <div>폴더가 비어있습니다.</div>
+          <div>저장된 링크가 없습니다.</div>
         )}
       </div>
     </>

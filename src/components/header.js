@@ -2,7 +2,7 @@ import '../styles/header.css';
 import logo from '../assets/logo/logo.svg';
 
 const Header = ({ userInfo, isSticky = false }) => {
-  const profileImage = userInfo?.profileImageSource;
+  const profileImage = userInfo?.profileImageSource ? userInfo?.profileImageSource : userInfo?.image_source;
   const profileEmail = userInfo?.email;
   const sticky = isSticky ? 'sticky' : '';
 

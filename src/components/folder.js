@@ -3,11 +3,11 @@ import CardList from './CardList';
 import FolderList from './FolderList';
 import SearchBar from './SearchBar';
 
-const Folder = ({ folderInfo }) => {
+const Folder = ({ folderInfo, folderList }) => {
   return (
     <div className='folder-container'>
       <SearchBar />
-      <FolderList />
+      <FolderList folderList={folderList} />
       <CardList folderInfo={folderInfo} isIconVisible={true} />
     </div>
   );

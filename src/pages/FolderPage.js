@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { getUser, getFolder } from '../api/BaseUrl';
+import { getFolderUser, getSharedFolder } from '../api/BaseUrl';
 import AddLink from '../components/AddLink';
 import Folder from '../components/Folder';
 import Footer from '../components/Footer';
@@ -20,8 +20,8 @@ const FoldPage = () => {
   };
 
   useEffect(() => {
-    handleLoad(getUser, setUser);
-    handleLoad(getFolder, setFolder);
+    handleLoad(getFolderUser, setUser);
+    handleLoad(getSharedFolder, setFolder);
   }, []);
 
   return (

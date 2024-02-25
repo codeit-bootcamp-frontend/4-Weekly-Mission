@@ -31,3 +31,13 @@ button {
 .hidden {
   display: none;
 }
+
+.button-gradient {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: var(--white);
+  text-decoration: none;
+}

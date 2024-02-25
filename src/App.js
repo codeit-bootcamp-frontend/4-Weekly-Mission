@@ -1,17 +1,16 @@
-import { useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
+import FolderPage from './pages/FolderPage';
+import Main from './pages/MainPage';
 import SharedPage from './pages/SharedPage';
-// import FolderPage from './pages/FolderPage';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <>
-        <SharedPage />
-        {/* <FolderPage /> */}
-      </>
-    </BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Main />} />
+      <Route path='folder' element={<FolderPage />} />
+      <Route path='shared' element={<SharedPage />} />
+    </Routes>
   );
 };
 

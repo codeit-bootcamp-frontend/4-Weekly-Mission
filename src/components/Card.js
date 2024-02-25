@@ -41,7 +41,6 @@ const Card = ({ card, isIconVisible = true }) => {
   const { url, title, imageSource, description, createdAt } = card;
   const cardImage = imageSource ? imageSource : noneProfile;
   const altCardImage = title + '로 이동';
-  console.log(altCardImage);
 
   return (
     <div className='card'>
