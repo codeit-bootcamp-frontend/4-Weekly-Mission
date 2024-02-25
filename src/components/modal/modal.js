@@ -131,7 +131,6 @@ function Modal({name, setOpenModal, buttonColor, buttonName}) {
     const folderLink = useRecoilValue(clickFolder);
     const modalLink = useRecoilValue(contentsLink);
     const folderId = folderName?.contents?.data?.find(({name}) => name === folderLink);
-    console.log(folderName);
     const handleCloseClick = () => {
         setOpenModal(false);
     }
@@ -143,7 +142,9 @@ function Modal({name, setOpenModal, buttonColor, buttonName}) {
                 <button className='deleteModal' type='button' onClick={handleCloseClick}><img src={`${process.env.PUBLIC_URL}/images/close.svg`} alt='닫기 버튼'/></button>
                 {
                     (name === "폴더 삭제" || name === "링크 삭제" || name === "폴더에 추가" || name === '폴더 공유') ? 
-                    name === '폴더 삭제' || name === '폴더 공유' ? <p className='modalText'>{folderLink}</p> : <p className='modalText'>{modalLink}</p>
+                    name === '폴더 삭제' || name === '폴더 공유' ? 
+                    <p className='modalText'>{folderLink}</p> 
+                    : <p className='modalText'>{modalLink}</p>
                     : null
                 }
                 {
@@ -152,8 +153,9 @@ function Modal({name, setOpenModal, buttonColor, buttonName}) {
                 <form>
                     {
                         name === "폴더 추가" || name === "폴더 이름 변경" ? 
-                        name === "폴더 추가" ? <input type='text' placeholder='내용 입력'/> :
-                        <input type='text' defaultValue={folderLink}/>
+                        name === "폴더 추가" ? 
+                        <input type='text' placeholder='내용 입력'/> 
+                        : <input type='text' defaultValue={folderLink}/>
                         : null
                     }
                     {buttonName === '' ? null : <ModalButton type='button' background={buttonColor}>{buttonName}</ModalButton>}

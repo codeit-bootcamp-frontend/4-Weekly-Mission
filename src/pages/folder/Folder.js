@@ -59,7 +59,7 @@ function Folder() {
                 openModal ? <Modal name={name} setOpenModal={setOpenModal} buttonColor={buttonColor} buttonName={buttonName}/> : null
             }
             <Header contents={data} userImg='image_source'/>
-            <AddLink/>
+            <AddLink setName={setName} setOpenModal={setOpenModal} setButtonColor={setButtonColor} setButtonName={setButtonName} modalName={ModalName}/>
             <main>
                 <div className='container'>
                     <SearchInput/>
