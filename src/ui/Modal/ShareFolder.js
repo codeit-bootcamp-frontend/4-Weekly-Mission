@@ -31,7 +31,10 @@ function ShareFolder({ currentCategory, selectedId }) {
           <span>페이스북</span>
         </div>
         <div className={styles["icon-wrapper"]}>
-          <CopyToClipboard text={`${currentUrl}${selectedId}`}>
+          <CopyToClipboard
+            text={`${currentUrl}${selectedId}`}
+            onCopy={() => alert("클립보드에 복사되었습니다")}
+          >
             <img
               src="images/copylink-icon.svg"
               alt="링크 복사"
