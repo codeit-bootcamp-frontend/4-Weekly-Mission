@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
-import Gnb from './Gnb';
-import Footer from './Footer';
+import Gnb from './Navigation/Gnb';
+import Footer from './Footer/Footer';
 
 const App = () => {
   return (
