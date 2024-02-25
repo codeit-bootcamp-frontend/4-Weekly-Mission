@@ -5,11 +5,20 @@
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
+.card_img_container {
+  height: calc(15.85913rem - (1.625rem + 1.75rem));
+  border-radius: 0.94rem 0.94rem 0 0;
+  overflow: hidden;
+}
+
+.card:hover .card_img {
+  transform: scale(1.3);
+  transition: transform 0.3s ease;
+}
+
 .card_img {
   width: 21.25rem;
   height: calc(15.85913rem - (1.625rem + 1.75rem));
-  border-radius: 0.94rem 0.94rem 0 0;
-  flex-shrink: 0;
   background: lightgray 50% / cover no-repeat;
 }
 
