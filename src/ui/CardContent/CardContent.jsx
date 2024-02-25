@@ -7,6 +7,7 @@ export const CardContent = ({
   description,
   createdAt,
   isHovered,
+  option,
 }) => {
   const [isClick, setIsClick] = useState(false);
   const className = isHovered
@@ -21,9 +22,13 @@ export const CardContent = ({
     <div className={className}>
       <div className="CardContent-time-kebab">
         <span className="CardContent-elapsed-time">{elapsedTime}</span>
-        <button type="button">
-          <div className="CardContent-kebab-button" onClick={handleClickMenu} />
-        </button>
+        {option && (
+          <button
+            type="button"
+            className="CardContent-kebab-button"
+            onClick={handleClickMenu}
+          />
+        )}
         {isClick && <KebabMenu />}
       </div>
 

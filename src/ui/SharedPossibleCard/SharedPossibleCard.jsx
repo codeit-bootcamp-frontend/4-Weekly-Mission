@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "ui/Card";
 import { CardContent } from "ui/CardContent";
 import { CardImage } from "ui/CardImage";
@@ -13,10 +13,15 @@ export function SharedPossibleCard({
   description,
   created_at,
 }) {
+  const [isShraed, setIsShared] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseOver = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
+
+  useEffect(() => {
+    setIsShared(true);
+  }, []);
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
@@ -32,6 +37,7 @@ export function SharedPossibleCard({
           description={description}
           createdAt={formatData(created_at)}
           isHovered={isHovered}
+          option={isShraed}
         />
       </Card>
     </a>
