@@ -7,7 +7,7 @@ import FormatDate from '../utils/FormatDate';
 import './Card.css';
 
 const Card = ({ link }) => {
-  const { created_at, description, image_source, url } = link;
+  const { created_at, createdAt, description, image_source, url } = link;
   const fillStar = false;
 
   return (
@@ -36,11 +36,13 @@ const Card = ({ link }) => {
         </div>
         <div className="card_contents_area">
           <div className="card_content_info">
-            <p className="elapsed_time">{ElapsedTime(created_at)}</p>
+            <p className="elapsed_time">
+              {ElapsedTime(created_at || createdAt)}
+            </p>
             <img src={kebab} alt="more" />
           </div>
           <p className="description_text">{description}</p>
-          <p className="created_at">{FormatDate(created_at)}</p>
+          <p className="created_at">{FormatDate(created_at || createdAt)}</p>
         </div>
       </a>
     </div>
