@@ -46,13 +46,11 @@ const Card = ({ card, isIconVisible = true }) => {
 
   return (
     <div className="card">
-      {isIconVisible ? (
+      {isIconVisible && (
         <>
           <img className="star-icon" src={iconStar} />
           <img className="kebab-icon" src={iconKebab} />
         </>
-      ) : (
-        null
       )}
       <a href={url} target="_blank" rel="noreferrer">
         <div className="card-image-content">

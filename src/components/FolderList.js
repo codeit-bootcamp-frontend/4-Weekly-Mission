@@ -32,7 +32,7 @@ const FolderList = ({ folderList }) => {
         <div className='folder-list-container'>
           <a className={`folder ${selected.name === "전체" ? "folder-selected" : ""}`}
             onClick={() => setSelected({ id: "", name: "전체" })}>전체</a>
-          {folderList ? (
+          {folderList && (
             <>
               {folderList.map((folder) => (
                 <Folder
@@ -42,8 +42,6 @@ const FolderList = ({ folderList }) => {
                   isSelected={selected && selected.id === folder.id} />
               ))}
             </>
-          ) : (
-            null
           )}
         </div>
         <div className='add-folder-container'>
@@ -54,7 +52,7 @@ const FolderList = ({ folderList }) => {
 
       <div className="folder-title">
         <h2 className="folder-title folder-name">{selected.name}</h2>
-        {selected.name !== "전체" ? (
+        {selected.name !== "전체" && (
           <>
             <div className="folder-menu">
               <img className="folder-menu-icon" src={iconShare} alt="폴더 공유하기." />
@@ -65,8 +63,6 @@ const FolderList = ({ folderList }) => {
               <a className="folder-menu-text">삭제</a>
             </div>
           </>
-        ) : (
-          null
         )}
       </div>
       <CardList folderInfo={folderLink} isIconVisible={true} />
