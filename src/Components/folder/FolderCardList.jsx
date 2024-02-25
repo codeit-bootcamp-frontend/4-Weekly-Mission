@@ -10,18 +10,7 @@ const CardList = styled.div`
   gap: 20px;
 `;
 
-const CardBlank = styled.div`
-  width: 100%;
-  text-align: center;
-  padding: 41px 0 35px 0;
-  margin: 0 auto;
-  color: #000;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 24px;
-`;
-
-function FolderCardArea({ links }) {
+function FolderCardList({ links }) {
   return (
     <>
       {links.length !== 0 ? (
@@ -37,4 +26,4 @@ function FolderCardArea({ links }) {
   );
 }
 
-export default FolderCardArea;
+export default FolderCardList;

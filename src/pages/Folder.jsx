@@ -2,18 +2,22 @@ import React, { useEffect, useState } from "react";
 import { getUserFolder, getFolderLink } from "../utils/Api";
 import Banner from "../components/folder/Banner";
 import SearchBar from "../components/common/SearchBar";
-import FolderCategoriseArea from "../components/folder/FolderCategoryArea";
-import FolderTitleArea from "../components/folder/FolderTitleArea";
-import FolderCardArea from "../components/folder/FolderCardArea";
+import FolderCategoryList from "../components/folder/FolderCategoryList";
+import FolderTitle from "../components/folder/FolderTitle";
+import FolderCardList from "../components/folder/FolderCardList";
 import Footer from "../components/common/Footer";
 import styled from "styled-components";
-import Modal from "../components/common/Modal/Modal";
+import FolderAddButton from "../components/folder/FolderAddButton";
+import FolderOption from "../components/folder/FolderOption";
 
 const Section = styled.section`
   max-width: 1060px;
-  min-height: 1280px;
   background-color: var(--color-white);
   margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
 `;
 
 function Folder() {
@@ -54,14 +58,19 @@ function Folder() {
   return (
     <>
       <Banner />
-      <Modal subTitle="httpw://www.abc.com" folders={folders}>
-        폴더 이름 변경하기
-      </Modal>
       <Section>
         <SearchBar />
-        <FolderCategoriseArea folders={folders} />
-        <FolderTitleArea title={folderState.name} />
-        <FolderCardArea links={links} />
+      </Section>
+      <Section>
+        <FolderCategoryList folders={folders} />
+        <FolderAddButton />
+      </Section>
+      <Section>
+        <FolderTitle title={folderState.name} />
+        <FolderOption />
+      </Section>
+      <Section>
+        <FolderCardList links={links} />
       </Section>
       <Footer />
     </>
