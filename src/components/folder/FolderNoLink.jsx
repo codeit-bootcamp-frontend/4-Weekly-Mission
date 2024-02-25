@@ -15,13 +15,12 @@ export function FolderNoLink() {
 const NoLinkContainer = styled.div`
   margin: 0 auto;
   display: flex;
-
+  width: 1060px;
   height: 100px;
   padding: 41px 0px 35px 0px;
   justify-content: center;
   align-items: center;
-  @media (max-width: 768px) {
-  }
+
   @media (max-width: 390px) {
     display: flex;
     height: 100px;

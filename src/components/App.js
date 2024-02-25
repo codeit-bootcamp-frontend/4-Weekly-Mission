@@ -11,7 +11,7 @@ function App() {
         <Routes>
           <Route path="/" element="#"></Route>
           <Route path="/shared" element={<Main />}></Route>
-          <Route path="/folder " element={<FolderMain />}></Route>
+          <Route path="/folder" element={<FolderMain />}></Route>
           <Route path="*" element={<FolderNoLink />}></Route>
         </Routes>
       </BrowserRouter>
