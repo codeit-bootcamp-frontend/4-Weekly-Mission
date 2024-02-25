@@ -2,12 +2,13 @@ import noneCardImg from '../assets/none-card-img.svg';
 import kebab from '../assets/kebab.svg';
 import emptyStar from '../assets/icon-empty-star.svg';
 import fullStar from '../assets/icon-full-star.svg';
-import ElapsedTime from '../utils/ElapsedTime';
-import FormatDate from '../utils/FormatDate';
+import elapsedTime from '../utils/ElapsedTime';
+import formatDate from '../utils/FormatDate';
 import './Card.css';
 
 const Card = ({ link }) => {
   const { created_at, createdAt, description, image_source, url } = link;
+  // TODO: 별 체크 기능 추가 예정
   const fillStar = false;
 
   return (
@@ -18,10 +19,7 @@ const Card = ({ link }) => {
         target="_blank"
         rel="noreferrer noopener"
       >
-        <div
-          className={image_source ? 'img_area' : 'img_area none_img_area'}
-          alt="star"
-        >
+        <div className={`img_area${image_source && ' none_img_area'}`}>
           <img
             src={image_source || noneCardImg}
             className="card_img"
@@ -37,12 +35,12 @@ const Card = ({ link }) => {
         <div className="card_contents_area">
           <div className="card_content_info">
             <p className="elapsed_time">
-              {ElapsedTime(created_at || createdAt)}
+              {elapsedTime(created_at || createdAt)}
             </p>
             <img src={kebab} alt="more" />
           </div>
           <p className="description_text">{description}</p>
-          <p className="created_at">{FormatDate(created_at || createdAt)}</p>
+          <p className="created_at">{formatDate(created_at || createdAt)}</p>
         </div>
       </a>
     </div>

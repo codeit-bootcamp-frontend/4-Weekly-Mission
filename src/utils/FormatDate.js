@@ -4,11 +4,11 @@
  * @returns 'yyyy. m. dd'
  */
 
-const FormatDate = (date) => {
+const formatDate = (date) => {
   const getDate = new Date(date);
   return `${getDate.getFullYear()}. ${
     getDate.getMonth() + 1
   }. ${getDate.getDate()}`;
 };
 
-export default FormatDate;
+export default formatDate;
