@@ -10,6 +10,13 @@ const Header = styled.header`
   justify-content: space-between;
   margin-bottom: 2.4rem;
   width: 100%;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
 `;
 
 const Title = styled.h1`

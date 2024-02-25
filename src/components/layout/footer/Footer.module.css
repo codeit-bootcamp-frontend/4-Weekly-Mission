@@ -31,7 +31,7 @@
 }
 
 @media (max-width: 767px) {
-  .footer-group {
+  .footerGroup {
     flex-wrap: wrap;
     gap: 6rem 0;
     padding: 3.2rem;

@@ -10,6 +10,7 @@ const InputGroup = styled.div`
   width: 100%;
   border-radius: 1rem;
   background-color: var(--color-gray-100);
+
   &::before {
     content: '';
     display: block;
@@ -17,6 +18,15 @@ const InputGroup = styled.div`
     min-width: 1.6rem;
     min-height: 1.6rem;
     background: url(${iconSearch}) no-repeat center/contain;
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 3.2rem;
+    padding: 1.3rem 1.6rem;
+
+    &::before {
+      margin-right: 0.6rem;
+    }
   }
 `;
 

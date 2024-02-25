@@ -9,6 +9,10 @@ const FolderGroup = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2.4rem;
+
+  @media (max-width: 767px) {
+    margin-bottom: 2.8rem;
+  }
 `;
 
 const FolderList = styled.ul`

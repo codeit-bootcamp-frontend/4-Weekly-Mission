@@ -13,8 +13,10 @@ const InputGroup = styled.div`
   padding: 1.6rem 2rem;
   width: 100%;
   max-width: 80rem;
+  border: 1px solid var(--color-primary);
   border-radius: 1.5rem;
   background-color: var(--color-white);
+
   &::before {
     content: '';
     display: block;
@@ -22,6 +24,17 @@ const InputGroup = styled.div`
     min-width: 2rem;
     min-height: 2rem;
     background: url(${iconLink}) no-repeat center/contain;
+  }
+
+  @media (max-width: 767px) {
+    margin: 2.4rem 0 4rem;
+    padding: 0.8rem 1rem;
+
+    &::before {
+      margin-right: 0.8rem;
+      min-width: 1.6rem;
+      min-height: 1.6rem;
+    }
   }
 `;
 

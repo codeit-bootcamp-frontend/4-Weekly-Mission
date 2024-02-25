@@ -8,6 +8,11 @@ const Button = styled.button`
   background-color: ${({ $active }) => ($active ? `var(--color-primary)` : 'inherit')};
   color: ${({ $active }) => ($active ? `var(--color-white)` : '#000')};
   white-space: nowrap;
+
+  @media (max-width: 767px) {
+    padding: 0.6rem 1rem;
+    font-size: 1.4rem;
+  }
 `;
 
 const FolderNameButton = ({ name, id, selectedFolder, handleCurrentFolder }) => {
