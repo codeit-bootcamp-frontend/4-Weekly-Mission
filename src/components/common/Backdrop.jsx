@@ -9,8 +9,8 @@ const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
 `;
 
-function Backdrop({isClose }) {
-  return <Container onClick={isClose}>backdrop</Container>;
+function Backdrop({ isClose }) {
+  return <Container onClick={isClose}></Container>;
 }
 
 export default Backdrop;
