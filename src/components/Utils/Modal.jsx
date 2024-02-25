@@ -45,7 +45,13 @@ function ModalAddSubFolder() {
 
 function ModalShareSubFolder({ modalData }) {
 	const BASE_URL = "https://animated-kitten-84730c.netlify.app";
-	const query = `{/shared/${modalData[1]}`;
+	const query = `/shared/${modalData[1]}`;
+
+	const onClickFacebook = () => {
+		window.open(
+			"https://www.facebook.com/sharer/sharer.php?u=" + BASE_URL + query
+		);
+	};
 
 	const handleCopyToClipboard = () => {
 		try {
@@ -77,7 +83,7 @@ function ModalShareSubFolder({ modalData }) {
 				</div>
 				<div className="modal-share-layout">
 					<button
-						onClick={() => handleCopyToClipboard()}
+						onClick={() => onClickFacebook()}
 						className="modal-img modal-facebook"
 					>
 						<img src="Facebook.svg" alt={"linkToFacebook"} />
