@@ -6,7 +6,7 @@ import SharedHeader from "../containers/SharedHeader";
 function SharedPage() {
   return (
     <div>
-      <h2>SharedPage 컴포넌트입니다.</h2>
+      {/* <h2>SharedPage 컴포넌트입니다.</h2> */}
       <SharedHeader />
       <SharedContent />
       <CommonFooter />

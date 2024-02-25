@@ -5,7 +5,7 @@ import CommonContent from "../components/common/CommonContent";
 function SharedContent() {
   return (
     <div>
-      <h2>SharedContent입니다.</h2>
+      {/* <h2>SharedContent입니다.</h2> */}
       <CommonContent />
     </div>
   );

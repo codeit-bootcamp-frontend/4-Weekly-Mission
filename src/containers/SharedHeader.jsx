@@ -19,7 +19,7 @@ import CommonHeader from "../components/common/CommonHeader";
 function SharedHeader() {
   return (
     <div>
-      <h2>SharedHeader 컴포넌트입니다.</h2>
+      {/* <h2>SharedHeader 컴포넌트입니다.</h2> */}
       <CommonHeader>
         <Profile />
       </CommonHeader>
