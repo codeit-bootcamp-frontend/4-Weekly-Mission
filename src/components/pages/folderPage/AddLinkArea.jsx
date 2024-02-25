@@ -13,10 +13,11 @@ const InputGroup = styled.div`
   padding: 1.6rem 2rem;
   width: 100%;
   max-width: 80rem;
+  height: 6.9rem;
   border: 1px solid var(--color-primary);
   border-radius: 1.5rem;
   background-color: var(--color-white);
-
+  
   &::before {
     content: '';
     display: block;
@@ -25,10 +26,11 @@ const InputGroup = styled.div`
     min-height: 2rem;
     background: url(${iconLink}) no-repeat center/contain;
   }
-
+  
   @media (max-width: 767px) {
     margin: 2.4rem 0 4rem;
     padding: 0.8rem 1rem;
+    height: 5.3rem;
 
     &::before {
       margin-right: 0.8rem;

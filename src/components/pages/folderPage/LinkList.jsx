@@ -23,6 +23,10 @@ const Title = styled.h1`
   font-size: 2.4rem;
   font-weight: 600;
   letter-spacing: -0.02rem;
+
+  @media (max-width: 767px) {
+    font-size: 2rem;
+  }
 `;
 
 const NoLinks = styled.p`

@@ -47,6 +47,7 @@ const Button = styled.button`
     bottom: 10.1rem;
     transform: translateX(-50%);
     padding: 0.8rem 2.4rem;
+    height: 3.5rem;
     border: 1px solid var(--color-white);
     border-radius: 2rem;
     background-color: var(--color-primary);
