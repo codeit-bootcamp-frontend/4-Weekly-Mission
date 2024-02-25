@@ -10,7 +10,7 @@ import ModalContainer from 'components/Modal/ModalContainer';
 import styles from 'components/Modal/ShareModal.module.css';
 
 function ShareModal({ folder, isModalOpen, setIsModalOpen }) {
-  const { id, title } = folder;
+  const { id, name } = folder;
 
   const host = window.location.origin;
   const shareUrl = `${host}/shared/${id ?? ''}`;
@@ -56,6 +56,7 @@ function ShareModal({ folder, isModalOpen, setIsModalOpen }) {
       default:
         break;
     }
+    console.log(folder);
   };
 
   const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
@@ -68,7 +69,7 @@ function ShareModal({ folder, isModalOpen, setIsModalOpen }) {
   return (
     <ModalContainer isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
       <p className={titleClasses}>폴더 공유</p>
-      <p className={folderTitleClasses}>{title ?? '폴더명'}</p>
+      <p className={folderTitleClasses}>{name ?? '폴더명'}</p>
       <div className={shareButtonContainerClasses}>
         {shareList.map((share) => (
           <Button key={share.key} className={shareButtonClasses} onClick={() => handleShareButtonClick(share.type)}>
@@ -82,13 +83,13 @@ function ShareModal({ folder, isModalOpen, setIsModalOpen }) {
 }
 
 ShareModal.propTypes = {
-  folder: PropTypes.shape({ id: PropTypes.number, title: PropTypes.string }),
+  folder: PropTypes.shape({ id: PropTypes.number, name: PropTypes.string }),
   isModalOpen: PropTypes.bool,
   setIsModalOpen: PropTypes.func,
 };
 
 ShareModal.defaultProps = {
-  folder: { id: null, title: null },
+  folder: { id: null, name: null },
   isModalOpen: false,
   setIsModalOpen: null,
 };
