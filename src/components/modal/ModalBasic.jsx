@@ -1,5 +1,6 @@
 import ModalHeader from "./ModalHeader";
 import ModalMain from "./ModalMain";
+import modalCloseBtn from "../../img/modalCloseBtn.svg";
 
 function ModalBasic({
   modalName,
@@ -10,7 +11,9 @@ function ModalBasic({
 }) {
   return (
     <>
-      {/* X버튼 추가 */}
+      <button>
+        <img src={modalCloseBtn} alt="closeButton" />
+      </button>
       <ModalHeader
         modalHeaderName={`폴더 ${modalName}`}
         modalHeaderContent={modalContent}
