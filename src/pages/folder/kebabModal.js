@@ -22,6 +22,9 @@ const KebabModalBox = styled.ul`
         padding: 7px 0px;
         font-size: 1.4rem;
     }
+    @media screen and (max-width: 768px) {
+        bottom: 35px; right: 19.5px;
+    }
 `
 
 function KebabModal({url, setName, setOpenModal, setButtonColor, setButtonName, modalName}) {
