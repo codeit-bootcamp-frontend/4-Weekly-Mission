@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+/** @jsxImportSource @emotion/react */
+import { useState } from "react";
 import { css } from "@emotion/react";
 import Layout from "../../Layout";
 import AddLink from "./AddLink/index";
@@ -7,6 +8,8 @@ import Cards from "../../Cards";
 import SearchingBar from "../../SearchingBar/index";
 import useGetButttonList from "../../../hooks/useGetButtonList";
 import useGetCardsInFolder from "../../../hooks/useGetCardsInFolder";
+import "../../../styles/common.css";
+import { divCss, btnCss, outerDivCss } from "./styles";
 
 const FolderPage = () => {
   const [clickedButtonId, setClickedButtonId] = useState(null);
@@ -22,17 +25,20 @@ const FolderPage = () => {
     <Layout
       children={[
         <AddLink />,
-        <SearchingBar />,
-        <>
-          {buttonsTitle.map((button, index) => (
-            <NavButton
-              title={button}
-              key={buttonsId[index]}
-              id={buttonsId[index]}
-              onClick={(e) => handleClick(e)}
-            />
-          ))}
-        </>,
+        <div css={divCss}>
+          <SearchingBar />,
+          <div css={btnCss}>
+            {buttonsTitle.map((button, index) => (
+              <NavButton
+                title={button}
+                key={buttonsId[index]}
+                id={buttonsId[index]}
+                onClick={(e) => handleClick(e)}
+              />
+            ))}
+          </div>
+          ,
+        </div>,
         <div css={outerDivCss}>
           <Cards items={cardDetail} />
         </div>,
@@ -42,13 +48,3 @@ const FolderPage = () => {
 };
 
 export default FolderPage;
-
-const outerDivCss = css`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  background: var(--Linkbrary-white);
-  padding: 40px 0 0 0;
-`;

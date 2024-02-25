@@ -40,7 +40,6 @@ p {
 
 .CTA {
   display: flex;
-  height: auto;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
@@ -67,4 +66,12 @@ p {
   padding: 16px 20px;
   font-size: 18px;
   font-weight: 600;
+}
+
+.CTA.input.small {
+  width: 80px;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 12px;
 }

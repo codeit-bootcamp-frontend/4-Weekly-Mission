@@ -6,9 +6,9 @@ export const divCss = css`
   height: 216px;
 `;
 export const imgCss = css`
-  position: relative;
-  left: 32px;
-  top: 4px;
+  position: absolute;
+  left: 16px;
+  top: 24px;
 `;
 export const inputCss = css`
   border: solid 4px var(--Linkbrary-gradation);
@@ -16,5 +16,16 @@ export const inputCss = css`
   width: 800px;
   height: 68px;
   border-radius: 16px;
-  padding: 16px 40px;
+  padding: 16px 48px;
+`;
+
+export const formCss = css`
+  display: flex;
+  position: relative;
+`;
+
+export const btnWrapper = css`
+  position: absolute;
+  top: 16px;
+  right: 16px;
 `;

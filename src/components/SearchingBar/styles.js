@@ -5,6 +5,7 @@ const styles = {
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 40px;
   `,
   image: css`
     position: relative;
