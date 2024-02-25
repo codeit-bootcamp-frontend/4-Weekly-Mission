@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import nonePage from '../../assets/images/folderImgNone.png';
+import AddLink from '../FolderPage/LinkModal/AddLink';
+import DeleteLink from '../FolderPage/LinkModal/DeleteLink';
 import { getRelativeTime, formatDateString } from '../../utils/timeUtils';
 import StarIcon from '../icons/StarIcon';
 import {
@@ -27,9 +29,15 @@ const standardizeLinkData = link => ({
   updatedAt: link.updatedAt || link.updated_at,
 });
 
-const Card = ({ links }) => {
+const Card = ({ links, folders }) => {
   const [activeDropdownId, setActiveDropdownId] = useState(null);
   const [standardizedLinks, setStandardizedLinks] = useState([]);
+  const [modal, setModal] = useState({
+    isOpen: false,
+    type: null,
+    linkId: null,
+    linkUrl: null,
+  });
 
   useEffect(() => {
     setStandardizedLinks(links.map(standardizeLinkData));
@@ -40,48 +48,78 @@ const Card = ({ links }) => {
   };
 
   const handleCardDelete = linkId => {
-    alert(`${linkId}의 카드 삭제는 준비중 입니다.`);
+    const link = standardizedLinks.find(link => link.id === linkId);
+    setModal({
+      isOpen: true,
+      type: 'delete',
+      linkId: linkId,
+      linkUrl: link.url,
+    });
   };
 
   const handleAddCardClick = linkId => {
-    alert(`${linkId}의 카드 추가는 준비중 입니다.`);
+    const link = standardizedLinks.find(link => link.id === linkId);
+    setModal({ isOpen: true, type: 'add', linkId: linkId, linkUrl: link.url });
   };
 
-  return standardizedLinks && standardizedLinks.length > 0 ? (
-    <CardGrid>
-      {standardizedLinks.map(link => (
-        <CardLinkList key={link.id}>
-          <a href={link.url} target="_blank" rel="noopener noreferrer">
-            <CardLinkImageContainer>
-              <CardLinkImage src={link.imageSource} alt={link.title} />
-              <StarIconContainer>
-                <StarIcon $isFavorited={false} />
-              </StarIconContainer>
-            </CardLinkImageContainer>
-            <CardLinkContent>
-              <CardLinkInfoContainer>
-                <CardLinkTimeago dateTime={link.createdAt}>
-                  {getRelativeTime(link.createdAt)}
-                </CardLinkTimeago>
-                <KebabDropdownMenu
-                  isActive={activeDropdownId === link.id}
-                  onClick={handleKebabClick}
-                  linkId={link.id}
-                  onDelete={handleCardDelete}
-                  onAddToFolder={handleAddCardClick}
-                />
-              </CardLinkInfoContainer>
-              <CardLinkDescription>{link.description}</CardLinkDescription>
-              <CardLinkDatestring dateTime={link.createdAt}>
-                {formatDateString(link.createdAt)}
-              </CardLinkDatestring>
-            </CardLinkContent>
-          </a>
-        </CardLinkList>
-      ))}
-    </CardGrid>
-  ) : (
-    <CardEmptyText>저장된 링크가 없습니다</CardEmptyText>
+  const closeModal = linkId => {
+    setModal({ isOpen: false, type: null, linkId: null, linkUrl: null });
+  };
+
+  return (
+    <>
+      {modal.isOpen && modal.type === 'add' && (
+        <AddLink
+          linkId={modal.linkId}
+          linkUrl={modal.linkUrl}
+          folders={folders}
+          onClose={closeModal}
+        />
+      )}
+      {modal.isOpen && modal.type === 'delete' && (
+        <DeleteLink
+          linkId={modal.linkId}
+          linkUrl={modal.linkUrl}
+          onClose={closeModal}
+        />
+      )}
+      {standardizedLinks.length > 0 ? (
+        <CardGrid>
+          {standardizedLinks.map(link => (
+            <CardLinkList key={link.id}>
+              <a href={link.url} target="_blank" rel="noopener noreferrer">
+                <CardLinkImageContainer>
+                  <CardLinkImage src={link.imageSource} alt={link.title} />
+                  <StarIconContainer>
+                    <StarIcon $isFavorited={false} />
+                  </StarIconContainer>
+                </CardLinkImageContainer>
+                <CardLinkContent>
+                  <CardLinkInfoContainer>
+                    <CardLinkTimeago dateTime={link.createdAt}>
+                      {getRelativeTime(link.createdAt)}
+                    </CardLinkTimeago>
+                    <KebabDropdownMenu
+                      isActive={activeDropdownId === link.id}
+                      onClick={handleKebabClick}
+                      linkId={link.id}
+                      onDelete={() => handleCardDelete(link.id)}
+                      onAddToFolder={() => handleAddCardClick(link.id)}
+                    />
+                  </CardLinkInfoContainer>
+                  <CardLinkDescription>{link.description}</CardLinkDescription>
+                  <CardLinkDatestring dateTime={link.createdAt}>
+                    {formatDateString(link.createdAt)}
+                  </CardLinkDatestring>
+                </CardLinkContent>
+              </a>
+            </CardLinkList>
+          ))}
+        </CardGrid>
+      ) : (
+        <CardEmptyText>저장된 링크가 없습니다.</CardEmptyText>
+      )}
+    </>
   );
 };
 
