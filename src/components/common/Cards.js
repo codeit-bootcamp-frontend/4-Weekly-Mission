@@ -3,6 +3,8 @@ import noImg from "../../images/no-img.png";
 import "./Card.css";
 import { getFolder } from "../../api";
 import { formatTimeAgo, uploadedDate } from "../formatTime";
+import kebab from "../../images/kebab.svg";
+import starOff from "../../images/star_off.svg";
 
 function Card() {
   const [cardData, setCardData] = useState([]);
@@ -29,18 +31,27 @@ function Card() {
     <div className="card-grid">
       {cardData.map(
         ({ url, imageSource, cardTime, description, cardDay }, index) => (
-          <a href={url} className="card" key={index}>
-            <img
-              className="card-img"
-              src={imageSource ? imageSource : noImg}
-              alt="card"
-            />
+          //fixme: key값 id값으로 고치기
+          <div className="card">
+            <a href={url} key={index}>
+              <img
+                className="card-img"
+                src={imageSource ? imageSource : noImg}
+                alt="card"
+              />
+            </a>
+            <img className="btn-star" src={starOff}></img>
             <div className="card-info">
-              <div className="card-time"> {cardTime} </div>
+              <div className="card-time">
+                <div> {cardTime} </div>
+                <a>
+                  <img src={kebab}></img>
+                </a>
+              </div>
               <p className="card-text">{description}</p>
               <div className="card-day">{cardDay} </div>
             </div>
-          </a>
+          </div>
         )
       )}
     </div>

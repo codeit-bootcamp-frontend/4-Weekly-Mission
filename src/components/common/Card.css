@@ -33,7 +33,13 @@
   }
 }
 
+.card-grid .btn-star {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
 .card {
+  position: relative;
   width: 340px;
   height: 334px;
   flex-shrink: 0;
