@@ -2,3 +2,24 @@
   width: 21.25rem;
   height: 20.875rem;
 }
+
+.card_img {
+  width: 21.25rem;
+  height: 15.85913rem;
+  flex-shrink: 0;
+  background: lightgray 50% / cover no-repeat;
+}
+
+.card_info {
+  width: 21.25rem;
+  height: 8.4375rem;
+  padding: 0.9375rem 1.25rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+
+  border-radius: 0rem 0rem 0.9375rem 0.9375rem;
+  background: #fff;
+}

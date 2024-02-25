@@ -15,8 +15,8 @@ function Card({ id, createdAt, url, title, description, imageSource }) {
 
   return (
     <div className={style.card} onClick={handleClick}>
-      <img src={imageSource} alt={title} />
-      <div>
+      <img className={style.card_img} src={imageSource} alt={title} />
+      <div className={style.card_info}>
         <CardHeader createdAt={createdAt} />
         <CardContent description={description} />
         <CardFooter createdAt={createdAt} />
