@@ -1,11 +1,9 @@
-function ModalHeader() {
+function ModalHeader({ modalHeaderName, modalHeaderContent }) {
   return (
-    <h2>모달 헤더</h2>
-    // {modalObj ? (
-    //   // 내용이 있을때 렌더링
-    // ) : (
-    //   // 내용이 없을때 렌더링
-    // ) }
+    <div>
+      <h2>{modalHeaderName}</h2>
+      {modalHeaderContent && <p>{modalHeaderContent}</p>}
+    </div>
   );
 }
 

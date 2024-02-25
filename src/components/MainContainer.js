@@ -70,7 +70,7 @@ const MainContainer = () => {
             <h2>{folderName}</h2>
             <div>
               {/* 여기 모달버튼 추가 */}
-              <Modal />
+              <Modal modalName="공유" modalContent="폴더명 content로 변경" />
             </div>
           </div>
           {sortedLinks.length === 0 ? (

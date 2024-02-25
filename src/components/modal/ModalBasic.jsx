@@ -1,10 +1,15 @@
 import ModalHeader from "./ModalHeader";
 import ModalMain from "./ModalMain";
 
-function ModalBasic() {
+function ModalBasic({ modalName, modalContent }) {
   return (
-    <ModalHeader />
-    // <ModalMain />
+    <>
+      <ModalHeader
+        modalHeaderName={`폴더 ${modalName}`}
+        modalHeaderContent={modalContent}
+      />
+      <ModalMain />
+    </>
   );
 }
 
