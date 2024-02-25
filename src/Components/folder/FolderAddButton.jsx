@@ -11,6 +11,21 @@ const AddButton = styled.div`
   width: 20%;
   justify-content: flex-end;
   cursor: pointer;
+  color: var(--primary-color);
+  @media (max-width: 767px) {
+    width: 127px;
+    position: fixed;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 101px;
+    z-index: 10;
+    cursor: pointer;
+    padding: 8px 24px;
+    border-radius: 20px;
+    border: 1px solid var(--Linkbrary-white, #fff);
+    background: var(--Linkbrary-primary-color, #6d6afe);
+  }
 `;
 
 const Name = styled.p`
@@ -19,6 +34,10 @@ const Name = styled.p`
   font-size: 16px;
   font-weight: 500;
   letter-spacing: -0.3px;
+  @media (max-width: 767px) {
+    color: white;
+    text-align: center;
+  }
 `;
 
 const iconStyle = {

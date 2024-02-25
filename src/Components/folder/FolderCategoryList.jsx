@@ -6,6 +6,9 @@ import { getUserFolder } from "../../utils/Api";
 const FolderCategory = styled.div`
   display: flex;
   gap: 8px;
+  @media (max-width: 1124px) {
+    flex-wrap: wrap;
+  }
 `;
 
 function FolderCategoryList() {

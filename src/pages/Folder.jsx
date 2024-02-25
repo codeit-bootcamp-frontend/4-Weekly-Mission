@@ -18,6 +18,14 @@ const Section = styled.section`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
+
+  @media (max-width: 1124px) {
+    max-width: 704px;
+  }
+
+  @media (max-width: 767px) {
+    max-width: 340px;
+  }
 `;
 
 function Folder() {
