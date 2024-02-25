@@ -14,6 +14,9 @@ import Option from 'components/Common/Option';
 import SortingButton from 'components/Common/SortingButton';
 import styles from 'components/Main/SortingSection.module.css';
 import AddFolderModal from 'components/Modal/AddFolderModal';
+import DeleteFolderModal from 'components/Modal/DeleteFolderModal';
+import EditFolderNameModal from 'components/Modal/EditFolderNameModal';
+import ShareModal from 'components/Modal/ShareModal';
 
 import { FOLDERS_API_URL, LINKS_API_URL } from 'services/api';
 
@@ -22,7 +25,9 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
   const ALL = { id: 0, name: '전체' };
 
   const [hoveredFolder, setHoveredFolder] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isAddFolderModalOpen, setIsAddFolderModalOpen] = useState(false);
+  const [isOptionListModalOpen, setIsOptionListModalOpen] = useState(false);
+  const [selectedOptionKey, setSelectedOptionKey] = useState(null);
 
   const url = FOLDERS_API_URL;
   const { data, loading, error } = useFetch(url);
@@ -42,8 +47,45 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
     { name: '삭제', image: DeleteIcon, key: 3 },
   ];
 
-  const openModal = () => {
-    return <AddFolderModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
+  const openAddFolderModal = () => {
+    return <AddFolderModal isModalOpen={isAddFolderModalOpen} setIsModalOpen={setIsAddFolderModalOpen} />;
+  };
+
+  const openOptionListModal = () => {
+    let modal;
+    switch (selectedOptionKey) {
+      case 1:
+        modal = (
+          <ShareModal
+            folder={selectedFolder}
+            isModalOpen={isOptionListModalOpen}
+            setIsModalOpen={setIsOptionListModalOpen}
+          />
+        );
+        break;
+      case 2:
+        modal = (
+          <EditFolderNameModal
+            folder={selectedFolder}
+            isModalOpen={isOptionListModalOpen}
+            setIsModalOpen={setIsOptionListModalOpen}
+          />
+        );
+        break;
+      case 3:
+        modal = (
+          <DeleteFolderModal
+            folder={selectedFolder}
+            isModalOpen={isOptionListModalOpen}
+            setIsModalOpen={setIsOptionListModalOpen}
+          />
+        );
+        break;
+      default:
+        modal = null;
+        break;
+    }
+    return modal;
   };
 
   const handleSortingButtonClick = (key) => {
@@ -61,7 +103,12 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
   };
 
   const handleAddFolderButtonClick = () => {
-    setIsModalOpen(true);
+    setIsAddFolderModalOpen(true);
+  };
+
+  const handleOptionListClick = (key) => {
+    setIsOptionListModalOpen(true);
+    setSelectedOptionKey(key);
   };
 
   const sortingSectionClasses = classNames(
@@ -112,14 +159,21 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
             {selectedFolder.id !== ALL.id && (
               <div className={optionListClasses}>
                 {optionList.map((option) => (
-                  <Option key={option.key} text={option.name} imageUrl={option.image} className={optionListClasses} />
+                  <Option
+                    key={option.key}
+                    text={option.name}
+                    imageUrl={option.image}
+                    className={optionListClasses}
+                    onClick={() => handleOptionListClick(option.key)}
+                  />
                 ))}
               </div>
             )}
           </div>
         </div>
       )}
-      {isModalOpen && openModal()}
+      {isAddFolderModalOpen && openAddFolderModal()}
+      {isOptionListModalOpen && openOptionListModal()}
     </div>
   );
 }

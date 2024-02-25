@@ -7,7 +7,7 @@ import TextInput from 'components/Common/TextInput';
 import styles from 'components/Modal/EditFolderNameModal.module.css';
 import ModalContainer from 'components/Modal/ModalContainer';
 
-function EditFolderNameModal({ isModalOpen, setIsModalOpen }) {
+function EditFolderNameModal({ folder, isModalOpen, setIsModalOpen }) {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e) => {
@@ -17,6 +17,8 @@ function EditFolderNameModal({ isModalOpen, setIsModalOpen }) {
   // 임시 버튼 클릭 이벤트
   const handleButtonClick = () => {
     console.log(inputValue);
+    // folder 임시 출력
+    console.log(folder);
   };
 
   const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
@@ -33,11 +35,13 @@ function EditFolderNameModal({ isModalOpen, setIsModalOpen }) {
 }
 
 EditFolderNameModal.propTypes = {
+  folder: PropTypes.shape(),
   isModalOpen: PropTypes.bool,
   setIsModalOpen: PropTypes.func,
 };
 
 EditFolderNameModal.defaultProps = {
+  folder: null,
   isModalOpen: false,
   setIsModalOpen: null,
 };
