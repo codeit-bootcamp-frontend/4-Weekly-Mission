@@ -14,12 +14,15 @@ import ActionButton from "./components/ActionButton/ActionButton";
 import useModal from "utils/hooks/useModal";
 import useFetch from "utils/hooks/useFetch";
 import { API } from "utils/constants/api";
+import {
+  ALL,
+  DELETE_FOLDER,
+  ADD_FOLDER,
+  SHARED,
+  EDIT,
+} from "utils/constants/strings";
 
 function FolderPage() {
-  /**
-   * @type {string}
-   */
-  const ALL = "전체";
   const { id: userId } = useContext(UserContext);
   const [selectedCategory, setSelectedCategory] = useState({
     id: null,
@@ -60,13 +63,13 @@ function FolderPage() {
 
                 <button
                   className={styles.addButton}
-                  onClick={() => openModal("add-folder")}
+                  onClick={() => openModal(ADD_FOLDER)}
                 >
                   <span>폴더 추가</span>
                   <AddIcon className={styles.addIcon} />
                 </button>
-                {modals["add-folder"] && (
-                  <FolderModal variant={`add-folder`} closeModal={closeModal} />
+                {modals[ADD_FOLDER] && (
+                  <FolderModal variant={ADD_FOLDER} closeModal={closeModal} />
                 )}
               </div>
 
@@ -79,34 +82,36 @@ function FolderPage() {
                     selectedCategory.name === ALL ? styles.hidden : ""
                   }`}
                 >
-                  <ActionButton openModal={openModal} variant={`shared`} />
-                  {modals["shared"] && (
+                  <ActionButton openModal={openModal} variant={SHARED} />
+                  {modals[SHARED] && (
                     <SharedModal
-                      variant={`shared`}
+                      variant={SHARED}
                       closeModal={closeModal}
                       folder={selectedCategory.name}
                     />
                   )}
 
-                  <ActionButton openModal={openModal} variant={`edit`} />
-                  {modals["edit"] && (
-                    <FolderModal variant={`edit`} closeModal={closeModal} />
+                  <ActionButton openModal={openModal} variant={EDIT} />
+                  {modals[EDIT] && (
+                    <FolderModal variant={EDIT} closeModal={closeModal} />
                   )}
 
-                  <ActionButton
-                    openModal={openModal}
-                    variant={`delete-folder`}
-                  />
-                  {modals["delete-folder"] && (
+                  <ActionButton openModal={openModal} variant={DELETE_FOLDER} />
+                  {modals[DELETE_FOLDER] && (
                     <DeleteModal
-                      variant={`delete-folder`}
+                      variant={DELETE_FOLDER}
                       closeModal={closeModal}
                       deleted={selectedCategory.name}
                     />
                   )}
                 </div>
               </div>
-              <CardList items={folderData} modals={modals} openModal={openModal} closeModal={closeModal}/>
+              <CardList
+                items={folderData}
+                modals={modals}
+                openModal={openModal}
+                closeModal={closeModal}
+              />
             </div>
           ) : (
             <NoResults />

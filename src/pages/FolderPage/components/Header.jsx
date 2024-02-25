@@ -3,9 +3,11 @@ import style from "./header.module.css";
 import FolderModal from "components/Modal/FolderModal/FolderModal";
 import linkIcon from "assets/images/ic_link.svg";
 import useModal from "utils/hooks/useModal";
+import { ADD_LINK } from "utils/constants/strings";
+
 function Header({ list }) {
   const [value, setValue] = useState("");
-  const {modals, openModal, closeModal} = useModal();
+  const { modals, openModal, closeModal } = useModal();
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -26,14 +28,14 @@ function Header({ list }) {
           className={style.button}
           onClick={(e) => {
             e.preventDefault();
-            openModal("add-link");
+            openModal(ADD_LINK);
           }}
         >
           추가하기
         </button>
-        {modals["add-link"] && (
+        {modals[ADD_LINK] && (
           <FolderModal
-            variant={`add-link`}
+            variant={ADD_LINK}
             closeModal={closeModal}
             link={value}
             list={list}

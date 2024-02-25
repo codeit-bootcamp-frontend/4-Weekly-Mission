@@ -6,6 +6,7 @@ import FolderModal from "components/Modal/FolderModal/FolderModal";
 import noImage from "assets/images/bg_noImage.png";
 import meatballsIcon from "assets/images/ic_meatballs.svg";
 import starIcon from "assets/images/ic_star.svg";
+import { DELETE_LINK, ADD_LINK } from "utils/constants/strings";
 
 function Card({ item, onClick, modals, openModal, closeModal }) {
   const { createdAt, created_at, description, imageSource, image_source, url } =
@@ -13,14 +14,6 @@ function Card({ item, onClick, modals, openModal, closeModal }) {
   const date = createdAt || created_at;
   const imgUrl = imageSource || image_source;
   const [isMenuOpen, setMenuOpen] = useState(false);
-  // const [modals, setModals] = useState({});
-
-  // const openModal = (modal) => {
-  //   setModals((prevModals) => ({
-  //     ...prevModals,
-  //     [modal]: true,
-  //   }));
-  // };
 
   const handleMenuClick = (e) => {
     e.stopPropagation();
@@ -52,7 +45,11 @@ function Card({ item, onClick, modals, openModal, closeModal }) {
         <div className={styles.infoTop}>
           <div className={styles.difference}>{getTimeDifference(date)}</div>
           <div className={styles.menu}>
-            <button type="button" onClick={handleMenuClick} className={styles.menuBtn} >
+            <button
+              type="button"
+              onClick={handleMenuClick}
+              className={styles.menuBtn}
+            >
               <img src={meatballsIcon} alt="메뉴 아이콘" />
             </button>
             {isMenuOpen && (
@@ -61,14 +58,14 @@ function Card({ item, onClick, modals, openModal, closeModal }) {
                   className={styles.option}
                   onClick={(e) => {
                     e.stopPropagation();
-                    openModal("delete-link");
+                    openModal(DELETE_LINK);
                   }}
                 >
                   삭제하기
                 </button>
-                {modals["delete-link"] && (
+                {modals[DELETE_LINK] && (
                   <DeleteModal
-                    variant={`delete-link`}
+                    variant={DELETE_LINK}
                     deleted={url}
                     closeModal={closeModal}
                   />
@@ -77,14 +74,14 @@ function Card({ item, onClick, modals, openModal, closeModal }) {
                   className={styles.option}
                   onClick={(e) => {
                     e.stopPropagation();
-                    openModal("add-link");
+                    openModal(ADD_LINK);
                   }}
                 >
                   폴더에 추가
                 </button>
-                {modals["add-link"] && (
+                {modals[ADD_LINK] && (
                   <FolderModal
-                    variant={`add-link`}
+                    variant={ADD_LINK}
                     deleted={url}
                     closeModal={closeModal}
                   />

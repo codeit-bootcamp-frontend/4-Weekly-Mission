@@ -1,6 +1,7 @@
 import FolderButton from "components/Button/FolderButton/FolderButton";
 import { Link } from "react-router-dom";
 import styles from "./category.module.css";
+import {ALL} from "utils/constants/strings"
 
 function Category({ buttonNames, selectedCategory, onClick }) {
 
@@ -8,10 +9,10 @@ function Category({ buttonNames, selectedCategory, onClick }) {
     <div className={styles.buttons}>
       <Link to={`/folder`}>
         <FolderButton
-          ischecked={selectedCategory.name === "전체" ? true : false}
-          onClick={() => onClick(null, "전체")}
+          ischecked={selectedCategory.name === ALL ? true : false}
+          onClick={() => onClick(null, ALL)}
         >
-          전체
+          {ALL}
         </FolderButton>
       </Link>
       {buttonNames.map(({ id, name }) => (
