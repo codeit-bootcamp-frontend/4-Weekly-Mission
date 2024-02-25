@@ -1,5 +1,5 @@
 const  ModalDeleteButton = ({children}) => {
-  return <button type="button" className="modalButton">{children}</button>
+  return <button type="button" className="modalButton delete">{children}</button>
   
 }
 

@@ -14,11 +14,9 @@
   "jsxSingleQuote": false,
   "jsxBracketSameLine": false,
 
-  "parser": "babylon",
   "filepath": "",
 
-  "rangeStart": 0,
-  "rangeEnd": "Infinity",
+
 
   "requirePragma": false, 
   "insertPragma": false,
@@ -27,7 +25,6 @@
 
   "htmlWhitespaceSensitivity": "css", 
 
-  "vueIndentScriptAndStyle": false,
 
   "embeddedLanguageFormatting": "auto"
 }

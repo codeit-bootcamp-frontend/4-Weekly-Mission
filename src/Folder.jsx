@@ -44,7 +44,7 @@ const Folder = () => {
           <span>{currentfolderName}</span>
           <FolderEdit folderName={currentfolderName} />
         </div>
-        <CardList links={links}/>
+        <CardList links={links} folderName={currentfolderName} folderList={folderList}/>
       </div>
       <FolderAddBtn />
     </div>
