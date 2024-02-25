@@ -5,6 +5,7 @@ import deleteIcon from "../../images/deleteIcon.svg";
 import { useState } from "react";
 import EditFolderNameModal from "../EditFolderNameModal";
 import ShareFolderModal from "../ShareFolderModal";
+import DeleteFolderModal from "../DeleteFolderModal";
 
 const FolderOptions = styled.div`
   display: flex;
@@ -30,13 +31,13 @@ const FolderOptions = styled.div`
 const FolderOption = ({ selectedFolder }) => {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [shareFolderModalOpen, setShareFolderModalOpen] = useState(false);
-  //   const [deleteFolderModalOpen, setDeleteFolderModalOpen] = useState(false);
+  const [deleteFolderModalOpen, setDeleteFolderModalOpen] = useState(false);
 
   const handleClick = (e) => {
     const ID = e.target.id;
     if (ID === "share") setShareFolderModalOpen(true);
     if (ID === "editName") setEditModalOpen(true);
-    // if (ID === 'delete') setEditModalOpen(true);
+    if (ID === "delete") setDeleteFolderModalOpen(true);
   };
 
   return (
@@ -66,6 +67,12 @@ const FolderOption = ({ selectedFolder }) => {
       {shareFolderModalOpen && (
         <ShareFolderModal
           setShareFolderModalOpen={setShareFolderModalOpen}
+          selectedFolder={selectedFolder}
+        />
+      )}
+      {deleteFolderModalOpen && (
+        <DeleteFolderModal
+          setDeleteFolderModalOpen={setDeleteFolderModalOpen}
           selectedFolder={selectedFolder}
         />
       )}
