@@ -11,6 +11,10 @@ const FolderList = styled.div`
 
 function ModalFoderList() {
   const [folders, setFolders] = useState(null);
+  const [currentFolder, setCurrentFolder] = useState(1);
+  const handleClickTag = (e, folder) => {
+    setCurrentFolder(folder.id);
+  };
 
   useEffect(() => {
     getUserFolder().then(setFolders);
@@ -20,7 +24,11 @@ function ModalFoderList() {
       {folders && (
         <FolderList>
           {folders.data.map(folder => (
-            <ModalFolderItem folder={folder} />
+            <ModalFolderItem
+              folder={folder}
+              onClick={e => handleClickTag(e, folder)}
+              selected={currentFolder === folder.id}
+            />
           ))}
         </FolderList>
       )}
