@@ -6,6 +6,7 @@ import { AddToFolder } from "components/common/modals/AddToFolder";
 
 export const PopOver = ({
   $isVisible,
+  setIsVisible,
   $options,
   $top,
   $right,
@@ -17,10 +18,12 @@ export const PopOver = ({
       <DeleteModal
         $isVisible={$isModalVisible}
         setIsVisible={setIsModalVisible}
+        setIsPopVisible={setIsVisible}
       ></DeleteModal>
       <AddToFolder
         $isVisible={$isModalVisible}
         setIsVisible={setIsModalVisible}
+        setIsPopVisible={setIsVisible}
       ></AddToFolder>
       <MenuOptions $isVisible={$isVisible} $top={$top} $right={$right}>
         {$options.map((option) => (

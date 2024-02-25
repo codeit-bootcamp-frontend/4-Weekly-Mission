@@ -6,7 +6,7 @@ import union from "../../assets/icons/Union.svg";
 import useGetJson from "./../../hooks/uesGetJson";
 import { COLORS } from "constants/colors";
 
-const Menus = ({ changeTitle, changeID }) => {
+const Menus = ({ changeTitle, changeID, $isVisible, setIsVisible }) => {
   const listsData = useGetJson(getFolderList);
   const lists = listsData?.data ?? [];
   if (lists[0]) {
@@ -47,7 +47,7 @@ const Menus = ({ changeTitle, changeID }) => {
           </Button>
         ))}
       </ButtonDiv>
-      <AddFolderDiv>
+      <AddFolderDiv onClick={() => setIsVisible("폴더 추가")}>
         <AddFolder>폴더 추가</AddFolder>
         <img src={union} alt="unionIcon" />
       </AddFolderDiv>
@@ -89,10 +89,7 @@ const Button = styled.button`
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background-color: ${({ color = "#fff" }) => color || "#fff"};
   color: ${({ color = "#fff" }) => (color === "#fff" ? "#000000" : "#FFFFFF")};
-<<<<<<< Updated upstream
   transition: all 0.3s ease-in-out;
-=======
->>>>>>> Stashed changes
 
   &:hover {
     cursor: pointer;

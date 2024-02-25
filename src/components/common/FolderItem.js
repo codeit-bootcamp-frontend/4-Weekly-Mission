@@ -7,7 +7,7 @@ import logo from "../../assets/icons/logo.png";
 import { PopOver } from "components/common/modals/PopOver.js";
 import "../../styles/shared.css";
 
-function FolderItem({ item }) {
+function FolderItem({ item, $isModalVisible, setIsModalVisible }) {
   const [isHovering, setIsHovering] = useState(false);
   const { imageSource, createdAt, description, url, id } = item;
   const { created_at, favorite, image_source } = item;
@@ -60,9 +60,12 @@ function FolderItem({ item }) {
             ></Kebab>
             <PopOver
               $isVisible={isVisible}
+              setIsVisible={setIsVisible}
               $options={["삭제하기", "폴더에 추가"]}
               $top="20px"
               $right="-70px"
+              $isModalVisible={$isModalVisible}
+              setIsModalVisible={setIsModalVisible}
             ></PopOver>
           </TimeContainer>
           <Description>{description}</Description>

@@ -4,7 +4,7 @@ import { COLORS } from "constants/colors";
 import closeIcon from "assets/icons/closeModal.png";
 import { BlueButton } from "./../BlueButton";
 
-export const AddToFolder = ({ $isVisible, setIsVisible }) => {
+export const AddToFolder = ({ $isVisible, setIsVisible, setIsPopVisible }) => {
   const handleCloseBtn = () => {
     setIsVisible(null);
   };
@@ -20,6 +20,7 @@ export const AddToFolder = ({ $isVisible, setIsVisible }) => {
         <Close
           onClick={(e) => {
             handleCloseBtn();
+            setIsPopVisible(false);
           }}
         >
           <img src={closeIcon} alt={closeIcon} />
