@@ -9,6 +9,8 @@ function Header() {
   const loginUser = useLoginUser();
   const setLoginUser = useSetLoginUser();
 
+  // TODO: locaion에서 주소 받아서 /folder일 경우 style 적용
+
   const handleLoginClick = async () => {
     try {
       const { data } = await getUser(4);
