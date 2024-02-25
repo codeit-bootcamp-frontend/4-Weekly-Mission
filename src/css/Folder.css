@@ -1,4 +1,4 @@
-.info{
+.info {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -6,7 +6,7 @@
   margin: auto;
   gap: 8px;
 }
-.addbar{
+.addbar {
   display: flex;
   width: 800px;
   padding: 16px 20px;
@@ -19,16 +19,16 @@
   justify-content: space-between;
   align-self: stretch;
 }
-.link{
+.link {
   display: flex;
   align-items: center;
   gap: 12px;
 }
-.link img{
+.link img {
   width: 20px;
   height: 20px;
 }
-.link input{
+.link input {
   color: #9FA6B2;
   font-family: Pretendard;
   font-size: 16px;
@@ -36,7 +36,7 @@
   font-weight: 400;
   line-height: 24px; /* 150% */
 }
-.addbar button{
+.addbar button {
   width: 80px;
   padding: 10px 16px;
   gap: 10px;
@@ -48,4 +48,74 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+.cardnav {
+  display: flex;
+  width: 1060px;
+  justify-content: space-between;
+  align-items: center;
+}
+.buttonlist {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+}
+.buttonlist button {
+  display: flex;
+  padding: 8px 12px;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  border: 1px solid #6D6AFE;
+  background: #FFF;
+}
+.folderadd {
+  color: #6D6AFE;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+.title {
+  display: flex;
+  width: 1060px;
+  justify-content: space-between;
+  align-items: center;
+}
+.title h1 {
+  color: #000;
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.option div, .folderadd{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+.option div p{
+  color: var(--Linkbrary-gray60, #9FA6B2);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.option div img, .folderadd img{
+  width: 18px;
+  height: 18px;
 }

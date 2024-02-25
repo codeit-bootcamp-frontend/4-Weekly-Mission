@@ -46,7 +46,7 @@ function Folder(){
       <div className='info'>
         <div className='addbar'>
           <div className='link'>
-            <img src='img/link.svg'></img>
+            <img src='img/link.svg' alt='link 이미지'></img>
             <input placeholder='링크를 추가해 보세요'></input>
           </div>
           <button>추가하기</button>
@@ -54,12 +54,43 @@ function Folder(){
       </div>
       <div className='cardList'>
         <div className='searchbar'>
-            <img src='/img/Search.svg' alt='검색이미지'></img>
-            <input type='text' placeholder='링크를 검색해 보세요.'></input>
-          </div>
-            <div className='cardbar'>
-              {CardContents()};
+          <img src='/img/Search.svg' alt='검색이미지'></img>
+          <input type='text' placeholder='링크를 검색해 보세요.'></input>
+        </div>
+            <div className='cardnav'>
+              <div className='buttonlist'>
+                <button>전체</button>
+                <button>⭐️ 즐겨찾기</button>
+                <button>코딩 팁</button>
+                <button>채용 사이트</button>
+                <button>유용한 글</button>
+                <button>나만의 장소</button>
+              </div>
+              <div className='folderadd'>
+                <p>폴더추가</p>
+                <img src='/img/add.svg' alt='plus'></img>
+              </div>
             </div>
+          <div className='title'>
+            <h1>유용한 글</h1>
+            <div className='option'>
+              <div>
+                <img src='/img/share.svg' alt='공유'></img>
+                <p>공유</p>
+              </div>
+              <div>
+                <img src='/img/pen.svg' alt='변경'></img>
+                <p>이름 변경</p>
+              </div>
+              <div>
+                <img src='/img/Group 36.svg' alt='삭제'></img>
+                <p>삭제</p>
+              </div>
+            </div>
+          </div>
+        <div className='cardbar'>
+          {CardContents()}
+        </div>
       </div>
     </div>
     <footer><Footer/></footer>
