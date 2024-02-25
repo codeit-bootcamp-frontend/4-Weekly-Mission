@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import FolderNameButton from './FolderNameButton';
 import IconAdd from '../../../assets/add.svg';
 import IconAddWhite from '../../../assets/add-white.png';
+import { modalTypes } from '../../../util/constants';
 
 const FolderGroup = styled.div`
   display: flex;
@@ -14,7 +15,6 @@ const FolderList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  /* width: 100%; */
   gap: 0.8rem;
 `;
 
@@ -55,7 +55,7 @@ const Button = styled.button`
   }
 `;
 
-const FolderListArea = ({ folders, selectedFolder, setSelectedFolder, setFolderId }) => (
+const FolderListArea = ({ folders, selectedFolder, handleCurrentFolder, handleModalBtnClick }) => (
   <FolderGroup>
     <FolderList>
       <li>
@@ -63,8 +63,7 @@ const FolderListArea = ({ folders, selectedFolder, setSelectedFolder, setFolderI
           name={'전체'}
           id={null}
           selectedFolder={selectedFolder}
-          changeSelectedFolder={setSelectedFolder}
-          setFolderId={setFolderId}
+          handleCurrentFolder={handleCurrentFolder}
         />
       </li>
       {folders.map(({ id, name }) => (
@@ -73,13 +72,14 @@ const FolderListArea = ({ folders, selectedFolder, setSelectedFolder, setFolderI
             name={name}
             id={id}
             selectedFolder={selectedFolder}
-            changeSelectedFolder={setSelectedFolder}
-            setFolderId={setFolderId}
+            handleCurrentFolder={handleCurrentFolder}
           />
         </li>
       ))}
     </FolderList>
-    <Button>폴더 추가</Button>
+    <Button data-modal={modalTypes.addFolder} onClick={handleModalBtnClick}>
+      폴더 추가
+    </Button>
   </FolderGroup>
 );
 

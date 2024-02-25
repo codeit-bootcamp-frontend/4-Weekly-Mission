@@ -11,7 +11,7 @@ const List = styled.ul`
   }
 `;
 
-const FolderList = ({ folderList }) => (
+const FolderList = ({ folderList, handleModalBtnClick, changeSelectedLink }) => (
   <List>
     {folderList.map(folder => {
       const { id, url, description } = folder;
@@ -20,7 +20,17 @@ const FolderList = ({ folderList }) => (
       // eslint-disable-next-line dot-notation
       const imageSource = folder.imageSource || folder['image_source'];
 
-      return <LinkCard key={id} url={url} createdAt={createdAt} desc={description} imgUrl={imageSource} />;
+      return (
+        <LinkCard
+          key={id}
+          url={url}
+          createdAt={createdAt}
+          desc={description}
+          imgUrl={imageSource}
+          changeSelectedLink={changeSelectedLink}
+          handleModalBtnClick={handleModalBtnClick}
+        />
+      );
     })}
   </List>
 );

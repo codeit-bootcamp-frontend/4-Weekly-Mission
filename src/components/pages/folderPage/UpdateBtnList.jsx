@@ -2,17 +2,21 @@ import styled from 'styled-components';
 import iconShare from '../../../assets/share.svg';
 import iconPen from '../../../assets/pen.svg';
 import iconDelete from '../../../assets/delete.svg';
+import { modalTypes } from '../../../util/constants';
 
 const ButtonList = [
   {
+    modalName: 'share',
     name: '공유',
     imgUrl: iconShare,
   },
   {
+    modalName: 'edit',
     name: '이름변경',
     imgUrl: iconPen,
   },
   {
+    modalName: 'deleteFolder',
     name: '삭제',
     imgUrl: iconDelete,
   },
@@ -37,17 +41,18 @@ const ButtonImg = styled.img`
   height: 1.8rem;
 `;
 
-const UpdateBtnList = () => (
-  <UpdateButtonList>
-    {ButtonList.map(({ name, imgUrl }) => (
-      <li key={name}>
-        <UpdateButton>
-          <ButtonImg src={imgUrl} alt={name} />
-          {name}
-        </UpdateButton>
-      </li>
-    ))}
-  </UpdateButtonList>
+const UpdateBtnList = ({ handleModalBtnClick }) => (
+  <>
+    <UpdateButtonList>
+      {ButtonList.map(({ modalName, name, imgUrl }) => (
+        <li key={name}>
+          <UpdateButton data-modal={modalTypes[modalName]} onClick={handleModalBtnClick}>
+            <ButtonImg src={imgUrl} alt={name} />
+            {name}
+          </UpdateButton>
+        </li>
+      ))}
+    </UpdateButtonList>
+  </>
 );
-
 export default UpdateBtnList;

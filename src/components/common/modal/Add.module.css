@@ -1,0 +1,56 @@
+.optionList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 17.2rem;
+  overflow-y: auto;
+}
+
+.optionName {
+  display: flex;
+}
+
+.inputRadio:checked + .label {
+  background-color: var(--color-gray-200);
+}
+
+.inputRadio:checked + .label .icon {
+  display: block;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  width: 100%;
+}
+
+.label:hover {
+  background-color: var(--color-gray-200);
+}
+
+.folderInfo {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.folderName {
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  color: #373740;
+}
+
+.linkCount {
+  font-size: 1.4rem;
+  color: var(--color-gray-600);
+}
+
+.icon {
+  display: none;
+  width: 1.4rem;
+  height: 1.4rem;
+  background: url('../../../assets/check.svg') no-repeat center/contain;
+}

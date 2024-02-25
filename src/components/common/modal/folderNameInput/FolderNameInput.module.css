@@ -1,0 +1,18 @@
+.input {
+  padding: 1.8rem 1.5rem;
+  width: 100%;
+  border: 1px solid var(--color-gray-400);
+  border-radius: 0.8rem;
+  outline: none;
+  line-height: 2.4rem;
+  font-size: 1.6rem;
+  color: #373740;
+}
+
+.input.active {
+  border-color: var(--color-primary);
+}
+
+.input::placeholder {
+  color: var(--color-gray-600);
+}

@@ -26,7 +26,7 @@ const NoLinks = styled.p`
   text-align: center;
 `;
 
-const LinkList = ({ folderId, selectedFolder }) => {
+const LinkList = ({ folderId, selectedFolder, handleModalBtnClick, changeSelectedLink }) => {
   const [links, setLinks] = useState([]);
 
   const fetchLinks = async id => {
@@ -46,9 +46,17 @@ const LinkList = ({ folderId, selectedFolder }) => {
     <>
       <Header>
         <Title>{selectedFolder}</Title>
-        {selectedFolder !== '전체' && <UpdateBtnList />}
+        {selectedFolder !== '전체' && <UpdateBtnList handleModalBtnClick={handleModalBtnClick} />}
       </Header>
-      {links.length ? <FolderList folderList={links} /> : <NoLinks>저장된 링크가 없습니다</NoLinks>}
+      {links?.length ? (
+        <FolderList
+          folderList={links}
+          changeSelectedLink={changeSelectedLink}
+          handleModalBtnClick={handleModalBtnClick}
+        />
+      ) : (
+        <NoLinks>저장된 링크가 없습니다</NoLinks>
+      )}
     </>
   );
 };
