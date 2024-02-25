@@ -27,7 +27,7 @@ const LinkItem = ({ link }) => {
       </LinkImage>
       <div className="createdAt">
         {calculateTimePassed(CREATED_AT)}
-        <Kebab onClick={handleClick} kebabOpen={kebabOpen} />
+        <Kebab onClick={handleClick} kebabOpen={kebabOpen} url={link.url} />
       </div>
       <p className="description">{link.description}</p>
       <p className="createdDate">{CREATED_DATE}</p>
