@@ -1,13 +1,13 @@
-import ModalLayout from "./ModalLayout";
-import { MODALS } from "./modals";
+import ModalLayout from "../ModalLayout";
+import { MODALS } from "../modals";
 import styles from "./DeleteLinkModal.module.css";
 
-function DeleteLinkModal({ url, isModalClicked, onToggleModal }) {
+function DeleteLinkModal({ url, isModalClicked, handleClickModal }) {
   const { deleteLink } = MODALS;
 
   const onClickCloseButton = (e) => {
     e.stopPropagation();
-    onToggleModal(deleteLink.type);
+    handleClickModal(deleteLink.type);
   };
 
   return (

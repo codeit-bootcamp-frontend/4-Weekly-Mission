@@ -1,17 +1,17 @@
 import styles from "./SelectMenu.module.css";
 import { MODALS } from "../modal/modals";
 
-function SelectMenu({ onToggleModal, onClickKebab }) {
+function SelectMenu({ handleClickModal, onClickKebab }) {
   const { deleteLink, addToFolder } = MODALS;
 
   const onClickKebabDelete = (e) => {
     onClickKebab(e);
-    onToggleModal(deleteLink.type);
+    handleClickModal(deleteLink.type);
   };
 
   const onClickKebabAddToFolder = (e) => {
     onClickKebab(e);
-    onToggleModal(addToFolder.type);
+    handleClickModal(addToFolder.type);
   };
 
   return (

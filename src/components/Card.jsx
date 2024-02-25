@@ -5,7 +5,7 @@ import star from "../images/star.svg";
 import styles from "./Card.module.css";
 import SelectMenu from "./SelectMenu";
 import { useState } from "react";
-import DeleteLinkModal from "../modal/DeleteLinkModal";
+import DeleteLinkModal from "../modal/DeleteLinkModal/DeleteLinkModal";
 import AddToFolderModal from "../modal/AddToFolderModal/AddToFolderModal";
 
 function Card({ link }) {
@@ -31,7 +31,7 @@ function Card({ link }) {
     e.stopPropagation();
   };
 
-  const onToggleModal = (type) => {
+  const handleClickModal = (type) => {
     const value = isModalClicked[type];
     setIsModalClicked({ ...isModalClicked, [type]: !value });
   };
@@ -57,24 +57,20 @@ function Card({ link }) {
           <SelectMenu
             url={link?.url}
             onClickKebab={onClickKebab}
-            onToggleModal={onToggleModal}
+            handleClickModal={handleClickModal}
           />
         ) : null}
       </div>
-      {isModalClicked.deleteLink && (
-        <DeleteLinkModal
-          url={link.url}
-          isModalClicked={isModalClicked}
-          onToggleModal={onToggleModal}
-        />
-      )}
-      {isModalClicked.addToFolder && (
-        <AddToFolderModal
-          url={link.url}
-          isModalClicked={isModalClicked}
-          onToggleModal={onToggleModal}
-        />
-      )}
+      <DeleteLinkModal
+        url={link.url}
+        isModalClicked={isModalClicked}
+        handleClickModal={handleClickModal}
+      />
+      <AddToFolderModal
+        url={link.url}
+        isModalClicked={isModalClicked}
+        handleClickModal={handleClickModal}
+      />
     </>
   );
 }

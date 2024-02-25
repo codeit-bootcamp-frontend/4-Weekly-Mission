@@ -8,7 +8,7 @@ import FolderInModal from "./FolderInModal";
 function AddToFolderModal({
   url,
   isModalClicked,
-  onToggleModal,
+  handleClickModal,
   linkValue,
   makeEmptyValue,
 }) {
@@ -17,7 +17,7 @@ function AddToFolderModal({
   const { addToFolder } = MODALS;
 
   const onClickCloseButton = () => {
-    onToggleModal(addToFolder.type);
+    handleClickModal(addToFolder.type);
     if (linkValue) makeEmptyValue();
   };
 

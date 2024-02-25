@@ -14,7 +14,7 @@ function AddLinkBar() {
     setLinkValue(e.target.value);
   };
 
-  const onToggleModal = (type) => {
+  const handleClickModal = (type) => {
     const value = isModalClicked[type];
     setIsModalClicked({ ...isModalClicked, [type]: !value });
   };
@@ -39,7 +39,7 @@ function AddLinkBar() {
           </div>
           <button
             className={styles.button}
-            onClick={() => onToggleModal(MODALS.addToFolder.type)}
+            onClick={() => handleClickModal(MODALS.addToFolder.type)}
           >
             추가하기
           </button>
@@ -48,7 +48,7 @@ function AddLinkBar() {
           <AddToFolderModal
             url={linkValue}
             isModalClicked={isModalClicked}
-            onToggleModal={onToggleModal}
+            handleClickModal={handleClickModal}
             linkValue={linkValue}
             makeEmptyValue={makeEmptyValue}
           />

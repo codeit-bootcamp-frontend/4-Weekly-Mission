@@ -1,5 +1,5 @@
-import ModalLayout from "./ModalLayout";
-import { MODALS } from "./modals";
+import ModalLayout from "../ModalLayout";
+import { MODALS } from "../modals";
 import styles from "./AddFolderModal.module.css";
 
 function AddFolderModal({ isModalClicked, handleModalClick }) {
