@@ -1,0 +1,62 @@
+@import "./ModalCommon.css";
+
+.modal-items .modal-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.modal-title p {
+  color: #9fa6b2;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2.2rem;
+}
+
+.modal-content {
+  display: flex;
+  gap: 3.2rem;
+}
+
+.modal-sns {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+}
+
+.modal-sns p {
+  color: #373740;
+  text-align: center;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
+.modal-sns img {
+  display: flex;
+  padding: 1.2rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 3.7rem;
+  width: 4.2rem;
+  height: 4.2rem;
+}
+
+.modal-sns .kakao {
+  background: #fee500;
+}
+
+.modal-sns .facebook {
+  background: #1877f2;
+}
+
+.modal-sns .link {
+  background: rgba(157, 157, 157, 0.04);
+}

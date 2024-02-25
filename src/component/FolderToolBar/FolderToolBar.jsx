@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-import { fetchFolders, fetchLinks } from "./fetchData";
 import FolderButton from "./FolderButton/FolderButton";
 import FolderCardList from "../FolderToolBar/FolderCardList/FolderCardList";
 import { ALL } from "../../utils/utils";
@@ -8,35 +6,18 @@ import share from "../../images/share.svg";
 import pen from "../../images/pen.svg";
 import deleteIcon from "../../images/delete.svg";
 
-const FolderToolBar = () => {
-  const [buttons, setButtons] = useState([]);
-  const [links, setLinks] = useState([]);
-  const [selectedButtonName, setSelectedButtonName] = useState(ALL);
-
-  useEffect(() => {
-    fetchFolders()
-      .then((data) => {
-        setButtons(data);
-        onFolderSelect(null, ALL);
-      })
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
-
-  const onFolderSelect = (folderId, folderName = ALL) => {
-    setSelectedButtonName(folderName);
-    fetchLinks(folderId)
-      .then((data) => {
-        setLinks(data);
-      })
-      .catch((error) => console.error("Error fetching links:", error));
-  };
-
+const FolderToolBar = ({
+  folderNameData,
+  links,
+  selectedButtonName,
+  onFolderSelect,
+}) => {
   return (
     <div className="container">
       <div className="button-container">
         <div className="folder-buttons">
           <FolderButton
-            buttons={buttons}
+            folderNameData={folderNameData}
             onFolderSelect={onFolderSelect}
             selectedButtonName={selectedButtonName}
           />

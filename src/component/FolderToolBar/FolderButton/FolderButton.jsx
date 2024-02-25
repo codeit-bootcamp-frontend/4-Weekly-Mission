@@ -1,18 +1,22 @@
 import { ALL } from "../../../utils/utils";
 import "./FolderButton.css";
 
-const FolderButton = ({ buttons, onFolderSelect, selectedButtonName }) => {
+const FolderButton = ({
+  folderNameData,
+  onFolderSelect,
+  selectedButtonName,
+}) => {
   return (
     <>
       <button
         className={selectedButtonName === ALL ? "selected" : ""}
         onClick={() => {
-          onFolderSelect(null, ALL);
+          onFolderSelect(ALL);
         }}
       >
         <span>전체</span>
       </button>
-      {buttons.map((button) => (
+      {folderNameData.map((button) => (
         <button
           key={button.id}
           className={selectedButtonName === button.name ? "selected" : ""}
