@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { useFolder } from "../../context/FolderContext";
+import { useFolder } from "context/FolderContext";
 
 const DefaultFolder = styled.button`
   padding: 8px 12px 8px 12px;

@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { getFolderLink } from "../utils/Api";
-import Banner from "../components/folder/Banner";
-import SearchBar from "../components/common/SearchBar";
-import FolderCategoryList from "../components/folder/FolderCategoryList";
-import FolderTitle from "../components/folder/FolderTitle";
-import FolderCardList from "../components/folder/FolderCardList";
-import Footer from "../components/common/Footer";
+import Banner from "components/folder/Banner";
+import SearchBar from "components/common/SearchBar";
+import FolderCategoryList from "components/folder/FolderCategoryList";
+import FolderTitle from "components/folder/FolderTitle";
+import FolderCardList from "components/folder/FolderCardList";
+import Footer from "components/common/Footer";
 import styled from "styled-components";
-import FolderAddButton from "../components/folder/FolderAddButton";
-import FolderOption from "../components/folder/FolderOption";
+import FolderAddButton from "components/folder/FolderAddButton";
+import FolderOption from "components/folder/FolderOption";
 
 const Section = styled.section`
   max-width: 1060px;

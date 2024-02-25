@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { IoMdAdd } from "react-icons/io";
-import { useModal } from "../../hooks/useModal";
+import { useModal } from "hooks/useModal";
 import ModalContainer from "../common/Modal/Modal";
 import * as Modal from "../common/Modal/Modal";
 

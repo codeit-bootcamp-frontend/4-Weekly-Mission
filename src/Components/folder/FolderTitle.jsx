@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useFolder } from "../../context/FolderContext";
+import { useFolder } from "context/FolderContext";
 
 const Title = styled.h2`
   color: #000;

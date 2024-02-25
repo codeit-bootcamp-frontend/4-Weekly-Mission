@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import FolderCategoryItem from "./FolderCategoryItem";
-import { getUserFolder } from "../../utils/Api";
+import { getUserFolder } from "utils/Api";
 
 const FolderCategory = styled.div`
   display: flex;

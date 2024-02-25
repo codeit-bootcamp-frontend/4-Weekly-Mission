@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import ModalContainer from "../common/Modal/Modal";
 import * as Modal from "../common/Modal/Modal";
 import ModalFoderList from "../common/Modal/ModalFoderList";
-import { useModal } from "../../hooks/useModal";
+import { useModal } from "hooks/useModal";
 
 const Layout = styled.section`
   width: 100%;

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import BlankCard from "../ui/BlankCard";
 import styled from "styled-components";
 import Card from "../ui/Card";
-import { getFolderLink } from "../../utils/Api";
-import { useFolder } from "../../context/FolderContext";
+import { getFolderLink } from "utils/Api";
+import { useFolder } from "context/FolderContext";
 
 const CardList = styled.div`
   width: 100%;

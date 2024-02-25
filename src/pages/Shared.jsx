@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../components/common/Footer";
-import { getSampleFolder } from "../utils/Api";
-import Banner from "../components/share/Banner";
+import Footer from "components/common/Footer";
+import { getSampleFolder } from "utils/Api";
+import Banner from "components/share/Banner";
 import styled from "styled-components";
-import SearchBar from "../components/common/SearchBar";
-import ShareCardList from "../components/share/ShareCardList";
+import SearchBar from "components/common/SearchBar";
+import ShareCardList from "components/share/ShareCardList";
 
 const Section = styled.section`
   max-width: 1060px;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useFolder } from "../../context/FolderContext";
-import { useModal } from "../../hooks/useModal";
+import { useFolder } from "context/FolderContext";
+import { useModal } from "hooks/useModal";
 import ModalContainer from "../common/Modal/Modal";
 import * as Modal from "../common/Modal/Modal";
 import SocialIcons from "../common/Modal/SocialIcons";
