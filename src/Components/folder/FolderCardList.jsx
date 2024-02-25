@@ -10,6 +10,16 @@ const CardList = styled.div`
   display: grid;
   grid-template: repeat(3, 1fr) / repeat(3, 1fr);
   gap: 20px;
+
+  @media (max-width: 1124px) {
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 767px) {
+    grid-template: repeat(1, 1fr) / repeat(1, 1fr);
+    gap: 20px;
+  }
 `;
 
 function FolderCardList() {
