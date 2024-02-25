@@ -9,10 +9,11 @@ const ImageGroup = styled.div`
   overflow: hidden;
 `;
 
-const ImageCard = styled.div`
+export const ImageCard = styled.div`
   width: 100%;
   height: 100%;
   background: ${({ image }) => (image ? `url(${image})` : `url(${noImage})`)} no-repeat center/cover;
+  transition: all 0.3s ease-in-out;
 `;
 
 const ButtonStar = styled.button`

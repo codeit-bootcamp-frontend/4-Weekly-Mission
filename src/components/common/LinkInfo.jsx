@@ -5,11 +5,12 @@ import kebab from '../../assets/kebab.svg';
 import Popover from '../pages/folderPage/Popover';
 import { modalTypes } from '../../util/constants';
 
-const InfoGroup = styled.div`
+export const InfoGroup = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
   padding: 1.5rem 2rem;
+  transition: all 0.3s ease-in-out;
 `;
 
 const TimeInfoGroup = styled.div`

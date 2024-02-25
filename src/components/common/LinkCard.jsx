@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import LinkImage from './LinkImage';
-import LinkInfo from './LinkInfo';
+import LinkImage, { ImageCard } from './LinkImage';
+import LinkInfo, { InfoGroup } from './LinkInfo';
 
 const LinkItem = styled.li`
   width: calc(100% / 3 - 4rem / 3);
@@ -13,6 +13,14 @@ const LinkItem = styled.li`
 
   @media (max-width: 767px) {
     width: 100%;
+  }
+
+  &:hover ${ImageCard} {
+    transform: scale(1.3);
+  }
+
+  &:hover ${InfoGroup} {
+    background-color: var(--color-gray-200);
   }
 `;
 
