@@ -21,19 +21,19 @@ const Folder = () => {
   const [data, setData] = useState([]);
   const [isModal, setIsModal] = useState(null);
 
-  const fetchData = async () => {
-    try {
-      const response = await getAllLinkData(listId);
-      const result = await response.data;
-      setData(result);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getAllLinkData(listId);
+        const result = await response.data;
+        setData(result);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     fetchData();
-  }, []);
+  }, [listId]);
 
   return (
     <Container>
