@@ -1,7 +1,7 @@
-import './styles/global.css';
-import closeButton from './assets/close.png';
+import '../../styles/global.css';
+import closeButton from '../../assets/close.png';
 
-const FolderDeleteModal = ({ isOpen, closeModal }) => {
+const DeleteFolder = ({ isOpen, closeModal }) => {
   return (
     <>
       <div
@@ -102,4 +102,4 @@ const FolderDeleteModal = ({ isOpen, closeModal }) => {
   );
 };
 
-export default FolderDeleteModal.js;
+export default DeleteFolder;

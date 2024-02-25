@@ -1,8 +1,8 @@
 import './styles/App.css';
-// import NavBar from './NavBar/NavBar';
+import NavBar from './components/NavBar/NavBar';
 import { useState } from 'react';
-// import FolderDeleteModal from './FolderDeleteModal';
-import LinkDeleteModal from './LinkDeleteModal copy';
+import DeleteFolder from './components/modals/DeleteFolder';
+import DeleteLink from './components/modals/DeleteLink';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <div className='App'>
-      {/* <NavBar /> */}
+      <NavBar />
       <button
         style={{
           width: '70px',
@@ -25,8 +25,8 @@ function App() {
       >
         Open Modal
       </button>
-      {/* <FolderDeleteModal isOpen={isModalOpen} closeModal={closeModal} /> */}
-      <LinkDeleteModal isOpen={isModalOpen} closeModal={closeModal} />
+      <DeleteFolder isOpen={isModalOpen} closeModal={closeModal} />
+      <DeleteLink isOpen={isModalOpen} closeModal={closeModal} />
     </div>
   );
 }

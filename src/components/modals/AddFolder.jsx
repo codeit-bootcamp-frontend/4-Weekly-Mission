@@ -1,7 +1,7 @@
-import './styles/global.css';
-import closeButton from './assets/close.png';
+import '../../index.css';
+const CLOSE_BUTTON = 'images/modalClose.png';
 
-const LinkDeleteModal = ({ isOpen, closeModal }) => {
+const AddFolderModal = ({ isOpen, closeModal }) => {
   return (
     <>
       <div
@@ -19,16 +19,16 @@ const LinkDeleteModal = ({ isOpen, closeModal }) => {
           id='second_div'
           style={{
             display: 'flex',
-            padding: '3.2rem 4rem',
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'column',
+            padding: '3.5rem 4rem',
             position: 'relative',
             width: '36rem',
-            height: '19.3rem',
+            height: '24rem',
             background: '#FFFFFF',
             borderRadius: '1.5rem',
-            gap: '2.4rem',
+            gap: '1.5rem',
             zIndex: '1',
           }}
         >
@@ -39,11 +39,10 @@ const LinkDeleteModal = ({ isOpen, closeModal }) => {
               right: '1.6rem',
               width: '2.4rem',
               height: '2.4rem',
-              backgroundImage: 'url("./assets/close.png")',
             }}
             onClick={closeModal}
           >
-            <img src={closeButton} alt='닫기 버튼' />
+            <img src={CLOSE_BUTTON} alt='닫기 버튼' />
           </button>
           <div
             id='title'
@@ -53,34 +52,43 @@ const LinkDeleteModal = ({ isOpen, closeModal }) => {
               flexDirection: 'column',
               justifyContent: 'flex-end',
               alignItems: 'center',
-              gap: '0.8rem',
+              gap: '2.4rem',
             }}
           >
-            <p
-              style={{
-                color: '#373740',
-                fontSize: '2rem',
-                fontWeight: '700',
-              }}
-            >
-              링크 삭제
-            </p>
-            <p
-              style={{
-                color: '#9FA6B2',
-                fontSize: '1.4rem',
-                fontWeight: '400',
-                lineHeight: '2.2rem',
-              }}
-            >
-              예시 링크
-            </p>
+            <div>
+              <p
+                style={{
+                  color: '#373740',
+                  fontSize: '2rem',
+                  fontWeight: '700',
+                }}
+              >
+                폴더 추가
+              </p>
+            </div>
+            <div>
+              <input
+                style={{
+                  display: 'flex',
+                  gap: '1.5rem',
+                  width: '28rem',
+                  padding: '1.8rem 1.5rem',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: '8px',
+                  border: '1px solid var(--Linkbrary-gray20, #CCD5E3)',
+                  background: 'var(--Linkbrary-white, #FFF)',
+                }}
+                placeholder='내용 입력'
+              />
+            </div>
           </div>
           <div>
             <button
               style={{
                 width: '28rem',
-                background: '#FF5B56',
+                background:
+                  'linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%)',
                 padding: '1.6rem 2rem',
                 borderRadius: '8px',
               }}
@@ -92,7 +100,7 @@ const LinkDeleteModal = ({ isOpen, closeModal }) => {
                   fontWeight: '600',
                 }}
               >
-                삭제하기
+                추가하기
               </p>
             </button>
           </div>
@@ -102,4 +110,4 @@ const LinkDeleteModal = ({ isOpen, closeModal }) => {
   );
 };
 
-export default LinkDeleteModal;
+export default AddFolderModal;

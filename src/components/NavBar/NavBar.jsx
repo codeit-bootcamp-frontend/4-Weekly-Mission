@@ -1,8 +1,8 @@
-import logo from '../assets/logo.png';
+import logo from '../../assets/logo.png';
 import ProfileId from './ProfileId';
 import { useEffect, useState } from 'react';
-import { getProfileData, getFolderData } from '../api';
-import FolderInfo from '../Main/FolderInfo';
+import { getProfileData, getFolderData } from '../../apis/api';
+import FolderInfo from '../FolderInfo';
 
 const NavBar = () => {
   const [state, setState] = useState({});

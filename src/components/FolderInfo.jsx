@@ -1,6 +1,3 @@
-import { useEffect, useState } from 'react';
-import { getFolderData } from '../api';
-
 const FolderInfo = ({ data, name }) => {
   console.log(data);
   return (
