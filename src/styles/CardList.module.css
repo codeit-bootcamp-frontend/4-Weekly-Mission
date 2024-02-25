@@ -1,0 +1,7 @@
+.card_list {
+  width: 66.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+}

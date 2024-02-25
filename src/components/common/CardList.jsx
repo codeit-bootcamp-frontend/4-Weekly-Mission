@@ -1,5 +1,6 @@
 import Card from "../Card";
 import { useGetData } from "../Hooks/useAsync";
+import style from "../../styles/CardList.module.css";
 
 // CardList -> 카드 목록 부분
 // SharedContent에서는 “/api/sample/folder”를 활용
@@ -15,8 +16,7 @@ function CardList() {
   if (error) return <div>CardList에 에러가 발생했습니다.</div>;
 
   return (
-    <div>
-      <h2>CardList입니다.</h2>
+    <div className={style.card_list}>
       {data &&
         data.folder.links.map((link) => <Card key={link.id} {...link} />)}
     </div>
