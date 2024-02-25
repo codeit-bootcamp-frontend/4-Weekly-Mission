@@ -1,23 +1,30 @@
 import React, { useEffect, useState } from "react";
-import Header from "../components/common/header/Header";
-import {
-  getSampeUser,
-  getUserFolder,
-  getFolderLink,
-} from "../utils/Api";
-import FolderContainer from "../components/folder/Container";
+import { getUserFolder, getFolderLink } from "../utils/Api";
 import Banner from "../components/folder/Banner";
+import SearchBar from "../components/common/SearchBar";
+import FolderCategoriseArea from "../components/folder/FolderCategoryArea";
+import FolderTitleArea from "../components/folder/FolderTitleArea";
+import FolderCardArea from "../components/folder/FolderCardArea";
+import Footer from "../components/common/Footer";
+import styled from "styled-components";
+import Modal from "../components/common/Modal/Modal";
+
+const Section = styled.section`
+  max-width: 1060px;
+  min-height: 1280px;
+  background-color: var(--color-white);
+  margin: 40px auto;
+`;
 
 function Folder() {
-  const [user, setUser] = useState(null);
-  const [folder, setFolder] = useState(null);
-  const [link, setLink] = useState(null);
+  const [folders, setFolders] = useState(null);
+  const [links, setLinks] = useState([]);
   const [folderState, setFolderState] = useState({
     id: null,
     name: "전체",
   });
 
-  console.log(folderState);
+  console.log(links);
 
   const filterHandler = (id, name) => {
     // 새로운 값과 기존 값이 동일한지 확인
@@ -37,25 +44,27 @@ function Folder() {
   };
 
   useEffect(() => {
-    getSampeUser().then(setUser);
-    getUserFolder().then(setFolder);
+    getUserFolder().then(setFolders);
   }, []);
 
   useEffect(() => {
-    getFolderLink(folderState.id).then(setLink);
+    getFolderLink(folderState.id).then(setLinks);
   }, [folderState]);
 
   return (
-    <main>
-      <Header user={user} />
+    <>
       <Banner />
-      <FolderContainer
-        folder={folder}
-        cardLink={link}
-        folderState={folderState}
-        setFolderState={filterHandler}
-      />
-    </main>
+      <Modal subTitle="httpw://www.abc.com" folders={folders}>
+        폴더 이름 변경하기
+      </Modal>
+      <Section>
+        <SearchBar />
+        <FolderCategoriseArea folders={folders} />
+        <FolderTitleArea title={folderState.name} />
+        <FolderCardArea links={links} />
+      </Section>
+      <Footer />
+    </>
   );
 }
 
