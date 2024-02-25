@@ -1,3 +1,5 @@
+import style from "../styles/CardFooter.module.css";
+
 // CardFooter -> 생성날짜 표시되는 부분(card.createdAt 활용)
 // YYYY.MM.DD
 function CardFooter({ createdAt }) {
@@ -6,7 +8,7 @@ function CardFooter({ createdAt }) {
     return `${d.getFullYear()}. ${d.getMonth() + 1}. ${d.getDate()}`;
   };
 
-  return <span>{formatData(createdAt)}</span>;
+  return <span className={style.card_footer}>{formatData(createdAt)}</span>;
 }
 
 export default CardFooter;
