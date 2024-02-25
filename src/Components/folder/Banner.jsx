@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import ModalContainer from "../common/Modal/Modal";
+import * as Modal from "../common/Modal/Modal";
+import ModalFoderList from "../common/Modal/ModalFoderList";
+import { useModal } from "../../hooks/useModal";
 
 const Layout = styled.section`
   width: 100%;
@@ -71,16 +75,28 @@ const Button = styled.div`
 `;
 
 function Banner() {
+  const { openModal, handleModalOpen, handleModalClose } = useModal();
   return (
-    <Layout>
-      <Container>
-        <InputLayout>
-          <Img src="/Icons/link.svg" alt="link" />
-          <Input type="text" placeholder="링크를 추가해 보세요" />
-        </InputLayout>
-        <Button>추가하기</Button>
-      </Container>
-    </Layout>
+    <>
+      {openModal && (
+        <ModalContainer onClick={handleModalClose}>
+          <Modal.Title>폴더의 추가</Modal.Title>
+          <Modal.SubTitle>링크 주소</Modal.SubTitle>
+          <ModalFoderList />
+          <Modal.BlueButton>추가하기</Modal.BlueButton>
+        </ModalContainer>
+      )}
+
+      <Layout>
+        <Container>
+          <InputLayout>
+            <Img src="/Icons/link.svg" alt="link" />
+            <Input type="text" placeholder="링크를 추가해 보세요" />
+          </InputLayout>
+          <Button onClick={handleModalOpen}>추가하기</Button>
+        </Container>
+      </Layout>
+    </>
   );
 }
 
