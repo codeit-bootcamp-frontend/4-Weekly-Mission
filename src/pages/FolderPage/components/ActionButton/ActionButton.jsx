@@ -16,7 +16,7 @@ function ActionButton({ openModal, variant }) {
   return (
     <button className={styles.barButton} onClick={() => openModal(variant)}>
       <img src={imgUrl} alt={`${icon} 아이콘`} />
-      <span>{`${name}`}</span>
+      <span>{name}</span>
     </button>
   );
 }

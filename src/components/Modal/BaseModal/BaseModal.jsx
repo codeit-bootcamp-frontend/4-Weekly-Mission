@@ -7,7 +7,7 @@ function BaseModeal({ title, children, variant, closeModal }) {
 
   const handleOutSideClick = (e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
-      closeModal(`${variant}`);
+      closeModal(variant);
     }
   };
 
@@ -28,7 +28,7 @@ function BaseModeal({ title, children, variant, closeModal }) {
           <button
             onClick={(e) => {
               e.stopPropagation();
-              closeModal(`${variant}`);
+              closeModal(variant);
             }}
           >
             <img src={closeIcon} className={styles.close} />
