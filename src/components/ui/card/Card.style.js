@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  border-radius: 15px;
   width: calc(33.33% - 13.3px);
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   cursor: pointer;
@@ -38,7 +39,6 @@ export const Container = styled.div`
       position: absolute;
       top: 10px;
       right: 10px;
-      z-index: 1;
     }
   }
 

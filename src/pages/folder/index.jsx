@@ -1,11 +1,17 @@
 import Header from './header/Header';
 import Content from './content/Content';
 
-const Folder = () => {
+const Folder = ({ setIsOpen, setFolderName, folderList, folderId, setFolderId }) => {
   return (
     <>
-      <Header />
-      <Content />
+      <Header setIsOpen={setIsOpen} />
+      <Content
+        setIsOpen={setIsOpen}
+        setFolderName={setFolderName}
+        folderList={folderList}
+        folderId={folderId}
+        setFolderId={setFolderId}
+      />
     </>
   );
 };

@@ -43,19 +43,6 @@ export const FolderButtonList = styled.div`
       background: var(--primary, #6d6afe);
     }
   }
-  .add-folder-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-    & button {
-      color: var(--primary, #6d6afe);
-      font-size: 16px;
-      font-weight: 500;
-      letter-spacing: -0.3px;
-      white-space: nowrap;
-    }
-  }
   @media all and (min-width: 375px) and (max-width: 767px) {
     .add-folder-btn {
       position: fixed;
@@ -102,6 +89,17 @@ export const NoFolderLink = styled.p`
   font-size: 16px;
   line-height: 24px;
   margin: 41px 0 35px;
+`;
+export const AddFolderButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary, #6d6afe);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
 `;
 
 const StyledSvg = styled.svg`

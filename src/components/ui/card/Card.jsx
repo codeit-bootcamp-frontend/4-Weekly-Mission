@@ -6,7 +6,7 @@ import NoImage from '../../../assets/shared/no-image.png';
 import KebabIcon from '../../../assets/folder/kebab.svg';
 import StarIcon from '../../../assets/folder/star.svg';
 
-const Card = ({ link }) => {
+const Card = ({ link, setIsOpen, setFolderName }) => {
   const timeAgo = link.createdAt ?? link.created_at;
   const imgSrc = link.imageSource ?? link.image_source;
   const [popOver, setPopOver] = useState(false);
@@ -31,8 +31,22 @@ const Card = ({ link }) => {
             <div className="kebob-icon">
               <img src={KebabIcon} alt="케밥 아이콘" />
               <S.PopOver style={{ display: popOver ? 'flex' : 'none' }}>
-                <button>삭제하기</button>
-                <button>폴더에 추가</button>
+                <button
+                  onClick={() => {
+                    setIsOpen('링크 삭제');
+                    setFolderName(link.url);
+                  }}
+                >
+                  삭제하기
+                </button>
+                <button
+                  onClick={() => {
+                    setIsOpen('폴더에 추가');
+                    setFolderName(link.url);
+                  }}
+                >
+                  폴더에 추가
+                </button>
               </S.PopOver>
             </div>
           </div>

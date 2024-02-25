@@ -7,10 +7,8 @@ import ShareIcon from '../../../assets/folder/share.svg';
 import PenIcon from '../../../assets/folder/pen.svg';
 import DeleteIcon from '../../../assets/folder/delete.svg';
 
-const Content = () => {
-  const [folderList, setFolderList] = useState([]);
+const Content = ({ setIsOpen, setFolderName, folderList, folderId, setFolderId }) => {
   const [title, setTitle] = useState('전체');
-  const [folderId, setFolderId] = useState(null);
   const [folderData, setFolderData] = useState(null);
   const [userFolder, setUserFolder] = useState([]);
 
@@ -25,10 +23,6 @@ const Content = () => {
           setUserFolder(data);
         });
   }, [title, folderId]);
-
-  useEffect(() => {
-    get('/users/1/folders').then(({ data }) => setFolderList(data));
-  }, []);
 
   return (
     <S.Container>
@@ -53,25 +47,37 @@ const Content = () => {
                 </button>
               ))}
           </div>
-          <div className="add-folder-btn">
-            <button>폴더 추가</button>
+          <S.AddFolderButton onClick={() => setIsOpen('추가')}>
+            <p>폴더 추가</p>
             <S.addPlusSvg />
-          </div>
+          </S.AddFolderButton>
         </S.FolderButtonList>
 
         <S.currentName>
           <p className="title">{title}</p>
           {title !== '전체' && (
             <div className="folder-controls">
-              <button className="control-btn">
+              <button
+                className="control-btn"
+                onClick={() => {
+                  setIsOpen('공유');
+                  setFolderName(title);
+                }}
+              >
                 <img src={ShareIcon} alt="공유 아이콘" />
                 <p>공유</p>
               </button>
-              <button className="control-btn">
+              <button className="control-btn" onClick={() => setIsOpen('이름 변경')}>
                 <img src={PenIcon} alt="펜 아이콘" />
                 <p>이름 변경</p>
               </button>
-              <button className="control-btn">
+              <button
+                className="control-btn"
+                onClick={() => {
+                  setIsOpen('삭제');
+                  setFolderName(title);
+                }}
+              >
                 <img src={DeleteIcon} alt="휴지통(삭제) 아이콘" />
                 <p>삭제</p>
               </button>
@@ -82,7 +88,7 @@ const Content = () => {
         {folderData?.length > 0 ? (
           <S.CardContainer>
             {userFolder?.map((link) => (
-              <Card key={link.id} link={link} />
+              <Card key={link.id} link={link} setIsOpen={setIsOpen} setFolderName={setFolderName} />
             ))}
           </S.CardContainer>
         ) : (
