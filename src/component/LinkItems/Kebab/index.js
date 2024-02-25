@@ -8,12 +8,15 @@ import {
 import kebabImg from "../../../images/kebab.svg";
 import { useState } from "react";
 import DeleteLinkModal from "../../DeleteLinkModal";
+import AddToFolderModal from "../../AddToFolderModal";
 
-const Kebab = ({ url, onClick, kebabOpen }) => {
+const Kebab = ({ folders, url, onClick, kebabOpen }) => {
   const [deleteLinkModalOpen, setDeleteLinkModalOpen] = useState(false);
+  const [addToFolderModalOpen, setAddToFolderModalOpen] = useState(false);
 
-  const handleClick = () => {
-    setDeleteLinkModalOpen(true);
+  const handleClick = (e) => {
+    if (e.target.id === "delete") setDeleteLinkModalOpen(true);
+    if (e.target.id === "addToFolder") setAddToFolderModalOpen(true);
   };
 
   return (
@@ -21,14 +24,25 @@ const Kebab = ({ url, onClick, kebabOpen }) => {
       <Container>
         <KebabButton src={kebabImg} onClick={onClick} />
         <KebabMenuBox $kebabopen={kebabOpen.toString()} onClick={onClick}>
-          <Delete onClick={handleClick}>삭제하기</Delete>
-          <AddToFolder>폴더에 추가</AddToFolder>
+          <Delete id="delete" onClick={handleClick}>
+            삭제하기
+          </Delete>
+          <AddToFolder id="addToFolder" onClick={handleClick}>
+            폴더에 추가
+          </AddToFolder>
         </KebabMenuBox>
       </Container>
       {deleteLinkModalOpen && (
         <DeleteLinkModal
           url={url}
           setDeleteLinkModalOpen={setDeleteLinkModalOpen}
+        />
+      )}
+      {addToFolderModalOpen && (
+        <AddToFolderModal
+          link={url}
+          setAddToFolderModalOpen={setAddToFolderModalOpen}
+          folders={folders}
         />
       )}
     </>

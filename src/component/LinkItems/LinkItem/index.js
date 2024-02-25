@@ -6,7 +6,7 @@ import "../LinkItems.css";
 import { useState } from "react";
 import Kebab from "../Kebab";
 
-const LinkItem = ({ link }) => {
+const LinkItem = ({ folders, link }) => {
   const [kebabOpen, setKebabOpen] = useState(false);
 
   const CREATED_AT = new Date(link.createdAt || link.created_at);
@@ -27,7 +27,12 @@ const LinkItem = ({ link }) => {
       </LinkImage>
       <div className="createdAt">
         {calculateTimePassed(CREATED_AT)}
-        <Kebab onClick={handleClick} kebabOpen={kebabOpen} url={link.url} />
+        <Kebab
+          folders={folders}
+          onClick={handleClick}
+          kebabOpen={kebabOpen}
+          url={link.url}
+        />
       </div>
       <p className="description">{link.description}</p>
       <p className="createdDate">{CREATED_DATE}</p>

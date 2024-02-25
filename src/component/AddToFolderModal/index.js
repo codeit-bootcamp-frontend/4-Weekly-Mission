@@ -6,7 +6,8 @@ import { useState } from "react";
 const AddToFolderModal = ({ link, setAddToFolderModalOpen, folders }) => {
   const [folderToAdd, setFolderToAdd] = useState({});
 
-  const closeModal = () => {
+  const closeModal = (e) => {
+    e.preventDefault();
     setAddToFolderModalOpen(false);
   };
 
@@ -14,16 +15,21 @@ const AddToFolderModal = ({ link, setAddToFolderModalOpen, folders }) => {
     setFolderToAdd(e.target.id);
   };
 
+  const handleEvent = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+  };
+
   return (
     <ModalBackground onClick={closeModal}>
-      <ModalBox onClick={(e) => e.stopPropagation()}>
+      <ModalBox onClick={handleEvent}>
         <FontAwesomeIcon
           icon={faXmark}
           className="ModalX"
           onClick={closeModal}
         />
         <p>폴더에 추가</p>
-        <p className="folderName">{link}</p>
+        <p className="link">{link}</p>
         <Ul>
           {folders.map(
             (folder) =>

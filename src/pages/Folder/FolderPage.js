@@ -74,7 +74,7 @@ const FolderPage = () => {
           <FolderOption selectedFolder={selectedFolder} />
         </FolderName>
 
-        <LinkItems links={links} isLoading={isLoading} />
+        <LinkItems folders={folders} links={links} isLoading={isLoading} />
         <MobileAddFolderButton />
       </Container>
     </>
