@@ -14,12 +14,12 @@ const CardList = styled.div`
 
 function FolderCardList() {
   const [links, setLinks] = useState(null);
-  const { folderState } = useFolder();
+  const { folderFilter } = useFolder();
 
   console.log(links);
   useEffect(() => {
-    getFolderLink(folderState.id).then(setLinks);
-  }, [folderState]);
+    getFolderLink(folderFilter.id).then(setLinks);
+  }, [folderFilter]);
 
   return (
     <>

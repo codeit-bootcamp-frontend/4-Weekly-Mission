@@ -21,19 +21,19 @@ const SelectedFolder = styled(DefaultFolder)`
 `;
 
 const FolderCategoryItem = ({ id, children }) => {
-  const { folderState, setFolderState } = useFolder();
+  const { folderFilter, setFolderFilter } = useFolder();
 
-  const handleClick = () => {
+  const onClickHandle = () => {
     // 새로운 값과 기존 값이 동일한지 확인
-    if (folderState.name === children && folderState.id === id) {
+    if (folderFilter.name === children && folderFilter.id === id) {
       // 동일하다면 '전체'와 null로 업데이트
-      setFolderState({
+      setFolderFilter({
         id: null,
         name: "전체",
       });
     } else {
       // 다르다면 새로운 값으로 업데이트
-      setFolderState({
+      setFolderFilter({
         id: id,
         name: children,
       });
@@ -42,12 +42,12 @@ const FolderCategoryItem = ({ id, children }) => {
 
   return (
     <>
-      {folderState.name === children ? (
-        <SelectedFolder onClick={handleClick}>
+      {setFolderFilter.name === children ? (
+        <SelectedFolder onClick={onClickHandle}>
           {children}
         </SelectedFolder>
       ) : (
-        <DefaultFolder onClick={handleClick}>
+        <DefaultFolder onClick={onClickHandle}>
           {children}
         </DefaultFolder>
       )}

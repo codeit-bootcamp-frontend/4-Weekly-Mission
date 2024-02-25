@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useFolder } from "../../context/FolderContext";
 
 const Title = styled.h2`
   color: #000;
@@ -9,9 +10,11 @@ const Title = styled.h2`
 `;
 
 function FolderTitle() {
+  const { folderFilter } = useFolder();
+
   return (
     <>
-      <Title>123</Title>
+      <Title>{folderFilter.name}</Title>
     </>
   );
 }

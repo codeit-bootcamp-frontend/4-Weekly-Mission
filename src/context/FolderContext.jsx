@@ -5,13 +5,13 @@ const FolderContext = createContext();
 
 // Context의 Provider로 폴더 상태를 관리할 컴포넌트를 만듭니다.
 export const FolderProvider = ({ children }) => {
-  const [folderState, setFolderState] = useState({
+  const [folderFilter, setFolderFilter] = useState({
     id: null,
     name: "전체",
   });
 
   return (
-    <FolderContext.Provider value={{ folderState, setFolderState }}>
+    <FolderContext.Provider value={{ folderFilter, setFolderFilter }}>
       {children}
     </FolderContext.Provider>
   );
