@@ -4,7 +4,7 @@ export const Category = ({
   buttonClicked,
   linkData,
   currentCategory,
-  handleEditClick,
+  handleModalClick,
 }) => {
   return (
     <div className="Category-wrapper">
@@ -24,7 +24,7 @@ export const Category = ({
           </button>
         ))}
       </div>
-      <button className="add-folder" onClick={handleEditClick} id="addFolder">
+      <button className="add-folder" onClick={handleModalClick} id="addFolder">
         폴더 추가하기 +
       </button>
     </div>

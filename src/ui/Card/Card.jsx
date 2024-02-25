@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { CardContent } from "ui/CardContent";
-import { CardImage } from "ui/CardImage";
 import "./Card.css";
 
 export const Card = ({
@@ -11,11 +9,26 @@ export const Card = ({
   description,
   createdAt,
   favorite,
+  handleModalClick,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const [kebabOpen, setKebabOpen] = useState(false);
+
   const handleMouseOver = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
   const isFolder = typeof favorite !== "undefined";
+  const classNameContent = isHovered
+    ? "CardContent CardContent-hovered"
+    : "CardContent";
+  const className = isHovered ? "CardImage CardImage-zoom-in" : "CardImage";
+  const isFavorite = favorite
+    ? "images/full-star.svg"
+    : "images/empty-star.svg";
+
+  const handleKebabClick = (e) => {
+    e.preventDefault();
+    setKebabOpen(true);
+  };
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
@@ -24,19 +37,39 @@ export const Card = ({
         onMouseOver={handleMouseOver}
         onMouseLeave={handleMouseLeave}
       >
-        <CardImage
-          imageSource={imageSource}
+        <div
+          style={{
+            backgroundImage: `url(${imageSource ?? "images/card-default.png"})`,
+          }}
+          className={className}
           alt={alt}
-          isZoomedIn={isHovered}
-          favorite={favorite}
-        />
-        <CardContent
-          elapsedTime={elapsedTime}
-          description={description}
-          createdAt={createdAt}
-          isHovered={isHovered}
-          isFolder={isFolder}
-        />
+        >
+          {favorite !== undefined && (
+            <img className="star-button" alt="star" src={isFavorite} />
+          )}
+        </div>
+        <div className={classNameContent}>
+          <div className="CardContent-top">
+            <span className="CardContent-elapsed-time">{elapsedTime}</span>
+            {isFolder && (
+              <button onClick={handleKebabClick}>
+                <img className="kebab" src="images/kebab.png" alt="menu" />
+              </button>
+            )}
+            {kebabOpen && (
+              <div className="kebabMenu" onClick={handleModalClick}>
+                <button id="deleteLink" className="kebabMenu-button" url={url}>
+                  삭제하기
+                </button>
+                <button id="addToFolder" className="kebabMenu-button" url={url}>
+                  폴더에 추가
+                </button>
+              </div>
+            )}
+          </div>
+          <p className="CardContent-description">{description}</p>
+          <span className="CardContent-created-at">{createdAt}</span>
+        </div>
       </div>
     </a>
   );

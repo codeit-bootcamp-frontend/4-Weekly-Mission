@@ -9,10 +9,10 @@ import AddFolder from "./AddFolder";
 function Modal({
   categoryData,
   modal,
-  selectedLink,
   selectedId,
   currentCategory,
   setIsModalOpen,
+  currentUrl,
 }) {
   const handleCloseClick = () => {
     setIsModalOpen(false);
@@ -29,9 +29,10 @@ function Modal({
             shareFolder: <ShareFolder currentCategory={currentCategory} selectedId={selectedId}/>,
             deleteFolder: <DeleteFolder currentCategory={currentCategory} />,
             addFolder: <AddFolder />,
-            deleteLink: <DeleteLink selectedLink={selectedLink} />,
             //prettier-ignore
-            addToFolder:<AddToMyFolder selectedLink={selectedLink} categoryData={categoryData} />,
+            deleteLink: <DeleteLink currentUrl={currentUrl} />,
+            //prettier-ignore
+            addToFolder:<AddToMyFolder categoryData={categoryData} currentUrl={currentUrl}/>,
           }[modal]
         }
         <button className={styles["closeButton"]} onClick={handleCloseClick}>

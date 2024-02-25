@@ -81,6 +81,47 @@
   gap: 0.8rem;
 }
 
+.folder-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.folderButton {
+  display: flex;
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--white);
+  padding: 0.8rem;
+  gap: 0.8rem;
+  font-weight: 400;
+}
+
+.folderButton-name {
+  font-size: 1.6rem;
+}
+
+.folderButton-links {
+  color: var(--gray60) !important;
+  font-size: 1.4rem;
+}
+
+.folderButton:hover,
+.folderButton.selectedFolder {
+  background-color: var(--light-blue);
+  color: var(--primary);
+}
+
+.checkIcon {
+  width: 1.4rem;
+  height: 1.4rem;
+  position: absolute;
+  right: 1rem;
+}
+
 .shareIcons {
   display: flex;
   flex-direction: row;

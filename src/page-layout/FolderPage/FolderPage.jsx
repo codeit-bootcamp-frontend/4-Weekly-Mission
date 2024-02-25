@@ -18,6 +18,7 @@ export const FolderPage = () => {
   const [folderId, setFolderId] = useState("0");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modal, setModal] = useState(null);
+  const [currentUrl, setCurrentUrl] = useState("");
 
   const { data: linkData } = useGetLink();
   const { folderData } = useGetFolderByLink(folderId);
@@ -31,17 +32,14 @@ export const FolderPage = () => {
   const handleCategoryClick = (e) => {
     const category = e.target.innerText;
     const Id = e.target.getAttribute("data-id");
-
     setCurrentCategory(category);
     setFolderId(Id);
   };
-
-  const handleModalClick = () => {
-    setIsModalOpen(true);
-  };
-  const handleEditClick = (e) => {
+  const handleModalClick = (e) => {
+    e.preventDefault();
     setIsModalOpen(true);
     setModal(e.target.id);
+    setCurrentUrl(e.target.getAttribute("url"));
   };
 
   return (
@@ -52,6 +50,7 @@ export const FolderPage = () => {
           modal={modal}
           setIsModalOpen={setIsModalOpen}
           categoryData={linkData}
+          currentUrl={currentUrl}
         />
       )}
       <Layout isNavFixed={navFixed}>
@@ -64,16 +63,20 @@ export const FolderPage = () => {
               linkData={linkDataWithAll}
               currentCategory={currentCategory}
               handleModalClick={handleModalClick}
-              handleEditClick={handleEditClick}
+              handleEditClick={handleModalClick}
             />
             <EditLink
               currentCategory={currentCategory}
-              handleEditClick={handleEditClick}
+              handleEditClick={handleModalClick}
             />
             {links ? (
               <CardList>
                 {links?.map((link) => (
-                  <Card key={link?.id} {...link} />
+                  <Card
+                    key={link?.id}
+                    {...link}
+                    handleModalClick={handleModalClick}
+                  />
                 ))}
               </CardList>
             ) : (
