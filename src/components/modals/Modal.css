@@ -1,0 +1,68 @@
+.modal {
+  position: relative;
+  display: inline-flex;
+  padding: 32px 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  border-radius: 15px;
+  border: 1px solid #CCD5E3;
+  background:  #FFF;
+  width: 360px;
+}
+
+.modalTitle {
+  color: #373740;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.modalSubTitle {
+  color: #9FA6B2;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 157.143% */
+}
+
+.modalButton { 
+  display: flex;
+  width: 100%;
+  padding: 16px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+}
+
+.modalButton.delete {
+  border-radius: 8px;
+  background: #FF5B56;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.modalInput {
+  display: flex;
+  width: 100%;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 1px solid #CCD5E3;
+  background: #FFF;
+}
+
+form {
+  width: 100%;
+}
