@@ -2,6 +2,9 @@ import { useState } from "react";
 import "./Modal.css";
 import style from "./modal.module.css";
 import styled from "styled-components";
+import shareKakao from "./KakaoTalkShare";
+
+const { Kakao } = window;
 
 const Button = styled.button`
 	background-color: ${({ state }) =>
@@ -41,11 +44,12 @@ function ModalAddSubFolder() {
 }
 
 function ModalShareSubFolder({ modalData }) {
+	const BASE_URL = "https://animated-kitten-84730c.netlify.app";
+	const query = `{/shared/${modalData[1]}`;
+
 	const handleCopyToClipboard = () => {
 		try {
-			navigator.clipboard.writeText(
-				`${window.location.hostname}/shared/${modalData[1]}`
-			);
+			navigator.clipboard.writeText(BASE_URL + query);
 			alert("클립보드에 복사되었습니다.");
 		} catch (error) {
 			alert("클립보드 복사에 실패하였습니다.");
@@ -62,7 +66,9 @@ function ModalShareSubFolder({ modalData }) {
 			<div className="modal-box">
 				<div className="modal-share-layout">
 					<button
-						onClick={() => handleCopyToClipboard()}
+						onClick={() => {
+							shareKakao(BASE_URL, query);
+						}}
 						className="modal-img modal-kakao"
 					>
 						<img src="Kakao.svg" alt={"linkToKakao"} />
