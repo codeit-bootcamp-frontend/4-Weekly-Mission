@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { styled } from "styled-components";
 import { COLORS } from "constants/colors";
 import closeIcon from "assets/icons/closeModal.png";
@@ -61,7 +61,8 @@ const Background = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: #000000;
+  opacity: 0.4
   transition: visibility 0.3s ease;
 `;
 
@@ -79,6 +80,7 @@ const Modal = styled.div`
   gap: 24px;
   border-radius: 15px;
   background: ${COLORS.White};
+  transition: visibility 0.3s ease;
 `;
 
 const Close = styled.button`
