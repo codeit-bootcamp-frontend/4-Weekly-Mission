@@ -46,51 +46,53 @@ const Folder = () => {
   useEffect(() => {
     loadUser();
     loadFolders();
+  }, []);
+
+  useEffect(() => {
     loadLinks();
   }, [currentFolder]);
 
   return (
     <>
       <Header userInfo={user} fixed={false} />
-      <div>
-        <FolderHeaderLayout>
-          <AddLinkForm />
-        </FolderHeaderLayout>
-        <MainLayout>
-          <SearchInputForm />
-          <Modal />
-          {folders.length === 0 ? (
-            // 폴더 리스트가 존재하지 않을 경우
-            <NoLink />
-          ) : (
-            <>
-              <div className="space-between">
-                <TagList
-                  folders={folders}
-                  onClick={handleClickTag}
-                  currentFolder={currentFolder}
-                />
-                <AddFolderButton>폴더 추가 +</AddFolderButton>
-              </div>
+      <FolderHeaderLayout>
+        <AddLinkForm />
+      </FolderHeaderLayout>
+      <MainLayout>
+        <SearchInputForm />
+        <Modal />
+        {folders.length === 0 ? (
+          // 폴더 리스트가 존재하지 않을 경우
+          <NoLink />
+        ) : (
+          <>
+            <div className="space-between">
+              <TagList
+                folders={folders}
+                onClick={handleClickTag}
+                currentFolder={currentFolder}
+              />
+              <AddFolderButton>폴더 추가 +</AddFolderButton>
+            </div>
 
-              {currentLinks.length === 0 ? (
-                // 현재 폴더 내 링크가 없을 경우
-                <NoLink />
-              ) : (
-                <>
-                  <div className="space-between">
-                    <span className="font-24px font-regular">
-                      {currentFolder.name}
-                    </span>
-                    {currentFolder.id !== 1 && <ActionIconList />}
-                  </div>
-                  <CardList currentLinks={currentLinks} />
-                </>
-              )}
-            </>
-          )}
-        </MainLayout>
-      </div>
+            {currentLinks.length === 0 ? (
+              // 현재 폴더 내 링크가 없을 경우
+              <NoLink />
+            ) : (
+              <>
+                <div className="space-between">
+                  <span className="font-24px font-regular">
+                    {currentFolder.name}
+                  </span>
+                  {currentFolder.id !== 1 && <ActionIconList />}
+                </div>
+                <CardList currentLinks={currentLinks} />
+              </>
+            )}
+          </>
+        )}
+      </MainLayout>
+
       <Footer />
     </>
   );
