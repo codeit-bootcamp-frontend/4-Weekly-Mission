@@ -39,7 +39,7 @@ function SelectMenu() {
   const menuElementClasses = classNames(styles['menu-element'], 'text-center', 'border-none');
 
   const hoveredMenuClasses = classNames('background-bg', 'text-color-primary');
-  const notHoveredMenuClasses = classNames('background-white', 'text-color-gray100');
+  const defaultMenuClasses = classNames('background-white', 'text-color-gray100');
 
   return (
     <div>
@@ -48,7 +48,7 @@ function SelectMenu() {
           <Button
             key={menu.id}
             className={`${menuElementClasses} 
-            ${hoveredMenu?.id === menu.id ? hoveredMenuClasses : notHoveredMenuClasses}`}
+            ${hoveredMenu?.id === menu.id ? hoveredMenuClasses : defaultMenuClasses}`}
             text={menu.label}
             onClick={() => handleMenuClick(menu.id)}
             onMouseEnter={() => handleMenuMouseEnter(menu.id)}

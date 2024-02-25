@@ -67,7 +67,8 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
   const optionListClasses = classNames(styles['option-list'], 'flex-row', 'align-center');
 
   const selectedButtonClasses = classNames('background-primary', 'text-color-white');
-  const hoveredButtonClasses = classNames('background-gray10');
+  const hoveredButtonClasses = classNames('background-gray10', 'text-color-true-black');
+  const defaultButtonClasses = classNames('background-white', 'text-color-true-black');
 
   return (
     <div>
@@ -84,7 +85,7 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
                       ? selectedButtonClasses
                       : hoveredFolder?.id === folder.id
                         ? hoveredButtonClasses
-                        : ''
+                        : defaultButtonClasses
                   }
                   onClick={() => handleButtonClick(folder.id)}
                   onMouseEnter={() => handleButtonMouseEnter(folder.id)}

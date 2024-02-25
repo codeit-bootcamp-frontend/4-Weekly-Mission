@@ -4,7 +4,7 @@ import Button from 'components/Common/Button';
 import styles from 'components/Common/SortingButton.module.css';
 
 function SortingButton({ className, text, onClick, onMouseEnter, onMouseLeave }) {
-  const buttonClasses = classNames(styles['sorting-button'], 'background-white', className);
+  const buttonClasses = classNames(styles['sorting-button'], className);
 
   const button = (
     <Button

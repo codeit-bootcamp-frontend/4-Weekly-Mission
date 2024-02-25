@@ -2,6 +2,7 @@
   --primary: #6d6afe;
   --red: #ff5b56;
 
+  --true-black: #000000;
   --black: #111322;
   --white: #ffffff;
 
@@ -110,4 +111,8 @@
 
 .text-color-text {
   color: var(--text, #666666);
+}
+
+.text-color-true-black {
+  color: var(--true-black, #000000);
 }

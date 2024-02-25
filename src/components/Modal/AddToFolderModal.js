@@ -53,15 +53,20 @@ function AddToFolderModal({ linkUrl }) {
     'width-full'
   );
   const textContainerClasses = classNames('flex-row', 'align-center');
-  const folderNameClasses = classNames(styles['folder-name'], 'text-color-gray100');
+  const folderNameClasses = classNames(styles['folder-name']);
   const linkCountClasses = classNames(styles['link-count'], 'text-color-gray60');
   const CheckIconClasses = classNames(styles['check-icon']);
   const buttonClasses = classNames('background-gra-primary', 'width-full');
 
-  const hoveredAddFolderListClasses = classNames('background-bg');
   const selectedAddFolderListClasses = classNames('background-bg');
+  const hoveredAddFolderListClasses = classNames('background-bg');
+  const defaultAddFolderListClasses = classNames('background-white');
+
   const selectedFolderNameClasses = classNames('text-color-primary');
-  const noneSelectedCheckIconClasses = classNames('display-none');
+  const defaultFolderNameClasses = classNames('text-color-gray100');
+
+  const selectedCheckIconClasses = classNames('display-block');
+  const defaultCheckIconClasses = classNames('display-none');
 
   return (
     <ModalContainer>
@@ -77,7 +82,7 @@ function AddToFolderModal({ linkUrl }) {
                   ? selectedAddFolderListClasses
                   : hoveredFolder?.id === folder.id
                     ? hoveredAddFolderListClasses
-                    : ''
+                    : defaultAddFolderListClasses
               }`}
             folder={folder}
             onClick={() => handleListClick(folder.id)}
@@ -86,14 +91,16 @@ function AddToFolderModal({ linkUrl }) {
           >
             <div className={textContainerClasses}>
               <div
-                className={`${folderNameClasses} ${selectedFolder?.id === folder.id ? selectedFolderNameClasses : ''}`}
+                className={`${folderNameClasses} 
+                ${selectedFolder?.id === folder.id ? selectedFolderNameClasses : defaultFolderNameClasses}`}
               >
                 {folder.name}
               </div>
               <div className={linkCountClasses}>{folder?.link?.count ?? 0}개 링크</div>
             </div>
             <div
-              className={`${CheckIconClasses} ${selectedFolder?.id !== folder.id ? noneSelectedCheckIconClasses : ''}`}
+              className={`${CheckIconClasses} 
+              ${selectedFolder?.id === folder.id ? selectedCheckIconClasses : defaultCheckIconClasses}`}
             >
               <img src={CheckIcon} alt="check-icon" />
             </div>
