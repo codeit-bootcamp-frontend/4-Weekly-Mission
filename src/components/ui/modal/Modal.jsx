@@ -45,9 +45,8 @@ export const FolderAddModal = ({ closeModal }) => {
   );
 };
 
-export const FolderSharedModal = ({ closeModal, folderName, folderList, folderId }) => {
+export const FolderSharedModal = ({ closeModal, folderName, folderId }) => {
   const sharedLink = `${window.location.origin}/shared?user=1&folder=/${folderId}`;
-  const onKakaoShareHandle = () => {};
   const onFacebookShareHandle = () => {
     const facebook = encodeURIComponent(sharedLink);
     window.open(`http://www.facebook.com/sharer/sharer.php?u=${facebook}`);

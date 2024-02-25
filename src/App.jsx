@@ -38,12 +38,7 @@ function App() {
       {isOpen === '이름 변경' ? <FolderNameChangeModal closeModal={onCloseModalHandle} /> : null}
       {isOpen === '추가' ? <FolderAddModal closeModal={onCloseModalHandle} /> : null}
       {isOpen === '공유' ? (
-        <FolderSharedModal
-          closeModal={onCloseModalHandle}
-          folderName={folderName}
-          folderList={folderList}
-          folderId={folderId}
-        />
+        <FolderSharedModal closeModal={onCloseModalHandle} folderName={folderName} folderId={folderId} />
       ) : null}
       {isOpen === '삭제' ? <FolderDeleteModal closeModal={onCloseModalHandle} folderName={folderName} /> : null}
       {isOpen === '링크 삭제' ? <LinkDeleteModal closeModal={onCloseModalHandle} folderName={folderName} /> : null}
