@@ -9,7 +9,7 @@ const AddSearchLink = () => {
         className="add_link_input"
         type="text"
         placeholder="링크를 검색해 보세요."
-      ></input>
+      />
       <Button text="추가하기"></Button>
     </form>
   );
