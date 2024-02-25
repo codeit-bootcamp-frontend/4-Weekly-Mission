@@ -1,5 +1,5 @@
 @import-normalize; /* bring in normalize.css styles */
-@import url('./utils/Color.css');
+@import url('./styles/Color.css');
 
 * {
   box-sizing: border-box;
