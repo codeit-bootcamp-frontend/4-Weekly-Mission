@@ -6,7 +6,9 @@ import Search from 'components/common/main/Search';
 import { useCategoryQuery, useFolderQuery } from 'hook/useFetchData';
 import CategoryContext from 'contexts/CategoryContext';
 import CategoryTabList from 'components/folder/CategoryTabList';
-import CardList from 'components/folder/CardList';
+import Loader from 'components/common/Loader';
+import CardGrid from 'components/common/main/CardGrid';
+import CardError from 'components/common/main/CardError';
 
 const FolderPage = () => {
   const [currentCategory, setCurrentCategory] = useState({
@@ -16,11 +18,10 @@ const FolderPage = () => {
 
   const folderId = currentCategory.id === 'all' ? '' : currentCategory.id;
 
-  const {
-    data: folderDatas,
-    isLoading,
-    isError,
-  } = useFolderQuery({ queryKey: folderId, folderId: folderId });
+  const { data: folderDatas, isLoading } = useFolderQuery({
+    queryKey: folderId,
+    folderId: folderId,
+  });
 
   const { data: datas } = useCategoryQuery('category', 1);
   const categoryDatas = datas?.data && [
@@ -45,11 +46,17 @@ const FolderPage = () => {
           handleCategoryButton={handleCategoryButton}
           categoryId={folderId}
         />
-        <CardList
-          folderDatas={folderDatas}
-          isLoading={isLoading}
-          isError={isError}
-        />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            {folderDatas?.data.length ? (
+              <CardGrid datas={folderDatas?.data} isFolder={true} />
+            ) : (
+              <CardError />
+            )}
+          </>
+        )}
       </MainContainer>
     </CategoryContext.Provider>
   );
