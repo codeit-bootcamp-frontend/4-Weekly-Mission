@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import styled from "styled-components";
 
 const Blank = styled.div`
@@ -18,6 +19,15 @@ function BlankCard({ children }) {
     <Blank>
       <p>{children}</p>
     </Blank>
+=======
+import Wrapper from "../common/layout/Wrapper";
+
+function BlankCard() {
+  return (
+    <>
+      <p>저장된 링크가 없습니다.</p>
+    </>
+>>>>>>> part2-윤병현
   );
 }
 
