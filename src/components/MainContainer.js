@@ -69,8 +69,21 @@ const MainContainer = () => {
           <div className="container__myFolders--folderName">
             <h2>{folderName}</h2>
             <div>
-              {/* 여기 모달버튼 추가 */}
-              <Modal modalName="공유" modalContent="폴더명 content로 변경" />
+              <Modal
+                modalName={"공유"}
+                modalContent={"공유할 content로 변경예정"}
+                modalSnsBtn={true}
+              />
+              <Modal
+                modalName={"이름 변경"}
+                modalInput={"변경할 폴더 이름으로 변경예정"}
+                modalBtn={"변경하기"}
+              />
+              <Modal
+                modalName={"삭제"}
+                modalContent={"삭제할 content로 변경예정"}
+                modalBtn={"삭제하기"}
+              />
             </div>
           </div>
           {sortedLinks.length === 0 ? (
