@@ -44,9 +44,9 @@ function FolderOption() {
       )}
       {option === "공유" && openModal && (
         <ModalContainer onClick={handleModalClose}>
-          <Modal.Title>폴더 삭제</Modal.Title>
+          <Modal.Title>폴더 공유</Modal.Title>
           <Modal.SubTitle>{folderFilter.name}</Modal.SubTitle>
-          <SocialIcons />
+          <SocialIcons id={folderFilter.id} />
         </ModalContainer>
       )}
       <OptionList>
