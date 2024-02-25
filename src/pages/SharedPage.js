@@ -12,6 +12,7 @@ import Footer from '../components/Footer';
 const SharedPage = () => {
   const [user, setUser] = useState(null);
   const [folder, setFolder] = useState(null);
+  const folderInfo = folder?.folder.links;
 
   const handleLoad = async (getState, setState) => {
     try {
@@ -34,7 +35,7 @@ const SharedPage = () => {
       <FolderInfo folderInfo={folder} />
       <FolderContent>
         <SearchBar />
-        <CardList folderInfo={folder} />
+        <CardList folderInfo={folderInfo} />
       </FolderContent>
 
       <Footer />

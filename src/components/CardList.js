@@ -2,13 +2,11 @@ import '../styles/CardList.css';
 import Card from '../components/Card';
 
 const CardList = ({ folderInfo, isIconVisible = false }) => {
-  const cardList = isIconVisible ? folderInfo : folderInfo?.folder.links;
-
   return (
     <div className="cardlist">
-      {cardList && cardList.length !== 0 ? (
+      {folderInfo && folderInfo.length !== 0 ? (
         <>
-          {cardList.map((card) => (
+          {folderInfo.map((card) => (
             <Card card={card} key={card.id} isIconVisible={isIconVisible} />
           ))}
         </>
