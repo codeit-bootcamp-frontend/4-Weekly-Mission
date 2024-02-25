@@ -2,36 +2,16 @@ import '../styles/card.css';
 import noneImg from '../assets/noneImg.svg';
 import starIcon from '../assets/starIcon.svg';
 import meatballsIcon from '../assets/meatballsIcon.svg';
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import PopOver from '../pages/FolderPage/components/PopOver';
 
 function Card({ id, time, imgUrl = noneImg, title, description, date, url }) {
   const [isPopOverOpen, setIsPopOverOpen] = useState(false);
-  const popDownRef = useRef();
+
   const handleClick = (e) => {
     e.preventDefault();
-    setIsPopOverOpen(true);
+    setIsPopOverOpen(!isPopOverOpen);
   };
-
-  useEffect(() => {
-    const handleClosePopOver = (e) => {
-      if (
-        isPopOverOpen &&
-        popDownRef.current &&
-        !popDownRef.current.contains(e.target)
-      ) {
-        setIsPopOverOpen(false);
-      }
-    };
-
-    if (isPopOverOpen) {
-      document.addEventListener('click', handleClosePopOver);
-    }
-
-    return () => {
-      document.removeEventListener('click', handleClosePopOver);
-    };
-  }, [isPopOverOpen]);
 
   return (
     <a className="card" key={id} href={url} target="_blank" rel="noreferrer">

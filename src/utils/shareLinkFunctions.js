@@ -1,10 +1,11 @@
-export function getShareUrl(folderId) {
-  const protocol = window.location.protocol + '//';
+import linkbraryImg from '../assets/linkbraryImg.png';
+
+function getShareUrl(folderId) {
   const host = window.location.host;
   const path = '/shared';
   const query = `?user=1&folder=${folderId}`;
 
-  return protocol + host + path + query;
+  return host + path + query;
 }
 
 export async function copyURLToClipboard(folderId) {
@@ -17,49 +18,46 @@ export async function copyURLToClipboard(folderId) {
   }
 }
 
-export const shareLinkToKakaoTalk = () => {
-  if (window.Kakao) {
-    const kakao = window.Kakao;
+export function shareLinkToKakaoTalk(folderId) {
+  const url = getShareUrl(folderId);
+  const { Kakao } = window;
+  Kakao.Share.sendDefault({
+    objectType: 'feed',
+    content: {
+      title: 'Linkbrary',
+      description: '세상의 모든 정보를 쉽게 저장하고 관리해 보세요',
+      imageUrl: linkbraryImg,
+      link: {
+        // mobileWebUrl: "https://developers.kakao.com",
+        webUrl: url,
+      },
+    },
 
-    if (!kakao.isInitialized()) {
-      kakao.init('35927e5d756bdd3f417246136b948c27');
-    }
-
-    kakao.Share.sendDefault({
-      objectType: 'feed',
-      content: {
-        title: '딸기 치즈 케익',
-        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
-        imageUrl:
-          'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+    buttons: [
+      {
+        title: '웹으로 이동',
         link: {
           mobileWebUrl: 'https://developers.kakao.com',
-          webUrl: 'https://developers.kakao.com',
+          webUrl: url,
         },
       },
-      social: {
-        likeCount: 286,
-        commentCount: 45,
-        sharedCount: 845,
+      {
+        title: '앱으로 이동',
+        link: {
+          mobileWebUrl: '',
+          webUrl: '',
+        },
       },
-      buttons: [
-        {
-          title: '웹으로 보기',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
-          },
-        },
-        {
-          title: '앱으로 보기',
-          link: {
-            mobileWebUrl: 'https://developers.kakao.com',
-            webUrl: 'https://developers.kakao.com',
-          },
-        },
-      ],
-    });
-  }
-};
+    ],
+  });
+}
 
-export function shareLinkToFacebook() {}
+export function shareLinkToFacebook(folderId) {
+  const url = getShareUrl(folderId);
+
+  const facebookShareUrl =
+    `https://www.facebook.com/sharer/sharer.php?u=` + encodeURIComponent(url);
+
+  // 생성된 URL을 새 창으로 엽니다.
+  window.open(facebookShareUrl, '_blank', 'width=600,height=400');
+}

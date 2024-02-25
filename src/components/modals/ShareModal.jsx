@@ -11,7 +11,11 @@ import { useContext } from 'react';
 import { ModalContext } from '../../pages/FolderPage/FolderPage';
 import styled from 'styled-components';
 import { SHARE_BUTTONS } from '../../constants/modalConstants';
-import { copyURLToClipboard } from '../../utils/shareLinkFunctions';
+import {
+  copyURLToClipboard,
+  shareLinkToFacebook,
+  shareLinkToKakaoTalk,
+} from '../../utils/shareLinkFunctions';
 
 function ShareModal() {
   const { shareModalPurpose, handleShareModalClose } = useContext(ModalContext);
@@ -19,17 +23,23 @@ function ShareModal() {
   const name = shareModalPurpose.folderName;
   const folderId = shareModalPurpose.id;
 
-  const handleCopyUrlToClipboard = (e) => {
-    e.preventDefault();
-    copyURLToClipboard(folderId);
-  };
-
-  const handleShareToKakaoTalk = (e) => {
-    e.preventDefault();
-  };
-
-  const handleShareToFacebook = (e) => {
-    e.preventDefault();
+  const handleClick = (e, buttonId) => {
+    switch (buttonId) {
+      case 1:
+        e.preventDefault();
+        shareLinkToKakaoTalk(folderId);
+        break;
+      case 2:
+        e.preventDefault();
+        shareLinkToFacebook(folderId);
+        break;
+      case 3:
+        e.preventDefault();
+        copyURLToClipboard(folderId);
+        break;
+      default:
+        break;
+    }
   };
 
   return (
@@ -44,7 +54,7 @@ function ShareModal() {
         </ModalInfo>
         <ShareSection>
           {SHARE_BUTTONS.map((button) => (
-            <Button key={button.id} onClick={handleCopyUrlToClipboard}>
+            <Button key={button.id} onClick={(e) => handleClick(e, button.id)}>
               <ButtonIcon
                 src={button.img}
                 alt={button.name}
