@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-import * as S from './ToggleButton.styles';
+import styles from './ToggleButton.module.scss';
 
-const ToggleButton = ({ children, items = [], className }) => {
+const ToggleButton = ({ children, items = [] }) => {
   const [isToggled, setIsToggled] = useState(false);
   const handleToggleButtonClick = event => {
     event.preventDefault();
@@ -11,14 +11,12 @@ const ToggleButton = ({ children, items = [], className }) => {
   };
 
   return (
-    <S.ToggleButtonLayout className={className} onBlur={() => setIsToggled(false)}>
-      <S.ToggleButtonButton onClick={handleToggleButtonClick}>
+    <section className={styles.layout} onBlur={() => setIsToggled(false)}>
+      <button className={styles.toggleButton} onClick={handleToggleButtonClick}>
         {children}
-        <S.ToggleButtonItemBox>
-          {isToggled && items.map(item => <S.ToggleButtonItem>{item}</S.ToggleButtonItem>)}
-        </S.ToggleButtonItemBox>
-      </S.ToggleButtonButton>
-    </S.ToggleButtonLayout>
+        <ul className={styles.itemBox}>{isToggled && items.map(item => <li className={styles.item}>{item}</li>)}</ul>
+      </button>
+    </section>
   );
 };
 

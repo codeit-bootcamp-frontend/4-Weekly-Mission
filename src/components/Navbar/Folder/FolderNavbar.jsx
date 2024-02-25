@@ -2,24 +2,24 @@ import { CiShare1 } from 'react-icons/ci';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { TiPencil } from 'react-icons/ti';
 
-import * as S from './FolderNavbar.styles';
+import styles from './FolderNavbar.module.scss';
 
 const FolderNavbar = () => {
   return (
-    <S.FolderNavbarLayout>
-      <S.FolderNavbarItem>
+    <ul className={styles.layout}>
+      <li className={styles.item}>
         <CiShare1 />
         <span>공유</span>
-      </S.FolderNavbarItem>
-      <S.FolderNavbarItem>
+      </li>
+      <li className={styles.item}>
         <TiPencil />
         <span>이름 변경</span>
-      </S.FolderNavbarItem>
-      <S.FolderNavbarItem>
+      </li>
+      <li className={styles.item}>
         <RiDeleteBinLine />
         <span>삭제</span>
-      </S.FolderNavbarItem>
-    </S.FolderNavbarLayout>
+      </li>
+    </ul>
   );
 };
 

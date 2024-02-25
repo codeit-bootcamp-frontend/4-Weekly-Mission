@@ -1,10 +1,10 @@
 import Card from '../Card/Card';
 
-import * as S from './Cards.styles';
+import styles from './Cards.module.scss';
 
 const Cards = ({ links }) => {
   return (
-    <S.CardsSection>
+    <section className={styles.layout}>
       {links.map(link => {
         const { id, createdAt, url, title, description, imageSource } = link;
         return (
@@ -18,7 +18,7 @@ const Cards = ({ links }) => {
           />
         );
       })}
-    </S.CardsSection>
+    </section>
   );
 };
 

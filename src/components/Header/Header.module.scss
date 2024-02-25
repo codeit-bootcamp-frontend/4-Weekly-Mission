@@ -1,7 +1,6 @@
-import styled from 'styled-components';
+@import '../../styles/_index.scss';
 
-export const HeaderLayout = styled.header`
-  position: ${props => (props.$isStatic ? 'static' : 'fixed')};
+.layout {
   top: 0;
   z-index: 1;
   display: flex;
@@ -11,22 +10,27 @@ export const HeaderLayout = styled.header`
   width: 100vw;
   height: 6rem;
   padding: 1.25rem;
-  background: var(--color-gray-100);
-`;
+  background: $color-gray-100;
+}
 
-export const HeaderBox = styled.div`
+.box {
   display: flex;
   align-items: center;
   align-self: stretch;
   justify-content: space-between;
   width: 100%;
   padding: 0 5rem;
+}
 
-  @media screen and (width < 1123px) {
+.linkbraryLogo {
+  width: 10rem;
+}
+
+.fixed {
+  display: fixed;
+}
+@media screen and (width < 1123px) {
+  .box {
     padding: 0 2rem;
   }
-`;
-
-export const HeaderLogo = styled.img`
-  width: 10rem;
-`;
+}

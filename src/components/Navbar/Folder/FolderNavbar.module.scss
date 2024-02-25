@@ -1,0 +1,15 @@
+@import '../../../styles/_index.scss';
+
+.layout {
+  display: flex;
+  gap: 1rem;
+  margin: 0.4rem 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  color: $color-gray-400;
+  cursor: pointer;
+}
