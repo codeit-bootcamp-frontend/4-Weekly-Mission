@@ -38,3 +38,31 @@
   width: 1rem;
   height: 1rem;
 }
+
+.folder-title {
+  display: flex;
+  width: 100%;
+  max-width: 112rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.folder-menu {
+  display: flex;
+  gap: 0.1rem;
+}
+
+.folder-menu-icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-left: 0.3rem;
+}
+
+.folder-menu-text {
+  color: var(--gray-02);
+}
+
+.folder-box {
+  display: flex;
+  gap: 1.2rem;
+}
