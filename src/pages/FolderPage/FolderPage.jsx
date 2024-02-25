@@ -66,7 +66,7 @@ const FolderPage = () => {
           onClick={handleFolderClick}
         />
       )}
-      {cards && <Card links={cards} />}
+      {cards && <Card links={cards} folders={folders} />}
     </>
   );
 };
