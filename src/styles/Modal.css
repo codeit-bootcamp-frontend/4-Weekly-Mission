@@ -1,0 +1,21 @@
+.modal-container {
+  position: relative;
+  display: flex;
+  width: 22.5rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 2.5rem;
+  border: 1px solid var(--stroke-light);
+  border-radius: 15px;
+  background-color: var(--white);
+}
+
+.modal-title {
+  font-size: 1.25rem;
+}
+
+.modal-button-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}

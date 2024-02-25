@@ -1,0 +1,24 @@
+.modal-delete-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 0.5rem;
+  gap: 1.5rem;
+}
+
+.delete-area {
+  color: var(--gray-02);
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+}
+
+.delete-button {
+  width: 17.5rem;
+  height: 51px;
+  border: none;
+  border-radius: 8px;
+  background-color: rgb(255 91 86 / 100%);
+  color: var(--white);
+}

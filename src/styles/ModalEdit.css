@@ -1,0 +1,26 @@
+.modal-edit-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 1.5rem;
+  gap: 1.5rem;
+}
+
+.edit-input {
+  height: 3.75rem;
+  padding: 0 1rem;
+  border: 1px solid var(--gray-03);
+  border-radius: 8px;
+}
+
+.edit-button {
+  display: flex;
+  width: 17.5rem;
+  height: 51px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: var(--white);
+}
