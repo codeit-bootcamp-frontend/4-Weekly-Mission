@@ -7,6 +7,7 @@ import FolderTitleArea from "../components/folder/FolderTitleArea";
 import FolderCardArea from "../components/folder/FolderCardArea";
 import Footer from "../components/common/Footer";
 import styled from "styled-components";
+import Modal from "../components/common/Modal/Modal";
 
 const Section = styled.section`
   max-width: 1060px;
@@ -53,6 +54,9 @@ function Folder() {
   return (
     <>
       <Banner />
+      <Modal subTitle="httpw://www.abc.com" folders={folders}>
+        폴더 이름 변경하기
+      </Modal>
       <Section>
         <SearchBar />
         <FolderCategoriseArea folders={folders} />
