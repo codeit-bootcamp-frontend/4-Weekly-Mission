@@ -1,0 +1,20 @@
+.Nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 3.3rem 20rem;
+  align-items: center;
+  gap: '0.8rem';
+}
+
+.logo {
+  width: 13.3rem;
+}
+
+.account {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.profileImg {
+  width: 1rem;
+}
