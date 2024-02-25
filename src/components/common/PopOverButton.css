@@ -1,0 +1,15 @@
+.pop_over_button {
+  position: absolute;
+  width: 7rem;
+  padding: 20px 0;
+}
+
+.pop_over_text {
+  background: var(--white);
+  padding: 7px 12px;
+}
+
+.pop_over_text:hover {
+  color: var(--Linkbrary-primary-color);
+  background: var(--gray10);
+}

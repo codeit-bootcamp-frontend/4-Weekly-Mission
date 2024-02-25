@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getApi } from '../../utils/apis';
-import Profile from '../../components/Profile';
+import Profile from '../../components/common/Profile';
 import Logo from '../common/Logo';
 import Button from '../common/Button';
 import './Nav.css';

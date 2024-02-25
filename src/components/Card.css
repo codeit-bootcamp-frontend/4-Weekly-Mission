@@ -70,6 +70,19 @@
   line-height: normal;
 }
 
+.kebob_button {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  align-items: flex-start;
+
+  width: 28px;
+  height: 28px;
+  background-image: url('../assets/kebab.svg');
+  background-repeat: no-repeat;
+}
+
 .description_text {
   height: 49px;
   width: 100%;
