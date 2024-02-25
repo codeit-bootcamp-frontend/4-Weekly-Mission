@@ -28,13 +28,13 @@ function DeleteLinkModal({ link, isModalOpen, setIsModalOpen }) {
 }
 
 DeleteLinkModal.propTypes = {
-  link: PropTypes.shape({ id: PropTypes.number, url: PropTypes.string }),
+  link: PropTypes.shape({ url: PropTypes.string }),
   isModalOpen: PropTypes.bool,
   setIsModalOpen: PropTypes.func,
 };
 
 DeleteLinkModal.defaultProps = {
-  link: { id: null, url: null },
+  link: { url: null },
   isModalOpen: false,
   setIsModalOpen: null,
 };

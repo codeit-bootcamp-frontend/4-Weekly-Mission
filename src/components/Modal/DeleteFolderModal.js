@@ -27,13 +27,13 @@ function DeleteFolderModal({ folder, isModalOpen, setIsModalOpen }) {
 }
 
 DeleteFolderModal.propTypes = {
-  folder: PropTypes.shape({ id: PropTypes.number, name: PropTypes.string }),
+  folder: PropTypes.shape({ name: PropTypes.string }),
   isModalOpen: PropTypes.bool,
   setIsModalOpen: PropTypes.func,
 };
 
 DeleteFolderModal.defaultProps = {
-  folder: { id: null, name: null },
+  folder: { name: null },
   isModalOpen: false,
   setIsModalOpen: null,
 };
