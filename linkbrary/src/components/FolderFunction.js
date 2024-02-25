@@ -2,14 +2,20 @@ import styled from "styled-components";
 import shareImgSrc from "../assets/share.svg";
 import penImgSrc from "../assets/pen.svg";
 import trashImgSrc from "../assets/trash.svg";
+import { useState } from "react";
 
 function FolderFunction({ titleName }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <Container>
       <Title>{titleName}</Title>
       {titleName !== "전체" ? (
         <OptionBox>
-          <Option>
+          <Option onClick={openModal}>
             <OptionIcon src={shareImgSrc}></OptionIcon>
             <OptionText>공유</OptionText>
           </Option>

@@ -3,8 +3,14 @@ import { useState } from "react";
 import useGetJson from "../functions/useGetJson";
 import unionImgSrc from "../assets/Union.svg";
 import { getAPI } from "../APIUtil";
+import Modal from "../modals/Modal";
 
 function Category({ changeTitle, changeID }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   const getFolderList = async () => {
     try {
       const result = getAPI(`/users/1/folders`);
@@ -53,8 +59,9 @@ function Category({ changeTitle, changeID }) {
         ))}
       </ButtonDiv>
       <AddFolderDiv>
-        <AddFolder>폴더 추가</AddFolder>
-        <img src={unionImgSrc} alt="unionIcon" />
+        <AddFolder onClick={openModal}>폴더 추가</AddFolder>
+        <img src={unionImgSrc} alt="unionIcon" onClick={openModal} />
+        <Modal isOpen={isModalOpen} content="test" closeModal={closeModal} />
       </AddFolderDiv>
     </Container>
   );
