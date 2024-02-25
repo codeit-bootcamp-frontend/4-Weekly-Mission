@@ -11,11 +11,12 @@ const useGetFolder = () => {
   const fetchData = async () => {
     try {
       const result = await api("sample/folder");
-      setOwnerData(() => ({
-        ownerImage: result.folder.owner.profileImageSource,
-        ownerName: result.folder.owner.name,
-        folder: result.folder.name,
-      }));
+
+      setOwnerData({
+        ownerImage: result?.folder?.owner?.profileImageSource,
+        ownerName: result?.folder?.owner?.name,
+        folder: result?.folder?.name,
+      });
     } catch (error) {
       alert(error);
     }

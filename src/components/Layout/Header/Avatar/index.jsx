@@ -1,62 +1,27 @@
 /** @jsxImportSource @emotion/react */
-import { css } from "@emotion/react";
-import Button from "../../../Button";
+import Button from "../../../utils/Button/Button";
 import useGetUser from "../../../../hooks/useGetUser";
+import styles from "./styles";
 import "../../../../styles/common.css";
 
 const Avatar = () => {
   const { userInfo, isLoading } = useGetUser();
 
   return (
-    <div css={divStyle}>
-      <div css={imgWrapperStyle}>
-        <img src={userInfo.avatar} css={imageStyle} alt="계정이미지" />
+    <div css={styles.div}>
+      <div css={styles.imgWrapper}>
+        <img src={userInfo.avatar} css={styles.image} alt="계정이미지" />
       </div>
-      <p css={pStyle}>{userInfo.email}</p>
+      <p css={styles.p}>{userInfo.email}</p>
       <Button
         name="로그인"
         size="small"
         isLoading={isLoading}
         key={userInfo.email}
-        css={btnCss}
+        css={styles.btn}
       />
     </div>
   );
 };
 
 export default Avatar;
-
-const divStyle = css`
-  display: flex;
-  gap: 8px;
-  justify-contents: center;
-`;
-
-const imgWrapperStyle = css`
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  cursor: pointer;
-`;
-
-const imageStyle = css`
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-`;
-
-const pStyle = css`
-  display: block;
-  font-weight: 400;
-  font-size: 14px;
-  position: relative;
-  top: 4px;
-
-  @media screen and (375px <= width <= 767px) {
-    display: none;
-  }
-`;
-
-const btnCss = css`
-  display: block;
-`;

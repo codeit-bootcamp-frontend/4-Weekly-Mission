@@ -1,11 +1,12 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import "../../../styles/common.css";
 
 const Button = ({ name, size, isLoading }) => {
   return (
     <button
       type="submit"
-      css={!isLoading ? showBtnCss : hideBtnCss}
+      css={isLoading ? hideBtnCss : showBtnCss}
       className={`CTA ${size}`}
     >
       {name}
