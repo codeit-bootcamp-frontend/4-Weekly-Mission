@@ -4,12 +4,12 @@ import styled from "styled-components";
 const DeleteModal = ({ onClose }) => {
   return (
     <ModalBack>
-      <ModalBox className="modal_delete_box">
-        <Button className="modal_delete_closeButton" onClick={onClose}>
-          ❌
-        </Button>
-        <ModdalChild className="modal_delete_child">링크 삭제</ModdalChild>
-        <DeleteButton placeholder="sdkfnsdkfn">삭제하기</DeleteButton>
+      <ModalBox>
+        <CloseButton onClick={onClose}>❌</CloseButton>
+        <ModalName>
+          <ModdalChild>링크 삭제</ModdalChild>
+          <DeleteButton>삭제하기</DeleteButton>
+        </ModalName>
       </ModalBox>
     </ModalBack>
   );
@@ -31,22 +31,27 @@ const ModalBack = styled.div`
 const ModalBox = styled.div`
   position: fixed;
   width: 360px;
-  height: 238px;
   background-color: white;
   border-radius: 20px;
   border: none;
   display: flex;
   justify-content: center;
 `;
+const ModalName = styled.div`
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+`;
 
 const ModdalChild = styled.div`
-  padding-bottom: 5px;
-  margin: 30px 0px;
   font-size: 20px;
   font-weight: 600;
 `;
 
-const Button = styled.button`
+const CloseButton = styled.button`
   position: absolute;
   top: 15px;
   right: 15px;
@@ -61,7 +66,7 @@ const DeleteButton = styled.button`
   color: white;
   font-size: 16px;
   font-weight: 600;
-  margin-top: 30px;
+  margin: 30px 0;
 `;
 
 export default DeleteModal;
