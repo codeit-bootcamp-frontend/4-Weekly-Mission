@@ -1,27 +1,8 @@
-import { useEffect, useState } from "react";
 import "./Gnb.css";
-import { getUserInfo } from "../api/api";
 import logoImg from "../assets/svg/logo.svg";
 import profileImg from "../assets/png/profile.png";
 
-function Gnb() {
-  const [userData, setItems] = useState([]);
-
-  useEffect(() => {
-    const handleLoad = async () => {
-      try {
-        const result = await getUserInfo();
-        setItems(result);
-      } catch (error) {
-        console.error(error);
-
-        return;
-      }
-    };
-
-    handleLoad();
-  }, []);
-
+function Gnb({ userData }) {
   return (
     <div className="gnb">
       <div className="gnb_inner">

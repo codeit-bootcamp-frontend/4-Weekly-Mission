@@ -1,17 +1,19 @@
-import CardsArea from "./components/CardsArea";
-import Footer from "./components/Footer";
-import Banner from "./components/Banner";
-import Gnb from "./components/Gnb";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SharePage from "./pages/share/SharePage.js";
+import FolderPage from "./pages/folder/FolderPage.js";
 
 function App() {
   return (
-    <div className="App">
-      <Gnb />
-      <Banner />
-      <CardsArea />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SharePage />}></Route>
+        <Route path="/share" element={<SharePage />}></Route>
+        <Route path="/folder" element={<FolderPage />}>
+          <Route index element={<FolderPage />}></Route>
+          <Route path=":id" element={<FolderPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
