@@ -9,7 +9,7 @@ import Button from 'components/Common/Button';
 import ModalContainer from 'components/Modal/ModalContainer';
 import styles from 'components/Modal/ShareModal.module.css';
 
-function ShareModal({ folder }) {
+function ShareModal({ folder, isModalOpen, setIsModalOpen }) {
   const { id, title } = folder;
 
   const host = window.location.origin;
@@ -66,7 +66,7 @@ function ShareModal({ folder }) {
   const shareButtonLabelClasses = classNames(styles['share-button-label'], 'font-color-gray100');
 
   return (
-    <ModalContainer>
+    <ModalContainer isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
       <p className={titleClasses}>폴더 공유</p>
       <p className={folderTitleClasses}>{title ?? '폴더명'}</p>
       <div className={shareButtonContainerClasses}>
@@ -83,10 +83,14 @@ function ShareModal({ folder }) {
 
 ShareModal.propTypes = {
   folder: PropTypes.shape({ id: PropTypes.number, title: PropTypes.string }),
+  isModalOpen: PropTypes.bool,
+  setIsModalOpen: PropTypes.func,
 };
 
 ShareModal.defaultProps = {
   folder: { id: null, title: null },
+  isModalOpen: false,
+  setIsModalOpen: null,
 };
 
 export default ShareModal;
