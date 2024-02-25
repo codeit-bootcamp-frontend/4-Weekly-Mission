@@ -12,6 +12,7 @@ import Menus from "components/folder/Menus";
 import FolderTitle from "components/folder/FolderTitle";
 import { SharedModal } from "components/common/modals/SharedModal";
 import { EditNameModal } from "components/common/modals/EditNameModal";
+import { DeleteModal } from "./../components/common/modals/DeleteModal";
 
 const Folder = () => {
   const [titleName, setTitleName] = useState("전체");
@@ -37,6 +38,7 @@ const Folder = () => {
     <Container>
       <SharedModal $isVisible={isModal} setIsVisible={setIsModal} />
       <EditNameModal $isVisible={isModal} setIsVisible={setIsModal} />
+      <DeleteModal $isVisible={isModal} setIsVisible={setIsModal} />
       <GlobalStyle />
       <HeaderElement $positionval="static" />
       <FolderInput />
