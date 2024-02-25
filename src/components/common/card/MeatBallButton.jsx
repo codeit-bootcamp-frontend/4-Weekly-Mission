@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { styled } from 'styled-components';
 
 import useOutSideClick from 'hooks/useOutSideClick';
@@ -64,7 +64,7 @@ function MeatBallButton() {
       type="button"
       onClick={(e) => {
         e.preventDefault();
-        return setIsPopoverOpen(true);
+        setIsPopoverOpen(true);
       }}
     >
       <img src={meatballIcon} alt="더보기 버튼" />
@@ -82,7 +82,7 @@ function MeatBallButton() {
             </Styled.Option>
           ))}
           {isDeleteModalOpen && (
-            <DeleteItemModal setOpen={setIsAddModalOpen} modalTitle="링크 삭제" item="삭제할 아이템" />
+            <DeleteItemModal setOpen={setIsDeleteModalOpen} modalTitle="링크 삭제" item="삭제할 아이템" />
           )}
           {isAddModalOpen && <AddToFolderModal setOpen={setIsAddModalOpen} item="추가할 아이템" />}
         </Styled.Popover>
