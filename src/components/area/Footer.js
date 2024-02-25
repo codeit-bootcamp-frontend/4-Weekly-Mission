@@ -6,10 +6,10 @@ const Footer = () => {
   return (
     <div className="footer_area">
       <div className="corp_area">
-        <LinkArea></LinkArea>
+        <LinkArea />
         <p className="copyright">©codeit - 2023</p>
       </div>
-      <SnsIconArea></SnsIconArea>
+      <SnsIconArea />
     </div>
   );
 };

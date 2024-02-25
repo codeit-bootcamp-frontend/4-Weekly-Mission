@@ -55,7 +55,7 @@ const FolderPage = () => {
                           id={folder.id}
                           userId={userId}
                           onClick={handleOnClick}
-                        ></FolderNames>
+                        />
                       );
                     })}
                 </div>
@@ -66,7 +66,7 @@ const FolderPage = () => {
               </div>
             </>
           )}
-          <ListTitleArea title={selectFolderName}></ListTitleArea>
+          <ListTitleArea title={selectFolderName} />
         </ContentsArea>
       )}
       {displayPopButton && <PopAddFolderButton></PopAddFolderButton>}

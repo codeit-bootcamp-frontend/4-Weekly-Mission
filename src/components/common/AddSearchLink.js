@@ -11,7 +11,7 @@ const AddSearchLink = () => {
         type="text"
         placeholder="링크를 검색해 보세요."
       />
-      <Button text="추가하기"></Button>
+      <Button text="추가하기" />
     </form>
   );
 };

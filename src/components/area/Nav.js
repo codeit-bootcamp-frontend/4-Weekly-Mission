@@ -21,12 +21,8 @@ const Nav = () => {
 
   return (
     <div className="header_area relative">
-      <Logo></Logo>
-      {userInfo ? (
-        <Profile email={userInfo.email}></Profile>
-      ) : (
-        <Button text="로그인"></Button>
-      )}
+      <Logo />
+      {userInfo ? <Profile email={userInfo.email} /> : <Button text="로그인" />}
     </div>
   );
 };

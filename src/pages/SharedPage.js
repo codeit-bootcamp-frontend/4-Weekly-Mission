@@ -22,9 +22,9 @@ const SharedPage = () => {
           iconImage={folderInfo.owner.profileImageSource}
           name={folderInfo.owner.name}
           folderName={folderInfo.name}
-        ></TopBodyArea>
+        />
       )}
-      <ContentsArea links={folderInfo.links}></ContentsArea>
+      <ContentsArea links={folderInfo.links} />
     </>
   );
 };

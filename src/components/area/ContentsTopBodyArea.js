@@ -1,11 +1,10 @@
 import TopContentArea from './TopContentArea';
 import './ContentsTopBodyArea.css';
 
-const TopBodyArea = ({ name, iconImage, folderName }) => {
-  const folderInfo = { name, iconImage, folderName };
+const TopBodyArea = (props) => {
   return (
     <div className="top_body_area">
-      <TopContentArea folderInfo={folderInfo}></TopContentArea>
+      <TopContentArea folderInfo={props} />
     </div>
   );
 };
