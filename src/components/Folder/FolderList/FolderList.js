@@ -1,7 +1,12 @@
 import { FolderAdd } from "../FolderAdd";
 import "./FolderList.css";
 
-export const FolderList = ({ folderList, onSelectFolderList, selectId }) => {
+export const FolderList = ({
+  linkUrl,
+  folderList,
+  onSelectFolderList,
+  selectId,
+}) => {
   const handleClickFolderList = (e) => {
     let folderId;
 
@@ -37,7 +42,7 @@ export const FolderList = ({ folderList, onSelectFolderList, selectId }) => {
         ))}
       </div>
 
-      <FolderAdd />
+      <FolderAdd folderList={folderList} linkUrl={linkUrl} />
     </div>
   );
 };
