@@ -1,6 +1,5 @@
-.gra_purpleblue_btn {
+.button {
   display: flex;
-  width: 80px;
   height: 37px;
   padding: 10px 16px;
   justify-content: center;
@@ -16,5 +15,20 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+}
+
+.modal_button {
+  width: 280px;
+}
+
+.add_button {
+  width: 80px;
+}
+
+.back_gra_purpleblue {
   background: var(--gra-purpleblue-to-skyblue);
+}
+
+.back_red {
+  background: var(--red);
 }

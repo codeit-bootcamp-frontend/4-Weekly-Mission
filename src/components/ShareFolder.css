@@ -1,0 +1,58 @@
+.sns_area {
+  display: flex;
+  gap: 32px;
+}
+
+.sns_title {
+  width: 48px;
+  margin-top: 10px;
+
+  color: var(--Linkbrary-gray100);
+  text-align: center;
+  font-family: Inter;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 15px; /* 115.385% */
+}
+
+.icon_area {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  padding: 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 37.333px;
+}
+.kakao_back {
+  background: var(--kakao-yello);
+}
+
+.facebook_back {
+  background: var(--facebook-blue);
+}
+
+.share_back {
+  background: rgba(157, 157, 157, 0.04);
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  background-repeat: no-repeat;
+}
+
+.kakao_back_img {
+  background-image: url('../assets/icon-kakao.svg');
+}
+
+.facebook_back_img {
+  background-image: url('../assets/icon-facebook.svg');
+}
+
+.share_back_img {
+  background-image: url('../assets/icon-link.svg');
+}

@@ -12,13 +12,41 @@
   background: var(--white);
 }
 
-.add_link_input {
-  width: 80%;
-  border: 0;
-  width: 100%;
-  background: var(--white);
-  color: var(--gray60);
-  text-align: left;
+.link_icon {
+  width: 16px;
+  height: 16px;
+}
+
+.folder {
+  width: 280px;
+  display: flex;
+  padding: 8px;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.folder.select {
+  border-radius: 8px;
+  background: var(--bright-sky-blue);
+  color: var(--Linkbrary-primary-color, #6d6afe);
+}
+
+.folder_name {
+  color: var(--Linkbrary-gray100);
+
+  /* Linkbrary/body1-regular */
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+}
+
+.folder_count {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+
+  /* Linkbrary/body2-regular */
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;
@@ -26,9 +54,9 @@
   line-height: normal;
 }
 
-.link_icon {
-  width: 16px;
-  height: 16px;
+.check_icon {
+  position: absolute;
+  right: 10px;
 }
 
 /* 768px부터 적용될 스타일 */
@@ -36,10 +64,6 @@
   .add_search_link_area {
     width: 704px;
     height: 69px;
-  }
-
-  .add_link_input {
-    font-size: 16px;
   }
 
   .link_icon {
