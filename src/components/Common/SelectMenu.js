@@ -4,10 +4,13 @@ import { useState } from 'react';
 
 import Button from 'components/Common/Button';
 import styles from 'components/Common/SelectMenu.module.css';
+import AddToFolderModal from 'components/Modal/AddToFolderModal';
+import DeleteLinkModal from 'components/Modal/DeleteLinkModal';
 
 function SelectMenu({ className }) {
   const [selectedMenu, setSelectedMenu] = useState(null);
   const [hoveredMenu, setHoveredMenu] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const menuList = [
     {
@@ -20,12 +23,29 @@ function SelectMenu({ className }) {
     },
   ];
 
-  const handleMenuClick = (key) => {
+  const openModalById = (menuId) => {
+    let modal = null;
+
+    switch (menuId) {
+      case 1:
+        modal = <DeleteLinkModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
+        break;
+      case 2:
+        modal = <AddToFolderModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
+        break;
+      default:
+        break;
+    }
+
+    return modal;
+  };
+
+  const handleMenuClick = (e, key) => {
+    e.stopPropagation();
     const targetMenu = menuList.find((menu) => menu.id === key);
     setSelectedMenu(targetMenu);
-    // selectMenu 임시 출력(오류 회피)
-    console.log(targetMenu.label);
-    console.log(selectedMenu);
+    setIsModalOpen(true);
+    openModalById(key);
   };
 
   const handleMenuMouseEnter = (key) => {
@@ -52,12 +72,13 @@ function SelectMenu({ className }) {
             className={`${menuElementClasses} 
             ${hoveredMenu?.id === menu.id ? hoveredMenuClasses : defaultMenuClasses}`}
             text={menu.label}
-            onClick={() => handleMenuClick(menu.id)}
+            onClick={(e) => handleMenuClick(e, menu.id)}
             onMouseEnter={() => handleMenuMouseEnter(menu.id)}
             onMouseLeave={handleMenuMouseLeave}
           />
         ))}
       </div>
+      {selectedMenu && openModalById(selectedMenu.id)}
     </div>
   );
 }

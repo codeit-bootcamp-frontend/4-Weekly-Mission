@@ -13,7 +13,7 @@ import ModalContainer from 'components/Modal/ModalContainer';
 
 import { FOLDERS_API_URL } from 'services/api';
 
-function AddToFolderModal({ linkUrl }) {
+function AddToFolderModal({ linkUrl, isModalOpen, setIsModalOpen }) {
   const LOADING_MESSAGE = 'Loading...';
   const foldersUrl = FOLDERS_API_URL;
   const { data, loading, error } = useFetch(foldersUrl);
@@ -24,11 +24,17 @@ function AddToFolderModal({ linkUrl }) {
   const [selectedFolder, setSelectedFolder] = useState(null);
   const [hoveredFolder, setHoveredFolder] = useState(null);
 
-  const handleButtonClick = () => {
+  const resetSelectedFolder = () => {
+    setSelectedFolder(null);
+  };
+
+  const handleButtonClick = (e) => {
+    e.stopPropagation();
     console.log('폴더에 추가');
   };
 
-  const handleListClick = (key) => {
+  const handleListClick = (e, key) => {
+    e.stopPropagation();
     const targetFolder = folderList.find((folder) => folder.id === key);
     setSelectedFolder(targetFolder);
   };
@@ -69,7 +75,7 @@ function AddToFolderModal({ linkUrl }) {
   const defaultCheckIconClasses = classNames('display-none');
 
   return (
-    <ModalContainer>
+    <ModalContainer isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} onClose={resetSelectedFolder}>
       <p className={titleClasses}>폴더에 추가</p>
       <p className={linkClasses}>{linkUrl || '링크 주소'}</p>
       <div className={listContainerClasses}>
@@ -85,7 +91,7 @@ function AddToFolderModal({ linkUrl }) {
                     : defaultAddFolderListClasses
               }`}
             folder={folder}
-            onClick={() => handleListClick(folder.id)}
+            onClick={(e) => handleListClick(e, folder.id)}
             onMouseEnter={() => handleListMouseEnter(folder.id)}
             onMouseLeave={handleListMouseLeave}
           >
@@ -116,10 +122,14 @@ function AddToFolderModal({ linkUrl }) {
 
 AddToFolderModal.propTypes = {
   linkUrl: PropTypes.string,
+  isModalOpen: PropTypes.bool,
+  setIsModalOpen: PropTypes.func,
 };
 
 AddToFolderModal.defaultProps = {
   linkUrl: '',
+  isModalOpen: false,
+  setIsModalOpen: null,
 };
 
 export default AddToFolderModal;

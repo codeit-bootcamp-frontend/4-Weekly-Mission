@@ -30,11 +30,13 @@ function Card({ linkData }) {
 
   const handleCardClickByEnter = (e) => {
     if (e.key === 'Enter') {
+      e.preventDefault();
       handleCardClick();
     }
   };
 
-  const handleCardMouseLeave = () => {
+  const handleCardMouseLeave = (e) => {
+    e.stopPropagation();
     setIsMenuOpen(false);
   };
 
@@ -44,7 +46,6 @@ function Card({ linkData }) {
   };
 
   const cardClasses = classNames(styles.card, 'position-relative');
-  const selectMenuClasses = classNames(styles['select-menu'], 'position-absolute', 'z-top-force');
   const hiddenSelectMenuClasses = classNames('display-none');
   const starButtonClasses = classNames(styles['star-button'], 'position-absolute');
   const cardImgageClasses = classNames(styles['card-image'], 'width-full');
@@ -59,6 +60,7 @@ function Card({ linkData }) {
   const timeAgoClasses = classNames(styles['time-ago'], 'text-color-text');
   const cardNameClasses = classNames(styles['card-name'], 'multiline-ellipsis');
   const createDateClasses = classNames(styles['create-date']);
+  const selectMenuClasses = classNames(styles['select-menu'], 'position-absolute', 'z-top-force');
 
   return (
     <div
@@ -67,19 +69,19 @@ function Card({ linkData }) {
       onMouseLeave={handleCardMouseLeave}
       onKeyDown={handleCardClickByEnter}
       role="button"
-      tabIndex="0"
+      tabIndex={0}
     >
-      <SelectMenu className={`${selectMenuClasses} ${!isMenuOpen && hiddenSelectMenuClasses}`} />
       <div className={cardImgageClasses} style={backgroundImage} />
       <StarButton className={starButtonClasses} />
       <div className={cardTextBoxClasses}>
         <div className={topElementContainerClasses}>
           <p className={timeAgoClasses}>{createdTimeAgo}</p>
-          <KebabButton className="" onClick={(e) => handleKebabButtonClick(e)} />
+          <KebabButton className="" onClick={handleKebabButtonClick} />
         </div>
         <p className={cardNameClasses}>{description}</p>
         <p className={createDateClasses}>{createdDate}</p>
       </div>
+      <SelectMenu className={`${selectMenuClasses} ${!isMenuOpen && hiddenSelectMenuClasses}`} />
     </div>
   );
 }
