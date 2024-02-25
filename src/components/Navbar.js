@@ -1,7 +1,7 @@
 import Profile from "./Profile.js";
 import logo from "../images/logo.png";
 import { useEffect, useState } from "react";
-import { GetProfile } from "../data-access/api.js";
+import { GetProfile } from "../api/api.js";
 
 function Navbar() {
   const [myProfile, setMyProfile] = useState({});
@@ -11,6 +11,7 @@ function Navbar() {
       const result = await GetProfile();
       setMyProfile(result);
     };
+
     try {
       GetMyProfile();
     } catch (err) {

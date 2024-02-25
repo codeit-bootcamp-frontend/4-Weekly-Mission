@@ -2,12 +2,12 @@ import DeleteButton from "./DeleteButton";
 import RenameButton from "./RenameButton";
 import ShareButton from "./ShareButton";
 
-function ShareRenameDelete() {
+function ShareRenameDelete({ folderName, folderId }) {
   return (
     <div className="share-rename-delete">
-      <ShareButton />
+      <ShareButton folderName={folderName} folderId={folderId} />
       <RenameButton />
-      <DeleteButton />
+      <DeleteButton folderName={folderName} />
     </div>
   );
 }

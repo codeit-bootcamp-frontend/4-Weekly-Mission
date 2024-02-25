@@ -3,6 +3,8 @@ import LinkSearch from "../components/LinkSearch";
 import Navbar from "../components/Navbar";
 import "./Folder.css";
 import FolderLinkList from "../components/folder/FolderLinkList";
+import Footer from "../components/Footer";
+import "./Main.css";
 
 function Folder() {
   return (
@@ -15,6 +17,7 @@ function Folder() {
         <LinkSearch />
         <FolderLinkList />
       </div>
+      <Footer />
     </>
   );
 }
