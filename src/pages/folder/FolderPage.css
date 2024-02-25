@@ -1,4 +1,9 @@
-.folderPage {
+.folderPage .gnb {
+  position: relative;
+}
+
+.folderPage .add_bar {
+  margin-top: 0;
 }
 
 .folderPage_contents {
@@ -96,10 +101,9 @@
 }
 
 .folder_no_link {
-  height: 100%;
   display: flex;
   width: 1060px;
-  height: 100px;
+  height: 100%;
   padding: 41px 0px 35px 0px;
   justify-content: center;
   align-items: center;

@@ -1,11 +1,11 @@
 .add_bar {
   width: 100%;
+  margin-top: 94px;
 }
 
 .add_bar_inner {
   display: flex;
   padding: 60px 32px 90px 32px;
-  margin-top: 94px;
 
   background: var(--Linkbrary-bg, #f0f6ff);
 }

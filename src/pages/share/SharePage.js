@@ -50,8 +50,11 @@ function SharePage() {
     <div className="sharePage">
       <Gnb userData={userData} />
       <Banner />
-      <SearchBar />
-      <CardsArea foldersData={foldersData} />
+      <div className="sharePage_contents">
+        <SearchBar />
+        <CardsArea foldersData={foldersData} />
+      </div>
+
       <Footer />
     </div>
   );
