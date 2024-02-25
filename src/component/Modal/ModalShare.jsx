@@ -39,7 +39,7 @@ const ModalShare = ({ setIsModalOpen }) => {
             <h2>폴더 삭제</h2>
             <p>폴더명</p>
           </div>
-          <div className="modal-content">
+          <div className="modal-share-content">
             <a
               href="/"
               className="modal-sns"
