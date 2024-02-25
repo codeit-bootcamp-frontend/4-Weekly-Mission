@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import closeImgSrc from "../assets/close.svg";
 import { useState } from "react";
+import AddFolderModal from "./AddFolderModal";
+import AddLinkModal from "./AddLinkModal";
+import DeleteFolderModal from "./DeleteFolderModal";
+import DeleteLinkModal from "./DeleteLinkModal";
+import EditModal from "./EditModal";
+import ShareModal from "./ShareModal";
 
 const Modal = ({
   folderData,

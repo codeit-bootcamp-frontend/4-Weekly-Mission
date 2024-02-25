@@ -15,6 +15,15 @@ function Folder() {
   const [listId, setListId] = useState("");
   const [data, setData] = useState([]);
   const [user, setUser] = useState(null);
+  const [addModal, setAddModal] = useState({
+    linkModal: false,
+    folderAddModal: false,
+    shareAddModal: false,
+    editAddModal: false,
+    deleteAddModal: false,
+    linkDeleteModal: false,
+    dataUrl: "",
+  });
 
   const handleLoad = async (id = 0) => {
     try {
@@ -41,6 +50,40 @@ function Folder() {
   useEffect(() => {
     handleUser();
   }, []);
+
+  const isShowModal = (linkAddModal) => {
+    setAddModal(linkAddModal);
+  };
+
+  const isShareModal = (e) => {
+    e.preventDefault();
+    isShowModal((prev) => ({
+      linkModal: false,
+      folderAddModal: false,
+      shareAddModal: true,
+    }));
+  };
+
+  const isEditModal = (e) => {
+    e.preventDefault();
+    isShowModal((prev) => ({
+      linkModal: false,
+      folderAddModal: false,
+      shareAddModal: false,
+      editAddModal: true,
+    }));
+  };
+
+  const isDeleteModal = (e) => {
+    e.preventDefault();
+    isShowModal((prev) => ({
+      linkModal: false,
+      folderAddModal: false,
+      shareAddModal: false,
+      editAddModal: false,
+      deleteAddModal: true,
+    }));
+  };
 
   return (
     <>

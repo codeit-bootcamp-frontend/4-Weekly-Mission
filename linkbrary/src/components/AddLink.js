@@ -1,13 +1,18 @@
 import { styled } from "styled-components";
 import linkImgSrc from "../assets/link.svg";
 
-function AddLink() {
+function AddLink({ setIsShowModal }) {
+  const showLinkAddModal = (e) => {
+    e.preventDefault();
+    setIsShowModal((prev) => ({ linkModal: true, folderAddModal: false }));
+  };
+
   return (
     <BackGround>
       <InputBox>
         <img src={linkImgSrc} alt="링크 사진" className="img-li" />
         <Input placeholder="링크를 추가해 보세요."></Input>
-        <InputButton>추가하기</InputButton>
+        <InputButton onClick={showLinkAddModal}>추가하기</InputButton>
       </InputBox>
     </BackGround>
   );
