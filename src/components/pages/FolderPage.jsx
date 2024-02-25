@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getUserFolders } from '../../util/api';
-import { exitBtnId, modalBackground, modalTypes } from '../../util/constants';
+import { exitBtnId, modalBackground, modalTypes, totalName } from '../../util/constants';
 import FolderSection from './folderPage/FolderSection';
 import AddLinkArea from './folderPage/AddLinkArea';
 import DeleteFolder from '../common/modal/DeleteFolder';
@@ -12,7 +12,7 @@ import DeleteLink from '../common/modal/DeleteLink';
 
 const FolderPage = () => {
   const [folders, setFolders] = useState([]);
-  const [selectedFolder, setSelectedFolder] = useState('전체');
+  const [selectedFolder, setSelectedFolder] = useState(totalName);
   const [folderId, setFolderId] = useState(0);
   const [selectedLink, setSelectedLink] = useState('');
   const [isActiveModal, setIsActiveModal] = useState(false);

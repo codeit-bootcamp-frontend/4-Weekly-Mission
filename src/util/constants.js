@@ -1,5 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 
+export const totalName = '전체';
+
 export const updateBtnsId = {
   share: uuidv4(),
   change: uuidv4(),
