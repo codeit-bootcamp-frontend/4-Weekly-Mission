@@ -45,9 +45,15 @@
   padding: 1.2rem;
 }
 
+.timeBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.2rem;
+}
+
 .timeAgo {
   font-size: 0.9rem;
-  color: var(--color-gray-400);
+  color: $color-gray-400;
 }
 
 .toggleButton {
