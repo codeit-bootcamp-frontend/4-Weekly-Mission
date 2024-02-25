@@ -3,9 +3,8 @@ import LinkAddInput from "../../component/LinkAddInput";
 import LinkSearchInput from "../../component/LinkSearchInput";
 import { useEffect, useState } from "react";
 import { getFolderList, getLinkData } from "../../apis/api";
-import FolderName from "./FolderName";
 import LinkItems from "../../component/LinkItems";
-import { Container } from "./style";
+import { Container, FolderName } from "./style";
 import FolderOption from "../../component/FolderOption";
 import MobileAddFolderButton from "../../component/MobileAddFolderButton";
 import EditModal from "../Modal/EditModal";
@@ -21,7 +20,6 @@ const FolderPage = () => {
   const [selectedFolder, setSelectedFolder] = useState(ALL);
   const [links, setLinks] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [editModalOpen, setEditModalOpen] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -62,8 +60,8 @@ const FolderPage = () => {
   }, [selectedFolder]);
 
   return (
-    <div>
-      <LinkAddInput />
+    <>
+      <LinkAddInput folders={folders} />
       <Container>
         <LinkSearchInput />
         <FolderList
@@ -74,17 +72,13 @@ const FolderPage = () => {
         />
         <FolderName>
           {selectedFolder.name}
-          <FolderOption
-            selectedFolder={selectedFolder}
-            setEditModalOpen={setEditModalOpen}
-          />
-          {editModalOpen && <EditModal setEditModalOpen={setEditModalOpen} />}
+          <FolderOption selectedFolder={selectedFolder} />
         </FolderName>
 
         <LinkItems links={links} isLoading={isLoading} />
         <MobileAddFolderButton />
       </Container>
-    </div>
+    </>
   );
 };
 
