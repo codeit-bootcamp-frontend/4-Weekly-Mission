@@ -1,5 +1,5 @@
 .footer_container {
-  width: 90rem;
+  min-width: 24.375rem;
   height: 17.5rem;
   margin-top: 3.75rem;
   padding: 2rem 6.5rem 4rem 6.5rem;
@@ -19,7 +19,7 @@
 
 .privacy_and_faq {
   display: flex;
-  width: 11.31944rem;
+  width: calc(11.31944rem - 1.875rem);
   gap: 1.875rem;
 }
 
@@ -27,4 +27,39 @@
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
+}
+
+@media screen and (max-width: 1124px) {
+  .footer_container {
+    padding: 2rem 2rem 4rem 2rem;
+  }
+}
+
+@media screen and (max-width: 390px) {
+  .footer_container {
+    max-width: 24.375rem;
+    height: 10rem;
+    margin-top: 2.5rem;
+    padding: 2rem 2rem 4rem 2rem;
+  }
+
+  .footer_info {
+    display: grid;
+    grid-template-areas:
+      "faq icons"
+      "company company";
+  }
+
+  .company {
+    grid-area: company;
+  }
+
+  .privacy_and_faq {
+    grid-area: faq;
+    margin-bottom: 3.75rem;
+  }
+
+  .footer_icons {
+    grid-area: icons;
+  }
 }

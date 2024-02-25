@@ -9,7 +9,7 @@ function CommonFooter() {
   return (
     <div className={style.footer_container}>
       <div className={style.footer_info}>
-        <span>©codeit - 2023</span>
+        <span className={style.company}>©codeit - 2023</span>
         <div className={style.privacy_and_faq}>
           <span>Privacy Policy</span>
           <span>FAQ</span>
