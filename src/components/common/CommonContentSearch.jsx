@@ -4,7 +4,7 @@ import style from "../../styles/CommonContentSearch.module.css";
 function CommonContentSearch() {
   return (
     <div className={style.content_search}>
-      <input type="text" placeholder="링크를 검색해 보세요." />
+      <input type="text" placeholder="링크를 검색해 보세요." readOnly />
     </div>
   );
 }
