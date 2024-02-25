@@ -1,5 +1,5 @@
-import Card from '../components/Card';
-import SearchBar from '../components/SearchBar';
+import Card from '../../components/Card';
+import SearchBar from '../common/SearchBar';
 import './ContentsArea.css';
 
 const ContentsArea = ({ links, children }) => {

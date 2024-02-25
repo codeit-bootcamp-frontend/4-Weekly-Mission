@@ -1,5 +1,5 @@
-import Button from '../components/Button';
-import PurpleLinkIcon from '../assets/purple_link.svg';
+import Button from './Button';
+import PurpleLinkIcon from '../../assets/purple_link.svg';
 
 const AddSearchLink = () => {
   return (

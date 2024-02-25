@@ -1,0 +1,53 @@
+.header_area {
+  position: fixed;
+  top: 0;
+  text-align: center;
+  padding: 18px 32px 17px;
+  width: 100%;
+  height: 63px;
+  background: var(--bright-sky-blue);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.header_area.relative {
+  position: relative;
+}
+
+.gra_purpleblue_btn {
+  display: flex;
+  width: 80px;
+  height: 37px;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border: none;
+  border-radius: 8px;
+  color: var(--Grey-Light);
+
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  background: var(--gra-purpleblue-to-skyblue);
+}
+
+/* 768px부터 적용될 스타일 */
+@media (min-width: 768px) {
+  .header_area {
+    height: 93px;
+    padding: 33px 32.5px 32px;
+  }
+}
+
+/* 1124px부터 적용될 스타일 */
+@media (min-width: 1124px) {
+  .header_area {
+    padding: 33px 200px 32px;
+  }
+}

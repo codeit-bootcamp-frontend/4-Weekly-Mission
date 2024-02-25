@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { getLoginUserInfo } from '../utils/apis';
-import Profile from '../components/Profile';
-import Logo from '../components/Logo';
-import Button from '../components/Button';
+import { getLoginUserInfo } from '../../utils/apis';
+import Profile from '../../components/Profile';
+import Logo from '../common/Logo';
+import Button from '../common/Button';
 import './Nav.css';
 
 const Nav = () => {

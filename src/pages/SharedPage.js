@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import TopBodyArea from '../pages/TopBodyArea';
-import ContentsArea from '../pages/ContentsArea';
+import TopBodyArea from '../components/area/ContentsTopBodyArea';
+import ContentsArea from '../components/area/ContentsArea';
 import { getFolder } from '../utils/apis';
 
 const SharedPage = () => {

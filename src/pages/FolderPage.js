@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import SearchTopBodyArea from '../pages/SearchTopBodyArea';
-import ContentsArea from '../pages/ContentsArea';
-import PopAddFolderButton from '../components/PopAddFolderButton';
-import ListTitleArea from '../components/ListTitleArea';
+import SearchTopBodyArea from '../components/area/SearchTopBodyArea';
+import ContentsArea from '../components/area/ContentsArea';
+import PopAddFolderButton from '../components/common/PopAddFolderButton';
+import ListTitleArea from '../components/area/ListTitleArea';
 import FolderNames from '../components/FolderNames';
 import addIcon from '../assets/purple_add.svg';
 import { getFolders } from '../utils/apis';

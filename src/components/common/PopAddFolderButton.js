@@ -1,4 +1,4 @@
-import addButtonIcon from '../assets/add.svg';
+import addButtonIcon from '../../assets/add.svg';
 import './PopAddFolderButton.css';
 
 const PopAddFolderButton = () => {

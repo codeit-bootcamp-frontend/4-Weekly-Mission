@@ -1,5 +1,5 @@
-import Footer from './Footer';
-import Nav from './Nav';
+import Footer from '../components/area/Footer';
+import Nav from '../components/area/Nav';
 
 import styles from './PageFrame.module.css';
 

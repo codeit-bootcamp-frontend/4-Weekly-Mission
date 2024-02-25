@@ -1,5 +1,5 @@
-import LinkArea from '../components/LinkArea';
-import SnsIconArea from '../components/SnsIconArea';
+import LinkArea from './LinkArea';
+import SnsIconArea from './SnsIconArea';
 import './Footer.css';
 
 const Footer = () => {

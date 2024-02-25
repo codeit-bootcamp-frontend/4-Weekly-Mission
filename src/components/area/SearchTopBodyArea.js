@@ -1,4 +1,4 @@
-import AddSearchLink from '../components/AddSearchLink';
+import AddSearchLink from '../common/AddSearchLink';
 import './SearchTopBodyArea.css';
 
 const SearchTopBodyArea = () => {

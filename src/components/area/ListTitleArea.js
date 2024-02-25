@@ -1,7 +1,7 @@
 import './ListTitleArea.css';
-import shareIcon from '../assets/icon_share.svg';
-import deleteIcon from '../assets/icon_delete.svg';
-import editIcon from '../assets/icon_edit.svg';
+import shareIcon from '../../assets/icon_share.svg';
+import deleteIcon from '../../assets/icon_delete.svg';
+import editIcon from '../../assets/icon_edit.svg';
 
 const ListTitleArea = ({ title }) => {
   return (
