@@ -73,8 +73,6 @@ function FolderPage() {
     loadUserFoldersData();
   }, [id]);
 
-  console.log(id);
-
   return (
     <div className="folderPage">
       <Gnb userData={userData} />
