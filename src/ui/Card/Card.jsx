@@ -70,11 +70,21 @@ export const Card = ({
               </button>
             )}
             {kebabOpen && (
-              <div className="kebabMenu" onClick={handleModalClick} ref={ref}>
-                <button id="deleteLink" className="kebabMenu-button" url={url}>
+              <div className="kebabMenu" ref={ref}>
+                <button
+                  id="deleteLink"
+                  className="kebabMenu-button"
+                  url={url}
+                  onClick={handleModalClick}
+                >
                   삭제하기
                 </button>
-                <button id="addToFolder" className="kebabMenu-button" url={url}>
+                <button
+                  id="addToFolder"
+                  className="kebabMenu-button"
+                  url={url}
+                  onClick={handleModalClick}
+                >
                   폴더에 추가
                 </button>
               </div>

@@ -38,7 +38,7 @@ export const FolderPage = () => {
   const handleModalClick = (e) => {
     e.preventDefault();
     setIsModalOpen(true);
-    setModal(e.target.id);
+    setModal(e.currentTarget.id);
     setCurrentUrl(e.target.getAttribute("url"));
   };
 
