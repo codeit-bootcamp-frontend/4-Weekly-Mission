@@ -22,6 +22,7 @@
 
 .add-link-container {
   display: flex;
+  flex: 1 1 auto;
   gap: 0.7rem;
 }
 
@@ -34,6 +35,7 @@
   width: 100%;
   border: none;
   background-color: transparent;
+  font-size: 1rem;
   outline: none;
 }
 
@@ -44,7 +46,8 @@ input::placeholder {
 .add-link-button {
   width: 5rem;
   padding: 0.6rem 1rem;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 @media (width <= 767px) {

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getFolderUser, getFolderList } from '../api';
+import '../styles/FolderPage.css';
 
 import Header from '../components/Header';
 import AddLink from '../components/AddLink';
@@ -8,7 +9,7 @@ import SearchBar from '../components/SearchBar';
 import FolderList from '../components/FolderList';
 import Footer from '../components/Footer';
 
-const Folder = () => {
+const FolderPage = () => {
   const [user, setUser] = useState({});
   const [folderList, setFolderList] = useState(null);
 
@@ -27,7 +28,7 @@ const Folder = () => {
   }, []);
 
   return (
-    <div>
+    <div className='folder-layout'>
       <Header userInfo={user[0]} isSticky={false} />
 
       <AddLink />
@@ -41,4 +42,4 @@ const Folder = () => {
   );
 }
 
-export default Folder;
+export default FolderPage;

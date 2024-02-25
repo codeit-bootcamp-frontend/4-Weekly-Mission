@@ -53,7 +53,7 @@ const FolderList = ({ folderList }) => {
       </div >
 
       <div className="folder-title">
-        <h2 className="folder-name">{selected.name}</h2>
+        <h2 className="folder-title folder-name">{selected.name}</h2>
         {selected.name !== "전체" ? (
           <>
             <div className="folder-menu">

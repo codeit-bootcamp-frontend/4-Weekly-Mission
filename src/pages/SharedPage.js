@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getSharedFolder, getSharedUser } from '../api';
+import '../styles/SharedPage.css';
 
 import Header from '../components/Header';
 import FolderInfo from '../components/FolderInfo';
@@ -8,7 +9,7 @@ import SearchBar from '../components/SearchBar';
 import CardList from '../components/CardList';
 import Footer from '../components/Footer';
 
-const Folder = () => {
+const SharedPage = () => {
   const [user, setUser] = useState(null);
   const [folder, setFolder] = useState(null);
 
@@ -27,7 +28,7 @@ const Folder = () => {
   }, []);
 
   return (
-    <div>
+    <div className='shared-layout'>
       <Header userInfo={user} />
 
       <FolderInfo folderInfo={folder} />
@@ -41,4 +42,4 @@ const Folder = () => {
   );
 }
 
-export default Folder;
+export default SharedPage;

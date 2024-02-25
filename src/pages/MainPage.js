@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../styles/Main.css';
 
-const Main = () => {
+const MainPage = () => {
 
   return (
     <main className="temporary-main">
@@ -17,4 +17,4 @@ const Main = () => {
   );
 }
 
-export default Main;
+export default MainPage;
