@@ -3,12 +3,11 @@ import { HeaderContainer } from 'styles/HeaderContainer';
 import React, { useState } from 'react';
 import { MainContainer } from 'styles/MainContainer';
 import Search from 'components/common/main/Search';
-import CardGrid from 'components/common/main/CardGrid';
 import CardError from 'components/common/main/CardError';
 import { useCategoryQuery, useFolderQuery } from 'hook/useFetchData';
-import Category from 'components/folder/Category';
-import SubTitle from 'components/folder/SubTitle';
 import CategoryContext from 'contexts/CategoryContext';
+import CategoryTabList from 'components/folder/CategoryTabList';
+import CardList from 'components/folder/CardList';
 
 const FolderPage = () => {
   const [currentCategory, setCurrentCategory] = useState({
@@ -44,24 +43,13 @@ const FolderPage = () => {
       </HeaderContainer>
       <MainContainer>
         <Search />
-        <Category
+        <CategoryTabList
           categoryDatas={categoryDatas}
           currentCategory={currentCategory.name}
           handleCategoryButton={handleCategoryButton}
-        />
-        <SubTitle
-          currentCategory={currentCategory.name}
           categoryId={folderId}
         />
-        {folderDatas?.data.length ? (
-          <CardGrid
-            isLoading={isLoading}
-            datas={folderDatas?.data}
-            isFolder={true}
-          />
-        ) : (
-          <CardError />
-        )}
+        <CardList folderDatas={folderDatas} isLoading={isLoading} />
       </MainContainer>
     </CategoryContext.Provider>
   );

@@ -17,7 +17,6 @@ import KebabButton from 'components/folder/KebabButton';
  * @param {boolean} cardDatas.isFolder
  */
 const Card = ({
-  id,
   url,
   imageURL,
   title,
@@ -28,7 +27,7 @@ const Card = ({
 }) => {
   return (
     <>
-      <StyledCard key={id} href={url} target="_blank" rel="noopener noreferrer">
+      <StyledCard href={url} target="_blank" rel="noopener noreferrer">
         <CardImgContainer>
           <CardImg src={imageURL || defaultImage} alt={title} />
           {isFolder && <StarButton />}

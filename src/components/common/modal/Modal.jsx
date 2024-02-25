@@ -46,6 +46,8 @@ const ModalWrapper = styled.div`
 const ModalInner = styled.div`
   width: 36rem;
   min-height: 19.3rem;
+  max-height: 38.9rem;
+  overflow: scroll;
   background-color: ${({ theme }) => theme.white};
   border-radius: 1.5rem;
   position: relative;

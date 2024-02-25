@@ -40,7 +40,7 @@ const Category = ({ categoryDatas, currentCategory, handleCategoryButton }) => {
           <Image></Image>
         </AddButton>
         {showModal && (
-          <Modal setShowModal={setShowModal} showModal={showModal}>
+          <Modal handleClose={() => setShowModal(false)} showModal={showModal}>
             <PostModal isAdd={true} title="폴더 추가" />
           </Modal>
         )}
