@@ -5,6 +5,18 @@ import facebook from "../../images/modal-Facebook.svg";
 import icon from "../../images/modal-link.svg";
 
 function SharedFolder({ toggleModal }) {
+  function copyToClipboard() {
+    const link = "https://your-shared-link.com";
+    navigator.clipboard.writeText(link).then(
+      function () {
+        alert("링크가 클립보드에 복사되었습니다: " + link);
+      },
+      function () {
+        alert("링크 복사에 실패했습니다.");
+      }
+    );
+  }
+
   return (
     <div className="modal">
       <form className="modal-form">
@@ -33,7 +45,7 @@ function SharedFolder({ toggleModal }) {
               <p className="modal-icon-title">페이스북</p>
             </div>
             <div className="modal-icon-content">
-              <div className="modal-linkIcon-img">
+              <div className="modal-linkIcon-img" onClick={copyToClipboard}>
                 <img src={icon} alt="링크"></img>
               </div>
               <p className="modal-icon-title">링크 복사</p>
