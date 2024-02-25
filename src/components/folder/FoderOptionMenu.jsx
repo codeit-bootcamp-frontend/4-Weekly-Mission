@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import styled from "styled-components";
 
 import shareIcon from "../../assets/svg/share.svg";
 import editIcon from "../../assets/svg/edit.svg";
 import deleteIcon from "../../assets/svg/trash.svg";
-import Modal, { ModalWithInput } from "../common/Modal";
-import { createPortal } from "react-dom";
+
+// Modal
 import Backdrop from "../common/Backdrop";
+import ModalWithInput from "../Modal/ModalWithInput";
+import ModalBase from "../Modal/ModalBase";
 
 const Container = styled.ul`
   display: flex;
@@ -33,37 +36,47 @@ const Container = styled.ul`
 
 const MENU_LIST = [
   {
-    title: "공유",
-    url: "/",
+    optionTitle: "공유",
     icon: shareIcon,
-    modal: "share",
+    modalTitle: "폴더 공유",
   },
   {
-    title: "이름 변경",
-    url: "/",
+    optionTitle: "이름 변경",
     icon: editIcon,
-    modal: "edit",
+    modalTitle: "폴더 이름 변경",
+    modalBtnText: "변경하기",
   },
   {
-    title: "삭제",
-    url: "/",
+    optionTitle: "삭제",
     icon: deleteIcon,
-    modal: "delete",
+    modalTitle: "폴더 삭제",
+    modalBtnText: "삭제하기",
   },
 ];
 
 function FoderOptionMenu() {
   const [active, setActive] = useState(false);
+  const [title, setTitle] = useState("");
+  const [btnText, setBtnText] = useState("");
+  const [isInputModal, setIsInputModal] = useState(false);
 
   const openModal = () => setActive(true);
-
   const closeModal = () => setActive(false);
 
-  const ModalHOC = ModalWithInput(Modal);
+  const handleModalTitle = (list) => {
+    setTitle(list.modalTitle);
+    setBtnText(list.modalBtnText);
+    setIsInputModal(list.modalTitle === "폴더 이름 변경");
+  };
+
+  const ModalInput = ModalWithInput(ModalBase);
 
   const modal = createPortal(
-    <ModalHOC isClose={closeModal} />,
-    // <Modal isClose={closeModal} />,
+    isInputModal ? (
+      <ModalInput isClose={closeModal} title={title} btntext={btnText} />
+    ) : (
+      <ModalBase isClose={closeModal} title={title} btntext={btnText} />
+    ),
     document.getElementById("modal")
   );
 
@@ -72,17 +85,18 @@ function FoderOptionMenu() {
     document.getElementById("backdrop")
   );
 
-  // this
-  // Function.prototype.call
-  // Function.prototype.apply
-  // Function.prototype.bind
-
   return (
     <Container>
       {MENU_LIST.map((list) => (
-        <button key={list.title} onClick={openModal.bind(this, list)}>
-          <img src={list.icon} alt={list.title} />
-          <span>{list.title}</span>
+        <button
+          key={list.optionTitle}
+          onClick={() => {
+            openModal();
+            handleModalTitle(list);
+          }}
+        >
+          <img src={list.icon} alt={list.optionTitle} />
+          <span>{list.optionTitle}</span>
         </button>
       ))}
       {active && modal}

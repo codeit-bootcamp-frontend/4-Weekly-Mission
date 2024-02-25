@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from "react";
 import styled from "styled-components";
-import { FolderIdContext } from "../../pages/Folder";
+import { FolderContext, FolderIdContext } from "../../pages/Folder";
 import FoderOptionMenu from "./FoderOptionMenu";
 import { FolderButton } from "./FolderButton";
 import FolderTitle from "./FolderTitle";
@@ -88,7 +88,7 @@ const FolderMenuWrapper = styled.div`
 export const FolderNameContext = createContext();
 
 const FolderInfo = ({ folders }) => {
-  const { folderId: activeFolderId, setFolderId } = useContext(FolderIdContext);
+  const { folderId: activeFolderId, setFolderId } = useContext(FolderContext);
   const [folderName, setFolderName] = useState("전체");
 
   return (
