@@ -8,3 +8,8 @@
   justify-content: center;
   gap: 2.5rem 2rem;
 }
+
+.none-link {
+  margin: 2.5rem;
+  font-size: 1.4rem;
+}
