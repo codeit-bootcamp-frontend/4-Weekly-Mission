@@ -8,6 +8,7 @@ export const PopOver = ({
   $isVisible,
   setIsVisible,
   $options,
+  $modalType,
   $top,
   $right,
   $isModalVisible,
@@ -26,12 +27,12 @@ export const PopOver = ({
         setIsPopVisible={setIsVisible}
       ></AddToFolder>
       <MenuOptions $isVisible={$isVisible} $top={$top} $right={$right}>
-        {$options.map((option) => (
+        {$options.map((option, index) => (
           <Option
             key={option}
             onClick={(e) => {
               e.preventDefault();
-              setIsModalVisible("폴더에 추가");
+              setIsModalVisible($modalType[index]);
             }}
           >
             {option}
