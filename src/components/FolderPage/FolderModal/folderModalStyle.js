@@ -105,8 +105,8 @@ export const IconContainer = styled.div`
 `;
 
 export const Icon = styled.img`
-  width: 42px;
-  height: 42px;
+  width: 32px;
+  height: 32px;
   margin-bottom: 10px;
 `;
 
