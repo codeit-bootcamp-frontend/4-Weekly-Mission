@@ -51,8 +51,8 @@ function FolderName() {
 
 function ShareModal({folderId}) {
     //배포한 사이트 필요 시 변경
-    // const resultUrl = `https://dongtestweb.netlify.app/shared/${folderId.id}`;
-    const resultUrl = `https://dongtestweb.netlify.app`;
+    const resultUrl = `https://dongtestweb.netlify.app/shared/${folderId.id}`;
+    // const resultUrl = `https://dongtestweb.netlify.app`;
     const handleCopyClipBoard = async () => {
         try {
             await navigator.clipboard.writeText(resultUrl);
