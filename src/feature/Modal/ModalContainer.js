@@ -13,6 +13,7 @@ export const ContainerModal = styled.div`
   flex-direction: column;
   justify-content: center;
   gap: 2.4rem;
+  z-index: 2;
 `;
 
 export function ModalContainer({ children }) {
