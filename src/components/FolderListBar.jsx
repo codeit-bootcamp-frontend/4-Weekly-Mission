@@ -7,6 +7,8 @@ import AddFolderModal from "../modal/AddFolderModal";
 import EditModal from "../modal/EditModal";
 import { MODALS } from "../modal/modals";
 import DeleteFolderModal from "../modal/DeleteFolderModal/DeleteFolderModal";
+import ShareModal from "../modal/ShareModal/ShareModal";
+import { copyClipBoard } from "../util/copyClipBoard";
 
 const WHOLE_BUTTON = {
   id: 1,
@@ -22,10 +24,12 @@ const WHOLE_BUTTON = {
 function FolderListBar({ folderList, onClick }) {
   const [currentFolderName, setCurrentFolderName] = useState("");
   const [currentFolderId, setCurrentFolderId] = useState(1);
+  const [currentUserId, setCurrentUserId] = useState(null);
   const [isModalClicked, setIsModalClicked] = useState({
     add: false,
     edit: false,
     deleteFolder: false,
+    share: false,
   });
 
   const getLinksbyId = (id) => {
@@ -35,8 +39,10 @@ function FolderListBar({ folderList, onClick }) {
   const changeFolder = (folder) => {
     const folderName = folder && folder.name;
     const folderId = folder && folder.id;
+    const userId = folder && folder["user_id"];
     setCurrentFolderName(folderName);
     setCurrentFolderId(folderId);
+    setCurrentUserId(userId);
     getLinksbyId({ folderId: `${folderId}` });
   };
 
@@ -47,6 +53,11 @@ function FolderListBar({ folderList, onClick }) {
   const handleModalClick = (type) => {
     const value = isModalClicked[type];
     setIsModalClicked({ ...isModalClicked, [type]: !value });
+  };
+
+  const makeShareLink = (userId, folderId) => {
+    const url = `${window.location.origin}/shared?user=${userId}&folder=${folderId}`;
+    copyClipBoard(url);
   };
 
   const newFolderList = useMemo(() => {
@@ -96,6 +107,12 @@ function FolderListBar({ folderList, onClick }) {
         folderName={currentFolderName}
         isModalClicked={isModalClicked}
         handleModalClick={handleModalClick}
+      />
+      <ShareModal
+        folderName={currentFolderName}
+        isModalClicked={isModalClicked}
+        handleModalClick={handleModalClick}
+        makeShareLink={() => makeShareLink(currentUserId, currentFolderId)}
       />
     </>
   );

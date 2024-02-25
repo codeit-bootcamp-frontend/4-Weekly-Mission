@@ -12,7 +12,10 @@ function FolderOptions({ folderName, folderId, handleModalClick }) {
         <div className={styles.folderName}>{folderName}</div>
         {folderId !== 1 && (
           <div className={styles.optionContainer}>
-            <div className={styles.option}>
+            <div
+              className={styles.option}
+              onClick={() => handleModalClick(share.type)}
+            >
               <img src={shareImg} alt="share" />
               <p className={styles.optionText}>공유</p>
             </div>

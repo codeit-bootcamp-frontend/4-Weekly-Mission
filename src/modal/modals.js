@@ -19,10 +19,10 @@ export const MODALS = {
     type: "edit",
     title: "폴더 이름 변경",
     buttonName: "변경하기",
-    placeholder: "유용한 팁",
+    placeholder: "내용 입력",
   },
   share: {
-    type: "edit",
+    type: "share",
     title: "폴더 공유",
   },
   addToFolder: {
