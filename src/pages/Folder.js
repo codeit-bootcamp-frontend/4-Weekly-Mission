@@ -35,6 +35,7 @@ export default function Folder({ userId = 1 }) {
 	const [currentFolderQuery, setCurrentFolderQuery] = useState(
 		`users/${userId}/links`
 	);
+	const [currentFolderId, setCurrentFolderId] = useState(0);
 	const [searchParams, setSearchParams] = useSearchParams();
 	const [items, setItems] = useState([]);
 	const [isModalOpened, setIsModalOpened] = useState(false);
@@ -66,6 +67,7 @@ export default function Folder({ userId = 1 }) {
 		setCurrentFolderQuery(
 			`users/${userId}/links${id !== 0 ? `?folderId=${id}` : ""}`
 		);
+		setCurrentFolderId(id);
 
 		if (id === 0) {
 			setSearchParams("");
@@ -114,7 +116,7 @@ export default function Folder({ userId = 1 }) {
 			imgUrl: "share.svg",
 			imgAlt: "shareButton",
 			type: "shareFolder",
-			data: currentFolderName,
+			data: [currentFolderName, currentFolderId],
 			kebabHandle: handleModalOpen,
 			modalBtnAction: handleKebabAction,
 		},

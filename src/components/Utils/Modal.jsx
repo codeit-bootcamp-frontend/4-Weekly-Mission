@@ -41,29 +41,49 @@ function ModalAddSubFolder() {
 }
 
 function ModalShareSubFolder({ modalData }) {
+	const handleCopyToClipboard = () => {
+		try {
+			navigator.clipboard.writeText(
+				`${window.location.hostname}/shared/${modalData[1]}`
+			);
+			alert("클립보드에 복사되었습니다.");
+		} catch (error) {
+			alert("클립보드 복사에 실패하였습니다.");
+		}
+	};
+
 	return (
 		<>
 			<h1 className={style.modalTitle}>
 				폴더 공유
 				<br />
-				<span className={style.modalCaption}>{modalData}</span>
+				<span className={style.modalCaption}>{modalData[0]}</span>
 			</h1>
 			<div className="modal-box">
 				<div className="modal-share-layout">
-					<button className="modal-img modal-kakao">
-						<img src="Kakao.svg" />
+					<button
+						onClick={() => handleCopyToClipboard()}
+						className="modal-img modal-kakao"
+					>
+						<img src="Kakao.svg" alt={"linkToKakao"} />
 					</button>
 					카카오톡
 				</div>
 				<div className="modal-share-layout">
-					<button className="modal-img modal-facebook">
-						<img src="Facebook.svg" />
+					<button
+						onClick={() => handleCopyToClipboard()}
+						className="modal-img modal-facebook"
+					>
+						<img src="Facebook.svg" alt={"linkToFacebook"} />
 					</button>
 					페이스북
 				</div>
 				<div className="modal-share-layout">
-					<button className="modal-img modal-link">
-						<img src="link.svg" />
+					<button
+						onClick={() => handleCopyToClipboard()}
+						className="modal-img modal-link"
+					>
+						<img src="link.svg" alt={"linkCopy"} />
 					</button>
 					링크 복사
 				</div>
