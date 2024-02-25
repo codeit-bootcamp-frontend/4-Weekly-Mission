@@ -21,7 +21,7 @@ export const BlueButton = ({
       color={COLORS.White}
       fontSize={fontSize}
       radius={radius}
-      onClick={(e) => (onBtnHandle ? onBtnHandle() : console.log("dd"))}
+      onClick={(e) => (onBtnHandle ? onBtnHandle() : null)}
     >
       {text}
     </Button>
