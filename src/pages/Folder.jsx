@@ -26,15 +26,23 @@ const Folder = () => {
   }, []);
 
   const onFolderSelect = (folderId) => {
-    const folderName =
-      folderNameData.find((button) => button.id === folderId)?.name || ALL;
-    setSelectedButtonName(folderName);
-
-    fetchLinks(folderId)
-      .then((data) => {
-        setLinks(data);
-      })
-      .catch((error) => console.error("Error:", error));
+    if (folderId === ALL) {
+      setSelectedButtonName(ALL);
+      fetchLinks()
+        .then((data) => {
+          setLinks(data);
+        })
+        .catch((error) => console.error("Error:", error));
+    } else {
+      const folderName =
+        folderNameData.find((button) => button.id === folderId)?.name || ALL;
+      setSelectedButtonName(folderName);
+      fetchLinks(folderId)
+        .then((data) => {
+          setLinks(data);
+        })
+        .catch((error) => console.error("Error:", error));
+    }
   };
 
   return (

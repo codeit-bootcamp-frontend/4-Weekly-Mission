@@ -14,7 +14,7 @@ const FolderButton = ({
           onFolderSelect(ALL);
         }}
       >
-        <span>전체</span>
+        <span>{ALL}</span>
       </button>
       {folderNameData.map((button) => (
         <button

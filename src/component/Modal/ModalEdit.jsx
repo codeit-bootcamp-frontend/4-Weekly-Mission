@@ -1,7 +1,7 @@
 import "./ModalEdit.css";
 import closeBtn from "../../images/close.svg";
 
-const ModalEdit = ({ setIsModalOpen }) => {
+const ModalEdit = ({ setIsModalOpen, modalTitle, modalButtonName }) => {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
@@ -13,14 +13,14 @@ const ModalEdit = ({ setIsModalOpen }) => {
           <img src={closeBtn} alt="" />
         </button>
         <div className="modal-items">
-          <h2>폴더 이름 변경</h2>
+          <h2>{modalTitle}</h2>
           <div className="modal-content">
             <input
               className="modal-input"
               type="text"
-              placeholder="내용 작성 중.."
+              placeholder="내용 입력"
             />
-            <button className="modal-change-btn">변경하기</button>
+            <button className="modal-change-btn">{modalButtonName}</button>
           </div>
         </div>
       </div>

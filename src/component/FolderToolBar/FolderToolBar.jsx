@@ -1,5 +1,7 @@
+import { useState } from "react";
 import FolderButton from "./FolderButton/FolderButton";
 import FolderCardList from "../FolderToolBar/FolderCardList/FolderCardList";
+import ModalEdit from "../Modal/ModalEdit";
 import { ALL } from "../../utils/utils";
 import "./FolderToolBar.css";
 import share from "../../images/share.svg";
@@ -12,6 +14,22 @@ const FolderToolBar = ({
   selectedButtonName,
   onFolderSelect,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalButtonName, setModalButtonName] = useState("");
+
+  const handleAddFolderClick = () => {
+    setModalTitle("폴더 추가");
+    setModalButtonName("추가하기");
+    setIsModalOpen(true);
+  };
+
+  const handleEditButtonClick = () => {
+    setModalTitle("폴더 이름 변경");
+    setModalButtonName("변경하기");
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="container">
       <div className="button-container">
@@ -23,7 +41,7 @@ const FolderToolBar = ({
           />
         </div>
         <div className="add-button-container">
-          <button className="add-button">
+          <button className="add-button" onClick={handleAddFolderClick}>
             <span>폴더 추가 +</span>
           </button>
         </div>
@@ -33,7 +51,7 @@ const FolderToolBar = ({
             <button>
               <img src={share} alt="" />
             </button>
-            <button>
+            <button onClick={handleEditButtonClick}>
               <img src={pen} alt="" />
             </button>
             <button>
@@ -43,6 +61,13 @@ const FolderToolBar = ({
         )}
       </div>
       <FolderCardList links={links} />
+      {isModalOpen && (
+        <ModalEdit
+          setIsModalOpen={setIsModalOpen}
+          modalTitle={modalTitle}
+          modalButtonName={modalButtonName}
+        />
+      )}
     </div>
   );
 };
