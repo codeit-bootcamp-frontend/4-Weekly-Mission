@@ -5,11 +5,11 @@ import '../styles/global.css';
 
 const Folder = () => {
   return (
-    <>
+    <div>
       <NavBar />
       <AddLink />
       <SearchBar />
-    </>
+    </div>
   );
 };
 

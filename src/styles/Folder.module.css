@@ -59,3 +59,28 @@
     linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
   );
 }
+
+/* SearchBar */
+.SearchBar {
+  display: flex;
+  border-radius: 10px;
+  width: 106rem;
+  padding: 1.5rem 1.6rem;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: var(--gray20);
+  margin: 4rem;
+}
+
+.SearchIcon {
+  width: 1.6rem;
+}
+
+.SearchText {
+  color: var(--Text);
+  font-family: Pretendard;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 150%;
+  background-color: var(--gray20);
+}
