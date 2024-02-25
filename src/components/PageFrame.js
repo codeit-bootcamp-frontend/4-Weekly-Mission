@@ -1,7 +1,7 @@
-import Footer from '../pages/Footer';
-import Nav from '../pages/Nav';
+import Footer from './Footer';
+import Nav from './Nav';
 
-import styles from './App.module.css';
+import styles from './PageFrame.module.css';
 
 function App({ children }) {
   return (
