@@ -18,7 +18,7 @@ const ModalDelete = ({ setIsModalOpen }) => {
             <p>폴더명</p>
           </div>
           <div className="modal-content">
-            <button className="modal-change-btn">삭제하기</button>
+            <button className="modal-delete-btn">삭제하기</button>
           </div>
         </div>
       </div>

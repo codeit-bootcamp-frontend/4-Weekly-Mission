@@ -9,7 +9,9 @@ const FolderButton = ({
   return (
     <>
       <button
-        className={selectedButtonName === ALL ? "selected" : ""}
+        className={`folder-button ${
+          selectedButtonName === ALL ? "selected" : ""
+        }`}
         onClick={() => {
           onFolderSelect(ALL);
         }}
@@ -19,7 +21,9 @@ const FolderButton = ({
       {folderNameData.map((button) => (
         <button
           key={button.id}
-          className={selectedButtonName === button.name ? "selected" : ""}
+          className={`folder-button ${
+            selectedButtonName === button.name ? "selected" : ""
+          }`}
           onClick={() => {
             onFolderSelect(button.id, button.name);
           }}

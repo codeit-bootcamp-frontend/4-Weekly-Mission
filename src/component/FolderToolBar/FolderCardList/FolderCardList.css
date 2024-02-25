@@ -12,29 +12,29 @@
   }
 }
 
-.card-list .card {
+.card-list .card-container {
+  border-radius: 1.5rem;
+  box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
-  width: 32.5rem;
   height: 32.7rem;
-  box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.08);
-  border-radius: 15px;
-  overflow: hidden;
+  position: relative;
+  width: 32.5rem;
 
   @media (min-width: 768px) {
-    width: 34rem;
     height: 33.4rem;
+    width: 34rem;
   }
 }
 
 .card-list .cardImg {
-  width: 100%;
-  min-height: 19.2rem;
-  height: 19.2rem;
-  border-radius: 15px 15px 0 0;
-  background-position: center;
+  background-position: 50%;
   background-size: 100%;
+  border-radius: 1.5rem 1.5rem 0 0;
+  height: 19.2rem;
+  min-height: 19.2rem;
   transition: background-size 0.3s ease-in-out;
+  width: 100%;
 
   @media (min-width: 768px) {
     min-height: 20rem;
@@ -46,13 +46,14 @@
   background-size: 130%;
 }
 
-.card-list .content {
-  height: 100%;
-  padding: 1.5rem 2rem;
+.card-list .card-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   gap: 1rem;
+  height: 100%;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .card-list .elapsed-time {
@@ -75,4 +76,47 @@
 .card-list .createdAt {
   font-size: 1.4rem;
   color: var(--grey100);
+}
+
+.card-list .edit-button {
+  position: absolute;
+  right: 2rem;
+  top: 20.7rem;
+
+  @media (min-width: 768px) {
+    top: 21.5rem;
+  }
+}
+
+.popover {
+  position: absolute;
+  z-index: 50;
+  top: unset;
+  right: unset;
+  bottom: unset;
+  left: 0px;
+}
+
+.popover-list {
+  background: #fff;
+  box-shadow: 0 0.2rem 0.8rem 0 rgba(51, 50, 54, 0.1);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  row-gap: 0.2rem;
+  width: 10rem;
+}
+
+.popover-list li {
+  align-items: center;
+  display: flex;
+  font-size: 1.4rem;
+  height: 3.1rem;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.popover-list li:hover {
+  background: #e7effb;
+  color: #6d6afe;
 }

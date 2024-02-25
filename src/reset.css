@@ -10,6 +10,13 @@ body {
   font-size: 62.5%;
 }
 
+li,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -32,6 +39,7 @@ input[type="search"]::-webkit-search-results-decoration {
 
 button {
   border: none;
+  outline: none;
   padding: unset;
   background-color: unset;
   cursor: pointer;

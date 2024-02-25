@@ -55,7 +55,7 @@
 
 .add-button {
   align-items: center;
-  border: 0.1rem solid #fff;
+  border: 0.1rem solid var(--white);
   border-radius: 2rem;
   color: #e7effb;
   gap: 0.4rem;
@@ -66,6 +66,7 @@
   padding: 0 2.4rem;
 
   @media (min-width: 768px) {
+    background-color: transparent;
     color: #6d6afe;
     padding: 0;
   }
