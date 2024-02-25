@@ -8,6 +8,7 @@ function ReadFolderCard({ links }) {
     <CardList>
       {links.map((link) => (
         <ReadCard
+          key={link.id}
           url={link.url}
           imageSource={link.image_source}
           alt={`${link.title}의 이미지`}
