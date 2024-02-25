@@ -1,5 +1,4 @@
 .top_body_area {
-  margin-top: 63px;
   height: 161px;
   background: var(--bright-sky-blue);
 }
@@ -48,7 +47,6 @@
   }
 
   .top_body_area {
-    margin-top: 93px;
     height: 244px;
   }
 
