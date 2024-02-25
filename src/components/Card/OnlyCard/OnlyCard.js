@@ -3,12 +3,12 @@ import { CardImage } from "../CardImage";
 import { CardWrapper } from "../CardWrapper";
 import { CardContent } from "../CardContent";
 
-export const OnlyCard = ({ items }) => {
+export const OnlyCard = ({ items, linkUrl, folderList }) => {
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseOver = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
 
-  const handleLinkClick = (e) => {
+  const handlePreventLinkClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
   };
@@ -19,7 +19,12 @@ export const OnlyCard = ({ items }) => {
         onMouseLeave={handleMouseLeave}
       >
         <CardImage items={items} isZoomedIn={isHovered} />
-        <CardContent items={items} handleLinkClick={handleLinkClick} />
+        <CardContent
+          items={items}
+          handlePreventLinkClick={handlePreventLinkClick}
+          linkUrl={linkUrl}
+          folderList={folderList}
+        />
       </CardWrapper>
     </a>
   );
