@@ -5,6 +5,10 @@ import linkIcon from "../img/linkIcon.svg";
 import InputSearchLink from "./InputSearchLink";
 import FolderList from "./FolderList";
 import Modal from "./modal/Modal";
+import styles from "./modal/Modal.module.scss";
+import modalIconShare from "../img/shareIcon.svg";
+import modalIconChangeName from "../img/changeNameIcon.svg";
+import modalIconDelete from "../img/deleteIcon.svg";
 
 const MainContainer = () => {
   const [links, setLinks] = useState([]);
@@ -68,22 +72,43 @@ const MainContainer = () => {
           </div>
           <div className="container__myFolders--folderName">
             <h2>{folderName}</h2>
-            <div>
-              <Modal
-                modalName={"공유"}
-                modalContent={"공유할 content로 변경예정"}
-                modalSnsBtn={true}
-              />
-              <Modal
-                modalName={"이름 변경"}
-                modalInput={"변경할 폴더 이름으로 변경예정"}
-                modalBtn={"변경하기"}
-              />
-              <Modal
-                modalName={"삭제"}
-                modalContent={"삭제할 content로 변경예정"}
-                modalBtn={"삭제하기"}
-              />
+            <div className={styles.modals}>
+              <div className={styles.modalBtn}>
+                <img
+                  className={styles.modalIcon}
+                  src={modalIconShare}
+                  alt="modalIconShare"
+                />
+                <Modal
+                  modalName={"공유"}
+                  modalContent={"공유할 content로 변경예정"}
+                  modalSnsBtn={true}
+                />
+              </div>
+              <div className={styles.modalBtn}>
+                <img
+                  className={styles.modalIcon}
+                  src={modalIconChangeName}
+                  alt="modalIconChangeName"
+                />
+                <Modal
+                  modalName={"이름 변경"}
+                  modalInput={"변경할 폴더 이름으로 변경예정"}
+                  modalBtn={"변경하기"}
+                />
+              </div>
+              <div className={styles.modalBtn}>
+                <img
+                  className={styles.modalIcon}
+                  src={modalIconDelete}
+                  alt="modalIconDelete"
+                />
+                <Modal
+                  modalName={"삭제"}
+                  modalContent={"삭제할 content로 변경예정"}
+                  modalBtn={"삭제하기"}
+                />
+              </div>
             </div>
           </div>
           {sortedLinks.length === 0 ? (
