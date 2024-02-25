@@ -11,11 +11,26 @@ import { useContext } from 'react';
 import { ModalContext } from '../../pages/FolderPage/FolderPage';
 import styled from 'styled-components';
 import { SHARE_BUTTONS } from '../../constants/modalConstants';
+import { copyURLToClipboard } from '../../utils/shareLinkFunctions';
 
 function ShareModal() {
   const { shareModalPurpose, handleShareModalClose } = useContext(ModalContext);
 
   const name = shareModalPurpose.folderName;
+  const folderId = shareModalPurpose.id;
+
+  const handleCopyUrlToClipboard = (e) => {
+    e.preventDefault();
+    copyURLToClipboard(folderId);
+  };
+
+  const handleShareToKakaoTalk = (e) => {
+    e.preventDefault();
+  };
+
+  const handleShareToFacebook = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <ModalContainer>
@@ -29,7 +44,7 @@ function ShareModal() {
         </ModalInfo>
         <ShareSection>
           {SHARE_BUTTONS.map((button) => (
-            <Button key={button.id}>
+            <Button key={button.id} onClick={handleCopyUrlToClipboard}>
               <ButtonIcon
                 src={button.img}
                 alt={button.name}

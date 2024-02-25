@@ -1,6 +1,7 @@
 import kakaoIcon from '../assets/kakaoIcon.svg';
 import facebookIcon from '../assets/facebookIcon.svg';
 import linkCopyIcon from '../assets/linkCopyIcon.svg';
+
 //modal purpose 상수
 export const FOLDER_RENAME = '폴더 이름 변경';
 export const FOLDER_ADD = '폴더 추가';
