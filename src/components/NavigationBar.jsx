@@ -1,5 +1,5 @@
-import logo from "../image/icons/LinkbraryLogo.svg";
 import { useGetData } from "./Hooks/useAsync";
+import logo from "../image/icons/LinkbraryLogo.svg";
 import style from "../styles/NavigationBar.module.css";
 
 // // CommonHeader의 NavigationBar 부분
@@ -31,12 +31,13 @@ function NavigationBar() {
   const { data, error, loading } = useGetData("/sample/user");
   console.log(data);
 
-  if (!data) return <div>NavigationBar data가 null입니다.</div>;
   if (loading) return <div>NavigationBar 로딩중...</div>;
   if (error) return <div>NavigationBar에 에러가 발생했습니다.</div>;
 
   return (
-    <div className={style.navigation_bar}>
+    <div
+      className={`${style.navigation_bar} ${data ? style.navigation_bar : style.navigation_bar_logout}`}
+    >
       <div className={style.logo_account_container}>
         <img className={style.logo} src={logo} alt="LinkbraryLogo" />
         {data ? (
