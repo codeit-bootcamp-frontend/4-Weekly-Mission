@@ -1,5 +1,9 @@
-function folderListData(props) {
-  return <></>;
+function FolderListData(props) {
+  return (
+    <>
+      <p>asdf</p>
+    </>
+  );
 }
 
-export default folderListData;
+export default FolderListData;

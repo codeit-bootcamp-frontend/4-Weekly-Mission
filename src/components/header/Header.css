@@ -2,7 +2,6 @@
 .topnav {
   padding: 20px 200px;
   background-color: var(--gray-Very-Bright);
-  position: sticky;
   top: 0;
   width: 100%;
   z-index: 9999;
@@ -14,6 +13,10 @@
   @media screen and (max-width: 767px) {
     padding: 17px 32px;
   }
+}
+
+.topnav.shared {
+  position: sticky;
 }
 
 .topnav__size {

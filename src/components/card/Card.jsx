@@ -14,7 +14,9 @@ function Card({ description, imageSource, createdAt, url }) {
 
   return (
     <li className="card" onClick={handleCardClick}>
-      <img className="card--img" src={imageSource || noImg} alt="cardImg" />
+      <div className="cardbox">
+        <img className="card--img" src={imageSource || noImg} alt="cardImg" />
+      </div>
       <div className="card--content">
         <p className="card--content__agotime">{agoString}</p>
         <p className="card--content__description">{description}</p>

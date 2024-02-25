@@ -7,12 +7,13 @@ import "./Folder.css";
 function Folder() {
   return (
     <>
-      <Header />
+      <Header sharedSticky={false} />
       <main id="wrap">
         <FolderNav />
         <FolderCardPage />
+
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 }

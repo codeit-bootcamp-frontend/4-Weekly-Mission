@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./FolderCardPage.css";
-import folderListData from "./../../components/folderList/folderListData";
+import FolderListData from "../../components/folderList/FolderListData";
 import CardList from "../../components/card/CardList";
+import SearchCard from "../../components/searchBar/SearchCard";
+import { fetchShareCards } from "../../apis/sharedApi";
 
 function FolderCardPage() {
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await fetchCards();
+      setCards(data);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <section className="folderCardPage--section">
-        <folderListData />
-        <CardList />
+        <SearchCard />
+        <FolderListData />
+        <CardList cards={cards} />
       </section>
     </>
   );
