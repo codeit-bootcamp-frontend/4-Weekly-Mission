@@ -11,7 +11,7 @@ function CardListItem({ item }) {
   return (
     <a className="card_list_item" href={item.url} target="_blank" rel="noreferrer noopener">
       <div className="img_area">
-        <img className="img_main" src={item.imageSource || baseImg} alt="" />
+        <img className="img_main" src={item.imageSource || item.image_source || baseImg} alt="" />
         <img className="img_star" src={star} alt="" />
       </div>
       <div className="text_area">
