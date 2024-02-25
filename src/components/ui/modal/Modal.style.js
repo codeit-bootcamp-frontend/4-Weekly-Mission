@@ -79,12 +79,8 @@ export const AddFolderBox = styled.div`
     gap: 8px;
     width: 264px;
     padding: 8px;
-    &:hover {
-      border-radius: 8px;
-      background: var(--background, #f0f6ff);
-    }
+    color: var(--gray100, #373740);
     .add-folder-title {
-      color: var(--gray100, #373740);
       font-size: 16px;
       font-weight: 400;
       line-height: 24px;
@@ -93,6 +89,18 @@ export const AddFolderBox = styled.div`
       color: var(--gray60, #9fa6b2);
       font-size: 14px;
     }
+    &:hover {
+      border-radius: 8px;
+      background: var(--background, #f0f6ff);
+    }
+    .check-icon {
+      margin-left: auto;
+    }
+  }
+  .active {
+    border-radius: 8px;
+    background: var(--background, #f0f6ff);
+    color: var(--primary, #6d6afe);
   }
 `;
 

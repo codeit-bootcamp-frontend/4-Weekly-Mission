@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as S from './Modal.style';
 import { Button } from './../button/Button';
 import { InputForm } from '../input-form/InputForm';
 import CloseIcon from '../../../assets/modal/close.png';
 import KakaoIcon from '../../../assets/modal/Kakao.svg';
 import FacebookIcon from '../../../assets/modal/Facebook.svg';
+import CheckIcon from '../../../assets/modal/check.svg';
 import LinkIcon from '../../../assets/folder/link.svg';
 
 export const FolderNameChangeModal = ({ closeModal }) => {
@@ -131,6 +132,8 @@ export const LinkDeleteModal = ({ closeModal, folderName }) => {
 };
 
 export const AddToFolderModal = ({ closeModal, folderName, folderList }) => {
+  const [listActive, setListActive] = useState(null);
+
   return (
     <S.Container>
       <div className="modal">
@@ -142,11 +145,16 @@ export const AddToFolderModal = ({ closeModal, folderName, folderList }) => {
           <p className="folder-name">{folderName}</p>
         </div>
         <S.AddFolderBox>
-          {folderList.map((list) => (
-            <div className="add-folder-list" key={list.id}>
-              <h2 className="add-folder-title">{list.name}</h2>
-              <p className="folder-link-count">{list.link.count}개 링크</p>
-            </div>
+          {folderList.map((folder) => (
+            <button
+              className={`add-folder-list ${listActive === folder.id ? 'active' : ''}`}
+              key={folder.id}
+              onClick={() => setListActive(folder.id)}
+            >
+              <h2 className="add-folder-title">{folder.name}</h2>
+              <p className="folder-link-count">{folder.link.count}개 링크</p>
+              {listActive === folder.id && <img className="check-icon" src={CheckIcon} alt="체크 아이콘" />}
+            </button>
           ))}
         </S.AddFolderBox>
         <div className="input-form">
