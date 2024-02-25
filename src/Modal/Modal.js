@@ -19,8 +19,8 @@ function Modal({
   };
 
   return (
-    <div className={styles["Modal-wrapper"]}>
-      <div className={styles["Modal"]}>
+    <div className={styles["Modal-wrapper"]} onClick={handleCloseClick}>
+      <div className={styles["Modal"]} onClick={(e) => e.stopPropagation()}>
         {
           {
             //prettier-ignore
