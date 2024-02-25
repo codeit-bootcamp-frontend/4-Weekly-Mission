@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import FolderCategoryItem from "./FolderCategoryItem";
+import { getUserFolder } from "../../utils/Api";
 
 const FolderCategory = styled.div`
   display: flex;
   gap: 8px;
 `;
 
-function FolderCategoryList({ folders }) {
+function FolderCategoryList() {
+  const [folders, setFolders] = useState(null);
+
+  useEffect(() => {
+    getUserFolder().then(setFolders);
+  }, []);
+
   return (
     <FolderCategory>
       <FolderCategoryItem>전체</FolderCategoryItem>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getUserFolder, getFolderLink } from "../utils/Api";
+import { getFolderLink } from "../utils/Api";
 import Banner from "../components/folder/Banner";
 import SearchBar from "../components/common/SearchBar";
 import FolderCategoryList from "../components/folder/FolderCategoryList";
@@ -21,7 +21,6 @@ const Section = styled.section`
 `;
 
 function Folder() {
-  const [folders, setFolders] = useState(null);
   const [links, setLinks] = useState([]);
   const [folderState, setFolderState] = useState({
     id: null,
@@ -48,10 +47,6 @@ function Folder() {
   };
 
   useEffect(() => {
-    getUserFolder().then(setFolders);
-  }, []);
-
-  useEffect(() => {
     getFolderLink(folderState.id).then(setLinks);
   }, [folderState]);
 
@@ -62,7 +57,7 @@ function Folder() {
         <SearchBar />
       </Section>
       <Section>
-        <FolderCategoryList folders={folders} />
+        <FolderCategoryList />
         <FolderAddButton />
       </Section>
       <Section>

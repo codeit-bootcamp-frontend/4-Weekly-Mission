@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Profile from "./Profile";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { getSampeUser } from "../../../utils/Api";
 
 const Container = styled.header`
   background: var(--gray-color-e);
@@ -51,7 +52,13 @@ const LoginButton = styled.button`
   }
 `;
 
-function Header({ user }) {
+function Header() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    getSampeUser().then(setUser);
+  }, []);
+
   return (
     <Container>
       <Layout>

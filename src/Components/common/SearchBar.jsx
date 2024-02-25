@@ -22,6 +22,10 @@ const Input = styled.input`
   border: none;
   margin-left: 10px;
 
+  &:focus {
+    outline: none;
+  }
+
   @media (max-width: 767px) {
     width: 91%;
   }
