@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import Header from '../components/header/Header';
-import Footer from '../components/Footer';
+import Layout from '../Layout';
 import CardList from '../components/shared/SharedCardList';
 import SearchBar from '../components/SearchBar';
 import { getUser, getFolder } from '../api';
@@ -46,14 +45,14 @@ const SharedPage = () => {
 
   return (
     <>
-      <Header user={user} isSticky={true} />
-      <FolderTitle folder={folder} />
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <SearchBar format="searchLink" />
-      </div>
+      <Layout user={user} isSticky={true}>
+        <FolderTitle folder={folder} />
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <SearchBar format="searchLink" />
+        </div>
 
-      <CardList links={folder.links} />
-      <Footer />
+        <CardList links={folder.links} />
+      </Layout>
     </>
   );
 };

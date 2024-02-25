@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import Header from '../components/header/Header';
-import Footer from '../components/Footer';
+import Layout from '../Layout';
 import FolderList from '../components/folder/FolderList';
 import SearchBar from '../components/SearchBar';
 import { getFolderUser, SAMPLE_ID, getFolderList } from '../api';
@@ -41,24 +40,23 @@ const FolderPage = () => {
 
   return (
     <>
-      <Header user={folderUser} isSticky={false} />
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          backgroundColor: 'var(--background)',
-        }}
-      >
-        <SearchBar format="addLink" />
-      </div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <SearchBar format="searchLink" />
-      </div>
-      <main>
-        <FolderList folderList={folderList} />
-      </main>
-
-      <Footer />
+      <Layout user={folderUser} isSticky={false}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            backgroundColor: 'var(--background)',
+          }}
+        >
+          <SearchBar format="addLink" />
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <SearchBar format="searchLink" />
+        </div>
+        <main>
+          <FolderList folderList={folderList} />
+        </main>
+      </Layout>
     </>
   );
 };
