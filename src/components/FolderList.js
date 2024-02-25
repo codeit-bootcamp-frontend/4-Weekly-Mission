@@ -16,7 +16,7 @@ const FolderList = ({ folderList }) => {
   const handleLoad = async (folderId) => {
     try {
       const state = await getFolderLink(folderId);
-      setFolderLink(state.data);
+      setFolderLink(state);
     } catch (error) {
       console.error(error);
     }

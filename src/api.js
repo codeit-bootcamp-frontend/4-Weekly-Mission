@@ -31,5 +31,12 @@ export const getFolderList = async () => {
 
 export const getFolderLink = async (folderId) => {
   const folderUrl = folderId && '?folderId=' + folderId;
-  return getRequest(`/users/1/links${folderUrl}`);
+  const response = await getRequest(`/users/1/links${folderUrl}`);
+  const folderData = response.data.map((item) => ({
+    ...item,
+    createAt: item?.created_at ? item?.created_at : item?.createdAt,
+    imageSource: item?.imageSource ? item?.imageSource : item?.image_source
+  }));
+
+  return folderData;
 };
