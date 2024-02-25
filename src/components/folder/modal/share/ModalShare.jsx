@@ -15,49 +15,46 @@ import KaKaoShareButton from "./kakao/KakaoShareButton";
 import FacebookShareBtn from "./facebook/FacebookShareButton";
 import CopyLinkButton from "./copyLink/CopyLinkButton";
 
-function ModalShare({ isShare, setIsShare, userId, folderId, folderName }) {
-  const handleClose = () => setIsShare(!isShare);
+import stopPropagation from "../../../util/stopPropagation";
+
+function ModalShare({ handleShareModal, userId, folderId, folderName }) {
   const currentUrl = window.location.href;
   const shareUrl =
     currentUrl.replace("/folder", "") +
     `/shared?user=${userId}&folder=${folderId}`;
 
   return (
-    <>
-      {isShare && (
-        <StyledBackground onClick={() => handleClose()}>
-          <StyledContainer onClick={(e) => e.stopPropagation()}>
-            <StyledDiv>
-              <CloseButton onClick={() => handleClose()} />
-              <TitleContainer>
-                <Title>폴더 공유</Title>
-                <FolderText>{folderName}</FolderText>
-              </TitleContainer>
-              <ShareContainer>
-                <KaKaoShareButton
-                  src={kakaoShareImg}
-                  alt="kakao-share"
-                  text="카카오톡"
-                  shareUrl={shareUrl}
-                />
-                <FacebookShareBtn
-                  src={facebookShareImg}
-                  alt="facebook-share"
-                  text="페이스북"
-                  shareUrl={shareUrl}
-                />
-                <CopyLinkButton
-                  src={linkShareImg}
-                  alt="link-share"
-                  text="링크 복사"
-                  shareUrl={shareUrl}
-                />
-              </ShareContainer>
-            </StyledDiv>
-          </StyledContainer>
-        </StyledBackground>
-      )}
-    </>
+    <StyledBackground onClick={handleShareModal}>
+      <StyledContainer onClick={stopPropagation}>
+        <StyledDiv>
+          <CloseButton onClick={handleShareModal} />
+          <TitleContainer>
+            <Title>폴더 공유</Title>
+            <FolderText>{folderName}</FolderText>
+          </TitleContainer>
+          <ShareContainer>
+            <KaKaoShareButton
+              src={kakaoShareImg}
+              alt="kakao-share"
+              text="카카오톡"
+              shareUrl={shareUrl}
+            />
+            <FacebookShareBtn
+              src={facebookShareImg}
+              alt="facebook-share"
+              text="페이스북"
+              shareUrl={shareUrl}
+            />
+            <CopyLinkButton
+              src={linkShareImg}
+              alt="link-share"
+              text="링크 복사"
+              shareUrl={shareUrl}
+            />
+          </ShareContainer>
+        </StyledDiv>
+      </StyledContainer>
+    </StyledBackground>
   );
 }
 

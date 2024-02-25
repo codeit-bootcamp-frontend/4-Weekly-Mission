@@ -17,7 +17,7 @@ function FolderTitle({
   return (
     <TitleContainer>
       <Title>{folderTitleName}</Title>
-      {isSelectedAll || (
+      {!isSelectedAll && (
         <FunctionContainer>
           <Share onClick={() => handleShareModal()}>
             <img src={shareImg} alt="shareImg" />

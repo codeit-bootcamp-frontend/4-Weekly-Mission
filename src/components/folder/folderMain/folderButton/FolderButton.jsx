@@ -17,14 +17,14 @@ function FolderButton({
         <ButtonListItem
           key="0"
           onClick={() => handleButtonListItemClick(0, "전체")}
-          isClick={clickedButtonId === 0}
+          selected={clickedButtonId === 0}
         >
           전체
         </ButtonListItem>
         {folderList?.map((item) => (
           <ButtonListItem
             onClick={() => handleButtonListItemClick(item.id, item.name)}
-            isClick={item.id === clickedButtonId}
+            selected={item.id === clickedButtonId}
             key={item.id}
           >
             {item.name}

@@ -20,7 +20,7 @@ function FolderListItem({
                 key={item.id}
                 onHover={() => handleListItemHover(item.id)}
                 hoverdId={mouseHoverkey}
-                onMouseOut={() => handleListItemMouseOut()}
+                onMouseOut={handleListItemMouseOut}
                 handleDeleteLinkModal={handleDeleteLinkModal}
                 handleAddModal={handleAddModal}
               />

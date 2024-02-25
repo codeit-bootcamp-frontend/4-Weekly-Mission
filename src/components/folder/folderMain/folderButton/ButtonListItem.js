@@ -8,8 +8,8 @@ const ButtonListItem = styled.button`
   transition: all 0.3s ease-in-out;
   border-radius: 5px;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-  background: ${({ isClick }) => (isClick ? `#6D6AFE` : `#FFF`)};
-  color: ${({ isClick }) => (isClick ? `#FFF` : `#000`)};
+  background: ${({ selected }) => (selected ? `#6D6AFE` : `#FFF`)};
+  color: ${({ selected }) => (selected ? `#FFF` : `#000`)};
   font-size: 16px;
   height: 35px;
   white-space: nowrap;

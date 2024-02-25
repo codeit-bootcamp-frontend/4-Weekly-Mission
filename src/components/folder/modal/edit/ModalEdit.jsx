@@ -5,24 +5,20 @@ import CloseButton from "../CloseButton";
 import Title from "../Title";
 import Input from "../Input";
 import Button from "../Button";
+import stopPropagation from "../../../util/stopPropagation";
 
-function ModalEdit({ isEditFolder, setIsEditFolder, folderName }) {
-  const handleClose = () => setIsEditFolder(!isEditFolder);
+function ModalEdit({ handleEditFolderModal, folderName }) {
   return (
-    <>
-      {isEditFolder && (
-        <StyledBackground onClick={() => handleClose()}>
-          <StyledContainer onClick={(e) => e.stopPropagation()}>
-            <StyledDiv>
-              <CloseButton onClick={() => handleClose()} />
-              <Title>폴더 이름 변경</Title>
-              <Input placeholder={folderName} />
-              <Button>변경하기</Button>
-            </StyledDiv>
-          </StyledContainer>
-        </StyledBackground>
-      )}
-    </>
+    <StyledBackground onClick={handleEditFolderModal}>
+      <StyledContainer onClick={stopPropagation}>
+        <StyledDiv>
+          <CloseButton onClick={handleEditFolderModal} />
+          <Title>폴더 이름 변경</Title>
+          <Input placeholder={folderName} />
+          <Button>변경하기</Button>
+        </StyledDiv>
+      </StyledContainer>
+    </StyledBackground>
   );
 }
 

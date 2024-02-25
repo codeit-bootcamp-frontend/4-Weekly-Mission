@@ -16,9 +16,11 @@ import ModalAddFolder from "../modal/add-folder/ModalAddFolder";
 import ModalDeleteLink from "../modal/delete-link/ModalDeleteLink";
 import ModalAdd from "../modal/add/ModalAdd";
 
+const ALL_LIST_BUTTON_ID = 0;
+
 function FolderMain() {
   const { userProfile } = useUserProfile();
-  const [folderList, setFolderList] = useState(null);
+  const [folderList, setFolderList] = useState([]);
   const [folderListItem, setFolderListItem] = useState(null);
   const [folderTitleName, setFolderTitleName] = useState("");
   const [isSelectedAll, setIsSelectedAll] = useState(false);
@@ -52,9 +54,8 @@ function FolderMain() {
   const handleButtonListItemClick = async (id, name) => {
     setClickedButtonId(id);
     setFolderTitleName(name);
-    const isAllListId = id === 0;
     const result = await getFolderListData(id);
-    setIsSelectedAll(isAllListId);
+    setIsSelectedAll(ALL_LIST_BUTTON_ID);
 
     if (!result) return;
 
@@ -72,13 +73,14 @@ function FolderMain() {
     setLinkUrl(link);
   };
 
+  const handleFolderList = async () => {
+    const result = await getFolderList();
+    if (!result) return;
+    const data = result.data;
+    setFolderList(data);
+  };
+
   useEffect(() => {
-    const handleFolderList = async () => {
-      const result = await getFolderList();
-      if (!result) return;
-      const data = result.data;
-      setFolderList(data);
-    };
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
@@ -119,33 +121,36 @@ function FolderMain() {
             handleAddModal={handleAddModal}
           />
 
-          <ModalShare
-            isShare={isShare}
-            setIsShare={setIsShare}
-            folderId={clickedButtonId}
-            folderName={folderTitleName}
-            userId={userProfile?.id}
-          />
-          <ModalEdit
-            isEditFolder={isEditFolder}
-            setIsEditFolder={setIsEditFolder}
-            folderName={folderTitleName}
-          />
-          <ModalDeleteFolder
-            isDeleteFolder={isDeleteFolder}
-            setIsDeleteFolder={setIsDeleteFolder}
-            folderName={folderTitleName}
-          />
-          <ModalDeleteLink
-            isDeleteLink={isDeleteLink}
-            setIsDeleteLink={setIsDeleteLink}
-            linkUrl={linkUrl}
-          />
-          <ModalAddFolder
-            isAddFolder={isAddFolder}
-            setIsAddFolder={setIsAddFolder}
-          />
-          <ModalAdd isAdd={isAdd} setIsAdd={setIsAdd} />
+          {isShare && (
+            <ModalShare
+              handleShareModal={handleShareModal}
+              folderId={clickedButtonId}
+              folderName={folderTitleName}
+              userId={userProfile?.id}
+            />
+          )}
+          {isEditFolder && (
+            <ModalEdit
+              handleEditFolderModal={handleEditFolderModal}
+              folderName={folderTitleName}
+            />
+          )}
+          {isDeleteFolder && (
+            <ModalDeleteFolder
+              handleDeleteFolderModal={handleDeleteFolderModal}
+              folderName={folderTitleName}
+            />
+          )}
+          {isDeleteLink && (
+            <ModalDeleteLink
+              handleDeleteLinkModal={handleDeleteLinkModal}
+              linkUrl={linkUrl}
+            />
+          )}
+          {isAddFolder && (
+            <ModalAddFolder handleAddFolderModal={handleAddFolderModal} />
+          )}
+          {isAdd && <ModalAdd handleAddModal={handleAddModal} />}
         </>
       ) : (
         <div>저장된 폴더가 없습니다</div>

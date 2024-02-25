@@ -5,24 +5,20 @@ import CloseButton from "../CloseButton";
 import Title from "../Title";
 import Input from "../Input";
 import Button from "../Button";
+import stopPropagation from "../../../util/stopPropagation";
 
-function ModalAddFolder({ isAddFolder, setIsAddFolder }) {
-  const handleClose = () => setIsAddFolder(!isAddFolder);
+function ModalAddFolder({ handleAddFolderModal }) {
   return (
-    <>
-      {isAddFolder && (
-        <StyledBackground onClick={() => handleClose()}>
-          <StyledContainer onClick={(e) => e.stopPropagation()}>
-            <StyledDiv>
-              <CloseButton onClick={() => handleClose()} />
-              <Title>폴더 추가</Title>
-              <Input placeholder="내용 입력" />
-              <Button>추가하기</Button>
-            </StyledDiv>
-          </StyledContainer>
-        </StyledBackground>
-      )}
-    </>
+    <StyledBackground onClick={handleAddFolderModal}>
+      <StyledContainer onClick={stopPropagation}>
+        <StyledDiv>
+          <CloseButton onClick={handleAddFolderModal} />
+          <Title>폴더 추가</Title>
+          <Input placeholder="내용 입력" />
+          <Button>추가하기</Button>
+        </StyledDiv>
+      </StyledContainer>
+    </StyledBackground>
   );
 }
 

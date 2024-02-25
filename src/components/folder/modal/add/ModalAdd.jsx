@@ -15,6 +15,7 @@ import { useState } from "react";
 
 import checkImg from "../../../../assets/img/png/check.png";
 import CheckImgContainter from "./CheckImgContainter";
+import stopPropagation from "../../../util/stopPropagation";
 const ADD_DIV_ITEMS = [
   {
     id: "addDiv_1",
@@ -38,49 +39,43 @@ const ADD_DIV_ITEMS = [
   },
 ];
 
-function ModalAdd({ isAdd, setIsAdd }) {
+function ModalAdd({ handleAddModal }) {
   const [clickedItem, setClickedItem] = useState(null);
-  const handleClose = () => {
-    setIsAdd(!isAdd);
-    setClickedItem(null);
-  };
+
   const handleAddDivClick = (id) => {
     setClickedItem(id);
   };
+
   return (
-    <>
-      {isAdd && (
-        <StyledBackground onClick={() => handleClose()}>
-          <StyledContainer onClick={(e) => e.stopPropagation()}>
-            <StyledDiv>
-              <CloseButton onClick={() => handleClose()} />
-              <TitleContainer>
-                <Title>폴더에 추가</Title>
-                <FolderText>링크 주소</FolderText>
-              </TitleContainer>
-              <AddContainer>
-                {ADD_DIV_ITEMS.map(({ id, title, subTitle }) => (
-                  <AddDiv
-                    key={id}
-                    clicked={clickedItem === id}
-                    onClick={() => handleAddDivClick(id)}
-                  >
-                    <AddTitleSpan>{title}</AddTitleSpan>
-                    <AddNumberSpan>{subTitle}</AddNumberSpan>
-                    {clickedItem === id && (
-                      <CheckImgContainter>
-                        <img src={checkImg} alt="checked" />
-                      </CheckImgContainter>
-                    )}
-                  </AddDiv>
-                ))}
-              </AddContainer>
-              <Button>추가하기</Button>
-            </StyledDiv>
-          </StyledContainer>
-        </StyledBackground>
-      )}
-    </>
+    <StyledBackground onClick={handleAddModal}>
+      <StyledContainer onClick={stopPropagation}>
+        <StyledDiv>
+          <CloseButton onClick={handleAddModal} />
+          <TitleContainer>
+            <Title>폴더에 추가</Title>
+            <FolderText>링크 주소</FolderText>
+          </TitleContainer>
+          <AddContainer>
+            {ADD_DIV_ITEMS.map(({ id, title, subTitle }) => (
+              <AddDiv
+                key={id}
+                clicked={clickedItem === id}
+                onClick={() => handleAddDivClick(id)}
+              >
+                <AddTitleSpan>{title}</AddTitleSpan>
+                <AddNumberSpan>{subTitle}</AddNumberSpan>
+                {clickedItem === id && (
+                  <CheckImgContainter>
+                    <img src={checkImg} alt="checked" />
+                  </CheckImgContainter>
+                )}
+              </AddDiv>
+            ))}
+          </AddContainer>
+          <Button>추가하기</Button>
+        </StyledDiv>
+      </StyledContainer>
+    </StyledBackground>
   );
 }
 

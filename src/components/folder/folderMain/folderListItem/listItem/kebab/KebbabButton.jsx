@@ -10,50 +10,19 @@ function KebabButton({
   handleAddModal,
 }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [mouseDeleteState, setMouseDeleteState] = useState("");
-  const [mouseAddState, setMouseAddState] = useState("");
 
   const toggleDropdown = (e) => {
     e.preventDefault();
     setIsOpen(!isOpen);
   };
 
-  const handleMouseOver = (e) => {
-    e.preventDefault();
-    if (e.target.innerHTML === "폴더에 추가") {
-      setMouseAddState("over");
-    } else {
-      setMouseDeleteState("over");
-    }
-  };
-
-  const handleMouseOut = (e) => {
-    e.preventDefault();
-    if (e.target.innerHTML === "폴더에 추가") {
-      setMouseAddState("out");
-    } else {
-      setMouseDeleteState("out");
-    }
-  };
   return (
-    <StyledDiv isHover={isHover} onClick={(e) => toggleDropdown(e)}>
+    <StyledDiv isHover={isHover} onClick={toggleDropdown}>
       <StyledDropdown isOpen={isOpen}>
-        <StyledOption
-          onClick={() => handleDeleteLinkModal(linkUrl)}
-          mouse={mouseDeleteState}
-          onMouseOut={(e) => handleMouseOut(e)}
-          onMouseOver={(e) => handleMouseOver(e)}
-        >
+        <StyledOption onClick={() => handleDeleteLinkModal(linkUrl)}>
           삭제하기
         </StyledOption>
-        <StyledOption
-          onClick={() => handleAddModal()}
-          mouse={mouseAddState}
-          onMouseOut={(e) => handleMouseOut(e)}
-          onMouseOver={(e) => handleMouseOver(e)}
-        >
-          폴더에 추가
-        </StyledOption>
+        <StyledOption onClick={handleAddModal}>폴더에 추가</StyledOption>
       </StyledDropdown>
     </StyledDiv>
   );
