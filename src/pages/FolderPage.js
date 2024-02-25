@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { getUser, getFolder } from '../api/BaseUrl';
 
-import Header from '../components/header';
-import Footer from '../components/footer';
+import { getUser, getFolder } from '../api/BaseUrl';
 import AddLink from '../components/AddLink';
-import Folder from '../components/folder';
+import Folder from '../components/Folder';
+import Footer from '../components/footer';
+import Header from '../components/header';
 
 const FoldPage = () => {
   const [user, setUser] = useState(null);

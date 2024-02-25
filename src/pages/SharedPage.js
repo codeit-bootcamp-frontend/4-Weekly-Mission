@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { getUser, getFolder } from '../api/BaseUrl';
 
-import Header from '../components/header';
+import { getUser, getFolder } from '../api/BaseUrl';
+import Folder from '../components/Folder';
 import Footer from '../components/footer';
+import Header from '../components/header';
 import Info from '../components/info';
-import Folder from '../components/folder';
 
 const SharedPage = () => {
   const [user, setUser] = useState(null);
