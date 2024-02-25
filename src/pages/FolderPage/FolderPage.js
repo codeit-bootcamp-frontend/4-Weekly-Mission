@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { getFolderList, getLink } from "../../api/api";
-import { useModal } from "../../hooks/useModal";
 import {
   CardList,
   OnlyCard,
@@ -17,8 +16,7 @@ const FolderPage = () => {
   const [links, setLinks] = useState([]);
   const [selectName, setSelectName] = useState("전체");
   const [selectId, setSelectId] = useState(null);
-
-  const { openModal, modalRef, handleModalClose, handleModalOpen } = useModal();
+  const [linkUrl, setLinkUrl] = useState("");
 
   const handleLoadFolderList = async (option) => {
     const folderListData = await getFolderList(option);
@@ -35,6 +33,10 @@ const FolderPage = () => {
     setSelectId(id);
   };
 
+  const handleLinkAddInputChange = (e) => {
+    setLinkUrl(e.target.value);
+  };
+
   useEffect(() => {
     handleLoadFolderList({ userId: 1 });
     handleLoadLink({ userId: 1, folderId: selectId });
@@ -43,30 +45,32 @@ const FolderPage = () => {
   return (
     <Layout>
       <div className="folderPage">
-        <FolderHeader />
+        <FolderHeader
+          folderList={folderList}
+          linkUrl={linkUrl}
+          handleLinkAddInputChange={handleLinkAddInputChange}
+        />
         <div className="folderPage-content">
           <SearchBar />
-
           <FolderList
+            linkUrl={links.map((link) => link.url)}
             folderList={folderList}
             selectId={selectId}
             onSelectFolderList={handleSelectFolderList}
           />
-
-          <FolderOption
-            folderName={selectName}
-            openModal={openModal}
-            modalRef={modalRef}
-            handleModalClose={handleModalClose}
-            handleModalOpen={handleModalOpen}
-          />
+          <FolderOption folderName={selectName} />
 
           {!links.length ? (
             <div className="folderPage-noLink">저장된 링크가 없습니다</div>
           ) : (
             <CardList>
               {links.map((item) => (
-                <OnlyCard key={item.id} items={item} />
+                <OnlyCard
+                  key={item.id}
+                  items={item}
+                  linkUrl={item.url}
+                  folderList={folderList}
+                />
               ))}
             </CardList>
           )}
