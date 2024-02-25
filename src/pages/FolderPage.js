@@ -10,9 +10,9 @@ import { getApi } from '../utils/apis';
 const FolderPage = () => {
   const [foldersList, setFoldersList] = useState([]);
   const [linkList, setLinkList] = useState({});
-  const [displayPopButton, setDisplayPopButton] = useState(false);
   const [selectFolderName, setSelectFolderName] = useState('');
   const [selectFolder, setSelectFolder] = useState(false);
+  // TODO: 데이터 받아온 뒤 수정 예정
   const userId = '4';
 
   const handleLoad = async () => {
@@ -21,7 +21,6 @@ const FolderPage = () => {
 
     setFoldersList([{ name: '전체', id: 'all' }, ...folders.data]);
     setLinkList({ links: [...data] });
-    setDisplayPopButton(linkList.links?.length >= 1 && true);
   };
 
   useEffect(() => {
@@ -32,7 +31,6 @@ const FolderPage = () => {
   const handleOnClick = async (folderName, list = []) => {
     setSelectFolderName(folderName);
     setLinkList({ links: [...list] });
-    setDisplayPopButton(list.length >= 1 && true);
   };
 
   return (
@@ -44,20 +42,19 @@ const FolderPage = () => {
             <>
               <div className="folder_button_area">
                 <div className="folder_buttons_area">
-                  {foldersList &&
-                    foldersList.map((folder) => {
-                      return (
-                        <FolderNames
-                          selectFolder={selectFolder}
-                          setSelectFolder={setSelectFolder}
-                          name={folder.name}
-                          key={folder.id}
-                          id={folder.id}
-                          userId={userId}
-                          onClick={handleOnClick}
-                        />
-                      );
-                    })}
+                  {foldersList.map((folder) => {
+                    return (
+                      <FolderNames
+                        selectFolder={selectFolder}
+                        setSelectFolder={setSelectFolder}
+                        name={folder.name}
+                        key={folder.id}
+                        id={folder.id}
+                        userId={userId}
+                        onClick={handleOnClick}
+                      />
+                    );
+                  })}
                 </div>
                 <div className="add_folder_text_area">
                   <p className="add_folder_text">폴더추가</p>
@@ -69,7 +66,7 @@ const FolderPage = () => {
           <ListTitleArea title={selectFolderName} />
         </ContentsArea>
       )}
-      {displayPopButton && <PopAddFolderButton></PopAddFolderButton>}
+      <PopAddFolderButton />
     </>
   );
 };

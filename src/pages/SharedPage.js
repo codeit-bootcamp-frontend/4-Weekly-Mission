@@ -17,7 +17,7 @@ const SharedPage = () => {
 
   return (
     <>
-      {folderInfo.owner && (
+      {folderInfo?.owner && (
         <TopBodyArea
           iconImage={folderInfo.owner.profileImageSource}
           name={folderInfo.owner.name}

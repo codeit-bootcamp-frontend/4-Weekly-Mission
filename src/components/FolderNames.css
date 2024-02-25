@@ -8,7 +8,6 @@
 .folder_buttons_area {
   width: 100%;
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: flex-start;
   gap: 8px;
@@ -74,7 +73,6 @@
   .folder_button_area {
     width: 97%;
     display: flex;
-    flex-direction: row;
   }
   .folder_buttons_area {
     justify-content: flex-start;

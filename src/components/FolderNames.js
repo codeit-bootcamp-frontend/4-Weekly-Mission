@@ -10,8 +10,6 @@ const FolderNames = ({
   setSelectFolder,
   selectFolder,
 }) => {
-  const nameRef = useRef();
-
   const handleOnClick = async (userId, id, folderName, e) => {
     const folderId = e ? e.target.id : 'all';
     setSelectFolder(folderId);
@@ -29,7 +27,6 @@ const FolderNames = ({
 
   return (
     <button
-      ref={nameRef}
       onClick={(e) => handleOnClick(userId, id, name, e)}
       className={`folder_button${selectFolder == id ? ' selected_purple' : ''}`}
       id={id}
