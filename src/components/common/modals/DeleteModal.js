@@ -12,7 +12,12 @@ export const DeleteModal = ({ $isVisible, setIsVisible }) => {
   return (
     <Background $isVisible={$isVisible}>
       <Modal>
-        <Close onClick={() => handleCloseBtn()}>
+        <Close
+          onClick={(e) => {
+            e.preventDefault();
+            handleCloseBtn();
+          }}
+        >
           <img src={closeIcon} alt={closeIcon} />
         </Close>
         <Title>

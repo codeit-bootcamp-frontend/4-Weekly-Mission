@@ -1,14 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import { COLORS } from "constants/colors";
+import { DeleteModal } from "components/common/modals/DeleteModal";
+import { AddToFolder } from "components/common/modals/AddToFolder";
 
-export const PopOver = ({ $isVisible, $options, $top, $right }) => {
+export const PopOver = ({
+  $isVisible,
+  $options,
+  $top,
+  $right,
+  $isModalVisible,
+  setIsModalVisible,
+}) => {
   return (
-    <MenuOptions $isVisible={$isVisible} $top={$top} $right={$right}>
-      {$options.map((option) => (
-        <Option key={option}>{option}</Option>
-      ))}
-    </MenuOptions>
+    <>
+      <DeleteModal
+        $isVisible={$isModalVisible}
+        setIsVisible={setIsModalVisible}
+      ></DeleteModal>
+      <AddToFolder
+        $isVisible={$isModalVisible}
+        setIsVisible={setIsModalVisible}
+      ></AddToFolder>
+      <MenuOptions $isVisible={$isVisible} $top={$top} $right={$right}>
+        {$options.map((option) => (
+          <Option
+            key={option}
+            onClick={(e) => {
+              e.preventDefault();
+              setIsModalVisible("폴더에 추가");
+            }}
+          >
+            {option}
+          </Option>
+        ))}
+      </MenuOptions>
+    </>
   );
 };
 
