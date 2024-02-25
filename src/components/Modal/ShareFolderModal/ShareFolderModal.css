@@ -1,0 +1,83 @@
+.shareFolderModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.shareFolderModal-top {
+  color: var(--linkbrary-gray100);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.shareFolderModal-middle {
+  color: var(--linkbrary-gray60);
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.shareFolderModal-bottom {
+  display: flex;
+  gap: 3.2rem;
+}
+
+.shareFolderModal-bottom-kakao,
+.shareFolderModal-bottom-facebook,
+.shareFolderModal-bottom-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.kakao-circle {
+  background-color: #fee500;
+}
+
+.kakao-icon {
+  background-image: url("../../../assets/images/modal/Kakao.svg");
+}
+
+.facebook-circle {
+  background-color: #1877f2;
+}
+
+.facebook-icon {
+  background-image: url("../../../assets/images/modal/Facebook.svg");
+}
+
+.link-circle {
+  background-color: rgba(157, 157, 157, 0.04);
+}
+
+.link-icon {
+  background-image: url("../../../assets/images/modal/link.svg");
+}
+
+.kakao-circle,
+.facebook-circle,
+.link-circle {
+  border-radius: 3.7rem;
+  padding: 1.2rem;
+}
+
+.kakao-icon,
+.facebook-icon,
+.link-icon {
+  width: 1.8rem;
+  height: 1.8rem;
+}
+
+.shareFolderModal-bottom-kakao span,
+.shareFolderModal-bottom-facebook span,
+.shareFolderModal-bottom-link span {
+  color: var(--linkbrary-gray100);
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}
