@@ -1,5 +1,5 @@
 import AddFolderModal from 'components/common/modal/AddFolderModal';
-import Button from 'components/common/buttons/Button';
+import Button from 'components/common/Button';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Modal from 'components/common/modal/Modal';

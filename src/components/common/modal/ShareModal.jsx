@@ -5,7 +5,14 @@ import facebook from 'assets/images/modal/facebook.png';
 import copyLink from 'assets/images/modal/copyLink.png';
 import imageUrl from 'assets/images/meta.png';
 
-const ShareModal = ({ title, subTitle, categoryId }) => {
+/**
+ *
+ * @param {Object} props
+ * @param {string} props.subTitle 공유할 폴더 제목
+ * @param {number} props.categoryId 공유할 폴더 아이디
+ * @returns
+ */
+const ShareModal = ({ subTitle, categoryId }) => {
   const shareLink = `${window.location.origin}/shared/${categoryId}`;
   const { Kakao } = window;
 
@@ -48,7 +55,7 @@ const ShareModal = ({ title, subTitle, categoryId }) => {
   return (
     <Container>
       <StyledTitle>
-        {title}
+        폴더 공유
         <StyledSubTitle>{subTitle}</StyledSubTitle>
       </StyledTitle>
       <GridContainer>

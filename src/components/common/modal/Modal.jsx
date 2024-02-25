@@ -4,6 +4,14 @@ import styled from 'styled-components';
 import modalCloseButton from 'assets/images/modalCloseButton.png';
 import useCloseModal from 'hook/useCloseModal';
 
+/**
+ *
+ * @param {Object} props
+ * @param {React.Node} props.children
+ * @param {boolean} props.showModal 모달 보임 유뮤 결정
+ * @param {Function} props.handleClose  모달 닫는 함수
+ * @returns {React.Element}
+ */
 const Modal = ({ children, showModal, handleClose }) => {
   const modalRef = useRef();
   useCloseModal(showModal, handleClose, modalRef);

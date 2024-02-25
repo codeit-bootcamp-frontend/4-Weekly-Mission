@@ -1,7 +1,15 @@
 import React from 'react';
-import Button from '../buttons/Button';
+import Button from '../Button';
 import styled from 'styled-components';
 
+/**
+ *
+ * @param {Object} props
+ * @param {string} props.title 모달 제목
+ * @param {string} props.placeholder
+ * @param {boolean} props.isAdd '폴더 추가' 모달인지 유무 결정
+ * @returns
+ */
 const PostModal = ({ title, placeholder = '내용 입력', isAdd }) => {
   return (
     <Container>

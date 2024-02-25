@@ -4,8 +4,9 @@ import styled from 'styled-components';
 
 /**
  *
- * @param {string} currentCategory 현재 선택된 카테고리의 이름
- * @param {number} categoryId 현재 선택된 카테고리의 id
+ * @param {Object} props
+ * @param {string} props.currentCategory 현재 선택된 카테고리의 이름
+ * @param {number} props.categoryId 현재 선택된 카테고리의 id
  * @returns
  */
 const SubTitle = ({ currentCategory, categoryId }) => {

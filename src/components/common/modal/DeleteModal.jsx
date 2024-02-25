@@ -1,7 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import Button from '../buttons/Button';
+import Button from '../Button';
 
+/**
+ *
+ * @param {Object} props
+ * @param {string} props.title 삭제 모달 제목 (링크, 폴더)
+ * @param {string} props.subTitle 삭제할 내용 (url, 폴더명)
+ * @returns
+ */
 const DeleteModal = ({ title, subTitle }) => {
   return (
     <Container>

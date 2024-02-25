@@ -6,6 +6,12 @@ import Modal from 'components/common/modal/Modal';
 import DeleteModal from 'components/common/modal/DeleteModal';
 import AddFolderModal from 'components/common/modal/AddFolderModal';
 
+/**
+ *
+ * @param {Object} props
+ * @param {string} url 카드에 해당하는 링크
+ * @returns
+ */
 const KebabButton = ({ url }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -22,7 +28,7 @@ const KebabButton = ({ url }) => {
   const renderModalContent = () => {
     switch (optionName) {
       case '삭제하기':
-        return <DeleteModal title="링크 삭제하기" subTitle={url} />;
+        return <DeleteModal title="링크 삭제" subTitle={url} />;
       case '폴더에 추가':
         return <AddFolderModal subTitle={url} />;
       default:

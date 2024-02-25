@@ -1,5 +1,5 @@
 import { useUserQuery } from 'hook/useFetchData';
-import Button from '../buttons/Button';
+import Button from '../Button';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import routes from 'utils/constants/routes';

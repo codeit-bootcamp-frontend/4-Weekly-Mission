@@ -1,9 +1,15 @@
 import React, { useContext, useState } from 'react';
-import Button from '../buttons/Button';
+import Button from '../Button';
 import styled from 'styled-components';
 import CategoryContext from 'contexts/CategoryContext';
 import checkIcon from 'assets/images/modal/check.png';
 
+/**
+ *
+ * @param {Object} props
+ * @param {string} props.subTitle 폴더에 추가할 링크 url
+ * @returns
+ */
 const AddFolderModal = ({ subTitle }) => {
   const folders = useContext(CategoryContext);
   const [isSelected, setIsSelected] = useState({});
