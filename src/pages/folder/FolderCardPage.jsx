@@ -10,7 +10,7 @@ function FolderCardPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchCards();
+      const data = await fetchShareCards();
       setCards(data);
     };
 
@@ -21,8 +21,10 @@ function FolderCardPage() {
     <>
       <section className="folderCardPage--section">
         <SearchCard />
-        <FolderListData />
-        <CardList cards={cards} />
+        <article className="folderCardPage--content">
+          <FolderListData />
+          <CardList cards={cards} />
+        </article>
       </section>
     </>
   );
