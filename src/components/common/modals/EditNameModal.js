@@ -19,7 +19,7 @@ export const EditNameModal = ({ $isVisible, setIsVisible }) => {
         <Input />
         <BlueButton
           text="변경하기"
-          width="250px"
+          width="280px"
           padding="16px 20px"
           fontSize="16px"
           radius="8px"
