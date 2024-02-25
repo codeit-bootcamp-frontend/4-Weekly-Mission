@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import TopBodyArea from '../components/area/ContentsTopBodyArea';
 import ContentsArea from '../components/area/ContentsArea';
-import { getFolder } from '../utils/apis';
+import { getApi } from '../utils/apis';
 
 const SharedPage = () => {
   const [folderInfo, setFolderInfo] = useState({});
 
   const handleLoad = async () => {
-    const { folder } = await getFolder();
+    const { folder } = await getApi('/sample/folder');
     setFolderInfo(folder);
   };
 

@@ -5,8 +5,7 @@ import PopAddFolderButton from '../components/common/PopAddFolderButton';
 import ListTitleArea from '../components/area/ListTitleArea';
 import FolderNames from '../components/FolderNames';
 import addIcon from '../assets/purple_add.svg';
-import { getFolders } from '../utils/apis';
-import { getLinks } from '../utils/apis';
+import { getApi } from '../utils/apis';
 
 const FolderPage = () => {
   const [foldersList, setFoldersList] = useState([]);
@@ -17,8 +16,8 @@ const FolderPage = () => {
   const userId = '4';
 
   const handleLoad = async () => {
-    const { data } = await getLinks(userId, '');
-    const folders = await getFolders(userId);
+    const { data } = await getApi(`/users/${userId}/links`);
+    const folders = await getApi(`/users/${userId}/folders`);
 
     setFoldersList([{ name: '전체', id: 'all' }, ...folders.data]);
     setLinkList({ links: [...data] });

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { getLinks } from '../utils/apis';
+import { getApi } from '../utils/apis';
 import './FolderNames.css';
 
 const FolderNames = ({
@@ -13,8 +13,12 @@ const FolderNames = ({
   const nameRef = useRef();
 
   const handleOnClick = async (userId, id, folderName, e) => {
-    setSelectFolder(e ? e.target.id : 'all');
-    const { data } = await getLinks(userId, id);
+    const folderId = e ? e.target.id : 'all';
+    setSelectFolder(folderId);
+
+    const { data } = await getApi(
+      `/users/${userId}/links${folderId && '?folderId=' + folderId}`
+    );
 
     onClick(folderName, data);
   };
