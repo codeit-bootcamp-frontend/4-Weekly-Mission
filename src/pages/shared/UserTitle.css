@@ -15,7 +15,6 @@
     margin-bottom: 5px;
 }
 .titleTop p {
-    font-family: 'Pretendard';
     font-size: 1.6rem;
     color: rgba(0, 0, 0, 1);
 }
@@ -24,7 +23,6 @@
 }
 
 .titleBottom h2 {
-    font-family: 'Pretendard';
     font-size: 4rem;
     color: #000;
 }

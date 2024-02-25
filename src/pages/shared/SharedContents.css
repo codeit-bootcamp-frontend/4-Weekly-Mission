@@ -44,14 +44,12 @@
     border: none;
 }
 .contentsBox > li span {
-    font-family: 'Pretendard';
     font-size: 1.3rem;
     color: #666;
 }
 .contentsBox > li .description {
     margin: 10px 0;
     color: #000;
-    font-family: 'Pretendard';
     font-size: 1.6rem;
     line-height: 24px;
     display: -webkit-box;
@@ -63,7 +61,6 @@
 }
 
 .contentsBox > li .date {
-    font-family: 'Pretendard';
     font-size: 1.4rem;
     color: #333;
 }

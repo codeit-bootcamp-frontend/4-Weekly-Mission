@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useSetRecoilState  } from "recoil";
+import { contentsLink } from "../../store/store";
 
 const KebabModalBox = styled.ul`
     z-index: 2;
@@ -19,18 +21,26 @@ const KebabModalBox = styled.ul`
         border: none;
         padding: 7px 0px;
         font-size: 1.4rem;
-        font-family: 'Pretendard';
     }
 `
 
-function KebabModal() {
+function KebabModal({url, setName, setOpenModal, setButtonColor, setButtonName, modalName}) {
+    const setContentsLink = useSetRecoilState(contentsLink);
+    function handleModalClick(event, type) {
+        event.preventDefault();
+        setOpenModal(true);
+        setName(modalName[type].name);
+        setButtonColor(modalName[type].buttonColor);
+        setButtonName(modalName[type].buttonName);
+        setContentsLink(url);
+    };
     return(
         <KebabModalBox>
             <li>
-                <button>삭제하기</button>
+                <button onClick={(event) => handleModalClick(event, 'linkDelete')}>삭제하기</button>
             </li>
             <li>
-                <button>폴더에 추가</button>
+                <button onClick={(event) => handleModalClick(event, 'foldedrAdd')}>폴더에 추가</button>
             </li>
         </KebabModalBox> 
     )

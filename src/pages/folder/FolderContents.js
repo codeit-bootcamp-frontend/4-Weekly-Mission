@@ -13,7 +13,6 @@ const FolderNoData = styled.div`
     width: 100%;
     height: 100px;
     font-size: 1.6rem;
-    font-family: 'Pretendard';
     margin-top: 40px;
     @media screen and (max-width: 768px) {
         margin-top: 32px;
@@ -21,7 +20,7 @@ const FolderNoData = styled.div`
     }
 `
 
-function FolderContents() {
+function FolderContents({setName, setOpenModal, setButtonColor, setButtonName, modalName}) {
     const [contents, setContents] = useRecoilState(folderLinkContents);
     useEffect(() => {
         folderLinksData('all')
@@ -53,6 +52,8 @@ function FolderContents() {
             document.removeEventListener('click', handleClickOutside);
         };
     }, [kebabOpen]);
+    
+    // link 전역변수 설정
     return(
         <article>
                 {
@@ -74,7 +75,7 @@ function FolderContents() {
                                                 <p className='date'>{dateChange(created_at)}</p>
                                                 {
                                                     kebabOpen === id ? 
-                                                    <KebabModal/>
+                                                    <KebabModal url={url} setName={setName} setOpenModal={setOpenModal} setButtonColor={setButtonColor} setButtonName={setButtonName} modalName={modalName}/>
                                                     : null
                                                 }
                                             </div>

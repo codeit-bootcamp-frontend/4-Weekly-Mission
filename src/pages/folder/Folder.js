@@ -15,6 +15,11 @@ const ModalName = {
         buttonColor:"blue",
         buttonName: "추가하기",
     },
+    foldedrAdd: {
+        name: "폴더에 추가",
+        buttonColor:"blue",
+        buttonName: "추가하기",
+    },
     share: {
         name: "폴더 공유",
         buttonColor:"",
@@ -27,6 +32,11 @@ const ModalName = {
     },
     delete: {
         name: "폴더 삭제",
+        buttonColor:"red",
+        buttonName: "삭제하기",
+    },
+    linkDelete: {
+        name: "링크 삭제",
         buttonColor:"red",
         buttonName: "삭제하기",
     },
@@ -55,7 +65,7 @@ function Folder() {
                     <SearchInput/>
                     <FolderButton setName={setName} setOpenModal={setOpenModal} setButtonColor={setButtonColor} setButtonName={setButtonName} modalName={ModalName}/>
                     <FolderTitle setName={setName} setOpenModal={setOpenModal} setButtonColor={setButtonColor} setButtonName={setButtonName} modalName={ModalName}/>
-                    <FolderContents/>
+                    <FolderContents setName={setName} setOpenModal={setOpenModal} setButtonColor={setButtonColor} setButtonName={setButtonName} modalName={ModalName}/>
                 </div>
             </main>
         </>

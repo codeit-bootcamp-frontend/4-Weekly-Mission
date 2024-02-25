@@ -8,12 +8,10 @@ const Search = styled.input`
     outline: none;
     border: none;
     background-color: #F5F5F5;
-    font-family: 'Pretendard';
     font-size: 1.6rem;
     color: rgba(102, 102, 102, 1);
     
     &::placeholder {
-        font-family: 'Pretendard';
         font-size: 1.6rem;
         color: rgba(102, 102, 102, 1);
     }
