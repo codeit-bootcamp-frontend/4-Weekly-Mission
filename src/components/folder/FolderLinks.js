@@ -38,14 +38,15 @@ const FolderLinks = ({ folders, links, onFolderClick }) => {
       <FolderCategoryButtons
         folders={folders}
         handleFolderClick={handleFolderClick}
+        setModalState={setModalState}
       />
 
       <div className="links-container-box">
+        <ActionContainer folderName={selectedFolderName} />
         {links.length === 0 ? (
           <div className="links-container-empty">저장된 링크가 없습니다.</div>
         ) : (
           <div className="links-container">
-            <ActionContainer folderName={selectedFolderName} />
             <LinkCards allLinks={allLinks} setModalState={setModalState} />
           </div>
         )}

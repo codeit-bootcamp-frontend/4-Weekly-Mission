@@ -10,7 +10,7 @@ function FolderCategoryButton({ folder, onClick }) {
   );
 }
 
-function FolderCategoryButtons({ folders, handleFolderClick }) {
+function FolderCategoryButtons({ folders, handleFolderClick, setModalState }) {
   return (
     <div>
       <div className="folder-box">
@@ -29,7 +29,7 @@ function FolderCategoryButtons({ folders, handleFolderClick }) {
             />
           ))}
         </div>
-        <FolderAddButton />
+        <FolderAddButton setModalState={setModalState} />
       </div>
     </div>
   );
