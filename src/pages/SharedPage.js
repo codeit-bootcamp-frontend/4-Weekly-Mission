@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 
 import { getUser, getFolder } from '../api/BaseUrl';
 import Folder from '../components/Folder';
-import Footer from '../components/footer';
-import Header from '../components/header';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 import Info from '../components/info';
 
 const SharedPage = () => {

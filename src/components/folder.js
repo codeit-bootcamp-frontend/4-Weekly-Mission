@@ -8,7 +8,7 @@ const Folder = ({ folderInfo }) => {
     <div className='folder-container'>
       <SearchBar />
       <FolderList />
-      <CardList folderInfo={folderInfo} />
+      <CardList folderInfo={folderInfo} isIconVisible={true} />
     </div>
   );
 };

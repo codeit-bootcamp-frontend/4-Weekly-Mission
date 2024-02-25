@@ -1,7 +1,7 @@
 import '../styles/CardList.css';
 import Card from './Card';
 
-const CardList = ({ folderInfo }) => {
+const CardList = ({ folderInfo, isIconVisible = true }) => {
   const card = folderInfo?.folder.links;
   console.log(card);
 
@@ -11,7 +11,7 @@ const CardList = ({ folderInfo }) => {
         {card ? (
           <>
             {card.map(card => (
-              <Card card={card} key={card.id} />
+              <Card card={card} key={card.id} isIconVisible={isIconVisible} />
             ))}
           </>
         ) : (

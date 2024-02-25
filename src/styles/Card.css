@@ -1,6 +1,7 @@
 @import './css/global.css';
 
 .card {
+  position: relative;
   overflow: hidden;
   width: 33rem;
   height: 30rem;
@@ -10,6 +11,20 @@
 
 .card:hover {
   border: 2px solid var(--primary);
+}
+
+.star-icon {
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  right: 1rem;
+}
+
+.kebab-icon {
+  position: absolute;
+  z-index: 1;
+  top: 13rem;
+  right: 1.25rem;
 }
 
 .card-image-content {
