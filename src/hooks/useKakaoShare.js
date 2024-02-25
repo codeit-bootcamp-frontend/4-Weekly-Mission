@@ -1,12 +1,11 @@
 import { useEffect } from 'react';
 
-const useKakaoShare = (selectedFolderId) => {
+const useKakaoShare = (selectedFolderId, url) => {
   const kakao = window.Kakao;
 
   useEffect(() => {
-    if (!kakao.isInitialized()) {
-      kakao.init(process.env.REACT_APP_KAKAO_KEY);
-    }
+    kakao.cleanup();
+    kakao.init(process.env.REACT_APP_KAKAO_KEY);
   }, []);
 
   const shareKakao = () => {
@@ -17,16 +16,16 @@ const useKakaoShare = (selectedFolderId) => {
         description: '폴더를 저장하고 공유해보세요! ',
         imageUrl: 'https://avatars.githubusercontent.com/u/124874266?v=4',
         link: {
-          mobileWebUrl: `${window.location.origin}/shared/${selectedFolderId}`,
-          webUrl: `${window.location.origin}/shared/${selectedFolderId}`,
+          mobileWebUrl: url,
+          webUrl: url,
         },
       },
       buttons: [
         {
           title: 'Linkbrary로 이동✨',
           link: {
-            mobileWebUrl: `${window.location.origin}/shared/${selectedFolderId}`,
-            webUrl: `${window.location.origin}/shared/${selectedFolderId}`,
+            mobileWebUrl: url,
+            webUrl: url,
           },
         },
       ],
