@@ -8,16 +8,9 @@ import {
   StyledRedButton,
 } from './linkModalStyle';
 
-const DeleteLink = ({
-  onClose,
-  selectedFolderName,
-  selectedFolderId,
-  onConfirm,
-}) => {
+const DeleteLink = ({ onClose, linkId, linkUrl }) => {
   const handleSubmit = () => {
     /** 추후 변경 api 연동시 사용 */
-    alert(`${selectedFolderName}이 추후 삭제됩니다.`);
-    onConfirm(selectedFolderName);
     onClose();
   };
 
@@ -26,7 +19,7 @@ const DeleteLink = ({
       <ModalContainer onClick={e => e.stopPropagation()}>
         <CloseIcon onClick={onClose} />
         <ModalHeader>링크 삭제</ModalHeader>
-        <ModalBody>{selectedFolderName}</ModalBody>
+        <ModalBody>{linkUrl}</ModalBody>
         <StyledRedButton onClick={handleSubmit}>삭제하기</StyledRedButton>
       </ModalContainer>
     </ModalBackground>

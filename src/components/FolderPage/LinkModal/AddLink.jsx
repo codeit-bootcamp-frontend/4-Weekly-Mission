@@ -12,7 +12,7 @@ import {
 } from './linkModalStyle';
 import checkIcon from '../../../assets/icons/check.svg';
 
-const AddLink = ({ linkUrl, folders, onClose }) => {
+const AddLink = ({ linkId, linkUrl, folders, onClose }) => {
   const [selectedFolderId, setSelectedFolderId] = useState(null);
 
   const handleSelectFolder = id => {
