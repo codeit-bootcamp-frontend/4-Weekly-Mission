@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { formatDate, formatDateAgo } from "../../utils/DateUtils";
+import { useModal } from "../../hooks/useModal";
+import ModalContainer from "../common/Modal/Modal";
+import * as Modal from "../common/Modal/Modal";
 
 const Card = styled.div`
   width: 340px;
@@ -30,6 +33,10 @@ const Star = styled.img`
   right: 10px;
 `;
 
+const Kebab = styled.img`
+  cursor: pointer;
+`;
+
 const Main = styled.div`
   width: 100%;
   padding: 20px;
@@ -41,6 +48,34 @@ const Main = styled.div`
 const CardHeader = styled.div`
   display: flex;
   justify-content: space-between;
+  position: relative;
+`;
+
+const Popover = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--gray-light-gray-00, #fff);
+  box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
+  position: absolute;
+  top: 20px;
+  right: -10px;
+`;
+
+const Pop = styled.div`
+  display: flex;
+  padding: 7px 12px;
+  justify-content: center;
+  gap: 10px;
+  color: var(--gray-light-gray-100, #333236);
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-color, #6d6afe);
+    background: var(--Linkbrary-gray10, #e7effb);
+  }
 `;
 
 const CardContent = styled.div`
@@ -86,28 +121,54 @@ function CardItem({ cardData }) {
   const cardDate = formatDate(createdAt);
   const cardCreatedAt = formatDateAgo(createdAt);
 
+  const [isPopover, setIsPopover] = useState(false);
+  const { openModal, handleModalOpen, handleModalClose } = useModal();
+
+  const popoverHandler = () => {
+    setIsPopover(prev => !prev);
+  };
+
   return (
-    <Card>
-      <ImageBox>
-        <Image
-          src={image_source || `/Images/default.png`}
-          alt="card_Image"
-        />
-        <Star src="/Icons/star.svg" alt="star" />
-      </ImageBox>
-      <Main>
-        <CardHeader>
-          <CreatedAt>{cardDate}</CreatedAt>
-          <img src="/Icons/kebab.png" alt="kebab" />
-        </CardHeader>
-        <CardContent>
-          <Description>{description}</Description>
-        </CardContent>
-        <CardFooter>
-          <Time>{cardCreatedAt}</Time>
-        </CardFooter>
-      </Main>
-    </Card>
+    <>
+      {openModal && (
+        <ModalContainer onClick={handleModalClose}>
+          <Modal.Title>링크 삭제</Modal.Title>
+          <Modal.SubTitle>{url}</Modal.SubTitle>
+          <Modal.RedButton>삭제하기</Modal.RedButton>
+        </ModalContainer>
+      )}
+      <Card>
+        <ImageBox>
+          <Image
+            src={image_source || `/Images/default.png`}
+            alt="card_Image"
+          />
+          <Star src="/Icons/star.svg" alt="star" />
+        </ImageBox>
+        <Main>
+          <CardHeader>
+            <CreatedAt>{cardDate}</CreatedAt>
+            <Kebab
+              src="/Icons/kebab.png"
+              alt="kebab"
+              onClick={popoverHandler}
+            />
+            {isPopover && (
+              <Popover>
+                <Pop onClick={handleModalOpen}>삭제하기</Pop>
+                <Pop>폴더의 추가</Pop>
+              </Popover>
+            )}
+          </CardHeader>
+          <CardContent>
+            <Description>{description}</Description>
+          </CardContent>
+          <CardFooter>
+            <Time>{cardCreatedAt}</Time>
+          </CardFooter>
+        </Main>
+      </Card>
+    </>
   );
 }
 

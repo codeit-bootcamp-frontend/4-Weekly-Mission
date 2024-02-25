@@ -33,9 +33,9 @@ function FolderOption() {
     <>
       {openModal && (
         <ModalContainer onClick={handleModalClose}>
-          <Modal.Title>폴더추가</Modal.Title>
+          <Modal.Title>폴더 삭제</Modal.Title>
           <Modal.SubTitle>{folderFilter.name}</Modal.SubTitle>
-          <Modal.RedButton>추가하기</Modal.RedButton>
+          <Modal.RedButton>삭제하기</Modal.RedButton>
         </ModalContainer>
       )}
       <OptionList>
