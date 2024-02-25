@@ -17,7 +17,6 @@ const SharedSection = () => {
 
   useEffect(() => {
     handleLoad();
-    console.log(owner);
   }, []);
 
   return (
