@@ -1,14 +1,14 @@
 import '../styles/css/global.css';
+import { useState } from 'react';
+
 import modalIconCheck from '../assets/logo/modal-icon-check.svg';
 import closeButton from '../assets/logo/modalClose.jpg';
-import { useState } from 'react';
 
 const Modal = ({ isOpen, closeModal }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const checktoggle = () => {
-    if (isChecked === true) setIsChecked(false);
-    else setIsChecked(true);
+    setIsChecked(!isChecked);
   };
 
   return (
