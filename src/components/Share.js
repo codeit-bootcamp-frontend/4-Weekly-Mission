@@ -1,9 +1,15 @@
+import Header from './Header';
+import Footer from './Footer';
+import '../css/Reset.css';
+import '../css/Global.css';
+import '../css/Share.css';
 import React, { useState, useEffect } from 'react';
-import ShareAPI from './share/ShareAPI';
-import CountDate from './share/CountDate';
-import '../../css/Share.css'
+import ShareAPI from './main/share/ShareAPI';
+import CountDate from './main/share/CountDate';
 
-function Share() {
+
+// 메인 : 헤더-내용-푸터 구조
+function Share(){
   const [folderData, setFolderData] = useState(null);
 
   useEffect(() => {
@@ -14,7 +20,6 @@ function Share() {
     
     fetchData();
   }, []); // 빈 배열을 넘겨주어 컴포넌트가 마운트될 때 한 번만 실행
-  console.log(folderData)
 
   const CardContents = () =>{ // 카드 목록에 값이 1개씩 들어가게하기 위해 만든 함수
     const result = [];
@@ -36,8 +41,10 @@ function Share() {
     return result
   }
 
-  return (
-    <div className='share'>
+  return(
+    <>
+      <header><Header/></header>
+      <div className='share'>
       {folderData && ( // 초기값이 있나 확인
         <div className='info'>
           <img className='owner_img' src={folderData.folder.owner.profileImageSource} alt='프로필 이미지'></img>
@@ -57,6 +64,9 @@ function Share() {
         </div>
       )}
     </div>
+      <footer><Footer/></footer>
+    </>
   );
 }
+
 export default Share;
