@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Layout from '../Layout';
+import Layout from '../components/Layout';
 import CardList from '../components/shared/SharedCardList';
 import SearchBar from '../components/SearchBar';
 import { getUser, getFolder } from '../api';
@@ -9,6 +9,7 @@ import FolderTitle from '../components/header/FolderTitle';
 const SharedPage = () => {
   const [user, setUser] = useState(null);
   const [folder, setFolder] = useState({
+    // TODO : null로 수정 필요
     profileImageSource: null,
     ownerName: null,
     folderName: null,

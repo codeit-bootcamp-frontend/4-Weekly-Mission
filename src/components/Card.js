@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/card.css';
-import noImage from '../../images/no-image.png';
-import { formatDate, getTimeAgo } from '../../utils/utils';
+import './styles/card.css';
+import noImage from '../images/no-image.png';
+import { formatDate, getTimeAgo } from '../utils/utils';
 
 const Card = ({ link }) => {
   const createdAt = link?.createdAt ? link?.createdAt : link?.created_at;

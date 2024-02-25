@@ -1,46 +1,40 @@
 import React, { useEffect } from 'react';
-import Layout from '../Layout';
+import Layout from '../components/Layout';
 import FolderList from '../components/folder/FolderList';
 import SearchBar from '../components/SearchBar';
-import { getFolderUser, SAMPLE_ID, getFolderList } from '../api';
+import { getFolderUser, getFolderList } from '../api';
 import { useState } from 'react';
 
 const FolderPage = () => {
-  const [folderUser, setFolderUser] = useState({
-    profileImageSource: null,
-    email: null,
-  });
+  const [user, setUser] = useState(null);
   const [folderList, setFolderList] = useState(null);
 
-  const handleLoadFolderUser = async () => {
-    const user = await getFolderUser();
-    try {
-      setFolderUser({
-        profileImageSource: user.data.data[SAMPLE_ID - 1].image_source,
-        email: user.data.data[SAMPLE_ID - 1].email,
-      });
-    } catch (e) {
-      alert(user.error);
+  const handleLoadUser = async () => {
+    const { data, error } = await getFolderUser();
+
+    if (error) {
+      return alert(error);
     }
+    setUser(data);
   };
 
   const handleLoadFolderList = async () => {
-    const list = await getFolderList();
-    try {
-      setFolderList(list.data.data);
-    } catch (e) {
-      alert(list.error);
+    const { data, error } = await getFolderList();
+
+    if (error) {
+      return alert(error);
     }
+    setFolderList(data);
   };
 
   useEffect(() => {
-    handleLoadFolderUser();
+    handleLoadUser();
     handleLoadFolderList();
   }, []);
 
   return (
     <>
-      <Layout user={folderUser} isSticky={false}>
+      <Layout user={user} isSticky={false}>
         <div
           style={{
             display: 'flex',

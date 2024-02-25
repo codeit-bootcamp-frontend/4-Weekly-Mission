@@ -12,7 +12,11 @@ const Header = ({ user, isSticky = true }) => {
         </a>
         {user ? (
           <div className="profile-container">
-            <img src={user.profileImageSource} alt="profileImage" className="profile-image"></img>
+            <img
+              src={user.profileImageSource ? user.profileImageSource : user.image_source}
+              alt="profileImage"
+              className="profile-image"
+            ></img>
             <p className="profile-email">{user.email}</p>
           </div>
         ) : (

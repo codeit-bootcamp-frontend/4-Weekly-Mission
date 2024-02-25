@@ -31,7 +31,7 @@ export const getFolderUser = async () => {
     return { data: null, error: '폴더 사용자 데이터를 불러오는데 실패했습니다' };
   }
   const body = await response.json();
-  return { data: body, error: null };
+  return { data: body.data[SAMPLE_ID - 1], error: null };
 };
 
 export const getFolderList = async () => {
@@ -42,7 +42,7 @@ export const getFolderList = async () => {
     return { data: null, error: '폴더 리스트를 불러오는데 실패했습니다' };
   }
   const body = await response.json();
-  return { data: body, error: null };
+  return { data: body.data, error: null };
 };
 
 export const getAllFolderLink = async () => {
@@ -53,5 +53,5 @@ export const getAllFolderLink = async () => {
     return { data: null, error: '전체 폴더 링크를 불러오는데 실패했습니다' };
   }
   const body = await response.json();
-  return { data: body, error: null };
+  return { data: body.data, error: null };
 };

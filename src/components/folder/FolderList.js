@@ -1,4 +1,4 @@
-import FolderItem from './FolderItem';
+import FolderTabItem from './FolderTabItem';
 import React from 'react';
 import '../styles/card.css';
 import Tab from './Tab';
@@ -6,20 +6,19 @@ import add from '../../images/add.svg';
 import styles from '../../pages/styles/FolderPage.module.css';
 import { getAllFolderLink } from '../../api';
 import { useEffect, useState } from 'react';
-import Card from '../shared/Card';
+import Card from '../Card';
 import '../styles/card.css';
 
 const FolderList = ({ folderList }) => {
-  const [folderLink, setFolderLink] = useState(null);
+  const [links, setLinks] = useState(null);
 
   const handleLoadFolderLink = async () => {
-    const links = await getAllFolderLink();
+    const { data, error } = await getAllFolderLink();
 
-    try {
-      setFolderLink(links.data.data);
-    } catch (e) {
-      alert(links.error);
+    if (error) {
+      return alert(error);
     }
+    setLinks(data);
   };
 
   useEffect(() => {
@@ -28,7 +27,7 @@ const FolderList = ({ folderList }) => {
 
   return (
     <>
-      {folderLink ? (
+      {links ? (
         <div className="main-container">
           <div style={{ width: '100%' }}>
             {folderList ? (
@@ -36,7 +35,7 @@ const FolderList = ({ folderList }) => {
                 <div className={styles.folder_tab}>
                   <Tab>전체</Tab>
                   {folderList.map((item) => (
-                    <FolderItem folder={item} key={item.id} />
+                    <FolderTabItem folder={item} key={item.id} />
                   ))}
                 </div>
                 <a className={styles.folder_add_button}>
@@ -48,7 +47,7 @@ const FolderList = ({ folderList }) => {
             <div>유용한 글</div>
             <div>공유 이름 변경 삭제</div>
           </div>
-          {folderLink.map((link) => (
+          {links.map((link) => (
             <Card link={link} key={link.id} />
           ))}
         </div>
