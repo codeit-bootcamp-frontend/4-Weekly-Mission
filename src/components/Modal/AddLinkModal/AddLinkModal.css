@@ -20,6 +20,9 @@
   line-height: 2.2rem;
   margin-bottom: 2.4rem;
 }
+.addLinkModal-folderList {
+  margin-bottom: 2.4rem;
+}
 
 .addLinkModal-folderList-content {
   display: flex;
