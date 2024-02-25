@@ -1,0 +1,11 @@
+.menu-container {
+  width: 10rem;
+  gap: 0.2rem;
+  box-shadow: 0 0.2rem 0.8rem 0 rgba(51, 50, 54, 0.1);
+}
+
+.menu-element {
+  padding: 0.7rem 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 400;
+}

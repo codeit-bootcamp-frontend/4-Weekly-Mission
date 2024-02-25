@@ -1,11 +1,11 @@
 // import styles from 'pages/HomePage/HomePage.module.css';
 
-import AddToFolderModal from 'components/Modal/AddToFolderModal';
+import SelectMenu from 'components/Common/SelectMenu';
 
 function HomePage() {
   return (
     <div>
-      <AddToFolderModal />
+      <SelectMenu />
     </div>
   );
 }

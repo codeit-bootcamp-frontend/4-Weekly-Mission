@@ -28,6 +28,20 @@ function AddToFolderModal({ linkUrl }) {
     console.log('폴더에 추가');
   };
 
+  const handleListClick = (key) => {
+    const targetFolder = folderList.find((folder) => folder.id === key);
+    setSelectedFolder(targetFolder);
+  };
+
+  const handleListMouseEnter = (key) => {
+    const targetFolder = folderList.find((folder) => folder.id === key);
+    setHoveredFolder(targetFolder);
+  };
+
+  const handleListMouseLeave = () => {
+    setHoveredFolder(null);
+  };
+
   const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
   const linkClasses = classNames(styles.link, 'text-color-gray60', 'text-center');
   const listContainerClasses = classNames(styles['list-container'], 'flex-col', 'width: full');
@@ -48,20 +62,6 @@ function AddToFolderModal({ linkUrl }) {
   const selectedAddFolderListClasses = classNames('background-bg');
   const selectedFolderNameClasses = classNames('text-color-primary');
   const noneSelectedCheckIconClasses = classNames('display-none');
-
-  const handleListClick = (key) => {
-    const targetFolder = folderList.find((folder) => folder.id === key);
-    setSelectedFolder(targetFolder);
-  };
-
-  const handleListMouseEnter = (key) => {
-    const targetFolder = folderList.find((folder) => folder.id === key);
-    setHoveredFolder(targetFolder);
-  };
-
-  const handleListMouseLeave = () => {
-    setHoveredFolder(null);
-  };
 
   return (
     <ModalContainer>
