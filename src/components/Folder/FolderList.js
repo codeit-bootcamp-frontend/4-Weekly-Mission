@@ -2,7 +2,7 @@ import '../../assets/styles/FolderList.css';
 import addIcon from '../../assets/images/add.svg';
 import { useState } from 'react';
 import FolderCardList from './FolderCardList';
-import Modal from '../common/Modal';
+import Modal from '../modal/Modal';
 import ModalPortal from '../common/ModalPortal';
 
 const FolderItem = ({ data, onFolderClick, isSelected }) => {

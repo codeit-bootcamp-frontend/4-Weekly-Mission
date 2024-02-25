@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import '../../assets/styles/Modal.css';
 import closeIcon from '../../assets/icons/close.svg';
+import kakaoIcon from '../../assets/icons/kakao.svg';
+import facebookIcon from '../../assets/images/facebook.svg';
+import linkIcon from '../../assets/images/link.svg';
 
 const Modal = ({ action, closeModal, data = '' }) => {
   const [inputValue, setInputValue] = useState('');
@@ -109,16 +112,22 @@ const Modal = ({ action, closeModal, data = '' }) => {
           {content.buttonText}
         </button>
         <div className={content.snsClass}>
-          <div>
-            <img />
+          <div className="icon-box">
+            <div id="kakao-icon">
+              <img src={kakaoIcon} alt="kakao" />
+            </div>
             카카오톡
           </div>
-          <div>
-            <img />
+          <div className="icon-box">
+            <div id="facebook-icon">
+              <img src={facebookIcon} alt="facebook" />
+            </div>
             페이스북
           </div>
-          <div>
-            <img />
+          <div className="icon-box">
+            <div id="link-icon">
+              <img src={linkIcon} alt="link" />
+            </div>
             링크복사
           </div>
         </div>

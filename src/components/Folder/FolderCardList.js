@@ -7,7 +7,7 @@ import shareIcon from '../../assets/images/share.svg';
 import penIcon from '../../assets/images/pen.svg';
 import deleteIcon from '../../assets/images/delete.svg';
 import ModalPortal from '../common/ModalPortal';
-import Modal from '../common/Modal';
+import Modal from '../modal/Modal';
 
 const FolderCardList = ({ id, name }) => {
   const { result, execute, loading } = useAsync(() => getLinks(id));
