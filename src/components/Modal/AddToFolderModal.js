@@ -59,7 +59,8 @@ function AddToFolderModal({ link, isModalOpen, setIsModalOpen }) {
     'flex-row',
     'align-center',
     'justify-space-between',
-    'width-full'
+    'width-full',
+    'cursor-pointer'
   );
   const textContainerClasses = classNames('flex-row', 'align-center');
   const folderNameClasses = classNames(styles['folder-name']);

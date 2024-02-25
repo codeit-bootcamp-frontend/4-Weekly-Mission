@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import styles from 'components/Common/Button.module.css';
 
 function Button({ className, text, onClick, onMouseEnter, onMouseLeave, children }) {
-  const buttonClasses = classNames(styles.button, className);
+  const buttonClasses = classNames(styles.button, 'cursor-pointer', className);
 
   const button = (
     <button
