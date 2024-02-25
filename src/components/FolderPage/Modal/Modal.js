@@ -1,9 +1,12 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "./Modal.module.css";
 import { FacebookShareButton, FacebookIcon } from "react-share";
 import { useScript } from "hook/useScripts";
 import close from "assets/close.png";
 import kakao from "assets/Kakao.png";
+import checked from "assets/check.svg";
+import CopyToClipboard from "react-copy-to-clipboard";
+import styled from "styled-components";
 
 function Modal({
   folders,
@@ -13,6 +16,7 @@ function Modal({
   selectedLink,
   selectedId,
 }) {
+  const [listClicked, setListClicked] = useState(false);
   const searchRef = useRef(null);
 
   useEffect(() => {
@@ -30,6 +34,14 @@ function Modal({
 
   const handleCloseClick = () => {
     setModal("");
+  };
+
+  const handleListClick = (e) => {
+    if (!listClicked) {
+      setListClicked(true);
+    } else {
+      setListClicked(false);
+    }
   };
 
   const status = useScript("https://developers.kakao.com/sdk/js/kakao.js");
@@ -75,9 +87,10 @@ function Modal({
         <h2>폴더공유</h2>
         <h3>{folderName}</h3>
         <div className={styles.btns}>
-          <button onClick={handleKakaoButton}>
+          <button className={styles.kakaoBtn} onClick={handleKakaoButton}>
             <img className={styles.kakao} src={kakao} alt="카카오" />
           </button>
+
           <FacebookShareButton url={`${currentUrl}${selectedId}`}>
             <FacebookIcon
               size={41}
@@ -85,7 +98,9 @@ function Modal({
               borderRadius={24}
             ></FacebookIcon>
           </FacebookShareButton>
-          <button>클립보드</button>
+          <CopyToClipboard text={currentUrl}>
+            <button className={styles.URLShareButton}>URL</button>
+          </CopyToClipboard>
         </div>
         <button className={styles.closeBtn} onClick={handleCloseClick}>
           <img src={close} alt="닫힘버튼" />
@@ -141,8 +156,24 @@ function Modal({
         <ul>
           {folders.map((folder) => {
             return (
-              <button>
-                {folder.name} {`${folder.link.count}개 링크`}
+              <button
+                onClick={handleListClick}
+                className={`${styles["listBtn"]} ${
+                  listClicked && folder.id === selectedId
+                    ? styles.checkedFolder
+                    : ""
+                }`}
+              >
+                <h2>
+                  {folder.name} <p>{`${folder.link.count}개 링크`}</p>
+                </h2>
+                <img
+                  className={`${styles["checked"]} ${
+                    listClicked === true ? styles.checkedFolder : ""
+                  }`}
+                  src={checked}
+                  alt="체크표시"
+                />
               </button>
             );
           })}
