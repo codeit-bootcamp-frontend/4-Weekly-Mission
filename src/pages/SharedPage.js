@@ -26,7 +26,7 @@ const SharedPage = () => {
 
   return (
     <div>
-      <Header userInfo={user} />
+      <Header userInfo={user} isSticky={true} />
       <Info folderInfo={folder} />
       <Folder folderInfo={folder} />
       <Footer />

@@ -1,6 +1,6 @@
 @import '../styles/css/global.css';
 
-.folder-list {
+.category-list {
   display: flex;
   width: 100%;
   max-width: 112rem;
@@ -9,12 +9,12 @@
   margin-top: 1.6rem;
 }
 
-.folder-list-container {
+.category-list-container {
   display: flex;
   gap: 0.5rem;
 }
 
-.folder {
+.category {
   display: flex;
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--primary);
@@ -22,24 +22,24 @@
   background: var(--white);
 }
 
-.add-folder-container {
+.add-category-container {
   display: flex;
   align-items: center;
   gap: 0.2rem;
 }
 
-.add-folder {
+.add-category {
   display: flex;
   color: var(--primary);
 }
 
-.add-folder-icon {
+.add-category-icon {
   display: flex;
   width: 1rem;
   height: 1rem;
 }
 
-.folder-title {
+.category-title {
   display: flex;
   width: 100%;
   max-width: 112rem;
@@ -47,22 +47,26 @@
   justify-content: space-between;
 }
 
-.folder-menu {
+.category-menu {
   display: flex;
   gap: 0.1rem;
 }
 
-.folder-menu-icon {
+.category-menu-icon {
   width: 1.2rem;
   height: 1.2rem;
   margin-left: 0.3rem;
 }
 
-.folder-menu-text {
+.category-menu-text {
   color: var(--gray-02);
 }
 
-.folder-box {
+.category-box {
   display: flex;
   gap: 1.2rem;
+}
+
+.category-name {
+  font-size: 2.5rem;
 }

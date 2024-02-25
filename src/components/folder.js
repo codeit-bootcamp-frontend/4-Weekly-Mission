@@ -1,13 +1,13 @@
 import '../styles/folder.css';
 import CardList from './CardList';
-import FolderList from './FolderList';
+import CategoryList from './CategoryList';
 import SearchBar from './SearchBar';
 
-const Folder = ({ folderInfo, folderList }) => {
+const Folder = ({ folderInfo, categoryList }) => {
   return (
     <div className='folder-container'>
       <SearchBar />
-      <FolderList folderList={folderList} />
+      <CategoryList categoryList={categoryList} />
       <CardList folderInfo={folderInfo} isIconVisible={true} />
     </div>
   );
