@@ -18,7 +18,7 @@ export const AddFolderModal = ({ $isVisible, setIsVisible }) => {
         <Title>폴더 추가</Title>
         <Input placeholder="내용 입력" />
         <BlueButton
-          text="변경하기"
+          text="추가하기"
           width="280px"
           padding="16px 20px"
           fontSize="16px"
