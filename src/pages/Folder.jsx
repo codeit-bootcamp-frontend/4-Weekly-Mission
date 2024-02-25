@@ -21,35 +21,6 @@ const Section = styled.section`
 `;
 
 function Folder() {
-  const [links, setLinks] = useState([]);
-  const [folderState, setFolderState] = useState({
-    id: null,
-    name: "전체",
-  });
-
-  console.log(links);
-
-  const filterHandler = (id, name) => {
-    // 새로운 값과 기존 값이 동일한지 확인
-    if (folderState.name === name && folderState.id === id) {
-      // 동일하다면 '전체'와 null로 업데이트
-      setFolderState({
-        id: null,
-        name: "전체",
-      });
-    } else {
-      // 다르다면 새로운 값으로 업데이트
-      setFolderState({
-        id: id,
-        name: name,
-      });
-    }
-  };
-
-  useEffect(() => {
-    getFolderLink(folderState.id).then(setLinks);
-  }, [folderState]);
-
   return (
     <>
       <Banner />
@@ -61,11 +32,11 @@ function Folder() {
         <FolderAddButton />
       </Section>
       <Section>
-        <FolderTitle title={folderState.name} />
+        <FolderTitle />
         <FolderOption />
       </Section>
       <Section>
-        <FolderCardList links={links} />
+        <FolderCardList />
       </Section>
       <Footer />
     </>

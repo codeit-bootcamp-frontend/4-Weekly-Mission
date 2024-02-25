@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BlankCard from "../ui/BlankCard";
 import styled from "styled-components";
 import Card from "../ui/Card";
+import { getFolderLink } from "../../utils/Api";
+import { useFolder } from "../../context/FolderContext";
 
 const CardList = styled.div`
   width: 100%;
@@ -10,17 +12,29 @@ const CardList = styled.div`
   gap: 20px;
 `;
 
-function FolderCardList({ links }) {
+function FolderCardList() {
+  const [links, setLinks] = useState(null);
+  const { folderState } = useFolder();
+
+  console.log(links);
+  useEffect(() => {
+    getFolderLink(folderState.id).then(setLinks);
+  }, [folderState]);
+
   return (
     <>
-      {links.length !== 0 ? (
-        <CardList>
-          {links.data.map(link => (
-            <Card key={link.id} cardData={link} />
-          ))}
-        </CardList>
+      {links ? (
+        links.data.length === 0 ? (
+          <BlankCard>저장된 링크가 없습니다</BlankCard>
+        ) : (
+          <CardList>
+            {links.data.map(link => (
+              <Card key={link.id} cardData={link} />
+            ))}
+          </CardList>
+        )
       ) : (
-        <BlankCard>저장된 링크가 없습니다</BlankCard>
+        ""
       )}
     </>
   );

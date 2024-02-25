@@ -1,9 +1,12 @@
 import Router from "./components/common/Router";
+import { FolderProvider } from "./context/FolderContext";
 
 function App() {
   return (
     <>
-      <Router />
+      <FolderProvider>
+        <Router />
+      </FolderProvider>
     </>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useFolder } from "../../context/FolderContext";
 
 const DefaultFolder = styled.button`
   padding: 8px 12px 8px 12px;
@@ -19,11 +20,38 @@ const SelectedFolder = styled(DefaultFolder)`
   color: white;
 `;
 
-const FolderCategoryItem = ({ children, isSelected, onClick }) => {
-  return isSelected ? (
-    <SelectedFolder onClick={onClick}>{children}</SelectedFolder>
-  ) : (
-    <DefaultFolder onClick={onClick}>{children}</DefaultFolder>
+const FolderCategoryItem = ({ id, children }) => {
+  const { folderState, setFolderState } = useFolder();
+
+  const handleClick = () => {
+    // 새로운 값과 기존 값이 동일한지 확인
+    if (folderState.name === children && folderState.id === id) {
+      // 동일하다면 '전체'와 null로 업데이트
+      setFolderState({
+        id: null,
+        name: "전체",
+      });
+    } else {
+      // 다르다면 새로운 값으로 업데이트
+      setFolderState({
+        id: id,
+        name: children,
+      });
+    }
+  };
+
+  return (
+    <>
+      {folderState.name === children ? (
+        <SelectedFolder onClick={handleClick}>
+          {children}
+        </SelectedFolder>
+      ) : (
+        <DefaultFolder onClick={handleClick}>
+          {children}
+        </DefaultFolder>
+      )}
+    </>
   );
 };
 

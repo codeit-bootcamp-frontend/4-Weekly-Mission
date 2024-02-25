@@ -8,10 +8,10 @@ const Title = styled.h2`
   letter-spacing: -0.2px;
 `;
 
-function FolderTitle({ title }) {
+function FolderTitle() {
   return (
     <>
-      <Title>{title}</Title>
+      <Title>123</Title>
     </>
   );
 }
