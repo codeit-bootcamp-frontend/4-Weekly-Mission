@@ -9,7 +9,6 @@ export const useHandleModalClick = (modalRef, handleModalClose) => {
   useEffect(() => {
     // OutSide Click => Modal Close
     const handleClickOutside = (e) => {
-      console.log("modalRef.current:", modalRef.current);
       if (modalRef.current && !modalRef.current.contains(e.target)) {
         handleModalClose();
       }

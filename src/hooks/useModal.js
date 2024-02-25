@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { useHandleModalClick } from "./useHandleModalClick";
 
 export const useModal = () => {
@@ -14,10 +14,6 @@ export const useModal = () => {
   };
 
   useHandleModalClick(modalRef, handleModalClose, handleModalOpen);
-
-  useEffect(() => {
-    console.log(openModal);
-  }, [openModal]);
 
   return {
     openModal,
