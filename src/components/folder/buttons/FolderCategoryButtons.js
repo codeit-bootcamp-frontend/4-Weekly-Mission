@@ -11,6 +11,7 @@ function FolderCategoryButton({ folder, onClick }) {
 }
 
 function FolderCategoryButtons({ folders, handleFolderClick, setModalState }) {
+
   return (
     <div>
       <div className="folder-box">

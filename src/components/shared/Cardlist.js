@@ -1,5 +1,6 @@
 import React from 'react';
 import { useFetchCardsData } from '../../hooks/useCardContainer';
+
 import '../../style/cardlist.css';
 import searchIcon from '../../images/Search.svg';
 import noCardImg from '../../images/noCardImg.png';

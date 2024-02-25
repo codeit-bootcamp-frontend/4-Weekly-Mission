@@ -43,6 +43,7 @@ const FolderLinks = ({ folders, links, onFolderClick }) => {
 
       <div className="links-container-box">
         <ActionContainer folderName={selectedFolderName} />
+
         {links.length === 0 ? (
           <div className="links-container-empty">저장된 링크가 없습니다.</div>
         ) : (
@@ -51,6 +52,7 @@ const FolderLinks = ({ folders, links, onFolderClick }) => {
           </div>
         )}
         <Modal values={modalState} onClose={onHandleCancel} folders={folders} />
+
       </div>
     </div>
   );
