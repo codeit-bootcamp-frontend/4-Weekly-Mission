@@ -27,9 +27,7 @@ const Option = styled.div`
 function FolderOption() {
   const { folderFilter } = useFolder();
   const { openModal, handleModalOpen, handleModalClose } = useModal();
-
   const [option, setOption] = useState("");
-  console.log(option);
 
   return folderFilter.name === "전체" ? (
     ""

@@ -26,7 +26,6 @@ function FolderCardList() {
   const [links, setLinks] = useState(null);
   const { folderFilter } = useFolder();
 
-  console.log(links);
   useEffect(() => {
     getFolderLink(folderFilter.id).then(setLinks);
   }, [folderFilter]);
