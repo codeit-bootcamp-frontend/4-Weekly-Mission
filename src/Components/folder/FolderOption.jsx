@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useFolder } from "../../context/FolderContext";
 
 const OptionList = styled.div`
   display: flex;
@@ -19,7 +20,11 @@ const Option = styled.div`
 `;
 
 function FolderOption() {
-  return (
+  const { folderFilter } = useFolder();
+
+  return folderFilter.name === "전체" ? (
+    ""
+  ) : (
     <OptionList>
       <Option>
         <img src="/Icons/share.svg" alt="공유" />

@@ -42,7 +42,7 @@ const FolderCategoryItem = ({ id, children }) => {
 
   return (
     <>
-      {setFolderFilter.name === children ? (
+      {folderFilter.name === children ? (
         <SelectedFolder onClick={onClickHandle}>
           {children}
         </SelectedFolder>
