@@ -7,7 +7,7 @@ import styles from 'components/Common/SelectMenu.module.css';
 import AddToFolderModal from 'components/Modal/AddToFolderModal';
 import DeleteLinkModal from 'components/Modal/DeleteLinkModal';
 
-function SelectMenu({ className }) {
+function SelectMenu({ className, link }) {
   const [selectedMenu, setSelectedMenu] = useState(null);
   const [hoveredMenu, setHoveredMenu] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -28,10 +28,10 @@ function SelectMenu({ className }) {
 
     switch (menuId) {
       case 1:
-        modal = <DeleteLinkModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
+        modal = <DeleteLinkModal link={link} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
         break;
       case 2:
-        modal = <AddToFolderModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
+        modal = <AddToFolderModal link={link} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
         break;
       default:
         break;
@@ -85,10 +85,12 @@ function SelectMenu({ className }) {
 
 SelectMenu.propTypes = {
   className: PropTypes.string,
+  link: PropTypes.shape(),
 };
 
 SelectMenu.defaultProps = {
   className: '',
+  link: null,
 };
 
 export default SelectMenu;

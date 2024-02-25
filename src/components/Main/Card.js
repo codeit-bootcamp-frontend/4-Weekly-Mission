@@ -81,7 +81,7 @@ function Card({ linkData }) {
         <p className={cardNameClasses}>{description}</p>
         <p className={createDateClasses}>{createdDate}</p>
       </div>
-      <SelectMenu className={`${selectMenuClasses} ${!isMenuOpen && hiddenSelectMenuClasses}`} />
+      <SelectMenu className={`${selectMenuClasses} ${!isMenuOpen && hiddenSelectMenuClasses}`} link={linkData} />
     </div>
   );
 }

@@ -13,10 +13,13 @@ import ModalContainer from 'components/Modal/ModalContainer';
 
 import { FOLDERS_API_URL } from 'services/api';
 
-function AddToFolderModal({ linkUrl, isModalOpen, setIsModalOpen }) {
+function AddToFolderModal({ link, isModalOpen, setIsModalOpen }) {
   const LOADING_MESSAGE = 'Loading...';
   const foldersUrl = FOLDERS_API_URL;
   const { data, loading, error } = useFetch(foldersUrl);
+
+  // {created_at, description, folder_id, id, image_source, title, updated_at, url}
+  const { url } = link;
 
   // {id, created_at, name, user_id, favorite, link: {count}}
   const folderList = data?.data ?? [];
@@ -77,7 +80,7 @@ function AddToFolderModal({ linkUrl, isModalOpen, setIsModalOpen }) {
   return (
     <ModalContainer isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} onClose={resetSelectedFolder}>
       <p className={titleClasses}>폴더에 추가</p>
-      <p className={linkClasses}>{linkUrl || '링크 주소'}</p>
+      <p className={linkClasses}>{url || '링크 주소'}</p>
       <div className={listContainerClasses}>
         {folderList.map((folder) => (
           <AddFolderList
@@ -121,13 +124,13 @@ function AddToFolderModal({ linkUrl, isModalOpen, setIsModalOpen }) {
 }
 
 AddToFolderModal.propTypes = {
-  linkUrl: PropTypes.string,
+  link: PropTypes.shape({ url: PropTypes.string }),
   isModalOpen: PropTypes.bool,
   setIsModalOpen: PropTypes.func,
 };
 
 AddToFolderModal.defaultProps = {
-  linkUrl: '',
+  link: { url: null },
   isModalOpen: false,
   setIsModalOpen: null,
 };
