@@ -45,7 +45,7 @@ const StyledForm = styled.form`
 const StyledInput = styled.input`
   width: 100%;
   padding: 1.8rem 1.5rem;
-  border: 1px solid ${({ theme }) => theme.gray20};
+  border: 0.1rem solid ${({ theme }) => theme.gray20};
   border-radius: 0.8rem;
 `;
 export default PostModal;

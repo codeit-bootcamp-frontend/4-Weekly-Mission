@@ -82,8 +82,8 @@ const StyledModal = styled.ul`
   position: absolute;
   left: -7.5rem;
   top: 2rem;
-  box-shadow: 0px 2px 8px 0px #3332361a;
-  border-radius: 5px;
+  box-shadow: 0 0.2rem 0.8rem 0 #3332361a;
+  border-radius: 0.5rem;
   z-index: 1;
   background-color: ${({ theme }) => theme.white};
 `;
