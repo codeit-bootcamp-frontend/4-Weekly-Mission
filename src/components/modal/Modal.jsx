@@ -9,6 +9,7 @@ function Modal({ modalName, modalContent, modalInput, modalBtn, modalSnsBtn }) {
   const ref = useRef();
 
   useOnClickOutside(ref, () => setIsOpen(false));
+  // ref를 prop으로 내리는 과정이 잘못된건지 useOnClickOutside hook에서 에러가 나는듯 합니다.
 
   return (
     <div>
