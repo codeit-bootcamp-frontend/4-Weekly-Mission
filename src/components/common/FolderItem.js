@@ -62,6 +62,7 @@ function FolderItem({ item, $isModalVisible, setIsModalVisible }) {
               $isVisible={isVisible}
               setIsVisible={setIsVisible}
               $options={["삭제하기", "폴더에 추가"]}
+              $modalType={["삭제", "폴더에 추가"]}
               $top="20px"
               $right="-70px"
               $isModalVisible={$isModalVisible}
