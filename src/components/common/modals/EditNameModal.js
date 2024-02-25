@@ -81,7 +81,7 @@ const Title = styled.div`
 `;
 
 const Input = styled.input`
-  width: 250px;
+  width: 280px;
   padding: 18px 15px;
   border-radius: 8px;
   border: 1px solid ${COLORS.Primary};
