@@ -11,6 +11,11 @@
   z-index: 9998;
 }
 
+.select-menu {
+  right: 1.95rem;
+  bottom: 3.5rem;
+}
+
 .star-button {
   top: 1.5rem;
   right: 1.5rem;
@@ -57,4 +62,12 @@
 
 /* Desktop */
 @media screen and (min-width: 1200px) {
+}
+
+/* Desktop 1440px over */
+@media screen and (min-width: 1440px) {
+  .select-menu {
+    right: -5.9rem;
+    bottom: 3.5rem;
+  }
 }

@@ -1,9 +1,11 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 import NoImage from 'assets/images/card-no-image.svg';
 
 import KebabButton from 'components/Common/KebabButton';
+import SelectMenu from 'components/Common/SelectMenu';
 import StarButton from 'components/Common/StarButton';
 import styles from 'components/Main/Card.module.css';
 
@@ -11,6 +13,8 @@ import formatDate from 'utils/formatDate';
 import timeAgo from 'utils/timeAgo';
 
 function Card({ linkData }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const { created_at: createdAt, url, description, image_source: imageSource } = linkData;
 
   const createdTimeAgo = timeAgo(createdAt);
@@ -30,7 +34,18 @@ function Card({ linkData }) {
     }
   };
 
+  const handleCardMouseLeave = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleKebabButtonClick = (e) => {
+    e.stopPropagation();
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   const cardClasses = classNames(styles.card, 'position-relative');
+  const selectMenuClasses = classNames(styles['select-menu'], 'position-absolute', 'z-top-force');
+  const hiddenSelectMenuClasses = classNames('display-none');
   const starButtonClasses = classNames(styles['star-button'], 'position-absolute');
   const cardImgageClasses = classNames(styles['card-image'], 'width-full');
   const cardTextBoxClasses = classNames(styles['card-text-box'], 'flex-col');
@@ -49,16 +64,18 @@ function Card({ linkData }) {
     <div
       className={cardClasses}
       onClick={handleCardClick}
+      onMouseLeave={handleCardMouseLeave}
       onKeyDown={handleCardClickByEnter}
       role="button"
       tabIndex="0"
     >
+      <SelectMenu className={`${selectMenuClasses} ${!isMenuOpen && hiddenSelectMenuClasses}`} />
       <div className={cardImgageClasses} style={backgroundImage} />
       <StarButton className={starButtonClasses} />
       <div className={cardTextBoxClasses}>
         <div className={topElementContainerClasses}>
           <p className={timeAgoClasses}>{createdTimeAgo}</p>
-          <KebabButton className="" />
+          <KebabButton className="" onClick={(e) => handleKebabButtonClick(e)} />
         </div>
         <p className={cardNameClasses}>{description}</p>
         <p className={createDateClasses}>{createdDate}</p>

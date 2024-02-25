@@ -1,10 +1,11 @@
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 
 import Button from 'components/Common/Button';
 import styles from 'components/Common/SelectMenu.module.css';
 
-function SelectMenu() {
+function SelectMenu({ className }) {
   const [selectedMenu, setSelectedMenu] = useState(null);
   const [hoveredMenu, setHoveredMenu] = useState(null);
 
@@ -22,6 +23,7 @@ function SelectMenu() {
   const handleMenuClick = (key) => {
     const targetMenu = menuList.find((menu) => menu.id === key);
     setSelectedMenu(targetMenu);
+    // selectMenu 임시 출력(오류 회피)
     console.log(targetMenu.label);
     console.log(selectedMenu);
   };
@@ -35,8 +37,8 @@ function SelectMenu() {
     setHoveredMenu(null);
   };
 
-  const menuContainerClasses = classNames(styles['menu-container'], 'flex-col', 'background-white');
-  const menuElementClasses = classNames(styles['menu-element'], 'text-center', 'border-none');
+  const menuContainerClasses = classNames(styles['menu-container'], 'background-white', className);
+  const menuElementClasses = classNames(styles['menu-element'], 'text-center', 'border-none', 'width-full');
 
   const hoveredMenuClasses = classNames('background-bg', 'text-color-primary');
   const defaultMenuClasses = classNames('background-white', 'text-color-gray100');
@@ -59,5 +61,13 @@ function SelectMenu() {
     </div>
   );
 }
+
+SelectMenu.propTypes = {
+  className: PropTypes.string,
+};
+
+SelectMenu.defaultProps = {
+  className: '',
+};
 
 export default SelectMenu;
