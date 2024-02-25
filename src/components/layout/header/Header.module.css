@@ -33,6 +33,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  height: 5.4rem;
 }
 
 .btn {
@@ -86,5 +87,9 @@
     height: 3.7rem;
     line-height: 3.7rem;
     font-size: 1.4rem;
+  }
+
+  .btnGroup {
+    height: 3.7rem;
   }
 }
