@@ -1,3 +1,4 @@
+import './Logo.css';
 import logoImg from '../../assets/logo.svg';
 
 const Logo = () => {

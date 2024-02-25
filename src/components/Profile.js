@@ -1,3 +1,4 @@
+import './Profile.css';
 import profileImg from '../assets/myprofile.svg';
 
 const Profile = ({ email }) => {
