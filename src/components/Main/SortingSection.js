@@ -13,6 +13,7 @@ import ErrorMessage from 'components/Common/ErrorMessage';
 import Option from 'components/Common/Option';
 import SortingButton from 'components/Common/SortingButton';
 import styles from 'components/Main/SortingSection.module.css';
+import AddFolderModal from 'components/Modal/AddFolderModal';
 
 import { FOLDERS_API_URL, LINKS_API_URL } from 'services/api';
 
@@ -21,6 +22,7 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
   const ALL = { id: 0, name: '전체' };
 
   const [hoveredFolder, setHoveredFolder] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const url = FOLDERS_API_URL;
   const { data, loading, error } = useFetch(url);
@@ -40,18 +42,26 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
     { name: '삭제', image: DeleteIcon, key: 3 },
   ];
 
-  const handleButtonClick = (key) => {
+  const openModal = () => {
+    return <AddFolderModal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
+  };
+
+  const handleSortingButtonClick = (key) => {
     const targetButton = folderList.find((folder) => folder.id === key);
     setSelectedFolder(targetButton);
   };
 
-  const handleButtonMouseEnter = (key) => {
+  const handleSortingButtonMouseEnter = (key) => {
     const targetButton = folderList.find((folder) => folder.id === key);
     setHoveredFolder(targetButton);
   };
 
-  const handleButtonMouseLeave = () => {
+  const handleSortingButtonMouseLeave = () => {
     setHoveredFolder(null);
+  };
+
+  const handleAddFolderButtonClick = () => {
+    setIsModalOpen(true);
   };
 
   const sortingSectionClasses = classNames(
@@ -87,15 +97,15 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
                         ? hoveredButtonClasses
                         : defaultButtonClasses
                   }
-                  onClick={() => handleButtonClick(folder.id)}
-                  onMouseEnter={() => handleButtonMouseEnter(folder.id)}
-                  onMouseLeave={handleButtonMouseLeave}
+                  onClick={() => handleSortingButtonClick(folder.id)}
+                  onMouseEnter={() => handleSortingButtonMouseEnter(folder.id)}
+                  onMouseLeave={handleSortingButtonMouseLeave}
                 />
               ))}
               {loading && <ErrorMessage message={LOADING_MESSAGE} />}
               {error && <ErrorMessage message={error} />}
             </div>
-            <AddFolderButton className={addFolderButtonClasses} />
+            <AddFolderButton className={addFolderButtonClasses} onClick={handleAddFolderButtonClick} />
           </div>
           <div className={folderInfoSectionClasses}>
             <p className={titleClasses}>{selectedFolder.name}</p>
@@ -109,6 +119,7 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
           </div>
         </div>
       )}
+      {isModalOpen && openModal()}
     </div>
   );
 }
