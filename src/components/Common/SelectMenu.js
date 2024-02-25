@@ -45,7 +45,6 @@ function SelectMenu({ className, link }) {
     const targetMenu = menuList.find((menu) => menu.id === key);
     setSelectedMenu(targetMenu);
     setIsModalOpen(true);
-    openModalById(key);
   };
 
   const handleMenuMouseEnter = (key) => {
