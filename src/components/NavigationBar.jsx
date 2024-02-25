@@ -1,5 +1,5 @@
 import { useGetData } from "./Hooks/useAsync";
-import logo from "../image/icons/LinkbraryLogo.svg";
+import logo from "../image/LinkbraryLogo.svg";
 import style from "../styles/NavigationBar.module.css";
 
 // // CommonHeader의 NavigationBar 부분
