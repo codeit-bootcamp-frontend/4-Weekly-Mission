@@ -4,6 +4,7 @@ import { formatDate, formatDateAgo } from "../../utils/DateUtils";
 import { useModal } from "../../hooks/useModal";
 import ModalContainer from "../common/Modal/Modal";
 import * as Modal from "../common/Modal/Modal";
+import ModalFoderList from "components/common/Modal/ModalFoderList";
 
 const Card = styled.div`
   width: 340px;
@@ -121,8 +122,10 @@ function CardItem({ cardData }) {
   const cardDate = formatDate(createdAt);
   const cardCreatedAt = formatDateAgo(createdAt);
 
-  const [isPopover, setIsPopover] = useState(false);
   const { openModal, handleModalOpen, handleModalClose } = useModal();
+
+  const [isPopover, setIsPopover] = useState(false);
+  const [option, setOption] = useState("");
 
   const popoverHandler = () => {
     setIsPopover(prev => !prev);
@@ -130,11 +133,19 @@ function CardItem({ cardData }) {
 
   return (
     <>
-      {openModal && (
+      {openModal && option === "삭제" && (
         <ModalContainer onClick={handleModalClose}>
           <Modal.Title>링크 삭제</Modal.Title>
           <Modal.SubTitle>{url}</Modal.SubTitle>
           <Modal.RedButton>삭제하기</Modal.RedButton>
+        </ModalContainer>
+      )}
+      {openModal && option === "추가" && (
+        <ModalContainer onClick={handleModalClose}>
+          <Modal.Title>폴더의 추가</Modal.Title>
+          <Modal.SubTitle>{url}</Modal.SubTitle>
+          <ModalFoderList />
+          <Modal.BlueButton>추가하기</Modal.BlueButton>
         </ModalContainer>
       )}
       <Card>
@@ -155,8 +166,22 @@ function CardItem({ cardData }) {
             />
             {isPopover && (
               <Popover>
-                <Pop onClick={handleModalOpen}>삭제하기</Pop>
-                <Pop>폴더의 추가</Pop>
+                <Pop
+                  onClick={() => {
+                    setOption("삭제");
+                    handleModalOpen();
+                  }}
+                >
+                  삭제하기
+                </Pop>
+                <Pop
+                  onClick={() => {
+                    setOption("추가");
+                    handleModalOpen();
+                  }}
+                >
+                  폴더의 추가
+                </Pop>
               </Popover>
             )}
           </CardHeader>
