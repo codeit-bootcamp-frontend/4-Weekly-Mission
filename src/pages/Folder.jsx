@@ -43,7 +43,7 @@ function Folder() {
         {folderList.length ? (
           <>
             <FolderList folderList={folderList} onClick={setFolderId} />
-            <LinkList linkList={linkList} />
+            <LinkList linkList={linkList} folderList={folderList} />
           </>
         ) : (
           <div className={style.noLink}>저장된 링크가 없습니다.</div>

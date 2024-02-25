@@ -1,0 +1,26 @@
+.modalContentFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+.modalTitle {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #373740;
+  text-align: center;
+}
+.modalInput {
+  border: 1px solid #ccd5e3;
+  border-radius: 8px;
+  padding: 18px 15px;
+}
+.modalBtn {
+  background: linear-gradient(90.99deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  padding: 16px 20px;
+  border-radius: 8px;
+  text-align: center;
+  border: 0;
+  color: #ffffff;
+}
