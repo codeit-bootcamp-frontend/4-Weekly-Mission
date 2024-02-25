@@ -1,6 +1,6 @@
-import '../../styles/Header.css';
+import './Header.css';
 import { useLocation } from 'react-router-dom';
-import linkbraryLogo from '../../assets/linkbrary-logo.svg';
+import linkbraryLogo from '../../../assets/linkbrary-logo.svg';
 
 function Header({ user }) {
   const { pathname } = useLocation();

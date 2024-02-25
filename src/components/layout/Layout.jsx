@@ -2,8 +2,8 @@ import '../../styles/style.css';
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { getUser } from '../../util/api';
-import Header from './Header';
-import Footer from './Footer';
+import Header from './header/Header';
+import Footer from './footer/Footer';
 
 function Layout() {
   const [user, setUser] = useState(null);
