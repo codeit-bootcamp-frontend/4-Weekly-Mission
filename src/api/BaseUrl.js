@@ -1,10 +1,10 @@
 const baseUrl = 'https://bootcamp-api.codeit.kr/api';
 
-export const getUser = async () => {
+const getRequest = async endpoint => {
   try {
-    const response = await fetch(`${baseUrl}/sample/user`);
+    const response = await fetch(`${baseUrl}${endpoint}`);
     if (!response.ok) {
-      throw new Error(`프로필 데이터를 불러오는 데 실패했습니다.`);
+      throw new Error(`${endpoint}에서 불러오는데 실패했습니다`);
     }
 
     const result = await response.json();
@@ -15,17 +15,23 @@ export const getUser = async () => {
   }
 };
 
-export const getFolder = async () => {
-  try {
-    const response = await fetch(`${baseUrl}/sample/folder`);
-    if (!response.ok) {
-      throw new Error(`폴더 데이터를 불러오는 데 실패했습니다.`);
-    }
+export const getSharedUser = async () => {
+  return getRequest('/sample/user');
+};
 
-    const result = response.json();
-    return result;
-  } catch (error) {
-    console.log(error);
-    throw error;
-  }
+export const getSharedFolder = async () => {
+  return getRequest('/sample/folder');
+};
+
+export const getFolderUser = async () => {
+  return getRequest('/users/1');
+};
+
+export const getFolderList = async () => {
+  return getRequest('/users/1/folders');
+};
+
+export const getFolderLink = async folderId => {
+  const folderUrl = folderId && '?folderId=' + folderId;
+  return getRequest(`/users/1/links${folderUrl}`);
 };

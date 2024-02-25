@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import { getUser, getFolder } from '../api/BaseUrl';
+import { getSharedFolder, getSharedUser } from '../api/BaseUrl';
 import Folder from '../components/Folder';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -20,8 +20,8 @@ const SharedPage = () => {
   };
 
   useEffect(() => {
-    handleLoad(getUser, setUser);
-    handleLoad(getFolder, setFolder);
+    handleLoad(getSharedUser, setUser);
+    handleLoad(getSharedFolder, setFolder);
   }, []);
 
   return (
