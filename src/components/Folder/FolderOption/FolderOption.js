@@ -15,6 +15,7 @@ export const FolderOption = ({
         <></>
       ) : (
         <FolderOptionMenu
+          folderName={folderName}
           openModal={openModal}
           modalRef={modalRef}
           handleModalClose={handleModalClose}
