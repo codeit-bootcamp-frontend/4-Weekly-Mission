@@ -6,6 +6,7 @@ import FolderOptions from "./FolderOptions";
 import AddFolderModal from "../modal/AddFolderModal";
 import EditModal from "../modal/EditModal";
 import { MODALS } from "../modal/modals";
+import DeleteFolderModal from "../modal/DeleteFolderModal/DeleteFolderModal";
 
 const WHOLE_BUTTON = {
   id: 1,
@@ -24,6 +25,7 @@ function FolderListBar({ folderList, onClick }) {
   const [isModalClicked, setIsModalClicked] = useState({
     add: false,
     edit: false,
+    deleteFolder: false,
   });
 
   const getLinksbyId = (id) => {
@@ -55,10 +57,9 @@ function FolderListBar({ folderList, onClick }) {
     <>
       <div className={styles.container}>
         <div className={styles.btnContainer}>
-          {newFolderList.map((folder, idx) => (
+          {newFolderList.map((folder) => (
             <FolderButton
               key={folder.id}
-              idx={idx}
               folder={folder}
               onClick={changeFolder}
               isClicked={folder.id === currentFolderId}
@@ -88,6 +89,11 @@ function FolderListBar({ folderList, onClick }) {
         handleModalClick={handleModalClick}
       />
       <EditModal
+        isModalClicked={isModalClicked}
+        handleModalClick={handleModalClick}
+      />
+      <DeleteFolderModal
+        folderName={currentFolderName}
         isModalClicked={isModalClicked}
         handleModalClick={handleModalClick}
       />

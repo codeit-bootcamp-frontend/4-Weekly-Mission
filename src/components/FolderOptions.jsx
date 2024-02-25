@@ -23,7 +23,10 @@ function FolderOptions({ folderName, folderId, handleModalClick }) {
               <img src={penImg} alt="pen" />
               <p>이름 변경</p>
             </div>
-            <div className={styles.option}>
+            <div
+              className={styles.option}
+              onClick={() => handleModalClick(deleteFolder.type)}
+            >
               <img src={deleteImg} alt="delete" />
               <p>삭제</p>
             </div>

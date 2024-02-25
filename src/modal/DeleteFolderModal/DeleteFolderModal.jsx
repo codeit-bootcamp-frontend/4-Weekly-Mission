@@ -2,13 +2,12 @@ import ModalLayout from "../ModalLayout";
 import { MODALS } from "../modals";
 import styles from "./DeleteFolderModal.module.css";
 
-function DeleteFolderModal({ isModalClicked, onToggleModal }) {
+function DeleteFolderModal({ folderName, isModalClicked, handleModalClick }) {
   const { deleteFolder } = MODALS;
-  console.log(url);
 
   const onClickCloseButton = (e) => {
     e.stopPropagation();
-    onToggleModal(deleteFolder.type);
+    handleModalClick(deleteFolder.type);
   };
 
   return (
@@ -17,6 +16,7 @@ function DeleteFolderModal({ isModalClicked, onToggleModal }) {
       isModalClicked={isModalClicked.deleteFolder}
       onClickCloseButton={onClickCloseButton}
     >
+      <div className={styles.folderName}>{folderName}</div>
       <button className={styles.button}>{deleteFolder.buttonName}</button>
     </ModalLayout>
   );

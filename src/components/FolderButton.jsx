@@ -1,6 +1,6 @@
 import styles from "./FolderButton.module.css";
 
-function FolderButton({ idx, folder, onClick, isClicked, changeClickedId }) {
+function FolderButton({ folder, onClick, isClicked, changeClickedId }) {
   const handleClick = () => {
     onClick(folder);
     changeClickedId();
