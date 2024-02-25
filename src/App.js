@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { useState } from 'react';
+import Privacy from './components/Privacy';
+import Faq from './components/Faq';
 import Share from './components/Share';
 import Folder from './components/Folder';
 import Modal from './components/Modal';
@@ -22,9 +24,12 @@ function App() {
       }}>여는버튼</button>
       <BrowserRouter>
         <Routes>
+          <Route path='/' element={<Folder/>}></Route>
+          <Route path='/privacy' element={<Privacy/>}></Route>
+          <Route path='/faq' element={<Faq/>}></Route>
           <Route path='/share' element={<Share/>}></Route>
           <Route path='/folder' element={<Folder/>}></Route>
-          <Route path='/' element={<Modal isOpen={isModalOpen} closeModal={closeModal}/>}></Route>
+          <Route path='/modal' element={<Modal isOpen={isModalOpen} closeModal={closeModal}/>}></Route>
         </Routes>
       </BrowserRouter>
     </div>

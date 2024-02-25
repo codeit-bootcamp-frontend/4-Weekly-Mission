@@ -4,8 +4,8 @@ import '../css/Reset.css';
 import '../css/Global.css';
 import '../css/Share.css';
 import React, { useState, useEffect } from 'react';
-import ShareAPI from './main/share/ShareAPI';
-import CountDate from './main/share/CountDate';
+import ShareAPI from './share/ShareAPI';
+import CountDate from './share/CountDate';
 
 
 // 메인 : 헤더-내용-푸터 구조

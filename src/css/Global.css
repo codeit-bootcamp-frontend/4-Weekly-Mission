@@ -1,9 +1,14 @@
 /* 전체적 */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
 html, body {
   font-size: 62.5%;
 }
 a:visited { 
   text-decoration: none; 
+}
+input{
+  border:none;
 }
 button{
 	border:none;

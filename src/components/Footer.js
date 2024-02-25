@@ -7,8 +7,8 @@ function Footer(){
       <div className="copyright">©codeit - 2023</div>
       <div className="text">
         <div className="footerLink">
-          <Link to="/Privacy" className="privacy">Privacy Policy</Link>
-          <Link to="/Faq" className="faq">FAQ</Link>
+          <Link to="/privacy" className="privacy">Privacy Policy</Link>
+          <Link to="/faq" className="faq">FAQ</Link>
         </div>
         <div className="icons">
           <a href="https://www.facebook.com/?locale=ko_KR"><img src='/img/icons_facebook-fill.svg' alt="페이스북"/></a>
