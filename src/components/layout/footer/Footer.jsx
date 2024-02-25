@@ -1,4 +1,4 @@
-import './Footer.css';
+import styles from './Footer.module.css';
 import IconWithLink from './IconWithLink';
 import facebookIcon from '../../../assets/facebook.svg';
 import twitterIcon from '../../../assets/twitter.svg';
@@ -41,15 +41,15 @@ const LINK_ITEMS = [
 
 function Footer() {
   return (
-    <footer className="footer-area">
-      <div className="footer-group">
-        <span className="copyright">©codeit - 2023</span>
-        <ul className="link-list">
+    <footer className={styles.footerArea}>
+      <div className={styles.footerGroup}>
+        <span className={styles.copyright}>©codeit - 2023</span>
+        <ul className={styles.linkList}>
           {LINK_ITEMS.map(({ name, address }) => (
             <IconWithLink key={name} name={name} address={address} />
           ))}
         </ul>
-        <ul className="sns-list">
+        <ul className={styles.snsList}>
           {SNS_ITEMS.map(({ name, address, imgUrl }) => (
             <IconWithLink key={name} name={name} address={address} imgUrl={imgUrl} />
           ))}

@@ -1,9 +1,9 @@
-.footer-area {
+.footerArea {
   margin-top: 6rem;
   background-color: var(--color-black);
 }
 
-.footer-group {
+.footerGroup {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -18,21 +18,16 @@
   color: var(--color-gray-700);
 }
 
-.link-list {
+.linkList {
   display: flex;
   gap: 3rem;
   font-size: 1.6rem;
   color: var(--color-gray-500);
 }
 
-.sns-list {
+.snsList {
   display: flex;
   gap: 1.2rem;
-}
-
-.item {
-  display: flex;
-  line-height: 1;
 }
 
 @media (max-width: 767px) {

@@ -1,4 +1,4 @@
-.header-area {
+.headerArea {
   position: sticky;
   top: 0;
   left: 0;
@@ -7,11 +7,11 @@
   z-index: 10;
 }
 
-.header-area.static {
+.headerArea.static {
   position: relative;
 }
 
-.header-group {
+.headerGroup {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -20,22 +20,24 @@
   max-width: 1920px;
 }
 
-.logo-area {
+.logoArea {
   display: flex;
 }
 
-.logo-img {
+.logoImg {
   width: 13.3rem;
   height: 2.4rem;
 }
 
-.btn-group {
+.btnGroup {
   display: flex;
   align-items: center;
   gap: 6px;
 }
 
 .btn {
+  flex-shrink: 0;
+  width: 12.8rem;
   height: 5.4rem;
   border-radius: 0.8rem;
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
@@ -46,45 +48,40 @@
   text-align: center;
 }
 
-.user-profile {
+.userProfile {
   width: 2.8rem;
   height: 2.8rem;
   border-radius: 50%;
 }
 
-.user-email {
+.userEmail {
   font-size: 1.4rem;
   font-weight: 400;
   color: #373740;
 }
 
-.btn.signin {
-  flex-shrink: 0;
-  width: 12.8rem;
-}
-
 @media (max-width: 1199px) {
-  .header-group {
+  .headerGroup {
     padding: 2rem 3.2rem;
     max-width: 80rem;
   }
 }
 
 @media (max-width: 767px) {
-  .header-group {
+  .headerGroup {
     padding: 1.3rem 3.2rem;
   }
 
-  .user-email {
+  .userEmail {
     display: none;
   }
 
-  .logo-img {
+  .logoImg {
     width: 8.867rem;
     height: 1.6rem;
   }
 
-  .header-group .btn {
+  .headerGroup .btn {
     width: 8rem;
     height: 3.7rem;
     line-height: 3.7rem;
