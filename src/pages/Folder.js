@@ -2,41 +2,45 @@ import { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import { getAllLinkData } from "./../api/api";
 
-import HeaderElement from "./../components/common/HeaderElement";
-import FooterElement from "./../components/common/FooterElement";
-import GlobalStyle from "./../components/common/GlobalStyle";
-import FolderInput from "./../components/folder/FolderInput";
-import FolderList from "./../components/common/FolderList";
-import Input from "../components/common/Input";
-import Menus from "../components/folder/Menus";
-import FolderTitle from "../components/folder/FolderTitle";
+import HeaderElement from "components/common/HeaderElement";
+import FooterElement from "components/common/FooterElement";
+import GlobalStyle from "components/common/GlobalStyle";
+import FolderInput from "components/folder/FolderInput";
+import FolderList from "components/common/FolderList";
+import Input from "components/common/Input";
+import Menus from "components/folder/Menus";
+import FolderTitle from "components/folder/FolderTitle";
+import { SharedModal } from "components/common/modals/SharedModal";
 
 const Folder = () => {
   const [titleName, setTitleName] = useState("전체");
   const [listId, setListId] = useState("");
   const [data, setData] = useState([]);
+  const [isModal, setIsModal] = useState(null);
+
+  const fetchData = async () => {
+    try {
+      const response = await getAllLinkData(listId);
+      const result = await response.data;
+      setData(result);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await getAllLinkData(listId);
-        const result = response.data;
-        setData(result);
-      } catch (error) {
-        console.error(error);
-      }
-    };
     fetchData();
-  }, [listId]);
+  }, []);
 
   return (
     <Container>
+      <SharedModal $isVisible={isModal} setIsVisible={setIsModal}></SharedModal>
       <GlobalStyle />
       <HeaderElement $positionval="static" />
       <FolderInput />
       <Input />
       <Menus changeTitle={setTitleName} changeID={setListId} />
-      <FolderTitle titleName={titleName} />
+      <FolderTitle titleName={titleName} setIsModal={setIsModal} />
       {data[0] ? (
         <FolderList items={data}></FolderList>
       ) : (

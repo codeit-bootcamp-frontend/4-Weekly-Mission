@@ -1,15 +1,23 @@
+import { useState } from "react";
 import styled from "styled-components";
-import share from "../../assets/icons/share.svg";
-import pen from "../../assets/icons/pen.svg";
-import trash from "../../assets/icons/trash.svg";
+import share from "assets/icons/share.svg";
+import pen from "assets/icons/pen.svg";
+import trash from "assets/icons/trash.svg";
 
-const FolderTitle = ({ titleName }) => {
+const FolderTitle = ({ titleName, setIsModal }) => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   return (
     <Container>
       <Title>{titleName}</Title>
       {titleName !== "전체" && (
         <OptionBox>
-          <Option>
+          <Option
+            onClick={() => {
+              setIsModalVisible(true);
+              setIsModal("공유");
+            }}
+          >
             <OptionIcon src={share}></OptionIcon>
             <OptionText>공유</OptionText>
           </Option>
@@ -69,6 +77,10 @@ const Option = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 4px;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const OptionIcon = styled.img`
