@@ -18,10 +18,10 @@ function HomePage() {
   );
   return (
     <div className={containerClasses}>
-      <Link to="/Shared" onClick={scrollToTop}>
+      <Link to="/shared" onClick={scrollToTop}>
         <Button className={linkSharedPageButtonClasses}>SharedPage</Button>
       </Link>
-      <Link to="/Folder" onClick={scrollToTop}>
+      <Link to="/folder" onClick={scrollToTop}>
         <Button className={linkFolderPageButtonClasses}>FolderPage</Button>
       </Link>
     </div>
