@@ -12,7 +12,8 @@ import Menus from "components/folder/Menus";
 import FolderTitle from "components/folder/FolderTitle";
 import { SharedModal } from "components/common/modals/SharedModal";
 import { EditNameModal } from "components/common/modals/EditNameModal";
-import { DeleteModal } from "./../components/common/modals/DeleteModal";
+import { DeleteModal } from "components/common/modals/DeleteModal";
+import { AddFolderModal } from "components/common/modals/AddFolderModal";
 
 const Folder = () => {
   const [titleName, setTitleName] = useState("전체");
@@ -39,14 +40,24 @@ const Folder = () => {
       <SharedModal $isVisible={isModal} setIsVisible={setIsModal} />
       <EditNameModal $isVisible={isModal} setIsVisible={setIsModal} />
       <DeleteModal $isVisible={isModal} setIsVisible={setIsModal} />
+      <AddFolderModal $isVisible={isModal} setIsVisible={setIsModal} />
       <GlobalStyle />
       <HeaderElement $positionval="static" />
-      <FolderInput />
+      <FolderInput setIsVisible={setIsModal} />
       <Input />
-      <Menus changeTitle={setTitleName} changeID={setListId} />
+      <Menus
+        changeTitle={setTitleName}
+        changeID={setListId}
+        $isVisible={isModal}
+        setIsVisible={setIsModal}
+      />
       <FolderTitle titleName={titleName} setIsModal={setIsModal} />
       {data[0] ? (
-        <FolderList items={data}></FolderList>
+        <FolderList
+          items={data}
+          $isVisible={isModal}
+          setIsVisible={setIsModal}
+        ></FolderList>
       ) : (
         <NoLinkMsg>저장된 링크가 없습니다.</NoLinkMsg>
       )}

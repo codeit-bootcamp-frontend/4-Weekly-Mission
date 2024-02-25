@@ -10,6 +10,7 @@ export const BlueButton = ({
   padding,
   fontSize = "14px",
   radius,
+  onBtnHandle,
 }) => {
   return (
     <Button
@@ -20,6 +21,7 @@ export const BlueButton = ({
       color={COLORS.White}
       fontSize={fontSize}
       radius={radius}
+      onClick={(e) => (onBtnHandle ? onBtnHandle() : console.log("dd"))}
     >
       {text}
     </Button>
@@ -29,6 +31,7 @@ export const BlueButton = ({
 const Button = styled.button`
   display: block;
   width: ${({ width }) => width};
+  min-width: max-content;
   height: ${({ height }) => height};
   border: 0px;
   border-radius: ${({ radius }) => radius || "0px"};
