@@ -70,7 +70,7 @@ function OptionBtns() {
           item={3}
         />
       )}
-      {isDeleteModalOpen && <DeleteItemModal setOpen={setIsDeleteModalOpen} item={3} />}
+      {isDeleteModalOpen && <DeleteItemModal setOpen={setIsDeleteModalOpen} modalTitle="폴더 삭제" item={3} />}
     </>
   );
 }
