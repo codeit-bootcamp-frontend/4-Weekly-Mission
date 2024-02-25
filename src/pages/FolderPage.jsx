@@ -3,7 +3,6 @@ import { HeaderContainer } from 'styles/HeaderContainer';
 import React, { useState } from 'react';
 import { MainContainer } from 'styles/MainContainer';
 import Search from 'components/common/main/Search';
-import CardError from 'components/common/main/CardError';
 import { useCategoryQuery, useFolderQuery } from 'hook/useFetchData';
 import CategoryContext from 'contexts/CategoryContext';
 import CategoryTabList from 'components/folder/CategoryTabList';
@@ -33,9 +32,6 @@ const FolderPage = () => {
     setCurrentCategory({ id: e.target.id, name: e.target.innerText });
   };
 
-  if (isError) {
-    return <CardError />;
-  }
   return (
     <CategoryContext.Provider value={datas}>
       <HeaderContainer>
@@ -49,7 +45,11 @@ const FolderPage = () => {
           handleCategoryButton={handleCategoryButton}
           categoryId={folderId}
         />
-        <CardList folderDatas={folderDatas} isLoading={isLoading} />
+        <CardList
+          folderDatas={folderDatas}
+          isLoading={isLoading}
+          isError={isError}
+        />
       </MainContainer>
     </CategoryContext.Provider>
   );
