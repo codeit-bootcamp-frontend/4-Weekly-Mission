@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { getFolderList } from "./../../api/api";
 import GlobalStyle from "./../common/GlobalStyle";
 import styled from "styled-components";
