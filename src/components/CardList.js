@@ -1,11 +1,19 @@
 import "./CardList.css";
 import star from "../assets/star.svg";
 import kebab from "../assets/kebab.svg";
-import useTransformData from "../hooks/useTransformData.js";
+import transformData from "../utils/transformData.js";
+import KebabPopover from "./KebabPopover.js";
+import { useState } from "react";
 
-function CardListItem({ item }) {
+function Card({ item }) {
   const { title, url, description, src, timeDifference, formattedDate } =
-    useTransformData(item);
+    transformData(item);
+  const [popoverVisible, setPopoverVisible] = useState(false);
+
+  const handleKebabClick = (e) => {
+    e.preventDefault();
+    setPopoverVisible(!popoverVisible);
+  };
 
   return (
     <div>
@@ -15,7 +23,13 @@ function CardListItem({ item }) {
         <div className="text-container">
           <div className="kebabWrapper">
             <p className="time-difference">{timeDifference}</p>
-            <img src={kebab} alt="kebab" className="kebabIcon" />
+            <img
+              src={kebab}
+              alt="kebab"
+              className="kebabIcon"
+              onClick={handleKebabClick}
+            />
+            {popoverVisible && <KebabPopover url={url} />}
           </div>
           <p className="title">{title}</p>
           <p className="description">{description}</p>
@@ -32,7 +46,7 @@ function CardList({ items }) {
       <div className="card-container">
         {items.map((item) => (
           <div key={item.id} className="card-box">
-            <CardListItem item={item} />
+            <Card item={item} />
           </div>
         ))}
       </div>

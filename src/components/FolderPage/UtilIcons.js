@@ -2,22 +2,59 @@ import penIcon from "../../assets/pen.svg";
 import shareIcon from "../../assets/share.svg";
 import deleteIcon from "../../assets/delete.svg";
 import "./UtilIcons.css";
+import ModalShare from "../Modal/ModalShare";
+import ModalEdit from "../Modal/ModalEdit";
+import useModal from "../../hooks/useModal";
+import React from "react";
+import ModalDeleteFolder from "../Modal/ModalDeleteFolder";
 
-const UtilIcons = () => {
+const utilIconsData = [
+  {
+    icon: shareIcon,
+    label: "공유",
+    modalComponent: <ModalShare />,
+  },
+  {
+    icon: penIcon,
+    label: "이름 변경",
+    modalComponent: <ModalEdit />,
+  },
+  {
+    icon: deleteIcon,
+    label: "삭제",
+    modalComponent: <ModalDeleteFolder />,
+  },
+];
+
+const UtilIcon = ({ icon, label, modalComponent }) => {
+  const { showModal, handleOpenModal, handleCloseModal } = useModal();
+  return (
+    <div>
+      <img src={icon} alt={`${label} icon`} onClick={handleOpenModal} />
+      {label}
+      {showModal &&
+        React.cloneElement(modalComponent, {
+          isOpen: showModal,
+          onClose: handleCloseModal,
+        })}
+    </div>
+  );
+};
+
+const UtilIcons = ({ selectedFolderName, selectedFolderId }) => {
   return (
     <div className="utilContainer">
-      <div>
-        <img src={shareIcon} alt="공유 아이콘" />
-        공유
-      </div>
-      <div>
-        <img src={penIcon} alt="이름변경 아이콘" />
-        이름 변경
-      </div>
-      <div>
-        <img src={deleteIcon} alt="삭제 아이콘" />
-        삭제
-      </div>
+      {utilIconsData.map((iconData, index) => (
+        <UtilIcon
+          key={index}
+          icon={iconData.icon}
+          label={iconData.label}
+          modalComponent={React.cloneElement(iconData.modalComponent, {
+            selectedFolderName,
+            selectedFolderId,
+          })}
+        />
+      ))}
     </div>
   );
 };

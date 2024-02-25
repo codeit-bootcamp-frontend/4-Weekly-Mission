@@ -8,9 +8,11 @@ const FolderPage = () => {
   return (
     <>
       <Header />
-      <AddLinkBar />
-      <SearchBar />
-      <FolderList />
+      <main>
+        <AddLinkBar />
+        <SearchBar />
+        <FolderList />
+      </main>
       <Footer />
     </>
   );

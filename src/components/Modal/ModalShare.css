@@ -1,0 +1,17 @@
+.socialButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.socialButtonContainer div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.socialButtonContainer img {
+  width: 42px;
+  cursor: pointer;
+}
