@@ -2,10 +2,32 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { getElapsedTime } from "../../../utils/getElapsedTime";
 import { formatDate } from "../../../utils/formatDate";
+import { useModal } from "../../../hooks/useModal";
+import { DeleteLinkModal, AddLinkModal } from "../../Modal";
 import "./CardContent.css";
 
-export const CardContent = ({ items, isZoomedIn, handleLinkClick }) => {
+export const CardContent = ({
+  items,
+  isZoomedIn,
+  handlePreventLinkClick,
+  linkUrl,
+  folderList,
+}) => {
   const [showOptions, setShowOptions] = useState(false);
+
+  const {
+    openModal: deleteOpenModal,
+    modalRef: deleteModalRef,
+    handleModalClose: deleteHandleModalClose,
+    handleModalOpen: deleteHandleModalOpen,
+  } = useModal();
+
+  const {
+    openModal: AddOpenModal,
+    modalRef: AddModalRef,
+    handleModalClose: AddHandleModalClose,
+    handleModalOpen: AddHandleModalOpen,
+  } = useModal();
 
   const location = useLocation();
 
@@ -20,7 +42,6 @@ export const CardContent = ({ items, isZoomedIn, handleLinkClick }) => {
 
   const toggleOptions = () => {
     setShowOptions(!showOptions);
-    console.log(showOptions);
   };
 
   return (
@@ -30,19 +51,50 @@ export const CardContent = ({ items, isZoomedIn, handleLinkClick }) => {
         <div
           className={kebabClassName}
           onClick={(e) => {
-            handleLinkClick(e);
+            handlePreventLinkClick(e);
             toggleOptions();
           }}
         ></div>
       </div>
       {showOptions && (
         <div className="card-options">
-          <button className="card-options-deleteButton" onClick={toggleOptions}>
+          <button
+            className="card-options-deleteButton"
+            onClick={(e) => {
+              handlePreventLinkClick(e);
+              deleteHandleModalOpen();
+            }}
+          >
             삭제하기
           </button>
-          <button className="card-options-AddButton" onClick={toggleOptions}>
+          {deleteOpenModal && (
+            <DeleteLinkModal
+              handlePreventLinkClick={handlePreventLinkClick}
+              linkUrl={linkUrl}
+              openModal={deleteOpenModal}
+              modalRef={deleteModalRef}
+              handleModalClose={deleteHandleModalClose}
+            />
+          )}
+          <button
+            className="card-options-AddButton"
+            onClick={(e) => {
+              handlePreventLinkClick(e);
+              AddHandleModalOpen();
+            }}
+          >
             폴더에 추가
           </button>
+          {AddOpenModal && (
+            <AddLinkModal
+              handlePreventLinkClick={handlePreventLinkClick}
+              linkUrl={linkUrl}
+              folderList={folderList}
+              openModal={AddOpenModal}
+              modalRef={AddModalRef}
+              handleModalClose={AddHandleModalClose}
+            />
+          )}
         </div>
       )}
       <p className="card-text-description">{description}</p>
