@@ -58,15 +58,15 @@ const FolderOption = ({ selectedFolder }) => {
           </button>
         </FolderOptions>
       )}
-      {editModalOpen && (
-        <EditFolderNameModal
-          setEditModalOpen={setEditModalOpen}
-          selectedFolder={selectedFolder}
-        />
-      )}
       {shareFolderModalOpen && (
         <ShareFolderModal
           setShareFolderModalOpen={setShareFolderModalOpen}
+          selectedFolder={selectedFolder}
+        />
+      )}
+      {editModalOpen && (
+        <EditFolderNameModal
+          setEditModalOpen={setEditModalOpen}
           selectedFolder={selectedFolder}
         />
       )}
