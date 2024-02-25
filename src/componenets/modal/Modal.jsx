@@ -4,6 +4,7 @@ import EditFolderName from "./EditFolderName";
 import DeleteFolder from "./DeleteFolder";
 import DeleteLink from "./DeleteLink";
 import SharedFolder from "./SharedFolder";
+import AddAtFolder from "./AddAtFolder";
 
 function Modal({ folderName, isModalOpen, toggleModal, Id, data }) {
   return (
@@ -17,6 +18,7 @@ function Modal({ folderName, isModalOpen, toggleModal, Id, data }) {
         <DeleteLink data={data} toggleModal={toggleModal} />
       )}
       {!isModalOpen && Id === 5 && <SharedFolder toggleModal={toggleModal} />}
+      {!isModalOpen && Id === 6 && <AddAtFolder toggleModal={toggleModal} />}
     </>
   );
 }
