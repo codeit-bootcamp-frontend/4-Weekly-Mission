@@ -7,7 +7,6 @@ import LinkItems from "../../component/LinkItems";
 import { Container, FolderName } from "./style";
 import FolderOption from "../../component/FolderOption";
 import MobileAddFolderButton from "../../component/MobileAddFolderButton";
-import EditModal from "../Modal/EditModal";
 
 const ALL = {
   id: "ALL",

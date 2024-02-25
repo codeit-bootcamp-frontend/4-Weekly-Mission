@@ -30,7 +30,7 @@ const FolderOptions = styled.div`
 const FolderOption = ({ selectedFolder }) => {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [shareFolderModalOpen, setShareFolderModalOpen] = useState(false);
-  const [deleteFolderModalOpen, setDeleteFolderModalOpen] = useState(false);
+  //   const [deleteFolderModalOpen, setDeleteFolderModalOpen] = useState(false);
 
   const handleClick = (e) => {
     const ID = e.target.id;
