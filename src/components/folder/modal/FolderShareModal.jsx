@@ -57,9 +57,9 @@ const Styled = {
  */
 
 function FolderShareModal({ setOpen, item }) {
-  const shareLink = `${window.location.origin}/shared/3`;
+  const shareLink = `${window.location.origin}/shared/${item}`;
 
-  const { shareKakao } = useKakaoShare(3);
+  const { shareKakao } = useKakaoShare(item);
 
   const handleClickLinkShare = () => {
     copyToClipboard(shareLink);
