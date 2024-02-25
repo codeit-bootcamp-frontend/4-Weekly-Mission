@@ -1,4 +1,6 @@
-const ShareModal = () => {
+import styled from "styled-components";
+
+function ShareModal() {
   const shareKakao = () => {
     if (window.Kakao) {
       const kakao = window.Kakao;
@@ -29,4 +31,6 @@ const ShareModal = () => {
       });
     }
   };
-};
+}
+
+export default ShareModal;
