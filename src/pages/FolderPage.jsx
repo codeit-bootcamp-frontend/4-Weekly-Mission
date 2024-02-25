@@ -6,7 +6,7 @@ import { CardList } from "link/ui-card-list";
 import { FolderToolBar } from "folder/feature-folder-tool-bar";
 import { LinkForm } from "link/ui-link-form";
 import { SearchBar } from "link/ui-search-bar";
-import { EditableCard } from "link/ui-editable-card";
+import { EditableCard } from "link/ui-editable-card/EditableCard";
 import { useMemo, useState } from "react";
 import { NoLink } from "link/ui-no-link";
 import { ALL_LINKS_ID } from "link/data-access-link/constant";
