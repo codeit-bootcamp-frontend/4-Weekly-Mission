@@ -23,7 +23,7 @@ function FolderPageMain({
 }) {
   const { data: folderData } = useFetch(folderUrl);
   const [folderName, setFolderName] = useState('');
-  const [isShowFuncButotonBox, setIsShowFuncButtonBox] = useState(true);
+  const [isShowFuncButotonBox, setIsShowFuncButtonBox] = useState(false);
   const [folderId, setFolderId] = useState('');
 
   const {
