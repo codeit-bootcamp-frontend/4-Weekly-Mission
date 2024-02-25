@@ -1,10 +1,14 @@
-import "../../assets/styles/SearchBar.css";
-import searchIcon from "../../assets/images/search.svg";
+import '../../assets/styles/SearchBar.css';
+import searchIcon from '../../assets/images/search.svg';
 
 const SearchBar = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="search-bar-container">
-      <form className="search-form">
+      <form className="search-form" onSubmit={handleSubmit}>
         <img id="search-icon" src={searchIcon} alt="search-icon" />
         <input
           className="search-bar"

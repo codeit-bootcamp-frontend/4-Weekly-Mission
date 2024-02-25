@@ -56,7 +56,11 @@ const FolderList = ({ folderData }) => {
         </div>
       </div>
       {selectedFolder ? (
-        <FolderCardList id={selectedFolder.id} name={selectedFolder.name} />
+        <FolderCardList
+          id={selectedFolder.id}
+          name={selectedFolder.name}
+          folderList={folderData}
+        />
       ) : (
         <div>저장된 링크가 없습니다.</div>
       )}

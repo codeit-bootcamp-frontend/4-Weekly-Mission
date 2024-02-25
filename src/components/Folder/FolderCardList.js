@@ -9,7 +9,7 @@ import deleteIcon from '../../assets/images/delete.svg';
 import ModalPortal from '../common/ModalPortal';
 import Modal from '../modal/Modal';
 
-const FolderCardList = ({ id, name }) => {
+const FolderCardList = ({ id, name, folderList }) => {
   const { result, execute, loading } = useAsync(() => getLinks(id));
   const { data: links } = result || [];
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,7 +54,7 @@ const FolderCardList = ({ id, name }) => {
             <div className="card-list">
               <div className="card-list-container">
                 {links.map((item) => (
-                  <FolderCardItem key={item.id} link={item} />
+                  <FolderCardItem key={item.id} link={item} folderList={folderList} />
                 ))}
               </div>
             </div>
@@ -65,7 +65,11 @@ const FolderCardList = ({ id, name }) => {
       )}
       {isModalOpen && (
         <ModalPortal>
-          <Modal action={action} data={name} closeModal={() => setIsModalOpen(false)} />
+          <Modal
+            action={action}
+            data={{ name, id }}
+            closeModal={() => setIsModalOpen(false)}
+          />
         </ModalPortal>
       )}
     </>

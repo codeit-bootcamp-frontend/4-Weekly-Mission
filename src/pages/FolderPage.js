@@ -12,7 +12,7 @@ const FolderPage = () => {
   return (
     <>
       <Nav style={{ position: 'relative' }} />
-      <AddLinkBar />
+      <AddLinkBar folderData={data} />
       <main>
         <SearchBar />
         {data ? <FolderList folderData={data} /> : null}
