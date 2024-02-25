@@ -24,19 +24,24 @@ const Styled = {
 /**
  * DeleteItemModal - 삭제버튼이 포함된 공통 모달 컴포넌트(폴더/링크 삭제)
  * @param {React.Dispatch.SetStateAction} setOpen 모달창 열림 상태 변경하는 set 함수
- * @param  {function} onClick 삭제하기 버튼 클릭 시 호출되는 함수
  * @param {string} modalTitle 모달 타이틀
  * @param {string} item 삭제 대상이 되는 아이템(폴더 or 링크)
  */
 
-function DeleteItemModal({ setOpen, onClick, modalTitle, item }) {
+function DeleteItemModal({ setOpen, modalTitle, item }) {
+  const handleButtonClick = () => {
+    // 삭제 시 로직 여기에
+    console.log('삭제되었습니다.');
+    setOpen(false);
+  };
+
   return (
     <BackdropModal setOpen={setOpen}>
       <Styled.Title>{modalTitle}</Styled.Title>
       <Styled.Item>{item}</Styled.Item>
       <Button
         type="button"
-        onClick={onClick}
+        onClick={handleButtonClick}
         styleType={BUTTON_TYPE.DELETE}
         style={{ height: '5.1rem', width: '100%' }}
       >

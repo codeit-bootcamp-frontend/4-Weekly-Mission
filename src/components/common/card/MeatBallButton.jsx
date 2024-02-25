@@ -59,35 +59,43 @@ function MeatBallButton() {
   };
 
   return (
-    <Styled.Container
-      ref={meatBallBtnRef}
-      type="button"
-      onClick={(e) => {
-        e.preventDefault();
-        setIsPopoverOpen(true);
-      }}
-    >
-      <img src={meatballIcon} alt="더보기 버튼" />
+    <>
+      <Styled.Container
+        ref={meatBallBtnRef}
+        type="button"
+        onClick={(e) => {
+          e.preventDefault();
+          setIsPopoverOpen(true);
+        }}
+      >
+        <img src={meatballIcon} alt="더보기 버튼" />
 
-      {isPopoverOpen && (
-        <Styled.Popover>
-          {BUTTON_TYPE.MEATBALL_OPTION.map((option) => (
-            <Styled.Option
-              key={option}
-              onClick={() => {
-                handleClickOption(option);
-              }}
-            >
-              {option}
-            </Styled.Option>
-          ))}
-          {isDeleteModalOpen && (
-            <DeleteItemModal setOpen={setIsDeleteModalOpen} modalTitle="링크 삭제" item="삭제할 아이템" />
-          )}
-          {isAddModalOpen && <AddToFolderModal setOpen={setIsAddModalOpen} item="추가할 아이템" />}
-        </Styled.Popover>
+        {isPopoverOpen && (
+          <Styled.Popover>
+            {BUTTON_TYPE.MEATBALL_OPTION.map((option) => (
+              <Styled.Option
+                key={option}
+                onClick={() => {
+                  handleClickOption(option);
+                }}
+              >
+                {option}
+              </Styled.Option>
+            ))}
+          </Styled.Popover>
+        )}
+      </Styled.Container>
+      {isDeleteModalOpen && (
+        <DeleteItemModal setOpen={setIsDeleteModalOpen} modalTitle="링크 삭제" item="삭제할 아이템" />
       )}
-    </Styled.Container>
+      {isAddModalOpen && (
+        <AddToFolderModal
+          setOpen={setIsAddModalOpen}
+          onModalClose={() => setIsAddModalOpen(false)}
+          item="추가할 아이템"
+        />
+      )}
+    </>
   );
 }
 
