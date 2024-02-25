@@ -105,6 +105,7 @@ function ModalShareSubFolder({ modalData }) {
 }
 
 function ModalRemoveSubFolder({ modalData }) {
+	console.log(modalData);
 	return (
 		<>
 			<h1 className={style.modalTitle}>

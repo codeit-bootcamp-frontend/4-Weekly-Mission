@@ -98,6 +98,7 @@ export default function Folder({ userId = 1 }) {
 		{
 			btnName: "삭제하기",
 			type: "removeLink",
+			data: [],
 			kebabHandle: handleModalOpen,
 			modalBtnAction: handleKebabAction,
 		},
