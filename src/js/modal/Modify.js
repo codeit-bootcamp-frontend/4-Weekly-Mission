@@ -10,8 +10,11 @@ function Modify({ setEditFolderModalOpen }) {
 
   return (
     <>
-      <div className="AddFolderBackground">
-        <div className="AddFolderContainer">
+      <div className="AddFolderBackground" onClick={closeModal}>
+        <div
+          className="AddFolderContainer"
+          onClick={(e) => e.stopPropagation()}
+        >
           <div className="AddFolderBox">
             <FontAwesomeIcon
               icon={faXmark}

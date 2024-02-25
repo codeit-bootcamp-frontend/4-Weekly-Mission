@@ -12,9 +12,11 @@ import Delete from "./modal/Delete";
 import Modify from "./modal/Modify";
 import Share from "./modal/Share";
 import AddToFolder from "./modal/AddToFolder";
+import DropDown from "./modal/DropDown";
 
 function Folder() {
   const [selectedLinks, setSelectedLinks] = useState([]);
+  const [selectedLinkId, setSelectedLinkId] = useState(null);
   const [folders, setFolders] = useState([]);
   const [selectedFolderId, setSelectedFolderId] = useState(null);
   const [addFolderModalOpen, setAddFolderModalOpen] = useState(false);
@@ -23,6 +25,8 @@ function Folder() {
   const [shareModalOpen, setShareModalOpen] = useState(false);
   const [addToFolderModalOpen, setAddToFolderModalOpen] = useState(false);
   const [linkInput, setLinkInput] = useState("");
+  // const [isKebabOpen, setIsKebabOpen] = useState(false);/
+  const [openKebabId, setOpenKebabId] = useState(null);
 
   const showAddFolderModal = () => {
     setAddFolderModalOpen(true);
@@ -44,6 +48,15 @@ function Folder() {
     setShareModalOpen(true);
   };
 
+  const showKebab = (id) => {
+    setOpenKebabId(id);
+    console.log(id);
+  };
+
+  const hideKebab = () => {
+    setOpenKebabId(null);
+  };
+
   // 폴더 목록 불러오기 (전체, 즐겨찾기, 코딩 팁 ...etc)
   useEffect(() => {
     const loadFolders = async () => {
@@ -61,6 +74,7 @@ function Folder() {
         const linksData = await fetchLinks(folderId);
         setSelectedLinks(linksData.data); // linksData가 { data: [링크 목록] } 구조를 가짐
         setSelectedFolderId(folderId);
+        console.log(selectedLinks);
       } catch (error) {
         console.error("Error fetching links:", error);
         setSelectedLinks([]); // 에러 발생 시 링크 목록 비우기
@@ -190,9 +204,22 @@ function Folder() {
                       alt="이미지 카드 사진"
                     ></img>
                     <div className="FolderLinkDesc">
-                      <div className="FolderTimeDiff">
-                        {getTimeAgo(link.created_at)}
+                      <div className="FolderTop">
+                        <div className="FolderTimeDiff">
+                          {getTimeAgo(link.created_at)}
+                        </div>
+                        <img
+                          src="./images/kebab.png"
+                          alt="케밥버튼"
+                          className="FolderKebab"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            showKebab(link.id);
+                          }}
+                        />
                       </div>
+                      {openKebabId === link.id && <DropDown />}
                       <div className="FolderDesc">{link.description}</div>
                       <div className="FolderLinkDate">
                         {formatDate(link.created_at)}

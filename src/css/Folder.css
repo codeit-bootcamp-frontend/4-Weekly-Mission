@@ -36,7 +36,7 @@
   font-size: 14px;
   font-weight: 600;
   position: absolute;
-  left: 1270px;
+  left: 1260px;
 }
 
 .FolderContentBox {
@@ -133,6 +133,7 @@
   weight: 334px;
   box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
   border-radius: 15px;
+  position: relative;
 }
 
 .FolderLinkImg {
@@ -193,4 +194,9 @@
 .FolderLinkDate {
   color: #333333;
   font-size: 14px;
+}
+
+.FolderTop {
+  display: flex;
+  justify-content: space-between;
 }
