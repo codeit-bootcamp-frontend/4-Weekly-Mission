@@ -7,7 +7,7 @@ import { useGetLink } from "hooks/useGetLink";
 import { useGetFolderByLink } from "hooks/useGetFolderByLink";
 import { Category } from "ui/Category";
 import { EditLink } from "ui/EditLink";
-import Modal from "Modal/Modal";
+import Modal from "ui/Modal/Modal";
 
 import "./FolderPage.css";
 import { useState } from "react";
@@ -51,6 +51,7 @@ export const FolderPage = () => {
           setIsModalOpen={setIsModalOpen}
           categoryData={linkData}
           currentUrl={currentUrl}
+          selectedId={+folderId}
         />
       )}
       <Layout isNavFixed={navFixed}>
