@@ -1,11 +1,29 @@
-// import styles from 'pages/HomePage/HomePage.module.css';
+import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 
-import AddToFolderModal from 'components/Modal/AddToFolderModal';
+import Button from 'components/Common/Button';
+
+import styles from 'pages/HomePage/HomePage.module.css';
+
+import scrollToTop from 'utils/scrollToTop';
 
 function HomePage() {
+  const containerClasses = classNames(styles.container, 'flex-col', 'align-center', 'position-absolute');
+  const linkSharedPageButtonClasses = classNames(styles.button, 'background-red', 'text-color-white', 'border-none');
+  const linkFolderPageButtonClasses = classNames(
+    styles.button,
+    'background-primary',
+    'text-color-white',
+    'border-none'
+  );
   return (
-    <div>
-      <AddToFolderModal />
+    <div className={containerClasses}>
+      <Link to="/Shared" onClick={scrollToTop}>
+        <Button className={linkSharedPageButtonClasses}>SharedPage</Button>
+      </Link>
+      <Link to="/Folder" onClick={scrollToTop}>
+        <Button className={linkFolderPageButtonClasses}>FolderPage</Button>
+      </Link>
     </div>
   );
 }
