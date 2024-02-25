@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./Card.css";
 
 export const Card = ({
@@ -14,8 +14,6 @@ export const Card = ({
   const [isHovered, setIsHovered] = useState(false);
   const [kebabOpen, setKebabOpen] = useState(false);
 
-  const handleMouseOver = () => setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
   const isFolder = typeof favorite !== "undefined";
   const classNameContent = isHovered
     ? "CardContent CardContent-hovered"
@@ -24,6 +22,21 @@ export const Card = ({
   const isFavorite = favorite
     ? "images/full-star.svg"
     : "images/empty-star.svg";
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e) => {
+      if (ref.current && !ref.current.contains(e.target))
+        setKebabOpen && setKebabOpen(false);
+    };
+    document.addEventListener("click", handleOutsideClick, true);
+    return () => {
+      document.removeEventListener("click", handleOutsideClick, true);
+    };
+  }, [setKebabOpen]);
+
+  const handleMouseOver = () => setIsHovered(true);
+  const handleMouseLeave = () => setIsHovered(false);
 
   const handleKebabClick = (e) => {
     e.preventDefault();
@@ -57,7 +70,7 @@ export const Card = ({
               </button>
             )}
             {kebabOpen && (
-              <div className="kebabMenu" onClick={handleModalClick}>
+              <div className="kebabMenu" onClick={handleModalClick} ref={ref}>
                 <button id="deleteLink" className="kebabMenu-button" url={url}>
                   삭제하기
                 </button>
