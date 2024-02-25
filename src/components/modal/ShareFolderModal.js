@@ -1,11 +1,41 @@
 import styles from './ShareFolderModal.module.css';
 import ModalWrapper from './ModalWrapper';
+import { useEffect } from 'react';
 
 export default function ShareFolderModal({
   handleShareFolderModalClick,
   FolderModalValue,
   ShareUrlFolderId,
 }) {
+  const { Kakao } = window;
+
+  useEffect(() => {
+    Kakao.cleanup();
+    Kakao.init('9adbb4d8d436041f3eeadb2a25b525ec');
+    console.log(Kakao.isInitialized());
+  });
+  const shareKakao = () => {
+    Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: 'Linkbrary',
+        description: '링크를 공유해보세요',
+        imageUrl: `${process.env.PUBLIC_URL}/assets/images/share_url_copy_url_icon.svg`,
+        link: {
+          mobileWebUrl: window.location.host + '/shared/' + ShareUrlFolderId,
+        },
+      },
+      buttons: [
+        {
+          title: '나도 테스트 하러가기',
+          link: {
+            mobileWebUrl: window.location.host + '/shared/' + ShareUrlFolderId,
+          },
+        },
+      ],
+    });
+  };
+
   return (
     <ModalWrapper>
       <div className={styles['modal-wrapper']}>
@@ -19,6 +49,7 @@ export default function ShareFolderModal({
             <img
               src={`${process.env.PUBLIC_URL}/assets/images/share_url_kakao_talk_icon.svg`}
               alt='kakao-talk-shared-icon'
+              onClick={shareKakao}
             />
             <p>카카오톡</p>
           </div>
@@ -26,6 +57,14 @@ export default function ShareFolderModal({
             <img
               src={`${process.env.PUBLIC_URL}/assets/images/share_url_facebook_icon.svg`}
               alt='face-book-shared-icon'
+              onClick={() => {
+                window.open(
+                  'https://twitter.com/intent/tweet?text=' +
+                    window.location.host +
+                    '/shared/' +
+                    ShareUrlFolderId
+                );
+              }}
             />
             <p>페이스북</p>
           </div>
@@ -40,7 +79,7 @@ export default function ShareFolderModal({
                     window.location.host + '/shared/' + ShareUrlFolderId
                   )
                   .then(() => {
-                    alert('복사완료');
+                    alert('링크 복사완료');
                   });
               }}
             />

@@ -5,7 +5,7 @@ import FolderPageMain from '../components/main/FolderPageMain';
 import useModal from '../hooks/useModal';
 import { useState } from 'react';
 function Folder() {
-  const userDataUrl = 'https://bootcamp-api.codeit.kr/api/users/2';
+  const userDataUrl = 'https://bootcamp-api.codeit.kr/api/users/1';
   const {
     isShowModal: isShowAddLinkInFolderModal,
     handleModalClick: handleAddLinkInFolderModalClick,

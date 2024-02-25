@@ -11,7 +11,7 @@ function FolderFilterBox({
   setFolderModalValue,
   setShareUrlFolderId,
 }) {
-  const [activeFilterId, setActiveFilterId] = useState(-1);
+  const [activeFilterId, setActiveFilterId] = useState('showAll');
 
   return (
     <div className={styles.link_filter_box}>
