@@ -6,11 +6,7 @@ function CardFooter({ createdAt }) {
     return `${d.getFullYear()}. ${d.getMonth() + 1}. ${d.getDate()}`;
   };
 
-  return (
-    <div>
-      <span>{formatData(createdAt)}</span>
-    </div>
-  );
+  return <span>{formatData(createdAt)}</span>;
 }
 
 export default CardFooter;
