@@ -2,7 +2,7 @@
   position: absolute;
   width: 100px;
   right: -60px;
-  bottom: 50px;
+  bottom: 40px;
   z-index: 5;
   display: flex;
   flex-direction: column;
@@ -11,21 +11,17 @@
 }
 
 .nonClicked {
+  font-size: 14px;
   display: flex;
   padding: 7px 12px;
   justify-content: center;
   align-items: flex-start;
   gap: 10px;
   align-self: stretch;
+  cursor: pointer;
 }
 
-.clicked {
-  display: flex;
-  padding: 7px 12px;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
-  align-self: stretch;
-  color: var(--Linkbrary-primary-color, #6d6afe);
-  background: var(--Linkbrary-gray10, #e7effb);
+.nonClicked:hover {
+  color: var(--primary);
+  background: var(--gray10);
 }

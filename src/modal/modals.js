@@ -1,5 +1,5 @@
 export const MODALS = {
-  add: {
+  addFolder: {
     type: "add",
     title: "폴더 추가",
     buttonName: "추가하기",
@@ -23,5 +23,11 @@ export const MODALS = {
   },
   share: {
     type: "edit",
+    title: "폴더 공유",
+  },
+  addToFolder: {
+    type: "addToFolder",
+    title: "폴더에 추가",
+    buttonName: "추가하기",
   },
 };

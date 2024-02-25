@@ -3,7 +3,7 @@ import FolderButton from "./FolderButton";
 import addImg from "../images/add.svg";
 import { useState, useMemo } from "react";
 import FolderOptions from "./FolderOptions";
-import AddModal from "../modal/AddModal";
+import AddFolderModal from "../modal/AddFolderModal";
 import EditModal from "../modal/EditModal";
 import { MODALS } from "../modal/modals";
 
@@ -21,7 +21,6 @@ const WHOLE_BUTTON = {
 function FolderListBar({ folderList, onClick }) {
   const [currentFolderName, setCurrentFolderName] = useState("");
   const [currentFolderId, setCurrentFolderId] = useState(1);
-  const [clickedIdx, setClickedIdx] = useState(0);
   const [isModalClicked, setIsModalClicked] = useState({
     add: false,
     edit: false,
@@ -39,15 +38,13 @@ function FolderListBar({ folderList, onClick }) {
     getLinksbyId({ folderId: `${folderId}` });
   };
 
-  const changeClickedIdx = (idx) => {
-    setClickedIdx(idx);
+  const changeClickedId = (id) => {
+    setCurrentFolderId(id);
   };
 
   const handleModalClick = (type) => {
     const value = isModalClicked[type];
     setIsModalClicked({ ...isModalClicked, [type]: !value });
-    console.log("handleModalClick실행!");
-    console.log(isModalClicked);
   };
 
   const newFolderList = useMemo(() => {
@@ -64,8 +61,8 @@ function FolderListBar({ folderList, onClick }) {
               idx={idx}
               folder={folder}
               onClick={changeFolder}
-              isClicked={idx === clickedIdx}
-              changeClickedIdx={changeClickedIdx}
+              isClicked={folder.id === currentFolderId}
+              changeClickedId={() => changeClickedId(folder.id)}
             />
           ))}
         </div>
@@ -73,7 +70,7 @@ function FolderListBar({ folderList, onClick }) {
           className={
             currentFolderId === 1 ? styles.invisible : styles.addFolderContainer
           }
-          onClick={() => handleModalClick(MODALS.add.type)}
+          onClick={() => handleModalClick(MODALS.addFolder.type)}
         >
           <div className={styles.addFolderText}>폴더 추가</div>
           <img className={styles.addImg} src={addImg} alt="addImg" />
@@ -83,11 +80,10 @@ function FolderListBar({ folderList, onClick }) {
         <FolderOptions
           folderName={currentFolderName}
           folderId={currentFolderId}
-          isModalClicked={isModalClicked}
           handleModalClick={handleModalClick}
         />
       </div>
-      <AddModal
+      <AddFolderModal
         isModalClicked={isModalClicked}
         handleModalClick={handleModalClick}
       />

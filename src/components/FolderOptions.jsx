@@ -6,9 +6,6 @@ import { MODALS } from "../modal/modals";
 
 function FolderOptions({ folderName, folderId, handleModalClick }) {
   const { edit, deleteFolder, share } = MODALS;
-  const onClickCloseButton = (type) => {
-    handleModalClick(type);
-  };
   return (
     folderName && (
       <>
@@ -21,7 +18,7 @@ function FolderOptions({ folderName, folderId, handleModalClick }) {
             </div>
             <div
               className={styles.option}
-              onClick={() => onClickCloseButton(edit.type)}
+              onClick={() => handleModalClick(edit.type)}
             >
               <img src={penImg} alt="pen" />
               <p>이름 변경</p>

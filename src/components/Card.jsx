@@ -5,9 +5,15 @@ import star from "../images/star.svg";
 import styles from "./Card.module.css";
 import SelectMenu from "./SelectMenu";
 import { useState } from "react";
+import DeleteLinkModal from "../modal/DeleteLinkModal";
+import AddToFolderModal from "../modal/AddToFolderModal/AddToFolderModal";
 
 function Card({ link }) {
   const [isKebabClicked, setIsKebabClicked] = useState(false);
+  const [isModalClicked, setIsModalClicked] = useState({
+    deleteLink: false,
+    addToFolder: false,
+  });
   const cardImage =
     link.imageSource || link["image_source"]
       ? link.imageSource || link["image_source"]
@@ -21,8 +27,13 @@ function Card({ link }) {
   };
 
   const onClickKebab = (e) => {
-    e.stopPropagation();
     setIsKebabClicked((prevValue) => !prevValue);
+    e.stopPropagation();
+  };
+
+  const onToggleModal = (type) => {
+    const value = isModalClicked[type];
+    setIsModalClicked({ ...isModalClicked, [type]: !value });
   };
 
   return (
@@ -42,8 +53,28 @@ function Card({ link }) {
           <div className={styles.description}>{link.description}</div>
           <div>{formatDate}</div>
         </div>
-        {isKebabClicked ? <SelectMenu /> : null}
+        {isKebabClicked ? (
+          <SelectMenu
+            url={link?.url}
+            onClickKebab={onClickKebab}
+            onToggleModal={onToggleModal}
+          />
+        ) : null}
       </div>
+      {isModalClicked.deleteLink && (
+        <DeleteLinkModal
+          url={link.url}
+          isModalClicked={isModalClicked}
+          onToggleModal={onToggleModal}
+        />
+      )}
+      {isModalClicked.addToFolder && (
+        <AddToFolderModal
+          url={link.url}
+          isModalClicked={isModalClicked}
+          onToggleModal={onToggleModal}
+        />
+      )}
     </>
   );
 }
