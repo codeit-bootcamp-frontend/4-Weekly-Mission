@@ -7,6 +7,9 @@ import {
   Icon,
   IconLabel,
 } from './folderModalStyle';
+import kaKaoIcon from '../../../assets/icons/Kakao.svg';
+import facebookIcon from '../../../assets/icons/Facebook.svg';
+import linkIcon from '../../../assets/icons/link.svg';
 
 const FolderShare = ({ onClose, selectedFolderName, selectedFolderId }) => {
   const hostAddress = window.location.origin;
@@ -35,19 +38,19 @@ const FolderShare = ({ onClose, selectedFolderName, selectedFolderId }) => {
     {
       id: 'kakao',
       label: '카카오톡',
-      icon: '../../../assets/icons/Kakao.svg',
+      icon: kaKaoIcon,
       action: shareToSNS('카카오톡'),
     },
     {
       id: 'facebook',
       label: '페이스북',
-      icon: '../../../assets/icons/Facebook.svg',
+      icon: facebookIcon,
       action: shareToSNS('페이스북'),
     },
     {
       id: 'link',
       label: '링크 복사',
-      icon: '../../../assets/icons/link.svg',
+      icon: linkIcon,
       action: shareToSNS('link'),
     },
   ];
