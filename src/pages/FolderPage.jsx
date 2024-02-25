@@ -13,9 +13,10 @@ import {
   getSelectedCards,
   getUser,
 } from "../services/api";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import DeleteModal from "../components/Modals/DeleteModal";
 import EditModal from "../components/Modals/EditModal";
+import ShareModal from "../components/Modals/ShareModal";
 
 function FolderPage() {
   const [userCards, setUserCards] = useState([]);
@@ -28,6 +29,7 @@ function FolderPage() {
   const [isFolderDeleteSelect, setIsFolderDeleteSelect] = useState(false);
   const [isFolderAddSelect, setIsFolderAddSelect] = useState(false);
   const [isFolderEditSelect, setIsFolderEditSelect] = useState(false);
+  const [isFolderShareSelect, setIsFolderShareSelect] = useState(false);
 
   const getCardsInfo = async () => {
     const response = await getCards();
@@ -53,21 +55,25 @@ function FolderPage() {
     setUserInfo(userInfo);
   };
 
-  const changeLinkDeleteSelect = () => {
+  const changeLinkDeleteSelect = useCallback(() => {
     setIsLinkDeleteSelect(!isLinkDeleteSelect);
-  };
+  }, [isLinkDeleteSelect]);
 
-  const changeFolderDeleteSelect = () => {
+  const changeFolderDeleteSelect = useCallback(() => {
     setIsFolderDeleteSelect(!isFolderDeleteSelect);
-  };
+  }, [isFolderDeleteSelect]);
 
-  const changeFolderAddSelect = () => {
+  const changeFolderAddSelect = useCallback(() => {
     setIsFolderAddSelect(!isFolderAddSelect);
-  };
+  }, [isFolderAddSelect]);
 
-  const changeFolderEditSelect = () => {
+  const changeFolderEditSelect = useCallback(() => {
     setIsFolderEditSelect(!isFolderEditSelect);
-  };
+  }, [isFolderEditSelect]);
+
+  const changeFolderShareSelect = useCallback(() => {
+    setIsFolderShareSelect(!isFolderShareSelect);
+  }, [isFolderShareSelect]);
 
   useEffect(() => {
     getFoldersInfo();
@@ -113,6 +119,9 @@ function FolderPage() {
           isFolderEditSelect={isFolderEditSelect}
         />
       )}
+      {isFolderShareSelect && (
+        <ShareModal changeFolderShareSelect={changeFolderShareSelect} />
+      )}
       <header>
         <NavigationBar userInfo={userInfo} />
       </header>
@@ -131,6 +140,7 @@ function FolderPage() {
           isAllFolderSelected={isAllFolderSelected}
           changeFolderDeleteSelect={changeFolderDeleteSelect}
           changeFolderEditSelect={changeFolderEditSelect}
+          changeFolderShareSelect={changeFolderShareSelect}
         />
         <Cards
           cards={userCards}

@@ -8,6 +8,7 @@ function FolderCurrentInformation({
   isAllFolderSelected,
   changeFolderDeleteSelect,
   changeFolderEditSelect,
+  changeFolderShareSelect,
 }) {
   return (
     <div className="FolderCurrentInformation">
@@ -15,7 +16,10 @@ function FolderCurrentInformation({
         <div>{folderName}</div>
         {!isAllFolderSelected && (
           <div className="icon_container">
-            <div className="icon_each_container">
+            <div
+              className="icon_each_container"
+              onClick={changeFolderShareSelect}
+            >
               <img className="icon" src={shareIcon} alt="share" />
               공유
             </div>
