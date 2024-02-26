@@ -1,8 +1,8 @@
 import '../styles/CardList.css';
 import Card from './Card';
 
-const CardList = ({ folderInfo, isIconVisible }) => {
-  const card = isIconVisible ? folderInfo : folderInfo?.folder.links;
+const CardList = ({ folderLink, folderInfo, isIconVisible }) => {
+  const card = folderLink || folderInfo?.folder.links;
 
   return (
     <>

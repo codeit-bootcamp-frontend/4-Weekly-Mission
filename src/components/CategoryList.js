@@ -22,7 +22,8 @@ const CategoryList = ({ folderInfo, categoryList }) => {
   const handleLoad = async categoryId => {
     try {
       const state = await getFolderLink(categoryId);
-      setFolderLink(state.data);
+      console.log(state);
+      setFolderLink(state);
     } catch (error) {
       console.error(error);
     }
@@ -32,6 +33,7 @@ const CategoryList = ({ folderInfo, categoryList }) => {
     handleLoad(selected.id);
   }, [selected.id]);
 
+  console.log(selected.id);
   return (
     <>
       <div className='category-list'>
@@ -54,21 +56,21 @@ const CategoryList = ({ folderInfo, categoryList }) => {
       </div>
 
       <div className='category-title'>
-        <h2 className='folder-name'>{selected.name}</h2>
+        <h2 className='category-name'>{selected.name}</h2>
         {selected.name !== '전체' ? (
           <>
-            <div className='folder-menu'>
-              <img className='folder-menu-icon' src={iconShare} alt='폴더 공유하기.' />
-              <a className='folder-menu-text'>공유</a>
-              <img className='folder-menu-icon' src={iconPen} alt='폴더 이름 변경하기.' />
-              <a className='folder-menu-text'>이름 변경</a>
-              <img className='folder-menu-icon' src={iconDelete} alt='폴더 삭제하기.' />
-              <a className='folder-menu-text'>삭제</a>
+            <div className='category-menu'>
+              <img className='category-menu-icon' src={iconShare} alt='폴더 공유하기.' />
+              <a className='category-menu-text'>공유</a>
+              <img className='category-menu-icon' src={iconPen} alt='폴더 이름 변경하기.' />
+              <a className='category-menu-text'>이름 변경</a>
+              <img className='category-menu-icon' src={iconDelete} alt='폴더 삭제하기.' />
+              <a className='category-menu-text'>삭제</a>
             </div>
           </>
         ) : null}
       </div>
-      <CardList folderInfo={folderInfo} isIconVisible={false} />
+      <CardList folderLink={folderLink} folderInfo={folderInfo} isIconVisible={true} />
     </>
   );
 };

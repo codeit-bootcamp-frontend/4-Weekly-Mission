@@ -25,6 +25,7 @@ const FoldPage = () => {
     handleLoad(getSharedFolder, setFolder);
     handleLoad(getFolderList, setCategoryList);
   }, []);
+  console.log(user);
 
   return (
     <div>
