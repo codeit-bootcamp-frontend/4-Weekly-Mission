@@ -6,6 +6,7 @@ import '../css/Folder.css';
 import React, { useState, useEffect } from 'react';
 import ShareAPI from './share/ShareAPI';
 import CountDate from './share/CountDate';
+import { Link } from 'react-router-dom';
 
 function Folder(){
   const [folderData, setFolderData] = useState(null);
@@ -66,26 +67,34 @@ function Folder(){
                 <button>유용한 글</button>
                 <button>나만의 장소</button>
               </div>
+              <Link to='FolderAddModal'>
               <div className='folderadd'>
                 <p>폴더추가</p>
                 <img src='/img/add.svg' alt='plus'></img>
               </div>
+              </Link>
             </div>
           <div className='title'>
             <h1>유용한 글</h1>
             <div className='option'>
+              <Link to='ShareModal'>
               <div>
                 <img src='/img/share.svg' alt='공유'></img>
                 <p>공유</p>
               </div>
+              </Link>
+              <Link to='EditModal'>
               <div>
                 <img src='/img/pen.svg' alt='변경'></img>
                 <p>이름 변경</p>
               </div>
+              </Link>
+              <Link to='FolderDeleteModal'>
               <div>
                 <img src='/img/Group 36.svg' alt='삭제'></img>
                 <p>삭제</p>
               </div>
+              </Link>
             </div>
           </div>
         <div className='cardbar'>

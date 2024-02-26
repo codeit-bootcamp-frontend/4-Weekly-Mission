@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import '../css/Reset.css';
 import '../css/Global.css';
-import '../css/Modal.css'
+import '../../css/Modal.css'
 
-const Modal = ({ isOpen, closeModal }) => {
+const ShareModal = ({ isOpen, closeModal }) => {
   const [currentFolderId, setCurrentFolderId] = useState(null); //아직 파일 공유용 없어서 setCurrentFolderId사용못함
 
   const handleKakaoClick = () => {
@@ -31,46 +31,13 @@ const Modal = ({ isOpen, closeModal }) => {
   return (
     <>
       <div
-        id='background'
-        style={{
-          display: isOpen ? 'flex' : 'none',
-          background: 'rgba( 0, 0, 0, 0.4 )',
-          width: '100%',
-          height: '100vh',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}>
-        <div
-          id='whiteBox'
-          style={{
-            display: 'flex',
-            padding: '3.2rem 4rem',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flexDirection: 'column',
-            position: 'relative',
-            background: '#FFFFFF',
-            borderRadius: '1.5rem',
-            gap: '2.4rem',
-            zIndex: '1',
-          }}>
-        <img src='/img/_close.png' alt='닫기 버튼' onClick={closeModal} style={{
-            position: 'absolute',
-            top: '1.6rem',
-            right: '1.6rem',
-            width: '2.4rem',
-            height: '2.4rem',
-            }}/>
-          <div
-            id='title'
-            style={{
-              width: '28rem',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-              gap: '0.8rem'
-            }}>
+      id='background'
+      style={{
+        display: isOpen ? 'flex' : 'none',
+      }}>
+      <div id='whiteBox'>
+      <img id='closeBtn' src='/img/_close.png' alt='닫기 버튼' onClick={closeModal}/>
+        <div id='title'>
             <div>
               <p
                 style={{
@@ -113,4 +80,4 @@ const Modal = ({ isOpen, closeModal }) => {
   );
 };
 
-export default Modal;
+export default ShareModal;
