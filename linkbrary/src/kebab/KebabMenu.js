@@ -28,28 +28,34 @@ const KebabMenu = ({ isShowModal, dataUrl }) => {
   };
 
   return (
-    <MenuContainer>
+    <KebabMenuContainer>
       <div onClick={isDeleteModal}>삭제하기</div>
       <div onClick={isFolderAddModal}>폴더에 추가</div>
-    </MenuContainer>
+    </KebabMenuContainer>
   );
 };
 
-const MenuContainer = styled.div`
+const KebabMenuContainer = styled.div`
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 2.5rem;
-  left: 280px;
   width: 100px;
   background-color: white;
   gap: 10px;
-  width: 7rem;
-  padding: 5px 0px;
-  box-shadow: 0 0.2rem 0.8rem 0 rgba(51, 50, 54, 0.1);
+  width: 100px;
+  padding: 7px 12px;
+  box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
 
-  &:hover {
-    background-color: #f0f6ff;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  div {
+    &:hover {
+      background-color: #f0f6ff;
+      color: #6d6afe;
+    }
   }
 `;
 

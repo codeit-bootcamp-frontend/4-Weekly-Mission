@@ -9,12 +9,15 @@ import AddLink from "../components/AddLink";
 import Category from "../components/Category";
 import FolderFunction from "../components/FolderFunction";
 import Contents from "../components/Contents";
+import useGetJson from "../functions/useGetJson";
+import Modal from "../modals/Modal";
 
 function Folder() {
   const [title, setTitle] = useState("전체");
   const [listId, setListId] = useState("");
   const [data, setData] = useState([]);
   const [user, setUser] = useState(null);
+  const [allMenuId, setAllMenuId] = useState(null);
   const [addModal, setAddModal] = useState({
     linkModal: false,
     folderAddModal: false,
@@ -24,6 +27,10 @@ function Folder() {
     linkDeleteModal: false,
     dataUrl: "",
   });
+
+  const handleGetFolderId = (id) => {
+    setAllMenuId(id);
+  };
 
   const handleLoad = async (id = 0) => {
     try {
@@ -55,45 +62,90 @@ function Folder() {
     setAddModal(linkAddModal);
   };
 
-  const isShareModal = (e) => {
-    e.preventDefault();
-    isShowModal((prev) => ({
-      linkModal: false,
-      folderAddModal: false,
-      shareAddModal: true,
-    }));
+  const getFolderList = async () => {
+    try {
+      const result = getAPI(`/users/1/folders`);
+      return result;
+    } catch (error) {
+      console.error(error);
+    }
   };
 
-  const isEditModal = (e) => {
-    e.preventDefault();
-    isShowModal((prev) => ({
-      linkModal: false,
-      folderAddModal: false,
-      shareAddModal: false,
-      editAddModal: true,
-    }));
-  };
-
-  const isDeleteModal = (e) => {
-    e.preventDefault();
-    isShowModal((prev) => ({
-      linkModal: false,
-      folderAddModal: false,
-      shareAddModal: false,
-      editAddModal: false,
-      deleteAddModal: true,
-    }));
-  };
+  const listsData = useGetJson(getFolderList);
 
   return (
     <>
+      {Object.values(addModal).some((value) => value === true) ? (
+        <BackgroundContainer />
+      ) : null}
       <Header user={user} />
-      <AddLink />
+      <AddLink setIsShowModal={isShowModal} />
+      {addModal.linkModal ? (
+        <Modal
+          title="폴더에 추가"
+          folderData={data}
+          folderMenus={listsData?.data}
+          isShowModal={isShowModal}
+          linkAddModal={addModal.linkModal}
+        />
+      ) : null}
+      {addModal.folderAddModal ? (
+        <Modal
+          title="폴더 추가"
+          folderData={data}
+          folderMenus={listsData?.data}
+          isShowModal={isShowModal}
+          folderAddModal={addModal.folderAddModal}
+        />
+      ) : null}
+      {addModal.shareAddModal ? (
+        <Modal
+          title="폴더 공유"
+          folderData={data}
+          folderMenus={listsData?.data}
+          isShowModal={isShowModal}
+          shareModal={addModal.shareAddModal}
+          menusId={allMenuId}
+        />
+      ) : null}
+      {addModal.editAddModal ? (
+        <Modal
+          title="폴더 이름 변경"
+          folderData={data}
+          folderMenus={listsData?.data}
+          isShowModal={isShowModal}
+          editModal={addModal.editAddModal}
+        />
+      ) : null}
+
+      {addModal.deleteAddModal ? (
+        <Modal
+          title="폴더 삭제"
+          folderData={data}
+          folderMenus={listsData?.data}
+          isShowModal={isShowModal}
+          deleteModal={addModal.deleteAddModal}
+        />
+      ) : null}
+      {addModal.linkDeleteModal ? (
+        <Modal
+          title="링크 삭제"
+          folderData={data}
+          folderMenus={listsData?.data}
+          isShowModal={isShowModal}
+          linkDeleteModal={addModal.linkDeleteModal}
+          dataUrl={addModal.dataUrl}
+        />
+      ) : null}
       <Search />
-      <Category changeTitle={setTitle} changeID={setListId} />
-      <FolderFunction titleName={title} />
+      <Category
+        changeTitle={setTitle}
+        changeID={setListId}
+        isShowModal={isShowModal}
+      />
+      <FolderFunction titleName={title} isShowModal={isShowModal} />
       {data[0] ? (
-        <Contents items={data} />
+        <Contents items={data} isShowModal={isShowModal} />
       ) : (
         <NoLink>저장된 링크가 없습니다.</NoLink>
       )}
@@ -102,6 +154,15 @@ function Folder() {
     </>
   );
 }
+
+const BackgroundContainer = styled.div`
+  height: 100%;
+  background-color: #000000;
+  opacity: 0.4;
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+`;
 
 const NoLink = styled.p`
   color: #000;

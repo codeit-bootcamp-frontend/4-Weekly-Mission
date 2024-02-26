@@ -55,30 +55,77 @@ const ShareModal = ({ menusId }) => {
   };
 
   return (
-    <div className="modal-share-content">
-      <div className="share-area">폴더명</div>
-      <div className="share-sns">
-        <div className="sns-icon">
-          <a onClick={shareKakao}>
+    <ShareContent className="modal-share-content">
+      <ShareArea>폴더명</ShareArea>
+      <ShareSns>
+        <div>
+          <KakaoIcon onClick={shareKakao}>
             <img src={kakaoIcon} />
-          </a>
-          <p>카카오톡</p>
+          </KakaoIcon>
+          <ShareApp>카카오톡</ShareApp>
         </div>
-        <div className="sns-icon">
-          <a onClick={shareFacebook}>
+
+        <div>
+          <FacebookIcon onClick={shareFacebook}>
             <img src={facebookIcon} />
-          </a>
-          <p>페이스북</p>
+          </FacebookIcon>
+          <ShareApp>페이스북</ShareApp>
         </div>
-        <div className="sns-icon">
-          <a onClick={handleCopyClipBoard}>
+        <div>
+          <ShareIcon onClick={handleCopyClipBoard}>
             <img src={shareLink} />
-          </a>
-          <p>링크 복사</p>
+          </ShareIcon>
+          <ShareApp>링크 복사</ShareApp>
         </div>
-      </div>
-    </div>
+      </ShareSns>
+    </ShareContent>
   );
 };
 
+const ShareContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 8px;
+  gap: 1.5rem;
+`;
+
+const ShareArea = styled.div`
+  color: #9fa6b2;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+`;
+
+const ShareSns = styled.div`
+  display: flex;
+  gap: 2rem;
+`;
+
+const ShareApp = styled.div`
+  margin-top: 10px;
+  text-align: center;
+`;
+const Icons = styled.button`
+  display: flex;
+  width: 42px;
+  height: 42px;
+  border-radius: 90px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+`;
+const KakaoIcon = styled(Icons)`
+  background: #fee500;
+`;
+
+const FacebookIcon = styled(Icons)`
+  background: #1877f2;
+`;
+
+const ShareIcon = styled(Icons)`
+  background: rgba(157, 157, 157, 0.04);
+`;
 export default ShareModal;

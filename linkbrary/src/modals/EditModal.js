@@ -20,15 +20,19 @@ const EditContent = styled.div`
 `;
 
 const EditInput = styled.input`
-  height: 3.75rem;
-  padding: 0 1rem;
+  padding: 18px 15px;
   border: 1px solid #ccd5e3;
   border-radius: 8px;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
 `;
 
 const EditButton = styled.button`
   display: flex;
-  width: 17.5rem;
+  width: 280px;
   height: 51px;
   align-items: center;
   justify-content: center;

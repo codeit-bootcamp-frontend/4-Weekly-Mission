@@ -1,16 +1,10 @@
 import { styled } from "styled-components";
 import { useState } from "react";
 import useGetJson from "../functions/useGetJson";
-import unionImgSrc from "../assets/Union.svg";
 import { getAPI } from "../APIUtil";
 import Modal from "../modals/Modal";
 
-function Category({ changeTitle, changeID }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
+function Category({ changeTitle, changeID, isShowModal }) {
   const getFolderList = async () => {
     try {
       const result = getAPI(`/users/1/folders`);
@@ -44,6 +38,11 @@ function Category({ changeTitle, changeID }) {
     });
   };
 
+  const showFolderAddModal = (e) => {
+    e.preventDefault();
+    isShowModal((prev) => ({ linkModal: false, folderAddModal: true }));
+  };
+
   return (
     <Container>
       <ButtonDiv>
@@ -59,9 +58,7 @@ function Category({ changeTitle, changeID }) {
         ))}
       </ButtonDiv>
       <AddFolderDiv>
-        <AddFolder onClick={openModal}>폴더 추가</AddFolder>
-        <img src={unionImgSrc} alt="unionIcon" onClick={openModal} />
-        <Modal isOpen={isModalOpen} content="test" closeModal={closeModal} />
+        <AddFolder onClick={showFolderAddModal}>폴더 추가 +</AddFolder>
       </AddFolderDiv>
     </Container>
   );
@@ -113,7 +110,7 @@ const AddFolderDiv = styled.div`
   }
 `;
 
-const AddFolder = styled.span`
+const AddFolder = styled.button`
   color: #6d6afe;
   text-align: center;
   font-family: Pretendard;

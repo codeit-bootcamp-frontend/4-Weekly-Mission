@@ -4,26 +4,51 @@ import penImgSrc from "../assets/pen.svg";
 import trashImgSrc from "../assets/trash.svg";
 import { useState } from "react";
 
-function FolderFunction({ titleName }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+function FolderFunction({ titleName, isShowModal }) {
+  const isShareModal = (e) => {
+    e.preventDefault();
+    isShowModal((prev) => ({
+      linkModal: false,
+      folderAddModal: false,
+      shareAddModal: true,
+    }));
+  };
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
+  const isEditModal = (e) => {
+    e.preventDefault();
+    isShowModal((prev) => ({
+      linkModal: false,
+      folderAddModal: false,
+      shareAddModal: false,
+      editAddModal: true,
+    }));
+  };
+
+  const isDeleteModal = (e) => {
+    e.preventDefault();
+    isShowModal((prev) => ({
+      linkModal: false,
+      folderAddModal: false,
+      shareAddModal: false,
+      editAddModal: false,
+      deleteAddModal: true,
+    }));
+  };
 
   return (
     <Container>
       <Title>{titleName}</Title>
       {titleName !== "전체" ? (
         <OptionBox>
-          <Option onClick={openModal}>
+          <Option onClick={isShareModal}>
             <OptionIcon src={shareImgSrc}></OptionIcon>
             <OptionText>공유</OptionText>
           </Option>
-          <Option>
+          <Option onClick={isEditModal}>
             <OptionIcon src={penImgSrc}></OptionIcon>
             <OptionText>이름 변경</OptionText>
           </Option>
-          <Option>
+          <Option onClick={isDeleteModal}>
             <OptionIcon src={trashImgSrc}></OptionIcon>
             <OptionText>삭제</OptionText>
           </Option>
@@ -70,7 +95,7 @@ const OptionBox = styled.div`
   gap: 12px;
 `;
 
-const Option = styled.div`
+const Option = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;

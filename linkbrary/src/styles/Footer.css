@@ -1,4 +1,8 @@
 .footer-area {
+  position: static;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin-top: 6rem;
   background-color: var(--black);
 }

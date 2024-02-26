@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import closeImgSrc from "../assets/close.svg";
-import { useState } from "react";
+import "./Modal.css";
+import closeImgSrc from "../assets/closeIcon.svg";
 import AddFolderModal from "./AddFolderModal";
 import AddLinkModal from "./AddLinkModal";
-import DeleteFolderModal from "./DeleteFolderModal";
-import DeleteLinkModal from "./DeleteLinkModal";
+import DeleteModal from "./DeleteModal";
 import EditModal from "./EditModal";
 import ShareModal from "./ShareModal";
 
@@ -34,16 +33,16 @@ const Modal = ({
     }));
   };
   return (
-    <div className="modal">
+    <ModalComponenet className="modal">
       <div
         className={linkAddModal ? "modal-container" : "small-modal-container"}
       >
-        <h2 className="modal-title">{title}</h2>
-        <a className="modal-button-close" href="/" onClick={handleClickExit}>
+        <ModalTitle>{title}</ModalTitle>
+        <CloseButton className="modal-button-close" onClick={handleClickExit}>
           <img src={closeImgSrc} alt="닫기" />
-        </a>
-        {linkDeleteModal ? <DeleteLinkModal link={dataUrl} /> : null}
-        {deleteModal ? <DeleteFolderModal title="폴더 삭제" /> : null}
+        </CloseButton>
+        {linkDeleteModal ? <DeleteModal link={dataUrl} /> : null}
+        {deleteModal ? <DeleteModal title="폴더 삭제" /> : null}
         {editModal ? <EditModal /> : null}
         {shareModal ? <ShareModal menusId={menusId} /> : null}
         {folderAddModal ? <AddFolderModal /> : null}
@@ -51,7 +50,33 @@ const Modal = ({
           <AddLinkModal folderData={folderData} folderMenus={folderMenus} />
         ) : null}
       </div>
-    </div>
+    </ModalComponenet>
   );
 };
+
+const ModalComponenet = styled.div`
+  position: absolute;
+  z-index: 4;
+  width: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 45%;
+  left: 45%;
+`;
+
+const ModalTitle = styled.h2`
+  font-size: 20px;
+  font-family: Pretendard;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+`;
+
 export default Modal;
