@@ -1,12 +1,16 @@
 import Search from "../images/Search.svg";
-import "./css/Main.css";
+import styles from "./SearchBar.module.css";
 
 function SearchBar() {
   return (
-    <div className="searchbar-container">
-      <div className="input-container">
+    <div className={styles.container}>
+      <div className={styles.inputContainer}>
         <img src={Search} alt="Search" />
-        <input type="text" placeholder="링크를 검색해 보세요" />
+        <input
+          className={styles.input}
+          type="text"
+          placeholder="링크를 검색해 보세요"
+        />
       </div>
     </div>
   );

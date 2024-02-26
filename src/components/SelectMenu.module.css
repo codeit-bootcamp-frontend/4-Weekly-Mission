@@ -1,0 +1,27 @@
+.container {
+  position: absolute;
+  width: 100px;
+  right: -60px;
+  bottom: 40px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  background: var(--gray-light-gray-00, #fff);
+  box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
+}
+
+.nonClicked {
+  font-size: 14px;
+  display: flex;
+  padding: 7px 12px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  cursor: pointer;
+}
+
+.nonClicked:hover {
+  color: var(--primary);
+  background: var(--gray10);
+}

@@ -1,31 +1,124 @@
-.upperContainer {
-  display: flex;
-  justify-content: space-between;
+.invisible {
+  display: none;
 }
 
-.btnContainer {
-  display: flex;
-  gap: 8px;
+@media (min-width: 375px) and (max-width: 767px) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    width: 350px;
+  }
+
+  .btnContainer {
+    display: flex;
+    gap: 8px;
+    width: 350px;
+    flex-wrap: wrap;
+  }
+
+  .addFolderContainer {
+    display: flex;
+    position: fixed;
+    padding: 8px 24px;
+    z-index: 20;
+    bottom: 101px;
+    left: 40%;
+    background-color: #6d6afe;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .addFolderText {
+    width: 60px;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .addImg {
+    display: none;
+  }
+
+  .folderOptionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 }
 
-.addFolderContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
+@media (min-width: 768px) and (max-width: 1124px) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  .btnContainer {
+    display: flex;
+    gap: 8px;
+  }
+
+  .addFolderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .addFolderText {
+    width: 60px;
+    color: #6d6afe;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .folderOptionsContainer {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
-.addFolderText {
-  /* width: 100px; */
-  color: #6d6afe;
-  text-align: center;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
+@media (min-width: 1125px) {
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.folderOptionsContainer {
-  display: flex;
-  justify-content: space-between;
+  .btnContainer {
+    display: flex;
+    gap: 8px;
+  }
+
+  .addFolderContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+  }
+
+  .addFolderText {
+    /* width: 100px; */
+    color: #6d6afe;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  .folderOptionsContainer {
+    display: flex;
+    justify-content: space-between;
+  }
 }

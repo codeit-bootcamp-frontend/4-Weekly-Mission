@@ -1,54 +1,76 @@
 import { dateDiffCalc, dateFormatter } from "../util/datecalc";
-import emptyLogo from "../images/emptylogo.svg";
+import iconEmptyLogo from "../images/emptylogo.svg";
 import kebab from "../images/kebab.svg";
-import useToggle from "../hooks/useToggle";
 import star from "../images/star.svg";
-
-function SelectMenu() {
-  return (
-    <div className="selectMenu-container">
-      <div className="selectMenu">삭제하기</div>
-      <div className="selectMenu clicked">폴더에 추가</div>
-    </div>
-  );
-}
+import styles from "./Card.module.css";
+import SelectMenu from "./SelectMenu";
+import { useState } from "react";
+import DeleteLinkModal from "../modal/DeleteLinkModal/DeleteLinkModal";
+import AddToFolderModal from "../modal/AddToFolderModal/AddToFolderModal";
 
 function Card({ link }) {
-  const [kebabValue, KebabTogglefunc] = useToggle(false);
+  const [isKebabClicked, setIsKebabClicked] = useState(false);
+  const [isModalClicked, setIsModalClicked] = useState({
+    deleteLink: false,
+    addToFolder: false,
+  });
   const cardImage =
     link.imageSource || link["image_source"]
       ? link.imageSource || link["image_source"]
-      : emptyLogo;
+      : iconEmptyLogo;
   const dateOfCard = new Date(link.createdAt || link["created_at"]);
   const dateDiff = dateDiffCalc(dateOfCard);
   const formatDate = dateFormatter(dateOfCard);
 
-  const moveToUrl = () => {
+  const onClickCard = () => {
     window.open(link.url, "_blank");
+  };
+
+  const onClickKebab = (e) => {
+    setIsKebabClicked((prevValue) => !prevValue);
+    e.stopPropagation();
+  };
+
+  const handleClickModal = (type) => {
+    const value = isModalClicked[type];
+    setIsModalClicked({ ...isModalClicked, [type]: !value });
   };
 
   return (
     <>
-      <div className="card-container" onClick={moveToUrl}>
-        <img className="card-container-img" src={cardImage} alt="이미지"></img>
-        <img className="star" src={star} alt="star" />
-        <div className="card-container-texts">
-          <div className="card-container-dateDiff">
+      <div className={styles.container} onClick={onClickCard}>
+        <div className={styles.imgContainer}>
+          <img className={styles.img} src={cardImage} alt="이미지"></img>
+        </div>
+        <img className={styles.star} src={star} alt="star" />
+        <div className={styles.textContainer}>
+          <div className={styles.dateDiffContainer}>
             <div>{dateDiff}</div>
-            <div
-              onClick={(e) => {
-                e.stopPropagation();
-                KebabTogglefunc();
-              }}
-            >
+            <div onClick={onClickKebab}>
               <img src={kebab} alt="kebab" />
-              {kebabValue ? <SelectMenu /> : null}
             </div>
           </div>
-          <div className="card-container-description">{link.description}</div>
-          <div className="card-conatiner-formatDate">{formatDate}</div>
+          <div className={styles.description}>{link.description}</div>
+          <div>{formatDate}</div>
         </div>
+        {isKebabClicked ? (
+          <SelectMenu
+            url={link?.url}
+            onClickKebab={onClickKebab}
+            handleClickModal={handleClickModal}
+          />
+        ) : null}
       </div>
+      <DeleteLinkModal
+        url={link.url}
+        isModalClicked={isModalClicked}
+        handleClickModal={handleClickModal}
+      />
+      <AddToFolderModal
+        url={link.url}
+        isModalClicked={isModalClicked}
+        handleClickModal={handleClickModal}
+      />
     </>
   );
 }

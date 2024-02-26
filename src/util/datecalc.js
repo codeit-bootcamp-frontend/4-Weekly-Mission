@@ -1,12 +1,20 @@
+import {
+  differenceInMinutes,
+  differenceInHours,
+  differenceInDays,
+  differenceInMonths,
+  differenceInYears,
+  format,
+} from "date-fns";
+
 export function dateDiffCalc(dateString) {
   const currentDate = new Date();
   const givenDate = new Date(dateString);
-  const diffTime = Math.abs(currentDate - givenDate);
-  const diffMinutes = Math.floor(diffTime / (1000 * 60));
-  const diffHours = Math.floor(diffTime / (1000 * 60 * 60));
-  const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-  const diffMonths = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 30));
-  const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365));
+  const diffMinutes = differenceInMinutes(currentDate, givenDate);
+  const diffHours = differenceInHours(currentDate, givenDate);
+  const diffDays = differenceInDays(currentDate, givenDate);
+  const diffMonths = differenceInMonths(currentDate, givenDate);
+  const diffYears = differenceInYears(currentDate, givenDate);
 
   if (diffMinutes < 2) {
     return "1 minute ago";
@@ -32,12 +40,6 @@ export function dateDiffCalc(dateString) {
 }
 
 export function dateFormatter(dateString) {
-  const dateObject = new Date(dateString);
-
-  const year = dateObject.getFullYear();
-  const month = String(dateObject.getMonth() + 1).padStart(2, "0");
-  const day = String(dateObject.getDate()).padStart(2, "0");
-
-  const formattedDate = `${year}.${month}.${day}`;
+  const formattedDate = format(new Date(dateString), "yyyy.MM.dd");
   return formattedDate;
 }

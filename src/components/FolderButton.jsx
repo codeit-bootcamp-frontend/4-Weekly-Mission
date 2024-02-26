@@ -1,14 +1,14 @@
-import style from "./FolderButton.module.css";
+import styles from "./FolderButton.module.css";
 
-function FolderButton({ folder, onClick, isClicked, setIsClicked }) {
+function FolderButton({ folder, onClick, isClicked, changeClickedId }) {
   const handleClick = () => {
     onClick(folder);
-    setIsClicked();
+    changeClickedId();
   };
   const folderName = folder.name;
   return (
     <span
-      className={isClicked ? style.clicked : style.container}
+      className={isClicked ? styles.clicked : styles.container}
       onClick={handleClick}
     >
       {folderName}
