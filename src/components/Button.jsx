@@ -1,12 +1,7 @@
 import styled from 'styled-components';
 
-const Button = ({ props }) => {
-  const { width, text } = props;
-  return <StyledButton width={width}>{text}</StyledButton>;
-};
-
-const StyledButton = styled.button`
-  width: ${(props) => props.width || '100px'};
+const Button = styled.button`
+  width: 80px;
   display: flex;
   padding: 10px 16px;
   justify-content: center;
@@ -19,7 +14,7 @@ const StyledButton = styled.button`
   border: none;
   color: var(--Grey-Light, #f5f5f5);
   font-family: Pretendard;
-  font-size: 14px;
+  font-size: ${(props) => props.fontSize || '14px'};
   font-style: normal;
   font-weight: 600;
   line-height: normal;

@@ -69,7 +69,7 @@ function FolderList() {
             )
           }
 
-          <FolderAddButtonMobile></FolderAddButtonMobile>
+          <FolderAddButtonMobile />
         </div>
       </div>
     </div>

@@ -6,10 +6,10 @@ import { SAMPLE_USER_URL } from '../../constants/urls';
 function Shared() {
   return (
     <>
-      <Header url={SAMPLE_USER_URL}></Header>
-      <Profile></Profile>
-      <CardList></CardList>
-      <Footer></Footer>
+      <Header url={SAMPLE_USER_URL} />
+      <Profile />
+      <CardList />
+      <Footer />
     </>
   );
 }
