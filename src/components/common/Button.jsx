@@ -8,7 +8,13 @@ import styled from 'styled-components';
  * @param { string } props.className
  * @param { string } props.type
  */
-const Button = ({ children, onClick, disabled, className, type }) => {
+const Button = ({
+  children,
+  onClick,
+  disabled,
+  className,
+  type = 'button',
+}) => {
   return (
     <StyledButton
       className={className}
@@ -28,7 +34,7 @@ const StyledButton = styled.button`
   height: 3.7rem;
   background-image: linear-gradient(
     135deg,
-    ${props => props.theme.primary_color} 0%,
+    ${props => props.theme.primary} 0%,
     #6ae3fe 100%
   );
   border-radius: 0.8rem;
@@ -46,6 +52,19 @@ const StyledButton = styled.button`
 
   &.folderLink {
     padding: 1rem 1.6rem;
+  }
+
+  &.modal {
+    height: 5.1rem;
+    padding: 1.6rem 2rem;
+  }
+
+  &.deleteModal {
+    background-color: ${({ theme }) => theme.red};
+    background-image: none;
+    padding: 1.6rem 2rem;
+    width: 28rem;
+    height: 5.1rem;
   }
 `;
 export default Button;

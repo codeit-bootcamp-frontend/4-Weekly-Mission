@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import Add from 'assets/images/add.png';
 import Add2 from 'assets/images/add2.png';
+import { useState } from 'react';
+import Modal from 'components/common/modal/Modal';
+import PostModal from 'components/common/modal/PostModal';
 
 /**
  * Category 컴포넌트
@@ -11,6 +14,10 @@ import Add2 from 'assets/images/add2.png';
  * @returns {JSX.Element}
  */
 const Category = ({ categoryDatas, currentCategory, handleCategoryButton }) => {
+  const [showModal, setShowModal] = useState(false);
+  const handleClick = () => {
+    setShowModal(true);
+  };
   return (
     <>
       <Wrapper>
@@ -28,10 +35,15 @@ const Category = ({ categoryDatas, currentCategory, handleCategoryButton }) => {
               </CategoryButton>
             ))}
         </CategoryContainer>
-        <AddButtonContainer>
+        <AddButton onClick={handleClick}>
           <Text>폴더 추가</Text>
           <Image></Image>
-        </AddButtonContainer>
+        </AddButton>
+        {showModal && (
+          <Modal handleClose={() => setShowModal(false)} showModal={showModal}>
+            <PostModal isAdd={true} title="폴더 추가" />
+          </Modal>
+        )}
       </Wrapper>
     </>
   );
@@ -63,13 +75,14 @@ const CategoryButton = styled.button`
   height: 3.9rem;
   border: 0.1rem solid #6d6afe;
   background-color: ${({ checked, theme }) =>
-    checked ? theme.primary_color : theme.white};
+    checked ? theme.primary : theme.white};
   color: ${({ checked, theme }) => (checked ? theme.white : theme.black)};
   padding: 0.8rem 1.2rem;
   font-size: 1.6rem;
   font-weight: 400;
 `;
-const AddButtonContainer = styled.div`
+const AddButton = styled.button`
+  background: transparent;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,7 +96,7 @@ const AddButtonContainer = styled.div`
     width: 13rem;
     bottom: 10.1rem;
     left: calc(50vw - 6.3rem);
-    background-color: ${props => props.theme.primary_color};
+    background-color: ${props => props.theme.primary};
     border-radius: 2rem;
     padding: 0.8rem 2.4rem;
   }
@@ -93,7 +106,7 @@ const Text = styled.div`
   font-weight: 500;
   letter-spacing: -0.03rem;
   white-space: nowrap;
-  color: ${props => props.theme.primary_color};
+  color: ${props => props.theme.primary};
   @media (max-width: 767px) {
     color: ${props => props.theme.white};
   }

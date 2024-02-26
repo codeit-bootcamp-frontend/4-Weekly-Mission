@@ -6,18 +6,17 @@ import KebabButton from 'components/folder/KebabButton';
 
 /**
  *
- * @param {Object[]} cardDatas
- * @param {number} cardDatas[].id
- * @param {string} cardDatas[].url
- * @param {string} cardDatas[].imageURL
- * @param {string} cardDatas[].title
- * @param {string} cardDatas[].timePassed
- * @param {string} cardDatas[].description
- * @param {string} cardDatas[].formattedDate
- * @param {boolean} cardDatas[].isFolder
+ * @param {Object} cardDatas
+ * @param {number} cardDatas.id
+ * @param {string} cardDatas.url
+ * @param {string} cardDatas.imageURL
+ * @param {string} cardDatas.title
+ * @param {string} cardDatas.timePassed
+ * @param {string} cardDatas.description
+ * @param {string} cardDatas.formattedDate
+ * @param {boolean} cardDatas.isFolder
  */
 const Card = ({
-  id,
   url,
   imageURL,
   title,
@@ -28,7 +27,7 @@ const Card = ({
 }) => {
   return (
     <>
-      <StyledCard key={id} href={url} target="_blank" rel="noopener noreferrer">
+      <StyledCard href={url} target="_blank" rel="noopener noreferrer">
         <CardImgContainer>
           <CardImg src={imageURL || defaultImage} alt={title} />
           {isFolder && <StarButton />}
@@ -36,7 +35,7 @@ const Card = ({
         <TextContainer>
           <SubContainer>
             <span>{timePassed}</span>
-            {isFolder && <KebabButton />}
+            {isFolder && <KebabButton url={url} />}
           </SubContainer>
           <StyledP>{description}</StyledP>
           <StyledP className="date">{formattedDate}</StyledP>
@@ -48,17 +47,21 @@ const Card = ({
 
 const StyledCard = styled.a`
   position: relative;
-  width: 34rem;
+  width: 100%;
   height: 30.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   overflow: hidden;
+  margin: 0 auto;
   box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
   border-radius: 1.5rem;
-  &:hover {
-    background-color: ${props => props.theme.linkbrary_bg};
+  @media (min-width: 768px) and (max-width: 1199px) {
+    max-width: 34rem;
+  }
+  @media (min-width: 375px) and (max-width: 767px) {
+    max-width: 34rem;
   }
 `;
 const CardImgContainer = styled.div`

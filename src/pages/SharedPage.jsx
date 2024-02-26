@@ -5,6 +5,7 @@ import { MainContainer } from 'styles/MainContainer';
 import CardGrid from 'components/common/main/CardGrid';
 import { useSampleFolderQuery } from 'hook/useFetchData';
 import CardError from 'components/common/main/CardError';
+import Loader from 'components/common/Loader';
 
 const SharedPage = () => {
   const { data, isLoading, isError } = useSampleFolderQuery('sharedDatas');
@@ -17,7 +18,13 @@ const SharedPage = () => {
       <SharedHeader />
       <MainContainer>
         <Search />
-        <CardGrid datas={sharedDatas} loading={isLoading} isFolder="false" />
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <CardGrid datas={sharedDatas} isFolder={false} />
+          </>
+        )}
       </MainContainer>
     </>
   );

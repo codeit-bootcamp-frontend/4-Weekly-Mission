@@ -4,14 +4,22 @@ import styled from 'styled-components';
 
 /**
  *
- * @param {string} currentCategory 현재 선택된 카테고리의 이름
+ * @param {Object} props
+ * @param {string} props.currentCategory 현재 선택된 카테고리의 이름
+ * @param {number} props.categoryId 현재 선택된 카테고리의 id
  * @returns
  */
-const SubTitle = ({ currentCategory }) => {
+const SubTitle = ({ currentCategory, categoryId }) => {
   return (
     <TitleContainer>
       <CategoryName>{Object.values(currentCategory)}</CategoryName>
-      {currentCategory !== '전체' && <OptionButton />}
+      {currentCategory !== '전체' && (
+        <OptionButton
+          placeholder={currentCategory}
+          folderName={currentCategory}
+          categoryId={categoryId}
+        />
+      )}
     </TitleContainer>
   );
 };
