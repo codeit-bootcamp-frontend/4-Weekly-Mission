@@ -1,31 +1,43 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "ui/Card";
 import { CardContent } from "ui/CardContent";
 import { CardImage } from "ui/CardImage";
 import { WishListButton } from "ui/WishListButton/WishListButton";
+import { formatData } from "util/formatDate";
+import { getElapsedTime } from "util/getElapsedTime";
 
 export function SharedPossibleCard({
   url,
-  imageSource,
+  image_source,
   alt,
-  elapsedTime,
   description,
-  createdAt,
+  created_at,
 }) {
+  const [isShraed, setIsShared] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+
   const handleMouseOver = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
+
+  useEffect(() => {
+    setIsShared(true);
+  }, []);
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
       <Card onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
         <WishListButton className="wish-list-button" />
-        <CardImage imageSource={imageSource} alt={alt} isZoomedIn={isHovered} />
+        <CardImage
+          imageSource={image_source}
+          alt={alt}
+          isZoomedIn={isHovered}
+        />
         <CardContent
-          elapsedTime={elapsedTime}
+          elapsedTime={getElapsedTime(created_at)}
           description={description}
-          createdAt={createdAt}
+          createdAt={formatData(created_at)}
           isHovered={isHovered}
+          option={isShraed}
         />
       </Card>
     </a>

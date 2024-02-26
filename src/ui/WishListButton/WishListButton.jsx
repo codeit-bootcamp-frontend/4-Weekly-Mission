@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { EMPTY_STAR, FULL_STAR } from "./constans";
-import { DEFAULT_IMAGE } from "ui/CardImage/constant";
+import { EMPTY_STAR, FULL_STAR } from "./constant";
 import "./WishListButton.css";
 
 export function WishListButton() {

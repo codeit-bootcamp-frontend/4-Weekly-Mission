@@ -1,0 +1,13 @@
+.DeleteLinkModal-titleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.DeleteLinkModal-subTitle {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--gray60);
+  line-height: 2.2rem;
+}

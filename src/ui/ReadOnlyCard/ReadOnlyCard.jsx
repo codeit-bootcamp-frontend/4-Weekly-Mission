@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "ui/Card";
 import { CardContent } from "ui/CardContent";
 import { CardImage } from "ui/CardImage";
@@ -12,9 +12,14 @@ export const ReadOnlyCard = ({
   description,
   created_at,
 }) => {
+  const [isFolder, setIsFolder] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseOver = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
+
+  useEffect(() => {
+    setIsFolder(false);
+  }, []);
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
@@ -29,6 +34,7 @@ export const ReadOnlyCard = ({
           description={description}
           createdAt={formatData(created_at)}
           isHovered={isHovered}
+          option={isFolder}
         />
       </Card>
     </a>

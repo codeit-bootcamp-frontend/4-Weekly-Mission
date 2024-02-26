@@ -22,21 +22,11 @@
   color: #6d6afe;
 
   @media (max-width: 768px) {
-    width: 32.5rem;
-    flex-direction: wrap;
-    display: none;
-  }
-}
-
-.add-folder-button-mobile {
-  display: none;
-  background-color: var(--primary);
-  padding: 0.8rem 2.4rem;
-  gap: 2rem;
-  color: #fff;
-  border-radius: 1.5rem;
-
-  @media (max-width: 768px) {
+    background-color: var(--primary);
+    padding: 0.8rem 2.4rem;
+    gap: 2rem;
+    color: #fff;
+    border-radius: 1.5rem;
     display: inline;
     width: fit-content;
     position: fixed;

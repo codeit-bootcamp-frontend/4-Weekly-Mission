@@ -4,24 +4,14 @@ import { Profile } from "../../ui/Profile";
 import { LOGO_IMAGE, TEXT } from "./constant";
 import "./NavigationBar.css";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
 
-export const NavigationBar = ({ userEmail, userImgSource }) => {
-  const [className, setClassName] = useState("NavigationBar");
+export const NavigationBar = ({ userInfo }) => {
   const Location = useLocation();
   const LocationPath = Location.pathname;
-  console.log(LocationPath);
+  const { email, imageSource } = userInfo || {};
 
-  const handleClassName = () => {
-    LocationPath === "/shared" || LocationPath === "/folder"
-      ? setClassName("NavigationBar-static")
-      : setClassName("NavigationBar");
-    console.log(className);
-  };
-
-  useEffect(() => {
-    handleClassName();
-  }, []);
+  const className =
+    LocationPath === "/folder" ? "NavigationBar-static" : "NavigationBar";
 
   return (
     <header className={className}>
@@ -33,12 +23,12 @@ export const NavigationBar = ({ userEmail, userImgSource }) => {
             alt="Linkbrary 서비스 로고"
           />
         </a>
-        {userEmail && userImgSource ? (
-          <Profile userEmail={userEmail} userImgSource={userImgSource} />
+        {email && imageSource ? (
+          <Profile userEmail={email} userImgSource={imageSource} />
         ) : (
           <a href={ROUTE.로그인}>
             <Cta isSmall>
-              <span className="NavigationBar-signin">{TEXT.login}</span>
+              <span className="NavigationBar-signin">{TEXT.LOGIN}</span>
             </Cta>
           </a>
         )}
