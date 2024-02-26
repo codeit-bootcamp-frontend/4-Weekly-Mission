@@ -11,7 +11,7 @@ function Select() {
     <S.Select>
       {SELECT_TYPE.map((option, index) => (
         <S.Option key={option.id}>
-          <S.Button $point={SELECT_TYPE.length - 1 === index}>{option.title}</S.Button>
+          <S.Button $isPoint={SELECT_TYPE.length - 1 === index}>{option.title}</S.Button>
         </S.Option>
       ))}
     </S.Select>

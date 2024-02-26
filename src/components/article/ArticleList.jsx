@@ -3,9 +3,10 @@ import ArticleItem from "./ArticleItem"
 import * as S from "./ArticleList.style"
 
 function ArticleList({ data }) {
+  if (!data) return null
   return (
     <S.ArticleList>
-      {data?.data.map((link) => (
+      {data.map((link) => (
         <ArticleItem key={link.id} data={link} />
       ))}
     </S.ArticleList>

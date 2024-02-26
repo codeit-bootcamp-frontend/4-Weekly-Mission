@@ -22,7 +22,7 @@ function Root() {
     <React.Fragment>
       <ProfileContextProvider>
         <GlobalStyle />
-        <Header isNotFixed={isPathIncludesFolder} />
+        <Header $isNotFixed={isPathIncludesFolder} />
         <Main $isNotFixed={isPathIncludesFolder}>
           <Outlet />
         </Main>

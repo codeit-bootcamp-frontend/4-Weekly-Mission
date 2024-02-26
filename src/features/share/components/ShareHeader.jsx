@@ -15,11 +15,11 @@ function ShareHeader() {
 
   return (
     <S.ShareHeader>
-      <S.Wrapper>
+      <S.ShareWrapper>
         {renderLoading}
         {renderSuccess}
         {renderFailed}
-      </S.Wrapper>
+      </S.ShareWrapper>
     </S.ShareHeader>
   )
 }

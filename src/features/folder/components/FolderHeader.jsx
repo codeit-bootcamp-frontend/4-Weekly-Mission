@@ -6,7 +6,7 @@ import Button from "components/UI/Button"
 function FolderHeader() {
   return (
     <S.Folder>
-      <S.Wrapper>
+      <S.FolderWrapper>
         <S.Form>
           <div className="input-layout">
             <img src={AddLinkIcon} alt="링크 아이콘" />
@@ -16,7 +16,7 @@ function FolderHeader() {
             추가하기
           </Button>
         </S.Form>
-      </S.Wrapper>
+      </S.FolderWrapper>
     </S.Folder>
   )
 }

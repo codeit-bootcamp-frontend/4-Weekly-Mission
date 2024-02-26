@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Wrapper as W } from "components/Layout/Wrapper.style"
+import { Wrapper } from "components/Layout/Wrapper.style"
 
 export const Footer = styled.footer`
   margin-top: 60px;
@@ -14,7 +14,7 @@ export const Footer = styled.footer`
     position: relative;
   }
 `
-export const Wrapper = styled(W)`
+export const FooterWrapper = styled(Wrapper)`
   display: flex;
   align-items: center;
   justify-content: space-between;

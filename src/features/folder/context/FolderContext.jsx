@@ -28,13 +28,13 @@ export default function FolderContextProvider({ children }) {
   const selectedHandler = (selectedCategory) => {
     const categoryId = getCategoryId(selectedCategory)
 
-    linkFetchRequest(LinkAPI.GET_LINK_BY_FOLDER_ID(categoryId))
+    linkFetchRequest({ api: LinkAPI.GET_LINK_BY_FOLDER_ID(categoryId), errorMapping: LinkAPI.LINK_ERROR_MAP })
     onChangeTitle(selectedCategory.name)
   }
 
   useEffect(() => {
-    categoryFetchRequest(FolderAPI.GET_FOLDER, FolderAPI.FOLDER_ERROR_MAP)
-    linkFetchRequest(LinkAPI.GET_LINK, LinkAPI.LINK_ERROR_MAP)
+    categoryFetchRequest({ api: FolderAPI.GET_FOLDER, errorMapping: FolderAPI.FOLDER_ERROR_MAP })
+    linkFetchRequest({ api: LinkAPI.GET_LINK, errorMapping: LinkAPI.LINK_ERROR_MAP })
   }, [categoryFetchRequest, linkFetchRequest])
 
   const value = {

@@ -1,12 +1,12 @@
 import styled from "styled-components"
-import { Wrapper as W } from "./FolderBody.style"
+import { Wrapper } from "components/Layout/Wrapper.style"
 
 export const Folder = styled.section`
   background-color: var(--gray5);
   padding: 60px 0 90px 0;
 `
 
-export const Wrapper = styled(W)``
+export const FolderWrapper = styled(Wrapper)``
 
 export const Form = styled.form`
   width: 100%;

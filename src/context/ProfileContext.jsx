@@ -14,7 +14,7 @@ export default function ProfileContextProvider({ children }) {
   }
 
   useEffect(() => {
-    profilRequest(GET_PROFILE_API)
+    profilRequest({ api: GET_PROFILE_API })
   }, [profilRequest])
 
   return <ProfileContext.Provider value={transformedData}>{children}</ProfileContext.Provider>

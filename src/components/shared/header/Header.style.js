@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Wrapper as W } from "components/Layout/Wrapper.style"
+import { Wrapper } from "components/Layout/Wrapper.style"
 
 export const Header = styled.header`
   position: ${({ $isNotFixed }) => ($isNotFixed ? "static" : "fixed")};
@@ -10,7 +10,7 @@ export const Header = styled.header`
   z-index: 10;
 `
 
-export const Wrapper = styled(W)`
+export const HeaderWrapper = styled(Wrapper)`
   display: flex;
   justify-content: space-between;
   align-items: center;

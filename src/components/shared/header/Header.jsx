@@ -8,12 +8,12 @@ import { Link } from "react-router-dom"
 
 import * as S from "./Header.style"
 
-function Header({ isNotFixed }) {
+function Header({ $isNotFixed }) {
   const { data } = useContext(ProfileContext)
 
   return (
-    <S.Header $isNotFixed={isNotFixed}>
-      <S.Wrapper>
+    <S.Header $isNotFixed={$isNotFixed}>
+      <S.HeaderWrapper>
         <Logo />
         {data ? (
           <Profile data={data} />
@@ -22,7 +22,7 @@ function Header({ isNotFixed }) {
             로그인
           </Button>
         )}
-      </S.Wrapper>
+      </S.HeaderWrapper>
     </S.Header>
   )
 }

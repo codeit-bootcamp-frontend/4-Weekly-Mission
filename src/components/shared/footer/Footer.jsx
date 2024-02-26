@@ -22,10 +22,10 @@ const SNS_LIST = [
 function Footer() {
   return (
     <S.Footer>
-      <S.Wrapper>
-        <S.Copyright className="footer-copyright">©codeit - {new Date().getFullYear()}</S.Copyright>
+      <S.FooterWrapper>
+        <S.Copyright>©codeit - {new Date().getFullYear()}</S.Copyright>
 
-        <S.Nav className="footer-nav">
+        <S.Nav>
           {NAV_LIST.map((item) => (
             <li item={item} key={item.id}>
               <a href={item.href}>{item.title}</a>
@@ -33,7 +33,7 @@ function Footer() {
           ))}
         </S.Nav>
 
-        <S.Sns className="footer-sns">
+        <S.Sns>
           {SNS_LIST.map((sns) => (
             <li key={sns.id} sns={sns}>
               <a href={sns.href} target="_blank" rel="noopener noreferrer">
@@ -42,7 +42,7 @@ function Footer() {
             </li>
           ))}
         </S.Sns>
-      </S.Wrapper>
+      </S.FooterWrapper>
     </S.Footer>
   )
 }

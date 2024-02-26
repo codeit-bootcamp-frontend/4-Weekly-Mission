@@ -1,9 +1,9 @@
 import styled from "styled-components"
-import { Wrapper as W } from "components/Layout/Wrapper.style"
+import { Wrapper } from "components/Layout/Wrapper.style"
 
 export const Section = styled.section``
 
-export const Wrapper = styled(W)``
+export const FolderWrapper = styled(Wrapper)``
 
 export const Layout = styled.div`
   display: flex;

@@ -3,8 +3,8 @@ import styled from "styled-components"
 export const Button = styled.button`
   width: 100%;
   height: 32px;
-  background-color: ${({ $point }) => $point && `var(--gray4)`};
-  color: ${({ $point }) => $point && `var(--primary)`};
+  background-color: ${({ $isPoint }) => $isPoint && `var(--gray4)`};
+  color: ${({ $isPoint }) => $isPoint && `var(--primary)`};
 `
 
 export const Select = styled.ul`

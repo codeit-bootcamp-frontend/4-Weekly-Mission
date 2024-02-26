@@ -9,7 +9,7 @@ export const Modal = styled(Card)`
   transform: translate(-50%, -50%);
   background-color: #fff;
   box-shadow: none;
-  z-index: 9999;
+  z-index: 1000;
 `
 
 export const ModalLayout = styled.div`
@@ -27,11 +27,11 @@ export const Title = styled.h3`
   text-align: center;
   font-size: 20px;
   font-weight: 700;
-  color: #242424;
+  color: var(--black);
 `
 
 export const Input = styled.input`
-  border: 1px solid #dedede;
+  border: 1px solid var(--gray3);
   border-radius: 15px;
   background-color: red;
   width: 100%;

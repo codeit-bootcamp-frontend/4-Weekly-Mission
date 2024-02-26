@@ -26,26 +26,25 @@ export const Contents = styled.div`
   padding: 15px 20px;
   height: 135px;
   position: relative;
+`
+export const ElapsedTime = styled.span`
+  color: var(--gray6);
+  font-size: 13px;
+`
 
-  .elapsedTime {
-    color: #666666;
-    font-size: 13px;
-  }
+export const Description = styled.p`
+  margin: 10px 0;
+  line-height: 24px;
+  max-height: 49px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+`
 
-  .description {
-    margin: 10px 0;
-    line-height: 24px;
-    max-height: 49px;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-  }
-
-  .date {
-    font-size: 14px;
-    color: #333;
-  }
+export const Date = styled.span`
+  font-size: 14px;
+  color: #333;
 `
 
 export const Kebab = styled.button`

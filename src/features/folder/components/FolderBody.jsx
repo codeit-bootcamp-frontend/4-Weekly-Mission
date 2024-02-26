@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { FolderCategories, FolderAddButton, FolderFeatures } from "."
 import * as UI from "components/UI"
-import CardList from "components/article/ArticleList"
+import ArticleList from "components/article/ArticleList"
 import SearchBar from "components/searchBar/SerachBar"
 import * as S from "./FolderBody.style"
 import { FolderContext } from "../context/FolderContext"
@@ -16,7 +16,7 @@ function FolderBody() {
 
   return (
     <S.Section>
-      <S.Wrapper>
+      <S.FolderWrapper>
         <SearchBar type="text" placeholder="링크를 검색해 보세요." name="search" />
         <S.Layout>
           <FolderCategories />
@@ -29,13 +29,13 @@ function FolderBody() {
         <S.Link>
           {isLinkLoading && <UI.Loading top={15} />}
           {hasLinkError && <UI.AlertBanner type="danger">{hasLinkError.message}</UI.AlertBanner>}
-          {!isLinkLoading && linkData && linkData?.data.length === 0 ? (
+          {!isLinkLoading && linkData?.data?.length === 0 ? (
             <UI.AlertBanner type="info">{`${title} 폴더의 링크가 없습니다.`}</UI.AlertBanner>
           ) : (
-            <CardList data={linkData} />
+            <ArticleList data={linkData?.data} />
           )}
         </S.Link>
-      </S.Wrapper>
+      </S.FolderWrapper>
     </S.Section>
   )
 }

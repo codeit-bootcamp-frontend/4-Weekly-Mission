@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Wrapper as W } from "components/Layout/Wrapper.style"
+import { Wrapper } from "components/Layout/Wrapper.style"
 
 export const ShareHeader = styled.section`
   padding: 20px 0 60px;
@@ -10,7 +10,7 @@ export const ShareHeader = styled.section`
     background-color: var(--gray5);
   }
 `
-export const Wrapper = styled(W)`
+export const ShareWrapper = styled(Wrapper)`
   display: flex;
   justify-content: center;
   align-items: center;

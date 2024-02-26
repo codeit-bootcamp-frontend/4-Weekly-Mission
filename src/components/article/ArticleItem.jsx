@@ -32,9 +32,9 @@ function ArticleItem({ data }) {
             <S.Kebab onClick={toggleHandler}>
               <img src={KebabIcon} alt="모달창 열기" />
             </S.Kebab>
-            <span className="elapsedTime">{elapsedTime}</span>
-            <p className="description">{data.description}</p>
-            <span className="date">{date}</span>
+            <S.ElapsedTime>{elapsedTime}</S.ElapsedTime>
+            <S.Description>{data.description}</S.Description>
+            <S.Date>{date}</S.Date>
           </S.Contents>
         </a>
       </Card>

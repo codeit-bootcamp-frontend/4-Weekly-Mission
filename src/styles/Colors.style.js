@@ -15,5 +15,6 @@ export const Colors = css`
     --gray3: #ccd5e3;
     --gray4: #e7effb;
     --gray5: #f0f6ff;
+    --gray6: #666;
   }
 `
