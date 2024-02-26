@@ -70,3 +70,33 @@
 .category-name {
   font-size: 2.5rem;
 }
+
+@media (width <= 767px) {
+  .category-title {
+    flex-direction: column;
+    align-items: start;
+    gap: 0.8rem;
+  }
+
+  .add-category-container {
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    bottom: 10.1rem;
+    left: 0;
+    width: fit-content;
+    padding: 0.8rem 2.4rem;
+    border: 1px solid var(--white);
+    border-radius: 20px;
+    margin: 0 auto;
+    background: var(--primary);
+  }
+
+  .add-category {
+    color: var(--white);
+  }
+
+  .add-category-icon {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(91deg) brightness(104%) contrast(102%);
+  }
+}
