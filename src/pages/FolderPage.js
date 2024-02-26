@@ -25,11 +25,10 @@ const FoldPage = () => {
     handleLoad(getSharedFolder, setFolder);
     handleLoad(getFolderList, setCategoryList);
   }, []);
-  console.log(user);
 
   return (
     <div>
-      <Header userInfo={user} isSticky={false} />
+      <Header userInfo={user?.data[0]} isSticky={false} />
       <AddLink />
       <Folder folderInfo={folder} categoryList={categoryList} />
       <Footer />

@@ -13,7 +13,7 @@ import iconPlus from '../assets/logo/plus.svg';
 import CardList from './CardList';
 import Category from './Category';
 
-const CategoryList = ({ folderInfo, categoryList }) => {
+const CategoryList = ({ folderInfo, categoryList, isIconVisible }) => {
   const [selected, setSelected] = useState({ id: '', name: '전체' });
   const [folderLink, setFolderLink] = useState(null);
 
@@ -22,7 +22,6 @@ const CategoryList = ({ folderInfo, categoryList }) => {
   const handleLoad = async categoryId => {
     try {
       const state = await getFolderLink(categoryId);
-      console.log(state);
       setFolderLink(state);
     } catch (error) {
       console.error(error);
@@ -33,7 +32,6 @@ const CategoryList = ({ folderInfo, categoryList }) => {
     handleLoad(selected.id);
   }, [selected.id]);
 
-  console.log(selected.id);
   return (
     <>
       <div className='category-list'>
