@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { getFolderData } from "../../apis/api";
-import FolderOwner from "../../component/FolderOwner/FolderOwner";
-import LinkItems from "../../component/LinkItems/LinkItems";
-import LinkSearchInput from "../../component/LinkSearchInput/LinkSearchInput";
+import FolderOwner from "../../component/FolderOwner";
+import LinkItems from "../../component/LinkItems";
+import LinkSearchInput from "../../component/LinkSearchInput";
+import { Container } from "./style";
 
 const SharedPage = () => {
   const [folderData, setFolderData] = useState(null);
@@ -23,9 +24,10 @@ const SharedPage = () => {
       {folderData ? (
         <>
           <FolderOwner name={folderData?.name} owner={folderData?.owner} />
-          <LinkItems links={folderData?.links}>
+          <Container>
             <LinkSearchInput />
-          </LinkItems>
+            <LinkItems links={folderData?.links} />
+          </Container>
         </>
       ) : (
         <p className="loadFail">저장된 링크가 없습니다.</p>

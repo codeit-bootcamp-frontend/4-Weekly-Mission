@@ -5,7 +5,7 @@
   gap: 25px 20px;
   justify-content: center;
 
-  @media (max-width: 1124px) {
+  @media (max-width: 1199px) {
     grid-template: "1fr 1fr";
   }
 
@@ -17,27 +17,19 @@
 .LinkItem {
   width: 340px;
   height: 334px;
-  border-radius: 8px;
+  border-radius: 1rem;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
-.LinkItem p {
+.LinkItem p,
+.createdAt {
   margin: 8px 20px;
-}
-
-.LinkItems a img {
-  width: 100%;
-  height: 200px;
-  transition: transform 0.3s ease;
-}
-
-.LinkItems a img:hover {
-  transform: scale(1.3);
 }
 
 .createdAt {
   color: #666;
   font-size: 13px;
+  position: relative;
 }
 
 .createdDate {
