@@ -1,7 +1,7 @@
 import "components/LinkCard.css";
 import "components/LinkCardCollection.css";
-import { useState, useEffect } from "react";
-import { acceptDataFromApi } from "Api";
+import { Link } from "react-router-dom";
+import KebabMenu from "./Utils/KebabMenu";
 
 const timePassedFromCreate = (time) => {
 	let currentTime = new Date().getTime();
@@ -31,47 +31,48 @@ const timePassedFromCreate = (time) => {
 	return `${timeDiffYr} years ago`;
 };
 
-const NoCardImg = () => {
-	return <div className="no-card-img"></div>;
-};
+const FolderCard = function ({ contents, favorite, kebab }) {
+	const {
+		id,
+		created_at,
+		createdAt,
+		description,
+		imageSource,
+		image_source,
+		url,
+	} = contents;
 
-const FavorStar = function () {
-	return <img className="favor-star" src="star.svg" alt="FavoriteButton" />;
-};
-
-const Kebab = function () {
-	return <img className="kebab" src="kebab.svg" alt="kebabButton" />;
-};
-
-const FolderCard = function ({ contents, favorite = false, kebab = false }) {
-	const { id, created_at, description, imageSource, url, createdAt } = contents;
-	const cardImage = { backgroundImage: `url(${imageSource})` };
-
+	const cardImage = { backgroundImage: `url(${imageSource || image_source})` };
 	const timeConversion = new Date(created_at || createdAt); // sampleApi와 userApi의 양식이 달라 호환시키기 위함
-
 	const passedTime = timePassedFromCreate(timeConversion);
 	const editedTime = `${timeConversion.getFullYear()}. ${
 		timeConversion.getMonth() + 1
 	}. ${timeConversion.getDate()}`;
 
 	return (
-		<a
-			href={url}
-			target="_blank"
-			rel="noreferrer"
-			className="card-box"
-			key={id}
-		>
-			{imageSource && <div style={cardImage} />}
-			{!imageSource && <NoCardImg />}
-			{favorite && <FavorStar />}
-			{kebab && <Kebab />}
-			<section className="card-text">
-				<p className="card-passed-time">{passedTime}</p>
-				<p className="card-contents">{description}</p>
-				<p className="card-edited-date">{editedTime}</p>
-			</section>
-		</a>
+		<div className="card-box-origin" key={id}>
+			<div className="card-content">
+				<Link to={url} target="_blank">
+					{imageSource || image_source ? (
+						<div className={"card-image"} style={cardImage} />
+					) : (
+						<div className="card-image no-card-img"></div>
+					)}
+
+					<section className="card-text">
+						<p className="card-passed-time">{passedTime}</p>
+						<p className="card-contents">{description}</p>
+						<p className="card-edited-date">{editedTime}</p>
+					</section>
+				</Link>
+			</div>
+			{kebab && <KebabMenu items={kebab} data={url} />}
+			{favorite && (
+				<button type="button" className="favor-star">
+					<img src="star.svg" alt="FavoriteButton" />
+				</button>
+			)}
+		</div>
 	);
 };
 

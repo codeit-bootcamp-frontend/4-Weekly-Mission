@@ -1,6 +1,30 @@
 import "styles/reset.css";
 import "styles/defaultStyle.css";
 import "components/Footer.css";
+import { Link } from "react-router-dom";
+
+const FOOTER_DATA = [
+	{
+		alt: "redirectFacebook",
+		href: "https://www.facebook.com/",
+		imgUrl: "footer_facebook.png",
+	},
+	{
+		alt: "redirectTwitter",
+		href: "https://twitter.com/",
+		imgUrl: "footer_X.png",
+	},
+	{
+		alt: "redirectYoutube",
+		href: "https://www.youtube.com/",
+		imgUrl: "footer_youtube.png",
+	},
+	{
+		alt: "redirectInstagram",
+		href: "https://www.instagram.com",
+		imgUrl: "footer_instagram.png",
+	},
+];
 
 export default function Footer() {
 	return (
@@ -11,18 +35,11 @@ export default function Footer() {
 				<a href="pages/faq.html">FAQ</a>
 			</div>
 			<div className="footer-social">
-				<a href="https://www.facebook.com/" rel="noReferrer" target="_blank">
-					<img src="footer_facebook.png" alt="to_Facebook" />
-				</a>
-				<a href="https://twitter.com/" rel="noReferrer" target="_blank">
-					<img src="footer_X.png" alt="to_X" />
-				</a>
-				<a href="https://www.youtube.com/" rel="noReferrer" target="_blank">
-					<img src="footer_youtube.png" alt="to_Youtube" />
-				</a>
-				<a href="https://www.instagram.com" rel="noReferrer" target="_blank">
-					<img src="footer_instagram.png" alt="to_Instagram" />
-				</a>
+				{FOOTER_DATA.map((item) => (
+					<Link key={item.alt} to={item.href} target="_blank">
+						<img src={item.imgUrl} alt={item.alt} />
+					</Link>
+				))}
 			</div>
 		</footer>
 	);

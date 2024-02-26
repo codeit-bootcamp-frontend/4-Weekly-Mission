@@ -3,22 +3,37 @@ a {
 }
 
 .favor-star {
+	display: flex;
 	position: absolute;
+	padding: 0;
+	background-color: transparent;
+	border: none;
 	top: 15px;
 	right: 15px;
 	width: 34px;
 	height: 34px;
 }
 
-.kebab {
+.kebab-menu-position-origin {
+	display: flex;
 	position: absolute;
+	background-image: none;
 	top: 215px;
 	right: 20px;
+}
+
+.kebab {
+	padding: 0;
+	background-color: transparent;
+	border: none;
 	width: 21px;
 	height: 17px;
 }
 
-.card-box {
+.card-box-origin {
+	padding: 0;
+	border: none;
+	background-color: var(--LBrary-White);
 	position: relative;
 	width: 100%;
 	height: 334px;
@@ -27,15 +42,15 @@ a {
 	box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
 }
 
-.card-box:hover div {
+.card-content:hover div {
 	background-size: 130%;
 }
 
-.card-box:hover .card-text {
+.card-content:hover .card-text {
 	background-color: var(--LBrary-Background);
 }
 
-.card-box div {
+.card-image {
 	border-radius: 15px 15px 0 0;
 	height: 200px;
 	background-size: cover;
@@ -44,18 +59,18 @@ a {
 	background-image: url("/src/assets/Images/sampleBackgroundImg.png");
 }
 
-.card-box .no-card-img {
+.card-image.no-card-img {
 	background-color: #dddfff;
 	background-image: url("/public/noImgLogo.svg");
 	background-repeat: no-repeat;
 	background-size: 133px 24px;
 }
 
-.card-box:hover .no-card-img {
+.card-content:hover .no-card-img {
 	background-size: calc(133px * 1.3);
 }
 
-.card-box .card-text {
+.card-content .card-text {
 	border-radius: 0 0 15px 15px;
 	display: block;
 	text-align: left;
@@ -100,18 +115,18 @@ a {
 }
 
 @media (max-width: 767px) {
-	.card-box div {
+	.card-content div {
 		border-radius: 15px 15px 0 0;
 		height: 192px;
 	}
 
-	.card-box {
+	.card-content {
 		width: 100%;
 		height: 325px;
 		max-width: 327px;
 	}
 
-	.card-box .card-text {
+	.card-content .card-text {
 		border-radius: 0 0 15px 15px;
 		display: block;
 		text-align: left;
