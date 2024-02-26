@@ -2,18 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { getSharedUser, getFolderUser } from "./Api";
 import logo from "../assets/logo.svg";
-import "./styles/Gnb.css";
 import styled from "styled-components";
-
-const GnbContainer = styled.div`
-  ${({ isSharedPage }) =>
-    isSharedPage &&
-    `
-    position: sticky;
-    top: 0;
-    z-index: 2;
-  `}
-`;
+import "./styles/Gnb.css";
 
 function Gnb() {
   const location = useLocation();
@@ -68,3 +58,13 @@ function Gnb() {
 }
 
 export default Gnb;
+
+const GnbContainer = styled.div`
+  ${({ isSharedPage }) =>
+    isSharedPage &&
+    `
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  `}
+`;

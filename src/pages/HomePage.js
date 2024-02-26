@@ -7,8 +7,6 @@ function HomePage() {
       <Link to="/shared">Shared</Link>
       <br />
       <Link to="/folder">folder</Link>
-      <br />
-      <Link to="/test">Test</Link>
     </>
   );
 }

@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import "./modal.css";
 
-const Modal = ({ onClose, title, btnName }) => {
+const Modal = ({ onClose, title, data, hasBtn, btnTitle, hasInput }) => {
   return (
     <Background>
       <Content>
-        <div className="modal-title">{title}</div>
-        <input className="modal-input" />
-        <button className="modal-btn">{btnName}</button>
+        <h1 className="modalTitle">{title}</h1>
+        {hasInput ? <input /> : <p className="modalTargetData">{data}</p>}
+        {hasBtn ? <button className="modalDeleteBtn">{btnTitle}</button> : ""}
         <img
           className="close"
           src="https://weekly-mission-week9.vercel.app/images/close.svg"
@@ -34,6 +34,7 @@ const Background = styled.div`
   text-align: center;
   background: rgba(0, 0, 0, 0.4);
   box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
+  z-index: 3;
 `;
 
 const Content = styled.div`

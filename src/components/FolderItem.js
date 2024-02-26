@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getUsersLink } from "./Api";
-import Card from "./Cards";
+import Cards from "./Cards";
 import shareIcon from "../assets/share.svg";
 import penIcon from "../assets/pen.svg";
 import deleteIcon from "../assets/delete.svg";
@@ -9,24 +9,6 @@ import "./styles/FolderItem.css";
 
 function FolderItem({ usersFolderData }) {
   const folderList = [{ id: 1, name: "전체" }, ...usersFolderData];
-
-  const OPTION_LIST = [
-    {
-      id: 1,
-      name: "공유",
-      src: shareIcon,
-    },
-    {
-      id: 2,
-      name: "이름 변경",
-      src: penIcon,
-    },
-    {
-      id: 3,
-      name: "삭제",
-      src: deleteIcon,
-    },
-  ];
 
   const [selectedFolder, setSelectedFolder] = useState({ id: 1, name: "전체" });
 
@@ -70,10 +52,10 @@ function FolderItem({ usersFolderData }) {
               </button>
             ))}
           </div>
-          <div className="addFolder">
+          <button className="addFolder">
             <p>폴더 추가</p>
             <img src={addIcon}></img>
-          </div>
+          </button>
         </div>
         <div className="optionBar">
           <h1 className="folderTitle">{selectedFolder.name}</h1>
@@ -81,16 +63,22 @@ function FolderItem({ usersFolderData }) {
             ""
           ) : (
             <div className="optionList">
-              {OPTION_LIST.map((option) => (
-                <div className="option" key={option.id}>
-                  <img src={option.src} alt={option.name} />
-                  <p>{option.name}</p>
-                </div>
-              ))}
+              <button className="option">
+                <img src={shareIcon} />
+                <span>공유</span>
+              </button>
+              <button className="option">
+                <img src={penIcon} />
+                <span>이름 변경</span>
+              </button>
+              <button className="option">
+                <img src={deleteIcon} />
+                <span>삭제</span>
+              </button>
             </div>
           )}
         </div>
-        <Card cardList={cardList} />
+        <Cards cardList={cardList} showStarKebab={true} />
       </div>
     </div>
   );

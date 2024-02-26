@@ -1,13 +1,20 @@
-// import { useState } from "react";
-// import kebabIcon from "../assets/kebab.svg";
+import { useEffect, useState } from "react";
+import { Button, Popover, OverlayTrigger } from "react-bootstrap";
 import { getTimeAgo } from "./Utilities";
+import Modal from "./modal/Modal";
+import starIcon from "../assets/star.svg";
+import checkedStarIcon from "../assets/checkedstar.svg";
+import kebabIcon from "../assets/kebab.svg";
 import noImage from "../assets/noimage.jpeg";
-import "./styles/Card.css";
+import "./styles/Cards.css";
 
-function Cards({ cardList }) {
+function Cards({ cardList, showStarKebab }) {
   const isListEmpty = cardList.length === 0;
 
-  // const [kebabClick, setKebabClick] = useState(false);
+  const [popoverShow, setPopoverShow] = useState(false);
+  const [starClick, setStarClick] = useState(false);
+  const [deleteModalShow, setDeleteModalShow] = useState(false);
+  const [selectedData, setSelectedData] = useState("");
 
   if (isListEmpty) {
     return (
@@ -23,31 +30,69 @@ function Cards({ cardList }) {
     ...card,
   }));
 
-  // const handleButtonClick = () => {
-  //   setKebabClick(!kebabClick);
-  // };
+  const handleKebabClick = (e, data) => {
+    e.preventDefault();
+    setSelectedData(data);
+    setPopoverShow(!popoverShow);
+  };
+
+  const handleStarClick = (e) => {
+    e.preventDefault();
+    setStarClick(!starClick);
+  };
+
+  const handleModal = () => {
+    setDeleteModalShow(!deleteModalShow);
+
+    if (!deleteModalShow) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  };
 
   return (
     <div className="Cards">
       <div className="cardItemBox">
         {cards.map((data) => (
           <a href={data.url} className="cardItem" key={data.id} target="_blank">
-            <img
-              className="cardImg"
-              src={data.imageSource || noImage}
-              alt="링크 대표 이미지"
-            />
+            <div className="imgBox">
+              <img
+                className="cardImg"
+                src={data.imageSource || noImage}
+                alt="링크 대표 이미지"
+              />
+              {showStarKebab && (
+                <button className="starBtn" onClick={handleStarClick}>
+                  <img src={starClick ? checkedStarIcon : starIcon} />
+                </button>
+              )}
+            </div>
             <div className="descriptionBox">
-              {/* <button className="kebabBtn" onClick={handleButtonClick}>
-                <img src={kebabIcon} alt="케밥..?" />
-              </button>
-              {kebabClick && (
-                <div>
-                  <button>삭제하기</button>
-                  <button>폴더에 추가</button>
-                </div>
-              )} */}
-              <p className="cardTime">{getTimeAgo(data.createdAt)}</p>
+              <div className="timeAndKebab">
+                <p className="cardTime">{getTimeAgo(data.createdAt)}</p>
+                {showStarKebab && (
+                  <OverlayTrigger
+                    trigger="click"
+                    placement="bottom-start"
+                    overlay={
+                      <Popover>
+                        <Button className="kebabPopover" onClick={handleModal}>
+                          삭제하기
+                        </Button>
+                        <Button className="kebabPopover">폴더에 추가</Button>
+                      </Popover>
+                    }
+                  >
+                    <button
+                      className="kebabBtn"
+                      onClick={(e) => handleKebabClick(e, data)}
+                    >
+                      <img src={kebabIcon} />
+                    </button>
+                  </OverlayTrigger>
+                )}
+              </div>
               <p className="description">
                 {data.title}
                 <br />
@@ -60,6 +105,16 @@ function Cards({ cardList }) {
           </a>
         ))}
       </div>
+      {deleteModalShow && (
+        <Modal
+          onClose={handleModal}
+          title={"링크 삭제"}
+          data={selectedData.url}
+          hasInput={false}
+          hasBtn={true}
+          btnTitle={"삭제하기"}
+        />
+      )}
     </div>
   );
 }
