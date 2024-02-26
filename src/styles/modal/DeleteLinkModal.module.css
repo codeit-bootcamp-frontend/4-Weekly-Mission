@@ -1,0 +1,27 @@
+.modalContentFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+.modalTitle {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #373740;
+  text-align: center;
+}
+.modalData {
+  color: #9fa6b2;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+}
+.modalBtn {
+  background: #ff5b56;
+  padding: 16px 20px;
+  border-radius: 8px;
+  text-align: center;
+  border: 0;
+  color: #ffffff;
+}

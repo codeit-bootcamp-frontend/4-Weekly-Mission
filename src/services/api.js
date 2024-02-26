@@ -21,8 +21,8 @@ export async function getUser() {
   return fetchData('/users/1');
 }
 export async function getFolderList() {
-  return fetchData('/users/1/folders');
+  return fetchData('/users/4/folders');
 }
 export async function getLinkList(folderId = '') {
-  return fetchData(`/users/1/links?folderId=${folderId}`);
+  return fetchData(`/users/4/links?folderId=${folderId}`);
 }
