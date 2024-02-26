@@ -31,7 +31,7 @@ const FolderPage = () => {
     <div className='folder-layout'>
       <Header userInfo={user?.[0]} isSticky={false} />
 
-      <AddLink />
+      <AddLink folderList={folderList?.data} />
       <FolderContent>
         <SearchBar />
         <FolderList folderList={folderList?.data} />

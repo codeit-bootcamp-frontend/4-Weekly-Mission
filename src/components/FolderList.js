@@ -59,7 +59,7 @@ const FolderList = ({ folderList }) => {
           )}
         </div>
         <div className='add-folder-container'>
-          <a className='add-folder' onClick={() => handleOpenModal("add")}>폴더 추가</a>
+          <a className='add-folder' onClick={() => handleOpenModal("edit-add")}>폴더 추가</a>
           <img className="add-folder-icon" src={iconPlus} alt="폴더 추가하기." />
         </div>
       </div >
@@ -67,7 +67,7 @@ const FolderList = ({ folderList }) => {
       <div className="folder-title">
         {openModal && (
           <ModalPortal>
-            <Modal onClose={handleCloseModal} role={role} />
+            <Modal onClose={handleCloseModal} role={role} folderInfo={selected} />
           </ModalPortal>
         )}
         <h2 className="folder-title folder-name">{selected.name}</h2>
@@ -77,9 +77,9 @@ const FolderList = ({ folderList }) => {
               <img className="folder-menu-icon" src={iconShare} alt="폴더 공유하기." />
               <a className="folder-menu-text" onClick={() => handleOpenModal("share")}>공유</a>
               <img className="folder-menu-icon" src={iconPen} alt="폴더 이름 변경하기." />
-              <a className="folder-menu-text" onClick={() => handleOpenModal("edit")}>이름 변경</a>
+              <a className="folder-menu-text" onClick={() => handleOpenModal("edit-name")}>이름 변경</a>
               <img className="folder-menu-icon" src={iconDelete} alt="폴더 삭제하기." />
-              <a className="folder-menu-text" onClick={() => handleOpenModal("delete")}>삭제</a>
+              <a className="folder-menu-text" onClick={() => handleOpenModal("delete-folder")}>삭제</a>
             </div>
           </>
         )}

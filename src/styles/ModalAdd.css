@@ -16,6 +16,8 @@
 
 .add-folder-list {
   display: flex;
+  overflow: scroll;
+  height: 10rem;
   flex-direction: column;
   gap: 0.2rem;
 }
@@ -23,10 +25,25 @@
 .add-folder-item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0.5rem;
   border-radius: 8px;
-  background: var(--gray-05);
   gap: 0.5rem;
+}
+
+.folder-item-selected {
+  background: var(--gray-05);
+}
+
+.add-folder-box {
+  display: flex;
+  height: 1.6rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.add-folder-item:hover {
+  background: var(--gray-05);
 }
 
 .add-folder-name {
@@ -37,6 +54,12 @@
   display: flex;
   color: var(--gray-02);
   font-size: 0.9rem;
+}
+
+.none-folder {
+  color: var(--gray-03);
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .add-button {

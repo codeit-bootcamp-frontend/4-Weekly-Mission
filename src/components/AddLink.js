@@ -4,7 +4,7 @@ import Modal from './Modal';
 import ModalPortal from './Portal';
 import { useState } from 'react';
 
-const AddLink = () => {
+const AddLink = ({ folderList }) => {
   const [openModal, setOpenModal] = useState(false);
   const [role, setRole] = useState("");
 
@@ -21,7 +21,7 @@ const AddLink = () => {
     <div className="add-link">
       {openModal && (
         <ModalPortal>
-          <Modal onClose={handleCloseModal} role={role} />
+          <Modal onClose={handleCloseModal} role={role} folderList={folderList} />
         </ModalPortal>
       )}
       <div className='add-link-content'>

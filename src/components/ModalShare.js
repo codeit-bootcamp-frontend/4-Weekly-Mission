@@ -3,11 +3,11 @@ import shareFacebook from '../assets/icons/share-facebook.svg';
 import shareLink from '../assets/icons/share-link.svg';
 import '../styles/ModalShare.css';
 
-const ModalShare = () => {
+const ModalShare = ({ subTitle }) => {
 
   return (
     <div className='modal-share-content'>
-      <div className='share-area'>폴더명</div>
+      <div className='share-area'>{subTitle}</div>
       <div className='share-sns'>
         <div className='sns-icon'>
           <a><img src={shareKaKao} /></a>
