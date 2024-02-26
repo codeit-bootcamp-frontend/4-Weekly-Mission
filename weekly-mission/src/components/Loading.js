@@ -1,6 +1,4 @@
-import styled, { keyframes } from 'styled-components';
-
-
+import styled, { keyframes } from "styled-components";
 
 const spin = keyframes`
     0%{
@@ -12,15 +10,13 @@ const spin = keyframes`
 `;
 
 const Loading = styled.div`
-    width: 8rem;
-    height: 8rem;
-    margin: auto;
-    border: 10px solid #f5f5f5;
-    border-top: 10px solid #6903f8;
-    border-radius: 50%;
-    animation: ${spin} 1s  infinite linear ;
+  width: 8rem;
+  height: 8rem;
+  margin: auto;
+  border: 10px solid #f5f5f5;
+  border-top: 10px solid #6903f8;
+  border-radius: 50%;
+  animation: ${spin} 1s infinite linear;
 `;
-
-
 
 export default Loading;
