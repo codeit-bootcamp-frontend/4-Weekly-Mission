@@ -3,6 +3,9 @@ import iconKebab from '../assets/logo/kebab.svg';
 import noneProfile from '../assets/logo/noneProfile.svg';
 import iconStar from '../assets/logo/star-off.svg';
 
+import Add from './Modal/Add';
+import Popover from './Popover';
+
 const createDate = value => {
   const date = new Date(value);
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
@@ -47,7 +50,9 @@ const Card = ({ card, isIconVisible = true }) => {
       {isIconVisible && (
         <>
           <img className='star-icon' src={iconStar} />
-          <img className='kebab-icon' src={iconKebab} />
+          <Popover content={<Add />}>
+            <img className='kebab-icon' src={iconKebab} />
+          </Popover>
         </>
       )}
       <a href={url} target='_blank' rel='noreferrer'>

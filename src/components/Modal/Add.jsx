@@ -1,8 +1,8 @@
-import '../styles/css/global.css';
+import '../../styles/css/global.css';
 import { useState } from 'react';
 
-import modalIconCheck from '../assets/logo/modal-icon-check.svg';
-import closeButton from '../assets/logo/modalClose.jpg';
+import modalIconCheck from '../../assets/logo/modal-icon-check.svg';
+import closeButton from '../../assets/logo/modalClose.jpg';
 
 const DeleteFolder = ({ isOpen, closeModal }) => {
   const [isChecked, setIsChecked] = useState(false);
