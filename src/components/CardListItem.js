@@ -3,6 +3,31 @@ import noCardImg from '../images/no-image.svg';
 import { Link } from 'react-router-dom';
 // import loadingImg from '../images/loading-spinner.svg';
 
+const Card = ({
+  imageSource,
+  title,
+  timePassed,
+  description,
+  formattedDate,
+  handleImageError,
+}) => {
+  return (
+    <div className="card">
+      <img
+        src={imageSource || noCardImg}
+        alt={title}
+        className="card-image"
+        onError={handleImageError}
+      />
+      <div className="text-container">
+        <span>{timePassed}</span>
+        <p>{description}</p>
+        <p className="date-number">{formattedDate}</p>
+      </div>
+    </div>
+  );
+};
+
 function CardListItem() {
   const data = useFetchCardsData();
   const handleImageError = (e) => {
@@ -22,19 +47,14 @@ function CardListItem() {
           formattedDate,
         }) => (
           <Link to={url} key={id}>
-            <div className="card">
-              <img
-                src={imageSource || noCardImg}
-                alt={title}
-                className="card-image"
-                onError={handleImageError}
-              />
-              <p className="text-container">
-                <span>{timePassed}</span>
-                <p>{description}</p>
-                <p className="date-number">{formattedDate}</p>
-              </p>
-            </div>
+            <Card
+              imageSource={imageSource}
+              title={title}
+              timePasse={timePassed}
+              description={description}
+              formattedDate={formattedDate}
+              handleImageError={handleImageError}
+            />
           </Link>
         )
       )}

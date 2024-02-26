@@ -7,14 +7,17 @@ import { FolderTitle } from './FolderTitle';
 import { FolderCards } from './FolderCards';
 
 function FolderContent() {
+  const [currentCategory, setCurrentCategory] = useState('전체');
+
+  const [folderId, setFolderId] = useState(0);
+
   const folderCategory = useFetchFolderCategoryData();
 
-  const folderCards = useFetchFolderCardsData(0);
-
-  const [currentCategory, setCurrentCategory] = useState('전체');
+  const folderCards = useFetchFolderCardsData(folderId);
 
   const handleCategoryButton = (e) => {
     setCurrentCategory(e.target.innerText);
+    setFolderId(e.target.id);
   };
 
   return (
@@ -23,7 +26,7 @@ function FolderContent() {
       {folderCategory ? (
         <>
           <FolderCategory
-            category={[{ name: '전체', id: '0' }, ...folderCategory]}
+            category={[{ name: '전체', id: 0 }, ...folderCategory]}
             currentCategory={currentCategory}
             handleCategoryButton={handleCategoryButton}
           />
