@@ -1,0 +1,14 @@
+.modal-button {
+  width: 280px;
+  padding: 16px 20px;
+  color: var(--Grey-Light, #f5f5f5);
+  font-family: var(--Pretendard-Regular);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  border-radius: 8px;
+  background: #ff5b56;
+  cursor: pointer;
+  border: none;
+}

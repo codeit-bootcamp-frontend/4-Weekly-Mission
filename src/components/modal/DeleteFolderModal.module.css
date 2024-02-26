@@ -1,0 +1,44 @@
+.modal-wrapper {
+  width: 36rem;
+  border-radius: 1.5rem;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background-color: #fff;
+  padding: 3.2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-main-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.modal-title {
+  color: #373740;
+  font-family: var(--Pretendard-Bold);
+  font-size: 2rem;
+  text-align: center;
+}
+
+.modal-folder-name {
+  color: #9fa6b2;
+  text-align: center;
+  font-family: var(--Pretendard-Regular);
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+}
+
+.modal-close-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  cursor: pointer;
+}

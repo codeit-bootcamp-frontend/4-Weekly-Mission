@@ -1,19 +1,53 @@
-import LinkSearchInput from "./LinkSearchInput";
-import FolderFilterBox from "./FolderFilterBox";
-import LinkFuncButtonBox from "./LinkFuncButtonBox";
-import styles from "./FolderPageMain.module.css";
-import AddFolderButton from "./AddFolderButton";
-import LinkList from "./LinkList";
-import { useFetch } from "../../hooks/useFetch";
-import { useState } from "react";
+import LinkSearchInput from './LinkSearchInput';
+import FolderFilterBox from './FolderFilterBox';
+import LinkFuncButtonBox from './LinkFuncButtonBox';
+import styles from './FolderPageMain.module.css';
+import AddFolderButtons from './AddFolderButtons';
+import LinkList from './LinkList';
+import { useFetch } from '../../hooks/useFetch';
+import { useState } from 'react';
+import useModal from '../../hooks/useModal';
+import ShareFolderModal from '../modal/ShareFolderModal';
+import RenameFolderNameModal from '../modal/RenameFolderNameModal';
+import DeleteFolderModal from '../modal/DeleteFolderModal';
+import AddFolderModal from '../modal/AddFolderModal';
+import AddLinkInFolder from '../modal/AddLinkInFolder';
 
-const folderUrl = "https://bootcamp-api.codeit.kr/api/users/1/folders";
+const folderUrl = 'https://bootcamp-api.codeit.kr/api/users/3/folders';
 
-function FolderPageMain() {
+function FolderPageMain({
+  isShowAddLinkInFolderModal,
+  handleAddLinkInFolderModalClick,
+  sharedUrl,
+  setSharedUrl,
+}) {
   const { data: folderData } = useFetch(folderUrl);
-  const [folderName, setFolderName] = useState("");
-  const [isShowFuncButotonBox, setIsShowFuncButtonBox] = useState(true);
-  const [folderId, setFolderId] = useState("");
+  const [folderName, setFolderName] = useState('');
+  const [isShowFuncButotonBox, setIsShowFuncButtonBox] = useState(false);
+  const [folderId, setFolderId] = useState('');
+
+  const {
+    isShowModal: isShowShareFolderModal,
+    handleModalClick: handleShareFolderModalClick,
+  } = useModal(false);
+
+  const {
+    isShowModal: isShowRenameFolderModal,
+    handleModalClick: handleRenameFolderModalClick,
+  } = useModal(false);
+
+  const {
+    isShowModal: isShowDeleteFolderModal,
+    handleModalClick: handleDeleteFolderModalClick,
+  } = useModal(false);
+
+  const {
+    isShowModal: isShowAddFolderModal,
+    handleModalClick: handleAddFolderModalClick,
+  } = useModal(false);
+
+  const [FolderModalValue, setFolderModalValue] = useState('');
+  const [ShareUrlFolderId, setShareUrlFolderId] = useState('');
 
   return (
     <div className={styles.main_wrapper}>
@@ -27,15 +61,61 @@ function FolderPageMain() {
             isShowFuncButotonBox={isShowFuncButotonBox}
             folderId={folderData}
             setFolderId={setFolderId}
+            setFolderModalValue={setFolderModalValue}
+            setShareUrlFolderId={setShareUrlFolderId}
+            isShowAddLinkInFolderModal={isShowAddLinkInFolderModal}
+            handleAddLinkInFolderModalClick={handleAddLinkInFolderModalClick}
           />
-          <AddFolderButton />
+          <AddFolderButtons
+            handleAddFolderModalClick={handleAddFolderModalClick}
+          />
         </div>
         <div className={styles.folder_title_box}>
           <h1 className={styles.folder_title}>{folderName}</h1>
-          {isShowFuncButotonBox && <LinkFuncButtonBox />}
+          {isShowFuncButotonBox && (
+            <LinkFuncButtonBox
+              handleRenameFolderModalClick={handleRenameFolderModalClick}
+              handleDeleteFolderModalClick={handleDeleteFolderModalClick}
+              handleShareFolderModalClick={handleShareFolderModalClick}
+            />
+          )}
         </div>
-        <LinkList folderId={folderId} />
+        <LinkList
+          folderId={folderId}
+          handleAddLinkInFolderModalClick={handleAddLinkInFolderModalClick}
+          setSharedUrl={setSharedUrl}
+        />
       </div>
+
+      {isShowShareFolderModal && (
+        <ShareFolderModal
+          handleShareFolderModalClick={handleShareFolderModalClick}
+          FolderModalValue={FolderModalValue}
+          ShareUrlFolderId={ShareUrlFolderId}
+        />
+      )}
+      {isShowRenameFolderModal && (
+        <RenameFolderNameModal
+          handleRenameFolderModalClick={handleRenameFolderModalClick}
+          FolderModalValue={FolderModalValue}
+        />
+      )}
+      {isShowDeleteFolderModal && (
+        <DeleteFolderModal
+          FolderModalValue={FolderModalValue}
+          handleDeleteFolderModalClick={handleDeleteFolderModalClick}
+        />
+      )}
+      {isShowAddFolderModal && (
+        <AddFolderModal handleAddFolderModalClick={handleAddFolderModalClick} />
+      )}
+      {isShowAddLinkInFolderModal && (
+        <AddLinkInFolder
+          handleAddLinkInFolderModalClick={handleAddLinkInFolderModalClick}
+          folderData={folderData}
+          sharedUrl={sharedUrl}
+        />
+      )}
     </div>
   );
 }

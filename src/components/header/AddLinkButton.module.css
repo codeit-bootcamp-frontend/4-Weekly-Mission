@@ -1,4 +1,4 @@
-.add_link_button {
+.add-link-button {
   font-family: var(--Pretendard-Regular);
   border-radius: 8px;
   width: 9rem;
@@ -17,7 +17,7 @@
 }
 
 /* @media (max-width: 767.5px) {
-  .nav_login_button {
+  .nav-login-button {
     width: 8rem;
     font-size: 1.4rem;
     padding: 1rem 1.6rem;

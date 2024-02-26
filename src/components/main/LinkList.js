@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
-import FolderPageLinkItem from "./FolderPageLinkItem";
-import styles from "./LinkList.module.css";
-function LinkList({ folderId }) {
+/* eslint-disable */
+
+import { useEffect, useState } from 'react';
+import FolderPageLinkItem from './FolderPageLinkItem';
+import styles from './LinkList.module.css';
+function LinkList({ folderId, handleAddLinkInFolderModalClick, setSharedUrl }) {
   const [filterData, setFilterData] = useState(null);
   async function handleFilterClick() {
-    await fetch(`https://bootcamp-api.codeit.kr/api/users/1/links${folderId}`)
+    await fetch(`https://bootcamp-api.codeit.kr/api/users/3/links${folderId}`)
       .then((res) => res.json())
       .then((result) => setFilterData(result));
   }
@@ -22,13 +24,19 @@ function LinkList({ folderId }) {
           {filterData?.data?.map(
             ({ image_source, description, created_at, url }, i) => {
               return (
-                <FolderPageLinkItem
-                  description={description}
-                  image_source={image_source}
-                  created_at={created_at}
-                  url={url}
-                  key={i}
-                />
+                <div>
+                  <FolderPageLinkItem
+                    description={description}
+                    image_source={image_source}
+                    created_at={created_at}
+                    url={url}
+                    key={i}
+                    handleAddLinkInFolderModalClick={
+                      handleAddLinkInFolderModalClick
+                    }
+                    setSharedUrl={setSharedUrl}
+                  />
+                </div>
               );
             }
           )}

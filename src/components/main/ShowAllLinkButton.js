@@ -1,29 +1,29 @@
-import styles from "./ShowAllLinksButton.module.css";
+import styles from './ShowAllLinksButton.module.css';
 
 function ShowAllLinksButton({
   name,
   setFolderName,
-  buttonIndex,
-  setIsFilterActive,
-  isFilterActive,
   setIsShowFuncButtonBox,
   setFolderId,
+  setActiveFilterId,
+  activeFilterId,
 }) {
-  let copy = [...isFilterActive];
-
   function handleFilterButtonClick() {
     setFolderName(name);
-    copy = new Array(isFilterActive.length).fill("");
-    copy[buttonIndex] = "_isActive";
-    setIsFilterActive([...copy]);
     setIsShowFuncButtonBox(false);
-    setFolderId("");
+    setFolderId('');
+    setActiveFilterId('showAll');
   }
+  const isFilterShowAll = activeFilterId === 'showAll';
 
   return (
     <button
-      className={styles[`filter_button${copy[buttonIndex]}`]}
+      className={styles.filter_button}
       onClick={handleFilterButtonClick}
+      style={{
+        backgroundColor: isFilterShowAll ? '#6d6afe' : '#fff',
+        color: isFilterShowAll ? '#fff' : '#000',
+      }}
     >
       {name}
     </button>

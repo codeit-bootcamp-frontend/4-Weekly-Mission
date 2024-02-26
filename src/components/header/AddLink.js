@@ -1,10 +1,13 @@
-import styles from "./AddLink.module.css";
-import AddLinkInput from "./AddLinkInput";
+import styles from './AddLink.module.css';
+import AddLinkInput from './AddLinkInput';
 
-function AddLink() {
+function AddLink({ handleAddLinkInFolderModalClick, sharedUrl, setSharedUrl }) {
   return (
-    <div className={styles.add_link_wrapper}>
-      <AddLinkInput />
+    <div className={styles['add-link-wrapper']}>
+      <AddLinkInput
+        handleAddLinkInFolderModalClick={handleAddLinkInFolderModalClick}
+        setSharedUrl={setSharedUrl}
+      />
     </div>
   );
 }
