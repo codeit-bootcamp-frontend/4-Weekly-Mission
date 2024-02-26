@@ -1,0 +1,28 @@
+.card-popover {
+  position: absolute;
+  z-index: 1;
+  right: -3.75rem;
+  bottom: 1.25rem;
+  display: flex;
+  width: 6.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 5px;
+  background: var(--white);
+  box-shadow: 0 2px 8px 0 rgb(51 50 54 / 10%);
+}
+
+.card-popover-menu {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.card-popover-menu:hover {
+  background: var(--gray-04);
+  color: var(--primary);
+}

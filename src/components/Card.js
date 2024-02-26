@@ -2,6 +2,7 @@ import '../styles/Card.css';
 import noneData from '../assets/images/none-data.png';
 import iconStar from '../assets/icons/star-off.svg';
 import iconKebab from '../assets/icons/kebab.svg';
+import CardPopover from './CardPopover';
 
 const createDate = (value) => {
   const date = new Date(value);
@@ -45,23 +46,26 @@ const Card = ({ card, isIconVisible = true }) => {
   const cardImage = imageSource ? imageSource : noneData;
 
   return (
-    <div className="card">
-      {isIconVisible && (
-        <>
-          <img className="star-icon" src={iconStar} />
-          <img className="kebab-icon" src={iconKebab} />
-        </>
-      )}
-      <a href={url} target="_blank" rel="noreferrer">
-        <div className="card-image-content">
-          <img className="card-image" src={cardImage} alt={title + "로 이동하기."} />
-        </div>
-        <div className="card-content">
-          <div className="card-interval-date">{intervalDate(createdAt)}</div>
-          <div className="card-description">{description}</div>
-          <div className="card-create-date">{createDate(createdAt)}</div>
-        </div>
-      </a>
+    <div className="card-container">
+      <CardPopover />
+      <div className="card">
+        {isIconVisible && (
+          <>
+            <img className="star-icon" src={iconStar} />
+            <img className="kebab-icon" src={iconKebab} />
+          </>
+        )}
+        <a href={url} target="_blank" rel="noreferrer">
+          <div className="card-image-content">
+            <img className="card-image" src={cardImage} alt={title + "로 이동하기."} />
+          </div>
+          <div className="card-content">
+            <div className="card-interval-date">{intervalDate(createdAt)}</div>
+            <div className="card-description">{description}</div>
+            <div className="card-create-date">{createDate(createdAt)}</div>
+          </div>
+        </a>
+      </div>
     </div>
   );
 }
