@@ -2,3 +2,9 @@
   width: 66.25rem;
   margin: 2.5rem auto;
 }
+
+@media screen and (max-width: 1123px) {
+  .content_container {
+    max-width: 44rem;
+  }
+}

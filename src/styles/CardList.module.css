@@ -5,3 +5,9 @@
   align-items: center;
   gap: 1.25rem;
 }
+
+@media screen and (max-width: 1123px) {
+  .card_list {
+    max-width: 44rem;
+  }
+}

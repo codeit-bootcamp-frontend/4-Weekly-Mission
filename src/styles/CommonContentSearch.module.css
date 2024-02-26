@@ -11,7 +11,7 @@
 }
 
 .content_search {
-  width: 66.25rem;
+  max-width: 66.25rem;
   padding: 0.9375rem 1rem;
   margin-bottom: 2.5rem;
 
@@ -28,4 +28,10 @@
   background: transparent;
   outline: none;
   border: none;
+}
+
+@media screen and (max-width: 1123px) {
+  .content_search {
+    max-width: 44rem;
+  }
 }
