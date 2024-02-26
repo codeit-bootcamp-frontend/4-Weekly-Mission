@@ -1,7 +1,7 @@
 .navigation_bar {
   max-width: 90rem;
   height: 5.8125rem;
-  padding: 2.0625rem 12.5rem 2rem 12.5rem;
+  padding: 2.0625rem 0 2rem;
 
   background: var(--Linkbrary-bg, #f0f6ff);
 }
@@ -12,7 +12,8 @@
 
 .logo_account_container {
   max-width: 65rem;
-  min-height: 3.3125rem;
+  max-height: 3.3125rem;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
