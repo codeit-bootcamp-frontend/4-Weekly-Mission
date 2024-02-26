@@ -4,7 +4,7 @@ import { useState } from 'react';
 import modalIconCheck from '../assets/logo/modal-icon-check.svg';
 import closeButton from '../assets/logo/modalClose.jpg';
 
-const Modal = ({ isOpen, closeModal }) => {
+const DeleteFolder = ({ isOpen, closeModal }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const checktoggle = () => {
@@ -261,6 +261,6 @@ const Modal = ({ isOpen, closeModal }) => {
   );
 };
 
-export default Modal;
+export default DeleteFolder;
 
 //modal 만들기!
