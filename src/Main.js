@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import Shared from './components/Shared';
 import Folder from './components/Folder';
+
 function Main() {
   return (
     <BrowserRouter>

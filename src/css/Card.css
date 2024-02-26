@@ -23,11 +23,12 @@
   height: 200px;
   flex-shrink: 0;
   border-radius: 15px;
+  overflow: hidden;
 }
 .imgSection img {
   width: 100%;
   height: 100%;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease-in-out;
 }
 .imgSection img:hover {
   transform: scale(1.3);
@@ -98,7 +99,7 @@
   align-items: flex-start;
   position: absolute;
   top: 35px;
-  right: -50px;
+  right: -10px;
   z-index: 2;
 }
 .folder {
