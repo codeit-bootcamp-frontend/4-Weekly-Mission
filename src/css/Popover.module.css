@@ -1,0 +1,26 @@
+@import 'palette.css';
+
+.popoverMenu {
+  position: absolute;
+  top: 32px;
+  right: -42px;
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.08);
+}
+
+.selectButton {
+  color: var(--gray100);
+  font-size: 14px;
+  font-weight: 400;
+  background-color: var(--white);
+  border: none;
+  padding: 7px 12px;
+  z-index: 1;
+}
+
+.selectButton:hover {
+  background-color: var(--gray10);
+  color: var(--primary);
+}

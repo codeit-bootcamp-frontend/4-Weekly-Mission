@@ -1,0 +1,45 @@
+@import "palette.css";
+
+.controlBtns {
+  display: flex;
+}
+
+.shareBtn, .editBtn, .deleteBtn {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray60);
+  background-color: var(--white);
+  border: none;
+  padding: 0;
+  margin-left: 12px;
+  cursor: pointer;
+}
+
+.shareBtn img {
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+}
+
+.editBtn img {
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+}
+
+.deleteBtn img {
+  width: 18px;
+  height: 18px;
+  margin-right: 4px;
+}
+
+
+/* mobile-size */
+@media (max-width: 767px) {
+  .shareBtn, .editBtn, .deleteBtn {
+    margin-right: 12px;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,73 @@
+@import '../css/palette.css';
+
+.folderName {
+  color: var(--gray60);
+  font-size: 14px;
+  margin: 8px auto 24px;
+}
+
+.shareButtons {
+  display: flex;
+  gap: 32px;
+}
+
+.shareButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shareKakao {
+  position: relative;
+  background-color: #FEE500;
+  border-radius: 50%;;
+  border: none;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.shareKakao img{
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  margin: 0;
+}
+
+.shareFacebook {
+  position: relative;
+  background-color: #1877F2;
+  border-radius: 50%;;
+  border: none;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.shareFacebook img{
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  margin: 0;
+}
+
+.copyLink {
+  position: relative;
+  background: rgba(157, 157, 157, 0.2);
+  border-radius: 50%;;
+  border: none;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+}
+
+.copyLink img{
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  margin: 0;
+}
+
+.linkButtonName {
+  margin-top: 10px;
+}

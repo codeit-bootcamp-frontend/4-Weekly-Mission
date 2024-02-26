@@ -29,3 +29,25 @@ form {
   top: 15px;
   left: 15px;
 }
+
+/* tablet-size */
+@media (max-width: 1199px) {
+  form {
+    padding: 0 32px;
+  }
+
+  .container input {
+    width: 704px;
+  }
+}
+
+/* mobile-size */
+@media (max-width: 767px) {
+  form {
+    padding: 0 32px;
+  }
+
+  .container input {
+    width: 100%;
+  }
+}
