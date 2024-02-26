@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom';
 import '../styles/Main.css';
-import Modal from '../components/Modal';
 
 const MainPage = () => {
 
@@ -14,7 +13,6 @@ const MainPage = () => {
           shared 페이지 바로가기
         </Link>
       </div>
-      <Modal />
     </main>
   );
 }

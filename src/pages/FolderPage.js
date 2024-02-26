@@ -10,13 +10,13 @@ import FolderList from '../components/FolderList';
 import Footer from '../components/Footer';
 
 const FolderPage = () => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
   const [folderList, setFolderList] = useState(null);
 
   const handleLoad = async (getState, setState) => {
     try {
       const state = await getState();
-      setState(state.data);
+      setState(state);
     } catch (error) {
       console.error(error);
     }
@@ -29,12 +29,12 @@ const FolderPage = () => {
 
   return (
     <div className='folder-layout'>
-      <Header userInfo={user[0]} isSticky={false} />
+      <Header userInfo={user?.[0]} isSticky={false} />
 
       <AddLink />
       <FolderContent>
         <SearchBar />
-        <FolderList folderList={folderList} />
+        <FolderList folderList={folderList?.data} />
       </FolderContent>
 
       <Footer />

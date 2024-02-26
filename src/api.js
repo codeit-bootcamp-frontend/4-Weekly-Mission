@@ -22,9 +22,8 @@ export const getSharedFolder = async () => {
 };
 
 export const getFolderUser = async () => {
-  // return getRequest('/users/1');
   const response = await getRequest('/users/1');
-  const folderData = response.map((item) => ({
+  const folderData = response.data.map((item) => ({
     ...item,
     profileImageSource: item?.profileImageSource ? item?.profileImageSource : item?.image_source
   }));
