@@ -17,6 +17,8 @@ const CategoryList = ({ folderInfo, categoryList }) => {
   const [selected, setSelected] = useState({ id: '', name: '전체' });
   const [folderLink, setFolderLink] = useState(null);
 
+  const categoryData = categoryList?.data;
+
   const handleLoad = async categoryId => {
     try {
       const state = await getFolderLink(categoryId);
@@ -26,15 +28,9 @@ const CategoryList = ({ folderInfo, categoryList }) => {
     }
   };
 
-  console.log(categoryList);
   useEffect(() => {
     handleLoad(selected.id);
   }, [selected.id]);
-
-  console.log(folderInfo); //폴더로 정의되는 카드 사이트
-  console.log(folderLink); //안뜸
-  console.log(categoryList); // 카테고리 리스트
-  console.log(selected);
 
   return (
     <>
@@ -43,10 +39,10 @@ const CategoryList = ({ folderInfo, categoryList }) => {
           <a className={`category ${selected.name === '전체' ? 'category-selected' : ''}`} onClick={() => setSelected({ id: '', name: '전체' })}>
             전체
           </a>
-          {categoryList?.data ? (
+          {categoryData ? (
             <>
-              {categoryList.data.map(category => (
-                <Category key={category.id} folder={category} onClickFolder={setSelected} isSelected={selected && selected.id === category.id} />
+              {categoryData?.map(category => (
+                <Category key={category.id} category={category} onClickCategory={setSelected} isSelected={selected && selected.id === category.id} />
               ))}
             </>
           ) : null}
