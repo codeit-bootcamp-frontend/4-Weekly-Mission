@@ -10,6 +10,7 @@ const TextButton = styled.span`
   color: var(--color-primary);
 
   white-space: nowrap;
+  cursor: pointer;
   @media (min-width: 375px) and (max-width: 767px) {
     display: flex;
     justify-content: center;
@@ -28,8 +29,8 @@ const TextButton = styled.span`
     color: white;
   }
 `;
-const AddFolderButton = ({ children }) => {
-  return <TextButton>{children}</TextButton>;
+const AddFolderButton = ({ children, onClick }) => {
+  return <TextButton onClick={onClick}>{children}</TextButton>;
 };
 
 export default AddFolderButton;

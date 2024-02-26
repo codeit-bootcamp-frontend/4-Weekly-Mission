@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { formatDate, getTimeDifference } from "../../../utils/dateUtils";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import styled from "styled-components";
+import { useFolder } from "../../../contexts/FolderContext";
+import { getLinks } from "../../../utils/api";
+import NoLink from "../../../pages/NoLink";
 
 const CardListContainer = styled.div`
   width: 100%;
@@ -19,32 +22,47 @@ const CardListContainer = styled.div`
     flex-direction: column;
   }
 `;
-const CardList = ({ currentLinks }) => {
+const CardList = () => {
+  const { currentFolder } = useFolder();
+  const [currentLinks, setCurrentLinks] = useState([]);
+
+  const loadLinks = async () => {
+    const links = await getLinks(currentFolder.id);
+    setCurrentLinks(links["data"]);
+  };
+  useEffect(() => {
+    loadLinks();
+  }, [currentFolder]);
+
   return (
     <CardListContainer>
-      {currentLinks.map((link) => {
-        const { created_at, description, image_source } = link;
-        const createdDate = new Date(created_at);
-        const currentDate = new Date();
+      {currentLinks.length === 0 ? (
+        <NoLink />
+      ) : (
+        currentLinks.map((link) => {
+          const { created_at, description, image_source } = link;
+          const createdDate = new Date(created_at);
+          const currentDate = new Date();
 
-        const createdDateString = formatDate(createdDate);
-        const timeDifference = getTimeDifference(createdDate, currentDate);
+          const createdDateString = formatDate(createdDate);
+          const timeDifference = getTimeDifference(createdDate, currentDate);
 
-        return (
-          <Link
-            to={`/link/${link.id}`}
-            key={link.id}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Card
-              cardImage={image_source}
-              cardTime={{ createdDateString, timeDifference }}
-              cardDescription={description}
-            />
-          </Link>
-        );
-      })}
+          return (
+            <Link
+              to={`/link/${link.id}`}
+              key={link.id}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Card
+                cardImage={image_source}
+                cardTime={{ createdDateString, timeDifference }}
+                cardDescription={description}
+              />
+            </Link>
+          );
+        })
+      )}
     </CardListContainer>
   );
 };
