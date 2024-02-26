@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components"
 import linkIcon from '../img/link.png'
+import { useState } from "react";
 
 
 
@@ -39,15 +40,21 @@ const AddBtn = styled.button`
 
 
 
-function LinkAddInput(){
+function LinkAddInput({dispatch}){
+    const [userInput, setUserInput] = useState('');
     return(
         <LinkAddBox>
             <div className="wrap">
                 <img src={linkIcon} alt="링크 아이콘"/>
                 <form>
-                    <input type="text" placeholder="링크를 추가해 보세요"/>
+                    <input 
+                        value={userInput}
+                        type="text" 
+                        placeholder="링크를 추가해 보세요"
+                        onChange={(e) => setUserInput(e.target.value)}
+                    />
                 </form>
-                <AddBtn type="button">추가하기</AddBtn>
+                <AddBtn type="button" onClick={() => {dispatch({state : true, type : 'AddAtFolder', url : userInput})}}>추가하기</AddBtn>
             </div>
         </LinkAddBox>
     );

@@ -59,7 +59,7 @@ function ModalLinkAdd ({type, dispatch, folderList}) {
                 <TargetName>{type.url}</TargetName>
             </div>
             <FolderList>
-               {folderList.map(folder => (
+               {folderList ? folderList.map(folder => (
                     <Folder>
                         {folder.name}
                         <LinkCount>
@@ -67,7 +67,7 @@ function ModalLinkAdd ({type, dispatch, folderList}) {
                         </LinkCount>
                         <CheckIcon src={checkIcon}/>
                     </Folder>
-               ))}
+               )) : null}
             </FolderList>
             <EditBtn linear>추가하기</EditBtn>
         </Modal>

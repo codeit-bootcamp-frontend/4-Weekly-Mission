@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { useEffect, useState } from "react"
 import ModalFolderEdit from "./ModalFolderEdit";
 import ModalDelete from "./ModalDelete";
 import ModalShare from "./ModalShare";

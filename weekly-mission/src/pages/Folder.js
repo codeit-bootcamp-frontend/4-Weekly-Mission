@@ -4,7 +4,7 @@ import HeaderBlock from "../components/Header";
 import LinkAddInput from "../components/LinkAddInput";
 import SearchInput from "../components/SearchInput";
 import './Folder.css'
-import {  useCallback, useEffect, useReducer, useState } from "react";
+import {  useEffect, useReducer, useState } from "react";
 import { folderLinkDataApi, folderListDataApi  } from "../api";
 import CategoryBar from "../components/CategoryBar";
 import { useParams } from "react-router-dom";
@@ -125,7 +125,7 @@ function Folder() {
             <HeaderBlock />
             <main id="main">
                 <section className="section owner-information">
-                    <LinkAddInput />
+                    <LinkAddInput dispatch={dispatch} />
                 </section>
                 <section className="section linkcards">
                     <div className="container">
