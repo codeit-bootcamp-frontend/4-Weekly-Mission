@@ -10,29 +10,27 @@ import {
 
 function FolderCategory({ category, currentCategory, handleCategoryButton }) {
   return (
-    <>
-      <TitleWrapper>
-        <CategoryWrapper>
-          {category &&
-            category.map((categoryData) => (
-              <CategoryButton
-                id={categoryData.id}
-                key={categoryData.id}
-                name="folderId"
-                checked={currentCategory === categoryData.name ? true : null}
-                onClick={handleCategoryButton}
-              >
-                {categoryData.name}
-              </CategoryButton>
-            ))}
-        </CategoryWrapper>
+    <TitleWrapper>
+      <CategoryWrapper>
+        {category &&
+          category.map(({ id, name }) => (
+            <CategoryButton
+              id={id}
+              key={id}
+              name="folderId"
+              checked={currentCategory === name ? true : null}
+              onClick={handleCategoryButton}
+            >
+              {name}
+            </CategoryButton>
+          ))}
+      </CategoryWrapper>
 
-        <AddButtonWrapper>
-          <AddButtonText>폴더 추가</AddButtonText>
-          <AddButtonImage />
-        </AddButtonWrapper>
-      </TitleWrapper>
-    </>
+      <AddButtonWrapper>
+        <AddButtonText>폴더 추가</AddButtonText>
+        <AddButtonImage />
+      </AddButtonWrapper>
+    </TitleWrapper>
   );
 }
 
