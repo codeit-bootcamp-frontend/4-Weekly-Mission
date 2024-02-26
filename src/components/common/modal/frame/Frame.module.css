@@ -1,0 +1,29 @@
+.background {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 20;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  padding: 3.2rem 4rem;
+  border: 1px solid #dee2e6;
+  border-radius: 1.5rem;
+  background-color: var(--color-white);
+}
+
+.exit {
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  background: url('../../../../assets/close.png') no-repeat center/cover;
+}

@@ -1,0 +1,44 @@
+.footerArea {
+  margin-top: 6rem;
+  background-color: var(--color-black);
+}
+
+.footerGroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 3.2rem 10.4rem 10.8rem;
+  max-width: 1920px;
+}
+
+.copyright {
+  line-height: 1;
+  font-size: 1.6rem;
+  color: var(--color-gray-700);
+}
+
+.linkList {
+  display: flex;
+  gap: 3rem;
+  font-size: 1.6rem;
+  color: var(--color-gray-500);
+}
+
+.snsList {
+  display: flex;
+  gap: 1.2rem;
+}
+
+@media (max-width: 767px) {
+  .footerGroup {
+    flex-wrap: wrap;
+    gap: 6rem 0;
+    padding: 3.2rem;
+  }
+
+  .copyright {
+    order: 1;
+    width: 100%;
+  }
+}
