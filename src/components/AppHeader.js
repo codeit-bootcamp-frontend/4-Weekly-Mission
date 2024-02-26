@@ -10,7 +10,7 @@ function AppHeader({ folderInfo }) {
 
   return (
     <div className="container">
-      <div className="appHeader">
+      <div className="app-header">
         <img src={userProfile}></img>
         <p>@{userOwner}</p>
         <h2>{userName}</h2>

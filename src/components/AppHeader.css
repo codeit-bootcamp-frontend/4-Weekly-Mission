@@ -3,17 +3,17 @@
   padding-top: 20px;
   padding-bottom: 60px;
 }
-.appHeader {
+.app-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
 }
-.appHeader img {
+.app-header img {
   width: 60px;
   height: 60px;
 }
-.appHeader p {
+.app-header p {
   color: var(--text-color-light-mode, #000);
   /* Linkbrary/body1-regular */
   font-family: Pretendard;
@@ -22,7 +22,7 @@
   font-weight: 400;
   line-height: 24px; /* 150% */
 }
-.appHeader h2 {
+.app-header h2 {
   color: #000;
   text-align: center;
   font-feature-settings: "clig" off, "liga" off;
@@ -35,7 +35,7 @@
   line-height: normal;
 }
 
-.appHeader {
+.app-header {
   width: fit-content;
   margin: 0 auto;
 }

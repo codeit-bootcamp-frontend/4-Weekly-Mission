@@ -26,11 +26,11 @@ const socialMediaLinks = [
   },
 ];
 
-const socialMediaIcons = socialMediaLinks.map((link, index) => (
-  <a key={index} href={link.href} target="_blank" rel="noopener noreferrer">
-    <img src={link.src} alt={link.alt} />
-  </a>
-));
+// const socialMediaIcons = socialMediaLinks.map((link, index) => (
+//   <a key={index} href={link.href} target="_blank" rel="noopener noreferrer">
+//     <img src={link.src} alt={link.alt} />
+//   </a>
+// ));
 
 function AppFooter() {
   return (
@@ -45,7 +45,18 @@ function AppFooter() {
             FAQ
           </a>
         </div>
-        <div className="sns">{socialMediaIcons}</div>
+        <div className="sns">
+          {socialMediaLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={link.src} alt={link.alt} />
+            </a>
+          ))}
+        </div>
       </div>
     </footer>
   );

@@ -1,41 +1,65 @@
 import { useEffect, useState } from "react";
 import { getUserFolder } from "../../api";
-import "./FolderSorting.css";
-import { json } from "react-router-dom";
+import styled from "styled-components";
+const Container = styled.div`
+  margin: 0 auto;
+  display: flex;
+  width: 1060px;
+  justify-content: space-between;
+  align-items: center;
+`;
+const SortBtn = styled.button`
+  padding: 8px 12px;
+  flex-direction: column;
+  align-items: center;
 
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: #fff;
+`;
+const SortBtnWarpper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 12px;
+`;
+const FoldAddBtn = styled.button`
+  color: #6d6afe;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+`;
 function FolderSorting() {
   const [sortData, setSortData] = useState([]);
 
-  const Datas = async () => {
+  const fetchUserFolder = async () => {
     try {
       const jsonData = await getUserFolder();
       const userFolders = jsonData.data;
-
-      // const userName = userFolders.map((user) => {
-      //   return user.name;
-      // });
-
       setSortData(userFolders);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
   useEffect(() => {
-    Datas();
+    fetchUserFolder();
   }, []);
 
   return (
-    <div className="folder-sorting">
-      <div className="container">
-        {console.log(sortData)}
-        <button className="sorting-button">전체</button>
+    <Container>
+      <SortBtnWarpper>
+        <SortBtn>전체</SortBtn>
         {sortData.map((data) => {
-          return <button className="sorting-button">{data.name}</button>;
+          return <SortBtn>{data.name}</SortBtn>;
         })}
-      </div>
-      <button className="add-folder">폴더 추가 +</button>
-    </div>
+      </SortBtnWarpper>
+      <FoldAddBtn>폴더 추가 +</FoldAddBtn>
+    </Container>
   );
 }
 

@@ -26,11 +26,11 @@ export function FolderMain() {
   return (
     <>
       <AppNav userInfo={userInfo}></AppNav>
-      <AddLinkBar></AddLinkBar>
-      <SearchBar></SearchBar>
-      <FolderSorting></FolderSorting>
-      <CardControl></CardControl>
-      <Card></Card>
+      <AddLinkBar />
+      <SearchBar />
+      <FolderSorting />
+      <CardControl />
+      <Card />
       <AppFooter />
     </>
   );
