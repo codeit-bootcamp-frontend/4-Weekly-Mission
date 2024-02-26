@@ -4,12 +4,12 @@ import closeIcon from '../img/close.png';
 
 
 
-export const Modal = styled.div`
+const Modal = styled.div`
     width : 36rem;
     padding : 3.2rem 4rem;
     background-color : #fff;
     border-radius : 15px;
-    display : flex;
+    display : ${({type}) => type==='Edit' ? 'flex' : 'none'};
     flex-direction : column;
     gap : 24px;
     position : relative;
@@ -51,16 +51,15 @@ export const CloseBtn = styled.button`
     cursor: pointer;
 `;
 
-function ModalFolderEdit() {
+function ModalFolderEdit({type, dispatch}) {
 
     return (
-        <Modal>
-            <CloseBtn>           
-            </CloseBtn>
-            <ModalTitle>폴더 이름 변경</ModalTitle>
+        <Modal type={type.type}>
+            <CloseBtn onClick={() => {dispatch({state : false})}}/>           
+            <ModalTitle>{type.title}</ModalTitle>
             <div>
-                <UserInput type="text" placeholder="변경할 이름을 입력"></UserInput>
-                <EditBtn linear>변경하기</EditBtn>
+                <UserInput type="text" placeholder={type.placeHolder}></UserInput>
+                <EditBtn linear>{type.buttonText}</EditBtn>
             </div>
         </Modal>
     )

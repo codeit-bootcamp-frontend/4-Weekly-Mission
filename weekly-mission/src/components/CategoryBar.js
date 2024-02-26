@@ -49,7 +49,7 @@ const AddFolderBtn = styled.button`
         }
 `;
 
-function CategoryBar({ categoryList, onClick }) {
+function CategoryBar({ categoryList, onClick, dispatch}) {
 
    
     return (
@@ -86,7 +86,7 @@ function CategoryBar({ categoryList, onClick }) {
                     )) : null
                 }
             </CategoryList>
-            <AddFolderBtn>폴더 추가 +</AddFolderBtn>
+            <AddFolderBtn onClick={() => {dispatch({state : true, type : 'Edit',title : '폴더 추가', buttonText : '추가하기', placeHolder : '폴더 이름 입력'})}}>폴더 추가 +</AddFolderBtn>
         </CategoryBarBlock>
     )
 }

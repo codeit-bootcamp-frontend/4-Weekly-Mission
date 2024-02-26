@@ -35,18 +35,27 @@ const Option = styled.div`
     visibility : ${({ visibility }) => visibility ? 'visible' : 'hidden'};
     box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.10);
     button{
-        padding : 0.7rem 1.2rem;
-        width : 100%;
-        color:#333236;
-        font-size : 1.4rem;
         
     }
     button:hover{
-        background-color : #E7EFFB;
-        color:#6D6AFE;
+      
     }
 
 `;
+
+const OptionBtn = styled.button`
+    padding : 0.7rem 1.2rem;
+    width : 100%;
+    color:#333236;
+    font-size : 1.4rem;
+
+    &:hover{
+        background-color : #E7EFFB;
+        color:#6D6AFE;
+    }
+        
+`;
+
 
 const CardDescription = styled.p`
     font-size: 1.6rem;
@@ -100,16 +109,19 @@ const OptionMenuBtn = styled.button`
     }
 `;
 
-function LinkCard({ linkData }) {
+
+
+
+function LinkCard({ linkData, dispatch}) {
     const { createdAt, url, description, imageSource, created_at, image_source } = linkData;
     const createDate = createdAt ? new Date(createdAt) : new Date(created_at);
     const millisecondsGap = new Date() - createDate;
     const [show, setShow] = useState(false);
 
     const optionShow = () => {
-        setShow((prev) => prev ? false : true)
+        setShow(!show)
     }
-
+    
 
     return (
 
@@ -128,8 +140,8 @@ function LinkCard({ linkData }) {
                     <OptionMenuBtn onClick={optionShow}>
                         <img src={kebab} alt='추가 기능' />
                         <Option visibility={show}>
-                            <button>삭제하기</button>
-                            <button>폴더에 추가</button>
+                            <OptionBtn onClick={() => {dispatch({state : true, type : 'Delete', title : '링크 삭제',deleteTarget : url})}}>삭제하기</OptionBtn>
+                            <OptionBtn onClick={() => {dispatch({state : true, type : 'AddAtFolder', url : url})}}>폴더에 추가</OptionBtn>
                         </Option>
                     </OptionMenuBtn>
                 </Wrap>

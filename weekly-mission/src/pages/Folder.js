@@ -4,7 +4,7 @@ import HeaderBlock from "../components/Header";
 import LinkAddInput from "../components/LinkAddInput";
 import SearchInput from "../components/SearchInput";
 import './Folder.css'
-import {  useCallback, useEffect, useState } from "react";
+import {  useCallback, useEffect, useReducer, useState } from "react";
 import { folderLinkDataApi, folderListDataApi  } from "../api";
 import CategoryBar from "../components/CategoryBar";
 import { useParams } from "react-router-dom";
@@ -41,9 +41,7 @@ const CurrentCategory = styled.div`
             align-items:flex-start;
             gap:1.2rem;
         }
-       
     }
-    
 `;
 
 const FunctionsBox = styled.div`
@@ -65,12 +63,30 @@ const FunctionBtn = styled.button`
     gap : 3px;
 `;
 
+const reducer = (state, action) => {
+    if(action.state) {
+        switch (action.type) {
+            case 'Edit' : 
+                return ({...action});
+            case 'Delete' :
+                return ({...action});
+            case 'Share' : 
+                return ({...action});
+            case 'AddAtFolder' : 
+                return ({...action})
+        }
+    }else{
+        return ({state : false})
+    }
+}
+
+
 function Folder() {
     const [categoryData, setCategoryData] = useState(null);
     const [currentCategory, setCurrentCategory] = useState('');
     const [folderLinkList, setFolderLinkList] = useState([]);
     const params = useParams();
-
+    const [handleModal, dispatch] = useReducer(reducer, {state : false})
 
     const getFolderListData = async () => {
         const response = await folderListDataApi();
@@ -101,7 +117,7 @@ function Folder() {
     const onClickCategory = (category) => {
         setCurrentCategory(category);
     }
-
+   
    
   
     return (
@@ -114,20 +130,20 @@ function Folder() {
                 <section className="section linkcards">
                     <div className="container">
                         <SearchInput />
-                        <div className="wrap">
-                            <CategoryBar categoryList={categoryData} onClick={onClickCategory} />
+                        <div className="wrap"> 
+                            <CategoryBar categoryList={categoryData} onClick={onClickCategory} dispatch={dispatch}/>
                             <CurrentCategory>
                                 <h2>{currentCategory}</h2>
                                 <FunctionsBox visibility={currentCategory}>
-                                    <FunctionBtn>
+                                    <FunctionBtn onClick={() => {dispatch({state : true, type : 'Share', folderName : currentCategory})}}>
                                         <img src={shareIcon} alt="공유 아이콘" />
                                         공유
                                     </FunctionBtn>
-                                    <FunctionBtn>
+                                    <FunctionBtn onClick={() => {dispatch({state : true, type : 'Edit', title : '폴더 이름 변경', buttonText : '변경하기', placeHolder : '변경 이름 입력'})}}>
                                         <img src={penIcon} alt="수정 아이콘" />
                                         이름 변경
                                     </FunctionBtn>
-                                    <FunctionBtn>
+                                    <FunctionBtn onClick={() => {dispatch({state : true, type : 'Delete', title : '폴더 삭제', deleteTarget : currentCategory})}}>
                                         <img src={deletIcon} alt="삭제 아이콘" />
                                         삭제
                                     </FunctionBtn>
@@ -137,7 +153,7 @@ function Folder() {
                                 {folderLinkList.length ?
                                     folderLinkList.map(link => {
                                         return (
-                                            <LinkCard linkData={link} key={link.id}>
+                                            <LinkCard linkData={link} key={link.id} dispatch={dispatch}>
                                             </LinkCard>
                                         )
                                     }) : 
@@ -149,7 +165,7 @@ function Folder() {
                 </section>
             </main>
             <FooterBlock />
-            <ModalLayout/>
+            <ModalLayout modalState={handleModal} dispatch={dispatch} folderList={categoryData}/>
         </>
     )
 }

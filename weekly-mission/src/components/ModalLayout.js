@@ -2,6 +2,8 @@ import styled from "styled-components"
 import { useEffect, useState } from "react"
 import ModalFolderEdit from "./ModalFolderEdit";
 import ModalDelete from "./ModalDelete";
+import ModalShare from "./ModalShare";
+import ModalLinkAdd from "./ModalLinkAdd";
 
 
 
@@ -14,7 +16,7 @@ const Layout = styled.div`
     top:0;
     left:0;
     z-index : 10000;
-    display : flex;
+    display : ${({state}) => state ? 'flex' : 'none'};
     justify-content:center;
     align-items:center;
 `;
@@ -22,12 +24,14 @@ const Layout = styled.div`
 
 
 
-function ModalLayout () {
+function ModalLayout ({modalState, dispatch, folderList}) {
     
     return(
-        <Layout>
-            <ModalFolderEdit></ModalFolderEdit>
-            {/* <ModalDelete></ModalDelete> */}
+        <Layout state={modalState.state}>
+            <ModalFolderEdit type={modalState} dispatch={dispatch}></ModalFolderEdit>
+            <ModalDelete type={modalState} dispatch={dispatch}></ModalDelete>
+            <ModalShare type={modalState} dispatch={dispatch}></ModalShare>
+            <ModalLinkAdd type={modalState} dispatch={dispatch} folderList={folderList}></ModalLinkAdd>
         </Layout>
     )
 }
