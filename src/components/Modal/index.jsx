@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
-import { useState, useContext, createContext, Fragment } from "react";
-import { background, modal } from "./styles";
+import { useContext, createContext, Fragment } from 'react';
+import { background, modal } from './styles';
 
 const ModalContext = createContext();
 
@@ -52,10 +52,9 @@ const Button = ({ children, onClick }) => {
   const { hide } = useContext(ModalContext);
 
   const handleClick = async () => {
-    if (!onClick) return;
     const result = await onClick();
-    if (!result?.success) {
-      alert(result?.message ? result.message : "작업에 실패하였습니다.");
+    if (!result) {
+      alert(result?.message ? result.message : '작업에 실패하였습니다.');
       return;
     }
     hide();
