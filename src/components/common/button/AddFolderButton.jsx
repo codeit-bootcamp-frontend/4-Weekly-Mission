@@ -1,5 +1,8 @@
-import addIcon from 'assets/icon/add-icon.svg';
+import { useState } from 'react';
 import { styled } from 'styled-components';
+
+import addIcon from 'assets/icon/add-icon.svg';
+import InputFormModal from 'components/folder/modal/InputFormModal';
 
 const Styled = {
   Button: styled.button`
@@ -27,11 +30,31 @@ const Styled = {
 };
 
 function AddFolderButton() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleFormSubmit = (folderName) => {
+    console.log(`${folderName} 추가완료!`);
+  };
+
   return (
-    <Styled.Button>
-      <Styled.Label>폴더추가</Styled.Label>
-      <Styled.Icon src={addIcon} alt="폴더추가 버튼" />
-    </Styled.Button>
+    <>
+      <Styled.Button type="button" onClick={handleButtonClick}>
+        <Styled.Label>폴더추가</Styled.Label>
+        <Styled.Icon src={addIcon} alt="폴더추가 버튼" />
+      </Styled.Button>
+      {isModalOpen && (
+        <InputFormModal
+          setOpen={setIsModalOpen}
+          onSubmit={handleFormSubmit}
+          modalTitle="폴더 추가"
+          buttonLabel="추가하기"
+        />
+      )}
+    </>
   );
 }
 

@@ -13,18 +13,19 @@ const Styled = {
   `,
 
   Container: styled.div`
-    padding-top: ${({ isFixed }) => (!isFixed ? 0 : '9.25rem')};
+    padding-top: ${({ $isFixed }) => $isFixed && '9.25rem'};
   `,
 };
 
 function Layout({ children }) {
   const location = useLocation();
   const isFixed = location.pathname !== '/folder';
+  console.log(isFixed);
 
   return (
     <>
-      <GNB isFixed={isFixed} />
-      <Styled.Container className="layout-container" isFixed={isFixed}>
+      <GNB $isFixed={isFixed} />
+      <Styled.Container className="layout-container" $isFixed={isFixed}>
         <Outlet />
         {children}
       </Styled.Container>

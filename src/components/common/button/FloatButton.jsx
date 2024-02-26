@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { styled } from 'styled-components';
 import addIcon from 'assets/icon/add.svg';
+import InputFormModal from 'components/folder/modal/InputFormModal';
 
 const Styled = {
   Button: styled.button`
@@ -36,11 +38,32 @@ const Styled = {
 
 // 공통 플로팅 컴포넌트로 변경 필요
 function FloatButton({ children, ...htmlButtonProps }) {
+  // AddFolderButton과 로직 동일하므로 모바일일때 스타일만 조정되도록 고민해보기
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleFormSubmit = (folderName) => {
+    console.log(`${folderName} 추가완료!`);
+  };
+
   return (
-    <Styled.Button {...htmlButtonProps}>
-      <div>{children}</div>
-      <Styled.Icon src={addIcon} alt="플로팅 버튼" />
-    </Styled.Button>
+    <>
+      <Styled.Button type="button" onClick={handleButtonClick} {...htmlButtonProps}>
+        <div>{children}</div>
+        <Styled.Icon src={addIcon} alt="플로팅 버튼" />
+      </Styled.Button>
+      {isModalOpen && (
+        <InputFormModal
+          setOpen={setIsModalOpen}
+          onSubmit={handleFormSubmit}
+          modalTitle="폴더 추가"
+          buttonLabel="추가하기"
+        />
+      )}
+    </>
   );
 }
 

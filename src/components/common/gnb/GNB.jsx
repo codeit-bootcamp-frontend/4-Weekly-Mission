@@ -8,7 +8,7 @@ import UserBtn from 'components/common/gnb/UserBtn';
 
 const Styled = {
   Container: styled.nav`
-    position: ${({ isFixed }) => (isFixed ? 'fixed' : 'static')};
+    position: ${({ $isFixed }) => ($isFixed ? 'fixed' : 'static')};
     left: 0;
     top: 0;
     z-index: 100;
@@ -34,13 +34,13 @@ const Styled = {
   `,
 };
 
-function GNB({ isFixed }) {
+function GNB({ $isFixed }) {
   const { data } = useUserInfoQuery({ userId: 1 });
   const userData = data?.data?.data[0];
   const isLoggedIn = userData !== null;
 
   return (
-    <Styled.Container isFixed={isFixed}>
+    <Styled.Container $isFixed={$isFixed}>
       <Styled.InnerWrap>
         <Link to="/">
           <img src={logo} alt="linkbrary-logo" />

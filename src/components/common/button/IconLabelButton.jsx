@@ -18,7 +18,7 @@ const Styled = {
 
 function IconLabelButton({ icon, label, onClick }) {
   return (
-    <Styled.Container type="button" onClick={() => console.log('클릭이벤트')}>
+    <Styled.Container type="button" onClick={onClick}>
       <img src={icon} alt={icon} />
       <Styled.Label>{label}</Styled.Label>
     </Styled.Container>
