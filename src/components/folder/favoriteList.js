@@ -31,7 +31,7 @@ export const FavoriteList = ({ handleChange, id }) => {
       {favoriteList?.map((v) => (
         <FavoriteButton
           selected={id === v.id}
-          onClick={() => handleChange(v.id)}
+          onClick={() => handleChange(v)}
         >
           {v.name}
         </FavoriteButton>

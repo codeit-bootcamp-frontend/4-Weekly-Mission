@@ -10,7 +10,7 @@ import {
   CardContianer,
   FavoriteCard,
 } from "../components/card/folderCard";
-
+import { TitleBar } from "../components/titlebar/titlebar";
 /**
  * 1. FavoriteList에서 폴더버튼을 누르면 ID값을 받아서 FolderPage의 id값을 변경한다.
  * 2. 값이 변경되면 "api/users/1/links?folderId=id값"으로 API요청을 보낸다.
@@ -22,11 +22,13 @@ export const FolderPage = () => {
 
   const [cardList, setCardList] = useState([]);
   const [id, setId] = useState(null);
+  const [selectItem, setSelectItem] = useState(null) 
   const { list } = useFolderList(id);
-  const handleChangeFolderId = (targetId) => {
-    setId(targetId);
+  const handleChangeFolderId = (target) => {
+    setId(target?.id);
+    setSelectItem({...target})
   };
-  console.log("list > ", list);
+  console.log("list > ", selectItem);
 
   return (
     <div className="mainPageContainer">
@@ -34,9 +36,11 @@ export const FolderPage = () => {
       <div className="mainPageWrapper">
         <FolderSearchBar />
         <FavoriteList handleChange={handleChangeFolderId} id={id} />
+        <TitleBar selectItem={selectItem}/>
         {list?.length === 0 ? (
           <EmptyList text={"저장된 링크가 없습니다."} />
         ) : null}
+       
         <CardContianer>
           {list?.map((data) => (
             <FavoriteCard data={data} selectId={id} />
