@@ -16,4 +16,12 @@ export const getFolderData = async () => {
   return res;
 };
 
-// export { getProfileData, getFolderData };
+//https://bootcamp-api.codeit.kr/api/users/1/folders
+
+export const getFolderNameData = async () => {
+  const res = await fetch(`${baseUrl}/users/1/folders`).then((res) =>
+    res.json()
+  );
+
+  return res;
+};

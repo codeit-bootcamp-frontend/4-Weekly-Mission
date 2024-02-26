@@ -1,7 +1,6 @@
 import logo from '../../assets/logo.png';
 import ProfileId from './ProfileId';
-import '../../styles/NavBar.css';
-import Styles from '../../styles/Folder.module.css';
+import Styles from '../../styles/FolderPage.module.css';
 
 const NavBar = () => {
   return (
@@ -11,4 +10,5 @@ const NavBar = () => {
     </div>
   );
 };
+
 export default NavBar;

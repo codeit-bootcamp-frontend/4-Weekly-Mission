@@ -1,5 +1,5 @@
 import Search from '../assets/Search.svg';
-import Styles from '../styles/Folder.module.css';
+import Styles from '../styles/FolderPage.module.css';
 
 const SearchBar = () => {
   return (

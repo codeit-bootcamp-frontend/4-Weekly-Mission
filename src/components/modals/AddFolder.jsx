@@ -1,14 +1,13 @@
-import '../../index.css';
 const CLOSE_BUTTON = 'images/modalClose.png';
 
-const AddFolderModal = ({ isOpen, closeModal }) => {
+const AddFolderModal = ({ closeModal }) => {
   return (
     <>
       <div
         id='first_div'
         style={{
           background: 'rgba( 0, 0, 0, 0.4 )',
-          display: isOpen ? 'flex' : 'none',
+          // display: openModal ? 'block' : 'none',
           width: '100wh',
           height: '100vh',
           alignItems: 'center',

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getProfileData } from '../../apis/api';
-import Styles from '../../styles/Folder.module.css';
+import Styles from '../../styles/FolderPage.module.css';
 
 const ProfileId = () => {
   const [state, setState] = useState({});
@@ -17,11 +17,11 @@ const ProfileId = () => {
   return (
     <div className={Styles.account}>
       <img
-        className={Styles.profileImg}
+        className={Styles.accountImg}
         src={state.profileImageSource}
         alt='profile_image'
       />
-      <div>{state.email}</div>
+      <div className={Styles.accountId}>{state.email}</div>
     </div>
   );
 };
