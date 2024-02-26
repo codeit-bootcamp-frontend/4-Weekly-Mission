@@ -1,12 +1,12 @@
 import '../styles/Modal.css';
 import buttonClose from '../assets/icons/button-close.svg';
-// import ModalEdit from './ModalEdit';
-// import ModalDelete from './ModalDelete';
-// import ModalShare from './ModalShare';
+import ModalEdit from './ModalEdit';
+import ModalDelete from './ModalDelete';
+import ModalShare from './ModalShare';
 import ModalAdd from './ModalAdd';
 
-const Modal = ({ onClose }) => {
-
+const Modal = ({ onClose, role }) => {
+  console.log("role", role);
   return (
     <>
       <div className="modal-mask" onClick={onClose}></div>
@@ -15,10 +15,10 @@ const Modal = ({ onClose }) => {
         <a className="modal-button-close">
           <img src={buttonClose} onClick={onClose} alt='닫기' />
         </a>
-        {/* <ModalDelete /> */}
-        {/* <ModalEdit /> */}
-        {/* <ModalShare /> */}
-        <ModalAdd />
+        {role === "edit" && <ModalEdit />}
+        {role === "share" && <ModalShare />}
+        {role === "delete" && <ModalDelete />}
+        {role === "add" && <ModalAdd />}
       </div>
     </>
   );

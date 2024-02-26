@@ -2,27 +2,26 @@ import '../styles/AddLink.css';
 import iconLink from '../assets/icons/link.svg';
 import Modal from './Modal';
 import ModalPortal from './Portal';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const AddLink = () => {
   const [openModal, setOpenModal] = useState(false);
-  function handleOpenModal() {
-    console.log(openModal);
+  const [role, setRole] = useState("");
+
+  const handleOpenModal = (role) => {
     setOpenModal(true);
+    setRole(role);
   }
-  function handleCloseModal() {
+
+  const handleCloseModal = () => {
     setOpenModal(false);
   }
-  useEffect(() => {
-    document.body.style = `overflow: hidden`;
-    return () => document.body.style = `overflow: auto`
-  }, [])
 
   return (
     <div className="add-link">
       {openModal && (
         <ModalPortal>
-          <Modal onClose={handleCloseModal} />
+          <Modal onClose={handleCloseModal} role={role} />
         </ModalPortal>
       )}
       <div className='add-link-content'>
@@ -30,7 +29,7 @@ const AddLink = () => {
           <img className="add-link-icon" src={iconLink} alt="링크를 추가하기." />
           <input className="add-link-input" type="text" placeholder="링크를 추가해 보세요"></input>
         </div>
-        <a className="add-link-button button-gradient" onClick={handleOpenModal}>추가하기</a>
+        <a className="add-link-button button-gradient" onClick={() => handleOpenModal("add")}>추가하기</a>
       </div>
     </div>
   );
