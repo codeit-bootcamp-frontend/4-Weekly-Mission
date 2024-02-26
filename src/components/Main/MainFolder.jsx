@@ -1,4 +1,3 @@
-import Card from '../Card/Card';
 import Page from '../FilterBar/FilterBar';
 import search from './images/search.svg';
 import styled from 'styled-components';
@@ -73,9 +72,7 @@ export default function Main() {
         <p>폴더 추가</p>
         <img src={`${process.env.PUBLIC_URL}/images/addWhite.svg`} alt="Add Icon" />
       </FloatingButton>
-      <div className="mainContent">
-        <Card />
-      </div>
+      <div className="mainContent"></div>
     </main>
   );
 }

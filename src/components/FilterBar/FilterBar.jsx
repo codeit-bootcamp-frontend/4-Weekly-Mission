@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export default function Page() {
   const [filter, setFilter] = useState('all');
   const [folderData, setFolderData] = useState([]);
-  const [isloading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const fetchData = async () => {
     try {
       const response = await axios.get('https://bootcamp-api.codeit.kr/api/users/1/folders');
@@ -65,11 +65,19 @@ const Button = styled.button`
     color: #000;
 
     /* Linkbrary/body2-regular */
-    font-family: Pretendard;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+
+  &:hover {
+    background-color: $color-gray10;
+  }
+
+  &.selected {
+    background-color: $color-primary;
+    color: $color-white;
   }
 `;
 
@@ -84,16 +92,23 @@ function FilterBar({ filter, onchangeFilter, folderData }) {
   return (
     <div>
       <FilterBarLeft>
-        {folderData.map(data => (
-          <>
-            <Button
-              onClick={() => {
-                onchangeFilter('all');
-              }}
-              selected={filter === 'all'}>
-              {data.name}
-            </Button>
-          </>
+        <Button
+          key="all"
+          onClick={() => {
+            onchangeFilter('all');
+          }}
+          selected={filter === 'all'}>
+          <span>전체</span>
+        </Button>
+        {folderData?.map(({ id, name }) => (
+          <Button
+            key={id}
+            onClick={() => {
+              onchangeFilter(id);
+            }}
+            selected={filter === id}>
+            {name}
+          </Button>
         ))}
       </FilterBarLeft>
     </div>
