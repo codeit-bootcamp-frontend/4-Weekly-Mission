@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { GetFolder } from "../../data-access/api";
+import { GetFolder } from "../../api/api";
 
 function Favorites() {
   const [folderName, setFolderName] = useState("");

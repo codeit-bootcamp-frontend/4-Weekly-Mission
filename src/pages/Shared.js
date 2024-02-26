@@ -2,6 +2,8 @@ import Navbar from "../components/Navbar";
 import Favorites from "../components/shared/Favorites";
 import LinkSearch from "../components/LinkSearch";
 import CardList from "../components/shared/CardList";
+import Footer from "../components/Footer";
+import "./Main.css";
 
 function Shared() {
   return (
@@ -14,6 +16,7 @@ function Shared() {
         <LinkSearch />
         <CardList />
       </div>
+      <Footer />
     </>
   );
 }

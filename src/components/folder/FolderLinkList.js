@@ -1,16 +1,19 @@
 import { useEffect, useState } from "react";
-import { GetAllLinks, GetFolderList, GetLinks } from "../../data-access/api";
+import { GetAllLinks, GetFolderList, GetLinks } from "../../api/api";
 import "./FolderLinkList.css";
 import addButton from "../../images/add.png";
 import ShareRenameDelete from "./ShareRenameDelete";
 import LinkList from "./LinkList";
+import EditModal from "../modals/EditModal";
 
 function FolderLinkList() {
   const [currentFolderName, setCurrentFolderName] = useState("전체");
+  const [currentFolderId, setCurrentFolderId] = useState(1);
   const [folderListData, setFolderListData] = useState([]);
   const [linksData, setLinksData] = useState([]);
   //prevId값과 같은 Id를 가진 폴더버튼은 배경색이 변경된다
   const [prevId, setPrevId] = useState(1);
+  const [modalOn, setModalOn] = useState(false);
 
   useEffect(() => {
     const GetMyFolderList = async () => {
@@ -51,8 +54,9 @@ function FolderLinkList() {
     const { data } = result;
     setLinksData(data);
     setCurrentFolderName(folderData.name);
+    setCurrentFolderId(folderData.id);
     //만약 이전 버튼 상태일 때 현재 버튼이 클릭됐다면
-    if (prevId != folderData.id) {
+    if (prevId !== folderData.id) {
       //현재 누른 버튼이 이전 버튼이 되고 버튼 배경색이 바뀐다
       setPrevId(folderData.id);
     }
@@ -66,6 +70,13 @@ function FolderLinkList() {
       setPrevId(1);
     }
   };
+
+  function handleModalOn() {
+    setModalOn(true);
+  }
+  function handleModalOff() {
+    setModalOn(false);
+  }
   return (
     <>
       <button className="floating-add-folder">폴더 추가+</button>
@@ -93,21 +104,30 @@ function FolderLinkList() {
                 );
               })}
             </div>
-            <button className="add-folder">
+            <button onClick={handleModalOn} className="add-folder">
               폴더추가 <img src={addButton} />
             </button>
+            {modalOn && (
+              <EditModal
+                purpose={"폴더 추가"}
+                handleModalOff={handleModalOff}
+              />
+            )}
           </div>
           <div className="current-folder-name-share-rename-delete">
             <div className="current-folder-name">{currentFolderName}</div>
-            {currentFolderName == "전체" ? <></> : <ShareRenameDelete />}
+            {currentFolderName == "전체" ? (
+              <></>
+            ) : (
+              <ShareRenameDelete
+                folderName={currentFolderName}
+                folderId={currentFolderId}
+              />
+            )}
           </div>
-          {linksData.length == 0 ? (
-            <div className="no-links-data"></div>
-          ) : (
-            <></>
-          )}
+          {linksData.length === 0 && <div className="no-links-data"></div>}
 
-          <LinkList linksData={linksData} />
+          <LinkList folderListData={folderListData} linksData={linksData} />
         </div>
       ) : (
         <div className="no-link">

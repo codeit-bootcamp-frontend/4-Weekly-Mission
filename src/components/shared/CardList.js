@@ -1,16 +1,13 @@
 import "./CardList.css";
 import "../common.css";
 import card1 from "../../images/card1.png";
-import { formatDate, getDaysAgo } from "../../util/DateCalculator";
+import { formatDate, getDaysAgo } from "../../util/date-calculator";
 import { useEffect, useState } from "react";
-import { GetFolder } from "../../data-access/api";
+import { GetFolder } from "../../api/api";
 
 function CardListItem({ item }) {
-  let card = item.imageSource;
   const href = item.url;
-  if (!card) {
-    card = card1;
-  }
+
   return (
     <a
       href={href}
@@ -19,9 +16,9 @@ function CardListItem({ item }) {
       rel="noopener noreferrer"
     >
       <div
-        key={card}
+        key={item.imageSource || card1}
         className="card-image"
-        style={{ backgroundImage: `url(${card})` }}
+        style={{ backgroundImage: `url(${item.imageSource || card1})` }}
       />
 
       <div className="card-content">
@@ -38,9 +35,9 @@ function CardList() {
 
   useEffect(() => {
     const GetMyFolder = async () => {
-      const result = await GetFolder();
-      const { folder } = result;
-      const { links } = folder;
+      const {
+        folder: { links },
+      } = await GetFolder();
       setLinks(links);
     };
     try {

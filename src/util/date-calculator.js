@@ -3,14 +3,14 @@ export function getDaysAgo(value) {
   let timeStampDate = date.getTime();
   if (isNaN(timeStampDate)) {
     // 날짜를 파싱하여 각 구성 요소를 추출
-    var dateParts = value.match(/\d+/g);
-    var year = parseInt(dateParts[0]);
-    var month = parseInt(dateParts[1]) - 1; // 월은 0부터 시작하므로 1을 빼준다.
-    var day = parseInt(dateParts[2]);
-    var hour = parseInt(dateParts[3]);
-    var minute = parseInt(dateParts[4]);
-    var second = parseInt(dateParts[5]);
-    var millisecond = parseInt(dateParts[6]);
+    let dateParts = value.match(/\d+/g);
+    let year = parseInt(dateParts[0]);
+    let month = parseInt(dateParts[1]) - 1; // 월은 0부터 시작하므로 1을 빼준다.
+    let day = parseInt(dateParts[2]);
+    let hour = parseInt(dateParts[3]);
+    let minute = parseInt(dateParts[4]);
+    let second = parseInt(dateParts[5]);
+    let millisecond = parseInt(dateParts[6]);
 
     // UTC로부터의 밀리초를 계산
     timeStampDate = Date.UTC(
@@ -45,13 +45,13 @@ export function getDaysAgo(value) {
     return `${Math.floor(minuteDifference / 60 / 24)} days ago`;
   }
   if (minuteDifference / 60 / 24 < 61) {
-    return `1 month ago`;
+    return "1 month ago";
   }
   if (minuteDifference / 60 / 24 / 31 < 12) {
     return `${Math.floor(minuteDifference / 60 / 24 / 31)} months ago`;
   }
   if (minuteDifference / 60 / 24 / 365 < 2) {
-    return `1 year ago`;
+    return "1 year ago";
   }
   return `${Math.floor(minuteDifference / 60 / 24 / 365)} years ago`;
 }
