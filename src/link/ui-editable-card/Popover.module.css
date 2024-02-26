@@ -1,0 +1,31 @@
+.popover {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100px;
+  height: auto;
+  background-color: white;
+  z-index: 1;
+}
+
+.text {
+  display: flex;
+  width: 100px;
+  height: 32px;
+  justify-content: center;
+  align-items: center;
+
+  color: var(--gray-light-gray-100, #333236);
+
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.focus {
+  color: var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-gray10, #e7effb);
+}
