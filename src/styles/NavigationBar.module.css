@@ -67,3 +67,24 @@
     padding: 2.0625rem 2rem 2rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .navigation_bar {
+    min-width: 24.375rem;
+    height: 3.9375rem;
+    padding: 1.125rem 2rem 1.0625rem 2rem;
+  }
+
+  .logo {
+    width: 5.54169rem;
+    height: 1rem;
+  }
+
+  .account {
+    min-width: 1.75rem;
+  }
+
+  .profile_email {
+    display: none;
+  }
+}

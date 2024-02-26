@@ -35,3 +35,10 @@
     max-width: 44rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .content_search {
+    max-width: 20.3125rem;
+    margin-bottom: 2rem;
+  }
+}

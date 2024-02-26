@@ -8,3 +8,10 @@
     max-width: 44rem;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .content_container {
+    max-width: 20.3125rem;
+    margin: 1.25rem auto;
+  }
+}

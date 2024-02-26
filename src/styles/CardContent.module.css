@@ -12,3 +12,9 @@
 
   line-height: 1.5rem;
 }
+
+@media screen and (max-width: 768px) {
+  .card_content {
+    width: 17.8125rem;
+  }
+}
