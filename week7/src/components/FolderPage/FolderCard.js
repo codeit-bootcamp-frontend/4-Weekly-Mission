@@ -1,11 +1,14 @@
 import "./FolderCard.css";
 import { useMediaQuery } from "react-responsive";
+import { useState } from "react";
 import noImg from "../../assets/noImage.png";
 import kebab from "../../assets/kebab.png";
-function FolderCard({ data }) {
+import KebabFolder from "../Modal/KebabFolder";
+
+function FolderCard({ data, isShowModal, linkModal, linkDeleteModal }) {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ maxWidth: 1124 });
-
+  const [kebabMenu, setKebabMenu] = useState({});
   const formatDate = (value) => {
     const date = new Date(value);
     const now = new Date();
@@ -48,8 +51,17 @@ function FolderCard({ data }) {
 
     return `${year}-${month}-${day}`;
   };
-  const CardItem = ({ link, url }) => {
+  const CardItem = ({ link, url, dataArray, dataId, isShowModal, dataUrl }) => {
     const timeStamp = new Date(link.created_at).getTime();
+
+    const handleKebabClick = (event) => {
+      event.preventDefault();
+
+      setKebabMenu((prevMenus) => ({
+        ...prevMenus,
+        [dataId]: !prevMenus[dataId],
+      }));
+    };
 
     return (
       <a className="folder-card-url" href={url} target="_blank">
@@ -64,7 +76,15 @@ function FolderCard({ data }) {
         )}
         <div className="date-and-kebab">
           <p>{formatDate(timeStamp)}</p>
-          <img className="kebab" src={kebab} />
+          <img className="kebab" src={kebab} onClick={handleKebabClick} />
+          {kebabMenu[dataId] ? (
+            <KebabFolder
+              isShowModal={isShowModal}
+              dataUrl={dataUrl}
+              linkModal={linkModal}
+              linkDeleteModal={linkDeleteModal}
+            />
+          ) : null}
         </div>
         <p className="folder-title">{link.title}</p>
         <p className="folder-description">{link.description}</p>
@@ -91,7 +111,14 @@ function FolderCard({ data }) {
           dataArray.map((data) => {
             return (
               <div className="folder-card-box" key={data.id}>
-                <CardItem link={data} url={data.url} />
+                <CardItem
+                  link={data}
+                  url={data.url}
+                  dataId={data.id}
+                  dataUrl={data.url}
+                  dataArray={dataArray}
+                  isShowModal={isShowModal}
+                />
               </div>
             );
           })

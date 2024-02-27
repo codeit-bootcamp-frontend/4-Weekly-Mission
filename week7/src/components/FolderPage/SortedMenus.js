@@ -10,6 +10,7 @@ const Button = ({
   onChangeTitle: handleChangeTitle,
 }) => {
   const clickNotAllMenus = (id) => {
+    console.log(id);
     handleChangeId(() => id);
     onChangeUrl(
       `https://bootcamp-api.codeit.kr/api/users/1/links?folderId=${id}`
@@ -38,10 +39,16 @@ function SortedMenus({
   allMenuData,
   onChangeUrl,
   onChangeTitle,
+  isShowModal,
 }) {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ maxWidth: 1124 });
   const menusDataArray = menusData || [];
+
+  const showFolderAddModal = (e) => {
+    e.preventDefault();
+    isShowModal((prev) => ({ linkModal: false, folderAddModal: true }));
+  };
 
   return (
     <nav className={isTablet ? "sortedMenu-nav-tablet" : "sortedMenu-nav"}>
@@ -70,7 +77,11 @@ function SortedMenus({
         {!isMobile ? (
           <div className="add-folder-btn-box">
             <span>
-              <a className="add-folder-btn" href="/">
+              <a
+                className="add-folder-btn"
+                href="/"
+                onClick={showFolderAddModal}
+              >
                 폴더 추가 +
               </a>
             </span>

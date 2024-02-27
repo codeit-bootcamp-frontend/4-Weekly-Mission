@@ -1,0 +1,21 @@
+.kebab-menu-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 2.5rem;
+  left: 280px;
+  width: 100px;
+  background-color: white;
+  gap: 10px;
+  width: 7rem;
+  padding: 5px 0px;
+  box-shadow: 0 0.2rem 0.8rem 0 rgba(51, 50, 54, 0.1);
+}
+
+.kebab-menu-container div:hover {
+  background-color: #f0f6ff;
+}
+
+/* .kebab-menu-none {
+  display: none;
+} */

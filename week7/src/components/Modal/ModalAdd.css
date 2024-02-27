@@ -1,0 +1,59 @@
+.modal-add-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 0.5rem;
+  gap: 1.5rem;
+}
+
+.add-area {
+  color: #9fa6b2;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+}
+
+.add-folder-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  overflow: scroll;
+  height: 172px;
+}
+
+.add-folder-item {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  height: 40px;
+  gap: 0.5rem;
+}
+.add-folder-item:hover {
+  background: #f0f6ff;
+}
+.add-folder-name {
+  display: flex;
+}
+
+.add-folder-link {
+  display: flex;
+  color: #9fa6b2;
+  font-size: 0.9rem;
+}
+
+.add-button {
+  display: flex;
+  width: 17.5rem;
+  height: 51px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}

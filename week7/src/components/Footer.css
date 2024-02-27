@@ -8,12 +8,12 @@
   justify-content: space-around;
 }
 .footer {
-
   height: 160px;
   background-color: rgba(17, 19, 34, 1);
   color: rgba(103, 103, 103, 1);
   width: 100%;
   bottom: 0;
+  z-index: 10;
 }
 .footer-tablet {
   height: 160px;

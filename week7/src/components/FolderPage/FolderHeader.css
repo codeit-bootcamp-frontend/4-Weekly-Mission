@@ -6,7 +6,9 @@
   height: 28px;
   padding-right: 5px;
 }
-
+.apply-background {
+  z-index: -1;
+}
 .folder-nav {
   display: flex;
   flex-direction: column;
@@ -16,7 +18,9 @@
   width: 100%;
   background-color: #edf7ff;
 }
-
+form {
+  z-index: 1;
+}
 .gnb {
   display: flex;
   position: sticky;
@@ -50,6 +54,7 @@
   padding: 0 32px;
   width: 100%;
   box-sizing: border-box;
+  z-index: 1;
 }
 
 .search {

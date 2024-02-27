@@ -14,7 +14,7 @@ const profileAccount = ({ user, imageSource, email }) => {
     </div>
   );
 };
-function FolderHeader({ user, imageSource, email }) {
+function FolderHeader({ user, imageSource, email, onClick }) {
   const isTablet = useMediaQuery({ maxWidth: 1199 });
   return (
     <>
@@ -32,7 +32,7 @@ function FolderHeader({ user, imageSource, email }) {
           </div>
         </nav>
       </form>
-      <AddLink />
+      <AddLink setIsShowModal={onClick} />
     </>
   );
 }

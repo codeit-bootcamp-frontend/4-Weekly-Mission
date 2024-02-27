@@ -6,9 +6,15 @@
   background-color: #edf7ff;
   padding-bottom: 20px;
 }
+.apply-background-link-container {
+  background-color: #edf7ff;
+  padding-bottom: 40px;
+  z-index: -1;
+}
 .link-add-container {
   background-color: #edf7ff;
   padding-bottom: 40px;
+  z-index: 1;
 }
 label {
   position: relative;
