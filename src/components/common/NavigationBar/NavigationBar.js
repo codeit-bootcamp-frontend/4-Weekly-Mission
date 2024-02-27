@@ -5,7 +5,7 @@ import { Profile } from "../Profile/Profile";
 const Nav = styled.nav`
   display: flex;
   justify-content: center;
-  position: ${(props) => (props.sticky ? "sticky" : "static")};
+  position: ${(props) => (props.$isSticky ? "isSticky" : "static")};
   top: 0;
   z-index: var(100);
   width: 100%;
@@ -54,9 +54,9 @@ const SignInButton = styled.button`
   }
 `;
 
-const NavigationBar = ({ profile, sticky }) => {
+const NavigationBar = ({ profile, isSticky }) => {
   return (
-    <Nav sticky={sticky}>
+    <Nav isSticky={isSticky}>
       <NavItems>
         <a href="/">
           <Logo src="/images/linkbrary.svg" alt="로고 이미지" />

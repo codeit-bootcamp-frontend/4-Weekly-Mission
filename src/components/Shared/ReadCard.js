@@ -1,6 +1,6 @@
-import Card from "./Card/Card";
-import CardImage from "./CardImage/CardImage";
-import CardContent from "./CardContent/CardContent";
+import Card from "../common/Card/Card";
+import CardImage from "../common/CardImage/CardImage";
+import CardContent from "../common/CardContent/CardContent";
 
 function ReadCard({
   url,

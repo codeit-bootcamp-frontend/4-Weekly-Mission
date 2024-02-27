@@ -1,9 +1,9 @@
 import { useGetFolder } from "../../hooks/useGetFolder";
-import CardList from "../CardList/CardList";
-import Header from "../Header/Header";
-import ReadCard from "../ReadCard";
-import SearchBar from "../SearchBar/SearchBar";
+import Header from "./Header/Header";
+import ReadCard from "./ReadCard";
 import "./Shared.css";
+import CardList from "../common/CardList/CardList";
+import SearchBar from "../common/SearchBar/SearchBar";
 
 function Shared() {
   const { data } = useGetFolder();

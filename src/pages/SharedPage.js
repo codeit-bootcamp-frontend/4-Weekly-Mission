@@ -1,7 +1,7 @@
 import "../colors.css";
 import "../global.css";
 import Shared from "../components/Shared/Shared";
-import { Layout } from "../components/Layout/Layout";
+import { Layout } from "../components/common/Layout/Layout";
 import { useGetUser } from "../hooks/useGetUser";
 
 function SharedPage() {
