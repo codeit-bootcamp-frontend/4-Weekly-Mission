@@ -6,18 +6,18 @@ function FolderMenu({
   getCardsInfo,
   setFolderId,
   setFolderName,
-  setIsWholeFolderSelect,
+  setIsAllFolderSelected,
 }) {
   const handleWholeFolderClick = () => {
     getCardsInfo();
     setFolderName("");
-    setIsWholeFolderSelect(true);
+    setIsAllFolderSelected(true);
   };
 
   const handleFolderClick = (folderId, folderName) => {
     setFolderId(folderId);
     setFolderName(folderName);
-    setIsWholeFolderSelect(false);
+    setIsAllFolderSelected(false);
   };
 
   return (

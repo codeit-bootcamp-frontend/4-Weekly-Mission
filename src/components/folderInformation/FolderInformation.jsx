@@ -1,7 +1,7 @@
 import "./FolderInformation.css";
 import rabbitImg from "../../assets/rabbit-icon.png";
 
-function UserInformation({ folderOwners, folderName }) {
+function FolderInformation({ folderOwners, folderName }) {
   return (
     <section className="FolderInformation">
       {folderOwners ? (
@@ -19,4 +19,4 @@ function UserInformation({ folderOwners, folderName }) {
   );
 }
 
-export default UserInformation;
+export default FolderInformation;

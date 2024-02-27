@@ -34,6 +34,10 @@
   gap: 4px;
 }
 
+.FolderCurrentInformation .icon_each_container:hover {
+  cursor: pointer;
+}
+
 .FolderCurrentInformation .icon {
   width: 18px;
   height: 18px;
