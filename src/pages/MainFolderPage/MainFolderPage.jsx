@@ -29,14 +29,14 @@ const MainFolderPage = () => {
   return (
     <Layout>
         <div className="MainFolderPage">
-        <div className="MainFolderPageItems">
           <AddLinkBar />
+        <div className="MainFolderPageItems">
           <SearchBar />
-          <FolderToolBar 
-          folderLists={folderLists}
-          chosenFolderId={chosenFolderId}
-          onClickFolder={setChosenFolderId} />
-          <div>
+          <div className="MainFolderPageBox">
+            <FolderToolBar 
+            folderLists={folderLists}
+            chosenFolderId={chosenFolderId}
+            onClickFolder={setChosenFolderId} />
             {linksData.length ? (
                 <CardInventory>
                     {linksData?.map((linkCard) => (

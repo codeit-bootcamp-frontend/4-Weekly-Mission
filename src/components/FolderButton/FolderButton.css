@@ -1,4 +1,4 @@
-.container {
+.folderbutton-container {
   display: flex;
   align-items: center;
   height: 3.1rem;
@@ -16,11 +16,11 @@
 
 }
 
-.container:hover {
-  background-color: var(--Linkbrary-gray20);
+.folderbutton-container:hover {
+  background-color: var(--Linkbrary-gray10);
 }
 
-.container .chosen {
+.folderbutton-container.chosen {
   background-color: var(--Linkbrary-primary-color);
   color: white;
 }

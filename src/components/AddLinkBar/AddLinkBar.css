@@ -1,4 +1,4 @@
-.container {
+.input-container {
   display: flex;
   justify-content: center;
   width: 100%;
@@ -69,7 +69,7 @@
 .buttonContainer {
   border-radius: 0.8rem;
   background: linear-gradient(91deg, var(--Linkbrary-primary-color) 0.12%, #6ae3fe 101.84%);
-  color: var(--Linkbrary-gray20);
+  color: white;
 }
 
 .button {

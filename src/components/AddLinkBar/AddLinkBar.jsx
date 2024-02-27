@@ -2,7 +2,7 @@ import "./AddLinkBar.css";
 
 const AddLinkBar = () => {
   return (
-    <div className="container">
+    <div className="input-container">
       <form className="form">
         <div className="input-box">
           <img className="icon" src="images/link.svg" alt="링크 아이콘" />

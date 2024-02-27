@@ -1,4 +1,4 @@
-.container {
+.addfolder-container {
   display: flex;
   align-items: center;
   column-gap: 0.4rem;
@@ -10,7 +10,7 @@
   border-radius: 2rem;
   border: 0.1rem solid white;
   background-color: var(--Linkbrary-primary-color);
-  color: var(--Linkbrary-gray20);
+  color: var(--Linkbrary-gray10);
 
   @media (min-width: 768px) {
     padding: 0;
@@ -20,7 +20,7 @@
 }
 
 .icon {
-  fill: var(--Linkbrary-gray20);
+  fill: var(--Linkbrary-gray10);
 
   @media (min-width: 768px) {
     fill: var(--Linkbrary-primary-color);

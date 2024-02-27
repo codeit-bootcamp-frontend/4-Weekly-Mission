@@ -23,8 +23,8 @@ const FolderToolBar = ({ folderLists, chosenFolderId, onClickFolder }) => {
     "all" === chosenFolderId ? "전체" : folderLists?.find(({ id }) => id === chosenFolderId).name;
 
   return (
-    <div className="container">
-    <div className="folderLists">
+    <div className="folder-container">
+    <div className="folder-lists">
       <FolderButton
         key="all"
         text="전체"

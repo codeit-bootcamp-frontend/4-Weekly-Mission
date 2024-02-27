@@ -1,4 +1,4 @@
-.container {
+.folder-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -16,9 +16,10 @@
   }
 }
 
-.folderLists {
+.folder-lists {
   grid-area: folderLists;
   display: flex;
+  flex-wrap: wrap;
   column-gap: 0.8rem;
   row-gap: 1.2rem;
   flex-grow: 1;
@@ -30,7 +31,7 @@
   bottom: 10.1rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
+  z-index: 100;
 
   @media (min-width: 768px) {
     justify-self: flex-end;

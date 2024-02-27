@@ -1,7 +1,7 @@
 import "./FolderButton.css";
 
 const FolderButton = ({ text, onClick, isChosen = false }) => {
-  const classNames = `container ${isChosen ? 'chosen' : ''}`;
+  const classNames = `folderbutton-container ${isChosen ? 'chosen' : ''}`;
 
   return (
     <button className={classNames} onClick={onClick}>
