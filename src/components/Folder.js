@@ -82,7 +82,7 @@ const Folder = () => {
     handleLoadLinksInfo();
     handleSelectLinksInfo();
   }, []);
-
+  console.log(linksInfo);
   return (
     <>
       {isOpenModal === true ? (
@@ -90,6 +90,8 @@ const Folder = () => {
           handleCloseModal={handleCloseModal}
           selectModal={selectModal}
           selectFolder={selectFolder}
+          folderInfo={folderInfo}
+          linksInfo={linksInfo}
         />
       ) : null}
       {isOpenModal === true ? null : (

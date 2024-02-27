@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import close from '../../assets/modal/close.svg';
 
-const DeleteLinkModal = ({ onClose }) => {
+const DeleteLinkModal = ({ onClose, linksInfo }) => {
   const handleClose = () => {
     onClose(false);
   };

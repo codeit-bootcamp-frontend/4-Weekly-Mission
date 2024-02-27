@@ -20,7 +20,6 @@ const ShareModal = ({ onClose, selectFolder }) => {
   };
 
   const shareToFacebook = () => {
-    // const sharedLink = encodeURIComponent(url);
     window.open(`http://www.facebook.com/sharer/sharer.php?u=${sharedLink}`);
   };
 
@@ -32,13 +31,6 @@ const ShareModal = ({ onClose, selectFolder }) => {
         kakao.init(process.env.REACT_APP_KAKAO_KEY);
       }
 
-      // kakao.Share.sendCustom({
-      //   templateId: 104703,
-      //   templateArgs: {
-      //     title: '제목 영역입니다.',
-      //     description: '설명 영역입니다.',
-      //   },
-      // });
       kakao.Share.sendScrap({
         requestUrl: sharedLink,
         templateId: 104703,

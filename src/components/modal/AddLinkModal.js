@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import close from '../../assets/modal/close.svg';
 import check from '../../assets/modal/check.svg';
 
-const AddLinkModal = ({ onClose }) => {
+const AddLinkModal = ({ onClose, folderInfo }) => {
+  const [selectedItemId, setSelectedItemId] = useState(null);
+
   const handleClose = () => {
     onClose(false);
   };
 
   const handleStopEvent = (e) => {
     e.stopPropagation();
+  };
+
+  const handleLinkFolderClick = (id) => {
+    setSelectedItemId(id === selectedItemId ? null : id);
   };
 
   return (
@@ -21,30 +27,18 @@ const AddLinkModal = ({ onClose }) => {
             <span>링크 주소</span>
           </TitleContent>
           <LinksFolderContent>
-            <LinkFolderContent>
-              <FolderContent>
-                <div>코딩팁</div>
-                <span>7개 링크</span>
-              </FolderContent>
-            </LinkFolderContent>
-            <LinkFolderContent>
-              <FolderContent>
-                <div>채용 사이트</div>
-                <span>12개 링크</span>
-              </FolderContent>
-            </LinkFolderContent>
-            <LinkFolderContent>
-              <FolderContent>
-                <div>유용한 글</div>
-                <span>30개 링크</span>
-              </FolderContent>
-            </LinkFolderContent>
-            <LinkFolderContent>
-              <FolderContent>
-                <div>나만의 장소</div>
-                <span>3개 링크</span>
-              </FolderContent>
-            </LinkFolderContent>
+            {folderInfo.slice(1).map((item) => (
+              <LinkFolderContent
+                key={item.id}
+                onClick={() => handleLinkFolderClick(item.id)}
+                selected={selectedItemId === item.id}
+              >
+                <FolderContent>
+                  <div>{item.name}</div>
+                  <span>{item.link.count}개의 링크</span>
+                </FolderContent>
+              </LinkFolderContent>
+            ))}
           </LinksFolderContent>
           <button>추가하기</button>
         </ModalContent>
@@ -68,7 +62,6 @@ const ModalContainer = styled.div`
 
 const ContentContainer = styled.div`
   width: 36rem;
-  height: 38.9rem;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -139,11 +132,12 @@ const LinkFolderContent = styled.div`
   align-items: center;
   padding: 0.8rem;
   border-radius: 0.8rem;
+  background-color: ${(props) => (props.selected ? 'var(--bg)' : '')};
   cursor: pointer;
 
   &::after {
     content: '';
-    display: flex;
+    display: ${(props) => (props.selected ? 'flex' : 'none')};
     width: 1.4rem;
     height: 1.4rem;
     background-image: url(${check});
