@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Add } from '../../assets/icons/add.svg';
 
-const FolderAddIcon = ({ text }) => {
+const FolderAddIcon = ({ text, onClick }) => {
   return (
-    <IconContainer>
+    <IconContainer onClick={onClick}>
       <IconText>{text}</IconText>
       <Add />
     </IconContainer>
@@ -13,9 +13,13 @@ const FolderAddIcon = ({ text }) => {
 
 export default FolderAddIcon;
 
-const IconContainer = styled.div`
+const IconContainer = styled.button`
   display: flex;
   align-items: center;
+  font-size: 1rem;
+  border: none;
+  background-color: #fff;
+  color: #6d6afe;
   fill: #6d6afe;
   cursor: pointer;
 

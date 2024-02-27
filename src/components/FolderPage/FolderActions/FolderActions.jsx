@@ -3,11 +3,11 @@ import ShareIcon from '../../icons/ShareIcon';
 import EditIcon from '../../icons/EditIcon';
 import { IconContainer } from './folderActionsStyle';
 
-const FolderActions = () => (
+const FolderActions = ({ onDelete, onRename, onShare }) => (
   <IconContainer>
-    <DeleteIcon text="삭제" />
-    <EditIcon text="이름 변경" />
-    <ShareIcon text="공유" />
+    <DeleteIcon text="삭제" onClick={onDelete} />
+    <EditIcon text="이름 변경" onClick={onRename} />
+    <ShareIcon text="공유" onClick={onShare} />
   </IconContainer>
 );
 

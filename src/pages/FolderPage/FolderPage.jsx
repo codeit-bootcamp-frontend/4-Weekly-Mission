@@ -48,12 +48,16 @@ const FolderPage = () => {
     setSelectedFolderId(id);
   };
 
+  const handleAddLink = (folderId, link) => {
+    alert(`${folderId}, 링크: ${link}`);
+  };
+
   return (
     <>
       {isModalOpen && (
         <ErrorMessageModal message={errorMessage} onClose={hideErrorModal} />
       )}
-      <LinkInput />
+      <LinkInput folders={folders} onAddLink={handleAddLink} />
       <CardSearchbar />
       {folders && (
         <FolderControls
@@ -62,7 +66,7 @@ const FolderPage = () => {
           onClick={handleFolderClick}
         />
       )}
-      {cards && <Card links={cards} />}
+      {cards && <Card links={cards} folders={folders} />}
     </>
   );
 };
