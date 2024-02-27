@@ -1,0 +1,37 @@
+.addFolderModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.addFolderModal-top {
+  color: var(--linkbrary-gray100);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2.4rem;
+}
+
+.addFolderModal-input {
+  width: 28rem;
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--linkbrary-gray20);
+  background: var(--linkbrary-white);
+  margin-bottom: 1.5rem;
+}
+
+.addFolderModal-input::placeholder {
+  color: var(--linkbrary-gray60);
+  font-weight: 400;
+}
+
+.addFolderModal-button {
+  width: 28rem;
+  padding: 1.6rem 2rem;
+  border-radius: 0.8rem;
+  background: var(--gra-purpleblue-to-skyblue);
+  color: var(--linkbrary-white) !important;
+  font-size: 1.6rem;
+  font-weight: 600;
+}

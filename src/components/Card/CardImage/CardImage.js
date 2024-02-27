@@ -1,10 +1,10 @@
-import "./CardImage.css";
 import defaultImage from "../../../assets/images/card-default.png";
 import star from "../../../assets/images/folder/star.svg";
+import "./CardImage.css";
 
-const CardImage = ({ items, isZoomedIn }) => {
-  const { imageSource, image_source: image_sourse } = items;
-  const imageSourceValue = imageSource || image_sourse;
+export const CardImage = ({ items, isZoomedIn }) => {
+  const { imageSource, image_source } = items;
+  const imageSourceValue = imageSource || image_source;
   const className = isZoomedIn ? "card-image card-image-zoom-in" : "card-image";
 
   return (
@@ -18,5 +18,3 @@ const CardImage = ({ items, isZoomedIn }) => {
     </div>
   );
 };
-
-export default CardImage;

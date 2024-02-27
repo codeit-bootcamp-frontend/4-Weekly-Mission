@@ -1,25 +1,31 @@
 import { useState } from "react";
-import { CardContent } from "../CardContent/CardContent";
-import CardImage from "../CardImage/CardImage";
-import Card from "../CardWrapper/CardWrapper";
+import { CardImage } from "../CardImage";
+import { CardWrapper } from "../CardWrapper";
+import { CardContent } from "../CardContent";
 
-const OnlyCard = ({ items }) => {
+export const OnlyCard = ({ items, linkUrl, folderList }) => {
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseOver = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
 
-  const handleLinkClick = (e) => {
+  const handlePreventLinkClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
   };
   return (
     <a href={items.url} target="_blank" rel="noopener noreferrer">
-      <Card onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+      <CardWrapper
+        onMouseOver={handleMouseOver}
+        onMouseLeave={handleMouseLeave}
+      >
         <CardImage items={items} isZoomedIn={isHovered} />
-        <CardContent items={items} handleLinkClick={handleLinkClick} />
-      </Card>
+        <CardContent
+          items={items}
+          handlePreventLinkClick={handlePreventLinkClick}
+          linkUrl={linkUrl}
+          folderList={folderList}
+        />
+      </CardWrapper>
     </a>
   );
 };
-
-export default OnlyCard;

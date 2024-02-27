@@ -1,6 +1,6 @@
 import "./SearchBar.css";
 
-const SearchBar = () => {
+export const SearchBar = () => {
   return (
     <div className="searchBar">
       <div className="searchBar-icon"></div>
@@ -12,5 +12,3 @@ const SearchBar = () => {
     </div>
   );
 };
-
-export default SearchBar;

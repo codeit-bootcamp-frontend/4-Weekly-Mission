@@ -1,21 +1,26 @@
 import { useState, useEffect } from "react";
 import { getFolderList, getLink } from "../../api/api";
-import FolderList from "../../components/Folder/FolderList/FolderList";
-import Layout from "../../components/Layout/Layout";
-import OnlyCard from "../../components/Card/OnlyCard/OnlyCard";
-import CardList from "../../components/Card/CardList/CardList";
+import {
+  CardList,
+  OnlyCard,
+  FolderHeader,
+  FolderList,
+  FolderOption,
+  Layout,
+  SearchBar,
+} from "../../components";
 import "./FolderPage.css";
-import FolderOption from "../../components/Folder/FolderOption/FolderOption";
 
-const FolderPage = ({ folderHeader, searchBar }) => {
+const FolderPage = () => {
   const [folderList, setFolderList] = useState([]);
   const [links, setLinks] = useState([]);
   const [selectName, setSelectName] = useState("전체");
   const [selectId, setSelectId] = useState(null);
+  const [linkUrl, setLinkUrl] = useState("");
 
   const handleLoadFolderList = async (option) => {
-    const folderListdata = await getFolderList(option);
-    setFolderList(folderListdata.data);
+    const folderListData = await getFolderList(option);
+    setFolderList(folderListData.data);
   };
 
   const handleLoadLink = async (option) => {
@@ -28,6 +33,10 @@ const FolderPage = ({ folderHeader, searchBar }) => {
     setSelectId(id);
   };
 
+  const handleLinkAddInputChange = (e) => {
+    setLinkUrl(e.target.value);
+  };
+
   useEffect(() => {
     handleLoadFolderList({ userId: 1 });
     handleLoadLink({ userId: 1, folderId: selectId });
@@ -36,24 +45,32 @@ const FolderPage = ({ folderHeader, searchBar }) => {
   return (
     <Layout>
       <div className="folderPage">
-        {folderHeader}
+        <FolderHeader
+          folderList={folderList}
+          linkUrl={linkUrl}
+          handleLinkAddInputChange={handleLinkAddInputChange}
+        />
         <div className="folderPage-content">
-          {searchBar}
-
+          <SearchBar />
           <FolderList
+            linkUrl={links.map((link) => link.url)}
             folderList={folderList}
             selectId={selectId}
             onSelectFolderList={handleSelectFolderList}
           />
-
           <FolderOption folderName={selectName} />
 
-          {links.length === 0 ? (
+          {!links.length ? (
             <div className="folderPage-noLink">저장된 링크가 없습니다</div>
           ) : (
             <CardList>
-              {links?.map((item) => (
-                <OnlyCard key={item.id} items={item} />
+              {links.map((item) => (
+                <OnlyCard
+                  key={item.id}
+                  items={item}
+                  linkUrl={item.url}
+                  folderList={folderList}
+                />
               ))}
             </CardList>
           )}
