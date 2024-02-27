@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   margin: 0;
-  font-family: "Pretendard";
+  font-family: 'Pretendard';
 }
 a {
   text-decoration: none;
@@ -20,4 +20,12 @@ body {
 }
 main {
   flex: 1;
+}
+button {
+  border: none;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }

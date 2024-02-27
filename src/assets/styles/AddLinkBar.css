@@ -26,12 +26,13 @@
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: var(--Linkbrary-white, #fff);
 
-  color: var(--Linkbrary-gray60, #9fa6b2);
-
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5rem; /* 150% */
+}
+.add-bar::placeholder {
+  color: var(--Linkbrary-gray60, #9fa6b2);
 }
 
 #add-icon {

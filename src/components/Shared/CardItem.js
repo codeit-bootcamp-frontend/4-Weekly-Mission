@@ -1,31 +1,28 @@
-import logoImg from "../../assets/images/logo.png";
-import caculateTime from "../../utils/caculateTime";
-import formatDate from "../../utils/formatDate";
+import logoImg from '../../assets/images/logo.png';
+import caculateTime from '../../utils/caculateTime';
+import formatDate from '../../utils/formatDate';
 
 const CardItem = ({ link }) => {
   const { createdAt, description, imageSource, title, url } = link;
 
-  const handleClickUrl = () => {
-    if (url) {
-      window.open(url, "_blank");
-    }
-  };
   return (
-    <div className="card" onClick={handleClickUrl}>
-      {imageSource ? (
-        <div className="card-img">
-          <img id="img-logo" src={imageSource} alt={title} />
+    <div className="card">
+      <a href={url} target="_blank">
+        {imageSource ? (
+          <div className="card-img">
+            <img id="img-logo" src={imageSource} alt={title} />
+          </div>
+        ) : (
+          <div className="card-img no-img">
+            <img id="no-img-logo" src={logoImg} alt="noImg" />
+          </div>
+        )}
+        <div className="card-contents">
+          <h3 id="card-created-time">{caculateTime(createdAt)}</h3>
+          <h2 id="card-description">{description}</h2>
+          <h3 id="card-date">{formatDate(createdAt)}</h3>
         </div>
-      ) : (
-        <div className="card-img no-img">
-          <img id="no-img-logo" src={logoImg} alt="noImg" />
-        </div>
-      )}
-      <div className="card-contents">
-        <a id="card-created-time">{caculateTime(createdAt)}</a>
-        <a id="card-description">{description}</a>
-        <p id="card-date">{formatDate(createdAt)}</p>
-      </div>
+      </a>
     </div>
   );
 };

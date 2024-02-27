@@ -1,7 +1,9 @@
-import "../../assets/styles/FolderList.css";
-import addIcon from "../../assets/images/add.svg";
-import { useState } from "react";
-import FolderCardList from "./FolderCardList";
+import '../../assets/styles/FolderList.css';
+import addIcon from '../../assets/images/add.svg';
+import { useState } from 'react';
+import FolderCardList from './FolderCardList';
+import Modal from '../modal/Modal';
+import ModalPortal from '../common/ModalPortal';
 
 const FolderItem = ({ data, onFolderClick, isSelected }) => {
   const { name, id } = data;
@@ -10,7 +12,7 @@ const FolderItem = ({ data, onFolderClick, isSelected }) => {
   };
   return (
     <div
-      className={`folder-button ${isSelected ? "selected" : ""}`}
+      className={`folder-button ${isSelected ? 'selected' : ''}`}
       onClick={handleFolderClick}
     >
       {name}
@@ -19,7 +21,8 @@ const FolderItem = ({ data, onFolderClick, isSelected }) => {
 };
 
 const FolderList = ({ folderData }) => {
-  const [selectedFolder, setSelectedFolder] = useState({ id: "", name: "전체" });
+  const [selectedFolder, setSelectedFolder] = useState({ id: '', name: '전체' });
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const selectFolder = ({ id, name }) => {
     setSelectedFolder({ id, name });
@@ -31,8 +34,8 @@ const FolderList = ({ folderData }) => {
         <div className="folder-list-container">
           <div className="folder-items">
             <div
-              className={`folder-button ${selectedFolder.name === "전체" ? "selected" : ""}`}
-              onClick={() => selectFolder({ id: "", name: "전체" })}
+              className={`folder-button ${selectedFolder.name === '전체' ? 'selected' : ''}`}
+              onClick={() => selectFolder({ id: '', name: '전체' })}
             >
               전체
             </div>
@@ -45,16 +48,26 @@ const FolderList = ({ folderData }) => {
               />
             ))}
           </div>
-          <div className="add-folder">
+
+          <button className="add-folder" onClick={() => setIsModalOpen(true)}>
             폴더 추가
-            <img className="add-icon" src={addIcon} alt="add-icon"></img>
-          </div>
+            <img className="add-icon" src={addIcon} alt="add-icon" />
+          </button>
         </div>
       </div>
       {selectedFolder ? (
-        <FolderCardList id={selectedFolder.id} name={selectedFolder.name} />
+        <FolderCardList
+          id={selectedFolder.id}
+          name={selectedFolder.name}
+          folderList={folderData}
+        />
       ) : (
         <div>저장된 링크가 없습니다.</div>
+      )}
+      {isModalOpen && (
+        <ModalPortal>
+          <Modal action="add-folder" closeModal={() => setIsModalOpen(false)} />
+        </ModalPortal>
       )}
     </>
   );
