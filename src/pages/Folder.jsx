@@ -49,6 +49,7 @@ const Folder = () => {
         <CardList />
       </MainLayout>
       <Footer />
+
       {openModal && (
         <ModalContainer onClick={handleModalClose}>
           <Modal.Title>폴더 추가</Modal.Title>

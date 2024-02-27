@@ -3,13 +3,18 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
-  width: 264px;
+  width: 100%;
   border-radius: 8px;
   padding: 8px;
   gap: 8px;
-  font-family: Pretendard;
   align-items: center;
   position: relative;
+  box-sizing: border-box;
+
+  &:focus {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+  }
 `;
 
 const FocusContainer = styled(Container)`
@@ -44,7 +49,7 @@ function ModalFolderItem({ folder, selected, onClick }) {
     <FocusContainer onClick={onClick}>
       <FocusFolderName>{name}</FocusFolderName>
       <FolderLink>{link.count}개 링크</FolderLink>
-      <CheckIcon src="/Icons/check.png" alt="check" />
+      <CheckIcon src="/icons/check_icon.svg" alt="check" />
     </FocusContainer>
   ) : (
     <Container onClick={onClick}>

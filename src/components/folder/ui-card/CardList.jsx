@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { formatDate, getTimeDifference } from "../../../utils/dateUtils";
-import { Link } from "react-router-dom";
 import Card from "./Card";
 import styled from "styled-components";
 import { useFolder } from "../../../contexts/FolderContext";
@@ -34,35 +33,28 @@ const CardList = () => {
     loadLinks();
   }, [currentFolder]);
 
-  return (
+  return currentLinks.length === 0 ? (
+    <NoLink />
+  ) : (
     <CardListContainer>
-      {currentLinks.length === 0 ? (
-        <NoLink />
-      ) : (
-        currentLinks.map((link) => {
-          const { created_at, description, image_source } = link;
-          const createdDate = new Date(created_at);
-          const currentDate = new Date();
+      {currentLinks.map((link) => {
+        const { id, created_at, description, image_source, url } = link;
+        const createdDate = new Date(created_at);
+        const currentDate = new Date();
 
-          const createdDateString = formatDate(createdDate);
-          const timeDifference = getTimeDifference(createdDate, currentDate);
+        const createdDateString = formatDate(createdDate);
+        const timeDifference = getTimeDifference(createdDate, currentDate);
 
-          return (
-            <Link
-              to={`/link/${link.id}`}
-              key={link.id}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Card
-                cardImage={image_source}
-                cardTime={{ createdDateString, timeDifference }}
-                cardDescription={description}
-              />
-            </Link>
-          );
-        })
-      )}
+        return (
+          <Card
+            id={id}
+            cardImage={image_source}
+            cardTime={{ createdDateString, timeDifference }}
+            cardDescription={description}
+            cardUrl={url}
+          />
+        );
+      })}
     </CardListContainer>
   );
 };

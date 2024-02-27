@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import StarButton from "../../sharing/ui-button/StarButton";
+import KebobButton from "../../sharing/ui-button/KebobButton";
+import { Link } from "react-router-dom";
 
 const SAMPLE_IMAGE_URL = "/images/sample_image.svg";
 
@@ -51,6 +53,8 @@ const TextContainer = styled.div`
 const OptionContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  position: relative;
 `;
 
 const Contents = styled.div`
@@ -73,27 +77,34 @@ const CardStarButton = styled(StarButton)`
 
   opacity: 0.7;
 `;
-const Card = ({ cardImage, cardTime, cardDescription }) => {
+const Card = ({ id, cardImage, cardTime, cardDescription, cardUrl }) => {
   const imageSrc = cardImage || SAMPLE_IMAGE_URL;
 
   return (
     <CardContainer>
-      <ImageContainer>
-        <Image src={imageSrc} alt="card profile" />
-        <CardStarButton
-          alt="add this link to favorite"
-          onClick={(e) => {
-            e.preventDefault();
-            alert("Add to Favorite");
-          }}
-        />
-      </ImageContainer>
+      <Link
+        to={`/link/${id}`}
+        key={id}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <ImageContainer>
+          <Image src={imageSrc} alt="card profile" />
+          <CardStarButton
+            alt="add this link to favorite"
+            onClick={(e) => {
+              e.preventDefault();
+              alert("Add to Favorite");
+            }}
+          />
+        </ImageContainer>
+      </Link>
       <TextContainer>
         <OptionContainer>
           <span className="font-thin font-13px" style={{ color: "#666666" }}>
             {cardTime["timeDifference"]}
           </span>
-          <img src="/icons/kebab_icon.svg" alt="view more options" />
+          <KebobButton linkUrl={cardUrl} />
         </OptionContainer>
         <Contents>{cardDescription}</Contents>
         <div className="font-thin font-14px" style={{ color: "#333333" }}>

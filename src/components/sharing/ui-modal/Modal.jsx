@@ -31,9 +31,9 @@ const ModalContainer = styled.div`
 
 export const Title = styled.h1`
   color: var(--Linkbrary-gray100, #373740);
-  font-family: Pretendard;
   font-size: 20px;
   font-weight: 700;
+  margin: 0;
 `;
 
 const CloseButton = styled.img`
@@ -54,11 +54,10 @@ export const Input = styled.input`
 `;
 
 export const SubTitle = styled.div`
-  font-family: Pretendard;
   font-size: 14px;
   font-weight: 400;
   text-align: center;
-  color: var(--gray-color-b);
+  color: var(--color-gray4);
 `;
 
 export const BlueButton = styled.button`

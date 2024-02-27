@@ -1,14 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { CopyToClipboard } from "react-copy-to-clipboard/src";
+import { shareFacebook, shareKakao } from "../../../utils/shareFolderUtils";
+import { useFolder } from "../../../contexts/FolderContext";
+
 const IconsContainer = styled.div`
   display: flex;
   gap: 32px;
-`;
-
-const IconContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 `;
 
 const IconImage = styled.img`
@@ -22,22 +20,39 @@ const IconText = styled.span`
   text-align: center;
 `;
 
+const Button = styled.button`
+  background: none;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  gap: 10px;
+`;
+
 function SocialIcons() {
+  const { currentFolder } = useFolder();
   return (
-    <IconsContainer>
-      <IconContainer>
-        <IconImage src="/Icons/kakao.png" />
-        <IconText>카카오톡</IconText>
-      </IconContainer>
-      <IconContainer>
-        <IconImage src="/Icons/facebook.png" />
-        <IconText>페이스북</IconText>
-      </IconContainer>
-      <IconContainer>
-        <IconImage src="/Icons/link.png" />
-        <IconText>링크 복사</IconText>
-      </IconContainer>
-    </IconsContainer>
+    <>
+      <IconsContainer>
+        <Button onClick={() => shareKakao(currentFolder.id)}>
+          <IconImage src="/icons/kakao_share_icon.svg" />
+          <IconText>카카오톡</IconText>
+        </Button>
+        <Button onClick={() => shareFacebook(currentFolder.id)}>
+          <IconImage src="/icons/facebook_share_icon.svg" />
+          <IconText>페이스북</IconText>
+        </Button>
+        <CopyToClipboard
+          className="Toram"
+          text={`http://localhost:3000/shared/${currentFolder.id}`}
+          onCopy={() => alert("클립보드에 복사되었습니다.")}
+        >
+          <Button>
+            <IconImage src="/icons/link_copy_icon.svg" />
+            <IconText>링크 복사</IconText>
+          </Button>
+        </CopyToClipboard>
+      </IconsContainer>
+    </>
   );
 }
 

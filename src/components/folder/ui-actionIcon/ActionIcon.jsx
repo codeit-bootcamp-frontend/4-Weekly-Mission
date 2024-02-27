@@ -7,10 +7,12 @@ const Icon = styled.div`
   gap: 4px;
 
   color: var(--color-gray4);
+
+  cursor: pointer;
 `;
-const ActionIcon = ({ imageSrc, iconTitle }) => {
+const ActionIcon = ({ imageSrc, iconTitle, onClick }) => {
   return (
-    <Icon>
+    <Icon onClick={onClick}>
       <img src={imageSrc} alt={iconTitle} />
       {iconTitle}
     </Icon>

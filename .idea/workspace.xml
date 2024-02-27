@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4e5353b4-1a6e-4d69-b0cc-8adf18cfaf93" name="Changes" comment="docs: 확장자 통일">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-actionIcon/ActionIcon.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-actionIcon/ActionIconList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-button/AddFolderButton.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-card/Card.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-card/CardList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-input/AddLinkForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-input/SearchInputForm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-layout/FolderHeaderLayout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-layout/MainLayout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-tag/Tag.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-tag/TagList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-user/UserProfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/Footer.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/Header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-button/Button.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-button/IconButton.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-button/StarButton.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-modal/Modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/ui-modal/Modal.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-modal/ModalFolderItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/ui-modal/ModalFolderItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-modal/ModalFolderList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/ui-modal/ModalFolderList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-modal/SocialIcons.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/ui-modal/SocialIcons.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/FAQ.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Folder.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LinkDetail.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/NoLink.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Privacy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Shared.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/constant.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/dateUtils.js" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="part2-김준영-week8" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;yohan11&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="18948c49-a303-498f-bde9-762b916bf1c6" />
+        <option name="url" value="https://github.com/yohan11/4-Weekly-Mission.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2c3MiYtf2bqesd4O6FOO3U5iO6B" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;part2-김준영-week9&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/junyeong/Library/Mobile Documents/com~apple~CloudDocs/Desktop/데스크탑 - 김준영의 MacBook Pro/Development/CodeIt_Sprint/4-Weekly-Mission&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/usr/local/lib/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.linters.eslint&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/utils" />
+      <recent name="$PROJECT_DIR$/public/icons" />
+      <recent name="$PROJECT_DIR$/src/components/sharing/ui-modal" />
+      <recent name="$PROJECT_DIR$/src/components/sharing" />
+      <recent name="$PROJECT_DIR$/src/components/folder/button" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4e5353b4-1a6e-4d69-b0cc-8adf18cfaf93" name="Changes" comment="" />
+      <created>1707335936200</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1707335936200</updated>
+      <workItem from="1707335937210" duration="3090000" />
+      <workItem from="1707425049893" duration="9234000" />
+      <workItem from="1707444561938" duration="163000" />
+      <workItem from="1707444728098" duration="2983000" />
+      <workItem from="1707447718483" duration="2996000" />
+      <workItem from="1707450722694" duration="3962000" />
+      <workItem from="1707925395048" duration="98000" />
+      <workItem from="1707999661456" duration="301000" />
+      <workItem from="1707999965353" duration="1639000" />
+      <workItem from="1708055877069" duration="6185000" />
+      <workItem from="1708135712494" duration="2484000" />
+      <workItem from="1708139591097" duration="844000" />
+      <workItem from="1708140439038" duration="1942000" />
+      <workItem from="1708142387004" duration="59000" />
+      <workItem from="1708142448478" duration="351000" />
+      <workItem from="1708142803009" duration="5064000" />
+      <workItem from="1708167386917" duration="1416000" />
+      <workItem from="1708168809648" duration="5893000" />
+      <workItem from="1708174715499" duration="637000" />
+      <workItem from="1708175356642" duration="1862000" />
+      <workItem from="1708177226016" duration="4958000" />
+      <workItem from="1708189832079" duration="1081000" />
+      <workItem from="1708326871831" duration="3043000" />
+      <workItem from="1708585193125" duration="633000" />
+      <workItem from="1708682342839" duration="67000" />
+      <workItem from="1708688457017" duration="28316000" />
+      <workItem from="1708966014055" duration="3122000" />
+      <workItem from="1708969151702" duration="8186000" />
+      <workItem from="1708977384349" duration="1309000" />
+      <workItem from="1709014053417" duration="1884000" />
+      <workItem from="1709052876650" duration="3235000" />
+      <workItem from="1709056146532" duration="345000" />
+      <workItem from="1709057669693" duration="637000" />
+    </task>
+    <task id="LOCAL-00001" summary="setting">
+      <option name="closed" value="true" />
+      <created>1707336536666</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707336536666</updated>
+    </task>
+    <task id="LOCAL-00002" summary="setting">
+      <option name="closed" value="true" />
+      <created>1707425134770</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1707425134770</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: Header 내 프로필 정보 생성">
+      <option name="closed" value="true" />
+      <created>1707425848855</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707425848855</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: Footer 컴포넌트 생성">
+      <option name="closed" value="true" />
+      <created>1707426403783</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1707426403783</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: 기기별 반응형 스타일 적용">
+      <option name="closed" value="true" />
+      <created>1707427291606</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1707427291606</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: Folder 페이지 생성">
+      <option name="closed" value="true" />
+      <created>1707439450167</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1707439450167</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: 검색 바 생성">
+      <option name="closed" value="true" />
+      <created>1707441176939</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1707441176939</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: Card 컴포넌트 생성">
+      <option name="closed" value="true" />
+      <created>1707442920189</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1707442920189</updated>
+    </task>
+    <task id="LOCAL-00009" summary="design: Card List 그리드 배치">
+      <option name="closed" value="true" />
+      <created>1707444276596</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1707444276596</updated>
+    </task>
+    <task id="LOCAL-00010" summary="design: 기기별 반응형 디자인 적용">
+      <option name="closed" value="true" />
+      <created>1707444669334</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1707444669334</updated>
+    </task>
+    <task id="LOCAL-00011" summary="design: 기기별 반응형 디자인 적용">
+      <option name="closed" value="true" />
+      <created>1707444795827</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1707444795827</updated>
+    </task>
+    <task id="LOCAL-00012" summary="feat: user, folder 정보 API로 데이터 렌더링">
+      <option name="closed" value="true" />
+      <created>1707447636419</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1707447636419</updated>
+    </task>
+    <task id="LOCAL-00013" summary="feat: 날짜 계산 구현">
+      <option name="closed" value="true" />
+      <created>1707448795213</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1707448795213</updated>
+    </task>
+    <task id="LOCAL-00014" summary="design: 카드 여백 디자인 수정">
+      <option name="closed" value="true" />
+      <created>1707449183397</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1707449183397</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feat: 카드 컴포넌트 클릭 시 해당 페이지로 이동 기능 구현">
+      <option name="closed" value="true" />
+      <created>1707450038246</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1707450038246</updated>
+    </task>
+    <task id="LOCAL-00016" summary="design: 디자인 수정">
+      <option name="closed" value="true" />
+      <created>1707450709485</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1707450709485</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: Link 연결">
+      <option name="closed" value="true" />
+      <created>1707451181292</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1707451181292</updated>
+    </task>
+    <task id="LOCAL-00018" summary="style: 코드 정리">
+      <option name="closed" value="true" />
+      <created>1707451955265</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1707451955265</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat: 마우스 hover 시 이미지 확대되는 디자인 적용">
+      <option name="closed" value="true" />
+      <created>1707453145889</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1707453145889</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fix: 카드 컴포넌트 클릭 시 새 창을 열어 이동">
+      <option name="closed" value="true" />
+      <created>1707454090699</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1707454090699</updated>
+    </task>
+    <task id="LOCAL-00021" summary="refactor: 코드리뷰 반영">
+      <option name="closed" value="true" />
+      <created>1708140054397</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1708140054397</updated>
+    </task>
+    <task id="LOCAL-00022" summary="refactor: utils 분리">
+      <option name="closed" value="true" />
+      <created>1708140379150</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1708140379150</updated>
+    </task>
+    <task id="LOCAL-00023" summary="refactor: 최신버전 React Route 적용">
+      <option name="closed" value="true" />
+      <created>1708142373380</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1708142373380</updated>
+    </task>
+    <task id="LOCAL-00024" summary="refactor: 컴포넌트 네이밍 수정 및 이미지 로드 수정">
+      <option name="closed" value="true" />
+      <created>1708142422128</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1708142422128</updated>
+    </task>
+    <task id="LOCAL-00025" summary="fix: 이미지 로드 경로 수정">
+      <option name="closed" value="true" />
+      <created>1708142548837</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1708142548837</updated>
+    </task>
+    <task id="LOCAL-00026" summary="feat: Folder 페이지 생성 및 버튼, 검색창 스타일 상속 작업">
+      <option name="closed" value="true" />
+      <created>1708167360470</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1708167360470</updated>
+    </task>
+    <task id="LOCAL-00027" summary="feat: TagBox 컴포넌트 생성">
+      <option name="closed" value="true" />
+      <created>1708168791166</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1708168791166</updated>
+    </task>
+    <task id="LOCAL-00028" summary="feat: Folder 페이지 퍼블리싱 완료">
+      <option name="closed" value="true" />
+      <created>1708169727616</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1708169727616</updated>
+    </task>
+    <task id="LOCAL-00029" summary="feat: Card 컴포넌트 내 별, 케밥 아이콘 추가">
+      <option name="closed" value="true" />
+      <created>1708170962140</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1708170962140</updated>
+    </task>
+    <task id="LOCAL-00030" summary="design: 기기별 반응형 디자인 적용">
+      <option name="closed" value="true" />
+      <created>1708173589806</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1708173589806</updated>
+    </task>
+    <task id="LOCAL-00031" summary="design: 모바일 환경에서의 태그 영역 스타일 수정">
+      <option name="closed" value="true" />
+      <created>1708174543140</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1708174543140</updated>
+    </task>
+    <task id="LOCAL-00032" summary="design: Folder 페이지에서 상단 네비게이션 고정 해제">
+      <option name="closed" value="true" />
+      <created>1708175316001</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1708175316001</updated>
+    </task>
+    <task id="LOCAL-00033" summary="feat: 폴더 리스트 API 연결">
+      <option name="closed" value="true" />
+      <created>1708177209066</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1708177209066</updated>
+    </task>
+    <task id="LOCAL-00034" summary="feat: 폴더 별 링크 API 연결">
+      <option name="closed" value="true" />
+      <created>1708188250911</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1708188250912</updated>
+    </task>
+    <task id="LOCAL-00035" summary="feat: user API 수정">
+      <option name="closed" value="true" />
+      <created>1708189456960</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1708189456960</updated>
+    </task>
+    <task id="LOCAL-00036" summary="feat: '전체' 폴더 클릭시 action 버튼 숨김">
+      <option name="closed" value="true" />
+      <created>1708189658523</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1708189658523</updated>
+    </task>
+    <task id="LOCAL-00037" summary="design: padding 수정">
+      <option name="closed" value="true" />
+      <created>1708189811415</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1708189811415</updated>
+    </task>
+    <task id="LOCAL-00038" summary="style: 코드 정리">
+      <option name="closed" value="true" />
+      <created>1708190299796</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1708190299796</updated>
+    </task>
+    <task id="LOCAL-00039" summary="refactor: 코드리뷰 반영">
+      <option name="closed" value="true" />
+      <created>1708709727820</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1708709727820</updated>
+    </task>
+    <task id="LOCAL-00040" summary="feat: 페어 프로그래밍 - 모달 생성">
+      <option name="closed" value="true" />
+      <created>1708710629562</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1708710629562</updated>
+    </task>
+    <task id="LOCAL-00041" summary="style: 코드 정리">
+      <option name="closed" value="true" />
+      <created>1708849662636</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1708849662636</updated>
+    </task>
+    <task id="LOCAL-00042" summary="feat: 모달 컴포넌트 수정 및 컴포넌트 리팩토링">
+      <option name="closed" value="true" />
+      <created>1708971242408</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1708971242409</updated>
+    </task>
+    <task id="LOCAL-00043" summary="feat: 상황 별 모달 띄우기 구현">
+      <option name="closed" value="true" />
+      <created>1708972952392</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1708972952392</updated>
+    </task>
+    <task id="LOCAL-00044" summary="feat: 팝오버 구현, 팝오버 내 모달 구현">
+      <option name="closed" value="true" />
+      <created>1708976850684</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1708976850684</updated>
+    </task>
+    <task id="LOCAL-00045" summary="feat: 팝오버 및 모달 닫기">
+      <option name="closed" value="true" />
+      <created>1708977260098</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1708977260132</updated>
+    </task>
+    <task id="LOCAL-00046" summary="feat: 폴더 공유 기능 구현">
+      <option name="closed" value="true" />
+      <created>1709056003516</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1709056003516</updated>
+    </task>
+    <task id="LOCAL-00047" summary="feat: 폴더 공유 기능 구현">
+      <option name="closed" value="true" />
+      <created>1709056160950</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1709056160950</updated>
+    </task>
+    <task id="LOCAL-00048" summary="docs: 확장자 통일">
+      <option name="closed" value="true" />
+      <created>1709056467930</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1709056467931</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="refactor: utils 분리" />
+    <MESSAGE value="refactor: 최신버전 React Route 적용" />
+    <MESSAGE value="refactor: 컴포넌트 네이밍 수정 및 이미지 로드 수정" />
+    <MESSAGE value="fix: 이미지 로드 경로 수정" />
+    <MESSAGE value="feat: Folder 페이지 생성 및 버튼, 검색창 스타일 상속 작업" />
+    <MESSAGE value="feat: TagBox 컴포넌트 생성" />
+    <MESSAGE value="feat: Folder 페이지 퍼블리싱 완료" />
+    <MESSAGE value="feat: Card 컴포넌트 내 별, 케밥 아이콘 추가" />
+    <MESSAGE value="design: 기기별 반응형 디자인 적용" />
+    <MESSAGE value="design: 모바일 환경에서의 태그 영역 스타일 수정" />
+    <MESSAGE value="design: Folder 페이지에서 상단 네비게이션 고정 해제" />
+    <MESSAGE value="feat: 폴더 리스트 API 연결" />
+    <MESSAGE value="feat: 폴더 별 링크 API 연결" />
+    <MESSAGE value="feat: user API 수정" />
+    <MESSAGE value="feat: '전체' 폴더 클릭시 action 버튼 숨김" />
+    <MESSAGE value="design: padding 수정" />
+    <MESSAGE value="refactor: 코드리뷰 반영" />
+    <MESSAGE value="feat: 페어 프로그래밍 - 모달 생성" />
+    <MESSAGE value="style: 코드 정리" />
+    <MESSAGE value="feat: 모달 컴포넌트 수정 및 컴포넌트 리팩토링" />
+    <MESSAGE value="feat: 상황 별 모달 띄우기 구현" />
+    <MESSAGE value="feat: 팝오버 구현, 팝오버 내 모달 구현" />
+    <MESSAGE value="feat: 팝오버 및 모달 닫기" />
+    <MESSAGE value="feat: 폴더 공유 기능 구현" />
+    <MESSAGE value="docs: 확장자 통일" />
+    <option name="LAST_COMMIT_MESSAGE" value="docs: 확장자 통일" />
+  </component>
+</project>

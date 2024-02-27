@@ -7,6 +7,8 @@ const FolderList = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  width: 100%;
 `;
 
 function ModalFolderList() {
@@ -15,15 +17,21 @@ function ModalFolderList() {
   const handleClickTag = (e, folder) => {
     setCurrentFolder(folder.id);
   };
+  const loadFolders = async () => {
+    const folderInfo = await getFolders();
+    if (!folderInfo) return;
+    setFolders(folderInfo["data"]);
+  };
+  console.log(folders);
 
   useEffect(() => {
-    getFolders().then(setFolders);
+    loadFolders();
   }, []);
   return (
     <>
       {folders && (
         <FolderList>
-          {folders.data.map((folder) => (
+          {folders.map((folder) => (
             <ModalFolderItem
               folder={folder}
               onClick={(e) => handleClickTag(e, folder)}
@@ -36,4 +44,4 @@ function ModalFolderList() {
   );
 }
 
-export default ModalFoderList;
+export default ModalFolderList;

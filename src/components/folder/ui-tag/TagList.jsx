@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Tag from "./Tag";
 import styled from "styled-components";
 import { getFolders } from "../../../utils/api";
-import NoLink from "../../../pages/NoLink";
 import { useFolder } from "../../../contexts/FolderContext";
 
 const TagListContainer = styled.div`
@@ -39,9 +38,7 @@ const TagList = () => {
       >
         전체
       </Tag>
-      {folders.length === 0 ? (
-        <NoLink />
-      ) : (
+      {folders.length !== 0 &&
         folders.map((folder) => {
           return (
             <Tag
@@ -54,8 +51,7 @@ const TagList = () => {
               {folder["name"]}
             </Tag>
           );
-        })
-      )}
+        })}
     </TagListContainer>
   );
 };
