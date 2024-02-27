@@ -3,7 +3,6 @@ import { FiPlus } from 'react-icons/fi';
 import styles from './FoldersNavbar.module.scss';
 
 const FoldersNavbar = ({ items, selectedItem, setSelectedItem }) => {
-  console.log(selectedItem);
   return (
     <div className={styles.layout}>
       <ul className={styles.box}>

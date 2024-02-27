@@ -1,7 +1,7 @@
 @import '../../styles/_index.scss';
 
 .colorBox {
-  @include color-box;
+  @include color-box(#f5f5f5);
 }
 
 .searchIcon {

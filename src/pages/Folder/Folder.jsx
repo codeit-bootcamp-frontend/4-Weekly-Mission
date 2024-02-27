@@ -48,7 +48,7 @@ const Folder = () => {
           )}
           <div className={styles.mainTitle}>
             <h2>{selectedItem.name}</h2>
-            {selectedItem.id !== 'all' && <FolderNavbar />}
+            {selectedItem.id !== 'all' && <FolderNavbar folderName={selectedItem.name} />}
           </div>
           {hasLinks ? <Cards links={links} /> : <Empty />}
         </div>

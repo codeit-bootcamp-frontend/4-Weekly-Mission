@@ -15,7 +15,9 @@ const Home = () => {
           <br />
           쉽게 저장하고 관리해보세요
         </h1>
-        <GradientButton href='./pages/signup.html'>링크 추가하기</GradientButton>
+        <div className={styles.addButton}>
+          <GradientButton href='./pages/signup.html'>링크 추가하기</GradientButton>
+        </div>
         <img className={styles.homeImage} src='assets/landing-main.svg' alt='메인-이미지' />
       </section>
       <main className={styles.mainLayout}>

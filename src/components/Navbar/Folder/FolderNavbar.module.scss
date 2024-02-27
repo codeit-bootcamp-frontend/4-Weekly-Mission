@@ -13,3 +13,16 @@
   color: $color-gray-400;
   cursor: pointer;
 }
+
+.modalInput {
+  @include color-box(#f5f5f5) {
+    &:focus {
+      border-color: $color-primary;
+      outline: none;
+    }
+  }
+}
+
+.modalSubTitle {
+  color: $color-gray-400;
+}

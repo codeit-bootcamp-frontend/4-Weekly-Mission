@@ -26,9 +26,14 @@
   width: 10rem;
 }
 
+.loginButton {
+  width: 8rem;
+}
+
 .fixed {
   display: fixed;
 }
+
 @media screen and (width < 1123px) {
   .box {
     padding: 0 2rem;

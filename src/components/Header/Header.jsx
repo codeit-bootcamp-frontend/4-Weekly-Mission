@@ -37,7 +37,9 @@ const Header = () => {
         {hasUser ? (
           <UserProfile title={user.email} image={{ URL: user.profileImageSource, size: '2rem' }} />
         ) : (
-          <GradientButton onClick={fetchUserData}>로그인</GradientButton>
+          <div className={styles.loginButton}>
+            <GradientButton onClick={fetchUserData}>로그인</GradientButton>
+          </div>
         )}
       </div>
     </header>
