@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 
-const useGetJson = (func) => {
+export const useGetPromise = (func) => {
   const [values, setValues] = useState([]);
   const HandleLoad = useCallback(async () => {
     let results;
@@ -21,5 +21,3 @@ const useGetJson = (func) => {
 
   return values;
 };
-
-export default useGetJson;
