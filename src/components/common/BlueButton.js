@@ -4,11 +4,11 @@ import { COLORS } from "../../constants/colors";
 
 export const BlueButton = ({
   text,
-  width = "auto",
-  height = "auto",
+  width,
+  height,
   margin,
   padding,
-  fontSize = "14px",
+  fontSize,
   radius,
   onBtnHandle,
 }) => {
@@ -30,9 +30,9 @@ export const BlueButton = ({
 
 const Button = styled.button`
   display: block;
-  width: ${({ width }) => width};
+  width: ${({ width }) => width || "auto"};
   min-width: max-content;
-  height: ${({ height }) => height};
+  height: ${({ height }) => height || "auto"};
   border: 0px;
   border-radius: ${({ radius }) => radius || "0px"};
   margin: ${({ margin }) => margin || "auto"};
@@ -41,7 +41,7 @@ const Button = styled.button`
   cursor: pointer;
 
   color: ${({ color }) => color};
-  font-size: ${({ fontSize }) => fontSize};
+  font-size: ${({ fontSize }) => fontSize || "14px"};
   font-weight: 600;
   line-height: 21.6px;
 `;

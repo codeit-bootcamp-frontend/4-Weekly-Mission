@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import logo from "../../assets/Linkbrary.png";
-import profile from "../../assets/icons/icon_myprofile.png";
-import { getUserInfo } from "../../api/api";
-import "../../styles/common.css";
-import useGetJson from "./../../hooks/uesGetJson";
+import logo from "assets/Linkbrary.png";
+import profile from "assets/icons/icon_myprofile.png";
+import { getUserInfo } from "api/api";
+import { useGetPromise } from "hooks/uesGetPromise";
+import "styles/common.css";
 
 function HeaderElement({ $positionval }) {
-  const user = useGetJson(getUserInfo);
+  const user = useGetPromise(getUserInfo);
   const { email, profileImageSource } = user;
 
   return (
