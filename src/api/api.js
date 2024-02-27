@@ -37,10 +37,8 @@ export async function getFolderList({ userId }) {
 }
 
 export async function getLinks({ userId, folderId }) {
-  let query = `?folderId=${folderId}`;
-  if (!folderId) {
-    query = "";
-  }
+  const query = folderId ? `?folderId=${folderId}` : "";
+
   const response = await fetch(`${BASE_URL}/users/${userId}/links${query}`);
   if (!response.ok) {
     throw new Error("폴더 정보를 불러오는데 실패했습니다");

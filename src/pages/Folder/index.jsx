@@ -1,9 +1,10 @@
-import Footer from "components/Footer";
-import CardList from "components/CardList";
-import FolderHeader from "./components/FolderHeader";
-import FolderAddLinkArea from "./components/FolderAddLinkArea";
-import FolderCategory from "./components/FolderCategory";
-import FolderControl from "./components/FolderControl";
+import { Footer, CardList } from "components";
+import {
+  FolderAddLinkArea,
+  FolderCategory,
+  FolderHeader,
+  FolderControl,
+} from "./components";
 import styles from "./styles.module.css";
 import SearchIcon from "assets/Search.png";
 import { useEffect, useState } from "react";
@@ -53,7 +54,7 @@ export default function Folder() {
     <>
       <FolderHeader />
       <main>
-        <FolderAddLinkArea />
+        <FolderAddLinkArea folders={folders} />
         <div className={styles.mainContainer}>
           <div className={styles["searchBox"]}>
             <img src={SearchIcon} alt="searchIcon" />
@@ -77,7 +78,7 @@ export default function Folder() {
           {links?.length === 0 ? (
             <div className={styles.emptyArea}>저장된 링크가 없습니다</div>
           ) : (
-            <CardList links={links} />
+            <CardList links={links} folders={folders} />
           )}
         </div>
       </main>

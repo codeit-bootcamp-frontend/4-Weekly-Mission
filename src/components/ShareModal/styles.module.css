@@ -1,0 +1,39 @@
+.container {
+  text-align: center;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 1.9rem;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  color: #9fa6b2;
+}
+
+.btn {
+  width: 100%;
+  padding: 15px 0;
+  color: white;
+  background-color: #ff5b56;
+  font-size: 1.5rem;
+  border-radius: 10px;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.iconText {
+  margin-top: 10px;
+  font-size: 1.3rem;
+}

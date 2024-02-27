@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/share" element={<Share />} />
+        <Route path="/shared" element={<Share />} />
         <Route path="/folder" element={<Folder />} />
       </Routes>
     </BrowserRouter>

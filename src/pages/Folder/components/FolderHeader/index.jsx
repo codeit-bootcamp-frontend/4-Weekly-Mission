@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { getUser } from "api/api";
 import { useAsync } from "hooks/useAsync";
 
-export default function Header() {
+export function FolderHeader() {
   const [user, setUser] = useState({});
   const [_, error, getUserAsync] = useAsync(getUser);
 
