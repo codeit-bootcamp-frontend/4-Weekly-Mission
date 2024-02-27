@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { styled } from "styled-components";
 import { COLORS } from "constants/colors";
 import { DeleteModal } from "components/common/modals/DeleteModal";
 import { AddToFolder } from "components/common/modals/AddToFolder";
 
 export const PopOver = ({
-  $isVisible,
-  setIsVisible,
+  $isPopOverVisible,
+  setIsPopOverVisible,
   $options,
   $modalType,
   $top,
@@ -17,16 +17,14 @@ export const PopOver = ({
   return (
     <>
       <DeleteModal
-        $isVisible={$isModalVisible}
-        setIsVisible={setIsModalVisible}
-        setIsPopVisible={setIsVisible}
+        $isModalVisible={$isModalVisible}
+        setIsModalVisible={setIsModalVisible}
       ></DeleteModal>
       <AddToFolder
-        $isVisible={$isModalVisible}
-        setIsVisible={setIsModalVisible}
-        setIsPopVisible={setIsVisible}
+        $isModalVisible={$isModalVisible}
+        setIsModalVisible={setIsModalVisible}
       ></AddToFolder>
-      <MenuOptions $isVisible={$isVisible} $top={$top} $right={$right}>
+      <MenuOptions $isVisible={$isPopOverVisible} $top={$top} $right={$right}>
         {$options.map((option, index) => (
           <Option
             key={option}
@@ -66,6 +64,7 @@ const Option = styled.p`
   text-align: center;
 
   &: hover {
+    cursor: pointer;
     color: ${COLORS.Primary};
     background-color: ${COLORS.Grey_100};
   }

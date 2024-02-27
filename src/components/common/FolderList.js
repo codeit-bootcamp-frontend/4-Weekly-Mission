@@ -1,6 +1,6 @@
 import FolderItem from "./FolderItem";
 
-function FolderList({ items, $isVisible, setIsVisible }) {
+function FolderList({ items, $isModalVisible, setIsModalVisible }) {
   return (
     <article>
       <div className="folders-gridBox">
@@ -9,8 +9,8 @@ function FolderList({ items, $isVisible, setIsVisible }) {
             <FolderItem
               item={item}
               key={item.id}
-              $isModalVisible={$isVisible}
-              setIsModalVisible={setIsVisible}
+              $isModalVisible={$isModalVisible}
+              setIsModalVisible={setIsModalVisible}
             ></FolderItem>
           );
         })}

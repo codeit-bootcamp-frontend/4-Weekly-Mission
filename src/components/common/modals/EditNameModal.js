@@ -4,13 +4,13 @@ import { COLORS } from "constants/colors";
 import closeIcon from "assets/icons/closeModal.png";
 import { BlueButton } from "./../BlueButton";
 
-export const EditNameModal = ({ $isVisible, setIsVisible }) => {
+export const EditNameModal = ({ $isModalVisible, setIsModalVisible }) => {
   const handleCloseBtn = () => {
-    setIsVisible(null);
+    setIsModalVisible(null);
   };
 
   return (
-    <Background $isVisible={$isVisible}>
+    <Background $isVisible={$isModalVisible}>
       <Modal>
         <Close onClick={() => handleCloseBtn()}>
           <img src={closeIcon} alt={closeIcon} />

@@ -4,14 +4,14 @@ import { COLORS } from "constants/colors";
 import closeIcon from "assets/icons/closeModal.png";
 import { BlueButton } from "./../BlueButton";
 
-export const AddToFolder = ({ $isVisible, setIsVisible, setIsPopVisible }) => {
+export const AddToFolder = ({ $isModalVisible, setIsModalVisible }) => {
   const handleCloseBtn = () => {
-    setIsVisible(null);
+    setIsModalVisible(null);
   };
 
   return (
     <Background
-      $isVisible={$isVisible}
+      $isVisible={$isModalVisible}
       onClick={(e) => {
         e.preventDefault();
       }}
@@ -20,7 +20,6 @@ export const AddToFolder = ({ $isVisible, setIsVisible, setIsPopVisible }) => {
         <Close
           onClick={(e) => {
             handleCloseBtn();
-            setIsPopVisible(false);
           }}
         >
           <img src={closeIcon} alt={closeIcon} />

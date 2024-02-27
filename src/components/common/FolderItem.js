@@ -11,7 +11,7 @@ function FolderItem({ item, $isModalVisible, setIsModalVisible }) {
   const [isHovering, setIsHovering] = useState(false);
   const { imageSource, createdAt, description, url, id } = item;
   const { created_at, favorite, image_source } = item;
-  const [isVisible, setIsVisible] = useState(false);
+  const [isPopOverVisible, setIsPopOverVisible] = useState(false);
 
   let time = 0;
   let img_src = "";
@@ -55,12 +55,12 @@ function FolderItem({ item, $isModalVisible, setIsModalVisible }) {
             <Kebab
               onClick={(e) => {
                 e.preventDefault();
-                setIsVisible(!isVisible);
+                setIsPopOverVisible(!isPopOverVisible);
               }}
             ></Kebab>
             <PopOver
-              $isVisible={isVisible}
-              setIsVisible={setIsVisible}
+              $isPopOverVisible={isPopOverVisible}
+              setIsPopOverVisible={setIsPopOverVisible}
               $options={["삭제하기", "폴더에 추가"]}
               $modalType={["삭제", "폴더에 추가"]}
               $top="20px"

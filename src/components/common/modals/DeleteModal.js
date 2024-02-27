@@ -4,13 +4,13 @@ import { COLORS } from "constants/colors";
 import closeIcon from "assets/icons/closeModal.png";
 import { RedButton } from "components/common/RedButton";
 
-export const DeleteModal = ({ $isVisible, setIsVisible }) => {
+export const DeleteModal = ({ $isModalVisible, setIsModalVisible }) => {
   const handleCloseBtn = () => {
-    setIsVisible(null);
+    setIsModalVisible(null);
   };
 
   return (
-    <Background $isVisible={$isVisible}>
+    <Background $isVisible={$isModalVisible}>
       <Modal>
         <Close
           onClick={(e) => {

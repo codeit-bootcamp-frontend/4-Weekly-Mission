@@ -6,7 +6,7 @@ import kakao from "assets/icons/icon_kakao.png";
 import facebook from "assets/icons/icon_facebook.png";
 import link from "assets/icons/link.png";
 
-export const SharedModal = ({ $isVisible, setIsVisible }) => {
+export const SharedModal = ({ $isModalVisible, setIsModalVisible }) => {
   const ICONS = [
     {
       name: "카카오톡",
@@ -25,11 +25,11 @@ export const SharedModal = ({ $isVisible, setIsVisible }) => {
   ];
 
   const handleCloseBtn = () => {
-    setIsVisible(null);
+    setIsModalVisible(null);
   };
 
   return (
-    <Background $isVisible={$isVisible}>
+    <Background $isVisible={$isModalVisible}>
       <Modal>
         <Close onClick={() => handleCloseBtn()}>
           <img src={closeIcon} alt={closeIcon} />

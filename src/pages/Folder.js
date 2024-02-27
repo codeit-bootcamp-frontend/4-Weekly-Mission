@@ -14,12 +14,13 @@ import { SharedModal } from "components/common/modals/SharedModal";
 import { EditNameModal } from "components/common/modals/EditNameModal";
 import { DeleteModal } from "components/common/modals/DeleteModal";
 import { AddFolderModal } from "components/common/modals/AddFolderModal";
+import { COLORS } from "constants/colors";
 
 const Folder = () => {
   const [titleName, setTitleName] = useState("전체");
   const [listId, setListId] = useState("");
   const [data, setData] = useState([]);
-  const [isModal, setIsModal] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,26 +38,38 @@ const Folder = () => {
 
   return (
     <Container>
-      <SharedModal $isVisible={isModal} setIsVisible={setIsModal} />
-      <EditNameModal $isVisible={isModal} setIsVisible={setIsModal} />
-      <DeleteModal $isVisible={isModal} setIsVisible={setIsModal} />
-      <AddFolderModal $isVisible={isModal} setIsVisible={setIsModal} />
+      <SharedModal
+        $isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+      />
+      <EditNameModal
+        $isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+      />
+      <DeleteModal
+        $isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+      />
+      <AddFolderModal
+        $isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+      />
       <GlobalStyle />
       <HeaderElement $positionval="static" />
-      <FolderInput setIsVisible={setIsModal} />
+      <FolderInput setIsVisible={setIsModalVisible} />
       <Input />
       <Menus
         changeTitle={setTitleName}
         changeID={setListId}
-        $isVisible={isModal}
-        setIsVisible={setIsModal}
+        $isVisible={isModalVisible}
+        setIsVisible={setIsModalVisible}
       />
-      <FolderTitle titleName={titleName} setIsModal={setIsModal} />
+      <FolderTitle titleName={titleName} setIsModal={setIsModalVisible} />
       {data[0] ? (
         <FolderList
           items={data}
-          $isVisible={isModal}
-          setIsVisible={setIsModal}
+          $isModalVisible={isModalVisible}
+          setIsModalVisible={setIsModalVisible}
         ></FolderList>
       ) : (
         <NoLinkMsg>저장된 링크가 없습니다.</NoLinkMsg>
@@ -85,15 +98,15 @@ const NoLinkMsg = styled.p`
 const AddFolderBtn = styled.button`
   border: none;
   border-radius: 20px;
-  border: 1px solid var(--Linkbrary-white, #fff);
-  background: var(--Linkbrary-primary-color, #6d6afe);
+  border: 1px solid ${COLORS.White};
+  background: ${COLORS.Primary};
   position: sticky;
   left: 40%;
   bottom: 101px;
   padding: 8px 24px;
   display: none;
 
-  color: var(--Linkbrary-gray10, #e7effb);
+  color: ${COLORS.Grey_200};
   text-align: center;
   font-family: Pretendard;
   font-size: 16px;
