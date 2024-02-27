@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./Navigation.css";
 import linkbrary from "../../images/linkbrary.svg";
 import profileImg from "../../images/myprofile.svg";
@@ -11,8 +11,10 @@ const Navigation = ({ position = "sticky", url = apiURL }) => {
     fetchData(url).then((data) => setUser(data));
   }, [url]);
 
+  const positionClass = position === "static" ? "static" : "sticky";
+
   return (
-    <nav className="navigation" style={{ position: position }}>
+    <nav className={`navigation ${positionClass}`}>
       <div className="wrap">
         <a href="/">
           <img src={linkbrary} alt="링크브러리 로고" />

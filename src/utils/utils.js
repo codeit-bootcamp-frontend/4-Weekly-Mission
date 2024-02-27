@@ -1,3 +1,5 @@
+export const ALL = "전체";
+
 export const formatCreatedAt = (createdAt) => {
   return new Date(createdAt).toISOString().split("T")[0];
 };

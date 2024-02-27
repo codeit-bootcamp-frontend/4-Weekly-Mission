@@ -1,35 +1,37 @@
-import { useState } from "react";
+import { ALL } from "../../../utils/utils";
 import "./FolderButton.css";
 
-const FolderButton = ({ buttons, onFolderSelect }) => {
-  const [selectedButtonName, setSelectedButtonName] = useState("전체");
-
+const FolderButton = ({
+  folderNameData,
+  onFolderSelect,
+  selectedButtonName,
+}) => {
   return (
     <>
       <button
-        className={selectedButtonName === null ? "selected" : ""}
+        className={`folder-button ${
+          selectedButtonName === ALL ? "selected" : ""
+        }`}
         onClick={() => {
-          onFolderSelect(null);
-          setSelectedButtonName("전체");
+          onFolderSelect(ALL);
         }}
       >
-        <span>전체</span>
+        <span>{ALL}</span>
       </button>
-      {buttons.map((button) => (
+      {folderNameData.map((button) => (
         <button
           key={button.id}
-          className={selectedButtonName === button.id ? "selected" : ""}
+          className={`folder-button ${
+            selectedButtonName === button.name ? "selected" : ""
+          }`}
           onClick={() => {
-            onFolderSelect(button.id);
-            setSelectedButtonName(button.name);
+            onFolderSelect(button.id, button.name);
           }}
         >
           <span>{button.name}</span>
         </button>
       ))}
-      <h2>{selectedButtonName}</h2>
     </>
   );
 };
-
 export default FolderButton;

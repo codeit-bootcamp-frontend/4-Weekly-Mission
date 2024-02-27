@@ -1,11 +1,18 @@
 .navigation {
   display: flex;
   justify-content: center;
-  position: sticky;
-  top: 0;
   z-index: 10;
   width: 100%;
   background-color: var(--background);
+}
+
+.navigation.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.navigation.static {
+  position: static;
 }
 
 .navigation .wrap {

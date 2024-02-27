@@ -1,4 +1,3 @@
-import React from "react";
 import Navigation from "../component/Navigation/Navigation";
 import Footer from "../component/Footer/Footer";
 import FolderSection from "../component/MainSection/FolderSection/FolderSection";
@@ -9,7 +8,7 @@ import "./page.css";
 const Shared = () => {
   return (
     <>
-      <Navigation />
+      <Navigation position="sticky" />
       <section className="main-section">
         <FolderSection />
         <div className="wrap">
