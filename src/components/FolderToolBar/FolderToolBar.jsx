@@ -19,40 +19,40 @@ const BUTTONS = [
 ];
 
 const FolderToolBar = ({ folderLists, chosenFolderId, onClickFolder }) => {
-  const folderListName = 
+  const folderListName =
     "all" === chosenFolderId ? "전체" : folderLists?.find(({ id }) => id === chosenFolderId).name;
 
   return (
     <div className="folder-container">
-    <div className="folder-lists">
-      <FolderButton
-        key="all"
-        text="전체"
-        onClick={() => onClickFolder("all")}
-        isChosen={"all" === chosenFolderId}
-      />
-      {folderLists?.map(({ id, name }) => (
+      <div className="folder-lists">
         <FolderButton
-          key={id}
-          text={name}
-          onClick={() => onClickFolder(id)}
-          isChosen={id === chosenFolderId}
+          key="all"
+          text="전체"
+          onClick={() => onClickFolder("all")}
+          isChosen={"all" === chosenFolderId}
         />
-      ))}
-    </div>
-    <div className="add-button">
-      <AddFolderButton />
-    </div>
-    <h2 className="folder-name">{folderListName}</h2>
-    {chosenFolderId !== "all" && (
-      <div className="buttons">
-        {BUTTONS.map((buttonData) => (
-          <ShareEditDeleteButton key={buttonData.text} {...buttonData} />
+        {folderLists?.map(({ id, name }) => (
+          <FolderButton
+            key={id}
+            text={name}
+            onClick={() => onClickFolder(id)}
+            isChosen={id === chosenFolderId}
+          />
         ))}
       </div>
-    )}
-  </div>
-  )
-}
+      <div className="add-button">
+        <AddFolderButton />
+      </div>
+      <h2 className="folder-name">{folderListName}</h2>
+      {chosenFolderId !== "all" && (
+        <div className="buttons">
+          {BUTTONS.map((buttonData) => (
+            <ShareEditDeleteButton key={buttonData.text} {...buttonData} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default FolderToolBar;

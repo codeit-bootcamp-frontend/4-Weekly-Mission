@@ -4,7 +4,7 @@ const CLOSE_BUTTON = "images/modalClose.png";
 const EditFolder = ({ isOpen, closeModal }) => {
   return (
     <>
-     <div
+      <div
         id="first_div"
         style={{
           background: "rgba( 0, 0, 0, 0.4 )",
@@ -15,7 +15,7 @@ const EditFolder = ({ isOpen, closeModal }) => {
           justifyContent: "center",
         }}
       >
-       <div
+        <div
           id="second_div"
           style={{
             display: "flex",
@@ -41,7 +41,9 @@ const EditFolder = ({ isOpen, closeModal }) => {
               height: "2.4rem",
             }}
             onClick={closeModal}
-          ><img src={CLOSE_BUTTON} alt="닫기 버튼" /></button>
+          >
+            <img src={CLOSE_BUTTON} alt="닫기 버튼" />
+          </button>
           <div
             id="title"
             style={{
@@ -53,7 +55,7 @@ const EditFolder = ({ isOpen, closeModal }) => {
               gap: "2.4rem",
             }}
           >
-              <div>
+            <div>
               <p
                 style={{
                   color: "#373740",
@@ -64,7 +66,7 @@ const EditFolder = ({ isOpen, closeModal }) => {
                 폴더 이름 변경
               </p>
             </div>
-           <div>
+            <div>
               <input
                 style={{
                   display: "flex",
@@ -76,7 +78,9 @@ const EditFolder = ({ isOpen, closeModal }) => {
                   borderRadius: "8px",
                   border: "1px solid var(--Linkbrary-gray20, #CCD5E3)",
                   background: "var(--Linkbrary-white, #FFF)",
-                }} placeholder="내용 입력" />
+                }}
+                placeholder="내용 입력"
+              />
             </div>
           </div>
           <div>

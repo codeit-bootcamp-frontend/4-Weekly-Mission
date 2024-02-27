@@ -13,9 +13,9 @@ import FolderToolBar from "../../components/FolderToolBar/FolderToolBar";
 import EmptyLink from "../../components/EmptyLink/EmptyLink";
 
 const MainFolderPage = () => {
-    const { data: folderLists } = useGetFolderLists();
-    const [chosenFolderId, setChosenFolderId] = useState("all");
-    const { data: linksData } = useGetFolderLinks(chosenFolderId);
+  const { data: folderLists } = useGetFolderLists();
+  const [chosenFolderId, setChosenFolderId] = useState("all");
+  const { data: linksData } = useGetFolderLinks(chosenFolderId);
 
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -28,31 +28,33 @@ const MainFolderPage = () => {
 
   return (
     <Layout>
-        <div className="MainFolderPage">
-          <AddLinkBar />
+      <div className="MainFolderPage">
+        <AddLinkBar />
         <div className="MainFolderPageItems">
           <SearchBar />
           <div className="MainFolderPageBox">
-            <FolderToolBar 
-            folderLists={folderLists}
-            chosenFolderId={chosenFolderId}
-            onClickFolder={setChosenFolderId} />
+            <FolderToolBar
+              folderLists={folderLists}
+              chosenFolderId={chosenFolderId}
+              onClickFolder={setChosenFolderId}
+            />
             {linksData.length ? (
-                <CardInventory>
-                    {linksData?.map((linkCard) => (
-                    <ShareLinkCard key={linkCard?.id} {...linkCard} /> 
-                    ))}
-                </CardInventory>
-                ) : (
-                <EmptyLink />
-                )}
+              <CardInventory>
+                {linksData?.map((linkCard) => (
+                  <ShareLinkCard key={linkCard?.id} {...linkCard} />
+                ))}
+              </CardInventory>
+            ) : (
+              <EmptyLink />
+            )}
           </div>
         </div>
       </div>
     </Layout>
-      );
-    };
-    {/*<button style={{
+  );
+};
+{
+  /*<button style={{
         fontSize: "20px",
         borderColor: "black",
       }} onClick={openAddModal}>+폴더 추가</button>
@@ -61,7 +63,7 @@ const MainFolderPage = () => {
         borderColor: "black",
       }} onClick={openEditModal}>*이름 변경</button>
       <AddFolder isOpen={isAddModalOpen} closeModal={closeAddModal} />
-    <EditFolder isOpen={isEditModalOpen} closeModal={closeEditModal} />*/}
-
+    <EditFolder isOpen={isEditModalOpen} closeModal={closeEditModal} />*/
+}
 
 export default MainFolderPage;

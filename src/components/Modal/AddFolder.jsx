@@ -41,7 +41,9 @@ const AddFolder = ({ isOpen, closeModal }) => {
               height: "2.4rem",
             }}
             onClick={closeModal}
-          ><img src={CLOSE_BUTTON} alt="닫기 버튼" /></button>
+          >
+            <img src={CLOSE_BUTTON} alt="닫기 버튼" />
+          </button>
           <div
             id="title"
             style={{
@@ -76,7 +78,9 @@ const AddFolder = ({ isOpen, closeModal }) => {
                   borderRadius: "8px",
                   border: "1px solid var(--Linkbrary-gray20, #CCD5E3)",
                   background: "var(--Linkbrary-white, #FFF)",
-                }} placeholder="내용 입력" />
+                }}
+                placeholder="내용 입력"
+              />
             </div>
           </div>
           <div>

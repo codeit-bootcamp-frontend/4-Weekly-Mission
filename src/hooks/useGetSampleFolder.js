@@ -1,7 +1,7 @@
 import axios from "axios";
 import useAsync from "../utils/useAsync";
 import processFolderData from "../utils/processFolderData";
-const BASE_URL = "https://bootcamp-api.codeit.kr/api"
+const BASE_URL = "https://bootcamp-api.codeit.kr/api";
 
 export const useGetSampleFolder = () => {
   const getUserData = () => axios.get(`${BASE_URL}/sample/folder`);
