@@ -1,26 +1,10 @@
-import "./global.scss";
+import "./global.css";
 import { Outlet } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
-import { fetchProfile } from "./api";
-import { useEffect, useState } from "react";
+import { Navbar, Footer } from "./components";
+import useProfile from "./hooks/useProfile";
 
 function App() {
-  const [profile, setProfile] = useState(null);
-
-  async function getProfile() {
-    try {
-      const newProfile = await fetchProfile();
-      setProfile(newProfile);
-    } catch (e) {
-      alert(e);
-      return;
-    }
-  }
-
-  useEffect(() => {
-    getProfile();
-  }, []);
+  const { profile } = useProfile();
 
   return (
     <div className="App">
