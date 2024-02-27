@@ -1,0 +1,98 @@
+.modalBox {
+  display: flex;
+  flex-direction: column;
+  padding: 1.7rem 1.8rem;
+  gap: 24px;
+  align-items: center;
+  background-color: white;
+  position: relative;
+  width: 330px;
+}
+
+.modalBox p {
+  color: var(--gray60);
+  font-size: 1.6rem;
+  margin-top: -13px;
+}
+
+.closeIcon {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  cursor: pointer;
+}
+
+.modalInput {
+  padding: 15px;
+  width: 100%;
+  height: 2rem;
+  flex: 1;
+  border-radius: 10px;
+  border: 1px solid var(--gray20);
+}
+.modalInput:focus{
+  border-color: var(--primary)
+}
+
+.modalBox button {
+  display: flex;
+  width: 100%;
+  padding: 1.3rem;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  color: #f5f5f5;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.blueButton {
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+}
+
+.redButton {
+  background-color: #ff5b56;
+}
+
+.socialButtonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.snsButton {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.4rem;
+}
+
+.socialButtonContainer img {
+  width: 42px;
+  cursor: pointer;
+}
+
+.menuLists{
+  width: 100%;
+  height: 170px;
+  overflow: auto;
+}
+
+.menuList{
+  padding: 1rem;
+  font-size: 1.7rem;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  gap: 1rem
+}
+.menuList:hover{
+  background-color: #F0F6FF;
+}
+.menuList p{
+  font-size: 1.4rem;
+  margin-top: 4px;
+}
