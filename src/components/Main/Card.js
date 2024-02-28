@@ -35,8 +35,7 @@ function Card({ linkData }) {
     }
   };
 
-  const handleCardMouseLeave = (e) => {
-    e.stopPropagation();
+  const handleCardMouseLeave = () => {
     setIsMenuOpen(false);
   };
 
