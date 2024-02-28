@@ -6,6 +6,15 @@
   gap: 1rem;
 }
 
+.sorting-button {
+  background: var(--white, #ffffff);
+  color: var(--true-black, #000000);
+}
+
+.sorting-button:hover {
+  background: var(--gray10, #e7effb);
+}
+
 .add-folder-button {
   align-items: center;
 }

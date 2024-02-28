@@ -24,7 +24,6 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
   const LOADING_MESSAGE = 'Loading...';
   const ALL = { id: 0, name: '전체' };
 
-  const [hoveredFolder, setHoveredFolder] = useState(null);
   const [isAddFolderModalOpen, setIsAddFolderModalOpen] = useState(false);
   const [isOptionListModalOpen, setIsOptionListModalOpen] = useState(false);
   const [selectedOptionKey, setSelectedOptionKey] = useState(null);
@@ -93,15 +92,6 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
     setSelectedFolder(targetButton);
   };
 
-  const handleSortingButtonMouseEnter = (key) => {
-    const targetButton = folderList.find((folder) => folder.id === key);
-    setHoveredFolder(targetButton);
-  };
-
-  const handleSortingButtonMouseLeave = () => {
-    setHoveredFolder(null);
-  };
-
   const handleAddFolderButtonClick = () => {
     setIsAddFolderModalOpen(true);
   };
@@ -118,14 +108,13 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
     'justify-space-between'
   );
   const sortingButtonListClasses = classNames(styles['sorting-button-list'], 'display-inline-flex', 'flex-wrap');
+  const sortingButtonClasses = classNames(styles['sorting-button']);
   const addFolderButtonClasses = classNames(styles['add-folder-button'], 'hidden-flex-mobile-only');
   const folderInfoSectionClasses = classNames(styles['folder-info-section']);
   const titleClasses = classNames(styles.title);
   const optionListClasses = classNames(styles['option-list'], 'flex-row', 'align-center');
 
   const selectedButtonClasses = classNames('background-primary', 'text-color-white');
-  const hoveredButtonClasses = classNames('background-gray10', 'text-color-true-black');
-  const defaultButtonClasses = classNames('background-white', 'text-color-true-black');
 
   return (
     <div>
@@ -137,16 +126,8 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
                 <SortingButton
                   key={folder.id}
                   text={folder.name}
-                  className={
-                    selectedFolder.id === folder.id
-                      ? selectedButtonClasses
-                      : hoveredFolder?.id === folder.id
-                        ? hoveredButtonClasses
-                        : defaultButtonClasses
-                  }
+                  className={selectedFolder.id === folder.id ? selectedButtonClasses : sortingButtonClasses}
                   onClick={() => handleSortingButtonClick(folder.id)}
-                  onMouseEnter={() => handleSortingButtonMouseEnter(folder.id)}
-                  onMouseLeave={handleSortingButtonMouseLeave}
                 />
               ))}
               {loading && <ErrorMessage message={LOADING_MESSAGE} />}
