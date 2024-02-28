@@ -83,7 +83,7 @@ function ModalContainer({ children, isModalOpen, setIsModalOpen, onClose }) {
         {children}
       </div>
     </div>,
-    document.body
+    document.getElementById('modal-portal')
   );
 }
 
