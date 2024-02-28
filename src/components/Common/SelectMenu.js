@@ -9,7 +9,6 @@ import DeleteLinkModal from 'components/Modal/DeleteLinkModal';
 
 function SelectMenu({ className, link }) {
   const [selectedMenu, setSelectedMenu] = useState(null);
-  const [hoveredMenu, setHoveredMenu] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const menuList = [
@@ -47,20 +46,8 @@ function SelectMenu({ className, link }) {
     setIsModalOpen(true);
   };
 
-  const handleMenuMouseEnter = (key) => {
-    const targetMenu = menuList.find((menu) => menu.id === key);
-    setHoveredMenu(targetMenu);
-  };
-
-  const handleMenuMouseLeave = () => {
-    setHoveredMenu(null);
-  };
-
   const menuContainerClasses = classNames(styles['menu-container'], 'background-white', className);
   const menuElementClasses = classNames(styles['menu-element'], 'text-center', 'border-none', 'width-full');
-
-  const hoveredMenuClasses = classNames('background-bg', 'text-color-primary');
-  const defaultMenuClasses = classNames('background-white', 'text-color-gray100');
 
   return (
     <div>
@@ -68,12 +55,9 @@ function SelectMenu({ className, link }) {
         {menuList.map((menu) => (
           <Button
             key={menu.id}
-            className={`${menuElementClasses} 
-            ${hoveredMenu?.id === menu.id ? hoveredMenuClasses : defaultMenuClasses}`}
+            className={`${menuElementClasses} `}
             text={menu.label}
             onClick={(e) => handleMenuClick(e, menu.id)}
-            onMouseEnter={() => handleMenuMouseEnter(menu.id)}
-            onMouseLeave={handleMenuMouseLeave}
           />
         ))}
       </div>

@@ -8,6 +8,13 @@
   font-size: 1.4rem;
   font-weight: 400;
   margin-bottom: 0.2rem;
+  background: var(--white, #ffffff);
+  color: var(--gray100, #373740);
+}
+
+.menu-element:hover {
+  background: var(--bg, #f0f6ff);
+  color: var(--primary, #6d6afe);
 }
 
 /* 마지막 요소 마진 제거 */
