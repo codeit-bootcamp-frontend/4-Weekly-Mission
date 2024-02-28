@@ -1,7 +1,9 @@
 import React from "react";
 import ModalPortal from "./Portal";
 import ModalClose from "../../image/modal-close.svg";
+import "./Modal.scss";
 
+//모달창, 삭제버튼
 const Modal = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
 
