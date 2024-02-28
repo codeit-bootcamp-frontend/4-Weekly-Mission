@@ -11,16 +11,19 @@ import 'assets/styles/common.css';
 import 'assets/styles/utility.css';
 
 import './index.css';
+import ReactModal from 'react-modal';
+
+ReactModal.setAppElement('#modal-root');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const modalPortal = <div id="modal-portal" />; // 모달을 렌더링할 위치
 
 // ModalProvider로 App을 감싸면 App의 모든 요소에서 ModalProvider에 접근 가능
 root.render(
   <React.StrictMode>
     <ModalProvider>
       <App />
+      {/* 모달 위치 */}
+      <div id="modal-root" />
     </ModalProvider>
-    {modalPortal}
   </React.StrictMode>
 );
