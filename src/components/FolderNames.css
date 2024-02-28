@@ -1,0 +1,80 @@
+.folder_button_area {
+  width: 325px;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.folder_buttons_area {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.folder_button {
+  height: 29px;
+  padding: 6px 10px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color);
+  background: var(--white);
+}
+
+.selected_purple {
+  background: var(--Linkbrary-primary-color);
+  color: var(--white);
+}
+
+.add_folder_text_area {
+  display: none;
+}
+
+.add_folder_text {
+  height: 19px;
+  margin: 0;
+  color: #6d6afe;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+
+/* 768px부터 적용될 스타일 */
+@media (min-width: 768px) {
+  .folder_button_area {
+    width: 97.5%;
+  }
+
+  .add_folder_text_area {
+    height: 30px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .folder_button {
+    height: 35px;
+    padding: 12px 8px;
+  }
+}
+
+/* 1124px부터 적용될 스타일 */
+@media (min-width: 1124px) {
+  .folder_button_area {
+    width: 97%;
+    display: flex;
+  }
+  .folder_buttons_area {
+    justify-content: flex-start;
+  }
+}

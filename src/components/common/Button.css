@@ -1,0 +1,34 @@
+.button {
+  display: flex;
+  height: 37px;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border: none;
+  border-radius: 8px;
+  color: var(--Grey-Light);
+
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.modal_button {
+  width: 280px;
+}
+
+.add_button {
+  width: 80px;
+}
+
+.back_gra_purpleblue {
+  background: var(--gra-purpleblue-to-skyblue);
+}
+
+.back_red {
+  background: var(--red);
+}

@@ -1,0 +1,15 @@
+.top_body_area {
+  height: 161px;
+  background: var(--bright-sky-blue);
+}
+
+/* 768px부터 적용될 스타일 */
+@media (min-width: 768px) {
+  .top_body_area {
+    height: 244px;
+  }
+}
+
+/* 1124px부터 적용될 스타일 */
+@media (min-width: 1124px) {
+}

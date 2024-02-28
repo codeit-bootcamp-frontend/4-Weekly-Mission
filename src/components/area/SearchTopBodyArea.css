@@ -1,0 +1,44 @@
+.search_top_area {
+  height: 117px;
+  padding: 24px 32px 40px;
+  background: var(--bright-sky-blue);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add_button {
+  display: flex;
+  width: 80px;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 768px부터 적용될 스타일 */
+@media (min-width: 768px) {
+  .search_top_area {
+    /* margin-top: 93px; */
+    height: 219px;
+    padding: 24px 32px 60px;
+  }
+
+  .add_button {
+    width: 80px;
+    height: 37px;
+  }
+}
+
+/* 1124px부터 적용될 스타일 */
+@media (min-width: 1124px) {
+  .search_top_area {
+    padding: 60px auto 90px;
+  }
+
+  .add_search_link_area {
+    width: 800px;
+    height: 69px;
+  }
+}

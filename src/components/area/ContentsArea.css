@@ -1,0 +1,61 @@
+.contents_area {
+  width: 325px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cards_area {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 400px;
+  gap: 30px;
+}
+
+.empty_links_text {
+  font-size: 14px;
+}
+
+.input_box {
+  border: 0;
+  width: 100%;
+  background: var(--gray02);
+
+  color: var(--Tgray03);
+  text-align: left;
+
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* 768px부터 적용될 스타일 */
+@media (min-width: 768px) {
+  .contents_area {
+    width: 704px;
+    margin: 40px auto;
+  }
+
+  .cards_area {
+    width: 704px;
+  }
+
+  .empty_links_text {
+    font-size: 16px;
+  }
+}
+
+/* 1124px부터 적용될 스타일 */
+@media (min-width: 1124px) {
+  .contents_area {
+    width: 1060px;
+  }
+
+  .cards_area {
+    width: 1060px;
+  }
+}

@@ -1,0 +1,18 @@
+.logo_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo_img {
+  width: 88px;
+  height: 16px;
+}
+
+/* 768px부터 적용될 스타일 */
+@media (min-width: 768px) {
+  .logo_img {
+    width: 133px;
+    height: 24px;
+  }
+}

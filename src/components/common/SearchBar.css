@@ -1,0 +1,25 @@
+.search_link {
+  width: 100%;
+  margin-bottom: 32px;
+  padding: 13px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 10px;
+  background: var(--gray02);
+}
+
+/* 768px부터 적용될 스타일 */
+@media (min-width: 768px) {
+  .search_link {
+    width: 97.5%;
+    margin-bottom: 40px;
+  }
+}
+
+/* 1124px부터 적용될 스타일 */
+@media (min-width: 1124px) {
+  .search_link {
+    width: 97%;
+  }
+}

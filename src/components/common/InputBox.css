@@ -1,0 +1,32 @@
+.defalt_input {
+  display: flex;
+  width: 280px;
+  padding: 18px 15px;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 8px;
+  border: 1px solid var(--gray20, #ccd5e3);
+  background: var(--white, #fff);
+}
+
+.add_link_input {
+  width: 80%;
+  border: 0;
+  width: 100%;
+  background: var(--white);
+  color: var(--gray60);
+  text-align: left;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+/* 768px부터 적용될 스타일 */
+@media (min-width: 768px) {
+  .add_link_input {
+    font-size: 16px;
+  }
+}

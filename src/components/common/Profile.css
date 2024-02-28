@@ -1,0 +1,44 @@
+.profile_area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.profile_background {
+  width: 28px;
+  height: 28px;
+  background-image: url('../../assets/ellipse21.svg');
+  background-repeat: no-repeat;
+}
+
+.profile_img {
+  margin: 9px;
+  width: 10px;
+  height: 10px;
+}
+
+.profile_id {
+  display: none;
+}
+
+/* 768px부터 적용될 스타일 */
+@media (min-width: 768px) {
+  .profile_area {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 158px;
+    flex-direction: row;
+  }
+
+  .profile_id {
+    color: var(--gray100);
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    display: inline;
+  }
+}

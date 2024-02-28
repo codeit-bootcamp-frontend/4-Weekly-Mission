@@ -1,0 +1,26 @@
+:root {
+  --bright-sky-blue: #f0f6ff;
+  --footer-bg-black: #111322;
+  --bright-gray: #cfcfcf;
+  --red: #ff5b56;
+  --black: #000;
+  --white: #fff;
+  --gray: #676767;
+  --gray02: #f5f5f5;
+  --gray03: #666;
+  --gray20: #ccd5e3;
+  --gray10: #e7effb;
+  --gray60: #9fa6b2;
+  --gray100: #373740;
+  --kakao-yello: #fee500;
+  --facebook-blue: #1877f2;
+  --Grey-Light: #f5f5f5;
+  --primary-purple-70: #8f00ff;
+  --Linkbrary-primary-color: #6d6afe;
+  --gra-purpleblue-to-skyblue: linear-gradient(
+    91deg,
+    #6d6afe 0.12%,
+    #6ae3fe 101.84%
+  );
+  --none-card-image-back: #dddfff;
+}
