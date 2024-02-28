@@ -1,0 +1,56 @@
+/* 헤더 */
+.headerBox{
+  display: flex;
+  width: 1060px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  margin: 20px 200px auto;
+}
+.logo{
+  width: 133px;
+  height: 24px;
+}
+.login{
+  width: 128px;
+  padding: 16px 20px;
+  text-align: center;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6D6AFE 0.12%, #6AE3FE 101.84%);
+  color: #F5F5F5;
+  font-family: "Pretendard";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.profil{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3.5px;
+}
+.profil img{
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+.profil p{
+  color: #373740;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+/* 모바일 */
+@media screen and (min-width:375px) and (max-width:767px){
+  .logo{
+    width: 88.667px;
+    height: 16px;
+  }
+  .login{
+    width: 80px;
+  }
+}
