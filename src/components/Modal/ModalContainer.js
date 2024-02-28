@@ -45,13 +45,7 @@ function ModalContainer({ children, onClose }) {
     onClose();
   };
 
-  const handleCloseByEscape = (e) => {
-    if (e.key === 'Escape') {
-      e.preventDefault();
-      onClose();
-    }
-  };
-
+  // classNames
   const modalOverlayClasses = classNames(
     styles['modal-overlay'],
     'position-fixed',
@@ -68,9 +62,23 @@ function ModalContainer({ children, onClose }) {
   const closeIconClasses = classNames(styles['close-icon'], 'position-absolute', 'border-none', 'background-none');
 
   // React Portal을 사용하여 DOM의 body에 렌더링되도록 설정
+  // ReactModal 사용된 속성
+  // isOpen: 모달이 열려있는지 여부를 결정하는 불리언 값입니다. 필수 prop입니다.
+  // className: 모달 콘텐츠에 적용할 CSS 클래스입니다.
+  // overlayClassName: 모달 오버레이에 적용할 CSS 클래스입니다.
+  // onRequestClose: 모달을 닫으려는 요청이 있을 때 실행될 콜백 함수입니다. 예를 들어, 오버레이 클릭이나 키보드 ESC 키 입력 등이 있습니다.
+  // shouldCloseOnOverlayClick: 오버레이를 클릭했을 때 모달을 닫을지 여부를 결정합니다.
+  // shouldCloseOnEsc: ESC 키를 눌렀을 때 모달을 닫을지 여부를 결정합니다.
   return ReactDOM.createPortal(
-    <ReactModal className={modalContainerClasses} overlayClassName={modalOverlayClasses}>
-      <Button className={closeIconClasses} onClick={handleCloseButtonClick} onKeyDown={handleCloseByEscape}>
+    <ReactModal
+      isOpen
+      className={modalContainerClasses}
+      overlayClassName={modalOverlayClasses}
+      onRequestClose={onClose}
+      shouldCloseOnOverlayClick
+      shouldCloseOnEsc
+    >
+      <Button className={closeIconClasses} onClick={handleCloseButtonClick}>
         <img src={CloseIcon} alt="close-icon" />
       </Button>
       {children}
@@ -80,15 +88,8 @@ function ModalContainer({ children, onClose }) {
 }
 
 ModalContainer.propTypes = {
-  children: PropTypes.node,
-  onCloseModal: PropTypes.func,
-  onClose: PropTypes.func,
-};
-
-ModalContainer.defaultProps = {
-  children: null,
-  onCloseModal: null,
-  onClose: null,
+  children: PropTypes.node.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default ModalContainer;

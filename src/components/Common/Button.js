@@ -3,17 +3,11 @@ import PropTypes from 'prop-types';
 
 import styles from 'components/Common/Button.module.css';
 
-function Button({ className, text, onClick, onMouseEnter, onMouseLeave, children }) {
+function Button({ className, text, onClick, children }) {
   const buttonClasses = classNames(styles.button, 'cursor-pointer', className);
 
   const button = (
-    <button
-      className={buttonClasses}
-      type="button"
-      onClick={onClick}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-    >
+    <button className={buttonClasses} type="button" onClick={onClick}>
       {text}
       {children}
     </button>

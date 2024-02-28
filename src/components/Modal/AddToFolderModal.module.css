@@ -22,7 +22,6 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background: var(--white, #ffffff);
 }
 
 .add-folder-list:hover {
@@ -34,7 +33,6 @@
   font-size: 400;
   line-height: 2.4rem;
   margin-right: 0.8rem;
-  color: var(--gray100, #373740);
 }
 
 .link-count {
@@ -45,5 +43,4 @@
 .check-icon {
   width: 1.4rem;
   height: 1.4rem;
-  display: none;
 }

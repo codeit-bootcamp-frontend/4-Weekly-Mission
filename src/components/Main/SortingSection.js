@@ -1,22 +1,19 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 
 import DeleteIcon from 'assets/images/delete.svg';
 import PenIcon from 'assets/images/pen.svg';
 import ShareIcon from 'assets/images/share.svg';
 
 import useFetch from 'hooks/useFetch';
+import useModal from 'hooks/useModal';
 
 import AddFolderButton from 'components/Common/AddFolderButton';
 import ErrorMessage from 'components/Common/ErrorMessage';
 import Option from 'components/Common/Option';
 import SortingButton from 'components/Common/SortingButton';
 import styles from 'components/Main/SortingSection.module.css';
-import AddFolderModal from 'components/Modal/AddFolderModal';
-import DeleteFolderModal from 'components/Modal/DeleteFolderModal';
-import EditFolderNameModal from 'components/Modal/EditFolderNameModal';
-import ShareModal from 'components/Modal/ShareModal';
+import { modalList } from 'components/Modal/Modal';
 
 import { FOLDERS_API_URL, LINKS_API_URL } from 'services/api';
 
@@ -24,9 +21,7 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
   const LOADING_MESSAGE = 'Loading...';
   const ALL = { id: 0, name: '전체' };
 
-  const [isAddFolderModalOpen, setIsAddFolderModalOpen] = useState(false);
-  const [isOptionListModalOpen, setIsOptionListModalOpen] = useState(false);
-  const [selectedOptionKey, setSelectedOptionKey] = useState(null);
+  const { openModal } = useModal();
 
   const url = FOLDERS_API_URL;
   const { data, loading, error } = useFetch(url);
@@ -41,51 +36,10 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
 
   // 옵션 리스트
   const optionList = [
-    { name: '공유', image: ShareIcon, key: 1 },
-    { name: '이름 변경', image: PenIcon, key: 2 },
-    { name: '삭제', image: DeleteIcon, key: 3 },
+    { name: '공유', image: ShareIcon, key: 'share' },
+    { name: '이름 변경', image: PenIcon, key: 'editFolderName' },
+    { name: '삭제', image: DeleteIcon, key: 'deleteFolder' },
   ];
-
-  const openAddFolderModal = () => {
-    return <AddFolderModal isModalOpen={isAddFolderModalOpen} setIsModalOpen={setIsAddFolderModalOpen} />;
-  };
-
-  const openOptionListModal = () => {
-    let modal;
-    switch (selectedOptionKey) {
-      case 'share':
-        modal = (
-          <ShareModal
-            folder={selectedFolder}
-            isModalOpen={isOptionListModalOpen}
-            setIsModalOpen={setIsOptionListModalOpen}
-          />
-        );
-        break;
-      case 'editFolderName':
-        modal = (
-          <EditFolderNameModal
-            folder={selectedFolder}
-            isModalOpen={isOptionListModalOpen}
-            setIsModalOpen={setIsOptionListModalOpen}
-          />
-        );
-        break;
-      case 'deleteFolder':
-        modal = (
-          <DeleteFolderModal
-            folder={selectedFolder}
-            isModalOpen={isOptionListModalOpen}
-            setIsModalOpen={setIsOptionListModalOpen}
-          />
-        );
-        break;
-      default:
-        modal = null;
-        break;
-    }
-    return modal;
-  };
 
   const handleSortingButtonClick = (key) => {
     const targetButton = folderList.find((folder) => folder.id === key);
@@ -93,12 +47,39 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
   };
 
   const handleAddFolderButtonClick = () => {
-    setIsAddFolderModalOpen(true);
+    console.log('AddForderModal');
+
+    const handleAddFolder = () => {
+      console.log('handleAddFolder');
+    };
+
+    openModal(modalList.AddForderModal, { onSubmit: handleAddFolder });
   };
 
   const handleOptionListClick = (key) => {
-    setIsOptionListModalOpen(true);
-    setSelectedOptionKey(key);
+    console.log('OptionList');
+
+    const handleEditFolderName = () => {
+      console.log('handleEditFolderName');
+    };
+
+    const handleDeleteFolder = () => {
+      console.log('handleDeleteFolderFolder');
+    };
+
+    switch (key) {
+      case 'share':
+        openModal(modalList.ShareModal, { folder: selectedFolder });
+        break;
+      case 'editFolderName':
+        openModal(modalList.EditFolderNameModal, { onSubmit: handleEditFolderName, folder: selectedFolder });
+        break;
+      case 'deleteFolder':
+        openModal(modalList.DeleteFolderModal, { onSubmit: handleDeleteFolder, folder: selectedFolder });
+        break;
+      default:
+        break;
+    }
   };
 
   const sortingSectionClasses = classNames(
@@ -153,8 +134,6 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
           </div>
         </div>
       )}
-      {isAddFolderModalOpen && openAddFolderModal()}
-      {isOptionListModalOpen && openOptionListModal()}
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useMemo, useState } from 'react';
 
+import { Modal } from 'components/Modal/Modal';
+
 import { ModalDispatchContext, ModalStateContext } from 'context/ModalContext';
 
 // 현재 열려있는 모달 상태 관리
@@ -9,17 +11,19 @@ function ModalProvider({ children }) {
   const [openedModal, setOpenedModal] = useState();
 
   // 모달 열기
-  // modalComponent: 열고자 하는 모달 컴포넌트
+  // ModalComponent: 열고자 하는 모달 컴포넌트
   // props: 모달 컴포넌트로 넘겨주는 props
-  const open = (modalComponent, props) => {
-    const currentModal = { modalComponent, props };
-    setOpenedModal({ currentModal });
+  const open = (ModalComponent, propList) => {
+    const newModal = { ModalComponent, propList };
+    console.log('open >>>');
+    setOpenedModal(newModal);
   };
 
   // 모달 닫기
-  // modalComponent: 닫고자 하는 모달 컴포넌트
-  const close = (modalComponent) => {
-    if (openedModal === modalComponent) setOpenedModal(null);
+  // ModalComponent: 닫고자 하는 모달 컴포넌트
+  const close = () => {
+    console.log('>>> close');
+    setOpenedModal(null);
   };
 
   // useMemo: {open, close} 객체 저장
@@ -29,7 +33,10 @@ function ModalProvider({ children }) {
 
   return (
     <ModalStateContext.Provider value={openedModal}>
-      <ModalDispatchContext.Provider value={dispatch}>{children}</ModalDispatchContext.Provider>
+      <ModalDispatchContext.Provider value={dispatch}>
+        {children}
+        {openedModal && <Modal />}
+      </ModalDispatchContext.Provider>
     </ModalStateContext.Provider>
   );
 }

@@ -1,15 +1,14 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import { useState } from 'react';
+
+import useModal from 'hooks/useModal';
 
 import Button from 'components/Common/Button';
 import styles from 'components/Common/SelectMenu.module.css';
-import AddToFolderModal from 'components/Modal/AddToFolderModal';
-import DeleteLinkModal from 'components/Modal/DeleteLinkModal';
+import { modalList } from 'components/Modal/Modal';
 
 function SelectMenu({ className, link }) {
-  const [selectedMenu, setSelectedMenu] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openModal } = useModal();
 
   const menuList = [
     {
@@ -22,28 +21,31 @@ function SelectMenu({ className, link }) {
     },
   ];
 
-  const openModalById = (menuId) => {
-    let modal = null;
+  const handleMenuClick = (e, key) => {
+    e.stopPropagation();
 
-    switch (menuId) {
+    console.log('MenuList');
+
+    const handleDeleteLink = () => {
+      console.log('handleDeleteLink');
+    };
+
+    const handleAddToFolder = () => {
+      console.log('handleAddToFolder');
+    };
+
+    switch (key) {
       case 'deleteLink':
-        modal = <DeleteLinkModal link={link} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
+        // modal = <DeleteLinkModal link={link} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
+        openModal(modalList.DeleteLinkModal, { onSubmit: handleDeleteLink, link });
         break;
       case 'addToFolder':
-        modal = <AddToFolderModal link={link} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
+        // modal = <AddToFolderModal link={link} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
+        openModal(modalList.AddToForderModal, { onSubmit: handleAddToFolder, link });
         break;
       default:
         break;
     }
-
-    return modal;
-  };
-
-  const handleMenuClick = (e, key) => {
-    e.stopPropagation();
-    const targetMenu = menuList.find((menu) => menu.id === key);
-    setSelectedMenu(targetMenu);
-    setIsModalOpen(true);
   };
 
   const menuContainerClasses = classNames(styles['menu-container'], 'background-white', className);
@@ -61,7 +63,6 @@ function SelectMenu({ className, link }) {
           />
         ))}
       </div>
-      {selectedMenu && openModalById(selectedMenu.id)}
     </div>
   );
 }

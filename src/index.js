@@ -23,8 +23,6 @@ root.render(
   <React.StrictMode>
     <ModalProvider>
       <App />
-      {/* 모달 위치 */}
-      <div id="modal-root" />
     </ModalProvider>
   </React.StrictMode>
 );

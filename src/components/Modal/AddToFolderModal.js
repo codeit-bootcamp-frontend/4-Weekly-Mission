@@ -28,9 +28,16 @@ function AddToFolderModal({ link, onSubmit, onClose }) {
 
   const handleButtonClick = (e) => {
     e.stopPropagation();
+
+    if (!selectedFolder) {
+      return null;
+    }
+
     console.log('폴더에 추가');
+    console.log(selectedFolder);
     onSubmit();
     setSelectedFolder(null);
+    return null;
   };
 
   const handleListClick = (e, key) => {
@@ -39,19 +46,20 @@ function AddToFolderModal({ link, onSubmit, onClose }) {
     setSelectedFolder(targetFolder);
   };
 
+  // classNames
   const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
   const linkClasses = classNames(styles.link, 'text-color-gray60', 'text-center');
   const listContainerClasses = classNames(styles['list-container'], 'flex-col', 'width: full');
-  const addFolderListClasses = classNames(styles['add-folder-list']);
+  const addFolderListClasses = classNames(styles['add-folder-list'], 'background-white');
   const textContainerClasses = classNames('flex-row', 'align-center');
-  const folderNameClasses = classNames(styles['folder-name']);
+  const folderNameClasses = classNames(styles['folder-name'], 'text-color-gray100');
   const linkCountClasses = classNames(styles['link-count'], 'text-color-gray60');
-  const CheckIconClasses = classNames(styles['check-icon']);
+  const CheckIconClasses = classNames(styles['check-icon'], 'display-none');
   const buttonClasses = classNames('background-gra-primary', 'width-full');
 
-  const selectedAddFolderListClasses = classNames('background-bg');
-  const selectedFolderNameClasses = classNames('text-color-primary');
-  const selectedCheckIconClasses = classNames('display-block');
+  const selectedAddFolderListClasses = classNames(styles['add-folder-list'], 'background-bg');
+  const selectedFolderNameClasses = classNames(styles['folder-name'], 'text-color-primary');
+  const selectedCheckIconClasses = classNames(styles['check-icon'], 'display-block');
 
   return (
     <ModalContainer onClose={onClose}>

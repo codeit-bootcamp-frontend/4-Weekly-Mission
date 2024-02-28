@@ -17,8 +17,10 @@ function AddFolderModal({ onSubmit, onClose }) {
   // 임시 버튼 클릭 이벤트
   const handleButtonClick = (e) => {
     e.stopPropagation();
-    console.log(inputValue);
-    onSubmit();
+    if (inputValue) {
+      console.log(inputValue);
+      onSubmit();
+    }
   };
 
   const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');

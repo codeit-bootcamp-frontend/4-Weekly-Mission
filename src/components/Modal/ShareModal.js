@@ -85,7 +85,7 @@ ShareModal.propTypes = {
 };
 
 ShareModal.defaultProps = {
-  folder: { id: '', name: '폴더명' },
+  folder: { id: -1, name: '폴더명' },
 };
 
 export default ShareModal;

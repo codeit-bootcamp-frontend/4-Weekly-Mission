@@ -3,27 +3,34 @@ import React, { useState } from 'react';
 
 import addLinkIcon from 'assets/images/link.svg';
 
+import useModal from 'hooks/useModal';
+
 import AddLinkButton from 'components/Common/AddLInkButton';
 import styles from 'components/Header/AddLinkBar.module.css';
-import AddToFolderModal from 'components/Modal/AddToFolderModal';
+import { modalList } from 'components/Modal/Modal';
 
 function AddLinkBar() {
   const [addLinkValue, setAddLinkValue] = useState('');
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { openModal } = useModal();
 
   const handleInputChange = (e) => {
     setAddLinkValue(e.target.value);
   };
 
-  const openModal = () => {
-    const link = { url: addLinkValue };
-    return <AddToFolderModal link={link} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
-  };
-
-  const handleButtonClick = () => {
-    if (addLinkValue) {
-      setIsModalOpen(true);
+  const handleAddLinkButtonClick = () => {
+    if (!addLinkValue) {
+      return null;
     }
+
+    console.log('AddLink');
+    const link = { url: addLinkValue };
+
+    const handleAddLink = () => {
+      console.log('handleAddLink');
+      console.log(link);
+    };
+
+    return openModal(modalList.AddToForderModal, { onSubmit: handleAddLink, link });
   };
 
   const addLinkClasses = classNames(styles['add-link-bar'], 'position-relative', 'width-full', 'margin-auto');
@@ -41,8 +48,7 @@ function AddLinkBar() {
         placeholder="링크를 추가해 보세요"
       />
       <img className={inputImgClasses} src={addLinkIcon} alt="addLinkIcon" />
-      <AddLinkButton className={addLinkButtonClasses} onClick={handleButtonClick} />
-      {isModalOpen && openModal()}
+      <AddLinkButton className={addLinkButtonClasses} onClick={handleAddLinkButtonClick} />
     </div>
   );
 }
