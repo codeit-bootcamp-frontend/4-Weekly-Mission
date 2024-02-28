@@ -1,0 +1,17 @@
+.content_container {
+  width: 66.25rem;
+  margin: 2.5rem auto;
+}
+
+@media screen and (max-width: 1123px) {
+  .content_container {
+    max-width: 44rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .content_container {
+    max-width: 20.3125rem;
+    margin: 1.25rem auto;
+  }
+}

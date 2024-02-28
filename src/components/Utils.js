@@ -32,3 +32,5 @@ function timeSince(date) {
     return `${Math.trunc(timeDiff / YEAR)} years ago`;
   }
 }
+
+export default timeSince;
