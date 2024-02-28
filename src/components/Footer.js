@@ -7,25 +7,21 @@ import "./styles/Footer.css";
 function Footer() {
   const SNS_LIST = [
     {
-      id: 1,
       name: "Facebook",
       href: "https://www.facebook.com/",
       src: facebookIcon,
     },
     {
-      id: 2,
       name: "Twitter",
       href: "https://www.twitter.com/",
       src: twitterIcon,
     },
     {
-      id: 3,
       name: "Youtube",
       href: "https://www.youtube.com/",
       src: youtubeIcon,
     },
     {
-      id: 4,
       name: "Instagram",
       href: "https://www.instagram.com/",
       src: instagramIcon,
@@ -40,8 +36,8 @@ function Footer() {
         <p>FAQ</p>
       </div>
       <div className="sns">
-        {SNS_LIST.map(({ id, name, href, src }) => (
-          <a key={id} href={href}>
+        {SNS_LIST.map(({ name, href, src }) => (
+          <a key={name} href={href}>
             <img src={src} alt={name} />
           </a>
         ))}

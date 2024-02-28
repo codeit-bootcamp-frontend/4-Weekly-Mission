@@ -1,5 +1,5 @@
 * {
-  margin: 0;
+  box-sizing: border-box;
 }
 
 a {
@@ -8,4 +8,6 @@ a {
 
 button {
   cursor: pointer;
+  border: none;
+  background: none;
 }

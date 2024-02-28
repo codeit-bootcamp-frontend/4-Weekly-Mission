@@ -89,13 +89,11 @@
   display: flex;
   align-items: center;
   gap: 4px;
-  cursor: pointer;
+  padding: 0;
 }
 
-.option > p {
+.option > span {
   color: var(--Linkbrary-gray60, #9fa6b2);
-
-  /* Linkbrary/body2-semibold */
   font-family: Pretendard;
   font-size: 14px;
   font-style: normal;

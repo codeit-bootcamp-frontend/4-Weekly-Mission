@@ -1,29 +1,10 @@
 import { useEffect, useState } from "react";
-import { getUser, getFolder } from "../components/Api";
-import Gnb from "../components/Gnb";
+import { getFolder } from "../components/Api";
 import Header from "../components/Header";
 import LinkSearch from "../components/LinkSearch";
-import Card from "../components/Card";
-import Footer from "../components/Footer";
+import Cards from "../components/Cards";
 
 function SharedPage() {
-  // Gnb
-  const [userData, setUserData] = useState({ email: "", img: "" });
-  const [isUserDataLoaded, setIsUserDataLoaded] = useState(false);
-
-  useEffect(() => {
-    const getUserData = async () => {
-      try {
-        const user = await getUser();
-        setUserData({ email: user.email, img: user.profileImageSource });
-        setIsUserDataLoaded(true);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getUserData();
-  }, []);
-
   // Header
   const [folderData, setFolderData] = useState({
     folderName: "",
@@ -48,7 +29,7 @@ function SharedPage() {
     getFolderData();
   }, []);
 
-  // Card
+  // Cards
   const [cardList, setCardList] = useState([]);
 
   useEffect(() => {
@@ -66,11 +47,9 @@ function SharedPage() {
 
   return (
     <>
-      <Gnb userData={userData} isUserDataLoaded={isUserDataLoaded} />
       <Header folderData={folderData} />
       <LinkSearch />
-      <Card cardList={cardList} />
-      <Footer />
+      <Cards cardList={cardList} />
     </>
   );
 }
