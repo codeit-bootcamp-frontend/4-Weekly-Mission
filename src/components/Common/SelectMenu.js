@@ -5,7 +5,8 @@ import useModal from 'hooks/useModal';
 
 import Button from 'components/Common/Button';
 import styles from 'components/Common/SelectMenu.module.css';
-import { modalList } from 'components/Modal/Modal';
+
+import { modalList } from 'context/Modal';
 
 function SelectMenu({ className, link }) {
   const { openModal } = useModal();

@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import { useMemo, useState } from 'react';
 
-import { Modal } from 'components/Modal/Modal';
-
+import { Modal } from 'context/Modal';
 import { ModalDispatchContext, ModalStateContext } from 'context/ModalContext';
 
 // 현재 열려있는 모달 상태 관리

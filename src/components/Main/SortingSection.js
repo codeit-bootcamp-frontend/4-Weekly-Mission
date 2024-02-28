@@ -13,7 +13,8 @@ import ErrorMessage from 'components/Common/ErrorMessage';
 import Option from 'components/Common/Option';
 import SortingButton from 'components/Common/SortingButton';
 import styles from 'components/Main/SortingSection.module.css';
-import { modalList } from 'components/Modal/Modal';
+
+import { modalList } from 'context/Modal';
 
 import { FOLDERS_API_URL, LINKS_API_URL } from 'services/api';
 

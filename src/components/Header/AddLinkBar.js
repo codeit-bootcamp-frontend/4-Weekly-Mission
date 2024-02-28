@@ -7,7 +7,8 @@ import useModal from 'hooks/useModal';
 
 import AddLinkButton from 'components/Common/AddLInkButton';
 import styles from 'components/Header/AddLinkBar.module.css';
-import { modalList } from 'components/Modal/Modal';
+
+import { modalList } from 'context/Modal';
 
 function AddLinkBar() {
   const [addLinkValue, setAddLinkValue] = useState('');
