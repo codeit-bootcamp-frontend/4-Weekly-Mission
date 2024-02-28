@@ -14,11 +14,11 @@ function SelectMenu({ className, link }) {
 
   const menuList = [
     {
-      id: 1,
+      id: 'deleteLink',
       label: '삭제하기',
     },
     {
-      id: 2,
+      id: 'addToFolder',
       label: '폴더에 추가',
     },
   ];
@@ -27,10 +27,10 @@ function SelectMenu({ className, link }) {
     let modal = null;
 
     switch (menuId) {
-      case 1:
+      case 'deleteLink':
         modal = <DeleteLinkModal link={link} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
         break;
-      case 2:
+      case 'addToFolder':
         modal = <AddToFolderModal link={link} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />;
         break;
       default:
