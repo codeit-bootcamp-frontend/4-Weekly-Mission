@@ -16,10 +16,10 @@ function EditFolderNameModal({ folder, onSubmit, onClose }) {
 
   // 임시 버튼 클릭 이벤트
   const handleButtonClick = () => {
-    console.log(inputValue);
+    if (!inputValue) return null;
     // folder 임시 출력
-    console.log(folder);
-    onSubmit();
+    console.log(`${folder.name} -> ${inputValue}`);
+    return onSubmit();
   };
 
   const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
