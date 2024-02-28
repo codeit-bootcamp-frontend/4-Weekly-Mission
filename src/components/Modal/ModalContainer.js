@@ -40,8 +40,7 @@ import styles from 'components/Modal/ModalContainer.module.css';
 
 // onClose: 모달을 닫을 때 실행하는 콜백 함수
 function ModalContainer({ children, onClose }) {
-  const handleCloseButtonClick = (e) => {
-    e.stopPropagation();
+  const handleCloseButtonClick = () => {
     onClose();
   };
 

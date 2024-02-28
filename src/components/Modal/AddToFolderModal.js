@@ -26,9 +26,7 @@ function AddToFolderModal({ link, onSubmit, onClose }) {
 
   const [selectedFolder, setSelectedFolder] = useState(null);
 
-  const handleButtonClick = (e) => {
-    e.stopPropagation();
-
+  const handleButtonClick = () => {
     if (!selectedFolder) {
       return null;
     }
@@ -40,8 +38,7 @@ function AddToFolderModal({ link, onSubmit, onClose }) {
     return null;
   };
 
-  const handleListClick = (e, key) => {
-    e.stopPropagation();
+  const handleListClick = (key) => {
     const targetFolder = folderList.find((folder) => folder.id === key);
     setSelectedFolder(targetFolder);
   };
@@ -71,7 +68,7 @@ function AddToFolderModal({ link, onSubmit, onClose }) {
             key={folder.id}
             className={selectedFolder?.id === folder.id ? selectedAddFolderListClasses : addFolderListClasses}
             folder={folder}
-            onClick={(e) => handleListClick(e, folder.id)}
+            onClick={() => handleListClick(folder.id)}
           >
             <div className={textContainerClasses}>
               <div className={selectedFolder?.id === folder.id ? selectedFolderNameClasses : folderNameClasses}>

@@ -9,8 +9,7 @@ function DeleteLinkModal({ link, onSubmit, onClose }) {
   // {created_at, description, folder_id, id, image_source, title, updated_at, url}
   const { url } = link;
 
-  const handleButtonClick = (e) => {
-    e.stopPropagation();
+  const handleButtonClick = () => {
     console.log('링크 삭제');
     onSubmit();
   };

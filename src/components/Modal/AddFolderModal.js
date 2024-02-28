@@ -15,8 +15,7 @@ function AddFolderModal({ onSubmit, onClose }) {
   };
 
   // 임시 버튼 클릭 이벤트
-  const handleButtonClick = (e) => {
-    e.stopPropagation();
+  const handleButtonClick = () => {
     if (inputValue) {
       console.log(inputValue);
       onSubmit();
