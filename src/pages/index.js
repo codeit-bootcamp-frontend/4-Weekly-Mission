@@ -1,3 +1,4 @@
 import Shared from "./Shared";
 import Folder from "./Folder";
-export { Shared, Folder };
+import RootPage from "./RootPage";
+export { Shared, Folder, RootPage };

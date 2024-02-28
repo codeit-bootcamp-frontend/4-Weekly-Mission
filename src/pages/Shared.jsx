@@ -1,28 +1,49 @@
 import React, { useEffect, useState } from "react";
-import Header from "../components/common/header/Header";
-import Footer from "../components/common/footer/Footer";
-import { getSampeUser, getSampleFolder } from "../utils/Api";
-import FolderTilte from "../components/folderTitle/FolderTilte";
-import LinkContainer from "../components/share/Container";
+import Footer from "components/common/Footer";
+import { getSampleFolder } from "utils/Api";
+import Banner from "components/share/Banner";
+import styled from "styled-components";
+import SearchBar from "components/common/SearchBar";
+import ShareCardList from "components/share/ShareCardList";
+
+const Section = styled.section`
+  max-width: 1060px;
+  background-color: var(--color-white);
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+
+  @media (max-width: 1124px) {
+    max-width: 704px;
+  }
+
+  @media (max-width: 767px) {
+    max-width: 340px;
+  }
+`;
 
 function Shared() {
   // 함수 이름을 대문자로 변경
-  const [user, setUser] = useState(null);
 
-  const [folder, setFolder] = useState(null);
+  const [folders, setFolders] = useState(null);
 
   useEffect(() => {
-    getSampeUser().then(setUser);
-    getSampleFolder().then(setFolder);
+    getSampleFolder().then(setFolders);
   }, []);
 
   return (
-    <main>
-      <Header user={user} />
-      <FolderTilte folderObject={folder} />
-      <LinkContainer folderObject={folder} />
+    <>
+      <Banner folders={folders} />
+      <Section>
+        <SearchBar />
+      </Section>
+      <Section>
+        <ShareCardList folders={folders} />
+      </Section>
       <Footer />
-    </main>
+    </>
   );
 }
 
