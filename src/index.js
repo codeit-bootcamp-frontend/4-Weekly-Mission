@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import ReactModal from 'react-modal';
 
 import ModalProvider from 'context/ModalProvider';
 
@@ -11,8 +12,8 @@ import 'assets/styles/common.css';
 import 'assets/styles/utility.css';
 
 import './index.css';
-import ReactModal from 'react-modal';
 
+// ReactModal
 ReactModal.setAppElement('#modal-root');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
