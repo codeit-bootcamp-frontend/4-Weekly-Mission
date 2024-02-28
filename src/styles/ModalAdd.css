@@ -1,0 +1,75 @@
+.modal-add-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 0.5rem;
+  gap: 1.5rem;
+}
+
+.add-area {
+  color: var(--gray-02);
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 22px;
+  text-align: center;
+}
+
+.add-folder-list {
+  display: flex;
+  overflow: scroll;
+  height: 10rem;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.add-folder-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  border-radius: 8px;
+  gap: 0.5rem;
+}
+
+.folder-item-selected {
+  background: var(--gray-05);
+}
+
+.add-folder-box {
+  display: flex;
+  height: 1.6rem;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.add-folder-item:hover {
+  background: var(--gray-05);
+}
+
+.add-folder-name {
+  display: flex;
+}
+
+.add-folder-link {
+  display: flex;
+  color: var(--gray-02);
+  font-size: 0.9rem;
+}
+
+.none-folder {
+  color: var(--gray-03);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.add-button {
+  display: flex;
+  width: 17.5rem;
+  height: 51px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  color: var(--white);
+}

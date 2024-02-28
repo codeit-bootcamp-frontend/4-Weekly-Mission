@@ -1,0 +1,35 @@
+.modal-mask {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0 0 0 / 40%);
+}
+
+.modal-container {
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: 22.5rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 2.5rem;
+  border: 1px solid var(--stroke-light);
+  border-radius: 15px;
+  background-color: var(--white);
+  transform: translate(-50%, -50%);
+}
+
+.modal-title {
+  font-size: 1.25rem;
+}
+
+.modal-button-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}

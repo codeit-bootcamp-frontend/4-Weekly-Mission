@@ -1,5 +1,10 @@
 @import url('./global.css');
 
+.card-container {
+  position: relative;
+  overflow: visible;
+}
+
 .card {
   position: relative;
   overflow: hidden;
@@ -45,6 +50,7 @@
 
 .card-content {
   display: flex;
+  overflow: visible;
   height: 7rem;
   flex-direction: column;
   align-items: flex-start;

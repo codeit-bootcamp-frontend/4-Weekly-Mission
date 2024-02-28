@@ -41,6 +41,11 @@
   justify-content: space-between;
 }
 
+.folder-title.folder-name {
+  height: 1.5rem;
+  font-size: 1.5rem;
+}
+
 .folder-menu {
   display: flex;
   gap: 0.2rem;
@@ -54,6 +59,7 @@
 
 .folder-menu-text {
   color: var(--gray-02);
+  white-space: nowrap;
 }
 
 @media (width <= 767px) {
