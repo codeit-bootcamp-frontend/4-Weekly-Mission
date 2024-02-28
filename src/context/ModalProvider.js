@@ -17,8 +17,9 @@ function ModalProvider({ children }) {
   };
 
   // 모달 닫기
-  const close = () => {
-    setOpenedModal(null);
+  // modalComponent: 닫고자 하는 모달 컴포넌트
+  const close = (modalComponent) => {
+    if (openedModal === modalComponent) setOpenedModal(null);
   };
 
   // useMemo: {open, close} 객체 저장

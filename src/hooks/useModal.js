@@ -9,8 +9,8 @@ function useModal() {
     open(modalComponent, props);
   };
 
-  const closeModal = () => {
-    close();
+  const closeModal = (modalComponent) => {
+    close(modalComponent);
   };
 
   return { openModal, closeModal };
