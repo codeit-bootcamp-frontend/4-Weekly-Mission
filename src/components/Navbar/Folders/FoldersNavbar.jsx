@@ -1,26 +1,26 @@
 import { FiPlus } from 'react-icons/fi';
 
-import * as S from './FoldersNavbar.styles';
+import styles from './FoldersNavbar.module.scss';
 
 const FoldersNavbar = ({ items, selectedItem, setSelectedItem }) => {
   return (
-    <S.FoldersNavbarLayout>
-      <S.FoldersNavbarItemsBox>
+    <div className={styles.layout}>
+      <ul className={styles.box}>
         {items.map(item => (
           <li key={item.id}>
-            <S.FoldersNavbarItemBox
-              onClick={() => setSelectedItem && setSelectedItem({ id: item.id, name: item.name })}
+            <div
               id={item.id}
-              $isSelected={selectedItem?.id === item.id}>
+              className={`${styles.colorBox} ${selectedItem?.id === item.id && styles.fillBackground}`}
+              onClick={() => setSelectedItem && setSelectedItem({ id: item.id, name: item.name })}>
               {item.name}
-            </S.FoldersNavbarItemBox>
+            </div>
           </li>
         ))}
-      </S.FoldersNavbarItemsBox>
-      <S.FoldersNavbarAddButton>
+      </ul>
+      <button className={styles.addButton}>
         <span>폴더 추가</span> <FiPlus />
-      </S.FoldersNavbarAddButton>
-    </S.FoldersNavbarLayout>
+      </button>
+    </div>
   );
 };
 

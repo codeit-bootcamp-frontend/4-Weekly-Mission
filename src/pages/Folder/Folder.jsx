@@ -10,13 +10,13 @@ import FoldersNavbar from '../../components/Navbar/Folders/FoldersNavbar';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { getFolders, getLinks } from '../../utils/api';
 
-import * as S from './Folder.styles.js';
+import styles from './Folder.module.scss';
 
 const Folder = () => {
   const [folders, setFolders] = useState([]);
   const [links, setLinks] = useState([]);
   const [selectedItem, setSelectedItem] = useState({ id: 'all', name: '전체' });
-  const hasFolders = folders.length !== 0;
+  const hasFolders = folders.length;
   const hasLinks = links.length !== 0;
 
   useEffect(() => {
@@ -36,30 +36,28 @@ const Folder = () => {
   }, []);
 
   return (
-    <S.FolderLayout>
-      <S.FolderAddBarBox>
-        <AddBar />
-      </S.FolderAddBarBox>
-      <S.FolderSection>
-        <S.FolderSearchBarBox>
-          <SearchBar />
-        </S.FolderSearchBarBox>
-        <S.FolderBox>
+    <section className={styles.layout}>
+      <div className={styles.addBarBox}>
+        <AddBar className={styles.addBar} />
+      </div>
+      <main className={styles.mainLayout}>
+        <SearchBar />
+        <div className={styles.mainBox}>
           {hasFolders && (
             <FoldersNavbar items={folders} selectedItem={selectedItem} setSelectedItem={setSelectedItem} />
           )}
-          <S.FolderTitleBox>
+          <div className={styles.mainTitle}>
             <h2>{selectedItem.name}</h2>
-            {selectedItem.id !== 'all' && <FolderNavbar />}
-          </S.FolderTitleBox>
+            {selectedItem.id !== 'all' && <FolderNavbar folderName={selectedItem.name} />}
+          </div>
           {hasLinks ? <Cards links={links} /> : <Empty />}
-        </S.FolderBox>
-        <S.FolderActionButton>
+        </div>
+        <button className={styles.actionButton}>
           <span>폴더 추가</span>
           <FiPlus />
-        </S.FolderActionButton>
-      </S.FolderSection>
-    </S.FolderLayout>
+        </button>
+      </main>
+    </section>
   );
 };
 

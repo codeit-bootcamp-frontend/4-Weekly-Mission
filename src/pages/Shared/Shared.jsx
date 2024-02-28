@@ -7,7 +7,7 @@ import UserProfile from '../../components/UserProfile/UserProfile';
 import { AuthContext } from '../../context/AuthContext';
 import { getFolder } from '../../utils/api';
 
-import * as S from './Shared.styles';
+import styles from './Shared.module.scss';
 
 const Shared = () => {
   const [folder, setFolder] = useState({ links: [], name: null });
@@ -28,20 +28,20 @@ const Shared = () => {
   }, []);
 
   return (
-    <S.AppLayout>
+    <div className={styles.layout}>
       <section>
         {hasUser && (
           <UserProfile title={`@${user?.name}`} image={{ URL: user?.imageSource, size: '9rem' }} direction='column' />
         )}
-        {hasUser && <S.HomeFolderName>{name}</S.HomeFolderName>}
+        {hasUser && <h2 className={styles.userName}>{name}</h2>}
       </section>
-      <S.MainLayout>
-        <S.MainBox>
+      <main className={styles.mainLayout}>
+        <div className={styles.mainBox}>
           <SearchBar />
           {hasUser ? <Cards links={links} /> : <Empty />}
-        </S.MainBox>
-      </S.MainLayout>
-    </S.AppLayout>
+        </div>
+      </main>
+    </div>
   );
 };
 

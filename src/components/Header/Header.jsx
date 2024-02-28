@@ -4,9 +4,9 @@ import { Link, useLocation } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { getUser } from '../../utils/api';
 import UserProfile from '../UserProfile/UserProfile';
-import GradientButton from '../common/GradientButton/GradientButton.styles';
+import GradientButton from '../common/GradientButton/GradientButton';
 
-import * as S from './Header.styles';
+import styles from './Header.module.scss';
 
 const Header = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -26,10 +26,10 @@ const Header = () => {
   };
 
   return (
-    <S.HeaderLayout $isStatic={isFolderPage}>
-      <S.HeaderBox>
+    <header className={`${styles.layout} ${isFolderPage && styles.fixed}`}>
+      <div className={styles.box}>
         <Link to='/'>
-          <S.HeaderLogo src='assets/icons/linkbrary-logo.svg' alt='linkbrary' />
+          <img className={styles.linkbraryLogo} src='assets/icons/linkbrary-logo.svg' alt='linkbrary' />
         </Link>
         <Link to='/folder'>folder</Link>
         <Link to='/shared'>shared</Link>
@@ -37,12 +37,12 @@ const Header = () => {
         {hasUser ? (
           <UserProfile title={user.email} image={{ URL: user.profileImageSource, size: '2rem' }} />
         ) : (
-          <GradientButton $startColor='var(--color-primary)' $endColor='#6ae3fe' onClick={fetchUserData}>
-            로그인
-          </GradientButton>
+          <div className={styles.loginButton}>
+            <GradientButton onClick={fetchUserData}>로그인</GradientButton>
+          </div>
         )}
-      </S.HeaderBox>
-    </S.HeaderLayout>
+      </div>
+    </header>
   );
 };
 

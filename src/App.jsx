@@ -1,18 +1,18 @@
 import { Outlet } from 'react-router-dom';
 
-import { OutletLayout } from './Main.styles';
+import styles from './App.module.scss';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 
-const Main = () => {
+const App = () => {
   return (
     <>
       <Header />
-      <OutletLayout>
+      <section className={styles.layout}>
         <Outlet />
-      </OutletLayout>
+      </section>
       <Footer />
     </>
   );
 };
-export default Main;
+export default App;

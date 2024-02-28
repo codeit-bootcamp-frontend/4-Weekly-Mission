@@ -1,0 +1,48 @@
+@import '../../styles/_index.scss';
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.addBarBox {
+  width: 100%;
+  padding: 3rem 4rem;
+}
+
+.mainLayout {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  padding: 4rem;
+  background: $color-white;
+}
+
+.mainBox {
+  margin: 2rem 0;
+}
+
+.mainTitle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.actionButton {
+  position: sticky;
+  bottom: 7.4rem;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  color: $color-white;
+  background: $color-primary;
+  border-radius: 12px;
+  transform: translateX(-50%);
+
+  @media screen and (width >767px) {
+    display: none;
+  }
+}

@@ -1,0 +1,33 @@
+@import '../../../styles/_index.scss';
+
+.layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggleButton {
+  cursor: pointer;
+  background: none;
+}
+
+.itemBox {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 5px rgb(0 0 0 / 30%);
+}
+
+.item {
+  z-index: 1;
+  width: 5.4rem;
+  padding: 0.4rem;
+  white-space: nowrap;
+  background: $color-white;
+
+  &:hover {
+    z-index: 1;
+    color: $color-primary;
+    background: $color-gray-200;
+  }
+}

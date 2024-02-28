@@ -1,25 +1,29 @@
 import { SNS_LIST } from '../../constant/constant';
 
-import * as S from './Footer.styles';
+import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (
-    <S.StyledFooter>
-      <S.FooterCopyright>©codeit - 2023</S.FooterCopyright>
-      <S.FooterLinkSection>
-        <S.FooterSiteMapNav>
-          <S.FooterSiteMapLink href='/'>Privacy Policy</S.FooterSiteMapLink>
-          <S.FooterSiteMapLink href='/'>FAQ</S.FooterSiteMapLink>
-        </S.FooterSiteMapNav>
-        <S.FooterSnsMapNav>
+    <footer className={styles.layout}>
+      <p className={styles.copyright}>©codeit - 2023</p>
+      <section className={styles.linkBox}>
+        <nav className={styles.linkNav}>
+          <a className={styles.siteLink} href='/'>
+            Privacy Policy
+          </a>
+          <a className={styles.siteLink} href='/'>
+            FAQ
+          </a>
+        </nav>
+        <section className={styles.snsNav}>
           {SNS_LIST.map(sns => (
             <a key={sns} href={`https://${sns}.com`} target='_blank' rel='noreferrer noopener'>
-              <S.FooterSnsMapImage src={`assets/icons/${sns}-logo.svg`} alt={sns} />
+              <img className={styles.snsImage} src={`assets/icons/${sns}-logo.svg`} alt={sns} />
             </a>
           ))}
-        </S.FooterSnsMapNav>
-      </S.FooterLinkSection>
-    </S.StyledFooter>
+        </section>
+      </section>
+    </footer>
   );
 };
 

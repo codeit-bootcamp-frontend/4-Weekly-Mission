@@ -1,24 +1,46 @@
 import { useState } from 'react';
 
-import * as S from './ToggleButton.styles';
+import Modal from '../../Modal/Modal';
 
-const ToggleButton = ({ children, items = [], className }) => {
+import styles from './ToggleButton.module.scss';
+
+const ToggleButton = ({ children, items = [] }) => {
   const [isToggled, setIsToggled] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedItem, setSelectedItem] = useState('');
+
   const handleToggleButtonClick = event => {
     event.preventDefault();
-    event.stopPropagation();
     setIsToggled(!isToggled);
   };
 
+  const handleItemClick = event => {
+    setShowModal(prev => !prev);
+    setSelectedItem(event.target.id);
+  };
+
+  const handleModalClick = () => {
+    setShowModal(prev => !prev);
+    setSelectedItem('');
+  };
+
   return (
-    <S.ToggleButtonLayout className={className} onBlur={() => setIsToggled(false)}>
-      <S.ToggleButtonButton onClick={handleToggleButtonClick}>
+    <section className={styles.layout} onBlur={() => setIsToggled(false)}>
+      <button className={styles.toggleButton} onClick={handleToggleButtonClick}>
         {children}
-        <S.ToggleButtonItemBox>
-          {isToggled && items.map(item => <S.ToggleButtonItem>{item}</S.ToggleButtonItem>)}
-        </S.ToggleButtonItemBox>
-      </S.ToggleButtonButton>
-    </S.ToggleButtonLayout>
+        <ul className={styles.itemBox}>
+          {isToggled &&
+            items.map(item => (
+              <li className={styles.item} key={item}>
+                <p id={item} onClick={handleItemClick}>
+                  {item}
+                </p>
+                {showModal && selectedItem === item && <Modal title={item} onClick={handleModalClick} />}
+              </li>
+            ))}
+        </ul>
+      </button>
+    </section>
   );
 };
 

@@ -1,0 +1,15 @@
+@import '../../styles/_index.scss';
+
+.rowSection {
+  @include flex-center(row);
+  gap: 0.4rem;
+}
+
+.columnSection {
+  @include flex-center(column);
+  gap: 0.4rem;
+}
+
+.userImage {
+  border-radius: 50%;
+}
