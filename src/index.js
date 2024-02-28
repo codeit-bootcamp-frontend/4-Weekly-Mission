@@ -19,6 +19,10 @@ ReactModal.setAppElement('#modal-root');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
+// React.StrictMode: 개발 단계에서 안전하지 않은 생명주기, 레거시 API 사용, 예상치 못한 부작용 등을 개발 단계에서 미리 발견하고 수정
+// React.StrictMode -> render(), shouldComponentUpdate(), setState, ... 등 여러 메서드가 두 번 호출됨
+// React.StrictMode -> 모달이 두 번 호출 -> 두 번 렌더링되어 'React-Modal: Cannot register modal instance that's already open' 오류가 발생
+// React.StrictMode는 프로덕션 빌드에서는 작동하지 않음
 // ModalProvider로 App을 감싸면 App의 모든 요소에서 ModalProvider에 접근 가능
 root.render(
   <React.StrictMode>

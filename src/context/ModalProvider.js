@@ -13,16 +13,19 @@ function ModalProvider({ children }) {
   // ModalComponent: 열고자 하는 모달 컴포넌트
   // props: 모달 컴포넌트로 넘겨주는 props
   const open = (ModalComponent, propList) => {
+    if (!ModalComponent) return null;
+    if (openedModal) return null;
+
     const newModal = { ModalComponent, propList };
     console.log('open >>>');
-    setOpenedModal(newModal);
+    return setOpenedModal(newModal);
   };
 
   // 모달 닫기
   // ModalComponent: 닫고자 하는 모달 컴포넌트
   const close = () => {
     console.log('>>> close');
-    setOpenedModal(null);
+    return setOpenedModal(null);
   };
 
   // useMemo: {open, close} 객체 저장

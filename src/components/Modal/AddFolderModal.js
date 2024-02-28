@@ -16,10 +16,10 @@ function AddFolderModal({ onSubmit, onClose }) {
 
   // 임시 버튼 클릭 이벤트
   const handleButtonClick = () => {
-    if (inputValue) {
-      console.log(inputValue);
-      onSubmit();
-    }
+    if (!inputValue) return null;
+
+    console.log(inputValue);
+    return onSubmit();
   };
 
   const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
