@@ -1,14 +1,12 @@
-import "./App.css";
-import Shared from "./pages/Shared";
-import Header from "./components/Header";
+import { Outlet } from "react-router-dom";
+import { FolderProvider } from "./contexts/FolderContext";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <Header />
-      <Shared />
-    </div>
+    <>
+      <FolderProvider>
+        <Outlet />
+      </FolderProvider>
+    </>
   );
 }
-
-export default App;

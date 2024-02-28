@@ -1,38 +1,29 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import App from "./App";
+
 import "./index.css";
 import Shared from "./pages/Shared";
-import App from "./App";
-import LinkDetail from "./pages/LinkDetail";
-import Privacy from "./pages/Privacy";
-import FAQ from "./pages/FAQ";
 import Folder from "./pages/Folder";
+import FAQ from "./pages/FAQ";
+import Privacy from "./pages/Privacy";
+import LinkDetail from "./pages/LinkDetail";
 
-const router = createBrowserRouter([
+let router;
+router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-  },
-  {
-    path: "shared",
-    element: <Shared />,
-  },
-  {
-    path: "folder",
-    element: <Folder />,
-  },
-  {
-    path: "link/:linkId",
-    element: <LinkDetail />,
-  },
-  {
-    path: "privacy",
-    element: <Privacy />,
-  },
-  {
-    path: "faq",
-    element: <FAQ />,
+    children: [
+      { index: true, element: <Shared /> },
+      { path: "folder", element: <Folder /> },
+      { path: "link/:id", element: <LinkDetail /> },
+      { path: "shared", element: <Shared /> },
+      { path: "faq", element: <FAQ /> },
+      { path: "privacy", element: <Privacy /> },
+    ],
   },
 ]);
 

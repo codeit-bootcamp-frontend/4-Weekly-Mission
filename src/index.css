@@ -74,3 +74,8 @@ a {
 .component-default-margin {
   margin-top: 108px;
 }
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
