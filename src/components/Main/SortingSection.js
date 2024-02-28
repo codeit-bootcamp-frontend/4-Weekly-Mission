@@ -54,7 +54,7 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
   const openOptionListModal = () => {
     let modal;
     switch (selectedOptionKey) {
-      case 1:
+      case 'share':
         modal = (
           <ShareModal
             folder={selectedFolder}
@@ -63,7 +63,7 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
           />
         );
         break;
-      case 2:
+      case 'editFolderName':
         modal = (
           <EditFolderNameModal
             folder={selectedFolder}
@@ -72,7 +72,7 @@ function SortingSection({ selectedFolder, setSelectedFolder }) {
           />
         );
         break;
-      case 3:
+      case 'deleteFolder':
         modal = (
           <DeleteFolderModal
             folder={selectedFolder}
