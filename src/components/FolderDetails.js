@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 import useFetchData from '../hooks/useFetchData';
+import EditAndAddModal from './common/modal/EditAndAddModal';
+import RemoveModal from './common/modal/RemoveModal';
+import ShareFolderModal from './common/modal/ShareFolderModal';
 import FloatingActionButton from './common/FloatingActionButton';
 import CardList from './CardList';
 import SearchBar from './common/SearchBar';
@@ -12,7 +15,25 @@ import '../components/FolderDetails.css';
 export default function FolderDetails({ folderListData }) {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [selectedFolder, setSelectedFolder] = useState('all');
-  const selectedFolderData = useFetchData('targetUserFolderLinkList', 1, selectedFolder) || [];
+  const [modals, setModals] = useState({
+    addModal: false,
+    editModal: false,
+    removeModal: false,
+    shareFolderModal: false,
+  });
+
+  const selectedFolderLinkListData = useFetchData('targetUserFolderLinkList', 1, selectedFolder) || [];
+  const folderNameAndLinkList = folderListData?.map(({ name, link, id }) => [name, link.count, id]);
+  const { name: selectedFolderName, id: selectedFolderId } = folderListData?.find(
+    ({ id }) => id === selectedFolder
+  ) || { name: '', id: '' };
+
+  const toggleModal = modalName => {
+    setModals(prevModals => ({
+      ...prevModals,
+      [modalName]: !prevModals[modalName],
+    }));
+  };
 
   const handleFolderClick = folderId => {
     setSelectedFolder(folderId);
@@ -50,34 +71,59 @@ export default function FolderDetails({ folderListData }) {
           ))}
         </div>
         {windowWidth >= 767 ? (
-          <div className="addButton">
+          <button className="addButton" onClick={() => toggleModal('addModal')}>
             <p>폴더 추가</p>
             <img src={add} alt="더하기" />
-          </div>
+          </button>
         ) : (
-          <FloatingActionButton />
+          <FloatingActionButton onClick={() => toggleModal('addModal')} />
         )}
       </div>
       <div className="actionButtonContainer">
         <p>{selectedFolder === 'all' ? '전체' : '유용한 글'}</p>
         {!(selectedFolder === 'all') && (
           <div className="actionButton">
-            <div className="share">
+            <button className="share" onClick={() => toggleModal('shareFolderModal')}>
               <img src={share} alt="공유" />
               <span>공유</span>
-            </div>
-            <div className="pen">
+            </button>
+            <button className="pen" onClick={() => toggleModal('editModal')}>
               <img src={pen} alt="이름변경" />
               <span>이름변경</span>
-            </div>
-            <div className="remove">
+            </button>
+            <button className="remove" onClick={() => toggleModal('removeModal')}>
               <img src={remove} alt="삭제" />
               <span>삭제</span>
-            </div>
+            </button>
           </div>
         )}
       </div>
-      <CardList cardDataList={selectedFolderData} />
+      <CardList cardDataList={selectedFolderLinkListData} folderNameAndLinkList={folderNameAndLinkList} />
+      {modals.addModal && (
+        <EditAndAddModal modalTitle="폴더 추가" buttonText="추가하기" onClose={() => toggleModal('addModal')} />
+      )}
+      {modals.editModal && (
+        <EditAndAddModal
+          modalTitle="폴더 이름 변경"
+          buttonText="변경하기"
+          onClose={() => toggleModal('editModal')}
+          selectedFolderName={selectedFolderName}
+        />
+      )}
+      {modals.removeModal && (
+        <RemoveModal
+          modalTitle="폴더 삭제"
+          onClose={() => toggleModal('removeModal')}
+          titleContent={selectedFolderName}
+        />
+      )}
+      {modals.shareFolderModal && (
+        <ShareFolderModal
+          selectedFolderName={selectedFolderName}
+          selectedFolderId={selectedFolderId}
+          onClose={() => toggleModal('shareFolderModal')}
+        />
+      )}
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function Folder() {
   return (
     <>
       <Nav currentUserData={currentUserData} />
-      <AddLink />
+      <AddLink folderListData={folderListData} />
       <FolderDetails folderListData={folderListData} />
       <Footer />
     </>
