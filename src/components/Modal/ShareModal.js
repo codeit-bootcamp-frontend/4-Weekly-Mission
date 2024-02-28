@@ -9,30 +9,27 @@ import Button from 'components/Common/Button';
 import ModalContainer from 'components/Modal/ModalContainer';
 import styles from 'components/Modal/ShareModal.module.css';
 
-function ShareModal({ folder, isModalOpen, setIsModalOpen }) {
+function ShareModal({ folder, onClose }) {
   const { id, name } = folder;
 
   const host = window.location.origin;
-  const shareUrl = `${host}/shared/${id ?? ''}`;
+  const shareUrl = `${host}/shared/${id}`;
 
   // 공유 옵션
   const shareList = [
     {
-      key: 1,
       label: '카카오톡',
       type: 'kakao',
       src: Kakao,
       alt: 'kakao-icon',
     },
     {
-      key: 2,
       label: '페이스북',
       type: 'facebook',
       src: Facebook,
       alt: 'facebook-icon',
     },
     {
-      key: 3,
       label: '링크 복사',
       type: 'linkCopy',
       src: LinkCopy,
@@ -67,12 +64,12 @@ function ShareModal({ folder, isModalOpen, setIsModalOpen }) {
   const shareButtonLabelClasses = classNames(styles['share-button-label'], 'font-color-gray100');
 
   return (
-    <ModalContainer isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+    <ModalContainer onClose={onClose}>
       <p className={titleClasses}>폴더 공유</p>
-      <p className={folderTitleClasses}>{name ?? '폴더명'}</p>
+      <p className={folderTitleClasses}>{name}</p>
       <div className={shareButtonContainerClasses}>
         {shareList.map((share) => (
-          <Button key={share.key} className={shareButtonClasses} onClick={() => handleShareButtonClick(share.type)}>
+          <Button key={share.type} className={shareButtonClasses} onClick={() => handleShareButtonClick(share.type)}>
             <img className={shareButtonImgClasses} src={share.src} alt={share.alt} />
             <p className={shareButtonLabelClasses}>{share.label} </p>
           </Button>
@@ -84,14 +81,11 @@ function ShareModal({ folder, isModalOpen, setIsModalOpen }) {
 
 ShareModal.propTypes = {
   folder: PropTypes.shape({ id: PropTypes.number, name: PropTypes.string }),
-  isModalOpen: PropTypes.bool,
-  setIsModalOpen: PropTypes.func,
+  onClose: PropTypes.func.isRequired,
 };
 
 ShareModal.defaultProps = {
-  folder: { id: null, name: null },
-  isModalOpen: false,
-  setIsModalOpen: null,
+  folder: { id: '', name: '폴더명' },
 };
 
 export default ShareModal;

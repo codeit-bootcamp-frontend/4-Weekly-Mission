@@ -5,12 +5,13 @@ import ModalButton from 'components/Common/ModalButton';
 import styles from 'components/Modal/DeleteFolderModal.module.css';
 import ModalContainer from 'components/Modal/ModalContainer';
 
-function DeleteFolderModal({ folder, isModalOpen, setIsModalOpen }) {
+function DeleteFolderModal({ folder, onSubmit, onClose }) {
   // {id, created_at, name, user_id, favorite, link: {count}}
   const { name } = folder;
 
   const handleButtonClick = () => {
     console.log('폴더 삭제');
+    onSubmit();
   };
 
   const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
@@ -18,9 +19,9 @@ function DeleteFolderModal({ folder, isModalOpen, setIsModalOpen }) {
   const buttonClasses = classNames('background-red', 'width-full');
 
   return (
-    <ModalContainer isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+    <ModalContainer onClose={onClose}>
       <p className={titleClasses}>폴더 삭제</p>
-      <p className={folderTitleClasses}>{name ?? '폴더명'}</p>
+      <p className={folderTitleClasses}>{name}</p>
       <ModalButton className={buttonClasses} text="삭제하기" onClick={handleButtonClick} />
     </ModalContainer>
   );
@@ -28,14 +29,12 @@ function DeleteFolderModal({ folder, isModalOpen, setIsModalOpen }) {
 
 DeleteFolderModal.propTypes = {
   folder: PropTypes.shape({ name: PropTypes.string }),
-  isModalOpen: PropTypes.bool,
-  setIsModalOpen: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 DeleteFolderModal.defaultProps = {
-  folder: { name: null },
-  isModalOpen: false,
-  setIsModalOpen: null,
+  folder: { name: '폴더명' },
 };
 
 export default DeleteFolderModal;

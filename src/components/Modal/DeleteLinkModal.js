@@ -5,13 +5,14 @@ import ModalButton from 'components/Common/ModalButton';
 import styles from 'components/Modal/DeleteLinkModal.module.css';
 import ModalContainer from 'components/Modal/ModalContainer';
 
-function DeleteLinkModal({ link, isModalOpen, setIsModalOpen }) {
+function DeleteLinkModal({ link, onSubmit, onClose }) {
   // {created_at, description, folder_id, id, image_source, title, updated_at, url}
   const { url } = link;
 
   const handleButtonClick = (e) => {
     e.stopPropagation();
     console.log('링크 삭제');
+    onSubmit();
   };
 
   const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
@@ -19,7 +20,7 @@ function DeleteLinkModal({ link, isModalOpen, setIsModalOpen }) {
   const buttonClasses = classNames('background-red', 'width-full');
 
   return (
-    <ModalContainer isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+    <ModalContainer onClose={onClose}>
       <p className={titleClasses}>링크 삭제</p>
       <p className={linkClasses}>{url ?? '링크 주소'}</p>
       <ModalButton className={buttonClasses} text="삭제하기" onClick={handleButtonClick} />
@@ -29,14 +30,12 @@ function DeleteLinkModal({ link, isModalOpen, setIsModalOpen }) {
 
 DeleteLinkModal.propTypes = {
   link: PropTypes.shape({ url: PropTypes.string }),
-  isModalOpen: PropTypes.bool,
-  setIsModalOpen: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 DeleteLinkModal.defaultProps = {
   link: { url: null },
-  isModalOpen: false,
-  setIsModalOpen: null,
 };
 
 export default DeleteLinkModal;

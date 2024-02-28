@@ -7,7 +7,7 @@ import TextInput from 'components/Common/TextInput';
 import styles from 'components/Modal/AddFolderModal.module.css';
 import ModalContainer from 'components/Modal/ModalContainer';
 
-function AddFolderModal({ isModalOpen, setIsModalOpen }) {
+function AddFolderModal({ onSubmit, onClose }) {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e) => {
@@ -18,6 +18,7 @@ function AddFolderModal({ isModalOpen, setIsModalOpen }) {
   const handleButtonClick = (e) => {
     e.stopPropagation();
     console.log(inputValue);
+    onSubmit();
   };
 
   const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
@@ -25,7 +26,7 @@ function AddFolderModal({ isModalOpen, setIsModalOpen }) {
   const buttonClasses = classNames('background-gra-primary', 'width-full');
 
   return (
-    <ModalContainer isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+    <ModalContainer onClose={onClose}>
       <p className={titleClasses}>폴더 추가</p>
       <TextInput className={inputClasses} value={inputValue} onChange={handleInputChange} placeholder="내용 입력" />
       <ModalButton className={buttonClasses} text="추가하기" onClick={handleButtonClick} />
@@ -34,13 +35,8 @@ function AddFolderModal({ isModalOpen, setIsModalOpen }) {
 }
 
 AddFolderModal.propTypes = {
-  isModalOpen: PropTypes.bool,
-  setIsModalOpen: PropTypes.func,
-};
-
-AddFolderModal.defaultProps = {
-  isModalOpen: false,
-  setIsModalOpen: null,
+  onSubmit: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default AddFolderModal;

@@ -7,7 +7,7 @@ import TextInput from 'components/Common/TextInput';
 import styles from 'components/Modal/EditFolderNameModal.module.css';
 import ModalContainer from 'components/Modal/ModalContainer';
 
-function EditFolderNameModal({ folder, isModalOpen, setIsModalOpen }) {
+function EditFolderNameModal({ folder, onSubmit, onClose }) {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e) => {
@@ -19,6 +19,7 @@ function EditFolderNameModal({ folder, isModalOpen, setIsModalOpen }) {
     console.log(inputValue);
     // folder 임시 출력
     console.log(folder);
+    onSubmit();
   };
 
   const titleClasses = classNames(styles.title, 'text-color-gray100', 'text-center');
@@ -26,7 +27,7 @@ function EditFolderNameModal({ folder, isModalOpen, setIsModalOpen }) {
   const buttonClasses = classNames('background-gra-primary', 'width-full');
 
   return (
-    <ModalContainer isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}>
+    <ModalContainer onClose={onClose}>
       <p className={titleClasses}>폴더 이름 변경</p>
       <TextInput className={inputClasses} value={inputValue} onChange={handleInputChange} placeholder="내용 입력" />
       <ModalButton className={buttonClasses} text="변경하기" onClick={handleButtonClick} />
@@ -36,14 +37,12 @@ function EditFolderNameModal({ folder, isModalOpen, setIsModalOpen }) {
 
 EditFolderNameModal.propTypes = {
   folder: PropTypes.shape(),
-  isModalOpen: PropTypes.bool,
-  setIsModalOpen: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 EditFolderNameModal.defaultProps = {
   folder: null,
-  isModalOpen: false,
-  setIsModalOpen: null,
 };
 
 export default EditFolderNameModal;
