@@ -14,6 +14,7 @@ import timeAgo from 'utils/timeAgo';
 
 function Card({ linkData }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const { created_at: createdAt, url, description, image_source: imageSource } = linkData;
 
@@ -37,6 +38,11 @@ function Card({ linkData }) {
 
   const handleCardMouseLeave = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleStarButtonClick = (e) => {
+    e.stopPropagation();
+    setIsFavorite(!isFavorite);
   };
 
   const handleKebabButtonClick = (e) => {
@@ -71,7 +77,7 @@ function Card({ linkData }) {
       tabIndex={0}
     >
       <div className={cardImgageClasses} style={backgroundImage} />
-      <StarButton className={starButtonClasses} />
+      <StarButton className={starButtonClasses} onClick={handleStarButtonClick} isFavorite={isFavorite} />
       <div className={cardTextBoxClasses}>
         <div className={topElementContainerClasses}>
           <p className={timeAgoClasses}>{createdTimeAgo}</p>
