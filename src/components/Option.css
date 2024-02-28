@@ -1,0 +1,26 @@
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.option-tool {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.option-img {
+  width: 18px;
+  height: 18px;
+}
+
+.option-text {
+  color: var(--Linkbrary-gray60);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  cursor: pointer;
+}

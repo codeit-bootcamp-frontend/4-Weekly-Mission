@@ -26,6 +26,10 @@ a {
   text-decoration-line: none;
 }
 
+li {
+  list-style: none;
+}
+
 input {
   border: none;
 }
