@@ -1,0 +1,155 @@
+/* Folder Layout */
+.Folder {
+  width: 100vw;
+  height: 100hw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg);
+}
+
+/* NavBar */
+.Nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 3.3rem 20rem;
+  align-items: center;
+  gap: '0.8rem';
+}
+
+.logo {
+  width: 13.3rem;
+}
+
+.account {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.accountImg {
+  width: 1rem;
+}
+
+.accountId {
+  color: var(--gray100);
+  font-family: Pretendard;
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+/* AddLink */
+.AddLink {
+  border: 1px solid var(--primary);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80rem;
+  padding: 1.6rem 2rem;
+  gap: 0.8rem;
+  margin: 6rem 32rem 9rem 32rem;
+  background-color: var(--white);
+}
+
+.AddLinkGroup {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.AddLinkText {
+  color: var(--gray60);
+  font-family: Pretendard;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.LinkIcon {
+  width: 2rem;
+}
+
+.AddLinkBtn {
+  color: var(--grayLight);
+  width: 8rem;
+  padding: 1rem 1.6rem;
+  border-radius: 8px;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+}
+
+/* SearchBar */
+.SearchBar {
+  display: flex;
+  border-radius: 10px;
+  width: 106rem;
+  padding: 1.5rem 1.6rem;
+  align-items: flex-start;
+  gap: 1rem;
+  background-color: var(--grayLight);
+  margin: 4rem 0;
+}
+
+.SearchIcon {
+  width: 1.6rem;
+}
+
+.SearchText {
+  color: var(--Text);
+  font-family: Pretendard;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 150%;
+  background-color: var(--grayLight);
+}
+
+/* FolderList */
+.FolderList {
+  display: flex;
+  width: 106rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.FolderGroups {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+
+.FolderNames {
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1.2rem;
+  border-radius: 5px;
+  border: 1px solid var(--primary);
+  background: #fff;
+  color: #000;
+  font-family: Pretendard;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+.FolderAddBtn {
+  color: var(--primary);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.AddIcon {
+  width: 1.36rem;
+  margin-left: 0.4rem;
+}
