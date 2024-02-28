@@ -1,0 +1,25 @@
+.folderbutton-container {
+  display: flex;
+  align-items: center;
+  height: 3.1rem;
+  padding: 0 1rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--Linkbrary-primary-color);
+  font-size: 1.4rem;
+  transition: all 0.3s ease-in-out;
+
+  @media (min-width: 768px) {
+    height: 3.7rem;
+    padding: 0 1.2rem;
+    font-size: 1.6rem;
+  }
+}
+
+.folderbutton-container:hover {
+  background-color: var(--Linkbrary-gray10);
+}
+
+.folderbutton-container.chosen {
+  background-color: var(--Linkbrary-primary-color);
+  color: white;
+}

@@ -1,18 +1,19 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    font-family: "Pretendard";
-    word-break: keep-all;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Pretendard";
+  word-break: keep-all;
 }
 
-html, body {
-    /*width: 1920px;
+html,
+body {
+  /*width: 1920px;
     margin: 0 auto;
     padding: 0;*/
-    /*overflow-x: hidden;
+  /*overflow-x: hidden;
     overflow-y: scroll;*/
-    font-size: 62.5%;
-    
+  font-size: 62.5%;
 }
 
 /*body {
@@ -26,30 +27,30 @@ html, body {
 }*/
 
 @media screen and (min-width: 1920px) {
-    body {
-        background-color: var(--Linkbrary-bg);
-        overflow: hidden;
-    }
+  body {
+    background-color: var(--Linkbrary-bg);
+    overflow: hidden;
+  }
 }
 
 a {
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 input {
-    border: none;
-    padding: none;
+  border: none;
+  padding: none;
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 button {
-    border: none;
-    padding: unset;
-    background-color: unset;
-    cursor: pointer;
+  border: none;
+  padding: unset;
+  background-color: unset;
+  cursor: pointer;
 }

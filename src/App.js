@@ -1,41 +1,23 @@
-import React from 'react';
-import Layout from "./page_components/Layout/Layout";
-import MainFolderPage from "./MainFolderPage/MainFolderPage";
-import FolderInfo from "./ui_components/FolderInfo/FolderInfo";
-import SearchBar from "./ui_components/SearchBar/SearchBar";
-import CardInventory from "./ui_components/CardInventory/CardInventory";
-import { useGetSampleFolder } from "./api_connect/useGetSampleFolder";
-import ShareLinkCard from "./ui_components/ShareLinkCard/ShareLinkCard";
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import MainSharePage from "./pages/MainSharePage/MainSharePage";
+import MainFolderPage from "./pages/MainFolderPage/MainFolderPage";
 
 import "./index.css";
 import "./palette.css";
 
-
 function App() {
-  const { data } = useGetSampleFolder();
-  const { profileImage, ownerName, folderName, links } = data || {};
-
   return (
-    <Layout>
-      <MainFolderPage
-        folderInfo={
-          <FolderInfo profileImage={profileImage} ownerName={ownerName} folderName={folderName} />
-        }
-        searchBar={<SearchBar />}
-        cardInventory={
-          <CardInventory>
-            {links?.map((linkCard) => (
-              <ShareLinkCard key={linkCard.id} {...linkCard} />
-            ))}
-          </CardInventory>
-        }
-      />
-    </Layout>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/shared" element={<MainSharePage />} />
+        <Route path="/folder" element={<MainFolderPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
-
 
 /* 오래 고민한 부분들 */
 
@@ -77,7 +59,6 @@ App
     ㄴ Footer
 */
 
-
 /* 2. 커스텀 훅 만들기
 (아직 커스텀 훅이 잘 와닿지 않습니다.
 커스텀 훅은 보통 언제, 어떻게 만드는 것인가요? 커스텀 훅을 만드는 데에 조건이 있는지 궁금합니다.
@@ -90,4 +71,3 @@ App
 (3) useGetSampleUser : axios로 서버의 /sample/user api 주소로 get 요청 후 받은 응답인 데이터를 set하고 그 데이터를 리턴
 
 */
-

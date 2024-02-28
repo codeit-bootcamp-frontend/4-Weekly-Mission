@@ -1,0 +1,66 @@
+.folder-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 1.2rem;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-areas:
+      "folderLists folderLists add-button"
+      "folder-name buttons buttons";
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 2.4rem;
+    column-gap: 1.2rem;
+  }
+}
+
+.folder-lists {
+  grid-area: folderLists;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 0.8rem;
+  row-gap: 1.2rem;
+  flex-grow: 1;
+}
+
+.add-button {
+  grid-area: add-button;
+  position: fixed;
+  bottom: 10.1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+
+  @media (min-width: 768px) {
+    justify-self: flex-end;
+
+    position: static;
+    transform: none;
+  }
+}
+
+.folder-name {
+  grid-area: folder-name;
+  margin-top: 1.6rem;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.02rem;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+    font-size: 2.4rem;
+  }
+}
+
+.buttons {
+  justify-self: flex-start;
+  grid-area: buttons;
+  display: flex;
+  column-gap: 1.2rem;
+
+  @media (min-width: 768px) {
+    justify-self: flex-end;
+  }
+}
