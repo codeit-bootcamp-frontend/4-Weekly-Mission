@@ -13,7 +13,8 @@ import 'assets/styles/utility.css';
 
 import './index.css';
 
-// ReactModal
+// ReactModal.setAppElement(appElement)
+// 모달이 활성화될 때 애플리케이션의 appElement을 제외한 나머지 부분에 대한 접근을 차단
 ReactModal.setAppElement('#modal-root');
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
