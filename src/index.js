@@ -1,12 +1,15 @@
 import React, { StrictMode } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+
 import ReactDOM from 'react-dom/client';
-import Page from './pages/SharedPage';
-import FoldPage from './pages/FolderPage';
+
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <StrictMode>
-    <FoldPage />
-    {/* <Page /> */}
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </StrictMode>
 );

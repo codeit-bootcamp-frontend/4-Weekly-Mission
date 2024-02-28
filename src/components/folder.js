@@ -1,12 +1,12 @@
 import '../styles/folder.css';
+import CategoryList from './CategoryList';
 import SearchBar from './SearchBar';
-import CardList from './CardList';
 
-const Folder = ({ folderInfo }) => {
+const Folder = ({ folderInfo, categoryList }) => {
   return (
-    <div className='folder'>
+    <div className='folder-container'>
       <SearchBar />
-      <CardList folderInfo={folderInfo} />
+      <CategoryList folderInfo={folderInfo} categoryList={categoryList} />
     </div>
   );
 };

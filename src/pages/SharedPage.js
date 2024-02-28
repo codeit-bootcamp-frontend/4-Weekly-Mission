@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react';
-import { getUser, getFolder } from '../api/BaseUrl';
-// import { Route } from 'react-router-dom';
-// import SharedPage from './SharedPage';
 
-import Header from '../components/header';
-import Footer from '../components/footer';
+import { getSharedFolder, getSharedUser } from '../api/BaseUrl';
+import Folder from '../components/Folder';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 import Info from '../components/info';
-import Folder from '../components/folder';
 
-const Page = () => {
+const SharedPage = () => {
   const [user, setUser] = useState(null);
   const [folder, setFolder] = useState(null);
 
@@ -22,19 +20,18 @@ const Page = () => {
   };
 
   useEffect(() => {
-    handleLoad(getUser, setUser);
-    handleLoad(getFolder, setFolder);
+    handleLoad(getSharedUser, setUser);
+    handleLoad(getSharedFolder, setFolder);
   }, []);
 
   return (
     <div>
-      <Header userInfo={user} />
+      <Header userInfo={user} isSticky={true} />
       <Info folderInfo={folder} />
       <Folder folderInfo={folder} />
       <Footer />
-      {/* <Route path='/shared' component={SharedPage} /> */}
     </div>
   );
 };
 
-export default Page;
+export default SharedPage;

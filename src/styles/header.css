@@ -1,7 +1,6 @@
 @import './css/global.css';
 
 header {
-  position: sticky;
   z-index: 1;
   top: 0;
   display: flex;
