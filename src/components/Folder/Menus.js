@@ -3,17 +3,18 @@ import { getFolderList } from "./../../api/api";
 import GlobalStyle from "./../common/GlobalStyle";
 import styled from "styled-components";
 import union from "../../assets/icons/Union.svg";
-import useGetJson from "./../../hook/uesGetJson";
+import { COLORS } from "constants/colors";
+import { useGetPromise } from "hooks/uesGetPromise";
 
-const Menus = ({ changeTitle, changeID }) => {
-  const listsData = useGetJson(getFolderList);
-  const lists = listsData?.data || [];
+const Menus = ({ changeTitle, changeID, $isVisible, setIsVisible }) => {
+  const listsData = useGetPromise(getFolderList);
+  const lists = listsData?.data ?? [];
   if (lists[0]) {
     lists[0].name === "전체" || lists.unshift({ id: 0, name: "전체" });
   }
 
   const initialButtonColors = lists.reduce((colors, list) => {
-    colors[list.name] = "#fff";
+    colors[list.name] = COLORS.White;
     return colors;
   }, {});
 
@@ -25,7 +26,8 @@ const Menus = ({ changeTitle, changeID }) => {
     setButtonColors((prevColors) => {
       return {
         ...initialButtonColors,
-        [name]: prevColors[name] === "#fff" ? "#6D6AFE" : "#fff",
+        [name]:
+          prevColors[name] === COLORS.White ? COLORS.Primary : COLORS.White,
       };
     });
   };
@@ -34,7 +36,7 @@ const Menus = ({ changeTitle, changeID }) => {
     <Container>
       <GlobalStyle></GlobalStyle>
       <ButtonDiv>
-        {lists.map((val, idx) => (
+        {lists.map((val) => (
           <Button
             key={val.id}
             onClick={() => handleClick(val.name, val.id)}
@@ -45,7 +47,7 @@ const Menus = ({ changeTitle, changeID }) => {
           </Button>
         ))}
       </ButtonDiv>
-      <AddFolderDiv>
+      <AddFolderDiv onClick={() => setIsVisible("폴더 추가")}>
         <AddFolder>폴더 추가</AddFolder>
         <img src={union} alt="unionIcon" />
       </AddFolderDiv>
@@ -84,15 +86,25 @@ const Button = styled.button`
   min-width: max-content;
   padding: 8px 12px;
   border-radius: 5px;
-  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-  background-color: ${({ color = "#fff" }) => color || "#fff"};
-  color: ${({ color = "#fff" }) => (color === "#fff" ? "#000000" : "#FFFFFF")};
+  border: 1px solid ${COLORS.Primary};
+  background-color: ${({ color }) => color || COLORS.White};
+  color: ${({ color = COLORS.White }) =>
+    color === COLORS.White ? "#000000" : "#FFFFFF"};
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const AddFolderDiv = styled.div`
   margin: 8px;
   display: flex;
   flex-direction: row;
+
+  &:hover {
+    cursor: pointer;
+  }
 
   @media (max-width: 774px) {
     display: none;

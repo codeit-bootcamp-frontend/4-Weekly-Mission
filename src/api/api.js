@@ -1,6 +1,6 @@
 const BASE_URL = "https://bootcamp-api.codeit.kr/api/";
 
-export const getFolderInfo = async function () {
+export const getFolderInfo = async () => {
   try {
     const response = await fetch(`${BASE_URL}sample/folder`);
     const result = await response.json(); // 재사용성을 위해 response.json()으로 끝맺는게 좋음
@@ -10,7 +10,7 @@ export const getFolderInfo = async function () {
   }
 };
 
-export const getUserInfo = async function () {
+export const getUserInfo = async () => {
   try {
     const response = await fetch(`${BASE_URL}sample/user`);
     const result = await response.json();
@@ -20,7 +20,7 @@ export const getUserInfo = async function () {
   }
 };
 
-export const getFolderList = async function () {
+export const getFolderList = async () => {
   try {
     const response = await fetch(`${BASE_URL}users/1/folders`);
     const result = await response.json(); // 재사용성을 위해 response.json()으로 끝맺는게 좋음
@@ -30,11 +30,12 @@ export const getFolderList = async function () {
     console.log(error);
   }
 };
-export const getAllLinkData = async function (id = 0) {
+export const getAllLinkData = async (id) => {
+  const url = id
+    ? `${BASE_URL}users/1/folders/${id}`
+    : `${BASE_URL}users/1/links`;
   try {
-    const response = await fetch(
-      `${BASE_URL}users/1${id === 0 ? `/links` : `/folders/${id}`}`
-    );
+    const response = await fetch(url);
     const result = await response.json(); // 재사용성을 위해 response.json()으로 끝맺는게 좋음
     return result;
   } catch (error) {

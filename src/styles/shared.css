@@ -27,17 +27,6 @@ section {
   padding-bottom: 60px;
 }
 
-.codeit-mark {
-  display: flex;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  align-items: center;
-  border-radius: 47px;
-  background-color: #8f00ff;
-  margin-bottom: 12px;
-}
-
 .codeit-mark-section span {
   font-size: 16px;
   font-weight: 400;
@@ -131,10 +120,12 @@ article {
 .folderImage {
   width: 340px;
   height: 253.746px;
+  transition: all 0.3s ease-in-out;
 }
 
 .grow {
   transform: scale(1.3);
+  transition: all 0.3s ease-in-out;
 }
 
 .folder-textBox {
@@ -145,50 +136,6 @@ article {
   gap: 10px;
   padding: 15px 20px;
   border-radius: 0px 0px 15px 15px;
-}
-
-.time-kebab {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: relative;
-}
-
-.folder #time {
-  font-size: 13px;
-  font-weight: 400;
-  color: #666;
-  margin: 0px;
-}
-
-.folder #info {
-  width: 100%;
-  height: 49px;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  margin: 0px;
-  color: #000;
-
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  overflow: hidden;
-}
-
-.folder #date {
-  overflow: hidden;
-  color: #333;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  margin: 0px;
 }
 
 @media (max-width: 1124px) {

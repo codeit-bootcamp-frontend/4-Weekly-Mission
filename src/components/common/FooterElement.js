@@ -3,7 +3,7 @@ import twitterIcon from "../../assets/icons/icon_twitter.png";
 import youtubeIcon from "../../assets/icons/icon_youtube.png";
 import instagramIcon from "../../assets/icons/icon_instagram.png";
 
-import "../../style/common.css";
+import "../../styles/common.css";
 
 function FooterElement() {
   return (

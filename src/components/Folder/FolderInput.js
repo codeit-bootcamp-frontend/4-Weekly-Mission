@@ -1,14 +1,24 @@
 import { styled } from "styled-components";
 import Link from "../../assets/icons/link.svg";
-import InputButton from "./InputButton";
+import { BlueButton } from "./../common/BlueButton";
 
-const FolderInput = () => {
+const FolderInput = ({ setIsVisible }) => {
+  const BtnHandle = () => {
+    setIsVisible("폴더 추가");
+  };
+
   return (
     <BackGround>
       <InputBox>
         <img src={Link} alt="LinkIcon" />
         <Input placeholder="링크를 추가해 보세요."></Input>
-        <InputButton>추가하기</InputButton>
+        <BlueButton
+          width="80px"
+          padding="10px 16px"
+          text="추가하기"
+          radius="8px"
+          onBtnHandle={() => BtnHandle()}
+        ></BlueButton>
       </InputBox>
     </BackGround>
   );
