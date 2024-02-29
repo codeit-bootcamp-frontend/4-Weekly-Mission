@@ -1,8 +1,13 @@
 import styles from "./FolderListItem.module.css";
 
-function FolderListItem({ folders, selectedId, onSelectedFolder }) {
+function FolderListItem({ folders, selectedId, onSelectedFolder, setModal }) {
   const handleClick = (e) => {
     onSelectedFolder({ name: e.target.textContent, id: e.target.id });
+  };
+
+  const handleModalClick = (e) => {
+    const value = e.target.value;
+    setModal(value);
   };
 
   return (
@@ -31,7 +36,13 @@ function FolderListItem({ folders, selectedId, onSelectedFolder }) {
             </span>
           ))}
         </div>
-        <span className={styles["folderAddBtn"]}>폴더 추가+</span>
+        <button
+          value="addFolder"
+          className={styles["folderAddBtn"]}
+          onClick={handleModalClick}
+        >
+          폴더 추가+
+        </button>
       </div>
     </div>
   );
