@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  background-color: #F0F6FF;
+}
+
+.container {
+  width: 100vw;
+}
+
+.header {
+  top: 0;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 200px;
+}
+
+.header img {
+  margin-right: 10px; /* 또는 다른 값으로 조정 */
+}
+
+.profile-wrapper {
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  margin-top: 68px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav>img {
+  width: 60px;
+  height: 96px;
+}
+
+.bookmark {
+  margin-top: 8px;
+  font-size: 40px;
+  font-weight: 600;
+}
