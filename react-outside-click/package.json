@@ -1,20 +1,14 @@
 {
-  "name": "weekly-mission-react",
+  "name": "react-outside-click",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.5.1",
-    "date-fns": "^2.30.0",
     "react": "^18.2.0",
-    "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.1",
     "react-scripts": "5.0.1",
-    "react-share": "^5.1.0",
-    "styled-components": "^6.1.8",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -40,8 +34,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "eslint": "^8.56.0"
   }
 }

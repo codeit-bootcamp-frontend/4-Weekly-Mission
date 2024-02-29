@@ -2,8 +2,8 @@ import { FolderInfo } from "ui/FolderInfo";
 import { SearchBar } from "ui/SearchBar";
 import { CardList } from "ui/CardList";
 import { Layout } from "feature/Layout";
-import { ReadOnlyCard } from "ui/ReadOnlyCard";
-import { useGetFolder } from "data-access/useGetFolder";
+import { Card } from "ui/Card";
+import { useGetFolder } from "hooks/useGetFolder";
 import "./SharedPage.css";
 
 export const SharedPage = () => {
@@ -22,7 +22,7 @@ export const SharedPage = () => {
           <SearchBar />
           <CardList>
             {links?.map((link) => (
-              <ReadOnlyCard key={link?.id} {...link} />
+              <Card key={link?.id} {...link} />
             ))}
           </CardList>
         </div>

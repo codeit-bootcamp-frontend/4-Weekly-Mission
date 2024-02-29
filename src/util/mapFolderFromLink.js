@@ -12,6 +12,7 @@ export const mapFolderFromLink = (data) => {
       image_source: imageSource,
       title,
       description,
+      favorite = false,
     } = link;
 
     return {
@@ -22,6 +23,7 @@ export const mapFolderFromLink = (data) => {
       elapsedTime: getElapsedTime(createdAt),
       description,
       createdAt: format(new Date(createdAt), "yyyy. MM. dd"),
+      favorite,
     };
   };
 

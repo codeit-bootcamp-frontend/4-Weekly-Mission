@@ -1,9 +1,9 @@
-import { useAsync } from "../util/useAsync";
+import { useAsync } from "./useAsync";
 import { axiosInstance } from "util/axiosInstance";
 
 export const useGetLink = () => {
-  const getUser = () => axiosInstance.get("users/1/folders");
-  const { loading, error, data } = useAsync(getUser);
+  const getLink = () => axiosInstance.get("users/1/folders");
+  const { loading, error, data } = useAsync(getLink);
   const linkData = data?.data;
   return { loading, error, data: linkData };
 };
