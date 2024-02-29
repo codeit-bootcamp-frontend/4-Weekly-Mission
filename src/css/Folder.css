@@ -36,14 +36,14 @@
   font-size: 14px;
   font-weight: 600;
   position: absolute;
-  left: 1270px;
+  left: 1260px;
 }
 
 .FolderContentBox {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  max-width: 1060px;
+  margin: 0 auto;
   padding: 15px 16px;
 }
 
@@ -66,9 +66,8 @@
 
 .FolderList {
   display: flex;
-  justify-content: space-between;
   margin-top: 50px;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
   gap: 7px;
 }
 
@@ -82,6 +81,11 @@
 .FolderAddSmallButton {
   background-color: #fff;
   border: none;
+  margin-left: auto;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6d6afe;
+  cursor: pointer;
 }
 
 .FolderAddButton:hover {
@@ -95,4 +99,104 @@
 .FolderListButton.selected {
   background-color: #6d6afe;
   color: #fff;
+}
+
+.FolderContents {
+  padding: 15px 16px 15px 16px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+.FolderContent {
+  width: 1060px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.FolderUsefulTitle {
+  text-align: left;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.FolderGo {
+  text-decoration: none;
+  color: black;
+}
+
+.FolderLinkItem {
+  width: 340px;
+  weight: 334px;
+  box-shadow: 0 0.5rem 2.5rem 0 rgba(0, 0, 0, 0.08);
+  border-radius: 15px;
+  position: relative;
+}
+
+.FolderLinkImg {
+  width: 340px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+  /* transition: background-size 0.3s ease-in-out; */
+}
+
+.FolderLinkDesc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px 20px 15px 20px;
+}
+
+.FolderDesc {
+  height: 38px;
+  font-size: 16px;
+  font-weight: 400;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* 표시할 줄의 최대 수 */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.FolderSubLine {
+  display: flex;
+  justify-content: space-between;
+}
+
+.FolderIcons {
+  display: flex;
+}
+
+.FolderIcon {
+  width: 18px;
+  height: 18px;
+  color: #9fa6b2;
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+.FolderIconName {
+  color: #9fa6b2;
+  font-size: 14px;
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+.FolderTimeDiff {
+  font-size: 13px;
+  font-weight: 400;
+  color: #666666;
+}
+
+.FolderLinkDate {
+  color: #333333;
+  font-size: 14px;
+}
+
+.FolderTop {
+  display: flex;
+  justify-content: space-between;
 }

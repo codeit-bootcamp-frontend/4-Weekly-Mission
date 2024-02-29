@@ -1,0 +1,20 @@
+.DropDownMenu {
+  position: absolute;
+  top: 250px;
+  right: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0 2px 8px 0 rgba(21, 50, 54, 0.1);
+  row-gap: 2px;
+  align-items: center;
+}
+
+.DropDownList {
+  list-style-type: none;
+  font-size: 14px;
+  justify-content: center;
+  text-align: center;
+  width: 100px;
+  height: 31px;
+}

@@ -1,0 +1,27 @@
+.ShareButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.ShareButton {
+  width: 42px;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ShareButtonSet {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.ShareButtonName {
+  margin-top: 10px;
+  font-size: 13px;
+}

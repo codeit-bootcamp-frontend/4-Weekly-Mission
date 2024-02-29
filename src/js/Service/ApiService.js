@@ -34,7 +34,7 @@ export const fetchFolderCardData = async () => {
 export const fetchLinks = async (folderId) => {
   const url = folderId
     ? `${API_BASE_URL}/users/1/links?folderId=${folderId}`
-    : `${API_BASE_URL}/links`;
+    : `${API_BASE_URL}/users/1/links`;
   try {
     const response = await fetch(url);
     if (!response.ok) {
