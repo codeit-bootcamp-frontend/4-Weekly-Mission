@@ -34,3 +34,30 @@ export const Button = styled.a`
   font-weight: 600;
   font-family: 'Pretendard', 'Noto Sans';
 `;
+
+export const PopOverWrapper = styled.div`
+  position: relative;
+`;
+
+export const PopOver = styled.div`
+  position: absolute;
+  width: 100px;
+  box-shadow: 0 0.2rem 0.8rem 0 rgba(51, 50, 54, 0.1);
+`;
+
+export const PopOverButton = styled.div`
+  position: relative;
+  padding: 7px 12px;
+  color: #333236;
+  background-color: #ffffff;
+  font-size: 14px;
+  line-height: 16.71px;
+  font-weightL 400;
+  text-align: center;
+  z-index: 1000;
+
+  &:hover {
+    background-color: #E7EFFB;
+    color: ${COLOR.Primary};
+  }
+`;

@@ -1,5 +1,5 @@
 const BASEURL = 'https://bootcamp-api.codeit.kr/api';
-export const userDataAPI = async () => {
+export const userSampleDataAPI = async () => {
   const APIData = { email: null, image: null };
   try {
     const response = await fetch(`${BASEURL}/users/1`);
@@ -54,6 +54,38 @@ export const categoryDataAPI = async () => {
     /*eslint-disable-next-line */
     console.error(error);
     return null;
+  }
+};
+
+export const deleteFolder = async (folderId) => {
+  try {
+    const response = await fetch(`${BASEURL}/folders/${folderId}`, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      return true;
+    }
+    throw new Error('데이터 불러오기 실패');
+  } catch (error) {
+    /*eslint-disable-next-line */
+    console.error(error);
+    return false;
+  }
+};
+
+export const deleteLink = async (linkID) => {
+  try {
+    const response = await fetch(`${BASEURL}/links/${linkID}`, {
+      method: 'DELETE',
+    });
+    if (response.ok) {
+      return true;
+    }
+    throw new Error('데이터 불러오기 실패');
+  } catch (error) {
+    /*eslint-disable-next-line */
+    console.error(error);
+    return false;
   }
 };
 

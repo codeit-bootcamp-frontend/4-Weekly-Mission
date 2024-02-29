@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 export const useAPIData = (DataAPI, APIParameter = null) => {
-  const [Data, setData] = useState(null);
+  const [data, setData] = useState(null);
   const handleData = async (newAPIParameter) => {
     const APIData = await DataAPI(newAPIParameter);
     setData(APIData);
@@ -14,5 +14,5 @@ export const useAPIData = (DataAPI, APIParameter = null) => {
     getAPIData();
   }, []);
 
-  return { Data, handleData };
+  return { data, handleData };
 };

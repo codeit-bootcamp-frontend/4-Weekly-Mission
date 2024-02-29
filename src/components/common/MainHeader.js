@@ -1,8 +1,10 @@
 import React from 'react';
 import logo from '../../assets/Images/logo.svg';
 import { Nav } from '../../styles/styledComponents/common';
+import { useAPIData } from '../../hooks/useAPIData';
 
-export const MainHeader = ({ userProfile, navFixed }) => {
+export const MainHeader = ({ userDataAPIFunc, navFixed }) => {
+  const { data: userProfile } = useAPIData(userDataAPIFunc);
   return (
     <>
       <Nav $navStatus={navFixed}>

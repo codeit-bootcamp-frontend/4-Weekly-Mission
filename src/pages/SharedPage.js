@@ -5,13 +5,15 @@ import { folderDataAPI } from '../api/BootcampAPI';
 import '../styles/shared.css';
 import { useAPIData } from '../hooks/useAPIData';
 import { MainHeader } from '../components/common/MainHeader';
-import { useOutletContext } from 'react-router-dom';
+import { userSampleDataAPI } from '../api/BootcampAPI';
 export default function SharedPage() {
-  const { Data: folder } = useAPIData(folderDataAPI);
-  const { userProfile } = useOutletContext();
+  const { data: folder } = useAPIData(folderDataAPI);
   return (
     <>
-      <MainHeader userProfile={userProfile} navFixed={true}></MainHeader>
+      <MainHeader
+        userDataAPIFunc={userSampleDataAPI}
+        navFixed={true}
+      ></MainHeader>
       {folder && (
         <>
           <SharedHeader folder={folder}></SharedHeader>

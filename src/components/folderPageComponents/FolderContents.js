@@ -1,23 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { SearchLink } from '../common/SearchLink';
 import { FolderCategory } from './FolderCategory';
 import { FolderTitle } from './FolderTitle';
 import { FolderCard } from './FolderCard';
-import { useAPIData } from '../../hooks/useAPIData';
-import { categoryDataAPI, categoryFolderDataAPI } from '../../api/BootcampAPI';
 import { NonLink } from '../../styles/styledComponents/folderStyled';
+import { FolderPageContext } from '../../context/FolderPageContext';
+/* eslint-disable */
 export const FolderContents = () => {
   const [currentCategory, setCurrentCategory] = useState('전체');
-
-  const { Data: category } = useAPIData(categoryDataAPI);
-  const { Data: folder, handleData: setFolder } = useAPIData(
-    categoryFolderDataAPI,
-    '0',
-  );
+  const [currentFolderID, setCurrentFolderID] = useState('0');
+  const { category, folder, setFolder } = useContext(FolderPageContext);
 
   const handleCategoryButton = (e) => {
     setCurrentCategory(e.target.innerText);
     setFolder(e.target.id);
+    setCurrentFolderID(e.target.id);
   };
   return (
     <article>
@@ -29,7 +26,10 @@ export const FolderContents = () => {
             handleCategoryButton={handleCategoryButton}
             currentCategory={currentCategory}
           ></FolderCategory>
-          <FolderTitle currentCategory={currentCategory}></FolderTitle>
+          <FolderTitle
+            currentCategory={currentCategory}
+            folderID={currentFolderID}
+          ></FolderTitle>
           {folder && <FolderCard folder={folder}></FolderCard>}
         </>
       ) : (

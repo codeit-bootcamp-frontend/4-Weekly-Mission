@@ -4,6 +4,9 @@ import { COLOR } from '../color';
 import Add from '../../assets/Images/add.png';
 import Add2 from '../../assets/Images/add2.png';
 
+export const Wrapper = styled.div`
+  position: relative;
+`;
 export const FolderDataWrapper = styled.div`
   padding: ${(props) => (props.fold ? '20px 0px 60px' : '60px 0px 90px')};
   background-color: #f0f6ff;
@@ -108,6 +111,11 @@ export const CategoryButton = styled.button`
   padding: 8px 12px;
   font-size: 16px;
   font-weight: 400;
+  transition-duration: 0.3s;
+
+  &:hover {
+    background-color: ${({ checked }) => (checked ? COLOR.Primary : '#e7effb')};
+  }
 `;
 
 export const AddButtonWrapper = styled.div`
@@ -186,6 +194,10 @@ export const OptionText = styled.p`
   font-weight: 600;
   line-height: 16.71px;
   color: ${COLOR.Gray2};
+
+  @media (max-width: 1199px) {
+    display: none;
+  }
 `;
 
 export const NonLink = styled.div`
@@ -203,4 +215,176 @@ export const NonLink = styled.div`
   @media (max-width: 767px) {
     width: 325px;
   }
+`;
+
+export const ModalBackground = styled.div`
+  display: ${({ $modalStatus }) => ($modalStatus ? 'block' : 'none')};
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  top: 0;
+  left: 0;
+`;
+
+export const ModalContent = styled.div`
+  background-color: #ffffff;
+  display: flex;
+  width: 360px;
+  height: auto;
+  padding: 32px 40px;
+  gap: 24px;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccd5e3;
+  border-radius: 15px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1500;
+`;
+
+export const CloseButton = styled.img`
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  cursor: pointer;
+`;
+
+export const AddModalWrapper = styled.div`
+  display: flex;
+  height: ${({ $overscroll }) => ($overscroll === 'true' ? `172px` : 'auto')};
+  width: 280px;
+  flex-direction: column;
+  gap: 4px;
+  overflow: auto;
+`;
+
+export const AddModalFolderButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-weight: 400;
+  border-radius: 8px;
+  padding: 8px;
+  height: 40px;
+  background-color: ${({ checked }) => (checked ? `#f0f6ff` : '#ffffff')};
+
+  &:hover {
+    background-color: #f0f6ff;
+  }
+`;
+
+export const AddModalButtonWrapper = styled.div`
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+`;
+export const AddModalFolderName = styled.p`
+  font-size: 16px;
+  color: #373740;
+  line-height: 24px;
+`;
+
+export const AddModalLinkNumber = styled.p`
+  font-size: 14px;
+  line-height: 16.71px;
+  color: #9fa6b2;
+`;
+
+export const AddModalCheckImg = styled.img`
+  width: 14px;
+  height: 14px;
+`;
+
+export const ModalInput = styled.input`
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccd5e3;
+  background-color: #ffffff;
+  font-size: 16px;
+  line-height: 24px;
+  color: #9fa6b2;
+  padding: 18px 15px;
+  width: 281px;
+
+  &:focus {
+    outline: none;
+    border: 1.5px solid #6d6afe;
+  }
+`;
+
+export const BlueButton = styled(Button)`
+  width: 280px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border: 0;
+  background-image: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+  font-size: 16px;
+  font-weight: 600;
+  color: #f5f5f5;
+`;
+
+export const ModalSideHeader = styled.div`
+  color: #9fa6b2;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  width: 100%;
+`;
+
+export const RedButton = styled(Button)`
+  width: 280px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  background: #ff5b56;
+  color: #f5f5f5;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+`;
+
+export const ModalSharingicons = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+`;
+export const ModalSharingicon = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+`;
+export const ModalSharingName = styled.div`
+  color: #373740;
+  text-align: center;
+  font-family: Inter;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 15px;
+`;
+
+export const ModalTitie = styled.p`
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23.87px;
+  color: #373740;
+  text-align: center;
+`;
+
+export const ModalTitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
