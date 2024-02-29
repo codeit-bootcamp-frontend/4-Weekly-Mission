@@ -7,7 +7,8 @@ export const Container = styled.nav`
   top: 0;
   width: 100%;
   background-color: #edf7ff;
-  z-index: 1;
+  z-index: 99;
+
   .gnb {
     display: flex;
     justify-content: space-between;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import searchImg from '../../../assets/shared/Search.svg';
+import SearchImg from '../../../assets/shared/Search.svg';
 
 const Container = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ const Container = styled.div`
 const SearchBar = () => {
   return (
     <Container>
-      <img className="icon" src={searchImg} alt="돋보기 아이콘" />
+      <img className="icon" src={SearchImg} alt="돋보기 아이콘" />
       <input className="search-bar" type="text" placeholder="링크를 검색해 보세요."></input>
     </Container>
   );

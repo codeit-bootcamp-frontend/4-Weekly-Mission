@@ -1,63 +1,40 @@
 import { useEffect, useState } from 'react';
-import { getFolderId, getUserFolder, getUserLink } from '../../../apis/api';
+import { get } from '../../../apis/api';
 import Card from '../../../components/ui/card/Card';
 import SearchBar from '../../../components/ui/search-bar/SearchBar';
 import * as S from './Content.style';
-import shareIcon from '../../../assets/folder/share.svg';
-import penIcon from '../../../assets/folder/pen.svg';
-import deleteIcon from '../../../assets/folder/delete.svg';
+import ShareIcon from '../../../assets/folder/share.svg';
+import PenIcon from '../../../assets/folder/pen.svg';
+import DeleteIcon from '../../../assets/folder/delete.svg';
 
-const Content = () => {
-  const [folderList, setFolderList] = useState([]);
+const Content = ({ setIsOpen, setFolderName, folderList, folderId, setFolderId }) => {
   const [title, setTitle] = useState('전체');
-  const [folderId, setFolderId] = useState(null);
   const [folderData, setFolderData] = useState(null);
   const [userFolder, setUserFolder] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        if (title === '전체') {
-          const folderIdData = await getUserLink();
-          setFolderData(folderIdData);
-          setUserFolder(folderIdData);
-        } else {
-          const folderIdData = await getFolderId(folderId);
-          setFolderData(folderIdData);
-          setUserFolder(folderIdData);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, [folderId, title]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const folderListData = await getUserFolder();
-        setFolderList(folderListData);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []);
+    title === '전체'
+      ? get('/users/1/links').then(({ data }) => {
+          setFolderData(data);
+          setUserFolder(data);
+        })
+      : get(`/users/1/links?folderId=${folderId}`).then(({ data }) => {
+          setFolderData(data);
+          setUserFolder(data);
+        });
+  }, [title, folderId]);
 
   return (
     <S.Container>
       <SearchBar />
       <div className="folder-list-box">
-        <S.folderButtonList>
+        <S.FolderButtonList>
           <div className="folder-btn-box">
             <button className={`folder-btn ${title === '전체' ? 'active' : ''}`} onClick={() => setTitle('전체')}>
               전체
             </button>
-            {folderList &&
-              folderList?.map((list) => (
+            {folderList?.length > 0 &&
+              folderList.map((list) => (
                 <button
                   className={`folder-btn ${title === list.name ? 'active' : ''}`}
                   key={list.id}
@@ -70,26 +47,38 @@ const Content = () => {
                 </button>
               ))}
           </div>
-          <div className="add-folder-btn">
-            <button>폴더 추가</button>
+          <S.AddFolderButton onClick={() => setIsOpen('추가')}>
+            <p>폴더 추가</p>
             <S.addPlusSvg />
-          </div>
-        </S.folderButtonList>
+          </S.AddFolderButton>
+        </S.FolderButtonList>
 
         <S.currentName>
           <p className="title">{title}</p>
           {title !== '전체' && (
             <div className="folder-controls">
-              <button className="control-btn">
-                <img src={shareIcon} alt="공유 아이콘" />
+              <button
+                className="control-btn"
+                onClick={() => {
+                  setIsOpen('공유');
+                  setFolderName(title);
+                }}
+              >
+                <img src={ShareIcon} alt="공유 아이콘" />
                 <p>공유</p>
               </button>
-              <button className="control-btn">
-                <img src={penIcon} alt="펜 아이콘" />
+              <button className="control-btn" onClick={() => setIsOpen('이름 변경')}>
+                <img src={PenIcon} alt="펜 아이콘" />
                 <p>이름 변경</p>
               </button>
-              <button className="control-btn">
-                <img src={deleteIcon} alt="휴지통(삭제) 아이콘" />
+              <button
+                className="control-btn"
+                onClick={() => {
+                  setIsOpen('삭제');
+                  setFolderName(title);
+                }}
+              >
+                <img src={DeleteIcon} alt="휴지통(삭제) 아이콘" />
                 <p>삭제</p>
               </button>
             </div>
@@ -99,7 +88,7 @@ const Content = () => {
         {folderData?.length > 0 ? (
           <S.CardContainer>
             {userFolder?.map((link) => (
-              <Card key={link.id} link={link} />
+              <Card key={link.id} link={link} setIsOpen={setIsOpen} setFolderName={setFolderName} />
             ))}
           </S.CardContainer>
         ) : (
