@@ -12,6 +12,7 @@
 }
 
 .folder-button-box {
+  flex-wrap: wrap;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,6 +27,7 @@
   height: 35px;
   margin: auto;
   margin-bottom: 24px;
+  gap: 8px;
 }
 
 .folder-content {
@@ -39,10 +41,33 @@
   font-family: 'Pretendard', sans-serif;
 }
 
-.links-container-box {
+/* .folder-add-box {
   display: flex;
   justify-content: center;
   align-items: center;
+} */
+
+/* .folder-add-box p {
+  color: #6d6afe;
+  text-align: center;
+  font-family: Abel;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.3px;
+  width: 67px;
+  height: 20px;
+} */
+
+.links-container-box {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1060px;
+  margin: auto;
+  margin-top: 20px;
 }
 
 .links-container {
