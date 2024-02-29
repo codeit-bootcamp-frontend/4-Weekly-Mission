@@ -17,6 +17,7 @@ export const useFavoriteList = () => {
         console.log("data", data);
         const { data: favoriteList } = data;
         setFavoriteList([...favoriteList]);
+        console.log('data',data);
       }
     } catch (e) {
       console.error();

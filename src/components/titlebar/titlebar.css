@@ -1,0 +1,27 @@
+.titlebar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.titlebar-menu{
+    display: flex;
+    align-items: center;
+    gap:12px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height:normal;
+
+    div{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    img{
+        width: 18px;
+        height: 18px;
+        margin-right: 2px;
+    }
+}
