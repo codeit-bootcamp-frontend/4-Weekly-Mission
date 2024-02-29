@@ -16,8 +16,8 @@ const Router = () => {
         <Route element={<Layout />}>
           <Route path='/' element={<Landing />} />
           <Route path='/shared' element={<Shared />} />
-          <Route path='/folder' element={<Folder />} />
         </Route>
+        <Route path='/folder' element={<Folder />} />
         <Route path='/signin' element={<Signin />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/privacy' element={<Privacy />} />
