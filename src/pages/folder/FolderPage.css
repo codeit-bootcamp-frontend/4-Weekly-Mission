@@ -1,0 +1,137 @@
+.folderPage .gnb {
+  position: relative;
+}
+
+.folderPage .add_bar {
+  margin-top: 0;
+}
+
+.folderPage_contents {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  margin: 40px 60px 0 60px;
+}
+
+.button_area {
+  display: flex;
+  max-width: 1060px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button_list {
+  display: flex;
+  flex-flow: wrap;
+  gap: 8px;
+}
+
+.button_folder {
+  display: flex;
+  padding: 8px 12px;
+  flex-direction: column;
+  align-items: center;
+
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: #fff;
+  cursor: pointer;
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.button_folder:active {
+  color: white;
+  background: var(--Linkbrary-primary-color, #6d6afe);
+}
+
+.button_add_folder {
+  display: flex;
+  border: none;
+  background-color: white;
+  gap: 4px;
+
+  color: #6d6afe;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 500;
+  letter-spacing: -0.3px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.title_area {
+  display: flex;
+  max-width: 1060px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+
+  display: flex;
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.title_buttons {
+  display: flex;
+  gap: 12px;
+
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  /* Linkbrary/body2-semibold */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.title_buttons button {
+  display: flex;
+  background-color: white;
+  padding: 0;
+  border: none;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.folder_no_link {
+  display: flex;
+  width: 1060px;
+  height: calc(100vh - 748px);
+  padding: 41px 0px 35px 0px;
+  justify-content: center;
+  align-items: center;
+
+  color: #000;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+@media (max-width: 767px) {
+  .button_add_folder {
+    position: fixed;
+    left: 50%;
+    bottom: 101px;
+    transform: translateX(-50%);
+    margin: 0 auto;
+    padding: 8px 24px;
+
+    border-radius: 20px;
+    border: 1px solid var(--Linkbrary-white, #fff);
+    background: var(--Linkbrary-primary-color, #6d6afe);
+    color: white;
+    z-index: 1;
+  }
+
+  .img_add {
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(114deg) brightness(107%) contrast(103%);
+  }
+}

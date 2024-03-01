@@ -1,0 +1,44 @@
+.gnb {
+  padding: 33px 24px;
+  background: var(--Linkbrary-bg, #f0f6ff);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.gnb_inner {
+  display: flex;
+  margin: 0 auto;
+  max-width: 1040px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gnb_profile {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.gnb_login {
+  display: flex;
+  width: 128px;
+  padding: 14px 20px;
+  justify-content: center;
+  border-radius: 8px;
+  background: var(--gra-purpleblue-to-skyblue);
+  color: var(--Grey-light);
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}

@@ -1,0 +1,28 @@
+.card {
+  margin-bottom: 60px;
+}
+
+.card_inner {
+  display: flex;
+  width: 1060px;
+  margin: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.description {
+  height: 50px;
+}
+
+@media (max-width: 1124px) {
+  .card_inner {
+    width: auto;
+    margin: 32px;
+  }
+
+  .card_list {
+    justify-content: center;
+    gap: 25px 24px;
+  }
+}

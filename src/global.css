@@ -1,73 +1,56 @@
 :root {
-    --Black: #000000;
-    --The-julge-black: #111322;
-    --Linkbrary-primary-color: #6d6afe;
-    --Linkbrary-red: #ff5b56;
-    --Linkbrary-white: #fff;
-    --Linkbrary-gray100: #373740;
-    --Linkbrary-gray60: #9fa6b2;
-    --Linkbrary-gray20: #ccd5e3;
-    --Linkbrary-gray10: #e7effb;
-    --Linkbrary-bg: #f0f6ff;
-    --Grey-light: #f5f5f5;
-    --Dove-gray: #676767;
-    --Dove-gray-light: #6b6b6b;
-    --Alto: #cfcfcf;
-    --gra-purpleblue-to-skyblue: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
-    font-size: 10px;
+  font-size: 62.5%;
 }
 
 @font-face {
-    font-family: "Pretendard";
-    font-weight: 400;
-    font-style: normal;
-    src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.eot");
-    src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.eot?#iefix")
-            format("embedded-opentype"),
-        url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.woff")
-            format("woff"),
-        url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.ttf")
-            format("truetype");
-    font-display: swap;
+  font-family: "Pretendard";
+  font-weight: 400;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Regular.ttf")
+      format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Pretendard";
-    font-weight: 600;
-    font-style: normal;
-    src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.eot");
-    src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.eot?#iefix")
-            format("embedded-opentype"),
-        url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.woff")
-            format("woff"),
-        url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.ttf")
-            format("truetype");
-    font-display: swap;
+  font-family: "Pretendard";
+  font-weight: 600;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-SemiBold.ttf")
+      format("truetype");
+  font-display: swap;
 }
 
 @font-face {
-    font-family: "Pretendard";
-    font-weight: 700;
-    font-style: normal;
-    src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.eot");
-    src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.eot?#iefix")
-            format("embedded-opentype"),
-        url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.woff2")
-            format("woff2"),
-        url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.woff")
-            format("woff"),
-        url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.ttf")
-            format("truetype");
-    font-display: swap;
+  font-family: "Pretendard";
+  font-weight: 700;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.woff2") format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.woff") format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Bold.ttf")
+      format("truetype");
+  font-display: swap;
 }
 
 * {
-    box-sizing: border-box;
-    font-family: Pretendard;
-    font-style: normal;
-    line-height: normal;
+  box-sizing: border-box;
+  font-family: Pretendard;
+  font-style: normal;
+  line-height: normal;
 }

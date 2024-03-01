@@ -1,96 +1,75 @@
-footer {
-    height: 280px;
-    padding-top: 120px;
-}
-
 .footer {
-    display: flex;
-    height: 160px;
-    padding: 32px 104px 64px 104px;
-    flex-direction: column;
-    align-items: center;
-    flex-shrink: 0;
-    align-self: stretch;
-    background: var(--The-julge-black);
+  display: flex;
+  height: 160px;
+  padding: 32px 104px 64px 104px;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+  background: var(--The-julge-black);
 }
 
 .footer_container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
 }
 
 .codeIt {
-    color: var(--Dove-gray);
-    text-align: center;
-    font-family: Acme;
-    font-size: 1.6rem;
-    font-weight: 400;
+  color: var(--Dove-gray);
+  text-align: center;
+  font-family: Acme;
+  font-size: 1.6rem;
+  font-weight: 400;
 }
 
 .privacy {
-    display: flex;
-    width: 181.111px;
-    align-items: flex-start;
-    gap: 30px;
+  display: flex;
+  width: 181.111px;
+  align-items: flex-start;
+  gap: 30px;
 }
 
 .privacy a {
-    color: var(--Alto);
-    font-size: 1.6rem;
-    font-weight: 400;
-    text-decoration-line: none;
+  color: var(--Alto);
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-decoration-line: none;
 }
 
 .external_link {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .icon {
-    width: 20px;
-    height: 20px;
-}
-
-.facebook {
-    background-image: url("../assets/icon_facebook.svg");
-}
-
-.twitter {
-    background-image: url("../assets/icon_twitter.svg");
-}
-
-.youtube {
-    background-image: url("../assets/icon_youtube.svg");
-}
-
-.instagram {
-    background-image: url("../assets/icon_instagram.svg");
+  width: 20px;
+  height: 20px;
 }
 
 @media (max-width: 767px) {
-    .footer {
-        padding: 32px;
-    }
+  .footer {
+    padding: 32px;
+  }
 
-    .footer_container {
-        display: grid;
-        column-gap: auto;
-        row-gap: 60px;
-    }
+  .footer_container {
+    display: grid;
+    column-gap: auto;
+    row-gap: 60px;
+  }
 
-    .codeIt {
-        grid-row: 2/3;
-        text-align: left;
-    }
+  .codeIt {
+    grid-row: 2/3;
+    text-align: left;
+  }
 
-    .privacy {
-        grid-row: 1/2;
-    }
+  .privacy {
+    grid-row: 1/2;
+  }
 
-    .external_link {
-        grid-row: 1/2;
-    }
+  .external_link {
+    grid-row: 1/2;
+  }
 }
