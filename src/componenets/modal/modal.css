@@ -145,6 +145,7 @@ html {
   flex-direction: column;
   align-items: center;
   gap: 0.625rem;
+  cursor: pointer;
 }
 
 .modal-kakaoIcon-img {
