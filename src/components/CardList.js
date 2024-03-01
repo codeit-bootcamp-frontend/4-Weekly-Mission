@@ -1,4 +1,6 @@
 import "./CardList.css";
+import star_icon from "../assets/star.svg";
+import kebab_icon from "../assets/kebab.svg";
 
 export default function CardList({ url, createdAt, desc, imgUrl }) {
   const linkUrl = () => {
@@ -40,9 +42,13 @@ export default function CardList({ url, createdAt, desc, imgUrl }) {
 
   return (
     <div className="CardList" onClick={linkUrl}>
-      <img id="cardImg" src={imgUrl} alt="카드 리스트별 이미지"></img>
-      <div id="textArea">
-        <p id="timeOut">{timeAgo(createdAt)}</p>
+      <img id="cardImg" src={imgUrl} alt="카드 리스트별 이미지" />
+      <img id="starIcon" src={star_icon} alt="별 모양 버튼" />
+      <div id="textarea">
+        <div id="timeAgoFrame">
+          <span id="timeOut">{timeAgo(createdAt)}</span>
+          <img id="kebabIcon" src={kebab_icon} alt="케밥 버튼" />
+        </div>
         <p id="description">{desc}</p>
         <p id="createdAt">{formattedDate}</p>
       </div>
