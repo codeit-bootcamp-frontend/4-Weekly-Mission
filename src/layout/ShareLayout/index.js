@@ -1,3 +1,4 @@
+import React from "react";
 import { useState, useEffect } from "react";
 import { getData } from "../../data/getData";
 import { NavigationBar } from "../../components/NavigationBar/NavigationBar";
