@@ -1,0 +1,45 @@
+.AddLinkInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 15px;
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-white);
+
+  @media (min-width: 768px) {
+    width: min(100% - 32px, 800px);
+    gap: 12px;
+    padding: 16px 20px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 800px;
+  }
+
+  & input {
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 1.2;
+
+    &::placeholder {
+      color: var(--color-gray-60);
+    }
+
+    @media (min-width: 768px) {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  .button {
+    font-size: 14px;
+
+    @media (min-width: 768px) {
+      padding: 10px 16px;
+      width: auto;
+    }
+  }
+}
