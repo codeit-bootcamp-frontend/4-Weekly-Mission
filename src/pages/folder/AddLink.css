@@ -25,7 +25,6 @@ article:has(.addLinkForm) {
     border-radius: 8px;
     font-size: 1.4rem;
     font-weight: 600;
-    font-family: 'Pretendard';
 }
 
 @media screen and (max-width: 768px) {

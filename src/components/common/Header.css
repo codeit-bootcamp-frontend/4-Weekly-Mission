@@ -26,7 +26,6 @@ header div a.profileText {
     display: flex;
     align-items: center;
     color: rgba(55, 55, 64, 1);
-    font-family: 'Pretendard';
     font-size: 1.4rem;
 }
 header div a.profileText img {
@@ -41,7 +40,6 @@ header div > a.login {
     color: #fff;
     border-radius: 8px;
     font-size: 1.8rem;
-    font-family: 'Pretendard';
     font-weight: 400;
 }
 

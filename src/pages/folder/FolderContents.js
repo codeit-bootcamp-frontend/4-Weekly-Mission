@@ -1,9 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { folderLinksData } from "../../apis/apiFolder";
 import { useRecoilState } from "recoil";
 import { folderLinkContents } from "../../store/store";
 import { timeChange, dateChange } from "../../dateFunction";
 import styled from "styled-components";
+import KebabModal from "./kebabModal";
 
 const FolderNoData = styled.div`
     display: flex;
@@ -12,7 +13,6 @@ const FolderNoData = styled.div`
     width: 100%;
     height: 100px;
     font-size: 1.6rem;
-    font-family: 'Pretendard';
     margin-top: 40px;
     @media screen and (max-width: 768px) {
         margin-top: 32px;
@@ -20,13 +20,40 @@ const FolderNoData = styled.div`
     }
 `
 
-function FolderContents() {
+function FolderContents({setName, setOpenModal, setButtonColor, setButtonName, modalName}) {
     const [contents, setContents] = useRecoilState(folderLinkContents);
     useEffect(() => {
         folderLinksData('all')
             .then((data) => setContents(data))
             .catch((error) => {console.error(error)});
     }, [])
+
+    // 케밥 스크립트
+    const [kebabOpen, setKebabOpen] = useState('');
+    const kebabRef = useRef(null);
+    const handleKebab = (event, id) => {
+        event.preventDefault();
+        setTimeout(() => {
+            if(kebabOpen !== id) {
+                setKebabOpen(id);
+            } else {
+                setKebabOpen('');
+            }
+        })
+    }
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if(kebabOpen !== "" && !kebabRef.current.contains(event.target)) {
+                setKebabOpen('');
+            }
+        };
+        document.addEventListener('click', handleClickOutside);
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, [kebabOpen]);
+    
+    // link 전역변수 설정
     return(
         <article>
                 {
@@ -42,10 +69,15 @@ function FolderContents() {
                                                 <button type="button"><img src={`${process.env.PUBLIC_URL}/images/star.svg`} alt="즐겨찾기 추가" /></button>
                                             </div>
                                             <div className='textBox'>
-                                                <button type="button"><img src={`${process.env.PUBLIC_URL}/images/kebab.png`} alt="더보기" /></button>
+                                                <button onClick={(event) => handleKebab(event, id)} type="button"><img ref={kebabRef} src={`${process.env.PUBLIC_URL}/images/kebab.png`} alt="더보기" /></button>
                                                 <span>{timeChange(created_at)}</span>
                                                 <p className='description'>{description}</p>
                                                 <p className='date'>{dateChange(created_at)}</p>
+                                                {
+                                                    kebabOpen === id ? 
+                                                    <KebabModal url={url} setName={setName} setOpenModal={setOpenModal} setButtonColor={setButtonColor} setButtonName={setButtonName} modalName={modalName}/>
+                                                    : null
+                                                }
                                             </div>
                                         </a>
                                     </li>

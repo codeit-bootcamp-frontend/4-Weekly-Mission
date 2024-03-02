@@ -35,3 +35,7 @@ export const folderLinkContents = atom({
     key: "folderLinkContents",
     default: [],
 })
+export const contentsLink = atom({
+    key: "contentsLink",
+    default: null,
+})
