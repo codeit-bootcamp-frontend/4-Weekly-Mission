@@ -1,0 +1,28 @@
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.folder-title {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.2rem;
+  margin-bottom: 2.4rem;
+}
+
+.share-button-container {
+  gap: 3.2rem;
+}
+
+.share-button-img {
+  width: 4.2rem;
+  height: 4.2rem;
+  margin-bottom: 1rem;
+}
+
+.share-button-label {
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.5rem;
+}

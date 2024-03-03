@@ -10,6 +10,10 @@
 * Utils
 ********/
 
+.display-none {
+  display: none;
+}
+
 .hidden-block-mobile-only,
 .hidden-flex-mobile-only {
   display: none;
@@ -23,8 +27,20 @@
   display: flex;
 }
 
-.z-top {
+.z-top-force {
   z-index: 9999;
+}
+
+.z-top {
+  z-index: 9998;
+}
+
+.z-second {
+  z-index: 9997;
+}
+
+.z-third {
+  z-index: 9996;
 }
 
 .white-space-nowrap {
@@ -38,6 +54,10 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 /* Tablet */

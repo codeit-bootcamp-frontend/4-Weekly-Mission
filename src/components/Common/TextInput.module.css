@@ -1,0 +1,16 @@
+.input {
+  padding: 1.8rem 1.5rem;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+}
+
+.input::placeholder {
+  color: var(--gray, #9fa6b2);
+}
+
+.input:focus {
+  border: 0.1rem solid var(--primary, #6d6afe);
+  outline: none;
+}

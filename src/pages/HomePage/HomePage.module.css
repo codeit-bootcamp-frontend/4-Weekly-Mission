@@ -1,0 +1,14 @@
+.container {
+  gap: 4rem;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button {
+  padding: 4rem 0;
+  width: 44rem;
+  border-radius: 9999rem;
+  font-size: 5rem;
+  font-weight: 600;
+}

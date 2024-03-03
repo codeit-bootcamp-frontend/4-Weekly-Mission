@@ -9,7 +9,6 @@ import styles from 'components/Main/CardList.module.css';
 
 import { LINKS_API_URL, LINKS_FOLDER_ID_API_URL } from 'services/api';
 
-// folder id를 props로 받아서 api 적용할 것
 function CardList({ folderId }) {
   const LOADING_MESSAGE = 'Loading...';
   const ALL = { id: 0, name: '전체' };
@@ -34,13 +33,7 @@ function CardList({ folderId }) {
       {linkCount > 0 ? (
         <div className={cardListClasses}>
           {linkList.map((link) => (
-            <Card
-              key={link.id}
-              createdAt={link.created_at}
-              url={link.url}
-              description={link.description}
-              imageSource={link.image_source}
-            />
+            <Card key={link.id} linkData={link} />
           ))}
           {loading && <ErrorMessage message={LOADING_MESSAGE} />}
           {error && <ErrorMessage message={error} />}

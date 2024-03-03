@@ -48,6 +48,7 @@ function Gnb() {
           <Link to="/" onClick={scrollToTop}>
             <img className={logoClasses} src={logo} alt="logo" />
           </Link>
+          {loading && <ErrorMessage message={LOADING_MESSAGE} />}
           {userInfo ? (
             <div className={profileClasses}>
               <img className={profileImgClasses} src={userProfileImg} alt="profile-img" />
@@ -56,7 +57,6 @@ function Gnb() {
           ) : (
             <LoginButton />
           )}
-          {loading && <ErrorMessage message={LOADING_MESSAGE} />}
           {error && <ErrorMessage message={error} />}
         </div>
       </nav>

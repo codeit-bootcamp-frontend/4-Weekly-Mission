@@ -14,18 +14,16 @@
   outline: none;
 }
 
-.add-link-bar-container {
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 0 1rem;
-}
-
 .add-link-bar-icon {
   width: 1.6rem;
   height: 1.6rem;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.add-link-bar-button {
+.add-link-button {
+  right: 1rem;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -38,13 +36,14 @@
     line-height: 2.4rem;
   }
 
-  .add-link-bar-container {
-    padding: 0 2rem;
-  }
-
   .add-link-bar-icon {
     width: 2rem;
     height: 2rem;
+    left: 2rem;
+  }
+
+  .add-link-button {
+    right: 2rem;
   }
 }
 
