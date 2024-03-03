@@ -1,6 +1,6 @@
 import styles from "./footer.module.css";
 
-import facebookIcon from "assets/images/akar-icons_facebook-fill.svg";
+import facebookIcon from "assets/images/ic_facebook.svg";
 import twitterIcon from "assets/images/akar-icons_twitter-fill.svg";
 import youtubeIcon from "assets/images/akar-icons_youtube-fill.svg";
 import instagramIcon from "assets/images/ant-design_instagram-filled.svg";

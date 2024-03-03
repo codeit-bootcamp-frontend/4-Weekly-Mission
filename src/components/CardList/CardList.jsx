@@ -2,12 +2,12 @@ import styles from "./cardlist.module.css";
 import Card from "components/Card/Card";
 import { NoResults } from "pages";
 
-function CardList({ items }) {
+function CardList({ items, ...rest }) {
   const handleClick = (url) => {
     window.open(url, "_blank");
   };
 
-  if (items.length === 0) {
+  if (!items || items.length === 0) {
     return <NoResults />;
   }
 
@@ -16,7 +16,7 @@ function CardList({ items }) {
       <ul className={styles.list}>
         {items.map((item) => (
           <li key={item.id}>
-            <Card item={item} onClick={() => handleClick(`${item.url}`)} />
+            <Card item={item} {...rest} onClick={() => handleClick(`${item.url}`)} />
           </li>
         ))}
       </ul>
