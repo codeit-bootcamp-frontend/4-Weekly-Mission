@@ -1,17 +1,28 @@
 import * as S from "./Modal.style";
 import WideButton from "../wide-button/WideButton";
+import { useContext } from "react";
+import { ModalContext } from "../../pages/test";
 
-const Modal = ({ isOpen, modalType }) => {
+const Modal = ({ modalType }) => {
   const modalFormat = options[modalType];
+  const { isOpen, setIsOpen } = useContext(ModalContext);
 
   if (!isOpen) {
     return null;
   } else {
     return (
       <S.Container>
-        <p className="title">{modalType}</p>
-        <S.Input type="text" />
-        <WideButton options={modalFormat} />
+        <div className="content">
+          <p className="title">{modalType}</p>
+          <S.Input type="text" />
+          <WideButton options={modalFormat} />
+        </div>
+        <img
+          onClick={() => setIsOpen(false)}
+          className="close"
+          src="/assets/folder/close.svg"
+          alt="닫기"
+        />
       </S.Container>
     );
   }

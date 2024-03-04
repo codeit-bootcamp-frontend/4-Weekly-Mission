@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { createContext, useState } from "react";
 import Modal from "../components/modal/Modal";
+
+export const ModalContext = createContext();
 
 const TestPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +23,9 @@ const TestPage = () => {
       <button onClick={() => clickHandler("폴더 삭제")}>폴더 삭제</button>
       <button onClick={() => clickHandler("링크 삭제")}>링크 삭제</button>
       <button onClick={() => clickHandler("폴더에 추가")}>폴더에 추가</button>
-      <Modal isOpen={isOpen} modalType={modalType} />
+      <ModalContext.Provider value={{ isOpen, setIsOpen }}>
+        <Modal modalType={modalType} />
+      </ModalContext.Provider>
     </div>
   );
 };

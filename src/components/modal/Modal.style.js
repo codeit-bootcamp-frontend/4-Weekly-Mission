@@ -5,24 +5,36 @@ export const Container = styled.div`
   height: 14.9375rem;
   flex-shrink: 0;
 
-  display: inline-flex;
-  padding: 2rem 2.5rem;
-  flex-direction: column;
+  display: flex;
+  padding: 1rem 1rem 2.5rem 2.5rem;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  gap: 1.5rem;
+  align-items: flex-start;
+  gap: 0rem;
 
   border-radius: 0.9375rem;
   border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
   background: var(--Linkbrary-white, #fff);
 
-  .title {
-    color: var(--Linkbrary-gray100, #373740);
-    font-family: Pretendard;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+
+    .title {
+      color: var(--Linkbrary-gray100, #373740);
+      font-family: Pretendard;
+      font-size: 1.25rem;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+  .close {
+    width: 1.5rem;
+    height: 1.5rem;
   }
 `;
 
