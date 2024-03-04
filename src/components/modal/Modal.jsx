@@ -2,6 +2,7 @@ import * as S from "./Modal.style";
 import WideButton from "../wide-button/WideButton";
 import { useContext } from "react";
 import { ModalContext } from "../../pages/test";
+import ShareButton from "./share-button/ShareButton";
 
 const Modal = ({ modalType }) => {
   const modalFormat = options[modalType];
@@ -14,8 +15,11 @@ const Modal = ({ modalType }) => {
       <S.Container>
         <div className="content">
           <p className="title">{modalType}</p>
-          <S.Input type="text" />
-          <WideButton options={modalFormat} />
+          {modalFormat.input && <S.Input type="text" />}
+          {modalFormat.btnType === ("primary" || "warning") && (
+            <WideButton options={modalFormat} />
+          )}
+          {modalFormat.btnType === "share" && <ShareButton />}
         </div>
         <img
           onClick={() => setIsOpen(false)}
@@ -58,7 +62,7 @@ const options = {
   },
   "폴더 공유": {
     input: false,
-    // btnType: "warning",
+    btnType: "share",
     // btnText: "삭제하기",
   },
 };
