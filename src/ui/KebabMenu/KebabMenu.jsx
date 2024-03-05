@@ -1,24 +1,42 @@
 import { useState } from "react";
 import "./KebabMenu.css";
-import { DeleteFolderModal } from "feature/DeleteFolderModal/DeleteFolderModal";
-import { AddFolderModal } from "feature/AddFolderModal/AddFolderModal";
+import { DeleteFolderContent } from "feature/DeleteFolderModal/DeleteFolderModal";
+import { AddFolderContent } from "feature/AddFolderContent/AddFolderContent";
 
 export function KebabMenu() {
-  const [deleteModal, setDeleteModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [addToFolderModal, setAddToFolderModal] = useState(false);
 
-  const handleShowDeleteModal = () => {
-    setDeleteModal(true);
+  const handleModalClose = (e) => {
+    e.preventDefault();
+    setShowDeleteModal(false);
+    setAddToFolderModal(false);
   };
 
-  const handleShowAddToFolderModal = () => {
+  const handleShowDeleteModal = (e) => {
+    e.preventDefault();
+    setShowDeleteModal(true);
+  };
+
+  const handleShowAddToFolderModal = (e) => {
+    e.preventDefault();
     setAddToFolderModal(true);
   };
 
   return (
     <div className="CardContent-kebab-menu">
-      {deleteModal && <DeleteFolderModal />}
-      {addToFolderModal && <AddFolderModal />}
+      {showDeleteModal && (
+        <DeleteFolderContent
+          isOpenModal={showDeleteModal}
+          handleModalClose={handleModalClose}
+        />
+      )}
+      {addToFolderModal && (
+        <AddFolderContent
+          isOpenModal={addToFolderModal}
+          handleModalClose={handleModalClose}
+        />
+      )}
       <button
         type="button"
         className="CardContent-kebab-menu-delete"

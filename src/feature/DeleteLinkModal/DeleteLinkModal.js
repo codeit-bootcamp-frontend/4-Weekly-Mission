@@ -1,10 +1,10 @@
 import ModalPortal from "Portal";
-import { ModalCloseButton } from "feature/Modal/ModalCloseButton";
-import { ModalContainer } from "feature/Modal/ModalContainer";
-import { ModalDim } from "feature/Modal/ModalDim";
-import { ModalTitle } from "feature/Modal/ModalTitle";
+import { ModalCloseButton } from "feature/ModalElements/ModalCloseButton";
+import { ModalContainer } from "feature/ModalElements/ModalContainer";
+import { ModalDim } from "feature/ModalElements/ModalDim";
+import { ModalTitle } from "feature/ModalElements/ModalTitle";
 import "./DeleteLinkModal.css";
-import { ModalButtonRed } from "feature/Modal/ModalButtonRed";
+import { ModalButtonRed } from "feature/ModalElements/ModalButtonRed";
 
 export function DeleteLinkModal() {
   return (

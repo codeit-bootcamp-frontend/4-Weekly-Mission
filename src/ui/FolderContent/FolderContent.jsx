@@ -46,6 +46,7 @@ export function FolderContent() {
               onClick={handleCategoryActive}
               value={category.name}
               id={category.id}
+              key={category.id}
             >
               {category.name}
             </Button>

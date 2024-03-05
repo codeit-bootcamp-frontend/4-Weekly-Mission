@@ -5,9 +5,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { FolderPage } from "page-layout/FolderPage/FolderPage";
 import { LinkToButtons } from "page-layout/LinkToButtons";
 import { RenameModal } from "feature/RenameModal/RenameModal";
-import { AddFolderModal } from "feature/AddFolderModal/AddFolderModal";
+import { AddFolderContent } from "feature/AddFolderContent/AddFolderContent";
 import { FolderSharedModal } from "feature/FolderSharedModal/FolderSharedModal";
-import { DeleteFolderModal } from "feature/DeleteFolderModal/DeleteFolderModal";
+import { DeleteFolderContent } from "feature/DeleteFolderModal/DeleteFolderModal";
 import { DeleteLinkModal } from "feature/DeleteLinkModal/DeleteLinkModal";
 import { AddToFolderModal } from "feature/AddToFolderModal/AddToFolderModal";
 
@@ -20,9 +20,9 @@ function App() {
           <Route path="/shared" element={<SharedPage />} />
           <Route path="/folder" element={<FolderPage />} />
           <Route path="/renameModal" element={<RenameModal />} />
-          <Route path="/addFolderModal" element={<AddFolderModal />} />
+          <Route path="/AddFolderContent" element={<AddFolderContent />} />
           <Route path="/folderShared" element={<FolderSharedModal />} />
-          <Route path="/deleteFolder" element={<DeleteFolderModal />} />
+          <Route path="/deleteFolder" element={<DeleteFolderContent />} />
           <Route path="/deleteLink" element={<DeleteLinkModal />} />
           <Route path="/addToFolder" element={<AddToFolderModal />} />
         </Routes>
