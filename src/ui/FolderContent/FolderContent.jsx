@@ -7,12 +7,14 @@ import { CardList } from "ui/CardList";
 import { EmptyLink } from "ui/EmptyLink/EmptyLink";
 import { getFolders } from "data-access/getFolders";
 import { CardItem } from "ui/CardItem";
+import { AddToFolder } from "feature/AddToFolder/AddToFolder";
 
 export function FolderContent() {
   const [folder, setFolder] = useState([]);
   const [data, setData] = useState();
   const [folderId, setFolderId] = useState();
   const [activeCategoryName, setActiveCategoryName] = useState("전체");
+  const [isAddToFolder, setIsAddToFolder] = useState(false);
 
   const handleLoadCategory = async () => {
     const { data } = await getCategory();
@@ -29,6 +31,14 @@ export function FolderContent() {
     setFolderId(e.target.id);
   };
 
+  const ShowAddToFolderModal = () => {
+    setIsAddToFolder(true);
+  };
+
+  const CloseAddToFolderModal = () => {
+    setIsAddToFolder(false);
+  };
+
   useEffect(() => {
     handleLoadCategory();
     handleLoadFolder({ folderId });
@@ -36,6 +46,12 @@ export function FolderContent() {
 
   return (
     <>
+      {isAddToFolder && (
+        <AddToFolder
+          isOpenModal={isAddToFolder}
+          handleModalClose={CloseAddToFolderModal}
+        />
+      )}
       <div className="classification">
         <div className="classification-buttons">
           <Button onClick={handleCategoryActive} id="" value="전체">
@@ -52,7 +68,11 @@ export function FolderContent() {
             </Button>
           ))}
         </div>
-        <button type="button" className="add-folder-button">
+        <button
+          type="button"
+          className="add-folder-button"
+          onClick={ShowAddToFolderModal}
+        >
           폴더 추가 +
         </button>
       </div>
