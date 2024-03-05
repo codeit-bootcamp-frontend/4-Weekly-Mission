@@ -5,7 +5,9 @@ import "./WishListButton.css";
 export function WishListButton() {
   const [wishListBtn, setWishListBtn] = useState(EMPTY_STAR);
 
-  const handleWishListBtn = () => {
+  const handleWishListBtn = (e) => {
+    e.preventDefault();
+
     wishListBtn === EMPTY_STAR
       ? setWishListBtn(FULL_STAR)
       : setWishListBtn(EMPTY_STAR);

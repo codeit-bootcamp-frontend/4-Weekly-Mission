@@ -9,13 +9,14 @@ export const CardContent = ({
   isHovered,
   currentLocation,
 }) => {
-  const [isClick, setIsClick] = useState(false);
+  const [isOpened, setIsClick] = useState(false);
   const className = isHovered
     ? "CardContent CardContent-hovered"
     : "CardContent";
 
-  const handleClickMenu = () => {
-    setIsClick(true);
+  const handleClickMenu = (e) => {
+    e.preventDefault();
+    setIsClick(isOpened === false ? true : false);
   };
 
   return (
@@ -29,7 +30,7 @@ export const CardContent = ({
             onClick={handleClickMenu}
           />
         )}
-        {isClick && <KebabMenu />}
+        {isOpened && <KebabMenu />}
       </div>
 
       <p className="CardContent-description">{description}</p>
