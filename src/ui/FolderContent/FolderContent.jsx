@@ -6,7 +6,7 @@ import { CategoryNav } from "ui/CategoryNav/CategoryNav";
 import { CardList } from "ui/CardList";
 import { EmptyLink } from "ui/EmptyLink/EmptyLink";
 import { getFolders } from "data-access/getFolders";
-import { SharedPossibleCard } from "ui/SharedPossibleCard";
+import { CardItem } from "ui/CardItem";
 
 export function FolderContent() {
   const [folder, setFolder] = useState([]);
@@ -61,7 +61,7 @@ export function FolderContent() {
       ) : (
         <CardList>
           {folder?.map((link) => (
-            <SharedPossibleCard key={link?.id} {...link} />
+            <CardItem key={link?.id} {...link} />
           ))}
         </CardList>
       )}

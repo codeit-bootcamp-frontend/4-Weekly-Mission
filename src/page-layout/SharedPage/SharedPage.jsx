@@ -3,7 +3,7 @@ import "./SharedPage.css";
 import { FolderInfo } from "ui/FolderInfo";
 import { SearchBar } from "ui/SearchBar";
 import { CardList } from "ui/CardList";
-import { ReadOnlyCard } from "ui/ReadOnlyCard";
+import { CardItem } from "ui/CardItem";
 import { getFolders } from "data-access/getFolders";
 import { useEffect, useState } from "react";
 
@@ -33,7 +33,7 @@ export const SharedPage = () => {
         <SearchBar />
         <CardList>
           {folders?.map((link) => (
-            <ReadOnlyCard key={link?.id} {...link} />
+            <CardItem key={link?.id} {...link} />
           ))}
         </CardList>
       </div>

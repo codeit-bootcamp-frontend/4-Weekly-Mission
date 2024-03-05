@@ -7,7 +7,7 @@ export const CardContent = ({
   description,
   createdAt,
   isHovered,
-  option,
+  currentLocation,
 }) => {
   const [isClick, setIsClick] = useState(false);
   const className = isHovered
@@ -22,7 +22,7 @@ export const CardContent = ({
     <div className={className}>
       <div className="CardContent-time-kebab">
         <span className="CardContent-elapsed-time">{elapsedTime}</span>
-        {option && (
+        {currentLocation === "/folder" && (
           <button
             type="button"
             className="CardContent-kebab-button"
