@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./AddLinkBar.css";
 import { ADD_ICON } from "./constans";
-import { AddToFolder } from "feature/AddToFolder/AddToFolder";
+import { AddToFolder } from "feature/Modals/AddToFolder/AddToFolder";
 
 export function AddLinkBar() {
   const [inputValue, setInputValuer] = useState();

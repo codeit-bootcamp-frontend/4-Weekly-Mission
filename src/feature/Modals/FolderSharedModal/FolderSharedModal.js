@@ -1,8 +1,8 @@
 import ModalPortal from "Portal";
-import { ModalCloseButton } from "feature/ModalElements/ModalCloseButton";
-import { ModalContainer } from "feature/ModalElements/ModalContainer";
-import { ModalDim } from "feature/ModalElements/ModalDim";
-import { ModalTitle } from "feature/ModalElements/ModalTitle";
+import { ModalCloseButton } from "feature/Modals/ModalElements/ModalCloseButton";
+import { ModalContainer } from "feature/Modals/ModalElements/ModalContainer";
+import { ModalDim } from "feature/Modals/ModalElements/ModalDim";
+import { ModalTitle } from "feature/Modals/ModalElements/ModalTitle";
 import "./FolderSharedModal.css";
 
 export function FolderSharedModal() {

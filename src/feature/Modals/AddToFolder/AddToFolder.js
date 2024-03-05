@@ -1,6 +1,6 @@
-import { ModalButtonBlue } from "feature/ModalElements/ModalButtonBlue";
+import { ModalButtonBlue } from "feature/Modals/ModalElements/ModalButtonBlue";
 import "./AddToFolder.css";
-import { Modal } from "feature/Modal/Modal";
+import { Modal } from "feature/Modals/Modal/Modal";
 
 export function AddToFolder({ isOpenModal, handleModalClose, folderURL }) {
   return (

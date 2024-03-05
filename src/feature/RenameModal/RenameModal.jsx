@@ -1,10 +1,10 @@
-import { ModalButtonBlue } from "feature/ModalElements/ModalButtonBlue";
+import { ModalButtonBlue } from "feature/Modals/ModalElements/ModalButtonBlue";
 import ModalPortal from "Portal";
-import { ModalCloseButton } from "feature/ModalElements/ModalCloseButton";
-import { ModalContainer } from "feature/ModalElements/ModalContainer";
-import { ModalDim } from "feature/ModalElements/ModalDim";
-import { ModalTitle } from "feature/ModalElements/ModalTitle";
-import { ModalInput } from "feature/ModalElements/ModalInput";
+import { ModalCloseButton } from "feature/Modals/ModalElements/ModalCloseButton";
+import { ModalContainer } from "feature/Modals/ModalElements/ModalContainer";
+import { ModalDim } from "feature/Modals/ModalElements/ModalDim";
+import { ModalTitle } from "feature/Modals/ModalElements/ModalTitle";
+import { ModalInput } from "feature/Modals/ModalElements/ModalInput";
 
 export function RenameModal() {
   return (

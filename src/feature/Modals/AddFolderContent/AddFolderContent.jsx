@@ -1,6 +1,6 @@
-import { Modal } from "feature/Modal/Modal";
-import { ModalButtonBlue } from "feature/ModalElements/ModalButtonBlue";
-import { ModalInput } from "feature/ModalElements/ModalInput";
+import { Modal } from "feature/Modals/Modal/Modal";
+import { ModalButtonBlue } from "feature/Modals/ModalElements/ModalButtonBlue";
+import { ModalInput } from "feature/Modals/ModalElements/ModalInput";
 
 export function AddFolderContent({ isOpenModal, handleModalClose }) {
   return (

@@ -55,7 +55,7 @@
   display: none;
   width: 1.125rem;
   height: 0.95rem;
-  background-image: url("../../../public/images/check.svg");
+  background-image: url("../../../../public/images/check.svg");
   position: absolute;
   right: 5.5rem;
 }

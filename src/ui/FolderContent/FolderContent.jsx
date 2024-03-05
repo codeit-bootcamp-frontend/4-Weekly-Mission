@@ -7,7 +7,7 @@ import { CardList } from "ui/CardList";
 import { EmptyLink } from "ui/EmptyLink/EmptyLink";
 import { getFolders } from "data-access/getFolders";
 import { CardItem } from "ui/CardItem";
-import { AddFolderContent } from "feature/AddFolderContent/AddFolderContent";
+import { AddFolderContent } from "feature/Modals/AddFolderContent/AddFolderContent";
 
 export function FolderContent() {
   const [folder, setFolder] = useState([]);

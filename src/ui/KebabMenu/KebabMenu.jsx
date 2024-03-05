@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./KebabMenu.css";
-import { DeleteFolderContent } from "feature/DeleteFolderModal/DeleteFolderModal";
-import { AddToFolder } from "feature/AddToFolder/AddToFolder";
+import { AddToFolder } from "feature/Modals/AddToFolder/AddToFolder";
+import { DeleteLink } from "feature/Modals/DeleteLink/DeleteLink";
 
 export function KebabMenu() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -26,7 +26,7 @@ export function KebabMenu() {
   return (
     <div className="CardContent-kebab-menu">
       {showDeleteModal && (
-        <DeleteFolderContent
+        <DeleteLink
           isOpenModal={showDeleteModal}
           handleModalClose={handleModalClose}
         />

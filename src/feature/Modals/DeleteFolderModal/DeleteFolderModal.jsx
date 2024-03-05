@@ -1,6 +1,6 @@
-import { Modal } from "feature/Modal/Modal";
+import { Modal } from "feature/Modals/Modal/Modal";
 import "./DeleteFolderModal.css";
-import { ModalButtonRed } from "feature/ModalElements/ModalButtonRed";
+import { ModalButtonRed } from "feature/Modals/ModalElements/ModalButtonRed";
 
 export function DeleteFolderContent({ isOpenModal, handleModalClose }) {
   return (
