@@ -5,7 +5,7 @@ import { ModalInput } from "feature/ModalElements/ModalInput";
 export function AddFolderContent({ isOpenModal, handleModalClose }) {
   return (
     <Modal
-      title="추가하기"
+      title="폴더 추가"
       isOpenModal={isOpenModal}
       handleModalClose={handleModalClose}
     >

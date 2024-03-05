@@ -7,7 +7,7 @@ import { CardList } from "ui/CardList";
 import { EmptyLink } from "ui/EmptyLink/EmptyLink";
 import { getFolders } from "data-access/getFolders";
 import { CardItem } from "ui/CardItem";
-import { AddToFolder } from "feature/AddToFolder/AddToFolder";
+import { AddFolderContent } from "feature/AddFolderContent/AddFolderContent";
 
 export function FolderContent() {
   const [folder, setFolder] = useState([]);
@@ -31,7 +31,7 @@ export function FolderContent() {
     setFolderId(e.target.id);
   };
 
-  const ShowAddToFolderModal = () => {
+  const showAddFolderModal = () => {
     setIsAddToFolder(true);
   };
 
@@ -47,7 +47,7 @@ export function FolderContent() {
   return (
     <>
       {isAddToFolder && (
-        <AddToFolder
+        <AddFolderContent
           isOpenModal={isAddToFolder}
           handleModalClose={CloseAddToFolderModal}
         />
@@ -71,7 +71,7 @@ export function FolderContent() {
         <button
           type="button"
           className="add-folder-button"
-          onClick={ShowAddToFolderModal}
+          onClick={showAddFolderModal}
         >
           폴더 추가 +
         </button>

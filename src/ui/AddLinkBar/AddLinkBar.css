@@ -23,6 +23,23 @@
   }
 }
 
+.add-link-bar-error {
+  background-color: var(--white);
+  padding: 1.6rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.8rem;
+  border: 0.1rem solid var(--red);
+  border-radius: 1.5rem;
+  width: 80rem;
+
+  @media (max-width: 768px) {
+    width: 39rem;
+    padding: 0.8rem 1rem;
+  }
+}
+
 .add-link-icon-input {
   display: flex;
   justify-content: flex-start;

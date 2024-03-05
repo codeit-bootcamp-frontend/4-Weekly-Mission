@@ -1,10 +1,32 @@
+import { useState } from "react";
 import "./AddLinkBar.css";
 import { ADD_ICON } from "./constans";
+import { AddToFolder } from "feature/AddToFolder/AddToFolder";
 
 export function AddLinkBar() {
+  const [inputValue, setInputValuer] = useState();
+  const [isEmpty, setIsEmpty] = useState(false);
+  const [isShowAddToFolder, setIsAddToFolder] = useState(false);
+
+  const handleEmptyError = (e) => {
+    setIsEmpty(e.target.value === "" ? true : false);
+  };
+
+  const handleAddToFolder = () => {
+    setIsAddToFolder(true);
+  };
+
+  const handleCloseAddToFolder = () => {
+    setIsAddToFolder(false);
+  };
+
+  const handleInputValue = (e) => {
+    setInputValuer(e.target.value);
+  };
+
   return (
     <div className="add-link">
-      <div className="add-link-bar">
+      <div className={!isEmpty ? "add-link-bar" : "add-link-bar-error"}>
         <div className="add-link-icon-input">
           <img
             className="add-link-icon"
@@ -15,9 +37,25 @@ export function AddLinkBar() {
             className="add-link-input"
             type="text"
             placeholder="링크를 추가해 보세요"
+            onBlur={handleEmptyError}
+            onChange={handleInputValue}
           />
         </div>
-        <button className="add-link-button"> 추가하기 </button>
+        <button
+          className="add-link-button"
+          onClick={handleAddToFolder}
+          disabled={isEmpty}
+        >
+          {" "}
+          추가하기{" "}
+        </button>
+        {isShowAddToFolder && (
+          <AddToFolder
+            isOpenModal={isShowAddToFolder}
+            handleModalClose={handleCloseAddToFolder}
+            folderURL={inputValue}
+          />
+        )}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./KebabMenu.css";
 import { DeleteFolderContent } from "feature/DeleteFolderModal/DeleteFolderModal";
-import { AddFolderContent } from "feature/AddFolderContent/AddFolderContent";
+import { AddToFolder } from "feature/AddToFolder/AddToFolder";
 
 export function KebabMenu() {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -32,7 +32,7 @@ export function KebabMenu() {
         />
       )}
       {addToFolderModal && (
-        <AddFolderContent
+        <AddToFolder
           isOpenModal={addToFolderModal}
           handleModalClose={handleModalClose}
         />
