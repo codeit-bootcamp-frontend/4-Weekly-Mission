@@ -1,8 +1,8 @@
 import { Modal } from "feature/Modals/Modal/Modal";
-import "./DeleteFolderModal.css";
+import "./DeleteFolder.css";
 import { ModalButtonRed } from "feature/Modals/ModalElements/ModalButtonRed";
 
-export function DeleteFolderContent({ isOpenModal, handleModalClose }) {
+export function DeleteFolder({ isOpenModal, handleModalClose }) {
   return (
     <Modal
       title="폴더 삭제"

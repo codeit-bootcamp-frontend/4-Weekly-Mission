@@ -1,6 +1,6 @@
 import { Modal } from "../Modal/Modal";
-import "./DeleteLink.css";
 import { ModalButtonRed } from "feature/Modals/ModalElements/ModalButtonRed";
+import { DeleteModalURL } from "./DeleteLinkStyled";
 
 export function DeleteLink({ deleteURL, isOpenModal, handleModalClose }) {
   return (
@@ -9,7 +9,7 @@ export function DeleteLink({ deleteURL, isOpenModal, handleModalClose }) {
       isOpenModal={isOpenModal}
       handleModalClose={handleModalClose}
     >
-      <p className="DeleteLinkModal-subTitle">{deleteURL}</p>
+      <DeleteModalURL>{deleteURL}</DeleteModalURL>
       <ModalButtonRed type="button">삭제하기</ModalButtonRed>
     </Modal>
   );
