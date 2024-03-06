@@ -37,6 +37,7 @@ export const CardItem = ({
             createdAt={formatData(created_at)}
             isHovered={isHovered}
             currentLocation={currentLocation}
+            deleteURL={url}
           />
         </Card>
       </a>
