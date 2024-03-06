@@ -8,7 +8,7 @@ export const CardContent = ({
   createdAt,
   isHovered,
   currentLocation,
-  deleteURL,
+  selectURL,
 }) => {
   const [isOpened, setIsClick] = useState(false);
   const className = isHovered
@@ -31,7 +31,7 @@ export const CardContent = ({
             onClick={handleClickMenu}
           />
         )}
-        {isOpened && <KebabMenu deleteURL={deleteURL} />}
+        {isOpened && <KebabMenu deleteURL={selectURL} />}
       </div>
 
       <p className="CardContent-description">{description}</p>

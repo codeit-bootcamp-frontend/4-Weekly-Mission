@@ -2,7 +2,7 @@ import { ModalButtonBlue } from "feature/Modals/ModalElements/ModalButtonBlue";
 import "./AddToFolder.css";
 import { Modal } from "feature/Modals/Modal/Modal";
 
-export function AddToFolder({ isOpenModal, handleModalClose, folderURL }) {
+export function AddToFolder({ isOpenModal, handleModalClose, linkURL }) {
   return (
     <Modal
       title="폴더에 추가"
@@ -10,7 +10,7 @@ export function AddToFolder({ isOpenModal, handleModalClose, folderURL }) {
       handleModalClose={handleModalClose}
     >
       <div className="AddToFolderModal-titleContainer">
-        <p className="AddToFolderModal-subTitle">{folderURL}</p>
+        <p className="AddToFolderModal-subTitle">{linkURL}</p>
       </div>
       <div className="AddToFolderModal-folderList">
         <div className="AddToFolderModal-selectFolder">

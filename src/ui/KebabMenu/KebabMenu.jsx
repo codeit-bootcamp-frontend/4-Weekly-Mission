@@ -3,7 +3,7 @@ import "./KebabMenu.css";
 import { AddToFolder } from "feature/Modals/AddToFolder/AddToFolder";
 import { DeleteLink } from "feature/Modals/DeleteLink/DeleteLink";
 
-export function KebabMenu({ deleteURL }) {
+export function KebabMenu({ selectURL }) {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [addToFolderModal, setAddToFolderModal] = useState(false);
 
@@ -29,13 +29,14 @@ export function KebabMenu({ deleteURL }) {
         <DeleteLink
           isOpenModal={showDeleteModal}
           handleModalClose={handleModalClose}
-          deleteURL={deleteURL}
+          deleteURL={selectURL}
         />
       )}
       {addToFolderModal && (
         <AddToFolder
           isOpenModal={addToFolderModal}
           handleModalClose={handleModalClose}
+          linkURL={selectURL}
         />
       )}
       <button
