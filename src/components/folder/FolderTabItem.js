@@ -1,8 +1,8 @@
 import Tab from './Tab';
 
-const FolderTabItem = ({ folder, onClickFolder, isSelected }) => {
+const FolderTabItem = ({ folder, setItem, isSelected }) => {
   const { name } = folder;
-  return <Tab>{name}</Tab>;
+  return <Tab onClick={() => setItem({ id: folder.id, name: folder.name })}>{name}</Tab>;
 };
 
 export default FolderTabItem;

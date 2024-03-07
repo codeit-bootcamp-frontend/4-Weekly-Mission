@@ -4,6 +4,13 @@ import FolderList from '../components/folder/FolderList';
 import SearchBar from '../components/SearchBar';
 import { getFolderUser, getFolderList } from '../api';
 import { useState } from 'react';
+import styled from 'styled-components';
+
+const FolderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: var(--background);
+`;
 
 const FolderPage = () => {
   const [user, setUser] = useState(null);
@@ -35,15 +42,9 @@ const FolderPage = () => {
   return (
     <>
       <Layout user={user} isSticky={false}>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            backgroundColor: 'var(--background)',
-          }}
-        >
+        <FolderContainer>
           <SearchBar format="addLink" />
-        </div>
+        </FolderContainer>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <SearchBar format="searchLink" />
         </div>

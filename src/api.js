@@ -55,3 +55,15 @@ export const getAllFolderLink = async () => {
   const body = await response.json();
   return { data: body.data, error: null };
 };
+
+export const getFolderLinkData = async (folderId) => {
+  console.log(folderId);
+  const response = await fetch(`${BASE_URL}/users/${SAMPLE_ID}/links?folderId=${folderId}`);
+  if (!response.ok) {
+    const errorResponse = await response.json();
+    console.error(errorResponse);
+    return { data: null, error: '폴더에 필요한 링크 데이터를 불러오는데 실패했습니다' };
+  }
+  const body = await response.json();
+  return { data: body.data, error: null };
+};
