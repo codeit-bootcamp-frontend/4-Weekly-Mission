@@ -1,5 +1,11 @@
+import Navigation from "../../components/Navigation/Navigation";
+
 const Landing = () => {
-  return;
+  return (
+    <>
+      <Navigation />
+    </>
+  );
 };
 
 export default Landing;
