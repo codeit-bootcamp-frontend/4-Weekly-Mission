@@ -1,8 +1,0 @@
-.section-share {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  width: 100%;
-  padding: 40px 0;
-  background-color: var(--Linkbrary-white);
-}

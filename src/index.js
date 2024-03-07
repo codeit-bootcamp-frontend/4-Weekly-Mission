@@ -1,7 +1,5 @@
-import ReactDOM from 'react-dom/client';
-import Main from './Main';
-import './style/color.css';
-import './index.css';
+import ReactDOM from "react-dom/client";
+import Landing from "./pages/Landing/Landing";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Main />);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Landing />);
