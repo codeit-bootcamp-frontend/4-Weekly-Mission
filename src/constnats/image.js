@@ -13,6 +13,7 @@ export const LANDING_LINK = "/assets/image/landing-link.png";
 export const LANDING_MANAGE = "/assets/image/landing-manage.png";
 export const LANDING_SHARE = "/assets/image/landing-share.png";
 export const LANDING_SEARCH = "/assets/image/landing-search.png";
+export const NONE_IMAGE = "assets/image/none-image.png";
 
 /* SECTION - 로고 */
 

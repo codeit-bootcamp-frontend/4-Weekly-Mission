@@ -1,16 +1,18 @@
 import * as S from "./CardStyle";
+import { NONE_IMAGE } from "../../../constnats/image";
 
-const Card = () => {
-  return (
-    <S.Container>
-      <S.Image />
+const Card = ({ cardData }) => {
+  console.log(cardData);
+  return cardData.map((link) => (
+    <S.Container key={link.id}>
+      <S.Image src={link.imageSource ?? NONE_IMAGE} alt={link.id} />
       <S.Box>
-        <S.Time>asdfsadf</S.Time>
-        <S.Content>sadfsdf</S.Content>
-        <S.Date>asdfasdf</S.Date>
+        <S.Time>{link.time}</S.Time>
+        <S.Content>{link.description}</S.Content>
+        <S.Date>{link.date}</S.Date>
       </S.Box>
     </S.Container>
-  );
+  ));
 };
 
 export default Card;

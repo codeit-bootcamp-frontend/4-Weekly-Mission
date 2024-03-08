@@ -103,4 +103,9 @@
 
 - CardList 구현
 - Card 컴포넌트 생성 및 그리드 구현
-- API 데이터 연동
+
+\* TODO - 16. Shared Main 작업 - CardList 데이터 연동
+
+\* NOTE
+
+- CardList 데이터연동
