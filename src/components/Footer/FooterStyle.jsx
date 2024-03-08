@@ -1,47 +1,33 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
-  display: flex;
   height: 160px;
   padding: 32px 104px 64px 104px;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-  align-self: stretch;
-  background: var(--The-julge-black, #111322);
+  ${({ theme }) => theme.displays.flexSpaceBetween};
+  background: ${({ theme }) => theme.colors.black};
 `;
 
 export const Company = styled.div`
-  color: #676767;
-
-  text-align: center;
+  color: ${({ theme }) => theme.colors.gray60};
   font-family: Acme;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  ${({ theme }) => theme.fonts.text};
 `;
 
 export const LinkBox = styled.div`
   display: flex;
-  width: 181.111px;
-  align-items: flex-start;
   gap: 30px;
+  width: 181.111px;
 `;
 
 export const Link = styled.div`
-  color: #cfcfcf;
+  color: ${({ theme }) => theme.colors.gray20};
 
   font-family: Acme;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  ${({ theme }) => theme.fonts.text};
 `;
 
 export const SocialBox = styled.div`
   display: flex;
-  align-items: flex-start;
   gap: 12px;
 `;
 

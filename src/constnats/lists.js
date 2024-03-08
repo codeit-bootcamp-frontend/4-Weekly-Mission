@@ -6,6 +6,8 @@ import {
 } from "./image";
 import { Gradient } from "./constantStlye";
 
+/* LINK - Landing 페이지 메인 콘텐츠 */
+
 export const LANDING_ITEM_LIST = [
   {
     title: () => (
