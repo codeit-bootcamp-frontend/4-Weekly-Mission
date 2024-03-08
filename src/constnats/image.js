@@ -1,6 +1,10 @@
 /* ANCHOR - 로고 */
 
 export const LINKBRARY_LOGO = "/assets/logo/linkbrary-logo.svg";
+export const MAIN_FACEBOOK = "/assets/logo/main-facebook.svg";
+export const MAIN_TWITTER = "/assets/logo/main-twitter.svg";
+export const MAIN_YOUTUBE = "/assets/logo/main-youtube.svg";
+export const MAIN_INSTAGRAM = "/assets/logo/main-instagram.svg";
 
 /* ANCHOR - 이미지 */
 
