@@ -11,11 +11,31 @@ const theme = {
     background: "#F0F6FF",
   },
 
+  gradients: {
+    blueToPink: "linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%)",
+  },
+
   displays: {
     flexSpaceBetween: {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
+    },
+    flexCenter: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      textAlign: "center",
+    },
+  },
+
+  fonts: {
+    headerTitle: {
+      fontSize: "64px",
+      fontStyle: "normal",
+      fontWeight: "700",
+      lineHeight: "80px",
     },
   },
 };

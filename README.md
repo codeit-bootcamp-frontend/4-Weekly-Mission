@@ -53,7 +53,12 @@
 
 \* NOTE
 
-- App.jsx 공통요소 네비게이션 풋터 제외하고 Outlet올 설정
-- App.jsx themeProvider 적용
-- Router.jsx 생성 패스 지정
-- Root 컴포넌트에 지정
+- GlobalStyle.jsx 기본 페이지 전역 스타일 지정
+- display theme로 세팅
+
+\* TODO - 9. Landing 페이지 세부작업 - 헤더
+
+\* NOTE
+
+- gradients theme로 추가
+- fonts theme로 추가

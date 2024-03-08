@@ -46,7 +46,8 @@ const GlobalStyles = createGlobalStyle`
     #root {
       max-width: 1920px;
       width:100vw;
-      height:100%
+      height:100%;
+      font-family: Pretendard;
     }
 `;
 
