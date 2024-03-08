@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.header`
   ${({ theme }) => theme.displays.flexCenter}
   width: 1440px;
+  margin: 0 auto;
   padding: 20px 0 60px;
   gap: 8px;
 `;

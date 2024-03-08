@@ -30,7 +30,6 @@ const theme = {
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
-      textAlign: "center",
     },
     flexCenterRow: {
       display: "flex",
