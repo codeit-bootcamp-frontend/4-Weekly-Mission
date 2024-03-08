@@ -40,10 +40,20 @@
 - styeld-reset에 요소를 추가하여 reset.css생성
 - App.jsx 생성하여 전역적으로 적용
 
-\* TODO - 7. Router 적용
+\* TODO - 7. Router 적용 및 themeProvider 적용
 
 \* NOTE
 
 - App.jsx 공통요소 네비게이션 풋터 제외하고 Outlet올 설정
+- App.jsx themeProvider 적용
+- Router.jsx 생성 패스 지정
+- Root 컴포넌트에 지정
+
+\* TODO - 8. Landing 페이지 세부작업 - 네비게이션
+
+\* NOTE
+
+- App.jsx 공통요소 네비게이션 풋터 제외하고 Outlet올 설정
+- App.jsx themeProvider 적용
 - Router.jsx 생성 패스 지정
 - Root 컴포넌트에 지정

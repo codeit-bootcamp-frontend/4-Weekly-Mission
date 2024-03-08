@@ -1,7 +1,10 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
-const GlobalStyles = createGlobalStyle` 
+const GlobalStyles = createGlobalStyle`
+
+  /* SECTION - 스타일 리셋 */
+
   ${reset}
 
     a{
@@ -26,6 +29,24 @@ const GlobalStyles = createGlobalStyle`
       background: none;
       padding: 0;
       cursor: pointer;
+    }
+
+    /* SECTION - 글로벌 스타일 */
+
+    body,
+    htiml{
+        background: #F0F6FF;
+        display:flex;
+        flex-direction:colmun;
+        justify-content:center;
+        max-width:100vw;
+        min-height:100vh;
+    }
+
+    #root {
+      max-width: 1920px;
+      width:100vw;
+      height:100%
     }
 `;
 

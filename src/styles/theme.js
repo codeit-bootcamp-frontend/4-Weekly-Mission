@@ -10,6 +10,14 @@ const theme = {
     gray10: "#E7EFFB",
     background: "#F0F6FF",
   },
+
+  displays: {
+    flexSpaceBetween: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
+  },
 };
 
 export default theme;
