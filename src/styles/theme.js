@@ -52,7 +52,13 @@ const theme = {
       fontWeight: "700",
       letterSpacing: "-0.3px",
     },
-    text: {
+    largeBold: {
+      fontSize: "40px",
+      fontStyle: "normal",
+      fontWeight: "600",
+      lineHeight: "normla",
+    },
+    regular: {
       fontSize: "16px",
       fontStyle: "normal",
       fontWeight: "400",

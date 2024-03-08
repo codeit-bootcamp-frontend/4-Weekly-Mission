@@ -30,7 +30,7 @@ export const Text = styled.p`
   color: ${({ theme }) => theme.colors.gray100};
 
   font-family: Abel;
-  ${({ theme }) => theme.fonts.text};
+  ${({ theme }) => theme.fonts.regular};
 `;
 
 export const Image = styled.img`

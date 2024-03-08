@@ -82,3 +82,10 @@
 
 - 외부링크 constants로 지정
 - Link 이용하여 내부 링크 연결
+
+\* TODO - 13. Shared 페이지 생성
+
+\* NOTE
+
+- 외부링크 constants로 지정
+- Link 이용하여 내부 링크 연결

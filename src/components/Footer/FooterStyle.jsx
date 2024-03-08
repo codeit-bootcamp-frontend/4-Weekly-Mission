@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.footer`
+  margin-top: auto;
   height: 160px;
   padding: 32px 104px 64px 104px;
   ${({ theme }) => theme.displays.flexSpaceBetween};
@@ -10,7 +11,7 @@ export const Container = styled.footer`
 export const Company = styled.div`
   color: ${({ theme }) => theme.colors.gray60};
   font-family: Acme;
-  ${({ theme }) => theme.fonts.text};
+  ${({ theme }) => theme.fonts.regular};
 `;
 
 export const LinkBox = styled.div`
@@ -20,7 +21,7 @@ export const LinkBox = styled.div`
   color: ${({ theme }) => theme.colors.gray20};
 
   font-family: Acme;
-  ${({ theme }) => theme.fonts.text};
+  ${({ theme }) => theme.fonts.regular};
 `;
 
 export const SocialBox = styled.div`

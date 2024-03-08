@@ -44,9 +44,11 @@ const GlobalStyles = createGlobalStyle`
     }
 
     #root {
+      display: flex;
+      flex-direction: column;
       max-width: 1920px;
       width:100vw;
-      height:100%;
+      height:100vh;
       font-family: Pretendard;
     }
 `;
