@@ -62,3 +62,10 @@
 
 - gradients theme로 추가
 - fonts theme로 추가
+
+\* TODO - 10. Landing 페이지 세부작업 - 메인
+
+\* NOTE
+
+- gradients theme로 추가
+- fonts theme로 추가

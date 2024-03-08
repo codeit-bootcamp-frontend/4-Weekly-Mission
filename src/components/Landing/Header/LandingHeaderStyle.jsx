@@ -12,6 +12,7 @@ export const Title = styled.div`
 
 export const Gradient = styled.span`
   background: ${({ theme }) => theme.gradients.blueToPink};
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
@@ -19,7 +20,4 @@ export const Gradient = styled.span`
 export const Image = styled.img`
   width: 1118px;
   height: 659px;
-
-  border-radius: 25px;
-  box-shadow: 0px 4px 25px 0px rgba(0, 0, 0, 0.08);
 `;

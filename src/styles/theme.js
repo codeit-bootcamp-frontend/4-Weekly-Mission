@@ -13,6 +13,10 @@ const theme = {
 
   gradients: {
     blueToPink: "linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%)",
+    PinkToBlue: "linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%)",
+    YellowToSkyblue: "linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%)",
+    BlueToWhite:
+      "linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%)",
   },
 
   displays: {
@@ -28,6 +32,11 @@ const theme = {
       alignItems: "center",
       textAlign: "center",
     },
+    flexCenterRow: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+    },
   },
 
   fonts: {
@@ -36,6 +45,18 @@ const theme = {
       fontStyle: "normal",
       fontWeight: "700",
       lineHeight: "80px",
+    },
+    title: {
+      fontSize: "48px",
+      fontStyle: "normal",
+      fontWeight: "700",
+      letterSpacing: "-0.3px",
+    },
+    text: {
+      fontSize: "16px",
+      fontStyle: "normal",
+      fontWeight: "400",
+      lineHeight: "24px",
     },
   },
 };
