@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import Landing from "./pages/Landing/Landing";
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<Landing />);
+root.render(<App />);
