@@ -83,9 +83,24 @@
 - 외부링크 constants로 지정
 - Link 이용하여 내부 링크 연결
 
-\* TODO - 13. Shared 페이지 생성
+\* TODO - 13. Shared 페이지 생성 및 헤더 영역 데이터 연결
 
 \* NOTE
 
-- 외부링크 constants로 지정
-- Link 이용하여 내부 링크 연결
+- 라우터에 패스 연결
+- API 데이터 연동
+
+\* TODO - 14. Shared Main 작업 - SearchLink Input
+
+\* NOTE
+
+- Shared페이지에 Main 영역 생성
+- SearchLink 컴포넌트 구현
+
+\* TODO - 15. Shared Main 작업 - CardList 구현
+
+\* NOTE
+
+- CardList 구현
+- Card 컴포넌트 생성 및 그리드 구현
+- API 데이터 연동

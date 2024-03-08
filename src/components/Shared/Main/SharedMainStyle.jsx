@@ -6,3 +6,11 @@ export const Container = styled.main`
   gap: 40px;
   background: ${({ theme }) => theme.colors.white};
 `;
+
+export const Grid = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  column-gap: 25px;
+  row-gap: 20px;
+`;

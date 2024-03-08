@@ -1,4 +1,4 @@
-import CardList from "./CardList/CardLIst";
+import SharedCard from "../../common/Card/Card";
 import SearchLink from "../../common/Input/SearchLink/SearchLink";
 import * as S from "./SharedMainStyle";
 
@@ -6,7 +6,9 @@ const SharedMain = () => {
   return (
     <S.Container>
       <SearchLink />
-      <CardList />
+      <S.Grid>
+        <SharedCard />
+      </S.Grid>
     </S.Container>
   );
 };
