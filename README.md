@@ -32,9 +32,18 @@
 
 - 기본 페이지 UI 생성
 
-\* TODO - 6. reset.css 및 글로벌 스타일 적용
+\* TODO - 6. reset.css 적용
 
 \* NOTE
 
 - styles 페이지에 createGlobalstyle로 생성
 - styeld-reset에 요소를 추가하여 reset.css생성
+- App.jsx 생성하여 전역적으로 적용
+
+\* TODO - 7. Router 적용
+
+\* NOTE
+
+- App.jsx 공통요소 네비게이션 풋터 제외하고 Outlet올 설정
+- Router.jsx 생성 패스 지정
+- Root 컴포넌트에 지정
