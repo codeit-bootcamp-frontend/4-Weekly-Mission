@@ -67,5 +67,18 @@
 
 \* NOTE
 
-- gradients theme로 추가
-- fonts theme로 추가
+- 반복요소 map 활용하여 배열로 처리
+- 기본 ui 구현
+
+\* TODO - 11. Landing 페이지 세부작업 - 풋터
+
+\* NOTE
+
+- 기본 ui 구현
+
+\* TODO - 12. Landing 링크연결
+
+\* NOTE
+
+- 외부링크 constants로 지정
+- Link 이용하여 내부 링크 연결

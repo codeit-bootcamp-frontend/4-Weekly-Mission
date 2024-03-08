@@ -1,3 +1,10 @@
+import { Link } from "react-router-dom";
+import {
+  FACEBOOK_LINK,
+  TWITTER_LINK,
+  YOUTUBE_LINK,
+  INSTAGRAM_LINK,
+} from "../../constnats/constant";
 import {
   MAIN_FACEBOOK,
   MAIN_TWITTER,
@@ -11,14 +18,22 @@ const Footer = () => {
     <S.Container>
       <S.Company>©codeit - 2023</S.Company>
       <S.LinkBox>
-        <S.Link>PrivacyPolicy</S.Link>
-        <S.Link>FAQ</S.Link>
+        <Link to="/privacy">PrivacyPolicy</Link>
+        <Link to="/faq">FAQ</Link>
       </S.LinkBox>
       <S.SocialBox>
-        <S.Icon src={MAIN_FACEBOOK} />
-        <S.Icon src={MAIN_TWITTER} />
-        <S.Icon src={MAIN_YOUTUBE} />
-        <S.Icon src={MAIN_INSTAGRAM} />
+        <a href={FACEBOOK_LINK}>
+          <S.Icon src={MAIN_FACEBOOK} />
+        </a>
+        <a href={TWITTER_LINK}>
+          <S.Icon src={MAIN_TWITTER} />
+        </a>
+        <a href={YOUTUBE_LINK}>
+          <S.Icon src={MAIN_YOUTUBE} />
+        </a>
+        <a href={INSTAGRAM_LINK}>
+          <S.Icon src={MAIN_INSTAGRAM} />
+        </a>
       </S.SocialBox>
     </S.Container>
   );

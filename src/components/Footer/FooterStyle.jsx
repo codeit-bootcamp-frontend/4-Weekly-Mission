@@ -17,9 +17,6 @@ export const LinkBox = styled.div`
   display: flex;
   gap: 30px;
   width: 181.111px;
-`;
-
-export const Link = styled.div`
   color: ${({ theme }) => theme.colors.gray20};
 
   font-family: Acme;
