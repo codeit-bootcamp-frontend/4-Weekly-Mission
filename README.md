@@ -137,3 +137,11 @@
 - edit toolbar 생성
 - sort toolbar 생성
 - 폴더에 추가 버튼 생성
+
+\* TODO - 21. Folder 페이지 작업 - 데이터 연동
+
+\* NOTE
+
+- sort 폴더 영역 데이터 구현
+- 전체 영역 카드리스트 구현
+- folderd 영역 카드리스트 구현

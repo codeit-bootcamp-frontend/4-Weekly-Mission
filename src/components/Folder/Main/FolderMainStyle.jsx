@@ -32,3 +32,10 @@ export const Grid = styled.section`
   column-gap: 25px;
   row-gap: 20px;
 `;
+
+export const NoneLink = styled.section`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+`;

@@ -1,9 +1,12 @@
+import { ADD_FOLDER_ICON } from "../../../constnats/image";
+import * as S from "./ActionButtonStyle";
+
 const ActionButton = () => {
   return (
-    <Container>
-      <Title>폴더에추가</Title>
-      <Image />
-    </Container>
+    <S.Container>
+      <S.Title>폴더에추가</S.Title>
+      <S.Image src={ADD_FOLDER_ICON} alt="add" />
+    </S.Container>
   );
 };
 

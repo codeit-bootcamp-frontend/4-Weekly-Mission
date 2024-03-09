@@ -22,3 +22,4 @@ export const LINK_ICON = `/assets/icon/link.svg`;
 export const EDIT_CHANGE = "/assets/icon/change.svg";
 export const EDIT_DELETE = "/assets/icon/delete.svg";
 export const EDIT_SHARE = "/assets/icon/share.svg";
+export const ADD_FOLDER_ICON = "/assets/icon/add.svg";
