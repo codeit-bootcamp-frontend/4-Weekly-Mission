@@ -9,20 +9,12 @@ export const Container = styled.main`
 
 export const Box = styled.div`
   width: 1060px;
-  display: flex;
-  justify-content: space-between;
+  ${({ theme }) => theme.displays.flexSpaceBetween};
 `;
 
 export const Title = styled.h1`
-  color: #000;
-
-  /* Linkbrary/h3-semibold */
-  font-family: Pretendard;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: -0.2px;
+  ${({ theme }) => theme.colors.black};
+  ${({ theme }) => theme.fonts.large};
 `;
 
 export const Grid = styled.section`
@@ -34,8 +26,6 @@ export const Grid = styled.section`
 `;
 
 export const NoneLink = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  ${({ theme }) => theme.displays.flexCenter};
   height: 100px;
 `;

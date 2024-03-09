@@ -57,6 +57,12 @@ const theme = {
       fontWeight: "600",
       lineHeight: "normal",
     },
+    large: {
+      fontSize: "24px",
+      fontStyle: "normal",
+      fontWeight: "600",
+      lineSpacingt: "-0.2px",
+    },
     regular: {
       fontSize: "16px",
       fontStyle: "normal",

@@ -1,20 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
-  align-items: center;
+  ${({ theme }) => theme.displays.flexCenterRow};
   gap: 4px;
 `;
 export const Title = styled.div`
-  color: #6d6afe;
-
+  color: ${({ theme }) => theme.colors.primary};
+  ${({ theme }) => theme.fonts.regular};
   text-align: center;
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: -0.3px;
 `;
 export const Image = styled.img`
   width: 16px;

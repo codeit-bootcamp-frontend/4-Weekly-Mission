@@ -20,6 +20,7 @@ export const Image = styled.img`
 `;
 
 export const ImageBox = styled.div`
+  position: relative;
   height: 200px;
   overflow: hidden;
 `;
@@ -52,4 +53,21 @@ export const Content = styled.p`
 export const Date = styled.div`
   color: ${({ theme }) => theme.colors.gray100};
   ${({ theme }) => theme.fonts.regularSmall};
+`;
+
+export const StarButton = styled.img`
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 34px;
+  height: 34px;
+`;
+
+export const Kebab = styled.img`
+  width: 21px;
+  height: 17px;
+`;
+
+export const KebabBox = styled.div`
+  ${({ theme }) => theme.displays.flexSpaceBetween};
 `;
