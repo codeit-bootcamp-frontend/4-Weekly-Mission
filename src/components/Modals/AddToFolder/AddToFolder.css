@@ -44,18 +44,3 @@
 .AddToFolderModal-folderName {
   color: var (--primary);
 }
-
-.AddToFolderModal-folderCount {
-  font-size: 1.4rem;
-  line-height: 1.671rem;
-  color: var(--gray60);
-}
-
-.AddToFolderModal-selectFolderIcon {
-  display: none;
-  width: 1.125rem;
-  height: 0.95rem;
-  background-image: url("../../../../public/images/check.svg");
-  position: absolute;
-  right: 5.5rem;
-}
