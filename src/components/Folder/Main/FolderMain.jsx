@@ -1,17 +1,28 @@
-// const FolderMain = () => {
-//   return(
-//     <Container>
-//       <SerachLink/>
-//       <Box>
-//         <SortToolbar/>
-//         <AddFolder/>
-//       </Box>
-//       <Box>
-//         <Title>ss</Title>
+import SearchLink from "../../common/Input/SearchLink/SearchLink";
+import EditToolbar from "../../common/Toolbar/Edit/EditToolbar";
+import SortToolbar from "../../common/Toolbar/Sort/SortToolbar";
+import AddFolder from "../../common/ActionButton/ActionButton";
+// import FolderCard from "../../common/Card/Card";
 
-//       </Box>
-//     </Container>
-//   )
-// };
+import * as S from "./FolderMainStyle";
 
-// export default FolderMain;
+const FolderMain = () => {
+  return (
+    <S.Container>
+      <SearchLink />
+      <S.Box>
+        <SortToolbar />
+        <AddFolder />
+      </S.Box>
+      <S.Box>
+        <S.Title>ss</S.Title>
+        <EditToolbar />
+      </S.Box>
+      {/* <S.Grid>
+        <FolderCard />
+      </S.Grid> */}
+    </S.Container>
+  );
+};
+
+export default FolderMain;

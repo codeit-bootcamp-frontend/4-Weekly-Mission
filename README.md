@@ -123,3 +123,17 @@
 
 - 카드 컴포넌트 스타일 수정
 - 호버시 이미지 확대
+
+\* TODO - 19. Folder 페이지 작업 - 헤더
+
+\* NOTE
+
+- AddLInk 생성
+
+\* TODO - 20. Folder 페이지 작업 - 메인 UI구현
+
+\* NOTE
+
+- edit toolbar 생성
+- sort toolbar 생성
+- 폴더에 추가 버튼 생성
