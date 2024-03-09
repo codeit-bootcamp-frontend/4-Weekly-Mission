@@ -9,61 +9,47 @@ export const Container = styled.div`
 
 export const Image = styled.img`
   width: 340px;
-  height: 253.746px;
-  flex-shrink: 0;
+  height: 200px;
+  transition: transform 1.5s ease;
+
+  &:hover {
+    transform: scale(1.3);
+  }
 `;
 
-export const Box = styled.div`
+export const ImageBox = styled.div`
+  height: 200px;
+  border-radius: 15px 15px 0px 0px;
+  overflow: hidden;
+`;
+
+export const TextBox = styled.div`
   display: flex;
-  width: 340px;
-  padding: 15px 20px;
   flex-direction: column;
-  align-items: flex-start;
+
+  padding: 15px 20px;
   gap: 10px;
   border-radius: 0px 0px 15px 15px;
-  background: #fff;
+  background: ${({ theme }) => theme.colors.white};
 `;
 
 export const Time = styled.div`
-  color: #666;
-
-  /* Linkbrary/caption */
-  font-family: Pretendard;
-  font-size: 13px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  color: ${({ theme }) => theme.colors.gray100};
+  ${({ theme }) => theme.fonts.small};
 `;
 
 export const Content = styled.p`
   height: 49px;
   align-self: stretch;
-
   overflow: hidden;
-  color: #000;
+  color: ${({ theme }) => theme.colors.black};
 
   text-overflow: ellipsis;
   white-space: nowrap;
-  /* Linkbrary/body1-regular */
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px; /* 150% */
+  ${({ theme }) => theme.fonts.regular};
 `;
 
 export const Date = styled.div`
-  height: 19px;
-  align-self: stretch;
-  overflow: hidden;
-  color: #333;
-
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  /* Linkbrary/body2-regular */
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  color: ${({ theme }) => theme.colors.gray100};
+  ${({ theme }) => theme.fonts.regularSmall};
 `;

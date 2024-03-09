@@ -5,12 +5,14 @@ const Card = ({ cardData }) => {
   console.log(cardData);
   return cardData.map((link) => (
     <S.Container key={link.id}>
-      <S.Image src={link.imageSource ?? NONE_IMAGE} alt={link.id} />
-      <S.Box>
+      <S.ImageBox>
+        <S.Image src={link.imageSource ?? NONE_IMAGE} alt={link.id} />
+      </S.ImageBox>
+      <S.TextBox>
         <S.Time>{link.time}</S.Time>
         <S.Content>{link.description}</S.Content>
         <S.Date>{link.date}</S.Date>
-      </S.Box>
+      </S.TextBox>
     </S.Container>
   ));
 };

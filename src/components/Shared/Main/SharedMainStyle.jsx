@@ -9,8 +9,8 @@ export const Container = styled.main`
 
 export const Grid = styled.section`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto, 1fr);
   column-gap: 25px;
   row-gap: 20px;
 `;

@@ -116,3 +116,10 @@
 
 - day.js 이용하여 createdAt관련 함수 적용
 - utils에 함수 분리
+
+\* TODO - 18. Shared 페이지 세부작업
+
+\* NOTE
+
+- day.js 이용하여 createdAt관련 함수 적용
+- utils에 함수 분리

@@ -55,13 +55,25 @@ const theme = {
       fontSize: "40px",
       fontStyle: "normal",
       fontWeight: "600",
-      lineHeight: "normla",
+      lineHeight: "normal",
     },
     regular: {
       fontSize: "16px",
       fontStyle: "normal",
       fontWeight: "400",
-      lineHeight: "24px",
+      lineHeight: "normal",
+    },
+    regularSmall: {
+      fontSize: "14px",
+      fontStyle: "normal",
+      fontWeight: "400",
+      lineHeight: "normal",
+    },
+    small: {
+      fontSize: "13px",
+      fontStyle: "normal",
+      fontWeight: "400",
+      lineHeight: "normal",
     },
   },
 };
