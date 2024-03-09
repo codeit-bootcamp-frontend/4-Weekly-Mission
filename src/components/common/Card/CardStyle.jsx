@@ -5,6 +5,8 @@ export const Container = styled.div`
   height: 334px;
   flex-shrink: 0;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  border-radius: 15px;
 `;
 
 export const Image = styled.img`
@@ -19,17 +21,15 @@ export const Image = styled.img`
 
 export const ImageBox = styled.div`
   height: 200px;
-  border-radius: 15px 15px 0px 0px;
   overflow: hidden;
 `;
 
 export const TextBox = styled.div`
   display: flex;
   flex-direction: column;
-
+  width: 340px;
   padding: 15px 20px;
   gap: 10px;
-  border-radius: 0px 0px 15px 15px;
   background: ${({ theme }) => theme.colors.white};
 `;
 

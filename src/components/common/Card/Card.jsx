@@ -2,7 +2,6 @@ import * as S from "./CardStyle";
 import { NONE_IMAGE } from "../../../constnats/image";
 
 const Card = ({ cardData }) => {
-  console.log(cardData);
   return cardData.map((link) => (
     <S.Container key={link.id}>
       <S.ImageBox>
