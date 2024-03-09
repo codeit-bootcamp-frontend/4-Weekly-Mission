@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BASED_URL } from "../../../constnats/constant";
 import SharedCard from "../../common/Card/Card";
 import SearchLink from "../../common/Input/SearchLink/SearchLink";
+import { updatedDate, updatedDuration } from "../../../utils/createdAt";
 import * as S from "./SharedMainStyle";
 
 const SharedMain = () => {
@@ -15,8 +16,8 @@ const SharedMain = () => {
         const responseData = await response.json();
         const fetchData = responseData.folder.links.map((link) => ({
           ...link,
-          time: "10minutes ago",
-          date: "2023.5.1",
+          time: updatedDuration(link.createdAt),
+          date: updatedDate(link.createdAt),
         }));
         setCardData(fetchData);
         console.log(fetchData);

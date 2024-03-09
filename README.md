@@ -109,3 +109,10 @@
 \* NOTE
 
 - CardList 데이터연동
+
+\* TODO - 17. Shared Main 작업 - createAt 함수 적용
+
+\* NOTE
+
+- day.js 이용하여 createdAt관련 함수 적용
+- utils에 함수 분리
