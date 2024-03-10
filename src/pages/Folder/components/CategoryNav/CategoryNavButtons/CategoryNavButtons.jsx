@@ -4,7 +4,7 @@ import { SharedFolder } from "components/Modals/SharedFolder/SharedFolder";
 import { RenameModal } from "components/Modals/RenameModal/RenameModal";
 import { DeleteFolder } from "components/Modals/DeleteFolder/DeleteFolder";
 
-export function CategoryNavButtons() {
+export function CategoryNavButtons({ selectFolder }) {
   const [sharedModal, setSharedModal] = useState(false);
   const [renameModal, setRenameModal] = useState(false);
   const [deleteFolderModal, setDeleteFolderModal] = useState(false);
@@ -31,6 +31,7 @@ export function CategoryNavButtons() {
     <>
       {sharedModal && (
         <SharedFolder
+          selectFolder={selectFolder}
           isOpenModal={sharedModal}
           handleModalClose={handleCloseModal}
         />

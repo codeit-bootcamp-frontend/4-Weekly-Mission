@@ -6,7 +6,9 @@ export function CategoryNav({ activeCategoryName }) {
     <div className="category-nav-bar">
       <p className="active-category">{activeCategoryName}</p>
       <nav className="category-nav-buttons">
-        {activeCategoryName !== "전체" && <CategoryNavButtons />}
+        {activeCategoryName !== "전체" && (
+          <CategoryNavButtons selectFolder={activeCategoryName} />
+        )}
       </nav>
     </div>
   );
