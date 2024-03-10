@@ -1,4 +1,27 @@
 import styled from "styled-components";
+import kakaotalk from "../../../assets/kakaoTalk.svg";
+import Facebook from "../../../assets/facebookShared.svg";
+import Copy from "../../../assets/addLink.svg";
+
+export const KakaoTalkIcon = styled.div`
+  width: 4.2rem;
+  height: 4.2rem;
+  background-image: url(${kakaotalk});
+`;
+
+export const FacebookIcon = styled.div`
+  width: 4.2rem;
+  height: 4.2rem;
+  background-image: url(${Facebook});
+`;
+
+export const CopyIcon = styled.div`
+  width: 1.8rem;
+  height: 1.8rem;
+  background-image: url(${Copy});
+  background-position: center;
+  margin: 1.2rem;
+`;
 
 export const ButtonContainer = styled.div`
   display: flex;

@@ -68,7 +68,10 @@ export function FolderContent({ data }) {
           폴더 추가 +
         </button>
       </div>
-      <CategoryNav activeCategoryName={activeCategoryName} />
+      <CategoryNav
+        activeCategoryName={activeCategoryName}
+        copyLink={activeCategoryName}
+      />
       {!folder.length ? (
         <EmptyLink />
       ) : (

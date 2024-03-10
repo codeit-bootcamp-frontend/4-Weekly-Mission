@@ -1,11 +1,15 @@
 import * as S from "./SharedFolderStyled";
 import "./SharedFolder";
 import { Modal } from "../Modal/Modal";
-import KakaoTalk from "../../../assets/kakaoTalk.svg";
-import Facebook from "../../../assets/facebookShared.svg";
-import Shared from "../../../assets/addLink.svg";
+import { handleCopyClipBoard } from "util/copyClipBoard";
 
-export function SharedFolder({ isOpenModal, handleModalClose, selectFolder }) {
+export function SharedFolder({
+  isOpenModal,
+  handleModalClose,
+  selectFolder,
+  onClick,
+  copyLink,
+}) {
   return (
     <Modal
       title="폴더 공유"
@@ -15,17 +19,17 @@ export function SharedFolder({ isOpenModal, handleModalClose, selectFolder }) {
       <S.FolderName>{selectFolder}</S.FolderName>
       <S.ButtonContainer>
         <S.SharedButton>
-          <img src={KakaoTalk} />
+          <S.KakaoTalkIcon />
           <S.IconText>카카오톡</S.IconText>
         </S.SharedButton>
-        <S.SharedButton>
-          <img src={Facebook} />
+        <S.SharedButton onClick={onClick}>
+          <S.FacebookIcon />
           <S.IconText>페이스북</S.IconText>
         </S.SharedButton>
-        <S.CopyLink>
-          <img src={Shared} />
+        <S.SharedButton>
+          <S.CopyIcon onClick={handleCopyClipBoard()} />
           <S.IconText>링크 복사</S.IconText>
-        </S.CopyLink>
+        </S.SharedButton>
       </S.ButtonContainer>
     </Modal>
   );
