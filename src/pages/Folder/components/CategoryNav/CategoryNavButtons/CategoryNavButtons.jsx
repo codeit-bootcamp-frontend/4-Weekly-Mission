@@ -46,6 +46,7 @@ export function CategoryNavButtons({ selectFolder }) {
         <DeleteFolder
           isOpenModal={deleteFolderModal}
           handleModalClose={handleCloseModal}
+          selectFolder={selectFolder}
         />
       )}
       <button className="category-nav-button" onClick={handleSharedModal}>

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-const FaceBookIcon = "../../../assets/facebookShared.svg";
 
 export const ButtonContainer = styled.div`
   display: flex;
@@ -46,9 +45,4 @@ export const FolderName = styled.p`
   text-align: center;
   font-size: 1.4rem;
   line-height: 2.2rem;
-`;
-
-export const Icon = styled.img`
-  width: 4.2rem;
-  height: 4.2rem;
 `;
