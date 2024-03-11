@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import Moment from 'moment';
 import axios from 'axios';
+import { getElapsedTime } from '../../utils/getElapsedTime';
 import './Card.css';
 
-export default function Card({ links }) {
+export default function Card() {
   const [cardData, setCardData] = useState([]);
 
   useEffect(() => {
@@ -21,12 +23,18 @@ export default function Card({ links }) {
     <>
       {cardData.map(link => (
         <div key={link.id} className="card">
-          <img className="cardImage" src={link.imageSource} alt={link.title} />
-          <div className="cardTextArea">
-            <div className="uploadTime">{link.createdAt}</div>
-            <div className="cardText">{link.description}</div>
-            <div className="uploadDate">{link.createdAt}</div>
-          </div>
+          <a href={link.url}>
+            <img
+              className="cardImage"
+              src={link.imageSource ? link.imageSource : '/images/noImage.png'}
+              alt={link.title}
+            />
+            <div className="cardTextArea">
+              <div className="uploadTime">{getElapsedTime(link.createdAt)}</div>
+              <div className="cardText">{link.description}</div>
+              <div className="uploadDate">{Moment(link.createdAt).format('YYYY.MM.DD')}</div>
+            </div>
+          </a>
         </div>
       ))}
     </>

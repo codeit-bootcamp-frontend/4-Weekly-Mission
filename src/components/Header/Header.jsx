@@ -22,7 +22,7 @@ function Profile() {
     try {
       const response = await axios.get('https://bootcamp-api.codeit.kr/api/sample/user');
       if (response.status === 200) {
-        setUser(response.data.user);
+        setUser(response.data);
       }
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -34,7 +34,7 @@ function Profile() {
   }, []);
   return (
     <>
-      {user == null ? (
+      {user === null ? (
         <div className="headerButton">
           <button>로그인</button>
         </div>
