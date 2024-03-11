@@ -167,3 +167,10 @@
 
 - 사이즈 props 추가
 - 기본 ui 수정
+
+\* TODO - 24. Landing페이지 Main Contnet 레이아웃 수정
+
+\* NOTE
+
+- 사이즈 props 추가
+- 기본 ui 수정

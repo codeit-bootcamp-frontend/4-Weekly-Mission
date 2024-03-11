@@ -35,8 +35,8 @@ export const LANDING_CONTENT_LIST = [
   {
     title: () => (
       <>
-        링크를 폴더로
-        <span>관리</span>하세요
+        저장한 링크를
+        <span>공유</span>해보세요
       </>
     ),
     text: "여러 링크를 폴더에 담고 공유할 수 있습니다. 가족, 친구, 동료들에게 쉽고 빠르게 링크를 공유해 보세요.",
