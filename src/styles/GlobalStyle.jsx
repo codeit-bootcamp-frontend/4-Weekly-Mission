@@ -35,14 +35,17 @@ const GlobalStyles = createGlobalStyle`
 
     body,
     htiml{
-        background: ${({ theme }) => theme.colors.background};
-        ${({ theme }) => theme.displays.columnCenter};
+        background: #F0F6FF;
+        display:flex;
+        flex-direction:colmun;
+        justify-content:center;
         max-width:100vw;
         min-height:100vh;
     }
 
     #root {
-      ${({ theme }) => theme.displays.columnCenter};
+      display: flex;
+      flex-direction: column;
       max-width: 1920px;
       width:100vw;
       height:100vh;

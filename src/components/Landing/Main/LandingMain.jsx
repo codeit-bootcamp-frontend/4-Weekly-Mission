@@ -1,11 +1,11 @@
 import * as S from "./LandingMainStyle";
-import { LANDING_ITEM_LIST } from "../../../constnats/lists";
+import { LANDING_CONTENT_LIST } from "../../../constnats/lists";
 
 const LandingMain = () => {
   return (
     <S.Container>
-      {LANDING_ITEM_LIST &&
-        LANDING_ITEM_LIST.map((item) => (
+      {LANDING_CONTENT_LIST &&
+        LANDING_CONTENT_LIST.map((item) => (
           <S.Section key={item.alt}>
             <S.Box>
               <S.Title>{item.title()}</S.Title>

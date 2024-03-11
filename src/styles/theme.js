@@ -12,6 +12,7 @@ const theme = {
   },
 
   gradients: {
+    blueToSkyblue: "linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)",
     blueToPink: "linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%)",
     PinkToBlue: "linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%)",
     YellowToSkyblue: "linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%)",
@@ -63,6 +64,12 @@ const theme = {
       fontWeight: "600",
       lineSpacingt: "-0.2px",
     },
+    regularBold: {
+      fontSize: "18px",
+      fontStyle: "normal",
+      fontWeight: "600",
+      lineHeight: "normal",
+    },
     regular: {
       fontSize: "16px",
       fontStyle: "normal",
@@ -75,7 +82,7 @@ const theme = {
       fontWeight: "400",
       lineHeight: "normal",
     },
-    regularBold: {
+    regularSmallBold: {
       fontSize: "14px",
       fontStyle: "normal",
       fontWeight: "600",

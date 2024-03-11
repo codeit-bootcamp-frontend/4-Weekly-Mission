@@ -1,7 +1,7 @@
 import * as S from "./ButtonStyle";
 
-const Button = ({ children }) => {
-  return <S.Button>{children}</S.Button>;
+const Button = ({ children, size }) => {
+  return <S.Button size={size}>{children}</S.Button>;
 };
 
 export default Button;

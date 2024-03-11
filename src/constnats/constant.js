@@ -15,3 +15,11 @@ export const BASED_URL = "https://bootcamp-api.codeit.kr/api";
 
 export const SEARCH_LINK_PLACEHOLDER = "링크를 검색해 보세요";
 export const ADD_LINK_PLACEHOLDER = "링크를 추가해 보세요";
+
+/* ANCHOR - 스타일 */
+
+/* SECTION -  버튼 */
+
+export const LOGIN_BUTTON = "128px";
+export const HEADER_BUTTON = "350px";
+export const SMALL_BUTTON = "80px";

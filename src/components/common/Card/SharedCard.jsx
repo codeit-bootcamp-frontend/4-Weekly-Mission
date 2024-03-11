@@ -1,11 +1,11 @@
 import * as S from "./CardStyle";
-import { NONE_IMAGE } from "../../../constnats/image";
+import { CARD_NONE_IMAGE } from "../../../constnats/image";
 
 const Card = ({ cardData }) => {
   return cardData.map((link) => (
     <S.Container key={link.id}>
       <S.ImageBox>
-        <S.Image src={link.imageSource ?? NONE_IMAGE} alt={link.id} />
+        <S.Image src={link.imageSource ?? CARD_NONE_IMAGE} alt={link.id} />
       </S.ImageBox>
       <S.TextBox>
         <S.Time>{link.time}</S.Time>

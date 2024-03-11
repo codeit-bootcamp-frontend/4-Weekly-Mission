@@ -15,5 +15,5 @@ export const Box = styled.div`
 `;
 export const Text = styled.div`
   color: ${({ theme }) => theme.colors.gray60};
-  ${({ theme }) => theme.fonts.regularBold};
+  ${({ theme }) => theme.fonts.regularSmallBold};
 `;
