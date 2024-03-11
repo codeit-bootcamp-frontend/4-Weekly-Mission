@@ -6,7 +6,7 @@ export const Container = styled.nav`
   gap: 8px;
   padding: 20px 200px;
 
-  ${({ theme }) => theme.displays.flexSpaceBetween};
+  ${({ theme }) => theme.displays.spaceBetween};
   background: ${({ theme }) => theme.colors.background};
 `;
 

@@ -13,7 +13,7 @@ export const LANDING_LINK = "/assets/image/landing-link.png";
 export const LANDING_MANAGE = "/assets/image/landing-manage.png";
 export const LANDING_SHARE = "/assets/image/landing-share.png";
 export const LANDING_SEARCH = "/assets/image/landing-search.png";
-export const NONE_IMAGE = "assets/image/none-image.png";
+export const CARD_NONE_IMAGE = "assets/image/none-image.png";
 
 /* SECTION - 아이콘 */
 
@@ -25,4 +25,4 @@ export const EDIT_SHARE = "/assets/icon/share.svg";
 export const ADD_FOLDER_ICON = "/assets/icon/add.svg";
 export const CARD_STAR = "/assets/icon/star.svg";
 export const CARD_BLUE_STAR = "assets/icon/star-blue.svg";
-export const KEBAB = "assets/icon/kebab.svg";
+export const CARD_KEBAB = "assets/icon/kebab.svg";

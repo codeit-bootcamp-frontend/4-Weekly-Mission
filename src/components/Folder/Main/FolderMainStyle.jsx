@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.main`
-  ${({ theme }) => theme.displays.flexCenter};
+  ${({ theme }) => theme.displays.columnCenter};
   padding: 40px 0 100px;
   gap: 40px;
   background: ${({ theme }) => theme.colors.white};
@@ -9,7 +9,7 @@ export const Container = styled.main`
 
 export const Box = styled.div`
   width: 1060px;
-  ${({ theme }) => theme.displays.flexSpaceBetween};
+  ${({ theme }) => theme.displays.spaceBetween};
 `;
 
 export const Title = styled.h1`
@@ -26,6 +26,6 @@ export const Grid = styled.section`
 `;
 
 export const NoneLink = styled.section`
-  ${({ theme }) => theme.displays.flexCenter};
+  ${({ theme }) => theme.displays.columnCenter};
   height: 100px;
 `;

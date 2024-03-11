@@ -21,7 +21,6 @@ const Card = ({ cardData }) => {
           <S.Time>{link.time}</S.Time>
           <S.Kebab src={KEBAB} alt="kebab" />
         </S.KebabBox>
-
         <S.Content>{link.description}</S.Content>
         <S.Date>{link.date}</S.Date>
       </S.TextBox>

@@ -20,18 +20,18 @@ const theme = {
   },
 
   displays: {
-    flexSpaceBetween: {
+    spaceBetween: {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
     },
-    flexCenter: {
+    columnCenter: {
       display: "flex",
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
     },
-    flexCenterRow: {
+    rowCenter: {
       display: "flex",
       alignItems: "center",
       justifyContent: "center",
@@ -39,7 +39,7 @@ const theme = {
   },
 
   fonts: {
-    headerTitle: {
+    mainTitle: {
       fontSize: "64px",
       fontStyle: "normal",
       fontWeight: "700",
@@ -51,7 +51,7 @@ const theme = {
       fontWeight: "700",
       letterSpacing: "-0.3px",
     },
-    largeBold: {
+    subTitle: {
       fontSize: "40px",
       fontStyle: "normal",
       fontWeight: "600",
@@ -73,6 +73,12 @@ const theme = {
       fontSize: "14px",
       fontStyle: "normal",
       fontWeight: "400",
+      lineHeight: "normal",
+    },
+    regularBold: {
+      fontSize: "14px",
+      fontStyle: "normal",
+      fontWeight: "600",
       lineHeight: "normal",
     },
     small: {

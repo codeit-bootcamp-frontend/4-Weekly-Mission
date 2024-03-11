@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  ${({ theme }) => theme.displays.flexCenter}
+  ${({ theme }) => theme.displays.columnCenter}
   gap: 40px;
   padding: 70px 360px 0px 360px;
 `;
 
 export const Title = styled.div`
-  ${({ theme }) => theme.fonts.headerTitle}
+  ${({ theme }) => theme.fonts.mainTitle}
 `;
 
 export const Gradient = styled.span`

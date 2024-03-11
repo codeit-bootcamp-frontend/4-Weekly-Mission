@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  display: flex;
+  ${({ theme }) => theme.displays.rowCenter};
   width: 128px;
   padding: 16px 20px;
-  justify-content: center;
-  align-items: center;
+
   gap: 10px;
 `;

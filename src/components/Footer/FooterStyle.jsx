@@ -4,7 +4,7 @@ export const Container = styled.footer`
   margin-top: auto;
   height: 160px;
   padding: 32px 104px 64px 104px;
-  ${({ theme }) => theme.displays.flexSpaceBetween};
+  ${({ theme }) => theme.displays.spaceBetween};
   background: ${({ theme }) => theme.colors.black};
 `;
 

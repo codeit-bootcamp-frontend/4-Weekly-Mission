@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  ${({ theme }) => theme.displays.flexCenter}
+  ${({ theme }) => theme.displays.columnCenter}
 
   margin: 0 auto;
   padding: 20px 0 60px;

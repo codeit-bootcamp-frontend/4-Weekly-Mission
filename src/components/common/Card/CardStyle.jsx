@@ -69,5 +69,5 @@ export const Kebab = styled.img`
 `;
 
 export const KebabBox = styled.div`
-  ${({ theme }) => theme.displays.flexSpaceBetween};
+  ${({ theme }) => theme.displays.spaceBetween};
 `;

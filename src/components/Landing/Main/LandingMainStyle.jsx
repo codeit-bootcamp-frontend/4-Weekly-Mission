@@ -11,7 +11,7 @@ export const Container = styled.main`
 `;
 
 export const Section = styled.section`
-  ${({ theme }) => theme.displays.flexCenterRow}
+  ${({ theme }) => theme.displays.rowCenter}
   gap: 157px;
 `;
 

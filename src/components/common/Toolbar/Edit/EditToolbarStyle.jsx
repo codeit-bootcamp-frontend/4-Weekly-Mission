@@ -14,11 +14,6 @@ export const Box = styled.div`
   display: flex;
 `;
 export const Text = styled.div`
-  color: var(--Linkbrary-gray60, #9fa6b2);
-  /* Linkbrary/body2-semibold */
-  font-family: Pretendard;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  color: ${({ theme }) => theme.colors.gray60};
+  ${({ theme }) => theme.fonts.regularBold};
 `;

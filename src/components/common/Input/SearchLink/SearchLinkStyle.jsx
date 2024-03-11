@@ -7,7 +7,7 @@ export const Container = styled.div`
   padding: 15px 16px;
   width: 1060px;
   border-radius: 10px;
-  background: #f5f5f5;
+  background: ${({ theme }) => theme.colors.white};
 `;
 
 export const Image = styled.img`

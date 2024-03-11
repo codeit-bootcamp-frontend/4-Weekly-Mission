@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  ${({ theme }) => theme.displays.flexCenterRow};
+  ${({ theme }) => theme.displays.rowCenter};
   gap: 4px;
 `;
 export const Title = styled.div`

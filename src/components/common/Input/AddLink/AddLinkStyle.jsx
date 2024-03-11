@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  ${({ theme }) => theme.displays.flexSpaceBetween};
+  ${({ theme }) => theme.displays.spaceBetween};
   width: 800px;
   padding: 16px 20px;
   gap: 8px;
@@ -12,7 +12,7 @@ export const Container = styled.div`
 `;
 
 export const Box = styled.div`
-  ${({ theme }) => theme.displays.flexCenterRow};
+  ${({ theme }) => theme.displays.rowCenter};
   gap: 12px;
 `;
 
