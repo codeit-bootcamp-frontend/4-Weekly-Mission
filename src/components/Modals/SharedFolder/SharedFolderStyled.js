@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import kakaotalk from "../../../assets/kakaoTalk.svg";
 import Facebook from "../../../assets/facebookShared.svg";
-import Copy from "../../../assets/addLink.svg";
+import Copy from "../../../assets/logo/link.svg";
 
 export const KakaoTalkIcon = styled.div`
   width: 4.2rem;
