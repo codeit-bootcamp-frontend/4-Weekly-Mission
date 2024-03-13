@@ -37,17 +37,6 @@ const OptionContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 1.2rem;
-
-  color: var(--gray60);
-  font-family: Pretendard;
-  font-size: 1.4rem;
-  font-weight: 600;
-`;
-
-const Option = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 4px;
 `;
 
 const FolderName = styled.h3`
@@ -84,6 +73,17 @@ const FolderTab = styled.div`
 const OptionIcon = styled.img`
   width: 18px;
   height: 18px;
+`;
+
+const Button = styled.button`
+  color: var(--gray60);
+  font-family: Pretendard;
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
 `;
 
 const FolderList = ({ folderList }) => {
@@ -134,18 +134,18 @@ const FolderList = ({ folderList }) => {
             <TabOptionContainer>
               <FolderName>{item.name}</FolderName>
               <OptionContainer>
-                <Option>
+                <Button>
                   <OptionIcon src={share} alt="공유 아이콘" />
                   공유
-                </Option>
-                <Option>
+                </Button>
+                <Button>
                   <OptionIcon src={pen} alt="이름 변경 아이콘" />
                   이름 변경
-                </Option>
-                <Option>
+                </Button>
+                <Button>
                   <OptionIcon src={deleteicon} alt="삭제 아이콘" />
                   삭제
-                </Option>
+                </Button>
               </OptionContainer>
             </TabOptionContainer>
           </TabContainer>
