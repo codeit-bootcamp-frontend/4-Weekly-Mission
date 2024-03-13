@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.button`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 12px;
 `;
 export const Image = styled.img`
@@ -12,6 +12,7 @@ export const Image = styled.img`
 
 export const Box = styled.div`
   display: flex;
+  gap: 4px;
 `;
 export const Text = styled.div`
   color: ${({ theme }) => theme.colors.gray60};

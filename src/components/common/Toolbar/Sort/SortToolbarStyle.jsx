@@ -9,10 +9,8 @@ export const SortButton = styled.button`
   padding: 8px 12px;
   border-radius: 5px;
   border: 1px solid ${({ theme }) => theme.colors.primary};
-  background: ${({ theme }) => theme.colors.white};
-
-  &:focus {
-    background: ${({ theme }) => theme.colors.primary};
-    color: ${({ theme }) => theme.colors.white};
-  }
+  background: ${({ theme, $isfocused }) =>
+    $isfocused ? theme.colors.primary : theme.colors.white};
+  color: ${({ theme, $isfocused }) =>
+    $isfocused ? theme.colors.white : theme.colors.black};
 `;

@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { LINKBRARY_LOGO } from "../../constnats/image";
-import Button from "../common/Button/Button";
+import { NavigationButton } from "../common/Button/ButtonStyle";
 import * as S from "./NavigationStyle";
-import { LOGIN_BUTTON } from "../../constnats/constant";
 
 const Navigation = () => {
   return (
@@ -11,7 +10,7 @@ const Navigation = () => {
         <S.Logo src={LINKBRARY_LOGO} alt="logo" />
       </Link>
       <Link to="/signin">
-        <Button size={LOGIN_BUTTON}>로그인</Button>
+        <NavigationButton>로그인</NavigationButton>
       </Link>
     </S.Container>
   );

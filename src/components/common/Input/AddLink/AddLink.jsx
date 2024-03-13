@@ -1,9 +1,6 @@
-import Button from "../../Button/Button";
+import { SmallButton } from "../../Button/ButtonStyle";
 import { LINK_ICON } from "../../../../constnats/image";
-import {
-  ADD_LINK_PLACEHOLDER,
-  SMALL_BUTTON,
-} from "../../../../constnats/constant";
+import { ADD_LINK_PLACEHOLDER } from "../../../../constnats/constant";
 import * as S from "./AddLinkStyle";
 
 const AddLink = () => {
@@ -13,7 +10,7 @@ const AddLink = () => {
         <S.Image src={LINK_ICON} alt="add" />
         <S.Input placeholder={ADD_LINK_PLACEHOLDER} />
       </S.Box>
-      <Button src={SMALL_BUTTON}>추가하기</Button>
+      <SmallButton>추가하기</SmallButton>
     </S.Container>
   );
 };

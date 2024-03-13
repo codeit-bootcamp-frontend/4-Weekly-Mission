@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.button`
   ${({ theme }) => theme.displays.rowCenter};
   gap: 4px;
 `;

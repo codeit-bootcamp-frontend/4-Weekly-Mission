@@ -7,7 +7,7 @@ export const Container = styled.div`
   padding: 15px 16px;
   width: 1060px;
   border-radius: 10px;
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.grayLight};
 `;
 
 export const Image = styled.img`
@@ -17,7 +17,7 @@ export const Image = styled.img`
 
 export const Input = styled.input`
   width: 100%;
-  background-color: transparent;
+  background: none;
   border: none;
   color: ${({ theme }) => theme.colors.gray100};
   ${({ theme }) => theme.fonts.regular};

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position: relative;
   width: 340px;
   flex-shrink: 0;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
   border-radius: 15px;
 `;
 
@@ -22,6 +22,7 @@ export const ImageBox = styled.div`
   position: relative;
   height: 200px;
   overflow: hidden;
+  border-radius: 15px 15px 0 0;
 `;
 
 export const TextBox = styled.div`
@@ -30,6 +31,7 @@ export const TextBox = styled.div`
   width: 340px;
   padding: 15px 20px;
   gap: 10px;
+  border-radius: 0 0 15px 15px;
   background: ${({ theme }) => theme.colors.white};
 
   &:hover {
@@ -69,6 +71,7 @@ export const StarButton = styled.img`
 export const Kebab = styled.img`
   width: 21px;
   height: 17px;
+  cursor: pointer;
 `;
 
 export const KebabBox = styled.div`

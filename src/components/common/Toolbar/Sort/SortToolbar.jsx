@@ -4,6 +4,7 @@ import * as S from "./SortToolbarStyle";
 
 const Sort = ({ onChange }) => {
   const [folderList, setFolderList] = useState([]);
+  const [focus, setFocus] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,19 +20,30 @@ const Sort = ({ onChange }) => {
     fetchData();
   }, []);
 
-  const handleOnclick = (title) => {
+  const handleClick = (title) => {
     onChange(title);
+    setFocus(title.id);
+  };
+
+  const handleBlur = () => {
+    setFocus(true);
   };
 
   return (
     <S.Container>
-      <S.SortButton onClick={() => handleOnclick({ id: null, name: "전체" })}>
+      <S.SortButton
+        $isfocused={focus === null}
+        onBlur={handleBlur}
+        onClick={() => handleClick({ id: null, name: "전체" })}
+      >
         전체
       </S.SortButton>
       {folderList.map((folder) => (
         <S.SortButton
           key={folder.id}
-          onClick={() => handleOnclick(folder)}
+          $isfocused={focus === folder.id}
+          onBlur={handleBlur}
+          onClick={() => handleClick(folder)}
           value={folder.name}
         >
           {folder.name}
