@@ -13,11 +13,37 @@ const theme = {
 
   gradients: {
     blueToSkyblue: "linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)",
-    blueToPink: "linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%)",
-    PinkToBlue: "linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%)",
-    YellowToSkyblue: "linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%)",
-    BlueToWhite:
-      "linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%)",
+    blueToPink: {
+      background: "linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%)",
+      backgroundClip: "text",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+    },
+    pinkToBlue: {
+      background: "linear-gradient(96deg, #FE8A8A 1.72%, #A4CEFF 74.97%)",
+      backgroundClip: "text",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+    },
+    yellowToSkyblue: {
+      background: "linear-gradient(277deg, #6FBAFF 59.22%, #FFD88B 93.66%)",
+      backgroundClip: "text",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+    },
+    blueToWhite: {
+      background:
+        "linear-gradient(99deg, #6D7CCD 19.76%, rgba(82, 136, 133, 0.22) 52.69%)",
+      backgroundClip: "text",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+    },
+    pinkToSkyblue: {
+      background: "linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%)",
+      backgroundClip: "text",
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+    },
   },
 
   displays: {

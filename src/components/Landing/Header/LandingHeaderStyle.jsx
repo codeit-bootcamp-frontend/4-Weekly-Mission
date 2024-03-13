@@ -11,10 +11,7 @@ export const Title = styled.div`
 `;
 
 export const Gradient = styled.span`
-  background: ${({ theme }) => theme.gradients.blueToPink};
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  ${({ theme }) => theme.gradients.blueToPink};
 `;
 
 export const Image = styled.img`

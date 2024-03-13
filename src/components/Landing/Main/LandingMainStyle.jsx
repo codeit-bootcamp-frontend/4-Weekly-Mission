@@ -41,3 +41,21 @@ export const Image = styled.img`
   grid-row: span 2;
   grid-column: ${({ isEven }) => (isEven ? 2 : 1)};
 `;
+
+const Gradient = styled.span``;
+
+export const LinkGradient = styled(Gradient)`
+  ${({ theme }) => theme.gradients.pinkToBlue};
+`;
+
+export const ManageGradient = styled(Gradient)`
+  ${({ theme }) => theme.gradients.yellowToSkyblue};
+`;
+
+export const ShareGradient = styled(Gradient)`
+  ${({ theme }) => theme.gradients.blueToWhite};
+`;
+
+export const SearchGradient = styled(Gradient)`
+  ${({ theme }) => theme.gradients.pinkToSkyblue};
+`;
