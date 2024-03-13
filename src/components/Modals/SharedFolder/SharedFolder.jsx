@@ -3,13 +3,7 @@ import "./SharedFolder";
 import { Modal } from "../Modal/Modal";
 import { handleCopyClipBoard } from "util/copyClipBoard";
 
-export function SharedFolder({
-  isOpenModal,
-  handleModalClose,
-  selectFolder,
-  onClick,
-  copyLink,
-}) {
+export function SharedFolder({ isOpenModal, handleModalClose, selectFolder }) {
   return (
     <Modal
       title="폴더 공유"
@@ -22,12 +16,27 @@ export function SharedFolder({
           <S.KakaoTalkIcon />
           <S.IconText>카카오톡</S.IconText>
         </S.SharedButton>
-        <S.SharedButton onClick={onClick}>
-          <S.FacebookIcon />
-          <S.IconText>페이스북</S.IconText>
-        </S.SharedButton>
-        <S.SharedButton>
-          <S.CopyIcon onClick={handleCopyClipBoard()} />
+        <a
+          target="_blank"
+          href={
+            "http://www.facebook.com/sharer/sharer.php?u=" +
+            "https://codingaring-week11-linkbrary.netlify.app/folder"
+          }
+          rel="noreferrer"
+        >
+          <S.SharedButton>
+            <S.FacebookIcon />
+            <S.IconText>페이스북</S.IconText>
+          </S.SharedButton>
+        </a>
+        <S.SharedButton
+          onClick={() => {
+            handleCopyClipBoard(
+              "https://codingaring-week11-linkbrary.netlify.app"
+            );
+          }}
+        >
+          <S.CopyIcon />
           <S.IconText>링크 복사</S.IconText>
         </S.SharedButton>
       </S.ButtonContainer>

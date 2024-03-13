@@ -31,6 +31,7 @@ export function CategoryNavButtons({ selectFolder, onClick, copyLink }) {
     <>
       {sharedModal && (
         <SharedFolder
+          copyLink={copyLink}
           onClick={onClick}
           selectFolder={selectFolder}
           isOpenModal={sharedModal}
