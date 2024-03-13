@@ -7,25 +7,53 @@ import share from '../../images/share.svg';
 import pen from '../../images/pen.svg';
 import deleteicon from '../../images/delete.svg';
 
-import '../styles/card.css';
-
 import { getAllFolderLink, getFolderLinkData } from '../../api';
 import { React, useEffect, useState } from 'react';
 
 import styled from 'styled-components';
 
-const FolderContainer = styled.div`
+const MainContainer = styled.div`
+  display: flex;
+  column-gap: 2rem;
+  row-gap: 2.5rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 106rem;
+  margin: 0 auto;
+
+  @media (max-width: 1123px) {
+    column-gap: 2.4rem;
+    padding: 0 3.2rem;
+    width: 76.8rem;
+  }
+
+  @media (max-width: 767px) {
+    row-gap: 2rem;
+    width: 38.9rem;
+  }
+`;
+
+const MainContainerEmpty = styled.div`
+  color: #000;
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  padding: 4rem;
+`;
+
+const Folder = styled.div`
   align-items: center;
   display: grid;
   grid-template-areas: 'folders folders add-button';
   justify-content: space-between;
 `;
 
-const TabContainer = styled.div`
+const FolderContainer = styled.div`
   width: 100%;
 `;
 
-const TabOptionContainer = styled.div`
+const OptionContainer = styled.div`
   display: flex;
   width: 1060px;
   justify-content: space-between;
@@ -33,7 +61,7 @@ const TabOptionContainer = styled.div`
   margin-top: 24px;
 `;
 
-const OptionContainer = styled.div`
+const Options = styled.div`
   display: flex;
   align-items: center;
   gap: 1.2rem;
@@ -115,10 +143,10 @@ const FolderList = ({ folderList }) => {
   return (
     <>
       {links ? (
-        <div className="main-container">
-          <TabContainer>
+        <MainContainer>
+          <FolderContainer>
             {folderList ? (
-              <FolderContainer>
+              <Folder>
                 <FolderTab>
                   <Tab onClick={handleLoadAllFolderLink}>전체</Tab>
                   {folderList.map((item) => (
@@ -129,11 +157,11 @@ const FolderList = ({ folderList }) => {
                   폴더 추가
                   <img width="16" height="16" src={add} alt="folder add button" />
                 </FolderAddButton>
-              </FolderContainer>
+              </Folder>
             ) : null}
-            <TabOptionContainer>
+            <OptionContainer>
               <FolderName>{item.name}</FolderName>
-              <OptionContainer>
+              <Options>
                 <Button>
                   <OptionIcon src={share} alt="공유 아이콘" />
                   공유
@@ -146,15 +174,15 @@ const FolderList = ({ folderList }) => {
                   <OptionIcon src={deleteicon} alt="삭제 아이콘" />
                   삭제
                 </Button>
-              </OptionContainer>
-            </TabOptionContainer>
-          </TabContainer>
+              </Options>
+            </OptionContainer>
+          </FolderContainer>
           {links.map((link) => (
             <Card link={link} key={link.id} />
           ))}
-        </div>
+        </MainContainer>
       ) : (
-        <div className="main-container-empty">저장된 링크가 없습니다.</div>
+        <MainContainerEmpty>저장된 링크가 없습니다.</MainContainerEmpty>
       )}
     </>
   );

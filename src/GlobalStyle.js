@@ -1,3 +1,20 @@
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
+:root {
+  --primary: #6d6afe;
+  --red: #ff5b56;
+  --black: #111322;
+  --white: #ffffff;
+
+  --gray100: #373740;
+  --gray60: #9fa6b2;
+  --gray20: #ccd5e3;
+  --gray10: #e7effb;
+
+  --background: #f0f6ff;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,3 +43,7 @@ button {
   background-color: unset;
   cursor: pointer;
 }
+
+`;
+
+export default GlobalStyle;
