@@ -20,5 +20,5 @@ export const Owner = styled.div`
 
 export const Folder = styled.div`
   color: ${({ theme }) => theme.colors.black};
-  ${({ theme }) => theme.fonts.largeBold};
+  ${({ theme }) => theme.fonts.subTitle};
 `;

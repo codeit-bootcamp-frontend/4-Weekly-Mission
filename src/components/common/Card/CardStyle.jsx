@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 340px;
-  height: 334px;
   flex-shrink: 0;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -32,6 +31,10 @@ export const TextBox = styled.div`
   padding: 15px 20px;
   gap: 10px;
   background: ${({ theme }) => theme.colors.white};
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.background};
+  }
 `;
 
 export const Time = styled.div`
