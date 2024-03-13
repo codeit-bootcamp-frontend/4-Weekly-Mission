@@ -32,7 +32,7 @@ export function SharedFolder({ isOpenModal, handleModalClose, selectFolder }) {
         <S.SharedButton
           onClick={() => {
             handleCopyClipBoard(
-              "https://codingaring-week11-linkbrary.netlify.app"
+              "https://codingaring-week11-linkbrary.netlify.app/folder"
             );
           }}
         >
