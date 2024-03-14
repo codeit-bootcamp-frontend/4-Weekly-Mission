@@ -22,9 +22,8 @@ const Sort = ({ onChange }) => {
 
   const handleClick = (title) => {
     onChange(title);
-    setFocus(title.id);
+    setFocus(title.id === null ? null : title.id);
   };
-
   const handleBlur = () => {
     setFocus(true);
   };

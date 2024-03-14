@@ -3,6 +3,7 @@ import App from "./App";
 import Landing from "./pages/Landing/Landing";
 import Shared from "./pages/Shared/Shared";
 import Folder from "./pages/Folder/Folder";
+import Signin from "./pages/Signin/Signin";
 
 const Router = () => {
   return (
@@ -13,6 +14,7 @@ const Router = () => {
           <Route path="shared" element={<Shared />} />
           <Route path="folder" element={<Folder />} />
         </Route>
+        <Route path="/signin" element={<Signin />} />
       </Routes>
     </BrowserRouter>
   );

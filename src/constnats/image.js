@@ -5,6 +5,8 @@ export const MAIN_FACEBOOK = "/assets/logo/main-facebook.svg";
 export const MAIN_TWITTER = "/assets/logo/main-twitter.svg";
 export const MAIN_YOUTUBE = "/assets/logo/main-youtube.svg";
 export const MAIN_INSTAGRAM = "/assets/logo/main-instagram.svg";
+export const SIGN_GOOGLE = "/assets/logo/sign-google.svg";
+export const SIGN_KAKAO = "/assets/logo/sign-kakao.svg";
 
 /* SECTION - 이미지 */
 
@@ -24,5 +26,6 @@ export const EDIT_DELETE = "/assets/icon/delete.svg";
 export const EDIT_SHARE = "/assets/icon/share.svg";
 export const ADD_FOLDER_ICON = "/assets/icon/add.svg";
 export const CARD_STAR = "/assets/icon/star.svg";
-export const CARD_BLUE_STAR = "assets/icon/star-blue.svg";
-export const CARD_KEBAB = "assets/icon/kebab.svg";
+export const CARD_BLUE_STAR = "/assets/icon/star-blue.svg";
+export const CARD_KEBAB = "/assets/icon/kebab.svg";
+export const EYE_CLOSED = "/assets/icon/eye-closed.svg";
