@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { TargetName } from "./ModalDelete";
 import { CloseBtn, EditBtn, ModalTitle } from "./ModalFolderEdit";
 import checkIcon from "../img/check.png";
+import { useState } from "react";
 
 const Modal = styled.div`
   width: 36rem;
@@ -30,6 +31,7 @@ const Folder = styled.li`
   &:hover {
     background-color: #f0f6ff;
   }
+  background-color: ${({ $background }) => $background && "#f0f6ff"};
 `;
 
 const LinkCount = styled.span`
@@ -44,9 +46,14 @@ const CheckIcon = styled.img`
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
+  visibility: ${({ $show }) => ($show ? "visible" : "hidden")};
 `;
 
 function ModalLinkAdd({ type, dispatch, folderList }) {
+  const [currentClick, setCurrentClick] = useState("");
+  const onClick = (value) => {
+    setCurrentClick(value);
+  };
   return (
     <Modal type={type.type}>
       <CloseBtn
@@ -61,10 +68,16 @@ function ModalLinkAdd({ type, dispatch, folderList }) {
       <FolderList>
         {folderList
           ? folderList.map((folder) => (
-              <Folder>
+              <Folder
+                onClick={() => onClick(folder.name)}
+                $background={currentClick === folder.name}
+              >
                 {folder.name}
                 <LinkCount>{folder.link.count}개 링크</LinkCount>
-                <CheckIcon src={checkIcon} />
+                <CheckIcon
+                  src={checkIcon}
+                  $show={currentClick === folder.name}
+                />
               </Folder>
             ))
           : null}
