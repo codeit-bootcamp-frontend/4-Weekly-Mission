@@ -1,4 +1,3 @@
-import { getCategory } from "data-access/getCategory";
 import "./FolderContent.css";
 import { useEffect, useState } from "react";
 import { CategoryNav } from "pages/Folder/components/CategoryNav/CategoryNav";
@@ -9,17 +8,11 @@ import { CardItem } from "pages/components/CardItem";
 import { AddFolderContent } from "components/Modals/AddFolderContent/AddFolderContent";
 import { Button } from "../CategoryButton/CategoryButtonStyled";
 
-export function FolderContent() {
+export function FolderContent({ data }) {
   const [folder, setFolder] = useState([]);
-  const [data, setData] = useState();
   const [folderId, setFolderId] = useState();
   const [activeCategoryName, setActiveCategoryName] = useState("전체");
   const [isAddToFolder, setIsAddToFolder] = useState(false);
-
-  const handleLoadCategory = async () => {
-    const { data } = await getCategory();
-    setData(data);
-  };
 
   const handleLoadFolder = async ({ folderId }) => {
     const { data } = await getFolders({ folderId });
@@ -40,7 +33,6 @@ export function FolderContent() {
   };
 
   useEffect(() => {
-    handleLoadCategory();
     handleLoadFolder({ folderId });
   }, [folderId]);
 
@@ -76,13 +68,16 @@ export function FolderContent() {
           폴더 추가 +
         </button>
       </div>
-      <CategoryNav activeCategoryName={activeCategoryName} />
+      <CategoryNav
+        activeCategoryName={activeCategoryName}
+        copyLink={activeCategoryName}
+      />
       {!folder.length ? (
         <EmptyLink />
       ) : (
         <CardList>
           {folder?.map((link) => (
-            <CardItem key={link?.id} {...link} />
+            <CardItem data={data} key={link?.id} {...link} />
           ))}
         </CardList>
       )}

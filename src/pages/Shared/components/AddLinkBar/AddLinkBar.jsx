@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./AddLinkBar.css";
-import { ADD_ICON } from "./constans";
+import { ADD_ICON } from "./constant";
 import { AddToFolder } from "components/Modals/AddToFolder/AddToFolder";
 
-export function AddLinkBar() {
+export function AddLinkBar({ data }) {
   const [inputValue, setInputValuer] = useState();
   const [isEmpty, setIsEmpty] = useState(false);
   const [isShowAddToFolder, setIsAddToFolder] = useState(false);
@@ -54,6 +54,8 @@ export function AddLinkBar() {
             isOpenModal={isShowAddToFolder}
             handleModalClose={handleCloseAddToFolder}
             folderURL={inputValue}
+            linkURL={inputValue}
+            data={data}
           />
         )}
       </div>

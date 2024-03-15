@@ -13,6 +13,7 @@ export const CardItem = ({
   alt,
   description,
   created_at,
+  data,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
   const location = useLocation();
@@ -38,6 +39,7 @@ export const CardItem = ({
             isHovered={isHovered}
             currentLocation={currentLocation}
             selectURL={url}
+            data={data}
           />
         </Card>
       </a>
