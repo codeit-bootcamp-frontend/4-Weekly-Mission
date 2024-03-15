@@ -1,6 +1,7 @@
 import axios from "axios";
 import { SERVER_URL } from "./constant";
 
+
 export async function requestAxiosData(path) {
   try {
     const response = await axios.get(`${SERVER_URL}/${path}`);
@@ -28,3 +29,4 @@ export function folderLinkDataApi(id) {
     ? requestAxiosData("users/1/links")
     : requestAxiosData(`users/1/links?folderid=${folderId}`);
 }
+

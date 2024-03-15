@@ -1,4 +1,6 @@
+
 import styled, { keyframes } from "styled-components";
+
 
 const spin = keyframes`
     0%{
@@ -20,3 +22,4 @@ const Loading = styled.div`
 `;
 
 export default Loading;
+

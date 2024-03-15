@@ -1,3 +1,4 @@
+
 import facebookIcon from "../img/facebook.png";
 import twitterIcon from "../img/twitter.png";
 import youtubeIcon from "../img/youtube.png";
@@ -114,3 +115,4 @@ function FooterBlock() {
 }
 
 export default FooterBlock;
+

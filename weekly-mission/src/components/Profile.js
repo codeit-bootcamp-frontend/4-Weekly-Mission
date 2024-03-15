@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 
 const ProfileBlock = styled.div`
@@ -40,3 +41,4 @@ function Profile({ userData }) {
 }
 
 export default Profile;
+

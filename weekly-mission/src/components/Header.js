@@ -1,3 +1,4 @@
+
 import logoImg from "../img/logo.png";
 import { profileDataApi } from "../api.js";
 import { useEffect, useState } from "react";
@@ -52,3 +53,4 @@ function HeaderBlock() {
 }
 
 export default HeaderBlock;
+

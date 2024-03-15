@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 
 const OwnerCard = styled.div`
@@ -52,3 +53,4 @@ function OwnerInformation({ information }) {
 }
 
 export default OwnerInformation;
+
