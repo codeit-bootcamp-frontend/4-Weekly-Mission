@@ -1,19 +1,18 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
+  ${({ theme }) => theme.displays.spaceBetween};
   width: 400px;
   padding: 18px 15px;
-  justify-content: space-between;
-  align-items: center;
 
   border-radius: 8px;
-  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-  background: var(--Linkbrary-white, #fff);
+  border: 1px solid ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.white};
 `;
 
 export const Input = styled.input`
   width: 100%;
+  border: none;
 `;
 
 export const Image = styled.img`

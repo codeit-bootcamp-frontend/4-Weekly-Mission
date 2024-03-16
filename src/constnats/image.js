@@ -5,8 +5,8 @@ export const MAIN_FACEBOOK = "/assets/logo/main-facebook.svg";
 export const MAIN_TWITTER = "/assets/logo/main-twitter.svg";
 export const MAIN_YOUTUBE = "/assets/logo/main-youtube.svg";
 export const MAIN_INSTAGRAM = "/assets/logo/main-instagram.svg";
-export const SIGN_GOOGLE = "/assets/logo/sign-google.svg";
-export const SIGN_KAKAO = "/assets/logo/sign-kakao.svg";
+export const SIGN_GOOGLE = "/assets/logo/sign-google.png";
+export const SIGN_KAKAO = "/assets/logo/sign-kakao.png";
 
 /* SECTION - 이미지 */
 

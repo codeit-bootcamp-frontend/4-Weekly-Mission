@@ -11,7 +11,7 @@ const FormSignin = () => {
       <Title />
       <InputEmail />
       <InputPassword />
-      <Button />
+      <Button>로그인</Button>
       <Social />
     </S.Form>
   );

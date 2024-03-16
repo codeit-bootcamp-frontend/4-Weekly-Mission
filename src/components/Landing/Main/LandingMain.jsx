@@ -1,5 +1,6 @@
 import * as S from "./LandingMainStyle";
 import { LANDING_CONTENT_LIST } from "../../../constnats/lists";
+import { Link } from "react-router-dom";
 
 const LandingMain = () => {
   return (

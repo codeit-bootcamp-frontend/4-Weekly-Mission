@@ -199,13 +199,13 @@
 - popover 추가
 - kebab버튼 클릭시 popover 표시
 
-\* TODO - 25. signin 페이지 생성
+\* TODO - 26. signin 페이지 생성
 
 \* NOTE
 
 - 기본ui생성
 
-\* TODO - 25. signup 페이지 생성
+\* TODO - 27. signup 페이지 생성
 
 \* NOTE
 

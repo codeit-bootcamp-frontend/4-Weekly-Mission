@@ -13,7 +13,7 @@ const FormSignup = () => {
       <InputEmail />
       <InputPassword />
       <InputPasswordCheck />
-      <Button />
+      <Button>회원가입</Button>
       <Social />
     </S.Form>
   );
