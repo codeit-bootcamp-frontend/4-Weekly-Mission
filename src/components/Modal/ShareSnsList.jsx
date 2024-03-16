@@ -44,7 +44,7 @@ function ShareLists() {
     <Container>
       {SHARE_LIST.map((list) => (
         <ListContainer key={list.name}>
-          <img src={list.img} />
+          <img src={list.img} alt="" />
           <span>{list.name}</span>
         </ListContainer>
       ))}

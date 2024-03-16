@@ -30,6 +30,7 @@ const CloseButton = styled.button`
   position: absolute;
   top: 20px;
   right: 20px;
+  cursor: pointer;
 `;
 
 const ModalTitle = styled.h3`
@@ -62,23 +63,31 @@ const ModalButton = styled.button`
       : "var(--gra-purpleblue-to-skyblue, linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%));"};
 `;
 
-const ModalInfo = styled.span`
+const ModalInfo = styled.p`
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  overflow-wrap: break-word;
   text-align: center;
   font-size: 14px;
   color: var(--gray2);
   margin: -15px 0 10px;
 `;
 
-export function ModalBase({ children, title, isClose, btntext }) {
+export function ModalBase({ children, title, isClose, btntext, addLink }) {
   const folderContextValue = useContext(FolderNameContext);
   const cardContextValue = useContext(CardLinkContext);
   const info = folderContextValue
     ? folderContextValue.folderName
-    : cardContextValue.url;
+    : cardContextValue
+    ? cardContextValue.url
+    : addLink;
+
   return (
     <Container>
       <CloseButton onClick={isClose}>
-        <img src={closeBtn} />
+        <img src={closeBtn} alt="" />
       </CloseButton>
       <ModalTitle>{title}</ModalTitle>
       {children || <ModalInfo>{info}</ModalInfo>}

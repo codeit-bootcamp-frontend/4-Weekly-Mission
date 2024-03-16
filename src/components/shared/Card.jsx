@@ -99,7 +99,7 @@ const Card = ({ link }) => {
     <CardLinkContext.Provider value={{ url }}>
       <Container>
         <StarButton onClick={handleStarClick}>
-          <img src={active ? selectedStarIcon : starIcon} />
+          <img src={active ? selectedStarIcon : starIcon} alt="" />
         </StarButton>
 
         <KebabButton>
@@ -109,6 +109,7 @@ const Card = ({ link }) => {
               e.stopPropagation();
               setView(!view);
             }}
+            alt=""
           />
           {view && <Dropdown />}
         </KebabButton>

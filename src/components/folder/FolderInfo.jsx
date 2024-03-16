@@ -4,6 +4,10 @@ import { FolderContext, FolderIdContext } from "../../pages/Folder";
 import FoderOptionMenu from "./FoderOptionMenu";
 import { FolderButton } from "./FolderButton";
 import FolderTitle from "./FolderTitle";
+import ModalWithInput from "../Modal/ModalWithInput";
+import ModalBase from "../Modal/ModalBase";
+import { createPortal } from "react-dom";
+import Backdrop from "../common/Backdrop";
 
 const ButtonsWrapper = styled.div`
   display: flex;
@@ -38,13 +42,17 @@ export const FolderButtonsWrapper = styled.ul`
   }
 `;
 
-const AddFolderButton = styled.a`
+const AddFolderButton = styled.button`
+  padding: 0;
+  border: none;
+  background: transparent;
   width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   font-weight: 500;
+  font-size: 16px;
   gap: 3px;
 
   span {
@@ -90,6 +98,21 @@ export const FolderNameContext = createContext();
 const FolderInfo = ({ folders }) => {
   const { folderId: activeFolderId, setFolderId } = useContext(FolderContext);
   const [folderName, setFolderName] = useState("전체");
+  const [active, setActive] = useState(false);
+
+  const openModal = () => setActive(true);
+  const closeModal = () => setActive(false);
+
+  const ModalInput = ModalWithInput(ModalBase);
+
+  const modal = createPortal(
+    <ModalInput isClose={closeModal} title="폴더 추가" btntext="추가하기" />,
+    document.getElementById("modal")
+  );
+  const backdrop = createPortal(
+    <Backdrop isClose={closeModal} />,
+    document.getElementById("backdrop")
+  );
 
   return (
     <FolderNameContext.Provider value={{ folderName }}>
@@ -115,10 +138,12 @@ const FolderInfo = ({ folders }) => {
             );
           })}
         </FolderButtonsWrapper>
-        <AddFolderButton>
+        <AddFolderButton onClick={openModal}>
           <span>폴더 추가</span>
           <span>+</span>
         </AddFolderButton>
+        {active && modal}
+        {active && backdrop}
       </ButtonsWrapper>
 
       <FolderMenuWrapper>

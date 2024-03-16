@@ -35,7 +35,7 @@ const Container = styled.div`
 const SearchBar = () => {
   return (
     <Container>
-      <img src={searchIcon} />
+      <img src={searchIcon} alt="" />
       <input type="text" placeholder="링크를 검색해 보세요" />
     </Container>
   );
