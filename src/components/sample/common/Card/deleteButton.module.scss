@@ -1,0 +1,24 @@
+.deleteButton {
+  display: inline-flex;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--grayscale300);
+  background: var(--white);
+  cursor: pointer;
+
+  &:disabled {
+    background: var(--grayscale300);
+  }
+  &:hover {
+    background: var(--grayscale100);
+  }
+  &:active {
+    background: var(--grayscale100);
+  }
+  &:focus {
+    border: 1px solid var(--grayscale500);
+  }
+}
