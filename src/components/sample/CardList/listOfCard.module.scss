@@ -1,0 +1,161 @@
+// listOfCard scss
+
+.link {
+  text-decoration: none;
+}
+
+.card {
+  width: 17.1875rem;
+  height: 16.25rem;
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: solid 0.0625rem rgba(0, 0, 0, 0.1);
+  margin: 0;
+  transition: transform 0.3s ease;
+
+  // 호버이벤트
+  &:hover {
+    filter: brightness(105%);
+    transform: translateY(-0.063rem);
+  }
+
+  .cardBody {
+    position: relative;
+    width: 14.1875rem;
+    height: 13.75rem;
+
+    .cardContainer {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      align-items: flex-start;
+      height: 7.125rem;
+      margin-bottom: 2.6875rem;
+      gap: 0.75rem;
+
+      .cardHeader {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0;
+      }
+    }
+  }
+
+  .profileImage {
+    height: 1.75rem;
+  }
+
+  .stack {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .stack > :not(:first-child) {
+    margin-left: -0.625rem;
+  }
+
+  .overflowCount {
+    background-color: var(--white);
+    border-radius: 1.875rem;
+    width: 2.0625rem;
+    height: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--grayscale500);
+    font-size: 0.75rem;
+    z-index: 1;
+  }
+
+  .messageContainer {
+    font-size: 1rem;
+
+    .messageCount {
+      font-weight: bold;
+    }
+  }
+
+  .cardFooter {
+    position: relative;
+    height: 3.3125rem;
+    z-index: 100;
+    padding: 0;
+    margin: 0;
+
+    .separator {
+      border: solid 0.0625rem rgba(0, 0, 0, 0.1);
+      margin-bottom: 0.625rem;
+      position: relative;
+      z-index: 100;
+    }
+
+    .emojiBadge {
+      display: flex;
+      gap: 0.625rem;
+      position: relative;
+      z-index: 100;
+      padding: 0;
+      margin-right: 0;
+    }
+  }
+}
+
+.shadowImage {
+  position: absolute;
+  bottom: 0rem;
+  right: 0rem;
+  z-index: 10;
+  border-bottom-right-radius: 1rem;
+}
+
+// 반응형
+@media (max-width: 768px) {
+  .card {
+    width: 13rem;
+    height: 14.5rem;
+    padding: 1rem;
+
+    .cardBody {
+      width: 10.438rem;
+      height: 12.25rem;
+    }
+
+    .cardContainer {
+      height: 7.125rem;
+      gap: 0.75rem;
+      margin-bottom: 2.063rem;
+
+      .cardHeader {
+        font-size: 1.125rem;
+      }
+
+      .messageContainer {
+        font-size: 0.875rem;
+      }
+    }
+
+    .cardFooter {
+      height: 3.063rem;
+      width: 10.438rem;
+      padding: 0;
+      margin-right: 2rem;
+
+      .separator {
+        margin-bottom: 0.25rem;
+      }
+
+      .emojiBadge {
+        transform: scale(0.85);
+        gap: 0.2rem;
+        padding: 0;
+        margin-right: 30rem;
+      }
+    }
+  }
+  .shadowImage {
+    width: 7rem;
+    height: 7rem;
+  }
+}
