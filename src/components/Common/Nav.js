@@ -1,5 +1,5 @@
 import React from "react";
-import Account from "../Account/Account";
+import Account from "../Account";
 import logo from "../../image/Linkbrary_logo.svg";
 import "./Nav.css";
 

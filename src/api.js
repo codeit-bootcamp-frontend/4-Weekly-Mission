@@ -21,7 +21,7 @@ export async function getFolders() {
 
 export async function getFolderLinks(id) {
   const userId = 1;
-  const folderId = id === "" ? null : +id;
+  const folderId = id ? +id : null;
   const url = `${BASE_URL}/users/${userId}/links${
     folderId ? `?folderId=${folderId}` : ""
   }`;

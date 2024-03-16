@@ -1,4 +1,4 @@
-.LinkFormBox {
+.link-form-box {
   display: flex;
   justify-content: center;
   padding: 6rem 32rem 9rem;
@@ -14,7 +14,7 @@
   }
 }
 
-.LinkFormWrapper {
+.link-form-wrapper {
   display: flex;
   position: relative;
   justify-content: flex-start;
@@ -35,7 +35,7 @@
   }
 }
 
-.LinkInput {
+.link-input {
   width: 100%;
   max-width: 106rem;
   height: 4.3rem;
@@ -57,7 +57,7 @@
   }
 }
 
-.AddLinkButton {
+.add-link-button {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -25,21 +25,17 @@
   position: relative;
   width: 32.5rem;
   height: 32.7rem;
-  border-radius: 15px;
-  overflow: hidden;
+  border-radius: 1.5rem;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s;
-  overflow: hidden;
 
   &:hover {
     background-color: var(--gray5);
-
-    img {
-      max-height: 19.2rem;
-    }
   }
 
-  .img {
+  .card-img {
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
     height: 19.2rem;
     overflow: hidden;
   }
@@ -95,28 +91,65 @@
       color: #333333;
     }
   }
-}
+  .kebab-menu {
+    position: absolute;
+    top: 20rem;
+    right: 2rem;
+    z-index: 1000;
+    overflow: visible;
 
-.kebab-menu-icon {
-  position: absolute;
-  bottom: 11rem;
-  right: 1rem;
-  width: 3rem;
-  height: 1.7rem;
-  cursor: pointer;
-  background: none;
-  border: none;
-  transition: none;
+    .kebab-menu-icon {
+      width: 2.1rem;
+      height: 1.7rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: none;
+    }
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: none;
+    .kebab-list {
+      position: absolute;
+      top: 100%;
+      width: max-content;
+      z-index: 100000;
+      overflow: visible;
+      white-space: nowrap;
+      background: #fff;
+      box-shadow: 0 0.2rem 0.8rem 0 rgba(51, 50, 54, 0.1);
+
+      ul {
+        list-style: none;
+        padding: 0;
+        row-gap: 0.2rem;
+        width: 10rem;
+
+        li {
+          display: flex;
+          cursor: pointer;
+          align-items: center;
+          justify-content: center;
+          list-style-type: none;
+          font-size: 1.4rem;
+          color: var(--gray0);
+          height: 3.1rem;
+          transition: color 0.3s;
+
+          &:hover {
+            background-color: var(--gray4);
+            color: var(--primary);
+          }
+        }
+      }
+    }
+
+    .kebab-img {
+      width: 2.1rem;
+      height: 1.7rem;
+    }
   }
 }
 
-.card:hover .img img {
+.card:hover .card-img img {
   transform: scale(1.3);
 }
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getUser } from "../../api";
-import "./Account.css";
+import "./index.css";
 
 const Account = () => {
   const [userData, setUserData] = useState(null);
