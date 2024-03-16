@@ -43,5 +43,8 @@ bower_components
 psd
 thumb
 sketch
-
+# 내가 추가해봄
+.gitignore
+package-lock.json
+package.json
 # End of https://www.toptal.com/developers/gitignore/api/react
