@@ -1,0 +1,121 @@
+.badge {
+  width: 4.125rem;
+  height: 2.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  background: rgba(0, 0, 0, 0.54);
+  @media (max-width: 767px) {
+    max-width: 3.4375rem;
+    height: 2rem;
+  }
+}
+
+.badge_emoji {
+  width: 2.625rem;
+  height: 1.25rem;
+  gap: 0.125rem;
+  display: flex;
+  align-items: center;
+
+  .img_text {
+    width: 1.25rem;
+    height: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    letter-spacing: 0em;
+    text-align: center;
+    color: var(--white);
+  }
+}
+
+.badgeCollegeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5625rem;
+  height: 1.25rem;
+  padding: 0rem 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--purple100);
+}
+
+.badgeCollegeText {
+  width: 1.5625rem;
+  height: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: -0.005em;
+  text-align: center;
+  color: var(--purple600);
+}
+
+.familyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5625rem;
+  height: 1.25rem;
+  padding: 0rem 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--green100);
+}
+
+.familyText {
+  width: 1.5625rem;
+  height: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: -0.005em;
+  text-align: center;
+  color: var(--green500);
+}
+
+.friendsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2.5625rem;
+  height: 1.25rem;
+  padding: 0rem 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--blue100);
+}
+
+.friendsText {
+  width: 1.5625rem;
+  height: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: -0.005em;
+  text-align: center;
+  color: var(--blue500);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 41px;
+  height: 1.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--orange100);
+}
+
+.text {
+  width: 1.5625rem;
+  height: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: -0.005em;
+  text-align: center;
+  color: var(--orange500);
+}

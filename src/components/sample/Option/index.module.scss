@@ -1,0 +1,87 @@
+.toggleButtons {
+  width: 15.25rem;
+  height: 2.5rem;
+  display: flex;
+  background-color: var(--grayscale200);
+  border-radius: 0.375rem;
+
+  button {
+    flex: 1;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    color: var(--grayscale900);
+
+    &.selectedOption {
+      background-color: var(--white);
+      border-radius: 0.375rem;
+      border: solid 0.125rem var(--purple600);
+      color: var(--purple700);
+      font-weight: bold;
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        font-weight 0.3s ease;
+    }
+  }
+}
+
+.buttonsContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 10.5rem);
+  gap: 1rem;
+  height: 10.5rem;
+  width: 10.5rem;
+  margin: 2.8125rem 0 4.3125rem;
+
+  //모바일 반응형
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    height: 20rem;
+    width: 20rem;
+  }
+}
+
+.buttonStyle {
+  width: 10.5rem;
+  height: 10.5rem;
+  border-radius: 1rem;
+  border: none;
+  background-size: cover;
+  background-position: center;
+
+  img {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  //모바일 반응형
+  @media screen and (max-width: 768px) {
+    height: 9.625rem;
+    width: 9.625rem;
+  }
+}
+
+.selectedImage {
+  opacity: 0.8;
+}
+
+.beige {
+  background-color: var(--orange200);
+}
+
+.purple {
+  background-color: var(--purple200);
+}
+
+.blue {
+  background-color: var(--blue200);
+}
+
+.green {
+  background-color: var(--green200);
+}

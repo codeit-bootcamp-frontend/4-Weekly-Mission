@@ -1,0 +1,9 @@
+.profileImg {
+  position: relative;
+}
+
+.profileImg img {
+  display: block;
+  border-radius: 50%;
+  outline: 0.09375rem solid var(--white);
+}
