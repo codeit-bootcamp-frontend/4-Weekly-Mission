@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Tab = styled.button`
   padding: 0.8rem 1.2rem;
@@ -11,7 +11,12 @@ const Tab = styled.button`
   font-weight: 400;
 
   &:hover,
-  &active {
+  &:active {
+    background: var(--primary);
+    color: #fff;
+  }
+
+  &:focus {
     background: var(--primary);
     color: #fff;
   }

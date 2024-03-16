@@ -1,0 +1,89 @@
+.modal_container {
+  background: rgba(0, 0, 0, 0.4);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+}
+
+.modal_layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 360px;
+  background: var(--Linkbrary-white, #fefefe);
+  border-radius: 15px;
+  gap: 24px;
+
+  padding: 32px 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+}
+
+.modal_title {
+  color: var(--Linkbrary-gray100, #373740);
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.input {
+  display: flex;
+  width: 280px;
+  padding: 18px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+}
+
+.button {
+  width: 280px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 8px;
+  color: var(--Grey-Light, #f5f5f5);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 600;
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+}
+
+.closeButtonImg {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.delete_button {
+  background: var(--Linkbrary-red, #ff5b56);
+  width: 280px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 8px;
+  color: var(--Grey-Light, #f5f5f5);
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.modal_sub_title {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  margin-top: 8px;
+}

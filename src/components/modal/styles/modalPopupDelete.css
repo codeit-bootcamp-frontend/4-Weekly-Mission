@@ -1,0 +1,12 @@
+.modal_title_container {
+  display: flex;
+  width: 280px;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.deleteButton {
+  background: var(--Linkbrary-red, #ff5b56);
+}
