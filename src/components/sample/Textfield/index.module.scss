@@ -1,0 +1,99 @@
+.dropDownContainer {
+  position: relative;
+  width: 20rem;
+
+  .selectContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20rem;
+    padding: 0.75rem 1rem;
+    background-color: var(--white);
+    cursor: pointer;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    border: 0.0625rem solid var(--grayscale300);
+
+    &:focus {
+      border-radius: 0.5rem;
+      border: 0.125rem solid var(--grayscale500);
+    }
+
+    &.active {
+      border-radius: 0.5rem;
+      border: 0.125rem solid var(--grayscale500);
+    }
+
+    &:hover {
+      border-radius: 0.5rem;
+      border: 0.0625rem solid var(--grayscale500);
+    }
+
+    &:disabled {
+      border-radius: 0.5rem;
+      border: 0.0625rem solid var(--grayscale300);
+      background: var(--grayscale100);
+    }
+
+    .selectedOption {
+      border: none;
+      color: var(--grayscale500);
+      background-color: #fff;
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.625rem;
+      letter-spacing: -0.01rem;
+    }
+  }
+
+  .dropdownList {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    overflow-y: auto;
+    display: inline-flex;
+    padding: 0.625rem 0.0625rem;
+    flex-direction: column;
+    margin-top: 0.5rem;
+    border-radius: 0.5rem;
+    border: 0.0625rem solid var(--grayscale300);
+    background: var(--white);
+    box-shadow: 0 0.125rem 0.75rem 0 rgba(0, 0, 0, 0.08);
+
+    .dropdownItem {
+      padding: 0.75rem 1rem;
+      display: flex;
+      width: 19.75rem;
+      align-items: center;
+      gap: 0.625rem;
+      cursor: pointer;
+      &:hover,
+      &[aria-selected='true'] {
+        background-color: var(--grayscale100);
+      }
+    }
+  }
+}
+
+.icon {
+  display: flex;
+}
+
+.selectContainer.noOptionsError {
+  border: 0.0625rem solid var(--error);
+  width: 20rem;
+  height: 3.125rem;
+}
+
+.noOptionsError {
+  width: 20rem;
+  height: 1.125rem;
+  color: var(--error);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.125rem;
+  letter-spacing: -0.00375rem;
+}

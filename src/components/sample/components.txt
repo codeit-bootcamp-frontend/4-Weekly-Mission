@@ -1,0 +1,10 @@
+공통으로 사용되지 않는 컴포넌트는
+폴더로 만들어서 관리.
+
+ex : Components/MainPage/ComponentName.jsx, componentName.scss
+형식으로 관리. 
+s
+컴포넌트 안 폴더에서 
+jsx파일이 하나밖에 없으면
+index.jsx로 하고 import 할 때 폴더명만
+적어주면 import 됩니다.
