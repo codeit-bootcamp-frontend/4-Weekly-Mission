@@ -1,60 +1,60 @@
 import styled from "styled-components";
 
-const SubFolderBtnList = styled.div`
-	max-width: 85%;
-	flex-wrap: wrap;
-	display: flex;
-	gap: 8px;
+export const SubFolderBtnList = styled.div`
+  max-width: 85%;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 8px;
 
-	@media (max-width: 767px) {
-		max-width: 100%;
-	}
+  @media (max-width: 767px) {
+    max-width: 100%;
+  }
 `;
 
-const SubFolderUtilList = styled.div`
-	display: flex;
-	gap: 12px;
+export const SubFolderUtilList = styled.div`
+  display: flex;
+  gap: 12px;
 `;
 
-const SubFolderUtil = styled.div`
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin-bottom: 24px;
+export const SubFolderUtil = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
 
-	@media (max-width: 767px) {
-		row-gap: 12px;
-		flex-direction: column;
-		align-items: flex-start;
-	}
+  @media (max-width: 767px) {
+    row-gap: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
-const CurrentSubFolder = styled.p`
-	font-family: Pretendard;
-	font-size: 2.4rem;
-	font-style: normal;
-	font-weight: 600;
-	line-height: normal;
-	letter-spacing: -0.2px;
+export const CurrentSubFolder = styled.p`
+  font-family: Pretendard;
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
 
-	@media (max-width: 767px) {
-		font-size: 2 rem;
-	}
+  @media (max-width: 767px) {
+    font-size: 2 rem;
+  }
 `;
 
-const Button = styled.button`
-	display: flex;
-	align-items: center;
-	text-align: center;
-	gap: 4px;
-	background-color: var(--LBrary-white);
+export const Button = styled.button`
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  background-color: var(--LBrary-white);
 
-	@media (max-width: 767px) {
-		padding: 0;
-	}
+  @media (max-width: 767px) {
+    padding: 0;
+  }
 `;
 
-const AddFolderButton = styled.button`
+export const AddFolderButton = styled.button`
 	display: flex;
 	align-items: center;
 	text-align: center;
@@ -80,61 +80,49 @@ const AddFolderButton = styled.button`
 	}
 `;
 
-const AddImage = styled.div`
-	background-image: url("add.svg");
-	width: 16px;
-	height: 16px;
+export const AddImage = styled.div`
+  background-image: url("add.svg");
+  width: 16px;
+  height: 16px;
 
-	@media (max-width: 767px) {
-		background-image: url("addwhite.svg");
-	}
+  @media (max-width: 767px) {
+    background-image: url("addwhite.svg");
+  }
 `;
 
-const SubFolderBtn = styled.button`
-	display: flex;
-	align-items: center;
-	text-align: center;
-	gap: 4px;
-	background-color: ${({ state }) =>
-		state === "true" ? `var(--LBrary-Primary-color)` : `var(--LBrary-white);`};
-	color: ${({ state }) =>
-		state === "true" ? `var(--LBrary-White);` : `var(--LBrary-Black);`};
+export const SubFolderBtn = styled.button`
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  background-color: ${({ state }) =>
+    state === "true" ? `var(--LBrary-Primary-color)` : `var(--LBrary-white);`};
+  color: ${({ state }) =>
+    state === "true" ? `var(--LBrary-White);` : `var(--LBrary-Black);`};
 
-	@media (max-width: 1124px) {
-		font-size: 1.6rem;
-		font-weight: 400;
-	}
+  @media (max-width: 1124px) {
+    font-size: 1.6rem;
+    font-weight: 400;
+  }
 `;
 
-const EmptySpace = styled.div`
-	color: var(--LBrary-Black);
-	padding: 41px 0 35px;
-	margin: 0 auto;
-	height: calc(100vh - 738px);
-	text-align: center;
-	font-family: Pretendard;
-	font-size: 1.6rem;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 150%;
+export const EmptySpace = styled.div`
+  color: var(--LBrary-Black);
+  padding: 41px 0 35px;
+  margin: 0 auto;
+  height: calc(100vh - 738px);
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
 
-	@media (max-width: 1124px) {
-		height: calc(100vh - 782px);
-	}
+  @media (max-width: 1124px) {
+    height: calc(100vh - 782px);
+  }
 
-	@media (max-width: 767px) {
-		font-size: 1.4rem;
-	}
+  @media (max-width: 767px) {
+    font-size: 1.4rem;
+  }
 `;
-
-export {
-	SubFolderBtn,
-	SubFolderBtnList,
-	EmptySpace,
-	AddFolderButton,
-	AddImage,
-	SubFolderUtilList,
-	SubFolderUtil,
-	CurrentSubFolder,
-	Button,
-};
