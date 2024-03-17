@@ -19,7 +19,7 @@ import {
 } from "src/components/LinkSubFolder.Styles";
 import LinkCardCollection from "src/components/LinkCardCollection";
 import LinkSearchBar from "src/components/LinkSearchBar";
-// import Modal from "src/components/Utils/Modal";
+import Modal from "src/components/Utils/Modal";
 
 const StyledHeadNav = styled(HeadNav)`
   position: relative;
@@ -73,7 +73,7 @@ export default function Folder({ userId = 1 }) {
       setIsCurrentFolderAll(true);
       return;
     }
-    // setSearchParams({ folderId: id });
+    setSearchParams({ folderId: `${id}` });
     setIsCurrentFolderAll(false);
   };
 
@@ -141,14 +141,14 @@ export default function Folder({ userId = 1 }) {
 
   return (
     <>
-      {/* <Modal
+      <Modal
         isOpened={isModalOpened}
         modalType={currentModalType}
         modalData={modalData}
         isOpenedToggle={() => {
           setIsModalOpened(!isModalOpened);
         }}
-      /> */}
+      />
       <StyledHeadNav />
       <FolderLinkAddBar
         handleSubmit={handleModalOpen}
