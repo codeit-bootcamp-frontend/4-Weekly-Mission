@@ -16,10 +16,10 @@ import {
   CurrentSubFolder,
   EmptySpace,
   SubFolderUtil,
-} from "src/components/LinkSubFolder.Styles.jsx";
-import LinkCardCollection from "src/components/LinkCardCollection.js";
-import LinkSearchBar from "src/components/LinkSearchBar.js";
-import Modal from "src/components/Utils/Modal";
+} from "src/components/LinkSubFolder.Styles";
+import LinkCardCollection from "src/components/LinkCardCollection";
+import LinkSearchBar from "src/components/LinkSearchBar";
+// import Modal from "src/components/Utils/Modal";
 
 const StyledHeadNav = styled(HeadNav)`
   position: relative;
@@ -42,7 +42,7 @@ export default function Folder({ userId = 1 }) {
   const [currentModalType, setCurrentModalType] = useState("removeLink");
   const [modalData, setModalData] = useState("");
 
-  const handleModalOpen = (modalType, modalData) => {
+  const handleModalOpen = (modalType: any, modalData: any) => {
     setModalData("");
     setCurrentModalType(modalType);
     if (modalData) {
@@ -51,10 +51,9 @@ export default function Folder({ userId = 1 }) {
     setIsModalOpened(!isModalOpened);
   };
 
-  const handleShareLoad = async (query) => {
+  const handleShareLoad = async (query: any) => {
     setIsEmptyResponse(false);
     const { data } = await acceptDataFromApiAsync(query);
-    if (error) throw new Error(error.message);
 
     if (data.length === 0) {
       setIsEmptyResponse(true);
@@ -62,7 +61,7 @@ export default function Folder({ userId = 1 }) {
     setItems(data);
   };
 
-  const handleCurrentFolderChange = (id, name) => {
+  const handleCurrentFolderChange = (id: number, name: string) => {
     setCurrentFolderName(name);
     setCurrentFolderQuery(
       `users/${userId}/links${id !== 0 ? `?folderId=${id}` : ""}`
@@ -74,11 +73,11 @@ export default function Folder({ userId = 1 }) {
       setIsCurrentFolderAll(true);
       return;
     }
-    setSearchParams({ folderId: id });
+    // setSearchParams({ folderId: id });
     setIsCurrentFolderAll(false);
   };
 
-  const acceptSubFolderList = async (requestQuery) => {
+  const acceptSubFolderList = async (requestQuery: any) => {
     const { data } = await acceptDataFromApi(requestQuery);
     setSubFolderList(data);
   };
@@ -142,14 +141,14 @@ export default function Folder({ userId = 1 }) {
 
   return (
     <>
-      <Modal
+      {/* <Modal
         isOpened={isModalOpened}
         modalType={currentModalType}
         modalData={modalData}
         isOpenedToggle={() => {
           setIsModalOpened(!isModalOpened);
         }}
-      />
+      /> */}
       <StyledHeadNav />
       <FolderLinkAddBar
         handleSubmit={handleModalOpen}
@@ -163,7 +162,7 @@ export default function Folder({ userId = 1 }) {
           />
           <AddFolderButton
             className="add-sub-folder"
-            onClick={() => handleModalOpen("addSubFolder")}
+            onClick={() => handleModalOpen("addSubFolder", "")}
           >
             폴더 추가 <AddImage />
           </AddFolderButton>

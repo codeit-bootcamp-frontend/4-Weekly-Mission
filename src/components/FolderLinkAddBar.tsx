@@ -1,10 +1,10 @@
 import "./FolderLinkAddBar.css";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
-export default function FolderLinkAddBar({ handleSubmit, subFolderList }) {
+export default function FolderLinkAddBar({ handleSubmit, subFolderList }: any) {
   const [inputValue, setInputValue] = useState("");
 
-  const handleLinkAdd = (e) => {
+  const handleLinkAdd: any = (e: ChangeEvent) => {
     e.preventDefault();
     handleSubmit("addLinkToFolder", [inputValue || "", subFolderList]);
   };
@@ -14,9 +14,9 @@ export default function FolderLinkAddBar({ handleSubmit, subFolderList }) {
       <form onSubmit={handleLinkAdd} className="input-position-origin link-add">
         <label htmlFor="add-link" />
         <input
-          onInput={(e) => {
-            setInputValue(e.target.value);
-          }}
+          // onInput={(e) => {
+          //   setInputValue(e.target.value);
+          // }}
           id="add-link"
           placeholder="링크를 추가해 보세요."
         />

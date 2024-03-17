@@ -3,7 +3,7 @@ import "./LinkCardCollection.css";
 import { Link } from "react-router-dom";
 import KebabMenu from "./Utils/KebabMenu";
 
-const timePassedFromCreate = (time) => {
+const timePassedFromCreate = (time: string) => {
   let currentTime = new Date().getTime();
   if (!time) {
     throw new Error("시간 정보를 제대로 불러오지 못했습니다.");
@@ -31,7 +31,7 @@ const timePassedFromCreate = (time) => {
   return `${timeDiffYr} years ago`;
 };
 
-const FolderCard = function ({ contents, favorite, kebab }) {
+const FolderCard = function ({ contents, favorite, kebab }: any) {
   const {
     id,
     created_at,
@@ -43,8 +43,9 @@ const FolderCard = function ({ contents, favorite, kebab }) {
   } = contents;
 
   const cardImage = { backgroundImage: `url(${imageSource || image_source})` };
-  const timeConversion = new Date(created_at || createdAt); // sampleApi와 userApi의 양식이 달라 호환시키기 위함
-  const passedTime = timePassedFromCreate(timeConversion);
+  const timeString = created_at || createdAt; // sampleApi와 userApi의 양식이 달라 호환시키기 위함
+  const timeConversion = new Date(timeString);
+  const passedTime = timePassedFromCreate(timeString);
   const editedTime = `${timeConversion.getFullYear()}. ${
     timeConversion.getMonth() + 1
   }. ${timeConversion.getDate()}`;
@@ -80,10 +81,10 @@ const LinkCardCollection = function ({
   items,
   favorite = false,
   kebab = false,
-}) {
+}: any) {
   return (
     <section className="folder-card-grid">
-      {items.map((item) => (
+      {items.map((item: any) => (
         <FolderCard
           key={item.id}
           contents={item}

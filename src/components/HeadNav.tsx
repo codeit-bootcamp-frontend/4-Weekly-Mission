@@ -8,7 +8,7 @@ const ProfileData = function () {
   const [profileImg, setProfileIMg] = useState("navProfileImg.png");
 
   const USER = "users/1";
-  const accountVerification = async (user) => {
+  const accountVerification = async (user: any) => {
     const receivedData = await acceptDataFromApi(user);
     if (!receivedData) return;
     const {
@@ -44,9 +44,9 @@ const ProfileData = function () {
   );
 };
 
-export default function HeadNav({ className }) {
+export default function HeadNav() {
   return (
-    <nav className={className}>
+    <nav>
       <div className="flexible-header-in-tablet">
         <a href="index.html">
           <img src="logo.svg" alt="Linkbrary Logo" />

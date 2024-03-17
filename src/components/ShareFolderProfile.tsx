@@ -9,7 +9,7 @@ const ShareFolderProfile = function () {
 
   const FOLDER = "sample/folder";
   const USER = "sample/user";
-  const loadFolderAccountName = async (requestQuery) => {
+  const loadFolderAccountName = async (requestQuery: string) => {
     const { name, profileImageSource } = await acceptDataFromApi(requestQuery);
     if (!name || !profileImageSource) return;
 
@@ -17,7 +17,7 @@ const ShareFolderProfile = function () {
     setFolderImg(profileImageSource);
   };
 
-  const loadFolderProfileData = async (requestQuery) => {
+  const loadFolderProfileData = async (requestQuery: string) => {
     const {
       folder: { name },
     } = await acceptDataFromApi(requestQuery);

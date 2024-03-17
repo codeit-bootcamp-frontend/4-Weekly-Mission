@@ -5,13 +5,21 @@ import {
   SubFolderBtn,
   SubFolderBtnList,
   SubFolderUtilList,
-} from "./LinkSubFolder.Styles.jsx";
+} from "./LinkSubFolder.Styles";
 
-function SubFoldersList({ subFolderData, handleCurrentFolderChange }) {
-  const [subFolderList, setSubFolderList] = useState([]);
+interface SubFolderListProp {
+  subFolderData: any;
+  handleCurrentFolderChange: any;
+}
+
+function SubFoldersList({
+  subFolderData,
+  handleCurrentFolderChange,
+}: SubFolderListProp) {
+  const [subFolderList, setSubFolderList] = useState<any>([]);
   const [selectedBtn, setSelectedBtn] = useState(0);
 
-  const handleBtnStyleChange = async (id, name) => {
+  const handleBtnStyleChange = async (id: number, name: string) => {
     setSelectedBtn(id);
     await handleCurrentFolderChange(id, name);
   };
@@ -24,16 +32,16 @@ function SubFoldersList({ subFolderData, handleCurrentFolderChange }) {
     <SubFolderBtnList>
       <SubFolderBtn
         key={0}
-        state={(selectedBtn === 0).toString()}
+        $state={selectedBtn === 0}
         onClick={() => handleBtnStyleChange(0, "전체")}
         className="link-sub-folder-list"
       >
         전체
       </SubFolderBtn>
-      {subFolderList.map((item) => (
+      {subFolderList.map((item: any) => (
         <SubFolderBtn
           key={item.id}
-          state={(selectedBtn === item.id).toString()}
+          $state={selectedBtn === item.id}
           className="link-sub-folder-list"
           onClick={() => handleBtnStyleChange(item.id, item.name)}
         >
@@ -44,10 +52,10 @@ function SubFoldersList({ subFolderData, handleCurrentFolderChange }) {
   );
 }
 
-function HandleCurrentSubFolder({ handleFunction }) {
+function HandleCurrentSubFolder({ handleFunction }: any) {
   return (
     <SubFolderUtilList>
-      {handleFunction.map((item) => (
+      {handleFunction.map((item: any) => (
         <Button
           key={item.btnName}
           type="button"

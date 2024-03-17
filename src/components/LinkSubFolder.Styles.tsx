@@ -90,15 +90,15 @@ export const AddImage = styled.div`
   }
 `;
 
-export const SubFolderBtn = styled.button`
+export const SubFolderBtn = styled.button<{ $state: boolean }>`
   display: flex;
   align-items: center;
   text-align: center;
   gap: 4px;
-  background-color: ${({ state }) =>
-    state === "true" ? `var(--LBrary-Primary-color)` : `var(--LBrary-white);`};
-  color: ${({ state }) =>
-    state === "true" ? `var(--LBrary-White);` : `var(--LBrary-Black);`};
+  background-color: ${({ $state: state }) =>
+    state === true ? `var(--LBrary-Primary-color)` : `var(--LBrary-white);`};
+  color: ${({ $state: state }) =>
+    state === true ? `var(--LBrary-White);` : `var(--LBrary-Black);`};
 
   @media (max-width: 1124px) {
     font-size: 1.6rem;

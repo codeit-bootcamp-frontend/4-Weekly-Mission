@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@type/*": ["src/@types"]
+      "@types/*": ["src/@types"]
     },
     "target": "es6",
     "lib": ["dom", "dom.iterable", "esnext"],
