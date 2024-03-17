@@ -1,0 +1,12 @@
+.empty-link {
+  width: auto;
+  height: 10rem;
+  margin-top: 4rem;
+}
+
+.isEmpty {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  text-align: center;
+}
