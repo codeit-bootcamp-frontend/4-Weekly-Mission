@@ -1,44 +1,50 @@
-import "./Footer.css";
 import { Link } from "react-router-dom";
+import * as S from "./Footer.style";
 
-const FOOTER_DATA = [
+interface FooterSocialListType {
+  imgUrl: string;
+  imgAlt: string;
+  imgSrc: string;
+}
+
+const FooterSocialList: FooterSocialListType[] = [
   {
-    alt: "redirectFacebook",
-    href: "https://www.facebook.com/",
-    imgUrl: "footer_facebook.png",
+    imgUrl: "https://www.facebook.com/",
+    imgAlt: "to_Facebook",
+    imgSrc: "footer_facebook.png",
   },
   {
-    alt: "redirectTwitter",
-    href: "https://twitter.com/",
-    imgUrl: "footer_X.png",
+    imgUrl: "https://twitter.com/",
+    imgAlt: "to_X",
+    imgSrc: "footer_X.png",
   },
   {
-    alt: "redirectYoutube",
-    href: "https://www.youtube.com/",
-    imgUrl: "footer_youtube.png",
+    imgUrl: "https://www.youtube.com/",
+    imgAlt: "to_Youtube",
+    imgSrc: "footer_youtube.png",
   },
   {
-    alt: "redirectInstagram",
-    href: "https://www.instagram.com",
-    imgUrl: "footer_instagram.png",
+    imgUrl: "https://www.instagram.com",
+    imgAlt: "to_Instagram",
+    imgSrc: "footer_instagram.png",
   },
 ];
 
 export default function Footer() {
   return (
-    <footer>
-      <div className="corporate-information">©codeit - 2023</div>
-      <div className="footer-privacy">
-        <a href="pages/privacy.html">Privacy Policy</a>
-        <a href="pages/faq.html">FAQ</a>
-      </div>
-      <div className="footer-social">
-        {FOOTER_DATA.map((item) => (
-          <Link key={item.alt} to={item.href} target="_blank">
-            <img src={item.imgUrl} alt={item.alt} />
+    <S.Footer>
+      <p className="corporate-information">©codeit - 2023</p>
+      <address className="footer-privacy">
+        <Link to="pages/privacy.html">Privacy Policy</Link>
+        <Link to="pages/faq.html">FAQ</Link>
+      </address>
+      <S.FooterSocialListSection>
+        {FooterSocialList.map((item) => (
+          <Link key={item.imgAlt} to={item.imgUrl}>
+            <img src={item.imgSrc} alt={item.imgAlt} />
           </Link>
         ))}
-      </div>
-    </footer>
+      </S.FooterSocialListSection>
+    </S.Footer>
   );
 }

@@ -1,5 +1,5 @@
 import FolderLinkAddBar from "src/components/FolderLinkAddBar";
-import "src/pages/Folder.css";
+import "./Folder.css";
 import {
   HandleCurrentSubFolder,
   SubFoldersList,

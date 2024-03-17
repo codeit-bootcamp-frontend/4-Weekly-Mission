@@ -1,6 +1,7 @@
-import "./HeadNav.css";
 import { useEffect, useState } from "react";
-import { acceptDataFromApi } from "src/Api";
+import { acceptDataFromApi } from "src/Utils/Api";
+import { Link } from "react-router-dom";
+import * as S from "./HeadNav.style";
 
 const ProfileData = function () {
   const [loginStatus, setLoginStatus] = useState(false);
@@ -8,7 +9,7 @@ const ProfileData = function () {
   const [profileImg, setProfileIMg] = useState("navProfileImg.png");
 
   const USER = "users/1";
-  const accountVerification = async (user: any) => {
+  const accountVerification = async (user: string) => {
     const receivedData = await acceptDataFromApi(user);
     if (!receivedData) return;
     const {
@@ -29,16 +30,16 @@ const ProfileData = function () {
   return (
     <>
       {loginStatus && (
-        <div className="nav-profile">
+        <S.NavProfileSection className="nav-profile">
           <img src={profileImg} alt="loggedInProfileImg" />
           {accountEmail}
-        </div>
+        </S.NavProfileSection>
       )}
 
       {!loginStatus && (
-        <a href="html/signin.html" className="default-btn">
-          로그인
-        </a>
+        <Link to="html/signin.html">
+          <S.NavLoginButton>로그인</S.NavLoginButton>
+        </Link>
       )}
     </>
   );
@@ -46,13 +47,13 @@ const ProfileData = function () {
 
 export default function HeadNav() {
   return (
-    <nav>
-      <div className="flexible-header-in-tablet">
-        <a href="index.html">
+    <S.Nav>
+      <S.NavWrapper>
+        <Link to="index.html">
           <img src="logo.svg" alt="Linkbrary Logo" />
-        </a>
+        </Link>
         <ProfileData />
-      </div>
-    </nav>
+      </S.NavWrapper>
+    </S.Nav>
   );
 }

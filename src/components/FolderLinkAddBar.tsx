@@ -1,4 +1,3 @@
-import "./FolderLinkAddBar.css";
 import { ChangeEvent, useRef, useState } from "react";
 
 export default function FolderLinkAddBar({ handleSubmit, subFolderList }: any) {
