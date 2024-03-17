@@ -2,36 +2,20 @@ import "./LinkCard.css";
 import "./LinkCardCollection.css";
 import { Link } from "react-router-dom";
 import KebabMenu from "./Utils/KebabMenu";
+import timePassedFromCreate from "src/Utils/timePassedFromCreate";
+import UserLinkDataType from "src/@types/UserLinkDataType";
 
-const timePassedFromCreate = (time: string) => {
-  let currentTime = new Date().getTime();
-  if (!time) {
-    throw new Error("시간 정보를 제대로 불러오지 못했습니다.");
-  }
+interface FolderCardDataPropType {
+  contents: UserLinkDataType;
+  favorite?: boolean;
+  kebab?: boolean;
+}
 
-  const createdTime = new Date(time).getTime();
-  const timeDiffMin = Math.floor((currentTime - createdTime) / 1000 / 60); // 분단위
-  if (timeDiffMin < 2) return "1 minute ago";
-  if (timeDiffMin < 60) return `${timeDiffMin} minutes ago`;
-
-  const timeDiffHr = Math.floor(timeDiffMin / 60); // 시
-  if (timeDiffHr === 1) return "1 hour ago";
-  if (timeDiffHr < 24) return `${timeDiffHr} hours ago`;
-
-  const timeDiffDay = Math.floor(timeDiffHr / 24); // 일
-  if (timeDiffDay === 1) return "1 day ago";
-  if (timeDiffDay < 31) return `${timeDiffDay} days ago`;
-  if (timeDiffDay === 31) return "1 month ago";
-
-  const timeDiffMonth = Math.floor(timeDiffDay / 30); // 월
-  if (timeDiffMonth < 12) return `${timeDiffMonth} months ago`;
-
-  const timeDiffYr = Math.floor(timeDiffMonth / 12);
-  if (timeDiffYr === 1) return `1 year ago`;
-  return `${timeDiffYr} years ago`;
-};
-
-const FolderCard = function ({ contents, favorite, kebab }: any) {
+const FolderCard = function ({
+  contents,
+  favorite,
+  kebab,
+}: FolderCardDataPropType) {
   const {
     id,
     created_at,
@@ -43,9 +27,8 @@ const FolderCard = function ({ contents, favorite, kebab }: any) {
   } = contents;
 
   const cardImage = { backgroundImage: `url(${imageSource || image_source})` };
-  const timeString = created_at || createdAt; // sampleApi와 userApi의 양식이 달라 호환시키기 위함
-  const timeConversion = new Date(timeString);
-  const passedTime = timePassedFromCreate(timeString);
+  const timeConversion = new Date(created_at || createdAt!); // sampleApi와 userApi의 양식이 달라 호환시키기 위함
+  const passedTime = timePassedFromCreate(timeConversion);
   const editedTime = `${timeConversion.getFullYear()}. ${
     timeConversion.getMonth() + 1
   }. ${timeConversion.getDate()}`;
@@ -77,11 +60,17 @@ const FolderCard = function ({ contents, favorite, kebab }: any) {
   );
 };
 
+interface LinkCardCollectionPropType {
+  items: UserLinkDataType[];
+  favorite?: boolean;
+  kebab?: any;
+}
+
 const LinkCardCollection = function ({
   items,
   favorite = false,
   kebab = false,
-}: any) {
+}: LinkCardCollectionPropType) {
   return (
     <section className="folder-card-grid">
       {items.map((item: any) => (

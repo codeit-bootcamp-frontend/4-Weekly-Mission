@@ -1,4 +1,4 @@
-const timeStringConversionToPassedTime = (time: Date) => {
+const timePassedFromCreate = (time: Date) => {
   const currentTime = new Date().getTime();
   if (!time) {
     throw new Error("시간 정보를 제대로 불러오지 못했습니다.");
@@ -26,4 +26,4 @@ const timeStringConversionToPassedTime = (time: Date) => {
   return `${timeDiffYr} years ago`;
 };
 
-export default timeStringConversionToPassedTime;
+export default timePassedFromCreate;
