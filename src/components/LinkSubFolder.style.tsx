@@ -29,7 +29,7 @@ export const SubFolderUtil = styled.div`
   }
 `;
 
-export const SubFolderTitle = styled.p`
+export const CurrentSubFolder = styled.p`
   font-family: Pretendard;
   font-size: 2.4rem;
   font-style: normal;
@@ -90,11 +90,7 @@ export const AddImage = styled.div`
   }
 `;
 
-interface SubFolderBtnPropType {
-  $state: boolean;
-}
-
-export const SubFolderBtn = styled.button<SubFolderBtnPropType>`
+export const SubFolderBtn = styled.button<{ $state: boolean }>`
   display: flex;
   align-items: center;
   text-align: center;

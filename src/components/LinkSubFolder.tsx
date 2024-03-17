@@ -5,18 +5,30 @@ import {
   SubFolderBtn,
   SubFolderBtnList,
   SubFolderUtilList,
-} from "./LinkSubFolder.Styles";
+} from "./LinkSubFolder.style";
+
+interface SubFolderDataType {
+  id: number;
+  created_at: string;
+  name: string;
+  user_id: number;
+  favorite: boolean;
+  link: {
+    count: number;
+  };
+}
+type handleCurrentFolderChangeType = (id: number, name: string) => void;
 
 interface SubFolderListProp {
-  subFolderData: any;
-  handleCurrentFolderChange: any;
+  subFolderData: SubFolderDataType[];
+  handleCurrentFolderChange: handleCurrentFolderChangeType;
 }
 
 function SubFoldersList({
   subFolderData,
   handleCurrentFolderChange,
 }: SubFolderListProp) {
-  const [subFolderList, setSubFolderList] = useState<any>([]);
+  const [subFolderList, setSubFolderList] = useState<SubFolderDataType[]>([]);
   const [selectedBtn, setSelectedBtn] = useState(0);
 
   const handleBtnStyleChange = async (id: number, name: string) => {
@@ -38,7 +50,7 @@ function SubFoldersList({
       >
         전체
       </SubFolderBtn>
-      {subFolderList.map((item: any) => (
+      {subFolderList.map((item) => (
         <SubFolderBtn
           key={item.id}
           $state={selectedBtn === item.id}

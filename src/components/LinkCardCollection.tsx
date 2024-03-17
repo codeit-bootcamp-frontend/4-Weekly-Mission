@@ -73,7 +73,7 @@ const LinkCardCollection = function ({
 }: LinkCardCollectionPropType) {
   return (
     <section className="folder-card-grid">
-      {items.map((item: any) => (
+      {items.map((item) => (
         <FolderCard
           key={item.id}
           contents={item}

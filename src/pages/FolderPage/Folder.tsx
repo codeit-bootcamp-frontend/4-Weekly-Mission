@@ -16,7 +16,7 @@ import {
   CurrentSubFolder,
   EmptySpace,
   SubFolderUtil,
-} from "src/components/LinkSubFolder.Styles";
+} from "src/components/LinkSubFolder.style";
 import LinkCardCollection from "src/components/LinkCardCollection";
 import LinkSearchBar from "src/components/LinkSearchBar";
 import Modal from "src/components/Utils/Modal";
@@ -61,7 +61,12 @@ export default function Folder({ userId = 1 }) {
     setItems(data);
   };
 
-  const handleCurrentFolderChange = (id: number, name: string) => {
+  type handleCurrentFolderChangeType = (id: number, name: string) => void;
+
+  const handleCurrentFolderChange: handleCurrentFolderChangeType = (
+    id,
+    name
+  ) => {
     setCurrentFolderName(name);
     setCurrentFolderQuery(
       `users/${userId}/links${id !== 0 ? `?folderId=${id}` : ""}`
