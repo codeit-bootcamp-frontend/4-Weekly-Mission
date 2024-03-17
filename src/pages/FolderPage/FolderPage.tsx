@@ -17,7 +17,7 @@ import {
 } from "src/components/LinkSubFolder.style";
 import LinkCardCollection from "src/components/LinkCardCollection";
 import LinkSearchBar from "src/components/LinkSearchBar";
-import Modal from "src/components/Utils/Modal";
+import ModalLoader from "src/components/Modal/ModalLoader";
 
 export default function FolderPage({ userId = 1 }) {
   const [isCurrentFolderAll, setIsCurrentFolderAll] = useState(true);
@@ -140,7 +140,7 @@ export default function FolderPage({ userId = 1 }) {
 
   return (
     <>
-      <Modal
+      <ModalLoader
         isOpened={isModalOpened}
         modalType={currentModalType}
         modalData={modalData}

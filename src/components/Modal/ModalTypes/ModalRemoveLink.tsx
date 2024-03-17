@@ -1,0 +1,13 @@
+import * as S from "../ModalLoader.style";
+
+export default function ModalRemoveLink({ modalData }: any) {
+  return (
+    <>
+      <S.ModalTitle>
+        링크 삭제 <br />
+        <S.ModalCaption>{modalData}</S.ModalCaption>
+      </S.ModalTitle>
+      <S.ModalButton $errored={true}>삭제하기</S.ModalButton>
+    </>
+  );
+}
