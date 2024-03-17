@@ -1,4 +1,4 @@
-import React from "react"
+import React, { forwardRef } from "react"
 import * as S from "./Select.style"
 
 const SELECT_TYPE = [
@@ -6,16 +6,30 @@ const SELECT_TYPE = [
   { id: 2, title: "폴더에 추가" },
 ]
 
-function Select() {
+function Select(props, ref) {
+  const { onOpenModal, onChangeModalTitle, url, onChangeUrl } = props
+  const deleteLinkHandler = (event, title) => {
+    event.preventDefault()
+
+    onChangeModalTitle(title)
+    onChangeUrl(url)
+    onOpenModal()
+  }
+
   return (
-    <S.Select>
+    <S.Select ref={ref}>
       {SELECT_TYPE.map((option, index) => (
         <S.Option key={option.id}>
-          <S.Button $isPoint={SELECT_TYPE.length - 1 === index}>{option.title}</S.Button>
+          <S.Button
+            $isPoint={SELECT_TYPE.length - 1 === index}
+            onClick={(event) => deleteLinkHandler(event, option.title)}
+          >
+            {option.title}
+          </S.Button>
         </S.Option>
       ))}
     </S.Select>
   )
 }
 
-export default Select
+export default forwardRef(Select)

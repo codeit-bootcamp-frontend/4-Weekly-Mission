@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import Card from "components/UI/Card"
 import { elapsedTimeCalc, momentFormat } from "utils/moment"
 
@@ -10,12 +10,26 @@ import defaultImage from "assets/images/no-image.jpg"
 import useToggle from "hooks/useToggle"
 import Select from "components/select/Select"
 
-function ArticleItem({ data }) {
+function ArticleItem({ data, onOpenModal, onChangeModalTitle, onChangeUrl }) {
   const image = data.image_source || defaultImage
   const elapsedTime = elapsedTimeCalc(data.created_at)
   const date = momentFormat(data.created_at)
 
-  const { toggle, toggleHandler } = useToggle()
+  const { toggle: isKebab, toggleHandler: kebabToggleHandler } = useToggle()
+  const kebabRef = useRef()
+
+  useEffect(() => {
+    const handleCloseKekbab = (event) => {
+      if (isKebab && kebabRef.current && !kebabRef.current.contains(event.target)) {
+        kebabToggleHandler()
+      }
+    }
+
+    document.addEventListener("mousedown", handleCloseKekbab)
+    return () => {
+      document.removeEventListener("mousedown", handleCloseKekbab)
+    }
+  }, [isKebab, kebabToggleHandler])
 
   return (
     <S.ArticleList>
@@ -28,8 +42,16 @@ function ArticleItem({ data }) {
             </S.Star>
           </S.Image>
           <S.Contents>
-            {toggle && <Select />}
-            <S.Kebab onClick={toggleHandler}>
+            {isKebab && (
+              <Select
+                ref={kebabRef}
+                onOpenModal={onOpenModal}
+                onChangeModalTitle={onChangeModalTitle}
+                url={data.url}
+                onChangeUrl={onChangeUrl}
+              />
+            )}
+            <S.Kebab onClick={kebabToggleHandler}>
               <img src={KebabIcon} alt="모달창 열기" />
             </S.Kebab>
             <S.ElapsedTime>{elapsedTime}</S.ElapsedTime>

@@ -6,4 +6,5 @@ export const Button = styled.button`
   border: 1px solid var(--primary);
   background: ${({ $isSelected }) => $isSelected && `var(--primary)`};
   color: ${({ $isSelected }) => $isSelected && `white`};
+  height: 100%;
 `

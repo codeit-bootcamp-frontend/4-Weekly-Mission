@@ -1,7 +1,7 @@
 import { useState } from "react"
 
-function useChangeTitle() {
-  const [title, setTitle] = useState("전체")
+function useChangeTitle(defaultState) {
+  const [title, setTitle] = useState(defaultState || "")
   const onChangeTitle = (selectedName) => setTitle(selectedName)
 
   return { title, onChangeTitle }

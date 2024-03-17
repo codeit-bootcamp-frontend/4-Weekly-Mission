@@ -2,12 +2,9 @@ import { useState } from "react"
 
 function useToggle() {
   const [toggle, setToggle] = useState(false)
-  const [title, setTitle] = useState("")
-
-  const changeTitile = (text) => setTitle(text)
 
   const toggleHandler = (event) => {
-    event.preventDefault()
+    event && event.preventDefault()
     setToggle((prevToggle) => !prevToggle)
   }
 
@@ -20,9 +17,6 @@ function useToggle() {
     openToggleHandler,
     closeToggleHandler,
     toggleHandler,
-
-    title,
-    changeTitile,
   }
 }
 

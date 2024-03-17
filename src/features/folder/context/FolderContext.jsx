@@ -23,7 +23,7 @@ export const FolderContext = createContext({
 export default function FolderContextProvider({ children }) {
   const { state: categoryState, fetchRequest: categoryFetchRequest } = useHttp()
   const { state: linkState, fetchRequest: linkFetchRequest } = useHttp()
-  const { title, onChangeTitle } = useChangeTitle()
+  const { title, onChangeTitle } = useChangeTitle("전체")
 
   const selectedHandler = (selectedCategory) => {
     const categoryId = getCategoryId(selectedCategory)

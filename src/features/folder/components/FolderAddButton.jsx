@@ -1,9 +1,14 @@
 import React from "react"
 import * as S from "features/folder/components/FolderAddButton.style"
 
-function FolderAddButton() {
+function FolderAddButton({ onOpenModal, onChangeModalTitle }) {
+  const handleClickFolder = (title) => {
+    onOpenModal()
+    onChangeModalTitle(title)
+  }
+
   return (
-    <S.AddFolder>
+    <S.AddFolder onClick={handleClickFolder.bind(this, "폴더 추가")}>
       폴더 추가
       <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path

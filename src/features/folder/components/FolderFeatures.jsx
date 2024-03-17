@@ -1,5 +1,4 @@
-import React from "react"
-import { createPortal } from "react-dom"
+import React, { useState } from "react"
 import * as S from "features/folder/components/FolderFeatures.style"
 
 import ShareIcon from "assets/images/icon/feature-share.svg"
@@ -7,49 +6,61 @@ import DeleteIcon from "assets/images/icon/feature-delete.svg"
 import NameEditIcon from "assets/images/icon/feature-edit.svg"
 import useToggle from "hooks/useToggle"
 
-import Modal, { ModalWithInput } from "components/UI/Modal"
-import Backdrop from "components/UI/Backdrop"
+import Backdrop from "components/modal/Backdrop"
+import EditModal from "components/modal/EditModal"
+import DeleteFolderModal from "components/modal/DeleteFolderModal"
+import ModalPortal from "components/modal/ModalPortal"
+import ShareModal from "components/modal/ShareModal"
 
-const FeatureList = [
-  { id: 1, imageSource: ShareIcon, title: "공유", modal: Modal },
-  { id: 3, imageSource: NameEditIcon, title: "이름변경", modal: Modal },
-  { id: 2, imageSource: DeleteIcon, title: "삭제", modal: Modal },
-]
+function FolderFeatures({ categoryName, categoryData }) {
+  const { toggle, openToggleHandler, closeToggleHandler } = useToggle()
+  const [modalType, setModalType] = useState()
+  const getModalType = (clickedModalName) => setModalType(clickedModalName)
 
-function FolderFeatures() {
-  const { toggle, openToggleHandler, closeToggleHandler, changeTitile, title } = useToggle()
-  // const { shareToggle, shareToggleHandler } = useToggle()
-  // const { deleteToggle, deleteToggleHandler } = useToggle()
-
-  const ModalWithInputHOC = ModalWithInput(Modal)
-
-  const backdrop = createPortal(<Backdrop onClick={closeToggleHandler} />, document.getElementById("modal"))
-  const modal = createPortal(
-    <ModalWithInputHOC onClick={closeToggleHandler} title={title} />,
-    document.getElementById("modal")
+  const backdrop = ModalPortal(<Backdrop onCloseModal={closeToggleHandler} />)
+  const editFolderModal = ModalPortal(<EditModal onCloseModal={closeToggleHandler} categoryName={categoryName} />)
+  const deleteFolderModal = ModalPortal(
+    <DeleteFolderModal onCloseModal={closeToggleHandler} categoryName={categoryName} />
   )
+  const shareModal = ModalPortal(
+    <ShareModal
+      onCloseModal={closeToggleHandler}
+      categoryData={categoryData.filter((categories) => categories.name === categoryName)[0]}
+    />
+  )
+
+  const handleOpenModal = (modalName) => {
+    getModalType(modalName)
+    openToggleHandler()
+  }
 
   return (
     <S.Features>
       {toggle && backdrop}
-      {toggle && modal}
+      {toggle && modalType === "이름변경" && editFolderModal}
+      {toggle && modalType === "삭제" && deleteFolderModal}
+      {toggle && modalType === "공유" && shareModal}
 
-      {FeatureList.map((item) => (
-        <S.FeatureItem key={item.id}>
-          {/* 이름 변경 */}
-          {/* 공유 */}
-          {/* 삭제 */}
-          <button
-            onClick={() => {
-              openToggleHandler()
-              changeTitile(item.title)
-            }}
-          >
-            <img src={item.imageSource} alt="" />
-            <span>{item.title}</span>
-          </button>
-        </S.FeatureItem>
-      ))}
+      <S.FeatureItem>
+        <button onClick={handleOpenModal.bind(this, "공유")}>
+          <img src={ShareIcon} alt="" />
+          <span>공유</span>
+        </button>
+      </S.FeatureItem>
+
+      <S.FeatureItem>
+        <button onClick={handleOpenModal.bind(this, "이름변경")}>
+          <img src={NameEditIcon} alt="" />
+          <span>이름변경</span>
+        </button>
+      </S.FeatureItem>
+
+      <S.FeatureItem>
+        <button onClick={handleOpenModal.bind(this, "삭제")}>
+          <img src={DeleteIcon} alt="" />
+          <span>삭제</span>
+        </button>
+      </S.FeatureItem>
     </S.Features>
   )
 }
