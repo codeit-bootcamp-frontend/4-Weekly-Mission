@@ -1,0 +1,60 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  //글자 공통
+  font-style: normal;
+  font-weight: 400;
+
+  .label {
+    color: var(--black, #000);
+    font-size: 0.875rem;
+    line-height: normal;
+  }
+}
+.inputBox {
+  display: flex;
+  width: 21.875rem;
+  padding: 1.125rem 0.9375rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  border: 1px solid var(--Linkbrary-gray20, #ccd5e3);
+  background: var(--Linkbrary-white, #fff);
+  /* 글자색 */
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  font-size: 1rem;
+  line-height: 1.5rem; /* 150% */
+  &:hover {
+    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+    outline: none;
+  }
+}
+.inputFrame {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1 0 0;
+}
+
+.inputContent {
+  width: 100%;
+  border: none;
+
+  &::placeholder {
+    color: var(--Linkbrary-gray60, #9fa6b2);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+/*.eyeImg {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+  &:active {
+    color: var(--Linkbrary-gray100, #373740);
+  }
+}
+색깔 변경 안되네.. svg파일을 건들여야하나*/

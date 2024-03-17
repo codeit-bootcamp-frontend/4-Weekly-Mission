@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 0.0625rem solid var(--grayscale300);
+  height: 4.0625rem;
+  .headerinside {
+    width: min(75rem, 100%);
+    padding: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.logo {
+  width: 6.7rem;
+}
