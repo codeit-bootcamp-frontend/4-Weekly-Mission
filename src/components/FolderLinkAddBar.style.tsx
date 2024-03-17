@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { PrimaryButton } from "./PrimaryButton";
 
-export const FolderLinkAddBarOrigin = styled.div`
+export const FolderLinkAddBarWrapper = styled.div`
   background-color: var(--LBrary-Background);
 `;
 
@@ -65,7 +66,7 @@ export const Input = styled.input`
   }
 `;
 
-export const Button = styled.button`
+export const Button = styled(PrimaryButton)`
   font-family: pretendard;
   position: absolute;
   margin-left: calc(100% - 101px);

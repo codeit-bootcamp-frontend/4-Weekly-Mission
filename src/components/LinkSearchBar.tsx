@@ -1,11 +1,11 @@
-import "./LinkSearchBar.css";
+import * as S from "./LinkSearchBar.style";
 
 const LinkSearchBar = function () {
   return (
-    <form className={"folder-search-bar input-position-origin"}>
-      <label htmlFor="folderSearch"></label>
-      <input id="folderSearch" placeholder="링크를 검색해 보세요."></input>
-    </form>
+    <S.SearchBarWrapper>
+      <S.Label htmlFor="folderSearch" />
+      <S.Input id="folderSearch" placeholder="링크를 검색해 보세요." />
+    </S.SearchBarWrapper>
   );
 };
 
