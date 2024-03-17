@@ -8,7 +8,7 @@ import {
 import SelectMenu from "../Popover/SelectMenu";
 import * as S from "./CardStyle";
 
-const Card = forwardRef(({ cardData }, ref) => {
+const Card = forwardRef(({ cardData, folderList }, ref) => {
   const [isToggledKebab, setIsToggledKebab] = useState(null);
   const selectMenuRef = useRef(null);
 
@@ -51,7 +51,12 @@ const Card = forwardRef(({ cardData }, ref) => {
           />
         </S.KebabBox>
         {isToggledKebab === link.id && (
-          <SelectMenu onClose={handleClickOutside} ref={selectMenuRef} />
+          <SelectMenu
+            onClose={handleClickOutside}
+            ref={selectMenuRef}
+            url={link.url}
+            folderList={folderList}
+          />
         )}
         <S.Content>{link.description}</S.Content>
         <S.Date>{link.date}</S.Date>

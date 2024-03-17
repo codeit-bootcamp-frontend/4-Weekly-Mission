@@ -3,9 +3,6 @@ import {
   LANDING_MANAGE,
   LANDING_SEARCH,
   LANDING_SHARE,
-  EDIT_SHARE,
-  EDIT_CHANGE,
-  EDIT_DELETE,
 } from "./image";
 
 import {
@@ -59,22 +56,5 @@ export const LANDING_CONTENT_LIST = [
     text: "중요한 정보들을 검색으로 쉽게 찾아보세요",
     image: LANDING_SEARCH,
     alt: "search",
-  },
-];
-
-/* LINK - Landing 페이지 메인 콘텐츠 */
-
-export const EDIT_TOOLBAR_LIST = [
-  {
-    image: EDIT_SHARE,
-    title: "공유",
-  },
-  {
-    image: EDIT_CHANGE,
-    title: "이름 변경",
-  },
-  {
-    image: EDIT_DELETE,
-    title: "삭제",
   },
 ];

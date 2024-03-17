@@ -13,6 +13,7 @@ const Sort = ({ onChange }) => {
         const responseData = await response.json();
         const folderList = responseData.data;
         setFolderList(folderList);
+        onChange({ id: null, name: "전체" }, folderList);
       } catch (error) {
         console.error("error");
       }

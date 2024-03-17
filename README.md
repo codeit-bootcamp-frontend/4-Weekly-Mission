@@ -210,3 +210,18 @@
 \* NOTE
 
 - 기본ui생성
+
+\* TODO - 28. signin, signup 페이지 스타일 수정
+
+\* NOTE
+
+- 폼 부분 스타일 세부수정
+
+\* TODO - 29. modal 생성
+
+\* NOTE
+
+- index.html에 id = modal 추가
+- modalPortal.jsx 생성
+- 유형에 맞는 모달 생성
+- 각각의 파트에 연결

@@ -8,12 +8,15 @@ import { BASED_URL } from "../../../constnats/constant";
 import { updatedDate, updatedDuration } from "../../../utils/createdAt";
 import * as S from "./FolderMainStyle";
 
-const FolderMain = () => {
+const FolderMain = ({ onChange }) => {
   const [folder, setFolder] = useState({ id: null, name: "전체" });
+  const [folderList, setFolderList] = useState([]);
   const [cardData, setCardData] = useState([]);
 
-  const handleFolderChange = (folder) => {
+  const handleFolderChange = (folder, folderList) => {
     setFolder(folder);
+    setFolderList(folderList);
+    onChange(folderList);
   };
 
   useEffect(() => {
@@ -48,13 +51,13 @@ const FolderMain = () => {
       </S.Box>
       <S.Box>
         <S.Title>{folder.name}</S.Title>
-        <EditToolbar />
+        <EditToolbar folderName={folder.name} />
       </S.Box>
       {cardData.length === 0 ? (
         <S.NoneLink>저장된 링크가 없습니다.</S.NoneLink>
       ) : (
         <S.Grid>
-          <FolderCard cardData={cardData} />
+          <FolderCard cardData={cardData} folderList={folderList} />
         </S.Grid>
       )}
     </S.Container>
