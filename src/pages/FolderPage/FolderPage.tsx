@@ -1,11 +1,9 @@
 import FolderLinkAddBar from "src/components/FolderLinkAddBar";
-import "./Folder.css";
+import * as S from "./FolderPage.style";
 import {
   HandleCurrentSubFolder,
   SubFoldersList,
 } from "src/components/LinkSubFolder";
-import HeadNav from "src/components/HeadNav";
-import styled from "styled-components";
 import { useEffect, useState } from "react";
 import useAsync from "src/components/Hooks/useAsync";
 import { acceptDataFromApi } from "src/Api";
@@ -21,11 +19,7 @@ import LinkCardCollection from "src/components/LinkCardCollection";
 import LinkSearchBar from "src/components/LinkSearchBar";
 import Modal from "src/components/Utils/Modal";
 
-const StyledHeadNav = styled(HeadNav)`
-  position: relative;
-`;
-
-export default function Folder({ userId = 1 }) {
+export default function FolderPage({ userId = 1 }) {
   const [isCurrentFolderAll, setIsCurrentFolderAll] = useState(true);
   const [currentFolderName, setCurrentFolderName] = useState("전체");
   const [subFolderList, setSubFolderList] = useState([]);
@@ -154,12 +148,12 @@ export default function Folder({ userId = 1 }) {
           setIsModalOpened(!isModalOpened);
         }}
       />
-      <StyledHeadNav />
+      <S.FolderHeadNav />
       <FolderLinkAddBar
         handleSubmit={handleModalOpen}
         subFolderList={subFolderList}
       />
-      <main>
+      <S.FolderPageMain>
         <SubFolderUtil>
           <SubFoldersList
             subFolderData={subFolderList}
@@ -192,7 +186,7 @@ export default function Folder({ userId = 1 }) {
             />
           </>
         )}
-      </main>
+      </S.FolderPageMain>
     </>
   );
 }
