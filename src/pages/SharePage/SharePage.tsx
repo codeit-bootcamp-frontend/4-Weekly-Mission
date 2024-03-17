@@ -7,7 +7,7 @@ import { acceptDataFromApi } from "src/Api";
 import HeadNav from "src/components/HeadNav";
 import UserLinkDataType from "src/@types/UserLinkDataType";
 
-export default function Share() {
+export default function SharePage() {
   const [items, setItems] = useState<UserLinkDataType[]>([]);
 
   const handleShareLoad = async () => {
