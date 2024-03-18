@@ -27,16 +27,3 @@ const acceptDataFromApi = async function (query: string, requestMethod?: any) {
 };
 
 export { acceptDataFromApi };
-
-// const fetchData = async (query : string, requestInformation = undefined) => {
-//   try {
-//     const rawJson = await await fetch(BASE_URL + query, requestInformation);
-
-//     const json = await rawJson.json();
-//     return json;
-//   } catch (e) {
-//     console.error(e.message);
-//   }
-// };
-
-// export default fetchData;

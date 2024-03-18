@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useAsync from "src/components/Hooks/useAsync";
-import { acceptDataFromApi } from "src/Api";
+import { acceptDataFromApi } from "src/Utils/Api";
 import * as S from "./FolderPage.style";
 
 // Components

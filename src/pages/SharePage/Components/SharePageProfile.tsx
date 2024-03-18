@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { acceptDataFromApi } from "src/Api";
+import { acceptDataFromApi } from "src/Utils/Api";
 import * as S from "./SharePageProfile.style";
 
 /**
