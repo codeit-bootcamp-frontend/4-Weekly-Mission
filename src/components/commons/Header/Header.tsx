@@ -1,10 +1,19 @@
 import React from 'react';
-import { HeaderWrapper, Logo } from './Header.style';
+import Image from 'next/image';
+import { HeaderWrapper } from './Header.style';
 
-export const Header: React.FC = () => {
+function Header() {
   return (
     <HeaderWrapper>
-      <img src="/images/logo.svg" alt="Linkbrary" />
+      <Image
+        src="/images/logo.svg"
+        alt="Linkbrary"
+        width={133}
+        height={24}
+        priority
+      />
     </HeaderWrapper>
   );
-};
+}
+
+export default Header;

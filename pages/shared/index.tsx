@@ -1,5 +1,5 @@
-import { Header } from "@/src/components/commons/Header/Header";
+import Header from '@/src/components/commons/Header/Header';
 
 export default function SharedPage() {
-  return <Header></Header>;
+  return <Header />;
 }

@@ -3,11 +3,9 @@
   "semi": true,
   "useTabs": false,
   "tabWidth": 2,
-  "singleAttributePerLine": false,
   "trailingComma": "all",
   "printWidth": 80,
   "bracketSpacing": true,
   "arrowParens": "always",
-  "endOfLine": "auto",
-  "proseWrap": "never"
+  "endOfLine": "auto"
 }

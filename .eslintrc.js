@@ -9,6 +9,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
+    'next/core-web-vitals',
     'prettier',
   ],
   overrides: [
@@ -34,5 +35,19 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'import/no-unresolved': 'off',
     'react/jsx-props-no-spreading': 'off',
+    'react/function-component-definition': [
+      2,
+      { namedComponents: ['arrow-function', 'function-declaration'] },
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
   },
 };
