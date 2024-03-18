@@ -1,4 +1,5 @@
 import * as S from "../ModalLoader.style";
+import * as SS from "./ModalShareSubFolder.style";
 import shareKakao from "src/Utils/KakaoTalkShare";
 
 export default function ModalShareSubFolder({ modalData }: any) {
@@ -27,37 +28,37 @@ export default function ModalShareSubFolder({ modalData }: any) {
         <br />
         <S.ModalCaption>{modalData[0]}</S.ModalCaption>
       </S.ModalTitle>
-      <div className="modal-box">
-        <div className="modal-share-layout">
-          <button
+      <SS.ModalBox>
+        <SS.ShareButtonWrapper>
+          <SS.ShareTypeButton
             onClick={() => {
               shareKakao(BASE_URL, query);
             }}
-            className="modal-img modal-kakao"
+            $shareType={"kakao"}
           >
             <img src="Kakao.svg" alt={"linkToKakao"} />
-          </button>
+          </SS.ShareTypeButton>
           카카오톡
-        </div>
-        <div className="modal-share-layout">
-          <button
+        </SS.ShareButtonWrapper>
+        <SS.ShareButtonWrapper>
+          <SS.ShareTypeButton
             onClick={() => onClickFacebook()}
-            className="modal-img modal-facebook"
+            $shareType="facebook"
           >
             <img src="Facebook.svg" alt={"linkToFacebook"} />
-          </button>
+          </SS.ShareTypeButton>
           페이스북
-        </div>
-        <div className="modal-share-layout">
-          <button
+        </SS.ShareButtonWrapper>
+        <SS.ShareButtonWrapper>
+          <SS.ShareTypeButton
             onClick={() => handleCopyToClipboard()}
-            className="modal-img modal-link"
+            $shareType="link"
           >
             <img src="link.svg" alt={"linkCopy"} />
-          </button>
+          </SS.ShareTypeButton>
           링크 복사
-        </div>
-      </div>
+        </SS.ShareButtonWrapper>
+      </SS.ModalBox>
     </>
   );
 }

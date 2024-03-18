@@ -1,4 +1,3 @@
-import "./Modal.css";
 import * as S from "./ModalLoader.style";
 
 import ModalSubFolderNameChange from "./ModalTypes/ModalSubFolderNameChange";

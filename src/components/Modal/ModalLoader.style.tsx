@@ -1,10 +1,5 @@
 import styled from "styled-components";
 
-export const Button = styled.button<{ $state: boolean }>`
-  background-color: ${({ $state }) =>
-    $state === true ? `var(--LBrary-Background)` : `var(--LBrary-white)`};
-`;
-
 export const ModalBackground = styled.div`
   display: flex;
   position: fixed;

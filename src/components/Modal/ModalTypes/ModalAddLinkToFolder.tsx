@@ -1,5 +1,6 @@
 import { useState } from "react";
 import * as S from "../ModalLoader.style";
+import * as SS from "./ModalAddLinkToFolder.style";
 
 export default function ModalAddLinkToFolder({ modalData }: any) {
   const [targetLink, [favor, ...folderList]] = [...modalData];
@@ -17,10 +18,9 @@ export default function ModalAddLinkToFolder({ modalData }: any) {
       </S.ModalTitle>
       <S.ShareButtonLayout>
         {folderList.map((item: any) => (
-          <S.Button
+          <SS.SubFolderDesireToAddLinkButton
             onClick={() => handleSelectFolder(item.name)}
             $state={item.name === SelectedFolder}
-            className="modal-sub-folder-btn-list"
             key={item.name}
           >
             <h2>
@@ -30,7 +30,7 @@ export default function ModalAddLinkToFolder({ modalData }: any) {
             {item.name === SelectedFolder && (
               <img src="check.svg" alt="CheckedFolder" />
             )}
-          </S.Button>
+          </SS.SubFolderDesireToAddLinkButton>
         ))}
       </S.ShareButtonLayout>
       <S.ModalButton>추가하기</S.ModalButton>
