@@ -3,11 +3,12 @@ import * as S from "./LinkCardCollection.style";
 import KebabMenu from "../Kebab/KebabMenu";
 import timePassedFromCreate from "src/Utils/timePassedFromCreate";
 import UserLinkDataType from "src/@types/UserLinkDataType";
+import { LinkCardFunctionObjectType } from "src/@types/ModalFunctionDataTypes";
 
 interface FolderCardDataPropType {
   contents: UserLinkDataType;
   favorite?: boolean;
-  kebab?: boolean;
+  kebab?: LinkCardFunctionObjectType[];
 }
 
 const FolderCard = function ({
@@ -58,13 +59,13 @@ const FolderCard = function ({
 interface LinkCardCollectionPropType {
   items: UserLinkDataType[];
   favorite?: boolean;
-  kebab?: any;
+  kebab?: LinkCardFunctionObjectType[];
 }
 
 const LinkCardCollection = function ({
   items,
   favorite = false,
-  kebab = false,
+  kebab,
 }: LinkCardCollectionPropType) {
   return (
     <S.CardGridLayout>

@@ -19,6 +19,10 @@ import LinkCardCollection from "src/components/LinkCard/LinkCardCollection";
 import LinkSearchBar from "src/components/LinkCard/LinkSearchBar";
 import ModalLoader from "src/components/Modal/ModalLoader";
 import UserLinkDataType from "src/@types/UserLinkDataType";
+import {
+  LinkCardFunctionObjectType,
+  LinkFolderFunctionObjectType,
+} from "src/@types/ModalFunctionDataTypes";
 
 export default function FolderPage({ userId = 1 }) {
   const [isCurrentFolderAll, setIsCurrentFolderAll] = useState(true);
@@ -93,14 +97,6 @@ export default function FolderPage({ userId = 1 }) {
 
   const handleKebabAction = () => {};
 
-  interface LinkCardFunctionObjectType {
-    buttonName: string;
-    type: string;
-    data?: any;
-    modalHandle: (modalType: string, modalData: any) => void;
-    modalButtonAction: () => void;
-  }
-
   const kebabActions: LinkCardFunctionObjectType[] = [
     {
       buttonName: "삭제하기",
@@ -117,11 +113,6 @@ export default function FolderPage({ userId = 1 }) {
       modalButtonAction: handleKebabAction,
     },
   ];
-
-  interface LinkFolderFunctionObjectType extends LinkCardFunctionObjectType {
-    imgUrl: string;
-    imgAlt: string;
-  }
 
   const subFolderAction: LinkFolderFunctionObjectType[] = [
     {

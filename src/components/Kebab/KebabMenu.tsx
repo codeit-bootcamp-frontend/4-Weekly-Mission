@@ -1,7 +1,12 @@
 import { useState } from "react";
 import * as S from "./KebabMenu.style";
+import { LinkCardFunctionObjectType } from "src/@types/ModalFunctionDataTypes";
+interface KebabMenuPropType {
+  items: LinkCardFunctionObjectType[];
+  data?: string;
+}
 
-export default function KebabMenu({ items, data = false }: any) {
+export default function KebabMenu({ items, data }: KebabMenuPropType) {
   const [kebabMenuPop, setKebabMenuPop] = useState(false);
 
   const handleKebabToggle = () => {
@@ -16,7 +21,7 @@ export default function KebabMenu({ items, data = false }: any) {
       {kebabMenuPop && (
         <>
           <S.KebabDiv>
-            {items.map((item: any) => (
+            {items.map((item) => (
               <S.KebabMenuButton
                 key={item.buttonName}
                 onClick={() =>

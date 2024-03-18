@@ -5,21 +5,12 @@ import {
   SubFolderBtnList,
   SubFolderUtilList,
 } from "./LinkSubFolder.style";
+import FolderListDataType from "src/@types/FolderListDataType";
 
-interface SubFolderDataType {
-  id: number;
-  created_at: string;
-  name: string;
-  user_id: number;
-  favorite: boolean;
-  link: {
-    count: number;
-  };
-}
 type handleCurrentFolderChangeType = (id: number, name: string) => void;
 
 interface SubFolderListProp {
-  subFolderData: SubFolderDataType[];
+  subFolderData: FolderListDataType[];
   handleCurrentFolderChange: handleCurrentFolderChangeType;
 }
 
@@ -27,7 +18,7 @@ function SubFoldersList({
   subFolderData,
   handleCurrentFolderChange,
 }: SubFolderListProp) {
-  const [subFolderList, setSubFolderList] = useState<SubFolderDataType[]>([]);
+  const [subFolderList, setSubFolderList] = useState<FolderListDataType[]>([]);
   const [selectedBtn, setSelectedBtn] = useState(0);
 
   const handleBtnStyleChange = async (id: number, name: string) => {

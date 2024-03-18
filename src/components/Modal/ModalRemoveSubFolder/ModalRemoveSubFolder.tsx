@@ -1,7 +1,6 @@
 import * as S from "../ModalLoader.style";
 
 export default function ModalRemoveSubFolder({ modalData }: any) {
-  console.log(modalData);
   return (
     <>
       <S.ModalTitle>
