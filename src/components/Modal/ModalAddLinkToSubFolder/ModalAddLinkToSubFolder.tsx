@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as S from "../ModalLoader.style";
-import * as SS from "./ModalAddLinkToFolder.style";
+import * as SS from "./ModalAddLinkToSubFolder.style";
 
 export default function ModalAddLinkToFolder({ modalData }: any) {
   const [targetLink, [favor, ...folderList]] = [...modalData];

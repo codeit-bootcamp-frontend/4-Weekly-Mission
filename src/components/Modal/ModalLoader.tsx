@@ -1,11 +1,11 @@
 import * as S from "./ModalLoader.style";
 
-import ModalSubFolderNameChange from "./ModalTypes/ModalSubFolderNameChange";
-import ModalAddSubFolder from "./ModalTypes/ModalAddSubFolder";
-import ModalShareSubFolder from "./ModalTypes/ModalShareSubFolder";
-import ModalRemoveLink from "./ModalTypes/ModalRemoveLink";
-import ModalRemoveSubFolder from "./ModalTypes/ModalRemoveSubFolder";
-import ModalAddLinkToFolder from "./ModalTypes/ModalAddLinkToFolder";
+import ModalSubFolderNameChange from "./ModalChangeSubFolderName/ModalChageSubFolderName";
+import ModalAddSubFolder from "./ModalAddSubFolder/ModalAddSubFolder";
+import ModalShareSubFolder from "./ModalShareSubFolder/ModalShareSubFolder";
+import ModalRemoveLink from "./ModalRemoveLink/ModalRemoveLink";
+import ModalRemoveSubFolder from "./ModalRemoveSubFolder/ModalRemoveSubFolder";
+import ModalAddLinkToFolder from "./ModalAddLinkToSubFolder/ModalAddLinkToSubFolder";
 
 const ModalLoader = ({
   modalType = "UNKNOWN_TYPE",
