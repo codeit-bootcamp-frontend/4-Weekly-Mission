@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import * as S from "./LinkCardCollection.style";
-import KebabMenu from "../Utils/KebabMenu";
+import KebabMenu from "../Kebab/KebabMenu";
 import timePassedFromCreate from "src/Utils/timePassedFromCreate";
 import UserLinkDataType from "src/@types/UserLinkDataType";
 

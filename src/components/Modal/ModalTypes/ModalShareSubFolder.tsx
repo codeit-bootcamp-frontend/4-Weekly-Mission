@@ -1,5 +1,5 @@
 import * as S from "../ModalLoader.style";
-import shareKakao from "src/components/Utils/KakaoTalkShare";
+import shareKakao from "src/Utils/KakaoTalkShare";
 
 export default function ModalShareSubFolder({ modalData }: any) {
   const BASE_URL = "https://animated-kitten-84730c.netlify.app";
