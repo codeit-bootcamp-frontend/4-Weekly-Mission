@@ -1,9 +1,9 @@
-import FolderLinkAddBar from "src/components/FolderLinkAddBar";
+import FolderLinkAddBar from "src/components/LinkCard/FolderLinkAddBar";
 import * as S from "./FolderPage.style";
 import {
   HandleCurrentSubFolder,
   SubFoldersList,
-} from "src/components/LinkSubFolder";
+} from "src/pages/FolderPage/components/LinkSubFolder";
 import { useEffect, useState } from "react";
 import useAsync from "src/components/Hooks/useAsync";
 import { acceptDataFromApi } from "src/Api";
@@ -14,9 +14,9 @@ import {
   CurrentSubFolder,
   EmptySpace,
   SubFolderUtil,
-} from "src/components/LinkSubFolder.style";
-import LinkCardCollection from "src/components/LinkCardCollection";
-import LinkSearchBar from "src/components/LinkSearchBar";
+} from "src/pages/FolderPage/components/LinkSubFolder.style";
+import LinkCardCollection from "src/components/LinkCard/LinkCardCollection";
+import LinkSearchBar from "src/components/LinkCard/LinkSearchBar";
 import ModalLoader from "src/components/Modal/ModalLoader";
 
 export default function FolderPage({ userId = 1 }) {

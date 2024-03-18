@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PrimaryButton } from "./PrimaryButton";
+import { PrimaryButton } from "../PrimaryButton";
 
 export const FolderLinkAddBarWrapper = styled.div`
   background-color: var(--LBrary-Background);

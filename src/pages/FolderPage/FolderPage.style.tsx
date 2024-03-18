@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import HeadNav from "src/components/HeadNav";
+import HeadNav from "src/components/BasicLayout/HeadNav";
 
 export const FolderPageMain = styled.main`
   max-width: 1060px;

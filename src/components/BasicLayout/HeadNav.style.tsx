@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PrimaryButton } from "./PrimaryButton";
+import { PrimaryButton } from "../PrimaryButton";
 
 export const Nav = styled.nav`
   background-color: var(--LBrary-Background);

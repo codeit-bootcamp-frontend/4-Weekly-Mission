@@ -1,10 +1,10 @@
-import ShareFolderProfile from "src/components/ShareFolderProfile";
-import LinkSearchBar from "src/components/LinkSearchBar";
-import LinkCardCollection from "src/components/LinkCardCollection";
+import ShareFolderProfile from "src/pages/SharePage/Components/ShareFolderProfile";
+import LinkSearchBar from "src/components/LinkCard/LinkSearchBar";
+import LinkCardCollection from "src/components/LinkCard/LinkCardCollection";
 import * as S from "./SharePage.style";
 import { useEffect, useState } from "react";
 import { acceptDataFromApi } from "src/Api";
-import HeadNav from "src/components/HeadNav";
+import HeadNav from "src/components/BasicLayout/HeadNav";
 import UserLinkDataType from "src/@types/UserLinkDataType";
 
 export default function SharePage() {

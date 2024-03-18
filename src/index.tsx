@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import SharePage from "src/pages/SharePage/SharePage";
 import FolderPage from "src/pages/FolderPage/FolderPage";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import App from "src/components/App";
+import LayoutOutlet from "src/components/BasicLayout/LayoutOutlet";
 import "./styles/reset.css";
 import "./index.css";
 
@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />}>
+      <Route path="/" element={<LayoutOutlet />}>
         <Route path="folder" element={<FolderPage />} />
         <Route path="share" element={<SharePage />} />
       </Route>

@@ -1,4 +1,4 @@
-import "src/components/ShareFolderProfile.css";
+import "./ShareFolderProfile.css";
 import { acceptDataFromApi } from "src/Api";
 import { useState, useEffect } from "react";
 
