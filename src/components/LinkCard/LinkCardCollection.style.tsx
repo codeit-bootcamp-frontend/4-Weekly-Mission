@@ -81,7 +81,7 @@ export const CardImageDiv = styled.div<{ $image?: string }>`
   background-image: url(${({ $image }) =>
     $image
       ? `${$image}); background-size: cover`
-      : `${process.env.PUBLIC_URL}/no-img-card.svg)`};;;;;;;;;;
+      : `${process.env.PUBLIC_URL}/no-img-card.svg)`};;;;;;;;;;;;;
 `;
 
 //
@@ -114,6 +114,7 @@ export const TextPassedTime = styled.p`
 `;
 
 export const TextLinkDescription = styled.p`
+  display: -webkit-box;
   margin: 10px auto;
   overflow: hidden;
   color: #000;
@@ -126,6 +127,8 @@ export const TextLinkDescription = styled.p`
   font-weight: 400;
   line-height: 24px; /* 150% */
   text-decoration-line: none;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 
 export const TextLinkCreatedDate = styled.p`
