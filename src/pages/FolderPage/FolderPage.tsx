@@ -1,29 +1,33 @@
-import FolderLinkAddBar from "src/components/LinkCard/FolderLinkAddBar";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import useAsync from "src/components/Hooks/useAsync";
+import { acceptDataFromApi } from "src/Api";
 import * as S from "./FolderPage.style";
+
+// Components
+import FolderLinkAddBar from "src/components/LinkCard/FolderLinkAddBar";
 import {
   HandleCurrentSubFolder,
   SubFoldersList,
 } from "src/pages/FolderPage/components/LinkSubFolder";
-import { useEffect, useState } from "react";
-import useAsync from "src/components/Hooks/useAsync";
-import { acceptDataFromApi } from "src/Api";
-import { useSearchParams } from "react-router-dom";
-import {
-  AddFolderButton,
-  AddImage,
-  CurrentSubFolder,
-  EmptySpace,
-  SubFolderUtil,
-} from "src/pages/FolderPage/components/LinkSubFolder.style";
 import LinkCardCollection from "src/components/LinkCard/LinkCardCollection";
 import LinkSearchBar from "src/components/LinkCard/LinkSearchBar";
 import ModalLoader from "src/components/Modal/ModalLoader";
+
+// Types
 import UserLinkDataType from "src/@types/UserLinkDataType";
 import {
   LinkCardFunctionObjectType,
   LinkFolderFunctionObjectType,
 } from "src/@types/ModalFunctionDataTypes";
 
+/**
+ *
+ * @param userId 상위 페이지로부터 전달 받을 userId 정보
+ * @description 폴더 페이지 컴포넌트
+ * @remider handleModalOpen의 타입에 일관성이 없어 any타입을 지정해 두었음. 나중에 수정 필요.
+ * @returns
+ */
 export default function FolderPage({ userId = 1 }) {
   const [isCurrentFolderAll, setIsCurrentFolderAll] = useState(true);
   const [currentFolderName, setCurrentFolderName] = useState("전체");
@@ -42,6 +46,7 @@ export default function FolderPage({ userId = 1 }) {
   const [modalData, setModalData] = useState("");
 
   const handleModalOpen = (modalType: string, modalData: any) => {
+    // ModalData의 형식 통일 필요
     setModalData("");
     setCurrentModalType(modalType);
     if (modalData) {
@@ -81,7 +86,7 @@ export default function FolderPage({ userId = 1 }) {
     setIsCurrentFolderAll(false);
   };
 
-  const acceptSubFolderList = async (requestQuery: any) => {
+  const acceptSubFolderList = async (requestQuery: string) => {
     const { data } = await acceptDataFromApi(requestQuery);
     setSubFolderList(data);
   };
@@ -159,29 +164,29 @@ export default function FolderPage({ userId = 1 }) {
         subFolderList={subFolderList}
       />
       <S.FolderPageMain>
-        <SubFolderUtil>
+        <S.SubFolderUtil>
           <SubFoldersList
             subFolderData={subFolderList}
             handleCurrentFolderChange={handleCurrentFolderChange}
           />
-          <AddFolderButton
+          <S.AddFolderButton
             className="add-sub-folder"
             onClick={() => handleModalOpen("addSubFolder", "")}
           >
-            폴더 추가 <AddImage />
-          </AddFolderButton>
-        </SubFolderUtil>
-        <SubFolderUtil>
-          <CurrentSubFolder>{currentFolderName}</CurrentSubFolder>
+            폴더 추가 <S.AddImage />
+          </S.AddFolderButton>
+        </S.SubFolderUtil>
+        <S.SubFolderUtil>
+          <S.CurrentSubFolder>{currentFolderName}</S.CurrentSubFolder>
           {!isCurrentFolderAll && (
             <HandleCurrentSubFolder handleFunction={subFolderAction} />
           )}
-        </SubFolderUtil>
+        </S.SubFolderUtil>
         <LinkSearchBar />
         {isEmptyResponse || isLoading ? (
-          <EmptySpace>
+          <S.EmptySpace>
             {isLoading ? "불러오는 중입니다..." : "저장된 링크가 없습니다."}
-          </EmptySpace>
+          </S.EmptySpace>
         ) : (
           <>
             <LinkCardCollection
