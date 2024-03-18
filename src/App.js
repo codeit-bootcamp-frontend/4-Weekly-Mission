@@ -1,4 +1,5 @@
 import AddLink from "./components/AddLink/addLink";
+import Card from "./components/Card/index";
 import Gnb from "./components/Gnb/gnb";
 import Input from "./components/input/input";
 import {useState} from "react";
@@ -19,10 +20,12 @@ function App() {
     display: "flex",
     gap: "30px",
     flexDirection: "column",
+    margin: "20px",
   };
 
   return (
     <div style={test}>
+      <Card></Card>
       <AddLink />
       <Gnb login={true} />
       <Gnb login={false} />

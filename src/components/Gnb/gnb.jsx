@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames/bind";
 import style from "./gnb.module.scss";
-import logo from "../../assets/logo-large.svg";
+import logo from "../../assets/logo.svg";
 import profileImg from "../../assets/profileImg.svg";
 import Cta from "../Cta/Cta";
 

@@ -1,0 +1,92 @@
+@import "../../styles/mixin.scss";
+.card {
+  width: 21.25rem;
+  height: 20.875rem;
+  flex-shrink: 0;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  &:active {
+    box-shadow: 0px 5px 40px 0px rgba(0, 0, 0, 0.16);
+  }
+  &:hover {
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+  }
+  @include mobile {
+    width: 20.3125rem;
+    height: 20.4375rem;
+    box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+    &:active {
+      box-shadow: 0px 5px 40px 0px rgba(0, 0, 0, 0.16);
+    }
+    &:hover {
+      box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+    }
+  }
+}
+.cardImg {
+  width: 100%;
+  height: 12.5rem;
+  background: #dddfff;
+  border-radius: 0.9375rem 0.9375rem 0rem 0rem;
+  position: relative;
+}
+.cardContent {
+  display: flex;
+  width: 100%;
+  padding: 0.9375rem 1.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  background: var(--Linkbrary-white, #fff);
+  border-radius: 0rem 0rem 0.9375rem 0.9375rem;
+  //글자 공통
+  font-style: normal;
+  font-weight: 400;
+}
+.cardContentTime {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+
+  color: #666;
+  font-size: 0.8125rem;
+  line-height: normal;
+}
+.cardContentText {
+  height: 3.0625rem;
+  align-self: stretch;
+
+  // 글자
+  color: #000;
+  line-height: 1.5rem; /* 150% */
+  font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.cardContentDay {
+  height: 1.1875rem;
+  align-self: stretch;
+
+  // 글자
+  color: #333;
+  font-size: 0.875rem;
+  line-height: normal;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.imgLogo {
+  opacity: 0.2;
+  position: absolute;
+  top: 50%;
+  left: 50%; // 시작점까지만
+  transform: translate(-50%, -50%);
+}
+.imgStar {
+  position: absolute;
+  top: 0.94rem;
+  right: 0.94rem;
+}
