@@ -18,6 +18,7 @@ import {
 import LinkCardCollection from "src/components/LinkCard/LinkCardCollection";
 import LinkSearchBar from "src/components/LinkCard/LinkSearchBar";
 import ModalLoader from "src/components/Modal/ModalLoader";
+import UserLinkDataType from "src/@types/UserLinkDataType";
 
 export default function FolderPage({ userId = 1 }) {
   const [isCurrentFolderAll, setIsCurrentFolderAll] = useState(true);
@@ -31,12 +32,12 @@ export default function FolderPage({ userId = 1 }) {
   );
   const [currentFolderId, setCurrentFolderId] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<UserLinkDataType[]>([]);
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [currentModalType, setCurrentModalType] = useState("removeLink");
   const [modalData, setModalData] = useState("");
 
-  const handleModalOpen = (modalType: any, modalData: any) => {
+  const handleModalOpen = (modalType: string, modalData: any) => {
     setModalData("");
     setCurrentModalType(modalType);
     if (modalData) {
@@ -45,7 +46,7 @@ export default function FolderPage({ userId = 1 }) {
     setIsModalOpened(!isModalOpened);
   };
 
-  const handleShareLoad = async (query: any) => {
+  const handleShareLoad = async (query: string) => {
     setIsEmptyResponse(false);
     const { data } = await acceptDataFromApiAsync(query);
 
@@ -92,49 +93,62 @@ export default function FolderPage({ userId = 1 }) {
 
   const handleKebabAction = () => {};
 
-  const kebabActions = [
+  interface LinkCardFunctionObjectType {
+    buttonName: string;
+    type: string;
+    data?: any;
+    modalHandle: (modalType: string, modalData: any) => void;
+    modalButtonAction: () => void;
+  }
+
+  const kebabActions: LinkCardFunctionObjectType[] = [
     {
-      btnName: "삭제하기",
+      buttonName: "삭제하기",
       type: "removeLink",
       data: [],
-      kebabHandle: handleModalOpen,
-      modalBtnAction: handleKebabAction,
+      modalHandle: handleModalOpen,
+      modalButtonAction: handleKebabAction,
     },
     {
-      btnName: "폴더에 추가",
+      buttonName: "폴더에 추가",
       type: "addLinkToFolder",
       data: [subFolderList],
-      kebabHandle: handleModalOpen,
-      modalBtnAction: handleKebabAction,
+      modalHandle: handleModalOpen,
+      modalButtonAction: handleKebabAction,
     },
   ];
 
-  const subFolderAction = [
+  interface LinkFolderFunctionObjectType extends LinkCardFunctionObjectType {
+    imgUrl: string;
+    imgAlt: string;
+  }
+
+  const subFolderAction: LinkFolderFunctionObjectType[] = [
     {
-      btnName: "공유",
+      buttonName: "공유",
       imgUrl: "share.svg",
       imgAlt: "shareButton",
       type: "shareFolder",
       data: [currentFolderName, currentFolderId],
-      kebabHandle: handleModalOpen,
-      modalBtnAction: handleKebabAction,
+      modalHandle: handleModalOpen,
+      modalButtonAction: handleKebabAction,
     },
     {
-      btnName: "이름 변경",
+      buttonName: "이름 변경",
       imgUrl: "pen.svg",
       imgAlt: "RenameButton",
       type: "nameChange",
-      kebabHandle: handleModalOpen,
-      modalBtnAction: handleKebabAction,
+      modalHandle: handleModalOpen,
+      modalButtonAction: handleKebabAction,
     },
     {
-      btnName: "삭제",
+      buttonName: "삭제",
       imgUrl: "Group 36.svg",
       imgAlt: "DeleteButton",
       type: "removeFolder",
       data: currentFolderName,
-      kebabHandle: handleModalOpen,
-      modalBtnAction: handleKebabAction,
+      modalHandle: handleModalOpen,
+      modalButtonAction: handleKebabAction,
     },
   ];
 

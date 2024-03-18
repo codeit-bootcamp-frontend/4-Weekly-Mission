@@ -66,11 +66,11 @@ function HandleCurrentSubFolder({ handleFunction }: any) {
     <SubFolderUtilList>
       {handleFunction.map((item: any) => (
         <Button
-          key={item.btnName}
+          key={item.buttonName}
           type="button"
-          onClick={() => item.kebabHandle(item.type, item.data)}
+          onClick={() => item.modalHandle(item.type, item.data)}
         >
-          {item.btnName}
+          {item.buttonName}
           <img src={item.imgUrl} alt={item.imgAlt} />
         </Button>
       ))}

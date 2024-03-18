@@ -18,12 +18,12 @@ export default function KebabMenu({ items, data = false }: any) {
           <S.KebabDiv>
             {items.map((item: any) => (
               <S.KebabMenuButton
-                key={item.btnName}
+                key={item.buttonName}
                 onClick={() =>
-                  item.kebabHandle(item.type, [data, ...item.data])
+                  item.modalHandle(item.type, [data, ...item.data])
                 }
               >
-                {item.btnName}
+                {item.buttonName}
               </S.KebabMenuButton>
             ))}
           </S.KebabDiv>
