@@ -43,6 +43,14 @@ export const CurrentSubFolder = styled.p`
 `;
 
 export const Button = styled.button`
+  border: none;
+  color: var(--LBrary-Gray60);
+  font-family: Pretendard;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
   display: flex;
   align-items: center;
   text-align: center;
@@ -55,6 +63,17 @@ export const Button = styled.button`
 `;
 
 export const AddFolderButton = styled.button`
+  color: var(--LBrary-Primary-color);
+	padding: 0;
+	border: none;
+	text-align: center;
+	font-family: Pretendard;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+	letter-spacing: -0.3px;
+
 	display: flex;
 	align-items: center;
 	text-align: center;
@@ -91,6 +110,16 @@ export const AddImage = styled.div`
 `;
 
 export const SubFolderBtn = styled.button<{ $state: boolean }>`
+  color: var(--LBrary-black);
+  font-family: Pretendard;
+  font-size: 1.6rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 5px;
+  border: 1px solid var(--LBrary-Primary-color);
+  padding: 8px 12px;
+
   display: flex;
   align-items: center;
   text-align: center;

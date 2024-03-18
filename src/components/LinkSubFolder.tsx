@@ -1,4 +1,3 @@
-import "./LinkSubFolder.css";
 import { useEffect, useState } from "react";
 import {
   Button,
@@ -46,7 +45,6 @@ function SubFoldersList({
         key={0}
         $state={selectedBtn === 0}
         onClick={() => handleBtnStyleChange(0, "전체")}
-        className="link-sub-folder-list"
       >
         전체
       </SubFolderBtn>
@@ -54,7 +52,6 @@ function SubFoldersList({
         <SubFolderBtn
           key={item.id}
           $state={selectedBtn === item.id}
-          className="link-sub-folder-list"
           onClick={() => handleBtnStyleChange(item.id, item.name)}
         >
           {item.name}
@@ -71,7 +68,6 @@ function HandleCurrentSubFolder({ handleFunction }: any) {
         <Button
           key={item.btnName}
           type="button"
-          className="sub-folder-utility"
           onClick={() => item.kebabHandle(item.type, item.data)}
         >
           {item.btnName}
