@@ -1,6 +1,5 @@
-import "./LinkCard.css";
-import "./LinkCardCollection.css";
 import { Link } from "react-router-dom";
+import * as S from "./LinkCardCollection.style";
 import KebabMenu from "./Utils/KebabMenu";
 import timePassedFromCreate from "src/Utils/timePassedFromCreate";
 import UserLinkDataType from "src/@types/UserLinkDataType";
@@ -26,7 +25,7 @@ const FolderCard = function ({
     url,
   } = contents;
 
-  const cardImage = { backgroundImage: `url(${imageSource || image_source})` };
+  const cardImage = imageSource || image_source;
   const timeConversion = new Date(created_at || createdAt!); // sampleApi와 userApi의 양식이 달라 호환시키기 위함
   const passedTime = timePassedFromCreate(timeConversion);
   const editedTime = `${timeConversion.getFullYear()}. ${
@@ -34,29 +33,25 @@ const FolderCard = function ({
   }. ${timeConversion.getDate()}`;
 
   return (
-    <div className="card-box-origin" key={id}>
-      <div className="card-content">
+    <S.CardBoxOriginPosition key={id}>
+      <S.CardWrapper>
         <Link to={url} target="_blank">
-          {imageSource || image_source ? (
-            <div className={"card-image"} style={cardImage} />
-          ) : (
-            <div className="card-image no-card-img"></div>
-          )}
+          <S.CardImageDiv $image={cardImage} />
 
-          <section className="card-text">
-            <p className="card-passed-time">{passedTime}</p>
-            <p className="card-contents">{description}</p>
-            <p className="card-edited-date">{editedTime}</p>
-          </section>
+          <S.TextSection>
+            <S.TextPassedTime>{passedTime}</S.TextPassedTime>
+            <S.TextLinkDescription>{description}</S.TextLinkDescription>
+            <S.TextLinkCreatedDate>{editedTime}</S.TextLinkCreatedDate>
+          </S.TextSection>
         </Link>
-      </div>
+      </S.CardWrapper>
       {kebab && <KebabMenu items={kebab} data={url} />}
       {favorite && (
-        <button type="button" className="favor-star">
+        <S.FavorStarButton type="button">
           <img src="star.svg" alt="FavoriteButton" />
-        </button>
+        </S.FavorStarButton>
       )}
-    </div>
+    </S.CardBoxOriginPosition>
   );
 };
 
@@ -72,7 +67,7 @@ const LinkCardCollection = function ({
   kebab = false,
 }: LinkCardCollectionPropType) {
   return (
-    <section className="folder-card-grid">
+    <S.CardGridLayout>
       {items.map((item) => (
         <FolderCard
           key={item.id}
@@ -81,7 +76,7 @@ const LinkCardCollection = function ({
           kebab={kebab}
         />
       ))}
-    </section>
+    </S.CardGridLayout>
   );
 };
 
