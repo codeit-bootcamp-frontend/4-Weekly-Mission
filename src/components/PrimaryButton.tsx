@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+// 일반적인 버튼의 기본 스타일입니다.
 export const PrimaryButton = styled.button`
   display: flex;
   color: var(--LBrary-GrayLight);

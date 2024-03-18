@@ -1,6 +1,6 @@
 import * as S from "./ModalLoader.style";
 
-import ModalSubFolderNameChange from "./ModalChangeSubFolderName/ModalChageSubFolderName";
+import ModalChangeSubFolderName from "./ModalChangeSubFolderName/ModalChageSubFolderName";
 import ModalAddSubFolder from "./ModalAddSubFolder/ModalAddSubFolder";
 import ModalShareSubFolder from "./ModalShareSubFolder/ModalShareSubFolder";
 import ModalRemoveLink from "./ModalRemoveLink/ModalRemoveLink";
@@ -17,7 +17,7 @@ const ModalLoader = ({
   const renderModal = () => {
     switch (modalType) {
       case "nameChange":
-        return <ModalSubFolderNameChange />;
+        return <ModalChangeSubFolderName />;
 
       case "addSubFolder":
         return <ModalAddSubFolder />;

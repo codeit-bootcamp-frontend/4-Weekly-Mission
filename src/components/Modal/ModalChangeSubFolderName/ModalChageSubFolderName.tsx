@@ -1,6 +1,6 @@
 import * as S from "../ModalLoader.style";
 
-export default function ModalSubFolderNameChange() {
+export default function ModalChangeSubFolderName() {
   return (
     <>
       <S.ModalTitle>폴더 이름 변경</S.ModalTitle>
