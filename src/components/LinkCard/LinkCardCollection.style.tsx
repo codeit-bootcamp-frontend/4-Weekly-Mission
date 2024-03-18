@@ -81,13 +81,13 @@ export const CardImageDiv = styled.div<{ $image?: string }>`
   background-image: url(${({ $image }) =>
     $image
       ? `${$image}); background-size: cover`
-      : `${process.env.PUBLIC_URL}/no-img-card.svg)`};;;;;;;;
+      : `${process.env.PUBLIC_URL}/no-img-card.svg)`};;;;;;;;;;
 `;
 
 //
 //  background-size: 133px 24px"};
 
-export const TextSection = styled.section`
+export const TextSection = styled.div`
   border-radius: 0 0 15px 15px;
   display: block;
   text-align: left;
@@ -102,7 +102,7 @@ export const TextSection = styled.section`
   }
 `;
 
-export const TextPassedTime = styled.caption`
+export const TextPassedTime = styled.p`
   color: #666;
   font-family: Pretendard;
   font-size: 13px;
@@ -128,7 +128,7 @@ export const TextLinkDescription = styled.p`
   text-decoration-line: none;
 `;
 
-export const TextLinkCreatedDate = styled.caption`
+export const TextLinkCreatedDate = styled.p`
   overflow: hidden;
   color: #333;
 
