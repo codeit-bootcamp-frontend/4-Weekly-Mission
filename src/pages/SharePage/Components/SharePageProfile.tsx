@@ -1,6 +1,6 @@
-import "./ShareFolderProfile.css";
 import { acceptDataFromApi } from "src/Api";
 import { useState, useEffect } from "react";
+import * as S from "./SharePageProfile.style";
 
 const ShareFolderProfile = function () {
   const [folderName, setFolderName] = useState("빈 폴더");
@@ -32,11 +32,11 @@ const ShareFolderProfile = function () {
   }, []);
 
   return (
-    <section className="folder-page-profile">
-      <img src={folderImg} alt="testingAccount" />
-      <p className="user-name">{`${folderAccountName}`}</p>
-      <p className="folder-name">{`${folderName}`}</p>
-    </section>
+    <S.SharePageProfileSection className="folder-page-profile">
+      <S.SharePageProfileImg src={folderImg} alt="" />
+      <S.SharePageFolderOwnerName className="user-name">{`${folderAccountName}`}</S.SharePageFolderOwnerName>
+      <S.SharePageFolderName className="folder-name">{`${folderName}`}</S.SharePageFolderName>
+    </S.SharePageProfileSection>
   );
 };
 

@@ -1,4 +1,4 @@
-import ShareFolderProfile from "src/pages/SharePage/Components/ShareFolderProfile";
+import ShareFolderProfile from "src/pages/SharePage/Components/SharePageProfile";
 import LinkSearchBar from "src/components/LinkCard/LinkSearchBar";
 import LinkCardCollection from "src/components/LinkCard/LinkCardCollection";
 import * as S from "./SharePage.style";
