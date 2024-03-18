@@ -1,7 +1,11 @@
-import { acceptDataFromApi } from "src/Api";
 import { useState, useEffect } from "react";
+import { acceptDataFromApi } from "src/Api";
 import * as S from "./SharePageProfile.style";
 
+/**
+ * @description SharePage에서 해당 폴더의 이름과 그 주인을 보여주는 컴포넌트 입니다.
+ * @returns
+ */
 const ShareFolderProfile = function () {
   const [folderName, setFolderName] = useState("빈 폴더");
   const [folderImg, setFolderImg] = useState("favicon.png");
@@ -32,10 +36,10 @@ const ShareFolderProfile = function () {
   }, []);
 
   return (
-    <S.SharePageProfileSection className="folder-page-profile">
+    <S.SharePageProfileSection>
       <S.SharePageProfileImg src={folderImg} alt="" />
-      <S.SharePageFolderOwnerName className="user-name">{`${folderAccountName}`}</S.SharePageFolderOwnerName>
-      <S.SharePageFolderName className="folder-name">{`${folderName}`}</S.SharePageFolderName>
+      <S.SharePageFolderOwnerName>{`${folderAccountName}`}</S.SharePageFolderOwnerName>
+      <S.SharePageFolderName>{`${folderName}`}</S.SharePageFolderName>
     </S.SharePageProfileSection>
   );
 };
