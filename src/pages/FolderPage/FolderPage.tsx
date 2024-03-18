@@ -179,7 +179,7 @@ export default function FolderPage({ userId = 1 }) {
         <S.SubFolderUtil>
           <S.CurrentSubFolder>{currentFolderName}</S.CurrentSubFolder>
           {!isCurrentFolderAll && (
-            <HandleCurrentSubFolder handleFunction={subFolderAction} />
+            <HandleCurrentSubFolder subFolderUtils={subFolderAction} />
           )}
         </S.SubFolderUtil>
         <LinkSearchBar />
