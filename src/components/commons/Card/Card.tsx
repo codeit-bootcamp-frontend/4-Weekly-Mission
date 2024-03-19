@@ -1,5 +1,7 @@
+import { useRef } from 'react';
 import {
   CardContentWrapper,
+  CardImageWrapper,
   CardDate,
   CardImage,
   CardStatus,
@@ -21,15 +23,40 @@ interface Props {
 }
 
 const Card = ({ card }: Props) => {
-  console.log(card?.imageSource);
+  const WrapperRef = useRef<HTMLDivElement>(null);
+  const ImageRef = useRef<HTMLImageElement>(null);
+
+  const handleCardMouseOver = () => {
+    if (WrapperRef.current && ImageRef.current) {
+      WrapperRef.current.style.border = '2px solid #6D6AFE';
+      ImageRef.current.style.transform = 'scale(1.3)';
+    }
+  };
+
+  const handleCardMouseOut = () => {
+    if (WrapperRef.current && ImageRef.current) {
+      WrapperRef.current.style.border = '0';
+      ImageRef.current.style.transform = 'scale(1)';
+    }
+  };
+
   return (
-    <Wrapper>
-      <CardImage
-        src={card?.imageSource ? card?.imageSource : '/images/hollowImage.png'}
-        alt="이미지"
-        width={340}
-        height={200}
-      />
+    <Wrapper
+      ref={WrapperRef}
+      onMouseOver={handleCardMouseOver}
+      onMouseOut={handleCardMouseOut}
+    >
+      <CardImageWrapper>
+        <CardImage
+          src={
+            card?.imageSource ? card?.imageSource : '/images/hollowImage.png'
+          }
+          alt="이미지"
+          width={340}
+          height={200}
+          ref={ImageRef}
+        />
+      </CardImageWrapper>
       <CardContentWrapper>
         <CardStatus>10 minutes ago</CardStatus>
         <CardTitle>testestset</CardTitle>

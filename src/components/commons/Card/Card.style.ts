@@ -7,15 +7,25 @@ export const Wrapper = styled.div`
   border-radius: 15px;
   box-shadow: 0px 5px 25px 0 rgba(0, 0, 0, 0.08);
   transition-duration: 0.3s;
+  overflow: hidden;
 
   &:hover {
     background-color: #f0f6ff;
   }
 `;
 
-export const CardImage = styled.img`
-  width: 340px;
+export const CardImageWrapper = styled.div`
+  position: relative;
+  width: 100%;
   height: 200px;
+  overflow: hidden;
+`;
+
+export const CardImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition-duration: 0.5s;
 `;
 
 export const CardContentWrapper = styled.div`
