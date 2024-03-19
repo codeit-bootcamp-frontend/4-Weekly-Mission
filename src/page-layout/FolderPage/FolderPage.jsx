@@ -11,7 +11,6 @@ import Modal from "ui/Modal/Modal";
 
 import "./FolderPage.css";
 import { useState } from "react";
-import { NoLink } from "ui/NoLink/NoLink";
 
 export const FolderPage = () => {
   const [currentCategory, setCurrentCategory] = useState("전체");
@@ -81,7 +80,7 @@ export const FolderPage = () => {
                 ))}
               </CardList>
             ) : (
-              <NoLink>저장된 링크가 없습니다.</NoLink>
+              <div className="NoLink">저장된 링크가 없습니다.</div>
             )}
             <button className="mobile-add-button">폴더 추가하기 +</button>
           </div>

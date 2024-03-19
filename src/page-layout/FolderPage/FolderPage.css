@@ -26,3 +26,12 @@
     row-gap: 4rem;
   }
 }
+
+.NoLink {
+  width: 106rem;
+  margin-top: 4rem;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  text-align: center;
+}
