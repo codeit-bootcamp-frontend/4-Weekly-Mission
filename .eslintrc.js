@@ -36,8 +36,9 @@ module.exports = {
     'import/no-unresolved': 'off',
     'react/jsx-props-no-spreading': 'off',
     'react/no-array-index-key': 'off',
+    'import/no-extraneous-dependencies': 'off',
     'react/function-component-definition': [
-      2,
+      'error',
       { namedComponents: ['arrow-function', 'function-declaration'] },
     ],
     'import/extensions': [
