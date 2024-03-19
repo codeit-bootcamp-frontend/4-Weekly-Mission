@@ -11,14 +11,9 @@ export const Card = ({
   favorite,
   handleModalClick,
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
   const [kebabOpen, setKebabOpen] = useState(false);
 
   const isFolder = typeof favorite !== "undefined";
-  const classNameContent = isHovered
-    ? "CardContent CardContent-hovered"
-    : "CardContent";
-  const className = isHovered ? "CardImage CardImage-zoom-in" : "CardImage";
   const isFavorite = favorite
     ? "images/full-star.svg"
     : "images/empty-star.svg";
@@ -35,9 +30,6 @@ export const Card = ({
     };
   }, [setKebabOpen]);
 
-  const handleMouseOver = () => setIsHovered(true);
-  const handleMouseLeave = () => setIsHovered(false);
-
   const handleKebabClick = (e) => {
     e.preventDefault();
     setKebabOpen(true);
@@ -45,23 +37,19 @@ export const Card = ({
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer">
-      <div
-        className="Card"
-        onMouseOver={handleMouseOver}
-        onMouseLeave={handleMouseLeave}
-      >
+      <div className="Card">
         <div
           style={{
             backgroundImage: `url(${imageSource ?? "images/card-default.png"})`,
           }}
-          className={className}
+          className="CardImage"
           alt={alt}
         >
           {favorite !== undefined && (
             <img className="star-button" alt="star" src={isFavorite} />
           )}
         </div>
-        <div className={classNameContent}>
+        <div className="CardContent">
           <div className="CardContent-top">
             <span className="CardContent-elapsed-time">{elapsedTime}</span>
             {isFolder && (
