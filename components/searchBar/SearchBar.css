@@ -1,0 +1,28 @@
+.search-bar_ly {
+  display: flex;
+  padding: 13px 16px;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-radius: 10px;
+  width: 100%;
+  background: #F5F5F5;
+  box-sizing: border-box;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.text {
+  color: var(--Text, #666);
+  text-align: right;
+
+  /* Linkbrary/body2-regular */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
