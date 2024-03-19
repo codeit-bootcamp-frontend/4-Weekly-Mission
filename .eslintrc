@@ -34,7 +34,6 @@
             "position": "after"
           }
         ],
-        "newlines-between": "always",
         "pathGroupsExcludedImportTypes": ["react*"],
         "alphabetize": {
           "order": "asc"
