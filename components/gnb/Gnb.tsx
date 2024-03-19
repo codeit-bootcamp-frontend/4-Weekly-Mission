@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import Image from 'next/image';
+import Link from 'next/link'
+import Image from 'next/image'
 
-import { getUser } from '@/apis/api';
-import logoImg from '@/public/logo.svg';
+import { getUser } from '@/apis/api'
+import logoImg from '@/public/logo.svg'
 
-import './Gnb.css';
+import './Gnb.css'
 
 interface GnbProps {
   isFixed: boolean;
@@ -23,7 +23,6 @@ const getProfileData = async () => {
 // server component : 상태와 부수 효과, 생명주기를 가질 수 없음.
 const Gnb = async ({ isFixed }: GnbProps) => {
   const [user] = await getProfileData();
-  console.log(user.image_source);
 
   const gnbStyle: React.CSSProperties = {
     position: isFixed ? 'sticky' : 'static',
