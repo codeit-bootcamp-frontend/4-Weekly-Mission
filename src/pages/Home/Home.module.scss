@@ -21,6 +21,7 @@
 
 .addButton {
   width: 24rem;
+  @include gradient-button;
 }
 
 .homeImage {
@@ -83,12 +84,14 @@
   .mainImage {
     width: 26rem;
   }
+
   .homeImage {
     width: 50rem;
   }
 }
 
 @media screen and (width < 768px) {
+
   .mainImage,
   .homeImage {
     width: 100vw;
@@ -101,12 +104,14 @@
 
   .mainBox {
     gap: 1.4rem;
+
     &:nth-child(odd) {
       grid-template:
         'title'
         'img'
         'description';
     }
+
     &:nth-child(even) {
       grid-template:
         'title'

@@ -28,6 +28,7 @@
 
 .loginButton {
   width: 8rem;
+  @include gradient-button;
 }
 
 .fixed {

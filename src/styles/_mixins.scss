@@ -1,3 +1,5 @@
+@import './variables';
+
 @mixin color-box($borderColor: $color-primary) {
   width: 100%;
   display: flex;
@@ -17,4 +19,18 @@
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
+}
+
+@mixin gradient-button($start-color: $color-primary, $end-color: #6ae3fe) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  font-size: 1rem;
+  color: $color-white;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  background: linear-gradient(to right, $start-color, $end-color);
+  border-radius: 8px;
 }
