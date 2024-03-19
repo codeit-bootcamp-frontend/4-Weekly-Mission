@@ -1,39 +1,33 @@
 import { useEffect, useState } from 'react';
-
 import { FiPlus } from 'react-icons/fi';
-
 import AddBar from '../../components/AddBar/AddBar';
 import Cards from '../../components/Cards/Cards';
 import Empty from '../../components/Empty/Empty';
 import FolderNavbar from '../../components/Navbar/Folder/FolderNavbar';
 import FoldersNavbar from '../../components/Navbar/Folders/FoldersNavbar';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import { getFolders, getLinks } from '../../utils/api';
-
+import { GET_FOLDERS_API_URL } from '../../constant/constant';
+import useFetchData from '../../hooks/useFetchData';
 import styles from './Folder.module.scss';
 
 const Folder = () => {
-  const [folders, setFolders] = useState([]);
-  const [links, setLinks] = useState([]);
   const [selectedItem, setSelectedItem] = useState({ id: 'all', name: '전체' });
-  const hasFolders = folders.length;
+
+  const { data: linksData } = useFetchData(
+    `users/1/links?folderId=${selectedItem.id === 'all' ? '' : selectedItem.id}`
+  );
+  const { data: foldersData } = useFetchData(GET_FOLDERS_API_URL);
+
+  const links = linksData
+    ? linksData.data.map(link => {
+      const { created_at, image_source, ...rest } = link;
+      return { createdAt: created_at, imageSource: image_source, ...rest };
+    })
+    : [];
   const hasLinks = links.length !== 0;
 
-  useEffect(() => {
-    const fetchLinks = async () => {
-      const links = await getLinks(`users/1/links?folderId=${selectedItem.id === 'all' ? '' : selectedItem.id}`);
-      setLinks(links);
-    };
-    fetchLinks();
-  }, [selectedItem]);
-
-  useEffect(() => {
-    const fetchFolders = async () => {
-      const folders = await getFolders();
-      setFolders([{ id: 'all', name: '전체' }, ...folders]);
-    };
-    fetchFolders();
-  }, []);
+  const folders = foldersData ? [{ id: 'all', name: '전체' }, ...foldersData.data] : [];
+  const hasFolders = folders.length !== 0;
 
   return (
     <section className={styles.layout}>

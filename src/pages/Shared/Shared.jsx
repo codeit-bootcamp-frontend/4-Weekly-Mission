@@ -4,28 +4,22 @@ import Cards from '../../components/Cards/Cards';
 import Empty from '../../components/Empty/Empty';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import UserProfile from '../../components/UserProfile/UserProfile';
+import { GET_FOLDER_API_URL } from '../../constant/constant';
 import { AuthContext } from '../../context/AuthContext';
-import { getFolder } from '../../utils/api';
+import useFetchData from '../../hooks/useFetchData';
 
 import styles from './Shared.module.scss';
 
 const Shared = () => {
-  const [folder, setFolder] = useState({ links: [], name: null });
-  const { links, name } = folder;
   const { user } = useContext(AuthContext);
   const hasUser = Object.keys(user).length !== 0;
 
-  useEffect(() => {
-    const fetchFolder = async () => {
-      try {
-        const { folder } = await getFolder();
-        setFolder(folder);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchFolder();
-  }, []);
+  const { data: folderData, isLoading } = useFetchData(GET_FOLDER_API_URL);
+  if (!folderData || isLoading) {
+    return <div>null</div>;
+  }
+
+  const { links, name } = folderData.folder;
 
   return (
     <div className={styles.layout}>
