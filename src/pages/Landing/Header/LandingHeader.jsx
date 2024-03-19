@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { LargeButton } from "../../../components/common/Button/ButtonStyle";
+import { MainHeaderButton } from "../../../components/common/Button/ButtonStyle";
 import { LANDING_HEADER } from "../../../constnats/image";
 import * as S from "./LandingHeaderStyle";
 
@@ -12,7 +12,7 @@ const LandingHeader = () => {
         관리해 보세요
       </S.Title>
       <Link to="/signup">
-        <LargeButton>링크 추가하기</LargeButton>
+        <MainHeaderButton>링크 추가하기</MainHeaderButton>
       </Link>
       <S.Image src={LANDING_HEADER} alt="header" />
     </S.Container>

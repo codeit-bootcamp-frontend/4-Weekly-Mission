@@ -49,7 +49,7 @@ const GlobalStyles = createGlobalStyle`
       max-width: 1920px;
       min-width: 375px;
       width:100vw;
-      height:100vh;
+      min-height:100vh;
       font-family: Pretendard;
     }
 `;

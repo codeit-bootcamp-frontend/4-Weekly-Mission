@@ -1,11 +1,14 @@
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { LINKBRARY_LOGO } from "../../constnats/image";
 import { NavigationButton } from "../common/Button/ButtonStyle";
 import * as S from "./NavigationStyle";
 
 const Navigation = () => {
+  const location = useLocation();
+
   return (
-    <S.Container>
+    <S.Container $path={location.pathname}>
       <Link to="/">
         <S.Logo src={LINKBRARY_LOGO} alt="logo" />
       </Link>

@@ -15,10 +15,16 @@ export const Button = styled.button`
 `;
 
 export const NavigationButton = styled(Button)`
-  width: 128px;
+  @media ${({ theme }) => theme.devices.mobile} {
+    width: 80px;
+    padding: 10px 16px;
+
+    ${({ theme }) => theme.fonts.regularSmall};
+    ${({ theme }) => theme.bolds.bold};
+  }
 `;
 
-export const LargeButton = styled(Button)`
+export const MainHeaderButton = styled(Button)`
   width: 350px;
 
   @media ${({ theme }) => theme.devices.mobile} {
