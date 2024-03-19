@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import useAPIData from '@/src/hooks/useAPIData';
-import getUserSampleDataAPI from '@/src/API/API';
+import { UserDataType } from '@/src/type';
+import { getUserSampleDataAPI } from '@/src/API/API';
 import {
   Wrapper,
   HeaderWrapper,
@@ -27,12 +28,12 @@ const Header = () => {
         {userProfile ? (
           <UserWrapper>
             <UserImage
-              src={userProfile.image}
+              src={(userProfile as UserDataType).image}
               alt="profile"
               width={28}
               height={28}
             />
-            <UserEmail>{userProfile.email}</UserEmail>
+            <UserEmail>{(userProfile as UserDataType).email}</UserEmail>
           </UserWrapper>
         ) : (
           <div />

@@ -1,7 +1,7 @@
 import instance from './instance';
-import { UserDataType } from '../type';
+import { UserDataType, FolderDataType } from '../type';
 
-const getUserSampleDataAPI = async (): Promise<UserDataType> => {
+export const getUserSampleDataAPI = async (): Promise<UserDataType> => {
   const APIData: UserDataType = {
     email: undefined,
     image: undefined,
@@ -19,4 +19,24 @@ const getUserSampleDataAPI = async (): Promise<UserDataType> => {
   }
 };
 
-export default getUserSampleDataAPI;
+export const getFolderDataAPI = async (): Promise<FolderDataType> => {
+  const APIData: FolderDataType = {
+    userName: undefined,
+    userImage: undefined,
+    name: undefined,
+    cardData: undefined,
+    error: undefined,
+  };
+  try {
+    const response = await instance.get(`/sample/folder`);
+    const { data } = response;
+    APIData.userName = data.folder.owner.name;
+    APIData.userImage = data.folder.owner.profileImageSource;
+    APIData.name = data.folder.name;
+    APIData.cardData = data.folder.links;
+    return APIData;
+  } catch (error) {
+    APIData.error = error;
+    return APIData;
+  }
+};

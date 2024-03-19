@@ -1,3 +1,4 @@
+import { FolderDataType } from '@/src/type';
 import {
   Wrapper,
   ContentWrapper,
@@ -6,17 +7,21 @@ import {
   FolderName,
 } from './SubHeader.style';
 
-const SubHeader = () => (
+interface Props {
+  folder: FolderDataType | null;
+}
+
+const SubHeader = ({ folder }: Props) => (
   <Wrapper>
     <ContentWrapper>
       <ProfileImage
-        src="/images/Avatar.png"
+        src={(folder as FolderDataType)?.userImage}
         alt="아바타"
         width={60}
         height={60}
       />
-      <ProfileName>@코드잇</ProfileName>
-      <FolderName>즐겨찾기</FolderName>
+      <ProfileName>{(folder as FolderDataType)?.userName}</ProfileName>
+      <FolderName>{(folder as FolderDataType)?.name}</FolderName>
     </ContentWrapper>
   </Wrapper>
 );
