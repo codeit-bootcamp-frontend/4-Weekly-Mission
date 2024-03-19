@@ -1,11 +1,8 @@
 import { useState } from 'react';
-
 import { CiShare1 } from 'react-icons/ci';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { TiPencil } from 'react-icons/ti';
-
 import Modal from '../../Modal/Modal';
-
 import styles from './FolderNavbar.module.scss';
 
 const FolderNavbar = ({ folderName }) => {

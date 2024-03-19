@@ -1,5 +1,4 @@
 import { DEFAULT_USER_IMAGE } from '../../constant/constant';
-
 import styles from './UserProfile.module.scss';
 
 const UserProfile = ({ title, image, direction = 'row' }) => {

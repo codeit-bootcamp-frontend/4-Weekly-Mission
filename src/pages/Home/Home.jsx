@@ -1,4 +1,3 @@
-import GradientButton from '../../components/common/GradientButton/GradientButton';
 import GradientText from '../../components/common/GradientText/GradientText';
 
 import styles from './Home.module.scss';
@@ -15,9 +14,9 @@ const Home = () => {
           <br />
           쉽게 저장하고 관리해보세요
         </h1>
-        <div className={styles.addButton}>
-          <GradientButton href='./pages/signup.html'>링크 추가하기</GradientButton>
-        </div>
+        <button className={addButton} href='./pages/signup.html'>
+          링크 추가하기
+        </button>
         <img className={styles.homeImage} src='assets/landing-main.svg' alt='메인-이미지' />
       </section>
       <main className={styles.mainLayout}>

@@ -1,5 +1,4 @@
 import Card from '../Card/Card';
-
 import styles from './Cards.module.scss';
 
 const Cards = ({ links }) => {

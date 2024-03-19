@@ -1,5 +1,4 @@
 import { SNS_LIST } from '../../constant/constant';
-
 import styles from './Footer.module.scss';
 
 const Footer = () => {
