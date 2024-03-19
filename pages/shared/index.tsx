@@ -2,6 +2,7 @@ import Header from '@/src/components/commons/Header/Header';
 import SubHeader from '@/src/components/shared/SubHeader/SubHeader';
 import SearchBar from '@/src/components/shared/SearchBar/SearchBar';
 import Card from '@/src/components/commons/Card/Card';
+import Footer from '@/src/components/commons/Footer/Footer';
 import { CardWrapper, Content, ContentWrapper } from './index.style';
 
 export default function SharedPage() {
@@ -25,6 +26,7 @@ export default function SharedPage() {
           </CardWrapper>
         </ContentWrapper>
       </Content>
+      <Footer />
     </>
   );
 }

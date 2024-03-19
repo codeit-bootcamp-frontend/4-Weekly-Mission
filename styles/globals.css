@@ -5,6 +5,10 @@
   font-family: 'Pretendard';
 }
 
+a {
+  text-decoration: none;
+}
+
 @font-face {
   font-family: 'Pretendard';
   src: url('/fonts/Pretendard-Regular.otf') format('truetype');
