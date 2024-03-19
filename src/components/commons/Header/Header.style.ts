@@ -1,8 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import FONT from '@/styles/font';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.div<{ $fix: boolean | null }>`
   background-color: #f0f6ff;
+  z-index: 100;
+  ${({ $fix }) =>
+    $fix &&
+    css`
+      position: sticky;
+      top: 0;
+    `}
 `;
 
 export const HeaderWrapper = styled.div`
@@ -22,11 +29,19 @@ export const HeaderWrapper = styled.div`
     width: 100%;
     padding: 33px 32px;
   }
+  @media (max-width: 767px) {
+    padding: 18px 32px;
+  }
 `;
 
 export const Logo = styled.img`
   width: 133px;
   height: 24px;
+
+  @media (max-width: 767px) {
+    width: 88.67px;
+    height: 16px;
+  }
 `;
 
 export const UserWrapper = styled.div`

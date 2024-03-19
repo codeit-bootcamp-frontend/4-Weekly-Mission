@@ -13,7 +13,7 @@ export default function SharedPage() {
   const cardData = (folder as FolderDataType)?.cardData;
   return (
     <>
-      <Header />
+      <Header fix />
       <SubHeader folder={folder as FolderDataType} />
       <Content>
         <ContentWrapper>

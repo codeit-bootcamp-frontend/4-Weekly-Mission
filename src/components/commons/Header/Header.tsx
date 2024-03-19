@@ -12,10 +12,14 @@ import {
   UserWrapper,
 } from './Header.style';
 
-const Header = () => {
+interface Props {
+  fix: boolean | null;
+}
+
+const Header = ({ fix }: Props) => {
   const { data: userProfile } = useAPIData(getUserSampleDataAPI);
   return (
-    <Wrapper>
+    <Wrapper $fix={fix}>
       <HeaderWrapper>
         <Link href="/">
           <Logo
