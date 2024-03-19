@@ -27,3 +27,14 @@ export const Label = styled.label`
   height: 16px;
   margin-left: 16px;
 `;
+
+export const InputClearButton = styled.button`
+  position: absolute;
+  height: 2.4rem;
+  width: 2.4rem;
+  right: 1.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+`;
