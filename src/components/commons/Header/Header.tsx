@@ -1,19 +1,31 @@
 import React from 'react';
-import Image from 'next/image';
-import { HeaderWrapper } from './Header.style';
+import Link from 'next/link';
+import {
+  Wrapper,
+  HeaderWrapper,
+  Logo,
+  UserEmail,
+  UserImage,
+  UserWrapper,
+} from './Header.style';
 
-function Header() {
-  return (
+const Header = () => (
+  <Wrapper>
     <HeaderWrapper>
-      <Image
-        src="/images/logo.svg"
-        alt="Linkbrary"
-        width={133}
-        height={24}
-        priority
-      />
+      <Link href="/">
+        <Logo src="/images/logo.svg" alt="Linkbrary" width={133} height={24} />
+      </Link>
+      <UserWrapper>
+        <UserImage
+          src="/images/profileimg.png"
+          alt="profile"
+          width={28}
+          height={28}
+        />
+        <UserEmail>Codeit@codeit.com</UserEmail>
+      </UserWrapper>
     </HeaderWrapper>
-  );
-}
+  </Wrapper>
+);
 
 export default Header;

@@ -2,4 +2,11 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  font-family: 'Pretendard';
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/fonts/Pretendard-Regular.otf') format('truetype');
+  font-style: normal;
 }
