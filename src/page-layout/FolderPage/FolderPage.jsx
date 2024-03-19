@@ -70,7 +70,7 @@ export const FolderPage = () => {
               currentCategory={currentCategory}
               handleEditClick={handleModalClick}
             />
-            {links ? (
+            {links?.length !== 0 ? (
               <CardList>
                 {links?.map((link) => (
                   <Card

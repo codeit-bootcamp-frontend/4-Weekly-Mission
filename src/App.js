@@ -8,6 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/">
+          <Route index element={<FolderPage />} />
           <Route path="shared" element={<SharedPage />} />
           <Route path="folder" element={<FolderPage />} />
         </Route>
