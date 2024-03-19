@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import { BsThreeDots } from 'react-icons/bs';
 import { FaStar } from 'react-icons/fa';
 import { UNDEFINED_IMAGE } from '../../constant/constant';
-import ToggleButton from '../common/ToggleButton/ToggleButton';
+import ToggleButton from '../ToggleButton/ToggleButton';
 import styles from './Card.module.scss';
 
 const Card = ({ createdAt, url, title, imageURL }) => {

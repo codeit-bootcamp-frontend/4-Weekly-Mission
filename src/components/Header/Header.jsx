@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { GET_USER_API_URL } from '../../constant/constant';
 import { AuthContext } from '../../context/AuthContext';
 import createAxiosInstance from '../../utils/axios';
+import { cn } from '../../utils/classNames';
 import UserProfile from '../UserProfile/UserProfile';
 import styles from './Header.module.scss';
 
@@ -24,7 +25,7 @@ const Header = () => {
   };
 
   return (
-    <header className={`${styles.layout} ${isFolderPage && styles.fixed}`}>
+    <header className={cn(styles.layout, isFolderPage && styles.fixed)}>
       <div className={styles.box}>
         <Link to='/'>
           <img className={styles.linkbraryLogo} src='assets/icons/linkbrary-logo.svg' alt='linkbrary' />

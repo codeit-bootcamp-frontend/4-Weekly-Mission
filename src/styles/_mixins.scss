@@ -34,3 +34,9 @@
   background: linear-gradient(to right, $start-color, $end-color);
   border-radius: 8px;
 }
+
+@mixin gradient-text($start-color: $color-primary, $end-color: $color-red) {
+  color: transparent;
+  background: linear-gradient(to right, $start-color, $end-color);
+  background-clip: text;
+}

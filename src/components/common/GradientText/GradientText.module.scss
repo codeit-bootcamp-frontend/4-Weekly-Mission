@@ -1,7 +1,0 @@
-@import '../../../styles/_index.scss';
-
-.gradientText {
-  color: transparent;
-  background: linear-gradient(to right, $color-primary, $color-red);
-  background-clip: text;
-}

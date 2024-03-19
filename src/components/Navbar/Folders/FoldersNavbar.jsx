@@ -1,4 +1,5 @@
 import { FiPlus } from 'react-icons/fi';
+import { cn } from '../../../utils/classNames';
 import styles from './FoldersNavbar.module.scss';
 
 const FoldersNavbar = ({ items, selectedItem, setSelectedItem }) => {
@@ -9,7 +10,7 @@ const FoldersNavbar = ({ items, selectedItem, setSelectedItem }) => {
           <li key={item.id}>
             <div
               id={item.id}
-              className={`${styles.colorBox} ${selectedItem?.id === item.id && styles.fillBackground}`}
+              className={cn(styles.colorBox, selectedItem?.id === item.id && styles.fillBackground)}
               onClick={() => setSelectedItem && setSelectedItem({ id: item.id, name: item.name })}>
               {item.name}
             </div>

@@ -68,6 +68,22 @@
   color: #000;
 }
 
+.gradientPrimary {
+  @include gradient-text($start-color: $color-primary, $end-color: #ff9f9f);
+}
+
+.gradientSecondary {
+  @include gradient-text($start-color: #fe8a8a, $end-color: #a4ceff);
+}
+
+.gradientTertiary {
+  @include gradient-text($start-color: #6fbaff, $end-color: #ffd88b);
+}
+
+.gradientQuaternary {
+  @include gradient-text($start-color: #6d7ccd, $end-color: #52886b);
+}
+
 .description {
   grid-area: description;
   font-size: 1.25rem;

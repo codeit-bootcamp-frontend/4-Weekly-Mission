@@ -1,7 +1,5 @@
 import { useState } from 'react';
-
-import Modal from '../../Modal/Modal';
-
+import Modal from '../Modal/Modal';
 import styles from './ToggleButton.module.scss';
 
 const ToggleButton = ({ children, items = [] }) => {

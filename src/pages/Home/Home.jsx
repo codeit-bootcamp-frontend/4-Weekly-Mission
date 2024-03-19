@@ -7,14 +7,14 @@ const Home = () => {
     <>
       <section className={styles.layout}>
         <h1 className={styles.title}>
-          <GradientText startColor='$color-primary' endColor='#ff9f9f'>
+          <span className={styles.gradientPrimary} startColor='$color-primary' endColor='#ff9f9f'>
             세상의 모든 정보
-          </GradientText>
+          </span>
           를
           <br />
           쉽게 저장하고 관리해보세요
         </h1>
-        <button className={addButton} href='./pages/signup.html'>
+        <button className={styles.addButton} href='./pages/signup.html'>
           링크 추가하기
         </button>
         <img className={styles.homeImage} src='assets/landing-main.svg' alt='메인-이미지' />
@@ -22,9 +22,7 @@ const Home = () => {
       <main className={styles.mainLayout}>
         <article className={styles.mainBox}>
           <h2 className={styles.title}>
-            <GradientText startColor='#fe8a8a' endColor='#a4ceff'>
-              원하는 링크
-            </GradientText>
+            <span className={styles.gradientSecondary}>원하는 링크</span>
             를
             <br />
             저장하세요.
@@ -41,9 +39,7 @@ const Home = () => {
           <h2 className={styles.title}>
             링크를 폴더로
             <br />
-            <GradientText startColor='#6fbaff' endColor='#ffd88b'>
-              관리
-            </GradientText>
+            <span className={styles.gradientTertiary}>관리</span>
             하세요
           </h2>
           <p className={styles.description}>
@@ -57,9 +53,7 @@ const Home = () => {
           <h2 className={styles.title}>
             저장한 링크를
             <br />
-            <GradientText startColor='#6d7ccd' endColor='#52886b'>
-              공유
-            </GradientText>
+            <span className={styles.gradientQuaternary}>공유</span>
             해보세요.
           </h2>
           <p className={styles.description}>
