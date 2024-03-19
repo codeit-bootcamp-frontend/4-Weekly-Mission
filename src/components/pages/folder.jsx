@@ -1,14 +1,18 @@
 import Header from '../Header/Header';
-import MainFolder from '../Main/MainFolder';
+import CardList from '../CardList/CardList';
+import FilterBar from '../FilterBar/FilterBar';
 import Footer from '../Footer/Footer';
-import SectionFolder from '../Section/SectionFolder';
+import Section from '../Section/Section';
+import SearchBar from '../SearchBar/SearchBar';
 
 export default function Folder() {
   return (
     <>
       <Header style="headerFolder" />
-      <SectionFolder />
-      <MainFolder />
+      <Section style="sectionFolder" />
+      <SearchBar />
+      <FilterBar />
+      <CardList />
       <Footer />
     </>
   );

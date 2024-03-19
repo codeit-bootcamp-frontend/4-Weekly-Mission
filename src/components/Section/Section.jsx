@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Section.css';
 
-export default function Section() {
+export default function Section({ style }) {
   return (
-    <section id="sectionShared">
-      <div className="title">
-        <FolderInfo />
-      </div>
+    <section className={style}>
+      <div className="title">{style === 'sectionShared' ? <FolderInfo /> : <LinkBar />}</div>
     </section>
   );
 }
@@ -36,5 +34,17 @@ function FolderInfo() {
       )}
       {folderData && <p className="bookmark">{folderData.name}</p>}
     </>
+  );
+}
+
+function LinkBar() {
+  return (
+    <div id="linkAddBar">
+      <div id="linkAddBarText">
+        <img src={`${process.env.PUBLIC_URL}/images/linkIcon.svg`} alt="링크 추가 아이콘" />
+        <p>링크를 추가해 보세요</p>
+      </div>
+      <button id="linkAddButton">추가하기</button>
+    </div>
   );
 }

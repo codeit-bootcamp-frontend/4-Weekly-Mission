@@ -62,16 +62,8 @@ const FilterBarLeft = styled.div`
   gap: 12px;
 `;
 
-export default function Page() {
+export default function FilterBar() {
   const [filter, setFilter] = useState('all');
-  return (
-    <div>
-      <FilterBar filter={filter} onChangeFilter={setFilter}></FilterBar>
-    </div>
-  );
-}
-
-function FilterBar({ filter, onChangeFilter }) {
   const [folderData, setFolderData] = useState([]);
 
   useEffect(() => {

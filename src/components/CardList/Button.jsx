@@ -1,7 +1,6 @@
-import Page from '../FilterBar/FilterBar';
-import search from './images/search.svg';
+import FilterBar from '../FilterBar/FilterBar';
 import styled from 'styled-components';
-import './Main.css';
+import './CardList.css';
 
 const Bar = styled.div`
   display: flex;
@@ -57,12 +56,8 @@ const FloatingButton = styled.button`
 export default function Main() {
   return (
     <main id="mainShared">
-      <div className="searchBar">
-        <img src={search} alt="돋보기 아이콘" />
-        <p>링크를 검색해 보세요</p>
-      </div>
       <Bar>
-        <Page />
+        <FilterBar />
         <FilterBarRight>
           <p>폴더 추가</p>
           <img src={`${process.env.PUBLIC_URL}/images/add.svg`} alt="Add Icon"></img>
