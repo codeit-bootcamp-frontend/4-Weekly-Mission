@@ -6,9 +6,9 @@ import Footer from '../Footer/Footer';
 export default function Shared() {
   return (
     <>
-      <Header />
-      <Section />
-      <Main />
+      <Header style="headerShared" />
+      {/* <Section />
+      <Main /> */}
       <Footer />
     </>
   );
