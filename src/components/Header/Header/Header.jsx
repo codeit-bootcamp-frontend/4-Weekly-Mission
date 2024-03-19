@@ -16,7 +16,7 @@ export default function Header() {
     if (!isLoading) {
       setFetchData(data.data[0]);
     }
-  }, [isLoading]);
+  }, [data, isLoading]);
 
   return (
     <header className={styles.Header}>

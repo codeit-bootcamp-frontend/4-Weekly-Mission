@@ -1,0 +1,35 @@
+.ProfileBox {
+  padding-top: 113px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 60px;
+  background: var(--Linkbrary-bg, #f0f6ff);
+
+  .ProfileInfos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #000;
+    gap: 12px;
+
+    .profileImg {
+      width: 60px;
+      padding: 4px;
+      border-radius: 47px;
+      background: var(--primary-purple-70, #8f00ff);
+    }
+
+    .profileName {
+      font-size: 16px;
+      font-weight: 400;
+    }
+
+    .folderName {
+      font-feature-settings: "clig" off, "liga" off;
+      font-size: 40px;
+      font-weight: 600;
+      padding-top: 6px;
+    }
+  }
+}
