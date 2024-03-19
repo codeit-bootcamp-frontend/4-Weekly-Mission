@@ -24,17 +24,15 @@ function ShareModal() {
   const folderId = shareModalPurpose.id;
 
   const handleClick = (e, buttonId) => {
+    e.preventDefault();
     switch (buttonId) {
       case 1:
-        e.preventDefault();
         shareLinkToKakaoTalk(folderId);
         break;
       case 2:
-        e.preventDefault();
         shareLinkToFacebook(folderId);
         break;
       case 3:
-        e.preventDefault();
         copyURLToClipboard(folderId);
         break;
       default:
