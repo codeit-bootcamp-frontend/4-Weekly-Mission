@@ -20,6 +20,11 @@ const Modal = ({ title, children, onClose }) => {
   const modalRef = useRef();
   useOutsideClick(modalRef, onClose);
 
+  const handleCloseButtonClick = event => {
+    event.stopPropagation();
+    onClose();
+  };
+
   useEffect(() => {
     const prevScrollY = preventScroll();
     return () => {
@@ -29,9 +34,9 @@ const Modal = ({ title, children, onClose }) => {
 
   return (
     <ModalPortal>
-      <section className={styles.layout} ref={modalRef}>
-        <div className={styles.box} onClick={event => event.stopPropagation()}>
-          <button className={styles.closeButton} onClick={onClose}>
+      <section className={styles.layout}>
+        <div className={styles.box} ref={modalRef}>
+          <button className={styles.closeButton} onClick={handleCloseButtonClick}>
             <VscChromeClose />
           </button>
           <h2>{title}</h2>
