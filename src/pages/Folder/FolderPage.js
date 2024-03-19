@@ -11,7 +11,7 @@ import MobileAddFolderButton from "../../component/MobileAddFolderButton";
 const ALL = {
   id: "ALL",
   name: "전체",
-  favorite: false,
+  favorite: false
 };
 
 const FolderPage = () => {
