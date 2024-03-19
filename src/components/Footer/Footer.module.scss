@@ -1,0 +1,26 @@
+.footer {
+  padding: 32px 104px 64px;
+  display: flex;
+  align-items: center;
+  background: #111322;
+  justify-content: space-between;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: 400;
+  color: #676767;
+  text-decoration: none;
+
+  .linkBox {
+    display: flex;
+    gap: 30px;
+  }
+
+  .snsBox {
+    display: flex;
+    gap: 12px;
+  }
+}
+
+// Link {
+//   text-decoration-line: none !important;
+// }
