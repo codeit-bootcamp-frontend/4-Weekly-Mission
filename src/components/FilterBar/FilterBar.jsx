@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { useGetLink } from '../apis/useGetLink';
+import useGetLink from '../apis/useGetLink';
 import Card from '../Card/Card';
 
 const Button = styled.button`
@@ -62,8 +62,16 @@ const FilterBarLeft = styled.div`
   gap: 12px;
 `;
 
-export default function FilterBar() {
+export default function Page() {
   const [filter, setFilter] = useState('all');
+  return (
+    <div>
+      <FilterBar filter={filter} onChangeFilter={setFilter}></FilterBar>
+    </div>
+  );
+}
+
+function FilterBar({ filter, onChangeFilter }) {
   const [folderData, setFolderData] = useState([]);
 
   useEffect(() => {
@@ -111,7 +119,7 @@ export default function FilterBar() {
             {name}
           </Button>
         ))}
-        <Card cardData={linksData}></Card>;
+        <Card data={linksData} />
       </FilterBarLeft>
     </div>
   );

@@ -1,5 +1,4 @@
 import Header from '../Header/Header';
-import CardList from '../CardList/CardList';
 import FilterBar from '../FilterBar/FilterBar';
 import Footer from '../Footer/Footer';
 import Section from '../Section/Section';
@@ -12,7 +11,6 @@ export default function Folder() {
       <Section style="sectionFolder" />
       <SearchBar />
       <FilterBar />
-      <CardList />
       <Footer />
     </>
   );

@@ -18,7 +18,7 @@ const mapLinksData = link => {
   };
 };
 
-export const useGetLink = (folderId = 'all') => {
+const useGetLink = (folderId = 'all') => {
   const queryString = folderId === 'all' ? '' : `?folderId=${folderId}`;
   const getLinks = useCallback(() => axiosInstance.get(`users/1/links${queryString}`), [queryString]);
   const { execute, loading, error, data } = useAsync(getLinks);
@@ -39,3 +39,5 @@ export const useGetLink = (folderId = 'all') => {
   const linksData = data?.data.map(mapDataFormat).map(mapLinksData) ?? [];
   return { execute, loading, error, data: linksData };
 };
+
+export default useGetLink;
