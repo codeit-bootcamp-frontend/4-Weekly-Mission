@@ -1,8 +1,8 @@
 import { useCallback, useEffect } from 'react';
-import { axiosInstance } from '../utils/axiosInstance';
-import { useAsync } from '../hooks/useAsync';
+import { axiosInstance } from '../../utils/axiosInstance';
+import { useAsync } from '../../hooks/useAsync';
 import format from 'date-fns/format';
-import { getElapsedTime } from '../utils/getElapsedTime';
+import { getElapsedTime } from '../../utils/getElapsedTime';
 
 const mapLinksData = link => {
   const { id, createdAt, url, imageSource, title, description } = link;

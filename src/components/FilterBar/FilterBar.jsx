@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import { useGetLink } from '../../dataAccessLink/useGetLink';
+import { useGetLink } from '../apis/useGetLink';
 import Card from '../Card/Card';
 
 const Button = styled.button`
