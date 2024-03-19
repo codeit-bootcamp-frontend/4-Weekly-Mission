@@ -24,7 +24,6 @@ export default function SharedPage() {
   useEffect(() => {
     if (!isLoading) {
       setFetchData(data.folder);
-      console.log(data.folder.links[0]);
     }
   }, [data, isLoading]);
 

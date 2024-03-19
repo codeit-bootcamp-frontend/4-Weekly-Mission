@@ -1,4 +1,5 @@
 import AddLinkInput from "../../components/AddLinkInput/AddLinkInput";
+import CardListBox from "../../components/CardListBox/CardListBox";
 import { Header } from "../../components/Header";
 
 export default function FolderPage() {
@@ -9,6 +10,7 @@ export default function FolderPage() {
     <>
       <Header headerPosition={headerPosition} />
       <AddLinkInput />
+      <CardListBox />
     </>
   );
 }
