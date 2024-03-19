@@ -6,15 +6,14 @@ import Image from 'next/image'
 
 import logoImg from '@/public/logo.svg'
 
-import GnbProfile from './GnbProfile'
-
 import './Gnb.css'
 
 interface GnbProps {
   isFixed: boolean;
+  children: React.ReactNode
 }
 
-const Gnb = ({ isFixed }: GnbProps) => {
+const Gnb = ({ isFixed, children }: GnbProps) => {
   const [count, setCount] = useState(0)
 
   const gnbStyle: React.CSSProperties = {
@@ -29,7 +28,7 @@ const Gnb = ({ isFixed }: GnbProps) => {
         <Link href="/">
           <Image className='logo' src={logoImg} alt="홈으로 연결된 Linkbrary 로고" />
         </Link>
-        <GnbProfile />
+        {children}
       </div>
       <button onClick={() => setCount(count + 1)}>{count}</button>
     </nav> 
