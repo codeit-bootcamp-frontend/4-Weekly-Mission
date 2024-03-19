@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function Profile() {
+function SharedProfile() {
   const [user, setUser] = useState({});
   const sharedFetchData = async () => {
     try {
@@ -33,7 +33,7 @@ function Profile() {
   );
 }
 
-function Profile() {
+function FolderProfile() {
   const [user, setUser] = useState([]);
   const folderFetchData = async () => {
     try {
@@ -65,4 +65,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export { SharedProfile, FolderProfile };
