@@ -20,6 +20,6 @@ export const SearchIcon = styled.img`
   width: 16px;
   height: 16px;
   position: absolute;
-  top: 20px;
+  top: 19px;
   left: 20px;
 `;

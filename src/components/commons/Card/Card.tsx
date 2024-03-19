@@ -1,4 +1,7 @@
 import { useRef } from 'react';
+import CardUpdateStatus from '@/src/utils/CardUpdateStatus';
+import CardDateFormat from '@/src/utils/CardDateFormat';
+import Link from 'next/link';
 import {
   CardContentWrapper,
   CardImageWrapper,
@@ -26,6 +29,10 @@ const Card = ({ card }: Props) => {
   const WrapperRef = useRef<HTMLDivElement>(null);
   const ImageRef = useRef<HTMLImageElement>(null);
 
+  const date = card?.createdAt ? card?.createdAt : '';
+  const cardCreationDate = CardDateFormat(date);
+  const cardStatus = CardUpdateStatus(date);
+
   const handleCardMouseOver = () => {
     if (WrapperRef.current && ImageRef.current) {
       WrapperRef.current.style.border = '2px solid #6D6AFE';
@@ -41,28 +48,30 @@ const Card = ({ card }: Props) => {
   };
 
   return (
-    <Wrapper
-      ref={WrapperRef}
-      onMouseOver={handleCardMouseOver}
-      onMouseOut={handleCardMouseOut}
-    >
-      <CardImageWrapper>
-        <CardImage
-          src={
-            card?.imageSource ? card?.imageSource : '/images/hollowImage.png'
-          }
-          alt="이미지"
-          width={340}
-          height={200}
-          ref={ImageRef}
-        />
-      </CardImageWrapper>
-      <CardContentWrapper>
-        <CardStatus>10 minutes ago</CardStatus>
-        <CardTitle>testestset</CardTitle>
-        <CardDate>2023.3.15</CardDate>
-      </CardContentWrapper>
-    </Wrapper>
+    <Link href={card?.url ? card?.url : ''}>
+      <Wrapper
+        ref={WrapperRef}
+        onMouseOver={handleCardMouseOver}
+        onMouseOut={handleCardMouseOut}
+      >
+        <CardImageWrapper>
+          <CardImage
+            src={
+              card?.imageSource ? card?.imageSource : '/images/hollowImage.png'
+            }
+            alt="이미지"
+            width={340}
+            height={200}
+            ref={ImageRef}
+          />
+        </CardImageWrapper>
+        <CardContentWrapper>
+          <CardStatus>{cardStatus}</CardStatus>
+          <CardTitle>{card?.description}</CardTitle>
+          <CardDate>{cardCreationDate}</CardDate>
+        </CardContentWrapper>
+      </Wrapper>
+    </Link>
   );
 };
 

@@ -50,6 +50,10 @@ export const CardTitle = styled.div`
   overflow: hidden;
   ${FONT.REGULAR_16};
   color: #000000;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 
 export const CardDate = styled.div`
