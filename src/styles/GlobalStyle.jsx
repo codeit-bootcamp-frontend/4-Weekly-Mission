@@ -47,6 +47,7 @@ const GlobalStyles = createGlobalStyle`
       display: flex;
       flex-direction: column;
       max-width: 1920px;
+      min-width: 375px;
       width:100vw;
       height:100vh;
       font-family: Pretendard;

@@ -225,3 +225,14 @@
 - modalPortal.jsx 생성
 - 유형에 맞는 모달 생성
 - 각각의 파트에 연결
+- 필요한 데이터 연결
+
+\* TODO - 30. Landing 페이지 반응형 수정
+
+\* NOTE
+
+- index.html에 id = modal 추가
+- modalPortal.jsx 생성
+- 유형에 맞는 모달 생성
+- 각각의 파트에 연결
+- 필요한 데이터 연결

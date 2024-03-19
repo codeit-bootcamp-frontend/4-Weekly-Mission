@@ -17,12 +17,16 @@ const SelectMenu = forwardRef(({ url, folderList }, ref) => {
       <S.Delete onClick={handleDeleteModal}>삭제하기</S.Delete>
       <S.Add onClick={handleInputModal}>폴더에 추가</S.Add>
       {showDeleteModal && (
-        <DeleteModal title="링크 삭제" text={url}>
+        <DeleteModal title="링크 삭제" text={url} onClose={handleDeleteModal}>
           삭제하기
         </DeleteModal>
       )}
       {showListModal && (
-        <ListModal title="폴더에 추가" folderList={folderList}>
+        <ListModal
+          title="폴더에 추가"
+          folderList={folderList}
+          onClose={handleDeleteModal}
+        >
           추가하기
         </ListModal>
       )}

@@ -20,7 +20,9 @@ const AddLink = ({ folderList }) => {
       </S.Box>
       <SmallButton onClick={handleModal}>추가하기</SmallButton>
       {showModal && (
-        <ListModal folderList={folderList}>폴더에 추가하기</ListModal>
+        <ListModal folderList={folderList} onClose={handleModal}>
+          폴더에 추가하기
+        </ListModal>
       )}
     </S.Container>
   );

@@ -16,7 +16,11 @@ const ActionButton = () => {
       <S.Title>폴더 추가</S.Title>
       <S.Image src={ADD_FOLDER_ICON} alt="add" />
       {showModal && (
-        <InputModal title="폴더 추가" placeholder="내용입력">
+        <InputModal
+          title="폴더 추가"
+          placeholder="내용입력"
+          onClose={handleModal}
+        >
           추가하기
         </InputModal>
       )}

@@ -83,4 +83,5 @@ export const CloseButton = styled.img`
   right: 16px;
   top: 16px;
   z-index: 5;
+  cursor: pointer;
 `;

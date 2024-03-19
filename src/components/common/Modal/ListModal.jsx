@@ -3,9 +3,9 @@ import * as S from "./ModalStyle";
 import { CLOSE_BUTTON } from "../../../constnats/image";
 import { AddModalButton } from "../Button/ButtonStyle";
 
-const ListModal = ({ children, title, folderList }) => {
+const ListModal = ({ children, title, folderList, onClose }) => {
   return ReactDom.createPortal(
-    <S.Background>
+    <S.Background onClick={onClose}>
       <S.Container>
         <S.Title>{title}</S.Title>
         <S.Text>링크주소</S.Text>
@@ -15,7 +15,7 @@ const ListModal = ({ children, title, folderList }) => {
             {folder.link.count}
           </S.List>
         ))}
-        <S.CloseButton src={CLOSE_BUTTON} alt="close" />
+        <S.CloseButton src={CLOSE_BUTTON} alt="close" onClick={onClose} />
         <AddModalButton>{children}</AddModalButton>
       </S.Container>
     </S.Background>,

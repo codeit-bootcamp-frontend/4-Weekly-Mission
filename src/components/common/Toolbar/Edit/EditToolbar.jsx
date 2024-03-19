@@ -32,7 +32,9 @@ const EditToolbar = ({ folderName }) => {
         <S.Box onClick={handleShareModal}>
           <S.Image src={EDIT_SHARE} alt="share" />
           <S.Text>공유</S.Text>
-          {showShareModal && <ShareModal folderName={folderName} />}
+          {showShareModal && (
+            <ShareModal folderName={folderName} onClose={handleShareModal} />
+          )}
         </S.Box>
       </S.Container>
       <S.Container>
@@ -40,7 +42,11 @@ const EditToolbar = ({ folderName }) => {
           <S.Image src={EDIT_CHANGE} alt="chage" />
           <S.Text>이름 변경</S.Text>
           {showInputModal && (
-            <InputModal title="폴더 이름 변경" placeholder={folderName}>
+            <InputModal
+              title="폴더 이름 변경"
+              placeholder={folderName}
+              onClose={handleInputModal}
+            >
               변경하기
             </InputModal>
           )}
@@ -51,7 +57,11 @@ const EditToolbar = ({ folderName }) => {
           <S.Image src={EDIT_DELETE} alt="delete" />
           <S.Text>삭제</S.Text>
           {showDeleteModal && (
-            <DeleteModal title="폴더 삭제" text={folderName}>
+            <DeleteModal
+              title="폴더 삭제"
+              text={folderName}
+              onClose={handleDeleteModal}
+            >
               변경하기
             </DeleteModal>
           )}

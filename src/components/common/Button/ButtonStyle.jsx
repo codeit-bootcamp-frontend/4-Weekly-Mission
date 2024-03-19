@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Button = styled.button`
   ${({ theme }) => theme.displays.rowCenter};
-  width: ${(props) => props.size};
+  width: 128px;
   padding: 16px 20px;
   gap: 10px;
 
@@ -10,7 +10,8 @@ export const Button = styled.button`
   background: ${({ theme }) => theme.gradients.blueToSkyblue};
 
   color: ${({ theme }) => theme.colors.gray10};
-  ${({ theme }) => theme.fonts.regularBold};
+  ${({ theme }) => theme.fonts.regularLarge};
+  ${({ theme }) => theme.bolds.bold};
 `;
 
 export const NavigationButton = styled(Button)`
@@ -19,6 +20,14 @@ export const NavigationButton = styled(Button)`
 
 export const LargeButton = styled(Button)`
   width: 350px;
+
+  @media ${({ theme }) => theme.devices.mobile} {
+    width: 200px;
+    padding: 10px 16px;
+
+    ${({ theme }) => theme.fonts.regularSmall};
+    ${({ theme }) => theme.bolds.bold};
+  }
 `;
 
 export const SmallButton = styled(Button)`

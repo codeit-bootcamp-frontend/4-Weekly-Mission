@@ -69,115 +69,62 @@ const theme = {
   fonts: {
     mainTitle: {
       fontSize: "64px",
-      fontStyle: "normal",
-      fontWeight: "700",
       lineHeight: "80px",
+    },
+    mainTitleMobile: {
+      fontSize: "32px",
+      lineHeight: "42px",
     },
     title: {
       fontSize: "48px",
-      fontStyle: "normal",
-      fontWeight: "700",
       letterSpacing: "-0.3px",
     },
     subTitle: {
       fontSize: "40px",
-      fontStyle: "normal",
-      fontWeight: "600",
       lineHeight: "normal",
     },
     large: {
       fontSize: "24px",
-      fontStyle: "normal",
-      fontWeight: "600",
       lineSpacingt: "-0.2px",
     },
-    regularBold: {
+    regularLarge: {
       fontSize: "18px",
-      fontStyle: "normal",
-      fontWeight: "600",
       lineHeight: "normal",
     },
     regular: {
       fontSize: "16px",
-      fontStyle: "normal",
-      fontWeight: "400",
       lineHeight: "normal",
     },
     regularSmall: {
       fontSize: "14px",
-      fontStyle: "normal",
-      fontWeight: "400",
-      lineHeight: "normal",
-    },
-    regularSmallBold: {
-      fontSize: "14px",
-      fontStyle: "normal",
-      fontWeight: "600",
       lineHeight: "normal",
     },
     small: {
       fontSize: "13px",
-      fontStyle: "normal",
-      fontWeight: "400",
       lineHeight: "normal",
     },
   },
-
   bolds: {
-    mainTitle: {
-      fontSize: "64px",
+    normal: {
+      fontStyle: "normal",
+      fontWeight: "400",
+    },
+    semiBold: {
+      fontStyle: "normal",
+      fontWeight: "500",
+    },
+    bold: {
+      fontStyle: "normal",
+      fontWeight: "600",
+    },
+    titleBold: {
       fontStyle: "normal",
       fontWeight: "700",
-      lineHeight: "80px",
     },
-    title: {
-      fontSize: "48px",
-      fontStyle: "normal",
-      fontWeight: "700",
-      letterSpacing: "-0.3px",
-    },
-    subTitle: {
-      fontSize: "40px",
-      fontStyle: "normal",
-      fontWeight: "600",
-      lineHeight: "normal",
-    },
-    large: {
-      fontSize: "24px",
-      fontStyle: "normal",
-      fontWeight: "600",
-      lineSpacingt: "-0.2px",
-    },
-    regularBold: {
-      fontSize: "18px",
-      fontStyle: "normal",
-      fontWeight: "600",
-      lineHeight: "normal",
-    },
-    regular: {
-      fontSize: "16px",
-      fontStyle: "normal",
-      fontWeight: "400",
-      lineHeight: "normal",
-    },
-    regularSmall: {
-      fontSize: "14px",
-      fontStyle: "normal",
-      fontWeight: "400",
-      lineHeight: "normal",
-    },
-    regularSmallBold: {
-      fontSize: "14px",
-      fontStyle: "normal",
-      fontWeight: "600",
-      lineHeight: "normal",
-    },
-    small: {
-      fontSize: "13px",
-      fontStyle: "normal",
-      fontWeight: "400",
-      lineHeight: "normal",
-    },
+  },
+  devices: {
+    tablet: `screen and (max-width: 1200px)`,
+    mobile: `screen and (max-width: 768px)`,
   },
 };
 
