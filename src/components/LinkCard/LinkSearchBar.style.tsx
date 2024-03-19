@@ -38,3 +38,11 @@ export const InputClearButton = styled.button`
   background-color: transparent;
   border: none;
 `;
+
+export const SearchResult = styled.h2`
+  margin: 4rem 0;
+  color: var(--LBrary-Gray60);
+  span {
+    color: var(--LBrary-Gray100);
+  }
+`;

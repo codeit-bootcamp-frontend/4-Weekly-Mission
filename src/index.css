@@ -85,3 +85,12 @@ button:hover {
   font-weight: 400;
   line-height: normal;
 }
+
+.lb-h2-semibold {
+  font-family: Pretendard;
+  font-size: 3.2rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -00.2rem;
+}
