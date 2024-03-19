@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { Header } from "../../components/Header";
 import { CardList } from "../../components/CardList";
 import { Profile } from "../../components/Profile/";
@@ -16,6 +17,9 @@ export default function SharedPage() {
     links: [],
   });
   const { data, isLoading } = useGet(url);
+  const headerPosition = {
+    position: "fixed",
+  };
 
   useEffect(() => {
     if (!isLoading) {
@@ -26,7 +30,7 @@ export default function SharedPage() {
 
   return (
     <>
-      <Header />
+      <Header headerPosition={headerPosition} />
       <Profile fetchData={fetchData} />
       <CardList links={fetchData.links} />
       <Footer />

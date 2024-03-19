@@ -1,7 +1,7 @@
 .Header {
   width: 100%;
   background: var(--Linkbrary-bg, #f0f6ff);
-  position: fixed;
+  z-index: 2;
 
   .HeaderBox {
     padding: 20px 32px;

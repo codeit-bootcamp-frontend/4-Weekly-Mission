@@ -4,7 +4,7 @@ import styles from "./Header.module.scss";
 import useGet from "../../../hooks/useGet";
 import { useEffect, useState } from "react";
 
-export default function Header() {
+export default function Header({ headerPosition }) {
   const url = `https://bootcamp-api.codeit.kr/api/users/1`;
   const [fetchData, setFetchData] = useState({
     email: null,
@@ -19,7 +19,7 @@ export default function Header() {
   }, [data, isLoading]);
 
   return (
-    <header className={styles.Header}>
+    <header className={styles.Header} style={headerPosition}>
       <div className={styles.HeaderBox}>
         <Link to="/">
           <Logo className={styles.logo} />
