@@ -3,10 +3,10 @@ import { acceptDataFromApi } from "src/Utils/Api";
 import * as S from "./SharePage.style";
 
 // Components
-import HeadNav from "src/components/BasicLayout/HeadNav";
+import HeadNav from "src/Components/BasicLayout/HeadNav";
 import ShareFolderProfile from "src/pages/SharePage/Components/SharePageProfile";
-import LinkSearchBar from "src/components/LinkCard/LinkSearchBar";
-import LinkCardCollection from "src/components/LinkCard/LinkCardCollection";
+import LinkSearchBar from "src/Components/LinkCard/LinkSearchBar";
+import LinkCardCollection from "src/Components/LinkCard/LinkCardCollection";
 
 // Types
 import UserLinkDataType from "src/@types/UserLinkDataType";
