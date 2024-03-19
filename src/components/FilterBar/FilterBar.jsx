@@ -1,34 +1,8 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-
-export default function Page() {
-  const [filter, setFilter] = useState('all');
-  const [folderData, setFolderData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const fetchData = async () => {
-    try {
-      const response = await axios.get('https://bootcamp-api.codeit.kr/api/users/1/folders');
-      if (response.status === 200) {
-        setFolderData(response.data.data);
-      }
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    }
-  };
-
-  useEffect(() => {
-    setIsLoading(false);
-    fetchData();
-    setIsLoading(true);
-  }, [filter]);
-
-  return (
-    <div>
-      <FilterBar filter={filter} onchangeFilter={setFilter} folderData={folderData}></FilterBar>
-    </div>
-  );
-}
+import { useGetLink } from '../../dataAccessLink/useGetLink';
+import Card from '../Card/Card';
 
 const Button = styled.button`
   display: flex;
@@ -88,28 +62,64 @@ const FilterBarLeft = styled.div`
   gap: 12px;
 `;
 
-function FilterBar({ filter, onchangeFilter, folderData }) {
+export default function Page() {
+  const [filter, setFilter] = useState('all');
+  return (
+    <div>
+      <FilterBar filter={filter} onChangeFilter={setFilter}></FilterBar>
+    </div>
+  );
+}
+
+function FilterBar({ filter, onChangeFilter }) {
+  const [folderData, setFolderData] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get('https://bootcamp-api.codeit.kr/api/users/1/folders');
+        setFolderData(response.data.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+    fetchData();
+  }, []);
+
+  const { execute, loading, error, data: linksData } = useGetLink();
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  const handleChange = async folderId => {
+    const URL =
+      folderId === 'all'
+        ? `https://bootcamp-api.codeit.kr/api/users/1/links`
+        : `https://bootcamp-api.codeit.kr/api/users/1/links?folderId=${folderId}`;
+    try {
+      const response = await axios.get(URL);
+      setFolderData(response.data.data);
+    } catch (error) {
+      console.error('Error fetching folder links:', error);
+    }
+  };
   return (
     <div>
       <FilterBarLeft>
-        <Button
-          key="all"
-          onClick={() => {
-            onchangeFilter('all');
-          }}
-          selected={filter === 'all'}>
+        <Button key="all" onClick={() => handleChange('all')} selected={filter === 'all'}>
           <span>전체</span>
         </Button>
         {folderData?.map(({ id, name }) => (
-          <Button
-            key={id}
-            onClick={() => {
-              onchangeFilter(id);
-            }}
-            selected={filter === id}>
+          <Button key={id} onClick={() => handleChange(id)} selected={filter === id}>
             {name}
           </Button>
         ))}
+        <Card cardData={linksData}></Card>;
       </FilterBarLeft>
     </div>
   );

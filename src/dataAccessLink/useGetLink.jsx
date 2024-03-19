@@ -1,10 +1,26 @@
 import { useCallback, useEffect } from 'react';
 import { axiosInstance } from '../utils/axiosInstance';
-import useAsync from '../hooks/useAsync';
+import { useAsync } from '../hooks/useAsync';
+import format from 'date-fns/format';
+import { getElapsedTime } from '../utils/getElapsedTime';
+
+const mapLinksData = link => {
+  const { id, createdAt, url, imageSource, title, description } = link;
+
+  return {
+    id,
+    url,
+    imageSource,
+    alt: `${title ?? url}의 대표 이미지`,
+    elapsedTime: getElapsedTime(createdAt),
+    description,
+    createdAt: format(new Date(createdAt), 'yyyy. MM. dd'),
+  };
+};
 
 export const useGetLink = (folderId = 'all') => {
   const queryString = folderId === 'all' ? '' : `?folderId=${folderId}`;
-  const getLinks = useCallback(() => axiosInstance.get(`user/1/links${queryString}`), [queryString]);
+  const getLinks = useCallback(() => axiosInstance.get(`users/1/links${queryString}`), [queryString]);
   const { execute, loading, error, data } = useAsync(getLinks);
 
   useEffect(() => {
@@ -20,7 +36,6 @@ export const useGetLink = (folderId = 'all') => {
     description,
   });
 
-  const linksData = data?.data.map(mapDataFormat).map(mapLinkData) ?? [];
-
+  const linksData = data?.data.map(mapDataFormat).map(mapLinksData) ?? [];
   return { execute, loading, error, data: linksData };
 };
