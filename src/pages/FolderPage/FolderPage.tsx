@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import useAsync from "src/components/Hooks/useAsync";
+import useAsync from "src/Components/Hooks/useAsync";
 import { acceptDataFromApi } from "src/Utils/Api";
 import * as S from "./FolderPage.style";
 
 // Components
-import FolderLinkAddBar from "src/components/LinkCard/FolderLinkAddBar";
+import FolderLinkAddBar from "src/Components/LinkCard/FolderLinkAddBar";
 import {
   HandleCurrentSubFolder,
   SubFoldersList,
-} from "src/pages/FolderPage/components/LinkSubFolder";
-import LinkCardCollection from "src/components/LinkCard/LinkCardCollection";
-import LinkSearchBar from "src/components/LinkCard/LinkSearchBar";
-import ModalLoader from "src/components/Modal/ModalLoader";
+} from "src/pages/FolderPage/Components/LinkSubFolder";
+import LinkCardCollection from "src/Components/LinkCard/LinkCardCollection";
+import LinkSearchBar from "src/Components/LinkCard/LinkSearchBar";
+import ModalLoader from "src/Components/Modal/ModalLoader";
 
 // Types
 import UserLinkDataType from "src/@types/UserLinkDataType";
@@ -150,14 +150,15 @@ export default function FolderPage({ userId = 1 }) {
 
   return (
     <>
-      <ModalLoader
-        isOpened={isModalOpened}
-        modalType={currentModalType}
-        modalData={modalData}
-        isOpenedToggle={() => {
-          setIsModalOpened(!isModalOpened);
-        }}
-      />
+      {isModalOpened && (
+        <ModalLoader
+          modalType={currentModalType}
+          modalData={modalData}
+          setIsOpened={() => {
+            setIsModalOpened(false);
+          }}
+        />
+      )}
       <S.FolderHeadNav />
       <FolderLinkAddBar
         handleSubmit={handleModalOpen}
