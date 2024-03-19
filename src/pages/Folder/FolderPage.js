@@ -58,11 +58,22 @@ const FolderPage = () => {
     getData();
   }, [selectedFolder]);
 
+  const handleSearchSubmit = (keyword) => {
+    setLinks(
+      links.filter(
+        (link) =>
+          link.url?.includes(keyword) ||
+          link.title?.includes(keyword) ||
+          link.description?.includes(keyword)
+      )
+    );
+  };
+
   return (
     <>
       <LinkAddInput folders={folders} />
       <Container>
-        <LinkSearchInput />
+        <LinkSearchInput onSubmit={handleSearchSubmit} />
         <FolderList
           folders={folders}
           selectedFolder={selectedFolder}
