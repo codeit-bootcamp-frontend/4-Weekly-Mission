@@ -12,6 +12,8 @@ import AddModal from '../../components/modals/AddModal';
 export const ModalContext = createContext(null);
 
 function FolderPage() {
+  //modal type state
+  const [modalType, setModalType] = useState('');
   //modal  open state
   const [editModalIsOpen, setEditModalIsOpen] = useState(false);
   const [deleteModalIsOpen, setDeleteModalIsOpen] = useState(false);

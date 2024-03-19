@@ -8,6 +8,12 @@ export const FOLDER_ADD = '폴더 추가';
 export const FOLDER_DELETE = '폴더 삭제';
 export const LINK_DELETE = '링크 삭제';
 
+//modal types
+export const ADD_TYPE = 'add';
+export const DELETE_TYPE = 'delete';
+export const EDIT_TYPE = 'edit';
+export const SHARE_TYPE = 'share';
+
 //share modal buttons
 export const SHARE_BUTTONS = [
   {
