@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const LinkSearchInputWrapper = styled.div`
+export const LinkSearchInputWrapper = styled.form`
   display: flex;
   align-items: center;
   gap: 0.5rem;

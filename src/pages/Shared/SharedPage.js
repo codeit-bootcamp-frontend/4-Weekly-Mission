@@ -7,11 +7,13 @@ import { Container } from "./style";
 
 const SharedPage = () => {
   const [folderData, setFolderData] = useState(null);
+  const [sharedLinks, setSharedLinks] = useState([]);
 
   const getData = async () => {
     try {
       const data = await getFolderData();
       setFolderData(data.folder);
+      setSharedLinks(data.folder.links);
     } catch (error) {}
   };
 
@@ -19,14 +21,25 @@ const SharedPage = () => {
     getData();
   }, []);
 
+  const handleSearchSubmit = (keyword) => {
+    setSharedLinks(
+      sharedLinks.filter(
+        (link) =>
+          link.url.includes(keyword) ||
+          link.title.includes(keyword) ||
+          link.description.includes(keyword)
+      )
+    );
+  };
+
   return (
     <>
       {folderData ? (
         <>
           <FolderOwner name={folderData?.name} owner={folderData?.owner} />
           <Container>
-            <LinkSearchInput />
-            <LinkItems links={folderData?.links} />
+            <LinkSearchInput onSubmit={handleSearchSubmit} />
+            <LinkItems links={sharedLinks} />
           </Container>
         </>
       ) : (

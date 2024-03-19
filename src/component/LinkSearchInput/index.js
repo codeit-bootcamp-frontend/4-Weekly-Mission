@@ -3,7 +3,7 @@ import clearIcon from "../../images/clear.svg";
 import { ClearIcon, LinkSearchInputWrapper, SearchIcon } from "./style";
 import { useState } from "react";
 
-const LinkSearchInput = () => {
+const LinkSearchInput = ({ onSubmit }) => {
   const [searchValue, setSearchValue] = useState("");
 
   const handleChange = (e) => {
@@ -14,8 +14,13 @@ const LinkSearchInput = () => {
     setSearchValue("");
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(searchValue);
+  };
+
   return (
-    <LinkSearchInputWrapper>
+    <LinkSearchInputWrapper onSubmit={handleSubmit}>
       <SearchIcon src={searchImg} alt="검색 이미지" />
       <input
         placeholder="링크를 검색해 보세요"
