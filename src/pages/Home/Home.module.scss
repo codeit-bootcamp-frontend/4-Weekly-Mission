@@ -84,6 +84,10 @@
   @include gradient-text($start-color: #6d7ccd, $end-color: #52886b);
 }
 
+.gradientQuinary {
+  @include gradient-text($start-color: #fe578f, $end-color: #68e8f9);
+}
+
 .description {
   grid-area: description;
   font-size: 1.25rem;

@@ -1,4 +1,6 @@
 .layout {
-  flex-grow: 1;
-  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
 }

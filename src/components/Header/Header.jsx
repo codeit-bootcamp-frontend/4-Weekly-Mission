@@ -34,7 +34,7 @@ const Header = () => {
         <Link to='/shared'>shared</Link>
 
         {hasUser ? (
-          <UserProfile title={user.email} image={{ URL: user.profileImageSource, size: '2rem' }} />
+          <UserProfile title={user.email} image={user.profileImageSource} size='sm' />
         ) : (
           <button className={styles.loginButton} onClick={fetchUserData}>
             로그인

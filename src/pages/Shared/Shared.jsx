@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 
 import Cards from '../../components/Cards/Cards';
 import Empty from '../../components/Empty/Empty';
@@ -14,19 +14,18 @@ const Shared = () => {
   const { user } = useContext(AuthContext);
   const hasUser = Object.keys(user).length !== 0;
 
-  const { data: folderData, isLoading } = useFetchData(GET_FOLDER_API_URL);
-  if (!folderData || isLoading) {
-    return <div>null</div>;
-  }
-
-  const { links, name } = folderData.folder;
+  const { data: folderData } = useFetchData(GET_FOLDER_API_URL);
+  const { links, name } = folderData
+    ? folderData.folder
+    : {
+      links: [],
+      name: ''
+    };
 
   return (
     <div className={styles.layout}>
       <section>
-        {hasUser && (
-          <UserProfile title={`@${user?.name}`} image={{ URL: user?.imageSource, size: '9rem' }} direction='column' />
-        )}
+        {hasUser && <UserProfile title={`@${user?.name}`} image={user?.imageSource} size='lg' direction='column' />}
         {hasUser && <h2 className={styles.userName}>{name}</h2>}
       </section>
       <main className={styles.mainLayout}>

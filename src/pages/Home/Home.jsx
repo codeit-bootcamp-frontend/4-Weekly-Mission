@@ -1,5 +1,3 @@
-import GradientText from '../../components/common/GradientText/GradientText';
-
 import styles from './Home.module.scss';
 
 const Home = () => {
@@ -7,9 +5,7 @@ const Home = () => {
     <>
       <section className={styles.layout}>
         <h1 className={styles.title}>
-          <span className={styles.gradientPrimary} startColor='$color-primary' endColor='#ff9f9f'>
-            세상의 모든 정보
-          </span>
+          <span className={styles.gradientPrimary}>세상의 모든 정보</span>
           를
           <br />
           쉽게 저장하고 관리해보세요
@@ -69,10 +65,7 @@ const Home = () => {
           <h2 className={styles.title}>
             저장한 링크를
             <br />
-            <GradientText startColor='#fe578f' endColor='#68e8f9'>
-              검색
-            </GradientText>
-            해 보세요
+            <span className={styles.gradientQuinary}>검색</span>해 보세요
           </h2>
           <p className={styles.description}>중요한 정보들을 검색으로 쉽게 찾아보세요.</p>
           <img className={styles.mainImage} src='./assets/landing-search.svg' alt='검색-이미지' />
