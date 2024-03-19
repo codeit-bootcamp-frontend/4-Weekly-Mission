@@ -246,3 +246,10 @@
 \* NOTE
 
 - footer 반응형 적용
+
+\* TODO - 32. shared페이지 반응형 적용
+
+\* NOTE
+
+- shared 페이지 반응형 적용
+- 카드리스트에 링크 추가

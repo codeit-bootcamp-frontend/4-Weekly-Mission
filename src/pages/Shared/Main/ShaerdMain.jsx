@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { BASED_URL } from "../../../constnats/constant";
-import SharedCard from "../../common/Card/SharedCard";
-import SearchLink from "../../common/Input/SearchLink/SearchLink";
+import SharedCard from "../../../components/common/Card/SharedCard";
+import SearchLink from "../../../components/common/Input/SearchLink/SearchLink";
 import { updatedDate, updatedDuration } from "../../../utils/createdAt";
 import * as S from "./SharedMainStyle";
 

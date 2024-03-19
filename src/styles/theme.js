@@ -83,6 +83,10 @@ const theme = {
       fontSize: "40px",
       lineHeight: "normal",
     },
+    subTitleMobile: {
+      fontSize: "32px",
+      lineHeight: "normal",
+    },
     large: {
       fontSize: "24px",
       lineSpacingt: "-0.2px",
@@ -123,7 +127,7 @@ const theme = {
     },
   },
   devices: {
-    tablet: `screen and (max-width: 1200px)`,
+    tablet: `screen and (max-width: 1124px)`,
     mobile: `screen and (max-width: 768px)`,
   },
 };

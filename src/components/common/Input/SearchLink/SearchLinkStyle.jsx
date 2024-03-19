@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  gap: 10px;
+  max-width: 1060px;
+  width: 100%;
   padding: 15px 16px;
-  width: 1060px;
+  gap: 10px;
   border-radius: 10px;
   background: ${({ theme }) => theme.colors.grayLight};
 `;
@@ -21,4 +22,10 @@ export const Input = styled.input`
   border: none;
   color: ${({ theme }) => theme.colors.gray100};
   ${({ theme }) => theme.fonts.regular};
+  ${({ theme }) => theme.bolds.normal};
+
+  @media ${({ theme }) => theme.devices.tablet} {
+    ${({ theme }) => theme.fonts.regularSmall};
+    ${({ theme }) => theme.bolds.normal};
+  }
 `;

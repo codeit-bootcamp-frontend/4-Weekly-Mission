@@ -11,8 +11,7 @@ export const Container = styled.nav`
   background: ${({ theme }) => theme.colors.background};
 
   @media ${({ theme }) => theme.devices.tablet} {
-    padding: 20px 0;
-    margin-right: 32px;
+    padding: 20px 32px 20px 0;
   }
 
   @media ${({ theme }) => theme.devices.mobile} {
@@ -24,7 +23,7 @@ export const Logo = styled.img`
   height: 24px;
 
   @media ${({ theme }) => theme.devices.tablet} {
-    margin-left: 32px;
+    padding-left: 32px;
   }
 
   @media ${({ theme }) => theme.devices.mobile} {
