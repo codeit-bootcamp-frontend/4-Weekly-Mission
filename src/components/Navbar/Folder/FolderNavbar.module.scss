@@ -26,3 +26,11 @@
 .modalSubTitle {
   color: $color-gray-400;
 }
+
+.changeButton {
+  @include gradient-button;
+}
+
+.removeButton {
+  @include gradient-button($start-color: #ff5b56, $end-color: #ff5b56);
+}

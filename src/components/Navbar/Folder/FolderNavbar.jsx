@@ -5,7 +5,6 @@ import { RiDeleteBinLine } from 'react-icons/ri';
 import { TiPencil } from 'react-icons/ti';
 
 import Modal from '../../Modal/Modal';
-import GradientButton from '../../common/GradientButton/GradientButton';
 
 import styles from './FolderNavbar.module.scss';
 
@@ -32,7 +31,7 @@ const FolderNavbar = ({ folderName }) => {
         <CiShare1 />
         <span>공유</span>
         {showShareModal && (
-          <Modal title='폴더 공유' onClick={toggleShareModal}>
+          <Modal title='폴더 공유' onClose={toggleShareModal}>
             <p className={styles.modalSubTitle}>폴더명</p>
           </Modal>
         )}
@@ -41,9 +40,9 @@ const FolderNavbar = ({ folderName }) => {
         <TiPencil />
         <span>이름 변경</span>
         {showChangeNameModal && (
-          <Modal title='폴더 이름 변경' onClick={toggleChangeNameModal}>
+          <Modal title='폴더 이름 변경' onClose={toggleChangeNameModal}>
             <input className={styles.modalInput} placeholder={folderName} />
-            <GradientButton>변경하기</GradientButton>
+            <button className={styles.changeButton}>변경하기</button>
           </Modal>
         )}
       </li>
@@ -51,11 +50,9 @@ const FolderNavbar = ({ folderName }) => {
         <RiDeleteBinLine />
         <span>삭제</span>
         {showDeleteModal && (
-          <Modal title='폴더 삭제' onClick={toggleDeleteModal}>
+          <Modal title='폴더 삭제' onClose={toggleDeleteModal}>
             <p className={styles.modalSubTitle}>{folderName}</p>
-            <GradientButton startColor={'#FF5B56'} endColor={'#FF5B56'}>
-              삭제하기
-            </GradientButton>
+            <button className={styles.removeButton}>삭제하기</button>
           </Modal>
         )}
       </li>
