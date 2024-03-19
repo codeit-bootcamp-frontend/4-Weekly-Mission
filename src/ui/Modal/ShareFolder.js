@@ -1,10 +1,14 @@
-import { FacebookIcon, FacebookShareButton } from "react-share";
 import styles from "./Modal.module.css";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 const currentUrl = "https://weekly-mission-week9.vercel.app/shared";
+const facebookShareLink = "http://www.facebook.com/sharer.php?u=";
 
 function ShareFolder({ currentCategory, selectedId }) {
+  const onClickFacebook = () => {
+    window.open(facebookShareLink + currentUrl + selectedId);
+  };
+
   return (
     <>
       <div className={styles["ModalTitle"]}>폴더 공유</div>
@@ -21,13 +25,13 @@ function ShareFolder({ currentCategory, selectedId }) {
           <span>카카오톡</span>
         </div>
         <div className={styles["icon-wrapper"]}>
-          <FacebookShareButton url={`${currentUrl}${selectedId}`}>
-            <FacebookIcon
-              size={30}
-              round={true}
-              borderRadius={24}
-            ></FacebookIcon>
-          </FacebookShareButton>
+          <button onClick={onClickFacebook}>
+            <img
+              src="images/facebook-icon.svg"
+              alt="페이스북으로 공유하기"
+              className={styles["icons"]}
+            />
+          </button>
           <span>페이스북</span>
         </div>
         <div className={styles["icon-wrapper"]}>
