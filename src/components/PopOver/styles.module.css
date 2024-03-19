@@ -1,0 +1,21 @@
+.container {
+  position: absolute;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 110px;
+  text-align: center;
+  background-color: white;
+  z-index: 1;
+  bottom: 40px;
+  right: -60px;
+}
+
+.btn {
+  padding: 8px 0;
+  width: 100%;
+  font-size: 1.3rem;
+}
+
+.btn:hover {
+  background-color: #e7effb;
+  color: #6d6afe;
+}

@@ -1,0 +1,52 @@
+.header {
+  padding: 20px 200px;
+  height: 9em;
+  background-color: var(--Linkbrary-bg);
+  z-index: 1;
+}
+
+.headings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.header-logo {
+  flex-shrink: 0;
+}
+
+.headerProfile {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.profileImg {
+  width: 30px;
+  border-radius: 30px;
+}
+
+@media (max-width: 1199px) {
+  .header {
+    padding: 20px 0;
+  }
+
+  .headings {
+    max-width: 832px;
+    padding: 0 32px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-logo {
+    width: 98px;
+  }
+}
+
+@media (max-width: 580px) {
+  .profileEmail {
+    display: none;
+  }
+}

@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tag {
+  border: 1px solid #6d6afe;
+  border-radius: 5px;
+  padding: 5px 8px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.tag:hover {
+  background-color: #6d6afe;
+  color: #fff;
+}
+
+.tag.selected {
+  background-color: #6d6afe;
+  color: #fff;
+}
+
+.folderAddBtn {
+  color: #6d6afe;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 580px) {
+  .folderAddBtn {
+    color: white;
+    background-color: #6d6afe;
+    position: fixed;
+    z-index: 1;
+    bottom: 101px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    border-radius: 20px;
+  }
+}

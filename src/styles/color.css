@@ -1,0 +1,17 @@
+html {
+  --Linkbrary-primary-color: #6d6afe;
+  --Linkbrary-red: #ff5b56;
+  --The-julge-black: #111322;
+  --Linkbrary-white: #ffffff;
+  --Linkbrary-bg: #f0f6ff;
+  --Linkbrary-gray10: #e7effb;
+  --Linkbrary-gray20: #ccd5e3;
+  --Linkbrary-gray60: #9fa6b2;
+  --Linkbrary-gray100: #3e3e43;
+  --Grey-Light: #f5f5f5;
+  --Gra-Purpleblue-To-Skyblue: linear-gradient(
+    91deg,
+    #6d6afe 0.12%,
+    #6ae3fe 101.84%
+  );
+}
