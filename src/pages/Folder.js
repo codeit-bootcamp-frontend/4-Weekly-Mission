@@ -1,7 +1,7 @@
-import FolderNav from '../components/header/FolderNav';
-import AddLink from '../components/header/AddLink';
-import Footer from '../components/footer/Footer/Footer';
-import FolderPageMain from '../components/main/FolderPageMain';
+import FolderNav from '../components/FolderPage/header/FolderNav/FolderNav';
+import AddLink from '../components/FolderPage/header/AddLink/AddLink';
+import Footer from '../components/footer/Footer';
+import FolderPageMain from '../components/FolderPage/main/FolderPageMain/FolderPageMain';
 import useModal from '../hooks/useModal';
 import { useState } from 'react';
 function Folder() {

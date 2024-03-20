@@ -1,0 +1,42 @@
+.nav-wrapper {
+  background-color: var(--bg-color);
+  padding: 3.3rem 20rem 3.2rem 20rem;
+}
+
+.nav-inside-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.profile-email {
+  font-family: var(--Pretendard-Regular);
+  font-size: 1.4rem;
+}
+
+.nav-profile-image {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+@media (max-width: 1199.5px) {
+  .nav-wrapper {
+    padding: 3.3rem 3.25rem 3.2rem 3.25rem;
+  }
+}
+
+@media (max-width: 767.5px) {
+  .nav-wrapper {
+    padding: 1.8rem 3.2rem 1.7rem 3.2rem;
+  }
+
+  .header-logo {
+    width: 8.8667rem;
+    height: 1.6rem;
+  }
+}

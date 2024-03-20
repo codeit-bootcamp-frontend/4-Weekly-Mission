@@ -1,8 +1,8 @@
-import SharedNav from '../components/header/SharedNav';
-import Profile from '../components/header/Profile';
-import LinkSearchInput from '../components/main/LinkSearchInput';
-import SharePageFolderList from '../components/main/SharePageFolderList';
-import Footer from '../components/footer/Footer/Footer';
+import SharedNav from 'components/SharedPage/header/SharedNav/SharedNav';
+import Profile from 'components/SharedPage/header/Profile/Profile';
+import LinkSearchInput from 'components/SharedPage/main/LinkSearchInput/LinkSearchInput';
+import SharePageFolderList from 'components/SharedPage/main/SharePageFolderList/SharePageFolderList';
+import Footer from '../components/footer/Footer';
 import styles from './Shared.module.css';
 function Shared() {
   const userDataUrl = 'https://bootcamp-api.codeit.kr/api/sample/user';
