@@ -3,10 +3,19 @@ import { useEffect, useState } from "react";
 import CardBox from "../components/CardBox";
 import SearchBar from "../components/SearchBar";
 
-function Shared() {
-  const [linksData, setLinksData] = useState([]);
+interface Link {
+  createdAt: string;
+  description: string;
+  id: number;
+  imageSource: string;
+  title: string;
+  url: string;
+}
 
-  const getFolderLinkData = async (options) => {
+function Shared() {
+  const [linksData, setLinksData] = useState<Link[]>([]);
+
+  const getFolderLinkData = async (options: { path?: string }) => {
     try {
       const newFolder = await getData(options);
       const { folder } = newFolder;

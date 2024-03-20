@@ -5,9 +5,33 @@ import SearchBar from "../components/SearchBar";
 import FolderListBar from "../components/FolderListBar";
 import EmptyFolder from "../components/EmptyFolder";
 
+interface Link {
+  count: number;
+}
+
+interface FolderList {
+  created_at: string;
+  favorite: boolean;
+  id: number;
+  link: Link;
+  name: string;
+  user_id: number;
+}
+
+interface LinksData {
+  created_at: string;
+  description: string | null;
+  folder_id: number | null;
+  id: number;
+  image_source: string | null;
+  title: string | null;
+  updated_at: string | null;
+  url: string;
+}
+
 function Folder() {
-  const [folderList, setFolderList] = useState([]);
-  const [linksData, setLinksData] = useState([]);
+  const [folderList, setFolderList] = useState<FolderList[]>([]);
+  const [linksData, setLinksData] = useState<LinksData[]>([]);
 
   const getFolderList = async () => {
     try {
@@ -20,7 +44,7 @@ function Folder() {
     }
   };
 
-  const getLinks = async (folderId) => {
+  const getLinks = async (folderId: { folderId?: string }) => {
     try {
       const linksData = await getFolderLinksData(folderId);
       const { data } = linksData;
