@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { FolderDataType, UserDataType } from '../type';
+import { CategoryDataType, FolderDataType, UserDataType } from '../type';
 
-type APIFunc = UserDataType | FolderDataType | null;
+type APIFunc = UserDataType | FolderDataType | CategoryDataType | null;
 type APIFucnParm = null | string;
 
 const useAPIData = (

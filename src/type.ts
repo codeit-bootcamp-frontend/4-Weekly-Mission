@@ -20,3 +20,21 @@ export interface FolderDataType {
   cardData: cardData[] | undefined;
   error: unknown | undefined;
 }
+
+interface link {
+  count: number;
+}
+
+interface category {
+  id: number | undefined;
+  createdAt: string | undefined;
+  name: string | undefined;
+  user_id: number | undefined;
+  favorite: boolean;
+  link: link | undefined;
+}
+
+export interface CategoryDataType {
+  category: category[] | undefined;
+  error: unknown | undefined;
+}

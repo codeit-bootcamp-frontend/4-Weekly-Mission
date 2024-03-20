@@ -1,3 +1,4 @@
+import { CategoryDataType } from '@/src/type';
 import {
   Wrapper,
   FolderWrapper,
@@ -23,23 +24,25 @@ interface obj {
   text: string;
 }
 
-interface folderData {
+interface folderDataType {
   title: string | null;
   id: string | null;
 }
 
 interface Props {
-  currentFolder: folderData | null;
-  changeCurrentFolder: (value: folderData | null) => void;
+  currentFolder: folderDataType | null;
+  changeCurrentFolder: (value: folderDataType | null) => void;
+  folderData: CategoryDataType;
 }
 
-const Folder = ({ currentFolder, changeCurrentFolder }: Props) => {
+const Folder = ({ currentFolder, changeCurrentFolder, folderData }: Props) => {
   const clickCategoryButton = (e: React.MouseEvent<HTMLDivElement>) => {
     changeCurrentFolder({
       title: (e.target as HTMLElement).textContent,
       id: (e.target as HTMLElement).id,
     });
   };
+
   const Content: string[] = [
     '전체',
     '즐겨찾기',
@@ -71,16 +74,24 @@ const Folder = ({ currentFolder, changeCurrentFolder }: Props) => {
     <Wrapper>
       <FolderWrapper>
         <CategoryWrapper>
-          {Content.map((text, index) => (
-            <CategoryButton
-              key={index}
-              id={String(index)}
-              onClick={clickCategoryButton}
-              $checked={currentFolder?.id === String(index)}
-            >
-              {text}
-            </CategoryButton>
-          ))}
+          <CategoryButton
+            id="0"
+            onClick={clickCategoryButton}
+            $checked={currentFolder?.id === '0'}
+          >
+            전체
+          </CategoryButton>
+          {folderData &&
+            folderData.category?.map((folder) => (
+              <CategoryButton
+                key={folder.id}
+                id={String(folder.id)}
+                onClick={clickCategoryButton}
+                $checked={currentFolder?.id === String(folder.id)}
+              >
+                {folder.name}
+              </CategoryButton>
+            ))}
         </CategoryWrapper>
         <AddFolderWrapper>
           <AddFolderText>폴더 추가</AddFolderText>

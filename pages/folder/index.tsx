@@ -4,21 +4,26 @@ import SubHeader from '@/src/components/folder/SubHeader/SubHeader';
 import Folder from '@/src/components/folder/Folder/Folder';
 import Footer from '@/src/components/commons/Footer/Footer';
 import { useState } from 'react';
+import useAPIData from '@/src/hooks/useAPIData';
+import { getCategoryDataAPI } from '@/src/API/API';
+import { CategoryDataType } from '@/src/type';
 import { Content, ContentWrapper } from './index.style';
 
-interface folderData {
+interface folderDataType {
   title: string | null;
   id: string | null;
 }
 
 export default function FolderPage() {
-  const [currentFolder, setCurrentFolder] = useState<folderData | null>({
+  const [currentFolder, setCurrentFolder] = useState<folderDataType | null>({
     title: '전체',
-    id: '-1',
+    id: '0',
   });
-  const changeCurrentFolder = (value: folderData | null) => {
+  const changeCurrentFolder = (value: folderDataType | null) => {
     setCurrentFolder(value);
   };
+
+  const { data: folderData } = useAPIData(getCategoryDataAPI);
   return (
     <>
       <Header fix={false} />
@@ -29,6 +34,7 @@ export default function FolderPage() {
           <Folder
             currentFolder={currentFolder}
             changeCurrentFolder={changeCurrentFolder}
+            folderData={folderData as CategoryDataType}
           />
         </ContentWrapper>
       </Content>
