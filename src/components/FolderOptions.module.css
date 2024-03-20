@@ -1,0 +1,29 @@
+.folderName {
+  color: #000;
+
+  /* Linkbrary/h3-semibold */
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
+}
+
+.optionContainer {
+  display: flex;
+  gap: 12px;
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  color: #9fa6b2;
+  /* Linkbrary/body2-semibold */
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  cursor: pointer;
+}
