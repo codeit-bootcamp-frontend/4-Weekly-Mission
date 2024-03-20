@@ -16,7 +16,6 @@ import {
   CardWrapper,
   HollowWrapper,
 } from './Folder.style';
-
 import Card from '../../commons/Card/Card';
 
 interface obj {
@@ -30,14 +29,18 @@ interface folderDataType {
 }
 
 interface Props {
+  kebabID: number | null;
   currentFolder: folderDataType | null;
+  changeKebabID: (value: number | null) => void;
   changeCurrentFolder: (value: folderDataType | null) => void;
   folderData: CategoryDataType;
   cardData: folderCardDataType;
 }
 
 const Folder = ({
+  kebabID,
   currentFolder,
+  changeKebabID,
   changeCurrentFolder,
   folderData,
   cardData,
@@ -122,6 +125,9 @@ const Folder = ({
           cardData.card?.map((card) => (
             <Card
               key={card.id}
+              page="folder"
+              kebabID={kebabID}
+              changeKebabID={changeKebabID}
               card={{
                 id: card.id,
                 createdAt: card.created_at,

@@ -10,7 +10,9 @@ import {
   CardStatus,
   CardTitle,
   Wrapper,
+  TopWrapper,
 } from './Card.style';
+import Kebab from '../Kebab/Kebab';
 
 interface cardData {
   id: number | null;
@@ -22,13 +24,15 @@ interface cardData {
 }
 
 interface Props {
+  page: string;
+  kebabID: number | null;
+  changeKebabID: (value: number | null) => void;
   card: null | cardData;
 }
 
-const Card = ({ card }: Props) => {
+const Card = ({ page, card, kebabID, changeKebabID }: Props) => {
   const WrapperRef = useRef<HTMLDivElement>(null);
   const ImageRef = useRef<HTMLImageElement>(null);
-
   const date = card?.createdAt ? card?.createdAt : '';
   const cardCreationDate = CardDateFormat(date);
   const cardStatus = CardUpdateStatus(date);
@@ -66,7 +70,16 @@ const Card = ({ card }: Props) => {
           />
         </CardImageWrapper>
         <CardContentWrapper>
-          <CardStatus>{cardStatus}</CardStatus>
+          <TopWrapper>
+            <CardStatus>{cardStatus}</CardStatus>
+            {page === 'folder' && (
+              <Kebab
+                cardID={card?.id ? card?.id : null}
+                kebabID={kebabID}
+                changeKebabID={changeKebabID}
+              />
+            )}
+          </TopWrapper>
           <CardTitle>{card?.description}</CardTitle>
           <CardDate>{cardCreationDate}</CardDate>
         </CardContentWrapper>
