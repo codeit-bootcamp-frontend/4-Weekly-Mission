@@ -24,7 +24,7 @@ export const Input = styled.input`
   ${({ theme }) => theme.fonts.regular};
   ${({ theme }) => theme.bolds.normal};
 
-  @media ${({ theme }) => theme.devices.tablet} {
+  @media ${({ theme }) => theme.devices.mobile} {
     ${({ theme }) => theme.fonts.regularSmall};
     ${({ theme }) => theme.bolds.normal};
   }

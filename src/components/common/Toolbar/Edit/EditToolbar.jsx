@@ -36,8 +36,6 @@ const EditToolbar = ({ folderName }) => {
             <ShareModal folderName={folderName} onClose={handleShareModal} />
           )}
         </S.Box>
-      </S.Container>
-      <S.Container>
         <S.Box onClick={handleInputModal}>
           <S.Image src={EDIT_CHANGE} alt="chage" />
           <S.Text>이름 변경</S.Text>
@@ -51,8 +49,6 @@ const EditToolbar = ({ folderName }) => {
             </InputModal>
           )}
         </S.Box>
-      </S.Container>
-      <S.Container>
         <S.Box onClick={handleDeleteModal}>
           <S.Image src={EDIT_DELETE} alt="delete" />
           <S.Text>삭제</S.Text>

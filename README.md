@@ -253,3 +253,15 @@
 
 - shared 페이지 반응형 적용
 - 카드리스트에 링크 추가
+
+\* TODO - 32. folder페이지 반응형 적용
+
+\* NOTE
+
+- action button 적용
+- edit toolbar 전체 폳더 선택시 사라지게 적용
+- 반응형 적용
+
+\* TODO - 33. 타입스크립트 변경
+
+\* NOTE

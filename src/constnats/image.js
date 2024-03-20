@@ -25,6 +25,7 @@ export const EDIT_CHANGE = "/assets/icon/change.svg";
 export const EDIT_DELETE = "/assets/icon/delete.svg";
 export const EDIT_SHARE = "/assets/icon/share.svg";
 export const ADD_FOLDER_ICON = "/assets/icon/add.svg";
+export const ACTION_BUTTON_ICON = "assets/icon/add-white.svg";
 export const CARD_STAR = "/assets/icon/star.svg";
 export const CARD_BLUE_STAR = "/assets/icon/star-blue.svg";
 export const CARD_KEBAB = "/assets/icon/kebab.svg";

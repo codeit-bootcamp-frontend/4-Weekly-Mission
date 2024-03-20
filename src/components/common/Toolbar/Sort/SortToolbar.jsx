@@ -4,7 +4,7 @@ import * as S from "./SortToolbarStyle";
 
 const Sort = ({ onChange }) => {
   const [folderList, setFolderList] = useState([]);
-  const [focus, setFocus] = useState(false);
+  const [focus, setFocus] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,7 +13,6 @@ const Sort = ({ onChange }) => {
         const responseData = await response.json();
         const folderList = responseData.data;
         setFolderList(folderList);
-        onChange({ id: null, name: "전체" }, folderList);
       } catch (error) {
         console.error("error");
       }
@@ -22,18 +21,14 @@ const Sort = ({ onChange }) => {
   }, []);
 
   const handleClick = (title) => {
-    onChange(title);
-    setFocus(title.id === null ? null : title.id);
-  };
-  const handleBlur = () => {
-    setFocus(true);
+    onChange(title, folderList);
+    setFocus(title.id);
   };
 
   return (
     <S.Container>
       <S.SortButton
         $isfocused={focus === null}
-        onBlur={handleBlur}
         onClick={() => handleClick({ id: null, name: "전체" })}
       >
         전체
@@ -42,7 +37,6 @@ const Sort = ({ onChange }) => {
         <S.SortButton
           key={folder.id}
           $isfocused={focus === folder.id}
-          onBlur={handleBlur}
           onClick={() => handleClick(folder)}
           value={folder.name}
         >

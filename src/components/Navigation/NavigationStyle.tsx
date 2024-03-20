@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.nav`
+export const Container = styled.nav<{ $path: string }>`
   position: ${({ $path }) => ($path !== "/folder" ? "sticky" : "static")};
   top: 0;
   gap: 8px;

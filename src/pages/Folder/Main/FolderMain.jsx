@@ -1,23 +1,27 @@
 import { useEffect, useState } from "react";
-import SearchLink from "../../common/Input/SearchLink/SearchLink";
-import EditToolbar from "../../common/Toolbar/Edit/EditToolbar";
-import SortToolbar from "../../common/Toolbar/Sort/SortToolbar";
-import AddFolder from "../../common/ActionButton/ActionButton";
-import FolderCard from "../../common/Card/FolderCard";
+import SearchLink from "../../../components/common/Input/SearchLink/SearchLink";
+import EditToolbar from "../../../components/common/Toolbar/Edit/EditToolbar";
+import SortToolbar from "../../../components/common/Toolbar/Sort/SortToolbar";
+import AddFolder from "../../../components/common/Button/ActionButton";
+import FolderCard from "../../../components/common/Card/FolderCard";
 import { BASED_URL } from "../../../constnats/constant";
 import { updatedDate, updatedDuration } from "../../../utils/createdAt";
 import * as S from "./FolderMainStyle";
 
 const FolderMain = ({ onChange }) => {
   const [folder, setFolder] = useState({ id: null, name: "전체" });
-  const [folderList, setFolderList] = useState([]);
   const [cardData, setCardData] = useState([]);
+  const [folderList, setFolderList] = useState([]);
+  const [showToolbar, setShowToolbar] = useState(false);
 
   const handleFolderChange = (folder, folderList) => {
     setFolder(folder);
     setFolderList(folderList);
     onChange(folderList);
+    setShowToolbar(folder.name !== "전체");
   };
+
+  console.log(folderList);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,7 +55,7 @@ const FolderMain = ({ onChange }) => {
       </S.Box>
       <S.Box>
         <S.Title>{folder.name}</S.Title>
-        <EditToolbar folderName={folder.name} />
+        {showToolbar && <EditToolbar folderName={folder.name} />}
       </S.Box>
       {cardData.length === 0 ? (
         <S.NoneLink>저장된 링크가 없습니다.</S.NoneLink>

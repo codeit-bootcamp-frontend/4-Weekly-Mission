@@ -39,7 +39,7 @@ export const Section = styled.section`
   }
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h2<{ $isEven: boolean }>`
   align-self: end;
   justify-self: ${({ $isEven }) => ($isEven ? "start" : "end")};
 
@@ -60,7 +60,7 @@ export const Title = styled.h2`
   }
 `;
 
-export const Text = styled.p`
+export const Text = styled.p<{ $isEven: boolean }>`
   justify-self: ${({ $isEven }) => ($isEven ? "start" : "end")};
 
   width: 291px;
@@ -82,7 +82,7 @@ export const Text = styled.p`
   }
 `;
 
-export const Image = styled.img`
+export const Image = styled.img<{ $isEven: boolean }>`
   width: 550px;
   height: 450px;
 

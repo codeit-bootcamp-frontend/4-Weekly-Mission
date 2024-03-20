@@ -1,12 +1,11 @@
 import { SEARCH_ICON } from "../../../../constnats/image";
-import { SEARCH_LINK_PLACEHOLDER } from "../../../../constnats/constant";
 import * as S from "./SearchLinkStyle";
 
 const SearchLink = () => {
   return (
     <S.Container>
       <S.Image src={SEARCH_ICON} />
-      <S.Input placeholder={SEARCH_LINK_PLACEHOLDER} />
+      <S.Input placeholder="링크를 검색해 보세요" />
     </S.Container>
   );
 };

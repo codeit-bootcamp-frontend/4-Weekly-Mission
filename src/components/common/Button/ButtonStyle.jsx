@@ -36,9 +36,10 @@ export const MainHeaderButton = styled(Button)`
   }
 `;
 
-export const SmallButton = styled(Button)`
+export const AddLinkButton = styled(Button)`
   padding: 10px 16px;
-  ${({ theme }) => theme.fonts.regularSmallBold};
+  ${({ theme }) => theme.fonts.regularSmall};
+  ${({ theme }) => theme.bolds.bold};
 `;
 
 export const DeleteModalButton = styled(Button)`

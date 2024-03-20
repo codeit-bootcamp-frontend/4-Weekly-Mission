@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   ${({ theme }) => theme.displays.spaceBetween};
-  width: 800px;
+  max-width: 800px;
+  width: 100%;
   padding: 16px 20px;
   gap: 8px;
 
@@ -13,6 +14,7 @@ export const Container = styled.div`
 
 export const Box = styled.div`
   ${({ theme }) => theme.displays.rowCenter};
+  width: 100%;
   gap: 12px;
 `;
 
@@ -22,8 +24,15 @@ export const Image = styled.img`
 `;
 
 export const Input = styled.input`
+  width: 100%;
   color: ${({ theme }) => theme.colors.gray60};
   ${({ theme }) => theme.fonts.regular};
+  ${({ theme }) => theme.bolds.normal};
 
   border: none;
+
+  @media ${({ theme }) => theme.devices.mobile} {
+    ${({ theme }) => theme.fonts.regularSmall};
+    ${({ theme }) => theme.bolds.normal};
+  }
 `;
