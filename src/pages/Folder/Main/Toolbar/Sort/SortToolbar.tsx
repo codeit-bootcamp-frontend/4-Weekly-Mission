@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BASED_URL } from "../../../../constnats/constant";
+import { BASED_URL } from "../../../../../constnats/constant";
 import * as S from "./SortToolbarStyle";
 
 interface Folder {

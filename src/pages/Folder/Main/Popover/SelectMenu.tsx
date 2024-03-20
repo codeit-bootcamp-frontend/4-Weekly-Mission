@@ -1,8 +1,8 @@
 import { useState, forwardRef } from "react";
 import * as S from "./SelectMenuStyle";
-import DeleteModal from "../Modal/DeleteModal";
-import ListModal from "../Modal/ListModal";
-import { Folder } from "../../../constnats/types";
+import DeleteModal from "../../../../components/common/Modal/DeleteModal";
+import ListModal from "../../../../components/common/Modal/ListModal";
+import { Folder } from "../../../../constnats/types";
 
 interface Props {
   url: string;

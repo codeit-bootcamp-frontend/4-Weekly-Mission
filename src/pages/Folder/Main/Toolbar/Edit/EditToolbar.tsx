@@ -3,10 +3,10 @@ import {
   EDIT_SHARE,
   EDIT_CHANGE,
   EDIT_DELETE,
-} from "../../../../constnats/image";
-import ShareModal from "../../Modal/ShareModal";
-import InputModal from "../../Modal/InputModal";
-import DeleteModal from "../../Modal/DeleteModal";
+} from "../../../../../constnats/image";
+import ShareModal from "../../../../../components/common/Modal/ShareModal";
+import InputModal from "../../../../../components/common/Modal/InputModal";
+import DeleteModal from "../../../../../components/common/Modal/DeleteModal";
 import * as S from "./EditToolbarStyle";
 
 interface Props {

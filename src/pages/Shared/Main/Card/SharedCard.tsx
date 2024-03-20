@@ -1,6 +1,6 @@
-import { CARD_NONE_IMAGE } from "../../../constnats/image";
-import { Link } from "../../../constnats/types";
-import * as S from "./CardStyle";
+import { CARD_NONE_IMAGE } from "../../../../constnats/image";
+import { Link } from "../../../../constnats/types";
+import * as S from "../../../Folder/Main/Card/CardStyle";
 
 interface Props {
   cardData: Link[];

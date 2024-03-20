@@ -28,3 +28,15 @@ export interface Folder {
   favorite?: boolean;
   link?: Count;
 }
+
+export interface Owner {
+  id: number;
+  name: string;
+  profileImageSource: string;
+}
+
+export interface User {
+  id: number;
+  name: string;
+  owner: Owner;
+}

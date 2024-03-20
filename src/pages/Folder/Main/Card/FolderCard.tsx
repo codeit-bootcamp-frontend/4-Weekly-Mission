@@ -4,9 +4,9 @@ import {
   CARD_STAR,
   CARD_BLUE_STAR,
   CARD_KEBAB,
-} from "../../../constnats/image";
+} from "../../../../constnats/image";
 import SelectMenu from "../Popover/SelectMenu";
-import { Link, Folder } from "../../../constnats/types";
+import { Link, Folder } from "../../../../constnats/types";
 import * as S from "./CardStyle";
 
 interface Props {

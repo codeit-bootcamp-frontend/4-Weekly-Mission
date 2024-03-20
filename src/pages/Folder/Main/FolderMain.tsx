@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import SearchLink from "../../../components/common/Input/SearchLink/SearchLink";
-import EditToolbar from "../../../components/common/Toolbar/Edit/EditToolbar";
-import SortToolbar from "../../../components/common/Toolbar/Sort/SortToolbar";
+import EditToolbar from "./Toolbar/Edit/EditToolbar";
+import SortToolbar from "./Toolbar/Sort/SortToolbar";
 import AddFolder from "../../../components/common/Button/ActionButton";
-import FolderCard from "../../../components/common/Card/FolderCard";
+import FolderCard from "./Card/FolderCard";
 import { BASED_URL } from "../../../constnats/constant";
 import { updatedDate, updatedDuration } from "../../../utils/createdAt";
 import { Link, Folder } from "../../../constnats/types";
