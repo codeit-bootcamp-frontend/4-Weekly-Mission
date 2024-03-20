@@ -44,6 +44,7 @@ export default function FolderPage({ userId = 1 }) {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [currentModalType, setCurrentModalType] = useState("removeLink");
   const [modalData, setModalData] = useState("");
+  const [cardFilter, setCardFilter] = useState<string>("");
 
   const handleModalOpen = (modalType: string, modalData: any) => {
     // ModalData의 형식 통일 필요
@@ -62,6 +63,12 @@ export default function FolderPage({ userId = 1 }) {
     if (data.length === 0) {
       setIsEmptyResponse(true);
     }
+    data.map((items: any) => {
+      items.description = items.description ? items.description : "";
+      items.title = items.title ? items.title : "";
+    });
+    console.log(data);
+
     setItems(data);
   };
 
