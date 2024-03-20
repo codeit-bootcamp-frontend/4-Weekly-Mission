@@ -1,13 +1,8 @@
-//server component
-import FolderList from '@/components/folder/FolderList';
-
-import Content from '@/components/folder/Content';
+const TOTAL_LIST_NAME = "전체"
 
 const FolderPage = () => {
   return (
-    <Content>
-      <FolderList />
-    </Content>
+    <></>
   )
 }
 
