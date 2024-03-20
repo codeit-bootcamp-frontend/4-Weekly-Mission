@@ -1,6 +1,6 @@
 import { useAsync } from "./useAsync";
-import { axiosInstance } from "util/axiosInstance";
-import { DEFAULT_PROFILE } from "util/constant";
+import { axiosInstance } from "../util/axiosInstance";
+import { DEFAULT_PROFILE } from "../util/constant";
 
 export const useGetUser = () => {
   const getUser = () => axiosInstance.get("users/1");

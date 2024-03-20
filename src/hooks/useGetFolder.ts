@@ -1,6 +1,6 @@
-import { mapFolderData } from "util/mapFolderData";
+import { mapFolderData } from "../util/mapFolderData";
 import { useAsync } from "./useAsync";
-import { axiosInstance } from "util/axiosInstance";
+import { axiosInstance } from "../util/axiosInstance";
 
 export const useGetFolder = () => {
   const getFolder = () => axiosInstance.get("sample/folder");

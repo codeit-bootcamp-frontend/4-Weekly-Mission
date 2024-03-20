@@ -11,7 +11,7 @@ interface Folder {
   links: {}[];
 }
 
-export const mapFolderData: {} = (folder: Folder) => {
+export const mapFolderData = (folder: Folder) => {
   if (!folder) return {};
   const { name, owner, links } = folder;
 

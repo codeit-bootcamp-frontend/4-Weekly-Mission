@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import FixMeLaterFunc from "../FixMeLater";
 
-export const useAsync = (asyncFunction, deps = []) => {
+export const useAsync = (asyncFunction: FixMeLaterFunc, deps: any = null) => {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState(null);
+  const [error, setError] = useState<any>(null);
+  const [data, setData] = useState<any>(null);
 
   const execute = async () => {
     setLoading(true);
@@ -22,7 +23,7 @@ export const useAsync = (asyncFunction, deps = []) => {
 
   useEffect(() => {
     execute();
-  }, deps);
+  }, [deps]);
 
   return { execute, loading, error, data };
 };
