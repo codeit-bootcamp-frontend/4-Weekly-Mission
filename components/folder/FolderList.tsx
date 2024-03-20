@@ -12,7 +12,7 @@ interface DataItem {
 }
 
 
-const FolderList = ({ folderListData}: any) => {
+const FolderList = ({ folderListData}: any) => { // 수정 부분
   const [currentFolderName, setCurrentFolderName] = useState(TOTAL_LIST_NAME);
 
   const handleListClick = (name: string) => {
