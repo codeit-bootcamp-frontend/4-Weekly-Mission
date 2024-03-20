@@ -1,9 +1,8 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 import Folder from './pages/Folder/Folder';
 import Home from './pages/Home/Home';
 import Shared from './pages/Shared/Shared';
-
-const { Route, Routes, BrowserRouter } = require('react-router-dom');
 
 const AppRouter = () => {
   return (

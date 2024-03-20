@@ -50,9 +50,21 @@
             "pattern": "@/*",
             "group": "internal",
             "position": "after"
-          }
+          },
+            {
+    "pattern": "**/*.+(css|sass|less|scss|pcss|styl)",
+    "patternOptions": {"dot": true, "nocomment": true},
+    "group": "unknown",
+    "position": "after"
+  },
+  {
+    "pattern": "{.,..}/**/*.+(css|sass|less|scss|pcss|styl)",
+    "patternOptions": {"dot": true, "nocomment": true},
+    "group": "unknown",
+    "position": "after"
+  }
         ],
-        "pathGroupsExcludedImportTypes": ["react*"],
+        "pathGroupsExcludedImportTypes": ["react*" ],
         "alphabetize": {
           "order": "asc"
         }

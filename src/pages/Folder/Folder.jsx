@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
 import AddBar from '../../components/AddBar/AddBar';
 import Cards from '../../components/Cards/Cards';

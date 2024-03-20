@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-
 import Cards from '../../components/Cards/Cards';
 import Empty from '../../components/Empty/Empty';
 import SearchBar from '../../components/SearchBar/SearchBar';
