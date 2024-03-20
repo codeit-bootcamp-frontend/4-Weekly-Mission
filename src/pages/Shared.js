@@ -5,11 +5,10 @@ import SharePageFolderList from 'components/SharedPage/main/SharePageFolderList/
 import Footer from '../components/footer/Footer';
 import styles from './Shared.module.css';
 function Shared() {
-  const userDataUrl = 'https://bootcamp-api.codeit.kr/api/sample/user';
 
   return (
     <>
-      <SharedNav userDataUrl={userDataUrl} />
+      <SharedNav />
       <Profile />
       <div className={styles.main_wrapper}>
         <LinkSearchInput />

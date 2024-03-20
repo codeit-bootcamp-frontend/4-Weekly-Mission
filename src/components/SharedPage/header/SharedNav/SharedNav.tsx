@@ -1,9 +1,11 @@
 import styles from './ShareNav.module.css';
 import NavLoginButton from '../NavLoginButton/NavLoginButton';
 import { useFetch } from '../../../../hooks/useFetch';
+import { SharePageUserData } from 'types/SharePage/UserDataType';
+const userDataUrl = 'https://bootcamp-api.codeit.kr/api/sample/user';
 
-function SharedNav({ userDataUrl }) {
-  const { data: userData } = useFetch(userDataUrl);
+function SharedNav() {
+  const { data: userData } = useFetch<SharePageUserData>(userDataUrl);
 
   return (
     <div className={styles['nav-wrapper']}>

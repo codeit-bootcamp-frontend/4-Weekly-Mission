@@ -1,6 +1,6 @@
 import styles from './NavLoginButton.module.css';
 
-function NavLoginButton() {
+function NavLoginButton(): JSX.Element {
   return <button className={styles['nav-login-button']}>로그인</button>;
 }
 

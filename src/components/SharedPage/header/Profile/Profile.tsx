@@ -1,10 +1,10 @@
 import styles from './Profile.module.css';
 import { useFetch } from '../../../../hooks/useFetch';
-
+import { SharePageFolderData } from 'types/SharePage/FolderDataType';
 const folderUrl = 'https://bootcamp-api.codeit.kr/api/sample/folder';
 
 function Profile() {
-  const { data: folderData } = useFetch(folderUrl);
+  const { data: folderData } = useFetch<SharePageFolderData>(folderUrl);
 
   return (
     <div className={styles['profile-wrapper']}>
