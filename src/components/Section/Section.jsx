@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './Section.css';
+import { axiosInstance } from '../../utils/axiosInstance';
 
 export default function Section({ style }) {
   return (
@@ -14,7 +14,7 @@ function FolderInfo() {
   const [folderData, setFolderData] = useState();
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://bootcamp-api.codeit.kr/api/sample/folder');
+      const response = await axiosInstance.get('sample/folder');
       setFolderData(response.data.folder);
     } catch (error) {
       console.error('Error fetching data:', error);

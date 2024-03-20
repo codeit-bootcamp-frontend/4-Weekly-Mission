@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { axiosInstance } from '../../utils/axiosInstance';
 
 function SharedProfile() {
   const [user, setUser] = useState({});
   const sharedFetchData = async () => {
     try {
-      const response = await axios.get('https://bootcamp-api.codeit.kr/api/sample/user');
-      if (response.status === 200) {
-        setUser(response.data);
-      }
+      const response = await axiosInstance.get('sample/user');
+      setUser(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
       setUser(null);
@@ -37,10 +35,8 @@ function FolderProfile() {
   const [user, setUser] = useState([]);
   const folderFetchData = async () => {
     try {
-      const response = await axios.get('https://bootcamp-api.codeit.kr/api/users/1');
-      if (response.status === 200) {
-        setUser(response.data);
-      }
+      const response = await axiosInstance.get('users/1');
+      setUser(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
       setUser(null);

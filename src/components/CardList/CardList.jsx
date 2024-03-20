@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { axiosInstance } from '../../utils/axiosInstance';
 import Card from '../Card/Card';
 import './CardList.css';
 
@@ -9,7 +9,7 @@ export default function CardList() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://bootcamp-api.codeit.kr/api/sample/folder');
+        const response = await axiosInstance.get('sample/folder');
         setCardData(response.data.folder.links);
       } catch (error) {
         console.error('Error fetching data:', error);
