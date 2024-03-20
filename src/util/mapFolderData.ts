@@ -1,11 +1,21 @@
 import format from "date-fns/format";
 import { getElapsedTime } from "./getElapsedTime";
 
-export const mapFolderData = (folder) => {
+interface Folder {
+  name: string;
+  owner: {
+    id: number;
+    name: string;
+    profileImageSource: string;
+  };
+  links: {}[];
+}
+
+export const mapFolderData: {} = (folder: Folder) => {
   if (!folder) return {};
   const { name, owner, links } = folder;
 
-  const mapLinks = (link) => {
+  const mapLinks = (link: any) => {
     const { id, createdAt, url, imageSource, title, description } = link;
     return {
       id,

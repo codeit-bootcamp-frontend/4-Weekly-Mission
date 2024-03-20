@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "jsx": "preserve",
+    "module": "commonjs",
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/index.js"],
+  "exclude": [],
+}
