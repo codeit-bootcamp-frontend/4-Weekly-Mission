@@ -1,36 +1,51 @@
-import { useEffect, useState } from "react";
+import { ButtonHTMLAttributes, useRef } from "react";
 import * as S from "./LinkSearchBar.style";
-
-const submitLinkSearchData = (e: React.FormEvent) => {
-  e.preventDefault();
-};
 
 const handleInputClearButtonReveal = (
   e: React.FormEvent,
   setIsRevealed: () => void
 ) => {};
 
-const LinkSearchBar = function () {
-  const [isClearButtonRevealed, setIsClearButtonRevealed] = useState(false);
-  const [searchedValue, setSearchedValue] = useState("코드잇");
-  const [isSearched, setIsSearched] = useState(true);
+interface LinkSearchBarPropType {
+  cardFilter: string;
+  setCardFilter: any;
+}
 
-  // useEffect(() => {
-  //   setIsClearButtonRevealed();
-  // }, []);
+const LinkSearchBar = function ({
+  cardFilter,
+  setCardFilter,
+}: LinkSearchBarPropType) {
+  const linkFilterRef = useRef<HTMLInputElement>(null);
+
+  const submitLinkSearchData = (e: React.FormEvent) => {
+    e.preventDefault();
+    setCardFilter(linkFilterRef.current!.value);
+  };
+
+  const cardFilterClear = () => {
+    setCardFilter("");
+    linkFilterRef.current!.value = "";
+  };
 
   return (
     <>
       <S.SearchBarWrapper onSubmit={(e) => submitLinkSearchData(e)}>
         <S.Label htmlFor="folderSearch" />
-        <S.Input id="folderSearch" placeholder="링크를 검색해 보세요." />
-        <S.InputClearButton type="button">
-          <img src="modalClose.png" alt="InputClearButton" />
-        </S.InputClearButton>
+        <S.Input
+          id="folderSearch"
+          placeholder="링크를 검색해 보세요."
+          ref={linkFilterRef}
+        />
+        {cardFilter && (
+          <S.InputClearButton type="button" onClick={() => cardFilterClear()}>
+            <img src="modalClose.png" alt="InputClearButton" />
+          </S.InputClearButton>
+        )}
       </S.SearchBarWrapper>
-      {isSearched && (
+
+      {cardFilter && (
         <S.SearchResult className="lb-h2-semibold">
-          <span>{searchedValue}</span>으로 검색한 결과입니다.
+          <span>{cardFilter}</span>으로 검색한 결과입니다.
         </S.SearchResult>
       )}
     </>

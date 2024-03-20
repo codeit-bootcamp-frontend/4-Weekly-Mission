@@ -63,7 +63,7 @@ export default function FolderPage({ userId = 1 }) {
     if (data.length === 0) {
       setIsEmptyResponse(true);
     }
-    data.map((items: any) => {
+    data.map((items: UserLinkDataType) => {
       items.description = items.description ? items.description : "";
       items.title = items.title ? items.title : "";
     });
@@ -116,7 +116,7 @@ export default function FolderPage({ userId = 1 }) {
       items.filter(
         (item: UserLinkDataType) =>
           item.title.includes(cardFilter) ||
-          item.title.includes(cardFilter) ||
+          item.description.includes(cardFilter) ||
           item.url.includes(cardFilter)
       )
     );
@@ -205,7 +205,7 @@ export default function FolderPage({ userId = 1 }) {
             <HandleCurrentSubFolder subFolderUtils={subFolderAction} />
           )}
         </S.SubFolderUtil>
-        <LinkSearchBar />
+        <LinkSearchBar cardFilter={cardFilter} setCardFilter={setCardFilter} />
         {isEmptyResponse || isLoading ? (
           <S.EmptySpace>
             {isLoading ? "불러오는 중입니다..." : "저장된 링크가 없습니다."}

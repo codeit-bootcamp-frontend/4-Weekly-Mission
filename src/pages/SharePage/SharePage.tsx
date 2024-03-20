@@ -18,6 +18,7 @@ import UserLinkDataType from "src/@types/UserLinkDataType";
  */
 export default function SharePage() {
   const [items, setItems] = useState<UserLinkDataType[]>([]);
+  const [cardFilter, setCardFilter] = useState<string>("");
 
   const handleShareLoad = async () => {
     const {
@@ -30,12 +31,27 @@ export default function SharePage() {
     handleShareLoad();
   }, []);
 
+  useEffect(() => {
+    handleShareLoad();
+    if (cardFilter === "") {
+      return;
+    }
+    setItems(
+      items.filter(
+        (item: UserLinkDataType) =>
+          item.title.includes(cardFilter) ||
+          item.description.includes(cardFilter) ||
+          item.url.includes(cardFilter)
+      )
+    );
+  }, [cardFilter]);
+
   return (
     <>
       <HeadNav />
       <ShareFolderProfile />
       <S.SharePageMain>
-        <LinkSearchBar />
+        <LinkSearchBar cardFilter={cardFilter} setCardFilter={setCardFilter} />
         <LinkCardCollection items={items} />
       </S.SharePageMain>
     </>
