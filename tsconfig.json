@@ -6,12 +6,9 @@
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
+    "baseUrl": "src",
+    "esModuleInterop": true,
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/hooks/useGetFolder.js",
-    "src/hooks/useAsync.ts",
-  ],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/ui/Cta/Cta.jsx"],
   "exclude": [],
 }
