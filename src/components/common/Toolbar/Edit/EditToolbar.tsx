@@ -9,7 +9,11 @@ import InputModal from "../../Modal/InputModal";
 import DeleteModal from "../../Modal/DeleteModal";
 import * as S from "./EditToolbarStyle";
 
-const EditToolbar = ({ folderName }) => {
+interface Props {
+  folderName: string;
+}
+
+const EditToolbar = ({ folderName }: Props) => {
   const [showShareModal, setShowShareModal] = useState(false);
   const [showInputModal, setShowInputModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -33,7 +37,11 @@ const EditToolbar = ({ folderName }) => {
           <S.Image src={EDIT_SHARE} alt="share" />
           <S.Text>공유</S.Text>
           {showShareModal && (
-            <ShareModal folderName={folderName} onClose={handleShareModal} />
+            <ShareModal
+              title="공유 하기"
+              folderName={folderName}
+              onClose={handleShareModal}
+            />
           )}
         </S.Box>
         <S.Box onClick={handleInputModal}>

@@ -2,9 +2,14 @@ import { useState } from "react";
 import { AddLinkButton } from "../../Button/ButtonStyle";
 import { LINK_ICON } from "../../../../constnats/image";
 import ListModal from "../../Modal/ListModal";
+import { Folder } from "../../../../constnats/types";
 import * as S from "./AddLinkStyle";
 
-const AddLink = ({ folderList }) => {
+interface Props {
+  folderList: Folder[];
+}
+
+const AddLink = ({ folderList }: Props) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleModal = () => {

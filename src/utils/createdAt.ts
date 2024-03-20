@@ -1,11 +1,11 @@
 import dayjs from "dayjs";
 
-export const updatedDate = (createdAt) => {
+export const updatedDate = (createdAt: string) => {
   const date = dayjs(createdAt);
   return date.format("YYYY-MM-DD");
 };
 
-export const updatedDuration = (createdAt) => {
+export const updatedDuration = (createdAt: string) => {
   const updatedDate = dayjs(createdAt);
   const nowDate = dayjs();
   const diff = nowDate.diff(updatedDate, "minute");
@@ -40,9 +40,6 @@ export const updatedDuration = (createdAt) => {
     if (years === 1) {
       return "1 year ago";
     } else {
-      const remainderMonths = Math.floor(
-        (diff % (60 * 24 * 30 * 12)) / (60 * 24 * 30)
-      );
       return `${years} years ago`;
     }
   }

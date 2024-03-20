@@ -2,8 +2,16 @@ import ReactDom from "react-dom";
 import * as S from "./ModalStyle";
 import { DeleteModalButton } from "../Button/ButtonStyle";
 import { CLOSE_BUTTON } from "../../../constnats/image";
+import { ReactNode } from "react";
 
-const DeleteModal = ({ children, title, text, onClose }) => {
+interface Props {
+  children: ReactNode;
+  title: string;
+  text: string;
+  onClose?: () => void;
+}
+
+const DeleteModal = ({ children, title, text, onClose }: Props) => {
   return ReactDom.createPortal(
     <S.Background onClick={onClose}>
       <S.Container>
@@ -13,7 +21,7 @@ const DeleteModal = ({ children, title, text, onClose }) => {
         <S.CloseButton src={CLOSE_BUTTON} alt="close" onClick={onClose} />
       </S.Container>
     </S.Background>,
-    document.getElementById("modal")
+    document.getElementById("modal") as HTMLElement
   );
 };
 

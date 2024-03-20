@@ -1,10 +1,17 @@
 import ReactDom from "react-dom";
 import * as S from "./ModalStyle";
 import { CLOSE_BUTTON } from "../../../constnats/image";
+import { ReactNode } from "react";
 
-const ShareModal = ({ folderName, onClose }) => {
+interface Props {
+  title: string;
+  folderName: string;
+  onClose?: () => void;
+}
+
+const ShareModal = ({ folderName, onClose }: Props) => {
   return ReactDom.createPortal(
-    <S.Background>
+    <S.Background onClick={onClose}>
       <S.Container>
         <S.Title>폴더 공유</S.Title>
         <S.Text>{folderName}</S.Text>
@@ -12,7 +19,7 @@ const ShareModal = ({ folderName, onClose }) => {
         <S.CloseButton src={CLOSE_BUTTON} alt="close" onClick={onClose} />
       </S.Container>
     </S.Background>,
-    document.getElementById("modal")
+    document.getElementById("modal") as HTMLElement
   );
 };
 

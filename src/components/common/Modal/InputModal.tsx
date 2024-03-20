@@ -2,10 +2,18 @@ import ReactDom from "react-dom";
 import * as S from "./ModalStyle";
 import { AddModalButton } from "../Button/ButtonStyle";
 import { CLOSE_BUTTON } from "../../../constnats/image";
+import { ReactNode } from "react";
 
-const InputModal = ({ children, title, placeholder, onClose }) => {
+interface Props {
+  children: ReactNode;
+  title: string;
+  placeholder: string;
+  onClose?: () => void;
+}
+
+const InputModal = ({ children, title, placeholder, onClose }: Props) => {
   return ReactDom.createPortal(
-    <S.Background onClose={onClose}>
+    <S.Background onClick={onClose}>
       <S.Container
         onClick={(e) => {
           e.stopPropagation();
@@ -17,7 +25,7 @@ const InputModal = ({ children, title, placeholder, onClose }) => {
         <S.CloseButton src={CLOSE_BUTTON} alt="close" onClick={onClose} />
       </S.Container>
     </S.Background>,
-    document.getElementById("modal")
+    document.getElementById("modal") as HTMLElement
   );
 };
 

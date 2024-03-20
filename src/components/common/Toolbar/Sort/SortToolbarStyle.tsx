@@ -7,7 +7,7 @@ export const Container = styled.div`
   gap: 12px;
 `;
 
-export const SortButton = styled.button`
+export const SortButton = styled.button<{ $isfocused: boolean }>`
   padding: 8px 12px;
 
   border-radius: 5px;

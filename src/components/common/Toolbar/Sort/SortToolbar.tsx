@@ -2,9 +2,18 @@ import { useEffect, useState } from "react";
 import { BASED_URL } from "../../../../constnats/constant";
 import * as S from "./SortToolbarStyle";
 
-const Sort = ({ onChange }) => {
-  const [folderList, setFolderList] = useState([]);
-  const [focus, setFocus] = useState(null);
+interface Folder {
+  id: number | null;
+  name: string;
+}
+
+interface Props {
+  onChange: (folder: Folder, folderList: Folder[]) => void;
+}
+
+const Sort = ({ onChange }: Props) => {
+  const [folderList, setFolderList] = useState<Folder[]>([]);
+  const [focus, setFocus] = useState<Number | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,7 +29,7 @@ const Sort = ({ onChange }) => {
     fetchData();
   }, []);
 
-  const handleClick = (title) => {
+  const handleClick = (title: Folder) => {
     onChange(title, folderList);
     setFocus(title.id);
   };

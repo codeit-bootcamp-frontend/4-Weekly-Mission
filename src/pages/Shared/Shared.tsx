@@ -1,5 +1,5 @@
-import SharedHeader from "../Shared/Header/SharedHeader";
-import SharedMain from "../Shared/Main/ShaerdMain";
+import SharedHeader from "./Header/SharedHeader";
+import SharedMain from "./Main/ShaerdMain";
 
 const Shared = () => {
   return (

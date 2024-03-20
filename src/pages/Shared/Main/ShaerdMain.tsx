@@ -5,6 +5,16 @@ import SearchLink from "../../../components/common/Input/SearchLink/SearchLink";
 import { updatedDate, updatedDuration } from "../../../utils/createdAt";
 import * as S from "./SharedMainStyle";
 
+interface Link {
+  id: number;
+  createdAt: string;
+  url: string;
+  description: string;
+  imageSource: string;
+  time?: string;
+  date?: string;
+}
+
 const SharedMain = () => {
   const [cardData, setCardData] = useState([]);
   console.log(cardData);
@@ -14,7 +24,7 @@ const SharedMain = () => {
       try {
         const response = await fetch(`${BASED_URL}/sample/folder`);
         const responseData = await response.json();
-        const fetchData = responseData.folder.links.map((link) => ({
+        const fetchData = responseData.folder.links.map((link: Link) => ({
           ...link,
           time: updatedDuration(link.createdAt),
           date: updatedDate(link.createdAt),

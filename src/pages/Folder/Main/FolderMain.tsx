@@ -6,15 +6,20 @@ import AddFolder from "../../../components/common/Button/ActionButton";
 import FolderCard from "../../../components/common/Card/FolderCard";
 import { BASED_URL } from "../../../constnats/constant";
 import { updatedDate, updatedDuration } from "../../../utils/createdAt";
+import { Link, Folder } from "../../../constnats/types";
 import * as S from "./FolderMainStyle";
 
-const FolderMain = ({ onChange }) => {
-  const [folder, setFolder] = useState({ id: null, name: "전체" });
-  const [cardData, setCardData] = useState([]);
-  const [folderList, setFolderList] = useState([]);
-  const [showToolbar, setShowToolbar] = useState(false);
+interface Props {
+  onChange: (folderList: Folder[]) => void;
+}
 
-  const handleFolderChange = (folder, folderList) => {
+const FolderMain = ({ onChange }: Props) => {
+  const [folder, setFolder] = useState<Folder>({ id: null, name: "전체" });
+  const [cardData, setCardData] = useState<Link[]>([]);
+  const [folderList, setFolderList] = useState<Folder[]>([]);
+  const [showToolbar, setShowToolbar] = useState<boolean>(false);
+
+  const handleFolderChange = (folder: Folder, folderList: Folder[]) => {
     setFolder(folder);
     setFolderList(folderList);
     onChange(folderList);
@@ -32,7 +37,7 @@ const FolderMain = ({ onChange }) => {
         }
         const response = await fetch(url);
         const responseData = await response.json();
-        const folderData = responseData.data.map((link) => ({
+        const folderData = responseData.data.map((link: Link) => ({
           ...link,
           time: updatedDuration(link.created_at),
           date: updatedDate(link.created_at),

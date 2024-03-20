@@ -6,20 +6,26 @@ import {
   CARD_KEBAB,
 } from "../../../constnats/image";
 import SelectMenu from "../Popover/SelectMenu";
+import { Link, Folder } from "../../../constnats/types";
 import * as S from "./CardStyle";
 
-const Card = forwardRef(({ cardData, folderList }, ref) => {
-  const [isToggledKebab, setIsToggledKebab] = useState(null);
-  const selectMenuRef = useRef(null);
+interface Props {
+  cardData: Link[];
+  folderList: Folder[];
+}
 
-  const handleClickKebab = (id) => {
+const Card = forwardRef(({ cardData, folderList }: Props, ref) => {
+  const [isToggledKebab, setIsToggledKebab] = useState<number | null>(null);
+  const selectMenuRef = useRef<HTMLDivElement>(null);
+
+  const handleClickKebab = (id: number) => {
     setIsToggledKebab((prev) => (prev === id ? null : id));
   };
 
-  const handleClickOutside = (event) => {
+  const handleClickOutside = (event: MouseEvent) => {
     if (
       selectMenuRef.current &&
-      !selectMenuRef.current.contains(event.target)
+      !selectMenuRef.current.contains(event.target as Node)
     ) {
       setIsToggledKebab(null);
     }
@@ -35,7 +41,10 @@ const Card = forwardRef(({ cardData, folderList }, ref) => {
   return cardData.map((link) => (
     <S.Container key={link.id}>
       <S.ImageBox>
-        <S.Image src={link.image_source ?? CARD_NONE_IMAGE} alt={link.id} />
+        <S.Image
+          src={link.image_source ?? CARD_NONE_IMAGE}
+          alt={String(link.id)}
+        />
         <S.StarButton
           src={link.image_source ? CARD_STAR : CARD_BLUE_STAR}
           alt="star"
@@ -52,7 +61,6 @@ const Card = forwardRef(({ cardData, folderList }, ref) => {
         </S.KebabBox>
         {isToggledKebab === link.id && (
           <SelectMenu
-            onClose={handleClickOutside}
             ref={selectMenuRef}
             url={link.url}
             folderList={folderList}
