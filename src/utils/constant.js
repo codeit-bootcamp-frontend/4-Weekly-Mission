@@ -13,3 +13,8 @@ export const TIME_TO_MILLISECONDS = {
   month,
   year,
 };
+
+export const DEFAULT_FOLDER = {
+  name: '전체',
+  id: 'all',
+};

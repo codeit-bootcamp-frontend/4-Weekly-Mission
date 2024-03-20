@@ -13,7 +13,7 @@ export default function Card({ data }) {
 
   return (
     <>
-      {cardData === null ? (
+      {!cardData.length ? (
         <p id="mainDefaultText">저장된 링크가 없습니다.</p>
       ) : (
         cardData.map(link => (

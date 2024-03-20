@@ -1,18 +1,29 @@
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import './FilterBar.css';
 import useGetLink from '../apis/useGetLink';
 import Card from '../Card/Card';
+import { DEFAULT_FOLDER } from '../../utils/constant';
+import { axiosInstance } from '../../utils/axiosInstance';
+
+const mapFormatDate = data => {
+  const formattedFolder = data.map(({ name, id }) => ({ name, id }));
+
+  return [DEFAULT_FOLDER, ...formattedFolder];
+};
 
 export default function FilterBar() {
+  const [folderId, setFolderId] = useState(DEFAULT_FOLDER.id);
   const [folderData, setFolderData] = useState([]);
-  const [filter, setFilter] = useState('all');
+
+  const { loading, error, data: linksData } = useGetLink(folderId);
+
+  const handleChange = e => setFolderId(e.target.value);
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get('https://bootcamp-api.codeit.kr/api/users/1/folders');
-        setFolderData(response.data.data);
+        const { data } = await axiosInstance.get('users/1/folders');
+        setFolderData(mapFormatDate(data.data));
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -20,47 +31,25 @@ export default function FilterBar() {
     fetchData();
   }, []);
 
-  const { loading, error, data: linksData } = useGetLink();
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
   if (error) {
     return <div>Error: {error.message}</div>;
   }
 
-  const handleChange = async folderId => {
-    const URL =
-      folderId === 'all'
-        ? `https://bootcamp-api.codeit.kr/api/users/1/links`
-        : `https://bootcamp-api.codeit.kr/api/users/1/links?folderId=${folderId}`;
-    try {
-      const response = await axios.get(URL);
-      setFolderData(response.data.data);
-    } catch (error) {
-      console.error('Error fetching folder links:', error);
-    }
-  };
   return (
     <div className="filterBarArea">
       <div className="filterBar">
-        <button
-          className="filterBarButton"
-          key="all"
-          onClick={() => handleChange('all')}
-          selected={setFilter === 'all'}>
-          <span>전체</span>
-        </button>
-        {folderData?.map(({ id, name }) => (
-          <button className="filterBarButton" key={id} onClick={() => handleChange(id)} selected={setFilter === id}>
+        {folderData.map(({ id, name }) => (
+          <button
+            key={id}
+            className={`filterBarButton ${folderId == id ? 'selected' : ''}`}
+            type="button"
+            value={id}
+            onClick={handleChange}>
             {name}
           </button>
         ))}
       </div>
-      <div className="cardStyle">
-        <Card data={linksData} />
-      </div>
+      <div className="cardStyle">{!loading ? <Card data={linksData} /> : <div>Loading...</div>}</div>
     </div>
   );
 }

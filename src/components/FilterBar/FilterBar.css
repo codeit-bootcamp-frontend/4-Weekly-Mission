@@ -56,7 +56,7 @@
   background-color: lightgrey;
 }
 
-.filterBarButton:active {
+.selected {
   background-color: #6d6afe;
   color: white;
 }
@@ -74,4 +74,11 @@
   display: flex;
   justify-content: center;
   gap: 20px;
+}
+
+@media (max-width: 1199px) {
+  .filterBarArea {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
