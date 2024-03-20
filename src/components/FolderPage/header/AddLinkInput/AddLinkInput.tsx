@@ -1,7 +1,12 @@
 import styles from './AddLinkInput.module.css';
 import AddLinkButton from '../AddLinkButton/AddLinkButton';
-function AddLinkInput({ handleAddLinkInFolderModalClick, setSharedUrl }) {
-  function handleInputChange(e) {
+import { ChangeEvent } from 'react';
+import { AddLinkProps } from '../AddLink/AddLink';
+function AddLinkInput({
+  handleAddLinkInFolderModalClick,
+  setSharedUrl,
+}: AddLinkProps) {
+  function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
     setSharedUrl(e.target.value);
   }
   return (

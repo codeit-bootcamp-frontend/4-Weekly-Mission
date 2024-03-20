@@ -1,6 +1,12 @@
 import styles from './AddLinkButton.module.css';
 
-function AddLinkButton({ handleAddLinkInFolderModalClick }) {
+
+interface ClickFunction {
+  handleAddLinkInFolderModalClick: (
+    e: React.MouseEvent<HTMLSpanElement>
+  ) => void;
+}
+function AddLinkButton({ handleAddLinkInFolderModalClick }: ClickFunction) {
   return (
     <button
       className={styles['add-link-button']}

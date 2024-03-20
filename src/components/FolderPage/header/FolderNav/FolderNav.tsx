@@ -1,9 +1,13 @@
 import styles from './FolderNav.module.css';
 import NavLoginButton from 'components/SharedPage/header/NavLoginButton/NavLoginButton';
 import { useFetch } from '../../../../hooks/useFetch';
+import { UserData } from 'types/FolderPage/UserDataType';
+interface FolderNavProps {
+  userDataUrl: string;
+}
 
-function FolderNav({ userDataUrl }) {
-  const { data: userDataObject } = useFetch(userDataUrl);
+function FolderNav({ userDataUrl }: FolderNavProps) {
+  const { data: userDataObject } = useFetch<UserData>(userDataUrl);
   const userData = userDataObject?.data['0'];
 
   return (

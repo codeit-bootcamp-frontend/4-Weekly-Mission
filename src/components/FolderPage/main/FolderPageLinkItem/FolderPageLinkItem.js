@@ -2,7 +2,7 @@
 import styles from './FolderPageLinkitem.module.css';
 import * as functions from '../../../../functions/formatTimeAgo.js';
 import KebabModal from '../../modal/KebabModal/KebabModal.js';
-import useModal from '../../../../hooks/useModal.js';
+import useModal from 'hooks/useModal';
 import DeleteLinkModal from '../../modal/DeleteLinkModal/DeleteLinkModal.js';
 function FolderPageLinkItem({
   description,

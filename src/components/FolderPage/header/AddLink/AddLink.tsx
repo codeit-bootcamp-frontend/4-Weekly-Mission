@@ -1,7 +1,18 @@
 import styles from './AddLink.module.css';
 import AddLinkInput from '../AddLinkInput/AddLinkInput';
+import { Dispatch, SetStateAction } from 'react';
 
-function AddLink({ handleAddLinkInFolderModalClick, sharedUrl, setSharedUrl }) {
+export interface AddLinkProps {
+  handleAddLinkInFolderModalClick: (
+    e: React.MouseEvent<HTMLSpanElement>
+  ) => void;
+  setSharedUrl: Dispatch<SetStateAction<string>>;
+}
+
+function AddLink({
+  handleAddLinkInFolderModalClick,
+  setSharedUrl,
+}: AddLinkProps) {
   return (
     <div className={styles['add-link-wrapper']}>
       <AddLinkInput
