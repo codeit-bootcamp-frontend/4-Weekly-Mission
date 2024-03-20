@@ -18,10 +18,10 @@ import {
 } from '../../utils/shareLinkFunctions';
 
 function ShareModal() {
-  const { shareModalPurpose, handleShareModalClose } = useContext(ModalContext);
+  const { modalPurpose, handleModalClose } = useContext(ModalContext);
 
-  const name = shareModalPurpose.folderName;
-  const folderId = shareModalPurpose.id;
+  const name = modalPurpose.folderName;
+  const folderId = modalPurpose.id;
 
   const handleClick = (e, buttonId) => {
     e.preventDefault();
@@ -43,7 +43,7 @@ function ShareModal() {
   return (
     <ModalContainer>
       <ModalForm>
-        <CloseButton onClick={handleShareModalClose}>
+        <CloseButton onClick={handleModalClose}>
           <img src={modalCloseIcon} alt="closeButton" />
         </CloseButton>
         <ModalInfo>

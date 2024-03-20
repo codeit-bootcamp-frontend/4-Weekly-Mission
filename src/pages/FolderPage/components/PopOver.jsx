@@ -1,23 +1,26 @@
 import styled from 'styled-components';
-import { LINK_DELETE } from '../../../constants/modalConstants';
+import {
+  ADD_TYPE,
+  DELETE_TYPE,
+  LINK_DELETE,
+} from '../../../constants/modalConstants';
 import { useContext } from 'react';
 import { ModalContext } from '../FolderPage';
 function PopOver({ id, url }) {
-  const { handleDeleteModalOpen, handleAddModalOpen } =
-    useContext(ModalContext);
+  const { handleModalOpen } = useContext(ModalContext);
   const handleLinkDeleteModalOpen = (e) => {
     e.preventDefault();
     const purpose = {
-      purpose: LINK_DELETE,
       id: id,
+      purpose: LINK_DELETE,
       name: url,
     };
-    handleDeleteModalOpen(purpose);
+    handleModalOpen(DELETE_TYPE, purpose);
   };
 
   const handleLinkAddModalOpen = (e) => {
     e.preventDefault();
-    handleAddModalOpen(url);
+    handleModalOpen(ADD_TYPE, url);
   };
 
   return (

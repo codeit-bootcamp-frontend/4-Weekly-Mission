@@ -11,16 +11,16 @@ import {
 } from './ModalElements';
 
 function EditModal() {
-  const { editModalPurpose, handleEditModalClose } = useContext(ModalContext);
+  const { modalPurpose, handleModalClose } = useContext(ModalContext);
 
-  const title = editModalPurpose;
-  const buttonText = editModalPurpose === FOLDER_ADD ? '추가하기' : '변경하기';
+  const title = modalPurpose;
+  const buttonText = modalPurpose === FOLDER_ADD ? '추가하기' : '변경하기';
 
   return (
     <ModalContainer>
       <ModalForm>
         <Name>{title}</Name>
-        <CloseButton onClick={handleEditModalClose}>
+        <CloseButton onClick={handleModalClose}>
           <img src={modalCloseIcon} alt="closeButton" />
         </CloseButton>
         <Input type="text" name={title} placeholder="내용 입력" />

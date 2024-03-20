@@ -17,7 +17,7 @@ import { USERS_FOLDERS_URL } from '../../constants/urls';
 
 function AddModal() {
   const [clickedFolderId, setClickedFolderId] = useState(null);
-  const { addModalPurpose, handleAddModalClose } = useContext(ModalContext);
+  const { modalPurpose, handleModalClose } = useContext(ModalContext);
 
   const folders = useFoldersData(USERS_FOLDERS_URL);
 
@@ -28,12 +28,12 @@ function AddModal() {
   return (
     <ModalContainer>
       <ModalForm>
-        <CloseButton onClick={handleAddModalClose}>
+        <CloseButton onClick={handleModalClose}>
           <img src={modalCloseIcon} alt="closeButton" />
         </CloseButton>
         <ModalInfo>
           <Title>폴더에 추가</Title>
-          <Name>{addModalPurpose}</Name>
+          <Name>{modalPurpose}</Name>
         </ModalInfo>
         <FolderList>
           {folders.map((folder) => {

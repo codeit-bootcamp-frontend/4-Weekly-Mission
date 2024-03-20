@@ -6,8 +6,11 @@ import OptionButton from './OptionButton';
 import { useContext } from 'react';
 import { ModalContext } from '../FolderPage';
 import {
+  DELETE_TYPE,
+  EDIT_TYPE,
   FOLDER_DELETE,
   FOLDER_RENAME,
+  SHARE_TYPE,
 } from '../../../constants/modalConstants';
 /*
   폴더의 이름과 공유, 이름변경, 삭제 버튼이 표시되는
@@ -17,11 +20,10 @@ import {
   selectedFolderId는 선택된 폴더의 id값입니다.
 */
 function FolderOptionBar({ text, selectedFolderId }) {
-  const { handleDeleteModalOpen, handleEditModalOpen, handleShareModalOpen } =
-    useContext(ModalContext);
+  const { handleModalOpen } = useContext(ModalContext);
 
   const handleRenameModalOpen = () => {
-    handleEditModalOpen(FOLDER_RENAME);
+    handleModalOpen(EDIT_TYPE, FOLDER_RENAME);
   };
 
   const handleFolderDeleteModalOpen = () => {
@@ -30,7 +32,7 @@ function FolderOptionBar({ text, selectedFolderId }) {
       id: selectedFolderId,
       name: text,
     };
-    handleDeleteModalOpen(purpose);
+    handleModalOpen(DELETE_TYPE, purpose);
   };
 
   const handleFolderShareModalOpen = () => {
@@ -38,7 +40,7 @@ function FolderOptionBar({ text, selectedFolderId }) {
       id: selectedFolderId,
       folderName: text,
     };
-    handleShareModalOpen(purpose);
+    handleModalOpen(SHARE_TYPE, purpose);
   };
 
   const buttonProps = [

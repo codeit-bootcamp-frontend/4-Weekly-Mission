@@ -12,16 +12,15 @@ import { useContext } from 'react';
 import { ModalContext } from '../../pages/FolderPage/FolderPage';
 
 function DeleteModal() {
-  const { deleteModalPurpose, handleDeleteModalClose } =
-    useContext(ModalContext);
+  const { modalPurpose, handleModalClose } = useContext(ModalContext);
 
-  const title = deleteModalPurpose.purpose;
-  const name = deleteModalPurpose.name;
+  const title = modalPurpose.purpose;
+  const name = modalPurpose.name;
 
   return (
     <ModalContainer>
       <ModalForm>
-        <CloseButton onClick={handleDeleteModalClose}>
+        <CloseButton onClick={handleModalClose}>
           <img src={modalCloseIcon} alt="closeButton" />
         </CloseButton>
         <ModalInfo>
