@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { PrimaryButton } from "../PrimaryButton";
 
-export const FolderLinkAddBarWrapper = styled.div`
+export const FolderLinkAddBarWrapper = styled.div<{ $isHidden: boolean }>`
+  position: ${({ $isHidden }) => ($isHidden ? "fixed" : "relative")};
+  padding: ${({ $isHidden }) => ($isHidden ? "24px 0" : "60px 0 90px")};
+  width: 100%;
+  bottom: 0;
   background-color: var(--LBrary-Background);
 `;
 
@@ -12,7 +16,7 @@ export const Form = styled.form`
 
   width: 800px;
   margin: auto;
-  padding: 60px 0 90px;
+
   background-color: var(--LBrary-Background);
 
   @media (max-width: 1124px) {

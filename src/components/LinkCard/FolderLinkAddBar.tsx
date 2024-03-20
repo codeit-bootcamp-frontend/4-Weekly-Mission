@@ -12,7 +12,7 @@ export default function FolderLinkAddBar({ handleSubmit, subFolderList }: any) {
   };
 
   return (
-    <S.FolderLinkAddBarWrapper>
+    <S.FolderLinkAddBarWrapper $isHidden={false}>
       <S.Form onSubmit={(e) => handleLinkAdd(e)}>
         <S.Label htmlFor="add-link" />
         <S.Input id="add-link" placeholder="링크를 추가해 보세요." />
