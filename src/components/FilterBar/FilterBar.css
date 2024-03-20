@@ -1,0 +1,77 @@
+.filterBarArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.filterBarButton {
+  display: flex;
+  width: auto;
+  height: 44px;
+  flex-direction: column;
+  padding: 8px 12px;
+  align-items: flex-start;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: #fff;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .filterBarButton {
+    display: flex;
+    padding: 8px 12px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+    background: #fff;
+  }
+}
+@media (min-width: 357px) and (max-width: 767px) {
+  .filterBarButton {
+    display: flex;
+    padding: 6px 10px;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+    background: white;
+    color: black;
+
+    /* Linkbrary/body2-regular */
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+
+.filterBarButton:hover {
+  background-color: lightgrey;
+}
+
+.filterBarButton:active {
+  background-color: #6d6afe;
+  color: white;
+}
+
+.filterBar {
+  display: flex;
+  justify-content: start;
+  width: 1080px;
+  gap: 12px;
+}
+
+.cardStyle {
+  padding-top: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}

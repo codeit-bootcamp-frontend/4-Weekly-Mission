@@ -1,78 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
+import './FilterBar.css';
 import useGetLink from '../apis/useGetLink';
 import Card from '../Card/Card';
 
-const Button = styled.button`
-  display: flex;
-  width: auto;
-  height: 44px;
-  flex-direction: column;
-  padding: 8px 12px;
-  align-items: center;
-  justify-content: center;
-  border-radius: 5px;
-  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-  background: #fff;
-  font-size: 16px;
-  white-space: nowrap;
-
-  @media (min-width: 768px) and (max-width: 1199px) {
-    display: flex;
-    padding: 8px 12px;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 5px;
-    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-    background: #fff;
-  }
-  @media (min-width: 357px) and (max-width: 767px) {
-    display: flex;
-    padding: 6px 10px;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 5px;
-    border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-    background: #fff;
-
-    color: #000;
-
-    /* Linkbrary/body2-regular */
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-
-  &:hover {
-    background-color: $color-gray10;
-  }
-
-  &.selected {
-    background-color: $color-primary;
-    color: $color-white;
-  }
-`;
-
-const FilterBarLeft = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 12px;
-`;
-
-export default function Page() {
-  const [filter, setFilter] = useState('all');
-  return (
-    <div>
-      <FilterBar filter={filter} onChangeFilter={setFilter}></FilterBar>
-    </div>
-  );
-}
-
-function FilterBar({ filter, onChangeFilter }) {
+export default function FilterBar() {
   const [folderData, setFolderData] = useState([]);
+  const [filter, setFilter] = useState('all');
 
   useEffect(() => {
     async function fetchData() {
@@ -86,7 +20,7 @@ function FilterBar({ filter, onChangeFilter }) {
     fetchData();
   }, []);
 
-  const { execute, loading, error, data: linksData } = useGetLink();
+  const { loading, error, data: linksData } = useGetLink();
 
   if (loading) {
     return <div>Loading...</div>;
@@ -109,18 +43,24 @@ function FilterBar({ filter, onChangeFilter }) {
     }
   };
   return (
-    <div>
-      <FilterBarLeft>
-        <Button key="all" onClick={() => handleChange('all')} selected={filter === 'all'}>
+    <div className="filterBarArea">
+      <div className="filterBar">
+        <button
+          className="filterBarButton"
+          key="all"
+          onClick={() => handleChange('all')}
+          selected={setFilter === 'all'}>
           <span>전체</span>
-        </Button>
+        </button>
         {folderData?.map(({ id, name }) => (
-          <Button key={id} onClick={() => handleChange(id)} selected={filter === id}>
+          <button className="filterBarButton" key={id} onClick={() => handleChange(id)} selected={setFilter === id}>
             {name}
-          </Button>
+          </button>
         ))}
+      </div>
+      <div className="cardStyle">
         <Card data={linksData} />
-      </FilterBarLeft>
+      </div>
     </div>
   );
 }
