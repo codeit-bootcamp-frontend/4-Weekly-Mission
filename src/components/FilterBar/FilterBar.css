@@ -69,16 +69,28 @@
 }
 
 .cardStyle {
-  padding-top: 40px;
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   justify-content: center;
   gap: 20px;
 }
 
-@media (max-width: 1199px) {
-  .filterBarArea {
-    padding-left: 32px;
-    padding-right: 32px;
-  }
+.folderName {
+  display: flex;
+  width: 1060px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  justify-content: space-between;
+  align-items: center;
+  color: #000;
+
+  /* Linkbrary/h3-semibold */
+  font-family: Pretendard;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.2px;
 }

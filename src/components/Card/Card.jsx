@@ -14,7 +14,7 @@ export default function Card({ data }) {
   return (
     <>
       {!cardData.length ? (
-        <p id="mainDefaultText">저장된 링크가 없습니다.</p>
+        <div id="mainDefaultText">저장된 링크가 없습니다.</div>
       ) : (
         cardData.map(link => (
           <div key={link.id} className="card">

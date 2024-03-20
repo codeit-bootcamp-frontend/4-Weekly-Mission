@@ -21,7 +21,7 @@ const mapLinksData = link => {
 
 const useGetLink = (folderId = DEFAULT_FOLDER.id) => {
   const queryString = folderId === DEFAULT_FOLDER.id ? '' : `?folderId=${folderId}`;
-  const getLinks = useCallback(() => axiosInstance.get(`users/1/links${queryString}`), [queryString]);
+  const getLinks = useCallback(() => axiosInstance.get(`users/4/links${queryString}`), [queryString]);
   const { execute, loading, error, data } = useAsync(getLinks);
 
   useEffect(() => {
