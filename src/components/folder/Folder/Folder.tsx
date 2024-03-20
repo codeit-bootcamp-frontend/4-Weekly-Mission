@@ -1,4 +1,4 @@
-import { CategoryDataType } from '@/src/type';
+import { CategoryDataType, folderCardDataType } from '@/src/type';
 import {
   Wrapper,
   FolderWrapper,
@@ -33,9 +33,15 @@ interface Props {
   currentFolder: folderDataType | null;
   changeCurrentFolder: (value: folderDataType | null) => void;
   folderData: CategoryDataType;
+  cardData: folderCardDataType;
 }
 
-const Folder = ({ currentFolder, changeCurrentFolder, folderData }: Props) => {
+const Folder = ({
+  currentFolder,
+  changeCurrentFolder,
+  folderData,
+  cardData,
+}: Props) => {
   const clickCategoryButton = (e: React.MouseEvent<HTMLDivElement>) => {
     changeCurrentFolder({
       title: (e.target as HTMLElement).textContent,
@@ -43,16 +49,6 @@ const Folder = ({ currentFolder, changeCurrentFolder, folderData }: Props) => {
     });
   };
 
-  const Content: string[] = [
-    '전체',
-    '즐겨찾기',
-    '코딩 팁',
-    '채용 사이트',
-    '유용한 글',
-    '나만의 장소',
-    'test1',
-    'test2',
-  ];
   const OPTION: obj[] = [
     {
       src: '/images/share.svg',
@@ -67,7 +63,7 @@ const Folder = ({ currentFolder, changeCurrentFolder, folderData }: Props) => {
       text: '삭제',
     },
   ];
-  if (Content.length === 0) {
+  if (folderData && folderData.category?.length === 0) {
     return <HollowWrapper>저장된 링크가 없습니다</HollowWrapper>;
   }
   return (
@@ -105,31 +101,37 @@ const Folder = ({ currentFolder, changeCurrentFolder, folderData }: Props) => {
       </FolderWrapper>
       <TitleWrapper>
         <FolderTitle>{currentFolder?.title}</FolderTitle>
-        <OptionWrapper>
-          {OPTION.map((option, index) => (
-            <OptionButtonWrapper key={index}>
-              <OptionIcon
-                src={option.src}
-                alt={option.text}
-                width={18}
-                height={18}
-              />
-              <OptionText>{option.text}</OptionText>
-            </OptionButtonWrapper>
-          ))}
-        </OptionWrapper>
+        {currentFolder?.id !== '0' && (
+          <OptionWrapper>
+            {OPTION.map((option, index) => (
+              <OptionButtonWrapper key={index}>
+                <OptionIcon
+                  src={option.src}
+                  alt={option.text}
+                  width={18}
+                  height={18}
+                />
+                <OptionText>{option.text}</OptionText>
+              </OptionButtonWrapper>
+            ))}
+          </OptionWrapper>
+        )}
       </TitleWrapper>
-      <CardWrapper>
-        <Card
-          card={{
-            id: 1,
-            createdAt: undefined,
-            url: undefined,
-            title: 'test',
-            description: 'test',
-            imageSource: undefined,
-          }}
-        />
+      <CardWrapper $empty={cardData && cardData.card?.length === 0}>
+        {cardData &&
+          cardData.card?.map((card) => (
+            <Card
+              key={card.id}
+              card={{
+                id: card.id,
+                createdAt: card.created_at,
+                url: card.url,
+                title: card.title,
+                description: card.description,
+                imageSource: card.image_source,
+              }}
+            />
+          ))}
       </CardWrapper>
     </Wrapper>
   );

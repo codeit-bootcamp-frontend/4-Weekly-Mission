@@ -1,11 +1,16 @@
 import instance from './instance';
-import { UserDataType, FolderDataType, CategoryDataType } from '../type';
+import {
+  UserDataType,
+  FolderDataType,
+  CategoryDataType,
+  folderCardDataType,
+} from '../type';
 
 export const getUserSampleDataAPI = async (): Promise<UserDataType> => {
   const APIData: UserDataType = {
-    email: undefined,
+    email: null,
     image: undefined,
-    error: undefined,
+    error: null,
   };
   try {
     const response = await instance.get(`/users/1`);
@@ -21,11 +26,11 @@ export const getUserSampleDataAPI = async (): Promise<UserDataType> => {
 
 export const getFolderDataAPI = async (): Promise<FolderDataType> => {
   const APIData: FolderDataType = {
-    userName: undefined,
+    userName: null,
     userImage: undefined,
-    name: undefined,
-    cardData: undefined,
-    error: undefined,
+    name: null,
+    cardData: null,
+    error: null,
   };
   try {
     const response = await instance.get(`/sample/folder`);
@@ -43,13 +48,44 @@ export const getFolderDataAPI = async (): Promise<FolderDataType> => {
 
 export const getCategoryDataAPI = async (): Promise<CategoryDataType> => {
   const APIData: CategoryDataType = {
-    category: undefined,
+    category: null,
     error: null,
   };
   try {
     const response = await instance.get('/users/1/folders');
     const { data } = response;
     APIData.category = data.data;
+    return APIData;
+  } catch (error) {
+    APIData.error = error;
+    return APIData;
+  }
+};
+
+export const getCardDataAPI = async (
+  folderID: string | null = null,
+): Promise<folderCardDataType> => {
+  const APIData: folderCardDataType = {
+    card: null,
+    error: null,
+  };
+  if (folderID && folderID !== '0') {
+    try {
+      const response = await instance.get(
+        `/users/1/links?folderId=${folderID}`,
+      );
+      const { data } = response;
+      APIData.card = data.data;
+      return APIData;
+    } catch (error) {
+      APIData.error = error;
+      return APIData;
+    }
+  }
+  try {
+    const response = await instance.get('/users/1/links');
+    const { data } = response;
+    APIData.card = data.data;
     return APIData;
   } catch (error) {
     APIData.error = error;

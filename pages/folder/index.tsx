@@ -5,8 +5,8 @@ import Folder from '@/src/components/folder/Folder/Folder';
 import Footer from '@/src/components/commons/Footer/Footer';
 import { useState } from 'react';
 import useAPIData from '@/src/hooks/useAPIData';
-import { getCategoryDataAPI } from '@/src/API/API';
-import { CategoryDataType } from '@/src/type';
+import { getCategoryDataAPI, getCardDataAPI } from '@/src/API/API';
+import { CategoryDataType, folderCardDataType } from '@/src/type';
 import { Content, ContentWrapper } from './index.style';
 
 interface folderDataType {
@@ -24,6 +24,7 @@ export default function FolderPage() {
   };
 
   const { data: folderData } = useAPIData(getCategoryDataAPI);
+  const { data: folderCard } = useAPIData(getCardDataAPI, currentFolder?.id);
   return (
     <>
       <Header fix={false} />
@@ -35,6 +36,7 @@ export default function FolderPage() {
             currentFolder={currentFolder}
             changeCurrentFolder={changeCurrentFolder}
             folderData={folderData as CategoryDataType}
+            cardData={folderCard as folderCardDataType}
           />
         </ContentWrapper>
       </Content>

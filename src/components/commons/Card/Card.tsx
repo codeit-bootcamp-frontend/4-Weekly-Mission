@@ -13,11 +13,11 @@ import {
 } from './Card.style';
 
 interface cardData {
-  id: number | undefined;
-  createdAt: string | undefined;
-  url: string | undefined;
-  title: string | undefined;
-  description: string | undefined;
+  id: number | null;
+  createdAt: string | null;
+  url: string | null;
+  title: string | null;
+  description: string | null;
   imageSource: string | undefined;
 }
 

@@ -94,7 +94,8 @@ export const TitleWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  pointer: @media (max-width: 767px) {
+
+  @media (max-width: 767px) {
     flex-direction: column;
     align-items: initial;
     gap: 12px;
@@ -135,11 +136,12 @@ export const OptionText = styled.div`
   color: ${COLOR.Gray3};
 `;
 
-export const CardWrapper = styled.div`
+export const CardWrapper = styled.div<{ $empty: boolean }>`
   width: 100%;
   display: grid;
   gap: 19px;
   grid-template-columns: 1fr 1fr 1fr;
+  ${({ $empty }) => $empty && 'height: calc(100vh - 821px)'};
 
   @media (max-width: 1199px) {
     grid-template-columns: 1fr 1fr;
