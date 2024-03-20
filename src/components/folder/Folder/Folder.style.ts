@@ -19,16 +19,32 @@ export const CategoryWrapper = styled.div`
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+  max-width: 960px;
+
+  @media (max-width: 1199px) {
+    max-width: 600px;
+  }
+
+  @media (max-width: 767px) {
+    max-width: 325px;
+  }
 `;
 
-export const CategoryButton = styled.div`
+export const CategoryButton = styled.div<{ $checked: boolean }>`
   border-radius: 5px;
   border: 1px solid ${COLOR.Primary};
   padding: 8px 12px;
   ${FONT.REGULAR_16};
   line-height: 19px;
-  color: #000000;
+  color: ${({ $checked }) => ($checked ? '#FFFFFF' : '#000000')};
   cursor: pointer;
+  background-color: ${({ $checked }) => ($checked ? COLOR.Primary : '#FFFFFF')};
+  transition-duration: 0.3s;
+
+  &:hover {
+    background-color: ${({ $checked }) =>
+      $checked ? COLOR.Primary : '#e7effb'};
+  }
 `;
 
 export const AddFolderWrapper = styled.div`
@@ -132,5 +148,17 @@ export const CardWrapper = styled.div`
   @media (max-width: 767px) {
     grid-template-columns: 1fr;
     gap: 28px;
+  }
+`;
+
+export const HollowWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: max(calc(100vh - 707px), 16px);
+  ${FONT.REGULAR_16};
+
+  @media (max-width: 767px) {
+    height: max(calc(100vh - 661px), 16px);
   }
 `;

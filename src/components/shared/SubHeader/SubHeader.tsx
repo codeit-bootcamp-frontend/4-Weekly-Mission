@@ -16,7 +16,7 @@ const SubHeader = ({ folder }: Props) => (
     <ContentWrapper>
       <ProfileImage
         src={(folder as FolderDataType)?.userImage}
-        alt="아바타"
+        alt="Avatar"
         width={60}
         height={60}
       />

@@ -13,10 +13,44 @@ import {
   OptionIcon,
   OptionText,
   CardWrapper,
+  HollowWrapper,
 } from './Folder.style';
 
-const Folder = () => {
-  const OPTION = [
+import Card from '../../commons/Card/Card';
+
+interface obj {
+  src: string;
+  text: string;
+}
+
+interface folderData {
+  title: string | null;
+  id: string | null;
+}
+
+interface Props {
+  currentFolder: folderData | null;
+  changeCurrentFolder: (value: folderData | null) => void;
+}
+
+const Folder = ({ currentFolder, changeCurrentFolder }: Props) => {
+  const clickCategoryButton = (e: React.MouseEvent<HTMLDivElement>) => {
+    changeCurrentFolder({
+      title: (e.target as HTMLElement).textContent,
+      id: (e.target as HTMLElement).id,
+    });
+  };
+  const Content: string[] = [
+    '전체',
+    '즐겨찾기',
+    '코딩 팁',
+    '채용 사이트',
+    '유용한 글',
+    '나만의 장소',
+    'test1',
+    'test2',
+  ];
+  const OPTION: obj[] = [
     {
       src: '/images/share.svg',
       text: '공유',
@@ -30,14 +64,23 @@ const Folder = () => {
       text: '삭제',
     },
   ];
+  if (Content.length === 0) {
+    return <HollowWrapper>저장된 링크가 없습니다</HollowWrapper>;
+  }
   return (
     <Wrapper>
       <FolderWrapper>
         <CategoryWrapper>
-          <CategoryButton>전체</CategoryButton>
-          <CategoryButton>전체</CategoryButton>
-          <CategoryButton>전체</CategoryButton>
-          <CategoryButton>전체</CategoryButton>
+          {Content.map((text, index) => (
+            <CategoryButton
+              key={index}
+              id={String(index)}
+              onClick={clickCategoryButton}
+              $checked={currentFolder?.id === String(index)}
+            >
+              {text}
+            </CategoryButton>
+          ))}
         </CategoryWrapper>
         <AddFolderWrapper>
           <AddFolderText>폴더 추가</AddFolderText>
@@ -50,7 +93,7 @@ const Folder = () => {
         </AddFolderWrapper>
       </FolderWrapper>
       <TitleWrapper>
-        <FolderTitle>유용한 글</FolderTitle>
+        <FolderTitle>{currentFolder?.title}</FolderTitle>
         <OptionWrapper>
           {OPTION.map((option, index) => (
             <OptionButtonWrapper key={index}>
@@ -65,7 +108,18 @@ const Folder = () => {
           ))}
         </OptionWrapper>
       </TitleWrapper>
-      <CardWrapper />
+      <CardWrapper>
+        <Card
+          card={{
+            id: 1,
+            createdAt: undefined,
+            url: undefined,
+            title: 'test',
+            description: 'test',
+            imageSource: undefined,
+          }}
+        />
+      </CardWrapper>
     </Wrapper>
   );
 };
