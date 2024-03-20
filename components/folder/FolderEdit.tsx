@@ -1,17 +1,14 @@
-import shareImg from '@/public/folder/share.svg';
-import renameImg from '@/public/folder/pen.svg';
-import deleteImg from '@/public/folder/delete.svg';
+import FolderDelete from './edits/FolderDelete';
+import FolderRename from './edits/FolderRename';
+import FolderShare from './edits/FolderShare';
 
-interface FolderEditProps {
-  currentFolderName: string;
-}
-
-const FolderEdit = ({ currentFolderName }: FolderEditProps) => {
+const FolderEdit = () => {
   return (
-    <div className='container-folder-edit'>
-          <span>{currentFolderName}</span>
-          {/* <FolderEdit folderName={currentFolderName} /> */}
-        </div>
+    <div className='folder-edits'>
+      <FolderShare />
+      <FolderRename />
+      <FolderDelete />
+    </div>
   )
 }
 

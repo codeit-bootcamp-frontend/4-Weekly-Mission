@@ -1,6 +1,8 @@
-import Link from 'next/link';
+'use client'
 
-import { getFolderList, getLink } from '@/apis/api';
+import { useState } from 'react';
+
+import FolderName from "./FolderName"
 
 const TOTAL_LIST_NAME = "전체"
 
@@ -9,29 +11,27 @@ interface DataItem {
   name: string;
 }
 
-const getFolderListData = async () => {
-  try {
-    const { data } = await getFolderList();
 
-    return data;
-  } catch {
-    throw new Error('error');
+const FolderList = ({ folderListData}: any) => {
+  const [currentFolderName, setCurrentFolderName] = useState(TOTAL_LIST_NAME);
+
+  const handleListClick = (name: string) => {
+    setCurrentFolderName(name);
   }
-}
-
-const FolderList = async () => {
-  const data = await getFolderListData();
 
   return (
-    <div className='container-folder-list'>
-      <div className='folder-list'>
-        <button className='folder-list_btn'>{TOTAL_LIST_NAME}</button>
-        {data.map(({ id, name }: DataItem) => (
-          <Link href={`folder/${name}`} key={id} className='folder-list_btn'>
-            {name}
-          </Link>
-        ))}
+    <div className='container-folder-and-cards'>
+      <div className='container-folder-list'>
+        <div className='folder-list'>
+          <button className='folder-list_btn' onClick={()=>handleListClick(TOTAL_LIST_NAME)}>{TOTAL_LIST_NAME}</button>
+          {folderListData.map(({ id, name }: DataItem) => (
+            <button key={id} className='folder-list_btn' onClick={()=>handleListClick(name)}>
+              {name}
+            </button>
+          ))}
+        </div>
       </div>
+      <FolderName folderName={currentFolderName} />
     </div>
   )
 }
