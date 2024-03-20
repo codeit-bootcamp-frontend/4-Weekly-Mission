@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { getFolderList, getLink } from '@/apis/api';
 
 const TOTAL_LIST_NAME = "전체"
@@ -25,9 +27,9 @@ const FolderList = async () => {
       <div className='folder-list'>
         <button className='folder-list_btn'>{TOTAL_LIST_NAME}</button>
         {data.map(({ id, name }: DataItem) => (
-          <button key={id} className='folder-list_btn'>
+          <Link href={`folder/${name}`} key={id} className='folder-list_btn'>
             {name}
-          </button>
+          </Link>
         ))}
       </div>
     </div>
