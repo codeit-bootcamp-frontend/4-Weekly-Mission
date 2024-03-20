@@ -107,6 +107,21 @@ export default function FolderPage({ userId = 1 }) {
     handleShareLoad(currentFolderQuery);
   }, [currentFolderQuery]);
 
+  useEffect(() => {
+    if (cardFilter === "") {
+      handleShareLoad(currentFolderQuery);
+      return;
+    }
+    setItems(
+      items.filter(
+        (item: UserLinkDataType) =>
+          item.title.includes(cardFilter) ||
+          item.title.includes(cardFilter) ||
+          item.url.includes(cardFilter)
+      )
+    );
+  }, [cardFilter]);
+
   const handleKebabAction = () => {};
 
   const kebabActions: LinkCardFunctionObjectType[] = [
