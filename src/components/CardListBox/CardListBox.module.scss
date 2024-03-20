@@ -3,4 +3,23 @@
   flex-direction: column;
   gap: 40px;
   padding: 40px 32px 100px;
+  max-width: 1124px;
+  margin: 0 auto;
+
+  .cardList {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .titleBox {
+      display: flex;
+      justify-content: space-between;
+
+      .linksTitle {
+        color: #000;
+        font-size: 24px;
+        font-weight: 600;
+      }
+    }
+  }
 }

@@ -1,5 +1,5 @@
 .folder {
-  display: flex;
+  display: inline-flex;
   padding: 8px 12px;
   align-items: center;
   height: 36px;
@@ -9,4 +9,14 @@
   color: #000;
   font-size: 16px;
   font-weight: 400;
+  flex-shrink: 0;
+
+  &:hover {
+    background: var(--Linkbrary-gray10, #e7effb);
+  }
+
+  &:focus {
+    color: #fff;
+    background: var(--Linkbrary-primary-color, #6d6afe);
+  }
 }

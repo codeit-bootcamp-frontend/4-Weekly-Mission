@@ -9,8 +9,8 @@ function formatLinkData(link) {
   };
 }
 
-export default function getFormattedLinks(strangeData) {
-  return strangeData.map((link) => {
+export default function getFormattedLinks(links) {
+  return links.map((link) => {
     return formatLinkData(link);
   });
 }
