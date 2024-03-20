@@ -7,7 +7,7 @@ import {
   format,
 } from "date-fns";
 
-export function dateDiffCalc(dateString) {
+export function dateDiffCalc(dateString: string) {
   const currentDate = new Date();
   const givenDate = new Date(dateString);
   const diffMinutes = differenceInMinutes(currentDate, givenDate);
@@ -39,7 +39,7 @@ export function dateDiffCalc(dateString) {
   }
 }
 
-export function dateFormatter(dateString) {
+export function dateFormatter(dateString: string) {
   const formattedDate = format(new Date(dateString), "yyyy.MM.dd");
   return formattedDate;
 }
