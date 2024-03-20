@@ -19,7 +19,9 @@ export default function SharedPage() {
         <ContentWrapper>
           <SearchBar />
           <CardWrapper>
-            {cardData?.map((card, index) => <Card key={index} card={card} />)}
+            {cardData?.map((card, index) => (
+              <Card key={index} card={card} page="shared" />
+            ))}
           </CardWrapper>
         </ContentWrapper>
       </Content>

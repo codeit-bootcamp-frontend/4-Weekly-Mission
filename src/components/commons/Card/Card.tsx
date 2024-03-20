@@ -25,12 +25,10 @@ interface cardData {
 
 interface Props {
   page: string;
-  kebabID: number | null;
-  changeKebabID: (value: number | null) => void;
   card: null | cardData;
 }
 
-const Card = ({ page, card, kebabID, changeKebabID }: Props) => {
+const Card = ({ page, card }: Props) => {
   const WrapperRef = useRef<HTMLDivElement>(null);
   const ImageRef = useRef<HTMLImageElement>(null);
   const date = card?.createdAt ? card?.createdAt : '';
@@ -72,13 +70,7 @@ const Card = ({ page, card, kebabID, changeKebabID }: Props) => {
         <CardContentWrapper>
           <TopWrapper>
             <CardStatus>{cardStatus}</CardStatus>
-            {page === 'folder' && (
-              <Kebab
-                cardID={card?.id ? card?.id : null}
-                kebabID={kebabID}
-                changeKebabID={changeKebabID}
-              />
-            )}
+            {page === 'folder' && <Kebab cardID={card?.id ? card?.id : null} />}
           </TopWrapper>
           <CardTitle>{card?.description}</CardTitle>
           <CardDate>{cardCreationDate}</CardDate>
@@ -87,5 +79,4 @@ const Card = ({ page, card, kebabID, changeKebabID }: Props) => {
     </Link>
   );
 };
-
 export default Card;
