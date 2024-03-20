@@ -3,17 +3,20 @@ import Logo from "../../../assets/svg/Logo";
 import styles from "./Header.module.scss";
 import useGet from "../../../hooks/useGet";
 import { useEffect, useState } from "react";
+import { END_POINT } from "../../../constants";
 
 export default function Header({ headerPosition }) {
-  const url = `https://bootcamp-api.codeit.kr/api/users/1`;
   const [fetchData, setFetchData] = useState({
     email: null,
     image_source: null,
   });
-  const { data, isLoading } = useGet(url);
+  const { data, isLoading } = useGet(END_POINT.user);
 
   useEffect(() => {
     if (!isLoading) {
+      // 이쁘게 고치고 싶읍니다. ㅠㅠ
+      // fetch data가 배열로 들어와요
+      // 로그인 기능 구현되면 수정 가능할 듯 싶습니다.
       setFetchData(data.data[0]);
     }
   }, [data, isLoading]);

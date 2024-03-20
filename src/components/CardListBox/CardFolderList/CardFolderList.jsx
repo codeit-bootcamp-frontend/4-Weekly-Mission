@@ -12,9 +12,3 @@ export default function CardFolderList({ folders }) {
     </section>
   );
 }
-
-// 내일 할일
-// 팀미팅 주제 준비
-// 트리 포스팅
-// 회고 포스팅
-// 미션 리펙토링

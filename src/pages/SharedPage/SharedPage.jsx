@@ -5,9 +5,9 @@ import { Profile } from "../../components/Profile/";
 import { useEffect, useState } from "react";
 import useGet from "../../hooks/useGet";
 import Footer from "../../components/Footer/Footer";
+import { END_POINT } from "../../constants";
 
 export default function SharedPage() {
-  const url = `https://bootcamp-api.codeit.kr/api/sample/folder`;
   const [fetchData, setFetchData] = useState({
     name: null,
     owner: {
@@ -16,7 +16,7 @@ export default function SharedPage() {
     },
     links: [],
   });
-  const { data, isLoading } = useGet(url);
+  const { data, isLoading } = useGet(END_POINT.sharedLinks);
   const headerPosition = {
     position: "fixed",
   };
