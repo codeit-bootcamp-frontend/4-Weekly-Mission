@@ -1,6 +1,6 @@
 import FolderNav from '../components/header/FolderNav';
 import AddLink from '../components/header/AddLink';
-import Footer from '../components/footer/Footer';
+import Footer from '../components/footer/Footer/Footer';
 import FolderPageMain from '../components/main/FolderPageMain';
 import useModal from '../hooks/useModal';
 import { useState } from 'react';

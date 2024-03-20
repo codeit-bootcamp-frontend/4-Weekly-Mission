@@ -1,5 +1,5 @@
 import styles from './Footer.module.css';
-import FooterSocialLinkBox from './FooterSocialLinkBox';
+import FooterSocialLinkBox from '../FooterSocialLinkBox';
 function Footer() {
   return (
     <div className={styles['footer-wrapper']}>
