@@ -23,7 +23,6 @@ export default function CardListBox() {
   useEffect(() => {
     if (!isFoldersLoading && !isLinksLoading) {
       setFolders(foldersData.data);
-
       const strangeData = linksData.data;
       const rightData = getFormattedLinks(strangeData);
       setLinks(rightData);
@@ -43,7 +42,6 @@ export default function CardListBox() {
   return (
     <main className={styles.CardListBox}>
       <CardSearchInput />
-
       {links.length < 1 ? (
         <LinksEmptyCase />
       ) : (

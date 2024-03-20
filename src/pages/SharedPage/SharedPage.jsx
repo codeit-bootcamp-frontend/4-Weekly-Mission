@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { Header } from "../../components/Header";
 import { CardList } from "../../components/CardList";
 import { Profile } from "../../components/Profile/";
@@ -6,6 +5,8 @@ import { useEffect, useState } from "react";
 import useGet from "../../hooks/useGet";
 import Footer from "../../components/Footer/Footer";
 import { END_POINT } from "../../constants";
+import CardSearchInput from "../../components/CardListBox/CardSearchInput/CardSearchInput";
+import styles from "./SharedPage.module.scss";
 
 export default function SharedPage() {
   const [fetchData, setFetchData] = useState({
@@ -31,7 +32,10 @@ export default function SharedPage() {
     <>
       <Header headerPosition={headerPosition} />
       <Profile fetchData={fetchData} />
-      <CardList links={fetchData.links} />
+      <section className={styles.CardListBox}>
+        <CardSearchInput />
+        <CardList links={fetchData.links} />
+      </section>
       <Footer />
     </>
   );

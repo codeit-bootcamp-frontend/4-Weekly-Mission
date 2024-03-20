@@ -7,6 +7,7 @@ export default function FolderPage() {
   const headerPosition = {
     position: "relative",
   };
+
   return (
     <>
       <Header headerPosition={headerPosition} />
