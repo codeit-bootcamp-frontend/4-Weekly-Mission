@@ -1,4 +1,4 @@
-interface LinkCardFunctionObjectType {
+export interface LinkCardFunctionObjectType {
   buttonName: string;
   type: string;
   data?: any;
@@ -6,9 +6,17 @@ interface LinkCardFunctionObjectType {
   modalButtonAction: () => void;
 }
 
-interface LinkFolderFunctionObjectType extends LinkCardFunctionObjectType {
+export interface LinkFolderFunctionObjectType
+  extends LinkCardFunctionObjectType {
   imgUrl: string;
   imgAlt: string;
 }
 
-export { LinkCardFunctionObjectType, LinkFolderFunctionObjectType };
+// ModalFunction
+export interface ModalFunctionAddLinkToSubFolder {
+  handleSubmit: (
+    type: string,
+    modalData: [string, FolderListDataType[]]
+  ) => void;
+  subFolderList: FolderListDataType[];
+}
