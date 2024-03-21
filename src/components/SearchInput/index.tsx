@@ -1,10 +1,4 @@
-import {
-  useState,
-  useCallback,
-  MouseEventHandler,
-  useRef,
-  RefObject,
-} from "react";
+import { useState, useCallback, useRef } from "react";
 import SearchIcon from "@assets/Search.png";
 import styles from "./styles.module.css";
 import { debounce } from "utils/debounce";

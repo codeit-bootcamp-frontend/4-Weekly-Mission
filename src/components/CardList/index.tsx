@@ -18,14 +18,7 @@ export function CardList(props: Props) {
   return (
     <ul className={styles["l_row"]}>
       {props.links?.map((link) => {
-        if (
-          link.description === undefined ||
-          link.description === null ||
-          link.title === null ||
-          link.title === undefined ||
-          link.url === null ||
-          link.url === undefined
-        ) {
+        if (!link.description || !link.title || !link.url) {
           return <></>;
         }
 
