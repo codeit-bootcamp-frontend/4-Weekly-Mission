@@ -6,6 +6,12 @@ import { ModalDataAddLinkToSubFolder } from "src/@types/ModalFunctionDataTypes";
 
 type HandleLinkAddType = (e: FormEvent) => void;
 
+/**
+ *
+ * @param { Function } handleSubmit 현재 입력된 링크를 받아 모달에 전달할 데이터를 생성하는 함수입니다.
+ * @param {SubFolderListData} subFolderList 현재 있는 폴더 리스트를 받아 표시해주는 리스트입니다.
+ * @returns form으로 입력을 받은 링크 데이터로 모달을 띄워 선택한 리스트에 추가하는 기능을 가질 컴포넌트입니다.
+ */
 export default function FolderLinkAddBar({
   handleSubmit,
   subFolderList,

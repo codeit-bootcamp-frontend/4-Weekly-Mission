@@ -22,7 +22,6 @@ import {
 } from "src/@types/ModalFunctionDataTypes";
 
 /**
- *
  * @param userId 상위 페이지로부터 전달 받을 userId 정보
  * @description 폴더 페이지 컴포넌트
  * @reminder handleModalOpen의 타입에 일관성이 없어 any타입을 지정해 두었음. 나중에 수정 필요.

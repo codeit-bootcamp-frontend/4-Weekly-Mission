@@ -1,12 +1,19 @@
 import { useRef } from "react";
 import * as S from "./LinkSearchBar.style";
 
+// Type
 interface LinkSearchBarPropType {
   cardFilter: string;
   setCardFilter: (arg: string) => void;
 }
 
-const LinkSearchBar = function ({
+/**
+ *
+ * @param {string } cardFilter 설정된 카드 필터를 받아 현재 검색된 사항에 대하여 ui에 표시해주기 위한 요소
+ * @param {function} setCardFilter submit할 때, 검색 결과 또한 재설정하기 위한 setState 함수 요소
+ * @returns 사용자에게서 input을 받아 해당 속성에 맞는 card를 필터링하기 위한 컴포넌트입니다.
+ */
+export default function LinkSearchBar({
   cardFilter,
   setCardFilter,
 }: LinkSearchBarPropType) {
@@ -45,6 +52,4 @@ const LinkSearchBar = function ({
       )}
     </>
   );
-};
-
-export default LinkSearchBar;
+}

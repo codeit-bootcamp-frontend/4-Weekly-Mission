@@ -2,8 +2,14 @@ import * as S from "../ModalLoader.style";
 import * as SS from "./ModalShareSubFolder.style";
 import shareKakao from "src/Utils/KakaoTalkShare";
 
+// Types
 import { ModalDataShareSubFolder } from "src/@types/ModalFunctionDataTypes";
 
+/**
+ *
+ * @param {string} modalData 링크 string을 받아 모달에 표시해줌과 동시에 공유 링크를 생성하는 모달입니다.
+ * @returns
+ */
 export default function ModalShareSubFolder({
   modalData,
 }: ModalDataShareSubFolder) {

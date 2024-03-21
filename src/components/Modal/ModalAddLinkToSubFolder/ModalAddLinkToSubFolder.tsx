@@ -1,12 +1,19 @@
 import { useState } from "react";
 import * as S from "../ModalLoader.style";
 import * as SS from "./ModalAddLinkToSubFolder.style";
+
+// Type
 import FolderListDataType from "src/@types/FolderListDataType";
 
 interface ModalAddLinkToSubFolderPropType {
   modalData: [string, FolderListDataType[]];
 }
 
+/**
+ *
+ * @param {[string, folderListType]} modalData 현재 선택된 링크와 폴더 리스트
+ * @returns 현재 선택된 링크와 폴더 리스트를 데이터로 받아 선택한 폴더에 추가하는 기능을 가질 모달입니다.
+ */
 export default function ModalAddLinkToSubFolder({
   modalData,
 }: ModalAddLinkToSubFolderPropType) {

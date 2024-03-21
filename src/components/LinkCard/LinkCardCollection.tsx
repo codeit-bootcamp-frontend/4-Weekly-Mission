@@ -11,11 +11,14 @@ interface FolderCardDataPropType {
   kebab?: LinkCardFunctionObjectType[];
 }
 
-const FolderCard = function ({
-  contents,
-  favorite,
-  kebab,
-}: FolderCardDataPropType) {
+/**
+ *
+ * @param { FolderCardData } contents 카드에 대한 전반적인 내용이 담긴 컴포넌트입니다.
+ * @param { boolean } favorites 현재 카드의 즐겨찾기 여부를 표시하는 컴포넌트입니다.
+ * @param { FolderKebabActionArray } kebab 케밥 메뉴에 대한 동작들이 포함된 컴포넌트입니다.
+ * @returns 링크 카드의 세부 사항을 표현하는 컴포넌트입니다.
+ */
+function FolderCard({ contents, favorite, kebab }: FolderCardDataPropType) {
   const {
     id,
     created_at,
@@ -54,7 +57,7 @@ const FolderCard = function ({
       )}
     </S.CardBoxOriginPosition>
   );
-};
+}
 
 interface LinkCardCollectionPropType {
   items: UserLinkDataType[];
@@ -62,7 +65,14 @@ interface LinkCardCollectionPropType {
   kebab?: LinkCardFunctionObjectType[];
 }
 
-const LinkCardCollection = function ({
+/**
+ *
+ * @param { FolderCardData } items 카드에 대한 전반적인 내용이 담긴 요소입니다.
+ * @param { boolean } favorite 현재 카드의 즐겨찾기 여부를 표시하는 요소입니다.
+ * @param { FolderKebabActionArray } kebab 케밥 메뉴에 대한 동작들이 포함된 컴포넌트입니다.
+ * @returns 링크 카드의 그리드 배열을 구현하는 단순 ui 배치형 컴포넌트입니다.
+ */
+export default function LinkCardCollection({
   items,
   favorite = false,
   kebab,
@@ -79,6 +89,4 @@ const LinkCardCollection = function ({
       ))}
     </S.CardGridLayout>
   );
-};
-
-export default LinkCardCollection;
+}

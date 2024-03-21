@@ -30,6 +30,10 @@ const FooterSocialList: FooterSocialListType[] = [
   },
 ];
 
+/**
+ *
+ * @returns Footer 컴포넌트입니다.
+ */
 export default function Footer() {
   return (
     <S.Footer>
