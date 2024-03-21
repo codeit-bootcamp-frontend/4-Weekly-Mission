@@ -32,7 +32,7 @@ interface folderDataType {
 interface Props {
   page: string;
   card: null | cardData;
-  folderData: CategoryDataType;
+  folderData: CategoryDataType | null;
   currentFolder: folderDataType | null;
 }
 

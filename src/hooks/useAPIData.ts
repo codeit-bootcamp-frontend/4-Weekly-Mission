@@ -1,24 +1,10 @@
 import { useState, useEffect } from 'react';
-import {
-  CategoryDataType,
-  FolderDataType,
-  UserDataType,
-  folderCardDataType,
-} from '../type';
 
-type APIFunc =
-  | UserDataType
-  | FolderDataType
-  | CategoryDataType
-  | folderCardDataType
-  | null;
-type APIFucnParm = null | string;
-
-const useAPIData = (
-  DataAPI: (param: APIFucnParm) => Promise<APIFunc>,
+const useAPIData = <T>(
+  DataAPI: (param: string | null) => Promise<T>,
   APIParameter: string | null = null,
 ) => {
-  const [data, setData] = useState<APIFunc>(null);
+  const [data, setData] = useState<T | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   useEffect(() => {

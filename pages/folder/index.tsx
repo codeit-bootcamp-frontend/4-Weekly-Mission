@@ -45,7 +45,7 @@ export default function FolderPage() {
     currentFolderID: null,
     currentLinkID: null,
   });
-  const { data: folderData } = useAPIData(getCategoryDataAPI);
+  const { data: folderData } = useAPIData<CategoryDataType>(getCategoryDataAPI);
   const { data: folderCard } = useAPIData(getCardDataAPI, currentFolder?.id);
 
   const changeKebabID = useCallback((newValue: number | null) => {
@@ -78,7 +78,7 @@ export default function FolderPage() {
             <Folder
               currentFolder={currentFolder}
               changeCurrentFolder={changeCurrentFolder}
-              folderData={folderData as CategoryDataType}
+              folderData={folderData}
               cardData={folderCard as folderCardDataType}
             />
           </ContentWrapper>

@@ -9,8 +9,8 @@ import { FolderDataType } from '@/src/type';
 import { CardWrapper, Content, ContentWrapper } from './index.style';
 
 export default function SharedPage() {
-  const { data: folder } = useAPIData(getFolderDataAPI);
-  const cardData = (folder as FolderDataType)?.cardData;
+  const { data: folder } = useAPIData<FolderDataType>(getFolderDataAPI);
+  const cardData = folder?.cardData;
   const folderData = { category: null, error: null };
   const currentFolder = { title: null, id: null };
   return (

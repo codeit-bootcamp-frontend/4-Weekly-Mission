@@ -16,7 +16,7 @@ interface folderDataType {
 interface Props {
   cardID: number | null;
   cardURL: string | null;
-  folderData: CategoryDataType;
+  folderData: CategoryDataType | null;
   currentFolder: folderDataType | null;
 }
 

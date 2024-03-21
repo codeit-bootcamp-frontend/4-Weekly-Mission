@@ -15,7 +15,7 @@ interface folderDataType {
 }
 
 interface Props {
-  folderData: CategoryDataType;
+  folderData: CategoryDataType | null;
   currentFolder: folderDataType | null;
 }
 

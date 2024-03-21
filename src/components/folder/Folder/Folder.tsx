@@ -34,8 +34,8 @@ interface folderDataType {
 interface Props {
   currentFolder: folderDataType | null;
   changeCurrentFolder: (value: folderDataType | null) => void;
-  folderData: CategoryDataType;
-  cardData: folderCardDataType;
+  folderData: CategoryDataType | null;
+  cardData: folderCardDataType | null;
 }
 
 const Folder = ({
