@@ -4,7 +4,7 @@ import { useState } from "react";
 import checkIcon from "../../assets/check.svg";
 import "./ModalAddToFolder.css";
 
-const AddFolderContent = ({ url, folderList, selectedFolder, handleFolderChange, handleAddToFolder }) => (
+const ModalAddToFolderContent = ({ url, folderList, selectedFolder, handleFolderChange, handleAddToFolder }) => (
   <>
     <h2>폴더에 추가</h2>
     <p>{url}</p>
@@ -44,7 +44,7 @@ const ModalAddToFolder = ({ isOpen, onClose, url }) => {
 
   return (
     <ModalContainer isOpen={isOpen} onClose={onClose}>
-      <AddFolderContent
+      <ModalAddToFolderContent
         url={url}
         folderList={folderList}
         selectedFolder={selectedFolder}

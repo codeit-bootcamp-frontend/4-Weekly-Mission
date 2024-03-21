@@ -7,25 +7,8 @@ import useKakaoShare from "../../hooks/useKakaoShare";
 import useFacebookShare from "../../hooks/useFacebookShare";
 import "./ModalShare.css";
 
-const ModalShare = ({
-  isOpen,
-  onClose,
-  selectedFolderName,
-  selectedFolderId,
-}) => {
-  const { copied, copyToClipboard } = useClipboard();
-  const { handleKakaoShare } = useKakaoShare(
-    selectedFolderName,
-    selectedFolderId
-  );
-  const { handleFacebookShare } = useFacebookShare(selectedFolderId);
-
-  const folderShareLink = `${window.location.origin}/shared/${selectedFolderId}`;
-  const handleCopyToClipboard = () => {
-    copyToClipboard(folderShareLink);
-  };
-
-  const shareContent = (
+const ModalShareContent = ({ selectedFolderName, copied, handleKakaoShare, handleFacebookShare, handleCopyToClipboard }) => {
+  return (
     <>
       <h2>폴더 공유</h2>
       <p>{selectedFolderName}</p>
@@ -45,9 +28,36 @@ const ModalShare = ({
       </div>
     </>
   );
+};
+
+const ModalShare = ({
+  isOpen,
+  onClose,
+  selectedFolderName,
+  selectedFolderId,
+}) => {
+  const { copied, copyToClipboard } = useClipboard();
+  const { handleKakaoShare } = useKakaoShare(
+    selectedFolderName,
+    selectedFolderId
+  );
+  const { handleFacebookShare } = useFacebookShare(selectedFolderId);
+
+  const folderShareLink = `${window.location.origin}/shared/${selectedFolderId}`;
+  const handleCopyToClipboard = () => {
+    copyToClipboard(folderShareLink);
+  };
 
   return (
-    <ModalContainer isOpen={isOpen} onClose={onClose} children={shareContent} />
+    <ModalContainer isOpen={isOpen} onClose={onClose}>
+      <ModalShareContent
+        selectedFolderName={selectedFolderName}
+        copied={copied}
+        handleKakaoShare={handleKakaoShare}
+        handleFacebookShare={handleFacebookShare}
+        handleCopyToClipboard={handleCopyToClipboard}
+      />
+    </ModalContainer>
   );
 };
 export default ModalShare;
