@@ -2,11 +2,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import './Modal.css';
 import styled from 'styled-components';
+import { useState } from 'react';
 
-function ModalBase({ setEditModalOpen, modalName, children }) {
-  function closeModal() {
-    setEditModalOpen(false);
-  }
+function ModalBase({ modalName, children, onClick, centerSpace }) {
+  const [editModalOpen, setEditModalOpen] = useState(true);
 
   const Div = styled.div`
     position: fixed;
@@ -18,15 +17,16 @@ function ModalBase({ setEditModalOpen, modalName, children }) {
   `;
 
   return (
-    <Div onClick={closeModal}>
+    <Div onClick={() => setEditModalOpen(true)}>
       <div
         id="EditModal"
         onClick={e => {
           e.stopPropagation();
         }}>
-        <FontAwesomeIcon icon={faXmark} className="EditModalX" onClick={closeModal} />
+        <FontAwesomeIcon icon={faXmark} className="EditModalX" onClick={() => setEditModalOpen(false)} />
         <p id="EditModalText">{modalName}</p>
-        <button id="EditModalButton" onClick={closeModal}>
+        <div className="centerSpace">{centerSpace}</div>
+        <button id="EditModalButton" onClick={onClick}>
           {children}
         </button>
       </div>
