@@ -4,7 +4,7 @@ export interface UserDataType {
   error: unknown | null;
 }
 
-interface cardData {
+export interface cardDataType {
   id: number | null;
   createdAt: string | null;
   url: string | null;
@@ -17,7 +17,7 @@ export interface FolderDataType {
   userName: string | null;
   userImage: string | undefined;
   name: string | null;
-  cardData: cardData[] | null;
+  cardData: cardDataType[] | null;
   error: unknown | null;
 }
 
@@ -39,7 +39,7 @@ export interface CategoryDataType {
   error: unknown | null;
 }
 
-export interface folderCard {
+export interface folderCardType {
   id: number;
   created_at: string | null;
   updated_at: string | null;
@@ -50,6 +50,6 @@ export interface folderCard {
   forder_id: number | null;
 }
 export interface folderCardDataType {
-  card: folderCard[] | null;
+  card: folderCardType[] | null;
   error: null | unknown;
 }

@@ -1,14 +1,19 @@
 import Header from '@/src/components/commons/Header/Header';
-import SearchBar from '@/src/components/folder/SearchBar/SearchBar';
+import SearchBar from '@/src/components/commons/SearchBar/SearchBar';
 import SubHeader from '@/src/components/folder/SubHeader/SubHeader';
 import Footer from '@/src/components/commons/Footer/Footer';
 import { useState, useCallback, useMemo } from 'react';
 import useAPIData from '@/src/hooks/useAPIData';
 import { getCategoryDataAPI, getCardDataAPI } from '@/src/API/API';
-import { CategoryDataType, folderCardDataType } from '@/src/type';
+import {
+  CategoryDataType,
+  folderCardDataType,
+  folderCardType,
+} from '@/src/type';
 import Folder from '@/src/components/folder/Folder/Folder';
 import folderContext from '@/src/context/folderContext';
 import Modal from '@/src/components/folder/Modal/Modal';
+import FilterData from '@/src/utils/FilterData';
 import * as S from './index.style';
 
 interface currentFolderDataType {
@@ -51,20 +56,8 @@ export default function FolderPage() {
     getCardDataAPI,
     currentFolder?.id,
   );
-  const filterFolderData = (cardData: folderCardDataType | null) => {
-    const filterdData = cardData?.card?.filter(
-      (data) =>
-        data.url?.includes(topic) ||
-        data.title?.includes(topic) ||
-        data.description?.includes(topic),
-    );
-    if (filterdData) {
-      return filterdData;
-    }
-    return null;
-  };
 
-  const cardData = filterFolderData(folderCard);
+  const cardData = FilterData<folderCardType>(folderCard?.card, topic);
 
   const changeTopic = useCallback((value: string) => {
     setTopic(value);
@@ -96,7 +89,7 @@ export default function FolderPage() {
             <SearchBar topic={topic} changeTopic={changeTopic} />
             {topic && (
               <S.SearchText>
-                <S.TopicText>{topic}</S.TopicText>으로 검색한 결과입니다.
+                <S.TopicText>{topic}</S.TopicText> 으로 검색한 결과입니다.
               </S.SearchText>
             )}
             <Folder

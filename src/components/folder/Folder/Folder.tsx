@@ -1,4 +1,4 @@
-import { CategoryDataType, folderCard } from '@/src/type';
+import { CategoryDataType, folderCardType } from '@/src/type';
 import { useContext } from 'react';
 import folderContext from '@/src/context/folderContext';
 import * as S from './Folder.style';
@@ -19,7 +19,7 @@ interface Props {
   currentFolder: folderDataType | null;
   changeCurrentFolder: (value: folderDataType | null) => void;
   folderData: CategoryDataType | null;
-  cardData: folderCard[] | null;
+  cardData: folderCardType[] | null;
 }
 
 const Folder = ({

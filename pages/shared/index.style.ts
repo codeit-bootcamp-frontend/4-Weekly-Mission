@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import COLOR from '@/styles/color';
 
 export const Content = styled.div`
   display: flex;
@@ -13,7 +14,6 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   gap: 40px;
   width: 1060px;
-  align-items: center;
   justify-content: center;
   @media (max-width: 1199px) {
     width: 704px;
@@ -37,4 +37,18 @@ export const CardWrapper = styled.div`
     grid-template-columns: 1fr;
     gap: 28px;
   }
+`;
+
+export const SearchText = styled.p`
+  color: ${COLOR.Gray3};
+  font-size: 32px;
+  font-weight: 700;
+  @media (max-width: 767px) {
+    font-size: 24px;
+  }
+`;
+
+export const TopicText = styled.span`
+  color: #000000;
+  word-wrap: break-word;
 `;
