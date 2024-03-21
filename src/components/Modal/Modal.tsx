@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import { VscChromeClose } from 'react-icons/vsc';
 import useOutsideClick from '../../hooks/useOutsideClick';
 import { allowScroll, preventScroll } from '../../utils/modalScroll';
+import { ModalProps } from './Modal.types';
 import styles from './Modal.module.scss';
 
-const ModalPortal = ({ children }) => {
+const ModalPortal = ({ children }: { children: React.ReactNode }) => {
   const [isRendering, setIsRendering] = useState(true);
 
   useEffect(() => {
@@ -13,14 +14,14 @@ const ModalPortal = ({ children }) => {
   }, []);
 
   if (isRendering) return null;
-  return ReactDOM.createPortal(<>{children}</>, document.getElementById('root'));
+  return ReactDOM.createPortal(<>{children}</>, document.getElementById('root') as HTMLElement) as JSX.Element;
 };
 
-const Modal = ({ title, children, onClose }) => {
-  const modalRef = useRef();
+const Modal = ({ title, children, onClose }: ModalProps) => {
+  const modalRef = useRef<HTMLDivElement>(null);
   useOutsideClick(modalRef, onClose);
 
-  const handleCloseButtonClick = event => {
+  const handleCloseButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
     onClose();
   };

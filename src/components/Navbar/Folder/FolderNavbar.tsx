@@ -5,8 +5,8 @@ import { TiPencil } from 'react-icons/ti';
 import Modal from '../../Modal/Modal';
 import styles from './FolderNavbar.module.scss';
 
-const FolderNavbar = ({ folderName }) => {
-  const [selectedModal, setSelectedModal] = useState(null);
+const FolderNavbar = ({ folderName }: { folderName: string }) => {
+  const [selectedModal, setSelectedModal] = useState<number | null>(null);
 
   const closeModal = () => {
     setSelectedModal(null);
@@ -46,8 +46,8 @@ const FolderNavbar = ({ folderName }) => {
 
   return (
     <ul className={styles.layout}>
-      {FOLDER_NAVBAR_LIST.map((item, index) => (
-        <li key={index} onClick={() => setSelectedModal(index)}>
+      {FOLDER_NAVBAR_LIST.map((item, index: number) => (
+        <li className={styles.item} key={index} onClick={() => setSelectedModal(index)}>
           {item.icon}
           <span>{item.name}</span>
           {selectedModal === index && item.modal}

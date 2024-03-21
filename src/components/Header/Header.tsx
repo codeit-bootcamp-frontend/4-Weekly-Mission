@@ -5,18 +5,19 @@ import { AuthContext } from '../../context/AuthContext';
 import createAxiosInstance from '../../utils/axios';
 import { cn } from '../../utils/classNames';
 import UserProfile from '../UserProfile/UserProfile';
+import { FetchUserResponse } from './Header.types';
 import styles from './Header.module.scss';
 
 const Header = () => {
   const { user, setUser } = useContext(AuthContext);
-  const hasUser = Object.keys(user).length;
+  const hasUser = user && Object.keys(user).length !== 0;
   const location = useLocation();
   const isFolderPage = location.pathname === '/folder';
 
   const fetchUserData = async () => {
     const axios = createAxiosInstance();
     try {
-      const { data: userData } = await axios.get(GET_USER_API_URL);
+      const { data: userData } = await axios.get<FetchUserResponse>(GET_USER_API_URL);
       setUser(userData.data[0]);
       sessionStorage.setItem('user', JSON.stringify(user));
     } catch (error) {
@@ -32,9 +33,8 @@ const Header = () => {
         </Link>
         <Link to='/folder'>folder</Link>
         <Link to='/shared'>shared</Link>
-
         {hasUser ? (
-          <UserProfile title={user.email} image={user.profileImageSource} size='sm' />
+          <UserProfile title={user.email} image={user.image_source} size='sm' />
         ) : (
           <button className={styles.loginButton} onClick={fetchUserData}>
             로그인

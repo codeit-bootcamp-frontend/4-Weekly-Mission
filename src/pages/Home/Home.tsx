@@ -10,9 +10,7 @@ const Home = () => {
           <br />
           쉽게 저장하고 관리해보세요
         </h1>
-        <button className={styles.addButton} href='./pages/signup.html'>
-          링크 추가하기
-        </button>
+        <button className={styles.addButton}>링크 추가하기</button>
         <img className={styles.homeImage} src='assets/landing-main.svg' alt='메인-이미지' />
       </section>
       <main className={styles.mainLayout}>

@@ -1,16 +1,17 @@
 import { useState } from 'react';
+import { PopOverButtonProps } from './PopOverButton.types';
 import styles from './PopOverButton.module.scss';
 
-const PopOverButton = ({ children, items = [], onClick }) => {
+const PopOverButton = ({ children, items = [], onClick }: PopOverButtonProps) => {
   const [isToggled, setIsToggled] = useState(false);
 
-  const handleToggleButtonClick = event => {
+  const handleToggleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     setIsToggled(!isToggled);
   };
 
-  const handleItemClick = event => {
-    onClick(event.target.id);
+  const handleItemClick = (event: React.MouseEvent<HTMLElement>) => {
+    onClick(event.currentTarget.id);
   };
 
   return (
@@ -20,8 +21,8 @@ const PopOverButton = ({ children, items = [], onClick }) => {
         <ul className={styles.itemBox}>
           {isToggled &&
             items.map((item, index) => (
-              <li className={styles.item} key={index} onClick={handleItemClick}>
-                <p id={item}>{item}</p>
+              <li className={styles.item} key={index} id={item} onClick={handleItemClick}>
+                <p>{item}</p>
               </li>
             ))}
         </ul>

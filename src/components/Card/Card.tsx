@@ -1,22 +1,24 @@
 import { useState } from 'react';
-import ReactTimeago from 'react-timeago';
+import { formatDistanceToNow } from 'date-fns';
 import dayjs from 'dayjs';
 import { BsThreeDots } from 'react-icons/bs';
 import { FaStar } from 'react-icons/fa';
 import { UNDEFINED_IMAGE } from '../../constant/constant';
 import Modal from '../Modal/Modal';
 import PopOverButton from '../PopOverButton/PopOverButton';
+import { CardProps } from './Card.types';
 import styles from './Card.module.scss';
 
-const Card = ({ createdAt, url, title, imageURL }) => {
-  const [selectedItem, setSelectedItem] = useState(null);
-  const handleItemClick = item => {
+const Card = ({ createdAt, url, title, imageURL }: CardProps) => {
+  const [selectedItem, setSelectedItem] = useState<string | null>(null);
+  const handleItemClick = (item: string) => {
     setSelectedItem(item);
   };
   const closeModal = () => {
     setSelectedItem(null);
   };
   const createdDay = dayjs(createdAt).format('YYYY-MM-DD');
+  const timeAgo = createdAt ? formatDistanceToNow(createdAt, { addSuffix: true }) : '';
 
   const POPOVER_ITEMS = ['삭제하기', '폴더에 추가'];
   const POPOVER_MODALS = {
@@ -38,13 +40,21 @@ const Card = ({ createdAt, url, title, imageURL }) => {
     <article className={styles.layout}>
       <a href={url} target='_blank' rel='noreferrer noopener'>
         <div className={styles.imageBox}>
-          <img className={styles.image} src={imageURL || UNDEFINED_IMAGE} alt={title} />
+          <img
+            className={styles.image}
+            src={imageURL || UNDEFINED_IMAGE}
+            onError={(event: React.SyntheticEvent<HTMLImageElement, Event>) => {
+              const target = event.target as HTMLImageElement;
+              target.src = UNDEFINED_IMAGE;
+            }}
+            alt={title}
+          />
         </div>
         <FaStar className={styles.starIcon} />
         <div className={styles.textBox}>
           <div className={styles.timeBox}>
-            <ReactTimeago className={styles.timeAgo} date={createdAt} locale='ko' />
-            <PopOverButton className={styles.popOverButton} items={POPOVER_ITEMS} onClick={handleItemClick}>
+            <p className={styles.timeAgo}>{timeAgo}</p>
+            <PopOverButton items={POPOVER_ITEMS} onClick={handleItemClick}>
               <BsThreeDots className={styles.kebabIcon} />
             </PopOverButton>
             {selectedItem && POPOVER_MODALS[selectedItem]}

@@ -17,7 +17,7 @@ const AddBar = () => {
           추가하기
         </button>
         {showModal && (
-          <Modal title='폴더 추가' onClick={toggleModal}>
+          <Modal title='폴더 추가' onClose={toggleModal}>
             <input className={styles.modalInput} placeholder='내용 입력' />
             <button className={styles.modalButton}>추가하기</button>
           </Modal>

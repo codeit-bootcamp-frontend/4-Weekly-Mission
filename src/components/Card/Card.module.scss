@@ -20,9 +20,10 @@
   width: 100%;
   height: 12rem;
   object-fit: cover;
+  transition: transform 0.3s ease;
 
   &:hover {
-    scale: 1.3;
+    transform: scale(1.3);
   }
 }
 

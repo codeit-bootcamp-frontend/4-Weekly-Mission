@@ -15,3 +15,14 @@
   background: #f5f5f5;
   outline: none;
 }
+
+.resultText {
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: $color-gray-400;
+
+  span {
+    color: $color-black;
+  }
+}
