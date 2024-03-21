@@ -10,6 +10,7 @@ import LinkCardCollection from "src/Components/LinkCard/LinkCardCollection";
 
 // Types
 import UserLinkDataType from "src/@types/UserLinkDataType";
+import { link } from "fs";
 
 /**
  *
@@ -17,6 +18,7 @@ import UserLinkDataType from "src/@types/UserLinkDataType";
  * @returns
  */
 export default function SharePage() {
+  const [originItems, setOriginItems] = useState<UserLinkDataType[]>([]);
   const [items, setItems] = useState<UserLinkDataType[]>([]);
   const [cardFilter, setCardFilter] = useState<string>("");
 
@@ -24,6 +26,7 @@ export default function SharePage() {
     const {
       folder: { links },
     } = await acceptDataFromApi("sample/folder");
+    setOriginItems(links);
     setItems(links);
   };
 
@@ -32,12 +35,12 @@ export default function SharePage() {
   }, []);
 
   useEffect(() => {
-    handleShareLoad();
     if (cardFilter === "") {
+      setItems(originItems);
       return;
     }
     setItems(
-      items.filter(
+      originItems.filter(
         (item: UserLinkDataType) =>
           item.title.includes(cardFilter) ||
           item.description.includes(cardFilter) ||
