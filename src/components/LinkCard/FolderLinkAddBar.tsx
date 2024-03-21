@@ -3,6 +3,9 @@ import * as S from "./FolderLinkAddBar.style";
 
 // Type
 import { ModalDataAddLinkToSubFolder } from "src/@types/ModalFunctionDataTypes";
+interface FolderLinkAddBarPropType extends ModalDataAddLinkToSubFolder {
+  isHidden: boolean;
+}
 
 type HandleLinkAddType = (e: FormEvent) => void;
 
@@ -15,7 +18,8 @@ type HandleLinkAddType = (e: FormEvent) => void;
 export default function FolderLinkAddBar({
   handleSubmit,
   subFolderList,
-}: ModalDataAddLinkToSubFolder) {
+  isHidden = false,
+}: FolderLinkAddBarPropType) {
   const addLinkInputRef = useRef<HTMLInputElement>(null);
 
   const handleLinkAdd: HandleLinkAddType = (e) => {
@@ -28,7 +32,7 @@ export default function FolderLinkAddBar({
   };
 
   return (
-    <S.FolderLinkAddBarWrapper $isHidden={false}>
+    <S.FolderLinkAddBarWrapper $isHidden={isHidden}>
       <S.Form onSubmit={(e) => handleLinkAdd(e)}>
         <S.Label htmlFor="add-link" />
         <S.Input

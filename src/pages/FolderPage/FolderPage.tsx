@@ -46,6 +46,7 @@ export default function FolderPage({ userId = 1 }) {
   const [currentModalType, setCurrentModalType] = useState("removeLink");
   const [modalData, setModalData] = useState("");
   const [cardFilter, setCardFilter] = useState<string>("");
+  const [isLinkAddBarHidden, setIsLinkAddBarHidden] = useState(false);
 
   const handleModalOpen = (modalType: string, modalData: any) => {
     // ModalData의 형식 통일 필요
@@ -189,6 +190,7 @@ export default function FolderPage({ userId = 1 }) {
       <FolderLinkAddBar
         handleSubmit={handleModalOpen}
         subFolderList={subFolderList}
+        isHidden={isLinkAddBarHidden}
       />
       <S.FolderPageMain>
         <S.SubFolderUtil>
