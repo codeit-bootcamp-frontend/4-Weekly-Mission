@@ -1,4 +1,6 @@
 import { CategoryDataType, folderCardDataType } from '@/src/type';
+import { useContext } from 'react';
+import folderContext from '@/src/context/folderContext';
 import {
   Wrapper,
   FolderWrapper,
@@ -21,6 +23,7 @@ import Card from '../../commons/Card/Card';
 interface obj {
   src: string;
   text: string;
+  click: (type: string) => void;
 }
 
 interface folderDataType {
@@ -41,6 +44,7 @@ const Folder = ({
   folderData,
   cardData,
 }: Props) => {
+  const { changeModalData } = useContext(folderContext);
   const clickCategoryButton = (e: React.MouseEvent<HTMLDivElement>) => {
     changeCurrentFolder({
       title: (e.target as HTMLElement).textContent,
@@ -48,18 +52,52 @@ const Folder = ({
     });
   };
 
+  const openModal = () => {
+    changeModalData({
+      modalType: 'AddLinkModal',
+      subTitle: null,
+      folder: undefined,
+      currentFolderID: null,
+      currentLinkID: null,
+    });
+  };
+  const optionModalType = (type: string) => {
+    if (type === '공유') {
+      return 'SharingModal';
+    }
+    if (type === '이름 변경') {
+      return 'EditFolderModal';
+    }
+    if (type === '삭제') {
+      return 'DeleteFolderModal';
+    }
+    return null;
+  };
+  const openOptionModal = (type: string) => {
+    changeModalData({
+      modalType: optionModalType(type),
+      subTitle: type === '삭제' && currentFolder ? currentFolder?.title : null,
+      folder: undefined,
+      currentFolderID: null,
+      currentLinkID: null,
+    });
+  };
+
   const OPTION: obj[] = [
     {
       src: '/images/share.svg',
       text: '공유',
+      click: openOptionModal,
     },
     {
       src: '/images/pen.svg',
       text: '이름 변경',
+      click: openOptionModal,
     },
     {
       src: '/images/delete.svg',
       text: '삭제',
+      click: openOptionModal,
     },
   ];
   if (folderData && folderData.category?.length === 0) {
@@ -89,7 +127,7 @@ const Folder = ({
             ))}
         </CategoryWrapper>
         <AddFolderWrapper>
-          <AddFolderText>폴더 추가</AddFolderText>
+          <AddFolderText onClick={openModal}>폴더 추가</AddFolderText>
           <AddFolderIcon
             src="/images/add.svg"
             alt="추가"
@@ -103,7 +141,10 @@ const Folder = ({
         {currentFolder?.id !== '0' && (
           <OptionWrapper>
             {OPTION.map((option, index) => (
-              <OptionButtonWrapper key={index}>
+              <OptionButtonWrapper
+                key={index}
+                onClick={() => option.click(option.text)}
+              >
                 <OptionIcon
                   src={option.src}
                   alt={option.text}
@@ -130,6 +171,8 @@ const Folder = ({
                 description: card.description,
                 imageSource: card.image_source,
               }}
+              folderData={folderData}
+              currentFolder={currentFolder}
             />
           ))}
       </CardWrapper>

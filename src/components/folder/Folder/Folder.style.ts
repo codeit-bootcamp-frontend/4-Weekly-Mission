@@ -53,6 +53,7 @@ export const AddFolderWrapper = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 2;
 
   @media (max-width: 767px) {
     position: fixed;

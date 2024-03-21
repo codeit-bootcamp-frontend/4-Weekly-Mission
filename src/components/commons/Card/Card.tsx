@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import CardUpdateStatus from '@/src/utils/CardUpdateStatus';
 import CardDateFormat from '@/src/utils/CardDateFormat';
 import Link from 'next/link';
+import { CategoryDataType } from '@/src/type';
 import {
   CardContentWrapper,
   CardImageWrapper,
@@ -23,12 +24,19 @@ interface cardData {
   imageSource: string | undefined;
 }
 
+interface folderDataType {
+  title: string | null;
+  id: string | null;
+}
+
 interface Props {
   page: string;
   card: null | cardData;
+  folderData: CategoryDataType;
+  currentFolder: folderDataType | null;
 }
 
-const Card = ({ page, card }: Props) => {
+const Card = ({ page, card, folderData, currentFolder }: Props) => {
   const WrapperRef = useRef<HTMLDivElement>(null);
   const ImageRef = useRef<HTMLImageElement>(null);
   const date = card?.createdAt ? card?.createdAt : '';
@@ -70,7 +78,14 @@ const Card = ({ page, card }: Props) => {
         <CardContentWrapper>
           <TopWrapper>
             <CardStatus>{cardStatus}</CardStatus>
-            {page === 'folder' && <Kebab cardID={card?.id ? card?.id : null} />}
+            {page === 'folder' && (
+              <Kebab
+                cardID={card?.id ? card?.id : null}
+                cardURL={card?.url ? card?.url : null}
+                folderData={folderData}
+                currentFolder={currentFolder}
+              />
+            )}
           </TopWrapper>
           <CardTitle>{card?.description}</CardTitle>
           <CardDate>{cardCreationDate}</CardDate>

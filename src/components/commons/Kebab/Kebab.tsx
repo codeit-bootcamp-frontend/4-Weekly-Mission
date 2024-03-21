@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef } from 'react';
-import folderContext from '@/src/API/context/folderContext';
+import folderContext from '@/src/context/folderContext';
+import { CategoryDataType } from '@/src/type';
 import {
   SelectButton,
   KebabButton,
@@ -7,13 +8,21 @@ import {
   Wrapper,
 } from './Kebeb.style';
 
-interface Props {
-  cardID: number | null;
+interface folderDataType {
+  title: string | null;
+  id: string | null;
 }
 
-const Kebab = ({ cardID }: Props) => {
+interface Props {
+  cardID: number | null;
+  cardURL: string | null;
+  folderData: CategoryDataType;
+  currentFolder: folderDataType | null;
+}
+
+const Kebab = ({ cardID, cardURL, folderData, currentFolder }: Props) => {
   const wraperRef = useRef<HTMLDivElement>(null);
-  const { kebabID, changeKebabID } = useContext(folderContext);
+  const { kebabID, changeKebabID, changeModalData } = useContext(folderContext);
 
   const clickKebabButton = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
@@ -21,12 +30,38 @@ const Kebab = ({ cardID }: Props) => {
     e.preventDefault();
   };
 
-  const clickDeleteButton = (e: React.MouseEvent<HTMLDivElement>) => {
+  const openDeleteModal = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
+    changeModalData({
+      modalType: 'DeleteLinkModal',
+      subTitle: cardURL,
+      folder: undefined,
+      currentFolderID: null,
+      currentLinkID: null,
+    });
   };
 
-  const clickAddButton = (e: React.MouseEvent<HTMLDivElement>) => {
+  const openAddModal = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
+    const folderCategory = folderData?.category?.map((category) => ({
+      folderName: String(category.name),
+      folderID: Number(category.id),
+      linkCount: category.link ? category.link.count : 0,
+    }));
+
+    const folder = folderCategory
+      ? [{ folderName: '전체', folderID: 0, linkCount: 3 }, ...folderCategory]
+      : undefined;
+
+    const currentFolderID = currentFolder ? Number(currentFolder.id) : null;
+
+    changeModalData({
+      modalType: 'AddFolderModal',
+      subTitle: cardURL,
+      folder,
+      currentFolderID,
+      currentLinkID: null,
+    });
   };
 
   useEffect(() => {
@@ -50,8 +85,8 @@ const Kebab = ({ cardID }: Props) => {
       />
       {kebabID === cardID && (
         <SelectWrapper>
-          <SelectButton onClick={clickDeleteButton}>삭제하기</SelectButton>
-          <SelectButton onClick={clickAddButton}>폴더에 추가</SelectButton>
+          <SelectButton onClick={openDeleteModal}>삭제하기</SelectButton>
+          <SelectButton onClick={openAddModal}>폴더에 추가</SelectButton>
         </SelectWrapper>
       )}
     </Wrapper>

@@ -7,49 +7,85 @@ import useAPIData from '@/src/hooks/useAPIData';
 import { getCategoryDataAPI, getCardDataAPI } from '@/src/API/API';
 import { CategoryDataType, folderCardDataType } from '@/src/type';
 import Folder from '@/src/components/folder/Folder/Folder';
-import folderContext from '@/src/API/context/folderContext';
-import { Content, ContentWrapper } from './index.style';
+import folderContext from '@/src/context/folderContext';
+import Modal from '@/src/components/folder/Modal/Modal';
+import { Content, ContentWrapper, Wrapper } from './index.style';
 
-interface folderDataType {
+interface currentFolderDataType {
   title: string | null;
   id: string | null;
 }
 
+interface folderDataType {
+  folderName: string;
+  folderID: number;
+  linkCount: number;
+}
+
+interface modalDataType {
+  modalType: string | null;
+  subTitle: string | null;
+  folder: folderDataType[] | undefined;
+  currentFolderID: number | null;
+  currentLinkID: number | null;
+}
+
 export default function FolderPage() {
-  const [currentFolder, setCurrentFolder] = useState<folderDataType | null>({
-    title: '전체',
-    id: '0',
-  });
+  const [currentFolder, setCurrentFolder] =
+    useState<currentFolderDataType | null>({
+      title: '전체',
+      id: '0',
+    });
 
   const [kebabID, setKebabID] = useState<number | null>(null);
+  const [modalData, setModalData] = useState<modalDataType>({
+    modalType: null,
+    subTitle: null,
+    folder: undefined,
+    currentFolderID: null,
+    currentLinkID: null,
+  });
+  const { data: folderData } = useAPIData(getCategoryDataAPI);
+  const { data: folderCard } = useAPIData(getCardDataAPI, currentFolder?.id);
+
   const changeKebabID = useCallback((newValue: number | null) => {
     setKebabID(newValue);
   }, []);
-  const changeCurrentFolder = (value: folderDataType | null) => {
+
+  const changeModalData = useCallback((newValue: modalDataType) => {
+    setModalData(newValue);
+  }, []);
+
+  const changeCurrentFolder = (value: currentFolderDataType | null) => {
     setCurrentFolder(value);
   };
+
   const value = useMemo(
-    () => ({ kebabID, changeKebabID }),
-    [kebabID, changeKebabID],
+    () => ({ kebabID, changeKebabID, modalData, changeModalData }),
+    [kebabID, changeKebabID, modalData, changeModalData],
   );
-  const { data: folderData } = useAPIData(getCategoryDataAPI);
-  const { data: folderCard } = useAPIData(getCardDataAPI, currentFolder?.id);
   return (
     <folderContext.Provider value={value}>
-      <Header fix={false} />
-      <SubHeader />
-      <Content>
-        <ContentWrapper>
-          <SearchBar />
-          <Folder
-            currentFolder={currentFolder}
-            changeCurrentFolder={changeCurrentFolder}
-            folderData={folderData as CategoryDataType}
-            cardData={folderCard as folderCardDataType}
-          />
-        </ContentWrapper>
-      </Content>
-      <Footer />
+      <Wrapper>
+        <Header fix={false} />
+        <SubHeader
+          folderData={folderData as CategoryDataType}
+          currentFolder={currentFolder}
+        />
+        <Content>
+          <ContentWrapper>
+            <SearchBar />
+            <Folder
+              currentFolder={currentFolder}
+              changeCurrentFolder={changeCurrentFolder}
+              folderData={folderData as CategoryDataType}
+              cardData={folderCard as folderCardDataType}
+            />
+          </ContentWrapper>
+        </Content>
+        <Footer />
+        <Modal />
+      </Wrapper>
     </folderContext.Provider>
   );
 }

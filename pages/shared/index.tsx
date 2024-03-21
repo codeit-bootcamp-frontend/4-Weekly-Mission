@@ -11,6 +11,8 @@ import { CardWrapper, Content, ContentWrapper } from './index.style';
 export default function SharedPage() {
   const { data: folder } = useAPIData(getFolderDataAPI);
   const cardData = (folder as FolderDataType)?.cardData;
+  const folderData = { category: null, error: null };
+  const currentFolder = { title: null, id: null };
   return (
     <>
       <Header fix />
@@ -20,7 +22,13 @@ export default function SharedPage() {
           <SearchBar />
           <CardWrapper>
             {cardData?.map((card, index) => (
-              <Card key={index} card={card} page="shared" />
+              <Card
+                key={index}
+                card={card}
+                page="shared"
+                folderData={folderData}
+                currentFolder={currentFolder}
+              />
             ))}
           </CardWrapper>
         </ContentWrapper>
