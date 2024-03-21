@@ -38,11 +38,4 @@ export const SearchInput = styled.input`
     width: 20.3rem;
     margin-bottom: 2rem;
   }
-
-  &::-webkit-search-decoration,
-  &::-webkit-search-cancel-button,
-  &::-webkit-search-results-button,
-  &::-webkit-search-results-decoration {
-    display: none;
-  }
 `;
