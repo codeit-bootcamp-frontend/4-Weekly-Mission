@@ -4,13 +4,18 @@ export async function getUser() {
   return body;
 }
 
-export async function getLink() {
-  const response = await fetch("https://bootcamp-api.codeit.kr/api/users/1/links");
+export async function getLink(folderId: string | null) {
+  if (!folderId) {
+    const response = await fetch("https://bootcamp-api.codeit.kr/api/users/1/links");
+    const body = await response.json();
+    return body;
+  }
+  const response = await fetch(`https://bootcamp-api.codeit.kr/api/users/1/links?folderId=${folderId}`);
   const body = await response.json();
   return body;
 }
 
-export async function getLinkDetail(folderId) {
+export async function getLinkDetail(folderId: string) {
   const response = await fetch(`https://bootcamp-api.codeit.kr/api/users/1/links?folderId=${folderId}`);
   const body = await response.json();
   return body;
