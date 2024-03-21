@@ -22,6 +22,14 @@
   line-height: normal;
 }
 
+.lb-h1-semibold {
+  font-family: Pretendard;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
 .lb-h2-semibold {
   font-family: Pretendard;
   font-size: 3.2rem;
@@ -29,4 +37,13 @@
   font-weight: 600;
   line-height: normal;
   letter-spacing: -00.2rem;
+}
+
+.lb-h3-semibold {
+  font-family: Pretendard;
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: -0.02rem;
 }

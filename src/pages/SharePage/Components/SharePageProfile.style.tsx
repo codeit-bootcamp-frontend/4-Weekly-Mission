@@ -28,10 +28,6 @@ export const SharePageProfileImg = styled.img`
 
 export const SharePageFolderOwnerName = styled.p`
   margin-top: 1.2rem;
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
 
   @media (max-width: 767px) {
     margin-top: 0.6rem;
@@ -44,10 +40,8 @@ export const SharePageFolderOwnerName = styled.p`
 export const SharePageFolderName = styled.h1`
 
   margin-top: 2rem;
-  font-size: 4rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal; 
+
+  
   
 @media (max-width: 767px) {  
     margin-top: 10px;

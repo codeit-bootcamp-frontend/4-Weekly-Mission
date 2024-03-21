@@ -251,14 +251,16 @@ export default function FolderPage({ userId = 1 }) {
           </S.AddFolderButton>
         </S.SubFolderUtil>
         <S.SubFolderUtil>
-          <S.CurrentSubFolder>{currentFolderName}</S.CurrentSubFolder>
+          <S.CurrentSubFolder className="lb-h3-semibold">
+            {currentFolderName}
+          </S.CurrentSubFolder>
           {!isCurrentFolderAll && (
             <HandleCurrentSubFolder subFolderUtils={subFolderAction} />
           )}
         </S.SubFolderUtil>
         <LinkSearchBar cardFilter={cardFilter} setCardFilter={setCardFilter} />
         {isEmptyResponse || isLoading ? (
-          <S.EmptySpace>
+          <S.EmptySpace className="lb-body1-regular">
             {isLoading ? "불러오는 중입니다..." : "저장된 링크가 없습니다."}
           </S.EmptySpace>
         ) : (

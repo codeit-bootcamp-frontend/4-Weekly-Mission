@@ -40,6 +40,7 @@ export const AddFolderButton = styled.button`
   padding: 0;
   border: none;
   text-align: center;
+
   font-family: Pretendard;
   font-size: 1.6rem;
   font-style: normal;
@@ -82,15 +83,8 @@ export const AddImage = styled.div`
 `;
 
 export const CurrentSubFolder = styled.p`
-  font-family: Pretendard;
-  font-size: 2.4rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  letter-spacing: -0.2px;
-
   @media (max-width: 767px) {
-    font-size: 2 rem;
+    font-size: 2rem;
   }
 `;
 
@@ -100,11 +94,6 @@ export const EmptySpace = styled.div`
   margin: 0 auto;
   height: calc(100vh - 73.8rem);
   text-align: center;
-  font-family: Pretendard;
-  font-size: 1.6rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 150%;
 
   @media (max-width: 1124px) {
     height: calc(100vh - 78.2rem);

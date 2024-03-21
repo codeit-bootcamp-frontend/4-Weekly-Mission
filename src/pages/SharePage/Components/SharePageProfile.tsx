@@ -38,8 +38,8 @@ const ShareFolderProfile = function () {
   return (
     <S.SharePageProfileSection>
       <S.SharePageProfileImg src={folderImg} alt="" />
-      <S.SharePageFolderOwnerName>{`${folderAccountName}`}</S.SharePageFolderOwnerName>
-      <S.SharePageFolderName>{`${folderName}`}</S.SharePageFolderName>
+      <S.SharePageFolderOwnerName className="lb-body1-regular">{`${folderAccountName}`}</S.SharePageFolderOwnerName>
+      <S.SharePageFolderName className="lb-h1-semibold">{`${folderName}`}</S.SharePageFolderName>
     </S.SharePageProfileSection>
   );
 };
