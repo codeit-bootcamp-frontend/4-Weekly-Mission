@@ -1,10 +1,15 @@
 import styles from './RenameFolderNameModal.module.css';
 import ModalWrapper from '../ModalWrapper/ModalWrapper';
 import ModalButton from '../ModalButton/ModalButton';
+
+interface RenameFolderNameProps {
+  handleRenameFolderModalClick: (e: React.MouseEvent<HTMLImageElement>) => void;
+  FolderModalValue: string;
+}
 export default function RenameFolderName({
   handleRenameFolderModalClick,
   FolderModalValue,
-}) {
+}: RenameFolderNameProps) {
   return (
     <ModalWrapper>
       <div className={styles['modal-wrapper']}>

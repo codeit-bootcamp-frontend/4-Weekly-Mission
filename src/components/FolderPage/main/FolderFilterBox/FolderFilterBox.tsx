@@ -1,7 +1,17 @@
-import { useState } from 'react';
+import { SetStateAction, useState, Dispatch } from 'react';
 import styles from './FolderFilterBox.module.css';
 import FolderFilterButton from '../FolderFilterButton/FolderFilterButton';
 import ShowAllLinksButton from '../ShowAllLinkButton/ShowAllLinkButton';
+import { FolderData } from 'types/FolderPage/FolderDataType';
+
+interface FolderFilterBoxProps {
+  folderData: FolderData | null;
+  setFolderName: Dispatch<SetStateAction<string>>;
+  setFolderId: Dispatch<SetStateAction<string>>;
+  setIsShowFuncButtonBox: Dispatch<SetStateAction<boolean>>;
+  setFolderModalValue: Dispatch<SetStateAction<string>>;
+  setShareUrlFolderId: Dispatch<SetStateAction<string>>;
+}
 
 function FolderFilterBox({
   folderData,
@@ -10,7 +20,7 @@ function FolderFilterBox({
   setIsShowFuncButtonBox,
   setFolderModalValue,
   setShareUrlFolderId,
-}) {
+}: FolderFilterBoxProps) {
   const [activeFilterId, setActiveFilterId] = useState('showAll');
 
   return (
@@ -28,14 +38,13 @@ function FolderFilterBox({
         return (
           <FolderFilterButton
             name={name}
-            id={id}
+            id={String(id)}
             key={id}
             setFolderName={setFolderName}
             setFolderId={setFolderId}
             setIsShowFuncButtonBox={setIsShowFuncButtonBox}
-            activeFilterId={activeFilterId}
             setActiveFilterId={setActiveFilterId}
-            isActive={activeFilterId === id}
+            isActive={activeFilterId === String(id)}
             setFolderModalValue={setFolderModalValue}
             setShareUrlFolderId={setShareUrlFolderId}
           />

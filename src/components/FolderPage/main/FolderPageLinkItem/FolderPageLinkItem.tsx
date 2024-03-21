@@ -1,9 +1,20 @@
-/* eslint-disable */
 import styles from './FolderPageLinkitem.module.css';
-import * as functions from '../../../../functions/formatTimeAgo.js';
-import KebabModal from '../../modal/KebabModal/KebabModal.js';
+import * as functions from '../../../../functions/formatTimeAgo';
+import KebabModal from '../../modal/KebabModal/KebabModal';
 import useModal from 'hooks/useModal';
-import DeleteLinkModal from '../../modal/DeleteLinkModal/DeleteLinkModal.js';
+import DeleteLinkModal from '../../modal/DeleteLinkModal/DeleteLinkModal';
+import { Dispatch, SetStateAction } from 'react';
+interface FoldrPageLinkItemProps {
+  description: string;
+  image_source: string;
+  created_at: string;
+  url: string;
+  handleAddLinkInFolderModalClick: (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => void;
+  setSharedUrl: Dispatch<SetStateAction<string>>;
+}
+
 function FolderPageLinkItem({
   description,
   image_source,
@@ -11,7 +22,7 @@ function FolderPageLinkItem({
   url,
   handleAddLinkInFolderModalClick,
   setSharedUrl,
-}) {
+}: FoldrPageLinkItemProps) {
   const created_date = created_at.slice(0, 10);
 
   const {

@@ -12,7 +12,6 @@ export default function ShareFolderModal({
   useEffect(() => {
     Kakao.cleanup();
     Kakao.init('9adbb4d8d436041f3eeadb2a25b525ec');
-    console.log(Kakao.isInitialized());
   });
   const shareKakao = () => {
     Kakao.Share.sendDefault({

@@ -2,7 +2,11 @@ import styles from './AddFolderModal.module.css';
 import ModalButton from '../ModalButton/ModalButton';
 import ModalWrapper from '../ModalWrapper/ModalWrapper';
 
-export default function AddFolderModal({ handleAddFolderModalClick }) {
+export default function AddFolderModal({
+  handleAddFolderModalClick,
+}: {
+  handleAddFolderModalClick: (e: React.MouseEvent<HTMLImageElement>) => void;
+}) {
   return (
     <ModalWrapper>
       <div className={styles['modal-wrapper']}>

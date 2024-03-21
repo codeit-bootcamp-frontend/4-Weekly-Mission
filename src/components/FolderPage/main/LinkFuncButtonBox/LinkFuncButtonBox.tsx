@@ -1,11 +1,30 @@
 import LinkFuncButton from '../LinkFuncButton/LinkFuncButton';
 import styles from './LinkFuncButtonBox.module.css';
+
+interface LinkFuncButtonBoxProps {
+  handleRenameFolderModalClick: (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => void;
+  handleDeleteFolderModalClick: (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => void;
+  handleShareFolderModalClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
 function LinkFuncButtonBox({
   handleRenameFolderModalClick,
   handleDeleteFolderModalClick,
   handleShareFolderModalClick,
-}) {
-  const linkFuncButtonDatas = {
+}: LinkFuncButtonBoxProps) {
+  interface ButtonData {
+    buttonName: string;
+    buttonImageSourceName: string;
+    id: number;
+  }
+
+  interface LinkFunkButtonDataType {
+    funcButtons: ButtonData[];
+  }
+  const linkFuncButtonDatas: LinkFunkButtonDataType = {
     funcButtons: [
       { buttonName: '공유', buttonImageSourceName: 'share', id: 0 },
       { buttonName: '이름 변경', buttonImageSourceName: 'rename', id: 1 },

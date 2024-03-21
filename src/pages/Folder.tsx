@@ -15,14 +15,9 @@ function Folder() {
 
   return (
     <>
-      <FolderNav
-        userDataUrl={userDataUrl}
-        sharedUrl={sharedUrl}
-        setSharedUrl={setSharedUrl}
-      />
+      <FolderNav userDataUrl={userDataUrl} />
       <AddLink
         handleAddLinkInFolderModalClick={handleAddLinkInFolderModalClick}
-        sharedUrl={sharedUrl}
         setSharedUrl={setSharedUrl}
       />
       <FolderPageMain

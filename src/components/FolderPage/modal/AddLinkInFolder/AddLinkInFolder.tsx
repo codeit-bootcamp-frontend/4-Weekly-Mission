@@ -1,11 +1,20 @@
 import styles from './AddLinkInFolder.module.css';
 import ModalButton from '../ModalButton/ModalButton';
 import ModalWrapper from '../ModalWrapper/ModalWrapper';
+import { FolderData } from 'types/FolderPage/FolderDataType';
+interface isShowAddLinkInFolderProps {
+  handleAddLinkInFolderModalClick: (
+    e: React.MouseEvent<HTMLImageElement | HTMLButtonElement>
+  ) => void;
+  folderData: FolderData | null;
+  sharedUrl: string;
+}
+
 export default function AddLinkInFolder({
   handleAddLinkInFolderModalClick,
   folderData,
   sharedUrl,
-}) {
+}: isShowAddLinkInFolderProps) {
   return (
     <ModalWrapper>
       <div className={styles['modal-wrapper']}>

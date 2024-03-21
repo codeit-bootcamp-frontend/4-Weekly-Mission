@@ -1,6 +1,8 @@
 import styles from './AddFolderButtons.module.css';
-
-function AddFolderButton({ handleAddFolderModalClick }) {
+interface AddFolderButtonProps {
+  handleAddFolderModalClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+function AddFolderButton({ handleAddFolderModalClick }: AddFolderButtonProps) {
   return (
     <>
       <button

@@ -1,4 +1,16 @@
 import styles from './FolderFilterButton.module.css';
+import { Dispatch, SetStateAction } from 'react';
+interface FolderFilterButtonProps {
+  name: string;
+  id: string;
+  setIsShowFuncButtonBox: Dispatch<SetStateAction<boolean>>;
+  setFolderName: Dispatch<SetStateAction<string>>;
+  setFolderId: Dispatch<SetStateAction<string>>;
+  setActiveFilterId: Dispatch<SetStateAction<string>>;
+  isActive: boolean;
+  setFolderModalValue: Dispatch<SetStateAction<string>>;
+  setShareUrlFolderId: Dispatch<SetStateAction<string>>;
+}
 
 function FolderFilterButton({
   name,
@@ -10,7 +22,7 @@ function FolderFilterButton({
   isActive,
   setFolderModalValue,
   setShareUrlFolderId,
-}) {
+}: FolderFilterButtonProps) {
   function handleClick() {
     setIsShowFuncButtonBox(true);
     setFolderName(name);

@@ -3,8 +3,36 @@
 import { useEffect, useState } from 'react';
 import FolderPageLinkItem from '../FolderPageLinkItem/FolderPageLinkItem';
 import styles from './LinkList.module.css';
-function LinkList({ folderId, handleAddLinkInFolderModalClick, setSharedUrl }) {
-  const [filterData, setFilterData] = useState(null);
+import { Dispatch, SetStateAction } from 'react';
+interface LinkListProps {
+  folderId: string;
+  handleAddLinkInFolderModalClick: (
+    e: React.MouseEvent<HTMLImageElement | HTMLButtonElement>
+  ) => void;
+  setSharedUrl: Dispatch<SetStateAction<string>>;
+}
+
+interface FolderDesc {
+  id: number;
+  created_at: string;
+  updated_at: null;
+  url: string;
+  title: '네이버';
+  description: string;
+  image_source: string;
+  folder_id: number;
+}
+
+interface FolderIdData {
+  data: FolderDesc[];
+}
+function LinkList({
+  folderId,
+  handleAddLinkInFolderModalClick,
+  setSharedUrl,
+}: LinkListProps) {
+  const [filterData, setFilterData] = useState<FolderIdData | null>(null);
+
   async function handleFilterClick() {
     await fetch(`https://bootcamp-api.codeit.kr/api/users/3/links${folderId}`)
       .then((res) => res.json())

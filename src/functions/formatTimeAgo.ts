@@ -1,7 +1,7 @@
-export function formatTimeAgo(createdAt) {
+export function formatTimeAgo(createdAt: string) {
   const now = new Date();
   const createdDate = new Date(createdAt);
-  const diffTime = now - createdDate;
+  const diffTime = now.getTime() - createdDate.getTime();
   const minute = Math.floor(diffTime / (1000 * 60));
   const hour = Math.floor(minute / 60);
   const day = Math.floor(minute / (60 * 24));

@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction } from 'react';
 
 export interface AddLinkProps {
   handleAddLinkInFolderModalClick: (
-    e: React.MouseEvent<HTMLSpanElement>
+    e: React.MouseEvent<HTMLButtonElement>
   ) => void;
   setSharedUrl: Dispatch<SetStateAction<string>>;
 }

@@ -1,22 +1,28 @@
-import styles from './DeleteFolderModal.module.css';
 import ModalWrapper from '../ModalWrapper/ModalWrapper';
 import DeleteModalButton from '../DeleteButton/DeleteButton';
+import styles from './DeleteLinkModal.module.css';
 
-export default function DeleteFolderModal({
-  FolderModalValue,
-  handleDeleteFolderModalClick,
-}) {
+interface DeleteLinkModalProps {
+  url: string;
+  handleDeleteLinkModalClick: React.MouseEventHandler<HTMLImageElement>;
+}
+
+export default function DeleteLinkModal({
+  handleDeleteLinkModalClick,
+  url,
+}: DeleteLinkModalProps) {
   return (
     <ModalWrapper>
       <div className={styles['modal-wrapper']}>
         <div className={styles['modal-main-wrapper']}>
-          <div className={styles['modal-title']}>폴더 삭제</div>
-          <div className={styles['modal-folder-name']}>{FolderModalValue}</div>
+          <div className={styles['modal-title']}>링크 삭제</div>
+          <div className={styles['modal-link-url']}>{url}</div>
+
           <img
             src={`${process.env.PUBLIC_URL}/assets/images/modal_close_icon.svg`}
             className={styles['modal-close-icon']}
             alt='modal-close-icon'
-            onClick={handleDeleteFolderModalClick}
+            onClick={handleDeleteLinkModalClick}
           />
         </div>
         <DeleteModalButton>삭제하기</DeleteModalButton>

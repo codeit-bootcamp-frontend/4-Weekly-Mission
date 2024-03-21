@@ -1,5 +1,5 @@
 import styles from './SharePageFolderItem.module.css';
-import * as functions from '../../../../functions/formatTimeAgo.js';
+import * as functions from '../../../../functions/formatTimeAgo';
 
 interface FolderData {
   createdAt: string;

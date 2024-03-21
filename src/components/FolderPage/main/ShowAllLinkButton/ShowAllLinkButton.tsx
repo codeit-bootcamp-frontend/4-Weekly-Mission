@@ -1,4 +1,14 @@
 import styles from './ShowAllLinksButton.module.css';
+import { Dispatch, SetStateAction } from 'react';
+
+interface ShowAllLinksButtonProps {
+  name: string;
+  setFolderName: Dispatch<SetStateAction<string>>;
+  setIsShowFuncButtonBox: Dispatch<SetStateAction<boolean>>;
+  setFolderId: Dispatch<SetStateAction<string>>;
+  setActiveFilterId: Dispatch<SetStateAction<string>>;
+  activeFilterId: string;
+}
 
 function ShowAllLinksButton({
   name,
@@ -7,7 +17,7 @@ function ShowAllLinksButton({
   setFolderId,
   setActiveFilterId,
   activeFilterId,
-}) {
+}: ShowAllLinksButtonProps) {
   function handleFilterButtonClick() {
     setFolderName(name);
     setIsShowFuncButtonBox(false);
