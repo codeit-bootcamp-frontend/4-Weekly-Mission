@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import IconButton from "../../sharing/ui-button/IconButton";
+import * as Icons from "../../sharing/Icons";
 
 const Image = styled.img`
   position: absolute;
@@ -30,14 +32,30 @@ const SearchInputFormContainer = styled.div`
   }
 `;
 
+const StyledIconButton = styled(IconButton)`
+  position: absolute;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+`;
+
 const SearchInputForm = () => {
-  const [searchKeyword, setSearchKeyword] = useState("");
+  const [searchParam, setSearchParam] = useSearchParams();
+  const [searchKeyword, setSearchKeyword] = useState(
+    searchParam.get("keyword") || "",
+  );
   const navigate = useNavigate();
+  const inputRef = useRef();
 
   const handleSubmit = (e) => {
     if (e.keyCode === 13) {
       navigate(`/folder?keyword=${searchKeyword}`);
     }
+  };
+
+  const deleteKeyword = () => {
+    setSearchKeyword("");
+    inputRef.current.value = "";
   };
 
   return (
@@ -46,9 +64,16 @@ const SearchInputForm = () => {
       <Input
         type="text"
         placeholder="링크를 검색해 보세요."
+        defaultValue={searchKeyword || null}
+        ref={inputRef}
         onChange={(e) => setSearchKeyword(e.target.value)}
         onKeyDown={handleSubmit}
       />
+      {searchKeyword && (
+        <StyledIconButton onClick={deleteKeyword}>
+          <Icons.SearchDelete />
+        </StyledIconButton>
+      )}
     </SearchInputFormContainer>
   );
 };

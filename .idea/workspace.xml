@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e5353b4-1a6e-4d69-b0cc-8adf18cfaf93" name="Changes" comment="feat: 링크 검색 기능 구현">
-      <change afterPath="$PROJECT_DIR$/src/components/sharing/Icons.jsx" afterDir="false" />
+    <list default="true" id="4e5353b4-1a6e-4d69-b0cc-8adf18cfaf93" name="Changes" comment="refactor: 아이콘 버튼 컴포넌트 수정">
+      <change afterPath="$PROJECT_DIR$/public/icons/search_delete_icon.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-button/IconButton.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/ui-button/IconButton.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-input/SearchInputForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/folder/ui-input/SearchInputForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/Icons.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/Icons.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,8 +94,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/utils" />
       <recent name="$PROJECT_DIR$/public/icons" />
+      <recent name="$PROJECT_DIR$/src/utils" />
       <recent name="$PROJECT_DIR$/src/components/sharing/ui-modal" />
       <recent name="$PROJECT_DIR$/src/components/sharing" />
       <recent name="$PROJECT_DIR$/src/components/folder/button" />
@@ -145,15 +145,7 @@
       <workItem from="1709052876650" duration="3235000" />
       <workItem from="1709056146532" duration="345000" />
       <workItem from="1709057669693" duration="637000" />
-      <workItem from="1711048260927" duration="1507000" />
-    </task>
-    <task id="LOCAL-00001" summary="setting">
-      <option name="closed" value="true" />
-      <created>1707336536666</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1707336536666</updated>
+      <workItem from="1711048260927" duration="2819000" />
     </task>
     <task id="LOCAL-00002" summary="setting">
       <option name="closed" value="true" />
@@ -539,7 +531,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711048378318</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="refactor: 아이콘 버튼 컴포넌트 수정">
+      <option name="closed" value="true" />
+      <created>1711049818043</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1711049818043</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +558,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor: 최신버전 React Route 적용" />
     <MESSAGE value="refactor: 컴포넌트 네이밍 수정 및 이미지 로드 수정" />
     <MESSAGE value="fix: 이미지 로드 경로 수정" />
     <MESSAGE value="feat: Folder 페이지 생성 및 버튼, 검색창 스타일 상속 작업" />
@@ -583,6 +582,7 @@
     <MESSAGE value="feat: 폴더 공유 기능 구현" />
     <MESSAGE value="docs: 확장자 통일" />
     <MESSAGE value="feat: 링크 검색 기능 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 링크 검색 기능 구현" />
+    <MESSAGE value="refactor: 아이콘 버튼 컴포넌트 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor: 아이콘 버튼 컴포넌트 수정" />
   </component>
 </project>
