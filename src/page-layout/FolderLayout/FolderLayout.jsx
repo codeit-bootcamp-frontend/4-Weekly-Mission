@@ -3,12 +3,7 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-export const FolderLayout = ({
-  linkForm,
-  searchBar,
-  folderToolBar,
-  cardList,
-}) => {
+export const FolderLayout = ({ linkForm, searchBar, folderToolBar, cardList }) => {
   return (
     <div className={cx("container")}>
       {linkForm}

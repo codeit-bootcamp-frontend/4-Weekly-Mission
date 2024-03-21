@@ -5,10 +5,7 @@ const cx = classNames.bind(styles);
 
 export const FolderButton = ({ text, onClick, isSelected = false }) => {
   return (
-    <button
-      className={cx("container", { selected: isSelected })}
-      onClick={onClick}
-    >
+    <button className={cx("container", { selected: isSelected })} onClick={onClick}>
       <span>{text}</span>
     </button>
   );

@@ -6,9 +6,9 @@ import { FolderPage } from "pages/FolderPage";
 function App() {
   return (
     <BrowserRouter>
-      <Routes path="/">
-        <Route path="shared" element={<SharedPage />} />
-        <Route path="folder" element={<FolderPage />} />
+      <Routes>
+        <Route path="/shared" element={<SharedPage />} />
+        <Route path="/folder" element={<FolderPage />} />
       </Routes>
     </BrowserRouter>
   );
