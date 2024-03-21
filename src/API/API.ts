@@ -13,7 +13,7 @@ export const getUserSampleDataAPI = async (): Promise<UserDataType> => {
     error: null,
   };
   try {
-    const response = await instance.get(`/users/1`);
+    const response = await instance.get(`/users/4`);
     const { data } = response;
     APIData.email = data.data[0].email;
     APIData.image = data.data[0].image_source;
@@ -52,7 +52,7 @@ export const getCategoryDataAPI = async (): Promise<CategoryDataType> => {
     error: null,
   };
   try {
-    const response = await instance.get('/users/1/folders');
+    const response = await instance.get('/users/4/folders');
     const { data } = response;
     APIData.category = data.data;
     return APIData;
@@ -72,7 +72,7 @@ export const getCardDataAPI = async (
   if (folderID && folderID !== '0') {
     try {
       const response = await instance.get(
-        `/users/1/links?folderId=${folderID}`,
+        `/users/4/links?folderId=${folderID}`,
       );
       const { data } = response;
       APIData.card = data.data;
@@ -83,7 +83,7 @@ export const getCardDataAPI = async (
     }
   }
   try {
-    const response = await instance.get('/users/1/links');
+    const response = await instance.get('/users/4/links');
     const { data } = response;
     APIData.card = data.data;
     return APIData;

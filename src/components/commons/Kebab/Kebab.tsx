@@ -73,7 +73,7 @@ const Kebab = ({ cardID, cardURL, folderData, currentFolder }: Props) => {
     };
     document.addEventListener('click', clickOtherPart);
     return () => document.removeEventListener('click', clickOtherPart);
-  }, []);
+  }, [changeKebabID]);
   return (
     <Wrapper ref={wraperRef}>
       <KebabButton

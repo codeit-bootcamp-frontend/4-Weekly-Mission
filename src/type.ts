@@ -39,7 +39,7 @@ export interface CategoryDataType {
   error: unknown | null;
 }
 
-interface folderCard {
+export interface folderCard {
   id: number;
   created_at: string | null;
   updated_at: string | null;

@@ -137,7 +137,7 @@ export const OptionText = styled.div`
   color: ${COLOR.Gray3};
 `;
 
-export const CardWrapper = styled.div<{ $empty: boolean }>`
+export const CardWrapper = styled.div<{ $empty: boolean | null }>`
   width: 100%;
   display: grid;
   gap: 19px;

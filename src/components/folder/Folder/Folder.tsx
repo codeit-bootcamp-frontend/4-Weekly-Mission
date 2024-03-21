@@ -1,23 +1,7 @@
-import { CategoryDataType, folderCardDataType } from '@/src/type';
+import { CategoryDataType, folderCard } from '@/src/type';
 import { useContext } from 'react';
 import folderContext from '@/src/context/folderContext';
-import {
-  Wrapper,
-  FolderWrapper,
-  CategoryWrapper,
-  CategoryButton,
-  AddFolderWrapper,
-  AddFolderText,
-  AddFolderIcon,
-  TitleWrapper,
-  FolderTitle,
-  OptionWrapper,
-  OptionButtonWrapper,
-  OptionIcon,
-  OptionText,
-  CardWrapper,
-  HollowWrapper,
-} from './Folder.style';
+import * as S from './Folder.style';
 import Card from '../../commons/Card/Card';
 
 interface obj {
@@ -35,7 +19,7 @@ interface Props {
   currentFolder: folderDataType | null;
   changeCurrentFolder: (value: folderDataType | null) => void;
   folderData: CategoryDataType | null;
-  cardData: folderCardDataType | null;
+  cardData: folderCard[] | null;
 }
 
 const Folder = ({
@@ -45,6 +29,7 @@ const Folder = ({
   cardData,
 }: Props) => {
   const { changeModalData } = useContext(folderContext);
+
   const clickCategoryButton = (e: React.MouseEvent<HTMLDivElement>) => {
     changeCurrentFolder({
       title: (e.target as HTMLElement).textContent,
@@ -101,65 +86,65 @@ const Folder = ({
     },
   ];
   if (folderData && folderData.category?.length === 0) {
-    return <HollowWrapper>저장된 링크가 없습니다</HollowWrapper>;
+    return <S.HollowWrapper>저장된 링크가 없습니다</S.HollowWrapper>;
   }
   return (
-    <Wrapper>
-      <FolderWrapper>
-        <CategoryWrapper>
-          <CategoryButton
+    <S.Wrapper>
+      <S.FolderWrapper>
+        <S.CategoryWrapper>
+          <S.CategoryButton
             id="0"
             onClick={clickCategoryButton}
             $checked={currentFolder?.id === '0'}
           >
             전체
-          </CategoryButton>
+          </S.CategoryButton>
           {folderData &&
             folderData.category?.map((folder) => (
-              <CategoryButton
+              <S.CategoryButton
                 key={folder.id}
                 id={String(folder.id)}
                 onClick={clickCategoryButton}
                 $checked={currentFolder?.id === String(folder.id)}
               >
                 {folder.name}
-              </CategoryButton>
+              </S.CategoryButton>
             ))}
-        </CategoryWrapper>
-        <AddFolderWrapper>
-          <AddFolderText onClick={openModal}>폴더 추가</AddFolderText>
-          <AddFolderIcon
+        </S.CategoryWrapper>
+        <S.AddFolderWrapper>
+          <S.AddFolderText onClick={openModal}>폴더 추가</S.AddFolderText>
+          <S.AddFolderIcon
             src="/images/add.svg"
             alt="추가"
             width={16}
             height={16}
           />
-        </AddFolderWrapper>
-      </FolderWrapper>
-      <TitleWrapper>
-        <FolderTitle>{currentFolder?.title}</FolderTitle>
+        </S.AddFolderWrapper>
+      </S.FolderWrapper>
+      <S.TitleWrapper>
+        <S.FolderTitle>{currentFolder?.title}</S.FolderTitle>
         {currentFolder?.id !== '0' && (
-          <OptionWrapper>
+          <S.OptionWrapper>
             {OPTION.map((option, index) => (
-              <OptionButtonWrapper
+              <S.OptionButtonWrapper
                 key={index}
                 onClick={() => option.click(option.text)}
               >
-                <OptionIcon
+                <S.OptionIcon
                   src={option.src}
                   alt={option.text}
                   width={18}
                   height={18}
                 />
-                <OptionText>{option.text}</OptionText>
-              </OptionButtonWrapper>
+                <S.OptionText>{option.text}</S.OptionText>
+              </S.OptionButtonWrapper>
             ))}
-          </OptionWrapper>
+          </S.OptionWrapper>
         )}
-      </TitleWrapper>
-      <CardWrapper $empty={cardData && cardData.card?.length === 0}>
+      </S.TitleWrapper>
+      <S.CardWrapper $empty={cardData && cardData?.length === 0}>
         {cardData &&
-          cardData.card?.map((card) => (
+          cardData?.map((card) => (
             <Card
               key={card.id}
               page="folder"
@@ -175,8 +160,8 @@ const Folder = ({
               currentFolder={currentFolder}
             />
           ))}
-      </CardWrapper>
-    </Wrapper>
+      </S.CardWrapper>
+    </S.Wrapper>
   );
 };
 

@@ -9,7 +9,7 @@ import { CategoryDataType, folderCardDataType } from '@/src/type';
 import Folder from '@/src/components/folder/Folder/Folder';
 import folderContext from '@/src/context/folderContext';
 import Modal from '@/src/components/folder/Modal/Modal';
-import { Content, ContentWrapper, Wrapper } from './index.style';
+import * as S from './index.style';
 
 interface currentFolderDataType {
   title: string | null;
@@ -38,6 +38,7 @@ export default function FolderPage() {
     });
 
   const [kebabID, setKebabID] = useState<number | null>(null);
+  const [topic, setTopic] = useState<string>('');
   const [modalData, setModalData] = useState<modalDataType>({
     modalType: null,
     subTitle: null,
@@ -46,7 +47,28 @@ export default function FolderPage() {
     currentLinkID: null,
   });
   const { data: folderData } = useAPIData<CategoryDataType>(getCategoryDataAPI);
-  const { data: folderCard } = useAPIData(getCardDataAPI, currentFolder?.id);
+  const { data: folderCard } = useAPIData<folderCardDataType>(
+    getCardDataAPI,
+    currentFolder?.id,
+  );
+  const filterFolderData = (cardData: folderCardDataType | null) => {
+    const filterdData = cardData?.card?.filter(
+      (data) =>
+        data.url?.includes(topic) ||
+        data.title?.includes(topic) ||
+        data.description?.includes(topic),
+    );
+    if (filterdData) {
+      return filterdData;
+    }
+    return null;
+  };
+
+  const cardData = filterFolderData(folderCard);
+
+  const changeTopic = useCallback((value: string) => {
+    setTopic(value);
+  }, []);
 
   const changeKebabID = useCallback((newValue: number | null) => {
     setKebabID(newValue);
@@ -66,26 +88,28 @@ export default function FolderPage() {
   );
   return (
     <folderContext.Provider value={value}>
-      <Wrapper>
+      <S.Wrapper>
         <Header fix={false} />
-        <SubHeader
-          folderData={folderData as CategoryDataType}
-          currentFolder={currentFolder}
-        />
-        <Content>
-          <ContentWrapper>
-            <SearchBar />
+        <SubHeader folderData={folderData} currentFolder={currentFolder} />
+        <S.Content>
+          <S.ContentWrapper>
+            <SearchBar topic={topic} changeTopic={changeTopic} />
+            {topic && (
+              <S.SearchText>
+                <S.TopicText>{topic}</S.TopicText>으로 검색한 결과입니다.
+              </S.SearchText>
+            )}
             <Folder
               currentFolder={currentFolder}
               changeCurrentFolder={changeCurrentFolder}
               folderData={folderData}
-              cardData={folderCard as folderCardDataType}
+              cardData={cardData}
             />
-          </ContentWrapper>
-        </Content>
+          </S.ContentWrapper>
+        </S.Content>
         <Footer />
         <Modal />
-      </Wrapper>
+      </S.Wrapper>
     </folderContext.Provider>
   );
 }

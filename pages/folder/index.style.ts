@@ -1,3 +1,4 @@
+import COLOR from '@/styles/color';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -19,7 +20,6 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   gap: 40px;
   width: 1060px;
-  align-items: center;
   justify-content: center;
   @media (max-width: 1199px) {
     width: 704px;
@@ -27,4 +27,18 @@ export const ContentWrapper = styled.div`
   @media (max-width: 767px) {
     width: 325px;
   }
+`;
+
+export const SearchText = styled.p`
+  color: ${COLOR.Gray3};
+  font-size: 32px;
+  font-weight: 700;
+  @media (max-width: 767px) {
+    font-size: 24px;
+  }
+`;
+
+export const TopicText = styled.span`
+  color: #000000;
+  word-wrap: break-word;
 `;
