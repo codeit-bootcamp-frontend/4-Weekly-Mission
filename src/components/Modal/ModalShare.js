@@ -13,16 +13,16 @@ const ModalShareContent = ({ selectedFolderName, copied, handleKakaoShare, handl
       <h2>폴더 공유</h2>
       <p>{selectedFolderName}</p>
       <div className="socialButtonContainer">
-        <div>
-          <img src={kakao} alt="kakao" onClick={handleKakaoShare} />
+        <div onClick={handleKakaoShare}>
+          <img src={kakao} alt="kakao" />
           카카오톡
         </div>
-        <div>
-          <img src={facebook} alt="facebook" onClick={handleFacebookShare} />
+        <div onClick={handleFacebookShare}>
+          <img src={facebook} alt="facebook" />
           페이스북
         </div>
-        <div>
-          <img src={link} alt="link" onClick={handleCopyToClipboard} />
+        <div onClick={handleCopyToClipboard}>
+          <img src={link} alt="link" />
           {copied ? "복사 완료" : "링크 복사"}
         </div>
       </div>

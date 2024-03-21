@@ -30,8 +30,10 @@ const UtilIcon = ({ icon, label, modalComponent }) => {
   const { showModal, handleOpenModal, handleCloseModal } = useModal();
   return (
     <div>
-      <img src={icon} alt={`${label} icon`} onClick={handleOpenModal} />
-      {label}
+      <div onClick={handleOpenModal} style={{ cursor: 'pointer' }}>
+        <img src={icon} alt={`${label} icon`} />
+        {label}
+      </div>
       {showModal &&
         React.cloneElement(modalComponent, {
           isOpen: showModal,
