@@ -168,5 +168,4 @@ function FolderContent({
     </Styled.Folder>
   );
 }
-
 export default FolderContent;
