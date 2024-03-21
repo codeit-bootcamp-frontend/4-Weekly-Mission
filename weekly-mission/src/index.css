@@ -32,6 +32,8 @@ input{
   border: none;
   outline: none;
   background-color: transparent;
+  display: block;
+
 }
 
 button{
