@@ -40,7 +40,7 @@ export default function FilterBar() {
   return (
     <div className="filterBarArea">
       <div className="floatingButton">
-        폴더 추가 <img src={`${process.env.PUBLIC_URL}/images/addWhite.svg`} alt="Add Icon"></img>
+        폴더 추가 <img src={`${process.env.PUBLIC_URL}/images/addWhite.svg`} alt="추가 아이콘"></img>
       </div>
       <div className="filterBar">
         <div className="filterBarLeft">
@@ -59,11 +59,29 @@ export default function FilterBar() {
         </div>
         <div className="filterBarRight">
           <div className="addButton">
-            폴더 추가 <img src={`${process.env.PUBLIC_URL}/images/add.svg`} alt="Add Icon"></img>
+            폴더 추가 <img src={`${process.env.PUBLIC_URL}/images/add.svg`} alt="추가 아이콘"></img>
           </div>
         </div>
       </div>
-      <div className="folderName">{folderName}</div>
+      <div className="nameBar">
+        <div className="folderName">{folderName}</div>
+        {folderName !== DEFAULT_FOLDER.name ? (
+          <div className="modalButtons">
+            <div className="modalButton">
+              <img src={`${process.env.PUBLIC_URL}/images/share.svg`} alt="공유 아이콘"></img>
+              <span>공유</span>
+            </div>
+            <div className="modalButton">
+              <img src={`${process.env.PUBLIC_URL}/images/pen.svg`} alt="연필 아이콘"></img>
+              <span>이름 변경</span>
+            </div>
+            <div className="modalButton">
+              <img src={`${process.env.PUBLIC_URL}/images/trashbin.svg`} alt="휴지통 아이콘"></img>
+              <span>삭제</span>
+            </div>
+          </div>
+        ) : null}
+      </div>
       <div className={!linksData.length ? '' : 'cardStyle'}>
         {!loading ? <Card data={linksData} /> : <div>Loading...</div>}
       </div>

@@ -74,7 +74,7 @@
 }
 
 .cardStyle {
-  width: 100%;
+  width: 1060px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
@@ -84,7 +84,6 @@
 
 .folderName {
   display: flex;
-  width: 1060px;
   padding-top: 24px;
   padding-bottom: 24px;
   justify-content: space-between;
@@ -117,6 +116,34 @@
 
 .floatingButton {
   display: none;
+}
+
+.nameBar {
+  display: flex;
+  justify-content: space-between;
+  width: 1060px;
+}
+
+.modalButtons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modalButtons span {
+  color: var(--Linkbrary-gray60, #9fa6b2);
+
+  /* Linkbrary/body2-semibold */
+  font-family: Pretendard;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.modalButton {
+  display: flex;
+  align-items: center;
 }
 
 @media (min-width: 357px) and (max-width: 767px) {
