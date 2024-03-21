@@ -49,7 +49,7 @@ export default function HeadNav() {
   return (
     <S.Nav>
       <S.NavWrapper>
-        <Link to="index.html">
+        <Link to="/">
           <img src="logo.svg" alt="Linkbrary Logo" />
         </Link>
         <ProfileData />

@@ -10,7 +10,6 @@ import LinkCardCollection from "src/Components/LinkCard/LinkCardCollection";
 
 // Types
 import UserLinkDataType from "src/@types/UserLinkDataType";
-import { link } from "fs";
 
 /**
  *
