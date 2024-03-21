@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useAsync from "src/Components/Hooks/useAsync";
 import { acceptDataFromApi } from "src/Utils/Api";
@@ -46,7 +46,33 @@ export default function FolderPage({ userId = 1 }) {
   const [currentModalType, setCurrentModalType] = useState("removeLink");
   const [modalData, setModalData] = useState("");
   const [cardFilter, setCardFilter] = useState<string>("");
-  const [isLinkAddBarHidden, setIsLinkAddBarHidden] = useState(false);
+  const [isLinkAddBarHidden, setIsLinkAddBarHidden] = useState<boolean>(false);
+  const [isFooterVisible, setIsFooterVisible] = useState<boolean>(false);
+  const [isLinkAddBarVisible, setIsLinkAddBarVisible] =
+    useState<boolean>(false);
+
+  const addLinkBarObserveRef = useRef<HTMLDivElement>(null);
+  const footerObserveRef = useRef<HTMLDivElement>(null);
+
+  const addLinkBarObserver = new IntersectionObserver((entries) => {
+    entries.map((entry) => {
+      if (entry.target === addLinkBarObserveRef.current) {
+        if (entry.isIntersecting) {
+          setIsLinkAddBarVisible(true);
+        } else {
+          setIsLinkAddBarVisible(false);
+        }
+      }
+
+      if (entry.target === footerObserveRef.current) {
+        if (entry.isIntersecting) {
+          setIsFooterVisible(true);
+        } else {
+          setIsFooterVisible(false);
+        }
+      }
+    });
+  });
 
   const handleModalOpen = (modalType: string, modalData: any) => {
     // ModalData의 형식 통일 필요
@@ -125,6 +151,20 @@ export default function FolderPage({ userId = 1 }) {
     );
   }, [cardFilter]);
 
+  // useEffect를 이용하여 IntersectionObserver을 등록
+  useEffect(() => {
+    addLinkBarObserver.observe(addLinkBarObserveRef.current!);
+    addLinkBarObserver.observe(footerObserveRef.current!);
+  }, []);
+
+  useEffect(() => {
+    if (isFooterVisible || isLinkAddBarVisible) {
+      setIsLinkAddBarHidden(false);
+    } else {
+      setIsLinkAddBarHidden(true);
+    }
+  }, [isFooterVisible, isLinkAddBarVisible]);
+
   const handleKebabAction = () => {};
 
   // 카드의 케밥 메뉴의 이름과 각각의 기능이 담긴 객체
@@ -192,7 +232,11 @@ export default function FolderPage({ userId = 1 }) {
         subFolderList={subFolderList}
         isHidden={isLinkAddBarHidden}
       />
-      <S.FolderPageMain $linkAddBarMargin={isLinkAddBarHidden}>
+      <S.LinkAddBarEndPoint
+        $linkAddBarMargin={isLinkAddBarHidden}
+        ref={addLinkBarObserveRef}
+      />
+      <S.FolderPageMain>
         <S.SubFolderUtil>
           <SubFoldersList
             subFolderData={subFolderList}
@@ -226,6 +270,7 @@ export default function FolderPage({ userId = 1 }) {
           </>
         )}
       </S.FolderPageMain>
+      <S.FooterStartPoint ref={footerObserveRef} />
     </>
   );
 }

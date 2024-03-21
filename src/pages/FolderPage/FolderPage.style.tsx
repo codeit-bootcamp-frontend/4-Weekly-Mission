@@ -1,25 +1,38 @@
 import styled from "styled-components";
-import HeadNav from "src/Components/BasicLayout/HeadNav";
 
-export const FolderPageMain = styled.main<{ $linkAddBarMargin: boolean }>`
+export const FolderPageMain = styled.main`
   position: relative;
   max-width: 1060px;
-  margin: 4rem auto;
-  margin-top: ${({ $linkAddBarMargin }) =>
-    $linkAddBarMargin ? "24.8rem" : "4rem"};  
+  margin: 0 auto;
+  padding-top: 4rem;
+  
 
   @media (max-width: 1124px) {
     max-width: 768px;
-    padding: 0 32px;
+    padding: 4rem 32px;
   }
 
   @media (max-width: 767px) {
     max-width: 389px;
-    padding: 20px 32px;
+    padding: 4rem 32px;
+
+`;
+
+export const LinkAddBarEndPoint = styled.div<{ $linkAddBarMargin: boolean }>`
+  height: 0;
+  margin-top: ${({ $linkAddBarMargin }) =>
+    $linkAddBarMargin ? "20.8rem" : "0"};  
+
+  @media(max-width:767px) {
     margin-top: ${({ $linkAddBarMargin }) =>
-      $linkAddBarMargin ? "13.7rem" : "2rem"};  
-    11.7rem
+      $linkAddBarMargin ? "11.7rem" : "0"};  
+  11.7rem
+}
   }
+`;
+
+export const FooterStartPoint = styled.div`
+  height: 0;
 `;
 
 export const AddFolderButton = styled.button`
