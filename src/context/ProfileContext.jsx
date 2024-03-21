@@ -7,9 +7,15 @@ export const ProfileContext = createContext(null)
 export default function ProfileContextProvider({ children }) {
   const { state: profileData, fetchRequest: profilRequest } = useHttp()
 
+  const transformedData = {
+    data: profileData.data?.data[0],
+    isLoading: profileData.isLoading,
+    hasError: profileData.hasError,
+  }
+
   useEffect(() => {
-    profilRequest(GET_PROFILE_API)
+    profilRequest({ api: GET_PROFILE_API })
   }, [profilRequest])
 
-  return <ProfileContext.Provider value={profileData}>{children}</ProfileContext.Provider>
+  return <ProfileContext.Provider value={transformedData}>{children}</ProfileContext.Provider>
 }

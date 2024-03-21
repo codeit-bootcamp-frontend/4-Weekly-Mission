@@ -1,9 +1,8 @@
 import React from "react"
+import * as S from "./Card.style"
 
-import "./Card.css"
-
-function Card({ className, children, tagName: Tag = "div" }) {
-  return <Tag className={`${className || ""} card`}>{children}</Tag>
+function Card({ children, tagName = "div" }) {
+  return <S.Card as={tagName}>{children}</S.Card>
 }
 
 export default Card
