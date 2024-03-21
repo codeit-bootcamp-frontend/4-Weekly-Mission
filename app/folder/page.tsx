@@ -14,7 +14,7 @@ const FolderPage = ({ searchParams }: any) => {
       <AddLink />
       <div className='container-folder'>
         <SearchBar />
-        <FolderList></FolderList>
+        <FolderList/>
         <FolderName currentFolderName={name}/>
         <CardList folderName={name} folderId={id}/>
       </div>

@@ -1,5 +1,3 @@
-import GnbProfile from '@/components/gnb/GnbProfile';
-
 import Gnb from '@/components/gnb/Gnb';
 import Footer from '@/components/footer/Footer';
 
@@ -12,7 +10,7 @@ const FolderLayout = ({
 }) => {
   return (
     <>
-      <Gnb isFixed={false}><GnbProfile/></Gnb>
+      <Gnb isFixed={false} />
       {children}
       <Footer />
     </>

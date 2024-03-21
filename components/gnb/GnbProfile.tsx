@@ -20,6 +20,6 @@ const GnbProfile = async () => {
       <span className='account-email'>{user.email}</span>
     </div>
   )
-}
+} // img 태그 사용 이유 : Image는 최적화가 가능한 대신, public에 존재해야 한다. 즉, 서버에서 다운로드한 이미지는 사용 불가.
 
 export default GnbProfile
