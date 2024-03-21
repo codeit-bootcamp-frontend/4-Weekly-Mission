@@ -126,6 +126,7 @@ export default function FolderPage({ userId = 1 }) {
 
   const handleKebabAction = () => {};
 
+  // 카드의 케밥 메뉴의 이름과 각각의 기능이 담긴 객체
   const kebabActions: LinkCardFunctionObjectType[] = [
     {
       buttonName: "삭제하기",
@@ -143,6 +144,7 @@ export default function FolderPage({ userId = 1 }) {
     },
   ];
 
+  // subFolderUtils에 기능, 버튼 이름, 버튼 이미지 등을 전달할 객체
   const subFolderAction: LinkFolderFunctionObjectType[] = [
     {
       buttonName: "공유",
