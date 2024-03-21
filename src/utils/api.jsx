@@ -63,3 +63,19 @@ export const getLinks = async (folderId) => {
     }
   }
 };
+
+// 키워드를 포함하는 데이터를 리턴하는 함수
+export const getLinksByKeyword = async (folderId, keyword) => {
+  const data = await getLinks(folderId);
+  if (!keyword) return data.data;
+
+  const loweredKeyword = keyword.toLowerCase();
+
+  return data.data.filter(
+    (item) =>
+      (item.description &&
+        item.description.toLowerCase().includes(loweredKeyword)) ||
+      (item.title && item.title.toLowerCase().includes(loweredKeyword)) ||
+      (item.url && item.url.toLowerCase().includes(loweredKeyword)),
+  );
+};

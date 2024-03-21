@@ -3,8 +3,9 @@ import { formatDate, getTimeDifference } from "../../../utils/dateUtils";
 import Card from "./Card";
 import styled from "styled-components";
 import { useFolder } from "../../../contexts/FolderContext";
-import { getLinks } from "../../../utils/api";
+import { getLinksByKeyword } from "../../../utils/api";
 import NoLink from "../../../pages/NoLink";
+import { useSearchParams } from "react-router-dom";
 
 const CardListContainer = styled.div`
   width: 100%;
@@ -21,17 +22,26 @@ const CardListContainer = styled.div`
     flex-direction: column;
   }
 `;
+
 const CardList = () => {
   const { currentFolder } = useFolder();
   const [currentLinks, setCurrentLinks] = useState([]);
+  const [searchParam, setSearchParam] = useSearchParams();
+  const [keyword, setKeyword] = useState("");
 
   const loadLinks = async () => {
-    const links = await getLinks(currentFolder.id);
-    setCurrentLinks(links["data"]);
+    const links = await getLinksByKeyword(currentFolder.id, keyword);
+    setCurrentLinks(links);
   };
+
+  // 쿼리 스트링이 바뀔 때 마다 keyword 세팅
+  useEffect(() => {
+    setKeyword(searchParam.get("keyword"));
+  }, [searchParam]);
+
   useEffect(() => {
     loadLinks();
-  }, [currentFolder]);
+  }, [currentFolder, keyword]);
 
   return currentLinks.length === 0 ? (
     <NoLink />

@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const Image = styled.img`
   position: absolute;
@@ -30,10 +31,24 @@ const SearchInputFormContainer = styled.div`
 `;
 
 const SearchInputForm = () => {
+  const [searchKeyword, setSearchKeyword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    if (e.keyCode === 13) {
+      navigate(`/folder?keyword=${searchKeyword}`);
+    }
+  };
+
   return (
     <SearchInputFormContainer>
       <Image src="/icons/search_icon.svg" alt="search icon" />
-      <Input type="text" placeholder="링크를 검색해 보세요." />
+      <Input
+        type="text"
+        placeholder="링크를 검색해 보세요."
+        onChange={(e) => setSearchKeyword(e.target.value)}
+        onKeyDown={handleSubmit}
+      />
     </SearchInputFormContainer>
   );
 };

@@ -5,38 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4e5353b4-1a6e-4d69-b0cc-8adf18cfaf93" name="Changes" comment="docs: 확장자 통일">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-actionIcon/ActionIcon.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-actionIcon/ActionIconList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-button/AddFolderButton.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-card/Card.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-card/CardList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-input/AddLinkForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-input/SearchInputForm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-layout/FolderHeaderLayout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-layout/MainLayout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-tag/Tag.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-tag/TagList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-user/UserProfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/Footer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/Header.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-button/Button.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-button/IconButton.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-button/StarButton.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-modal/Modal.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/ui-modal/Modal.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-modal/ModalFolderItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/ui-modal/ModalFolderItem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-modal/ModalFolderList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/ui-modal/ModalFolderList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/ui-modal/SocialIcons.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/ui-modal/SocialIcons.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/FAQ.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Folder.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LinkDetail.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/NoLink.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Privacy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Shared.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/api.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/constant.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/dateUtils.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-card/CardList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/folder/ui-card/CardList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/ui-input/SearchInputForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/folder/ui-input/SearchInputForm.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/api.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/api.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +76,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;part2-김준영-week9&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;part2-김준영-week13&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/junyeong/Library/Mobile Documents/com~apple~CloudDocs/Desktop/데스크탑 - 김준영의 MacBook Pro/Development/CodeIt_Sprint/4-Weekly-Mission&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -173,6 +145,7 @@
       <workItem from="1709052876650" duration="3235000" />
       <workItem from="1709056146532" duration="345000" />
       <workItem from="1709057669693" duration="637000" />
+      <workItem from="1711048260927" duration="63000" />
     </task>
     <task id="LOCAL-00001" summary="setting">
       <option name="closed" value="true" />
