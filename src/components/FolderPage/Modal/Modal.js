@@ -154,7 +154,7 @@ function Modal({
         <h2>폴더에추가</h2>
         <h3>{selectedLink}</h3>
         <ul>
-          {folders.map((folder) => {
+          {folders?.map((folder) => {
             return (
               <button
                 onClick={handleListClick}

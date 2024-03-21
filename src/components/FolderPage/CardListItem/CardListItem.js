@@ -6,7 +6,7 @@ import kebabImg from "assets/kebab.svg";
 import { useEffect, useRef, useState } from "react";
 
 function CardListItem({ link, setModal, setLink }) {
-  const [btnclicked, setBtnClicked] = useState(false);
+  const [btnClicked, setBtnClicked] = useState(false);
   const searchRef = useRef(null);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ function CardListItem({ link, setModal, setLink }) {
 
   const handleKebabBtnClick = (event) => {
     event.preventDefault();
-    if (!btnclicked) {
+    if (!btnClicked) {
       setBtnClicked(true);
     } else {
       setBtnClicked(false);
@@ -45,7 +45,7 @@ function CardListItem({ link, setModal, setLink }) {
 
     setModal(value);
     setLink(seletedLink);
-    if (btnclicked) {
+    if (btnClicked) {
       setBtnClicked(false);
     }
   };
@@ -85,7 +85,7 @@ function CardListItem({ link, setModal, setLink }) {
         ref={searchRef}
         onClick={handleKebabListClick}
         className={`${style["kebab-list"]} ${
-          btnclicked === true ? style.selected : ""
+          btnClicked === true ? style.selected : ""
         }`}
       >
         <div className={style.btns}>
