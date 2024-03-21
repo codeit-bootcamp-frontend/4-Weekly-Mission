@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e5353b4-1a6e-4d69-b0cc-8adf18cfaf93" name="Changes" comment="refactor: 아이콘 버튼 컴포넌트 수정">
-      <change afterPath="$PROJECT_DIR$/public/icons/search_delete_icon.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="4e5353b4-1a6e-4d69-b0cc-8adf18cfaf93" name="Changes" comment="feat: 검색어 지우기 기능 구현">
       <change beforePath="$PROJECT_DIR$/src/components/folder/ui-input/SearchInputForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/folder/ui-input/SearchInputForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/sharing/Icons.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/Icons.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,15 +142,7 @@
       <workItem from="1709052876650" duration="3235000" />
       <workItem from="1709056146532" duration="345000" />
       <workItem from="1709057669693" duration="637000" />
-      <workItem from="1711048260927" duration="2819000" />
-    </task>
-    <task id="LOCAL-00002" summary="setting">
-      <option name="closed" value="true" />
-      <created>1707425134770</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1707425134770</updated>
+      <workItem from="1711048260927" duration="2890000" />
     </task>
     <task id="LOCAL-00003" summary="feat: Header 내 프로필 정보 생성">
       <option name="closed" value="true" />
@@ -539,7 +528,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711049818043</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="feat: 검색어 지우기 기능 구현">
+      <option name="closed" value="true" />
+      <created>1711051141774</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1711051141780</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -558,7 +555,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="refactor: 컴포넌트 네이밍 수정 및 이미지 로드 수정" />
     <MESSAGE value="fix: 이미지 로드 경로 수정" />
     <MESSAGE value="feat: Folder 페이지 생성 및 버튼, 검색창 스타일 상속 작업" />
     <MESSAGE value="feat: TagBox 컴포넌트 생성" />
@@ -583,6 +579,7 @@
     <MESSAGE value="docs: 확장자 통일" />
     <MESSAGE value="feat: 링크 검색 기능 구현" />
     <MESSAGE value="refactor: 아이콘 버튼 컴포넌트 수정" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor: 아이콘 버튼 컴포넌트 수정" />
+    <MESSAGE value="feat: 검색어 지우기 기능 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 검색어 지우기 기능 구현" />
   </component>
 </project>

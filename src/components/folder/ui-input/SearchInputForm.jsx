@@ -56,6 +56,7 @@ const SearchInputForm = () => {
   const deleteKeyword = () => {
     setSearchKeyword("");
     inputRef.current.value = "";
+    navigate(`/folder`);
   };
 
   return (
