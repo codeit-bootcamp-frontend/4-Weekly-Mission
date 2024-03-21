@@ -1,0 +1,101 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+
+  @media (min-width: 768px) {
+    row-gap: 2.4rem;
+  }
+}
+
+.container .button-container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+
+  @media (min-width: 768px) {
+    grid-row-gap: 2.4rem;
+    grid-column-gap: 1.2rem;
+    align-items: center;
+    column-gap: 1.2rem;
+    display: grid;
+    grid-template-areas:
+      "folders folders add-button"
+      "folder-name buttons buttons";
+    justify-content: space-between;
+    row-gap: 2.4rem;
+  }
+}
+
+.container .folder-buttons {
+  -webkit-column-gap: 0.8rem;
+  column-gap: 0.8rem;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  grid-area: folders;
+  row-gap: 1.2rem;
+}
+
+.container .add-button-container {
+  bottom: 10.1rem;
+  grid-area: add-button;
+  left: 50%;
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 100;
+
+  @media (min-width: 768px) {
+    justify-self: flex-end;
+    position: static;
+    transform: none;
+  }
+}
+
+.add-button {
+  align-items: center;
+  border-radius: 2rem;
+  color: #e7effb;
+  gap: 0.4rem;
+  display: flex;
+  font-size: 1.6rem;
+  font-weight: 500;
+  height: 3.5rem;
+  padding: 0 2.4rem;
+  background-color: var(--primary);
+
+  @media (min-width: 768px) {
+    background-color: transparent;
+    color: #6d6afe;
+    padding: 0;
+  }
+}
+
+.container .selected-btn {
+  font-size: 2rem;
+  font-weight: 600;
+  grid-area: folder-name;
+  letter-spacing: -0.02rem;
+  margin-top: 1.6rem;
+
+  @media (min-width: 768px) {
+    font-size: 2.4rem;
+    margin-top: 0;
+  }
+}
+
+.container .icon-button-container {
+  gap: 1.2rem;
+  display: flex;
+  grid-area: buttons;
+  justify-self: flex-start;
+
+  @media (min-width: 768px) {
+    justify-self: flex-end;
+  }
+}
+
+.container .icon-button-container button {
+  border: none;
+}
