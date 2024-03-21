@@ -35,7 +35,9 @@ const AddFolderModal = ({ subTitle }) => {
           </FolderButton>
         ))}
       </ButtonContainer>
-      <Button className="modal">추가하기</Button>
+      <Background>
+        <StyledButton className="modal">추가하기</StyledButton>
+      </Background>
     </Container>
   );
 };
@@ -46,6 +48,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1.8rem;
+  position: relative;
 `;
 const StyledTitle = styled.div`
   font-size: 2rem;
@@ -68,6 +71,7 @@ const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+  margin-bottom: 5rem;
 `;
 const FolderButton = styled.button`
   width: 28rem;
@@ -95,5 +99,18 @@ const FlexContainer = styled.div`
   display: flex;
   gap: 0.8rem;
 `;
-
+const Background = styled.div`
+  position: fixed;
+  bottom: 29rem;
+  border-radius: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36rem;
+  height: 7rem;
+  background-color: ${({ theme }) => theme.white};
+`;
+const StyledButton = styled(Button)`
+  width: 28rem;
+`;
 export default AddFolderModal;
