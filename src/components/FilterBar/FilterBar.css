@@ -63,8 +63,13 @@
 
 .filterBar {
   display: flex;
-  justify-content: start;
+  justify-content: space-between;
   width: 1080px;
+  gap: 12px;
+}
+
+.filterBarLeft {
+  display: flex;
   gap: 12px;
 }
 
@@ -93,4 +98,47 @@
   font-weight: 600;
   line-height: normal;
   letter-spacing: -0.2px;
+}
+
+.addButton {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  padding-top: 10px;
+  color: #6d6afe;
+  text-align: center;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+
+.floatingButton {
+  display: none;
+}
+
+@media (min-width: 357px) and (max-width: 767px) {
+  .floatingButton {
+    position: fixed;
+    bottom: 101px;
+    display: flex;
+    padding: 8px 24px;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    z-index: 2;
+
+    border-radius: 20px;
+    border: 1px solid var(--Linkbrary-white, #fff);
+    background: var(--Linkbrary-primary-color, #6d6afe);
+    color: var(--Linkbrary-gray10, #e7effb);
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.3px;
+  }
 }

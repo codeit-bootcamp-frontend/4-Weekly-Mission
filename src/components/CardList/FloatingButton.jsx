@@ -53,7 +53,7 @@ const FloatingButton = styled.button`
   }
 `;
 
-export default function Main() {
+export default function FloatingButton() {
   return (
     <main id="mainShared">
       <Bar>

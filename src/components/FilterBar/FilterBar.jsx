@@ -39,19 +39,29 @@ export default function FilterBar() {
   }
   return (
     <div className="filterBarArea">
+      <div className="floatingButton">
+        폴더 추가 <img src={`${process.env.PUBLIC_URL}/images/addWhite.svg`} alt="Add Icon"></img>
+      </div>
       <div className="filterBar">
-        {folderData.map(({ id, name }) => (
-          <button
-            key={id}
-            className={`filterBarButton ${folderId == id ? 'selected' : ''}`}
-            type="button"
-            value={id}
-            onClick={() => {
-              handleChange(id, name);
-            }}>
-            {name}
-          </button>
-        ))}
+        <div className="filterBarLeft">
+          {folderData.map(({ id, name }) => (
+            <button
+              key={id}
+              className={`filterBarButton ${folderId == id ? 'selected' : ''}`}
+              type="button"
+              value={id}
+              onClick={() => {
+                handleChange(id, name);
+              }}>
+              {name}
+            </button>
+          ))}
+        </div>
+        <div className="filterBarRight">
+          <div className="addButton">
+            폴더 추가 <img src={`${process.env.PUBLIC_URL}/images/add.svg`} alt="Add Icon"></img>
+          </div>
+        </div>
       </div>
       <div className="folderName">{folderName}</div>
       <div className={!linksData.length ? '' : 'cardStyle'}>
