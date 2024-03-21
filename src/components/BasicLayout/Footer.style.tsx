@@ -7,14 +7,12 @@ export const Footer = styled.footer`
   background-color: var(--LBrary-Black);
   width: 100%;
   margin: 0;
-  margin-top: 60px;
   padding: 32px 104px 64px;
   height: 160px;
 
   @media (max-width: 767px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 20px;
     padding: 32px;
     row-gap: 60px;
   }

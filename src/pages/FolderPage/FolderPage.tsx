@@ -21,6 +21,7 @@ import {
   LinkCardFunctionObjectType,
   LinkFolderFunctionObjectType,
 } from "src/@types/ModalFunctionDataTypes";
+type handleCurrentFolderChangeType = (id: number, name: string) => void;
 
 /**
  * @param userId 상위 페이지로부터 전달 받을 userId 정보
@@ -54,14 +55,15 @@ export default function FolderPage({ userId = 1 }) {
   const addLinkBarObserveRef = useRef<HTMLDivElement>(null);
   const footerObserveRef = useRef<HTMLDivElement>(null);
 
-  const addLinkBarObserver = new IntersectionObserver((entries) => {
-    entries.map((entry) => {
+  const addLinkBarObserver = new IntersectionObserver((entries: any) => {
+    entries.map((entry: any) => {
       if (entry.target === addLinkBarObserveRef.current) {
         if (entry.isIntersecting) {
           setIsLinkAddBarVisible(true);
         } else {
           setIsLinkAddBarVisible(false);
         }
+        return 0;
       }
 
       if (entry.target === footerObserveRef.current) {
@@ -71,6 +73,7 @@ export default function FolderPage({ userId = 1 }) {
           setIsFooterVisible(false);
         }
       }
+      return 0;
     });
   });
 
@@ -100,8 +103,6 @@ export default function FolderPage({ userId = 1 }) {
     setOriginItems(data);
     setItems(data);
   };
-
-  type handleCurrentFolderChangeType = (id: number, name: string) => void;
 
   const handleCurrentFolderChange: handleCurrentFolderChangeType = (
     id,
@@ -263,7 +264,7 @@ export default function FolderPage({ userId = 1 }) {
         ) : (
           <>
             <LinkCardCollection
-              items={items}
+              items={[...items, ...items]}
               favorite={true}
               kebab={kebabActions}
             />

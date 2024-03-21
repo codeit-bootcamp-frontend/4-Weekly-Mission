@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const FolderPageMain = styled.main`
   position: relative;
   max-width: 1060px;
-  margin: 0 auto;
+  margin: 0 auto 6rem;
   padding-top: 4rem;
   
 
