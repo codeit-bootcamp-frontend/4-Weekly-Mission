@@ -14,30 +14,30 @@ export const ModalBackground = styled.div`
 export const ModalTitle = styled.h1`
   color: var(--LBrary-Gray100);
   font-family: Pretendard;
-  font-size: 20px;
+  font-size: 2rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
 `;
 
 export const ModalCaption = styled.span`
   color: var(--Linkbrary-gray60, #9fa6b2);
-  margin-top: 8px;
+  margin-top: 0.8rem;
   text-align: center;
   font-family: Pretendard;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 22px; /* 157.143% */
+  line-height: 2.2rem;
 `;
 
 export const ModalWrapper = styled.section`
-  max-width: 360px;
+  max-width: 36rem;
   text-align: center;
   background-color: white;
   border-radius: 15px;
-  padding: 32px 40px;
+  padding: 3.2rem 4rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -47,10 +47,10 @@ export const ModalWrapper = styled.section`
 export const ModalInput = styled.input`
   display: flex;
   width: 280px;
-  padding: 18px 15px;
+  padding: 1.8rem 1.5rem;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
+  border-radius: 0.8rem;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background-color: var(--Linkbrary-white, #fff);
 
@@ -61,8 +61,8 @@ export const ModalInput = styled.input`
 
 export const ModalCloseButton = styled.button`
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 1.6rem;
+  right: 1.6rem;
   border: none;
   background-color: transparent;
   padding: 0;
@@ -71,20 +71,20 @@ export const ModalCloseButton = styled.button`
 export const ModalButton = styled.button<{ $errored?: boolean }>`
   color: var(--Grey-Light, #f5f5f5);
   font-family: Pretendard;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
 
   border: none;
-  margin-top: 15px;
+  margin-top: 1.5rem;
   display: flex;
-  width: 280px;
-  padding: 16px 20px;
+  width: 28rem;
+  padding: 1.6rem 2rem;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  border-radius: 8px;
+  gap: 1rem;
+  border-radius: 0.8rem;
   background: ${({ $errored }) =>
     $errored === true
       ? "var(--Linkbrary-red, #ff5b56)"
@@ -93,7 +93,7 @@ export const ModalButton = styled.button<{ $errored?: boolean }>`
 
 export const ShareButtonLayout = styled.div`
   display: flex;
-  gap: 4px;
+  gap: 0.4rem;
   flex-direction: column;
-  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
 `;

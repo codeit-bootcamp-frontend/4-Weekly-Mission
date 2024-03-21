@@ -5,8 +5,8 @@ export const SubFolderDesireToAddLinkButton = styled.button<{
 }>`
   display: flex;
   justify-content: space-between;
-  gap: 4px;
-  padding: 8px;
+  gap: 0.4rem;
+  padding: 0.8rem;
   border: none;
   background-color: transparent;
   align-items: center;
@@ -23,18 +23,18 @@ export const SubFolderDesireToAddLinkButton = styled.button<{
     color: var(--Linkbrary-gray100, #373740);
     /* Linkbrary/body1-regular */
     font-family: Pretendard;
-    font-size: 16px;
+    font-size: 1.6rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 150% */
+    line-height: 2.4rem; /* 150% */
   }
 
   span {
-    margin-left: 8px;
+    margin-left: 0.8rem;
     color: var(--Linkbrary-gray60, #9fa6b2);
     /* Linkbrary/body2-regular */
     font-family: Pretendard;
-    font-size: 14px;
+    font-size: 1.4rem;
     font-style: normal;
     font-weight: 400;
     line-height: normal;

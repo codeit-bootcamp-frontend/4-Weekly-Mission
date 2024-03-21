@@ -2,15 +2,15 @@ import styled from "styled-components";
 
 export const ModalBox = styled.div`
   display: flex;
-  gap: 32px;
+  gap: 3.2rem;
 
   color: var(--Linkbrary-gray100, #373740);
   text-align: center;
   font-family: Inter;
-  font-size: 13px;
+  font-size: 1.3rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 15px; /* 115.385% */
+  line-height: 1.5rem; /* 115.385% */
 `;
 
 const BackgroundColorList: any = {
@@ -31,9 +31,9 @@ export const ShareTypeButton = styled.button<{ $shareType: string }>`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  height: 42px;
-  width: 42px;
-  margin-bottom: 10px;
+  height: 4.2rem;
+  width: 4.2rem;
+  margin-bottom: 1rem;
 
   background-color: ${({ $shareType }) => BackgroundColorList[$shareType]};
 `;

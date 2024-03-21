@@ -7,19 +7,19 @@ export const Footer = styled.footer`
   background-color: var(--LBrary-Black);
   width: 100%;
   margin: 0;
-  padding: 32px 104px 64px;
+  padding: 3.2rem 10.4rem 6.4rem;
   height: 160px;
 
   @media (max-width: 767px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 32px;
-    row-gap: 60px;
+    padding: 3.2rem;
+    row-gap: 6rem;
   }
 
   & address {
     display: flex;
-    gap: 30px;
+    gap: 3rem;
     font-family: acme;
     font-size: 1.6rem;
     font-weight: 400;
@@ -44,7 +44,7 @@ export const Footer = styled.footer`
 
 export const FooterSocialListSection = styled.section`
   display: flex;
-  gap: 12px;
+  gap: 1.2rem;
   align-items: center;
   justify-content: flex-end;
 `;

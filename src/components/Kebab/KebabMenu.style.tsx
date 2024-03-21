@@ -4,17 +4,17 @@ export const KebabMenuOriginPosition = styled.div`
   display: flex;
   position: absolute;
   background-image: none;
-  top: 215px;
-  right: 20px;
+  top: 21.5rem;
+  right: 2rem;
 `;
 
 export const KebabDiv = styled.div`
   position: absolute;
   flex-direction: column;
   align-items: flex-start;
-  top: 16px;
-  gap: 4px;
-  box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
+  top: 1.6rem;
+  gap: 0.4rem;
+  box-shadow: 0 0.2rem 0.8rem 0 rgba(51, 50, 54, 0.1);
 
   z-index: 1;
 `;
@@ -23,8 +23,8 @@ export const KebabToggleButton = styled.button`
   padding: 0;
   background-color: transparent;
   border: none;
-  width: 21px;
-  height: 17px;
+  width: 2.1rem;
+  height: 1.7rem;
 `;
 
 export const KebabMenuButton = styled.button`
@@ -32,13 +32,13 @@ export const KebabMenuButton = styled.button`
   font-family: Pretendard;
   background-color: var(--LBrary-White);
   border: none;
-  width: 100px;
+  width: 10rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   font-size: 1.4rem;
   background-color: ;
-  padding: 7px 12px;
+  padding: 0.7rem 1.2rem;
   text-align: center;
 
   &:hover {

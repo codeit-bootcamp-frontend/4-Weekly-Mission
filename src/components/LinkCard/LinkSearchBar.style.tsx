@@ -4,16 +4,16 @@ export const SearchBarWrapper = styled.form`
   display: flex;
   position: relative;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 4rem;
 `;
 
 export const Input = styled.input`
   width: 100%;
   background-color: var(--LBrary-GrayLight);
   border-width: 0;
-  border-radius: 10px;
+  border-radius: 1rem;
   border-color: var(--LBrary-white);
-  padding: 15px 41px;
+  padding: 1.5rem 4.1rem;
 
   &:focus {
     outline-color: var(--LBrary-Primary-color);
@@ -23,9 +23,9 @@ export const Input = styled.input`
 export const Label = styled.label`
   position: absolute;
   background-image: url("assets/Icons/Search.svg");
-  width: 16px;
-  height: 16px;
-  margin-left: 16px;
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: 1.6rem;
 `;
 
 export const InputClearButton = styled.button`

@@ -19,43 +19,43 @@ export const Form = styled.form`
   position: relative;
   align-items: center;
 
-  width: 800px;
+  width: 80rem;
   margin: auto;
 
   background-color: var(--LBrary-Background);
 
   @media (max-width: 1124px) {
-    max-width: 704px;
+    max-width: 70.4rem;
   }
 
   @media (max-width: 767px) {
-    max-width: 325px;
+    max-width: 32.5rem;
   }
 `;
 
 export const Label = styled.label`
   position: absolute;
   background-image: url("link.svg");
-  height: 20px;
-  width: 20px;
-  margin-left: 20px;
+  height: 2rem;
+  width: 2rem;
+  margin-left: 2rem;
   background-size: cover;
 
   @media (max-width: 767px) {
-    height: 16px;
-    width: 16px;
-    margin-left: 10px;
+    height: 1.6rem;
+    width: 1.6rem;
+    margin-left: 1rem;
   }
 `;
 
 export const Input = styled.input`
   color: var(--LBrary-Gray60);
-  border: 1px solid var(--LBrary-Primary-color);
+  border: 0.1rem solid var(--LBrary-Primary-color);
   width: 100%;
-  border-radius: 15px;
-  padding: 16px 20px;
-  padding-left: 52px;
-  padding-right: 108px;
+  border-radius: 1.5rem;
+  padding: 1.6rem 2rem;
+  padding-left: 5.2rem;
+  padding-right: 10.8rem;
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 150%;
@@ -65,10 +65,10 @@ export const Input = styled.input`
   }
 
   @media (max-width: 767px) {
-    height: 53px;
-    padding: 8px 10px;
-    padding-left: 34px;
-    padding-right: 108px;
+    height: 5.3rem;
+    padding: 0.8rem 1rem;
+    padding-left: 3.4rem;
+    padding-right: 10.8rem;
     font-size: 1.4rem;
     font-weight: 400;
     line-height: normal;
@@ -78,25 +78,25 @@ export const Input = styled.input`
 export const Button = styled(PrimaryButton)`
   font-family: pretendard;
   position: absolute;
-  margin-left: calc(100% - 101px);
-  margin-right: 20px;
-  width: 81px;
+  margin-left: calc(100% - 10.1rem);
+  margin-right: 2rem;
+  width: 8.1rem;
   color: var(--LBrary-GrayLight);
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  padding: 10px 16px;
+  padding: 1rem 1.6rem;
 
   @media (max-width: 767px) {
-    margin-left: calc(100% - 91px);
-    margin-right: 20px;
-    width: 81px;
+    margin-left: calc(100% - 9.1rem);
+    margin-right: 2rem;
+    width: 8.1rem;
     color: var(--LBrary-GrayLight);
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    padding: 10px 16px;
+    padding: 1rem 1.6rem;
   }
 `;

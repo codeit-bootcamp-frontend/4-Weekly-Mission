@@ -6,35 +6,35 @@ export const SharePageProfileSection = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 60px;
+  padding-top: 2rem;
+  padding-bottom: 6rem;
 
   @media (max-width: 767px) {
-    padding-top: 10px;
-    padding-bottom: 40px;
+    padding-top: 1rem;
+    padding-bottom: 4rem;
   }
 `;
 
 export const SharePageProfileImg = styled.img`
-  width: 60px;
-  height: 60px;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
 
   @media (max-width: 767px) {
-    width: 40px;
-    height: 40px;
+    width: 4rem;
+    height: 4rem;
   }
 `;
 
 export const SharePageFolderOwnerName = styled.p`
-  margin-top: 12px;
+  margin-top: 1.2rem;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: 150%;
 
   @media (max-width: 767px) {
-    margin-top: 6px;
+    margin-top: 0.6rem;
     font-size: 1.4rem;
     font-weight: 400;
     line-height: 100%;
@@ -43,7 +43,7 @@ export const SharePageFolderOwnerName = styled.p`
 
 export const SharePageFolderName = styled.h1`
 
-margin-top: 20px;
+  margin-top: 2rem;
   font-size: 4rem;
   font-style: normal;
   font-weight: 600;

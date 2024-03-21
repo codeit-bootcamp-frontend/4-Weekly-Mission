@@ -44,8 +44,12 @@ function FolderCard({ contents, favorite, kebab }: FolderCardDataPropType) {
 
           <S.TextSection>
             <S.TextPassedTime>{passedTime}</S.TextPassedTime>
-            <S.TextLinkDescription>{description}</S.TextLinkDescription>
-            <S.TextLinkCreatedDate>{editedTime}</S.TextLinkCreatedDate>
+            <S.TextLinkDescription className="lb-body1-regular">
+              {description}
+            </S.TextLinkDescription>
+            <S.TextLinkCreatedDate className="lb-body2-regular">
+              {editedTime}
+            </S.TextLinkCreatedDate>
           </S.TextSection>
         </Link>
       </S.CardWrapper>

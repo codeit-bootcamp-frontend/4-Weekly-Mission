@@ -15,18 +15,18 @@ export const Nav = styled.nav<{ $isSticky: boolean }>`
 
 export const NavWrapper = styled.div`
   display: flex;
-  padding: 20px 200px;
+  padding: 2rem 20rem;
   align-items: center;
   justify-content: space-between;
 
   @media (max-width: 1199px) {
     width: 100%;
-    padding: 20px 32px;
+    padding: 2rem 3.2rem;
     margin: 0 auto;
-    max-width: 864px;
+    max-width: 86.4rem;
 
     & img {
-      width: 88.6px;
+      width: 8.86rem;
     }
   }
 `;
@@ -35,9 +35,9 @@ export const NavLoginButton = styled(PrimaryButton)`
   width: 12.8rem;
 
   @media (max-width: 767px) {
-    width: 80px;
+    width: 8rem;
     font-size: 1.4rem;
-    padding: 10px 16px;
+    padding: 1rem 1.6rem;
   }
 `;
 
@@ -45,13 +45,13 @@ export const NavProfileSection = styled.section`
   color: var(--LBrary-Gray100);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.6rem;
   font-size: 1.4rem;
   font-weight: 400;
 
   & img {
-    width: 28px;
-    height: 28px;
+    width: 2.8rem;
+    height: 2.8rem;
     border-radius: 50%;
   }
 
