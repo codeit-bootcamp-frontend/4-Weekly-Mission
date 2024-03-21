@@ -1,14 +1,9 @@
 import { ButtonHTMLAttributes, useRef } from "react";
 import * as S from "./LinkSearchBar.style";
 
-const handleInputClearButtonReveal = (
-  e: React.FormEvent,
-  setIsRevealed: () => void
-) => {};
-
 interface LinkSearchBarPropType {
   cardFilter: string;
-  setCardFilter: any;
+  setCardFilter: (arg: string) => void;
 }
 
 const LinkSearchBar = function ({
