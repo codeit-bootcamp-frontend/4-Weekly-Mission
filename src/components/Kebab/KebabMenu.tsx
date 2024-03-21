@@ -3,7 +3,7 @@ import * as S from "./KebabMenu.style";
 import { LinkCardFunctionObjectType } from "src/@types/ModalFunctionDataTypes";
 interface KebabMenuPropType {
   items: LinkCardFunctionObjectType[];
-  data?: string;
+  data: string;
 }
 
 export default function KebabMenu({ items, data }: KebabMenuPropType) {

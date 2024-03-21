@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, useRef } from "react";
+import { useRef } from "react";
 import * as S from "./LinkSearchBar.style";
 
 interface LinkSearchBarPropType {

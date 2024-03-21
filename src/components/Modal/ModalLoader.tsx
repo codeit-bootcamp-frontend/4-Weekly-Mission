@@ -1,12 +1,20 @@
 import * as S from "./ModalLoader.style";
 
 // Components
-import ModalChangeSubFolderName from "./ModalChangeSubFolderName/ModalChageSubFolderName";
+import ModalChangeSubFolderName from "./ModalChangeSubFolderName/ModalChangeSubFolderName";
 import ModalAddSubFolder from "./ModalAddSubFolder/ModalAddSubFolder";
 import ModalShareSubFolder from "./ModalShareSubFolder/ModalShareSubFolder";
 import ModalRemoveSubFolder from "./ModalRemoveSubFolder/ModalRemoveSubFolder";
 import ModalRemoveLink from "./ModalRemoveLink/ModalRemoveLink";
 import ModalAddLinkToSubFolder from "./ModalAddLinkToSubFolder/ModalAddLinkToSubFolder";
+
+// Types
+import {
+  ModalDataAddLinkToSubFolder,
+  ModalDataRemoveLink,
+  ModalDataRemoveSubFolder,
+  ModalDataShareSubFolder,
+} from "src/@types/ModalFunctionDataTypes";
 
 interface ModalLoaderPropType {
   modalType: string;

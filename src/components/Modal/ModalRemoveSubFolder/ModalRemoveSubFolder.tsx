@@ -1,6 +1,11 @@
 import * as S from "../ModalLoader.style";
 
-export default function ModalRemoveSubFolder({ modalData }: any) {
+// Type
+import { ModalDataRemoveSubFolder } from "src/@types/ModalFunctionDataTypes";
+
+export default function ModalRemoveSubFolder({
+  modalData,
+}: ModalDataRemoveSubFolder) {
   return (
     <>
       <S.ModalTitle>

@@ -2,14 +2,14 @@ import { FormEvent, useRef } from "react";
 import * as S from "./FolderLinkAddBar.style";
 
 // Type
-import { ModalFunctionAddLinkToSubFolder } from "src/@types/ModalFunctionDataTypes";
+import { ModalDataAddLinkToSubFolder } from "src/@types/ModalFunctionDataTypes";
 
 type HandleLinkAddType = (e: FormEvent) => void;
 
 export default function FolderLinkAddBar({
   handleSubmit,
   subFolderList,
-}: ModalFunctionAddLinkToSubFolder) {
+}: ModalDataAddLinkToSubFolder) {
   const addLinkInputRef = useRef<HTMLInputElement>(null);
 
   const handleLinkAdd: HandleLinkAddType = (e) => {

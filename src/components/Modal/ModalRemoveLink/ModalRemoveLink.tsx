@@ -1,6 +1,9 @@
 import * as S from "../ModalLoader.style";
 
-export default function ModalRemoveLink({ modalData }: any) {
+// Type
+import { ModalDataRemoveLink } from "src/@types/ModalFunctionDataTypes";
+
+export default function ModalRemoveLink({ modalData }: ModalDataRemoveLink) {
   return (
     <>
       <S.ModalTitle>

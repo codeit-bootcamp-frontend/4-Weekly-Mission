@@ -7,7 +7,7 @@ import { LinkCardFunctionObjectType } from "src/@types/ModalFunctionDataTypes";
 
 interface FolderCardDataPropType {
   contents: UserLinkDataType;
-  favorite?: boolean;
+  favorite: boolean;
   kebab?: LinkCardFunctionObjectType[];
 }
 

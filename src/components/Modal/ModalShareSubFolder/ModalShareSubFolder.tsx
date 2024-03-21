@@ -2,7 +2,11 @@ import * as S from "../ModalLoader.style";
 import * as SS from "./ModalShareSubFolder.style";
 import shareKakao from "src/Utils/KakaoTalkShare";
 
-export default function ModalShareSubFolder({ modalData }: any) {
+import { ModalDataShareSubFolder } from "src/@types/ModalFunctionDataTypes";
+
+export default function ModalShareSubFolder({
+  modalData,
+}: ModalDataShareSubFolder) {
   const BASE_URL = "https://animated-kitten-84730c.netlify.app";
   const query = `/shared/${modalData[1]}`;
 
