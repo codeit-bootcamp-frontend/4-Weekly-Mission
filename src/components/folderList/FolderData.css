@@ -6,4 +6,13 @@
   border-radius: 5px;
   border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
   background: #fff;
+  cursor: pointer;
+}
+
+.folderData.selected {
+  /* 선택된 상태일 때의 스타일 */
+  border-radius: 5px;
+  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
+  background: var(--Linkbrary-primary-color, #6d6afe);
+  color: #fff;
 }

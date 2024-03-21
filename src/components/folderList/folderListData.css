@@ -3,4 +3,18 @@
   flex-direction: row;
   list-style: none;
   gap: 8px;
+  margin-top: 24px;
+}
+
+.folderCard--title {
+  color: #000;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
+
+.folderCardPage--content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }

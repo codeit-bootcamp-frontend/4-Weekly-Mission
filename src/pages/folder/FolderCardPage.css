@@ -4,9 +4,3 @@
   align-items: center;
   justify-content: center;
 }
-
-.folderCardPage--content {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}

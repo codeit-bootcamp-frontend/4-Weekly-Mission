@@ -17,10 +17,11 @@ export const getFolderList = async (userId) => {
 export const getLinks = async (userId, folderId = null) => {
   const url = folderId
     ? `${BASE_URL}/users/${userId}/links?folderId=${folderId}`
-    : `${BASE_URL}/api/users/${userId}/links`;
+    : `${BASE_URL}/users/${userId}/links`;
   try {
     const response = await fetch(url);
-    return response.json(); // JSON 형식으로 파싱
+    const data = await response.json();
+    return data.data;
   } catch (error) {
     console.error("Error fetching links:", error);
     throw error;
