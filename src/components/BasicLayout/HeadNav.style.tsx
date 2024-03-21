@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { PrimaryButton } from "../PrimaryButton";
 
-export const Nav = styled.nav`
+export const Nav = styled.nav<{ $isSticky: boolean }>`
   background-color: var(--LBrary-Background);
-  position: sticky;
+  position: ${({ $isSticky }) => ($isSticky ? "sticky" : "relative")};
   margin: 0;
   top: 0;
   z-index: 1;

@@ -45,9 +45,9 @@ const ProfileData = function () {
   );
 };
 
-export default function HeadNav() {
+export default function HeadNav({ isSticky = true }) {
   return (
-    <S.Nav>
+    <S.Nav $isSticky={isSticky}>
       <S.NavWrapper>
         <Link to="/">
           <img src="logo.svg" alt="Linkbrary Logo" />

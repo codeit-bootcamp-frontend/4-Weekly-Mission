@@ -2,6 +2,7 @@ import styled from "styled-components";
 import HeadNav from "src/Components/BasicLayout/HeadNav";
 
 export const FolderPageMain = styled.main`
+  position: relative;
   max-width: 1060px;
   margin: 40px auto;
 
@@ -14,10 +15,6 @@ export const FolderPageMain = styled.main`
     max-width: 389px;
     padding: 20px 32px;
   }
-`;
-
-export const FolderHeadNav = styled(HeadNav)`
-  position: relative;
 `;
 
 export const AddFolderButton = styled.button`

@@ -13,6 +13,7 @@ import {
 import LinkCardCollection from "src/Components/LinkCard/LinkCardCollection";
 import LinkSearchBar from "src/Components/LinkCard/LinkSearchBar";
 import ModalLoader from "src/Components/Modal/ModalLoader";
+import HeadNav from "src/Components/BasicLayout/HeadNav";
 
 // Types
 import UserLinkDataType from "src/@types/UserLinkDataType";
@@ -182,7 +183,7 @@ export default function FolderPage({ userId = 1 }) {
           }}
         />
       )}
-      <S.FolderHeadNav />
+      <HeadNav isSticky={false} />
       <FolderLinkAddBar
         handleSubmit={handleModalOpen}
         subFolderList={subFolderList}
