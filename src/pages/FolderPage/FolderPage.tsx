@@ -192,7 +192,7 @@ export default function FolderPage({ userId = 1 }) {
         subFolderList={subFolderList}
         isHidden={isLinkAddBarHidden}
       />
-      <S.FolderPageMain>
+      <S.FolderPageMain $linkAddBarMargin={isLinkAddBarHidden}>
         <S.SubFolderUtil>
           <SubFoldersList
             subFolderData={subFolderList}

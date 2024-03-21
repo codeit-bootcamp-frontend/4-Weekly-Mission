@@ -1,10 +1,12 @@
 import styled from "styled-components";
 import HeadNav from "src/Components/BasicLayout/HeadNav";
 
-export const FolderPageMain = styled.main`
+export const FolderPageMain = styled.main<{ $linkAddBarMargin: boolean }>`
   position: relative;
   max-width: 1060px;
-  margin: 40px auto;
+  margin: 4rem auto;
+  margin-top: ${({ $linkAddBarMargin }) =>
+    $linkAddBarMargin ? "24.8rem" : "4rem"};  
 
   @media (max-width: 1124px) {
     max-width: 768px;
@@ -14,6 +16,9 @@ export const FolderPageMain = styled.main`
   @media (max-width: 767px) {
     max-width: 389px;
     padding: 20px 32px;
+    margin-top: ${({ $linkAddBarMargin }) =>
+      $linkAddBarMargin ? "13.7rem" : "2rem"};  
+    11.7rem
   }
 `;
 

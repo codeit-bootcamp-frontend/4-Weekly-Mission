@@ -7,6 +7,11 @@ export const FolderLinkAddBarWrapper = styled.div<{ $isHidden: boolean }>`
   width: 100%;
   bottom: 0;
   background-color: var(--LBrary-Background);
+  z-index: 1;
+
+  @media (max-width: 767px) {
+    padding: ${({ $isHidden }) => ($isHidden ? "16px 0" : "24px 0 40px")};
+  }
 `;
 
 export const Form = styled.form`
