@@ -7,23 +7,25 @@ import { User } from "../../../../types";
 
 export function FolderHeader() {
   const [user, setUser] = useState<User>({} as User);
-  const [_, error, getUserAsync] = useAsync(getUser);
+  const [loading, error, getUserAsync] = useAsync(getUser);
 
   const loadUser = async (option: { userId: number }) => {
-    try {
-      const { data } = await getUserAsync(option);
-      setUser(data[0]);
-    } catch (error) {
-      console.log(error);
-    }
+    const data = await getUserAsync(option);
+    if (!data) return;
+    setUser(data.data[0]);
   };
 
   useEffect(() => {
     loadUser({ userId: 1 });
   }, []);
 
+  if (loading) {
+    return <div>로딩중</div>;
+  }
+
   return (
     <header className={styles.header}>
+      {error && <div>네트워크 오류입니다. 인터넷 연결상태를 확인해주세요</div>}
       <div className={styles.headings}>
         <h1 className={styles["header-logo"]}>
           <a href="/">
@@ -49,7 +51,6 @@ export function FolderHeader() {
           </a>
         )}
       </div>
-      {error?.message && <div>{error.message}</div>}
     </header>
   );
 }

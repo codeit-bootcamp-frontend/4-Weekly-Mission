@@ -31,6 +31,7 @@ export const ShareModal = forwardRef(
     };
 
     useEffect(() => {
+      if (!Kakao) return;
       Kakao.cleanup();
       console.log("key:", process.env.REACT_APP_KAKAO_KEY);
       Kakao.init(process.env.REACT_APP_KAKAO_KEY);

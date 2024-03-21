@@ -10,12 +10,16 @@ import { useEffect, useRef, useState } from "react";
 import { getFolderList, getLinks } from "@api/api";
 import { useSearch } from "@hooks/useSearch";
 import SearchInput from "components/SearchInput";
+import { useAsync } from "@hooks/useAsync";
 
 export default function FolderMain() {
   const [folders, setFolders] = useState([]);
   const [selectedName, setSelectedName] = useState("전체");
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [links, setLinks] = useState([]);
+  const [folderListLoading, folderListError, getFolderListAsync] =
+    useAsync(getFolderList);
+  const [linksLoading, linksError, getLinksAsync] = useAsync(getLinks);
   const search = useSearch();
   const [style, setStyle] = useState({});
   const flag = useRef(false);
@@ -26,27 +30,19 @@ export default function FolderMain() {
   };
 
   const loadFolderList = async (option: { userId: number }) => {
-    try {
-      const folders = await getFolderList(option);
-      setFolders(folders.data);
-    } catch (error) {
-      console.error(error);
-    }
+    const folders = await getFolderListAsync(option);
+    if (!folders) return;
+    setFolders(folders.data);
   };
 
   const loadLinks = async (option: {
     userId: number;
     folderId: number | null;
   }) => {
-    try {
-      const links = await getLinks(
-        option as { userId: number; folderId: number }
-      );
-      console.log(links);
-      setLinks(links.data);
-    } catch (error) {
-      console.error(error);
-    }
+    const links = await getLinksAsync(option);
+    console.log(links);
+    if (!links) return;
+    setLinks(links.data);
   };
 
   useEffect(() => {
@@ -102,6 +98,9 @@ export default function FolderMain() {
 
   return (
     <main>
+      {(folderListError || linksError) && (
+        <div>네트워크 오류입니다. 인터넷 연결상태를 확인하세요</div>
+      )}
       <div style={{ backgroundColor: "red", height: "180px" }}>
         <FolderAddLinkArea style={style} folders={folders} />
       </div>
@@ -121,10 +120,14 @@ export default function FolderMain() {
         />
         <FolderControl folderName={selectedName} />
 
-        {links?.length === 0 ? (
-          <div className={styles.emptyArea}>저장된 링크가 없습니다</div>
+        {!linksLoading ? (
+          links?.length === 0 ? (
+            <div className={styles.emptyArea}>저장된 링크가 없습니다</div>
+          ) : (
+            <CardList links={links} folders={folders} />
+          )
         ) : (
-          <CardList links={links} folders={folders} />
+          <div>로딩중</div>
         )}
       </div>
       <div id="mainExit"></div>
