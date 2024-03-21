@@ -25,7 +25,7 @@ import {
  *
  * @param userId 상위 페이지로부터 전달 받을 userId 정보
  * @description 폴더 페이지 컴포넌트
- * @remider handleModalOpen의 타입에 일관성이 없어 any타입을 지정해 두었음. 나중에 수정 필요.
+ * @reminder handleModalOpen의 타입에 일관성이 없어 any타입을 지정해 두었음. 나중에 수정 필요.
  * @returns
  */
 export default function FolderPage({ userId = 1 }) {
@@ -40,6 +40,7 @@ export default function FolderPage({ userId = 1 }) {
   );
   const [currentFolderId, setCurrentFolderId] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [originItems, setOriginItems] = useState<UserLinkDataType[]>([]);
   const [items, setItems] = useState<UserLinkDataType[]>([]);
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [currentModalType, setCurrentModalType] = useState("removeLink");
@@ -67,8 +68,8 @@ export default function FolderPage({ userId = 1 }) {
       items.description = items.description ? items.description : "";
       items.title = items.title ? items.title : "";
     });
-    console.log(data);
 
+    setOriginItems(data);
     setItems(data);
   };
 
@@ -109,15 +110,15 @@ export default function FolderPage({ userId = 1 }) {
 
   useEffect(() => {
     if (cardFilter === "") {
-      handleShareLoad(currentFolderQuery);
+      setItems(originItems);
       return;
     }
     setItems(
-      items.filter(
+      originItems.filter(
         (item: UserLinkDataType) =>
-          item.title.includes(cardFilter) ||
-          item.description.includes(cardFilter) ||
-          item.url.includes(cardFilter)
+          item.title.toLowerCase().includes(cardFilter.toLowerCase()) ||
+          item.description.toLowerCase().includes(cardFilter.toLowerCase()) ||
+          item.url.toLowerCase().includes(cardFilter.toLowerCase())
       )
     );
   }, [cardFilter]);
