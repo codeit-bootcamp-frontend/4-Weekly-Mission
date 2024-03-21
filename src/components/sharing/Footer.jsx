@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import IconButton from "./ui-button/IconButton";
+import * as Icons from "./Icons";
 
 const FooterContainer = styled.footer`
   background-color: var(--color-black);
@@ -38,21 +39,11 @@ const CSText = styled.div`
 
 const IconContainer = styled.div`
   display: flex;
-  gap: 10px;
   @media (min-width: 375px) and (max-width: 767px) {
     justify-content: flex-end;
   }
 `;
 
-const SmallIcon = styled(IconButton)`
-  width: 18px;
-  height: 18px;
-`;
-
-const RegularIcon = styled(IconButton)`
-  width: 20px;
-  height: 20px;
-`;
 const Footer = () => {
   return (
     <FooterContainer>
@@ -62,26 +53,26 @@ const Footer = () => {
         <Link to="/faq">FAQ</Link>
       </CSText>
       <IconContainer>
-        <SmallIcon
-          imageSrc="/icons/facebook_logo.png"
-          alt="facebook logo"
-          URL="https://www.facebook.com"
-        />
-        <RegularIcon
-          imageSrc="/icons/twitter_logo.png"
-          alt="twitter logo"
-          URL="https://www.twitter.com"
-        />
-        <RegularIcon
-          imageSrc="/icons/youtube_logo.png"
-          alt="youtube logo"
-          URL="https://www.youtube.com"
-        />
-        <RegularIcon
-          imageSrc="/icons/instagram_logo.png"
-          alt="instagram logo"
-          URL="https://www.instagram.com"
-        />
+        <Link to="https://www.facebook.com">
+          <IconButton>
+            <Icons.Facebook />
+          </IconButton>
+        </Link>
+        <Link to="https://www.twitter.com">
+          <IconButton>
+            <Icons.Twitter />
+          </IconButton>
+        </Link>
+        <Link to="https://www.youtube.com">
+          <IconButton>
+            <Icons.Youtube />
+          </IconButton>
+        </Link>
+        <Link to="https://www.instagram.com">
+          <IconButton>
+            <Icons.Instagram />
+          </IconButton>
+        </Link>
       </IconContainer>
     </FooterContainer>
   );
