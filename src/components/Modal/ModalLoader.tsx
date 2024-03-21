@@ -6,7 +6,7 @@ import ModalAddSubFolder from "./ModalAddSubFolder/ModalAddSubFolder";
 import ModalShareSubFolder from "./ModalShareSubFolder/ModalShareSubFolder";
 import ModalRemoveSubFolder from "./ModalRemoveSubFolder/ModalRemoveSubFolder";
 import ModalRemoveLink from "./ModalRemoveLink/ModalRemoveLink";
-import ModalAddLinkToFolder from "./ModalAddLinkToSubFolder/ModalAddLinkToSubFolder";
+import ModalAddLinkToSubFolder from "./ModalAddLinkToSubFolder/ModalAddLinkToSubFolder";
 
 interface ModalLoaderPropType {
   modalType: string;
@@ -47,7 +47,7 @@ const ModalLoader = ({
         return <ModalRemoveLink modalData={modalData} />;
 
       case "addLinkToFolder":
-        return <ModalAddLinkToFolder modalData={modalData} />;
+        return <ModalAddLinkToSubFolder modalData={modalData} />;
 
       default:
         throw new Error("검증되지 않은 Modal");

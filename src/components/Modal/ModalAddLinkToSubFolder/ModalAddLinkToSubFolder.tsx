@@ -1,12 +1,19 @@
 import { useState } from "react";
 import * as S from "../ModalLoader.style";
 import * as SS from "./ModalAddLinkToSubFolder.style";
+import FolderListDataType from "src/@types/FolderListDataType";
 
-export default function ModalAddLinkToFolder({ modalData }: any) {
+interface ModalAddLinkToSubFolderPropType {
+  modalData: [string, FolderListDataType[]];
+}
+
+export default function ModalAddLinkToSubFolder({
+  modalData,
+}: ModalAddLinkToSubFolderPropType) {
   const [targetLink, [...folderList]] = [...modalData];
   const [SelectedFolder, setSelectedFolder] = useState("");
 
-  const handleSelectFolder = (key: any) => {
+  const handleSelectFolder = (key: string) => {
     setSelectedFolder(key);
   };
 
@@ -18,8 +25,8 @@ export default function ModalAddLinkToFolder({ modalData }: any) {
       </S.ModalTitle>
       <S.ShareButtonLayout>
         {folderList
-          .filter((item: any) => item.favorite !== true)
-          .map((item: any) => (
+          .filter((item) => item.favorite !== true)
+          .map((item) => (
             <SS.SubFolderDesireToAddLinkButton
               onClick={() => handleSelectFolder(item.name)}
               $state={item.name === SelectedFolder}
@@ -27,7 +34,7 @@ export default function ModalAddLinkToFolder({ modalData }: any) {
             >
               <h2>
                 {item.name}
-                <span>{`${item.length || 0}개 링크`}</span>
+                <span>{`${item.link.count || 0}개 링크`}</span>
               </h2>
               {item.name === SelectedFolder && (
                 <img src="check.svg" alt="CheckedFolder" />
