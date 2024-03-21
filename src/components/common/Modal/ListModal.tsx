@@ -3,12 +3,12 @@ import * as S from "./ModalStyle";
 import { CLOSE_BUTTON } from "../../../constnats/image";
 import { AddModalButton } from "../Button/ButtonStyle";
 import { ReactNode } from "react";
-import { Folder } from "../../../constnats/types";
+import { FolderList } from "../../../constnats/types";
 
 interface Props {
   children: ReactNode;
   title: string;
-  folderList: Folder[];
+  folderList: FolderList[];
   onClose?: () => void;
 }
 

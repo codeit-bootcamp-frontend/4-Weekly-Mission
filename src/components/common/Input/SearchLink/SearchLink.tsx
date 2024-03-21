@@ -1,4 +1,4 @@
-import { SEARCH_ICON } from "../../../../constnats/image";
+import { SEARCH_ICON } from "constnats/image";
 import * as S from "./SearchLinkStyle";
 
 const SearchLink = () => {

@@ -9,6 +9,6 @@ export const INSTAGRAM_LINK = "https://www.instagram.com/";
 
 /* SECTION - API 링크 */
 
-export const BASED_URL = "https://bootcamp-api.codeit.kr/api";
+export const BASE_URL = "https://bootcamp-api.codeit.kr/api";
 export const SHARED_API_URL =
   "https://bootcamp-api.codeit.kr/api/sample/folder";

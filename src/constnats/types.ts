@@ -1,42 +1,36 @@
-interface Count {
+export interface Folder {
+  created_at: string;
+  date: string;
+  description: string | null;
+  folder_id: number | null;
+  id: number;
+  image_source: string | null;
+  time: string;
+  title: string | null;
+  updated_at: string | null;
+  url: string;
+}
+
+export interface CardCount {
   count: number;
 }
 
-export interface Link {
-  id: number;
-  created_at: string;
-  updated_at: string;
-  url: string;
-  title: string;
-  description: string;
-  image_source?: string;
-  imageSource?: string;
-  folder_id: null;
-  name: string;
-  user_id: number;
-  favorite: boolean;
-  link: object;
-  time?: string;
-  date?: string;
-}
-
-export interface Folder {
-  id: number | null;
+export interface FolderList {
   created_at?: string;
+  favorite?: boolean;
+  id: number | null;
   name: string;
   user_id?: number;
-  favorite?: boolean;
-  link?: Count;
+  link?: CardCount;
 }
 
-export interface Owner {
+export interface Share {
+  createdAt: string;
+  date: string;
+  description: string;
   id: number;
-  name: string;
-  profileImageSource: string;
-}
-
-export interface User {
-  id: number;
-  name: string;
-  owner: Owner;
+  imageSource: string;
+  time: string;
+  title: string;
+  url: string;
 }

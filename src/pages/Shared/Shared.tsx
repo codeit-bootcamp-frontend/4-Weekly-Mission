@@ -3,19 +3,10 @@ import SharedHeader from "./Header/SharedHeader";
 import SharedMain from "./Main/ShaerdMain";
 import { SHARED_API_URL } from "constnats/constant";
 import { updatedDate, updatedDuration } from "utils/createdAt";
-
-interface Link {
-  id: number;
-  createdAt: string;
-  url: string;
-  description: string;
-  imageSource: string;
-  time?: string;
-  date?: string;
-}
+import { Share } from "constnats/types";
 
 const Shared = () => {
-  const [cardData, setCardData] = useState([]);
+  const [sharedCardData, setSharedCardData] = useState([]);
   const [userData, setUserData] = useState({});
 
   useEffect(() => {
@@ -24,15 +15,15 @@ const Shared = () => {
         const response = await fetch(SHARED_API_URL);
         const responseData = await response.json();
         const userProfileData = responseData.folder;
-        const fetchData = responseData.folder.links.map((link: Link) => ({
+        const sharedCardData = responseData.folder.links.map((link: Share) => ({
           ...link,
           time: updatedDuration(link.createdAt),
           date: updatedDate(link.createdAt),
         }));
         setUserData(userProfileData);
-        setCardData(fetchData);
+        setSharedCardData(sharedCardData);
         console.log(userProfileData);
-        console.log(fetchData);
+        console.log(sharedCardData);
       } catch (error) {
         console.error("Fetch Error:", error);
       }
@@ -44,7 +35,7 @@ const Shared = () => {
   return (
     <>
       <SharedHeader userData={userData} />
-      <SharedMain cardData={cardData} />
+      <SharedMain cardData={sharedCardData} />
     </>
   );
 };

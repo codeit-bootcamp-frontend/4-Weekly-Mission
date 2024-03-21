@@ -3,7 +3,7 @@ import {
   LANDING_MANAGE,
   LANDING_SEARCH,
   LANDING_SHARE,
-} from "../../../constnats/image";
+} from "constnats/image";
 import * as S from "./LandingMainStyle";
 
 const LandingMain = () => {

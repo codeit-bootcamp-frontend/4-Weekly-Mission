@@ -1,13 +1,13 @@
-import { CARD_NONE_IMAGE } from "../../../../constnats/image";
-import { Link } from "../../../../constnats/types";
+import { CARD_NONE_IMAGE } from "constnats/image";
+import { Share } from "constnats/types";
 import * as S from "../../../Folder/Main/Card/CardStyle";
 
 interface Props {
-  cardData: Link[];
+  cardData: Share[];
 }
 
 const Card = ({ cardData }: Props) => {
-  return cardData.map((link: Link) => (
+  return cardData.map((link: Share) => (
     <S.Container key={link.id} href={link.url} target="_blank" rel="noreferrer">
       <S.ImageBox>
         <S.Image

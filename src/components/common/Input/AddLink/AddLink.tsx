@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { AddLinkButton } from "../../Button/ButtonStyle";
-import { LINK_ICON } from "../../../../constnats/image";
 import ListModal from "../../Modal/ListModal";
-import { Folder } from "../../../../constnats/types";
+import { FolderList } from "constnats/types";
+import { LINK_ICON } from "constnats/image";
 import * as S from "./AddLinkStyle";
 
 interface Props {
-  folderList: Folder[];
+  folderList: FolderList[];
 }
 
 const AddLink = ({ folderList }: Props) => {

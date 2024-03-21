@@ -1,10 +1,10 @@
+import SearchLink from "components/common/Input/SearchLink/SearchLink";
 import SharedCard from "./Card/SharedCard";
-import SearchLink from "../../../components/common/Input/SearchLink/SearchLink";
+import { Share } from "constnats/types";
 import * as S from "./SharedMainStyle";
-import { Link } from "constnats/types";
 
 interface Props {
-  cardData: Link[];
+  cardData: Share[];
 }
 
 const SharedMain = ({ cardData }: Props) => {

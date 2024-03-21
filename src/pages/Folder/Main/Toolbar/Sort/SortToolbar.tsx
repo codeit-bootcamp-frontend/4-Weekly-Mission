@@ -1,37 +1,17 @@
-import { useEffect, useState } from "react";
-import { BASED_URL } from "../../../../../constnats/constant";
+import { useState } from "react";
+import { FolderList } from "constnats/types";
 import * as S from "./SortToolbarStyle";
 
-interface Folder {
-  id: number | null;
-  name: string;
-}
-
 interface Props {
-  onChange: (folder: Folder, folderList: Folder[]) => void;
+  folderList: FolderList[];
+  onChange: (folder: FolderList, folderList: FolderList[]) => void;
 }
 
-const Sort = ({ onChange }: Props) => {
-  const [folderList, setFolderList] = useState<Folder[]>([]);
-  const [focus, setFocus] = useState<Number | null>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${BASED_URL}/users/1/folders`);
-        const responseData = await response.json();
-        const folderList = responseData.data;
-        setFolderList(folderList);
-      } catch (error) {
-        console.error("error");
-      }
-    };
-    fetchData();
-  }, []);
-
-  const handleClick = (title: Folder) => {
-    onChange(title, folderList);
+const Sort = ({ folderList, onChange }: Props) => {
+  const [focus, setFocus] = useState<number | null>(null);
+  const handleClick = (title: FolderList) => {
     setFocus(title.id);
+    onChange(title, folderList);
   };
 
   return (

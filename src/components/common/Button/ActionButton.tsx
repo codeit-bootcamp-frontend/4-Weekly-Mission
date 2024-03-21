@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
-import { ADD_FOLDER_ICON, ACTION_BUTTON_ICON } from "../../../constnats/image";
-import * as S from "./ActionButtonStyle";
-
 import InputModal from "../Modal/InputModal";
+import { ADD_FOLDER_ICON, ACTION_BUTTON_ICON } from "constnats/image";
+import * as S from "./ActionButtonStyle";
 
 const ActionButton = () => {
   const [showModal, setShowModal] = useState(false);

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.main`
   position: relative;
   ${({ theme }) => theme.displays.columnCenter};
-
+  height: 100%;
   padding: 40px 32px 100px;
   gap: 40px;
   background: ${({ theme }) => theme.colors.white};

@@ -1,13 +1,12 @@
-import AddLink from "../../../components/common/Input/AddLink/AddLink";
+import AddLink from "components/common/Input/AddLink/AddLink";
+import { FolderList } from "constnats/types";
 import * as S from "./FolderHeaderStyle";
-import { Folder } from "../../../constnats/types";
 
 interface Props {
-  folderList: Folder[];
+  folderList: FolderList[];
 }
 
 const FolderHeader = ({ folderList }: Props) => {
-  console.log(folderList);
   return (
     <S.Container>
       <AddLink folderList={folderList} />
