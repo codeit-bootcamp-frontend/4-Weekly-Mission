@@ -10,7 +10,7 @@ const Container = styled.header`
   background-color: var(--primary-background);
   top: 0;
   height: 93px;
-  z-index: 9999;
+  z-index: 9990;
 
   @media (max-width: 1199px) {
     padding: 20px 32px;

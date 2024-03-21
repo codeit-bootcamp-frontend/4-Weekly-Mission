@@ -1,5 +1,9 @@
 import styled from "styled-components";
 import linkIcon from "../../assets/svg/link.svg";
+import { useState } from "react";
+import { createPortal } from "react-dom";
+import Backdrop from "../common/Backdrop";
+import ModalBase from "../Modal/ModalBase";
 
 const Container = styled.div`
   background-color: var(--primary-background);
@@ -28,7 +32,7 @@ const AddLinkBarInput = styled.input`
   border: 1px solid #6d6afe;
   outline: none;
   font-size: 16px;
-  padding: 0 60px;
+  padding: 0 120px 0 60px;
 `;
 
 const Icon = styled.img`
@@ -38,7 +42,9 @@ const Icon = styled.img`
   width: 20px;
 `;
 
-const AddButton = styled.a`
+const AddButton = styled.button`
+  cursor: pointer;
+  border: none;
   position: absolute;
   top: 17px;
   right: 20px;
@@ -58,13 +64,43 @@ const AddButton = styled.a`
 `;
 
 function AddLink() {
+  const [active, setActive] = useState(false);
+  const [link, setLink] = useState("");
+
+  const openModal = () => setActive(true);
+  const closeModal = () => setActive(false);
+
+  const modal = createPortal(
+    <ModalBase
+      isClose={closeModal}
+      title={"폴더에 추가"}
+      btntext={"추가하기"}
+      addLink={link}
+    />,
+    document.getElementById("modal")
+  );
+
+  const backdrop = createPortal(
+    <Backdrop isClose={closeModal} />,
+    document.getElementById("backdrop")
+  );
+
+  const handleInputChange = (e) => {
+    setLink(e.target.value);
+  };
+
   return (
     <Container>
       <AddLinkBar>
         <Icon src={linkIcon} alt="" />
-        <AddLinkBarInput placeholder="링크를 추가해 보세요" />
-        <AddButton href="#">추가하기</AddButton>
+        <AddLinkBarInput
+          placeholder="링크를 추가해 보세요"
+          onChange={handleInputChange}
+        />
+        <AddButton onClick={openModal}>추가하기</AddButton>
       </AddLinkBar>
+      {active && modal}
+      {active && backdrop}
     </Container>
   );
 }

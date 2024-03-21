@@ -5,14 +5,14 @@ import { formatDate, formatTimeAgo } from "../../utils/dateUtils";
 import starIcon from "../../assets/svg/star.svg";
 import selectedStarIcon from "../../assets/svg/selected_star.svg";
 import kebabIcon from "../../assets/svg/kebab.svg";
-import { useState } from "react";
+import { createContext, useState } from "react";
+import Dropdown from "../folder/Dropdown";
 
 const Container = styled.div`
   width: 340px;
   height: 334px;
   border-radius: 15px;
   box-shadow: 0px 5px 25px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
   position: relative;
   a {
     text-decoration: none;
@@ -22,6 +22,8 @@ const Container = styled.div`
 const CardImgWrapper = styled.div`
   width: 340px;
   height: 200px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   overflow: hidden;
   img {
     width: 340px;
@@ -80,41 +82,56 @@ const KebabButton = styled(BaseButton)`
   width: 25px;
 `;
 
+export const CardLinkContext = createContext();
+
 const Card = ({ link }) => {
   const { url, imageSource, image_source, description, createdAt, created_at } =
     link;
 
   const [active, setActive] = useState(false);
+  const [view, setView] = useState(false);
 
   const handleStarClick = () => {
     setActive(!active);
   };
 
   return (
-    <Container>
-      <StarButton onClick={handleStarClick}>
-        <img src={active ? selectedStarIcon : starIcon} />
-      </StarButton>
-      <KebabButton>
-        <img src={kebabIcon} />
-      </KebabButton>
-      <a href={url} target="_blank" rel="noreferrer">
-        <CardImgWrapper>
+    <CardLinkContext.Provider value={{ url }}>
+      <Container>
+        <StarButton onClick={handleStarClick}>
+          <img src={active ? selectedStarIcon : starIcon} alt="" />
+        </StarButton>
+
+        <KebabButton>
           <img
-            className="Card-img"
-            src={imageSource || image_source || defaultCardImg}
-            alt="카드 이미지"
+            src={kebabIcon}
+            onClick={(e) => {
+              e.stopPropagation();
+              setView(!view);
+            }}
+            alt=""
           />
-        </CardImgWrapper>
-        <CardContentWrapper>
-          <p>{formatTimeAgo(created_at)}</p>
-          <Description $hasDescription={description}>
-            {description || "No Description"}
-          </Description>
-          <p>{formatDate(createdAt || created_at)}</p>
-        </CardContentWrapper>
-      </a>
-    </Container>
+          {view && <Dropdown />}
+        </KebabButton>
+
+        <a href={url} target="_blank" rel="noreferrer">
+          <CardImgWrapper>
+            <img
+              className="Card-img"
+              src={imageSource || image_source || defaultCardImg}
+              alt="카드 이미지"
+            />
+          </CardImgWrapper>
+          <CardContentWrapper>
+            <p>{formatTimeAgo(created_at)}</p>
+            <Description $hasDescription={description}>
+              {description || "No Description"}
+            </Description>
+            <p>{formatDate(createdAt || created_at)}</p>
+          </CardContentWrapper>
+        </a>
+      </Container>
+    </CardLinkContext.Provider>
   );
 };
 

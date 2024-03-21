@@ -1,10 +1,9 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { createContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { getAllLinks, getFolderLinks, getFolders } from "../api";
 import SearchBar from "../components/common/SearchBar";
 import AddLink from "../components/folder/AddLink";
-import FolderInfo, { FolderNameContext } from "../components/folder/FolderInfo";
+import FolderInfo from "../components/folder/FolderInfo";
 import useAsync from "../components/hooks/useAsync";
 import CardList from "../components/shared/CardList";
 
@@ -17,7 +16,7 @@ const Container = styled.main`
   padding-bottom: 100px;
 `;
 
-export const FolderIdContext = createContext();
+export const FolderContext = createContext();
 
 function Folder() {
   // states
@@ -54,7 +53,7 @@ function Folder() {
   }, [folderId]);
 
   return (
-    <FolderIdContext.Provider value={{ folderId, setFolderId }}>
+    <FolderContext.Provider value={{ folders, folderId, setFolderId }}>
       <Container>
         <AddLink />
         <div className="Folder-content-wrapper">
@@ -66,7 +65,7 @@ function Folder() {
           />
         </div>
       </Container>
-    </FolderIdContext.Provider>
+    </FolderContext.Provider>
   );
 }
 
