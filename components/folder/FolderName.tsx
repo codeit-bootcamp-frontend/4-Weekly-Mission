@@ -8,7 +8,7 @@ const FolderName = ({currentFolderName}: FolderNameProps) => {
   return (
     <div className='container-folder-edit'>
       <span>{currentFolderName}</span>
-      {currentFolderName && <FolderEdit />}
+      {currentFolderName && <FolderEdit currentFolderName={currentFolderName}/>}
     </div>
   )
 }

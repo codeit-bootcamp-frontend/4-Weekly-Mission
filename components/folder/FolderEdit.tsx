@@ -2,12 +2,16 @@ import FolderDelete from './edits/FolderDelete';
 import FolderRename from './edits/FolderRename';
 import FolderShare from './edits/FolderShare';
 
-const FolderEdit = () => {
+interface FolderNameProps {
+  currentFolderName: null | string;
+}
+
+const FolderEdit = ({currentFolderName}: FolderNameProps) => {
   return (
     <div className='folder-edits'>
-      <FolderShare />
+      <FolderShare currentFolderName={currentFolderName}/>
       <FolderRename />
-      <FolderDelete />
+      <FolderDelete currentFolderName={currentFolderName}/>
     </div>
   )
 }
