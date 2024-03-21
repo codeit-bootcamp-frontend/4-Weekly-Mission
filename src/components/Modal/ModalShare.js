@@ -43,8 +43,8 @@ const ModalShare = ({
   );
   const { handleFacebookShare } = useFacebookShare(selectedFolderId);
 
-  const folderShareLink = `${window.location.origin}/shared/${selectedFolderId}`;
   const handleCopyToClipboard = () => {
+    const folderShareLink = `${window.location.origin}/shared/${selectedFolderId}`;
     copyToClipboard(folderShareLink);
   };
 
