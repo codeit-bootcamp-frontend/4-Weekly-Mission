@@ -11,15 +11,19 @@ import { getFolderList, getLinks } from "@api/api";
 import { useSearch } from "@hooks/useSearch";
 import SearchInput from "components/SearchInput";
 import { useAsync } from "@hooks/useAsync";
+import { Folder, Link } from "@types";
 
 export default function FolderMain() {
-  const [folders, setFolders] = useState([]);
+  const [folders, setFolders] = useState([] as Folder[]);
   const [selectedName, setSelectedName] = useState("전체");
   const [selectedId, setSelectedId] = useState<number | null>(null);
-  const [links, setLinks] = useState([]);
-  const [folderListLoading, folderListError, getFolderListAsync] =
-    useAsync(getFolderList);
-  const [linksLoading, linksError, getLinksAsync] = useAsync(getLinks);
+  const [links, setLinks] = useState([] as Link[]);
+  const [folderListLoading, folderListError, getFolderListAsync] = useAsync<{
+    data: Folder[];
+  }>(getFolderList);
+  const [linksLoading, linksError, getLinksAsync] = useAsync<{ data: Link[] }>(
+    getLinks
+  );
   const search = useSearch();
   const [style, setStyle] = useState({});
   const flag = useRef(false);
@@ -32,6 +36,7 @@ export default function FolderMain() {
   const loadFolderList = async (option: { userId: number }) => {
     const folders = await getFolderListAsync(option);
     if (!folders) return;
+    console.log("folders data:", folders);
     setFolders(folders.data);
   };
 
@@ -40,7 +45,7 @@ export default function FolderMain() {
     folderId: number | null;
   }) => {
     const links = await getLinksAsync(option);
-    console.log(links);
+    console.log("links data:", links);
     if (!links) return;
     setLinks(links.data);
   };

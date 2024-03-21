@@ -12,6 +12,7 @@ export function FolderHeader() {
   const loadUser = async (option: { userId: number }) => {
     const data = await getUserAsync(option);
     if (!data) return;
+    console.log("user data:", data);
     setUser(data.data[0]);
   };
 

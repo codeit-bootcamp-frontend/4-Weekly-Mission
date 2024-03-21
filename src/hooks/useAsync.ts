@@ -1,3 +1,4 @@
+import { Folder, FolderInfo } from "@types";
 import { useState } from "react";
 
 type Error = {
@@ -5,12 +6,10 @@ type Error = {
   stack: string;
 };
 
-//args의 경우는 any로 해야하지 않나...? -> (질문)
-export function useAsync(callback: (...args: any[]) => Promise<any>) {
-  const [pending, setPending] = useState(false);
+export function useAsync<D>(callback: (...args: any[]) => Promise<D>) {
+  const [pending, setPending] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  //args의 타입은? any로?
   const wrappedFunction = async (...args: any[]) => {
     try {
       setPending(true);

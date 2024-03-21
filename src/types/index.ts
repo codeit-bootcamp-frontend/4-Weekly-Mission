@@ -31,10 +31,13 @@ export interface FolderInfo {
 
 export interface Folder {
   id: string;
+  created_at: string;
+  favorite: boolean;
   name: string;
   link: {
     count: number;
   };
+  user_id: number;
 }
 
 export interface User {
