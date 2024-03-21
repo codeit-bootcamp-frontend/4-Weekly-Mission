@@ -1,10 +1,10 @@
-import { getUser } from "../api";
-import { useState, useEffect } from "react";
+import { getUser } from '../api';
+import { useState, useEffect } from 'react';
 
 const useUser = () => {
   const [user, setUser] = useState({
-    email: "",
-    image_source: "",
+    email: '',
+    image_source: '',
   });
 
   useEffect(() => {
