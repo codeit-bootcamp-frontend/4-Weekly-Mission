@@ -1,0 +1,130 @@
+.shared-section-first-container {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: #f0f6ff;
+  width: 100%;
+}
+
+.shared-section-first-container .image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.shared-section-first-container .image-container .image-sizing {
+  width: 150px;
+  height: 150px;
+}
+
+.owner-name-font {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.shared-section-second-container {
+  padding: 40px 200px;
+}
+
+.column-center-gap-30 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.column-center-gap-40 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.link-image-container {
+  position: relative;
+  overflow: hidden;
+  height: 170px;
+}
+.link-image-sizing {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+}
+
+.link-image-sizing:hover {
+  transform: scale(1.3);
+  height: 170px;
+  transform-origin: center center;
+  object-fit: cover;
+}
+
+.link-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  grid-template-rows: repeat(3, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.link-grid-element {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 20px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-grid-div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.shared-input {
+  width: 100%;
+  height: 50px;
+  background-image: url("../../assets/img/png/search_icon.png");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-position-x: 0.5%;
+  background-size: 30px 30px;
+  background-color: rgb(235, 235, 235);
+  border: 0px solid rgb(235, 235, 235);
+  border-radius: 8px;
+  padding-left: 35px;
+  line-height: 2;
+  font-size: 20px;
+}
+
+.shared-input:focus {
+  outline: none;
+}
+
+@media (max-width: 1366px) {
+  .shared-input {
+    width: 966px;
+  }
+}
+
+@media (max-width: 1124px) {
+  .link-grid {
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+
+  .shared-section-second-container {
+    padding: 40px 32px;
+  }
+  .shared-input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .link-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+}
