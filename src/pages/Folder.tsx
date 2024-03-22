@@ -16,6 +16,7 @@ import { getUser } from "../utils/api";
 import Header from "../components/sharing/Header";
 import Button from "../components/sharing/Button";
 import styled from "styled-components";
+import { useSearchParams } from "react-router-dom";
 
 const AddFolderButton = styled(Button)`
   display: flex;
@@ -51,6 +52,7 @@ const Folder = () => {
   const [user, setUser] = useState({ email: null, profileImageSource: null });
   const { openModal, handleModalOpen, handleModalClose } = useModal();
   const { currentFolder } = useFolder();
+  const [searchParam, setSearchParam] = useSearchParams();
 
   const loadUser = async () => {
     const { email, profileImageSource } = await getUser();
@@ -69,6 +71,14 @@ const Folder = () => {
       </FolderHeaderLayout>
       <MainLayout>
         <SearchInputForm />
+
+        {searchParam.get("keyword") && (
+          <h1 style={{ margin: 0 }}>
+            {searchParam.get("keyword")}
+            <span className="font-color-gray4">으로 검색한 결과입니다.</span>
+          </h1>
+        )}
+
         <div className="space-between">
           <TagList />
           <AddFolderButton variant="text" onClick={handleModalOpen}>
@@ -79,6 +89,7 @@ const Folder = () => {
           <span className="font-24px font-regular">{currentFolder.name}</span>
           {currentFolder.id !== 1 && <Actions />}
         </div>
+
         <CardList />
       </MainLayout>
       <Footer />
