@@ -1,3 +1,4 @@
+import { FoldersType } from "interface/Type";
 import React from "react";
 import styled from "styled-components";
 
@@ -38,26 +39,25 @@ const FolderName = styled.h2`
   font-weight: 600;
 `;
 
-function FolderTilte({ folders }) {
-  if (!folders) {
-    return null;
-  }
-
-  const { folder } = folders;
-  const { name: folderName, owner } = folder;
-  const { profileImageSource, name } = owner;
-
+function FolderTilte({
+  folders,
+}: {
+  folders: FoldersType | undefined;
+}) {
   return (
     <Layout>
       <Container>
         <div>
           <ProfileImage
-            src={profileImageSource ?? "Icons/default_user_icon.svg"}
-            alt={profileImageSource}
+            src={
+              folders?.folder?.owner.profileImageSource ??
+              "Icons/default_user_icon.svg"
+            }
+            alt="image"
           />
-          <ProfileName>@{name}</ProfileName>
+          <ProfileName>@{folders?.folder?.owner.name}</ProfileName>
         </div>
-        <FolderName>{folderName}</FolderName>
+        <FolderName>{folders?.folder?.name}</FolderName>
       </Container>
     </Layout>
   );

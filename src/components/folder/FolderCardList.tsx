@@ -23,7 +23,10 @@ const CardList = styled.div`
 `;
 
 function FolderCardList() {
-  const [links, setLinks] = useState(null);
+  const [links, setLinks] = useState({
+    data: [],
+  });
+
   const { folderFilter } = useFolder();
 
   useEffect(() => {
@@ -32,18 +35,14 @@ function FolderCardList() {
 
   return (
     <>
-      {links ? (
-        links.data.length === 0 ? (
-          <BlankCard>저장된 링크가 없습니다</BlankCard>
-        ) : (
-          <CardList>
-            {links.data.map(link => (
-              <Card key={link.id} cardData={link} />
-            ))}
-          </CardList>
-        )
+      {links.data.length === 0 ? (
+        <BlankCard>저장된 링크가 없습니다</BlankCard>
       ) : (
-        ""
+        <CardList>
+          {links.data.map((link: any) => (
+            <Card key={link.id} cardData={link} />
+          ))}
+        </CardList>
       )}
     </>
   );

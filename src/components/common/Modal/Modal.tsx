@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
-import SocialIcons from "./SocialIcons";
-import ModalFolderItem from "./ModalFolderItem";
 
 const Background = styled.div`
   position: fixed;
@@ -83,7 +81,12 @@ export const RedButton = styled(BlueButton)`
   background: var(--Linkbrary-red, #ff5b56);
 `;
 
-function Modal({ children, onClick }) {
+interface ModalProps {
+  children: ReactNode;
+  onClick: () => void;
+}
+
+function Modal({ children, onClick }: ModalProps) {
   return (
     <Background>
       <ModalContainer>

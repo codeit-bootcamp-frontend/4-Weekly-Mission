@@ -23,15 +23,21 @@ const IconText = styled.span`
   text-align: center;
 `;
 
-function SocialIcons({ id }) {
+declare global {
+  interface Window {
+    kakao: any;
+  }
+}
+
+function SocialIcons({ id }: { id: number | null }) {
   const shareUrl = `${window.location.origin}/shared/${id}`;
 
-  const { Kakao } = window;
+  const { Kakao }: any = window;
 
   useEffect(() => {
     Kakao.cleanup();
     Kakao.init(process.env.REACT_APP_KAKAO_KEY);
-    window.Kakao.isInitialized();
+    window.kakao.isInitialized();
   }, []);
 
   const handleKakao = () => {

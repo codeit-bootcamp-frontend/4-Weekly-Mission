@@ -12,7 +12,9 @@ const FolderCategory = styled.div`
 `;
 
 function FolderCategoryList() {
-  const [folders, setFolders] = useState(null);
+  const [folders, setFolders] = useState({
+    data: [],
+  });
 
   useEffect(() => {
     getUserFolder().then(setFolders);
@@ -20,14 +22,11 @@ function FolderCategoryList() {
 
   return (
     <FolderCategory>
-      <FolderCategoryItem>전체</FolderCategoryItem>
-      {folders
-        ? folders.data.map(folder => (
-            <FolderCategoryItem key={folder.id} {...folder}>
-              {folder.name}
-            </FolderCategoryItem>
-          ))
-        : ""}
+      {folders.data.map((folder: any) => (
+        <FolderCategoryItem key={folder.id} {...folder}>
+          {folder.name}
+        </FolderCategoryItem>
+      ))}
     </FolderCategory>
   );
 }

@@ -24,7 +24,11 @@ const UserEmail = styled.p`
   }
 `;
 
-function Profile({ user }) {
+interface ProfileProps {
+  user: any;
+}
+
+function Profile({ user }: ProfileProps) {
   const { email, image_source } = user.data[0];
 
   return (

@@ -63,11 +63,7 @@ function Header() {
     <Container>
       <Layout>
         <Link to="/">
-          <img
-            src="Icons/logo.svg"
-            type="image/svg+xml"
-            alt="Header_logo"
-          />
+          <img src="Icons/logo.svg" alt="Header_logo" />
         </Link>
         {user ? (
           <Profile user={user} />

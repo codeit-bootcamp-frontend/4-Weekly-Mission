@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 import styled from "styled-components";
 
@@ -14,7 +14,11 @@ const Blank = styled.div`
   line-height: 24px;
 `;
 
-function BlankCard({ children }) {
+interface BlankCardPops {
+  children: ReactNode;
+}
+
+function BlankCard({ children }: BlankCardPops) {
   return (
     <Blank>
       <p>{children}</p>

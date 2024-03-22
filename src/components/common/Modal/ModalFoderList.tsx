@@ -9,10 +9,24 @@ const FolderList = styled.div`
   gap: 4px;
 `;
 
+interface FoldersDataType {
+  created_at: string;
+  favorite: boolean;
+  id: number;
+  link: {
+    count: number;
+  };
+  name: string;
+  user_id: number;
+}
+
 function ModalFoderList() {
-  const [folders, setFolders] = useState(null);
+  const [folders, setFolders] = useState({
+    data: [] as FoldersDataType[],
+  });
+  console.log(folders);
   const [currentFolder, setCurrentFolder] = useState(1);
-  const handleClickTag = (e, folder) => {
+  const handleClickTag = (folder: any) => {
     setCurrentFolder(folder.id);
   };
 
@@ -25,8 +39,9 @@ function ModalFoderList() {
         <FolderList>
           {folders.data.map(folder => (
             <ModalFolderItem
+              key={folder.id}
               folder={folder}
-              onClick={e => handleClickTag(e, folder)}
+              onClick={() => handleClickTag(folder)}
               selected={currentFolder === folder.id}
             />
           ))}

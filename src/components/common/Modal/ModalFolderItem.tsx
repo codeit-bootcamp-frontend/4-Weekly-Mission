@@ -37,7 +37,17 @@ const CheckIcon = styled.img`
   right: 8px;
 `;
 
-function ModalFolderItem({ folder, selected, onClick }) {
+interface ModalFolderItemProps {
+  folder: any;
+  selected: boolean;
+  onClick: () => void;
+}
+
+function ModalFolderItem({
+  folder,
+  selected,
+  onClick,
+}: ModalFolderItemProps) {
   const { name, link } = folder;
 
   return selected ? (

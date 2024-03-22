@@ -5,6 +5,7 @@ import { useModal } from "../../hooks/useModal";
 import ModalContainer from "../common/Modal/Modal";
 import * as Modal from "../common/Modal/Modal";
 import ModalFoderList from "components/common/Modal/ModalFoderList";
+import { LinkType } from "interface/Type";
 
 const Card = styled.div`
   width: 340px;
@@ -111,7 +112,11 @@ const Time = styled.p`
   font-weight: 400;
 `;
 
-function CardItem({ cardData }) {
+interface CardItem {
+  cardData: LinkType;
+}
+
+function CardItem({ cardData }: CardItem) {
   const {
     created_at: createdAt,
     description,

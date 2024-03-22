@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 import { useFolder } from "context/FolderContext";
 
@@ -20,7 +20,15 @@ const SelectedFolder = styled(DefaultFolder)`
   color: white;
 `;
 
-const FolderCategoryItem = ({ id, children }) => {
+interface FolderCategoryItemProps {
+  id: number;
+  children: ReactNode;
+}
+
+const FolderCategoryItem = ({
+  id,
+  children,
+}: FolderCategoryItemProps) => {
   const { folderFilter, setFolderFilter } = useFolder();
 
   const onClickHandle = () => {

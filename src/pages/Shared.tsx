@@ -5,6 +5,7 @@ import Banner from "components/share/Banner";
 import styled from "styled-components";
 import SearchBar from "components/common/SearchBar";
 import ShareCardList from "components/share/ShareCardList";
+import { FoldersType } from "interface/Type";
 
 const Section = styled.section`
   max-width: 1060px;
@@ -25,9 +26,7 @@ const Section = styled.section`
 `;
 
 function Shared() {
-  // 함수 이름을 대문자로 변경
-
-  const [folders, setFolders] = useState(null);
+  const [folders, setFolders] = useState<FoldersType>();
 
   useEffect(() => {
     getSampleFolder().then(setFolders);
@@ -40,7 +39,7 @@ function Shared() {
         <SearchBar />
       </Section>
       <Section>
-        <ShareCardList folders={folders} />
+        <ShareCardList links={folders?.folder.links} />
       </Section>
       <Footer />
     </>

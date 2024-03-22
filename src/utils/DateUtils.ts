@@ -1,4 +1,4 @@
-export function formatDate(createdAt) {
+export function formatDate(createdAt: string) {
   const date = new Date(createdAt);
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -7,10 +7,12 @@ export function formatDate(createdAt) {
   return `${year}.${month}.${day}`;
 }
 
-export function formatDateAgo(createdAt) {
+export function formatDateAgo(createdAt: string) {
   const createdDate = new Date(createdAt);
   const now = new Date();
-  const differenceInSeconds = Math.floor((now - createdDate) / 1000);
+  const differenceInSeconds = Math.floor(
+    (now.getTime() - createdDate.getTime()) / 1000,
+  );
   const differenceInMinutes = Math.floor(differenceInSeconds / 60);
   const differenceInHours = Math.floor(differenceInMinutes / 60);
   const differenceInDays = Math.floor(differenceInHours / 24);
