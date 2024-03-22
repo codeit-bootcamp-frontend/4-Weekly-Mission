@@ -41,10 +41,16 @@ export default function FolderPage() {
       title: '전체',
       id: '0',
     });
-
+  const { data: folderData } = useAPIData<CategoryDataType>(getCategoryDataAPI);
+  const { data: folderCard } = useAPIData<folderCardDataType>(
+    getCardDataAPI,
+    currentFolder?.id,
+  );
   const [kebabID, setKebabID] = useState<number | null>(null);
   const [topic, setTopic] = useState<string>('');
+  const [viewSubHeader, setViewSubHeader] = useState<boolean>(true);
   const [viewFooter, setViewFooter] = useState<boolean>(false);
+  const cardData = FilterData<folderCardType>(folderCard?.card, topic);
   const [modalData, setModalData] = useState<modalDataType>({
     modalType: null,
     subTitle: null,
@@ -52,16 +58,15 @@ export default function FolderPage() {
     currentFolderID: null,
     currentLinkID: null,
   });
-  const { data: folderData } = useAPIData<CategoryDataType>(getCategoryDataAPI);
-  const { data: folderCard } = useAPIData<folderCardDataType>(
-    getCardDataAPI,
-    currentFolder?.id,
-  );
 
-  const cardData = FilterData<folderCardType>(folderCard?.card, topic);
+  const changeViewSubHeader = useCallback((value: boolean) => {
+    setViewSubHeader(value);
+  }, []);
+
   const changeViewFooter = useCallback((value: boolean) => {
     setViewFooter(value);
   }, []);
+
   const changeTopic = useCallback((value: string) => {
     setTopic(value);
   }, []);
@@ -92,7 +97,7 @@ export default function FolderPage() {
         <SubHeader
           folderData={folderData}
           currentFolder={currentFolder}
-          viewFooter={viewFooter}
+          changeViewSubHeader={changeViewSubHeader}
         />
         <S.Content>
           <S.ContentWrapper>
@@ -110,6 +115,13 @@ export default function FolderPage() {
             />
           </S.ContentWrapper>
         </S.Content>
+        <SubHeader
+          folderData={folderData}
+          currentFolder={currentFolder}
+          type="below"
+          viewSubHeader={viewSubHeader}
+          viewFooter={viewFooter}
+        />
         <Footer changeViewFooter={changeViewFooter} />
         <Modal />
       </S.Wrapper>

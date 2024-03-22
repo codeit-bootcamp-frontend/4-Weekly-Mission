@@ -24,13 +24,22 @@ interface folderDataType {
 interface Props {
   folderData: CategoryDataType | null;
   currentFolder: folderDataType | null;
-  viewFooter: boolean;
+  type?: string;
+  viewFooter?: boolean;
+  viewSubHeader?: boolean;
+  changeViewSubHeader?: (value: boolean) => void;
 }
 
-const SubHeader = ({ folderData, currentFolder, viewFooter }: Props) => {
+const SubHeader = ({
+  folderData,
+  currentFolder,
+  type,
+  viewFooter,
+  viewSubHeader,
+  changeViewSubHeader,
+}: Props) => {
   const { changeModalData } = useContext(folderContext);
   const [link, setLink] = useState<string>('');
-  const [fix, setFix] = useState<boolean>(false);
   const wrapperRef = useRef(null);
   const options = useMemo(
     () => ({
@@ -65,27 +74,33 @@ const SubHeader = ({ folderData, currentFolder, viewFooter }: Props) => {
     const handleIntersectionObserver = (
       entries: IntersectionObserverEntry[],
     ) => {
-      if (!entries[0].isIntersecting) {
-        setFix(true);
-      } else {
-        setFix(false);
+      if (changeViewSubHeader) {
+        if (entries[0].isIntersecting) {
+          changeViewSubHeader(true);
+        } else {
+          changeViewSubHeader(false);
+        }
       }
     };
     const observer = new IntersectionObserver(
       handleIntersectionObserver,
       options,
     );
-    if (wrapperRef.current) {
+    if (wrapperRef.current && !type) {
       observer.observe(wrapperRef.current);
     }
     return () => {
       observer.disconnect();
     };
-  }, [options]);
+  }, [options, type, changeViewSubHeader]);
 
   return (
     <>
-      <Wrapper $fix={fix} $viewFooter={viewFooter}>
+      <Wrapper
+        $viewSubHeader={viewSubHeader}
+        $viewFooter={viewFooter}
+        $type={type}
+      >
         <SearchWrapper>
           <SearchInput
             placeholder="링크를 추가해보세요"
@@ -98,6 +113,13 @@ const SubHeader = ({ folderData, currentFolder, viewFooter }: Props) => {
       <div ref={wrapperRef} />
     </>
   );
+};
+
+SubHeader.defaultProps = {
+  type: '',
+  viewSubHeader: true,
+  viewFooter: true,
+  changeViewSubHeader: () => {},
 };
 
 export default SubHeader;

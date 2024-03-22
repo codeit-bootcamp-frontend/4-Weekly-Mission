@@ -4,27 +4,32 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 interface WrapperProps {
-  $fix: boolean;
-  $viewFooter: boolean;
+  $viewSubHeader?: boolean | undefined;
+  $viewFooter: boolean | undefined;
+  $type: string | undefined;
 }
 
 export const Wrapper = styled.div<WrapperProps>`
   width: 100%;
-  display: ${({ $viewFooter }) => ($viewFooter ? 'none' : 'flex')};
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 60px 0 90px;
   background-color: ${COLOR.Gray0};
   z-index: 100;
 
-  ${({ $fix }) =>
-    $fix
-      ? `
-  position: fixed;
-  bottom: 0;
-  padding: 24px 0;
-  `
-      : 'position: relative;'}
+  ${({ $type, $viewFooter, $viewSubHeader }) =>
+    $type === 'below' &&
+    `
+    position:fixed;
+    bottom: 0;
+    padding: 24px 0;
+    visibility: ${!$viewFooter && !$viewSubHeader ? 'visible' : 'hidden'};
+
+    @media(max-width: 767px) {
+      padding: 16px 0;
+    }
+  `}
 `;
 
 export const SearchWrapper = styled.div`
