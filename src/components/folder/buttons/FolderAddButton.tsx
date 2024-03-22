@@ -1,8 +1,12 @@
 import React from 'react';
 import folderAddIcon from '../../../images/folderAdd.svg';
 
-const FolderAddButton = ({ setModalState }) => {
-  const handleMenuClick = (e, target) => {
+interface FolderAddButtonProps {
+  setModalState: React.Dispatch<React.SetStateAction<{ visibility: boolean; target: string; }>>;
+}
+
+const FolderAddButton: React.FC<FolderAddButtonProps> = ({ setModalState }) => {
+  const handleMenuClick = (e: React.MouseEvent<HTMLButtonElement>, target: string) => {
     e.stopPropagation();
     setModalState({
       visibility: true,
