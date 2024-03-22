@@ -30,7 +30,7 @@ function SharePage() {
     <div className='App'>
       <Header />
       <Profile profile={profile} folderName={folderName} />
-      <SearchBar setSearchQuery={setSearchQuery} />
+      <SearchBar setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
       <CardList items={items} searchQuery={searchQuery} />
       <Footer />
     </div>

@@ -16,8 +16,15 @@
   border-radius: 8px;
 }
 
-.search-container img {
+.search {
   position: absolute;
   top: 35%;
   left: 15px;
+}
+
+.close {
+  position: absolute;
+  top: 28%;
+  right: 15px;
+  cursor: pointer;
 }

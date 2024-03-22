@@ -13,7 +13,7 @@ const FolderPage = () => {
       <Header />
       <main>
         <AddLinkBar />
-        <SearchBar setSearchQuery={setSearchQuery} />
+        <SearchBar setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
         <FolderList searchQuery={searchQuery} />
       </main>
       <Footer />
