@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -8,6 +8,7 @@ const Container = styled.div`
   padding: 15px 16px;
   background: #f5f5f5;
   margin-bottom: 40px;
+  display: flex;
 `;
 
 const Icon = styled.img`
@@ -31,11 +32,34 @@ const Input = styled.input`
   }
 `;
 
+const ResetBtn = styled.img`
+  cursor: pointer;
+`;
+
 function SearchBar() {
+  const [value, setValue] = useState("");
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  };
+
+  const Reset = () => {
+    setValue("");
+  };
   return (
     <Container>
       <Icon src="Icons/Search.svg" alt="Search" />
-      <Input type="text" placeholder="링크를 검색해 보세요." />
+      <Input
+        type="text"
+        value={value}
+        onChange={onChange}
+        placeholder="링크를 검색해 보세요."
+      />
+      <ResetBtn
+        src="Icons/searchReset.svg"
+        alt="reset"
+        onClick={Reset}
+      />
     </Container>
   );
 }
