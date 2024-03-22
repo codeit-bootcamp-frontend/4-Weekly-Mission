@@ -44,9 +44,8 @@ const CardList = () => {
     loadLinks();
   }, [currentFolder, keyword]);
 
-  return currentLinks.length === 0 ? (
-    <NoLink />
-  ) : (
+  if (currentLinks.length === 0) return <NoLink />;
+  return (
     <CardListContainer>
       {currentLinks.map((link) => {
         const { id, created_at, description, image_source, url } = link;

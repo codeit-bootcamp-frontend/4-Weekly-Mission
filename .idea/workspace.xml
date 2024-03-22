@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e5353b4-1a6e-4d69-b0cc-8adf18cfaf93" name="Changes" comment="feat: 검색 시 검색어 UI 구현">
+    <list default="true" id="4e5353b4-1a6e-4d69-b0cc-8adf18cfaf93" name="Changes" comment="design: 반응형 디자인 수정">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Folder.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Folder.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/card/CardList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/folder/card/CardList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/tag/Tag.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/folder/tag/Tag.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/folder/tag/TagList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/folder/tag/TagList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/Button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/modal/ModalButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/modal/ModalButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/sharing/modal/ModalFolderList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/sharing/modal/ModalFolderList.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,15 +152,7 @@
       <workItem from="1709057669693" duration="637000" />
       <workItem from="1711048260927" duration="2890000" />
       <workItem from="1711063546316" duration="3826000" />
-      <workItem from="1711067440725" duration="448000" />
-    </task>
-    <task id="LOCAL-00005" summary="feat: 기기별 반응형 스타일 적용">
-      <option name="closed" value="true" />
-      <created>1707427291606</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1707427291606</updated>
+      <workItem from="1711067440725" duration="1534000" />
     </task>
     <task id="LOCAL-00006" summary="feat: Folder 페이지 생성">
       <option name="closed" value="true" />
@@ -541,7 +538,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711067744972</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="design: 반응형 디자인 수정">
+      <option name="closed" value="true" />
+      <created>1711068107404</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1711068107406</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -560,7 +565,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: TagBox 컴포넌트 생성" />
     <MESSAGE value="feat: Folder 페이지 퍼블리싱 완료" />
     <MESSAGE value="feat: Card 컴포넌트 내 별, 케밥 아이콘 추가" />
     <MESSAGE value="design: 기기별 반응형 디자인 적용" />
@@ -585,6 +589,7 @@
     <MESSAGE value="feat: 검색어 지우기 기능 구현" />
     <MESSAGE value="feat: TypeScript 마이그레이션" />
     <MESSAGE value="feat: 검색 시 검색어 UI 구현" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 검색 시 검색어 UI 구현" />
+    <MESSAGE value="design: 반응형 디자인 수정" />
+    <option name="LAST_COMMIT_MESSAGE" value="design: 반응형 디자인 수정" />
   </component>
 </project>

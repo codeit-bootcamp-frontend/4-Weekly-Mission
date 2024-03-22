@@ -6,7 +6,7 @@ const buttonStyle = css`
   border: none;
 `;
 
-const ButtonContainer = styled.button`
+const GradientButton = styled.button`
   ${buttonStyle};
   padding: 13px 32px;
 
@@ -46,9 +46,9 @@ interface Props {
 const Button = ({ children, className, variant, onClick }: Props) => {
   if (variant === "gradient")
     return (
-      <ButtonContainer className={className} onClick={onClick}>
+      <GradientButton className={className} onClick={onClick}>
         {children}
-      </ButtonContainer>
+      </GradientButton>
     );
   if (variant === "icon")
     return (

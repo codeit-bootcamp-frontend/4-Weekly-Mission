@@ -30,12 +30,8 @@ interface Props {
 }
 
 const Tag = ({ children, id, name, isSelected, onClick }: Props) => {
-  const handleClick = () => {
-    onClick(id, name);
-  };
-
   return (
-    <TagContainer $isSelected={isSelected} onClick={handleClick}>
+    <TagContainer $isSelected={isSelected} onClick={() => onClick(id, name)}>
       {children}
     </TagContainer>
   );

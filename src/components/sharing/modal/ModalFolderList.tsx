@@ -27,20 +27,18 @@ function ModalFolderList() {
   useEffect(() => {
     loadFolders();
   }, []);
+
+  if (!folders) return <></>;
   return (
-    <>
-      {folders && (
-        <FolderList>
-          {folders.map((folder: Folder) => (
-            <ModalFolderItem
-              folder={folder}
-              onClick={() => handleClickTag(folder)}
-              selected={currentFolder === folder.id}
-            />
-          ))}
-        </FolderList>
-      )}
-    </>
+    <FolderList>
+      {folders.map((folder: Folder) => (
+        <ModalFolderItem
+          folder={folder}
+          onClick={() => handleClickTag(folder)}
+          selected={currentFolder === folder.id}
+        />
+      ))}
+    </FolderList>
   );
 }
 

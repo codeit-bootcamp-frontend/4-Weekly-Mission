@@ -15,6 +15,7 @@ const TagListContainer = styled.div`
 const TagList = () => {
   const [folders, setFolders] = useState<Folder[]>([]);
   const { currentFolder, setCurrentFolder } = useFolder();
+
   const loadFolders = async () => {
     const folderInfo = await getFolders();
     if (!folderInfo) return;
