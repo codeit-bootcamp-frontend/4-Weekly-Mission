@@ -1,15 +1,15 @@
 import "./Category.css";
 
-export const Category = ({
+const Category = ({
   buttonClicked,
   linkData,
   currentCategory,
   handleModalClick,
-}) => {
+}: any) => {
   return (
     <div className="Category-wrapper">
       <div className="Categories">
-        {linkData?.map((folder) => (
+        {linkData?.map((folder: any) => (
           <button
             className={
               folder.name === currentCategory
@@ -30,3 +30,5 @@ export const Category = ({
     </div>
   );
 };
+
+export default Category;

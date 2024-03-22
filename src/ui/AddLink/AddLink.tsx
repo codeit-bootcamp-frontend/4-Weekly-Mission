@@ -1,7 +1,7 @@
 import { LINK_IMAGE } from "./constant";
 import "./AddLink.css";
 
-export const AddLink = () => {
+const AddLink = () => {
   return (
     <div className="AddLink">
       <div className="AddLink-items">
@@ -12,3 +12,5 @@ export const AddLink = () => {
     </div>
   );
 };
+
+export default AddLink;

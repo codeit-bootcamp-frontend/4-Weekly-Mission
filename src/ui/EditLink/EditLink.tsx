@@ -1,6 +1,11 @@
 import "./EditLink.css";
 
-export const EditLink = ({ currentCategory, handleEditClick }) => {
+interface Props {
+  currentCategory: string;
+  handleEditClick: any;
+}
+
+export const EditLink = ({ currentCategory, handleEditClick }: Props) => {
   const isCurrentAll = currentCategory === "전체";
   return (
     <div className="EditLink-wrapper">

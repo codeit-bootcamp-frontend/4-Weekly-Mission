@@ -1,5 +1,5 @@
 import "./SearchBar.css";
-import { SEARCH_IMAGE } from "./constant";
+import SEARCH_IMAGE from "./constant";
 
 const SearchBar = () => {
   return (

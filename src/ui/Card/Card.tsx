@@ -1,5 +1,16 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, MouseEvent } from "react";
 import "./Card.css";
+
+interface Prop {
+  url: string;
+  imageSource: string;
+  alt: string;
+  elapsedTime: string;
+  description: string;
+  createdAt: string;
+  favorite?: boolean;
+  handleModalClick: any;
+}
 
 export const Card = ({
   url,
@@ -10,18 +21,18 @@ export const Card = ({
   createdAt,
   favorite,
   handleModalClick,
-}) => {
+}: Prop) => {
   const [kebabOpen, setKebabOpen] = useState(false);
 
   const isFolder = typeof favorite !== "undefined";
   const isFavorite = favorite
     ? "images/full-star.svg"
     : "images/empty-star.svg";
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleOutsideClick = (e) => {
-      if (ref.current && !ref.current.contains(e.target))
+    const handleOutsideClick: (e: MouseEvent) => void = (e) => {
+      if (ref.current && !ref.current.contains(e.target as Node))
         setKebabOpen && setKebabOpen(false);
     };
     document.addEventListener("click", handleOutsideClick, true);
@@ -30,7 +41,7 @@ export const Card = ({
     };
   }, [setKebabOpen]);
 
-  const handleKebabClick = (e) => {
+  const handleKebabClick = (e: MouseEvent) => {
     e.preventDefault();
     setKebabOpen(true);
   };

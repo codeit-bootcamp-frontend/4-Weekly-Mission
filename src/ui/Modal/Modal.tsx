@@ -8,7 +8,7 @@ import AddFolder from "./AddFolder";
 
 interface ModalProps {
   categoryData: any;
-  modal: string;
+  modal?: string | null;
   selectedId: any;
   currentCategory: any;
   setIsModalOpen: (isOpen: boolean) => void;
