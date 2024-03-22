@@ -18,12 +18,9 @@ export default function FolderMain() {
   const [selectedName, setSelectedName] = useState("전체");
   const [selectedId, setSelectedId] = useState<number | null>(null);
   const [links, setLinks] = useState([] as Link[]);
-  const [folderListLoading, folderListError, getFolderListAsync] = useAsync<{
-    data: Folder[];
-  }>(getFolderList);
-  const [linksLoading, linksError, getLinksAsync] = useAsync<{ data: Link[] }>(
-    getLinks
-  );
+  const [folderListLoading, folderListError, getFolderListAsync] =
+    useAsync(getFolderList);
+  const [linksLoading, linksError, getLinksAsync] = useAsync(getLinks);
   const search = useSearch();
   const [style, setStyle] = useState({});
   const flag = useRef(false);
@@ -36,7 +33,6 @@ export default function FolderMain() {
   const loadFolderList = async (option: { userId: number }) => {
     const folders = await getFolderListAsync(option);
     if (!folders) return;
-    console.log("folders data:", folders);
     setFolders(folders.data);
   };
 

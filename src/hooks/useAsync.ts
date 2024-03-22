@@ -1,4 +1,3 @@
-import { Folder, FolderInfo } from "@types";
 import { useState } from "react";
 
 type Error = {
@@ -6,15 +5,15 @@ type Error = {
   stack: string;
 };
 
-type CallbackType<T> = {
-  (...args: any[]): Promise<T>;
-};
+type PromiseUnpack<T> = T extends Promise<infer U> ? U : T;
 
-export function useAsync<D>(callback: CallbackType<D>) {
+export function useAsync<
+  T extends (...args: any[]) => Promise<PromiseUnpack<ReturnType<T>>>
+>(callback: T) {
   const [pending, setPending] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  const wrappedFunction = async (...args: Parameters<CallbackType<D>>) => {
+  const wrappedFunction = async (...args: Parameters<T>) => {
     try {
       setPending(true);
       setError(null);
@@ -26,6 +25,5 @@ export function useAsync<D>(callback: CallbackType<D>) {
     }
   };
 
-  //이 부분 중요
   return [pending, error, wrappedFunction] as const;
 }

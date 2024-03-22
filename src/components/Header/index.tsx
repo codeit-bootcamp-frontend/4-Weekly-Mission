@@ -10,13 +10,12 @@ interface User {
 }
 
 export function Header() {
-  //지렸다
   const [user, setUser] = useState<User>({} as User);
-  //질문 - 타입이 이상하게 잡혔었음.
   const [_, error, getUserAsync] = useAsync(getSampleUser);
 
   const loadUser = async () => {
     const data = await getUserAsync();
+    if (!data) return;
     setUser(data);
   };
 
