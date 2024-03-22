@@ -71,6 +71,7 @@ function HandleCurrentSubFolder({
     <S.SubFolderUtilList>
       {subFolderUtils.map((item) => (
         <S.Button
+          className="lb-body2-semibold"
           key={item.buttonName}
           type="button"
           onClick={() => item.modalHandle(item.type, item.data)}

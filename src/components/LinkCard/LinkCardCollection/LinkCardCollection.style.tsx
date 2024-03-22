@@ -81,7 +81,7 @@ export const CardImageDiv = styled.div<{ $image?: string }>`
   background-image: url(${({ $image }) =>
     $image
       ? `${$image}); background-size: cover`
-      : `${process.env.PUBLIC_URL}/no-img-card.svg)`};;;;;
+      : `${process.env.PUBLIC_URL}/no-img-card.svg)`};;;;;;
 `;
 
 export const TextSection = styled.div`
@@ -101,11 +101,6 @@ export const TextSection = styled.div`
 
 export const TextPassedTime = styled.p`
   color: #666;
-  font-family: Pretendard;
-  font-size: 1.3rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
   text-decoration-line: none;
   text-wrap: nowrap;
 `;

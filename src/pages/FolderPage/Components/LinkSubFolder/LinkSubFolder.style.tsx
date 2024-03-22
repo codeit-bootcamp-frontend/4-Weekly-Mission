@@ -19,11 +19,6 @@ export const SubFolderUtilList = styled.div`
 export const Button = styled.button`
   border: none;
   color: var(--lb-gray60);
-  font-family: Pretendard;
-  font-size: 1.4rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
 
   display: flex;
   align-items: center;

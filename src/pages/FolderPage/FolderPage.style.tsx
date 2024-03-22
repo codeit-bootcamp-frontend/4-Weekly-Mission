@@ -62,10 +62,7 @@ export const AddFolderButton = styled.button`
     bottom: 10.1rem;
     color: var(--lb-gray10);
     text-align: center;
-    font-family: Pretendard;
-    font-size: 1.6rem;
-    font-weight: 500;
-    letter-spacing: -0.03rem;
+
     padding: 0.8rem 2.4rem;
     background-color: var(--lb-primary-color);
     z-index: 1;

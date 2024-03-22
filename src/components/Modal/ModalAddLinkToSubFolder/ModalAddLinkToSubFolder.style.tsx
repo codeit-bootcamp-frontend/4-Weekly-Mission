@@ -21,24 +21,10 @@ export const SubFolderDesireToAddLinkButton = styled.button<{
 
   h2 {
     color: var(--lb-gray100);
-
-    /* Linkbrary/body1-regular */
-    font-family: Pretendard;
-    font-size: 1.6rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 2.4rem; /* 150% */
   }
 
   span {
     margin-left: 0.8rem;
     color: var(--lb-gray60);
-
-    /* Linkbrary/body2-regular */
-    font-family: Pretendard;
-    font-size: 1.4rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
   }
 `;

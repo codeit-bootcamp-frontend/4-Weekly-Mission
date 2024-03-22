@@ -31,6 +31,7 @@ export default function KebabMenu({ items, data }: KebabMenuPropType) {
           <S.KebabDiv>
             {items.map((item) => (
               <S.KebabMenuButton
+                className="lb-body2-regular"
                 key={item.buttonName}
                 onClick={() =>
                   item.modalHandle(item.type, [data, ...item.data])

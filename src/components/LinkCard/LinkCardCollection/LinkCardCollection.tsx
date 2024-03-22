@@ -43,7 +43,9 @@ function FolderCard({ contents, favorite, kebab }: FolderCardDataPropType) {
           <S.CardImageDiv $image={cardImage} />
 
           <S.TextSection>
-            <S.TextPassedTime>{passedTime}</S.TextPassedTime>
+            <S.TextPassedTime className="lb-caption">
+              {passedTime}
+            </S.TextPassedTime>
             <S.TextLinkDescription className="lb-body1-regular">
               {description}
             </S.TextLinkDescription>

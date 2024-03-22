@@ -29,14 +29,9 @@ export const KebabToggleButton = styled.button`
 
 export const KebabMenuButton = styled.button`
   color: var(--lb-gray100);
-  font-family: Pretendard;
   background-color: var(--lb-white);
   border: none;
   width: 10rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  font-size: 1.4rem;
   background-color: ;
   padding: 0.7rem 1.2rem;
   text-align: center;

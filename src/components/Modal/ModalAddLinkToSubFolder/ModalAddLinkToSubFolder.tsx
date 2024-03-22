@@ -39,9 +39,11 @@ export default function ModalAddLinkToSubFolder({
               $state={item.name === SelectedFolder}
               key={item.name}
             >
-              <h2>
+              <h2 className="lb-body1-regular">
                 {item.name}
-                <span>{`${item.link.count || 0}개 링크`}</span>
+                <span className="lb-body2-regular">{`${
+                  item.link.count || 0
+                }개 링크`}</span>
               </h2>
               {item.name === SelectedFolder && (
                 <img src="check.svg" alt="CheckedFolder" />
