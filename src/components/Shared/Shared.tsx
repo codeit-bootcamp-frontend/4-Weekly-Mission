@@ -4,7 +4,7 @@ import Header from "./Header/Header.tsx";
 import ReadCard from "./ReadCard.tsx";
 import CardList from "../common/CardList/CardList.tsx";
 import SearchBar from "../common/SearchBar/SearchBar.tsx";
-import "./Shared.css";
+import * as S from "./SharedStyled.tsx";
 
 interface SharedProps {
   profileImage: string;
@@ -29,21 +29,21 @@ function Shared() {
     (data as SharedProps) || {};
 
   return (
-    <div className="Shared">
+    <S.Shared>
       <Header
         profileImage={profileImage}
         ownerName={ownerName}
         folderInfo={folderName}
       />
-      <div className="Shared-items">
+      <S.Items>
         <SearchBar />
         <CardList>
           {links?.map((link) => (
             <ReadCard key={link?.id} {...link} />
           ))}
         </CardList>
-      </div>
-    </div>
+      </S.Items>
+    </S.Shared>
   );
 }
 

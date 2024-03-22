@@ -1,5 +1,6 @@
 import React, { MouseEvent } from "react";
-import "./ModalDelete.css";
+import * as S from "../ModalStyled.tsx";
+import * as STYLE from "./ModalDeleteStyled.tsx";
 
 interface ModalDeleteProps {
   setIsDeleteModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,22 +19,22 @@ const ModalDelete = ({
   };
   return (
     <>
-      <div className="modal-bg">
-        <div className="modal-box">
-          <button className="modal-close-btn" onClick={handleCloseModal}>
+      <S.ModalBackground>
+        <S.ModalBox>
+          <S.CloseButton onClick={handleCloseModal}>
             <img src="images/close.svg" alt="" />
-          </button>
-          <div className="modal-items">
-            <div className="modal-title">
-              <h2>{text}</h2>
-              <p>폴더명</p>
-            </div>
-            <div className="modal-content">
-              <button className="modal-delete-btn">{buttonText}</button>
-            </div>
-          </div>
-        </div>
-      </div>
+          </S.CloseButton>
+          <S.Items>
+            <STYLE.Title>
+              <S.ItemsText>{text}</S.ItemsText>
+              <STYLE.ItemsP>폴더명</STYLE.ItemsP>
+            </STYLE.Title>
+            <STYLE.Content>
+              <STYLE.DeleteButton>{buttonText}</STYLE.DeleteButton>
+            </STYLE.Content>
+          </S.Items>
+        </S.ModalBox>
+      </S.ModalBackground>
     </>
   );
 };

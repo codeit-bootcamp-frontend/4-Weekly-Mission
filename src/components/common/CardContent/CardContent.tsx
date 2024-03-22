@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, MouseEvent } from "react";
-import "./CardContent.css";
 import ModalDelete from "../../Folder/Modal/ModalDelete/ModalDelete.tsx";
 import ModalEdit from "../../Folder/Modal/ModalEdit/ModalEdit.tsx";
+import * as S from "./CardContentStyled.tsx";
 
 interface CardContentProps {
   elapsedTime: string;
@@ -50,17 +50,16 @@ function CardContent({
   };
 
   return (
-    <div className="CardContent">
+    <S.CardContent>
       <span className="CardContent-elapsed-time">{elapsedTime}</span>
-      <img
-        className="kebab"
+      <S.Kebab
         src="images/kebab.svg"
         alt="더보기를 나타내는 점 3개"
         onClick={handlePopover}
       />
       {isClick && (
-        <div className="popover" ref={popoverRef}>
-          <button onClick={handleDeleteOpen}>삭제하기</button>
+        <S.Popover ref={popoverRef}>
+          <S.PopoverButton onClick={handleDeleteOpen}>삭제하기</S.PopoverButton>
           {isDeleteModalOpen && (
             <ModalDelete
               setIsDeleteModalOpen={setIsDeleteModalOpen}
@@ -68,7 +67,7 @@ function CardContent({
               buttonText="삭제하기"
             />
           )}
-          <button onClick={handleEditOpen}>폴더추가</button>
+          <S.Button onClick={handleEditOpen}>폴더추가</S.Button>
           {isEditModalOpen && (
             <ModalEdit
               setIsEditModalOpen={setIsEditModalOpen}
@@ -76,11 +75,11 @@ function CardContent({
               buttonText="추가하기"
             />
           )}
-        </div>
+        </S.Popover>
       )}
-      <p className="CardContent-description">{description}</p>
-      <span className="CardContent-created-at">{createdAt}</span>
-    </div>
+      <S.Description>{description}</S.Description>
+      <S.CreatedAt>{createdAt}</S.CreatedAt>
+    </S.CardContent>
   );
 }
 

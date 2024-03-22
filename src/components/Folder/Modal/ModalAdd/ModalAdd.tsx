@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import "./ModalAdd.css";
+import * as S from "../ModalStyled.tsx";
+import * as STYLE from "./ModalAddStyled.tsx";
 
 interface Data {
   id: number;
@@ -27,40 +28,34 @@ const ModalAdd = ({ dataArray, setIsModalOpen }: ModalAddProps) => {
 
   return (
     <>
-      <div className="modal-bg">
-        <div className="modal-box">
-          <button className="modal-close-btn" onClick={handleCloseModal}>
+      <S.ModalBackground>
+        <S.ModalBox>
+          <S.CloseButton onClick={handleCloseModal}>
             <img src="images/close.svg" alt="" />
-          </button>
-          <div className="modal-items">
-            <div className="modal-title">
-              <h2>폴더에 추가</h2>
-              <p>링크 주소</p>
-            </div>
-            <div className="modal-content">
-              <div className="modal-folder-list">
+          </S.CloseButton>
+          <S.Items>
+            <STYLE.Title>
+              <S.ItemsText>폴더에 추가</S.ItemsText>
+              <STYLE.ItemsP>링크 주소</STYLE.ItemsP>
+            </STYLE.Title>
+            <STYLE.Content>
+              <STYLE.FolderList>
                 {dataArray.map((data) => (
-                  <button
+                  <STYLE.FolderListButton
                     key={data.id}
-                    onClick={() => {
-                      handleClick(data.id);
-                    }}
-                    className={`folder-list-btn ${
-                      isClick === data.id ? "btn-click" : ""
-                    }`}
+                    onClick={() => handleClick(data.id)}
+                    isClick={isClick === data.id}
                   >
-                    <span className="folder-list-name">{data.name}</span>
-                    <span className="folder-list-count">
-                      {data.link.count}개 링크
-                    </span>
-                  </button>
+                    <STYLE.ListName>{data.name}</STYLE.ListName>
+                    <STYLE.ListCount>{data.link.count}개 링크</STYLE.ListCount>
+                  </STYLE.FolderListButton>
                 ))}
-              </div>
-              <button className="modal-add-btn">추가하기</button>
-            </div>
-          </div>
-        </div>
-      </div>
+              </STYLE.FolderList>
+              <STYLE.AddButton>추가하기</STYLE.AddButton>
+            </STYLE.Content>
+          </S.Items>
+        </S.ModalBox>
+      </S.ModalBackground>
     </>
   );
 };

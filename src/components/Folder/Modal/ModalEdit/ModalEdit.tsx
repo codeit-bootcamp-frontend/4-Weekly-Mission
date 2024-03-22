@@ -1,5 +1,6 @@
 import React, { MouseEvent } from "react";
-import "./ModalEdit.css";
+import * as S from "../ModalStyled.tsx";
+import * as STYLE from "./ModalEditStyled.tsx";
 
 interface ModalEditProps {
   setIsEditModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -18,24 +19,20 @@ const ModalEdit = ({
   };
   return (
     <>
-      <div className="modal-bg">
-        <div className="modal-box">
-          <button className="modal-close-btn" onClick={handleCloseModal}>
+      <S.ModalBackground>
+        <S.ModalBox>
+          <S.CloseButton onClick={handleCloseModal}>
             <img src="images/close.svg" alt="" />
-          </button>
-          <div className="modal-items">
-            <h2>{text}</h2>
-            <div className="modal-content">
-              <input
-                className="modal-input"
-                type="text"
-                placeholder="내용 작성 중.."
-              />
-              <button className="modal-edit-btn">{buttonText}</button>
-            </div>
-          </div>
-        </div>
-      </div>
+          </S.CloseButton>
+          <S.Items>
+            <S.ItemsText>{text}</S.ItemsText>
+            <STYLE.Content>
+              <STYLE.Input type="text" placeholder="내용 작성 중.." />
+              <STYLE.EditButton>{buttonText}</STYLE.EditButton>
+            </STYLE.Content>
+          </S.Items>
+        </S.ModalBox>
+      </S.ModalBackground>
     </>
   );
 };

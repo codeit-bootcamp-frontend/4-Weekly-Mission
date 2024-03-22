@@ -1,5 +1,6 @@
 import React, { ReactNode, useState } from "react";
-import ModalEdit from "./Modal/ModalEdit/ModalEdit.tsx";
+import ModalEdit from "../Modal/ModalEdit/ModalEdit.tsx";
+import * as S from "./FolderListStyled.tsx";
 
 interface FolderListProps {
   activeButton: string;
@@ -19,20 +20,18 @@ function FolderList({
   };
 
   return (
-    <div className="Folder-lists-container">
-      <div className="Folder-lists">
-        <button
-          className={activeButton === "전체" ? "active" : ""}
+    <S.FolderListContainer>
+      <S.FolderLists>
+        <S.FolderButton
+          active={activeButton === "전체"}
           onClick={() => handleButtonClick("전체")}
         >
           전체
-        </button>
+        </S.FolderButton>
         {renderedButtons}
-      </div>
-      <div className="Folder-add">
-        <button className="Folder-add-text" onClick={handleOpenModal}>
-          폴더 추가
-        </button>
+      </S.FolderLists>
+      <S.FolderAdd>
+        <S.FolderAddText onClick={handleOpenModal}>폴더 추가</S.FolderAddText>
         {isEditModalOpen && (
           <ModalEdit
             setIsEditModalOpen={setIsEditModalOpen}
@@ -45,8 +44,8 @@ function FolderList({
           src="images/add.svg"
           alt="폴더 추가 이미지"
         />
-      </div>
-    </div>
+      </S.FolderAdd>
+    </S.FolderListContainer>
   );
 }
 

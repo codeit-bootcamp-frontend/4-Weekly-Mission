@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useGetFolderById } from "../../hooks/useGetFolder.tsx";
 import SearchBar from "../common/SearchBar/SearchBar.tsx";
-import FolderList from "./FolderList.tsx";
+import FolderList from "./FolderList/FolderList.tsx";
 import AllFolderCard from "./FolderCard/AllFolderCard.tsx";
 import FolderCard from "./FolderCard/FolderCard.tsx";
 import useFolderLinks from "../../hooks/useFolderLinks.tsx";
 import renderButton from "../../utils/renderButtons.tsx";
 import SelectedOption from "./SelectedOption/SelectedOption.tsx";
-import "./Folder.css";
+import * as S from "./FolderStyled.tsx";
 
 interface Data {
   data: any;
@@ -39,8 +39,8 @@ function Folder() {
   });
 
   return (
-    <div className="Folder">
-      <div className="Folder-items">
+    <S.Folder>
+      <S.FolderItems>
         <SearchBar />
         <FolderList
           activeButton={activeButton}
@@ -58,10 +58,10 @@ function Folder() {
         ) : folderLinks.length > 0 ? (
           <FolderCard folderLinks={folderLinks} />
         ) : (
-          <h2 className="FolderCard-none">저장된 링크가 없습니다.</h2>
+          <S.None>저장된 링크가 없습니다.</S.None>
         )}
-      </div>
-    </div>
+      </S.FolderItems>
+    </S.Folder>
   );
 }
 

@@ -1,5 +1,5 @@
 import React from "react";
-
+import * as S from "../components/Folder/FolderList/FolderListStyled.tsx";
 interface Item {
   id: number;
   name: string;
@@ -18,13 +18,13 @@ const renderButton = ({
 }: RenderButtonProps) => {
   if (dataArray && Array.isArray(dataArray)) {
     return dataArray.map((item) => (
-      <button
+      <S.FolderButton
         key={item.id}
-        className={activeButton === item.name ? "active" : ""}
+        active={activeButton === item.name}
         onClick={() => handleButtonClick(item.name)}
       >
         {item.name}
-      </button>
+      </S.FolderButton>
     ));
   }
 };

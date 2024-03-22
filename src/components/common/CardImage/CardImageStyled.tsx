@@ -1,4 +1,6 @@
-.CardImage {
+import styled from "styled-components";
+
+export const CardImage = styled.div`
   position: relative;
   width: 100%;
   min-height: 19.2rem;
@@ -16,12 +18,12 @@
   &:hover {
     background-size: 130%;
   }
-}
+`;
 
-.star {
+export const Star = styled.img`
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
   width: 3.4rem;
   height: 3.4rem;
-}
+`;

@@ -1,4 +1,6 @@
-.LinkBar {
+import styled from "styled-components";
+
+export const LinkBar = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--light-blue);
@@ -9,14 +11,22 @@
   @media (min-width: 1200px) {
     padding: 6rem 32rem 9rem;
   }
-}
-.LinkBar-item {
+`;
+
+export const Item = styled.div`
   display: flex;
   position: relative;
   width: 100%;
-}
+`;
 
-.LinkBar-input {
+export const LinkIcon = styled.img`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1.6rem;
+`;
+
+export const Input = styled.input`
   width: 100%;
   height: 5.3rem;
   padding-left: 3.8rem;
@@ -25,23 +35,16 @@
   background-color: var(--white);
   border: 1px solid var(--primary);
 
+  ::placeholder {
+    color: var(--gray60);
+  }
+
   @media (min-width: 768px) {
     height: 6.9rem;
   }
-}
+`;
 
-.LinkBar-icon {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 1.6rem;
-}
-
-.LinkBar-input::placeholder {
-  color: var(--gray60);
-}
-
-.LinkBar-button {
+export const Button = styled.button`
   position: absolute;
   right: 1.6rem;
   top: 50%;
@@ -62,4 +65,4 @@
     --gra-purpleblue-to-skyblue,
     linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
   );
-}
+`;

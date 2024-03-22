@@ -1,9 +1,11 @@
-.SearchBar {
+import styled from "styled-components";
+
+export const SearchBar = styled.div`
   position: relative;
   width: 100%;
-}
+`;
 
-.SearchBar-input {
+export const Input = styled.input`
   width: 100%;
   max-width: 106rem;
   height: 4.3rem;
@@ -13,20 +15,21 @@
   background-color: var(--gray-light);
   font-size: 1.4rem;
 
+  ::placeholder {
+    color: var(--text-content-gray);
+  }
+
   @media (min-width: 768px) {
     height: 5.4rem;
     padding-left: 4.2rem;
     font-size: 1.6rem;
     line-height: 150%;
   }
-}
-.SearchBar-input::placeholder {
-  color: var(--text-content-gray);
-}
+`;
 
-.SearchBar-icon {
+export const Icon = styled.img`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 1.6rem;
-}
+`;

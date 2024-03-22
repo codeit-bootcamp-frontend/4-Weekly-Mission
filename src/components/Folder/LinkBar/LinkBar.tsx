@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useGetFolderById } from "../../../hooks/useGetFolder.tsx";
-import "./LinkBar.css";
 import ModalAdd from "../Modal/ModalAdd/ModalAdd.tsx";
+import * as S from "./LinkBarStyled.tsx";
 
 interface Data {
   data: any;
@@ -17,26 +17,16 @@ function LinkBar() {
   const dataArray = data?.data;
 
   return (
-    <div className="LinkBar">
-      <div className="LinkBar-item">
-        <img
-          src="./images/link.svg"
-          alt="링크 아이콘"
-          className="LinkBar-icon"
-        />
-        <input
-          className="LinkBar-input"
-          type="text"
-          placeholder="링크를 추가해 보세요"
-        />
-        <button className="LinkBar-button" onClick={handleOpenModal}>
-          추가하기
-        </button>
+    <S.LinkBar>
+      <S.Item>
+        <S.LinkIcon src="./images/link.svg" alt="링크 아이콘" />
+        <S.Input type="text" placeholder="링크를 추가해 보세요" />
+        <S.Button onClick={handleOpenModal}>추가하기</S.Button>
         {isModalOpen && (
           <ModalAdd setIsModalOpen={setIsModalOpen} dataArray={dataArray} />
         )}
-      </div>
-    </div>
+      </S.Item>
+    </S.LinkBar>
   );
 }
 

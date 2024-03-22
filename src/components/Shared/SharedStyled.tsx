@@ -1,4 +1,6 @@
-.Shared {
+import styled from "styled-components";
+
+export const Shared = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,9 +13,9 @@
     row-gap: 4rem;
     padding-bottom: 6rem;
   }
-}
+`;
 
-.Shared-items {
+export const Items = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,4 +27,4 @@
   @media (min-width: 768px) {
     row-gap: 4rem;
   }
-}
+`;

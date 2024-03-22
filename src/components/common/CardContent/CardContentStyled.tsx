@@ -1,4 +1,6 @@
-.CardContent {
+import styled from "styled-components";
+
+export const CardContent = styled.div`
   position: relative;
   height: 100%;
   padding: 1.5rem 2rem;
@@ -11,14 +13,14 @@
   &:hover {
     background-color: var(--light-blue);
   }
-}
+`;
 
-.CardContent-elapsed-time {
+export const ElapsedTime = styled.span`
   font-size: 1.3rem;
   color: var(--text-content-gray);
-}
+`;
 
-.CardContent-description {
+export const Description = styled.p`
   height: 4.9rem;
   text-overflow: ellipsis;
   overflow: hidden;
@@ -28,20 +30,20 @@
   -webkit-box-orient: vertical;
   font-size: 1.6rem;
   line-height: 150%;
-}
+`;
 
-.CardContent-created-at {
+export const CreatedAt = styled.span`
   font-size: 1.4rem;
   color: var(--text-content-black);
-}
+`;
 
-.kebab {
+export const Kebab = styled.img`
   position: absolute;
   top: 1.5rem;
   right: 2rem;
-}
+`;
 
-.popover {
+export const Popover = styled.div`
   position: absolute;
   top: 3rem;
   left: 29.9rem;
@@ -52,9 +54,9 @@
   gap: 2px;
   box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
   z-index: 10;
-}
+`;
 
-.popover button {
+export const PopoverButton = styled.button`
   display: flex;
   padding: 7px 12px;
   justify-content: center;
@@ -67,9 +69,11 @@
   font-weight: 400;
   line-height: normal;
   background-color: #ffffff;
-}
 
-.popover button:hover {
-  background-color: var(--gray10);
-  color: var(--primary);
-}
+  & hover {
+    background-color: var(--gray10);
+    color: var(--primary);
+  }
+`;
+
+export const Button = styled.button``;

@@ -1,4 +1,6 @@
-.Header {
+import styled from "styled-components";
+
+export const Header = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,9 +12,9 @@
   @media (min-width: 768px) {
     padding: 2rem 0 6rem;
   }
-}
+`;
 
-.Header-profile {
+export const Profile = styled.img`
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
@@ -21,9 +23,9 @@
     width: 6rem;
     height: 6rem;
   }
-}
+`;
 
-.Header-owner {
+export const Owner = styled.span`
   margin-top: 0.6rem;
   font-size: 1.4rem;
 
@@ -32,9 +34,9 @@
     font-size: 1.6rem;
     line-height: 150%;
   }
-}
+`;
 
-.Header-folder {
+export const FolderInfo = styled.h2`
   margin-top: 1rem;
   font-size: 3.2rem;
   font-weight: 600;
@@ -43,4 +45,4 @@
     margin-top: 2rem;
     font-size: 4rem;
   }
-}
+`;

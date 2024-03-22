@@ -1,12 +1,12 @@
 import React, { ReactNode } from "react";
-import "./Card.css";
+import * as S from "./CardStyled.tsx";
 
 interface CardProps {
   children: ReactNode;
 }
 
 function Card({ children }: CardProps) {
-  return <div className="Card">{children}</div>;
+  return <S.Card>{children}</S.Card>;
 }
 
 export default Card;

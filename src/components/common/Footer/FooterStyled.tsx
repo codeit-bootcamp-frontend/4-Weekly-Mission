@@ -1,4 +1,6 @@
-.Footer {
+import styled from "styled-components";
+
+export const Footer = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
@@ -9,9 +11,9 @@
   @media (min-width: 768px) {
     margin-top: 6rem;
   }
-}
+`;
 
-.Footer-items {
+export const FooterItem = styled.div`
   display: grid;
   justify-content: space-between;
   grid-template:
@@ -30,31 +32,31 @@
     max-width: 192rem;
     padding: 3.2rem 10.4rem 0;
   }
-}
+`;
 
-.Footer-copyright {
+export const Copyright = styled.div`
   grid-area: copyright;
   color: #676767;
   font-family: Arial;
   font-size: 1.6rem;
-}
+`;
 
-.Footer-links {
+export const Links = styled.div`
   grid-area: footer-links;
   display: flex;
   column-gap: 3rem;
   padding-right: 1.8rem;
-}
+`;
 
-.Footer-links a {
+export const Text = styled.a`
   text-decoration: none;
   color: #676767;
   font-family: Arial;
   font-size: 1.6rem;
-}
+`;
 
-.Footer-sns {
+export const SNS = styled.div`
   grid-area: sns;
   display: flex;
   column-gap: 1.2rem;
-}
+`;

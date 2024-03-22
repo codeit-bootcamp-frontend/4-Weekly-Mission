@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "./SelectedOption.css";
 import ModalEdit from "../Modal/ModalEdit/ModalEdit.tsx";
 import ModalDelete from "../Modal/ModalDelete/ModalDelete.tsx";
 import ModalShare from "../Modal/ModalShare/ModalShare.tsx";
+import * as S from "./SelectedOptionStyled.tsx";
 
 interface SelectedOptionProps {
   selectedFolder: string;
@@ -24,27 +24,21 @@ function SelectedOption({ selectedFolder, activeButton }: SelectedOptionProps) {
     setIsDeleteModalOpen(true);
   };
   return (
-    <div className="Selected-folder">
-      <span className="Selected-folder-name">{selectedFolder}</span>
+    <S.SelectedFolder>
+      <S.FolderName>{selectedFolder}</S.FolderName>
       {activeButton !== "전체" && (
-        <div className="Selected-option">
-          <button
-            className="Selected-option-content"
-            onClick={handleOpenShareModal}
-          >
+        <S.SelectedOption>
+          <S.SelectedOptionContent onClick={handleOpenShareModal}>
             <img src="images/share.svg" alt="공유 이미지" />
-            <p>공유</p>
-          </button>
+            <S.ContentP>공유</S.ContentP>
+          </S.SelectedOptionContent>
           {isShareModalOpen && (
             <ModalShare setIsShareModalOpen={setIsShareModalOpen} />
           )}
-          <button
-            className="Selected-option-content"
-            onClick={handleOpenEditModal}
-          >
+          <S.SelectedOptionContent onClick={handleOpenEditModal}>
             <img src="images/pen.svg" alt="이름 변경 이미지" />
-            <p>이름 변경</p>
-          </button>
+            <S.ContentP>이름 변경</S.ContentP>
+          </S.SelectedOptionContent>
           {isEditModalOpen && (
             <ModalEdit
               setIsEditModalOpen={setIsEditModalOpen}
@@ -52,13 +46,10 @@ function SelectedOption({ selectedFolder, activeButton }: SelectedOptionProps) {
               buttonText="변경하기"
             />
           )}
-          <button
-            className="Selected-option-content"
-            onClick={handleOpenDeleteModal}
-          >
+          <S.SelectedOptionContent onClick={handleOpenDeleteModal}>
             <img src="images/delete.svg" alt="삭제 이미지" />
-            <p>삭제</p>
-          </button>
+            <S.ContentP>삭제</S.ContentP>
+          </S.SelectedOptionContent>
           {isDeleteModalOpen && (
             <ModalDelete
               setIsDeleteModalOpen={setIsDeleteModalOpen}
@@ -66,9 +57,9 @@ function SelectedOption({ selectedFolder, activeButton }: SelectedOptionProps) {
               buttonText="삭제하기"
             />
           )}
-        </div>
+        </S.SelectedOption>
       )}
-    </div>
+    </S.SelectedFolder>
   );
 }
 

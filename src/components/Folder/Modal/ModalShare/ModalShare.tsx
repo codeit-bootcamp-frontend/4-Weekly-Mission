@@ -1,5 +1,6 @@
 import React, { MouseEvent } from "react";
-import "./ModalShare.css";
+import * as S from "../ModalStyled.tsx";
+import * as STYLE from "./ModalShareStyled.tsx";
 
 interface ModalShareProps {
   setIsShareModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -30,48 +31,41 @@ const ModalShare = ({ setIsShareModalOpen }: ModalShareProps) => {
 
   return (
     <>
-      <div className="modal-bg"></div>
-      <div className="modal-box">
-        <button className="modal-close-btn" onClick={handleCloseModal}>
+      <S.ModalBackground></S.ModalBackground>
+      <S.ModalBox>
+        <S.CloseButton onClick={handleCloseModal}>
           <img src="images/close.svg" alt="" />
-        </button>
-        <div className="modal-items">
-          <div className="modal-title">
-            <h2>폴더 삭제</h2>
-            <p>폴더명</p>
-          </div>
-          <div className="modal-sns-content">
-            <a
-              href="/"
-              className="modal-sns"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img className="kakao" src="images/kakao.svg" alt="" />
-              <p>카카오톡</p>
-            </a>
-            <a
-              className="modal-sns"
+        </S.CloseButton>
+        <S.Items>
+          <STYLE.Title>
+            <S.ItemsText>폴더 삭제</S.ItemsText>
+            <STYLE.ItemsP>폴더명</STYLE.ItemsP>
+          </STYLE.Title>
+          <STYLE.SNSContent>
+            <STYLE.SNS href="/" target="_blank" rel="noopener noreferrer">
+              <STYLE.KAKAO src="images/kakao.svg" alt="" />
+              <STYLE.SNSP>카카오톡</STYLE.SNSP>
+            </STYLE.SNS>
+            <STYLE.SNS
               href={facebookShareUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className="facebook" src="images/facebook.svg" alt="" />
-              <p>페이스북</p>
-            </a>
-            <a
+              <STYLE.FACEBOOK src="images/facebook.svg" alt="" />
+              <STYLE.SNSP>페이스북</STYLE.SNSP>
+            </STYLE.SNS>
+            <STYLE.SNS
               href="/"
               onClick={copyToClipboard}
-              className="modal-sns"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img className="link" src="images/link.svg" alt="" />
-              <p>링크 복사</p>
-            </a>
-          </div>
-        </div>
-      </div>
+              <STYLE.Link src="images/link.svg" alt="" />
+              <STYLE.SNSP>링크 복사</STYLE.SNSP>
+            </STYLE.SNS>
+          </STYLE.SNSContent>
+        </S.Items>
+      </S.ModalBox>
     </>
   );
 };

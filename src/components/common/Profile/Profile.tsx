@@ -1,5 +1,5 @@
 import React from "react";
-import "./Profile.css";
+import * as S from "./ProfileStyled.tsx";
 
 interface ProfileProps {
   profile: {
@@ -10,13 +10,9 @@ interface ProfileProps {
 
 export const Profile = ({ profile }: ProfileProps) => {
   return (
-    <div className="Profile">
-      <img
-        className="Profile-image"
-        src={profile.profileImageSource}
-        alt="프로필 이미지"
-      />
-      <span className="Profile-email">{profile.email}</span>
-    </div>
+    <S.Profile>
+      <S.Image src={profile.profileImageSource} alt="프로필 이미지" />
+      <S.Email>{profile.email}</S.Email>
+    </S.Profile>
   );
 };

@@ -1,30 +1,30 @@
-@import "../ModalCommon.css";
+import styled from "styled-components";
 
-.modal-items .modal-title {
+export const Title = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   gap: 0.8rem;
-}
+`;
 
-.modal-items p {
+export const ItemsP = styled.p`
   color: #9fa6b2;
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 400;
   line-height: 2.2rem;
-}
+`;
 
-.modal-content {
+export const Content = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
   row-gap: 1.5rem;
   width: 100%;
-}
+`;
 
-.modal-content .modal-delete-btn {
+export const DeleteButton = styled.button`
   background: #ff5b56;
   border-radius: 0.8rem;
   border: none;
@@ -37,4 +37,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
+`;

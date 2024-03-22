@@ -1,14 +1,14 @@
-@import "../ModalCommon.css";
+import styled from "styled-components";
 
-.modal-content {
+export const Content = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
   row-gap: 1.5rem;
   width: 100%;
-}
+`;
 
-.modal-content .modal-input {
+export const Input = styled.input`
   background-color: initial;
   border: 1px solid #ccd5e3;
   border-radius: 0.8rem;
@@ -17,18 +17,18 @@
   cursor: pointer;
   padding: 1.8rem 1.5rem;
   width: 100%;
-}
 
-.modal-content .modal-input:hover {
-  border: 1px solid #6d6afe;
-}
+  &:hover {
+    border: 1px solid #6d6afe;
+  }
 
-.modal-content .modal-input:focus {
-  outline: none;
-  border: 1px solid #6d6afe;
-}
+  &:focus {
+    outline: none;
+    border: 1px solid #6d6afe;
+  }
+`;
 
-.modal-content .modal-edit-btn {
+export const EditButton = styled.button`
   background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
   border-radius: 0.8rem;
   border: none;
@@ -41,4 +41,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
+`;

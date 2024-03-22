@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css";
+import * as S from "./FooterStyled.tsx";
 
 const SNS = [
   {
@@ -29,14 +29,14 @@ const SNS = [
 ];
 function Footer() {
   return (
-    <div className="Footer">
-      <div className="Footer-items">
-        <div className="Footer-copyright">codeit-2023</div>
-        <div className="Footer-links">
-          <a href="/privacy.html">Privacy Policy</a>
-          <a href="/faq.html">FAQ</a>
-        </div>
-        <div className="Footer-sns">
+    <S.Footer>
+      <S.FooterItem>
+        <S.Copyright>codeit-2023</S.Copyright>
+        <S.Links>
+          <S.Text href="/privacy.html">Privacy Policy</S.Text>
+          <S.Text href="/faq.html">FAQ</S.Text>
+        </S.Links>
+        <S.SNS>
           {SNS.map((link) => (
             <a
               key={link.name}
@@ -47,9 +47,9 @@ function Footer() {
               <img src={link.src} alt={link.alt} />
             </a>
           ))}
-        </div>
-      </div>
-    </div>
+        </S.SNS>
+      </S.FooterItem>
+    </S.Footer>
   );
 }
 
