@@ -9,7 +9,7 @@ const SearchBar = () => {
     <form className='search-bar_ly'>
       <div className='search-bar'>
         <Image src={searchImg} alt='돋보기'/>
-        <span className='text'>링크를 검색해 보세요.</span>
+        <input className='inputSearchBar' placeholder='링크를 검색해 보세요' />
       </div>
     </form>
   )

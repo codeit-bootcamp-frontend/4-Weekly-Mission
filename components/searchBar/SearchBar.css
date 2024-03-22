@@ -11,13 +11,17 @@
 
 .search-bar {
   display: flex;
+  width: 80%;
   align-items: center;
   gap: 6px;
 }
 
-.text {
-  color: var(--Text, #666);
-  text-align: right;
+.inputSearchBar {
+  outline: none;
+  border: none;
+  width: 100%;
+  color: #9FA6B2;
+  background: #F5F5F5;
 
   /* Linkbrary/body2-regular */
   font-family: Pretendard;
