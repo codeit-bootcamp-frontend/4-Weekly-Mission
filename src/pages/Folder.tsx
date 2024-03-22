@@ -9,7 +9,7 @@ interface Link {
   count: number;
 }
 
-interface FolderList {
+export interface FolderList {
   created_at: string;
   favorite: boolean;
   id: number;
@@ -18,7 +18,7 @@ interface FolderList {
   user_id: number;
 }
 
-interface LinksData {
+export interface LinksData {
   created_at: string;
   description: string | null;
   folder_id: number | null;

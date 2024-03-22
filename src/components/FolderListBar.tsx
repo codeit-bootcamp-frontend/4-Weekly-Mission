@@ -9,6 +9,8 @@ import { MODALS } from "../modal/modals";
 import DeleteFolderModal from "../modal/DeleteFolderModal/DeleteFolderModal";
 import ShareModal from "../modal/ShareModal/ShareModal";
 import { copyClipBoard } from "../util/copyClipBoard";
+//type
+import { FolderList } from "../pages/Folder";
 
 const WHOLE_BUTTON = {
   id: 1,
@@ -21,22 +23,34 @@ const WHOLE_BUTTON = {
   },
 };
 
-function FolderListBar({ folderList, onClick }) {
-  const [currentFolderName, setCurrentFolderName] = useState("");
-  const [currentFolderId, setCurrentFolderId] = useState(1);
-  const [currentUserId, setCurrentUserId] = useState(null);
-  const [isModalClicked, setIsModalClicked] = useState({
+interface Props {
+  folderList: FolderList[];
+  onClick: (folderId: { folderId?: string }) => Promise<void>;
+}
+
+export interface IsModalClicked {
+  add: boolean;
+  edit: boolean;
+  deleteFolder: boolean;
+  share: boolean;
+}
+
+function FolderListBar({ folderList, onClick }: Props) {
+  const [currentFolderName, setCurrentFolderName] = useState<string>("");
+  const [currentFolderId, setCurrentFolderId] = useState<number>(1);
+  const [currentUserId, setCurrentUserId] = useState<number | null>(null);
+  const [isModalClicked, setIsModalClicked] = useState<IsModalClicked>({
     add: false,
     edit: false,
     deleteFolder: false,
     share: false,
   });
 
-  const getLinksbyId = (id) => {
+  const getLinksbyId = (id: { folderId: string }) => {
     onClick(id);
   };
 
-  const changeFolder = (folder) => {
+  const changeFolder = (folder: FolderList) => {
     const folderName = folder && folder.name;
     const folderId = folder && folder.id;
     const userId = folder && folder["user_id"];
@@ -46,16 +60,16 @@ function FolderListBar({ folderList, onClick }) {
     getLinksbyId({ folderId: `${folderId}` });
   };
 
-  const changeClickedId = (id) => {
+  const changeClickedId = (id: number) => {
     setCurrentFolderId(id);
   };
 
-  const handleModalClick = (type) => {
+  const handleModalClick = (type: keyof IsModalClicked) => {
     const value = isModalClicked[type];
     setIsModalClicked({ ...isModalClicked, [type]: !value });
   };
 
-  const makeShareLink = (userId, folderId) => {
+  const makeShareLink = (userId: number | null, folderId: number) => {
     const url = `${window.location.origin}/shared?user=${userId}&folder=${folderId}`;
     copyClipBoard(url);
   };
@@ -82,7 +96,9 @@ function FolderListBar({ folderList, onClick }) {
           className={
             currentFolderId === 1 ? styles.invisible : styles.addFolderContainer
           }
-          onClick={() => handleModalClick(MODALS.addFolder.type)}
+          onClick={() =>
+            handleModalClick(MODALS.addFolder.type as keyof IsModalClicked)
+          }
         >
           <div className={styles.addFolderText}>폴더 추가</div>
           <img className={styles.addImg} src={addImg} alt="addImg" />
