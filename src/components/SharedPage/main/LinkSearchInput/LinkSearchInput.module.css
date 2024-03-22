@@ -21,6 +21,13 @@
 
 .search_icon {
   position: relative;
-  bottom: 3.7rem;
+  bottom: 4.4rem;
   left: 1.5rem;
+}
+
+.input_close_icon {
+  position: relative;
+  bottom: 4rem;
+  left: 115rem;
+  cursor: pointer;
 }

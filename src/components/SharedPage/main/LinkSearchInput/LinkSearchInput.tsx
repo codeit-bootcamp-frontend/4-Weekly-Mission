@@ -39,6 +39,11 @@ function LinkSearchInput({
           className={styles.search_icon}
           alt='search_icon'
         />
+        <img
+          className={styles['input_close_icon']}
+          src={`${process.env.PUBLIC_URL}/assets/images/search_input_close_icon.svg`}
+          alt='검색 취소 아이콘'
+        />
       </form>
     </div>
   );
