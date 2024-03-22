@@ -6,11 +6,13 @@ type Error = {
   stack: string;
 };
 
-export function useAsync<D>(callback: (...args: any[]) => Promise<D>) {
+export function useAsync<T extends (...args: any[]) => Promise<D>, D>(
+  callback: T
+) {
   const [pending, setPending] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  const wrappedFunction = async (...args: any[]) => {
+  const wrappedFunction = async (...args: Parameters<T>) => {
     try {
       setPending(true);
       setError(null);
