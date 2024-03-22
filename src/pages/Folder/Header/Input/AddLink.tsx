@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { AddLinkButton } from "../../Button/ButtonStyle";
-import ListModal from "../../Modal/ListModal";
+import { AddLinkButton } from "components/common/Button/ButtonStyle";
+import { ListModal } from "components/common/Modal/Modal";
 import { FolderList } from "constnats/types";
 import { LINK_ICON } from "constnats/image";
 import * as S from "./AddLinkStyle";
@@ -10,10 +10,10 @@ interface Props {
 }
 
 const AddLink = ({ folderList }: Props) => {
-  const [showModal, setShowModal] = useState(false);
+  const [isToggledModal, setIsToggledModal] = useState(false);
 
   const handleModal = () => {
-    setShowModal(!showModal);
+    setIsToggledModal(!isToggledModal);
   };
 
   return (
@@ -23,7 +23,7 @@ const AddLink = ({ folderList }: Props) => {
         <S.Input placeholder="링크를 추가해 보세요" />
       </S.Box>
       <AddLinkButton onClick={handleModal}>추가하기</AddLinkButton>
-      {showModal && (
+      {isToggledModal && (
         <ListModal
           title="폴더에 추가"
           folderList={folderList}

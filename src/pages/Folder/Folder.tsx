@@ -17,7 +17,7 @@ const FolderPage = () => {
   const [folderList, setFolderList] = useState<FolderList[]>([]);
 
   useEffect(() => {
-    const fetchFolderListData = async () => {
+    const folderListData = async () => {
       try {
         const response = await fetch(FOLDER_LIST_API_URL);
         const responseData = await response.json();
@@ -27,7 +27,7 @@ const FolderPage = () => {
         console.error("error");
       }
     };
-    fetchFolderListData();
+    folderListData();
   }, []);
 
   useEffect(() => {

@@ -37,7 +37,7 @@ export const Folder = styled.h2`
   ${({ theme }) => theme.bolds.bold};
 
   @media ${({ theme }) => theme.devices.mobile} {
-    ${({ theme }) => theme.fonts.subTitleMobile};
+    ${({ theme }) => theme.fonts.subTitleSmall};
     letter-spacing: -0.2px;
   }
 `;

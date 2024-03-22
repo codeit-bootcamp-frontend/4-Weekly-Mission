@@ -52,8 +52,3 @@ export const SocialBox = styled.div`
     grid-row: 1;
   }
 `;
-
-export const Icon = styled.img`
-  width: 20px;
-  height: 20px;
-`;

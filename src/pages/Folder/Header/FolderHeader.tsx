@@ -1,4 +1,4 @@
-import AddLink from "components/common/Input/AddLink/AddLink";
+import AddLink from "pages/Folder/Header/Input/AddLink";
 import { FolderList } from "constnats/types";
 import * as S from "./FolderHeaderStyle";
 

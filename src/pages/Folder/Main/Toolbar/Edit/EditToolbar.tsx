@@ -1,7 +1,9 @@
 import { useState } from "react";
-import ShareModal from "components/common/Modal/ShareModal";
-import InputModal from "components/common/Modal/InputModal";
-import DeleteModal from "components/common/Modal/DeleteModal";
+import {
+  ShareModal,
+  DeleteModal,
+  InputModal,
+} from "components/common/Modal/Modal";
 import { EDIT_SHARE, EDIT_CHANGE, EDIT_DELETE } from "constnats/image";
 import * as S from "./EditToolbarStyle";
 
@@ -10,20 +12,18 @@ interface Props {
 }
 
 const EditToolbar = ({ folderName }: Props) => {
-  const [showShareModal, setShowShareModal] = useState(false);
-  const [showInputModal, setShowInputModal] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
-
-  const handleShareModal = () => {
-    setShowShareModal(!showShareModal);
-  };
+  const [isToggledInputModal, setIsToggledInputModal] = useState(false);
+  const [isToggledShareModal, setIsToggledShareModal] = useState(false);
+  const [isToggledDeleteModal, setIsToggledDeleteModal] = useState(false);
 
   const handleInputModal = () => {
-    setShowInputModal(!showInputModal);
+    setIsToggledInputModal(!isToggledInputModal);
   };
-
+  const handleShareModal = () => {
+    setIsToggledShareModal(!isToggledShareModal);
+  };
   const handleDeleteModal = () => {
-    setShowDeleteModal(!showDeleteModal);
+    setIsToggledDeleteModal(!isToggledDeleteModal);
   };
 
   return (
@@ -32,7 +32,7 @@ const EditToolbar = ({ folderName }: Props) => {
         <S.Box onClick={handleShareModal}>
           <S.Image src={EDIT_SHARE} alt="share" />
           <S.Text>공유</S.Text>
-          {showShareModal && (
+          {isToggledShareModal && (
             <ShareModal
               title="공유 하기"
               folderName={folderName}
@@ -43,7 +43,7 @@ const EditToolbar = ({ folderName }: Props) => {
         <S.Box onClick={handleInputModal}>
           <S.Image src={EDIT_CHANGE} alt="chage" />
           <S.Text>이름 변경</S.Text>
-          {showInputModal && (
+          {isToggledInputModal && (
             <InputModal
               title="폴더 이름 변경"
               placeholder={folderName}
@@ -56,7 +56,7 @@ const EditToolbar = ({ folderName }: Props) => {
         <S.Box onClick={handleDeleteModal}>
           <S.Image src={EDIT_DELETE} alt="delete" />
           <S.Text>삭제</S.Text>
-          {showDeleteModal && (
+          {isToggledDeleteModal && (
             <DeleteModal
               title="폴더 삭제"
               text={folderName}

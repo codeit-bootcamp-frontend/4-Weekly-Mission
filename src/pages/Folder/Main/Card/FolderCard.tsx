@@ -22,16 +22,16 @@ const Card = forwardRef(({ cardData, folderList }: Props, ref) => {
     setIsToggledKebab((prev) => (prev === id ? null : id));
   };
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      selectMenuRef.current &&
-      !selectMenuRef.current.contains(event.target as Node)
-    ) {
-      setIsToggledKebab(null);
-    }
-  };
-
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        selectMenuRef.current &&
+        !selectMenuRef.current.contains(event.target as Node)
+      ) {
+        setIsToggledKebab(null);
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);

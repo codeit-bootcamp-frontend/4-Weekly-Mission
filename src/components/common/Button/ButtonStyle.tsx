@@ -20,7 +20,6 @@ export const NavigationButton = styled(Button)`
     padding: 10px 16px;
 
     ${({ theme }) => theme.fonts.regularSmall};
-    ${({ theme }) => theme.bolds.bold};
   }
 `;
 
@@ -32,35 +31,20 @@ export const MainHeaderButton = styled(Button)`
     padding: 10px 16px;
 
     ${({ theme }) => theme.fonts.regularSmall};
-    ${({ theme }) => theme.bolds.bold};
   }
 `;
 
 export const AddLinkButton = styled(Button)`
   padding: 10px 16px;
   ${({ theme }) => theme.fonts.regularSmall};
-  ${({ theme }) => theme.bolds.bold};
-`;
-
-export const DeleteModalButton = styled(Button)`
-  width: 280px;
-  background: ${({ theme }) => theme.colors.red};
-
-  color: var(--Grey-Light, #f5f5f5);
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
 `;
 
 export const AddModalButton = styled(Button)`
   width: 280px;
 
-  color: var(--Grey-Light, #f5f5f5);
-  font-family: Pretendard;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
+  ${({ theme }) => theme.fonts.regular};
+`;
+
+export const DeleteModalButton = styled(AddModalButton)`
+  background: ${({ theme }) => theme.colors.red};
 `;

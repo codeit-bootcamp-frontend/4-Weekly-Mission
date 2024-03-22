@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import InputModal from "../../../../components/common/Modal/InputModal";
+import { InputModal } from "components/common/Modal/Modal";
 import { ADD_FOLDER_ICON, ACTION_BUTTON_ICON } from "constnats/image";
 import * as S from "./ActionButtonStyle";
 
 const ActionButton = () => {
-  const [showModal, setShowModal] = useState(false);
   const [changeIcon, setChangeIcon] = useState(ADD_FOLDER_ICON);
+  const [isToggledModal, setIsToggeldModal] = useState(false);
 
   useEffect(() => {
     const handleChangeIcon = () => {
@@ -22,14 +22,14 @@ const ActionButton = () => {
   }, []);
 
   const handleModal = () => {
-    setShowModal(!showModal);
+    setIsToggeldModal(!isToggledModal);
   };
 
   return (
     <S.Container onClick={handleModal}>
       <S.Title>폴더 추가</S.Title>
       <S.Image src={changeIcon} alt="add" />
-      {showModal && (
+      {isToggledModal && (
         <InputModal
           title="폴더 추가"
           placeholder="내용입력"

@@ -51,6 +51,7 @@ const GlobalStyles = createGlobalStyle`
       width:100vw;
       min-height:100vh;
       font-family: Pretendard;
+      font-style: normal;
     }
 `;
 

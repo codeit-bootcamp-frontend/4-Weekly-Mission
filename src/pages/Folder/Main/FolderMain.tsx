@@ -1,5 +1,5 @@
 import { useState } from "react";
-import SearchLink from "components/common/Input/SearchLink/SearchLink";
+import SearchInput from "./Input/FolderSearchInput";
 import AddFolder from "pages/Folder/Main/ActionButton/ActionButton";
 import EditToolbar from "./Toolbar/Edit/EditToolbar";
 import SortToolbar from "./Toolbar/Sort/SortToolbar";
@@ -16,16 +16,17 @@ interface Props {
 const FolderMain = ({ cardData, folderList, onChange }: Props) => {
   const [folder, setFolder] = useState<FolderList>({ id: null, name: "전체" });
   const [showToolbar, setShowToolbar] = useState<boolean>(false);
+  const [searchFilter, setSearchFilter] = useState<Folder[]>(cardData);
 
   const handleFolderChange = (folder: FolderList) => {
-    setFolder(folder);
     setShowToolbar(folder.name !== "전체");
+    setFolder(folder);
     onChange(folder);
   };
 
   return (
     <S.Container>
-      <SearchLink />
+      <SearchInput cardData={cardData} setSearchFilter={setSearchFilter} />
       <S.Box>
         <SortToolbar folderList={folderList} onChange={handleFolderChange} />
         <AddFolder />
@@ -38,7 +39,7 @@ const FolderMain = ({ cardData, folderList, onChange }: Props) => {
         <S.NoneLink>저장된 링크가 없습니다.</S.NoneLink>
       ) : (
         <S.Grid>
-          <FolderCard cardData={cardData} folderList={folderList} />
+          <FolderCard cardData={searchFilter} folderList={folderList} />
         </S.Grid>
       )}
     </S.Container>

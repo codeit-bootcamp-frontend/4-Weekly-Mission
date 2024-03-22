@@ -83,13 +83,17 @@ const theme = {
       fontSize: "40px",
       lineHeight: "normal",
     },
-    subTitleMobile: {
+    subTitleSmall: {
       fontSize: "32px",
       lineHeight: "normal",
     },
     large: {
       fontSize: "24px",
       lineSpacingt: "-0.2px",
+    },
+    SmallTitle: {
+      fontSize: "20px",
+      lineHeight: "normal",
     },
     regularLarge: {
       fontSize: "18px",
@@ -110,19 +114,15 @@ const theme = {
   },
   bolds: {
     normal: {
-      fontStyle: "normal",
       fontWeight: "400",
     },
     semiBold: {
-      fontStyle: "normal",
       fontWeight: "500",
     },
     bold: {
-      fontStyle: "normal",
       fontWeight: "600",
     },
     titleBold: {
-      fontStyle: "normal",
       fontWeight: "700",
     },
   },
