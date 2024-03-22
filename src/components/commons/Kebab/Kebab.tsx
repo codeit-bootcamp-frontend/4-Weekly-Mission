@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from 'react';
 import folderContext from '@/src/context/folderContext';
-import { CategoryDataType } from '@/src/type';
+import { CategoryDataType, currentFolderDataType } from '@/src/type';
 import {
   SelectButton,
   KebabButton,
@@ -8,16 +8,11 @@ import {
   Wrapper,
 } from './Kebeb.style';
 
-interface folderDataType {
-  title: string | null;
-  id: string | null;
-}
-
 interface Props {
   cardID: number | null;
   cardURL: string | null;
   folderData: CategoryDataType | null;
-  currentFolder: folderDataType | null;
+  currentFolder: currentFolderDataType | null;
 }
 
 const Kebab = ({ cardID, cardURL, folderData, currentFolder }: Props) => {

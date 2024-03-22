@@ -7,7 +7,7 @@ import {
   useMemo,
 } from 'react';
 import folderContext from '@/src/context/folderContext';
-import { CategoryDataType } from '@/src/type';
+import { CategoryDataType, currentFolderDataType } from '@/src/type';
 import {
   Wrapper,
   SearchWrapper,
@@ -16,14 +16,9 @@ import {
   AddButton,
 } from './SubHeader.style';
 
-interface folderDataType {
-  title: string | null;
-  id: string | null;
-}
-
 interface Props {
   folderData: CategoryDataType | null;
-  currentFolder: folderDataType | null;
+  currentFolder: currentFolderDataType | null;
   type?: string;
   viewFooter?: boolean;
   viewSubHeader?: boolean;

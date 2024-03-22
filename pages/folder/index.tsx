@@ -9,31 +9,14 @@ import {
   CategoryDataType,
   folderCardDataType,
   folderCardType,
+  modalDataType,
+  currentFolderDataType,
 } from '@/src/type';
 import Folder from '@/src/components/folder/Folder/Folder';
 import folderContext from '@/src/context/folderContext';
 import Modal from '@/src/components/folder/Modal/Modal';
 import FilterData from '@/src/utils/FilterData';
 import * as S from './index.style';
-
-interface currentFolderDataType {
-  title: string | null;
-  id: string | null;
-}
-
-interface folderDataType {
-  folderName: string;
-  folderID: number;
-  linkCount: number;
-}
-
-interface modalDataType {
-  modalType: string | null;
-  subTitle: string | null;
-  folder: folderDataType[] | undefined;
-  currentFolderID: number | null;
-  currentLinkID: number | null;
-}
 
 export default function FolderPage() {
   const [currentFolder, setCurrentFolder] =

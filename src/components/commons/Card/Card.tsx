@@ -2,7 +2,11 @@ import { useRef, useState } from 'react';
 import CardUpdateStatus from '@/src/utils/CardUpdateStatus';
 import CardDateFormat from '@/src/utils/CardDateFormat';
 import Link from 'next/link';
-import { CategoryDataType } from '@/src/type';
+import {
+  CategoryDataType,
+  cardDataType,
+  currentFolderDataType,
+} from '@/src/type';
 import {
   CardContentWrapper,
   CardImageWrapper,
@@ -15,25 +19,11 @@ import {
 } from './Card.style';
 import Kebab from '../Kebab/Kebab';
 
-interface cardData {
-  id: number | null;
-  createdAt: string | null;
-  url: string | null;
-  title: string | null;
-  description: string | null;
-  imageSource: string | undefined;
-}
-
-interface folderDataType {
-  title: string | null;
-  id: string | null;
-}
-
 interface Props {
   page: string;
-  card: null | cardData;
+  card: null | cardDataType;
   folderData: CategoryDataType | null;
-  currentFolder: folderDataType | null;
+  currentFolder: currentFolderDataType | null;
 }
 
 const Card = ({ page, card, folderData, currentFolder }: Props) => {

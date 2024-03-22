@@ -4,6 +4,25 @@ export interface UserDataType {
   error: unknown | null;
 }
 
+export interface currentFolderDataType {
+  title: string | null;
+  id: string | null;
+}
+
+export interface modalFolderDataType {
+  folderName: string;
+  folderID: number;
+  linkCount: number;
+}
+
+export interface modalDataType {
+  modalType: string | null;
+  subTitle: string | null;
+  folder: modalFolderDataType[] | undefined;
+  currentFolderID: number | null;
+  currentLinkID: number | null;
+}
+
 export interface cardDataType {
   id: number | null;
   createdAt: string | null;
@@ -25,7 +44,7 @@ interface link {
   count: number;
 }
 
-interface category {
+interface categoryType {
   id: number | null;
   createdAt: string | null;
   name: string | null;
@@ -35,7 +54,7 @@ interface category {
 }
 
 export interface CategoryDataType {
-  category: category[] | null;
+  category: categoryType[] | null;
   error: unknown | null;
 }
 

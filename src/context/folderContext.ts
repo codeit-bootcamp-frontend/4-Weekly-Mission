@@ -1,18 +1,5 @@
 import { createContext } from 'react';
-
-interface folderDataType {
-  folderName: string;
-  folderID: number;
-  linkCount: number;
-}
-
-interface modalDataType {
-  modalType: string | null;
-  subTitle: string | null;
-  folder: folderDataType[] | undefined;
-  currentFolderID: number | null;
-  currentLinkID: number | null;
-}
+import { modalDataType } from '../type';
 
 interface contextType {
   kebabID: number | null;
