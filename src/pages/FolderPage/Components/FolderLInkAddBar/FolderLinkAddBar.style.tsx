@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PrimaryButton } from "../PrimaryButton";
+import { PrimaryButton } from "../../../../Components/PrimaryButton";
 
 export const FolderLinkAddBarWrapper = styled.div<{ $isHidden: boolean }>`
   position: ${({ $isHidden }) => ($isHidden ? "fixed" : "relative")};

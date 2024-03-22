@@ -5,13 +5,13 @@ import { acceptDataFromApi } from "src/Utils/Api";
 import * as S from "./FolderPage.style";
 
 // Components
-import FolderLinkAddBar from "src/Components/LinkCard/FolderLinkAddBar";
+import FolderLinkAddBar from "src/pages/FolderPage/Components/FolderLInkAddBar/FolderLinkAddBar";
 import {
   HandleCurrentSubFolder,
   SubFoldersList,
-} from "src/pages/FolderPage/Components/LinkSubFolder";
-import LinkCardCollection from "src/Components/LinkCard/LinkCardCollection";
-import LinkSearchBar from "src/Components/LinkCard/LinkSearchBar";
+} from "src/pages/FolderPage/Components/LinkSubFolder/LinkSubFolder";
+import LinkCardCollection from "src/Components/LinkCard/LinkCardCollection/LinkCardCollection";
+import LinkSearchBar from "src/Components/LinkCard/LInkSearchBar/LinkSearchBar";
 import ModalLoader from "src/Components/Modal/ModalLoader";
 import HeadNav from "src/Components/BasicLayout/HeadNav";
 
