@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 import logoImg from '@/public/logo.svg'
+//server component: fetch data
 import GnbProfile from './GnbProfile'
 
 import './Gnb.css'

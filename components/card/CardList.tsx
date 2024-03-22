@@ -1,5 +1,7 @@
 import { getLink } from '@/apis/api'
 
+//server component: fetch data
+import ModalList from '../modals/list/ModalList';
 import Card from './Card';
 
 interface CardListProps {
@@ -45,7 +47,7 @@ const CardList = async ({ folderName, folderId }: CardListProps) => {
           description={description}
           createdAt={created_at}
           url={url}
-        />
+        ><ModalList/></Card>
       ))}
     </ul>
   );

@@ -1,4 +1,4 @@
-//server component
+//server component: fetch data
 import CardList from "@/components/card/CardList";
 import FolderList from '@/components/folder/FolderList';
 

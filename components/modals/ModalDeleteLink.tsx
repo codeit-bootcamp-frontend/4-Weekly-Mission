@@ -5,12 +5,16 @@ import ModalCloseButton from './commons/ModalCloseButton'
 
 import './Modal.css'
 
-const ModalDeleteLink = () => {
+interface Props {
+  onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+}
+
+const ModalDeleteLink = ({onClick}: Props) => {
   return (
     <ModalBase>
       <div>링크 삭제</div>
       <ModalSubTitle>http://www.abc.com</ModalSubTitle>
-      <ModalCloseButton />
+      <ModalCloseButton onClick={onClick}/>
       <ModalDeleteButton>삭제하기</ModalDeleteButton>
     </ModalBase>
   )

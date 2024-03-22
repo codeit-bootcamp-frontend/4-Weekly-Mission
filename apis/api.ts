@@ -15,12 +15,6 @@ export async function getLink(folderId: string | null) {
   return body;
 }
 
-export async function getLinkDetail(folderId: string) {
-  const response = await fetch(`https://bootcamp-api.codeit.kr/api/users/1/links?folderId=${folderId}`);
-  const body = await response.json();
-  return body;
-}
-
 export async function getFolderList() {
   const response = await fetch("https://bootcamp-api.codeit.kr/api/users/1/folders");
   const body = await response.json();
