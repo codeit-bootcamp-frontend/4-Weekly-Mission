@@ -4,6 +4,7 @@ import {
   userType,
 } from "../../interfaces/navigation.interface";
 import "./Navigation.css";
+import classNames from "classnames";
 import linkbrary from "../../images/linkbrary.svg";
 import profileImg from "../../images/myprofile.svg";
 import { apiURL, fetchData } from "./fetchData";
@@ -15,10 +16,13 @@ const Navigation = ({ position = "sticky", url = apiURL }: navigationProps) => {
     fetchData().then((data) => setUser(data));
   }, [url]);
 
-  const positionClass = position === "static" ? "static" : "sticky";
+  const navigationClass = classNames("navigation", {
+    static: position === "static",
+    sticky: position === "sticky",
+  });
 
   return (
-    <nav className={`navigation ${positionClass}`}>
+    <nav className={navigationClass}>
       <div className="wrap">
         <a href="/">
           <img src={linkbrary} alt="링크브러리 로고" />

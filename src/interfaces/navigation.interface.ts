@@ -1,5 +1,5 @@
 export interface navigationProps {
-  position: string;
+  position?: string;
   url?: string;
 }
 
