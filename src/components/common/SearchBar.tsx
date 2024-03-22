@@ -1,4 +1,5 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, KeyboardEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -38,13 +39,24 @@ const ResetBtn = styled.img`
 
 function SearchBar() {
   const [value, setValue] = useState("");
+  const navigate = useNavigate();
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
+  const onSubmit = (key: KeyboardEvent<HTMLInputElement>) => {
+    if (key.key === "Enter" && value.trim() !== "") {
+      navigate(`/folders?search=${value}`);
+    }
+    if (value.trim() === "") {
+      navigate(`/folders`);
+    }
+  };
+
   const Reset = () => {
     setValue("");
+    navigate(`/folders`);
   };
   return (
     <Container>
@@ -54,6 +66,7 @@ function SearchBar() {
         value={value}
         onChange={onChange}
         placeholder="링크를 검색해 보세요."
+        onKeyDown={onSubmit}
       />
       <ResetBtn
         src="Icons/searchReset.svg"

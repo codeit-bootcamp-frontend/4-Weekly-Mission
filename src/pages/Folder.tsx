@@ -7,6 +7,7 @@ import Footer from "components/common/Footer";
 import styled from "styled-components";
 import FolderAddButton from "components/folder/FolderAddButton";
 import FolderOption from "components/folder/FolderOption";
+import SearchResultTitle from "components/folder/SearchResultTitle";
 
 const Section = styled.section`
   max-width: 1060px;
@@ -16,6 +17,7 @@ const Section = styled.section`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
+  flex-wrap: wrap;
 
   @media (max-width: 1124px) {
     max-width: 704px;
@@ -32,6 +34,7 @@ function Folder() {
       <Banner />
       <Section>
         <SearchBar />
+        <SearchResultTitle />
       </Section>
       <Section>
         <FolderCategoryList />
