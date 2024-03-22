@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { PrimaryButton } from "../PrimaryButton";
 
 export const Nav = styled.nav<{ $isSticky: boolean }>`
-  background-color: var(--LBrary-Background);
+  background-color: var(--lb-background);
   position: ${({ $isSticky }) => ($isSticky ? "sticky" : "relative")};
   margin: 0;
   top: 0;
@@ -42,7 +42,7 @@ export const NavLoginButton = styled(PrimaryButton)`
 `;
 
 export const NavProfileSection = styled.section`
-  color: var(--LBrary-Gray100);
+  color: var(--lb-gray100);
   display: flex;
   align-items: center;
   gap: 0.6rem;

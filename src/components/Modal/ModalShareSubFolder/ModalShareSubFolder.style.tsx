@@ -4,7 +4,7 @@ export const ModalBox = styled.div`
   display: flex;
   gap: 3.2rem;
 
-  color: var(--Linkbrary-gray100, #373740);
+  color: var(--lb-gray100, #373740);
   text-align: center;
   font-family: Inter;
   font-size: 1.3rem;

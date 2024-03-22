@@ -13,14 +13,15 @@ export const SubFolderDesireToAddLinkButton = styled.button<{
   border-radius: 8px;
 
   background-color: ${({ $state }) =>
-    $state === true ? `var(--LBrary-Background)` : `var(--LBrary-white)`};
+    $state === true ? `var(--lb-background)` : `var(--lb-white)`};
 
   &:hover {
-    background-color: var(--LBrary-Background);
+    background-color: var(--lb-background);
   }
 
   h2 {
-    color: var(--Linkbrary-gray100, #373740);
+    color: var(--lb-gray100);
+
     /* Linkbrary/body1-regular */
     font-family: Pretendard;
     font-size: 1.6rem;
@@ -31,7 +32,8 @@ export const SubFolderDesireToAddLinkButton = styled.button<{
 
   span {
     margin-left: 0.8rem;
-    color: var(--Linkbrary-gray60, #9fa6b2);
+    color: var(--lb-gray60);
+
     /* Linkbrary/body2-regular */
     font-family: Pretendard;
     font-size: 1.4rem;

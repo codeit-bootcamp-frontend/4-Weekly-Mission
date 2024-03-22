@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SharePageProfileSection = styled.section`
-  background-color: var(--LBrary-Background);
+  background-color: var(--lb-background);
   display: flex;
   flex-direction: column;
   align-items: center;

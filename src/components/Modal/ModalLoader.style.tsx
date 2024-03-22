@@ -12,7 +12,7 @@ export const ModalBackground = styled.div`
 `;
 
 export const ModalTitle = styled.h1`
-  color: var(--LBrary-Gray100);
+  color: var(--lb-gray100);
   font-family: Pretendard;
   font-size: 2rem;
   font-style: normal;
@@ -22,7 +22,7 @@ export const ModalTitle = styled.h1`
 `;
 
 export const ModalCaption = styled.span`
-  color: var(--Linkbrary-gray60, #9fa6b2);
+  color: var(--lb-gray60);
   margin-top: 0.8rem;
   text-align: center;
   font-family: Pretendard;
@@ -35,7 +35,7 @@ export const ModalCaption = styled.span`
 export const ModalWrapper = styled.section`
   max-width: 36rem;
   text-align: center;
-  background-color: white;
+  background-color: var(--lb-white);
   border-radius: 15px;
   padding: 3.2rem 4rem;
   position: absolute;
@@ -51,11 +51,11 @@ export const ModalInput = styled.input`
   justify-content: center;
   align-items: center;
   border-radius: 0.8rem;
-  border: 1px solid var(--Linkbrary-primary-color, #6d6afe);
-  background-color: var(--Linkbrary-white, #fff);
+  border: 1px solid var(--lb-primary-color);
+  background-color: var(--lb-white);
 
   & :focus {
-    outline-color: var(--Linkbrary-primary-color, #6d6afe);
+    outline-color: var(--lb-primary-color);
   }
 `;
 
@@ -69,7 +69,7 @@ export const ModalCloseButton = styled.button`
 `;
 
 export const ModalButton = styled.button<{ $errored?: boolean }>`
-  color: var(--Grey-Light, #f5f5f5);
+  color: var(--lb-light-gray);
   font-family: Pretendard;
   font-size: 1.6rem;
   font-style: normal;
@@ -87,7 +87,7 @@ export const ModalButton = styled.button<{ $errored?: boolean }>`
   border-radius: 0.8rem;
   background: ${({ $errored }) =>
     $errored === true
-      ? "var(--Linkbrary-red, #ff5b56)"
+      ? "var(--lb-red)"
       : "linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)"};
 `;
 

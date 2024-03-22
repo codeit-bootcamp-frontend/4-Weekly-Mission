@@ -6,7 +6,7 @@ export const FolderLinkAddBarWrapper = styled.div<{ $isHidden: boolean }>`
   padding: ${({ $isHidden }) => ($isHidden ? "24px 0" : "60px 0 90px")};
   width: 100%;
   bottom: 0;
-  background-color: var(--LBrary-Background);
+  background-color: var(--lb-background);
   z-index: 1;
 
   @media (max-width: 767px) {
@@ -22,7 +22,7 @@ export const Form = styled.form`
   width: 80rem;
   margin: auto;
 
-  background-color: var(--LBrary-Background);
+  background-color: var(--lb-background);
 
   @media (max-width: 1124px) {
     max-width: 70.4rem;
@@ -49,8 +49,8 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
-  color: var(--LBrary-Gray60);
-  border: 0.1rem solid var(--LBrary-Primary-color);
+  color: var(--lb-gray60);
+  border: 0.1rem solid var(--lb-primary-color);
   width: 100%;
   border-radius: 1.5rem;
   padding: 1.6rem 2rem;
@@ -61,7 +61,7 @@ export const Input = styled.input`
   line-height: 150%;
 
   &:focus {
-    outline-color: var(--LBrary-Primary-color);
+    outline-color: var(--lb-primary-color);
   }
 
   @media (max-width: 767px) {
@@ -81,7 +81,7 @@ export const Button = styled(PrimaryButton)`
   margin-left: calc(100% - 10.1rem);
   margin-right: 2rem;
   width: 8.1rem;
-  color: var(--LBrary-GrayLight);
+  color: var(--lb-light-gray);
   font-size: 1.4rem;
   font-style: normal;
   font-weight: 600;
@@ -92,7 +92,7 @@ export const Button = styled(PrimaryButton)`
     margin-left: calc(100% - 9.1rem);
     margin-right: 2rem;
     width: 8.1rem;
-    color: var(--LBrary-GrayLight);
+    color: var(--lb-light-gray);
     font-size: 1.4rem;
     font-style: normal;
     font-weight: 600;

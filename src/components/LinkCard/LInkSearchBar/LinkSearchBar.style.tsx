@@ -9,14 +9,14 @@ export const SearchBarWrapper = styled.form`
 
 export const Input = styled.input`
   width: 100%;
-  background-color: var(--LBrary-GrayLight);
+  background-color: var(--lb-light-gray);
   border-width: 0;
   border-radius: 1rem;
-  border-color: var(--LBrary-white);
+  border-color: var(--lb-white);
   padding: 1.5rem 4.1rem;
 
   &:focus {
-    outline-color: var(--LBrary-Primary-color);
+    outline-color: var(--lb-primary-color);
   }
 `;
 
@@ -41,8 +41,8 @@ export const InputClearButton = styled.button`
 
 export const SearchResult = styled.h2`
   margin: 4rem 0;
-  color: var(--LBrary-Gray60);
+  color: var(--lb-gray60);
   span {
-    color: var(--LBrary-Gray100);
+    color: var(--lb-gray100);
   }
 `;

@@ -28,9 +28,9 @@ export const KebabToggleButton = styled.button`
 `;
 
 export const KebabMenuButton = styled.button`
-  color: var(--LBrary-Gray100);
+  color: var(--lb-gray100);
   font-family: Pretendard;
-  background-color: var(--LBrary-White);
+  background-color: var(--lb-white);
   border: none;
   width: 10rem;
   font-style: normal;
@@ -42,8 +42,8 @@ export const KebabMenuButton = styled.button`
   text-align: center;
 
   &:hover {
-    color: var(--LBrary-Primary-color);
-    background-color: var(--LBrary-Gray10);
+    color: var(--lb-primary-color);
+    background-color: var(--lb-gray10);
   }
 `;
 

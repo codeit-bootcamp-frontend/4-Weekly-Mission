@@ -18,7 +18,7 @@ export const CardGridLayout = styled.section`
 export const CardBoxOriginPosition = styled.div`
   padding: 0;
   border: none;
-  background-color: var(--LBrary-White);
+  background-color: var(--lb-white);
   position: relative;
   width: 100%;
   height: 33.4rem;
@@ -61,7 +61,7 @@ export const CardWrapper = styled.section`
 
   &:hover {
     section {
-      background-color: var(--LBrary-Background);
+      background-color: var(--lb-background);
     }
 
     div {
@@ -81,7 +81,7 @@ export const CardImageDiv = styled.div<{ $image?: string }>`
   background-image: url(${({ $image }) =>
     $image
       ? `${$image}); background-size: cover`
-      : `${process.env.PUBLIC_URL}/no-img-card.svg)`};;;;
+      : `${process.env.PUBLIC_URL}/no-img-card.svg)`};;;;;
 `;
 
 export const TextSection = styled.div`

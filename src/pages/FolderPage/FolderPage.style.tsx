@@ -36,7 +36,7 @@ export const FooterStartPoint = styled.div`
 `;
 
 export const AddFolderButton = styled.button`
-  color: var(--LBrary-Primary-color);
+  color: var(--lb-primary-color);
   padding: 0;
   border: none;
   text-align: center;
@@ -52,22 +52,22 @@ export const AddFolderButton = styled.button`
   align-items: center;
   text-align: center;
   gap: 4px;
-  background-color: var(--LBrary-white);
+  background-color: var(--lb-white);
 
   @media (max-width: 767px) {
     position: fixed;
-    border: 1px solid var(--LBrary-White);
+    border: 1px solid var(--lb-white);
     left: calc(50% - 7.77rem);
     border-radius: 2rem;
     bottom: 10.1rem;
-    color: var(--LBrary-Gray10);
+    color: var(--lb-gray10);
     text-align: center;
     font-family: Pretendard;
     font-size: 1.6rem;
     font-weight: 500;
     letter-spacing: -0.03rem;
     padding: 0.8rem 2.4rem;
-    background-color: var(--LBrary-Primary-color);
+    background-color: var(--lb-primary-color);
     z-index: 1;
   }
 `;
@@ -89,7 +89,7 @@ export const CurrentSubFolder = styled.p`
 `;
 
 export const EmptySpace = styled.div`
-  color: var(--LBrary-Black);
+  color: var(--lb-black);
   padding: 4.1rem 0 3.5rem;
   margin: 0 auto;
   height: calc(100vh - 73.8rem);

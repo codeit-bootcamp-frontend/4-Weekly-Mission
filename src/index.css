@@ -11,37 +11,37 @@ html {
 }
 
 :root {
-  --LBrary-Primary-color: #6d6afe;
-  --LBrary-Red: #ff5b56;
-  --LBrary-Black: #111322;
-  --LBrary-White: #ffffff;
-  --LBrary-SkyBlue: #6ae3fe;
-  --LBrary-Gray100: #3e3e43;
-  --LBrary-Gray60: #9fa6b2;
-  --LBrary-Gray20: #ccd5e3;
-  --LBrary-Gray10: #e7effb;
-  --LBrary-GrayLight: #f5f5f5;
-  --LBrary-Background: #f0f6ff;
-  --Gra-Primary-to-Skyblue: linear-gradient(
+  --lb-primary-color: #6d6afe;
+  --lb-red: #ff5b56;
+  --lb-black: #111322;
+  --lb-white: #ffffff;
+  --lb-sky-blue: #6ae3fe;
+  --lb-gray100: #3e3e43;
+  --lb-gray60: #9fa6b2;
+  --lb-gray20: #ccd5e3;
+  --lb-gray10: #e7effb;
+  --lb-light-gray: #f5f5f5;
+  --lb-background: #f0f6ff;
+  --gra-primary-to-sky-blue: linear-gradient(
     91deg,
-    var(--LBrary-Primary-color) 0.12%,
-    var(--LBrary-SkyBlue) 101.84%
+    var(--lb-primary-color) 0.12%,
+    var(--lb-sky-blue) 101.84%
   );
 }
 
 body {
-  background-color: var(--LBrary-White);
+  background-color: var(--lb-White);
 }
 
 .default-btn {
   display: flex;
-  color: var(--LBrary-GrayLight);
+  color: var(--lb-light-gray);
   font-size: 1.8rem;
   font-weight: 600;
   padding: 16px 20px;
   border: none;
   border-radius: 8px;
-  background: var(--Gra-Primary-to-Skyblue);
+  background: var(--gra-primary-to-sky-blue);
   justify-content: center;
   align-items: center;
   text-decoration: none;
@@ -59,5 +59,5 @@ button:hover {
 }
 
 .background-decoration-color {
-  background-color: var(--LBrary-Background);
+  background-color: var(--lb-background);
 }

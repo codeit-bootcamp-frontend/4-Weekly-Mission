@@ -4,7 +4,7 @@ export const Footer = styled.footer`
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  background-color: var(--LBrary-Black);
+  background-color: var(--lb-black);
   width: 100%;
   margin: 0;
   padding: 3.2rem 10.4rem 6.4rem;

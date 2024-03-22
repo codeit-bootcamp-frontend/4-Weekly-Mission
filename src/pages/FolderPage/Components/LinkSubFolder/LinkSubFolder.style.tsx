@@ -18,7 +18,7 @@ export const SubFolderUtilList = styled.div`
 
 export const Button = styled.button`
   border: none;
-  color: var(--LBrary-Gray60);
+  color: var(--lb-gray60);
   font-family: Pretendard;
   font-size: 1.4rem;
   font-style: normal;
@@ -29,7 +29,7 @@ export const Button = styled.button`
   align-items: center;
   text-align: center;
   gap: 4px;
-  background-color: var(--LBrary-white);
+  background-color: var(--lb-white);
 
   @media (max-width: 767px) {
     padding: 0;
@@ -37,14 +37,14 @@ export const Button = styled.button`
 `;
 
 export const SubFolderBtn = styled.button<{ $state: boolean }>`
-  color: var(--LBrary-black);
+  color: var(--lb-black);
   font-family: Pretendard;
   font-size: 1.6rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   border-radius: 5px;
-  border: 1px solid var(--LBrary-Primary-color);
+  border: 1px solid var(--lb-primary-color);
   padding: 8px 12px;
 
   display: flex;
@@ -52,9 +52,9 @@ export const SubFolderBtn = styled.button<{ $state: boolean }>`
   text-align: center;
   gap: 4px;
   background-color: ${({ $state }) =>
-    $state === true ? `var(--LBrary-Primary-color)` : `var(--LBrary-white);`};
+    $state === true ? `var(--lb-primary-color)` : `var(--lb-white);`};
   color: ${({ $state }) =>
-    $state === true ? `var(--LBrary-White);` : `var(--LBrary-Black);`};
+    $state === true ? `var(--lb-white);` : `var(--lb-black);`};
 
   @media (max-width: 1124px) {
     font-size: 1.6rem;
