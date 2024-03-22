@@ -1,4 +1,4 @@
-import folderContext from '@/src/context/folderContext';
+import { FolderContext } from '@/src/context/folderContext';
 import { useContext } from 'react';
 import AddFolderModal from './AddFolderModal/AddFolderModal';
 import AddLinkModal from './AddLinkModal/AddLinkModal';
@@ -6,7 +6,7 @@ import EditFolderModal from './EditFolderModal/EditFolderModal';
 import SharingModal from './SharingModal/SharingModal';
 
 const ModalContent = () => {
-  const { modalData } = useContext(folderContext);
+  const { modalData } = useContext(FolderContext);
   if (modalData?.modalType === 'AddFolderModal') {
     return <AddFolderModal />;
   }

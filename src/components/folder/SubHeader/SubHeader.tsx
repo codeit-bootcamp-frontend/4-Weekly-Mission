@@ -6,7 +6,7 @@ import {
   useEffect,
   useMemo,
 } from 'react';
-import folderContext from '@/src/context/folderContext';
+import { FolderContext } from '@/src/context/folderContext';
 import { CategoryDataType, currentFolderDataType } from '@/src/type';
 import {
   Wrapper,
@@ -33,7 +33,7 @@ const SubHeader = ({
   viewSubHeader,
   changeViewSubHeader,
 }: Props) => {
-  const { changeModalData } = useContext(folderContext);
+  const { changeModalData } = useContext(FolderContext);
   const [link, setLink] = useState<string>('');
   const wrapperRef = useRef(null);
   const options = useMemo(

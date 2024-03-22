@@ -1,5 +1,5 @@
 import { MouseEventHandler, useContext, useRef } from 'react';
-import folderContext from '@/src/context/folderContext';
+import { FolderContext } from '@/src/context/folderContext';
 import {
   ModalBackground,
   ModalButton,
@@ -26,7 +26,7 @@ interface Modals {
 }
 
 const Modal = () => {
-  const { modalData, changeModalData } = useContext(folderContext);
+  const { modalData, changeModalData } = useContext(FolderContext);
   const wrapperRef = useRef<HTMLDivElement>(null);
   const MODAL: Modals = {
     AddLinkModal: {

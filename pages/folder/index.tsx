@@ -2,18 +2,17 @@ import Header from '@/src/components/commons/Header/Header';
 import SearchBar from '@/src/components/commons/SearchBar/SearchBar';
 import SubHeader from '@/src/components/folder/SubHeader/SubHeader';
 import Footer from '@/src/components/commons/Footer/Footer';
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback } from 'react';
 import useAPIData from '@/src/hooks/useAPIData';
 import { getCategoryDataAPI, getCardDataAPI } from '@/src/API/API';
+import { FolderContextProvider } from '@/src/context/folderContext';
 import {
   CategoryDataType,
   folderCardDataType,
   folderCardType,
-  modalDataType,
   currentFolderDataType,
 } from '@/src/type';
 import Folder from '@/src/components/folder/Folder/Folder';
-import folderContext from '@/src/context/folderContext';
 import Modal from '@/src/components/folder/Modal/Modal';
 import FilterData from '@/src/utils/FilterData';
 import * as S from './index.style';
@@ -29,18 +28,10 @@ export default function FolderPage() {
     getCardDataAPI,
     currentFolder?.id,
   );
-  const [kebabID, setKebabID] = useState<number | null>(null);
   const [topic, setTopic] = useState<string>('');
   const [viewSubHeader, setViewSubHeader] = useState<boolean>(true);
   const [viewFooter, setViewFooter] = useState<boolean>(false);
   const cardData = FilterData<folderCardType>(folderCard?.card, topic);
-  const [modalData, setModalData] = useState<modalDataType>({
-    modalType: null,
-    subTitle: null,
-    folder: undefined,
-    currentFolderID: null,
-    currentLinkID: null,
-  });
 
   const changeViewSubHeader = useCallback((value: boolean) => {
     setViewSubHeader(value);
@@ -53,15 +44,6 @@ export default function FolderPage() {
   const changeTopic = useCallback((value: string) => {
     setTopic(value);
   }, []);
-
-  const changeKebabID = useCallback((newValue: number | null) => {
-    setKebabID(newValue);
-  }, []);
-
-  const changeModalData = useCallback((newValue: modalDataType) => {
-    setModalData(newValue);
-  }, []);
-
   const changeCurrentFolder = useCallback(
     (value: currentFolderDataType | null) => {
       setCurrentFolder(value);
@@ -69,12 +51,8 @@ export default function FolderPage() {
     [],
   );
 
-  const value = useMemo(
-    () => ({ kebabID, changeKebabID, modalData, changeModalData }),
-    [kebabID, changeKebabID, modalData, changeModalData],
-  );
   return (
-    <folderContext.Provider value={value}>
+    <FolderContextProvider>
       <S.Wrapper>
         <Header fix={false} />
         <SubHeader
@@ -108,6 +86,6 @@ export default function FolderPage() {
         <Footer changeViewFooter={changeViewFooter} />
         <Modal />
       </S.Wrapper>
-    </folderContext.Provider>
+    </FolderContextProvider>
   );
 }

@@ -1,5 +1,5 @@
 import { useContext, useState } from 'react';
-import folderContext from '@/src/context/folderContext';
+import { FolderContext } from '@/src/context/folderContext';
 import {
   ButtonWrapper,
   LinkName,
@@ -9,7 +9,7 @@ import {
 } from './AddFolderModal.style';
 
 const AddFolderModal = () => {
-  const { modalData } = useContext(folderContext);
+  const { modalData } = useContext(FolderContext);
   const [checkID, setCheckID] = useState<number | null | undefined>(
     modalData?.currentFolderID,
   );

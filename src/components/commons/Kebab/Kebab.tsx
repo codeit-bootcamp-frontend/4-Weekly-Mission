@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef } from 'react';
-import folderContext from '@/src/context/folderContext';
+import { FolderContext } from '@/src/context/folderContext';
 import { CategoryDataType, currentFolderDataType } from '@/src/type';
 import {
   SelectButton,
@@ -17,7 +17,7 @@ interface Props {
 
 const Kebab = ({ cardID, cardURL, folderData, currentFolder }: Props) => {
   const wraperRef = useRef<HTMLDivElement>(null);
-  const { kebabID, changeKebabID, changeModalData } = useContext(folderContext);
+  const { kebabID, changeKebabID, changeModalData } = useContext(FolderContext);
 
   const clickKebabButton = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();

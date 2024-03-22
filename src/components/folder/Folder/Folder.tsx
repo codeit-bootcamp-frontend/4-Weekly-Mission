@@ -4,7 +4,7 @@ import {
   currentFolderDataType,
 } from '@/src/type';
 import { useContext } from 'react';
-import folderContext from '@/src/context/folderContext';
+import { FolderContext } from '@/src/context/folderContext';
 import * as S from './Folder.style';
 import Card from '../../commons/Card/Card';
 
@@ -27,7 +27,7 @@ const Folder = ({
   folderData,
   cardData,
 }: Props) => {
-  const { changeModalData } = useContext(folderContext);
+  const { changeModalData } = useContext(FolderContext);
 
   const clickCategoryButton = (e: React.MouseEvent<HTMLDivElement>) => {
     changeCurrentFolder({
