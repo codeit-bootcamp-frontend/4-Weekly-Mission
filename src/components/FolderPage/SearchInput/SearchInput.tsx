@@ -1,7 +1,16 @@
 import searchIcon from "assets/Search.png";
 import styles from "./SearchInput.module.css";
+import { ChangeEvent } from "react";
 
-const SearchInput = ({ loadingError, search, handleSearchChange }) => {
+interface Props {
+  loadingError: {
+    message: string;
+  }
+  search: string;
+  handleSearchChange: (e : ChangeEvent) => void;
+}
+
+const SearchInput = ({ loadingError, search, handleSearchChange } :Props) => {
   return (
     <>
       <div className={styles["wrapper"]}>

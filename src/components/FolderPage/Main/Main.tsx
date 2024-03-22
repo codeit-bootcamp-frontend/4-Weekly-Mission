@@ -4,8 +4,30 @@ import SearchInput from "components/FolderPage/SearchInput/SearchInput";
 import FolderListCtrl from "components/FolderPage/FolderListCtrl/FolderListCtrl";
 import styles from "./Main.module.css";
 import Modal from "../Modal/Modal";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 
+
+interface Props {
+  selectedModal: string;
+  selectedId: string;
+  selectedName: string;
+  links: [{
+    id: number;
+    url: string;
+    created_at: string;
+    image_source: string;
+    title: string;
+    description: string;
+  }];
+  onSelectedFolder:({ name, id }: { name: string | null, id: number | string }) => void;
+  loadingError: {
+    message: string;
+  }
+  search: string;
+  folderListInfo: [{ id: string; name: string; link:{count : number}}];
+  handleSearchChange: (e : ChangeEvent) => void;
+  setModal: (value: string) => void;
+}
 function Main({
   selectedModal,
   selectedId,
@@ -17,10 +39,10 @@ function Main({
   folderListInfo,
   handleSearchChange,
   setModal,
-}) {
-  const [selectedLink, setSeletedLink] = useState([]);
+} : Props) {
+  const [selectedLink, setSeletedLink] = useState("");
 
-  const setLink = (link) => {
+  const setLink = (link : string) => {
     setSeletedLink(link);
   };
 
@@ -30,7 +52,6 @@ function Main({
         selectedModal={selectedModal}
         setModal={setModal}
         folderName={selectedName}
-        links={links}
         selectedLink={selectedLink}
         folders={folderListInfo}
         selectedId={selectedId}

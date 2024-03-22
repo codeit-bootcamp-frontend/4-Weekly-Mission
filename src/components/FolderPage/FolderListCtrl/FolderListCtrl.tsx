@@ -2,10 +2,16 @@ import styles from "./FolderListCtrl.module.css";
 import deleteImg from "assets/delete.svg";
 import penImg from "assets/pen.svg";
 import shareImg from "assets/share.svg";
+import { MouseEvent } from "react";
 
-const FolderListCtrl = ({ folderName, setModal }) => {
-  const handleModalClick = (e) => {
-    const value = e.target.value;
+interface Props {
+  folderName: string;
+  setModal: (value: string) => void;
+}
+
+const FolderListCtrl = ({ folderName, setModal } :Props) => {
+  const handleModalClick = (e : MouseEvent) => {
+    const value = (e.target as HTMLButtonElement).value;
     setModal(value);
   };
 

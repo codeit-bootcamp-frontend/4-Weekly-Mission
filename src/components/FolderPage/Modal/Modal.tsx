@@ -6,7 +6,21 @@ import close from "assets/close.png";
 import kakao from "assets/Kakao.png";
 import checked from "assets/check.svg";
 import CopyToClipboard from "react-copy-to-clipboard";
-import styled from "styled-components";
+
+interface Props {
+  selectedModal: string;
+  selectedId: string;
+  setModal: (value: string) => void;
+  folders: [{
+    id: string;
+    name: string;
+    link: {
+      count: number;
+    }
+  }];
+  folderName: string;
+  selectedLink: string;
+}
 
 function Modal({
   folders,
@@ -15,13 +29,13 @@ function Modal({
   folderName,
   selectedLink,
   selectedId,
-}) {
+}:Props) {
   const [listClicked, setListClicked] = useState(false);
-  const searchRef = useRef(null);
+  const searchRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    function handleFocus(e) {
-      if (searchRef.current && !searchRef.current.contains(e.target)) {
+    function handleFocus(e : MouseEvent) {
+      if (searchRef.current && !searchRef.current.contains(e.target as any)) {
         setModal("");
       }
     }
@@ -36,7 +50,7 @@ function Modal({
     setModal("");
   };
 
-  const handleListClick = (e) => {
+  const handleListClick = () => {
     if (!listClicked) {
       setListClicked(true);
     } else {
@@ -157,20 +171,19 @@ function Modal({
           {folders?.map((folder) => {
             return (
               <button
+                key={folder.id}
                 onClick={handleListClick}
                 className={`${styles["listBtn"]} ${
                   listClicked && folder.id === selectedId
                     ? styles.checkedFolder
                     : ""
-                }`}
+                }}`}
               >
                 <h2>
                   {folder.name} <p>{`${folder.link.count}개 링크`}</p>
                 </h2>
                 <img
-                  className={`${styles["checked"]} ${
-                    listClicked === true ? styles.checkedFolder : ""
-                  }`}
+                  className={`${styles["checked"]}`}
                   src={checked}
                   alt="체크표시"
                 />
