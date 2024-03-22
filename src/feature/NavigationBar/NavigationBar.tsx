@@ -1,10 +1,17 @@
-import { ROUTE } from "util/constant";
-import { Cta } from "../../ui/Cta";
-import { Profile } from "../../ui/Profile";
+import { ROUTE } from "../../util/constant";
+import Cta from "../../ui/Cta/Cta";
+import Profile from "../../ui/Profile/Profile";
 import "./NavigationBar.css";
 
-export const NavigationBar = ({ profile, isNavFixed }) => {
-  const NavBar = isNavFixed ? "NavigationBar Nav-fixed" : "NavigationBar";
+interface Props {
+  isNavFixed: boolean;
+  profile: any;
+}
+
+const NavigationBar = ({ profile, isNavFixed }: Props) => {
+  const NavBar: string = isNavFixed
+    ? "NavigationBar Nav-fixed"
+    : "NavigationBar";
   return (
     <nav className={NavBar}>
       <div className="NavigationBar-items">
@@ -28,3 +35,5 @@ export const NavigationBar = ({ profile, isNavFixed }) => {
     </nav>
   );
 };
+
+export default NavigationBar;

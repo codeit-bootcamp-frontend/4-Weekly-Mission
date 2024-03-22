@@ -1,8 +1,8 @@
 import { ROUTE } from "util/constant";
 import "./Footer.css";
-import { TEXT } from "./constant";
+import TEXT from "./constant";
 
-export const Footer = () => {
+const Footer = () => {
   return (
     <footer className="Footer">
       <div className="Footer-items">
@@ -61,3 +61,5 @@ export const Footer = () => {
     </footer>
   );
 };
+
+export default Footer;

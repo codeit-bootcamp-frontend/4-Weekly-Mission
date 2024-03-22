@@ -1,8 +1,13 @@
 import { useGetUser } from "hooks/useGetUser";
-import { Footer } from "../Footer";
-import { NavigationBar } from "../NavigationBar";
+import Footer from "../Footer/Footer";
+import { NavigationBar } from "../NavigationBar/NavigationBar";
 
-export const Layout = ({ children, isNavFixed }) => {
+interface layoutProps {
+  children: any;
+  isNavFixed: boolean;
+}
+
+const Layout = ({ children, isNavFixed }: layoutProps) => {
   const { data } = useGetUser();
   const { email, profileImageSource } = data || {};
   const profile = data ? { email, profileImageSource } : null;
@@ -15,3 +20,5 @@ export const Layout = ({ children, isNavFixed }) => {
     </div>
   );
 };
+
+export default Layout;
