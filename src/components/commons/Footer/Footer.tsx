@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { useRef, useEffect } from 'react';
 import {
   ContentWrapper,
   CopyLightWrapper,
@@ -11,7 +12,15 @@ import {
   Wrapper,
 } from './Footer.style';
 
-const Footer = () => {
+interface Props {
+  changeViewFooter?: (value: boolean) => void | undefined;
+}
+
+const Footer = ({ changeViewFooter }: Props) => {
+  const wrapperRef = useRef(null);
+  const options = {
+    threshold: 0,
+  };
   const SNS = [
     {
       src: '/images/facebook.svg',
@@ -34,8 +43,31 @@ const Footer = () => {
       href: 'https://www.instagram.com',
     },
   ];
+  useEffect(() => {
+    const handleIntersectionObserver = (
+      entries: IntersectionObserverEntry[],
+    ) => {
+      if (changeViewFooter) {
+        if (entries[0].isIntersecting) {
+          changeViewFooter(true);
+        } else {
+          changeViewFooter(false);
+        }
+      }
+    };
+    const observer = new IntersectionObserver(
+      handleIntersectionObserver,
+      options,
+    );
+    if (wrapperRef.current) {
+      observer.observe(wrapperRef.current);
+    }
+    return () => {
+      observer.disconnect();
+    };
+  }, [options, changeViewFooter]);
   return (
-    <Wrapper>
+    <Wrapper ref={wrapperRef}>
       <ContentWrapper>
         <FlexWrapper>
           <CopyLightWrapper>©codeit - 2023</CopyLightWrapper>
@@ -58,6 +90,10 @@ const Footer = () => {
       </ContentWrapper>
     </Wrapper>
   );
+};
+
+Footer.defaultProps = {
+  changeViewFooter: () => {},
 };
 
 export default Footer;

@@ -23,7 +23,7 @@ export default function SharedPage() {
   return (
     <>
       <Header fix />
-      <SubHeader folder={folder as FolderDataType} />
+      <SubHeader folder={folder} />
       <S.Content>
         <S.ContentWrapper>
           <SearchBar topic={topic} changeTopic={changeTopic} />

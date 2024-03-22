@@ -2,13 +2,28 @@ import COLOR from '@/styles/color';
 import FONT from '@/styles/font';
 import styled from 'styled-components';
 
-export const Wrapper = styled.div`
+interface WrapperProps {
+  $fix: boolean;
+  $viewFooter: boolean;
+}
+
+export const Wrapper = styled.div<WrapperProps>`
   width: 100%;
-  display: flex;
+  display: ${({ $viewFooter }) => ($viewFooter ? 'none' : 'flex')};
   justify-content: center;
   align-items: center;
   padding: 60px 0 90px;
   background-color: ${COLOR.Gray0};
+  z-index: 100;
+
+  ${({ $fix }) =>
+    $fix
+      ? `
+  position: fixed;
+  bottom: 0;
+  padding: 24px 0;
+  `
+      : 'position: relative;'}
 `;
 
 export const SearchWrapper = styled.div`

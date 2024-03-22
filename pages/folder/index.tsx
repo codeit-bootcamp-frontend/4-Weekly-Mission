@@ -44,6 +44,7 @@ export default function FolderPage() {
 
   const [kebabID, setKebabID] = useState<number | null>(null);
   const [topic, setTopic] = useState<string>('');
+  const [viewFooter, setViewFooter] = useState<boolean>(false);
   const [modalData, setModalData] = useState<modalDataType>({
     modalType: null,
     subTitle: null,
@@ -58,7 +59,9 @@ export default function FolderPage() {
   );
 
   const cardData = FilterData<folderCardType>(folderCard?.card, topic);
-
+  const changeViewFooter = useCallback((value: boolean) => {
+    setViewFooter(value);
+  }, []);
   const changeTopic = useCallback((value: string) => {
     setTopic(value);
   }, []);
@@ -71,9 +74,12 @@ export default function FolderPage() {
     setModalData(newValue);
   }, []);
 
-  const changeCurrentFolder = (value: currentFolderDataType | null) => {
-    setCurrentFolder(value);
-  };
+  const changeCurrentFolder = useCallback(
+    (value: currentFolderDataType | null) => {
+      setCurrentFolder(value);
+    },
+    [],
+  );
 
   const value = useMemo(
     () => ({ kebabID, changeKebabID, modalData, changeModalData }),
@@ -83,7 +89,11 @@ export default function FolderPage() {
     <folderContext.Provider value={value}>
       <S.Wrapper>
         <Header fix={false} />
-        <SubHeader folderData={folderData} currentFolder={currentFolder} />
+        <SubHeader
+          folderData={folderData}
+          currentFolder={currentFolder}
+          viewFooter={viewFooter}
+        />
         <S.Content>
           <S.ContentWrapper>
             <SearchBar topic={topic} changeTopic={changeTopic} />
@@ -100,7 +110,7 @@ export default function FolderPage() {
             />
           </S.ContentWrapper>
         </S.Content>
-        <Footer />
+        <Footer changeViewFooter={changeViewFooter} />
         <Modal />
       </S.Wrapper>
     </folderContext.Provider>

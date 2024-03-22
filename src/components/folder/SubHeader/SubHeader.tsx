@@ -1,4 +1,4 @@
-import { ChangeEvent, useContext, useState } from 'react';
+import { ChangeEvent, useContext, useState, useRef, useEffect } from 'react';
 import folderContext from '@/src/context/folderContext';
 import { CategoryDataType } from '@/src/type';
 import {
@@ -17,11 +17,15 @@ interface folderDataType {
 interface Props {
   folderData: CategoryDataType | null;
   currentFolder: folderDataType | null;
+  viewFooter: boolean;
 }
 
-const SubHeader = ({ folderData, currentFolder }: Props) => {
+const SubHeader = ({ folderData, currentFolder, viewFooter }: Props) => {
   const { changeModalData } = useContext(folderContext);
   const [link, setLink] = useState<string>('');
+  const [fix, setFix] = useState<boolean>(false);
+  const wrapperRef = useRef(null);
+  const options = { threshold: 0 };
 
   const folderCategory = folderData?.category?.map((category) => ({
     folderName: String(category.name),
@@ -45,15 +49,42 @@ const SubHeader = ({ folderData, currentFolder }: Props) => {
       currentLinkID: null,
     });
   };
+  useEffect(() => {
+    const handleIntersectionObserver = (
+      entries: IntersectionObserverEntry[],
+    ) => {
+      if (!entries[0].isIntersecting) {
+        setFix(true);
+      } else {
+        setFix(false);
+      }
+    };
+    const observer = new IntersectionObserver(
+      handleIntersectionObserver,
+      options,
+    );
+    if (wrapperRef.current) {
+      observer.observe(wrapperRef.current);
+    }
+    return () => {
+      observer.disconnect();
+    };
+  }, [options]);
 
   return (
-    <Wrapper>
-      <SearchWrapper>
-        <SearchInput placeholder="링크를 추가해보세요" onChange={changeLink} />
-        <ImageIcon src="/images/link.svg" alt="링크" width={20} height={20} />
-        <AddButton onClick={openModal}>추가하기</AddButton>
-      </SearchWrapper>
-    </Wrapper>
+    <>
+      <Wrapper $fix={fix} $viewFooter={viewFooter}>
+        <SearchWrapper>
+          <SearchInput
+            placeholder="링크를 추가해보세요"
+            onChange={changeLink}
+          />
+          <ImageIcon src="/images/link.svg" alt="링크" width={20} height={20} />
+          <AddButton onClick={openModal}>추가하기</AddButton>
+        </SearchWrapper>
+      </Wrapper>
+      <div ref={wrapperRef} />
+    </>
   );
 };
 

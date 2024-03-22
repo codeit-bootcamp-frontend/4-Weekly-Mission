@@ -17,7 +17,7 @@ interface Props {
 }
 
 const Header = ({ fix }: Props) => {
-  const { data: userProfile } = useAPIData(getUserSampleDataAPI);
+  const { data: userProfile } = useAPIData<UserDataType>(getUserSampleDataAPI);
   return (
     <Wrapper $fix={fix}>
       <HeaderWrapper>
@@ -32,12 +32,12 @@ const Header = ({ fix }: Props) => {
         {userProfile ? (
           <UserWrapper>
             <UserImage
-              src={(userProfile as UserDataType).image}
+              src={userProfile.image}
               alt="profile"
               width={28}
               height={28}
             />
-            <UserEmail>{(userProfile as UserDataType).email}</UserEmail>
+            <UserEmail>{userProfile.email}</UserEmail>
           </UserWrapper>
         ) : (
           <div />
