@@ -37,6 +37,11 @@ function LinkSearchInput({
 
   folderId,
 }: LinkSearchProps) {
+  async function fetchData() {
+    await fetch(`https://bootcamp-api.codeit.kr/api/users/3/links${folderId}`)
+      .then((res) => res.json())
+      .then((result) => setFilterData(result));
+  }
   async function handleFilterClick() {
     await fetch(`https://bootcamp-api.codeit.kr/api/users/3/links${folderId}`)
       .then((res) => res.json())
@@ -64,7 +69,9 @@ function LinkSearchInput({
   };
 
   const onClickCancleIcon = (event: React.MouseEvent<HTMLImageElement>) => {
+    fetchData();
     setViewSearchData(false);
+    setSearchData('');
   };
   return (
     <div className={styles.link_search_input_wrapper}>
