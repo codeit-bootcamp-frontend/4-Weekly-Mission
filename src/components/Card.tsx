@@ -4,11 +4,20 @@ import starIcon from '../assets/starIcon.svg';
 import meatballsIcon from '../assets/meatballsIcon.svg';
 import { useState } from 'react';
 import PopOver from '../pages/FolderPage/components/PopOver';
+import { CardProps } from '../types/interfaces/props';
 
-function Card({ id, time, imgUrl = noneImg, title, description, date, url }) {
+function Card({
+  id,
+  time,
+  imgUrl = noneImg,
+  title,
+  description,
+  date,
+  url,
+}: CardProps) {
   const [isPopOverOpen, setIsPopOverOpen] = useState(false);
 
-  const handleClick = (e) => {
+  const handleClick = (e: MouseEvent) => {
     e.preventDefault();
     setIsPopOverOpen(!isPopOverOpen);
   };

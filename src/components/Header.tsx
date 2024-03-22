@@ -1,7 +1,8 @@
 import React from 'react';
 import '../styles/header.css';
 import Profile from './Information';
-function Header({ url }) {
+import { HeaderProfileProps } from '../types/interfaces/props';
+function Header({ url }: HeaderProfileProps) {
   return (
     <>
       <header>

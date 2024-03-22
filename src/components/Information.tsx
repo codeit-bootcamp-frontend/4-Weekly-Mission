@@ -1,5 +1,6 @@
 import useInformationData from '../hooks/useInformationData';
-function Information(url) {
+import { InformationProps } from '../types/interfaces/props';
+function Information({ url }: InformationProps) {
   const myInfo = useInformationData(url);
 
   if (!myInfo) {
