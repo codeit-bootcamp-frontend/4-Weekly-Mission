@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useMemo } from 'react';
 import {
   ContentWrapper,
   CopyLightWrapper,
@@ -18,9 +18,12 @@ interface Props {
 
 const Footer = ({ changeViewFooter }: Props) => {
   const wrapperRef = useRef(null);
-  const options = {
-    threshold: 0,
-  };
+  const options = useMemo(
+    () => ({
+      threshold: 0,
+    }),
+    [],
+  );
   const SNS = [
     {
       src: '/images/facebook.svg',

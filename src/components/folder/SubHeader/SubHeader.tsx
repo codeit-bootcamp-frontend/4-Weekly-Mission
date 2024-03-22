@@ -25,7 +25,12 @@ const SubHeader = ({ folderData, currentFolder, viewFooter }: Props) => {
   const [link, setLink] = useState<string>('');
   const [fix, setFix] = useState<boolean>(false);
   const wrapperRef = useRef(null);
-  const options = { threshold: 0 };
+  const options = useMemo(
+    () => ({
+      threshold: 0,
+    }),
+    [],
+  );
 
   const folderCategory = folderData?.category?.map((category) => ({
     folderName: String(category.name),
