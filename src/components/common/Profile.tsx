@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const Profile = () => {
   const [profileData, setProfileData] = useState(null);
+  const a:string = 'abc'
 
   useEffect(() => {
     const fetchProfileInfo = async () => {
@@ -27,6 +28,7 @@ const Profile = () => {
 
   return (
     <div className="profile-items">
+      {a}
       <img
         className="profile-image"
         src={profileData.profileImageSource}

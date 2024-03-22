@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter,Router, Route, Routes, Link } from 'react-router-dom';
-import Folder from './pages/folder.js'
-import Shared from './pages/shared.js'
+import Folder from './pages/folder'
+import Shared from './pages/shared'
 
 function App() {
   return (
