@@ -21,6 +21,7 @@ function AddLink({
     setInitialInputHide(false);
   }, []);
   useEffect(() => {
+    setInitialInputHide(false);
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

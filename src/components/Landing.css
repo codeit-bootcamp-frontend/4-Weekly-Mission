@@ -104,9 +104,11 @@ footer {
 .contents-01 p {
   margin: 0;
 }
+
 .content-title {
   display: flex;
 }
+
 .contents-01-text {
   display: flex;
   flex-direction: column;
@@ -412,6 +414,7 @@ footer {
   .content-title {
     display: inline-block;
   }
+
   .contents-01 {
     width: 100%;
     height: auto;
