@@ -32,8 +32,8 @@ const Card = ({ item }: { item: Item }) => {
   return (
     <div>
       <a href={url} target='_blank' rel='noopener noreferrer'>
-        <img src={src} alt='' className='card-box-img' />
-        <img src={star} alt='star' className='starIcon' />
+        <img src={src} alt='link thumbnail' className='card-box-img' />
+        <img src={star} alt='favorite' className='star icon' />
         <div className='text-container'>
           <div className='kebabWrapper'>
             <p className='time-difference'>{timeDifference}</p>

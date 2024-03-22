@@ -22,7 +22,7 @@ function SearchBar({ setSearchQuery, searchQuery }: SearchBarProps) {
         <label htmlFor='searchInput' className='hiddenLabel'>
           링크를 검색해 보세요.
         </label>
-        <img src={searchIcon} alt={searchIcon} className='search' />
+        <img src={searchIcon} alt='search' className='search' />
         <input
           type='text'
           id='searchInput'
@@ -34,7 +34,7 @@ function SearchBar({ setSearchQuery, searchQuery }: SearchBarProps) {
         {searchQuery.length > 0 && (
           <img
             src={closeIcon}
-            alt={closeIcon}
+            alt='close'
             className='close'
             onClick={handleSearchClear}
           />

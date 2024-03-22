@@ -24,7 +24,7 @@ const Header = () => {
     <header className='nav-space'>
       <nav className='nav'>
         <a href='/'>
-          <img src={logo} alt={logo} />
+          <img src={logo} alt='logo' />
         </a>
         {user ? (
           <UserInformation user={user} />

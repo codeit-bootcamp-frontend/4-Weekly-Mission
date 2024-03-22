@@ -25,7 +25,7 @@ const ModalContainer = ({ isOpen, onClose, children }: ModalProps) => {
       <div className='modalBox'>
         <img
           src={closeIcon}
-          alt='닫기버튼'
+          alt='close'
           className='closeIcon'
           onClick={onClose}
         />
