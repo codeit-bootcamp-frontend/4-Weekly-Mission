@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styles from './ShowSearchData.module.css';
 
 function ShowSearchData({ searchData }: { searchData: string | null }) {

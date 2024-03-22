@@ -4,13 +4,6 @@ import { useEffect, useState } from 'react';
 import FolderPageLinkItem from '../FolderPageLinkItem/FolderPageLinkItem';
 import styles from './LinkList.module.css';
 import { Dispatch, SetStateAction } from 'react';
-interface LinkListProps {
-  folderId: string;
-  handleAddLinkInFolderModalClick: (
-    e: React.MouseEvent<HTMLImageElement | HTMLButtonElement>
-  ) => void;
-  setSharedUrl: Dispatch<SetStateAction<string>>;
-}
 
 interface FolderDesc {
   id: number;
@@ -26,23 +19,19 @@ interface FolderDesc {
 interface FolderIdData {
   data: FolderDesc[];
 }
+interface LinkListProps {
+  handleAddLinkInFolderModalClick: (
+    e: React.MouseEvent<HTMLImageElement | HTMLButtonElement>
+  ) => void;
+  setSharedUrl: Dispatch<SetStateAction<string>>;
+  filterData: FolderIdData | null;
+}
+
 function LinkList({
-  folderId,
   handleAddLinkInFolderModalClick,
   setSharedUrl,
+  filterData,
 }: LinkListProps) {
-  const [filterData, setFilterData] = useState<FolderIdData | null>(null);
-
-  async function handleFilterClick() {
-    await fetch(`https://bootcamp-api.codeit.kr/api/users/3/links${folderId}`)
-      .then((res) => res.json())
-      .then((result) => setFilterData(result));
-  }
-
-  useEffect(() => {
-    handleFilterClick();
-  }, [folderId]);
-  
   return (
     <div>
       {filterData?.data?.length === 0 ? (

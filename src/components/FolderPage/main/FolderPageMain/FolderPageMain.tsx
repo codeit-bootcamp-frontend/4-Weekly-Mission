@@ -5,7 +5,7 @@ import styles from './FolderPageMain.module.css';
 import AddFolderButtons from '../AddFolderButtons/AddFolderButtons';
 import LinkList from '../LinkList/LinkList';
 import { useFetch } from '../../../../hooks/useFetch';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useState, useEffect } from 'react';
 import useModal from '../../../../hooks/useModal';
 import ShareFolderModal from '../../modal/ShareFolderModal/ShareFolderModal';
 import RenameFolderNameModal from '../../modal/RenameFolderNameModal/RenameFolderNameModal';
@@ -61,6 +61,31 @@ function FolderPageMain({
   const [viewSearchData, setViewSearchData] = useState<boolean | null>(false);
   const [searchData, setSearchData] = useState<string | null>('');
 
+  //add
+  interface FolderDesc {
+    id: number;
+    created_at: string;
+    updated_at: null;
+    url: string;
+    title: string;
+    description: string;
+    image_source: string;
+    folder_id: number;
+  }
+
+  interface FolderIdData {
+    data: FolderDesc[];
+  }
+
+  const [filterData, setFilterData] = useState<FolderIdData | null>(null);
+  async function handleFilterClick() {
+    await fetch(`https://bootcamp-api.codeit.kr/api/users/3/links${folderId}`)
+      .then((res) => res.json())
+      .then((result) => setFilterData(result));
+  }
+  useEffect(() => {
+    handleFilterClick();
+  }, [folderId]);
   return (
     <div className={styles.main_wrapper}>
       <LinkSearchInput
@@ -94,9 +119,9 @@ function FolderPageMain({
           )}
         </div>
         <LinkList
-          folderId={folderId}
           handleAddLinkInFolderModalClick={handleAddLinkInFolderModalClick}
           setSharedUrl={setSharedUrl}
+          filterData={filterData}
         />
       </div>
 
