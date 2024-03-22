@@ -1,7 +1,7 @@
 export interface LinkCardFunctionObjectType {
   buttonName: string;
   type: string;
-  data?: any;
+  data: any;
   modalHandle: (modalType: string, modalData: any) => void;
   modalButtonAction: () => void;
 }

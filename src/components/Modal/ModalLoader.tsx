@@ -68,7 +68,6 @@ const ModalLoader = ({
         <S.ModalCloseButton type="button" onClick={() => setIsOpened()}>
           <img src="modalClose.png" alt="closeModal" />
         </S.ModalCloseButton>
-
         {renderModal()}
       </S.ModalWrapper>
       ;

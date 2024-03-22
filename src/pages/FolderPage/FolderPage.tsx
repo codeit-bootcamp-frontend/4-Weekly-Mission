@@ -21,6 +21,7 @@ import {
   LinkCardFunctionObjectType,
   LinkFolderFunctionObjectType,
 } from "src/@types/ModalFunctionDataTypes";
+import FolderListDataType from "src/@types/FolderListDataType";
 type handleCurrentFolderChangeType = (id: number, name: string) => void;
 
 /**
@@ -32,7 +33,7 @@ type handleCurrentFolderChangeType = (id: number, name: string) => void;
 export default function FolderPage({ userId = 1 }) {
   const [isCurrentFolderAll, setIsCurrentFolderAll] = useState(true);
   const [currentFolderName, setCurrentFolderName] = useState("전체");
-  const [subFolderList, setSubFolderList] = useState([]);
+  const [subFolderList, setSubFolderList] = useState<FolderListDataType[]>([]);
   const [isEmptyResponse, setIsEmptyResponse] = useState(true);
   const [isLoading, error, acceptDataFromApiAsync] =
     useAsync(acceptDataFromApi);
@@ -202,6 +203,7 @@ export default function FolderPage({ userId = 1 }) {
       imgUrl: "pen.svg",
       imgAlt: "RenameButton",
       type: "nameChange",
+      data: [],
       modalHandle: handleModalOpen,
       modalButtonAction: handleKebabAction,
     },
