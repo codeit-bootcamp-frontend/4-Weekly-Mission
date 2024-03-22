@@ -7,8 +7,19 @@ import { ModalContentTitle } from "sharing/ui-modal-content-title";
 import { ReactComponent as KakaoIcon } from "./kakao.svg";
 import { ReactComponent as FacebookIcon } from "./facebook.svg";
 import { ReactComponent as LinkIcon } from "./link.svg";
+import { KeyboardEvent } from "react";
 
 const cx = classNames.bind(styles);
+
+interface ShareModalProps {
+  isOpen: boolean;
+  folderName: string;
+  onKakaoClick: () => void;
+  onFacebookClick: () => void;
+  onLinkCopyClick: () => void;
+  onCloseClick: () => void;
+  onKeyDown: (e: KeyboardEvent<HTMLDivElement>) => void;
+}
 
 export const ShareModal = ({
   isOpen,
@@ -18,7 +29,7 @@ export const ShareModal = ({
   onLinkCopyClick,
   onCloseClick,
   onKeyDown,
-}) => {
+}: ShareModalProps) => {
   return (
     <Modal isOpen={isOpen} onBackdropClick={onCloseClick} onKeyDown={onKeyDown}>
       <ModalContentBox

@@ -3,9 +3,14 @@ import classNames from "classnames/bind";
 import { AddFolderButton } from "folder/ui-add-folder-button";
 import { FolderButton } from "folder/ui-folder-button";
 import { IconAndTextButton } from "sharing/ui-icon-and-text-button";
-import { ALL_LINKS_TEXT, BUTTONS, KAKAO_SHARE_DATA, MODALS_ID } from "./constant";
+import {
+  ALL_LINKS_TEXT,
+  BUTTONS,
+  KAKAO_SHARE_DATA,
+  MODALS_ID,
+} from "./constant";
 import { ALL_LINKS_ID } from "link/data-access-link/constant";
-import { useState } from "react";
+import { KeyboardEvent, useState } from "react";
 import { ShareModal } from "folder/ui-share-modal";
 import { InputModal } from "sharing/ui-input-modal";
 import { AlertModal } from "sharing/ui-alert-modal";
@@ -14,9 +19,24 @@ import { useKakaoSdk } from "sharing/util/useKakaoSdk";
 
 const cx = classNames.bind(styles);
 
-export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
+interface Folder {
+  id: string;
+  name: string;
+}
+
+interface FolderToolBarProps {
+  folders?: Folder[];
+  selectedFolderId: string;
+  onFolderClick: (id: string) => void;
+}
+
+export const FolderToolBar = ({
+  folders,
+  selectedFolderId,
+  onFolderClick,
+}: FolderToolBarProps) => {
   const { shareKakao } = useKakaoSdk();
-  const [currentModal, setCurrentModal] = useState(null);
+  const [currentModal, setCurrentModal] = useState<string | null>(null);
 
   const folderName =
     ALL_LINKS_ID === selectedFolderId
@@ -25,7 +45,7 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
   const shareLink = `${window.location.origin}/shared?user=1&folder=${selectedFolderId}`;
 
   const closeModal = () => setCurrentModal(null);
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Escape") {
       closeModal();
     }
