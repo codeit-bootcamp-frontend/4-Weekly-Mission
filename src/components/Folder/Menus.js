@@ -6,7 +6,7 @@ import union from "../../assets/icons/Union.svg";
 import { COLORS } from "constants/colors";
 import { useGetPromise } from "hooks/uesGetPromise";
 
-const Menus = ({ changeTitle, changeID, $isVisible, setIsVisible }) => {
+const Menus = ({ changeTitle, changeID, setIsVisible }) => {
   const listsData = useGetPromise(getFolderList);
   const lists = listsData?.data ?? [];
   if (lists[0]) {

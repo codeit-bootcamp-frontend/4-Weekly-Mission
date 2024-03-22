@@ -3,7 +3,7 @@ import Link from "../../assets/icons/link.svg";
 import { BlueButton } from "./../common/BlueButton";
 
 const FolderInput = ({ setIsVisible }) => {
-  const BtnHandle = () => {
+  const onAddLinkButtonClick = () => {
     setIsVisible("폴더 추가");
   };
 
@@ -17,7 +17,7 @@ const FolderInput = ({ setIsVisible }) => {
           padding="10px 16px"
           text="추가하기"
           radius="8px"
-          onBtnHandle={() => BtnHandle()}
+          onBtnHandle={() => onAddLinkButtonClick()}
         ></BlueButton>
       </InputBox>
     </BackGround>
