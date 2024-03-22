@@ -1,12 +1,13 @@
 import { ALL } from "../../../utils/utils";
+import { folderToolBarProps } from "../../../interfaces/folder.interface";
 import "./FolderButton.css";
 import classNames from "classnames";
 
 const FolderButton = ({
-  folderNameData,
+  folderData,
   onFolderSelect,
   selectedButtonName,
-}) => {
+}: folderToolBarProps) => {
   return (
     <>
       <button
@@ -15,12 +16,12 @@ const FolderButton = ({
           selectedButtonName === ALL && "selected"
         )}
         onClick={() => {
-          onFolderSelect(ALL);
+          onFolderSelect?.(ALL);
         }}
       >
         <span>{ALL}</span>
       </button>
-      {folderNameData.map((button) => (
+      {folderData.map((button) => (
         <button
           key={button.id}
           className={classNames(
@@ -28,7 +29,7 @@ const FolderButton = ({
             selectedButtonName === button.name && "selected"
           )}
           onClick={() => {
-            onFolderSelect(button.id, button.name);
+            onFolderSelect && onFolderSelect(button.id, button.name);
           }}
         >
           <span>{button.name}</span>

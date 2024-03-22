@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
+import {
+  navigationProps,
+  userType,
+} from "../../interfaces/navigation.interface";
 import "./Navigation.css";
 import linkbrary from "../../images/linkbrary.svg";
 import profileImg from "../../images/myprofile.svg";
 import { apiURL, fetchData } from "./fetchData";
 
-const Navigation = ({ position = "sticky", url = apiURL }) => {
-  const [user, setUser] = useState(null);
+const Navigation = ({ position = "sticky", url = apiURL }: navigationProps) => {
+  const [user, setUser] = useState<null | userType>(null);
 
   useEffect(() => {
-    fetchData(url).then((data) => setUser(data));
+    fetchData().then((data) => setUser(data));
   }, [url]);
 
   const positionClass = position === "static" ? "static" : "sticky";

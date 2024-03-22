@@ -1,7 +1,11 @@
 import "./ModalDelete.css";
 import closeBtn from "../../images/close.svg";
-
-const ModalDelete = ({ closeModal, modalTitle, modalButtonName }) => {
+import { modalType } from "../../interfaces/folder.interface";
+const ModalDelete = ({
+  closeModal,
+  modalTitle,
+  modalButtonName,
+}: modalType) => {
   return (
     <>
       <div className="modal-bg" />

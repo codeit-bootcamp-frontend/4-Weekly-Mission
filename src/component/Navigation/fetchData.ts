@@ -8,5 +8,5 @@ export const fetchData = () => {
       }
       return response.json();
     })
-    .catch((error) => console.error("Error:", error), []);
+    .catch((error) => console.error("Error:", error));
 };

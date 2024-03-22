@@ -1,6 +1,6 @@
 import Navigation from "../component/Navigation/Navigation";
 import Footer from "../component/Footer/Footer";
-import FolderSection from "../component/MainSection/FolderSection/FolderSection";
+import UserSection from "../component/MainSection/UserSection/UserSection";
 import SearchBar from "../component/MainSection/SearchBar/SearchBar";
 import CardList from "../component/MainSection/CardList/CardList";
 import "./page.css";
@@ -10,7 +10,7 @@ const Shared = () => {
     <>
       <Navigation position="sticky" />
       <section className="main-section">
-        <FolderSection />
+        <UserSection />
         <div className="wrap">
           <SearchBar />
           <CardList />

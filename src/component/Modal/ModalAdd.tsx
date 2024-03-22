@@ -1,16 +1,17 @@
 import { useState } from "react";
 import "./ModalAdd.css";
 import closeBtn from "../../images/close.svg";
+import { modalType } from "../../interfaces/folder.interface";
 
 const ModalAdd = ({
-  folderNameData,
+  folderData,
   closeModal,
   modalTitle,
   modalButtonName,
-}) => {
-  const [isButtonClick, setIsButtonClick] = useState(null);
+}: modalType) => {
+  const [isButtonClick, setIsButtonClick] = useState<null | number>(null);
 
-  const handleClick = (id) => {
+  const handleClick = (id: null | number) => {
     setIsButtonClick(id);
   };
 
@@ -33,7 +34,7 @@ const ModalAdd = ({
           </div>
           <div className="modal-content">
             <div className="modal-folder-list">
-              {folderNameData?.map((data) => (
+              {folderData?.map((data) => (
                 <button
                   key={data.id}
                   onClick={() => {

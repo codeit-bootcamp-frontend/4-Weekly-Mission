@@ -1,12 +1,13 @@
 import { useState } from "react";
+import { InputSectionProps } from "../../interfaces/folder.interface";
 import linkImg from "../../images/link.svg";
 import ModalAdd from "../Modal/ModalAdd";
 import "./InputSection.css";
 
-const InputSection = ({ folderNameData }) => {
+const InputSection = ({ folderData }: InputSectionProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     setIsModalOpen(true);
   };
@@ -27,7 +28,7 @@ const InputSection = ({ folderNameData }) => {
         </button>
       </form>
       {isModalOpen && (
-        <ModalAdd folderNameData={folderNameData} closeModal={closeModal} />
+        <ModalAdd folderData={folderData} closeModal={closeModal} />
       )}
     </div>
   );

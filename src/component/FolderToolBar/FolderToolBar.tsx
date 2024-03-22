@@ -1,21 +1,25 @@
 import useModal from "../../hooks/useModal";
 import FolderButton from "./FolderButton/FolderButton";
-import FolderCardList from "../FolderToolBar/FolderCardList/FolderCardList";
+import FolderCardList from "./FolderCardList/FolderCardList";
 import ModalEdit from "../Modal/ModalEdit";
 import ModalShare from "../Modal/ModalShare";
 import ModalDelete from "../Modal/ModalDelete";
 import { ALL } from "../../utils/utils";
+import {
+  folderToolBarProps,
+  handleModalType,
+} from "../../interfaces/folder.interface";
 import "./FolderToolBar.css";
 import share from "../../images/share.svg";
 import pen from "../../images/pen.svg";
 import deleteIcon from "../../images/delete.svg";
 
 const FolderToolBar = ({
-  folderNameData,
+  folderData,
   links,
   selectedButtonName,
   onFolderSelect,
-}) => {
+}: folderToolBarProps) => {
   const {
     isModalOpen,
     openModal,
@@ -26,7 +30,11 @@ const FolderToolBar = ({
     modalButtonName,
   } = useModal();
 
-  const handleModalOpen = ({ title, buttonName, modalType }) => {
+  const handleModalOpen = ({
+    title,
+    buttonName,
+    modalType,
+  }: handleModalType) => {
     openModal(true, title, buttonName, modalType);
   };
 
@@ -35,7 +43,7 @@ const FolderToolBar = ({
       <div className="button-container">
         <div className="folder-buttons">
           <FolderButton
-            folderNameData={folderNameData}
+            folderData={folderData}
             onFolderSelect={onFolderSelect}
             selectedButtonName={selectedButtonName}
           />
@@ -98,7 +106,7 @@ const FolderToolBar = ({
         changeModalType={changeModalType}
         modalTitle={modalTitle}
         modalButtonName={modalButtonName}
-        folderNameData={folderNameData}
+        folderData={folderData}
       />
       {isModalOpen && modalType === "edit" && (
         <ModalEdit

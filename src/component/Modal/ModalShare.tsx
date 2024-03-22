@@ -1,17 +1,18 @@
+import { modalType } from "../../interfaces/folder.interface";
 import "./ModalShare.css";
 import closeBtn from "../../images/close.svg";
 import kakaoImg from "../../images/kakao.svg";
 import facebookImg from "../../images/facebook.svg";
 import linkImg from "../../images/link.svg";
 
-const ModalShare = ({ closeModal, modalTitle }) => {
+const ModalShare = ({ closeModal, modalTitle }: modalType) => {
   const hostAddress = "https://yourdomain.com"; // 각자 주소 바꾸기
   const shareUrl = `${hostAddress}/shared/${1}`; // id값도 바꾸기
   const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
     shareUrl
   )}`;
 
-  const copyToClipboard = (e) => {
+  const copyToClipboard = (e: React.MouseEvent) => {
     e.preventDefault();
     navigator.clipboard.writeText(shareUrl).then(
       () => {

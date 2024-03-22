@@ -1,12 +1,19 @@
 import { useState } from "react";
 
 const useModal = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalType, setModalType] = useState(null);
-  const [modalTitle, setModalTitle] = useState("");
-  const [modalButtonName, setModalButtonName] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [modalType, setModalType] = useState<string | undefined>("");
+  const [modalTitle, setModalTitle] = useState<string>("");
+  const [modalButtonName, setModalButtonName] = useState<string | undefined>(
+    ""
+  );
 
-  const openModal = (open = true, title = "", buttonName = "", type = null) => {
+  const openModal = (
+    open: boolean,
+    title: string,
+    buttonName: string | undefined,
+    type: string | undefined
+  ) => {
     setIsModalOpen(open);
     setModalType(type);
     setModalTitle(title);
@@ -19,7 +26,7 @@ const useModal = () => {
     setModalButtonName("");
   };
 
-  const changeModalType = (type) => {
+  const changeModalType = (type: string | undefined) => {
     setModalType(type);
   };
 
