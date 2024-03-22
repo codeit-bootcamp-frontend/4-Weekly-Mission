@@ -1,10 +1,5 @@
 import { useState } from 'react';
-import {
-  Wrapper,
-  SearchInput,
-  SearchIcon,
-  DeleteButton,
-} from './SearchBar.style';
+import * as S from './SearchBar.style';
 
 interface Props {
   topic?: string;
@@ -27,15 +22,20 @@ const SearchBar = ({ topic, changeTopic }: Props) => {
     setLink('');
   };
   return (
-    <Wrapper>
-      <SearchInput
+    <S.Wrapper>
+      <S.SearchInput
         placeholder="링크를 검색해 보세요"
         onChange={changeInput}
         value={link}
       />
-      <SearchIcon src="/images/Search.svg" alt="검색" width={16} height={16} />
+      <S.SearchIcon
+        src="/images/Search.svg"
+        alt="검색"
+        width={16}
+        height={16}
+      />
       {link && (
-        <DeleteButton
+        <S.DeleteButton
           src="/images/searchDelete.svg"
           alt="delete"
           width={24}
@@ -43,7 +43,7 @@ const SearchBar = ({ topic, changeTopic }: Props) => {
           onClick={clickDeleteButton}
         />
       )}
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 

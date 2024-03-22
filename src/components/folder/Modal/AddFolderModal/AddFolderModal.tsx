@@ -1,12 +1,6 @@
 import { useContext, useState } from 'react';
 import { FolderContext } from '@/src/context/folderContext';
-import {
-  ButtonWrapper,
-  LinkName,
-  FolderName,
-  Wrapper,
-  CheckIcon,
-} from './AddFolderModal.style';
+import * as S from './AddFolderModal.style';
 
 const AddFolderModal = () => {
   const { modalData } = useContext(FolderContext);
@@ -18,29 +12,29 @@ const AddFolderModal = () => {
     setCheckID(value);
   };
   return (
-    <Wrapper>
+    <S.Wrapper>
       {folder &&
         folder?.map((fold) => (
-          <ButtonWrapper
+          <S.ButtonWrapper
             key={fold.folderID}
             onClick={() => clickButton(fold.folderID)}
             $checked={checkID === fold.folderID}
           >
-            <FolderName $checked={checkID === fold.folderID}>
+            <S.FolderName $checked={checkID === fold.folderID}>
               {fold.folderName}
-            </FolderName>
-            <LinkName>{fold.linkCount}개 링크</LinkName>
+            </S.FolderName>
+            <S.LinkName>{fold.linkCount}개 링크</S.LinkName>
             {checkID === fold.folderID && (
-              <CheckIcon
+              <S.CheckIcon
                 src="/images/check.svg"
                 alt="check"
                 width={14}
                 height={14}
               />
             )}
-          </ButtonWrapper>
+          </S.ButtonWrapper>
         ))}
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 

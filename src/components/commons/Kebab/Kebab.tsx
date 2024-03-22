@@ -1,12 +1,7 @@
 import { useContext, useEffect, useRef } from 'react';
 import { FolderContext } from '@/src/context/folderContext';
 import { CategoryDataType, currentFolderDataType } from '@/src/type';
-import {
-  SelectButton,
-  KebabButton,
-  SelectWrapper,
-  Wrapper,
-} from './Kebeb.style';
+import * as S from './Kebeb.style';
 
 interface Props {
   cardID: number | null;
@@ -70,8 +65,8 @@ const Kebab = ({ cardID, cardURL, folderData, currentFolder }: Props) => {
     return () => document.removeEventListener('click', clickOtherPart);
   }, [changeKebabID]);
   return (
-    <Wrapper ref={wraperRef}>
-      <KebabButton
+    <S.Wrapper ref={wraperRef}>
+      <S.KebabButton
         src="/images/kebab.svg"
         alt="kebab"
         width={21}
@@ -79,12 +74,12 @@ const Kebab = ({ cardID, cardURL, folderData, currentFolder }: Props) => {
         onClick={clickKebabButton}
       />
       {kebabID === cardID && (
-        <SelectWrapper>
-          <SelectButton onClick={openDeleteModal}>삭제하기</SelectButton>
-          <SelectButton onClick={openAddModal}>폴더에 추가</SelectButton>
-        </SelectWrapper>
+        <S.SelectWrapper>
+          <S.SelectButton onClick={openDeleteModal}>삭제하기</S.SelectButton>
+          <S.SelectButton onClick={openAddModal}>폴더에 추가</S.SelectButton>
+        </S.SelectWrapper>
       )}
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 

@@ -1,14 +1,6 @@
 import { MouseEventHandler, useContext, useRef } from 'react';
 import { FolderContext } from '@/src/context/folderContext';
-import {
-  ModalBackground,
-  ModalButton,
-  ModalDeleteButton,
-  ModalSubTitle,
-  ModalTitle,
-  ModalTitleWrapper,
-  ModalWrapper,
-} from './Modal.style';
+import * as S from './Modal.style';
 import ModalContent from './ModalContent';
 
 interface buttonObj {
@@ -71,32 +63,32 @@ const Modal = () => {
   };
   return (
     modalData?.modalType && (
-      <ModalBackground onClick={clickOutter}>
-        <ModalWrapper ref={wrapperRef}>
-          <ModalTitleWrapper>
-            <ModalTitle>{MODAL[modalType].title}</ModalTitle>
+      <S.ModalBackground onClick={clickOutter}>
+        <S.ModalWrapper ref={wrapperRef}>
+          <S.ModalTitleWrapper>
+            <S.ModalTitle>{MODAL[modalType].title}</S.ModalTitle>
             {modalData.subTitle && (
-              <ModalSubTitle>{String(modalData?.subTitle)}</ModalSubTitle>
+              <S.ModalSubTitle>{String(modalData?.subTitle)}</S.ModalSubTitle>
             )}
-          </ModalTitleWrapper>
+          </S.ModalTitleWrapper>
           <ModalContent />
           {MODAL[modalType].button && (
-            <ModalButton
+            <S.ModalButton
               $color={String(MODAL[modalType].button?.color)}
               onClick={deleteModal}
             >
               {String(MODAL[modalType].button?.text)}
-            </ModalButton>
+            </S.ModalButton>
           )}
-          <ModalDeleteButton
+          <S.ModalDeleteButton
             src="/images/close.svg"
             alt="close"
             width={24}
             height={24}
             onClick={deleteModal}
           />
-        </ModalWrapper>
-      </ModalBackground>
+        </S.ModalWrapper>
+      </S.ModalBackground>
     )
   );
 };

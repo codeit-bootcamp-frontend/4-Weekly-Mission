@@ -3,14 +3,7 @@ import Link from 'next/link';
 import useAPIData from '@/src/hooks/useAPIData';
 import { UserDataType } from '@/src/type';
 import { getUserSampleDataAPI } from '@/src/API/API';
-import {
-  Wrapper,
-  HeaderWrapper,
-  Logo,
-  UserEmail,
-  UserImage,
-  UserWrapper,
-} from './Header.style';
+import * as S from './Header.style';
 
 interface Props {
   fix: boolean | null;
@@ -19,10 +12,10 @@ interface Props {
 const Header = ({ fix }: Props) => {
   const { data: userProfile } = useAPIData<UserDataType>(getUserSampleDataAPI);
   return (
-    <Wrapper $fix={fix}>
-      <HeaderWrapper>
+    <S.Wrapper $fix={fix}>
+      <S.HeaderWrapper>
         <Link href="/">
-          <Logo
+          <S.Logo
             src="/images/logo.svg"
             alt="Linkbrary"
             width={133}
@@ -31,20 +24,20 @@ const Header = ({ fix }: Props) => {
           />
         </Link>
         {userProfile ? (
-          <UserWrapper>
-            <UserImage
+          <S.UserWrapper>
+            <S.UserImage
               src={userProfile.image}
               alt="profile"
               width={28}
               height={28}
             />
-            <UserEmail>{userProfile.email}</UserEmail>
-          </UserWrapper>
+            <S.UserEmail>{userProfile.email}</S.UserEmail>
+          </S.UserWrapper>
         ) : (
           <div />
         )}
-      </HeaderWrapper>
-    </Wrapper>
+      </S.HeaderWrapper>
+    </S.Wrapper>
   );
 };
 

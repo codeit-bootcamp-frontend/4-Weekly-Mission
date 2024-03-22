@@ -1,29 +1,23 @@
 import { FolderDataType } from '@/src/type';
-import {
-  Wrapper,
-  ContentWrapper,
-  ProfileImage,
-  ProfileName,
-  FolderName,
-} from './SubHeader.style';
+import * as S from './SubHeader.style';
 
 interface Props {
   folder: FolderDataType | null;
 }
 
 const SubHeader = ({ folder }: Props) => (
-  <Wrapper>
-    <ContentWrapper>
-      <ProfileImage
+  <S.Wrapper>
+    <S.ContentWrapper>
+      <S.ProfileImage
         src={(folder as FolderDataType)?.userImage}
         alt="Avatar"
         width={60}
         height={60}
       />
-      <ProfileName>{(folder as FolderDataType)?.userName}</ProfileName>
-      <FolderName>{(folder as FolderDataType)?.name}</FolderName>
-    </ContentWrapper>
-  </Wrapper>
+      <S.ProfileName>{(folder as FolderDataType)?.userName}</S.ProfileName>
+      <S.FolderName>{(folder as FolderDataType)?.name}</S.FolderName>
+    </S.ContentWrapper>
+  </S.Wrapper>
 );
 
 export default SubHeader;

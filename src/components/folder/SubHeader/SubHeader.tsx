@@ -8,13 +8,7 @@ import {
 } from 'react';
 import { FolderContext } from '@/src/context/folderContext';
 import { CategoryDataType, currentFolderDataType } from '@/src/type';
-import {
-  Wrapper,
-  SearchWrapper,
-  SearchInput,
-  ImageIcon,
-  AddButton,
-} from './SubHeader.style';
+import * as S from './SubHeader.style';
 
 interface Props {
   folderData: CategoryDataType | null;
@@ -91,20 +85,25 @@ const SubHeader = ({
 
   return (
     <>
-      <Wrapper
+      <S.Wrapper
         $viewSubHeader={viewSubHeader}
         $viewFooter={viewFooter}
         $type={type}
       >
-        <SearchWrapper>
-          <SearchInput
+        <S.SearchWrapper>
+          <S.SearchInput
             placeholder="링크를 추가해보세요"
             onChange={changeLink}
           />
-          <ImageIcon src="/images/link.svg" alt="링크" width={20} height={20} />
-          <AddButton onClick={openModal}>추가하기</AddButton>
-        </SearchWrapper>
-      </Wrapper>
+          <S.ImageIcon
+            src="/images/link.svg"
+            alt="링크"
+            width={20}
+            height={20}
+          />
+          <S.AddButton onClick={openModal}>추가하기</S.AddButton>
+        </S.SearchWrapper>
+      </S.Wrapper>
       <div ref={wrapperRef} />
     </>
   );

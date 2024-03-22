@@ -7,16 +7,7 @@ import {
   cardDataType,
   currentFolderDataType,
 } from '@/src/type';
-import {
-  CardContentWrapper,
-  CardImageWrapper,
-  CardDate,
-  CardImage,
-  CardStatus,
-  CardTitle,
-  Wrapper,
-  TopWrapper,
-} from './Card.style';
+import * as S from './Card.style';
 import Kebab from '../Kebab/Kebab';
 
 interface Props {
@@ -56,13 +47,13 @@ const Card = ({ page, card, folderData, currentFolder }: Props) => {
 
   return (
     <Link href={card?.url ? card?.url : ''}>
-      <Wrapper
+      <S.Wrapper
         ref={WrapperRef}
         onMouseOver={handleCardMouseOver}
         onMouseOut={handleCardMouseOut}
       >
-        <CardImageWrapper>
-          <CardImage
+        <S.CardImageWrapper>
+          <S.CardImage
             src={imageURL}
             alt="이미지"
             width={340}
@@ -70,10 +61,10 @@ const Card = ({ page, card, folderData, currentFolder }: Props) => {
             ref={ImageRef}
             onError={failImageLoad}
           />
-        </CardImageWrapper>
-        <CardContentWrapper>
-          <TopWrapper>
-            <CardStatus>{cardStatus}</CardStatus>
+        </S.CardImageWrapper>
+        <S.CardContentWrapper>
+          <S.TopWrapper>
+            <S.CardStatus>{cardStatus}</S.CardStatus>
             {page === 'folder' && (
               <Kebab
                 cardID={card?.id ? card?.id : null}
@@ -82,11 +73,11 @@ const Card = ({ page, card, folderData, currentFolder }: Props) => {
                 currentFolder={currentFolder}
               />
             )}
-          </TopWrapper>
-          <CardTitle>{card?.description}</CardTitle>
-          <CardDate>{cardCreationDate}</CardDate>
-        </CardContentWrapper>
-      </Wrapper>
+          </S.TopWrapper>
+          <S.CardTitle>{card?.description}</S.CardTitle>
+          <S.CardDate>{cardCreationDate}</S.CardDate>
+        </S.CardContentWrapper>
+      </S.Wrapper>
     </Link>
   );
 };

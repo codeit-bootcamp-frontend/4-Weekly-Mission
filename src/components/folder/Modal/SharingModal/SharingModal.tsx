@@ -1,10 +1,4 @@
-import {
-  ButtonWrapper,
-  Icon,
-  IconName,
-  IconWrapper,
-  Wrapper,
-} from './SharingModal.style';
+import * as S from './SharingModal.style';
 
 const SharingModal = () => {
   const BUTTON = [
@@ -17,16 +11,16 @@ const SharingModal = () => {
     },
   ];
   return (
-    <Wrapper>
+    <S.Wrapper>
       {BUTTON.map((button, index) => (
-        <ButtonWrapper key={index}>
-          <IconWrapper $color={button.color}>
-            <Icon src={button.src} alt={button.name} width={18} height={18} />
-          </IconWrapper>
-          <IconName>{button.name}</IconName>
-        </ButtonWrapper>
+        <S.ButtonWrapper key={index}>
+          <S.IconWrapper $color={button.color}>
+            <S.Icon src={button.src} alt={button.name} width={18} height={18} />
+          </S.IconWrapper>
+          <S.IconName>{button.name}</S.IconName>
+        </S.ButtonWrapper>
       ))}
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 

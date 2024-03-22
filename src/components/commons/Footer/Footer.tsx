@@ -1,16 +1,6 @@
 import Link from 'next/link';
 import { useRef, useEffect, useMemo } from 'react';
-import {
-  ContentWrapper,
-  CopyLightWrapper,
-  FAQWrapper,
-  FlexWrapper,
-  PFWrapper,
-  PolicyWrapper,
-  SNSIcon,
-  SNSWrapper,
-  Wrapper,
-} from './Footer.style';
+import * as S from './Footer.style';
 
 interface Props {
   changeViewFooter?: (value: boolean) => void | undefined;
@@ -70,28 +60,28 @@ const Footer = ({ changeViewFooter }: Props) => {
     };
   }, [options, changeViewFooter]);
   return (
-    <Wrapper ref={wrapperRef}>
-      <ContentWrapper>
-        <FlexWrapper>
-          <CopyLightWrapper>©codeit - 2023</CopyLightWrapper>
-          <PFWrapper>
+    <S.Wrapper ref={wrapperRef}>
+      <S.ContentWrapper>
+        <S.FlexWrapper>
+          <S.CopyLightWrapper>©codeit - 2023</S.CopyLightWrapper>
+          <S.PFWrapper>
             <Link href="/privacy">
-              <PolicyWrapper>Privacy Policy</PolicyWrapper>
+              <S.PolicyWrapper>Privacy Policy</S.PolicyWrapper>
             </Link>
             <Link href="/faq">
-              <FAQWrapper>FAQ</FAQWrapper>
+              <S.FAQWrapper>FAQ</S.FAQWrapper>
             </Link>
-          </PFWrapper>
-          <SNSWrapper>
+          </S.PFWrapper>
+          <S.SNSWrapper>
             {SNS.map((sns, index) => (
               <Link href={sns.href} key={index}>
-                <SNSIcon src={sns.src} alt={sns.alt} width={20} height={20} />
+                <S.SNSIcon src={sns.src} alt={sns.alt} width={20} height={20} />
               </Link>
             ))}
-          </SNSWrapper>
-        </FlexWrapper>
-      </ContentWrapper>
-    </Wrapper>
+          </S.SNSWrapper>
+        </S.FlexWrapper>
+      </S.ContentWrapper>
+    </S.Wrapper>
   );
 };
 
