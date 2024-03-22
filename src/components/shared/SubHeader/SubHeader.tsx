@@ -9,13 +9,13 @@ const SubHeader = ({ folder }: Props) => (
   <S.Wrapper>
     <S.ContentWrapper>
       <S.ProfileImage
-        src={(folder as FolderDataType)?.userImage}
+        src={folder?.userImage}
         alt="Avatar"
         width={60}
         height={60}
       />
-      <S.ProfileName>{(folder as FolderDataType)?.userName}</S.ProfileName>
-      <S.FolderName>{(folder as FolderDataType)?.name}</S.FolderName>
+      <S.ProfileName>{folder?.userName}</S.ProfileName>
+      <S.FolderName>{folder?.name}</S.FolderName>
     </S.ContentWrapper>
   </S.Wrapper>
 );
