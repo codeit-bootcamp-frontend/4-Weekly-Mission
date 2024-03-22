@@ -12,8 +12,8 @@ const SharingModal = () => {
   ];
   return (
     <S.Wrapper>
-      {BUTTON.map((button, index) => (
-        <S.ButtonWrapper key={index}>
+      {BUTTON.map((button) => (
+        <S.ButtonWrapper key={button.name}>
           <S.IconWrapper $color={button.color}>
             <S.Icon src={button.src} alt={button.name} width={18} height={18} />
           </S.IconWrapper>

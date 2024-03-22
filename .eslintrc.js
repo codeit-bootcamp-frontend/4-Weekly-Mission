@@ -31,12 +31,8 @@ module.exports = {
   plugins: ['@typescript-eslint', 'react'],
   rules: {
     'react/react-in-jsx-scope': 'off',
-    'linebreak-style': 'off',
     'react/jsx-filename-extension': 'off',
     'import/no-unresolved': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/no-array-index-key': 'off',
-    'import/no-extraneous-dependencies': 'off',
     'react/function-component-definition': [
       'error',
       { namedComponents: ['arrow-function', 'function-declaration'] },

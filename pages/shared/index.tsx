@@ -13,7 +13,7 @@ import * as S from './index.style';
 export default function SharedPage() {
   const [topic, setTopic] = useState<string>('');
   const { data: folder } = useAPIData<FolderDataType>(getFolderDataAPI);
-  const cardData = folder?.cardData;
+  const cardData = folder ? folder.cardData : null;
   const filteredData = FilterData<cardDataType>(cardData, topic);
   const folderData = { category: null, error: null };
   const currentFolder = { title: null, id: null };
@@ -33,9 +33,9 @@ export default function SharedPage() {
             </S.SearchText>
           )}
           <S.CardWrapper>
-            {filteredData?.map((card, index) => (
+            {filteredData?.map((card) => (
               <Card
-                key={index}
+                key={card.id}
                 card={card}
                 page="shared"
                 folderData={folderData}

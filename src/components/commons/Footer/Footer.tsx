@@ -73,8 +73,8 @@ const Footer = ({ changeViewFooter }: Props) => {
             </Link>
           </S.PFWrapper>
           <S.SNSWrapper>
-            {SNS.map((sns, index) => (
-              <Link href={sns.href} key={index}>
+            {SNS.map((sns) => (
+              <Link href={sns.href} key={sns.alt}>
                 <S.SNSIcon src={sns.src} alt={sns.alt} width={20} height={20} />
               </Link>
             ))}

@@ -124,9 +124,9 @@ const Folder = ({
         <S.FolderTitle>{currentFolder?.title}</S.FolderTitle>
         {currentFolder?.id !== '0' && (
           <S.OptionWrapper>
-            {OPTION.map((option, index) => (
+            {OPTION.map((option) => (
               <S.OptionButtonWrapper
-                key={index}
+                key={option.text}
                 onClick={() => option.click(option.text)}
               >
                 <S.OptionIcon
