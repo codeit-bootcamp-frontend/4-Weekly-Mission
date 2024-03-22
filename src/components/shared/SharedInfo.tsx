@@ -49,8 +49,26 @@ const ErrorMessage = styled.span`
   color: var(--gray1);
 `;
 
-const SharedInfo = ({ folderData, folderLoadingError }) => {
+interface FolderData {
+  folderInfo: {
+    profileImageSource?: string;
+    name: string;
+  };
+  folderName: string;
+}
+
+interface FolderLoadingError extends Error {
+  message: string;
+}
+
+interface Props {
+  folderData: FolderData;
+  folderLoadingError?: FolderLoadingError;
+}
+
+const SharedInfo = ({ folderData, folderLoadingError }: Props) => {
   const { profileImageSource = defaultProfileImg, name } =
+  
     folderData.folderInfo;
   const folderName = folderData.folderName;
   return (

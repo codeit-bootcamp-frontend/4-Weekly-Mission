@@ -52,7 +52,7 @@ const SHARE_LIST = [
 ];
 
 function ShareLists() {
-  const handleShare = (url) => {
+  const handleShare = (url: string) => {
     window.open(url, "_blank");
   };
 

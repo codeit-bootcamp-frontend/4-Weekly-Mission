@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -9,7 +8,11 @@ const Container = styled.div`
   background-color: rgba(0, 0, 0, 0.4);
 `;
 
-function Backdrop({ isClose }) {
+interface Props {
+  isClose: () => void;
+}
+
+function Backdrop({ isClose }: Props) {
   return <Container onClick={isClose}></Container>;
 }
 

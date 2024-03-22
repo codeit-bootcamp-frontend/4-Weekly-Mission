@@ -11,7 +11,7 @@ const Container = styled.ul`
   margin-bottom: 10px;
 `;
 
-const FolderList = styled.li`
+const FolderList = styled.li<{ $isActive: boolean }>`
   position: relative;
   height: 40px;
   display: flex;
@@ -22,7 +22,7 @@ const FolderList = styled.li`
   cursor: pointer;
 `;
 
-const FolderName = styled.span`
+const FolderName = styled.span<{ $isActive: boolean }>`
   font-size: 16px;
   padding: 0 10px;
   color: ${({ $isActive }) => $isActive && "var(--primary)"};
@@ -40,9 +40,9 @@ const CheckIcon = styled.img`
 
 function FolderAddList() {
   const { folders } = useContext(FolderContext);
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
-  const handleListClick = (index) => {
+  const handleListClick = (index: number) => {
     setActiveIndex(index);
   };
 

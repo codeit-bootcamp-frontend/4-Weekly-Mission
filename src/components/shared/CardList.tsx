@@ -28,7 +28,17 @@ const NoLink = styled.div`
   color: rgba(0, 0, 0, 0.6);
 `;
 
-const CardList = ({ links, folderLoadingError }) => {
+interface Link {
+  id: number;
+  title: string;
+  url: string;
+}
+
+interface Props {
+  links: Link[];
+}
+
+const CardList = ({ links }: Props) => {
   return (
     <Container>
       {links.length !== 0 ? (

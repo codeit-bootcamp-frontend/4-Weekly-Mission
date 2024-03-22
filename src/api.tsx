@@ -1,7 +1,7 @@
 const BASE_URL = "https://bootcamp-api.codeit.kr/api";
 const USER_ID = 4;
 
-async function fetchData(endpoint) {
+async function fetchData(endpoint: string): Promise<any> {
   const url = `${BASE_URL}${endpoint}`;
   const response = await fetch(url);
   if (!response.ok) {
@@ -11,26 +11,26 @@ async function fetchData(endpoint) {
 }
 
 //샘플 폴더
-export function getFolder() {
+export function getFolder(): Promise<any> {
   return fetchData("/sample/folder");
 }
 
 //유저 정보
-export function getUser() {
+export function getUser(): Promise<any> {
   return fetchData(`/users/${USER_ID}`);
 }
 
 //폴더 목록
-export function getFolders() {
+export function getFolders(): Promise<any> {
   return fetchData(`/users/${USER_ID}/folders`);
 }
 
 //"전체" 링크
-export function getAllLinks() {
+export function getAllLinks(): Promise<any> {
   return fetchData(`/users/${USER_ID}/links`);
 }
 
 //특정 폴더 링크
-export function getFolderLinks(folderId) {
+export function getFolderLinks(folderId: number): Promise<any> {
   return fetchData(`/users/${USER_ID}/links?folderId=${folderId}`);
 }

@@ -1,4 +1,10 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useEffect,
+  useState,
+} from "react";
 import styled from "styled-components";
 import { getAllLinks, getFolderLinks, getFolders } from "../api";
 import SearchBar from "../components/common/SearchBar";
@@ -16,14 +22,18 @@ const Container = styled.main`
   padding-bottom: 100px;
 `;
 
-export const FolderContext = createContext();
+export const FolderContext = createContext<{
+  folders: any[];
+  folderId: number;
+  setFolderId: Dispatch<SetStateAction<number>>;
+}>({ folders: [], folderId: 0, setFolderId: () => {} });
 
 function Folder() {
   // states
-  const [folderId, setFolderId] = useState(0);
-  const [folders, setFolders] = useState([]);
-  const [links, setLinks] = useState([]);
-  const [allLinks, setAllLinks] = useState([]);
+  const [folderId, setFolderId] = useState<number>(0);
+  const [folders, setFolders] = useState<any[]>([]);
+  const [links, setLinks] = useState<any[]>([]);
+  const [allLinks, setAllLinks] = useState<any[]>([]);
 
   // custom hook
   const [foldersLoadingError, getFoldersAsync] = useAsync(getFolders);
@@ -31,14 +41,19 @@ function Folder() {
     useAsync(getFolderLinks);
   const [allLinksLoadingError, getAllLinksAsync] = useAsync(getAllLinks);
 
-  const fetchData = async (folderId) => {
+  const fetchData = async (folderId: number) => {
     try {
+      const promises: Promise<any>[] = [];
+
+      if (typeof getFoldersAsync === "function")
+        promises.push(getFoldersAsync());
+      if (typeof getAllLinksAsync === "function")
+        promises.push(getAllLinksAsync());
+      if (typeof getFolderLinksAsync === "function")
+        promises.push(getFolderLinksAsync(folderId));
+
       const [foldersResponse, allLinksResponse, folderLinksResponse] =
-        await Promise.all([
-          getFoldersAsync(),
-          getAllLinksAsync(),
-          getFolderLinksAsync(folderId),
-        ]);
+        await Promise.all(promises);
 
       if (foldersResponse) setFolders(foldersResponse.data);
       if (allLinksResponse) setAllLinks(allLinksResponse.data);
@@ -61,7 +76,7 @@ function Folder() {
           <FolderInfo folders={folders} />
           <CardList
             links={folderId === 0 ? allLinks : links}
-            folderLoadingError={foldersLoadingError}
+            // folderLoadingError={foldersLoadingError}
           />
         </div>
       </Container>

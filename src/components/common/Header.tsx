@@ -1,8 +1,7 @@
-import React from "react";
 import styled from "styled-components";
 import logo from "../../assets/svg/logo.svg";
 
-const Container = styled.header`
+const Container = styled.header<{ $isHeader: boolean }>`
   display: flex;
   padding: 20px 200px;
   flex-direction: column;
@@ -93,9 +92,22 @@ const Profile = styled.div`
   }
 `;
 
-const Header = ({ userInfo, $isHeader }) => {
+interface UserInfo {
+  email: string;
+  image_source: string;
+}
+
+interface HeaderProps {
+  userInfo: UserInfo;
+  $isHeader: boolean;
+}
+
+const Header: React.FunctionComponent<HeaderProps> = ({
+  userInfo,
+  $isHeader,
+}) => {
   const { image_source, email } = userInfo;
-  const isUserInfoEmpty = userInfo.length === 0;
+  const isUserInfoEmpty = Object.keys(userInfo).length === 0;
 
   return (
     <Container $isHeader={$isHeader}>
@@ -109,7 +121,7 @@ const Header = ({ userInfo, $isHeader }) => {
           </LoginButton>
         ) : (
           <Profile className="profile">
-            <img className="profile-img" src={image_source} />
+            <img className="profile-img" src={image_source} alt="" />
             <p className="profile-email">{email}</p>
           </Profile>
         )}

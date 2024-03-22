@@ -22,6 +22,12 @@ const MenuList = styled.li`
   }
 `;
 
+interface MenuList {
+  optionTitle: string;
+  modalTitle: string;
+  modalBtnText: string;
+}
+
 const MENU_LIST = [
   {
     optionTitle: "삭제하기",
@@ -43,19 +49,19 @@ function Dropdown() {
   const openModal = () => setActive(true);
   const closeModal = () => setActive(false);
 
-  const handleModalTitle = (list) => {
+  const handleModalTitle = (list: MenuList) => {
     setTitle(list.modalTitle);
     setBtnText(list.modalBtnText);
   };
 
   const modal = createPortal(
     <ModalBase isClose={closeModal} title={title} btntext={btnText} />,
-    document.getElementById("modal")
+    document.getElementById("modal")!
   );
 
   const backdrop = createPortal(
     <Backdrop isClose={closeModal} />,
-    document.getElementById("backdrop")
+    document.getElementById("backdrop")!
   );
 
   return (

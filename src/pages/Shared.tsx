@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getFolder, getUser } from "../api";
+import { getFolder } from "../api";
 import useAsync from "../components/hooks/useAsync";
 
 // components
@@ -16,27 +16,41 @@ const Container = styled.main`
   align-items: center;
 `;
 
+interface FolderData {
+  cardItems: Array<any>;
+  folderInfo: {
+    profileImageSource?: string | undefined;
+    name: string;
+  };
+  folderName: string;
+}
+
 const Shared = () => {
-  const [folderData, setFolderData] = useState({
+  const [folderData, setFolderData] = useState<FolderData>({
     cardItems: [],
-    folderInfo: "",
+    folderInfo: { name: "", profileImageSource: undefined },
     folderName: "",
   });
-  const [order] = useState("createdAt");
 
   const [folderLoadingError, getFolderAsync] = useAsync(getFolder);
 
   // 카드 아이템 요청
   const handleLoadItems = async () => {
-    let result = await getFolderAsync();
-    if (!result) return;
+    try {
+      if (typeof getFolderAsync === "function") {
+        const result = await getFolderAsync();
+        if (!result) return;
 
-    const { links, owner, name } = result.folder;
-    setFolderData({
-      cardItems: links,
-      folderInfo: owner,
-      folderName: name,
-    });
+        const { links, owner, name } = result.folder;
+        setFolderData({
+          cardItems: links,
+          folderInfo: owner,
+          folderName: name,
+        });
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   useEffect(() => {
@@ -47,15 +61,11 @@ const Shared = () => {
     <Container>
       <SharedInfo
         folderData={folderData}
-        folderLoadingError={folderLoadingError}
+        // folderLoadingError={folderLoadingError}
       />
       <div className="Shared-content-wrapper">
         <SearchBar />
-        <CardList
-          items={folderData.cardItems}
-          folderId={null}
-          folderLoadingError={folderLoadingError}
-        />
+        <CardList links={folderData.cardItems} />
       </div>
     </Container>
   );

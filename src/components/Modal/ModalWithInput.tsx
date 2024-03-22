@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -15,8 +15,15 @@ const Input = styled.input`
   }
 `;
 
-function ModalWithInput(Component) {
-  return (props) => {
+interface ModalProps {
+  children?: ReactNode;
+  title: string;
+  isClose: () => void;
+  btntext?: string;
+}
+
+function ModalWithInput(Component: React.ComponentType<ModalProps>) {
+  return (props: ModalProps) => {
     return (
       <React.Fragment>
         <Component {...props}>
