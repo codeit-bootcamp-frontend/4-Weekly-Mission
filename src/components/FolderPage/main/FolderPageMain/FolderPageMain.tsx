@@ -13,6 +13,7 @@ import DeleteFolderModal from '../../modal/DeleteFolderModal/DeleteFolderModal';
 import AddFolderModal from '../../modal/AddFolderModal/AddFolderModal';
 import AddLinkInFolder from '../../modal/AddLinkInFolder/AddLinkInFolder';
 import { FolderData } from 'types/FolderPage/FolderDataType';
+import ShowSearchData from '../ShowSearchData/ShowSearchData';
 const folderUrl = 'https://bootcamp-api.codeit.kr/api/users/3/folders';
 
 interface FolderPageMainProps {
@@ -57,10 +58,17 @@ function FolderPageMain({
 
   const [FolderModalValue, setFolderModalValue] = useState('');
   const [ShareUrlFolderId, setShareUrlFolderId] = useState('');
+  const [viewSearchData, setViewSearchData] = useState<boolean | null>(false);
+  const [searchData, setSearchData] = useState<string | null>('');
 
   return (
     <div className={styles.main_wrapper}>
-      <LinkSearchInput />
+      <LinkSearchInput
+        setViewSearchData={setViewSearchData}
+        searchData={searchData}
+        setSearchData={setSearchData}
+      />
+      {viewSearchData && <ShowSearchData searchData={searchData} />}
       <div className={styles.folder_page_content_wrapper}>
         <div className={styles.folder_filter_wrapper}>
           <FolderFilterBox

@@ -17,7 +17,7 @@ interface FolderDesc {
   created_at: string;
   updated_at: null;
   url: string;
-  title: '네이버';
+  title: string;
   description: string;
   image_source: string;
   folder_id: number;
@@ -42,7 +42,7 @@ function LinkList({
   useEffect(() => {
     handleFilterClick();
   }, [folderId]);
-
+  
   return (
     <div>
       {filterData?.data?.length === 0 ? (
