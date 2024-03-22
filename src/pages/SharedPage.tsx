@@ -10,6 +10,7 @@ function SharePage() {
   const [items, setItems] = useState([]);
   const [profile, setProfile] = useState({ name: '', profileImageSource: '' });
   const [folderName, setFolderName] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const handleLoad = async () => {
     const { folder } = await getFolders();
@@ -29,8 +30,8 @@ function SharePage() {
     <div className='App'>
       <Header />
       <Profile profile={profile} folderName={folderName} />
-      <SearchBar />
-      <CardList items={items} />
+      <SearchBar setSearchQuery={setSearchQuery} />
+      <CardList items={items} searchQuery={searchQuery} />
       <Footer />
     </div>
   );

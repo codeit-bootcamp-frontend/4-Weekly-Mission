@@ -5,6 +5,10 @@ import transformData from '../utils/transformData';
 import KebabPopover from './KebabPopover';
 import { useState } from 'react';
 
+interface CardListProps {
+  items: Item[];
+  searchQuery?: string;
+}
 interface Item {
   title: string;
   createdAt: Date;
@@ -50,11 +54,19 @@ const Card = ({ item }: { item: Item }) => {
   );
 };
 
-function CardList({ items }: { items: Item[] }) {
+function CardList({ items, searchQuery }: CardListProps) {
+  const filteredItems = items.filter(
+    (item) =>
+      item.title?.toLowerCase().includes((searchQuery ?? '').toLowerCase()) ||
+      item.url?.toLowerCase().includes((searchQuery ?? '').toLowerCase()) ||
+      item.description
+        ?.toLowerCase()
+        .includes((searchQuery ?? '').toLowerCase())
+  );
   return (
     <div className='card-container-center'>
       <div className='card-container'>
-        {items.map((item) => (
+        {filteredItems.map((item) => (
           <div key={item.title} className='card-box'>
             <Card item={item} />
           </div>

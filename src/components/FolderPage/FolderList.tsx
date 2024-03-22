@@ -19,7 +19,11 @@ interface Item {
   image_source: string;
 }
 
-const FolderList = () => {
+interface FolderListProps {
+  searchQuery: string;
+}
+
+const FolderList = ({ searchQuery }: FolderListProps) => {
   const folderList = useFolderList();
   const [links, setLinks] = useState<Item[]>([]);
   const [selectedFolderName, setSelectedFolderName] = useState<string>('');
@@ -82,7 +86,7 @@ const FolderList = () => {
         )}
       </div>
       {links ? (
-        <CardList items={links} />
+        <CardList items={links} searchQuery={searchQuery} />
       ) : (
         <p className='noLink'>저장된 링크가 없습니다.</p>
       )}
