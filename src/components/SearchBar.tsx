@@ -31,12 +31,14 @@ function SearchBar({ setSearchQuery, searchQuery }: SearchBarProps) {
           value={searchQuery}
           onChange={handleSearch}
         />
-        <img
-          src={closeIcon}
-          alt={closeIcon}
-          className='close'
-          onClick={handleSearchClear}
-        />
+        {searchQuery.length > 0 && (
+          <img
+            src={closeIcon}
+            alt={closeIcon}
+            className='close'
+            onClick={handleSearchClear}
+          />
+        )}
       </form>
     </div>
   );
