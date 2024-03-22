@@ -18,12 +18,12 @@ function FolderList() {
   const closeAddModal = () => setIsAddModalOpen(false);
 
   //button의 id와 이름 가져오는 함수.
-  const changeFolderClick = (id, name) => {
+  const changeFolderClick = (id: any, name: any) => {
     setCurrentId(id);
     setFolderName(name);
   }
 
-  const getFolderData = async (path) => {
+  const getFolderData = async (path: any) => {
     const { data } = await getLinkInfo(path);
     
     if (!data) return;
@@ -41,7 +41,7 @@ function FolderList() {
       <div className={styles.container}>
         <div className={styles.folderList}>
           <Button onClick={() => changeFolderClick(0, '전체')} type="button" key={0}>전체</Button>
-          {folderListData.map((item) => {
+          {folderListData.map((item: any) => {
             return (
                 <Button onClick={() => changeFolderClick(item.id, item.name)} type="button" key={item.id}>{item.name}</Button>
             )
