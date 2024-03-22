@@ -1,4 +1,4 @@
-export function fetchFolders(folderId) {
+export function fetchFolders(folderId:string) {
   const url =
     folderId === 'all'
       ? 'https://bootcamp-api.codeit.kr/api/users/1/links'
