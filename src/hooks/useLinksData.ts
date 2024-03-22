@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getLastTime, formatDate } from '../utils/timeCalculater';
 import noneImg from '../assets/noneImg.svg';
+import { SharedPageLink } from '../types/interfaces/fetchDatas';
 
 /*
   폴더 페이지(FolderList 컴포넌트)에서 
@@ -12,8 +13,8 @@ import noneImg from '../assets/noneImg.svg';
   상위컴포넌트에서 url이 바뀌면 리랜더링
  */
 
-function useLinksData(url) {
-  const [linksArray, setLinksArray] = useState([]);
+function useLinksData(url: string) {
+  const [linksArray, setLinksArray] = useState<SharedPageLink[]>([]);
 
   useEffect(() => {
     const getData = async () => {

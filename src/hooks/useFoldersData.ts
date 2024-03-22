@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Folder } from '../types/interfaces/fetchDatas';
 
 /*
 폴더 데이터를 가져오는 커스텀 훅 입니다.
@@ -7,8 +8,8 @@ import { useEffect, useState } from 'react';
 
 */
 
-function useFoldersData(url) {
-  const [folders, setFolders] = useState([]);
+function useFoldersData(url: string) {
+  const [folders, setFolders] = useState<Folder[]>([]);
 
   useEffect(() => {
     const getData = async () => {

@@ -1,11 +1,8 @@
-export interface CardProps {
-  id: number;
-  time: any;
-  imgUrl?: string;
-  title: string;
-  description: string;
+import { Card } from './fetchDatas';
+
+export interface CardProps extends Card {
   date: any;
-  url: string;
+  time: any;
 }
 
 export interface FacebookShareProps {

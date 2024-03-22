@@ -2,13 +2,17 @@ import { useState } from 'react';
 import { formatDate, getLastTime } from '../utils/timeCalculater';
 import { useEffect } from 'react';
 import { CARDS, PROFILE } from '../constants/fetchConstants';
-function useCardsData(section, url) {
-  const [owner, setOwner] = useState({
+import {
+  SharedPageFolderOwner,
+  SharedPageLink,
+} from '../types/interfaces/fetchDatas';
+function useCardsData(section: string, url: string) {
+  const [owner, setOwner] = useState<SharedPageFolderOwner>({
     ownerImg: '',
     ownerName: '',
     folderName: '',
   });
-  const [linksArray, setLinksArray] = useState([]);
+  const [linksArray, setLinksArray] = useState<SharedPageLink[]>([]);
   useEffect(() => {
     const getData = async () => {
       try {
