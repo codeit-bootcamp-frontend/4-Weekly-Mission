@@ -29,17 +29,15 @@ export const FolderContext = createContext<{
 }>({ folders: [], folderId: 0, setFolderId: () => {} });
 
 function Folder() {
-  // states
   const [folderId, setFolderId] = useState<number>(0);
   const [folders, setFolders] = useState<any[]>([]);
   const [links, setLinks] = useState<any[]>([]);
   const [allLinks, setAllLinks] = useState<any[]>([]);
+  const [inputValue, setInputValue] = useState<string>("");
 
-  // custom hook
-  const [foldersLoadingError, getFoldersAsync] = useAsync(getFolders);
-  const [folderLinksLoadingError, getFolderLinksAsync] =
-    useAsync(getFolderLinks);
-  const [allLinksLoadingError, getAllLinksAsync] = useAsync(getAllLinks);
+  const [, getFoldersAsync] = useAsync(getFolders);
+  const [, getFolderLinksAsync] = useAsync(getFolderLinks);
+  const [, getAllLinksAsync] = useAsync(getAllLinks);
 
   const fetchData = async (folderId: number) => {
     try {
@@ -72,11 +70,11 @@ function Folder() {
       <Container>
         <AddLink />
         <div className="Folder-content-wrapper">
-          <SearchBar />
+          <SearchBar inputValue={inputValue} setInputValue={setInputValue} />
           <FolderInfo folders={folders} />
           <CardList
             links={folderId === 0 ? allLinks : links}
-            // folderLoadingError={foldersLoadingError}
+            inputValue={inputValue}
           />
         </div>
       </Container>

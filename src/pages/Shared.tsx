@@ -31,8 +31,9 @@ const Shared = () => {
     folderInfo: { name: "", profileImageSource: undefined },
     folderName: "",
   });
+  const [inputValue, setInputValue] = useState<string>("");
 
-  const [folderLoadingError, getFolderAsync] = useAsync(getFolder);
+  const [_, getFolderAsync] = useAsync(getFolder);
 
   // 카드 아이템 요청
   const handleLoadItems = async () => {
@@ -59,13 +60,10 @@ const Shared = () => {
 
   return (
     <Container>
-      <SharedInfo
-        folderData={folderData}
-        // folderLoadingError={folderLoadingError}
-      />
+      <SharedInfo folderData={folderData} />
       <div className="Shared-content-wrapper">
-        <SearchBar />
-        <CardList links={folderData.cardItems} />
+        <SearchBar inputValue={inputValue} setInputValue={setInputValue} />
+        <CardList links={folderData.cardItems} inputValue={inputValue} />
       </div>
     </Container>
   );
