@@ -1,0 +1,55 @@
+.floating-action-button {
+  display: flex;
+  padding: 8px 24px;
+  align-items: flex-start;
+  gap: 20px;
+  position: absolute;
+  left: 98.5px;
+  top: 261px;
+  border-radius: 20px;
+  border: 1px solid var(--Linkbrary-white, #fff);
+  background: var(--Linkbrary-primary-color, #6d6afe);
+}
+/* .floating-action-button {
+  display: flex;
+  align-items: center;
+  bottom: 101px;
+  width: 135px;
+  height: 36px;
+  padding: 8px 24px;
+  border-radius: 20px;
+  border: 1px solid var(--Linkbrary-white, #fff);
+  background: var(--Linkbrary-primary-color, #6d6afe);
+  cursor: pointer;
+  z-index: 100;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+} */
+
+/* .floating-action-button-text {
+  color: var(--Linkbrary-gray10, #e7effb);
+  text-align: center;
+  font-family: Abel;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.3px;
+}
+
+.floating-action-button-text img {
+  width: 16px;
+  height: 16px;
+} */
+
+/* @media (max-width: 768px) {
+  .floating-action-button {
+  }
+}
+
+@media (min-width: 769px) {
+  .floating-action-button {
+    display: none;
+  }
+} */

@@ -1,0 +1,33 @@
+.kebab-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  align-self: stretch;
+  top: 30px;
+  right: 30px;
+  z-index: 555;
+}
+
+.kebab-wrapper button {
+  width: 100px;
+  height: 32px;
+  display: flex;
+  padding: 7px 12px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  align-self: stretch;
+  color: #333236;
+  border-color: #ffffff;
+  background-color: #ffffff;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0px 2px 8px 0px rgba(51, 50, 54, 0.1);
+}
+
+.kebab-wrapper button:hover {
+  color: #6d6afe;
+  background-color: #e7effb;
+}
