@@ -12,12 +12,22 @@ const getFolderListData = async () => {
   }
 }
 
+interface linkData {
+  count: number;
+}
+
+interface ListData {
+  id: number;
+  name: string;
+  link: linkData;
+}
+
 const ModalList = async () => {
   const list = await getFolderListData();
-  console.log(list);
+
   return (
     <ul className="modalFolderList">
-      {list.map(({ id, name, link }: any) => (
+      {list.map(({ id, name, link }: ListData) => (
         <li key={id} className='modalFolder'>
           <span className='modalFolderName'>{name}</span>
           <span className='modalLinkCounts'>{`${link.count}개 링크`}</span>
