@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { CalcTime } from "./../../utils/calculator";
+import { CalcTime } from "../../utils/calculator";
 import { ReactComponent as Star } from "../../assets/icons/card_star.svg";
 import { ReactComponent as Kebab } from "../../assets/icons/kebab.svg";
 import logo from "../../assets/icons/logo.png";
-import { PopOver } from "components/common/modals/PopOver.js";
+import { PopOver } from "./modals/PopOver";
 import "../../styles/shared.css";
 
 function FolderItem({ item, $isModalVisible, setIsModalVisible }) {
@@ -13,7 +13,7 @@ function FolderItem({ item, $isModalVisible, setIsModalVisible }) {
   const { created_at, favorite, image_source } = item;
   const [isPopOverVisible, setIsPopOverVisible] = useState(false);
 
-  let time = 0;
+  let time = "";
   let img_src = "";
 
   if (created_at) {

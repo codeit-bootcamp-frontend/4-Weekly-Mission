@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 import Link from "../../assets/icons/link.svg";
-import { BlueButton } from "./../common/BlueButton";
+import { BlueButton } from "../common/BlueButton";
 
 const FolderInput = ({ setIsVisible }) => {
   const onAddLinkButtonClick = () => {
@@ -14,8 +14,11 @@ const FolderInput = ({ setIsVisible }) => {
         <Input placeholder="링크를 추가해 보세요."></Input>
         <BlueButton
           width="80px"
+          height="auto"
           padding="10px 16px"
+          margin="0px"
           text="추가하기"
+          fontSize=""
           radius="8px"
           onBtnHandle={() => onAddLinkButtonClick()}
         ></BlueButton>

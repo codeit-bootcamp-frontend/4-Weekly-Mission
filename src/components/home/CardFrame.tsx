@@ -1,12 +1,14 @@
-import React from "react";
 import { styled } from "styled-components";
-import card1 from "assets/cards/card1.png";
-import card2 from "assets/cards/card2.png";
-import card3 from "assets/cards/card3.png";
-import card4 from "assets/cards/card4.png";
-import { COLORS } from "constants/colors";
+import card1 from "../../assets/cards/card1.png";
+import card2 from "../../assets/cards/card2.png";
+import card3 from "../../assets/cards/card3.png";
+import card4 from "../../assets/cards/card4.png";
+import { COLORS } from "../../constants/colors";
 
-export const CardFrame = ({ num, reversed }) => {
+interface propTypes {
+  height?: number | null;
+}
+export const CardFrame = ({ num, reversed, height }) => {
   const card = CARDS[`card${num}`];
   return (
     <Section>
@@ -43,7 +45,7 @@ export const CardFrame = ({ num, reversed }) => {
   );
 };
 
-const Section = styled.section`
+const Section = styled.section<propTypes>`
   width: 100%;
   height: ${({ height }) => height ?? 550}px;
   display: flex;

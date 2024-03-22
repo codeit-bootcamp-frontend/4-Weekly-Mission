@@ -1,16 +1,15 @@
-import React from "react";
-import { styled } from "styled-components";
-import HeaderElement from "components/common/HeaderElement";
-import FooterElement from "./../components/common/FooterElement";
-import { Headline } from "components/home/Headline";
-import { CardFrame } from "./../components/home/CardFrame";
-import cards_img from "assets/cards/cards_img.png";
-import { COLORS } from "constants/colors";
+import styled from "styled-components";
+import HeaderElement from "../components/common/HeaderElement";
+import FooterElement from "../components/common/FooterElement";
+import { Headline } from "../components/home/Headline";
+import { CardFrame } from "../components/home/CardFrame";
+import cards_img from "../assets/cards/cards_img.png";
+import { COLORS } from "../constants/colors";
 
 export const Home = () => {
   return (
     <>
-      <HeaderElement></HeaderElement>
+      <HeaderElement $positionval="" />
       <HeadlineContainer>
         <Headline />
         <CardsContainer>
@@ -18,9 +17,9 @@ export const Home = () => {
         </CardsContainer>
       </HeadlineContainer>
       <CardFrame num={1} height={620} reversed />
-      <CardFrame num={2} />
-      <CardFrame num={3} reversed />
-      <CardFrame num={4} />
+      <CardFrame num={2} height={null} reversed={false} />
+      <CardFrame num={3} height={null} reversed />
+      <CardFrame num={4} height={null} reversed={false} />
       <FooterElement />
     </>
   );

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import share from "assets/icons/share.svg";
-import pen from "assets/icons/pen.svg";
-import trash from "assets/icons/trash.svg";
+import share from "../../assets/icons/share.svg";
+import pen from "../../assets/icons/pen.svg";
+import trash from "../../assets/icons/trash.svg";
 
 const FolderTitle = ({ titleName, setIsModal }) => {
   return (

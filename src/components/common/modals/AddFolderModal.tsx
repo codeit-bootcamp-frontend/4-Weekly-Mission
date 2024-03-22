@@ -1,9 +1,11 @@
-import React from "react";
-import { styled } from "styled-components";
-import { COLORS } from "constants/colors";
-import closeIcon from "assets/icons/closeModal.png";
-import { BlueButton } from "./../BlueButton";
+import styled from "styled-components";
+import { COLORS } from "../../../constants/colors";
+import { BlueButton } from "../BlueButton";
+import closeIcon from "../../../assets/icons/closeModal.png";
 
+export interface ModalPropsType {
+  $isVisible: string;
+}
 export const AddFolderModal = ({ $isModalVisible, setIsModalVisible }) => {
   const handleCloseBtn = () => {
     setIsModalVisible(null);
@@ -20,16 +22,19 @@ export const AddFolderModal = ({ $isModalVisible, setIsModalVisible }) => {
         <BlueButton
           text="추가하기"
           width="280px"
+          height="auto"
+          margin="0px"
           padding="16px 20px"
           fontSize="16px"
           radius="8px"
+          onBtnHandle={() => {}}
         ></BlueButton>
       </Modal>
     </Background>
   );
 };
 
-const Background = styled.div`
+const Background = styled.div<ModalPropsType>`
   display: ${({ $isVisible }) =>
     $isVisible === "폴더 추가" ? "block" : "none"};
   z-index: 2;
@@ -38,25 +43,23 @@ const Background = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #000000;
-  opacity: 0.4
+  background-color: rgba(0, 0, 0, 0.8);
   transition: visibility 0.3s ease;
 `;
 
 const Modal = styled.div`
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, 50%);
   padding: 32px 40px;
-  background-color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 24px;
   border-radius: 15px;
-  background: ${COLORS.White};
+  background-color: ${COLORS.White};
   transition: visibility 0.3s ease;
 `;
 

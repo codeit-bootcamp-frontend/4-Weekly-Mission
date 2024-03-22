@@ -1,20 +1,19 @@
 import { useState, useEffect } from "react";
-import { styled } from "styled-components";
-import { getAllLinkData } from "./../api/api";
-
-import HeaderElement from "components/common/HeaderElement";
-import FooterElement from "components/common/FooterElement";
-import GlobalStyle from "components/common/GlobalStyle";
-import FolderInput from "components/folder/FolderInput";
-import FolderList from "components/common/FolderList";
-import Input from "components/common/Input";
-import Menus from "components/folder/Menus";
-import FolderTitle from "components/folder/FolderTitle";
-import { SharedModal } from "components/common/modals/SharedModal";
-import { EditNameModal } from "components/common/modals/EditNameModal";
-import { DeleteModal } from "components/common/modals/DeleteModal";
-import { AddFolderModal } from "components/common/modals/AddFolderModal";
-import { COLORS } from "constants/colors";
+import styled from "styled-components";
+import { getAllLinkData } from "../api/api";
+import HeaderElement from "../components/common/HeaderElement";
+import FooterElement from "../components/common/FooterElement";
+import GlobalStyle from "../components/common/GlobalStyle";
+import FolderInput from "../components/folder/FolderInput";
+import FolderList from "../components/common/FolderList";
+import Input from "../components/common/Input";
+import Menus from "../components/folder/Menus";
+import FolderTitle from "../components/folder/FolderTitle";
+import { SharedModal } from "../components/common/modals/SharedModal";
+import { EditNameModal } from "../components/common/modals/EditNameModal";
+import { DeleteModal } from "../components/common/modals/DeleteModal";
+import { AddFolderModal } from "../components/common/modals/AddFolderModal";
+import { COLORS } from "../constants/colors";
 
 const Folder = () => {
   const [titleName, setTitleName] = useState("전체");
@@ -61,7 +60,6 @@ const Folder = () => {
       <Menus
         changeTitle={setTitleName}
         changeID={setListId}
-        $isVisible={isModalVisible}
         setIsVisible={setIsModalVisible}
       />
       <FolderTitle titleName={titleName} setIsModal={setIsModalVisible} />
