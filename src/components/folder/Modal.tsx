@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/react-in-jsx-scope */
 import '../../style/modal.css';
 import modalClose from '../../images/modalClose.svg';
 import modalFacebook from '../../images/modalFacebook.svg';
@@ -6,16 +8,40 @@ import modalKakao from '../../images/modalKakao.svg';
 import check from '../../images/check.svg';
 import { useState } from 'react';
 
-function Modal({ values, onClose, folderName, folders, userId }) {
-  const [selectedFolderId, setSelectedFolderId] = useState(null);
+interface Folder {
+  id: string;
+  name: string;
+}
+
+interface ModalProps {
+  values: {
+    visibility: boolean;
+    target: string;
+    url?: string;
+  };
+  onClose: (visibility: boolean) => void;
+  folderName: Folder;
+  folders: {
+    id: string;
+    name: string;
+    link: {
+      count: number;
+    };
+  }[];
+  userId: string;
+}
+
+
+function Modal({ values, onClose, folderName, folders, userId }: ModalProps) {
+  const [selectedFolderId, setSelectedFolderId] = useState<string | null>(null);
   const closeModal = () => onClose(false);
   const { url } = values;
 
-  const handleFolderButtonClick = (folderId) => {
+  const handleFolderButtonClick = (folderId: string) => {
     setSelectedFolderId(folderId);
   };
 
-  const handleBackgroundClick = (e) => {
+  const handleBackgroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       closeModal();
     }
@@ -25,7 +51,7 @@ function Modal({ values, onClose, folderName, folders, userId }) {
     return `${hostAddress}/shared?user=${userId}&folder=${folderName.id}`;
   };
 
-  const handleShare = (platform) => {
+  const handleShare = (platform: 'facebook' | 'kakao') => {
     const shareLink = createShareLink();
     let url = '';
 
@@ -76,7 +102,7 @@ function Modal({ values, onClose, folderName, folders, userId }) {
             <h2 id="modalTitle" className="modal-title">
               폴더 공유
             </h2>
-            <h3>{folderName}</h3>
+            <h3>{folderName.name}</h3>
             <div className="modal-shared-icon">
               <button className="grey-btn">
                 <div className="modal-kakao">
@@ -101,7 +127,7 @@ function Modal({ values, onClose, folderName, folders, userId }) {
             <h2 id="modalTitle" className="modal-title">
               폴더 삭제
             </h2>
-            <h3>{folderName}</h3>
+            <h3>{folderName.name}</h3>
             <button className="modal-delete-button">삭제하기</button>
           </>
         )}
