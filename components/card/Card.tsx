@@ -32,7 +32,9 @@ const Card = ({ children, imgSrc, createdAt, title, description, url }: LinksDat
     <li className='card'>
       <a href={url} target="_blank" rel="noreferrer noopener" className='card-overflow'>
         {imgSrc ? (
-          <img src={imgSrc} alt='이미지' className='card-img'/>
+          <div className='card-img'>
+            <Image fill src={imgSrc} alt='이미지' className='card-img'/>
+          </div>
           ) : (
           <Image src={defaultImg} alt='이미지' className='card-img'/>
         )}

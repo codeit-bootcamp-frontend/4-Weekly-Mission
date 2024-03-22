@@ -24,6 +24,7 @@
 }
 
 .card-img {
+  position: relative;
   width: 100%;
   height: 192px;
   flex-shrink: 0;
