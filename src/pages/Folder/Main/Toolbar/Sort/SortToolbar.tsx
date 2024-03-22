@@ -4,14 +4,14 @@ import * as S from "./SortToolbarStyle";
 
 interface Props {
   folderList: FolderList[];
-  onChange: (folder: FolderList, folderList: FolderList[]) => void;
+  onChange: (folder: FolderList) => void;
 }
 
 const Sort = ({ folderList, onChange }: Props) => {
   const [focus, setFocus] = useState<number | null>(null);
-  const handleClick = (title: FolderList) => {
-    setFocus(title.id);
-    onChange(title, folderList);
+  const handleClick = (folder: FolderList) => {
+    setFocus(folder.id);
+    onChange(folder);
   };
 
   return (

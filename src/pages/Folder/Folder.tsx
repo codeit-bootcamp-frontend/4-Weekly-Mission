@@ -1,49 +1,52 @@
 import { useState, useEffect } from "react";
 import FolderHeader from "./Header/FolderHeader";
 import FolderMain from "./Main/FolderMain";
-import { BASE_URL } from "constnats/constant";
+import {
+  FOLDER_CARD_DATA_API_URL,
+  FOLDER_LIST_API_URL,
+} from "constnats/constant";
 import { FolderList, Folder } from "constnats/types";
 import { updatedDate, updatedDuration } from "utils/createdAt";
 
 const FolderPage = () => {
-  const [cardData, setCardData] = useState<Folder[]>([]);
   const [folder, setFolder] = useState<FolderList>({
     id: null,
     name: "전체",
   });
+  const [cardData, setCardData] = useState<Folder[]>([]);
   const [folderList, setFolderList] = useState<FolderList[]>([]);
 
   useEffect(() => {
-    const folderListData = async () => {
+    const fetchFolderListData = async () => {
       try {
-        const response = await fetch(`${BASE_URL}/users/1/folders`);
+        const response = await fetch(FOLDER_LIST_API_URL);
         const responseData = await response.json();
         const folderList = responseData.data;
         setFolderList(folderList);
-        console.log(folderList);
       } catch (error) {
         console.error("error");
       }
     };
-    folderListData();
+    fetchFolderListData();
   }, []);
 
   useEffect(() => {
     const folderCardData = async () => {
       try {
-        let url = `${BASE_URL}/users/1/links`;
-        if (folder.id !== null) {
-          url = `${BASE_URL}/users/1/links?folderId=${folder.id}`;
-        }
+        let url =
+          folder.id === null
+            ? FOLDER_CARD_DATA_API_URL
+            : `${FOLDER_CARD_DATA_API_URL}?folderId=${folder.id}`;
         const response = await fetch(url);
         const responseData = await response.json();
-        const folderCardData = responseData.data.map((link: Folder) => ({
-          ...link,
-          time: updatedDuration(link.created_at),
-          date: updatedDate(link.created_at),
-        }));
+        const folderCardData = responseData.data.map(
+          (cardDataList: Folder) => ({
+            ...cardDataList,
+            time: updatedDuration(cardDataList.created_at),
+            date: updatedDate(cardDataList.created_at),
+          })
+        );
         setCardData(folderCardData);
-        console.log(folderCardData);
       } catch (error) {
         console.error("Error");
       }
@@ -51,10 +54,18 @@ const FolderPage = () => {
     folderCardData();
   }, [folder]);
 
+  const handleFolderChange = async (selectedFolder: FolderList) => {
+    setFolder(selectedFolder);
+  };
+
   return (
     <>
       <FolderHeader folderList={folderList} />
-      <FolderMain cardData={cardData} folderList={folderList} />
+      <FolderMain
+        cardData={cardData}
+        folderList={folderList}
+        onChange={handleFolderChange}
+      />
     </>
   );
 };

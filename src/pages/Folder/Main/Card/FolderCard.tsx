@@ -15,8 +15,6 @@ interface Props {
 }
 
 const Card = forwardRef(({ cardData, folderList }: Props, ref) => {
-  console.log(folderList);
-  console.log(cardData);
   const [isToggledKebab, setIsToggledKebab] = useState<number | null>(null);
   const selectMenuRef = useRef<HTMLDivElement>(null);
 

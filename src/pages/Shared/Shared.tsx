@@ -10,16 +10,18 @@ const Shared = () => {
   const [userData, setUserData] = useState({});
 
   useEffect(() => {
-    const fetchCardData = async () => {
+    const fetchSharedCardData = async () => {
       try {
         const response = await fetch(SHARED_API_URL);
         const responseData = await response.json();
         const userProfileData = responseData.folder;
-        const sharedCardData = responseData.folder.links.map((link: Share) => ({
-          ...link,
-          time: updatedDuration(link.createdAt),
-          date: updatedDate(link.createdAt),
-        }));
+        const sharedCardData = responseData.folder.links.map(
+          (cardDataList: Share) => ({
+            ...cardDataList,
+            time: updatedDuration(cardDataList.createdAt),
+            date: updatedDate(cardDataList.createdAt),
+          })
+        );
         setUserData(userProfileData);
         setSharedCardData(sharedCardData);
         console.log(userProfileData);
@@ -29,7 +31,7 @@ const Shared = () => {
       }
     };
 
-    fetchCardData();
+    fetchSharedCardData();
   }, []);
 
   return (
