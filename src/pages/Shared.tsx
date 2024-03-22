@@ -13,7 +13,7 @@ import "../styles/shared.css";
 function Shared() {
   const foldersData: any = useGetPromise(getFolderInfo);
   const folders = foldersData?.folder?.links || [];
-
+  const [searchInputValue, setSearchInputValue] = useState("");
   const [isModalVisible, setIsModalVisible] = useState(null);
 
   return (
@@ -28,7 +28,11 @@ function Shared() {
       />
       <HeaderElement $positionval="" />
       <SharedSection></SharedSection>
-      <Input />
+      <Input
+        inputValue={searchInputValue}
+        setInputValue={setSearchInputValue}
+        onEnterButtonHandle={() => {}}
+      />
       <FolderList
         items={folders}
         $isModalVisible={isModalVisible}

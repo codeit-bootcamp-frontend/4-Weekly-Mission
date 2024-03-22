@@ -1,13 +1,16 @@
-import { useState } from "react";
 import styled from "styled-components";
 import searchIcon from "../../assets/icons/icon_search.png";
 import { ReactComponent as Delete } from "../../assets/icons/delete.svg";
 
-const Input = () => {
-  const [inputValue, setInputValue] = useState("");
-
-  const onDeleteButtonClick = () => {
+const Input = ({ setInputValue, inputValue, onEnterButtonHandle }) => {
+  const onClickDeleteButtonHandle = () => {
     setInputValue("");
+  };
+
+  const onKeyPressHandle = (e) => {
+    if (e.key === "Enter") {
+      onEnterButtonHandle();
+    }
   };
 
   return (
@@ -18,8 +21,9 @@ const Input = () => {
         placeholder="링크를 검색해 보세요."
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
+        onKeyDown={onKeyPressHandle}
       />
-      <DeleteAllButton onClick={() => onDeleteButtonClick()}>
+      <DeleteAllButton onClick={() => onClickDeleteButtonHandle()}>
         <Delete />
       </DeleteAllButton>
     </div>

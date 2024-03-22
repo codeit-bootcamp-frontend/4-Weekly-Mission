@@ -20,6 +20,7 @@ const Folder = () => {
   const [listId, setListId] = useState("");
   const [data, setData] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(null);
+  const [searchInputValue, setSearchInputValue] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +35,25 @@ const Folder = () => {
 
     fetchData();
   }, [listId]);
+
+  const onSearchEnterClickHandle = () => {
+    findCardsByKeyword(searchInputValue);
+  };
+
+  const findCardsByKeyword = (keyword: string) => {
+    const results = [];
+    if (data) {
+      data.forEach((card) => {
+        const cardInfo = card.title + card.description + card.url;
+        if (cardInfo && cardInfo.includes(keyword)) {
+          results.push(card);
+        } else {
+          console.log("없음");
+        }
+      });
+    }
+    setData(results);
+  };
 
   return (
     <Container>
@@ -56,7 +76,11 @@ const Folder = () => {
       <GlobalStyle />
       <HeaderElement $positionval="static" />
       <FolderInput setIsVisible={setIsModalVisible} />
-      <Input />
+      <Input
+        inputValue={searchInputValue}
+        setInputValue={setSearchInputValue}
+        onEnterButtonHandle={onSearchEnterClickHandle}
+      />
       <Menus
         changeTitle={setTitleName}
         changeID={setListId}
