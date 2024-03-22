@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 import searchIcon from '../../../images/Search.svg';
 import '../../../style/searchbar.css';
 
 const SearchBar = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
-  const handleSearch = (event) => {
+  const handleSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 

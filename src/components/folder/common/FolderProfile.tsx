@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
+interface ProfileData {
+  image_source: string;
+  email: string;
+}
+
 const FolderProfile = () => {
-  const [profileData, setProfileData] = useState(null);
+  const [profileData, setProfileData] = useState<ProfileData | null>(null);
 
   useEffect(() => {
     fetch('https://bootcamp-api.codeit.kr/api/users/1')
