@@ -1,7 +1,7 @@
 import TIME from 'constants/TIME';
 
-const calculateTimeDifference = (time) => {
-  const formatTimeUnit = (value, unit) => {
+const calculateTimeDifference = (time: string) => {
+  const formatTimeUnit = (value: number, unit: string) => {
     return value === 1 ? `1 ${unit} ${TIME.AGO}` : `${value} ${unit}s ${TIME.AGO}`;
   };
 

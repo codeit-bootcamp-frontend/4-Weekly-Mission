@@ -1,4 +1,4 @@
-const formatDateToYYYYMMDD = (createdAt) => {
+const formatDateToYYYYMMDD = (createdAt: string) => {
   const dateObject = new Date(createdAt);
 
   const year = dateObject.getFullYear();
