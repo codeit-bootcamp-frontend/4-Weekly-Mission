@@ -86,12 +86,16 @@ function FolderPageMain({
   useEffect(() => {
     handleFilterClick();
   }, [folderId]);
+
   return (
     <div className={styles.main_wrapper}>
       <LinkSearchInput
         setViewSearchData={setViewSearchData}
         searchData={searchData}
         setSearchData={setSearchData}
+        setFilterData={setFilterData}
+        filterData={filterData}
+        folderId={folderId}
       />
       {viewSearchData && <ShowSearchData searchData={searchData} />}
       <div className={styles.folder_page_content_wrapper}>

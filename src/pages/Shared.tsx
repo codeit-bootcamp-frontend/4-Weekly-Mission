@@ -8,6 +8,23 @@ import { useState } from 'react';
 function Shared() {
   const [viewSearchData, setViewSearchData] = useState<boolean | null>(false);
   const [searchData, setSearchData] = useState<string | null>('');
+  interface FolderDesc {
+    id: number;
+    created_at: string;
+    updated_at: null;
+    url: string;
+    title: string;
+    description: string;
+    image_source: string;
+    folder_id: number;
+  }
+
+  interface FolderIdData {
+    data: FolderDesc[];
+  }
+
+  const [filterData, setFilterData] = useState<FolderIdData | null>(null);
+  const [folderId, setFolderId] = useState('');
 
   return (
     <>
@@ -18,6 +35,9 @@ function Shared() {
           setViewSearchData={setViewSearchData}
           searchData={searchData}
           setSearchData={setSearchData}
+          setFilterData={setFilterData}
+          filterData={filterData}
+          folderId={folderId}
         />
         <SharePageFolderList />
       </div>
