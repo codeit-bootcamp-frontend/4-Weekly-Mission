@@ -5,19 +5,33 @@ import { useState, useEffect } from "react";
 import { getFolderListData } from "../../api/api";
 import FolderInModal from "./FolderInModal";
 
+//types
+import { FolderList } from "../../pages/Folder";
+
+interface Props {
+  url: string;
+  isModalClicked: {
+    deleteLink?: boolean;
+    addToFolder: boolean;
+  };
+  handleClickModal: (type: "deleteLink" | "addToFolder") => void;
+  linkValue?: any;
+  makeEmptyValue?: any;
+}
+
 function AddToFolderModal({
   url,
   isModalClicked,
   handleClickModal,
   linkValue,
   makeEmptyValue,
-}) {
-  const [folderList, setFolderList] = useState([]);
-  const [clickedFolderId, setClickedFolderID] = useState(null);
+}: Props) {
+  const [folderList, setFolderList] = useState<FolderList[]>([]);
+  const [clickedFolderId, setClickedFolderID] = useState<number | null>(null);
   const { addToFolder } = MODALS;
 
   const onClickCloseButton = () => {
-    handleClickModal(addToFolder.type);
+    handleClickModal("addToFolder");
     if (linkValue) makeEmptyValue();
   };
 
@@ -32,7 +46,7 @@ function AddToFolderModal({
     }
   };
 
-  const onClickFolder = (id) => {
+  const onClickFolder = (id: number) => {
     setClickedFolderID(id);
   };
 

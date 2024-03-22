@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import CardBox from "../components/CardBox";
 import SearchBar from "../components/SearchBar";
 
-interface Link {
+export interface Link {
   createdAt: string;
   description: string;
   id: number;

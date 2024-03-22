@@ -1,13 +1,24 @@
+import { MouseEvent } from "react";
+
 import ModalLayout from "../ModalLayout";
 import { MODALS } from "../modals";
 import styles from "./DeleteLinkModal.module.css";
 
-function DeleteLinkModal({ url, isModalClicked, handleClickModal }) {
+interface Props {
+  url: string;
+  isModalClicked: {
+    deleteLink: boolean;
+    addToFolder: boolean;
+  };
+  handleClickModal: (type: "deleteLink" | "addToFolder") => void;
+}
+
+function DeleteLinkModal({ url, isModalClicked, handleClickModal }: Props) {
   const { deleteLink } = MODALS;
 
-  const onClickCloseButton = (e) => {
+  const onClickCloseButton = (e: MouseEvent) => {
     e.stopPropagation();
-    handleClickModal(deleteLink.type);
+    handleClickModal("deleteLink");
   };
 
   return (

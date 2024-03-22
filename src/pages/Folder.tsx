@@ -5,15 +5,13 @@ import SearchBar from "../components/SearchBar";
 import FolderListBar from "../components/FolderListBar";
 import EmptyFolder from "../components/EmptyFolder";
 
-interface Link {
-  count: number;
-}
-
 export interface FolderList {
   created_at: string;
   favorite: boolean;
   id: number;
-  link: Link;
+  link: {
+    count: number;
+  };
   name: string;
   user_id: number;
 }
@@ -23,7 +21,7 @@ export interface LinksData {
   description: string | null;
   folder_id: number | null;
   id: number;
-  image_source: string | null;
+  image_source: string | undefined;
   title: string | null;
   updated_at: string | null;
   url: string;
