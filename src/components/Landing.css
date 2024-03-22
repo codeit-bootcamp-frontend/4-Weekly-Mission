@@ -104,7 +104,13 @@ footer {
 .contents-01 p {
   margin: 0;
 }
+<<<<<<< HEAD
 
+=======
+.content-title {
+  display: flex;
+}
+>>>>>>> part2-김수환-week13
 .contents-01-text {
   display: flex;
   flex-direction: column;
@@ -407,7 +413,13 @@ footer {
     cursor: pointer;
     text-decoration: none;
   }
+<<<<<<< HEAD
 
+=======
+  .content-title {
+    display: inline-block;
+  }
+>>>>>>> part2-김수환-week13
   .contents-01 {
     width: 100%;
     height: auto;

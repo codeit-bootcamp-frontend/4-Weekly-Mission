@@ -2,6 +2,10 @@
   padding-top: 60px;
   padding-bottom: 60px;
   background: #f0f6ff;
+<<<<<<< HEAD
+=======
+  width: 100%;
+>>>>>>> part2-김수환-week13
 }
 
 .shared-section-first-container .image-container {
@@ -48,11 +52,18 @@
   object-fit: cover;
 }
 
+<<<<<<< HEAD
 .link-size-up {
   transform: scale(1.3);
   height: 170px;
   transform-origin: center center;
 
+=======
+.link-image-sizing:hover {
+  transform: scale(1.3);
+  height: 170px;
+  transform-origin: center center;
+>>>>>>> part2-김수환-week13
   object-fit: cover;
 }
 
@@ -81,7 +92,10 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
+<<<<<<< HEAD
   padding-left: 20px;
+=======
+>>>>>>> part2-김수환-week13
 }
 
 .shared-input {
