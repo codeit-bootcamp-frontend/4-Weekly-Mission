@@ -48,6 +48,12 @@ const AddFolderButton = styled(Button)`
   }
 `;
 
+const SearchMessage = styled.h1`
+  margin: 0;
+  @media (min-width: 375px) and (max-width: 767px) {
+    font-size: 24px;
+  }
+`;
 const Folder = () => {
   const [user, setUser] = useState({ email: null, profileImageSource: null });
   const { openModal, handleModalOpen, handleModalClose } = useModal();
@@ -73,10 +79,10 @@ const Folder = () => {
         <SearchInputForm />
 
         {searchParam.get("keyword") && (
-          <h1 style={{ margin: 0 }}>
+          <SearchMessage>
             {searchParam.get("keyword")}
             <span className="font-color-gray4">으로 검색한 결과입니다.</span>
-          </h1>
+          </SearchMessage>
         )}
 
         <div className="space-between">

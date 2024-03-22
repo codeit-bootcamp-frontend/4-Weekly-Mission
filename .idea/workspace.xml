@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4e5353b4-1a6e-4d69-b0cc-8adf18cfaf93" name="Changes" comment="feat: TypeScript 마이그레이션">
+    <list default="true" id="4e5353b4-1a6e-4d69-b0cc-8adf18cfaf93" name="Changes" comment="feat: 검색 시 검색어 UI 구현">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Folder.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Folder.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -148,15 +147,7 @@
       <workItem from="1709057669693" duration="637000" />
       <workItem from="1711048260927" duration="2890000" />
       <workItem from="1711063546316" duration="3826000" />
-      <workItem from="1711067440725" duration="252000" />
-    </task>
-    <task id="LOCAL-00004" summary="feat: Footer 컴포넌트 생성">
-      <option name="closed" value="true" />
-      <created>1707426403783</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1707426403783</updated>
+      <workItem from="1711067440725" duration="448000" />
     </task>
     <task id="LOCAL-00005" summary="feat: 기기별 반응형 스타일 적용">
       <option name="closed" value="true" />
@@ -542,7 +533,15 @@
       <option name="project" value="LOCAL" />
       <updated>1711067260664</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="feat: 검색 시 검색어 UI 구현">
+      <option name="closed" value="true" />
+      <created>1711067744972</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1711067744972</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -561,7 +560,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: Folder 페이지 생성 및 버튼, 검색창 스타일 상속 작업" />
     <MESSAGE value="feat: TagBox 컴포넌트 생성" />
     <MESSAGE value="feat: Folder 페이지 퍼블리싱 완료" />
     <MESSAGE value="feat: Card 컴포넌트 내 별, 케밥 아이콘 추가" />
@@ -586,6 +584,7 @@
     <MESSAGE value="refactor: 아이콘 버튼 컴포넌트 수정" />
     <MESSAGE value="feat: 검색어 지우기 기능 구현" />
     <MESSAGE value="feat: TypeScript 마이그레이션" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: TypeScript 마이그레이션" />
+    <MESSAGE value="feat: 검색 시 검색어 UI 구현" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 검색 시 검색어 UI 구현" />
   </component>
 </project>
