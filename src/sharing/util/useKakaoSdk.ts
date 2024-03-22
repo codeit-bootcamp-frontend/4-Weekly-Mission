@@ -1,0 +1,55 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffectOnce } from "./useEffectOnce";
+
+export const useKakaoSdk = () => {
+  const shareKakao = ({
+    url,
+    title,
+    description,
+    imageUrl,
+  }: {
+    url: string;
+    title: string;
+    description: string;
+    imageUrl: string;
+  }) => {
+    if ((window as any).Kakao) {
+      const kakao = (window as any).Kakao;
+      if (!kakao.isInitialized()) {
+        kakao.init(import.meta.env.REACT_APP_KAKAO_SDK_KEY);
+      }
+
+      kakao.Link.sendDefault({
+        objectType: "feed",
+        content: {
+          title: title,
+          description: description,
+          imageUrl: imageUrl,
+          link: {
+            mobileWebUrl: url,
+            webUrl: url,
+          },
+        },
+        buttons: [
+          {
+            title: title,
+            link: {
+              mobileWebUrl: url,
+              webUrl: url,
+            },
+          },
+        ],
+      });
+    }
+  };
+
+  useEffectOnce(() => {
+    const script = document.createElement("script");
+    script.src = "https://developers.kakao.com/sdk/js/kakao.js";
+    script.async = true;
+    document.body.appendChild(script);
+    return () => document.body.removeChild(script);
+  });
+
+  return { shareKakao };
+};
