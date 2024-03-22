@@ -1,10 +1,17 @@
 import FolderButton from "components/Button/FolderButton/FolderButton";
 import { Link } from "react-router-dom";
 import styles from "./category.module.css";
-import {ALL} from "utils/constants/strings"
+import { ALL } from "utils/constants/strings";
+import { GetFolderResponse } from "types/apis";
+import { SelectedCategory, ButtonClick } from "pages/FolderPage/FolderPage";
 
-function Category({ buttonNames, selectedCategory, onClick }) {
+interface Props {
+  buttonNames: GetFolderResponse[];
+  selectedCategory: SelectedCategory;
+  onClick: ButtonClick;
+}
 
+function Category({ buttonNames, selectedCategory, onClick }: Props) {
   return (
     <div className={styles.buttons}>
       <Link to={`/folder`}>

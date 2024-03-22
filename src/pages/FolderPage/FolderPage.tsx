@@ -1,5 +1,4 @@
-import { useState, useContext } from "react";
-import { UserContext } from "context/UserProvider";
+import { useState } from "react";
 import { NoResults } from "pages";
 import styles from "./folder.module.css";
 import Header from "./components/Header";
@@ -21,27 +20,41 @@ import {
   SHARED,
   EDIT,
 } from "utils/constants/strings";
+import { GetLinkResponse, GetFolderResponse, DataResponse } from "types/apis";
+
+export type SelectedCategory = {
+  id: number | null;
+  name: string;
+};
+
+export type ButtonClick = (
+  categoryId: number | null,
+  categoryName: string
+) => void;
+
+interface UseFetchResponse<T> {
+  data: DataResponse<T>;
+  loading?: boolean;
+  error?: string;
+}
 
 function FolderPage() {
-  const { id: userId } = useContext(UserContext);
-  const [selectedCategory, setSelectedCategory] = useState({
+  const userId = "1";
+  const [selectedCategory, setSelectedCategory] = useState<SelectedCategory>({
     id: null,
     name: ALL,
   });
   const { modals, openModal, closeModal } = useModal();
-  const { data: buttonNames } = useFetch(`${API}/users/${userId}/folders`);
-  const { data: folderData } = useFetch(
+  const { data: buttonNames }: UseFetchResponse<GetFolderResponse[]> = useFetch(
+    `${API}/users/${userId}/folders`
+  );
+  const { data: folderData }: UseFetchResponse<GetLinkResponse[]> = useFetch(
     selectedCategory.id
       ? `${API}/users/${userId}/links?folderId=${selectedCategory.id}`
       : `${API}/users/${userId}/links`
   );
 
-  /**
-   * 카테코리 버튼을 클릭 시 클릭된 카테고리를 저장합니다.
-   * @param {number} categoryId
-   * @param {string} categoryName
-   */
-  const handleButtonClick = (categoryId, categoryName) => {
+  const handleButtonClick: ButtonClick = (categoryId, categoryName) => {
     setSelectedCategory({ id: categoryId, name: categoryName });
   };
 

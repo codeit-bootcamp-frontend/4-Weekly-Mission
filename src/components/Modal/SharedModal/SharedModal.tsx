@@ -1,14 +1,17 @@
 import { useEffect } from "react";
 import BaseModeal from "../BaseModal/BaseModal";
 import styles from "./shared.module.css";
+import { ModalProps } from "../BaseModal/BaseModal";
 
 import kakaoIcon from "assets/images/ic_kakao.svg";
 import facebookIcon from "assets/images/ic_facebook.svg";
 import linkIcon from "assets/images/ic_link.svg";
 
-const { Kakao } = window;
+interface SharedModalProps extends ModalProps {
+  folder: string;
+}
 
-function SharedModal({ folder, variant, closeModal }) {
+function SharedModal({ folder, variant, closeModal }: SharedModalProps) {
   const currentUrl = window.location.href;
 
   const copyToClipboard = () => {
@@ -24,7 +27,7 @@ function SharedModal({ folder, variant, closeModal }) {
   };
 
   const sharedKakao = () => {
-    Kakao.Share.sendDefault({
+    window.Kakao.Share.sendDefault({
       objectType: "feed",
       content: {
         title: "Linkbrary",
@@ -40,13 +43,15 @@ function SharedModal({ folder, variant, closeModal }) {
   };
 
   const sharedFacebook = () => {
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`)
-  }
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${currentUrl}`);
+  };
 
   useEffect(() => {
-    Kakao.cleanup();
-    Kakao.init(process.env.REACT_APP_API_KEY);
-    console.log(Kakao.isInitialized());
+    if (window.Kakao) {
+      window.Kakao.cleanup();
+      window.Kakao.init(process.env.REACT_APP_API_KEY);
+      window.Kakao.isInitialized();
+    }
   }, []);
 
   return (

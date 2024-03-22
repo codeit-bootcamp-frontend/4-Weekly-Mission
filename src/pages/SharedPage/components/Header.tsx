@@ -1,7 +1,12 @@
-import React from "react";
 import styles from "./header.module.css";
 
-function Header({ fileImg, ownerName, folderName }) {
+interface HeaderProps {
+  fileImg: string;
+  ownerName: string;
+  folderName: string;
+}
+
+function Header({ fileImg, ownerName, folderName }: HeaderProps) {
   return (
     <div className={styles.container}>
       <div className={styles.profile}>

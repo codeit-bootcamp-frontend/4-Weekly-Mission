@@ -16,22 +16,38 @@ function Footer() {
         </div>
         <ul className={styles.icons}>
           <li>
-            <a href="https://www.facebook.com/" target="_blank">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               <img src={facebookIcon} alt="facebook" />
             </a>
           </li>
           <li>
-            <a href="https://twitter.com/" target="_blank">
+            <a
+              href="https://twitter.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               <img src={twitterIcon} alt="twitter" />
             </a>
           </li>
           <li>
-            <a href="https://www.youtube.com/" target="_blank">
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               <img src={youtubeIcon} alt="youtube" />
             </a>
           </li>
           <li>
-            <a href="https://www.instagram.com/" target="_blank">
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
               <img src={instagramIcon} alt="instagram" />
             </a>
           </li>

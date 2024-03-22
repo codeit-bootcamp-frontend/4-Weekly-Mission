@@ -4,12 +4,13 @@ import style from "./shared.module.css";
 import Header from "./components/Header";
 import CardList from "components/CardList/CardList";
 import SearchBar from "components/Input/SearchBar/SearchBar";
+import { GetLinkResponse, DataResponse } from "types/apis";
 
 function SharedPage() {
-  const [fileImg, setFileImg] = useState(null);
+  const [fileImg, setFileImg] = useState("");
   const [ownerName, setOwnerName] = useState("");
   const [folderName, setFolderName] = useState("");
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState<DataResponse<GetLinkResponse[]>>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLoad = async () => {

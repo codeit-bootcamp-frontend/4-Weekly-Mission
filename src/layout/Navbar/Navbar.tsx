@@ -1,19 +1,20 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { fetchUserData } from "services/api";
-import { UserContext } from "context/UserProvider";
 import styles from "./navbar.module.css";
 import Profile from "./Profile/Profile";
-
+import { GetUserResponse } from "types/apis";
 import logoImage from "assets/images/logo.svg";
 
 function Navbar() {
-  const { id } = useContext(UserContext);
-  const [user, setUser] = useState(null);
+  const id = "1";
+  const [user, setUser] = useState<GetUserResponse>();
+
   useEffect(() => {
     fetchUserData(id)
       .then((data) => {
-        setUser(...data);
+        const [userInfo] = data;
+        setUser(userInfo);
       })
       .catch((err) => {
         console.error(err);
@@ -24,7 +25,7 @@ function Navbar() {
     <nav className={styles.navbar}>
       <div className={styles.wrap}>
         <NavLink to="/">
-          <img src={logoImage} className={styles.logo} alt="로고"/>
+          <img src={logoImage} className={styles.logo} alt="로고" />
         </NavLink>
         {user ? (
           <NavLink to="/mypage">

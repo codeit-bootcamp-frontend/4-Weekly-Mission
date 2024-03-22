@@ -1,11 +1,11 @@
-export function formatDate(date) {
-  const options = { year: "numeric", month: "numeric", day: "numeric" };
+export function formatDate(date: Date) {
+  const options = { year: "numeric", month: "numeric", day: "numeric" } as const
   return new Date(date).toLocaleDateString(undefined, options);
 }
 
-export function getTimeDifference(createdAt) {
-  const currentDate = new Date();
-  const createdDate = new Date(createdAt);
+export function getTimeDifference(createdAt: Date) {
+  const currentDate = +new Date();
+  const createdDate = +new Date(createdAt);
 
   const timeDifference = currentDate - createdDate;
   const minutesDifference = Math.floor(timeDifference / (1000 * 60));
@@ -43,7 +43,5 @@ export function getTimeDifference(createdAt) {
   if (yearsDifference === 1) {
     return "1 year ago";
   }
-  {
-    return `${yearsDifference} years ago`;
-  }
+  return `${yearsDifference} years ago`;
 }

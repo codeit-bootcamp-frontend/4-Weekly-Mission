@@ -1,10 +1,16 @@
+import { ChangeEvent } from "react";
 import styles from "./searchbar.module.css";
 import searchIcon from "assets/images/ic_search.svg";
 
-function SearchBar({ value, onChange }) {
+interface SearchBarProps {
+  value?: string;
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+function SearchBar({ value, onChange }: SearchBarProps) {
   return (
     <div className={styles.container}>
-      <img src={searchIcon} className={styles.icon} alt="돋보기 아이콘"/>
+      <img src={searchIcon} className={styles.icon} alt="돋보기 아이콘" />
       <input
         type="text"
         value={value}

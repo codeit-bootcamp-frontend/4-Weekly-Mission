@@ -1,15 +1,20 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import style from "./header.module.css";
 import FolderModal from "components/Modal/FolderModal/FolderModal";
 import linkIcon from "assets/images/ic_link.svg";
 import useModal from "utils/hooks/useModal";
 import { ADD_LINK } from "utils/constants/strings";
+import { GetFolderResponse, DataResponse } from "types/apis";
 
-function Header({ list }) {
+interface Props {
+  list: DataResponse<GetFolderResponse[]>;
+}
+
+function Header({ list }: Props) {
   const [value, setValue] = useState("");
   const { modals, openModal, closeModal } = useModal();
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
