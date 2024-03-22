@@ -4,41 +4,13 @@ import { API_PATH } from '../../services/api-path';
 import FETCH_API from '../../services/fetch-data';
 import linkIcon from '../../assets/link.svg';
 import * as Styled from './Folder.styled';
-
-interface LinkType {
-  count: number;
-}
-
-interface Link {
-  id: number;
-  createdAt?: string;
-  created_at?: string;
-  imageSource?: string;
-  image_source?: string;
-  title: string;
-  description: string;
-  url: string;
-}
-
-interface CategoryListType {
-  created_at?: string;
-  favorite?: boolean;
-  id: number;
-  link: LinkType;
-  name: string;
-  user_id?: number;
-}
-
-interface CategoryType {
-  id: number;
-  name: string;
-}
+import { LinkType, CategoryType, SelectCategoryType } from '../types/type';
 
 interface FolderContentPropsType {
   handleKebabClick: (id: number) => void;
   selectCardId: number;
-  categoryList: CategoryListType[];
-  setCategoryList: (category: CategoryListType[]) => void;
+  categoryList: CategoryType[];
+  setCategoryList: (category: CategoryType[]) => void;
   handleModalAction: (action: string, subTitle?: string, url?: string) => void;
 }
 
@@ -49,12 +21,12 @@ function FolderContent({
   setCategoryList,
   handleModalAction
 }: FolderContentPropsType) {
-  const [selectCategory, setSelectCategory] = useState<CategoryType>({
+  const [selectCategory, setSelectCategory] = useState<SelectCategoryType>({
     // 현재 선택중인 카테고리
     id: 0,
     name: '전체'
   });
-  const [linkList, setLinkList] = useState<Link[]>([]); // 유저가 가지고 있는 링크
+  const [linkList, setLinkList] = useState<LinkType[]>([]); // 유저가 가지고 있는 링크
   const [searchInputValue, setSearchInputValue] = useState<string>('');
 
   // 유저가 가지고 있는 카테고리 로드(데이터 통신, 첫 렌더링 시에만 실행)

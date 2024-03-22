@@ -5,17 +5,7 @@ import Footer from '../../components/Footer/Footer';
 import { API_PATH } from '../../services/api-path';
 import FETCH_API from '../../services/fetch-data';
 import * as Styled from './Share.styled';
-
-interface Link {
-  id: number;
-  createdAt?: string;
-  created_at?: string;
-  imageSource?: string;
-  image_source?: string;
-  title: string;
-  description: string;
-  url: string;
-}
+import { LinkType } from '../../components/types/type';
 
 interface UserProfile {
   profileImg: string;
@@ -24,7 +14,7 @@ interface UserProfile {
 }
 
 function Share() {
-  const [linkList, setLinkList] = useState<Link[]>([]);
+  const [linkList, setLinkList] = useState<LinkType[]>([]);
   const [userProfile, setUserProfile] = useState<UserProfile>({
     profileImg: '',
     folderOwner: '',

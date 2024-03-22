@@ -39,3 +39,14 @@ export const SearchInput = styled.input`
     margin-bottom: 2rem;
   }
 `;
+
+export const SearchResult = styled.div`
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--Linkbrary-gray60);
+  margin: 0 0 2.5rem;
+`;
+
+export const SearchValue = styled.span`
+  color: var(--Linkbrary-gray100);
+`;

@@ -4,24 +4,11 @@ import ShareIcon from '../../assets/category-share.svg';
 import ModifyIcon from '../../assets/category-modify.svg';
 import DeleteIcon from '../../assets/category-delete.svg';
 import * as Styled from './Category.styled';
-
+import { SelectCategoryType, CategoryType } from '../types/type';
 interface CategoryControlListType {
   img: string;
   actionText: string;
   text: string;
-}
-
-interface CategoryType {
-  id: number;
-  name: string;
-}
-
-interface CategoryPropsType {
-  categoryList?: CategoryType[];
-  selectCategory?: CategoryType;
-  allLinkLoad?: () => Promise<void>;
-  handleSelectCategory?: (id: number, name: string) => Promise<void>;
-  handleModalAction?: (action: string, subTitle?: string, url?: string) => void;
 }
 
 const categoryControlList: CategoryControlListType[] = [
@@ -41,6 +28,14 @@ const categoryControlList: CategoryControlListType[] = [
     text: '삭제'
   }
 ];
+
+interface CategoryPropsType {
+  categoryList?: CategoryType[];
+  selectCategory?: SelectCategoryType;
+  allLinkLoad?: () => Promise<void>;
+  handleSelectCategory?: (id: number, name: string) => Promise<void>;
+  handleModalAction?: (action: string, subTitle?: string, url?: string) => void;
+}
 
 function Category({
   categoryList,

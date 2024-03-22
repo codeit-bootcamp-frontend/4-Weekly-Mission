@@ -2,47 +2,19 @@ import React, { ChangeEvent, useState, useEffect, SetStateAction, Dispatch, useR
 import CardList from '../Card/CardList';
 import Category from '../Category/Category';
 import * as Styled from './Content.styled';
-
-interface Link {
-  id: number;
-  createdAt?: string;
-  created_at?: string;
-  imageSource?: string;
-  image_source?: string;
-  title: string;
-  description: string;
-  url: string;
-}
-
-interface LinkType {
-  count: number;
-}
-
-interface CategoryListType {
-  created_at?: string;
-  favorite?: boolean;
-  id: number;
-  link: LinkType;
-  name: string;
-  user_id?: number;
-}
-
-interface CategoryType {
-  id: number;
-  name: string;
-}
+import { LinkType, CategoryType, SelectCategoryType } from '../types/type';
 
 interface ContentPropsType {
-  categoryList?: CategoryListType[];
-  selectCategory?: CategoryType;
+  categoryList?: CategoryType[];
+  selectCategory?: SelectCategoryType;
   allLinkLoad?: () => Promise<void>;
   handleSelectCategory?: (id: number, name: string) => Promise<void>;
   handleKebabClick?: (id: number) => void;
   selectCardId?: number;
-  linkList: Link[];
+  linkList: LinkType[];
   option: boolean;
   handleModalAction?: (action: string, subTitle?: string, url?: string) => void;
-  setLinkList: Dispatch<SetStateAction<Link[]>>;
+  setLinkList: Dispatch<SetStateAction<LinkType[]>>;
 }
 
 function Content({
@@ -58,7 +30,7 @@ function Content({
   setLinkList
 }: ContentPropsType) {
   const [searchValue, setSearchValue] = useState<string>('');
-  const currentAllLink = useRef<Link[]>([]);
+  const currentAllLink = useRef<LinkType[]>([]);
   const categoryProps = {
     categoryList,
     selectCategory,
@@ -84,7 +56,7 @@ function Content({
       return;
     }
     const lowerSearchValue = value.toLocaleLowerCase();
-    const searchResult = linkList?.filter(
+    const searchResult = currentAllLink.current?.filter(
       (list) =>
         list.title?.toLowerCase().includes(lowerSearchValue) ||
         list.description?.toLowerCase().includes(lowerSearchValue)
@@ -114,6 +86,11 @@ function Content({
           placeholder="🔍  링크를 검색해 보세요."
         />
       </form>
+      {searchValue && (
+        <Styled.SearchResult>
+          <Styled.SearchValue>{searchValue}</Styled.SearchValue>로 검색한 결과입니다.
+        </Styled.SearchResult>
+      )}
       {option && <Category {...categoryProps} />}
       <CardList
         handleKebabClick={handleKebabClick}

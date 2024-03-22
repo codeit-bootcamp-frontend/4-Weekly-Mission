@@ -5,22 +5,12 @@ import StarIcon from '../../assets/star.svg';
 import KebabIcon from '../../assets/kebab.svg';
 import CardDefaultIcon from '../../assets/default-card.svg';
 import * as Styled from './CardList.styled';
-
-interface Link {
-  id: number;
-  createdAt?: string;
-  created_at?: string;
-  imageSource?: string;
-  image_source?: string;
-  title: string;
-  description: string;
-  url: string;
-}
+import { LinkType } from '../types/type';
 
 interface CardListPropsType {
   handleKebabClick?: (id: number) => void;
   selectCardId?: number;
-  linkList: Link[];
+  linkList: LinkType[];
   option: boolean;
   handleModalAction?: (action: string, subTitle?: string, url?: string) => void;
 }

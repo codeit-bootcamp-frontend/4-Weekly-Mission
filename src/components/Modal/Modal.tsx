@@ -6,26 +6,7 @@ import ModalTitle from './ModalTitle';
 import ModalForm from './ModalForm';
 import * as Styled from './Modal.styled';
 import modalActionScript from '../../constant/modalActionScript';
-
-interface ModalActionType {
-  isView?: boolean;
-  action: string;
-  subTitle?: string;
-  url?: string;
-}
-
-interface LinkType {
-  count: number;
-}
-
-interface CategoryType {
-  created_at?: string;
-  favorite?: boolean;
-  id: number;
-  link: LinkType;
-  name: string;
-  user_id?: number;
-}
+import { ModalActionType, CategoryType } from '../types/type';
 
 interface ModalType {
   modalAction: ModalActionType;

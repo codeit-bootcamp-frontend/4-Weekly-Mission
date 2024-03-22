@@ -4,34 +4,9 @@ import FolderContent from '../components/Folder/FolderContent';
 import Footer from '../components/Footer/Footer';
 import FloatingButton from '../components/Folder/FloatingButton';
 import Modal from '../components/Modal/Modal';
+import { CategoryType, DefaultCategoryType, ModalActionType } from '../components/types/type';
 
 let prevId: number = 999;
-
-interface LinkType {
-  count: number;
-}
-
-interface DefaultCategoryType {
-  id: number;
-  name: string;
-  link: LinkType;
-}
-
-interface CategoryType {
-  created_at?: string;
-  favorite?: boolean;
-  id: number;
-  link: LinkType;
-  name: string;
-  user_id?: number;
-}
-
-interface ModalActionType {
-  isView?: boolean;
-  action: string;
-  subTitle?: string;
-  url?: string;
-}
 
 const INITIAL_CATEGORY: DefaultCategoryType[] = [
   {
