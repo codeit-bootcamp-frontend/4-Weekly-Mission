@@ -5,7 +5,16 @@
  * @param {*} data body에 넣을 값이 존재하다면 추가
  * @returns {Promise<Response>}
  */
-export const fetchRequest = async (url, method, data) => {
+interface FetchRequestOptions {
+  url: string;
+  method: string;
+  data?: any;
+}
+export const fetchRequest = async ({
+  url,
+  method,
+  data,
+}: FetchRequestOptions) => {
   const res = await fetch(`${url}`, {
     method,
     headers: {

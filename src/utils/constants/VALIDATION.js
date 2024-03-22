@@ -13,6 +13,6 @@ export const ERROR_MESSAGES = Object.freeze({
 });
 
 export const REGEX = Object.freeze({
-  email: /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+  email: /^[a-zA-Z0-9+-_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
   pw: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
 });

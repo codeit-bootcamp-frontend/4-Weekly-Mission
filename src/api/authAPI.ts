@@ -3,7 +3,11 @@ import { fetchRequest } from './index';
 import { CHECK_EMAIL_API, SIGNIN_API, SIGNUP_API } from 'config.js';
 
 const loginInquire = async data => {
-  const res = await fetchRequest(SIGNIN_API, 'POST', data);
+  const res = await fetchRequest({
+    url: SIGNIN_API,
+    method: 'POST',
+    data: data,
+  });
   if (res.ok) {
     const token = await res.json();
     const accessToken = token.data.accessToken;
@@ -14,12 +18,20 @@ const loginInquire = async data => {
 };
 
 const emailCheckInquire = async data => {
-  const res = await fetchRequest(CHECK_EMAIL_API, 'POST', data);
+  const res = await fetchRequest({
+    url: CHECK_EMAIL_API,
+    method: 'POST',
+    data: data,
+  });
   return res;
 };
 
 const signUpInquire = async data => {
-  const res = await fetchRequest(SIGNUP_API, 'POST', data);
+  const res = await fetchRequest({
+    url: SIGNUP_API,
+    method: 'POST',
+    data: data,
+  });
   if (res.ok) {
     const token = await res.json();
     const accessToken = token.data.accessToken;
