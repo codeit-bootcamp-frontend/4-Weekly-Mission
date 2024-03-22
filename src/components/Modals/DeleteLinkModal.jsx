@@ -15,8 +15,8 @@ function DeleteLinkModal({ setEditModalOpen }) {
   return (
     <div onClick={closeModal}>
       <ModalBase
-        modalName={'링크 삭제'}
-        children={'삭제하기'}
+        modalName="링크 삭제"
+        children="삭제하기"
         onClick={handleChange}
         centerSpace={<span>http://www.abc.com</span>}
       />

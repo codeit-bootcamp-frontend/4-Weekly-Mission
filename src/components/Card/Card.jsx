@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Moment from 'moment';
-
 import { getElapsedTime } from '../../utils/getElapsedTime';
 import './Card.css';
 
@@ -25,7 +24,12 @@ export default function Card({ data }) {
                 alt={link.title}
               />
               <div className="cardTextArea">
-                <div className="uploadTime">{getElapsedTime(link.createdAt)}</div>
+                <div className="uploadTime">
+                  <div>{getElapsedTime(link.createdAt)} </div>
+                  <div>
+                    <img src={`${process.env.PUBLIC_URL}/images/kebab.png`} alt="팝오버 아이콘" />
+                  </div>
+                </div>
                 <div className="cardText">{link.description}</div>
                 <div className="uploadDate">{Moment(link.createdAt).format('YYYY.MM.DD')}</div>
               </div>

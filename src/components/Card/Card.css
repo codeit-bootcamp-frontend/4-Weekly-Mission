@@ -49,6 +49,10 @@ a {
 }
 
 .card .uploadTime {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: #666;
 
   /* Linkbrary/caption */

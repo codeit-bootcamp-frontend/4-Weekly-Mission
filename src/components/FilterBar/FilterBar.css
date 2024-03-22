@@ -20,6 +20,7 @@
   background: #fff;
   font-size: 16px;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
@@ -112,10 +113,12 @@
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.3px;
+  cursor: pointer;
 }
 
 .floatingButton {
   display: none;
+  cursor: pointer;
 }
 
 .nameBar {
@@ -144,6 +147,7 @@
 .modalButton {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 @media (min-width: 357px) and (max-width: 767px) {
