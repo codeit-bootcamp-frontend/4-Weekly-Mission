@@ -1,13 +1,7 @@
-import { getLink } from '@/apis/api'
-
 //server component: fetch data
 import ModalList from '../modals/list/ModalList';
-import Card from './Card';
 
-interface CardListProps {
-  folderName: string | null;
-  folderId: string | null;
-}
+import Card from './Card';
 
 interface LinksData {
   created_at: string;
@@ -18,19 +12,7 @@ interface LinksData {
   id: string;
 }
 
-const getLinksData = async (folderId: string | null) => {
-  try {
-    const { data } = await getLink(folderId);
-
-    return data;
-  } catch {
-    throw new Error('error');
-  }
-}
-
-const CardList = async ({ folderName, folderId }: CardListProps) => {
-  const links = await getLinksData(folderId);
-
+const CardList = ({ links }: any) => {
   if (!links.length) {
     return (
       <div className='card-empty'>저장된 링크가 없습니다</div>

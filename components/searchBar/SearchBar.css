@@ -30,3 +30,12 @@
   font-weight: 400;
   line-height: normal;
 }
+
+.closeBtn {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}

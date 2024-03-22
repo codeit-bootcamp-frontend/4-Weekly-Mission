@@ -19,6 +19,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-
-//(https://jasonwatmore.com/_content/images/jason.jpg)
-//(https://codeit-images.codeit.com/badges/COMPLETE_100_LESSONS.png)
