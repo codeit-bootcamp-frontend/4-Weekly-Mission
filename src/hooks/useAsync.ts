@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import FixMeLaterFunc from "../FixMeLater";
 
-export const useAsync = (asyncFunction: FixMeLaterFunc, deps: any = null) => {
+type AsyncFunction = () => Promise<any>;
+
+export const useAsync = (asyncFunction: AsyncFunction, deps: any = null) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any>(null);
   const [data, setData] = useState<any>(null);

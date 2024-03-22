@@ -1,10 +1,10 @@
 import { useGetUser } from "hooks/useGetUser";
 import Footer from "../Footer/Footer";
-import { NavigationBar } from "../NavigationBar/NavigationBar";
+import NavigationBar from "../NavigationBar/NavigationBar";
 
 interface layoutProps {
   children: any;
-  isNavFixed: boolean;
+  isNavFixed?: boolean;
 }
 
 const Layout = ({ children, isNavFixed }: layoutProps) => {

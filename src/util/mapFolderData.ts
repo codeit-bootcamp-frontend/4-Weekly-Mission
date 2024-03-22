@@ -11,11 +11,20 @@ interface Folder {
   links: {}[];
 }
 
+interface Link {
+  id: number;
+  createdAt: string;
+  url: string;
+  imageSource: string;
+  title: string;
+  description: string;
+}
+
 export const mapFolderData = (folder: Folder) => {
   if (!folder) return {};
   const { name, owner, links } = folder;
 
-  const mapLinks = (link: any) => {
+  const mapLinks = (link: Link) => {
     const { id, createdAt, url, imageSource, title, description } = link;
     return {
       id,

@@ -1,6 +1,17 @@
 import format from "date-fns/format";
 import { getElapsedTime } from "./getElapsedTime";
 
+interface MappedLink {
+  id: number;
+  url: string;
+  imageSource: string;
+  alt: string;
+  elapsedTime: string;
+  description?: string;
+  createdAt: string;
+  favorite: boolean;
+}
+
 interface Link {
   id: number;
   created_at: string;
@@ -11,8 +22,10 @@ interface Link {
   favorite?: boolean;
 }
 
-export const mapFolderFromLink = (data: Link[]) => {
-  if (!data) return [];
+export const mapFolderFromLink: (data: Link[]) => { data: MappedLink[] } = (
+  data,
+) => {
+  if (!data) return { data: [] };
 
   const mapLinks = (link: Link) => {
     const {
@@ -37,7 +50,5 @@ export const mapFolderFromLink = (data: Link[]) => {
     };
   };
 
-  return {
-    data: data?.map(mapLinks) ?? [],
-  };
+  return { data: data?.map(mapLinks) ?? [] };
 };

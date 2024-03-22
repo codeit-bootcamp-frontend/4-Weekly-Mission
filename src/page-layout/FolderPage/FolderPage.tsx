@@ -1,22 +1,22 @@
-import { AddLink } from "ui/AddLink";
-import { Layout } from "feature/Layout";
-import { SearchBar } from "ui/SearchBar";
-import { CardList } from "ui/CardList";
-import { Card } from "ui/Card";
+import AddLink from "ui/AddLink/AddLink";
+import Layout from "feature/Layout/Layout";
+import SearchBar from "ui/SearchBar/SearchBar";
+import { CardList } from "ui/CardList/CardList";
+import { Card } from "ui/Card/Card";
 import { useGetLink } from "hooks/useGetLink";
 import { useGetFolderByLink } from "hooks/useGetFolderByLink";
-import { Category } from "ui/Category";
-import { EditLink } from "ui/EditLink";
+import Category from "ui/Category/Category";
+import { EditLink } from "ui/EditLink/EditLink";
 import Modal from "ui/Modal/Modal";
 
 import "./FolderPage.css";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 
 export const FolderPage = () => {
   const [currentCategory, setCurrentCategory] = useState("전체");
   const [folderId, setFolderId] = useState("0");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modal, setModal] = useState(null);
+  const [modal, setModal] = useState<string | null>(null);
   const [currentUrl, setCurrentUrl] = useState("");
 
   const { data: linkData } = useGetLink();
@@ -28,17 +28,19 @@ export const FolderPage = () => {
     : [];
   const navFixed = true;
 
-  const handleCategoryClick = (e) => {
-    const category = e.target.innerText;
-    const Id = e.target.getAttribute("data-id");
+  const handleCategoryClick = (e: MouseEvent) => {
+    const eventTarget = e.target as HTMLElement;
+    const category = eventTarget.innerText;
+    const Id = eventTarget.getAttribute("data-id");
     setCurrentCategory(category);
     setFolderId(Id);
   };
-  const handleModalClick = (e) => {
+  const handleModalClick = (e: MouseEvent) => {
+    const eventTarget = e.target as HTMLElement;
     e.preventDefault();
     setIsModalOpen(true);
     setModal(e.currentTarget.id);
-    setCurrentUrl(e.target.getAttribute("url"));
+    setCurrentUrl(eventTarget.getAttribute("url"));
   };
 
   return (
@@ -71,7 +73,7 @@ export const FolderPage = () => {
             />
             {links?.length !== 0 ? (
               <CardList>
-                {links?.map((link) => (
+                {links?.map((link: any) => (
                   <Card
                     key={link?.id}
                     {...link}

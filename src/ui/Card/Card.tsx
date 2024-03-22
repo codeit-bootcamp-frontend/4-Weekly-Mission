@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, MouseEvent } from "react";
+import { useState, useRef, useEffect, MouseEvent, RefObject } from "react";
 import "./Card.css";
 
 interface Prop {
@@ -28,22 +28,27 @@ export const Card = ({
   const isFavorite = favorite
     ? "images/full-star.svg"
     : "images/empty-star.svg";
-  const ref = useRef<HTMLDivElement>(null);
+  const ref: RefObject<HTMLElement> = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const handleOutsideClick: (e: MouseEvent) => void = (e) => {
-      if (ref.current && !ref.current.contains(e.target as Node))
+    const handleOutsideClick = (e: MouseEvent) => {
+      const target = e.target;
+      if (ref.current && !ref.current.contains(target as Node))
         setKebabOpen && setKebabOpen(false);
     };
-    document.addEventListener("click", handleOutsideClick, true);
+    document.addEventListener("click", handleOutsideClick);
     return () => {
-      document.removeEventListener("click", handleOutsideClick, true);
+      document.removeEventListener("click", handleOutsideClick);
     };
   }, [setKebabOpen]);
 
   const handleKebabClick = (e: MouseEvent) => {
     e.preventDefault();
     setKebabOpen(true);
+  };
+
+  const handleButtonClick = () => {
+    handleModalClick(url);
   };
 
   return (
@@ -54,7 +59,7 @@ export const Card = ({
             backgroundImage: `url(${imageSource ?? "images/card-default.png"})`,
           }}
           className="CardImage"
-          alt={alt}
+          // alt={alt}
         >
           {favorite !== undefined && (
             <img className="star-button" alt="star" src={isFavorite} />
@@ -73,15 +78,13 @@ export const Card = ({
                 <button
                   id="deleteLink"
                   className="kebabMenu-button"
-                  url={url}
-                  onClick={handleModalClick}
+                  onClick={handleButtonClick}
                 >
                   삭제하기
                 </button>
                 <button
                   id="addToFolder"
                   className="kebabMenu-button"
-                  url={url}
                   onClick={handleModalClick}
                 >
                   폴더에 추가
