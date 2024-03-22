@@ -4,17 +4,26 @@ import styles from "./ShareModal.module.css";
 import kakaoImg from "../../images/KakaoSmall.svg";
 import facebookImg from "../../images/FacebookPng.png";
 import linkImg from "../../images/link.svg";
+//type
+import { IsModalClicked } from "../../components/FolderListBar";
+
+interface Props {
+  folderName: string;
+  isModalClicked: IsModalClicked;
+  handleModalClick: (type: keyof IsModalClicked) => void;
+  makeShareLink: () => void;
+}
 
 function ShareModal({
   folderName,
   isModalClicked,
   handleModalClick,
   makeShareLink,
-}) {
+}: Props) {
   const { share } = MODALS;
 
   const onClickCloseButton = () => {
-    handleModalClick(share.type);
+    handleModalClick(share.type as keyof IsModalClicked);
   };
 
   return (
