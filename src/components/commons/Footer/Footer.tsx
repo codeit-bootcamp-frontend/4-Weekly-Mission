@@ -3,7 +3,7 @@ import { useRef, useEffect, useMemo } from 'react';
 import * as S from './Footer.style';
 
 interface Props {
-  changeViewFooter?: (value: boolean) => void | undefined;
+  changeViewFooter?: (value: boolean) => void | null;
 }
 
 const Footer = ({ changeViewFooter }: Props) => {

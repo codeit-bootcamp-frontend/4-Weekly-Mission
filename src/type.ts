@@ -1,74 +1,74 @@
-export interface UserDataType {
+export type UserDataType = {
   email: string | null;
-  image: string | undefined;
+  image: string | null;
   error: unknown | null;
-}
+};
 
-export interface currentFolderDataType {
+export type currentFolderDataType = {
   title: string | null;
   id: string | null;
-}
+};
 
-export interface modalFolderDataType {
+export type modalFolderDataType = {
   folderName: string;
   folderID: number;
   linkCount: number;
-}
+};
 
-export interface modalDataType {
+export type modalDataType = {
   modalType: string | null;
   subTitle: string | null;
-  folder: modalFolderDataType[] | undefined;
+  folder: modalFolderDataType[] | null;
   currentFolderID: number | null;
   currentLinkID: number | null;
-}
+};
 
-export interface cardDataType {
+export type cardDataType = {
   id: number | null;
   createdAt: string | null;
   url: string | null;
   title: string | null;
   description: string | null;
-  imageSource: string | undefined;
-}
+  imageSource: string | null;
+};
 
-export interface FolderDataType {
+export type FolderDataType = {
   userName: string | null;
-  userImage: string | undefined;
+  userImage: string | null;
   name: string | null;
   cardData: cardDataType[] | null;
   error: unknown | null;
-}
+};
 
-interface link {
+type link = {
   count: number;
-}
+};
 
-interface categoryType {
+type categoryType = {
   id: number | null;
   createdAt: string | null;
   name: string | null;
   user_id: number | null;
   favorite: boolean;
   link: link | null;
-}
+};
 
-export interface CategoryDataType {
+export type CategoryDataType = {
   category: categoryType[] | null;
   error: unknown | null;
-}
+};
 
-export interface folderCardType {
+export type folderCardType = {
   id: number;
   created_at: string | null;
   updated_at: string | null;
   url: string | null;
   title: string | null;
   description: string | null;
-  image_source: string | undefined;
+  image_source: string | null;
   forder_id: number | null;
-}
-export interface folderCardDataType {
+};
+export type folderCardDataType = {
   card: folderCardType[] | null;
   error: null | unknown;
-}
+};

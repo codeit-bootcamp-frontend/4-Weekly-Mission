@@ -40,7 +40,7 @@ const Folder = ({
     changeModalData({
       modalType: 'AddLinkModal',
       subTitle: null,
-      folder: undefined,
+      folder: null,
       currentFolderID: null,
       currentLinkID: null,
     });
@@ -61,7 +61,7 @@ const Folder = ({
     changeModalData({
       modalType: optionModalType(type),
       subTitle: type === '삭제' && currentFolder ? currentFolder?.title : null,
-      folder: undefined,
+      folder: null,
       currentFolderID: null,
       currentLinkID: null,
     });

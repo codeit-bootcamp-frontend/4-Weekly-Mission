@@ -31,7 +31,10 @@ export default function FolderPage() {
   const [topic, setTopic] = useState<string>('');
   const [viewSubHeader, setViewSubHeader] = useState<boolean>(true);
   const [viewFooter, setViewFooter] = useState<boolean>(false);
-  const cardData = FilterData<folderCardType>(folderCard?.card, topic);
+  const cardData = FilterData<folderCardType>(
+    folderCard?.card ? folderCard?.card : null,
+    topic,
+  );
 
   const changeViewSubHeader = useCallback((value: boolean) => {
     setViewSubHeader(value);

@@ -4,8 +4,8 @@ import * as S from './AddFolderModal.style';
 
 const AddFolderModal = () => {
   const { modalData } = useContext(FolderContext);
-  const [checkID, setCheckID] = useState<number | null | undefined>(
-    modalData?.currentFolderID,
+  const [checkID, setCheckID] = useState<number | null>(
+    modalData?.currentFolderID ? modalData?.currentFolderID : null,
   );
   const folder = modalData?.folder;
   const clickButton = (value: number) => {

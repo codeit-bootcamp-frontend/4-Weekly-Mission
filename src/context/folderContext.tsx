@@ -26,7 +26,7 @@ export const FolderContextProvider = ({ children }: Props) => {
   const [modalData, setModalData] = useState<modalDataType>({
     modalType: null,
     subTitle: null,
-    folder: undefined,
+    folder: null,
     currentFolderID: null,
     currentLinkID: null,
   });

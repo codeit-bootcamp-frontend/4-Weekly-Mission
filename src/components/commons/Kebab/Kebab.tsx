@@ -25,7 +25,7 @@ const Kebab = ({ cardID, cardURL, folderData, currentFolder }: Props) => {
     changeModalData({
       modalType: 'DeleteLinkModal',
       subTitle: cardURL,
-      folder: undefined,
+      folder: null,
       currentFolderID: null,
       currentLinkID: null,
     });
@@ -41,7 +41,7 @@ const Kebab = ({ cardID, cardURL, folderData, currentFolder }: Props) => {
 
     const folder = folderCategory
       ? [{ folderName: '전체', folderID: 0, linkCount: 3 }, ...folderCategory]
-      : undefined;
+      : null;
 
     const currentFolderID = currentFolder ? Number(currentFolder.id) : null;
 

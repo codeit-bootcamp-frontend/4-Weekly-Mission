@@ -4,9 +4,9 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 interface WrapperProps {
-  $viewSubHeader?: boolean | undefined;
-  $viewFooter: boolean | undefined;
-  $type: string | undefined;
+  $viewSubHeader?: boolean;
+  $viewFooter: boolean;
+  $type: string;
 }
 
 export const Wrapper = styled.div<WrapperProps>`

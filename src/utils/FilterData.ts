@@ -4,10 +4,7 @@ interface Data {
   description: string | null;
 }
 
-const FilterData = <T extends Data>(
-  cardData: T[] | null | undefined,
-  topic: string,
-) => {
+const FilterData = <T extends Data>(cardData: T[] | null, topic: string) => {
   const filteredData = cardData?.filter(
     (data) =>
       data.url?.includes(topic) ||

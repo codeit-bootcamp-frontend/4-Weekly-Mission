@@ -9,7 +9,7 @@ import {
 export const getUserSampleDataAPI = async (): Promise<UserDataType> => {
   const APIData: UserDataType = {
     email: null,
-    image: undefined,
+    image: null,
     error: null,
   };
   try {
@@ -27,7 +27,7 @@ export const getUserSampleDataAPI = async (): Promise<UserDataType> => {
 export const getFolderDataAPI = async (): Promise<FolderDataType> => {
   const APIData: FolderDataType = {
     userName: null,
-    userImage: undefined,
+    userImage: null,
     name: null,
     cardData: null,
     error: null,

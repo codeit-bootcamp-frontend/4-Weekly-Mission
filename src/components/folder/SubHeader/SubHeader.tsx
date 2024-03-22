@@ -45,7 +45,7 @@ const SubHeader = ({
 
   const folder = folderCategory
     ? [{ folderName: '전체', folderID: 0, linkCount: 3 }, ...folderCategory]
-    : undefined;
+    : null;
   const currentFolderID = currentFolder ? Number(currentFolder.id) : null;
   const changeLink = (e: ChangeEvent<HTMLInputElement>) => {
     setLink(e.target.value);
@@ -86,9 +86,9 @@ const SubHeader = ({
   return (
     <>
       <S.Wrapper
-        $viewSubHeader={viewSubHeader}
-        $viewFooter={viewFooter}
-        $type={type}
+        $viewSubHeader={viewSubHeader === undefined ? true : viewSubHeader}
+        $viewFooter={viewFooter === undefined ? true : viewFooter}
+        $type={type === undefined ? '' : type}
       >
         <S.SearchWrapper>
           <S.SearchInput

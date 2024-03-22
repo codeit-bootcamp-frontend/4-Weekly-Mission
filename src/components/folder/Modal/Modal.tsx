@@ -49,7 +49,7 @@ const Modal = () => {
     changeModalData({
       modalType: null,
       subTitle: null,
-      folder: undefined,
+      folder: null,
       currentFolderID: null,
       currentLinkID: null,
     });
