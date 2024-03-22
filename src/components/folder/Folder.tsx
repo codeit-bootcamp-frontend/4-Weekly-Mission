@@ -17,7 +17,10 @@ import ModalAddFolder from "./modal/add-folder/ModalAddFolder";
 import addImgPurple from "../../assets/img/png/add-purple.png";
 import addImgWhite from "../../assets/img/png/add-white.png";
 import { useUserProfile } from "../ContextProvider";
-import { handleButtonListItemClick } from "../../@types/FolderMain";
+import {
+  FolderListProps,
+  handleButtonListItemClick,
+} from "../../@types/FolderMain";
 import { FolderListItem } from "../../@types/FolderListItem";
 import useInput from "../../hooks/useInput";
 const ALL_LIST_BUTTON_ID = 0;
@@ -40,7 +43,7 @@ function Folder({
   const [linkUrl, setLinkUrl] = useState<string>("");
   const [isModal, setIsModal] = useState<boolean>(false);
   const [modalType, setModalType] = useState<string>("");
-  const [folderList, setFolderList] = useState<string[]>([]);
+  const [folderList, setFolderList] = useState<FolderListProps[]>([]);
   const [windowWidth, setWindowWidth] = useState<number>(window.innerWidth);
   const [isSelectedAll, setIsSelectedAll] =
     useState<typeof ALL_LIST_BUTTON_ID>(ALL_LIST_BUTTON_ID);
@@ -67,6 +70,7 @@ function Folder({
     if (!result) return;
     const data = result.data;
     setFolderList(data);
+    console.log(data);
   };
 
   const memoizedAddImgSrc = useMemo(
