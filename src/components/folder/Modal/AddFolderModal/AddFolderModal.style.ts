@@ -1,5 +1,6 @@
 import COLOR from '@/styles/color';
 import FONT from '@/styles/font';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -37,7 +38,7 @@ export const LinkName = styled.div`
   color: ${COLOR.Gray3};
 `;
 
-export const CheckIcon = styled.img`
+export const CheckIcon = styled(Image)`
   position: absolute;
   top: 12px;
   right: 12px;

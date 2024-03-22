@@ -1,5 +1,6 @@
 import COLOR from '@/styles/color';
 import FONT from '@/styles/font';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -82,7 +83,7 @@ export const AddFolderText = styled.div`
   }
 `;
 
-export const AddFolderIcon = styled.img`
+export const AddFolderIcon = styled(Image)`
   width: 16px;
   height: 16px;
   @media (max-width: 767px) {
@@ -124,7 +125,7 @@ export const OptionButtonWrapper = styled.div`
   cursor: pointer;
 `;
 
-export const OptionIcon = styled.img`
+export const OptionIcon = styled(Image)`
   width: 18px;
   height: 18px;
 `;

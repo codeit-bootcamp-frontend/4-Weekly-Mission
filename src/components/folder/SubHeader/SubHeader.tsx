@@ -1,4 +1,11 @@
-import { ChangeEvent, useContext, useState, useRef, useEffect } from 'react';
+import {
+  ChangeEvent,
+  useContext,
+  useState,
+  useRef,
+  useEffect,
+  useMemo,
+} from 'react';
 import folderContext from '@/src/context/folderContext';
 import { CategoryDataType } from '@/src/type';
 import {

@@ -1,4 +1,5 @@
 import COLOR from '@/styles/color';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 export const ModalBackground = styled.div`
@@ -68,7 +69,7 @@ export const ModalButton = styled.div<{ $color: string }>`
       : `background-color: #ff5b56`};
 `;
 
-export const ModalDeleteButton = styled.img`
+export const ModalDeleteButton = styled(Image)`
   position: absolute;
   top: 18px;
   right: 18px;

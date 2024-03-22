@@ -1,5 +1,6 @@
 import COLOR from '@/styles/color';
 import FONT from '@/styles/font';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -7,7 +8,7 @@ export const Wrapper = styled.div`
   overflow: visible;
 `;
 
-export const KebabButton = styled.img`
+export const KebabButton = styled(Image)`
   width: 21px;
   height: 17px;
 `;

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import FONT from '@/styles/font';
+import Image from 'next/image';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -21,7 +22,7 @@ export const SearchInput = styled.input`
   }
 `;
 
-export const SearchIcon = styled.img`
+export const SearchIcon = styled(Image)`
   width: 16px;
   height: 16px;
   position: absolute;
@@ -29,7 +30,7 @@ export const SearchIcon = styled.img`
   left: 20px;
 `;
 
-export const DeleteButton = styled.img`
+export const DeleteButton = styled(Image)`
   position: absolute;
   top: 15px;
   right: 12px;

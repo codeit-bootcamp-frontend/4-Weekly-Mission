@@ -27,6 +27,7 @@ const Header = ({ fix }: Props) => {
             alt="Linkbrary"
             width={133}
             height={24}
+            priority
           />
         </Link>
         {userProfile ? (

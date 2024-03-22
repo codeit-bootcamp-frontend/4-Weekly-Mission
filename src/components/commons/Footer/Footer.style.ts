@@ -1,4 +1,5 @@
 import FONT from '@/styles/font';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -64,7 +65,7 @@ export const SNSWrapper = styled.div`
   }
 `;
 
-export const SNSIcon = styled.img`
+export const SNSIcon = styled(Image)`
   width: 20px;
   height: 20px;
 `;

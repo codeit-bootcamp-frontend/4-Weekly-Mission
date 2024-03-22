@@ -1,5 +1,6 @@
 import COLOR from '@/styles/color';
 import FONT from '@/styles/font';
+import Image from 'next/image';
 import styled from 'styled-components';
 
 interface WrapperProps {
@@ -57,7 +58,7 @@ export const SearchInput = styled.input`
   }
 `;
 
-export const ImageIcon = styled.img`
+export const ImageIcon = styled(Image)`
   position: absolute;
   top: 24px;
   left: 20px;

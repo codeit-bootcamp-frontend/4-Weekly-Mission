@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import FONT from '@/styles/font';
+import Image from 'next/image';
 
 export const Wrapper = styled.div<{ $fix: boolean | null }>`
   background-color: #f0f6ff;
@@ -34,7 +35,7 @@ export const HeaderWrapper = styled.div`
   }
 `;
 
-export const Logo = styled.img`
+export const Logo = styled(Image)`
   width: 133px;
   height: 24px;
 

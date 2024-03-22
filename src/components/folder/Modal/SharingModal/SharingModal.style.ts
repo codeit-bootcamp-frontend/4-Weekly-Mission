@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
@@ -25,7 +26,7 @@ export const IconWrapper = styled.div<{ $color: string }>`
   cursor: pointer;
 `;
 
-export const Icon = styled.img`
+export const Icon = styled(Image)`
   width: 18px;
   height: 18px;
 `;

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import CardUpdateStatus from '@/src/utils/CardUpdateStatus';
 import CardDateFormat from '@/src/utils/CardDateFormat';
 import Link from 'next/link';
@@ -42,6 +42,9 @@ const Card = ({ page, card, folderData, currentFolder }: Props) => {
   const date = card?.createdAt ? card?.createdAt : '';
   const cardCreationDate = CardDateFormat(date);
   const cardStatus = CardUpdateStatus(date);
+  const [imageURL, setImageURL] = useState(
+    card?.imageSource ? card?.imageSource : '/images/hollowImage.png',
+  );
 
   const handleCardMouseOver = () => {
     if (WrapperRef.current && ImageRef.current) {
@@ -57,6 +60,10 @@ const Card = ({ page, card, folderData, currentFolder }: Props) => {
     }
   };
 
+  const failImageLoad = () => {
+    setImageURL('/images/hollowImage.png');
+  };
+
   return (
     <Link href={card?.url ? card?.url : ''}>
       <Wrapper
@@ -66,13 +73,12 @@ const Card = ({ page, card, folderData, currentFolder }: Props) => {
       >
         <CardImageWrapper>
           <CardImage
-            src={
-              card?.imageSource ? card?.imageSource : '/images/hollowImage.png'
-            }
+            src={imageURL}
             alt="이미지"
             width={340}
             height={200}
             ref={ImageRef}
+            onError={failImageLoad}
           />
         </CardImageWrapper>
         <CardContentWrapper>
