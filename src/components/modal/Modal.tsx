@@ -6,9 +6,16 @@ import LinkAddModal from './LinkAddModal';
 import ShareModal from './ShareModal';
 import modalClose from '../../assets/modalClose.svg';
 import style from '../../styles/modal/Modal.module.css';
+import { ReactElement } from 'react';
 
-function Modal({ type, onClose, data }) {
-  let modalComponent = '';
+interface modalProp {
+  type: string;
+  onClose: () => void;
+  data: any;
+}
+
+function Modal({ type, onClose, data }: modalProp) {
+  let modalComponent: ReactElement | null;
   switch (type) {
     case 'LinkDelete':
       modalComponent = <LinkDeleteModal data={data} />;
@@ -20,7 +27,7 @@ function Modal({ type, onClose, data }) {
       modalComponent = <EditModal />;
       break;
     case 'FolderAdd':
-      modalComponent = <FolderAddModal data={data} />;
+      modalComponent = <FolderAddModal />;
       break;
     case 'LinkAdd':
       modalComponent = <LinkAddModal data={data} />;
@@ -29,7 +36,7 @@ function Modal({ type, onClose, data }) {
       modalComponent = <ShareModal data={data} />;
       break;
     default:
-      modalComponent = '';
+      modalComponent = null;
       break;
   }
   return (

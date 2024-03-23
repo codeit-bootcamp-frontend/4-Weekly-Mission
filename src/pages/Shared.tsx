@@ -6,10 +6,32 @@ import { getFolder } from '../services/api';
 import style from '../styles/Main.module.css';
 import useAsync from '../hooks/useAsync';
 
+interface folderInfoProp {
+  name: string;
+  owner?: {
+    name: string;
+    profileImageSource: string;
+  };
+}
+interface link {
+  id: number;
+  title: string;
+  url: string;
+  createdAt: string;
+  created_at: string;
+  imageSource: string;
+  image_source: string;
+}
 function Main() {
-  const [linkList, setLinkList] = useState([]);
-  const [folderInfo, setFolderInfo] = useState({});
-  const [isPending, isError, asyncGetFolder] = useAsync(getFolder);
+  const [linkList, setLinkList] = useState<link[]>([]);
+  const [folderInfo, setFolderInfo] = useState<folderInfoProp>({
+    name: '',
+    owner: {
+      name: '',
+      profileImageSource: '',
+    },
+  });
+  const asyncGetFolder = useAsync<any>(getFolder);
 
   const apiGetFolder = useCallback(async () => {
     const result = await asyncGetFolder();

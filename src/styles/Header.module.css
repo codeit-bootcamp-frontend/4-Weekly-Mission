@@ -39,6 +39,9 @@
   font-size: 14px;
   font-weight: 400;
 }
+.positionStatic {
+  position: static;
+}
 /* 테블릿 */
 @media (max-width: 1199px) {
   #header {

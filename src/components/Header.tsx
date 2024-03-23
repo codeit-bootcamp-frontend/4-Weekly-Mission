@@ -5,9 +5,19 @@ import style from '../styles/Header.module.css';
 import useAsync from '../hooks/useAsync';
 import { useLocation } from 'react-router-dom';
 
+interface userInfo {
+  name: string;
+  email: string;
+  image_source: string;
+}
+
 function Header() {
-  const [userInfo, setUserInfo] = useState({});
-  const [isPending, isError, asyncGetUser] = useAsync(getUser);
+  const [userInfo, setUserInfo] = useState<userInfo>({
+    name: '',
+    email: '',
+    image_source: '',
+  });
+  const asyncGetUser = useAsync(getUser);
   const { pathname } = useLocation();
 
   const apiGetUser = useCallback(async () => {
@@ -21,12 +31,8 @@ function Header() {
     apiGetUser();
   }, [apiGetUser]);
 
-  const positionStatic = {
-    position: 'static',
-  };
-
   return (
-    <nav id={style.header} style={pathname === '/folder' ? positionStatic : {}}>
+    <nav id={style.header} style={pathname === '/folder' ? { position: 'static' } : {}}>
       <div className={style.headerBox}>
         <div className={style.headerLogoBox}>
           <a href="/">
