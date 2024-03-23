@@ -12,7 +12,6 @@ export default function useHandleOutsideClick(
     const handleClickOutside = (
       event: React.BaseSyntheticEvent | MouseEvent
     ): void => {
-      //                                         target이 any로 바뀜, as로 바꾸는게 더 좋으려나..(질문하기)
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         if (
           modalRef.current.id === "popOver" &&

@@ -7,11 +7,10 @@ interface Props {
   link: Link;
 }
 
-//link가 타입추론이 먼저 된다면 슈퍼타입
 export function Card({ link }: Props) {
   const createdAt = "createdAt" in link ? "createdAt" : "created_at";
   const imageSource = "imageSource" in link ? "imageSource" : "image_source";
-
+  console.log("link:", link);
   return (
     <>
       <a
