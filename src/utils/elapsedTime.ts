@@ -1,6 +1,10 @@
-const elapsedTime = (card) => {
-  const createdTime = new Date(card.createdAt || card.created_at);
-  const currentTime = new Date();
+import { UserCard } from "../pages/FolderPage";
+
+const elapsedTime = (card: UserCard) => {
+  const createdTime = new Date(
+    card.createdAt || card.created_at || 1
+  ).getTime();
+  const currentTime = new Date().getTime();
   const timeDiff = Math.floor((currentTime - createdTime) / 1000 / 60);
 
   if (timeDiff < 2) return "1 minute ago";

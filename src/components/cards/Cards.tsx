@@ -1,7 +1,19 @@
+import React from "react";
 import Card from "../Card/Card";
 import "./Cards.css";
+import { UserCard } from "../../pages/FolderPage";
 
-function Cards({ cards, changeLinkDeleteSelect, changeFolderAddSelect }) {
+interface Props {
+  cards: UserCard[];
+  changeLinkDeleteSelect: () => void;
+  changeFolderAddSelect: () => void;
+}
+
+function Cards({
+  cards,
+  changeLinkDeleteSelect,
+  changeFolderAddSelect,
+}: Props) {
   return (
     <div className="Cards">
       <div className="container">
