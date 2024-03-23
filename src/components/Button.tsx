@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
+const Button = styled.button<{ fontSize?: string }>`
   width: 80px;
   display: flex;
   padding: 10px 16px;

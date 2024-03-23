@@ -26,7 +26,7 @@ function SortButton({
   );
 }
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<{ $isClicked: boolean }>`
   display: flex;
   padding: 0.5rem 0.75rem;
   flex-direction: column;
