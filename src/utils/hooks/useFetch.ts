@@ -8,6 +8,7 @@ const useFetch = (url: string) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const response = await fetch(url);
         if (!response.ok) {
           throw new Error(`Server responded with status: ${response.status}`);

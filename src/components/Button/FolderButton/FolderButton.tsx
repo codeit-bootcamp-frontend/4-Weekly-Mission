@@ -1,13 +1,13 @@
 import { MouseEvent, ReactNode } from "react";
 import styles from "./folderButton.module.css";
 
-interface FolderButtonProps {
+interface Props {
   children: ReactNode;
   onClick: (e: MouseEvent<HTMLButtonElement>) => void;
   ischecked: boolean;
 }
 
-function FolderButton({ children, onClick, ischecked }: FolderButtonProps) {
+function FolderButton({ children, onClick, ischecked }: Props) {
   return (
     <button
       className={`${styles.btn} ${ischecked ? styles.checked : ""}`}

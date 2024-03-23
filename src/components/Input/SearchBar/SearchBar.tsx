@@ -1,15 +1,15 @@
-import { ChangeEvent, MouseEvent, useState } from "react";
+import { ChangeEvent, MouseEvent} from "react";
 import styles from "./searchbar.module.css";
 import searchIcon from "assets/images/ic_search.svg";
 import closeIcon from "assets/images/ic_close.png";
 
-interface SearchBarProps {
+interface Props {
   value?: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
   onClick?: (e: MouseEvent<HTMLButtonElement>) => void;
 }
 
-function SearchBar({ value, onChange, onClick }: SearchBarProps) {
+function SearchBar({ value, onChange, onClick }: Props) {
   return (
     <div className={styles.container}>
       <img src={searchIcon} className={styles.searchIcon} alt="돋보기 아이콘" />

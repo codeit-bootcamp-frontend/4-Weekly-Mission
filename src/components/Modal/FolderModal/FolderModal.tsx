@@ -2,15 +2,15 @@ import BaseModeal from "../BaseModal/BaseModal";
 import styles from "./folder.module.css";
 import { ADD_LINK, ADD_FOLDER, EDIT } from "utils/constants/strings";
 import { ModalProps } from "../BaseModal/BaseModal";
-import { GetFolderResponse, DataResponse } from "types/apis";
+import { GetFolderResponse } from "types/apis";
 
-interface FolderModalProps extends ModalProps {
+interface Props extends ModalProps {
   link?: string;
   deleted?: string;
-  list?: DataResponse<GetFolderResponse[]>;
+  list?: GetFolderResponse[] | null;
 }
 
-function FolderModal({ variant, closeModal, link, list }: FolderModalProps) {
+function FolderModal({ variant, closeModal, link, list }: Props) {
   let title!: string, action!: string;
 
   if (variant === EDIT) {

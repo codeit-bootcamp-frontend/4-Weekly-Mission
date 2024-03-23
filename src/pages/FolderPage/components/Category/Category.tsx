@@ -16,7 +16,7 @@ function Category({ buttonNames, selectedCategory, onClick }: Props) {
     <div className={styles.buttons}>
       <Link to={`/folder`}>
         <FolderButton
-          ischecked={selectedCategory.name === ALL ? true : false}
+          ischecked={selectedCategory.name === ALL}
           onClick={() => onClick(null, ALL)}
         >
           {ALL}
@@ -25,7 +25,7 @@ function Category({ buttonNames, selectedCategory, onClick }: Props) {
       {buttonNames.map(({ id, name }) => (
         <Link to={`/shared/${id}`} key={id}>
           <FolderButton
-            ischecked={selectedCategory.name === name ? true : false}
+            ischecked={selectedCategory.name === name}
             onClick={() => onClick(id, name)}
           >
             {name}

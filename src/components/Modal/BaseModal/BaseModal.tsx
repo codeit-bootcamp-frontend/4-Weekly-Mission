@@ -9,12 +9,12 @@ export interface ModalProps {
   closeModal: CloseModal;
 }
 
-interface BaseModalProps extends ModalProps{
+interface Props extends ModalProps{
   title: string;
   children: ReactNode;
 }
 
-function BaseModeal({ title, children, variant, closeModal }: BaseModalProps) {
+function BaseModeal({ title, children, variant, closeModal }: Props) {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleOutSideClick = (e: MouseEvent) => {

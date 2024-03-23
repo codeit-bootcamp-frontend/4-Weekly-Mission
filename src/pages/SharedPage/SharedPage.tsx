@@ -1,22 +1,22 @@
 import { useEffect, useState } from "react";
-import { fetchFolderData } from "services/api";
 import style from "./shared.module.css";
 import Header from "./components/Header";
 import CardList from "components/CardList/CardList";
 import SearchBar from "components/Input/SearchBar/SearchBar";
-import { GetLinkResponse, DataResponse } from "types/apis";
+import { GetLinkResponse } from "types/apis";
+import { fetchGetSampleFolders } from "utils/hooks/useGetSampleData";
 
 function SharedPage() {
   const [fileImg, setFileImg] = useState("");
   const [ownerName, setOwnerName] = useState("");
   const [folderName, setFolderName] = useState("");
-  const [items, setItems] = useState<DataResponse<GetLinkResponse[]>>([]);
+  const [items, setItems] = useState<GetLinkResponse[] | null>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLoad = async () => {
     try {
       setIsLoading(true);
-      const data = await fetchFolderData();
+      const data = await fetchGetSampleFolders();
       const { links, name, owner } = data.folder;
       setOwnerName(owner.name);
       setFileImg(owner.profileImageSource);

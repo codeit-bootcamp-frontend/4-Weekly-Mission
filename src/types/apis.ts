@@ -1,5 +1,3 @@
-// 상속 추가
-
 export type GetFolderResponse = {
   id: number;
   created_at: Date;
@@ -33,7 +31,3 @@ export type GetLinkResponse = {
   folder_id: number;
   [key: string]: number | Date | string;
 };
-
-
-
-export type DataResponse<T> = T | null;

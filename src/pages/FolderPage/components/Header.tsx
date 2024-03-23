@@ -4,10 +4,10 @@ import FolderModal from "components/Modal/FolderModal/FolderModal";
 import linkIcon from "assets/images/ic_link.svg";
 import useModal from "utils/hooks/useModal";
 import { ADD_LINK } from "utils/constants/strings";
-import { GetFolderResponse, DataResponse } from "types/apis";
+import { GetFolderResponse } from "types/apis";
 
 interface Props {
-  list: DataResponse<GetFolderResponse[]>;
+  list: GetFolderResponse[] | null;
 }
 
 function Header({ list }: Props) {

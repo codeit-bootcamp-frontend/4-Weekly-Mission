@@ -1,20 +1,23 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { fetchUserData } from "services/api";
 import styles from "./navbar.module.css";
 import Profile from "./Profile/Profile";
 import { GetUserResponse } from "types/apis";
 import logoImage from "assets/images/logo.svg";
+import { fetchGetSampleUsers } from "utils/hooks/useGetSampleData";
 
 function Navbar() {
-  const id = "1";
   const [user, setUser] = useState<GetUserResponse>();
 
+  const setLocalStorage = (key: string, val: number): void =>
+    localStorage.setItem(key, JSON.stringify(val));
+
   useEffect(() => {
-    fetchUserData(id)
-      .then((data) => {
+    fetchGetSampleUsers(1)
+      .then((data: GetUserResponse[]) => {
         const [userInfo] = data;
         setUser(userInfo);
+        setLocalStorage("userId", userInfo.id);
       })
       .catch((err) => {
         console.error(err);

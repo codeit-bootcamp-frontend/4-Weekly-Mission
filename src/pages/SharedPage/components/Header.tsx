@@ -1,12 +1,12 @@
 import styles from "./header.module.css";
 
-interface HeaderProps {
+interface Props {
   fileImg: string;
   ownerName: string;
   folderName: string;
 }
 
-function Header({ fileImg, ownerName, folderName }: HeaderProps) {
+function Header({ fileImg, ownerName, folderName }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles.profile}>

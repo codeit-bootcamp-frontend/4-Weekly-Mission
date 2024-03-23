@@ -7,11 +7,11 @@ import kakaoIcon from "assets/images/ic_kakao.svg";
 import facebookIcon from "assets/images/ic_facebook.svg";
 import linkIcon from "assets/images/ic_link.svg";
 
-interface SharedModalProps extends ModalProps {
+interface Props extends ModalProps {
   folder: string;
 }
 
-function SharedModal({ folder, variant, closeModal }: SharedModalProps) {
+function SharedModal({ folder, variant, closeModal }: Props) {
   const currentUrl = window.location.href;
 
   const copyToClipboard = () => {

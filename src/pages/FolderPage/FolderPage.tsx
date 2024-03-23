@@ -1,4 +1,4 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { NoResults } from "pages";
 import styles from "./folder.module.css";
 import Header from "./components/Header";
@@ -11,8 +11,6 @@ import FolderModal from "components/Modal/FolderModal/FolderModal";
 import Category from "./components/Category/Category";
 import ActionButton from "./components/ActionButton/ActionButton";
 import useModal from "utils/hooks/useModal";
-import useFetch from "utils/hooks/useFetch";
-import { API } from "utils/constants/api";
 import {
   ALL,
   DELETE_FOLDER,
@@ -20,26 +18,36 @@ import {
   SHARED,
   EDIT,
 } from "utils/constants/strings";
-import { GetLinkResponse, GetFolderResponse, DataResponse } from "types/apis";
+import { GetLinkResponse, GetFolderResponse } from "types/apis";
+import { useGetFolders } from "utils/hooks/useGetFolders";
+import { useGetLinks } from "utils/hooks/useGetLinks";
+
+type Nullable<T> = T | null;
 
 export type SelectedCategory = {
-  id: number | null;
+  id: Nullable<number>;
   name: string;
 };
 
 export type ButtonClick = (
-  categoryId: number | null,
+  categoryId: Nullable<number>,
   categoryName: string
 ) => void;
 
 interface UseFetchResponse<T> {
-  data: DataResponse<T>;
+  data: Nullable<T>;
   loading?: boolean;
   error?: string;
 }
 
 function FolderPage() {
-  const userId = "1";
+  let userId = null;
+
+  const value = localStorage.getItem("userId");
+
+  if (typeof value === "string") {
+    userId = JSON.parse(value);
+  }
 
   const [selectedCategory, setSelectedCategory] = useState<SelectedCategory>({
     id: null,
@@ -48,32 +56,21 @@ function FolderPage() {
 
   const { modals, openModal, closeModal } = useModal();
 
-  const { data: folders }: UseFetchResponse<GetFolderResponse[]> = useFetch(
-    `${API}/users/${userId}/folders`
-  );
+  const { data: folders }: UseFetchResponse<GetFolderResponse[]> =
+    useGetFolders(userId);
 
-  const {
-    data: folderData,
-    loading,
-    error,
-  }: UseFetchResponse<GetLinkResponse[]> = useFetch(
-    selectedCategory.id
-      ? `${API}/users/${userId}/links?folderId=${selectedCategory.id}`
-      : `${API}/users/${userId}/links`
-  );
-
-  const handleButtonClick: ButtonClick = (categoryId, categoryName) => {
-    setSelectedCategory({ id: categoryId, name: categoryName });
-  };
+  const { data: folderLinks }: UseFetchResponse<GetLinkResponse[]> =
+    useGetLinks(userId, selectedCategory.id);
 
   const [searchInput, setSearchInput] = useState("");
+
   const [searchParam] = useState(["url", "title", "description"]);
 
   const searchItmes = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
   };
 
-  const search = (items: GetLinkResponse[]) => {
+  const filterSearchText = (items: GetLinkResponse[]) => {
     return items.filter((item) => {
       return searchParam.some((newItem) => {
         return (
@@ -87,17 +84,13 @@ function FolderPage() {
     });
   };
 
+  const handleButtonClick: ButtonClick = (categoryId, categoryName) => {
+    setSelectedCategory({ id: categoryId, name: categoryName });
+  };
+
   const handleDeletedClick = () => {
     setSearchInput("");
   };
-
-  if (error) {
-    return <div>{error}</div>;
-  }
-
-  if (loading) {
-    return <div>loading...</div>;
-  }
 
   return (
     <div>
@@ -127,6 +120,7 @@ function FolderPage() {
                   <span>폴더 추가</span>
                   <AddIcon className={styles.addIcon} />
                 </button>
+
                 {modals[ADD_FOLDER] && (
                   <FolderModal variant={ADD_FOLDER} closeModal={closeModal} />
                 )}
@@ -136,6 +130,7 @@ function FolderPage() {
                 <div className={styles.categoryName}>
                   {selectedCategory.name}
                 </div>
+
                 <div
                   className={`${styles.barButtons} ${
                     selectedCategory.name === ALL ? styles.hidden : ""
@@ -165,9 +160,9 @@ function FolderPage() {
                   )}
                 </div>
               </div>
-              {folderData && (
+              {folderLinks && (
                 <CardList
-                  items={search(folderData)}
+                  items={filterSearchText(folderLinks)}
                   modals={modals}
                   openModal={openModal}
                   closeModal={closeModal}
