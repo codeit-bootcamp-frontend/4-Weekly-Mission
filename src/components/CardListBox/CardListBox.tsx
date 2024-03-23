@@ -1,37 +1,37 @@
 import { useEffect, useState } from "react";
-import CardSearchInput from "./CardSearchInput/CardSearchInput";
+import CardSearchInput from "./CardSearchInput/CardSearchInput.tsx";
 import useGet from "../../hooks/useGet";
-import CardFolderList from "./CardFolderList/CardFolderList";
+import CardFolderList from "./CardFolderList/CardFolderList.tsx";
 import styles from "./CardListBox.module.scss";
-import CardList from "../CardList/CardList";
-import { END_POINT } from "../../constants";
-import getFormattedLinks from "../../hooks/getFormattedLinks";
-import LinksEmptyCase from "./LinksEmptyCase/LinksEmptyCase";
+import CardList from "../CardList/CardList.tsx";
+import { END_POINT } from "../../constants/index.ts";
+import getFormattedLinks from "@/hooks/getFormattedLinks";
+import LinksEmptyCase from "./LinksEmptyCase/LinksEmptyCase.tsx";
+import { LinkProps, UserFolderProps } from "@/constants/index.types";
 
 export default function CardListBox() {
-  const [folders, setFolders] = useState([]);
-  const [links, setLinks] = useState([]);
+  const [folders, setFolders] = useState<UserFolderProps | undefined>();
+  const [links, setLinks] = useState<LinkProps[]>([]);
   const [changeLinksFolder, setChangeLinksFolder] = useState(END_POINT.links);
   const [linksTitle, setLinksTitle] = useState(`전체`);
-  const { data: foldersData, isLoading: isFoldersLoading } = useGet(
-    END_POINT.folders
-  );
+  const { data: foldersData, isLoading: isFoldersLoading } =
+    useGet<UserFolderProps>(END_POINT.folders);
   const { data: linksData, isLoading: isLinksLoading } =
-    useGet(changeLinksFolder);
-  // links?folderId={해당 폴더 ID}”
+    useGet<LinkProps[]>(changeLinksFolder);
 
   useEffect(() => {
     if (!isFoldersLoading && !isLinksLoading) {
-      setFolders(foldersData.data);
-      const strangeData = linksData.data;
+      setFolders(foldersData);
+      const strangeData = linksData;
       const rightData = getFormattedLinks(strangeData);
       setLinks(rightData);
     }
   }, [foldersData, isFoldersLoading, linksData, isLinksLoading]);
 
-  const handleFolderClick = (folder) => {
+  const handleFolderClick = (folder: UserFolderProps) => {
     setChangeLinksFolder(`${END_POINT.links}?folderId=${folder.id}`);
     setLinksTitle(folder.name);
+    console.log(folder);
   };
 
   const handleTotalBtnClick = () => {
@@ -42,9 +42,7 @@ export default function CardListBox() {
   return (
     <main className={styles.CardListBox}>
       <CardSearchInput />
-      {links.length < 1 ? (
-        <LinksEmptyCase />
-      ) : (
+      {links ? (
         <section className={styles.cardList}>
           <CardFolderList
             folders={folders}
@@ -57,6 +55,8 @@ export default function CardListBox() {
           </div>
           <CardList links={links} />
         </section>
+      ) : (
+        <LinksEmptyCase />
       )}
     </main>
   );

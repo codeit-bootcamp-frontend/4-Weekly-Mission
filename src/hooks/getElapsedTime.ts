@@ -1,8 +1,8 @@
-export default function getElapsedTime(createAt) {
+export default function getElapsedTime(createAt: Date) {
   const currentDate = new Date();
   const createdDate = new Date(createAt);
   const elapsedTimeInMinutes = Math.floor(
-    (currentDate - createdDate) / (1000 * 60)
+    (currentDate.getTime() - createdDate.getTime()) / (1000 * 60)
   );
 
   if (elapsedTimeInMinutes < 2) {

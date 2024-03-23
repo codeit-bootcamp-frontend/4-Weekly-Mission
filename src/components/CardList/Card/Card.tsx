@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
-import EmptyCase from "../../../assets/svg/CardImageEmptyCase";
+import EmptyCase from "@/assets/svg/CardImageEmptyCase";
 import getElapsedTime from "../../../hooks/getElapsedTime";
 import getFormatDate from "../../../hooks/getFormatDate";
+import { LinkProps } from "@/constants/index.types";
 
-export default function Card({ link }) {
+interface CardProps {
+  link: LinkProps;
+}
+
+export default function Card({ link }: CardProps) {
   const { imageSource, createdAt, description, title, url } = link;
   const updatedAt = getElapsedTime(createdAt);
   const formatData = getFormatDate(createdAt);
@@ -17,7 +22,7 @@ export default function Card({ link }) {
         </figure>
       ) : (
         <figure className={styles.emptyCaseBox}>
-          <EmptyCase className={styles.emptyCase} />
+          <EmptyCase />
         </figure>
       )}
       <figcaption className={styles.caption}>

@@ -1,5 +1,5 @@
 import styles from "./AddLinkInput.module.scss";
-import InputIcon from "../../assets/svg/InputIcon";
+import InputIcon from "@/assets/svg/InputIcon";
 
 export default function AddLinkInput() {
   return (
