@@ -1,3 +1,4 @@
+import { HTMLAttributes } from 'react';
 import { styled } from 'styled-components';
 
 const Styled = {
@@ -19,9 +20,13 @@ const Styled = {
  * @param {React.htmlAttributes} htmlButtonProps 기타 버튼 props
  */
 
-function IconButton({ icon, ...htmlButtonProps }) {
+interface IconButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  icon: string;
+}
+
+function IconButton({ icon, ...htmlButtonProps }: IconButtonProps) {
   return (
-    <Styled.Container type="button" {...htmlButtonProps}>
+    <Styled.Container as="button" {...htmlButtonProps}>
       <img src={icon} alt={icon} />
     </Styled.Container>
   );

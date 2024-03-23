@@ -1,3 +1,4 @@
+import { HTMLAttributes } from 'react';
 import { styled } from 'styled-components';
 
 const Styled = {
@@ -16,9 +17,15 @@ const Styled = {
   `,
 };
 
-function IconLabelButton({ icon, label, onClick }) {
+interface IconLabelButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  icon: string;
+  label: string;
+  onClick: () => void;
+}
+
+function IconLabelButton({ icon, label, onClick }: IconLabelButtonProps) {
   return (
-    <Styled.Container type="button" onClick={onClick}>
+    <Styled.Container as="button" onClick={onClick}>
       <img src={icon} alt={icon} />
       <Styled.Label>{label}</Styled.Label>
     </Styled.Container>

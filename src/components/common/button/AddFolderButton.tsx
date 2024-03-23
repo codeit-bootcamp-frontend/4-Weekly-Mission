@@ -36,7 +36,7 @@ function AddFolderButton() {
     setIsModalOpen(true);
   };
 
-  const handleFormSubmit = (folderName) => {
+  const handleFormSubmit = (folderName: string) => {
     console.log(`${folderName} 추가완료!`);
   };
 

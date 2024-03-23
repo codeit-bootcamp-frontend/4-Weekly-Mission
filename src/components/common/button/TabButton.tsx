@@ -39,21 +39,31 @@ const Styled = {
  * @param {React.HTMLAttributes} htmlButtonProps 기타 탭 버튼 container props
  */
 
-function TabButton({ tabInfo, onChange = () => {}, ...htmlButtonProps }) {
-  const [selectedTab, setSeletedTab] = useState(0);
+interface TabInfo {
+  name: string;
+  id: number;
+}
+
+interface TabButtonProps {
+  tabInfo: TabInfo[];
+  onChange: (name: string, id: number) => void;
+}
+
+function TabButton({ tabInfo, onChange = () => {}, ...htmlButtonProps }: TabButtonProps) {
+  const [selectedTab, setSeletedTab] = useState<number>(0);
 
   return (
-    <Styled.Container type="button" {...htmlButtonProps}>
+    <Styled.Container as="button" {...htmlButtonProps}>
       {tabInfo.map((tab, index) => (
         <Styled.Tab
           key={index}
           value={index}
-          onClick={(e) => {
-            if (selectedTab === e.target.value) return;
-            setSeletedTab(e.target.value);
+          onClick={() => {
+            if (selectedTab === index) return;
+            setSeletedTab(index);
             onChange(tab.name, tab.id);
           }}
-          className={selectedTab === index && 'selected'}
+          className={selectedTab === index ? 'selected' : ''}
         >
           {tab.name}
         </Styled.Tab>
