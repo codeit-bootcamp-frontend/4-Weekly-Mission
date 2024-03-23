@@ -24,9 +24,19 @@
   color: var(--text-content-gray);
 }
 
-.SearchBar-icon {
+.lenzIcon {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   left: 1.6rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+.clearIcon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 1.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
 }

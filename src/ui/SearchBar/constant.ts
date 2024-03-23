@@ -1,3 +1,4 @@
 const SEARCH_IMAGE: string = "images/search.svg";
+const CLEAR_BUTTON: string = "images/search.svg";
 
-export default SEARCH_IMAGE;
+export { SEARCH_IMAGE };

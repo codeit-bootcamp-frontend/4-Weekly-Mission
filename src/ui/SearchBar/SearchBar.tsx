@@ -1,12 +1,16 @@
 import "./SearchBar.css";
-import SEARCH_IMAGE from "./constant";
 
 interface Prop {
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleInputClear?: (e: React.MouseEvent<HTMLElement>) => void;
   searchTerm: string;
 }
 
-const SearchBar: React.FC<Prop> = ({ handleInputChange, searchTerm }: Prop) => {
+const SearchBar: React.FC<Prop> = ({
+  handleInputChange,
+  handleInputClear,
+  searchTerm,
+}: Prop) => {
   return (
     <div className="SearchBar">
       <input
@@ -16,11 +20,16 @@ const SearchBar: React.FC<Prop> = ({ handleInputChange, searchTerm }: Prop) => {
         value={searchTerm}
         onChange={handleInputChange}
       />
-      <img
-        src={SEARCH_IMAGE}
-        alt="검색창인 것을 알려주는 돋보기 아이콘"
-        className="SearchBar-icon"
-      />
+      <img src="images/search.svg" alt="검색" className="lenzIcon" />
+      <button onClick={handleInputClear}>
+        {!!searchTerm && (
+          <img
+            src="images/search-clear.svg"
+            alt="지우기"
+            className="clearIcon"
+          />
+        )}
+      </button>
     </div>
   );
 };

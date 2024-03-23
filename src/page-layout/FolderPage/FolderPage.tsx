@@ -47,6 +47,9 @@ export const FolderPage: React.FC = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
+  const handleInputClear = (e: React.MouseEvent<HTMLElement>) => {
+    setSearchTerm("");
+  };
 
   const filteredLinks = links?.filter(
     (link) =>
@@ -73,6 +76,7 @@ export const FolderPage: React.FC = () => {
           <div className="FolderPage-items">
             <SearchBar
               handleInputChange={handleInputChange}
+              handleInputClear={handleInputClear}
               searchTerm={searchTerm}
             />
             <Category
