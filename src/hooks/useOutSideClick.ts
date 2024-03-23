@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { RefObject, useCallback, useEffect } from 'react';
 
 /**
  * ref 외부 클릭 시 callback 수행
@@ -6,10 +6,10 @@ import { useCallback, useEffect } from 'react';
  * @param {functino} callback
  */
 
-function useOutSideClick(ref, callback) {
+function useOutSideClick(ref: RefObject<HTMLElement>, callback: () => void) {
   const handleClick = useCallback(
-    (e) => {
-      if (ref.current && !ref.current.contains(e.target)) callback?.();
+    (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) callback?.();
     },
     [ref, callback]
   );

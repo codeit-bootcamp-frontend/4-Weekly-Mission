@@ -2,7 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import userAPI from 'api/userAPI';
 import API from 'constants/API';
 
-function useUserInfoQuery({ userId }) {
+interface UserQueryParams {
+  userId: number;
+}
+
+function useUserInfoQuery({ userId }: UserQueryParams) {
   return useQuery({
     queryKey: [API.USER.DETAIL(userId)],
     queryFn: async () => {

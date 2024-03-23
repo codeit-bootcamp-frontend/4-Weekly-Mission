@@ -1,6 +1,12 @@
 import { useEffect } from 'react';
 
-const useKakaoShare = (selectedFolderId, url) => {
+declare global {
+  interface Window {
+    Kakao: any;
+  }
+}
+
+const useKakaoShare = (selectedFolderId: number, url: string) => {
   const kakao = window.Kakao;
 
   useEffect(() => {
