@@ -18,7 +18,7 @@ import { ClickFolderButton } from '../../types/functionsType';
 
 function AddModal() {
   const [clickedFolderId, setClickedFolderId] = useState<number>();
-  const { modalPurpose, handleModalClose } = useContext(ModalContext);
+  const { modalPurpose, handleModalClose } = useContext(ModalContext)!;
 
   const folders = useFoldersData(USERS_FOLDERS_URL);
 

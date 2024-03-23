@@ -12,7 +12,7 @@ import { useContext } from 'react';
 import { ModalContext } from '../../pages/FolderPage/FolderPage';
 
 function DeleteModal() {
-  const { modalPurpose, handleModalClose } = useContext(ModalContext);
+  const { modalPurpose, handleModalClose } = useContext(ModalContext)!;
 
   const title = modalPurpose.purpose;
   const name = modalPurpose.name;

@@ -16,7 +16,12 @@ import {
 } from '../../constants/modalConstants';
 import { ModalClose, ModalOpen } from '../../types/functionsType';
 
-export const ModalContext = createContext(null);
+export const ModalContext = createContext<{
+  modalType: string;
+  modalPurpose: any;
+  handleModalOpen: ModalOpen;
+  handleModalClose: ModalClose;
+} | null>(null);
 
 function FolderPage() {
   //modal states

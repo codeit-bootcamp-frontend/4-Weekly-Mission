@@ -11,7 +11,7 @@ import {
 } from './ModalElements';
 
 function EditModal() {
-  const { modalPurpose, handleModalClose } = useContext(ModalContext);
+  const { modalPurpose, handleModalClose } = useContext(ModalContext)!;
 
   const title = modalPurpose;
   const buttonText = modalPurpose === FOLDER_ADD ? '추가하기' : '변경하기';

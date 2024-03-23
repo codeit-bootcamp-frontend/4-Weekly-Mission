@@ -10,7 +10,7 @@ import { PopOverProps } from '../../../types/interfaces/props';
 import { ClickFunctionType } from '../../../types/functionsType';
 
 function PopOver({ id, url }: PopOverProps) {
-  const { handleModalOpen } = useContext(ModalContext);
+  const { handleModalOpen } = useContext(ModalContext)!;
   const handleLinkDeleteModalOpen: ClickFunctionType = (e) => {
     e.preventDefault();
     const purpose = {

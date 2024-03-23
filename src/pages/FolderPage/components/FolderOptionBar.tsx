@@ -21,7 +21,7 @@ import { FolderOptionBarProps } from '../../../types/interfaces/props';
   selectedFolderId는 선택된 폴더의 id값입니다.
 */
 function FolderOptionBar({ text, selectedFolderId }: FolderOptionBarProps) {
-  const { handleModalOpen } = useContext(ModalContext);
+  const { handleModalOpen } = useContext(ModalContext)!;
 
   const handleRenameModalOpen = () => {
     handleModalOpen(EDIT_TYPE, FOLDER_RENAME);

@@ -18,7 +18,7 @@ import {
 } from '../../utils/shareLinkFunctions';
 
 function ShareModal() {
-  const { modalPurpose, handleModalClose } = useContext(ModalContext);
+  const { modalPurpose, handleModalClose } = useContext(ModalContext)!;
 
   const name = modalPurpose.folderName;
   const folderId = modalPurpose.id;
