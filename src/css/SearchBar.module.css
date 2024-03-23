@@ -1,24 +1,31 @@
-form {
+.searchBar {
   display: flex;
   justify-content: center;
 }
 
 .container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5F5F5;
+  border-radius: 8px;
+  width: 1060px;
   margin-top: 40px;
 }
 
 .container input {
   color: #666;
   background-color: #F5F5F5;
-  width: 1060px;
-  padding: 15px 10px;
+  width: 1000px;
+  padding: 16px 0;
+  margin-left: 20px;
   border: none;
   border-radius: 8px;
 }
 
 .container input::placeholder {
-  padding-left: 30px;
+  padding-left: 0px;
 }
 
 .searchIcon {
@@ -28,6 +35,22 @@ form {
   height: 16px;
   top: 15px;
   left: 15px;
+}
+
+.closeBtn {
+  position: absolute;
+  background: none;
+  border: none;
+  width: 16px;
+  height: 16px;
+  top: 10px;
+  right: 24px;
+  cursor: pointer;
+}
+
+.closeImg {
+  box-shadow: rgba(136, 136, 242, 0.4) 0px 0px 2px 2px;
+  border-radius: 50%;
 }
 
 /* tablet-size */
