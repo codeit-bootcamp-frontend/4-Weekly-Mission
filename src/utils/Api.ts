@@ -82,11 +82,9 @@ export async function searchFolderLink(
 
     return linkData.data.filter(
       (data: LinkType) =>
-        (data.title &&
-          data.title.toLowerCase().includes(ChangeText)) ||
-        (data.description &&
-          data.description.toLowerCase().includes(ChangeText)) ||
-        (data.url && data.url.toLowerCase().includes(ChangeText)),
+        data.title?.toLowerCase().includes(ChangeText) ||
+        data.description?.toLowerCase().includes(ChangeText) ||
+        data.url?.toLowerCase().includes(ChangeText),
     );
   } catch (e: any) {
     console.log(e);
