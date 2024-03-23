@@ -1,4 +1,4 @@
-export function formatDate(dateString) {
+export function formatDate(dateString: string): string {
   const date = new Date(dateString);
   const year = date.getFullYear().toString().substr(2, 2);
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
@@ -7,20 +7,20 @@ export function formatDate(dateString) {
   return `${year}.${month}.${day}`;
 }
 
-export function calculateTimePassed(createdAt) {
+export function calculateTimePassed(createdAt: string): string {
   const createdDate = new Date(createdAt);
   const now = new Date();
 
   const differenceTime = {
-    seconds: Math.floor((now - createdDate) / 1000),
-    minute: Math.floor((now - createdDate) / (1000 * 60)),
-    hour: Math.floor((now - createdDate) / (1000 * 60 * 60)),
-    day: Math.floor((now - createdDate) / (1000 * 60 * 60 * 24)),
-    month: Math.floor((now - createdDate) / (1000 * 60 * 60 * 24 * 30)),
-    year: Math.floor((now - createdDate) / (1000 * 60 * 60 * 24 * 30 * 12)),
+    seconds: Math.floor((now.getTime() - createdDate.getTime()) / 1000),
+    minute: Math.floor((now.getTime() - createdDate.getTime()) / (1000 * 60)),
+    hour: Math.floor((now.getTime() - createdDate.getTime()) / (1000 * 60 * 60)),
+    day: Math.floor((now.getTime() - createdDate.getTime()) / (1000 * 60 * 60 * 24)),
+    month: Math.floor((now.getTime() - createdDate.getTime()) / (1000 * 60 * 60 * 24 * 30)),
+    year: Math.floor((now.getTime() - createdDate.getTime()) / (1000 * 60 * 60 * 24 * 30 * 12)),
   };
 
-  const getTimeAgoString = (time, unit) => {
+  const getTimeAgoString = (time: number, unit: string) => {
     if (time === 1) {
       return `1 ${unit} ago`;
     }
