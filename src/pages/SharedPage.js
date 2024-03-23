@@ -1,6 +1,6 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import SharedHeader from '../components/Shared/SharedHeader';
-import CardList from '../components/CardList';
+import CardList from '../components/CardList/CardList';
 
 function SharedPage() {
   return (

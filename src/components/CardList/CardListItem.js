@@ -1,5 +1,5 @@
-import useFetchCardsData from '../hooks/useFetchCardsData';
-import noCardImg from '../images/no-image.svg';
+import useFetchCardsData from '../../hooks/useFetchCardsData';
+import noCardImg from '../../images/no-image.svg';
 import { Link } from 'react-router-dom';
 // import loadingImg from '../images/loading-spinner.svg';
 
