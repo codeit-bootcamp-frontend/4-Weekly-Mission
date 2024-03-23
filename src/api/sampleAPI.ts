@@ -1,4 +1,4 @@
-import instance from 'api/instance.js';
+import instance from 'api/instance';
 import API from 'constants/API';
 
 /**
