@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { calculateTimePassed, formatDate } from '../utils/dateUtils';
 
-export function useFetchCardsData() {
-  const [cardsData, setCardsData] = useState([]);
+export interface Link {
+  id: string;
+  title: string;
+  url: string;
+  createdAt: string; 
+  timePassed: string; 
+  formattedDate: string;
+}
+
+export function useFetchCardsData(): Link[] {
+  const [cardsData, setCardsData] = useState<Link[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +24,7 @@ export function useFetchCardsData() {
         }
         const data = await response.json();
         setCardsData(
-          data.folder.links.map((link) => ({
+          data.folder.links.map((link: Link) => ({
             ...link,
             timePassed: calculateTimePassed(link.createdAt),
             formattedDate: formatDate(link.createdAt),
