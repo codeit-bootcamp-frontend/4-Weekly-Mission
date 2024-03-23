@@ -1,3 +1,5 @@
+import { LinkType } from "interface/Type";
+
 const BASE_URL = "https://bootcamp-api.codeit.kr/api/";
 
 export async function getSampeUser(user?: string) {
@@ -64,5 +66,29 @@ export async function getFolderLink(id: number | null) {
     // 네트워크 연결 오류 처리
     console.error("Network error:", error);
     return null;
+  }
+}
+
+export async function searchFolderLink(
+  id: number | null,
+  text: string | null,
+) {
+  try {
+    const linkData = await getFolderLink(id);
+
+    if (!text) return linkData.data;
+
+    const ChangeText = text.toLowerCase();
+
+    return linkData.data.filter(
+      (data: LinkType) =>
+        (data.title &&
+          data.title.toLowerCase().includes(ChangeText)) ||
+        (data.description &&
+          data.description.toLowerCase().includes(ChangeText)) ||
+        (data.url && data.url.toLowerCase().includes(ChangeText)),
+    );
+  } catch (e: any) {
+    console.log(e);
   }
 }

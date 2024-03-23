@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import BlankCard from "../ui/BlankCard";
 import styled from "styled-components";
 import Card from "../ui/Card";
-import { getFolderLink } from "utils/Api";
+import { searchFolderLink } from "utils/Api";
 import { useFolder } from "context/FolderContext";
+import { useSearchParams } from "react-router-dom";
 
 const CardList = styled.div`
   width: 100%;
@@ -23,23 +24,23 @@ const CardList = styled.div`
 `;
 
 function FolderCardList() {
-  const [links, setLinks] = useState({
-    data: [],
-  });
-
+  const [links, setLinks] = useState([]);
+  const [searchResult] = useSearchParams();
+  const searchValue = searchResult.get("search");
+  console.log(links);
   const { folderFilter } = useFolder();
 
   useEffect(() => {
-    getFolderLink(folderFilter.id).then(setLinks);
-  }, [folderFilter]);
+    searchFolderLink(folderFilter.id, searchValue).then(setLinks);
+  }, [folderFilter, searchValue]);
 
   return (
     <>
-      {links.data.length === 0 ? (
+      {links.length === 0 ? (
         <BlankCard>저장된 링크가 없습니다</BlankCard>
       ) : (
         <CardList>
-          {links.data.map((link: any) => (
+          {links.map((link: any) => (
             <Card key={link.id} cardData={link} />
           ))}
         </CardList>
