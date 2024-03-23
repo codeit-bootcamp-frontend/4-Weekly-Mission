@@ -1,30 +1,18 @@
-import { useEffect, useState } from "react";
-import { getSampleUserInfo } from "../api/api";
 import LinkbraryLogo from '../images/logo.svg';
 import styles from '../css/Navbar.module.css';
 
-function NavigationBar() {
-  const [isLoginStatus, setIsLoginStatus] = useState(false);
-  const [profileData, setProfileData] = useState({
-    profileImageSource: '',
-    email: '',
-  });
-
-  const getProfileData = async () => {
-    const data  = await getSampleUserInfo();
-    
-    if (!data) return;
-
-    setProfileData(data);
-    setIsLoginStatus(true);
+interface Props {
+  className: string;
+  profileData: {
+    profileImageSource: string,
+    email: string,
+  };
+  isLoginStatus: boolean;
   }
 
-  useEffect(() => {
-    getProfileData();
-  }, [])
-
+function NavigationBar({ className, profileData, isLoginStatus }: Props) {
   return (
-    <nav className={styles.nav}>
+    <nav className={`${styles.nav} ${styles[className]}`}>
       <img src={LinkbraryLogo} alt='logo'/>
       {isLoginStatus ? (
         <div className={styles.account}>
