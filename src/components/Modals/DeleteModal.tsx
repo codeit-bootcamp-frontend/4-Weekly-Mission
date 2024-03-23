@@ -1,5 +1,15 @@
+import React from "react";
 import "./deleteModal.css";
 import { ReactComponent as CloseIcon } from "../../assets/close-icon.svg";
+
+interface Props {
+  title: string;
+  description: string;
+  changeLinkDeleteSelect?: () => void;
+  isLinkDeleteSelect?: boolean;
+  changeFolderDeleteSelect?: () => void;
+  isFolderDeleteSelect?: boolean;
+}
 
 function DeleteModal({
   title,
@@ -8,7 +18,7 @@ function DeleteModal({
   isLinkDeleteSelect,
   changeFolderDeleteSelect,
   isFolderDeleteSelect,
-}) {
+}: Props) {
   return (
     <div className="DeleteModal">
       <div className="container">
