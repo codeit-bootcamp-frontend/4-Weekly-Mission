@@ -4,7 +4,6 @@
   align-items: center;
   flex-direction: column;
   height: 100%;
-  row-gap: 2rem;
   padding-bottom: 2rem;
 
   @media (769px< width < 1124px) {
@@ -19,17 +18,16 @@
   margin: 40px; */
   display: flex;
   flex-direction: column;
-  row-gap: 3.2rem;
   max-width: 1124px;
   padding: 0 32px;
   width: 100%;
   @media (769px< width < 1124px) {
     row-gap: 4rem;
-    width: auto;
+    /* width: auto; */
   }
   @media (width < 769px) {
     row-gap: 4rem;
-    width: auto;
+    /* width: auto; */
   }
 }
 

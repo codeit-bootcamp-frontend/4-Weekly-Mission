@@ -1,37 +1,47 @@
-import Modal from "react-modal";
-import { useState } from "react";
-Modal.setAppElement("#root");
+import classNames from "classnames/bind";
+import { Portal } from "./portal/Portal";
+import css from "./Modal.module.scss";
 
+const cn = classNames.bind(css);
 
-function CustomModal({ isOpen, onClose, children }) {
-  const [issue, setIssue] = useState();
+export const Modal = ({
+  children,
+  isOpen = false,
+  disableScrollLock = false,
+  hideBackdrop = false,
+  onBackdropClick,
+  onKeyDown,
+}) => {
+  const handleBackdropClick = (event) => {
+    if (event.target !== event.currentTarget) {
+      return;
+    }
 
-  //  const hSubmit=(e)={
-  //   e.preventDefault();
-  //   onClose();
-  // }
-  const customModalStyles = {
-    content: {
-      background: 'rgba(0, 0, 0, 0.4)',
-      color: "#fff",
-      border: "none",
-      borderRadius: "8px",
-      maxWidth: "360px",
-      maxHeight: "240px",
-      margin: "auto",
-      padding: 0
-      
-    },
-    overlay: {
-      backgroundColor: "rgba(0, 0, 0, 0.4)",
-      boxShadow: "0px 4px 25px 0px rgba(0, 0, 0, 0.08)",
-    },
+    if (onBackdropClick) {
+      onBackdropClick(event);
+    }
   };
-  return (
-    <Modal isOpen={isOpen} onRequestClose={onClose} style={customModalStyles}>
-      {children}
-    </Modal>
-  );
-}
 
-export default CustomModal
+  const handleKeyDown = (event) => {
+    if (onKeyDown) {
+      onKeyDown(event);
+    }
+  };
+
+  if (!isOpen) {
+    return null;
+  }
+
+  return (
+    <Portal>
+      <div
+        className={cn("container", { backdrop: !hideBackdrop })}
+        onClick={handleBackdropClick}
+        onKeyDown={handleKeyDown}
+        tabIndex={0}
+      >
+        {children}
+      </div>
+    </Portal>
+  );
+};

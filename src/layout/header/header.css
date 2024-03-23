@@ -12,11 +12,13 @@
   display: flex;
   justify-content: center;
   padding: 32px 200px;
+  margin: 0 auto;
+  max-width: 192rem;
 
-  @media (390px< width < 769px) {
-    padding: 32px 32px;
+  @media (768px< width < 1119px) {
+    padding: 32px 60px;
   }
-  @media (width < 390px) {
+  @media (width < 768px) {
     padding: 18px 32px;
   }
 }
@@ -38,7 +40,7 @@
   }
 }
 
-button {
+.button {
   display: flex;
   width: 8rem;
   height: 3rem;

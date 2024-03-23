@@ -9,6 +9,7 @@ const FavoriteButton = styled.div`
   border-radius: 5px;
   display: flex;
   align-items: center;
+  font-size: 1.6rem;
 
   border: 1px solid var(--primary);
   &:hover {
@@ -29,10 +30,7 @@ export const FavoriteList = ({ handleChange, id }) => {
         전체
       </FavoriteButton>
       {favoriteList?.map((v) => (
-        <FavoriteButton
-          selected={id === v.id}
-          onClick={() => handleChange(v)}
-        >
+        <FavoriteButton selected={id === v.id} onClick={() => handleChange(v)}>
           {v.name}
         </FavoriteButton>
       ))}
