@@ -1,7 +1,13 @@
+import React from "react";
 import "./NavigationBar.css";
 import logoImg from "../../assets/linkbrary-logo.png";
+import { User } from "../../pages/FolderPage";
 
-function NavigationBar({ userInfo }) {
+interface Props {
+  userInfo: User | undefined;
+}
+
+function NavigationBar({ userInfo }: Props) {
   return (
     <div className="NavigationBar">
       <div className="container">
@@ -18,9 +24,7 @@ function NavigationBar({ userInfo }) {
             <span className="user_email">{userInfo.email}</span>
           </div>
         ) : (
-          <button href="#" className="login_button">
-            로그인
-          </button>
+          <button className="login_button">로그인</button>
         )}
       </div>
     </div>
