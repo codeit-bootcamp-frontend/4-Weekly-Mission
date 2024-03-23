@@ -1,10 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import "../styles/FolderSharedPage.css";
-import Footer from "../common/footer/Footer";
-import NavigationBar from "../common/navigationBar/NavigationBar";
+import Footer from "../common/Footer/Footer";
+import NavigationBar from "../common/NavigationBar/NavigationBar";
 import Cards from "../components/Cards/Cards";
-import SearchBar from "../common/searchBar/SearchBar";
+import SearchBar from "../common/SearchBar/SearchBar";
 import FolderInformation from "../components/FolderInformation/FolderInformation";
 import { getSampleCards, getSampleUser } from "../services/api";
 import { UserCard } from "./FolderPage";

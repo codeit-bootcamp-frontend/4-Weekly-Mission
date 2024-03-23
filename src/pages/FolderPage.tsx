@@ -1,10 +1,10 @@
 import React from "react";
 import "../styles/FolderPage.css";
 import floatingButton from "../assets/folder-add-icon-white.png";
-import Footer from "../common/footer/Footer";
-import NavigationBar from "../common/navigationBar/NavigationBar";
+import Footer from "../common/Footer/Footer";
+import NavigationBar from "../common/NavigationBar/NavigationBar";
 import LinkAddBar from "../components/LinkAddBar/LinkAddBar";
-import SearchBar from "../common/searchBar/SearchBar";
+import SearchBar from "../common/SearchBar/SearchBar";
 import FolderMenu from "../components/FolderMenu/FolderMenu";
 import FolderCurrentInformation from "../components/FolderCurrentInformation/FolderCurrentInformation";
 import Cards from "../components/Cards/Cards";

@@ -1,0 +1,83 @@
+.Card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.08);
+}
+
+.Card > a {
+  text-decoration: none;
+}
+
+.Card .card_image_container {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.Card .card_image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: all 0.2s linear;
+  transform: scale(1);
+}
+
+.Card .card_image:hover {
+  transition: all 0.2s linear;
+  transform: scale(1.3);
+}
+
+.Card .card_information {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  height: 135px;
+  padding: 20px;
+}
+
+.Card .card_menu_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Card .createdAt {
+  color: #666666;
+  font-family: Pretendard;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.Card .kebab_container {
+  position: relative;
+}
+
+.Card .popover_container {
+  position: absolute;
+}
+
+.Card .description {
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  color: black;
+  line-height: 24px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.Card .no_link_msg {
+  grid-column: 2;
+  text-align: center;
+  margin: 41px auto 35px;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
