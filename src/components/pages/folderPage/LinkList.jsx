@@ -1,8 +1,9 @@
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { getUserLinks } from '../../../util/api';
 import FolderList from '../sharedPage/FolderList';
 import UpdateBtnList from './UpdateBtnList';
+import { FoldersContext } from '../../context/foldersContext';
 
 const Header = styled.header`
   display: flex;
@@ -37,7 +38,7 @@ const NoLinks = styled.p`
   text-align: center;
 `;
 
-const LinkList = ({ folderId, selectedFolder, handleModalBtnClick, changeSelectedLink }) => {
+  const folders = useContext(FoldersContext);
   const [links, setLinks] = useState([]);
 
   const fetchLinks = async id => {

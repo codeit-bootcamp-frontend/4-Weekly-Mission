@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { useContext, useState } from 'react';
 import FolderNameButton from './FolderNameButton';
 import IconAdd from '../../../assets/add.svg';
 import IconAddWhite from '../../../assets/add-white.png';
-import { modalTypes } from '../../../util/constants';
+import { FoldersContext } from '../../context/foldersContext';
 
 const FolderGroup = styled.div`
   display: flex;
@@ -60,32 +61,6 @@ const Button = styled.button`
   }
 `;
 
-const FolderListArea = ({ folders, selectedFolder, handleCurrentFolder, handleModalBtnClick }) => (
-  <FolderGroup>
-    <FolderList>
-      <li>
-        <FolderNameButton
-          name={'전체'}
-          id={null}
-          selectedFolder={selectedFolder}
-          handleCurrentFolder={handleCurrentFolder}
-        />
-      </li>
-      {folders.map(({ id, name }) => (
-        <li key={id}>
-          <FolderNameButton
-            name={name}
-            id={id}
-            selectedFolder={selectedFolder}
-            handleCurrentFolder={handleCurrentFolder}
-          />
-        </li>
-      ))}
-    </FolderList>
-    <Button data-modal={modalTypes.addFolder} onClick={handleModalBtnClick}>
-      폴더 추가
-    </Button>
-  </FolderGroup>
-);
+  const folders = useContext(FoldersContext);
 
 export default FolderListArea;

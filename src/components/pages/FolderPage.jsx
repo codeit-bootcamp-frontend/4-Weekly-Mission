@@ -3,12 +3,7 @@ import { getUserFolders } from '../../util/api';
 import { exitBtnId, modalBackground, modalTypes, totalName } from '../../util/constants';
 import FolderSection from './folderPage/FolderSection';
 import AddLinkArea from './folderPage/AddLinkArea';
-import DeleteFolder from '../common/modal/DeleteFolder';
-import Edit from '../common/modal/Edit';
-import Share from '../common/modal/Share';
-import Add from '../common/modal/Add';
-import AddFolder from '../common/modal/AddFolder';
-import DeleteLink from '../common/modal/DeleteLink';
+import { FoldersContext } from '../context/foldersContext';
 
 const FolderPage = () => {
   const [folders, setFolders] = useState([]);
@@ -55,33 +50,8 @@ const FolderPage = () => {
   }, []);
 
   return (
-    <>
-      {isActiveModal && activeModal === modalTypes.edit && (
-        <Edit handleCloseModal={handleCloseModal} selectedFolder={selectedFolder} />
-      )}
-      {isActiveModal && activeModal === modalTypes.addFolder && <AddFolder handleCloseModal={handleCloseModal} />}
-      {isActiveModal && activeModal === modalTypes.share && (
-        <Share currentFolderId={folderId} handleCloseModal={handleCloseModal} selectedFolder={selectedFolder} />
-      )}
-      {isActiveModal && activeModal === modalTypes.deleteFolder && (
-        <DeleteFolder handleCloseModal={handleCloseModal} selectedFolder={selectedFolder} />
-      )}
-      {isActiveModal && activeModal === modalTypes.deleteLink && (
-        <DeleteLink handleCloseModal={handleCloseModal} link={selectedLink} />
-      )}
-      {isActiveModal && activeModal === modalTypes.add && (
-        <Add handleCloseModal={handleCloseModal} link={selectedLink} folders={folders} />
-      )}
-      <AddLinkArea changeSelectedLink={changeSelectedLink} handleModalBtnClick={handleModalBtnClick} />
-      <FolderSection
-        folders={folders}
-        selectedFolder={selectedFolder}
-        folderId={folderId}
-        handleCurrentFolder={handleCurrentFolder}
-        handleModalBtnClick={handleModalBtnClick}
-        changeSelectedLink={changeSelectedLink}
-      />
-    </>
+    <FoldersContext.Provider value={folders}>
+    </FoldersContext.Provider>
   );
 };
 export default FolderPage;

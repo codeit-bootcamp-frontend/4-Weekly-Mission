@@ -1,16 +1,11 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import Frame from './frame/Frame';
 import Title from './title/Title';
 import SubmitButton from './submitButton/SubmitButton';
 import styles from './Add.module.css';
+import { FoldersContext } from '../../context/foldersContext';
 
-const Add = ({ link, folders, handleCloseModal }) => {
-  const [selectFolder, setSelectedFolder] = useState();
-
-  const handleLabelClick = e => {
-    if (!e.target.closest('label')) return;
-    setSelectedFolder(+e.target.closest('label').getAttribute('for'));
-  };
+  const folders = useContext(FoldersContext);
 
   return (
     <Frame handleCloseModal={handleCloseModal}>
