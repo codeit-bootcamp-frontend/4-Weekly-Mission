@@ -4,6 +4,8 @@ import { styled } from 'styled-components';
 import GNB from 'components/common/gnb/GNB';
 import Footer from 'components/common/footer/Footer';
 
+import { Children } from 'interfaces/componentsInterface';
+
 const Styled = {
   Body: styled.div`
     width: 100vw;
@@ -12,15 +14,16 @@ const Styled = {
     background-color: ${({ theme }) => theme.color.white};
   `,
 
-  Container: styled.div`
+  Container: styled.div<{ $isFixed: boolean }>`
     padding-top: ${({ $isFixed }) => $isFixed && '9.25rem'};
   `,
 };
 
-function Layout({ children }) {
+interface LayoutProps extends Children {}
+
+function Layout({ children }: LayoutProps) {
   const location = useLocation();
   const isFixed = location.pathname !== '/folder';
-  console.log(isFixed);
 
   return (
     <>

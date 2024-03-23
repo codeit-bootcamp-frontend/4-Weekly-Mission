@@ -6,7 +6,7 @@ declare global {
   }
 }
 
-const useKakaoShare = (selectedFolderId: number, url: string) => {
+const useKakaoShare = (selectedFolderId: string, url: string) => {
   const kakao = window.Kakao;
 
   useEffect(() => {

@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
-
-import searchIcon from 'assets/icon/search.svg';
+import { ReactComponent as SearchIcon } from 'assets/icon/search.svg';
 
 const Styled = {
   Container: styled.div`
@@ -32,10 +31,17 @@ const Styled = {
   `,
 };
 
-function SearchBar({ placeholder, value, onChange, style }) {
+interface SearchBarProps {
+  placeholder: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  style?: React.CSSProperties;
+}
+
+function SearchBar({ placeholder, value, onChange, style }: SearchBarProps) {
   return (
     <Styled.Container style={style}>
-      <img src={searchIcon} alt="검색 아이콘" />
+      <SearchIcon />
       <Styled.Input type="text" value={value} placeholder={placeholder} onChange={onChange}></Styled.Input>
     </Styled.Container>
   );

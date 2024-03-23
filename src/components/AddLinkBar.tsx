@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, ChangeEvent } from 'react';
 import { styled } from 'styled-components';
 
 import linkBarIcon from 'assets/icon/linkBar.svg';
@@ -34,11 +34,16 @@ const Styled = {
   `,
 };
 
-function AddLinkBar({ style, placeholder }) {
+interface AddLinkBarProps {
+  style?: React.CSSProperties;
+  placeholder: string;
+}
+
+function AddLinkBar({ style, placeholder }: AddLinkBarProps) {
   const [inputValue, setInputValue] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 

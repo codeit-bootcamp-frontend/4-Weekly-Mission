@@ -3,6 +3,8 @@ import { styled } from 'styled-components';
 import SearchBar from 'components/SearchBar';
 import PLACEHOLDER from 'constants/FORM_MESSAGE';
 
+import { Children } from 'interfaces/componentsInterface';
+
 const Styled = {
   Container: styled.div`
     width: 100%;
@@ -25,10 +27,12 @@ const Styled = {
   `,
 };
 
+interface MainLayoutProps extends Children {}
+
 /**
  * MainLayout - 검색바와 메인콘텐츠를 포함한 반응형 레이아웃
  */
-function MainLayout({ children }) {
+function MainLayout({ children }: MainLayoutProps) {
   return (
     <>
       <Styled.Container>

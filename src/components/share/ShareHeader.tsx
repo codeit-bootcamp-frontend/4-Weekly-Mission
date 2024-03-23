@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { FolderInfoData } from 'interfaces/dataInterface';
 
 const Styled = {
   Container: styled.div`
@@ -43,7 +44,11 @@ const Styled = {
   `,
 };
 
-function ShareHeader({ folderData }) {
+interface ShareHeaderProps {
+  folderData: FolderInfoData;
+}
+
+function ShareHeader({ folderData }: ShareHeaderProps) {
   const owner = folderData?.owner || {};
   const folderName = folderData?.name || '@ 코드잇';
 
