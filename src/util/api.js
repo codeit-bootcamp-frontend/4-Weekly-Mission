@@ -1,3 +1,5 @@
+import { totalFolderId } from './constants';
+
 const BASE_URL = 'https://bootcamp-api.codeit.kr/api';
 
 async function getAPI(query) {
@@ -32,10 +34,15 @@ export function getUserFolders() {
   return getAPI(`users/1/folders`);
 }
 
-export function getUserLinks(id) {
-  if (!id) {
-    return getAPI('users/1/links');
-  }
+export async function getUserLinks(id) {
+  const query = id === totalFolderId ? 'users/1/links' : `users/1/links?folderId=${id}`;
+  const response = await getAPI(query);
 
-  return getAPI(`users/1/links?folderId=${id}`);
+  const parsedData = response.data.map(({ created_at, image_source, ...rest }) => ({
+    ...rest,
+    createdAt: created_at,
+    imageSource: image_source,
+  }));
+
+  return parsedData;
 }
