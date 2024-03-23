@@ -10,6 +10,9 @@ const Container = styled.div`
   background: #f5f5f5;
   margin-bottom: 40px;
   display: flex;
+  min-height: 55px;
+  display: flex;
+  align-items: center;
 `;
 
 const Icon = styled.img`
@@ -68,11 +71,13 @@ function SearchBar() {
         placeholder="링크를 검색해 보세요."
         onKeyDown={onSubmit}
       />
-      <ResetBtn
-        src="Icons/searchReset.svg"
-        alt="reset"
-        onClick={Reset}
-      />
+      {value && (
+        <ResetBtn
+          src="Icons/searchReset.svg"
+          alt="reset"
+          onClick={Reset}
+        />
+      )}
     </Container>
   );
 }
