@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import $ from 'jquery';
 import searchIcon from '../assets/searchIcon.svg';
 import searchClearIcon from '../assets/searchClearIcon.svg';
 import '../styles/linkSearchBar.css';
@@ -10,21 +11,34 @@ function LinkSearchBar() {
   const handleInputValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.currentTarget.value);
   };
+  const handleClickInputValueClear = (
+    e: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    e.preventDefault();
+    setInputValue('');
+    $('#search--input').val('');
+  };
 
   return (
     <div className="cards-container__search">
       <img className="search--icon" src={searchIcon} alt="searchIcon" />
       <input
+        id="search--input"
         className="search--input"
         placeholder={placeholder}
         onChange={handleInputValueChange}
       />
       {inputValue && (
-        <img
-          src={searchClearIcon}
-          alt="search-clear"
-          className="search-clear--icon"
-        />
+        <button
+          className="search-clear--button"
+          onClick={handleClickInputValueClear}
+        >
+          <img
+            src={searchClearIcon}
+            alt="search-clear"
+            className="search-clear--icon"
+          />
+        </button>
       )}
     </div>
   );
