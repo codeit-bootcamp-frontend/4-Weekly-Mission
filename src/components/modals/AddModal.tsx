@@ -14,6 +14,7 @@ import { useContext, useState } from 'react';
 import { ModalContext } from '../../pages/FolderPage/FolderPage';
 import useFoldersData from '../../hooks/useFoldersData';
 import { USERS_FOLDERS_URL } from '../../constants/urls';
+import { ClickFolderButton } from '../../types/functionsType';
 
 function AddModal() {
   const [clickedFolderId, setClickedFolderId] = useState<number>();
@@ -21,7 +22,7 @@ function AddModal() {
 
   const folders = useFoldersData(USERS_FOLDERS_URL);
 
-  const handleFolderButtonClick = (e: MouseEvent, folderId: number) => {
+  const handleFolderButtonClick: ClickFolderButton = (e, folderId) => {
     e.preventDefault();
     setClickedFolderId(folderId);
   };

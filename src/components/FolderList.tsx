@@ -8,6 +8,7 @@ import Card from './Card';
 import useLinksData from '../hooks/useLinksData';
 import useFoldersData from '../hooks/useFoldersData';
 import { FolderAddButtonMobile } from '../pages/FolderPage/components/FolderAddButton';
+import { ClickSortButton } from '../types/functionsType';
 
 //폴더리스트 컴포넌트(폴더 페이지)
 
@@ -24,7 +25,7 @@ function FolderList() {
   const folders = useFoldersData(foldersFetchUrl);
 
   //FolderList -> FolderSortBar -> SortButton으로 내려주는 함수
-  const handleSortButtonClick = (newSelectedFolder) => {
+  const handleSortButtonClick: ClickSortButton = (newSelectedFolder) => {
     setSelectedFolder(newSelectedFolder);
     const query =
       newSelectedFolder.id == 1 ? '' : `?folderId=${newSelectedFolder.id}`;

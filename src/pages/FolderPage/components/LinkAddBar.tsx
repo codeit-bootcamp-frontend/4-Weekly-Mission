@@ -4,6 +4,7 @@ import Button from '../../../components/Button';
 import '../../../styles/linkAddBar.css';
 import { ModalContext } from '../FolderPage';
 import { ADD_TYPE } from '../../../constants/modalConstants';
+import { ClickFunctionType } from '../../../types/functionsType';
 
 /*
   폴더페이지에서 Header 컴포넌트 아래의
@@ -13,7 +14,7 @@ function LinkAddBar() {
   const { handleModalOpen } = useContext(ModalContext)!;
   const placeholder = '링크를 추가해 보세요';
 
-  const handleLinkAddModalOpen = (e) => {
+  const handleLinkAddModalOpen: ClickFunctionType = (e) => {
     e.preventDefault();
     const link = document.getElementById('link-add__bar--input').value;
     handleModalOpen(ADD_TYPE, link);

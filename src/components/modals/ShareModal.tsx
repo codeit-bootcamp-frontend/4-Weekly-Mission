@@ -16,6 +16,7 @@ import {
   shareLinkToFacebook,
   shareLinkToKakaoTalk,
 } from '../../utils/shareLinkFunctions';
+import { ClickFolderButton } from '../../types/functionsType';
 
 function ShareModal() {
   const { modalPurpose, handleModalClose } = useContext(ModalContext)!;
@@ -23,7 +24,7 @@ function ShareModal() {
   const name = modalPurpose.folderName;
   const folderId = modalPurpose.id;
 
-  const handleClick = (e: MouseEvent, buttonId: number) => {
+  const handleClick: ClickFolderButton = (e, buttonId) => {
     e.preventDefault();
     switch (buttonId) {
       case 1:
