@@ -1,7 +1,15 @@
 import styles from "./ModalLayout.module.css";
 import close from "../images/Icon_close.svg";
+import { ReactNode } from "react";
 
-function ModalLayout({ title, isOpen, children, closeModal }) {
+interface Props {
+  title: string,
+  isOpen: boolean,
+  children: ReactNode,
+  closeModal: () => void,
+}
+
+function ModalLayout({ title, isOpen, children, closeModal }: Props) {
   return (
     <div
       className={styles.background}

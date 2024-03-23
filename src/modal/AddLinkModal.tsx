@@ -5,12 +5,16 @@ import { DATA } from "../constants/folderlist_mock_data";
 import IconCheck from "../images/Icon_check.svg";
 import styles from "./AddLinkModal.module.css";
 
+interface Props {
+  isOpenModal: boolean,
+  closeModal: () => void,
+}
 
-function AddLinkModal({ isOpenModal, closeModal }) {
+function AddLinkModal({ isOpenModal, closeModal }: Props) {
   const [clickItem, setClickItem] = useState('');
   const { addLink } = MODAL_TYPE;
 
-  const handleClick = (name) => {
+  const handleClick = (name: string) => {
     setClickItem(name === clickItem ? '' : name);
   }
 

@@ -2,7 +2,12 @@ import { MODAL_TYPE } from "./modalType";
 import ModalLayout from "./ModalLayout";
 import styles from "./DeleteModal.module.css";
 
-function DeleteModal({ isOpenModal, closeModal }) {
+interface Props {
+  isOpenModal: boolean,
+  closeModal: () => void,
+}
+
+function DeleteModal({ isOpenModal, closeModal }: Props) {
 
   const { deleteFolder } = MODAL_TYPE;
 

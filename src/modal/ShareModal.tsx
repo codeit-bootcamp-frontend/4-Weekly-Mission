@@ -10,7 +10,12 @@ import { useEffect } from "react";
 
 const currentUrl = window.location.href;
 
-function ShareModal({ isOpenModal, closeModal }) {
+interface Props {
+  isOpenModal: boolean,
+  closeModal: () => void,
+}
+
+function ShareModal({ isOpenModal, closeModal }: Props) {
   const { share } = MODAL_TYPE;
 
 	const status = useScript("https://developers.kakao.com/sdk/js/kakao.js");
@@ -24,12 +29,14 @@ function ShareModal({ isOpenModal, closeModal }) {
 	}, [status]);
 
   const handleKakaoButton = () => {
-    window.Kakao.Link.sendScrap({
+    if (window.Kakao) {
+      window.Kakao.Link.sendScrap({
         requestUrl: currentUrl,
     });
+  }
 };
 
-  const handleCopyClipBoard = async (text) => {
+  const handleCopyClipBoard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
       alert("클립보드에 링크가 복사되었어요.");

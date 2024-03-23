@@ -2,7 +2,12 @@ import ModalLayout from "./ModalLayout";
 import { MODAL_TYPE } from "./modalType";
 import styles from "./AddModal.module.css";
 
-function AddModal({ isOpenModal, closeModal }) {
+interface Props {
+  isOpenModal: boolean,
+  closeModal: () => void,
+}
+
+function AddModal({ isOpenModal, closeModal }: Props) {
 
   const { add } = MODAL_TYPE;
 

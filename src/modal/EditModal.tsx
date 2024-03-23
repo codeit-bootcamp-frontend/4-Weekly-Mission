@@ -2,7 +2,13 @@ import ModalLayout from "./ModalLayout";
 import { MODAL_TYPE } from "./modalType";
 import styles from "./EditModal.module.css";
 
-function EditModal({ isOpenModal, closeModal, placeholder }) {
+interface Props {
+  isOpenModal: boolean,
+  closeModal: () => void,
+  placeholder: string,
+}
+
+function EditModal({ isOpenModal, closeModal, placeholder }: Props) {
 
   const { edit } = MODAL_TYPE;
 
@@ -11,7 +17,6 @@ function EditModal({ isOpenModal, closeModal, placeholder }) {
       title={edit.title}
       isOpen={isOpenModal}
       closeModal={closeModal}
-      buttonName={edit.buttonName}
     >
       <input className={styles.inputText} type="text" placeholder={placeholder} />
       <button className={styles.submitButton}>{edit.buttonName}</button>

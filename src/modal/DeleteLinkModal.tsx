@@ -2,7 +2,13 @@ import { MODAL_TYPE } from "./modalType";
 import ModalLayout from "./ModalLayout";
 import styles from "./DeleteModal.module.css";
 
-function DeleteLinkModal({ isOpenModal, closeModal, url }) {
+interface Props {
+  isOpenModal: boolean,
+  closeModal: () => void,
+  url: string,
+}
+
+function DeleteLinkModal({ isOpenModal, closeModal, url }: Props) {
 
   const { deleteLink } = MODAL_TYPE;
 
