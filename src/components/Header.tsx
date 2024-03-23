@@ -1,12 +1,8 @@
 import { useEffect, useState } from 'react';
-import { getUserInfo } from '../api/api';
+import { getSampleFolderLinks } from '../api/api';
 import styles from '../css/Header.module.css';
 
-interface Props {
-  query: string,
-}
-
-function Header({ query }: Props) {
+function Header() {
   const [folderData, setFolderData] = useState({
     name: '',
   });
@@ -15,18 +11,18 @@ function Header({ query }: Props) {
     name: '',
   });
 
-  const getFolderData = async (path: string) => {
-    const result = await getUserInfo(path);
+  const getFolderData = async () => {
+    const { folder } = await getSampleFolderLinks();
     
-    if (!result) return;
+    if (!folder) return;
 
-    setFolderData(result.folder);
-    setFolderOwnerData(result.folder.owner);
+    setFolderData(folder);
+    setFolderOwnerData(folder.owner);
   }
 
   useEffect(() => {
-    getFolderData(query);
-  }, [query])
+    getFolderData();
+  }, [])
 
   return (
     <header className={styles.headerItems}>

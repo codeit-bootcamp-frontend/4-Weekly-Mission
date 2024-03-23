@@ -1,48 +1,47 @@
 import { useCallback, useEffect, useState } from 'react';
-import { getUserInfo, getLinkInfo } from '../api/api';
+import { getFolderLinksData, getSampleFolderLinks } from '../api/api';
 import LinkCard from './LinkCard';
 import styles from '../css/LinkList.module.css';
 import { useLocation } from "react-router-dom";
 
 interface Props {
-  query: string,
   id: number|string,
 }
 
-function LinkList({ query, id }: Props) {
+function LinkList({ id }: Props) {
   const [folderData, setFolderData] = useState([]);
   const { pathname } = useLocation();
 
-  const getLinkData = async (path: string, id: number|string) => {
-    const { data } = await getLinkInfo(path ,id);
+  const getLinkData = async (id: string|number) => {
+    const { data } = await getFolderLinksData(id);
     
     if (!data) return;
 
     setFolderData(data);
   }
 
-  const getFolderData = async (path: string) => {
-    const { folder } = await getUserInfo(path);
+  const getFolderData = async () => {
+    const { folder } = await getSampleFolderLinks();
     
     if (!folder) return;
 
     setFolderData(folder.links);
   }
 
-  const handleLoad = useCallback((path: string, id: number|string) => {
+  const handleLoad = useCallback((id: number|string) => {
     if (pathname === '/folder') {
-      getLinkData(path, id);
+      getLinkData(id);
       return;
     }
     if (pathname === '/shared') {
-      getFolderData(path)
+      getFolderData()
     }
   }, [pathname]
   )
 
   useEffect(() => {
-    handleLoad(query, id);
-  }, [query, id, handleLoad])
+    handleLoad(id);
+  }, [id, handleLoad])
 
   return (
     <div className={styles.content}>

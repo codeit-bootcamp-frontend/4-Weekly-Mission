@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
-import { getUserInfo } from "../api/api";
+import { getSampleUserInfo } from "../api/api";
 import LinkbraryLogo from '../images/logo.svg';
 import styles from '../css/Navbar.module.css';
 
 function NavigationBar() {
   const [isLoginStatus, setIsLoginStatus] = useState(false);
   const [profileData, setProfileData] = useState({
-    image_source: '',
+    profileImageSource: '',
     email: '',
   });
 
-  const getProfileData = async (path: string) => {
-    const { data }  = await getUserInfo(path);
+  const getProfileData = async () => {
+    const data  = await getSampleUserInfo();
     
     if (!data) return;
 
@@ -20,7 +20,7 @@ function NavigationBar() {
   }
 
   useEffect(() => {
-    getProfileData('/users/1');
+    getProfileData();
   }, [])
 
   return (
@@ -28,7 +28,7 @@ function NavigationBar() {
       <img src={LinkbraryLogo} alt='logo'/>
       {isLoginStatus ? (
         <div className={styles.account}>
-          <img src={profileData.image_source} alt='profile' />
+          <img src={profileData.profileImageSource} alt='profile' />
           <p>{profileData.email}</p>
         </div>
       )

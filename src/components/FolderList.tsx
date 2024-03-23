@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getLinkInfo } from "../api/api";
+import { getFolderLists } from "../api/api";
 import Button from "./Button";
 import styles from "../css/FolderList.module.css";
 import plusIcon from "../images/Icon_plus.svg";
@@ -24,8 +24,8 @@ function FolderList() {
     setFolderName(name);
   }
 
-  const getFolderData = async (path: string, id: number) => {
-    const { data } = await getLinkInfo(path, id);
+  const getFolderData = async () => {
+    const { data } = await getFolderLists();
     
     if (!data) return;
 
@@ -33,7 +33,7 @@ function FolderList() {
   }
 
   useEffect(() => {
-    getFolderData('users/1/folders', 0);
+    getFolderData();
   }, [])
 
   return (
@@ -61,7 +61,7 @@ function FolderList() {
         {currentId === 0 ? null : <FolderMenu placeholder={folderName} />}
       </div>
     </div>
-    <LinkList query={'users/1/links'} id={currentId === 0 ? '': currentId} />
+    <LinkList id={currentId === 0 ? '': currentId} />
   </>
   );
 }
