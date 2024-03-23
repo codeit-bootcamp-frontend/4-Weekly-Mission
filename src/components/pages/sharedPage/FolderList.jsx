@@ -11,27 +11,11 @@ const List = styled.ul`
   }
 `;
 
-const FolderList = ({ folderList, handleModalBtnClick, changeSelectedLink }) => (
+const FolderList = ({ folderList }) => (
   <List>
-    {folderList.map(folder => {
-      const { id, url, description } = folder;
-      // eslint-disable-next-line dot-notation
-      const createdAt = folder.createdAt || folder['created_at'];
-      // eslint-disable-next-line dot-notation
-      const imageSource = folder.imageSource || folder['image_source'];
-
-      return (
-        <LinkCard
-          key={id}
-          url={url}
-          createdAt={createdAt}
-          desc={description}
-          imgUrl={imageSource}
-          changeSelectedLink={changeSelectedLink}
-          handleModalBtnClick={handleModalBtnClick}
-        />
-      );
-    })}
+    {folderList.map(({ id, url, description, createdAt, imageSource }) => (
+      <LinkCard key={id} url={url} createdAt={createdAt} desc={description} imgUrl={imageSource} />
+    ))}
   </List>
 );
 

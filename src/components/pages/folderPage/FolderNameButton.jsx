@@ -19,17 +19,17 @@ const Button = styled.button`
   }
 `;
 
-const FolderNameButton = ({ name, id, selectedFolder, handleCurrentFolder }) => {
+const FolderNameButton = ({ id, selectedFolderId, onFolderNameClick, children }) => {
   const handleBtnClick = () => {
-    handleCurrentFolder(id, name);
+    onFolderNameClick(id);
   };
 
-  return name === selectedFolder ? (
+  return id === selectedFolderId ? (
     <Button $active onClick={handleBtnClick}>
-      {name}
+      {children}
     </Button>
   ) : (
-    <Button onClick={handleBtnClick}>{name}</Button>
+    <Button onClick={handleBtnClick}>{children}</Button>
   );
 };
 export default FolderNameButton;

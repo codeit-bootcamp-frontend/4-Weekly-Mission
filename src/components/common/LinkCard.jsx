@@ -24,24 +24,13 @@ const LinkItem = styled.li`
   }
 `;
 
-const LinkCard = ({ url, createdAt, desc, imgUrl, handleModalBtnClick, changeSelectedLink }) => {
-  const handleSelectedLink = () => {
-    changeSelectedLink(url);
-  };
-
-  return (
-    <LinkItem>
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <LinkImage image={imgUrl} />
-        <LinkInfo
-          createdAt={createdAt}
-          desc={desc}
-          handleModalBtnClick={handleModalBtnClick}
-          handleSelectedLink={handleSelectedLink}
-        />
-      </a>
-    </LinkItem>
-  );
-};
+const LinkCard = ({ url, createdAt, desc, imgUrl }) => (
+  <LinkItem>
+    <a href={url} target="_blank" rel="noopener noreferrer">
+      <LinkImage image={imgUrl} />
+      <LinkInfo url={url} createdAt={createdAt} desc={desc} />
+    </a>
+  </LinkItem>
+);
 
 export default LinkCard;

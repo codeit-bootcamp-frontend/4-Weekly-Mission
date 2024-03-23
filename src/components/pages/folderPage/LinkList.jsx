@@ -4,6 +4,7 @@ import { getUserLinks } from '../../../util/api';
 import FolderList from '../sharedPage/FolderList';
 import UpdateBtnList from './UpdateBtnList';
 import { FoldersContext } from '../../context/foldersContext';
+import { totalFolderName } from '../../../util/constants';
 
 const Header = styled.header`
   display: flex;
@@ -38,37 +39,39 @@ const NoLinks = styled.p`
   text-align: center;
 `;
 
+const selectFolderName = (folders, selectedFolderId) => {
+  const selectedFolder = folders.filter(folder => folder.id === selectedFolderId)[0];
+  return selectedFolder?.name || totalFolderName;
+};
+
+const LinkList = ({ selectedFolderId }) => {
   const folders = useContext(FoldersContext);
   const [links, setLinks] = useState([]);
 
+  const selectedFolderName = selectFolderName(folders, selectedFolderId);
+
   const fetchLinks = async id => {
     try {
-      const { data } = await getUserLinks(id);
-      setLinks(data);
+      const links = await getUserLinks(id);
+      setLinks(links);
     } catch (err) {
       console.error(err);
     }
   };
 
   useEffect(() => {
-    fetchLinks(folderId);
-  }, [folderId]);
+    fetchLinks(selectedFolderId);
+  }, [selectedFolderId]);
 
   return (
     <>
       <Header>
-        <Title>{selectedFolder}</Title>
-        {selectedFolder !== '전체' && <UpdateBtnList handleModalBtnClick={handleModalBtnClick} />}
+        <Title>{selectedFolderName}</Title>
+        {selectedFolderName !== totalFolderName && (
+          <UpdateBtnList selectedFolderId={selectedFolderId} selectedFolderName={selectedFolderName} />
+        )}
       </Header>
-      {links?.length ? (
-        <FolderList
-          folderList={links}
-          changeSelectedLink={changeSelectedLink}
-          handleModalBtnClick={handleModalBtnClick}
-        />
-      ) : (
-        <NoLinks>저장된 링크가 없습니다</NoLinks>
-      )}
+      {links?.length ? <FolderList folderList={links} /> : <NoLinks>저장된 링크가 없습니다</NoLinks>}
     </>
   );
 };

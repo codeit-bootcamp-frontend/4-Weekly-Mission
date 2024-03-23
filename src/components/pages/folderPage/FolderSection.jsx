@@ -8,24 +8,10 @@ const MainArea = styled.main`
   max-width: 106rem;
 `;
 
-const FolderSection = ({
-  folders,
-  selectedFolder,
-  folderId,
-  handleCurrentFolder,
-  handleModalBtnClick,
-  changeSelectedLink,
-}) => (
+const FolderSection = () => (
   <MainArea>
     <SearchBar />
-    <FolderArea
-      folders={folders}
-      selectedFolder={selectedFolder}
-      folderId={folderId}
-      handleCurrentFolder={handleCurrentFolder}
-      handleModalBtnClick={handleModalBtnClick}
-      changeSelectedLink={changeSelectedLink}
-    />
+    <FolderArea />
   </MainArea>
 );
 

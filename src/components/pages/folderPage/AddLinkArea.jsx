@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import { createPortal } from 'react-dom';
 import iconLink from '../../../assets/link.svg';
 import SubHeader from '../../common/SubHeader';
 import TextInput from './TextInput';
 import { modalTypes } from '../../../util/constants';
+import Add from '../../common/modal/Add';
 
 const InputGroup = styled.div`
   display: flex;
@@ -17,7 +19,7 @@ const InputGroup = styled.div`
   border: 1px solid var(--color-primary);
   border-radius: 1.5rem;
   background-color: var(--color-white);
-  
+
   &::before {
     content: '';
     display: block;
@@ -26,7 +28,7 @@ const InputGroup = styled.div`
     min-height: 2rem;
     background: url(${iconLink}) no-repeat center/contain;
   }
-  
+
   @media (max-width: 767px) {
     margin: 2.4rem 0 4rem;
     padding: 0.8rem 1rem;
@@ -51,7 +53,8 @@ const Button = styled.button`
   white-space: nowrap;
 `;
 
-const AddLinkArea = ({ changeSelectedLink, handleModalBtnClick }) => {
+const AddLinkArea = () => {
+  const [showModal, setShowModal] = useState(false);
   const [linkString, setLinkString] = useState('');
 
   const handleInputChange = e => {
@@ -60,18 +63,28 @@ const AddLinkArea = ({ changeSelectedLink, handleModalBtnClick }) => {
 
   const handleBtnClick = e => {
     if (linkString.trim() === '') return;
-    changeSelectedLink(linkString);
-    handleModalBtnClick(e);
+    setShowModal(true);
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
   };
 
   return (
     <SubHeader>
       <InputGroup>
-        <TextInput type="text" placeholder="링크를 추가해 보세요" onChange={handleInputChange} image={iconLink} />
+        <TextInput
+          type="text"
+          placeholder="링크를 추가해 보세요"
+          value={linkString}
+          onChange={handleInputChange}
+          image={iconLink}
+        />
         <Button data-modal={modalTypes.add} onClick={handleBtnClick}>
           추가하기
         </Button>
       </InputGroup>
+      {showModal && createPortal(<Add link={linkString} onCloseModal={handleModalClose} />, document.body)}
     </SubHeader>
   );
 };

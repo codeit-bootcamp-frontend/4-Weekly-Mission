@@ -4,6 +4,7 @@ import { useState } from 'react';
 import kebab from '../../assets/kebab.svg';
 import Popover from '../pages/folderPage/Popover';
 import { modalTypes } from '../../util/constants';
+import DeleteLink from './modal/DeleteLink';
 
 export const InfoGroup = styled.div`
   display: flex;
@@ -55,7 +56,7 @@ const Date = styled.p`
   color: #333;
 `;
 
-const LinkInfo = ({ createdAt, desc, handleModalBtnClick, handleSelectedLink }) => {
+const LinkInfo = ({ url, createdAt, desc }) => {
   const elapsedTime = formatDistanceToNowStrict(createdAt);
   const date = format(createdAt, 'yyyy. M. d');
   const [showPopover, setShowPopover] = useState(false);
@@ -72,23 +73,23 @@ const LinkInfo = ({ createdAt, desc, handleModalBtnClick, handleSelectedLink }) 
   };
 
   return (
-    <InfoGroup>
-      <TimeInfoGroup>
-        <ElapsedTime>{elapsedTime} ago</ElapsedTime>
-        <ButtonGroup>
-          <ButtonKebab onClick={handleKebabClick} />
-          {showPopover && (
+    <>
+      <InfoGroup>
+        <TimeInfoGroup>
+          <ElapsedTime>{elapsedTime} ago</ElapsedTime>
+          <ButtonGroup>
+            <ButtonKebab onClick={handleKebabClick} />
             <Popover
-              handlePopoverClick={handlePopoverClick}
-              handleModalBtnClick={handleModalBtnClick}
-              handleSelectedLink={handleSelectedLink}
+              url={url}
+              show={showPopover}
+              onPopoverClick={handlePopoverClick}
             />
-          )}
-        </ButtonGroup>
-      </TimeInfoGroup>
-      <Desc>{desc}</Desc>
-      <Date>{date}</Date>
-    </InfoGroup>
+          </ButtonGroup>
+        </TimeInfoGroup>
+        <Desc>{desc}</Desc>
+        <Date>{date}</Date>
+      </InfoGroup>
+    </>
   );
 };
 

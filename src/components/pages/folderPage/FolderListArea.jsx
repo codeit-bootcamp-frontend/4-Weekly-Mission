@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 import { useContext, useState } from 'react';
+import { createPortal } from 'react-dom';
 import FolderNameButton from './FolderNameButton';
 import IconAdd from '../../../assets/add.svg';
 import IconAddWhite from '../../../assets/add-white.png';
+import { modalTypes, totalFolderId, totalFolderName } from '../../../util/constants';
 import { FoldersContext } from '../../context/foldersContext';
+import AddFolder from '../../common/modal/AddFolder';
 
 const FolderGroup = styled.div`
   display: flex;
@@ -61,6 +64,43 @@ const Button = styled.button`
   }
 `;
 
+const FolderListArea = ({ selectedFolderId, onFolderNameClick }) => {
   const folders = useContext(FoldersContext);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowModal(true);
+  };
+
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
+  return (
+    <FolderGroup>
+      <FolderList>
+        <li>
+          <FolderNameButton
+            id={totalFolderId}
+            selectedFolderId={selectedFolderId}
+            onFolderNameClick={onFolderNameClick}>
+            {totalFolderName}
+          </FolderNameButton>
+        </li>
+        {folders.map(({ id, name }) => (
+          <li key={id}>
+            <FolderNameButton id={id} selectedFolderId={selectedFolderId} onFolderNameClick={onFolderNameClick}>
+              {name}
+            </FolderNameButton>
+          </li>
+        ))}
+      </FolderList>
+      <Button data-modal={modalTypes.addFolder} onClick={handleButtonClick}>
+        폴더 추가
+      </Button>
+      {showModal && createPortal(<AddFolder onCloseModal={handleModalClose} />, document.body)}
+    </FolderGroup>
+  );
+};
 
 export default FolderListArea;
