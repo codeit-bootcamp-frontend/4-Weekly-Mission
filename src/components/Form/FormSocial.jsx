@@ -1,4 +1,4 @@
-import { SIGN_KAKAO, SIGN_GOOGLE } from "../../constnats/image";
+import { SIGN_KAKAO, SIGN_GOOGLE } from "../../constants/image";
 import * as S from "./FormStyle";
 
 const FormSocial = () => {

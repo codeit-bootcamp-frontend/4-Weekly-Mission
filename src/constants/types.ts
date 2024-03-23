@@ -7,14 +7,10 @@ export interface Folder {
   folder_id: number | null;
   id: number;
   image_source: string | null;
-  time: string;
+  time?: string;
   title: string | null;
   updated_at: string | null;
   url: string;
-}
-
-export interface CardCount {
-  count: number;
 }
 
 export interface FolderList {
@@ -23,7 +19,9 @@ export interface FolderList {
   id: number | null;
   name: string;
   user_id?: number;
-  link?: CardCount;
+  link?: {
+    count: number;
+  };
 }
 
 export interface Share {
@@ -32,7 +30,7 @@ export interface Share {
   description: string;
   id: number;
   imageSource: string;
-  time: string;
+  time?: string;
   title: string;
   url: string;
 }
@@ -41,4 +39,14 @@ export interface BaseModal {
   children: ReactNode;
   title: string;
   onClose?: () => void;
+}
+
+export interface User {
+  id?: number;
+  name?: string;
+  owner?: {
+    id: number;
+    name: string;
+    profileImageSource: string;
+  };
 }

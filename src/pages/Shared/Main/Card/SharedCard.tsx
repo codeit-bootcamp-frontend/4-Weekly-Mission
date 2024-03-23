@@ -1,5 +1,5 @@
-import { CARD_NONE_IMAGE } from "constnats/image";
-import { Share } from "constnats/types";
+import { CARD_NONE_IMAGE } from "constants/image";
+import { Share } from "constants/types";
 import * as S from "../../../Folder/Main/Card/CardStyle";
 
 interface Props {

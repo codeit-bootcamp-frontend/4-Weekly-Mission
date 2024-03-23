@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { CLOSE_BUTTON, SEARCH_ICON } from "constnats/image";
-import { Folder } from "constnats/types";
+import { CLOSE_BUTTON, SEARCH_ICON } from "constants/image";
+import { Folder } from "constants/types";
 import * as S from "./SearchStyle";
 
 interface Props {
@@ -10,9 +10,10 @@ interface Props {
 }
 
 const FolderSerachInput = ({ cardData, setSearchFilter }: Props) => {
-  const [search, setSearch] = useState("");
-  const [showtitle, setShowTitle] = useState("");
   const [showMessage, setShowMessage] = useState(false);
+  const [showtitle, setShowTitle] = useState("");
+  const [search, setSearch] = useState("");
+
   const navigate = useNavigate();
 
   const showSearchData = () => {

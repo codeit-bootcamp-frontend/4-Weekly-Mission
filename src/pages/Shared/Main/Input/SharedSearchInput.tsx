@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { CLOSE_BUTTON, SEARCH_ICON } from "constnats/image";
-import { Share } from "constnats/types";
+import { CLOSE_BUTTON, SEARCH_ICON } from "constants/image";
+import { Share } from "constants/types";
 import * as S from "../../../Folder/Main/Input/SearchStyle";
 
 interface Props {

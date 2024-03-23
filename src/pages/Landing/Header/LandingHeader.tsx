@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { MainHeaderButton } from "components/common/Button/ButtonStyle";
-import { LANDING_HEADER } from "constnats/image";
+import { LANDING_HEADER } from "constants/image";
 import * as S from "./LandingHeaderStyle";
 
 const LandingHeader = () => {

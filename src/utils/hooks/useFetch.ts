@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 
-const useFetch = (url: string, handleData: any) => {
-  const [data, setData] = useState<any>(null);
-  const [error, setError] = useState<any>(null);
+interface Fetch<T> {
+  data: T | null;
+  error: boolean;
+  loading: boolean;
+}
+
+const useFetch = <T>(url: string): Fetch<T> => {
+  const [data, setData] = useState<T | null>(null);
+  const [error, setError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -11,20 +17,19 @@ const useFetch = (url: string, handleData: any) => {
       try {
         const response = await fetch(url);
         if (!response.ok) {
-          throw new Error("error");
+          throw new Error("Failed to fetch data");
         }
-        const responseData = await response.json();
-        const jsonData = handleData(responseData);
-        setData(jsonData);
+        const responseData: T = await response.json();
+        setData(responseData);
       } catch (error) {
-        setError(error);
+        setError(true);
       } finally {
         setLoading(false);
       }
     };
 
     fetchData();
-  }, [url, handleData]);
+  }, [url]);
 
   return { data, error, loading };
 };

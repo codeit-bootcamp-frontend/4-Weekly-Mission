@@ -1,5 +1,5 @@
 import AddLink from "pages/Folder/Header/Input/AddLink";
-import { FolderList } from "constnats/types";
+import { FolderList } from "constants/types";
 import * as S from "./FolderHeaderStyle";
 
 interface Props {

@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.nav<{ $path: string }>`
-  position: ${({ $path }) => ($path !== "/folder" ? "sticky" : "static")};
+  position: ${({ $path }) =>
+    $path !== "/folder" && $path !== "/shared" ? "sticky" : "static"};
   top: 0;
   gap: 8px;
   padding: 20px 200px;

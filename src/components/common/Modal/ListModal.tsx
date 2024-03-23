@@ -1,7 +1,7 @@
 import Modal from "./BaseModal";
 import { AddModalButton } from "../Button/ButtonStyle";
-import { CLOSE_BUTTON, CHECK } from "constnats/image";
-import { BaseModal, FolderList } from "constnats/types";
+import { CLOSE_BUTTON, CHECK } from "constants/image";
+import { BaseModal, FolderList } from "constants/types";
 import * as S from "./ModalStyle";
 
 interface List extends BaseModal {

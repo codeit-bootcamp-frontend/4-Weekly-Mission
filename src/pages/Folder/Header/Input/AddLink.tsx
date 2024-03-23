@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { AddLinkButton } from "components/common/Button/ButtonStyle";
 import ListModal from "components/common/Modal/ListModal";
-import { FolderList } from "constnats/types";
-import { LINK_ICON } from "constnats/image";
+import { FolderList } from "constants/types";
+import { LINK_ICON } from "constants/image";
 import * as S from "./AddLinkStyle";
 
 interface Props {

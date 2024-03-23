@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import InputModal from "components/common/Modal/InputModal";
-import { ADD_FOLDER_ICON, ACTION_BUTTON_ICON } from "constnats/image";
+import { ADD_FOLDER_ICON, ACTION_BUTTON_ICON } from "constants/image";
 import * as S from "./ActionButtonStyle";
 
 const ActionButton = () => {

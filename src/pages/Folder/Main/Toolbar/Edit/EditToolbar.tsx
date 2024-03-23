@@ -2,7 +2,7 @@ import { useState } from "react";
 import InputModal from "components/common/Modal/InputModal";
 import ShareModal from "components/common/Modal/ShareModal";
 import DeleteModal from "components/common/Modal/DeleteModal";
-import { EDIT_SHARE, EDIT_CHANGE, EDIT_DELETE } from "constnats/image";
+import { EDIT_SHARE, EDIT_CHANGE, EDIT_DELETE } from "constants/image";
 import * as S from "./EditToolbarStyle";
 
 interface Props {

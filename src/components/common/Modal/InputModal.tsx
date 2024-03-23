@@ -1,7 +1,7 @@
 import Modal from "./BaseModal";
 import { AddModalButton } from "../Button/ButtonStyle";
-import { CLOSE_BUTTON } from "constnats/image";
-import { BaseModal } from "constnats/types";
+import { CLOSE_BUTTON } from "constants/image";
+import { BaseModal } from "constants/types";
 import * as S from "./ModalStyle";
 
 interface Input extends BaseModal {

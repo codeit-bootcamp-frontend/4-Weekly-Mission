@@ -1,5 +1,5 @@
 import { useLocation, Link } from "react-router-dom";
-import { LINKBRARY_LOGO } from "../../constnats/image";
+import { LINKBRARY_LOGO } from "../../constants/image";
 import { NavigationButton } from "../common/Button/ButtonStyle";
 import * as S from "./NavigationStyle";
 

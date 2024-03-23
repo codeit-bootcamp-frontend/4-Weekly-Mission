@@ -1,4 +1,4 @@
-import { LINKBRARY_LOGO } from "../../constnats/image";
+import { LINKBRARY_LOGO } from "../../constants/image";
 import { Link } from "react-router-dom";
 import * as S from "./FormStyle";
 

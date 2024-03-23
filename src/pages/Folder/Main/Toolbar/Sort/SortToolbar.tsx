@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FolderList } from "constnats/types";
+import { FolderList } from "constants/types";
 import * as S from "./SortToolbarStyle";
 
 interface Props {

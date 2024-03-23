@@ -4,7 +4,7 @@ import AddFolder from "pages/Folder/Main/ActionButton/ActionButton";
 import EditToolbar from "./Toolbar/Edit/EditToolbar";
 import SortToolbar from "./Toolbar/Sort/SortToolbar";
 import FolderCard from "./Card/FolderCard";
-import { FolderList, Folder } from "constnats/types";
+import { FolderList, Folder } from "constants/types";
 import * as S from "./FolderMainStyle";
 
 interface Props {
@@ -21,7 +21,6 @@ const FolderMain = ({ cardData, folderList, onChange }: Props) => {
   const handleFolderChange = (folder: FolderList) => {
     setShowToolbar(folder.name !== "전체");
     setFolder(folder);
-    onChange(folder);
   };
 
   return (

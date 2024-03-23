@@ -1,10 +1,9 @@
 export const preventScroll = () => {
-  const currentScrollY = window.scrollY;
   document.body.style.position = "fixed";
   document.body.style.width = "100%";
-  document.body.style.top = `-${currentScrollY}px`;
+  document.body.style.top = `-${window.scrollY}px`;
   document.body.style.overflowY = "scroll";
-  return currentScrollY;
+  return window.scrollY;
 };
 
 export const allowScroll = (prevScrollY: number) => {

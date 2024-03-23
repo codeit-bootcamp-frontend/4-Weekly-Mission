@@ -1,4 +1,4 @@
-import { EYE_CLOSED } from "constnats/image";
+import { EYE_CLOSED } from "constants/image";
 import * as S from "./SignInputStyle";
 
 const SignInput = () => {

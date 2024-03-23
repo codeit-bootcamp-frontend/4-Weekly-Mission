@@ -2,24 +2,32 @@ import { ReactNode } from "react";
 import * as S from "./IconStyle";
 
 interface Props {
-  url?: string;
-  onClick?: () => void;
-  image: string;
+  id?: string;
   alt: string;
+  image: string;
+  url?: string;
   children?: ReactNode;
   size?: "large" | "small";
+  onClick?: () => void;
 }
 
 const Icon = ({
-  size = "small",
+  id,
+  alt,
   url,
   image,
-  alt,
+  size = "small",
   children,
   onClick,
 }: Props) => {
   return (
-    <S.IconBox href={url} onClick={onClick} target="_blank" rel="noreferrer">
+    <S.IconBox
+      id={id}
+      href={url}
+      onClick={onClick}
+      target="_blank"
+      rel="noreferrer"
+    >
       <S.Icon size={size} src={image} alt={alt} />
       <S.IconText>{children}</S.IconText>
     </S.IconBox>

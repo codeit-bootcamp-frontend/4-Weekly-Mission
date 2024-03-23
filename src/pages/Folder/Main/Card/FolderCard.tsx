@@ -5,8 +5,8 @@ import {
   CARD_STAR,
   CARD_BLUE_STAR,
   CARD_KEBAB,
-} from "constnats/image";
-import { FolderList, Folder } from "constnats/types";
+} from "constants/image";
+import { FolderList, Folder } from "constants/types";
 import * as S from "./CardStyle";
 
 interface Props {

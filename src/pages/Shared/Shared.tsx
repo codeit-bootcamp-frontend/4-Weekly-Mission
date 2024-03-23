@@ -1,42 +1,40 @@
-import { useState, useEffect } from "react";
+import useFetch from "utils/hooks/useFetch";
 import SharedHeader from "./Header/SharedHeader";
 import SharedMain from "./Main/ShaerdMain";
-import { SHARED_API_URL } from "constnats/url";
+import { SHARED_API_URL } from "constants/url";
 import { updatedDate, updatedDuration } from "utils/createdAt";
-import { Share } from "constnats/types";
+import { Share, User } from "constants/types";
+
+interface FetchData {
+  folder: {
+    id?: number;
+    name?: string;
+    links: Share[];
+  };
+}
 
 const Shared = () => {
-  const [sharedCardData, setSharedCardData] = useState([]);
-  const [userData, setUserData] = useState({});
+  const {
+    data: responseData,
+    error: dataError,
+    loading: dataLoading,
+  } = useFetch<FetchData>(SHARED_API_URL);
 
-  useEffect(() => {
-    const fetchSharedCardData = async () => {
-      try {
-        const response = await fetch(SHARED_API_URL);
-        const responseData = await response.json();
-        const userProfileData = responseData.folder;
-        const sharedCardData = responseData.folder.links.map(
-          (cardDataList: Share) => ({
-            ...cardDataList,
-            time: updatedDuration(cardDataList.createdAt),
-            date: updatedDate(cardDataList.createdAt),
-          })
-        );
-        setUserData(userProfileData);
-        setSharedCardData(sharedCardData);
-        console.log(userProfileData);
-        console.log(sharedCardData);
-      } catch (error) {
-        console.error("Fetch Error:", error);
-      }
-    };
+  if (dataLoading) return <div>Loading...</div>;
+  if (dataError || !responseData || !responseData.folder)
+    return <div>Error</div>;
 
-    fetchSharedCardData();
-  }, []);
+  const userProfileData: User = responseData?.folder;
+  const sharedCardData: Share[] =
+    responseData?.folder.links.map((cardDataList: Share) => ({
+      ...cardDataList,
+      time: updatedDuration(cardDataList.createdAt),
+      date: updatedDate(cardDataList.createdAt),
+    })) ?? undefined;
 
   return (
     <>
-      <SharedHeader userData={userData} />
+      <SharedHeader userData={userProfileData} />
       <SharedMain cardData={sharedCardData} />
     </>
   );

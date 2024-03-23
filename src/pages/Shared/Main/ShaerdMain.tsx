@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SearchLink from "./Input/SharedSearchInput";
 import SharedCard from "./Card/SharedCard";
-import { Share } from "constnats/types";
+import { Share } from "constants/types";
 import * as S from "./SharedMainStyle";
 
 interface Props {

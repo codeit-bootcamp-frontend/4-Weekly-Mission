@@ -1,16 +1,5 @@
+import { User } from "constants/types";
 import * as S from "./SharedHeaderStyle";
-
-interface Owner {
-  id: number;
-  name: string;
-  profileImageSource: string;
-}
-
-interface User {
-  id?: number;
-  name?: string;
-  owner?: Owner;
-}
 
 interface Props {
   userData: User;
