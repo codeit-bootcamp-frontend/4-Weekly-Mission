@@ -1,7 +1,14 @@
+import React from "react";
 import "./FolderInformation.css";
 import rabbitImg from "../../assets/rabbit-icon.png";
+import { Owner } from "../../pages/FolderSharedPage";
 
-function FolderInformation({ folderOwners, folderName }) {
+interface Props {
+  folderOwners: Owner | undefined;
+  folderName: string | undefined;
+}
+
+function FolderInformation({ folderOwners, folderName }: Props) {
   return (
     <section className="FolderInformation">
       {folderOwners ? (
@@ -13,7 +20,7 @@ function FolderInformation({ folderOwners, folderName }) {
       ) : (
         <img src={rabbitImg} alt="rabbitImg" className="user_image" />
       )}
-      <p className="folder_owner">@{folderOwners.name}</p>
+      {folderOwners && <p className="folder_owner">@{folderOwners.name}</p>}
       <h1 className="folder_name">{folderName}</h1>
     </section>
   );

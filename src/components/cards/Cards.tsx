@@ -5,8 +5,8 @@ import { UserCard } from "../../pages/FolderPage";
 
 interface Props {
   cards: UserCard[];
-  changeLinkDeleteSelect: () => void;
-  changeFolderAddSelect: () => void;
+  changeLinkDeleteSelect?: () => void;
+  changeFolderAddSelect?: () => void;
 }
 
 function Cards({

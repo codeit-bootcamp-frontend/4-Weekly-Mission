@@ -6,11 +6,12 @@ import kebabIcon from "../../assets/kebab-icon.svg";
 import elapsedTime from "../../utils/elapsedTime";
 import CardPopover from "../CardPopover/CardPopover";
 import { UserCard } from "../../pages/FolderPage";
+import { SampleCard } from "../../pages/FolderSharedPage";
 
 interface Props {
-  card: UserCard;
-  changeLinkDeleteSelect: () => void;
-  changeFolderAddSelect: () => void;
+  card: UserCard | SampleCard;
+  changeLinkDeleteSelect?: () => void;
+  changeFolderAddSelect?: () => void;
 }
 
 function Card({ card, changeLinkDeleteSelect, changeFolderAddSelect }: Props) {

@@ -2,9 +2,10 @@ import React from "react";
 import "./NavigationBar.css";
 import logoImg from "../../assets/linkbrary-logo.png";
 import { User } from "../../pages/FolderPage";
+import { SampleUser } from "../../pages/FolderSharedPage";
 
 interface Props {
-  userInfo: User | undefined;
+  userInfo: User | SampleUser | undefined;
 }
 
 function NavigationBar({ userInfo }: Props) {

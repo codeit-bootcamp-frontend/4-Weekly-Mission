@@ -2,19 +2,19 @@ import React from "react";
 import "./CardPopover.css";
 
 interface Props {
-  changeLinkDeleteSelect: () => void;
-  changeFolderAddSelect: () => void;
+  changeLinkDeleteSelect?: () => void;
+  changeFolderAddSelect?: () => void;
 }
 
 function CardPopover({ changeLinkDeleteSelect, changeFolderAddSelect }: Props) {
   const handleDeleteClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    changeLinkDeleteSelect();
+    if (changeLinkDeleteSelect) changeLinkDeleteSelect();
   };
 
   const handleAddClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    changeFolderAddSelect();
+    if (changeFolderAddSelect) changeFolderAddSelect();
   };
 
   return (

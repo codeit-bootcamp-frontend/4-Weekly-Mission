@@ -18,6 +18,7 @@ import { useCallback, useEffect, useState } from "react";
 import DeleteModal from "../components/Modals/DeleteModal";
 import EditModal from "../components/Modals/EditModal";
 import ShareModal from "../components/Modals/ShareModal";
+import { SampleUser } from "./FolderSharedPage";
 
 export interface UserCard {
   id: number;
@@ -44,13 +45,8 @@ export interface Folder {
   link: Link;
 }
 
-export interface User {
-  id: number;
+export interface User extends SampleUser {
   created_at: string;
-  name: string;
-  image_source?: string;
-  profileImageSource?: string;
-  email: string;
   auth_id: string;
 }
 
