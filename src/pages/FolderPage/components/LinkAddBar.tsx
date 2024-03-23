@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useRef } from 'react';
 import linkIcon from '../../../assets/linkIcon.svg';
 import Button from '../../../components/Button';
 import '../../../styles/linkAddBar.css';
@@ -13,10 +13,11 @@ import { ClickFunctionType } from '../../../types/functionsType';
 function LinkAddBar() {
   const { handleModalOpen } = useContext(ModalContext)!;
   const placeholder = '링크를 추가해 보세요';
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleLinkAddModalOpen: ClickFunctionType = (e) => {
     e.preventDefault();
-    const link = document.getElementById('link-add__bar--input').value;
+    const link = inputRef.current?.value;
     handleModalOpen(ADD_TYPE, link);
   };
   return (

@@ -22,7 +22,7 @@ function useLinksData(url: string) {
         const response = await fetch(url);
         const result = await response.json();
         setLinksArray(
-          result.data.map((link) => ({
+          (result.data as any[]).map((link) => ({
             id: link.id,
             url: link.url,
             imgUrl: link.image_source || noneImg,

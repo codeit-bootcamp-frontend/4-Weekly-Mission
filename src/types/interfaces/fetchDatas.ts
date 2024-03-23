@@ -4,14 +4,18 @@ interface User {
   email: string;
 }
 
+interface FolderPageUser extends User {
+  created_at: string;
+  image_source: string;
+  auth_id: string;
+}
+
 export interface SharedPageUser extends User {
   profileImageSource: string;
 }
 
-export interface FolderPageUser extends User {
-  created_at?: string;
-  image_source: string;
-  auth_id?: string;
+export interface FolderPageUserType {
+  data: FolderPageUser[];
 }
 
 export interface SharedPageFolderOwner {
@@ -43,6 +47,6 @@ export interface Folder {
   name: string;
   user_id?: string;
   favorite?: boolean;
-  link?: LinkCount;
+  link: LinkCount;
   isClicked?: boolean | null;
 }

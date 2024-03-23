@@ -13,14 +13,14 @@
 // data 는 2023. 12. 11 형식으로
 // 원래 createdAt 형식 :"2022-12-23T09:44:10Z" 형식
 
-export function formatDate(createdAt) {
+export function formatDate(createdAt: string) {
   const date = createdAt.split('T')[0].replaceAll('-', '. ');
   return date;
 }
-export function getLastTime(createdAt) {
+export function getLastTime(createdAt: string) {
   const nowDate = new Date();
   const createdDate = new Date(createdAt);
-  const lastTime = nowDate - createdDate;
+  const lastTime = nowDate.getTime() - createdDate.getTime();
   const secondsDiff = Math.floor(lastTime / 1000);
   const minutesDiff = Math.floor(secondsDiff / 60);
   const hoursDiff = Math.floor(minutesDiff / 60);

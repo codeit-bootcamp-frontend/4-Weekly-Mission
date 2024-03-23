@@ -25,7 +25,7 @@ function useCardsData(section: string, url: string) {
           folderName: folder.name,
         });
         setLinksArray(
-          folder.links.map((link) => ({
+          (folder.links as any[]).map((link) => ({
             id: link.id,
             url: link.url,
             imgUrl: link.imageSource,

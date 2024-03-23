@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
-import { FolderPageUser } from '../types/interfaces/fetchDatas';
 
 export function useInformationData(url: string) {
-  const [myInfo, setMyInfo] = useState<FolderPageUser[]>();
+  const [myInfo, setMyInfo] = useState<any>();
 
   useEffect(() => {
     const getData = async () => {

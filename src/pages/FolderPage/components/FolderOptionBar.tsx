@@ -75,6 +75,7 @@ function FolderOptionBar({ text, selectedFolderId }: FolderOptionBarProps) {
             buttonProps.map((prop) => (
               <OptionButton
                 key={prop.id}
+                id={prop.id}
                 svg={prop.svg}
                 text={prop.text}
                 handleModalOpen={prop.handleModalOpen}

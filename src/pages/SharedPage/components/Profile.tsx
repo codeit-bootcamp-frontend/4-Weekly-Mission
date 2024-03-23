@@ -5,10 +5,8 @@ import useCardsData from '../../../hooks/useCardsData';
 import { PROFILE } from '../../../constants/fetchConstants';
 import { SAMPLE_FOLDER_URL } from '../../../constants/urls';
 function Profile() {
-  const { ownerImg, ownerName, folderName } = useCardsData(
-    PROFILE,
-    SAMPLE_FOLDER_URL
-  );
+  const ownerInfo: any = useCardsData(PROFILE, SAMPLE_FOLDER_URL);
+  const { ownerImg, ownerName, folderName } = ownerInfo;
   return (
     <div className="profile">
       <div className="profile__folderOwner">
