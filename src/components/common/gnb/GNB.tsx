@@ -42,7 +42,7 @@ function GNB({ $isFixed }: GnbProps) {
   const { data } = useUserInfoQuery({ userId: 1 });
   const userData = data?.data?.data[0];
   const isLoggedIn = userData !== null;
-  console.log(userData);
+
   return (
     <Styled.Container $isFixed={$isFixed}>
       <Styled.InnerWrap>
