@@ -4,7 +4,13 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 const currentUrl = "https://weekly-mission-week9.vercel.app/shared";
 const facebookShareLink = "http://www.facebook.com/sharer.php?u=";
 
-function ShareFolder({ currentCategory, selectedId }: any) {
+function ShareFolder({
+  currentCategory,
+  selectedId,
+}: {
+  currentCategory: string;
+  selectedId: number;
+}) {
   const onClickFacebook = () => {
     window.open(facebookShareLink + currentUrl + selectedId);
   };

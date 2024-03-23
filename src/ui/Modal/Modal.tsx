@@ -9,10 +9,10 @@ import AddFolder from "./AddFolder";
 interface ModalProps {
   categoryData: any;
   modal?: string | null;
-  selectedId: any;
-  currentCategory: any;
+  selectedId: number;
+  currentCategory: string;
   setIsModalOpen: (isOpen: boolean) => void;
-  currentUrl: any;
+  currentUrl: string;
 }
 
 const Modal: React.FC<ModalProps> = ({

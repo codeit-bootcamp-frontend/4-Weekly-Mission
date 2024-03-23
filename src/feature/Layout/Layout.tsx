@@ -1,9 +1,10 @@
 import { useGetUser } from "hooks/useGetUser";
 import Footer from "../Footer/Footer";
 import NavigationBar from "../NavigationBar/NavigationBar";
+import { ReactNode } from "react";
 
 interface layoutProps {
-  children: any;
+  children: ReactNode;
   isNavFixed?: boolean;
 }
 

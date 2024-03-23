@@ -1,6 +1,9 @@
 import styles from "./Modal.module.css";
+interface Prop {
+  currentCategory: string;
+}
 
-function DeleteFolder({ currentCategory }: any) {
+function DeleteFolder({ currentCategory }: Prop) {
   return (
     <>
       <div className={styles.ModalTitle}>폴더 삭제</div>

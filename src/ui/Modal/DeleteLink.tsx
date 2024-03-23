@@ -1,6 +1,6 @@
 import styles from "./Modal.module.css";
 
-function DeleteLink({ currentUrl }: any) {
+function DeleteLink({ currentUrl }: { currentUrl: string }) {
   return (
     <>
       <div className={styles.ModalTitle}>링크 삭제</div>

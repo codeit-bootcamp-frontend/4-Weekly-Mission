@@ -9,7 +9,7 @@ interface Prop {
   description: string;
   createdAt: string;
   favorite?: boolean;
-  handleModalClick: any;
+  handleModalClick?: any;
 }
 
 export const Card = ({

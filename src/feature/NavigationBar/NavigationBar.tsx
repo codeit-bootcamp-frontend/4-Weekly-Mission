@@ -26,7 +26,7 @@ const NavigationBar = ({ profile, isNavFixed }: Props) => {
           <Profile profile={profile} />
         ) : (
           <a href={ROUTE.로그인}>
-            <Cta isSmall>
+            <Cta>
               <span className="NavigationBar-signin">로그인</span>
             </Cta>
           </a>

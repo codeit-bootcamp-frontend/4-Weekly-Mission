@@ -1,10 +1,28 @@
 import styles from "./Modal.module.css";
 import { useState } from "react";
 
-function AddToMyFolder({ currentUrl, categoryData }: any) {
+interface Link {
+  count: number;
+  name: string;
+  id: number;
+}
+
+interface Category {
+  id: number;
+  name: string;
+  link: Link;
+}
+
+function AddToMyFolder({
+  currentUrl,
+  categoryData,
+}: {
+  currentUrl: string;
+  categoryData: Category[];
+}) {
   const [selectedFolder, setSelectedFolder] = useState<number>();
 
-  const handleFolderClick = (e: any) => {
+  const handleFolderClick = (e: React.MouseEvent<HTMLDivElement>) => {
     setSelectedFolder(+e.currentTarget.id);
   };
 

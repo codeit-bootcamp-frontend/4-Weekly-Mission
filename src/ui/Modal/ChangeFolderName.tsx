@@ -1,6 +1,6 @@
 import styles from "./Modal.module.css";
 
-function ChangeFolderName({ currentCategory }: any) {
+function ChangeFolderName({ currentCategory }: { currentCategory: string }) {
   return (
     <>
       <div className={styles.ModalTitle}>폴더 이름 변경</div>

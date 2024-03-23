@@ -12,7 +12,7 @@ import Modal from "ui/Modal/Modal";
 import "./FolderPage.css";
 import { MouseEvent, useState } from "react";
 
-export const FolderPage = () => {
+export const FolderPage: React.FC = () => {
   const [currentCategory, setCurrentCategory] = useState("전체");
   const [folderId, setFolderId] = useState("0");
   const [isModalOpen, setIsModalOpen] = useState(false);

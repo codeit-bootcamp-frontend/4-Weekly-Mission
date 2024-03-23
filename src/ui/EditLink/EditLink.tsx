@@ -1,8 +1,9 @@
+import { MouseEventHandler } from "react";
 import "./EditLink.css";
 
 interface Props {
   currentCategory: string;
-  handleEditClick: any;
+  handleEditClick: MouseEventHandler;
 }
 
 export const EditLink = ({ currentCategory, handleEditClick }: Props) => {
