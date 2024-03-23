@@ -16,7 +16,7 @@ interface Props{
 
 }
 
-const Header = ({ loadingError, folderInfo } :Props) => {
+const Header = ({ loadingError, folderInfo } : Props) => {
   return (
     <>
       <div className={styles["profile-container"]}>

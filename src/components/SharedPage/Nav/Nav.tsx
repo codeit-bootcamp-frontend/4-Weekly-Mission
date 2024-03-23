@@ -5,12 +5,6 @@ import styles from "./Nav.module.css";
 
 const { useEffect, useState } = require("react");
 
-
-  type error = {
-    message: string,
-  };
-
-
 const Nav = () => {
   const [user, setUser] = useState({});
   const [loading, error, asyncedGetUser] = useAsync(GetUserInfo);
