@@ -14,6 +14,7 @@ import {
   EDIT_TYPE,
   SHARE_TYPE,
 } from '../../constants/modalConstants';
+import { ModalClose, ModalOpen } from '../../types/functionsType';
 
 export const ModalContext = createContext(null);
 
@@ -23,13 +24,13 @@ function FolderPage() {
   const [modalPurpose, setModalPurpose] = useState();
 
   //modal open
-  const handleModalOpen = (type, purpose) => {
+  const handleModalOpen: ModalOpen = (type, purpose) => {
     setModalPurpose(purpose);
     setModalType(type);
   };
 
   //modal close
-  const handleModalClose = () => {
+  const handleModalClose: ModalClose = () => {
     setModalType('');
   };
 

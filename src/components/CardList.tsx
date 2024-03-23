@@ -16,6 +16,7 @@ function CardList() {
         {cardsArray.map((card) => (
           <Card
             key={card.id}
+            id={card.id}
             time={card.lastTimeString}
             imgUrl={card.imgUrl}
             title={card.title}

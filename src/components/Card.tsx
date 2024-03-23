@@ -5,6 +5,7 @@ import meatballsIcon from '../assets/meatballsIcon.svg';
 import { useState } from 'react';
 import PopOver from '../pages/FolderPage/components/PopOver';
 import { CardProps } from '../types/interfaces/props';
+import { ClickFunctionType } from '../types/functionsType';
 
 function Card({
   id,
@@ -17,7 +18,7 @@ function Card({
 }: CardProps) {
   const [isPopOverOpen, setIsPopOverOpen] = useState(false);
 
-  const handleClick = (e: MouseEvent) => {
+  const handleClick: ClickFunctionType = (e) => {
     e.preventDefault();
     setIsPopOverOpen(!isPopOverOpen);
   };

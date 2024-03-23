@@ -1,4 +1,5 @@
-import { Card } from './fetchDatas';
+import { ModalOpen } from '../functionsType';
+import { Card, Folder } from './fetchDatas';
 
 export interface CardProps extends Card {
   date: any;
@@ -21,4 +22,29 @@ export interface InformationProps {
 export interface FolderOptionBarProps {
   text: string;
   selectedFolderId: number;
+}
+
+export interface FolderSortBarProps {
+  folders: Folder[];
+  handleClick: any;
+  selectedId: number;
+}
+
+export interface OptionButtonProps {
+  id: number;
+  svg: any;
+  text: string;
+  handleModalOpen: any;
+}
+
+export interface PopOverProps {
+  id: number;
+  url: string;
+}
+
+export interface SortButtonProps {
+  id: number;
+  text: string;
+  handleClick: any;
+  isClicked?: boolean;
 }

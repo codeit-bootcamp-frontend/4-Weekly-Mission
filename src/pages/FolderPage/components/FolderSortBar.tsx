@@ -1,8 +1,13 @@
 import SortButton from './SortButton';
 import '../styles/folderSortBar.css';
 import FolderAddButton from './FolderAddButton';
+import { FolderSortBarProps } from '../../../types/interfaces/props';
 
-function FolderSortBar({ folders, handleClick, selectedId }) {
+function FolderSortBar({
+  folders,
+  handleClick,
+  selectedId,
+}: FolderSortBarProps) {
   return (
     <div className="folder__sort-bar">
       <div className="folder__sort-bar--sort-buttons">

@@ -23,7 +23,7 @@ function ShareModal() {
   const name = modalPurpose.folderName;
   const folderId = modalPurpose.id;
 
-  const handleClick = (e, buttonId) => {
+  const handleClick = (e: MouseEvent, buttonId: number) => {
     e.preventDefault();
     switch (buttonId) {
       case 1:

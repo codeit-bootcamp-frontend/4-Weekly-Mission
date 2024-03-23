@@ -1,10 +1,17 @@
 import styled from 'styled-components';
+import { ClickFunctionType } from '../../../types/functionsType';
+import { SortButtonProps } from '../../../types/interfaces/props';
 /*
   즐겨찾기 버튼의 styled component 입니다.
 */
 
-function SortButton({ id, text, handleClick, isClicked = false }) {
-  const handleSendSelectedFolder = (e) => {
+function SortButton({
+  id,
+  text,
+  handleClick,
+  isClicked = false,
+}: SortButtonProps) {
+  const handleSendSelectedFolder: ClickFunctionType = (e) => {
     const newFolder = {
       id: id,
       name: text,

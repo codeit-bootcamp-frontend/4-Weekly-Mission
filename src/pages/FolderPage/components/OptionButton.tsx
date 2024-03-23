@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { OptionButtonProps } from '../../../types/interfaces/props';
 
-function OptionButton({ id, svg, text, handleModalOpen }) {
+function OptionButton({ id, svg, text, handleModalOpen }: OptionButtonProps) {
   return (
     <Button onClick={handleModalOpen}>
       <img src={svg} alt={text} />

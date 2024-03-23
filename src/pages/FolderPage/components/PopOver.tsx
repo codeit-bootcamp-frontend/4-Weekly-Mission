@@ -6,9 +6,12 @@ import {
 } from '../../../constants/modalConstants';
 import { useContext } from 'react';
 import { ModalContext } from '../FolderPage';
-function PopOver({ id, url }) {
+import { PopOverProps } from '../../../types/interfaces/props';
+import { ClickFunctionType } from '../../../types/functionsType';
+
+function PopOver({ id, url }: PopOverProps) {
   const { handleModalOpen } = useContext(ModalContext);
-  const handleLinkDeleteModalOpen = (e) => {
+  const handleLinkDeleteModalOpen: ClickFunctionType = (e) => {
     e.preventDefault();
     const purpose = {
       id: id,
@@ -18,7 +21,7 @@ function PopOver({ id, url }) {
     handleModalOpen(DELETE_TYPE, purpose);
   };
 
-  const handleLinkAddModalOpen = (e) => {
+  const handleLinkAddModalOpen: ClickFunctionType = (e) => {
     e.preventDefault();
     handleModalOpen(ADD_TYPE, url);
   };
