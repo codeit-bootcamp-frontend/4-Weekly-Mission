@@ -8,17 +8,19 @@ const FolderEditBar = ({ folderName }) => {
   return (
     <div className={styles.FolderEditBar}>
       <h2 className={styles.title}>{folderName}</h2>
-      <ul className={styles.edit_list}>
-        <li>
-          <IconTextButton iconSource={shareIcon}>공유</IconTextButton>
-        </li>
-        <li>
-          <IconTextButton iconSource={penIcon}>이름 변경</IconTextButton>
-        </li>
-        <li>
-          <IconTextButton iconSource={deleteIcon}>삭제</IconTextButton>
-        </li>
-      </ul>
+      {folderName === "전체" ? null : (
+        <ul className={styles.edit_list}>
+          <li>
+            <IconTextButton iconSource={shareIcon}>공유</IconTextButton>
+          </li>
+          <li>
+            <IconTextButton iconSource={penIcon}>이름 변경</IconTextButton>
+          </li>
+          <li>
+            <IconTextButton iconSource={deleteIcon}>삭제</IconTextButton>
+          </li>
+        </ul>
+      )}
     </div>
   );
 };
