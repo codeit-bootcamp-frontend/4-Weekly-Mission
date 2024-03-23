@@ -5,18 +5,27 @@ import styles from "./Nav.module.css";
 
 const { useEffect, useState } = require("react");
 
+interface Props{
+  data: [];
+  error?: {
+    message: string;
+  }
+}
+
 const Nav = () => {
   const [user, setUser] = useState({});
   const [loading, error, asyncedGetUser] = useAsync(GetUserInfoTest);
 
-  const loadUserInfo = async (data) => {
+  const loadUserInfo = async (data: Props) => {
     const userData = await asyncedGetUser(data);
     setUser(userData.data[0]);
   };
 
-  useEffect((data) => {
+  useEffect((data:Props) => {
     loadUserInfo(data);
   }, []);
+
+
 
   return (
     <>

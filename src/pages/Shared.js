@@ -10,8 +10,7 @@ import { useState, useEffect } from "react";
 function Folder() {
   const [search, setSerch] = useState("");
   const [folderInfo, setFolderInfo] = useState({});
-  const [isLoading, loadingError, AsyncedGetFolderInfo] =
-    useAsync(GetFolderInfo);
+  const [loadingError, AsyncedGetFolderInfo] = useAsync(GetFolderInfo);
   const [selectedModal, setSelectedModal] = useState("");
 
   const handleSearchChange = (e) => {

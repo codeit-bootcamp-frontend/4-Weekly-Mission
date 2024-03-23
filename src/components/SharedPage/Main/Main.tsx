@@ -1,7 +1,29 @@
 import Modal from "components/FolderPage/Modal/Modal";
 import CardList from "components/SharedPage/CardList/CardList";
 import SearchInput from "components/SharedPage/SearchInput/SearchInput";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
+
+interface Props {
+  selectedModal: string;
+  selectedId: string;
+  selectedName: string;
+  links: [{
+    id: number;
+    url: string;
+    createdAt: string;
+    imageSource: string;
+    title: string;
+    description: string;
+  }];
+  onSelectedFolder:({ name, id }: { name: string | null, id: number | string }) => void;
+  loadingError: {
+    message: string;
+  }
+  search: string;
+  folderListInfo: [{ id: string; name: string; link:{count : number}}];
+  handleSearchChange: (e : ChangeEvent) => void;
+  setModal: (value: string) => void;
+}
 
 function Main({
   selectedModal,
@@ -14,10 +36,10 @@ function Main({
   folderListInfo,
   handleSearchChange,
   setModal,
-}) {
-  const [selectedLink, setSeletedLink] = useState([]);
+}:Props) {
+  const [selectedLink, setSeletedLink] = useState("");
 
-  const setLink = (link) => {
+  const setLink = (link: string) => {
     setSeletedLink(link);
   };
   return (
@@ -26,7 +48,6 @@ function Main({
         selectedModal={selectedModal}
         setModal={setModal}
         folderName={selectedName}
-        links={links}
         selectedLink={selectedLink}
         folders={folderListInfo}
         selectedId={selectedId}
@@ -36,7 +57,8 @@ function Main({
         search={search}
         handleSearchChange={handleSearchChange}
       />
-      <CardList links={links} />
+      <CardList links={links} setModal={setModal}
+              setLink={setLink} />
     </>
   );
 }

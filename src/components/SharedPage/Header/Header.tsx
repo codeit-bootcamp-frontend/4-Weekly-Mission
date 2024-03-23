@@ -1,6 +1,22 @@
 import styles from "./Header.module.css";
 
-const Header = ({ loadingError, folderInfo }) => {
+interface Props{
+  loadingError: {
+    message: string;
+  };
+  folderInfo?: {
+    id: string;
+    name: string;
+    link: { count: number };
+    owner: {
+      name: string;
+      profileImageSource: string;
+    }
+  };
+
+}
+
+const Header = ({ loadingError, folderInfo } :Props) => {
   return (
     <>
       <div className={styles["profile-container"]}>
