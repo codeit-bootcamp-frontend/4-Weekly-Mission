@@ -23,8 +23,6 @@ const options = [
   { icon: deleteIcon, label: '삭제', modal: 'delete' },
 ];
 
-type Item = string;
-
 function OptionBtns() {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [isRenameModalOpen, setIsRenameModalOpen] = useState(false);
