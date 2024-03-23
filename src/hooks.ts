@@ -1,6 +1,6 @@
 import { useState, useEffect, ChangeEvent } from "react";
 
-function useScript(src: any) {
+function useScript(src: string) {
     // Keep track of script status ("idle", "loading", "ready", "error")
     const [status, setStatus] = useState(src ? "loading" : "idle");
 
@@ -14,7 +14,7 @@ function useScript(src: any) {
             }
 
             // Fetch existing script element by src
-            // It may have been added by another intance of this hook
+            // It may have been added by another instance of this hook
             let script: any = document.querySelector(`script[src="${src}"]`);
 
             if (!script) {

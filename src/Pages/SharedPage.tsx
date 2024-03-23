@@ -9,7 +9,7 @@ function SharedPage() {
     <>
       <Header query={FOLDER_USER}/>
       <SearchBar />
-      <LinkList query={FOLDER_USER}/>
+      <LinkList query={FOLDER_USER} id={0}/>
     </>
   )
 }
