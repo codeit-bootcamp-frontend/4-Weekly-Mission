@@ -50,7 +50,7 @@ interface InputFormModalProps {
   onSubmit: (value: string) => void;
   modalTitle: string;
   buttonLabel: string;
-  item: string;
+  item?: string;
 }
 
 function InputFormModal({ setOpen, onSubmit, modalTitle, buttonLabel, item }: InputFormModalProps) {
