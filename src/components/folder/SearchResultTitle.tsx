@@ -7,6 +7,10 @@ const SearchResult = styled.strong`
   font-size: 32px;
   font-weight: 600;
   color: var(--Linkbrary-gray100, #373740);
+
+  @media (max-width: 767px) {
+    font-size: 24px;
+  }
 `;
 
 const Text = styled.h2`
@@ -14,6 +18,10 @@ const Text = styled.h2`
   font-size: 32px;
   font-weight: 600;
   color: var(--Linkbrary-gray60, #9fa6b2);
+
+  @media (max-width: 767px) {
+    font-size: 24px;
+  }
 `;
 
 function SearchResultTitle() {

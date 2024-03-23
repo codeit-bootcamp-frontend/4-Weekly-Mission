@@ -20,7 +20,7 @@ const Section = styled.section`
   flex-wrap: wrap;
 
   @media (max-width: 1124px) {
-    max-width: 704px;
+    max-width: 700px;
   }
 
   @media (max-width: 767px) {

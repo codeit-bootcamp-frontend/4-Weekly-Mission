@@ -8,6 +8,7 @@ const FolderCategory = styled.div`
   gap: 8px;
   @media (max-width: 1124px) {
     flex-wrap: wrap;
+    max-width: 550px;
   }
 `;
 
