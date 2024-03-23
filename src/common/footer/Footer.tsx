@@ -1,5 +1,5 @@
+import React from "react";
 import "./Footer.css";
-
 import facebookImg from "../../assets/facebook-icon.png";
 import twitterImg from "../../assets/twitter-icon.png";
 import youtubeImg from "../../assets/youtube-icon.png";
