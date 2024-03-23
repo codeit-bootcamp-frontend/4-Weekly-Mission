@@ -1,5 +1,5 @@
 {
-  "name": "1-weekly-mission",
+  "name": "4-weekly-mission",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -44,7 +44,9 @@
   "devDependencies": {
     "@babel/eslint-parser": "^7.23.10",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "eslint": "^8.2.0",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-alias": "^1.1.2",
