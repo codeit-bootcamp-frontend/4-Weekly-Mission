@@ -18,10 +18,7 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
   const { shareKakao } = useKakaoSdk();
   const [currentModal, setCurrentModal] = useState(null);
 
-  const folderName =
-    ALL_LINKS_ID === selectedFolderId
-      ? ALL_LINKS_TEXT
-      : folders?.find(({ id }) => id === selectedFolderId)?.name;
+  const folderName = ALL_LINKS_ID === selectedFolderId ? ALL_LINKS_TEXT : folders?.find(({ id }) => id === selectedFolderId)?.name;
   const shareLink = `${window.location.origin}/shared?user=1&folder=${selectedFolderId}`;
 
   const closeModal = () => setCurrentModal(null);
@@ -33,8 +30,7 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
   const handleKakaoClick = () => {
     shareKakao({ url: shareLink, ...KAKAO_SHARE_DATA });
   };
-  const handleFacebookClick = () =>
-    window.open(`http://www.facebook.com/sharer.php?u=${shareLink}`);
+  const handleFacebookClick = () => window.open(`http://www.facebook.com/sharer.php?u=${shareLink}`);
   const handleLinkCopyClick = () => copyToClipboard(shareLink);
 
   return (
@@ -47,12 +43,7 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
           isSelected={ALL_LINKS_ID === selectedFolderId}
         />
         {folders?.map(({ id, name }) => (
-          <FolderButton
-            key={id}
-            text={name}
-            onClick={() => onFolderClick(id)}
-            isSelected={id === selectedFolderId}
-          />
+          <FolderButton key={id} text={name} onClick={() => onFolderClick(id)} isSelected={id === selectedFolderId} />
         ))}
       </div>
       <div className={cx("add-button")}>
@@ -70,11 +61,7 @@ export const FolderToolBar = ({ folders, selectedFolderId, onFolderClick }) => {
       {selectedFolderId !== ALL_LINKS_ID && (
         <div className={cx("buttons")}>
           {BUTTONS.map(({ text, iconSource, modalId }) => (
-            <IconAndTextButton
-              key={text}
-              iconSource={iconSource}
-              onClick={() => setCurrentModal(modalId)}
-            />
+            <IconAndTextButton key={text} iconSource={iconSource} onClick={() => setCurrentModal(modalId)} />
           ))}
           <ShareModal
             isOpen={currentModal === MODALS_ID.share}
