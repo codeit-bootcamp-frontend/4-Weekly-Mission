@@ -7,8 +7,24 @@ import { ModalContentButton } from "sharing/ui-modal-content-button";
 import { ModalContentDescription } from "sharing/ui-modal-content-description";
 import { ModalContentTitle } from "sharing/ui-modal-content-title";
 
-const cx = classNames.bind(styles);
+interface Folders {
+  id: string;
+  name: string;
+  link: { count: number };
+}
 
+interface AddLinkModalProps {
+  isOpen: boolean;
+  folders: Folders[];
+  selectedLinkUrl: string;
+  selectedFolderId: string;
+  setSelectedFolderId: (id: string) => void;
+  onAddClick: () => void;
+  onCloseClick: () => void;
+  onKeyDown: () => void;
+}
+
+const cx = classNames.bind(styles);
 export const AddLinkModal = ({
   isOpen,
   folders,
@@ -18,7 +34,7 @@ export const AddLinkModal = ({
   onAddClick,
   onCloseClick,
   onKeyDown,
-}) => {
+}: AddLinkModalProps) => {
   return (
     <Modal isOpen={isOpen} onBackdropClick={onCloseClick} onKeyDown={onKeyDown}>
       <ModalContentBox
@@ -41,7 +57,9 @@ export const AddLinkModal = ({
                 />
               ))}
             </div>
-            <ModalContentButton onClick={onAddClick}>추가하기</ModalContentButton>
+            <ModalContentButton onClick={onAddClick}>
+              추가하기
+            </ModalContentButton>
           </div>
         }
         onCloseClick={onCloseClick}

@@ -1,7 +1,7 @@
 import { useGetFolders } from "folder/data-access-folder";
 import { AddLinkModal } from "link/ui-add-link-modal";
 import { LinkForm as UiLinkForm } from "link/ui-link-form";
-import { useState } from "react";
+import { KeyboardEvent, useState } from "react";
 
 export const LinkForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,7 +11,7 @@ export const LinkForm = () => {
     setSelectedFolderId(null);
     setIsModalOpen(false);
   };
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Escape") {
       closeModal();
     }
