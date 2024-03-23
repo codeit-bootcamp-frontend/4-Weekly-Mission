@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": "./src",
+    "paths": {
+      "assets/*": ["assets/*"],
+      "components/*": ["components/*"],
+      "pages/*": ["pages/*"],
+      "context/*": ["context/*"],
+      "hooks/*": ["hooks/*"],
+      "utils/*": ["utils/*"],
+      "reducer/*": ["reducer/*"],
+      "styles/*": ["styles/*"],
+      "features/*": ["features/*"]
+    },
+    "module": "commonjs",
+    "target": "es2016",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules"],
+  "include": ["src"]
+}
