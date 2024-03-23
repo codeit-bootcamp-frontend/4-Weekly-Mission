@@ -1,3 +1,4 @@
+import { ModalButton } from "@/types/modalButton";
 import styles from "./AlertModal.module.scss";
 import classNames from "classnames/bind";
 import { Modal } from "sharing/ui-modal";
@@ -8,6 +9,10 @@ import { ModalContentTitle } from "sharing/ui-modal-content-title";
 
 const cx = classNames.bind(styles);
 
+interface AlertModalProps extends ModalButton {
+  description: string;
+}
+
 export const AlertModal = ({
   isOpen,
   title,
@@ -16,7 +21,7 @@ export const AlertModal = ({
   onClick,
   onCloseClick,
   onKeyDown,
-}) => {
+}: AlertModalProps) => {
   return (
     <Modal isOpen={isOpen} onBackdropClick={onCloseClick} onKeyDown={onKeyDown}>
       <ModalContentBox

@@ -1,18 +1,27 @@
 import styles from "./Modal.module.scss";
 import classNames from "classnames/bind";
+import { KeyboardEvent, MouseEvent, ReactNode } from "react";
 import { Portal } from "sharing/ui-portal";
 
 const cx = classNames.bind(styles);
 
+interface ModalProps {
+  children?: ReactNode;
+  isOpen?: boolean;
+  hideBackdrop?: boolean;
+  onBackdropClick: (event: MouseEvent<HTMLDivElement>) => void;
+  onKeyDown: (event: KeyboardEvent<HTMLDivElement>) => void;
+}
+
 export const Modal = ({
   children,
   isOpen = false,
-  disableScrollLock = false,
+  // disableScrollLock = false,
   hideBackdrop = false,
   onBackdropClick,
   onKeyDown,
-}) => {
-  const handleBackdropClick = (event) => {
+}: ModalProps) => {
+  const handleBackdropClick = (event: MouseEvent<HTMLDivElement>) => {
     if (event.target !== event.currentTarget) {
       return;
     }
@@ -22,7 +31,7 @@ export const Modal = ({
     }
   };
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (onKeyDown) {
       onKeyDown(event);
     }

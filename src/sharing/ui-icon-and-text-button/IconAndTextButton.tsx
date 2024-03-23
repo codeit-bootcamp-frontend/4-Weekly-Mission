@@ -3,7 +3,17 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-export const IconAndTextButton = ({ iconSource, text, onClick }) => {
+interface IconAndTextButtonProps {
+  iconSource: string;
+  text: string;
+  onClick: () => void;
+}
+
+export const IconAndTextButton = ({
+  iconSource,
+  text,
+  onClick,
+}: IconAndTextButtonProps) => {
   return (
     <button className={cx("container")} onClick={onClick}>
       <img className={cx("icon")} src={iconSource} alt={`${text} 아이콘`} />
