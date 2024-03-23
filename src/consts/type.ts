@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 export interface Folder {
   id: number | null;
   name: string;
@@ -34,4 +35,8 @@ export interface HeaderItem {
   name: string;
   email: string;
   profileImageSource: string;
+}
+
+export interface HookProps {
+  children: ReactNode;
 }

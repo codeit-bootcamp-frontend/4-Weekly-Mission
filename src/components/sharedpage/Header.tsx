@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
-import "../../css/Header.css";
-import logo from "../../image/logo.svg";
-import { getUser, getFolder } from "../../api";
-import { HeaderItem } from "../../consts/type";
+import React, { useState, useEffect } from 'react';
+import '../../css/Header.css';
+import logo from '../../image/logo.svg';
+import { getUser, getFolder } from '../../api';
+import { HeaderItem } from '../../consts/type';
 
 function Header() {
   const [userInfo, setInfo] = useState<HeaderItem>({
-    name: "",
-    email: "",
-    profileImageSource: "",
+    name: '',
+    email: '',
+    profileImageSource: '',
   });
-  const [folderInfo, setFolder] = useState({ name: "", profile: "" });
+  const [folderInfo, setFolder] = useState({ name: '', profile: '' });
   const [isUserInfo, setIsUserInfo] = useState(true);
 
   useEffect(() => {
@@ -60,11 +60,7 @@ function Header() {
       <div className="headermain">
         <div className="maininfo">
           <div className="frameinfo">
-            <img
-              src={folderInfo.profile}
-              id="folderImg"
-              alt="folderprofile"
-            ></img>
+            <img src={folderInfo.profile} id="folderImg" alt="folderprofile"></img>
 
             <span>{username}</span>
           </div>

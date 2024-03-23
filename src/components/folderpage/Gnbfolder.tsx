@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import LinkInput from './LinkInput';
@@ -6,6 +6,8 @@ import { getFolderType } from '../../api';
 import Add from '../../modals/Add';
 import { modalRoot } from '../../consts/const';
 import { Folder } from '../../consts/type';
+import { useFooterVisibility, useGnbVisibility } from '../../hooks/useComponentVisible';
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,25 +28,27 @@ const Container = styled.div`
     padding: 60px 199px 90px 200px;
   }
 `;
-const InputContainer = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-
-  @media (min-width: 375px) and (max-width: 767px) {
-    width: 340px;
-  }
-  @media (min-width: 768px) and (max-width: 1123px) {
-    width: min(700px, 100vw);
-  }
-  @media (min-width: 1124px) {
-    width: 800px;
-  }
-`;
 
 function Gnbfolder() {
   const [data, setData] = useState<Folder[]>([]);
   const [isButtonSelected, setButtonSelected] = useState<boolean>(false);
+  const { isFooterVisible } = useFooterVisibility();
+
+  const { setGnbVisibility, isGnbVisible } = useGnbVisibility();
+  const gnbRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      setGnbVisibility(entry.isIntersecting);
+    });
+
+    if (gnbRef.current) {
+      observer.observe(gnbRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [setGnbVisibility]);
+
   useEffect(() => {
     async function getFolderData() {
       const result = await getFolderType();
@@ -67,11 +71,9 @@ function Gnbfolder() {
   };
 
   return (
-    <Container>
-      <InputContainer>
-        <LinkInput onClick={handleButtonClick} />
-        {isButtonSelected && ReactDOM.createPortal(<Add data={folderList} onClose={handleCloseClick} />, modalRoot)}
-      </InputContainer>
+    <Container ref={gnbRef}>
+      <LinkInput onClick={handleButtonClick} gnbVisible={isGnbVisible} footerVisible={isFooterVisible} />
+      {isButtonSelected && ReactDOM.createPortal(<Add data={folderList} onClose={handleCloseClick} />, modalRoot)}
     </Container>
   );
 }

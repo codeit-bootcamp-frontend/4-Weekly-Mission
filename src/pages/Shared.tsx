@@ -1,9 +1,9 @@
-import "../css/Shared.css";
-import Header from "../components/sharedpage/Header";
-import Main from "../components/sharedpage/Main";
-import Footer from "../components/Footer";
+import '../css/Shared.css';
+import Header from '../components/sharedpage/Header';
+import Main from '../components/sharedpage/Main';
+import Footer from '../components/Footer';
 
-function App() {
+function Shared() {
   return (
     <>
       <Header></Header>
@@ -13,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+export default Shared;

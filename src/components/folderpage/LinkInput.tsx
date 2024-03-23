@@ -1,6 +1,51 @@
 import styled from 'styled-components';
 import link from '../../image/link.svg';
 
+interface ContainerProps {
+  $footerVisible: boolean;
+}
+
+const Container = styled.div<ContainerProps>`
+  display: ${({ $footerVisible }) => ($footerVisible ? 'none' : 'flex')};
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  background: #f0f6ff;
+
+  @media (min-width: 375px) and (max-width: 767px) {
+    padding: 24px 32px;
+  }
+  @media (min-width: 768px) and (max-width: 1123px) {
+    padding-top: 60px;
+    padding-bottom: 90px;
+    padding-left: max(32px, calc((100vw - 724px) / 2));
+    padding-right: max(32px, calc((100vw - 724px) / 2));
+  }
+  @media (min-width: 1124px) {
+    padding: 60px 199px 90px 200px;
+  }
+`;
+
+const InputContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  @media (min-width: 375px) and (max-width: 767px) {
+    width: calc(100vw - 64px);
+  }
+  @media (min-width: 768px) and (max-width: 1123px) {
+    width: min(700px, 100vw);
+  }
+  @media (min-width: 1124px) {
+    width: 800px;
+  }
+`;
 const Input = styled.input`
   display: flex;
   width: 100%;
@@ -56,14 +101,28 @@ const Button = styled.button`
 
 interface Props {
   onClick: () => void;
+  gnbVisible: boolean;
+  footerVisible: boolean;
 }
 
-function LinkInput({ onClick }: Props) {
+function LinkInput({ onClick, gnbVisible, footerVisible }: Props) {
   return (
     <>
-      <Input placeholder="링크를 추가해 보세요" />
-      <Img src={link} alt="link" />
-      <Button onClick={onClick}>추가하기</Button>
+      {gnbVisible ? (
+        <InputContainer>
+          <Input placeholder="링크를 추가해 보세요" />
+          <Img src={link} alt="link" />
+          <Button onClick={onClick}>추가하기</Button>
+        </InputContainer>
+      ) : (
+        <Container $footerVisible={footerVisible}>
+          <InputContainer>
+            <Input placeholder="링크를 추가해 보세요" />
+            <Img src={link} alt="link" />
+            <Button onClick={onClick}>추가하기</Button>
+          </InputContainer>
+        </Container>
+      )}
     </>
   );
 }

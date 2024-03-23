@@ -1,7 +1,7 @@
 @media (min-width: 375px) and (max-width: 767px) {
   .gridframe {
     display: grid;
-    grid-template: repeat(9, 1fr) / repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 25px 20px;
   }
   .mainframe {
@@ -22,7 +22,7 @@
 @media (min-width: 768px) and (max-width: 1123px) {
   .gridframe {
     display: grid;
-    grid-template: repeat(5, 1fr) / repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 25px 20px;
   }
   .mainframe {
@@ -43,7 +43,7 @@
 @media (min-width: 1124px) {
   .gridframe {
     display: grid;
-    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px 20px;
   }
   .mainframe {

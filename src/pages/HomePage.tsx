@@ -1,9 +1,9 @@
-import "../css/Shared.css";
-import Headerfolder from "../components/folderpage/Headerfolder";
-import MainHome from "../components/Mainpage/MainHome";
-import Footer from "../components/Footer";
+import '../css/Shared.css';
+import Headerfolder from '../components/folderpage/Headerfolder';
+import MainHome from '../components/Mainpage/MainHome';
+import Footer from '../components/Footer';
 
-function App() {
+function HomePage() {
   return (
     <>
       <Headerfolder />
@@ -13,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+export default HomePage;
