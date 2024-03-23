@@ -47,7 +47,7 @@ export const FolderPage: React.FC = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
-  const handleInputClear = (e: React.MouseEvent<HTMLElement>) => {
+  const handleInputClear = () => {
     setSearchTerm("");
   };
 

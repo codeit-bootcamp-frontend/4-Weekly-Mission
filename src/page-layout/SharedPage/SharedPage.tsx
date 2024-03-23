@@ -16,6 +16,9 @@ export const SharedPage = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(e.target.value);
   };
+  const handleInputClear = () => {
+    setSearchTerm("");
+  };
 
   return (
     <Layout>
@@ -28,6 +31,7 @@ export const SharedPage = () => {
         <div className="SharedPage-items">
           <SearchBar
             handleInputChange={handleInputChange}
+            handleInputClear={handleInputClear}
             searchTerm={searchTerm}
           />
           <CardList>

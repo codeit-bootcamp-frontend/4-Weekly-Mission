@@ -2,7 +2,7 @@ import "./SearchBar.css";
 
 interface Prop {
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleInputClear?: (e: React.MouseEvent<HTMLElement>) => void;
+  handleInputClear: () => void;
   searchTerm: string;
 }
 
