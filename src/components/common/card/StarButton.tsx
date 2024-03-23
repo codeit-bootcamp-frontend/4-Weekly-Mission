@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 
 import filledStar from 'assets/icon/filledStar.svg';
 import emptystar from 'assets/icon/emptyStar.svg';
+import { HTMLAttributes } from 'react';
 
 const Styled = {
   Container: styled.button`
@@ -14,11 +15,15 @@ const Styled = {
   `,
 };
 
-function StarButton({ isActive, ...htmlDivProps }) {
+interface StarButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  isActive?: boolean;
+}
+
+function StarButton({ isActive, ...htmlButtonProps }: StarButtonProps) {
   const src = isActive ? filledStar : emptystar;
 
   return (
-    <Styled.Container {...htmlDivProps} onClick={(e) => e.preventDefault()}>
+    <Styled.Container {...htmlButtonProps} onClick={(e) => e.preventDefault()}>
       <img src={src} alt="찜 버튼" />
     </Styled.Container>
   );

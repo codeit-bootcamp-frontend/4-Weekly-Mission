@@ -47,14 +47,14 @@ const Styled = {
  */
 
 function MeatBallButton() {
-  const meatBallBtnRef = useRef();
+  const meatBallBtnRef = useRef<HTMLButtonElement>(null);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
   useOutSideClick(meatBallBtnRef, () => setIsPopoverOpen(false));
 
-  const handleClickOption = (option) => {
+  const handleClickOption = (option: string) => {
     option === '삭제하기' ? setIsDeleteModalOpen(true) : setIsAddModalOpen(true);
   };
 

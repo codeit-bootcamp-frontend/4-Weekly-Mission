@@ -68,7 +68,14 @@ const Styled = {
   `,
 };
 
-function Card({ createdAt, url, description, imageSource }) {
+interface CardProps {
+  createdAt: string;
+  url: string;
+  description: string;
+  imageSource: string;
+}
+
+function Card({ createdAt, url, description, imageSource }: CardProps) {
   const source = imageSource || defaultCardImg;
 
   return (
