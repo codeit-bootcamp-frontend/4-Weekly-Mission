@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Searchbar from '../Searchbar';
+import SearchBar from '../SearchBar/SearchBar';
 import useFetchFolderCategoryData from '../../hooks/useFetchFolderCategoryData';
 import useFetchFolderCardsData from '../../hooks/useFetchFolderCardsData';
 import FolderCategory from './FolderCategory';
@@ -22,7 +22,7 @@ function FolderContent() {
 
   return (
     <>
-      <Searchbar />
+      <SearchBar />
       {folderCategory ? (
         <>
           <FolderCategory

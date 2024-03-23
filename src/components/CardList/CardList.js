@@ -1,11 +1,11 @@
 import './CardList.css';
-import Searchbar from '../Searchbar';
+import SearchBar from '../SearchBar/SearchBar';
 import CardListItem from './CardListItem';
 
 function CardList() {
   return (
     <div className="cardlist">
-      <Searchbar />
+      <SearchBar />
       <CardListItem />
     </div>
   );

@@ -1,6 +1,6 @@
-import searchIcon from '../images/Search.svg';
+import searchIcon from '../../images/Search.svg';
 
-function Searchbar() {
+function SearchBar() {
   const handleSearch = (event) => {
     event.preventDefault();
   };
@@ -13,4 +13,4 @@ function Searchbar() {
   );
 }
 
-export default Searchbar;
+export default SearchBar;
