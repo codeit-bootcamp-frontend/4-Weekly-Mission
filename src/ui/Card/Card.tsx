@@ -28,12 +28,15 @@ export const Card = ({
   const isFavorite = favorite
     ? "images/full-star.svg"
     : "images/empty-star.svg";
-  const ref: RefObject<HTMLElement> = useRef<HTMLElement>(null);
+  const ref: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
+
+  // TODO
+  // addEventListner issue
 
   useEffect(() => {
-    const handleOutsideClick = (e: MouseEvent) => {
-      const target = e.target;
-      if (ref.current && !ref.current.contains(target as Node))
+    const handleOutsideClick: EventListener = (ev: Event) => {
+      const target = ev.target;
+      if (ref.current!.contains(target as Node))
         setKebabOpen && setKebabOpen(false);
     };
     document.addEventListener("click", handleOutsideClick);
