@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 import closeIcon from 'assets/icon/close-icon.svg';
 import Portal from 'components/common/modal/Portal';
 import IconButton from 'components/common/button/IconButton';
+import { Children } from 'interfaces/componentsInterface';
 
 const Styled = {
   Backdrop: styled.div`
@@ -54,7 +55,11 @@ const Styled = {
  * @param {React.ReactNode} children 모달창 내부 컴포넌트 및 엘리먼트
  */
 
-function BackdropModal({ setOpen, children }) {
+interface BackdropModalProps extends Children {
+  setOpen: (open: boolean) => void;
+}
+
+function BackdropModal({ setOpen, children }: BackdropModalProps) {
   const closeModal = () => {
     setOpen(false);
   };
