@@ -11,8 +11,8 @@ import ShareBtn from './shareBtn/ShareBtn';
 import { sampleUrl } from '../../../util/constants';
 import { useScript } from '../../../util/hooks';
 
-const Share = ({ currentFolderId, handleCloseModal, selectedFolder }) => {
-  const url = `${sampleUrl}${currentFolderId}`;
+const Share = ({ selectedFolderId, onCloseModal, selectedFolderName }) => {
+  const url = `${sampleUrl}${selectedFolderId}`;
   const status = useScript('https://developers.kakao.com/sdk/js/kakao.js');
 
   useEffect(() => {
@@ -30,8 +30,8 @@ const Share = ({ currentFolderId, handleCloseModal, selectedFolder }) => {
   };
 
   return (
-    <Frame handleCloseModal={handleCloseModal} selectedFolder={selectedFolder}>
-      <Title title="폴더 공유" content={selectedFolder} />
+    <Frame onCloseModal={onCloseModal} selectedFolder={selectedFolderName}>
+      <Title title="폴더 공유" content={selectedFolderName} />
       <ul className={styles.btnList}>
         <button onClick={handleKaKaoButton}>
           <ShareBtn name="카카오톡" imgUrl={kakaoUrl} backgroundColor="yellow" />
