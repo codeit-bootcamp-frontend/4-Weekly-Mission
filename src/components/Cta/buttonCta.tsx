@@ -1,15 +1,22 @@
-import React from "react";
+import {ReactNode} from "react";
 import style from "./cta.module.scss";
+import Link from "next/link";
 
-function Cta({src, children, className = ""}) {
+interface Props {
+  className?: string;
+  src: string;
+  children: ReactNode;
+}
+
+function ButtonCta({className = "", src, children}: Props) {
   const classnames = `${style.cta} ${className}`;
   return (
     <div className={classnames}>
-      <a href={src}>{children}</a>
+      <Link href={src}>{children}</Link>
     </div>
   );
 }
-export default Cta;
+export default ButtonCta;
 
 // width padding fontSize 인라인으로 다룰필요 없다
 // width padding fontSize -> className으로 상황에따라 css적용하기

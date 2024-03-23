@@ -1,23 +1,28 @@
 import style from "./input.module.scss";
-import eyeOn from "../../assets/eye-on.svg";
-import eyeOff from "../../assets/eye-off.svg";
-import {useState} from "react";
+import eyeOn from "../../../public/images/eye-on.svg";
+import eyeOff from "../../../public/images/eye-off.svg";
+import {InputHTMLAttributes, useState} from "react";
+import Image from "next/image";
 
-const LabelContent = ({htmlFor}) => {
+//  HTMLElement는 HTML 요소의 모든 기능을 포함하는 반면, HTMLAttributes는 HTML 요소에 추가되는 속성을 타입으로 정의합니다.
+interface Props extends InputHTMLAttributes<HTMLInputElement> {
+  htmlFor: string; // htmlFor은 없네요?
+}
+
+function LabelContent({htmlFor}: Props) {
   if (htmlFor === "email") {
     return <label htmlFor={htmlFor}>이메일</label>;
   } else if (htmlFor === "password") {
     return <label htmlFor={htmlFor}>비밀번호</label>;
   }
   return null;
-};
+}
 
-function Input({type, value, onChange, placeholder, htmlFor, className = "", ...props}) {
+function Input({type, value, onChange, placeholder, htmlFor, className = "", ...props}: Props) {
   const [isPassword, setIsPassword] = useState({
     type: "password",
     visible: false,
   });
-
   const handlePassword = () => {
     setIsPassword(() => {
       if (!isPassword.visible) {
@@ -27,19 +32,22 @@ function Input({type, value, onChange, placeholder, htmlFor, className = "", ...
       }
     });
   };
+  function PasswordImg() {
+    return (
+      type === "password" && (
+        <Image
+          src={isPassword.visible ? eyeOn : eyeOff}
+          alt="password Show"
+          onClick={handlePassword}
+          className={style.eyeImg}
+        />
+      )
+    );
+  } // 컴포넌트 안에 컴포넌트? 올바른 예시인가요?
   // 왜 type 안변할까요? => 성공 ~~
-
-  const passwordImg = type === "password" && (
-    <img
-      src={isPassword.visible ? eyeOn : eyeOff}
-      alt="password Show"
-      onClick={handlePassword}
-      className={style.eyeImg}
-    />
-  );
   return (
     <div className={style.input}>
-      {LabelContent({htmlFor})}
+      <LabelContent htmlFor={htmlFor} />
       <div className={style.inputBox}>
         <div className={style.inputFrame}>
           <input
@@ -51,7 +59,7 @@ function Input({type, value, onChange, placeholder, htmlFor, className = "", ...
             onChange={onChange}
             {...props}
           />
-          {passwordImg}
+          <PasswordImg />
         </div>
       </div>
     </div>

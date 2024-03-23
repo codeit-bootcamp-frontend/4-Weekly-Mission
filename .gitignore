@@ -1,8 +1,5 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-
-
-
 # dependencies
 /node_modules
 /.pnp
@@ -51,3 +48,7 @@ bower_components
 psd
 thumb
 sketch
+
+## part2팀 팀원 코드들 예시
+src/components/sample/
+public/note/

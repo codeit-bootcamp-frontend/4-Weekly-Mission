@@ -1,9 +1,11 @@
 import style from "./card.module.scss";
-import starOn from "../../assets/star-on.svg";
-import starOff from "../../assets/star-off.svg";
-import MoreSee from "../../assets/threeMoreDots.svg";
-import logo from "../../assets/logo.svg";
+import starOn from "../../../public/images/star-on.svg";
+import starOff from "../../../public/images/star-off.svg";
+import MoreSee from "../../../public/images/threeMoreDots.svg";
+import logo from "../../../public/images/logo.svg";
 import {useState} from "react";
+import Image from "next/image";
+
 function Card({}) {
   const [toggleStar, setToggleStar] = useState(true);
   function handleStar() {
@@ -12,17 +14,18 @@ function Card({}) {
   return (
     <div className={style.card}>
       <div className={style.cardImg}>
-        <img className={style.imgLogo} src={logo} alt="logo" />
-        <img
+        <Image className={style.imgLogo} src={logo} alt="logo" />
+        <Image
           className={style.imgStar}
           src={toggleStar ? starOn : starOff}
           alt="별모양 즐겨찾기"
-          onClick={handleStar}></img>
+          onClick={handleStar}
+        />
       </div>
       <div className={style.cardContent}>
         <div className={style.cardContentTime}>
           <span>10 minutes ago</span>
-          <img src={MoreSee} alt="더보기 버튼" />
+          <Image src={MoreSee} alt="더보기 버튼" />
         </div>
         <div className={style.cardContentText}>
           Lorem ipsum dolor sit amet consectetur.
