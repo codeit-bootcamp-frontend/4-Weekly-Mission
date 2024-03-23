@@ -24,8 +24,8 @@ function Popover({ isOpen, url }: Props) {
   }
   
   return (
-    <div style={{ display: isOpen ? "block" : "none" }}>
-      <div className={styles.popoverMenu} onClick={noBubble}>
+    <div style={{ display: isOpen ? "block" : "none" }} className={styles.popoverMenu} onClick={noBubble}>
+      <div className={styles.popoverBtns}>
         <button className={styles.selectButton} type="button" onClick={openDeleteModal}>삭제하기</button>
         <DeleteLinkModal isOpenModal={isDeleteModalOpen} closeModal={closeDeleteModal} url={url}/>
         <button className={styles.selectButton} type="button" onClick={openAddLinkModal}>폴더에 추가</button>

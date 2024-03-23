@@ -4,10 +4,14 @@
   position: absolute;
   top: 32px;
   right: -42px;
-  display: flex;
-  flex-direction: column;
   width: 100px;
   box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.08);
+}
+
+.popoverBtns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .selectButton {
