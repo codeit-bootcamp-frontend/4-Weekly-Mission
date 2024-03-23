@@ -6,9 +6,14 @@ import LinkSearchInput from "../../component/LinkSearchInput";
 import { Container } from "./style";
 
 interface Link {
+	id: number;
 	url: string;
 	title: string;
 	description: string;
+	createdAt: number;
+	created_at: number;
+	imageSource: string;
+	image_source: string;
 }
 
 interface FolderData {

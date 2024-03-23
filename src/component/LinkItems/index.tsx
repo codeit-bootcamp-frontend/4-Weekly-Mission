@@ -3,19 +3,23 @@ import "./LinkItems.css";
 import { LinkImageLoading, LinkLoading, LoadingAnimation } from "./style";
 
 interface Link {
-	id?: number;
+	id: number;
 	url: string;
 	title: string;
 	description: string;
+	createdAt: number;
+	created_at: number;
+	imageSource: string;
+	image_source: string;
 }
 
-interface LinkItemsType {
+interface Props {
 	folders?: any;
 	links: Link[] | undefined;
 	isLoading?: boolean;
 }
 
-const LinkItems = ({ folders, links = [], isLoading }: LinkItemsType) => {
+const LinkItems = ({ folders, links = [], isLoading }: Props) => {
 	return (
 		<div className="LinkItems">
 			{isLoading ? (
