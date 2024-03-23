@@ -4,8 +4,6 @@ import Image from 'next/image';
 import styled from 'styled-components';
 
 interface WrapperProps {
-  $viewSubHeader?: boolean;
-  $viewFooter: boolean;
   $type: string;
 }
 
@@ -18,14 +16,12 @@ export const Wrapper = styled.div<WrapperProps>`
   background-color: ${COLOR.Gray0};
   z-index: 100;
 
-  ${({ $type, $viewFooter, $viewSubHeader }) =>
+  ${({ $type }) =>
     $type === 'below' &&
     `
     position:fixed;
     bottom: 0;
     padding: 24px 0;
-    visibility: ${!$viewFooter && !$viewSubHeader ? 'visible' : 'hidden'};
-
     @media(max-width: 767px) {
       padding: 16px 0;
     }

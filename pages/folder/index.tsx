@@ -2,7 +2,7 @@ import Header from '@/src/components/commons/Header/Header';
 import SearchBar from '@/src/components/commons/SearchBar/SearchBar';
 import SubHeader from '@/src/components/folder/SubHeader/SubHeader';
 import Footer from '@/src/components/commons/Footer/Footer';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef, useEffect } from 'react';
 import useAPIData from '@/src/hooks/useAPIData';
 import { getCategoryDataAPI, getCardDataAPI } from '@/src/API/API';
 import { FolderContextProvider } from '@/src/context/folderContext';
@@ -18,6 +18,7 @@ import FilterData from '@/src/utils/FilterData';
 import * as S from './index.style';
 
 export default function FolderPage() {
+  const target = useRef<HTMLDivElement>(null);
   const [currentFolder, setCurrentFolder] =
     useState<currentFolderDataType | null>({
       title: '전체',
@@ -28,21 +29,12 @@ export default function FolderPage() {
     getCardDataAPI,
     currentFolder?.id,
   );
+  const [visible, setVisible] = useState(false);
   const [topic, setTopic] = useState<string>('');
-  const [viewSubHeader, setViewSubHeader] = useState<boolean>(true);
-  const [viewFooter, setViewFooter] = useState<boolean>(false);
   const cardData = FilterData<folderCardType>(
     folderCard?.card ? folderCard?.card : null,
     topic,
   );
-
-  const changeViewSubHeader = useCallback((value: boolean) => {
-    setViewSubHeader(value);
-  }, []);
-
-  const changeViewFooter = useCallback((value: boolean) => {
-    setViewFooter(value);
-  }, []);
 
   const changeTopic = useCallback((value: string) => {
     setTopic(value);
@@ -54,16 +46,43 @@ export default function FolderPage() {
     [],
   );
 
+  useEffect(() => {
+    const targetHeight = target.current ? target.current.scrollHeight : 0;
+    const minThreshold = Math.min(window.innerHeight / targetHeight, 1);
+    const options = {
+      root: null,
+      rootMargin: `0px 0px ${targetHeight}px 0px`,
+      threshold: [minThreshold, 1],
+    };
+    const handleIntersectionObserver = (
+      entries: IntersectionObserverEntry[],
+    ) => {
+      if (
+        entries[0].intersectionRatio < 1 &&
+        entries[0].intersectionRatio >= minThreshold
+      ) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    };
+    const observer = new IntersectionObserver(
+      handleIntersectionObserver,
+      options,
+    );
+    if (target.current) {
+      observer.observe(target.current);
+    }
+    return () => {
+      observer.disconnect();
+    };
+  }, [cardData]);
   return (
     <FolderContextProvider>
       <S.Wrapper>
         <Header fix={false} />
-        <SubHeader
-          folderData={folderData}
-          currentFolder={currentFolder}
-          changeViewSubHeader={changeViewSubHeader}
-        />
-        <S.Content>
+        <SubHeader folderData={folderData} currentFolder={currentFolder} />
+        <S.Content ref={target}>
           <S.ContentWrapper>
             <SearchBar topic={topic} changeTopic={changeTopic} />
             {topic && (
@@ -79,14 +98,14 @@ export default function FolderPage() {
             />
           </S.ContentWrapper>
         </S.Content>
-        <SubHeader
-          folderData={folderData}
-          currentFolder={currentFolder}
-          type="below"
-          viewSubHeader={viewSubHeader}
-          viewFooter={viewFooter}
-        />
-        <Footer changeViewFooter={changeViewFooter} />
+        {visible && (
+          <SubHeader
+            folderData={folderData}
+            currentFolder={currentFolder}
+            type="below"
+          />
+        )}
+        <Footer />
         <Modal />
       </S.Wrapper>
     </FolderContextProvider>

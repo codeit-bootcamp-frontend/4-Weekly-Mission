@@ -1,11 +1,4 @@
-import {
-  ChangeEvent,
-  useContext,
-  useState,
-  useRef,
-  useEffect,
-  useMemo,
-} from 'react';
+import { ChangeEvent, useContext, useState } from 'react';
 import { FolderContext } from '@/src/context/folderContext';
 import { CategoryDataType, currentFolderDataType } from '@/src/type';
 import * as S from './SubHeader.style';
@@ -14,28 +7,11 @@ interface Props {
   folderData: CategoryDataType | null;
   currentFolder: currentFolderDataType | null;
   type?: string;
-  viewFooter?: boolean;
-  viewSubHeader?: boolean;
-  changeViewSubHeader?: (value: boolean) => void;
 }
 
-const SubHeader = ({
-  folderData,
-  currentFolder,
-  type,
-  viewFooter,
-  viewSubHeader,
-  changeViewSubHeader,
-}: Props) => {
+const SubHeader = ({ folderData, currentFolder, type }: Props) => {
   const { changeModalData } = useContext(FolderContext);
   const [link, setLink] = useState<string>('');
-  const wrapperRef = useRef(null);
-  const options = useMemo(
-    () => ({
-      threshold: 0,
-    }),
-    [],
-  );
 
   const folderCategory = folderData?.category?.map((category) => ({
     folderName: String(category.name),
@@ -59,61 +35,23 @@ const SubHeader = ({
       currentLinkID: null,
     });
   };
-  useEffect(() => {
-    const handleIntersectionObserver = (
-      entries: IntersectionObserverEntry[],
-    ) => {
-      if (changeViewSubHeader) {
-        if (entries[0].isIntersecting) {
-          changeViewSubHeader(true);
-        } else {
-          changeViewSubHeader(false);
-        }
-      }
-    };
-    const observer = new IntersectionObserver(
-      handleIntersectionObserver,
-      options,
-    );
-    if (wrapperRef.current && !type) {
-      observer.observe(wrapperRef.current);
-    }
-    return () => {
-      observer.disconnect();
-    };
-  }, [options, type, changeViewSubHeader]);
 
   return (
-    <>
-      <S.Wrapper
-        $viewSubHeader={viewSubHeader === undefined ? true : viewSubHeader}
-        $viewFooter={viewFooter === undefined ? true : viewFooter}
-        $type={type === undefined ? '' : type}
-      >
-        <S.SearchWrapper>
-          <S.SearchInput
-            placeholder="링크를 추가해보세요"
-            onChange={changeLink}
-          />
-          <S.ImageIcon
-            src="/images/link.svg"
-            alt="링크"
-            width={20}
-            height={20}
-          />
-          <S.AddButton onClick={openModal}>추가하기</S.AddButton>
-        </S.SearchWrapper>
-      </S.Wrapper>
-      <div ref={wrapperRef} />
-    </>
+    <S.Wrapper $type={type === undefined ? '' : type}>
+      <S.SearchWrapper>
+        <S.SearchInput
+          placeholder="링크를 추가해보세요"
+          onChange={changeLink}
+        />
+        <S.ImageIcon src="/images/link.svg" alt="링크" width={20} height={20} />
+        <S.AddButton onClick={openModal}>추가하기</S.AddButton>
+      </S.SearchWrapper>
+    </S.Wrapper>
   );
 };
 
 SubHeader.defaultProps = {
   type: '',
-  viewSubHeader: true,
-  viewFooter: true,
-  changeViewSubHeader: () => {},
 };
 
 export default SubHeader;
