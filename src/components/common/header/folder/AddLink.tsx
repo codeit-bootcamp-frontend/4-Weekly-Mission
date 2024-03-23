@@ -1,16 +1,16 @@
 import AddFolderModal from 'components/common/modal/AddFolderModal';
 import Button from 'components/common/Button';
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import styled from 'styled-components';
 import Modal from 'components/common/modal/Modal';
 
-const AddLink = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [showModal, setShowModal] = useState(false);
-  const handleChange = e => {
+const AddLink: React.FC = () => {
+  const [inputValue, setInputValue] = useState<string>('');
+  const [showModal, setShowModal] = useState<boolean>(false);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
-  const handleClick = e => {
+  const handleClick = () => {
     setShowModal(true);
   };
   const handleClose = () => {

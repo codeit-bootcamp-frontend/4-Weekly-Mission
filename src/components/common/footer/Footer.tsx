@@ -4,7 +4,7 @@ import routes from 'utils/constants/routes';
 import styled from 'styled-components';
 
 const currentYear = new Date().getFullYear();
-const Footer = () => {
+const Footer: React.FC = () => {
   return (
     <StyledFooter>
       <Copy>@codeit - {currentYear}</Copy>

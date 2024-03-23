@@ -9,7 +9,21 @@ import { calculateTime, formatDate } from 'utils/date';
  * @param {boolean} props.isFolder
  * @returns {JSX.Element}
  */
-const CardGrid = ({ datas, isFolder }) => {
+interface Data {
+  id: string;
+  createdAt?: string;
+  created_at?: string;
+  url: string;
+  title: string;
+  description: string;
+  imageSource?: string;
+  image_source?: string;
+}
+interface CardGridProps {
+  isFolder: boolean;
+  datas: Data[];
+}
+const CardGrid: React.FC<CardGridProps> = ({ datas, isFolder }) => {
   return (
     <CardContainer>
       {datas?.map(data => {

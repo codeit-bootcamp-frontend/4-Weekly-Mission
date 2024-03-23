@@ -6,7 +6,7 @@ import routes from 'utils/constants/routes';
 import styled from 'styled-components';
 import Loader from '../Loader';
 
-const Profile = () => {
+const Profile: React.FC = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {

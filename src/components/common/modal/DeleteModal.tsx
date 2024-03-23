@@ -9,7 +9,11 @@ import Button from '../Button';
  * @param {string} props.subTitle 삭제할 내용 (url, 폴더명)
  * @returns
  */
-const DeleteModal = ({ title, subTitle }) => {
+interface DeleteModalProps {
+  title: string;
+  subTitle: string;
+}
+const DeleteModal: React.FC<DeleteModalProps> = ({ title, subTitle }) => {
   return (
     <Container>
       <StyledTitle>

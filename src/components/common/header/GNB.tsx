@@ -3,7 +3,7 @@ import Logo from '../Logo';
 import styled from 'styled-components';
 import Profile from './Profile';
 
-const GNB = () => {
+const GNB: React.FC = () => {
   return (
     <Nav>
       <Gnb>

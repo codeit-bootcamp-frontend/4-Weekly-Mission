@@ -1,3 +1,4 @@
+import { MouseEventHandler, ReactNode } from 'react';
 import styled from 'styled-components';
 
 /**
@@ -8,7 +9,14 @@ import styled from 'styled-components';
  * @param { string } props.className
  * @param { string } props.type
  */
-const Button = ({
+interface ButtonProps {
+  children: ReactNode;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  disabled?: boolean;
+  className?: string;
+  type?: 'button' | 'submit' | 'reset';
+}
+const Button: React.FC<ButtonProps> = ({
   children,
   onClick,
   disabled,

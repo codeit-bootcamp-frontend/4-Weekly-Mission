@@ -10,7 +10,16 @@ import styled from 'styled-components';
  * @param {boolean} props.isAdd '폴더 추가' 모달인지 유무 결정
  * @returns
  */
-const PostModal = ({ title, placeholder = '내용 입력', isAdd }) => {
+interface PostModalProps {
+  title: string;
+  placeholder: string;
+  isAdd: boolean;
+}
+const PostModal: React.FC<PostModalProps> = ({
+  title,
+  placeholder = '내용 입력',
+  isAdd,
+}) => {
   return (
     <Container>
       <StyledTitle>{title}</StyledTitle>

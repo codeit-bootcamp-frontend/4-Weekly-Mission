@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import styled from 'styled-components';
 
-const Search = () => {
-  const handleSubmit = e => {
+const Search: React.FC = () => {
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 

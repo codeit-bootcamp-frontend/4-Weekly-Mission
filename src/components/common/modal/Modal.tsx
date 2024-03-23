@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { ReactNode, useRef } from 'react';
 import Portal from './Portal';
 import styled from 'styled-components';
 import modalCloseButton from 'assets/images/modalCloseButton.png';
@@ -10,10 +10,16 @@ import useCloseModal from 'hook/useCloseModal';
  * @param {React.Node} props.children
  * @param {boolean} props.showModal 모달 보임 유뮤 결정
  * @param {Function} props.handleClose  모달 닫는 함수
- * @returns {React.Element}
+ * @returns {React.FC}
  */
-const Modal = ({ children, showModal, handleClose }) => {
-  const modalRef = useRef();
+
+interface ModalProps {
+  children: ReactNode;
+  showModal: boolean;
+  handleClose: () => void;
+}
+const Modal: React.FC<ModalProps> = ({ children, showModal, handleClose }) => {
+  const modalRef = useRef<HTMLDivElement>(null);
   useCloseModal(showModal, handleClose, modalRef);
   return (
     <Portal>

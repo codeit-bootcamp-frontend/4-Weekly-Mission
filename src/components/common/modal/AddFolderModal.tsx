@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import Button from '../Button';
 import styled from 'styled-components';
-import CategoryContext from 'contexts/CategoryContext';
+import CategoryContext, { CategoryContextType } from 'contexts/CategoryContext';
 import checkIcon from 'assets/images/modal/check.png';
 
 /**
@@ -10,11 +10,16 @@ import checkIcon from 'assets/images/modal/check.png';
  * @param {string} props.subTitle 폴더에 추가할 링크 url
  * @returns
  */
-const AddFolderModal = ({ subTitle }) => {
-  const folders = useContext(CategoryContext);
-  const [isSelected, setIsSelected] = useState({});
+interface AddFolderModalProps {
+  subTitle: string;
+}
 
-  const handleClick = id => {
+const AddFolderModal: React.FC<AddFolderModalProps> = ({ subTitle }) => {
+  const folders = useContext<CategoryContextType | undefined>(CategoryContext);
+
+  const [isSelected, setIsSelected] = useState<{ [key: string]: boolean }>({});
+
+  const handleClick = (id: string) => {
     setIsSelected(prevState => ({ ...prevState, [id]: !prevState[id] }));
   };
 

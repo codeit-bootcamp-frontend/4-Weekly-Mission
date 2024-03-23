@@ -2,7 +2,11 @@ import { styled } from 'styled-components';
 import filledStar from 'assets/images/fillStar.svg';
 import emptystar from 'assets/images/emptyStar.svg';
 
-function StarButton({ isActive }) {
+interface StarButtonProps {
+  isActive?: boolean;
+}
+
+const StarButton: React.FC<StarButtonProps> = ({ isActive }) => {
   const src = isActive ? filledStar : emptystar;
 
   return (
@@ -10,7 +14,7 @@ function StarButton({ isActive }) {
       <img src={src} alt="찜 버튼" />
     </StyledButton>
   );
-}
+};
 
 const StyledButton = styled.button`
   background: transparent;

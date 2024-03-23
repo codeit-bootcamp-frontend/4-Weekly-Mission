@@ -12,7 +12,16 @@ import imageUrl from 'assets/images/meta.png';
  * @param {number} props.categoryId 공유할 폴더 아이디
  * @returns
  */
-const ShareModal = ({ subTitle, categoryId }) => {
+interface ShareModalProps {
+  subTitle: string;
+  categoryId: number;
+}
+declare global {
+  interface Window {
+    Kakao: any; // ?? 이게 맞나
+  }
+}
+const ShareModal: React.FC<ShareModalProps> = ({ subTitle, categoryId }) => {
   const shareLink = `${window.location.origin}/shared/${categoryId}`;
   const { Kakao } = window;
 

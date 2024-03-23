@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CardError = () => {
+const CardError: React.FC = () => {
   return (
     <StyledError>
       <div className="description">😰 저장된 링크가 없습니다.</div>

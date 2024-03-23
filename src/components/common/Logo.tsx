@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import routes from 'utils/constants/routes';
 import styled from 'styled-components';
 
-const Logo = () => {
+const Logo: React.FC = () => {
   return (
     <Link to={routes.home}>
       <Img src="/images/linkbraryLogo.png" alt="logo" />

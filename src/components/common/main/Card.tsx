@@ -16,7 +16,16 @@ import KebabButton from 'components/folder/KebabButton';
  * @param {string} cardDatas.formattedDate
  * @param {boolean} cardDatas.isFolder
  */
-const Card = ({
+interface CardProps {
+  url: string;
+  imageURL?: string;
+  title: string;
+  timePassed: string;
+  description: string;
+  formattedDate: string;
+  isFolder: boolean;
+}
+const Card: React.FC<CardProps> = ({
   url,
   imageURL,
   title,
