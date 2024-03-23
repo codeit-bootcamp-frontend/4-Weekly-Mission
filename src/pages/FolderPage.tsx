@@ -33,7 +33,7 @@ interface Link {
   count: number;
 }
 
-interface Folder {
+export interface Folder {
   id: number;
   created_at: string;
   name: string;
@@ -42,11 +42,12 @@ interface Folder {
   link: Link;
 }
 
-interface User {
+export interface User {
   id: number;
   created_at: string;
   name: string;
   image_source?: string;
+  profileImageSource?: string;
   email: string;
   auth_id: string;
 }
@@ -54,9 +55,9 @@ interface User {
 function FolderPage() {
   const [userCards, setUserCards] = useState<Card[]>([]);
   const [userFolders, setUserFolders] = useState<Folder[]>([]);
-  const [folderId, setFolderId] = useState<number | undefined>();
-  const [folderName, setFolderName] = useState<string | undefined>();
-  const [userInfo, setUserInfo] = useState([]);
+  const [folderId, setFolderId] = useState<number>();
+  const [folderName, setFolderName] = useState<string>();
+  const [userInfo, setUserInfo] = useState<User>();
   const [isAllFolderSelected, setIsAllFolderSelected] = useState(false);
   const [isLinkDeleteSelect, setIsLinkDeleteSelect] = useState(false);
   const [isFolderDeleteSelect, setIsFolderDeleteSelect] = useState(false);

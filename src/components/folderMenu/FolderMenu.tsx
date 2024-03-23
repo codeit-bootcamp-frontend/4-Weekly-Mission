@@ -1,5 +1,15 @@
+import React, { Dispatch, SetStateAction } from "react";
 import "./FolderMenu.css";
 import folderAddButton from "../../assets/folder-add-icon.png";
+import { Folder } from "../../pages/FolderPage";
+
+interface Props {
+  folders: Folder[];
+  getCardsInfo: () => void;
+  setFolderId: Dispatch<SetStateAction<number | undefined>>;
+  setFolderName: Dispatch<SetStateAction<string | undefined>>;
+  setIsAllFolderSelected: Dispatch<SetStateAction<boolean>>;
+}
 
 function FolderMenu({
   folders,
@@ -7,14 +17,14 @@ function FolderMenu({
   setFolderId,
   setFolderName,
   setIsAllFolderSelected,
-}) {
+}: Props) {
   const handleWholeFolderClick = () => {
     getCardsInfo();
     setFolderName("");
     setIsAllFolderSelected(true);
   };
 
-  const handleFolderClick = (folderId, folderName) => {
+  const handleFolderClick = (folderId: number, folderName: string) => {
     setFolderId(folderId);
     setFolderName(folderName);
     setIsAllFolderSelected(false);
