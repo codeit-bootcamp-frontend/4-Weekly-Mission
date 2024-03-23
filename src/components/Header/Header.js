@@ -1,6 +1,6 @@
 import logo from '../../images/logo.svg';
 import './Header.css';
-import Profile from '../Profile';
+import Profile from './Profile/Profile';
 import { Link } from 'react-router-dom';
 
 function Header() {
