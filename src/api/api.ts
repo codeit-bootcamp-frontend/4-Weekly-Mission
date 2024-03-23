@@ -1,6 +1,7 @@
 const BASE_URL = 'https://bootcamp-api.codeit.kr/api'
 
 export async function getUserInfo(path) {
+export async function getUserInfo(path: string) {
   const response = await fetch(BASE_URL + path);
 
   if (!response?.ok) {
@@ -11,7 +12,7 @@ export async function getUserInfo(path) {
   return body;
 }
 
-export async function getLinkInfo(path, id='') {
+export async function getLinkInfo(path: string, id: number|string) {
   const query = `folderId=${id}`
   const response = await fetch(`${BASE_URL}/${path}?${query}`);
 
