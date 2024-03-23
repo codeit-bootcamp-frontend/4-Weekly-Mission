@@ -3,6 +3,7 @@ import { useState } from "react";
 import { CardImage } from "../image/cardImage";
 import { KebabMenu } from "./kebab";
 import styled from "styled-components";
+import { folderDataType } from "../../types/folderTypes";
 
 const TimeBox = styled.div`
   display: flex;
@@ -39,7 +40,11 @@ export const CardContianer = styled.div`
   }
 `;
 
-export const FolderCard = ({ data }) => {
+interface IfolderCard {
+  data: folderDataType;
+}
+
+export const FolderCard = ({ data }: IfolderCard) => {
   const [isHover, setIsHover] = useState(false);
   return (
     <div
@@ -62,7 +67,7 @@ export const FolderCard = ({ data }) => {
   );
 };
 
-export const FavoriteCard = ({ data }) => {
+export const FavoriteCard = ({ data }: any) => {
   const [isHover, setIsHover] = useState(false);
   return (
     <div

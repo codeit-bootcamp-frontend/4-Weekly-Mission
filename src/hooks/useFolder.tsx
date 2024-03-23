@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { folderType } from "../types/folderTypes";
 import { API_URL } from "./const";
 
 export const useFolder = () => {
-  const [folder, setFolder] = useState(null);
-
+  const [folder, setFolder] = useState<null | folderType>(null);
   useEffect(() => {
     fetchGetFolder();
   }, []);

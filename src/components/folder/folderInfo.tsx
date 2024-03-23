@@ -1,8 +1,9 @@
-import { useFolder } from "../../hooks/useFolder";
 import "./folderInfo.css";
-
-export const FolderInfo = () => {
-  const { folder } = useFolder();
+import { folderType } from "../../types/folderTypes";
+interface IfolderInfo {
+  folder: folderType | null;
+}
+export const FolderInfo = ({ folder }: IfolderInfo) => {
   if (!folder) {
     return <div className="infoContainer" />;
   }
