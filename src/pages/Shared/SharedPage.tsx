@@ -1,40 +1,21 @@
 import { useEffect, useState } from "react";
-import { getFolderData } from "../../apis/api";
+import { SharedFolder, getSharedFolder } from "../../apis/api";
 import FolderOwner from "../../component/FolderOwner";
 import LinkItems from "../../component/LinkItems";
 import LinkSearchInput from "../../component/LinkSearchInput";
 import { Container } from "./style";
 
-interface Link {
-	id: number;
-	url: string;
-	title: string;
-	description: string;
-	createdAt: number;
-	created_at: number;
-	imageSource: string;
-	image_source: string;
-}
-
-interface FolderData {
-	count: number;
-	id: number;
-	links: Link[];
-	name: string;
-	owner: {
-		id: number;
-		name: string;
-		profileImageSource: string;
-	};
-}
-
 const SharedPage = () => {
-	const [folderData, setFolderData] = useState<FolderData | null>(null);
-	const [sharedLinks, setSharedLinks] = useState<Link[]>([]);
+	const [folderData, setFolderData] = useState<SharedFolder["folder"] | null>(
+		null
+	);
+	const [sharedLinks, setSharedLinks] = useState<
+		SharedFolder["folder"]["links"]
+	>([]);
 
 	const getData = async () => {
 		try {
-			const data = await getFolderData();
+			const data = await getSharedFolder();
 			setFolderData(data.folder);
 			setSharedLinks(data.folder.links);
 		} catch (error) {}

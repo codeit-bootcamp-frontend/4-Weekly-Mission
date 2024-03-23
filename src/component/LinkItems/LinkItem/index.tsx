@@ -3,32 +3,45 @@ import { calculateTimePassed } from "../../../utils/calculateTimePassed";
 import starButtonImg from "../../../images/starButton.svg";
 import { LinkImage, StarButton } from "../style";
 import "../LinkItems.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Kebab from "../Kebab";
+import { SharedFolderLink, LinkDatum } from "../../../apis/api";
 
-interface Link {
-	url: string;
-	title: string;
-	description: string;
-	createdAt: number;
-	created_at: number;
-	imageSource: string;
-	image_source: string;
-}
+// (alias) type FolderDataLink = {
+//   id: number;
+//   title: string;
+//   url: string;
+//   description: string;
+//   createdAt: string;
+//   imageSource: string;
+// }
+
+// (alias) type LinkDatum = {
+//   id: number;
+//   title: string;
+//   url: string;
+//   description: string;
+//   created_at: string;
+//   folder_id: number;
+//   image_source: string;
+//   updated_at: string;
+// }
 
 interface Props {
 	folders: any;
-	link: Link;
+	link: LinkDatum | SharedFolderLink;
 }
 
 const LinkItem = ({ folders, link }: Props) => {
 	const [kebabOpen, setKebabOpen] = useState(false);
 
-	const CREATED_AT = new Date(link.createdAt || link.created_at);
-	const YEAR = CREATED_AT.getFullYear();
-	const MONTH = CREATED_AT.getMonth() + 1;
-	const DATE = CREATED_AT.getDate();
-	const CREATED_DATE = `${YEAR}. ${MONTH}. ${DATE}`;
+	const CREATED_AT = useRef<Date>();
+	if ("createdAt" in link) CREATED_AT.current = new Date(link.createdAt);
+	if ("created_at" in link) CREATED_AT.current = new Date(link.created_at);
+	const YEAR = CREATED_AT.current?.getFullYear();
+	const MONTH = CREATED_AT.current?.getMonth();
+	const DATE = CREATED_AT.current?.getDate();
+	const CREATED_DATE = `${YEAR}. ${MONTH ? MONTH + 1 : MONTH}. ${DATE}`;
 
 	const handleClick = (e: MouseEvent) => {
 		e.preventDefault();
@@ -38,7 +51,11 @@ const LinkItem = ({ folders, link }: Props) => {
 	return (
 		<a className="LinkItem" href={link.url} target="_blank" rel="noreferrer">
 			<LinkImage
-				data-image={link.imageSource || link.image_source || defaultImage}
+				data-image={
+					"imageSource" in link
+						? link.imageSource
+						: link.image_source || defaultImage
+				}
 			>
 				<StarButton src={starButtonImg} />
 			</LinkImage>

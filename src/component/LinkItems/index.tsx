@@ -1,21 +1,22 @@
+import { SharedFolderLink, LinkDatum } from "../../apis/api";
 import LinkItem from "./LinkItem";
 import "./LinkItems.css";
 import { LinkImageLoading, LinkLoading, LoadingAnimation } from "./style";
 
-interface Link {
-	id: number;
-	url: string;
-	title: string;
-	description: string;
-	createdAt: number;
-	created_at: number;
-	imageSource: string;
-	image_source: string;
-}
+// interface Link {
+// 	id: number;
+// 	url: string;
+// 	title: string;
+// 	description: string;
+// 	createdAt: number;
+// 	created_at: number;
+// 	imageSource: string;
+// 	image_source: string;
+// }
 
 interface Props {
 	folders?: any;
-	links: Link[] | undefined;
+	links: (SharedFolderLink | LinkDatum)[];
 	isLoading?: boolean;
 }
 

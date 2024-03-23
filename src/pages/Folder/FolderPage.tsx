@@ -2,53 +2,41 @@ import FolderList from "../../component/FolderList";
 import LinkAddInput from "../../component/LinkAddInput";
 import LinkSearchInput from "../../component/LinkSearchInput";
 import { useEffect, useState } from "react";
-import { getFolderList, getLinkData } from "../../apis/api";
+import {
+	FolderListDatum,
+	FolderList as FolderListType,
+	getSavedFolderList,
+	getLinkData,
+	SharedFolderLink,
+	LinkDatum
+} from "../../apis/api";
 import LinkItems from "../../component/LinkItems";
 import { Container, FolderName } from "./style";
 import FolderOption from "../../component/FolderOption";
 import MobileAddFolderButton from "../../component/MobileAddFolderButton";
 
-type Count = {
-	count: number;
-};
-
-type Folder = {
-	created_at?: string;
-	favorite: boolean;
-	id: number | string;
-	link?: Count;
-	name: string;
-	user_id?: number;
-};
-
-interface Link {
-	id: number;
-	url: string;
-	title: string;
-	description: string;
-	createdAt: number;
-	created_at: number;
-	imageSource: string;
-	image_source: string;
-}
-
-const ALL: Folder = {
+const ALL: FolderListDatum = {
 	id: "ALL",
 	name: "전체",
-	favorite: false
+	favorite: false,
+	created_at: "",
+	link: {
+		count: 0
+	},
+	user_id: 0
 };
 
 const FolderPage = () => {
-	const [folders, setFolders] = useState<Folder[]>([]);
-	const [selectedFolder, setSelectedFolder] = useState<Folder>(ALL);
-	const [links, setLinks] = useState<Link[]>([]);
+	const [folders, setFolders] = useState<FolderListType["data"]>([]);
+	const [selectedFolder, setSelectedFolder] = useState<FolderListDatum>(ALL);
+	const [links, setLinks] = useState<LinkDatum[]>([]);
 	const [isLoading, setIsLoading] = useState(true);
 
 	useEffect(() => {
 		const getData = async () => {
 			try {
 				setIsLoading(true);
-				const { data } = await getFolderList();
+				const { data } = await getSavedFolderList();
 				setFolders([ALL, ...data]);
 			} catch (error) {
 				console.log(error);
