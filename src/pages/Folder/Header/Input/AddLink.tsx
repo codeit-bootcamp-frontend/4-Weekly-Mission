@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AddLinkButton } from "components/common/Button/ButtonStyle";
-import { ListModal } from "components/common/Modal/Modal";
+import ListModal from "components/common/Modal/ListModal";
 import { FolderList } from "constnats/types";
 import { LINK_ICON } from "constnats/image";
 import * as S from "./AddLinkStyle";

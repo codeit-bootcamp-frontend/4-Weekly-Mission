@@ -1,17 +1,28 @@
+import { ReactNode } from "react";
 import * as S from "./IconStyle";
 
 interface Props {
-  url: string;
+  url?: string;
+  onClick?: () => void;
   image: string;
   alt: string;
+  children?: ReactNode;
   size?: "large" | "small";
 }
 
-const Icon = ({ size = "small", url, image, alt }: Props) => {
+const Icon = ({
+  size = "small",
+  url,
+  image,
+  alt,
+  children,
+  onClick,
+}: Props) => {
   return (
-    <a href={url} target="_blank" rel="noreferrer">
+    <S.IconBox href={url} onClick={onClick} target="_blank" rel="noreferrer">
       <S.Icon size={size} src={image} alt={alt} />
-    </a>
+      <S.IconText>{children}</S.IconText>
+    </S.IconBox>
   );
 };
 

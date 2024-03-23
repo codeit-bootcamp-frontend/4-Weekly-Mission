@@ -14,7 +14,7 @@ export const Image = styled.img`
 
   transition: transform 1.5s ease;
 
-  &:hover {
+  ${Container}:hover & {
     transform: scale(1.3);
   }
 `;
@@ -35,7 +35,7 @@ export const TextBox = styled.div`
   border-radius: 0 0 15px 15px;
   background: ${({ theme }) => theme.colors.white};
 
-  &:hover {
+  ${Container}:hover & {
     background: ${({ theme }) => theme.colors.background};
   }
 `;

@@ -3,17 +3,12 @@ import {
   TWITTER_LINK,
   YOUTUBE_LINK,
   INSTAGRAM_LINK,
-} from "constnats/constant";
+} from "constnats/url";
 import {
   MAIN_FACEBOOK,
   MAIN_TWITTER,
   MAIN_YOUTUBE,
   MAIN_INSTAGRAM,
-} from "constnats/image";
-import {
-  MODAL_SOCIAL_KAKAO,
-  MODAL_SOCIAL_FACEBOOK,
-  MODAL_SOCIAL_LINK,
 } from "constnats/image";
 
 import {
@@ -111,23 +106,5 @@ export const FOOTER_ICON_LIST = [
     url: INSTAGRAM_LINK,
     image: MAIN_INSTAGRAM,
     alt: "instagram",
-  },
-];
-
-export const MODAL_ICON_LIST = [
-  {
-    url: "http://www.kakako.com",
-    image: MODAL_SOCIAL_KAKAO,
-    alt: "socialKakao",
-  },
-  {
-    url: "http://www.facebook.com",
-    image: MODAL_SOCIAL_FACEBOOK,
-    alt: "socialFacebook",
-  },
-  {
-    url: "/",
-    image: MODAL_SOCIAL_LINK,
-    alt: "socialLink",
   },
 ];

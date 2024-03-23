@@ -34,3 +34,4 @@ export const CARD_BLUE_STAR = "assets/icon/star-blue.svg";
 export const CARD_KEBAB = "assets/icon/kebab.svg";
 export const EYE_CLOSED = "assets/icon/eye-closed.svg";
 export const CLOSE_BUTTON = "assets/icon/close-button.svg";
+export const CHECK = "assets/icon/check.svg";

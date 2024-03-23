@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
 import FolderHeader from "./Header/FolderHeader";
 import FolderMain from "./Main/FolderMain";
-import {
-  FOLDER_CARD_DATA_API_URL,
-  FOLDER_LIST_API_URL,
-} from "constnats/constant";
+import { FOLDER_CARD_DATA_API_URL, FOLDER_LIST_API_URL } from "constnats/url";
 import { FolderList, Folder } from "constnats/types";
 import { updatedDate, updatedDuration } from "utils/createdAt";
 

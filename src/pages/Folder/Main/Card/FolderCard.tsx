@@ -38,36 +38,36 @@ const Card = forwardRef(({ cardData, folderList }: Props, ref) => {
     };
   }, []);
 
-  return cardData.map((link) => (
-    <S.Container key={link.id}>
+  return cardData.map((card) => (
+    <S.Container key={card.id} target="_blank" rel="noreferrer">
       <S.ImageBox>
         <S.Image
-          src={link.image_source ?? CARD_NONE_IMAGE}
-          alt={String(link.id)}
+          src={card.image_source ?? CARD_NONE_IMAGE}
+          alt={String(card.id)}
         />
         <S.StarButton
-          src={link.image_source ? CARD_STAR : CARD_BLUE_STAR}
+          src={card.image_source ? CARD_STAR : CARD_BLUE_STAR}
           alt="star"
         />
       </S.ImageBox>
       <S.TextBox>
         <S.KebabBox>
-          <S.Time>{link.time}</S.Time>
+          <S.Time>{card.time}</S.Time>
           <S.Kebab
             src={CARD_KEBAB}
             alt="kebab"
-            onClick={() => handleClickKebab(link.id)}
+            onClick={() => handleClickKebab(card.id)}
           />
         </S.KebabBox>
-        {isToggledKebab === link.id && (
+        {isToggledKebab === card.id && (
           <SelectMenu
             ref={selectMenuRef}
-            url={link.url}
+            url={card.url}
             folderList={folderList}
           />
         )}
-        <S.Content>{link.description}</S.Content>
-        <S.Date>{link.date}</S.Date>
+        <S.Content>{card.description}</S.Content>
+        <S.Date>{card.date}</S.Date>
       </S.TextBox>
     </S.Container>
   ));

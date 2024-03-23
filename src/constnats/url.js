@@ -16,3 +16,8 @@ export const FOLDER_LIST_API_URL =
   "https://bootcamp-api.codeit.kr/api/users/1/folders";
 export const FOLDER_CARD_DATA_API_URL =
   "https://bootcamp-api.codeit.kr/api/users/1/links";
+
+/* SECTION - 공유 링크 */
+
+export const FACEBOOK_SHARE_URL =
+  "https://www.facebook.com/sharer/sharer.php?u=";

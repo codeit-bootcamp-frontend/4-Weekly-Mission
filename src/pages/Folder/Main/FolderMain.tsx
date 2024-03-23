@@ -33,7 +33,9 @@ const FolderMain = ({ cardData, folderList, onChange }: Props) => {
       </S.Box>
       <S.Box>
         <S.Title>{folder.name}</S.Title>
-        {showToolbar && <EditToolbar folderName={folder.name} />}
+        {showToolbar && (
+          <EditToolbar folderName={folder.name} folderId={folder.id} />
+        )}
       </S.Box>
       {folder.link?.count === 0 ? (
         <S.NoneLink>저장된 링크가 없습니다.</S.NoneLink>

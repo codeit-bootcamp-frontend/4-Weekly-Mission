@@ -11,7 +11,7 @@ export const Container = styled.div`
   ${({ theme }) => theme.fonts.regularSmall};
 `;
 
-export const Delete = styled.div`
+export const Delete = styled.button`
   ${({ theme }) => theme.displays.columnCenter};
   text-align: center;
 
@@ -20,7 +20,7 @@ export const Delete = styled.div`
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
-export const Add = styled.div`
+export const Add = styled.button`
   ${({ theme }) => theme.displays.columnCenter};
   text-align: center;
   width: 100%;

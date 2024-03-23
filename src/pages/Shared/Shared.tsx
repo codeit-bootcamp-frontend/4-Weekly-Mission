@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import SharedHeader from "./Header/SharedHeader";
 import SharedMain from "./Main/ShaerdMain";
-import { SHARED_API_URL } from "constnats/constant";
+import { SHARED_API_URL } from "constnats/url";
 import { updatedDate, updatedDuration } from "utils/createdAt";
 import { Share } from "constnats/types";
 

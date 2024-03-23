@@ -54,17 +54,76 @@ export const Text = styled.p`
   ${({ theme }) => theme.bolds.normal};
 `;
 
-export const IconBox = styled.div`
+export const IconContainer = styled.div`
   display: flex;
   align-items: flex-start;
   gap: 32px;
+`;
+
+export const IconBox = styled.a`
+  ${({ theme }) => theme.displays.columnCenter};
+  gap: 10px;
+  cursor: pointer;
+`;
+
+export const Icon = styled.img`
+  width: 42px;
+  height: 42px;
+`;
+
+export const IconText = styled.h3`
+  color: ${({ theme }) => theme.colors.gray100};
+  font-family: Inter;
+  ${({ theme }) => theme.fonts.small};
+  ${({ theme }) => theme.bolds.normal};
 `;
 
 export const List = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
   gap: 4px;
+  padding-bottom: 24px;
+`;
+
+export const ListBox = styled.li`
+  ${({ theme }) => theme.displays.spaceBetween};
+  width: 100%;
+  padding: 8px;
+  cursor: pointer;
+
+  border-radius: 8px;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.background};
+  }
+`;
+
+export const ListText = styled.div`
+  display: flex;
+  gap: 8px;
+
+  ${({ theme }) => theme.fonts.regularSmall};
+  ${({ theme }) => theme.bolds.normal};
+`;
+
+export const FolderName = styled.h3`
+  color: ${({ theme }) => theme.colors.gray100};
+`;
+
+export const FolderCount = styled.p`
+  color: ${({ theme }) => theme.colors.gray60};
+`;
+
+export const CheckImage = styled.img`
+  display: none;
+  width: 14px;
+  height: 14px;
+
+  ${ListBox}:hover & {
+    display: block;
+  }
 `;
 
 export const CloseButton = styled.img`

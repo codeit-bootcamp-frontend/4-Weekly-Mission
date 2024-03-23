@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface Folder {
   created_at: string;
   date: string;
@@ -33,4 +35,10 @@ export interface Share {
   time: string;
   title: string;
   url: string;
+}
+
+export interface BaseModal {
+  children: ReactNode;
+  title: string;
+  onClose?: () => void;
 }
