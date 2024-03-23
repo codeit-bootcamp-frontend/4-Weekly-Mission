@@ -72,7 +72,7 @@ interface CardProps {
   createdAt: string;
   url: string;
   description: string;
-  imageSource: string;
+  imageSource: string | null;
 }
 
 function Card({ createdAt, url, description, imageSource }: CardProps) {

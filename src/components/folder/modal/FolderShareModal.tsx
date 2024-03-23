@@ -56,7 +56,12 @@ const Styled = {
  * @param {string} item 공유할 폴더명
  */
 
-function FolderShareModal({ setOpen, item }) {
+interface FolderShareModalProps {
+  setOpen: (open: boolean) => void;
+  item: string;
+}
+
+function FolderShareModal({ setOpen, item }: FolderShareModalProps) {
   const shareLink = `${window.location.origin}/shared/${item}`;
 
   const { shareKakao } = useKakaoShare(item, shareLink);

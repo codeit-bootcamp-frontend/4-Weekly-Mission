@@ -18,6 +18,7 @@ const Styled = {
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   styleType?: string;
+  type?: 'button' | 'submit' | 'reset' | undefined;
 }
 
 /**
@@ -25,9 +26,9 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
  * @param {React.ReactNode} children
  * @param {React.htmlAttributes} htmlButtonProps 기타 버튼 props
  */
-function Button({ children, styleType, ...htmlButtonProps }: ButtonProps) {
+function Button({ children, styleType, type = 'button', ...htmlButtonProps }: ButtonProps) {
   return (
-    <Styled.Button type="button" $styleType={styleType} {...htmlButtonProps}>
+    <Styled.Button type={type} $styleType={styleType} {...htmlButtonProps}>
       {children}
     </Styled.Button>
   );

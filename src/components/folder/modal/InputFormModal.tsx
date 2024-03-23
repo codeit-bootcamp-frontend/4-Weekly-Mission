@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import { styled } from 'styled-components';
 
 import Button from 'components/common/button/Button';
@@ -45,17 +45,25 @@ const Styled = {
  * @param {string} buttonLabel 버튼 라벨(이름)
  */
 
-function InputFormModal({ setOpen, onSubmit, modalTitle, buttonLabel }) {
+interface InputFormModalProps {
+  setOpen: (open: boolean) => void;
+  onSubmit: (value: string) => void;
+  modalTitle: string;
+  buttonLabel: string;
+  item: string;
+}
+
+function InputFormModal({ setOpen, onSubmit, modalTitle, buttonLabel, item }: InputFormModalProps) {
   const [inputValue, setInputValue] = useState('');
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     onSubmit(inputValue);
     setOpen(false);
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 

@@ -24,27 +24,37 @@ const Styled = {
 
 /**
  * AddToFolderModal - 폴더에 링크 추가 작업을 처리하는 모달 컴포넌트
- * @param {React.Dispatch.SetStateAction} setOpen 모달창 열림 상태 변경하는 set 함수
+ * @param {function} setOpen 모달창 열림 상태 변경하는 set 함수
  * @param  {function} onModalClose 링크를 폴더에 추가 후, 모달이 닫힐 때 호출되는 콜백 함수
  * @param {string} item 폴더에 추가할 링크 주소
  */
 
-function AddToFolderModal({ setOpen, onModalClose, item }) {
-  const [selectedFolder, setSelectedFolder] = useState({});
+interface FolderInfo {
+  name: string;
+}
 
-  const handleSelectFolder = (folderInfo) => {
+interface AddToFolderModalProps {
+  setOpen: (open: boolean) => void;
+  onModalClose: () => void;
+  item: string;
+}
+
+function AddToFolderModal({ setOpen, onModalClose, item }: AddToFolderModalProps) {
+  const [selectedFolder, setSelectedFolder] = useState<FolderInfo | null>(null);
+
+  const handleSelectFolder = (folderInfo: FolderInfo) => {
     setSelectedFolder(folderInfo); // 받은 폴더 정보로 상태 업데이트
   };
 
   const handleButtonClick = () => {
-    if (!selectedFolder.name) {
+    if (!selectedFolder || !selectedFolder.name) {
       window.alert('폴더를 선택해주세요‼️');
       return;
     }
 
     alert(`성공적으로 ${item}을 ${selectedFolder.name} 폴더에 추가했습니다🥳`);
     setOpen(false);
-    setSelectedFolder({});
+    setSelectedFolder(null);
     onModalClose();
   };
 

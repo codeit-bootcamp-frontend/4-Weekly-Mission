@@ -65,10 +65,19 @@ const folderInfo = [
   { name: '나만의 장소', linkCount: 3 },
 ];
 
-function AddFolderList({ onSelectFolder }) {
-  const [selectedFolder, setSelectedFolder] = useState(null);
+interface FolderInfo {
+  name: string;
+  linkCount: number;
+}
 
-  const handleClickFolder = (idx) => {
+interface AddFolderListProps {
+  onSelectFolder: (folder: FolderInfo) => void;
+}
+
+function AddFolderList({ onSelectFolder }: AddFolderListProps) {
+  const [selectedFolder, setSelectedFolder] = useState<number | null>(null);
+
+  const handleClickFolder = (idx: number) => {
     setSelectedFolder(idx);
     console.log(`${folderInfo[idx].name} 선택`);
     onSelectFolder(folderInfo[idx]);
@@ -80,7 +89,7 @@ function AddFolderList({ onSelectFolder }) {
         <Styled.Folder
           key={idx}
           onClick={() => handleClickFolder(idx)}
-          className={selectedFolder === idx && 'selected'}
+          className={selectedFolder === idx ? 'selected' : ''}
         >
           <Styled.TextInfo>
             <Styled.Name className="folder-name">{folder.name}</Styled.Name>

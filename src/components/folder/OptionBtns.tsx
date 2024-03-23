@@ -23,12 +23,14 @@ const options = [
   { icon: deleteIcon, label: '삭제', modal: 'delete' },
 ];
 
+type Item = string;
+
 function OptionBtns() {
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const [isRenameModalOpen, setIsRenameModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
-  const handleButtonClick = (modal) => {
+  const handleButtonClick = (modal: string) => {
     switch (modal) {
       case 'share':
         setIsShareModalOpen(true);
@@ -44,7 +46,7 @@ function OptionBtns() {
     }
   };
 
-  const handleFormSubmit = (changedName) => {
+  const handleFormSubmit = (changedName: string) => {
     console.log(`${changedName}으로 폴더명이 변경되었습니다!`);
   };
 
@@ -60,17 +62,19 @@ function OptionBtns() {
           />
         ))}
       </Styled.Container>
-      {isShareModalOpen && <FolderShareModal setOpen={setIsShareModalOpen} item={3} />}
+      {isShareModalOpen && <FolderShareModal setOpen={setIsShareModalOpen} item={'테스트폴더'} />}
       {isRenameModalOpen && (
         <InputFormModal
           setOpen={setIsRenameModalOpen}
           onSubmit={handleFormSubmit}
           modalTitle="폴더 이름 변경"
           buttonLabel="변경하기"
-          item={3}
+          item={'테스트폴더'}
         />
       )}
-      {isDeleteModalOpen && <DeleteItemModal setOpen={setIsDeleteModalOpen} modalTitle="폴더 삭제" item={3} />}
+      {isDeleteModalOpen && (
+        <DeleteItemModal setOpen={setIsDeleteModalOpen} modalTitle="폴더 삭제" item={'테스트폴더'} />
+      )}
     </>
   );
 }

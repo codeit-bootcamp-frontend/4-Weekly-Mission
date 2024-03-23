@@ -28,7 +28,13 @@ const Styled = {
  * @param {string} item 삭제 대상이 되는 아이템(폴더 or 링크)
  */
 
-function DeleteItemModal({ setOpen, modalTitle, item }) {
+interface DeleteItemModalProps {
+  setOpen: (open: boolean) => void;
+  modalTitle: string;
+  item: string;
+}
+
+function DeleteItemModal({ setOpen, modalTitle, item }: DeleteItemModalProps) {
   const handleButtonClick = () => {
     // 삭제 시 로직 여기에
     console.log('삭제되었습니다.');
@@ -39,12 +45,7 @@ function DeleteItemModal({ setOpen, modalTitle, item }) {
     <BackdropModal setOpen={setOpen}>
       <Styled.Title>{modalTitle}</Styled.Title>
       <Styled.Item>{item}</Styled.Item>
-      <Button
-        type="button"
-        onClick={handleButtonClick}
-        styleType={BUTTON_TYPE.DELETE}
-        style={{ height: '5.1rem', width: '100%' }}
-      >
+      <Button onClick={handleButtonClick} styleType={BUTTON_TYPE.DELETE} style={{ height: '5.1rem', width: '100%' }}>
         삭제하기
       </Button>
     </BackdropModal>

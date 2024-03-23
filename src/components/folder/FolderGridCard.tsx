@@ -4,6 +4,7 @@ import useUserLinksQuery from 'hooks/api/link/useUserLinksQuery';
 import useUserSpecipicLinkQuery from 'hooks/api/link/useUserSpecipicLinkQuery';
 
 import Card from 'components/common/card/Card';
+import { UserLinksData } from 'interfaces/dataInterface';
 
 const Styled = {
   NoLink: styled.div`
@@ -16,12 +17,12 @@ const Styled = {
   `,
 };
 
-function FolderGridCard({ selectedFolder }) {
+function FolderGridCard({ selectedFolder }: { selectedFolder: number }) {
   let queryHook;
   selectedFolder === 1 ? (queryHook = useUserLinksQuery) : (queryHook = useUserSpecipicLinkQuery);
 
   const { data } = queryHook({ userId: 1, folderId: selectedFolder });
-  const folderData = data?.data?.data || [];
+  const folderData: UserLinksData[] = data?.data?.data || [];
   const hasLinks = folderData.length !== 0;
 
   return (
