@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { NoResults } from "pages";
 import styles from "./folder.module.css";
 import Header from "./components/Header";
@@ -40,15 +40,23 @@ interface UseFetchResponse<T> {
 
 function FolderPage() {
   const userId = "1";
+
   const [selectedCategory, setSelectedCategory] = useState<SelectedCategory>({
     id: null,
     name: ALL,
   });
+
   const { modals, openModal, closeModal } = useModal();
-  const { data: buttonNames }: UseFetchResponse<GetFolderResponse[]> = useFetch(
+
+  const { data: folders }: UseFetchResponse<GetFolderResponse[]> = useFetch(
     `${API}/users/${userId}/folders`
   );
-  const { data: folderData }: UseFetchResponse<GetLinkResponse[]> = useFetch(
+
+  const {
+    data: folderData,
+    loading,
+    error,
+  }: UseFetchResponse<GetLinkResponse[]> = useFetch(
     selectedCategory.id
       ? `${API}/users/${userId}/links?folderId=${selectedCategory.id}`
       : `${API}/users/${userId}/links`
@@ -58,18 +66,56 @@ function FolderPage() {
     setSelectedCategory({ id: categoryId, name: categoryName });
   };
 
+  const [searchInput, setSearchInput] = useState("");
+  const [searchParam] = useState(["url", "title", "description"]);
+
+  const searchItmes = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchInput(e.target.value);
+  };
+
+  const search = (items: GetLinkResponse[]) => {
+    return items.filter((item) => {
+      return searchParam.some((newItem) => {
+        return (
+          item[newItem] &&
+          item[newItem]
+            .toString()
+            .toLowerCase()
+            .indexOf(searchInput.toLowerCase()) > -1
+        );
+      });
+    });
+  };
+
+  const handleDeletedClick = () => {
+    setSearchInput("");
+  };
+
+  if (error) {
+    return <div>{error}</div>;
+  }
+
+  if (loading) {
+    return <div>loading...</div>;
+  }
+
   return (
     <div>
-      <Header list={buttonNames} />
+      <Header list={folders} />
 
       <div className={styles.container}>
         <div className={styles.content}>
-          <SearchBar />
-          {buttonNames ? (
+          <SearchBar
+            value={searchInput}
+            onChange={searchItmes}
+            onClick={handleDeletedClick}
+          />
+
+          {folders ? (
             <div>
               <div className={styles.category}>
                 <Category
-                  buttonNames={buttonNames}
+                  buttonNames={folders}
                   selectedCategory={selectedCategory}
                   onClick={handleButtonClick}
                 />
@@ -119,12 +165,14 @@ function FolderPage() {
                   )}
                 </div>
               </div>
-              <CardList
-                items={folderData}
-                modals={modals}
-                openModal={openModal}
-                closeModal={closeModal}
-              />
+              {folderData && (
+                <CardList
+                  items={search(folderData)}
+                  modals={modals}
+                  openModal={openModal}
+                  closeModal={closeModal}
+                />
+              )}
             </div>
           ) : (
             <NoResults />

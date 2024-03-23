@@ -31,6 +31,9 @@ export type GetLinkResponse = {
   image_source: string;
   imageSource: string;
   folder_id: number;
+  [key: string]: number | Date | string;
 };
 
-export type DataResponse<T> = T | null
+
+
+export type DataResponse<T> = T | null;
