@@ -1,4 +1,4 @@
-import '../style/cardlist.css';
+import '../style/CardList.css';
 import Searchbar from './Searchbar';
 import CardListItem from './CardListItem';
 

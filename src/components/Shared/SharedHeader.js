@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './shared.css';
+import './Shared.css';
 
 function SharedHeader() {
   const [folderInfo, setFolderInfo] = useState({

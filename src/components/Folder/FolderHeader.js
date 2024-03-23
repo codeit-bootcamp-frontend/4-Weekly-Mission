@@ -1,4 +1,4 @@
-import './folder.css';
+import './Folder.css';
 import AddLinkBar from '../AddLinkBar';
 
 function FolderHeader() {
