@@ -1,18 +1,18 @@
-import { useEffect } from "react";
-import styled from "styled-components";
-import closeIcon from "../image/close.svg";
-import kakaoIcon from "../image/Kakao.svg";
-import facebookIcon from "../image/Facebook.svg";
-import linkIcon from "../image/link.svg";
+import { useEffect } from 'react';
+import styled from 'styled-components';
+import closeIcon from '../image/close.svg';
+import kakaoIcon from '../image/Kakao.svg';
+import facebookIcon from '../image/Facebook.svg';
+import linkIcon from '../image/link.svg';
 
 type ColorSelect = {
   color: keyof typeof IconColor;
 };
 
 const IconColor: { [key: string]: string } = {
-  kakao: "#fee500",
-  facebook: "#1877f2",
-  link: "rgba(157, 157, 157, 0.04)",
+  kakao: '#fee500',
+  facebook: '#1877f2',
+  link: 'rgba(157, 157, 157, 0.04)',
 };
 
 const Background = styled.div`
@@ -133,61 +133,52 @@ function Share({ title, main, onClose, currentFolderId }: Props) {
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(shareUrl).catch((err) => {
-      console.error("클립보드 복사에 실패했습니다.", err);
+      console.error('클립보드 복사에 실패했습니다.', err);
     });
   };
   useEffect(() => {
     Kakao.cleanup();
-    Kakao.init("08985770502e02f6ac12635e2f81df30");
-    console.log(process.env.REACT_APP_KAKAO_KEY);
-    console.log(Kakao.isInitialized());
+    Kakao.init(process.env.REACT_APP_KAKAO_KEY);
   }, []);
 
   const shareKakao = () => {
     Kakao.Share.sendDefault({
-      objectType: "text",
-      text: "세상에 모든 정보를 쉽게 저장하고 관리해보세요",
+      objectType: 'text',
+      text: '세상에 모든 정보를 쉽게 저장하고 관리해보세요',
       link: {
-        mobileWebUrl: "shareUrl",
-        webUrl: "shareUrl",
+        mobileWebUrl: 'shareUrl',
+        webUrl: 'shareUrl',
       },
     });
   };
 
   const shareFacebook = () => {
-    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      shareUrl
-    )}`;
-    window.open(facebookShareUrl, "_blank");
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+    window.open(facebookShareUrl, '_blank');
   };
 
   return (
     <Background>
       <Container>
-        <img
-          className="close"
-          src={closeIcon}
-          alt="closeButton"
-          onClick={onClose}
-        ></img>
+        <img className="close" src={closeIcon} alt="closeButton" onClick={onClose}></img>
         <TitleContainer>
           <span className="title">{title}</span>
           <span className="main">{main}</span>
         </TitleContainer>
         <ShareContainer>
-          <LinkContainer color={"kakao"} onClick={shareKakao}>
+          <LinkContainer color={'kakao'} onClick={shareKakao}>
             <div className="shareImgSection">
               <img src={kakaoIcon} alt="kakaoIcon"></img>
             </div>
             <span className="shareInfoSection">카카오톡</span>
           </LinkContainer>
-          <LinkContainer color={"facebook"} onClick={shareFacebook}>
+          <LinkContainer color={'facebook'} onClick={shareFacebook}>
             <div className="shareImgSection">
               <img src={facebookIcon} alt="facebookIcon"></img>
             </div>
             <span className="shareInfoSection">페이스북</span>
           </LinkContainer>
-          <LinkContainer color={"link"} onClick={copyToClipboard}>
+          <LinkContainer color={'link'} onClick={copyToClipboard}>
             <div className="shareImgSection">
               <img className="link" src={linkIcon} alt="linkIcon"></img>
             </div>
