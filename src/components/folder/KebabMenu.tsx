@@ -1,8 +1,27 @@
 import React from 'react';
 import '../../style/kebabMenu.css';
 
-function KebabMenu({ setModalState, link }) {
-  const handleMenuClick = (e, target) => {
+interface Link {
+  id: string;
+  url: string;
+}
+
+type ModalState = {
+  visibility: boolean;
+  target: string;
+  url?: string;
+};
+
+type ModalStateUpdater = React.Dispatch<React.SetStateAction<ModalState>>;
+
+interface KebabMenuProps {
+  setModalState: ModalStateUpdater;
+  link: { url: string };
+}
+
+
+function KebabMenu({ setModalState, link }: KebabMenuProps) {
+  const handleMenuClick = (e: React.MouseEvent<HTMLButtonElement>, target: string) => {
     e.stopPropagation();
     setModalState({
       visibility: true,

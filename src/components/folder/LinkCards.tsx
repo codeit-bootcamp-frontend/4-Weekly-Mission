@@ -6,10 +6,27 @@ import noImgIcon from '../../images/noCardImg.png';
 import '../../style/folderContent.css';
 import KebabMenu from './KebabMenu';
 
-const LinkCard = ({ link, setModalState }) => {
-  const [kebabVisible, setKebabVisible] = useState(false);
+interface Link {
+  id: string;
+  title: string;
+  url: string;
+  image_source?: string;
+  description: string;
+  created_at: Date;
+  timePassed: string;
+  formattedDate: string;
+}
 
-  const toggleKebab = (e) => {
+interface LinkCardProps {
+  link: Link;
+  setModalState: any; 
+}
+
+
+const LinkCard = ({ link, setModalState }: LinkCardProps) => {
+  const [kebabVisible, setKebabVisible] = useState<boolean>(false);
+
+  const toggleKebab = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
     e.stopPropagation();
     setKebabVisible(!kebabVisible);
@@ -47,7 +64,12 @@ const LinkCard = ({ link, setModalState }) => {
   );
 };
 
-const LinkCards = ({ allLinks, setModalState }) => {
+interface LinkCardsProps {
+  allLinks: Link[];
+  setModalState: any;
+}
+
+const LinkCards = ({ allLinks, setModalState }: LinkCardsProps) => {
   return allLinks.map((link) => (
     <LinkCard key={link.id} link={link} setModalState={setModalState} />
   ));

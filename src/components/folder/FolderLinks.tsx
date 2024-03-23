@@ -7,9 +7,26 @@ import LinkCards from './LinkCards';
 import useModal from '../../hooks/useModal';
 import Modal from './Modal';
 
-const FolderLinks = ({ folders, links, onFolderClick }) => {
+export interface Folder {
+  id: string;
+  name: string;
+}
+
+export interface Link {
+  id: string;
+  title: string;
+  url: string;
+  created_at: Date;
+}
+interface FolderLinksProps {
+  folders: Folder[];
+  links: Link[];
+  onFolderClick: (folderId: string) => void;
+}
+
+const FolderLinks: React.FC<FolderLinksProps> = ({ folders, links, onFolderClick }) => {
   const [modalState, setModalState, onHandleCancel] = useModal();
-  const [selectedFolderName, setSelectedFolderName] = useState('전체');
+  const [selectedFolderName, setSelectedFolderName] = useState<string>('전체');
   const excludeFirstLinks = links.slice(1);
 
   const allLinks = excludeFirstLinks.map((link) => ({
@@ -22,7 +39,7 @@ const FolderLinks = ({ folders, links, onFolderClick }) => {
     onFolderClick('all');
   }, []);
 
-  const handleFolderClick = (folderId) => {
+  const handleFolderClick = (folderId: string) => {
     onFolderClick(folderId);
     const folderName =
       folderId === 'all'
