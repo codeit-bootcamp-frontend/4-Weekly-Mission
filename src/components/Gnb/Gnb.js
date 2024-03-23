@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { getSharedUser, getFolderUser } from "./Api";
-import logo from "../assets/logo.svg";
+import { getSharedUser, getFolderUser } from "../../apis/Api";
+import logo from "../../assets/logo.svg";
 import styled from "styled-components";
-import "./styles/Gnb.css";
+import "./Gnb.css";
 
 function Gnb() {
   const location = useLocation();

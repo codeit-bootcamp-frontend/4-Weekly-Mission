@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { getUsersFolder, getUser } from "../components/Api";
-import AddLinkInput from "../components/AddLinkInput";
-import LinkSearch from "../components/LinkSearch";
-import FolderItem from "../components/FolderItem";
+import { getUsersFolder, getUser } from "../../apis/Api";
+import AddLinkInput from "../../components/AddLinkInput/AddLinkInput";
+import LinkSearch from "../../components/LinkSearch/LinkSearch";
+import FolderItem from "../../components/FolderItem/FolderItem";
 
 function FolderPage() {
   // FloderItem

@@ -1,8 +1,8 @@
-import facebookIcon from "../assets/facebook.svg";
-import twitterIcon from "../assets/twitter.svg";
-import youtubeIcon from "../assets/youtube.svg";
-import instagramIcon from "../assets/instagram.svg";
-import "./styles/Footer.css";
+import facebookIcon from "../../assets/facebook.svg";
+import twitterIcon from "../../assets/twitter.svg";
+import youtubeIcon from "../../assets/youtube.svg";
+import instagramIcon from "../../assets/instagram.svg";
+import "./Footer.css";
 
 function Footer() {
   const SNS_LIST = [

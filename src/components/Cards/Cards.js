@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Button, Popover, OverlayTrigger } from "react-bootstrap";
-import { getTimeAgo } from "./Utilities";
-import Modal from "./modal/Modal";
-import starIcon from "../assets/star.svg";
-import checkedStarIcon from "../assets/checkedstar.svg";
-import kebabIcon from "../assets/kebab.svg";
-import noImage from "../assets/noimage.jpeg";
-import "./styles/Cards.css";
+import { getTimeAgo } from "../../utils/Utilities";
+import Modal from "../modal/Modal";
+import starIcon from "../../assets/star.svg";
+import checkedStarIcon from "../../assets/checkedstar.svg";
+import kebabIcon from "../../assets/kebab.svg";
+import noImage from "../../assets/noimage.jpeg";
+import "./Cards.css";
 
 function Cards({ cardList, showStarKebab }) {
   const isListEmpty = cardList.length === 0;

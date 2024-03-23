@@ -1,4 +1,4 @@
-import "./styles/LinkSearch.css";
+import "./LinkSearch.css";
 
 function LinkSearch() {
   return (

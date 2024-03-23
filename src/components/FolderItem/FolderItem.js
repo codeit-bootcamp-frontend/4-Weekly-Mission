@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { getUsersLink } from "./Api";
-import Cards from "./Cards";
-import shareIcon from "../assets/share.svg";
-import penIcon from "../assets/pen.svg";
-import deleteIcon from "../assets/delete.svg";
-import addIcon from "../assets/add.svg";
-import "./styles/FolderItem.css";
+import { getUsersLink } from "../../apis/Api";
+import Cards from "../Cards/Cards";
+import shareIcon from "../../assets/share.svg";
+import penIcon from "../../assets/pen.svg";
+import deleteIcon from "../../assets/delete.svg";
+import addIcon from "../../assets/add.svg";
+import "./FolderItem.css";
 
 function FolderItem({ usersFolderData }) {
   const folderList = [{ id: 1, name: "전체" }, ...usersFolderData];

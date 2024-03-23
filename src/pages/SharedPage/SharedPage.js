@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { getFolder } from "../components/Api";
-import Header from "../components/Header";
-import LinkSearch from "../components/LinkSearch";
-import Cards from "../components/Cards";
+import { getFolder } from "../../apis/Api";
+import Header from "../../components/Header/Header";
+import LinkSearch from "../../components/LinkSearch/LinkSearch";
+import Cards from "../../components/Cards/Cards";
 
 function SharedPage() {
   // Header

@@ -1,4 +1,4 @@
-import "./styles/AddLinkInput.css";
+import "./AddLinkInput.css";
 
 function AddLinkInput() {
   return (
