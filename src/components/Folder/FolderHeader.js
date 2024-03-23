@@ -1,5 +1,5 @@
 import './Folder.css';
-import AddLinkBar from '../AddLinkBar';
+import AddLinkBar from '../AddLinkBar/AddLinkBar';
 
 function FolderHeader() {
   return (

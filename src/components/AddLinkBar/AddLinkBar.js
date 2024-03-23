@@ -1,4 +1,4 @@
-import link from '../images/link.svg';
+import link from '../../images/link.svg';
 import { Link } from 'react-router-dom';
 
 function AddLinkBar() {
