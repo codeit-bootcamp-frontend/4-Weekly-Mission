@@ -5,14 +5,17 @@ import styles from '../css/Navbar.module.css';
 
 function NavigationBar() {
   const [isLoginStatus, setIsLoginStatus] = useState(false);
-  const [profileData, setProfileData] = useState({});
+  const [profileData, setProfileData] = useState({
+    image_source: '',
+    email: '',
+  });
 
-  const getProfileData = async (path) => {
+  const getProfileData = async (path: string) => {
     const { data }  = await getUserInfo(path);
     
     if (!data) return;
 
-    setProfileData(...data);
+    setProfileData(data);
     setIsLoginStatus(true);
   }
 

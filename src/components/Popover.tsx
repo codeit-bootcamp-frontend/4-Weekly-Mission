@@ -1,19 +1,24 @@
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import styles from "../css/Popover.module.css";
 import AddLinkModal from "../modal/AddLinkModal";
 import DeleteLinkModal from "../modal/DeleteLinkModal";
 
-function Popover({ isOpen, url }) {
+interface Props {
+  isOpen: boolean,
+  url: string,
+}
+
+function Popover({ isOpen, url }: Props) {
   const [isAddLinkModalOpen, setIsAddLinkModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const openAddLinkModal = () => setIsAddLinkModalOpen(true);
-  const closeAddLinkModal = () => setIsAddLinkModalOpen(false);
+  const closeAddLinkModal = (): void => setIsAddLinkModalOpen(false);
 
   const openDeleteModal = () => setIsDeleteModalOpen(true);
-  const closeDeleteModal = () => setIsDeleteModalOpen(false);
+  const closeDeleteModal = (): void => setIsDeleteModalOpen(false);
 
-  const noBubble = (e) => {
+  const noBubble = (e: MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
   }

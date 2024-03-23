@@ -2,11 +2,20 @@ import { useEffect, useState } from 'react';
 import { getUserInfo } from '../api/api';
 import styles from '../css/Header.module.css';
 
-function Header({ query }) {
-  const [folderData, setFolderData] = useState({});
-  const [folderOwnerData, setFolderOwnerData] = useState({});
+interface Props {
+  query: string,
+}
 
-  const getFolderData = async (path) => {
+function Header({ query }: Props) {
+  const [folderData, setFolderData] = useState({
+    name: '',
+  });
+  const [folderOwnerData, setFolderOwnerData] = useState({
+    profileImageSource: '',
+    name: '',
+  });
+
+  const getFolderData = async (path: string) => {
     const result = await getUserInfo(path);
     
     if (!result) return;
