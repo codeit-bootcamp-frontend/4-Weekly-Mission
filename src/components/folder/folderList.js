@@ -1,14 +1,11 @@
-import { useFolder } from "../../hooks/useFolder";
 import { FolderCard } from "../card/folderCard";
 
 import "./folderList.css";
 
-export const FolderList = () => {
-  const { folder } = useFolder();
-
+export const FolderList = ({ list }) => {
   return (
     <div className="container">
-      {folder?.links?.map((v) => (
+      {list?.map((v) => (
         <FolderCard data={v} id={`${v?.id}`} />
       ))}
     </div>

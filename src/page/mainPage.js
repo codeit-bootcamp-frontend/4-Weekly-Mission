@@ -1,22 +1,38 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { FolderInfo } from "../components/folder/folderInfo";
 import { FolderList } from "../components/folder/folderList";
 import { FolderSearchBar } from "../components/folder/folderSearchBar";
-import { FavoriteList } from "../components/folder/favoriteList";
-import { useFavoriteList } from "../hooks/useFavoriteList";
+import { useFolder } from "../hooks/useFolder";
 import "./mainPage.css";
 
 export const MainPage = () => {
-  const { favoriteList } = useFavoriteList();
+  const { folder } = useFolder();
 
-  //useEffect사용??
+  const [filteredResults, setFilteredResults] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
+
+  useEffect(() => {
+    const searchItems = (value) => {
+      const data = folder?.links ?? [];
+      const filteredData = data.filter((item) => {
+        return Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(value.toLowerCase());
+      });
+      setFilteredResults(filteredData);
+    };
+
+    folder && searchItems(searchInput);
+  }, [folder, searchInput]);
+
   return (
     <div className="mainPageContainer">
       <FolderInfo />
       <div className="mainPageWrapper">
-        <FolderSearchBar />
+        <FolderSearchBar handleSearchInput={setSearchInput} />
         <div className="folderBox">
-          <FolderList />
+          <FolderList list={filteredResults} />
         </div>
       </div>
     </div>
