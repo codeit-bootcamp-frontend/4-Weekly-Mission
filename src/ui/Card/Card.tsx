@@ -56,7 +56,6 @@ export const Card = ({
             backgroundImage: `url(${imageSource ?? "images/card-default.png"})`,
           }}
           className="CardImage"
-          // alt={alt}
         >
           {favorite !== undefined && (
             <img className="star-button" alt="star" src={isFavorite} />

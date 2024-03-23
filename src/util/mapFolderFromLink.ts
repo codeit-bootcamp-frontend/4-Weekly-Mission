@@ -5,6 +5,7 @@ interface MappedLink {
   id: number;
   url: string;
   imageSource: string;
+  title?: string;
   alt: string;
   elapsedTime: string;
   description?: string;
@@ -42,6 +43,7 @@ export const mapFolderFromLink: (data: Link[]) => { data: MappedLink[] } = (
       id,
       url,
       imageSource,
+      title,
       alt: `${title ?? url}의 대표 이미지`,
       elapsedTime: getElapsedTime(createdAt),
       description,

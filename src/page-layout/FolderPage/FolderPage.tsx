@@ -18,6 +18,7 @@ export const FolderPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modal, setModal] = useState<string | null>(null);
   const [currentUrl, setCurrentUrl] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const { data: linkData } = useGetLink();
   const { folderData } = useGetFolderByLink(folderId);
@@ -43,6 +44,16 @@ export const FolderPage: React.FC = () => {
     setCurrentUrl(url);
     setCurrentUrl(eventTarget.getAttribute("data-url"));
   };
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredLinks = links?.filter(
+    (link) =>
+      link.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      link.description?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      link.url.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
 
   return (
     <>
@@ -60,7 +71,10 @@ export const FolderPage: React.FC = () => {
         <div className="FolderPage">
           <AddLink />
           <div className="FolderPage-items">
-            <SearchBar />
+            <SearchBar
+              handleInputChange={handleInputChange}
+              searchTerm={searchTerm}
+            />
             <Category
               buttonClicked={handleCategoryClick}
               linkData={linkDataWithAll}
@@ -72,9 +86,9 @@ export const FolderPage: React.FC = () => {
               currentCategory={currentCategory}
               handleEditClick={handleModalClick}
             />
-            {links?.length !== 0 ? (
+            {filteredLinks && filteredLinks.length > 0 ? (
               <CardList>
-                {links?.map((link: any) => (
+                {filteredLinks?.map((link: any) => (
                   <Card
                     key={link?.id}
                     {...link}
