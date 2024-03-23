@@ -1,34 +1,49 @@
-import styles from './EditableCard.module.scss';
-import classNames from 'classnames/bind';
-import { useState } from 'react';
-import { Card } from 'sharing/ui-card';
-import { CardContent } from 'sharing/ui-card-content';
-import { CardImage } from 'sharing/ui-card-image';
-import Popover from './Popover';
+import styles from "./EditableCard.module.scss";
+import classNames from "classnames/bind";
+import { useCallback, useRef, useState } from "react";
+import { Card } from "sharing/ui-card";
+import { CardContent } from "sharing/ui-card-content";
+import { CardImage } from "sharing/ui-card-image";
+import { Popover } from "sharing/ui-popover";
 
 const cx = classNames.bind(styles);
 
-export const EditableCard = ({ url, imageSource, alt, elapsedTime, description, createdAt }) => {
+export const EditableCard = ({
+  url,
+  imageSource,
+  alt,
+  elapsedTime,
+  description,
+  createdAt,
+  popoverPosition,
+  onDeleteClick,
+  onAddToFolderClick,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
-
+  const kebabButtonRef = useRef(null);
   const handleMouseOver = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
-
-  const handleKebabClick = () => {
-    setIsPopoverOpen(!isPopoverOpen);
+  const handleKebabClick = (event) => {
+    event.preventDefault();
+    setIsPopoverOpen(true);
   };
-
-  const handleDelete = () => {
-    // 삭제 로직 추가
+  const handleBackgroundClick = useCallback(() => {
+    setIsPopoverOpen(false);
+  }, []);
+  const handleDeleteClick = (event) => {
+    event.preventDefault();
+    onDeleteClick();
+    setIsPopoverOpen(false);
   };
-
-  const handleAddToFolder = () => {
-    // 폴더에 추가 로직 추가
+  const handleAddToFolderClick = (event) => {
+    event.preventDefault();
+    onAddToFolderClick();
+    setIsPopoverOpen(false);
   };
 
   return (
-    <a href={url} target='_blank' rel='noopener noreferrer'>
+    <a href={url} target="_blank" rel="noopener noreferrer">
       <Card onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
         <CardImage imageSource={imageSource} alt={alt} isZoomedIn={isHovered} />
         <CardContent
@@ -37,18 +52,23 @@ export const EditableCard = ({ url, imageSource, alt, elapsedTime, description, 
           createdAt={createdAt}
           isHovered={isHovered}
         />
-        <button className={cx('star')} onClick={(event) => event.preventDefault()}>
-          <img src='images/star.svg' alt='즐겨찾기를 나타내는 별' />
+        <button className={cx("star")} onClick={(event) => event.preventDefault()}>
+          <img src="images/star.svg" alt="즐겨찾기를 나타내는 별" />
         </button>
-        <button className={cx('kebab')} onClick={handleKebabClick}>
-          <img src='images/kebab.svg' alt='더보기를 나타내는 점 3개' />
-        </button>{' '}
+        <button ref={kebabButtonRef} className={cx("kebab")} onClick={handleKebabClick}>
+          <img src="images/kebab.svg" alt="더보기를 나타내는 점 3개" />
+        </button>
         <Popover
           isOpen={isPopoverOpen}
-          onClose={() => setIsPopoverOpen(false)}
-          onDelete={handleDelete}
-          onAddToFolder={handleAddToFolder}
-        />
+          anchorRef={kebabButtonRef}
+          anchorPosition={popoverPosition}
+          onBackgroundClick={handleBackgroundClick}
+        >
+          <ul className={cx("popover-list")}>
+            <li onClick={handleDeleteClick}>삭제하기</li>
+            <li onClick={handleAddToFolderClick}>폴더에 추가</li>
+          </ul>
+        </Popover>
       </Card>
     </a>
   );

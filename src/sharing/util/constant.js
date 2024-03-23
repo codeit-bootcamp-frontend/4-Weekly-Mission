@@ -20,3 +20,5 @@ export const TIME_IN_MILLISECONDS = {
   month,
   year,
 };
+
+export const ROOT_ID = "root";

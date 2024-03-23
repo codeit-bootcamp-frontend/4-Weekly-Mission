@@ -18,7 +18,7 @@ export const NavigationBar = ({ profile, isSticky }) => {
           <Profile profile={profile} />
         ) : (
           <a href={ROUTE.로그인}>
-            <Cta isSmall>
+            <Cta>
               <span className={cx("signin")}>{TEXT.login}</span>
             </Cta>
           </a>
