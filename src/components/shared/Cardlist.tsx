@@ -5,13 +5,24 @@ import '../../style/cardlist.css';
 import searchIcon from '../../images/Search.svg';
 import noCardImg from '../../images/noCardImg.png';
 
+interface CardData {
+  id: string;
+  url: string;
+  imageSource?: string;
+  title: string;
+  description: string;
+  timePassed: string;
+  formattedDate: string;
+}
+
 const Cardlist = () => {
-  const cardList = useFetchCardsData();
-  const handleImageError = (e) => {
-    e.target.src = { noCardImg };
+  const cardList: CardData[] = useFetchCardsData();
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement;
+    target.src =  noCardImg;
   };
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 
