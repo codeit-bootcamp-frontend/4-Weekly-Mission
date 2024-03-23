@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, MouseEvent, RefObject } from "react";
+import { useState, useRef, useEffect, MouseEventHandler } from "react";
 import "./Card.css";
 
 interface Prop {
@@ -9,7 +9,7 @@ interface Prop {
   description: string;
   createdAt: string;
   favorite?: boolean;
-  handleModalClick?: any;
+  handleModalClick?: MouseEventHandler<HTMLElement>;
 }
 
 export const Card = ({
@@ -28,30 +28,24 @@ export const Card = ({
   const isFavorite = favorite
     ? "images/full-star.svg"
     : "images/empty-star.svg";
-  const ref: RefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
-
-  // TODO
-  // addEventListner issue
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleOutsideClick: EventListener = (ev: Event) => {
       const target = ev.target;
-      if (ref.current!.contains(target as Node))
-        setKebabOpen && setKebabOpen(false);
+      if (ref.current && !ref.current.contains(target as Node)) {
+        setKebabOpen(false);
+      }
     };
-    document.addEventListener("click", handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
     return () => {
-      document.removeEventListener("click", handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [setKebabOpen]);
+  }, [kebabOpen]);
 
-  const handleKebabClick = (e: MouseEvent) => {
+  const handleKebabClick: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.preventDefault();
     setKebabOpen(true);
-  };
-
-  const handleButtonClick = () => {
-    handleModalClick(url);
   };
 
   return (
@@ -81,7 +75,8 @@ export const Card = ({
                 <button
                   id="deleteLink"
                   className="kebabMenu-button"
-                  onClick={handleButtonClick}
+                  data-url={url}
+                  onClick={handleModalClick}
                 >
                   삭제하기
                 </button>

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 type AsyncFunction = () => Promise<any>;
 
-export const useAsync = (asyncFunction: AsyncFunction, deps: any = null) => {
+export const useAsync = (asyncFunction: AsyncFunction, [deps]: any = []) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any>(null);
   const [data, setData] = useState<any>(null);
@@ -21,10 +21,9 @@ export const useAsync = (asyncFunction: AsyncFunction, deps: any = null) => {
       setLoading(false);
     }
   };
-
   useEffect(() => {
     execute();
   }, [deps]);
 
-  return { execute, loading, error, data };
+  return { loading, error, data };
 };

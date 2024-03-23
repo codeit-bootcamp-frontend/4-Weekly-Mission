@@ -35,12 +35,13 @@ export const FolderPage: React.FC = () => {
     setCurrentCategory(category);
     setFolderId(Id);
   };
-  const handleModalClick = (e: MouseEvent) => {
+  const handleModalClick = (e: MouseEvent, url?: string) => {
     const eventTarget = e.target as HTMLElement;
     e.preventDefault();
     setIsModalOpen(true);
     setModal(e.currentTarget.id);
-    setCurrentUrl(eventTarget.getAttribute("url"));
+    setCurrentUrl(url);
+    setCurrentUrl(eventTarget.getAttribute("data-url"));
   };
 
   return (
